@@ -161,6 +161,9 @@
 	name = "white tie"
 	icon_state = "whitetie"
 
+/obj/item/clothing/accessory/tie/colour
+	icon_state = "whitetie"
+
 /obj/item/clothing/accessory/tie/bowtie
 	name = "bowtie"
 	desc = "Snazzy!"
@@ -748,21 +751,18 @@
 	name = "sash"
 	desc = "A plain, unadorned sash."
 	icon_state = "sash"
-	overlay_state = "sash"
 	flippable = 1
 
 /obj/item/clothing/accessory/halfcape
 	name = "half cape"
 	desc = "A tasteful half-cape, suitable for inspired nobles and retro anime protagonists."
 	icon_state = "halfcape"
-	overlay_state = "halfcape"
 	flippable = 1
 
 /obj/item/clothing/accessory/fullcape
 	name = "full cape"
 	desc = "A gaudy full cape. You're thinking about wearing it, aren't you?"
 	icon_state = "fullcape"
-	overlay_state = "fullcape"
 
 //Bracelets
 /obj/item/clothing/accessory/bracelet
@@ -770,6 +770,9 @@
 	desc = "A simple bracelet with a clasp."
 	icon_state = "bracelet"
 	w_class = 1
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
+	flippable = 1
 
 /obj/item/clothing/accessory/bracelet/friendship
 	name = "friendship bracelet"

@@ -21,7 +21,7 @@
 	a_waistcoats["elegant waistcoat"] = /obj/item/clothing/accessory/wcoat_rec/elegant
 	gear_tweaks += new/datum/gear_tweak/path(a_waistcoats)
 
-/datum/gear/accessory/armband/coloured
+/datum/gear/accessory/armband_coloured
 	display_name = "armband (colourable)"
 	path = /obj/item/clothing/accessory/armband/colourable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -66,7 +66,7 @@
 
 /datum/gear/accessory/tie_colourable
 	display_name = "tie (colourable)"
-	path = /obj/item/clothing/accessory/tie/white
+	path = /obj/item/clothing/accessory/tie/colour
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/tie
@@ -172,12 +172,12 @@
 	sweater["keyhole sweater"] = /obj/item/clothing/accessory/sweater/keyhole
 	gear_tweaks += new/datum/gear_tweak/path(sweater)
 
-/datum/gear/accessory/sweater/misc
+/datum/gear/accessory/sweater_misc
 	display_name = "sweater, misc (selection)"
 	path = /obj/item/clothing/accessory/sweater/xmasneck
 	description = "A selection of sweaters and sweater vests."
 
-/datum/gear/accessory/sweater/misc/New()
+/datum/gear/accessory/sweater_misc/New()
 	..()
 	var/sweatermisc = list()
 	sweatermisc["NT sweater"] = /obj/item/clothing/accessory/sweater/nt
@@ -337,11 +337,11 @@
 	path = /obj/item/clothing/accessory/bracelet
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/accessory/bracelet/material
+/datum/gear/accessory/bracelet_material
 	display_name = "bracelet (selection)"
 	path = /obj/item/clothing/accessory/bracelet/material/plastic
 
-/datum/gear/accessory/bracelet/material/New()
+/datum/gear/accessory/bracelet_material/New()
 	..()
 	var/bracelettype = list()
 	bracelettype["steel bracelet"] = /obj/item/clothing/accessory/bracelet/material/steel
@@ -354,8 +354,8 @@
 	bracelettype["plastic bracelet"] = /obj/item/clothing/accessory/bracelet/material/plastic
 	gear_tweaks += new/datum/gear_tweak/path(bracelettype)
 
-/datum/gear/accessory/bracelet/friendship
-	display_name = "friendship bracelet"
+/datum/gear/accessory/bracelet_friendship
+	display_name = "bracelet, friendship"
 	path = /obj/item/clothing/accessory/bracelet/friendship
 
 /datum/gear/accessory/suitvest

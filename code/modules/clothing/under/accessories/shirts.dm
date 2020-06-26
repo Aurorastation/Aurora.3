@@ -236,4 +236,4 @@
 /obj/item/clothing/accessory/suitvest
 	name = "suit vest"
 	desc = "Slick black suit vest."
-	icon_state = "suitvest"
+	icon_state = "suit_vest"

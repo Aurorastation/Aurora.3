@@ -245,7 +245,7 @@
 	name = "pin tag"
 	desc = "A small strip of metal to label its wearer."
 	icon_state = "namepintag"
-	overlay_state = "namepintag"
+	overlay_state = null
 	badge_string = null
 	slot_flags = SLOT_TIE
 	w_class = 1
