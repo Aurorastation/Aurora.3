@@ -79,7 +79,10 @@
 #define ACCENT_NOMADDELVAHHI "Nomadic Delvahhi"
 #define ACCENT_OLDYASSA "Old Ya'ssa"
 
-#define ACCENT_UNATHI "Sinta'unathi"
+#define ACCENT_HEGEMON_NOBLE "Noble Hegemonic"
+#define ACCENT_HEGEMON_PEASANT "Peasant Hegemonic"
+#define ACCENT_TRAD_NOBLE "Noble Traditional"
+#define ACCENT_TRAD_PEASANT "Peasant Traditional"
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
 
