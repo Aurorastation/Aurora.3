@@ -22,7 +22,7 @@
 	path = /obj/item/storage/secure/briefcase
 	cost = 2
 
-/datum/gear/utility/briefcase/clutch
+/datum/gear/utility/clutch_bag
 	display_name = "clutch bag (colourable)"
 	path = /obj/item/storage/briefcase/clutch
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -196,7 +196,7 @@
 	path = /obj/item/cane/crutch
 
 /datum/gear/utility/crutch2
-	display_name = "second crutch"
+	display_name = "crutch, second"
 	path = /obj/item/cane/crutch
 
 /datum/gear/utility/wheelchair

@@ -20,6 +20,7 @@
 	display_name = "rosary"
 	path = /obj/item/clothing/accessory/rosary
 
-/datum/gear/religion/rosary
-	display_name = "rosary"
-	path = /obj/item/clothing/accessory/rosary
+/datum/gear/religion/uniform_chaplain
+	display_name = "clergy outfit"
+	description = "A religious outfit typically worn by religious folk."
+	path = /obj/item/clothing/under/rank/chaplain

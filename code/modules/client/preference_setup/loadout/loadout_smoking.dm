@@ -135,7 +135,7 @@
 	l_ecigs["deluxe e-cig"] = /obj/item/clothing/mask/smokable/ecig/deluxe
 	gear_tweaks += new/datum/gear_tweak/path(l_ecigs)
 
-/datum/gear/smoking/ecig/util
+/datum/gear/smoking/ecig_util
 	display_name = "electronic cigarette (colourable)"
 	path = /obj/item/clothing/mask/smokable/ecig/util
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

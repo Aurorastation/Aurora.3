@@ -674,30 +674,25 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/flame/lighter/red
 	icon_state = "lighter-r"
 	item_state = "lighter-r"
-	base_state = "lighter-r"
 
 /obj/item/flame/lighter/cyan
 	icon_state = "lighter-c"
 	item_state = "lighter-c"
-	base_state = "lighter-c"
 
 /obj/item/flame/lighter/yellow
 	icon_state = "lighter-y"
 	item_state = "lighter-y"
-	base_state = "lighter-y"
 
 /obj/item/flame/lighter/green
 	icon_state = "lighter-g"
 	item_state = "lighter-g"
-	base_state = "lighter-g"
 
 /obj/item/flame/lighter/random/Initialize()
 	. = ..()
 	icon_state = "lighter-[pick("r","c","y","g")]"
 	item_state = icon_state
-	base_state = icon_state
 
-/obj/item/flame/lighter/zippo/update_icon()
+/obj/item/flame/lighter/update_icon()
 	if(lit)
 		icon_state = "[base_state]on"
 		item_state = "[base_state]on"

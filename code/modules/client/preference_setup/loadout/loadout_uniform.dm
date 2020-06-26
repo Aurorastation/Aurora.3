@@ -34,11 +34,6 @@
 		cuttops[initial(cuttop_type.name)] = cuttop_type
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(cuttops))
 
-/datum/gear/uniform/uniform_chaplain
-	display_name = "clergy outfit"
-	description = "A religious outfit typically worn by religious folk."
-	path = /obj/item/clothing/under/rank/chaplain
-
 /datum/gear/uniform/cropdress
     display_name = "crop dress"
     path = /obj/item/clothing/under/cropdress
