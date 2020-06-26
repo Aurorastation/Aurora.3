@@ -65,14 +65,12 @@ D [1]/  ||
 		var/list/my_list = input
 		var/result = "list\[[my_list.len]\]("
 		if(my_list.len)
-			result += "<br>"
 			var/pos = 0
 			for(var/line in my_list)
 				result += "[display_data(line)]"
 				pos++
 				if(pos != my_list.len)
-					result += ",<br>"
-			result += "<br>"
+					result += ","
 		result += ")"
 		return result
 

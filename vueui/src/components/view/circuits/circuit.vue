@@ -22,7 +22,11 @@
             <!-- INPUTS -->
             <div v-if="column == 1 && row <= inputs.length">
               <vui-button :params="{act: 'wire', pin: inputs[row - 1].ref}"><b>{{inputs[row - 1].pin_type}} {{inputs[row - 1].name}}</b></vui-button>
-              <vui-button :params="{act: 'data', pin: inputs[row - 1].ref}"><b>{{inputs[row - 1].data}}</b></vui-button>
+              <vui-button :params="{act: 'data', pin: inputs[row - 1].ref}" style="height:auto;">
+                <div class="ic_element">
+                  <b>{{inputs[row - 1].data}}</b>
+                </div>
+              </vui-button>
               <br>
               <span v-if="inputs[row - 1].linked">
                 <span v-for="linked in inputs[row - 1].linked" :key="linked">
@@ -42,7 +46,11 @@
             <!-- OUTPUTS -->
             <div v-else-if="column == 3 && row <= outputs.length">
               <vui-button :params="{act: 'wire', pin: outputs[row - 1].ref}"><b>{{outputs[row - 1].pin_type}} {{outputs[row - 1].name}}</b></vui-button>
-              <vui-button :params="{act: 'data', pin: outputs[row - 1].ref}"><b>{{outputs[row - 1].data}}</b></vui-button>
+              <vui-button :params="{act: 'data', pin: outputs[row - 1].ref}" style="height:auto;">
+                <div class="ic_element">
+                  <b>{{outputs[row - 1].data}}</b>
+                </div>
+              </vui-button>
               <br>
               <span v-if="outputs[row - 1].linked">
                 <span v-for="linked in outputs[row - 1].linked" :key="linked">
@@ -107,3 +115,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+  .ic_element {
+    max-width: 12em;
+    white-space: normal;  
+    word-wrap: break-word;      // IE method of wrapping, should be semi-standard
+  }
+</style>
