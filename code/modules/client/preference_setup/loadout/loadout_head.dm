@@ -169,7 +169,7 @@
 	hats["sombrero"] = /obj/item/clothing/head/sombrero
 	gear_tweaks += new/datum/gear_tweak/path(hats)
 
-/datum/gear/head/hats/flatcap_colour
+/datum/gear/head/flatcap_colour
 	display_name = "flat cap (colourable)"
 	path = /obj/item/clothing/head/flatcap/colour
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

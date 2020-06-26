@@ -206,7 +206,7 @@
 	adjustable = TRUE
 
 /obj/item/clothing/mask/bandana
-	name = "black bandana"
+	name = "bandana"
 	desc = "A fine bandana with nanotech lining. Can be worn on the head or face."
 	w_class = ITEMSIZE_TINY
 	flags_inv = HIDEFACE
@@ -231,6 +231,6 @@
 
 /obj/item/clothing/mask/bandana/skull
 	name = "skull bandana"
-	desc = "A fine black bandana with nanotech lining and a skull emblem. Can be worn on the head or face."
+	desc = "A fine bandana with nanotech lining and a skull emblem. Can be worn on the head or face."
 	icon_state = "bandskull"
 	item_state_slots = list(slot_r_hand_str = "bandskull", slot_l_hand_str = "bandskull")

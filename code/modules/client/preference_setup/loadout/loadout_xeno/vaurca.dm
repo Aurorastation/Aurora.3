@@ -1,4 +1,4 @@
-/datum/gear/eyes/blindfold
+/datum/gear/eyes/vaurca_blindfold
 	display_name = "vaurca blindfold"
 	path = /obj/item/clothing/glasses/sunglasses/blinders
 	cost = 2
