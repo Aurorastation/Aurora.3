@@ -183,7 +183,7 @@
 
 /datum/gear/plushie
 	display_name = "plushie (selection)"
-	path = /obj/item/toy/plushie/
+	path = /obj/item/toy/plushie
 
 /datum/gear/plushie/New()
 	..()
@@ -196,7 +196,7 @@
 /datum/gear/toy
 	display_name = "toy (selection)"
 	description = "Choose from a number of toys."
-	path = /obj/item/toy/
+	path = /obj/item/toy
 
 /datum/gear/toy/New()
 	..()
@@ -213,7 +213,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(toytype)
 
 /datum/gear/characterbox
-	display_name = "\improper TTRPG figurine box"
+	display_name = "TTRPG figurine box"
 	path = /obj/item/storage/box/characters
 
 /datum/gear/bouquet

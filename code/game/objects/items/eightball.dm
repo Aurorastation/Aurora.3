@@ -14,6 +14,7 @@
 	var/cooldown_time = 100
 
 	var/use_action = "shakes"
+	var/personal_use_action = "shake"
 	var/sound_action = "shaking and sloshing"
 
 	var/list/possible_answers = list(
@@ -54,7 +55,7 @@
 	else
 		return
 
-	user.visible_message("<span class='notice'>\The [user] [use_action] \the [src].</span>", "<span class='notice'>You [use_action] \the [src].</span>", "You hear [sound_action].")
+	user.visible_message("<span class='notice'>\The [user] [use_action] \the [src].</span>", "<span class='notice'>You [personal_use_action] \the [src].</span>", "You hear [sound_action].")
 
 	shaking = TRUE
 
@@ -143,6 +144,7 @@
 	desc = "All hail the Magic Conch!"
 	icon_state = "conch"
 	use_action = "pulls the string on"
+	personal_use_action = "pull the string on"
 	sound_action = "sharp mechanical humming"
 	possible_answers = list(
 		"Yes.",

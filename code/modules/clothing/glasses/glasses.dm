@@ -496,6 +496,9 @@ BLIND     // can't see anything
 	icon_state = "bigsunglasses"
 	item_state = "sun"
 
+/obj/item/clothing/glasses/fakesunglasses/big/prescription
+	prescription = 1
+
 /obj/item/clothing/glasses/sunglasses/sechud
 	name = "HUDsunglasses"
 	desc = "Sunglasses with a HUD."

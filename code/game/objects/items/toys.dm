@@ -840,39 +840,39 @@
 	name = "ice carp plushie"
 	icon_state = "icecarp"
 
-/obj/item/toy/plushie/carp/silent
+/obj/item/toy/plushie/carp/small/silent
 	name = "monochrome carp plushie"
 	icon_state = "silentcarp"
 
-/obj/item/toy/plushie/carp/electric
+/obj/item/toy/plushie/carp/small/electric
 	name = "electric carp plushie"
 	icon_state = "electriccarp"
 
-/obj/item/toy/plushie/carp/gold
+/obj/item/toy/plushie/carp/small/gold
 	name = "golden carp plushie"
 	icon_state = "goldcarp"
 
-/obj/item/toy/plushie/carp/toxin
+/obj/item/toy/plushie/carp/small/toxin
 	name = "toxic carp plushie"
 	icon_state = "toxincarp"
 
-/obj/item/toy/plushie/carp/dragon
+/obj/item/toy/plushie/carp/small/dragon
 	name = "dragon carp plushie"
 	icon_state = "dragoncarp"
 
-/obj/item/toy/plushie/carp/pink
+/obj/item/toy/plushie/carp/small/pink
 	name = "pink carp plushie"
 	icon_state = "pinkcarp"
 
-/obj/item/toy/plushie/carp/candy
+/obj/item/toy/plushie/carp/small/candy
 	name = "candy carp plushie"
 	icon_state = "candycarp"
 
-/obj/item/toy/plushie/carp/nebula
+/obj/item/toy/plushie/carp/small/nebula
 	name = "nebula carp plushie"
 	icon_state = "nebulacarp"
 
-/obj/item/toy/plushie/carp/void
+/obj/item/toy/plushie/carp/small/void
 	name = "void carp plushie"
 	icon_state = "voidcarp"
 

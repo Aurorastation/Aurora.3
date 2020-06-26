@@ -22,11 +22,11 @@
 	path = /obj/item/clothing/glasses/regular/jamjar
 
 /datum/gear/eyes/glasses/rimless
-	display_name = "Glasses, prescription rimless"
+	display_name = "glasses, prescription rimless"
 	path = /obj/item/clothing/glasses/regular/rimless
 
 /datum/gear/eyes/glasses/thin
-	display_name = "Glasses, thin frame"
+	display_name = "glasses, thin frame"
 	path = /obj/item/clothing/glasses/regular/thin
 
 /datum/gear/eyes/glasses/monocle
@@ -153,6 +153,10 @@
 /datum/gear/eyes/glasses/fakesun/fat
 	display_name = "sunglasses, stylish fat"
 	path = /obj/item/clothing/glasses/fakesunglasses/big
+
+/datum/gear/eyes/glasses/fakesun/fat/prescription
+	display_name = "sunglasses, stylish fat prescription"
+	path = /obj/item/clothing/glasses/fakesunglasses/big/prescription
 
 /datum/gear/eyes/hudpatch
 	display_name = "iPatch"
