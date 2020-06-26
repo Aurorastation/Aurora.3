@@ -282,3 +282,6 @@ var/datum/antagonist/raider/raiders
 		player.internals.icon_state = "internal1"
 
 	return 1
+
+/datum/antagonist/raider/get_antag_radio()
+	return "Raider"

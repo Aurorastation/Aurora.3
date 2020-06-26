@@ -4,7 +4,7 @@
 	desc = "THE END IS right now actually."
 
 	icon = 'icons/turf/space.dmi'
-	icon_state = "bluespace"
+	icon_state = "bluespace-n"
 
 	layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	light_color = COLOR_CYAN_BLUE
@@ -18,7 +18,6 @@
 /turf/unsimulated/wall/supermatter/Initialize()
 	. = ..()
 	START_PROCESSING(SScalamity, src)
-	icon_state = "bluespace[pick("1","2","3")]-[pick("1","2","3","4")]"
 
 /turf/unsimulated/wall/supermatter/process()
 	if (!(SScalamity.times_fired % 2))

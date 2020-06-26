@@ -9,15 +9,15 @@
 	display_name = "glasses, prescription"
 	path = /obj/item/clothing/glasses/regular
 
-/datum/gear/eyes/glasses/prescriptionhipster
+/datum/gear/eyes/glasses/hipster
 	display_name = "glasses, hipster"
 	path = /obj/item/clothing/glasses/regular/hipster
 
-/datum/gear/eyes/glasses/prescriptionhipster
+/datum/gear/eyes/glasses/circle
 	display_name = "glasses, circle"
 	path = /obj/item/clothing/glasses/regular/circle
 
-/datum/gear/eyes/glasses/prescriptionhipster
+/datum/gear/eyes/glasses/jamjar
 	display_name = "glasses, jamjar"
 	path = /obj/item/clothing/glasses/regular/jamjar
 

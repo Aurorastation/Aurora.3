@@ -89,19 +89,22 @@
 	var/list/modifiers = params2list(params)
 	if(modifiers["shift"] && modifiers["ctrl"])
 		CtrlShiftClickOn(A)
-		return 1
+		return TRUE
+	if(modifiers["ctrl"] && modifiers["middle"])
+		pointed(A)
+		return TRUE
 	if(modifiers["middle"])
 		MiddleClickOn(A)
-		return 1
+		return TRUE
 	if(modifiers["shift"])
 		ShiftClickOn(A)
-		return 0
+		return FALSE
 	if(modifiers["alt"]) // alt and alt-gr (rightalt)
 		AltClickOn(A)
 		return
 	if(modifiers["ctrl"])
 		CtrlClickOn(A)
-		return 1
+		return TRUE
 
 	if(stat || paralysis || stunned || weakened)
 		return

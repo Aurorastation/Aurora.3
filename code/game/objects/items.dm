@@ -679,7 +679,7 @@ var/list/global/slot_flags_enumeration = list(
 
 /obj/item/proc/showoff(mob/user)
 	for (var/mob/M in view(user))
-		M.show_message("[user] holds up [src]. <a HREF=?src=\ref[M];lookitem=\ref[src]>Take a closer look.</a>",1)
+		M.show_message("<b>[user]</b> holds up [src]. <a HREF=?src=\ref[M];lookitem=\ref[src]>Take a closer look.</a>",1)
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"
@@ -741,7 +741,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				M.client.pixel_x = -viewoffset
 				M.client.pixel_y = 0
 
-		M.visible_message("<b>[M]</b> peers through the [zoomdevicename ? "[zoomdevicename] of the [src.name]" : "[src.name]"].")
+		M.visible_message("<b>[M]</b> peers through \the [zoomdevicename ? "[zoomdevicename] of \the [src.name]" : "[src.name]"].")
 
 	else
 		M.client.view = world.view
@@ -753,7 +753,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		M.client.pixel_y = 0
 
 		if(!cannotzoom)
-			M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from the [src.name]" : "<b>[M]</b> lowers the [src.name]"].")
+			M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from \the [src.name]" : "<b>[M]</b> lowers \the [src.name]"].")
 
 /obj/item/proc/pwr_drain()
 	return 0 // Process Kill

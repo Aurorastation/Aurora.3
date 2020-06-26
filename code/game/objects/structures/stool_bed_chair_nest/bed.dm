@@ -10,15 +10,18 @@
 /obj/structure/bed
 	name = "bed"
 	desc = "This is used to lie in, sleep in or strap on."
+	desc_info = "Click and drag yourself (or anyone) to this to buckle in. Click on this with an empty hand to undo the buckles.<br>\
+	Anyone with restraints, such as handcuffs, will not be able to unbuckle themselves. They must use the Resist button, or verb, to break free of \
+	the buckles, instead."
 	icon = 'icons/obj/furniture.dmi'
 	icon_state = "bed"
-	anchored = 1
-	can_buckle = 1
+	anchored = TRUE
+	can_buckle = TRUE
 	buckle_dir = SOUTH
 	buckle_lying = 1
 	var/material/padding_material
 	var/base_icon = "bed"
-	var/can_dismantle = 1
+	var/can_dismantle = TRUE
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/apply_material_color = TRUE
 	var/makes_rolling_sound = TRUE

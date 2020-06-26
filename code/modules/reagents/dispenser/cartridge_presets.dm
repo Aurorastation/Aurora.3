@@ -76,6 +76,7 @@
 	chaitea		spawn_reagent = "chaitea"
 	ciderhot	spawn_reagent = "ciderhot"
 	hot_coco	spawn_reagent = "hot_coco"
+	fatshouter_milk	spawn_reagent = "fatshouter_milk"
 
 	// ERT
 	norepi		spawn_reagent = "norepinephrine"

@@ -553,6 +553,7 @@ RFD Piping-Class
 		pipe_dir = NORTHEAST
 	new /obj/item/pipe(T, selected_pipe, pipe_dir)
 
+	working = FALSE
 	playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, TRUE)
 	return TRUE
 
@@ -586,6 +587,19 @@ RFD Piping-Class
 		if(DEVICES)
 			pipe_examine = "Universal Pipe Adapter"
 			selected_pipe = 28
+
+/obj/item/rfd/piping/borg/useResource(var/amount, var/mob/user)
+	if(isrobot(user))
+		var/mob/living/silicon/robot/R = user
+		if(R.cell)
+			var/cost = amount * 30
+			if(R.cell.charge >= cost)
+				R.cell.use(cost)
+				return TRUE
+	return FALSE
+
+/obj/item/rfd/piping/borg/attackby()
+	return
 
 #undef STANDARD_PIPE
 #undef SUPPLY_PIPE

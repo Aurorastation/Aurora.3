@@ -8,6 +8,7 @@
 /datum/firemode
 	var/name = "default"
 	var/list/settings = list()
+	var/list/original_settings
 
 /datum/firemode/New(obj/item/gun/gun, list/properties = null)
 	..()
@@ -24,13 +25,26 @@
 			settings[propname] = propvalue
 
 /datum/firemode/proc/apply_to(obj/item/gun/gun)
+	LAZYINITLIST(original_settings)
+
 	for(var/propname in settings)
+		original_settings[propname] = gun.vars[propname]
 		gun.vars[propname] = settings[propname]
+
+/datum/firemode/proc/unapply_to(obj/item/gun/gun)
+	if (LAZYLEN(original_settings))
+		for (var/propname in original_settings)
+			gun.vars[propname] = original_settings[propname]
+
+		LAZYCLEARLIST(original_settings)
+		original_settings = null
 
 //Parent gun type. Guns are weapons that can be aimed at mobs and act over a distance
 /obj/item/gun
 	name = "gun"
 	desc = "It's a gun. It's pretty terrible, though."
+	desc_info = "This is a gun.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	then click where you want to fire."
 	icon = 'icons/obj/guns/pistol.dmi'
 	var/gun_gui_icons = 'icons/obj/guns/gun_gui.dmi'
 	icon_state = "pistol"
@@ -64,7 +78,11 @@
 	var/list/dispersion = list(0)
 	var/reliability = 100
 
-	var/obj/item/device/firing_pin/pin = /obj/item/device/firing_pin//standard firing pin for most guns.
+	var/displays_maptext = FALSE
+	maptext_x = 22
+	maptext_y = 2
+
+	var/obj/item/device/firing_pin/pin = /obj/item/device/firing_pin //standard firing pin for most guns.
 
 	var/can_bayonet = FALSE
 	var/obj/item/material/knife/bayonet/bayonet
@@ -83,7 +101,6 @@
 	var/wielded = 0
 	var/needspin = TRUE
 	var/is_wieldable = FALSE
-
 
 	//aiming system stuff
 	var/multi_aim = 0 //Used to determine if you can target multiple people.
@@ -110,6 +127,14 @@
 
 	if(pin && needspin)
 		pin = new pin(src)
+
+	if(istype(loc, /obj/item/robot_module))
+		has_safety = FALSE
+		displays_maptext = TRUE
+		update_maptext()
+
+	if(istype(loc, /obj/item/rig_module))
+		has_safety = FALSE
 
 	update_wield_verb()
 
@@ -586,6 +611,9 @@
 	if(!firemodes.len)
 		return null
 
+	var/datum/firemode/old_mode = firemodes[sel_mode]
+	old_mode.unapply_to(src)
+
 	sel_mode++
 	if(sel_mode > firemodes.len)
 		sel_mode = 1
@@ -706,6 +734,8 @@
 	..()
 	queue_icon_update()
 	//Unwields the item when dropped, deletes the offhand
+	if(displays_maptext)
+		maptext = ""
 	if(is_wieldable)
 		if(user)
 			var/obj/item/offhand/O = user.get_inactive_hand()
@@ -716,6 +746,7 @@
 /obj/item/gun/pickup(mob/user)
 	..()
 	queue_icon_update()
+	update_maptext()
 	if(is_wieldable)
 		unwield()
 
@@ -823,7 +854,17 @@
 				pin = null
 	return ..()
 
-//Autofire
+/obj/item/gun/proc/get_ammo()
+	return 0
 
+//Autofire
 /obj/item/gun/proc/can_autofire()
 	return (can_autofire && world.time >= next_fire_time)
+
+/obj/item/gun/proc/update_maptext()
+	if(displays_maptext)
+		if(get_ammo() > 9)
+			maptext_x = 18
+		else
+			maptext_x = 22
+		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[get_ammo()]</span>"

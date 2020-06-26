@@ -247,11 +247,15 @@ var/list/gear_datums = list()
 		//If we're moving up a slot..
 		if(href_list["next_slot"])
 			//change the current slot number
-			pref.gear_slot = ((pref.gear_slot+1) % 3) + 1
+			pref.gear_slot = pref.gear_slot+1
+			if(pref.gear_slot > config.loadout_slots)
+				pref.gear_slot = 1
 		//If we're moving down a slot..
 		else if(href_list["prev_slot"])
 			//change current slot one down
-			pref.gear_slot = ((pref.gear_slot-1) % 3) + 1
+			pref.gear_slot = pref.gear_slot-1
+			if(pref.gear_slot < 1)
+				pref.gear_slot = config.loadout_slots
 		// Set the currently selected gear to whatever's in the new slot
 		if(pref.gear_list["[pref.gear_slot]"])
 			pref.gear = pref.gear_list["[pref.gear_slot]"]
