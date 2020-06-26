@@ -28,7 +28,7 @@
 	ask_input = TRUE
 
 /obj/item/integrated_circuit/input/button/ask_for_input(mob/user) //Bit misleading name for this specific use.
-	to_chat(user, "<span class='notice'>You press the button labeled '[src.name]'.</span>")
+	to_chat(user, "<span class='notice'>You press the button labeled '[src.displayed_name]'.</span>")
 	activate_pin(1)
 
 
@@ -50,7 +50,7 @@
 	set_pin_data(IC_OUTPUT, 1, !get_pin_data(IC_OUTPUT, 1))
 	push_data()
 	activate_pin(1)
-	to_chat(user, "<span class='notice'>You toggle the button labeled '[src.name]' [get_pin_data(IC_OUTPUT, 1) ? "on" : "off"].</span>")
+	to_chat(user, "<span class='notice'>You toggle the button labeled '[src.displayed_name]' [get_pin_data(IC_OUTPUT, 1) ? "on" : "off"].</span>")
 
 
 /obj/item/integrated_circuit/input/numberpad
@@ -425,7 +425,7 @@
 		)
 	outputs = list(
 		"located ref" 		= IC_PINTYPE_LIST,
-		"Written letters" 	= IC_PINTYPE_STRING,
+		"written letters" 	= IC_PINTYPE_STRING,
 		"area"				= IC_PINTYPE_STRING
 		)
 	activators = list(
@@ -440,10 +440,14 @@
 /obj/item/integrated_circuit/input/turfscan/do_work()
 	var/turf/scanned_turf = get_pin_data_as_type(IC_INPUT, 1, /turf)
 	var/turf/circuit_turf = get_turf(src)
-	var/area_name = get_area_name(scanned_turf)
+	var/area/turf_area = get_area(scanned_turf)
+	var/area_name = null
 	if(!istype(scanned_turf)) //Invalid input
 		activate_pin(3)
 		return
+
+	if(turf_area)
+		area_name = turf_area.name
 
 	if(scanned_turf in view(circuit_turf)) // This is a camera. It can't examine things that it can't see.
 		var/list/turf_contents = new()
@@ -454,8 +458,10 @@
 		set_pin_data(IC_OUTPUT, 1, turf_contents)
 		set_pin_data(IC_OUTPUT, 3, area_name)
 		var/list/St = new()
+		// Not the best solution, but works for the intended purpose
 		for(var/obj/effect/decal/cleanable/crayon/I in scanned_turf)
-			St.Add(I.icon_state)
+			if(length(I.name) == 1)	// Single-letter name
+				St.Add(I.name)
 		if(St.len)
 			set_pin_data(IC_OUTPUT, 2, jointext(St, ",", 1, 0))
 		push_data()
@@ -658,19 +664,18 @@
 		"send signal" = IC_PINTYPE_PULSE_IN,
 		"on signal sent" = IC_PINTYPE_PULSE_OUT,
 		"on signal received" = IC_PINTYPE_PULSE_OUT)
+	inputs_default = list("1" = 1457, "2" = 30)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	action_flags = IC_ACTION_LONG_RANGE
 	power_draw_idle = 5
 	power_draw_per_use = 40
 	cooldown_per_use = 5
-	var/frequency = 1357
+	var/frequency = 1457
 	var/code = 30
 	var/datum/radio_frequency/radio_connection
 
 /obj/item/integrated_circuit/input/signaler/Initialize()
 	. = ..()
-	set_pin_data(IC_INPUT, 1, frequency)
-	set_pin_data(IC_INPUT, 2, code)
 	addtimer(CALLBACK(src, .proc/set_frequency,frequency), 40)
 
 /obj/item/integrated_circuit/input/signaler/Destroy()
@@ -1184,6 +1189,7 @@
 			set_pin_data(IC_OUTPUT, 2, card.data)
 			push_data()
 			activate_pin(2)
+		user.visible_message("<span class='notice'>\The [user] swipes \the [I] onto \the [get_object()]'s card reader.</span>")
 	else
 		return FALSE
 	return TRUE
