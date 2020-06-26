@@ -78,9 +78,6 @@
 	fixed_state = TRUE
 	reagents_to_add = list(/datum/reagent/sodiumchloride = 20)
 
-/obj/item/reagent_containers/food/condiment/saltshaker/attack_self(mob/user)
-	shake(user)
-
 /obj/item/reagent_containers/food/condiment/shaker/peppermill
 	volume = 20
 	reagents_to_add = list(/datum/reagent/blackpepper = 20)
