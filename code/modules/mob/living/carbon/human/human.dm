@@ -2009,3 +2009,16 @@
 		var/datum/accent/a = SSrecords.accents[used_accent]
 		var/final_icon = a.tag_icon
 		return "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[final_icon]'>"
+
+/mob/living/carbon/human/proc/generate_valid_accent()
+	var/list/valid_accents = new()
+	for(var/current_accents in species.allowed_accents)
+		valid_accents += current_accents
+
+	return valid_accents
+
+/mob/living/carbon/human/proc/set_accent(var/new_accent)
+	accent = new_accent
+	if(!accent in species.allowed_accents)
+		accent = species.default_accent
+	return TRUE
