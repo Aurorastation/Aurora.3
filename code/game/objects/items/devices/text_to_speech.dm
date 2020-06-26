@@ -25,4 +25,4 @@
 	var/message = sanitize(input(user,"Choose a message to relay to those around you.") as text|null)
 	if(message)
 		var/obj/item/device/text_to_speech/O = src
-		audible_message("[bicon(O)] \The [O.name] states, \"[message]\"")
+		audible_message("\The [O.name] states, \"[message]\"")

@@ -213,7 +213,6 @@
 /obj/item/melee/umbrella/proc/toggle_umbrella()
 	open = !open
 	icon_state = "umbrella_[open ? "open" : "closed"]"
-	addblends = icon_state + "_a"
 	item_state = icon_state
 	update_icon()
 	if(ishuman(src.loc))

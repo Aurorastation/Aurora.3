@@ -9,6 +9,8 @@
 	var/weighted = FALSE //if this dice can cheat or something
 	var/favored_number = 1 //related to the var above
 	var/weighted_value = 70 //what is the chance of falling on the favored number
+	var/result
+	var/comment = ""
 	attack_verb = list("diced")
 
 /obj/item/dice/New()
@@ -16,19 +18,26 @@
 
 /obj/item/dice/throw_impact(atom/hit_atom)
 	..()
-	var/result
+	rollDice(null, 0)
+
+/obj/item/dice/attack_self(mob/user as mob)
+	rollDice(user, 1)
+	to_chat(user, span("notice", "You roll \the [name] around in your hand. It lands on [result * side_mult]. [comment]"))
+
+/obj/item/dice/proc/rollDice(mob/user as mob, var/silent = 0)
 	if((weighted) && (prob(weighted_value)))
 		result = favored_number
 	else
 		result = rand(1, sides)
 
-	var/comment = ""
 	if(sides == 20 && result == 20)
 		comment = "Nat 20!"
 	else if(sides == 20 && result == 1)
 		comment = "Ouch, bad luck."
 	icon_state = "[name][result]"
-	src.visible_message("<span class='notice'>\The [name] lands on [result * side_mult]. [comment]</span>")
+
+	if(!silent)
+		src.visible_message("<span class='notice'>\The [name] lands on [result * side_mult]. [comment]</span>")
 
 /obj/item/dice/d4
 	name = "d4"
@@ -79,7 +88,7 @@
 	w_class = 2
 	storage_slots = 5
 	can_hold = list(
-		/obj/item/weapon/dice,
+		/obj/item/dice,
 		)
 
 /obj/item/storage/dicecup/attack_self(mob/user as mob)
@@ -89,13 +98,13 @@
 	rollCup(user)
 
 /obj/item/storage/dicecup/proc/rollCup(mob/user as mob)
-	for(var/obj/item/weapon/dice/I in src.contents)
-		var/obj/item/weapon/dice/D = I
+	for(var/obj/item/dice/I in src.contents)
+		var/obj/item/dice/D = I
 		D.rollDice(user, 1)
 
 /obj/item/storage/dicecup/proc/revealDice(var/mob/viewer)
-	for(var/obj/item/weapon/dice/I in src.contents)
-		var/obj/item/weapon/dice/D = I
+	for(var/obj/item/dice/I in src.contents)
+		var/obj/item/dice/D = I
 		to_chat(viewer, "The [D.name] shows a [D.result].")
 
 /obj/item/storage/dicecup/verb/peekAtDice()
@@ -119,4 +128,4 @@
 /obj/item/storage/dicecup/loaded/New()
 	..()
 	for(var/i = 1 to 5)
-		new /obj/item/weapon/dice( src )
+		new /obj/item/dice( src )

@@ -214,7 +214,7 @@
 
 /datum/gear/characterbox
 	display_name = "\improper TTRPG figurine box"
-	path = /obj/item/weapon/storage/box/characters
+	path = /obj/item/storage/box/characters
 
 /datum/gear/bouquet
 	display_name = "bouquet of flowers (selection)"

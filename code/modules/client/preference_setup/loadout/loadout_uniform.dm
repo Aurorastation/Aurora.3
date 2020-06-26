@@ -595,15 +595,15 @@
 /datum/gear/uniform/uniform_janitor
 	display_name = "uniform, Janitor (selection)"
 	description = "A selection of alternative outfits for the Janitor."
-	path = /obj/itemc/lothing/under/rank/janitor
+	path = /obj/item/clothing/under/rank/janitor
 	allowed_roles = list("Head of Personnel", "Janitor")
 	cost = 0
 
 /datum/gear/uniform/uniform_janitor/New()
 	..()
 	var/janitor_uniforms = list()
-	janitor_uniforms["standard janitor uniform"] = /obj/itemc/lothing/under/rank/janitor
-	janitor_uniforms["alt janitor uniform"] = /obj/itemc/lothing/under/rank/janitor/alt
+	janitor_uniforms["standard janitor uniform"] = /obj/item/clothing/under/rank/janitor
+	janitor_uniforms["alt janitor uniform"] = /obj/item/clothing/under/rank/janitor/alt
 	gear_tweaks += new/datum/gear_tweak/path(janitor_uniforms)
 
 /datum/gear/uniform/uniform_chaplain/job

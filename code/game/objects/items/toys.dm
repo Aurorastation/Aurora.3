@@ -792,22 +792,22 @@
 /obj/item/toy/plushie/corgi
 	name = "corgi plushie"
 	icon_state = "corgi"
-	pokephrase = "Woof!"
+	phrase = "Woof!"
 
 /obj/item/toy/plushie/girly_corgi
 	name = "corgi plushie"
 	icon_state = "girlycorgi"
-	pokephrase = "Arf!"
+	phrase = "Arf!"
 
 /obj/item/toy/plushie/robo_corgi
 	name = "borgi plushie"
 	icon_state = "robotcorgi"
-	pokephrase = "Bark."
+	phrase = "Bark."
 
 /obj/item/toy/plushie/octopus
 	name = "octopus plushie"
 	icon_state = "loveable"
-	pokephrase = "Squish!"
+	phrase = "Squish!"
 
 //Small Carp Plushies
 /obj/item/toy/plushie/carp/small
@@ -880,89 +880,89 @@
 /obj/item/toy/plushie/red_fox
 	name = "red fox plushie"
 	icon_state = "redfox"
-	pokephrase = "Gecker!"
+	phrase = "Gecker!"
 
 /obj/item/toy/plushie/black_fox
 	name = "black fox plushie"
 	icon_state = "blackfox"
-	pokephrase = "Ack!"
+	phrase = "Ack!"
 
 /obj/item/toy/plushie/marble_fox
 	name = "marble fox plushie"
 	icon_state = "marblefox"
-	pokephrase = "Awoo!"
+	phrase = "Awoo!"
 
 /obj/item/toy/plushie/blue_fox
 	name = "blue fox plushie"
 	icon_state = "bluefox"
-	pokephrase = "Yoww!"
+	phrase = "Yoww!"
 
 /obj/item/toy/plushie/orange_fox
 	name = "orange fox plushie"
 	icon_state = "orangefox"
-	pokephrase = "Yagh!"
+	phrase = "Yagh!"
 
 /obj/item/toy/plushie/coffee_fox
 	name = "coffee fox plushie"
 	icon_state = "coffeefox"
-	pokephrase = "Gerr!"
+	phrase = "Gerr!"
 
 /obj/item/toy/plushie/pink_fox
 	name = "pink fox plushie"
 	icon_state = "pinkfox"
-	pokephrase = "Yack!"
+	phrase = "Yack!"
 
 /obj/item/toy/plushie/purple_fox
 	name = "purple fox plushie"
 	icon_state = "purplefox"
-	pokephrase = "Whine!"
+	phrase = "Whine!"
 
 /obj/item/toy/plushie/crimson_fox
 	name = "crimson fox plushie"
 	icon_state = "crimsonfox"
-	pokephrase = "Auuu!"
+	phrase = "Auuu!"
 
 //some deer I guess
 /obj/item/toy/plushie/deer
 	name = "deer plushie"
 	icon_state = "deer"
-	pokephrase = "Bleat!"
+	phrase = "Bleat!"
 
 //Cat plushies
 /obj/item/toy/plushie/black_cat
 	name = "black cat plushie"
 	icon_state = "blackcat"
-	pokephrase = "Mlem!"
+	phrase = "Mlem!"
 
 /obj/item/toy/plushie/grey_cat
 	name = "grey cat plushie"
 	icon_state = "greycat"
-	pokephrase = "Mraw!"
+	phrase = "Mraw!"
 
 /obj/item/toy/plushie/white_cat
 	name = "white cat plushie"
 	icon_state = "whitecat"
-	pokephrase = "Mew!"
+	phrase = "Mew!"
 
 /obj/item/toy/plushie/orange_cat
 	name = "orange cat plushie"
 	icon_state = "orangecat"
-	pokephrase = "Meow!"
+	phrase = "Meow!"
 
 /obj/item/toy/plushie/siamese_cat
 	name = "siamese cat plushie"
 	icon_state = "siamesecat"
-	pokephrase = "Mrew?"
+	phrase = "Mrew?"
 
 /obj/item/toy/plushie/tabby_cat
 	name = "tabby cat plushie"
 	icon_state = "tabbycat"
-	pokephrase = "Purr!"
+	phrase = "Purr!"
 
 /obj/item/toy/plushie/tuxedo_cat
 	name = "tuxedo cat plushie"
 	icon_state = "tuxedocat"
-	pokephrase = "Mrowww!!"
+	phrase = "Mrowww!!"
 
 //Squid Plushies
 
@@ -1066,19 +1066,19 @@
 	desc = "Murderboner extraordinaire."
 	icon_state = "lichcharacter"
 
-/obj/item/weapon/storage/box/characters
+/obj/item/storage/box/characters
 	name = "box of miniatures"
 	desc = "The nerd's best friends."
 	icon_state = "box"
-/obj/item/weapon/storage/box/characters/starts_with = list(
-//	/obj/item/toy/character/alien,
-	/obj/item/toy/character/cleric,
-	/obj/item/toy/character/warrior,
-	/obj/item/toy/character/thief,
-	/obj/item/toy/character/wizard,
-	/obj/item/toy/character/voidone,
-	/obj/item/toy/character/lich
-	)
+/obj/item/storage/box/characters/fill()
+	..()
+//	new /obj/item/toy/character/alien(src)
+	new /obj/item/toy/character/cleric(src)
+	new /obj/item/toy/character/warrior(src)
+	new /obj/item/toy/character/thief(src)
+	new /obj/item/toy/character/wizard(src)
+	new /obj/item/toy/character/voidone(src)
+	new /obj/item/toy/character/lich(src)
 
 /obj/item/toy/figure/AI
 	name = "toy AI"

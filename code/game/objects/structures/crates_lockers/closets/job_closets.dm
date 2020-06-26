@@ -70,7 +70,7 @@
 
 /obj/structure/closet/jcloset/fill()
 	new /obj/item/clothing/under/rank/janitor(src)
-	new /obj/itemc/lothing/under/rank/janitor/alt(src)
+	new /obj/item/clothing/under/rank/janitor/alt(src)
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/cartridge/janitor(src)
 	new /obj/item/clothing/gloves/black(src)

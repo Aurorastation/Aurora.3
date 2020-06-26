@@ -13,7 +13,10 @@
 	var/shake_time = 50
 	var/cooldown_time = 100
 
-	var/static/list/possible_answers = list(
+	var/use_action = "shakes"
+	var/sound_action = "shaking and sloshing"
+
+	var/list/possible_answers = list(
 		"It is certain",
 		"It is decidedly so",
 		"Without a doubt",
@@ -51,7 +54,7 @@
 	else
 		return
 
-	user.visible_message("<span class='notice'>\The [user] starts shaking \the [src].</span>", "<span class='notice'>You start shaking \the [src].</span>", "You hear shaking and sloshing.")
+	user.visible_message("<span class='notice'>\The [user] [use_action] \the [src].</span>", "<span class='notice'>You [use_action] \the [src].</span>", "You hear [sound_action].")
 
 	shaking = TRUE
 
@@ -139,7 +142,8 @@
 	name = "magic conch shell"
 	desc = "All hail the Magic Conch!"
 	icon_state = "conch"
-	use_action = "pulls the string"
+	use_action = "pulls the string on"
+	sound_action = "sharp mechanical humming"
 	possible_answers = list(
 		"Yes.",
 		"No.",

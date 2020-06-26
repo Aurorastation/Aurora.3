@@ -230,7 +230,7 @@
 
 /obj/item/cane/white/attack(mob/living/target, mob/living/carbon/human/user, target_zone = BP_CHEST)
     if(user.a_intent == I_HELP)
-        user.visible_message("<span class='notice'>\The [user] has lightly tapped [M] on the ankle with their white cane!</span>")
+        user.visible_message("<span class='notice'>\The [user] has lightly tapped [target] on the ankle with their white cane!</span>")
         return TRUE
     else
         . = ..()

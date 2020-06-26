@@ -779,11 +779,11 @@
 /obj/item/clothing/accessory/bracelet/material
 	icon_state = "materialbracelet"
 
-/obj/item/clothing/accessory/bracelet/material/New(var/newloc, var/new_material)
-	..(newloc)
+/obj/item/clothing/accessory/bracelet/material/Initialize(var/mapload, var/new_material)
+	. = ..(mapload)
 	if(!new_material)
-		new_material = MATERIAL_STEEL
-	material = get_material_by_name(new_material)
+		new_material = DEFAULT_WALL_MATERIAL
+	material = SSmaterials.get_material_by_name(new_material)
 	if(!istype(material))
 		qdel(src)
 		return
@@ -794,31 +794,32 @@
 /obj/item/clothing/accessory/bracelet/material/get_material()
 	return material
 
-/obj/item/clothing/accessory/bracelet/material/wood/New(var/newloc)
-	..(newloc, "wood")
+/obj/item/clothing/accessory/bracelet/material/wood/Initialize(var/mapload)
+	. = ..(mapload, MATERIAL_WOOD)
 
-/obj/item/clothing/accessory/bracelet/material/plastic/New(var/newloc)
-	..(newloc, "plastic")
+/obj/item/clothing/accessory/bracelet/material/plastic/Initialize(var/mapload)
+	. = ..(mapload, MATERIAL_PLASTIC)
 
-/obj/item/clothing/accessory/bracelet/material/iron/New(var/newloc)
-	..(newloc, "iron")
+/obj/item/clothing/accessory/bracelet/material/iron/Initialize(var/mapload)
+	. = ..(mapload, MATERIAL_IRON)
 
-/obj/item/clothing/accessory/bracelet/material/steel/New(var/newloc)
-	..(newloc, "steel")
+/obj/item/clothing/accessory/bracelet/material/steel/Initialize(var/mapload)
+	. = ..(mapload, MATERIAL_STEEL)
 
-/obj/item/clothing/accessory/bracelet/material/silver/New(var/newloc)
-	..(newloc, "silver")
+/obj/item/clothing/accessory/bracelet/material/silver/Initialize(var/mapload)
+	. = ..(mapload, MATERIAL_SILVER)
 
-/obj/item/clothing/accessory/bracelet/material/gold/New(var/newloc)
-	..(newloc, "gold")
+/obj/item/clothing/accessory/bracelet/material/gold/Initialize(var/mapload)
+	. = ..(mapload, MATERIAL_GOLD)
 
-/obj/item/clothing/accessory/bracelet/material/platinum/New(var/newloc)
-	..(newloc, "platinum")
+/obj/item/clothing/accessory/bracelet/material/platinum/Initialize(var/mapload)
+	. = ..(mapload, MATERIAL_PLATINUM)
 
-/obj/item/clothing/accessory/bracelet/material/phoron/New(var/newloc)
-	..(newloc, "phoron")
+/obj/item/clothing/accessory/bracelet/material/phoron/Initialize(var/mapload)
+	. = ..(mapload, MATERIAL_PHORON)
 
-/obj/item/clothing/accessory/bracelet/material/glass/New(var/newloc)
-	..(newloc, "glass")
+/obj/item/clothing/accessory/bracelet/material/glass/Initialize(var/mapload)
+	. = ..(mapload, MATERIAL_GLASS)
 
-	..()
+/obj/item/clothing/accessory/bracelet/material/uranium/Initialize(var/mapload)
+	. = ..(mapload, MATERIAL_URANIUM)
