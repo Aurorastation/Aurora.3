@@ -526,6 +526,10 @@
 	desc = "A small, fashionable bag typically worn over the shoulder."
 	icon_state = "lgpurse"
 	item_state = "lgpurse"
+	item_state_slots = list(
+		slot_l_hand_str = "lgpurse",
+		slot_r_hand_str = "lgpurse"
+		)
 	w_class = 4
 	max_w_class = 3
 	max_storage_space = 15

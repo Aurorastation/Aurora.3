@@ -27,7 +27,7 @@
 	path = /obj/item/storage/briefcase/clutch
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/utility/purse
+/datum/gear/utility/purse_bag
 	display_name = "purse (colourable)"
 	path = /obj/item/storage/backpack/purse
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
@@ -202,6 +202,7 @@
 /datum/gear/utility/wheelchair
 	display_name = "wheelchair"
 	path = /obj/item/wheelchair
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/tts_device
 	display_name = "text-to-speech device"
