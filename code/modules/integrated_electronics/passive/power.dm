@@ -59,7 +59,7 @@
 	icon_state = "power_relay"
 	complexity = 7
 	spawn_flags = IC_SPAWN_RESEARCH
-	power_amount = 50
+	power_amount = 250
 
 
 /obj/item/integrated_circuit/passive/power/relay/make_energy()
@@ -81,7 +81,7 @@
 	icon_state = "power_relay"
 	complexity = 15
 	spawn_flags = IC_SPAWN_RESEARCH
-	power_amount = 1000
+	power_amount = 2000
 
 
 // Fuel cell
@@ -104,11 +104,6 @@
 /obj/item/integrated_circuit/passive/power/chemical_cell/Initialize()
 	. = ..()
 	create_reagents(volume)
-
-/obj/item/integrated_circuit/passive/power/chemical_cell/interact(mob/user)
-	set_pin_data(IC_OUTPUT, 2, weakref(src))
-	push_data()
-	..()
 
 /obj/item/integrated_circuit/passive/power/chemical_cell/on_reagent_change(changetype)
 	set_pin_data(IC_OUTPUT, 1, reagents.total_volume)
