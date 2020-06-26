@@ -59,7 +59,7 @@
 	description = "A selection of flannel shirts."
 	path = /obj/item/clothing/suit/storage/flannel
 
-/datum/gear/suit/leather/New()
+/datum/gear/suit/flannel_shirt/New()
 	..()
 	var/flannels = list()
 	flannels["black flannel shirt"] = /obj/item/clothing/suit/storage/flannel
@@ -100,16 +100,16 @@
 	l_hoodie["crop top hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/crop
 	gear_tweaks += new/datum/gear_tweak/path(l_hoodie)
 
-/datum/gear/suit/hoodie/alt
+/datum/gear/suit/hoodie_alt
 	display_name = "hoodie, alt (colourable)"
 	path = /obj/item/clothing/suit/storage/toggle/hoodie
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/suit/hoodie/altmisc
-	display_name = "hoodie (selection)"
+/datum/gear/suit/hoodie_altmisc
+	display_name = "hoodie, misc (selection)"
 	path = /obj/item/clothing/suit/storage/toggle/hoodie/cti
 
-/datum/gear/suit/hoodie/altmisc/New()
+/datum/gear/suit/hoodie_altmisc/New()
 	..()
 	var/hoodie_misc = list()
 	hoodie_misc["CTI hoodie"] = /obj/item/clothing/suit/storage/toggle/hoodie/cti
@@ -131,29 +131,29 @@
 	l_labcoats["alt lab coat"] = /obj/item/clothing/suit/storage/toggle/labcoat/alt
 	gear_tweaks += new/datum/gear_tweak/path(l_labcoats)
 
-/datum/gear/suit/labcoat/alt_tox
+/datum/gear/suit/labcoat_alt_tox
 	display_name = "lab coat, alt (research)"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/science/alt
 	allowed_roles = list("Research Director", "Scientist", "Xenobiologist", "Lab Assistant")
 
-/datum/gear/suit/labcoat/alt_chem
+/datum/gear/suit/labcoat_alt_chem
 	display_name = "lab coat, alt (pharmacist/biochemist) (selection)"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist/alt
 	allowed_roles = list("Chief Medical Officer", "Pharmacist")
 
-/datum/gear/suit/labcoat/alt_chem/New()
+/datum/gear/suit/labcoat_alt_chem/New()
 	..()
 	var/chem_coats = list()
 	chem_coats["pharmacist lab coat"] = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist/alt
 	chem_coats["chemist lab coat"] = /obj/item/clothing/suit/storage/toggle/labcoat/biochemist/alt
 	gear_tweaks += new/datum/gear_tweak/path(chem_coats)
 
-/datum/gear/suit/labcoat/alt_emt
+/datum/gear/suit/labcoat_alt_emt
 	display_name = "lab coat, alt (EMT)"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/emt
 	allowed_roles = list("Chief Medical Officer", "Paramedic")
 
-/datum/gear/suit/labcoat/alt_blueedge
+/datum/gear/suit/labcoat_alt_blueedge
 	display_name = "lab coat, blue edge"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/blueedge
 

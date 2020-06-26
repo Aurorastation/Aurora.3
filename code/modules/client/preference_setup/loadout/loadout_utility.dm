@@ -175,7 +175,7 @@
 	cost = 0
 
 /datum/gear/utility/umbrella
-	display_name = "umbrella"
+	display_name = "umbrella (colourable)"
 	path = /obj/item/melee/umbrella
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -202,7 +202,6 @@
 /datum/gear/utility/wheelchair
 	display_name = "wheelchair"
 	path = /obj/item/wheelchair
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/tts_device
 	display_name = "text-to-speech device"
