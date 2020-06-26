@@ -185,12 +185,13 @@
 	name = "baggy must hang jeans"
 	desc = "Made in the finest space jeans factory this side of Tau Ceti."
 	icon_state = "baggy_jeansmustang"
-	item_state = "baggy_jeansmusthang"
+	item_state = "baggy_jeansmustang"
 
 /obj/item/clothing/under/pants/musthang/ripped
 	name = "ripped must hang jeans"
 	desc = "Made in the finest space jeans factory this side of Tau Ceti. These have holes in them."
 	icon_state = "jeansmustangripped"
+	item_state = "jeansmustangripped"
 
 /obj/item/clothing/under/pants/jeansblack
 	name = "black jeans"

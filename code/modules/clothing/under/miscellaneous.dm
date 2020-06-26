@@ -177,6 +177,7 @@
 	name = "sleek overalls"
 	desc = "A set of modern pleather reinforced overalls."
 	icon_state = "overalls_sleek"
+	worn_state = "overalls_sleek"
 
 /obj/item/clothing/under/gimmick/rank/head_of_personnel/suit
 	name = "head of personnel's suit"
@@ -198,17 +199,24 @@
 	item_state = "bl_suit"
 	worn_state = "black_suit"
 
+/obj/item/clothing/under/suit_jacket/skirt
+	name = "black skirt"
+	desc = "A black skirt, very fancy!"
+	icon_state = "blackskirt"
+	worn_state = "blackskirt"
+
 /obj/item/clothing/under/suit_jacket/really_black
 	name = "executive suit"
 	desc = "A formal black suit and red tie, intended for the station's finest."
 	icon_state = "really_black_suit"
 	item_state = "jensensuit"
-	worn_state = "black_suit"
+	worn_state = "really_black_suit"
 
 /obj/item/clothing/under/suit_jacket/really_black/skirt
 	name = "executive skirt suit"
 	desc = "A formal black suit and red necktie, intended for the station's finest."
 	icon_state = "really_black_suit_skirt"
+	worn_state = "really_black_suit_skirt"
 
 /obj/item/clothing/under/suit_jacket/red
 	name = "red suit"

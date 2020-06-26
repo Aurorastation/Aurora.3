@@ -98,12 +98,8 @@
 	l_hoodie["hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie
 	l_hoodie["short-sleeved hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/short
 	l_hoodie["crop top hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/crop
+	l_hoodie["thick hoodie"] = /obj/item/clothing/suit/storage/toggle/hoodie
 	gear_tweaks += new/datum/gear_tweak/path(l_hoodie)
-
-/datum/gear/suit/hoodie_alt
-	display_name = "hoodie, alt (colourable)"
-	path = /obj/item/clothing/suit/storage/toggle/hoodie
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/hoodie_altmisc
 	display_name = "hoodie, misc (selection)"

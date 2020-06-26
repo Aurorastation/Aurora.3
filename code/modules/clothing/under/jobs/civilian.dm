@@ -206,8 +206,8 @@
 
 /obj/item/clothing/under/lawyer/purple/skirt
 	name = "purple skirt suit"
-	icon_state = "lawyer_purp_skirt"
-	worn_state = "lawyer_purp_skirt"
+	icon_state = "lawyer_purple_skirt"
+	worn_state = "lawyer_purple_skirt"
 
 /obj/item/clothing/under/librarian
 	name = "sensible suit"

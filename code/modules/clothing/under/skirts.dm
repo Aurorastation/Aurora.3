@@ -28,6 +28,14 @@
 	item_state = "skirt_long"
 	worn_state = "skirt_long"
 
+/obj/item/clothing/under/skirt/high
+	name = "high skirt"
+	desc = "A modest skirt going up to the waist."
+	desc_fluff = "For when covering your legs isn't enough."
+	icon_state = "skirt_high"
+	item_state = "skirt_high"
+	worn_state = "skirt_high"
+
 /obj/item/clothing/under/skirt/pencil
 	name = "pencil skirt"
 	desc = "A professional-looking pencil skirt."
@@ -64,6 +72,7 @@
 	name = "pleated skirt"
 	desc = "A simple pleated skirt. It's like high school all over again."
 	icon_state = "skirt_pleated_alt"
+	item_state = "skirt_pleated_alt"
 	worn_state = "skirt_pleated_alt"
 
 /obj/item/clothing/under/skirt/offworlder
@@ -80,27 +89,34 @@
 	name = "short denim skirt"
 	desc = "A skirt that is made of denim."
 	icon_state = "skirt_short_denim"
+	item_state = "skirt_short_denim"
+	worn_state = "skirt_short_denim"
 
 /obj/item/clothing/under/skirt/outfit
-	name = "black skirt"
-	desc = "A black skirt, very fancy!"
-	icon_state = "blackskirt"
+	name = "black jumpskirt"
+	desc = "A slimming black jumpskirt."
+	icon_state = "blackjumpskirt"
+	item_state = "blackjumpskirt"
+	worn_state = "blackjumpskirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/under/skirt/outfit/plaid_blue
 	name = "blue plaid skirt"
 	desc = "A preppy blue skirt with a white blouse."
 	icon_state = "plaid_blue"
-	item_state_slots = list(slot_r_hand_str = "blue", slot_l_hand_str = "blue")
+	item_state = "plaid_blue"
+	worn_state = "plaid_blue"
 
 /obj/item/clothing/under/skirt/outfit/plaid_purple
 	name = "blue purple skirt"
 	desc = "A preppy purple skirt with a white blouse."
 	icon_state = "plaid_purple"
-	item_state_slots = list(slot_r_hand_str = "purple", slot_l_hand_str = "purple")
+	item_state = "plaid_purple"
+	worn_state = "plaid_purple"
 
 /obj/item/clothing/under/skirt/outfit/plaid_red
 	name = "red plaid skirt"
 	desc = "A preppy red skirt with a white blouse."
 	icon_state = "plaid_red"
-	item_state_slots = list(slot_r_hand_str = "red", slot_l_hand_str = "red")
+	item_state = "plaid_red"
+	worn_state = "plaid_red"

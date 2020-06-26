@@ -68,8 +68,8 @@
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 5, rad = 0)
 
 /obj/item/clothing/under/rank/scientist/white
-	icon_state = "scientist_white"
-	worn_state = "scientist_white"
+	icon_state = "science_white"
+	worn_state = "science_white"
 
 /obj/item/clothing/under/rank/scientist/white/jeans
 	icon_state = "sciencej"
@@ -224,12 +224,12 @@
 	worn_state = "medical_short"
 
 /obj/item/clothing/under/rank/medical/alt/jeans
-	icon_state = "medical_altj"
-	worn_state = "medical_altj"
+	icon_state = "medicalj"
+	worn_state = "medicalj"
 
 /obj/item/clothing/under/rank/medical/alt/jeans/female
-	icon_state = "medical_altjf"
-	worn_state = "medical_altjf"
+	icon_state = "medicaljf"
+	worn_state = "medicaljf"
 
 /obj/item/clothing/under/rank/medical/orderly
 	icon_state = "orderly"

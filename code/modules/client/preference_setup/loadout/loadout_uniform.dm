@@ -87,6 +87,7 @@
 	skirts["casual skirt"] = /obj/item/clothing/under/skirt
 	skirts["puffy skirt"] = /obj/item/clothing/under/skirt/puffy
 	skirts["long skirt"] = /obj/item/clothing/under/skirt/long
+	skirts["high skirt"] = /obj/item/clothing/under/skirt/high
 	skirts["pencil skirt"] = /obj/item/clothing/under/skirt/pencil
 	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
 	skirts["plaid skirt"] = /obj/item/clothing/under/skirt/plaid
@@ -94,16 +95,16 @@
 	skirts["pleated skirt, alt"] = /obj/item/clothing/under/skirt/pleated/alt
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
 
-/datum/gear/uniform/skirt/misc
+/datum/gear/uniform/skirt_misc
 	display_name = "skirt, misc (selection)"
 	description = "A selection of non-colourable skirts."
 	path = /obj/item/clothing/under/skirt/denim
 
-/datum/gear/uniform/skirt/misc/New()
+/datum/gear/uniform/skirt_misc/New()
 	..()
 	var/misc_skirts = list()
 	misc_skirts["denim skirt"] = /obj/item/clothing/under/skirt/denim
-	misc_skirts["black jumpskirt"] = /obj/item/clothing/under/color/blackjumpskirt
+	misc_skirts["black jumpskirt"] = /obj/item/clothing/under/skirt/outfit
 	misc_skirts["plaid skirt outfit, blue"] = /obj/item/clothing/under/skirt/outfit/plaid_blue
 	misc_skirts["plaid skirt outfit, purple"] =/obj/item/clothing/under/skirt/outfit/plaid_purple
 	misc_skirts["plaid skirt outfit, red"] = /obj/item/clothing/under/skirt/outfit/plaid_red
@@ -119,7 +120,7 @@
 	var/suits = list()
 	suits["amish suit"] = /obj/item/clothing/under/sl_suit
 	suits["black suit"] = /obj/item/clothing/under/suit_jacket
-	suits["black suit with skirt"] = /obj/item/clothing/under/skirt/outfit
+	suits["black suit with skirt"] = /obj/item/clothing/under/suit_jacket/skirt
 	suits["black suit, alt"] = /obj/item/clothing/under/suit_jacket/alt
 	suits["black suit, alt skirt"] = /obj/item/clothing/under/suit_jacket/alt/skirt
 	suits["black lawyer suit"] = /obj/item/clothing/under/lawyer/black
@@ -141,7 +142,7 @@
 	suits["red suit"] = /obj/item/clothing/under/suit_jacket/red
 	suits["red skirt"] = /obj/item/clothing/under/suit_jacket/red/skirt
 	suits["red lawyer suit"] = /obj/item/clothing/under/lawyer/red
-	suits["red lawyer skrit"] = /obj/item/clothing/under/lawyer/red/skirt
+	suits["red lawyer skirt"] = /obj/item/clothing/under/lawyer/red/skirt
 	suits["tan suit"] = /obj/item/clothing/under/suit_jacket/tan
 	suits["vice suit"] = /obj/item/clothing/under/vice
 	suits["white suit"] = /obj/item/clothing/under/suit_jacket/white
@@ -179,7 +180,7 @@
 	dress["dress, pink"] = /obj/item/clothing/under/dress/dress_pink
 	dress["dress, yellow"] = /obj/item/clothing/under/dress/dress_yellow
 	dress["dress, white"] = /obj/item/clothing/under/dress/white
-	dress["dress, stripped"] = /obj/item/clothing/under/dress/stripeddress
+	dress["dress, striped"] = /obj/item/clothing/under/dress/stripeddress
 	dress["dress, sailor"] = /obj/item/clothing/under/dress/sailordress
 	dress["dress, red swept"] = /obj/item/clothing/under/dress/red_swept_dress
 	dress["dress, black tango"] = /obj/item/clothing/under/dress/blacktango
@@ -386,6 +387,7 @@
 	var/kimonomisc = list()
 	kimonomisc["ronin kimono"] = /obj/item/clothing/under/kimono/ronin
 	kimonomisc["fancy kimono"] = /obj/item/clothing/under/kimono/fancy
+	gear_tweaks += new/datum/gear_tweak/path(kimonomisc)
 
 /datum/gear/uniform/miscellaneous/kamishimo
 	display_name = "kamishimo"
@@ -523,7 +525,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(chef_uniforms)
 
 /datum/gear/uniform/uniform_gardener
-	display_name = "uniform, Gardener"
+	display_name = "uniform, Gardener (selection)"
 	description = "A selection of alternative outfits for the Gardener."
 	path = /obj/item/clothing/under/rank/hydroponics
 	allowed_roles = list("Head of Personnel", "Gardener")
@@ -538,7 +540,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(gardener_uniforms)
 
 /datum/gear/uniform/uniform_quartermaster
-	display_name = "uniform, Quartermaster"
+	display_name = "uniform, Quartermaster (selection)"
 	description = "A selection of alternative outfits for the Quartermaster."
 	path = /obj/item/clothing/under/rank/cargo/qm
 	allowed_roles = list("Head of Personnel", "Quartermaster")
@@ -601,9 +603,10 @@
 	janitor_uniforms["alt janitor uniform"] = /obj/item/clothing/under/rank/janitor/alt
 	gear_tweaks += new/datum/gear_tweak/path(janitor_uniforms)
 
-/datum/gear/uniform/uniform_chaplain/job
+/datum/gear/uniform/uniform_chaplain
 	display_name = "uniform, Chaplain"
 	description = "The standard uniform for the Chaplain."
+	path = /obj/item/clothing/under/rank/chaplain
 	allowed_roles = list("Head of Personnel", "Chaplain")
 	cost = 0
 
@@ -807,7 +810,7 @@
 	display_name = "uniform, Lab Assistant"
 	description = "The standard uniform for the Lab Assistant."
 	path = /obj/item/clothing/under/rank/scientist/intern
-	allowed_roles = list("Research Director", "Scientist", "Xenobiologist", "Lab Assistant")
+	allowed_roles = list("Research Director", "Scientist", "Xenobiologist", "Roboticist", "Lab Assistant")
 	cost = 0
 
 /datum/gear/uniform/uniform_hos
@@ -910,7 +913,7 @@
 	allowed_roles = list("Corporate Liasion")
 	cost = 0
 
-/datum/gear/uniform/uniform/liaison/New()
+/datum/gear/uniform/uniform_liaison/New()
 	..()
 	var/liaison_uniforms = list()
 	liaison_uniforms["standard liaison uniform"] = /obj/item/clothing/under/rank/liaison

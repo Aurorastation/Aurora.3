@@ -258,6 +258,6 @@
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/crop
 	icon_state = "hoodie_crop"
-	icon_open = "hoodie_crop"
+	icon_open = "hoodie_crop_open"
 	icon_closed = "hoodie_crop"
 	item_state = "hoodie_crop"
