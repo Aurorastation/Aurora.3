@@ -114,8 +114,10 @@
 					oxygen_reserve = max(0, oxygen_reserve-1)
 			else
 				oxygen_reserve = min(initial(oxygen_reserve), oxygen_reserve+1)
+
 			if(!oxygen_reserve) //(hardcrit)
-				owner.Paralyse(3)
+				owner.Paralyse(10)
+
 			var/can_heal = damage && damage < max_damage && (damage % damage_threshold_value || owner.chem_effects[CE_BRAIN_REGEN] || (!past_damage_threshold(3) && owner.chem_effects[CE_STABLE]))
 			var/damprob
 			//Effects of bloodloss
