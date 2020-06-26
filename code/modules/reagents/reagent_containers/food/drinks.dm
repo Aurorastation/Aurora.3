@@ -299,8 +299,15 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/dry_ramen/Initialize()
 	. = ..()
+	is_liquid = FALSE
 	reagents.add_reagent("dry_ramen", 30)
 
+/obj/item/reagent_containers/food/drinks/dry_ramen/on_reagent_change()
+	..()
+	if(reagents.has_reagent("dry_ramen"))
+		is_liquid = FALSE
+	else
+		is_liquid = TRUE
 
 /obj/item/reagent_containers/food/drinks/sillycup
 	name = "paper cup"
