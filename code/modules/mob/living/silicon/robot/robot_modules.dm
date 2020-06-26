@@ -670,8 +670,6 @@ var/global/list/robot_modules = list(
 /obj/item/robot_module/miner/New()
 	..()
 	src.modules += new /obj/item/borg/sight/material(src)
-	src.modules += new /obj/item/wrench/robotic(src)
-	src.modules += new /obj/item/screwdriver/robotic(src)
 	src.modules += new /obj/item/storage/bag/ore(src)
 	src.modules += new /obj/item/pickaxe/borgdrill(src)
 	src.modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
@@ -685,6 +683,21 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	src.modules += new /obj/item/wrench/robotic(src)
+	src.modules += new /obj/item/screwdriver/robotic(src)
+	src.modules += new /obj/item/tank/jetpack/carbondioxide(src)
+
+	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
+	synths += metal
+
+	var/obj/item/stack/rods/cyborg/R = new /obj/item/stack/rods/cyborg(src)
+	R.synths = list(metal)
+	src.modules += R
+
+	var/obj/item/stack/flag/purple/borg/F = new /obj/item/stack/flag/purple/borg(src)
+	F.synths = list(metal)
+	src.modules += F
+
 	src.emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
 
 /obj/item/robot_module/research
