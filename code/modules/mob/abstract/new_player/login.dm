@@ -43,7 +43,6 @@
 	sight |= SEE_TURFS
 	player_list |= src
 
-	new_player_panel()
 	spawn(40)
 		if(client)
 			client.playtitlemusic()
