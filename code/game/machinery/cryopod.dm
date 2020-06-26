@@ -560,14 +560,10 @@ var/global/list/frozen_crew = list()
 		if(!usr || !usr.client)
 			return
 
-		if(src.occupant)
+		if(occupant)
 			to_chat(usr, SPAN_WARNING("\The [src] is in use."))
 			return
 
-		usr.stop_pulling()
-		usr.client.perspective = EYE_PERSPECTIVE
-		usr.client.eye = src
-		usr.forceMove(src)
 		set_occupant(usr)
 
 		flick("[initial(icon_state)]-anim", src)
@@ -613,8 +609,16 @@ var/global/list/frozen_crew = list()
 
 	return
 
-/obj/machinery/cryopod/proc/set_occupant(var/occupant)
+/obj/machinery/cryopod/proc/set_occupant(var/mob/living/carbon/occupant, var/silent = FALSE)
 	src.occupant = occupant
+	occupant.forceMove(src)
+	occupant.stop_pulling()
+	if(occupant.client)
+		occupant.client.perspective = EYE_PERSPECTIVE
+		occupant.client.eye = src
 	name = initial(name)
 	if(occupant)
 		name = "[name] ([occupant])"
+
+/obj/machinery/cryopod/relaymove(var/mob/user)
+	go_out()
