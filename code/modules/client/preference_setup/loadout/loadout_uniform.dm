@@ -394,7 +394,7 @@
 
 /datum/gear/uniform/miscellaneous/kamishimo
 	display_name = "kamishimo"
-	path = obj/item/clothing/under/kamishimo
+	path = /obj/item/clothing/under/kamishimo
 
 /datum/gear/uniform/circuitry
 	display_name = "jumpsuit, circuitry (empty)"
@@ -566,7 +566,7 @@
 	allowed_roles = list("Head of Personnel", "Quartermaster", "Cargo Technician")
 	cost = 0
 
-/datum/gear/uniform/uniform_cargot
+/datum/gear/uniform/uniform_cargot/New()
 	..()
 	var/cargot_uniforms = list()
 	cargot_uniforms["standard cargo technician uniform"] = /obj/item/clothing/under/rank/cargo
@@ -585,7 +585,7 @@
 	allowed_roles = list("Head of Personnel", "Quartermaster", "Shaft Miner")
 	cost = 0
 
-/datum/gear/uniform/uniform_miner
+/datum/gear/uniform/uniform_miner/New()
 	..()
 	var/miner_uniforms = list()
 	miner_uniforms["standard miner uniform"] = /obj/item/clothing/under/rank/miner
@@ -654,7 +654,7 @@
 	atmos_uniforms["standard atmos tech uniform"] = /obj/item/clothing/under/rank/atmospheric_technician
 	atmos_uniforms["alt atmos tech uniform"] = /obj/item/clothing/under/rank/atmospheric_technician/alt
 	atmos_uniforms["alt atmos tech jeans"] = /obj/item/clothing/under/rank/atmospheric_technician/alt/jeans
-	atmos_uniforms["alt atmos tech fem jeans"] = /obj/item/clothing/under/rank/atmospheric_technician/alt/female
+	atmos_uniforms["alt atmos tech fem jeans"] = /obj/item/clothing/under/rank/atmospheric_technician/alt/jeans/female
 	atmos_uniforms["old atmos tech uniform"] = /obj/item/clothing/under/rank/atmospheric_technician/old
 	gear_tweaks += new/datum/gear_tweak/path(atmos_uniforms)
 
@@ -672,7 +672,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(engapp_uniforms)
 
 /datum/gear/uniform/uniform_cmo
-	display_name = "uniform, Chief Medical Officer (selection)
+	display_name = "uniform, Chief Medical Officer (selection)"
 	description = "A selection of alternative outfits for the Chief Medical Officer."
 	path = /obj/item/clothing/under/rank/chief_medical_officer
 	allowed_roles = list("Chief Medical Officer")
@@ -720,7 +720,7 @@
 	pharm_uniforms["alt pharmacist uniform"] = /obj/item/clothing/under/rank/pharmacist/alt
 	pharm_uniforms["alt pharmacist jeans"] = /obj/item/clothing/under/rank/pharmacist/alt/jeans
 	pharm_uniforms["alt pharmacist fem jeans"] = /obj/item/clothing/under/rank/pharmacist/alt/jeans/female
-	pharm_uniforms["pharmacist polo"] = /obj/item/clothing/under/rank/pharmacist/alt/shirt
+	pharm_uniforms["pharmacist polo"] = /obj/item/clothing/under/rank/pharmacist/shirt
 	pharm_uniforms["standard chemist uniform"] = /obj/item/clothing/under/rank/biochemist
 	pharm_uniforms["alt chemist uniform"] = /obj/item/clothing/under/rank/biochemist/alt
 	pharm_uniforms["alt chemist jeans"] = /obj/item/clothing/under/rank/biochemist/alt/jeans
@@ -729,7 +729,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(pharm_uniforms)
 
 /datum/gear/uniform/uniform_psych
-	display_name = "uniform, Psychiatrist (selection)
+	display_name = "uniform, Psychiatrist (selection)"
 	description = "A selection of alternative outfits for the Psychiatrist."
 	path = /obj/item/clothing/under/rank/psych
 	allowed_roles = list("Chief Medical Officer", "Psychiatrist")
@@ -763,7 +763,7 @@
 	allowed_roles = list("Research Director")
 	cost = 0
 
-/datum/gear/uniform/uniform_rd
+/datum/gear/uniform/uniform_rd/New()
 	..()
 	var/rd_uniforms = list()
 	rd_uniforms["standard RD uniform"] = /obj/item/clothing/under/rank/research_director

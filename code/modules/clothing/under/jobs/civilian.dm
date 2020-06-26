@@ -157,7 +157,7 @@
 	item_state = "janitor"
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 
-/obj/itemc/lothing/under/rank/janitor/alt
+/obj/itemc/clothing/under/rank/janitor/alt
 	icon_state = "janitor_alt"
 	worn_state = "janitor_alt"
 
@@ -204,7 +204,7 @@
 	item_state = "ba_suit"
 	worn_state = "lawyer_purple"
 
-/obj/item/clothing/under/lawyer/purpsuit/skirt
+/obj/item/clothing/under/lawyer/purple/skirt
 	name = "purple skirt suit"
 	icon_state = "lawyer_purp_skirt"
 	worn_state = "lawyer_purp_skirt"

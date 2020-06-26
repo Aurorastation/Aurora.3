@@ -33,7 +33,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(gloves)
 
 /datum/gear/gloves/full_leather
-	display_name = "full leather gloves (colourable)
+	display_name = "full leather gloves (colourable)"
 	path = /obj/item/clothing/gloves/black_leather/colour
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -86,14 +86,14 @@
 
 /datum/gear/gloves/disposable
 	display_name = "gloves, disposable (selection)"
-	path = /obj/item/clothing/gloves/sterile/latex
+	path = /obj/item/clothing/gloves/latex
 	cost = 2
 
 /datum/gear/gloves/disposable/New()
 	..()
 	var/dispos_gloves = list()
-	dispos_gloves["latex gloves"] = /obj/item/clothing/gloves/sterile/latex
-	dispos_gloves["nitrile gloves"] = /obj/item/clothing/gloves/sterile/nitrile
+	dispos_gloves["latex gloves"] = /obj/item/clothing/gloves/latex
+	dispos_gloves["nitrile gloves"] = /obj/item/clothing/gloves/latex/nitrile
 	gear_tweaks += new/datum/gear_tweak/path(dispos_gloves)
 
 //I added the rest of security to the allowed_roles because:

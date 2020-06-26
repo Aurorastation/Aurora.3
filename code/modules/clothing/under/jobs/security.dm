@@ -35,7 +35,7 @@
 
 /obj/item/clothing/under/rank/security/darknavy
 	icon_state = "officer_darknavy"
-	worn_state = "officer_darknavy
+	worn_state = "officer_darknavy"
 
 /obj/item/clothing/under/rank/security/tan
 	icon_state = "officer_tan"
@@ -157,7 +157,7 @@
 
 /obj/item/clothing/under/rank/head_of_security/navy
 	icon_state = "hos_navy"
-	worn_state = "hos_navy
+	worn_state = "hos_navy"
 
 /obj/item/clothing/under/rank/head_of_security/tan
 	icon_state = "hos_tan"

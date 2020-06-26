@@ -5,7 +5,7 @@
 
 /datum/gear/dice/cup
 	display_name = "dice cup and dice"
-	path = /obj/item/weapon/storage/dicecup/loaded
+	path = /obj/item/storage/dicecup/loaded
 
 /datum/gear/dicegaming
 	display_name = "pack of gaming dice"
@@ -33,12 +33,12 @@
 
 /datum/gear/cahwhite
 	display_name = "Cards Against The Galaxy (white deck)"
-	path = /obj/item/weapon/deck/cah
+	path = /obj/item/deck/cah
 	description = "The ever-popular Cards Against The Galaxy word game. Warning: may include traces of broken fourth wall. This is the white deck."
 
 /datum/gear/cahblack
 	display_name = "Cards Against The Galaxy (black deck)"
-	path = /obj/item/weapon/deck/cah/black
+	path = /obj/item/deck/cah/black
 	description = "The ever-popular Cards Against The Galaxy word game. Warning: may include traces of broken fourth wall. This is the black deck."
 
 /datum/gear/flask
@@ -203,10 +203,10 @@
 	var/toytype = list()
 	toytype["blink toy"] = /obj/item/toy/blink
 	toytype["gravitational singularity"] = /obj/item/toy/spinningtoy
-	toytype["water flower"] = /obj/item/weapon/reagent_containers/spray/waterflower
+	toytype["water flower"] = /obj/item/reagent_containers/spray/waterflower
 	toytype["bosun's whistle"] = /obj/item/toy/bosunwhistle
-	toytype["magic 8 ball"] = /obj/item/toy/eightball
-	toytype["magic conch shell"] = /obj/item/toy/eightball/conch
+	toytype["magic 8 ball"] = /obj/item/eightball
+	toytype["magic conch shell"] = /obj/item/eightball/conch
 	toytype["stick horse"] = /obj/item/toy/stickhorse
 	toytype["inflatable duck"] = /obj/item/inflatable_duck
 	toytype["xmas tree"] = /obj/item/toy/xmastree

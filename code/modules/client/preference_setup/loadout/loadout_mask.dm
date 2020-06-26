@@ -22,6 +22,6 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/mask/clothbandana
-	display_name = "bandana (selection, colourable)
+	display_name = "bandana (selection, colourable)"
 	path = /obj/item/clothing/mask/bandana
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

@@ -67,3 +67,12 @@
 	description = "An augment that allows the user to synthetize welding fuel into nutrients."
 	path = /obj/item/organ/internal/augment/fuel_cell
 	cost = 3
+
+/datum/gear/augment/dud
+	display_name = "generic implant, head"
+	description = "An implant with no obvious purpose."
+	path = /obj/item/organ/internal/augment/dud
+
+/datum/gear/augment/dud/torso
+	display_name = "generic implant, torso"
+	path = /obj/item/organ/internal/augment/dud/torso

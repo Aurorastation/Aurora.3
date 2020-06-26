@@ -15,7 +15,7 @@
 
 /obj/item/clothing/accessory/sweaterloose
 	name = "loose sweater"
-	desc = "A warm knit sweater with the
+	desc = "A warm knit sweater with the bottom seam untucked."
 	desc_fluff = "Because wearing it tucked in just wasn't cool enough for you."
 	icon_state = "sweater_loose"
 	item_state = "sweater_loose"

@@ -41,6 +41,7 @@ changes:
   - tweak: "Parentheses have been placed next to loadout selections to indication whether they are colourable and/or have a variant selection list."
   - rscadd: "Accessory Loadout: ported armbands (colourable), brassards, asymmetrical jackets, colourable cloak, full and half capes, sashes, a cowled vest, bracelets (friendship, colourable, and material recipe), suit vest and colourable elegant waistcoat, some more sweaters (both colourable and not) from Polaris."
   - rscadd: "Accessory Loadout: added name pin tags by The Stryker, colourable necktie, and departmental cloaks."
+  - rscadd: "Augments Loadout: ported generic implants from Polaris."
   - rscadd: "Ears Loadout: ported earrings from Polaris."
   - tweak: "Ears Loadout: made bandannas colourable. Don't forget to check your loadout to make sure you still have yours!"
   - rscadd: "Eyes Loadout: ported thin prescription glasses, rimless glasses from Polaris."

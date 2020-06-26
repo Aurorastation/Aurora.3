@@ -334,3 +334,12 @@
 /obj/item/organ/internal/augment/language/cthur
 	name = "C'thur language processor"
 	augment_languages = list(LANGUAGE_SKRELLIAN)
+
+/obj/item/organ/internal/augment/dud
+	name = "generic implant"
+	desc = "A small device with small connector wires."
+	parent_organ = BP_HEAD
+	organ_tag = BP_AUG_DUD
+
+/obj/item/organ/internal/augment/dud/torso
+	parent_organ = BP_CHEST

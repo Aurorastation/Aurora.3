@@ -74,13 +74,13 @@
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
 /datum/gear/shoes/flats_colour
-	display_name = "dress flats (colourable)
+	display_name = "dress flats (colourable)"
 	path = /obj/item/clothing/shoes/flats/colour
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/shoes/loafers
-	display_name = "loafers"
-	path = /obj/item/clothing/shoes/flats/loafers
+	display_name = "loafers (colourable)"
+	path = /obj/item/clothing/shoes/loafers
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/shoes/cowboy
@@ -162,52 +162,52 @@
 
 /datum/gear/shoes/boots/winter/red
 	display_name = "winter boots, red"
-	path = /obj/item/clopthing/shoes/boots/winter/red
+	path = /obj/item/clothing/shoes/winter/red
 
 /datum/gear/shoes/boots/winter/security
 	display_name = "winter boots, security"
-	path = /obj/item/clothing/shoes/boots/winter/security
+	path = /obj/item/clothing/shoes/winter/security
 	allowed_roles = list("Head of Security", "Warden", "Security Officer", "Detective", "Forensic Technician", "Security Cadet")
 
 /datum/gear/shoes/boots/winter/science
 	display_name = "winter boots, research"
-	path = /obj/item/clothing/shoes/boots/winter/science
+	path = /obj/item/clothing/shoes/winter/science
 	allowed_roles = list("Research Director", "Scientist", "Roboticist", "Xenobiologist", "Lab Assistant")
 
 /datum/gear/shoes/boots/winter/command
 	display_name = "winter boots, captain"
-	path = /obj/item/clothing/shoes/boots/winter/command
+	path = /obj/item/clothing/shoes/winter/command
 	allowed_roles = list("Captain")
 
 /datum/gear/shoes/boots/winter/engineering
 	display_name = "winter boots, engineering"
-	path = /obj/item/clothing/shoes/boots/winter/engineering
+	path = /obj/item/clothing/shoes/winter/engineering
 	allowed_roles = list("Chief Engineer", "Station Engineer", "Engineering Apprentice")
 
 /datum/gear/shoes/boots/winter/atmos
 	display_name = "winter boots, atmospherics"
-	path = /obj/item/clothing/shoes/boots/winter/atmos
+	path = /obj/item/clothing/shoes/winter/atmos
 	allowed_roles = list("Chief Engineer", "Atmospheric Technician", "Engineering Apprentice")
 
 /datum/gear/shoes/boots/winter/medical
 	display_name = "winter boots, medical"
-	path = /obj/item/clothing/shoes/boots/winter/medical
+	path = /obj/item/clothing/shoes/winter/medical
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Psychiatrist", "Pharmacist", "Paramedic", "Medical Resident")
 
 /datum/gear/shoes/boots/winter/mining
 	display_name = "winter boots, mining"
-	path = /obj/item/clothing/shoes/boots/winter/mining
-	allowed_roles = list("Quartermaster", "Shaft Miner")
+	path = /obj/item/clothing/shoes/winter/mining
+	allowed_roles = list("Head of Personnel", "Quartermaster", "Shaft Miner")
 
 /datum/gear/shoes/boots/winter/supply
 	display_name = "winter boots, supply"
-	path = /obj/item/clothing/shoes/boots/winter/supply
-	allowed_roles = list("Quartermaster", "Cargo Technician")
+	path = /obj/item/clothing/shoes/winter/supply
+	allowed_roles = list("Head of Personnel", "Quartermaster", "Cargo Technician")
 
 /datum/gear/shoes/boots/winter/hydro
 	display_name = "winter boots, gardening"
-	path = /obj/item/clothing/shoes/boots/winter/hydro
-	allowed_roles = list("Gardener")
+	path = /obj/item/clothing/shoes/winter/hydro
+	allowed_roles = list("Head of Personnel", "Gardener")
 
 /datum/gear/shoes/duty
 	display_name = "duty boots"

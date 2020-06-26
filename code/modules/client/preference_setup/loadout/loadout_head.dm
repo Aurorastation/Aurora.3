@@ -193,7 +193,7 @@
 
 /datum/gear/head/hijab/colourable
 	display_name = "hijab (colourable)"
-	path = /obj/item/head/hijab/white
+	path = /obj/item/clothing/head/hijab/white
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/turban
@@ -217,7 +217,7 @@
 
 /datum/gear/head/turban/colourable
 	display_name = "turban (colourable)"
-	path = /obj/item/head/turban/white
+	path = /obj/item/clothing/head/turban/white
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/surgical

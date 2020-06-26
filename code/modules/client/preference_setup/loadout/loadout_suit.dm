@@ -62,16 +62,16 @@
 /datum/gear/suit/leather/New()
 	..()
 	var/flannels = list()
-	flannels["black flannel shirt"] = /obj/item/clothing/storage/flannel
-	flannels["grey flannel shirt"] = /obj/item/clothing/storage/flannel/grey
-	flannels["red flannel shirt"] = /obj/item/clothing/storage/flannel/red
-	flannels["brown flannel shirt"] = /obj/item/clothing/storage/flannel/brown
-	flannels["yellow flannel shirt"] = /obj/item/clothing/storage/flannel/yellow
-	flannels["green flannel shirt"] = /obj/item/clothing/storage/flannel/green
-	flannels["yellow flannel shirt"] = /obj/item/clothing/storage/flannel/yellow
-	flannels["aqua flannel shirt"] = /obj/item/clothing/storage/flannel/aqua
-	flannels["blue flannel shirt"] = /obj/item/clothing/storage/flannel/blue
-	flannels["purple flannel shirt"] = /obj/item/clothing/storage/flannel/purple
+	flannels["black flannel shirt"] = /obj/item/clothing/suit/storage/flannel
+	flannels["grey flannel shirt"] = /obj/item/clothing/suit/storage/flannel/grey
+	flannels["red flannel shirt"] = /obj/item/clothing/suit/storage/flannel/red
+	flannels["brown flannel shirt"] = /obj/item/clothing/suit/storage/flannel/brown
+	flannels["yellow flannel shirt"] = /obj/item/clothing/suit/storage/flannel/yellow
+	flannels["green flannel shirt"] = /obj/item/clothing/suit/storage/flannel/green
+	flannels["yellow flannel shirt"] = /obj/item/clothing/suit/storage/flannel/yellow
+	flannels["aqua flannel shirt"] = /obj/item/clothing/suit/storage/flannel/aqua
+	flannels["blue flannel shirt"] = /obj/item/clothing/suit/storage/flannel/blue
+	flannels["purple flannel shirt"] = /obj/item/clothing/suit/storage/flannel/purple
 	gear_tweaks += new/datum/gear_tweak/path(flannels)
 
 /datum/gear/suit/hazard_vest
@@ -237,7 +237,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/forensic_jacket
-	display_name = "forensic technician jacket (selection)
+	display_name = "forensic technician jacket (selection)"
 	description = "A selection of forensic technician jackets."
 	path = /obj/item/clothing/suit/storage/forensics
 	allowed_roles = list("Forensic Technician")
@@ -446,7 +446,7 @@
 
 /datum/gear/suit/greatcoat
 	display_name = "greatcoat"
-	path = /obj/item/clothing/suit/greatcoat
+	path = /obj/item/clothing/suit/storage/toggle/greatcoat
 
 /datum/gear/suit/snowsuit
 	display_name = "snowsuit"

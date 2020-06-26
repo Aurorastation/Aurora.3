@@ -122,7 +122,7 @@
 
 /datum/gear/smoking/ashtray
 	display_name = "ashtray, plastic"
-	path = /obj/item/weapon/material/ashtray/plastic
+	path = /obj/item/material/ashtray/plastic
 
 /datum/gear/smoking/ecig
 	display_name = "electronic cigarette (selection)"

@@ -65,7 +65,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(holsters)
 
 /datum/gear/accessory/tie_colourable
-	display_name = "tie (colourable)
+	display_name = "tie (colourable)"
 	path = /obj/item/clothing/accessory/tie/white
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -174,7 +174,7 @@
 
 /datum/gear/accessory/sweater/misc
 	display_name = "sweater, misc (selection)"
-	path = /obj/item/clothing/accessory/sweather/winterred
+	path = /obj/item/clothing/accessory/sweater/xmasneck
 	description = "A selection of sweaters and sweater vests."
 
 /datum/gear/accessory/sweater/misc/New()
@@ -300,7 +300,7 @@
 
 /datum/gear/accessory/namepin
 	display_name = "pin tag (colourable)"
-	path = /obj/item/clothing/accessory/namepin
+	path = /obj/item/clothing/accessory/badge/namepin
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/asym
@@ -322,7 +322,7 @@
 
 /datum/gear/accessory/cowledvest
 	display_name = "cowled vest"
-	path = /obj/item/clothing/accessory/cowledvest
+	path = /obj/item/clothing/accessory/cowled_vest
 
 /datum/gear/accessory/halfcape
 	display_name = "half cape"

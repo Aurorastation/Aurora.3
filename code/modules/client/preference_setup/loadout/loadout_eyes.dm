@@ -151,7 +151,7 @@
 	path = /obj/item/clothing/glasses/fakesunglasses/aviator
 
 /datum/gear/eyes/glasses/fakesun/fat
-	display_name = "sunglasses, stylish fat
+	display_name = "sunglasses, stylish fat"
 	path = /obj/item/clothing/glasses/fakesunglasses/big
 
 /datum/gear/eyes/hudpatch
@@ -203,5 +203,5 @@
 
 /datum/gear/eyes/blindfold
 	display_name = "blindfold (colourable)"
-	path = /obj/item/clothing/glasses/blindfold/colour
+	path = /obj/item/clothing/glasses/sunglasses/blindfold/colour
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
