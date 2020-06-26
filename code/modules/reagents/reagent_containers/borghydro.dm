@@ -103,7 +103,7 @@
 
 /obj/item/reagent_containers/borghypo/Topic(var/href, var/list/href_list)
 	if(href_list["reagent"])
-		var/t = reagent_ids.Find(href_list["reagent"])
+		var/t = reagent_ids.Find(text2path(href_list["reagent"]))
 		if(t)
 			playsound(loc, 'sound/effects/pop.ogg', 50, 0)
 			mode = t
