@@ -7,7 +7,7 @@ var/list/escape_pods = list()
 
 /datum/shuttle/autodock/ferry/escape_pod/New()
 	..()
-	var/arming_controller_tag = arming_controller
+	var/arming_controller_tag = "escape_pod_[arming_controller]"
 	arming_controller = SSshuttle.docking_registry[arming_controller_tag]
 	if(!istype(arming_controller))
 		CRASH("Could not find arming controller for escape pod \"[name]\", tag was '[arming_controller_tag]'.")

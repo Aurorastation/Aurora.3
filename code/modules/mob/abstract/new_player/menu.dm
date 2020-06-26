@@ -1,6 +1,7 @@
 //MENU SYSTEM BY BIGRAGE, some awful code, some awful design, all as you love //Code edits/additions by AshtonFox
 /mob/abstract/new_player/instantiate_hud(datum/hud/HUD, ui_style, ui_color, ui_alpha)
 	HUD.new_player_hud(ui_style, ui_color, ui_alpha)
+	HUD.mymob = src
 
 /datum/hud/new_player
 	hud_shown = TRUE
@@ -15,7 +16,7 @@
 	using.name = "Title"
 	adding += using
 
-	using = new /obj/screen/new_player/selection/join_game()
+	using = new /obj/screen/new_player/selection/join_game(src)
 	using.name = "Join Game"
 	adding += using
 
@@ -53,7 +54,7 @@
 
 /obj/screen/new_player/title/Initialize()
 	icon = current_map.lobby_icon
-	var/list/known_icon_states = list(icon_states(icon))
+	var/list/known_icon_states = icon_states(icon)
 	for(var/lobby_screen in current_map.lobby_screens)
 		if(!(lobby_screen in known_icon_states))
 			error("Lobby screen '[lobby_screen]' did not exist in the icon set [icon].")
@@ -110,10 +111,10 @@
 	color = null
 	return ..()
 
-/obj/screen/new_player/selection/join_game/New()
+/obj/screen/new_player/selection/join_game/New(var/datum/hud/H)
+	hud = H
 	var/mob/abstract/new_player/player = hud.mymob
-	if(player)
-		update_icon(player)
+	update_icon(player)
 
 /obj/screen/new_player/selection/join_game/Click()
 	var/mob/abstract/new_player/player = usr
@@ -131,9 +132,9 @@
 /obj/screen/new_player/selection/join_game/update_icon(var/mob/abstract/new_player/player)
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		if(player.ready)
-			icon_state = "unready"
-		else
 			icon_state = "ready"
+		else
+			icon_state = "unready"
 	else
 		icon_state = "joingame"
 
