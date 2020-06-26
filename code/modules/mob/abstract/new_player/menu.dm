@@ -111,7 +111,9 @@
 	return ..()
 
 /obj/screen/new_player/selection/join_game/New()
-	icon_state = "unready"
+	var/mob/abstract/new_player/player = hud.mymob
+	if(player)
+		update_icon(player)
 
 /obj/screen/new_player/selection/join_game/Click()
 	var/mob/abstract/new_player/player = usr
@@ -119,14 +121,21 @@
 		if(player.ready)
 			player.ready = FALSE
 			player.ready(FALSE)
-			icon_state = "unready"
 		else
 			player.ready = TRUE
 			player.ready(TRUE)
+	else
+		player.join_game()
+	update_icon(player)
+
+/obj/screen/new_player/selection/join_game/update_icon(var/mob/abstract/new_player/player)
+	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
+		if(player.ready)
+			icon_state = "unready"
+		else
 			icon_state = "ready"
 	else
 		icon_state = "joingame"
-		player.join_game()
 
 /obj/screen/new_player/selection/manifest/Click()
 	var/mob/abstract/new_player/player = usr
