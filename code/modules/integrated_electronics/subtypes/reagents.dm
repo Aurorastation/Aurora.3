@@ -393,7 +393,7 @@
 	var/cont[0]
 	for(var/datum/reagent/RE in reagents.reagent_list)
 		cont += RE.name
-	set_pin_data(IC_OUTPUT, 3, cont)
+	set_pin_data(IC_OUTPUT, 2, cont)
 	push_data()
 
 /obj/item/integrated_circuit/reagent/filter
