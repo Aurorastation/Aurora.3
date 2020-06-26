@@ -406,6 +406,8 @@
 			if(do_after(user, 50/I.toolspeed))
 				user.visible_message("\The [user] wrenches \the [src]'s anchoring bolts [anchored ? "back" : "into position"].")
 				anchored = !anchored
+				if(!anchored)
+					on_unanchored()
 	else if(istype(I, /obj/item/integrated_circuit))
 		if(!user.canUnEquip(I))
 			return FALSE
