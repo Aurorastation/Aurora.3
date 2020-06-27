@@ -685,6 +685,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	src.modules += new /obj/item/storage/part_replacer(src)
 	src.emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
 
 /obj/item/robot_module/research
@@ -730,6 +731,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	src.modules += new /obj/item/storage/part_replacer(src)
 	src.emag = new /obj/item/hand_tele(src)
 
 	var/datum/matter_synth/nanite = new /datum/matter_synth/nanite(10000)

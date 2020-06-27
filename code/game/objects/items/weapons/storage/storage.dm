@@ -564,7 +564,7 @@
 		return
 
 	if(empty_delay)
-		visible_message("\The [usr] starts to empty the contents of \the [src].")
+		usr.visible_message("\The [usr] starts to empty the contents of \the [src]...", SPAN_NOTICE("You start emptying the contents of \the [src]..."))
 
 	if(!do_after(usr, contents.len * empty_delay, act_target=usr))
 		return
@@ -577,9 +577,7 @@
 		CHECK_TICK
 
 	post_remove_from_storage_deferred(loc, usr)
-
-	if(empty_delay)
-		visible_message("\The [usr] empties the contents of \the [src].")
+	usr.visible_message("<b>\The [usr]</b> empties the contents of \the [src].", , SPAN_NOTICE("You empty the contents of \the [src]."))
 
 // Override this to fill the storage object with stuff.
 /obj/item/storage/proc/fill()
@@ -656,6 +654,13 @@
 		if(src.verbs.Find(/obj/item/storage/verb/quick_empty))
 			src.quick_empty()
 			return 1
+
+/obj/item/storage/CtrlClick(mob/user)
+	if(user.get_active_hand() == src)
+		if(src.verbs.Find(/obj/item/storage/verb/quick_empty))
+			src.quick_empty()
+			return
+	..()
 
 /obj/item/storage/proc/make_exact_fit()
 	storage_slots = contents.len

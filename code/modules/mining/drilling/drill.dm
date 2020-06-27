@@ -196,11 +196,8 @@
 	if(!active)
 		if(default_deconstruction_screwdriver(user, O))
 			return
-		if (!panel_open)
-			if(default_deconstruction_crowbar(user, O))
-				return
-			if(default_part_replacement(user, O))
-				return
+		if(default_part_replacement(user, O))
+			return
 	if(active)
 		return ..()
 
@@ -237,16 +234,37 @@
 		return
 
 	if(O.iscrowbar())
-		if (panel_open)
+		if(panel_open)
 			if(cell)
-				to_chat(user, SPAN_NOTICE("You wrench out \the [cell]."))
+				to_chat(user, SPAN_NOTICE("You shimmy out \the [cell]."))
 				cell.forceMove(get_turf(user))
 				component_parts -= cell
+				user.put_in_hands(cell)
 				cell = null
 				return
 			else
 				to_chat(user, SPAN_WARNING("There's no cell to remove!"))
 				return
+		else
+			to_chat(user, SPAN_WARNING("The hatch must be open to take out a power cell."))
+			return
+
+	if(istype(O, /obj/item/gripper/miner)) // the gripper will always be empty, because it passes its wrapped object's attack if it has one
+		var/obj/item/gripper/miner/M = O
+		if(panel_open)
+			if(cell)
+				to_chat(user, SPAN_NOTICE("You use your gripper to squeeze the cell out of its case."))
+				cell.forceMove(get_turf(user))
+				component_parts -= cell
+				M.grip_item(cell, user, FALSE)
+				cell = null
+				return
+			else
+				to_chat(user, SPAN_WARNING("There's no cell to remove!"))
+				return
+		else
+			to_chat(user, SPAN_WARNING("The hatch must be open to take out a power cell."))
+			return
 
 	if(istype(O, /obj/item/cell))
 		if(panel_open)
@@ -259,11 +277,11 @@
 				cell = O
 				component_parts += O
 				O.add_fingerprint(user)
-				visible_message(span("notice", "\The [user] inserts a power cell into \the [src]."),
-					span("notice", "You insert the power cell into \the [src]."))
+				visible_message("<b>\The [user]</b> inserts a power cell into \the [src].",
+					SPAN_NOTICE("You insert the power cell into \the [src]."))
 				power_change()
 		else
-			to_chat(user, span("notice", "The hatch must be open to insert a power cell."))
+			to_chat(user, SPAN_WARNING("The hatch must be open to insert a power cell."))
 			return
 	else
 		..()

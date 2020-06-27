@@ -694,9 +694,9 @@ var/global/list/default_medbay_channels = list(
 		if(!SSradio)
 			src.name = "broken radio"
 			return
-
 		secure_radio_connections[ch_name] = SSradio.add_object(src, radiochannels[ch_name],  RADIO_CHAT)
 
+	setupRadioDescription()
 	return
 
 /obj/item/device/radio/borg/Topic(href, href_list)
