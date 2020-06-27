@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "EMT and Paramedic loadout items now work properly, and they now appear under medical in the records."
