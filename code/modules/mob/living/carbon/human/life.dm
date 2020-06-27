@@ -830,35 +830,26 @@
 	if(stat != DEAD)
 		if(stat == UNCONSCIOUS && health < maxHealth/2)
 			var/ovr
+			var/severity
 			switch(health - maxHealth/2)
-				if(-20 to -10)
-					ovr = "passage1"
-				if(-30 to -20)
-					ovr = "passage2"
-				if(-40 to -30)
-					ovr = "passage3"
-				if(-50 to -40)
-					ovr = "passage4"
-				if(-60 to -50)
-					ovr = "passage5"
-				if(-70 to -60)
-					ovr = "passage6"
-				if(-80 to -70)
-					ovr = "passage7"
-				if(-90 to -80)
-					ovr = "passage8"
-				if(-95 to -90)
-					ovr = "passage9"
-				if(-INFINITY to -95)
-					ovr = "passage10"
+				if(-20 to -10)			severity = 1
+				if(-30 to -20)			severity = 2
+				if(-40 to -30)			severity = 3
+				if(-50 to -40)			severity = 4
+				if(-60 to -50)			severity = 5
+				if(-70 to -60)			severity = 6
+				if(-80 to -70)			severity = 7
+				if(-90 to -80)			severity = 8
+				if(-95 to -90)			severity = 9
+				if(-INFINITY to -95)	severity = 10
+			ovr = "passage[severity]"
 
 			if (ovr != last_brute_overlay)
 				damageoverlay.cut_overlay(last_brute_overlay)
 				damageoverlay.add_overlay(ovr)
 				last_brute_overlay = ovr
-			else
-				//Oxygen damage overlay
-				update_oxy_overlay()
+		else
+			update_oxy_overlay()
 
 		//Fire and Brute damage overlay (BSSR)
 		var/hurtdamage = src.getBruteLoss() + src.getFireLoss() + damageoverlaytemp
@@ -1092,15 +1083,16 @@
 	if(shock_stage >= 30)
 		if(shock_stage == 30)
 			visible_message("<b>[src]</b> is having trouble keeping \his eyes open.")
-		eye_blurry = max(2, eye_blurry)
-		stuttering = max(stuttering, 5)
+		if(prob(30))
+			eye_blurry = max(2, eye_blurry)
+			stuttering = max(stuttering, 5)
 
 	if(shock_stage == 40)
 		custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", 40, nohalloss = TRUE)
 
 	if (shock_stage >= 60)
 		if(shock_stage == 60)
-			visible_message("<b>[src]</b>'s body becomes limp.", "Your body becomes limp.")
+			visible_message("<b>[src]</b>'s body becomes limp.", SPAN_DANGER("Your body becomes limp."))
 		if (prob(2))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
 			Weaken(20)
@@ -1344,23 +1336,18 @@
 /mob/living/carbon/human/proc/update_oxy_overlay()
 	var/new_oxy
 	if(getOxyLoss())
+		var/severity = 0
 		switch(getOxyLoss())
-			if(10 to 20)
-				new_oxy = "oxydamageoverlay1"
-			if(20 to 25)
-				new_oxy = "oxydamageoverlay2"
-			if(25 to 30)
-				new_oxy = "oxydamageoverlay3"
-			if(30 to 35)
-				new_oxy = "oxydamageoverlay4"
-			if(35 to 40)
-				new_oxy = "oxydamageoverlay5"
-			if(40 to 45)
-				new_oxy = "oxydamageoverlay6"
-			if(45 to INFINITY)
-				new_oxy = "oxydamageoverlay7"
+			if(10 to 20)		severity = 1
+			if(20 to 25)		severity = 2
+			if(25 to 30)		severity = 3
+			if(30 to 35)		severity = 4
+			if(35 to 40)		severity = 5
+			if(40 to 45)		severity = 6
+			if(45 to INFINITY)	severity = 7
+		new_oxy = "oxydamageoverlay[severity]"
 
-		if (new_oxy != last_oxy_overlay)
+		if(new_oxy != last_oxy_overlay)
 			damageoverlay.cut_overlay(last_oxy_overlay)
 			damageoverlay.add_overlay(new_oxy)
 			last_oxy_overlay = new_oxy
