@@ -18,7 +18,7 @@
 	deform = 'icons/mob/human_races/r_skeleton.dmi'
 	eyes = "blank_eyes"
 
-	total_health = 70 //gotta get headshots to kill them, so they're frail
+	total_health = 100 //skeletons are frail
 
 	default_language = LANGUAGE_TCB
 	language = LANGUAGE_CULT
@@ -92,7 +92,7 @@
 	hud_type = /datum/hud_data/construct
 
 /datum/species/skeleton/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= config.health_threshold_dead)
+	if(H.get_total_health() <= total_health)
 		return TRUE
 	return FALSE
 
@@ -146,7 +146,7 @@
 	qdel(H)
 
 /datum/species/apparition/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= config.health_threshold_dead)
+	if(H.get_total_health() <= total_health)
 		return TRUE
 	return FALSE
 

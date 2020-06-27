@@ -119,7 +119,7 @@ var/global/list/golem_types = list("Coal Golem",
 		qdel(H)
 
 /datum/species/golem/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= config.health_threshold_dead)
+	if(H.get_total_health() <= total_health)
 		return TRUE
 	return FALSE
 
