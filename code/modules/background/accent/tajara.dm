@@ -16,7 +16,7 @@
 /datum/accent/crevan
 	name = ACCENT_CREVAN
 	description = "Once the dialect of merchants and sailors across all Adhomai. Born from the melting pot that is Crevus, where Tajara from all the planet would bring and mix their \
-	cultures. Thanks to the importance of the city during its trading age, it can be found in most Tajara ports as well. It is known for its heavy focus on nasal sounds, with many \
+	cultures. Thanks to the importance of the city during its trading age, it can be found in most Tajara ports as well. Crevan Creole is known for its heavy focus on nasal sounds, with many \
 	Adhomian comedians parodying it."
 	tag_icon = "tajara_crevan"
 
@@ -50,7 +50,7 @@
 
 /datum/accent/rural_delvahhi
 	name = ACCENT_RURALDELVAHHI
-	description = "The version of Delvahhi spoken by settled zhan communities. It has been heavily influenced by Siik'maas. It is also used as the liturgical language by some Ma'ta'ke \
+	description = "The form  of Delvahhi spoken by settled zhan communities. It has been heavily influenced by Siik'maas. It is also used as the liturgical language by some Ma'ta'ke \
 	priests. Rural Delvahhi speakers usually speak siik'maas with a slower and throaty tone."
 	tag_icon = "tajara_rural"
 
