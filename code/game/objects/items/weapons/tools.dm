@@ -74,11 +74,12 @@
 		color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
 		add_overlay(overlay_image(icon, "[initial(icon_state)]_head", flags=RESET_COLOR))
 
-/obj/item/screwdriver/worn_overlays(item_icons)
+/obj/item/screwdriver/worn_overlays(icon_file)
 	. = list()
 	if(build_from_parts)
-		overlay_image(item_icons, "screwdriver_head", flags=RESET_COLOR)
-
+		var/mutable_appearance/M = mutable_appearance(icon_file, "screwdriver_head")
+		M.appearance_flags = RESET_COLOR
+		. += M
 
 /obj/item/screwdriver/update_icon()
 	var/matrix/tf = matrix()
@@ -146,10 +147,12 @@
 		color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
 		add_overlay(overlay_image(icon, "[initial(icon_state)]_head", flags=RESET_COLOR))
 
-/obj/item/wirecutters/worn_overlays()
+/obj/item/wirecutters/worn_overlays(icon_file)
 	. = list()
 	if(build_from_parts)
-		overlay_image(item_icons, "wirecutters_head", flags=RESET_COLOR)
+		var/mutable_appearance/M = mutable_appearance(icon_file, "wirecutters_head")
+		M.appearance_flags = RESET_COLOR
+		. += M
 
 /obj/item/wirecutters/update_icon()
 	var/matrix/tf = matrix()
