@@ -118,6 +118,7 @@
 
 /obj/screen/new_player/selection/join_game/Click()
 	var/mob/abstract/new_player/player = usr
+	sound_to(player, 'sound/effects/pop.ogg')
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		if(player.ready)
 			player.ready = FALSE
@@ -140,22 +141,27 @@
 
 /obj/screen/new_player/selection/manifest/Click()
 	var/mob/abstract/new_player/player = usr
+	sound_to(player, 'sound/effects/pop.ogg')
 	player.ViewManifest()
 
 /obj/screen/new_player/selection/observe/Click()
 	var/mob/abstract/new_player/player = usr
+	sound_to(player, 'sound/effects/pop.ogg')
 	player.new_player_observe()
 
 /obj/screen/new_player/selection/settings/Click()
 	var/mob/abstract/new_player/player = usr
+	sound_to(player, 'sound/effects/pop.ogg')
 	player.setupcharacter()
 
 /obj/screen/new_player/selection/changelog/Click()
 	var/mob/abstract/new_player/player = usr
+	sound_to(player, 'sound/effects/pop.ogg')
 	player.client.changes()
 
 /obj/screen/new_player/selection/poll/Click()
 	var/mob/abstract/new_player/player = usr
+	sound_to(player, 'sound/effects/pop.ogg')
 	player.handle_player_polling()
 
 /mob/abstract/new_player/proc/setupcharacter()
