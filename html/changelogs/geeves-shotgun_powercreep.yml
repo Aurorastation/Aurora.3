@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "You can now pump a shotgun or work a rifle's bolt without wielding it, but it takes two seconds to do so."
-  - tweak: "Using the double-barreled shotgun in-hand now ejects its ammunition instead of changing the firing mode. Changing the firing mode has been put on alt click."
