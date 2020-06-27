@@ -15,7 +15,7 @@
 		spawn(3)
 			var/mob/living/carbon/human/H = player.current
 			if(istype(H)) H.change_appearance(APPEARANCE_ALL, H.loc, H, valid_species, state = z_state)
-	if(!(flags & ANTAG_KEEP_FLAVORTEXT) && ishuman(player.current))
+	if((flags & ANTAG_NO_FLAVORTEXT) && ishuman(player.current))
 		var/mob/living/carbon/human/H = player.current
 		H.scrub_flavor_text()
 	return player.current

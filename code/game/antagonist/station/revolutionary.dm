@@ -12,7 +12,7 @@ var/datum/antagonist/revolutionary/revs
 	loss_text = "The Fellowship threw a wrench into your plans -- permanently."
 	victory_feedback_tag = "You eliminated the Fellows in one fell swoop."
 	loss_feedback_tag = "No matter your efforts, you failed to thwart them."
-	flags = ANTAG_SUSPICIOUS | ANTAG_VOTABLE | ANTAG_KEEP_FLAVORTEXT
+	flags = ANTAG_SUSPICIOUS | ANTAG_VOTABLE
 	antaghud_indicator = "contender"
 
 	hard_cap = 2
