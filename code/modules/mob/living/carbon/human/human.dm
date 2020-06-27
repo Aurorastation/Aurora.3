@@ -2019,6 +2019,6 @@
 
 /mob/living/carbon/human/proc/set_accent(var/new_accent)
 	accent = new_accent
-	if(!accent in species.allowed_accents)
+	if(!(accent in species.allowed_accents))
 		accent = species.default_accent
 	return TRUE
