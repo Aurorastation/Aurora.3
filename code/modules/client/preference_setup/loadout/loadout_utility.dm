@@ -184,12 +184,15 @@
 	path = /obj/item/cane
 
 /datum/gear/utility/cane/white
-	display_name = "cane, white"
+	display_name = "cane, white (selection)"
 	path = /obj/item/cane/white
 
-/datum/gear/utility/cane/white2
-	display_name = "cane, white telescopic"
-	path = /obj/item/cane/white/collapsible
+/datum/gear/utility/cane/white/New()
+	..()
+	var/white_canes = list()
+	white_canes["white cane"] = /obj/item/cane/white
+	white_canes["telescopic white cane"] = /obj/item/cane/white/collapsible
+	gear_tweaks += new/datum/gear_tweak/path(white_canes)
 
 /datum/gear/utility/crutch
 	display_name = "crutch"
