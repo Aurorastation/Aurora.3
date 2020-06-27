@@ -198,6 +198,31 @@
 			return
 		if(default_part_replacement(user, O))
 			return
+
+	if(istype(O, /obj/item/mining_scanner))
+		if(!length(resource_field))
+			to_chat(user, SPAN_WARNING("\The [src] has no resource field to draw data from!"))
+			return
+		to_chat(user, SPAN_NOTICE("You start drawing the data from \the [src]..."))
+		if(do_after(user, 50, TRUE))
+			if(!length(resource_field))
+				to_chat(user, SPAN_WARNING("\The [src] has no resource field to draw data from!"))
+				return
+			var/list/ore_data = list()
+			for(var/ore_type in ore_types)
+				ore_data[ore_type] = 0
+			for(var/field in resource_field)
+				var/turf/T = field
+				if(!T.resources)
+					continue
+				for(var/ore in ore_types)
+					if(T.resources[ore])
+						ore_data[ore] += T.resources[ore]
+			to_chat(user, SPAN_NOTICE("\The [src] has found this ore in the vicinity, and is able to gather it:"))
+			for(var/entry in ore_data)
+				to_chat(user, SPAN_NOTICE(" | <b>[entry]</b> - <b>[ore_data[entry]]</b>"))
+		return
+
 	if(active)
 		return ..()
 

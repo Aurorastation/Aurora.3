@@ -13,3 +13,4 @@ changes:
   - tweak: "Taking a cell out of a mining drill will now place it in one of your hands, if one is open."
   - bugfix: "Emptying a bag's contents onto the floor with the verb will now always display the message of you doing it."
   - rscadd: "Control-clicking a storage item in your active hand will now attempt to empty it onto the floor, if it has that verb."
+  - rscadd: "Using an ore detector on a drill will now give a detailed readout of the ore in the vicinity that it has access to and call pull out."
