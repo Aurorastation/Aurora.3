@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - bugfix: "Tweaked some values related to hivebots to make them more inline of their original implementation, to remedy some unintentional problems that have crept up."
