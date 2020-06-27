@@ -66,8 +66,8 @@
 	//Succ points and chems. You get less if it's not a player. Using is_client_active to prevent rageghosting screwing you.
 	if(T.is_client_active(10))
 		changeling.chem_charges += 50	
-		changeling.geneticpoints += 5
-		changeling.total_absorbed_genpoints += 5
+		changeling.geneticpoints += 3
+		changeling.total_absorbed_genpoints += 3
 	else
 		if(changeling.inactives_absorbed >= 3)
 			to_chat(src, SPAN_WARNING("We can evolve no further with these stale genes. We require fresh samples."))
@@ -75,8 +75,8 @@
 		else
 			to_chat(src, SPAN_NOTICE("These genes are stale from inactivity... Disgusting."))
 			changeling.chem_charges += 25	
-			changeling.geneticpoints += 2
-			changeling.total_absorbed_genpoints += 2
+			changeling.geneticpoints += 1
+			changeling.total_absorbed_genpoints += 1
 		changeling.inactives_absorbed++
 
 	update_ling_power()

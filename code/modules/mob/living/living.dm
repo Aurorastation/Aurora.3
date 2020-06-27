@@ -945,6 +945,7 @@ default behaviour is:
 		for(var/a in auras)
 			remove_aura(a)
 	return ..()
+	
 //For lings. How strong of a ling are they?
 mob/living/proc/check_ling_power()
 	if(!mind?.changeling)
