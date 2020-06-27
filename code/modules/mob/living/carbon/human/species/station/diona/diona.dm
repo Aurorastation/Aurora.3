@@ -184,7 +184,7 @@
 	return current_flags
 
 /datum/species/diona/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= total_health)
+	if(H.get_total_health() <= 0)
 		return TRUE
 	return FALSE
 
