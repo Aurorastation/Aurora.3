@@ -12,11 +12,11 @@
 /obj/item/ammo_pile/Initialize(mapload, ...)
 	. = ..()
 	if(ammo_type)
-		var/obj/first_round = new ammo_type(get_turf(src))
+		var/obj/first_round = new ammo_type()
 		add_ammo(first_round)
 		check_name_and_ammo()
 		for(var/i = 1, i <= max_ammo - 1, i++)
-			var/obj/C = new ammo_type(get_turf(src))
+			var/obj/C = new ammo_type()
 			add_ammo(C)
 	addtimer(CALLBACK(src, .proc/check_ammo), 5) // if we don't have any ammo in 5 deciseconds, we're an empty pile, which is worthless, so self-delete
 
@@ -63,7 +63,7 @@
 	else if(istype(A, /obj/item/gun) || istype(A, /obj/item/ammo_magazine))
 		var/obj/bullet = get_next_ammo()
 		A.attackby(bullet, user)
-		if(!(bullet in src)) // if the gun / mag acceoted the bullet, it will no longer be in our pile
+		if(!(bullet in src)) // if the gun / mag accepted the bullet, it will no longer be in our pile
 			remove_ammo()
 
 /obj/item/ammo_pile/attackby(obj/item/W, mob/user)
