@@ -206,7 +206,7 @@
 						status += "peeling away"
 
 				if(org.is_stump())
-					status += "MISSING"
+					status += SPAN_DANGER("MISSING")
 				if(org.status & ORGAN_MUTATED)
 					status += "weirdly shapen"
 				if(org.dislocated == 2)
@@ -218,11 +218,11 @@
 				if(!org.is_usable())
 					status += "dangling uselessly"
 				if(org.status & ORGAN_BLEEDING)
-					status += span("danger", "bleeding")
+					status += SPAN_DANGER("bleeding")
 				if(status.len)
-					src.show_message("My [org.name] is [span("warning", "[english_list(status)].")]" ,1)
+					src.show_message("My [org.name] is [span("warning", "[english_list(status)].")]", 1)
 				else
-					src.show_message("My [org.name] is [span("notice", "OK.")]" ,1)
+					src.show_message("My [org.name] feels [span("notice", "OK.")]" ,1)
 
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
@@ -299,7 +299,7 @@
 				else if(istype(tapper))
 					tapper.species.tap(tapper,src)
 				else
-					M.visible_message(span("notice", "[M] taps [src] to get their attention!"), \
+					M.visible_message("<b>[M]</b> taps [src] to get their attention!", \
 								span("notice", "You tap [src] to get their attention!"))
 
 			if(stat != DEAD)

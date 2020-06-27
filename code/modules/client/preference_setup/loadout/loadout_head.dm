@@ -322,3 +322,13 @@
 	weldinghelmets["engie welding helmet"] = /obj/item/clothing/head/welding/engie
 	weldinghelmets["carp welding helmet"] = /obj/item/clothing/head/welding/carp
 	gear_tweaks += new/datum/gear_tweak/path(weldinghelmets)
+
+/datum/gear/head/himeo
+	display_name = "himean cap"
+	path = /obj/item/clothing/head/soft/himeo
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/vysoka
+	display_name = "vysokan fur cap"
+	path = /obj/item/clothing/head/soft/vysoka
+	flags = GEAR_HAS_DESC_SELECTION

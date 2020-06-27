@@ -195,8 +195,7 @@
 
 /obj/effect/landmark/costume/waiter/New()
 	new /obj/item/clothing/under/waiter(src.loc)
-	var/CHOICE= pick( /obj/item/clothing/head/kitty, /obj/item/clothing/head/rabbitears)
-	new CHOICE(src.loc)
+	new /obj/item/clothing/head/rabbitears(src.loc)
 	new /obj/item/clothing/suit/apron(src.loc)
 	delete_me = 1
 

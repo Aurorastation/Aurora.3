@@ -42,8 +42,8 @@
 
 /obj/item/reagent_containers/food/snacks/on_consume(mob/user, mob/target)
 	if(!reagents.total_volume && !trash)
-		target.visible_message(SPAN_NOTICE("[target] finishes [is_liquid ? "drinking" : "eating"] \the [src]."),
-					 SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
+		target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \a [src].",
+					 SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \a [src]."))
 		qdel(src)
 	else
 		..()

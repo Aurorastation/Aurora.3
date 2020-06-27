@@ -1,3 +1,4 @@
+
 // DM Environment file for aurorastation.dme.
 // All manual changes should be made outside the BEGIN_ and END_ blocks.
  // New source code should be placed in .dm files: choose File/New --> Code File.
@@ -111,11 +112,11 @@
 #include "code\_onclick\hud\_defines.dm"
 #include "code\_onclick\hud\action.dm"
 #include "code\_onclick\hud\ai.dm"
+#include "code\_onclick\hud\nymph_hud.dm"
 #include "code\_onclick\hud\gun_mode.dm"
 #include "code\_onclick\hud\hud.dm"
 #include "code\_onclick\hud\human.dm"
 #include "code\_onclick\hud\movable_screen_objects.dm"
-#include "code\_onclick\hud\nymph_hud.dm"
 #include "code\_onclick\hud\other_mobs.dm"
 #include "code\_onclick\hud\parallax.dm"
 #include "code\_onclick\hud\radial.dm"
@@ -1356,6 +1357,9 @@
 #include "code\modules\clothing\ears\earrings.dm"
 #include "code\modules\clothing\ears\skrell.dm"
 #include "code\modules\clothing\factions\dominia.dm"
+#include "code\modules\clothing\factions\elyra.dm"
+#include "code\modules\clothing\factions\himeo.dm"
+#include "code\modules\clothing\factions\vysoka.dm"
 #include "code\modules\clothing\glasses\glasses.dm"
 #include "code\modules\clothing\glasses\hud.dm"
 #include "code\modules\clothing\gloves\arm_guard.dm"
@@ -1599,7 +1603,7 @@
 #include "code\modules\heavy_vehicle\equipment\mining.dm"
 #include "code\modules\heavy_vehicle\equipment\utility.dm"
 #include "code\modules\heavy_vehicle\interface\_interface.dm"
-#include "code\modules\heavy_vehicle\interface\screen_objectsa.dm"
+#include "code\modules\heavy_vehicle\interface\screen_objects.dm"
 #include "code\modules\heavy_vehicle\premade\_premade.dm"
 #include "code\modules\heavy_vehicle\premade\combat.dm"
 #include "code\modules\heavy_vehicle\premade\heavy.dm"

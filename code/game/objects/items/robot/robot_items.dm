@@ -51,6 +51,7 @@
 
 /obj/item/borg/sight/thermal
 	name = "\proper thermal vision"
+	desc_antag = "Having this device on your hotbar will allow you to see in enhanced thermal vision, which allows you to see heat signatures through solid walls."
 	sight_mode = BORGTHERM
 	icon_state = "thermal"
 	icon = 'icons/obj/clothing/glasses.dmi'

@@ -112,7 +112,7 @@
 
 	var/obj/item/M = new augment_type(owner)
 	owner.put_in_active_hand(M)
-	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [src.loc]."), SPAN_NOTICE("You deploy \the [M]!"))
+	owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [owner.organs_by_name[parent_organ]]."), SPAN_NOTICE("You deploy \the [M]!"))
 
 /obj/item/organ/internal/augment/tool/combitool
 	name = "retractable combitool"
@@ -334,6 +334,13 @@
 /obj/item/organ/internal/augment/language/cthur
 	name = "C'thur language processor"
 	augment_languages = list(LANGUAGE_SKRELLIAN)
+
+// Snakebitten!
+/obj/item/organ/internal/augment/psi
+	name = "psionic receiver"
+	desc = "An augment installed into the head that functions as a surrogate for a missing zona bovinae, also functioning as a filter for the psionically-challenged."
+	organ_tag = BP_AUG_PSI
+	parent_organ = BP_HEAD
 
 /obj/item/organ/internal/augment/dud
 	name = "generic implant"

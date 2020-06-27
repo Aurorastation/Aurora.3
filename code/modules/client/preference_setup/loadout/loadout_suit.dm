@@ -477,3 +477,21 @@
 	display_name = "snowsuit, supply"
 	path = /obj/item/clothing/suit/storage/snowsuit/cargo
 	allowed_roles = list("Quartermaster","Shaft Miner","Cargo Technician","Head of Personnel")
+
+/datum/gear/suit/himeo
+	display_name = "himean coat"
+	path = /obj/item/clothing/suit/storage/toggle/himeo
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/vysoka
+	display_name = "chokha selection"
+	description = "A selection of Vysokan chokhas."
+	path = /obj/item/clothing/suit/storage/vysoka_m
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/vysoka/New()
+	..()
+	var/coat = list()
+	coat["feminine chokha"] = /obj/item/clothing/suit/storage/vysoka_f
+	coat["masculine chokha"] = /obj/item/clothing/suit/storage/vysoka_m
+	gear_tweaks += new/datum/gear_tweak/path(coat)
