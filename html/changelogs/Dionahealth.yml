@@ -39,6 +39,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Changes Dionae health to 240, from 300"
+  - tweak: "Changes Dionae health to 240, from 200"
   - tweak: "Changes nymph health to 50, from 33.3"
   - rscadd: " When a dionae splits, their health is now divided among their nymphs"
