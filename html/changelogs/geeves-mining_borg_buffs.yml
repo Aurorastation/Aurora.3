@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - rscadd: "Added a jetpack, metal rods, and purple mining beacons to the mining cyborg module."
+  - rscadd: "Added a jetpack, metal rods, a track laying RFD, and purple mining beacons to the mining cyborg module."
