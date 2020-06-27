@@ -403,6 +403,7 @@
 	var/ready_to_use = TRUE
 	var/recharge_time = 300
 	var/transfer_rate = 5000
+	var/efficiency_mod = 0.9
 	maptext_x = 3
 	maptext_y = 2
 
@@ -445,9 +446,9 @@
 			to_chat(user, SPAN_WARNING("\The [IPC] is already fully charged!"))
 			return
 		var/charge_amount = min(IPC.max_nutrition - IPC.nutrition, transfer_rate)
-		var/charge_value = R.cell.use(charge_amount / 0.9) * 0.9
+		var/charge_value = R.cell.use(charge_amount / efficiency_mod) * efficiency_mod
 		IPC.nutrition = min(IPC.max_nutrition, charge_value)
-		message_and_use(user, "<b>[user]</b> holds \the [src] over \the [IPC], topping up their battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [IPC]."))
+		message_and_use(user, "<b>[user]</b> holds \the [src] over \the [IPC], topping up their battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [IPC], using [charge_value / efficiency_mod] of internal cell power."))
 	else if(isobj(target))
 		var/obj/item/cell/C
 		if(istype(target, /obj/item/cell))
@@ -461,9 +462,9 @@
 			to_chat(user, SPAN_WARNING("\The [C] is already fully charged!"))
 			return
 		var/charge_amount = min(C.maxcharge - C.charge, transfer_rate)
-		var/charge_value = R.cell.use(charge_amount / 0.9) * 0.9
+		var/charge_value = R.cell.use(charge_amount / efficiency_mod) * efficiency_mod
 		C.give(charge_value)
-		message_and_use(user, "<b>[user]</b> holds \the [src] over \the [target], topping up its battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [target]."))
+		message_and_use(user, "<b>[user]</b> holds \the [src] over \the [target], topping up its battery.", SPAN_NOTICE("You wirelessly transmit [charge_value] units of power to \the [target], using [charge_value / efficiency_mod] of internal cell power."))
 	else
 		to_chat(user, SPAN_WARNING("\The [src] cannot be used on \the [target]!"))
 
