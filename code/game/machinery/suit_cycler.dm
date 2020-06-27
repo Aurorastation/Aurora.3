@@ -51,33 +51,11 @@
 
 	if(helmet)
 		//copied straight from the human update_icons thing
-		var/image/helmet_image
-		if(helmet.contained_sprite)
-			helmet.auto_adapt_species(src)
-			var/state = "[helmet.icon_species_tag ? "[helmet.icon_species_tag]_" : ""][helmet.item_state][WORN_HEAD]"
-			helmet_image = image(helmet.icon_override || helmet.icon, state)
-		else if(helmet.icon_override)
-			helmet_image = image(helmet.icon_override, helmet.icon_state)
-		else if(helmet.item_icons && (slot_head_str in helmet.item_icons))
-			helmet_image = image(helmet.item_icons[slot_head_str], helmet.icon_state)
-		else
-			helmet_image = image(INV_HEAD_DEF_ICON, helmet.icon_state)
-		helmet_image.color = helmet.color
+		var/image/helmet_image = helmet.return_own_image()
 		if(helmet_image)
 			add_overlay(helmet_image)
 	if(suit)
-		var/image/suit_image
-		if(suit.contained_sprite)
-			suit.auto_adapt_species(src)
-			var/state = "[suit.icon_species_tag ? "[suit.icon_species_tag]_" : ""][suit.item_state][WORN_SUIT]"
-			suit_image = image(suit.icon_override || suit.icon, state)
-		else if(suit.icon_override)
-			suit_image = image(suit.icon_override, suit.icon_state)
-		else if(suit.item_icons && (slot_wear_suit_str in suit.item_icons))
-			suit_image = image(suit.item_icons[slot_wear_suit_str], suit.icon_state)
-		else
-			suit_image = image(INV_SUIT_DEF_ICON, suit.icon_state)
-		suit_image.color = suit.color
+		var/image/suit_image = suit.return_own_image()
 		if(suit_image)
 			add_overlay(suit_image)
 	if(occupant)
@@ -185,7 +163,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] is already occupied!"))
 		return
 
-	if(contents.len)
+	if(length(contents))
 		to_chat(user, SPAN_WARNING("There's no space in \the [src] for you!"))
 		return
 
