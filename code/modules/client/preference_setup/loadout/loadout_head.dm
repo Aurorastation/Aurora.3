@@ -83,7 +83,7 @@
 /datum/gear/head/beret/medical
 	display_name = "beret, medical"
 	path = /obj/item/clothing/head/beret/medical
-	allowed_roles = list("Physician", "Surgeon", "Medical Resident", "Pharmacist", "Paramedic", "Chief Medial Officer", "Psychiatrist")
+	allowed_roles = list("Physician", "Surgeon", "Medical Resident", "Pharmacist", "Emergency Medical Technician", "Chief Medial Officer", "Psychiatrist")
 
 /datum/gear/head/corp
 	display_name = "cap, corporate (security)"
@@ -223,7 +223,7 @@
 /datum/gear/head/surgical
 	display_name = "surgical cap (selection)"
 	path = /obj/item/clothing/head/surgery/blue
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/head/surgical/New()
 	..()
@@ -256,7 +256,7 @@
 /datum/gear/head/iacberet
 	display_name = "IAC beret"
 	path = /obj/item/clothing/head/soft/iacberet
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Resident")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/circuitry

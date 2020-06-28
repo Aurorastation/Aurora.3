@@ -517,6 +517,11 @@
 		log_debug("Error: Species with special sprint mechanics has not overridden cost function.")
 		return 0
 
+	var/obj/item/organ/internal/augment/calf_override/C = H.internal_organs_by_name[BP_AUG_CALF_OVERRIDE]
+	if(C && !C.is_broken())
+		cost = 0
+		C.do_run_act()
+
 	var/remainder = 0
 	if (H.stamina > cost)
 		H.stamina -= cost
