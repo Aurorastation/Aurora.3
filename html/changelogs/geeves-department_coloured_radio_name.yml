@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Speaking on the radio now cross-references the records database. If the name of the voice is in the records database, their name and role is shown, and coloured in their department's colour."

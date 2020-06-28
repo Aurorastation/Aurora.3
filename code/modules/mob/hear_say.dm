@@ -172,7 +172,7 @@
 				jobname = H.get_assignment()
 
 		else if (iscarbon(speaker)) // Nonhuman carbon mob
-			jobname = "No id"
+			jobname = "Unknown"
 		else if (isAI(speaker))
 			jobname = "AI"
 		else if (isrobot(speaker))
@@ -201,6 +201,11 @@
 		formatted = language.format_message_radio(message, verb)
 	else
 		formatted = "[verb], <span class=\"body\">\"[message]\"</span>"
+
+	var/datum/record/general/R = SSrecords.find_record("name", speaker_name)
+	if(R)
+		speaker_name = "<span class='[get_job_span_class(R.rank)]'><font size='1'>\[[R.rank]\]</font> [speaker_name]</span>"
+
 	if(sdisabilities & DEAF || ear_deaf)
 		if(prob(20))
 			to_chat(src, "<span class='warning'>You feel your headset vibrate but can hear nothing from it!</span>")

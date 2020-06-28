@@ -188,3 +188,20 @@ var/datum/controller/subsystem/radio/SSradio
 		else
 			if(DEPT_FREQS_ASSOC[fstr])
 				. = "deptradio"
+
+/proc/get_job_span_class(var/job)
+	if(job in command_positions)
+		return "comradio"
+	if(job in engineering_positions)
+		return "engradio"
+	if(job in medical_positions)
+		return "medradio"
+	if(job in science_positions)
+		return "sciradio"
+	if(job in cargo_positions)
+		return "supradio"
+	if(job in civilian_positions)
+		return "srvradio"
+	if(job in security_positions)
+		return "secradio"
+	return "radio"
