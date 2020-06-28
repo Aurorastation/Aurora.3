@@ -618,13 +618,11 @@
 	return
 
 /datum/species/proc/get_pain_emote(var/mob/living/carbon/human/H, var/pain_power)
-	if(!(flags & NO_PAIN))
+	if(flags & NO_PAIN)
 		return
 	for(var/pain_emotes in pain_emotes_with_pain_level)
 		var/pain_level = pain_emotes_with_pain_level[pain_emotes]
 		if(pain_level >= pain_power)
-			world << "Pain level >= pain_power" //todomatt
 			// This assumes that if a pain-level has been defined it also has a list of emotes to go with it
 			var/decl/emote/E = decls_repository.get_decl(pick(pain_emotes))
-			world << "E.key" //todomatt
 			return E.key

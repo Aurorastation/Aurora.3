@@ -61,7 +61,7 @@
 		/decl/emote/audible,
 		/decl/emote/audible/scretch,
 		/decl/emote/audible/choke,
-		/decl/emote/audible/gnarl, //todomatt: readd bug hiss/chirp?
+		/decl/emote/audible/gnarl,
 		/decl/emote/audible/chirp
 		)
 

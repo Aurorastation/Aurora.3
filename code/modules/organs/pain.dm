@@ -87,7 +87,7 @@ mob/var/next_pain_time = 0
 			if(70 to 10000)
 				msg = "[burning ? species.organ_high_burn_message : species.organ_high_pain_message]"
 		msg = replacetext(msg, "%PARTNAME%", damaged_organ.name)
-		custom_pain(msg, maxdam, prob(10), damaged_organ, TRUE)
+		custom_pain(msg, maxdam, prob(30), damaged_organ, TRUE)
 
 	// Damage to internal organs hurts a lot.
 	for(var/obj/item/organ/internal/I in internal_organs)
