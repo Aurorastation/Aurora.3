@@ -140,26 +140,37 @@
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/augment/anchor
+/datum/gear/augment/autakh
 	display_name = "soul anchor"
-	description = "An implant that connects the Aut'akh to the Mesh."
+	description = "A rune inscribed mirror or piece of glass placed behind the eyes. Believed to be the 'Window to the Soul' and house the concentrated spirit of an individual."
 	path = /obj/item/organ/internal/anchor
 	cost = 1
 	whitelisted = list("Unathi")
 	sort_category = "Xenowear - Unathi"
 
-/datum/gear/augment/haemodynamic
-	display_name = "haemodynamic control system"
-	description = "An Aut'akh augment that allows the user to stabilize themselves."
-	path = /obj/item/organ/internal/augment/haemodynamic
-	cost = 4
-	whitelisted = list("Unathi")
-	sort_category = "Xenowear - Unathi"
+/datum/gear/augment/autakh/calf_override
+	display_name = "calf overdrive"
+	description = "An Aut'akh augment that allows the user to run at high speeds without the cost of stamina, causes damage to the lower body when used."
+	path = /obj/item/organ/internal/augment/calf_override
 
-/datum/gear/augment/adrenal
-	display_name = "adrenal management system"
-	description = "A series of aut'akh mechanical stimulants and extra glands placed along the adrenal system. ."
-	path = /obj/item/organ/internal/augment/adrenal
-	cost = 4
-	whitelisted = list("Unathi")
-	sort_category = "Xenowear - Unathi"
+/datum/gear/augment/autakh/protein_valve
+	display_name = "protein breakdown valve"
+	description = "An aut'akh valve on the chest that releases a dangerous chemical into the stomach, forcing rapid digestion for immediate adrenal stimulation. Causes long-term damage."
+	path = /obj/item/organ/internal/augment/protein_valve
+
+/datum/gear/augment/autakh/venomous_rest
+	display_name = "venomous rest implant"
+	description = "An aut'akh compartment connected to the blood system that administers a traditional Unathi healing agent."
+	path = /obj/item/organ/internal/augment/venomous_rest
+
+/datum/gear/augment/autakh/eyes
+	display_name = "eye augment selection"
+	description = "A selection of au'takh eye augments."
+	path = /obj/item/organ/internal/augment/farseer_eye
+
+/datum/gear/augment/autakh/eyes/New()
+	..()
+	var/augs = list()
+	augs["farseer eye"] = /obj/item/organ/internal/augment/farseer_eye
+	augs["eye flashlight"] = /obj/item/organ/internal/augment/eye_flashlight
+	gear_tweaks += new /datum/gear_tweak/path(augs)
