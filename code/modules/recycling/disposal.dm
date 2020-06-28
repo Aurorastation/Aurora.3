@@ -30,6 +30,24 @@
 /obj/machinery/disposal/small
 	desc = "A compact pneumatic waste disposal unit."
 	icon_state = "disposal_small"
+	density = 0
+
+/obj/machinery/disposal/small/Initialize()
+	. = ..()
+	if(pixel_x || pixel_y)
+		return
+	else
+		switch(dir)
+			if(1)
+				pixel_y = -13
+				layer = MOB_LAYER + 0.1
+			if(2)
+				pixel_y = 20
+				layer = OBJ_LAYER + 0.3
+			if(4)
+				pixel_x = -12
+			if(8)
+				pixel_x = 11
 
 /obj/machinery/disposal/small/check_mob_size(mob/target)
 	if(target.mob_size > MOB_SMALL)
@@ -89,12 +107,19 @@
 				if(do_after(user,20/W.toolspeed))
 					if(!src || !W.isOn()) return
 					to_chat(user, "You sliced the floorweld off the disposal unit.")
-					var/obj/structure/disposalconstruct/C = new (src.loc)
-					src.transfer_fingerprints_to(C)
-					C.ptype = 6 // 6 = disposal unit
-					C.anchored = 1
-					C.density = 1
-					C.update()
+					if(!istype(src, /obj/machinery/disposal/small))
+						var/obj/structure/disposalconstruct/C = new (src.loc)
+						src.transfer_fingerprints_to(C)
+						C.ptype = 6 // 6 = disposal unit
+						C.anchored = 1
+						C.density = 1
+						C.update()
+					else
+						var/obj/structure/disposalconstruct/C = new (src.loc)
+						src.transfer_fingerprints_to(C)
+						C.ptype = 15 // 15 = small disposal unit
+						C.anchored = 1
+						C.update()
 					qdel(src)
 				return
 			else
@@ -133,7 +158,7 @@
 		if(ismob(G.affecting))
 			var/mob/GM = G.affecting
 			if(!check_mob_size(GM))
-				to_chat(user, SPAN_NOTICE("It doesn't fit!"))
+				to_chat(user, SPAN_NOTICE("The opening is too narrow for [G.affecting] to fit!"))
 				return
 			for (var/mob/V in viewers(usr))
 				V.show_message("[usr] starts putting [GM.name] into the disposal.", 3)
@@ -178,7 +203,7 @@
 		return
 
 	if(!check_mob_size(target))
-		to_chat(user, SPAN_NOTICE("It doesn't fit!"))
+		to_chat(user, SPAN_NOTICE("The opening is too narrow for [target] to fit!"))
 		return
 
 	src.add_fingerprint(user)
@@ -490,10 +515,10 @@
 		qdel(H)
 
 /obj/machinery/disposal/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if (istype(mover,/obj/item) && mover.throwing)
+	if(istype(mover, /obj/item/projectile))
+		return 1
+	if(istype(mover,/obj/item) && mover.throwing)
 		var/obj/item/I = mover
-		if(istype(I, /obj/item/projectile))
-			return
 		if(prob(75))
 			I.forceMove(src)
 			for(var/mob/M in viewers(src))

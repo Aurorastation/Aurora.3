@@ -81,6 +81,9 @@
 			base_state = "pipe-tagger-partial"
 			dpdir = dir | flip
 
+		if(15)
+			base_state = "disposal_small"
+
 ///// Z-Level stuff
 	if(!(ptype in list(6, 7, 8, 11, 12, 13, 14)))
 ///// Z-Level stuff
@@ -204,6 +207,8 @@
 		if(14)
 			nicetype = "partial tagging pipe"
 			ispipe = 1
+		if(15)
+			nicetype = "compact disposal bin"
 		else
 			nicetype = "pipe"
 			ispipe = 1
@@ -221,11 +226,11 @@
 			if(ispipe)
 				level = 2
 				density = 0
-			else
+			else if(ptype != 15)
 				density = 1
 			to_chat(user, "You detach the [nicetype] from the underfloor.")
 		else
-			if(ptype>=6 && ptype <= 8) // Disposal or outlet
+			if(ptype>=6 && ptype <= 8 || ptype == 15) // Disposal or outlet
 				if(CP) // There's something there
 					if(!istype(CP,/obj/structure/disposalpipe/trunk))
 						to_chat(user, "The [nicetype] requires a trunk underneath it in order to work.")
@@ -247,7 +252,7 @@
 			if(ispipe)
 				level = 1 // We don't want disposal bins to disappear under the floors
 				density = 0
-			else
+			else if(ptype != 15)
 				density = 1 // We don't want disposal bins or outlets to go density 0
 			to_chat(user, "You attach the [nicetype] to the underfloor.")
 		playsound(src.loc, I.usesound, 100, 1)
@@ -299,6 +304,11 @@
 						var/obj/machinery/disposal/deliveryChute/P = new /obj/machinery/disposal/deliveryChute(src.loc)
 						src.transfer_fingerprints_to(P)
 						P.set_dir(dir)
+
+					else if(ptype==15) // Small Disposal bin
+						var/obj/machinery/disposal/small/P = new /obj/machinery/disposal/small(src.loc, dir, 1)
+						src.transfer_fingerprints_to(P)
+						P.mode = 0 // start with pump off
 
 					qdel(src)
 					return
