@@ -28,18 +28,10 @@
 
 /datum/computer_file/program/New(var/obj/item/modular_computer/comp)
 	..()
-	if(comp)
-		if(istype(comp))
-			computer = comp
-		else if(istype(comp, /obj/item/computer_hardware/hard_drive))
-			var/obj/item/computer_hardware/hard_drive/HD = comp
-			computer = HD.parent_computer
+	if(comp && istype(comp))
+		computer = comp
 	else
-		addtimer(CALLBACK(src, .proc/check_hard_drive_parent), 10)
-
-/datum/computer_file/program/proc/check_hard_drive_parent()
-	if(hard_drive)
-		computer = hard_drive.parent_computer
+		crash_with("Comp was either not sent, or was of the wrong type, for [src.filename]")
 
 /datum/computer_file/program/Destroy()
 	computer.idle_threads -= src

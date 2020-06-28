@@ -21,12 +21,11 @@
 	var/can_call_shuttle = FALSE //If calling the shuttle should be available from this console
 	color = LIGHT_COLOR_BLUE
 
-/datum/computer_file/program/comm/New(intercept_printing = FALSE, shuttle_call = FALSE)
+/datum/computer_file/program/comm/New(obj/item/modular_computer/comp, intercept_printing = FALSE, shuttle_call = FALSE)
 	..()
 	intercept = intercept_printing
 	can_call_shuttle = shuttle_call
 	message_core = new
-	addtimer(CALLBACK(src, .proc/check_hard_drive_parent), 10)
 
 /datum/computer_file/program/comm/clone()
 	var/datum/computer_file/program/comm/temp = ..()
