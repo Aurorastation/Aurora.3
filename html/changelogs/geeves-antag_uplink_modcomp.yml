@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "It is now possible to have your traitor uplink spawn in your modular computer wristbound or tablet, simply set the spawn in the Roles tab to Modular Computer in character creation."

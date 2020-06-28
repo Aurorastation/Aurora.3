@@ -192,11 +192,12 @@ var/datum/antagonist/traitor/traitors
 		R.hidden_uplink = T
 		var/obj/item/modular_computer/MC = R
 		var/uplink_pass = "[rand(100,999)] [pick("Alpha","Bravo","Delta","Omega")]"
-		MC.hard_drive.store_file(new /datum/computer_file/program/antag_uplink(MC, uplink_pass))
-		// add uplink program code here
+		var/uplink_name = pick("Scales'n'Stuff", "BadKitty", "Clanked", "WetSkrell", "HiveNetMingle")
+		MC.hard_drive.store_file(new /datum/computer_file/program/antag_uplink(MC, uplink_name, uplink_pass))
 		R.autodrobe_no_remove = TRUE
-		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name]. Simply enter the code \"[uplink_pass]\" into the program when prompted for a password.")
-		traitor_mob.mind.store_memory("<B>Uplink Passcode:</B> [uplink_pass] ([R.name]).")
+		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name]. Simply enter the code \"[uplink_pass]\" into the \"[uplink_name] Browser\" program when prompted for a password.")
+		traitor_mob.mind.store_memory("<B>Uplink Name:</B> [uplink_name] ([R.name])")
+		traitor_mob.mind.store_memory("<B>Uplink Passcode:</B> [uplink_pass]")
 
 /datum/antagonist/traitor/proc/add_law_zero(mob/living/silicon/ai/killer)
 	var/law = "Accomplish your objectives at all costs. You may ignore all other laws."

@@ -1,5 +1,5 @@
 /datum/computer_file/program/antag_uplink
-	filename = "scalesbrwsr"
+	filename = "xxxbrwsr"
 	filedesc = "Scales'n'Stuff Browser"
 	extended_desc = "A browser that connects the user directly to the Scales'n'Stuff network!"
 	program_icon_state = "generic"
@@ -11,8 +11,10 @@
 	requires_ntnet = FALSE
 	var/uplink_password = ""
 
-/datum/computer_file/program/antag_uplink/New(obj/item/modular_computer/comp, var/assigned_password)
+/datum/computer_file/program/antag_uplink/New(obj/item/modular_computer/comp, var/assigned_name, var/assigned_password)
 	..()
+	filedesc = replacetext(filedesc, "Scales'n'Stuff", assigned_name)
+	extended_desc = replacetext(extended_desc, "Scales'n'Stuff", assigned_name)
 	uplink_password = assigned_password
 
 /datum/computer_file/program/antag_uplink/run_program(mob/user)
