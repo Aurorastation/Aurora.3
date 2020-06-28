@@ -913,7 +913,8 @@
 	var/obj/effect/overlay/T = new()
 	T.maptext_height = 64
 	T.maptext_width = 512
-	T.layer = HUD_LAYER
+	T.layer = SCREEN_LAYER+1
+	T.plane = FLOAT_PLANE
 	T.screen_loc = "LEFT+1,BOTTOM+2"
 
 	C.screen += T

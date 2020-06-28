@@ -349,15 +349,14 @@ var/global/list/frozen_crew = list()
 			else
 				W.forceMove(get_turf(src))
 
-	update_icon()
-
 	global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message]", "[on_store_name]")
 	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] into storage."))
 	frozen_crew += occupant
 
 	// Let SSjobs handle the rest.
 	SSjobs.DespawnMob(occupant)
-	set_occupant(null)
+	occupant = null
+	update_icon()
 
 /obj/machinery/cryopod/attackby(var/obj/item/grab/G, var/mob/user)
 	if(istype(G))
@@ -476,11 +475,11 @@ var/global/list/frozen_crew = list()
 			to_chat(user, SPAN_NOTICE("You stop [L == user ? "climbing into" : "putting [L] into"] \the [name]."))
 			return
 
-		update_icon()
 		to_chat(L, SPAN_NOTICE("You feel cool air surround you. You go numb as your senses turn inward."))
 		to_chat(L, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
 		occupant = L
 		time_entered = world.time
+		update_icon()
 
 		if(isipc(L))
 			var/choice = alert(L, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
@@ -593,7 +592,7 @@ var/global/list/frozen_crew = list()
 		occupant.client.perspective = MOB_PERSPECTIVE
 
 	occupant.forceMove(get_turf(src))
-	set_occupant(null)
+	occupant = null
 	update_icon()
 
 /obj/machinery/cryopod/proc/set_occupant(var/mob/living/carbon/occupant)
@@ -603,16 +602,15 @@ var/global/list/frozen_crew = list()
 	if(occupant.client)
 		occupant.client.perspective = EYE_PERSPECTIVE
 		occupant.client.eye = src
-	name = initial(name)
-	if(occupant)
-		name = "[name] ([occupant])"
 	update_icon()
 
 /obj/machinery/cryopod/update_icon()
 	if(occupant)
+		name = "[name] ([occupant])"
 		icon_state = occupied_icon_state
 	else
 		icon_state = base_icon_state
+		name = initial(name)
 
 /obj/machinery/cryopod/relaymove(var/mob/user)
 	go_out()
