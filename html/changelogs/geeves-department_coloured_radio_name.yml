@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - rscadd: "Speaking on the radio now cross-references the records database. If the name of the voice is in the records database, their name and role is shown, and coloured in their department's colour."
+  - tweak: "The antag buyable in the Announcements uplink that makes a fake arrivals announcement and generates a fake record for the buyer is no longer restricted to Mercenaries, and costs 4 TC instead of 8 TC now."
