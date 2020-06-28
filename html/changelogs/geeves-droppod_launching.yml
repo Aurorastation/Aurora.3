@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "The Telecomms Lounge has been removed from the droppod target list, as it no longer exists."
+  - bugfix: "A warning now pops up if you attempt to launch a droppod while not inside it."
