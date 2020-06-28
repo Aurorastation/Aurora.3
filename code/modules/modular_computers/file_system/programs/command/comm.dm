@@ -16,7 +16,7 @@
 	size = 12
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	network_destination = "station long-range communication array"
-	var/datum/comm_message_listener/message_core = new
+	var/datum/comm_message_listener/message_core
 	var/intercept = FALSE
 	var/can_call_shuttle = FALSE //If calling the shuttle should be available from this console
 	color = LIGHT_COLOR_BLUE
@@ -25,6 +25,7 @@
 	..()
 	intercept = intercept_printing
 	can_call_shuttle = shuttle_call
+	message_core = new
 	addtimer(CALLBACK(src, .proc/check_hard_drive_parent), 10)
 
 /datum/computer_file/program/comm/clone()
