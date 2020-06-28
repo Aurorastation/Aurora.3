@@ -878,7 +878,7 @@
 
 /obj/item/clothing/suit/storage/toggle/hoodie/hpei
 	name = "\improper HPEI hoodie"
-	desc = "A warm, black sweatshirt. It bears the letters HPEI on the back, the letters for Hongsun Park Engineering Institute."
+	desc = "A warm, black sweatshirt. It bears the denotation HP Engineering Institute on the back for Hongsun Park Engineering Institute."
 	icon_state = "hpei_hoodie"
 	item_state = "hpei_hoodie"
 	icon_open = "hpei_hoodie_open"
