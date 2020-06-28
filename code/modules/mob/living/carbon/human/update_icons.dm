@@ -1127,7 +1127,6 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	cut_overlays()
 	overlays_raw[R_HAND_LAYER] = null
 	if(r_hand)
 		r_hand.screen_loc = ui_rhand	//TODO
@@ -1160,9 +1159,9 @@ There are several things that need to be remembered:
 			if(r_hand.color)
 				result_layer.color = r_hand.color
 
-			var/list/worn_overlays = r_hand.worn_overlays(t_icon)
-			if(worn_overlays && worn_overlays.len)
-				overlays_raw.Add(worn_overlays)
+			var/image/worn_overlays = r_hand.worn_overlays(t_icon)
+			if(worn_overlays)
+				result_layer.overlays.Add(worn_overlays)
 
 			overlays_raw[R_HAND_LAYER] = result_layer
 
@@ -1173,7 +1172,6 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	cut_overlays()
 	overlays_raw[L_HAND_LAYER] = null
 	if(l_hand)
 		l_hand.screen_loc = ui_lhand	//TODO
@@ -1206,9 +1204,9 @@ There are several things that need to be remembered:
 			if(l_hand.color)
 				result_layer.color = l_hand.color
 
-			var/list/worn_overlays = l_hand.worn_overlays(t_icon)
-			if(worn_overlays && worn_overlays.len)
-				overlays_raw.Add(worn_overlays)
+			var/image/worn_overlays = l_hand.worn_overlays(t_icon)
+			if(worn_overlays)
+				result_layer.overlays.Add(worn_overlays)
 
 			overlays_raw[L_HAND_LAYER] = result_layer
 

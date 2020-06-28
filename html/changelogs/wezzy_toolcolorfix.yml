@@ -38,6 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - imageadd: "Improved sprites for cable cuffs, zipties and handcuffs. Tweaks cable coil inhands."
-  - rscadd: "Cable cuffs and nooses take the color of the cable coil now."
-  - rscadd: "You can cut cable cuffs with wirecutters to get the materials back."
+  - bugfix: "Finally makes tool inhands work properly."
