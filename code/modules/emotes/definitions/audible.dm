@@ -5,8 +5,13 @@
 	var/emote_sound
 
 /decl/emote/audible/do_extra(var/atom/user)
+	var/sound_to_play
 	if(emote_sound)
-		playsound(user.loc, emote_sound, 50, 0, vary = FALSE)
+		if(islist(emote_sound))
+			sound_to_play = pick(emote_sound)
+		else
+			sound_to_play = emote_sound
+		playsound(user.loc, sound_to_play, 50, 0, vary = FALSE)
 
 /decl/emote/audible/deathgasp_alien
 	key = "deathgasp"
@@ -43,6 +48,31 @@
 	key ="mchirp"
 	emote_message_3p = "USER chirps a chorus of notes!"
 	emote_sound = 'sound/misc/multichirp.ogg'
+
+/decl/emote/audible/painchirp
+	key ="pcreak"
+	emote_message_3p = "USER creaks in pain!"
+
+/decl/emote/audible/painrustle
+	key ="prustle"
+	emote_message_3p = "USER rustles in agony!"
+
+/decl/emote/audible/nymphsqueal
+	key ="psqueal"
+	emote_message_3p = "USER's nymphs squeal in pain!"
+
+/decl/emote/audible/chitter
+	key = "chitter"
+	emote_message_3p = "USER chitters."
+	emote_sound = list('sound/misc/zapsplat/chitter1.ogg', 'sound/misc/zapsplat/chitter2.ogg', 'sound/misc/zapsplat/chitter3.ogg')
+
+/decl/emote/audible/shriek
+	key = "shriek"
+	emote_message_3p = "USER shrieks!"
+
+/decl/emote/audible/screech
+	key = "screech"
+	emote_message_3p = "USER screeches!"
 
 /decl/emote/audible/alarm
 	key = "alarm"
