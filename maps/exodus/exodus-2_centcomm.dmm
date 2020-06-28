@@ -7678,7 +7678,7 @@
 	pixel_x = 2;
 	pixel_y = 6
 	},
-/obj/item/reagent_containers/food/condiment/saltshaker{
+/obj/item/reagent_containers/food/condiment/shaker/salt{
 	pixel_x = -6
 	},
 /turf/unsimulated/floor{
