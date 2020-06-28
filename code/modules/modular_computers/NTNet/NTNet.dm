@@ -91,9 +91,8 @@ var/global/datum/ntnet/ntnet_global = new()
 	available_station_software = list()
 	available_antag_software = list()
 	available_software = list()
-	var/obj/item/modular_computer/MC = new(src)
 	for(var/F in typesof(/datum/computer_file/program))
-		var/datum/computer_file/program/prog = new F(MC)
+		var/datum/computer_file/program/prog = new F("Compless")
 		// Invalid type (shouldn't be possible but just in case), invalid filetype (not executable program) or invalid filename (unset program)
 		if(!prog || !istype(prog) || prog.filename == "UnknownProgram" || prog.filetype != "PRG")
 			continue
@@ -107,7 +106,6 @@ var/global/datum/ntnet/ntnet_global = new()
 	for(var/path in typesof(/datum/modular_computer_app_presets))
 		var/datum/modular_computer_app_presets/prs = new path()
 		available_software_presets.Add(prs)
-	qdel(MC)
 
 // Builds lists that contain downloadable software.
 /datum/ntnet/proc/build_news_list()
