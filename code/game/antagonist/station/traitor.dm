@@ -130,6 +130,18 @@ var/datum/antagonist/traitor/traitors
 			to_chat(traitor_mob, "Could not locate a PDA, installing into a Radio instead!")
 		if(!R)
 			to_chat(traitor_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
+	else if(traitor_mob.client.prefs.uplinklocation == "Modular Computer")
+		R = locate(/obj/item/modular_computer) in traitor_mob.contents
+		if(!R && traitor_mob.back)
+			R = locate(/obj/item/modular_computer) in traitor_mob.back
+		if(!R)
+			R = locate(/obj/item/device/pda) in traitor_mob.contents
+			to_chat(traitor_mob, "Could not locate a Radio, installing in PDA instead!")
+		if(!R)
+			R = locate(/obj/item/device/radio) in traitor_mob.contents
+			to_chat(traitor_mob, "Could not locate a PDA, installing into a Radio instead!")
+		if(!R)
+			to_chat(traitor_mob, "Unfortunately, neither a modular computer, radio, or a PDA relay could be installed.")
 	else if(traitor_mob.client.prefs.uplinklocation == "None")
 		to_chat(traitor_mob, "You have elected to not have an AntagCorp portable teleportation relay installed!")
 		R = null
@@ -174,6 +186,17 @@ var/datum/antagonist/traitor/traitors
 		R.autodrobe_no_remove = TRUE
 		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply enter the code \"[pda_pass]\" into the ringtone select to unlock its hidden features.")
 		traitor_mob.mind.store_memory("<B>Uplink Passcode:</B> [pda_pass] ([R.name] [loc]).")
+
+	else if(istype(R, /obj/item/modular_computer))
+		var/obj/item/device/uplink/hidden/T = new(R, traitor_mob.mind)
+		R.hidden_uplink = T
+		var/obj/item/modular_computer/MC = R
+		var/uplink_pass = "[rand(100,999)] [pick("Alpha","Bravo","Delta","Omega")]"
+		MC.hard_drive.store_file(new /datum/computer_file/program/antag_uplink(MC, uplink_pass))
+		// add uplink program code here
+		R.autodrobe_no_remove = TRUE
+		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name]. Simply enter the code \"[uplink_pass]\" into the program when prompted for a password.")
+		traitor_mob.mind.store_memory("<B>Uplink Passcode:</B> [uplink_pass] ([R.name]).")
 
 /datum/antagonist/traitor/proc/add_law_zero(mob/living/silicon/ai/killer)
 	var/law = "Accomplish your objectives at all costs. You may ignore all other laws."
