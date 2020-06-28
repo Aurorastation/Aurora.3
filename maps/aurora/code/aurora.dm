@@ -8,7 +8,7 @@
 	path = "aurora"
 
 	lobby_icon = 'icons/misc/aurora.dmi'
-	lobby_screens = list("miranda", "mason")
+	lobby_screens = list("corp_titles")
 
 	station_levels = list(2, 3, 4, 5, 6, 7)
 	admin_levels = list(1)
