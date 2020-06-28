@@ -618,7 +618,7 @@
 	return
 
 /datum/species/proc/get_pain_emote(var/mob/living/carbon/human/H, var/pain_power)
-	if(!(species_flags & NO_PAIN))
+	if(!(flags & NO_PAIN))
 		return
 	for(var/pain_emotes in pain_emotes_with_pain_level)
 		var/pain_level = pain_emotes_with_pain_level[pain_emotes]

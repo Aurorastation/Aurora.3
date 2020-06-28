@@ -49,7 +49,7 @@
 	emote_message_3p = "USER chirps a chorus of notes!"
 	emote_sound = 'sound/misc/multichirp.ogg'
 
-/decl/emote/audible/painchirp
+/decl/emote/audible/paincreak
 	key ="pcreak"
 	emote_message_3p = "USER creaks in pain!"
 
@@ -202,6 +202,14 @@
 /decl/emote/audible/bellow
 	key = "bellow"
 	emote_message_3p = "USER bellows!"
+
+/decl/emote/audible/howl
+	key = "howl"
+	emote_message_3p = "USER howls!"
+
+/decl/emote/audible/wheeze
+	key = "wheeze"
+	emote_message_3p = "USER wheezes."
 
 /decl/emote/audible/hiss
 	key ="hiss_"
