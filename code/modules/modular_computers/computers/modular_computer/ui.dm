@@ -47,7 +47,7 @@
 	var/datum/computer_file/data/autorun = hard_drive.find_file_by_name("autorun")
 	VUEUI_SET_CHECK_IFNOTSET(data["programs"], list(), ., data)
 	for(var/datum/computer_file/program/P in hard_drive.stored_files)
-		if(P.program_hidden(src))
+		if(P.program_hidden())
 			continue
 		VUEUI_SET_CHECK_IFNOTSET(data["programs"][P.filename], list(), ., data)
 		VUEUI_SET_CHECK(data["programs"][P.filename]["desc"], P.filedesc, ., data)

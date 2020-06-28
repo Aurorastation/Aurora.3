@@ -28,8 +28,18 @@
 
 /datum/computer_file/program/New(var/obj/item/modular_computer/comp)
 	..()
-	if(comp && istype(comp))
-		computer = comp
+	if(comp)
+		if(istype(comp))
+			computer = comp
+		else if(istype(comp, /obj/item/computer_hardware/hard_drive))
+			var/obj/item/computer_hardware/hard_drive/HD = comp
+			computer = HD.parent_computer
+	else
+		addtimer(CALLBACK(src, .proc/check_hard_drive_parent), 10)
+
+/datum/computer_file/program/proc/check_hard_drive_parent()
+	if(hard_drive)
+		computer = hard_drive.parent_computer
 
 /datum/computer_file/program/Destroy()
 	computer.idle_threads -= src
@@ -127,7 +137,7 @@
 		return FALSE
 
 // Override to set when a program shouldn't appear in the program list
-/datum/computer_file/program/proc/program_hidden(var/obj/item/modular_computer/parent_computer)
+/datum/computer_file/program/proc/program_hidden()
 	return FALSE
 
 // Check if the user can run program. Only humans can operate computer. Automatically called in run_program()

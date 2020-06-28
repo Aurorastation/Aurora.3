@@ -4,3 +4,5 @@ delete-after: True
 
 changes: 
   - bugfix: "The modular computer pAI access lock program should properly only show when you have a pAI in your computer."
+  - bugfix: "You can now properly save NTNet IRC chats' logs to your hard drive."
+  - bugfix: "Fixes various programs not having their computer correctly set, which should fix a wide spectrum of bugs for modular computers."

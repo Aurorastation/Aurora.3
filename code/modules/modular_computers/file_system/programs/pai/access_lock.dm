@@ -21,7 +21,7 @@
 		to_chat(computer.personal_ai.pai, SPAN_NOTICE("pAI Access Lock systems disabled."))
 	computer.pAI_lock = FALSE
 
-/datum/computer_file/program/pai_access_lock/program_hidden(obj/item/modular_computer/parent_computer)
-	if(!parent_computer.personal_ai)
+/datum/computer_file/program/pai_access_lock/program_hidden()
+	if(!computer.personal_ai)
 		return TRUE
 	return FALSE
