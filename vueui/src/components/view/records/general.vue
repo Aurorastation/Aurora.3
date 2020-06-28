@@ -6,31 +6,31 @@
     </div>
     <vui-group>
       <vui-group-item label="ID:">{{ active.id }}</vui-group-item>
-      <vui-group-item label="Name:"><view-records-field :editable="(editable & 1) > 0" path="active.name"/></vui-group-item>
-      <vui-group-item label="Age:"><view-records-field :editable="(editable & 1) > 0" path="active.age"/></vui-group-item>
-      <vui-group-item label="Sex:"><view-records-field :editable="(editable & 1) > 0" path="active.sex"/></vui-group-item>
-      <vui-group-item label="Rank:"><view-records-field :editable="(editable & 1) > 0" path="active.rank"/></vui-group-item>
+      <vui-group-item label="Name:"><view-records-field :editable="(editable & 1)" path="active.name"/></vui-group-item>
+      <vui-group-item label="Age:"><view-records-field :editable="(editable & 1)" path="active.age"/></vui-group-item>
+      <vui-group-item label="Sex:"><view-records-field :editable="(editable & 1)" path="active.sex"/></vui-group-item>
+      <vui-group-item label="Rank:"><view-records-field :editable="(editable & 1)" path="active.rank"/></vui-group-item>
       <vui-group-item label="Physical Status:">
-        <view-records-field :editable="(editable & 1) > 0" path="active.physical_status">
+        <view-records-field :editable="(editable & 1)" path="active.physical_status">
           <select v-model="$root.$data.state.editingvalue">
             <option v-for="i in choices.physical_status" :key="i" :value="i">{{ i }}</option>
           </select>
         </view-records-field>
       </vui-group-item>
       <vui-group-item label="Mental Status:">
-        <view-records-field :editable="(editable & 1) > 0" path="active.mental_status">
+        <view-records-field :editable="(editable & 1)" path="active.mental_status">
           <select v-model="$root.$data.state.editingvalue">
             <option v-for="i in choices.mental_status" :key="i" :value="i">{{ i }}</option>
           </select>
         </view-records-field>
       </vui-group-item>
-      <vui-group-item label="Fingerprint:"><view-records-field :editable="(editable & 1) > 0" path="active.fingerprint"/></vui-group-item>
-      <template v-if="!hideAdvanced && (avaivabletypes & 1)">
-        <vui-group-item label="Species:"><view-records-field :editable="(editable & 1) > 0" path="active.species"/></vui-group-item>
-        <vui-group-item label="Citizenship:"><view-records-field :editable="(editable & 1) > 0" path="active.citizenship"/></vui-group-item>
-        <vui-group-item label="Religion:"><view-records-field :editable="(editable & 1) > 0" path="active.religion"/></vui-group-item>
-        <vui-group-item label="Employer:"><view-records-field :editable="(editable & 1) > 0" path="active.employer"/></vui-group-item>
-        <vui-group-item label="Employment/skills summary:"><view-records-field :editable="(editable & 1) > 0" path="active.notes"><textarea v-model="$root.$data.state.editingvalue"/></view-records-field></vui-group-item>
+      <vui-group-item label="Fingerprint:"><view-records-field :editable="(editable & 1)" path="active.fingerprint"/></vui-group-item>
+      <template v-if="!hideAdvanced && (availabletypes & 1)">
+        <vui-group-item label="Species:"><view-records-field :editable="(editable & 1)" path="active.species"/></vui-group-item>
+        <vui-group-item label="Citizenship:"><view-records-field :editable="(editable & 1)" path="active.citizenship"/></vui-group-item>
+        <vui-group-item label="Religion:"><view-records-field :editable="(editable & 1)" path="active.religion"/></vui-group-item>
+        <vui-group-item label="Employer:"><view-records-field :editable="(editable & 1)" path="active.employer"/></vui-group-item>
+        <vui-group-item label="Employment/skills summary:"><view-records-field :editable="(editable & 1)" path="active.notes"><textarea v-model="$root.$data.state.editingvalue"/></view-records-field></vui-group-item>
         <vui-group-item label="CCIA Notes:">{{ active.ccia_record }}</vui-group-item>
         <vui-group-item label="CCIA Actions:">
           <div v-for="item in active.ccia_actions" :key="item[0]">
@@ -42,7 +42,7 @@
       </template>
       <slot/>
     </vui-group>
-    <vui-button v-if="!hideAdvanced && (editable & 1)" :params="{ deleterecord: 1 }" icon="trash-alt" class="danger">Delete record</vui-button>
+    <vui-button v-if="!hideAdvanced && (editable & 1)" :params="{ deleterecord: 1 }" icon="trash-alt" class="danger">Delete Record</vui-button>
   </div>
 </template>
 

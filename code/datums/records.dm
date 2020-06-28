@@ -227,11 +227,3 @@ var/warrant_uid = 0
 /datum/record/warrant/New()
 	..()
 	id = warrant_uid++
-
-// Virus record
-/datum/record/virus
-	name = "Unknown"
-	var/description = ""
-	var/antigen
-	var/spread_type = "Unknown"
-	cmp_field = "name"

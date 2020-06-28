@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixes records not allowing you to generate new ones, and fixes records still referring to viruses."
