@@ -443,10 +443,6 @@
 	display_name = "plain ascetic garb"
 	path = /obj/item/clothing/under/ascetic
 
-/datum/gear/uniform/pinktutu
-	display_name = "pink tutu"
-	path = /obj/item/clothing/under/dress/pinktutu
-
 /datum/gear/uniform/overalls_outfit
 	display_name = "overalls (selection)"
 	path = /obj/item/clothing/under/overalls

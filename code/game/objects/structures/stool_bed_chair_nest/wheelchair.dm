@@ -201,11 +201,11 @@
 	w_class = ITEMSIZE_HUGE // Can't be put in backpacks. Oh well.
 
 /obj/item/wheelchair/attack_self(mob/user)
-		var/obj/structure/bed/chair/wheelchair/R = new /obj/structure/bed/chair/wheelchair(user.loc)
-		R.add_fingerprint(user)
-		R.name = src.name
-		R.color = src.color
-		qdel(src)
+	var/obj/structure/bed/chair/wheelchair/R = new /obj/structure/bed/chair/wheelchair(user.loc)
+	R.add_fingerprint(user)
+	R.name = src.name
+	R.color = src.color
+	qdel(src)
 
 /obj/structure/bed/chair/wheelchair/MouseDrop(over_object, src_location, over_location)
 	..()

@@ -1040,7 +1040,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	volume = 20
 	flags = OPENCONTAINER
 
-/obj/item/reagent_containers/ecig_cartridge/New()
+/obj/item/reagent_containers/ecig_cartridge/Initialize()
+	. = ..()
 	create_reagents(volume)
 
 /obj/item/reagent_containers/ecig_cartridge/examine(mob/user as mob)//to see how much left
@@ -1055,32 +1056,32 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/reagent_containers/ecig_cartridge/blanknico
 	name = "flavorless nicotine cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says you can add whatever flavoring agents you want."
-/obj/item/reagent_containers/ecig_cartridge/blanknico/New()
-	..()
+/obj/item/reagent_containers/ecig_cartridge/blanknico/Initialize()
+	. = ..()
 	reagents.add_reagent("nicotine", 5)
 	reagents.add_reagent("water", 10)
 
 /obj/item/reagent_containers/ecig_cartridge/med_nicotine
 	name = "tobacco flavour cartridge"
 	desc =  "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its tobacco flavored."
-/obj/item/reagent_containers/ecig_cartridge/med_nicotine/New()
-	..()
+/obj/item/reagent_containers/ecig_cartridge/med_nicotine/Initialize()
+	. = ..()
 	reagents.add_reagent("nicotine", 5)
 	reagents.add_reagent("water", 15)
 
 /obj/item/reagent_containers/ecig_cartridge/high_nicotine
 	name = "high nicotine tobacco flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its tobacco flavored, with extra nicotine."
-/obj/item/reagent_containers/ecig_cartridge/high_nicotine/New()
-	..()
+/obj/item/reagent_containers/ecig_cartridge/high_nicotine/Initialize()
+	. = ..()
 	reagents.add_reagent("nicotine", 10)
 	reagents.add_reagent("water", 10)
 
 /obj/item/reagent_containers/ecig_cartridge/orange
 	name = "orange flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its orange flavored."
-/obj/item/reagent_containers/ecig_cartridge/orange/New()
-	..()
+/obj/item/reagent_containers/ecig_cartridge/orange/Initialize()
+	. = ..()
 	reagents.add_reagent("nicotine", 5)
 	reagents.add_reagent("water", 10)
 	reagents.add_reagent("orangejuice", 5)
@@ -1088,8 +1089,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/reagent_containers/ecig_cartridge/mint
 	name = "mint flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its mint flavored."
-/obj/item/reagent_containers/ecig_cartridge/mint/New()
-	..()
+/obj/item/reagent_containers/ecig_cartridge/mint/Initialize()
+	. = ..()
 	reagents.add_reagent("nicotine", 5)
 	reagents.add_reagent("water", 10)
 	reagents.add_reagent("menthol", 5)
@@ -1097,8 +1098,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/reagent_containers/ecig_cartridge/watermelon
 	name = "watermelon flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its watermelon flavored."
-/obj/item/reagent_containers/ecig_cartridge/watermelon/New()
-	..()
+/obj/item/reagent_containers/ecig_cartridge/watermelon/Initialize()
+	. = ..()
 	reagents.add_reagent("nicotine", 5)
 	reagents.add_reagent("water", 10)
 	reagents.add_reagent("watermelonjuice", 5)
@@ -1106,8 +1107,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/reagent_containers/ecig_cartridge/grape
 	name = "grape flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its grape flavored."
-/obj/item/reagent_containers/ecig_cartridge/grape/New()
-	..()
+/obj/item/reagent_containers/ecig_cartridge/grape/Initialize()
+	. = ..()
 	reagents.add_reagent("nicotine", 5)
 	reagents.add_reagent("water", 10)
 	reagents.add_reagent("grapejuice", 5)
@@ -1115,8 +1116,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/reagent_containers/ecig_cartridge/lemonlime
 	name = "lemon-lime flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its lemon-lime flavored."
-/obj/item/reagent_containers/ecig_cartridge/lemonlime/New()
-	..()
+/obj/item/reagent_containers/ecig_cartridge/lemonlime/Initialize()
+	. = ..()
 	reagents.add_reagent("nicotine", 5)
 	reagents.add_reagent("water", 10)
 	reagents.add_reagent("lemon_lime", 5)
@@ -1124,8 +1125,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/reagent_containers/ecig_cartridge/coffee
 	name = "coffee flavour cartridge"
 	desc = "A small metal cartridge which contains an atomizing coil and a solution to be atomized. The label says its coffee flavored."
-/obj/item/reagent_containers/ecig_cartridge/coffee/New()
-	..()
+/obj/item/reagent_containers/ecig_cartridge/coffee/Initialize()
+	. = ..()
 	reagents.add_reagent("nicotine", 5)
 	reagents.add_reagent("water", 10)
 	reagents.add_reagent("coffee", 5)

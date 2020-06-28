@@ -4,7 +4,7 @@
 
 //Ported from Polaris;
 //To be rewritten to be made more 'in-universe' and less 'meta-SS13 references', as amusing the latter can be.
-//Pretty sure people in-universe wouldn't exactly see things the same way we SS13 players do -- Mwah
+//Pretty sure people in-universe wouldn't exactly see things the same way we SS13 players do
 
 /obj/item/deck/cah
 	name = "\improper CAG deck (white)"
@@ -18,8 +18,8 @@
 	icon_state = "cag_black"
 	blanks = 0
 
-/obj/item/deck/cah/New()
-	..()
+/obj/item/deck/cah/Initialize()
+	. = ..()
 	var/datum/playingcard/P
 	for(var/cardtext in card_text_list)
 		P = new()
@@ -220,8 +220,6 @@
 	"That special OTP generator in your bookmarks",
 	"Affectionate spammers",
 	"Electron-positron annihilation",
-	"Harley O'Ryan",
-	"Drea Mirmtar rocking in that high K/D",
 	"Non-Venusian Venusian holofilms",
 	"An overheating dick chip",
 	"Emo robots",
@@ -248,7 +246,7 @@
 	"Very angry and very GM bees",
 	"The brittle, brittle bones of an offworlder",
 	"The refreshing chemical waters of Xanu Prime",
-	"Monocycle greaser gangs",
+	"Monowheel greaser gangs",
 	"Your favourite debt collector",
 	"A Venusian drug orgy",
 	"A Lunarian with an annoying voice and more money than you'll ever see in your life",

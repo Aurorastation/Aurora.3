@@ -298,14 +298,6 @@
 	display_name = "jingasa"
 	path = /obj/item/clothing/head/jingasa
 
-/datum/gear/head/wig/philosopher
-	display_name = "natural philosopher's wig"
-	path = /obj/item/clothing/head/philosopher_wig
-
-/datum/gear/head/wig
-	display_name = "powdered wig"
-	path = /obj/item/clothing/head/powdered_wig
-
 /datum/gear/head/welding
 	display_name = "welding helmet"
 	path = /obj/item/clothing/head/welding

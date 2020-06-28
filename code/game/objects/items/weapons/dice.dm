@@ -125,7 +125,7 @@
 		revealDice(player)
 
 
-/obj/item/storage/dicecup/loaded/New()
-	..()
+/obj/item/storage/dicecup/loaded/Initialize()
+	. = ..()
 	for(var/i = 1 to 5)
 		new /obj/item/dice( src )
