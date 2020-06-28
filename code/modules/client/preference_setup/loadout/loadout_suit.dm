@@ -103,16 +103,16 @@
 
 /datum/gear/suit/hoodie_altmisc
 	display_name = "hoodie, misc (selection)"
-	path = /obj/item/clothing/suit/storage/toggle/hoodie/cti
+	path = /obj/item/clothing/suit/storage/toggle/hoodie/hpei
 
 /datum/gear/suit/hoodie_altmisc/New()
 	..()
 	var/hoodie_misc = list()
-	hoodie_misc["CTI hoodie"] = /obj/item/clothing/suit/storage/toggle/hoodie/cti
-	hoodie_misc["MU hoodie"] = /obj/item/clothing/suit/storage/toggle/hoodie/mu
+	hoodie_misc["Hongsun Park Engineering Institute hoodie"] = /obj/item/clothing/suit/storage/toggle/hoodie/hpei
+	hoodie_misc["Mars University hoodie"] = /obj/item/clothing/suit/storage/toggle/hoodie/mu
 	hoodie_misc["NT hoodie"] = /obj/item/clothing/suit/storage/toggle/hoodie/nt
 	hoodie_misc["Space Mountain Wind hoodie"] = /obj/item/clothing/suit/storage/toggle/hoodie/smw
-	hoodie_misc["NRTI hoodie"] = /obj/item/clothing/suit/storage/toggle/hoodie/nrti
+	hoodie_misc["Lunar University of Medical Science hoodie"] = /obj/item/clothing/suit/storage/toggle/hoodie/lums
 	gear_tweaks += new/datum/gear_tweak/path(hoodie_misc)
 
 /datum/gear/suit/labcoat
@@ -321,12 +321,12 @@
 	allowed_roles = list("Head of Security")
 
 /datum/gear/suit/dominia_cape
-	display_name = "dominia cape"
+	display_name = "Dominia cape"
 	path = /obj/item/clothing/accessory/poncho/dominia_cape
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/dominia
-	display_name = "dominia coat and jacket (selection)"
+	display_name = "Dominia coat and jacket (selection)"
 	description = "A selection of Dominian coats and jackets."
 	path = /obj/item/clothing/suit/storage/toggle/dominia
 	flags = GEAR_HAS_DESC_SELECTION
@@ -334,10 +334,10 @@
 /datum/gear/suit/dominia/New()
 	..()
 	var/coat = list()
-	coat["red dominia great coat"] = /obj/item/clothing/suit/storage/toggle/dominia
-	coat["gold dominia great coat"] = /obj/item/clothing/suit/storage/toggle/dominia/gold
-	coat["black dominia great coat"] = /obj/item/clothing/suit/storage/toggle/dominia/black
-	coat["dominian bomber jacket"] = /obj/item/clothing/suit/storage/toggle/dominia/bomber
+	coat["red Dominia great coat"] = /obj/item/clothing/suit/storage/toggle/dominia
+	coat["gold Dominia great coat"] = /obj/item/clothing/suit/storage/toggle/dominia/gold
+	coat["black Dominia great coat"] = /obj/item/clothing/suit/storage/toggle/dominia/black
+	coat["Dominian bomber jacket"] = /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tcfl

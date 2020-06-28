@@ -876,18 +876,18 @@
 	min_cold_protection_temperature = T0C - 20
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 
-/obj/item/clothing/suit/storage/toggle/hoodie/cti
-	name = "\improper CTI hoodie"
-	desc = "A warm, black sweatshirt. It bears the letters CTI on the back.There is a blue supernova embroidered on the front."
-	icon_state = "cti_hoodie"
-	item_state = "cti_hoodie"
-	icon_open = "cti_hoodie_open"
-	icon_closed = "cti_hoodie"
+/obj/item/clothing/suit/storage/toggle/hoodie/hpei
+	name = "\improper HPEI hoodie"
+	desc = "A warm, black sweatshirt. It bears the letters HPEI on the back, the letters for Hongsun Park Engineering Institute."
+	icon_state = "hpei_hoodie"
+	item_state = "hpei_hoodie"
+	icon_open = "hpei_hoodie_open"
+	icon_closed = "hpei_hoodie"
 	item_state_slots = list(slot_r_hand_str = "suit_black", slot_l_hand_str = "suit_black")
 
 /obj/item/clothing/suit/storage/toggle/hoodie/mu
 	name = "\improper MU hoodie"
-	desc = "A warm, grey sweatshirt.  It bears the letters MU on the front."
+	desc = "A warm, grey sweatshirt.  It bears the letters MU on the front: Mars University."
 	icon_state = "mu_hoodie"
 	item_state = "mu_hoodie"
 	icon_open = "mu_hoodie_open"
@@ -912,13 +912,13 @@
 	icon_closed = "smw_hoodie"
 	item_state_slots = list(slot_r_hand_str = "suit_black", slot_l_hand_str = "suit_black")
 
-/obj/item/clothing/suit/storage/toggle/hoodie/nrti
-	name = "\improper NRTI hoodie"
-	desc = "A warm, grey sweatshirt. It bears the letters NRTI on the back."
-	icon_state = "nrti_hoodie"
-	item_state = "nrti_hoodie"
-	icon_open = "nrti_hoodie_open"
-	icon_closed = "nrti_hoodie"
+/obj/item/clothing/suit/storage/toggle/hoodie/lums
+	name = "\improper LUMS hoodie"
+	desc = "A warm, grey sweatshirt. It bears the letters LUMS on the back: the letters of the Lunar University of Medical Science."
+	icon_state = "lums_hoodie"
+	item_state = "lums_hoodie"
+	icon_open = "lums_hoodie_open"
+	icon_closed = "lums_hoodie"
 	item_state_slots = list(slot_r_hand_str = "suit_grey", slot_l_hand_str = "suit_grey")
 
 /obj/item/clothing/suit/storage/snowsuit

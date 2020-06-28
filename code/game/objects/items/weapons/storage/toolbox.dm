@@ -232,11 +232,11 @@
 /obj/item/storage/toolbox/lunchbox/mars/filled
 	filled = TRUE
 
-/obj/item/storage/toolbox/lunchbox/cti
-	name = "\improper CTI lunchbox"
-	icon_state = "lunchbox_cti"
-	item_state = "lunchbox_cti"
-	desc = "A little lunchbox. This one has CTI written on it."
+/obj/item/storage/toolbox/lunchbox/hpei
+	name = "\improper Hongsun Park Engineering Institute lunchbox"
+	icon_state = "lunchbox_hpei"
+	item_state = "lunchbox_hpei"
+	desc = "A little lunchbox. This one has HPEI written on it."
 
 /obj/item/storage/toolbox/lunchbox/cti/filled
 	filled = TRUE

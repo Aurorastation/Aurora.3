@@ -1171,7 +1171,8 @@
 		/obj/item/device/laser_pointer					= 1,
 		/obj/item/clothing/accessory/badge/press/plastic = 2,
 		/obj/item/toy/stickhorse						= 5,
-		/obj/item/toy/bouquet/fake						= 1
+		/obj/item/toy/bouquet/fake						= 1,
+		/obj/item/clothing/under/dress/pinktutu			= 1
 
 	)
 
