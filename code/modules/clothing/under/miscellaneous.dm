@@ -673,6 +673,13 @@
 	icon_state = "fancy_kimono"
 	item_state = "fancy_kimono"
 
+/obj/item/clothing/hanbok
+	name = "hanbok"
+	desc = "A traditional Korean hanbok."
+	icon_state = "hanbok"
+	item_state = "hanbok"
+	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
+
 obj/item/clothing/under/kamishimo
 	name = "kamishimo"
 	desc = "Traditional Japanese menswear."

@@ -401,6 +401,10 @@
 	kimonomisc["fancy kimono"] = /obj/item/clothing/under/kimono/fancy
 	gear_tweaks += new/datum/gear_tweak/path(kimonomisc)
 
+/datum/gear/uniform/miscellaneous/hanbok
+	display_name = "hanbok"
+	path = /obj/item/clothing/hanbok
+
 /datum/gear/uniform/miscellaneous/kamishimo
 	display_name = "kamishimo"
 	path = /obj/item/clothing/under/kamishimo
