@@ -13,7 +13,8 @@
 	var/comment = ""
 	attack_verb = list("diced")
 
-/obj/item/dice/New()
+/obj/item/dice/Initialize()
+	. = ..()
 	icon_state = "[name][rand(1,sides)]"
 
 /obj/item/dice/throw_impact(atom/hit_atom)
