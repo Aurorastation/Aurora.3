@@ -50,6 +50,7 @@ var/list/global_huds
 	blurry.icon_state = "blurry"
 	blurry.layer = 17
 	blurry.mouse_opacity = 0
+	blurry.alpha = 100
 
 	vr_control = new /obj/screen()
 	vr_control.icon = 'icons/mob/screen/full.dmi'
