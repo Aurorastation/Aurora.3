@@ -364,7 +364,7 @@ RFD Mining-Class
 	if(!proximity)
 		return
 
-	if(istype(user, /mob/living/silicon/robot))
+	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.stat || !R.cell || R.cell.charge <= 500)
 			to_chat(user, SPAN_WARNING("You are unable to produce enough charge to use \the [src]!"))
