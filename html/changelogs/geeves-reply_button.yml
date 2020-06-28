@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "The NTNet Relay program now shows a message in your chatlog when YOU send a message. It also has a reply button which allows you to send a message back to that channel without opening the UI."
