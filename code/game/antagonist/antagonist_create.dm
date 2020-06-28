@@ -18,6 +18,7 @@
 	greet(target)
 	if(!gag_announcement)
 		announce_antagonist_spawn()
+	LAZYDISTINCTADD(SSticker.mode.antag_templates, src)
 
 /datum/antagonist/proc/create_default(var/mob/source)
 	var/mob/living/M

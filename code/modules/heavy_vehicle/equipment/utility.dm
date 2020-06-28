@@ -100,7 +100,7 @@
 
 /obj/item/mecha_equipment/clamp/get_hardpoint_maptext()
 	if(length(carrying) == 1)
-		return carrying[1].name
+		return capitalize_first_letters(carrying[1].name)
 	else if(length(carrying) > 1)
 		return "Multiple Objects"
 	. = ..()

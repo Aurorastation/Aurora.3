@@ -18,7 +18,7 @@
 	icon_state = "light_arms"
 	melee_damage = 15
 	action_delay = 15
-	max_damage = 40
+	max_damage = 100
 	power_use = 3000
 	desc = "As flexible as they are fragile, these Bishop Cybernetics manipulators can follow a pilot's movements in close to real time."
 	punch_sound = 'sound/mecha/mech_punch_fast.ogg'
@@ -29,7 +29,7 @@
 	icon_state = "light_legs"
 	move_delay = 2
 	turn_delay = 3
-	max_damage = 40
+	max_damage = 100
 	power_use = 3000
 	desc = "The electrical systems driving these legs are almost totally silent. Unfortunately slamming a plate of metal against the ground is not."
 
@@ -38,7 +38,7 @@
 	gender = PLURAL
 	exosuit_desc_string = "advanced sensor array"
 	icon_state = "light_head"
-	max_damage = 30
+	max_damage = 80
 	power_use = 12000
 	desc = "A series of high resolution optical sensors."
 	vision_flags = SEE_TURFS
@@ -56,7 +56,7 @@
 	hatch_descriptor = "canopy"
 	exosuit_desc_string = "an open and light chassis"
 	icon_state = "light_body"
-	max_damage = 50
+	max_damage = 150
 	power_use = 3000
 	desc = "The Veymed Odysseus series cockpits combine ultralight materials and clear aluminum laminates to provide an optimized cockpit experience."
 
@@ -103,3 +103,14 @@
 	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
 	h_l_hand = /obj/item/mecha_equipment/mounted_system/medanalyzer
 	h_r_hand = /obj/item/mecha_equipment/clamp
+
+/mob/living/heavy_vehicle/premade/light/kataphract
+	name = "kataphract exosuit"
+	desc = "A light and nimble exosuit, bearing the colour scheme of the Unathi Kataphracts."
+
+	e_color = COLOR_CHESTNUT
+
+	h_back = /obj/item/mecha_equipment/quick_enter
+	h_l_hand = /obj/item/mecha_equipment/clamp
+	h_r_hand = /obj/item/mecha_equipment/catapult
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher

@@ -49,6 +49,23 @@ Contains:
 				to_chat(user, "<span class='warning'>You can't apply [src] through [H.wear_suit]!</span>")
 				return 1
 
+		if(affecting.status & ORGAN_LIFELIKE)
+			if(!(affecting.brute_dam || affecting.burn_dam))
+				to_chat(user, "<span class='notice'> [M] seems healthy, there are no wounds to treat! </span>")
+				return 1
+
+			user.visible_message( \
+					"<span class = 'notice'> [user] starts applying \the [src] to [M].</span>", \
+					"<span class = 'notice'> You start applying \the [src] to [M].</span>" \
+				)
+			if (do_mob(user, M, 30))
+				user.visible_message( \
+					"<span class = 'notice'> [M] has been applied with [src] by [user].</span>", \
+					"<span class = 'notice'> You apply \the [src] to [M].</span>" \
+				)
+				use(1)
+			return 1
+
 		if(affecting.status & ORGAN_ASSISTED)
 			to_chat(user, "<span class='warning'>This isn't useful at all on a robotic limb.</span>")
 			return 1

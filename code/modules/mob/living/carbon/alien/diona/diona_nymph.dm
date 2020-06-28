@@ -244,6 +244,7 @@
 		verbs -= /mob/living/carbon/alien/diona/proc/merge
 		verbs -= /mob/living/carbon/proc/absorb_nymph
 		verbs -= /mob/living/carbon/alien/diona/proc/sample
+		verbs -= /mob/living/carbon/alien/diona/proc/remove_hat
 		verbs |= /mob/living/carbon/alien/diona/proc/split
 	else
 		verbs |= /mob/living/carbon/alien/diona/proc/merge
@@ -252,6 +253,7 @@
 		verbs |= /mob/living/proc/ventcrawl
 		verbs |= /mob/living/proc/hide
 		verbs |= /mob/living/carbon/alien/diona/proc/sample
+		verbs |= /mob/living/carbon/alien/diona/proc/remove_hat
 		verbs -= /mob/living/carbon/alien/diona/proc/split // we want to remove this one
 
 	verbs -= /mob/living/carbon/alien/verb/evolve //We don't want the old alien evolve verb
