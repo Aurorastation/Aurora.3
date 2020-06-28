@@ -193,7 +193,7 @@
 							"You hear a banging sound.")
 	else
 		playsound(src.loc, 'sound/effects/glass_knock.ogg', 60, 1)
-		user.visible_message("[user] knocks on \the [src.name].",
+		user.visible_message("<b>[user]</b> knocks on \the [src.name].",
 							"You knock on \the [src.name].",
 							"You hear a knocking sound.")
 	return
