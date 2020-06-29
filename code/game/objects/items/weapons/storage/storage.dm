@@ -30,6 +30,7 @@
 	var/obj/screen/storage/stored_continue
 	var/obj/screen/storage/stored_end
 	var/obj/screen/close/closer
+	var/care_about_storage_depth = TRUE
 	var/use_to_pickup	//Set this to make it possible to use this item in an inverse way, so you can have the item in your hand and click items on the floor to pick them up.
 	var/list/pickup_blacklist = list() // If you click a blacklisted item, it won't try to pick it up if use_to_pickup is true
 	var/display_contents_with_number	//Set this to make the storage item group contents of the same type and display them as a number.
@@ -403,23 +404,24 @@
 	queue_icon_update()
 
 //Call this proc to handle the removal of an item from the storage item. The item will be moved to the atom sent as new_target
-/obj/item/storage/proc/remove_from_storage(obj/item/W as obj, atom/new_location)
-	if(!istype(W)) return 0
+/obj/item/storage/proc/remove_from_storage(obj/item/W, atom/new_location)
+	if(!istype(W))
+		return FALSE
 
 	if(istype(src, /obj/item/storage/fancy))
 		var/obj/item/storage/fancy/F = src
-		F.update_icon(1)
+		F.update_icon(TRUE)
 
-	for(var/mob/M in range(1, src.loc))
-		if (M.s_active == src)
-			if (M.client)
+	for(var/mob/M in range(1, get_turf(src)))
+		if(M.s_active == src)
+			if(M.client)
 				M.client.screen -= W
 
 	if(new_location)
 		if(ismob(loc))
 			W.dropped(usr)
 		if(ismob(new_location))
-			W.layer = SCREEN_LAYER+0.01
+			W.layer = SCREEN_LAYER + 0.01
 		else
 			W.layer = initial(W.layer)
 		W.forceMove(new_location)
@@ -434,31 +436,30 @@
 		W.maptext = ""
 	W.on_exit_storage(src)
 	update_icon()
-	return 1
+	return TRUE
 
 /obj/item/storage/proc/remove_from_storage_deferred(obj/item/W, atom/new_location, mob/user)
-	if (!istype(W))
+	if(!istype(W))
 		return FALSE
 
 	// fuck if I know.
-	for(var/mob/M in range(1, src.loc))
-		if (M.s_active == src)
-			if (M.client)
+	for(var/mob/M in range(1, get_turf(src)))
+		if(M.s_active == src)
+			if(M.client)
 				M.client.screen -= W
 
-	if (new_location)
-		if (ismob(loc))
+	if(new_location)
+		if(ismob(loc))
 			W.dropped(user)
-		if (ismob(new_location))
-			W.layer = SCREEN_LAYER+0.01
+		if(ismob(new_location))
+			W.layer = SCREEN_LAYER + 0.01
 		else
 			W.layer = initial(W.layer)
-
 		W.forceMove(new_location)
 	else
 		W.forceMove(get_turf(src))
 
-	if (W.maptext)
+	if(W.maptext)
 		W.maptext = ""
 
 	W.on_exit_storage(src)
@@ -684,6 +685,11 @@
 	var/depth = 0
 	var/atom/cur_atom = src
 
+	if(istype(cur_atom.loc, /obj/item/storage))
+		var/obj/item/storage/S = cur_atom.loc
+		if(!S.care_about_storage_depth)
+			return 1
+
 	while (cur_atom && !(cur_atom in container.contents))
 		if (isarea(cur_atom))
 			return -1
@@ -701,6 +707,11 @@
 /atom/proc/storage_depth_turf()
 	var/depth = 0
 	var/atom/cur_atom = src
+
+	if(istype(cur_atom.loc, /obj/item/storage))
+		var/obj/item/storage/S = cur_atom.loc
+		if(!S.care_about_storage_depth)
+			return 1
 
 	while (cur_atom && !isturf(cur_atom))
 		if (isarea(cur_atom))
