@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - bugfix: "Replaced the non-functioning suit-cycler and voidsuit combo at the burglar base, with a simple black and red all-species syndicate softsuit."
+  - bugfix: "Burglars can properly no longer access some of the more robust uplinks, to keep up with the lowpop theme."

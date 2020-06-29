@@ -9,16 +9,17 @@
 	items = list()
 
 /datum/uplink_category/proc/can_view(obj/item/device/uplink/U)
+	if(LAZYLEN(restricted_antags))
+		for(var/antag_role in restricted_antags)
+			var/datum/antagonist/antag = all_antag_types[antag_role]
+			if(antag.is_antagonist(U.uplink_owner))
+				return FALSE
+
 	if(!LAZYLEN(antag_roles))
 		for(var/datum/uplink_item/item in items)
 			if(item.can_view(U))
 				return TRUE
 		return FALSE
-
-	for(var/antag_role in restricted_antags)
-		var/datum/antagonist/antag = all_antag_types[antag_role]
-		if(antag.is_antagonist(U.uplink_owner))
-			return FALSE
 
 	for(var/antag_role in antag_roles)
 		var/datum/antagonist/antag = all_antag_types[antag_role]
