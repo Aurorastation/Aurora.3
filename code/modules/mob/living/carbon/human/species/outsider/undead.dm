@@ -6,8 +6,6 @@
 
 /mob/living/carbon/human/skeleton/proc/spawn_skeleton(var/mob/user)
 	src.ckey = user.ckey
-	src.real_name = "[pick(wizard_first)] [pick(wizard_second)]"
-	src.name = src.real_name
 	if(master)
 		to_chat(src, "<B>You are a skeleton minion to [master], they are your master. Obey and protect your master at all costs, you have no free will.</B>")
 	SSghostroles.remove_spawn_atom("skeleton", src)
@@ -20,7 +18,7 @@
 	deform = 'icons/mob/human_races/r_skeleton.dmi'
 	eyes = "blank_eyes"
 
-	total_health = 70 //gotta get headshots to kill them, so they're frail
+	total_health = 100 //skeletons are frail
 
 	default_language = LANGUAGE_TCB
 	language = LANGUAGE_CULT
@@ -85,6 +83,7 @@
 	stamina	=	500			  //Tireless automatons
 	stamina_recovery = 1
 	sprint_speed_factor = 0.3
+	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
 	max_nutrition_factor = -1
 
@@ -93,7 +92,7 @@
 	hud_type = /datum/hud_data/construct
 
 /datum/species/skeleton/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= config.health_threshold_dead)
+	if(H.get_total_health() <= 0)
 		return TRUE
 	return FALSE
 
@@ -132,6 +131,7 @@
 	stamina	=	500			  //Tireless automatons
 	stamina_recovery = 1
 	sprint_speed_factor = 0.3
+	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
 	max_nutrition_factor = -1
 
@@ -146,7 +146,7 @@
 	qdel(H)
 
 /datum/species/apparition/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= config.health_threshold_dead)
+	if(H.get_total_health() <= 0)
 		return TRUE
 	return FALSE
 
@@ -208,6 +208,7 @@
 	stamina	=	500			  //Tireless automatons
 	stamina_recovery = 1
 	sprint_speed_factor = 0.3
+	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
 	inherent_verbs = list(/mob/living/carbon/human/proc/darkness_eyes)
 

@@ -184,11 +184,6 @@
 					/area/sconference_room = 2
 					)
 				A = pickweight(cargo_destination_list)
-			if("tcoms")
-				var/tcoms_destination_list = list(
-					/area/tcommsat/lounge = 1
-					)
-				A = pickweight(tcoms_destination_list)
 			if("commandescape")
 				var/commandescape_destination_list = list(
 					/area/bridge/levela = 2,
@@ -198,8 +193,11 @@
 					)
 				A = pickweight(commandescape_destination_list)
 		if(A)
-			status = LAUNCHING
 			var/mob/user = usr
+			if(!(user in src))
+				if(alert(user, "WARNING: You are not in the droppod! Are you sure you wish to launch?", "Launch Confirmation", "Yes", "No") == "No")
+					return
+			status = LAUNCHING
 			var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
 			if(ui)
 				ui.close()

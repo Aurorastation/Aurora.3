@@ -13,6 +13,8 @@
 			return
 		found = TRUE
 		hard_drive = H
+		hard_drive.parent_computer = src
+		hard_drive.install_default_programs()
 	else if(istype(H, /obj/item/computer_hardware/network_card))
 		if(network_card)
 			to_chat(user, SPAN_WARNING("\The [src]'s network card slot is already occupied by \the [network_card]."))

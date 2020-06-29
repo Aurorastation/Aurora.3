@@ -29,7 +29,7 @@
 
 	//First, check if we can breathe at all
 	if(is_asystole() && !(CE_STABLE in chem_effects)) //crit aka circulatory shock
-		losebreath++
+		losebreath = max(2, losebreath + 1)
 
 	if(losebreath>0) //Suffocating so do not take a breath
 		losebreath--

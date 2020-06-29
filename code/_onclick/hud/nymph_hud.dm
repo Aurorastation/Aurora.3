@@ -8,12 +8,12 @@
 
 	var/obj/screen/using
 
-	using = new /obj/screen/movement()
-	adding += using
+	using = new /obj/screen/movement_intent()
+	using.set_dir(SOUTHWEST)
+	using.icon = 'icons/mob/screen/alien.dmi'
+	using.icon_state = (mymob.m_intent == "run" ? "running" : "walking")
+	src.adding += using
 	move_intent = using
-	using.name = "movement method" //holy shit dionae what the fuck
-	using.icon_state = mymob.move_intent.hud_icon_state
-	
 
 	mymob.healths = new /obj/screen()
 	mymob.healths.icon = 'icons/hud/diona_health.dmi'

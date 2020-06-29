@@ -1,5 +1,6 @@
 /obj/item/trap
 	name = "mechanical trap"
+	desc = "A mechanically activated leg trap. Low-tech, but reliable. Looks like it could really hurt if you set it off."
 	throw_speed = 2
 	throw_range = 1
 	gender = PLURAL
@@ -8,13 +9,13 @@
 	icon_state = "beartrap0"
 	randpixel = 0
 	center_of_mass = null
-	desc = "A mechanically activated leg trap. Low-tech, but reliable. Looks like it could really hurt if you set it off."
 	throwforce = 0
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 18750)
 	var/deployed = FALSE
 	var/time_to_escape = 60
+	var/ignore_armor = FALSE
 
 /obj/item/trap/proc/can_use(mob/user)
 	return (user.IsAdvancedToolUser() && !issilicon(user) && !user.stat && !user.restrained())
@@ -28,16 +29,16 @@
 
 /obj/item/trap/proc/deploy(mob/user)
 	user.visible_message(
-		"<span class='danger'>[user] starts to deploy \the [src].</span>",
-		"<span class='danger'>You begin deploying \the [src]!</span>",
-		"You hear the slow creaking of a spring."
+		SPAN_WARNING("\The [user] starts to deploy \the [src]."),
+		SPAN_WARNING("You begin deploying \the [src]!"),
+		SPAN_WARNING("You hear the slow creaking of a spring.")
 		)
 
-	if (do_after(user, 5 SECONDS))
+	if(do_after(user, 5 SECONDS))
 		user.visible_message(
-			"<span class='danger'>[user] deploys \the [src].</span>",
-			"<span class='danger'>You deploy \the [src]!</span>",
-			"You hear a latch click loudly."
+			SPAN_WARNING("\The [user] deploys \the [src]."),
+			SPAN_WARNING("You deploy \the [src]!"),
+			SPAN_WARNING("You hear a latch click loudly.")
 			)
 
 		deployed = TRUE
@@ -48,35 +49,41 @@
 /obj/item/trap/user_unbuckle_mob(mob/user)
 	if(buckled_mob && can_use(user))
 		user.visible_message(
-			"<span class='notice'>\The [user] begins freeing \the [buckled_mob] from \the [src].</span>",
-			"<span class='notice'>You carefully begin to free \the [buckled_mob] from \the [src].</span>",
-			"<span class='notice'>You hear metal creaking.</span>"
+			SPAN_NOTICE("\The [user] begins freeing \the [buckled_mob] from \the [src]..."),
+			SPAN_NOTICE("You carefully begin to free \the [buckled_mob] from \the [src]..."),
+			SPAN_NOTICE("You hear metal creaking.")
 			)
 		if(do_after(user, time_to_escape))
-			user.visible_message("<span class='notice'>\The [buckled_mob] is freed from \the [src] by \the [user].</span>")
+			user.visible_message(
+				SPAN_NOTICE("\The [user] frees \the [buckled_mob] from \the [src]."),
+				SPAN_NOTICE("You free \the [buckled_mob] from \the [src].")
+				)
 			unbuckle_mob()
 			anchored = FALSE
 
 /obj/item/trap/attack_hand(mob/user)
 	if(buckled_mob && can_use(user))
 		user.visible_message(
-			"<span class='notice'>[user] begins freeing [buckled_mob] from \the [src].</span>",
-			"<span class='notice'>You carefully begin to free [buckled_mob] from \the [src].</span>"
+			SPAN_NOTICE("\The [user] begins freeing \the [buckled_mob] from \the [src]..."),
+			SPAN_NOTICE("You carefully begin to free \the [buckled_mob] from \the [src]...")
 			)
 		if(do_after(user, time_to_escape))
-			user.visible_message("<span class='notice'>[buckled_mob] is freed from \the [src] by [user].</span>")
+			user.visible_message(
+				SPAN_NOTICE("\The user frees \the [buckled_mob] from \the [src]."),
+				SPAN_NOTICE("You free \the [buckled_mob] from \the [src].")
+				)
 			unbuckle_mob()
 			anchored = FALSE
 	else if(deployed && can_use(user))
 		user.visible_message(
-			"<span class='danger'>[user] starts to disarm \the [src].</span>",
-			"<span class='notice'>You begin disarming \the [src]!</span>",
-			"You hear a latch click followed by the slow creaking of a spring."
+			SPAN_NOTICE("\The [user] starts to disarm \the [src]..."),
+			SPAN_NOTICE("You begin disarming \the [src]..."),
+			SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring.")
 			)
 		if(do_after(user, 6 SECONDS))
 			user.visible_message(
-				"<span class='danger'>[user] disarms \the [src].</span>",
-				"<span class='notice'>You disarm \the [src]!</span>"
+				SPAN_NOTICE("\The [user] disarms \the [src]!"),
+				SPAN_NOTICE("You disarm \the [src]!")
 				)
 			deployed = FALSE
 			anchored = FALSE
@@ -85,30 +92,41 @@
 		..()
 
 /obj/item/trap/proc/attack_mob(mob/living/L)
-
 	var/target_zone
 	if(L.lying)
 		target_zone = ran_zone()
 	else
 		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
 
-	//armour
-	var/blocked = L.run_armor_check(target_zone, "melee")
-	if(blocked >= 100)
-		return
+	if(!ignore_armor)
+		//armour
+		var/blocked = L.run_armor_check(target_zone, "melee")
+		if(blocked >= 100)
+			return
+		var/success = L.apply_damage(30, BRUTE, target_zone, blocked, src)
+		if(!success)
+			return FALSE
+	else
+		var/success = L.apply_damage(30, BRUTE, target_zone, 0, src)
+		if(!success)
+			return FALSE
 
-	var/success = L.apply_damage(30, BRUTE, target_zone, blocked, src)
-	if(!success)
-		return 0
+	var/did_trap = TRUE
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		var/obj/item/organ/external/limb = H.get_organ(check_zone(target_zone))
+		if(!limb || limb.is_stump()) // oops, we took the limb clean off
+			did_trap = FALSE
+	
+	if(did_trap)
+		//trap the victim in place
+		can_buckle = TRUE
+		buckle_mob(L)
+		can_buckle = initial(can_buckle)
 
-	//trap the victim in place
-	set_dir(L.dir)
-	can_buckle = TRUE
-	buckle_mob(L)
-	to_chat(L, "<span class='danger'>The steel jaws of \the [src] bite into you, trapping you in place!</span>")
 	deployed = FALSE
-	can_buckle = initial(can_buckle)
-	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)//Really loud snapping sound
+	to_chat(L, FONT_LARGE(SPAN_DANGER("The steel jaws of \the [src] bite into you, [did_trap ? "trapping you in place" : "cleaving your limb clean off"]!")))
+	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, TRUE) //Really loud snapping sound
 
 	if (istype(L, /mob/living/simple_animal/hostile/bear))
 		var/mob/living/simple_animal/hostile/bear/bear = L
@@ -119,20 +137,26 @@
 	if(deployed && isliving(AM))
 		var/mob/living/L = AM
 		L.visible_message(
-			"<span class='danger'>[L] steps on \the [src].</span>",
-			"<span class='danger'>You step on \the [src]!</span>",
-			"<b>You hear a loud metallic snap!</b>"
+			SPAN_DANGER("\The [L] steps on \the [src]!"),
+			FONT_LARGE(SPAN_DANGER("You step on \the [src]!")),
+			SPAN_WARNING("<b>You hear a loud metallic snap!</b>")
 			)
 		attack_mob(L)
 		if(!buckled_mob)
 			anchored = FALSE
 		deployed = FALSE
 		update_icon()
+		animate_shake()
 	..()
 
 
 /obj/item/trap/update_icon()
 	icon_state = "[icon_base][deployed]"
+
+/obj/item/trap/sharpened
+	name = "sharpened mechanical trap"
+	desc_antag = "This device has an even higher chance of penetrating armor and locking foes in place."
+	ignore_armor = TRUE
 
 /obj/item/trap/animal
 	name = "small trap"

@@ -1639,7 +1639,7 @@
 /area/syndicate_mothership/control)
 "ahq" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	dir = 1;
 	frequency = 1213;
 	name = "Syndicate Ops Intercom";
@@ -1704,10 +1704,10 @@
 /area/syndicate_mothership/elite_squad)
 "ahR" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	dir = 1;
 	frequency = 1213;
-	listening = 0;
+	listening = FALSE;
 	name = "Syndicate Ops Intercom";
 	pixel_y = 28;
 	subspace_transmission = 1;
@@ -5352,10 +5352,10 @@
 /area/centcom/specops)
 "atK" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	dir = 1;
 	frequency = 1441;
-	listening = 0;
+	listening = FALSE;
 	name = "Spec Ops Intercom";
 	pixel_y = 28
 	},
@@ -6090,10 +6090,10 @@
 /area/centcom/specops)
 "awE" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	dir = 1;
 	frequency = 1441;
-	listening = 0;
+	listening = FALSE;
 	name = "Spec Ops Intercom";
 	pixel_y = 28
 	},
@@ -7862,7 +7862,7 @@
 	name = "Hull Door Control"
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	dir = 1;
 	frequency = 1441;
 	name = "Spec Ops Intercom";
@@ -14212,10 +14212,10 @@
 	dir = 8
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	dir = 1;
 	frequency = 1443;
-	listening = 0;
+	listening = FALSE;
 	name = "Spec Ops Intercom";
 	pixel_y = 28
 	},

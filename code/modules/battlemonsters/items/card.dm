@@ -179,3 +179,22 @@
 	else
 		SSbattlemonsters.ExamineMonsterCard(user,prefix_datum,root_datum,suffix_datum)
 
+/obj/item/battle_monsters/card/MouseEntered(location, control, params)
+	. = ..()
+	if(!facedown || Adjacent(usr))
+		var/card_title = name
+		var/card_content = desc
+		if(trap_datum)
+			card_title = trap_datum.name
+			card_content = SSbattlemonsters.FormatSpellText(SSbattlemonsters.GetTrapFormatting(FALSE), trap_datum, FALSE)
+		else if(spell_datum)
+			card_title = spell_datum.name
+			card_content = SSbattlemonsters.FormatSpellText(SSbattlemonsters.GetSpellFormatting(FALSE), spell_datum, FALSE)
+		else
+			card_title = root_datum.name
+			card_content = SSbattlemonsters.FormatMonsterText(SSbattlemonsters.GetMonsterFormatting(FALSE), prefix_datum, root_datum, suffix_datum, FALSE)
+		openToolTip(usr, src, params, card_title, card_content)
+
+/obj/item/battle_monsters/card/MouseExited(location, control, params)
+	. = ..()
+	closeToolTip(usr)

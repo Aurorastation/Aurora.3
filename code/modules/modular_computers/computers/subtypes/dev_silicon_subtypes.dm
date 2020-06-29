@@ -7,10 +7,10 @@
 
 /obj/item/modular_computer/silicon/ai/install_default_programs()
 	. = ..()
-	hard_drive.store_file(new /datum/computer_file/program/records())
-	hard_drive.store_file(new /datum/computer_file/program/rcon_console())
-	hard_drive.store_file(new /datum/computer_file/program/suit_sensors())
-	hard_drive.store_file(new /datum/computer_file/program/power_monitor())
+	hard_drive.store_file(new /datum/computer_file/program/records(src))
+	hard_drive.store_file(new /datum/computer_file/program/rcon_console(src))
+	hard_drive.store_file(new /datum/computer_file/program/suit_sensors(src))
+	hard_drive.store_file(new /datum/computer_file/program/power_monitor(src))
 
 /obj/item/modular_computer/silicon/robot
 	hardware_flag = PROGRAM_SILICON_ROBOT
@@ -24,6 +24,6 @@
 
 /obj/item/modular_computer/silicon/pai/install_default_programs()
 	. = ..()
-	hard_drive.store_file(new /datum/computer_file/program/pai_directives())
-	hard_drive.store_file(new /datum/computer_file/program/pai_radio())
-	hard_drive.store_file(new /datum/computer_file/program/pai_flashlight())
+	hard_drive.store_file(new /datum/computer_file/program/pai_directives(src))
+	hard_drive.store_file(new /datum/computer_file/program/pai_radio(src))
+	hard_drive.store_file(new /datum/computer_file/program/pai_flashlight(src))

@@ -855,6 +855,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	if(!clean)
 		victim.shock_stage += min_broken_damage
+		victim.flash_strong_pain()
 
 	removed(null, ignore_children)
 
@@ -997,13 +998,14 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return
 
 	if(owner)
-		var/message = pick("snapped in half", "shattered", "was pulverized")
+		var/message = pick("broke in half", "shattered")
 		owner.visible_message(\
-			"<span class='warning'><font size='2'>You hear a loud cracking sound coming from \the [owner]!</font></span>",\
+			"<span class='warning'><font size=2>You hear a loud cracking sound coming from \the [owner]!</font></span>",\
 			"<span class='danger'><font size=3>Something feels like it [message] in your [name]!</font></span>",\
 			"You hear a sickening crack!")
 		if(owner.species && (owner.can_feel_pain()))
 			owner.emote("scream")
+			owner.flash_strong_pain()
 
 	playsound(src.loc, "fracture", 100, 1, -2)
 	status |= ORGAN_BROKEN
@@ -1203,11 +1205,11 @@ Note that amputating the affected organ does in fact remove the infection from t
 				if(21 to INFINITY)
 					. += "[LL ? pick("exposed wiring","torn-back synthflesh") : pick("a lot of dents","severe denting")]"
 		if(brute_dam && burn_dam)
-			. += " and"
+			. += " and "
 		if(burn_dam)
 			switch(burn_dam)
 				if(0 to 20)
-					. += "some burns"
+					. += "some [LL ? pick ("fresh skins","burn scars","healing burns") : "burns"]"
 				if(21 to INFINITY)
 					. += "[LL ? pick("roasted synth-flesh","melted internal wiring") : pick("many burns","scorched metal")]"
 		if(open)

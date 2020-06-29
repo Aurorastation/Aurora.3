@@ -80,6 +80,7 @@ var/list/gamemode_cache = list()
 	var/cult_ghostwriter_req_cultists = 10 //...so long as this many cultists are active.
 
 	var/character_slots = 10				// The number of available character slots
+	var/loadout_slots = 3					// The number of loadout slots per character
 
 	var/max_maint_drones = 5				//This many drones can spawn,
 	var/allow_drone_spawn = 1				//assuming the admin allow them to.
@@ -145,16 +146,11 @@ var/list/gamemode_cache = list()
 	var/no_click_cooldown = 0
 
 	//Used for modifying movement speed for mobs.
-	//Universal modifiers
+	//Unversal modifiers
+	var/walk_speed = 0
 	var/walk_delay_multiplier = 1
 	var/run_delay_multiplier = 1
 	var/vehicle_delay_multiplier = 1
-	
-	var/run_delay = 4
-	var/walk_delay = 4
-	var/creep_delay = 6
-	var/minimum_stamina_recovery = 1
-	var/maximum_stamina_recovery = 3
 
 	//Mob specific modifiers. NOTE: These will affect different mob types in different ways
 	var/human_delay = 0
@@ -729,6 +725,9 @@ var/list/gamemode_cache = list()
 				if("character_slots")
 					config.character_slots = text2num(value)
 
+				if("loadout_slots")
+					config.loadout_slots = text2num(value)
+
 				if("allow_drone_spawn")
 					config.allow_drone_spawn = text2num(value)
 
@@ -987,16 +986,8 @@ var/list/gamemode_cache = list()
 				if("limbs_can_break")
 					config.limbs_can_break = value
 
-				if("run_delay")
-					config.run_delay = value
-				if("walk_delay")
-					config.walk_delay = value
-				if("creep_delay")
-					config.creep_delay = value
-				if("minimum_stamina_recovery")
-					config.minimum_stamina_recovery = value
-				if("maximum_stamina_recovery")
-					config.maximum_stamina_recovery = value
+				if("walk_speed")
+					config.walk_speed = value
 
 				// These should never go to 0 or below. So, we clamp them.
 				if("walk_delay_multiplier")

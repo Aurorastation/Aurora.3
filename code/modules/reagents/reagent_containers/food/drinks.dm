@@ -267,7 +267,14 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	center_of_mass = list("x"=16, "y"=11)
 	reagents_to_add = list(/datum/reagent/drink/dry_ramen = 30)
+  is_liquid = FALSE
 
+/obj/item/reagent_containers/food/drinks/dry_ramen/on_reagent_change()
+	..()
+	if(reagents.has_reagent("dry_ramen"))
+		is_liquid = FALSE
+	else
+		is_liquid = TRUE
 
 /obj/item/reagent_containers/food/drinks/sillycup
 	name = "paper cup"

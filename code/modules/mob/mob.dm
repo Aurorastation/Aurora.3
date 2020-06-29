@@ -74,13 +74,9 @@
 		dead_mob_list += src
 	else
 		living_mob_list += src
+
 	if (!ckey && mob_thinks)
 		MOB_START_THINKING(src)
-
-	if(!move_intent)
-		move_intent = move_intents[1]
-	if(ispath(move_intent))
-		move_intent = decls_repository.get_decl(move_intent)
 
 /mob/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
@@ -211,7 +207,7 @@
 	return 0
 
 /mob/proc/movement_delay()
-	. = move_intent.move_delay
+	return 0
 
 /mob/proc/Life()
 	return
@@ -219,7 +215,6 @@
 #define UNBUCKLED 0
 #define PARTIALLY_BUCKLED 1
 #define FULLY_BUCKLED 2
-
 /mob/proc/buckled()
 	// Preliminary work for a future buckle rewrite,
 	// where one might be fully restrained (like an elecrical chair), or merely secured (shuttle chair, keeping you safe but not otherwise restrained from acting)
@@ -998,6 +993,13 @@
 /mob/living/carbon/human/flash_weak_pain()
 	if(can_feel_pain())
 		flick("weak_pain", pain)
+
+/mob/living/proc/flash_strong_pain()
+	return
+
+/mob/living/carbon/human/flash_strong_pain()
+	if(can_feel_pain())
+		flick("strong_pain", pain)
 
 /mob/proc/Jitter(amount)
 	jitteriness = max(jitteriness,amount,0)
