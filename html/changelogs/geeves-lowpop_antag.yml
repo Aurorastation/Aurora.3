@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added a lowpop gamemode called 'Burglars', featuring a new type of antagonist, a mix between a heister and a traitor. Neutered for lowpop fun."
-  - rscadd: "Added a mixed gamemode, 'Conflict', which is heisters and burglars."
