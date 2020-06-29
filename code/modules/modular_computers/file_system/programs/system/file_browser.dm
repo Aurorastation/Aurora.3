@@ -133,10 +133,10 @@
 		. = TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		var/obj/item/computer_hardware/hard_drive/portable/RHDD = computer.portable_drive
-		if(!HDD || !RHDD || computer.enrolled != 2)
+		if(!HDD || !RHDD)
 			return TRUE
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_copytousb"])
-		if(!F || !istype(F))
+		if(!F || !istype(F) || (computer.enrolled != 2 && istype(F, /datum/computer_file/program)))
 			return TRUE
 		var/datum/computer_file/C = F.clone(0)
 		RHDD.store_file(C)
@@ -144,10 +144,10 @@
 		. = TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		var/obj/item/computer_hardware/hard_drive/portable/RHDD = computer.portable_drive
-		if(!HDD || !RHDD || computer.enrolled != 2)
+		if(!HDD || !RHDD)
 			return TRUE
 		var/datum/computer_file/F = RHDD.find_file_by_name(href_list["PRG_copyfromusb"])
-		if(!F || !istype(F))
+		if(!F || !istype(F) || (computer.enrolled != 2 && istype(F, /datum/computer_file/program)))
 			return TRUE
 		var/datum/computer_file/C = F.clone(0)
 		HDD.store_file(C)
