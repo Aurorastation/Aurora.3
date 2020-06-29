@@ -7,7 +7,8 @@
 				   it is under the joint administration of the Republic of Biesel and the trans-stellar corporate conglomerate NanoTrasen."
 	path = "aurora"
 
-	lobby_screens = list("aurora_asteroid", "aurora_postcard")
+	lobby_icon = 'icons/misc/aurora.dmi'
+	lobby_screens = list("corp_titles")
 
 	station_levels = list(2, 3, 4, 5, 6, 7)
 	admin_levels = list(1)
