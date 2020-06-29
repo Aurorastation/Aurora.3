@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - bugfix: "Fixed tape recorder drive files being unable to be copied to work devices, by allowing work devices to copy text files to and from portable drives."
+  - tweak: "Tech Support can now install computer programs onto work devices."

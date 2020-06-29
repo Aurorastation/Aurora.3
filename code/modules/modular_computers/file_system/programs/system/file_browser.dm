@@ -136,7 +136,16 @@
 		if(!HDD || !RHDD)
 			return TRUE
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_copytousb"])
-		if(!F || !istype(F) || (computer.enrolled != 2 && istype(F, /datum/computer_file/program)))
+		if(!F || !istype(F))
+			return TRUE
+		var/is_usr_tech_support = FALSE
+		if(ishuman(usr))
+			var/mob/living/carbon/human/H = usr
+			var/obj/item/card/id/ID = H.GetIdCard()
+			if(ID?.assignment == "Tech Support")
+				is_usr_tech_support = TRUE
+		if(!is_usr_tech_support && computer.enrolled != 2 && istype(F, /datum/computer_file/program))
+			to_chat(usr, SPAN_WARNING("Work devices can't export programs to portable drives! Contact Tech Support to get them to load it."))
 			return TRUE
 		var/datum/computer_file/C = F.clone(0)
 		RHDD.store_file(C)
@@ -147,7 +156,16 @@
 		if(!HDD || !RHDD)
 			return TRUE
 		var/datum/computer_file/F = RHDD.find_file_by_name(href_list["PRG_copyfromusb"])
-		if(!F || !istype(F) || (computer.enrolled != 2 && istype(F, /datum/computer_file/program)))
+		if(!F || !istype(F))
+			return TRUE
+		var/is_usr_tech_support = FALSE
+		if(ishuman(usr))
+			var/mob/living/carbon/human/H = usr
+			var/obj/item/card/id/ID = H.GetIdCard()
+			if(ID?.assignment == "Tech Support")
+				is_usr_tech_support = TRUE
+		if(!is_usr_tech_support && computer.enrolled != 2 && istype(F, /datum/computer_file/program))
+			to_chat(usr, SPAN_WARNING("Work devices can't import programs from portable drives! Contact Tech Support to get them to load it."))
 			return TRUE
 		var/datum/computer_file/C = F.clone(0)
 		HDD.store_file(C)
