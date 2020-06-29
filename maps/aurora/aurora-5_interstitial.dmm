@@ -3755,9 +3755,9 @@
 /area/security/training)
 "hP" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	frequency = 1481;
-	listening = 0;
+	listening = FALSE;
 	name = "station intercom (Isolation Room)";
 	pixel_x = 27
 	},

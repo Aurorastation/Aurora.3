@@ -92,7 +92,7 @@ var/global/datum/ntnet/ntnet_global = new()
 	available_antag_software = list()
 	available_software = list()
 	for(var/F in typesof(/datum/computer_file/program))
-		var/datum/computer_file/program/prog = new F
+		var/datum/computer_file/program/prog = new F("Compless")
 		// Invalid type (shouldn't be possible but just in case), invalid filetype (not executable program) or invalid filename (unset program)
 		if(!prog || !istype(prog) || prog.filename == "UnknownProgram" || prog.filetype != "PRG")
 			continue

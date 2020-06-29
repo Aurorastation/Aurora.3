@@ -32,6 +32,8 @@
 	new /obj/item/gun/energy/pistol(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/melee/telebaton(src)
+	// acting captain briefcase
+	new /obj/item/storage/briefcase/nt/acap(src)
 
 /obj/structure/closet/secure_closet/captains2
 	name = "captain's attire"
