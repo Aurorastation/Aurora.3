@@ -9,9 +9,9 @@
 /datum/gear/head/goldenchains/New()
 	..()
 	var/headchains = list()
-	headchains["head chains, cobalt"] = /obj/item/clothing/head/headchain
-	headchains["head chains, emerald"] = /obj/item/clothing/head/headchain/emerald
-	headchains["head chains, ruby"] = /obj/item/clothing/head/headchain/ruby
+	headchains["cobalt head chains"] = /obj/item/clothing/head/headchain
+	headchains["emerald head chains"] = /obj/item/clothing/head/headchain/emerald
+	headchains["ruby head chains"] = /obj/item/clothing/head/headchain/ruby
 	gear_tweaks += new/datum/gear_tweak/path(headchains)
 
 /datum/gear/head/goldencrests
@@ -25,9 +25,9 @@
 /datum/gear/head/goldencrests/New()
 	..()
 	var/crest = list()
-	crest["crest, cobalt"] = /obj/item/clothing/head/crest
-	crest["crest, emerald"] = /obj/item/clothing/head/crest/emerald
-	crest["crest, ruby"] = /obj/item/clothing/head/crest/ruby
+	crest["cobalt crest"] = /obj/item/clothing/head/crest
+	crest["emerald crest"] = /obj/item/clothing/head/crest/emerald
+	crest["ruby crest"] = /obj/item/clothing/head/crest/ruby
 	gear_tweaks += new/datum/gear_tweak/path(crest)
 
 /datum/gear/gloves/armchains
@@ -41,9 +41,9 @@
 /datum/gear/gloves/armchains/New()
 	..()
 	var/armchains = list()
-	armchains["arm chains, cobalt"] = /obj/item/clothing/gloves/armchain
-	armchains["arm chains, emerald"] = /obj/item/clothing/gloves/armchain/emerald
-	armchains["arm chains, ruby"] = /obj/item/clothing/gloves/armchain/ruby
+	armchains["cobalt arm chains"] = /obj/item/clothing/gloves/armchain
+	armchains["emerald arm chains"] = /obj/item/clothing/gloves/armchain/emerald
+	armchains["ruby arm chains"] = /obj/item/clothing/gloves/armchain/ruby
 	gear_tweaks += new/datum/gear_tweak/path(armchains)
 
 /datum/gear/gloves/bracers
@@ -57,9 +57,9 @@
 /datum/gear/gloves/bracers/New()
 	..()
 	var/bracers = list()
-	bracers["arm chains, cobalt"] = /obj/item/clothing/gloves/goldbracer
-	bracers["arm chains, emerald"] = /obj/item/clothing/gloves/goldbracer/emerald
-	bracers["arm chains, ruby"] = /obj/item/clothing/gloves/goldbracer/ruby
+	bracers["cobalt arm chains"] = /obj/item/clothing/gloves/goldbracer
+	bracers["emerald arm chains"] = /obj/item/clothing/gloves/goldbracer/emerald
+	bracers["ruby arm chains"] = /obj/item/clothing/gloves/goldbracer/ruby
 	gear_tweaks += new/datum/gear_tweak/path(bracers)
 
 /datum/gear/ears/antennae
@@ -73,18 +73,18 @@
 /datum/gear/ears/antennae/New()
 	..()
 	var/antenna = list()
-	antenna["antenna, curved"] = /obj/item/clothing/head/antenna
-	antenna["antenna, straight"] = /obj/item/clothing/head/antenna/straight
-	antenna["antenna, spiked"] = /obj/item/clothing/head/antenna/spiked
-	antenna["antenna, side"] = /obj/item/clothing/head/antenna/side
-	antenna["antenna, dish"] = /obj/item/clothing/head/antenna/dish
-	antenna["antenna, double"] = /obj/item/clothing/head/antenna/double
-	antenna["antenna, left"] = /obj/item/clothing/head/antenna/double/left
-	antenna["antenna, right"] = /obj/item/clothing/head/antenna/double/right
+	antenna["curved antenna"] = /obj/item/clothing/head/antenna
+	antenna["straight antenna"] = /obj/item/clothing/head/antenna/straight
+	antenna["spiked antenna"] = /obj/item/clothing/head/antenna/spiked
+	antenna["side antenna"] = /obj/item/clothing/head/antenna/side
+	antenna["dish antenna"] = /obj/item/clothing/head/antenna/dish
+	antenna["double antenna"] = /obj/item/clothing/head/antenna/double
+	antenna["left antenna"] = /obj/item/clothing/head/antenna/double/left
+	antenna["right antenna"] = /obj/item/clothing/head/antenna/double/right
 	gear_tweaks += new/datum/gear_tweak/path(antenna)
 
 /datum/gear/ears/trinary_halo
-	display_name = "trinary perfection antenna (colourable)"
+	display_name = "Trinary Perfection antenna (colourable)"
 	path = /obj/item/clothing/head/antenna/trinary_halo
 	cost = 1
 	whitelisted = list("Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")

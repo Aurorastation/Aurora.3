@@ -57,10 +57,10 @@
 /datum/gear/vaurca_robe/New()
 	..()
 	var/cloaks = list()
-	cloaks["hive cloak, red and golden"] = /obj/item/clothing/suit/vaurca
-	cloaks["hive cloak, red and silver"] = /obj/item/clothing/suit/vaurca/silver
-	cloaks["hive cloak, brown and silver"] = /obj/item/clothing/suit/vaurca/brown
-	cloaks["hive cloak, blue and golden"] = /obj/item/clothing/suit/vaurca/blue
+	cloaks["red and golden hive cloak"] = /obj/item/clothing/suit/vaurca
+	cloaks["red and silver hive cloak"] = /obj/item/clothing/suit/vaurca/silver
+	cloaks["brown and silver hive cloak"] = /obj/item/clothing/suit/vaurca/brown
+	cloaks["blue and golden hive cloak"] = /obj/item/clothing/suit/vaurca/blue
 	gear_tweaks += new/datum/gear_tweak/path(cloaks)
 
 /datum/gear/uniform/vaurca
@@ -97,11 +97,11 @@
 /datum/gear/suit/vaurca_shroud/New()
 	..()
 	var/shrouds = list()
-	shrouds["vaurcan shroud, blue"] = /obj/item/clothing/head/shroud
-	shrouds["vaurcan shroud, red"] = /obj/item/clothing/head/shroud/red
-	shrouds["vaurcan shroud, green"] = /obj/item/clothing/head/shroud/green
-	shrouds["vaurcan shroud, purple"] = /obj/item/clothing/head/shroud/purple
-	shrouds["vaurcan shroud, brown"] = /obj/item/clothing/head/shroud/brown
+	shrouds["blue vaurcan shroud"] = /obj/item/clothing/head/shroud
+	shrouds["red vaurcan shroud"] = /obj/item/clothing/head/shroud/red
+	shrouds["green vaurcan shroud"] = /obj/item/clothing/head/shroud/green
+	shrouds["purple vaurcan shroud"] = /obj/item/clothing/head/shroud/purple
+	shrouds["brown vaurcan shroud"] = /obj/item/clothing/head/shroud/brown
 	gear_tweaks += new/datum/gear_tweak/path(shrouds)
 
 /datum/gear/suit/vaurca_mantle

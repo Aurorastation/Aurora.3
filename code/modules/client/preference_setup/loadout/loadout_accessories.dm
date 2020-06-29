@@ -324,14 +324,6 @@
 	display_name = "cowled vest"
 	path = /obj/item/clothing/accessory/cowled_vest
 
-/datum/gear/accessory/halfcape
-	display_name = "half cape"
-	path = /obj/item/clothing/accessory/halfcape
-
-/datum/gear/accessory/fullcape
-	display_name = "full cape"
-	path = /obj/item/clothing/accessory/fullcape
-
 /datum/gear/accessory/bracelet
 	display_name = "bracelet (colourable)"
 	path = /obj/item/clothing/accessory/bracelet
@@ -366,3 +358,11 @@
 	display_name = "cloak (colourable)"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/custom
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/halfcape
+	display_name = "half cape"
+	path = /obj/item/clothing/accessory/halfcape
+
+/datum/gear/accessory/fullcape
+	display_name = "full cape"
+	path = /obj/item/clothing/accessory/fullcape

@@ -74,8 +74,8 @@
 	uniform["fancy uniform"] = /obj/item/clothing/under/tajaran/fancy
 	uniform["NanoTrasen overalls"] = /obj/item/clothing/under/tajaran/nt
 	uniform["matake priest garments"] = /obj/item/clothing/under/tajaran/matake
-	uniform["adhomian summerwear"] = /obj/item/clothing/under/tajaran/summer
-	uniform["adhomian summer pants"] = /obj/item/clothing/under/pants/tajaran
+	uniform["Adhomian summerwear"] = /obj/item/clothing/under/tajaran/summer
+	uniform["Adhomian summer pants"] = /obj/item/clothing/under/pants/tajaran
 	uniform["machinist uniform"] = /obj/item/clothing/under/tajaran/mechanic
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
@@ -89,14 +89,14 @@
 /datum/gear/uniform/tajara_dress/New()
 	..()
 	var/dress = list()
-	dress["white fancy adhomian dress"] = /obj/item/clothing/under/dress/tajaran
-	dress["blue fancy adhomian dress"] = /obj/item/clothing/under/dress/tajaran/blue
-	dress["green fancy adhomian dress"] = /obj/item/clothing/under/dress/tajaran/green
-	dress["red fancy adhomian dress"] = /obj/item/clothing/under/dress/tajaran/red
-	dress["red noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy
-	dress["black noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
-	dress["black noble adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
-	dress["adhomian summer dress"] = /obj/item/clothing/under/dress/tajaran/summer
+	dress["white fancy Adhomian dress"] = /obj/item/clothing/under/dress/tajaran
+	dress["blue fancy Adhomian dress"] = /obj/item/clothing/under/dress/tajaran/blue
+	dress["green fancy Adhomian dress"] = /obj/item/clothing/under/dress/tajaran/green
+	dress["red fancy Adhomian dress"] = /obj/item/clothing/under/dress/tajaran/red
+	dress["red noble Adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy
+	dress["black noble Adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
+	dress["black noble Adhomian dress"] = /obj/item/clothing/under/dress/tajaran/fancy/black
+	dress["Adhomian summer dress"] = /obj/item/clothing/under/dress/tajaran/summer
 	gear_tweaks += new/datum/gear_tweak/path(dress)
 
 /datum/gear/accessory/tajara
@@ -121,7 +121,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(scarf)
 
 /datum/gear/head/tajara
-	display_name = "adhomian headgear (selection)"
+	display_name = "Adhomian headgear (selection)"
 	description = "A selection of tajaran native headgear."
 	path = /obj/item/clothing/head/tajaran/circlet
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
@@ -204,7 +204,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(card)
 
 /datum/gear/tajaran_passports
-	display_name = "adhomian passport (selection)"
+	display_name = "Adhomian passport (selection)"
 	path = /obj/item/clothing/accessory/badge/pra_passport
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
@@ -213,20 +213,20 @@
 /datum/gear/tajaran_passports/New()
 	..()
 	var/passports = list()
-	passports["people's republic of adhomai passport"] = /obj/item/clothing/accessory/badge/pra_passport
-	passports["democratic people's republic of adhomai passport"] = /obj/item/clothing/accessory/badge/dpra_passport
-	passports["new kingdom of adhomai passport"] = /obj/item/clothing/accessory/badge/nka_passport
+	passports["People's Republic of Adhomai passport"] = /obj/item/clothing/accessory/badge/pra_passport
+	passports["Democratic People's Republic of Adhomai passport"] = /obj/item/clothing/accessory/badge/dpra_passport
+	passports["New Kingdom of Adhomai passport"] = /obj/item/clothing/accessory/badge/nka_passport
 	gear_tweaks += new/datum/gear_tweak/path(passports)
 
 /datum/gear/accessory/adhomai_zippo
-	display_name = "adhomian lighter"
+	display_name = "Adhomian lighter"
 	path = /obj/item/flame/lighter/adhomai
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/adhomai_pocketwatch
-	display_name = "adhomian watch"
+	display_name = "Adhomian watch"
 	path = /obj/item/pocketwatch/adhomai
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
