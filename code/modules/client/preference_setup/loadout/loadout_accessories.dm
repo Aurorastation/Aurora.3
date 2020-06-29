@@ -353,16 +353,3 @@
 /datum/gear/accessory/suitvest
 	display_name = "suit vest"
 	path = /obj/item/clothing/accessory/suitvest
-
-/datum/gear/accessory/roles/poncho/cloak/custom //A colorable cloak
-	display_name = "cloak (colourable)"
-	path = /obj/item/clothing/accessory/poncho/roles/cloak/custom
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/accessory/halfcape
-	display_name = "half cape"
-	path = /obj/item/clothing/accessory/halfcape
-
-/datum/gear/accessory/fullcape
-	display_name = "full cape"
-	path = /obj/item/clothing/accessory/fullcape
