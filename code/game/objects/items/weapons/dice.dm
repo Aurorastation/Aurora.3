@@ -87,7 +87,7 @@
 	icon_state = "d10010"
 	sides = 10
 	side_mult = 10
-  base_icon = "d100"
+	base_icon = "d100"
 
 /*
  *Liar's Dice cup
