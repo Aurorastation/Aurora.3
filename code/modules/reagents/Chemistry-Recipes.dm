@@ -2666,7 +2666,7 @@
 	name = "Gimlet"
 	id = "gimlet"
 	result = "gimlet"
-	required_reagents = list("limejuice" = 1, "gin" = 1, "sodawater" = 1)
+	required_reagents = list("limejuice" = 1, "gin" = 1, "grenadine" = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/starsandstripes
