@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Replaced the non-functioning suit-cycler and voidsuit combo at the burglar base, with a simple black and red all-species syndicate softsuit."
