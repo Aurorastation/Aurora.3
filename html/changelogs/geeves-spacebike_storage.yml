@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Spacebikes, speeders, and monowheels now have storage compartments accessible by dragging it onto your sprite."
-  - tweak: "Spacebikes and speeders now drive a bit faster on non-space tiles."
