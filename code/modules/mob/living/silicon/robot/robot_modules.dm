@@ -714,8 +714,17 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/gripper/no_use/loader(src)
 	src.modules += new /obj/item/device/robotanalyzer(src)
 	src.modules += new /obj/item/card/robot(src)
+
+	var/datum/matter_synth/wire = new /datum/matter_synth/wire(15)
+	synths += wire
+	var/obj/item/stack/cable_coil/cyborg/C = new /obj/item/stack/cable_coil/cyborg(src)
+	C.synths = list(wire)
+	src.modules += C
+
+	src.modules += new /obj/item/weldingtool/experimental(src)
 	src.modules += new /obj/item/wrench/robotic(src)
 	src.modules += new /obj/item/screwdriver(src)
+	src.modules += new /obj/item/wirecutters/robotic(src)
 	src.modules += new /obj/item/surgery/scalpel(src)
 	src.modules += new /obj/item/surgery/circular_saw(src)
 	src.modules += new /obj/item/reagent_containers/syringe(src)

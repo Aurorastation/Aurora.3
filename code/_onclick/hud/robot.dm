@@ -80,6 +80,9 @@ var/obj/screen/robot_inventory
 	mymob.hands.name = "module"
 	mymob.hands.screen_loc = ui_borg_module
 
+	if(r.module)
+		mymob.hands.icon_state = lowertext(r.mod_type)
+
 //Module Panel
 	using = new /obj/screen()
 	using.name = "panel"
