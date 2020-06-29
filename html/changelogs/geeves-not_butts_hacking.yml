@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Hacking no longer requires you to hold the tool (wirecutters, multitool, signaler) in your active hand, just that the tool is in one of your hands. This applies to cyborgs as well."
