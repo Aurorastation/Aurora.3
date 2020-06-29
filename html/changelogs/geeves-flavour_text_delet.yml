@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Off-station antagonists will no longer keep the player's character's flavour text."
+  - bugfix: "Antagonists will now be assigned random names before they pick their name."
