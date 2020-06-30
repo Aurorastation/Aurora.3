@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Battlemonsters vendors now spawn with five free basic packs containing seven common cards, which can be used to show people how the game works without spending any money."
