@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added power efficient inductive chargers to cyborgs, maintenance-, construction- and mining drones, allowing them to charge power cells, and things that contain power cells."

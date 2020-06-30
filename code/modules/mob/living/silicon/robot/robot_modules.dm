@@ -55,6 +55,8 @@ var/global/list/robot_modules = list(
 	..()
 	R.module = src
 
+	src.modules += new /obj/item/inductive_charger(src)
+
 	add_camera_networks(R)
 	add_languages(R)
 	add_subsystems(R)
