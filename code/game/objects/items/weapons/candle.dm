@@ -31,7 +31,7 @@
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
 			light()
 			to_chat(user, span("notice", "\The [user] casually lights \the [name] with [W]."))
-	else if(isflamesource(W))
+	else if(W.isFlameSource())
 		light()
 		to_chat(user, span("notice", "\The [user] lights \the [name]."))
 	else if(istype(W, /obj/item/flame/candle))

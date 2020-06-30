@@ -53,14 +53,12 @@
 		remove_contents(user)
 
 /obj/item/reagent_containers/glass/rag/attackby(obj/item/W, mob/user)
-	if(!on_fire && istype(W, /obj/item/flame))
-		var/obj/item/flame/F = W
-		if(F.lit)
-			ignite()
-			if(on_fire)
-				visible_message(span("warning", "\The [user] lights \the [src] with \the [W]."))
-			else
-				to_chat(user, span("warning", "You manage to singe \the [src], but fail to light it."))
+	if(!on_fire && W.isFlameSource())
+		ignite()
+		if(on_fire)
+			visible_message(span("warning", "\The [user] lights \the [src] with \the [W]."))
+		else
+			to_chat(user, span("warning", "You manage to singe \the [src], but fail to light it."))
 
 	. = ..()
 	update_name()

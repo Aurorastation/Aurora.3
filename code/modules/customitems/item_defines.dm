@@ -1065,6 +1065,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 		item_state = initial(item_state)
 		set_light(0)
 
+/obj/item/clothing/gloves/fluff/lunea_gloves/isFlameSource()
+	return lit
+
 
 /obj/item/fluff/fernando_knittingneedles //Kitting Needles - Fernando Gonzales - resilynn
 	name = "knitting needles"

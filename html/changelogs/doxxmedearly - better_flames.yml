@@ -1,0 +1,8 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes: 
+  - rscadd: "Cigarettes now count as flame sources for igniting things like candles, other cigarettes, etc."
+  - rscadd: "Added more ways to ignite certain objects, as some were hardcoded just to respond to lighters or welders."
+  - rscdel: "Removed more remnants of clowns from code."

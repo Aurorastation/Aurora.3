@@ -18,7 +18,7 @@
 		if(WT.isOn())
 			activate(user)
 
-	else if(isflamesource(W))
+	else if(W.isFlameSource())
 		activate(user)
 
 	else if(istype(W, /obj/item/flame/candle))
