@@ -1,5 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - rscadd: "Added compact disposal bins."
-  - tweak: "Projectiles now pass over disposal bins."
