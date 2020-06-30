@@ -230,7 +230,7 @@
 				density = 1
 			to_chat(user, "You detach the [nicetype] from the underfloor.")
 		else
-			if(ptype>=6 && ptype <= 8 || ptype == 15) // Disposal or outlet
+			if(ptype>=6 && ptype <= 8 || ptype == 15) // Disposal bin, outlet or small disposal bin
 				if(CP) // There's something there
 					if(!istype(CP,/obj/structure/disposalpipe/trunk))
 						to_chat(user, "The [nicetype] requires a trunk underneath it in order to work.")
