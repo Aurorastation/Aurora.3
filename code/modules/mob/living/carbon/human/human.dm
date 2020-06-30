@@ -2007,7 +2007,7 @@
 			if(prob(5))
 				damage = rand(20, 60)
 				src.adjustToxLoss(-damage)
-			to_chat(src, "<span class='notice'>You can feel flow of energy which makes you regenerate.</span>")
+			to_chat(src, SPAN_NOTICE("You can feel flow of energy which makes you regenerate."))
 
 		src.apply_effect((rand(15,30)),IRRADIATE,blocked = src.getarmor(null, "rad"))
 		if(prob(4))

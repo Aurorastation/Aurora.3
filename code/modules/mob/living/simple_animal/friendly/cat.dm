@@ -158,7 +158,7 @@
 
 /mob/living/simple_animal/cat/apply_radiation_effects()
 	. = ..()
-	if(. == TRUE)
+	if(.)
 		apply_effect((rand(30,60)),IRRADIATE,blocked=0)
 
 /mob/living/simple_animal/cat/proc/handle_flee_target()

@@ -452,7 +452,3 @@
 
 /mob/living/carbon/proc/should_have_organ(var/organ_check)
 	return 0
-
-/mob/living/carbon/apply_radiation_effects()
-	. = ..()
-
