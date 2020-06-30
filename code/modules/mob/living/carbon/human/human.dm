@@ -1336,6 +1336,9 @@
 		footprint_color = null
 		feet_blood_DNA = null
 		update_inv_shoes(1)
+
+	if(blood_color)
+		blood_color = null
 		return 1
 
 /mob/living/carbon/human/get_visible_implants(var/class = 0)
