@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Power cell backpacks can now be held in the Industrial, EVA, and CE RIG suitslots. Orbital droppers can now be kept in the explorer's belt."
