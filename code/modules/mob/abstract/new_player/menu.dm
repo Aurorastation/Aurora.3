@@ -65,11 +65,10 @@
 		if(current_map.lobby_transitions && isnum(current_map.lobby_transitions))
 			icon_state = current_map.lobby_screens[lobby_index]
 			if(Master.initializing)
-				spawn(current_map.lobby_transitions) src.Update()
-				world.log << "Used spawn to queue update"
+				spawn(current_map.lobby_transitions)
+					Update()
 			else
 				addtimer(CALLBACK(src, .proc/Update), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
-				world.log << "Used timer to queue update"
 		else
 			icon_state = pick(current_map.lobby_screens)
 	else
@@ -84,7 +83,8 @@
 	animate(src, alpha = 0, time = 1 SECOND)
 	animate(alpha = 255, icon_state = current_map.lobby_screens[lobby_index], time = 1 SECOND)
 	if(Master.initializing)
-		spawn(current_map.lobby_transitions) src.Update()
+		spawn(current_map.lobby_transitions)
+			Update()
 	else
 		addtimer(CALLBACK(src, .proc/Update), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
 
