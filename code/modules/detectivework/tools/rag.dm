@@ -56,9 +56,9 @@
 	if(!on_fire && W.isFlameSource())
 		ignite()
 		if(on_fire)
-			visible_message(span("warning", "\The [user] lights \the [src] with \the [W]."))
+			visible_message(SPAN_WARNING("\The [user] lights \the [src] with \the [W]."))
 		else
-			to_chat(user, span("warning", "You manage to singe \the [src], but fail to light it."))
+			to_chat(user, SPAN_WARNING("You manage to singe \the [src], but fail to light it."))
 
 	. = ..()
 	update_name()
