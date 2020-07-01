@@ -114,14 +114,14 @@
 
 /obj/screen/storage/Click()
 	if(!usr.canClick())
-		return 1
+		return TRUE
 	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
-		return 1
+		return TRUE
 	if(master)
 		var/obj/item/I = usr.get_active_hand()
 		if(I)
 			usr.ClickOn(master)
-	return 1
+	return TRUE
 
 /obj/screen/zone_sel
 	name = "damage zone"
@@ -239,7 +239,9 @@
 	add_overlay(selecting_appearance)
 
 /obj/screen/Click(location, control, params)
-	if(!usr)	return 1
+	if(!usr)
+		return TRUE
+	var/list/modifiers = params2list(params)
 	switch(name)
 		if("toggle")
 			if(usr.hud_used.inventory_shown)
@@ -286,7 +288,6 @@
 				usr.client.drop_item()
 
 		if("up hint")
-			var/list/modifiers = params2list(params)
 			if(modifiers["shift"])
 				if(ishuman(usr))
 					var/mob/living/carbon/human/H = usr
@@ -317,10 +318,19 @@
 		if("module")
 			if(isrobot(usr))
 				var/mob/living/silicon/robot/R = usr
-//				if(R.module)
-//					R.hud_used.toggle_show_robot_modules()
-//					return 1
+				if(modifiers["shift"])
+					if(R.module)
+						to_chat(R, SPAN_NOTICE("You currently have the [R.module.name] active."))
+					else
+						to_chat(R, SPAN_WARNING("You don't have a module active currently."))
+					return
 				R.pick_module()
+
+		if("health")
+			if(isrobot(usr))
+				if(modifiers["shift"])
+					var/mob/living/silicon/robot/R = usr
+					R.self_diagnosis_verb()
 
 		if("inventory")
 			if(isrobot(usr))
@@ -333,6 +343,14 @@
 
 		if("radio")
 			if(issilicon(usr))
+				if(isrobot(usr))
+					if(modifiers["shift"])
+						var/mob/living/silicon/robot/R = usr
+						if(!R.radio.radio_desc)
+							R.radio.setupRadioDescription()
+						to_chat(R, SPAN_NOTICE("You analyze your integrated radio:"))
+						to_chat(R, R.radio.radio_desc)
+						return
 				usr:radio_menu()
 		if("panel")
 			if(issilicon(usr))
@@ -341,10 +359,13 @@
 		if("store")
 			if(isrobot(usr))
 				var/mob/living/silicon/robot/R = usr
-				if(R.module)
-					R.uneq_active()
-				else
-					to_chat(R, "You haven't selected a module yet.")
+				if(!R.module)
+					to_chat(R, SPAN_WARNING("You haven't selected a module yet."))
+					return
+				if(modifiers["alt"])
+					R.uneq_all()
+					return
+				R.uneq_active()
 
 		else
 			return 0

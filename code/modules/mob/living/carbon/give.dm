@@ -2,9 +2,7 @@
 	set category = "IC"
 	set name = "Give"
 
-	if(incapacitated())
-		return
-	if(!istype(target) || target.stat || target.lying || target.resting || target.restrained() || target.client == null)
+	if(use_check(target))
 		to_chat(usr, span("warning", "[target.name] is in no condition to handle items!"))
 		return
 
@@ -16,11 +14,11 @@
 		return
 
 	if(alert(target,"[usr] wants to give you \a [I]. Will you accept it?",,"Yes","No") == "No")
-		target.visible_message(span("warning", "\The [usr] tried to hand \the [I] to \the [target], \
-		but \the [target] didn't want it."))
+		target.visible_message("<b>[target]</b> pushes [usr]'s hand away.")
 		return
 
-	if(!I) return
+	if(!I)
+		return
 
 	if(!Adjacent(target))
 		to_chat(usr, span("warning", "You need to stay in reaching distance while giving an object."))
@@ -41,4 +39,4 @@
 		I.on_give(usr, target)
 		if(!QDELETED(I)) // if on_give deletes the item, we don't want runtimes below
 			target.put_in_hands(I) // If this fails it will just end up on the floor, but that's fitting for things like dionaea.
-			usr.visible_message(span("notice", "\The [usr] handed \the [I] to \the [target]."), span("notice", "You give \the [I] to \the [target]."))
+			usr.visible_message("<b>[usr]</b> hands [target] \a [I].", span("notice", "You give \the [target] a [I]."))

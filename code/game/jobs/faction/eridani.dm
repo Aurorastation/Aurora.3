@@ -27,7 +27,7 @@
 		/datum/job/officer,
 		/datum/job/warden,
 		/datum/job/forensics,
-		/datum/job/paramedic,
+		/datum/job/med_tech,
 		/datum/job/representative
 	)
 
@@ -45,8 +45,8 @@
 		"Warden" = /datum/outfit/job/warden/eridani,
 		"Forensic Technician" = /datum/outfit/job/forensics/eridani,
 		"Crime Scene Investigator" = /datum/outfit/job/forensics/eridani,
-		"Paramedic" = /datum/outfit/job/paramedic/eridani,
-		"Emergency Medical Technician" = /datum/outfit/job/paramedic/eridani,
+		"Paramedic" = /datum/outfit/job/med_tech/paramed/eridani,
+		"Emergency Medical Technician" = /datum/outfit/job/med_tech/paramed/eridani,
 		"Corporate Liaison" = /datum/outfit/job/representative/eridani
 	)
 
@@ -65,7 +65,7 @@
 	uniform = /obj/item/clothing/under/rank/security/eridani
 	id = /obj/item/card/id/eridani
 
-/datum/outfit/job/paramedic/eridani
+/datum/outfit/job/med_tech/paramed/eridani
 	name = "Paramedic - Eridani"
 	uniform = /obj/item/clothing/under/rank/eridani_medic
 	id = /obj/item/card/id/eridani

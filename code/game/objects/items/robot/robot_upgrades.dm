@@ -24,7 +24,10 @@
 	require_module = 1
 
 /obj/item/borg/upgrade/reset/action(var/mob/living/silicon/robot/R)
-	if(..()) return 0
+	if(..())
+		return FALSE
+	if(istype(R, /mob/living/silicon/robot/syndicate))
+		return FALSE
 	R.uneq_all()
 	R.mod_type = initial(R.mod_type)
 	R.hands.icon_state = initial(R.hands.icon_state)

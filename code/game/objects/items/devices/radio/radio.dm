@@ -24,6 +24,7 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio
 	icon = 'icons/obj/radio.dmi'
 	name = "station bounced radio"
+	var/radio_desc = ""
 	suffix = "\[3\]"
 	icon_state = "walkietalkie"
 	item_state = "radio"
@@ -34,8 +35,8 @@ var/global/list/default_medbay_channels = list(
 	var/canhear_range = 3 // the range which mobs can hear this radio from
 	var/datum/wires/radio/wires = null
 	var/b_stat = 0
-	var/broadcasting = 0
-	var/listening = 1
+	var/broadcasting = FALSE
+	var/listening = TRUE
 	var/list/channels = list() //see communications.dm for full list. First non-common, non-entertainment channel is a "default" for :h
 	var/subspace_transmission = 0
 	var/syndie = 0//Holder to see if it's a syndicate encrypted radio
@@ -45,7 +46,7 @@ var/global/list/default_medbay_channels = list(
 	throw_range = 9
 	w_class = 2
 	matter = list(DEFAULT_WALL_MATERIAL = 75, MATERIAL_GLASS = 25)
-	var/const/FREQ_LISTENING = 1
+	var/const/FREQ_LISTENING = TRUE
 	var/list/internal_channels
 	var/clicksound = "button" //played sound on usage
 	var/clickvol = 10 //volume
@@ -124,6 +125,17 @@ var/global/list/default_medbay_channels = list(
 		ui = new(user, src, ui_key, "radio_basic.tmpl", "[name]", 400, 430)
 		ui.set_initial_data(data)
 		ui.open()
+
+/obj/item/device/radio/proc/setupRadioDescription()
+	var/radio_text = ""
+	for(var/i = 1 to channels.len)
+		var/channel = channels[i]
+		var/key = get_radio_key_from_channel(channel)
+		radio_text += "[key] - [channel]"
+		if(i != channels.len)
+			radio_text += ", "
+
+	radio_desc = radio_text
 
 /obj/item/device/radio/proc/list_channels(var/mob/user)
 	return list_internal_channels(user)
@@ -579,8 +591,8 @@ var/global/list/default_medbay_channels = list(
 	else return
 
 /obj/item/device/radio/emp_act(severity)
-	broadcasting = 0
-	listening = 0
+	broadcasting = FALSE
+	listening = FALSE
 	for (var/ch_name in channels)
 		channels[ch_name] = 0
 	..()
@@ -682,9 +694,9 @@ var/global/list/default_medbay_channels = list(
 		if(!SSradio)
 			src.name = "broken radio"
 			return
-
 		secure_radio_connections[ch_name] = SSradio.add_object(src, radiochannels[ch_name],  RADIO_CHAT)
 
+	setupRadioDescription()
 	return
 
 /obj/item/device/radio/borg/Topic(href, href_list)
@@ -764,13 +776,13 @@ var/global/list/default_medbay_channels = list(
 	return
 
 /obj/item/device/radio/off
-	listening = 0
+	listening = FALSE
 
 /obj/item/device/radio/phone
-	broadcasting = 0
+	broadcasting = FALSE
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
-	listening = 1
+	listening = TRUE
 	name = "phone"
 	var/radio_sound = null
 

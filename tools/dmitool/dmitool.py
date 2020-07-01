@@ -1,9 +1,8 @@
-""" Python 2.7 wrapper for dmitool.
+""" Python 3.4 wrapper for dmitool.
 """
 
 import os
 from subprocess import Popen, PIPE
-
 _JAVA_PATH = ["java"]
 _DMITOOL_CMD = ["-jar", "dmitool.jar"]
 
@@ -16,7 +15,7 @@ def _safe_parse(dict, key, deferred_value):
     try:
         dict[key] = deferred_value()
     except Exception as e: 
-        print "Could not parse property '%s': %s" % (key, e)
+        print ("Could not parse property '{}': {}".format(key, e))
         return e
     return False
 

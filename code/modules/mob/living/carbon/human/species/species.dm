@@ -343,9 +343,9 @@
 	if(H.isSynthetic())
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & ORGAN_CUT_AWAY || E.is_stump()) continue
-			E.robotize()
+			E.robotize(E.robotize_type)
 		for(var/obj/item/organ/I in H.internal_organs)
-			I.robotize()
+			I.robotize(I.robotize_type)
 
 	if(isvaurca(H))
 		for (var/obj/item/organ/external/E in H.organs)
@@ -493,8 +493,15 @@
 			H.client.screen += global_hud.darkMask
 		else if((!H.equipment_prescription && (H.disabilities & NEARSIGHTED)) || H.equipment_tint_total == TINT_MODERATE)
 			H.client.screen += global_hud.vimpaired
-	if(H.eye_blurry)	H.client.screen += global_hud.blurry
-	if(H.druggy)		H.client.screen += global_hud.druggy
+	if(H.eye_blurry)
+		H.client.screen += global_hud.blurry
+
+	if(H.druggy)
+		H.client.screen += global_hud.druggy
+	if(H.druggy > 5)
+		H.add_client_color(/datum/client_color/oversaturated)
+	else
+		H.remove_client_color(/datum/client_color/oversaturated)
 
 	for(var/overlay in H.equipment_overlays)
 		H.client.screen |= overlay
@@ -509,6 +516,11 @@
 	if (H.stamina == -1)
 		log_debug("Error: Species with special sprint mechanics has not overridden cost function.")
 		return 0
+
+	var/obj/item/organ/internal/augment/calf_override/C = H.internal_organs_by_name[BP_AUG_CALF_OVERRIDE]
+	if(C && !C.is_broken())
+		cost = 0
+		C.do_run_act()
 
 	var/remainder = 0
 	if (H.stamina > cost)

@@ -225,7 +225,7 @@
 //Cargo random stock vars
 //These are used in randomstock.dm
 //And also for generating random loot crates in crates.dm
-#define TOTAL_STOCK 	100//The total number of items we'll spawn in cargo stock
+#define TOTAL_STOCK 	200//The total number of items we'll spawn in cargo stock
 
 #define STOCK_UNCOMMON_PROB	23
 //The probability, as a percentage for each item, that we'll choose from the uncommon spawns list

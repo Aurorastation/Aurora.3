@@ -467,8 +467,8 @@
 					return
 
 				RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
-				user.visible_message(span("notice", "[user] fills \the [RG] using \the [src]."),
-									 span("notice", "You fill \the [RG] using \the [src]."))
+				user.visible_message("<b>[user]</b> fills \a [RG] using \the [src].",
+									 SPAN_NOTICE("You fill \a [RG] using \the [src]."))
 				playsound(loc, 'sound/effects/sink.ogg', 75, 1)
 			if ("Empty")
 				if(!RG.reagents.total_volume)
@@ -476,8 +476,8 @@
 					return
 
 				var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
-				user.visible_message(span("notice", "[user] empties [empty_amount]u of \the [RG] into \the [src]."),
-									 span("notice", "You empty [empty_amount]u of \the [RG] into \the [src]."))
+				var/max_reagents = RG.reagents.maximum_volume
+				user.visible_message("<b>[user]</b> empties [empty_amount == max_reagents ? "all of \the [RG]" : "some of \the [RG]"] into \a [src].")
 				playsound(src.loc, 'sound/effects/pour.ogg', 10, 1)
 		return
 
