@@ -121,6 +121,7 @@
 	name = "cable restraints"
 	desc = "Looks like some cables tied together. Could be used to tie something up."
 	icon_state = "cablecuff"
+	item_state = "coil"
 	color = COLOR_RED
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_materials.dmi',
