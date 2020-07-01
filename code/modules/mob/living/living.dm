@@ -945,3 +945,6 @@ default behaviour is:
 		for(var/a in auras)
 			remove_aura(a)
 	return ..()
+
+/mob/living/proc/needs_wheelchair()
+	return FALSE
