@@ -133,20 +133,12 @@
 		to_chat(user, "You can't place that item inside the disposal unit.")
 		return
 
-	if(istype(I, /obj/item/storage/bag/trash))
-		var/obj/item/storage/bag/trash/T = I
-		to_chat(user, "<span class='notice'>You empty the bag.</span>")
-		for(var/obj/item/O in T.contents)
-			T.remove_from_storage(O,src)
-		T.update_icon()
-		update()
-		return
-
-	else if(istype(I, /obj/item/storage/bag/crystal) || istype(I, /obj/item/storage/bag/ore))
-		var/obj/item/storage/bag/ore/B = I
-		to_chat(user, SPAN_NOTICE("You empty \the [B] into \the [src]."))
-		for(var/obj/item/O in B.contents)
-			B.remove_from_storage(O, src)
+	if(istype(I, /obj/item/storage) && user.a_intent != I_HURT)
+		var/obj/item/storage/S = I
+		user.visible_message("<b>[user]</b> empties \the [S] into \the [src].", SPAN_NOTICE("You empty \the [S] into \the [src]."), range = 3)
+		for(var/obj/item/O in S.contents)
+			S.remove_from_storage(O, src)
+		S.update_icon()
 		update()
 		return
 
@@ -194,12 +186,7 @@
 
 	user.drop_from_inventory(I,src)
 
-	to_chat(user, "You place \the [I] into the [src].")
-	for(var/mob/M in viewers(src))
-		if(M == user)
-			continue
-		M.show_message("[user.name] places \the [I] into the [src].", 3)
-
+	user.visible_message("<b>[user]</b> places \the [I] into \the [src].", SPAN_NOTICE("You place \the [I] into the [src]."), range = 3)
 	update()
 
 // mouse drop another mob or self
