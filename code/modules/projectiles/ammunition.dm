@@ -62,11 +62,7 @@
 		if(!B.BB)
 			to_chat(user, SPAN_WARNING("Your round is spent!"))
 			return
-		var/obj/item/ammo_pile/pile = new /obj/item/ammo_pile(get_turf(user))
-		pile.ammo_type = src.type
-		pile.add_ammo(src)
-		pile.add_ammo(W)
-		pile.check_name_and_ammo()
+		var/obj/item/ammo_pile/pile = new /obj/item/ammo_pile(get_turf(user), list(src, W))
 		user.put_in_hands(pile)
 	..()
 

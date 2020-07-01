@@ -9,9 +9,16 @@
 	var/ammo_type // the type of ammo this ammo pile accepts
 	var/max_ammo = 5
 
-/obj/item/ammo_pile/Initialize(mapload, ...)
+/obj/item/ammo_pile/Initialize(mapload, var/list/provided_ammo)
 	. = ..()
-	if(ammo_type)
+	if(islist(provided_ammo))
+		var/obj/first_round = provided_ammo[1]
+		add_ammo(first_round)
+		check_name_and_ammo()
+		provided_ammo -= first_round
+		for(var/obj/rounds in provided_ammo)
+			add_ammo(rounds)
+	else if(ammo_type)
 		var/obj/first_round = new ammo_type()
 		add_ammo(first_round)
 		check_name_and_ammo()
