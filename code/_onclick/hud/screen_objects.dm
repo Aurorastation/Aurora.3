@@ -114,14 +114,14 @@
 
 /obj/screen/storage/Click()
 	if(!usr.canClick())
-		return 1
+		return TRUE
 	if(usr.stat || usr.paralysis || usr.stunned || usr.weakened)
-		return 1
+		return TRUE
 	if(master)
 		var/obj/item/I = usr.get_active_hand()
 		if(I)
 			usr.ClickOn(master)
-	return 1
+	return TRUE
 
 /obj/screen/zone_sel
 	name = "damage zone"
@@ -239,7 +239,9 @@
 	add_overlay(selecting_appearance)
 
 /obj/screen/Click(location, control, params)
-	if(!usr)	return 1
+	if(!usr)
+		return TRUE
+	var/list/modifiers = params2list(params)
 	switch(name)
 		if("toggle")
 			if(usr.hud_used.inventory_shown)
@@ -286,9 +288,28 @@
 				usr.client.drop_item()
 
 		if("up hint")
+			if(modifiers["shift"])
+				if(ishuman(usr))
+					var/mob/living/carbon/human/H = usr
+					if(H.last_special + 50 > world.time)
+						return
+					H.last_special = world.time
+				to_chat(usr, SPAN_NOTICE("You take look around to see if there are any holes in the roof around."))
+				for(var/turf/T in view(usr.client.view + 3, usr)) // slightly extra to account for moving while looking for openness
+					if(T.density)
+						continue
+					var/turf/above_turf = GetAbove(T)
+					if(!isopenspace(above_turf))
+						continue
+					var/image/up_image = image(icon = 'icons/mob/screen/generic.dmi', icon_state = "arrow_up", loc = T)
+					up_image.plane = LIGHTING_LAYER + 1
+					up_image.layer = LIGHTING_LAYER + 1
+					usr << up_image
+					addtimer(CALLBACK(GLOBAL_PROC, /proc/qdel, up_image), 12)
+				return
 			var/turf/T = GetAbove(usr)
 			if (!T)
-				to_chat(usr, "<span class='notice'>There is nothing above you!</span>")
+				to_chat(usr, SPAN_NOTICE("There is nothing above you!"))
 			else if (T.is_hole)
 				to_chat(usr, "<span class='notice'>There's no roof above your head! You can see up!</span>")
 			else
@@ -297,10 +318,19 @@
 		if("module")
 			if(isrobot(usr))
 				var/mob/living/silicon/robot/R = usr
-//				if(R.module)
-//					R.hud_used.toggle_show_robot_modules()
-//					return 1
+				if(modifiers["shift"])
+					if(R.module)
+						to_chat(R, SPAN_NOTICE("You currently have the [R.module.name] active."))
+					else
+						to_chat(R, SPAN_WARNING("You don't have a module active currently."))
+					return
 				R.pick_module()
+
+		if("health")
+			if(isrobot(usr))
+				if(modifiers["shift"])
+					var/mob/living/silicon/robot/R = usr
+					R.self_diagnosis_verb()
 
 		if("inventory")
 			if(isrobot(usr))
@@ -313,6 +343,14 @@
 
 		if("radio")
 			if(issilicon(usr))
+				if(isrobot(usr))
+					if(modifiers["shift"])
+						var/mob/living/silicon/robot/R = usr
+						if(!R.radio.radio_desc)
+							R.radio.setupRadioDescription()
+						to_chat(R, SPAN_NOTICE("You analyze your integrated radio:"))
+						to_chat(R, R.radio.radio_desc)
+						return
 				usr:radio_menu()
 		if("panel")
 			if(issilicon(usr))
@@ -321,10 +359,13 @@
 		if("store")
 			if(isrobot(usr))
 				var/mob/living/silicon/robot/R = usr
-				if(R.module)
-					R.uneq_active()
-				else
-					to_chat(R, "You haven't selected a module yet.")
+				if(!R.module)
+					to_chat(R, SPAN_WARNING("You haven't selected a module yet."))
+					return
+				if(modifiers["alt"])
+					R.uneq_all()
+					return
+				R.uneq_active()
 
 		else
 			return 0

@@ -67,6 +67,7 @@
 	var/use_air      = FALSE
 
 	// Interface stuff.
+	var/next_mecha_move = 0
 	var/list/hud_elements = list()
 	var/list/hardpoint_hud_elements = list()
 	var/obj/screen/movable/mecha/health/hud_health

@@ -144,6 +144,9 @@ obj/item/clothing/shoes/sandal/clogs
 	icon_state = "oxford_black"
 	item_state = "oxford_black"
 
+/obj/item/clothing/shoes/laceup/all_species
+	species_restricted = null
+
 /obj/item/clothing/shoes/laceup/grey
 	name = "grey oxford shoes"
 	icon_state = "oxford_grey"
@@ -153,6 +156,9 @@ obj/item/clothing/shoes/sandal/clogs
 	name = "brown oxford shoes"
 	icon_state = "oxford_brown"
 	item_state = "oxford_brown"
+
+/obj/item/clothing/shoes/laceup/brown/all_species
+	species_restricted = null
 
 /obj/item/clothing/shoes/swimmingfins
 	desc = "Help you swim good."

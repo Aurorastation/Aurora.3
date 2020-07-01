@@ -29,7 +29,7 @@
 
 
 //This is used by both the whisper verb and human/say() to handle whispering
-/mob/living/carbon/human/proc/whisper_say(var/message, var/datum/language/speaking = null, var/alt_name="", var/verb="whispers")
+/mob/living/carbon/human/proc/whisper_say(var/message, var/datum/language/speaking = null, var/alt_name="", var/whisper_text = "whispers")
 
 	if (istype(src.wear_mask, /obj/item/clothing/mask/muzzle))
 		to_chat(src, "<span class='danger'>You're muzzled and cannot speak!</span>")
@@ -41,25 +41,25 @@
 	var/italics = 1
 
 	var/not_heard //the message displayed to people who could not hear the whispering
-	if (speaking)
-		if (speaking.whisper_verb)
-			verb = speaking.whisper_verb
-			not_heard = "[verb] something"
+	if(speaking)
+		if(speaking.whisper_verb)
+			whisper_text = speaking.whisper_verb
+			not_heard = "[whisper_text] something"
 		else
 			var/adverb = pick("quietly", "softly")
-			verb = "[speaking.speech_verb] [adverb]"
+			whisper_text = "[speaking.speech_verb] [adverb]"
 			not_heard = "[speaking.speech_verb] something [adverb]"
 	else
-		not_heard = "[verb] something" //TODO get rid of the null language and just prevent speech if language is null
+		not_heard = "[whisper_text] something" //TODO get rid of the null language and just prevent speech if language is null
 
 	message = capitalize(trim(message))
 
 	if(speech_problem_flag)
 		var/list/handle_r = handle_speech_problems(message)
 		message = handle_r[1]
-		verb = handle_r[2]
+		whisper_text = handle_r[2]
 		var/adverb = pick("quietly", "softly")
-		verb = "[verb] [adverb]"
+		whisper_text = "[whisper_text] [adverb]"
 
 		speech_problem_flag = handle_r[3]
 
@@ -122,7 +122,7 @@
 	for (var/obj/O in view(message_range, src))
 		spawn (0)
 			if (O)
-				O.hear_talk(src, message, verb, speaking)
+				O.hear_talk(src, message, whisper_text, speaking)
 
 	var/list/eavesdropping = hearers(eavesdropping_range, src)
 	eavesdropping -= src
@@ -138,14 +138,14 @@
 	var/list/listening_clients = list()	// The clients we're going to show the speech bubble to.
 
 	for(var/mob/M in listening)
-		M.hear_say(message, verb, speaking, alt_name, italics, src)
+		M.hear_say(message, whisper_text, speaking, alt_name, italics, src)
 		if (M.client)
 			listening_clients += M.client
 
 	if (eavesdropping.len)
 		var/new_message = stars(message)	//hopefully passing the message twice through stars() won't hurt... I guess if you already don't understand the language, when they speak it too quietly to hear normally you would be able to catch even less.
 		for(var/mob/M in eavesdropping)
-			M.hear_say(new_message, verb, speaking, alt_name, italics, src)
+			M.hear_say(new_message, whisper_text, speaking, alt_name, italics, src)
 			if (M.client)
 				listening_clients += M.client
 

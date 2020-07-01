@@ -221,10 +221,11 @@
 
 /obj/item/gun/energy/net/mounted
 	max_shots = 1
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
+	has_safety = FALSE
 	recharge_time = 40
-	can_turret = 0
+	can_turret = FALSE
 
 /* Vaurca Weapons */
 
@@ -456,10 +457,10 @@
 	is_wieldable = TRUE
 
 	firemodes = list(
-		list(mode_name="2 second burst", can_autofire = FALSE, burst=10, burst_delay = 1, fire_delay = 20, burst_accuracy = null, dispersion = null),
-		list(mode_name="4 second burst", can_autofire = FALSE, burst=20, burst_delay = 1, fire_delay = 40, burst_accuracy = null, dispersion = null),
-		list(mode_name="6 second burst", can_autofire = FALSE, burst=30, burst_delay = 1, fire_delay = 60, burst_accuracy = null, dispersion = null),
-		list(mode_name="point-burst auto", can_autofire = TRUE, burst = 1, burst_delay = null, fire_delay = 1, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
+		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20),
+		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40),
+		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60),
+		list(mode_name="point-burst auto", can_autofire = TRUE, burst = 1, fire_delay = 1, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
 		)
 
 	action_button_name = "Wield thermal drill"

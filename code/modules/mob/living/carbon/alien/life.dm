@@ -107,8 +107,8 @@
 		see_invisible = SEE_INVISIBLE_LIVING
 
 	if (healths)
-		if (stat != 2)
-			switch(health - getHalLoss())//Halloss should be factored in here for displaying
+		if (stat != DEAD)
+			switch((health - getHalLoss()) / maxHealth * 100)//Halloss should be factored in here for displaying
 				if(100 to INFINITY)
 					healths.icon_state = "health0"
 				if(80 to 100)

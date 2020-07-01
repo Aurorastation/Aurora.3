@@ -420,3 +420,15 @@
 			T.ChangeTurf(structure_path)
 		else
 			new structure_path(T)
+			
+/mob/living/carbon/alien/diona/proc/remove_hat()
+	set category = "Abilities"
+	set name = "Remove Hat"
+	set desc = " Remove your hat."
+	
+	if(hat)
+		src.drop_from_inventory(hat)
+		hat = null
+		visible_message("<span class='warning'>[src] removes their hat!</span>")
+	else
+		to_chat(src, span("warning", "You have no hat!"))

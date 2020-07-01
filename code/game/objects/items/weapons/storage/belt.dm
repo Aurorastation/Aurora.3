@@ -152,14 +152,13 @@
 		/obj/item/clothing/glasses,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_magazine,
-		/obj/item/reagent_containers/food/snacks/donut/,
+		/obj/item/reagent_containers/food/snacks/donut, // kek
 		/obj/item/melee/baton,
 		/obj/item/gun/energy/taser,
 		/obj/item/flame/lighter,
 		/obj/item/clothing/glasses/hud/security,
 		/obj/item/device/flashlight/maglight,
 		/obj/item/device/flashlight/flare,
-		/obj/item/device/flashlight/flare/glowstick,
 		/obj/item/device/pda,
 		/obj/item/device/radio/headset,
 		/obj/item/device/hailer,
@@ -342,7 +341,8 @@
 		/obj/item/warp_core,
 		/obj/item/extraction_pack,
 		/obj/item/rfd/mining,
-		/obj/item/gun/custom_ka
+		/obj/item/gun/custom_ka,
+		/obj/item/device/orbital_dropper
 		)
 
 /obj/item/storage/belt/hydro

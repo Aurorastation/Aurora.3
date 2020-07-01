@@ -80,6 +80,7 @@ var/list/gamemode_cache = list()
 	var/cult_ghostwriter_req_cultists = 10 //...so long as this many cultists are active.
 
 	var/character_slots = 10				// The number of available character slots
+	var/loadout_slots = 3					// The number of loadout slots per character
 
 	var/max_maint_drones = 5				//This many drones can spawn,
 	var/allow_drone_spawn = 1				//assuming the admin allow them to.
@@ -308,6 +309,10 @@ var/list/gamemode_cache = list()
 	// global.forum_api_key - see modules/http/forum_api.dm
 
 	var/news_use_forum_api = FALSE
+
+	var/profiler_is_enabled = FALSE
+	var/profiler_restart_period = 120 SECONDS
+	var/profiler_timeout_threshold = 5 SECONDS
 
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
@@ -720,6 +725,9 @@ var/list/gamemode_cache = list()
 				if("character_slots")
 					config.character_slots = text2num(value)
 
+				if("loadout_slots")
+					config.loadout_slots = text2num(value)
+
 				if("allow_drone_spawn")
 					config.allow_drone_spawn = text2num(value)
 
@@ -932,6 +940,13 @@ var/list/gamemode_cache = list()
 
 				if ("news_use_forum_api")
 					news_use_forum_api = TRUE
+
+				if ("profiler_enabled")
+					profiler_is_enabled = TRUE
+				if ("profiler_restart_period")
+					profiler_restart_period = text2num(value) SECONDS
+				if ("profiler_timeout_threshold")
+					profiler_timeout_threshold = text2num(value)
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

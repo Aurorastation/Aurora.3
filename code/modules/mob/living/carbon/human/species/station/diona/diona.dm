@@ -29,7 +29,6 @@
 	eyes = "blank_eyes"
 	show_ssd = "completely quiescent"
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_SKRELLIAN)
 	name_language = LANGUAGE_ROOTSONG
 	ethanol_resistance = -1	//Can't get drunk
 	taste_sensitivity = TASTE_DULL
@@ -161,12 +160,6 @@
 /datum/species/diona/get_vision_organ(mob/living/carbon/human/H)
 	return H.organs_by_name[vision_organ]
 
-/datum/species/diona/equip_later_gear(var/mob/living/carbon/human/H)
-	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack))
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H.back), slot_in_backpack)
-	else
-		H.equip_to_slot_or_del(new /obj/item/device/flashlight/flare(H), slot_r_hand)
-
 /datum/species/diona/handle_post_spawn(var/mob/living/carbon/human/H)
 	if (ishuman(H))
 		return ..()
@@ -191,7 +184,7 @@
 	return current_flags
 
 /datum/species/diona/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= config.health_threshold_dead)
+	if(H.get_total_health() <= 0)
 		return TRUE
 	return FALSE
 

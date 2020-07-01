@@ -62,8 +62,17 @@
 	handle_hud_icons_health()
 	var/obj/item/cell/C = get_cell()
 	if(istype(C))
-		hud_power.maptext = "[round(get_cell()?.charge)]/[round(get_cell()?.maxcharge)]"
-	else hud_power.maptext = "CHECK POWER"
+		var/power_percentage = round((get_cell()?.charge / get_cell()?.maxcharge) * 100)
+		if(power_percentage >= 100)
+			hud_power.maptext_x = 21
+		else if(power_percentage < 10)
+			hud_power.maptext_x = 25
+		else if(power_percentage < 100)
+			hud_power.maptext_x = 22
+		hud_power.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 8px;\">[power_percentage]%</span>"
+	else
+		hud_power.maptext_x = 13
+		hud_power.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">NO CELL</span>"
 	refresh_hud()
 
 

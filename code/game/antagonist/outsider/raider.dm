@@ -8,7 +8,7 @@ var/datum/antagonist/raider/raiders
 	antag_indicator = "mutineer"
 	landmark_id = "voxstart"
 	welcome_text = "Use :H to talk on your encrypted channel."
-	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER
+	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER | ANTAG_NO_FLAVORTEXT
 	antaghud_indicator = "hudmutineer"
 	required_age = 10
 
@@ -282,3 +282,6 @@ var/datum/antagonist/raider/raiders
 		player.internals.icon_state = "internal1"
 
 	return 1
+
+/datum/antagonist/raider/get_antag_radio()
+	return "Raider"

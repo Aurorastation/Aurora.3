@@ -127,13 +127,13 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	playsound(targetpad.loc, 'sound/machines/chime.ogg', 25, 5)
 	targetpad.icon_state = "holopad1"
 	if(forcedcall)
-		targetpad.audible_message("<b>\The [src]</b> announces, \"Incoming call with command authorization from [targetpad.sourcepad.loc.loc].\"")
+		targetpad.audible_message("<b>[src]</b> announces, \"Incoming call with command authorization from [targetpad.sourcepad.loc.loc].\"")
 		to_chat(user, "<span class='notice'>Establishing forced connection to the holopad in [targetpad.loc.loc]</span>")
 		targetpad.forced = 1
 		sleep(80)
 		targetpad.take_call(user)
 	else
-		targetpad.audible_message("<b>\The [src]</b> announces, \"Incoming communications request from [targetpad.sourcepad.loc.loc].\"")
+		targetpad.audible_message("<b>[src]</b> announces, \"Incoming communications request from [targetpad.sourcepad.loc.loc].\"")
 		to_chat(user, "<span class='notice'>Trying to establish a connection to the holopad in [targetpad.loc.loc]... Please await confirmation from recipient.</span>")
 
 /obj/machinery/hologram/holopad/proc/take_call(mob/living/carbon/user)

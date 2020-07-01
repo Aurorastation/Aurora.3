@@ -66,7 +66,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/proc/open(mob/user as mob)
 	playsound(loc,'sound/effects/canopen.ogg', rand(10,50), 1)
-	user.visible_message("[user] opens the [src].", "You open \the [src] with an audible pop!", "You can hear a pop,")
+	user.visible_message("<b>[user]</b> opens \the [src].", SPAN_NOTICE("You open \the [src] with an audible pop!"), "You can hear a pop,")
 	flags |= OPENCONTAINER
 
 /obj/item/reagent_containers/food/drinks/proc/boom(mob/user as mob)
@@ -299,8 +299,15 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/dry_ramen/Initialize()
 	. = ..()
+	is_liquid = FALSE
 	reagents.add_reagent("dry_ramen", 30)
 
+/obj/item/reagent_containers/food/drinks/dry_ramen/on_reagent_change()
+	..()
+	if(reagents.has_reagent("dry_ramen"))
+		is_liquid = FALSE
+	else
+		is_liquid = TRUE
 
 /obj/item/reagent_containers/food/drinks/sillycup
 	name = "paper cup"

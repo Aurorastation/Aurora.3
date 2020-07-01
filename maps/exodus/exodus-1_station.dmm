@@ -3295,9 +3295,9 @@
 	dir = 8
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	frequency = 1475;
-	listening = 0;
+	listening = FALSE;
 	name = "Station Intercom (Security)";
 	pixel_x = -30
 	},
@@ -4134,9 +4134,9 @@
 /area/security/brig)
 "ahN" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	frequency = 1449;
-	listening = 0;
+	listening = FALSE;
 	pixel_y = 25
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4762,9 +4762,9 @@
 "aja" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	frequency = 1475;
-	listening = 0;
+	listening = FALSE;
 	name = "Station Intercom (Security)";
 	pixel_x = -30
 	},
@@ -10183,9 +10183,9 @@
 "asL" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	frequency = 1475;
-	listening = 0;
+	listening = FALSE;
 	name = "Station Intercom (Security)";
 	pixel_y = -30
 	},
@@ -15372,7 +15372,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare/glowstick/red,
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 8
 	},
@@ -21785,7 +21785,7 @@
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	frequency = 1480;
 	name = "Confessional Intercom";
 	pixel_x = 25
@@ -23170,7 +23170,7 @@
 "aSL" = (
 /obj/machinery/light/small,
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	frequency = 1480;
 	name = "Confessional Intercom";
 	pixel_x = 25
@@ -31937,7 +31937,7 @@
 	name = "tripai"
 	},
 /obj/item/device/radio/intercom{
-	listening = 0;
+	listening = FALSE;
 	name = "Custom Channel";
 	pixel_y = 20
 	},
@@ -31947,7 +31947,7 @@
 	pixel_y = -26
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	name = "Common Channel";
 	pixel_x = -25;
 	pixel_y = -4
@@ -31985,7 +31985,7 @@
 	pixel_y = 5
 	},
 /obj/item/device/radio/intercom{
-	listening = 0;
+	listening = FALSE;
 	name = "Custom Channel";
 	pixel_x = -27;
 	pixel_y = 4
@@ -31994,7 +31994,7 @@
 	name = "AI"
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	name = "Common Channel";
 	pixel_y = 25
 	},
@@ -32042,7 +32042,7 @@
 	name = "tripai"
 	},
 /obj/item/device/radio/intercom{
-	listening = 0;
+	listening = FALSE;
 	name = "Custom Channel";
 	pixel_y = 19
 	},
@@ -32052,7 +32052,7 @@
 	pixel_y = -26
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	name = "Common Channel";
 	pixel_x = 27;
 	pixel_y = -3
@@ -44792,9 +44792,9 @@
 /area/medical/psych)
 "bHh" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	frequency = 1481;
-	listening = 0;
+	listening = FALSE;
 	name = "station intercom (Isolation Room)";
 	pixel_x = 27
 	},

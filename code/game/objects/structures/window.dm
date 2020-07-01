@@ -147,7 +147,7 @@
 		return 1
 
 
-/obj/structure/window/CheckExit(atom/movable/O as mob|obj, target as turf)
+/obj/structure/window/CheckExit(atom/movable/O, turf/target)
 	if(istype(O) && O.checkpass(PASSGLASS))
 		return 1
 	if(get_dir(O.loc, target) == dir)
@@ -193,7 +193,7 @@
 							"You hear a banging sound.")
 	else
 		playsound(src.loc, 'sound/effects/glass_knock.ogg', 60, 1)
-		user.visible_message("[user] knocks on \the [src.name].",
+		user.visible_message("<b>[user]</b> knocks on \the [src.name].",
 							"You knock on \the [src.name].",
 							"You hear a knocking sound.")
 	return

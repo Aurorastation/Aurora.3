@@ -16,7 +16,7 @@
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
 	path = /obj/item/clothing/under/rank/iacjumpsuit
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Resident")
 
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
@@ -93,7 +93,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
-	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -221,6 +221,18 @@
 	suit["dominia sweater"] = /obj/item/clothing/under/dominia/sweater
 	suit["lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit
 	suit["hoodied lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit/hoodie
+	gear_tweaks += new/datum/gear_tweak/path(suit)
+
+/datum/gear/uniform/elyra_holo
+	display_name = "elyran holographic suit selection"
+	description = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Midenean, Aemaqii and Perispolisean clothes respectively."
+	path = /obj/item/clothing/under/elyra_holo
+
+/datum/gear/uniform/elyra_holo/New()
+	..()
+	var/suit = list()
+	suit["elyran holographic suit, feminine"] = /obj/item/clothing/under/elyra_holo
+	suit["elyran holographic suit, masculine"] = /obj/item/clothing/under/elyra_holo/masc
 	gear_tweaks += new/datum/gear_tweak/path(suit)
 
 /datum/gear/uniform/miscellaneous/kimono

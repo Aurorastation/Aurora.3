@@ -12,7 +12,7 @@
 
 /obj/item/flame/candle/Initialize()
 	. = ..()
-	wax = rand(800, 1000) // Enough for 27-33 minutes. 30 minutes on average.
+	wax = rand(1600, 2000)
 
 /obj/item/flame/candle/update_icon()
 	var/i

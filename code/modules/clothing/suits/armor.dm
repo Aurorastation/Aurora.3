@@ -58,7 +58,7 @@
 	..()
 
 /obj/item/clothing/suit/armor/vest
-	name = "armor"
+	name = "armored vest"
 	desc = "An armored vest that protects against some damage."
 	icon_state = "armor"
 	item_state = "armor"
@@ -447,9 +447,12 @@
 /obj/item/clothing/suit/storage/vest/merc
 	name = "heavy armor vest"
 	desc = "A high-quality armor vest in a fetching tan. It is surprisingly flexible and light, even with the added webbing and armor plating."
-	icon_state = "mercwebvest"
-	item_state = "mercwebvest"
+	icon = 'icons/clothing/kit/heavy_armor.dmi'
+	item_state = "vest"
+	icon_state = "vest"
+	contained_sprite = TRUE
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
 //ert related armor
 

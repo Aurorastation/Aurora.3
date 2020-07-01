@@ -21,7 +21,7 @@
 /obj/item/mech_component/manipulators/ripley
 	name = "exosuit arms"
 	exosuit_desc_string = "heavy-duty industrial lifters"
-	max_damage = 70
+	max_damage = 150
 	power_use = 2000
 	melee_damage = 40
 	desc = "The Xion Manufacturing Group Digital Interaction Manifolds allow you poke untold dangers from the relative safety of your cockpit."
@@ -31,7 +31,7 @@
 	name = "exosuit legs"
 	exosuit_desc_string = "reinforced hydraulic legs"
 	desc = "Wide and stable but not particularly fast."
-	max_damage = 70
+	max_damage = 150
 	move_delay = 4
 	turn_delay = 4
 	power_use = 2000
@@ -42,7 +42,7 @@
 	gender = PLURAL
 	exosuit_desc_string = "simple collision detection sensors"
 	desc = "A primitive set of sensors designed to work in tandem with most MKI Eyeball platforms."
-	max_damage = 100
+	max_damage = 200
 	power_use = 0
 
 /obj/item/mech_component/sensors/ripley/prebuild()
@@ -56,7 +56,7 @@
 	pilot_coverage = 40
 	exosuit_desc_string = "an industrial rollcage"
 	desc = "A Xion industrial brand roll cage. Technically OSHA compliant. Technically."
-	max_damage = 100
+	max_damage = 200
 	power_use = 5000
 
 /obj/item/mech_component/chassis/ripley/prebuild()
