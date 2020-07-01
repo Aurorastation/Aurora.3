@@ -37,6 +37,7 @@ THAT STUPID GAME KIT
 			else
 				dat += "<a href='?src=\ref[src];s_board=[x] [y]'><img src='[src.base_url]/board_none.png' width=32 height=32 border=0>"
 			dat += "</td>"
+			CHECK_TICK
 
 		dat += "</tr>"
 
@@ -137,3 +138,4 @@ THAT STUPID GAME KIT
 		for(var/mob/M in viewers(1, src))
 			if ((M.client && M.machine == src))
 				src.attack_hand(M)
+			CHECK_TICK
