@@ -680,6 +680,10 @@
 	item_state = "hanbok"
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 
+/obj/item/clothing/hanbok/pink
+	icon_state = "hanbok_pink"
+	item_state = "hanbok_pink"
+
 obj/item/clothing/under/kamishimo
 	name = "kamishimo"
 	desc = "Traditional Japanese menswear."

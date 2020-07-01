@@ -405,6 +405,13 @@
 	display_name = "hanbok"
 	path = /obj/item/clothing/hanbok
 
+/datum/gear/uniform/miscellaneous/hanbok/New()
+	..()
+	var/hanbok = list()
+	hanbok["magenta-blue hanbok"] = /obj/item/clothing/hanbok
+	hanbok["white-pink hanbok"] = /obj/item/clothing/hanbok/pink
+	gear_tweaks += new/datum/gear_tweak/path(hanbok)
+
 /datum/gear/uniform/miscellaneous/kamishimo
 	display_name = "kamishimo"
 	path = /obj/item/clothing/under/kamishimo
