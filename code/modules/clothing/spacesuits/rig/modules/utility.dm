@@ -218,7 +218,7 @@
 	for(var/datum/reagent/R in input_item.reagents.reagent_list)
 		for(var/chargetype in charges)
 			var/datum/rig_charge/charge = charges[chargetype]
-			if(charge.display_name == R.name)
+			if(charge.product_type == R.type)
 
 				var/chems_to_transfer = R.volume
 
