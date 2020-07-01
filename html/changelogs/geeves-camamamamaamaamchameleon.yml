@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Space Wizards and their Apprentices now spawn with chameleon clothes that only they can change the appearance of."
