@@ -42,8 +42,12 @@
 
 /obj/item/reagent_containers/food/snacks/on_consume(mob/user, mob/target)
 	if(!reagents.total_volume && !trash)
-		target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \a [src].",
-					 SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \a [src]."))
+		if(src.bitesize >= 1)
+			target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \a [src].",
+					 	SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \a [src]."))
+		else // Kind of weird to "finish" eating something in one bite
+			target.visible_message("<b>[target]</b> eats \a [src].",
+					 	SPAN_NOTICE("You eat \a [src]."))
 		qdel(src)
 	else
 		..()
@@ -557,15 +561,32 @@
 	nutriment_desc = list("sweetness" = 3, "cookie" = 2)
 	bitesize = 1
 
-/obj/item/reagent_containers/food/snacks/cookiesnack
+/obj/item/storage/box/cookiesnack
 	name = "Carps Ahoy! miniature cookies"
-	desc = "Cap'n Carpie's miniature cookies! Now 100% carpotoxin free!"
+	desc = "A packet of Cap'n Carpie's miniature cookies! Now 100% carpotoxin free!"
+	icon = 'icons/obj/food.dmi'
 	icon_state = "cookiesnack"
-	trash = /obj/item/trash/cookiesnack
+	starts_with = list(/obj/item/reagent_containers/food/snacks/cookiesnack = 6)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/cookiesnack)
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+	max_storage_space = 6
+	foldable = null
+
+/obj/item/storage/box/cookiesnack/open(mob/user)
+	.=..()
+	icon = 'icons/obj/trash.dmi'
+
+/obj/item/reagent_containers/food/snacks/cookiesnack
+	name = "miniature cookie"
+	desc = "These are a lot smaller than you've imagined. They don't even deserve to be dunked in milk."
+	icon_state = "cookie_mini"
+	slot_flags = SLOT_EARS
 	filling_color = "#DBC94F"
-	nutriment_amt = 3
+	nutriment_amt = 0.5
 	nutriment_type = NUTRIMENT_BAD
-	nutriment_desc = list("sweetness" = 1, "stale cookie" = 2)
+	nutriment_desc = list("sweetness" = 1, "stale cookie" = 2, "childhood disappointment" = 1)
 	bitesize = 1
 
 /obj/item/reagent_containers/food/snacks/chocolatebar
@@ -2470,6 +2491,7 @@
 
 /obj/item/reagent_containers/food/snacks/mint/admints
 	desc = "Spearmint, peppermint's non-festive cousin."
+	desc_fluff = "Make an insensitive Unathi joke at your own risk."
 	icon_state = "admint"
 
 /obj/item/storage/box/admints
@@ -2482,11 +2504,15 @@
 	w_class = 1
 	starts_with = list(/obj/item/reagent_containers/food/snacks/mint/admints = 6)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/mint/admints)
-	use_sound = 'sound/items/drop/paper.ogg'
+	use_sound = 'sound/items/storage/wrapper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 	max_storage_space = 6
 	foldable = null
+
+/obj/item/storage/box/admints/open(mob/user)
+	.=..()
+	icon = 'icons/obj/trash.dmi'
 
 /obj/item/reagent_containers/food/snacks/soup/mushroom
 	name = "chantrelle soup"
@@ -3874,8 +3900,6 @@
 
 	if( open && pizza )
 		user.put_in_hands( pizza )
-
-		to_chat(user, span("warning", "You take \the [src.pizza] out of \the [src]."))
 		src.pizza = null
 		update_icon()
 		return
@@ -3889,7 +3913,7 @@
 		boxes -= box
 
 		user.put_in_hands( box )
-		to_chat(user, span("warning", "You remove the topmost [src] from your hand."))
+		to_chat(user, span("notice", "You remove the topmost [src] from your hand."))
 		box.update_icon()
 		update_icon()
 		return
@@ -3926,7 +3950,7 @@
 				box.update_icon()
 				update_icon()
 
-				to_chat(user, span("warning", "You put \the [box] ontop of \the [src]!"))
+				to_chat(user, span("notice", "You put \the [box] ontop of \the [src]."))
 			else
 				to_chat(user, span("warning", "The stack is too high!"))
 		else
@@ -3939,12 +3963,8 @@
 		if( src.open )
 			user.drop_from_inventory(I,src)
 			src.pizza = I
-
 			update_icon()
 
-			to_chat(user, span("warning", "You put \the [I] in \the [src]!"))
-		else
-			to_chat(user, span("warning", "You try to push \the [I] through the lid but it doesn't work!"))
 		return
 
 	if( I.ispen() )

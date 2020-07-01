@@ -42,7 +42,7 @@
 			if(!user.unEquip(I))
 				return
 			I.forceMove(src)
-			to_chat(user, span("notice", "You put the [I] into the [src]"))
+			to_chat(user, span("notice", "You put the [I] into the [src]."))
 			return
 
 /obj/item/reagent_containers/cooking_container/verb/empty()

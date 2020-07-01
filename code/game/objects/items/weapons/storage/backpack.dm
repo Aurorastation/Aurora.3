@@ -12,13 +12,8 @@
 		slot_r_hand_str = 'icons/mob/items/storage/righthand_backpacks.dmi'
 		)
 	icon_state = "backpack"
-	item_state = null
+	item_state = "backpack"
 	//most backpacks use the default backpack state for inhand overlays
-	item_state_slots = list(
-		slot_l_hand_str = "backpack",
-		slot_r_hand_str = "backpack"
-		)
-
 	w_class = 4
 	slot_flags = SLOT_BACK
 	max_w_class = 3
@@ -55,18 +50,6 @@
 				to_chat(H, "<span class='danger'>Your species cannot wear [src].</span>")
 				return 0
 	return 1
-
-/obj/item/storage/backpack/equipped(var/mob/user, var/slot)
-	if (slot == slot_back && src.use_sound)
-		playsound(src.loc, src.use_sound, 50, 1, -5)
-	..(user, slot)
-
-/*
-/obj/item/storage/backpack/dropped(mob/user as mob)
-	if (loc == user && src.use_sound)
-		playsound(src.loc, src.use_sound, 50, 1, -5)
-	..(user)
-*/
 
 /*
  * Backpack Types

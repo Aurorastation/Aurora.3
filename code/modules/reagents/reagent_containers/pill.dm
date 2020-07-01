@@ -87,7 +87,7 @@
 
 //Pills
 /obj/item/reagent_containers/pill/antitox
-	name = "Anti-toxins pill"
+	name = "anti-toxins pill"
 	desc = "Neutralizes many common toxins."
 	icon_state = "pill17"
 	Initialize()
@@ -95,7 +95,7 @@
 		reagents.add_reagent("dylovene", 25)
 
 /obj/item/reagent_containers/pill/tox
-	name = "Toxins pill"
+	name = "toxins pill"
 	desc = "Highly toxic."
 	icon_state = "pill5"
 	Initialize()
@@ -111,7 +111,7 @@
 		reagents.add_reagent("cyanide", 50)
 
 /obj/item/reagent_containers/pill/adminordrazine
-	name = "Adminordrazine pill"
+	name = "adminordrazine pill"
 	desc = "It's magic. We don't have to explain it."
 	icon_state = "pill16"
 	Initialize()
@@ -119,7 +119,7 @@
 		reagents.add_reagent("adminordrazine", 50)
 
 /obj/item/reagent_containers/pill/stox
-	name = "Sleeping pill"
+	name = "sleeping pill"
 	desc = "Commonly used to treat insomnia."
 	icon_state = "pill8"
 	Initialize()
@@ -127,7 +127,7 @@
 		reagents.add_reagent("stoxin", 15)
 
 /obj/item/reagent_containers/pill/kelotane
-	name = "Kelotane pill"
+	name = "kelotane pill"
 	desc = "Used to treat burns."
 	icon_state = "pill11"
 	Initialize()
@@ -135,7 +135,7 @@
 		reagents.add_reagent("kelotane", 15)
 
 /obj/item/reagent_containers/pill/paracetamol
-	name = "Paracetamol pill"
+	name = "paracetamol pill"
 	desc = "Tylenol! A painkiller for the ages. Chewables!"
 	icon_state = "pill8"
 	Initialize()
@@ -143,7 +143,7 @@
 		reagents.add_reagent("paracetamol", 15)
 
 /obj/item/reagent_containers/pill/tramadol
-	name = "Tramadol pill"
+	name = "tramadol pill"
 	desc = "A simple painkiller."
 	icon_state = "pill8"
 	Initialize()
@@ -152,7 +152,7 @@
 
 
 /obj/item/reagent_containers/pill/methylphenidate
-	name = "Methylphenidate pill"
+	name = "methylphenidate pill"
 	desc = "Improves the ability to concentrate."
 	icon_state = "pill8"
 	Initialize()
@@ -160,15 +160,7 @@
 		reagents.add_reagent("methylphenidate", 15)
 
 /obj/item/reagent_containers/pill/escitalopram
-	name = "Escitalopram pill"
-	desc = "Mild anti-depressant."
-	icon_state = "pill8"
-	Initialize()
-		. = ..()
-		reagents.add_reagent("escitalopram", 15)
-
-/obj/item/reagent_containers/pill/escitalopram
-	name = "Escitalopram pill"
+	name = "escitalopram pill"
 	desc = "Mild anti-depressant."
 	icon_state = "pill8"
 	Initialize()
@@ -184,7 +176,7 @@
 		reagents.add_reagent("norepinephrine", 30)
 
 /obj/item/reagent_containers/pill/dexalin
-	name = "Dexalin pill"
+	name = "dexalin pill"
 	desc = "Used to treat oxygen deprivation."
 	icon_state = "pill16"
 	Initialize()
@@ -192,7 +184,7 @@
 		reagents.add_reagent("dexalin", 15)
 
 /obj/item/reagent_containers/pill/dexalin_plus
-	name = "Dexalin Plus pill"
+	name = "dexalin plus pill"
 	desc = "Used to treat extreme oxygen deprivation."
 	icon_state = "pill8"
 	Initialize()
@@ -200,7 +192,7 @@
 		reagents.add_reagent("dexalinp", 15)
 
 /obj/item/reagent_containers/pill/dermaline
-	name = "Dermaline pill"
+	name = "dermaline pill"
 	desc = "Used to treat burn wounds."
 	icon_state = "pill12"
 	Initialize()
@@ -208,7 +200,7 @@
 		reagents.add_reagent("dermaline", 15)
 
 /obj/item/reagent_containers/pill/dylovene
-	name = "Dylovene pill"
+	name = "dylovene pill"
 	desc = "A broad-spectrum anti-toxin."
 	icon_state = "pill13"
 	Initialize()
@@ -216,7 +208,7 @@
 		reagents.add_reagent("dylovene", 15)
 
 /obj/item/reagent_containers/pill/bicaridine
-	name = "Bicaridine pill"
+	name = "bicaridine pill"
 	desc = "Used to treat physical injuries."
 	icon_state = "pill18"
 	Initialize()
@@ -224,7 +216,7 @@
 		reagents.add_reagent("bicaridine", 20)
 
 /obj/item/reagent_containers/pill/happy
-	name = "Happy pill"
+	name = "happy pill"
 	desc = "Happy happy joy joy!"
 	icon_state = "pill18"
 	Initialize()
@@ -233,7 +225,7 @@
 		reagents.add_reagent("sugar", 15)
 
 /obj/item/reagent_containers/pill/zoom
-	name = "Zoom pill"
+	name = "zoom pill"
 	desc = "Zoooom!"
 	icon_state = "pill18"
 	Initialize()
@@ -251,7 +243,7 @@
 		reagents.add_reagent("thetamycin", 15)
 
 /obj/item/reagent_containers/pill/bio_vitamin
-	name = "Vitamin pill"
+	name = "vitamin pill"
 	desc = "Contains a meal's worth of nutrients."
 	icon_state = "pill11"
 	Initialize()
@@ -260,8 +252,8 @@
 		reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),1)
 
 /obj/item/reagent_containers/pill/rmt
-	name = "RMT pill"
-	desc = "Contains chemical rampantly used by those seeking to remedy the effects of prolonged zero-gravity adaptations."
+	name = "regenerative-muscular tissue supplement pill"
+	desc = "Commonly referred to as RMT, it contains chemicals rampantly used by those seeking to remedy the effects of prolonged zero-gravity adaptations."
 	icon_state = "pill19"
 
 /obj/item/reagent_containers/pill/rmt/Initialize()

@@ -59,7 +59,7 @@
 	item_state = "cigpacket"
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
-	use_sound = 'sound/items/drop/paper.ogg'
+	use_sound = 'sound/items/storage/wrapper.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
@@ -93,7 +93,7 @@
 	make_exact_fit()
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
-	use_sound = 'sound/items/drop/paper.ogg'
+	use_sound = 'sound/items/storage/wrapper.ogg'
 
 /obj/item/storage/fancy/cigpaper/fine
 	name = "\improper Trident cigarette paper"

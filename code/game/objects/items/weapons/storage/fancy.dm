@@ -16,15 +16,38 @@
 
 /obj/item/storage/fancy
 	item_state = "box" //placeholder, many of these don't have inhands
+	desc_info = "You can alt-click to close it."
 	var/icon_type = null
 	var/storage_type = "box"
+	var/opened = FALSE
+	var/closable = TRUE
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	use_sound = 'sound/items/storage/box.ogg'
 
+/obj/item/storage/fancy/open(mob/user)
+	. = ..()
+	if(!opened)
+		opened = TRUE
+		update_icon()
+
+/obj/item/storage/fancy/AltClick(mob/user)
+	close(user)
+	return 1
+
+/obj/item/storage/fancy/close()
+	.=..()
+	if(closable && opened)
+		opened = FALSE
+		icon_state = "[initial(icon_state)]"
+		cut_overlays()
+		playsound(src.loc, src.use_sound, 50, 0, -5)
+
+
 /obj/item/storage/fancy/update_icon(var/itemremoved = 0)
-	var/total_contents = src.contents.len - itemremoved
-	src.icon_state = "[src.icon_type]box[total_contents]"
+	if(opened)
+		var/total_contents = src.contents.len - itemremoved
+		src.icon_state = "[src.icon_type]box[total_contents]"
 	return
 
 /obj/item/storage/fancy/examine(mob/user as mob)
@@ -37,7 +60,6 @@
 		to_chat(user, "There is one [src.icon_type] left in the [src.storage_type].")
 	else
 		to_chat(user, "There are [src.contents.len] [src.icon_type]s in the [src.storage_type].")
-
 	return
 
 /*
@@ -55,12 +77,9 @@
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donut/normal = 6)
 	storage_slots = 6
 
-/obj/item/storage/fancy/donut/fill()
-	. = ..()
-	update_icon()
-
 /obj/item/storage/fancy/donut/update_icon()
 	cut_overlays()
+	icon_state = "[initial(icon_state)]1"
 	var/i = 0
 	for(var/obj/item/reagent_containers/food/snacks/donut/D in contents)
 		add_overlay("[i][D.overlay_state]")
@@ -69,7 +88,6 @@
 /obj/item/storage/fancy/donut/empty
 	starts_with = null
 	max_storage_space = 12
-
 
 /*
  * Egg Box
@@ -103,6 +121,7 @@
 	slot_flags = SLOT_BELT
 	max_storage_space = 5
 	starts_with = list(/obj/item/flame/candle = 5)
+	closable = FALSE
 
 /*
  * Crayon Box
@@ -126,6 +145,7 @@
 		/obj/item/pen/crayon/blue = 1,
 		/obj/item/pen/crayon/purple = 1
 	)
+	closable = FALSE
 
 /obj/item/storage/fancy/crayons/fill()
 	. = ..()
@@ -152,7 +172,7 @@
 //CIG PACK//
 ////////////
 /obj/item/storage/fancy/cigarettes
-	name = "Trans-Stellar Duty Free cigarette packet"
+	name = "Trans-Stellar Duty Frees cigarette packet"
 	desc = "A ubiquitous brand of cigarettes, found in the facilities of every major spacefaring corporation in the universe. As mild and flavorless as it gets."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpacket"
@@ -164,7 +184,7 @@
 		)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
-	use_sound = 'sound/items/drop/paper.ogg'
+	use_sound = 'sound/items/storage/wrapper.ogg'
 	w_class = 1
 	throwforce = 2
 	slot_flags = SLOT_BELT
@@ -242,11 +262,12 @@
 /obj/item/storage/fancy/cigar
 	name = "cigar case"
 	desc = "A case for holding your cigars when you are not smoking them."
+	desc_info = "You can put a cigar in your mouth by selecting the mouth slot and clicking on yourself."
 	icon_state = "cigarcase"
 	item_state = "cigarcase"
 	icon = 'icons/obj/cigs_lighters.dmi'
-	drop_sound = 'sound/items/drop/shovel.ogg'
-	pickup_sound = 'sound/items/pickup/shovel.ogg'
+	drop_sound = 'sound/items/drop/weldingtool.ogg'
+	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	use_sound = 'sound/items/storage/briefcase.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
@@ -302,34 +323,35 @@
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/nicotine
 
 /obj/item/storage/fancy/cigarettes/rugged
-	name = "\improper Lucky Strike cigarette packet"
-	desc = "A packet of six Lucky Strike cigarettes. Rumored to be part of an Idris money laundering scheme, its original purpose long forgotten."
+	name = "\improper Idris Laissez-faires cigarette packet"
+	desc = "A packet of six Laissez-faires cigarettes. Rumored to be part of an Idris money laundering scheme, its original purpose long forgotten."
 	icon_state = "Fpacket"
 	item_state = "Fpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/rugged
 
 /obj/item/storage/fancy/cigarettes/pra
-	name = "\improper Working Tajara cigarette packet"
-	desc = "A packet of six adhomian \"Working Tajara\" cigarettes, imported straight from the People's Republic of Adhomai."
+	name = "\improper Laborer's Choice cigarette packet"
+	desc = "Jokingly referred to as an essential part of breakfast in the People's Republic of Adhomai, along with bread and Fatshouters' meat."
 	icon_state = "prapacket"
 	item_state = "prapacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt, /obj/item/tajcard)
+	storage_slots = 7
 
 /obj/item/storage/fancy/cigarettes/pra/fill()
 	..()
 	new /obj/item/tajcard(src)
 
 /obj/item/storage/fancy/cigarettes/dpra
-	name = "\improper Shastar Leaves cigarette packet"
-	desc = "A packet of six adhomian \"Shastar Leaves\" cigarettes, imported straight from the Democratic People's Republic of Adhomai."
+	name = "\improper Shastar List'ya cigarette packet"
+	desc = "Imported from the Democratic People's Republic of Adhomai, it is rumored to be a de-facto currency for Adhominian knuckles off-planet."
 	icon_state = "dprapacket"
 	item_state = "dprapacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
 
 /obj/item/storage/fancy/cigarettes/nka
-	name = "\improper Royal Choice cigarette packet"
-	desc = "A packet of six adhomian \"Royal Choice\" cigarettes, imported straight from the New Kingdom of Adhomai."
+	name = "\improper Gato Royales cigarette packet"
+	desc = "A favorite of the aristocrats of the New Kingdom of Adhomai."
 	icon_state = "nkapacket"
 	item_state = "nkapacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai

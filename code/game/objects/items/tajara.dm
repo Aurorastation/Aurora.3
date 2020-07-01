@@ -1,9 +1,11 @@
 /obj/item/tajcard
 	name = "collectable tajaran card"
-	desc = "A collectable card, usually found inside cigarette packs, with the illustration of a famous Tajara."
+	desc = "A collectable card with an illustration of a famous Tajaran figure, usually found inside cigarette packets."
 	icon = 'icons/obj/playing_cards.dmi'
 	icon_state = "tajcig"
 	w_class = ITEMSIZE_SMALL
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 	var/list/figures = list("hadii", "tesla", "headmaster", "commissar", "almanq", "yasmin", "andrey", "paratrooper", "scout")
 
 /obj/item/tajcard/Initialize()
