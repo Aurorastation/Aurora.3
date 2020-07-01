@@ -10,6 +10,10 @@
 	if(!istype(G))
 		to_chat(src, "<span class='warning'>We must be grabbing a creature in our active hand to absorb them.</span>")
 		return
+	var/mob/living/carbon/human/ling = src
+	if(istype(ling) && !ling.get_pressure_weakness())
+		to_chat(src, "<span class='warning'>We cannot absorb this creature from inside a sealed environment.</span>")
+		return
 	var/mob/living/carbon/human/T = G.affecting
 	if(!istype(T))
 		to_chat(src, "<span class='warning'>[T] is not compatible with our biology.</span>")
@@ -18,7 +22,7 @@
 		to_chat(src, "<span class='warning'>We do not know how to parse this creature's DNA!</span>")
 		return
 	if(islesserform(T))
-		to_chat(src, "<span class='warning'>This creature DNA is not compatible with our form!</span>")
+		to_chat(src, "<span class='warning'>This creature's DNA is not compatible with our form!</span>")
 		return
 	if(HUSK in T.mutations)
 		to_chat(src, "<span class='warning'>This creature's DNA is ruined beyond useability!</span>")
