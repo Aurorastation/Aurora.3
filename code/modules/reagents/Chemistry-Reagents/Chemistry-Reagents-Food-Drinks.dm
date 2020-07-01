@@ -1002,7 +1002,7 @@
 	glass_name = "glass of soy milk"
 	glass_desc = "White and nutritious soy goodness!"
 
-/datum/reagent/drink/milk/adhomai/fermented
+/datum/reagent/drink/milk/adhomai
 	name = "Fatshouters Milk"
 	description = "An opaque white liquid produced by the mammary glands of native adhomian animal."
 	taste_description = "fatty milk"
