@@ -229,6 +229,10 @@ There are several things that need to be remembered:
 //"icon_file" is used automatically for inhands etc. to make sure it gets the correct inhand file
 /obj/item/proc/worn_overlays(icon_file)
 	. = list()
+	if(build_from_parts)
+		var/mutable_appearance/M = mutable_appearance(icon_file, "[initial(icon_state)]_[worn_overlay]")
+		M.appearance_flags = RESET_COLOR
+		. += M
 
 //BASE MOB SPRITE
 /mob/living/carbon/human/proc/update_body(var/update_icons=1)

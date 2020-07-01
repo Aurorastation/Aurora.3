@@ -58,10 +58,11 @@
 
 /obj/item/stack/examine(mob/user)
 	if(..(user, 1))
-		if(!uses_charge)
-			to_chat(user, "There [src.amount == 1 ? "is" : "are"] [src.amount] [src.singular_name]\s [src.iscoil() == FALSE ? "in the stack." : "of cable in the coil."]")
-		else
-			to_chat(user, "There is enough charge for [get_amount()].")
+		if(!iscoil())
+			if(!uses_charge)
+				to_chat(user, "There [src.amount == 1 ? "is" : "are"] [src.amount] [src.singular_name]\s in the stack.")
+			else
+				to_chat(user, "There is enough charge for [get_amount()].")
 
 /obj/item/stack/attack_self(mob/user as mob)
 	list_recipes(user)

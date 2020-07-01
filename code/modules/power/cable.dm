@@ -491,6 +491,8 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		"Red" = COLOR_RED,
 		"White" = COLOR_WHITE
 	)
+	build_from_parts = TRUE
+	worn_overlay = "end"
 
 /obj/item/stack/cable_coil/iscoil()
 	return TRUE
@@ -645,6 +647,10 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	else
 		w_class = ITEMSIZE_SMALL
 		slot_flags = SLOT_BELT
+
+/obj/item/stack/cable_coil/examine(mob/user)
+	..()
+	to_chat(user, "There [src.amount == 1 ? "is" : "are"] [src.amount] [src.singular_name]\s of cable in the coil.")
 
 /obj/item/stack/cable_coil/verb/make_restraint(mob/user)
 	set name = "Make Cable Restraints"

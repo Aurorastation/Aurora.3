@@ -66,20 +66,14 @@
 	drop_sound = 'sound/items/drop/screwdriver.ogg'
 	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 	lock_picking_level = 5
-	var/build_from_parts = TRUE //if the tool uses random coloring
+	build_from_parts = TRUE
+	worn_overlay = "head"
 
 /obj/item/screwdriver/Initialize()
 	. = ..()
 	if(build_from_parts) //random colors!
 		color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
-		add_overlay(overlay_image(icon, "[initial(icon_state)]_head", flags=RESET_COLOR))
-
-/obj/item/screwdriver/worn_overlays(icon_file)
-	. = list()
-	if(build_from_parts)
-		var/mutable_appearance/M = mutable_appearance(icon_file, "screwdriver_head")
-		M.appearance_flags = RESET_COLOR
-		. += M
+		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
 
 /obj/item/screwdriver/update_icon()
 	var/matrix/tf = matrix()
@@ -139,20 +133,14 @@
 	drop_sound = 'sound/items/drop/wirecutter.ogg'
 	pickup_sound = 'sound/items/pickup/wirecutter.ogg'
 	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
-	var/build_from_parts = TRUE
+	build_from_parts = TRUE
+	worn_overlay = "head"
 
 /obj/item/wirecutters/Initialize()
 	. = ..()
 	if(build_from_parts)
 		color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
-		add_overlay(overlay_image(icon, "[initial(icon_state)]_head", flags=RESET_COLOR))
-
-/obj/item/wirecutters/worn_overlays(icon_file)
-	. = list()
-	if(build_from_parts)
-		var/mutable_appearance/M = mutable_appearance(icon_file, "wirecutters_head")
-		M.appearance_flags = RESET_COLOR
-		. += M
+		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
 
 /obj/item/wirecutters/update_icon()
 	var/matrix/tf = matrix()

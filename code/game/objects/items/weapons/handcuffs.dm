@@ -130,7 +130,8 @@
 	cuff_sound = 'sound/weapons/cablecuff.ogg'
 	cuff_type = "cable restraints"
 	elastic = TRUE
-	var/build_from_parts = TRUE
+	build_from_parts = TRUE
+	worn_overlay = "end"
 
 /obj/item/handcuffs/cable/Initialize(mapload, new_color)
 	. = ..()
