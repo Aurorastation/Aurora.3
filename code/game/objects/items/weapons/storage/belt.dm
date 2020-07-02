@@ -341,7 +341,8 @@
 		/obj/item/warp_core,
 		/obj/item/extraction_pack,
 		/obj/item/rfd/mining,
-		/obj/item/gun/custom_ka
+		/obj/item/gun/custom_ka,
+		/obj/item/device/orbital_dropper
 		)
 
 /obj/item/storage/belt/hydro

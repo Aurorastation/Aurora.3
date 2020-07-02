@@ -183,12 +183,17 @@
 		if(!temp)
 			to_chat(user, "<span class='notice'>You try to use your hand, but realize it is no longer attached!</span>")
 			return
-	if(!src.Adjacent(user))
+	var/obj/item/storage/S
+	var/storage_depth_matters = TRUE
+	if(istype(src.loc, /obj/item/storage))
+		S = src.loc
+		if(!S.care_about_storage_depth)
+			storage_depth_matters = FALSE
+	if(storage_depth_matters && !src.Adjacent(user))
 		to_chat(user, span("notice", "\The [src] slips out of your grasp before you can grab it!")) // because things called before this can move it
 		return // please don't pick things up
 	src.pickup(user)
-	if (istype(src.loc, /obj/item/storage))
-		var/obj/item/storage/S = src.loc
+	if(S)
 		S.remove_from_storage(src)
 
 	src.throwing = 0
@@ -630,6 +635,11 @@ var/list/global/slot_flags_enumeration = list(
 	if(istype(src, /obj/item/clothing/gloves))
 		var/obj/item/clothing/gloves/G = src
 		G.transfer_blood = 0
+
+	if(blood_color)
+		blood_color = null
+
+	update_icon()
 
 /obj/item/reveal_blood()
 	if(was_bloodied && !fluorescent)
