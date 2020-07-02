@@ -10,13 +10,13 @@
 	for(var/obj/I in list(module_state_1, module_state_2, module_state_3))
 		if(I?.iswirecutter())
 			return I
-	return null
+	return
 
 /mob/living/silicon/robot/proc/return_multitool()
 	for(var/obj/I in list(module_state_1, module_state_2, module_state_3))
 		if(I?.ismultitool())
 			return I
-	return null
+	return
 
 /*-------TODOOOOOOOOOO--------*/
 

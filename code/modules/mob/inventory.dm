@@ -137,13 +137,13 @@ var/list/slot_equipment_priority = list( \
 			return l_hand
 		else if(istype(r_hand, type))
 			return r_hand
-		return null
+		return
 	else
 		if(istype(r_hand, type))
 			return r_hand
 		else if(istype(l_hand, type))
 			return l_hand
-		return null
+		return
 
 //Puts the item into your l_hand if possible and calls all necessary triggers/updates. returns 1 on success.
 /mob/proc/put_in_l_hand(var/obj/item/W)
