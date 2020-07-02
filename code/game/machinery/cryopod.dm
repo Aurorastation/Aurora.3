@@ -275,8 +275,10 @@ var/global/list/frozen_crew = list()
 			if(!find_control_computer(urgent=1))
 				return
 
+/*
 		if(!occupant.client && occupant.stat != DEAD) //Occupant is living and has no client.
 			despawn_occupant()
+*/
 
 		else if(world.time - time_entered > time_till_force_cryo)
 			despawn_occupant()
