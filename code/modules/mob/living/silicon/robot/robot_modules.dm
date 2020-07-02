@@ -688,7 +688,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
 	src.modules += new /obj/item/wrench/robotic(src)
 	src.modules += new /obj/item/screwdriver/robotic(src)
-  src.modules += new /obj/item/storage/part_replacer(src)
+	src.modules += new /obj/item/storage/part_replacer(src)
 	src.modules += new /obj/item/tank/jetpack/carbondioxide(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
