@@ -606,17 +606,20 @@ obj/structure/cable/proc/cableColor(var/colorC)
 /obj/item/stack/cable_coil/update_icon()
 	if(!color)
 		color = pick(possible_cable_coil_colours)
-		update_held_icon()
 	name = "[initial(name)]"
 	if(amount == 1)
 		icon_state = "[initial(icon_state)]1"
+		item_state = "[initial(icon_state)]1"
 		name += " piece"
 	else if(amount == 2)
 		icon_state = "[initial(icon_state)]2"
+		item_state = "[initial(icon_state)]2"
 		name += " piece"
 	else
 		icon_state = "[initial(icon_state)]"
+		item_state = "[initial(icon_state)]"
 		name += " coil"
+	update_held_icon()
 	cut_overlays()
 	add_overlay(overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR))
 

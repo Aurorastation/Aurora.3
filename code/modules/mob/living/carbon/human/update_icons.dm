@@ -230,7 +230,7 @@ There are several things that need to be remembered:
 /obj/item/proc/worn_overlays(icon_file)
 	. = list()
 	if(build_from_parts)
-		var/mutable_appearance/M = mutable_appearance(icon_file, "[initial(item_state)]_[worn_overlay]")
+		var/mutable_appearance/M = mutable_appearance(icon_file, "[item_state]_[worn_overlay]")
 		M.appearance_flags = RESET_COLOR
 		. += M
 
