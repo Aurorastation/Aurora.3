@@ -183,12 +183,17 @@
 		if(!temp)
 			to_chat(user, "<span class='notice'>You try to use your hand, but realize it is no longer attached!</span>")
 			return
-	if(!src.Adjacent(user))
+	var/obj/item/storage/S
+	var/storage_depth_matters = TRUE
+	if(istype(src.loc, /obj/item/storage))
+		S = src.loc
+		if(!S.care_about_storage_depth)
+			storage_depth_matters = FALSE
+	if(storage_depth_matters && !src.Adjacent(user))
 		to_chat(user, span("notice", "\The [src] slips out of your grasp before you can grab it!")) // because things called before this can move it
 		return // please don't pick things up
 	src.pickup(user)
-	if (istype(src.loc, /obj/item/storage))
-		var/obj/item/storage/S = src.loc
+	if(S)
 		S.remove_from_storage(src)
 
 	src.throwing = 0
@@ -631,6 +636,11 @@ var/list/global/slot_flags_enumeration = list(
 		var/obj/item/clothing/gloves/G = src
 		G.transfer_blood = 0
 
+	if(blood_color)
+		blood_color = null
+
+	update_icon()
+
 /obj/item/reveal_blood()
 	if(was_bloodied && !fluorescent)
 		fluorescent = 1
@@ -695,7 +705,7 @@ modules/mob/mob_movement.dm if you move you will be zoomed out
 modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 */
 //Looking through a scope or binoculars should /not/ improve your periphereal vision. Still, increase viewsize a tiny bit so that sniping isn't as restricted to NSEW
-/obj/item/proc/zoom(var/mob/M, var/tileoffset = 14, var/viewsize = 9) //tileoffset is client view offset in the direction the user is facing. viewsize is how far out this thing zooms. 7 is normal view
+/obj/item/proc/zoom(var/mob/M, var/tileoffset = 14, var/viewsize = 9, var/do_device_check = TRUE) //tileoffset is client view offset in the direction the user is facing. viewsize is how far out this thing zooms. 7 is normal view
 	if (!M)
 		return
 
@@ -714,7 +724,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	else if(!zoom && (global_hud.darkMask[1] in M.client.screen))
 		to_chat(M, SPAN_WARNING("Your visor gets in the way of looking through the [devicename]!"))
 		cannotzoom = 1
-	else if(!zoom && M.get_active_hand() != src)
+	else if(do_device_check && !zoom && M.get_active_hand() != src)
 		to_chat(M, SPAN_WARNING("You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better."))
 		cannotzoom = 1
 

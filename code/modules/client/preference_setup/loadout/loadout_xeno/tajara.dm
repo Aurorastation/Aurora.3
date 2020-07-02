@@ -57,7 +57,7 @@
 	display_name = "PRA medical coat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Chemist", "Geneticist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Chemist", "Geneticist", "Emergency Medical Technician", "Medical Resident")
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara
@@ -218,16 +218,23 @@
 	passports["new kingdom of adhomai passport"] = /obj/item/clothing/accessory/badge/nka_passport
 	gear_tweaks += new/datum/gear_tweak/path(passports)
 
-/datum/gear/accessory/adhomai_zippo
+/datum/gear/adhomai_zippo
 	display_name = "adhomian lighter"
 	path = /obj/item/flame/lighter/adhomai
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/accessory/adhomai_pocketwatch
+/datum/gear/adhomai_pocketwatch
 	display_name = "adhomian watch"
 	path = /obj/item/pocketwatch/adhomai
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/tajaran_dice
+	display_name = "bag of adhomian dice"
+	path = /obj/item/storage/pill_bottle/dice/tajara
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	flags = GEAR_HAS_DESC_SELECTION
