@@ -36,7 +36,6 @@
 	pass_flags = PASSTABLE
 	//Counter for how intense the radlight is
 	var/radlight = 0
-	var/rad_filter_exists = 0
 	//How many metabolism procs to wait before rapidly dropping the levels down so the cats stop glowing fairly quickly
 	var/radlight_fade_delay = 10
 	canbrush = TRUE
@@ -44,6 +43,9 @@
 	emote_sounds = list('sound/effects/creatures/cat_meow.ogg', 'sound/effects/creatures/cat_meow2.ogg')
 	butchering_products = list(/obj/item/stack/material/animalhide/cat = 2)
 
+/mob/living/simple_animal/cat/Initialize()
+	. = ..()
+	src.filters += filter(type="drop_shadow", size = 2, offset = 2, color = rgb(0,208,0,0))
 
 /mob/living/simple_animal/cat/think()
 	//MICE!
@@ -104,9 +106,6 @@
 	..()
 
 /mob/living/simple_animal/cat/proc/handle_radiation_light()
-	if(rad_filter_exists == 0)
-		src.filters += filter(type="drop_shadow", size = 2, offset = 2, color = rgb(0,208,0,0))
-		rad_filter_exists = 1
 	radlight = clamp(radlight, 0, 98)
 	if (radlight > 0)
 		radlight_fade_delay = clamp(radlight_fade_delay-1, 0, 10)
