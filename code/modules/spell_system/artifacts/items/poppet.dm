@@ -78,7 +78,7 @@
 	if(H && cooldown < world.time)
 		var/target_zone = user.zone_sel.selecting
 
-		if(isflamesource(W))
+		if(W.isFlameSource())
 			fire_act()
 
 		if(istype(W, /obj/item/melee/baton))

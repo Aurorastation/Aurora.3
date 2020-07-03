@@ -464,6 +464,9 @@
 /obj/item/weldingtool/proc/isOn()
 	return src.welding
 
+/obj/item/weldingtool/isFlameSource()
+	return isOn()
+
 //Sets the welding state of the welding tool. If you see W.welding = 1 anywhere, please change it to W.setWelding(1)
 //so that the welding tool updates accordingly
 /obj/item/weldingtool/proc/setWelding(var/set_welding, var/mob/M)

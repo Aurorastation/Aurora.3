@@ -138,7 +138,7 @@
 	if(!istype(W, /obj/item/reagent_containers/food/snacks) && W.is_open_container())
 		trans_item(W, user)
 		return
-	if(isflamesource(W))
+	if(W.isFlameSource())
 		heat_item(W, user)
 		return
 	if(istype(W) && W.force >= 5 && !has_edge(W) && LAZYLEN(contents - analyzer))
@@ -243,7 +243,7 @@
 		transfer_out = !transfer_out
 		to_chat(user, span("notice", "You [transfer_out ? "open" : "close"] the spigot on the keg, ready to [transfer_out ? "remove" : "add"] reagents."))
 		return
-	if(isflamesource(W) && istype(welder))
+	if(W.isFlameSource() && istype(welder))
 		to_chat(user, span("notice", "You light \the [src] and begin the distillation process."))
 		addtimer(CALLBACK(src, .proc/distill), 60 SECONDS)
 		src.icon_state = "distillery-active"
