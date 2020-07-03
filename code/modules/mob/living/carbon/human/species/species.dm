@@ -97,7 +97,6 @@
 	var/death_sound
 	var/death_message = "falls limp and stops moving..."
 	var/death_message_range = 2
-	var/list/scream_emote = list("screams!")
 	var/knockout_message = "has been knocked unconscious!"
 	var/halloss_message = "slumps to the ground, too weak to continue fighting."
 	var/halloss_message_self = "You're in too much pain to keep going..."
@@ -149,6 +148,13 @@
 		"You shiver suddenly.",
 		"Your chilly flesh stands out in goosebumps."
 		)
+
+	// Order matters, higher pain level should be higher up
+	var/list/pain_emotes_with_pain_level = list(
+		list(/decl/emote/audible/scream, /decl/emote/audible/whimper, /decl/emote/audible/moan, /decl/emote/audible/cry) = 70,
+		list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/moan) = 40,
+		list(/decl/emote/audible/grunt, /decl/emote/audible/groan) = 10,
+	)
 
 	// HUD data vars.
 	var/datum/hud_data/hud
@@ -615,3 +621,13 @@
 
 /datum/species/proc/handle_despawn()
 	return
+
+/datum/species/proc/get_pain_emote(var/mob/living/carbon/human/H, var/pain_power)
+	if(flags & NO_PAIN)
+		return
+	for(var/pain_emotes in pain_emotes_with_pain_level)
+		var/pain_level = pain_emotes_with_pain_level[pain_emotes]
+		if(pain_level >= pain_power)
+			// This assumes that if a pain-level has been defined it also has a list of emotes to go with it
+			var/decl/emote/E = decls_repository.get_decl(pick(pain_emotes))
+			return E.key

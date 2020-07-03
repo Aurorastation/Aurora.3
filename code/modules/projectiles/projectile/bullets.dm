@@ -261,10 +261,6 @@
 	if(isanimal(target))
 		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
 		L.apply_damage(35, TOX) //temporary until simple_mob paralysis actually works.
-	/*	var/mob/living/simple_animal/M = target
-		spawn(60)
-			target.visible_message("<b>[target]</b> collapses.")
-			M.Sleeping(1200)*/ //commented out until simple_mob paralysis actually works.
 	..()
 
 /* Miscellaneous */
