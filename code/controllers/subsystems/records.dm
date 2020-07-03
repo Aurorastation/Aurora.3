@@ -222,16 +222,17 @@
 	for(var/datum/record/general/t in records)
 		var/name = sanitize(t.name)
 		var/rank = sanitize(t.rank)
-		var/real_rank = make_list_rank(t.real_rank)
 
 		var/isactive = t.physical_status
 		var/department = 0
 		var/depthead = 0            // Department Heads will be placed at the top of their lists.
 
+		rank = replacetext(rank, "Interim ", "")
+		rank = replacetext(rank, "Acting ", "")
 		for(var/positionType in positions)
 			var/typesPositions = positions[positionType]
-			if(real_rank in typesPositions)
-				manifest[positionType][++manifest[positionType].len] = list("name" = name, "rank" = rank, "active" = isactive)
+			if(rank in typesPositions)
+				manifest[positionType][++manifest[positionType].len] = list("name" = name, "rank" = sanitize(t.rank), "active" = isactive)
 				department = 1
 				if ((depthead || rank == "Captain") && manifest[positionType].len != 1)
 					manifest[positionType].Swap(1, manifest[positionType].len)
@@ -240,7 +241,7 @@
 					depthead = 1
 
 		if(!department && !(name in manifest["heads"]))
-			manifest["misc"][++manifest["misc"].len] = list("name" = name, "rank" = rank, "active" = isactive)
+			manifest["misc"][++manifest["misc"].len] = list("name" = name, "rank" = sanitize(t.rank), "active" = isactive)
 
 	for(var/mob/living/silicon/S in player_list)
 		if(istype(S, /mob/living/silicon/robot))

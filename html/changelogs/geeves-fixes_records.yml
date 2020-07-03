@@ -4,3 +4,5 @@ delete-after: True
 
 changes: 
   - bugfix: "Fixes records not allowing you to generate new ones, and fixes records still referring to viruses."
+  - tweak: "Manifests are now based on records, instead of access or IDs."
+  - tweak: "Placing Interim or Acting before someone's assignment on their records will now properly show them under their department."
