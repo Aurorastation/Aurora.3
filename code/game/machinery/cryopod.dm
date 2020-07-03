@@ -602,6 +602,7 @@ var/global/list/frozen_crew = list()
 	if(occupant.client)
 		occupant.client.perspective = EYE_PERSPECTIVE
 		occupant.client.eye = src
+		time_entered = world.time
 	update_icon()
 
 /obj/machinery/cryopod/update_icon()
