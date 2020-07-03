@@ -1,6 +1,6 @@
 /datum/gear/cosmetic
-	display_name = "purple comb"
-	path = /obj/item/haircomb
+	display_name = "handheld mirror"
+	path = /obj/item/mirror
 	sort_category = "Cosmetics"
 
 /datum/gear/cosmetic/lipstick
@@ -17,6 +17,7 @@
 	lipsticks["lipstick, pink"] = /obj/item/lipstick/pink
 	gear_tweaks += new/datum/gear_tweak/path(lipsticks)
 
-/datum/gear/cosmetic/mirror
-	display_name = "handheld mirror"
-	path = /obj/item/mirror
+/datum/gear/cosmetic/comb
+	display_name = "plastic comb"
+	path = /obj/item/haircomb
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

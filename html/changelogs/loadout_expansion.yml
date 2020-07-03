@@ -64,6 +64,7 @@ changes:
   - rscadd: "Utility Loadout: ported clutch bag, purse, flashlights, colourable umbrella, text-to-speech device, and wheelchair from Polaris."
   - rscadd: "Utility Loadout: added regular flashlight, bar recipe book, cooking recipe book, corporate regulations book, crutches and station procedure book."
   - tweak: "Moved the cane from the general section to the utility section."
+  - tweak: "Made the plastic comb colourable."
   - tweak: "Ported the ability to collapse wheelchairs from Polaris."
   - tweak: "Ported the ability from Polaris to tuck in and roll sleeves on flannel shirts."
   - tweak: "Allows kimono to be worn as a suit/overwear."
