@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Borg radios now also have default access to common and the entertainment channel."
