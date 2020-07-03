@@ -299,7 +299,9 @@
 					sleeping = max(sleeping-1, 0)
 			blinded = TRUE
 			stat = UNCONSCIOUS
-		else if(!resting)
+		else if(resting)
+			// insert dial up tone
+		else
 			stat = CONSCIOUS
 
 		// Eyes and blindness.
