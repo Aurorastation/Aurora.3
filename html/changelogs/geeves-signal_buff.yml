@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Flash rounds have been buffed. Scoring a headshot now ignores eye-protection, but only grants half the effects of a standard flash round effect."
