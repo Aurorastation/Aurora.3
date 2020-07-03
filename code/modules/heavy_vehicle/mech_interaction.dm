@@ -164,6 +164,20 @@
 		return A.attack_generic(src, arms.melee_damage, "attacked")
 	return
 
+/mob/living/heavy_vehicle/setClickCooldown(var/timeout)
+	next_move = max(world.time + timeout, next_move)
+	for(var/hardpoint in hardpoint_hud_elements)
+		var/obj/screen/movable/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
+		if(H)
+			H.color = "#FF0000"
+	addtimer(CALLBACK(src, .proc/reset_hardpoint_color), timeout)
+
+/mob/living/heavy_vehicle/proc/reset_hardpoint_color()
+	for(var/hardpoint in hardpoint_hud_elements)
+		var/obj/screen/movable/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
+		if(H)
+			H.color = null
+
 /mob/living/heavy_vehicle/proc/set_hardpoint(var/hardpoint_tag)
 	clear_selected_hardpoint()
 	if(hardpoints[hardpoint_tag])
@@ -265,8 +279,7 @@
 	return
 
 /mob/living/heavy_vehicle/relaymove(var/mob/living/user, var/direction)
-
-	if(world.time < next_move)
+	if(world.time < next_mecha_move)
 		return 0
 
 	if(!user || incapacitated() || user.incapacitated() || lockdown)
@@ -274,15 +287,15 @@
 
 	if(!legs)
 		to_chat(user, "<span class='warning'>\The [src] has no means of propulsion!</span>")
-		next_move = world.time + 3 // Just to stop them from getting spammed with messages.
+		next_mecha_move = world.time + 3 // Just to stop them from getting spammed with messages.
 		return
 
 	if(!legs.motivator || legs.total_damage > 45)
 		to_chat(user, "<span class='warning'>Your motivators are damaged! You can't move!</span>")
-		next_move = world.time + 15
+		next_mecha_move = world.time + 15
 		return
 
-	next_move = world.time + legs.move_delay
+	next_mecha_move = world.time + legs.move_delay
 
 	if(maintenance_protocols)
 		to_chat(user, "<span class='warning'>Maintenance protocols are in effect.</span>")
@@ -305,7 +318,7 @@
 		get_cell()?.use(legs.power_use * CELLRATE)
 		if(legs && legs.mech_turn_sound)
 			playsound(src.loc,legs.mech_turn_sound,40,1)
-		next_move = world.time + legs.turn_delay
+		next_mecha_move = world.time + legs.turn_delay
 		set_dir(direction)
 		if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/shield))
 			var/obj/item/mecha_equipment/shield/S = hardpoints[HARDPOINT_BACK]

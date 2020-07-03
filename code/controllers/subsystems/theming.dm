@@ -48,9 +48,6 @@ var/datum/controller/subsystem/theming/SStheming
 	for(var/mob/M in mob_list)
 		if(M.client)
 			apply_theme_from_perfs(M.client)
-		var/mob/abstract/new_player/np = M
-		if(istype(np))
-			np.new_player_panel_proc()
 	..()
 
 /datum/controller/subsystem/theming/proc/apply_theme_from_perfs(var/user)

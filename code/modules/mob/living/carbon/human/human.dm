@@ -179,7 +179,7 @@
 	..()
 	if(statpanel("Status"))
 		stat("Intent:", "[a_intent]")
-		stat("Move Mode:", "[move_intent.name]")
+		stat("Move Mode:", "[m_intent]")
 		if(emergency_shuttle)
 			var/eta_status = emergency_shuttle.get_status_panel_eta()
 			if(eta_status)
@@ -1336,6 +1336,9 @@
 		footprint_color = null
 		feet_blood_DNA = null
 		update_inv_shoes(1)
+
+	if(blood_color)
+		blood_color = null
 		return 1
 
 /mob/living/carbon/human/get_visible_implants(var/class = 0)
@@ -1484,20 +1487,13 @@
 	burn_mod = species.burn_mod
 	brute_mod = species.brute_mod
 
-	default_walk_intent = null
-	default_run_intent = null
-	move_intent = null
-	move_intents = species.move_intents.Copy()
-	set_move_intent(decls_repository.get_decl(move_intents[1]))
-	if(!istype(move_intent))
-		set_next_usable_move_intent()
-
 	max_stamina = species.stamina
 	stamina = max_stamina
 	sprint_speed_factor = species.sprint_speed_factor
 	sprint_cost_factor = species.sprint_cost_factor
 	stamina_recovery = species.stamina_recovery
 
+	exhaust_threshold = species.exhaust_threshold
 	max_nutrition = BASE_MAX_NUTRITION * species.max_nutrition_factor
 	max_hydration = BASE_MAX_HYDRATION * species.max_hydration_factor
 
@@ -1957,11 +1953,10 @@
 		return
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 	if(istype(heart) && !(heart.status & ORGAN_DEAD))
-		var/active_breaths = 0
-		if(!nervous_system_failure() && active_breaths)
-			visible_message("\The <b>[src]</b> jerks and gasps for breath!")
+		if(!nervous_system_failure())
+			visible_message("<b>[src]</b> jerks and gasps for breath!")
 		else
-			visible_message("\The <b>[src]</b> twitches a bit as \his heart restarts!")
+			visible_message("<b>[src]</b> twitches a bit as \his heart restarts!")
 		shock_stage = min(shock_stage, 100) // 120 is the point at which the heart stops.
 		if(getOxyLoss() >= 75)
 			setOxyLoss(75)
@@ -2018,3 +2013,35 @@
 			else
 				randmutg(src) // Applies good mutation
 				domutcheck(src,null,MUTCHK_FORCED)
+
+/mob/living/carbon/human/proc/get_accent_icon(var/datum/language/speaking = null)
+	if(accent && speaking && speaking.allow_accents)
+		var/used_accent = accent //starts with the mob's default accent
+
+		if(istype(back,/obj/item/rig)) //checks for the rig voice changer module
+			var/obj/item/rig/rig = back
+			if(rig.speech && rig.speech.voice_holder && rig.speech.voice_holder.active && rig.speech.voice_holder.current_accent)
+				used_accent = rig.speech.voice_holder.current_accent
+
+		for(var/obj/item/gear in list(wear_mask,wear_suit,head)) //checks for voice changers masks now
+			if(gear)
+				var/obj/item/voice_changer/changer = locate() in gear
+				if(changer && changer.active && changer.current_accent)
+					used_accent = changer.current_accent
+
+		var/datum/accent/a = SSrecords.accents[used_accent]
+		var/final_icon = a.tag_icon
+		return "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[final_icon]'>"
+
+/mob/living/carbon/human/proc/generate_valid_accent()
+	var/list/valid_accents = new()
+	for(var/current_accents in species.allowed_accents)
+		valid_accents += current_accents
+
+	return valid_accents
+
+/mob/living/carbon/human/proc/set_accent(var/new_accent)
+	accent = new_accent
+	if(!(accent in species.allowed_accents))
+		accent = species.default_accent
+	return TRUE

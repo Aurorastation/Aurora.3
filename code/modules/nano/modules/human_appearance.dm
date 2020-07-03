@@ -6,6 +6,7 @@
 	var/list/valid_species = list()
 	var/list/valid_hairstyles = list()
 	var/list/valid_facial_hairstyles = list()
+	var/list/valid_accents = list()
 
 	var/check_whitelist
 	var/list/whitelist
@@ -99,6 +100,11 @@
 				if(owner.change_eye_color(r_eyes, g_eyes, b_eyes))
 					update_dna()
 					return 1
+	if(href_list["accent"])
+		if(can_change(APPEARANCE_GENDER) && (href_list["accent"] in valid_accents))
+			if(owner.set_accent(href_list["accent"]))
+				cut_and_generate_data()
+			return 1
 
 	return 0
 
@@ -119,6 +125,14 @@
 		data["species"] = species
 
 	data["change_gender"] = can_change(APPEARANCE_GENDER)
+	data["accent"] = owner.accent
+	data["change_accent"] = can_change(APPEARANCE_GENDER)
+	if(data["change_accent"])
+		var/accents[0]
+		for(var/accent in valid_accents)
+			accents[++accents.len] =  list("accent" = accent)
+		data["accents"] = accents
+
 	data["change_skin_tone"] = can_change_skin_tone()
 	data["change_skin_color"] = can_change_skin_color()
 	data["change_skin_preset"] = can_change_skin_preset()
@@ -168,6 +182,7 @@
 	// Making the assumption that the available species remain constant
 	valid_facial_hairstyles.Cut()
 	valid_facial_hairstyles.Cut()
+	valid_accents.Cut()
 	generate_data()
 
 /datum/nano_module/appearance_changer/proc/generate_data()
@@ -178,3 +193,5 @@
 	if(!valid_hairstyles.len || !valid_facial_hairstyles.len)
 		valid_hairstyles = owner.generate_valid_hairstyles(check_gender = 0)
 		valid_facial_hairstyles = owner.generate_valid_facial_hairstyles()
+	if(!valid_accents.len)
+		valid_accents = owner.generate_valid_accent()

@@ -79,6 +79,7 @@
 	stamina	=	500			  //Tireless automatons
 	stamina_recovery = 1
 	sprint_speed_factor = 0.3
+	exhaust_threshold = 0 //No oxyloss, so zero threshold
 
 	inherent_verbs = list(
 	/mob/living/carbon/human/proc/shatter_light,
@@ -113,6 +114,6 @@
 	return "grue"
 
 /datum/species/shadow/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= config.health_threshold_dead)
+	if(H.get_total_health() <= 0)
 		return TRUE
 	return FALSE

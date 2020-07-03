@@ -140,12 +140,7 @@ default behaviour is:
 		now_pushing = FALSE
 		spawn(0)
 			. = ..()
-			if (!istype(AM, /atom/movable) || AM.anchored)
-				if(confused && prob(50) && !MOVING_DELIBERATELY(src))
-					Weaken(2)
-					playsound(loc, "punch", 25, 1, -1)
-					visible_message(SPAN_WARNING("\The [src] [pick("ran", "slammed")] into \the [AM]!"))
-					src.apply_damage(5, BRUTE)
+			if (!istype(AM, /atom/movable))
 				return
 			if (!now_pushing)
 				now_pushing = TRUE
@@ -960,3 +955,6 @@ default behaviour is:
 		for(var/a in auras)
 			remove_aura(a)
 	return ..()
+
+/mob/living/proc/needs_wheelchair()
+	return FALSE

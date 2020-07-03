@@ -13,6 +13,7 @@ var/list/department_radio_keys = list(
 	  ":w" = "whisper",		".w" = "whisper",
 	  ":t" = "Mercenary",	".t" = "Mercenary",
 	  ":x" = "Raider",		".x" = "Raider",
+	  ":b" = "Burglar",		".b" = "Burglar",
 	  ":q" = "Ninja",		".q" = "Ninja",
 	  ":u" = "Supply",		".u" = "Supply",
 	  ":v" = "Service",		".v" = "Service",
@@ -32,6 +33,7 @@ var/list/department_radio_keys = list(
 	  ":W" = "whisper",		".W" = "whisper",
 	  ":T" = "Mercenary",	".T" = "Mercenary",
 	  ":X" = "Raider",		".X" = "Raider",
+	  ":B" = "Burglar",		".B" = "Burglar",
 	  ":Q" = "Ninja",		".Q" = "Ninja",
 	  ":U" = "Supply",		".U" = "Supply",
 	  ":V" = "Service",		".V" = "Service",
@@ -93,8 +95,8 @@ proc/get_radio_key_from_channel(var/channel)
 /mob/living/proc/get_default_language()
 	return default_language
 
-/mob/living/proc/is_muzzled()
-	return 0
+/mob/proc/is_muzzled()
+	return istype(wear_mask, /obj/item/clothing/mask/muzzle)
 
 /mob/living/proc/handle_speech_problems(var/message, var/verb, var/message_mode)
 	var/list/returns[4]

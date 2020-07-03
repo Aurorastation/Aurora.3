@@ -89,7 +89,7 @@
 
 	stamina = 100			  // Long period of sprinting, but relatively low speed gain
 	sprint_speed_factor = 0.7
-	sprint_cost_factor = 0.6
+	sprint_cost_factor = 0.30
 	stamina_recovery = 2	//slow recovery
 
 	has_organ = list(
@@ -126,6 +126,8 @@
 	allowed_citizenships = list(CITIZENSHIP_ZORA, CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_ERIDANI, CITIZENSHIP_JARGON)
 	allowed_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_PILOTDREAM, RELIGION_NONE, RELIGION_OTHER)
 	default_citizenship = CITIZENSHIP_ZORA
+
+	allowed_accents = list(ACCENT_CETI)
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()

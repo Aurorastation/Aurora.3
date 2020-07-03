@@ -6701,7 +6701,7 @@
 	pixel_x = -27
 	},
 /obj/item/device/radio/intercom{
-	listening = 0;
+	listening = FALSE;
 	name = "Custom Channel";
 	pixel_y = -27
 	},
@@ -7520,7 +7520,7 @@
 /area/turret_protected/ai)
 "aou" = (
 /obj/item/device/radio/intercom{
-	listening = 0;
+	listening = FALSE;
 	name = "Custom Channel";
 	pixel_y = 19
 	},
@@ -8313,7 +8313,7 @@
 	pixel_x = -27
 	},
 /obj/item/device/radio/intercom{
-	listening = 0;
+	listening = FALSE;
 	name = "Custom Channel";
 	pixel_y = 19
 	},

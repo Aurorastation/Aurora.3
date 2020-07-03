@@ -10,7 +10,7 @@ var/datum/antagonist/ert/ert
 
 	id_type = /obj/item/card/id/ert
 
-	flags = ANTAG_OVERRIDE_JOB | ANTAG_RANDOM_EXCEPTED
+	flags = ANTAG_OVERRIDE_JOB | ANTAG_RANDOM_EXCEPTED | ANTAG_NO_FLAVORTEXT
 	antaghud_indicator = "hudloyalist"
 
 /datum/antagonist/ert/create_default(var/mob/source)

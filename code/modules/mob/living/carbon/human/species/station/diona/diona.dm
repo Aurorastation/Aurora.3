@@ -52,8 +52,6 @@
 	organ_med_burn_message = "<span class='danger'><font size=3>The nymph making up our %PARTNAME% burns terribly!</font></span>"
 	organ_high_burn_message = "<span class='danger'><font size=3>The nymph making up our %PARTNAME% screams in agony at the burning!</font></span>"
 
-	scream_emote = list("creaks in pain!", "rustles in agony!")
-	scream_emote = "screams!"
 	halloss_message = "creaks and crumbles to the floor."
 	halloss_message_self = "We can't take this much pain..."
 	pain_messages = list("We're in pain", "We hurt so much", "We can't stand the pain")
@@ -111,9 +109,9 @@
 
 	reagent_tag = IS_DIONA
 
-	stamina = 1	// Diona sprinting uses energy instead of stamina
-	sprint_speed_factor = 0.6	//Speed gained is minor
-	sprint_cost_factor = 1.6
+	stamina = -1	// Diona sprinting uses energy instead of stamina
+	sprint_speed_factor = 0.5	//Speed gained is minor
+	sprint_cost_factor = 0.8
 	climb_coeff = 1.3
 	vision_organ = BP_HEAD
 
@@ -122,33 +120,37 @@
 	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_DOMINIA, CITIZENSHIP_IZWESKI, CITIZENSHIP_NONE)
 	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_MOROZ, RELIGION_THAKH, RELIGION_SKAKH, RELIGION_NONE, RELIGION_OTHER)
 
-/datum/species/diona/has_special_sprint()
-	return TRUE
+	allowed_accents = list(ACCENT_DIONA)
+	default_accent = ACCENT_DIONA
 
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
 
 	if (!DS)
-		return //Something is very wrong
+		return 0 //Something is very wrong
 
 	var/remainder = cost * H.sprint_cost_factor
 
 	if (H.total_radiation && !DS.regening_organ)
 		if (H.total_radiation > (cost*0.5))//Radiation counts as double energy
 			H.apply_radiation(cost*(-0.5))
+			return 1
 		else
 			remainder = cost - (H.total_radiation*2)
 			H.total_radiation = 0
 
 	if (DS.stored_energy > remainder)
 		DS.stored_energy -= remainder
+		return 1
 	else
 		remainder -= DS.stored_energy
 		DS.stored_energy = 0
 		H.adjustHalLoss(remainder*5, 1)
 		H.updatehealth()
-		H.set_moving_slowly()
+		H.m_intent = "walk"
+		H.hud_used.move_intent.update_move_icon(H)
 		to_chat(H, span("danger", "We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
+		return 0
 
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
@@ -183,7 +185,7 @@
 	return current_flags
 
 /datum/species/diona/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= config.health_threshold_dead)
+	if(H.get_total_health() <= 0)
 		return TRUE
 	return FALSE
 

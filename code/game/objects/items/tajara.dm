@@ -92,7 +92,9 @@
 /obj/item/pocketwatch/adhomai
 	name = "adhomian watch"
 	desc = "A watch made in the traditional adhomian style. It can be stored in a pocket or worn around the neck."
-	desc_fluff = "Because your wrists have better things to do."
+	desc_fluff = "Baltoris a fortress founded during the Gunpowder Age; it was the landing site of the royal armies during the Suns'wars. Baltor plays a strategic role in controlling the \
+	Ras'val sea during the war. A town emerged around the fort over time, attracted by the safety provided by the military presence. The city is known for its skilled watchmaker artisans, \
+	a trade that has been passed down through generations. The Mez'gin clock tower, located at the town square, is one of its points of interest."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "adhomai_clock"
 	item_state = "adhomai_clock"
@@ -136,7 +138,7 @@
 					adhomian_day = current_day + 30
 
 			if("October", "November", "December")
-				adhomian_month = "Sil’nryy-rhazzimy"
+				adhomian_month = "Sil'nryy-rhazzimy"
 				if (current_month == "November")
 					adhomian_day = current_day + 15
 				if (current_month == "December")
@@ -210,3 +212,26 @@
 		..()
 
 	add_fingerprint(user)
+
+/obj/item/dice/tajara
+	name = "adhomian dice"
+	desc = "An adhomian dice made out of wood. Commonly used to play Suns and Moon."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "brother1"
+	base_icon = "brother"
+
+/obj/item/dice/tajara/alt
+	icon_state = "sister1"
+	base_icon = "sister"
+
+/obj/item/storage/pill_bottle/dice/tajara
+	name = "bag of adhomian dice"
+	desc = "A bag containing enough dice to play Suns and Moon."
+	icon = 'icons/obj/tajara_items.dmi'
+	desc_fluff = "Suns and Moon is a very common dice game. It is played by all, though the lower classes have the tendency to gamble whereas upper classes play it just for fun. The ease and universality \
+	of the rules has garnered it quite the reputation. Die will usually have an image of Rredouane fixed upon them. Parks will commonly have designated spots for people to play Suns and Moon. Disputes are \
+	also solved through this game."
+	starts_with = list(
+		/obj/item/dice/tajara = 3,
+		/obj/item/dice/tajara/alt = 3
+	)

@@ -25,12 +25,6 @@
 	maxHealth = 33.3
 	health = 33.3
 	pass_flags = PASSTABLE
-	stamina = 35
-	stamina_recovery = 0.5
-	move_intents = list(
-		/decl/move_intent/walk,
-		/decl/move_intent/run
-	)
 
 	// Decorative head flower.
 	var/flower_color
@@ -82,8 +76,11 @@
 
 /mob/living/carbon/alien/diona/movement_delay()
 	. = ..()
-	if(MOVING_QUICKLY(src))
-		species.handle_sprint_cost(src, . + config.walk_delay)
+	switch(m_intent)
+		if("walk")
+			. += 3
+		if("run")
+			species.handle_sprint_cost(src,.+config.walk_speed)
 
 /mob/living/carbon/alien/diona/ex_act(severity)
 	if(life_tick < 4)
@@ -247,6 +244,7 @@
 		verbs -= /mob/living/carbon/alien/diona/proc/merge
 		verbs -= /mob/living/carbon/proc/absorb_nymph
 		verbs -= /mob/living/carbon/alien/diona/proc/sample
+		verbs -= /mob/living/carbon/alien/diona/proc/remove_hat
 		verbs |= /mob/living/carbon/alien/diona/proc/split
 	else
 		verbs |= /mob/living/carbon/alien/diona/proc/merge
@@ -255,6 +253,7 @@
 		verbs |= /mob/living/proc/ventcrawl
 		verbs |= /mob/living/proc/hide
 		verbs |= /mob/living/carbon/alien/diona/proc/sample
+		verbs |= /mob/living/carbon/alien/diona/proc/remove_hat
 		verbs -= /mob/living/carbon/alien/diona/proc/split // we want to remove this one
 
 	verbs -= /mob/living/carbon/alien/verb/evolve //We don't want the old alien evolve verb
@@ -300,9 +299,7 @@
 					sleeping = max(sleeping-1, 0)
 			blinded = TRUE
 			stat = UNCONSCIOUS
-		else if(resting)
-			// insert dial up tone
-		else
+		else if(!resting)
 			stat = CONSCIOUS
 
 		// Eyes and blindness.

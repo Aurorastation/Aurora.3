@@ -14,8 +14,8 @@
 
 /obj/item/device/radio/intercom/custom
 	name = "station intercom (Custom)"
-	broadcasting = 0
-	listening = 0
+	broadcasting = FALSE
+	listening = FALSE
 
 /obj/item/device/radio/intercom/interrogation
 	name = "station intercom (Interrogation)"
@@ -31,8 +31,8 @@
 
 /obj/item/device/radio/intercom/department
 	canhear_range = 5
-	broadcasting = 0
-	listening = 1
+	broadcasting = FALSE
+	listening = TRUE
 
 /obj/item/device/radio/intercom/department/medbay
 	name = "station intercom (Medbay)"
@@ -157,7 +157,7 @@
 			add_overlay(screen_overlays["intercom_l"])
 
 /obj/item/device/radio/intercom/broadcasting
-	broadcasting = 1
+	broadcasting = TRUE
 
 /obj/item/device/radio/intercom/locked
     var/locked_frequency
@@ -172,8 +172,8 @@
 /obj/item/device/radio/intercom/locked/ai_private
 	name = "\improper AI intercom"
 	frequency = AI_FREQ
-	broadcasting = 1
-	listening = 1
+	broadcasting = TRUE
+	listening = TRUE
 
 /obj/item/device/radio/intercom/locked/confessional
 	name = "confessional intercom"

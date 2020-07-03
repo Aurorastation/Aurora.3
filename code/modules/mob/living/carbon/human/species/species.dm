@@ -97,7 +97,6 @@
 	var/death_sound
 	var/death_message = "falls limp and stops moving..."
 	var/death_message_range = 2
-	var/list/scream_emote = list("screams!")
 	var/knockout_message = "has been knocked unconscious!"
 	var/halloss_message = "slumps to the ground, too weak to continue fighting."
 	var/halloss_message_self = "You're in too much pain to keep going..."
@@ -150,6 +149,13 @@
 		"Your chilly flesh stands out in goosebumps."
 		)
 
+	// Order matters, higher pain level should be higher up
+	var/list/pain_emotes_with_pain_level = list(
+		list(/decl/emote/audible/scream, /decl/emote/audible/whimper, /decl/emote/audible/moan, /decl/emote/audible/cry) = 70,
+		list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/moan) = 40,
+		list(/decl/emote/audible/grunt, /decl/emote/audible/groan) = 10,
+	)
+
 	// HUD data vars.
 	var/datum/hud_data/hud
 	var/hud_type
@@ -165,8 +171,6 @@
 	var/appearance_flags = 0      // Appearance/display related features.
 	var/spawn_flags = 0           // Flags that specify who can spawn as this species
 	var/slowdown = 0              // Passive movement speed malus (or boost, if negative)
-	// Move intents. Earlier in list == default for that type of movement.
-	var/list/move_intents = list(/decl/move_intent/walk, /decl/move_intent/run, /decl/move_intent/creep)
 	var/primitive_form            // Lesser form, if any (ie. monkey for humans)
 	var/greater_form              // Greater form, if any, ie. human for monkeys.
 	var/holder_type
@@ -178,6 +182,7 @@
 	var/stamina_recovery = 3	  	// Flat amount of stamina species recovers per proc
 	var/sprint_speed_factor = 0.7	// The percentage of bonus speed you get when sprinting. 0.4 = 40%
 	var/sprint_cost_factor = 0.9  	// Multiplier on stamina cost for sprinting
+	var/exhaust_threshold = 50	  	// When stamina runs out, the mob takes oxyloss up til this value. Then collapses and drops to walk
 
 	var/gluttonous = 0            // Can eat some mobs. Values can be GLUT_TINY, GLUT_SMALLER, GLUT_ANYTHING, GLUT_ITEM_TINY, GLUT_ITEM_NORMAL, GLUT_ITEM_ANYTHING, GLUT_PROJECTILE_VOMIT
 	var/stomach_capacity = 5      // How much stuff they can stick in their stomach
@@ -231,6 +236,9 @@
 	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
 	var/list/allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_MOROZ, RELIGION_TRINARY, RELIGION_SCARAB)
 	var/default_citizenship = CITIZENSHIP_BIESEL
+	var/list/allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_LUNA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI,
+									ACCENT_ERIDANIDREG, ACCENT_VYSOKA, ACCENT_HIMEO, ACCENT_PHONG, ACCENT_SILVERSUN, ACCENT_DOMINIA)
+	var/default_accent = ACCENT_CETI
 	var/zombie_type	//What zombie species they become
 	var/list/character_color_presets
 	var/bodyfall_sound = "bodyfall" //default, can be used for species specific falling sounds
@@ -509,6 +517,58 @@
 
 	return 1
 
+/datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
+	if (!H.exhaust_threshold)
+		return 1 // Handled.
+
+	cost *= H.sprint_cost_factor
+	if (H.stamina == -1)
+		log_debug("Error: Species with special sprint mechanics has not overridden cost function.")
+		return 0
+
+	var/obj/item/organ/internal/augment/calf_override/C = H.internal_organs_by_name[BP_AUG_CALF_OVERRIDE]
+	if(C && !C.is_broken())
+		cost = 0
+		C.do_run_act()
+
+	var/remainder = 0
+	if (H.stamina > cost)
+		H.stamina -= cost
+		H.hud_used.move_intent.update_move_icon(H)
+		return 1
+	else if (H.stamina > 0)
+		remainder = cost - H.stamina
+		H.stamina = 0
+	else
+		remainder = cost
+
+	if(H.disabilities & ASTHMA)
+		H.adjustOxyLoss(remainder*0.15)
+
+	if(H.disabilities & COUGHING)
+		H.adjustHalLoss(remainder*0.1)
+
+	if (breathing_organ && has_organ[breathing_organ])
+		var/obj/item/organ/O = H.internal_organs_by_name[breathing_organ]
+		if(O.is_bruised())
+			H.adjustOxyLoss(remainder*0.15)
+			H.adjustHalLoss(remainder*0.25)
+
+	H.adjustHalLoss(remainder*0.25)
+	H.updatehealth()
+	if((H.get_shock() >= 10) && prob(H.get_shock() *2))
+		H.flash_pain()
+
+	if ((H.get_shock() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
+		H.m_intent = "walk"
+		H.hud_used.move_intent.update_move_icon(H)
+		to_chat(H, span("danger", "You're too exhausted to run anymore!"))
+		H.flash_pain()
+		return 0
+
+	H.hud_used.move_intent.update_move_icon(H)
+	return 1
+
 /datum/species/proc/get_light_color(mob/living/carbon/human/H)
 	return
 
@@ -565,8 +625,12 @@
 /datum/species/proc/handle_despawn()
 	return
 
-/datum/species/proc/has_special_sprint()
-	return FALSE
-
-/datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
-	return
+/datum/species/proc/get_pain_emote(var/mob/living/carbon/human/H, var/pain_power)
+	if(flags & NO_PAIN)
+		return
+	for(var/pain_emotes in pain_emotes_with_pain_level)
+		var/pain_level = pain_emotes_with_pain_level[pain_emotes]
+		if(pain_level >= pain_power)
+			// This assumes that if a pain-level has been defined it also has a list of emotes to go with it
+			var/decl/emote/E = decls_repository.get_decl(pick(pain_emotes))
+			return E.key
