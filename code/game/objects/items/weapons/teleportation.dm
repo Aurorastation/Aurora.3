@@ -16,7 +16,7 @@
 	var/temp = null
 	var/frequency = 1451
 	var/broadcasting = null
-	var/listening = 1.0
+	var/listening = TRUE
 	flags = CONDUCT
 	w_class = 2.0
 	item_state = "electronic"

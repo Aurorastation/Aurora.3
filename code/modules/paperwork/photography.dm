@@ -120,7 +120,7 @@ var/global/photo_count = 0
 /obj/item/device/camera
 	name = "camera"
 	icon = 'icons/obj/bureaucracy.dmi'
-	desc = "A polaroid camera. 10 photos left."
+	desc = "A polaroid camera."
 	icon_state = "camera"
 	item_state = "electropack"
 	w_class = 2.0
@@ -133,6 +133,11 @@ var/global/photo_count = 0
 	var/icon_on = "camera"
 	var/icon_off = "camera_off"
 	var/size = 3
+
+/obj/item/device/camera/examine(mob/user, distance)
+	..()
+	if(Adjacent(user))
+		to_chat(user, SPAN_NOTICE("It has <b>[pictures_left]</b> photos left."))
 
 /obj/item/device/camera/verb/change_size()
 	set name = "Set Photo Focus"
@@ -193,7 +198,6 @@ var/global/photo_count = 0
 	playsound(loc, pick('sound/items/polaroid1.ogg', 'sound/items/polaroid2.ogg'), 75, 1, -3)
 
 	pictures_left--
-	desc = "A polaroid camera. It has [pictures_left] photos left."
 	to_chat(user, "<span class='notice'>[pictures_left] photos left.</span>")
 	icon_state = icon_off
 	on = 0

@@ -16,15 +16,16 @@
 	size = 12
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	network_destination = "station long-range communication array"
-	var/datum/comm_message_listener/message_core = new
+	var/datum/comm_message_listener/message_core
 	var/intercept = FALSE
 	var/can_call_shuttle = FALSE //If calling the shuttle should be available from this console
 	color = LIGHT_COLOR_BLUE
 
-/datum/computer_file/program/comm/New(intercept_printing = FALSE, shuttle_call = FALSE)
-	. = ..()
+/datum/computer_file/program/comm/New(obj/item/modular_computer/comp, intercept_printing = FALSE, shuttle_call = FALSE)
+	..()
 	intercept = intercept_printing
 	can_call_shuttle = shuttle_call
+	message_core = new
 
 /datum/computer_file/program/comm/clone()
 	var/datum/computer_file/program/comm/temp = ..()

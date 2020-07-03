@@ -55,6 +55,8 @@ var/global/list/robot_modules = list(
 	..()
 	R.module = src
 
+	src.modules += new /obj/item/inductive_charger(src)
+
 	add_camera_networks(R)
 	add_languages(R)
 	add_subsystems(R)
@@ -670,12 +672,11 @@ var/global/list/robot_modules = list(
 /obj/item/robot_module/miner/New()
 	..()
 	src.modules += new /obj/item/borg/sight/material(src)
-	src.modules += new /obj/item/wrench/robotic(src)
-	src.modules += new /obj/item/screwdriver/robotic(src)
 	src.modules += new /obj/item/storage/bag/ore(src)
 	src.modules += new /obj/item/pickaxe/borgdrill(src)
 	src.modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/gripper/miner(src)
+	src.modules += new /obj/item/rfd/mining(src)
 	src.modules += new /obj/item/mining_scanner(src)
 	src.modules += new /obj/item/device/gps/mining(src) // for locating itself in the deep space
 	src.modules += new /obj/item/gun/custom_ka/cyborg(src)
@@ -685,6 +686,22 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	src.modules += new /obj/item/wrench/robotic(src)
+	src.modules += new /obj/item/screwdriver/robotic(src)
+	src.modules += new /obj/item/storage/part_replacer(src)
+	src.modules += new /obj/item/tank/jetpack/carbondioxide(src)
+
+	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
+	synths += metal
+
+	var/obj/item/stack/rods/cyborg/R = new /obj/item/stack/rods/cyborg(src)
+	R.synths = list(metal)
+	src.modules += R
+
+	var/obj/item/stack/flag/purple/borg/F = new /obj/item/stack/flag/purple/borg(src)
+	F.synths = list(metal)
+	src.modules += F
+
 	src.emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
 
 /obj/item/robot_module/research
@@ -714,8 +731,17 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/gripper/no_use/loader(src)
 	src.modules += new /obj/item/device/robotanalyzer(src)
 	src.modules += new /obj/item/card/robot(src)
+
+	var/datum/matter_synth/wire = new /datum/matter_synth/wire(15)
+	synths += wire
+	var/obj/item/stack/cable_coil/cyborg/C = new /obj/item/stack/cable_coil/cyborg(src)
+	C.synths = list(wire)
+	src.modules += C
+
+	src.modules += new /obj/item/weldingtool/experimental(src)
 	src.modules += new /obj/item/wrench/robotic(src)
 	src.modules += new /obj/item/screwdriver(src)
+	src.modules += new /obj/item/wirecutters/robotic(src)
 	src.modules += new /obj/item/surgery/scalpel(src)
 	src.modules += new /obj/item/surgery/circular_saw(src)
 	src.modules += new /obj/item/reagent_containers/syringe(src)
@@ -730,6 +756,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	src.modules += new /obj/item/storage/part_replacer(src)
 	src.emag = new /obj/item/hand_tele(src)
 
 	var/datum/matter_synth/nanite = new /datum/matter_synth/nanite(10000)
