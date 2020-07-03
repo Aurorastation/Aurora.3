@@ -2652,7 +2652,7 @@
 	name = "Gimlet"
 	id = "gimlet"
 	result = /datum/reagent/alcohol/ethanol/gimlet
-	required_reagents = list(/datum/reagent/drink/limejuice = 1, /datum/reagent/alcohol/ethanol/gin = 1, /datum/reagent/drink/sodawater = 1)
+	required_reagents = list(/datum/reagent/drink/limejuice = 1, /datum/reagent/alcohol/ethanol/gin = 1, /datum/reagent/drink/grenadine = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/starsandstripes

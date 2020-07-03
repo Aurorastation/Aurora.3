@@ -1034,6 +1034,7 @@
 	vend_id = "battlemonsters"
 	products = list(
 		/obj/item/book/manual/wiki/battlemonsters = 10,
+		/obj/item/battle_monsters/wrapped/basic = 5,
 		/obj/item/battle_monsters/wrapped = 10,
 		/obj/item/battle_monsters/wrapped/pro = 10,
 		/obj/item/battle_monsters/wrapped/species = 4, //Human monsters

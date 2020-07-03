@@ -1019,9 +1019,6 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/supply/dock)
 "aeq" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "27"
 	},
@@ -1031,13 +1028,13 @@
 	name = "Battery 3 Firing Control"
 	},
 /turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/turf/unsimulated/floor{
 	icon_state = "wood_siding10"
 	},
 /area/centcom/control)
 "aer" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "28"
 	},
@@ -1046,26 +1043,26 @@
 	},
 /obj/effect/decal/warning_stripes,
 /turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/turf/unsimulated/floor{
 	icon_state = "wood_siding2";
 	dir = 6
 	},
 /area/centcom/control)
 "aes" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "29"
 	},
 /obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/turf/unsimulated/floor{
 	icon_state = "wood_siding6"
 	},
 /area/centcom/control)
 "aet" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
 /obj/structure/window/phoronreinforced,
 /obj/structure/window/phoronreinforced{
 	dir = 1
@@ -1074,13 +1071,13 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/turf/unsimulated/floor{
 	icon_state = "wood_siding9"
 	},
 /area/centcom/control)
 "aeu" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "27"
 	},
@@ -1090,13 +1087,13 @@
 	name = "Battery 2 Firing Control"
 	},
 /turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/turf/unsimulated/floor{
 	icon_state = "wood_siding10"
 	},
 /area/centcom/control)
 "aev" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "27"
 	},
@@ -1108,36 +1105,39 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/item/reagent_containers/glass/rag,
 /turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/turf/unsimulated/floor{
 	icon_state = "wood_siding10"
 	},
 /area/centcom/control)
 "aew" = (
+/obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "wood_siding1";
 	dir = 6
 	},
 /area/centcom/control)
 "aex" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stool,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/item/stool,
 /turf/unsimulated/floor{
 	icon_state = "wood_siding1";
 	dir = 6
 	},
 /area/centcom/control)
 "aey" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/toolbox/electrical,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/item/storage/toolbox/electrical,
 /turf/unsimulated/floor{
 	icon_state = "wood_siding1";
 	dir = 6
@@ -1257,9 +1257,6 @@
 /turf/unsimulated/wall/riveted,
 /area/template_noop)
 "aeS" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
 /obj/structure/window/phoronreinforced{
 	dir = 8
 	},
@@ -1268,6 +1265,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding9"
 	},
@@ -2038,18 +2038,18 @@
 /turf/unsimulated/floor/plating,
 /area/centcom)
 "ahx" = (
+/obj/item/stool/padded,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
-/obj/item/stool/padded,
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "siding2"
 	},
 /area/centcom/holding)
 "ahy" = (
-/turf/template_noop,
 /obj/effect/decal/cleanable/dirt,
+/turf/template_noop,
 /turf/simulated/wall/shuttle/dark/cardinal{
 	icon_state = "swall_c"
 	},
@@ -2081,16 +2081,16 @@
 /turf/space/transit,
 /area/space)
 "ahD" = (
-/turf/template_noop,
 /obj/effect/decal/cleanable/dirt,
+/turf/template_noop,
 /turf/simulated/wall/shuttle/dark/cardinal{
 	icon_state = "swall_c";
 	dir = 8
 	},
 /area/template_noop)
 "ahE" = (
-/turf/template_noop,
 /obj/effect/decal/cleanable/dirt,
+/turf/template_noop,
 /turf/simulated/wall/shuttle/dark/cardinal{
 	icon_state = "swall_c";
 	dir = 4
@@ -21425,6 +21425,16 @@
 	dir = 8
 	},
 /area/centcom/living)
+"fQl" = (
+/obj/structure/table/rack,
+/obj/item/device/camera{
+	desc = "A polaroid camera. This one has 'Petr' scribbled into the casing."
+	},
+/turf/unsimulated/floor{
+	name = "plating";
+	icon_state = "cult"
+	},
+/area/burglar_base)
 "fQE" = (
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
@@ -25655,7 +25665,10 @@
 	},
 /area/shuttle/administration/centcom)
 "kXY" = (
-/obj/machinery/suit_cycler/syndicate,
+/obj/structure/table/rack,
+/obj/item/device/camera{
+	desc = "A polaroid camera. This one has 'Kismet' scribled into the casing."
+	},
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "cult"
@@ -25759,13 +25772,12 @@
 /area/syndicate_station/start)
 "lfi" = (
 /obj/structure/table/rack,
-/obj/item/clothing/head/helmet/space/void,
-/obj/item/clothing/suit/space/void,
 /obj/item/tank/oxygen/red,
-/obj/item/clothing/shoes/magboots,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/clothing/suit/space/syndicate/black/red,
+/obj/item/clothing/head/helmet/space/syndicate/black/red,
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "cult"
@@ -25964,11 +25976,10 @@
 /area/shuttle/distress/centcom)
 "lsh" = (
 /obj/structure/table/rack,
-/obj/item/clothing/head/helmet/space/void,
-/obj/item/clothing/suit/space/void,
 /obj/item/tank/oxygen/red,
-/obj/item/clothing/shoes/magboots,
 /obj/machinery/light,
+/obj/item/clothing/suit/space/syndicate/black/red,
+/obj/item/clothing/head/helmet/space/syndicate/black/red,
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "cult"
@@ -31778,7 +31789,7 @@
 /area/centcom/legion/hangar5)
 "sOh" = (
 /obj/machinery/vending/cigarette{
-	name = "hacked cigarette machine";
+	name = "Syndicate-Sponsored cigarette machine";
 	prices = list();
 	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
@@ -32364,7 +32375,7 @@
 /area/merchant_station/warehouse)
 "twB" = (
 /obj/machinery/vending/cola{
-	name = "hacked Robust Softdrinks";
+	name = "Syndicate-Sponsored Robust Softdrinks";
 	prices = list()
 	},
 /turf/unsimulated/floor{
@@ -33584,10 +33595,10 @@
 	},
 /area/centcom/legion)
 "vdb" = (
-/turf/unsimulated/floor/plating,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
+/turf/unsimulated/floor/plating,
 /turf/simulated/wall/shuttle/unique/tcfl{
 	icon_state = "1,5"
 	},
@@ -61102,7 +61113,7 @@ kXY
 viy
 lPu
 viy
-kXY
+fQl
 glm
 aaM
 aaM
