@@ -73,6 +73,9 @@
 
 	bodyfall_sound = "bodyfall"
 
+	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_SILVERSUN, ACCENT_LUNA,
+							ACCENT_VENUS, ACCENT_MARTIAN, ACCENT_HIMEO)
+
 /datum/species/machine/shell/get_light_color()
 	return
 
@@ -444,6 +447,9 @@
 		/mob/living/carbon/human/proc/check_tag
 		)
 
+	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_SILVERSUN, ACCENT_LUNA,
+							ACCENT_VENUS, ACCENT_MARTIAN, ACCENT_HIMEO)
+
 /datum/species/machine/zenghu/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
 		return rgb(H.r_eyes, H.g_eyes, H.b_eyes)
@@ -490,6 +496,8 @@
 		/mob/living/carbon/human/proc/self_diagnostics,
 		/mob/living/carbon/human/proc/check_tag
 		)
+
+	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_SILVERSUN, ACCENT_LUNA, ACCENT_VENUS)
 
 /datum/species/machine/bishop/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
