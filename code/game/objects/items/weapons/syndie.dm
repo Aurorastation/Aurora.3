@@ -1,87 +1,124 @@
 /obj/item/syndie
 	icon = 'icons/obj/syndieweapons.dmi'
 
-/*C-4 explosive charge and etc, replaces the old syndie transfer valve bomb.*/
-
-
-/*The explosive charge itself.  Flashes for five seconds before exploding.*/
-
+// C-4 explosive charge
+// The explosive charge itself. Flashes for five seconds before exploding.
 /obj/item/syndie/c4explosive
-	icon_state = "c-4small_0"
-	item_state = "c-4small"
-	name = "normal-sized package"
+	name = "small parcel"
 	desc = "A small wrapped package."
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
+	var/power = 1		// Size of the explosion
+	var/size = "small"	// Used for the icon, this one will make c-4small_0 for the off state.
+	var/hidden = TRUE	// Whether it's at least partially disguised
+	var/disarmed = FALSE
+	var/primed = FALSE
 
-	var/power = 1  /*Size of the explosion.*/
-	var/size = "small"  /*Used for the icon, this one will make c-4small_0 for the off state.*/
+/obj/item/syndie/c4explosive/examine(mob/user, distance)
+	..()
+	if(hidden && Adjacent(user))
+		to_chat(user, SPAN_WARNING("This package has some wiring coming down from the diode on top..."))
+
+/obj/item/syndie/c4explosive/attackby(obj/item/W, mob/user)
+	if(W.iswirecutter())
+		if(disarmed)
+			to_chat(user, SPAN_WARNING("\The [src] has already been disarmed."))
+			return
+		user.visible_message("<b>[user]</b> begins disarming \the [src]...", SPAN_NOTICE("You begin disarming \the [src]..."))
+		if(do_after(user, 100, TRUE))
+			explode_chance(user)
+			user.visible_message("<b>[user]</b> sucessfully disarms \the [src].", SPAN_NOTICE("You successfully disarm \the [src]."))
+			disarmed = TRUE
+			icon_state = initial(icon_state)
+		else
+			explode_chance(user)
+
+/obj/item/syndie/c4explosive/proc/explode_chance(var/mob/user)
+	if(prob(10))
+		to_chat(user, SPAN_WARNING("You think you cut the wrong wire!"))
+		if(!primed)
+			prime()
+		else
+			detonate()
 
 /obj/item/syndie/c4explosive/heavy
-	icon_state = "c-4large_0"
-	item_state = "c-4large"
-	desc = "A mysterious package, it's quite heavy."
+	name = "C-4 bundle"
+	desc = "Oh shit! That's a bundle of C-4 plastic explosives!"
 	power = 2
-	size = "large"
+	hidden = FALSE
 
-/obj/item/syndie/c4explosive/New()
-	var/K = rand(1,2000)
-	K = md5(num2text(K)+name)
-	K = copytext(K,1,7)
-	src.desc += "\n You see [K] engraved on \the [src]."
+/obj/item/syndie/c4explosive/Initialize(mapload, ...)
+	. = ..()
+
+	if(power > 1)
+		size = "large"
+	else
+		size = "small"
+	icon_state = "c-4[size]_0"
+	item_state = "c-4[size]"
+
+	var/K = rand(1, 2000)
+	K = md5(num2text(K) + name)
+	K = copytext(K, 1, 7)
+	desc += " You see [K] engraved on \the [src]."
+
 	var/obj/item/syndie/c4detonator/detonator = new(src.loc)
-	detonator.desc += "\n You see [K] engraved on the lighter."
+	detonator.desc += " You see [K] engraved on \the [src]."
 	detonator.bomb = src
 
-/obj/item/syndie/c4explosive/proc/detonate()
+/obj/item/syndie/c4explosive/proc/prime()
+	if(disarmed || primed)
+		return
+	primed = TRUE
 	icon_state = "c-4[size]_1"
-	spawn(50)
-		explosion(get_turf(src), power, power*2, power*3, power*4, power*4)
-		for(var/dirn in cardinal)		//This is to guarantee that C4 at least breaks down all immediately adjacent walls and doors.
-			var/turf/simulated/wall/T = get_step(src,dirn)
-			if(locate(/obj/machinery/door/airlock) in T)
-				var/obj/machinery/door/airlock/D = locate() in T
-				if(D.density)
-					D.open()
-			if(istype(T,/turf/simulated/wall))
-				T.dismantle_wall(1)
-		qdel(src)
+	addtimer(CALLBACK(src, .proc/detonate), 50)
 
+/obj/item/syndie/c4explosive/proc/detonate()
+	if(disarmed)
+		return
+	// extra damage to adjacent walls
+	for(var/dirn in alldirs)
+		var/turf/simulated/wall/T = get_step(src, dirn)
+		if(istype(T, /turf/simulated/wall))
+			T.take_damage(power * 20)
+			continue
+	explosion(get_turf(src), power, power*2, power*3, power*4, power*4)
+	qdel(src)
 
-/*Detonator, disguised as a lighter*/
-/*Click it when closed to open, when open to bring up a prompt asking you if you want to close it or press the button.*/
+// Detonator, disguised as a lighter
+// Click it when closed to open, when open to bring up a prompt asking you if you want to close it or press the button.
 
 /obj/item/syndie/c4detonator
+	name = "\improper Zippo lighter" // Sneaky, thanks Dreyfus.
+	desc = "The zippo. If you've spent that amount of money on a lighter, you're either a badass or a chain smoker."
+	desc_antag = "This is a detonator. Upon pressing the button, a signal is sent to the linked bomb. After 5 seconds, it will explode."
 	icon_state = "c-4detonator_0"
 	item_state = "c-4detonator"
-	name = "\improper Zippo lighter"  /*Sneaky, thanks Dreyfus.*/
-	desc = "The zippo."
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 	var/obj/item/syndie/c4explosive/bomb
-	var/pr_open = 0  /*Is the "What do you want to do?" prompt open?*/
+	var/cap_open = FALSE
+	var/pr_open = FALSE // Is the "What do you want to do?" prompt open?
 
-/obj/item/syndie/c4detonator/attack_self(mob/user as mob)
-	switch(src.icon_state)
-		if("c-4detonator_0")
-			src.icon_state = "c-4detonator_1"
-			to_chat(user, "You flick open the lighter.")
-
-		if("c-4detonator_1")
-			if(!pr_open)
-				pr_open = 1
-				switch(alert(user, "What would you like to do?", "Lighter", "Press the button.", "Close the lighter."))
-					if("Press the button.")
-						to_chat(user, "<span class='warning'>You press the button.</span>")
-						flick("c-4detonator_click", src)
-						if(src.bomb)
-							src.bomb.detonate()
-							log_admin("[key_name(user)] has triggered [src.bomb] with [src].",ckey=key_name(user))
-							message_admins("<span class='danger'>[key_name_admin(user)] has triggered [src.bomb] with [src].</span>")
-
-					if("Close the lighter.")
-						src.icon_state = "c-4detonator_0"
-						to_chat(user, "You close the lighter.")
-				pr_open = 0
+/obj/item/syndie/c4detonator/attack_self(mob/user)
+	if(cap_open && !pr_open)
+		pr_open = TRUE
+		switch(alert(user, "What would you like to do?", "Lighter", "Press the button.", "Close the lighter."))
+			if("Press the button.")
+				to_chat(user, SPAN_NOTICE("You press the button."))
+				flick("c-4detonator_click", src)
+				if(bomb)
+					bomb.prime()
+					log_admin("[key_name(user)] has triggered [bomb] with [src].",ckey=key_name(user))
+					message_admins("<span class='danger'>[key_name_admin(user)] has triggered [src.bomb] with [src].</span>")
+			if("Close the lighter.")
+				icon_state = "c-4detonator_0"
+				to_chat(user, SPAN_NOTICE("You close \the [src]."))
+				cap_open = FALSE
+		pr_open = FALSE
+	else
+		icon_state = "c-4detonator_1"
+		to_chat(user, SPAN_NOTICE( "You flick open \the [src]."))
+		cap_open = TRUE
 
 /obj/item/syndie/teleporter
 	name = "pen"
