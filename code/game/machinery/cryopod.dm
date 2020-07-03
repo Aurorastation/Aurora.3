@@ -398,7 +398,6 @@ var/global/list/frozen_crew = list()
 			to_chat(M, SPAN_NOTICE("[on_enter_occupant_message]"))
 			to_chat(M, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
 			set_occupant(M)
-			time_entered = world.time
 
 			if(isipc(M))
 				var/choice = alert(M, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
@@ -477,8 +476,7 @@ var/global/list/frozen_crew = list()
 
 		to_chat(L, SPAN_NOTICE("You feel cool air surround you. You go numb as your senses turn inward."))
 		to_chat(L, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
-		occupant = L
-		time_entered = world.time
+		set_occupant(L)
 		update_icon()
 
 		if(isipc(L))
@@ -576,12 +574,7 @@ var/global/list/frozen_crew = list()
 					H.client.prefs.machine_tag_status = FALSE
 				H.client.prefs.save_character()
 				H.client.prefs.save_preferences()
-
-		time_entered = world.time
-
 		src.add_fingerprint(usr)
-
-	return
 
 /obj/machinery/cryopod/proc/go_out()
 	if(!occupant)
