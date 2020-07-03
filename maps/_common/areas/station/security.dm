@@ -53,8 +53,11 @@
 	icon_state = "Warden"
 
 /area/security/armoury
-	name = "Security - Armory"
+	name = "Security - Armory Upper"
 	icon_state = "Warden"
+
+/area/security/armoury/lower
+	name = "Security - Armory Lower"
 
 /area/security/forensics_office
 	name = "Security - Forensic Office"
@@ -85,23 +88,6 @@
 /area/security/security_office
 	name = "Security - Security Office"
 	icon_state = "security"
-
-/*
-	New()
-		..()
-
-		spawn(10) //let objects set up first
-			for(var/turf/turfToGrayscale in src)
-				if(turfToGrayscale.icon)
-					var/icon/newIcon = icon(turfToGrayscale.icon)
-					newIcon.GrayScale()
-					turfToGrayscale.icon = newIcon
-				for(var/obj/objectToGrayscale in turfToGrayscale) //1 level deep, means tables, apcs, locker, etc, but not locker contents
-					if(objectToGrayscale.icon)
-						var/icon/newIcon = icon(objectToGrayscale.icon)
-						newIcon.GrayScale()
-						objectToGrayscale.icon = newIcon
-*/
 
 /area/security/nuke_storage
 	name = "Vault"
