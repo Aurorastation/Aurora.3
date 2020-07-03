@@ -15,6 +15,7 @@
 	shoes["brown workboots"] = /obj/item/clothing/shoes/workboots
 	shoes["grey workboots"] = /obj/item/clothing/shoes/workboots/grey
 	shoes["dark workboots"] = /obj/item/clothing/shoes/workboots/dark
+	shoes["heavy-duty workboots"] = /obj/item/clothing/shoes/workboots/heavyduty
 	shoes["winter workboots"] = /obj/item/clothing/shoes/winter/explorer
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
@@ -209,6 +210,3 @@
 	path = /obj/item/clothing/shoes/winter/hydro
 	allowed_roles = list("Head of Personnel", "Gardener")
 
-/datum/gear/shoes/duty
-	display_name = "duty boots"
-	path = 	/obj/item/clothing/shoes/dutyboots

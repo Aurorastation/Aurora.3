@@ -472,7 +472,7 @@
 	item_state = "black"
 	permeability_coefficient = 0.05
 
-/obj/item/clothing/gloves/duty
+/obj/item/clothing/gloves/heavyduty
 	desc = "These brown duty gloves are made from a durable synthetic."
 	name = "work gloves"
 	icon_state = "workgloves"

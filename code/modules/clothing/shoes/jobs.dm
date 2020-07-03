@@ -70,9 +70,8 @@
 	icon_state = "workboots_dark_toeless"
 	item_state = "workboots_dark"
 
-/obj/item/clothing/shoes/dutyboots
-	name = "duty boots"
+/obj/item/clothing/shoes/workboots/heavyduty
+	name = "heavy-duty workboots"
 	desc = "A pair of steel-toed synthleather boots with a mirror shine."
 	icon_state = "duty"
-	armor = list(melee = 40, bullet = 0, laser = 0, energy = 15, bomb = 20, bio = 0, rad = 20)
 	siemens_coefficient = 0.7

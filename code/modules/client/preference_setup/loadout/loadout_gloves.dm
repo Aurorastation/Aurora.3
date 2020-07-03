@@ -104,7 +104,7 @@
 	path = /obj/item/clothing/gloves/forensic
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
 
-/datum/gear/gloves/duty
+/datum/gear/gloves/heavyduty
 	display_name = "gloves, work"
-	path = /obj/item/clothing/gloves/duty
+	path = /obj/item/clothing/gloves/heavyduty
 	cost = 3
