@@ -154,6 +154,7 @@
 /obj/item/storage/fancy/cigarettes
 	name = "Trans-Stellar Duty Free cigarette packet"
 	desc = "A ubiquitous brand of cigarettes, found in the facilities of every major spacefaring corporation in the universe. As mild and flavorless as it gets."
+	desc_info = "You can put a cigarette directly in your mouth by selecting the mouth region and clicking on yourself with a cigarette packet in hand."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpacket"
 	item_state = "cigpacket"
@@ -164,7 +165,7 @@
 		)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
-	use_sound = 'sound/items/drop/paper.ogg'
+	use_sound = 'sound/items/drop/wrapper.ogg'
 	w_class = 1
 	throwforce = 2
 	slot_flags = SLOT_BELT
@@ -197,7 +198,7 @@
 	if(M == user && target_zone == BP_MOUTH && contents.len > 0 && !user.wear_mask)
 		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(user)
 		if(!istype(W))
-			to_chat(user, "<span class ='notice'>The [W] is blocking the cigarettes.</span>")
+			to_chat(user, "<span class ='notice'>The [W] is blocking \the [src].</span>")
 			return
 		//Checking contents of packet so lighters won't be cigarettes.
 		for (var/i = contents.len; i > 0; i--)
@@ -211,7 +212,7 @@
 		reagents.trans_to_obj(W, (reagents.total_volume/contents.len))
 		user.equip_to_slot_if_possible(W, slot_wear_mask)
 		reagents.maximum_volume = 15 * contents.len
-		to_chat(user, "<span class='notice'>You take a cigarette out of the pack.</span>")
+		to_chat(user, "<span class='notice'>You take \a [W] out of the [src].</span>")
 		update_icon()
 	else
 		..()
@@ -239,60 +240,18 @@
 	item_state = "Dpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 
-/obj/item/storage/fancy/cigar
+/obj/item/storage/fancy/cigarettes/cigar
 	name = "cigar case"
-	desc = "A case for holding your cigars when you are not smoking them."
+	desc = "A luxurious tote for your fat tokes."
 	icon_state = "cigarcase"
 	item_state = "cigarcase"
-	icon = 'icons/obj/cigs_lighters.dmi'
-	drop_sound = 'sound/items/drop/shovel.ogg'
-	pickup_sound = 'sound/items/pickup/shovel.ogg'
+	icon_type = "cigar"
+	drop_sound = 'sound/items/drop/weldingtool.ogg'
+	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	use_sound = 'sound/items/storage/briefcase.ogg'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
-		)
-	w_class = 1
-	throwforce = 2
-	slot_flags = SLOT_BELT
 	storage_slots = 8
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette/cigar)
-	icon_type = "cigar"
-
-/obj/item/storage/fancy/cigar/Initialize()
-	. = ..()
-	flags |= NOREACT
-	create_reagents(15 * storage_slots)
-
-/obj/item/storage/fancy/cigar/fill()
-	..()
-	for(var/i = 1 to storage_slots)
-		new /obj/item/clothing/mask/smokable/cigarette/cigar(src)
-
-/obj/item/storage/fancy/cigar/update_icon()
-	icon_state = "[initial(icon_state)][contents.len]"
-	return
-
-/obj/item/storage/fancy/cigar/remove_from_storage(obj/item/W as obj, atom/new_location)
-		var/obj/item/clothing/mask/smokable/cigarette/cigar/C = W
-		if(!istype(C)) return
-		reagents.trans_to_obj(C, (reagents.total_volume/contents.len))
-		..()
-
-/obj/item/storage/fancy/cigar/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
-	if(!istype(M, /mob))
-		return
-
-	if(M == user && target_zone == BP_MOUTH && contents.len > 0 && !user.wear_mask)
-		var/obj/item/clothing/mask/smokable/cigarette/cigar/W = new /obj/item/clothing/mask/smokable/cigarette/cigar(user)
-		reagents.trans_to_obj(W, (reagents.total_volume/contents.len))
-		user.equip_to_slot_if_possible(W, slot_wear_mask)
-		reagents.maximum_volume = 15 * contents.len
-		contents.len--
-		to_chat(user, "<span class='notice'>You take a cigar out of the case.</span>")
-		update_icon()
-	else
-		..()
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/cigar
 
 /obj/item/storage/fancy/cigarettes/nicotine
 	name = "\improper Nico-Tine cigarette packet"
@@ -312,7 +271,8 @@
 	name = "\improper Working Tajara cigarette packet"
 	desc = "A packet of six adhomian \"Working Tajara\" cigarettes, imported straight from the People's Republic of Adhomai."
 	icon_state = "prapacket"
-	item_state = "prapacket"
+	item_state = "Dpacket"
+	storage_slots = 7
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt, /obj/item/tajcard)
 
@@ -324,14 +284,14 @@
 	name = "\improper Shastar Leaves cigarette packet"
 	desc = "A packet of six adhomian \"Shastar Leaves\" cigarettes, imported straight from the Democratic People's Republic of Adhomai."
 	icon_state = "dprapacket"
-	item_state = "dprapacket"
+	item_state = "Bpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
 
 /obj/item/storage/fancy/cigarettes/nka
 	name = "\improper Royal Choice cigarette packet"
 	desc = "A packet of six adhomian \"Royal Choice\" cigarettes, imported straight from the New Kingdom of Adhomai."
 	icon_state = "nkapacket"
-	item_state = "nkapacket"
+	item_state = "Fpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
 
 /*

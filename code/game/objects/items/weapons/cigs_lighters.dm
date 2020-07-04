@@ -614,7 +614,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = icon_state
 	base_state = icon_state
 
-/obj/item/flame/lighter/zippo/update_icon()
+/obj/item/flame/lighter/update_icon()
 	if(lit)
 		icon_state = "[base_state]on"
 		item_state = "[base_state]on"

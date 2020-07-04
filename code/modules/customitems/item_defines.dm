@@ -2024,7 +2024,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
-	use_sound = 'sound/items/drop/paper.ogg'
+	use_sound = 'sound/items/drop/wrapper.ogg'
 
 /obj/item/storage/fancy/fluff/sentiment_bouquet/fill()
 	. = ..()
