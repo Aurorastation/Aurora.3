@@ -3,9 +3,9 @@
 STOCK_ITEM_UNCOMMON(shrooms, 2)
 	if(prob(65))
 		new /obj/item/seeds/glowshroom(L)
-	if(prob(25))
+	if(prob(5))
 		new /obj/item/seeds/ghostmushroomseed(L)
-	if(prob(50))
+	if(prob(30))
 		new /obj/item/seeds/amanitamycelium(L)
 
 STOCK_ITEM_UNCOMMON(plasteel, 3)
@@ -104,7 +104,7 @@ STOCK_ITEM_UNCOMMON(chempack, 5)
 		C.setLabel(R.name)
 
 STOCK_ITEM_UNCOMMON(robolimbs, 3)
-	for(var/i in 1 to rand(1, 3))
+	for(var/i in 1 to rand(1, 2))
 		var/manuf = pick(fabricator_robolimbs)
 		var/type = pick( \
 			/obj/item/robot_parts/l_arm, \
@@ -141,7 +141,10 @@ STOCK_ITEM_UNCOMMON(inhaler, 1)
 	new I(L)
 
 STOCK_ITEM_UNCOMMON(advwelder, 2)
-	new /obj/item/weldingtool/hugetank(L)
+	if(prob(5))
+		new /obj/item/weldingtool/experimental(L)
+	else
+		new /obj/item/weldingtool/hugetank(L)
 
 STOCK_ITEM_UNCOMMON(sord, 1)
 	new /obj/item/sord(L)
@@ -264,13 +267,11 @@ STOCK_ITEM_UNCOMMON(scythe, 0.75)
 STOCK_ITEM_UNCOMMON(laserpoint, 0.75)
 	new /obj/item/device/laser_pointer(L)
 
-
 STOCK_ITEM_UNCOMMON(manual, 2)
-	var/list/booklist = list(subtypesof(/obj/item/book/manual))
+	var/list/booklist = subtypesof(/obj/item/book/manual)
 	booklist -= /obj/item/book/manual/wiki //just this one. we want to keep the subtypes.
 	booklist -= /obj/item/book/manual/nuclear //yeah no
 	var/type = pick(booklist)
-
 	new type(L)
 
 STOCK_ITEM_UNCOMMON(jammer, 2)
@@ -288,7 +289,8 @@ STOCK_ITEM_UNCOMMON(briefcase, 2)
 	if(prob(20))
 		new /obj/item/storage/secure/briefcase(L)
 	else
-		new /obj/item/storage/briefcase(L)
+		var/obj/item/storage/briefcase/B = pick(typesof(/obj/item/storage/briefcase))
+		new B(L)
 
 STOCK_ITEM_UNCOMMON(blade, 1.2)
 	var/list/blades = list(
@@ -299,7 +301,8 @@ STOCK_ITEM_UNCOMMON(blade, 1.2)
 		/obj/item/material/hatchet/butch = 1,
 		/obj/item/material/hatchet = 1.5,
 		/obj/item/material/hatchet/unathiknife = 0.75,
-		/obj/item/material/knife/tacknife = 1
+		/obj/item/material/knife/tacknife = 1,
+		/obj/item/material/knife/bayonet = 0.5
 	)
 
 	var/type = pickweight(blades)
@@ -372,6 +375,20 @@ STOCK_ITEM_UNCOMMON(pops, 0.5)
 		new /obj/item/storage/box/snappops(L)
 	else
 		new /obj/item/storage/box/snappops/syndi(L)
+
+STOCK_ITEM_UNCOMMON(collectable_headwear, 0.5)
+	var/type = pick(subtypesof(/obj/item/clothing/head/collectable/))
+	new type(L)
+
+STOCK_ITEM_UNCOMMON(alt_glasses, 1)
+	var/list/glasses = list(/obj/item/clothing/glasses/regular/circle, 
+			/obj/item/clothing/glasses/regular/jamjar,
+			/obj/item/clothing/glasses/threedglasses,
+			/obj/item/clothing/glasses/regular/hipster,
+			/obj/item/clothing/glasses/regular/scanners)
+	for(var/i, i < rand(1, 2), i++)
+		var/type = pick(glasses)
+		new type(L)
 
 STOCK_ITEM_UNCOMMON(nothing, 0)
 	// no-op
