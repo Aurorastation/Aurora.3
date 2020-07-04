@@ -114,7 +114,7 @@
 	icon = 'icons/obj/crayons.dmi'
 	icon_state = "crayonbox"
 	icon_type = "crayon"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	can_hold = list(
 		/obj/item/pen/crayon
 	)
@@ -152,7 +152,7 @@
 //CIG PACK//
 ////////////
 /obj/item/storage/fancy/cigarettes
-	name = "Trans-Stellar Duty Free cigarette packet"
+	name = "Trans-Stellar Duty Frees cigarette packet"
 	desc = "A ubiquitous brand of cigarettes, found in the facilities of every major spacefaring corporation in the universe. As mild and flavorless as it gets."
 	desc_info = "You can put a cigarette directly in your mouth by selecting the mouth region and clicking on yourself with a cigarette packet in hand."
 	icon = 'icons/obj/cigs_lighters.dmi'
@@ -166,7 +166,7 @@
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	use_sound = 'sound/items/drop/wrapper.ogg'
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 6
@@ -198,7 +198,7 @@
 	if(M == user && target_zone == BP_MOUTH && contents.len > 0 && !user.wear_mask)
 		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(user)
 		if(!istype(W))
-			to_chat(user, "<span class ='notice'>The [W] is blocking \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("The [W] is in the way."))
 			return
 		//Checking contents of packet so lighters won't be cigarettes.
 		for (var/i = contents.len; i > 0; i--)
@@ -212,7 +212,7 @@
 		reagents.trans_to_obj(W, (reagents.total_volume/contents.len))
 		user.equip_to_slot_if_possible(W, slot_wear_mask)
 		reagents.maximum_volume = 15 * contents.len
-		to_chat(user, "<span class='notice'>You take \a [W] out of the [src].</span>")
+		user.visible_message(SPAN_NOTICE("[user] casually pulls out a [W] from \the [src] with their mouth."))
 		update_icon()
 	else
 		..()
@@ -221,24 +221,17 @@
 
 /obj/item/storage/fancy/cigarettes/acmeco
 	name = "\improper AcmeCo cigarette packet"
-	desc = "A packet of six AcmeCo cigarettes. For those who somehow want to obtain the record for the most amount of cancerous tumors."
+	desc = "For those who somehow want to obtain the record for the most amount of cancerous tumors."
 	icon_state = "Apacket"
 	item_state = "Apacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/acmeco
 
 /obj/item/storage/fancy/cigarettes/blank
 	name = "\improper blank cigarette packet"
-	desc = "A packet of six blank cigarettes. The healthiest cigarettes on the market!"
+	desc = "The healthiest cigarettes on the market! Wait, isn't this just a roll of paper?"
 	icon_state = "Bpacket"
 	item_state = "Bpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/blank
-
-/obj/item/storage/fancy/cigarettes/dromedaryco
-	name = "\improper DromedaryCo cigarette packet"
-	desc = "A packet of six imported DromedaryCo cancer sticks. A label on the packaging reads, \"Wouldn't a slow death make a change?\""
-	icon_state = "Dpacket"
-	item_state = "Dpacket"
-	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dromedaryco
 
 /obj/item/storage/fancy/cigarettes/cigar
 	name = "cigar case"
@@ -253,46 +246,26 @@
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette/cigar)
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/cigar
 
+/obj/item/storage/fancy/cigarettes/dromedaryco
+	name = "\improper DromedaryCo cigarette packet"
+	desc = "A label on the packaging reads, \"Wouldn't a slow death make a change?\""
+	icon_state = "Dpacket"
+	item_state = "Dpacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/dromedaryco
+
 /obj/item/storage/fancy/cigarettes/nicotine
 	name = "\improper Nico-Tine cigarette packet"
-	desc = "A packet of six Nico-Tine cigarettes. Allegedly advertised as the most enviromentally friendly cigarettes in the market. It doesn't specify how, but it definitely isn't your body."
+	desc = "An Eridani marketing triumph - the jingle still torments people to this day."
 	icon_state = "Epacket"
 	item_state = "Epacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/nicotine
 
 /obj/item/storage/fancy/cigarettes/rugged
-	name = "\improper Lucky Strike cigarette packet"
-	desc = "A packet of six Lucky Strike cigarettes. Rumored to be part of an Idris money laundering scheme, its original purpose long forgotten."
+	name = "\improper Laissez-Faires cigarette packet"
+	desc = "Rumored to have outlived its original purpose as part of an Idris money laundering scheme."
 	icon_state = "Fpacket"
 	item_state = "Fpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/rugged
-
-/obj/item/storage/fancy/cigarettes/pra
-	name = "\improper Working Tajara cigarette packet"
-	desc = "A packet of six adhomian \"Working Tajara\" cigarettes, imported straight from the People's Republic of Adhomai."
-	icon_state = "prapacket"
-	item_state = "Dpacket"
-	storage_slots = 7
-	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
-	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt, /obj/item/tajcard)
-
-/obj/item/storage/fancy/cigarettes/pra/fill()
-	..()
-	new /obj/item/tajcard(src)
-
-/obj/item/storage/fancy/cigarettes/dpra
-	name = "\improper Shastar Leaves cigarette packet"
-	desc = "A packet of six adhomian \"Shastar Leaves\" cigarettes, imported straight from the Democratic People's Republic of Adhomai."
-	icon_state = "dprapacket"
-	item_state = "Bpacket"
-	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
-
-/obj/item/storage/fancy/cigarettes/nka
-	name = "\improper Royal Choice cigarette packet"
-	desc = "A packet of six adhomian \"Royal Choice\" cigarettes, imported straight from the New Kingdom of Adhomai."
-	icon_state = "nkapacket"
-	item_state = "Fpacket"
-	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
 
 /*
  * Vial Box
@@ -319,7 +292,7 @@
 	use_sound = 'sound/items/drop/glass.ogg'
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
-	max_w_class = 2
+	max_w_class = ITEMSIZE_SMALL
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
 	max_storage_space = 12 //The sum of the w_classes of all the items in this storage item.
 	storage_slots = 6
