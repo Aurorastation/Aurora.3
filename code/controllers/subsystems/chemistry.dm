@@ -135,7 +135,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		var/datum/chemical_reaction/cc = new()
 		cc.name = chemconfig[chemical]["name"]
 		cc.id = chemconfig[chemical]["id"]
-		cc.result = chemconfig[chemical]["result"]
+		cc.result = text2path(chemconfig[chemical]["result"])
 		cc.result_amount = chemconfig[chemical]["resultamount"]
 		cc.required_reagents = chemconfig[chemical]["required_reagents"]
 		if(!(cc.result in chemical_reagents))
