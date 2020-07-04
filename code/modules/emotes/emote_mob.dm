@@ -67,7 +67,7 @@
 	var/end_char
 	var/start_char
 	var/name_anchor
-	var/anchor_char = "!"
+	var/anchor_char = "^"
 
 	if(!message || !emoter)
 		return
