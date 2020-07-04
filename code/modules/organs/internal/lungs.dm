@@ -176,7 +176,6 @@
 				var/word = pick("extremely dizzy","short of breath","faint","confused")
 				to_chat(owner, "<span class='danger'>You feel [word].</span>")
 
-			owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS)
 			owner.co2_alert = 1
 			failed_exhale = 1
 
@@ -185,12 +184,6 @@
 				var/word = pick("dizzy","short of breath","faint","momentarily confused")
 				to_chat(owner, "<span class='warning'>You feel [word].</span>")
 
-			//scale linearly from 0 to 1 between safe_exhaled_max and safe_exhaled_max*0.7
-			var/ratio = 1.0 - (safe_exhaled_max - exhaled_pp)/(safe_exhaled_max*0.3)
-
-			//give them some oxyloss, up to the limit - we don't want people falling unconcious due to CO2 alone until they're pretty close to safe_exhaled_max.
-			if (owner.getOxyLoss() < 50*ratio)
-				owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS)
 			owner.co2_alert = 1
 			failed_exhale = 1
 
