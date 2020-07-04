@@ -300,7 +300,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	check_tag(H, H.client)
 
 /datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= 0)
+	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
 
