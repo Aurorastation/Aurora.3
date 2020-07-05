@@ -212,7 +212,7 @@
 		reagents.trans_to_obj(W, (reagents.total_volume/contents.len))
 		user.equip_to_slot_if_possible(W, slot_wear_mask)
 		reagents.maximum_volume = 15 * contents.len
-		user.visible_message(SPAN_NOTICE("[user] casually pulls out a [cigarette_to_spawn] from \the [src] with their mouth."))
+		user.visible_message("<b>[user]</b> casually pulls out a [cigarette_to_spawn] from \the [src] with their mouth.", range = 3)
 		update_icon()
 	else
 		..()
