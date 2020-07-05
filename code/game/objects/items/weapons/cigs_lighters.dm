@@ -34,9 +34,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		)
 	var/burnt = 0
 	var/smoketime = 5
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	origin_tech = list(TECH_MATERIAL = 1)
-	slot_flags = SLOT_EARS
+	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("burnt", "singed")
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
@@ -47,12 +47,18 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		M.IgniteMob()
 	var/turf/location = get_turf(src)
 	smoketime--
-	if(smoketime < 1)
+	if(smoketime < 1 || istype(loc, /obj/item/storage)) //shouldn't be lit in a bag.
 		burn_out()
 		return
 	if(location)
 		location.hotspot_expose(700, 5)
 		return
+
+/obj/item/flame/match/attack_self(mob/user as mob)
+	if(lit == 1)
+		user.visible_message(span("notice", "[user] blows out the lit [src]."))
+		burn_out()
+	return ..()
 
 /obj/item/flame/match/dropped(mob/user as mob)
 	//If dropped, put ourselves out
@@ -66,6 +72,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	return ..()
 
 /obj/item/flame/match/proc/burn_out()
+	playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 	lit = 0
 	burnt = 1
 	damtype = "brute"
@@ -73,6 +80,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "match_burnt"
 	name = "burnt match"
 	desc = "A match. This one has seen better days."
+	update_held_icon()
 	STOP_PROCESSING(SSprocessing, src)
 
 //////////////////
@@ -110,7 +118,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/process()
 
-	if(reagents && reagents.total_volume && burn_rate)
+	if(reagents && reagents.total_volume && burn_rate && !istype(loc, /obj/item/storage))
 		if(!initial_volume)
 			initial_volume = reagents.total_volume
 		var/mob/living/carbon/human/C = loc
@@ -121,7 +129,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		else
 			reagents.remove_any(burn_rate*initial_volume)
 	else
-		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		die()
 		return
 
@@ -161,16 +168,16 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		set_light(2, 0.25, "#E38F46")
 		START_PROCESSING(SSprocessing, src)
 
-/obj/item/clothing/mask/smokable/proc/die(mob/user, var/nomessage = 0)
+/obj/item/clothing/mask/smokable/proc/die(var/nomessage = 0, var/mob/living/M)
 	var/turf/T = get_turf(src)
 	set_light(0)
 	playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 	if(type_butt)
-		var/obj/item/butt = new type_butt(user)
+		var/obj/item/butt = new type_butt(src.loc)
 		transfer_fingerprints_to(butt)
 		if(ismob(loc))
-			var/mob/living/M = loc
-			if (!nomessage)
+			M = loc
+			if(!nomessage)
 				to_chat(M, span("notice", "Your [name] goes out."))
 			if(M.wear_mask)
 				M.remove_from_mob(src) //un-equip it so the overlays can update
@@ -181,12 +188,16 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				M.update_inv_l_hand(0)
 				M.update_inv_r_hand(1)
 				M.put_in_hands(butt)
+		if(istype(loc, /obj/item/storage))
+			var/obj/item/storage/S
+			if(!S.insert_into_storage(butt))
+				M.put_in_hands(butt)
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 	else
 		new /obj/effect/decal/cleanable/ash(T)
 		if(ismob(loc))
-			var/mob/living/M = loc
+			M = loc
 			if (!nomessage)
 				to_chat(M, span("notice", "Your [name] goes out, and you empty the ash."))
 				playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
