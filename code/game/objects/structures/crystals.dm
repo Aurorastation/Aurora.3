@@ -13,14 +13,14 @@
 
 /obj/structure/reagent_crystal/Initialize(mapload, reagent_i)
 	. = ..()
-	var/reagent_name = reagent_i
-	if(!reagent_name)
-		var/list/chems = list("acetone", "aluminum", "ammonia", "carbon", "copper", "iron", "lithium", "mercury", "potassium", "radium", "sodium")
-		reagent_name = pick(chems)
-	var/datum/reagent/R = SSchemistry.chemical_reagents[reagent_name]
+	if(!reagent_i)
+		var/list/chems = list(/datum/reagent/acetone, /datum/reagent/aluminum, /datum/reagent/ammonia, /datum/reagent/carbon, /datum/reagent/copper, /datum/reagent/iron, /datum/reagent/lithium, /datum/reagent/mercury, /datum/reagent/potassium, /datum/reagent/radium, /datum/reagent/sodium)
+		reagent_id = pick(chems)
+	reagent_id = reagent_i
+	var/datum/reagent/R = new reagent_id
 	name = replacetext(name, "chemical", lowertext(R.name))
 	desc = replacetext(desc, "chemical", lowertext(R.name))
-	reagent_id = R.id
+	qdel(R)
 	var/mutable_appearance/crystal_overlay = mutable_appearance(icon, "[initial(icon_state)]-overlay")
 	crystal_overlay.color = R.color
 	add_overlay(crystal_overlay)
@@ -154,11 +154,12 @@
 	. = ..()
 	create_reagents(5)
 	reagents.add_reagent(reagent_i, amount)
-	var/datum/reagent/R = SSchemistry.chemical_reagents[reagent_i]
+	var/datum/reagent/R = reagent_i
 	name = "[lowertext(R.name)] crystal"
 	desc = "A [lowertext(R.name)] crystal. It looks rough, unprocessed."
 	desc_info = "This crystal can be grinded to obtain the chemical material locked within."
 	color = reagents.get_color()
+	qdel(R)
 
 /obj/item/storage/bag/crystal
 	name = "crystal satchel"
