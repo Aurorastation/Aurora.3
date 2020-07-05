@@ -1,8 +1,40 @@
+/obj/item/storage/fancy/cigarettes/pra
+	name = "\improper Labourer's Choice cigarette packet"
+	desc = "Jokingly referred to an essential part of a working class citizen's breakfast, beside state-provided provisions."
+	desc_fluff = "Imported from the People's Republic of Adhomai."
+	icon_state = "prapacket"
+	item_state = "Dpacket"
+	storage_slots = 7
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
+	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt, /obj/item/tajcard)
+
+/obj/item/storage/fancy/cigarettes/pra/fill()
+	..()
+	new /obj/item/tajcard(src)
+
+/obj/item/storage/fancy/cigarettes/dpra
+	name = "\improper Shastar List'ya cigarette packet"
+	desc = "Rumored to be a de-facto currency for Adhominian knuckles off-planet."
+	desc_fluff = "Imported from the Democratic People's Republic of Adhomai."
+	icon_state = "dprapacket"
+	item_state = "Bpacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
+
+/obj/item/storage/fancy/cigarettes/nka
+	name = "\improper Gato Royales cigarette packet"
+	desc = "Popular with the aristocrats of the New Kingdom of Adhomai for its mild menthol flavor."
+	desc_fluff = "Imported from the New Kingdom of Adhomai."
+	icon_state = "nkapacket"
+	item_state = "Fpacket"
+	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
+
 /obj/item/tajcard
 	name = "collectable tajaran card"
-	desc = "A collectable card, usually found inside cigarette packs, with the illustration of a famous Tajara."
+	desc = "A collectable card with an illustration of a famous Tajaran figure, usually found inside cigarette packets."
 	icon = 'icons/obj/playing_cards.dmi'
 	icon_state = "tajcig"
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 	w_class = ITEMSIZE_SMALL
 	var/list/figures = list("hadii", "tesla", "headmaster", "commissar", "almanq", "yasmin", "andrey", "paratrooper", "scout")
 
@@ -155,7 +187,7 @@
 
 /obj/item/flame/lighter/adhomai
 	name = "adhomian lighter"
-	desc = "An adhomian lighter, it is designated to protect the flame from the strong winds of the Tajaran homeworld."
+	desc = "An adhomian lighter, designed to protect the flame from the strong winds of the Tajaran homeworld."
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "trenchlighter"
 	item_state = "trenchlighter"
