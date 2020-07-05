@@ -1,6 +1,12 @@
 // rust_g.dm - DM API for rust_g extension library
 #define RUST_G "rust_g"
-#define WRITE_LOG(log, text) call(RUST_G, "log_write")(log, text) // Using Rust g dll to log faster with less CPU usage.
+#define WRITE_LOG(log, text) __write_log(log, text) //call(RUST_G, "log_write")(log, text) // Using Rust g dll to log faster with less CPU usage.
+
+/proc/__write_log(log, text)
+	. = world.timeofday
+	call(RUST_G, "log_write")(log, text)
+	if (world.timeofday - . > 5 SECONDS)
+		crash_with("Log writing took longer than 5 seconds.")
 
 #define RUSTG_JOB_NO_RESULTS_YET "NO RESULTS YET"
 #define RUSTG_JOB_NO_SUCH_JOB "NO SUCH JOB"
