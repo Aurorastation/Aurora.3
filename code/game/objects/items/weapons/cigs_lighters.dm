@@ -55,7 +55,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return
 
 /obj/item/flame/match/attack_self(mob/user as mob)
-	if(lit == 1)
+	if(lit)
 		user.visible_message(span("notice", "[user] blows out the lit [src]."))
 		burn_out()
 	return ..()
@@ -73,7 +73,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/flame/match/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-	if(W.isFlameSource() && !src.lit)
+	if(W.isFlameSource() && !src.lit && !src.burnt)
 		playsound(src, 'sound/items/cigs_lighters/cig_light.ogg', 75, 1, -1)
 		user.visible_message(SPAN_NOTICE("In a feat of redundancy, [user] lights \the [src] using \the [W]."))
 		light()
