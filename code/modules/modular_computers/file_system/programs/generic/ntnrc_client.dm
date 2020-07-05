@@ -37,6 +37,21 @@
 		channel.add_message(message, username, usr)
 		message_dead(FONT_SMALL("<b>([channel.get_dead_title()]) [username]:</b> [message]"))
 
+	if(href_list["Reply"])
+		. = TRUE
+		if(!channel || channel.title != href_list["target"])
+			to_chat(usr, SPAN_WARNING("The target chat isn't active on your program anymore!"))
+			return
+		var/mob/living/user = usr
+		var/message = sanitize(input(user, "Enter message or leave blank to cancel: "))
+		if(!message)
+			return
+		if(!channel || channel.title != href_list["target"])
+			to_chat(usr, SPAN_WARNING("The target chat isn't active on your program anymore!"))
+			return
+		channel.add_message(message, username, usr)
+		message_dead(FONT_SMALL("<b>([channel.get_dead_title()]) [username]:</b> [message]"))
+
 	if(href_list["PRG_joinchannel"])
 		. = TRUE
 		var/datum/ntnet_conversation/C

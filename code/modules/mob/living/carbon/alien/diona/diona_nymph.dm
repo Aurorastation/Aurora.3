@@ -22,8 +22,8 @@
 	holder_type = /obj/item/holder/diona
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/dionanymph
 	meat_amount = 2
-	maxHealth = 33.3
-	health = 33.3
+	maxHealth = 50
+	health = 50
 	pass_flags = PASSTABLE
 
 	// Decorative head flower.

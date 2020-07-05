@@ -301,11 +301,10 @@
 	else
 		nymph.key = key
 
-/mob/living/carbon/human/proc/diona_split_into_nymphs(var/death_split = FALSE)
+/mob/living/carbon/human/proc/diona_split_into_nymphs()
 	var/turf/T = get_turf(src)
 	var/mob/living/carbon/alien/diona/bestNymph = null
-	var/bestHealth = 0
-
+	var/gestalt_health = (300 -  getFireLoss() - getBruteLoss() - getToxLoss()) / 6
 
 	var/nymphs_to_kill_off = 0
 
@@ -336,23 +335,17 @@
 			bestNymph = D
 		nymphos += D
 		D.forceMove(T)
-		if(death_split && D.health != 0 && D.stat != DEAD)
+		if(gestalt_health >= D.maxHealth * 0.20)
+			D.health = gestalt_health
+		else
 			D.health = D.maxHealth * 0.20
 		D.split_languages(src)
 		D.set_dir(pick(NORTH, SOUTH, EAST, WEST))
 		D.gestalt = null
-		if (D.stat != DEAD && D.health > (D.maxHealth*0.1))//If a nymph is alive and has enough health, it will emerge from the gestalt
-			total_nymph += 1
-			D.stat = CONSCIOUS
-			D.stunned = 0
-			D.update_verbs()
-			if ((!D.key) && D.health > bestHealth)
-				bestHealth = D.health
-				bestNymph = D
-
-		else //If a nymph is too heavily damaged, it cannot survive and will be born dead
-			D.visible_message("[D] is too damaged to survive outside a gestalt, and expires with a pitiful chirrup", "You are too damaged to survive outside of your gestalt!", "You hear a pitiful chirrup!")
-			D.stat = DEAD
+		total_nymph += 1
+		D.stat = CONSCIOUS
+		D.stunned = 0
+		D.update_verbs()
 
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)

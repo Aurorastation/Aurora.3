@@ -2,9 +2,9 @@
 	name = "heavy-duty power cable"
 	desc = "A tough, heavy-duty coil of power cable."
 	icon = 'icons/obj/power.dmi'
-	our_color = null
 	icon_state = "wire"
 	item_state = "wire"
+	color = null
 
 /obj/structure/cable/heavyduty
 	icon = 'icons/obj/power_cond_heavy.dmi'

@@ -167,7 +167,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	starts_with = list(/obj/item/clothing/mask/chewable/candy/gum = 5)
 	can_hold = list(/obj/item/clothing/mask/chewable/candy/gum,
 					/obj/item/trash/spitgum)
-	use_sound = 'sound/items/drop/paper.ogg'
+	use_sound = 'sound/items/drop/wrapper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 	max_storage_space = 5

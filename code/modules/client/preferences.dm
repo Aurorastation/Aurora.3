@@ -80,6 +80,7 @@ datum/preferences
 	var/citizenship = "None"            //Current home system.
 	var/faction = "None"                //Antag faction/general associated faction.
 	var/religion = "None"               //Religious association.
+	var/accent = "None"               //Character accent.
 
 		//Mob preview
 	var/icon/preview_icon = null
@@ -370,6 +371,7 @@ datum/preferences
 	character.citizenship = citizenship
 	character.employer_faction = faction
 	character.religion = religion
+	character.accent = accent
 
 	character.skills = skills
 	character.used_skillpoints = used_skillpoints
@@ -530,6 +532,7 @@ datum/preferences
 		citizenship = "None"
 		faction = "None"
 		religion = "None"
+		accent = "None"
 
 		species = "Human"
 

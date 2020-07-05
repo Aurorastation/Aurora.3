@@ -127,6 +127,8 @@
 	allowed_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_PILOTDREAM, RELIGION_NONE, RELIGION_OTHER)
 	default_citizenship = CITIZENSHIP_ZORA
 
+	allowed_accents = list(ACCENT_CETI)
+
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER

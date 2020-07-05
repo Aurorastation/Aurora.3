@@ -314,6 +314,10 @@
 #define TASTE_DULL 0.5 //anything below 30%
 #define TASTE_NUMB 0.1 //anything below 150%
 
+//Used by emotes
+#define VISIBLE_MESSAGE 1
+#define AUDIBLE_MESSAGE 2
+
 //helper for inverting armor blocked values into a multiplier
 #define BLOCKED_MULT(blocked) max(1 - (blocked/100), 0)
 
