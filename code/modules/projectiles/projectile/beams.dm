@@ -337,7 +337,14 @@
 					M.emitter_blasts_taken += 2
 	..()
 
+/obj/item/projectile/beam/thermaldrill/turret
+	name = "thermal drill turret"
 
+/obj/item/projectile/beam/thermaldrill/on_impact(var/atom/A)
+	if(isturf(A))
+		if(istype(A, /turf/simulated/mineral))
+			var/turf/simulated/mineral/M = A
+			M.GetDrilled(1)
 
 //Beams of magical veil energy fired by empowered pylons. Some inbuilt armor penetration cuz magic.
 //Ablative armor is still overwhelmingly useful

@@ -484,14 +484,9 @@
 		//if the turret is off, make it pop down
 		popDown()
 		return
-
 	targets = list()
 	secondarytargets = list()
-
-	for(var/v in view(world.view, src))
-		if(isliving(v))
-			var/mob/living/L = v
-			assess_and_assign(L, targets, secondarytargets)
+	scan_for_targets(targets, secondarytargets)
 
 	if(!tryToShootAt(targets))
 		if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
@@ -512,6 +507,12 @@
 	if(auto_repair && (health < maxhealth))
 		use_power(20000)
 		health = min(health+1, maxhealth) // 1HP for 20kJ
+
+/obj/machinery/porta_turret/proc/scan_for_targets(var/list/targets, var/list/secondarytargets)
+	for(var/v in view(world.view, src))
+		if(isliving(v))
+			var/mob/living/L = v
+			assess_and_assign(L, targets, secondarytargets)
 
 /obj/machinery/porta_turret/proc/reset()
 	if(!targets.len && !secondarytargets.len)
@@ -598,14 +599,15 @@
 
 /obj/machinery/porta_turret/proc/tryToShootAt(var/list/mob/living/targets)
 	if(targets.len && last_target && (last_target in targets) && target(last_target))
-		return 1
+		return TRUE
 
 	while(targets.len > 0)
 		var/mob/living/M = pick(targets)
 		targets -= M
 		if(target(M))
-			return 1
+			return TRUE
 
+	return FALSE
 
 /obj/machinery/porta_turret/proc/popUp()	//pops the turret up
 	set waitfor = FALSE
@@ -655,7 +657,7 @@
 	src.raising = raising
 	density = raised || raising
 
-/obj/machinery/porta_turret/proc/target(var/mob/living/target)
+/obj/machinery/porta_turret/proc/target(var/atom/target)
 	if(disabled)
 		return
 	if(target)
@@ -672,7 +674,7 @@
 /obj/machinery/porta_turret/proc/reset_last_fired()
 	last_fired = FALSE
 
-/obj/machinery/porta_turret/proc/shootAt(var/mob/living/target)
+/obj/machinery/porta_turret/proc/shootAt(var/atom/target)
 	//any emagged turrets will shoot extremely fast! This not only is deadly, but drains a lot power!
 	if(last_fired || !raised)	//prevents rapid-fire shooting, unless it's been emagged
 		return
@@ -1084,9 +1086,9 @@
 
 /obj/machinery/porta_turret/thermal
 	installation = /obj/item/gun/energy/vaurca/thermaldrill
-	lethal = 1
-	lethal_icon = 1
-	egun = 0
+	lethal = TRUE
+	lethal_icon = TRUE
+	egun = FALSE
 	sprite_set = "thermaldrill"
 
 	eprojectile = /obj/item/projectile/beam/thermaldrill
@@ -1135,6 +1137,45 @@
 	check_access = 1
 	ailock = 1
 	req_one_access = list(access_legion)
+
+/obj/machinery/porta_turret/thermal/mining
+	use_power = FALSE
+	req_access = list(access_mining)
+	eprojectile = /obj/item/projectile/beam/thermaldrill/turret
+
+/obj/machinery/porta_turret/thermal/mining/scan_for_targets(var/list/targets, var/list/secondarytargets)
+	var/distance = 11
+	for (var/v in orange(world.view, src))
+		if (istype(v, /turf/simulated/mineral))
+			var/turf/simulated/mineral/M = v
+			if (!M.mineral)
+				continue
+
+			if (get_dist(M, src) < distance)
+				distance = get_dist(M, src)
+				targets += M
+			else
+				secondarytargets += v
+
+/obj/machinery/porta_turret/thermal/mining/tryToShootAt(var/list/targets)
+	if(targets.len && last_target && (last_target in targets) && target(last_target))
+		return TRUE
+
+	var/flags = PASSTABLE|PASSGLASS|PASSGRILLE
+	while (targets.len > 0)
+		var/turf/T = pick(targets)
+		message_admins("before loop!")
+		for (var/V in check_trajectory(T, src, pass_flags=flags))
+			message_admins("loop!")
+			if (!istype(V, /turf/simulated/mineral))
+				message_admins("Not mineral!")
+				targets -= T
+				continue
+
+		targets -= T
+		if(target(T))
+			return TRUE
+	return FALSE
 
 #undef TURRET_PRIORITY_TARGET
 #undef TURRET_SECONDARY_TARGET
