@@ -10,8 +10,7 @@
 	if(!istype(G))
 		to_chat(src, "<span class='warning'>We must be grabbing a creature in our active hand to absorb them.</span>")
 		return
-	var/mob/living/carbon/human/ling = src
-	if(istype(ling) && !ling.get_pressure_weakness())
+	if(!src.get_pressure_weakness())
 		to_chat(src, "<span class='warning'>We cannot absorb this creature from inside a sealed environment.</span>")
 		return
 	var/mob/living/carbon/human/T = G.affecting
