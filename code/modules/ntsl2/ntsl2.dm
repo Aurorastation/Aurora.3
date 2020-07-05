@@ -65,25 +65,6 @@
 	else // Probably an object or something, just get a ref to it.
 		ntsl2.send("subspace_receive", list(channel=copytext(channel, length(WP_ELECTRONICS)+1), type="ref", data="\ref[data]"))
 
-/*
-	Sends a command to the Daemon. This is an internal function, and should be avoided when used externally.
-*/
-/datum/NTSL_interpreter/proc/send(var/command, var/list/arguments)
-	if(!istext(command))
-		CRASH("Expected command to be a text. Maybe outdated use of send?")
-	while(locked) // Prevent multiple requests being sent simultaneously and thus collisions.
-		sleep(1)
-	if(config.ntsl_hostname && config.ntsl_port) // Requires config to be set.
-		var/query = ""
-		if(arguments)
-			query = "?" + list2params(arguments)
-		locked = 1
-		var/http[] = world.Export("http://[config.ntsl_hostname]:[config.ntsl_port]/[command][query]")
-		locked = 0
-		if(http)
-			return file2text(http["CONTENT"])
-	return 0
-
 var/datum/NTSL_interpreter/ntsl2 = new()
 
 /hook/startup/proc/init_ntsl2()
