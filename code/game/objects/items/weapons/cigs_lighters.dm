@@ -188,10 +188,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				M.update_inv_l_hand(0)
 				M.update_inv_r_hand(1)
 				M.put_in_hands(butt)
-		if(istype(loc, /obj/item/storage))
-			var/obj/item/storage/S
-			if(!S.insert_into_storage(butt))
-				M.put_in_hands(butt)
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 	else
