@@ -61,6 +61,8 @@
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
 	var/item_state_slots //overrides the default item_state for particular slots.
 
+	var/build_from_parts = FALSE // when it uses coloration and a part of it wants to remain uncolored. e.g., handle of the screwdriver is colored while the head is not.
+	var/worn_overlay = null // used similarly as above, except for inhands.
 
 	//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 	// Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
@@ -84,6 +86,7 @@
 	var/list/sprite_sheets_obj
 
 	var/icon_override  //Used to override hardcoded clothing dmis in human clothing pr
+
 
 	var/charge_failure_message = " cannot be recharged."
 
@@ -856,3 +859,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(user)
 		attack_self(user)
 	return TRUE
+
+//Override this for items that can be flame sources.
+/obj/item/proc/isFlameSource()
+	return FALSE

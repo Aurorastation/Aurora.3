@@ -13,7 +13,7 @@
 
 /datum/gear/smoking/cigarcase
 	display_name = "cigar case"
-	path = /obj/item/storage/fancy/cigar
+	path = /obj/item/storage/fancy/cigarettes/cigar
 	cost = 2
 
 /datum/gear/smoking/cigarettes

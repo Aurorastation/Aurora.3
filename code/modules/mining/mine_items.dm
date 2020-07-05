@@ -459,6 +459,13 @@
 	newflag.set_light(2)
 	src.use(1)
 
+/obj/item/stack/flag/purple/borg
+	name = "stationbound beacon deployer"
+	desc = "A stationbound-mounted beacon deployer, deploys standard purple beacons in accordance with the mining colour scheme. Uses a metal synthesizer to produce more."
+	charge_costs = list(1500)
+	uses_charge = TRUE
+	stacktype = /obj/item/stack/flag/purple
+
 /**********************Miner Carts***********************/
 
 // RRF refactored into RFD-M, found in RFD.dm

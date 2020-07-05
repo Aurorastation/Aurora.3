@@ -2,7 +2,6 @@
 
 /datum/reagent/toxin
 	name = "Toxin"
-	id = "toxin"
 	description = "A toxic chemical."
 	reagent_state = LIQUID
 	color = "#CF3600"
@@ -34,7 +33,6 @@
 
 /datum/reagent/toxin/plasticide
 	name = "Plasticide"
-	id = "plasticide"
 	description = "Liquid plastic, do not eat."
 	reagent_state = LIQUID
 	color = "#CF3600"
@@ -43,7 +41,6 @@
 
 /datum/reagent/toxin/amatoxin
 	name = "Amatoxin"
-	id = "amatoxin"
 	description = "A powerful poison derived from certain species of mushroom."
 	reagent_state = LIQUID
 	color = "#792300"
@@ -52,7 +49,6 @@
 
 /datum/reagent/toxin/carpotoxin
 	name = "Carpotoxin"
-	id = "carpotoxin"
 	description = "A deadly neurotoxin produced by the dreaded space carp."
 	reagent_state = LIQUID
 	color = "#003333"
@@ -67,7 +63,6 @@
 
 /datum/reagent/toxin/panotoxin
 	name = "Panotoxin"
-	id = "panotoxin"
 	description = "A strange poison from the strange panocelium mushroom that causes intense pain when injected."
 	reagent_state = LIQUID
 	color = "#008844"
@@ -79,7 +74,6 @@
 
 /datum/reagent/toxin/phoron
 	name = "Phoron"
-	id = "phoron"
 	description = "Phoron in its liquid form. Twice as potent when breathed in."
 	reagent_state = LIQUID
 	color = "#9D14DB"
@@ -145,7 +139,6 @@
 
 /datum/reagent/toxin/phoron_salt //Remember to exclude in RNG chems.
 	name = "Phoron Salts"
-	id = "phoron_salt"
 	description = "A mysterious molten mixture with strange chemical properties. Incredibly deadly to all lifeforms, especially Vaurca."
 	reagent_state = SOLID
 	color = "#7C4876"
@@ -154,7 +147,6 @@
 
 /datum/reagent/toxin/cardox
 	name = "Cardox"
-	id = "cardox"
 	description = "Cardox is a mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
 	reagent_state = LIQUID
 	color = "#EEEEEE"
@@ -175,7 +167,7 @@
 
 /datum/reagent/toxin/cardox/affect_conflicting(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagent/conflicting)
 	var/amount = min(removed, conflicting.volume)
-	holder.remove_reagent(conflicting.id, amount)
+	holder.remove_reagent(conflicting.type, amount)
 
 /datum/reagent/toxin/cardox/touch_turf(var/turf/T, var/amount)
 	if(amount >= 1)
@@ -198,7 +190,6 @@
 
 /datum/reagent/toxin/cyanide //Fast and Lethal
 	name = "Cyanide"
-	id = "cyanide"
 	description = "A highly toxic chemical."
 	reagent_state = LIQUID
 	color = "#CF3600"
@@ -217,7 +208,6 @@
 
 /datum/reagent/toxin/potassium_chloride
 	name = "Potassium Chloride"
-	id = "potassium_chloride"
 	description = "A delicious salt that stops the heart when injected into cardiac muscle."
 	reagent_state = SOLID
 	color = "#FFFFFF"
@@ -239,7 +229,6 @@
 
 /datum/reagent/toxin/potassium_chlorophoride
 	name = "Potassium Chlorophoride"
-	id = "potassium_chlorophoride"
 	description = "A specific chemical based on Potassium Chloride to stop the heart for surgery. Not safe to eat!"
 	reagent_state = SOLID
 	color = "#FFFFFF"
@@ -261,7 +250,6 @@
 
 /datum/reagent/toxin/zombiepowder
 	name = "Zombie Powder"
-	id = "zombiepowder"
 	description = "A strong neurotoxin that puts the subject into a death-like state."
 	reagent_state = SOLID
 	color = "#669900"
@@ -290,7 +278,6 @@
 
 /datum/reagent/toxin/fertilizer //Reagents used for plant fertilizers.
 	name = "fertilizer"
-	id = "fertilizer"
 	description = "A chemical mix good for growing plants with."
 	reagent_state = LIQUID
 	strength = 0.5 // It's not THAT poisonous.
@@ -308,19 +295,15 @@
 
 /datum/reagent/toxin/fertilizer/eznutrient
 	name = "EZ Nutrient"
-	id = "eznutrient"
 
 /datum/reagent/toxin/fertilizer/left4zed
 	name = "Left-4-Zed"
-	id = "left4zed"
 
 /datum/reagent/toxin/fertilizer/robustharvest
 	name = "Robust Harvest"
-	id = "robustharvest"
 
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate
 	name = "Monoammonium Phosphate"
-	id = "monoammoniumphosphate"
 	strength = 0.25
 	description = "Commonly found in fire extinguishers, also works as a fertilizer."
 	reagent_state = SOLID
@@ -365,7 +348,6 @@
 
 /datum/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"
-	id = "plantbgone"
 	description = "A harmful toxic mixture to kill plantlife. Do not ingest!"
 	reagent_state = LIQUID
 	color = "#49002E"
@@ -402,7 +384,6 @@
 
 /datum/reagent/lexorin
 	name = "Lexorin"
-	id = "lexorin"
 	description = "Lexorin temporarily stops respiration. Causes tissue damage."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
@@ -419,7 +400,6 @@
 
 /datum/reagent/mutagen
 	name = "Unstable mutagen"
-	id = "mutagen"
 	description = "Might cause unpredictable mutations. Keep away from children."
 	reagent_state = LIQUID
 	color = "#13BC5E"
@@ -452,7 +432,6 @@
 
 /datum/reagent/slimejelly
 	name = "Slime Jelly"
-	id = "slimejelly"
 	description = "A gooey semi-liquid produced from one of the deadliest lifeforms in existence. SO REAL."
 	reagent_state = LIQUID
 	color = "#801E28"
@@ -471,7 +450,6 @@
 
 /datum/reagent/soporific
 	name = "Soporific"
-	id = "stoxin"
 	description = "An effective hypnotic used to treat insomnia, can act as a sedative. Lasts three times longer when inhaled."
 	reagent_state = LIQUID
 	color = "#009CA8"
@@ -501,7 +479,6 @@
 
 /datum/reagent/chloralhydrate
 	name = "Chloral Hydrate"
-	id = "chloralhydrate"
 	description = "A powerful sedative. Lasts two times longer when inhaled."
 	reagent_state = SOLID
 	color = "#000067"
@@ -528,7 +505,6 @@
 
 /datum/reagent/chloralhydrate/beer2 //disguised as normal beer for use by emagged brobots
 	name = "Beer"
-	id = "beer2"
 	description = "An alcoholic beverage made from malted grains, hops, yeast, and water. The fermentation appears to be incomplete." //If the players manage to analyze this, they deserve to know something is wrong.
 	reagent_state = LIQUID
 	color = "#664300"
@@ -545,7 +521,6 @@
 
 /datum/reagent/slimetoxin
 	name = "Mutation Toxin"
-	id = "mutationtoxin"
 	description = "A corruptive toxin produced by slimes."
 	reagent_state = LIQUID
 	color = "#13BC5E"
@@ -560,7 +535,6 @@
 
 /datum/reagent/aslimetoxin
 	name = "Advanced Mutation Toxin"
-	id = "amutationtoxin"
 	description = "An advanced corruptive toxin produced by slimes."
 	reagent_state = LIQUID
 	color = "#13BC5E"
@@ -593,7 +567,6 @@
 
 /datum/reagent/toxin/nanites
 	name = "Nanomachines"
-	id = "nanites"
 	description = "Microscopic construction robots."
 	reagent_state = LIQUID
 	color = "#535E66"
@@ -602,7 +575,6 @@
 
 /datum/reagent/toxin/undead
 	name = "Undead Ichor"
-	id = "undead_ichor"
 	description = "A wicked liquid with unknown origins and uses."
 	color = "#b2beb5"
 	strength = 25
@@ -616,39 +588,37 @@
 
 /datum/reagent/toxin/tobacco
 	name = "Space Tobacco"
-	id = "tobacco"
 	description = "Low-grade space tobacco."
-	reagent_state = LIQUID
+	reagent_state = SOLID
 	color = "#333300"
 	data = 0
-	taste_description = "low-grade tobacco"
+	taste_description = "cheap tobacco"
 	strength = 0.004
 	taste_mult = 10
+	var/nicotine = 0.2
 
-/datum/reagent/toxin/tobacco/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
-	if(istype(M))
-		var/obj/item/organ/H = M.internal_organs_by_name[BP_HEART]
-		if(istype(H))
-			H.take_damage(removed * strength * 0.5,1)
-		var/obj/item/organ/L = M.internal_organs_by_name[BP_LUNGS]
-		if(istype(L))
-			L.take_damage(removed * strength,1)
-		var/obj/item/organ/A = M.internal_organs_by_name[BP_LIVER]
-		if(istype(A))
-			A.take_damage(removed * strength * 0.25,1)
+/datum/reagent/toxin/tobacco/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_CARDIOTOXIC, removed*strength*0.5)
+	M.add_chemical_effect(CE_PNEUMOTOXIC, removed*strength)
+	M.add_chemical_effect(CE_HEPATOTOXIC, removed*strength*0.25)
+	M.reagents.add_reagent(/datum/reagent/mental/nicotine, removed * nicotine)
 
 /datum/reagent/toxin/tobacco/rich
 	name = "Earth Tobacco"
-	id = "tobaccorich"
-	description = "Nicknamed 'Earth Tobacco', this plant is much higher quality than it's space fairing counterpart."
-	reagent_state = LIQUID
-	data = 0
-	taste_description = "quality tobacco"
+	description = "Nicknamed 'Earth Tobacco', this plant is much higher quality than its spacefaring counterpart."
+	taste_description = "luxury tobacco"
 	strength = 0.002
+	nicotine = 0.5
+
+/datum/reagent/toxin/tobacco/fake
+	name = "Cheap Tobacco"
+	description = "This actually appears to be mostly ground up leaves masquerading as tobacco. There's maybe some nicotine in there somewhere..."
+	taste_description = "acrid smoke"
+	strength = 0.008
+	nicotine = 0.1
 
 /datum/reagent/toxin/berserk
 	name = "Red Nightshade"
-	id = "berserk"
 	description = "An illegal chemical enhancer, may cause aggressive and violent behavior."
 	reagent_state = LIQUID
 	color = "#AF111C"
@@ -675,7 +645,6 @@
 
 /datum/reagent/toxin/spectrocybin
 	name = "Spectrocybin"
-	id = "spectrocybin"
 	description = "A hallucinogen chemical, rumored to be used by mystics and religious figures in their rituals."
 	reagent_state = LIQUID
 	color = "#800080"
@@ -692,7 +661,6 @@
 
 /datum/reagent/toxin/trioxin
 	name = "Trioxin"
-	id = "trioxin"
 	description = "A synthetic compound of unknown origins, designated originally as a performance enhancing substance."
 	reagent_state = LIQUID
 	color = "#E7E146"
@@ -707,7 +675,7 @@
 	if(istype(M,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 
-		if(H.reagents.has_reagent("thetamycin", 15))
+		if(H.reagents.has_reagent(/datum/reagent/thetamycin, 15))
 			return
 
 		if(!H.internal_organs_by_name["zombie"] && prob(15))
@@ -739,7 +707,6 @@
 			
 /datum/reagent/toxin/dextrotoxin
 	name = "Dextrotoxin"
-	id = "dextrotoxin"
 	description = "A complicated to make and highly illegal drug that cause paralysis mostly focused on the limbs."
 	reagent_state = LIQUID
 	color = "#002067"

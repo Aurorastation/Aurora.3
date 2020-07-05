@@ -193,8 +193,8 @@
 		occupant.adjustCloneLoss(-2 * heal_rate)
 
 		//So clones don't die of oxyloss in a running pod.
-		if(occupant.reagents.get_reagent_amount("norepinephrine") < 30)
-			occupant.reagents.add_reagent("norepinephrine", 60)
+		if(occupant.reagents.get_reagent_amount(/datum/reagent/norepinephrine) < 30)
+			occupant.reagents.add_reagent(/datum/reagent/norepinephrine, 60)
 		occupant.Sleeping(30)
 		//Also heal some oxyloss ourselves because norepinephrine is so bad at preventing it!!
 		occupant.adjustOxyLoss(-4)

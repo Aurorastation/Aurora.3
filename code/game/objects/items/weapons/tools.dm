@@ -66,25 +66,14 @@
 	drop_sound = 'sound/items/drop/screwdriver.ogg'
 	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 	lock_picking_level = 5
-	var/build_from_parts = TRUE //if the tool uses random coloring
-	var/tool_colors = list( //if you're wondering why "blue" = COLOR_BLUE, it's so that inhands work.
-		"blue" = COLOR_BLUE,
-		"red" = COLOR_RED,
-		"purple" = COLOR_PURPLE,
-		"brown" = COLOR_BROWN,
-		"green" = COLOR_GREEN,
-		"cyan" = COLOR_CYAN,
-		"yellow" = COLOR_YELLOW
-	)
+	build_from_parts = TRUE
+	worn_overlay = "head"
 
 /obj/item/screwdriver/Initialize()
 	. = ..()
 	if(build_from_parts) //random colors!
-		var/our_color = pick(tool_colors)
-		var/color_hex = tool_colors[our_color]
-		color = color_hex
-		item_state = "[initial(icon_state)]-[our_color]"  // hardcoded. sucks, but inhands are hard and I can't be bothered.
-		add_overlay(overlay_image(icon, "[initial(icon_state)]_head", flags=RESET_COLOR))
+		color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
+		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
 
 /obj/item/screwdriver/update_icon()
 	var/matrix/tf = matrix()
@@ -144,25 +133,14 @@
 	drop_sound = 'sound/items/drop/wirecutter.ogg'
 	pickup_sound = 'sound/items/pickup/wirecutter.ogg'
 	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
-	var/build_from_parts = TRUE
-	var/tool_colors = list(
-		"blue" = COLOR_BLUE,
-		"red" = COLOR_RED,
-		"purple" = COLOR_PURPLE,
-		"brown" = COLOR_BROWN,
-		"green" = COLOR_GREEN,
-		"cyan" = COLOR_CYAN,
-		"yellow" = COLOR_YELLOW
-	)
+	build_from_parts = TRUE
+	worn_overlay = "head"
 
 /obj/item/wirecutters/Initialize()
 	. = ..()
 	if(build_from_parts)
-		var/our_color = pick(tool_colors)
-		var/color_hex = tool_colors[our_color]
-		color = color_hex
-		item_state = "[initial(icon_state)]-[our_color]"  // hardcoded. sucks, but inhands are hard and I can't be bothered.
-		add_overlay(overlay_image(icon, "[initial(icon_state)]_head", flags=RESET_COLOR))
+		color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
+		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
 
 /obj/item/wirecutters/update_icon()
 	var/matrix/tf = matrix()
@@ -287,7 +265,7 @@
 	var/datum/reagents/R = new/datum/reagents(max_fuel)
 	reagents = R
 	R.my_atom = src
-	R.add_reagent("fuel", max_fuel)
+	R.add_reagent(/datum/reagent/fuel, max_fuel)
 	update_icon()
 
 /obj/item/weldingtool/update_icon()
@@ -463,7 +441,7 @@
 
 //Returns the amount of fuel in the welder
 /obj/item/weldingtool/proc/get_fuel()
-	return reagents.get_reagent_amount("fuel")
+	return reagents.get_reagent_amount(/datum/reagent/fuel)
 
 //Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob. This should probably be renamed to use()
 /obj/item/weldingtool/proc/remove_fuel(var/amount = 1, var/mob/M = null, var/colourChange = TRUE)
@@ -473,7 +451,7 @@
 		set_light(0.7, 2, l_color = LIGHT_COLOR_CYAN)
 		addtimer(CALLBACK(src, /atom/proc/update_icon), 5)
 	if(get_fuel() >= amount)
-		reagents.remove_reagent("fuel", amount)
+		reagents.remove_reagent(/datum/reagent/fuel, amount)
 		if(M)
 			eyecheck(M)
 		return 1
@@ -485,6 +463,9 @@
 //Returns whether or not the welding tool is currently on.
 /obj/item/weldingtool/proc/isOn()
 	return src.welding
+
+/obj/item/weldingtool/isFlameSource()
+	return isOn()
 
 //Sets the welding state of the welding tool. If you see W.welding = 1 anywhere, please change it to W.setWelding(1)
 //so that the welding tool updates accordingly
@@ -591,7 +572,7 @@
 		var/gen_amount = ((world.time-last_gen) / fuelgen_delay)
 		var/remainder = max_fuel - get_fuel()
 		gen_amount = min(gen_amount, remainder)
-		reagents.add_reagent("fuel", gen_amount)
+		reagents.add_reagent(/datum/reagent/fuel, gen_amount)
 		if(get_fuel() >= max_fuel)
 			set_processing(0)
 	else
@@ -734,7 +715,6 @@
 	w_class = ITEMSIZE_SMALL
 	toolspeed = 3
 	usesound = 'sound/items/drill_use.ogg'
-	var/drillcolor = null
 	var/current_tool = 1
 	var/list/tools = list(
 		"screwdriverbit",
@@ -744,16 +724,7 @@
 
 /obj/item/powerdrill/Initialize()
 	. = ..()
-
-	switch(pick("red", "blue", "yellow", "green"))
-		if ("red")
-			drillcolor = "red"
-		if ("blue")
-			drillcolor = "blue"
-		if ("green")
-			drillcolor = "green"
-		if ("yellow")
-			drillcolor = "yellow"
+	var/drillcolor = pick("red", "blue", "yellow", "green")
 	icon_state = "powerdrill[drillcolor]"
 	item_state = "powerdrill[drillcolor]"
 

@@ -668,33 +668,32 @@ var/global/list/default_medbay_channels = list(
 	return
 
 /obj/item/device/radio/borg/proc/recalculateChannels()
-	src.channels = list()
-	src.syndie = 0
+	channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE)
+	syndie = FALSE
 
-	var/mob/living/silicon/robot/D = src.loc
+	var/mob/living/silicon/robot/D = loc
 	if(D.module)
 		for(var/ch_name in D.module.channels)
-			if(ch_name in src.channels)
+			if(ch_name in channels)
 				continue
-			src.channels += ch_name
-			src.channels[ch_name] += D.module.channels[ch_name]
+			channels[ch_name] += D.module.channels[ch_name]
 	if(keyslot)
 		for(var/ch_name in keyslot.channels)
-			if(ch_name in src.channels)
+			if(ch_name in channels)
 				continue
-			src.channels += ch_name
-			src.channels[ch_name] += keyslot.channels[ch_name]
+			channels += ch_name
+			channels[ch_name] += keyslot.channels[ch_name]
 
 		if(keyslot.syndie)
-			src.syndie = 1
+			syndie = TRUE
 
-	for (var/ch_name in src.channels)
+	for(var/ch_name in src.channels)
 		if(!SSradio)
 			sleep(30) // Waiting for the SSradio to be created.
 		if(!SSradio)
-			src.name = "broken radio"
+			name = "broken radio"
 			return
-		secure_radio_connections[ch_name] = SSradio.add_object(src, radiochannels[ch_name],  RADIO_CHAT)
+		secure_radio_connections[ch_name] = SSradio.add_object(src, radiochannels[ch_name], RADIO_CHAT)
 
 	setupRadioDescription()
 	return
