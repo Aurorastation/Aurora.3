@@ -1,0 +1,7 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Patting out flames on a target will now take priority over CPR, examining wounds, etc."
+  - bugfix: "Can now pat out flames on targets that are dead, have no heartbeat or no heart."
