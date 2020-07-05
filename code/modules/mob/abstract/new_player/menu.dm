@@ -51,6 +51,7 @@
 /obj/screen/new_player/title
 	name = "Title"
 	screen_loc = "WEST,SOUTH"
+	var/lobby_index = 1
 
 /obj/screen/new_player/title/Initialize()
 	icon = current_map.lobby_icon
@@ -61,11 +62,31 @@
 			current_map.lobby_screens -= lobby_screen
 
 	if(length(current_map.lobby_screens))
-		icon_state = pick(current_map.lobby_screens)
+		if(current_map.lobby_transitions && isnum(current_map.lobby_transitions))
+			icon_state = current_map.lobby_screens[lobby_index]
+			if(Master.initializing)
+				spawn(current_map.lobby_transitions)
+					Update()
+			else
+				addtimer(CALLBACK(src, .proc/Update), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
+		else
+			icon_state = pick(current_map.lobby_screens)
 	else
-		icon_state = known_icon_states[1]
+		icon_state = LAZYACCESS(known_icon_states, 1)
 
 	. = ..()
+
+/obj/screen/new_player/title/proc/Update()
+	lobby_index += 1
+	if (lobby_index > length(current_map.lobby_screens))
+		lobby_index = 1
+	animate(src, alpha = 0, time = 1 SECOND)
+	animate(alpha = 255, icon_state = current_map.lobby_screens[lobby_index], time = 1 SECOND)
+	if(Master.initializing)
+		spawn(current_map.lobby_transitions)
+			Update()
+	else
+		addtimer(CALLBACK(src, .proc/Update), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
 
 /obj/screen/new_player/selection/join_game
 	name = "Join Game"
@@ -105,10 +126,14 @@
 
 /obj/screen/new_player/selection/MouseEntered(location,control,params) //Yellow color for the font
 	color = "#ffb200"
+	var/matrix/M = matrix()
+	M.Scale(1.1, 1.1)
+	animate(src, transform = M, time = 1, easing = CUBIC_EASING)
 	return ..()
 
 /obj/screen/new_player/selection/MouseExited(location,control,params)
 	color = null
+	animate(src, transform = null, time = 1, easing = CUBIC_EASING)
 	return ..()
 
 /obj/screen/new_player/selection/join_game/New(var/datum/hud/H)

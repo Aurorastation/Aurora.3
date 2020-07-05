@@ -59,6 +59,9 @@
 	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_MOROZ)
 	default_citizenship = CITIZENSHIP_JARGON
 
+	default_accent = ACCENT_SKRELL
+	allowed_accents = list(ACCENT_SKRELL)
+
 	zombie_type = "Skrell Zombie"
 
 /datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)

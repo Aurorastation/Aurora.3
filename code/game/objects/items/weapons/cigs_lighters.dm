@@ -16,20 +16,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/flame
 	var/lit = 0
 
-/proc/isflamesource(A)
-	var/obj/item/I = A
-	if(I.iswelder())
-		var/obj/item/weldingtool/WT = A
-		return (WT.isOn())
-	else if(istype(I, /obj/item/flame))
-		var/obj/item/flame/F = I
-		return (F.lit)
-	else if(istype(I, /obj/item/device/assembly/igniter))
-		return 1
-	else if(istype(I, /obj/item/clothing/gloves/fluff/lunea_gloves))
-		var/obj/item/clothing/gloves/fluff/lunea_gloves/F = I
-		return (F.lit)
-	return 0
+/obj/item/flame/isFlameSource()
+	return lit
 
 ///////////
 //MATCHES//
@@ -103,6 +91,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/icon_off
 	var/type_butt = null
 	var/chem_volume = 15 //Size of a syringe
+	var/genericmes = "USER lights NAME with FLAME"
 	var/matchmes = "USER lights NAME with FLAME"
 	var/lightermes = "USER lights NAME with FLAME"
 	var/zippomes = "USER lights NAME with FLAME"
@@ -211,7 +200,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-	if(isflamesource(W))
+	if(W.isFlameSource())
 		var/text = matchmes
 		if(istype(W, /obj/item/flame/match))
 			text = matchmes
@@ -223,10 +212,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			text = weldermes
 		else if(istype(W, /obj/item/device/assembly/igniter))
 			text = ignitermes
-		text = replacetext(text, "USER", "[user]")
-		text = replacetext(text, "NAME", "[name]")
-		text = replacetext(text, "FLAME", "[W.name]")
+		else
+			text = genericmes
+		text = replacetext(text, "USER", "\the [user]")
+		text = replacetext(text, "NAME", "\the [name]")
+		text = replacetext(text, "FLAME", "\the [W.name]")
 		light(text)
+
+/obj/item/clothing/mask/smokable/isFlameSource()
+	return lit
 
 /obj/item/clothing/mask/smokable/cigarette
 	name = "cigarette"

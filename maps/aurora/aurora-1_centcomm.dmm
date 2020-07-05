@@ -15685,7 +15685,7 @@
 /obj/item/clothing/mask/smokable/pipe/cobpipe,
 /obj/item/clothing/mask/smokable/pipe,
 /obj/item/flame/lighter/zippo,
-/obj/item/storage/fancy/cigar,
+/obj/item/storage/fancy/cigarettes/cigar,
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "cult"
@@ -17556,7 +17556,7 @@
 	pixel_x = 2;
 	premium = list();
 	prices = list();
-	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/random = 4, /obj/item/storage/fancy/cigar = 5, /obj/item/storage/fancy/cigarettes/acmeco = 5)
+	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/random = 4, /obj/item/storage/fancy/cigarettes/cigar = 5, /obj/item/storage/fancy/cigarettes/acmeco = 5)
 	},
 /turf/simulated/floor/lino/grey,
 /area/merchant_station)
@@ -19903,7 +19903,7 @@
 	},
 /area/shuttle/distress/centcom)
 "dNm" = (
-/obj/item/storage/fancy/cigar{
+/obj/item/storage/fancy/cigarettes/cigar{
 	layer = 3.01;
 	pixel_x = -5;
 	pixel_y = 6
@@ -24196,7 +24196,7 @@
 /obj/item/melee/energy/sword/knife,
 /obj/item/melee/telebaton,
 /obj/item/device/megaphone,
-/obj/item/storage/fancy/cigar,
+/obj/item/storage/fancy/cigarettes/cigar,
 /obj/item/flame/lighter/zippo,
 /obj/item/reagent_containers/food/drinks/bottle/victorygin,
 /obj/item/reagent_containers/food/drinks/bottle/whiskey,

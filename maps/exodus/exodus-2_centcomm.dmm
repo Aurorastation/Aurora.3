@@ -10913,7 +10913,7 @@
 /area/centcom/test)
 "aMc" = (
 /obj/structure/table/wood,
-/obj/item/storage/fancy/cigar,
+/obj/item/storage/fancy/cigarettes/cigar,
 /obj/item/flame/lighter/zippo,
 /turf/simulated/floor/wood,
 /area/merchant_station)

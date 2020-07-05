@@ -178,7 +178,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/medical
 	name = "medical robot module"
-	channels = list("Medical" = TRUE)
+	channels = list(CHANNEL_MEDICAL = TRUE)
 	networks = list(NETWORK_MEDICAL)
 	can_be_pushed = FALSE
 	sprites = list(
@@ -327,7 +327,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/engineering
 	name = "engineering robot module"
-	channels = list("Engineering" = TRUE)
+	channels = list(CHANNEL_ENGINEERING = TRUE)
 	networks = list(NETWORK_ENGINEERING)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 	sprites = list(
@@ -508,7 +508,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/janitor
 	name = "custodial robot module"
-	channels = list("Service" = TRUE)
+	channels = list(CHANNEL_SERVICE = TRUE)
 	networks = list(NETWORK_SERVICE)
 	sprites = list(
 			"Basic" = "robotjani",
@@ -555,7 +555,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/clerical
 	name = "service robot module"
-	channels = list("Service" = TRUE)
+	channels = list(CHANNEL_SERVICE = TRUE)
 	networks = list(NETWORK_SERVICE)
 	languages = list(
 					LANGUAGE_SOL_COMMON =  TRUE,
@@ -650,7 +650,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/miner
 	name = "miner robot module"
-	channels = list("Supply" = TRUE)
+	channels = list(CHANNEL_SUPPLY = TRUE)
 	networks = list(NETWORK_MINE)
 	sprites = list(
 			"Basic" = "robotmine",
@@ -706,7 +706,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/research
 	name = "research module"
-	channels = list("Science" = TRUE)
+	channels = list(CHANNEL_SCIENCE = TRUE)
 	networks = list(NETWORK_RESEARCH)
 	sprites = list(
 			"Basic" = "robotsci",
@@ -786,12 +786,6 @@ var/global/list/robot_modules = list(
 					LANGUAGE_DELVAHII =    FALSE,
 					LANGUAGE_YA_SSA =      FALSE
 					)
-
-	channels = list(
-		CHANNEL_COMMON = TRUE,
-		CHANNEL_ENTERTAINMENT = TRUE
-	)
-
 	sprites = list(
 					"Bloodhound" = "syndie_bloodhound",
 					"Treadhound" = "syndie_treadhound",
@@ -829,7 +823,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/combat
 	name = "combat robot module"
-	channels = list("Security" = TRUE)
+	channels = list(CHANNEL_SECURITY = TRUE)
 	networks = list(NETWORK_SECURITY)
 	sprites = list("Roller" = "droid-combat")
 	can_be_pushed = FALSE
@@ -930,7 +924,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/drone/construction
 	name = "construction drone module"
-	channels = list("Engineering" = TRUE)
+	channels = list(CHANNEL_ENGINEERING = TRUE)
 	languages = list()
 
 /obj/item/robot_module/drone/construction/New()
@@ -1015,17 +1009,17 @@ var/global/list/robot_modules = list(
 					LANGUAGE_BORER =       TRUE
 					)
 	channels = list(
-		"Service" =       TRUE,
-		"Supply" =        TRUE,
-		"Science" =       TRUE,
-		"Security" =      TRUE,
-		"Engineering" =   TRUE,
-		"Medical" =       TRUE,
-		"Command" =       TRUE,
-		"Response Team" = TRUE,
-		"AI Private" =    TRUE
+		CHANNEL_SERVICE =       TRUE,
+		CHANNEL_SUPPLY =        TRUE,
+		CHANNEL_SCIENCE =       TRUE,
+		CHANNEL_SECURITY =      TRUE,
+		CHANNEL_ENGINEERING =   TRUE,
+		CHANNEL_MEDICAL =       TRUE,
+		CHANNEL_COMMAND =       TRUE,
+		CHANNEL_RESPONSE_TEAM = TRUE,
+		CHANNEL_AI_PRIVATE =    TRUE
 		)
-	sprites = list("Roller" = "droid-combat") //TMP // temp my left nut
+	sprites = list("Roller" = "droid-combat") //TMP // temp my left nut // temp my right nut
 	can_be_pushed = FALSE
 
 /obj/item/robot_module/bluespace/New(var/mob/living/silicon/robot/R)
