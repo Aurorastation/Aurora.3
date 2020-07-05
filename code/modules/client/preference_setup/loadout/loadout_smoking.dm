@@ -21,6 +21,7 @@
 	description = "A selection of cigarette packets."
 	path = /obj/item/storage/fancy/cigarettes
 	cost = 2
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/smoking/cigarettes/New()
 	..()
@@ -39,6 +40,7 @@
 	description = "A selection of chewing tobacco."
 	path = /obj/item/storage/chewables/tobacco
 	cost = 2
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/smoking/chew/New()
 	..()
@@ -54,6 +56,7 @@
 	description = "A selection of tobacco leaves."
 	path = /obj/item/storage/chewables/rollable
 	cost = 2
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/smoking/leaves/New()
 	..()
