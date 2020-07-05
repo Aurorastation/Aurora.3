@@ -172,21 +172,26 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		set_light(2, 0.25, "#E38F46")
 		START_PROCESSING(SSprocessing, src)
 
-/obj/item/clothing/mask/smokable/proc/die(var/nomessage = 0)
+/obj/item/clothing/mask/smokable/proc/die(mob/user, var/nomessage = 0)
 	var/turf/T = get_turf(src)
 	set_light(0)
 	playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
-	if (type_butt)
-		var/obj/item/butt = new type_butt(T)
+	if(type_butt)
+		var/obj/item/butt = new type_butt(user)
 		transfer_fingerprints_to(butt)
 		if(ismob(loc))
 			var/mob/living/M = loc
 			if (!nomessage)
 				to_chat(M, span("notice", "Your [name] goes out."))
-			M.remove_from_mob(src) //un-equip it so the overlays can update
-			M.update_inv_wear_mask(0)
-			M.update_inv_l_hand(0)
-			M.update_inv_r_hand(1)
+			if(M.wear_mask)
+				M.remove_from_mob(src) //un-equip it so the overlays can update
+				M.update_inv_wear_mask(0)
+				M.equip_to_slot_if_possible(butt, slot_wear_mask)
+			else
+				M.remove_from_mob(src) // if it dies in your hand.
+				M.update_inv_l_hand(0)
+				M.update_inv_r_hand(1)
+				M.put_in_hands(butt)
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 	else
@@ -424,7 +429,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "cigbutt"
 	randpixel = 10
 	w_class = 1
-	slot_flags = SLOT_EARS
+	slot_flags = SLOT_EARS | SLOT_MASK
 	throwforce = 1
 	drop_sound = 'sound/items/cigs_lighters/cig_snuff.ogg'
 
@@ -614,13 +619,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = icon_state
 	base_state = icon_state
 
-/obj/item/flame/lighter/zippo/update_icon()
+/obj/item/flame/lighter/update_icon()
 	if(lit)
 		icon_state = "[base_state]on"
 		item_state = "[base_state]on"
 	else
 		icon_state = "[base_state]"
 		item_state = "[base_state]"
+	update_held_icon()
 
 /obj/item/flame/lighter/attack_self(mob/living/user)
 	if(!base_state)

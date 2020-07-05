@@ -90,16 +90,25 @@ obj/item/clothing/mask/chewable/Destroy()
 
 /obj/item/clothing/mask/chewable/proc/spitout(var/mob/user, var/no_message)
 	STOP_PROCESSING(SSprocessing, src)
-	if (type_butt)
-		var/obj/item/butt = new type_butt(get_turf(src))
+	if(type_butt)
+		var/obj/item/butt = new type_butt(user)
 		transfer_fingerprints_to(butt)
 		butt.color = color
 		if(brand)
 			butt.desc += " This one is \a [brand]."
 		if(ismob(loc))
 			var/mob/living/M = loc
-			if (!no_message)
-				to_chat(M, span("notice", "You spit out the [name]."))
+			if(!no_message)
+				to_chat(M, span("notice", "The [name] runs out of flavor."))
+			if(M.wear_mask)
+				M.remove_from_mob(src) //un-equip it so the overlays can update
+				M.update_inv_wear_mask(0)
+				M.equip_to_slot_if_possible(butt, slot_wear_mask)
+			else
+				M.remove_from_mob(src) // if it gets blocked somehow, since chewables shouldn't be processing outside the mask slot.
+				M.update_inv_l_hand(0)
+				M.update_inv_r_hand(1)
+				M.put_in_hands(butt)
 		qdel(src)
 
 /obj/item/clothing/mask/chewable/tobacco/bad
