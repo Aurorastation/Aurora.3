@@ -29,8 +29,13 @@
 	var/parry_chance = 15
 	action_button_name = "Wield two-handed weapon"
 	icon = 'icons/obj/weapons.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_twohanded.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_twohanded.dmi'
+		)
 	hitsound = "swing_hit"
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = 'sound/items/pickup/sword.ogg'
 
 /obj/item/material/twohanded/proc/unwield()
 	wielded = 0
@@ -58,7 +63,7 @@
 	..()
 	update_icon()
 
-/obj/item/material/twohanded/mob_can_equip(M as mob, slot)
+/obj/item/material/twohanded/mob_can_equip(M, slot, disable_warning = FALSE)
 	//Cannot equip wielded items.
 	if(wielded)
 		to_chat(M, "<span class='warning'>Unwield the [base_name] first!</span>")
@@ -192,6 +197,7 @@
 	applies_material_colour = 0
 	can_embed = 0
 	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/material/twohanded/fireaxe/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
@@ -227,6 +233,7 @@
 	edge = 1
 	sharp = 0
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	mob_throw_hit_sound =  'sound/weapons/pierce.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	default_material = "glass"
 	var/obj/item/grenade/explosive = null
@@ -293,13 +300,13 @@
 
 //predefined materials for spears
 /obj/item/material/twohanded/spear/steel/New(var/newloc)
-	..(newloc,"steel")
+	..(newloc, MATERIAL_STEEL)
 
 /obj/item/material/twohanded/spear/plasteel/New(var/newloc)
-	..(newloc,"plasteel")
+	..(newloc, MATERIAL_PLASTEEL)
 
 /obj/item/material/twohanded/spear/diamond/New(var/newloc)
-	..(newloc,"diamond")
+	..(newloc, MATERIAL_DIAMOND)
 
 /obj/structure/headspear
 	name = "head on a spear"
@@ -307,7 +314,6 @@
 	icon_state = "headspear"
 	density = 0
 	anchored = 1
-	var/material = "glass"
 
 /obj/structure/headspear/attack_hand(mob/living/user)
 	user.visible_message("<span class='warning'>[user] kicks over \the [src]!</span>", "<span class='danger'>You kick down \the [src]!</span>")
@@ -337,14 +343,15 @@
 	applies_material_colour = 0
 	default_material = "steel"
 	parry_chance = 5
-	var/fuel_type = "fuel"
+	var/fuel_type = /datum/reagent/fuel
 	var/opendelay = 30 // How long it takes to perform a door opening action with this chainsaw, in seconds.
 	var/max_fuel = 300 // The maximum amount of fuel the chainsaw stores.
 	var/fuel_cost = 1 // Multiplier for fuel cost.
 
 	var/cutting = 0 //Ignore
 	var/powered = 0 //Ignore
-	drop_sound = 'sound/items/drop/metalshield.ogg'
+	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/material/twohanded/chainsaw/Initialize()
 	. = ..()
@@ -481,7 +488,7 @@
 		PowerDown(user)
 	else if(!wielded)
 		to_chat(user, "<span class='notice'>You need to hold this with two hands to turn this on.</span>")
-	else if(reagents.get_reagent_amount("fuel") <= 0)
+	else if(reagents.get_reagent_amount(/datum/reagent/fuel) <= 0)
 		user.visible_message(\
 			"<span class='notice'>[user] pulls the cord on the [src], but nothing happens.</span>",\
 			"<span class='notice'>You pull the cord on the [src], but nothing happens.</span>",\
@@ -537,6 +544,7 @@
 	applies_material_colour = 0
 	can_embed = 0
 	drop_sound = 'sound/items/drop/woodweapon.ogg'
+	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 
 /obj/item/material/twohanded/pike/halberd
 	icon_state = "halberd0"

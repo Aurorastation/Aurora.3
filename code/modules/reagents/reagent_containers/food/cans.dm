@@ -3,6 +3,7 @@
 	amount_per_transfer_from_this = 5
 	flags = 0 //starts closed
 	drop_sound = 'sound/items/drop/soda.ogg'
+	pickup_sound = 'sound/items/pickup/soda.ogg'
 
 //DRINKS
 
@@ -11,21 +12,17 @@
 	desc = "Cola. in space."
 	icon_state = "cola"
 	center_of_mass = list("x"=16, "y"=10)
-
-/obj/item/reagent_containers/food/drinks/cans/cola/Initialize()
-	. = ..()
-	reagents.add_reagent("cola", 30)
+	reagents_to_add = list(/datum/reagent/drink/space_cola = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/waterbottle
 	name = "bottled water"
 	desc = "Introduced to the vending machines by Skrellian request, this water comes straight from the Martian poles."
 	icon_state = "waterbottle"
 	center_of_mass = list("x"=16, "y"=8)
-	drop_sound = 'sound/items/drop/food.ogg'
+	drop_sound = 'sound/items/drop/disk.ogg'
+	pickup_sound = 'sound/items/pickup/disk.ogg'
 
-/obj/item/reagent_containers/food/drinks/cans/waterbottle/Initialize()
-	. = ..()
-	reagents.add_reagent("water", 30)
+	reagents_to_add = list(/datum/reagent/water = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/space_mountain_wind
 	name = "\improper Space Mountain Wind"
@@ -33,9 +30,7 @@
 	icon_state = "space_mountain_wind"
 	center_of_mass = list("x"=16, "y"=10)
 
-/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind/Initialize()
-	. = ..()
-	reagents.add_reagent("spacemountainwind", 30)
+	reagents_to_add = list(/datum/reagent/drink/spacemountainwind = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/thirteenloko
 	name = "thirteen loko"
@@ -43,9 +38,7 @@
 	icon_state = "thirteen_loko"
 	center_of_mass = list("x"=16, "y"=10)
 
-/obj/item/reagent_containers/food/drinks/cans/thirteenloko/Initialize()
-	. = ..()
-	reagents.add_reagent("thirteenloko", 30)
+	reagents_to_add = list(/datum/reagent/alcohol/ethanol/thirteenloko = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/dr_gibb
 	name = "\improper Dr. Gibb"
@@ -53,9 +46,7 @@
 	icon_state = "dr_gibb"
 	center_of_mass = list("x"=16, "y"=10)
 
-/obj/item/reagent_containers/food/drinks/cans/dr_gibb/Initialize()
-	. = ..()
-	reagents.add_reagent("dr_gibb", 30)
+	reagents_to_add = list(/datum/reagent/drink/dr_gibb = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/starkist
 	name = "\improper Star-kist"
@@ -63,9 +54,7 @@
 	icon_state = "starkist"
 	center_of_mass = list("x"=16, "y"=10)
 
-/obj/item/reagent_containers/food/drinks/cans/starkist/Initialize()
-	. = ..()
-	reagents.add_reagent("brownstar", 30)
+	reagents_to_add = list(/datum/reagent/drink/brownstar = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/space_up
 	name = "\improper Space-Up"
@@ -73,9 +62,7 @@
 	icon_state = "space-up"
 	center_of_mass = list("x"=16, "y"=10)
 
-/obj/item/reagent_containers/food/drinks/cans/space_up/Initialize()
-	. = ..()
-	reagents.add_reagent("space_up", 30)
+	reagents_to_add = list(/datum/reagent/drink/spaceup = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/lemon_lime
 	name = "\improper Lemon-Lime"
@@ -83,9 +70,7 @@
 	icon_state = "lemon-lime"
 	center_of_mass = list("x"=16, "y"=10)
 
-/obj/item/reagent_containers/food/drinks/cans/lemon_lime/Initialize()
-	. = ..()
-	reagents.add_reagent("lemon_lime", 30)
+	reagents_to_add = list(/datum/reagent/drink/lemon_lime = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/iced_tea
 	name = "\improper Vrisk Serket iced tea"
@@ -93,19 +78,15 @@
 	icon_state = "ice_tea_can"
 	center_of_mass = list("x"=16, "y"=10)
 
-/obj/item/reagent_containers/food/drinks/cans/iced_tea/Initialize()
-	. = ..()
-	reagents.add_reagent("icetea", 30)
+	reagents_to_add = list(/datum/reagent/drink/icetea = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/grape_juice
 	name = "\improper Grapel juice"
 	desc = "500 pages of rules of how to appropriately enter into a combat with this juice!"
-	icon_state = "purple_can"
+	icon_state = "grapesoda"
 	center_of_mass = list("x"=16, "y"=10)
 
-/obj/item/reagent_containers/food/drinks/cans/grape_juice/Initialize()
-	. = ..()
-	reagents.add_reagent("grapejuice", 30)
+	reagents_to_add = list(/datum/reagent/drink/grapejuice = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/tonic
 	name = "\improper T-Borg's tonic water"
@@ -113,9 +94,7 @@
 	icon_state = "tonic"
 	center_of_mass = list("x"=16, "y"=10)
 
-/obj/item/reagent_containers/food/drinks/cans/toni/Initialize()
-	. = ..()
-	reagents.add_reagent("tonic", 50)
+	reagents_to_add = list(/datum/reagent/drink/tonic = 50)
 
 /obj/item/reagent_containers/food/drinks/cans/sodawater
 	name = "soda water"
@@ -123,9 +102,7 @@
 	icon_state = "sodawater"
 	center_of_mass = list("x"=16, "y"=10)
 
-/obj/item/reagent_containers/food/drinks/cans/sodawater/Initialize()
-	. = ..()
-	reagents.add_reagent("sodawater", 50)
+	reagents_to_add = list(/datum/reagent/drink/sodawater = 50)
 
 /obj/item/reagent_containers/food/drinks/cans/koispunch
 	name = "\improper Phoron Punch!"
@@ -133,10 +110,7 @@
 	icon_state = "phoron_punch"
 	center_of_mass = list("x"=16, "y"=8)
 
-/obj/item/reagent_containers/food/drinks/cans/koispunch/Initialize()
-	. = ..()
-	reagents.add_reagent("koispasteclean", 10)
-	reagents.add_reagent("phoron", 5)
+	reagents_to_add = list(/datum/reagent/kois/clean = 10, /datum/reagent/toxin/phoron = 5)
 
 /obj/item/reagent_containers/food/drinks/cans/root_beer
 	name = "\improper R&D Root Beer"
@@ -144,9 +118,7 @@
 	icon_state = "root_beer"
 	center_of_mass = list("x"=16, "y"=10)
 
-/obj/item/reagent_containers/food/drinks/cans/root_beer/Initialize()
-	. = ..()
-	reagents.add_reagent("root_beer", 30)
+	reagents_to_add = list(/datum/reagent/drink/root_beer = 30)
 
 //zoda
 
@@ -156,10 +128,7 @@
 	icon_state = "zoracherry"
 	center_of_mass = list("x"=16, "y"=8)
 
-/obj/item/reagent_containers/food/drinks/cans/zorasoda/Initialize()
-	. = ..()
-	reagents.add_reagent("zora_cherry", 20)
-	reagents.add_reagent("vaam", 15)
+	reagents_to_add = list(/datum/reagent/drink/zorasoda = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zorakois
 	name = "\improper Zo'ra Soda Kois Twist"
@@ -167,10 +136,7 @@
 	icon_state = "koistwist"
 	center_of_mass = list("x"=16, "y"=8)
 
-/obj/item/reagent_containers/food/drinks/cans/zorakois/Initialize()
-	. = ..()
-	reagents.add_reagent("zora_kois", 20)
-	reagents.add_reagent("vaam", 15)
+	reagents_to_add = list(/datum/reagent/drink/zorasoda/kois = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoraphoron
 	name = "\improper Zo'ra Soda Phoron Passion"
@@ -178,10 +144,7 @@
 	icon_state = "phoronpassion"
 	center_of_mass = list("x"=16, "y"=8)
 
-/obj/item/reagent_containers/food/drinks/cans/zoraphoron/Initialize()
-	. = ..()
-	reagents.add_reagent("zora_phoron", 20)
-	reagents.add_reagent("vaam", 15)
+	reagents_to_add = list(/datum/reagent/drink/zorasoda/phoron = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zorahozm
 	name = "\improper High Octane Zorane Might"
@@ -189,10 +152,7 @@
 	icon_state = "hozm"
 	center_of_mass = list("x"=16, "y"=8)
 
-/obj/item/reagent_containers/food/drinks/cans/zorahozm/Initialize()
-	. = ..()
-	reagents.add_reagent("zora_hozm", 20)
-	reagents.add_reagent("vaam", 15)
+	reagents_to_add = list(/datum/reagent/drink/zorasoda/hozm = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoravenom
 	name = "\improper Zo'ra Soda Sour Venom Grass (Diet!)"
@@ -200,10 +160,7 @@
 	icon_state = "sourvenomgrass"
 	center_of_mass = list("x"=16, "y"=8)
 
-/obj/item/reagent_containers/food/drinks/cans/zoravenom/Initialize()
-	. = ..()
-	reagents.add_reagent("zora_venom", 20)
-	reagents.add_reagent("vaam", 15)
+	reagents_to_add = list(/datum/reagent/drink/zorasoda/venomgrass = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoraklax
 	name = "\improper Klaxan Energy Crush"
@@ -211,10 +168,7 @@
 	icon_state = "klaxancrush"
 	center_of_mass = list("x"=16, "y"=8)
 
-/obj/item/reagent_containers/food/drinks/cans/zoraklax/Initialize()
-	. = ..()
-	reagents.add_reagent("zora_klax", 20)
-	reagents.add_reagent("vaam", 15)
+	reagents_to_add = list(/datum/reagent/drink/zorasoda/klax = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoracthur
 	name = "\improper C'thur Rockin' Raspberry"
@@ -222,10 +176,7 @@
 	icon_state = "cthurberry"
 	center_of_mass = list("x"=16, "y"=8)
 
-/obj/item/reagent_containers/food/drinks/cans/zoracthur/Initialize()
-	. = ..()
-	reagents.add_reagent("zora_cthur", 20)
-	reagents.add_reagent("vaam", 15)
+	reagents_to_add = list(/datum/reagent/drink/zorasoda/cthur = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoradrone
 	name = "\improper Drone Fuel"
@@ -233,10 +184,7 @@
 	icon_state = "dronefuel"
 	center_of_mass = list("x"=16, "y"=8)
 
-/obj/item/reagent_containers/food/drinks/cans/zoradrone/Initialize()
-	. = ..()
-	reagents.add_reagent("zora_drone", 30)
-	reagents.add_reagent("vaam", 10)
+	reagents_to_add = list(/datum/reagent/drink/zorasoda/drone = 30, /datum/reagent/mental/vaam = 10)
 
 /obj/item/reagent_containers/food/drinks/cans/zorajelly
 	name = "\improper Royal Jelly"
@@ -244,38 +192,27 @@
 	icon_state = "royaljelly"
 	center_of_mass = list("x"=16, "y"=8)
 
-/obj/item/reagent_containers/food/drinks/cans/zorajelly/Initialize()
-	. = ..()
-	reagents.add_reagent("zora_jelly", 30)
+	reagents_to_add = list(/datum/reagent/drink/zorasoda/jelly = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/adhomai_milk
 	name = "fermented fatshouters milk"
 	desc = "A can of fermented fatshouters milk, imported from Adhomai."
 	icon_state = "milk_can"
 	center_of_mass = list("x"=16, "y"=10)
-	description_fluff = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
+	desc_fluff = "Fermend fatshouters milk is a drink that originated among the nomadic populations of Rhazar'Hrujmagh, and it has spread to the rest of Adhomai."
 
-/obj/item/reagent_containers/food/drinks/cans/adhomai_milk/Initialize()
-	. = ..()
-	reagents.add_reagent("adhomai_milk", 30)
+	reagents_to_add = list(/datum/reagent/drink/milk/adhomai/fermented = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk
 	name = "\improper Hakhma Milk"
 	desc = "A can of Hakhma beetle milk, sourced from Scarab and Drifter communities."
 	icon_state = "beetlemilk"
 	center_of_mass = list("x"=17, "y"=10)
-
-/obj/item/reagent_containers/food/drinks/cans/beetle_milk/Initialize()
-	. = ..()
-	reagents.add_reagent("beetle_milk", 30)
+	reagents_to_add = list(/datum/reagent/drink/milk/beetle = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/dyn
 	name = "Cooling Breeze"
 	desc = "The most refreshing thing you can find on the market, based on a Skrell medicinal plant. No salt or sugar. "
 	icon_state = "dyncan"
 	center_of_mass = list("x"=16, "y"=10)
-
-/obj/item/reagent_containers/food/drinks/cans/dyn/Initialize()
-	. = ..()
-	reagents.add_reagent("dyncold", 30)
-
+	reagents_to_add = list(/datum/reagent/drink/dynjuice/cold = 30)

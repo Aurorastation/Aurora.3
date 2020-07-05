@@ -29,7 +29,7 @@
 /obj/item/slime_extract/Initialize()
 	..()
 	create_reagents(100)
-	reagents.add_reagent("slimejelly", 30)
+	reagents.add_reagent(/datum/reagent/slimejelly, 30)
 
 /obj/item/slime_extract/grey
 	name = "grey slime extract"
@@ -216,8 +216,6 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle17"
 
-var/list/global/golem_runes = list()
-
 /obj/effect/golemrune
 	anchored = TRUE
 	desc = "A strange rune used to create golems. It glows when spirits are nearby."
@@ -227,16 +225,21 @@ var/list/global/golem_runes = list()
 	unacidable = TRUE
 	layer = TURF_LAYER
 	var/wizardy = FALSE //if this rune can only be used by a wizard or not
+	var/golem_type = "Adamantine Golem"
 
 /obj/effect/golemrune/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
 	announce_to_ghosts()
-	golem_runes += src
+	SSghostroles.add_spawn_atom("golem", src)
+
+/obj/effect/golemrune/random_type/Initialize()
+	. = ..()
+	golem_type = pick(golem_types)
 
 /obj/effect/golemrune/Destroy()
-	. = ..()
-	golem_runes -= src
+	SSghostroles.remove_spawn_atom("golem", src)
+	return ..()
 
 /obj/effect/golemrune/process()
 	var/mob/abstract/observer/ghost
@@ -253,13 +256,13 @@ var/list/global/golem_runes = list()
 		icon_state = "golem"
 
 /obj/effect/golemrune/proc/spawn_golem(var/mob/user)
-	var/golem_type = "Adamantine Golem"
-
 	var/obj/item/stack/material/O = (locate(/obj/item/stack/material) in src.loc)
 	if(O?.amount >= 10)
 		if(O.material.golem)
 			golem_type = O.material.golem
 			O.use(10)
+
+	spark(get_turf(src), 10, alldirs)
 
 	var/mob/living/carbon/human/G = new(src.loc)
 

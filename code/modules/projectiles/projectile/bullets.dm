@@ -3,10 +3,11 @@
 	icon_state = "bullet"
 	damage = 60
 	damage_type = BRUTE
-	nodamage = 0
+	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
+	nodamage = FALSE
 	check_armour = "bullet"
-	embed = 1
-	sharp = 1
+	embed = TRUE
+	sharp = TRUE
 	shrapnel_type = /obj/item/material/shard/shrapnel
 	var/mob_passthrough_check = 0
 
@@ -209,6 +210,24 @@
 	damage = 50
 	weaken = 1
 
+/obj/item/projectile/bullet/rifle/slugger
+	name = "slugger round"
+	damage = 80
+	weaken = 3
+	penetrating = 5
+	armor_penetration = 15
+	maiming = TRUE
+	maim_rate = 3
+	maim_type = DROPLIMB_BLUNT
+
+/obj/item/projectile/bullet/rifle/slugger/on_hit(var/atom/movable/target, var/blocked = 0)
+	if(!istype(target))
+		return FALSE
+	var/throwdir = get_dir(firer, target)
+	target.throw_at(get_edge_target_turf(target, throwdir), 3, 3)
+	..()
+	return TRUE
+
 /obj/item/projectile/bullet/rifle/tranq
 	name = "dart"
 	icon_state = "dart"
@@ -230,22 +249,18 @@
 					if(blocked < 100 && !(blocked < 20))
 						L.emote("yawns")
 					if(blocked < 20)
-						if(L.reagents)	L.reagents.add_reagent("stoxin", 10)
+						if(L.reagents)	L.reagents.add_reagent(/datum/reagent/soporific, 10)
 				if(def_zone == BP_HEAD && blocked < 100)
-					if(L.reagents)	L.reagents.add_reagent("stoxin", 15)
+					if(L.reagents)	L.reagents.add_reagent(/datum/reagent/soporific, 15)
 				if(def_zone != "torso" && def_zone != BP_HEAD)
 					if(blocked < 100 && !(blocked < 20))
 						L.emote("yawns")
 					if(blocked < 20)
-						if(L.reagents)	L.reagents.add_reagent("stoxin", 5)
+						if(L.reagents)	L.reagents.add_reagent(/datum/reagent/soporific, 5)
 
 	if(isanimal(target))
 		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
 		L.apply_damage(35, TOX) //temporary until simple_mob paralysis actually works.
-	/*	var/mob/living/simple_animal/M = target
-		spawn(60)
-			target.visible_message("<b>[target]</b> collapses.")
-			M.Sleeping(1200)*/ //commented out until simple_mob paralysis actually works.
 	..()
 
 /* Miscellaneous */

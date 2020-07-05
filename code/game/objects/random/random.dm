@@ -153,7 +153,6 @@
 		/obj/item/storage/pill_bottle/antitox = 2,
 		/obj/item/storage/pill_bottle/tramadol = 2,
 		/obj/item/reagent_containers/syringe/dylovene = 2,
-		/obj/item/reagent_containers/syringe/antiviral = 1,
 		/obj/item/reagent_containers/syringe/norepinephrine = 2,
 		/obj/item/stack/nanopaste = 1
 	)
@@ -426,7 +425,11 @@
 		/obj/item/clothing/suit/space/void/hos = /obj/item/clothing/head/helmet/space/void/hos,
 		/obj/item/clothing/suit/space/void/lancer = /obj/item/clothing/head/helmet/space/void/lancer,
 		/obj/item/clothing/suit/space/void/sci = /obj/item/clothing/head/helmet/space/void/sci,
-		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol,
+		/obj/item/clothing/suit/space/void/hephaestus = /obj/item/clothing/head/helmet/space/void/hephaestus,
+		/obj/item/clothing/suit/space/void/zenghu = /obj/item/clothing/head/helmet/space/void/zenghu,
+		/obj/item/clothing/suit/space/void/einstein = /obj/item/clothing/head/helmet/space/void/einstein,
+		/obj/item/clothing/suit/space/void/zavodskoi = /obj/item/clothing/head/helmet/space/void/zavodskoi
 	)
 	problist = list(
 		/obj/item/clothing/suit/space/void = 2,
@@ -442,7 +445,11 @@
 		/obj/item/clothing/suit/space/void/hos = 0.3,
 		/obj/item/clothing/suit/space/void/lancer = 0.3,
 		/obj/item/clothing/suit/space/void/sci = 2,
-		/obj/item/clothing/suit/space/void/sol = 0.5
+		/obj/item/clothing/suit/space/void/sol = 0.5,
+		/obj/item/clothing/suit/space/void/zavodskoi = 0.5,
+		/obj/item/clothing/suit/space/void/einstein = 0.5,
+		/obj/item/clothing/suit/space/void/hephaestus = 0.5,
+		/obj/item/clothing/suit/space/void/zenghu = 0.5
 	)
 	has_postspawn = TRUE
 
@@ -563,7 +570,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/gin,
 		/obj/item/reagent_containers/food/drinks/bottle/whiskey,
 		/obj/item/reagent_containers/food/drinks/bottle/vodka,
-		/obj/item/reagent_containers/food/drinks/bottle/tequilla,
+		/obj/item/reagent_containers/food/drinks/bottle/tequila,
 		/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing,
 		/obj/item/reagent_containers/food/drinks/bottle/rum,
 		/obj/item/reagent_containers/food/drinks/bottle/champagne,
@@ -575,7 +582,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/melonliquor,
 		/obj/item/reagent_containers/food/drinks/bottle/pwine,
 		/obj/item/reagent_containers/food/drinks/bottle/brandy,
-		/obj/item/reagent_containers/food/drinks/bottle/guinnes,
+		/obj/item/reagent_containers/food/drinks/bottle/guinness,
 		/obj/item/reagent_containers/food/drinks/bottle/drambuie,
 		/obj/item/reagent_containers/food/drinks/bottle/cremeyvette,
 		/obj/item/reagent_containers/food/drinks/bottle/cremewhite,
@@ -634,7 +641,7 @@
 
 /obj/random/spacecash
 	name = "random credit chips"
-	desc = "This is a random credit ships."
+	desc = "This is a random credit chip."
 	icon = 'icons/obj/cash.dmi'
 	icon_state = "spacecash1"
 	problist = list(
@@ -673,12 +680,11 @@
 
 /obj/random/colored_jumpsuit
 	name = "random colored jumpsuit"
-	desc = "This is a random colowerd jumpsuit."
+	desc = "This is a random colored jumpsuit."
 	icon = 'icons/obj/clothing/uniforms.dmi'
 	icon_state = "black"
 	spawnlist = list(
 		/obj/item/clothing/under/color/black,
-		/obj/item/clothing/under/color/blackf,
 		/obj/item/clothing/under/color/blue,
 		/obj/item/clothing/under/color/green,
 		/obj/item/clothing/under/color/grey,
@@ -721,7 +727,6 @@
 		/obj/item/clothing/head/cueball = 0.25,
 		/obj/item/clothing/head/hardhat = 1.2,
 		/obj/item/clothing/head/helmet/augment = 0.1,
-		/obj/item/clothing/head/kitty = 0.2,
 		/obj/item/clothing/head/pirate = 0.2,
 		/obj/item/clothing/head/plaguedoctorhat = 0.3,
 		/obj/item/clothing/head/pumpkin/lantern = 0.4,
@@ -764,17 +769,10 @@
 		/obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen = 0.7,
 		/obj/item/clothing/suit/storage/vest = 0.2,
 		/obj/item/clothing/suit/syndicatefake = 0.6,
-		/obj/item/clothing/under/assistantformal = 0.75,
-		/obj/item/clothing/under/captain_fly = 0.5,
 		/obj/item/clothing/under/mime = 0.1,
 		/obj/item/clothing/under/overalls = 1,
 		/obj/item/clothing/under/rainbow = 0.9,
 		/obj/item/clothing/under/rank/clown = 0.1,
-		/obj/item/clothing/under/rank/dispatch = 0.8,
-		/obj/item/clothing/under/rank/mailman = 0.6,
-		/obj/item/clothing/under/rank/vice = 0.8,
-		/obj/item/clothing/under/redcoat = 0.5,
-		/obj/item/clothing/under/serviceoveralls = 0.75,
 		/obj/item/clothing/under/syndicate/tacticool = 0.4,
 		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
 		/obj/item/device/firing_pin = 0.3,
@@ -880,7 +878,8 @@
 		/obj/random/technology_scanner = 1,
 		/obj/random/tool = 1,
 		/obj/random/toolbox = 1,
-		/obj/random_produce = 0.25
+		/obj/random_produce = 0.25,
+		/obj/random/watches = 1
 	)
 
 
@@ -936,10 +935,20 @@
 		/obj/item/clothing/gloves/fyellow = 1.2,
 		/obj/item/clothing/gloves/latex = 0.5,
 		/obj/item/clothing/gloves/latex/nitrile = 0.4,
-		/obj/item/clothing/gloves/watch = 0.3,
 		/obj/item/clothing/gloves/yellow = 0.9
 	)
 
+/obj/random/watches
+	name = "random watches"
+	desc = "Random watches, probably able to tell the time."
+	icon = 'icons/obj/clothing/gloves.dmi'
+	icon_state = "watch"
+	problist = list(
+		/obj/item/clothing/gloves/watch = 1,
+		/obj/item/clothing/gloves/watch/silver = 0.7,
+		/obj/item/clothing/gloves/watch/gold = 0.5,
+		/obj/item/clothing/gloves/watch/spy = 0.3,
+	)
 
 /obj/random/hoodie
 	name = "random winter coat"
@@ -1099,7 +1108,7 @@
 		/obj/item/toy/prize/mauler						= 1,
 		/obj/item/toy/prize/odysseus					= 1,
 		/obj/item/toy/prize/phazon						= 1,
-		/obj/item/toy/waterflower						= 5,
+		/obj/item/reagent_containers/spray/waterflower						= 5,
 		/obj/random/action_figure						= 11,
 		/obj/random/plushie								= 44,
 		/obj/item/toy/cultsword							= 5,
@@ -1351,6 +1360,7 @@
 		/obj/structure/largecrate/animal/adhomai = 0.5,
 		/obj/structure/largecrate/animal/adhomai/fatshouter = 0.5,
 		/obj/structure/largecrate/animal/adhomai/rafama = 0.5,
+		/obj/structure/largecrate/animal/adhomai/schlorrgo = 0.2,
 		/obj/structure/largecrate/animal/hakhma = 0.5
 	)
 
@@ -1387,7 +1397,9 @@
 		/obj/item/flag/vaurca,
 		/obj/item/flag/vaurca/l,
 		/obj/item/flag/zenghu,
-		/obj/item/flag/zenghu/l
+		/obj/item/flag/zenghu/l,
+		/obj/item/flag/coalition,
+		/obj/item/flag/coalition/l
 	)
 
 /obj/random/gift
@@ -1549,3 +1561,14 @@
 			return pick_gun()
 
 	return W
+
+/obj/random/keg
+	name = "random alcohol keg"
+	desc = "Contains a random alcohol keg."
+	icon = 'icons/obj/reagent_dispensers.dmi'
+	icon_state = "beertankTEMP"
+	spawnlist = list(
+		/obj/structure/reagent_dispensers/keg/beerkeg = 2,
+		/obj/structure/reagent_dispensers/keg/xuizikeg =  0.5,
+		/obj/structure/reagent_dispensers/keg/mead = 0.5
+	)

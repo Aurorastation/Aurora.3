@@ -97,7 +97,7 @@
 
 /obj/item/storage/box/syndie_kit/imp_explosive
 	name = "box (E)"
-	starts_with = list(/obj/item/implanter/explosive = 1)
+	starts_with = list(/obj/item/implanter = 1, /obj/item/implant/explosive = 1)
 
 /obj/item/storage/box/syndie_kit/imp_uplink
 	name = "boxed uplink implant (with injector)"
@@ -170,31 +170,31 @@
 	..()
 	var/obj/item/storage/fancy/cigarettes/pack
 	pack = new /obj/item/storage/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list("aluminum" = 5, "potassium" = 5, "sulfur" = 5))
+	fill_cigarre_package(pack, list(/datum/reagent/aluminum = 5, /datum/reagent/potassium = 5, /datum/reagent/sulfur = 5))
 	pack.desc += " 'F' has been scribbled on it."
 
 	pack = new /obj/item/storage/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list("aluminum" = 5, "potassium" = 5, "sulfur" = 5))
+	fill_cigarre_package(pack, list(/datum/reagent/aluminum = 5, /datum/reagent/potassium = 5, /datum/reagent/sulfur = 5))
 	pack.desc += " 'F' has been scribbled on it."
 
 	pack = new /obj/item/storage/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list("potassium" = 5, "sugar" = 5, "phosphorus" = 5))
+	fill_cigarre_package(pack, list(/datum/reagent/potassium = 5, /datum/reagent/sugar = 5, /datum/reagent/phosphorus = 5))
 	pack.desc += " 'S' has been scribbled on it."
 
 	pack = new /obj/item/storage/fancy/cigarettes(src)
-	fill_cigarre_package(pack, list("potassium" = 5, "sugar" = 5, "phosphorus" = 5))
+	fill_cigarre_package(pack, list(/datum/reagent/potassium = 5, /datum/reagent/sugar = 5, /datum/reagent/phosphorus = 5))
 	pack.desc += " 'S' has been scribbled on it."
 
 	pack = new /obj/item/storage/fancy/cigarettes(src)
 	// Dylovene. Going with 1.5 rather than 1.6666666...
-	fill_cigarre_package(pack, list("potassium" = 1.5, "ammonia" = 1.5, "silicon" = 1.5))
+	fill_cigarre_package(pack, list(/datum/reagent/potassium = 1.5, /datum/reagent/ammonia = 1.5, /datum/reagent/silicon = 1.5))
 	// Mindbreaker
-	fill_cigarre_package(pack, list("silicon" = 4.5, "hydrazine" = 4.5, "dylovene" = 4.5))
+	fill_cigarre_package(pack, list(/datum/reagent/silicon = 4.5, /datum/reagent/hydrazine = 4.5, /datum/reagent/dylovene = 4.5))
 
 	pack.desc += " 'MB' has been scribbled on it."
 
 	pack = new /obj/item/storage/fancy/cigarettes(src)
-	pack.reagents.add_reagent("tricordrazine", 15 * pack.storage_slots)
+	pack.reagents.add_reagent(/datum/reagent/tricordrazine, 15 * pack.storage_slots)
 	pack.desc += " 'T' has been scribbled on it."
 
 	new /obj/item/flame/lighter/zippo(src)
@@ -210,7 +210,7 @@
 
 /obj/item/storage/box/syndie_kit/armor
 	name = "boxed armor kit"
-	starts_with = list(/obj/item/clothing/suit/storage/vest/merc = 1, /obj/item/clothing/head/helmet/merc = 1)
+	starts_with = list(/obj/item/clothing/suit/storage/vest/merc = 1, /obj/item/clothing/head/helmet/merc = 1, /obj/item/clothing/gloves/arm_guard/mercs = 1, /obj/item/clothing/shoes/leg_guard/merc = 1)
 
 /obj/item/storage/secure/briefcase/money
 	name = "suspicious briefcase"

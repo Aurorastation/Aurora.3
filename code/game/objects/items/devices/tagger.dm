@@ -11,7 +11,7 @@
 	throw_speed = 3
 	var/animaltag = null
 
-	matter = list(DEFAULT_WALL_MATERIAL = 50,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 1)
 

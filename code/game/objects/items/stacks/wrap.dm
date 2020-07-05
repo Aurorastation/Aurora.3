@@ -2,10 +2,15 @@
 	name = "wrapping paper"
 	desc = "You can use this to wrap items in."
 	icon = 'icons/obj/stacks/wrap.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_wrap.dmi',
+		slot_r_hand_str = 'icons/mob/items/stacks/righthand_wrap.dmi',
+		)
 	icon_state = "wrap_paper"
 	singular_name = "square unit"
 	amount = 20.0
 	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
 /obj/item/stack/wrapping_paper/attackby(obj/item/W, mob/user)
 	..()
@@ -80,6 +85,7 @@
 	amount = 25.0
 	var/wrapping_tag = "Sorting Office"
 	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
 /obj/item/stack/packageWrap/afterattack(var/obj/target as obj, mob/user as mob, proximity)
 	if(!proximity) return

@@ -8,6 +8,7 @@
 	S["gen_record"]          >> pref.gen_record
 	S["citizenship"]         >> pref.citizenship
 	S["religion"]            >> pref.religion
+	S["accent"]            >> pref.accent
 	S["nanotrasen_relation"] >> pref.nanotrasen_relation
 
 /datum/category_item/player_setup_item/general/background/save_character(var/savefile/S)
@@ -16,6 +17,7 @@
 	S["gen_record"]          << pref.gen_record
 	S["citizenship"]         << pref.citizenship
 	S["religion"]            << pref.religion
+	S["accent"]            << pref.accent
 	S["nanotrasen_relation"] << pref.nanotrasen_relation
 
 /datum/category_item/player_setup_item/general/background/gather_load_query()
@@ -33,7 +35,8 @@
 			"vars" = list(
 				"nt_relation" = "nanotrasen_relation",
 				"citizenship",
-				"religion"
+				"religion",
+				"accent"
 			),
 			"args" = list("id")
 		)
@@ -56,7 +59,9 @@
 		"ss13_characters" = list(
 			"nt_relation",
 			"citizenship",
-			"religion","id" = 1,
+			"religion",
+			"accent",
+			"id" = 1,
 			"ckey" = 1
 		)
 	)
@@ -70,6 +75,7 @@
 		"nt_relation" = pref.nanotrasen_relation,
 		"citizenship" = pref.citizenship,
 		"religion" = pref.religion,
+		"accent" = pref.accent,
 		"id" = pref.current_character,
 		"ckey" = PREF_CLIENT_CKEY
 	)
@@ -87,6 +93,9 @@
 	if(!(pref.religion in S.allowed_religions))
 		pref.religion	= RELIGION_NONE
 
+	if(!(pref.accent in S.allowed_accents))
+		pref.accent	=  S.default_accent
+
 	pref.nanotrasen_relation = sanitize_inlist(pref.nanotrasen_relation, COMPANY_ALIGNMENTS, initial(pref.nanotrasen_relation))
 
 /datum/category_item/player_setup_item/general/background/content(var/mob/user)
@@ -95,6 +104,7 @@
 		"[current_map.company_name] Relation: <a href='?src=\ref[src];nt_relation=1'>[pref.nanotrasen_relation]</a><br/>",
 		"Citizenship: <a href='?src=\ref[src];citizenship=1'>[pref.citizenship]</a><br/>",
 		"Religion: <a href='?src=\ref[src];religion=1'>[pref.religion]</a><br/>",
+		"Accent: <a href='?src=\ref[src];accent=1'>[pref.accent]</a><br/>",
 		"<br/><b>Records</b>:<br/>"
 	)
 
@@ -102,11 +112,11 @@
 		dat += "<span class='danger'>You are banned from using character records.</span><br>"
 	else
 		dat += "Medical Records:<br>"
-		dat += "<a href='?src=\ref[src];set_medical_records=1'>[TextPreview(pref.med_record,40)]</a><br><br>"
+		dat += "<a href='?src=\ref[src];set_medical_records=1'>[TextPreview(pref.med_record,40)]</a><a href='?src=\ref[src];clear=medical'>Clear</a><br><br>"
 		dat += "Employment Records:<br>"
-		dat += "<a href='?src=\ref[src];set_general_records=1'>[TextPreview(pref.gen_record,40)]</a><br><br>"
+		dat += "<a href='?src=\ref[src];set_general_records=1'>[TextPreview(pref.gen_record,40)]</a><a href='?src=\ref[src];clear=general'>Clear</a><br><br>"
 		dat += "Security Records:<br>"
-		dat += "<a href='?src=\ref[src];set_security_records=1'>[TextPreview(pref.sec_record,40)]</a><br>"
+		dat += "<a href='?src=\ref[src];set_security_records=1'>[TextPreview(pref.sec_record,40)]</a><a href='?src=\ref[src];clear=security'>Clear</a><br>"
 
 	. = dat.Join()
 
@@ -142,23 +152,49 @@
 		sanitize_character()
 		return TOPIC_REFRESH
 
+	else if(href_list["accent"])
+		var/choice = input(user, "Please choose an accent.", "Character Preference", pref.accent) as null|anything in S.allowed_accents
+		if(!choice || !CanUseTopic(user))
+			return TOPIC_NOACTION
+		show_accent_menu(user, choice)
+		return TOPIC_REFRESH
+
+	else if(href_list["set_accent"])
+		pref.accent = (html_decode(href_list["set_accent"]))
+		sanitize_character()
+		return TOPIC_REFRESH
+
 	else if(href_list["set_medical_records"])
 		var/new_medical = sanitize(input(user,"Enter medical information here.","Character Preference", html_decode(pref.med_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
-		if(!jobban_isbanned(user, "Records") && CanUseTopic(user))
+		if(!isnull(new_medical) && !jobban_isbanned(user, "Records") && CanUseTopic(user))
 			pref.med_record = new_medical
 		return TOPIC_REFRESH
 
 	else if(href_list["set_general_records"])
 		var/new_general = sanitize(input(user,"Enter employment information here.","Character Preference", html_decode(pref.gen_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
-		if(!jobban_isbanned(user, "Records") && CanUseTopic(user))
+		if(!isnull(new_general) && !jobban_isbanned(user, "Records") && CanUseTopic(user))
 			pref.gen_record = new_general
 		return TOPIC_REFRESH
 
 	else if(href_list["set_security_records"])
 		var/sec_medical = sanitize(input(user,"Enter security information here.","Character Preference", html_decode(pref.sec_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
-		if(!jobban_isbanned(user, "Records") && CanUseTopic(user))
+		if(!isnull(sec_medical) && !jobban_isbanned(user, "Records") && CanUseTopic(user))
 			pref.sec_record = sec_medical
 		return TOPIC_REFRESH
+
+	else if(href_list["clear"])
+		if(!jobban_isbanned(user, "Records") && CanUseTopic(user))
+			if(alert(user, "Are you sure you wish to clear the [capitalize(href_list["clear"])] record?", "Clear Record Confirmation","Yes","No") == "No")
+				return TOPIC_NOACTION
+			switch(href_list["clear"])
+				if("medical")
+					pref.med_record = ""
+				if("general")
+					pref.gen_record = ""
+				if("security")
+					pref.sec_record = ""
+			return TOPIC_REFRESH
+
 
 	return ..()
 
@@ -181,3 +217,13 @@
 		dat += "<br>[religion.description]"
 		dat += "<br><center>\[<a href='?src=\ref[src];set_religion=[html_encode(religion.name)]'>Select</a>\]</center>"
 		show_browser(user, dat.Join(), "window=religionpreview;size=400x500")
+
+/datum/category_item/player_setup_item/general/background/proc/show_accent_menu(mob/user, selected_accent)
+	var/datum/accent/accent = SSrecords.accents[selected_accent]
+
+	if(accent)
+
+		var/list/dat = list("<center><b>[accent.name]</center></b>")
+		dat += "<br>[accent.description]"
+		dat += "<br><center>\[<a href='?src=\ref[src];set_accent=[html_encode(accent.name)]'>Select</a>\]</center>"
+		show_browser(user, dat.Join(), "window=accentpreview;size=400x500")

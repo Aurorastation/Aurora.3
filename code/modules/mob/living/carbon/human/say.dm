@@ -220,7 +220,7 @@
 		var/datum/brain_trauma/trauma = T
 		if(!trauma.suppressed)
 			message = trauma.on_hear(message, verb, language, alt_name, italics, speaker)
-	..()
+	return ..()
 
 /mob/living/carbon/human/proc/handle_speech_muts(var/message, var/verb)
 	if(message)
@@ -282,13 +282,13 @@
 				var/cword = pick(words)
 				words.Remove(cword)
 				var/suffix = copytext(cword,length(cword)-1,length(cword))
-				while(length(cword)>0 && suffix in list(".",",",";","!",":","?"))
+				while(length(cword)>0 && (suffix in list(".",",",";","!",":","?")))
 					cword  = copytext(cword,1              ,length(cword)-1)
 					suffix = copytext(cword,length(cword)-1,length(cword)  )
 				if(length(cword))
 					rearranged += cword
 			message ="[prefix][jointext(rearranged," ")]"
-		if(losebreath>=5) //Gasping is a mutation, right?
+		if(losebreath >= 5) //Gasping is a mutation, right?
 			var/prefix=copytext(message,1,2)
 			if(prefix == ";")
 				message = copytext(message,2)
@@ -304,7 +304,10 @@
 					var/gasppoint = rand(2, words.len)
 					words.Cut(gasppoint)
 				words[words.len] = "[words[words.len]]..."
-				emote("gasp")
+				if(prob(50))
+					emote("gasp")
+				else
+					emote("chokes!")
 
 
 			message = "[prefix][jointext(words," ")]"

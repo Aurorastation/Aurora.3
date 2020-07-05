@@ -39,21 +39,28 @@ var/list/gear_datums = list()
 
 /datum/category_item/player_setup_item/loadout/load_character(var/savefile/S)
 	S["gear"] >> pref.gear
+	S["gear_list"] >> pref.gear_list
+	if(pref.gear_list!=null && pref.gear_slot!=null)
+		pref.gear = pref.gear_list["[pref.gear_slot]"]
+	else
+		S["gear"] >> pref.gear
 
 /datum/category_item/player_setup_item/loadout/save_character(var/savefile/S)
-	S["gear"] << pref.gear
+	pref.gear_list["[pref.gear_slot]"] = pref.gear
+	to_file(S["gear_list"], pref.gear_list)
+	to_file(S["gear_slot"], pref.gear_slot)
 
 /datum/category_item/player_setup_item/loadout/gather_load_parameters()
 	return list("id" = pref.current_character)
 
 /datum/category_item/player_setup_item/loadout/gather_load_query()
-	return list("ss13_characters" = list("vars" = list("gear"), "args" = list("id")))
+	return list("ss13_characters" = list("vars" = list("gear" = "gear_list", "gear_slot"), "args" = list("id")))
 
 /datum/category_item/player_setup_item/loadout/gather_save_query()
-	return list("ss13_characters" = list("gear", "id" = 1, "ckey" = 1))
+	return list("ss13_characters" = list("gear", "gear_slot", "id" = 1, "ckey" = 1))
 
 /datum/category_item/player_setup_item/loadout/gather_save_parameters()
-	return list("gear" = json_encode(pref.gear), "id" = pref.current_character, "ckey" = PREF_CLIENT_CKEY)
+	return list("gear" = json_encode(pref.gear_list), "gear_slot" = pref.gear_slot, "id" = pref.current_character, "ckey" = PREF_CLIENT_CKEY)
 
 /datum/category_item/player_setup_item/loadout/proc/valid_gear_choices(var/max_cost)
 	. = list()
@@ -73,18 +80,33 @@ var/list/gear_datums = list()
 /datum/category_item/player_setup_item/loadout/sanitize_character(var/sql_load = 0)
 	if (sql_load)
 		gear_reset = FALSE
-		if (istext(pref.gear))
+
+		pref.gear_slot = text2num(pref.gear_slot)
+
+		if (istext(pref.gear_list))
 			try
-				pref.gear = json_decode(pref.gear)
+				pref.gear_list = json_decode(pref.gear_list)
 			catch
 				log_debug("SQL CHARACTER LOAD: Unable to load custom loadout for client [pref.client ? pref.client.ckey : "UNKNOWN"].")
-
-				pref.gear = list()
 				gear_reset = TRUE
 
 	var/mob/preference_mob = preference_mob()
-	if(!islist(pref.gear))
-		pref.gear = list()
+
+	if(!islist(pref.gear_list))
+		pref.gear_list = list()
+
+	if(!isnull(pref.gear_slot) && islist(pref.gear_list["[pref.gear_slot]"]))
+		pref.gear = pref.gear_list["[pref.gear_slot]"]
+	else
+	// old format, try to recover it.
+		if(!islist(pref.gear_list["1"]))
+			pref.gear = pref.gear_list.Copy()
+			pref.gear_list = list("1" = pref.gear)
+			pref.gear_slot = 1
+		else
+			pref.gear = list()
+			pref.gear_list = list("1" = pref.gear)
+			pref.gear_slot = 1
 
 	for(var/gear_name in pref.gear)
 		if(!(gear_name in gear_datums))
@@ -120,7 +142,7 @@ var/list/gear_datums = list()
 	. += "<table align = 'center' width = 100%>"
 	if (gear_reset)
 		. += "<tr><td colspan=3><center><i>Your loadout failed to load and will be reset if you save this slot.</i></center></td></tr>"
-	. += "<tr><td colspan=3><center><b><font color = '[fcolor]'>[total_cost]/[MAX_GEAR_COST]</font> loadout points spent.</b> \[<a href='?src=\ref[src];clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
+	. += "<tr><td colspan=3><center><a href='?src=\ref[src];prev_slot=1'>\<\<</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='?src=\ref[src];next_slot=1'>\>\></a><b><font color = '[fcolor]'>[total_cost]/[MAX_GEAR_COST]</font> loadout points spent.</b> \[<a href='?src=\ref[src];clear_loadout=1'>Clear Loadout</a>\]</center></td></tr>"
 
 	. += "<tr><td colspan=3><center><b>"
 	var/firstcat = 1
@@ -217,6 +239,32 @@ var/list/gear_datums = list()
 			return TOPIC_NOACTION
 		set_tweak_metadata(gear, tweak, metadata)
 		return TOPIC_REFRESH
+
+	if(href_list["next_slot"] || href_list["prev_slot"])
+		//Set the current slot in the gear list to the currently selected gear
+		pref.gear_list["[pref.gear_slot]"] = pref.gear
+
+		//If we're moving up a slot..
+		if(href_list["next_slot"])
+			//change the current slot number
+			pref.gear_slot = pref.gear_slot+1
+			if(pref.gear_slot > config.loadout_slots)
+				pref.gear_slot = 1
+		//If we're moving down a slot..
+		else if(href_list["prev_slot"])
+			//change current slot one down
+			pref.gear_slot = pref.gear_slot-1
+			if(pref.gear_slot < 1)
+				pref.gear_slot = config.loadout_slots
+		// Set the currently selected gear to whatever's in the new slot
+		if(pref.gear_list["[pref.gear_slot]"])
+			pref.gear = pref.gear_list["[pref.gear_slot]"]
+		else
+			pref.gear = list()
+			pref.gear_list["[pref.gear_slot]"] = list()
+		// Refresh?
+		return TOPIC_REFRESH
+
 	else if(href_list["select_category"])
 		current_tab = href_list["select_category"]
 		return TOPIC_REFRESH
@@ -236,13 +284,20 @@ var/list/gear_datums = list()
 	var/faction            //Is this item whitelisted for a faction?
 	var/sort_category = "General"
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
+	var/flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+	var/augment = FALSE
 
 /datum/gear/New()
 	..()
 	if(!description)
 		var/obj/O = path
 		description = initial(O.desc)
-	gear_tweaks = list(gear_tweak_free_name, gear_tweak_free_desc)
+	if(flags & GEAR_HAS_COLOR_SELECTION)
+		gear_tweaks += list(gear_tweak_free_color_choice)
+	if(flags & GEAR_HAS_NAME_SELECTION)
+		gear_tweaks += list(gear_tweak_free_name)
+	if(flags & GEAR_HAS_DESC_SELECTION)
+		gear_tweaks += list(gear_tweak_free_desc)
 
 /datum/gear_data
 	var/path

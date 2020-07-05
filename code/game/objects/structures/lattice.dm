@@ -1,13 +1,14 @@
 /obj/structure/lattice
 	name = "lattice"
 	desc = "A lightweight support lattice."
+	desc_info = "Add a metal floor tile to build a floor on top of the lattice.<br>\
+	Lattices can be made by applying metal rods to a space tile."
 	icon = 'icons/obj/smooth/lattice.dmi'
 	icon_state = "lattice"
 	density = FALSE
 	anchored = TRUE
-	w_class = 3
-	layer = 2.3 //under pipes
-	//	flags = CONDUCT
+	w_class = ITEMSIZE_NORMAL
+	layer = UNDER_PIPE_LAYER //under pipes
 	var/restrict_placement = TRUE
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(
@@ -66,6 +67,7 @@
 	icon_state = "catwalk"
 	smooth = TRUE
 	canSmoothWith = null
+	var/return_amount = 3
 
 // Special catwalk that can be placed on regular flooring.
 /obj/structure/lattice/catwalk/indoor
@@ -80,7 +82,9 @@
 		if (do_after(user, 5/C.toolspeed, act_target = src) && WT.remove_fuel(1, user))
 			to_chat(user, "<span class='notice'>You slice apart [src].</span>")
 			playsound(src, 'sound/items/Welder.ogg', 50, 1)
-			new /obj/item/stack/rods{amount = 3}(loc)
+			var/obj/item/stack/rods/R = new /obj/item/stack/rods(get_turf(src))
+			R.amount = return_amount
+			R.update_icon()
 			qdel(src)
 
 /obj/structure/lattice/catwalk/indoor/attackby(obj/item/C, mob/user)
@@ -104,6 +108,7 @@
 	desc = "A metal grate."
 	icon = 'icons/obj/grate.dmi'
 	icon_state = "grate_dark"
+	return_amount = 1
 	smooth = null
 	var/base_icon_state = "grate_dark"
 	var/damaged = FALSE
@@ -122,6 +127,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/light
 	icon_state = "grate_light"
 	base_icon_state = "grate_light"
+	return_amount = 1
 
 /obj/structure/lattice/catwalk/indoor/grate/light/old
 	icon_state = "grate_light_old"

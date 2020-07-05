@@ -10,10 +10,14 @@
 	name = "syringe"
 	desc = "A syringe."
 	icon = 'icons/obj/syringe.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
 	item_state = "syringe_0"
 	icon_state = "0"
 	center_of_mass = list("x" = 16,"y" = 14)
-	matter = list("glass" = 150)
+	matter = list(MATERIAL_GLASS = 150)
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = null
 	volume = 15
@@ -32,13 +36,13 @@
 	var/time = 30
 	center_of_mass = null
 	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/reagent_containers/syringe/Initialize()
 	. = ..()
 	update_icon()
 
 /obj/item/reagent_containers/syringe/Destroy()
-	LAZYCLEARLIST(viruses)
 	LAZYCLEARLIST(targets)
 	return ..()
 
@@ -59,24 +63,11 @@
 	//Just once!
 	targets |= WEAKREF(target)
 
-	//Grab any viruses they have
-	var/datum/disease2/disease/virus
-	if(LAZYLEN(target.virus2.len))
-		LAZYINITLIST(viruses)
-		virus = pick(target.virus2.len)
-		viruses += virus.getcopy()
-
 	//Dirtiness should be very low if you're the first injectee. If you're spam-injecting 4 people in a row around you though,
 	//This gives the last one a 30% chance of infection.
 	if(prob(dirtiness+(targets.len-1)*10))
 		log_and_message_admins("[loc] infected [target]'s [eo.name] with \the [src].")
-		addtimer(CALLBACK(src, .proc/infect_limb), rand(5 MINUTES, 10 MINUTES))
-
-	//75% chance to spread a virus if we have one
-	if(LAZYLEN(viruses) && prob(75))
-		var/newvir = pick(viruses - virus)
-		var/datum/disease2/disease/newvirus = viruses[newvir]
-		infect_virus2(target,newvirus.getcopy())
+		addtimer(CALLBACK(src, .proc/infect_limb, eo), rand(5 MINUTES, 10 MINUTES))
 
 	if(!used)
 		START_PROCESSING(SSprocessing, src)
@@ -158,7 +149,7 @@
 				return
 
 			if(ismob(target))//Blood!
-				if(reagents.has_reagent("blood"))
+				if(reagents.has_reagent(/datum/reagent/blood))
 					to_chat(user, span("notice", "There is already a blood sample in this syringe."))
 					return
 				if(istype(target, /mob/living/carbon))
@@ -403,77 +394,58 @@
 /obj/item/reagent_containers/syringe/norepinephrine
 	name = "Syringe (norepinephrine)"
 	desc = "Contains norepinephrine - used to stabilize patients."
-	
-/obj/item/reagent_containers/syringe/norepinephrine/Initialize()
-	. = ..()
-	reagents.add_reagent("norepinephrine", 15)
-	mode = SYRINGE_INJECT
-	update_icon()
+	reagents_to_add = list(/datum/reagent/norepinephrine = 15)
 
-/obj/item/reagent_containers/syringe/inaprovaline
-	name = "Syringe (inaprovaline)"
-	desc = "Contains inaprovaline - used to stabilize patients."
-	
 /obj/item/reagent_containers/syringe/norepinephrine/Initialize()
 	. = ..()
-	reagents.add_reagent("inaprovaline", 15)
 	mode = SYRINGE_INJECT
 	update_icon()
 
 /obj/item/reagent_containers/syringe/dylovene
 	name = "Syringe (dylovene)"
 	desc = "Contains anti-toxins."
-	
+	reagents_to_add = list(/datum/reagent/dylovene = 15)
+
 /obj/item/reagent_containers/syringe/dylovene/Initialize()
 	. = ..()
-	reagents.add_reagent("dylovene", 15)
-	mode = SYRINGE_INJECT
-	update_icon()
-
-/obj/item/reagent_containers/syringe/antiviral
-	name = "Syringe (deltamivir)"
-	desc = "Contains antiviral agents."
-
-/obj/item/reagent_containers/syringe/antiviral/Initialize()
-	. = ..()
-	reagents.add_reagent("deltamivir", 15)
 	mode = SYRINGE_INJECT
 	update_icon()
 
 /obj/item/reagent_containers/syringe/antibiotic
 	name = "Syringe (thetamycin)"
 	desc = "Contains antibiotics."
+	reagents_to_add = list(/datum/reagent/thetamycin = 15)
 
 /obj/item/reagent_containers/syringe/antibiotic/Initialize()
 	. = ..()
-	reagents.add_reagent("thetamycin", 15)
 	mode = SYRINGE_INJECT
 	update_icon()
 
 /obj/item/reagent_containers/syringe/drugs
 	name = "Syringe (drugs)"
 	desc = "Contains aggressive drugs meant for torture."
+	reagents_to_add = list(/datum/reagent/toxin/panotoxin = 5, /datum/reagent/mindbreaker = 10)
 
 /obj/item/reagent_containers/syringe/drugs/Initialize()
 	. = ..()
-	reagents.add_reagent("panotoxin",  5)
-	reagents.add_reagent("mindbreaker",  10)
 	mode = SYRINGE_INJECT
 	update_icon()
 
 /obj/item/reagent_containers/syringe/calomel
 	name = "Syringe (calomel)"
 	desc = "Contains purging medicine."
+	reagents_to_add = list(/datum/reagent/calomel = 15)
 
 /obj/item/reagent_containers/syringe/calomel/Initialize()
 	. = ..()
-	reagents.add_reagent("calomel",  15)
 	mode = SYRINGE_INJECT
 	update_icon()
 
 
+/obj/item/reagent_containers/syringe/ld50_syringe/chloral
+	reagents_to_add = list(/datum/reagent/chloralhydrate = 60)
+
 /obj/item/reagent_containers/syringe/ld50_syringe/chloral/Initialize()
 	. = ..()
-	reagents.add_reagent("chloralhydrate", 60)
 	mode = SYRINGE_INJECT
 	update_icon()

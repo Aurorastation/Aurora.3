@@ -1,12 +1,13 @@
 /datum/job/chief_engineer
 	title = "Chief Engineer"
 	flag = CHIEF
-	head_position = 1
+	head_position = TRUE
 	department = "Engineering"
 	department_flag = ENGSEC
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
+	intro_prefix = "the"
 	supervisors = "the captain"
 	selection_color = "#FFD737"
 	economic_modifier = 10
@@ -27,7 +28,7 @@
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/chief_engineer
 
-	blacklisted_species = list("Off-Worlder Human", "M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
+	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/chief_engineer
 	name = "Chief Engineer"
@@ -40,6 +41,7 @@
 	id = /obj/item/card/id/navy
 	shoes = /obj/item/clothing/shoes/workboots
 	l_ear = /obj/item/device/radio/headset/heads/ce
+	r_pocket = /obj/item/device/t_scanner
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel_eng
@@ -47,9 +49,7 @@
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 	belt_contents = list(
-		/obj/item/screwdriver = 1,
-		/obj/item/wrench = 1,
-		/obj/item/weldingtool = 1,
+		/obj/item/weldingtool/largetank = 1, // industrial welding tool
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
 		/obj/item/stack/cable_coil/random = 1,
@@ -81,7 +81,6 @@
 
 	access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction, access_atmospherics)
 	minimal_access = list(access_eva, access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_external_airlocks, access_construction)
-	alt_titles = list("Maintenance Technician","Engine Technician","Electrician")
 	outfit = /datum/outfit/job/engineer
 
 /datum/outfit/job/engineer
@@ -103,8 +102,6 @@
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 	belt_contents = list(
-		/obj/item/screwdriver = 1,
-		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
@@ -120,6 +117,7 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 2
+	intro_prefix = "an"
 	supervisors = "the chief engineer"
 	selection_color = "#FFEA95"
 	economic_modifier = 5
@@ -147,12 +145,12 @@
 	messengerbag = /obj/item/storage/backpack/messenger/engi
 
 	belt_contents = list(
-		/obj/item/screwdriver = 1,
-		/obj/item/wrench = 1,
 		/obj/item/weldingtool = 1,
 		/obj/item/crowbar = 1,
 		/obj/item/wirecutters = 1,
 		/obj/item/device/t_scanner = 1,
+		/obj/item/device/analyzer = 1,
+		/obj/item/pipewrench = 1,
 		/obj/item/powerdrill = 1
 	)
 
@@ -163,11 +161,14 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
+	intro_prefix = "an"
 	supervisors = "the Chief Engineer"
 	selection_color = "#FFEA95"
 	access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
 	minimal_access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)
 	outfit = /datum/outfit/job/intern_eng
+
+	minimum_character_age = 18
 
 /datum/outfit/job/intern_eng
 	name = "Engineering Apprentice"
@@ -176,7 +177,16 @@
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice
 	shoes = /obj/item/clothing/shoes/orange
 	head = /obj/item/clothing/head/beret/engineering
+	belt = /obj/item/storage/belt/utility
 	l_ear = /obj/item/device/radio/headset/headset_eng
+
+	belt_contents = list(
+		/obj/item/weldingtool = 1,
+		/obj/item/crowbar = 1,
+		/obj/item/wirecutters = 1,
+		/obj/item/stack/cable_coil/random = 1,
+		/obj/item/powerdrill = 1
+	)
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel_eng

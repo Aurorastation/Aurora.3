@@ -4,6 +4,7 @@
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	damage = 30
 	damage_type = BURN
+	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_LASER_MEAT, BULLET_IMPACT_METAL = SOUNDS_LASER_METAL)
 	check_armour = "laser"
 	eyeblur = 4
 	damage_flags = DAM_LASER
@@ -281,12 +282,8 @@
 	name = "diffuse laser"
 	icon_state = "laser"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	damage = 15
+	damage = 20
 	eyeblur = 4
-
-	muzzle_type = /obj/effect/projectile/muzzle/laser
-	tracer_type = /obj/effect/projectile/tracer/laser
-	impact_type = /obj/effect/projectile/impact/laser
 
 /obj/item/projectile/beam/megaglaive
 	name = "thermal lance"

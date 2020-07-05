@@ -1,15 +1,15 @@
 
-#define evolve_nutrition 4000 //when a nymph gathers this much nutrition, it can evolve into a gestalt
+#define evolve_nutrition 5000 //when a nymph gathers this much nutrition, it can evolve into a gestalt
 
 //Diona time variables, these differ slightly between a gestalt and a nymph. All values are times in seconds
 /mob/living/carbon/alien/diona
-	max_nutrition = 6000
+	max_nutrition = 5000
 	language = null
 	mob_size = 4
 	density = 0
 	mouth_size = 2 //how large of a creature it can swallow at once, and how big of a bite it can take out of larger things
 	eat_types = 0 //This is a bitfield which must be initialised in New(). The valid values for it are in devour.dm
-	composition_reagent = "nutriment" //Dionae are plants, so eating them doesn't give animal protein
+	composition_reagent = /datum/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
 	name = "diona nymph"
 	voice_name = "diona nymph"
 	adult_form = /mob/living/carbon/human
@@ -22,7 +22,8 @@
 	holder_type = /obj/item/holder/diona
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/dionanymph
 	meat_amount = 2
-	maxHealth = 85
+	maxHealth = 50
+	health = 50
 	pass_flags = PASSTABLE
 
 	// Decorative head flower.
@@ -172,7 +173,6 @@
 
 	icon_state = lowertext(species.name)
 	species.handle_post_spawn(src)
-	maxHealth = species.total_health
 
 	regenerate_icons()
 	make_blood()
@@ -194,23 +194,20 @@
 	vessel = new/datum/reagents(600)
 	vessel.my_atom = src
 
-	vessel.add_reagent("blood", 560)
+	vessel.add_reagent(/datum/reagent/blood, 560)
 	fixblood()
 
 /mob/living/carbon/alien/diona/proc/fixblood()
 	for(var/datum/reagent/blood/B in vessel.reagent_list)
-		if(B.id == "blood")
+		if(B.type == /datum/reagent/blood)
 			B.data = list(
 				"donor" = WEAKREF(src),
-				"viruses" = null,
 				"species" = species.name,
 				"blood_DNA" = name,
 				"blood_colour" = species.blood_color,
 				"blood_type" = null,
 				"resistances" = null,
-				"trace_chem" = null,
-				"virus2" = null,
-				"antibodies" = list()
+				"trace_chem" = null
 			)
 			B.color = B.data["blood_colour"]
 
@@ -247,6 +244,7 @@
 		verbs -= /mob/living/carbon/alien/diona/proc/merge
 		verbs -= /mob/living/carbon/proc/absorb_nymph
 		verbs -= /mob/living/carbon/alien/diona/proc/sample
+		verbs -= /mob/living/carbon/alien/diona/proc/remove_hat
 		verbs |= /mob/living/carbon/alien/diona/proc/split
 	else
 		verbs |= /mob/living/carbon/alien/diona/proc/merge
@@ -255,6 +253,7 @@
 		verbs |= /mob/living/proc/ventcrawl
 		verbs |= /mob/living/proc/hide
 		verbs |= /mob/living/carbon/alien/diona/proc/sample
+		verbs |= /mob/living/carbon/alien/diona/proc/remove_hat
 		verbs -= /mob/living/carbon/alien/diona/proc/split // we want to remove this one
 
 	verbs -= /mob/living/carbon/alien/verb/evolve //We don't want the old alien evolve verb
@@ -300,9 +299,7 @@
 					sleeping = max(sleeping-1, 0)
 			blinded = TRUE
 			stat = UNCONSCIOUS
-		else if(resting)
-			// insert dial up tone
-		else
+		else if(!resting)
 			stat = CONSCIOUS
 
 		// Eyes and blindness.
@@ -364,3 +361,10 @@
 		else
 			user.visible_message(span("warning", "[user] butchers \the [src] messily!"))
 			gib()
+
+
+
+/mob/living/carbon/alien/diona/adjustBruteLoss(var/amount)
+	if (status_flags & GODMODE)
+		return
+	health = min(health - amount, maxHealth)

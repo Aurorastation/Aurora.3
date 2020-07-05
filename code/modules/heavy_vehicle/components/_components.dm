@@ -9,11 +9,11 @@
 	var/total_damage = 0
 	var/brute_damage = 0
 	var/burn_damage = 0
-	var/max_damage = 60
+	var/max_damage = 120
 	var/damage_state = 1
 	var/list/has_hardpoints = list()
 	var/power_use = 0
-	matter = list(DEFAULT_WALL_MATERIAL = 15000, "plastic" = 1000, "osmium" = 500)
+	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_PLASTIC = 1000, MATERIAL_OSMIUM = 500)
 	dir = SOUTH
 
 /obj/item/mech_component/pickup(mob/user)

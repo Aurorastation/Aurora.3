@@ -1,11 +1,16 @@
 /obj/item/material/kitchen
 	icon = 'icons/obj/kitchen.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_kitchen.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',
+		)
 
 /*
  * Utensils
  */
 /obj/item/material/kitchen/utensil
 	drop_sound = 'sound/items/drop/knife.ogg'
+	pickup_sound = 'sound/items/pickup/knife.ogg'
 	w_class = 1
 	thrown_force_divisor = 1
 	origin_tech = list(TECH_MATERIAL = 1)
@@ -72,7 +77,7 @@
 	sharp = TRUE
 
 /obj/item/material/kitchen/utensil/fork/plastic
-	default_material = "plastic"
+	default_material = MATERIAL_PLASTIC
 
 /obj/item/material/kitchen/utensil/spoon
 	name = "spoon"
@@ -82,7 +87,7 @@
 	force_divisor = 0.1 //2 when wielded with weight 20 (steel)
 
 /obj/item/material/kitchen/utensil/spoon/plastic
-	default_material = "plastic"
+	default_material = MATERIAL_PLASTIC
 
 /*
  * Knives
@@ -115,7 +120,7 @@
 	return ..()
 
 /obj/item/material/kitchen/utensil/knife/plastic
-	default_material = "plastic"
+	default_material = MATERIAL_PLASTIC
 
 /*
  * Rolling Pins
@@ -130,6 +135,7 @@
 	force_divisor = 0.7 // 10 when wielded with weight 15 (wood)
 	thrown_force_divisor = 1 // as above
 	drop_sound = 'sound/items/drop/wooden.ogg'
+	pickup_sound = 'sound/items/pickup/wooden.ogg'
 
 /obj/item/material/kitchen/rollingpin/attack(mob/living/M, mob/living/user, var/target_zone)
 	if ((user.is_clumsy()) && prob(50))

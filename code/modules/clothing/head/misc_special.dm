@@ -4,7 +4,6 @@
  *		Cakehat
  *		Ushanka
  *		Pumpkin head
- *		Kitty ears
  *		Chicken mask
  *		Warning cone
  */
@@ -21,7 +20,7 @@
 		slot_l_hand_str = "welding",
 		slot_r_hand_str = "welding"
 		)
-	matter = list(DEFAULT_WALL_MATERIAL = 3000, "glass" = 1000)
+	matter = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_GLASS = 1000)
 	var/up = 0
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
 	flags_inv = (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
@@ -33,9 +32,12 @@
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi'
+		"Vox" = 'icons/mob/species/vox/head.dmi',
+		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
+		"Unathi" = 'icons/mob/species/unathi/helmet.dmi'
 		)
 	drop_sound = 'sound/items/drop/helm.ogg'
+	pickup_sound = 'sound/items/pickup/helm.ogg'
 
 /obj/item/clothing/head/welding/attack_self()
 	if(!base_state)
@@ -152,6 +154,7 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
 	w_class = 3
 	throwforce = 1
 	throw_speed = 0.5
@@ -194,7 +197,7 @@
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
 			light()
 			to_chat(user, span("notice", "\The [user] casually lights \the [name] with [W]."))
-	else if(isflamesource(W))
+	else if(W.isFlameSource())
 		light()
 		to_chat(user, span("notice", "\The [user] lights \the [name]."))
 	else if(istype(W, /obj/item/flame/candle))
@@ -239,32 +242,6 @@
 		set_light(0)
 
 /*
- * Kitty ears
- */
-/obj/item/clothing/head/kitty
-	name = "kitty ears"
-	desc = "A pair of kitty ears. Meow!"
-	icon_state = "kitty"
-	siemens_coefficient = 1.5
-	item_icons = list()
-
-/obj/item/clothing/head/kitty/equipped(mob/living/carbon/human/user, slot)
-	. = ..()
-	if (slot == slot_head && istype(user))
-		var/hairgb = rgb(user.r_hair, user.g_hair, user.b_hair)
-		var/icon/blended = SSicon_cache.kitty_ear_cache[hairgb]
-		if (!blended)
-			blended = icon('icons/mob/head.dmi', "kitty")
-			blended.Blend(hairgb, ICON_ADD)
-			blended.Blend(icon('icons/mob/head.dmi', "kittyinner"), ICON_OVERLAY)
-
-			SSicon_cache.kitty_ear_cache[hairgb] = blended
-
-		icon_override = blended
-	else if (icon_override)
-		icon_override = null
-
-/*
  * Chicken mask
  */
 
@@ -282,10 +259,11 @@
 /obj/item/clothing/head/cone
 	name = "warning cone"
 	desc = "This cone is trying to warn you of something!"
-	description_info = "It looks like you can wear it in your head slot."
+	desc_info = "It looks like you can wear it in your head slot."
 	icon_state = "cone"
 	item_state = "cone"
 	drop_sound = 'sound/items/drop/shoes.ogg'
+	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	force = 1
 	throwforce = 3
 	throw_speed = 2

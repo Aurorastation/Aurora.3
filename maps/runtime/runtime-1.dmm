@@ -23,8 +23,8 @@
 "ag" = (
 /obj/machinery/power/rtg/advanced,
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/airless,
 /area/template_noop)
@@ -36,7 +36,6 @@
 /area/engineering/gravity_gen)
 "aj" = (
 /obj/machinery/alarm{
-	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},
@@ -72,7 +71,6 @@
 /area/template_noop)
 "an" = (
 /obj/machinery/alarm{
-	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},
@@ -102,7 +100,6 @@
 /area/engineering)
 "aq" = (
 /obj/machinery/alarm{
-	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},
@@ -127,12 +124,12 @@
 	pixel_y = 25
 	},
 /obj/structure/cable{
-	icon_state = "0-8";
-	d2 = 8
+	d2 = 8;
+	icon_state = "0-8"
 	},
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -249,8 +246,8 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	icon_state = "0-8";
-	d2 = 8
+	d2 = 8;
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/gravity_gen)
@@ -281,9 +278,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	dir = 2
-	},
+/turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "aK" = (
 /obj/machinery/atmospherics/binary/pump{
@@ -396,9 +391,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	dir = 2
-	},
+/turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "aY" = (
 /obj/machinery/atmospherics/binary/pump{
@@ -570,7 +563,6 @@
 	d2 = 2
 	},
 /obj/machinery/alarm{
-	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},
@@ -598,7 +590,6 @@
 /area/hallway/primary/central_one)
 "bD" = (
 /obj/machinery/alarm{
-	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},
@@ -680,7 +671,6 @@
 /area/hallway/primary/central_one)
 "bQ" = (
 /obj/machinery/alarm{
-	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},
@@ -1140,7 +1130,6 @@
 /area/storage/primary)
 "cT" = (
 /obj/machinery/alarm{
-	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},
@@ -1151,7 +1140,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -1159,7 +1147,6 @@
 "cU" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -1176,7 +1163,6 @@
 /area/construction)
 "cX" = (
 /obj/machinery/alarm{
-	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},

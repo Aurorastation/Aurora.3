@@ -46,8 +46,8 @@
 /turf/simulated/floor/holofloor/lino
 	name = "lino"
 	icon = 'icons/turf/flooring/linoleum.dmi'
-	icon_state = "lino"
-	initial_flooring = /decl/flooring/linoleum
+	icon_state = "lino_grey"
+	initial_flooring = /decl/flooring/linoleum/grey
 
 /turf/simulated/floor/holofloor/wood
 	name = "wooden floor"
@@ -308,6 +308,7 @@
 	desc = "Here's your chance, do your dance at the Space Jam."
 	w_class = 4 //Stops people from hiding it in their bags/pockets
 	drop_sound = 'sound/items/drop/basketball.ogg'
+	pickup_sound = 'sound/items/pickup/basketball.ogg'
 
 /obj/structure/holohoop
 	name = "basketball hoop"

@@ -19,8 +19,8 @@
 	var/const/ROOM_ERR_SPACE = -1
 	var/const/ROOM_ERR_TOOLARGE = -2
 
-/obj/item/blueprints/attack_self(mob/user as mob)
-	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
+/obj/item/blueprints/attack_self(mob/user)
+	if(use_check_and_message(user, USE_DISALLOW_SILICONS))
 		return
 	add_fingerprint(user)
 	interact()
@@ -28,13 +28,13 @@
 
 /obj/item/blueprints/Topic(href, href_list)
 	..()
-	if ((usr.restrained() || usr.stat || usr.get_active_hand() != src))
+	if(use_check_and_message(usr, USE_DISALLOW_SILICONS) || usr.get_active_hand() != src)
 		return
-	if (!href_list["action"])
+	if(!href_list["action"])
 		return
 	switch(href_list["action"])
 		if ("create_area")
-			if (get_area_type()!=AREA_SPACE)
+			if(get_area_type() != AREA_SPACE)
 				interact()
 				return
 			create_area()
@@ -172,7 +172,7 @@ move an amendment</a> to the drawing.</p>
 		CHECK_TICK
 
 /obj/item/blueprints/proc/check_tile_is_border(var/turf/T2,var/dir)
-	if (istype(T2, /turf/space))
+	if (istype(T2, /turf/space) || istype(T2, /turf/unsimulated/floor/asteroid))
 		return BORDER_SPACE //omg hull breach we all going to die here
 	if (get_area_type(T2.loc)!=AREA_SPACE)
 		return BORDER_BETWEEN

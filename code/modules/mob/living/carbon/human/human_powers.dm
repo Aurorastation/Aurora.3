@@ -5,7 +5,7 @@
 	set name = "Tie Hair"
 	set desc = "Style your hair."
 	set category = "IC"
-	
+
 	if(!use_check_and_message())
 		to_chat(src, span("warning", "You can't tie your hair when you are incapacitated!"))
 		return
@@ -203,7 +203,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	last_special = world.time + 50
 
-	visible_message("<span class='warning'><b>\The [src]</b> rips viciously at \the [G.affecting]'s body with its claws!</span>")
+	visible_message("<span class='warning'><b>[src]</b> rips viciously at \the [G.affecting]'s body with its claws!</span>")
 
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
@@ -337,43 +337,50 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "While grabbing someone aggressively, tear into them with your mandibles."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='warning'>Your mandibles still ache!</span>")
+		to_chat(src, SPAN_WARNING("Your mandibles still ache!"))
 		return
 
-	if(stat || paralysis || stunned || weakened || lying)
-		to_chat(src, "<span class='warning'>You cannot do that in your current state.</span>")
+	if(use_check_and_message(usr))
+		return
+
+	if(wear_mask?.flags_inv & HIDEFACE)
+		to_chat(src, SPAN_WARNING("You have a mask covering your mandibles!"))
+		return
+
+	if(head?.flags_inv & HIDEFACE)
+		to_chat(src, SPAN_WARNING("You have something on your head covering your mandibles!"))
 		return
 
 	var/obj/item/grab/G = locate() in src
 	if(!G || !istype(G))
-		to_chat(src, "<span class='warning'>You are not grabbing anyone.</span>")
+		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
 		return
 
-	if(G.state < GRAB_AGGRESSIVE)
-		to_chat(src, "<span class='warning'>You must have an aggressive grab to gut your prey!</span>")
+	if(G.state < GRAB_KILL)
+		to_chat(src, SPAN_WARNING("You must have a strangling grip to bite someone!"))
 		return
 
-	if(istype(G.affecting,/mob/living/carbon/human))
+	if(ishuman(G.affecting))
 		var/mob/living/carbon/human/H = G.affecting
 		var/hit_zone = zone_sel.selecting
 		var/obj/item/organ/external/affected = H.get_organ(hit_zone)
 
 		if(!affected || affected.is_stump())
-			to_chat(H, "<span class='danger'>They are missing that limb!</span>")
+			to_chat(H, SPAN_WARNING("They are missing that limb!"))
 			return
 
-		H.apply_damage(25, BRUTE, hit_zone, sharp = 1, edge = 1)
-		visible_message("<span class='warning'><b>\The [src]</b> rips viciously at \the [G.affecting]'s [affected] with its mandibles!</span>")
+		H.apply_damage(25, BRUTE, hit_zone, damage_flags = DAM_SHARP|DAM_EDGE)
+		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s [affected] with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M))
 			return
-		M.apply_damage(25,BRUTE, sharp=1, edge=1)
-		visible_message("<span class='warning'><b>\The [src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!</span>")
+		M.apply_damage(25, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE)
+		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
-	playsound(src.loc, 'sound/weapons/slash.ogg', 50, 1)
-	last_special = world.time + 25
+	playsound(get_turf(src), 'sound/weapons/slash.ogg', 50, TRUE)
+	last_special = world.time + 100
 
 /mob/living/carbon/human/proc/detonate_flechettes()
 	set category = "Military Frame"
@@ -569,7 +576,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	last_special = world.time + 30
 
-	visible_message("<span class='warning'><b>\The [src]</b> launches a spine-quill at [target]!</span>")
+	visible_message("<span class='warning'><b>[src]</b> launches a spine-quill at [target]!</span>")
 
 	src.apply_damage(10,BRUTE)
 	playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
@@ -843,7 +850,7 @@ mob/living/carbon/human/proc/change_monitor()
 			D.create_reagents(200)
 			if(!src)
 				return
-			D.reagents.add_reagent("greekfire", 200)
+			D.reagents.add_reagent(/datum/reagent/fuel/napalm, 200)
 			D.set_color()
 			D.set_up(my_target, rand(6,8), 1, 50)
 	return
@@ -888,7 +895,7 @@ mob/living/carbon/human/proc/change_monitor()
 			adjustBruteLoss(-10*O.amount)
 			adjustFireLoss(-10*O.amount)
 			if(!(species.flags & NO_BLOOD))
-				vessel.add_reagent("blood",20*O.amount)
+				vessel.add_reagent(/datum/reagent/blood,20*O.amount)
 			qdel(O)
 			last_special = world.time + 50
 
@@ -921,7 +928,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 		var/mob/living/carbon/human/G = new(src.loc)
 		G.key = O.brainmob.key
-		addtimer(CALLBACK(G, /mob/living/carbon/human.proc/set_species, O.dna.species), 0)
+		INVOKE_ASYNC(G, /mob/living/carbon/human.proc/set_species, O.dna.species)
 		to_chat(src,"<span class='notice'>You blow life back in \the [O], returning its past owner to life!</span>")
 		qdel(O)
 		last_special = world.time + 200
@@ -1053,6 +1060,23 @@ mob/living/carbon/human/proc/change_monitor()
 				output += "[IO.name] - <span style='color:green;'>OK</span>\n"
 
 		to_chat(src, output)
+
+/mob/living/carbon/human/proc/check_tag()
+	set name = "Check Tag"
+	set desc = "Run diagnostics on your tag to display its information."
+	set category = "Abilities"
+
+	if(use_check_and_message(usr))
+		return
+
+	var/obj/item/organ/internal/ipc_tag/tag = internal_organs_by_name[BP_IPCTAG]
+	if(isnull(tag) || !tag)
+		to_chat(src, SPAN_WARNING("Error: No Tag Found."))
+		return
+	to_chat(src, SPAN_NOTICE("[capitalize_first_letters(tag.name)]:"))
+	to_chat(src, SPAN_NOTICE("<b>Serial Number:</b> [tag.serial_number]"))
+	to_chat(src, SPAN_NOTICE("<b>Ownership Status:</b> [tag.ownership_info]"))
+	to_chat(src, SPAN_NOTICE("<b>Citizenship Info:</b> [tag.citizenship_info]"))
 
 /mob/living/carbon/human/proc/sonar_ping()
 	set name = "Psychic Ping"
@@ -1192,14 +1216,14 @@ mob/living/carbon/human/proc/change_monitor()
 			return
 
 		H.apply_damage(40, BRUTE, hit_zone)
-		visible_message("<span class='warning'><b>\The [src]</b> viciously crushes [affected] of [G.affecting] with its metallic arms!</span>")
+		visible_message("<span class='warning'><b>[src]</b> viciously crushes [affected] of [G.affecting] with its metallic arms!</span>")
 		msg_admin_attack("[key_name_admin(src)] crushed [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M))
 			return
 		M.apply_damage(40,BRUTE)
-		visible_message("<span class='warning'><b>\The [src]</b> viciously crushes [G.affecting]'s flesh with its metallic arms!</span>")
+		visible_message("<span class='warning'><b>[src]</b> viciously crushes [G.affecting]'s flesh with its metallic arms!</span>")
 		msg_admin_attack("[key_name_admin(src)] crushed [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 	playsound(src.loc, 'sound/weapons/heavysmash.ogg', 50, 1)
 	last_special = world.time + 100

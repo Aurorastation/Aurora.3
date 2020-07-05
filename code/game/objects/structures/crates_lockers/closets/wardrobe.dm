@@ -85,11 +85,7 @@
 	new /obj/item/clothing/shoes/black(src)
 	new /obj/item/clothing/suit/nun(src)
 	new /obj/item/clothing/head/nun_hood(src)
-	new /obj/item/clothing/suit/chaplain_hoodie(src)
-	new /obj/item/clothing/head/chaplain_hood(src)
 	new /obj/item/clothing/suit/holidaypriest(src)
-	new /obj/item/clothing/under/wedding/bride_white(src)
-	new /obj/item/storage/backpack/cultpack (src)
 	new /obj/item/storage/fancy/candle_box(src)
 	new /obj/item/storage/fancy/candle_box(src)
 	new /obj/item/deck/tarot(src)
@@ -97,7 +93,6 @@
 	new /obj/item/spirit_board(src)
 	new /obj/item/mesmetron(src)
 	new /obj/item/toy/plushie/therapy(src)
-	new /obj/item/book/manual/psych(src)
 	return
 
 
@@ -390,15 +385,14 @@
 	new /obj/item/clothing/under/color/green(src)
 	new /obj/item/clothing/under/color/orange(src)
 	new /obj/item/clothing/under/color/pink(src)
-	new /obj/item/clothing/under/skirt/plaid_blue(src)
-	new /obj/item/clothing/under/skirt/plaid_red(src)
-	new /obj/item/clothing/under/skirt/plaid_purple(src)
 	new /obj/item/clothing/shoes/blue(src)
 	new /obj/item/clothing/shoes/yellow(src)
 	new /obj/item/clothing/shoes/green(src)
 	new /obj/item/clothing/shoes/orange(src)
 	new /obj/item/clothing/shoes/purple(src)
 	new /obj/item/clothing/shoes/red(src)
+	new /obj/item/clothing/accessory/silversun/random(src)
+	new /obj/item/clothing/accessory/silversun/random(src)
 	return
 
 /obj/structure/closet/wardrobe/tactical
@@ -426,7 +420,6 @@
 
 /obj/structure/closet/wardrobe/suit/fill()
 	..()
-	new /obj/item/clothing/under/assistantformal(src)
 	new /obj/item/clothing/under/suit_jacket/charcoal(src)
 	new /obj/item/clothing/under/suit_jacket/navy(src)
 	new /obj/item/clothing/under/suit_jacket/burgundy(src)
@@ -434,7 +427,6 @@
 	new /obj/item/clothing/under/suit_jacket/tan(src)
 	new /obj/item/clothing/under/sl_suit(src)
 	new /obj/item/clothing/under/suit_jacket(src)
-	new /obj/item/clothing/under/suit_jacket/female(src)
 	new /obj/item/clothing/under/suit_jacket/really_black(src)
 	new /obj/item/clothing/under/suit_jacket/red(src)
-	new /obj/item/clothing/under/scratch(src)
+	new /obj/item/clothing/under/suit_jacket/white(src)

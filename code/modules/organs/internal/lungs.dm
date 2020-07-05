@@ -63,7 +63,7 @@
 				"<span class='danger'>You can't breathe!</span>",
 				"You hear someone gasp for air!",
 			)
-			owner.losebreath = 1
+			owner.losebreath = round(damage/2)
 
 	if(is_bruised() && rescued)
 		if(prob(4))
@@ -103,11 +103,8 @@
 		rupture()
 
 	var/safe_pressure_min = owner.species.breath_pressure // Minimum safe partial pressure of breathable gas in kPa
-
-	if(is_broken())
-		safe_pressure_min *= 1.5
-	else if(is_bruised())
-		safe_pressure_min *= 1.25
+	// Lung damage increases the minimum safe pressure.
+	safe_pressure_min *= 1 + rand(1,4) * damage/max_damage
 
 	var/safe_exhaled_max = 10
 	var/safe_toxins_max = 0.2
@@ -115,7 +112,7 @@
 	var/SA_sleep_min = 5
 	var/inhaled_gas_used = 0
 
-	var/breath_pressure = (breath.total_moles*R_IDEAL_GAS_EQUATION*breath.temperature)/(BREATH_VOLUME * owner.species.breath_vol_mul)
+	var/breath_pressure = (breath.total_moles * R_IDEAL_GAS_EQUATION * breath.temperature) / (BREATH_VOLUME * owner.species.breath_vol_mul)
 
 	var/inhaling
 	var/poison
@@ -179,7 +176,6 @@
 				var/word = pick("extremely dizzy","short of breath","faint","confused")
 				to_chat(owner, "<span class='danger'>You feel [word].</span>")
 
-			owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS)
 			owner.co2_alert = 1
 			failed_exhale = 1
 
@@ -188,12 +184,6 @@
 				var/word = pick("dizzy","short of breath","faint","momentarily confused")
 				to_chat(owner, "<span class='warning'>You feel [word].</span>")
 
-			//scale linearly from 0 to 1 between safe_exhaled_max and safe_exhaled_max*0.7
-			var/ratio = 1.0 - (safe_exhaled_max - exhaled_pp)/(safe_exhaled_max*0.3)
-
-			//give them some oxyloss, up to the limit - we don't want people falling unconcious due to CO2 alone until they're pretty close to safe_exhaled_max.
-			if (owner.getOxyLoss() < 50*ratio)
-				owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS)
 			owner.co2_alert = 1
 			failed_exhale = 1
 
@@ -209,7 +199,7 @@
 	if(toxins_pp > safe_toxins_max)
 		var/ratio = (poison/safe_toxins_max) * 10
 		if(reagents)
-			reagents.add_reagent("toxin", Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
+			reagents.add_reagent(/datum/reagent/toxin, Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
 			breath.adjust_gas(poison_type, -poison/6, update = 0) //update after
 		owner.phoron_alert = max(owner.phoron_alert, 1)
 	else
@@ -315,9 +305,9 @@
 		owner.bodytemperature += temp_adj
 
 	else if(breath.temperature >= owner.species.heat_discomfort_level)
-		owner.species.get_environment_discomfort(src,"heat")
+		owner.species.get_environment_discomfort(owner,"heat")
 	else if(breath.temperature <= owner.species.cold_discomfort_level)
-		owner.species.get_environment_discomfort(src,"cold")
+		owner.species.get_environment_discomfort(owner,"cold")
 
 /obj/item/organ/internal/lungs/listen()
 	if(owner.failed_last_breath)

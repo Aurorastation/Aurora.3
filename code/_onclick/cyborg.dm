@@ -32,7 +32,7 @@
 		CtrlClickOn(A)
 		return
 
-	if(stat || lockcharge || weakened || stunned || paralysis)
+	if(stat || lock_charge || weakened || stunned || paralysis)
 		return
 
 	if(!canClick())
@@ -40,10 +40,10 @@
 
 	face_atom(A) // change direction to face what you clicked on
 
-	if(aiCamera.in_camera_mode)
-		aiCamera.camera_mode_off()
+	if(ai_camera.in_camera_mode)
+		ai_camera.camera_mode_off()
 		if(is_component_functioning("camera"))
-			aiCamera.captureimage(A, usr)
+			ai_camera.captureimage(A, usr)
 		else
 			to_chat(src, "<span class='danger'>Your camera isn't functional.</span>")
 		return
@@ -58,23 +58,21 @@
 	var/obj/item/W = get_active_hand()
 
 	// Cyborgs have no range-checking unless there is item use
-	if(!W)
+	if(!W || isrobot(A.loc.loc))
 		A.add_hiddenprint(src)
 		A.attack_robot(src)
 		return
 
 	// buckled cannot prevent machine interlinking but stops arm movement
-	if( buckled )
+	if(buckled)
 		return
 
 	if(W == A)
-
 		W.attack_self(src)
 		return
 
-
 	//Handling using grippers
-	if (istype(W, /obj/item/gripper))
+	if(istype(W, /obj/item/gripper))
 		var/obj/item/gripper/G = W
 		//If the gripper contains something, then we will use its contents to attack
 		if (G.wrapped && (G.wrapped.loc == G))

@@ -7,16 +7,23 @@
 /obj/item/device/multitool
 	name = "multitool"
 	desc = "Used for pulsing wires to test which to cut. Not recommended by doctors."
+	desc_info = "You can use this on airlocks or APCs to try to hack them without cutting wires."
 	icon_state = "multitool"
+	item_state = "multitool"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
+		)
 	flags = CONDUCT
 	force = 5.0
 	w_class = 2.0
 	throwforce = 5.0
 	throw_range = 15
 	throw_speed = 3
-	desc = "You can use this on airlocks or APCs to try to hack them without cutting wires."
+	drop_sound = 'sound/items/drop/multitool.ogg'
+	pickup_sound = 'sound/items/pickup/multitool.ogg'
 
-	matter = list(DEFAULT_WALL_MATERIAL = 50,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 
@@ -67,7 +74,7 @@
 		return ..(A, user, click_parameters)
 
 	var/obj/O = A
-	var/datum/expansion/multitool/MT = LAZYACCESS(O.expansions, /datum/expansion/multitool)
+	var/datum/component/multitool/MT = O.GetComponent(/datum/component/multitool)
 	if(!MT)
 		return ..(A, user, click_parameters)
 

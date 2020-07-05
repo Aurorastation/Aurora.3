@@ -4,7 +4,8 @@
 	name = "exosuit hardpoint system"
 	icon = 'icons/mecha/mech_equipment.dmi'
 	icon_state = ""
-	matter = list("steel" = 10000, "plastic" = 5000, "osmium" = 500)
+	var/on_mech_icon_state
+	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_PLASTIC = 5000, MATERIAL_OSMIUM = 500)
 	force = 10
 	var/restricted_hardpoints
 	var/mob/living/heavy_vehicle/owner

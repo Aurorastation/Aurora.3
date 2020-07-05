@@ -109,7 +109,7 @@
 	for(var/i in 1 to 5)
 		var/mob/living/simple_animal/hostile/gift/T = new /mob/living/simple_animal/hostile/gift(get_turf(src))
 		var/turf/landing = get_step(src, pick(alldirs))
-		addtimer(CALLBACK(T, /atom/movable/.proc/throw_at, landing, 30, 5), 0)
+		INVOKE_ASYNC(T, /atom/movable/.proc/throw_at, landing, 30, 5)
 
 /mob/living/simple_animal/hostile/krampus/proc/send_to_hell(mob/living/M)
 	if(!M)

@@ -289,7 +289,7 @@
 	if(powered())
 		queue_icon_update()
 	else
-		addtimer(CALLBACK(src, .proc/lose_power), rand(0, 15))
+		addtimer(CALLBACK(src, .proc/lose_power), rand(1, 15))
 
 /obj/machinery/porta_turret/proc/lose_power()
 	stat |= NOPOWER
@@ -582,7 +582,9 @@
 		var/mob/living/heavy_vehicle/M = L
 		if(!M.pilots?.len)
 			return TURRET_NOT_TARGET
-
+		for(var/mob/pilot in M.pilots)
+			if(allowed(pilot)) // don't shoot if the mech contains at least one person with access
+				return TURRET_NOT_TARGET
 	return TURRET_PRIORITY_TARGET	//if the perp has passed all previous tests, congrats, it is now a "shoot-me!" nominee
 
 /obj/machinery/porta_turret/proc/assess_perp(var/mob/living/carbon/human/H)

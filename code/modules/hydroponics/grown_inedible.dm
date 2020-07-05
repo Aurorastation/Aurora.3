@@ -5,6 +5,10 @@
 /obj/item/grown // Grown weapons
 	name = "grown_weapon"
 	icon = 'icons/obj/weapons.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_grown.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_grown.dmi',
+		)
 	var/plantname
 	var/potency = 1
 
@@ -44,7 +48,7 @@
 
 /obj/item/corncob/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-	if(istype(W, /obj/item/circular_saw) || istype(W, /obj/item/material/hatchet) || istype(W, /obj/item/material/kitchen/utensil/knife) || istype(W, /obj/item/material/knife) || istype(W, /obj/item/material/knife/ritual))
+	if(istype(W, /obj/item/surgery/circular_saw) || istype(W, /obj/item/material/hatchet) || istype(W, /obj/item/material/kitchen/utensil/knife) || istype(W, /obj/item/material/knife) || istype(W, /obj/item/material/knife/ritual))
 		to_chat(user, "<span class='notice'>You use [W] to fashion a pipe out of the corn cob!</span>")
 		new /obj/item/clothing/mask/smokable/pipe/cobpipe (user.loc)
 		qdel(src)
@@ -54,6 +58,10 @@
 	name = "banana peel"
 	desc = "A peel from a banana."
 	icon = 'icons/obj/trash.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_grown.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_grown.dmi'
+		)
 	icon_state = "banana_peel"
 	item_state = "banana_peel"
 	w_class = 2.0

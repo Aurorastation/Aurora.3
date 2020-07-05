@@ -3,7 +3,7 @@ var/datum/antagonist/traitor/traitors
 // Inherits most of its vars from the base datum.
 /datum/antagonist/traitor
 	id = MODE_TRAITOR
-	restricted_jobs = list("Internal Affairs Agent", "Head of Security", "Captain", "AI")
+	restricted_jobs = list("Head of Security", "Captain", "AI", "Chief Engineer", "Research Director", "Chief Medical Officer", "Head of Personnel")
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	required_age = 10
@@ -89,8 +89,8 @@ var/datum/antagonist/traitor/traitors
 		add_law_zero(traitor_mob)
 		if(isrobot(traitor_mob))
 			var/mob/living/silicon/robot/R = traitor_mob
-			R.overclockavailable = 1
-			R.emagged = 1		
+			R.overclock_available = TRUE
+			R.emagged = TRUE
 			R.verbs += /mob/living/silicon/robot/proc/ResetSecurityCodes
 			R.verbs += /mob/living/silicon/robot/proc/toggle_overclock
 		return 1
@@ -160,6 +160,7 @@ var/datum/antagonist/traitor/traitors
 		var/obj/item/device/uplink/hidden/T = new(R, traitor_mob.mind)
 		target_radio.hidden_uplink = T
 		target_radio.traitor_frequency = freq
+		R.autodrobe_no_remove = TRUE
 		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features.")
 		traitor_mob.mind.store_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name] [loc]).")
 
@@ -170,6 +171,7 @@ var/datum/antagonist/traitor/traitors
 		R.hidden_uplink = T
 		var/obj/item/device/pda/P = R
 		P.lock_code = pda_pass
+		R.autodrobe_no_remove = TRUE
 		to_chat(traitor_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply enter the code \"[pda_pass]\" into the ringtone select to unlock its hidden features.")
 		traitor_mob.mind.store_memory("<B>Uplink Passcode:</B> [pda_pass] ([R.name] [loc]).")
 
@@ -179,3 +181,6 @@ var/datum/antagonist/traitor/traitors
 	to_chat(killer, "<b>Your laws have been changed!</b>")
 	killer.set_zeroth_law(law, law_borg)
 	to_chat(killer, "New law: 0. [law]")
+
+/datum/antagonist/traitor/get_antag_radio()
+	return "Mercenary"

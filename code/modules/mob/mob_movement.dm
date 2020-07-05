@@ -8,7 +8,6 @@
 		return (!mover.density || !density || lying)
 	else
 		return (!mover.density || !density || lying)
-	return
 
 /mob/proc/setMoveCooldown(var/timeout)
 	if(client)
@@ -164,7 +163,6 @@
 
 		src.move_speed = world.time - src.l_move_time
 		src.l_move_time = world.time
-		src.m_flag = 1
 		if ((A != src.loc && A && A.z == src.z))
 			src.last_move = get_dir(A, src.loc)
 
@@ -469,36 +467,41 @@
 //If there's no gravity then there's no up or down so naturally you can't stand on anything.
 //For the same reason lattices in space don't count - those are things you grip, presumably.
 /mob/proc/check_solid_ground()
-	if(istype(loc, /turf/space))
+	var/turf/T = get_turf(src)
+
+	if (!T) // nullspace so sure, have gravity.
+		return 1
+	else if (istype(T, /turf/space))
 		return 0
 
-	if(!lastarea)
-		lastarea = get_area(loc)
-	if(!lastarea.has_gravity())
+	var/area/A = T.loc
+
+	if (!A.has_gravity())
 		return 0
 
 	return 1
 
 
 /mob/proc/Check_Dense_Object() //checks for anything to push off in the vicinity. also handles magboots on gravity-less floors tiles
-
 	var/shoegrip = Check_Shoegrip()
 
 	for(var/turf/simulated/T in RANGE_TURFS(1,src)) //we only care for non-space turfs
 		if(T.density)	//walls work
-			return 1
+			return TRUE
 		else
 			var/area/A = T.loc
 			if(A.has_gravity() || shoegrip)
-				return 1
+				return TRUE
 
 	for(var/obj/O in orange(1, src))
 		if(istype(O, /obj/structure/lattice))
-			return 1
+			return TRUE
+		if(istype(O, /obj/structure/ladder))
+			return TRUE
 		if(O && O.density && O.anchored)
-			return 1
+			return TRUE
 
-	return 0
+	return FALSE
 
 /mob/proc/Check_Shoegrip()
 	return 0

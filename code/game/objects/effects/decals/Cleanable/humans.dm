@@ -34,12 +34,7 @@
 	..(ignore=1)
 
 /obj/effect/decal/cleanable/blood/hide()
-    return
-
-/obj/effect/decal/cleanable/blood/Destroy()
-	for(var/datum/disease/D in viruses)
-		D.cure(0)
-	return ..()
+	return
 
 /obj/effect/decal/cleanable/blood/Initialize(mapload)
 	. = ..()
@@ -81,7 +76,7 @@
 		var/obj/item/clothing/shoes/S = perp.shoes
 		if(istype(S))
 			S.blood_color = basecolor
-			S.track_blood = max(amount,S.track_blood)
+			S.track_footprint = max(amount, S.track_footprint)
 			if(!S.blood_overlay)
 				S.generate_blood_overlay()
 			if(!S.blood_DNA)
@@ -96,8 +91,8 @@
 				S.blood_DNA |= blood_DNA.Copy()
 
 	else if (hasfeet)//Or feet
-		perp.feet_blood_color = basecolor
-		perp.track_blood = max(amount,perp.track_blood)
+		perp.footprint_color = basecolor
+		perp.track_footprint = max(amount,perp.track_footprint)
 		LAZYINITLIST(perp.feet_blood_DNA)
 		if (blood_DNA)
 			perp.feet_blood_DNA |= blood_DNA.Copy()
@@ -226,11 +221,6 @@
 			var/obj/effect/decal/cleanable/blood/b = new /obj/effect/decal/cleanable/blood/splatter(src.loc)
 			b.basecolor = src.basecolor
 			b.update_icon()
-			for(var/datum/disease/D in src.viruses)
-				var/datum/disease/ND = D.Copy(1)
-				b.viruses += ND
-				ND.holder = b
-
 		if (step_to(src, get_step(src, direction), 0))
 			break
 /obj/effect/decal/cleanable/blood/proc/fall_to_floor()

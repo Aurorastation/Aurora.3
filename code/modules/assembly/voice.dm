@@ -2,9 +2,11 @@
 	name = "voice analyzer"
 	desc = "A small electronic device able to record a voice sample, and send a signal when that sample is repeated."
 	icon_state = "voice"
+	drop_sound = 'sound/items/drop/component.ogg'
+	pickup_sound =  'sound/items/pickup/component.ogg'
 	origin_tech = list(TECH_MAGNET = 1)
-	matter = list(DEFAULT_WALL_MATERIAL = 500, "glass" = 50, "waste" = 10)
-	var/listening = 0
+	matter = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 50)
+	var/listening = FALSE
 	var/recorded	//the activation message
 
 /obj/item/device/assembly/voice/New()
@@ -18,7 +20,7 @@
 /obj/item/device/assembly/voice/hear_talk(mob/living/M as mob, msg)
 	if(listening)
 		recorded = msg
-		listening = 0
+		listening = FALSE
 		var/turf/T = get_turf(src)	//otherwise it won't work in hand
 		T.visible_message("\icon[src] beeps, \"Activation message is '[recorded]'.\"")
 	else
@@ -41,4 +43,4 @@
 
 /obj/item/device/assembly/voice/toggle_secure()
 	. = ..()
-	listening = 0
+	listening = FALSE

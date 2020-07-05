@@ -41,6 +41,10 @@
 	if(T.head && (T.head.item_flags & AIRTIGHT))
 		to_chat(src, span("warning", "[T]'s headgear is blocking the way to the neck."))
 		return
+	var/obj/item/blocked = check_mouth_coverage()
+	if(blocked)
+		to_chat(src, SPAN_WARNING("\The [blocked] is in the way of your fangs!"))
+		return
 	if (vampire.status & VAMP_DRAINING)
 		to_chat(src, span("warning", "Your fangs are already sunk into a victim's neck!"))
 		return
@@ -83,7 +87,7 @@
 		blood_total = vampire.blood_total
 		blood_usable = vampire.blood_usable
 
-		if (!T.vessel.get_reagent_amount("blood"))
+		if (!T.vessel.get_reagent_amount(/datum/reagent/blood))
 			to_chat(src, span("danger", "[T] has no more blood left to give."))
 			break
 
@@ -94,7 +98,7 @@
 
 		// Alive and not of empty mind.
 		if (check_drain_target_state(T))
-			blood = min(15, T.vessel.get_reagent_amount("blood"))
+			blood = min(15, T.vessel.get_reagent_amount(/datum/reagent/blood))
 			vampire.blood_total += blood
 			vampire.blood_usable += blood
 
@@ -112,7 +116,7 @@
 				frenzy_lower_chance = 0
 		// SSD/protohuman or dead.
 		else
-			blood = min(5, T.vessel.get_reagent_amount("blood"))
+			blood = min(5, T.vessel.get_reagent_amount(/datum/reagent/blood))
 			vampire.blood_usable += blood
 
 			frenzy_lower_chance = 40
@@ -129,7 +133,7 @@
 
 			to_chat(src, update_msg)
 		check_vampire_upgrade()
-		T.vessel.remove_reagent("blood", 5)
+		T.vessel.remove_reagent(/datum/reagent/blood, 5)
 
 	vampire.status &= ~VAMP_DRAINING
 
@@ -740,48 +744,6 @@
 	verbs -= /mob/living/carbon/human/proc/vampire_enthrall
 	ADD_VERB_IN_IF(src, 2800, /mob/living/carbon/human/proc/vampire_enthrall, CALLBACK(src, .proc/finish_vamp_timeout))
 
-// Gives a lethal disease to the target.
-/mob/living/carbon/human/proc/vampire_diseasedtouch()
-	set category = "Vampire"
-	set name = "Diseased Touch (100)"
-	set desc = "Infects the victim with corruption from the Veil, causing their organs to fail."
-
-	var/datum/vampire/vampire = vampire_power(100, 0)
-	if (!vampire)
-		return
-
-	var/list/victims = list()
-	for (var/mob/living/carbon/human/H in view(1))
-		if (H == src)
-			continue
-		victims += H
-	if (!victims.len)
-		to_chat(src, "<span class='warning'>No suitable targets.</span>")
-		return
-
-	var/mob/living/carbon/human/T = input(src, "Select Victim") as null|mob in victims
-
-	if (!vampire_can_affect_target(T))
-		return
-
-	to_chat(src, "<span class='notice'>You infect [T] with a deadly disease. They will soon fade away.</span>")
-
-	T.help_shake_act(src)
-
-	var/datum/disease2/disease/lethal = new
-	lethal.makerandom(3)
-	lethal.infectionchance = 1
-	lethal.stage = lethal.max_stage
-	lethal.spreadtype = "None"
-
-	infect_mob(T, lethal)
-
-	admin_attack_log(src, T, "used diseased touch on [key_name(T)]", "was given a lethal disease by [key_name(src)]", "used diseased touch (<a href='?src=\ref[lethal];info=1'>virus info</a>) on")
-
-	vampire.use_blood(100)
-	verbs -= /mob/living/carbon/human/proc/vampire_diseasedtouch
-	ADD_VERB_IN_IF(src, 1800, /mob/living/carbon/human/proc/vampire_diseasedtouch, CALLBACK(src, .proc/finish_vamp_timeout))
-
 // Makes the vampire appear 'friendlier' to others.
 /mob/living/carbon/human/proc/vampire_presence()
 	set category = "Vampire"
@@ -869,8 +831,8 @@
 	to_chat(T, span("notice", "You feel pure bliss as [src] touches you."))
 	vampire.use_blood(50)
 
-	T.reagents.add_reagent("rezadone", 3)
-	T.reagents.add_reagent("oxycodone", 0.15) //enough to get back onto their feet
+	T.reagents.add_reagent(/datum/reagent/rezadone, 3)
+	T.reagents.add_reagent(/datum/reagent/oxycodone, 0.15) //enough to get back onto their feet
 
 // Convert a human into a vampire.
 /mob/living/carbon/human/proc/vampire_embrace()
@@ -941,11 +903,11 @@
 		if (!mind.vampire)
 			to_chat(src, "<span class='alert'>Your fangs have disappeared!</span>")
 			return
-		if (!T.vessel.get_reagent_amount("blood"))
+		if (!T.vessel.get_reagent_amount(/datum/reagent/blood))
 			to_chat(src, "<span class='alert'>[T] is now drained of blood. You begin forcing your own blood into their body, spreading the corruption of the Veil to their body.</span>")
 			break
 
-		T.vessel.remove_reagent("blood", 50)
+		T.vessel.remove_reagent(/datum/reagent/blood, 50)
 
 	T.revive()
 
@@ -1021,7 +983,7 @@
 		else
 			use_hand = "right"
 
-	src.visible_message("<span class='warning'><b>\The [src]</b> seizes [T] aggressively!</span>")
+	src.visible_message("<span class='warning'><b>[src]</b> seizes [T] aggressively!</span>")
 
 	var/obj/item/grab/G = new(src, T)
 	if (use_hand == "left")

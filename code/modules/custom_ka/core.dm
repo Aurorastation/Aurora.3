@@ -103,7 +103,12 @@
 			to_chat(user,"The offical designation \"[official_name]\" is etched neatly on the side.")
 
 	if(installed_cell)
-		to_chat(user,"It has [round(installed_cell.stored_charge / cost_increase)] shots remaining.")
+		to_chat(user,"It has [get_ammo()] shots remaining.")
+
+/obj/item/gun/custom_ka/get_ammo()
+	if(!installed_cell)
+		return 0
+	return round(installed_cell.stored_charge / cost_increase)
 
 /obj/item/gun/custom_ka/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
 	to_chat(user,"<span class='warning'>You override the safeties on the [src]...</span>")
@@ -174,7 +179,7 @@
 			disaster = "overheat"
 
 	if(warning_message)
-		to_chat(user,"<b>\The [src]</b> flashes, \"[warning_message].\"")
+		to_chat(user,"<b>[src]</b> flashes, \"[warning_message].\"")
 		playsound(src,'sound/machines/buzz-two.ogg', 50, 0)
 		handle_click_empty(user)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*4)
@@ -225,26 +230,31 @@
 	next_fire_time = world.time + fire_delay
 
 /obj/item/gun/custom_ka/consume_next_projectile()
-	if(!installed_cell || installed_cell.stored_charge < cost_increase)
+	if(!installed_cell || !installed_barrel || installed_cell.stored_charge < cost_increase)
 		return null
 
 	installed_cell.stored_charge -= cost_increase
 
-	var/obj/item/projectile/kinetic/shot_projectile
 	//Send fire events
 	if(installed_cell)
 		installed_cell.on_fire(src)
-	if(installed_barrel)
-		installed_barrel.on_fire(src)
-		shot_projectile = new installed_barrel.projectile_type(src.loc)
 	if(installed_upgrade_chip)
 		installed_upgrade_chip.on_fire(src)
+	if(installed_barrel)
+		installed_barrel.on_fire(src)
 
-	shot_projectile.damage = damage_increase
-	shot_projectile.range = range_increase
-	shot_projectile.aoe = aoe_increase
-	shot_projectile.base_damage = damage_increase
-	return shot_projectile
+	if(ispath(installed_barrel.projectile_type, /obj/item/projectile/kinetic))
+		var/obj/item/projectile/kinetic/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
+		shot_projectile.damage = damage_increase
+		shot_projectile.range = range_increase
+		shot_projectile.aoe = aoe_increase
+		shot_projectile.base_damage = damage_increase
+		return shot_projectile
+	if(ispath(installed_barrel.projectile_type, /obj/item/projectile/beam))
+		var/obj/item/projectile/beam/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
+		shot_projectile.damage = damage_increase
+		shot_projectile.range = range_increase
+		return shot_projectile
 
 /obj/item/gun/custom_ka/Initialize()
 	. = ..()
@@ -512,6 +522,7 @@
 	cell_increase = 0
 	capacity_increase = 0
 	mod_limit_increase = 0
+	var/last_pump = 0 // Set to world.time to determine last pump; prevents to_chat spam
 	var/stored_charge = 0
 	var/pump_restore = 0
 	var/pump_delay = 0

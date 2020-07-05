@@ -13,6 +13,7 @@
 	var/icon_living = ""
 	var/icon_dead = ""
 	var/icon_gib = null	//We only try to show a gibbing animation if this exists.
+	var/blood_type = "#A10808" //Blood colour for impact visuals.
 
 	var/list/speak = list()
 	var/speak_chance = 0
@@ -66,6 +67,8 @@
 	var/environment_smash = 0
 	var/resistance		  = 0	// Damage reduction
 
+	var/wizard_master
+
 	//Null rod stuff
 	var/supernatural = 0
 	var/purge = 0
@@ -79,6 +82,7 @@
 	var/bite_factor = 0.4
 	var/digest_factor = 0.2 //A multiplier on how quickly reagents are digested
 	var/stomach_size_mult = 5
+	var/list/forbidden_foods = list()	//Foods this animal should never eat
 
 	//Seeking/Moving behaviour vars
 	var/min_scan_interval = 1//Minimum and maximum number of procs between a scan
@@ -106,7 +110,7 @@
 
 	var/has_udder = FALSE
 	var/datum/reagents/udder = null
-	var/milk_type = "milk"
+	var/milk_type = /datum/reagent/drink/milk
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 
@@ -146,7 +150,7 @@
 	turns_since_move = turns_per_move
 	..()
 
-/mob/living/simple_animal/Login()
+/mob/living/simple_animal/LateLogin()
 	if(src && src.client)
 		src.client.screen = null
 	..()
@@ -285,16 +289,21 @@
 			if (!stat || prob(0.5))
 				wake_up()
 
-	//Eating in tile
-	for(var/obj/item/reagent_containers/food/snacks/S in src.loc)
-		if(can_eat() && (nutrition < max_nutrition * 0.3)) //Only when sufficiently hungry
-			UnarmedAttack(S)
-		else
-			break
+	if(nutrition < max_nutrition / 3 && isturf(loc))	//If we're hungry enough (and not being held/in a bag), we'll check our tile for food.
+		handle_eating()
 
 /mob/living/simple_animal/proc/handle_supernatural()
 	if(purge)
 		purge -= 1
+
+/mob/living/simple_animal/proc/handle_eating()
+	var/list/food_choices = list()
+	for(var/obj/item/reagent_containers/food/snacks/S in get_turf(src))
+		if(locate(S) in forbidden_foods)
+			continue
+		food_choices += S
+	if(food_choices.len) //Only when sufficiently hungry
+		UnarmedAttack(pick(food_choices))
 
 //Simple reagent processing for simple animals
 //This allows animals to digest food, and only food
@@ -369,11 +378,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 		if(I_HELP)
 			if (health > 0)
-				M.visible_message("<span class='notice'>[M] [response_help] \the [src]</span>")
+				M.visible_message("<span class='notice'>[M] [response_help] \the [src].</span>")
 				poke()
 
 		if(I_DISARM)
-			M.visible_message("<span class='notice'>[M] [response_disarm] \the [src]</span>")
+			M.visible_message("<span class='notice'>[M] [response_disarm] \the [src].</span>")
 			M.do_attack_animation(src)
 			poke(1)
 			//TODO: Push the mob away or something
@@ -400,15 +409,18 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			poke(1)
 
 		if(I_HURT)
-			apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [M.name]")
-			M.visible_message("<span class='warning'>[M] [response_harm] \the [src]</span>")
-			M.do_attack_animation(src)
-			poke(1)
+			unarmed_harm_attack(M)
 
 	return
 
+/mob/living/simple_animal/proc/unarmed_harm_attack(var/mob/living/carbon/human/user)
+	apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [user.name]")
+	user.visible_message(SPAN_WARNING("[user] [response_harm] \the [src]!"))
+	user.do_attack_animation(src)
+	poke(TRUE)
+
 /mob/living/simple_animal/attackby(obj/item/O, mob/user)
-	if(istype(O, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag. 
+	if(istype(O, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
 		attacked_with_item(O, user)
 		return
 	if(has_udder)
@@ -421,7 +433,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				to_chat(user, "<span class='warning'>The [O] is full.</span>")
 				return
 			user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
-			udder.trans_id_to(G, milk_type , rand(5,10))
+			udder.trans_type_to(G, milk_type , rand(5,10))
 			return
 
 	if(istype(O, /obj/item/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/gripper/))
@@ -442,8 +454,8 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(O, brush) && canbrush) //Brushing animals
 		visible_message(span("notice", "[user] gently brushes [src] with \the [O]."))
-		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off. 
-			visible_message(span("notice", "[src] [speak_emote.len ? pick(speak_emote) : "rumbles"] happily.")) //purring	
+		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off.
+			visible_message(span("notice", "[src] [speak_emote.len ? pick(speak_emote) : "rumbles"].")) //purring
 		return
 	if(!O.force)
 		visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
@@ -554,7 +566,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return 1
 
 /mob/living/simple_animal/proc/make_noise(var/make_sound = TRUE)
-	set name = "Resist"
+	set name = "Make Sound"
 	set category = "Abilities"
 
 	if((usr && usr.stat == DEAD) || !make_sound)
@@ -586,6 +598,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 	..(message, null, verb)
 
+/mob/living/simple_animal/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, pick(speak), language, small, show_to, duration)
+
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb
 
@@ -613,74 +628,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		else
 			user.visible_message("<span class='danger'>[user] butchers \the [src] messily!</span>")
 			gib()
-
-/*
-//Code to handle finding and nomming nearby food items
-/mob/living/simple_animal/proc/handle_foodscanning()
-	if (client || !hunger_enabled || !autoseek_food)
-		return 0
-
-	//Feeding, chasing food, FOOOOODDDD
-	if(!stat && !resting && !buckled)
-
-		turns_since_scan++
-		if(turns_since_scan >= scan_interval)
-			turns_since_scan = 0
-			if((movement_target) && (!(isturf(movement_target.loc) || ishuman(movement_target.loc))) || (foodtarget && !can_eat() ))
-				movement_target = null
-				foodtarget = 0
-				stop_automated_movement = 0
-			if( !movement_target || !(movement_target.loc in oview(src, 7)) )
-				walk_to(src,0)
-				movement_target = null
-				foodtarget = 0
-				stop_automated_movement = 0
-				if (can_eat())
-					for(var/obj/item/reagent_containers/food/snacks/S in oview(src,7))
-						if(isturf(S.loc) || ishuman(S.loc))
-							movement_target = S
-							foodtarget = 1
-							break
-
-					//Look for food in people's hand
-					if (!movement_target && beg_for_food)
-						var/obj/item/reagent_containers/food/snacks/F = null
-						for(var/mob/living/carbon/human/H in oview(src,scan_range))
-							if(istype(H.l_hand, /obj/item/reagent_containers/food/snacks))
-								F = H.l_hand
-
-							if(istype(H.r_hand, /obj/item/reagent_containers/food/snacks))
-								F = H.r_hand
-
-							if (F)
-								movement_target = F
-								foodtarget = 1
-								break
-
-			if(movement_target)
-				scan_interval = min_scan_interval
-				stop_automated_movement = 1
-
-				if (isturf(movement_target.loc))
-					walk_to(src, movement_target, 0, DS2TICKS(seek_move_delay))	//Stand ontop of food
-				else
-					walk_to(src, get_turf(movement_target), 1, DS2TICKS(seek_move_delay))	//Don't stand ontop of people
-
-				if (movement_target)
-					set_dir(get_dir(src, movement_target))
-
-					if(isturf(movement_target.loc) && Adjacent(get_turf(movement_target), src))
-						UnarmedAttack(movement_target)
-						if (get_turf(movement_target) == loc)
-							set_dir(pick(NORTH, SOUTH, EAST, WEST, NORTH, NORTH))//Face a random direction when eating, but mostly upwards
-					else if(ishuman(movement_target.loc) && Adjacent(get_turf(movement_target.loc)) && (prob(10) || nutrition / max_nutrition <= 0.25))
-						if(nutrition / max_nutrition <= 0.25)
-							steal_food(movement_target, movement_target.loc)
-						else
-							beg(movement_target, movement_target.loc)
-			else
-				scan_interval = max(min_scan_interval, min(scan_interval+1, max_scan_interval))//If nothing is happening, ian's scanning frequency slows down to save processing
-*/
 
 //For picking up small animals
 /mob/living/simple_animal/MouseDrop(atom/over_object)
@@ -784,4 +731,27 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			adjustFireLoss(rand(3, 5))
 
 /mob/living/simple_animal/get_digestion_product()
-	return "nutriment"
+	return /datum/reagent/nutriment
+
+/mob/living/simple_animal/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
+	..()
+	switch(get_bullet_impact_effect_type(def_zone))
+		if(BULLET_IMPACT_MEAT)
+			if(P.damage_type == BRUTE)
+				var/hit_dir = get_dir(P.starting, src)
+				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
+				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
+				B.basecolor = blood_type
+				var/scale = min(1, round(mob_size / MOB_TINY, 0.1))
+				var/matrix/M = new()
+				B.transform = M.Scale(scale)
+				B.update_icon()
+
+/mob/living/simple_animal/proc/spawn_into_wizard_familiar(var/mob/user)
+	if(src.ckey)
+		return
+	src.ckey = user.ckey
+	SSghostroles.remove_spawn_atom("wizard_familiar", src)
+	if(wizard_master)
+		add_spell(new /spell/contract/return_master(wizard_master), "const_spell_ready")
+	to_chat(src, "<B>You are [src], a familiar to [wizard_master]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>")

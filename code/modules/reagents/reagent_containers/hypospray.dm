@@ -5,9 +5,13 @@
 /obj/item/reagent_containers/hypospray
 	name = "hypospray"
 	desc = "A sterile, air-needle autoinjector for administration of drugs to patients."
-	description_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
-	description_info = "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
+	desc_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray - 9 out of 10 doctors recommend it!"
+	desc_info = "Unlike a syringe, reagents have to be poured into the hypospray before it can be used."
 	icon = 'icons/obj/syringe.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
+		)
 	item_state = "hypo"
 	icon_state = "hypo"
 	amount_per_transfer_from_this = 5
@@ -17,10 +21,11 @@
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
 	var/armorcheck = 1
 	var/time = 3 SECONDS
 	var/image/filling //holds a reference to the current filling overlay
-	matter = list("glass" = 400, DEFAULT_WALL_MATERIAL = 200)
+	matter = list(MATERIAL_GLASS = 400, DEFAULT_WALL_MATERIAL = 200)
 
 /obj/item/reagent_containers/hypospray/Initialize()
 	. = ..()
@@ -33,8 +38,8 @@
 /obj/item/reagent_containers/hypospray/cmo
 	name = "premium hypospray"
 	desc = "A high-end version of the regular hypospray, it allows for a substantially higher rate of drug administration to patients."
-	description_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
-	description_info = "This version of the hypospray has no delay before injecting a patient with reagent."
+	desc_fluff = "The Zeng-Hu Pharmaceuticals' Hypospray Mk-II is a cutting-edge version of the regular hypospray, with a much more expensive and streamlined injection process."
+	desc_info = "This version of the hypospray has no delay before injecting a patient with reagent."
 	icon_state = "cmo_hypo"
 	volume = 30
 	time = 0
@@ -63,6 +68,7 @@
 
 		filling.color = reagents.get_color()
 		add_overlay(filling)
+
 /obj/item/reagent_containers/hypospray/afterattack(var/mob/M, var/mob/user, proximity)
 
 	if (!istype(M))
@@ -95,8 +101,8 @@
 	name = "autoinjector"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
 	icon_state = "autoinjector1"
+	item_state = "autoinjector1"
 	var/empty_state = "autoinjector0"
-	item_state = "autoinjector"
 	flags = OPENCONTAINER
 	amount_per_transfer_from_this = 5
 	volume = 5
@@ -105,6 +111,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector/Initialize()
 	. =..()
 	icon_state = empty_state
+	item_state = empty_state
 	update_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/attack(var/mob/M, var/mob/user, target_zone)
@@ -136,8 +143,10 @@
 /obj/item/reagent_containers/hypospray/autoinjector/update_icon()
 	if(reagents.total_volume > 0 && !is_open_container())
 		icon_state = initial(icon_state)
+		item_state = initial(icon_state)
 	else
 		icon_state = empty_state
+		item_state = empty_state
 
 /obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	..(user)
@@ -149,14 +158,13 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/norepinephrine
 	name = "autoinjector (norepinephrine)"
-	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel."
 	volume = 5
 	amount_per_transfer_from_this = 20
 	flags = 0
 
 /obj/item/reagent_containers/hypospray/autoinjector/norepinephrine/Initialize()
 	. =..()
-	reagents.add_reagent("norepinephrine", 5)
+	reagents.add_reagent(/datum/reagent/norepinephrine, 5)
 	update_icon()
 	return
 
@@ -166,11 +174,7 @@
 	volume = 20
 	amount_per_transfer_from_this = 20
 
-/obj/item/reagent_containers/hypospray/autoinjector/stimpack/Initialize()
-	. = ..()
-	reagents.add_reagent("hyperzine", 12)
-	reagents.add_reagent("tramadol", 8)
-	update_icon()
+	reagents_to_add = list(/datum/reagent/hyperzine = 12, /datum/reagent/tramadol = 8)
 
 /obj/item/reagent_containers/hypospray/autoinjector/survival
 	name = "survival autoinjector"
@@ -178,14 +182,7 @@
 	volume = 35
 	amount_per_transfer_from_this = 35
 
-/obj/item/reagent_containers/hypospray/autoinjector/survival/Initialize()
-	. = ..()
-	reagents.add_reagent("tricordrazine", 15)
-	reagents.add_reagent("norepinephrine", 5)
-	reagents.add_reagent("dexalinp", 5)
-	reagents.add_reagent("oxycodone", 5)
-	reagents.add_reagent("methylphenidate", 5)
-	update_icon()
+	reagents_to_add = list(/datum/reagent/tricordrazine = 15, /datum/reagent/norepinephrine = 5, /datum/reagent/dexalin/plus = 5, /datum/reagent/oxycodone = 5, /datum/reagent/mental/methylphenidate = 5)
 
 /obj/item/reagent_containers/hypospray/combat
 	name = "combat hypospray"
@@ -196,10 +193,4 @@
 	armorcheck = 0
 	time = 0
 
-/obj/item/reagent_containers/hypospray/combat/Initialize()
-	. = ..()
-	reagents.add_reagent("oxycodone", 5)
-	reagents.add_reagent("synaptizine", 5)
-	reagents.add_reagent("hyperzine", 5)
-	reagents.add_reagent("arithrazine", 5)
-	update_icon()
+	reagents_to_add = list(/datum/reagent/oxycodone = 5, /datum/reagent/synaptizine = 5, /datum/reagent/hyperzine = 5, /datum/reagent/arithrazine = 5)

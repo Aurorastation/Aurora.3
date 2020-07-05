@@ -12,6 +12,7 @@
 	edge = 0
 	hitsound = "swing_hit"
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = 'sound/items/pickup/sword.ogg'
 
 /obj/item/arrow/proc/removed() //Helper for metal rods falling apart.
 	return
@@ -27,6 +28,7 @@
 	icon_state = "metal-rod"
 	item_state = "bolt"
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = 'sound/items/pickup/sword.ogg'
 
 /obj/item/arrow/quill
 	name = "vox quill"
@@ -36,6 +38,7 @@
 	item_state = "quill"
 	throwforce = 8
 	drop_sound = 'sound/items/drop/knife.ogg'
+	pickup_sound = 'sound/items/pickup/knife.ogg'
 
 /obj/item/arrow/rod
 	name = "metal rod"
@@ -44,9 +47,7 @@
 
 /obj/item/arrow/rod/removed(mob/user)
 	if(throwforce == 15) // The rod has been superheated - we don't want it to be useable when removed from the bow.
-		to_chat(user, "[src] shatters into a scattering of overstressed metal shards as it leaves the crossbow.")
-		var/obj/item/material/shard/shrapnel/S = new()
-		S.forceMove(get_turf(src))
+		to_chat(user, "[src] shatters into a scattering of unusable overstressed metal shards as it leaves the crossbow.")
 		qdel(src)
 
 /obj/item/gun/launcher/crossbow
@@ -196,12 +197,11 @@
 
 /obj/item/gun/launcher/crossbow/update_icon()
 	if(tension > 1)
-		icon_state = "crossbow-drawn"
+		icon_state = "[initial(icon_state)]-drawn"
 	else if(bolt)
-		icon_state = "crossbow-nocked"
+		icon_state = "[initial(icon_state)]-nocked"
 	else
-		icon_state = "crossbow"
-
+		icon_state = initial(icon_state)
 
 // Crossbow construction.
 /obj/item/crossbowframe
@@ -265,7 +265,7 @@
 			else
 				to_chat(user, "<span class='notice'>You need at least five segments of cable coil to complete this task.</span>")
 			return
-	else if(istype(W,/obj/item/stack/material) && W.get_material_name() == "plastic")
+	else if(istype(W,/obj/item/stack/material) && W.get_material_name() == MATERIAL_PLASTIC)
 		if(buildstate == 3)
 			var/obj/item/stack/material/P = W
 			if(P.use(3))

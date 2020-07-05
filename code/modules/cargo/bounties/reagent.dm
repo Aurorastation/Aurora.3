@@ -12,14 +12,14 @@
 /datum/bounty/reagent/applies_to(obj/O)
 	if(!istype(O, /obj/item/reagent_containers))
 		return FALSE
-	if(!O.reagents || !O.reagents.has_reagent(wanted_reagent.id))
+	if(!O.reagents || !O.reagents.has_reagent(wanted_reagent.type))
 		return FALSE
 	return shipped_volume < required_volume
 
 /datum/bounty/reagent/ship(obj/O)
 	if(!applies_to(O))
 		return
-	shipped_volume += O.reagents.get_reagent_amount(wanted_reagent.id)
+	shipped_volume += O.reagents.get_reagent_amount(wanted_reagent.type)
 	if(shipped_volume > required_volume)
 		shipped_volume = required_volume
 
@@ -27,7 +27,7 @@
 	if(!istype(other_bounty, /datum/bounty/reagent))
 		return TRUE
 	var/datum/bounty/reagent/R = other_bounty
-	return wanted_reagent.id != R.wanted_reagent.id
+	return wanted_reagent.type != R.wanted_reagent.type
 
 /datum/bounty/reagent/simple_drink
 	name = "Simple Drink"
@@ -45,7 +45,7 @@
 		/datum/reagent/alcohol/ethanol/black_russian,\
 		/datum/reagent/alcohol/ethanol/bloody_mary,\
 		/datum/reagent/alcohol/ethanol/martini,\
-		/datum/reagent/alcohol/ethanol/cuba_libre,\
+		/datum/reagent/alcohol/ethanol/cubalibre,\
 		/datum/reagent/alcohol/ethanol/erikasurprise,\
 		/datum/reagent/alcohol/ethanol/ginfizz,\
 		/datum/reagent/alcohol/ethanol/gintonic,\

@@ -243,8 +243,6 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 		else
 			return GetSpecies(card_defense_type," mixed with ")
 
-	return "unknown"
-
 /datum/controller/subsystem/battle_monsters/proc/GetSpecies(card_defense_type, var/and_text = " and ")
 
 	//This list looks odd to prevent runtime errors related to out of bounds indexes
@@ -369,7 +367,7 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 	else
 		return "Must sacrifice four monsters on your side of the field to summon."
 
-/datum/controller/subsystem/battle_monsters/proc/FormatMonsterText(var/text,var/datum/battle_monsters/element/prefix_datum,var/datum/battle_monsters/monster/root_datum,var/datum/battle_monsters/title/suffix_datum)
+/datum/controller/subsystem/battle_monsters/proc/FormatMonsterText(var/text,var/datum/battle_monsters/element/prefix_datum,var/datum/battle_monsters/monster/root_datum,var/datum/battle_monsters/title/suffix_datum, var/include_description = TRUE)
 
 	var/list/generated_stats = SSbattlemonsters.GenerateMonsterStats(prefix_datum,root_datum,suffix_datum)
 
@@ -401,6 +399,8 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 		"%SUMMON_REQUIREMENTS" = GetSummonRequirements(generated_stats["star_level"])
 	)
+	if(!include_description)
+		replacements -= "%DESCRIPTION"
 
 	for(var/word in replacements)
 		text = replacetext(text,word,replacements[word])
@@ -410,7 +410,7 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 	return text
 
-/datum/controller/subsystem/battle_monsters/proc/FormatSpellText(var/text,var/datum/battle_monsters/spell_datum)
+/datum/controller/subsystem/battle_monsters/proc/FormatSpellText(var/text,var/datum/battle_monsters/spell_datum,var/include_description = TRUE)
 	var/list/generated_stats = SSbattlemonsters.GenerateSpellStats(spell_datum)
 
 	if(!generated_stats || generated_stats.len == 0)
@@ -426,6 +426,8 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 		"%ELEMENT_OR" = GetElements(generated_stats["elements"], " or "),
 		"%ELEMENT_LIST" = GetElements(generated_stats["elements"], ", ")
 	)
+	if(!include_description)
+		replacements -= "%DESCRIPTION"
 
 	for(var/word in replacements)
 		text = replacetext(text,word,replacements[word])
@@ -435,23 +437,20 @@ var/datum/controller/subsystem/battle_monsters/SSbattlemonsters
 
 	return text
 
-/datum/controller/subsystem/battle_monsters/proc/GetMonsterFormatting()
+/datum/controller/subsystem/battle_monsters/proc/GetMonsterFormatting(var/include_description = TRUE)
 	return "<b>%NAME</b> | %STAR_LEVEL Star Monster | %ELEMENT_LIST %TYPE | %SPECIES_C<br>\
 			Keywords: %SPECIES_LIST<br>\
 			ATK: %ATTACK_POINTS | DEF: %DEFENSE_POINTS<br>\
 			Summoning Requirements: %SUMMON_REQUIREMENTS<br>\
-			%SPECIAL_EFFECTS<br>\
-			The card depicts %DESCRIPTION"
+			%SPECIAL_EFFECTS[include_description ? "<br>The card depicts %DESCRIPTION" : ""]"
 
-/datum/controller/subsystem/battle_monsters/proc/GetSpellFormatting()
+/datum/controller/subsystem/battle_monsters/proc/GetSpellFormatting(var/include_description = TRUE)
 	return "<b>%NAME</b> | Spell | %ELEMENT_LIST<br>\
-			%SPECIAL_EFFECTS<br>\
-			The card depicts %DESCRIPTION"
+			%SPECIAL_EFFECTS[include_description ? "<br>The card depicts %DESCRIPTION" : ""]"
 
-/datum/controller/subsystem/battle_monsters/proc/GetTrapFormatting()
+/datum/controller/subsystem/battle_monsters/proc/GetTrapFormatting(var/include_description = TRUE)
 	return "<b>%NAME</b> | Trap | %ELEMENT_LIST<br>\
-			%SPECIAL_EFFECTS<br>\
-			The card depicts %DESCRIPTION"
+			%SPECIAL_EFFECTS[include_description ? "<br>The card depicts %DESCRIPTION" : ""]"
 
 /datum/controller/subsystem/battle_monsters/proc/ExamineMonsterCard(var/mob/user,var/datum/battle_monsters/element/prefix_datum,var/datum/battle_monsters/monster/root_datum,var/datum/battle_monsters/title/suffix_datum)
 	to_chat(user,FormatMonsterText(GetMonsterFormatting(),prefix_datum,root_datum,suffix_datum))

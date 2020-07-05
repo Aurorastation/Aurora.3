@@ -4,8 +4,9 @@
 	icon = 'icons/obj/skrell_items.dmi'
 	icon_state = "starscope"
 	w_class = 1
-	matter = list("glass" = 200)
+	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 	var/list/constellations = list("Island", "Hatching Egg", "Star Chanter", "Jiu'x'klua", "Stormcloud", "Gnarled Tree", "Poet", "Bloated Toad", "Qu'Poxiii", "Fisher")
 	var/selected_constellation
 	var/projection_ready = TRUE
@@ -49,10 +50,17 @@
 	icon_state = "starprojection"
 	mouse_opacity = TRUE
 	duration = 30 SECONDS
-	layer = LIGHTING_LAYER + 0.1
+	layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	light_power = 1
 	light_range = 1
 	light_color = LIGHT_COLOR_HALOGEN
+	var/global/image/glow_state
+
+/obj/effect/temp_visual/constellation/Initialize()
+	. = ..()
+	if(!glow_state)
+		glow_state = make_screen_overlay(icon, icon_state)
+	add_overlay(glow_state)
 
 /obj/effect/temp_visual/constellation/attackby(obj/item/W as obj, mob/user as mob)
 	visible_message("<span class='notice'>\The [src] vanishes!</span>")
@@ -76,8 +84,9 @@
 	icon = 'icons/obj/skrell_items.dmi'
 	icon_state = "projector"
 	w_class = 1
-	matter = list("glass" = 200)
+	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 	var/list/worlds_selection = list("Xrim", "Kal'lo", "Nralakk")
 	var/selected_world
 	var/working = FALSE

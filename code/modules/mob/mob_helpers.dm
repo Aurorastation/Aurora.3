@@ -48,17 +48,8 @@
 		switch(H.get_species())
 			if ("Unathi")
 				return 1
-			if("Aut'akh Unathi")
-				return 1
 			if ("Unathi Zombie")
 				return 1
-	return 0
-
-/proc/isautakh(A)
-	if(ishuman(A))
-		var/mob/living/carbon/human/H = A
-		if(H.get_species() == "Aut'akh Unathi")
-			return 1
 	return 0
 
 /proc/istajara(A)
@@ -400,47 +391,25 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 	return sanitize(t)
 
 
-/proc/shake_camera(mob/M, duration, strength=1, var/taper = 0)
+#define TICKS_PER_RECOIL_ANIM 2
+#define PIXELS_PER_STRENGTH_VAL 16
+
+/proc/shake_camera(mob/M, duration, strength = 1)
+	set waitfor = 0
 	if(!M || !M.client || M.shakecamera || M.stat || isEye(M) || isAI(M))
 		return
 
-	M.shakecamera = 1
-	spawn(2)
-		if(!M.client)
-			return
-		var/atom/oldeye=M.client.eye
-		var/aiEyeFlag = 0
-		if(istype(oldeye, /mob/abstract/eye/aiEye))
-			aiEyeFlag = 1
-
-		var/x
-		for(x=0; x<duration, x++)
-			if(!M.client)
-				return
-			if(aiEyeFlag)
-				M.client.eye = locate(dd_range(1,oldeye.loc.x+rand(-strength,strength),world.maxx),dd_range(1,oldeye.loc.y+rand(-strength,strength),world.maxy),oldeye.loc.z)
-			else
-				M.client.eye = locate(dd_range(1,M.loc.x+rand(-strength,strength),world.maxx),dd_range(1,M.loc.y+rand(-strength,strength),world.maxy),M.loc.z)
-			sleep(1)
-
-		//Taper code added by nanako.
-		//Will make the strength falloff after the duration.
-		//This helps to reduce jarring effects of major screenshaking suddenly returning to stability
-		//Recommended taper values are 0.05-0.1
-		if(!M.client)
-			return
-		if (taper > 0)
-			while (strength > 0)
-				strength -= taper
-				if(aiEyeFlag)
-					M.client.eye = locate(dd_range(1,oldeye.loc.x+rand(-strength,strength),world.maxx),dd_range(1,oldeye.loc.y+rand(-strength,strength),world.maxy),oldeye.loc.z)
-				else
-					M.client.eye = locate(dd_range(1,M.loc.x+rand(-strength,strength),world.maxx),dd_range(1,M.loc.y+rand(-strength,strength),world.maxy),M.loc.z)
-				sleep(1)
-
-		M.client.eye=oldeye
-		M.shakecamera = 0
-
+	M.shakecamera = TRUE
+	strength = abs(strength)*PIXELS_PER_STRENGTH_VAL
+	var/steps = min(1, Floor(duration/TICKS_PER_RECOIL_ANIM))-1
+	animate(M.client, pixel_x = rand(-(strength), strength), pixel_y = rand(-(strength), strength), time = TICKS_PER_RECOIL_ANIM)
+	sleep(TICKS_PER_RECOIL_ANIM)
+	if(steps)
+		for(var/i = 1 to steps)
+			animate(M.client, pixel_x = rand(-(strength), strength), pixel_y = rand(-(strength), strength), time = TICKS_PER_RECOIL_ANIM)
+			sleep(TICKS_PER_RECOIL_ANIM)
+	M?.shakecamera = FALSE
+	animate(M.client, pixel_x = 0, pixel_y = 0, time = TICKS_PER_RECOIL_ANIM)
 
 /proc/findname(msg)
 	for(var/mob/M in mob_list)
@@ -580,11 +549,11 @@ proc/is_blind(A)
 /proc/announce_ghost_joinleave(O, var/joined_ghosts = 1, var/message = "")
 	var/client/C
 	//Accept any type, sort what we want here
-	if(istype(O, /mob))
+	if(ismob(O))
 		var/mob/M = O
 		if(M.client)
 			C = M.client
-	else if(istype(O, /client))
+	else if(isclient(O))
 		C = O
 	else if(istype(O, /datum/mind))
 		var/datum/mind/M = O
@@ -606,8 +575,11 @@ proc/is_blind(A)
 					name = M.real_name
 		if(!name)
 			name = (C.holder && C.holder.fakekey) ? C.holder.fakekey : C.key
+		var/last_at = ""
+		if(C.mob.lastarea)
+			last_at = " at [C.mob.lastarea]"
 		if(joined_ghosts)
-			say_dead_direct("The ghost of <span class='name'>[name]</span> now [pick("skulks","lurks","prowls","creeps","stalks")] among the dead. [message]")
+			say_dead_direct("The ghost of <span class='name'>[name]</span> now [pick("skulks","lurks","prowls","creeps","stalks")] among the dead[last_at]. [message]")
 		else
 			say_dead_direct("<span class='name'>[name]</span> no longer [pick("skulks","lurks","prowls","creeps","stalks")] in the realm of the dead. [message]")
 
@@ -794,6 +766,9 @@ proc/is_blind(A)
 	*/
 
 /obj/proc/report_onmob_location(var/justmoved, var/slot = null, var/mob/reportto)
+	if(istype(reportto.loc, /mob/living/bot))
+		to_chat(reportto, SPAN_NOTICE("You are currently housed within \the [reportto.loc]."))
+		return
 	var/mob/living/carbon/human/H//The person who the item is on
 	var/newlocation
 	var/preposition= ""
@@ -1058,20 +1033,17 @@ proc/is_blind(A)
 	//We create an MD5 hash of the mob's reference to use as its DNA string.
 	//This creates unique DNA for each creature in a consistently repeatable process
 	var/datum/reagents/vessel = new/datum/reagents(600)
-	vessel.add_reagent("blood",560)
+	vessel.add_reagent(/datum/reagent/blood,560)
 	for(var/datum/reagent/blood/B in vessel.reagent_list)
-		if(B.id == "blood")
+		if(B.type == /datum/reagent/blood)
 			B.data = list(
 				"donor" = WEAKREF(src),
-				"viruses" = null,
 				"species" = name,
 				"blood_DNA" = md5("\ref[src]"),
 				"blood_colour" = "#a10808",
 				"blood_type" = null,
 				"resistances" = null,
-				"trace_chem" = null,
-				"virus2" = null,
-				"antibodies" = list()
+				"trace_chem" = null
 			)
 
 			B.color = B.data["blood_colour"]
@@ -1151,7 +1123,7 @@ proc/is_blind(A)
 	return ..(get_active_hand())
 
 /mob/living/silicon/ai/get_multitool()
-	return ..(aiMulti)
+	return ..(ai_multi)
 
 /mob/proc/get_hydration_mul(var/minscale = 0, var/maxscale = 1)
 
@@ -1233,3 +1205,20 @@ proc/is_blind(A)
 
 /mob/proc/remove_blood_simple(var/blood)
 	return
+
+/mob/living/carbon/human/needs_wheelchair()
+	var/stance_damage = 0
+	for(var/limb_tag in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT))
+		var/obj/item/organ/external/E = organs_by_name[limb_tag]
+		if(!E || !E.is_usable())
+			stance_damage += 2
+	return stance_damage >= 4
+
+/mob/living/carbon/human/proc/equip_wheelchair()
+	var/obj/structure/bed/chair/wheelchair/W = new(get_turf(src))
+	if(isturf(loc))
+		buckled = W
+		update_canmove()
+		W.set_dir(dir)
+		W.buckled_mob = src
+		W.add_fingerprint(src)

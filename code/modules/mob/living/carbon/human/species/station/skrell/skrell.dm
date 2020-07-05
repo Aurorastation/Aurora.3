@@ -43,7 +43,7 @@
 		)
 
 	flesh_color = "#8CD7A3"
-	blood_color = "#1D2CBF"
+	blood_color = COLOR_SKRELL_BLOOD
 	base_color = "#006666"
 
 	reagent_tag = IS_SKRELL
@@ -58,6 +58,9 @@
 	allowed_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
 	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_MOROZ)
 	default_citizenship = CITIZENSHIP_JARGON
+
+	default_accent = ACCENT_SKRELL
+	allowed_accents = list(ACCENT_SKRELL)
 
 	zombie_type = "Skrell Zombie"
 

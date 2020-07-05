@@ -293,6 +293,9 @@ TICKLAG 0.33
 ## Defines if Tick Compensation is used.  It results in a minor slowdown of movement of all mobs, but attempts to result in a level movement speed across all ticks.
 #TICKCOMP
 
+## Uncomment this to activate the five day from character creation timelock on modifying IPC tags
+#IPC_TIMELOCK_ACTIVE
+
 ## Comment this out to disable automuting
 #AUTOMUTE_ON
 
@@ -338,9 +341,8 @@ REQ_CULT_GHOSTWRITER 6
 
 ## Sets the number of available character slots
 CHARACTER_SLOTS 10
-
-## Uncomment to use overmap system for zlevel travel
-#USE_OVERMAP
+## Sets the number of available loadout slots
+LOADOUT_SLOTS 3
 
 ## Expected round length in minutes
 EXPECTED_ROUND_LENGTH 180
@@ -402,6 +404,9 @@ STARLIGHT 0
 
 ## Chance, in percentage, of the merchant job slot being open at round start
 MERCHANT_CHANCE 20
+
+## How long before the crew can call the emergency shuttle. One hour by default.
+TIME_TO_CALL_EMERGENCY_SHUTTLE 36000
 
 ## Defines which races are allowed to join as ERT, in singular form. If unset, defaults to only human. Casing matters, separate using ;
 ## Example races include: Human, Tajara, Skrell, Unathi
@@ -520,7 +525,7 @@ CARGO_LOAD_ITEMS_FROM json
 
 
 # Forces the maploader to load the specified map path. Valid options: aurora, runtime
-FORCE_MAP aurora
+FORCE_MAP runtime
 
 # Reminds ticket handlers/all admin staff of not-closed tickets after this many SECONDS.
 #TICKET_REMINDER_PERIOD 600
@@ -556,3 +561,30 @@ FAIL2TOPIC_ENABLED 0
 #FAIL2TOPIC_MAX_FAILS 5
 ## The name of the firewall rule used.
 #FAIL2TOPIC_RULE_NAME _dd_fail2topic
+
+### Forum API configuration
+### Required for certain components of the game to function.
+### Is compatible with the Invision Community API (specifically IPS4).
+## The base URL for the forum. Do not include a training backslash!
+#FORUM_API_PATH https://myforums.com/api
+## The API key for the forum.
+#FORUM_API_KEY abcdefgh
+
+### News subsystem configuration.
+## Uncomment to enable the pulling of news from the forum API.
+## See the section about configuration the forum API as well!
+## Once enabled, make sure to write a news.json in the configuration
+## folder as well.
+#NEWS_USE_FORUM_API
+
+### Auto-profiler configuration
+### Able to detect longer pauses in game execution and dump out the profiler
+### data to help diagnose these.
+## Uncomment to enable the auto-profiler.
+#PROFILER_ENABLED
+## Determines the maximum interval of the auto-profiler's snapshots, in SECONDS.
+#PROFILER_RESTART_PERIOD 120
+## Determines the amount of the server should be locked up for before the profile
+## gets dumped. Time is in DECISECONDS (1/10th of a second). Might not be wise to
+## use a value less than 10.
+#PROFILER_TIMEOUT_THRESHOLD 20

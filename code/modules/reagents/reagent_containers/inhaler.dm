@@ -17,7 +17,7 @@
 	slot_flags = SLOT_BELT
 	center_of_mass = null
 	var/used = FALSE
-	matter = list("glass" = 400, DEFAULT_WALL_MATERIAL = 200)
+	matter = list(MATERIAL_GLASS = 400, DEFAULT_WALL_MATERIAL = 200)
 
 /obj/item/reagent_containers/inhaler/Initialize()
 	. =..()
@@ -72,7 +72,7 @@
 			to_chat(user,"<span class='notice'>You and the target need to be standing still in order to inject \the [src].</span>")
 			return
 
-		user.visible_message("<span class='notice'>\The [user] injects \the [H] with \the [src].</span>","<span class='notice'>You stick \the [src] in \the [H]'s mouth and press the injection button.</span>")
+		user.visible_message("<span class='notice'>\The [user] injects \the [H] with \a [src].</span>","<span class='notice'>You stick \the [src] in \the [H]'s mouth and press the injection button.</span>")
 
 	if(H.reagents)
 		var/contained = reagentlist()
@@ -132,7 +132,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("dexalin", volume)
+		reagents.add_reagent(/datum/reagent/dexalin, volume)
 		update_icon()
 		return
 
@@ -142,7 +142,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("peridaxon", volume)
+		reagents.add_reagent(/datum/reagent/peridaxon, volume)
 		update_icon()
 		return
 
@@ -152,7 +152,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("hyperzine", volume)
+		reagents.add_reagent(/datum/reagent/hyperzine, volume)
 		update_icon()
 		return
 
@@ -162,7 +162,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("phoron", volume)
+		reagents.add_reagent(/datum/reagent/toxin/phoron, volume)
 		update_icon()
 		return
 
@@ -174,7 +174,7 @@
 	volume = 10
 	Initialize()
 		. =..()
-		reagents.add_reagent("phoron", volume)
+		reagents.add_reagent(/datum/reagent/toxin/phoron, volume)
 		update_icon()
 		return
 
@@ -187,7 +187,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("stoxin", volume)
+		reagents.add_reagent(/datum/reagent/soporific, volume)
 		update_icon()
 		return
 
@@ -197,7 +197,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("space_drugs", volume)
+		reagents.add_reagent(/datum/reagent/space_drugs, volume)
 		update_icon()
 		return
 
@@ -207,7 +207,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("ammonia", volume)
+		reagents.add_reagent(/datum/reagent/ammonia, volume)
 		update_icon()
 		return
 
@@ -217,7 +217,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("pulmodeiectionem", volume)
+		reagents.add_reagent(/datum/reagent/pulmodeiectionem, volume)
 		update_icon()
 		return
 

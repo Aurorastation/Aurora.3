@@ -48,8 +48,13 @@
 	if (prob(20))
 		//Sometimes the fryer will start with much less than full oil, significantly impacting efficiency until filled
 		variance = rand()*0.5
-	oil.add_reagent("cornoil", optimal_oil*(1 - variance))
+	oil.add_reagent(/datum/reagent/nutriment/triglyceride/oil/corn, optimal_oil*(1 - variance))
 	fry_loop = new(list(src), FALSE)
+
+/obj/machinery/appliance/cooker/fryer/Destroy()
+	QDEL_NULL(fry_loop)
+	QDEL_NULL(oil)
+	return ..()
 
 /obj/machinery/appliance/cooker/fryer/heat_up()
 	if (..())
@@ -87,12 +92,12 @@
 
 
 /obj/machinery/appliance/cooker/fryer/update_icon()
-	if (cooking)
+	if(cooking && !stat)
 		icon_state = on_icon
-		fry_loop.start()
+		fry_loop.start(src)
 	else
 		icon_state = off_icon
-		fry_loop.stop()
+		fry_loop.stop(src)
 	..()
 
 
@@ -121,9 +126,9 @@
 			for (var/datum/reagent/R in I.reagents.reagent_list)
 				if (istype(R, /datum/reagent/nutriment/triglyceride/oil))
 					total_oil += R.volume
-					if (R.id != our_oil.id)
+					if (R.type != our_oil.type)
 						total_removed += R.volume
-						I.reagents.remove_reagent(R.id, R.volume)
+						I.reagents.remove_reagent(R.type, R.volume)
 					else
 						total_our_oil += R.volume
 
@@ -144,8 +149,8 @@
 			for (var/obj/item/I in CI.container)
 				if (I.reagents && I.reagents.total_volume)
 					for (var/datum/reagent/R in I.reagents.reagent_list)
-						if (R.id == our_oil.id)
-							I.reagents.remove_reagent(R.id, R.volume*portion)
+						if (R.type == our_oil.type)
+							I.reagents.remove_reagent(R.type, R.volume*portion)
 
 
 
@@ -153,9 +158,6 @@
 
 	if(!istype(victim))
 		return
-
-	//user.visible_message("<span class='danger'>\The [user] starts pushing \the [victim] into \the [src]!</span>")
-
 
 	//Removed delay on this action in favour of a cooldown after it
 	//If you can lure someone close to the fryer and grab them then you deserve success.
@@ -232,8 +234,8 @@
 				if (istype(R, /datum/reagent/nutriment/triglyceride/oil))
 					var/delta = oil.get_free_space()
 					delta = min(delta, R.volume)
-					oil.add_reagent(R.id, delta)
-					I.reagents.remove_reagent(R.id, delta)
+					oil.add_reagent(R.type, delta)
+					I.reagents.remove_reagent(R.type, delta)
 					amount += delta
 			if (amount > 0)
 				user.visible_message("[user] pours some oil into \the [src].", span("notice","You pour [amount]u of oil into \the [src]."), "<span class='notice'>You hear something viscous being poured into a metal container.</span>")

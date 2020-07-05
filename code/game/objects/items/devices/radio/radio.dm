@@ -24,9 +24,10 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio
 	icon = 'icons/obj/radio.dmi'
 	name = "station bounced radio"
+	var/radio_desc = ""
 	suffix = "\[3\]"
 	icon_state = "walkietalkie"
-	item_state = "walkietalkie"
+	item_state = "radio"
 	var/on = 1 // 0 for off
 	var/last_transmission
 	var/frequency = PUB_FREQ //common chat
@@ -34,9 +35,9 @@ var/global/list/default_medbay_channels = list(
 	var/canhear_range = 3 // the range which mobs can hear this radio from
 	var/datum/wires/radio/wires = null
 	var/b_stat = 0
-	var/broadcasting = 0
-	var/listening = 1
-	var/list/channels = list() //see communications.dm for full list. First channel is a "default" for :h
+	var/broadcasting = FALSE
+	var/listening = TRUE
+	var/list/channels = list() //see communications.dm for full list. First non-common, non-entertainment channel is a "default" for :h
 	var/subspace_transmission = 0
 	var/syndie = 0//Holder to see if it's a syndicate encrypted radio
 	flags = CONDUCT
@@ -44,11 +45,15 @@ var/global/list/default_medbay_channels = list(
 	throw_speed = 2
 	throw_range = 9
 	w_class = 2
-	matter = list("glass" = 25,DEFAULT_WALL_MATERIAL = 75)
-	var/const/FREQ_LISTENING = 1
+	matter = list(DEFAULT_WALL_MATERIAL = 75, MATERIAL_GLASS = 25)
+	var/const/FREQ_LISTENING = TRUE
 	var/list/internal_channels
+	var/clicksound = "button" //played sound on usage
+	var/clickvol = 10 //volume
+
 
 	var/obj/item/cell/cell = /obj/item/cell/device
+	var/last_radio_sound = -INFINITY
 
 /obj/item/device/radio
 	var/datum/radio_frequency/radio_connection
@@ -121,6 +126,17 @@ var/global/list/default_medbay_channels = list(
 		ui.set_initial_data(data)
 		ui.open()
 
+/obj/item/device/radio/proc/setupRadioDescription()
+	var/radio_text = ""
+	for(var/i = 1 to channels.len)
+		var/channel = channels[i]
+		var/key = get_radio_key_from_channel(channel)
+		radio_text += "[key] - [channel]"
+		if(i != channels.len)
+			radio_text += ", "
+
+	radio_desc = radio_text
+
 /obj/item/device/radio/proc/list_channels(var/mob/user)
 	return list_internal_channels(user)
 
@@ -183,6 +199,11 @@ var/global/list/default_medbay_channels = list(
 		return STATUS_CLOSE
 	return ..()
 
+/obj/item/device/radio/CouldUseTopic(var/mob/user)
+	..()
+	if(clicksound && iscarbon(user))
+		playsound(src, clicksound, clickvol)
+
 /obj/item/device/radio/Topic(href, href_list)
 	if(..())
 		return 1
@@ -227,12 +248,19 @@ var/global/list/default_medbay_channels = list(
 
 	if(.)
 		SSnanoui.update_uis(src)
+		update_icon()
 
 /obj/item/device/radio/proc/autosay(var/message, var/from, var/channel) //BS12 EDIT
 	var/datum/radio_frequency/connection = null
 	if(channel && channels && channels.len > 0)
-		if (channel == "department")
-			channel = channels[1]
+		if(channel == "department")
+			for(var/freq in channels)
+				if(freq == "Common" || freq == "Entertainment")
+					continue
+				channel = freq
+				break
+			if(channel == "department") // didn't find one, use first one
+				channel = channels[1]
 		connection = secure_radio_connections[channel]
 	else
 		connection = radio_connection
@@ -259,9 +287,14 @@ var/global/list/default_medbay_channels = list(
 
 	// Otherwise, if a channel is specified, look for it.
 	if(channels && channels.len > 0)
-		if (message_mode == "department") // Department radio shortcut
-			message_mode = channels[1]
-
+		if(message_mode == "department") // Department radio shortcut
+			for(var/freq in channels)
+				if(freq == "Common" || freq == "Entertainment")
+					continue
+				message_mode = freq
+				break
+			if(message_mode == "department") // didn't find one, use first one
+				message_mode = channels[1]
 		if (channels[message_mode]) // only broadcast if the channel is set on
 			return secure_radio_connections[message_mode]
 
@@ -269,10 +302,10 @@ var/global/list/default_medbay_channels = list(
 	return null
 
 /obj/item/device/radio/talk_into(mob/living/M, message, channel, var/verb = "says", var/datum/language/speaking = null)
-	if(!on) 
+	if(!on)
 		return 0 // the device has to be on
 	//  Fix for permacell radios, but kinda eh about actually fixing them.
-	if(!M || !message) 
+	if(!M || !message)
 		return 0
 
 	if (iscarbon(M))
@@ -281,7 +314,7 @@ var/global/list/default_medbay_channels = list(
 			to_chat(M, span("warning", "Your can't move your arms enough to activate the radio..."))
 			return
 
-	if(istype(M)) 
+	if(istype(M))
 		M.trigger_aiming(TARGET_CAN_RADIO)
 
 	//  Uncommenting this. To the above comment:
@@ -291,6 +324,9 @@ var/global/list/default_medbay_channels = list(
 
 	if(!radio_connection)
 		set_frequency(frequency)
+
+	if(loc == M)
+		playsound(loc, 'sound/effects/walkietalkie.ogg', 5, 0, -1, required_asfx_toggles = ASFX_RADIO)
 
 	/* Quick introduction:
 		This new radio system uses a very robust FTL signaling technology unoriginally
@@ -414,7 +450,7 @@ var/global/list/default_medbay_channels = list(
 			R.receive_signal(signal)
 
 		// Receiving code can be located in Telecommunications.dm
-		return signal.data["done"] && position.z in signal.data["level"]
+		return signal.data["done"] && (position.z in signal.data["level"])
 
 
   /* ###### Intercoms and station-bounced radios ###### */
@@ -465,7 +501,7 @@ var/global/list/default_medbay_channels = list(
 
 	sleep(rand(10,25)) // wait a little...
 
-	if(signal.data["done"] && position.z in signal.data["level"])
+	if(signal.data["done"] && (position.z in signal.data["level"]))
 		// we're done here.
 		return 1
 
@@ -555,8 +591,8 @@ var/global/list/default_medbay_channels = list(
 	else return
 
 /obj/item/device/radio/emp_act(severity)
-	broadcasting = 0
-	listening = 0
+	broadcasting = FALSE
+	listening = FALSE
 	for (var/ch_name in channels)
 		channels[ch_name] = 0
 	..()
@@ -632,35 +668,34 @@ var/global/list/default_medbay_channels = list(
 	return
 
 /obj/item/device/radio/borg/proc/recalculateChannels()
-	src.channels = list()
-	src.syndie = 0
+	channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE)
+	syndie = FALSE
 
-	var/mob/living/silicon/robot/D = src.loc
+	var/mob/living/silicon/robot/D = loc
 	if(D.module)
 		for(var/ch_name in D.module.channels)
-			if(ch_name in src.channels)
+			if(ch_name in channels)
 				continue
-			src.channels += ch_name
-			src.channels[ch_name] += D.module.channels[ch_name]
+			channels[ch_name] += D.module.channels[ch_name]
 	if(keyslot)
 		for(var/ch_name in keyslot.channels)
-			if(ch_name in src.channels)
+			if(ch_name in channels)
 				continue
-			src.channels += ch_name
-			src.channels[ch_name] += keyslot.channels[ch_name]
+			channels += ch_name
+			channels[ch_name] += keyslot.channels[ch_name]
 
 		if(keyslot.syndie)
-			src.syndie = 1
+			syndie = TRUE
 
-	for (var/ch_name in src.channels)
+	for(var/ch_name in src.channels)
 		if(!SSradio)
 			sleep(30) // Waiting for the SSradio to be created.
 		if(!SSradio)
-			src.name = "broken radio"
+			name = "broken radio"
 			return
+		secure_radio_connections[ch_name] = SSradio.add_object(src, radiochannels[ch_name], RADIO_CHAT)
 
-		secure_radio_connections[ch_name] = SSradio.add_object(src, radiochannels[ch_name],  RADIO_CHAT)
-
+	setupRadioDescription()
 	return
 
 /obj/item/device/radio/borg/Topic(href, href_list)
@@ -740,13 +775,13 @@ var/global/list/default_medbay_channels = list(
 	return
 
 /obj/item/device/radio/off
-	listening = 0
+	listening = FALSE
 
 /obj/item/device/radio/phone
-	broadcasting = 0
+	broadcasting = FALSE
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
-	listening = 1
+	listening = TRUE
 	name = "phone"
 	var/radio_sound = null
 
@@ -756,8 +791,3 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio/phone/medbay/Initialize()
 	. = ..()
 	internal_channels = default_medbay_channels.Copy()
-
-/obj/item/device/radio/CouldUseTopic(var/mob/user)
-	..()
-	if(iscarbon(user))
-		playsound(src, "button", 10)

@@ -1,12 +1,14 @@
 /obj/structure/grille
 	name = "grille"
 	desc = "A flimsy lattice of metal rods, with screws to secure it to the floor."
+	desc_info = "A powered and knotted wire underneath this will cause the grille to shock anyone not wearing insulated gloves.<br>\
+	Wirecutters will turn the grille into metal rods instantly.  Grilles are made with metal rods.<br>\
+	Can be fixed with a single metal rod if damaged."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "grille"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	flags = CONDUCT
-	layer = 2.9
 	explosion_resistance = 1
 	var/health = 10
 	var/destroyed = 0
@@ -92,12 +94,20 @@
 	src.health -= damage*0.2
 	spawn(0) healthcheck() //spawn to make sure we return properly if the grille is deleted
 
-/obj/structure/grille/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/grille/attackby(obj/item/W, mob/user)
 	if(W.iswirecutter())
 		if(!shock(user, 100))
 			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			new /obj/item/stack/rods(get_turf(src), destroyed ? 1 : 2)
 			qdel(src)
+	else if(istype(W, /obj/item/gun/energy/plasmacutter))
+		var/obj/item/gun/energy/plasmacutter/PC = W
+		if(!PC.power_supply)
+			to_chat(user, SPAN_WARNING("\The [src] doesn't have a power supply installed!"))
+			return
+		playsound(get_turf(src), PC.fire_sound, 100, TRUE)
+		new /obj/item/stack/rods(get_turf(src), destroyed ? 1 : 2)
+		qdel(src)
 	else if((W.isscrewdriver()) && (istype(loc, /turf/simulated) || anchored))
 		if(!shock(user, 90))
 			playsound(loc, 'sound/items/Screwdriver.ogg', 100, 1)

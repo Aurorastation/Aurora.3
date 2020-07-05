@@ -1,5 +1,8 @@
 /obj/item/clothing/head/helmet/space/rig/industrial
 	camera = /obj/machinery/camera/network/mining
+	light_overlay = "helmet_light_dual"
+	light_color = "#ffcf2f"
+	brightness_on = 6
 
 /obj/item/clothing/head/helmet/space/rig/ce
 	camera = /obj/machinery/camera/network/engineering
@@ -70,13 +73,17 @@
 	emp_protection = -20
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/industrial
+	chest_type = /obj/item/clothing/suit/space/rig/industrial
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/pickaxe, /obj/item/gun/custom_ka,/obj/item/material/twohanded/fireaxe,/obj/item/gun/energy/vaurca/thermaldrill)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/pickaxe, /obj/item/gun/custom_ka,/obj/item/material/twohanded/fireaxe,/obj/item/gun/energy/vaurca/thermaldrill,/obj/item/storage/backpack/cell)
 
 	req_access = list()
 	req_one_access = list()
 
 	allowed_module_types = MODULE_GENERAL | MODULE_UTILITY
+
+/obj/item/clothing/suit/space/rig/industrial
+	flags_inv = HIDETAIL
 
 /obj/item/rig/industrial/equipped
 
@@ -106,7 +113,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva
 	glove_type = /obj/item/clothing/gloves/rig/eva
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/toolbox,/obj/item/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/rfd/construction,/obj/item/material/twohanded/fireaxe)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/toolbox,/obj/item/storage/briefcase/inflatable,/obj/item/device/t_scanner,/obj/item/rfd/construction,/obj/item/material/twohanded/fireaxe,/obj/item/storage/backpack/cell)
 
 	req_access = list()
 	req_one_access = list()
@@ -142,7 +149,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ce
 	glove_type = /obj/item/clothing/gloves/rig/ce
 
-	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/pickaxe,/obj/item/material/twohanded/fireaxe,/obj/item/rfd/construction)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/pickaxe,/obj/item/material/twohanded/fireaxe,/obj/item/rfd/construction,/obj/item/storage/backpack/cell)
 
 	req_access = list()
 	req_one_access = list()
@@ -217,7 +224,7 @@
 
 /obj/item/rig/medical/equipped
 
-	req_access = list(access_paramedic)
+	req_access = list(access_emt)
 
 	initial_modules = list(
 		/obj/item/rig_module/chem_dispenser/injector/paramedic,

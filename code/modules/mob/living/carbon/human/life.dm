@@ -227,11 +227,13 @@
 	// Handle side effects from stasis bag
 	if(in_stasis)
 		// First off, there's no oxygen supply, so the mob will slowly take brain damage
-		adjustOxyLoss(0.1)
-
+		adjustOxyLoss(3.5)
 		// Next, the method to induce stasis has some adverse side-effects, manifesting
 		// as cloneloss
-		adjustCloneLoss(0.1)
+		adjustCloneLoss(0.8)
+		if(stat != DEAD)
+			blinded = TRUE
+			stat = UNCONSCIOUS
 
 /mob/living/carbon/human/handle_mutations_and_radiation()
 	if(in_stasis)
@@ -305,14 +307,6 @@
 	if(head && (head.item_flags & BLOCK_GAS_SMOKE_EFFECT))
 		return
 	..()
-
-/mob/living/carbon/human/handle_post_breath(datum/gas_mixture/breath)
-	..()
-	//spread some viruses while we are at it
-	if(breath && virus2.len > 0 && prob(10))
-		for(var/mob/living/carbon/M in view(1,src))
-			src.spread_disease_to(M)
-
 
 /mob/living/carbon/human/get_breath_from_internal(volume_needed=BREATH_VOLUME)
 	if(internal)
@@ -718,7 +712,7 @@
 		return 0
 
 	//SSD check, if a logged player is awake put them back to sleep!
-	if(species.show_ssd && !client && !teleop)
+	if(species.show_ssd && (!client && !vr_mob) && !teleop)
 		Sleeping(2)
 	if(stat == DEAD)	//DEAD. BROWN BREAD. SWIMMING WITH THE SPESS CARP
 		blinded = 1
@@ -732,23 +726,8 @@
 			silent = 0
 			return 1
 
-		if(hallucination)
-			//Machines do not hallucinate.
-			if(hallucination >= 20 && !(species.flags & (NO_POISON|IS_PLANT)))
-				if(prob(3))
-					fake_attack(src)
-				if(!handling_hal)
-					spawn handle_hallucinations() //The not boring kind!
-
-			if(hallucination<=2)
-				hallucination = 0
-				adjustHalLoss(0)
-			else
-				hallucination -= 2
-
-		else
-			for(var/atom/a in hallucinations)
-				qdel(a)
+		if(hallucination && !(species.flags & (NO_POISON|IS_PLANT)))
+			handle_hallucinations() 
 
 		if(get_shock() >= (species.total_health * 0.75))
 			if(!stat)
@@ -756,8 +735,8 @@
 				src.visible_message("<B>[src]</B> [species.halloss_message]")
 			Paralyse(10)
 
-		if(paralysis || sleeping)
-			blinded = 1
+		if(paralysis || sleeping || in_stasis)
+			blinded = TRUE
 			stat = UNCONSCIOUS
 
 			adjustHalLoss(-3)
@@ -774,7 +753,7 @@
 				//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of stoxin or similar.
 				if(client || sleeping > 3 || istype(bg))
 					AdjustSleeping(-1)
-			if(prob(2) && health && !hal_crit && !failed_last_breath && !isSynthetic())
+			if(prob(2) && health && !failed_last_breath && !isSynthetic())
 				if(!paralysis)
 					emote("snore")
 				else
@@ -783,7 +762,7 @@
 
 
 		//CONSCIOUS
-		else
+		else if(!in_stasis)
 			stat = CONSCIOUS
 			willfully_sleeping = FALSE
 
@@ -851,35 +830,26 @@
 	if(stat != DEAD)
 		if(stat == UNCONSCIOUS && health < maxHealth/2)
 			var/ovr
+			var/severity
 			switch(health - maxHealth/2)
-				if(-20 to -10)
-					ovr = "passage1"
-				if(-30 to -20)
-					ovr = "passage2"
-				if(-40 to -30)
-					ovr = "passage3"
-				if(-50 to -40)
-					ovr = "passage4"
-				if(-60 to -50)
-					ovr = "passage5"
-				if(-70 to -60)
-					ovr = "passage6"
-				if(-80 to -70)
-					ovr = "passage7"
-				if(-90 to -80)
-					ovr = "passage8"
-				if(-95 to -90)
-					ovr = "passage9"
-				if(-INFINITY to -95)
-					ovr = "passage10"
+				if(-20 to -10)			severity = 1
+				if(-30 to -20)			severity = 2
+				if(-40 to -30)			severity = 3
+				if(-50 to -40)			severity = 4
+				if(-60 to -50)			severity = 5
+				if(-70 to -60)			severity = 6
+				if(-80 to -70)			severity = 7
+				if(-90 to -80)			severity = 8
+				if(-95 to -90)			severity = 9
+				if(-INFINITY to -95)	severity = 10
+			ovr = "passage[severity]"
 
 			if (ovr != last_brute_overlay)
 				damageoverlay.cut_overlay(last_brute_overlay)
 				damageoverlay.add_overlay(ovr)
 				last_brute_overlay = ovr
-			else
-				//Oxygen damage overlay
-				update_oxy_overlay()
+		else
+			update_oxy_overlay()
 
 		//Fire and Brute damage overlay (BSSR)
 		var/hurtdamage = src.getBruteLoss() + src.getFireLoss() + damageoverlaytemp
@@ -983,12 +953,12 @@
 				pressure.icon_state = new_pressure
 
 		if(toxin)
-			var/new_tox = (hal_screwyhud == 4 || phoron_alert) ? "tox1" : "tox0"
+			var/new_tox = (phoron_alert) ? "tox1" : "tox0"
 			if (toxin.icon_state != new_tox)
 				toxin.icon_state = new_tox
 
 		if(oxygen)
-			var/new_oxy = (hal_screwyhud == 3 || oxygen_alert) ? "oxy1" : "oxy0"
+			var/new_oxy = (oxygen_alert) ? "oxy1" : "oxy0"
 			if (oxygen.icon_state != new_oxy)
 				oxygen.icon_state = new_oxy
 
@@ -1108,20 +1078,21 @@
 		return 0
 
 	if(shock_stage == 10)
-		custom_pain("[pick("It hurts so much", "You really need some painkillers", "Dear god, the pain")]!", 10, nohalloss = TRUE)
+		custom_pain("[pick(species.pain_messages)]!", 10, nohalloss = TRUE)
 
 	if(shock_stage >= 30)
 		if(shock_stage == 30)
 			visible_message("<b>[src]</b> is having trouble keeping \his eyes open.")
-		eye_blurry = max(2, eye_blurry)
-		stuttering = max(stuttering, 5)
+		if(prob(30))
+			eye_blurry = max(2, eye_blurry)
+			stuttering = max(stuttering, 5)
 
 	if(shock_stage == 40)
 		custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", 40, nohalloss = TRUE)
 
 	if (shock_stage >= 60)
-		if(shock_stage == 60) 
-			visible_message("[src]'s body becomes limp.", "Your body becomes limp.")
+		if(shock_stage == 60)
+			visible_message("<b>[src]</b>'s body becomes limp.", SPAN_DANGER("Your body becomes limp."))
 		if (prob(2))
 			custom_pain("[pick("The pain is excruciating", "Please, just end the pain", "Your whole body is going numb")]!", shock_stage, nohalloss = TRUE)
 			Weaken(20)
@@ -1158,8 +1129,6 @@
 			holder.icon_state = "0" 	// X_X
 		else if(is_asystole())
 			holder.icon_state = "flatline"
-		else if(isFBP(src))
-			holder.icon_state = "2"
 		else
 			holder.icon_state = "[pulse()]"
 		hud_list[HEALTH_HUD] = holder
@@ -1173,22 +1142,11 @@
 		hud_list[LIFE_HUD] = holder
 
 	if (BITTEST(hud_updateflag, STATUS_HUD) && hud_list[STATUS_HUD] && hud_list[STATUS_HUD_OOC])
-		var/foundVirus = 0
-		for(var/datum/disease/D in viruses)
-			if(!D.hidden[SCANNER])
-				foundVirus++
-		for (var/ID in virus2)
-			if (SSrecords.find_record("id", "[ID]", RECORD_VIRUS))
-				foundVirus = 1
-				break
-
 		var/image/holder = hud_list[STATUS_HUD]
 		if(stat == DEAD)
 			holder.icon_state = "huddead"
 		else if(status_flags & XENO_HOST)
 			holder.icon_state = "hudxeno"
-		else if(foundVirus)
-			holder.icon_state = "hudill"
 		else
 			holder.icon_state = "hudhealthy"
 
@@ -1199,8 +1157,6 @@
 			holder2.icon_state = "hudxeno"
 		else if(has_brain_worms())
 			holder2.icon_state = "hudbrainworm"
-		else if(virus2.len)
-			holder2.icon_state = "hudill"
 		else
 			holder2.icon_state = "hudhealthy"
 
@@ -1252,7 +1208,7 @@
 			if(I.implanted)
 				if(istype(I,/obj/item/implant/tracking))
 					holder1.icon_state = "hud_imp_tracking"
-				if(istype(I,/obj/item/implant/loyalty))
+				if(istype(I,/obj/item/implant/mindshield))
 					holder2.icon_state = "hud_imp_loyal"
 				if(istype(I,/obj/item/implant/chem))
 					holder3.icon_state = "hud_imp_chem"
@@ -1380,23 +1336,18 @@
 /mob/living/carbon/human/proc/update_oxy_overlay()
 	var/new_oxy
 	if(getOxyLoss())
+		var/severity = 0
 		switch(getOxyLoss())
-			if(10 to 20)
-				new_oxy = "oxydamageoverlay1"
-			if(20 to 25)
-				new_oxy = "oxydamageoverlay2"
-			if(25 to 30)
-				new_oxy = "oxydamageoverlay3"
-			if(30 to 35)
-				new_oxy = "oxydamageoverlay4"
-			if(35 to 40)
-				new_oxy = "oxydamageoverlay5"
-			if(40 to 45)
-				new_oxy = "oxydamageoverlay6"
-			if(45 to INFINITY)
-				new_oxy = "oxydamageoverlay7"
+			if(10 to 20)		severity = 1
+			if(20 to 25)		severity = 2
+			if(25 to 30)		severity = 3
+			if(30 to 35)		severity = 4
+			if(35 to 40)		severity = 5
+			if(40 to 45)		severity = 6
+			if(45 to INFINITY)	severity = 7
+		new_oxy = "oxydamageoverlay[severity]"
 
-		if (new_oxy != last_oxy_overlay)
+		if(new_oxy != last_oxy_overlay)
 			damageoverlay.cut_overlay(last_oxy_overlay)
 			damageoverlay.add_overlay(new_oxy)
 			last_oxy_overlay = new_oxy

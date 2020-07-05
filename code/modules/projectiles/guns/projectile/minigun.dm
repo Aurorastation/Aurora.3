@@ -127,8 +127,9 @@
 	origin_tech = null
 
 	firemodes = list(
-		list(mode_name="short bursts",	burst=6, move_delay=8, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(3, 6, 9)),
-		list(mode_name="long bursts",	burst=12, move_delay=9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(8))
+		list(mode_name="short bursts",	can_autofire=0, burst=6, move_delay=8, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(3, 6, 9)),
+		list(mode_name="long bursts",	can_autofire=0, burst=12, move_delay=9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(8)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
 		)
 
 
@@ -155,11 +156,11 @@
 	..()
 	if(source)
 		to_chat(user, "<span class='notice'>\The [src] snaps back onto \the [source].</span>")
-		addtimer(CALLBACK(source, /obj/item/minigunpack/.proc/remove_gun), 0)
+		INVOKE_ASYNC(source, /obj/item/minigunpack/.proc/remove_gun)
 		source.update_icon()
 		user.update_inv_back()
 
 /obj/item/gun/projectile/automatic/rifle/minigun/Move()
 	..()
 	if(loc != source.loc)
-		addtimer(CALLBACK(source, /obj/item/minigunpack/.proc/remove_gun), 0)
+		INVOKE_ASYNC(source, /obj/item/minigunpack/.proc/remove_gun)

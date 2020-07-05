@@ -190,7 +190,7 @@
 		qdel(mymist)
 
 	if(on)
-		soundloop.start()
+		soundloop.start(src)
 		add_overlay(image('icons/obj/watercloset.dmi', src, "water", MOB_LAYER + 1, dir))
 		if(temperature_settings[watertemp] < T20C)
 			return //no mist for cold water
@@ -199,14 +199,15 @@
 				if(src && on)
 					ismist = 1
 					mymist = new /obj/effect/mist(loc)
-		else
-			soundloop.stop()
+		else //??? what the fuck is this
 			ismist = 1
 			mymist = new /obj/effect/mist(loc)
-	else if(ismist)
-		ismist = 1
-		mymist = new /obj/effect/mist(loc)
-		addtimer(CALLBACK(src, .proc/clear_mist), 250, TIMER_OVERRIDE)
+	else
+		soundloop.stop(src)
+		if(ismist)
+			ismist = 1
+			mymist = new /obj/effect/mist(loc)
+			addtimer(CALLBACK(src, .proc/clear_mist), 250, TIMER_OVERRIDE|TIMER_UNIQUE)
 
 /obj/machinery/shower/proc/clear_mist()
 	if (!on)
@@ -226,15 +227,18 @@
 	..()
 
 //Yes, showers are super powerful as far as washing goes.
-/obj/machinery/shower/proc/wash(atom/movable/O as obj|mob)
-	if(!on) return
+/obj/machinery/shower/proc/wash(atom/movable/O)
+	if(!on)
+		return
 
 	var/obj/effect/effect/water/W = new(O)
 	W.create_reagents(spray_amount)
-	W.reagents.add_reagent("water", spray_amount)
+	W.reagents.add_reagent(/datum/reagent/water, spray_amount)
 	W.set_up(O, spray_amount)
 
 	if(iscarbon(O))
+		var/update_icons_required = FALSE
+
 		var/mob/living/carbon/M = O
 		if(M.r_hand)
 			M.r_hand.clean_blood()
@@ -275,39 +279,53 @@
 			if(H.head)
 				if(H.head.clean_blood())
 					H.update_inv_head(0)
+					update_icons_required = TRUE
 			if(H.wear_suit)
 				if(H.wear_suit.clean_blood())
 					H.update_inv_wear_suit(0)
+					update_icons_required = TRUE
 			else if(H.w_uniform)
 				if(H.w_uniform.clean_blood())
 					H.update_inv_w_uniform(0)
+					update_icons_required = TRUE
 			if(H.gloves && washgloves)
 				if(H.gloves.clean_blood())
 					H.update_inv_gloves(0)
+					update_icons_required = TRUE
 			if(H.shoes && washshoes)
 				if(H.shoes.clean_blood())
 					H.update_inv_shoes(0)
+					update_icons_required = TRUE
 			if(H.wear_mask && washmask)
 				if(H.wear_mask.clean_blood())
 					H.update_inv_wear_mask(0)
+					update_icons_required = TRUE
 			if(H.glasses && washglasses)
 				if(H.glasses.clean_blood())
 					H.update_inv_glasses(0)
+					update_icons_required = TRUE
 			if(H.l_ear && washears)
 				if(H.l_ear.clean_blood())
 					H.update_inv_ears(0)
+					update_icons_required = TRUE
 			if(H.r_ear && washears)
 				if(H.r_ear.clean_blood())
 					H.update_inv_ears(0)
+					update_icons_required = TRUE
 			if(H.belt)
 				if(H.belt.clean_blood())
 					H.update_inv_belt(0)
+					update_icons_required = TRUE
 			H.clean_blood(washshoes)
 		else
 			if(M.wear_mask)						//if the mob is not human, it cleans the mask without asking for bitflags
 				if(M.wear_mask.clean_blood())
 					M.update_inv_wear_mask(0)
+					update_icons_required = TRUE
 			M.clean_blood()
+
+		if (update_icons_required)
+			M.update_icons()
 	else
 		O.clean_blood()
 
@@ -330,10 +348,10 @@
 				qdel(E)
 
 /obj/machinery/shower/machinery_process()
-	if(!on) 
+	if(!on)
 		return
 	wash_floor()
-	if(!mobpresent)	
+	if(!mobpresent)
 		return
 	for(var/mob/living/L in loc)
 		wash(L) // Why was it not here before?
@@ -344,13 +362,13 @@
 		return
 	is_washing = 1
 	var/turf/T = get_turf(src)
-	reagents.add_reagent("water", 2)
+	reagents.add_reagent(/datum/reagent/water, 2)
 	T.clean(src)
 	spawn(100)
 		is_washing = 0
 
 /obj/machinery/shower/proc/process_heat(mob/living/M)
-	if(!on || !istype(M)) 
+	if(!on || !istype(M))
 		return
 
 	var/temperature = temperature_settings[watertemp]
@@ -418,7 +436,7 @@
 		return TRUE
 	busy = 0
 
-	if(!Adjacent(user)) 
+	if(!Adjacent(user))
 		return		//Person has moved away from the sink
 
 	user.clean_blood()
@@ -448,9 +466,9 @@
 					to_chat(usr, span("warning", "\The [RG] is already full."))
 					return
 
-				RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
-				user.visible_message(span("notice", "[user] fills \the [RG] using \the [src]."),
-									 span("notice", "You fill \the [RG] using \the [src]."))
+				RG.reagents.add_reagent(/datum/reagent/water, min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
+				user.visible_message("<b>[user]</b> fills \a [RG] using \the [src].",
+									 SPAN_NOTICE("You fill \a [RG] using \the [src]."))
 				playsound(loc, 'sound/effects/sink.ogg', 75, 1)
 			if ("Empty")
 				if(!RG.reagents.total_volume)
@@ -458,8 +476,8 @@
 					return
 
 				var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
-				user.visible_message(span("notice", "[user] empties [empty_amount]u of \the [RG] into \the [src]."),
-									 span("notice", "You empty [empty_amount]u of \the [RG] into \the [src]."))
+				var/max_reagents = RG.reagents.maximum_volume
+				user.visible_message("<b>[user]</b> empties [empty_amount == max_reagents ? "all of \the [RG]" : "some of \the [RG]"] into \a [src].")
 				playsound(src.loc, 'sound/effects/pour.ogg', 10, 1)
 		return
 
@@ -473,7 +491,7 @@
 					return
 
 				var/trans = min(S.volume - S.reagents.total_volume, S.amount_per_transfer_from_this)
-				S.reagents.add_reagent("water", trans)
+				S.reagents.add_reagent(/datum/reagent/water, trans)
 				user.visible_message(span("notice", "[usr] uses \the [S] to draw water from \the [src]."),
 									 span("notice", "You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 			if(1) // inject
@@ -506,7 +524,7 @@
 	else if(istype(O, /obj/item/reagent_containers/food/snacks/monkeycube))
 		return
 	else if(istype(O, /obj/item/mop))
-		O.reagents.add_reagent("water", 5)
+		O.reagents.add_reagent(/datum/reagent/water, 5)
 		to_chat(user, span("notice", "You wet \the [O] in \the [src]."))
 		playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		return

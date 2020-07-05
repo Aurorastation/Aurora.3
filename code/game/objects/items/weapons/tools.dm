@@ -19,17 +19,23 @@
 	name = "wrench"
 	desc = "An adjustable tool used for gripping and turning nuts or bolts."
 	icon = 'icons/obj/tools.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
+		)
 	icon_state = "wrench"
+	item_state = "wrench"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	force = 5.0
-	throwforce = 7.0
-	w_class = 2.0
+	force = 8
+	throwforce = 7
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
-	drop_sound = 'sound/items/drop/sword.ogg'
 	usesound = 'sound/items/Ratchet.ogg'
+	drop_sound = 'sound/items/drop/wrench.ogg'
+	pickup_sound = 'sound/items/pickup/wrench.ogg'
 
 /obj/item/wrench/iswrench()
 	return TRUE
@@ -41,53 +47,52 @@
 	name = "screwdriver"
 	desc = "A tool with a flattened or cross-shaped tip that fits into the head of a screw to turn it."
 	icon = 'icons/obj/tools.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
+		)
 	icon_state = "screwdriver"
+	item_state = "screwdriver"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_EARS
-	center_of_mass = list("x" = 13,"y" = 7)
-	force = 5.0
-	w_class = 1.0
-	throwforce = 5.0
+	force = 8
+	throwforce = 5
 	throw_speed = 3
 	throw_range = 5
+	w_class = ITEMSIZE_TINY
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
 	attack_verb = list("stabbed")
-	lock_picking_level = 5
-	var/random_icon = TRUE
-	drop_sound = 'sound/items/drop/scrap.ogg'
 	usesound = 'sound/items/Screwdriver.ogg'
-
+	drop_sound = 'sound/items/drop/screwdriver.ogg'
+	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
+	lock_picking_level = 5
+	build_from_parts = TRUE
+	worn_overlay = "head"
 
 /obj/item/screwdriver/Initialize()
 	. = ..()
-	if(!random_icon)
-		return
+	if(build_from_parts) //random colors!
+		color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
+		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
 
-	switch(pick("red","blue","purple","brown","green","cyan","yellow"))
-		if ("red")
-			icon_state = "screwdriver2"
-			item_state = "screwdriver"
-		if ("blue")
-			icon_state = "screwdriver"
-			item_state = "screwdriver_blue"
-		if ("purple")
-			icon_state = "screwdriver3"
-			item_state = "screwdriver_purple"
-		if ("brown")
-			icon_state = "screwdriver4"
-			item_state = "screwdriver_brown"
-		if ("green")
-			icon_state = "screwdriver5"
-			item_state = "screwdriver_green"
-		if ("cyan")
-			icon_state = "screwdriver6"
-			item_state = "screwdriver_cyan"
-		if ("yellow")
-			icon_state = "screwdriver7"
-			item_state = "screwdriver_yellow"
+/obj/item/screwdriver/update_icon()
+	var/matrix/tf = matrix()
+	if(istype(loc, /obj/item/storage))
+		tf.Turn(-90) //Vertical for storing compactly
+		tf.Translate(-3,0) //Could do this with pixel_x but let's just update the appearance once.
+	transform = tf
 
-	if (prob(75))
-		src.pixel_y = rand(0, 16)
+/obj/item/screwdriver/pickup(mob/user)
+	..()
+	update_icon()
+
+/obj/item/screwdriver/dropped(mob/user)
+	..()
+	update_icon()
+
+/obj/item/screwdriver/attack_hand()
+	..()
+	update_icon()
 
 /obj/item/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
@@ -108,34 +113,61 @@
 	name = "wirecutters"
 	desc = "A tool used to cut wires in electrical work."
 	icon = 'icons/obj/tools.dmi'
-	icon_state = "cutters"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
+		)
+	icon_state = "wirecutters"
+	item_state = "wirecutters"
 	flags = CONDUCT
-	center_of_mass = list("x" = 18,"y" = 10)
 	slot_flags = SLOT_BELT
-	force = 6.0
+	force = 6
 	throw_speed = 2
 	throw_range = 9
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 80)
 	attack_verb = list("pinched", "nipped")
-	sharp = 1
-	edge = 1
-	drop_sound = 'sound/items/drop/knife.ogg'
+	sharp = TRUE
+	edge = TRUE
+	drop_sound = 'sound/items/drop/wirecutter.ogg'
+	pickup_sound = 'sound/items/pickup/wirecutter.ogg'
+	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
+	build_from_parts = TRUE
+	worn_overlay = "head"
 
-/obj/item/wirecutters/New()
-	if(prob(50))
-		icon_state = "cutters-y"
-		item_state = "cutters_yellow"
+/obj/item/wirecutters/Initialize()
+	. = ..()
+	if(build_from_parts)
+		color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
+		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
+
+/obj/item/wirecutters/update_icon()
+	var/matrix/tf = matrix()
+	if(istype(loc, /obj/item/storage))
+		tf.Turn(-90) //Vertical for storing compactly
+		tf.Translate(-1,0) //Could do this with pixel_x but let's just update the appearance once.
+	transform = tf
+
+/obj/item/wirecutters/pickup(mob/user)
 	..()
+	update_icon()
 
-/obj/item/wirecutters/attack(mob/living/carbon/C as mob, mob/user as mob, var/target_zone)
+/obj/item/wirecutters/dropped(mob/user)
+	..()
+	update_icon()
+
+/obj/item/wirecutters/attack_hand()
+	..()
+	update_icon()
+
+/obj/item/wirecutters/attack(mob/living/carbon/C, mob/user, var/target_zone)
 	if(user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/handcuffs/cable)))
-		usr.visible_message("\The [usr] cuts \the [C]'s restraints with \the [src]!",\
-		"You cut \the [C]'s restraints with \the [src]!",\
-		"You hear cable being cut.")
+		user.visible_message(SPAN_NOTICE("\The [user] cuts \the [C]'s restraints with \the [src]!"),\
+		SPAN_NOTICE("You cut \the [C]'s restraints with \the [src]!"),\
+		SPAN_NOTICE("You hear cable being cut."))
 		C.handcuffed = null
-		if(C.buckled && C.buckled.buckle_require_restraints)
+		if(C.buckled?.buckle_require_restraints)
 			C.buckled.unbuckle_mob()
 		C.update_inv_handcuffed()
 		return
@@ -145,6 +177,13 @@
 /obj/item/wirecutters/iswirecutter()
 	return TRUE
 
+/obj/item/wirecutters/bomb
+	name = "bomb defusal wirecutters"
+	desc = "A tool used to delicately sever the wires used in bomb fuses."
+	icon_state = "mini_wirecutters"
+	toolspeed = 0.6
+	bomb_defusal_chance = 90 // 90% chance, because the thrill of dying must be kept at all times, duh
+
 /*
  * Welding Tool
  */
@@ -152,22 +191,28 @@
 	name = "welding tool"
 	desc = "A welding tool with a built-in fuel tank, designed for welding and cutting metal."
 	icon = 'icons/obj/tools.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
+		)
 	icon_state = "welder_off"
+	item_state = "welder_off"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
+	drop_sound = 'sound/items/drop/weldingtool.ogg'
+	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	var/base_iconstate = "welder"//These are given an _on/_off suffix before being used
 	var/base_itemstate = "welder"
-	drop_sound = 'sound/items/drop/scrap.ogg'
 
 	//Amount of OUCH when it's thrown
-	force = 3.0
-	throwforce = 5.0
+	force = 3
+	throwforce = 5
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 
 	//Cost to make in the autolathe
-	matter = list(DEFAULT_WALL_MATERIAL = 70, "glass" = 30)
+	matter = list(DEFAULT_WALL_MATERIAL = 70, MATERIAL_GLASS = 30)
 
 	//R&D tech level
 	origin_tech = list(TECH_ENGINEERING = 1)
@@ -183,31 +228,31 @@
 /obj/item/weldingtool/largetank
 	name = "industrial welding tool"
 	desc = "A welding tool with an extended-capacity built-in fuel tank, standard issue for engineers."
-	max_fuel = 40
-	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 60)
 	base_iconstate = "ind_welder"
+	base_itemstate = "ind_welder"
+	max_fuel = 40
+	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 60)
 	origin_tech = list(TECH_ENGINEERING = 2)
-
 
 /obj/item/weldingtool/hugetank
 	name = "advanced welding tool"
 	desc = "A rare and powerful welding tool with a super-extended fuel tank."
-	max_fuel = 80
-	w_class = 2.0
-	matter = list(DEFAULT_WALL_MATERIAL = 200, "glass" = 120)
 	base_iconstate = "adv_welder"
+	base_itemstate = "adv_welder"
+	max_fuel = 80
+	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 3)
 
 //The Experimental Welding Tool!
 /obj/item/weldingtool/experimental
 	name = "experimental welding tool"
 	desc = "A scientifically-enhanced welding tool that uses fuel-producing microbes to gradually replenish its fuel supply."
-	max_fuel = 40
-	w_class = 2.0
-	matter = list(DEFAULT_WALL_MATERIAL = 100, "glass" = 120)
 	base_iconstate = "exp_welder"
-	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
 	base_itemstate = "exp_welder"
+	max_fuel = 40
+	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 120)
+	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
+
 
 	var/last_gen = 0
 	var/fuelgen_delay = 400 //The time, in deciseconds, required to regenerate one unit of fuel
@@ -220,7 +265,7 @@
 	var/datum/reagents/R = new/datum/reagents(max_fuel)
 	reagents = R
 	R.my_atom = src
-	R.add_reagent("fuel", max_fuel)
+	R.add_reagent(/datum/reagent/fuel, max_fuel)
 	update_icon()
 
 /obj/item/weldingtool/update_icon()
@@ -396,7 +441,7 @@
 
 //Returns the amount of fuel in the welder
 /obj/item/weldingtool/proc/get_fuel()
-	return reagents.get_reagent_amount("fuel")
+	return reagents.get_reagent_amount(/datum/reagent/fuel)
 
 //Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob. This should probably be renamed to use()
 /obj/item/weldingtool/proc/remove_fuel(var/amount = 1, var/mob/M = null, var/colourChange = TRUE)
@@ -406,7 +451,7 @@
 		set_light(0.7, 2, l_color = LIGHT_COLOR_CYAN)
 		addtimer(CALLBACK(src, /atom/proc/update_icon), 5)
 	if(get_fuel() >= amount)
-		reagents.remove_reagent("fuel", amount)
+		reagents.remove_reagent(/datum/reagent/fuel, amount)
 		if(M)
 			eyecheck(M)
 		return 1
@@ -418,6 +463,9 @@
 //Returns whether or not the welding tool is currently on.
 /obj/item/weldingtool/proc/isOn()
 	return src.welding
+
+/obj/item/weldingtool/isFlameSource()
+	return isOn()
 
 //Sets the welding state of the welding tool. If you see W.welding = 1 anywhere, please change it to W.setWelding(1)
 //so that the welding tool updates accordingly
@@ -524,7 +572,7 @@
 		var/gen_amount = ((world.time-last_gen) / fuelgen_delay)
 		var/remainder = max_fuel - get_fuel()
 		gen_amount = min(gen_amount, remainder)
-		reagents.add_reagent("fuel", gen_amount)
+		reagents.add_reagent(/datum/reagent/fuel, gen_amount)
 		if(get_fuel() >= max_fuel)
 			set_processing(0)
 	else
@@ -539,25 +587,30 @@
 	name = "crowbar"
 	desc = "An iron bar with a flattened end, used as a lever to remove floors and pry open doors."
 	icon = 'icons/obj/tools.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
+		)
 	icon_state = "crowbar"
+	item_state = "crowbar"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	force = 5.0
-	throwforce = 7.0
-	item_state = "crowbar"
-	w_class = 2.0
+	force = 8
+	throwforce = 7
+	w_class = ITEMSIZE_SMALL
+	drop_sound = 'sound/items/drop/crowbar.ogg'
+	pickup_sound = 'sound/items/pickup/crowbar.ogg'
+	usesound = 'sound/items/Crowbar.ogg'
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
-	drop_sound = 'sound/items/drop/sword.ogg'
-	usesound = 'sound/items/Crowbar.ogg'
 
 /obj/item/crowbar/iscrowbar()
 	return TRUE
 
 /obj/item/crowbar/red
 	icon = 'icons/obj/tools.dmi'
-	icon_state = "red_crowbar"
+	icon_state = "crowbar_red"
 	item_state = "crowbar_red"
 
 // Pipe wrench
@@ -565,25 +618,39 @@
 	name = "pipe wrench"
 	desc = "A big wrench that is made for working with pipes."
 	icon = 'icons/obj/tools.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
+		)
 	icon_state = "pipewrench"
+	item_state = "pipewrench"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	force = 5.0
-	throwforce = 7.0
-	w_class = 2.0
+	force = 8
+	throwforce = 7
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 
-//combitool
+/obj/item/pipewrench/Initialize()
+	. = ..()
+	color = color_rotation(rand(-11, 12) * 15)
 
 /obj/item/combitool
 	name = "combi-tool"
 	desc = "It even has one of those nubbins for doing the thingy."
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "combitool"
+	item_state = "combitool"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
+		)
 	force = 3
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
+	drop_sound = 'sound/items/drop/multitool.ogg'
+	pickup_sound = 'sound/items/pickup/multitool.ogg'
 
 	var/list/tools = list(
 		"crowbar",
@@ -595,76 +662,71 @@
 	var/current_tool = 1
 
 /obj/item/combitool/Initialize()
-	desc = "[initial(desc)] ([tools.len]. [tools.len] possibilit[tools.len == 1 ? "y" : "ies"])"
+	desc = "[initial(desc)] It has [tools.len] possibilit[tools.len == 1 ? "y" : "ies"]."
+	for(var/tool in tools)
+		tools[tool] = image('icons/obj/tools.dmi', icon_state = "[icon_state]-[tool]")
 	. = ..()
 
 /obj/item/combitool/examine(var/mob/user)
 	. = ..()
 	if(. && tools.len)
-		to_chat(user, "It has the following fittings:")
-		for(var/tool in tools)
-			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
+		to_chat(user, "It has the following fittings: <b>[english_list(tools)]</b>.")
 
 /obj/item/combitool/iswrench()
-	return tools[current_tool] == "wrench"
+	return current_tool == "wrench"
 
 /obj/item/combitool/isscrewdriver()
-	return tools[current_tool] == "screwdriver"
+	return current_tool == "screwdriver"
 
 /obj/item/combitool/iswirecutter()
-	return tools[current_tool] == "wirecutters"
+	return current_tool == "wirecutters"
 
 /obj/item/combitool/iscrowbar()
-	return tools[current_tool] == "crowbar"
+	return current_tool == "crowbar"
 
 /obj/item/combitool/ismultitool()
-	return tools[current_tool] == "multitool"
+	return current_tool == "multitool"
 
 /obj/item/combitool/proc/update_tool()
-	icon_state = "[initial(icon_state)]-[tools[current_tool]]"
+	icon_state = "[initial(icon_state)]-[current_tool]"
 
 /obj/item/combitool/attack_self(var/mob/user)
 	if(++current_tool > tools.len)
 		current_tool = 1
-	var/tool = tools[current_tool]
-	if(!tool)
-		to_chat(user, "You can't seem to find any fittings in \the [src].")
-	else
-		to_chat(user, "You switch \the [src] to the [tool] fitting.")
-	update_tool()
+	var/tool = RADIAL_INPUT(user, tools)
+	if(tool)
+		playsound(user, 'sound/items/penclick.ogg', 25)
+		current_tool = tool
+		update_tool()
 	return 1
-
 
 /obj/item/powerdrill
 	name = "impact wrench"
-	desc = " The screwdriver's big brother."
+	desc = "The screwdriver's big brother."
 	icon = 'icons/obj/tools.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
+		)
 	icon_state = "powerdrillyellow"
-	var/drillcolor = null
-	force = 3
-	w_class = 2
+	item_state = "powerdrillyellow"
+	force = 8
+	attack_verb = list("gored", "drilled", "screwed", "punctured")
+	w_class = ITEMSIZE_SMALL
 	toolspeed = 3
 	usesound = 'sound/items/drill_use.ogg'
-
+	var/current_tool = 1
 	var/list/tools = list(
 		"screwdriverbit",
 		"wrenchbit"
 		)
-	var/current_tool = 1
+
 
 /obj/item/powerdrill/Initialize()
 	. = ..()
-
-	switch(pick("red","blue","yellow","green"))
-		if ("red")
-			drillcolor = "red"
-		if ("blue")
-			drillcolor = "blue"
-		if ("green")
-			drillcolor = "green"
-		if ("yellow")
-			drillcolor = "yellow"
+	var/drillcolor = pick("red", "blue", "yellow", "green")
 	icon_state = "powerdrill[drillcolor]"
+	item_state = "powerdrill[drillcolor]"
 
 /obj/item/powerdrill/examine(var/mob/user)
 	. = ..()
@@ -679,8 +741,11 @@
 
 /obj/item/powerdrill/isscrewdriver()
 	usesound = 'sound/items/drill_use.ogg'
-
 	return tools[current_tool] == "screwdriverbit"
+
+/obj/item/powerdrill/iscrowbar()
+	usesound = 'sound/items/drill_use.ogg'
+	return tools[current_tool] == "crowbarbit"
 
 /obj/item/powerdrill/proc/update_tool()
 	if(isscrewdriver())
@@ -700,4 +765,4 @@
 		to_chat(user, "You switch \the [src] to the [tool] fitting.")
 		playsound(loc, 'sound/items/change_drill.ogg', 50, 1)
 	update_tool()
-	return 1
+	return TRUE

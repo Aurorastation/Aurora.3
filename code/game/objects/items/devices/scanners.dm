@@ -22,15 +22,13 @@ BREATH ANALYZER
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
 	var/mode = 1
 
-/obj/item/device/healthanalyzer/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user)
 	health_scan_mob(M, user, mode)
-	src.add_fingerprint(user)
-	return
+	add_fingerprint(user)
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
 	health_scan_mob(user, user, mode)
-	src.add_fingerprint(user)
-	return
+	add_fingerprint(user)
 
 /proc/get_wound_severity(var/damage_ratio) //Used for ratios.
 	var/degree = "none"
@@ -53,33 +51,25 @@ BREATH ANALYZER
 		return "none"
 	. = "minor"
 	if(amount > 50)
-		if(tag)
-			. = "<span class='bad'>severe</span>"
-		else
-			. = "severe"
+		. = "severe"
 	else if(amount > 25)
-		if(tag)
-			. = "<span class='bad'>significant</span>"
-		else
-			. = "significant"
+		. = "significant"
 	else if(amount > 10)
-		if(tag)
-			. = "<span class='average'>moderate</span>"
-		else
-			. = "moderate"
+		. = "moderate"
 
-/proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE)
-	if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
-		user.visible_message("<span class='notice'>\The [user] runs the scanner over the floor.</span>", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
-		to_chat(user, "<span class='notice'><b>Scan results for the floor:</b></span>")
-		to_chat(user, "Overall Status: Healthy</span>")
-		return
+/proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE)
+	if(!just_scan)
+		if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
+			user.visible_message("<b>[user]</b> runs the scanner over the floor.", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
+			to_chat(user, "<span class='notice'><b>Scan results for the floor:</b></span>")
+			to_chat(user, "Overall Status: Healthy</span>")
+			return
 
-	if(!usr.IsAdvancedToolUser())
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
-		return
+		if(!usr.IsAdvancedToolUser())
+			to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+			return
 
-	user.visible_message("<span class='notice'>[user] runs the scanner over [M].</span>","<span class='notice'>You run the scanner over [M].</span>")
+		user.visible_message("<b>[user]</b> runs a scanner over [M].","<span class='notice'>You run the scanner over [M].</span>")
 
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")
@@ -123,7 +113,7 @@ BREATH ANALYZER
 			pulse_result = 0
 		else
 			pulse_result = H.get_pulse(GETPULSE_TOOL)
-		pulse_result = "<span class='scan_green'>[pulse_result]bpm</span>"
+		pulse_result = "<span class='scan_green'>[pulse_result]</span>"
 		if(H.pulse() == PULSE_NONE)
 			pulse_result = "<span class='scan_danger'>[pulse_result]</span>"
 		else if(H.pulse() < PULSE_NORM)
@@ -131,11 +121,8 @@ BREATH ANALYZER
 		else if(H.pulse() > PULSE_NORM)
 			pulse_result = "<span class='scan_warning'>[pulse_result]</span>"
 	else
-		if(H.isFBP())
-			pulse_result = "[rand(70, 85)]bpm"
-		else
-			pulse_result = "<span class='scan_danger'>ERROR - Nonstandard biology</span>"
-	dat += "Pulse rate: [pulse_result]."
+		pulse_result = "<span class='scan_danger'>0</span>"
+	dat += "Pulse rate: [pulse_result]bpm."
 
 	// Blood pressure. Based on the idea of a normal blood pressure being 120 over 80.
 	if(H.should_have_organ(BP_HEART))
@@ -162,10 +149,7 @@ BREATH ANALYZER
 				blood_pressure_string = "<span class='scan_danger'>[H.get_blood_pressure()]</span>"
 		dat += "[b]Blood pressure:[endb] [blood_pressure_string] ([oxygenation_string])"
 	else
-		if(H.isFBP())
-			dat += "[b]Blood pressure:[endb] [rand(118, 125)]/[rand(77, 85)] (100%)"
-		else
-			dat += "[b]Blood pressure:[endb] N/A"
+		dat += "[b]Blood pressure:[endb] N/A"
 
 	// Body temperature.
 	var/temperature_string
@@ -201,7 +185,7 @@ BREATH ANALYZER
 		if(RADS_HIGH to INFINITY)
 			rad_result += span("scan_red", "[b]Extreme levels of radiation poisoning detected![endb]")
 	dat += rad_result
-	
+
 	if(show_limb_damage)
 		var/list/damaged = H.get_damaged_organs(1,1)
 		if(damaged.len)
@@ -264,7 +248,7 @@ BREATH ANALYZER
 			var/datum/reagent/R = A
 			if(R.scannable)
 				print_reagent_default_message = FALSE
-				reagentdata["[R.id]"] = "<span class='notice'>    [round(H.reagents.get_reagent_amount(R.id), 1)]u [R.name]</span>"
+				reagentdata["[R.type]"] = "<span class='notice'>    [round(H.reagents.get_reagent_amount(R.type), 1)]u [R.name]</span>"
 			else
 				unknown++
 		if(reagentdata.len)
@@ -291,12 +275,6 @@ BREATH ANALYZER
 
 	if(print_reagent_default_message)
 		dat += "No results."
-
-	if(H.virus2.len)
-		for (var/ID in H.virus2)
-			var/datum/record/virus/V = SSrecords.find_record("id", "[ID]", RECORD_VIRUS)
-			if(istype(V))
-				dat += "<span class='warning'>Warning: Pathogen [V.name] detected in subject's blood. Known antigen : [V.antigen]</span>"
 
 	. += dat
 
@@ -331,7 +309,7 @@ BREATH ANALYZER
 	throw_speed = 4
 	throw_range = 20
 
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 
@@ -365,7 +343,7 @@ BREATH ANALYZER
 	throw_speed = 4
 	throw_range = 20
 
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 	var/details = 0
@@ -392,7 +370,7 @@ BREATH ANALYZER
 	if(reagents.total_volume)
 		var/list/blood_traces = list()
 		for(var/datum/reagent/R in reagents.reagent_list)
-			if(R.id != "blood")
+			if(R.type != /datum/reagent/blood)
 				reagents.clear_reagents()
 				to_chat(user, "<span class='warning'>The sample was contaminated! Please insert another sample</span>")
 				return
@@ -426,7 +404,7 @@ BREATH ANALYZER
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 20
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 	var/details = 0
@@ -474,7 +452,7 @@ BREATH ANALYZER
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 7
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
 /obj/item/device/slime_scanner/attack(mob/living/M, mob/living/user)
 	if(!isslime(M))
@@ -516,7 +494,7 @@ BREATH ANALYZER
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 3
-	matter = list(DEFAULT_WALL_MATERIAL = 25, "glass" = 25)
+	matter = list(DEFAULT_WALL_MATERIAL = 25, MATERIAL_GLASS = 25)
 
 /obj/item/device/price_scanner/afterattack(atom/movable/target, mob/user as mob, proximity)
 	if(!proximity)
@@ -537,7 +515,7 @@ BREATH ANALYZER
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 3
-	matter = list(DEFAULT_WALL_MATERIAL = 30,"glass" = 20)
+	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 
 /obj/item/device/breath_analyzer/attack(mob/living/carbon/human/H, mob/living/user as mob)

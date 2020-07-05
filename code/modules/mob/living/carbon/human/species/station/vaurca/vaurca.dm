@@ -69,7 +69,7 @@
 	flags = NO_SLIP | NO_CHUBBY | NO_ARTERIES
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
-	blood_color = "#E6E600" // dark yellow
+	blood_color = COLOR_VAURCA_BLOOD // dark yellow
 	flesh_color = "#E6E600"
 	base_color = "#575757"
 
@@ -127,6 +127,8 @@
 	allowed_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_PILOTDREAM, RELIGION_NONE, RELIGION_OTHER)
 	default_citizenship = CITIZENSHIP_ZORA
 
+	allowed_accents = list(ACCENT_CETI)
+
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER
@@ -150,3 +152,6 @@
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
 	return ..()
+
+/datum/species/bug/has_psi_potential()
+	return FALSE

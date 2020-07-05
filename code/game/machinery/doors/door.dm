@@ -162,6 +162,13 @@
 				open()
 		return
 
+	if(istype(AM, /mob/living/simple_animal/spiderbot))
+		var/mob/living/simple_animal/spiderbot/bot = AM
+		if(src.check_access(bot.internal_id))
+			if(density)
+				open()
+		return
+
 	if(istype(AM, /obj/structure/bed/chair/wheelchair))
 		var/obj/structure/bed/chair/wheelchair/wheel = AM
 		if(density)
@@ -178,6 +185,16 @@
 			else
 				do_animate("deny")
 		return
+
+	if(istype(AM, /obj/vehicle))
+		var/obj/vehicle/V = AM
+		if(density)
+			if(V.buckled_mob && (src.allowed(V.buckled_mob)))
+				open()
+			else
+				do_animate("deny")
+		return
+
 	return
 
 

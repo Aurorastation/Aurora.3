@@ -41,10 +41,14 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	var/obj/machinery/r_n_d/protolathe/linked_lathe = null				//Linked Protolathe
 	var/obj/machinery/r_n_d/circuit_imprinter/linked_imprinter = null	//Linked Circuit Imprinter
 
+	var/allow_analyzer = TRUE
+	var/allow_lathe = TRUE
+	var/allow_imprinter = TRUE
+
 	var/screen = 1.0	//Which screen is currently showing.
 	var/sync = 1		//If sync = 0, it doesn't show up on Server Control Console
 
-	req_access = list(access_research)	//Data and setting manipulation requires scientist access.
+	req_access = list(access_tox)	//Data and setting manipulation requires scientist access.
 
 /obj/machinery/computer/rdconsole/proc/CallMaterialName(var/ID)
 	var/return_name = ID
@@ -73,15 +77,15 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	for(var/obj/machinery/r_n_d/D in range(3, src))
 		if(D.linked_console != null || D.panel_open)
 			continue
-		if(istype(D, /obj/machinery/r_n_d/destructive_analyzer))
+		if(istype(D, /obj/machinery/r_n_d/destructive_analyzer) && allow_analyzer)
 			if(linked_destroy == null)
 				linked_destroy = D
 				D.linked_console = src
-		else if(istype(D, /obj/machinery/r_n_d/protolathe))
+		else if(istype(D, /obj/machinery/r_n_d/protolathe) && allow_lathe)
 			if(linked_lathe == null)
 				linked_lathe = D
 				D.linked_console = src
-		else if(istype(D, /obj/machinery/r_n_d/circuit_imprinter))
+		else if(istype(D, /obj/machinery/r_n_d/circuit_imprinter) && allow_imprinter)
 			if(linked_imprinter == null)
 				linked_imprinter = D
 				D.linked_console = src
@@ -222,7 +226,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	else if(href_list["copy_design"]) //Copy design data from the research holder to the design disk.
 		for(var/datum/design/D in files.known_designs)
-			if(href_list["copy_design_ID"] == D.id)
+			if("[D.type]" == href_list["copy_design_ID"])
 				d_disk.blueprint = D
 				break
 		screen = 1.4
@@ -307,7 +311,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(linked_lathe)
 			var/datum/design/being_built = null
 			for(var/datum/design/D in files.known_designs)
-				if(D.id == href_list["build"])
+				if("[D.type]" == href_list["build"])
 					being_built = D
 					break
 			if(being_built)
@@ -320,7 +324,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(linked_imprinter)
 			var/datum/design/being_built = null
 			for(var/datum/design/D in files.known_designs)
-				if(D.id == href_list["imprint"])
+				if("[D.type]" == href_list["imprint"])
 					being_built = D
 					break
 			if(being_built)
@@ -573,7 +577,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			for(var/datum/design/D in files.known_designs)
 				if(D.build_path)
 					dat += "<LI>[D.name] "
-					dat += "<A href='?src=\ref[src];copy_design=1;copy_design_ID=[D.id]'>\[copy to disk\]</A>"
+					dat += "<A href='?src=\ref[src];copy_design=1;copy_design_ID=[D.type]'>\[copy to disk\]</A>"
 			dat += "</UL>"
 
 		if(1.6) //R&D console settings
@@ -597,19 +601,25 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='?src=\ref[src];find_device=1'>Re-sync with Nearby Devices</A><HR>"
 			dat += "Linked Devices:"
 			dat += "<UL>"
-			if(linked_destroy)
-				dat += "<LI>Destructive Analyzer <A href='?src=\ref[src];disconnect=destroy'>(Disconnect)</A>"
-			else
-				dat += "<LI>(No Destructive Analyzer Linked)"
-			if(linked_lathe)
-				dat += "<LI>Protolathe <A href='?src=\ref[src];disconnect=lathe'>(Disconnect)</A>"
-			else
-				dat += "<LI>(No Protolathe Linked)"
-			if(linked_imprinter)
-				dat += "<LI>Circuit Imprinter <A href='?src=\ref[src];disconnect=imprinter'>(Disconnect)</A>"
-			else
-				dat += "<LI>(No Circuit Imprinter Linked)"
-			dat += "</UL>"
+
+			if(allow_analyzer)
+				if(linked_destroy)
+					dat += "<LI>Destructive Analyzer <A href='?src=\ref[src];disconnect=destroy'>(Disconnect)</A>"
+				else
+					dat += "<LI>(No Destructive Analyzer Linked)"
+
+			if(allow_lathe)
+				if(linked_lathe)
+					dat += "<LI>Protolathe <A href='?src=\ref[src];disconnect=lathe'>(Disconnect)</A>"
+				else
+					dat += "<LI>(No Protolathe Linked)"
+
+			if(allow_imprinter)
+				if(linked_imprinter)
+					dat += "<LI>Circuit Imprinter <A href='?src=\ref[src];disconnect=imprinter'>(Disconnect)</A>"
+				else
+					dat += "<LI>(No Circuit Imprinter Linked)"
+				dat += "</UL>"
 
 		////////////////////DESTRUCTIVE ANALYZER SCREENS////////////////////////////
 		if(2.0)
@@ -661,7 +671,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				if(temp_dat)
 					temp_dat = " \[[copytext(temp_dat, 3)]\]"
 				if(linked_lathe.canBuild(D))
-					dat += "<LI><B><A href='?src=\ref[src];build=[D.id]'>[D.name]</A></B>[temp_dat]"
+					dat += "<LI><B><A href='?src=\ref[src];build=[D.type]'>[D.name]</A></B>[temp_dat]"
 				else
 					dat += "<LI><B>[D.name]</B>[temp_dat]"
 			dat += "</UL>"
@@ -691,7 +701,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "Chemical Storage<BR><HR>"
 			for(var/datum/reagent/R in linked_lathe.reagents.reagent_list)
 				dat += "Name: [R.name] | Units: [R.volume] "
-				dat += "<A href='?src=\ref[src];disposeP=[R.id]'>(Purge)</A><BR>"
+				dat += "<A href='?src=\ref[src];disposeP=[R.type]'>(Purge)</A><BR>"
 				dat += "<A href='?src=\ref[src];disposeallP=1'><U>Disposal All Chemicals in Storage</U></A><BR>"
 
 		if(3.4) // Protolathe queue
@@ -737,7 +747,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				if(temp_dat)
 					temp_dat = " \[[copytext(temp_dat,3)]\]"
 				if(linked_imprinter.canBuild(D))
-					dat += "<LI><B><A href='?src=\ref[src];imprint=[D.id]'>[D.name]</A></B>[temp_dat]"
+					dat += "<LI><B><A href='?src=\ref[src];imprint=[D.type]'>[D.name]</A></B>[temp_dat]"
 				else
 					dat += "<LI><B>[D.name]</B>[temp_dat]"
 			dat += "</UL>"
@@ -748,7 +758,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "Chemical Storage<BR><HR>"
 			for(var/datum/reagent/R in linked_imprinter.reagents.reagent_list)
 				dat += "Name: [R.name] | Units: [R.volume] "
-				dat += "<A href='?src=\ref[src];disposeI=[R.id]'>(Purge)</A><BR>"
+				dat += "<A href='?src=\ref[src];disposeI=[R.type]'>(Purge)</A><BR>"
 				dat += "<A href='?src=\ref[src];disposeallI=1'><U>Disposal All Chemicals in Storage</U></A><BR>"
 
 		if(4.3)
@@ -796,11 +806,12 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	onclose(user, "rdconsole")
 
 /obj/machinery/computer/rdconsole/robotics
-	name = "Robotics R&D Console"
+	name = "robotics R&D console"
 	id = 2
 	req_access = list(access_robotics)
+	allow_analyzer = FALSE
+	allow_lathe = FALSE
 
 /obj/machinery/computer/rdconsole/core
-	name = "Core R&D Console"
+	name = "core R&D console"
 	id = 1
-	req_access = list(access_tox) //so scientists and lab assistants can use it

@@ -73,6 +73,10 @@
 
 	. = ..()
 
+	hide_underwear.Cut()
+	for(var/category in global_underwear.categories_by_name)
+		hide_underwear[category] = FALSE
+
 	if(dna)
 		dna.ready_dna(src)
 		dna.real_name = real_name
@@ -293,11 +297,11 @@
 /mob/living/carbon/human/proc/implant_loyalty(mob/living/carbon/human/M, override = FALSE) // Won't override by default.
 	if(!config.use_loyalty_implants && !override) return // Nuh-uh.
 
-	var/obj/item/implant/loyalty/L
+	var/obj/item/implant/mindshield/L
 	if(isipc(M))
-		L = new/obj/item/implant/loyalty/ipc(M)
+		L = new/obj/item/implant/mindshield/ipc(M)
 	else
-		L = new/obj/item/implant/loyalty(M)
+		L = new/obj/item/implant/mindshield(M)
 	L.imp_in = M
 	L.implanted = 1
 	var/obj/item/organ/external/affected = M.organs_by_name[BP_HEAD]
@@ -307,7 +311,7 @@
 
 /mob/living/carbon/human/proc/is_loyalty_implanted(mob/living/carbon/human/M)
 	for(var/L in M.contents)
-		if(istype(L, /obj/item/implant/loyalty))
+		if(istype(L, /obj/item/implant/mindshield))
 			for(var/obj/item/organ/external/O in M.organs)
 				if(L in O.implants)
 					return 1
@@ -429,35 +433,21 @@
 
 //gets assignment from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
-/mob/living/carbon/human/proc/get_assignment(var/if_no_id = "No id", var/if_no_job = "No job")
-	var/obj/item/device/pda/pda = wear_id
-	if (istype(pda))
-		if (pda.id)
-			return pda.id.assignment
-		else
-			return pda.ownjob
+/mob/living/carbon/human/proc/get_assignment(var/if_no_id = "No ID", var/if_no_job = "No Job")
+	var/obj/item/card/id/I = GetIdCard()
+	if(istype(I))
+		return I.assignment ? I.assignment : if_no_job
 	else
-		var/obj/item/card/id/id = get_idcard()
-		if(id)
-			return id.assignment ? id.assignment : if_no_job
-		else
-			return if_no_id
+		return if_no_id
 
 //gets name from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
 /mob/living/carbon/human/proc/get_authentification_name(var/if_no_id = "Unknown")
-	var/obj/item/device/pda/pda = wear_id
-	if (istype(pda))
-		if (pda.id)
-			return pda.id.registered_name
-		else
-			return pda.owner
+	var/obj/item/card/id/I = GetIdCard()
+	if(istype(I))
+		return I.registered_name
 	else
-		var/obj/item/card/id/id = get_idcard()
-		if(id)
-			return id.registered_name
-		else
-			return if_no_id
+		return if_no_id
 
 //repurposed proc. Now it combines get_id_name() and get_face_name() to determine a mob's name variable. Made into a seperate proc as it'll be useful elsewhere
 /mob/living/carbon/human/proc/get_visible_name()
@@ -504,6 +494,11 @@
 		shock_damage *= base_siemens_coeff
 	if (shock_damage<1)
 		return 0
+
+	var/obj/item/organ/internal/augment/tesla/tesla = internal_organs_by_name[BP_AUG_TESLA]
+	if(tesla?.check_shock())
+		tesla.actual_charges = min(tesla.actual_charges+1, tesla.max_charges)
+		return FALSE
 
 	if(!def_zone)
 		//The way this works is by damaging multiple areas in an "Arc" if no def_zone is provided. should be pretty easy to add more arcs if it's needed. though I can't imangine a situation that can apply.
@@ -707,7 +702,7 @@
 					R.security.comments += text("Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
 				if(istype(usr,/mob/living/silicon/robot))
 					var/mob/living/silicon/robot/U = usr
-					R.security.comments += text("Made by [U.name] ([U.modtype] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
+					R.security.comments += text("Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
 
 	if (href_list["medical"])
 		if(hasHUD(usr,"medical"))
@@ -818,7 +813,7 @@
 					R.medical.comments += text("Made by [U.get_authentification_name()] ([U.get_assignment()]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
 				if(isrobot(usr))
 					var/mob/living/silicon/robot/U = usr
-					R.medical.comments += text("Made by [U.name] ([U.modtype] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
+					R.medical.comments += text("Made by [U.name] ([U.mod_type] [U.braintype]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [game_year]<BR>[t1]")
 
 	if (href_list["lookitem"])
 		var/obj/item/I = locate(href_list["lookitem"])
@@ -1214,6 +1209,15 @@
 		remoteview_target = null
 		reset_view(0)
 
+/mob/living/carbon/human/succumb()
+	set hidden = TRUE
+
+	if(shock_stage > 50 && (maxHealth * 0.6) > get_total_health())
+		adjustBrainLoss(health + maxHealth * 2) // Deal 2x health in BrainLoss damage, as before but variable.
+		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
+	else
+		to_chat(src, SPAN_WARNING("You are not injured enough to succumb to death!"))
+
 /mob/living/carbon/human/proc/get_visible_gender()
 	if(wear_suit && wear_suit.flags_inv & HIDEJUMPSUIT && ((head && head.flags_inv & HIDEMASK) || wear_mask))
 		return NEUTER
@@ -1228,7 +1232,7 @@
 /mob/living/carbon/human/revive(reset_to_roundstart = TRUE)
 
 	if(species && !(species.flags & NO_BLOOD))
-		vessel.add_reagent("blood",560-vessel.total_volume)
+		vessel.add_reagent(/datum/reagent/blood,560-vessel.total_volume)
 		fixblood()
 
 	// Fix up all organs.
@@ -1252,19 +1256,14 @@
 						H.brainmob.mind.transfer_to(src)
 						qdel(H)
 
-	for (var/datum/disease/virus in viruses)
-		virus.cure()
-
-	for (var/ID in virus2)
-		var/datum/disease2/disease/V = virus2[ID]
-		V.cure(src)
-
 	losebreath = 0
 	shock_stage = 0
 
 	//Fix husks
 	mutations.Remove(HUSK)
 	status_flags &= ~DISFIGURED	//Fixes the unknown status
+	if(src.client)
+		SSjobs.EquipAugments(src, src.client.prefs)
 	update_body(1)
 	update_eyes()
 
@@ -1334,9 +1333,12 @@
 
 	gunshot_residue = null
 	if(clean_feet && !shoes)
-		feet_blood_color = null
+		footprint_color = null
 		feet_blood_DNA = null
 		update_inv_shoes(1)
+
+	if(blood_color)
+		blood_color = null
 		return 1
 
 /mob/living/carbon/human/get_visible_implants(var/class = 0)
@@ -1386,7 +1388,7 @@
 		self = 1
 
 	if (src.species.flags & NO_BLOOD)
-		to_chat(usr, span("notice", self ? "Your species does not have a pulse." : "[src]'s species does not have a pulse."))
+		to_chat(usr, span("warning", self ? "You have no pulse." : "[src] has no pulse!"))
 		return
 
 	if(!self)
@@ -1399,7 +1401,7 @@
 	if(pulse())
 		to_chat(usr, span("notice", "[self ? "You have a" : "[src] has a"] pulse! Counting..."))
 	else
-		to_chat(usr, span("danger", "[src] has no pulse!"))	//it is REALLY UNLIKELY that a dead person would check his own pulse)
+		to_chat(usr, span("warning", "[src] has no pulse!"))	//it is REALLY UNLIKELY that a dead person would check his own pulse)
 		return
 
 	to_chat(usr, "You must[self ? "" : " both"] remain still until counting is finished.")
@@ -1469,7 +1471,7 @@
 	spawn(0)
 		regenerate_icons()
 		if (vessel)
-			vessel.add_reagent("blood",560-vessel.total_volume)
+			vessel.add_reagent(/datum/reagent/blood,560-vessel.total_volume)
 			fixblood()
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
@@ -1757,6 +1759,24 @@
 	if (doClickAction)
 		..()
 
+/mob/living/carbon/human/verb/toggle_underwear()
+	set name = "Toggle Underwear"
+	set desc = "Shows/hides selected parts of your underwear."
+	set category = "Object"
+
+	if(stat)
+		return
+	var/datum/category_group/underwear/UWC = input(usr, "Choose underwear:", "Show/hide underwear") as null|anything in global_underwear.categories
+	if(!UWC)
+		return
+	var/datum/category_item/underwear/UWI = all_underwear[UWC.name]
+	if(!UWI || UWI.name == "None")
+		to_chat(src, "<span class='notice'>You do not have [UWC.gender==PLURAL ? "[UWC.display_name]" : "any [UWC.display_name]"].</span>")
+		return
+	hide_underwear[UWC.name] = !hide_underwear[UWC.name]
+	update_underwear(1)
+	to_chat(src, "<span class='notice'>You [hide_underwear[UWC.name] ? "take off" : "put on"] your [UWC.display_name].</span>")
+
 /mob/living/carbon/human/verb/pull_punches()
 	set name = "Pull Punches"
 	set desc = "Try not to hurt them."
@@ -1933,11 +1953,10 @@
 		return
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 	if(istype(heart) && !(heart.status & ORGAN_DEAD))
-		var/active_breaths = 0
-		if(!nervous_system_failure() && active_breaths)
-			visible_message("\The [src] jerks and gasps for breath!")
+		if(!nervous_system_failure())
+			visible_message("<b>[src]</b> jerks and gasps for breath!")
 		else
-			visible_message("\The [src] twitches a bit as \his heart restarts!")
+			visible_message("<b>[src]</b> twitches a bit as \his heart restarts!")
 		shock_stage = min(shock_stage, 100) // 120 is the point at which the heart stops.
 		if(getOxyLoss() >= 75)
 			setOxyLoss(75)
@@ -1947,9 +1966,61 @@
 
 /mob/living/carbon/human/proc/make_adrenaline(var/amount)
 	if(stat == CONSCIOUS)
-		reagents.add_reagent("adrenaline", amount)
+		reagents.add_reagent(/datum/reagent/adrenaline, amount)
 
 /mob/living/carbon/human/proc/gigashatter()
 	for(var/obj/item/organ/external/E in organs)
 		E.fracture()
 	return
+
+/mob/living/carbon/human/get_bullet_impact_effect_type(var/def_zone)
+	var/obj/item/organ/external/E = get_organ(def_zone)
+	if(!E || E.is_stump())
+		return BULLET_IMPACT_NONE
+	if(BP_IS_ROBOTIC(E))
+		return BULLET_IMPACT_METAL
+	return BULLET_IMPACT_MEAT
+
+/mob/living/carbon/human/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
+	..()
+	switch(get_bullet_impact_effect_type(def_zone))
+		if(BULLET_IMPACT_MEAT)
+			if(P.damage_type == BRUTE)
+				var/hit_dir = get_dir(P.starting, src)
+				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
+				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
+				var/scale = min(1, round(P.damage / 50, 0.2))
+				var/matrix/M = new()
+				B.transform = M.Scale(scale)
+
+/mob/living/carbon/human/proc/get_accent_icon(var/datum/language/speaking = null)
+	if(accent && speaking && speaking.allow_accents)
+		var/used_accent = accent //starts with the mob's default accent
+
+		if(istype(back,/obj/item/rig)) //checks for the rig voice changer module
+			var/obj/item/rig/rig = back
+			if(rig.speech && rig.speech.voice_holder && rig.speech.voice_holder.active && rig.speech.voice_holder.current_accent)
+				used_accent = rig.speech.voice_holder.current_accent
+
+		for(var/obj/item/gear in list(wear_mask,wear_suit,head)) //checks for voice changers masks now
+			if(gear)
+				var/obj/item/voice_changer/changer = locate() in gear
+				if(changer && changer.active && changer.current_accent)
+					used_accent = changer.current_accent
+
+		var/datum/accent/a = SSrecords.accents[used_accent]
+		var/final_icon = a.tag_icon
+		return "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[final_icon]'>"
+
+/mob/living/carbon/human/proc/generate_valid_accent()
+	var/list/valid_accents = new()
+	for(var/current_accents in species.allowed_accents)
+		valid_accents += current_accents
+
+	return valid_accents
+
+/mob/living/carbon/human/proc/set_accent(var/new_accent)
+	accent = new_accent
+	if(!(accent in species.allowed_accents))
+		accent = species.default_accent
+	return TRUE

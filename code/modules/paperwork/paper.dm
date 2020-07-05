@@ -4,7 +4,7 @@
  */
 
 /obj/item/paper
-	name = "sheet of paper"
+	name = "paper"
 	gender = NEUTER
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper"
@@ -29,7 +29,7 @@
 	var/list/offset_x[0] //offsets stored for later
 	var/list/offset_y[0] //usage by the photocopier
 	var/rigged = 0
-	var/spam_flag = 0
+	var/last_honk = 0
 	var/old_name		// The name of the paper before it was folded into a plane.
 
 	var/const/deffont = "Verdana"
@@ -38,6 +38,7 @@
 	var/const/fountainfont = "Segoe Script"
 
 	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/paper/Initialize(mapload, text, title)
 	. = ..()
@@ -92,7 +93,7 @@
 	if (old_name && icon_state == "paper_plane")
 		to_chat(user, span("notice", "You're going to have to unfold it before you can read it."))
 		return
-	if(name != "sheet of paper")
+	if(name != initial(name))
 		to_chat(user,"It's titled '[name]'.")
 	if(in_range(user, src) || isobserver(user))
 		show_content(usr)
@@ -116,11 +117,14 @@
 	if((usr.is_clumsy()) && prob(50))
 		to_chat(usr, span("warning", "You cut yourself on the paper."))
 		return
-	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null)  as text, MAX_NAME_LEN)
+	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null) as text, MAX_NAME_LEN)
 
 	// We check loc one level up, so we can rename in clipboards and such. See also: /obj/item/photo/rename()
-	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0 && n_name)
-		name = n_name
+	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0)
+		if(n_name)
+			name = "[initial(name)] ([n_name])"
+		else
+			name = initial(name)
 		add_fingerprint(usr)
 
 /obj/item/paper/attack_self(mob/living/user as mob)
@@ -161,11 +165,10 @@
 
 	user.examinate(src)
 	if(rigged && (Holiday == "April Fool's Day"))
-		if(spam_flag == 0)
-			spam_flag = 1
-			playsound(loc, 'sound/items/bikehorn.ogg', 50, 1)
-			spawn(20)
-				spam_flag = 0
+		if(last_honk <= world.time - 20) //Spam limiter.
+			last_honk = world.time
+			playsound(src.loc, 'sound/items/bikehorn.ogg', 50, 1)
+		src.add_fingerprint(user)
 
 /obj/item/paper/attack_ai(var/mob/living/silicon/ai/user)
 	show_content(user)
@@ -283,7 +286,7 @@
 		t = replacetext(t, "\[logo_zh\]", "")
 		t = replacetext(t, "\[logo_idris\]", "")
 		t = replacetext(t, "\[logo_eridani\]", "")
-		t = replacetext(t, "\[logo_necro\]", "")
+		t = replacetext(t, "\[logo_zavodskoi\]", "")
 		t = replacetext(t, "\[logo_hp\]", "")
 		t = replacetext(t, "\[logo_be\]", "")
 
@@ -308,25 +311,12 @@
 	return t
 
 
-/obj/item/paper/proc/burnpaper(obj/item/flame/P, mob/user)
+/obj/item/paper/proc/burnpaper(obj/item/P, mob/user)
 	var/class = "warning"
-
-	if (!user.restrained())
-		if (istype(P, /obj/item/flame))
-			var/obj/item/flame/F = P
-			if (!F.lit)
-				return
-		else if (P.iswelder())
-			var/obj/item/weldingtool/F = P
-			if (!F.welding)//welding tools are 0 when off
-				return
-		else
-			//If we got here somehow, the item is incompatible and can't burn things
-			return
-
+	if(!use_check_and_message(user))
 		if(istype(P, /obj/item/flame/lighter/zippo))
 			class = "rose"
-
+			
 		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
@@ -426,11 +416,8 @@
 			c.update_icon()
 
 
-/obj/item/paper/attackby(obj/item/P as obj, mob/user as mob)
+/obj/item/paper/attackby(var/obj/item/P, mob/user)
 	..()
-	var/clown = 0
-	if(user.mind && (user.mind.assigned_role == "Clown"))
-		clown = 1
 
 	if(istype(P, /obj/item/tape_roll))
 		var/obj/item/tape_roll/tape = P
@@ -518,11 +505,6 @@
 		stampoverlay.pixel_x = x
 		stampoverlay.pixel_y = y
 
-		if(istype(P, /obj/item/stamp/clown))
-			if(!clown)
-				to_chat(user, span("notice", "You are totally unable to use the stamp. HONK!"))
-				return
-
 		if(!ico)
 			ico = new
 		ico += "paper_[P.icon_state]"
@@ -536,7 +518,7 @@
 		playsound(src, 'sound/bureaucracy/stamp.ogg', 50, 1)
 		to_chat(user, span("notice", "You stamp the paper with \the [P]."))
 
-	else if(istype(P, /obj/item/flame) || P.iswelder())
+	else if(P.isFlameSource())
 		burnpaper(P, user)
 
 	update_icon()

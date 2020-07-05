@@ -5,6 +5,10 @@
 	desc = "A locked box."
 	icon_state = "lockbox+l"
 	item_state = "lockbox"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/storage/lefthand_briefcase.dmi',
+		slot_r_hand_str = 'icons/mob/items/storage/righthand_briefcase.dmi'
+		)
 	w_class = 4
 	max_w_class = 3
 	max_storage_space = 14 //The sum of the w_classes of all the items in this storage item.
@@ -72,11 +76,19 @@
 		return 1
 
 /obj/item/storage/lockbox/loyalty
-	name = "lockbox of loyalty implants"
+	name = "lockbox of mind shield implants"
 	req_access = list(access_security)
 	starts_with = list(
 		/obj/item/implantcase/loyalty = 3,
 		/obj/item/implanter/loyalty = 1
+	)
+
+/obj/item/storage/lockbox/anti_augment
+	name = "lockbox of augmentation disrupter implants"
+	req_access = list(access_security)
+	starts_with = list(
+		/obj/item/implantcase/anti_augment = 3,
+		/obj/item/implanter/anti_augment = 1
 	)
 
 /obj/item/storage/lockbox/clusterbang
@@ -95,7 +107,7 @@
 	name = "medal box"
 	desc = "A locked box used to store medals."
 	icon_state = "medalbox+l"
-	item_state = "syringe_kit"
+	item_state = "box"
 	w_class = 3
 	max_w_class = 2
 	req_access = list(access_captain)

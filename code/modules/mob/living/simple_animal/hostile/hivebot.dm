@@ -13,6 +13,7 @@
 	desc = "A primitive in design, hovering robot, with some menacing looking blades jutting out from it. It bears no manufacturer markings of any kind."
 	icon = 'icons/mob/npc/hivebot.dmi'
 	icon_state = "hivebot"
+	blood_type = "#000000"
 	health = 15
 	maxHealth = 15
 	harm_intent_damage = 3
@@ -39,6 +40,12 @@
 	pass_flags = PASSTABLE
 	attack_emote = "focuses on"
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
+
+/mob/living/simple_animal/hostile/hivebot/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+
+/mob/living/simple_animal/hostile/hivebot/get_bullet_impact_effect_type(var/def_zone)
+	return BULLET_IMPACT_METAL
 
 /mob/living/simple_animal/hostile/hivebot/guardian
 	health = 80
@@ -170,7 +177,7 @@
 	damage = 10
 	damage_type = PAIN
 	taser_effect = 1
-	agony = 40
+	agony = 30
 	armor_penetration = 40
 	muzzle_type = /obj/effect/projectile/muzzle/stun
 	tracer_type = /obj/effect/projectile/tracer/stun
@@ -180,7 +187,7 @@
 	name = "concentrated gamma burst"
 	damage = 15
 	damage_type = TOX
-	irradiate = 30
+	irradiate = 15
 	taser_effect = 0
 	muzzle_type = /obj/effect/projectile/muzzle/bfg
 	tracer_type = /obj/effect/projectile/tracer/bfg
@@ -190,7 +197,7 @@
 	name = "archaic energy welder"
 	damage_type = BURN
 	damage = 20
-	incinerate = 10
+	incinerate = 5
 	taser_effect = 0
 	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
 	tracer_type = /obj/effect/projectile/tracer/laser/blue
@@ -277,7 +284,7 @@
 			destinations += T
 	var/area/A = get_area(src)
 	if(!isNotStationLevel(A.z))
-		var/list/area_turfs = get_area_turfs(A, null, 0, FALSE)
+		var/list/area_turfs = get_area_turfs(A)
 		var/list/floor_turfs = list()
 		for(var/turf/simulated/floor/T in (area_turfs))
 			if(turf_clear(T))
@@ -392,7 +399,7 @@
 	if(linked_bots.len < max_bots)
 		visible_message(span("warning","[src] radiates with energy!"))
 
-		if(guard_amt < 4)
+		if(guard_amt < 4 && prob(50))
 			bot_type = GUARDIAN
 		else
 			var/selection = rand(1,100)
@@ -413,7 +420,7 @@
 			generate_warp_destinations()
 
 		var/turf/Destination
-		if(stance == HOSTILE_STANCE_IDLE && !(linked_bots.len < 12))
+		if(stance == HOSTILE_STANCE_IDLE && !(linked_bots.len < 10))
 			Destination = pick(destinations)
 		else
 			Destination = pick(close_destinations)
@@ -453,7 +460,7 @@
 		max_bots_reached = 1
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/calc_spawn_delay()
-	spawn_delay = 60*1.085**(linked_bots.len + 1)
+	spawn_delay = 80*1.085**(linked_bots.len + 1)
 	return
 
 /mob/living/simple_animal/hostile/hivebotbeacon/Life()
@@ -494,7 +501,6 @@
 	destroy_surroundings = 0
 	wander = 0
 	ranged = 1
-	rapid = 1
 	attacktext = "skewered"
 	projectilesound = 'sound/weapons/lasercannonfire.ogg'
 	projectiletype = /obj/item/projectile/beam/hivebot/incendiary/heavy
@@ -730,7 +736,9 @@
 
 	if(istype(T, /turf/simulated/wall))
 		var/turf/simulated/wall/W = T
+		rapid = 1
 		OpenFire(W)
+		rapid = 0
 		return
 
 	for(var/obj/O in T)
@@ -763,7 +771,9 @@
 			else if(istype(D, /obj/machinery/door/airlock/multi_tile))
 				D.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 			else
+				rapid = 1
 				OpenFire(D)
+				rapid = 0
 			return
 
 		if(istype(O, /obj/structure/window))
@@ -782,7 +792,9 @@
 
 		if(istype(O, /obj/structure/barricade) || istype(O, /obj/structure/closet) || istype(O, /obj/structure/inflatable))
 			var/obj/structure/S = O
+			rapid = 1
 			OpenFire(S)
+			rapid = 0
 			return
 
 		if(istype(O, /obj/structure/reagent_dispensers))

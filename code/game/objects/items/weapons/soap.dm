@@ -5,6 +5,10 @@
 	desc = "A cheap bar of soap. Doesn't smell."
 	gender = PLURAL
 	icon = 'icons/obj/soap.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		)
 	icon_state = "soap"
 	item_state = "soap"
 	w_class = 2.0
@@ -24,7 +28,7 @@
 
 /obj/item/soap/proc/wet()
 	playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-	reagents.add_reagent("cleaner", 10)
+	reagents.add_reagent(/datum/reagent/spacecleaner, 10)
 
 /obj/item/soap/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/key))

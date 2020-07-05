@@ -4,6 +4,10 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "red"
 	item_state = "toolbox_red"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/storage/lefthand_toolbox.dmi',
+		slot_r_hand_str = 'icons/mob/items/storage/righthand_toolbox.dmi'
+		)
 	center_of_mass = list("x" = 16,"y" = 11)
 	flags = CONDUCT
 	force = 5
@@ -16,8 +20,10 @@
 	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("robusted")
 	use_sound = 'sound/items/storage/toolbox.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
+
 	var/stunhit = 0
-	drop_sound = 'sound/items/drop/metalboots.ogg'
 
 /obj/item/storage/toolbox/Initialize()
 	. = ..()
@@ -38,7 +44,7 @@
 	if(prob(50))
 		new /obj/item/device/flashlight(src)
 	else
-		new /obj/item/device/flashlight/flare(src)
+		new /obj/item/device/flashlight/flare/glowstick/red(src)
 
 /obj/item/storage/toolbox/mechanical
 	name = "mechanical toolbox"
@@ -73,6 +79,35 @@
 		new /obj/item/clothing/gloves/yellow(src)
 	else
 		new /obj/item/stack/cable_coil(src,30,color)
+
+/obj/item/storage/toolbox/drill
+	name = "drilling kit"
+	desc = "A kit supplied to drill technicians, containing the tools required to set up a basic asteroid drilling operation."
+	icon = 'icons/obj/toolbox/mining.dmi'
+	icon_state = "miningbox"
+	item_state = "miningbox"
+	contained_sprite = TRUE
+	starts_with = list(
+		/obj/item/crowbar = 1,
+		/obj/item/powerdrill = 1,
+		/obj/item/mining_scanner = 1,
+		/obj/item/cell/high = 1,
+		/obj/item/device/orbital_dropper/drill = 1
+	)
+
+/obj/item/storage/toolbox/ka
+	name = "kinetic accelerator kit"
+	desc = "A kit supplied to shaft miners, containing a few upgrades to standard issue kinetic accelerators."
+	icon = 'icons/obj/toolbox/mining.dmi'
+	icon_state = "miningbox"
+	item_state = "miningbox"
+	contained_sprite = TRUE
+	starts_with = list(
+		/obj/item/crowbar = 1,
+		/obj/item/wrench = 1,
+		/obj/item/custom_ka_upgrade/upgrade_chips/damage = 1,
+		/obj/item/custom_ka_upgrade/cells/cell02 = 1
+	)
 
 /obj/item/storage/toolbox/syndicate
 	name = "suspicious looking toolbox"

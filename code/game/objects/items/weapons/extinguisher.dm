@@ -17,6 +17,7 @@
 	possible_transfer_amounts = null
 	volume = 300
 	drop_sound = 'sound/items/drop/gascan.ogg'
+	pickup_sound = 'sound/items/pickup/gascan.ogg'
 
 /obj/item/reagent_containers/extinguisher_refill/attackby(var/obj/O as obj, var/mob/user as mob)
 
@@ -75,7 +76,7 @@
 
 /obj/item/reagent_containers/extinguisher_refill/filled/Initialize()
 		. =..()
-		reagents.add_reagent("monoammoniumphosphate", volume)
+		reagents.add_reagent(/datum/reagent/toxin/fertilizer/monoammoniumphosphate, volume)
 		flags &= ~OPENCONTAINER
 		return
 
@@ -95,6 +96,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 90)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	drop_sound = 'sound/items/drop/gascan.ogg'
+	pickup_sound = 'sound/items/pickup/gascan.ogg'
 
 	var/spray_particles = 3
 	var/spray_amount = 10	//units of liquid per particle
@@ -122,7 +124,7 @@
 
 /obj/item/extinguisher/New()
 	create_reagents(max_water)
-	reagents.add_reagent("monoammoniumphosphate", max_water)
+	reagents.add_reagent(/datum/reagent/toxin/fertilizer/monoammoniumphosphate, max_water)
 	..()
 
 /obj/item/extinguisher/examine(mob/user)

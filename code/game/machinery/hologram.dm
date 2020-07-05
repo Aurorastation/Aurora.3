@@ -127,13 +127,13 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	playsound(targetpad.loc, 'sound/machines/chime.ogg', 25, 5)
 	targetpad.icon_state = "holopad1"
 	if(forcedcall)
-		targetpad.audible_message("<b>\The [src]</b> announces, \"Incoming call with command authorization from [targetpad.sourcepad.loc.loc].\"")
+		targetpad.audible_message("<b>[src]</b> announces, \"Incoming call with command authorization from [targetpad.sourcepad.loc.loc].\"")
 		to_chat(user, "<span class='notice'>Establishing forced connection to the holopad in [targetpad.loc.loc]</span>")
 		targetpad.forced = 1
 		sleep(80)
 		targetpad.take_call(user)
 	else
-		targetpad.audible_message("<b>\The [src]</b> announces, \"Incoming communications request from [targetpad.sourcepad.loc.loc].\"")
+		targetpad.audible_message("<b>[src]</b> announces, \"Incoming communications request from [targetpad.sourcepad.loc.loc].\"")
 		to_chat(user, "<span class='notice'>Trying to establish a connection to the holopad in [targetpad.loc.loc]... Please await confirmation from recipient.</span>")
 
 /obj/machinery/hologram/holopad/proc/take_call(mob/living/carbon/user)
@@ -254,6 +254,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 /obj/machinery/hologram/holopad/proc/create_holo(mob/living/silicon/ai/A, mob/living/carbon/caller_id, turf/T = loc)
 	if(hacked == 0)
 		var/obj/effect/overlay/hologram = new(T)//Spawn a blank effect at the location.
+		hologram.no_clean = TRUE
 		if(caller_id)
 			var/tempicon = getFlatIcon(caller_id)
 
@@ -277,6 +278,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		return 1
 	else if(hacked == 1)
 		var/obj/effect/overlay/hologram = new(T)//Spawn a blank effect at the location.
+		hologram.no_clean = TRUE
 		hologram.mouse_opacity = 0//So you can't click on it.
 		hologram.anchored = 1//So space wind cannot drag it.
 		masters[A] = hologram

@@ -12,7 +12,7 @@
 
 
 /mob/living/carbon/human/proc/setup_gestalt()
-	composition_reagent = "nutriment"//Dionae are plants, so eating them doesn't give animal protein
+	composition_reagent = /datum/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
 	setup_dionastats()
 	verbs += /mob/living/carbon/human/proc/check_light
 	verbs += /mob/living/carbon/human/proc/diona_split_nymph
@@ -222,6 +222,9 @@
 	set desc = "Allows you to detach specific nymph, and control it."
 	set category = "Abilities"
 
+	if(use_check_and_message(src))
+		return
+
 	if(nutrition <= 150)
 		to_chat(src, span("warning", "You lack nutrition to perform this action!"))
 		return
@@ -237,7 +240,7 @@
 	if(!O || O.is_stump())
 		to_chat(src, span("warning", "Cannot detach that!"))
 		return
-	
+
 	// Get rid of our limb and replace with stump
 	var/obj/item/organ/external/stump/stump = new (src, 0, O)
 	O.removed(null, TRUE)
@@ -301,8 +304,7 @@
 /mob/living/carbon/human/proc/diona_split_into_nymphs()
 	var/turf/T = get_turf(src)
 	var/mob/living/carbon/alien/diona/bestNymph = null
-	var/bestHealth = 0
-
+	var/gestalt_health = (300 -  getFireLoss() - getBruteLoss() - getToxLoss()) / 6
 
 	var/nymphs_to_kill_off = 0
 
@@ -333,21 +335,17 @@
 			bestNymph = D
 		nymphos += D
 		D.forceMove(T)
+		if(gestalt_health >= D.maxHealth * 0.20)
+			D.health = gestalt_health
+		else
+			D.health = D.maxHealth * 0.20
 		D.split_languages(src)
 		D.set_dir(pick(NORTH, SOUTH, EAST, WEST))
 		D.gestalt = null
-		if (D.stat != DEAD && D.health > (D.maxHealth*0.1))//If a nymph is alive and has enough health, it will emerge from the gestalt
-			total_nymph += 1
-			D.stat = CONSCIOUS
-			D.stunned = 0
-			D.update_verbs()
-			if ((!D.key) && D.health > bestHealth)
-				bestHealth = D.health
-				bestNymph = D
-
-		else //If a nymph is too heavily damaged, it cannot survive and will be born dead
-			D.visible_message("[D] is too damaged to survive outside a gestalt, and expires with a pitiful chirrup", "You are too damaged to survive outside of your gestalt!", "You hear a pitiful chirrup!")
-			D.stat = DEAD
+		total_nymph += 1
+		D.stat = CONSCIOUS
+		D.stunned = 0
+		D.update_verbs()
 
 	for(var/obj/item/W in src)
 		drop_from_inventory(W)

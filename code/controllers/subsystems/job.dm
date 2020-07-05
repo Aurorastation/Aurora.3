@@ -56,8 +56,6 @@
 		var/datum/job/job = new J()
 		if(!job || job.faction != faction)
 			continue
-		if(!job.faction in faction)
-			continue
 		occupations += job
 		name_occupations[job.title] = job
 		type_occupations[J] = job
@@ -300,7 +298,6 @@
 	for(var/mob/abstract/new_player/player in unassigned)
 		if(player.client.prefs.alternate_option == RETURN_TO_LOBBY)
 			player.ready = 0
-			player.new_player_panel_proc()
 			unassigned -= player
 	return TRUE
 
@@ -341,6 +338,7 @@
 		if(istype(S, /obj/effect/landmark/start) && istype(S.loc, /turf))
 			H.forceMove(S.loc)
 			H.lastarea = get_area(H.loc)
+			H.lastarea.set_lightswitch(TRUE)
 		else
 			LateSpawn(H, rank)
 
@@ -379,20 +377,13 @@
 			EquipItemsStorage(H, H.client.prefs, spawn_in_storage)
 
 	if(istype(H) && !megavend) //give humans wheelchairs, if they need them.
-		var/obj/item/organ/external/l_foot = H.get_organ(BP_L_FOOT)
-		var/obj/item/organ/external/r_foot = H.get_organ(BP_R_FOOT)
-		if(!l_foot || !r_foot)
-			var/obj/structure/bed/chair/wheelchair/W = new /obj/structure/bed/chair/wheelchair(H.loc)
-			H.buckled = W
-			H.update_canmove()
-			W.set_dir(H.dir)
-			W.buckled_mob = H
-			W.add_fingerprint(H)
+		if(H.needs_wheelchair())
+			H.equip_wheelchair()
 
 	to_chat(H, "<B>You are [job.total_positions == 1 ? "the" : "a"] [alt_title ? alt_title : rank].</B>")
 
 	if(job.supervisors)
-		to_chat(H, "<b>As the [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
+		to_chat(H, "<b>As [job.intro_prefix] [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
 
 	//Gives glasses to the vision impaired
 	if(H.disabilities & NEARSIGHTED && !megavend)
@@ -407,6 +398,8 @@
 	BITSET(H.hud_updateflag, ID_HUD)
 	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
+
+	INVOKE_ASYNC(GLOBAL_PROC, .proc/show_location_blurb, H.client, 30)
 
 	Debug("ER/([H]): Completed.")
 
@@ -522,16 +515,7 @@
 	if(LAZYLEN(spawn_in_storage))
 		EquipItemsStorage(H, H.client.prefs, spawn_in_storage)
 
-	if(istype(H)) //give humans wheelchairs, if they need them.
-		var/obj/item/organ/external/l_foot = H.get_organ(BP_L_FOOT)
-		var/obj/item/organ/external/r_foot = H.get_organ(BP_R_FOOT)
-		if(!l_foot || !r_foot)
-			var/obj/structure/bed/chair/wheelchair/W = new /obj/structure/bed/chair/wheelchair(H.loc)
-			H.buckled = W
-			H.update_canmove()
-			W.set_dir(H.dir)
-			W.buckled_mob = H
-			W.add_fingerprint(H)
+
 
 	//Gives glasses to the vision impaired
 	if(H.disabilities & NEARSIGHTED)
@@ -663,6 +647,7 @@
 		if(spawnpos.check_job_spawning(rank))
 			H.forceMove(pick(spawnpos.turfs))
 			. = spawnpos.msg
+			spawnpos.after_join(H)
 		else
 			to_chat(H, "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead.")
 			H.forceMove(pick(latejoin))
@@ -726,6 +711,10 @@
 	for(var/thing in prefs.gear)
 		var/datum/gear/G = gear_datums[thing]
 		if(G)
+
+			if(G.augment) //augments are handled somewhere else
+				continue
+
 			var/permitted
 			if(G.allowed_roles)
 				for(var/job_name in G.allowed_roles)
@@ -858,5 +847,87 @@
 		CB.Invoke()
 
 	deferred_preference_sanitizations.Cut()
+
+
+/datum/controller/subsystem/jobs/proc/EquipAugments(mob/living/carbon/human/H, datum/preferences/prefs)
+	Debug("EA/([H]): Entry.")
+	if(!istype(H))
+		Debug("EA/([H]): Abort: invalid arguments.")
+		return FALSE
+
+	var/datum/job/rank = GetJob(H.mind.assigned_role)
+
+	switch (rank.title)
+		if ("AI", "Cyborg")
+			Debug("EA/([H]): Abort: synthetic.")
+			return FALSE
+
+	for(var/thing in prefs.gear)
+		var/datum/gear/G = gear_datums[thing]
+		if(G)
+			if(!G.augment)
+				continue
+
+			var/permitted = FALSE
+			if(G.allowed_roles)
+				for(var/job_name in G.allowed_roles)
+					if(rank.title == job_name)
+						permitted = TRUE
+						break
+			else
+				permitted = TRUE
+
+			if(G.whitelisted && (!(H.species.name in G.whitelisted)))
+				permitted = FALSE
+
+			if(G.faction && G.faction != H.employer_faction)
+				permitted = FALSE
+
+			if(!permitted)
+				to_chat(H, SPAN_WARNING("Your current job or whitelist status does not permit you to spawn with [thing]!"))
+				continue
+
+			var/metadata
+			var/list/gear_test = prefs.gear[G.display_name]
+			if(gear_test?.len)
+				metadata = gear_test
+			else
+				metadata = list()
+			var/obj/item/organ/A = G.spawn_item(H, metadata)
+			var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
+			A.replaced(H, affected)
+			H.update_body()
+
+	Debug("EA/([H]): Complete.")
+	return TRUE
+
+/proc/show_location_blurb(client/C, duration)
+	set waitfor = 0
+
+	var/style = "font-family: 'Fixedsys'; -dm-text-outline: 1 black; font-size: 11px;"
+	var/area/A = get_area(C.mob)
+	var/text = "[worlddate2text()], [worldtime2text()]\n[station_name()], [A.name]"
+	text = uppertext(text)
+
+	var/obj/effect/overlay/T = new()
+	T.maptext_height = 64
+	T.maptext_width = 512
+	T.layer = SCREEN_LAYER+1
+	T.plane = FLOAT_PLANE
+	T.screen_loc = "LEFT+1,BOTTOM+2"
+
+	C.screen += T
+	animate(T, alpha = 255, time = 10)
+	for(var/i = 1 to length(text)+1)
+		T.maptext = "<span style=\"[style]\">[copytext(text,1,i)] </span>"
+		sleep(1)
+
+	addtimer(CALLBACK(GLOBAL_PROC, .proc/fade_location_blurb, C, T), duration)
+
+/proc/fade_location_blurb(client/C, obj/T)
+	animate(T, alpha = 0, time = 5)
+	sleep(5)
+	C.screen -= T
+	qdel(T)
 
 #undef Debug

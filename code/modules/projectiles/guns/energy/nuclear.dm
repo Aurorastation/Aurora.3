@@ -1,7 +1,10 @@
 /obj/item/gun/energy/gun
 	name = "energy carbine"
 	desc = "A Nanotrasen designed energy-based carbine with two settings: Stun and kill."
-	description_fluff = "The NT EC-4 is an energy carbine developed and produced by Nanotrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
+	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To switch between stun and lethal, click the weapon \
+	in your hand.  To recharge this weapon, use a weapon recharger."
+	desc_fluff = "The NT EC-4 is an energy carbine developed and produced by Nanotrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon = 'icons/obj/guns/ecarbine.dmi'
 	icon_state = "energystun100"
 	item_state = "energystun100"
@@ -35,6 +38,9 @@
 /obj/item/gun/energy/gun/nuclear
 	name = "advanced energy gun"
 	desc = "An energy gun with an experimental miniaturized reactor."
+	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To switch between stun and lethal, click the weapon \
+	in your hand.  Unlike most weapons, this weapon recharges itself."
 	icon = 'icons/obj/guns/nucgun.dmi'
 	icon_state = "nucgun"
 	item_state = "nucgun"
@@ -119,7 +125,7 @@
 /obj/item/gun/energy/pistol
 	name = "energy pistol"
 	desc = "A Nanotrasen energy-based pistol gun with two settings: Stun and kill."
-	description_fluff = "The NT EP-3 is an energy sidearm developed and produced by Nanotrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
+	desc_fluff = "The NT EP-3 is an energy sidearm developed and produced by Nanotrasen. Compact, light and durable, used by security forces and law enforcement for its ability to fire stun or lethal beams, depending on selection. It is widely sold and distributed across the galaxy."
 	icon = 'icons/obj/guns/epistol.dmi'
 	icon_state = "epistolstun100"
 	item_state = "epistolstun100"
@@ -146,7 +152,7 @@
 /obj/item/gun/energy/pistol/hegemony
 	name = "hegemony energy pistol"
 	desc = "An upgraded variant of the standard energy pistol with two settings: Incapacitate and Smite."
-	description_fluff = "This is the Zkrehk-Guild Beamgun, an energy-based sidearm designed and manufactured on Moghes. A special crystal used in its design allows it to penetrate armor with pinpoint accuracy."
+	desc_fluff = "This is the Zkrehk-Guild Beamgun, an energy-based sidearm designed and manufactured on Moghes. A special crystal used in its design allows it to penetrate armor with pinpoint accuracy."
 	icon = 'icons/obj/guns/hegemony_pistol.dmi'
 	icon_state = "hegemony_pistol"
 	item_state = "hegemony_pistol"

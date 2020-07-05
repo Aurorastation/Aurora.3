@@ -11,7 +11,7 @@
 	var/base_state = "tube"		// base description and icon_state
 	icon_state = "tube_empty"
 	desc = "A lighting fixture."
-	anchored = 1
+	anchored = TRUE
 	layer = 5  					// They were appearing under mobs which is a little weird - Ostaf
 	use_power = 2
 	idle_power_usage = 2
@@ -238,7 +238,7 @@
 	if (!has_emergency_power(pwr))
 		return FALSE
 	if (cell.charge > 300)	//it's meant to handle 120 W, ya doofus
-		visible_message("<span class='warning'>[src] short-circuits!</span>", "<span class='warning'>You hear glass breaking.</span>")
+		visible_message(SPAN_WARNING("\The [src] short-circuits!"), SPAN_WARNING("You hear glass breaking."))
 		broken()
 		return FALSE
 	cell.use(pwr)
@@ -259,15 +259,19 @@
 /obj/machinery/light/attack_generic(var/mob/user, var/damage)
 	if(!damage)
 		return
-	if(status == LIGHT_EMPTY||status == LIGHT_BROKEN)
-		to_chat(user, "That object is useless to you.")
+	if(status == LIGHT_EMPTY)
+		to_chat(user, SPAN_WARNING("\The [src] is useless to you."))
 		return
-	if(!(status == LIGHT_OK||status == LIGHT_BURNED))
+	if(!(status == LIGHT_OK || status == LIGHT_BURNED))
 		return
-	visible_message("<span class='danger'>[user] smashes the light!</span>")
+	if(status == LIGHT_BROKEN)
+		user.visible_message(SPAN_WARNING("\The [user] completely shatters \the [src]!"), SPAN_WARNING("You completely shatter \the [src]!"))
+		shatter()
+	else
+		user.visible_message(SPAN_WARNING("\The [user] smashes \the [src]!"), SPAN_WARNING("You smash \the [src]!"))
+		broken()
 	user.do_attack_animation(src)
-	broken()
-	return 1
+	return TRUE
 
 // examine verb
 /obj/machinery/light/examine(mob/user)
@@ -287,7 +291,6 @@
 // attack with item - insert light (if right type), otherwise try to break the light
 
 /obj/machinery/light/attackby(obj/item/W, mob/user)
-
 	//Light replacer code
 	if(istype(W, /obj/item/device/lightreplacer))
 		var/obj/item/device/lightreplacer/LR = W
@@ -299,14 +302,14 @@
 	// attempt to insert light
 	if(istype(W, /obj/item/light))
 		if(status != LIGHT_EMPTY)
-			to_chat(user, "There is a [fitting] already inserted.")
+			to_chat(user, SPAN_WARNING("There's already a [fitting] inserted."))
 			return
 		else
 			src.add_fingerprint(user)
 			var/obj/item/light/L = W
 			if(istype(L, light_type))
 				status = L.status
-				to_chat(user, "You insert the [L.name].")
+				to_chat(user, SPAN_NOTICE("You insert \the [L]."))
 				switchcount = L.switchcount
 				rigged = L.rigged
 				brightness_range = L.brightness_range
@@ -329,43 +332,30 @@
 
 					explode()
 			else
-				to_chat(user, "This type of light requires a [fitting].")
+				to_chat(user, SPAN_WARNING("This type of light requires a [fitting]."))
 				return
 
 		// attempt to break the light
 		//If xenos decide they want to smash a light bulb with a toolbox, who am I to stop them? /N
 
 	else if(status != LIGHT_BROKEN && status != LIGHT_EMPTY)
-		if(prob(1+W.force * 5))
-
-			to_chat(user, "You hit the light, and it smashes!")
-			for(var/mob/M in viewers(src))
-				if(M == user)
-					continue
-				M.show_message("[user.name] smashes the light!", 3, "You hear a tinkle of breaking glass", 2)
-			if(!stat && (W.flags & CONDUCT))
-				//if(!user.mutations & COLD_RESISTANCE)
-				if (prob(12))
-					electrocute_mob(user, get_area(src), src, 0.3)
-			broken()
-
-		else
-			to_chat(user, "You hit the light!")
+		smash_check(W, user, "smashes", "smashes", TRUE)
+	else if(status == LIGHT_BROKEN)
+		smash_check(W, user, "completely shatters", "shatters completely", FALSE)
 
 	// attempt to stick weapon into light socket
 	else if(status == LIGHT_EMPTY)
 		if(W.isscrewdriver()) //If it's a screwdriver open it.
-			playsound(src.loc, W.usesound, 75, 1)
-			user.visible_message("[user.name] opens [src]'s casing.", \
-				"You open [src]'s casing.", "You hear a noise.")
+			playsound(get_turf(src), W.usesound, 75, 1)
+			user.visible_message(SPAN_NOTICE("\The [user] opens \the [src]'s casing."), SPAN_NOTICE("You open \the [src]'s casing."), SPAN_NOTICE("You hear a noise."))
 			var/obj/machinery/light_construct/newlight = null
 			switch(fitting)
 				if("tube")
-					newlight = new /obj/machinery/light_construct(src.loc)
+					newlight = new /obj/machinery/light_construct(get_turf(src))
 					newlight.icon_state = "tube-construct-stage2"
 
 				if("bulb")
-					newlight = new /obj/machinery/light_construct/small(src.loc)
+					newlight = new /obj/machinery/light_construct/small(get_turf(src))
 					newlight.icon_state = "bulb-construct-stage2"
 			newlight.dir = src.dir
 			newlight.stage = 2
@@ -379,12 +369,24 @@
 			qdel(src)
 			return
 
-		to_chat(user, "You stick \the [W] into the light socket!")
+		to_chat(user, SPAN_WARNING("You stick \the [W] into the light socket!"))
 		if(has_power() && (W.flags & CONDUCT))
 			spark(src, 3)
-			//if(!user.mutations & COLD_RESISTANCE)
-			if (prob(75))
+			if(prob(75))
 				electrocute_mob(user, get_area(src), src, rand(0.7,1.0))
+
+/obj/machinery/light/proc/smash_check(var/obj/O, var/mob/living/user, var/others_text, var/self_text, var/only_break)
+	if(prob(1 + O.force * 5))
+		user.visible_message(SPAN_WARNING("\The [user] [others_text] \the [src]!"), SPAN_WARNING("You hit \the [src], and it [self_text]!"), SPAN_WARNING("You hear a tinkle of breaking glass!"))
+		if(!stat && (O.flags & CONDUCT))
+			if(prob(12))
+				electrocute_mob(user, get_area(src), src, 0.3)
+		if(only_break)
+			broken()
+		else
+			shatter()
+	else
+		user.visible_message(SPAN_WARNING("\The [user] hits \the [src], but it doesn't break."), SPAN_WARNING("You hit \the [src], but it doesn't break."), SPAN_WARNING("You hear something hitting against glass."))
 
 
 // returns whether this light has power
@@ -432,19 +434,20 @@
 	add_fingerprint(user)
 
 	if(status == LIGHT_EMPTY)
-		to_chat(user, "There is no [fitting] in this light.")
+		to_chat(user, SPAN_WARNING("There is no [fitting] in \the [src]."))
 		return
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
-		if(H.species.can_shred(H))
-			H.visible_message(
-				"<span class='warning'>[user] smashes [src]!</span>",
-				"<span class='warning'>You smash [src]!</span>",
-				"<span class='notice'>You hear the tinkle of breaking glass.</span>"
-			)
-			broken()
-			return
+		if(H.a_intent == I_HURT && H.species.can_shred(H))
+			if(status != LIGHT_BROKEN || status != LIGHT_EMPTY)
+				H.visible_message(SPAN_WARNING("\The [user] smashes \the [src]!"), SPAN_WARNING("You smash \the [src]!"), SPAN_WARNING("You hear the tinkle of breaking glass."))
+				broken()
+				return
+			else if(status == LIGHT_BROKEN)
+				H.visible_message(SPAN_WARNING("\The [user] completely shatters \the [src]!"), SPAN_WARNING("You shatter \the [src] completely!"), SPAN_WARNING("You hear the tinkle of breaking glass."))
+				shatter()
+				return
 
 	// make it burn hands if not wearing fire-insulated gloves
 	if(!stat)
@@ -462,12 +465,12 @@
 			prot = 1
 
 		if(prot || (COLD_RESISTANCE in user.mutations))
-			to_chat(user, "You remove the light [fitting]")
+			to_chat(user, SPAN_NOTICE("You remove the light [fitting]."))
 		else
-			to_chat(user, "You try to remove the light [fitting], but it's too hot and you don't want to burn your hand.")
+			to_chat(user, SPAN_WARNING("You try to remove the light [fitting], but it's too hot and you don't want to burn your hand."))
 			return				// if burned, don't remove the light
 	else
-		to_chat(user, "You remove the light [fitting].")
+		to_chat(user, SPAN_NOTICE("You remove the light [fitting]."))
 
 	// create a light tube/bulb item and put it in the user's hand
 	if(inserted_light)
@@ -543,6 +546,15 @@
 	if (!skip_sound_and_sparks)
 		CHECK_TICK	// For lights-out events.
 
+/obj/machinery/light/proc/shatter()
+	if(status == LIGHT_EMPTY)
+		return
+	status = LIGHT_EMPTY
+	stat |= BROKEN
+	update()
+	playsound(get_turf(src), 'sound/effects/glass_hit.ogg', 75, TRUE)
+	new /obj/item/material/shard(get_turf(src))
+
 /obj/machinery/light/proc/fix()
 	if(status == LIGHT_OK)
 		return
@@ -559,7 +571,7 @@
 			return
 		if(2.0)
 			if (prob(75))
-				broken()
+				shatter()
 		if(3.0)
 			if (prob(50))
 				broken()

@@ -23,7 +23,7 @@ var/controlling
 /mob/living/parasite
 	var/mob/living/carbon/host // the host that this parasite occupies
 
-/mob/living/parasite/Login()
+/mob/living/parasite/LateLogin()
 	..()
 	// make the client see through the host instead
 	client.eye = host
@@ -77,7 +77,7 @@ var/controlling
 	meme_points = min(meme_points + gain, MAXIMUM_MEME_POINTS)
 
 	// if there are sleep toxins in the host's body, that's bad
-	if(host.reagents.has_reagent("stoxin"))
+	if(host.reagents.has_reagent(/datum/reagent/soporific))
 		to_chat(src, "<span class='danger'>Something in your host's blood makes you lose consciousness, you fade away...</span>")
 		src.death()
 		return
@@ -490,7 +490,7 @@ var/controlling
 
 	if(!host) return
 
-	for (var/obj/item/implant/loyalty/I in host)
+	for (var/obj/item/implant/mindshield/I in host)
 		if (I.implanted)
 			to_chat(src, "<span class='warning'>Your host's mind is shielded!</span>")
 			return
@@ -543,7 +543,7 @@ var/controlling
 		to_chat(src, "<span class='warning'>You cannot do that in your current state.</span>")
 		return
 
-	for (var/obj/item/implant/loyalty/I in host)
+	for (var/obj/item/implant/mindshield/I in host)
 		if (I.implanted)
 			to_chat(src, "<span class='warning'>Your host's mind is shielded!</span>")
 			return

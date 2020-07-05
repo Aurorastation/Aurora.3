@@ -840,6 +840,6 @@ Just a object used in constructing air alarms
 	icon_state = "door_electronics"
 	desc = "Looks like a circuit. Probably is."
 	w_class = 2.0
-	matter = list(DEFAULT_WALL_MATERIAL = 50, "glass" = 50)
+	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
 // Fire Alarms moved to firealarm.dm

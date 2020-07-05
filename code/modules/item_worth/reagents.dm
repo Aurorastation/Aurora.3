@@ -6,9 +6,6 @@
 /datum/reagent/blood
 	value = 2
 
-/datum/reagent/antibodies
-	value = 6
-
 /datum/reagent/water
 	value = 0
 
@@ -141,7 +138,7 @@
 /datum/reagent/drink/nuka_cola
 	value = 0.13
 
-/datum/reagent/drink/doctor_delight
+/datum/reagent/drink/doctorsdelight
 	value = 0.3
 
 /datum/reagent/drink/ice
@@ -189,7 +186,7 @@
 /datum/reagent/alcohol/ethanol/sake
 	value = 0.11
 
-/datum/reagent/alcohol/ethanol/tequilla
+/datum/reagent/alcohol/ethanol/tequila
 	value = 0.1
 
 /datum/reagent/alcohol/ethanol/thirteenloko
@@ -273,7 +270,7 @@
 /datum/reagent/alcohol/ethanol/corkpopper
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/cuba_libre
+/datum/reagent/alcohol/ethanol/cubalibre
 	value = 0.15
 
 /datum/reagent/alcohol/ethanol/demonsblood
@@ -399,7 +396,7 @@
 /datum/reagent/alcohol/ethanol/syndicatebomb
 	value = 0.21
 
-/datum/reagent/alcohol/ethanol/tequilla_sunrise
+/datum/reagent/alcohol/ethanol/tequila_sunrise
 	value = 0.13
 
 /datum/reagent/alcohol/ethanol/threemileisland
@@ -477,7 +474,7 @@
 /datum/reagent/alcohol/ethanol/brandy
 	value = 0.2
 
-/datum/reagent/alcohol/ethanol/guinnes
+/datum/reagent/alcohol/ethanol/guinness
 	value = 0.1
 
 /datum/reagent/alcohol/ethanol/drambuie
@@ -501,7 +498,7 @@
 /datum/reagent/bicaridine
 	value = 4.9
 
-/datum/reagent/kelotane/dermaline
+/datum/reagent/dermaline
 	value = 3.9
 
 /datum/reagent/dylovene
@@ -546,6 +543,9 @@
 /datum/reagent/ryetalyn
 	value = 3.6
 
+/datum/reagent/pneumalin
+	value = 3.2
+
 /datum/reagent/hyperzine
 	value = 3.9
 
@@ -557,9 +557,6 @@
 
 /datum/reagent/arithrazine
 	value = 2.7
-
-/datum/reagent/deltamivir
-	value = 2.5
 
 /datum/reagent/thetamycin
 	value = 2.5
@@ -633,9 +630,6 @@
 /datum/reagent/adrenaline
 	value = 3
 
-/datum/reagent/inaprovaline
-	value = 3.5
-
 /datum/reagent/diethylamine
 	value = 0.9
 
@@ -645,7 +639,7 @@
 /datum/reagent/thermite
 	value = 6
 
-/datum/reagent/space_cleaner
+/datum/reagent/spacecleaner
 	value = 0.7
 
 /datum/reagent/lube
@@ -744,7 +738,7 @@
 /datum/reagent/aslimetoxin
 	value = 3
 
-/datum/reagent/nanites
+/datum/reagent/toxin/nanites
 	value = 9
 
 /datum/reagent/estus

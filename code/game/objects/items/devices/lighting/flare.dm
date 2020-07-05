@@ -1,8 +1,8 @@
 /obj/item/device/flashlight/flare
 	name = "flare"
 	desc = "A red standard-issue flare. There are instructions on the side reading 'pull cord, make light'."
-	w_class = 2.0
-	brightness_on = 4 // Pretty bright.
+	w_class = ITEMSIZE_SMALL
+	brightness_on = 3 // Pretty bright.
 	light_power = 4
 	light_color = LIGHT_COLOR_FLARE //"#E58775"
 	icon_state = "flare"
@@ -15,10 +15,13 @@
 	light_wedge = LIGHT_OMNI
 	activation_sound = 'sound/items/flare.ogg'
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
-/obj/item/device/flashlight/flare/New()
-	fuel = rand(800, 1000) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.
-	..()
+	var/overrides_activation_message = FALSE
+
+/obj/item/device/flashlight/flare/Initialize()
+	. = ..()
+	fuel = rand(400, 600)
 
 /obj/item/device/flashlight/flare/process()
 	var/turf/pos = get_turf(src)
@@ -38,10 +41,9 @@
 	update_icon()
 
 /obj/item/device/flashlight/flare/attack_self(mob/user)
-
 	// Usual checks
 	if(!fuel)
-		to_chat(user, "<span class='notice'>It's out of fuel.</span>")
+		to_chat(user, SPAN_WARNING("It's out of fuel."))
 		return
 	if(on)
 		return
@@ -49,10 +51,8 @@
 	. = ..()
 	// All good, turn it on.
 	if(.)
-		user.visible_message(
-		"<span class='notice'>[user] activates the flare.</span>",
-		"<span class='notice'>You pull the cord on the flare, activating it!</span>"
-		)
+		if(!overrides_activation_message)
+			user.visible_message(SPAN_NOTICE("\The [user] activates the flare."), SPAN_NOTICE("You pull the cord on the flare, activating it!"))
 		src.force = on_damage
 		src.damtype = "fire"
 		START_PROCESSING(SSprocessing, src)

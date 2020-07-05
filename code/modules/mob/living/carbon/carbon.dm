@@ -10,8 +10,6 @@
 /mob/living/carbon/Life()
 	..()
 
-	handle_viruses()
-
 	// Increase germ_level regularly
 	if(germ_level < GERM_LEVEL_AMBIENT && prob(30))	//if you're just standing there, you shouldn't get more germs beyond an ambient level
 		germ_level++
@@ -108,21 +106,12 @@
 		if(H && show_ssd && !client && !teleop)
 			if(H.bg)
 				to_chat(H, span("danger", "You sense some disturbance to your physical body!"))
-			else
+			else if(!vr_mob)
 				visible_message(span("notice", "[M] [action] [src], but they do not respond... Maybe they have S.S.D?"))
 		else if(client && willfully_sleeping)
 			visible_message(span("notice", "[M] [action] [src] waking [t_him] up!"))
 			sleeping = 0
 			willfully_sleeping = FALSE
-
-	for(var/datum/disease/D in viruses)
-		if(D.spread_by_touch())
-			M.contract_disease(D, 0, 1, CONTACT_HANDS)
-
-	for(var/datum/disease/D in M.viruses)
-		if(D.spread_by_touch())
-			contract_disease(D, 0, 1, CONTACT_HANDS)
-
 	return
 
 /mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
@@ -188,14 +177,30 @@
 		swap_hand()
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)
-	if (!is_asystole())
+	if (on_fire)
+		playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+		if (M.on_fire)
+			M.visible_message(span("warning", "[M] tries to pat out [src]'s flames, but to no avail!"),
+			span("warning", "You try to pat out [src]'s flames, but to no avail! Put yourself out first!"))
+		else
+			M.visible_message(span("warning", "[M] tries to pat out [src]'s flames!"),
+			span("warning", "You try to pat out [src]'s flames! Hot!"))
+			if(do_mob(M, src, 1.5 SECONDS))
+				if (M.IgniteMob(prob(10)))
+					M.visible_message(span("danger", "The fire spreads from [src] to [M]!"),
+					span("danger", "The fire spreads to you as well!"))
+				else
+					if (src.ExtinguishMob(1))
+						M.visible_message(span("warning", "[M] successfully pats out [src]'s flames."),
+						span("warning", "You successfully pat out [src]'s flames."))
+	else if (!is_asystole())
 		if(src == M && istype(src, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = src
 			src.visible_message(
 				span("notice", "[src] examines [src.gender==MALE?"himself":"herself"]."), \
 				span("notice", "You check yourself for injuries.") \
 				)
-				
+
 			for(var/obj/item/organ/external/org in H.organs)
 				var/list/status = list()
 				var/brutedamage = org.brute_dam
@@ -217,7 +222,7 @@
 						status += "peeling away"
 
 				if(org.is_stump())
-					status += "MISSING"
+					status += SPAN_DANGER("MISSING")
 				if(org.status & ORGAN_MUTATED)
 					status += "weirdly shapen"
 				if(org.dislocated == 2)
@@ -229,30 +234,14 @@
 				if(!org.is_usable())
 					status += "dangling uselessly"
 				if(org.status & ORGAN_BLEEDING)
-					status += span("danger", "bleeding")
+					status += SPAN_DANGER("bleeding")
 				if(status.len)
-					src.show_message("My [org.name] is [span("warning", "[english_list(status)].")]" ,1)
+					src.show_message("My [org.name] is [span("warning", "[english_list(status)].")]", 1)
 				else
-					src.show_message("My [org.name] is [span("notice", "OK.")]" ,1)
+					src.show_message("My [org.name] feels [span("notice", "OK.")]" ,1)
 
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
-		else if (on_fire)
-			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-			if (M.on_fire)
-				M.visible_message(span("warning", "[M] tries to pat out [src]'s flames, but to no avail!"),
-				span("warning", "You try to pat out [src]'s flames, but to no avail! Put yourself out first!"))
-			else
-				M.visible_message(span("warning", "[M] tries to pat out [src]'s flames!"),
-				span("warning", "You try to pat out [src]'s flames! Hot!"))
-				if(do_mob(M, src, 1.5 SECONDS))
-					if (M.IgniteMob(prob(10)))
-						M.visible_message(span("danger", "The fire spreads from [src] to [M]!"),
-						span("danger", "The fire spreads to you as well!"))
-					else
-						if (src.ExtinguishMob(1))
-							M.visible_message(span("warning", "[M] successfully pats out [src]'s flames."),
-							span("warning", "You successfully pat out [src]'s flames."))
 		else
 			var/t_him = "it"
 			if (src.gender == MALE)
@@ -271,7 +260,7 @@
 			if(H && show_ssd && !client && !teleop)
 				if(H.bg)
 					to_chat(H, span("warning", "You sense some disturbance to your physical body, like someone is trying to wake you up."))
-				else
+				else if(!vr_mob)
 					M.visible_message(span("notice", "[M] shakes [src] trying to wake [t_him] up!"), \
 										span("notice", "You shake [src], but they do not respond... Maybe they have S.S.D?"))
 			else if(lying)
@@ -310,7 +299,7 @@
 				else if(istype(tapper))
 					tapper.species.tap(tapper,src)
 				else
-					M.visible_message(span("notice", "[M] taps [src] to get their attention!"), \
+					M.visible_message("<b>[M]</b> taps [src] to get their attention!", \
 								span("notice", "You tap [src] to get their attention!"))
 
 			if(stat != DEAD)
@@ -385,8 +374,6 @@
 	if(now_pushing)
 		return
 	. = ..()
-	if(istype(A, /mob/living/carbon) && prob(10))
-		src.spread_disease_to(A, "Contact")
 
 /mob/living/carbon/cannot_use_vents()
 	return
@@ -437,6 +424,8 @@
 	if (species && (species.flags & NO_PAIN))
 		return FALSE
 	if (is_berserk())
+		return FALSE
+	if (HULK in mutations)
 		return FALSE
 	if (analgesic > 100)
 		return FALSE

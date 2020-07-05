@@ -1,7 +1,8 @@
 /obj/item/clothing
 	name = "clothing"
 	siemens_coefficient = 0.9
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	var/flash_protection = FLASH_PROTECTION_NONE	// Sets the item's level of flash protection.
 	var/tint = TINT_NONE							// Sets the item's level of visual impairment tint.
 	var/list/species_restricted = null 				//Only these species can wear this kit.
@@ -57,7 +58,7 @@
 	return 0
 
 //BS12: Species-restricted clothing check.
-/obj/item/clothing/mob_can_equip(M as mob, slot)
+/obj/item/clothing/mob_can_equip(M as mob, slot, disable_warning = FALSE)
 
 	//if we can't equip the item anyway, don't bother with species_restricted (cuts down on spam)
 	if (!..())
@@ -83,6 +84,15 @@
 				to_chat(H, "<span class='danger'>Your species cannot wear [src].</span>")
 				return 0
 	return 1
+
+/obj/item/clothing/proc/return_own_image()
+	var/image/our_image
+	if(icon_override)
+		our_image = image(icon_override, icon_state)
+	else if(item_icons && (slot_head_str in item_icons))
+		our_image = image(item_icons[slot_head_str], icon_state)
+	our_image.color = color
+	return our_image
 
 /obj/item/clothing/proc/refit_for_species(var/target_species)
 	if(!species_restricted)
@@ -140,7 +150,7 @@
 	return material
 
 /obj/item/clothing/proc/set_material(var/new_material)
-	material = get_material_by_name(new_material)
+	material = SSmaterials.get_material_by_name(new_material)
 	if(!material)
 		qdel(src)
 	else
@@ -319,6 +329,10 @@
 	gender = PLURAL //Carn: for grammarically correct text-parsing
 	w_class = 2.0
 	icon = 'icons/obj/clothing/gloves.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_gloves.dmi',
+		slot_r_hand_str = 'icons/mob/items/clothing/righthand_gloves.dmi'
+		)
 	siemens_coefficient = 0.75
 	var/wired = 0
 	var/obj/item/cell/cell = 0
@@ -336,6 +350,7 @@
 		"Vox" = 'icons/mob/species/vox/gloves.dmi'
 		)
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/clothing/gloves/update_clothing_icon()
 	if (ismob(src.loc))
@@ -358,7 +373,7 @@
 
 /obj/item/clothing/gloves/attackby(obj/item/W, mob/user)
 	..()
-	if(W.iswirecutter() || istype(W, /obj/item/scalpel))
+	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
 		if (clipped)
 			to_chat(user, "<span class='notice'>\The [src] have already been clipped!</span>")
 			update_icon()
@@ -377,7 +392,7 @@
 			species_restricted -= "Vaurca"
 		return
 
-/obj/item/clothing/gloves/mob_can_equip(mob/user, slot)
+/obj/item/clothing/gloves/mob_can_equip(mob/user, slot, disable_warning = FALSE)
 	var/mob/living/carbon/human/H = user
 	if(slot && slot == slot_gloves)
 		if(istype(H.gloves, /obj/item/clothing/ring))
@@ -412,12 +427,12 @@
 
 /obj/item/clothing/gloves/dropped()
 	..()
-	addtimer(CALLBACK(src, .proc/update_wearer), 0)
+	INVOKE_ASYNC(src, .proc/update_wearer)
 
 /obj/item/clothing/gloves/mob_can_unequip()
 	. = ..()
 	if (.)
-		addtimer(CALLBACK(src, .proc/update_wearer), 0)
+		INVOKE_ASYNC(src, .proc/update_wearer)
 
 ///////////////////////////////////////////////////////////////////////
 //Head
@@ -425,8 +440,8 @@
 	name = "head"
 	icon = 'icons/obj/clothing/hats.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_hats.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_hats.dmi'
+		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_hats.dmi',
+		slot_r_hand_str = 'icons/mob/items/clothing/righthand_hats.dmi'
 		)
 	body_parts_covered = HEAD
 	slot_flags = SLOT_HEAD
@@ -435,6 +450,7 @@
 	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
 
 	drop_sound = 'sound/items/drop/hat.ogg'
+	pickup_sound = 'sound/items/pickup/hat.ogg'
 
 	var/light_overlay = "helmet_light"
 	var/light_applied
@@ -501,6 +517,21 @@
 		to_chat(user, "<span class='notice'>You crawl under \the [src].</span>")
 	return 1
 
+/obj/item/clothing/head/return_own_image()
+	var/image/our_image
+	if(contained_sprite)
+		auto_adapt_species(src)
+		var/state = "[icon_species_tag ? "[icon_species_tag]_" : ""][item_state][WORN_HEAD]"
+		our_image = image(icon_override || icon, state)
+	else if(icon_override)
+		our_image = image(icon_override, icon_state)
+	else if(item_icons && (slot_head_str in item_icons))
+		our_image = image(item_icons[slot_head_str], icon_state)
+	else
+		our_image = image(INV_HEAD_DEF_ICON, icon_state)
+	our_image.color = color
+	return our_image
+
 /obj/item/clothing/head/update_icon(var/mob/user)
 
 	cut_overlays()
@@ -534,11 +565,12 @@
 	name = "mask"
 	icon = 'icons/obj/clothing/masks.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_masks.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_masks.dmi'
+		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_masks.dmi',
+		slot_r_hand_str = 'icons/mob/items/clothing/righthand_masks.dmi'
 		)
 	slot_flags = SLOT_MASK
 	drop_sound = 'sound/items/drop/hat.ogg'
+	pickup_sound = 'sound/items/pickup/hat.ogg'
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
 		"Vox" = 'icons/mob/species/vox/masks.dmi',
@@ -594,7 +626,7 @@
 		item_flags = down_item_flags
 		flags_inv = down_flags_inv
 		if(self)
-			user.visible_message(span("notice", "[user] pulls \the [src] down to hang around \his neck."), span("notice", "You pull \the [src] down to hang around your neck."))
+			user.visible_message("<b>[user]</b> pulls \the [src] down to hang around their neck.", span("notice", "You pull \the [src] down to hang around your neck."))
 	else
 		gas_transfer_coefficient = initial(gas_transfer_coefficient)
 		body_parts_covered = initial(body_parts_covered)
@@ -603,7 +635,7 @@
 		item_flags = initial(item_flags)
 		flags_inv = initial(flags_inv)
 		if(self)
-			user.visible_message(span("notice", "[user] pulls \the [src] up to cover \his face."), span("notice", "You pull \the [src] up to cover your face."))
+			user.visible_message("<b>[user]</b> pulls \the [src] up to cover their face.", span("notice", "You pull \the [src] up to cover your face."))
 	usr.update_action_buttons()
 	update_clothing_icon()
 
@@ -617,8 +649,8 @@
 	name = "shoes"
 	icon = 'icons/obj/clothing/shoes.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_shoes.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_shoes.dmi'
+		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_shoes.dmi',
+		slot_r_hand_str = 'icons/mob/items/clothing/righthand_shoes.dmi'
 		)
 	desc = "Comfortable-looking shoes."
 	gender = PLURAL //Carn: for grammarically correct text-parsing
@@ -626,6 +658,7 @@
 	body_parts_covered = FEET
 	slot_flags = SLOT_FEET
 	drop_sound = 'sound/items/drop/shoes.ogg'
+	pickup_sound = 'sound/items/pickup/shoes.ogg'
 
 	var/can_hold_knife
 	var/obj/item/holding
@@ -719,6 +752,10 @@
 //Suit
 /obj/item/clothing/suit
 	icon = 'icons/obj/clothing/suits.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_suit.dmi',
+		slot_r_hand_str = 'icons/mob/items/clothing/righthand_suit.dmi'
+		)
 	name = "suit"
 	var/fire_resist = T0C+100
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
@@ -736,6 +773,21 @@
 
 	valid_accessory_slots = list("armband","decor", "over")
 
+/obj/item/clothing/suit/return_own_image()
+	var/image/our_image
+	if(contained_sprite)
+		auto_adapt_species(src)
+		var/state = "[icon_species_tag ? "[icon_species_tag]_" : ""][item_state][WORN_SUIT]"
+		our_image = image(icon_override || icon, state)
+	else if(icon_override)
+		our_image = image(icon_override, icon_state)
+	else if(item_icons && (slot_head_str in item_icons))
+		our_image = image(item_icons[slot_head_str], icon_state)
+	else
+		our_image = image(INV_SUIT_DEF_ICON, icon_state)
+	our_image.color = color
+	return our_image
+
 /obj/item/clothing/suit/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
@@ -746,8 +798,8 @@
 /obj/item/clothing/under
 	icon = 'icons/obj/clothing/uniforms.dmi'
 	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_uniforms.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_uniforms.dmi'
+		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_uniforms.dmi',
+		slot_r_hand_str = 'icons/mob/items/clothing/righthand_uniforms.dmi'
 		)
 	name = "under"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
@@ -755,6 +807,7 @@
 	slot_flags = SLOT_ICLOTHING
 	armor = null
 	w_class = 3
+	equip_sound = 'sound/items/equip/jumpsuit.ogg'
 	var/has_sensor = 1 //For the crew computer 2 = unable to change mode
 	var/sensor_mode = 0
 		/*
@@ -845,6 +898,21 @@
 	else
 		rolled_sleeves = -1
 	if(H) update_clothing_icon()
+
+/obj/item/clothing/under/return_own_image()
+	var/image/our_image
+	if(contained_sprite)
+		auto_adapt_species(src)
+		var/state = "[icon_species_tag ? "[icon_species_tag]_" : ""][item_state][WORN_UNDER]"
+		our_image = image(icon_override || icon, state)
+	else if(icon_override)
+		our_image = image(icon_override, icon_state)
+	else if(item_icons && (slot_head_str in item_icons))
+		our_image = image(item_icons[slot_head_str], icon_state)
+	else
+		our_image = image(INV_W_UNIFORM_DEF_ICON, icon_state)
+	our_image.color = color
+	return our_image
 
 /obj/item/clothing/under/update_clothing_icon()
 	if (ismob(src.loc))
@@ -977,4 +1045,5 @@
 	slot_flags = SLOT_GLOVES
 	gender = NEUTER
 	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
 	var/undergloves = 1

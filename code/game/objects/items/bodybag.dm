@@ -6,12 +6,14 @@
 	icon = 'icons/obj/bodybag.dmi'
 	icon_state = "bodybag_folded"
 	w_class = 2.0
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
-	attack_self(mob/user)
-		var/obj/structure/closet/body_bag/R = new /obj/structure/closet/body_bag(user.loc)
-		R.add_fingerprint(user)
-		qdel(src)
-
+/obj/item/bodybag/attack_self(mob/user)
+	var/obj/structure/closet/body_bag/R = new /obj/structure/closet/body_bag(user.loc)
+	R.add_fingerprint(user)
+	playsound(src, 'sound/items/drop/cloth.ogg', 30)
+	qdel(src)
 
 /obj/item/storage/box/bodybags
 	name = "body bags"
@@ -27,7 +29,6 @@
 		new /obj/item/bodybag(src)
 		new /obj/item/bodybag(src)
 
-
 /obj/structure/closet/body_bag
 	name = "body bag"
 	desc = "A plastic bag designed for the storage and transportation of cadavers."
@@ -37,10 +38,23 @@
 	icon_opened = "bodybag_open"
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'
-	var/item_path = /obj/item/bodybag
 	density = 0
 	storage_capacity = 30
+	var/item_path = /obj/item/bodybag
 	var/contains_body = 0
+
+/obj/structure/closet/body_bag/content_info(mob/user, content_size)
+	if(!content_size && !contains_body)
+		to_chat(user, "\The [src] is empty.")
+	else if(storage_capacity > content_size*4)
+		to_chat(user, "\The [src] is barely filled.")
+	else if(storage_capacity > content_size*2)
+		to_chat(user, "\The [src] is less than half full.")
+	else if(storage_capacity > content_size)
+		to_chat(user, "\The [src] still has some free space.")
+	else
+		to_chat(user, "\The [src] is full.")
+	to_chat(user, "It [contains_body ? "contains" : "does not contain"] a body.")
 
 /obj/structure/closet/body_bag/attackby(var/obj/item/W, mob/user as mob)
 	if (W.ispen())
@@ -53,13 +67,15 @@
 		if (t)
 			src.name = "body bag - "
 			src.name += t
+			playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 			add_overlay("bodybag_label")
 		else
 			src.name = "body bag"
 	//..() //Doesn't need to run the parent. Since when can fucking bodybags be welded shut? -Agouri
 		return
 	else if(W.iswirecutter())
-		to_chat(user, "You cut the tag off the bodybag")
+		to_chat(user, "You cut the tag off the bodybag.")
+		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		src.name = "body bag"
 		cut_overlays()
 		return
@@ -80,7 +96,7 @@
 		if(!ishuman(usr))	return
 		if(opened)	return 0
 		if(contents.len)	return 0
-		visible_message("[usr] folds up the [src.name]")
+		playsound(src, 'sound/items/pickup/cloth.ogg', 15)
 		new item_path(get_turf(src))
 		spawn(0)
 			qdel(src)
@@ -95,22 +111,20 @@
 		else
 			icon_state = icon_closed
 
-
 /obj/item/bodybag/cryobag
-	name = "stasis bag"
+	name = "cryogenic stasis bag"
 	desc = "A folded, non-reusable bag designed to prevent additional damage to an occupant at the cost of genetic damage."
 	icon = 'icons/obj/cryobag.dmi'
 	icon_state = "bodybag_folded"
 
-	attack_self(mob/user)
-		var/obj/structure/closet/body_bag/cryobag/R = new /obj/structure/closet/body_bag/cryobag(user.loc)
-		R.add_fingerprint(user)
-		qdel(src)
-
-
+/obj/item/bodybag/cryobag/attack_self(mob/user)
+	var/obj/structure/closet/body_bag/cryobag/R = new /obj/structure/closet/body_bag/cryobag(user.loc)
+	R.add_fingerprint(user)
+	playsound(src, 'sound/items/drop/cloth.ogg', 30)
+	qdel(src)
 
 /obj/structure/closet/body_bag/cryobag
-	name = "stasis bag"
+	name = "cryogenic stasis bag"
 	desc = "A non-reusable plastic bag designed to prevent additional damage to an occupant at the cost of genetic damage."
 	icon = 'icons/obj/cryobag.dmi'
 	item_path = /obj/item/bodybag/cryobag
@@ -125,11 +139,11 @@
 		O.name = "used stasis bag"
 		O.icon = src.icon
 		O.icon_state = "bodybag_used"
-		O.desc = "Pretty useless now.."
+		O.desc = "Pretty useless now."
 		qdel(src)
 
 /obj/structure/closet/body_bag/cryobag/MouseDrop(over_object, src_location, over_location)
 	if((over_object == usr && (in_range(src, usr) || usr.contents.Find(src))))
 		if(!ishuman(usr))	return
-		to_chat(usr, "<span class='warning'>You can't fold that up anymore..</span>")
+		to_chat(usr, SPAN_WARNING("You can't fold that up anymore."))
 	..()

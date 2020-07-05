@@ -205,9 +205,11 @@
 	else if(W.iswrench() && state == 0)
 		playsound(src.loc, W.usesound, 100, 1)
 		if(anchored)
-			user.visible_message("[user] begins unsecuring the airlock assembly from the floor.", "You starts unsecuring the airlock assembly from the floor.")
+			user.visible_message("<b>[user]</b> begins unsecuring the airlock assembly from the floor.", \
+								SPAN_NOTICE("You start unsecuring the airlock assembly from the floor."))
 		else
-			user.visible_message("[user] begins securing the airlock assembly to the floor.", "You starts securing the airlock assembly to the floor.")
+			user.visible_message("<b>[user]</b> begins securing the airlock assembly to the floor.", \
+								SPAN_NOTICE("You start securing the airlock assembly to the floor."))
 
 		if(do_after(user, 40/W.toolspeed))
 			if(!src) return
@@ -237,12 +239,12 @@
 
 	else if(istype(W, /obj/item/airlock_electronics) && state == 1)
 		var/obj/item/airlock_electronics/EL = W
-		if(!EL.inuse)
+		if(!EL.is_installed)
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
-			EL.inuse = 1
+			EL.is_installed = 1
 			if(do_after(user, 40/W.toolspeed))
-				EL.inuse = 0
+				EL.is_installed = 0
 				if(!src) return
 				user.drop_from_inventory(EL,src)
 				to_chat(user, "<span class='notice'>You installed the airlock electronics!</span>")
@@ -250,7 +252,7 @@
 				src.name = "Near finished Airlock Assembly"
 				src.electronics = EL
 			else
-				EL.inuse = 0
+				EL.is_installed = 0
 
 	else if(W.iscrowbar() && state == 2 )
 		//This should never happen, but just in case I guess
@@ -292,7 +294,7 @@
 						user.visible_message("[user] adds [S.name] to the airlock assembly.", "You start to install [S.name] into the airlock assembly.")
 						if(do_after(user, 40) && !glass)
 							if (S.use(2))
-								to_chat(user, "<span class='notice'>You installed [material_display_name(material_name)] plating into the airlock assembly.</span>")
+								to_chat(user, "<span class='notice'>You installed [SSmaterials.material_display_name(material_name)] plating into the airlock assembly.</span>")
 								glass = material_name
 
 	else if(W.isscrewdriver() && state == 2 )

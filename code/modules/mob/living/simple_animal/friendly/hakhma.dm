@@ -24,4 +24,4 @@
 	mob_size = 15
 
 	has_udder = TRUE
-	milk_type = "beetle_milk"
+	milk_type = /datum/reagent/drink/milk/beetle

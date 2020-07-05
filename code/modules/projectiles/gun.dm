@@ -8,6 +8,7 @@
 /datum/firemode
 	var/name = "default"
 	var/list/settings = list()
+	var/list/original_settings
 
 /datum/firemode/New(obj/item/gun/gun, list/properties = null)
 	..()
@@ -24,13 +25,26 @@
 			settings[propname] = propvalue
 
 /datum/firemode/proc/apply_to(obj/item/gun/gun)
+	LAZYINITLIST(original_settings)
+
 	for(var/propname in settings)
+		original_settings[propname] = gun.vars[propname]
 		gun.vars[propname] = settings[propname]
+
+/datum/firemode/proc/unapply_to(obj/item/gun/gun)
+	if (LAZYLEN(original_settings))
+		for (var/propname in original_settings)
+			gun.vars[propname] = original_settings[propname]
+
+		LAZYCLEARLIST(original_settings)
+		original_settings = null
 
 //Parent gun type. Guns are weapons that can be aimed at mobs and act over a distance
 /obj/item/gun
 	name = "gun"
 	desc = "It's a gun. It's pretty terrible, though."
+	desc_info = "This is a gun.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	then click where you want to fire."
 	icon = 'icons/obj/guns/pistol.dmi'
 	var/gun_gui_icons = 'icons/obj/guns/gun_gui.dmi'
 	icon_state = "pistol"
@@ -49,9 +63,10 @@
 	zoomdevicename = "scope"
 
 	var/burst = 1
+	var/can_autofire = FALSE
 	var/fire_delay = 6 	//delay after shooting before the gun can be used again
-	var/burst_delay = 2	//delay between shots, if firing in bursts
-	var/move_delay = 1
+	var/burst_delay = 1	//delay between shots, if firing in bursts
+	var/move_delay = 0
 	var/fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 	var/fire_sound_text = "gunshot"
 	var/recoil = 0		//screen shake
@@ -63,7 +78,11 @@
 	var/list/dispersion = list(0)
 	var/reliability = 100
 
-	var/obj/item/device/firing_pin/pin = /obj/item/device/firing_pin//standard firing pin for most guns.
+	var/displays_maptext = FALSE
+	maptext_x = 22
+	maptext_y = 2
+
+	var/obj/item/device/firing_pin/pin = /obj/item/device/firing_pin //standard firing pin for most guns.
 
 	var/can_bayonet = FALSE
 	var/obj/item/material/knife/bayonet/bayonet
@@ -83,7 +102,6 @@
 	var/needspin = TRUE
 	var/is_wieldable = FALSE
 
-
 	//aiming system stuff
 	var/multi_aim = 0 //Used to determine if you can target multiple people.
 	var/tmp/list/mob/living/aim_targets //List of who yer targeting.
@@ -91,9 +109,10 @@
 	var/tmp/lock_time = -100
 	var/safety_state = TRUE
 	var/has_safety = TRUE
-	var/safety_icon	= "safety"   //overlay to apply to gun based on safety state, if any
+	var/image/safety_overlay
 
 	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
 
 /obj/item/gun/Initialize(mapload)
 	. = ..()
@@ -109,6 +128,14 @@
 	if(pin && needspin)
 		pin = new pin(src)
 
+	if(istype(loc, /obj/item/robot_module))
+		has_safety = FALSE
+		displays_maptext = TRUE
+		update_maptext()
+
+	if(istype(loc, /obj/item/rig_module))
+		has_safety = FALSE
+
 	update_wield_verb()
 
 	queue_icon_update()
@@ -123,13 +150,12 @@
 		I.pixel_y = knife_y_offset
 		underlays += I
 
-	if(has_safety && safety_icon)
-		for(var/I in overlays)
-			var/image/gun_overlay = I
-			if(gun_overlay.icon == gun_gui_icons && dd_hasprefix(gun_overlay.icon_state, "[safety_icon]"))
-				overlays -= gun_overlay
+	if(has_safety)
+		cut_overlay(safety_overlay, TRUE)
+		safety_overlay = null
 		if(!isturf(loc)) // In a mob, holster or bag or something
-			overlays += image(gun_gui_icons,"[safety_icon][safety()]")
+			safety_overlay = image(gun_gui_icons,"[safety()]")
+			add_overlay(safety_overlay, TRUE)
 
 //Checks whether a given mob can use the gun
 //Any checks that shouldn't result in handle_click_empty() being called if they fail should go here.
@@ -182,8 +208,6 @@
 			return FALSE
 		else
 			return TRUE
-
-	return TRUE
 
 /obj/item/gun/verb/wield_gun()
 	set name = "Wield Firearm"
@@ -266,7 +290,7 @@
 			to_chat(user, span("warning","\The [src] is not ready to fire again!"))
 		return FALSE
 
-	var/shoot_time = (burst - 1)* burst_delay
+	var/shoot_time = (burst - 1) * burst_delay
 	user.setClickCooldown(shoot_time)
 	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
@@ -293,7 +317,10 @@
 			process_point_blank(projectile, user, target)
 
 		if(process_projectile(projectile, user, target, user.zone_sel.selecting, clickparams))
-			handle_post_fire(user, target, pointblank, reflex, i == burst)
+			var/show_emote = TRUE
+			if(i > 1 && burst_delay < 3 && burst < 5)
+				show_emote = FALSE
+			handle_post_fire(user, target, pointblank, reflex, show_emote)
 			update_icon()
 
 		if(i < burst)
@@ -306,9 +333,9 @@
 	update_held_icon()
 
 	//update timing
-	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
+	var/delay = max(burst_delay+1, fire_delay)
+	user.setClickCooldown(min(delay, DEFAULT_QUICK_COOLDOWN))
 	user.setMoveCooldown(move_delay)
-	next_fire_time = world.time + fire_delay
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/gun/proc/Fire_userless(atom/target)
@@ -379,48 +406,47 @@
 
 //called if there was no projectile to shoot
 /obj/item/gun/proc/handle_click_empty(mob/user)
-	if (user)
-		user.visible_message("*click click*", span("danger","*click*"))
+	if(user)
+		to_chat(user, span("danger","*click*"))
 	else
 		src.visible_message("*click click*")
 	playsound(loc, 'sound/weapons/empty.ogg', 100, 1)
 
 //called after successfully firing
-/obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
+/obj/item/gun/proc/handle_post_fire(mob/user, atom/target, var/pointblank = FALSE, var/reflex = FALSE, var/playemote = TRUE)
 	if(silenced)
 		playsound(user, fire_sound, 10, 1)
 	else
 		playsound(user, fire_sound, 75, 1, 3, 0.5, 1)
 
-		if (playemote)
+		if(playemote)
 			if(reflex)
 				user.visible_message(
-					span("reflex_shoot","<b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""] by reflex!</b>"),
-					span("reflex_shoot", "You fire \the [src] by reflex!"),
+					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""] by reflex!</b>"),
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
 					"You hear a [fire_sound_text]!"
-					)
+				)
 			else
 				user.visible_message(
-					span("danger","\The [user] fires \the [src][pointblank ? " point blank at \the [target]":""]!"),
-					span("warning","You fire \the [src]!"),
+					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""]!"),
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""]!"),
 					"You hear a [fire_sound_text]!"
-					)
+				)
 
 		if(muzzle_flash)
 			set_light(muzzle_flash)
 			addtimer(CALLBACK(src, /atom/.proc/set_light, 0), 2)
 
 	if(recoil)
-		addtimer(CALLBACK(GLOBAL_PROC, /proc/shake_camera, user, recoil+1, recoil), 0, TIMER_UNIQUE)
+		shake_camera(user, recoil + 1, recoil)
 
 	if(ishuman(user) && user.invisibility == INVISIBILITY_LEVEL_TWO) //shooting will disable a rig cloaking device
 		var/mob/living/carbon/human/H = user
-		if(istype(H.back,/obj/item/rig))
+		if(istype(H.back, /obj/item/rig))
 			var/obj/item/rig/R = H.back
 			for(var/obj/item/rig_module/stealth_field/S in R.installed_modules)
 				S.deactivate()
 	update_icon()
-
 
 /obj/item/gun/proc/process_point_blank(obj/projectile, mob/user, atom/target)
 	var/obj/item/projectile/P = projectile
@@ -505,6 +531,11 @@
 			user.visible_message(span("warning", "*click click*"))
 			mouthshoot = FALSE
 			return
+		if(safety() && user.a_intent != I_HURT)
+			user.visible_message(SPAN_WARNING("The safety was on. How anticlimatic!"))
+			handle_click_empty(user)
+			mouthshoot = FALSE
+			return
 		if(silenced)
 			playsound(user, fire_sound, 10, 1)
 		else
@@ -521,7 +552,7 @@
 			user.apply_effect(110,PAIN,0)
 		else
 			log_and_message_admins("[key_name(user)] commited suicide using \a [src]")
-			user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", sharp=1)
+			user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, BP_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]", damage_flags = DAM_SHARP)
 			user.death()
 		qdel(in_chamber)
 		mouthshoot = FALSE
@@ -579,6 +610,9 @@
 /obj/item/gun/proc/switch_firemodes()
 	if(!firemodes.len)
 		return null
+
+	var/datum/firemode/old_mode = firemodes[sel_mode]
+	old_mode.unapply_to(src)
 
 	sel_mode++
 	if(sel_mode > firemodes.len)
@@ -700,6 +734,8 @@
 	..()
 	queue_icon_update()
 	//Unwields the item when dropped, deletes the offhand
+	if(displays_maptext)
+		maptext = ""
 	if(is_wieldable)
 		if(user)
 			var/obj/item/offhand/O = user.get_inactive_hand()
@@ -710,6 +746,7 @@
 /obj/item/gun/pickup(mob/user)
 	..()
 	queue_icon_update()
+	update_maptext()
 	if(is_wieldable)
 		unwield()
 
@@ -746,8 +783,8 @@
 	if (!QDELETED(src))
 		qdel(src)
 
-/obj/item/offhand/mob_can_equip(var/mob/M, slot)
-		return FALSE
+/obj/item/offhand/mob_can_equip(var/mob/M, slot, disable_warning = FALSE)
+	return FALSE
 
 /obj/item/gun/Destroy()
 	if (istype(pin))
@@ -816,3 +853,18 @@
 				qdel(pin)
 				pin = null
 	return ..()
+
+/obj/item/gun/proc/get_ammo()
+	return 0
+
+//Autofire
+/obj/item/gun/proc/can_autofire()
+	return (can_autofire && world.time >= next_fire_time)
+
+/obj/item/gun/proc/update_maptext()
+	if(displays_maptext)
+		if(get_ammo() > 9)
+			maptext_x = 18
+		else
+			maptext_x = 22
+		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[get_ammo()]</span>"

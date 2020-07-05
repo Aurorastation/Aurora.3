@@ -19,6 +19,7 @@
 	var/no_shatter = FALSE //does this container shatter?
 	unacidable = 1 //glass doesn't dissolve in acid
 	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
 	var/label_text = ""
 
 /obj/item/reagent_containers/glass/Initialize()
@@ -93,11 +94,16 @@
 	name = "beaker"
 	desc = "A beaker."
 	icon = 'icons/obj/chemical.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_medical.dmi',
+		slot_r_hand_str = 'icons/mob/items/stacks/righthand_medical.dmi',
+		)
 	icon_state = "beaker"
 	item_state = "beaker"
 	center_of_mass = list("x" = 15,"y" = 11)
-	matter = list("glass" = 500)
+	matter = list(MATERIAL_GLASS = 500)
 	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 	fragile = 4
 
 /obj/item/reagent_containers/glass/beaker/Initialize()
@@ -149,7 +155,7 @@
 	desc = "A large beaker."
 	icon_state = "beakerlarge"
 	center_of_mass = list("x" = 16,"y" = 11)
-	matter = list("glass" = 5000)
+	matter = list(MATERIAL_GLASS = 5000)
 	volume = 120
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120)
@@ -175,7 +181,7 @@
 	desc = "A cryostasis beaker that allows for chemical storage without reactions."
 	icon_state = "beakernoreact"
 	center_of_mass = list("x" = 16,"y" = 13)
-	matter = list("glass" = 500)
+	matter = list(MATERIAL_GLASS = 500)
 	volume = 60
 	amount_per_transfer_from_this = 10
 	flags = OPENCONTAINER | NOREACT
@@ -186,7 +192,7 @@
 	desc = "A bluespace beaker, powered by experimental bluespace technology."
 	icon_state = "beakerbluespace"
 	center_of_mass = list("x" = 16,"y" = 11)
-	matter = list("glass" = 5000)
+	matter = list(MATERIAL_GLASS = 5000)
 	volume = 300
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25,30,60,120,300)
@@ -198,29 +204,25 @@
 	desc = "A small glass vial."
 	icon_state = "vial"
 	center_of_mass = list("x" = 15,"y" = 9)
-	matter = list("glass" = 250)
+	matter = list(MATERIAL_GLASS = 250)
 	volume = 30
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,25)
 	flags = OPENCONTAINER
 	fragile = 1
 
-/obj/item/reagent_containers/glass/beaker/cryoxadone
-/obj/item/reagent_containers/glass/beaker/cryoxadone/Initialize()
-	. = ..()
-	reagents.add_reagent("cryoxadone", 30)
-	update_icon()
+/obj/item/reagent_containers/glass/beaker/cryoxadone/reagents_to_add = list(/datum/reagent/cryoxadone = 30)
 
-/obj/item/reagent_containers/glass/beaker/sulphuric
-/obj/item/reagent_containers/glass/beaker/sulphuric/Initialize()
-	. = ..()
-	reagents.add_reagent("sacid", 60)
-	update_icon()
+/obj/item/reagent_containers/glass/beaker/sulphuric/reagents_to_add = list(/datum/reagent/acid = 60)
 
 /obj/item/reagent_containers/glass/bucket
 	desc = "A blue plastic bucket."
 	name = "bucket"
 	icon = 'icons/obj/janitor.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		)
 	icon_state = "bucket"
 	item_state = "bucket"
 	center_of_mass = list("x" = 16,"y" = 10)
@@ -233,6 +235,7 @@
 	flags = OPENCONTAINER
 	unacidable = 0
 	drop_sound = 'sound/items/drop/helm.ogg'
+	pickup_sound = 'sound/items/pickup/helm.ogg'
 	var/carving_weapon = /obj/item/wirecutters
 	var/helmet_type = /obj/item/clothing/head/helmet/bucket
 	no_shatter = TRUE
@@ -284,6 +287,7 @@
 	center_of_mass = list("x" = 16,"y" = 8)
 	matter = list("wood" = 50)
 	drop_sound = 'sound/items/drop/wooden.ogg'
+	pickup_sound = 'sound/items/pickup/wooden.ogg'
 	carving_weapon = /obj/item/material/hatchet
 	helmet_type = /obj/item/clothing/head/helmet/bucket/wood
 
@@ -291,4 +295,5 @@
 	if(isprox(D))
 		to_chat(user, "This wooden bucket doesn't play well with electronics.")
 		return
-	 ..()
+
+	..()

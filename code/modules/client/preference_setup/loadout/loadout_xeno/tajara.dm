@@ -42,6 +42,7 @@
 	path = /obj/item/clothing/suit/storage/hooded/tajaran/priest
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/tajara_priest/New()
 	..()
@@ -56,7 +57,7 @@
 	display_name = "PRA medical coat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Chemist", "Geneticist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Chemist", "Geneticist", "Emergency Medical Technician", "Medical Resident")
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/uniform/tajara
@@ -141,6 +142,7 @@
 	path = /obj/item/clothing/accessory/tajaran_wrap
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/tajara_wrap/New()
 	..()
@@ -154,6 +156,7 @@
 	path = /obj/item/clothing/accessory/tajaran_pelt
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/mask/tajara
 	display_name = "sun sister veil"
@@ -161,16 +164,11 @@
 	cost = 1
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/shoes/tajara
 	display_name = "native tajaran foot-wear"
 	path = /obj/item/clothing/shoes/tajara
-	sort_category = "Xenowear - Tajara"
-	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
-
-/datum/gear/accessory/partymembership
-	display_name = "honorary party member card"
-	path = /obj/item/clothing/accessory/badge/hadii_card
 	sort_category = "Xenowear - Tajara"
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 
@@ -180,3 +178,63 @@
 	path = /obj/item/storage/belt/shumaila_buckle
 	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
 	sort_category = "Xenowear - Tajara"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/augment/tesla_spine
+	display_name = "tesla spine"
+	description = "A People's Republic of Adhomai made tesla spine issued to disabled veterans and civilians."
+	path = /obj/item/organ/internal/augment/tesla
+	cost = 4
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	sort_category = "Xenowear - Tajara"
+
+/datum/gear/accessory/tajaran_card
+	display_name = "tajaran cards, badges and pins selection"
+	path = /obj/item/clothing/accessory/badge/hadii_card
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/tajaran_card/New()
+	..()
+	var/card = list()
+	card["honorary party member card"] = /obj/item/clothing/accessory/badge/hadii_card
+	card["almariist pin"] = /obj/item/clothing/accessory/dpra_badge
+	card["royalist badge"] = /obj/item/clothing/accessory/nka_badge
+	gear_tweaks += new/datum/gear_tweak/path(card)
+
+/datum/gear/tajaran_passports
+	display_name = "adhomian passports selection"
+	path = /obj/item/clothing/accessory/badge/pra_passport
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/tajaran_passports/New()
+	..()
+	var/passports = list()
+	passports["people's republic of adhomai passport"] = /obj/item/clothing/accessory/badge/pra_passport
+	passports["democratic people's republic of adhomai passport"] = /obj/item/clothing/accessory/badge/dpra_passport
+	passports["new kingdom of adhomai passport"] = /obj/item/clothing/accessory/badge/nka_passport
+	gear_tweaks += new/datum/gear_tweak/path(passports)
+
+/datum/gear/adhomai_zippo
+	display_name = "adhomian lighter"
+	path = /obj/item/flame/lighter/adhomai
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/adhomai_pocketwatch
+	display_name = "adhomian watch"
+	path = /obj/item/pocketwatch/adhomai
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/tajaran_dice
+	display_name = "bag of adhomian dice"
+	path = /obj/item/storage/pill_bottle/dice/tajara
+	sort_category = "Xenowear - Tajara"
+	whitelisted = list("Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+	flags = GEAR_HAS_DESC_SELECTION

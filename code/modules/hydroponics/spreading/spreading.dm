@@ -4,7 +4,7 @@
 /proc/spacevine_infestation(var/potency_min=70, var/potency_max=100, var/maturation_min=5, var/maturation_max=15)
 	set waitfor = FALSE
 
-	var/turf/T = pick_area_turf(/area/hallway, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
+	var/turf/T = pick_subarea_turf(/area/hallway, list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects))
 	if(T)
 		var/datum/seed/seed = SSplants.create_random_seed(1)
 		seed.set_trait(TRAIT_SPREAD,2)             // So it will function properly as vines.
@@ -130,7 +130,7 @@
 	update_icon()
 	SSplants.add_plant(src)
 	// Some plants eat through plating.
-	if(islist(seed.chems) && !isnull(seed.chems["pacid"]))
+	if(islist(seed.chems) && !isnull(seed.chems[/datum/reagent/acid/polyacid]))
 		var/turf/T = get_turf(src)
 		T.ex_act(prob(80) ? 3 : 2)
 
@@ -195,7 +195,7 @@
 	if(growth>2 && growth == max_growth)
 		layer = (seed && seed.force_layer) ? seed.force_layer : 5
 		opacity = 1
-		if(islist(seed.chems) && !isnull(seed.chems["woodpulp"]))
+		if(islist(seed.chems) && !isnull(seed.chems[/datum/reagent/woodpulp]))
 			density = 1
 	else
 		layer = (seed && seed.force_layer) ? seed.force_layer : 5
@@ -242,7 +242,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	SSplants.add_plant(src)
 
-	if(W.iswirecutter() || istype(W, /obj/item/scalpel))
+	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
 		if(sampled)
 			to_chat(user, "<span class='warning'>\The [src] has already been sampled recently.</span>")
 			return

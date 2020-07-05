@@ -155,7 +155,7 @@ var/datum/controller/subsystem/ticker/SSticker
 				pregame_timeleft = 1 SECOND
 				to_world("Reattempting gamemode selection.")
 
-/datum/controller/subsystem/ticker/proc/game_tick()
+/datum/controller/subsystem/ticker/proc/game_tick(var/force_end = FALSE)
 	if(current_state != GAME_STATE_PLAYING)
 		return 0
 
@@ -163,7 +163,10 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	var/game_finished = 0
 	var/mode_finished = 0
-	if (config.continous_rounds)
+	if(force_end)
+		game_finished = TRUE
+		mode_finished = TRUE
+	else if(config.continous_rounds)
 		game_finished = (emergency_shuttle.returned() || mode.station_was_nuked)
 		mode_finished = (!post_game && mode.check_finished())
 	else
@@ -410,7 +413,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	if(can_start & GAME_FAILURE_NO_PLAYERS)
 		var/list/voted_not_ready = list()
-		for(var/mob/abstract/new_player/player in player_list)
+		for(var/mob/abstract/new_player/player in SSvote.round_voters)
 			if((player.client)&&(!player.ready))
 				voted_not_ready += player.ckey
 		message_admins("The following players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
@@ -619,6 +622,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			if(player.mind.assigned_role == "Captain")
 				captainless = FALSE
 			if(!player_is_antag(player.mind, only_offstation_roles = 1))
+				SSjobs.EquipAugments(player, player.client.prefs)
 				SSjobs.EquipRank(player, player.mind.assigned_role, 0)
 				equip_custom_items(player)
 

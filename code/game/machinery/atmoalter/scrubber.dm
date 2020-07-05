@@ -1,6 +1,9 @@
 /obj/machinery/portable_atmospherics/powered/scrubber
-	name = "Portable Air Scrubber"
+	name = "portable air scrubber"
 	desc = "Scrubs contaminants from the local atmosphere or the connected portable tank."
+	desc_info = "Filters the air, placing harmful gases into the internal gas container.  The container can be emptied by \
+	connecting it to a connector port.  The pump can pump the air in (sucking) or out (blowing), at a specific target pressure.  The powercell inside can be \
+	replaced by using a screwdriver, and then adding a new cell.  A tank of gas can also be attached to the scrubber. "
 
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "pscrubber:0"

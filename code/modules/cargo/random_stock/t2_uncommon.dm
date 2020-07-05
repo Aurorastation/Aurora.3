@@ -73,8 +73,9 @@ STOCK_ITEM_UNCOMMON(mediumcell, 3)
 
 STOCK_ITEM_UNCOMMON(chempack, 5)
 	var/list/chems = SSchemistry.chemical_reagents.Copy()
-	var/list/exclusion = list("drink", "reagent", "adminordrazine", "beer2", "azoth", "elixir_life", "liquid_fire", "philosopher_stone", "undead_ichor", "love", "shapesand", "usolve",\
-							 "sglue", "black_matter", "lightning", "trioxin", "phoron_salt", "nanites", "nitroglycerin")
+	var/list/exclusion = list(/datum/reagent/drink, /datum/reagent, /datum/reagent/adminordrazine, /datum/reagent/chloralhydrate/beer2, /datum/reagent/azoth, /datum/reagent/elixir,\
+		/datum/reagent/liquid_fire, /datum/reagent/philosopher_stone, /datum/reagent/toxin/undead, /datum/reagent/love_potion, /datum/reagent/shapesand, /datum/reagent/usolve,\
+		/datum/reagent/sglue, /datum/reagent/black_matter, /datum/reagent/bottle_lightning, /datum/reagent/toxin/trioxin, /datum/reagent/toxin/phoron_salt, /datum/reagent/toxin/nanites, /datum/reagent/nitroglycerin)
 	chems -= exclusion
 	for (var/i in 1 to rand(2, 6))
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = new /obj/item/reagent_containers/chem_disp_cartridge(L)
@@ -91,7 +92,7 @@ STOCK_ITEM_UNCOMMON(chempack, 5)
 
 STOCK_ITEM_UNCOMMON(robolimbs, 3)
 	for (var/i in 1 to rand(2, 5))
-		var/manuf = pick(chargen_robolimbs)
+		var/manuf = pick(fabricator_robolimbs)
 		var/type = pick( \
 			/obj/item/robot_parts/l_arm, \
 			/obj/item/robot_parts/r_arm, \
@@ -304,9 +305,9 @@ STOCK_ITEM_UNCOMMON(blade, 1.2)
 
 STOCK_ITEM_UNCOMMON(laserscalpel, 1.3)
 	var/list/lasers = list(
-		/obj/item/scalpel/laser1 = 3,
-		/obj/item/scalpel/laser2 = 2,
-		/obj/item/scalpel/laser3 = 1
+		/obj/item/surgery/scalpel/laser1 = 3,
+		/obj/item/surgery/scalpel/laser2 = 2,
+		/obj/item/surgery/scalpel/laser3 = 1
 	)
 	var/type = pickweight(lasers)
 	new type(L)

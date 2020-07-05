@@ -161,13 +161,14 @@
 	edge = 1
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	contained_sprite = 1
+	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = 'sound/items/pickup/sword.ogg'
 
 /obj/item/sord
 	name = "\improper SORD"
 	desc = "This thing is so unspeakably shitty you are having a hard time even holding it."
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/obj/sword.dmi'
 	icon_state = "sord"
 	item_state = "sord"
 	slot_flags = SLOT_BELT
@@ -178,6 +179,9 @@
 	w_class = 3
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	contained_sprite = TRUE
+	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /obj/item/banhammer
 	desc = "banhammer"

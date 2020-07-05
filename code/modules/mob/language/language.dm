@@ -20,6 +20,7 @@
 	var/list/space_chance = 55        // Likelihood of getting a space in the random scramble string
 	var/list/partial_understanding				  // List of languages that can /somehwat/ understand it, format is: name = chance of understanding a word
 	var/machine_understands = TRUE	// Whether machines can parse and understand this language
+	var/allow_accents = FALSE
 
 /datum/language/proc/get_random_name(var/gender, name_count=2, syllable_count=4, syllable_divisor=2)
 	if(!syllables || !syllables.len)
@@ -183,7 +184,7 @@
 
 // Can we speak this language, as opposed to just understanding it?
 /mob/proc/can_speak(datum/language/speaking)
-	return (universal_speak || (speaking && speaking.flags & INNATE) || speaking in src.languages)
+	return (universal_speak || (speaking && speaking.flags & INNATE) || (speaking in src.languages))
 
 /mob/proc/get_language_prefix()
 	if(client && client.prefs.language_prefixes && client.prefs.language_prefixes.len)

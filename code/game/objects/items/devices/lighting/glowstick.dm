@@ -1,17 +1,18 @@
 /obj/item/device/flashlight/flare/glowstick
 	name = "green glowstick"
 	desc = "A green military-grade glowstick."
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	brightness_on = 1.5
-	light_power = 1
+	light_power = 1.5
 	color = "#49F37C"
 	icon_state = "glowstick"
 	item_state = "glowstick"
 	uv_intensity = 255
 	light_wedge = LIGHT_OMNI
 	activation_sound = 'sound/items/glowstick.ogg'
+	overrides_activation_message = TRUE
 
-/obj/item/device/flashlight/flare/glowstick/New()
+/obj/item/device/flashlight/flare/glowstick/Initialize()
 	. = ..()
 	fuel = rand(900, 1200)
 	light_color = color
@@ -38,9 +39,8 @@
 	update_held_icon()
 
 /obj/item/device/flashlight/flare/glowstick/attack_self(var/mob/living/user)
-
 	if(((user.is_clumsy())) && prob(50))
-		to_chat(user, span("notice", "You break \the [src] apart, spilling its contents everywhere!"))
+		to_chat(user, SPAN_WARNING("You break \the [src] apart, spilling its contents everywhere!"))
 		fuel = 0
 		new /obj/effect/decal/cleanable/greenglow(get_turf(user))
 		user.apply_effect((rand(15,30)),IRRADIATE,blocked = user.getarmor(null, "rad"))
@@ -48,21 +48,16 @@
 		return
 
 	if(!fuel)
-		to_chat(user, span("notice", "\The [src] has already been used."))
+		to_chat(user, SPAN_WARNING("\The [src] has already been used."))
 		return
 	if(on)
-		to_chat(user, span("notice", "\The [src] has already been turned on."))
+		to_chat(user, SPAN_WARNING("\The [src] has already been turned on."))
 		return
 
 	. = ..()
 
 	if(.)
-		user.visible_message(
-		span("notice", "[user] cracks and shakes \the [src]."),
-		span("notice", "You crack and shake \the [src], turning it on!")
-		)
-		update_icon()
-		START_PROCESSING(SSprocessing, src)
+		user.visible_message(SPAN_NOTICE("\The [user] cracks and shakes \the [src]."), SPAN_NOTICE("You crack and shake \the [src], turning it on!"))
 
 /obj/item/device/flashlight/flare/glowstick/red
 	name = "red glowstick"
@@ -89,6 +84,6 @@
 	desc = "A party-grade glowstick."
 	color = "#FF00FF"
 
-/obj/item/device/flashlight/flare/glowstick/random/New()
-	color = rgb(rand(50,255),rand(50,255),rand(50,255))
-	..()
+/obj/item/device/flashlight/flare/glowstick/random/Initialize()
+	color = rgb(rand(50, 255), rand(50, 255), rand(50, 255))
+	. = ..()

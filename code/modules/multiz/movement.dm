@@ -72,6 +72,11 @@
 			to_chat(src, span("warning", "\The [A] blocks you."))
 			return FALSE
 
+	if(buckled && istype(buckled, /obj/vehicle))
+		var/obj/vehicle/car = buckled
+		if(car.flying)
+			buckled.Move(destination)
+			return TRUE
 	// Actually move.
 	Move(destination)
 	return TRUE
@@ -250,6 +255,11 @@
 		var/obj/item/tank/jetpack/thrust = GetJetpack(src)
 
 		if (thrust && !lying && thrust.allow_thrust(0.01, src))
+			return TRUE
+
+	if(buckled && istype(buckled, /obj/vehicle))
+		var/obj/vehicle/car = buckled
+		if(car.flying)
 			return TRUE
 
 	return ..()
@@ -486,8 +496,14 @@
 			visible_message(span("notice", "\The [src] tucks into a roll as they hit \the [loc]!"),
 				span("notice", "You tuck into a roll as you hit \the [loc], minimizing damage!"))
 
+	var/aug_mod = 1
+	var/obj/item/organ/internal/augment/suspension/suspension = internal_organs_by_name[BP_AUG_SUSPENSION]
+	if(suspension && !suspension.is_broken())
+		aug_mod = suspension.suspension_mod
+		suspension.take_damage(10)
+
 	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = (((40 * species.fall_mod) + z_velocity) + rand(-20,20)) * combat_roll * damage_mod
+	var/damage = (((40 * species.fall_mod) + z_velocity) + rand(-20,20)) * combat_roll * damage_mod * aug_mod
 
 	var/limb_damage = rand(0,damage/2)
 
@@ -554,7 +570,7 @@
 
 		visible_message(span("warning", "\The [src] falls and lands arms first!"),
 			span("danger", "You brace your fall with your arms, hitting \the [loc] with a loud thud."), "You hear a thud!")
-		
+
 		if(prob(20))
 			var/obj/item/organ/external/l_hand = get_organ("l_hand")
 			var/obj/item/organ/external/r_hand = get_organ("r_hand")

@@ -11,6 +11,7 @@ var/list/global_huds
 /datum/hud/var/obj/screen/help_intent
 
 /datum/global_hud
+	var/obj/screen/vr_control
 	var/obj/screen/druggy
 	var/obj/screen/blurry
 	var/list/vimpaired
@@ -21,13 +22,15 @@ var/list/global_huds
 	var/obj/screen/science
 	var/obj/screen/holomap
 
-/datum/global_hud/proc/setup_overlay(var/icon_state)
+/datum/global_hud/proc/setup_overlay(var/icon_state, var/color)
 	var/obj/screen/screen = new /obj/screen()
-	screen.screen_loc = "1,1"
-	screen.icon = 'icons/obj/hud_full.dmi'
+	screen.alpha = 25 // Adjust this if you want goggle overlays to be thinner or thicker.
+	screen.screen_loc = "SOUTHWEST to NORTHEAST" // Will tile up to the whole screen, scaling beyond 15x15 if needed.
+	screen.icon = 'icons/obj/hud_tiled.dmi'
 	screen.icon_state = icon_state
 	screen.layer = SCREEN_LAYER
 	screen.mouse_opacity = 0
+	screen.color = color
 
 	return screen
 
@@ -38,6 +41,8 @@ var/list/global_huds
 	druggy.icon_state = "druggy"
 	druggy.layer = 17
 	druggy.mouse_opacity = 0
+	druggy.alpha = 127
+	druggy.blend_mode = BLEND_MULTIPLY
 
 	//that white blurry effect you get when you eyes are damaged
 	blurry = new /obj/screen()
@@ -45,11 +50,19 @@ var/list/global_huds
 	blurry.icon_state = "blurry"
 	blurry.layer = 17
 	blurry.mouse_opacity = 0
+	blurry.alpha = 100
 
-	nvg = setup_overlay("nvg_hud")
-	thermal = setup_overlay("thermal_hud")
-	meson = setup_overlay("meson_hud")
-	science = setup_overlay("science_hud")
+	vr_control = new /obj/screen()
+	vr_control.icon = 'icons/mob/screen/full.dmi'
+	vr_control.icon_state = "vr_control"
+	vr_control.screen_loc = "1,1"
+	vr_control.mouse_opacity = 0
+	vr_control.alpha = 120
+
+	nvg = setup_overlay("scanline", "#06ff00")
+	thermal = setup_overlay("scanline", "#ff0000")
+	meson = setup_overlay("scanline", "#9fd800")
+	science = setup_overlay("scanline", "#d600d6")
 
 	// The holomap screen object is actually totally invisible.
 	// Station maps work by setting it as an images location before sending to client, not

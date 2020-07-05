@@ -8,7 +8,10 @@
 	volume = 30
 	unacidable = 1 //glass
 	center_of_mass = list("x"=16, "y"=10)
-	matter = list("glass" = 300)
+	drop_sound = 'sound/items/drop/drinkglass.ogg'
+	pickup_sound =  'sound/items/pickup/drinkglass.ogg'
+	matter = list(MATERIAL_GLASS = 300)
+	drink_flags = NO_EMPTY_ICON	//This should not be removed unless a total overhaul of drink reagent sprites is done.
 
 	on_reagent_change()
 		/*if(reagents.reagent_list.len > 1 )
@@ -17,7 +20,7 @@
 			desc = "Two or more drinks, mixed together."*/
 		/*else if(reagents.reagent_list.len == 1)
 			for(var/datum/reagent/R in reagents.reagent_list)
-				switch(R.id)*/
+				switch(R.type)*/
 		if (reagents.reagent_list.len > 0)
 			var/datum/reagent/R = reagents.get_master_reagent()
 
@@ -51,11 +54,11 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/soda
 	Initialize()
 		. = ..()
-		reagents.add_reagent("sodawater", 50)
+		reagents.add_reagent(/datum/reagent/drink/sodawater, 50)
 		on_reagent_change()
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/cola
 	Initialize()
 		. = ..()
-		reagents.add_reagent("cola", 50)
+		reagents.add_reagent(/datum/reagent/drink/space_cola, 50)
 		on_reagent_change()

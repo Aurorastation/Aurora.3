@@ -28,19 +28,19 @@ datum/preferences
 	var/UI_style_alpha = 255
 	var/html_UI_style = "Nano"
 	var/skin_theme = "Light"
+	//Style for popup tooltips
+	var/tooltip_style = "Midnight"
 	var/motd_hash = ""					//Hashes for the new server greeting window.
 	var/memo_hash = ""
 
 	//character preferences
 	var/real_name						//our character's name
-	var/can_edit_name = 1				//Whether or not a character's name can be edited. Used with SQL saving.
+	var/can_edit_name = TRUE				//Whether or not a character's name can be edited. Used with SQL saving.
+	var/can_edit_ipc_tag = TRUE
 	var/gender = MALE					//gender of character (well duh)
 	var/age = 30						//age of character
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
-	var/underwear						//underwear type
-	var/undershirt						//undershirt type
-	var/socks						//socks type
 	var/backbag = 2						//backpack type
 	var/backbag_style = 1
 	var/h_style = "Bald"				//Hair type
@@ -67,12 +67,20 @@ datum/preferences
 	var/list/alternate_languages = list() //Secondary language(s)
 	var/list/language_prefixes = list() // Language prefix keys
 	var/list/gear						// Custom/fluff item loadout.
+	var/list/gear_list = list()			//Custom/fluff item loadouts.
+	var/gear_slot = 1					//The current gear save slot
+
+	// IPC Stuff
+	var/machine_tag_status = TRUE
+	var/machine_serial_number
+	var/machine_ownership_status = IPC_OWNERSHIP_COMPANY
 
 		//Some faction information.
 	var/home_system = "Unset"           //System of birth.
 	var/citizenship = "None"            //Current home system.
 	var/faction = "None"                //Antag faction/general associated faction.
 	var/religion = "None"               //Religious association.
+	var/accent = "None"               //Character accent.
 
 		//Mob preview
 	var/icon/preview_icon = null
@@ -129,7 +137,7 @@ datum/preferences
 
 	// SPAAAACE
 	var/parallax_speed = 2
-	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS
+	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS | FLOATING_MESSAGES
 	var/clientfps = 0
 
 	var/list/pai = list()	// A list for holding pAI related data.
@@ -243,7 +251,7 @@ datum/preferences
 	dat += "<br><HR></center>"
 	dat += player_setup.content(user)
 	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=preferences;size=800x800")
+	user << browse(enable_ui_theme(user, dat), "window=preferences;size=1200x800")
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
 	if(!user)	return
@@ -363,6 +371,7 @@ datum/preferences
 	character.citizenship = citizenship
 	character.employer_faction = faction
 	character.religion = religion
+	character.accent = accent
 
 	character.skills = skills
 	character.used_skillpoints = used_skillpoints
@@ -372,11 +381,17 @@ datum/preferences
 
 	character.sync_trait_prefs_to_mob(src)
 
-	character.underwear = underwear
-
-	character.undershirt = undershirt
-
-	character.socks = socks
+	character.all_underwear.Cut()
+	character.all_underwear_metadata.Cut()
+	for(var/underwear_category_name in all_underwear)
+		var/datum/category_group/underwear/underwear_category = global_underwear.categories_by_name[underwear_category_name]
+		if(underwear_category)
+			var/underwear_item_name = all_underwear[underwear_category_name]
+			character.all_underwear[underwear_category_name] = underwear_category.items_by_name[underwear_item_name]
+			if(all_underwear_metadata[underwear_category_name])
+				character.all_underwear_metadata[underwear_category_name] = all_underwear_metadata[underwear_category_name]
+		else
+			all_underwear -= underwear_category_name
 
 	if(backbag > 6 || backbag < 1)
 		backbag = 1 //Same as above
@@ -473,6 +488,8 @@ datum/preferences
 	player_setup = new(src)
 	gender = pick(MALE, FEMALE)
 	real_name = random_name(gender,species)
+	var/generated_serial = uppertext(dd_limittext(md5(real_name), 12))
+	machine_serial_number = generated_serial
 	b_type = pick(4;"O-", 36;"O+", 3;"A-", 28;"A+", 1;"B-", 20;"B+", 1;"AB-", 5;"AB+")
 	signature = "<i>[real_name]</i>"
 	signfont = "Verdana"
@@ -515,6 +532,7 @@ datum/preferences
 		citizenship = "None"
 		faction = "None"
 		religion = "None"
+		accent = "None"
 
 		species = "Human"
 

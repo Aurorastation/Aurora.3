@@ -13,10 +13,10 @@
 	if (istype(O,/obj/item/reagent_containers))
 		var/obj/item/reagent_containers/RC = O
 		if (RC.reagents.reagent_list.len == 1)
-			if (RC.reagents.has_reagent("water", 1))
+			if (RC.reagents.has_reagent(/datum/reagent/water, 1))
 				if (waterlevel < maxWaterLevel)
 					var/amountToRemove = min((maxWaterLevel - waterlevel), RC.reagents.total_volume)
-					RC.reagents.remove_reagent("water", amountToRemove, 1)
+					RC.reagents.remove_reagent(/datum/reagent/water, amountToRemove, 1)
 					waterlevel += amountToRemove
 					user.visible_message("[user] pours [amountToRemove]u of water into the soil."," You pour [amountToRemove]u of water into the soil.")
 				else

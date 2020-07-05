@@ -22,9 +22,8 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	var/pin_replaceable = 0 // Can be replaced by any pin.
 	var/durable = FALSE //is destroyed when it's pried out with a screwdriver, see gun.dm
 	var/obj/item/gun/gun
-	drop_sound = 'sound/items/drop/scrap.ogg'
-
-
+	drop_sound = 'sound/items/drop/component.ogg'
+	pickup_sound = 'sound/items/pickup/component.ogg'
 
 /obj/item/device/firing_pin/Initialize(mapload)
 	.=..()
@@ -118,10 +117,10 @@ Pins Below.
 		return 0
 
 /obj/item/device/firing_pin/implant/loyalty
-	name = "loyalty firing pin"
-	desc = "This implant-locked firing pin authorizes the weapon for only loyalty-implanted users."
+	name = "mind shield firing pin"
+	desc = "This implant-locked firing pin authorizes the weapon for only mind shielded users."
 	icon_state = "firing_pin_loyalty"
-	req_implant = /obj/item/implant/loyalty
+	req_implant = /obj/item/implant/mindshield
 
 // Honk pin, clown joke item.
 // Can replace other pins. Replace a pin in cap's laser for extra fun! This is generally adminbus only unless someone thinks of a use for it.
@@ -218,3 +217,14 @@ Pins Below.
 		return 0
 	else
 		return 1
+
+/obj/item/device/firing_pin/away_site
+	name = "away site firing pin"
+	desc = "This access locked firing pin allows weapons to be fired only when the user is not on-station."
+	fail_message = "<span class='warning'>USER ON STATION LEVEL.</span>"
+
+/obj/item/device/firing_pin/access/pin_auth(mob/living/user)
+	if(!isStationLevel(src.z))
+		return TRUE
+	else
+		return FALSE

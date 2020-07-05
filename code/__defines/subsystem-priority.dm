@@ -4,7 +4,6 @@
 #define SS_INIT_MAPLOAD     21	// DMM parsing and load. Unless you know what you're doing, make sure this remains first.
 #define SS_INIT_JOBS        20
 #define SS_INIT_MAPFINALIZE 19	// Asteroid generation.
-#define SS_INIT_SHUTTLE     18	// Shuttle setup.
 #define SS_INIT_PARALLAX    17	// Parallax image cache generation. Must run before ghosts are able to join.
 #define SS_INIT_HOLOMAP     16
 #define SS_INIT_ATOMS       15	// World initialization. Will trigger lighting updates. Observers can join after this loads.
@@ -36,6 +35,7 @@
 #define SS_PRIORITY_OVERLAY   100	// Applies overlays. May cause overlay pop-in if it gets behind.
 //#define SS_PRIORITY_DEFAULT  50	// This is defined somewhere else.
 #define SS_PRIORITY_TIMER      20	// Timed event scheduling. This is important.
+#define SS_PRIORITY_PROFILE    15
 #define SS_PRIORITY_SMOOTHING  10	// Smooth turf generation.
 #define SS_PRIORITY_ORBIT       5	// Orbit datum updates.
 #define SS_PRIORITY_ICON_UPDATE 5	// Queued icon updates. Mostly used by APCs and tables.

@@ -6,13 +6,15 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda
 	name = "\improper PDA"
 	desc = "A portable microcomputer by Thinktronic Systems, LTD. Functionality determined by a preprogrammed ROM cartridge."
-	description_info = "Alt-click to remove IDs. Ctrl-click to remove things in the pen slot."
+	desc_info = "Alt-click to remove IDs. Ctrl-click to remove things in the pen slot."
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pda"
 	item_state = "electronic"
 	w_class = 2.0
 	slot_flags = SLOT_ID | SLOT_BELT
 	uv_intensity = 15
+	drop_sound = 'sound/items/drop/disk.ogg'
+	pickup_sound = 'sound/items/pickup/disk.ogg'
 
 	//Main variables
 	var/owner = null
@@ -424,7 +426,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/MouseDrop(obj/over_object as obj, src_location, over_location)
 	var/mob/M = usr
-	if((!istype(over_object, /obj/screen)) && !use_check(M))
+	if(!istype(over_object, /obj/screen) && !use_check(M) && !(over_object == src))
 		return attack_self(M)
 
 /obj/item/device/pda/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
@@ -433,7 +435,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/auto_update = 1
 	if(mode in no_auto_update)
 		auto_update = 0
-	if(old_ui && (mode == lastmode && ui_tick % 5 && mode in update_every_five))
+	if(old_ui && (mode == lastmode && ui_tick % 5 && (mode in update_every_five)))
 		return
 
 	lastmode = mode
@@ -1111,11 +1113,17 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/proc/create_message(var/mob/living/U = usr, var/obj/item/device/pda/P, var/tap = 1)
 	if(tap)
-		U.visible_message("<span class='notice'>\The [U] taps on \his PDA's screen.</span>")
+		U.visible_message("<b>\The [U]</b> taps on \his PDA's screen.")
 	var/t = input(U, "Please enter message", P.name, null) as text|null
 	t = sanitize(t)
 	//t = readd_quotes(t)
 	t = replace_characters(t, list("&#34;" = "\""))
+	if(iscarbon(U) && t)
+		var/mob/living/carbon/C = U
+		if(C.hallucination >= 50 && prob(C.hallucination / 10))			//If you're really hallucinating, you might not be typing what you think you are
+			var/t_orig = t
+			t = pick(SShallucinations.hallucinated_phrases)								//see carbon/hallucination.dm
+			log_pda("[usr] (PDA: [C.name]) typed \"[t_orig]\" then hallucination changed it to \"[t]\". Recipient was [P.owner]",ckey=key_name(C),ckey_target=key_name(P.owner))
 	if (!t || !istype(P))
 		return
 	if (!in_range(src, U) && loc != U)
@@ -1315,7 +1323,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				if (cartridge.radio)
 					cartridge.radio.hostpda = null
 				to_chat(usr, "<span class='notice'>You remove \the [cartridge] from the [name].</span>")
-				playsound(loc, 'sound/machines/click.ogg', 50, 1)
 				cartridge = null
 
 /obj/item/device/pda/proc/id_check(mob/user as mob, choice as num)//To check for IDs; 1 for in-pda use, 2 for out of pda use.
@@ -1346,7 +1353,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		cartridge = C
 		user.drop_from_inventory(cartridge,src)
 		to_chat(user, "<span class='notice'>You insert [cartridge] into [src].</span>")
-		playsound(loc, 'sound/machines/click.ogg', 50, 1)
 		SSnanoui.update_uis(src) // update all UIs attached to src
 		if(cartridge.radio)
 			cartridge.radio.hostpda = src

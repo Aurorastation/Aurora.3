@@ -132,6 +132,7 @@
 #define ui_ai_track_with_camera "SOUTH:6+1,WEST+2:16"
 #define ui_ai_camera_light "SOUTH:6+1,WEST+3:16"
 #define ui_ai_sensor "SOUTH:6+1,WEST+4:16"
+#define ui_ai_mech "SOUTH:6+1,WEST+5:16"
 
 #define ui_ai_core "SOUTH:6,WEST+1:16"
 #define ui_ai_crew_monitor "SOUTH:6,WEST+2:16"

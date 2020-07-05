@@ -70,8 +70,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/device/depth_scanner              = TRADER_BLACKLIST, // Xenoarch
 		/obj/item/device/beacon_locator             = TRADER_BLACKLIST, // Telescience
 		/obj/item/device/telepad_beacon             = TRADER_BLACKLIST, // Telescience
-		/obj/item/device/udp_debugger               = TRADER_BLACKLIST, // Circuits
-		/obj/item/device/antibody_scanner           = TRADER_BLACKLIST // Virology
+		/obj/item/device/udp_debugger               = TRADER_BLACKLIST // Circuits
 	)
 
 	possible_trading_items = list(
@@ -105,9 +104,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/clothing/glasses/sunglasses/blindfold/tape = TRADER_BLACKLIST, // Literally just tape over someone's eyes
 		/obj/item/clothing/glasses/chameleon                 = TRADER_BLACKLIST, // traitor stuff
 		/obj/item/clothing/glasses/sunglasses/bst            = TRADER_BLACKLIST, // BlueSpaceTech glasses
-		/obj/item/clothing/glasses/fluff                     = TRADER_BLACKLIST_ALL, // Custom items
-		/obj/item/clothing/glasses/welding/fluff             = TRADER_BLACKLIST_ALL, // Custom items
-		/obj/item/clothing/glasses/regular/fluff             = TRADER_BLACKLIST_ALL // Custom items
+		/obj/item/clothing/glasses/welding/fluff             = TRADER_BLACKLIST_ALL // Custom items
 	)
 
 	insult_drop = 0
@@ -167,16 +164,16 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/stack/medical/ointment                         = TRADER_THIS_TYPE,
 		/obj/item/stack/medical/advanced                         = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/medical/splint                           = TRADER_THIS_TYPE,
-		/obj/item/bonesetter                                     = TRADER_THIS_TYPE,
-		/obj/item/retractor                                      = TRADER_THIS_TYPE,
-		/obj/item/hemostat                                       = TRADER_THIS_TYPE,
-		/obj/item/cautery                                        = TRADER_THIS_TYPE,
-		/obj/item/surgicaldrill                                  = TRADER_THIS_TYPE,
-		/obj/item/scalpel                                        = TRADER_ALL,
-		/obj/item/circular_saw                                   = TRADER_THIS_TYPE,
-		/obj/item/bonegel                                        = TRADER_THIS_TYPE,
-		/obj/item/FixOVein                                       = TRADER_THIS_TYPE,
-		/obj/item/bonesetter                                     = TRADER_THIS_TYPE,
+		/obj/item/surgery/bonesetter                                     = TRADER_THIS_TYPE,
+		/obj/item/surgery/retractor                                      = TRADER_THIS_TYPE,
+		/obj/item/surgery/hemostat                                       = TRADER_THIS_TYPE,
+		/obj/item/surgery/cautery                                        = TRADER_THIS_TYPE,
+		/obj/item/surgery/surgicaldrill                                  = TRADER_THIS_TYPE,
+		/obj/item/surgery/scalpel                                        = TRADER_ALL,
+		/obj/item/surgery/circular_saw                                   = TRADER_THIS_TYPE,
+		/obj/item/surgery/bonegel                                        = TRADER_THIS_TYPE,
+		/obj/item/surgery/FixOVein                                       = TRADER_THIS_TYPE,
+		/obj/item/surgery/bonesetter                                     = TRADER_THIS_TYPE,
 		/obj/item/storage/box/syringes                           = TRADER_THIS_TYPE,
 		/obj/item/storage/box/syringegun                         = TRADER_THIS_TYPE,
 		/obj/item/storage/box/masks                              = TRADER_THIS_TYPE,

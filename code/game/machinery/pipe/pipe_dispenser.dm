@@ -1,6 +1,8 @@
 /obj/machinery/pipedispenser
-	name = "Pipe Dispenser"
+	name = "pipe dispenser"
 	icon = 'icons/obj/stationobjs.dmi'
+	desc_info = "This can be moved by using a wrench.  You will need to wrench it again when you want to use it.  You can put \
+	excess (atmospheric) pipes into the dispenser, as well.  The dispenser requires electricity to function."
 	icon_state = "pipe_d"
 	density = 1
 	anchored = 1
@@ -176,6 +178,7 @@ Nah
 <A href='?src=\ref[src];dmake=3'>Y-Junction</A><BR>
 <A href='?src=\ref[src];dmake=4'>Trunk</A><BR>
 <A href='?src=\ref[src];dmake=5'>Bin</A><BR>
+<A href='?src=\ref[src];dmake=13'>Bin (Small)</A><BR>
 <A href='?src=\ref[src];dmake=6'>Outlet</A><BR>
 <A href='?src=\ref[src];dmake=7'>Chute</A><BR>
 <A href='?src=\ref[src];dmake=21'>Upwards</A><BR>
@@ -239,6 +242,8 @@ Nah
 					C.ptype = 13
 				if(12)
 					C.ptype = 14
+				if(13)
+					C.ptype = 15
 ///// Z-Level stuff
 				if(21)
 					C.ptype = 11

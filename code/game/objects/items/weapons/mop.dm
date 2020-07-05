@@ -2,6 +2,10 @@
 	desc = "The world of janitalia wouldn't be complete without a mop."
 	name = "mop"
 	icon = 'icons/obj/janitor.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
+		)
 	icon_state = "mop"
 	item_state = "mop"
 	force = 3.0
@@ -77,7 +81,7 @@
 	cleantime = 15
 	var/refill_enabled = TRUE //Self-refill toggle for when a janitor decides to mop with something other than water.
 	var/refill_rate = 0.5 //Rate per process() tick mop refills itself
-	var/refill_reagent = "water" //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
+	var/refill_reagent = /datum/reagent/water //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
 
 /obj/item/mop/advanced/New()
 	..()

@@ -22,22 +22,21 @@
 	icon_state = "locator"
 
 /obj/item/antag_spawner/borg_tele/attack_self(mob/user)
-
-	if(uses == 0)
-		to_chat(usr, "This teleporter is out of uses.")
+	if(uses <= 0)
+		to_chat(user, SPAN_WARNING("This teleporter is out of uses."))
 		return
 
-	to_chat(user, "<span class='notice'>The syndicate robot teleporter is attempting to locate an available cyborg.</span>")
-	var/datum/ghosttrap/ghost = get_ghost_trap("syndicate cyborg")
 	uses--
 
-	var/mob/living/silicon/robot/syndicate/F = new(get_turf(usr))
+	var/mob/living/silicon/robot/syndicate/F = new /mob/living/silicon/robot/syndicate(get_turf(user))
+	if(user?.mind.special_role)
+		var/datum/antagonist/user_antag = all_antag_types[lowertext(user.mind.special_role)]
+		if(user_antag)
+			F.assigned_antagonist = user_antag
+	F.faction = user.faction
+	F.say("Initiating boot-up sequence!")
 	spark(F, 4, alldirs)
-	ghost.request_player(F,"An operative is requesting a syndicate cyborg.", 60 SECONDS)
-	F.faction = usr.faction
-	spawn(600)
-		if(F)
-			if(!F.ckey || !F.client)
-				F.visible_message("With no working brain to keep \the [F] working, it is teleported back.")
-				qdel(F)
-				uses++
+	SSghostroles.add_spawn_atom("syndiborg", F)
+	var/area/A = get_area(src)
+	if(A)
+		say_dead_direct("A syndicate cyborg has started its boot process in [A.name]! Spawn in as it by using the ghost spawner menu in the ghost tab, and try to be good!")

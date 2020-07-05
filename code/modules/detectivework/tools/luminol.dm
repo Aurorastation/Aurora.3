@@ -10,4 +10,4 @@
 
 /obj/item/reagent_containers/spray/luminol/Initialize()
 	. = ..()
-	reagents.add_reagent("luminol", 250)
+	reagents.add_reagent(/datum/reagent/luminol, 250)

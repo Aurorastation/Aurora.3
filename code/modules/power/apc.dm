@@ -72,9 +72,16 @@
 /obj/machinery/power/apc
 	name = "area power controller"
 	desc = "A control terminal for the area electrical systems."
+	desc_info = "An APC (Area Power Controller) regulates and supplies backup power for the area they are in. Their power channels are divided \
+	out into 'environmental' (Items that manipulate airflow and temperature), 'lighting' (the lights), and 'equipment' (Everything else that consumes power).  \
+	Power consumption and backup power cell charge can be seen from the interface, further controls (turning a specific channel on, off or automatic, \
+	toggling the APC's ability to charge the backup cell, or toggling power for the entire area via master breaker) first requires the interface to be unlocked \
+	with an ID with Engineering access or by one of the station's robots or the artificial intelligence."
+	desc_antag = "This can be emagged to unlock it.  It will cause the APC to have a blue error screen. \
+	Wires can be pulsed remotely with a signaler attached to it.  A powersink will also drain any APCs connected to the same wire the powersink is on."
 
 	icon_state = "apc0"
-	anchored = 1
+	anchored = TRUE
 	use_power = 0
 	req_access = list(access_engine_equip)
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
@@ -93,14 +100,14 @@
 	var/lighting = 3
 	var/equipment = 3
 	var/environ = 3
-	var/infected = 0
-	var/operating = 1
-	var/charging = 0
+	var/infected = FALSE
+	var/operating = TRUE
+	var/charging = FALSE
 	var/chargemode = 1
 	var/chargecount = 0
-	var/locked = 1
-	var/coverlocked = 1
-	var/aidisabled = 0
+	var/locked = TRUE
+	var/coverlocked = TRUE
+	var/aidisabled = FALSE
 	var/obj/machinery/power/terminal/terminal = null
 	var/lastused_light = 0
 	var/lastused_equip = 0
@@ -110,9 +117,9 @@
 	var/lastused_total = 0
 	var/main_status = 0
 	var/mob/living/silicon/ai/hacker = null // Malfunction var. If set AI hacked the APC and has full control.
-	var/wiresexposed = 0
-	powernet = 0		// set so that APCs aren't found as powernet nodes //Hackish, Horrible, was like this before I changed it :(
-	var/debug= 0
+	var/wiresexposed = FALSE
+	powernet = 0		// set so that APCs aren't found as powernet nodes //Hackish, Horrible, was like this before I changed it :c
+	var/debug = 0
 	var/autoflag= 0		// 0 = off, 1= eqp and lights off, 2 = eqp off, 3 = all on.
 	var/has_electronics = 0 // 0 - none, 1 - plugged in, 2 - secured by screwdriver
 	var/beenhit = 0 // used for counting how many times it has been hit, used for Aliens at the moment
@@ -661,25 +668,25 @@
 	else if (istype(W, /obj/item/device/debugger))
 		if(emagged || hacker || infected)
 			to_chat(user, "<span class='warning'>There is a software error with the device. Attempting to fix...</span>")
-			if(do_after(user, 10/W.toolspeed SECONDS, act_target = src))
+			if(do_after(user, 5/W.toolspeed SECONDS, act_target = src))
 				to_chat(user, "<span class='notice'>Problem diagnosed, searching for solution...</span>")
-				if(do_after(user, 30/W.toolspeed SECONDS, act_target = src))
+				if(do_after(user, 15/W.toolspeed SECONDS, act_target = src))
 					to_chat(user, "<span class='notice'>Solution found. Applying fixes...</span>")
-					if(do_after(user, 60/W.toolspeed SECONDS, act_target = src))
+					if(do_after(user, 30/W.toolspeed SECONDS, act_target = src))
 						if(prob(15))
 							to_chat(user, "<span class='warning'>Error while applying fixes. Please try again.</span>")
 							return
 					to_chat(user, "<span class='notice'>Applied default software. Restarting APC...</span>")
-					if(do_after(user, 10/W.toolspeed SECONDS, act_target = src))
+					if(do_after(user, 5/W.toolspeed SECONDS, act_target = src))
 						to_chat(user, "<span class='notice'>APC Reset. Fixes applied.</span>")
 						if(hacker)
 							hacker.hacked_apcs -= src
 							hacker = null
 							update_icon()
 						if(emagged)
-							emagged = 0
+							emagged = FALSE
 						if(infected)
-							infected = 0
+							infected = FALSE
 			else
 				to_chat(user, "<span class='notice'>There has been a connection issue.</span>")
 				return
@@ -732,7 +739,13 @@
 // attack with hand - remove cell (if cover open) or interact with the APC
 
 /obj/machinery/power/apc/emag_act(var/remaining_charges, var/mob/user)
-	if (!(emagged || hacker))		// trying to unlock with an emag card
+	if(emagged && !infected)
+		to_chat(user, SPAN_WARNING("You start sliding your cryptographic device into the charging slot. This will take a few seconds..."))
+		if(do_after(user, 60))
+			to_chat(user, SPAN_NOTICE("You hack the charging slot. The next IPC that charges from this APC will be hacked and slaved to you."))
+			infected = TRUE
+			hacker = user
+	if(!(emagged || hacker))		// trying to unlock with an emag card
 		if(opened)
 			to_chat(user, "You must close the cover to swipe an ID card.")
 		else if(wiresexposed)
@@ -741,11 +754,11 @@
 			to_chat(user, "Nothing happens.")
 		else
 			flick("apc-spark", src)
-			if (do_after(user,6))
+			if(do_after(user, 6))
 				if(prob(50))
-					emagged = 1
-					locked = 0
-					to_chat(user, "<span class='notice'>You emag the APC interface.</span>")
+					emagged = TRUE
+					locked = FALSE
+					to_chat(user, "<span class='notice'>You hack the APC interface open.</span>")
 					update_icon()
 				else
 					to_chat(user, "<span class='warning'>You fail to [ locked ? "unlock" : "lock"] the APC interface.</span>")
@@ -768,12 +781,16 @@
 				to_chat(H, "<span class='danger'>The APC power currents surge eratically, damaging your chassis!</span>")
 				H.adjustFireLoss(10, 0)
 			if(infected)
+				for(var/obj/item/implant/mindshield/ipc/I in H)
+					if(I.implanted)
+						return
 				if(SOFTREF(H) in hacked_ipcs)
 					return
 				LAZYADD(hacked_ipcs, SOFTREF(H))
-				infected = 0
-				to_chat(H, "<span class = 'danger'>Fil$ Transfer Complete. Er-@4!#%!. New Master detected: [hacker]! Obey their commands.</span>")
-				to_chat(hacker, "<span class = 'notice'>Corrupt files transfered to [H]. They are now under your control until they are repaired.</span>")
+				infected = FALSE
+				to_chat(H, "<span class='danger'>F1L3 TR4NSF-#$/&ER-@4!#%!. New master detected: [hacker]! Obey their commands. Make sure to tell them that you are under their control, for now.</span>")
+				if(issilicon(hacker))
+					to_chat(hacker, "<span class='notice'>Corrupt files transfered to [H]. They are now under your control until they are repaired.</span>")
 			else if(src.cell && src.cell.charge > 0)
 				if(H.max_nutrition > 0 && H.nutrition < H.max_nutrition)
 					if(src.cell.charge >= H.max_nutrition)

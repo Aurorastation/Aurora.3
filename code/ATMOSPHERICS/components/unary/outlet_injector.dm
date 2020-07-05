@@ -3,12 +3,13 @@
 //When it receives the "inject" signal, it will try to pump it's entire contents into the environment regardless of pressure, using power.
 
 /obj/machinery/atmospherics/unary/outlet_injector
+	name = "air injector"
+	desc = "Passively injects air into its surroundings. Has a valve attached to it that can control flow rate."
+	desc_info = "Outputs the pipe's gas into the atmosphere, similar to an airvent.  It can be controlled by a nearby atmospherics computer. \
+	A green light on it means it is on."
 	icon = 'icons/atmos/injector.dmi'
 	icon_state = "map_injector"
 	layer = 3
-
-	name = "air injector"
-	desc = "Passively injects air into its surroundings. Has a valve attached to it that can control flow rate."
 
 	use_power = 0
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff

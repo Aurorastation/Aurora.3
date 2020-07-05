@@ -47,12 +47,22 @@
 	var/zoomdevicename //name used for message when binoculars/scope is used
 	var/zoom = 0 //1 if item is actively being used to zoom. For scoped guns and binoculars.
 	var/contained_sprite = 0 //1 if item_state, lefthand, righthand, and worn sprite are all in one dmi
+
+	///Used when thrown into a mob
+	var/mob_throw_hit_sound
+	///Sound used when equipping the item into a valid slot
+	var/equip_sound
+	///Sound uses when picking the item up (into your hands)
+	var/pickup_sound = 'sound/items/pickup/device.ogg'
+	///Sound uses when dropping the item, or when its thrown.
 	var/drop_sound = 'sound/items/drop/device.ogg' // drop sound - this is the default
 
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
 	var/item_state_slots //overrides the default item_state for particular slots.
 
+	var/build_from_parts = FALSE // when it uses coloration and a part of it wants to remain uncolored. e.g., handle of the screwdriver is colored while the head is not.
+	var/worn_overlay = null // used similarly as above, except for inhands.
 
 	//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 	// Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
@@ -77,6 +87,7 @@
 
 	var/icon_override  //Used to override hardcoded clothing dmis in human clothing pr
 
+
 	var/charge_failure_message = " cannot be recharged."
 
 	var/cleaving = FALSE
@@ -96,6 +107,10 @@
 
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi',
+		)
 
 /atom/proc/get_cell()
 	return DEVICE_NO_CELL
@@ -129,7 +144,7 @@
 	set name = "Move To Top"
 	set category = "Object"
 
-	if (!I in view(1, src))
+	if (!(I in view(1, src)))
 		return
 	if(!istype(I.loc, /turf) || usr.stat || usr.restrained() )
 		return
@@ -171,12 +186,17 @@
 		if(!temp)
 			to_chat(user, "<span class='notice'>You try to use your hand, but realize it is no longer attached!</span>")
 			return
-	if(!src.Adjacent(user))
+	var/obj/item/storage/S
+	var/storage_depth_matters = TRUE
+	if(istype(src.loc, /obj/item/storage))
+		S = src.loc
+		if(!S.care_about_storage_depth)
+			storage_depth_matters = FALSE
+	if(storage_depth_matters && !src.Adjacent(user))
 		to_chat(user, span("notice", "\The [src] slips out of your grasp before you can grab it!")) // because things called before this can move it
 		return // please don't pick things up
 	src.pickup(user)
-	if (istype(src.loc, /obj/item/storage))
-		var/obj/item/storage/S = src.loc
+	if(S)
 		S.remove_from_storage(src)
 
 	src.throwing = 0
@@ -206,7 +226,7 @@
 	if(istype(W,/obj/item/storage))
 		var/obj/item/storage/S = W
 		if(S.use_to_pickup)
-			if(S.collection_mode) //Mode is set to collect all items on a tile and we clicked on a valid one.
+			if(S.collection_mode && !is_type_in_list(src, S.pickup_blacklist)) //Mode is set to collect all items on a tile and we clicked on a valid one.
 				if(isturf(loc))
 					var/list/rejections = list()
 					var/success = FALSE
@@ -254,10 +274,30 @@
 /obj/item/proc/moved(mob/user as mob, old_loc as turf)
 	return
 
+/obj/item/proc/get_volume_by_throwforce_and_or_w_class()
+		if(throwforce && w_class)
+				return Clamp((throwforce + w_class) * 5, 30, 100)// Add the item's throwforce to its weight class and multiply by 5, then clamp the value between 30 and 100
+		else if(w_class)
+				return Clamp(w_class * 8, 20, 100) // Multiply the item's weight class by 8, then clamp the value between 20 and 100
+		else
+				return 0
+
 /obj/item/throw_impact(atom/hit_atom)
 	..()
-	if(drop_sound)
-		playsound(src, drop_sound, 50, 0, required_asfx_toggles = ASFX_DROPSOUND)
+	if(isliving(hit_atom)) //Living mobs handle hit sounds differently.
+		var/volume = get_volume_by_throwforce_and_or_w_class()
+		if (throwforce > 0)
+			if (mob_throw_hit_sound)
+				playsound(hit_atom, mob_throw_hit_sound, volume, TRUE, -1)
+			else if(hitsound)
+				playsound(hit_atom, hitsound, volume, TRUE, -1)
+			else
+				playsound(hit_atom, 'sound/weapons/genhit.ogg', volume, TRUE, -1)
+		else
+			playsound(hit_atom, 'sound/weapons/throwtap.ogg', 1, volume, -1)
+	else
+		playsound(src, drop_sound, THROW_SOUND_VOLUME)
+
 
 //Apparently called whenever an item is dropped on the floor, thrown, or placed into a container.
 //It is called after loc is set, so if placed in a container its loc will be that container.
@@ -299,6 +339,13 @@
 	equip_slot = slot
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()
+	if((slot_flags & slot))
+		if(equip_sound)
+			playsound(src, equip_sound, EQUIP_SOUND_VOLUME)
+		else
+			playsound(src, drop_sound, EQUIP_SOUND_VOLUME)
+	else if(slot == slot_l_hand || slot == slot_r_hand)
+		playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 	return
 
 //Defines which slots correspond to which slot flags
@@ -427,6 +474,10 @@ var/list/global/slot_flags_enumeration = list(
 		return 0
 	return 1
 
+// override for give shenanigans
+/obj/item/proc/on_give(var/mob/giver, var/mob/receiver)
+	return
+
 /*
 /obj/item/verb/verb_pickup()
 	set src in oview(1)
@@ -465,7 +516,7 @@ var/list/global/slot_flags_enumeration = list(
 
 	if(!(usr)) //BS12 EDIT
 		return
-	if (!I in view(1, src))
+	if (!(I in view(1, src)))
 		return
 	if (istype(I, /obj/item/storage/internal))
 		return
@@ -588,6 +639,11 @@ var/list/global/slot_flags_enumeration = list(
 		var/obj/item/clothing/gloves/G = src
 		G.transfer_blood = 0
 
+	if(blood_color)
+		blood_color = null
+
+	update_icon()
+
 /obj/item/reveal_blood()
 	if(was_bloodied && !fluorescent)
 		fluorescent = 1
@@ -636,7 +692,7 @@ var/list/global/slot_flags_enumeration = list(
 
 /obj/item/proc/showoff(mob/user)
 	for (var/mob/M in view(user))
-		M.show_message("[user] holds up [src]. <a HREF=?src=\ref[M];lookitem=\ref[src]>Take a closer look.</a>",1)
+		M.show_message("<b>[user]</b> holds up [src]. <a HREF=?src=\ref[M];lookitem=\ref[src]>Take a closer look.</a>",1)
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"
@@ -652,7 +708,7 @@ modules/mob/mob_movement.dm if you move you will be zoomed out
 modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 */
 //Looking through a scope or binoculars should /not/ improve your periphereal vision. Still, increase viewsize a tiny bit so that sniping isn't as restricted to NSEW
-/obj/item/proc/zoom(var/mob/M, var/tileoffset = 14, var/viewsize = 9) //tileoffset is client view offset in the direction the user is facing. viewsize is how far out this thing zooms. 7 is normal view
+/obj/item/proc/zoom(var/mob/M, var/tileoffset = 14, var/viewsize = 9, var/do_device_check = TRUE) //tileoffset is client view offset in the direction the user is facing. viewsize is how far out this thing zooms. 7 is normal view
 	if (!M)
 		return
 
@@ -665,14 +721,14 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	var/cannotzoom
 
-	if(M.stat || !(istype(M,/mob/living/carbon/human)))
-		to_chat(M, "You are unable to focus through the [devicename]")
+	if(M.stat || !(ishuman(M)))
+		to_chat(M, SPAN_WARNING("You are unable to focus through \the [devicename]!"))
 		cannotzoom = 1
-	else if(!zoom && global_hud.darkMask[1] in M.client.screen)
-		to_chat(M, "Your visor gets in the way of looking through the [devicename]")
+	else if(!zoom && (global_hud.darkMask[1] in M.client.screen))
+		to_chat(M, SPAN_WARNING("Your visor gets in the way of looking through the [devicename]!"))
 		cannotzoom = 1
-	else if(!zoom && M.get_active_hand() != src)
-		to_chat(M, "You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better")
+	else if(do_device_check && !zoom && M.get_active_hand() != src)
+		to_chat(M, SPAN_WARNING("You are too distracted to look through the [devicename], perhaps if it was in your active hand this might work better."))
 		cannotzoom = 1
 
 	if(!zoom && !cannotzoom)
@@ -698,7 +754,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				M.client.pixel_x = -viewoffset
 				M.client.pixel_y = 0
 
-		M.visible_message("[M] peers through the [zoomdevicename ? "[zoomdevicename] of the [src.name]" : "[src.name]"].")
+		M.visible_message("<b>[M]</b> peers through \the [zoomdevicename ? "[zoomdevicename] of \the [src.name]" : "[src.name]"].")
 
 	else
 		M.client.view = world.view
@@ -710,7 +766,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		M.client.pixel_y = 0
 
 		if(!cannotzoom)
-			M.visible_message("[zoomdevicename ? "[M] looks up from the [src.name]" : "[M] lowers the [src.name]"].")
+			M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from \the [src.name]" : "<b>[M]</b> lowers \the [src.name]"].")
 
 /obj/item/proc/pwr_drain()
 	return 0 // Process Kill
@@ -803,3 +859,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(user)
 		attack_self(user)
 	return TRUE
+
+//Override this for items that can be flame sources.
+/obj/item/proc/isFlameSource()
+	return FALSE

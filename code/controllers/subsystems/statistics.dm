@@ -18,6 +18,7 @@
 	var/list/msg_deathsquad = list()
 	var/list/msg_syndicate = list()
 	var/list/msg_raider = list()
+	var/list/msg_burglar = list()
 	var/list/msg_ninja = list()
 	var/list/msg_cargo = list()
 	var/list/msg_service = list()
@@ -242,7 +243,7 @@
 		return
 
 	var/area/placeofdeath = get_area(H)
-	var/podname = placeofdeath ? placeofdeath.name : "Unknown area"
+	var/podname = placeofdeath ? "[placeofdeath]" : "Unknown area"
 
 	var/sqlname = sanitizeSQL(H.real_name)
 	var/sqlkey = sanitizeSQL(H.key)
@@ -275,7 +276,7 @@
 		return
 
 	var/area/placeofdeath = get_area(H)
-	var/podname = placeofdeath ? placeofdeath.name : "Unknown area"
+	var/podname = placeofdeath ? "[placeofdeath]" : "Unknown area"
 
 	var/sqlname = sanitizeSQL(H.real_name)
 	var/sqlkey = sanitizeSQL(H.key)
