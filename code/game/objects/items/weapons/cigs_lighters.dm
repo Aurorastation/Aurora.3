@@ -71,6 +71,25 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			burn_out()
 	return ..()
 
+/obj/item/flame/match/attackby(obj/item/W as obj, mob/user as mob)
+	..()
+	if(W.isFlameSource() && !src.lit)
+		playsound(src, 'sound/items/cigs_lighters/cig_light.ogg', 75, 1, -1)
+		user.visible_message(SPAN_NOTICE("In a feat of redundancy, [user] lights \the [src] using \the [W]."))
+		light()
+
+/obj/item/flame/match/proc/light(obj/item/flame/match/W as obj, mob/user as mob)
+	lit = 1
+	damtype = "burn"
+	icon_state = "match_lit"
+	item_state = "match_lit"
+	if(ismob(loc))
+		var/mob/living/M = loc
+		M.update_inv_wear_mask(0)
+		M.update_inv_l_hand(0)
+		M.update_inv_r_hand(1)
+	START_PROCESSING(SSprocessing, W)
+
 /obj/item/flame/match/proc/burn_out()
 	playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 	lit = 0
@@ -80,7 +99,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "match_burnt"
 	name = "burnt match"
 	desc = "A match. This one has seen better days."
-	update_held_icon()
+	if(ismob(loc))
+		var/mob/living/M = loc
+		M.update_inv_wear_mask(0)
+		M.update_inv_l_hand(0)
+		M.update_inv_r_hand(1)
 	STOP_PROCESSING(SSprocessing, src)
 
 //////////////////
@@ -257,12 +280,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-
 	if(istype(W, /obj/item/melee/energy/sword))
 		var/obj/item/melee/energy/sword/S = W
 		if(S.active)
 			light(span("warning", "[user] swings their [W], barely missing themselves. They light their [name] in the process."))
-
 	return
 
 /obj/item/clothing/mask/smokable/cigarette/attack(mob/living/carbon/human/H, mob/user, def_zone)
@@ -297,7 +318,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/attack_self(mob/user as mob)
 	if(lit == 1)
 		user.visible_message(span("notice", "[user] calmly drops and treads on the lit [src], putting it out instantly."))
-		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		die(1)
 	return ..()
 
@@ -446,12 +466,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/trash/cigbutt/cigarbutt/alt
 	icon_state = "cigar2butt"
-
-/obj/item/clothing/mask/smokable/cigarette/cigar/attackby(obj/item/W as obj, mob/user as mob)
-	..()
-	user.update_inv_wear_mask(0)
-	user.update_inv_l_hand(0)
-	user.update_inv_r_hand(1)
 
 /obj/item/clothing/mask/smokable/cigarette/rolled/sausage
 	name = "sausage"

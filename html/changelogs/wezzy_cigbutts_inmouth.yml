@@ -40,6 +40,7 @@ delete-after: True
 changes: 
   - rscadd: "Spent cigarettes and chewables finally stay in your mouth instead of just falling to the ground as if you're an inconsiderate litterbug."
   - rscadd: "You can put matches in your mouth. For the pyromaniacs, I guess."
+  - rscadd: "You can light matches using lighters. If you really wanted to."
   - bugfix: "Lighters actually update their inhand icons now."
   - imageadd: "Lighters actually have inhand icons now."
   - bugfix: "Lit cigars and matches don't stay lit in storage containers anymore."

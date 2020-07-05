@@ -507,17 +507,12 @@
 	if(istype(W) && !W.lit && !W.burnt)
 		if(prob(25))
 			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_lit.ogg', 25, 0, -1)
-			user.visible_message("<span class='notice'>[user] manages to light the match on the matchbox.</span>")
-			W.lit = 1
-			W.damtype = "burn"
-			W.icon_state = "match_lit"
-			W.item_state = "match_lit"
-			START_PROCESSING(SSprocessing, W)
+			user.visible_message(SPAN_NOTICE("[user] manages to light the match on the matchbox."))
+			W.light()
 		else
 			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_hit.ogg', 25, 0, -1)
 	W.update_icon()
 	return
-
 
 /obj/item/storage/box/autoinjectors
 	name = "box of empty injectors"
