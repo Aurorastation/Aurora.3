@@ -55,7 +55,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/boukha = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/brandy = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/grenadine = 5,
-		/obj/item/reagent_containers/food/drinks/bottle/tequilla = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/tequila = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/rum = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/cognac = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/cremeyvette = 4,

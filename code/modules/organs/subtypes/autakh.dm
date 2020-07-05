@@ -137,7 +137,7 @@
 
 		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
 
-		owner.reagents.add_reagent("adrenaline", 15)
+		owner.reagents.add_reagent(/datum/reagent/adrenaline, 15)
 
 /obj/item/organ/internal/augment/venomous_rest
 	name = "venomous rest implant"
@@ -156,9 +156,9 @@
 		return FALSE
 
 	if(owner.reagents)
-		owner.reagents.add_reagent("norepinephrine", 10)
-		owner.reagents.add_reagent("tricordrazine", 10)
-		owner.reagents.add_reagent("stoxin", 15)
+		owner.reagents.add_reagent(/datum/reagent/norepinephrine, 10)
+		owner.reagents.add_reagent(/datum/reagent/tricordrazine, 10)
+		owner.reagents.add_reagent(/datum/reagent/soporific, 15)
 		take_damage(15)
 		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
 

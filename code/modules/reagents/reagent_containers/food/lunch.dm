@@ -71,7 +71,7 @@ var/list/lunchables_drinks_ = list(
 // This default list is a bit different, it contains items we don't want
 var/list/lunchables_drink_reagents_ = list(
 	/datum/reagent/drink/nothing,
-	/datum/reagent/drink/doctor_delight,
+	/datum/reagent/drink/doctorsdelight,
 	/datum/reagent/drink/dry_ramen,
 	/datum/reagent/drink/hell_ramen,
 	/datum/reagent/drink/hot_ramen,
@@ -135,6 +135,6 @@ var/list/lunchables_alcohol_reagents_ = list(
 		if(reagent_type in banned_reagents)
 			continue
 		var/datum/reagent/reagent = reagent_type
-		.[initial(reagent.name)] = initial(reagent.id)
+		.[initial(reagent.name)] = reagent_type
 
 	sortTim(., /proc/cmp_text_asc)

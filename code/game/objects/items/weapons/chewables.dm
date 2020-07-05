@@ -10,7 +10,6 @@
 	var/chem_volume = 0
 	var/chewtime = 0
 	var/brand
-	var/list/filling = list()
 	var/wrapped = FALSE
 
 /obj/item/clothing/mask/chewable/attack_self(mob/user)
@@ -29,11 +28,9 @@
 		add_overlay(base_overlay)
 
 obj/item/clothing/mask/chewable/Initialize()
+	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
 	. = ..()
 	flags |= NOREACT // so it doesn't react until you light it
-	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
-	for(var/R in filling)
-		reagents.add_reagent(R, filling[R])
 	if(wrapped)
 		slot_flags = null
 		update_icon()
@@ -105,22 +102,22 @@ obj/item/clothing/mask/chewable/Destroy()
 /obj/item/clothing/mask/chewable/tobacco/bad
 	name = "chewing tobacco"
 	desc = "A chewy wad of cheap tobacco. Cut in long strands and treated with syrup so it tastes less like an ash-tray when you stuff it into your face."
-	filling = list("tobaccobad" = 2)
+	reagents_to_add = list(/datum/reagent/toxin/tobacco/fake = 2)
 
 /obj/item/clothing/mask/chewable/tobacco/generic
 	name = "chewing tobacco"
 	desc = "A chewy wad of tobacco. Cut in long strands and treated with syrup so it doesn't taste like an ash-tray when you stuff it into your face."
-	filling = list("tobacco" = 2)
+	reagents_to_add = list(/datum/reagent/toxin/tobacco = 2)
 
 /obj/item/clothing/mask/chewable/tobacco/fine
 	name = "chewing tobacco"
 	desc = "A chewy wad of fine tobacco. Cut in long strands and treated with syrup so it doesn't taste like an ash-tray when you stuff it into your face."
-	filling = list("tobaccofine" = 2)
+	reagents_to_add = list(/datum/reagent/toxin/tobacco/rich = 2)
 
 /obj/item/clothing/mask/chewable/tobacco/nico
 	name = "nicotine gum"
 	desc = "A chewy wad of synthetic rubber, laced with nicotine. Possibly the least disgusting method of nicotine delivery."
-	filling = list("nicotine" = 2)
+	reagents_to_add = list(/datum/reagent/mental/nicotine = 2)
 	icon_state = "nic_gum"
 	type_butt = /obj/item/trash/spitgum
 	wrapped = TRUE
@@ -135,7 +132,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	slot_flags = SLOT_EARS | SLOT_MASK
 	chem_volume = 50
 	chewtime = 300
-	filling = list("sugar" = 2)
+	reagents_to_add = list(/datum/reagent/sugar = 2)
 
 /obj/item/trash/spitgum
 	name = "old gum"
@@ -152,7 +149,7 @@ obj/item/clothing/mask/chewable/Destroy()
 
 /obj/item/clothing/mask/chewable/candy/gum/Initialize()
 	. = ..()
-	reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),10)
+	reagents.add_reagent(pick(/datum/reagent/drink/banana,/datum/reagent/drink/berryjuice,/datum/reagent/drink/grapejuice,/datum/reagent/drink/lemonjuice,/datum/reagent/drink/limejuice,/datum/reagent/drink/orangejuice,/datum/reagent/drink/watermelonjuice),10)
 	color = reagents.get_color()
 	update_icon()
 
@@ -197,7 +194,7 @@ obj/item/clothing/mask/chewable/Destroy()
 
 /obj/item/clothing/mask/chewable/candy/lolli/Initialize()
 	. = ..()
-	reagents.add_reagent(pick("banana","berryjuice","grapejuice","lemonjuice","limejuice","orangejuice","watermelonjuice"),20)
+	reagents.add_reagent(pick(/datum/reagent/drink/banana,/datum/reagent/drink/berryjuice,/datum/reagent/drink/grapejuice,/datum/reagent/drink/lemonjuice,/datum/reagent/drink/limejuice,/datum/reagent/drink/orangejuice,/datum/reagent/drink/watermelonjuice),20)
 	color = reagents.get_color()
 	update_icon()
 
@@ -210,9 +207,9 @@ obj/item/clothing/mask/chewable/Destroy()
 /obj/item/clothing/mask/chewable/candy/lolli/meds/Initialize()
 	. = ..()
 	var/datum/reagent/payload = pick(list(
-				"paracetamol",
-				"tramadol",
-				"dylovene"))
+				/datum/reagent/paracetamol,
+				/datum/reagent/tramadol,
+				/datum/reagent/dylovene))
 	reagents.add_reagent(payload, 15)
 	color = reagents.get_color()
 	desc = "[desc] This one is labeled '[initial(payload.name)]'."
@@ -220,13 +217,13 @@ obj/item/clothing/mask/chewable/Destroy()
 /obj/item/clothing/mask/chewable/candy/lolli/weak_meds
 	name = "medicine lollipop"
 	desc = "A sucrose sphere on a small handle, it has been infused with medication."
-	filling = list("sugar" = 6)
+	reagents_to_add = list(/datum/reagent/sugar = 6)
 
 /obj/item/clothing/mask/chewable/candy/lolli/weak_meds/Initialize()
 	. = ..()
 	var/datum/reagent/payload = pick(list(
-				"dylovene",
-				"norepinephrine"))
+				/datum/reagent/dylovene,
+				/datum/reagent/norepinephrine))
 	reagents.add_reagent(payload, 15)
 	color = reagents.get_color()
 	desc = "[desc] This one is labeled '[initial(payload.name)]'."

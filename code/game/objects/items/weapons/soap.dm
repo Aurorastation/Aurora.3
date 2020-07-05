@@ -28,7 +28,7 @@
 
 /obj/item/soap/proc/wet()
 	playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-	reagents.add_reagent("cleaner", 10)
+	reagents.add_reagent(/datum/reagent/spacecleaner, 10)
 
 /obj/item/soap/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/key))

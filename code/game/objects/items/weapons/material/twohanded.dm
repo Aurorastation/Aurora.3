@@ -343,7 +343,7 @@
 	applies_material_colour = 0
 	default_material = "steel"
 	parry_chance = 5
-	var/fuel_type = "fuel"
+	var/fuel_type = /datum/reagent/fuel
 	var/opendelay = 30 // How long it takes to perform a door opening action with this chainsaw, in seconds.
 	var/max_fuel = 300 // The maximum amount of fuel the chainsaw stores.
 	var/fuel_cost = 1 // Multiplier for fuel cost.
@@ -488,7 +488,7 @@
 		PowerDown(user)
 	else if(!wielded)
 		to_chat(user, "<span class='notice'>You need to hold this with two hands to turn this on.</span>")
-	else if(reagents.get_reagent_amount("fuel") <= 0)
+	else if(reagents.get_reagent_amount(/datum/reagent/fuel) <= 0)
 		user.visible_message(\
 			"<span class='notice'>[user] pulls the cord on the [src], but nothing happens.</span>",\
 			"<span class='notice'>You pull the cord on the [src], but nothing happens.</span>",\

@@ -9,7 +9,6 @@
 		"trace_chem" = null
 	)
 	name = "Blood"
-	id = "blood"
 	reagent_state = LIQUID
 	metabolism = REM * 5
 	color = "#C80000"
@@ -71,7 +70,6 @@
 #define WATER_LATENT_HEAT 19000 // How much heat is removed when applied to a hot turf, in J/unit (19000 makes 120 u of water roughly equivalent to 4L)
 /datum/reagent/water
 	name = "Water"
-	id = "water"
 	description = "A ubiquitous chemical substance that is composed of hydrogen and oxygen."
 	reagent_state = LIQUID
 	color = "#0064C877"
@@ -158,7 +156,6 @@
 
 /datum/reagent/fuel
 	name = "Welding fuel"
-	id = "fuel"
 	description = "Required for welders. Flammable."
 	reagent_state = LIQUID
 	color = "#660000"

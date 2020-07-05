@@ -19,6 +19,8 @@
 
 	///Chemistry.
 	var/datum/reagents/reagents = null
+	var/list/reagents_to_add
+	var/list/reagent_data
 
 	var/list/atom_colours	 //used to store the different colors on an atom
 							//its inherent color, the colored paint applied on it, special color effect etc...
@@ -378,14 +380,14 @@
 		var/obj/effect/decal/cleanable/vomit/this = new /obj/effect/decal/cleanable/vomit(src)
 		if(istype(inject_reagents) && inject_reagents.total_volume)
 			inject_reagents.trans_to_obj(this, min(15, inject_reagents.total_volume))
-			this.reagents.add_reagent("stomachacid", 5)
+			this.reagents.add_reagent(/datum/reagent/acid/stomach, 5)
 
 		// Make toxins vomit look different
 		if(toxvomit)
 			this.icon_state = "vomittox_[pick(1,4)]"
 
 /mob/living/proc/handle_additional_vomit_reagents(var/obj/effect/decal/cleanable/vomit/vomit)
-	vomit.reagents.add_reagent("stomachacid", 5)
+	vomit.reagents.add_reagent(/datum/reagent/acid/stomach, 5)
 
 /atom/proc/clean_blood()
 	if(!simulated)

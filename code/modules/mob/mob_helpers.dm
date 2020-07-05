@@ -1033,9 +1033,9 @@ proc/is_blind(A)
 	//We create an MD5 hash of the mob's reference to use as its DNA string.
 	//This creates unique DNA for each creature in a consistently repeatable process
 	var/datum/reagents/vessel = new/datum/reagents(600)
-	vessel.add_reagent("blood",560)
+	vessel.add_reagent(/datum/reagent/blood,560)
 	for(var/datum/reagent/blood/B in vessel.reagent_list)
-		if(B.id == "blood")
+		if(B.type == /datum/reagent/blood)
 			B.data = list(
 				"donor" = WEAKREF(src),
 				"species" = name,
