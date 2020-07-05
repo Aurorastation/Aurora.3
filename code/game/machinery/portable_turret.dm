@@ -30,6 +30,9 @@
 	var/locked = 1			//if the turret's behaviour control access is locked
 	var/controllock = 0		//if the turret responds to control panels
 
+	var/obj/item/deployable_kit/turret/parent_kit
+	var/deployable = FALSE
+
 	var/obj/item/gun/energy/installation = /obj/item/gun/energy/gun //the type of weapon installed
 	var/gun_charge = 0		//the charge of the gun inserted
 	var/reqpower = 500		//holder for power needed
@@ -37,6 +40,7 @@
 	var/egun = 1			//holder to handle certain guns switching modes
 	var/sprite_set = "carbine"	//set of gun sprites the turret will use
 	var/cover_set = 0		//set of cover sprites the turret will use
+	var/prefix = "cover"	// whether it uses the mobile box sprites or the circle sprites
 	var/name_override = FALSE
 
 	var/last_fired = 0		//1: if the turret is cooling down from a shot, 0: turret is ready to fire
@@ -118,11 +122,19 @@
 	installation = /obj/item/gun/energy/laser
 	sprite_set = "laser"
 
-/obj/machinery/porta_turret/Initialize(mapload)
+/obj/machinery/porta_turret/Initialize(mapload, var/installation_type, var/is_deployable)
 	. = ..()
 	//Sets up a spark system
 	spark_system = bind_spark(src, 5)
-	if(!istype(installation, /obj/item/gun/energy))
+	if(installation_type)
+		installation = new installation_type(src)
+		projectile = initial(installation.projectile_type)
+		if(installation.secondary_projectile_type)
+			eprojectile = installation.secondary_projectile_type
+		else
+			eprojectile = installation.projectile_type
+		sprite_set = installation.turret_sprite_set
+	else if(!istype(installation, /obj/item/gun/energy))
 		installation = new installation(src)
 	if(installation)
 		if(installation.fire_delay_wielded > 0)
@@ -144,6 +156,13 @@
 			if(SOME_TC.lethal != lethal && !egun)
 				SOME_TC.enabled = 0
 			src.setState(SOME_TC)
+
+	if(is_deployable)
+		deployable = TRUE
+		enabled = FALSE
+		use_power = 0
+		prefix = "mobile"
+
 	START_PROCESSING(SSprocessing, src)
 
 /obj/machinery/porta_turret/Destroy()
@@ -168,31 +187,32 @@
 
 	if(stat & BROKEN)
 		icon_state = "turret_[sprite_set]_broken"
-		underlays += "cover_open_[cover_set]"
+		underlays += "[prefix]_open_[cover_set]"
 	else if(raised || raising)
 		if(powered() && enabled)
 			if(!lethal_icon)
 				icon_state = "turret_[sprite_set]_stun"
-				underlays += "cover_open_[cover_set]"
+				underlays += "[prefix]_open_[cover_set]"
 			else
 				icon_state = "turret_[sprite_set]_lethal"
-				underlays += "cover_open_[cover_set]"
+				underlays += "[prefix]_open_[cover_set]"
 		else
 			icon_state = "turret_[sprite_set]_off"
-			underlays += "cover_open_[cover_set]"
+			underlays += "[prefix]_open_[cover_set]"
 	else
-		icon_state = "cover_[cover_set]"
+		icon_state = "[prefix]_[cover_set]"
 
 /obj/machinery/porta_turret/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
-		to_chat(user, "<span class='notice'>There seems to be a firewall preventing you from accessing this device.</span>")
-		return 1
+		to_chat(user, SPAN_WARNING("There seems to be a firewall preventing you from accessing this device."))
+		return TRUE
 
-	if(locked && !issilicon(user))
-		to_chat(user, "<span class='notice'>Access denied.</span>")
-		return 1
+	if(!issilicon(user))
+		if(locked && !allowed(user))
+			to_chat(user, SPAN_WARNING("Access denied."))
+			return TRUE
 
-	return 0
+	return FALSE
 
 /obj/machinery/porta_turret/attack_ai(mob/user)
 	ui_interact(user)
@@ -323,6 +343,9 @@
 		if(enabled || raised)
 			to_chat(user, "<span class='warning'>You cannot unsecure an active turret!</span>")
 			return
+		if(locked)
+			to_chat(user, SPAN_WARNING("You cannot unsecure a locked turret!"))
+			return
 		if(wrenching)
 			to_chat(user, "<span class='warning'>Someone is already [anchored ? "un" : ""]securing the turret!</span>")
 			return
@@ -338,6 +361,16 @@
 		wrenching = 1
 		if(do_after(user, 50/I.toolspeed))
 			//This code handles moving the turret around. After all, it's a portable turret!
+			if(deployable)
+				playsound(loc, I.usesound, 100, 1)
+				user.visible_message("<b>[user]</b> packs up \the [src].", SPAN_NOTICE("You pack up \the [src]."))
+				enabled = FALSE
+				if(!parent_kit)
+					parent_kit = new /obj/item/deployable_kit/turret(get_turf(src))
+				user.put_in_hands(parent_kit)
+				src.forceMove(parent_kit)
+				wrenching = FALSE
+				return
 			if(!anchored)
 				playsound(loc, I.usesound, 100, 1)
 				anchored = 1
@@ -619,8 +652,9 @@
 	update_icon()
 
 	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
+	flick_holder.mouse_opacity = 0
 	flick_holder.layer = layer + 0.1
-	flick("popup_[cover_set]", flick_holder)
+	flick("[prefix]_popup_[cover_set]", flick_holder)
 	playsound(loc, 'sound/machines/turrets/turret_deploy.ogg', 100, 1)
 	sleep(10)
 	qdel(flick_holder)
@@ -641,8 +675,9 @@
 	set_raised_raising(raised, 1)
 
 	var/atom/flick_holder = new /atom/movable/porta_turret_cover(loc)
+	flick_holder.mouse_opacity = 0
 	flick_holder.layer = layer + 0.1
-	flick("popdown_[cover_set]", flick_holder)
+	flick("[prefix]_popdown_[cover_set]", flick_holder)
 	playsound(loc, 'sound/machines/turrets/turret_retract.ogg', 100, 1)
 	sleep(10)
 	qdel(flick_holder)

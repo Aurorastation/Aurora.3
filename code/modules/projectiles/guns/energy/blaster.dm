@@ -14,6 +14,8 @@
 	projectile_type = /obj/item/projectile/energy/blaster
 	max_shots = 6
 
+	turret_sprite_set = "blaster"
+
 	burst_delay = 2
 	sel_mode = 1
 

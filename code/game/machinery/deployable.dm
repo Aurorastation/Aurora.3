@@ -277,17 +277,19 @@ for reference:
 	item_state = "box"
 	var/kit_product = /obj/machinery/floodlight
 	var/assembly_time = 8 SECONDS
+	var/deletes_self = TRUE
 
 /obj/item/deployable_kit/attack_self(mob/user)
-	to_chat(user, span("notice","You start assembling \the [src]..."))
+	user.visible_message("<b>[user]</b> starts assembling \the [src]...", SPAN_NOTICE("You start assembling \the [src]..."))
 	if(do_after(user, assembly_time))
 		assemble_kit(user)
-		qdel(src)
+		if(deletes_self)
+			qdel(src)
 
 /obj/item/deployable_kit/proc/assemble_kit(mob/user)
 	playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
 	var/atom/A = new kit_product(user.loc)
-	user.visible_message(span("notice","[user] assembles \a [A]."),span("notice","You assemble \a [A]."))
+	user.visible_message("<b>[user]</b> assembles \the [src]", SPAN_NOTICE("You assemble \the [A]."))
 	A.add_fingerprint(user)
 
 /obj/item/deployable_kit/legion_barrier
@@ -355,3 +357,50 @@ for reference:
 	name = "brig mech control centre assembly kit"
 	desc = "A quick assembly kit to put together a brig mech control centre."
 	kit_product = /obj/structure/bed/chair/remote/mech/prison/portable
+
+/obj/item/deployable_kit/turret
+	name = "turret assembly kit"
+	desc = "A quick assembly kit to deploy a turret in the field."
+	icon = 'icons/obj/turrets.dmi'
+	icon_state = "blaster_turret_kit"
+	item_state = "table_parts"
+	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
+	w_class = ITEMSIZE_LARGE
+	deletes_self = FALSE
+	req_one_access = list(access_security, access_heads)
+	var/obj/machinery/porta_turret/turret
+	var/turret_type
+	assembly_time = 15 SECONDS
+
+/obj/item/deployable_kit/turret/Initialize(mapload, ...)
+	. = ..()
+	if(!turret_type)
+		qdel(src)
+	turret = new /obj/machinery/porta_turret(src, turret_type, TRUE)
+	turret.req_one_access = src.req_one_access
+	turret.icon_state = "[turret.prefix]_[turret.cover_set]"
+	turret.parent_kit = src
+	name = "[turret.installation.name] turret assembly kit"
+	desc = replacetext(desc, "turret", "[turret.installation.name] turret")
+
+/obj/item/deployable_kit/turret/assemble_kit(mob/user)
+	playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
+	turret.forceMove(get_turf(src))
+	turret.dir = user.dir
+	user.drop_from_inventory(src, turret)
+	user.visible_message("<b>[user]</b> assembles \the [turret].", SPAN_NOTICE("You assemble \the [turret]."))
+	turret.add_fingerprint(user)
+
+/obj/item/deployable_kit/turret/attackby(obj/item/W, mob/user)
+	if(W.ismultitool())
+		if(!allowed(user))
+			to_chat(user, SPAN_WARNING("Access Denied."))
+			return
+		turret.ui_interact(user)
+	else
+		..()
+
+/obj/item/deployable_kit/turret/blaster
+	turret_type = /obj/item/gun/energy/blaster/carbine
+	req_one_access = list(access_legion)
