@@ -20,6 +20,13 @@
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
 	var/seclevel
 
+/obj/machinery/firealarm/examine(mob/user)
+	. = ..()
+	if((stat & (NOPOWER|BROKEN)) || buildstage != 2)
+		return
+
+	to_chat(user, "The current alert level is [get_security_level()].")
+
 /obj/machinery/firealarm/update_icon()
 	cut_overlays()
 

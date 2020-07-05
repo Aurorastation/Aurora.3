@@ -186,7 +186,8 @@
 	var/plastic_film_overlay_state = "plasticfilm"
 	var/front_id_overlay_state
 
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 /obj/item/storage/wallet/lanyard/New()
 	..()

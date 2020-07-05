@@ -123,8 +123,6 @@
 	return prob_slip
 
 /mob/living/carbon/human/Check_Shoegrip(checkSpecies = TRUE)
-	if(checkSpecies && (species.flags & NO_SLIP))
-		return 1
 	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))  //magboots + dense_object = no floating
 		return 1
 	return 0
@@ -149,7 +147,8 @@
 
 	if (client)
 		var/turf/B = GetAbove(T)
-		up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
+		if(up_hint)
+			up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
 
 	if (is_noisy && !stat && !lying)
 		if ((x == last_x && y == last_y) || !footsound)

@@ -18,6 +18,7 @@
 
 	var/list/citizenships = list()
 	var/list/religions = list()
+	var/list/accents = list()
 
 /datum/controller/subsystem/records/Initialize()
 	..()
@@ -26,6 +27,7 @@
 
 	InitializeCitizenships()
 	InitializeReligions()
+	InitializeAccents()
 
 /datum/controller/subsystem/records/New()
 	records = list()
@@ -216,9 +218,9 @@
 	dat = replacetext(dat, "\t", "")
 	return dat
 
-/datum/controller/subsystem/records/proc/get_manifest_json()
+/datum/controller/subsystem/records/proc/get_manifest_list()
 	if(manifest.len)
-		return manifest_json
+		return manifest
 	manifest = list(
 		"heads" = list(),
 		"sec" = list(),
@@ -256,6 +258,7 @@
 				department = 1
 				if ((depthead || rank == "Captain") && manifest[positionType].len != 1)
 					manifest[positionType].Swap(1, manifest[positionType].len)
+					manifest[positionType][1]["head"] = TRUE
 				if(positionType == "head")
 					depthead = 1
 
@@ -278,6 +281,13 @@
 				manifest["bot"].Swap(1, manifest["bot"].len)
 
 	manifest_json = json_encode(manifest)
+	return manifest
+
+/datum/controller/subsystem/records/proc/get_manifest_json()
+	if(manifest.len)
+		return manifest_json
+
+	get_manifest_list()
 	return manifest_json
 
 /datum/controller/subsystem/records/proc/onDelete(var/datum/record/r)
@@ -328,6 +338,16 @@
 
 	if (!religions.len)
 		crash_with("No citizenships located in SSrecords.")
+
+/datum/controller/subsystem/records/proc/InitializeAccents()
+	for (var/type in subtypesof(/datum/accent))
+		var/datum/accent/accent = new type()
+
+		accents[accent.name] = accent
+
+	if (!accents.len)
+		crash_with("No accents located in SSrecords.")
+
 
 /datum/controller/subsystem/records/proc/get_religion_record_name(var/target_religion)
 	var/datum/religion/religion = SSrecords.religions[target_religion]

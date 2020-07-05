@@ -47,7 +47,7 @@
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	user.visible_message("<span class='notice'>[user] has cut [target]'s [affected.encased] open with \the [tool].</span>",		\
+	user.visible_message("<b>[user]</b> has cut [target]'s [affected.encased] open with \the [tool].",		\
 		"<span class='notice'>You have cut [target]'s [affected.encased] open with \the [tool].</span>")
 	affected.open = 2.5
 
@@ -94,9 +94,9 @@
 		return
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	var/msg = "<span class='notice'>[user] forces open [target]'s [affected.encased] with \the [tool].</span>"
-	var/self_msg = "<span class='notice'>You force open [target]'s [affected.encased] with \the [tool].</span>"
-	user.visible_message(msg, self_msg)
+	var/msg = "<b>[user]</b> forces open [target]'s [affected.encased] with \the [tool]."
+	var/self_msg = "You force open [target]'s [affected.encased] with \the [tool]."
+	user.visible_message(msg, SPAN_NOTICE(self_msg))
 	..()
 
 	affected.open = 3
@@ -144,9 +144,9 @@
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	var/msg = "[user] bends [target]'s [affected.encased] back into place with \the [tool]."
+	var/msg = "<b>[user]</b> bends [target]'s [affected.encased] back into place with \the [tool]."
 	var/self_msg = "You bend [target]'s [affected.encased] back into place with \the [tool]."
-	user.visible_message(msg, self_msg)
+	user.visible_message(msg, SPAN_NOTICE(self_msg))
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 
@@ -201,9 +201,9 @@
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	var/msg = "[user] starts applying \the [tool] to [target]'s [affected.encased]."
+	var/msg = "<b>[user]</b> starts applying \the [tool] to [target]'s [affected.encased]."
 	var/self_msg = "You start applying \the [tool] to [target]'s [affected.encased]."
-	user.visible_message(msg, self_msg)
+	user.visible_message(msg, SPAN_NOTICE(self_msg))
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 

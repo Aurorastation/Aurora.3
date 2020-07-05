@@ -10,6 +10,7 @@
 	siemens_coefficient = 0.75
 	species_restricted = null
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 /obj/item/clothing/shoes/mime
 	name = "mime shoes"
@@ -125,7 +126,8 @@ obj/item/clothing/shoes/sandal/clogs
 	species_restricted = null
 	w_class = 2
 	silent = 1
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 /obj/item/clothing/shoes/slippers_worn
 	name = "worn bunny slippers"
@@ -142,6 +144,9 @@ obj/item/clothing/shoes/sandal/clogs
 	icon_state = "oxford_black"
 	item_state = "oxford_black"
 
+/obj/item/clothing/shoes/laceup/all_species
+	species_restricted = null
+
 /obj/item/clothing/shoes/laceup/grey
 	name = "grey oxford shoes"
 	icon_state = "oxford_grey"
@@ -151,6 +156,9 @@ obj/item/clothing/shoes/sandal/clogs
 	name = "brown oxford shoes"
 	icon_state = "oxford_brown"
 	item_state = "oxford_brown"
+
+/obj/item/clothing/shoes/laceup/brown/all_species
+	species_restricted = null
 
 /obj/item/clothing/shoes/swimmingfins
 	desc = "Help you swim good."
@@ -168,13 +176,15 @@ obj/item/clothing/shoes/sandal/clogs
 	w_class = 2
 	species_restricted = null
 	silent = 1
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 /obj/item/clothing/shoes/cowboy
 	name = "cowboy boots"
 	desc = "Lacking a durasteel horse to ride."
 	icon_state = "cowboy"
 	drop_sound = 'sound/items/drop/leather.ogg'
+	pickup_sound = 'sound/items/pickup/leather.ogg'
 
 /obj/item/clothing/shoes/cowboy/classic
 	name = "classic cowboy boots"
@@ -233,7 +243,7 @@ obj/item/clothing/shoes/sandal/clogs
 /obj/item/clothing/shoes/caligae
 	name = "caligae"
 	desc = "The standard Unathi marching footwear. Made of leather and rubber, with heavy hob-nailed soles, their unique design allows for improved traction and protection, leading to them catching on with other species."
-	description_fluff = "These traditional Unathi footwear have remained relatively unchanged in principle, with improved materials and construction being the only notable change. Originally used for warriors, they became widespread for their comfort and durability. Some are worn with socks, for warmth. Although made for the Unathi anatomy, they have picked up popularity among other species."
+	desc_fluff = "These traditional Unathi footwear have remained relatively unchanged in principle, with improved materials and construction being the only notable change. Originally used for warriors, they became widespread for their comfort and durability. Some are worn with socks, for warmth. Although made for the Unathi anatomy, they have picked up popularity among other species."
 	icon_state = "caligae"
 	item_state = "caligae"
 	force = 5
@@ -262,7 +272,7 @@ obj/item/clothing/shoes/sandal/clogs
 /obj/item/clothing/shoes/caligae/armor
 	name = "leather caligae"
 	desc = "The standard Unathi marching footwear. These are made for heavier conditions, featuring tough and waterproof eel-leather covering, offering far greater protection."
-	description_fluff = "These traditional Unathi footwear have remained relatively unchanged in principle, with improved materials and construction being the only notable change. This pair is reinforced with leather of the Zazehal, a Moghesian species of eel that can grow up to twenty five feet long. Typically, Zazehal Festivals are thrown every month of the warm season in which Unathi strew freshly killed birds across the shoreline and collect these creatures with baskets. The fungi that grow on their skin is harvested and used as an exotic seasoning, and their skin is used for its' incredibly durable, shark-like leather."
+	desc_fluff = "These traditional Unathi footwear have remained relatively unchanged in principle, with improved materials and construction being the only notable change. This pair is reinforced with leather of the Zazehal, a Moghesian species of eel that can grow up to twenty five feet long. Typically, Zazehal Festivals are thrown every month of the warm season in which Unathi strew freshly killed birds across the shoreline and collect these creatures with baskets. The fungi that grow on their skin is harvested and used as an exotic seasoning, and their skin is used for its' incredibly durable, shark-like leather."
 	icon_state = "eelcaligae"
 	armor = list(melee = 40, bullet = 0, laser = 0, energy = 15, bomb = 20, bio = 0, rad = 20)
 	siemens_coefficient = 0.75

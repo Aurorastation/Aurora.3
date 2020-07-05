@@ -5,7 +5,7 @@
 	cost = 1
 	augment = TRUE
 	sort_category = "Augments"
-	whitelisted = list("Human", "Off-Worlder Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Aut'akh Unathi", "Skrell", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	whitelisted = list("Human", "Off-Worlder Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Skrell", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/eye_sensors
@@ -13,7 +13,7 @@
 	description = "An eye augment that allows the user to deploy medical or security sensors."
 	path = /obj/item/organ/internal/augment/eye_sensors
 	cost = 4
-	whitelisted = list("Human", "Off-Worlder Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Aut'akh Unathi", "Skrell", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame", "Vaurca Worker", "Vaurca Warrior")
+	whitelisted = list("Human", "Off-Worlder Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Unathi", "Skrell", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame", "Vaurca Worker", "Vaurca Warrior")
 
 
 /datum/gear/augment/cyber_hair
@@ -21,6 +21,8 @@
 	description = "A hair augment that allows the user to change the shape and color of their hair."
 	path = /obj/item/organ/internal/augment/cyber_hair
 	cost = 2
+	whitelisted = list("Human", "Off-Worlder Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Shell Frame")
+
 
 /datum/gear/augment/combitool
 	display_name = "retractable combitool"
@@ -65,3 +67,10 @@
 	description = "An augment that allows the user to synthetize welding fuel into nutrients."
 	path = /obj/item/organ/internal/augment/fuel_cell
 	cost = 3
+
+/datum/gear/augment/psiaug
+	display_name = "psionic receiver"
+	description = "An augment installed into the head that functions as a surrogate for a missing zona bovinae, also functioning as a filter for the psionically-challenged."
+	path = /obj/item/organ/internal/augment/psi
+	cost = 1
+	whitelisted = list("Human", "Off-Worlder Human", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara", "Vaurca Worker", "Vaurca Warrior", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")

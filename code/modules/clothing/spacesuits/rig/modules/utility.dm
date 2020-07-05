@@ -175,7 +175,6 @@
 		list("tramadol",      "tramadol",             0, 80),
 		list("dexalin plus",  "dexalinp",             0, 80),
 		list("antibiotics",   "thetamycin",          0, 80),
-		list("antivirals",    "deltamivir",           0, 80),
 		list("antitoxins",    "dylovene",           0, 80),
 		list("nutrients",     "glucose",              0, 80),
 		list("saline",        "saline", 0, 80),
@@ -196,7 +195,6 @@
 		list("tramadol",      "tramadol",      0, 20),
 		list("dexalin plus",  "dexalinp",      0, 20),
 		list("antibiotics",   "thetamycin",   0, 20),
-		list("antivirals",    "deltamivir",     0, 20),
 		list("antitoxins",    "dylovene",    0, 20),
 		list("nutrients",     "glucose",     0, 80),
 		list("saline",        "saline", 0, 80),
@@ -401,7 +399,7 @@
 	if(!..())
 		return 0
 
-	var/choice= input("Would you like to toggle the synthesiser or set the name?") as null|anything in list("Enable","Disable","Set Name")
+	var/choice= input("Would you like to toggle the synthesiser, set the name or set an accent?") as null|anything in list("Enable","Disable","Set Name", "Set Accent")
 
 	if(!choice)
 		return 0
@@ -421,6 +419,12 @@
 				return 0
 			voice_holder.voice = raw_choice
 			to_chat(usr, "<font color='blue'>You are now mimicking <B>[voice_holder.voice]</B>.</font>")
+		if("Set Accent")
+			var/raw_choice = input(usr, "Please choose an accent to mimick.") as null|anything in SSrecords.accents
+			if(!raw_choice)
+				return 0
+			voice_holder.current_accent = raw_choice
+			to_chat(usr, span("notice", "You are now mimicking the [raw_choice] accent."))
 	return 1
 
 /obj/item/rig_module/maneuvering_jets

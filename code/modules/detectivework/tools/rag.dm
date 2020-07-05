@@ -30,7 +30,8 @@
 	var/on_fire = 0
 	var/burn_time = 20 //if the rag burns for too long it turns to ashes
 	var/cleantime = 30
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	var/last_clean
 	var/clean_msg = FALSE
 
@@ -52,14 +53,12 @@
 		remove_contents(user)
 
 /obj/item/reagent_containers/glass/rag/attackby(obj/item/W, mob/user)
-	if(!on_fire && istype(W, /obj/item/flame))
-		var/obj/item/flame/F = W
-		if(F.lit)
-			ignite()
-			if(on_fire)
-				visible_message(span("warning", "\The [user] lights \the [src] with \the [W]."))
-			else
-				to_chat(user, span("warning", "You manage to singe \the [src], but fail to light it."))
+	if(!on_fire && W.isFlameSource())
+		ignite()
+		if(on_fire)
+			visible_message(SPAN_WARNING("\The [user] lights \the [src] with \the [W]."))
+		else
+			to_chat(user, SPAN_WARNING("You manage to singe \the [src], but fail to light it."))
 
 	. = ..()
 	update_name()
@@ -111,7 +110,7 @@
 		to_chat(user, span("warning", "\The [initial(name)] is dry!"))
 	else
 		if ( !(last_clean && world.time < last_clean + 120) )
-			user.visible_message("\The [user] starts to wipe down \the [A] with \the [src]!")
+			user.visible_message("\The <b>[user]</b> starts to wipe down \the [A] with \the [src]!")
 			clean_msg = TRUE
 			last_clean = world.time
 		else

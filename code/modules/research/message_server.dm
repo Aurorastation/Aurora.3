@@ -50,7 +50,7 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 /obj/machinery/message_server
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "server"
-	name = "Messaging Server"
+	name = "messaging server"
 	density = 1
 	anchored = 1.0
 	use_power = 1
@@ -166,7 +166,7 @@ var/obj/machinery/blackbox_recorder/blackbox
 /obj/machinery/blackbox_recorder
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "blackbox"
-	name = "Blackbox Recorder"
+	name = "blackbox recorder"
 	density = 1
 	anchored = 1.0
 	use_power = 1

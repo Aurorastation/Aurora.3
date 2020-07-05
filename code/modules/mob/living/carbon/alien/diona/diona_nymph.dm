@@ -23,6 +23,7 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/dionanymph
 	meat_amount = 2
 	maxHealth = 33.3
+	health = 33.3
 	pass_flags = PASSTABLE
 
 	// Decorative head flower.
@@ -172,7 +173,6 @@
 
 	icon_state = lowertext(species.name)
 	species.handle_post_spawn(src)
-	maxHealth = species.total_health
 
 	regenerate_icons()
 	make_blood()
@@ -202,15 +202,12 @@
 		if(B.id == "blood")
 			B.data = list(
 				"donor" = WEAKREF(src),
-				"viruses" = null,
 				"species" = species.name,
 				"blood_DNA" = name,
 				"blood_colour" = species.blood_color,
 				"blood_type" = null,
 				"resistances" = null,
-				"trace_chem" = null,
-				"virus2" = null,
-				"antibodies" = list()
+				"trace_chem" = null
 			)
 			B.color = B.data["blood_colour"]
 
@@ -247,6 +244,7 @@
 		verbs -= /mob/living/carbon/alien/diona/proc/merge
 		verbs -= /mob/living/carbon/proc/absorb_nymph
 		verbs -= /mob/living/carbon/alien/diona/proc/sample
+		verbs -= /mob/living/carbon/alien/diona/proc/remove_hat
 		verbs |= /mob/living/carbon/alien/diona/proc/split
 	else
 		verbs |= /mob/living/carbon/alien/diona/proc/merge
@@ -255,6 +253,7 @@
 		verbs |= /mob/living/proc/ventcrawl
 		verbs |= /mob/living/proc/hide
 		verbs |= /mob/living/carbon/alien/diona/proc/sample
+		verbs |= /mob/living/carbon/alien/diona/proc/remove_hat
 		verbs -= /mob/living/carbon/alien/diona/proc/split // we want to remove this one
 
 	verbs -= /mob/living/carbon/alien/verb/evolve //We don't want the old alien evolve verb
@@ -300,9 +299,7 @@
 					sleeping = max(sleeping-1, 0)
 			blinded = TRUE
 			stat = UNCONSCIOUS
-		else if(resting)
-			// insert dial up tone
-		else
+		else if(!resting)
 			stat = CONSCIOUS
 
 		// Eyes and blindness.

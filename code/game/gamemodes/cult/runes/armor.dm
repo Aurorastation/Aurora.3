@@ -1,12 +1,11 @@
-/obj/effect/rune/armor
-	can_talisman = TRUE
+/datum/rune/armor
+	name = "forging rune"
+	desc = "A rune used to create a set of armor and a sword for the acolytes to use."
 
-/obj/effect/rune/armor/do_rune_action(mob/living/user, obj/O = src)
-	if(istype(O, /obj/effect/rune))
-		user.say("N'ath reth sh'yro eth d[pick("'","`")]raggathnor!")
-	else
-		user.whisper("N'ath reth sh'yro eth d[pick("'","`")]raggathnor!")
-	user.visible_message(span("warning", "The rune disappears with a flash of red light, and a set of armor appears on [user]..."), span("cult", "You are blinded by the flash of red light! You feel the armor of the Dark One form around you."))
+/datum/rune/armor/do_rune_action(mob/living/user, atom/movable/A)
+	user.say("N'ath reth sh'yro eth d'raggathnor!")
+	user.visible_message(SPAN_DANGER("A flash of red light appears around [user], as a set of armor envelops their body!"),
+						 SPAN_CULT("A refreshing feeling envelops you; the armor of the Dark One is once again protecting you."))
 
 	if(istype(user, /mob/living/simple_animal/construct))
 		var/mob/living/simple_animal/construct/C = user
@@ -17,9 +16,9 @@
 			construct_class = alert(C, "Please choose which type of construct you wish to become.", "Construct Selection", "Juggernaut", "Wraith", "Artificer")
 
 		var/list/static/construct_types = list("Juggernaut" = /mob/living/simple_animal/construct/armoured,
-											   "Wraith" = /mob/living/simple_animal/construct/wraith,
-											   "Artificer" = /mob/living/simple_animal/construct/builder,
-											   "Harvester" = /mob/living/simple_animal/construct/harvester)
+											   "Wraith"     = /mob/living/simple_animal/construct/wraith,
+											   "Artificer"  = /mob/living/simple_animal/construct/builder,
+											   "Harvester"  = /mob/living/simple_animal/construct/harvester)
 		
 		var/construct_path = construct_types[construct_class]
 		var/mob/living/simple_animal/construct/Z = new construct_path(get_turf(C))
@@ -37,10 +36,10 @@
 		user.equip_to_slot_or_del(new /obj/item/storage/backpack/cultpack(user), slot_back)
 		user.put_in_hands(new /obj/item/melee/cultblade(user))
 
-	qdel(O)
+	qdel(A)
 	return TRUE
 
-/obj/effect/rune/armor/proc/construct_msg(mob/construct, var/type)
+/datum/rune/armor/proc/construct_msg(mob/living/construct, var/type)
 	switch(type)
 		if("Juggernaut")
 			to_chat(construct, span("cult", "You are playing a Juggernaut. Though slow, you can withstand extreme punishment, and rip apart enemies and walls alike."))

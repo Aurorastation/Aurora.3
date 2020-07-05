@@ -17,19 +17,27 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 /obj/item/stack/rods
 	name = "metal rod"
 	desc = "Some rods. Can be used for building, or something."
+	desc_info = "Made from metal sheets.  You can build a grille by using it in your hand. \
+	Clicking on a floor without any tiles will reinforce the floor.  You can make reinforced glass by combining rods and normal glass sheets."
 	singular_name = "metal rod"
 	icon_state = "rods"
 	flags = CONDUCT
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	force = 9.0
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
+	drop_sound = 'sound/items/drop/metalweapon.ogg'
+	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
 	matter = list(DEFAULT_WALL_MATERIAL = 1875)
 	max_amount = 60
 	attack_verb = list("hit", "bludgeoned", "whacked")
 	lock_picking_level = 3
-	drop_sound = 'sound/items/drop/sword.ogg'
+
+/obj/item/stack/rods/full/Initialize()
+	. = ..()
+	amount = max_amount
+	update_icon()
 
 /obj/item/stack/rods/cyborg
 	name = "metal rod synthesizer"

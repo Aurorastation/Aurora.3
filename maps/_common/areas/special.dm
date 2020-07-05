@@ -173,9 +173,9 @@
 	base_turf = /turf/unsimulated/floor/asteroid/ash
 
 /area/syndicate_station/transit
-	name = "Hyperspace"
+	name = "Bluespace"
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north
+	base_turf = /turf/space/transit
 	centcomm_area = 1
 
 /area/wizard_station
@@ -254,6 +254,17 @@
 	name = "Kataphract Chapter - Hull"
 	icon_state = "blue"
 
+/area/burglar_base
+	name = "Burglar Base"
+	icon_state = "yellow"
+	requires_power = FALSE
+	no_light_control = TRUE
+
+/area/burglar_base/pod
+	name = "Burglar Pod"
+	base_turf = /turf/space
+	flags = SPAWN_ROOF
+
 /area/skipjack_station
 	name = "Skipjack"
 	icon_state = "yellow"
@@ -268,9 +279,9 @@
 	centcomm_area = 1
 
 /area/skipjack_station/transit
-	name = "Hyperspace"
+	name = "Bluespace"
 	icon_state = "shuttle"
-	base_turf = /turf/space/transit/north
+	base_turf = /turf/space/transit
 	centcomm_area = 1
 
 /area/skipjack_station/surface
@@ -319,7 +330,7 @@
 	icon_state = "merchant_ware"
 
 /area/merchant_station/transit
-	name = "Hyperspace"
+	name = "Bluespace"
 	icon_state = "shuttle"
 	centcomm_area = 1
 

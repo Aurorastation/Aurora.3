@@ -1,6 +1,6 @@
 /datum/gear/computer
 	display_name = "tablet"
-	path = /obj/item/modular_computer/tablet/preset/custom_loadout/advanced // for card slots
+	path = /obj/item/modular_computer/tablet/preset/custom_loadout/cheap
 	sort_category = "Modular Computers"
 	cost = 2
 
@@ -11,7 +11,7 @@
 
 /datum/gear/computer/wristbound
 	display_name = "wristbound computer"
-	path = /obj/item/modular_computer/wristbound/preset/advanced/generic
+	path = /obj/item/modular_computer/wristbound/preset/cheap/generic
 
 /datum/gear/computer/wristbound/cargo
 	display_name = "wristbound computer (Cargo)"
@@ -26,7 +26,7 @@
 /datum/gear/computer/wristbound/medical
 	display_name = "wristbound computer (Medical)"
 	path = /obj/item/modular_computer/wristbound/preset/advanced/medical
-	allowed_roles = list("Physician", "Surgeon", "Medical Resident", "Pharmacist", "Psychiatrist", "Paramedic")
+	allowed_roles = list("Physician", "Surgeon", "Medical Resident", "Pharmacist", "Psychiatrist", "Emergency Medical Technician")
 
 /datum/gear/computer/wristbound/security
 	display_name = "wristbound computer (Security)"

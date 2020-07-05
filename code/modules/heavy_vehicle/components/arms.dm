@@ -15,6 +15,7 @@
 /obj/item/mech_component/manipulators/Destroy()
 	QDEL_NULL(motivator)
 	. = ..()
+
 /obj/item/mech_component/manipulators/show_missing_parts(var/mob/user)
 	if(!motivator)
 		to_chat(user, "<span class='warning'>It is missing an actuator.</span>")

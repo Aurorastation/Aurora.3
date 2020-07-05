@@ -3,6 +3,8 @@
 	desc = "Used to remotely activate devices."
 	icon_state = "signaller"
 	item_state = "signaler"
+	drop_sound = 'sound/items/drop/component.ogg'
+	pickup_sound =  'sound/items/pickup/component.ogg'
 	origin_tech = list(TECH_MAGNET = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 200)
 	wires = WIRE_RECEIVE | WIRE_PULSE | WIRE_RADIO_PULSE | WIRE_RADIO_RECEIVE
@@ -178,6 +180,12 @@
 	else if(prob(20))
 		M.visible_message("[M]'s finger twitches a bit over [src]'s deadman switch!")
 	return
+
+/obj/item/device/assembly/signaler/AltClick(mob/user)
+	if(use_check_and_message(user))
+		return
+	to_chat(user, SPAN_NOTICE("You click \the [src]'s signal button."))
+	signal()
 
 /obj/item/device/assembly/signaler/proc/deadman_trigger(var/mob/user)
 	if(deadman) //If its not activated, there is no point in triggering it

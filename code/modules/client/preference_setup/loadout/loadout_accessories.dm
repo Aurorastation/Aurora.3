@@ -90,7 +90,7 @@
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Emergency Medical Technician", "Medical Resident")
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
@@ -110,7 +110,7 @@
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
 	path = /obj/item/clothing/accessory/storage/pouches/white
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Emergency Medical Technician", "Medical Resident")
 
 /datum/gear/accessory/pouches
 	display_name = "drop pouches, simple"
@@ -131,9 +131,23 @@
 	cost = 2
 
 /datum/gear/accessory/sweater
-	display_name = "sweater"
+	display_name = "sweater selection"
 	path = /obj/item/clothing/accessory/sweater
+	description = "A selection of sweaters and sweater vests."
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/sweater/New()
+	..()
+	var/sweater = list()
+	sweater["sweater"] = /obj/item/clothing/accessory/sweater
+	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweaterargyle
+	sweater["sweater vest"] = /obj/item/clothing/accessory/sweatervest
+	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweatervestargyle
+	sweater["turtleneck sweater"] = /obj/item/clothing/accessory/sweaterturtleneck
+	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweaterargyleturtleneck
+	sweater["tubeneck sweater"] = /obj/item/clothing/accessory/sweatertubeneck
+	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweaterargyletubeneck
+	gear_tweaks += new/datum/gear_tweak/path(sweater)
 
 /datum/gear/accessory/dressshirt
 	display_name = "dress shirt"

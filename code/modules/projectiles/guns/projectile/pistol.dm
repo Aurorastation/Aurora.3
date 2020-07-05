@@ -43,7 +43,7 @@
 /obj/item/gun/projectile/sec
 	name = ".45 pistol"
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. Uses .45 rounds."
-	description_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. It uses .45 rounds."
+	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. It uses .45 rounds."
 	icon = 'icons/obj/guns/secgun.dmi'
 	icon_state = "secgun"
 	item_state = "secgun"
@@ -71,7 +71,7 @@
 
 /obj/item/gun/projectile/sec/wood
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a wooden grip. Uses .45 rounds."
-	description_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. This one has a faux wooden grip. It uses .45 rounds."
+	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. This one has a faux wooden grip. It uses .45 rounds."
 	name = "custom .45 Pistol"
 	icon = 'icons/obj/guns/secgun_wood.dmi'
 	icon_state = "secgunwood"
@@ -105,7 +105,7 @@
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 /obj/item/gun/projectile/tanto
-	desc = "A Necropolis Industries Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
+	desc = "A Zavodskoi Interstellar Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
 	name = "10mm auto-pistol"
 	icon = 'icons/obj/guns/c05r.dmi'
 	icon_state = "c05r"
@@ -120,8 +120,8 @@
 	sel_mode = 1
 
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=null,    burst_accuracy=list(1,0,0),       dispersion=list(0, 10))
+		list(mode_name="semiauto", burst=1, fire_delay=0),
+		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10))
 		)
 
 
@@ -148,7 +148,7 @@
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 
-	description_fluff = "Created as a disposable and concealable weapon, the Mrrazhakulii suppressed pistol is a firearm with a silencer integrated as part of its barrel. Carried by \
+	desc_fluff = "Created as a disposable and concealable weapon, the Mrrazhakulii suppressed pistol is a firearm with a silencer integrated as part of its barrel. Carried by \
 	guerrilla forces and spies, those guns are used in assassination and subterfuge operations. Due to using cheap and available materials, such as recycled iron and tires, countless of \
 	those pistols were distributed among cells and ALA soldiers."
 
@@ -187,7 +187,7 @@
 	icon = 'icons/obj/guns/adhomian_heavy_pistol.dmi'
 	icon_state = "adhomian_heavy_pistol"
 	item_state = "adhomian_heavy_pistol"
-	description_fluff = "Given to Republican Commissars and high ranking Party members, the Nal'tor Model Pistol is notable for its large caliber. Unlike the Adar'Mazy pistol, only a \
+	desc_fluff = "Given to Republican Commissars and high ranking Party members, the Nal'tor Model Pistol is notable for its large caliber. Unlike the Adar'Mazy pistol, only a \
 	single factory in Nal'tor is allowed to fabricate it, with its design being kept as a state secret. Because of its rarity and status, the Adhomai Heavy Pistol was a sought after \
 	war trophy by royalist and rebels forces."
 
@@ -219,7 +219,7 @@
 /obj/item/gun/projectile/pistol
 	name = "9mm pistol"
 	desc = "A compact 9mm handgun, extremely popular all throughout human space."
-	description_fluff = "The Necropolis Industries Moonlight 9mm can be found in the hands of just about anyone imaginable - special operatives, common criminals, police officers, the average Joe - on account of the time-tested design, low price point, reliability, and ease of concealment. Having a threaded barrel helps, too, and it isn't uncommon to see the Moonlight as a prop in spy films, suppressed."
+	desc_fluff = "The Zavodskoi Interstellar Moonlight 9mm can be found in the hands of just about anyone imaginable - special operatives, common criminals, police officers, the average Joe - on account of the time-tested design, low price point, reliability, and ease of concealment. Having a threaded barrel helps, too, and it isn't uncommon to see the Moonlight as a prop in spy films, suppressed."
 	icon = 'icons/obj/guns/pistol.dmi'
 	icon_state = "pistol"
 	item_state = "pistol"
@@ -240,14 +240,14 @@
 
 /obj/item/gun/projectile/pistol/detective
 	desc = "A compact NanoTrasen designed sidearm, popular with law enforcement personnel for concealed carry purposes. It has a faux wooden grip. Uses 9mm rounds."
-	description_fluff = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by Nanotrasen. Unlike the related Mk58, the Blackjack is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk21 is compact and chambered in 9mm caliber. With all the bells and whistles of a modern, quality police pistol, the Blackjack's main drawback is the notoriously nippy recoil - 9mm in such a small package can be unpleasant for the average shooter."
+	desc_fluff = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by Nanotrasen. Unlike the related Mk58, the Blackjack is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk21 is compact and chambered in 9mm caliber. With all the bells and whistles of a modern, quality police pistol, the Blackjack's main drawback is the notoriously nippy recoil - 9mm in such a small package can be unpleasant for the average shooter."
 	name = "compact 9mm pistol"
 	magazine_type = /obj/item/ammo_magazine/mc9mm/flash
 	icon = 'icons/obj/guns/detgun.dmi'
 	icon_state = "detgun"
 	item_state = "detgun"
 	can_silence = FALSE
-	
+
 /obj/item/gun/projectile/pistol/detective/update_icon()
 	..()
 	if(ammo_magazine?.stored_ammo.len)
@@ -259,9 +259,9 @@
 	set name = "Name Gun"
 	set category = "Object"
 	set desc = "Rename your gun."
-	
+
 	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
-	
+
 	if(use_check_and_message(usr))
 		return
 	name = input
@@ -377,7 +377,7 @@
 
 /obj/item/gun/projectile/pistol/sol
 	name = "service pistol"
-	desc = "A very old service pistol. Branded at the grip with the old emblem of the Sol Alliance, hand-made by Necropolis."
+	desc = "A very old service pistol. Branded at the grip with the old emblem of the Sol Alliance, hand-made by Zavodskoi Instellar."
 	icon = 'icons/obj/guns/m8.dmi'
 	icon_state = "m8"
 	item_state = "m8"
@@ -397,7 +397,7 @@
 	icon_state = "adhomian_pistol"
 	item_state = "adhomian_pistol"
 	can_silence = FALSE
-	description_fluff = "A mass produced pistol issued to People's Republic officers, government officials and low-ranking Party members. Known for their simple, cheap and reliable \
+	desc_fluff = "A mass produced pistol issued to People's Republic officers, government officials and low-ranking Party members. Known for their simple, cheap and reliable \
 	design, this weapon is produced by nearly all weapon factories in the Republic. The Adar'Mazy is also found in the hands of Adhomai Liberation Army soldiers and commanders."
 
 /obj/item/gun/projectile/pistol/adhomai/update_icon()

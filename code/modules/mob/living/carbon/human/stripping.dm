@@ -1,5 +1,5 @@
 /mob/living/carbon/human/proc/handle_strip(var/slot_to_strip, var/mob/living/user)
-	if(!slot_to_strip || !istype(user) || ispAI(user) || (isanimal(user) && !istype(user, /mob/living/simple_animal/hostile) ) )
+	if(!slot_to_strip || !istype(user) || ispAI(user) || (isanimal(user) && !istype(user, /mob/living/simple_animal/hostile) ) || isrobot(user) )
 		return FALSE
 
 	if(user.incapacitated() || !user.Adjacent(src))
@@ -69,7 +69,7 @@
 	var/stripping
 	var/obj/item/held = user.get_active_hand()
 
-	if(!istype(held) || is_robot_module(held))
+	if(!istype(held) || is_robot_module(held) || istype(held, /obj/item/grab))
 		if(!istype(target_slot))  // They aren't holding anything valid and there's nothing to remove, why are we even here?
 			return 0
 		if(!target_slot.canremove)

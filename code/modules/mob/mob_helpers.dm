@@ -48,17 +48,8 @@
 		switch(H.get_species())
 			if ("Unathi")
 				return 1
-			if("Aut'akh Unathi")
-				return 1
 			if ("Unathi Zombie")
 				return 1
-	return 0
-
-/proc/isautakh(A)
-	if(ishuman(A))
-		var/mob/living/carbon/human/H = A
-		if(H.get_species() == "Aut'akh Unathi")
-			return 1
 	return 0
 
 /proc/istajara(A)
@@ -775,6 +766,9 @@ proc/is_blind(A)
 	*/
 
 /obj/proc/report_onmob_location(var/justmoved, var/slot = null, var/mob/reportto)
+	if(istype(reportto.loc, /mob/living/bot))
+		to_chat(reportto, SPAN_NOTICE("You are currently housed within \the [reportto.loc]."))
+		return
 	var/mob/living/carbon/human/H//The person who the item is on
 	var/newlocation
 	var/preposition= ""
@@ -1044,15 +1038,12 @@ proc/is_blind(A)
 		if(B.id == "blood")
 			B.data = list(
 				"donor" = WEAKREF(src),
-				"viruses" = null,
 				"species" = name,
 				"blood_DNA" = md5("\ref[src]"),
 				"blood_colour" = "#a10808",
 				"blood_type" = null,
 				"resistances" = null,
-				"trace_chem" = null,
-				"virus2" = null,
-				"antibodies" = list()
+				"trace_chem" = null
 			)
 
 			B.color = B.data["blood_colour"]
@@ -1214,3 +1205,20 @@ proc/is_blind(A)
 
 /mob/proc/remove_blood_simple(var/blood)
 	return
+
+/mob/living/carbon/human/needs_wheelchair()
+	var/stance_damage = 0
+	for(var/limb_tag in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT))
+		var/obj/item/organ/external/E = organs_by_name[limb_tag]
+		if(!E || !E.is_usable())
+			stance_damage += 2
+	return stance_damage >= 4
+
+/mob/living/carbon/human/proc/equip_wheelchair()
+	var/obj/structure/bed/chair/wheelchair/W = new(get_turf(src))
+	if(isturf(loc))
+		buckled = W
+		update_canmove()
+		W.set_dir(dir)
+		W.buckled_mob = src
+		W.add_fingerprint(src)

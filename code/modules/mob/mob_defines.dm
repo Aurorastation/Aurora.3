@@ -7,6 +7,7 @@
 	var/datum/mind/mind
 
 	var/stat = 0 //Whether a mob is alive or dead. TODO: Move this to living - Nodrak
+	var/can_buckle = TRUE
 
 	var/obj/screen/flash = null
 	var/obj/screen/blind = null
@@ -124,10 +125,10 @@
 	var/overeatduration = 0		// How long this guy is overeating //Carbon
 	var/overdrinkduration = 0	// How long this guy is overdrinking //Carbon
 
-	var/paralysis = 0.0
-	var/stunned = 0.0
-	var/weakened = 0.0
-	var/losebreath = 0.0//Carbon
+	var/paralysis = 0
+	var/stunned = 0
+	var/weakened = 0
+	var/losebreath = 0 //Carbon
 	var/intent = null//Living
 	var/shakecamera = 0
 	var/a_intent = I_HELP//Living

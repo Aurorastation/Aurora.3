@@ -10,8 +10,6 @@
 /mob/living/carbon/Life()
 	..()
 
-	handle_viruses()
-
 	// Increase germ_level regularly
 	if(germ_level < GERM_LEVEL_AMBIENT && prob(30))	//if you're just standing there, you shouldn't get more germs beyond an ambient level
 		germ_level++
@@ -108,21 +106,12 @@
 		if(H && show_ssd && !client && !teleop)
 			if(H.bg)
 				to_chat(H, span("danger", "You sense some disturbance to your physical body!"))
-			else
+			else if(!vr_mob)
 				visible_message(span("notice", "[M] [action] [src], but they do not respond... Maybe they have S.S.D?"))
 		else if(client && willfully_sleeping)
 			visible_message(span("notice", "[M] [action] [src] waking [t_him] up!"))
 			sleeping = 0
 			willfully_sleeping = FALSE
-
-	for(var/datum/disease/D in viruses)
-		if(D.spread_by_touch())
-			M.contract_disease(D, 0, 1, CONTACT_HANDS)
-
-	for(var/datum/disease/D in M.viruses)
-		if(D.spread_by_touch())
-			contract_disease(D, 0, 1, CONTACT_HANDS)
-
 	return
 
 /mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
@@ -217,7 +206,7 @@
 						status += "peeling away"
 
 				if(org.is_stump())
-					status += "MISSING"
+					status += SPAN_DANGER("MISSING")
 				if(org.status & ORGAN_MUTATED)
 					status += "weirdly shapen"
 				if(org.dislocated == 2)
@@ -229,11 +218,11 @@
 				if(!org.is_usable())
 					status += "dangling uselessly"
 				if(org.status & ORGAN_BLEEDING)
-					status += span("danger", "bleeding")
+					status += SPAN_DANGER("bleeding")
 				if(status.len)
-					src.show_message("My [org.name] is [span("warning", "[english_list(status)].")]" ,1)
+					src.show_message("My [org.name] is [span("warning", "[english_list(status)].")]", 1)
 				else
-					src.show_message("My [org.name] is [span("notice", "OK.")]" ,1)
+					src.show_message("My [org.name] feels [span("notice", "OK.")]" ,1)
 
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
@@ -271,7 +260,7 @@
 			if(H && show_ssd && !client && !teleop)
 				if(H.bg)
 					to_chat(H, span("warning", "You sense some disturbance to your physical body, like someone is trying to wake you up."))
-				else
+				else if(!vr_mob)
 					M.visible_message(span("notice", "[M] shakes [src] trying to wake [t_him] up!"), \
 										span("notice", "You shake [src], but they do not respond... Maybe they have S.S.D?"))
 			else if(lying)
@@ -310,7 +299,7 @@
 				else if(istype(tapper))
 					tapper.species.tap(tapper,src)
 				else
-					M.visible_message(span("notice", "[M] taps [src] to get their attention!"), \
+					M.visible_message("<b>[M]</b> taps [src] to get their attention!", \
 								span("notice", "You tap [src] to get their attention!"))
 
 			if(stat != DEAD)
@@ -385,8 +374,6 @@
 	if(now_pushing)
 		return
 	. = ..()
-	if(istype(A, /mob/living/carbon) && prob(10))
-		src.spread_disease_to(A, "Contact")
 
 /mob/living/carbon/cannot_use_vents()
 	return

@@ -1,48 +1,23 @@
-/obj/effect/rune/revealrunes
-	can_talisman = TRUE
+/datum/rune/reveal_runes
+	name = "revealing rune"
+	desc = "This rune is used to reveal hidden runes in a radius around us."
+	rune_flags = HAS_SPECIAL_TALISMAN_ACTION
 
-/obj/effect/rune/revealrunes/do_rune_action(mob/living/user, obj/O = src)
-	var/reveal = FALSE
-	var/rad
+/datum/rune/reveal_runes/do_rune_action(mob/living/user, atom/movable/A)
+	reveal(user, A, 6, SPAN_WARNING("\The [A] turns into red dust, reveaing the surrounding runes."))
+
+/datum/rune/reveal_runes/do_talisman_action(mob/living/user, atom/movable/A)
+	reveal(user, A, 4, SPAN_WARNING("\The [A] turns into red dust, reveaing the surrounding runes."))
+
+/datum/rune/reveal_runes/proc/reveal(mob/living/user, atom/movable/A, var/radius = 6, var/message = SPAN_WARNING("The rune turns into red dust, reveaing the surrounding runes."))
 	var/did_reveal
-	if(istype(O, /obj/effect/rune))
-		rad = 6
-		reveal = TRUE
-	if(istype(O, /obj/item/paper/talisman))
-		rad = 4
-		reveal = TRUE
-	if(istype(O, /obj/item/nullrod))
-		rad = 2
-		reveal = TRUE
-	if(reveal)
-		for(var/obj/effect/rune/R in orange(rad, get_turf(src)))
-			if(R == src)
-				continue
-			R.invisibility = 0
-			did_reveal = TRUE
+	for(var/obj/effect/rune/R in orange(radius, get_turf(A)))
+		if(R == src)
+			continue
+		R.invisibility = 0
+		did_reveal = TRUE
 	if(did_reveal)
-		if(istype(O, /obj/item/nullrod))
-			visible_message(span("warning", "Arcane markings suddenly glow from underneath a thin layer of dust!"))
-			return
-		if(istype(O, /obj/effect/rune))
-			user.say("Nikt[pick("'","`")]o barada kla'atu!")
-			for(var/mob/V in viewers(src))
-				to_chat(V, span("warning", "The rune turns into red dust, reveaing the surrounding runes."))
-			qdel(src)
-			return TRUE
-		if(istype(O, /obj/item/paper/talisman))
-			user.whisper("Nikt[pick("'","`")]o barada kla'atu!")
-			to_chat(user, span("warning", "Your talisman turns into red dust, revealing the surrounding runes."))
-			for(var/mob/V in orange(1, user.loc))
-				if(V == user)
-					continue
-				to_chat(V, span("warning", "Red dust emanates from [user]'s hands for a moment."))
-			qdel(src)
-			return
-		return TRUE
-	if(istype(O, /obj/effect/rune))
-		return fizzle(user)
-	if(istype(O, /obj/item/paper/talisman))
-		var/datum/callback/cb = CALLBACK(src, /obj/effect/rune/.proc/fizzle)
-		cb.Invoke(user)
-		return
+		if(iscultist(user))
+			user.say("Nikt'o barada kla'atu!")
+		A.visible_message(message)
+	qdel(A)

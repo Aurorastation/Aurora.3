@@ -231,6 +231,12 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	var/list/obj/item/device/radio/radios = list()
 
+	// --- Gets the accent icon, if there is any ---
+	var/accent_icon
+	if(ishuman(M) && speaking)
+		var/mob/living/carbon/human/H = M
+		accent_icon = H.get_accent_icon(speaking)
+
 	// --- Broadcast only to intercom devices ---
 
 	if(data == 1)
@@ -268,6 +274,14 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 			if(R.receive_range(display_freq, level) > -1)
 				radios += R
 
+	// --- Radio sounds. ---
+
+	for(var/obj/item/device/radio/R in radios)
+		if((R.last_radio_sound + 1 SECOND) < world.time && R != radio)
+			playsound(R.loc, 'sound/effects/radio_chatter.ogg', 2.5, 0, -6, required_asfx_toggles = ASFX_RADIO)
+			R.last_radio_sound = world.time
+
+
 	// Get a list of mobs who can hear from the radios we collected.
 	var/list/receive = get_mobs_in_radio_ranges(radios)
 
@@ -280,7 +294,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	// Did not understand the message:
 	var/list/heard_voice 	= list() // voice message	(ie "chimpers")
 	var/list/heard_garbled	= list() // garbled message (ie "f*c* **u, **i*er!")
-	var/list/heard_gibberish= list() // completely screwed over message (ie "F%! (O*# *#!<>&**%!")
+	var/list/heard_gibberish= list() // completely screwed over message ie "F%! (O*# *#!<>&**%!")
 
 	for (var/mob/R in receive)
 
@@ -338,7 +352,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		var/part_b_extra = ""
 		if(data == 3) // intercepted radio message
 			part_b_extra = " <i>(Intercepted)</i>"
-		var/part_a = "<span class='[frequency_span_class(display_freq)]'><b>\[[freq_text]\][part_b_extra]</b> <span class='name'>" // goes in the actual output
+		var/part_a = "<span class='[frequency_span_class(display_freq)]'>[accent_icon ? accent_icon + " " : ""]<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>" // goes in the actual output
 
 		// --- Some more pre-message formatting ---
 		var/part_b = "</span> <span class='message'>" // Tweaked for security headsets -- TLE
@@ -382,6 +396,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_raider += blackbox_msg
 				if(NINJ_FREQ)
 					SSfeedback.msg_ninja += blackbox_msg
+				if(BURG_FREQ)
+					SSfeedback.msg_burglar += blackbox_msg
 				if(SUP_FREQ)
 					SSfeedback.msg_cargo += blackbox_msg
 				if(SRV_FREQ)
@@ -570,6 +586,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_raider += blackbox_msg
 				if(NINJ_FREQ)
 					SSfeedback.msg_ninja += blackbox_msg
+				if(BURG_FREQ)
+					SSfeedback.msg_burglar += blackbox_msg
 				if(SUP_FREQ)
 					SSfeedback.msg_cargo += blackbox_msg
 				if(SRV_FREQ)

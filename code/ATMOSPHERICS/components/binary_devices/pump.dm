@@ -13,12 +13,12 @@ Thus, the two variables affect pump operation are set in New():
 */
 
 /obj/machinery/atmospherics/binary/pump
+	name = "gas pump"
+	desc = "A pump."
+	desc_info = "This moves gas from one pipe to another.  A higher target pressure demands more energy.  The side with the red end is the output."
 	icon = 'icons/atmos/pump.dmi'
 	icon_state = "map_off"
 	level = 1
-
-	name = "gas pump"
-	desc = "A pump"
 
 	var/target_pressure = ONE_ATMOSPHERE
 

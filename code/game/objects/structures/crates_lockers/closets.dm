@@ -25,6 +25,7 @@
 	var/store_mobs = 1
 
 	var/const/default_mob_size = 15
+	var/obj/item/closet_teleporter/linked_teleporter
 
 /obj/structure/closet/LateInitialize()
 	if (opened)	// if closed, any item at the crate's loc is put in the contents
@@ -51,22 +52,27 @@
 // Fill lockers with this.
 /obj/structure/closet/proc/fill()
 
+/obj/structure/closet/proc/content_info(mob/user, content_size)
+	if(!content_size)
+		to_chat(user, "\The [src] is empty.")
+	else if(storage_capacity > content_size*4)
+		to_chat(user, "\The [src] is barely filled.")
+	else if(storage_capacity > content_size*2)
+		to_chat(user, "\The [src] is less than half full.")
+	else if(storage_capacity > content_size)
+		to_chat(user, "\The [src] still has some free space.")
+	else
+		to_chat(user, "\The [src] is full.")
+
 /obj/structure/closet/examine(mob/user)
 	if(..(user, 1) && !opened)
 		var/content_size = 0
 		for(var/obj/item/I in contents)
 			if(!I.anchored)
 				content_size += Ceiling(I.w_class/2)
-		if(!content_size)
-			to_chat(user, "It is empty.")
-		else if(storage_capacity > content_size*4)
-			to_chat(user, "It is barely filled.")
-		else if(storage_capacity > content_size*2)
-			to_chat(user, "It is less than half full.")
-		else if(storage_capacity > content_size)
-			to_chat(user, "There is still some free space.")
-		else
-			to_chat(user, "It is full.")
+		content_info(user, content_size)
+	if(linked_teleporter && Adjacent(user) && opened)
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("There appears to be a device attached to the interior backplate of \the [src]...")))
 
 /obj/structure/closet/proc/stored_weight()
 	var/content_size = 0
@@ -96,6 +102,8 @@
 		AD.forceMove(loc)
 
 	for(var/obj/I in src)
+		if(linked_teleporter && I == linked_teleporter)
+			continue
 		I.forceMove(loc)
 
 	for(var/mob/M in src)
@@ -136,10 +144,16 @@
 
 	icon_state = icon_closed
 	opened = 0
+	if(linked_teleporter)
+		if(linked_teleporter.last_use + 600 > world.time)
+			return
+		for(var/mob/M in contents)
+			linked_teleporter.do_teleport(M)
+		linked_teleporter.last_use = world.time
 
-	playsound(loc, close_sound, 25, 0, -3)
-	density = 1
-	return 1
+	playsound(get_turf(src), close_sound, 25, 0, -3)
+	density = TRUE
+	return TRUE
 
 //Cham Projector Exception
 /obj/structure/closet/proc/store_misc(var/stored_units)
@@ -219,7 +233,30 @@
 	..()
 	damage(proj_damage)
 
-/obj/structure/closet/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/closet/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/closet_teleporter))
+		if(linked_teleporter)
+			to_chat(user, SPAN_WARNING("\The [src] already has a linked teleporter!"))
+			return
+		var/obj/item/closet_teleporter/CT = W
+		user.visible_message(SPAN_NOTICE("\The [user] starts attaching \the [CT] to \the [src]..."), SPAN_NOTICE("You begin attaching \the [CT] to \the [src]..."), range = 3)
+		if(do_after(user, 30, TRUE, src))
+			user.visible_message(SPAN_NOTICE("\The [user] attaches \the [CT] to \the [src]."), SPAN_NOTICE("You attach \the [CT] to \the [src]."), range = 3)
+			linked_teleporter = CT
+			CT.attached_closet = src
+			user.drop_from_inventory(CT, src)
+		return
+	if(W.isscrewdriver())
+		if(!linked_teleporter)
+			to_chat(user, SPAN_WARNING("There is nothing to remove with a screwdriver here."))
+			return
+		user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [linked_teleporter] from \the [src]..."), SPAN_NOTICE("You begin detaching \the [linked_teleporter] from \the [src]..."), range = 3)
+		if(do_after(user, 30, TRUE, src))
+			user.visible_message(SPAN_NOTICE("\The [user] detaches \the [linked_teleporter] from \the [src]."), SPAN_NOTICE("You detach \the [linked_teleporter] from \the [src]."), range = 3)
+			linked_teleporter.attached_closet = null
+			user.put_in_hands(linked_teleporter)
+			linked_teleporter = null
+		return
 	if(opened)
 		if(istype(W, /obj/item/grab))
 			var/obj/item/grab/G = W
@@ -245,6 +282,9 @@
 						"<span class='notice'>[src] has been cut apart by [user] with [WT].</span>",
 						"<span class='notice'>You cut apart [src] with [WT].</span>"
 					)
+					if(linked_teleporter)
+						linked_teleporter.forceMove(get_turf(src))
+						linked_teleporter = null
 					qdel(src)
 					return
 		if(istype(W, /obj/item/storage/laundry_basket) && W.contents.len)
@@ -459,6 +499,14 @@
 			M.gib()
 		else if(A.simulated)
 			A.ex_act(1)
+	if(linked_teleporter)
+		linked_teleporter.forceMove(get_turf(src))
+		linked_teleporter = null
 	dump_contents()
 	new /obj/item/stack/material/steel(get_turf(src))
 	qdel(src)
+
+/obj/structure/closet/Destroy()
+	if(linked_teleporter)
+		QDEL_NULL(linked_teleporter)
+	return ..()

@@ -33,6 +33,15 @@
 		else
 			idle_threads.Remove(P)
 
+	for(var/s in enabled_services)
+		var/datum/computer_file/program/service = s
+		if(service.program_type & PROGRAM_SERVICE) // Safety checks
+			if(service.service_state == PROGRAM_STATE_ACTIVE)
+				if(active_program != service && !(service in idle_threads))
+					service.process_tick()
+			else
+				enabled_services -= service
+
 	working = hard_drive && processor_unit && damage < broken_damage && computer_use_power()
 	check_update_ui_need()
 
@@ -43,7 +52,7 @@
 /obj/item/modular_computer/proc/get_preset_programs(preset_type)
 	for(var/datum/modular_computer_app_presets/prs in ntnet_global.available_software_presets)
 		if(prs.type == preset_type)
-			return prs.return_install_programs()
+			return prs.return_install_programs(src)
 
 // Used to perform preset-specific hardware changes.
 /obj/item/modular_computer/proc/install_default_hardware()
@@ -54,6 +63,9 @@
 	if(enrolled)
 		var/programs = get_preset_programs(_app_preset_type)
 		for(var/datum/computer_file/program/prog in programs)
+			if(!prog.is_supported_by_hardware(hardware_flag, FALSE))
+				qdel(prog)
+				continue
 			hard_drive.store_file(prog)
 
 /obj/item/modular_computer/Initialize()
@@ -89,14 +101,17 @@
 	cut_overlays()
 	if(damage >= broken_damage)
 		icon_state = icon_state_broken
-		add_overlay("broken")
+		var/mutable_appearance/broken_overlay = mutable_appearance(icon, "broken", layer + 0.1, plane)
+		add_overlay(broken_overlay)
 		return
 	if(!enabled)
 		if(icon_state_screensaver && working)
-			if (is_holographic)
-				holographic_overlay(src, src.icon, icon_state_screensaver)
-			else
-				add_overlay(icon_state_screensaver)
+			var/icon/screensaver_icon = icon(icon, icon_state_screensaver)
+			if(is_holographic)
+				var/icon/alpha_mask = new('icons/effects/effects.dmi', "scanline")
+				screensaver_icon.AddAlphaMask(alpha_mask)
+			var/mutable_appearance/screensaver_overlay = mutable_appearance(screensaver_icon, pick(screensaver_icon.IconStates()), layer + 0.1, plane)
+			add_overlay(screensaver_overlay)
 
 		if (screensaver_light_range && working)
 			set_light(screensaver_light_range, 1, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
@@ -105,16 +120,20 @@
 		return
 	if(active_program)
 		var/state = active_program.program_icon_state ? active_program.program_icon_state : icon_state_menu
-		if (is_holographic)
-			holographic_overlay(src, src.icon, state)
-		else
-			add_overlay(state)
+		var/icon/state_icon = icon(icon, state)
+		if(is_holographic)
+			var/icon/alpha_mask = new('icons/effects/effects.dmi', "scanline")
+			state_icon.AddAlphaMask(alpha_mask)
+		var/mutable_appearance/state_overlay = mutable_appearance(state_icon, pick(state_icon.IconStates()), layer + 0.1, plane)
+		add_overlay(state_overlay)
 		set_light(light_strength, l_color = active_program.color)
 	else
-		if (is_holographic)
-			holographic_overlay(src, src.icon, icon_state_menu)
-		else
-			add_overlay(icon_state_menu)
+		var/icon/menu_icon = icon(icon, icon_state_menu)
+		if(is_holographic)
+			var/icon/alpha_mask = new('icons/effects/effects.dmi', "scanline")
+			menu_icon.AddAlphaMask(alpha_mask)
+		var/mutable_appearance/menu_overlay = mutable_appearance(menu_icon, pick(menu_icon.IconStates()), layer + 0.1, plane)
+		add_overlay(menu_overlay)
 		set_light(light_strength, l_color = menu_light_color)
 
 /obj/item/modular_computer/proc/turn_on(var/mob/user)
@@ -169,6 +188,13 @@
 	for(var/datum/computer_file/program/P in idle_threads)
 		P.kill_program(TRUE)
 		idle_threads.Remove(P)
+
+	for(var/s in enabled_services)
+		var/datum/computer_file/program/service = s
+		if(service.program_type & PROGRAM_SERVICE) // Safety checks
+			service.service_deactivate()
+			service.service_state = PROGRAM_STATE_KILLED
+
 	if(loud)
 		visible_message(SPAN_NOTICE("\The [src] shuts down."))
 	SSvueui.close_uis(src)
@@ -182,7 +208,13 @@
 	// Autorun feature
 	var/datum/computer_file/data/autorun = hard_drive ? hard_drive.find_file_by_name("autorun") : null
 	if(istype(autorun))
-		run_program(autorun.stored_data)
+		run_program(autorun.stored_data, user)
+
+	for(var/s in enabled_services)
+		var/datum/computer_file/program/service = s
+		if(service.program_type & PROGRAM_SERVICE) // Safety checks
+			service.service_activate()
+			service.service_state = PROGRAM_STATE_ACTIVE
 
 	if(user)
 		ui_interact(user)
@@ -201,9 +233,10 @@
 		ui_interact(user) // Re-open the UI on this computer. It should show the main screen now.
 
 
-/obj/item/modular_computer/proc/run_program(prog)
+/obj/item/modular_computer/proc/run_program(prog, mob/user)
 	var/datum/computer_file/program/P = null
-	var/mob/user = usr
+	if(!istype(user))
+		user = usr
 	if(hard_drive)
 		P = hard_drive.find_file_by_name(prog)
 
@@ -293,6 +326,58 @@
 
 /obj/item/modular_computer/get_cell()
 	return battery_module ? battery_module.get_cell() : DEVICE_NO_CELL
+
+/obj/item/modular_computer/proc/toggle_service(service, mob/user, var/datum/computer_file/program/S = null)
+	if(!S)
+		S = hard_drive?.find_file_by_name(service)
+
+	if(!istype(S)) // Program not found or it's not executable program.
+		to_chat(user, SPAN_WARNING("\The [src] displays, \"I/O ERROR - Unable to locate [service]\""))
+		return
+
+	if(S.service_state == PROGRAM_STATE_ACTIVE)
+		disable_service(null, user, S)
+	else
+		enable_service(null, user, S)
+
+
+/obj/item/modular_computer/proc/enable_service(service, mob/user, var/datum/computer_file/program/S = null)
+	if(!S)
+		S = hard_drive?.find_file_by_name(service)
+
+	if(!istype(S)) // Program not found or it's not executable program.
+		to_chat(user, SPAN_WARNING("\The [src] displays, \"I/O ERROR - Unable to enable [service]\""))
+		return
+
+	S.computer = src
+
+	if(!S.is_supported_by_hardware(hardware_flag, 1, user))
+		return
+
+	if(S in enabled_services)
+		return
+
+	enabled_services += S
+
+	// Start service
+	S.service_activate()
+	S.service_state = PROGRAM_STATE_ACTIVE
+
+
+/obj/item/modular_computer/proc/disable_service(service, mob/user, var/datum/computer_file/program/S = null)
+	if(!S)
+		S = hard_drive?.find_file_by_name(service)
+
+	if(!istype(S)) // Program not found or it's not executable program.
+		return
+
+	if(!(S in enabled_services))
+		return
+	enabled_services -= S
+
+	// Stop service
+	S.service_deactivate()
+	S.service_state = PROGRAM_STATE_KILLED
 
 /obj/item/modular_computer/proc/output_message(var/message, var/message_range)
 	message_range += message_output_range

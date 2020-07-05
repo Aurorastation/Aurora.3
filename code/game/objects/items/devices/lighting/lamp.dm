@@ -1,14 +1,15 @@
 /obj/item/device/flashlight/lamp
 	name = "desk lamp"
 	desc = "A desk lamp with an adjustable mount."
+	description_cult = "This can be reforged to become a pylon."
 	icon_state = "lamp"
 	item_state = "lamp"
 	center_of_mass = list("x" = 13,"y" = 11)
-	brightness_on = 5
-	w_class = 5
+	brightness_on = 4
+	w_class = ITEMSIZE_HUGE
 	flags = CONDUCT
 	uv_intensity = 100
-	on = 1
+	on = TRUE
 	slot_flags = 0 //No wearing desklamps
 	light_wedge = LIGHT_OMNI
 

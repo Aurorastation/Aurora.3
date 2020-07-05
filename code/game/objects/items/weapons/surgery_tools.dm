@@ -13,7 +13,8 @@
 	desc = "hey, you aren't supposed to have this"
 	icon = 'icons/obj/surgery.dmi'
 	w_class = 2.0
-	drop_sound = 'sound/items/drop/scrap.ogg'
+	drop_sound = 'sound/items/drop/weldingtool.ogg'
+	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_medical.dmi',
@@ -73,6 +74,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("drilled")
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /*
  * Scalpel
@@ -95,6 +97,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	drop_sound = 'sound/items/drop/knife.ogg'
+	pickup_sound = 'sound/items/pickup/knife.ogg'
 
 /*
  * Researchable Scalpels
@@ -146,6 +149,7 @@
 	sharp = 1
 	edge = 1
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 //misc, formerly from code/defines/weapons.dm
 /obj/item/surgery/bonegel
@@ -155,6 +159,7 @@
 	force = 0
 	throwforce = 1.0
 	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
 
 /obj/item/surgery/FixOVein
 	name = "FixOVein"
@@ -165,6 +170,7 @@
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 3)
 	var/usage_amount = 10
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/surgery/bonesetter
 	name = "bone setter"
@@ -183,6 +189,7 @@
 	icon_state = "surgerytray"
 	use_sound = null
 	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 	force = 2
 	w_class = 5.0
 	storage_slots = 10

@@ -3,7 +3,7 @@
 	exosuit_desc_string = "hydraulic quadlegs"
 	desc = "Xion Manufacturing Group's arachnid series boasts more leg per leg than the leading competitor."
 	icon_state = "spiderlegs"
-	max_damage = 80
+	max_damage = 160
 	move_delay = 4
 	turn_delay = 1
 	power_use = 2500
@@ -14,7 +14,7 @@
 	exosuit_desc_string = "armored tracks"
 	desc = "A classic brought back. The Hephaestus' Landmaster class tracks are impervious to most damage and can maintain top speed regardless of load. Watch out for corners."
 	icon_state = "tracks"
-	max_damage = 150
+	max_damage = 450
 	move_delay = 2 //Its fast
 	turn_delay = 7
 	power_use = 7500

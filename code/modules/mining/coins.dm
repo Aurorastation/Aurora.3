@@ -15,6 +15,7 @@
 	var/sides = 2
 	var/cmineral = null
 	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
 
 /obj/item/coin/New()
 	randpixel_xy()
@@ -100,5 +101,5 @@
 	flick("coin_[cmineral]_flip", src)
 	icon_state = "coin_[cmineral]_[comment]"
 	playsound(get_turf(src), 'sound/items/coinflip.ogg', 100, 1, -4)
-	user.visible_message(SPAN_NOTICE("\The [user] has thrown \the [src]. It lands on [comment]!"), \
+	user.visible_message(SPAN_NOTICE("\The [user] throws \the [src]. It lands on [comment]!"), \
 						 SPAN_NOTICE("You throw \the [src]. It lands on [comment]!"))

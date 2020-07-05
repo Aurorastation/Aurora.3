@@ -24,29 +24,29 @@
 /obj/item/modular_computer/console/preset/engineering
 	name = "engineering console"
 	_app_preset_type = /datum/modular_computer_app_presets/engineering
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/console/preset/engineering/ce
 	name = "engineering console"
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/ce
-	enrolled = TRUE
+	enrolled = 1
 
 // Medical
 /obj/item/modular_computer/console/preset/medical
 	name = "medical console"
 	_app_preset_type = /datum/modular_computer_app_presets/medical
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/console/preset/medical/cmo
 	name = "medical console"
 	_app_preset_type = /datum/modular_computer_app_presets/medical/cmo
-	enrolled = TRUE
+	enrolled = 1
 
 // Research
 /obj/item/modular_computer/console/preset/research
 	name = "research console"
 	_app_preset_type = /datum/modular_computer_app_presets/research
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/console/preset/research/install_default_hardware()
 	..()
@@ -56,7 +56,7 @@
 /obj/item/modular_computer/console/preset/command
 	name = "command console"
 	_app_preset_type = /datum/modular_computer_app_presets/command
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/console/preset/command/install_default_hardware()
 	..()
@@ -68,40 +68,40 @@
 /obj/item/modular_computer/console/preset/command/captain
 	name = "captain's console"
 	_app_preset_type = /datum/modular_computer_app_presets/captain
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/console/preset/command/hop
 	name = "command console"
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
-	enrolled = TRUE
+	enrolled = 1
 
 // Security
 /obj/item/modular_computer/console/preset/security
 	name = "security console"
 	_app_preset_type = /datum/modular_computer_app_presets/security
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/console/preset/security/investigations
 	name = "investigations console"
 	_app_preset_type = /datum/modular_computer_app_presets/security/investigations
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/console/preset/security/hos
 	name = "head of security's console"
 	_app_preset_type = /datum/modular_computer_app_presets/security/hos
-	enrolled = TRUE
+	enrolled = 1
 
 // Civilian
 /obj/item/modular_computer/console/preset/civilian
 	name = "civilian console"
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
-	enrolled = TRUE
+	enrolled = 1
 
 // Supply
 /obj/item/modular_computer/console/preset/supply
 	name = "supply console"
 	_app_preset_type = /datum/modular_computer_app_presets/supply
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/console/preset/supply/install_default_hardware()
 	..()

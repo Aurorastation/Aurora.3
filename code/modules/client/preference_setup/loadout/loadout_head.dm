@@ -28,16 +28,17 @@
 /datum/gear/head/cap/New()
 	..()
 	var/caps = list()
-	caps["blue cap"] = /obj/item/clothing/head/soft/blue
-	caps["flat cap"] = /obj/item/clothing/head/flatcap
-	caps["green cap"] = /obj/item/clothing/head/soft/green
-	caps["grey cap"] = /obj/item/clothing/head/soft/grey
+	caps["red cap"] = /obj/item/clothing/head/soft
 	caps["orange cap"] = /obj/item/clothing/head/soft/orange
+	caps["yellow cap"] = /obj/item/clothing/head/soft/yellow
+	caps["green cap"] = /obj/item/clothing/head/soft/green
+	caps["blue cap"] = /obj/item/clothing/head/soft/blue
 	caps["purple cap"] = /obj/item/clothing/head/soft/purple
 	caps["rainbow cap"] = /obj/item/clothing/head/soft/rainbow
-	caps["red cap"] = /obj/item/clothing/head/soft/red
-	caps["white cap"] = /obj/item/clothing/head/soft/mime
-	caps["yellow cap"] = /obj/item/clothing/head/soft/yellow
+	caps["black cap"] = /obj/item/clothing/head/soft/black
+	caps["grey cap"] = /obj/item/clothing/head/soft/grey
+	caps["white cap"] = /obj/item/clothing/head/soft/white
+	caps["flat cap"] = /obj/item/clothing/head/flatcap
 	caps["mailman cap"] = /obj/item/clothing/head/mailman
 	gear_tweaks += new/datum/gear_tweak/path(caps)
 
@@ -77,7 +78,7 @@
 /datum/gear/head/beret/medical
 	display_name = "beret, medical"
 	path = /obj/item/clothing/head/beret/medical
-	allowed_roles = list("Physician", "Surgeon", "Medical Resident", "Pharmacist", "Paramedic", "Chief Medial Officer", "Psychiatrist")
+	allowed_roles = list("Physician", "Surgeon", "Medical Resident", "Pharmacist", "Emergency Medical Technician", "Chief Medial Officer", "Psychiatrist")
 
 /datum/gear/head/corp
 	display_name = "cap, corporate (security)"
@@ -195,7 +196,7 @@
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/blue
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/head/surgical/New()
 	..()
@@ -228,7 +229,7 @@
 /datum/gear/head/iacberet
 	display_name = "IAC Beret"
 	path = /obj/item/clothing/head/soft/iacberet
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Resident")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/circuitry
@@ -251,3 +252,13 @@
 	display_name = "padded cap"
 	path = /obj/item/clothing/head/padded
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/himeo
+	display_name = "himean cap"
+	path = /obj/item/clothing/head/soft/himeo
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/vysoka
+	display_name = "vysokan fur cap"
+	path = /obj/item/clothing/head/soft/vysoka
+	flags = GEAR_HAS_DESC_SELECTION

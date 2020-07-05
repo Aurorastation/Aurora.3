@@ -123,6 +123,9 @@ var/global/list/golem_types = list("Coal Golem",
 		return TRUE
 	return FALSE
 
+/datum/species/golem/has_psi_potential()
+	return FALSE
+
 /datum/species/golem/iron
 	name = "Iron Golem"
 	name_plural = "iron golems"

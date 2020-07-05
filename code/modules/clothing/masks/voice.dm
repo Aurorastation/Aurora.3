@@ -3,11 +3,12 @@
 	desc = "A voice scrambling module. If you can see this, report it as a bug on the tracker."
 	var/voice //If set and item is present in mask/suit, this name will be used for the wearer's speech.
 	var/active
+	var/current_accent = ACCENT_CETI
 
 /obj/item/clothing/mask/gas/voice
 	var/obj/item/voice_changer/changer
 	origin_tech = list(TECH_ILLEGAL = 4)
-	description_antag = "This mask can be used to change the owner's voice."
+	desc_antag = "This mask can be used to change the owner's voice."
 
 /obj/item/clothing/mask/gas/voice/verb/Toggle_Voice_Changer()
 	set category = "Object"
@@ -24,6 +25,15 @@
 	if(!voice || !length(voice)) return
 	changer.voice = voice
 	to_chat(usr, span("notice", "You are now mimicking <B>[changer.voice]</B>."))
+
+/obj/item/clothing/mask/gas/voice/verb/Toggle_Accent()
+	set category = "Object"
+	set src in usr
+
+	var/choice = input(usr, "Please choose an accent to mimick.") as null|anything in SSrecords.accents
+	if(choice)
+		to_chat(usr, span("notice", "You are now mimicking the [choice] accent."))
+		changer.current_accent = choice
 
 /obj/item/clothing/mask/gas/voice/Initialize()
 	. = ..()

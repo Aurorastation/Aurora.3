@@ -7,7 +7,6 @@
 /area/mine/unexplored)
 "ac" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 9
 	},
 /turf/simulated/floor/airless/ceiling,
@@ -21,7 +20,6 @@
 /area/mine/unexplored)
 "ae" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 5
 	},
 /turf/simulated/floor/airless/ceiling,
@@ -48,7 +46,6 @@
 "aj" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 9
 	},
 /turf/simulated/floor/airless/ceiling,
@@ -63,7 +60,6 @@
 "al" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 5
 	},
 /turf/simulated/floor/airless/ceiling,
@@ -71,16 +67,14 @@
 "am" = (
 /obj/machinery/floodlight,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/mine/unexplored)
 "an" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	dir = 8
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/mine/unexplored)
@@ -92,7 +86,6 @@
 "ap" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 4
 	},
 /turf/simulated/floor/airless/ceiling,
@@ -100,14 +93,12 @@
 "aq" = (
 /obj/machinery/floodlight,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 4
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/mine/unexplored)
 "ar" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 10
 	},
 /turf/simulated/floor/airless/ceiling,
@@ -115,7 +106,6 @@
 "as" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 10
 	},
 /turf/simulated/floor/airless/ceiling,
@@ -128,14 +118,12 @@
 "au" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 6
 	},
 /turf/simulated/floor/airless/ceiling,
 /area/mine/unexplored)
 "av" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 6
 	},
 /turf/simulated/floor/airless/ceiling,
@@ -167,7 +155,6 @@
 "aA" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/structure/window/reinforced,
@@ -187,7 +174,6 @@
 "aC" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced,
@@ -267,7 +253,6 @@
 "aP" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	icon_state = "intact";
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -275,7 +260,6 @@
 "aQ" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/bed/chair/office/light{
-	icon_state = "officechair_white";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -296,7 +280,6 @@
 "aT" = (
 /obj/machinery/atmospherics/pipe/tank/air,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 5
 	},
 /turf/simulated/floor,
@@ -337,7 +320,6 @@
 /area/dungeon/anomaly_outpost)
 "aZ" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 10
 	},
 /obj/machinery/atmospherics/binary/passive_gate{
@@ -350,12 +332,10 @@
 /area/dungeon/anomaly_outpost)
 "ba" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	dir = 9
 	},
 /obj/structure/closet/crate/freezer/rations,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 6
 	},
 /turf/simulated/floor,
@@ -366,7 +346,6 @@
 /area/mine/unexplored)
 "bc" = (
 /obj/machinery/light/small/emergency{
-	icon_state = "bulb1";
 	dir = 4
 	},
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -390,7 +369,6 @@
 /obj/structure/table/rack,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/machinery/door/window/northright,
@@ -403,7 +381,6 @@
 /obj/structure/table/rack,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
-	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/machinery/door/window/northright,
@@ -423,7 +400,6 @@
 "bi" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 9
 	},
 /turf/simulated/floor,

@@ -1,8 +1,8 @@
-/obj/effect/rune/create_construct
-	can_talisman = TRUE
+/datum/rune/construct
+	name = "construct rune"
+	desc = "This rune is used to create a shell for one of our constructs. We must populate it with a soul in a soul shard, however."
 
-/obj/effect/rune/create_construct/do_rune_action(mob/living/user, obj/O = src)
-	user.say("N[pick("'","`")]ath reth sh'yro eth d'raggathnor!")
-	new /obj/structure/constructshell/cult(get_turf(O))
-	qdel(O)
-	return TRUE
+/datum/rune/construct/do_rune_action(mob/living/user, atom/movable/A)
+	user.say("N'ath reth! Sh'yro eth! D'raggathnor!")
+	new /obj/structure/constructshell/cult(get_turf(A))
+	qdel(A)

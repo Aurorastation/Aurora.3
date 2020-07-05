@@ -118,6 +118,33 @@
 	message_admins("<span class='notice'>\bold GlobalNarrate: [key_name_admin(usr)] : [msg]<BR></span>", 1)
 	feedback_add_details("admin_verb","GLN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+/client/proc/cmd_admin_local_narrate()
+	set category = "Special Verbs"
+	set name = "Local Narrate"
+
+	if(!check_rights(R_ADMIN, TRUE))
+		return
+	
+	var/list/mob/message_mobs = list()
+	var/choice = alert(usr, "Local narrate will send a plain message to mobs. Do you want the mobs messaged to be only ones that you can see, or ignore blocked vision and message everyone within seven tiles of you?", "Narrate Selection", "In my view", "In range of me", "Cancel")
+	if(choice != "Cancel")
+		if(choice == "In my view")
+			message_mobs = mobs_in_view(view, src.mob)
+		else
+			for(var/mob/M in range(view, src.mob))
+				message_mobs += M
+	else
+		return
+
+	var/msg = html_decode(sanitize(input("Message:", text("Enter the text you wish to appear to everyone within seven tiles of you:")) as text))
+	if(!msg)
+		return
+	for(var/M in message_mobs)
+		to_chat(M, msg)
+	log_admin("LocalNarrate: [key_name(usr)] : [msg]", admin_key = key_name(usr))
+	message_admins("<span class='notice'>\bold LocalNarrate: [key_name_admin(usr)] : [msg]<BR></span>", 1)
+	feedback_add_details("admin_verb", "LCLN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
 /client/proc/cmd_admin_direct_narrate(var/mob/M)	// Targetted narrate -- TLE
 	set category = "Special Verbs"
 	set name = "Direct Narrate"
@@ -295,6 +322,29 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 	G:show_message(text("<span class='notice'><B>You may now respawn.  You should roleplay as if you learned nothing about the round during your time with the dead.</B></span>"), 1)
 	log_admin("[key_name(usr)] allowed [key_name(G)] to bypass the 30 minute respawn limit",admin_key=key_name(usr),ckey=key_name(G))
 	message_admins("Admin [key_name_admin(usr)] allowed [key_name_admin(G)] to bypass the 30 minute respawn limit", 1)
+
+/client/proc/allow_stationbound_reset(mob/living/silicon/robot/R in range(world.view))
+	set category = "Special Verbs"
+	set name = "Allow Stationbound Reset"
+	set desc = "Select a stationbound to reset its module."
+
+	if(!check_rights(R_ADMIN, TRUE))
+		return
+	if(!R || !istype(R))
+		return
+
+	R.uneq_all()
+	R.mod_type = initial(R.mod_type)
+	R.hands.icon_state = "nomod"
+
+	R.module.Reset(R)
+	QDEL_NULL(R.module)
+	R.updatename("Default")
+
+	to_chat(R, FONT_LARGE(SPAN_NOTICE("An admin has allowed you to reset your module.")))
+
+	log_admin("[key_name(usr)] allowed [key_name(R)] to reset themselves as a stationbound.", admin_key = key_name(usr), ckey = key_name(R))
+	message_admins("Admin [key_name_admin(usr)] allowed [key_name_admin(R)] to reset themselves as a stationbound.", 1)
 
 
 /client/proc/toggle_antagHUD_use()

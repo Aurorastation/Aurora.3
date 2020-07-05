@@ -8,6 +8,7 @@
 /datum/firemode
 	var/name = "default"
 	var/list/settings = list()
+	var/list/original_settings
 
 /datum/firemode/New(obj/item/gun/gun, list/properties = null)
 	..()
@@ -24,13 +25,26 @@
 			settings[propname] = propvalue
 
 /datum/firemode/proc/apply_to(obj/item/gun/gun)
+	LAZYINITLIST(original_settings)
+
 	for(var/propname in settings)
+		original_settings[propname] = gun.vars[propname]
 		gun.vars[propname] = settings[propname]
+
+/datum/firemode/proc/unapply_to(obj/item/gun/gun)
+	if (LAZYLEN(original_settings))
+		for (var/propname in original_settings)
+			gun.vars[propname] = original_settings[propname]
+
+		LAZYCLEARLIST(original_settings)
+		original_settings = null
 
 //Parent gun type. Guns are weapons that can be aimed at mobs and act over a distance
 /obj/item/gun
 	name = "gun"
 	desc = "It's a gun. It's pretty terrible, though."
+	desc_info = "This is a gun.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	then click where you want to fire."
 	icon = 'icons/obj/guns/pistol.dmi'
 	var/gun_gui_icons = 'icons/obj/guns/gun_gui.dmi'
 	icon_state = "pistol"
@@ -49,6 +63,7 @@
 	zoomdevicename = "scope"
 
 	var/burst = 1
+	var/can_autofire = FALSE
 	var/fire_delay = 6 	//delay after shooting before the gun can be used again
 	var/burst_delay = 1	//delay between shots, if firing in bursts
 	var/move_delay = 0
@@ -63,7 +78,11 @@
 	var/list/dispersion = list(0)
 	var/reliability = 100
 
-	var/obj/item/device/firing_pin/pin = /obj/item/device/firing_pin//standard firing pin for most guns.
+	var/displays_maptext = FALSE
+	maptext_x = 22
+	maptext_y = 2
+
+	var/obj/item/device/firing_pin/pin = /obj/item/device/firing_pin //standard firing pin for most guns.
 
 	var/can_bayonet = FALSE
 	var/obj/item/material/knife/bayonet/bayonet
@@ -83,7 +102,6 @@
 	var/needspin = TRUE
 	var/is_wieldable = FALSE
 
-
 	//aiming system stuff
 	var/multi_aim = 0 //Used to determine if you can target multiple people.
 	var/tmp/list/mob/living/aim_targets //List of who yer targeting.
@@ -94,6 +112,7 @@
 	var/image/safety_overlay
 
 	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
 
 /obj/item/gun/Initialize(mapload)
 	. = ..()
@@ -108,6 +127,14 @@
 
 	if(pin && needspin)
 		pin = new pin(src)
+
+	if(istype(loc, /obj/item/robot_module))
+		has_safety = FALSE
+		displays_maptext = TRUE
+		update_maptext()
+
+	if(istype(loc, /obj/item/rig_module))
+		has_safety = FALSE
 
 	update_wield_verb()
 
@@ -263,7 +290,7 @@
 			to_chat(user, span("warning","\The [src] is not ready to fire again!"))
 		return FALSE
 
-	var/shoot_time = (burst - 1)* burst_delay
+	var/shoot_time = (burst - 1) * burst_delay
 	user.setClickCooldown(shoot_time)
 	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
@@ -290,7 +317,10 @@
 			process_point_blank(projectile, user, target)
 
 		if(process_projectile(projectile, user, target, user.zone_sel.selecting, clickparams))
-			handle_post_fire(user, target, pointblank, reflex, TRUE)
+			var/show_emote = TRUE
+			if(i > 1 && burst_delay < 3 && burst < 5)
+				show_emote = FALSE
+			handle_post_fire(user, target, pointblank, reflex, show_emote)
 			update_icon()
 
 		if(i < burst)
@@ -303,10 +333,9 @@
 	update_held_icon()
 
 	//update timing
-	var/delay = min(max(burst_delay+1, fire_delay), DEFAULT_QUICK_COOLDOWN)
-	if(delay)
-		user.setClickCooldown(delay)
-	next_fire_time = world.time + fire_delay
+	var/delay = max(burst_delay+1, fire_delay)
+	user.setClickCooldown(min(delay, DEFAULT_QUICK_COOLDOWN))
+	user.setMoveCooldown(move_delay)
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
 /obj/item/gun/proc/Fire_userless(atom/target)
@@ -377,8 +406,8 @@
 
 //called if there was no projectile to shoot
 /obj/item/gun/proc/handle_click_empty(mob/user)
-	if (user)
-		user.visible_message("*click click*", span("danger","*click*"))
+	if(user)
+		to_chat(user, span("danger","*click*"))
 	else
 		src.visible_message("*click click*")
 	playsound(loc, 'sound/weapons/empty.ogg', 100, 1)
@@ -393,14 +422,14 @@
 		if(playemote)
 			if(reflex)
 				user.visible_message(
-					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""] by reflex!</b>"),
-					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at \the [target]" : ""] by reflex!"),
+					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""] by reflex!</b>"),
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
 					"You hear a [fire_sound_text]!"
 				)
 			else
 				user.visible_message(
-					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at \the [target]" : ""]!"),
-					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at \the [target]" : ""]!"),
+					SPAN_DANGER("\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""]!"),
+					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""]!"),
 					"You hear a [fire_sound_text]!"
 				)
 
@@ -582,6 +611,9 @@
 	if(!firemodes.len)
 		return null
 
+	var/datum/firemode/old_mode = firemodes[sel_mode]
+	old_mode.unapply_to(src)
+
 	sel_mode++
 	if(sel_mode > firemodes.len)
 		sel_mode = 1
@@ -702,6 +734,8 @@
 	..()
 	queue_icon_update()
 	//Unwields the item when dropped, deletes the offhand
+	if(displays_maptext)
+		maptext = ""
 	if(is_wieldable)
 		if(user)
 			var/obj/item/offhand/O = user.get_inactive_hand()
@@ -712,6 +746,7 @@
 /obj/item/gun/pickup(mob/user)
 	..()
 	queue_icon_update()
+	update_maptext()
 	if(is_wieldable)
 		unwield()
 
@@ -748,8 +783,8 @@
 	if (!QDELETED(src))
 		qdel(src)
 
-/obj/item/offhand/mob_can_equip(var/mob/M, slot)
-		return FALSE
+/obj/item/offhand/mob_can_equip(var/mob/M, slot, disable_warning = FALSE)
+	return FALSE
 
 /obj/item/gun/Destroy()
 	if (istype(pin))
@@ -818,3 +853,18 @@
 				qdel(pin)
 				pin = null
 	return ..()
+
+/obj/item/gun/proc/get_ammo()
+	return 0
+
+//Autofire
+/obj/item/gun/proc/can_autofire()
+	return (can_autofire && world.time >= next_fire_time)
+
+/obj/item/gun/proc/update_maptext()
+	if(displays_maptext)
+		if(get_ammo() > 9)
+			maptext_x = 18
+		else
+			maptext_x = 22
+		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[get_ammo()]</span>"

@@ -68,7 +68,13 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
+		/mob/living/carbon/human/proc/check_tag,
 		/mob/living/carbon/human/proc/tie_hair)
+
+	bodyfall_sound = "bodyfall"
+
+	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_SILVERSUN, ACCENT_LUNA,
+							ACCENT_VENUS, ACCENT_MARTIAN, ACCENT_HIMEO)
 
 /datum/species/machine/shell/get_light_color()
 	return
@@ -94,9 +100,9 @@
 	)
 
 	unarmed_types = list(
-		/datum/unarmed_attack/stomp/ipc, 
-		/datum/unarmed_attack/kick/ipc,  
-		/datum/unarmed_attack/terminator, 
+		/datum/unarmed_attack/stomp/ipc,
+		/datum/unarmed_attack/kick/ipc,
+		/datum/unarmed_attack/terminator,
 		/datum/unarmed_attack/bite/strong)
 
 	inherent_verbs = list(
@@ -113,6 +119,7 @@
 	name_plural = "Industrials"
 	bald = 1
 	bodytype = "Heavy Machine"
+	mob_size = 12
 
 	unarmed_types = list(/datum/unarmed_attack/industrial)
 
@@ -164,7 +171,8 @@
 	sprint_charge_factor = 1.1
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics
+		/mob/living/carbon/human/proc/self_diagnostics,
+		/mob/living/carbon/human/proc/check_tag
 		)
 
 /datum/species/machine/industrial/get_light_color()
@@ -308,6 +316,7 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
+		/mob/living/carbon/human/proc/check_tag,
 		/mob/living/carbon/human/proc/crush
 	)
 
@@ -346,7 +355,7 @@
 		/datum/unarmed_attack/industrial/xion)
 
 	brute_mod = 0.9
-	grab_mod = 0.9 
+	grab_mod = 0.9
 	resist_mod = 8
 
 	heat_level_1 = 700
@@ -434,8 +443,12 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics
+		/mob/living/carbon/human/proc/self_diagnostics,
+		/mob/living/carbon/human/proc/check_tag
 		)
+
+	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_SILVERSUN, ACCENT_LUNA,
+							ACCENT_VENUS, ACCENT_MARTIAN, ACCENT_HIMEO)
 
 /datum/species/machine/zenghu/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
@@ -480,8 +493,11 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics
+		/mob/living/carbon/human/proc/self_diagnostics,
+		/mob/living/carbon/human/proc/check_tag
 		)
+
+	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_SILVERSUN, ACCENT_LUNA, ACCENT_VENUS)
 
 /datum/species/machine/bishop/get_light_color(mob/living/carbon/human/H)
 	if (istype(H))
@@ -519,7 +535,8 @@
 	)
 
 	inherent_verbs = list(
-		/mob/living/carbon/human/proc/self_diagnostics
+		/mob/living/carbon/human/proc/self_diagnostics,
+		/mob/living/carbon/human/proc/check_tag
 		)
 
 /datum/species/machine/unbranded/remote

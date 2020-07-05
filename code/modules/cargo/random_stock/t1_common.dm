@@ -234,8 +234,6 @@ STOCK_ITEM_COMMON(gloves, 3.3)
 		/obj/item/clothing/gloves,
 		/obj/item/clothing/gloves/fluff,
 		/obj/item/clothing/gloves/swat/bst,
-		/obj/item/clothing/gloves/swat/fluff/hawk_gloves,
-		/obj/item/clothing/gloves/black/fluff/kathleen_glove,
 		/obj/item/clothing/gloves/powerfist,
 		/obj/item/clothing/gloves/claws
 	)
@@ -243,7 +241,6 @@ STOCK_ITEM_COMMON(gloves, 3.3)
 	exclusion += typesof(/obj/item/clothing/gloves/lightrig)
 	exclusion += typesof(/obj/item/clothing/gloves/watch)
 	exclusion += typesof(/obj/item/clothing/gloves/fluff)
-	exclusion += typesof(/obj/item/clothing/gloves/yellow/fluff)
 	exclusion += typesof(/obj/item/clothing/gloves/ballistic)
 	allgloves -= exclusion
 
@@ -270,8 +267,7 @@ STOCK_ITEM_COMMON(scanners, 3.2)
 		/obj/item/device/reagent_scanner = 2,
 		/obj/item/device/reagent_scanner/adv = 2,
 		/obj/item/barcodescanner = 1,
-		/obj/item/device/depth_scanner = 1,
-		/obj/item/device/antibody_scanner = 0.5
+		/obj/item/device/depth_scanner = 1
 	)
 	for (var/i in 1 to rand(1, 3))
 		var/stype = pickweight(possible)

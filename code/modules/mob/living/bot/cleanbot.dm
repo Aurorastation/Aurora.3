@@ -12,37 +12,38 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 /mob/living/bot/cleanbot
 	name = "Cleanbot"
-	desc = "A little cleaning robot, he looks so excited!"
+	desc = "A little cleaning robot, consisting of a bucket, a proximity sensor, and a prosthetic arm. It looks excited to clean!"
 	icon_state = "cleanbot0"
 	req_one_access = list(access_janitor, access_robotics)
 	botcard_access = list(access_janitor, access_maint_tunnels)
 
-	locked = 0 // Start unlocked so roboticist can set them to patrol.
+	locked = FALSE // Start unlocked so roboticist can set them to patrol.
 
 	var/obj/effect/decal/cleanable/target
 	var/list/path = list()
 	var/list/patrol_path = list()
 	var/list/ignorelist = list()
 
-	var/obj/cleanbot_listener/listener = null
+	var/obj/cleanbot_listener/listener
 	var/beacon_freq = 1445 // navigation beacon frequency
 	var/signal_sent = 0
 	var/closest_dist
 	var/next_dest
 	var/next_dest_loc
 
-	var/cleaning = 0
-	var/screwloose = 0
-	var/oddbutton = 0
-	var/should_patrol = 0
-	var/blood = 1
+	var/cleaning = FALSE
+	var/screw_loose = FALSE
+	var/odd_button = FALSE
+	var/should_patrol = FALSE
+	var/cleans_blood = TRUE
 	var/list/target_types = list()
 
 	var/maximum_search_range = 7
 
 /mob/living/bot/cleanbot/Cross(atom/movable/crossed)
 	if(crossed)
-		if(istype(crossed,/mob/living/bot/cleanbot)) return 0
+		if(istype(crossed, /mob/living/bot/cleanbot))
+			return FALSE
 		return ..()
 
 /mob/living/bot/cleanbot/Initialize()
@@ -57,13 +58,13 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	SSradio.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
 /mob/living/bot/cleanbot/Destroy()
-	. = ..()
 	path = null
 	patrol_path = null
 	target = null
 	ignorelist = null
 	QDEL_NULL(listener)
 	global.janitorial_supplies -= src
+	return ..()
 
 /mob/living/bot/cleanbot/proc/handle_target()
 	if(target.clean_marked && target.clean_marked != src)
@@ -71,24 +72,22 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		path = list()
 		ignorelist |= target
 		return
-	if(loc == target.loc)
+	if(get_turf(src) == get_turf(target))
 		if(!cleaning)
 			UnarmedAttack(target)
-			return 1
+			return TRUE
 	if(!path.len)
-		path = AStar(loc, target.loc, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
+		path = AStar(get_turf(src), get_turf(target), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
 		if(!path)
-			//log_debug("[src] can't reach [target.name] ([target.x], [target.y])")
 			ignorelist |= target
 			target.clean_marked = null
 			target = null
 			path = list()
 		return
-	if(path.len)
+	else
 		step_to(src, path[1])
 		path -= path[1]
-		return 1
-	return
+		return TRUE
 
 /mob/living/bot/cleanbot/proc/remove_from_ignore(path)
 	ignorelist -= path
@@ -107,23 +106,24 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	if(cleaning)
 		return
 
-	if(!screwloose && !oddbutton && prob(2))
+	if(!screw_loose && !odd_button && prob(2) && world.time > last_emote + 2 MINUTES)
 		custom_emote(2, "makes an excited beeping booping sound!")
+		last_emote = world.time
 
-	if(screwloose && prob(5)) // Make a mess
+	if(screw_loose && prob(5)) // Make a mess
 		if(istype(loc, /turf/simulated))
 			var/turf/simulated/T = loc
 			T.wet_floor()
 
-	if(oddbutton && prob(5)) // Make a big mess
-		visible_message("Something flies out of [src]. He seems to be acting oddly.")
-		var/obj/effect/decal/cleanable/blood/gibs/gib = new /obj/effect/decal/cleanable/blood/gibs(loc)
+	if(odd_button && prob(5)) // Make a big mess
+		visible_message(SPAN_WARNING("Some bloody gibs fall out of [src]..."))
+		var/obj/effect/decal/cleanable/blood/gibs/gib = new /obj/effect/decal/cleanable/blood/gibs(get_turf(src))
 		ignorelist += gib
 		addtimer(CALLBACK(src, .proc/remove_from_ignore, gib), 600)
 
 /mob/living/bot/cleanbot/think()
 	..()
-	if (!on)
+	if(!on)
 		return
 
 	if(pulledby) // Don't wiggle if someone pulls you
@@ -137,11 +137,12 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	// This loop will progressively search outwards for /cleanables in view(), gradually to prevent excessively large view() calls when none are needed.
 	search_for: // We use the label so we can break out of this loop from within the next loop.
 		// Not breaking out of these loops properly is where the infinite loop was coming from before.
-		for(var/i=0, i <= maximum_search_range, i++)
+		for(var/i = 0, i <= maximum_search_range, i++)
 			clean_for: // This one isn't really needed in this context, but it's good to have in case we expand later.
 				for(var/obj/effect/decal/cleanable/D in view(i, src))
-					if(D.clean_marked && D.clean_marked != src) continue clean_for
-					var/mob/living/bot/cleanbot/other_bot = locate() in D.loc
+					if(D.clean_marked && D.clean_marked != src)
+						continue clean_for
+					var/mob/living/bot/cleanbot/other_bot = locate() in get_turf(D)
 					if(other_bot && other_bot.cleaning && other_bot != src)
 						continue clean_for
 					if((D in ignorelist))
@@ -153,9 +154,8 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 						target = D
 						D.clean_marked = src
 						found_spot = handle_target()
-						if (found_spot)
+						if(found_spot)
 							break search_for // If the target location is found and pathed properly, break the search loop.
-
 						else
 							target = null // Otherwise we want to try the next cleanable in view, if any.
 							D.clean_marked = null
@@ -197,44 +197,47 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 				patrol_path -= patrol_path[1]
 
 /mob/living/bot/cleanbot/UnarmedAttack(var/obj/effect/decal/cleanable/D, var/proximity)
-	if(!..())
+	. = ..()
+	if(!.)
 		return
 
+	if(isturf(D))
+		D = locate(/obj/effect/decal/cleanable) in D
 	if(!istype(D))
 		return
 
-	if(D.loc != loc)
+	if(!src.Adjacent(D))
 		return
 
-	cleaning = 1
-	target.being_cleaned = 1
+	cleaning = TRUE
+	D.being_cleaned = TRUE
 	update_icons()
-	var/cleantime = istype(D, /obj/effect/decal/cleanable/dirt) ? 10 : 50
-	spawn(1)
-		if(do_after(src, cleantime))
-			if(istype(loc, /turf/simulated))
-				var/turf/simulated/f = loc
-				f.dirt = 0
-			if(!D)
-				return
-			D.clean_marked = null
-			if(D == target)
-				target.being_cleaned = 0
-				target = null
-			qdel(D)
-		cleaning = 0
-		update_icons()
+	var/clean_time = istype(D, /obj/effect/decal/cleanable/dirt) ? 10 : 50
+	INVOKE_ASYNC(src, .proc/do_clean, D, clean_time)
+
+/mob/living/bot/cleanbot/proc/do_clean(var/obj/effect/decal/cleanable/D, var/clean_time)
+	if(D && do_after(src, clean_time))
+		if(istype(D.loc, /turf/simulated))
+			var/turf/simulated/f = loc
+			f.dirt = 0
+		if(!D)
+			return
+		D.clean_marked = null
+		if(D == target)
+			target.being_cleaned = FALSE
+			target = null
+		qdel(D)
+	cleaning = FALSE
+	update_icons()
 
 /mob/living/bot/cleanbot/explode()
-	on = 0
-	visible_message("<span class='danger'>[src] blows apart!</span>")
-	var/turf/Tsec = get_turf(src)
-
-	new /obj/item/reagent_containers/glass/bucket(Tsec)
-	new /obj/item/device/assembly/prox_sensor(Tsec)
+	on = FALSE // the first thing i do when i explode is turn off, tbh - geeves
+	visible_message(SPAN_WARNING("[src] blows apart!"))
+	var/turf/T = get_turf(src)
+	new /obj/item/reagent_containers/glass/bucket(T)
+	new /obj/item/device/assembly/prox_sensor(T)
 	if(prob(50))
-		new /obj/item/robot_parts/l_arm(Tsec)
-
+		new /obj/item/robot_parts/l_arm(T)
 	spark(src, 3, alldirs)
 	qdel(src)
 	return
@@ -252,8 +255,8 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	patrol_path = list()
 
 /mob/living/bot/cleanbot/attack_hand(var/mob/user)
-	if (!has_ui_access(user) && !emagged)
-		to_chat(user, "<span class='warning'>The unit's interface refuses to unlock!</span>")
+	if(!has_ui_access(user) && !emagged)
+		to_chat(user, SPAN_WARNING("The unit's interface refuses to unlock!"))
 		return
 
 	var/dat
@@ -262,11 +265,11 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	dat += "Behaviour controls are [locked ? "locked" : "unlocked"]<BR>"
 	dat += "Maintenance panel is [open ? "opened" : "closed"]"
 	if(!locked || issilicon(user))
-		dat += "<BR>Cleans Blood: <A href='?src=\ref[src];operation=blood'>[blood ? "Yes" : "No"]</A><BR>"
+		dat += "<BR>Cleans Blood: <A href='?src=\ref[src];operation=blood'>[cleans_blood ? "Yes" : "No"]</A><BR>"
 		dat += "<BR>Patrol station: <A href='?src=\ref[src];operation=patrol'>[should_patrol ? "Yes" : "No"]</A><BR>"
 	if(open && !locked)
-		dat += "Odd looking screw twiddled: <A href='?src=\ref[src];operation=screw'>[screwloose ? "Yes" : "No"]</A><BR>"
-		dat += "Weird button pressed: <A href='?src=\ref[src];operation=oddbutton'>[oddbutton ? "Yes" : "No"]</A>"
+		dat += "Odd looking screw twiddled: <A href='?src=\ref[src];operation=screw'>[screw_loose ? "Yes" : "No"]</A><BR>"
+		dat += "Weird button pressed: <A href='?src=\ref[src];operation=odd_button'>[odd_button ? "Yes" : "No"]</A>"
 
 	user << browse("<HEAD><TITLE>Cleaner v1.1 controls</TITLE></HEAD>[dat]", "window=autocleaner")
 	onclose(user, "autocleaner")
@@ -278,8 +281,8 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	usr.set_machine(src)
 	add_fingerprint(usr)
 
-	if (!has_ui_access(usr) && !emagged)
-		to_chat(usr, "<span class='warning'>Insufficient permissions.</span>")
+	if(!has_ui_access(usr) && !emagged)
+		to_chat(usr, SPAN_WARNING("Insufficient permissions."))
 		return
 
 	switch(href_list["operation"])
@@ -289,31 +292,31 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 			else
 				turn_on()
 		if("blood")
-			blood = !blood
+			cleans_blood = !cleans_blood
 			get_targets()
 		if("patrol")
 			should_patrol = !should_patrol
 			patrol_path = list()
 		if("freq")
-			var/freq = text2num(input("Select frequency for  navigation beacons", "Frequnecy", num2text(beacon_freq / 10))) * 10
-			if (freq > 0)
+			var/freq = text2num(input("Select frequency for navigation beacons", "Frequnecy", num2text(beacon_freq / 10))) * 10
+			if(freq > 0)
 				beacon_freq = freq
 		if("screw")
-			screwloose = !screwloose
-			to_chat(usr, "<span class='notice'>You twiddle the screw.</span>")
-		if("oddbutton")
-			oddbutton = !oddbutton
-			to_chat(usr, "<span class='notice'>You press the weird button.</span>")
+			screw_loose = !screw_loose
+			to_chat(usr, SPAN_NOTICE("You twiddle the screw."))
+		if("odd_button")
+			odd_button = !odd_button
+			to_chat(usr, SPAN_NOTICE("You press the weird button."))
 	attack_hand(usr)
 
 /mob/living/bot/cleanbot/emag_act(var/remaining_uses, var/mob/user)
 	. = ..()
-	if(!screwloose || !oddbutton)
+	if(!screw_loose || !odd_button)
 		if(user)
-			to_chat(user, "<span class='notice'>The [src] buzzes and beeps.</span>")
-		oddbutton = 1
-		screwloose = 1
-		return 1
+			to_chat(user, SPAN_NOTICE("The [src] buzzes and beeps."))
+		odd_button = TRUE
+		screw_loose = TRUE
+		return TRUE
 
 /mob/living/bot/cleanbot/proc/get_targets()
 	// To avoid excessive loops, instead of storing a list of top-level types, we're going to store a list of all cleanables.
@@ -327,19 +330,8 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 						/obj/effect/decal/cleanable/crayon,/obj/effect/decal/cleanable/liquid_fuel,/obj/effect/decal/cleanable/mucus,/obj/effect/decal/cleanable/dirt)
 						 // I honestly forgot you could pass multiple types to typesof() until I accidentally did it here.
 	target_types = cleanbot_types.Copy()
-	if(!blood)
+	if(!cleans_blood)
 		target_types -= typesof(/obj/effect/decal/cleanable/blood)-typesof(/obj/effect/decal/cleanable/blood/oil)
-/*	target_types = list()
-
-	target_types += /obj/effect/decal/cleanable/blood/oil
-	target_types += /obj/effect/decal/cleanable/vomit
-	target_types += /obj/effect/decal/cleanable/crayon
-	target_types += /obj/effect/decal/cleanable/liquid_fuel
-	target_types += /obj/effect/decal/cleanable/mucus
-	target_types += /obj/effect/decal/cleanable/dirt
-
-	if(blood)
-		target_types += /obj/effect/decal/cleanable/blood*/
 
 /* Radio object that listens to signals */
 
@@ -367,28 +359,26 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 /* Assembly */
 
 /obj/item/bucket_sensor
-	desc = "It's a bucket. With a sensor attached."
 	name = "proxy bucket"
+	desc = "It's a bucket. With a sensor attached."
 	icon = 'icons/obj/aibots.dmi'
 	icon_state = "bucket_proxy"
-	force = 3.0
-	throwforce = 10.0
+	force = 3
+	throwforce = 10
 	throw_speed = 2
 	throw_range = 5
-	w_class = 3.0
 	var/created_name = "Cleanbot"
 
 /obj/item/bucket_sensor/attackby(var/obj/item/O, var/mob/user)
 	..()
 	if(istype(O, /obj/item/robot_parts/l_arm) || istype(O, /obj/item/robot_parts/r_arm))
-		user.drop_from_inventory(O,get_turf(src))
+		user.drop_from_inventory(O, get_turf(src))
 		qdel(O)
-		var/turf/T = get_turf(loc)
+		var/turf/T = get_turf(src)
 		var/mob/living/bot/cleanbot/A = new /mob/living/bot/cleanbot(T)
 		A.name = created_name
-		to_chat(user, "<span class='notice'>You add the robot arm to the bucket and sensor assembly. Beep boop!</span>")
+		to_chat(user, SPAN_NOTICE("You add the robot arm to the bucket and sensor assembly. Beep boop!"))
 		qdel(src)
-
 	else if(O.ispen())
 		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)
 		if(!t)

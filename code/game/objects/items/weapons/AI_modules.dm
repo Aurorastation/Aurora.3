@@ -45,10 +45,14 @@ AI MODULES
 		else
 			src.transmitInstructions(comp.current, usr)
 			to_chat(comp.current, "These are your laws now:")
+			if(comp.current.vr_mob)
+				to_chat(comp.current.vr_mob, "These are your laws now:")
 			comp.current.show_laws()
 			for(var/mob/living/silicon/robot/R in mob_list)
 				if(R.law_update && (R.connected_ai == comp.current))
 					to_chat(R, "These are your laws now:")
+					if(R.vr_mob)
+						to_chat(R.vr_mob, "These are your laws now:")
 					R.show_laws()
 			to_chat(usr, "Upload complete. The AI's laws have been modified.")
 

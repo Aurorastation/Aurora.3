@@ -11,6 +11,7 @@ var/list/global_huds
 /datum/hud/var/obj/screen/help_intent
 
 /datum/global_hud
+	var/obj/screen/vr_control
 	var/obj/screen/druggy
 	var/obj/screen/blurry
 	var/list/vimpaired
@@ -40,6 +41,8 @@ var/list/global_huds
 	druggy.icon_state = "druggy"
 	druggy.layer = 17
 	druggy.mouse_opacity = 0
+	druggy.alpha = 127
+	druggy.blend_mode = BLEND_MULTIPLY
 
 	//that white blurry effect you get when you eyes are damaged
 	blurry = new /obj/screen()
@@ -47,6 +50,14 @@ var/list/global_huds
 	blurry.icon_state = "blurry"
 	blurry.layer = 17
 	blurry.mouse_opacity = 0
+	blurry.alpha = 100
+
+	vr_control = new /obj/screen()
+	vr_control.icon = 'icons/mob/screen/full.dmi'
+	vr_control.icon_state = "vr_control"
+	vr_control.screen_loc = "1,1"
+	vr_control.mouse_opacity = 0
+	vr_control.alpha = 120
 
 	nvg = setup_overlay("scanline", "#06ff00")
 	thermal = setup_overlay("scanline", "#ff0000")

@@ -16,20 +16,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/flame
 	var/lit = 0
 
-/proc/isflamesource(A)
-	var/obj/item/I = A
-	if(I.iswelder())
-		var/obj/item/weldingtool/WT = A
-		return (WT.isOn())
-	else if(istype(I, /obj/item/flame))
-		var/obj/item/flame/F = I
-		return (F.lit)
-	else if(istype(I, /obj/item/device/assembly/igniter))
-		return 1
-	else if(istype(I, /obj/item/clothing/gloves/fluff/lunea_gloves))
-		var/obj/item/clothing/gloves/fluff/lunea_gloves/F = I
-		return (F.lit)
-	return 0
+/obj/item/flame/isFlameSource()
+	return lit
 
 ///////////
 //MATCHES//
@@ -51,6 +39,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	slot_flags = SLOT_EARS
 	attack_verb = list("burnt", "singed")
 	drop_sound = 'sound/items/drop/food.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
 
 /obj/item/flame/match/process()
 	if(isliving(loc))
@@ -102,6 +91,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/icon_off
 	var/type_butt = null
 	var/chem_volume = 15 //Size of a syringe
+	var/genericmes = "USER lights NAME with FLAME"
 	var/matchmes = "USER lights NAME with FLAME"
 	var/lightermes = "USER lights NAME with FLAME"
 	var/zippomes = "USER lights NAME with FLAME"
@@ -111,6 +101,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/burn_rate = 0
 	var/last_drag = 0 //Spam limiter for audio/message when taking a drag of cigarette.
 	drop_sound = 'sound/items/drop/food.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
 
 /obj/item/clothing/mask/smokable/Initialize()
 	. = ..()
@@ -204,7 +195,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-	if(isflamesource(W))
+	if(W.isFlameSource())
 		var/text = matchmes
 		if(istype(W, /obj/item/flame/match))
 			text = matchmes
@@ -216,10 +207,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			text = weldermes
 		else if(istype(W, /obj/item/device/assembly/igniter))
 			text = ignitermes
-		text = replacetext(text, "USER", "[user]")
-		text = replacetext(text, "NAME", "[name]")
-		text = replacetext(text, "FLAME", "[W.name]")
+		else
+			text = genericmes
+		text = replacetext(text, "USER", "\the [user]")
+		text = replacetext(text, "NAME", "\the [name]")
+		text = replacetext(text, "FLAME", "\the [W.name]")
 		light(text)
+
+/obj/item/clothing/mask/smokable/isFlameSource()
+	return lit
 
 /obj/item/clothing/mask/smokable/cigarette
 	name = "cigarette"
@@ -345,9 +341,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	reagents.add_reagent("tobaccobad",10)
 	reagents.add_reagent("nicotine",5)
 
-/obj/item/clothing/mask/smokable/cigarette/pra
+/obj/item/clothing/mask/smokable/cigarette/adhomai
+	name = "adhomian cigarette"
+	desc = "An adhomian cigarette made from processed S'rendarr's Hand."
 
-/obj/item/clothing/mask/smokable/cigarette/pra/Initialize()
+/obj/item/clothing/mask/smokable/cigarette/adhomai/Initialize()
 	. = ..()
 	reagents.clear_reagents()
 	reagents.add_reagent("tobacco",5)
@@ -373,6 +371,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	weldermes = "<span class='notice'>USER insults NAME by lighting it with FLAME.</span>"
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME with the power of science.</span>"
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/Initialize()
 	. = ..()
@@ -480,6 +479,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	weldermes = "<span class='notice'>USER recklessly lights NAME with FLAME.</span>"
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME with the power of science.</span>"
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/clothing/mask/smokable/pipe/Initialize()
 	. = ..()
@@ -590,6 +590,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	)
 	var/deactivation_sound = 'sound/items/cigs_lighters/cheap_off.ogg'
 	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /obj/item/flame/lighter/zippo
 	name = "\improper Zippo lighter"
@@ -599,21 +600,29 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
 	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
-/obj/item/flame/lighter/random
-	New()
-		icon_state = "lighter-[pick("r","c","y","g")]"
-		item_state = icon_state
-		base_state = icon_state
+/obj/item/flame/lighter/random/Initialize()
+	. = ..()
+	icon_state = "lighter-[pick("r","c","y","g")]"
+	item_state = icon_state
+	base_state = icon_state
+
+/obj/item/flame/lighter/zippo/update_icon()
+	if(lit)
+		icon_state = "[base_state]on"
+		item_state = "[base_state]on"
+	else
+		icon_state = "[base_state]"
+		item_state = "[base_state]"
 
 /obj/item/flame/lighter/attack_self(mob/living/user)
 	if(!base_state)
 		base_state = icon_state
 	if(user.r_hand == src || user.l_hand == src)
 		if(!lit)
-			lit = 1
-			icon_state = "[base_state]on"
-			item_state = "[base_state]on"
+			lit = TRUE
+			update_icon()
 			playsound(src.loc, pick(activation_sound), 75, 1)
 			if(istype(src, /obj/item/flame/lighter/zippo) )
 				user.visible_message(span("notice", "Without even breaking stride, [user] flips open and lights [src] in one smooth movement."))
@@ -634,9 +643,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			set_light(2, 1, l_color = LIGHT_COLOR_LAVA)
 			START_PROCESSING(SSprocessing, src)
 		else
-			lit = 0
-			icon_state = "[base_state]"
-			item_state = "[base_state]"
+			lit = FALSE
+			update_icon()
 			playsound(src.loc, deactivation_sound, 75, 1)
 			if(istype(src, /obj/item/flame/lighter/zippo) )
 				user.visible_message(span("notice", "You hear a quiet click, as [user] shuts off [src] without even looking at what they're doing."))

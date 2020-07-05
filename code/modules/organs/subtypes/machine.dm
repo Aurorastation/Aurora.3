@@ -138,13 +138,73 @@
 	name = "identification tag"
 	organ_tag = "ipc tag"
 	parent_organ = BP_HEAD
-	icon = 'icons/obj/telescience.dmi'
-	icon_state = "gps-c"
-	dead_icon = "gps-c"
+	icon = 'icons/obj/ipc_utilities.dmi'
+	icon_state = "ipc_tag"
+	item_state = "ipc_tag"
+	dead_icon = "ipc_tag_dead"
+	contained_sprite = TRUE
+	var/auto_generate = TRUE
+	var/serial_number = ""
+	var/ownership_info = IPC_OWNERSHIP_COMPANY
+	var/citizenship_info = CITIZENSHIP_BIESEL
 
 /obj/item/organ/internal/ipc_tag/Initialize()
 	robotize()
 	. = ..()
+
+/obj/item/organ/internal/ipc_tag/examine(mob/user)
+	..()
+	to_chat(user, SPAN_NOTICE("Serial Autogeneration: [auto_generate ? "Yes" : "No"]"))
+	to_chat(user, SPAN_NOTICE("Serial Number: [serial_number]"))
+	to_chat(user, SPAN_NOTICE("Ownership Info: [ownership_info]"))
+	to_chat(user, SPAN_NOTICE("Citizenship Info: [citizenship_info]"))
+
+/obj/item/organ/internal/ipc_tag/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/ipc_tag_scanner))
+		if(src.loc != user)
+			to_chat(user, SPAN_WARNING("You can't scan \the [src] if it's not on your person!"))
+			return
+		var/obj/item/ipc_tag_scanner/S = W
+		if(!S.powered)
+			to_chat(user, SPAN_WARNING("\The [src] reads, \"Scanning failure, please submit scanner for repairs.\""))
+			return
+		if(!S.hacked)
+			user.examinate(src)
+		else
+			user.visible_message(SPAN_WARNING("\The [user] starts fiddling with \the [src]..."), SPAN_NOTICE("You start fiddling with \the [src]..."))
+			if(do_after(user, 30, TRUE, src))
+				if(src.loc != user)
+					to_chat(user, SPAN_WARNING("You can only modify \the [src] if it's on your person!"))
+					return
+				var/static/list/modification_options = list("Serial Number", "Ownership Status", "Citizenship")
+				var/choice = input(user, "How do you want to modify the IPC tag?", "IPC Tag Modification") as null|anything in modification_options
+				if(choice)
+					if(choice == "Serial Number")
+						var/serial_selection = alert(user, "In what way do you want to modify the serial number?", "Serial Number Selection", "Auto Generation", "Manual Input", "Cancel")
+						if(serial_selection != "Cancel")
+							if(serial_selection == "Auto Generation")
+								var/auto_generation_choice = alert(user, "Do you wish for the IPC tag to automatically generate its serial number based on the IPCs name?", "Serial Autogeneration", "Yes", "No")
+								if(auto_generation_choice == "Yes")
+									auto_generate = TRUE
+								else
+									auto_generate = FALSE
+							if(serial_selection == "Manual Input")
+								var/new_serial = input(user, "What do you wish for the new serial number to be? (Limit of 12 characters)", "Serial Number Modification", serial_number) as text|null
+								new_serial = uppertext(dd_limittext(new_serial, 12))
+								if(new_serial)
+									serial_number = new_serial
+									auto_generate = FALSE
+					if(choice == "Ownership Status")
+						var/static/list/ownership_options = list(IPC_OWNERSHIP_COMPANY, IPC_OWNERSHIP_PRIVATE, IPC_OWNERSHIP_SELF)
+						var/new_ownership = input(user, "What do you wish for the new ownership status to be?", "Ownership Status Modification") as null|anything in ownership_options
+						if(new_ownership)
+							ownership_info = new_ownership
+					if(choice == "Citizenship")
+						var/datum/citizenship/citizenship = input(user, "What do you wish for the new citizenship setting to be?", "Citizenship Setting Modification") as null|anything in SSrecords.citizenships
+						if(citizenship)
+							citizenship_info = citizenship
+	else
+		..()
 
 // Used for an MMI or posibrain being installed into a human.
 /obj/item/organ/internal/mmi_holder

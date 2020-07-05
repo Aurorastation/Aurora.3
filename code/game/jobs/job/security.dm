@@ -7,6 +7,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
+	intro_prefix = "the"
 	supervisors = "the captain"
 	selection_color = "#FF6363"
 	economic_modifier = 10
@@ -26,7 +27,7 @@
 	minimal_player_age = 14
 	outfit = /datum/outfit/job/hos
 
-	blacklisted_species = list("Off-Worlder Human", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Diona", "Hephaestus G2 Industrial Frame", "Vaurca Worker", "Vaurca Warrior")
+	blacklisted_species = list("Off-Worlder Human", "Zhan-Khazan Tajara", "Diona", "Hephaestus G2 Industrial Frame", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/hos
 	name = "Head of Security"
@@ -261,6 +262,7 @@
 	access = list(access_security, access_sec_doors, access_maint_tunnels)
 	minimal_access = list(access_security, access_sec_doors)
 	outfit = /datum/outfit/job/intern_sec
+	minimum_character_age = 18
 
 /datum/outfit/job/intern_sec
 	name = "Security Cadet"

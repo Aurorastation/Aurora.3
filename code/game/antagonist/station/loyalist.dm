@@ -3,7 +3,7 @@ var/datum/antagonist/loyalists/loyalists
 /datum/antagonist/loyalists
 	id = MODE_LOYALIST
 	role_text = "Head Fellow"
-	role_text_plural = "The Fellowship"
+	role_text_plural = "Fellowship"
 	bantype = "loyalist"
 	feedback_tag = "loyalist_objective"
 	antag_indicator = "fellowshiphead"
@@ -13,7 +13,6 @@ var/datum/antagonist/loyalists/loyalists
 	victory_feedback_tag = "You thwarted the Contenders in their devious ends."
 	loss_feedback_tag = "You were thwarted by the Contenders."
 	antaghud_indicator = "fellowship"
-	flags = 0
 
 	hard_cap = 2
 	hard_cap_round = 4

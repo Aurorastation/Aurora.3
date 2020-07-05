@@ -1,7 +1,6 @@
 /obj/item/device/radio/headset
 	name = "radio headset"
 	desc = "An updated, modular intercom that fits over the head. Takes encryption keys."
-	var/radio_desc = ""
 	icon_state = "headset"
 	item_state = "headset"
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
@@ -18,6 +17,9 @@
 	var/ks1type = /obj/item/device/encryptionkey
 	var/ks2type = null
 	var/radio_sound = null
+
+	drop_sound = 'sound/items/drop/component.ogg'
+	pickup_sound = 'sound/items/pickup/component.ogg'
 
 /obj/item/device/radio/headset/Initialize()
 	. = ..()
@@ -180,17 +182,6 @@
 		setupRadioDescription()
 
 	return
-
-/obj/item/device/radio/headset/proc/setupRadioDescription()
-	var/radio_text = ""
-	for(var/i = 1 to channels.len)
-		var/channel = channels[i]
-		var/key = get_radio_key_from_channel(channel)
-		radio_text += "[key] - [channel]"
-		if(i != channels.len)
-			radio_text += ", "
-
-	radio_desc = radio_text
 
 /obj/item/device/radio/headset/alt
 	name = "bowman headset"
@@ -421,6 +412,12 @@
 	origin_tech = list(TECH_ILLEGAL = 2)
 	syndie = 1
 	ks1type = /obj/item/device/encryptionkey/raider
+
+/obj/item/device/radio/headset/burglar
+	icon_state = "syn_headset"
+	origin_tech = list(TECH_ILLEGAL = 2)
+	syndie = TRUE
+	ks1type = /obj/item/device/encryptionkey/burglar
 
 /obj/item/device/radio/headset/ninja
 	icon_state = "syn_headset"

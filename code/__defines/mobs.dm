@@ -126,6 +126,9 @@
 #define BP_AUG_RADIO        "integrated radio"
 #define BP_AUG_FUEL_CELL    "integrated fuel cell"
 #define BP_AUG_AIR_ANALYZER "integrated air analyzer"
+#define BP_AUG_LANGUAGE     "integrated language processor"
+#define BP_AUG_PSI         "psionic receiver"
+#define BP_AUG_CALF_OVERRIDE     "calf overdrive"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
@@ -181,6 +184,11 @@
 #define INV_W_UNIFORM_DEF_ICON 'icons/mob/uniform.dmi'
 #define INV_ACCESSORIES_DEF_ICON 'icons/mob/ties.dmi'
 #define INV_SUIT_DEF_ICON 'icons/mob/suit.dmi'
+
+// IPC tags
+#define IPC_OWNERSHIP_SELF "Self Owned"
+#define IPC_OWNERSHIP_COMPANY "Company Owned"
+#define IPC_OWNERSHIP_PRIVATE "Privately Owned"
 
 // NT's alignment towards the character
 #define COMPANY_LOYAL 			"Loyal"
@@ -306,6 +314,10 @@
 #define TASTE_DULL 0.5 //anything below 30%
 #define TASTE_NUMB 0.1 //anything below 150%
 
+//Used by emotes
+#define VISIBLE_MESSAGE 1
+#define AUDIBLE_MESSAGE 2
+
 //helper for inverting armor blocked values into a multiplier
 #define BLOCKED_MULT(blocked) max(1 - (blocked/100), 0)
 
@@ -340,3 +352,10 @@
 #define SURGERY_SUCCESS 2 // Proceed with surgery
 #define SURGERY_FAIL 1 // Autofail surgery
 #define SURGERY_IGNORE 0 // Ignore surgery completely and just attack
+
+#define AURA_CANCEL 1
+#define AURA_FALSE  2
+#define AURA_TYPE_BULLET "Bullet"
+#define AURA_TYPE_WEAPON "Weapon"
+#define AURA_TYPE_THROWN "Thrown"
+#define AURA_TYPE_LIFE   "Life"

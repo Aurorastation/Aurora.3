@@ -14,6 +14,7 @@
 	slot_flags = SLOT_EARS
 	volume = 5
 	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/reagent_containers/dropper/afterattack(var/obj/target, var/mob/user, var/flag)
 	if(!target.reagents || !flag)
