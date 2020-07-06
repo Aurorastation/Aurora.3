@@ -27506,7 +27506,7 @@
 	dir = 8
 	},
 /obj/machinery/turretid{
-	check_anomalies = 0;
+	check_wildlife = 0;
 	check_arrest = 0;
 	check_records = 0;
 	name = "merchant turret control panel";
@@ -35016,7 +35016,7 @@
 /area/shuttle/transport1/centcom)
 "wNn" = (
 /obj/machinery/porta_turret/net{
-	check_anomalies = 0;
+	check_wildlife = 0;
 	check_arrest = 0;
 	check_records = 0;
 	health = 120;
