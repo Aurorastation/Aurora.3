@@ -1,0 +1,9 @@
+# Your name.  
+author: Decepter
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Changes
+changes: 
+  - tweak: "Made it so that Changelings can't absorb DNA if they're inside a sealed void suit."
