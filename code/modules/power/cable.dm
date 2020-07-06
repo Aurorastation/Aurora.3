@@ -653,7 +653,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 /obj/item/stack/cable_coil/examine(mob/user)
 	..()
-	to_chat(user, "There [src.amount == 1 ? "is" : "are"] [src.amount] [src.singular_name]\s of cable in the coil.")
+	to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil.")
 
 /obj/item/stack/cable_coil/verb/make_restraint(mob/user)
 	set name = "Make Cable Restraints"
