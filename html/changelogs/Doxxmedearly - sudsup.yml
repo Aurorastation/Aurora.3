@@ -1,0 +1,6 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes: 
+  - rscadd: "Borg modules (and maint drones) that had bars of soap now have soap that lasts 50 uses before needing to be re-wet."
