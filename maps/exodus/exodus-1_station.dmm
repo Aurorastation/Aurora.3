@@ -3295,9 +3295,9 @@
 	dir = 8
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	frequency = 1475;
-	listening = 0;
+	listening = FALSE;
 	name = "Station Intercom (Security)";
 	pixel_x = -30
 	},
@@ -4134,9 +4134,9 @@
 /area/security/brig)
 "ahN" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	frequency = 1449;
-	listening = 0;
+	listening = FALSE;
 	pixel_y = 25
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4762,9 +4762,9 @@
 "aja" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	frequency = 1475;
-	listening = 0;
+	listening = FALSE;
 	name = "Station Intercom (Security)";
 	pixel_x = -30
 	},
@@ -10183,9 +10183,9 @@
 "asL" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	frequency = 1475;
-	listening = 0;
+	listening = FALSE;
 	name = "Station Intercom (Security)";
 	pixel_y = -30
 	},
@@ -21785,7 +21785,7 @@
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	frequency = 1480;
 	name = "Confessional Intercom";
 	pixel_x = 25
@@ -23170,7 +23170,7 @@
 "aSL" = (
 /obj/machinery/light/small,
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	frequency = 1480;
 	name = "Confessional Intercom";
 	pixel_x = 25
@@ -24573,12 +24573,12 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "aVH" = (
-/obj/item/reagent_containers/food/condiment/peppermill{
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
 	pixel_x = 2;
 	pixel_y = 6
 	},
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/condiment/saltshaker{
+/obj/item/reagent_containers/food/condiment/shaker/salt{
 	pixel_x = -2;
 	pixel_y = 4
 	},
@@ -26460,11 +26460,11 @@
 /area/crew_quarters/bar)
 "aZb" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/condiment/saltshaker{
+/obj/item/reagent_containers/food/condiment/shaker/salt{
 	pixel_x = -2;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/food/condiment/peppermill{
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
 	pixel_x = 2;
 	pixel_y = 6
 	},
@@ -26511,10 +26511,10 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
 "aZf" = (
-/obj/item/reagent_containers/food/condiment/saltshaker{
+/obj/item/reagent_containers/food/condiment/shaker/salt{
 	pixel_x = -3
 	},
-/obj/item/reagent_containers/food/condiment/peppermill{
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
 	pixel_x = 3
 	},
 /obj/structure/table/stone/marble,
@@ -31937,7 +31937,7 @@
 	name = "tripai"
 	},
 /obj/item/device/radio/intercom{
-	listening = 0;
+	listening = FALSE;
 	name = "Custom Channel";
 	pixel_y = 20
 	},
@@ -31947,7 +31947,7 @@
 	pixel_y = -26
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	name = "Common Channel";
 	pixel_x = -25;
 	pixel_y = -4
@@ -31985,7 +31985,7 @@
 	pixel_y = 5
 	},
 /obj/item/device/radio/intercom{
-	listening = 0;
+	listening = FALSE;
 	name = "Custom Channel";
 	pixel_x = -27;
 	pixel_y = 4
@@ -31994,7 +31994,7 @@
 	name = "AI"
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	name = "Common Channel";
 	pixel_y = 25
 	},
@@ -32042,7 +32042,7 @@
 	name = "tripai"
 	},
 /obj/item/device/radio/intercom{
-	listening = 0;
+	listening = FALSE;
 	name = "Custom Channel";
 	pixel_y = 19
 	},
@@ -32052,7 +32052,7 @@
 	pixel_y = -26
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	name = "Common Channel";
 	pixel_x = 27;
 	pixel_y = -3
@@ -44792,9 +44792,9 @@
 /area/medical/psych)
 "bHh" = (
 /obj/item/device/radio/intercom{
-	broadcasting = 1;
+	broadcasting = TRUE;
 	frequency = 1481;
-	listening = 0;
+	listening = FALSE;
 	name = "station intercom (Isolation Room)";
 	pixel_x = 27
 	},

@@ -105,8 +105,7 @@
 		if(!(lying || resting))
 			if(can_feel_pain())
 				emote("scream")
-			custom_emote(1, "collapses!")
-		Weaken(5) //can't emote while weakened, apparently.
+			emote("collapse")
 
 /mob/living/carbon/human/proc/handle_grasp()
 	if(!l_hand && !r_hand)
@@ -192,7 +191,7 @@
 		O.set_dna(dna)
 
 /mob/living/carbon/human/proc/get_blood_alcohol()
-	return round(intoxication/max(vessel.get_reagent_amount("blood"),1),0.01)
+	return round(intoxication/max(vessel.get_reagent_amount(/datum/reagent/blood),1),0.01)
 
 /mob/living/proc/is_asystole()
 	return FALSE

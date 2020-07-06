@@ -1,6 +1,7 @@
 /obj/structure/table
 	var/table_mat
 	var/table_reinf
+	var/no_cargo
 
 /obj/structure/table/Initialize()
 	if(table_mat)

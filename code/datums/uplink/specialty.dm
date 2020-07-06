@@ -21,7 +21,7 @@ Quick and easy list of all the occupations for farther expansion and addition.
 /datum/job/doctor
 /datum/job/chemist
 /datum/job/psychiatrist
-/datum/job/paramedic
+/datum/job/med_tech
 /datum/job/rd
 /datum/job/scientist
 /datum/job/xenobiologist

@@ -74,7 +74,7 @@
 			if(istype(V, /obj/machinery/atmospherics/unary/vent_pump) && vent.loc && !vent.is_welded())
 				var/datum/reagents/R = new/datum/reagents(reagent_amount)
 				R.my_atom = vent
-				R.add_reagent("blood", reagent_amount, list("blood_colour" = blood_color))
+				R.add_reagent(/datum/reagent/blood, reagent_amount, list("blood_colour" = blood_color))
 
 				var/datum/effect/effect/system/smoke_spread/chem/smoke = new
 				smoke.show_log = 0 // This displays a log on creation
@@ -87,7 +87,7 @@
 	else
 		var/datum/reagents/R = new/datum/reagents(reagent_amount)
 		R.my_atom = src
-		R.add_reagent("blood", reagent_amount, list("blood_colour" = blood_color))
+		R.add_reagent(/datum/reagent/blood, reagent_amount, list("blood_colour" = blood_color))
 
 		var/datum/effect/effect/system/smoke_spread/chem/smoke = new
 		smoke.show_log = 0 // This displays a log on creation

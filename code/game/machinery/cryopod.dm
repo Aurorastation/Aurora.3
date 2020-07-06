@@ -349,16 +349,14 @@ var/global/list/frozen_crew = list()
 			else
 				W.forceMove(get_turf(src))
 
-	flick("[initial(icon_state)]-anim", src)
-	icon_state = base_icon_state
-
 	global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message]", "[on_store_name]")
 	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] into storage."))
 	frozen_crew += occupant
 
 	// Let SSjobs handle the rest.
 	SSjobs.DespawnMob(occupant)
-	set_occupant(null)
+	occupant = null
+	update_icon()
 
 /obj/machinery/cryopod/attackby(var/obj/item/grab/G, var/mob/user)
 	if(istype(G))
@@ -395,13 +393,11 @@ var/global/list/frozen_crew = list()
 					M.client.perspective = EYE_PERSPECTIVE
 					M.client.eye = src
 
-			flick("[initial(icon_state)]-anim", src)
-			icon_state = occupied_icon_state
+			update_icon()
 
 			to_chat(M, SPAN_NOTICE("[on_enter_occupant_message]"))
 			to_chat(M, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
 			set_occupant(M)
-			time_entered = world.time
 
 			if(isipc(M))
 				var/choice = alert(M, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
@@ -478,13 +474,10 @@ var/global/list/frozen_crew = list()
 			to_chat(user, SPAN_NOTICE("You stop [L == user ? "climbing into" : "putting [L] into"] \the [name]."))
 			return
 
-		flick("[initial(icon_state)]-anim", src)
-		icon_state = occupied_icon_state
-
 		to_chat(L, SPAN_NOTICE("You feel cool air surround you. You go numb as your senses turn inward."))
 		to_chat(L, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
-		occupant = L
-		time_entered = world.time
+		set_occupant(L)
+		update_icon()
 
 		if(isipc(L))
 			var/choice = alert(L, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
@@ -518,9 +511,6 @@ var/global/list/frozen_crew = list()
 	if(use_check_and_message(usr))
 		return
 
-	flick("[initial(icon_state)]-anim", src)
-	icon_state = base_icon_state
-
 	//Eject any items that aren't meant to be in the pod.
 	var/list/items = src.contents
 	if(occupant)
@@ -533,9 +523,8 @@ var/global/list/frozen_crew = list()
 
 	src.go_out()
 	add_fingerprint(usr)
-
 	name = initial(name)
-	return
+	update_icon()
 
 /obj/machinery/cryopod/verb/move_inside()
 	set name = "Enter Pod"
@@ -560,18 +549,13 @@ var/global/list/frozen_crew = list()
 		if(!usr || !usr.client)
 			return
 
-		if(src.occupant)
+		if(occupant)
 			to_chat(usr, SPAN_WARNING("\The [src] is in use."))
 			return
 
-		usr.stop_pulling()
-		usr.client.perspective = EYE_PERSPECTIVE
-		usr.client.eye = src
-		usr.forceMove(src)
 		set_occupant(usr)
 
-		flick("[initial(icon_state)]-anim", src)
-		icon_state = occupied_icon_state
+		update_icon()
 
 		to_chat(usr, SPAN_NOTICE("[on_enter_occupant_message]"))
 		to_chat(usr, span("danger", "Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
@@ -590,12 +574,7 @@ var/global/list/frozen_crew = list()
 					H.client.prefs.machine_tag_status = FALSE
 				H.client.prefs.save_character()
 				H.client.prefs.save_preferences()
-
-		time_entered = world.time
-
 		src.add_fingerprint(usr)
-
-	return
 
 /obj/machinery/cryopod/proc/go_out()
 	if(!occupant)
@@ -606,15 +585,26 @@ var/global/list/frozen_crew = list()
 		occupant.client.perspective = MOB_PERSPECTIVE
 
 	occupant.forceMove(get_turf(src))
-	set_occupant(null)
+	occupant = null
+	update_icon()
 
-	flick("[initial(icon_state)]-anim", src)
-	icon_state = base_icon_state
-
-	return
-
-/obj/machinery/cryopod/proc/set_occupant(var/occupant)
+/obj/machinery/cryopod/proc/set_occupant(var/mob/living/carbon/occupant)
 	src.occupant = occupant
-	name = initial(name)
+	occupant.forceMove(src)
+	occupant.stop_pulling()
+	if(occupant.client)
+		occupant.client.perspective = EYE_PERSPECTIVE
+		occupant.client.eye = src
+		time_entered = world.time
+	update_icon()
+
+/obj/machinery/cryopod/update_icon()
 	if(occupant)
 		name = "[name] ([occupant])"
+		icon_state = occupied_icon_state
+	else
+		icon_state = base_icon_state
+		name = initial(name)
+
+/obj/machinery/cryopod/relaymove(var/mob/user)
+	go_out()

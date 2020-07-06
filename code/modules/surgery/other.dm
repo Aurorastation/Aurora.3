@@ -131,7 +131,7 @@
 		return 0
 
 	var/obj/item/reagent_containers/container = tool
-	if(!container.reagents.has_reagent("peridaxon"))
+	if(!container.reagents.has_reagent(/datum/reagent/peridaxon))
 		return 0
 
 	if(!ishuman(target))
@@ -159,7 +159,7 @@
 
 	var/trans = container.reagents.trans_to_mob(target, container.amount_per_transfer_from_this, CHEM_BLOOD) //technically it's contact, but the reagents are being applied to internal tissue
 	if (trans > 0)
-		if(container.reagents.has_reagent("peridaxon"))
+		if(container.reagents.has_reagent(/datum/reagent/peridaxon))
 			affected.status &= ~ORGAN_DEAD
 			affected.owner.update_body(1)
 
