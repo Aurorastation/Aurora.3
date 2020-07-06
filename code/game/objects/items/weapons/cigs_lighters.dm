@@ -34,7 +34,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		)
 	var/burnt = 0
 	var/smoketime = 5
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	origin_tech = list(TECH_MATERIAL = 1)
 	slot_flags = SLOT_EARS
 	attack_verb = list("burnt", "singed")
@@ -109,8 +109,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
 
 /obj/item/clothing/mask/smokable/process()
-
-	if(reagents && reagents.total_volume && burn_rate)
+	if(reagents && reagents.total_volume && burn_rate && !istype(loc, /obj/item/storage))
 		if(!initial_volume)
 			initial_volume = reagents.total_volume
 		var/mob/living/carbon/human/C = loc
@@ -161,28 +160,33 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		set_light(2, 0.25, "#E38F46")
 		START_PROCESSING(SSprocessing, src)
 
-/obj/item/clothing/mask/smokable/proc/die(var/nomessage = 0)
+/obj/item/clothing/mask/smokable/proc/die(var/no_message = 0, var/mob/living/M)
 	var/turf/T = get_turf(src)
 	set_light(0)
 	playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
-	if (type_butt)
-		var/obj/item/butt = new type_butt(T)
+	if(type_butt)
+		var/obj/item/butt = new type_butt(src.loc)
 		transfer_fingerprints_to(butt)
 		if(ismob(loc))
-			var/mob/living/M = loc
-			if (!nomessage)
+			M = loc
+			if(!no_message)
 				to_chat(M, span("notice", "Your [name] goes out."))
-			M.remove_from_mob(src) //un-equip it so the overlays can update
-			M.update_inv_wear_mask(0)
-			M.update_inv_l_hand(0)
-			M.update_inv_r_hand(1)
+			if(M.wear_mask)
+				M.remove_from_mob(src) //un-equip it so the overlays can update
+				M.update_inv_wear_mask(0)
+				M.equip_to_slot_if_possible(butt, slot_wear_mask)
+			else
+				M.remove_from_mob(src) // if it dies in your hand.
+				M.update_inv_l_hand(0)
+				M.update_inv_r_hand(1)
+				M.put_in_hands(butt)
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 	else
 		new /obj/effect/decal/cleanable/ash(T)
 		if(ismob(loc))
-			var/mob/living/M = loc
-			if (!nomessage)
+			M = loc
+			if(!no_message)
 				to_chat(M, span("notice", "Your [name] goes out, and you empty the ash."))
 				playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 			lit = 0
@@ -223,7 +227,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "cigoff"
 	throw_speed = 0.5
 	item_state = "cigoff"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("burnt", "singed")
 	icon_on = "cigon"  //Note - these are in masks.dmi not in cigarette.dmi
@@ -242,15 +246,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	reagents.add_reagent(/datum/reagent/toxin/tobacco,10)
 	reagents.add_reagent(/datum/reagent/mental/nicotine,5) // 2/3 ratio, Adds 0.03 units per second
 
-
 /obj/item/clothing/mask/smokable/cigarette/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-
 	if(istype(W, /obj/item/melee/energy/sword))
 		var/obj/item/melee/energy/sword/S = W
 		if(S.active)
 			light(span("warning", "[user] swings their [W], barely missing themselves. They light their [name] in the process."))
-
 	return
 
 /obj/item/clothing/mask/smokable/cigarette/attack(mob/living/carbon/human/H, mob/user, def_zone)
@@ -285,7 +286,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/attack_self(mob/user as mob)
 	if(lit == 1)
 		user.visible_message(span("notice", "[user] calmly drops and treads on the lit [src], putting it out instantly."))
-		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		die(1)
 	return ..()
 
@@ -417,10 +417,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "cigbutt"
 	randpixel = 10
-	w_class = 1
-	slot_flags = SLOT_EARS
+	w_class = ITEMSIZE_TINY
+	slot_flags = SLOT_EARS | SLOT_MASK
 	throwforce = 1
 	drop_sound = 'sound/items/cigs_lighters/cig_snuff.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
 
 /obj/item/trash/cigbutt/Initialize()
 	. = ..()
@@ -471,7 +472,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_on = "pipeon"  //Note - these are in masks.dmi
 	icon_off = "pipeoff"
 	burn_rate = 0.003
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	chem_volume = 30
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to light their NAME with FLAME.</span>"
@@ -577,7 +578,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	throwforce = 4
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -737,7 +738,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A thin piece of paper used to make smokables."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpaper_generic"
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 
 /obj/item/paper/cig/attackby(obj/item/P as obj, mob/user as mob)
 	if(istype(P, /obj/item/flame) || P.iswelder())
@@ -756,7 +757,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "cigarette filter"
 	desc = "A small nub like filter for cigarettes."
 	icon_state = "cigfilter"
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 
 /obj/item/paper/cig/filter/attackby(obj/item/P as obj, mob/user as mob)
 	if(istype(P, /obj/item/flame) || P.iswelder())
@@ -775,7 +776,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //tobacco sold seperately if you're too snobby to grow it yourself.
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco
 	plantname = "tobacco"
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco/Initialize()
 	. = ..()
