@@ -4,5 +4,5 @@ delete-after: True
 
 changes: 
   - tweak: "The armory has been split into two levels, as it's been getting cramped lately. Much of the lethal weaponry has been moved upstairs."
-  - rscadd: "In addition to the moved weapons, the upper armory received; 4 9mm signal pistols, and 4 boot knives."
-  - rscadd: "The lower armory received; 5 .45 flash rounds, 5 .45 rubber rounds, two generic storage closets (for prototype or looted weapons), 1 box of spare handcuffs (1 was moved), 2 boxes of firing pins, and a button to open and close it from the inside."
+  - rscadd: "In addition to the moved weapons, the upper armory received; 4 9mm signal pistols, 4 keypad maglocks, and 4 boot knives."
+  - rscadd: "The lower armory received; 5 .45 flash rounds, 5 .45 rubber rounds, 4 flashes, two generic storage closets (for prototype or looted weapons), 1 box of spare handcuffs (1 was moved), 2 boxes of firing pins, and a button to open and close it from the inside."

@@ -3668,11 +3668,15 @@
 /area/security/forensics_office)
 "hE" = (
 /obj/structure/grille,
-/obj/structure/cable,
+/obj/structure/grille,
 /obj/structure/cable{
-	d1 = 1;
 	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "0-4"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
 /turf/unsimulated/chasm_mask,
 /area/security/armoury)
@@ -6101,10 +6105,14 @@
 /area/medical/upperlevel)
 "mA" = (
 /obj/structure/grille,
-/obj/structure/grille,
-/obj/structure/cable,
 /obj/structure/cable{
-	icon_state = "1-8"
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/unsimulated/chasm_mask,
 /area/security/armoury)
@@ -6450,10 +6458,8 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
 "oC" = (
-/obj/machinery/anti_bluespace,
-/obj/machinery/camera/network/security{
-	c_tag = "Armoury - Upper Storage";
-	network = list("Security","Armoury")
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
@@ -6698,16 +6704,17 @@
 /turf/simulated/wall,
 /area/medical/upperlevel)
 "pX" = (
-/obj/machinery/light{
-	dir = 1
+/obj/structure/grille,
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
 	},
-/obj/structure/sign/securearea{
-	pixel_y = 32
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/obj/structure/sign/flag/nanotrasen{
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/unsimulated/chasm_mask,
 /area/security/armoury)
 "pZ" = (
 /turf/simulated/open/airless,
@@ -7068,12 +7075,18 @@
 	},
 /area/mine/unexplored)
 "rN" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Shotgun)"
+/obj/structure/grille,
+/obj/structure/grille,
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
 	},
-/obj/item/gun/projectile/shotgun/pump,
-/obj/item/gun/projectile/shotgun/pump,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/unsimulated/chasm_mask,
 /area/security/armoury)
 "sd" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7110,20 +7123,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
-"sj" = (
-/obj/structure/grille,
-/obj/structure/grille,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/unsimulated/chasm_mask,
-/area/security/armoury)
 "sk" = (
 /obj/structure/track{
 	icon_state = "track5"
@@ -7521,15 +7520,12 @@
 	},
 /area/mine/unexplored)
 "uv" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (45. less-than-lethal)"
+/obj/structure/table/rack,
+/obj/item/material/kitchen/utensil/knife/boot{
+	pixel_x = -2;
+	pixel_y = 2
 	},
-/obj/effect/decal/warning_stripes,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
-/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/material/kitchen/utensil/knife/boot,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "uw" = (
@@ -7655,9 +7651,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/medical/abandoned)
 "vf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Ammunition (9mm)"
 	},
+/obj/item/ammo_magazine/mc9mm/flash,
+/obj/item/ammo_magazine/mc9mm/flash,
+/obj/item/ammo_magazine/mc9mm/flash,
+/obj/item/ammo_magazine/mc9mm/flash,
+/obj/item/ammo_magazine/mc9mm/flash,
+/obj/item/ammo_magazine/mc9mm/flash,
+/obj/effect/decal/warning_stripes,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "vh" = (
@@ -7696,9 +7699,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
 "vr" = (
-/obj/machinery/door/airlock/highsecurity{
-	name = "Secure Armoury Section";
-	req_access = list(3)
+/obj/structure/table/rack,
+/obj/item/material/kitchen/utensil/knife/boot{
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/obj/item/material/kitchen/utensil/knife/boot,
+/obj/machinery/alarm{
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
@@ -7911,11 +7919,17 @@
 /turf/simulated/wall,
 /area/maintenance/interstitial_cargo)
 "wI" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Laser Rifle)"
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/item/gun/energy/rifle/laser,
-/obj/item/gun/energy/rifle/laser,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "wJ" = (
@@ -8008,9 +8022,15 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_cargo)
 "xt" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 30
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
 	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Weaponry (Signal Pistol)"
+	},
+/obj/item/gun/projectile/pistol/flash,
+/obj/item/gun/projectile/pistol/flash,
+/obj/item/gun/projectile/pistol/flash,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "xv" = (
@@ -8058,11 +8078,14 @@
 /turf/simulated/floor/plating,
 /area/janitor/stairs)
 "xM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/obj/structure/table/rack,
+/obj/item/device/magnetic_lock/keypad{
+	pixel_x = -2;
+	pixel_y = -2
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+/obj/item/device/magnetic_lock/keypad{
+	pixel_x = 2;
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
@@ -8390,8 +8413,8 @@
 	},
 /area/security/forensics_office)
 "zV" = (
-/obj/machinery/alarm{
-	pixel_y = 28
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
@@ -8487,11 +8510,12 @@
 /area/quartermaster/storage)
 "AI" = (
 /obj/structure/grille,
+/obj/structure/grille,
 /obj/structure/cable,
 /obj/structure/cable{
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/unsimulated/chasm_mask,
 /area/security/armoury)
@@ -8759,25 +8783,17 @@
 /turf/simulated/open,
 /area/medical/abandoned)
 "Cu" = (
-/obj/structure/table/rack,
-/obj/item/material/kitchen/utensil/knife/boot{
-	pixel_x = -2;
-	pixel_y = 2
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
-/obj/item/material/kitchen/utensil/knife/boot,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "CA" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (.45 lethal)"
+/obj/machinery/anti_bluespace,
+/obj/machinery/camera/network/security{
+	c_tag = "Armoury - Upper Storage";
+	network = list("Security","Armoury")
 	},
-/obj/effect/decal/warning_stripes,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "CC" = (
@@ -9304,19 +9320,6 @@
 "Fs" = (
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
-"Ft" = (
-/obj/structure/grille,
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/unsimulated/chasm_mask,
-/area/security/armoury)
 "Fv" = (
 /obj/structure/lattice,
 /obj/structure/girder,
@@ -9776,15 +9779,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
 "HZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 30
 	},
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Signal Pistol)"
-	},
-/obj/item/gun/projectile/pistol/flash,
-/obj/item/gun/projectile/pistol/flash,
-/obj/item/gun/projectile/pistol/flash,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "Ic" = (
@@ -10901,15 +10898,27 @@
 /area/mine/unexplored)
 "LV" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (9mm)"
+	name = "Ammunition (shotgun)"
 	},
-/obj/item/ammo_magazine/mc9mm/flash,
-/obj/item/ammo_magazine/mc9mm/flash,
-/obj/item/ammo_magazine/mc9mm/flash,
-/obj/item/ammo_magazine/mc9mm/flash,
-/obj/item/ammo_magazine/mc9mm/flash,
-/obj/item/ammo_magazine/mc9mm/flash,
 /obj/effect/decal/warning_stripes,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/item/storage/box/stunshells,
+/obj/item/storage/box/flashshells{
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/obj/item/storage/box/beanbags{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/storage/box/beanbags{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/storage/box/incendiaryshells,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "LY" = (
@@ -11081,15 +11090,14 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
 "MF" = (
-/obj/structure/grille,
-/obj/structure/grille,
-/obj/structure/cable,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Weaponry (Ion Rifle)"
 	},
-/turf/unsimulated/chasm_mask,
+/obj/item/gun/energy/rifle/ionrifle,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "MH" = (
 /obj/machinery/light{
@@ -11191,12 +11199,14 @@
 /area/maintenance/interstitial_construction_site/zone_2)
 "Ne" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (Ion Rifle)"
+	name = "Ammunition (45. less-than-lethal)"
 	},
-/obj/item/gun/energy/rifle/ionrifle,
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/effect/decal/warning_stripes,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "Nf" = (
@@ -11251,14 +11261,25 @@
 /turf/simulated/wall,
 /area/maintenance/interstitial_construction_site/zone_2)
 "NG" = (
+/obj/structure/grille,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/wall/r_wall,
+/turf/unsimulated/chasm_mask,
 /area/security/armoury)
 "NH" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -11757,6 +11778,15 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_construction_site/office)
+"Qv" = (
+/obj/structure/grille,
+/obj/structure/grille,
+/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/unsimulated/chasm_mask,
+/area/security/armoury)
 "Qz" = (
 /turf/simulated/wall,
 /area/maintenance/elevator)
@@ -11968,20 +11998,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"RI" = (
-/obj/structure/grille,
-/obj/structure/grille,
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/unsimulated/chasm_mask,
-/area/security/armoury)
 "RJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -12710,23 +12726,20 @@
 /turf/simulated/floor/plating,
 /area/medical/abandoned)
 "Vk" = (
-/obj/machinery/light{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "Vn" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Weaponry (En. Carbine)"
 	},
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "Vp" = (
@@ -12783,18 +12796,17 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
 "VF" = (
-/obj/structure/grille,
-/obj/structure/grille,
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Ammunition (.45 lethal)"
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/unsimulated/chasm_mask,
+/obj/effect/decal/warning_stripes,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "VH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -12862,6 +12874,23 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
+"VW" = (
+/obj/structure/grille,
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/unsimulated/chasm_mask,
+/area/security/armoury)
 "Wa" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -12937,14 +12966,11 @@
 /area/mine/unexplored)
 "WD" = (
 /obj/structure/grille,
+/obj/structure/cable,
 /obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/unsimulated/chasm_mask,
 /area/security/armoury)
@@ -13072,6 +13098,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
+"Xq" = (
+/obj/structure/grille,
+/obj/structure/cable,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/unsimulated/chasm_mask,
+/area/security/armoury)
 "Xu" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -13127,27 +13163,10 @@
 /area/maintenance/elevator)
 "XC" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (shotgun)"
+	name = "Weaponry (Shotgun)"
 	},
-/obj/effect/decal/warning_stripes,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/storage/box/stunshells,
-/obj/item/storage/box/flashshells{
-	pixel_x = -2;
-	pixel_y = 2
-	},
-/obj/item/storage/box/beanbags{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/storage/box/beanbags{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/storage/box/incendiaryshells,
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/item/gun/projectile/shotgun/pump,
+/obj/item/gun/projectile/shotgun/pump,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "XG" = (
@@ -13183,11 +13202,10 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/upperlevel)
 "XR" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Weaponry (En. Carbine)"
+/obj/machinery/door/airlock/highsecurity{
+	name = "Secure Armoury Section";
+	req_access = list(3)
 	},
-/obj/item/gun/energy/gun,
-/obj/item/gun/energy/gun,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "XT" = (
@@ -13241,9 +13259,11 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "Yb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Weaponry (Laser Rifle)"
 	},
+/obj/item/gun/energy/rifle/laser,
+/obj/item/gun/energy/rifle/laser,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "Yd" = (
@@ -13315,18 +13335,15 @@
 /area/mine/unexplored)
 "Yy" = (
 /obj/structure/grille,
+/obj/structure/grille,
 /obj/structure/cable{
 	d2 = 8;
 	icon_state = "0-8"
 	},
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/structure/cable{
-	d1 = 4;
+	d1 = 2;
 	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "2-8"
 	},
 /turf/unsimulated/chasm_mask,
 /area/security/armoury)
@@ -13387,8 +13404,13 @@
 /turf/simulated/open,
 /area/maintenance/medbay_interstitial)
 "YO" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 6;
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/sign/securearea{
+	pixel_y = 32
+	},
+/obj/structure/sign/flag/nanotrasen{
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -13488,25 +13510,14 @@
 /turf/simulated/open,
 /area/turbolift/medical_interstitial)
 "ZA" = (
-/obj/structure/grille,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/unsimulated/chasm_mask,
+/turf/simulated/wall/r_wall,
 /area/security/armoury)
 "ZE" = (
 /obj/structure/cable/green{
@@ -38873,18 +38884,18 @@ ab
 qc
 ab
 aa
-Dh
-Dh
-Dh
-Dh
-Dh
-Dh
-Dh
-Dh
-Dh
-Dh
-Dh
-Dh
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -39129,19 +39140,19 @@ ab
 ab
 qc
 ab
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
 aa
-Dh
-RI
-AI
-AI
-AI
-AI
-AI
-AI
-AI
-AI
-MF
-Dh
 aa
 aa
 aa
@@ -39386,21 +39397,21 @@ aa
 ab
 qc
 ab
-aa
 Dh
-Ft
-Dh
-Dh
-Dh
-Dh
-Dh
-Dh
-Dh
-Dh
+hE
 WD
+WD
+WD
+WD
+WD
+WD
+WD
+WD
+AI
 Dh
 Dh
 Dh
+aa
 aa
 aa
 aa
@@ -39643,23 +39654,23 @@ aa
 ab
 qc
 ab
-aa
 Dh
-Ft
+mA
 Dh
-Cu
-Vn
-LV
-XC
-uv
-CA
 Dh
-sj
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Yy
+WD
 AI
-MF
 Dh
 Dh
 Dh
+aa
 aa
 aa
 aa
@@ -39900,23 +39911,23 @@ aa
 ab
 qc
 ab
-aa
 Dh
-Ft
+mA
 Dh
+uv
 Cu
 vf
-uw
-uw
-uw
-YO
+LV
+Ne
+VF
 Dh
 Dh
 Dh
-sj
-AI
-hE
+Yy
+WD
+Xq
 Dh
+aa
 aa
 aa
 aa
@@ -40157,23 +40168,23 @@ aa
 ab
 qc
 ab
-ab
 Dh
-Ft
+mA
 Dh
+vr
 zV
-vf
 uw
 uw
 uw
 uw
+Dh
+YO
+Dh
+Dh
 Dh
 pX
 Dh
-Dh
-Dh
-WD
-Dh
+aa
 aa
 aa
 aa
@@ -40414,23 +40425,23 @@ aa
 ab
 JR
 Mw
-Mw
-NG
 ZA
 NG
+ZA
+wI
 Vk
+xM
 xM
 uw
 uw
-uw
-uw
-vr
+XR
 uw
 Qi
 Qi
 Dh
-Yy
+VW
 Dh
+aa
 aa
 aa
 aa
@@ -40671,23 +40682,23 @@ aa
 ab
 ab
 ab
-ab
-Dh
-WD
-Dh
-oC
-Yb
-uw
-uw
-uw
-uw
 Dh
 pX
 Dh
+CA
+oC
+uw
+uw
+uw
+uw
+Dh
+YO
 Dh
 Dh
-Ft
 Dh
+mA
+Dh
+aa
 aa
 aa
 aa
@@ -40928,23 +40939,23 @@ aa
 aa
 aa
 aa
-aa
 Dh
-WD
+pX
 Dh
+HZ
 xt
 Yb
-uw
-uw
-uw
-YO
+MF
+Vn
+XC
 Dh
 Dh
 Dh
-RI
-AI
-mA
+hE
+WD
+Qv
 Dh
+aa
 aa
 aa
 aa
@@ -41185,23 +41196,23 @@ aa
 aa
 aa
 aa
-aa
 Dh
+pX
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+hE
 WD
-Dh
-uw
-HZ
-wI
-Ne
-XR
-rN
-Dh
-RI
-AI
-mA
+Qv
 Dh
 Dh
 Dh
+aa
 aa
 aa
 aa
@@ -41442,21 +41453,21 @@ aa
 aa
 aa
 aa
-aa
 Dh
+rN
 WD
+WD
+WD
+WD
+WD
+WD
+WD
+WD
+Qv
 Dh
 Dh
 Dh
-Dh
-Dh
-Dh
-Dh
-Dh
-Ft
-Dh
-Dh
-Dh
+aa
 aa
 aa
 aa
@@ -41699,19 +41710,19 @@ aa
 aa
 aa
 aa
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
+Dh
 aa
-Dh
-VF
-AI
-AI
-AI
-AI
-AI
-AI
-AI
-AI
-mA
-Dh
 aa
 aa
 aa
@@ -41957,18 +41968,18 @@ aa
 aa
 aa
 aa
-Dh
-Dh
-Dh
-Dh
-Dh
-Dh
-Dh
-Dh
-Dh
-Dh
-Dh
-Dh
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa

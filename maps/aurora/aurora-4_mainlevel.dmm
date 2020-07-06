@@ -6208,25 +6208,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury/lower)
 "alI" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 5;
-	pixel_y = 22
-	},
-/turf/simulated/floor/tiled/dark,
-/area/security/armoury/lower)
-"alJ" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 5;
-	pixel_y = 22
-	},
-/obj/machinery/light/small/emergency{
-	dir = 1
+/obj/structure/window/reinforced{
+	dir = 4
 	},
 /obj/machinery/camera/network/security{
 	c_tag = "Armoury - Lower Stairway";
 	network = list("Security","Armoury")
 	},
-/obj/structure/window/reinforced,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/security/armoury/lower)
+"alJ" = (
+/obj/structure/stairs/north,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury/lower)
 "alK" = (
@@ -7246,10 +7241,10 @@
 /area/maintenance/engineering)
 "anS" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/storage/vest/heavy/officer,
-/obj/item/clothing/suit/storage/vest/heavy/officer,
-/obj/item/clothing/suit/storage/vest/heavy/officer,
-/obj/item/clothing/suit/storage/vest/heavy/officer,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/obj/item/device/flash,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury/lower)
 "anT" = (
@@ -7274,14 +7269,14 @@
 /area/security/brig)
 "anW" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury/lower)
 "anX" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 36
 	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury/lower)
@@ -11137,6 +11132,11 @@
 /obj/structure/reagent_dispensers/peppertank{
 	pixel_x = 32
 	},
+/obj/structure/table/rack,
+/obj/item/clothing/suit/storage/vest/heavy/officer,
+/obj/item/clothing/suit/storage/vest/heavy/officer,
+/obj/item/clothing/suit/storage/vest/heavy/officer,
+/obj/item/clothing/suit/storage/vest/heavy/officer,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury/lower)
 "auB" = (
@@ -65406,7 +65406,9 @@
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
 "rPu" = (
-/obj/structure/stairs/north,
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 36
+	},
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury/lower)
 "rPZ" = (
@@ -95257,7 +95259,7 @@ aab
 ajR
 ajR
 alJ
-rPu
+alK
 alK
 alK
 aqq
@@ -95513,9 +95515,9 @@ afo
 aab
 ajR
 ajR
-alI
 myT
 myT
+alK
 alK
 aqv
 arG
@@ -95770,8 +95772,8 @@ afo
 aab
 ajR
 ajR
-alK
-alK
+rPu
+rPu
 anX
 aph
 prJ
