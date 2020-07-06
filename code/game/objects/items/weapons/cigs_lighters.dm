@@ -55,6 +55,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	slot_flags = SLOT_EARS | SLOT_MASK
 	drop_sound = 'sound/items/cigs_lighters/cig_snuff.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
+	
+/obj/item/trash/match/Initialize()
+	. = ..()
+	randpixel_xy()
+	transform = turn(transform,rand(0,360))
 
 /obj/item/trash/match/attack_self(mob/user)
 	var/turf/location = get_turf(src)
