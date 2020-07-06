@@ -28,6 +28,12 @@
 	origin_tech = list(TECH_ILLEGAL = 2)
 	syndie = TRUE
 
+/obj/item/device/encryptionkey/burglar
+	icon_state = "cypherkey"
+	channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE, CHANNEL_BURGLAR = TRUE)
+	origin_tech = list(TECH_ILLEGAL = 2)
+	syndie = TRUE
+
 /obj/item/device/encryptionkey/ninja
 	icon_state = "cypherkey"
 	channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE, CHANNEL_NINJA = TRUE)

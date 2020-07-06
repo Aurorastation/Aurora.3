@@ -229,9 +229,9 @@
 				var/mob/living/carbon/human/H = D
 				remove_amount = H.species.blood_volume * 0.05
 			if(remove_amount > 0)
-				vessel.remove_reagent("blood", remove_amount, TRUE)
+				vessel.remove_reagent(/datum/reagent/blood, remove_amount, TRUE)
 				adjustNutritionLoss(-remove_amount * 0.5)
-			var/list/data = vessel.get_data("blood")
+			var/list/data = vessel.get_data(/datum/reagent/blood)
 			newDNA = data["blood_DNA"]
 
 			if(!newDNA) //Fallback. Adminspawned mobs, and possibly some others, have null dna.
@@ -420,3 +420,15 @@
 			T.ChangeTurf(structure_path)
 		else
 			new structure_path(T)
+			
+/mob/living/carbon/alien/diona/proc/remove_hat()
+	set category = "Abilities"
+	set name = "Remove Hat"
+	set desc = " Remove your hat."
+	
+	if(hat)
+		src.drop_from_inventory(hat)
+		hat = null
+		visible_message("<span class='warning'>[src] removes their hat!</span>")
+	else
+		to_chat(src, span("warning", "You have no hat!"))

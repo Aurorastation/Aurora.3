@@ -51,7 +51,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
 		)
-	icon_state = "screwdriver2"
+	icon_state = "screwdriver"
 	item_state = "screwdriver"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_EARS
@@ -66,25 +66,14 @@
 	drop_sound = 'sound/items/drop/screwdriver.ogg'
 	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 	lock_picking_level = 5
-	var/random_color = TRUE //if the tool uses random coloring
-	var/static/list/tool_colors = list(
-		COLOR_BLUE,
-		COLOR_RED,
-		COLOR_PINK,
-		COLOR_BROWN,
-		COLOR_GREEN,
-		COLOR_CYAN,
-		COLOR_YELLOW
-	)
-	var/random_icon = TRUE
+	build_from_parts = TRUE
+	worn_overlay = "head"
 
 /obj/item/screwdriver/Initialize()
 	. = ..()
-	if(random_color) //random colors!
-		icon_state = "screwdriver"
-		var/our_color = pick(tool_colors)
-		add_atom_colour(tool_colors[our_color])
-		update_icon()
+	if(build_from_parts) //random colors!
+		color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
+		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
 
 /obj/item/screwdriver/update_icon()
 	var/matrix/tf = matrix()
@@ -92,13 +81,6 @@
 		tf.Turn(-90) //Vertical for storing compactly
 		tf.Translate(-3,0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
-
-	if(!random_color) //icon override
-		return
-	cut_overlays()
-	var/mutable_appearance/base_overlay = mutable_appearance(icon, "[icon_state]_head")
-	base_overlay.appearance_flags = RESET_COLOR
-	add_overlay(base_overlay)
 
 /obj/item/screwdriver/pickup(mob/user)
 	..()
@@ -111,13 +93,6 @@
 /obj/item/screwdriver/attack_hand()
 	..()
 	update_icon()
-
-/obj/item/screwdriver/worn_overlays()
-	. = list()
-	if(random_color)
-		var/mutable_appearance/M = mutable_appearance(icon, "[icon_state]_head")
-		M.appearance_flags = RESET_COLOR
-		. += M
 
 /obj/item/screwdriver/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(!istype(M) || user.a_intent == "help")
@@ -143,6 +118,7 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
 		)
 	icon_state = "wirecutters"
+	item_state = "wirecutters"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	force = 6
@@ -157,23 +133,14 @@
 	drop_sound = 'sound/items/drop/wirecutter.ogg'
 	pickup_sound = 'sound/items/pickup/wirecutter.ogg'
 	var/bomb_defusal_chance = 30 // 30% chance to safely defuse a bomb
-	var/random_color = TRUE
-	var/static/list/tool_colors = list(
-		COLOR_BLUE,
-		COLOR_RED,
-		COLOR_PINK,
-		COLOR_BROWN,
-		COLOR_GREEN,
-		COLOR_CYAN,
-		COLOR_YELLOW
-	)
+	build_from_parts = TRUE
+	worn_overlay = "head"
 
 /obj/item/wirecutters/Initialize()
 	. = ..()
-	if(random_color) //random colors!
-		var/our_color = pick(tool_colors)
-		add_atom_colour(tool_colors[our_color])
-		update_icon()
+	if(build_from_parts)
+		color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
+		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
 
 /obj/item/wirecutters/update_icon()
 	var/matrix/tf = matrix()
@@ -181,13 +148,6 @@
 		tf.Turn(-90) //Vertical for storing compactly
 		tf.Translate(-1,0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
-
-	if(!random_color) //icon override
-		return
-	cut_overlays()
-	var/mutable_appearance/base_overlay = mutable_appearance(icon, "[icon_state]_head")
-	base_overlay.appearance_flags = RESET_COLOR
-	add_overlay(base_overlay)
 
 /obj/item/wirecutters/pickup(mob/user)
 	..()
@@ -200,13 +160,6 @@
 /obj/item/wirecutters/attack_hand()
 	..()
 	update_icon()
-
-/obj/item/wirecutters/worn_overlays()
-	. = list()
-	if(random_color)
-		var/mutable_appearance/M = mutable_appearance(icon, "[icon_state]_head")
-		M.appearance_flags = RESET_COLOR
-		. += M
 
 /obj/item/wirecutters/attack(mob/living/carbon/C, mob/user, var/target_zone)
 	if(user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/handcuffs/cable)))
@@ -312,7 +265,7 @@
 	var/datum/reagents/R = new/datum/reagents(max_fuel)
 	reagents = R
 	R.my_atom = src
-	R.add_reagent("fuel", max_fuel)
+	R.add_reagent(/datum/reagent/fuel, max_fuel)
 	update_icon()
 
 /obj/item/weldingtool/update_icon()
@@ -488,7 +441,7 @@
 
 //Returns the amount of fuel in the welder
 /obj/item/weldingtool/proc/get_fuel()
-	return reagents.get_reagent_amount("fuel")
+	return reagents.get_reagent_amount(/datum/reagent/fuel)
 
 //Removes fuel from the welding tool. If a mob is passed, it will perform an eyecheck on the mob. This should probably be renamed to use()
 /obj/item/weldingtool/proc/remove_fuel(var/amount = 1, var/mob/M = null, var/colourChange = TRUE)
@@ -498,7 +451,7 @@
 		set_light(0.7, 2, l_color = LIGHT_COLOR_CYAN)
 		addtimer(CALLBACK(src, /atom/proc/update_icon), 5)
 	if(get_fuel() >= amount)
-		reagents.remove_reagent("fuel", amount)
+		reagents.remove_reagent(/datum/reagent/fuel, amount)
 		if(M)
 			eyecheck(M)
 		return 1
@@ -510,6 +463,9 @@
 //Returns whether or not the welding tool is currently on.
 /obj/item/weldingtool/proc/isOn()
 	return src.welding
+
+/obj/item/weldingtool/isFlameSource()
+	return isOn()
 
 //Sets the welding state of the welding tool. If you see W.welding = 1 anywhere, please change it to W.setWelding(1)
 //so that the welding tool updates accordingly
@@ -616,7 +572,7 @@
 		var/gen_amount = ((world.time-last_gen) / fuelgen_delay)
 		var/remainder = max_fuel - get_fuel()
 		gen_amount = min(gen_amount, remainder)
-		reagents.add_reagent("fuel", gen_amount)
+		reagents.add_reagent(/datum/reagent/fuel, gen_amount)
 		if(get_fuel() >= max_fuel)
 			set_processing(0)
 	else
@@ -759,7 +715,6 @@
 	w_class = ITEMSIZE_SMALL
 	toolspeed = 3
 	usesound = 'sound/items/drill_use.ogg'
-	var/drillcolor = null
 	var/current_tool = 1
 	var/list/tools = list(
 		"screwdriverbit",
@@ -769,16 +724,7 @@
 
 /obj/item/powerdrill/Initialize()
 	. = ..()
-
-	switch(pick("red", "blue", "yellow", "green"))
-		if ("red")
-			drillcolor = "red"
-		if ("blue")
-			drillcolor = "blue"
-		if ("green")
-			drillcolor = "green"
-		if ("yellow")
-			drillcolor = "yellow"
+	var/drillcolor = pick("red", "blue", "yellow", "green")
 	icon_state = "powerdrill[drillcolor]"
 	item_state = "powerdrill[drillcolor]"
 

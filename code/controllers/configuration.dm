@@ -80,6 +80,7 @@ var/list/gamemode_cache = list()
 	var/cult_ghostwriter_req_cultists = 10 //...so long as this many cultists are active.
 
 	var/character_slots = 10				// The number of available character slots
+	var/loadout_slots = 3					// The number of loadout slots per character
 
 	var/max_maint_drones = 5				//This many drones can spawn,
 	var/allow_drone_spawn = 1				//assuming the admin allow them to.
@@ -723,6 +724,9 @@ var/list/gamemode_cache = list()
 
 				if("character_slots")
 					config.character_slots = text2num(value)
+
+				if("loadout_slots")
+					config.loadout_slots = text2num(value)
 
 				if("allow_drone_spawn")
 					config.allow_drone_spawn = text2num(value)

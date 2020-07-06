@@ -116,6 +116,8 @@
 	default_citizenship = CITIZENSHIP_NONE
 	bodyfall_sound = "bodyfall_machine"
 
+	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANIDREG, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA, ACCENT_HIMEO, ACCENT_VENUS)
+
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
 	var/sprint_charge_factor = 0.65

@@ -211,17 +211,9 @@
 	flags = OPENCONTAINER
 	fragile = 1
 
-/obj/item/reagent_containers/glass/beaker/cryoxadone
-/obj/item/reagent_containers/glass/beaker/cryoxadone/Initialize()
-	. = ..()
-	reagents.add_reagent("cryoxadone", 30)
-	update_icon()
+/obj/item/reagent_containers/glass/beaker/cryoxadone/reagents_to_add = list(/datum/reagent/cryoxadone = 30)
 
-/obj/item/reagent_containers/glass/beaker/sulphuric
-/obj/item/reagent_containers/glass/beaker/sulphuric/Initialize()
-	. = ..()
-	reagents.add_reagent("sacid", 60)
-	update_icon()
+/obj/item/reagent_containers/glass/beaker/sulphuric/reagents_to_add = list(/datum/reagent/acid = 60)
 
 /obj/item/reagent_containers/glass/bucket
 	desc = "A blue plastic bucket."

@@ -171,15 +171,15 @@
 	interface_desc = "Dispenses loaded chemicals directly into the wearer's bloodstream."
 
 	charges = list(
-		list("tricordrazine", "tricordrazine",        0, 80),
-		list("tramadol",      "tramadol",             0, 80),
-		list("dexalin plus",  "dexalinp",             0, 80),
-		list("antibiotics",   "thetamycin",          0, 80),
-		list("antitoxins",    "dylovene",           0, 80),
-		list("nutrients",     "glucose",              0, 80),
-		list("saline",        "saline", 0, 80),
-		list("hyronalin",     "hyronalin",            0, 80),
-		list("radium",        "radium",               0, 80)
+		list("tricordrazine",	"tricordrazine",/datum/reagent/tricordrazine,		80),
+		list("tramadol",		"tramadol",		/datum/reagent/tramadol,			80),
+		list("dexalin plus",	"dexalinp",		/datum/reagent/dexalin/plus,		80),
+		list("antibiotics",		"thetamycin",	/datum/reagent/thetamycin,			80),
+		list("antitoxins",		"dylovene",		/datum/reagent/dylovene,			80),
+		list("nutrients",		"glucose",		/datum/reagent/nutriment/glucose,	80),
+		list("saline",			"saline",		/datum/reagent/saline,				80),
+		list("hyronalin",		"hyronalin",	/datum/reagent/hyronalin,			80),
+		list("radium",			"radium",		/datum/reagent/radium,				80)
 		)
 
 	var/max_reagent_volume = 80 //Used when refilling.
@@ -191,15 +191,15 @@
 
 	//just over a syringe worth of each. Want more? Go refill. Gives the ninja another reason to have to show their face.
 	charges = list(
-		list("tricordrazine", "tricordrazine", 0, 20),
-		list("tramadol",      "tramadol",      0, 20),
-		list("dexalin plus",  "dexalinp",      0, 20),
-		list("antibiotics",   "thetamycin",   0, 20),
-		list("antitoxins",    "dylovene",    0, 20),
-		list("nutrients",     "glucose",     0, 80),
-		list("saline",        "saline", 0, 80),
-		list("hyronalin",     "hyronalin",     0, 20),
-		list("radium",        "radium",        0, 20)
+		list("tricordrazine",	"tricordrazine",/datum/reagent/tricordrazine,		20),
+		list("tramadol",		"tramadol",		/datum/reagent/tramadol,			20),
+		list("dexalin plus",	"dexalinp",		/datum/reagent/dexalin/plus,		20),
+		list("antibiotics",		"thetamycin",	/datum/reagent/thetamycin,			20),
+		list("antitoxins",		"dylovene",		/datum/reagent/dylovene,			20),
+		list("nutrients",		"glucose",		/datum/reagent/nutriment/glucose,	80),
+		list("saline",			"saline",		/datum/reagent/saline,				80),
+		list("hyronalin",		"hyronalin",	/datum/reagent/hyronalin,			20),
+		list("radium",			"radium",		/datum/reagent/radium,				20)
 		)
 
 	category = MODULE_UTILITY
@@ -218,7 +218,7 @@
 	for(var/datum/reagent/R in input_item.reagents.reagent_list)
 		for(var/chargetype in charges)
 			var/datum/rig_charge/charge = charges[chargetype]
-			if(charge.display_name == R.id)
+			if(charge.product_type == R.type)
 
 				var/chems_to_transfer = R.volume
 
@@ -226,7 +226,7 @@
 					chems_to_transfer = max_reagent_volume - charge.charges
 
 				charge.charges += chems_to_transfer
-				input_item.reagents.remove_reagent(R.id, chems_to_transfer)
+				input_item.reagents.remove_reagent(R.type, chems_to_transfer)
 				total_transferred += chems_to_transfer
 
 				break
@@ -276,11 +276,9 @@
 	if(target_mob != H)
 		to_chat(H, "<span class='danger'>You inject [target_mob] with [chems_to_use] unit\s of [charge.display_name].</span>")
 
-	if(target_mob.is_physically_disabled())
-		target_mob.reagents.add_reagent(charge.display_name, chems_to_use)
-	else
+	if(!target_mob.is_physically_disabled())
 		to_chat(target_mob, "<span class='danger'>You feel a rushing in your veins as [chems_to_use] unit\s of [charge.display_name] [chems_to_use == 1 ? "is" : "are"] injected.</span>")
-		target_mob.reagents.add_reagent(charge.display_name, chems_to_use)
+	target_mob.reagents.add_reagent(charge.product_type, chems_to_use)
 
 	charge.charges -= chems_to_use
 	if(charge.charges < 0) charge.charges = 0
@@ -293,11 +291,11 @@
 	desc = "A complex web of tubing and needles suitable for hardsuit use."
 
 	charges = list(
-		list("synaptizine",   "synaptizine",   0, 30),
-		list("hyperzine",     "hyperzine",     0, 30),
-		list("oxycodone",     "oxycodone",     0, 30),
-		list("nutrients",     "glucose",     0, 80),
-		list("saline",        "saline", 0, 80)
+		list("synaptizine",	"synaptizine",	/datum/reagent/synaptizine,			30),
+		list("hyperzine",	"hyperzine",	/datum/reagent/hyperzine,			30),
+		list("oxycodone",	"oxycodone",	/datum/reagent/oxycodone,			30),
+		list("nutrients",	"glucose",		/datum/reagent/nutriment/glucose,	80),
+		list("saline",		"saline",		/datum/reagent/saline,				80)
 		)
 
 	interface_name = "combat chem dispenser"
@@ -311,12 +309,12 @@
 	desc = "A complex web of tubing and needles suitable for vaurcan hardsuit use."
 
 	charges = list(
-		list("synaptizine",   "synaptizine",   0, 30),
-		list("hyperzine",     "hyperzine",     0, 30),
-		list("oxycodone",     "oxycodone",     0, 30),
-		list("phoron",        "phoron",     0, 60),
-		list("kois",          "k'ois paste",     0, 80),
-		list("saline",        "saline", 0, 80)
+		list("synaptizine",	"synaptizine",	/datum/reagent/synaptizine,	30),
+		list("hyperzine",	"hyperzine",	/datum/reagent/hyperzine,	30),
+		list("oxycodone",	"oxycodone",	/datum/reagent/oxycodone,	30),
+		list("phoron",		"phoron",		/datum/reagent/toxin/phoron,60),
+		list("kois",		"k'ois paste",	/datum/reagent/kois,		80),
+		list("saline",		"saline",		/datum/reagent/saline,		80)
 		)
 
 	interface_name = "vaurca combat chem dispenser"
@@ -331,8 +329,8 @@
 	desc = "A complex web of tubing and needles suitable for hardsuit use."
 
 	charges = list(
-		list("dexalin",   "dexalin",   0, 5),
-		list("norepinephrine",     "norepinephrine",     0, 5)
+		list("dexalin",   "dexalin",   /datum/reagent/dexalin, 5),
+		list("norepinephrine",     "norepinephrine",     /datum/reagent/norepinephrine, 5)
 		)
 
 	interface_name = "chem dispenser"
@@ -359,10 +357,10 @@
 /obj/item/rig_module/chem_dispenser/injector/paramedic //downgraded version
 
 	charges = list(
-		list("tricordrazine",	"tricordrazine", 0, 40),
-		list("tramadol",	"tramadol",      0, 40),
-		list("dexalin",		"dexalin",      0, 40),
-		list("norepinephrine",	"norepinephrine",     0, 40)
+		list("tricordrazine",	"tricordrazine",	/datum/reagent/tricordrazine,	40),
+		list("tramadol",		"tramadol",			/datum/reagent/tramadol,		40),
+		list("dexalin",			"dexalin",			/datum/reagent/dexalin,			40),
+		list("norepinephrine",	"norepinephrine",	/datum/reagent/norepinephrine,	40)
 		)
 
 /obj/item/rig_module/voice
@@ -399,7 +397,7 @@
 	if(!..())
 		return 0
 
-	var/choice= input("Would you like to toggle the synthesiser or set the name?") as null|anything in list("Enable","Disable","Set Name")
+	var/choice= input("Would you like to toggle the synthesiser, set the name or set an accent?") as null|anything in list("Enable","Disable","Set Name", "Set Accent")
 
 	if(!choice)
 		return 0
@@ -419,6 +417,12 @@
 				return 0
 			voice_holder.voice = raw_choice
 			to_chat(usr, "<font color='blue'>You are now mimicking <B>[voice_holder.voice]</B>.</font>")
+		if("Set Accent")
+			var/raw_choice = input(usr, "Please choose an accent to mimick.") as null|anything in SSrecords.accents
+			if(!raw_choice)
+				return 0
+			voice_holder.current_accent = raw_choice
+			to_chat(usr, span("notice", "You are now mimicking the [raw_choice] accent."))
 	return 1
 
 /obj/item/rig_module/maneuvering_jets

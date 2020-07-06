@@ -4,7 +4,6 @@
  *		Cakehat
  *		Ushanka
  *		Pumpkin head
- *		Kitty ears
  *		Chicken mask
  *		Warning cone
  */
@@ -198,7 +197,7 @@
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
 			light()
 			to_chat(user, span("notice", "\The [user] casually lights \the [name] with [W]."))
-	else if(isflamesource(W))
+	else if(W.isFlameSource())
 		light()
 		to_chat(user, span("notice", "\The [user] lights \the [name]."))
 	else if(istype(W, /obj/item/flame/candle))
@@ -241,32 +240,6 @@
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		update_icon()
 		set_light(0)
-
-/*
- * Kitty ears
- */
-/obj/item/clothing/head/kitty
-	name = "kitty ears"
-	desc = "A pair of kitty ears. Meow!"
-	icon_state = "kitty"
-	siemens_coefficient = 1.5
-	item_icons = list()
-
-/obj/item/clothing/head/kitty/equipped(mob/living/carbon/human/user, slot)
-	. = ..()
-	if (slot == slot_head && istype(user))
-		var/hairgb = rgb(user.r_hair, user.g_hair, user.b_hair)
-		var/icon/blended = SSicon_cache.kitty_ear_cache[hairgb]
-		if (!blended)
-			blended = icon('icons/mob/head.dmi', "kitty")
-			blended.Blend(hairgb, ICON_ADD)
-			blended.Blend(icon('icons/mob/head.dmi', "kittyinner"), ICON_OVERLAY)
-
-			SSicon_cache.kitty_ear_cache[hairgb] = blended
-
-		icon_override = blended
-	else if (icon_override)
-		icon_override = null
 
 /*
  * Chicken mask

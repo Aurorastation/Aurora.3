@@ -177,7 +177,23 @@
 		swap_hand()
 
 /mob/living/carbon/proc/help_shake_act(mob/living/carbon/M)
-	if (!is_asystole())
+	if (on_fire)
+		playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+		if (M.on_fire)
+			M.visible_message(span("warning", "[M] tries to pat out [src]'s flames, but to no avail!"),
+			span("warning", "You try to pat out [src]'s flames, but to no avail! Put yourself out first!"))
+		else
+			M.visible_message(span("warning", "[M] tries to pat out [src]'s flames!"),
+			span("warning", "You try to pat out [src]'s flames! Hot!"))
+			if(do_mob(M, src, 1.5 SECONDS))
+				if (M.IgniteMob(prob(10)))
+					M.visible_message(span("danger", "The fire spreads from [src] to [M]!"),
+					span("danger", "The fire spreads to you as well!"))
+				else
+					if (src.ExtinguishMob(1))
+						M.visible_message(span("warning", "[M] successfully pats out [src]'s flames."),
+						span("warning", "You successfully pat out [src]'s flames."))
+	else if (!is_asystole())
 		if(src == M && istype(src, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = src
 			src.visible_message(
@@ -206,7 +222,7 @@
 						status += "peeling away"
 
 				if(org.is_stump())
-					status += "MISSING"
+					status += SPAN_DANGER("MISSING")
 				if(org.status & ORGAN_MUTATED)
 					status += "weirdly shapen"
 				if(org.dislocated == 2)
@@ -218,30 +234,14 @@
 				if(!org.is_usable())
 					status += "dangling uselessly"
 				if(org.status & ORGAN_BLEEDING)
-					status += span("danger", "bleeding")
+					status += SPAN_DANGER("bleeding")
 				if(status.len)
-					src.show_message("My [org.name] is [span("warning", "[english_list(status)].")]" ,1)
+					src.show_message("My [org.name] is [span("warning", "[english_list(status)].")]", 1)
 				else
-					src.show_message("My [org.name] is [span("notice", "OK.")]" ,1)
+					src.show_message("My [org.name] feels [span("notice", "OK.")]" ,1)
 
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
-		else if (on_fire)
-			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-			if (M.on_fire)
-				M.visible_message(span("warning", "[M] tries to pat out [src]'s flames, but to no avail!"),
-				span("warning", "You try to pat out [src]'s flames, but to no avail! Put yourself out first!"))
-			else
-				M.visible_message(span("warning", "[M] tries to pat out [src]'s flames!"),
-				span("warning", "You try to pat out [src]'s flames! Hot!"))
-				if(do_mob(M, src, 1.5 SECONDS))
-					if (M.IgniteMob(prob(10)))
-						M.visible_message(span("danger", "The fire spreads from [src] to [M]!"),
-						span("danger", "The fire spreads to you as well!"))
-					else
-						if (src.ExtinguishMob(1))
-							M.visible_message(span("warning", "[M] successfully pats out [src]'s flames."),
-							span("warning", "You successfully pat out [src]'s flames."))
 		else
 			var/t_him = "it"
 			if (src.gender == MALE)
@@ -299,7 +299,7 @@
 				else if(istype(tapper))
 					tapper.species.tap(tapper,src)
 				else
-					M.visible_message(span("notice", "[M] taps [src] to get their attention!"), \
+					M.visible_message("<b>[M]</b> taps [src] to get their attention!", \
 								span("notice", "You tap [src] to get their attention!"))
 
 			if(stat != DEAD)

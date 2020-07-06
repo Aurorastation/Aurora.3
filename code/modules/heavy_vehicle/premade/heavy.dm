@@ -20,7 +20,7 @@
 	desc = "Designed to function where any other piece of equipment would have long fallen apart, the Hephaestus Superheavy Lifter series can take a beating and excel at delivering it."
 	melee_damage = 50
 	action_delay = 15
-	max_damage = 90
+	max_damage = 200
 	power_use = 7500
 	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
 
@@ -30,7 +30,7 @@
 	desc = "Oversized actuators struggle to move these armoured legs."
 	icon_state = "heavy_legs"
 	move_delay = 5
-	max_damage = 90
+	max_damage = 200
 	power_use = 5000
 	trample_damage = 45
 
@@ -39,7 +39,7 @@
 	exosuit_desc_string = "a reinforced monoeye"
 	desc = "A solitary sensor moves inside a recessed slit in the armour plates."
 	icon_state = "heavy_head"
-	max_damage = 120
+	max_damage = 240
 	power_use = 0
 
 /obj/item/mech_component/sensors/heavy/prebuild()
@@ -54,8 +54,8 @@
 	pilot_coverage = 100
 	exosuit_desc_string = "a heavily armoured chassis"
 	icon_state = "heavy_body"
-	max_damage = 150
-	mech_health = 500
+	max_damage = 300
+	mech_health = 1000
 	has_hardpoints = list(HARDPOINT_BACK)
 	power_use = 5000
 
@@ -70,7 +70,8 @@
 	pilot_coverage = 100
 	exosuit_desc_string = "a heavily armoured chassis"
 	icon_state = "heavy_body"
-	max_damage = 150
+	max_damage = 450
+	mech_health = 1250
 	has_hardpoints = list(HARDPOINT_BACK, HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	power_use = 15000
 

@@ -233,7 +233,7 @@
 
 	var/obj/effect/effect/water/W = new(O)
 	W.create_reagents(spray_amount)
-	W.reagents.add_reagent("water", spray_amount)
+	W.reagents.add_reagent(/datum/reagent/water, spray_amount)
 	W.set_up(O, spray_amount)
 
 	if(iscarbon(O))
@@ -362,7 +362,7 @@
 		return
 	is_washing = 1
 	var/turf/T = get_turf(src)
-	reagents.add_reagent("water", 2)
+	reagents.add_reagent(/datum/reagent/water, 2)
 	T.clean(src)
 	spawn(100)
 		is_washing = 0
@@ -466,9 +466,9 @@
 					to_chat(usr, span("warning", "\The [RG] is already full."))
 					return
 
-				RG.reagents.add_reagent("water", min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
-				user.visible_message(span("notice", "[user] fills \the [RG] using \the [src]."),
-									 span("notice", "You fill \the [RG] using \the [src]."))
+				RG.reagents.add_reagent(/datum/reagent/water, min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
+				user.visible_message("<b>[user]</b> fills \a [RG] using \the [src].",
+									 SPAN_NOTICE("You fill \a [RG] using \the [src]."))
 				playsound(loc, 'sound/effects/sink.ogg', 75, 1)
 			if ("Empty")
 				if(!RG.reagents.total_volume)
@@ -476,8 +476,8 @@
 					return
 
 				var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
-				user.visible_message(span("notice", "[user] empties [empty_amount]u of \the [RG] into \the [src]."),
-									 span("notice", "You empty [empty_amount]u of \the [RG] into \the [src]."))
+				var/max_reagents = RG.reagents.maximum_volume
+				user.visible_message("<b>[user]</b> empties [empty_amount == max_reagents ? "all of \the [RG]" : "some of \the [RG]"] into \a [src].")
 				playsound(src.loc, 'sound/effects/pour.ogg', 10, 1)
 		return
 
@@ -491,7 +491,7 @@
 					return
 
 				var/trans = min(S.volume - S.reagents.total_volume, S.amount_per_transfer_from_this)
-				S.reagents.add_reagent("water", trans)
+				S.reagents.add_reagent(/datum/reagent/water, trans)
 				user.visible_message(span("notice", "[usr] uses \the [S] to draw water from \the [src]."),
 									 span("notice", "You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 			if(1) // inject
@@ -524,7 +524,7 @@
 	else if(istype(O, /obj/item/reagent_containers/food/snacks/monkeycube))
 		return
 	else if(istype(O, /obj/item/mop))
-		O.reagents.add_reagent("water", 5)
+		O.reagents.add_reagent(/datum/reagent/water, 5)
 		to_chat(user, span("notice", "You wet \the [O] in \the [src]."))
 		playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		return

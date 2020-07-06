@@ -1,30 +1,6 @@
 // All mobs should have custom emote, really..
 //m_type == 1 --> visual.
 //m_type == 2 --> audible
-/mob/proc/custom_emote(var/m_type=1,var/message = null, var/log_emote = 1)
-	if(usr && stat || !use_me && usr == src)
-		to_chat(src, "You are unable to emote.")
-		return
-
-	var/muzzled = istype(src.wear_mask, /obj/item/clothing/mask/muzzle)
-	if(m_type == 2 && muzzled) return
-
-	var/input
-	if(!message)
-		input = sanitize(input(src,"Choose an emote to display.") as text|null)
-	else
-		input = message
-	if(input)
-		message = "<B>[src]</B> [input]"
-	else
-		return
-
-
-	if (message)
-		send_emote(message, m_type)
-		if (log_emote)
-			log_emote("[name]/[key] : [message]",ckey=key_name(key))
-
 /mob/proc/emote_dead(var/message)
 
 	if(client.prefs.muted & MUTE_DEADCHAT)

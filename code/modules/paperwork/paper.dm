@@ -4,7 +4,7 @@
  */
 
 /obj/item/paper
-	name = "sheet of paper"
+	name = "paper"
 	gender = NEUTER
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper"
@@ -93,7 +93,7 @@
 	if (old_name && icon_state == "paper_plane")
 		to_chat(user, span("notice", "You're going to have to unfold it before you can read it."))
 		return
-	if(name != "sheet of paper")
+	if(name != initial(name))
 		to_chat(user,"It's titled '[name]'.")
 	if(in_range(user, src) || isobserver(user))
 		show_content(usr)
@@ -117,11 +117,14 @@
 	if((usr.is_clumsy()) && prob(50))
 		to_chat(usr, span("warning", "You cut yourself on the paper."))
 		return
-	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null)  as text, MAX_NAME_LEN)
+	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null) as text, MAX_NAME_LEN)
 
 	// We check loc one level up, so we can rename in clipboards and such. See also: /obj/item/photo/rename()
-	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0 && n_name)
-		name = n_name
+	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0)
+		if(n_name)
+			name = "[initial(name)] ([n_name])"
+		else
+			name = initial(name)
 		add_fingerprint(usr)
 
 /obj/item/paper/attack_self(mob/living/user as mob)
@@ -308,25 +311,12 @@
 	return t
 
 
-/obj/item/paper/proc/burnpaper(obj/item/flame/P, mob/user)
+/obj/item/paper/proc/burnpaper(obj/item/P, mob/user)
 	var/class = "warning"
-
-	if (!user.restrained())
-		if (istype(P, /obj/item/flame))
-			var/obj/item/flame/F = P
-			if (!F.lit)
-				return
-		else if (P.iswelder())
-			var/obj/item/weldingtool/F = P
-			if (!F.welding)//welding tools are 0 when off
-				return
-		else
-			//If we got here somehow, the item is incompatible and can't burn things
-			return
-
+	if(!use_check_and_message(user))
 		if(istype(P, /obj/item/flame/lighter/zippo))
 			class = "rose"
-
+			
 		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
@@ -426,11 +416,8 @@
 			c.update_icon()
 
 
-/obj/item/paper/attackby(obj/item/P as obj, mob/user as mob)
+/obj/item/paper/attackby(var/obj/item/P, mob/user)
 	..()
-	var/clown = 0
-	if(user.mind && (user.mind.assigned_role == "Clown"))
-		clown = 1
 
 	if(istype(P, /obj/item/tape_roll))
 		var/obj/item/tape_roll/tape = P
@@ -518,11 +505,6 @@
 		stampoverlay.pixel_x = x
 		stampoverlay.pixel_y = y
 
-		if(istype(P, /obj/item/stamp/clown))
-			if(!clown)
-				to_chat(user, span("notice", "You are totally unable to use the stamp. HONK!"))
-				return
-
 		if(!ico)
 			ico = new
 		ico += "paper_[P.icon_state]"
@@ -536,7 +518,7 @@
 		playsound(src, 'sound/bureaucracy/stamp.ogg', 50, 1)
 		to_chat(user, span("notice", "You stamp the paper with \the [P]."))
 
-	else if(istype(P, /obj/item/flame) || P.iswelder())
+	else if(P.isFlameSource())
 		burnpaper(P, user)
 
 	update_icon()

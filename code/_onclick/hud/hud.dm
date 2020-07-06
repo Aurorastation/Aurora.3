@@ -41,6 +41,8 @@ var/list/global_huds
 	druggy.icon_state = "druggy"
 	druggy.layer = 17
 	druggy.mouse_opacity = 0
+	druggy.alpha = 127
+	druggy.blend_mode = BLEND_MULTIPLY
 
 	//that white blurry effect you get when you eyes are damaged
 	blurry = new /obj/screen()
@@ -48,6 +50,7 @@ var/list/global_huds
 	blurry.icon_state = "blurry"
 	blurry.layer = 17
 	blurry.mouse_opacity = 0
+	blurry.alpha = 100
 
 	vr_control = new /obj/screen()
 	vr_control.icon = 'icons/mob/screen/full.dmi'

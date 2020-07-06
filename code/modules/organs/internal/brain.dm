@@ -96,7 +96,7 @@
 
 /obj/item/organ/internal/brain/process()
 	if(owner)
-		if(damage > max_damage / 2 && healed_threshold)
+		if(damage > (max_damage * 0.75) && healed_threshold)
 			handle_severe_brain_damage()
 
 		if(damage < (max_damage / 4))
@@ -114,8 +114,10 @@
 					oxygen_reserve = max(0, oxygen_reserve-1)
 			else
 				oxygen_reserve = min(initial(oxygen_reserve), oxygen_reserve+1)
+
 			if(!oxygen_reserve) //(hardcrit)
-				owner.Paralyse(3)
+				owner.Paralyse(10)
+
 			var/can_heal = damage && damage < max_damage && (damage % damage_threshold_value || owner.chem_effects[CE_BRAIN_REGEN] || (!past_damage_threshold(3) && owner.chem_effects[CE_STABLE]))
 			var/damprob
 			//Effects of bloodloss
@@ -143,8 +145,8 @@
 					damprob = owner.chem_effects[CE_STABLE] ? 60 : 100
 					if(!past_damage_threshold(8) && prob(damprob))
 						take_internal_damage(1)
-					if(!owner.paralysis)
-						owner.Paralyse(3,5)
+					if(!owner.paralysis && prob(15))
+						owner.Paralyse(rand(3, 5))
 						to_chat(owner, "<span class='warning'>You feel extremely [pick("dizzy","woozy","faint")]...</span>")
 				if(-(INFINITY) to BLOOD_VOLUME_SURVIVE) // Also see heart.dm, being below this point puts you into cardiac arrest.
 					owner.eye_blurry = max(owner.eye_blurry,6)
@@ -170,21 +172,22 @@
 			addtimer(CALLBACK(src, .proc/brain_damage_callback, damage), rand(6, 20) SECONDS, TIMER_UNIQUE)
 
 /obj/item/organ/internal/brain/proc/brain_damage_callback(var/damage) //Confuse them as a somewhat uncommon aftershock. Side note: Only here so a spawn isn't used. Also, for the sake of a unique timer.
-	to_chat(owner, "<span class = 'notice' font size='10'><B>I can't remember which way is forward...</B></span>")
+	to_chat(owner, "<span class = 'notice'><font size=3><B>I can't remember which way is forward...</B></font></span>")
 	owner?.confused += damage
 
 /obj/item/organ/internal/brain/proc/handle_severe_brain_damage()
 	set waitfor = FALSE
 	healed_threshold = 0
-	to_chat(owner, "<span class = 'notice' font size='10'><B>Where am I...?</B></span>")
+	to_chat(owner, "<span class = 'notice'><font size=4><B>Where am I...?</B></font></span>")
+	owner.Paralyse(20)
 	sleep(5 SECONDS)
 	if(!owner)
 		return
-	to_chat(owner, "<span class = 'notice' font size='10'><B>What's going on...?</B></span>")
+	to_chat(owner, "<span class = 'notice'><font size=4><B>What's going on...?</B></font></span>")
 	sleep(10 SECONDS)
 	if(!owner)
 		return
-	to_chat(owner, "<span class = 'notice' font size='10'><B>What happened...?</B></span>")
+	to_chat(owner, "<span class = 'notice'><font size=4><B>What happened...?</B></font></span>")
 	alert(owner.find_mob_consciousness(), "You have taken massive brain damage! You will not be able to remember the events leading up to your injury.", "Brain Damaged")
 
 /obj/item/organ/internal/brain/proc/handle_damage_effects()

@@ -85,6 +85,15 @@
 				return 0
 	return 1
 
+/obj/item/clothing/proc/return_own_image()
+	var/image/our_image
+	if(icon_override)
+		our_image = image(icon_override, icon_state)
+	else if(item_icons && (slot_head_str in item_icons))
+		our_image = image(item_icons[slot_head_str], icon_state)
+	our_image.color = color
+	return our_image
+
 /obj/item/clothing/proc/refit_for_species(var/target_species)
 	if(!species_restricted)
 		return //this item doesn't use the species_restricted system
@@ -508,6 +517,21 @@
 		to_chat(user, "<span class='notice'>You crawl under \the [src].</span>")
 	return 1
 
+/obj/item/clothing/head/return_own_image()
+	var/image/our_image
+	if(contained_sprite)
+		auto_adapt_species(src)
+		var/state = "[icon_species_tag ? "[icon_species_tag]_" : ""][item_state][WORN_HEAD]"
+		our_image = image(icon_override || icon, state)
+	else if(icon_override)
+		our_image = image(icon_override, icon_state)
+	else if(item_icons && (slot_head_str in item_icons))
+		our_image = image(item_icons[slot_head_str], icon_state)
+	else
+		our_image = image(INV_HEAD_DEF_ICON, icon_state)
+	our_image.color = color
+	return our_image
+
 /obj/item/clothing/head/update_icon(var/mob/user)
 
 	cut_overlays()
@@ -602,7 +626,7 @@
 		item_flags = down_item_flags
 		flags_inv = down_flags_inv
 		if(self)
-			user.visible_message(span("notice", "[user] pulls \the [src] down to hang around \his neck."), span("notice", "You pull \the [src] down to hang around your neck."))
+			user.visible_message("<b>[user]</b> pulls \the [src] down to hang around their neck.", span("notice", "You pull \the [src] down to hang around your neck."))
 	else
 		gas_transfer_coefficient = initial(gas_transfer_coefficient)
 		body_parts_covered = initial(body_parts_covered)
@@ -611,7 +635,7 @@
 		item_flags = initial(item_flags)
 		flags_inv = initial(flags_inv)
 		if(self)
-			user.visible_message(span("notice", "[user] pulls \the [src] up to cover \his face."), span("notice", "You pull \the [src] up to cover your face."))
+			user.visible_message("<b>[user]</b> pulls \the [src] up to cover their face.", span("notice", "You pull \the [src] up to cover your face."))
 	usr.update_action_buttons()
 	update_clothing_icon()
 
@@ -749,6 +773,21 @@
 
 	valid_accessory_slots = list("armband","decor", "over")
 
+/obj/item/clothing/suit/return_own_image()
+	var/image/our_image
+	if(contained_sprite)
+		auto_adapt_species(src)
+		var/state = "[icon_species_tag ? "[icon_species_tag]_" : ""][item_state][WORN_SUIT]"
+		our_image = image(icon_override || icon, state)
+	else if(icon_override)
+		our_image = image(icon_override, icon_state)
+	else if(item_icons && (slot_head_str in item_icons))
+		our_image = image(item_icons[slot_head_str], icon_state)
+	else
+		our_image = image(INV_SUIT_DEF_ICON, icon_state)
+	our_image.color = color
+	return our_image
+
 /obj/item/clothing/suit/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
@@ -859,6 +898,21 @@
 	else
 		rolled_sleeves = -1
 	if(H) update_clothing_icon()
+
+/obj/item/clothing/under/return_own_image()
+	var/image/our_image
+	if(contained_sprite)
+		auto_adapt_species(src)
+		var/state = "[icon_species_tag ? "[icon_species_tag]_" : ""][item_state][WORN_UNDER]"
+		our_image = image(icon_override || icon, state)
+	else if(icon_override)
+		our_image = image(icon_override, icon_state)
+	else if(item_icons && (slot_head_str in item_icons))
+		our_image = image(item_icons[slot_head_str], icon_state)
+	else
+		our_image = image(INV_W_UNIFORM_DEF_ICON, icon_state)
+	our_image.color = color
+	return our_image
 
 /obj/item/clothing/under/update_clothing_icon()
 	if (ismob(src.loc))

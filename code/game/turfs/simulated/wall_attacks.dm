@@ -39,21 +39,24 @@
 	return 1
 
 /turf/simulated/wall/proc/try_touch(var/mob/user, var/rotting)
-
 	if(rotting)
 		if(reinf_material)
-			to_chat(user, "<span class='danger'>\The [reinf_material.display_name] feels porous and crumbly.</span>")
+			to_chat(user, SPAN_WARNING("\The [reinf_material.display_name] feels porous and crumbly."))
 		else
-			to_chat(user, "<span class='danger'>\The [material.display_name] crumbles under your touch!</span>")
+			to_chat(user, SPAN_WARNING("\The [material.display_name] crumbles under your touch!"))
 			dismantle_wall()
-			return 1
+			return TRUE
+
+	user.visible_message(SPAN_NOTICE("\The [user] starts feeling around and pushing on \the [src]..."), SPAN_NOTICE("You start feeling around and pushing on \the [src]..."))
+	if(!do_after(user, 30, TRUE, src))
+		return
 
 	if(!can_open)
-		to_chat(user, "<span class='notice'>You push the wall, but nothing happens.</span>")
-		playsound(src, 'sound/weapons/Genhit.ogg', 25, 1)
+		to_chat(user, SPAN_NOTICE("You push the wall, but nothing happens."))
+		playsound(src, 'sound/weapons/Genhit.ogg', 25, TRUE)
 	else
 		toggle_open(user)
-	return 0
+	return FALSE
 
 
 /turf/simulated/wall/attack_hand(var/mob/user)

@@ -165,9 +165,9 @@
 		return
 
 	if(L == user)
-		user.visible_message(span("notice", "\The [user] starts climbing into \the [src]."), span("notice", "You start climbing into \the [src]."), range = 3)
+		user.visible_message("\The <b>[user]</b> starts climbing into \the [src].", span("notice", "You start climbing into \the [src]."), range = 3)
 	else
-		user.visible_message(span("notice", "\The [user] starts putting \the [L] into \the [src]."), span("notice", "You start putting \the [L] into \the [src]."), range = 3)
+		user.visible_message("\The <b>[user]</b> starts putting \the [L] into \the [src].", span("notice", "You start putting \the [L] into \the [src]."), range = 3)
 
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
@@ -423,11 +423,11 @@
 		VUEUI_SET_CHECK(data["paralysis"], occupant.paralysis, ., data)
 		VUEUI_SET_CHECK(data["bodytemp"], occupant.bodytemperature, ., data)
 		VUEUI_SET_CHECK(data["occupant"], !!occupant, ., data)
-		VUEUI_SET_CHECK(data["norepiAmt"], R.get_reagent_amount("norepinephrine"), ., data)
-		VUEUI_SET_CHECK(data["soporAmt"], R.get_reagent_amount("stoxin"), ., data)
-		VUEUI_SET_CHECK(data["bicardAmt"], R.get_reagent_amount("bicaridine"), ., data)
-		VUEUI_SET_CHECK(data["dexAmt"], R.get_reagent_amount("dexalin"), ., data)
-		VUEUI_SET_CHECK(data["dermAmt"], R.get_reagent_amount("dermaline"), ., data)
+		VUEUI_SET_CHECK(data["norepiAmt"], R.get_reagent_amount(/datum/reagent/norepinephrine), ., data)
+		VUEUI_SET_CHECK(data["soporAmt"], R.get_reagent_amount(/datum/reagent/soporific), ., data)
+		VUEUI_SET_CHECK(data["bicardAmt"], R.get_reagent_amount(/datum/reagent/bicaridine), ., data)
+		VUEUI_SET_CHECK(data["dexAmt"], R.get_reagent_amount(/datum/reagent/dexalin), ., data)
+		VUEUI_SET_CHECK(data["dermAmt"], R.get_reagent_amount(/datum/reagent/dermaline), ., data)
 		VUEUI_SET_CHECK(data["otherAmt"], R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"]), ., data)
 		VUEUI_SET_CHECK_LIST(data["bodyparts"], get_external_wound_data(occupant), ., data)
 		VUEUI_SET_CHECK_LIST(data["organs"], get_internal_wound_data(occupant), ., data)
@@ -598,12 +598,12 @@
 		"paralysis" = H.paralysis,
 		"bodytemp" = H.bodytemperature,
 		"borer_present" = H.has_brain_worms(),
-		"norepinephrine_amount" = H.reagents.get_reagent_amount("norepinephrine"),
-		"dexalin_amount" = H.reagents.get_reagent_amount("dexalin"),
-		"stoxin_amount" = H.reagents.get_reagent_amount("stoxin"),
-		"bicaridine_amount" = H.reagents.get_reagent_amount("bicaridine"),
-		"dermaline_amount" = H.reagents.get_reagent_amount("dermaline"),
-		"blood_amount" = H.vessel.get_reagent_amount("blood"),
+		"norepinephrine_amount" = H.reagents.get_reagent_amount(/datum/reagent/norepinephrine),
+		"dexalin_amount" = H.reagents.get_reagent_amount(/datum/reagent/dexalin),
+		"stoxin_amount" = H.reagents.get_reagent_amount(/datum/reagent/soporific),
+		"bicaridine_amount" = H.reagents.get_reagent_amount(/datum/reagent/bicaridine),
+		"dermaline_amount" = H.reagents.get_reagent_amount(/datum/reagent/dermaline),
+		"blood_amount" = H.vessel.get_reagent_amount(/datum/reagent/blood),
 		"disabilities" = H.sdisabilities,
 		"tg_diseases_list" = H.viruses.Copy(),
 		"lung_ruptured" = H.is_lung_ruptured(),

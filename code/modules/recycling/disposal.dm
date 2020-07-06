@@ -27,6 +27,33 @@
 	active_power_usage = 2200	//the pneumatic pump power. 3 HP ~ 2200W
 	idle_power_usage = 100
 
+/obj/machinery/disposal/small
+	desc = "A compact pneumatic waste disposal unit."
+	icon_state = "disposal_small"
+	density = 0
+
+/obj/machinery/disposal/small/Initialize()
+	. = ..()
+	if(pixel_x || pixel_y)
+		return
+	else
+		switch(dir)
+			if(1)
+				pixel_y = -13
+				layer = MOB_LAYER + 0.1
+			if(2)
+				pixel_y = 20
+				layer = OBJ_LAYER + 0.3
+			if(4)
+				pixel_x = -12
+			if(8)
+				pixel_x = 11
+
+/obj/machinery/disposal/small/check_mob_size(mob/target)
+	if(target.mob_size > MOB_SMALL)
+		return 0
+	return 1
+
 // create a new disposal
 // find the attached trunk (if present) and init gas resvr.
 /obj/machinery/disposal/Initialize()
@@ -80,12 +107,19 @@
 				if(do_after(user,20/W.toolspeed))
 					if(!src || !W.isOn()) return
 					to_chat(user, "You sliced the floorweld off the disposal unit.")
-					var/obj/structure/disposalconstruct/C = new (src.loc)
-					src.transfer_fingerprints_to(C)
-					C.ptype = 6 // 6 = disposal unit
-					C.anchored = 1
-					C.density = 1
-					C.update()
+					if(!istype(src, /obj/machinery/disposal/small))
+						var/obj/structure/disposalconstruct/C = new (src.loc)
+						src.transfer_fingerprints_to(C)
+						C.ptype = 6 // 6 = disposal unit
+						C.anchored = 1
+						C.density = 1
+						C.update()
+					else
+						var/obj/structure/disposalconstruct/C = new (src.loc)
+						src.transfer_fingerprints_to(C)
+						C.ptype = 15 // 15 = small disposal unit
+						C.anchored = 1
+						C.update()
 					qdel(src)
 				return
 			else
@@ -123,6 +157,9 @@
 	if(istype(G))	// handle grabbed mob
 		if(ismob(G.affecting))
 			var/mob/GM = G.affecting
+			if(!check_mob_size(GM))
+				to_chat(user, SPAN_NOTICE("The opening is too narrow for [G.affecting] to fit!"))
+				return
 			for (var/mob/V in viewers(usr))
 				V.show_message("[usr] starts putting [GM.name] into the disposal.", 3)
 			if(do_after(usr, 20))
@@ -165,6 +202,10 @@
 	if(isanimal(user) && target != user)
 		return
 
+	if(!check_mob_size(target))
+		to_chat(user, SPAN_NOTICE("The opening is too narrow for [target] to fit!"))
+		return
+
 	src.add_fingerprint(user)
 	var/target_loc = target.loc
 	var/msg
@@ -204,6 +245,9 @@
 
 	update()
 	return
+
+/obj/machinery/disposal/proc/check_mob_size(mob/target)
+	return 1
 
 // attempt to move while inside
 /obj/machinery/disposal/relaymove(mob/user as mob)
@@ -336,14 +380,14 @@
 /obj/machinery/disposal/proc/update()
 	cut_overlays()
 	if(stat & BROKEN)
-		icon_state = "disposal-broken"
+		icon_state = "[icon_state]-broken"
 		mode = 0
 		flush = 0
 		return
 
 	// flush handle
 	if(flush)
-		add_overlay("dispover-handle")
+		add_overlay("[icon_state]-handle")
 
 	// only handle is shown if no power
 	if(stat & NOPOWER || mode == -1)
@@ -351,13 +395,13 @@
 
 	// 	check for items in disposal - occupied light
 	if(contents.len > 0)
-		add_overlay("dispover-full")
+		add_overlay("[icon_state]-full")
 
 	// charging and ready light
 	if(mode == 1)
-		add_overlay("dispover-charge")
+		add_overlay("[icon_state]-charge")
 	else if(mode == 2)
-		add_overlay("dispover-ready")
+		add_overlay("[icon_state]-ready")
 
 // timed process
 // charge the gas reservoir and perform flush if ready
@@ -471,10 +515,10 @@
 		qdel(H)
 
 /obj/machinery/disposal/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if (istype(mover,/obj/item) && mover.throwing)
+	if(istype(mover, /obj/item/projectile))
+		return 1
+	if(istype(mover,/obj/item) && mover.throwing)
 		var/obj/item/I = mover
-		if(istype(I, /obj/item/projectile))
-			return
 		if(prob(75))
 			I.forceMove(src)
 			for(var/mob/M in viewers(src))
