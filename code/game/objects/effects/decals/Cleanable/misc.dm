@@ -4,7 +4,6 @@
 	gender = PLURAL
 	density = FALSE
 	anchored = TRUE
-	layer = 2.5
 	icon = 'icons/obj/trash.dmi'
 	icon_state = "shards"
 
@@ -16,7 +15,7 @@
 	icon_state = "ash"
 	anchored = TRUE
 
-/obj/effect/decal/cleanable/ash/attack_hand(mob/user as mob)
+/obj/effect/decal/cleanable/ash/attack_hand(mob/user)
 	to_chat(user, "<span class='notice'>[src] sifts through your fingers.</span>")
 	var/turf/simulated/floor/F = get_turf(src)
 	if (istype(F))
@@ -29,7 +28,6 @@
 	gender = PLURAL
 	density = FALSE
 	anchored = TRUE
-	layer = 2.5
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "dirt"
 	mouse_opacity = 0
@@ -40,15 +38,8 @@
 	gender = PLURAL
 	density = FALSE
 	anchored = TRUE
-	layer = 2.5
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "flour"
-
-/obj/effect/decal/cleanable/flour/attack_hand(mob/user)
-	if(layer == 2.5)
-		if(locate(/obj/machinery/atmospherics) in get_turf(src))
-			to_chat(user, SPAN_NOTICE("You brush \the [src] away from the piping with your hand."))
-			layer = 2.3
 
 /obj/effect/decal/cleanable/greenglow
 	name = "glowing goo"
@@ -56,7 +47,6 @@
 	gender = PLURAL
 	density = FALSE
 	anchored = TRUE
-	layer = 2.5
 	light_range = 2
 	light_power = 0.5
 	light_color = LIGHT_COLOR_GREEN
@@ -69,14 +59,9 @@
 	if (!mapload)	// Round-start goo should stick around.
 		QDEL_IN(src, 2 MINUTES)
 
-/obj/effect/decal/cleanable/greenglow/attack_hand(mob/user)
-	if(layer == 2.5)
-		if(locate(/obj/machinery/atmospherics) in get_turf(src))
-			to_chat(user, SPAN_NOTICE("You brush \the [src] away from the piping with your hand."))
-			layer = 2.3
-			if(ishuman(user))
-				var/mob/living/carbon/human/H = user
-				H.apply_radiation(5)
+/obj/effect/decal/cleanable/proc/post_sweep(var/mob/user)
+	var/mob/living/carbon/human/H = user
+	H.apply_radiation(5)
 
 /obj/effect/decal/cleanable/cobweb
 	name = "cobweb"
@@ -122,12 +107,6 @@
 	..()
 	create_reagents(20, src)
 
-/obj/effect/decal/cleanable/vomit/attack_hand(mob/user)
-	if(layer == 2.5)
-		if(locate(/obj/machinery/atmospherics) in get_turf(src))
-			to_chat(user, SPAN_NOTICE("You brush \the [src] away from the piping with your hand."))
-			layer = 2.3
-
 /obj/effect/decal/cleanable/tomato_smudge
 	name = "tomato smudge"
 	desc = "It's red."
@@ -136,12 +115,6 @@
 	layer = 2.5
 	icon = 'icons/effects/tomatodecal.dmi'
 	random_icon_states = list("tomato_floor1", "tomato_floor2", "tomato_floor3")
-
-/obj/effect/decal/cleanable/tomato_smudge/attack_hand(mob/user)
-	if(layer == 2.5)
-		if(locate(/obj/machinery/atmospherics) in get_turf(src))
-			to_chat(user, SPAN_NOTICE("You brush \the [src] away from the piping with your hand."))
-			layer = 2.3
 
 /obj/effect/decal/cleanable/egg_smudge
 	name = "smashed egg"
@@ -152,12 +125,6 @@
 	icon = 'icons/effects/tomatodecal.dmi'
 	random_icon_states = list("smashed_egg1", "smashed_egg2", "smashed_egg3")
 
-/obj/effect/decal/cleanable/egg_smudge/attack_hand(mob/user)
-	if(layer == 2.5)
-		if(locate(/obj/machinery/atmospherics) in get_turf(src))
-			to_chat(user, SPAN_NOTICE("You brush \the [src] away from the piping with your hand."))
-			layer = 2.3
-
 /obj/effect/decal/cleanable/pie_smudge //honk
 	name = "smashed pie"
 	desc = "It's pie cream from a cream pie."
@@ -166,12 +133,6 @@
 	layer = 2.5
 	icon = 'icons/effects/tomatodecal.dmi'
 	random_icon_states = list("smashed_pie")
-
-/obj/effect/decal/cleanable/pie_smudge/attack_hand(mob/user)
-	if(layer == 2.5)
-		if(locate(/obj/machinery/atmospherics) in get_turf(src))
-			to_chat(user, SPAN_NOTICE("You brush \the [src] away from the piping with your hand."))
-			layer = 2.3
 
 /obj/effect/decal/cleanable/fruit_smudge
 	name = "smudge"
@@ -182,9 +143,3 @@
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "mfloor1"
 	random_icon_states = list("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7")
-
-/obj/effect/decal/cleanable/fruit_smudge/attack_hand(mob/user)
-	if(layer == 2.5)
-		if(locate(/obj/machinery/atmospherics) in get_turf(src))
-			to_chat(user, SPAN_NOTICE("You brush \the [src] away from the piping with your hand."))
-			layer = 2.3
