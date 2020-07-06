@@ -278,7 +278,7 @@ STOCK_ITEM_UNCOMMON(jammer, 2)
 	new /obj/item/device/radiojammer(L)
 
 STOCK_ITEM_UNCOMMON(seeds, 1)
-	for(var/i, i < rand(1, 3), i++)
+	for(var/i in 1 to rand(1, 3))
 		var/obj/item/seeds/SP = pick(subtypesof(/obj/item/seeds))
 		new SP(L)
 
@@ -386,7 +386,7 @@ STOCK_ITEM_UNCOMMON(alt_glasses, 1)
 			/obj/item/clothing/glasses/threedglasses,
 			/obj/item/clothing/glasses/regular/hipster,
 			/obj/item/clothing/glasses/regular/scanners)
-	for(var/i, i < rand(1, 2), i++)
+	for(var/i in 1 to rand(1, 2))
 		var/type = pick(glasses)
 		new type(L)
 

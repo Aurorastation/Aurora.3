@@ -216,7 +216,7 @@
 		/obj/item/storage/fancy/cigarettes/blank = 5,
 		/obj/item/storage/fancy/cigarettes/acmeco = 2,
 		/obj/item/storage/fancy/cigarettes/dromedaryco = 10,
-		/obj/item/storage/fancy/cigar = 9,
+		/obj/item/storage/fancy/cigarettes/cigar = 9,
 		/obj/item/storage/fancy/cigarettes/nicotine = 10,
 		/obj/item/storage/fancy/cigarettes/rugged = 10,
 		/obj/item/storage/fancy/cigarettes/pra = 5,

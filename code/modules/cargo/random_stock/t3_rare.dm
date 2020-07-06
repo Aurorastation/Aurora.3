@@ -150,7 +150,7 @@ STOCK_ITEM_RARE(rare_clothing, 1)
 		/obj/item/clothing/under/lance,
 		/obj/item/clothing/under/dress/lance_dress/male,
 		/obj/item/clothing/under/kilt)
-	for(var/i, i < rand(1, 2), i++)
+	for(var/i in 1 to rand(1, 2))
 		var/obj/item/clothing/C = pick(clothing_picks)
 		new C(L)
 

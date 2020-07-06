@@ -104,17 +104,17 @@ STOCK_ITEM_COMMON(figure, 1)
 	new /obj/random/action_figure(L)
 
 STOCK_ITEM_COMMON(bombsupply, 4.5)
-	for(var/i, i < rand(1, 3), i++)
+	for(var/i in 1 to rand(1, 3))
 		new /obj/random/bomb_supply(L)
 
 STOCK_ITEM_COMMON(tech, 5)
-	for(var/i, i < rand(1, 3), i++)
+	for(var/i in 1 to rand(1, 3))
 		new /obj/random/tech_supply(L)
 
 STOCK_ITEM_COMMON(smokable, 2)
 	if(prob(50))
 		new /obj/item/flame/lighter/random(L)
-	for(var/i, i < rand(2, 5), i++)
+	for(var/i in 1 to rand(2, 4))
 		new /obj/random/smokable(L)
 
 STOCK_ITEM_COMMON(vials, 2)
@@ -206,7 +206,7 @@ STOCK_ITEM_COMMON(utensil, 2)
 	new /obj/item/storage/box/kitchen(L)
 
 STOCK_ITEM_COMMON(utilitygrenades, 1.5)
-	for(var/i, i < rand(1, 4), i++)
+	for(var/i in 1 to rand(1, 4))
 		if(prob(50))
 			new /obj/item/grenade/chem_grenade/metalfoam(L)
 		else
@@ -530,7 +530,7 @@ STOCK_ITEM_COMMON(gasmask, 2)
 STOCK_ITEM_COMMON(mining, 2)
 	var/list/mine_items = list(/obj/item/shovel, /obj/item/pickaxe, /obj/item/clothing/glasses/material,
 				/obj/item/device/flashlight/lantern, /obj/item/mining_scanner, /obj/item/storage/box/excavation)
-	for(var/i, i < rand(1, 3), i++)
+	for(var/i in 1 to rand(1, 3))
 		var/to_spawn = pick(mine_items)
 		new to_spawn(L)
 
