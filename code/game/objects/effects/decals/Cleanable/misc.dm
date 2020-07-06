@@ -98,7 +98,6 @@
 	gender = PLURAL
 	density = FALSE
 	anchored = TRUE
-	layer = 2.5
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "vomit_1"
 	random_icon_states = list("vomit_1", "vomit_2", "vomit_3", "vomit_4")
@@ -113,7 +112,6 @@
 	desc = "It's red."
 	density = FALSE
 	anchored = TRUE
-	layer = 2.5
 	icon = 'icons/effects/tomatodecal.dmi'
 	random_icon_states = list("tomato_floor1", "tomato_floor2", "tomato_floor3")
 
@@ -122,7 +120,6 @@
 	desc = "Seems like this one won't hatch."
 	density = FALSE
 	anchored = TRUE
-	layer = 2.5
 	icon = 'icons/effects/tomatodecal.dmi'
 	random_icon_states = list("smashed_egg1", "smashed_egg2", "smashed_egg3")
 
@@ -131,7 +128,6 @@
 	desc = "It's pie cream from a cream pie."
 	density = FALSE
 	anchored = TRUE
-	layer = 2.5
 	icon = 'icons/effects/tomatodecal.dmi'
 	random_icon_states = list("smashed_pie")
 
@@ -140,7 +136,6 @@
 	desc = "Some kind of fruit smear."
 	density = FALSE
 	anchored = TRUE
-	layer = 2.5
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "mfloor1"
 	random_icon_states = list("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7")
