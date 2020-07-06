@@ -22,6 +22,9 @@
 /mob/living/silicon/robot/proc/uneq_active()
 	if(isnull(module_active))
 		return
+	var/obj/item/borg/B = module_active
+	if(istype(B))
+		B.on_module_deactivate()
 
 	if(module_state_1 == module_active)
 		if(istype(module_state_1,/obj/item/borg/sight))
@@ -54,10 +57,12 @@
 		module_state_3 = null
 		inv3.icon_state = "inv3"
 
-	updateicon()
 	hud_used.update_robot_modules_display()
 
 /mob/living/silicon/robot/proc/uneq_all()
+	var/obj/item/borg/B = module_active
+	if(istype(B))
+		B.on_module_deactivate()
 	module_active = null
 
 	if(module_state_1)
@@ -149,6 +154,9 @@
 				inv2.icon_state = "inv2"
 				inv3.icon_state = "inv3"
 				module_active = module_state_1
+				var/obj/item/borg/B = module_active
+				if(istype(B))
+					B.on_module_activate()
 				return
 		if(2)
 			if(module_active != module_state_2)
@@ -156,6 +164,9 @@
 				inv2.icon_state = "inv2 +a"
 				inv3.icon_state = "inv3"
 				module_active = module_state_2
+				var/obj/item/borg/B = module_active
+				if(istype(B))
+					B.on_module_activate()
 				return
 		if(3)
 			if(module_active != module_state_3)
@@ -163,6 +174,9 @@
 				inv2.icon_state = "inv2"
 				inv3.icon_state = "inv3 +a"
 				module_active = module_state_3
+				var/obj/item/borg/B = module_active
+				if(istype(B))
+					B.on_module_activate()
 				return
 	return
 
@@ -174,16 +188,25 @@
 		if(1)
 			if(module_active == module_state_1)
 				inv1.icon_state = "inv1"
+				var/obj/item/borg/B = module_active
+				if(istype(B))
+					B.on_module_deactivate()
 				module_active = null
 				return
 		if(2)
 			if(module_active == module_state_2)
 				inv2.icon_state = "inv2"
+				var/obj/item/borg/B = module_active
+				if(istype(B))
+					B.on_module_deactivate()
 				module_active = null
 				return
 		if(3)
 			if(module_active == module_state_3)
 				inv3.icon_state = "inv3"
+				var/obj/item/borg/B = module_active
+				if(istype(B))
+					B.on_module_deactivate()
 				module_active = null
 				return
 	return

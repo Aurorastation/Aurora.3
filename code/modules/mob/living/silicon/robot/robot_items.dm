@@ -225,6 +225,12 @@
 	T.visible_message(SPAN_NOTICE("\The [src.loc] dispenses a sheet of crisp white paper."))
 	new /obj/item/paper(T)
 
+/obj/item/borg/proc/on_module_activate()
+	return
+
+/obj/item/borg/proc/on_module_deactivate()
+	return
+
 //Personal shielding for the combat module.
 /obj/item/borg/combat/shield
 	name = "personal shielding"
@@ -232,6 +238,16 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "shield1" //placeholder for now // four fucking years alberyk. FOUR
 	var/shield_level = 0.5 //Percentage of damage absorbed by the shield.
+	var/image/shield_overlay
+
+/obj/item/borg/combat/shield/on_module_activate()
+	if(istype(loc, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/R = loc
+		shield_overlay = image(R.icon, "[R.module_sprites[R.icontype]]-shield")
+		R.add_overlay(shield_overlay)
+
+/obj/item/borg/combat/shield/on_module_deactivate()
+	loc.cut_overlay(shield_overlay)
 
 /obj/item/borg/combat/shield/verb/set_shield_level()
 	set name = "Set shield level"
@@ -247,6 +263,18 @@
 	desc = "By retracting limbs and tucking in its head, a combat android can roll at high speeds."
 	icon = 'icons/obj/decals.dmi'
 	icon_state = "shock"
+
+/obj/item/borg/combat/mobility/on_module_activate()
+	if(istype(loc, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/R = loc
+		R.icon_state = "[R.module_sprites[R.icontype]]-roll"
+		R.speed = -2
+
+/obj/item/borg/combat/mobility/on_module_deactivate()
+	if(istype(loc, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/R = loc
+		R.icon_state = R.module_sprites[R.icontype]
+		R.speed = initial(R.speed)
 
 /obj/item/inflatable_dispenser
 	name = "inflatables dispenser"

@@ -52,7 +52,7 @@ obj/item/gun/energy/staff/special_check(var/mob/living/user)
 			new_mob = new /mob/living/simple_animal/parrot(H.loc)
 			new_mob.universal_speak = 1
 			new_mob.key = H.key
-			new_mob.a_intent = "harm"
+			new_mob.set_intent(I_HURT)
 			qdel(H)
 			sleep(20)
 			new_mob.say("Poly wanna cracker!")
