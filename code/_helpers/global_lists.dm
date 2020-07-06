@@ -56,7 +56,7 @@ var/global/list/facial_hair_styles_female_list = list()
 var/global/list/skin_styles_female_list = list()		//unused
 var/global/list/body_marking_styles_list = list()
 var/global/list/chargen_disabilities_list = list()
-var/global/static/list/valid_player_genders = list(MALE, FEMALE, NEUTER)
+var/global/static/list/valid_player_genders = list(MALE, FEMALE, NEUTER, PLURAL)
 
 //Backpacks
 var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt", "Duffel Bag", "Messenger Bag")

@@ -4,6 +4,7 @@
 	name_plural = "Skrell"
 	bodytype = "Skrell"
 	age_max = 500
+	default_genders = list(PLURAL)
 	economic_modifier = 12
 	icobase = 'icons/mob/human_races/skrell/r_skrell.dmi'
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
