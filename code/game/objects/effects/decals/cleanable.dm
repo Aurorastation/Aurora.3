@@ -4,10 +4,10 @@
 	var/swept_away
 
 /obj/effect/decal/cleanable/attack_hand(mob/user)
-	if(!swept_away)
-		if(locate(/obj/machinery/atmospherics) in get_turf(src))
-			to_chat(user, SPAN_NOTICE("You brush \the [src] away from the piping with your hand."))
-			layer = UNDER_PIPE_LAYER
+	if(!swept_away && layer == ABOVE_CABLE_LAYER) // have to check layer otherwise more vars need to be added to determine whether it CAN be sweeped
+		if((locate(/obj/machinery/atmospherics) in get_turf(src)) || (locate(/obj/machinery/hologram/holopad) in get_turf(src)))
+			to_chat(user, SPAN_NOTICE("You brush \the [src] away with your hand."))
+			layer = LOWER_ON_TURF_LAYER
 			swept_away = TRUE
 			post_sweep(user)
 
