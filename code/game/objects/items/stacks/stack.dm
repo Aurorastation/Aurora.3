@@ -60,7 +60,7 @@
 	if(..(user, 1))
 		if(!iscoil())
 			if(!uses_charge)
-				to_chat(user, "There [src.amount == 1 ? "is" : "are"] [src.amount] [src.singular_name]\s in the stack.")
+				to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s in the stack.")
 			else
 				to_chat(user, "You have enough charge to produce <b>[get_amount()]</b>.")
 
