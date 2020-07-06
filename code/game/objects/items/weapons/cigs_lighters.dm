@@ -616,6 +616,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	else
 		icon_state = "[base_state]"
 		item_state = "[base_state]"
+	update_held_icon()
 
 /obj/item/flame/lighter/attack_self(mob/living/user)
 	if(!base_state)

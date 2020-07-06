@@ -109,7 +109,7 @@
 // Calculate how vulnerable the human is to under- and overpressure.
 // Returns 0 (equals 0 %) if sealed in an undamaged suit, 1 if unprotected (equals 100%).
 // Suitdamage can modifiy this in 10% steps.
-/mob/living/carbon/human/proc/get_pressure_weakness()
+/mob/living/carbon/human/get_pressure_weakness()
 	var/pressure_adjustment_coefficient = 1 // Assume no protection at first.
 
 	if(wear_suit && (wear_suit.item_flags & STOPPRESSUREDAMAGE) && head && (head.item_flags & STOPPRESSUREDAMAGE)) // Complete set of pressure-proof suit worn, assume fully sealed.
@@ -727,7 +727,7 @@
 			return 1
 
 		if(hallucination && !(species.flags & (NO_POISON|IS_PLANT)))
-			handle_hallucinations() 
+			handle_hallucinations()
 
 		if(get_shock() >= (species.total_health * 0.75))
 			if(!stat)
