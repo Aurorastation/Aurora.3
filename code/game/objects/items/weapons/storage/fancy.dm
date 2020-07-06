@@ -16,28 +16,48 @@
 
 /obj/item/storage/fancy
 	item_state = "box" //placeholder, many of these don't have inhands
+	desc_info = "You can alt-click to close it."
 	var/icon_type = null
 	var/storage_type = "box"
+	var/opened = FALSE
+	var/closable = TRUE
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	use_sound = 'sound/items/storage/box.ogg'
 
+/obj/item/storage/fancy/open(mob/user)
+	. = ..()
+	if(!opened)
+		opened = TRUE
+		update_icon()
+
+/obj/item/storage/fancy/AltClick(mob/user)
+	close(user)
+	return 1
+
+/obj/item/storage/fancy/close()
+	.=..()
+	if(closable && opened)
+		opened = FALSE
+		icon_state = "[initial(icon_state)]"
+		cut_overlays()
+		playsound(src.loc, src.use_sound, 50, 0, -5)
+
 /obj/item/storage/fancy/update_icon(var/itemremoved = 0)
-	var/total_contents = src.contents.len - itemremoved
-	src.icon_state = "[src.icon_type]box[total_contents]"
+	if(opened)
+		var/total_contents = src.contents.len - itemremoved
+		src.icon_state = "[src.icon_type]box[total_contents]"
 	return
 
 /obj/item/storage/fancy/examine(mob/user as mob)
 	if(!..(user, 1))
 		return
-
 	if(contents.len <= 0)
 		to_chat(user, "There are no [src.icon_type]s left in the [src.storage_type].")
 	else if(contents.len == 1)
 		to_chat(user, "There is one [src.icon_type] left in the [src.storage_type].")
 	else
 		to_chat(user, "There are [src.contents.len] [src.icon_type]s in the [src.storage_type].")
-
 	return
 
 /*
@@ -70,10 +90,10 @@
 	starts_with = null
 	max_storage_space = 12
 
-
 /*
  * Egg Box
  */
+
 /obj/item/storage/fancy/egg_box
 	name = "egg carton"
 	desc = "A carton of eggs."
@@ -88,6 +108,7 @@
 		/obj/item/reagent_containers/food/snacks/boiledegg
 		)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/egg = 12)
+
 /*
  * Candle Box
  */
@@ -102,7 +123,9 @@
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	max_storage_space = 5
+	can_hold = list(/obj/item/flame/candle)
 	starts_with = list(/obj/item/flame/candle = 5)
+	closable = FALSE
 
 /*
  * Crayon Box
@@ -115,9 +138,7 @@
 	icon_state = "crayonbox"
 	icon_type = "crayon"
 	w_class = ITEMSIZE_SMALL
-	can_hold = list(
-		/obj/item/pen/crayon
-	)
+	can_hold = list(/obj/item/pen/crayon)
 	starts_with = list(
 		/obj/item/pen/crayon/red = 1,
 		/obj/item/pen/crayon/orange = 1,
@@ -126,6 +147,7 @@
 		/obj/item/pen/crayon/blue = 1,
 		/obj/item/pen/crayon/purple = 1
 	)
+	closable = FALSE
 
 /obj/item/storage/fancy/crayons/fill()
 	. = ..()
