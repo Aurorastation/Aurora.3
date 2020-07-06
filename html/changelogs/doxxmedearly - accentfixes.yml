@@ -1,7 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added more accent choices for Skrell characters."
-  - bugfix: "Added more missing accents for humans and IPCs."
