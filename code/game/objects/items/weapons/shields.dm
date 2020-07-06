@@ -39,12 +39,16 @@
 		)
 	var/base_block_chance = 50
 
-/obj/item/shield/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(user.incapacitated())
 		return 0
 
+	var/shield_dir = user.dir
+	if(on_back)
+		shield_dir = reverse_dir[user.dir]
+
 	//block as long as they are not directly behind us
-	var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
+	var/bad_arc = reverse_direction(shield_dir) //arc of directions from which we cannot block
 	if(check_shield_arc(user, bad_arc, damage_source, attacker))
 		if(prob(get_block_chance(user, damage, damage_source, attacker)))
 			user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
@@ -139,7 +143,7 @@
 	var/shield_power = 150
 	var/active = 0
 
-/obj/item/shield/energy/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/shield/energy/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(!active)
 		return 0 //turn it on first!
 
@@ -150,8 +154,12 @@
 		spark(user.loc, 5)
 		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
 
+	var/shield_dir = user.dir
+	if(on_back)
+		shield_dir = reverse_dir[user.dir]
+
 	//block as long as they are not directly behind us
-	var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
+	var/bad_arc = reverse_direction(shield_dir) //arc of directions from which we cannot block
 	if(check_shield_arc(user, bad_arc, damage_source, attacker))
 
 		if(prob(get_block_chance(user, damage, damage_source, attacker)))

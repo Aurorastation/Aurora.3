@@ -200,7 +200,9 @@
 	playsound(src.loc, "shatter", 70, 1)
 	qdel(src)
 
-/obj/item/clothing/suit/armor/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/clothing/suit/armor/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+	if(on_back)
+		return 0
 	if(!material) // No point checking for reflection.
 		return ..()
 
