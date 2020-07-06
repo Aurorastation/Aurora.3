@@ -53,6 +53,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		)
 	randpixel = 10
 	slot_flags = SLOT_EARS | SLOT_MASK
+	attack_verb = list("flicked")
 	drop_sound = 'sound/items/cigs_lighters/cig_snuff.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
 	
