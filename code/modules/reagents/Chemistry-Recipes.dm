@@ -681,13 +681,6 @@
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/aluminum = 1, /datum/reagent/potassium = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/paroxetine
-	name = "Paroxetine"
-	id = "paroxetine"
-	result = /datum/reagent/mental/paroxetine
-	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/ammonia = 1, /datum/reagent/copper = 1)
-	result_amount = 3
-
 /datum/chemical_reaction/duloxetine
 	name = "Duloxetine"
 	id = "duloxetine"
