@@ -940,6 +940,16 @@ default behaviour is:
 	update_icons()
 	return TRUE
 
+/mob/living/proc/apply_radiation_effects()
+	var/area/A = get_area(src)
+	if(!A)
+		return FALSE
+	if(isNotStationLevel(A.z))
+		return FALSE
+	if(A.flags & RAD_SHIELDED)
+		return FALSE
+	. = TRUE
+
 /mob/living/Destroy()
 	if(auras)
 		for(var/a in auras)
