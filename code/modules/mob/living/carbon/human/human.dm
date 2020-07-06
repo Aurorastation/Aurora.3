@@ -1232,7 +1232,7 @@
 /mob/living/carbon/human/revive(reset_to_roundstart = TRUE)
 
 	if(species && !(species.flags & NO_BLOOD))
-		vessel.add_reagent("blood",560-vessel.total_volume)
+		vessel.add_reagent(/datum/reagent/blood,560-vessel.total_volume)
 		fixblood()
 
 	// Fix up all organs.
@@ -1471,7 +1471,7 @@
 	spawn(0)
 		regenerate_icons()
 		if (vessel)
-			vessel.add_reagent("blood",560-vessel.total_volume)
+			vessel.add_reagent(/datum/reagent/blood,560-vessel.total_volume)
 			fixblood()
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
@@ -1966,7 +1966,7 @@
 
 /mob/living/carbon/human/proc/make_adrenaline(var/amount)
 	if(stat == CONSCIOUS)
-		reagents.add_reagent("adrenaline", amount)
+		reagents.add_reagent(/datum/reagent/adrenaline, amount)
 
 /mob/living/carbon/human/proc/gigashatter()
 	for(var/obj/item/organ/external/E in organs)

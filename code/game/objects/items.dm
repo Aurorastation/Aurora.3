@@ -859,3 +859,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(user)
 		attack_self(user)
 	return TRUE
+
+//Override this for items that can be flame sources.
+/obj/item/proc/isFlameSource()
+	return FALSE

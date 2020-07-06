@@ -53,7 +53,7 @@
 			var/path = pick(list(
 				/obj/item/clothing/mask/smokable/pipe,
 				/obj/item/clothing/mask/smokable/pipe/cobpipe,
-				/obj/item/storage/fancy/cigar,
+				/obj/item/storage/fancy/cigarettes/cigar,
 				/obj/item/storage/fancy/cigarettes
 			))
 			H.equip_or_collect(new path(), slot_wear_mask)

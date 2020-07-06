@@ -3,6 +3,7 @@
 	short_name = "dio"
 	name_plural = "Dionaea"
 	bodytype = "Diona"
+	total_health = 140
 	age_min = 1
 	age_max = 1000
 	default_genders = list(NEUTER)
@@ -170,7 +171,7 @@
 /datum/species/diona/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0)
 	if (!gibbed)
 		// This proc sleeps. Async it.
-		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs, TRUE)
+		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs)
 
 /datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
 // Diona without head can live, but they cannot talk as loud anymore.
@@ -185,7 +186,7 @@
 	return current_flags
 
 /datum/species/diona/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= 0)
+	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
 	return FALSE
 

@@ -112,11 +112,6 @@ var/list/diona_banned_languages = list(
 	adjustHalLoss(severity*DS.pain_factor, 1)
 	DS.stored_energy = 0 //We reset the energy back to zero after calculating the damage. dont want it to go negative
 
-	//If the diona in question is a gestalt, then all the nymphs inside it will suffer damage too
-	if (DS.dionatype == DIONA_WORKER)
-		for(var/mob/living/carbon/alien/diona/D in src)
-			D.adjustBruteLoss(severity*DS.trauma_factor*0.5)
-
 /mob/living/carbon/proc/diona_handle_temperature(var/datum/dionastats/DS)
 	if (bodytemperature < TEMP_REGEN_STOP)
 		DS.healing_factor = 0
@@ -281,19 +276,6 @@ var/list/diona_banned_languages = list(
 				O.damage += value/-3
 				DS.stored_energy -= value
 
-
-			//We only regenerate nymphs if the gestalt has plenty of energy to spare.
-			//Survival of the collective is prioritised over individual members
-				//And healing nymphs can suck up a lot of energy, which the gestalt may need
-			if (DS.stored_energy > (0.75 * DS.max_energy))
-				for (var/mob/living/carbon/alien/diona/D in bad_internal_organs)
-					if (!D.stat != DEAD)
-						D.diona_handle_regeneration(DS)
-						//IF a nymph inside the gestalt is damaged, we trigger its own regeneration function
-						//but we pass in the gestalt's Dionastats, so its energy/rads will be used to heal them
-
-
-
 	//Last up, growing brand new limbs and organs to replace those lost or removed.
 	if ((life_tick % (LIFETICK_INTERVAL_LESS*8) == 0) || bypass )
 		//We will only replace ONE organ or limb each time this procs
@@ -385,15 +367,6 @@ var/list/diona_banned_languages = list(
 
 		if (DS.stored_energy < REGROW_ENERGY_REQ || nutrition < REGROW_FOOD_REQ)
 			return
-
-		for (var/mob/living/carbon/alien/diona/D in bad_internal_organs)
-			if (D.stat == DEAD || D.health <= 0)
-				D.health = 1
-				D.stat = CONSCIOUS
-				to_chat(src, "<span class='danger'>You feel a stirring within you as [D.name] returns to life!</span>")
-				updatehealth()
-				return
-				//Only one per proc
 
 		//If we have less than six nymphs, we add one each proc
 		if (topup_nymphs())

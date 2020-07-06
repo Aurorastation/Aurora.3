@@ -1065,6 +1065,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 		item_state = initial(item_state)
 		set_light(0)
 
+/obj/item/clothing/gloves/fluff/lunea_gloves/isFlameSource()
+	return lit
+
 
 /obj/item/fluff/fernando_knittingneedles //Kitting Needles - Fernando Gonzales - resilynn
 	name = "knitting needles"
@@ -2024,7 +2027,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
-	use_sound = 'sound/items/drop/paper.ogg'
+	use_sound = 'sound/items/drop/wrapper.ogg'
 
 /obj/item/storage/fancy/fluff/sentiment_bouquet/fill()
 	. = ..()

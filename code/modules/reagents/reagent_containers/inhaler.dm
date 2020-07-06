@@ -132,7 +132,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("dexalin", volume)
+		reagents.add_reagent(/datum/reagent/dexalin, volume)
 		update_icon()
 		return
 
@@ -142,7 +142,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("peridaxon", volume)
+		reagents.add_reagent(/datum/reagent/peridaxon, volume)
 		update_icon()
 		return
 
@@ -152,7 +152,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("hyperzine", volume)
+		reagents.add_reagent(/datum/reagent/hyperzine, volume)
 		update_icon()
 		return
 
@@ -162,7 +162,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("phoron", volume)
+		reagents.add_reagent(/datum/reagent/toxin/phoron, volume)
 		update_icon()
 		return
 
@@ -174,7 +174,7 @@
 	volume = 10
 	Initialize()
 		. =..()
-		reagents.add_reagent("phoron", volume)
+		reagents.add_reagent(/datum/reagent/toxin/phoron, volume)
 		update_icon()
 		return
 
@@ -187,7 +187,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("stoxin", volume)
+		reagents.add_reagent(/datum/reagent/soporific, volume)
 		update_icon()
 		return
 
@@ -197,7 +197,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("space_drugs", volume)
+		reagents.add_reagent(/datum/reagent/space_drugs, volume)
 		update_icon()
 		return
 
@@ -207,7 +207,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("ammonia", volume)
+		reagents.add_reagent(/datum/reagent/ammonia, volume)
 		update_icon()
 		return
 
@@ -217,7 +217,7 @@
 
 	Initialize()
 		. =..()
-		reagents.add_reagent("pulmodeiectionem", volume)
+		reagents.add_reagent(/datum/reagent/pulmodeiectionem, volume)
 		update_icon()
 		return
 
