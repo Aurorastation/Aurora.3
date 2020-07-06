@@ -63,11 +63,10 @@
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
-	alt_titles = list("Trauma Physician","Nurse")
+	alt_titles = list("Nurse")
 	alt_ages = list("Nurse" = 25)
 	outfit = /datum/outfit/job/doctor
 	alt_outfits = list(
-		"Trauma Physician"=/datum/outfit/job/doctor/trauma_physician,
 		"Nurse"=/datum/outfit/job/doctor/nurse
 		)
 
@@ -84,7 +83,7 @@
 	spawn_positions = 2
 	total_positions = 2
 
-	minimum_character_age = 30
+	minimum_character_age = 35
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
@@ -107,16 +106,6 @@
 	satchel = /obj/item/storage/backpack/satchel_med
 	dufflebag = /obj/item/storage/backpack/duffel/med
 	messengerbag = /obj/item/storage/backpack/messenger/med
-
-/datum/outfit/job/doctor/trauma_physician
-	name = "Trauma Physician"
-	jobtype = /datum/job/doctor
-
-	uniform = /obj/item/clothing/under/rank/medical/black
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/trauma
-	shoes = /obj/item/clothing/shoes/trauma
-	mask = /obj/item/clothing/mask/surgical
-	l_hand = /obj/item/storage/firstaid/adv
 
 /datum/outfit/job/doctor/surgeon
 	name = "Surgeon"
