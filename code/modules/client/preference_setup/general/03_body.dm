@@ -47,6 +47,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	S["organ_data"]        << pref.organ_data
 	S["rlimb_data"]        << pref.rlimb_data
 	S["body_markings"]     << pref.body_markings
+	S["bgstate"]          << pref.bgstate
 
 /datum/category_item/player_setup_item/general/body/gather_load_query()
 	return list(
@@ -63,7 +64,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				"disabilities",
 				"organs_data" = "organ_data",
 				"organs_robotic" = "rlimb_data",
-				"body_markings"
+				"body_markings",
+				"bgstate"
 			),
 			"args" = list("id")
 		)
@@ -87,6 +89,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			"organs_data",
 			"organs_robotic",
 			"body_markings",
+			"bgstate"
 			"id" = 1,
 			"ckey" = 1
 		)
@@ -107,6 +110,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		"organs_robotic"= list2params(pref.rlimb_data),
 		"body_markings" = json_encode(pref.body_markings),
 		"id"            = pref.current_character,
+		"bgstate"       = pref.bgstate,
 		"ckey"          = pref.client.ckey
 	)
 
@@ -279,8 +283,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		out += "\[...\]<br><br>"
 	else
 		out += "<br><br>"
-
-	out += "<b>Hair</b><br>"
+	
+	out += "</td></tr></table><b>Hair</b><br>"
 	if(has_flag(mob_species, HAS_HAIR_COLOR))
 		out += "<a href='?src=\ref[src];hair_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_hair, pref.g_hair, pref.b_hair))] "
 	out += " Style: <a href='?src=\ref[src];hair_style=1'>[pref.h_style]</a><br>"
