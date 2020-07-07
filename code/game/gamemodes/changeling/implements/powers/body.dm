@@ -330,6 +330,7 @@
 		return
 
 	changeling.mimiced_accent = chosen_accent
+	to_chat(src, SPAN_NOTICE("We have chosen to mimic the [chosen_accent] accent."))
 
 // Fake Voice
 /mob/proc/changeling_mimicvoice()
