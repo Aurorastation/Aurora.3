@@ -89,7 +89,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			"organs_data",
 			"organs_robotic",
 			"body_markings",
-			"bgstate"
+			"bgstate",
 			"id" = 1,
 			"ckey" = 1
 		)
