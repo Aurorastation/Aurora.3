@@ -74,7 +74,7 @@
 	var/mob/living/carbon/human/M = new spawn_mob(null)
 
 	var/datum/species/S = all_species[picked_species]
-	pick(S.default_genders))
+	M.change_gender(pick(S.default_genders))
 
 	M.set_species(picked_species)
 
