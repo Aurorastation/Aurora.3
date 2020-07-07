@@ -1,5 +1,5 @@
 --
--- Adds support for character setup backgrounds in 
+-- Adds support for character setup backgrounds in #9300
 -- 
 
 ALTER TABLE `ss13_characters`
