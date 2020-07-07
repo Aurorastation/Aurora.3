@@ -1,0 +1,10 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Borg typing indicators now work again."
+  - tweak: "Borg eye colours now change immediately upon switching intent."
+  - bugfix: "Borgs that spawn without a client no longer have active eyes."
+  - bugfix: "Fixed borg shielding and mobility modules not updating their icon states correctly."
+  - bugfix: "Fixed mobility modules not correctly increasing speed."

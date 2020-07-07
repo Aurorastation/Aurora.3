@@ -266,16 +266,16 @@
 		if("act_intent")
 			usr.a_intent_change("right")
 		if(I_HELP)
-			usr.a_intent = I_HELP
+			usr.set_intent(I_HELP)
 			usr.hud_used.action_intent.icon_state = "intent_help"
 		if(I_HURT)
-			usr.a_intent = I_HURT
+			usr.set_intent(I_HURT)
 			usr.hud_used.action_intent.icon_state = "intent_harm"
 		if(I_GRAB)
-			usr.a_intent = I_GRAB
+			usr.set_intent(I_GRAB)
 			usr.hud_used.action_intent.icon_state = "intent_grab"
 		if(I_DISARM)
-			usr.a_intent = I_DISARM
+			usr.set_intent(I_DISARM)
 			usr.hud_used.action_intent.icon_state = "intent_disarm"
 
 		if("pull")

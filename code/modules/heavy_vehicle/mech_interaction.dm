@@ -79,7 +79,7 @@
 		to_chat(user, "<span class='warning'>Error: Power levels insufficient.</span>")
 
 	if(user != src)
-		a_intent = user.a_intent
+		set_intent(user.a_intent)
 		if(user.zone_sel)
 			zone_sel.set_selected_zone(user.zone_sel.selecting)
 		else
@@ -272,7 +272,7 @@
 		user.client.screen -= hud_elements
 		user.client.eye = user
 	if(user in pilots)
-		a_intent = I_HURT
+		set_intent(I_HURT)
 		LAZYREMOVE(pilots, user)
 		UNSETEMPTY(pilots)
 		update_pilot_overlay()

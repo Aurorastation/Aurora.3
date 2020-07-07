@@ -68,6 +68,7 @@ var/global/list/robot_modules = list(
 	R.set_module_sprites(sprites)
 	R.icon_selected = FALSE
 	R.choose_icon()
+	R.setup_icon_cache()
 
 /obj/item/robot_module/proc/Reset(var/mob/living/silicon/robot/R)
 	remove_camera_networks(R)
@@ -80,6 +81,7 @@ var/global/list/robot_modules = list(
 	R.set_module_sprites(list("Default" = "robot"))
 	R.icon_selected = FALSE
 	R.choose_icon()
+	R.setup_icon_cache()
 
 /obj/item/robot_module/Destroy()
 	for(var/module in modules)
