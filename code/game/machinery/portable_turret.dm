@@ -74,6 +74,8 @@
 	var/resetting = FALSE
 	var/fast_processing = FALSE
 
+	var/list/types_to_avoid = list()
+
 /obj/machinery/porta_turret/examine(mob/user)
 	..()
 	var/msg = ""
@@ -467,23 +469,24 @@
 		if (3)
 			take_damage(initial(health) * 8 / 3)
 
-/obj/machinery/porta_turret/proc/die()	//called when the turret dies, ie, health <= 0
+/obj/machinery/porta_turret/proc/die()	// called when the turret dies, ie, health <= 0
 	health = 0
-	stat |= BROKEN	//enables the BROKEN bit
-	spark_system.queue()	//creates some sparks because they look cool
+	stat |= BROKEN	// enables the BROKEN bit
+	spark_system.queue()	// creates some sparks because they look cool
 	update_icon()
 
 /obj/machinery/porta_turret/process()
-	//the main machinery process
+	// the main machinery process
 	if(stat & (NOPOWER|BROKEN))
-		//if the turret has no power or is broken, make the turret pop down if it hasn't already
+		// if the turret has no power or is broken, make the turret pop down if it hasn't already
 		popDown()
 		return
 
 	if(!enabled)
-		//if the turret is off, make it pop down
+		// if the turret is off, make it pop down
 		popDown()
 		return
+
 	targets = list()
 	secondarytargets = list()
 	scan_for_targets(targets, secondarytargets)
@@ -498,11 +501,10 @@
 			STOP_PROCESSING(SSprocessing, src)
 			START_PROCESSING(SSfast_process, src)
 			fast_processing = TRUE
-	else
-		if(fast_processing)
-			STOP_PROCESSING(SSfast_process, src)
-			START_PROCESSING(SSprocessing, src)
-			fast_processing = FALSE
+	else if(fast_processing)
+		STOP_PROCESSING(SSfast_process, src)
+		START_PROCESSING(SSprocessing, src)
+		fast_processing = FALSE
 
 	if(auto_repair && (health < maxhealth))
 		use_power(20000)
@@ -657,6 +659,13 @@
 	src.raising = raising
 	density = raised || raising
 
+/obj/machinery/porta_turret/proc/check_line_of_fire(var/atom/target)
+	for (var/V in check_trajectory(target, src, pass_flags=flags))
+		for (var/type in types_to_avoid)
+			if (istype(V, type))
+				return FALSE
+	return TRUE
+
 /obj/machinery/porta_turret/proc/target(var/atom/target)
 	if(disabled)
 		return
@@ -676,15 +685,16 @@
 
 /obj/machinery/porta_turret/proc/shootAt(var/atom/target)
 	//any emagged turrets will shoot extremely fast! This not only is deadly, but drains a lot power!
-	if(last_fired || !raised)	//prevents rapid-fire shooting, unless it's been emagged
+	if (last_fired || !raised)	// prevents rapid-fire shooting, unless it's been emagged
 		return
 
 	var/turf/T = get_turf(src)
 	var/turf/U = get_turf(target)
-	if(!istype(T) || !istype(U))
+	if (!istype(T) || !istype(U))
 		return
 
-	if(!raised) //the turret has to be raised in order to fire - makes sense, right?
+	// We can't hit it, why bother?
+	if (!check_line_of_fire(T))
 		return
 
 	update_icon()
@@ -1142,40 +1152,28 @@
 	use_power = FALSE
 	req_access = list(access_mining)
 	eprojectile = /obj/item/projectile/beam/thermaldrill/turret
+	types_to_avoid = list(/obj, /turf/simulated/wall, /turf/unsimulated/wall, /mob/living)
 
 /obj/machinery/porta_turret/thermal/mining/scan_for_targets(var/list/targets, var/list/secondarytargets)
 	var/distance = 11
 	for (var/v in orange(world.view, src))
 		if (istype(v, /turf/simulated/mineral))
 			var/turf/simulated/mineral/M = v
+
+			// If it has no resources, ignore it.
 			if (!M.mineral)
 				continue
+			
+			// If we cannot hit it, why target it?
+			if (!check_line_of_fire(M))
+				continue
 
+			// Prioritize closes minerals.
 			if (get_dist(M, src) < distance)
 				distance = get_dist(M, src)
 				targets += M
 			else
 				secondarytargets += v
-
-/obj/machinery/porta_turret/thermal/mining/tryToShootAt(var/list/targets)
-	if(targets.len && last_target && (last_target in targets) && target(last_target))
-		return TRUE
-
-	var/flags = PASSTABLE|PASSGLASS|PASSGRILLE
-	while (targets.len > 0)
-		var/turf/T = pick(targets)
-		message_admins("before loop!")
-		for (var/V in check_trajectory(T, src, pass_flags=flags))
-			message_admins("loop!")
-			if (!istype(V, /turf/simulated/mineral))
-				message_admins("Not mineral!")
-				targets -= T
-				continue
-
-		targets -= T
-		if(target(T))
-			return TRUE
-	return FALSE
 
 #undef TURRET_PRIORITY_TARGET
 #undef TURRET_SECONDARY_TARGET
