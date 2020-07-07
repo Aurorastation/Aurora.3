@@ -291,7 +291,7 @@
 /datum/category_item/player_setup_item/proc/gather_save_parameters()
 	return list()
 
-/datum/category_item/player_setup_item/proc/content()
+/datum/category_item/player_setup_item/proc/content(var/mob/user)
 	return
 
 /datum/category_item/player_setup_item/proc/sanitize_character(var/sql_load = 0)

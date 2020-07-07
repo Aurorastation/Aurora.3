@@ -157,7 +157,6 @@ datum/preferences
 	var/savefile/loaded_character
 	var/datum/category_collection/player_setup_collection/player_setup
 
-	var/dress_mob = TRUE
 	var/icon/bgstate = "000"
 	var/list/bgstate_options = list("000", "FFF", "steel", "white", "plating", "reinforced")
 

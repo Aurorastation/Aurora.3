@@ -103,7 +103,7 @@
 	pref.backbag	= sanitize_integer(pref.backbag, 1, backbaglist.len, initial(pref.backbag))
 	pref.backbag_style = sanitize_integer(pref.backbag_style, 1, backbagstyles.len, initial(pref.backbag_style))
 
-/datum/category_item/player_setup_item/general/equipment/content()
+/datum/category_item/player_setup_item/general/equipment/content(var/mob/user)
 	. = list()
 	. += "<b>Equipment:</b><br>"
 	for(var/datum/category_group/underwear/UWC in global_underwear.categories)
