@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - imageadd: "Slightly resprited the 9mm pistol and its silencer attachment to not have a pitch black outline. Should look slightly nicer now."
