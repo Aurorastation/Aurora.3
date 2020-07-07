@@ -368,6 +368,10 @@
 	return
 
 /obj/machinery/suit_cycler/Topic(href, href_list)
+	if(!Adjacent(usr) && !issilicon(usr))
+		to_chat(usr, SPAN_WARNING("\The [src] is out of your reach."))
+		return
+
 	if(href_list["eject_suit"])
 		if(!suit)
 			return
