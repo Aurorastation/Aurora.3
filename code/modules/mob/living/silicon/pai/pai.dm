@@ -120,7 +120,7 @@
 	switch(M.a_intent)
 		if(I_HELP)
 			M.visible_message(span("notice","[M] [response_help] \the [src]"))
-			toggle_flashlight()
+			computer.toggle_service("flashlight", src)
 
 		if(I_DISARM)
 			M.visible_message(span("notice","[M] [response_disarm] \the [src]"))
