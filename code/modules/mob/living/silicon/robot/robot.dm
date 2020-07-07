@@ -69,10 +69,10 @@
 	var/spawn_module // Which module does this robot use when it spawns in?
 	var/selecting_module = 0 //whether the borg is in process of selecting its module or not.
 	var/obj/item/robot_module/module
-	var/module_active
-	var/module_state_1
-	var/module_state_2
-	var/module_state_3
+	var/obj/item/module_active
+	var/obj/item/module_state_1
+	var/obj/item/module_state_2
+	var/obj/item/module_state_3
 	var/cell_type = /obj/item/cell/high
 	var/has_jetpack = FALSE
 	var/has_pda = TRUE

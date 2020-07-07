@@ -225,10 +225,16 @@
 	T.visible_message(SPAN_NOTICE("\The [src.loc] dispenses a sheet of crisp white paper."))
 	new /obj/item/paper(T)
 
-/obj/item/borg/proc/on_module_activate()
+/obj/item/proc/on_module_hotbar(var/mob/living/silicon/robot/R)
 	return
 
-/obj/item/borg/proc/on_module_deactivate()
+/obj/item/proc/on_module_store(var/mob/living/silicon/robot/R)
+	return
+
+/obj/item/proc/on_module_activate(var/mob/living/silicon/robot/R)
+	return
+
+/obj/item/proc/on_module_deactivate(var/mob/living/silicon/robot/R)
 	return
 
 //Personal shielding for the combat module.
@@ -240,14 +246,12 @@
 	var/shield_level = 0.5 //Percentage of damage absorbed by the shield.
 	var/image/shield_overlay
 
-/obj/item/borg/combat/shield/on_module_activate()
-	if(isrobot(loc))
-		var/mob/living/silicon/robot/R = loc
-		shield_overlay = image(R.icon, "[R.module_sprites[R.icontype]]-shield")
-		R.add_overlay(shield_overlay)
+/obj/item/borg/combat/shield/on_module_activate(mob/living/silicon/robot/R)
+	shield_overlay = image(R.icon, "[R.module_sprites[R.icontype]]-shield")
+	R.add_overlay(shield_overlay)
 
-/obj/item/borg/combat/shield/on_module_deactivate()
-	loc.cut_overlay(shield_overlay)
+/obj/item/borg/combat/shield/on_module_deactivate(mob/living/silicon/robot/R)
+	R.cut_overlay(shield_overlay)
 
 /obj/item/borg/combat/shield/verb/set_shield_level()
 	set name = "Set shield level"
@@ -264,17 +268,13 @@
 	icon = 'icons/obj/decals.dmi'
 	icon_state = "shock"
 
-/obj/item/borg/combat/mobility/on_module_activate()
-	if(isrobot(loc))
-		var/mob/living/silicon/robot/R = loc
-		R.icon_state = "[R.module_sprites[R.icontype]]-roll"
-		R.speed = -2
+/obj/item/borg/combat/mobility/on_module_activate(mob/living/silicon/robot/R)
+	R.icon_state = "[R.module_sprites[R.icontype]]-roll"
+	R.speed = -2
 
-/obj/item/borg/combat/mobility/on_module_deactivate()
-	if(isrobot(loc))
-		var/mob/living/silicon/robot/R = loc
-		R.icon_state = R.module_sprites[R.icontype]
-		R.speed = initial(R.speed)
+/obj/item/borg/combat/mobility/on_module_deactivate(mob/living/silicon/robot/R)
+	R.icon_state = R.module_sprites[R.icontype]
+	R.speed = initial(R.speed)
 
 /obj/item/inflatable_dispenser
 	name = "inflatables dispenser"
