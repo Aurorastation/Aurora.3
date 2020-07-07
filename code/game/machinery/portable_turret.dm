@@ -668,7 +668,7 @@
 
 /obj/machinery/porta_turret/proc/target(var/atom/target)
 	if(disabled)
-		return
+		return FALSE
 	if(target)
 		last_target = target
 		popUp()				//pop the turret up if it's not already up.
@@ -676,9 +676,9 @@
 		if(d != dir)
 			set_dir(d)
 			playsound(loc, 'sound/machines/turrets/turret_rotate.ogg', 100, 1)
-		shootAt(target)
-		return 1
-	return
+
+		return shootAt(target)
+	return FALSE
 
 /obj/machinery/porta_turret/proc/reset_last_fired()
 	last_fired = FALSE
@@ -686,16 +686,16 @@
 /obj/machinery/porta_turret/proc/shootAt(var/atom/target)
 	//any emagged turrets will shoot extremely fast! This not only is deadly, but drains a lot power!
 	if (last_fired || !raised)	// prevents rapid-fire shooting, unless it's been emagged
-		return
+		return FALSE
 
 	var/turf/T = get_turf(src)
 	var/turf/U = get_turf(target)
 	if (!istype(T) || !istype(U))
-		return
+		return FALSE
 
 	// We can't hit it, why bother?
 	if (!check_line_of_fire(T))
-		return
+		return FALSE
 
 	update_icon()
 	var/obj/item/projectile/A
@@ -720,6 +720,7 @@
 	A.launch_projectile(target, def_zone)
 	last_fired = TRUE
 	addtimer(CALLBACK(src, .proc/reset_last_fired), shot_delay, TIMER_UNIQUE | TIMER_OVERRIDE)
+	return TRUE
 
 /datum/turret_checks
 	var/enabled
@@ -1174,6 +1175,12 @@
 				targets += M
 			else
 				secondarytargets += v
+
+		// protecting miners from hostile fauna
+		else if (istype(v, /mob/living/simple_animal/hostile))
+			var/mob/living/simple_animal/hostile/H = v
+			if (H.health > 0)
+				targets += H
 
 #undef TURRET_PRIORITY_TARGET
 #undef TURRET_SECONDARY_TARGET
