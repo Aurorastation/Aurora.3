@@ -1,6 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes: 
-  - tweak: "Adjusted cargo warehouse spawns. Added items, made some patterns less predictable, and removed some filler junk (Such as signs and huge stacks of trays)."
