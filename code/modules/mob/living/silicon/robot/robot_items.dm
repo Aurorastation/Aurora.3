@@ -241,7 +241,7 @@
 	var/image/shield_overlay
 
 /obj/item/borg/combat/shield/on_module_activate()
-	if(istype(loc, /mob/living/silicon/robot))
+	if(isrobot(loc))
 		var/mob/living/silicon/robot/R = loc
 		shield_overlay = image(R.icon, "[R.module_sprites[R.icontype]]-shield")
 		R.add_overlay(shield_overlay)
@@ -265,13 +265,13 @@
 	icon_state = "shock"
 
 /obj/item/borg/combat/mobility/on_module_activate()
-	if(istype(loc, /mob/living/silicon/robot))
+	if(isrobot(loc))
 		var/mob/living/silicon/robot/R = loc
 		R.icon_state = "[R.module_sprites[R.icontype]]-roll"
 		R.speed = -2
 
 /obj/item/borg/combat/mobility/on_module_deactivate()
-	if(istype(loc, /mob/living/silicon/robot))
+	if(isrobot(loc))
 		var/mob/living/silicon/robot/R = loc
 		R.icon_state = R.module_sprites[R.icontype]
 		R.speed = initial(R.speed)
