@@ -14,6 +14,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/geneticpoints = 5
 	var/purchasedpowers = list()
 	var/mimicing = ""
+	var/mimiced_accent = "Biesellite"
 	var/justate
 
 /datum/changeling/New(var/gender=FEMALE)
@@ -86,6 +87,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	if(istype(H))
 		var/datum/absorbed_dna/newDNA = new(H.real_name, H.dna, H.species.get_cloning_variant(), H.languages)
 		absorbDNA(newDNA)
+		mind.changeling.mimiced_accent = H.accent
 
 	return TRUE
 
@@ -108,7 +110,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	var/datum/changeling/changeling = src.mind.changeling
 	if(!changeling)
-		to_chat(world.log, "[src] has the changeling_transform() verb but is not a changeling.")
+		log_and_message_admins("has the changeling_transform() verb but is not a changeling.", src, get_turf(src))
 		return
 	if(src.stat > max_stat)
 		to_chat(src, "<span class='warning'>We are incapacitated.</span>")
