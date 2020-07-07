@@ -1,9 +1,3 @@
-//Dummy object for holding items in vehicles.
-//Prevents items from being interacted with.
-/datum/vehicle_dummy_load
-	var/name = "dummy load"
-	var/actual_load
-
 /obj/vehicle
 	name = "vehicle"
 	icon = 'icons/obj/vehicles.dmi'
@@ -33,10 +27,7 @@
 	var/obj/item/cell/cell
 	var/charge_use = 5	//set this to adjust the amount of power the vehicle uses per move
 
-	var/atom/movable/load		//all vehicles can take a load, since they should all be a least drivable
-	var/load_item_visible = 1	//set if the loaded item should be overlayed on the vehicle sprite
-	var/load_offset_x = 0		//pixel_x offset for item overlay
-	var/load_offset_y = 0		//pixel_y offset for item overlay
+	var/datum/weakref/load = null		//all vehicles can take a load, since they should all be a least drivable
 	var/mob_offset_y = 0		//pixel_y offset for mob overlay
 	var/flying = FALSE
 
@@ -65,11 +56,10 @@
 		if(on && powered)
 			cell.use(charge_use)
 
-		//Dummy loads do not have to be moved as they are just an overlay
-		//See load_object() proc in cargo_trains.dm for an example
-		if(load && !istype(load, /datum/vehicle_dummy_load))
-			load.forceMove(loc)
-			load.set_dir(dir)
+		if(load)
+			var/atom/movable/actual_load = load.resolve()
+			actual_load.forceMove(loc)
+			actual_load.set_dir(dir)
 
 		return 1
 	else
@@ -209,8 +199,9 @@
 		cell = null
 
 	//stuns people who are thrown off a train that has been blown up
-	if(istype(load, /mob/living))
-		var/mob/living/M = load
+	var/atom/movable/actual_load = load.resolve()
+	if(istype(actual_load, /mob/living))
+		var/mob/living/M = actual_load
 		M.apply_effects(5, 5)
 
 	unload()
@@ -288,15 +279,7 @@
 	C.set_dir(dir)
 	C.anchored = 1
 
-	load = C
-
-	if(load_item_visible)
-		C.pixel_x += load_offset_x
-		if(ismob(C))
-			C.pixel_y += mob_offset_y
-		else
-			C.pixel_y += load_offset_y
-		C.layer = layer + 0.1		//so it sits above the vehicle
+	load = WEAKREF(C)
 
 	if(ismob(C))
 		buckle_mob(C)
@@ -312,6 +295,7 @@
 		return
 
 	var/turf/dest = null
+	var/atom/movable/actual_load = load.resolve()
 
 	//find a turf to unload to
 	if(direction)	//if direction specified, unload in that direction
@@ -327,7 +311,7 @@
 		var/list/options = new()
 		for(var/test_dir in alldirs)
 			var/new_dir = get_step_to(src, get_step(src, test_dir))
-			if(new_dir && load.Adjacent(new_dir))
+			if(new_dir && actual_load.Adjacent(new_dir))
 				options += new_dir
 		if(options.len)
 			dest = pick(options)
@@ -337,15 +321,15 @@
 	if(!isturf(dest))	//if there still is nowhere to unload, cancel out since the vehicle is probably in nullspace
 		return 0
 
-	load.forceMove(dest)
-	load.set_dir(get_dir(loc, dest))
-	load.anchored = 0		//we can only load non-anchored items, so it makes sense to set this to false
-	load.pixel_x = initial(load.pixel_x)
-	load.pixel_y = initial(load.pixel_y)
-	load.layer = initial(load.layer)
+	actual_load.forceMove(dest)
+	actual_load.set_dir(get_dir(loc, dest))
+	actual_load.anchored = FALSE		//we can only load non-anchored items, so it makes sense to set this to false
+	actual_load.pixel_x = initial(actual_load.pixel_x)
+	actual_load.pixel_y = initial(actual_load.pixel_y)
+	actual_load.layer = initial(actual_load.layer)
 
-	if(ismob(load))
-		unbuckle_mob(load)
+	if(ismob(actual_load))
+		unbuckle_mob(actual_load)
 
 	load = null
 

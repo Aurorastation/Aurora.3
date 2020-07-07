@@ -6,7 +6,6 @@
 	move_delay = 3
 
 	mob_offset_y = 7
-	load_offset_x = -13
 
 	var/cart_icon = "janicart"
 
@@ -100,24 +99,12 @@
 	switch(dir)
 		if(NORTH)
 			mob_offset_y = 7
-			load_offset_x = 0
-			load.pixel_y = mob_offset_y
-			load.pixel_x = load_offset_x
 		if(SOUTH)
 			mob_offset_y = 7
-			load_offset_x = 0
-			load.pixel_y = mob_offset_y
-			load.pixel_x = load_offset_x
 		if(EAST)
 			mob_offset_y = 7
-			load_offset_x = -13
-			load.pixel_y = mob_offset_y
-			load.pixel_x = load_offset_x
 		if(WEST)
 			mob_offset_y = 7
-			load_offset_x = 13
-			load.pixel_y = mob_offset_y
-			load.pixel_x = load_offset_x
 	..()
 
 /obj/vehicle/train/cargo/trolley/pussywagon
@@ -165,7 +152,8 @@
 			if(isturf(tile))
 				if(bucket.reagents.total_volume > 1)
 					tile.clean(bucket)
-					lead.cell.use(charge_use, load)
+					var/atom/movable/actual_load = load.resolve()
+					lead.cell.use(charge_use, actual_load)
 				else
 					mop_toggle()
 		if(hoover)

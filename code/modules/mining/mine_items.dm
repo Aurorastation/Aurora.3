@@ -542,8 +542,6 @@
 	powered = TRUE
 	move_delay = -1
 
-	load_item_visible = TRUE
-	load_offset_x = 0
 	mob_offset_y = 15
 	active_engines = 1
 
@@ -583,11 +581,6 @@
 	anchored = FALSE
 	passenger_allowed = FALSE
 	move_delay = -1
-
-	load_item_visible = TRUE
-	load_offset_x = 1
-	load_offset_y = 15
-	mob_offset_y = 16
 
 	light_power = 1
 	light_range = 3

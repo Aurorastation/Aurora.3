@@ -1150,7 +1150,12 @@
 	req_one_access = list(access_legion)
 
 /obj/machinery/porta_turret/thermal/mining
+	name = "thermal auto mining turret"
+	desc = "A turret that will mine any nearby minerals. Shoots through rock to get to minerals, does not shoot at obsticles. Targets also local hostile fauna to protect itself and user."
+	anchored = FALSE
 	use_power = FALSE
+	cover_set = "mining"
+	icon_state = "cover_mining"
 	req_access = list(access_mining)
 	eprojectile = /obj/item/projectile/beam/thermaldrill/turret
 	types_to_avoid = list(/obj, /turf/simulated/wall, /turf/unsimulated/wall, /mob/living)
@@ -1181,6 +1186,15 @@
 			var/mob/living/simple_animal/hostile/H = v
 			if (H.health > 0)
 				targets += H
+
+/obj/machinery/porta_turret/thermal/mining/CanUseTopic(var/mob/user)
+	if(stat & BROKEN)
+		return STATUS_CLOSE
+
+	if(isLocked(user))
+		return STATUS_CLOSE
+
+	return STATUS_INTERACTIVE
 
 #undef TURRET_PRIORITY_TARGET
 #undef TURRET_SECONDARY_TARGET

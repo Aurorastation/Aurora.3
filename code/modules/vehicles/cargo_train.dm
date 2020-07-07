@@ -7,8 +7,6 @@
 	powered = 1
 	locked = 0
 
-	load_item_visible = 1
-	load_offset_x = 0
 	mob_offset_y = 7
 
 	var/car_limit = 3		//how many cars an engine can pull before performance degrades
@@ -29,10 +27,6 @@
 	anchored = 0
 	passenger_allowed = 0
 	locked = 0
-
-	load_item_visible = 1
-	load_offset_x = 0
-	load_offset_y = 4
 	mob_offset_y = 8
 
 //-------------------------------------------
@@ -51,7 +45,8 @@
 		turn_off()
 		update_stats()
 		if(load && is_train_head())
-			to_chat(load, "The drive motor briefly whines, then drones to a stop.")
+			var/atom/movable/actual_load = load.resolve()
+			to_chat(actual_load, "The drive motor briefly whines, then drones to a stop.")
 
 	if(is_train_head() && !on)
 		return 0
@@ -105,9 +100,11 @@
 
 /obj/vehicle/train/cargo/engine/Collide(atom/Obstacle)
 	var/obj/machinery/door/D = Obstacle
-	var/mob/living/carbon/human/H = load
-	if(istype(D) && istype(H))
-		H.Collide(D)		//a little hacky, but hey, it works, and respects access rights
+	if (load)
+		var/mob/living/carbon/human/H = load.resolve()
+
+		if(istype(D) && istype(H))
+			H.Collide(D)		//a little hacky, but hey, it works, and respects access rights
 
 	. = ..()
 
@@ -160,8 +157,9 @@
 /obj/vehicle/train/cargo/engine/RunOver(var/mob/living/carbon/human/H)
 	..()
 
-	if(is_train_head() && istype(load, /mob/living/carbon/human))
-		var/mob/living/carbon/human/D = load
+	var/atom/movable/actual_load = load.resolve()
+	if(is_train_head() && istype(actual_load, /mob/living/carbon/human))
+		var/mob/living/carbon/human/D = actual_load
 		to_chat(D, "<span class='danger'>You ran over [H]!</span>")
 		visible_message("<span class='danger'>\The [src] ran over [H]!</span>")
 		attack_log += text("\[[time_stamp()]\] <font color='red'>ran over [H.name] ([H.ckey]), driven by [D.name] ([D.ckey])</font>")
@@ -174,7 +172,8 @@
 // Interaction procs
 //-------------------------------------------
 /obj/vehicle/train/cargo/engine/relaymove(mob/user, direction)
-	if(user != load)
+	var/atom/movable/actual_load = load.resolve()
+	if(user != actual_load)
 		return 0
 
 	if(user.restrained())
@@ -244,7 +243,8 @@
 	if(!istype(usr, /mob/living/carbon/human))
 		return
 
-	if(!key || (load && load != usr))
+	var/atom/movable/actual_load = load.resolve()
+	if(!key || (actual_load && actual_load != usr))
 		return
 
 	if(on)
@@ -292,30 +292,9 @@
 	if(load || C.anchored)
 		return 0
 
-	var/datum/vehicle_dummy_load/dummy_load = new()
-	load = dummy_load
-
-	if(!load)
-		return
-	dummy_load.actual_load = C
-	C.forceMove(src)
-
-	if(load_item_visible)
-		var/mutable_appearance/MA = new(C)
-		MA.pixel_x += load_offset_x
-		MA.pixel_y += load_offset_y
-		MA.layer = FLOAT_LAYER
-
-		add_overlay(MA)
-
-/obj/vehicle/train/cargo/trolley/unload(var/mob/user, var/direction)
-	if(istype(load, /datum/vehicle_dummy_load))
-		var/datum/vehicle_dummy_load/dummy_load = load
-		load = dummy_load.actual_load
-		dummy_load.actual_load = null
-		qdel(dummy_load)
-		cut_overlays()
-	..()
+	load = WEAKREF(C)
+	C.forceMove(src.loc)
+	C.anchored = TRUE
 
 //-------------------------------------------
 // Latching/unlatching procs

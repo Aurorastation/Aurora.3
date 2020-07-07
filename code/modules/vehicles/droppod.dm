@@ -9,8 +9,6 @@
 	icon_state = "droppod"
 	dir = SOUTH
 	layer = MOB_LAYER - 0.1
-
-	load_item_visible = 0
 	health = 500 // pretty strong because it can't move or be shot out of
 	maxhealth = 500
 

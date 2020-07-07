@@ -6,7 +6,6 @@
 	icon_state = "bike_off"
 	dir = SOUTH
 
-	load_item_visible = 1
 	mob_offset_y = 5
 	health = 100
 	maxhealth = 100
@@ -91,15 +90,16 @@
 		return
 
 /obj/vehicle/bike/attack_hand(var/mob/user as mob)
-	if(user == load)
-		unload(load)
+	var/atom/movable/actual_load = load.resolve()
+	if(user == actual_load)
+		unload(actual_load)
 		to_chat(user, "You unbuckle yourself from \the [src]")
-	else if(user != load && load)
+	else if(user != actual_load && actual_load)
 		user.visible_message ("[user] starts to unbuckle [load] from \the [src]!")
 		if(do_after(user, 8 SECONDS, act_target = src))
-			unload(load)
+			unload(actual_load)
 			to_chat(user, "You unbuckle [load] from \the [src]")
-			to_chat(load, "You were unbuckled from \the [src] by [user]")
+			to_chat(actual_load, "You were unbuckled from \the [src] by [user]")
 
 /obj/vehicle/bike/relaymove(mob/user, direction)
 	if(user != load || !on || user.incapacitated())
