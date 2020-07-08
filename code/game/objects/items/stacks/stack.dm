@@ -198,7 +198,7 @@
 /obj/item/stack/proc/can_use(var/used, var/mob/user=null)
 	if (get_amount() < used)
 		if(user && isrobot(user))
-			to_chat(user, span("warning", "You don't have enough charge left in your synthesizer!"))
+			to_chat(user, SPAN_WARNING("You don't have enough charge left in your synthesizer!"))
 		return 0
 	return 1
 

@@ -76,7 +76,7 @@
 	if(!organ)
 		return
 	if(organ.damage >= organ.max_damage)
-		to_chat(user, span("warning", "\The [organ] is too damaged. Repair it first."))
+		to_chat(user, SPAN_WARNING("\The [organ] is too damaged. Repair it first."))
 		return 0
 
 	return organ && affected.open >= 2 && (organ.status & ORGAN_DEAD)

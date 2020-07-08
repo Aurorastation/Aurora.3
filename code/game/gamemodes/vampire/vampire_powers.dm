@@ -9,9 +9,9 @@
 	var/datum/vampire/vampire = vampire_power(0, 0)
 	vampire.stealth = !vampire.stealth
 	if(vampire.stealth)
-		to_chat(src, span("notice", "Your victims will now forget your interactions, and get paralyzed when you do them."))
+		to_chat(src, SPAN_NOTICE("Your victims will now forget your interactions, and get paralyzed when you do them."))
 	else
-		to_chat(src, span("notice", "Your victims will now remember your interactions, and stay completely mobile during them."))
+		to_chat(src, SPAN_NOTICE("Your victims will now remember your interactions, and stay completely mobile during them."))
 
 // Drains the target's blood.
 /mob/living/carbon/human/proc/vampire_drain_blood()
@@ -25,10 +25,10 @@
 
 	var/obj/item/grab/G = get_active_hand()
 	if (!istype(G))
-		to_chat(src, span("warning", "You must be grabbing a victim in your active hand to drain their blood."))
+		to_chat(src, SPAN_WARNING("You must be grabbing a victim in your active hand to drain their blood."))
 		return
 	if (G.state == GRAB_PASSIVE || G.state == GRAB_UPGRADING)
-		to_chat(src, span("warning", "You must have the victim pinned to the ground to drain their blood."))
+		to_chat(src, SPAN_WARNING("You must have the victim pinned to the ground to drain their blood."))
 		return
 
 	var/mob/living/carbon/human/T = G.affecting
@@ -36,17 +36,17 @@
 		//Added this to prevent vampires draining diona and IPCs
 		//Diona have 'blood' but its really green sap and shouldn't help vampires
 		//IPCs leak oil
-		to_chat(src, span("warning", "[T] is not a creature you can drain useful blood from."))
+		to_chat(src, SPAN_WARNING("[T] is not a creature you can drain useful blood from."))
 		return
 	if(T.head && (T.head.item_flags & AIRTIGHT))
-		to_chat(src, span("warning", "[T]'s headgear is blocking the way to the neck."))
+		to_chat(src, SPAN_WARNING("[T]'s headgear is blocking the way to the neck."))
 		return
 	var/obj/item/blocked = check_mouth_coverage()
 	if(blocked)
 		to_chat(src, SPAN_WARNING("\The [blocked] is in the way of your fangs!"))
 		return
 	if (vampire.status & VAMP_DRAINING)
-		to_chat(src, span("warning", "Your fangs are already sunk into a victim's neck!"))
+		to_chat(src, SPAN_WARNING("Your fangs are already sunk into a victim's neck!"))
 		return
 
 	var/datum/vampire/draining_vamp = null
@@ -70,10 +70,10 @@
 	admin_attack_log(src, T, "drained blood from [key_name(T)], who [remembrance] the encounter.", "had their blood drained by [key_name(src)] and [remembrance] the encounter.", "is draining blood from")
 
 	if(vampire.stealth)
-		to_chat(T, span("warning", "You are unable to resist or even move. Your mind blanks as you're being fed upon."))
+		to_chat(T, SPAN_WARNING("You are unable to resist or even move. Your mind blanks as you're being fed upon."))
 		T.paralysis = 3400
 	else
-		to_chat(T, span("warning", "You are unable to resist or even move. Your mind is acutely aware of what's occuring."))
+		to_chat(T, SPAN_WARNING("You are unable to resist or even move. Your mind is acutely aware of what's occuring."))
 		T.paralysis = 3400
 
 	playsound(src.loc, 'sound/effects/drain_blood_new.ogg', 50, 1)
@@ -81,14 +81,14 @@
 
 	while (do_mob(src, T, 50))
 		if (!mind.vampire)
-			to_chat(src, span("danger", "Your fangs have disappeared!"))
+			to_chat(src, SPAN_DANGER("Your fangs have disappeared!"))
 			return
 
 		blood_total = vampire.blood_total
 		blood_usable = vampire.blood_usable
 
 		if (!T.vessel.get_reagent_amount(/datum/reagent/blood))
-			to_chat(src, span("danger", "[T] has no more blood left to give."))
+			to_chat(src, SPAN_DANGER("[T] has no more blood left to give."))
 			break
 
 		if (!T.stunned)
@@ -144,9 +144,9 @@
 	if(target_aware)
 		T.paralysis = 0
 		if(T.stat != DEAD && vampire.stealth)
-			to_chat(T.find_mob_consciousness(), span("warning", "You remember nothing about being fed upon. Instead, you simply remember having a pleasant encounter with [src.name]."))
+			to_chat(T.find_mob_consciousness(), SPAN_WARNING("You remember nothing about being fed upon. Instead, you simply remember having a pleasant encounter with [src.name]."))
 		else if(T.stat != DEAD)
-			to_chat(T.find_mob_consciousness(), span("warning", "You remember everything about being fed upon. How you react to [src.name]'s actions is up to you."))
+			to_chat(T.find_mob_consciousness(), SPAN_WARNING("You remember everything about being fed upon. How you react to [src.name]'s actions is up to you."))
 
 // Check that our target is alive, logged in, and any other special cases
 /mob/living/carbon/human/proc/check_drain_target_state(var/mob/living/carbon/human/T)
@@ -681,7 +681,7 @@
 	admin_attack_log(src, T, "used dominate on [key_name(T)]", "was dominated by [key_name(src)]", "used dominate and issued the command of '[command]' to")
 
 	show_browser(T, "<center>You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, <b>and are compelled to follow its direction without question or hesitation:</b><br>[command]</center>", "window=vampiredominate")
-	to_chat(T, span("notice", "You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, and are compelled to follow its direction without question or hesitation:"))
+	to_chat(T, SPAN_NOTICE("You feel a strong presence enter your mind. For a moment, you hear nothing but what it says, and are compelled to follow its direction without question or hesitation:"))
 	to_chat(T, "<span style='color: green;'><i><em>[command]</em></i></span>")
 	to_chat(src, "<span class='notice'>You command [T], and they will obey.</span>")
 	emote("me", 1, "whispers.")
@@ -828,7 +828,7 @@
 		return
 
 	visible_message("<b>[src]</b> gently touches [T].")
-	to_chat(T, span("notice", "You feel pure bliss as [src] touches you."))
+	to_chat(T, SPAN_NOTICE("You feel pure bliss as [src] touches you."))
 	vampire.use_blood(50)
 
 	T.reagents.add_reagent(/datum/reagent/rezadone, 3)

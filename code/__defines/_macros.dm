@@ -10,9 +10,11 @@
 #define SPAN_BAD(X) "<span class='bad'>[X]</span>"
 #define SPAN_ALIEN(X) "<span class='alium'>[X]</span>"
 #define SPAN_ALERT(X) "<span class='alert'>[X]</span>"
+#define SPAN_INFO(X) "<span class='info'>[X]</span>"
 #define SPAN_ITALIC(X) "<span class='italic'>[X]</span>"
 #define SPAN_BOLD(X) "<span class='bold'>[X]</span>"
 #define SPAN_SUBTLE(X) "<span class='subtle'>[X]</span>"
+#define SPAN_SOGHUN(X) "<span class='soghun'>[X]</span>"
 
 #define FONT_SMALL(X) "<font size='1'>[X]</font>"
 #define FONT_NORMAL(X) "<font size='2'>[X]</font>"
