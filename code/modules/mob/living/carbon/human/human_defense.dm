@@ -169,7 +169,9 @@ emp_act
 
 /mob/living/carbon/human/proc/check_shields(var/damage = 0, var/atom/damage_source = null, var/mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	for(var/obj/item/shield in list(l_hand, r_hand, wear_suit, back))
-		if(!shield || !shield?.can_shield_back())
+		if(!shield)
+			continue
+		if(!shield.can_shield_back())
 			continue
 		var/is_on_back = FALSE
 		if(back && back == shield)
