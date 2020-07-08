@@ -4,31 +4,6 @@
 
 /datum/rune/armor/do_rune_action(mob/living/user, atom/movable/A)
 	user.say("N'ath reth sh'yro eth d'raggathnor!")
-
-	for(var/mob/living/heavy_vehicle/cult_mecha in range(1, src))
-		if(istype(cult_mecha, /mob/living/heavy_vehicle/premade/cult))
-			continue
-		var/list/mob/cultists = list()
-		for(var/mob/M in range(1, src))
-			if(istype(M, /mob/living/carbon/human/apparition))
-				to_chat(M, span("warning", "Apparitions cannot partake in the summoning of the Great Dark One! Clear the area and defend the cultists!"))
-				continue
-			if(iscultist(M) && !M.stat)
-				M.say("Tok-lyr rqa'nap g[pick("'","`")]lt-ulotf!")
-				cultists += M
-		if(length(cultists) < 2)
-			for(var/mob/M in cultists)
-				to_chat(M, span("warning", "There aren't enough cultists to create a cult mecha construct!"))
-				return
-		if(LAZYLEN(cult_mecha.pilots))
-			continue
-		for(var/hardpoint in cult_mecha.hardpoints)
-			cult_mecha.remove_system(hardpoint, force = TRUE)
-		qdel(cult_mecha)
-		new /mob/living/heavy_vehicle/premade/cult(get_turf(src))
-		playsound(get_turf(src), 'sound/effects/bloodcult.ogg', 75)
-		return
-
 	user.visible_message(SPAN_DANGER("A flash of red light appears around [user], as a set of armor envelops their body!"),
 						 SPAN_CULT("A refreshing feeling envelops you; the armor of the Dark One is once again protecting you."))
 

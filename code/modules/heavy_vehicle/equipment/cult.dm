@@ -24,4 +24,4 @@
 /obj/item/mecha_equipment/doomblade/attack(mob/living/M, mob/living/user)
 	if(!owner)
 		return
-	doomblade.attack(M, user, zone_sel.selecting)
+	doomblade.attack(M, user, user.zone_sel.selecting)

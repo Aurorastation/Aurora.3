@@ -1,12 +1,14 @@
 /obj/item/gun/energy/rifle/cult
 	name = "bloodpike"
 	desc = "A ranged weapon of demonic origin, surely. It menaces with crimson spikes."
-	description_antag = "This weapon siphons the blood of the wielder to regenerate its ammo."
+	desc_info = null
+	desc_fluff = null
+	desc_antag = "This weapon can be recharged by clicking on blood or remains with it, remains recharging more than simple blood."
 	icon = 'icons/obj/guns/bloodpike.dmi'
 	icon_state = "bloodpike"
 	item_state = "bloodpike"
 	fire_sound = 'sound/weapons/laserstrong.ogg'
-	slot_flags = SLOT_BACK // see if i can get a sprite for this
+	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	max_shots = 5
@@ -18,6 +20,7 @@
 
 	has_icon_ratio = TRUE
 	has_item_ratio = FALSE
+	light_color = COLOR_RED // muzzle flash
 
 	fire_delay_wielded = 1
 	accuracy_wielded = 2
@@ -44,20 +47,27 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/gun/energy/rifle/cult/process()
-	if(power_supply.charge >= power_supply.maxcharge)
-		return
-	if(ishuman(src.loc))
-		var/mob/living/carbon/human/H = src.loc
-		if(isipc(src.loc)) // if it's an IPC, we use its cell charge to charge
-			if(H.nutrition)
-				H.adjustNutritionLoss(20)
-				power_supply.give(charge_cost)
+/obj/item/gun/energy/rifle/cult/afterattack(atom/A, mob/living/user, adjacent, params)
+	if(adjacent && iscultist(user))
+		if(istype(A, /obj/effect/decal/remains) || istype(A, /obj/effect/decal/cleanable/blood))
+			do_absorb(user, A)
 			return
-		if(H.vessel.get_reagent_amount("blood") < BLOOD_VOLUME_OKAY)
-			return
-		H.vessel.remove_reagent("blood", (H.species.blood_volume * 0.025)) // otherwise, if it's a human, we use blood to recharge
+	..()
+
+/obj/item/gun/energy/rifle/cult/proc/do_absorb(var/mob/user, var/atom/A)
+	var/did_absorb
+	if(istype(A, /obj/effect/decal/remains))
+		power_supply.give(power_supply.maxcharge / 2) // remains are hard to get, so they give a full half-recharge
+		did_absorb = TRUE
+	else if(istype(A, /obj/effect/decal/cleanable/blood))
 		power_supply.give(charge_cost)
+		did_absorb = TRUE
+
+	if(did_absorb)
+		user.visible_message("<b>[user]</b> runs \the [src] over \the [A], which it absorbs!", SPAN_CULT("\The [src] absorbs \the [A], powering it up!"))
+		playsound(get_turf(src), 'sound/effects/blobattack.ogg', 30, TRUE)
+		qdel(A)
+		update_icon()
 
 /obj/item/gun/energy/rifle/cult/mounted
 	max_shots = 15

@@ -1,3 +1,4 @@
+// adminspawn only
 /mob/living/heavy_vehicle/premade/cult
 	name = "Daemon Exosuit"
 	desc = "An unholy construction, a mecha ripped from the jaws of the underworld, here to wreak havoc on the living."
@@ -12,6 +13,9 @@
 	h_head = /obj/item/mecha_equipment/light/cult
 	h_back = /obj/item/mecha_equipment/quick_enter
 	h_r_hand = /obj/item/mecha_equipment/doomblade
+
+/mob/living/heavy_vehicle/premade/cult/super
+	h_l_hand = /obj/item/mecha_equipment/mounted_system/soul_javelin
 
 /obj/item/mech_component/manipulators/cult
 	name = "daemon arms"
