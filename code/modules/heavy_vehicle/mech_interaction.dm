@@ -470,6 +470,12 @@
 					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 					visible_message("<span class='notice'>\The [user] installs \the [body.cell] into \the [src].</span>")
 				return
+			else if(istype(thing, /obj/item/device/robotanalyzer))
+				to_chat(user, SPAN_NOTICE("Diagnostic Report for \the [src]:"))
+				for(var/obj/item/mech_component/limb in list (head, body, arms, legs))
+					if(limb)
+						limb.return_diagnostics(user)
+				return
 
 	return ..()
 
