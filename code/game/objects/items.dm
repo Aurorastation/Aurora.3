@@ -559,6 +559,9 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/proc/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	return 0
 
+/obj/item/proc/can_shield_back()
+	return
+
 /obj/item/proc/get_loc_turf()
 	var/atom/L = loc
 	while(L && !istype(L, /turf/))

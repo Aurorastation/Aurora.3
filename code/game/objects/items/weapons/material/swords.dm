@@ -22,9 +22,6 @@
 /obj/item/material/sword/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	var/parry_bonus = 1
 
-	if(on_back)
-		return 0
-
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.martial_art && H.martial_art.weapon_affinity && istype(src, H.martial_art.weapon_affinity))

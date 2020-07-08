@@ -131,8 +131,6 @@
 	pocket_slots = 4
 
 /obj/item/clothing/suit/armor/laserproof/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	if(on_back)
-		return 0
 	if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
 		var/obj/item/projectile/P = damage_source
 
