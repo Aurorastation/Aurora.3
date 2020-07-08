@@ -139,3 +139,35 @@
 	for (var/i = 0, i < iterations, i++)
 		. = (1/3) * (num/(.**2)+2*.)
 
+
+// Old scripting functions used by all over place.
+// Round down
+/proc/n_floor(var/num)
+	if(isnum(num))
+		return round(num)
+
+// Round up
+/proc/n_ceil(var/num)
+	if(isnum(num))
+		return round(num)+1
+
+// Round to nearest integer
+/proc/n_round(var/num)
+	if(isnum(num))
+		if(num-round(num)<0.5)
+			return round(num)
+		return n_ceil(num)
+
+// Clamps N between min and max
+/proc/n_clamp(var/num, var/min=-1, var/max=1)
+	if(isnum(num)&&isnum(min)&&isnum(max))
+		if(num<=min)
+			return min
+		if(num>=max)
+			return max
+		return num
+
+// Returns 1 if N is inbetween Min and Max
+/proc/n_inrange(var/num, var/min=-1, var/max=1)
+	if(isnum(num)&&isnum(min)&&isnum(max))
+		return ((min <= num) && (num <= max))

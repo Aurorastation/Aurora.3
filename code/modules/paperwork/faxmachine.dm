@@ -234,7 +234,7 @@ var/list/admin_departments
 	var success = 1
 	for (var/dest in (alldepartments - department))
 		// Send to everyone except this department
-		delay(1)
+		sleep(1)
 		success &= sendfax(dest, 0)	// 0: don't display success/error messages
 
 		if(!success)// Stop on first error

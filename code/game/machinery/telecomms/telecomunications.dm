@@ -488,7 +488,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 	var/list/memory = list()	// stored memory
 	var/rawcode = ""	// the code to compile (raw text)
-	var/datum/TCS_Compiler/ntsl2/Compiler	// the compiler that compiles and runs the code
+	var/datum/ntsl2_program/tcomm/Program // NTSL2++ datum responsible for script execution
 	var/autoruncode = 0		// 1 if the code is set to run every time a signal is picked up
 
 	var/encryption = "null" // encryption key: ie "password"
@@ -499,8 +499,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/server/Initialize()
 	. = ..()
-	Compiler = new()
-	Compiler.Holder = src
+	Program = SSntsl2.new_program_tcomm(src)
 	server_radio = new()
 
 /obj/machinery/telecomms/server/receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)
@@ -574,8 +573,9 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 				var/identifier = num2text( rand(-1000,1000) + world.time )
 				log.name = "data packet ([md5(identifier)])"
 
-				if(Compiler && autoruncode)
-					Compiler.Run(signal)	// execute the code
+				if(istype(Program))
+					Program.process_message(signal)
+					Program.retrieve_messages()
 
 			var/can_send = relay_information(signal, "/obj/machinery/telecomms/hub")
 			if(!can_send)
@@ -584,20 +584,23 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/server/machinery_process()
 	. = ..()
-	if(Compiler)
-		Compiler.update_code()
+	if(istype(Program))
+		Program.retrieve_messages()
 
+/*
 /obj/machinery/telecomms/server/proc/setcode(var/t)
 	if(t)
 		if(istext(t))
 			rawcode = t
-
+*/
+/*
 /obj/machinery/telecomms/server/proc/compile()
 	if(Compiler)
 		var/er = Compiler.Compile(rawcode)
 		if(istype(Compiler.running_code))
 			Compiler.running_code.S = src
 		return er
+*/
 
 /obj/machinery/telecomms/server/proc/update_logs()
 	// start deleting the very first log entry
@@ -629,6 +632,9 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	var/garbage_collector = 1 // if set to 0, will not be garbage collected
 	var/input_type = "Speech File"
 
+
+
+// NTSL2++ code
 
 
 

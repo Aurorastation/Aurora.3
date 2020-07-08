@@ -10,13 +10,8 @@
 
 	nanomodule_path = /datum/nano_module/program/computer_ntsl2_interpreter
 
-	var/datum/ntsl_program/running
+	var/datum/ntsl2_program/computer/running
 	color = LIGHT_COLOR_GREEN
-
-/datum/computer_file/program/ntsl2_interpreter/process_tick()
-	if(istype(running))
-		running.cycle(30000)
-	..()
 
 /datum/computer_file/program/ntsl2_interpreter/kill_program()
 	..()
@@ -35,9 +30,10 @@
 		if(istype(F))
 			var/oldtext = html_decode(F.stored_data)
 			oldtext = replacetext(oldtext, "\[editorbr\]", "\n")
-			running = ntsl2.new_program(oldtext, src, usr)
+			running = SSntsl2.new_program_computer(src)
 			if(istype(running))
 				running.name = href_list["PRG_execfile"]
+				running.execute(oldtext)
 
 	if(href_list["PRG_closefile"])
 		. = TRUE
@@ -47,11 +43,7 @@
 
 	if(href_list["PRG_topic"])
 		if(istype(running))
-			var/topc = href_list["PRG_topic"]
-			if(copytext(topc, 1, 2) == "?")
-				topc = copytext(topc, 2) + "?" + input("", "Enter Data")
-			running.topic(topc)
-			running.cycle(5000)
+			running.handle_topic(href_list["PRG_topic"])
 		. = 1
 
 	if(href_list["PRG_refresh"])
@@ -78,7 +70,7 @@
 		data["error"] = "I/O ERROR: Unable to access hard drive."
 	else if(istype(PRG.running))
 		data["running"] = PRG.running.name
-		data["terminal"] = PRG.running.get_terminal()
+		data["terminal"] = PRG.running.get_buffer()
 	else
 		HDD = PRG.computer.hard_drive
 		var/list/files[0]
