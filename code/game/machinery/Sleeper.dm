@@ -19,7 +19,7 @@
 	clickvol = 30
 	
 	var/mob/living/carbon/human/occupant = null
-	var/list/available_chemicals = list("norepinephrine" = "Norepinephrine", "stoxin" = "Soporific", "paracetamol" = "Paracetamol", "dylovene" = "Dylovene", "dexalin" = "Dexalin")
+	var/list/available_chemicals = list(/datum/reagent/norepinephrine = "Norepinephrine", /datum/reagent/soporific = "Soporific", /datum/reagent/paracetamol = "Paracetamol", /datum/reagent/dylovene = "Dylovene", /datum/reagent/dexalin = "Dexalin")
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/filtering = 0
 	var/allow_occupant_types = list(/mob/living/carbon/human)
@@ -105,7 +105,7 @@
 	var/list/reagents = list()
 	for(var/T in available_chemicals)
 		var/list/reagent = list()
-		reagent["id"] = T
+		reagent["type"] = T
 		reagent["name"] = available_chemicals[T]
 		if(occupant)
 			reagent["amount"] = occupant.reagents.get_reagent_amount(T)

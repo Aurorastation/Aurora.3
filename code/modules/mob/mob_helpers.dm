@@ -451,22 +451,22 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	if(ishuman(src) || isbrain(src) || isslime(src))
 		switch(input)
 			if(I_HELP,I_DISARM,I_GRAB,I_HURT)
-				a_intent = input
+				set_intent(input)
 			if("right")
-				a_intent = intent_numeric((intent_numeric(a_intent)+1) % 4)
+				set_intent(intent_numeric((intent_numeric(a_intent)+1) % 4))
 			if("left")
-				a_intent = intent_numeric((intent_numeric(a_intent)+3) % 4)
+				set_intent(intent_numeric((intent_numeric(a_intent)+3) % 4))
 		if(hud_used && hud_used.action_intent)
 			hud_used.action_intent.icon_state = "intent_[a_intent]"
 
 	else if(isrobot(src))
 		switch(input)
 			if(I_HELP)
-				a_intent = I_HELP
+				set_intent(I_HELP)
 			if(I_HURT)
-				a_intent = I_HURT
+				set_intent(I_HURT)
 			if("right","left")
-				a_intent = intent_numeric(intent_numeric(a_intent) - 3)
+				set_intent(intent_numeric(intent_numeric(a_intent) - 3))
 		if(hud_used && hud_used.action_intent)
 			if(a_intent == I_HURT)
 				hud_used.action_intent.icon_state = I_HURT
@@ -1033,9 +1033,9 @@ proc/is_blind(A)
 	//We create an MD5 hash of the mob's reference to use as its DNA string.
 	//This creates unique DNA for each creature in a consistently repeatable process
 	var/datum/reagents/vessel = new/datum/reagents(600)
-	vessel.add_reagent("blood",560)
+	vessel.add_reagent(/datum/reagent/blood,560)
 	for(var/datum/reagent/blood/B in vessel.reagent_list)
-		if(B.id == "blood")
+		if(B.type == /datum/reagent/blood)
 			B.data = list(
 				"donor" = WEAKREF(src),
 				"species" = name,
@@ -1205,3 +1205,23 @@ proc/is_blind(A)
 
 /mob/proc/remove_blood_simple(var/blood)
 	return
+
+/mob/living/carbon/human/needs_wheelchair()
+	var/stance_damage = 0
+	for(var/limb_tag in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT))
+		var/obj/item/organ/external/E = organs_by_name[limb_tag]
+		if(!E || !E.is_usable())
+			stance_damage += 2
+	return stance_damage >= 4
+
+/mob/living/carbon/human/proc/equip_wheelchair()
+	var/obj/structure/bed/chair/wheelchair/W = new(get_turf(src))
+	if(isturf(loc))
+		buckled = W
+		update_canmove()
+		W.set_dir(dir)
+		W.buckled_mob = src
+		W.add_fingerprint(src)
+
+/mob/proc/set_intent(var/set_intent)
+	a_intent = set_intent

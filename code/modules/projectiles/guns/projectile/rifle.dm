@@ -11,7 +11,6 @@
 	magazine_type = /obj/item/ammo_magazine/boltaction
 	max_shells = 5
 
-	pump_fail_msg = "<span class='warning'>You cannot work the rifle's bolt without gripping it with both hands!</span>"
 	pump_snd = 'sound/weapons/riflebolt.ogg'
 	has_wield_state = TRUE
 

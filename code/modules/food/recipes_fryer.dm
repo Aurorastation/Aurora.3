@@ -14,7 +14,7 @@
 
 /datum/recipe/risottoballs
 	appliance = FRYER
-	reagents = list("sodiumchloride" = 1, "blackpepper" = 1)
+	reagents = list(/datum/reagent/sodiumchloride = 1, /datum/reagent/blackpepper = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/risotto)
 	coating = /datum/reagent/nutriment/coating/batter
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
@@ -79,7 +79,7 @@
 //==================
 /datum/recipe/jellydonut
 	appliance = FRYER
-	reagents = list("berryjuice" = 10, "sugar" = 10)
+	reagents = list(/datum/reagent/drink/berryjuice = 10, /datum/reagent/sugar = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough
 	)
@@ -88,7 +88,7 @@
 
 /datum/recipe/jellydonut/slime
 	appliance = FRYER
-	reagents = list("slimejelly" = 10, "sugar" = 10)
+	reagents = list(/datum/reagent/slimejelly = 10, /datum/reagent/sugar = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough
 	)
@@ -96,7 +96,7 @@
 
 /datum/recipe/jellydonut/cherry
 	appliance = FRYER
-	reagents = list("cherryjelly" = 10, "sugar" = 10)
+	reagents = list(/datum/reagent/nutriment/cherryjelly = 10, /datum/reagent/sugar = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough
 	)
@@ -104,7 +104,7 @@
 
 /datum/recipe/donut
 	appliance = FRYER
-	reagents = list("sugar" = 10)
+	reagents = list(/datum/reagent/sugar = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough
 	)
@@ -113,7 +113,7 @@
 
 /datum/recipe/chaosdonut
 	appliance = FRYER
-	reagents = list("frostoil" = 10, "capsaicin" = 10, "sugar" = 10)
+	reagents = list(/datum/reagent/frostoil = 10, /datum/reagent/capsaicin = 10, /datum/reagent/sugar = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE //This creates its own reagents
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough
@@ -123,7 +123,7 @@
 
 /datum/recipe/funnelcake
 	appliance = FRYER
-	reagents = list("sugar" = 5, "batter" = 10)
+	reagents = list(/datum/reagent/sugar = 5, /datum/reagent/nutriment/coating/batter = 10)
 	result = /obj/item/reagent_containers/food/snacks/funnelcake
 
 /datum/recipe/pisanggoreng
@@ -148,5 +148,5 @@
 		/obj/item/reagent_containers/food/snacks/bacon,
 		/obj/item/reagent_containers/food/snacks/cutlet
 	)
-	reagents = list("soysauce" = 5, "batter" = 10)
+	reagents = list(/datum/reagent/nutriment/soysauce = 5, /datum/reagent/nutriment/coating/batter = 10)
 	result = /obj/item/reagent_containers/food/snacks/sweet_and_sour

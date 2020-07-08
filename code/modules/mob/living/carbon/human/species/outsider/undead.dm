@@ -6,8 +6,6 @@
 
 /mob/living/carbon/human/skeleton/proc/spawn_skeleton(var/mob/user)
 	src.ckey = user.ckey
-	src.real_name = "[pick(wizard_first)] [pick(wizard_second)]"
-	src.name = src.real_name
 	if(master)
 		to_chat(src, "<B>You are a skeleton minion to [master], they are your master. Obey and protect your master at all costs, you have no free will.</B>")
 	SSghostroles.remove_spawn_atom("skeleton", src)
@@ -20,7 +18,7 @@
 	deform = 'icons/mob/human_races/r_skeleton.dmi'
 	eyes = "blank_eyes"
 
-	total_health = 70 //gotta get headshots to kill them, so they're frail
+	total_health = 100 //skeletons are frail
 
 	default_language = LANGUAGE_TCB
 	language = LANGUAGE_CULT

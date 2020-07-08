@@ -413,6 +413,10 @@ A list of items and costs is stored under the datum of every game mode, alongsid
 /obj/item/device/special_uplink/ninja
 	name = "infiltrator uplink"
 
+/obj/item/device/special_uplink/burglar
+	name = "sponsored uplink"
+	starting_telecrystals = 15
+
 /obj/item/device/special_uplink/rev
 	name = "station bounced radio"
 	desc = null // SBRs have no desc

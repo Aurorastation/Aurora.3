@@ -16,20 +16,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/flame
 	var/lit = 0
 
-/proc/isflamesource(A)
-	var/obj/item/I = A
-	if(I.iswelder())
-		var/obj/item/weldingtool/WT = A
-		return (WT.isOn())
-	else if(istype(I, /obj/item/flame))
-		var/obj/item/flame/F = I
-		return (F.lit)
-	else if(istype(I, /obj/item/device/assembly/igniter))
-		return 1
-	else if(istype(I, /obj/item/clothing/gloves/fluff/lunea_gloves))
-		var/obj/item/clothing/gloves/fluff/lunea_gloves/F = I
-		return (F.lit)
-	return 0
+/obj/item/flame/isFlameSource()
+	return lit
 
 ///////////
 //MATCHES//
@@ -103,6 +91,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/icon_off
 	var/type_butt = null
 	var/chem_volume = 15 //Size of a syringe
+	var/genericmes = "USER lights NAME with FLAME"
 	var/matchmes = "USER lights NAME with FLAME"
 	var/lightermes = "USER lights NAME with FLAME"
 	var/zippomes = "USER lights NAME with FLAME"
@@ -146,15 +135,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		playsound(src, 'sound/items/cigs_lighters/cig_light.ogg', 75, 1, -1)
 		src.reagents.set_temperature(T0C + 45)
 		damtype = "fire"
-		if(reagents.get_reagent_amount("phoron")) // the phoron explodes when exposed to fire
+		if(reagents.get_reagent_amount(/datum/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
 			var/datum/effect/effect/system/reagents_explosion/e = new()
-			e.set_up(round(reagents.get_reagent_amount("phoron") / 2.5, 1), get_turf(src), 0, 0)
+			e.set_up(round(reagents.get_reagent_amount(/datum/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
 			e.start()
 			qdel(src)
 			return
-		if(reagents.get_reagent_amount("fuel")) // the fuel explodes, too, but much less violently
+		if(reagents.get_reagent_amount(/datum/reagent/fuel)) // the fuel explodes, too, but much less violently
 			var/datum/effect/effect/system/reagents_explosion/e = new()
-			e.set_up(round(reagents.get_reagent_amount("fuel") / 5, 1), get_turf(src), 0, 0)
+			e.set_up(round(reagents.get_reagent_amount(/datum/reagent/fuel) / 5, 1), get_turf(src), 0, 0)
 			e.start()
 			qdel(src)
 			return
@@ -206,7 +195,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-	if(isflamesource(W))
+	if(W.isFlameSource())
 		var/text = matchmes
 		if(istype(W, /obj/item/flame/match))
 			text = matchmes
@@ -218,10 +207,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			text = weldermes
 		else if(istype(W, /obj/item/device/assembly/igniter))
 			text = ignitermes
-		text = replacetext(text, "USER", "[user]")
-		text = replacetext(text, "NAME", "[name]")
-		text = replacetext(text, "FLAME", "[W.name]")
+		else
+			text = genericmes
+		text = replacetext(text, "USER", "\the [user]")
+		text = replacetext(text, "NAME", "\the [name]")
+		text = replacetext(text, "FLAME", "\the [W.name]")
 		light(text)
+
+/obj/item/clothing/mask/smokable/isFlameSource()
+	return lit
 
 /obj/item/clothing/mask/smokable/cigarette
 	name = "cigarette"
@@ -245,8 +239,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/cigarette/Initialize()
 	. = ..()
-	reagents.add_reagent("tobacco",10)
-	reagents.add_reagent("nicotine",5) // 2/3 ratio, Adds 0.03 units per second
+	reagents.add_reagent(/datum/reagent/toxin/tobacco,10)
+	reagents.add_reagent(/datum/reagent/mental/nicotine,5) // 2/3 ratio, Adds 0.03 units per second
 
 
 /obj/item/clothing/mask/smokable/cigarette/attackby(obj/item/W as obj, mob/user as mob)
@@ -302,7 +296,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/vanilla/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent("tobacco",15)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco,15)
 
 /obj/item/clothing/mask/smokable/cigarette/acmeco
 	burn_rate = 0.015
@@ -310,10 +304,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/acmeco/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent("tobacco",5)
-	reagents.add_reagent("nicotine",5)
-	reagents.add_reagent("lexorin",2)
-	reagents.add_reagent("serotrotium",3)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco,5)
+	reagents.add_reagent(/datum/reagent/mental/nicotine,5)
+	reagents.add_reagent(/datum/reagent/lexorin,2)
+	reagents.add_reagent(/datum/reagent/serotrotium,3)
 
 /obj/item/clothing/mask/smokable/cigarette/blank
 	burn_rate = 0.003 //300 seconds
@@ -328,24 +322,24 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/dromedaryco/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent("tobacco",5)
-	reagents.add_reagent("nicotine",10)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco,5)
+	reagents.add_reagent(/datum/reagent/mental/nicotine,10)
 
 /obj/item/clothing/mask/smokable/cigarette/nicotine
 
 /obj/item/clothing/mask/smokable/cigarette/nicotine/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent("tobaccofine",5)
-	reagents.add_reagent("nicotine",10)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco/rich,5)
+	reagents.add_reagent(/datum/reagent/mental/nicotine,10)
 
 /obj/item/clothing/mask/smokable/cigarette/rugged
 
 /obj/item/clothing/mask/smokable/cigarette/rugged/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent("tobaccobad",10)
-	reagents.add_reagent("nicotine",5)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco/fake,10)
+	reagents.add_reagent(/datum/reagent/mental/nicotine,5)
 
 /obj/item/clothing/mask/smokable/cigarette/adhomai
 	name = "adhomian cigarette"
@@ -354,8 +348,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/adhomai/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent("tobacco",5)
-	reagents.add_reagent("nicotine",5)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco,5)
+	reagents.add_reagent(/datum/reagent/mental/nicotine,5)
 
 ////////////
 // CIGARS //
@@ -382,8 +376,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/cigar/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent("tobaccorich",25)
-	reagents.add_reagent("nicotine",5) // 1/5 Ratio
+	reagents.add_reagent(/datum/reagent/toxin/tobacco/rich,25)
+	reagents.add_reagent(/datum/reagent/mental/nicotine,5) // 1/5 Ratio
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/havana
 	name = "premium Havanian cigar"
@@ -397,9 +391,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/cigar/havana/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent("tobaccorich",15)
-	reagents.add_reagent("nicotine",5) // 1/6 Ratio
-	reagents.add_reagent("tricordrazine",10)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco/rich,15)
+	reagents.add_reagent(/datum/reagent/mental/nicotine,5) // 1/6 Ratio
+	reagents.add_reagent(/datum/reagent/tricordrazine,10)
 
 /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba
 	name = "\improper Cohiba robusto cigar"
@@ -413,9 +407,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/cigar/cohiba/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent("tobaccorich",30)
-	reagents.add_reagent("nicotine",10) //1/6 Ratio
-	reagents.add_reagent("tricordrazine",20)
+	reagents.add_reagent(/datum/reagent/toxin/tobacco/rich,30)
+	reagents.add_reagent(/datum/reagent/mental/nicotine,10) //1/6 Ratio
+	reagents.add_reagent(/datum/reagent/tricordrazine,20)
 
 /obj/item/trash/cigbutt
 	name = "cigarette butt"
@@ -459,7 +453,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/rolled/sausage/Initialize()
 	. = ..()
 	reagents.clear_reagents()
-	reagents.add_reagent("protein",6)
+	reagents.add_reagent(/datum/reagent/nutriment/protein,6)
 
 /obj/item/trash/cigbutt/sausagebutt
 	name = "sausage butt"
@@ -614,13 +608,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = icon_state
 	base_state = icon_state
 
-/obj/item/flame/lighter/zippo/update_icon()
+/obj/item/flame/lighter/update_icon()
 	if(lit)
 		icon_state = "[base_state]on"
 		item_state = "[base_state]on"
 	else
 		icon_state = "[base_state]"
 		item_state = "[base_state]"
+	update_held_icon()
 
 /obj/item/flame/lighter/attack_self(mob/living/user)
 	if(!base_state)

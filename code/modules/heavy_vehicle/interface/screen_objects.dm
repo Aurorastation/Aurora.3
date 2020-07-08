@@ -31,7 +31,7 @@
 
 	maptext_x = 34
 	maptext_y = 3
-	maptext_width = 72
+	maptext_width = 120
 
 /obj/screen/movable/mecha/hardpoint/Destroy()
 	owner = null
@@ -43,7 +43,6 @@
 	if(holding) holding.screen_loc = screen_loc
 
 /obj/screen/movable/mecha/hardpoint/proc/update_system_info()
-
 	// No point drawing it if we have no item to use or nobody to see it.
 	if(!holding || !owner)
 		return
@@ -64,7 +63,7 @@
 		overlays.Cut()
 		return
 
-	maptext = holding.get_hardpoint_maptext()
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[holding.get_hardpoint_maptext()]</span>"
 
 	var/ui_damage = (!owner.body.diagnostics || !owner.body.diagnostics.is_functional() || ((owner.emp_damage>EMP_GUI_DISRUPT) && prob(owner.emp_damage)))
 
@@ -169,6 +168,7 @@
 	icon_state = null
 
 	maptext_width = 64
+	maptext_y = 2
 
 /obj/screen/movable/mecha/toggle
 	name = "toggle"

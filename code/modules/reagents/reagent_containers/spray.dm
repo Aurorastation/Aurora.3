@@ -69,13 +69,13 @@
 
 	playsound(src.loc, spray_sound, 50, 1, -6)
 
-	if(reagents.has_reagent("sacid"))
+	if(reagents.has_reagent(/datum/reagent/acid))
 		message_admins("[key_name_admin(user)] fired sulphuric acid from \a [src].")
 		log_game("[key_name(user)] fired sulphuric acid from \a [src].",ckey=key_name(user))
-	if(reagents.has_reagent("pacid"))
+	if(reagents.has_reagent(/datum/reagent/acid/polyacid))
 		message_admins("[key_name_admin(user)] fired Polyacid from \a [src].")
 		log_game("[key_name(user)] fired Polyacid from \a [src].",ckey=key_name(user))
-	if(reagents.has_reagent("lube"))
+	if(reagents.has_reagent(/datum/reagent/lube))
 		message_admins("[key_name_admin(user)] fired Space lube from \a [src].")
 		log_game("[key_name(user)] fired Space lube from \a [src].",ckey=key_name(user))
 	return
@@ -139,7 +139,7 @@
 
 /obj/item/reagent_containers/spray/cleaner/Initialize()
 	. = ..()
-	reagents.add_reagent("cleaner", volume)
+	reagents.add_reagent(/datum/reagent/spacecleaner, volume)
 
 /obj/item/reagent_containers/spray/sterilizine
 	name = "sterilizine"
@@ -147,7 +147,7 @@
 
 /obj/item/reagent_containers/spray/sterilizine/Initialize()
 	. = ..()
-	reagents.add_reagent("sterilizine", volume)
+	reagents.add_reagent(/datum/reagent/sterilizine, volume)
 
 /obj/item/reagent_containers/spray/pepper
 	name = "pepperspray"
@@ -160,10 +160,7 @@
 	volume = 40
 	safety = 1
 	hitsound = "swing_hit"
-
-/obj/item/reagent_containers/spray/pepper/Initialize()
-	. = ..()
-	reagents.add_reagent("condensedcapsaicin", 40)
+	reagents_to_add = list(/datum/reagent/capsaicin/condensed = 40)
 
 /obj/item/reagent_containers/spray/pepper/examine(mob/user)
 	if(..(user, 1))
@@ -193,9 +190,7 @@
 	possible_transfer_amounts = null
 	volume = 10
 
-/obj/item/reagent_containers/spray/waterflower/Initialize()
-	. = ..()
-	reagents.add_reagent("water", 10)
+	reagents_to_add = list(/datum/reagent/water = 10)
 
 /obj/item/reagent_containers/spray/chemsprayer
 	name = "chem sprayer"
@@ -257,9 +252,7 @@
 	item_state = "plantbgone"
 	volume = 100
 
-/obj/item/reagent_containers/spray/plantbgone/Initialize()
-	. = ..()
-	reagents.add_reagent("plantbgone", 100)
+	reagents_to_add = list(/datum/reagent/toxin/plantbgone = 100)
 
 /obj/item/reagent_containers/spray/plantbgone/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
 	if(!proximity) return

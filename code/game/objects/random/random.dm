@@ -97,11 +97,12 @@
 	desc = "This is a random bomb supply."
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "signaller"
-	spawnlist = list(
-		/obj/item/device/assembly/igniter,
-		/obj/item/device/assembly/prox_sensor,
-		/obj/item/device/assembly/signaler,
-		/obj/item/device/multitool
+	problist = list(
+		/obj/item/device/assembly/igniter = 2,
+		/obj/item/device/assembly/prox_sensor = 2,
+		/obj/item/device/assembly/signaler = 2,
+		/obj/item/device/multitool = 1,
+		/obj/item/device/transfer_valve = 0.5
 	)
 
 /obj/random/toolbox
@@ -203,6 +204,24 @@
 		/obj/item/clothing/mask/gas/voice = 1,
 		/obj/item/clothing/gloves/brassknuckles = 2,
 		/obj/item/reagent_containers/inhaler/space_drugs = 2
+	)
+
+/obj/random/smokable
+	name = "random smokable"
+	desc = "This is a random smoking item."
+	icon = 'icons/obj/cigs_lighters.dmi'
+	icon_state = "cigpacket"
+	problist = list(
+		/obj/item/storage/fancy/cigarettes = 30,
+		/obj/item/storage/fancy/cigarettes/blank = 5,
+		/obj/item/storage/fancy/cigarettes/acmeco = 2,
+		/obj/item/storage/fancy/cigarettes/dromedaryco = 10,
+		/obj/item/storage/fancy/cigarettes/cigar = 9,
+		/obj/item/storage/fancy/cigarettes/nicotine = 10,
+		/obj/item/storage/fancy/cigarettes/rugged = 10,
+		/obj/item/storage/fancy/cigarettes/pra = 5,
+		/obj/item/storage/fancy/cigarettes/dpra = 2,
+		/obj/item/storage/fancy/cigarettes/nka = 2
 	)
 
 /obj/random/energy
@@ -570,7 +589,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/gin,
 		/obj/item/reagent_containers/food/drinks/bottle/whiskey,
 		/obj/item/reagent_containers/food/drinks/bottle/vodka,
-		/obj/item/reagent_containers/food/drinks/bottle/tequilla,
+		/obj/item/reagent_containers/food/drinks/bottle/tequila,
 		/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing,
 		/obj/item/reagent_containers/food/drinks/bottle/rum,
 		/obj/item/reagent_containers/food/drinks/bottle/champagne,
@@ -727,7 +746,6 @@
 		/obj/item/clothing/head/cueball = 0.25,
 		/obj/item/clothing/head/hardhat = 1.2,
 		/obj/item/clothing/head/helmet/augment = 0.1,
-		/obj/item/clothing/head/kitty = 0.2,
 		/obj/item/clothing/head/pirate = 0.2,
 		/obj/item/clothing/head/plaguedoctorhat = 0.3,
 		/obj/item/clothing/head/pumpkin/lantern = 0.4,

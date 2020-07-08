@@ -86,6 +86,7 @@
 /datum/gear/banner
 	display_name = "banner selection"
 	path = /obj/item/flag
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/banner/New()
 	..()
@@ -109,6 +110,7 @@
 	display_name = "flag selection"
 	cost = 2
 	path = /obj/item/flag
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/flag/New()
 	..()

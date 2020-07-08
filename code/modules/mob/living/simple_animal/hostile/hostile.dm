@@ -285,7 +285,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 			var/obj/effect/energy_field/e = locate(/obj/effect/energy_field, get_step(src, dir))
 			if(e)
 				e.Stress(rand(1,2))
-				visible_message("<span class='danger'>\the [src] [attacktext] \the [e]!</span>")
+				visible_message("<span class='danger'>\The [src] [attacktext] \the [e]!</span>")
 				src.do_attack_animation(e)
 				target_mob = e
 				stance = HOSTILE_STANCE_ATTACKING

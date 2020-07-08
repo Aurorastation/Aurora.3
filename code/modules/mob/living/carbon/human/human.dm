@@ -1232,7 +1232,7 @@
 /mob/living/carbon/human/revive(reset_to_roundstart = TRUE)
 
 	if(species && !(species.flags & NO_BLOOD))
-		vessel.add_reagent("blood",560-vessel.total_volume)
+		vessel.add_reagent(/datum/reagent/blood,560-vessel.total_volume)
 		fixblood()
 
 	// Fix up all organs.
@@ -1336,6 +1336,9 @@
 		footprint_color = null
 		feet_blood_DNA = null
 		update_inv_shoes(1)
+
+	if(blood_color)
+		blood_color = null
 		return 1
 
 /mob/living/carbon/human/get_visible_implants(var/class = 0)
@@ -1385,7 +1388,7 @@
 		self = 1
 
 	if (src.species.flags & NO_BLOOD)
-		to_chat(usr, span("notice", self ? "Your species does not have a pulse." : "[src]'s species does not have a pulse."))
+		to_chat(usr, span("warning", self ? "You have no pulse." : "[src] has no pulse!"))
 		return
 
 	if(!self)
@@ -1398,7 +1401,7 @@
 	if(pulse())
 		to_chat(usr, span("notice", "[self ? "You have a" : "[src] has a"] pulse! Counting..."))
 	else
-		to_chat(usr, span("danger", "[src] has no pulse!"))	//it is REALLY UNLIKELY that a dead person would check his own pulse)
+		to_chat(usr, span("warning", "[src] has no pulse!"))	//it is REALLY UNLIKELY that a dead person would check his own pulse)
 		return
 
 	to_chat(usr, "You must[self ? "" : " both"] remain still until counting is finished.")
@@ -1468,7 +1471,7 @@
 	spawn(0)
 		regenerate_icons()
 		if (vessel)
-			vessel.add_reagent("blood",560-vessel.total_volume)
+			vessel.add_reagent(/datum/reagent/blood,560-vessel.total_volume)
 			fixblood()
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
@@ -1950,11 +1953,10 @@
 		return
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 	if(istype(heart) && !(heart.status & ORGAN_DEAD))
-		var/active_breaths = 0
-		if(!nervous_system_failure() && active_breaths)
-			visible_message("\The [src] jerks and gasps for breath!")
+		if(!nervous_system_failure())
+			visible_message("<b>[src]</b> jerks and gasps for breath!")
 		else
-			visible_message("\The <b>[src]</b> twitches a bit as \his heart restarts!")
+			visible_message("<b>[src]</b> twitches a bit as \his heart restarts!")
 		shock_stage = min(shock_stage, 100) // 120 is the point at which the heart stops.
 		if(getOxyLoss() >= 75)
 			setOxyLoss(75)
@@ -1964,7 +1966,7 @@
 
 /mob/living/carbon/human/proc/make_adrenaline(var/amount)
 	if(stat == CONSCIOUS)
-		reagents.add_reagent("adrenaline", amount)
+		reagents.add_reagent(/datum/reagent/adrenaline, amount)
 
 /mob/living/carbon/human/proc/gigashatter()
 	for(var/obj/item/organ/external/E in organs)
@@ -1990,3 +1992,56 @@
 				var/scale = min(1, round(P.damage / 50, 0.2))
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
+
+/mob/living/carbon/human/apply_radiation_effects()
+	. = ..()
+	if(. == TRUE)
+		if(src.is_diona())
+			var/damage = rand(15, 30)
+			src.adjustToxLoss(-damage)
+			if(prob(5))
+				damage = rand(20, 60)
+				src.adjustToxLoss(-damage)
+			to_chat(src, SPAN_NOTICE("You can feel flow of energy which makes you regenerate."))
+
+		src.apply_effect((rand(15,30)),IRRADIATE,blocked = src.getarmor(null, "rad"))
+		if(prob(4))
+			src.apply_effect((rand(20,60)),IRRADIATE,blocked = src.getarmor(null, "rad"))
+			if (prob(75))
+				randmutb(src) // Applies bad mutation
+				domutcheck(src,null,MUTCHK_FORCED)
+			else
+				randmutg(src) // Applies good mutation
+				domutcheck(src,null,MUTCHK_FORCED)
+
+/mob/living/carbon/human/proc/get_accent_icon(var/datum/language/speaking = null)
+	if(accent && speaking && speaking.allow_accents)
+		var/used_accent = accent //starts with the mob's default accent
+
+		if(istype(back,/obj/item/rig)) //checks for the rig voice changer module
+			var/obj/item/rig/rig = back
+			if(rig.speech && rig.speech.voice_holder && rig.speech.voice_holder.active && rig.speech.voice_holder.current_accent)
+				used_accent = rig.speech.voice_holder.current_accent
+
+		for(var/obj/item/gear in list(wear_mask,wear_suit,head)) //checks for voice changers masks now
+			if(gear)
+				var/obj/item/voice_changer/changer = locate() in gear
+				if(changer && changer.active && changer.current_accent)
+					used_accent = changer.current_accent
+
+		var/datum/accent/a = SSrecords.accents[used_accent]
+		var/final_icon = a.tag_icon
+		return "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[final_icon]'>"
+
+/mob/living/carbon/human/proc/generate_valid_accent()
+	var/list/valid_accents = new()
+	for(var/current_accents in species.allowed_accents)
+		valid_accents += current_accents
+
+	return valid_accents
+
+/mob/living/carbon/human/proc/set_accent(var/new_accent)
+	accent = new_accent
+	if(!(accent in species.allowed_accents))
+		accent = species.default_accent
+	return TRUE

@@ -53,14 +53,12 @@
 		remove_contents(user)
 
 /obj/item/reagent_containers/glass/rag/attackby(obj/item/W, mob/user)
-	if(!on_fire && istype(W, /obj/item/flame))
-		var/obj/item/flame/F = W
-		if(F.lit)
-			ignite()
-			if(on_fire)
-				visible_message(span("warning", "\The [user] lights \the [src] with \the [W]."))
-			else
-				to_chat(user, span("warning", "You manage to singe \the [src], but fail to light it."))
+	if(!on_fire && W.isFlameSource())
+		ignite()
+		if(on_fire)
+			visible_message(SPAN_WARNING("\The [user] lights \the [src] with \the [W]."))
+		else
+			to_chat(user, SPAN_WARNING("You manage to singe \the [src], but fail to light it."))
 
 	. = ..()
 	update_name()
@@ -112,7 +110,7 @@
 		to_chat(user, span("warning", "\The [initial(name)] is dry!"))
 	else
 		if ( !(last_clean && world.time < last_clean + 120) )
-			user.visible_message("\The [user] starts to wipe down \the [A] with \the [src]!")
+			user.visible_message("\The <b>[user]</b> starts to wipe down \the [A] with \the [src]!")
 			clean_msg = TRUE
 			last_clean = world.time
 		else
@@ -213,7 +211,7 @@
 //rag must have a minimum of 2 units welder fuel and at least 80% of the reagents must be welder fuel.
 //maybe generalize flammable reagents someday
 /obj/item/reagent_containers/glass/rag/proc/can_ignite()
-	var/fuel = reagents.get_reagent_amount("fuel")
+	var/fuel = reagents.get_reagent_amount(/datum/reagent/fuel)
 	return (fuel >= 2 && fuel >= reagents.total_volume*0.8)
 
 /obj/item/reagent_containers/glass/rag/proc/ignite()
@@ -223,10 +221,10 @@
 		return
 
 	//also copied from matches
-	if(reagents.get_reagent_amount("phoron")) // the phoron explodes when exposed to fire
+	if(reagents.get_reagent_amount(/datum/reagent/toxin/phoron)) // the phoron explodes when exposed to fire
 		visible_message(span("danger", "\The [src] conflagrates violently!"))
 		var/datum/effect/effect/system/reagents_explosion/e = new()
-		e.set_up(round(reagents.get_reagent_amount("phoron") / 2.5, 1), get_turf(src), 0, 0)
+		e.set_up(round(reagents.get_reagent_amount(/datum/reagent/toxin/phoron) / 2.5, 1), get_turf(src), 0, 0)
 		e.start()
 		qdel(src)
 		return
@@ -270,7 +268,7 @@
 		qdel(src)
 		return
 
-	reagents.remove_reagent("fuel", reagents.maximum_volume/25)
+	reagents.remove_reagent(/datum/reagent/fuel, reagents.maximum_volume/25)
 	update_name()
 	update_icon()
 	burn_time--

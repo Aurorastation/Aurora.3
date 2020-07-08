@@ -360,13 +360,15 @@ RFD Mining-Class
 	icon_state = "rfd-m"
 	item_state = "rfd-m"
 
-/obj/item/rfd/mining/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/rfd/mining/afterattack(atom/A, mob/user, proximity)
+	if(!proximity)
+		return
 
-	if(!proximity) return
-
-	if(istype(user,/mob/living/silicon/robot))
+	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
-		if(R.stat || !R.cell || R.cell.charge <= 0)
+		if(R.stat || !R.cell || R.cell.charge <= 500)
+			to_chat(user, SPAN_WARNING("You are unable to produce enough charge to use \the [src]!"))
+			flick("[icon_state]-empty", src)
 			return
 	else
 		if(stored_matter <= 0)
@@ -378,26 +380,23 @@ RFD Mining-Class
 		return
 
 	if(locate(/obj/structure/track) in A)
+		to_chat(user, SPAN_WARNING("There is already a track on \the [A]!"))
 		return
 
 	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
-	var/used_energy = 0
-
-	used_energy = 10
 
 	new /obj/structure/track(get_turf(A))
 
-	to_chat(user, "Dispensing track...")
+	to_chat(user, SPAN_NOTICE("You deploy a mine track on \the [A]."))
 	update_icon()
 
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
-			R.cell.use(used_energy)
-
+			R.cell.use(500)
 	else
 		stored_matter--
-		to_chat(user, "The RFD now holds [stored_matter]/30 fabrication-units.")
+		to_chat(user, SPAN_NOTICE("The RFD now holds <b>[stored_matter]/30</b> fabrication-units."))
 
 
 // Malf AI RFD Transformer.
