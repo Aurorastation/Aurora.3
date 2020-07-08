@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Mech UIs can no longer be moved via click-drag."
+  - tweak: "he lower left mech UI has received a make-over."
