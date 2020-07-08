@@ -124,7 +124,7 @@
 	visible_message(SPAN_DANGER("\The [src] falls and lands on \the [loc]!"), "", SPAN_DANGER("You hear a thud!"))
 
 	var/z_velocity = 5 * (levels_fallen**2) // 1z - 5, 2z - 20, 3z - 45
-	var/damage = (z_velocity + rand(-10, 10)) * damage_mod
+	var/damage = max((z_velocity + rand(-10, 10)) * damage_mod, 0)
 
 	apply_damage(damage, BRUTE, BP_L_LEG) // can target any leg, it will be changed to the proper component
 
