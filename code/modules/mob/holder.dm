@@ -28,8 +28,7 @@ var/list/holder_mob_icon_cache = list()
 		/obj/item/storage,
 		/obj/item/reagent_containers,
 		/obj/structure/closet/crate,
-		/obj/machinery/appliance,
-		/obj/machinery/microwave
+		/obj/machinery/appliance
 	))
 
 /obj/item/holder/Initialize()

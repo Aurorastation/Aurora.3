@@ -714,8 +714,6 @@
 	reagents_to_add = list(/datum/reagent/nutriment/protein/egg = 3)
 
 /obj/item/reagent_containers/food/snacks/egg/afterattack(obj/O as obj, mob/user as mob, proximity)
-	if(istype(O,/obj/machinery/microwave))
-		return ..()
 	if(!(proximity && O.is_open_container()))
 		return ..()
 	to_chat(user, "You crack \the [src] into \the [O].")
@@ -3341,7 +3339,7 @@
 	reagent_data = list(/datum/reagent/nutriment = list("pizza crust" = 5))
 
 	reagents_to_add = list(/datum/reagent/nutriment/coating/batter = 2, /datum/reagent/nutriment/triglyceride/oil = 1)
-	
+
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/crunch/Initialize()
 	. = ..()
 	coating = reagents.get_reagent(/datum/reagent/nutriment/coating/batter)
@@ -4267,14 +4265,6 @@
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=16)
 
-/obj/item/reagent_containers/food/snacks/bacon/microwave
-	name = "microwaved bacon"
-	desc = "A tasty meat slice. You don't see any pigs on this station, do you?"
-	icon = 'icons/obj/food_ingredients.dmi'
-	icon_state = "bacon"
-	bitesize = 2
-	center_of_mass = list("x"=16, "y"=16)
-
 /obj/item/reagent_containers/food/snacks/bacon/oven
 	name = "oven-cooked bacon"
 	desc = "A tasty meat slice. You don't see any pigs on this station, do you?"
@@ -4283,6 +4273,13 @@
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=16)
 	reagents_to_add = list(/datum/reagent/nutriment/protein = 0.33, /datum/reagent/nutriment/triglyceride = 1)
+
+/obj/item/reagent_containers/food/snacks/bacon/pan
+	name = "pan-cooked bacon"
+	desc = "A tasty meat slice. You don't see any pigs on this station, do you?"
+	icon = 'icons/obj/food_ingredients.dmi'
+	icon_state = "bacon"
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/chilied_eggs
 	name = "chilied eggs"

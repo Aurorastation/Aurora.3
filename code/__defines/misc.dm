@@ -269,13 +269,6 @@
 
 #define DEBUG_REF(D) (D ? "\ref[D]|[D] ([D.type])" : "NULL")
 
-//Recipe type defines. Used to determine what machine makes them
-#define MICROWAVE			0x1
-#define FRYER				0x2
-#define OVEN				0x4
-#define CANDYMAKER			0x8
-#define CEREALMAKER			0x10
-
 // MultiZAS directions.
 #define NORTHUP (NORTH|UP)
 #define EASTUP (EAST|UP)

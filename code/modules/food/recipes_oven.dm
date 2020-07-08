@@ -5,8 +5,6 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/ovenchips
 
-
-
 /datum/recipe/dionaroast
 	appliance = OVEN
 	fruit = list("apple" = 1)

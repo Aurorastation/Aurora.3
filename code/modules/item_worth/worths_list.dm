@@ -867,7 +867,6 @@ var/list/worths = list(
 					/obj/machinery/door_timer = -300,
 					/obj/machinery/embedded_controller/radio/airlock = -600,
 					/obj/machinery/gibber = -600,
-					/obj/machinery/microwave = -70,
 					/obj/machinery/pipedispenser = -100,
 					/obj/machinery/telecomms/broadcaster = -10000,
 					/obj/machinery/telecomms = -7000,

@@ -18,7 +18,6 @@
 /obj/item/reagent_containers/cooking_container/Initialize()
 	. = ..()
 	create_reagents(max_reagents)
-	flags |= OPENCONTAINER
 
 /obj/item/reagent_containers/cooking_container/afterattack(var/obj/target, var/mob/user, var/proximity)
 	if(!is_open_container() || !proximity) //Is the container open & are they next to whatever they're clicking?
@@ -58,6 +57,7 @@
 				return
 			I.forceMove(src)
 			to_chat(user, span("notice", "You put the [I] into the [src]"))
+			return
 
 /obj/item/reagent_containers/cooking_container/verb/empty()
 	set src in oview(1)
@@ -164,6 +164,25 @@
 	icon_state = "ovendish"
 	max_space = 30
 	max_reagents = 120
+
+/obj/item/reagent_containers/cooking_container/pan
+	name = "pan"
+	shortname = "pan"
+	desc = "Chuck ingredients in this to fry something on the stove."
+	icon_state = "pan"
+	max_space = 30
+	max_reagents = 30
+	slot_flags = SLOT_HEAD
+	force = 15
+	hitsound = 'sound/weapons/smash.ogg'
+	flags = OPENCONTAINER // Will still react
+
+/obj/item/reagent_containers/cooking_container/pan/New(var/newloc, var/mat_key) // we use New instead of Initialize because, uh, material, i guess
+	..(newloc)
+	var/material/material = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
+	if(material.name != MATERIAL_STEEL)
+		color = material.icon_colour
+	name = "[material.display_name] [initial(name)]"
 
 /obj/item/reagent_containers/cooking_container/fryer
 	name = "fryer basket"
