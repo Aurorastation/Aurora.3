@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Melee weapon techniques targeting the feet should now work."
+  - bugfix: "Cultist should now properly spawn."
