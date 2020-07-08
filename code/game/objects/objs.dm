@@ -250,6 +250,6 @@
 	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
 		to_chat(user, SPAN_SUBTLE("Can be rotated with alt-click."))
 
-// whether unconscious mobs should drop items into us, or keep them in-hand
+// whether mobs can unequip and drop items into us or not
 /obj/proc/can_hold_dropped_items()
 	return TRUE
