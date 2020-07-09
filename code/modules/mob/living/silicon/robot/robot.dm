@@ -393,8 +393,6 @@
 
 /mob/living/silicon/robot/verb/Namepick()
 	set category = "Robot Commands"
-	if(custom_name)
-		return FALSE
 
 	spawn(0)
 		var/newname
@@ -768,18 +766,15 @@
 			if(!opened)
 				to_chat(user, SPAN_WARNING("You cannot install \the [U] while the maintenance hatch is closed."))
 				return
-			else if(!src.module && U.require_module)
-				to_chat(user, SPAN_WARNING("\The [src] cannot be upgraded with this until it has chosen a module."))
-				return
 			else if(U.locked)
 				to_chat(user, SPAN_WARNING("\The [U] is locked down!"))
 				return
 			else
-				if(U.action(src))
+				if(U.action(src, user))
+					to_chat(src, SPAN_NOTICE("\The [user] has installed \a [U] into you."))
 					to_chat(user, SPAN_NOTICE("You apply the upgrade to \the [src]."))
 					user.drop_from_inventory(U, src)
-				else
-					to_chat(user, SPAN_WARNING("You fail to apply the upgrade to \the [src]."))
+				return
 		else
 			if(W.force && !(istype(W, /obj/item/device/robotanalyzer) || istype(W, /obj/item/device/healthanalyzer)) )
 				spark_system.queue()

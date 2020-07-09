@@ -5,7 +5,7 @@
 	icon_state = "cannon"
 	item_state = "cannon"
 	fire_sound = 'sound/effects/Explosion1.ogg'
-	charge_meter = 0
+	charge_meter = FALSE
 	max_shots = 10
 	charge_cost = 300
 	projectile_type = /obj/item/projectile/bullet/gyro

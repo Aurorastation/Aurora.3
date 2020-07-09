@@ -1,9 +1,9 @@
-//A portable analyzer, for research borgs.  This is better then giving them a gripper which can hold anything and letting them use the normal analyzer.
+//A portable analyzer, for research borgs. This is better then giving them a gripper which can hold anything and letting them use the normal analyzer.
 /obj/item/portable_destructive_analyzer
 	name = "Portable Destructive Analyzer"
+	desc = "Similar to the stationary version, this rather unwieldy device allows you to break down objects in the name of science."
 	icon = 'icons/obj/robot_items.dmi'
 	icon_state = "portable_analyzer"
-	desc = "Similar to the stationary version, this rather unwieldy device allows you to break down objects in the name of science."
 
 	var/min_reliability = 90 //Can't upgrade, call it laziness or a drawback
 
@@ -15,6 +15,11 @@
 /obj/item/portable_destructive_analyzer/Initialize()
 	. = ..()
 	files = new /datum/research/techonly(src) //Setup the research data holder.
+
+/obj/item/portable_destructive_analyzer/examine(mob/user, distance)
+	. = ..()
+	if(loaded_item && Adjacent(user))
+		to_chat(user, SPAN_NOTICE("It is holding \a [loaded_item]."))
 
 /obj/item/portable_destructive_analyzer/attack_self(mob/user)
 	var/response = alert(user, 	"Analyzing the item inside will *DESTROY* the item for good.\n\
@@ -42,11 +47,9 @@
 							loaded_item = S
 						else
 							qdel(S)
-							desc = initial(desc)
 							icon_state = initial(icon_state)
 					else
 						qdel(I)
-						desc = initial(desc)
 						icon_state = initial(icon_state)
 			else
 				return
@@ -70,7 +73,6 @@
 	if(response == "Eject")
 		if(loaded_item)
 			loaded_item.forceMove(get_turf(src))
-			desc = initial(desc)
 			icon_state = initial(icon_state)
 			loaded_item = null
 		else
@@ -97,6 +99,5 @@
 		I.forceMove(src)
 		loaded_item = I
 		visible_message(SPAN_NOTICE("\The [user] scoops \the [I] into \the [src]."))
-		desc = initial(desc) + "<br>It is holding \the [loaded_item]."
 		flick("portable_analyzer_load", src)
 		icon_state = "portable_analyzer_full"

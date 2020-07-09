@@ -8,15 +8,15 @@
 /obj/item/form_printer/attack(mob/living/carbon/M, mob/living/carbon/user)
 	return
 
-/obj/item/form_printer/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag, params)
+/obj/item/form_printer/afterattack(atom/target, mob/living/user, flag, params)
 	if(!target || !flag)
 		return
 	if(istype(target,/obj/structure/table))
-		deploy_paper(get_turf(target))
+		deploy_paper(get_turf(target), user)
 
 /obj/item/form_printer/attack_self(mob/user)
 	deploy_paper(get_turf(src))
 
-/obj/item/form_printer/proc/deploy_paper(var/turf/T)
-	T.visible_message(SPAN_NOTICE("\The [src.loc] dispenses a sheet of crisp white paper."))
+/obj/item/form_printer/proc/deploy_paper(var/turf/T, var/mob/user)
+	T.visible_message(SPAN_NOTICE("\The [user] dispenses a sheet of crisp white paper."))
 	new /obj/item/paper(T)
