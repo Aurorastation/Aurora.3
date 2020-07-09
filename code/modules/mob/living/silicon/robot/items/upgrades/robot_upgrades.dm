@@ -1,6 +1,3 @@
-// robot_upgrades.dm
-// Contains various borg upgrades.
-
 /obj/item/borg/upgrade
 	name = "borg upgrade module."
 	desc = "Protected by FRM."
