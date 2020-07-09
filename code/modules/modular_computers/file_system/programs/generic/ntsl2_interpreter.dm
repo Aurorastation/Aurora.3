@@ -1,6 +1,6 @@
 /datum/computer_file/program/ntsl2_interpreter
 	filename = "ntslinterpreter"
-	filedesc = "NTSL2+ Interpreter"
+	filedesc = "NTSL2++ Interpreter"
 	extended_desc = "This program is used to run NTSL2+ programs."
 	program_icon_state = "generic"
 	usage_flags = PROGRAM_ALL
@@ -11,6 +11,7 @@
 	nanomodule_path = /datum/nano_module/program/computer_ntsl2_interpreter
 
 	var/datum/ntsl2_program/computer/running
+	var/is_running = FALSE
 	color = LIGHT_COLOR_GREEN
 
 /datum/computer_file/program/ntsl2_interpreter/kill_program()
@@ -18,6 +19,12 @@
 	if(istype(running))
 		running.kill()
 		running = null
+		is_running = FALSE
+
+/datum/computer_file/program/ntsl2_interpreter/run_program(mob/user)
+	. = ..()
+	if(.)
+		running = SSntsl2.new_program_computer(src)
 
 /datum/computer_file/program/ntsl2_interpreter/Topic(href, href_list)
 	if(..())
@@ -30,16 +37,18 @@
 		if(istype(F))
 			var/oldtext = html_decode(F.stored_data)
 			oldtext = replacetext(oldtext, "\[editorbr\]", "\n")
-			running = SSntsl2.new_program_computer(src)
+			is_running = TRUE
+			
 			if(istype(running))
 				running.name = href_list["PRG_execfile"]
-				running.execute(oldtext)
+				running.execute(oldtext, usr)
 
 	if(href_list["PRG_closefile"])
 		. = TRUE
 		if(istype(running))
 			running.kill()
-			running = null
+			running = SSntsl2.new_program_computer(src)
+			is_running = FALSE
 
 	if(href_list["PRG_topic"])
 		if(istype(running))
@@ -54,7 +63,7 @@
 
 
 /datum/nano_module/program/computer_ntsl2_interpreter
-	name = "NTSL2+ Interpreter"
+	name = "NTSL2++ Interpreter"
 
 /datum/nano_module/program/computer_ntsl2_interpreter/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	var/list/data = host.initial_data()
@@ -68,9 +77,9 @@
 
 	if(!PRG.computer || !PRG.computer.hard_drive)
 		data["error"] = "I/O ERROR: Unable to access hard drive."
-	else if(istype(PRG.running))
+	else if(istype(PRG.running) && PRG.is_running)
 		data["running"] = PRG.running.name
-		data["terminal"] = PRG.running.get_buffer()
+		data["terminal"] = PRG.running.buffer
 	else
 		HDD = PRG.computer.hard_drive
 		var/list/files[0]

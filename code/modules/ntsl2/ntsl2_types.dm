@@ -1,35 +1,43 @@
 
 
-/datum/controller/subsystem/ntsl2/proc/new_program_computer(var/computer)
-	var/res = send("new_program", list(ref = "\ref[computer]", type = "Computer"))
+/datum/controller/subsystem/processing/ntsl2/proc/new_program_computer(var/computer)
+	var/datum/ntsl2_program/computer/P = new()
+	var/res = send_task("new_program", list(ref = "\ref[computer]", type = "Computer"), program = P)
 	if(res)
-		var/datum/ntsl2_program/computer/P = new(res)
 		programs += P
+		START_PROCESSING(SSntsl2, P)
 		return P
+	qdel(P)
 	return FALSE
 
-/datum/controller/subsystem/ntsl2/proc/new_program_tcomm(var/server)
-	var/res = send("new_program", list(type = "TCom"))
+/datum/controller/subsystem/processing/ntsl2/proc/new_program_tcomm(var/server)
+	var/datum/ntsl2_program/tcomm/P = new(server)
+	var/res = send_task("new_program", list(type = "TCom"), program = P)
 	if(res)
-		var/datum/ntsl2_program/tcomm/P = new(res, server)
 		programs += P
+		START_PROCESSING(SSntsl2, P)
 		return P
+	qdel(P)
 	return FALSE
 
 // Modular computer interpreter
 /datum/ntsl2_program/computer
 	name = "NTSL2++ interpreter"
-
-/datum/ntsl2_program/computer/proc/get_buffer()
-	return SSntsl2.send("computer/get_buffer", list(id = id))
+	var/buffer = ""
+	var/last_buffer_task = 0
 
 /datum/ntsl2_program/computer/proc/handle_topic(var/topic)
+	if(!is_ready())
+		return FALSE // We are not ready to run code
 	if(copytext(topic, 1, 2) == "?")
 		var/data = input("", "Enter Data")
-		SSntsl2.send("computer/topic", list(id = id, topic = copytext(topic, 2), data = data))
+		SSntsl2.send_task("computer/topic", list(id = id, topic = copytext(topic, 2), data = data))
 	else
-		SSntsl2.send("computer/topic", list(id = id, topic = topic))
+		SSntsl2.send_task("computer/topic", list(id = id, topic = topic))
 
+/datum/ntsl2_program/computer/process()
+	if(SSntsl2.is_complete(last_buffer_task) && is_ready())
+		last_buffer_task = SSntsl2.send_task("computer/get_buffer", list(id = id), program = src)
 
 // Telecommunications program
 /datum/ntsl2_program/tcomm
@@ -37,13 +45,13 @@
 	var/obj/machinery/telecomms/server/server
 
 
-/datum/ntsl2_program/tcomm/New(var/id, var/server)
-	. = ..(id)
+/datum/ntsl2_program/tcomm/New(var/server)
+	. = ..()
 	src.server = server
 
 /datum/ntsl2_program/tcomm/proc/process_message(var/datum/signal/signal)
 	var/datum/language/signal_language = signal.data["language"]
-	SSntsl2.send("tcom/process", list(
+	SSntsl2.send_task("tcom/process", list(
 		id = id,
 		signal = list(
 			content = html_decode(signal.data["message"]),
@@ -70,7 +78,7 @@
 ]*/
 
 /datum/ntsl2_program/tcomm/proc/retrieve_messages()
-	var/data = SSntsl2.send("tcom/get")
+	var/data = SSntsl2.send_task("tcom/get")
 	if(data)
 		var/list/signals = json_decode(data)
 		for(var/sl in signals)
