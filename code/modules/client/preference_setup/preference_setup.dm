@@ -1,7 +1,8 @@
-// These are not flags, binary operations not intended
-#define TOPIC_NOACTION	0
-#define TOPIC_HANDLED	1
-#define TOPIC_REFRESH	2
+#define TOPIC_NOACTION       0
+#define TOPIC_HANDLED        1
+#define TOPIC_REFRESH        2
+#define TOPIC_UPDATE_PREVIEW 4
+#define TOPIC_REFRESH_UPDATE_PREVIEW (TOPIC_UPDATE_PREVIEW|TOPIC_REFRESH)
 
 // These are bitflags. Use wisely.
 #define SQL_CHARACTER	0x1
@@ -290,7 +291,7 @@
 /datum/category_item/player_setup_item/proc/gather_save_parameters()
 	return list()
 
-/datum/category_item/player_setup_item/proc/content()
+/datum/category_item/player_setup_item/proc/content(var/mob/user)
 	return
 
 /datum/category_item/player_setup_item/proc/sanitize_character(var/sql_load = 0)
@@ -310,8 +311,10 @@
 	if (. != TOPIC_NOACTION)
 		var/datum/category_group/player_setup_category/cat = category
 		cat.modified = 1
-	if (. == TOPIC_REFRESH)
+	if (. & TOPIC_REFRESH)
 		user.client.prefs.ShowChoices(user)
+	if(. & TOPIC_UPDATE_PREVIEW)
+		user.client.prefs.update_preview_icon()
 
 /datum/category_item/player_setup_item/CanUseTopic(var/mob/user)
 	return 1
