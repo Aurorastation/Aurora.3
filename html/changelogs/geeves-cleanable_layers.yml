@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "Messes and spills now appear above pipes, scrubbers, and vents."
-  - rscadd: "You can brush messes and spills away from pipes, scrubbers, and vents, by using your hands on them."
