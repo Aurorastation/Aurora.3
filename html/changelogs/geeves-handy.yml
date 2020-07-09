@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added a HUD overlay to the hand slots which indicate whether the hand is disabled, stumped, or removed."
