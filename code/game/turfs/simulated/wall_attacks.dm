@@ -104,7 +104,6 @@
 	return fail_smash(user, wallbreaker)
 
 /turf/simulated/wall/attackby(obj/item/W, mob/user)
-
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(!user)
 		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
@@ -113,6 +112,9 @@
 	//get the user's location
 	if(!istype(user.loc, /turf))
 		return	//can't do this stuff whilst inside objects and such
+
+	if(istype(W, /obj/item/plastique))
+		return
 
 	if(W)
 		radiate()
