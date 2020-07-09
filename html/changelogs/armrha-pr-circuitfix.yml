@@ -1,0 +1,6 @@
+author: armrha
+
+delete-after: True
+
+changes:
+  - rscadd: "Modified the define function to bypass bug from http://www.byond.com/forum/post/2061007 where the preprocessor inappropriately interprets a parenthesis in a string so that circuitboards display their type and name properly again"
