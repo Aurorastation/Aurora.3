@@ -51,11 +51,11 @@
 
 /mob/living/heavy_vehicle/proc/zoneToComponent(var/zone)
 	switch(zone)
-		if("eyes" , "head")
+		if(BP_EYES, BP_HEAD)
 			return head
-		if("l_arm" , "r_arm")
+		if(BP_L_ARM, BP_R_ARM)
 			return arms
-		if("l_leg" , "r_leg")
+		if(BP_L_LEG, BP_R_LEG)
 			return legs
 		else
 			return body
