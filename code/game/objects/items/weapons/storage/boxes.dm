@@ -508,7 +508,7 @@
 	drop_sound = 'sound/items/drop/matchbox.ogg'
 	pickup_sound =  'sound/items/pickup/matchbox.ogg'
 	slot_flags = SLOT_BELT
-	can_hold = list(/obj/item/flame/match)
+	can_hold = list(/obj/item/flame/match, /obj/item/trash/match)
 	starts_with = list(/obj/item/flame/match = 10)
 
 /obj/item/storage/box/matches/attackby(obj/item/flame/match/W, mob/user)
