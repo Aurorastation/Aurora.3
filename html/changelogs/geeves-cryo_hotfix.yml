@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Cryogenics no longer swallow the items that spawn in your hands if you spawn there."

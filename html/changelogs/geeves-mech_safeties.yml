@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Mech Weaponry no longer have safeties, and can be used as normal."
