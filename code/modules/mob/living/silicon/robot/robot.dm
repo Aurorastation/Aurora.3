@@ -214,7 +214,6 @@
 	laws = new law_preset()
 	if(spawn_module)
 		new spawn_module(src, src)
-		hands.icon_state = lowertext(mod_type)
 	if(key_type)
 		radio.keyslot = new key_type(radio)
 		radio.recalculateChannels()
