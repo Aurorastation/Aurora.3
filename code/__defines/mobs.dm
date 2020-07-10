@@ -359,3 +359,8 @@
 #define AURA_TYPE_WEAPON "Weapon"
 #define AURA_TYPE_THROWN "Thrown"
 #define AURA_TYPE_LIFE   "Life"
+
+// Robot Overlay Defines
+#define ROBOT_PANEL_EXPOSED  "exposed"
+#define ROBOT_PANEL_CELL     "cell"
+#define ROBOT_PANEL_NO_CELL  "no cell"

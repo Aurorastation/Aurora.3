@@ -187,6 +187,8 @@
 		src.l_hand_hud_object = inv_box
 		src.adding += inv_box
 
+		target.update_hud_hands()
+
 		using = new /obj/screen/inventory()
 		using.name = "hand"
 		using.icon = ui_style

@@ -43,6 +43,11 @@
 	icon_state = "securearea"
 	var/sight_mode = null
 
+/obj/item/borg/sight/on_module_hotbar(mob/living/silicon/robot/R)
+	R.sight_mode |= sight_mode
+
+/obj/item/borg/sight/on_module_store(mob/living/silicon/robot/R)
+	R.sight_mode &= ~sight_mode
 
 /obj/item/borg/sight/xray
 	name = "\proper x-ray vision"

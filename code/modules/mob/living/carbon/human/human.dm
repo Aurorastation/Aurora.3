@@ -1993,6 +1993,27 @@
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
 
+/mob/living/carbon/human/apply_radiation_effects()
+	. = ..()
+	if(. == TRUE)
+		if(src.is_diona())
+			var/damage = rand(15, 30)
+			src.adjustToxLoss(-damage)
+			if(prob(5))
+				damage = rand(20, 60)
+				src.adjustToxLoss(-damage)
+			to_chat(src, SPAN_NOTICE("You can feel flow of energy which makes you regenerate."))
+
+		src.apply_effect((rand(15,30)),IRRADIATE,blocked = src.getarmor(null, "rad"))
+		if(prob(4))
+			src.apply_effect((rand(20,60)),IRRADIATE,blocked = src.getarmor(null, "rad"))
+			if (prob(75))
+				randmutb(src) // Applies bad mutation
+				domutcheck(src,null,MUTCHK_FORCED)
+			else
+				randmutg(src) // Applies good mutation
+				domutcheck(src,null,MUTCHK_FORCED)
+
 /mob/living/carbon/human/proc/get_accent_icon(var/datum/language/speaking = null)
 	if(accent && speaking && speaking.allow_accents)
 		var/used_accent = accent //starts with the mob's default accent

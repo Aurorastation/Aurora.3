@@ -62,25 +62,12 @@ var/datum/antagonist/cultist/cult
 	global_objectives |= sacrifice
 
 /datum/antagonist/cultist/equip(var/mob/living/carbon/human/player)
-
 	if(!..())
-		return 0
+		return FALSE
 
 	var/obj/item/book/tome/T = new(get_turf(player))
-	var/list/slots = list (
-		"backpack" = slot_in_backpack,
-		"left pocket" = slot_l_store,
-		"right pocket" = slot_r_store,
-		"left hand" = slot_l_hand,
-		"right hand" = slot_r_hand
-	)
-	for(var/slot in slots)
-		player.equip_to_slot(T, slot)
-		if(T.loc == player)
-			break
-	var/obj/item/storage/S = locate() in player.contents
-	if(S && istype(S))
-		T.forceMove(S)
+	var/list/slots = list(slot_in_backpack, slot_l_store, slot_r_store, slot_belt, slot_l_hand, slot_r_hand)
+	player.equip_in_one_of_slots(T, slots, disable_warning = TRUE)
 
 /datum/antagonist/cultist/remove_antagonist(var/datum/mind/player, var/show_message, var/implanted)
 	if(!..())

@@ -177,7 +177,7 @@
 
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
-		var/obj/item/organ/external/head = H.get_organ("head")
+		var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
 		if(head)
 			head.sever_artery()
 

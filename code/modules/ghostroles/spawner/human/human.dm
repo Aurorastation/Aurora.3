@@ -14,7 +14,6 @@
 	var/list/species_outfits = list() //Outfit overwrite for the species
 	var/uses_species_whitelist = TRUE //Do you need the whitelist to play the species?
 	var/possible_species = list("Human")
-	var/possible_genders = list(MALE,FEMALE)
 	var/allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	var/list/extra_languages = list() //Which languages are added to this mob
 
@@ -74,7 +73,9 @@
 	//Spawn in the mob
 	var/mob/living/carbon/human/M = new spawn_mob(null)
 
-	M.change_gender(pick(possible_genders))
+	var/datum/species/S = all_species[picked_species]
+	M.change_gender(pick(S.default_genders))
+
 	M.set_species(picked_species)
 
 	//Prepare the mob

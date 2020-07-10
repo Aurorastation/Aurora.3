@@ -14,7 +14,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 //For anything that can light stuff on fire
 /obj/item/flame
-	var/lit = 0
+	var/lit = FALSE
 
 /obj/item/flame/isFlameSource()
 	return lit
@@ -23,8 +23,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //MATCHES//
 ///////////
 /obj/item/flame/match
-	name = "match"
-	desc = "A simple match stick, used for lighting fine smokables."
+	name = "safety match"
+	desc = "A simple safety match. Used for lighting fine smokables, among other things."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "match_unlit"
 	item_state = "match_unlit"
@@ -32,14 +32,41 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
-	var/burnt = 0
 	var/smoketime = 5
+	var/type_burnt = /obj/item/trash/match
 	w_class = ITEMSIZE_TINY
 	origin_tech = list(TECH_MATERIAL = 1)
-	slot_flags = SLOT_EARS
+	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("burnt", "singed")
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
+
+/obj/item/trash/match
+	name = "burnt match"
+	desc = "A match. This one has seen better days."
+	icon = 'icons/obj/cigs_lighters.dmi'
+	icon_state = "match_burnt"
+	item_state = "match_burnt"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		)
+	randpixel = 10
+	slot_flags = SLOT_EARS | SLOT_MASK
+	attack_verb = list("flicked")
+	drop_sound = 'sound/items/cigs_lighters/cig_snuff.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
+
+/obj/item/trash/match/Initialize()
+	. = ..()
+	randpixel_xy()
+	transform = turn(transform,rand(0,360))
+
+/obj/item/trash/match/attack_self(mob/user)
+	var/turf/location = get_turf(src)
+	new /obj/effect/decal/cleanable/ash(location)
+	user.visible_message("<b>[user]</b> crushes \the [src] into a fine ash.", range = 3)
+	qdel(src)
 
 /obj/item/flame/match/process()
 	if(isliving(loc))
@@ -47,33 +74,70 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		M.IgniteMob()
 	var/turf/location = get_turf(src)
 	smoketime--
-	if(smoketime < 1)
-		burn_out()
+	if(smoketime < 1 || istype(loc, /obj/item/storage)) // Shouldn't be lit in a bag.
+		die()
 		return
 	if(location)
 		location.hotspot_expose(700, 5)
 		return
 
-/obj/item/flame/match/dropped(mob/user as mob)
-	//If dropped, put ourselves out
-	//not before lighting up the turf we land on, though.
+/obj/item/flame/match/attack_self(mob/user as mob)
 	if(lit)
-		spawn(0)
-			var/turf/location = src.loc
-			if(istype(location))
-				location.hotspot_expose(700, 5)
-			burn_out()
+		user.visible_message("<b>[user]</b> waves out \the [src], extinguishing it.", range = 3)
+		die(TRUE)
 	return ..()
 
-/obj/item/flame/match/proc/burn_out()
-	lit = 0
-	burnt = 1
-	damtype = "brute"
-	icon_state = "match_burnt"
-	item_state = "match_burnt"
-	name = "burnt match"
-	desc = "A match. This one has seen better days."
-	STOP_PROCESSING(SSprocessing, src)
+/obj/item/flame/match/attackby(obj/item/W as obj, mob/user as mob)
+	..()
+	if(W.isFlameSource() && !src.lit)
+		playsound(src, 'sound/items/cigs_lighters/cig_light.ogg', 75, 1, -1)
+		user.visible_message("In a feat of redundancy, <b>[user]</b> lights \the [src] using \the [W].", range = 3)
+		light()
+
+/obj/item/flame/match/dropped(mob/user as mob)
+	if(lit)
+		spawn(0)
+			var/turf/location = src.loc	// Light up the turf we land on.
+			if(istype(location))
+				location.hotspot_expose(700, 5)
+			die(TRUE) // Put ourselves out.
+	return ..()
+
+/obj/item/flame/match/proc/light()
+	lit = TRUE
+	damtype = "burn"
+	icon_state = "match_lit"
+	item_state = "match_lit"
+	if(ismob(loc))
+		var/mob/living/M = loc
+		M.update_inv_wear_mask(0)
+		M.update_inv_l_hand(0)
+		M.update_inv_r_hand(1)
+	set_light(2, 0.25, "#E38F46")
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/flame/match/proc/die(var/nomessage = FALSE)
+	var/turf/T = get_turf(src)
+	playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
+	if(type_burnt)
+		var/obj/item/burnt = new type_burnt(T)
+		transfer_fingerprints_to(burnt)
+		if(ismob(loc))
+			var/mob/living/M = loc
+			if(!nomessage)
+				to_chat(M, span("notice", "Your [name] goes out."))
+			if(M.wear_mask)
+				M.remove_from_mob(src) //un-equip it so the overlays can update
+				M.update_inv_wear_mask(0)
+				M.equip_to_slot_if_possible(burnt, slot_wear_mask)
+			else
+				M.remove_from_mob(src) // if it dies in your hand.
+				M.update_inv_l_hand(0)
+				M.update_inv_r_hand(1)
+				M.put_in_hands(burnt)
+		set_light(0)
+		STOP_PROCESSING(SSprocessing, src)
+		qdel(src)
 
 //////////////////
 //FINE SMOKABLES//
@@ -130,7 +194,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/proc/light(var/flavor_text = "[usr] lights the [name].")
 	if(!src.lit)
-		src.lit = 1
+		src.lit = TRUE
 		playsound(src, 'sound/items/cigs_lighters/cig_light.ogg', 75, 1, -1)
 		src.reagents.set_temperature(T0C + 45)
 		damtype = "fire"
@@ -284,9 +348,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				to_chat(user, span("notice", "[src] is full."))
 
 /obj/item/clothing/mask/smokable/cigarette/attack_self(mob/user as mob)
-	if(lit == 1)
+	if(lit == TRUE)
 		user.visible_message(span("notice", "[user] calmly drops and treads on the lit [src], putting it out instantly."))
-		die(1)
+		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
+		die(TRUE)
 	return ..()
 
 
@@ -489,7 +554,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/pipe/light(var/flavor_text = "[usr] lights the [name].")
 	if(!src.lit && burn_rate)
-		src.lit = 1
+		src.lit = TRUE
 		damtype = "fire"
 		icon_state = icon_on
 		item_state = icon_on
@@ -503,7 +568,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			M.update_inv_r_hand(1)
 
 /obj/item/clothing/mask/smokable/pipe/attack_self(mob/user as mob)
-	if(lit == 1)
+	if(lit == TRUE)
 		user.visible_message(span("notice", "[user] puts out [src]."), span("notice", "You put out [src]."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		lit = 0

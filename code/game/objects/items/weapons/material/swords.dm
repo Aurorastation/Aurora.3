@@ -55,7 +55,7 @@
 				target.drop_l_hand()
 			return TRUE
 
-	if(target_zone == "r_feet" || target_zone == "l_feet" || target_zone == BP_R_LEG || target_zone == BP_L_LEG)
+	if(target_zone == BP_R_FOOT || target_zone == BP_R_FOOT || target_zone == BP_R_LEG || target_zone == BP_L_LEG)
 		if(prob(60 - armor_reduction))
 			target.Weaken(5)
 			return TRUE

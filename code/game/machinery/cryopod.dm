@@ -236,6 +236,9 @@ var/global/list/frozen_crew = list()
 	if(occupant)
 		to_chat(user, SPAN_NOTICE("<b>[occupant]</b> [gender_datums[occupant.gender].is] inside \the [src]."))
 
+/obj/machinery/cryopod/can_hold_dropped_items()
+	return FALSE
+
 /obj/machinery/cryopod/proc/find_control_computer(urgent=0)
 	for(var/obj/machinery/computer/cryopod/C in get_area(src))
 		control_computer = C

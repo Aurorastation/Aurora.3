@@ -68,6 +68,7 @@ var/global/list/robot_modules = list(
 	R.set_module_sprites(sprites)
 	R.icon_selected = FALSE
 	R.choose_icon()
+	R.setup_icon_cache()
 
 /obj/item/robot_module/proc/Reset(var/mob/living/silicon/robot/R)
 	remove_camera_networks(R)
@@ -80,6 +81,7 @@ var/global/list/robot_modules = list(
 	R.set_module_sprites(list("Default" = "robot"))
 	R.icon_selected = FALSE
 	R.choose_icon()
+	R.setup_icon_cache()
 
 /obj/item/robot_module/Destroy()
 	for(var/module in modules)
@@ -529,7 +531,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/janitor/New()
 	..()
-	src.modules += new /obj/item/soap/nanotrasen(src)
+	src.modules += new /obj/item/soap/drone(src)
 	src.modules += new /obj/item/storage/bag/trash(src)
 	src.modules += new /obj/item/mop(src)
 	src.modules += new /obj/item/device/lightreplacer/advanced(src)
@@ -601,7 +603,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/robot_harvester(src)
 	src.modules += new /obj/item/material/kitchen/rollingpin(src)
 	src.modules += new /obj/item/material/knife(src)
-	src.modules += new /obj/item/soap(src) // a cheap bar of soap
+	src.modules += new /obj/item/soap/drone(src)
 	src.modules += new /obj/item/reagent_containers/glass/rag(src) // a rag for.. yeah.. the primary tool of bartender
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
@@ -858,7 +860,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/multitool/robotic(src)
 	src.modules += new /obj/item/device/lightreplacer(src)
 	src.modules += new /obj/item/gripper(src)
-	src.modules += new /obj/item/soap(src)
+	src.modules += new /obj/item/soap/drone(src)
 	src.modules += new /obj/item/gripper/no_use/loader(src)
 	src.modules += new /obj/item/extinguisher(src)
 	src.modules += new /obj/item/rfd/piping/borg(src)
