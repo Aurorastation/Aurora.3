@@ -16,15 +16,19 @@
 	var/brightness = 7
 	var/light_duration = 5
 
-/obj/item/projectile/energy/flash/on_impact(var/atom/A)
-	var/turf/T = flash_range? src.loc : get_turf(A)
-	if(!istype(T)) return
+/obj/item/projectile/energy/flash/on_impact(var/atom/A, affected_limb)
+	var/turf/T = flash_range ? src.loc : get_turf(A)
+	if(!istype(T))
+		return
 
 	//blind adjacent people
-	for (var/mob/living/carbon/M in viewers(T, flash_range))
+	for(var/mob/living/carbon/M in viewers(T, flash_range))
 		if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
 			M.confused = rand(5,15)
 			flick("e_flash", M.flash)
+		else if(affected_limb && M == A)
+			M.confused = rand(2, 7)
+			flick("flash", M.flash)
 
 	//snap pop
 	playsound(src, 'sound/effects/snap.ogg', 50, 1)

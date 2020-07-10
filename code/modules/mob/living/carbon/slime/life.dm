@@ -313,7 +313,7 @@
 		if(target.Adjacent(src))
 			if(istype(target, /mob/living/silicon)) // Glomp the silicons
 				if(!Atkcool)
-					a_intent = I_HURT
+					set_intent(I_HURT)
 					UnarmedAttack(target)
 					Atkcool = TRUE
 					spawn(45)
@@ -327,12 +327,12 @@
 					spawn(45)
 						Atkcool = FALSE
 
-					a_intent = I_DISARM
+					set_intent(I_DISARM)
 					UnarmedAttack(target)
 
 			else
 				if(!Atkcool)
-					a_intent = I_GRAB
+					set_intent(I_GRAB)
 					UnarmedAttack(target)
 
 		else if(target in view(7, src))
@@ -350,9 +350,9 @@
 				frenemy = S
 		if(frenemy && prob(1))
 			if(frenemy.colour == colour)
-				a_intent = I_HELP
+				set_intent(I_HELP)
 			else
-				a_intent = I_HURT
+				set_intent(I_HURT)
 			UnarmedAttack(frenemy)
 
 	var/sleeptime = movement_delay()
@@ -365,11 +365,11 @@
 /mob/living/carbon/slime/proc/handle_speech_and_mood()
 	//Mood starts here
 	var/newmood = ""
-	a_intent = I_HELP
+	set_intent(I_HELP)
 	if(rabid || attacked)
 		set_content(FALSE)
 		newmood = ANGRY
-		a_intent = I_HURT
+		set_intent(I_HURT)
 	else if(target)
 		newmood = MISCHIEVOUS
 
