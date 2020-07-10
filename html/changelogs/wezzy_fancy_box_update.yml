@@ -38,7 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "The cookie snack now contains cookies, like the mint and gum packs."
+  - rscadd: "The cookie snack now contains cookies, like the mint and gum packs. They've also been added to the rations box selection."
   - rscadd: "Gum packs, mint packs and the cookie snack from the vending machines visibly open when clicked on."
   - rscadd: "Gum packs, mint packs and the cookie snack can be crumpled up when empty. If you really wanted to, you still can crumple it with things inside, so long as you're in harm intent."
   - rscadd: "Odd boxes, such as candle boxes, donut boxes, crayon boxes and egg boxes can be folded and unfolded from cardboard sheets."
