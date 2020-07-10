@@ -50,12 +50,11 @@
 			icon_state = "[initial(icon_state)][src.opened]"
 
 /obj/item/storage/box/fancy/examine(mob/user)
-	if(!..(user, 1))
-		return
+	..()
 	if(contents.len <= 0)
-		to_chat(user, SPAN_NOTICE("There are no [src.icon_type]s left in the [src.storage_type]."))
+		to_chat(user, "There are no [src.icon_type]s left in the [src.storage_type].")
 	else
-		to_chat(user, SPAN_NOTICE("There [src.contents.len == 1 ? "is" : "are"] <b>[src.contents.len]</b> [src.icon_type]\s left in the [src.storage_type]."))
+		to_chat(user, "There [src.contents.len == 1 ? "is" : "are"] <b>[src.contents.len]</b> [src.icon_type]\s left in the [src.storage_type].")
 	return
 
 /*
@@ -64,7 +63,7 @@
 
 /obj/item/storage/box/fancy/donut
 	name = "donut box"
-	desc = "A box of half-a-dozen donuts."
+	desc = "A box of half-a-dozen donuts sponsored by GetMore Chocolate Corporation. Allegedly contentious with the psychiatrist unions for some reason."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "donutbox"
 	icon_type = "donut"
