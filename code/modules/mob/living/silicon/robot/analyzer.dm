@@ -99,4 +99,3 @@
 				to_chat(user, SPAN_NOTICE("No prosthetics located."))
 
 	add_fingerprint(user)
-	return
