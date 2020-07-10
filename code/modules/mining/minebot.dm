@@ -53,7 +53,8 @@
 	if(!laws)
 		laws = new law_type
 	if(!module)
-		module = new module_type(src)
+		module = new module_type(src, src)
+		hands.icon_state = "mining"
 
 	flavor_text = "It's a tiny little mining drone. The casing is stamped with an corporate logo and the subscript: '[current_map.company_name] Automated Pickaxe!'"
 	playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)

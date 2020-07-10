@@ -213,7 +213,8 @@
 	ai_camera = new /obj/item/device/camera/siliconcam/robot_camera(src)
 	laws = new law_preset()
 	if(spawn_module)
-		new spawn_module(src)
+		new spawn_module(src, src)
+		hands.icon_state = lowertext(mod_type)
 	if(key_type)
 		radio.keyslot = new key_type(radio)
 		radio.recalculateChannels()
@@ -305,7 +306,7 @@
 		icon_state = module_sprites[icontype]
 	return module_sprites
 
-/mob/living/silicon/robot/proc/pick_module()
+/mob/living/silicon/robot/proc/pick_module(var/set_module)
 	if(selecting_module)
 		return
 	selecting_module = TRUE
@@ -329,7 +330,8 @@
 	var/module_type = robot_modules[mod_type]
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 100, TRUE)
 	spark(get_turf(src), 5, alldirs)
-	new module_type(src)
+
+	new module_type(src, src) // i have no choice but to do this, due to how funky initialize is
 
 	hands.icon_state = lowertext(mod_type)
 	feedback_inc("cyborg_[lowertext(mod_type)]", 1)
@@ -401,7 +403,8 @@
 			custom_name = newname
 
 		updatename()
-		set_module_sprites(module.sprites) // custom synth icons
+		if(module)
+			set_module_sprites(module.sprites) // custom synth icons
 		SSrecords.reset_manifest()
 
 // this verb lets cyborgs see the stations manifest

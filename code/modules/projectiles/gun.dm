@@ -78,6 +78,7 @@
 	var/list/dispersion = list(0)
 	var/reliability = 100
 
+	var/cyborg_maptext_override
 	var/displays_maptext = FALSE
 	maptext_x = 22
 	maptext_y = 2
@@ -130,7 +131,8 @@
 
 	if(istype(loc, /obj/item/robot_module))
 		has_safety = FALSE
-		displays_maptext = TRUE
+		if(!cyborg_maptext_override)
+			displays_maptext = TRUE
 		update_maptext()
 
 	if(istype(loc, /obj/item/rig_module))
