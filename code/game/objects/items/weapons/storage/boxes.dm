@@ -28,6 +28,7 @@
 	item_state = "box"
 	center_of_mass = list("x" = 13,"y" = 10)
 	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
+	var/trash = null // if set, can be crushed into a trash item when empty
 	var/maxHealth = 20	//health is already defined
 	use_sound = 'sound/items/storage/box.ogg'
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
@@ -37,6 +38,10 @@
 /obj/item/storage/box/Initialize()
 	. = ..()
 	health = maxHealth
+	if(foldable)
+		desc_info += "You can fold this into a sheet. "
+	if(ispath(src.trash))
+		desc_info += "This can be crumpled up into a trash item when empty, or forcibly crumpled on harm intent."
 
 /obj/item/storage/box/proc/damage(var/severity)
 	health -= severity
@@ -49,7 +54,7 @@
 /obj/item/storage/box/attack_generic(var/mob/user)
 	if(!chewable)
 		return
-	if (istype(user, /mob/living))
+	if(istype(user, /mob/living))
 		var/mob/living/L = user
 
 		if (istype(L, /mob/living/carbon/alien/diona) || istype(L, /mob/living/simple_animal) || istype(L, /mob/living/carbon/human))//Monkey-like things do attack_generic, not crew
@@ -86,33 +91,36 @@
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/storage/box/attack_self(mob/user as mob)
-	if(..()) return
-
-	//try to fold it.
-	if ( contents.len )
+	if(..())
 		return
 
-	if ( !ispath(src.foldable) )
-		return
-	var/found = 0
-	// Close any open UI windows first
-	for(var/mob/M in range(1))
-		if (M.s_active == src)
-			src.close(M)
-		if ( M == user )
-			found = 1
-	if ( !found )	// User is too far away
-		return
-	// Now make the cardboard
-	to_chat(user, "<span class='notice'>You fold [src] flat.</span>")
-	playsound(src.loc, 'sound/items/storage/boxfold.ogg', 30, 1)
-	new src.foldable(get_turf(src))
-	qdel(src)
-
-/obj/item/storage/backpack/attackby(obj/item/W as obj, mob/user as mob)
-	if (src.use_sound)
-		playsound(src.loc, src.use_sound, 50, 1, -5)
-	..()
+	if(ispath(src.foldable) || ispath(src.trash))
+		var/found = 0
+		for(var/mob/M in range(1))
+			if(M.s_active == src)
+				src.close(M) // Close any open UI windows first
+			if(M == user)
+				found = 1
+		if(!found)	// User is too far away
+			return
+		if(ispath(src.foldable))
+			if(contents.len)
+				return
+			to_chat(user, SPAN_NOTICE("You fold \the [src] flat.")) //make cardboard
+			playsound(src.loc, 'sound/items/storage/boxfold.ogg', 30, 1)
+			var/obj/item/foldable = new src.foldable()
+			qdel(src)
+			user.put_in_hands(foldable) //try to put it inhands if possible
+		if(ispath(src.trash))
+			if(contents.len &&  user.a_intent == I_HURT)  // only crumple with things inside on harmintent.
+				user.visible_message(SPAN_DANGER("You crush \the [src], spilling its contents everywhere!"), SPAN_DANGER("[user] crushes the [src], spilling its contents everywhere!"))
+				spill()
+			else
+				to_chat(user, SPAN_NOTICE("You crumple up \the [src].")) //make trash
+			playsound(src.loc, 'sound/items/pickup/wrapper.ogg', 30, 1)
+			var/obj/item/trash = new src.trash()
+			qdel(src)
+			user.put_in_hands(trash)
 
 /obj/item/storage/box/survival
 	name = "emergency survival box"
@@ -668,6 +676,7 @@
 	var/list/snacks = list(
 			/obj/item/reagent_containers/food/snacks/koisbar_clean,
 			/obj/item/reagent_containers/food/snacks/candy,
+			/obj/item/reagent_containers/food/snacks/candy/koko,
 			/obj/item/reagent_containers/food/snacks/candy_corn,
 			/obj/item/reagent_containers/food/snacks/chips,
 			/obj/item/reagent_containers/food/snacks/chocolatebar,
@@ -688,7 +697,10 @@
 			/obj/item/reagent_containers/food/snacks/maps,
 			/obj/item/reagent_containers/food/snacks/nathisnack,
 			/obj/item/reagent_containers/food/snacks/adhomian_can,
-			/obj/item/reagent_containers/food/snacks/tuna
+			/obj/item/reagent_containers/food/snacks/tuna,
+			/obj/item/storage/box/fancy/gum,
+			/obj/item/storage/box/fancy/cookiesnack,
+			/obj/item/storage/box/fancy/admints
 	)
 	for (var/i = 0,i<7,i++)
 		var/type = pick(snacks)

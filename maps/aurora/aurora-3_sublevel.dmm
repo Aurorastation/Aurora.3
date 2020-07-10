@@ -11852,7 +11852,7 @@
 /obj/item/reagent_containers/chem_disp_cartridge,
 /obj/item/reagent_containers/chem_disp_cartridge,
 /obj/item/reagent_containers/chem_disp_cartridge,
-/obj/item/storage/fancy/vials{
+/obj/item/storage/box/fancy/vials{
 	pixel_x = -4;
 	pixel_y = 10
 	},
@@ -14780,7 +14780,7 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 4
 	},
-/obj/item/storage/fancy/vials,
+/obj/item/storage/box/fancy/vials,
 /obj/item/reagent_containers/dropper{
 	pixel_y = 9
 	},
@@ -16830,7 +16830,7 @@
 /area/rnd/xenoarch_atrium)
 "aGH" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/vials,
+/obj/item/storage/box/fancy/vials,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aGI" = (
@@ -30992,7 +30992,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/table/standard,
-/obj/item/storage/fancy/donut,
+/obj/item/storage/box/fancy/donut,
 /obj/machinery/light{
 	icon_state = "tube1"
 	},

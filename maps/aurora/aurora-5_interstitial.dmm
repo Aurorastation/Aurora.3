@@ -1360,7 +1360,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/firealarm/north,
 /obj/structure/table/wood,
-/obj/item/storage/fancy/donut,
+/obj/item/storage/box/fancy/donut,
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Training Division 3";
 	dir = 8
@@ -2624,7 +2624,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/storage/fancy/vials,
+/obj/item/storage/box/fancy/vials,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "fU" = (
@@ -4569,7 +4569,7 @@
 /obj/structure/table/wood,
 /obj/item/reagent_containers/spray/luminol,
 /obj/machinery/light,
-/obj/item/storage/fancy/csi_markers,
+/obj/item/storage/box/fancy/csi_markers,
 /turf/simulated/floor/tiled,
 /area/security/training)
 "jA" = (
@@ -9329,7 +9329,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/item/storage/fancy/vials{
+/obj/item/storage/box/fancy/vials{
 	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial = 2)
 	},
 /turf/simulated/floor/tiled/white,
@@ -11054,7 +11054,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/item/storage/fancy/csi_markers,
+/obj/item/storage/box/fancy/csi_markers,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "NQ" = (

@@ -28,7 +28,7 @@
 	var/list/valid = list(
 		/obj/item/reagent_containers,
 		/obj/item/material/kitchen/utensil,
-		/obj/item/storage/fancy/cigarettes,
+		/obj/item/storage/box/fancy/cigarettes,
 		/obj/item/clothing/mask/smokable,
 		/obj/item/storage/box/matches,
 		/obj/item/flame/match,
