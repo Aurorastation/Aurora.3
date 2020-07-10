@@ -346,7 +346,7 @@
 		/obj/item/storage/cigfilters = 6,
 		/obj/item/storage/box/fancy/cigpaper = 6,
 		/obj/item/storage/box/fancy/cigpaper/fine = 4,
-		/obj/item/storage/box/matches = 10,
+		/obj/item/storage/box/fancy/matches = 10,
 		/obj/item/flame/lighter/random = 4,
 		/obj/item/spacecash/ewallet/lotto = 30
 	)
@@ -373,7 +373,7 @@
 		/obj/item/storage/chewables/tobacco = 74,
 		/obj/item/storage/chewables/tobacco/fine = 86,
 		/obj/item/storage/box/fancy/chewables/tobacco/nico = 91,
-		/obj/item/storage/box/matches = 12,
+		/obj/item/storage/box/fancy/matches = 12,
 		/obj/item/flame/lighter/random = 12,
 		/obj/item/storage/cigfilters = 28,
 		/obj/item/storage/box/fancy/cigpaper = 35,

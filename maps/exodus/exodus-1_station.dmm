@@ -39379,7 +39379,7 @@
 	name = "Station Intercom (General)";
 	pixel_y = -29
 	},
-/obj/item/storage/box/matches,
+/obj/item/storage/box/fancy/matches,
 /obj/item/clothing/mask/smokable/cigarette/cigar,
 /obj/item/reagent_containers/food/drinks/flask{
 	pixel_x = 8

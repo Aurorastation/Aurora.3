@@ -45,3 +45,4 @@ changes:
   - rscadd: "Donut boxes, egg cartons and cigarette packets visibly open when clicked on. Alt-click to close."
   - bugfix: "Mints actually have a proper taste description now."
   - bugfix: "Burnt matches fit into matchboxes again."
+  - bugfix: "Fixes matchbox icon states."

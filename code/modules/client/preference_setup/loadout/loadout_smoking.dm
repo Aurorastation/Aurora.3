@@ -1,6 +1,6 @@
 /datum/gear/smoking
-	display_name = "matchbook"
-	path = /obj/item/storage/box/matches
+	display_name = "matchbox"
+	path = /obj/item/storage/box/fancy/matches
 	sort_category = "Smoking"
 
 /datum/gear/smoking/zippo

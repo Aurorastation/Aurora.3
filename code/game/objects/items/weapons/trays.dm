@@ -30,7 +30,7 @@
 		/obj/item/material/kitchen/utensil,
 		/obj/item/storage/box/fancy/cigarettes,
 		/obj/item/clothing/mask/smokable,
-		/obj/item/storage/box/matches,
+		/obj/item/storage/box/fancy/matches,
 		/obj/item/flame/match,
 		/obj/item/material/ashtray
 	)

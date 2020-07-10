@@ -3271,7 +3271,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /turf/unsimulated/floor{
 	name = "plating";
@@ -10577,7 +10577,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -17556,7 +17556,7 @@
 	pixel_x = 2;
 	premium = list();
 	prices = list();
-	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/random = 4, /obj/item/storage/box/fancy/cigarettes/cigar = 5, /obj/item/storage/box/fancy/cigarettes/acmeco = 5)
+	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/random = 4, /obj/item/storage/box/fancy/cigarettes/cigar = 5, /obj/item/storage/box/fancy/cigarettes/acmeco = 5)
 	},
 /turf/simulated/floor/lino/grey,
 /area/merchant_station)
@@ -19812,7 +19812,7 @@
 /obj/item/trash/plate,
 /obj/item/trash/cigbutt,
 /obj/item/trash/cigbutt,
-/obj/item/storage/box/matches{
+/obj/item/storage/box/fancy/matches{
 	pixel_y = 12
 	},
 /turf/unsimulated/floor{
@@ -31791,7 +31791,7 @@
 /obj/machinery/vending/cigarette{
 	name = "Syndicate-Sponsored cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /turf/unsimulated/floor{
 	name = "plating";

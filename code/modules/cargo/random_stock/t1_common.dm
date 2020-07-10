@@ -89,7 +89,7 @@ STOCK_ITEM_COMMON(aid, 4)
 	new /obj/random/firstaid(L)
 
 STOCK_ITEM_COMMON(flame, 2)
-	new /obj/item/storage/box/matches(L)
+	new /obj/item/storage/box/fancy/matches(L)
 	new /obj/item/flame/lighter/random(L)
 
 STOCK_ITEM_COMMON(candles, 1.5)
