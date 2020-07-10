@@ -212,16 +212,16 @@
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpacket"
 	problist = list(
-		/obj/item/storage/fancy/cigarettes = 30,
-		/obj/item/storage/fancy/cigarettes/blank = 5,
-		/obj/item/storage/fancy/cigarettes/acmeco = 2,
-		/obj/item/storage/fancy/cigarettes/dromedaryco = 10,
-		/obj/item/storage/fancy/cigarettes/cigar = 9,
-		/obj/item/storage/fancy/cigarettes/nicotine = 10,
-		/obj/item/storage/fancy/cigarettes/rugged = 10,
-		/obj/item/storage/fancy/cigarettes/pra = 5,
-		/obj/item/storage/fancy/cigarettes/dpra = 2,
-		/obj/item/storage/fancy/cigarettes/nka = 2
+		/obj/item/storage/box/fancy/cigarettes = 30,
+		/obj/item/storage/box/fancy/cigarettes/blank = 5,
+		/obj/item/storage/box/fancy/cigarettes/acmeco = 2,
+		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 10,
+		/obj/item/storage/box/fancy/cigarettes/cigar = 9,
+		/obj/item/storage/box/fancy/cigarettes/nicotine = 10,
+		/obj/item/storage/box/fancy/cigarettes/rugged = 10,
+		/obj/item/storage/box/fancy/cigarettes/pra = 5,
+		/obj/item/storage/box/fancy/cigarettes/dpra = 2,
+		/obj/item/storage/box/fancy/cigarettes/nka = 2
 	)
 
 /obj/random/energy
