@@ -1,6 +1,6 @@
 /obj/machinery/mineral/local_teleporter
 	name = "local teleporter"
-	desc = "A ground-mounted local area teleporter. Due to the small configuration, it can only teleport anything that crosses a short distance."
+	desc = "A floor-mounted local area teleporter. Due to the small configuration, it can only teleport anything that crosses a short distance."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "local_teleporter"
 	density = FALSE
