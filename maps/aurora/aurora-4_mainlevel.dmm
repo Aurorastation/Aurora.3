@@ -60940,6 +60940,15 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"gTT" = (
+/obj/machinery/mineral/local_teleporter{
+	dir = 1
+	},
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/outpost/mining_main/eva)
 "gVl" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -63166,6 +63175,11 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"mAl" = (
+/obj/machinery/mineral/local_teleporter,
+/obj/effect/decal/warning_stripes,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/refinery)
 "mBl" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -95449,7 +95463,7 @@ cgA
 cgO
 chc
 chc
-chc
+cgg
 chJ
 chT
 cft
@@ -95706,9 +95720,9 @@ cgA
 cgO
 chc
 chc
-chc
+mAl
 cfF
-cfv
+gTT
 aab
 aab
 aab
