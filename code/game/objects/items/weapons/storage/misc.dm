@@ -155,6 +155,7 @@
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "chew_nico"
 	item_state = "Epacket"
+	icon_type = "gum stick"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
