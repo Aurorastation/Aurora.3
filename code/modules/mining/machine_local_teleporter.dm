@@ -21,14 +21,17 @@
 	if(linked_teleporter)
 		add_overlay(connected_overlay)
 
-/obj/machinery/mineral/local_teleporter/power_change()
-	..()
+/obj/machinery/mineral/local_teleporter/proc/check_connected_overlay()
 	cut_overlay(connected_overlay)
-	if(linked_teleporter && !(stat & NOPOWER) && !(stat & NOPOWER))
+	if(linked_teleporter && !(stat & BROKEN) && !(stat & NOPOWER))
 		add_overlay(connected_overlay)
 
+/obj/machinery/mineral/local_teleporter/power_change()
+	..()
+	check_connected_overlay()
+
 /obj/machinery/mineral/local_teleporter/Crossed(atom/movable/O)
-	if((stat & NOPOWER) || (stat & NOPOWER))
+	if((stat & BROKEN) || (stat & NOPOWER))
 		return
 	if(ismob(O))
 		to_chat(O, SPAN_NOTICE("You step into \the [src] and get teleported to its linked teleporter."))
@@ -39,3 +42,10 @@
 		step_dirs -= reverse_dir[dir]
 		step(O, pick(step_dirs), 1)
 	spark(O, 3, alldirs)
+
+/obj/machinery/mineral/local_teleporter/Destroy()
+	if(linked_teleporter)
+		linked_teleporter.linked_teleporter = null
+		linked_teleporter.check_connected_overlay()
+		linked_teleporter = null
+	return ..()
