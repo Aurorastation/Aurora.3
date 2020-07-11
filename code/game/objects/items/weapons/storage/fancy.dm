@@ -54,7 +54,7 @@
 	if(contents.len <= 0)
 		to_chat(user, "There are no [src.icon_type]s left in the [src.storage_type].")
 	else
-		to_chat(user, "There [src.contents.len == 1 ? "is" : "are"] <b>[src.contents.len]</b> [src.icon_type]\s left in the [src.storage_type].")
+		to_chat(user, "There [src.contents.len == 1 ? "is" : "are"] <b>[src.contents.len]</b> [src.icon_type]\s left in \the [src.storage_type].")
 	return
 
 /*
