@@ -598,9 +598,6 @@
 	var/nicotine = 0.2
 
 /datum/reagent/toxin/tobacco/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_CARDIOTOXIC, removed*strength*0.5)
-	M.add_chemical_effect(CE_PNEUMOTOXIC, removed*strength)
-	M.add_chemical_effect(CE_HEPATOTOXIC, removed*strength*0.25)
 	M.reagents.add_reagent(/datum/reagent/mental/nicotine, removed * nicotine)
 
 /datum/reagent/toxin/tobacco/rich
