@@ -13,7 +13,7 @@
  *		Donkpocket and monkeycube boxes,
  *		ID and security PDA cart boxes,
  *		Handcuff, mousetrap, and pillbottle boxes,
- *		Snap-pops and matchboxes,
+ *		Snap-pops,
  *		Replacement light boxes.
  *		Kitchen utensil box
  * 		Random preserved snack box
@@ -497,43 +497,6 @@
 /obj/item/storage/box/snappops/syndi
 	desc_antag = "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
 	starts_with = list(/obj/item/toy/snappop/syndi = 8)
-
-/obj/item/storage/box/fancy/matches
-	name = "safety match box"
-	desc = "A small box of 'Space-Proof' premium safety matches." //can't strike these anywhere other than matchboxes, so they're safety matches
-	icon = 'icons/obj/cigs_lighters.dmi'
-	icon_state = "matchbox"
-	item_state = "box"
-	w_class = ITEMSIZE_TINY
-	drop_sound = 'sound/items/drop/matchbox.ogg'
-	pickup_sound =  'sound/items/pickup/matchbox.ogg'
-	slot_flags = SLOT_BELT
-	can_hold = list(/obj/item/flame/match, /obj/item/trash/match)
-	starts_with = list(/obj/item/flame/match = 10)
-
-	foldable = null
-	icon_overlays = FALSE
-
-/obj/item/storage/box/fancy/matches/attackby(obj/item/flame/match/W, mob/user)
-	if(istype(W) && !W.lit)
-		if(prob(25))
-			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_lit.ogg', 25, 0, -1)
-			user.visible_message("<b>[user]</b> manages to light \the [W] by striking it on \the [src].", range = 3)
-			W.light()
-		else
-			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_hit.ogg', 25, 0, -1)
-	W.update_icon()
-	return
-
-/obj/item/storage/box/fancy/matches/update_icon()
-	.=..()
-	if(opened)
-		if(contents.len <= 0)
-			icon_state = "matchbox_e"
-		else if(contents.len <= 3)
-			icon_state = "matchbox_almostempty"
-		else if(contents.len <= 6)
-			icon_state = "matchbox_almostfull"
 
 /obj/item/storage/box/autoinjectors
 	name = "box of empty injectors"
