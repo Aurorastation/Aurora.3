@@ -529,8 +529,8 @@
 			SPAN_DANGER("You land on your feet, and the impact brings you to your knees."))
 
 		if(prob(20))
-			var/obj/item/organ/external/l_foot = get_organ("l_foot")
-			var/obj/item/organ/external/r_foot = get_organ("r_foot")
+			var/obj/item/organ/external/l_foot = get_organ(BP_L_FOOT)
+			var/obj/item/organ/external/r_foot = get_organ(BP_R_FOOT)
 
 			if(prob(50) && l_foot)
 				fall_message("left ankle", "bends unnaturally")
@@ -539,8 +539,8 @@
 				fall_message("right ankle", "bends unnaturally")
 				r_foot.dislocate(TRUE)
 		else if(prob(15))
-			var/obj/item/organ/external/l_leg = get_organ("l_leg")
-			var/obj/item/organ/external/r_leg = get_organ("r_leg")
+			var/obj/item/organ/external/l_leg = get_organ(BP_L_LEG)
+			var/obj/item/organ/external/r_leg = get_organ(BP_R_LEG)
 
 			if(prob(50) && l_leg)
 				fall_message("left knee", "caves in")
@@ -572,8 +572,8 @@
 			SPAN_DANGER("You brace your fall with your arms, hitting \the [loc] with a loud thud."), "You hear a thud!")
 
 		if(prob(20))
-			var/obj/item/organ/external/l_hand = get_organ("l_hand")
-			var/obj/item/organ/external/r_hand = get_organ("r_hand")
+			var/obj/item/organ/external/l_hand = get_organ(BP_L_HAND)
+			var/obj/item/organ/external/r_hand = get_organ(BP_R_HAND)
 
 			if(prob(50) && l_hand)
 				fall_message("left wrist", "bends unnaturally")
@@ -582,8 +582,8 @@
 				fall_message("right wrist", "bends unnaturally")
 				r_hand.dislocate(TRUE)
 		else if(prob(15))
-			var/obj/item/organ/external/l_arm = get_organ("l_arm")
-			var/obj/item/organ/external/r_arm = get_organ("r_arm")
+			var/obj/item/organ/external/l_arm = get_organ(BP_L_ARM)
+			var/obj/item/organ/external/r_arm = get_organ(BP_R_ARM)
 
 			if(prob(50) && l_arm)
 				fall_message("left elbow", "caves in")
@@ -597,7 +597,7 @@
 		visible_message("<span class='warning'>\The [src] falls and lands on their face!</span>",
 			"<span class='danger'>With a loud thud, you land on your head. Hard.</span>", "You hear a thud!")
 
-		var/obj/item/organ/external/head = get_organ("head")
+		var/obj/item/organ/external/head = get_organ(BP_HEAD)
 		if(prob(20) && head)
 			fall_message("jaw", "cracks loose")
 			head.dislocate(TRUE)

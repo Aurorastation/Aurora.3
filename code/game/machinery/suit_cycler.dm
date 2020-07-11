@@ -368,11 +368,16 @@
 	return
 
 /obj/machinery/suit_cycler/Topic(href, href_list)
+	if(!Adjacent(usr) && !issilicon(usr))
+		to_chat(usr, SPAN_WARNING("\The [src] is out of your reach."))
+		return
+
 	if(href_list["eject_suit"])
 		if(!suit)
 			return
 		suit.forceMove(get_turf(src))
-		usr.put_in_hands(suit)
+		if(Adjacent(usr))
+			usr.put_in_hands(suit)
 		suit = null
 		update_icon()
 
@@ -380,7 +385,8 @@
 		if(!helmet)
 			return
 		helmet.forceMove(get_turf(src))
-		usr.put_in_hands(helmet)
+		if(Adjacent(usr))
+			usr.put_in_hands(helmet)
 		helmet = null
 		update_icon()
 

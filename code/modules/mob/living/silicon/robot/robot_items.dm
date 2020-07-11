@@ -421,6 +421,11 @@
 /obj/item/weldingtool/robotic
 	icon = 'icons/obj/robot_items.dmi'
 
+/obj/item/soap/drone
+	name = "integrated soap"
+	desc = "An advanced bar of soap that connects to an internal reservoir of a custodial bot, allowing it to stay wet for longer periods of time."
+	capacity = 50
+
 /obj/item/inductive_charger
 	name = "inductive charger"
 	desc = "A phoron-enhanced induction charger hooked up to its attached stationbound's internal cell."

@@ -2,7 +2,7 @@
 #ifdef T_BOARD
 #error T_BOARD already defined elsewhere, we can't use it.
 #endif
-#define T_BOARD(name)	"circuit board (" + (name) + ")"
+#define T_BOARD(name)	"" + "circuit board " + "(" + (name) + ")"
 
 /obj/item/circuitboard
 	name = "circuit board"
