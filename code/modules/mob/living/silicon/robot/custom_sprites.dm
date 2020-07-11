@@ -21,4 +21,4 @@ var/list/robot_custom_icons
 				icon_state = "[sprite.synthicon]-Standard"
 			else
 				to_chat(src, "<span class='warning'>Could not locate [sprite.synthicon]-Standard sprite.</span>")
-				icon  'icons/mob/robots.dmi'
+				icon = 'icons/mob/robots.dmi'
