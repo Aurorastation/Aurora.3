@@ -50,28 +50,32 @@ research holder datum.
 	var/list/known_designs = list()			//List of available designs.
 
 /datum/research/New()		//Insert techs into possible_tech here. Known_tech automatically updated.
-	for(var/T in typesof(/datum/tech) - /datum/tech)
-		known_tech += new T(src)
-	for(var/D in typesof(/datum/design) - /datum/design)
-		possible_designs += new D(src)
+	for(var/tech_path in subtypesof(/datum/tech))
+		var/datum/tech/T = new tech_path(src)
+		known_tech[T.id] = T
+	for(var/design_path in subtypesof(/datum/design))
+		possible_designs += new design_path(src)
 	RefreshResearch()
 
 /datum/research/techonly
 
 /datum/research/techonly/New()
-	for(var/T in typesof(/datum/tech) - /datum/tech)
-		known_tech += new T(src)
+	for(var/tech_path in subtypesof(/datum/tech))
+		var/datum/tech/T = new tech_path(src)
+		known_tech[T.id] = T
 	RefreshResearch()
 
 /datum/research/hightech
 
 /datum/research/hightech/New()
-	for(var/T in typesof(/datum/tech) - /datum/tech)
-		known_tech += new T(src)
-	for(var/D in typesof(/datum/design) - /datum/design)
-		possible_designs += new D(src)
-	for(var/datum/tech/known in known_tech)
-		if(istype(known,/datum/tech/syndicate) || istype(known,/datum/tech/arcane)) //illegal or antag shit we don't want to start with
+	for(var/tech_path in subtypesof(/datum/tech))
+		var/datum/tech/T = new tech_path(src)
+		known_tech[T.id] = T
+	for(var/design_path in subtypesof(/datum/design))
+		possible_designs += new design_path(src)
+	for(var/id in known_tech)
+		var/datum/tech/known = known_tech[id]
+		if(istype(known, /datum/tech/syndicate) || istype(known, /datum/tech/arcane)) //illegal or antag shit we don't want to start with
 			known.level = 0
 		else
 			known.level = 3
@@ -80,29 +84,24 @@ research holder datum.
 //Checks to see if design has all the required pre-reqs.
 //Input: datum/design; Output: 0/1 (false/true)
 /datum/research/proc/DesignHasReqs(var/datum/design/D)
-	if(D.req_tech.len == 0)
-		return 1
-
-	var/list/k_tech = list()
-
-	for(var/datum/tech/known in known_tech)
-		k_tech[known.id] = known.level
+	if(!D.req_tech.len)
+		return TRUE
 
 	for(var/req in D.req_tech)
-		if(isnull(k_tech[req]) || k_tech[req] < D.req_tech[req])
-			return 0
+		var/datum/tech/T = known_tech[req]
+		if(isnull(T))
+			return FALSE
+		if(T.level < D.req_tech[req])
+			return FALSE
 
-	return 1
+	return TRUE
 
 //Adds a tech to known_tech list. Checks to make sure there aren't duplicates and updates existing tech's levels if needed.
 //Input: datum/tech; Output: Null
 /datum/research/proc/AddTech2Known(var/datum/tech/T)
-	for(var/datum/tech/known in known_tech)
-		if(T.id == known.id)
-			if(T.level > known.level)
-				known.level = T.level
-			return
-	return
+	var/datum/tech/known = known_tech[T.id]
+	if(T.level > known.level)
+		known.level = T.level
 
 /datum/research/proc/AddDesign2Known(var/datum/design/D)
 	if(!known_designs.len) // Special case
@@ -124,14 +123,16 @@ research holder datum.
 	for(var/datum/design/PD in possible_designs)
 		if(DesignHasReqs(PD))
 			AddDesign2Known(PD)
-	for(var/datum/tech/T in known_tech)
+	for(var/id in known_tech)
+		var/datum/tech/T = known_tech[id]
 		T = between(0, T.level, 20)
 	return
 
 //Refreshes the levels of a given tech.
 //Input: Tech's ID and Level; Output: null
 /datum/research/proc/UpdateTech(var/ID, var/level)
-	for(var/datum/tech/KT in known_tech)
+	for(var/id in known_tech)
+		var/datum/tech/KT = known_tech[id]
 		if(KT.id == ID && KT.level <= level)
 			KT.level = max(KT.level + 1, level - 1)
 	return
@@ -153,6 +154,8 @@ research holder datum.
 	var/desc = "description"			//General description of what it does and what it makes.
 	var/id = "id"						//An easily referenced ID. Must be alphanumeric, lower-case, and no symbols.
 	var/level = 1						//A simple number scale of the research level. Level 0 = Secret tech.
+	var/next_level_progress = 0			// The research progress until the next level is reached, makes things more gradual
+	var/next_level_threshold = 10		// The next threshold that must be reached before it ticks to the next level
 
 /datum/tech/materials
 	name = "Materials Research"

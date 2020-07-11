@@ -62,7 +62,8 @@
 	if(health <= 0)
 		griefProtection() //I dont like putting this in process() but it's the best I can do without re-writing a chunk of rd servers.
 		files.known_designs = list()
-		for(var/datum/tech/T in files.known_tech)
+		for(var/id in files.known_tech)
+			var/datum/tech/T = files.known_tech[id]
 			if(prob(1))
 				T.level--
 		files.RefreshResearch()
@@ -83,7 +84,8 @@
 //Backup files to centcomm to help admins recover data after greifer attacks
 /obj/machinery/r_n_d/server/proc/griefProtection()
 	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachinery.all_machines)
-		for(var/datum/tech/T in files.known_tech)
+		for(var/id in files.known_tech)
+			var/datum/tech/T = files.known_tech[id]
 			C.files.AddTech2Known(T)
 		for(var/datum/design/D in files.known_designs)
 			C.files.AddDesign2Known(D)

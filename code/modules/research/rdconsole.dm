@@ -97,14 +97,16 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
 			var/server_processed = 0
 			if((id in S.id_with_upload) || istype(S, /obj/machinery/r_n_d/server/centcom))
-				for(var/datum/tech/T in files.known_tech)
+				for(var/id in files.known_tech)
+					var/datum/tech/T = files.known_tech[id]
 					S.files.AddTech2Known(T)
 				for(var/datum/design/D in files.known_designs)
 					S.files.AddDesign2Known(D)
 				S.files.RefreshResearch()
 				server_processed = 1
 			if((id in S.id_with_download) && !istype(S, /obj/machinery/r_n_d/server/centcom))
-				for(var/datum/tech/T in S.files.known_tech)
+				for(var/id in S.files.known_tech)
+					var/datum/tech/T = S.files.known_tech[id]
 					files.AddTech2Known(T)
 				for(var/datum/design/D in S.files.known_designs)
 					files.AddDesign2Known(D)
@@ -117,8 +119,9 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 /obj/machinery/computer/rdconsole/proc/griefProtection() //Have it automatically push research to the centcomm server so wild griffins can't fuck up R&D's work
 	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachinery.all_machines)
-		for(var/datum/tech/T in files.known_tech)
-			C.files.AddTech2Known(T)
+		for(var/id in files.known_tech)
+			var/datum/tech/T = files.known_tech[id]
+			C.files.AddTech2Known(files.known_tech[T])
 		for(var/datum/design/D in files.known_designs)
 			C.files.AddDesign2Known(D)
 		C.files.RefreshResearch()
@@ -203,10 +206,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		screen = 1.0
 
 	else if(href_list["copy_tech"]) //Copys some technology data from the research holder to the disk.
-		for(var/datum/tech/T in files.known_tech)
-			if(href_list["copy_tech_ID"] == T.id)
-				t_disk.stored = T
-				break
+		t_disk.stored = href_list["copy_tech_sent"]
 		screen = 1.2
 
 	else if(href_list["updt_design"]) //Updates the research holder with design data from the design disk.
@@ -430,7 +430,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole/proc/GetResearchLevelsInfo()
 	var/dat
 	dat += "<UL>"
-	for(var/datum/tech/T in files.known_tech)
+	for(var/id in files.known_tech)
+		var/datum/tech/T = files.known_tech[id]
 		if(T.level < 1)
 			continue
 		dat += "<LI>"
@@ -545,9 +546,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='?src=\ref[src];menu=1.2'>Return to Disk Operations</A><HR>"
 			dat += "Load Technology to Disk:<BR><BR>"
 			dat += "<UL>"
-			for(var/datum/tech/T in files.known_tech)
+			for(var/id in files.known_tech)
+				var/datum/tech/T = files.known_tech[id]
 				dat += "<LI>[T.name] "
-				dat += "\[<A href='?src=\ref[src];copy_tech=1;copy_tech_ID=[T.id]'>copy to disk</A>\]"
+				dat += "\[<A href='?src=\ref[src];copy_tech=1;copy_tech_sent=[T]'>copy to disk</A>\]"
 			dat += "</UL>"
 
 		if(1.4) //Design Disk menu.
@@ -639,7 +641,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<UL>"
 			for(var/T in linked_destroy.loaded_item.origin_tech)
 				dat += "<LI>[CallTechName(T)] [linked_destroy.loaded_item.origin_tech[T]]"
-				for(var/datum/tech/F in files.known_tech)
+				for(var/id in files.known_tech)
+					var/datum/tech/F = files.known_tech[id]
 					if(F.name == CallTechName(T))
 						dat += " (Current: [F.level])"
 						break

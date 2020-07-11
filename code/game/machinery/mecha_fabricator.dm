@@ -383,7 +383,8 @@
 	for(var/obj/machinery/computer/rdconsole/RDC in get_area(src))
 		if(!RDC.sync)
 			continue
-		for(var/datum/tech/T in RDC.files.known_tech)
+		for(var/id in RDC.files.known_tech)
+			var/datum/tech/T = RDC.files.known_tech[id]
 			files.AddTech2Known(T)
 		for(var/datum/design/D in RDC.files.known_designs)
 			files.AddDesign2Known(D)
