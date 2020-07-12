@@ -84,7 +84,7 @@
 			for (var/spell/S in M.spell_list)
 				new_mob.add_spell(new S.type)
 
-			new_mob.a_intent = "hurt"
+			new_mob.set_intent(I_HURT)
 			if(M.mind)
 				M.mind.transfer_to(new_mob)
 			else

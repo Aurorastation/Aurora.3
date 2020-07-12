@@ -465,7 +465,7 @@
 	if(!Area)
 		return
 	to_world("<h2 class='alert'>Station Announcement:</h2>")
-	to_world(span("danger", "Warning! Localized Gravity Failure in \the [Area]. Brace for dangerous gravity change!"))
+	to_world(SPAN_DANGER("Warning! Localized Gravity Failure in \the [Area]. Brace for dangerous gravity change!"))
 	sleep(50)
 	set_state(FALSE)
 	sleep(30)
@@ -478,5 +478,5 @@
 				var/obj/item/clothing/shoes/magboots/boots = H.get_equipped_item(slot_shoes)
 				if(istype(boots))
 					continue
-			to_chat(M, span("danger", "Suddenly the gravity pushed you up to the ceiling and dropped you back on the floor with great force!"))
+			to_chat(M, SPAN_DANGER("Suddenly the gravity pushed you up to the ceiling and dropped you back on the floor with great force!"))
 			M.fall_impact(1)

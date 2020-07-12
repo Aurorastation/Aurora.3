@@ -68,6 +68,7 @@ var/global/list/robot_modules = list(
 	R.set_module_sprites(sprites)
 	R.icon_selected = FALSE
 	R.choose_icon()
+	R.setup_icon_cache()
 
 /obj/item/robot_module/proc/Reset(var/mob/living/silicon/robot/R)
 	remove_camera_networks(R)
@@ -80,6 +81,7 @@ var/global/list/robot_modules = list(
 	R.set_module_sprites(list("Default" = "robot"))
 	R.icon_selected = FALSE
 	R.choose_icon()
+	R.setup_icon_cache()
 
 /obj/item/robot_module/Destroy()
 	for(var/module in modules)
@@ -115,9 +117,9 @@ var/global/list/robot_modules = list(
 			F.icon_state = "flash"
 		else if(F.times_used)
 			F.times_used--
-	if(E)
-		if(E.reagents.total_volume < E.reagents.maximum_volume)
-			E.reagents.add_reagent("monoammoniumphosphate", E.max_water * 0.2)
+
+	if(E?.reagents.total_volume < E.reagents.maximum_volume)
+		E.reagents.add_reagent(/datum/reagent/toxin/fertilizer/monoammoniumphosphate, E.max_water * 0.2)
 
 	if(!synths.len)
 		return
@@ -225,7 +227,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
 	src.emag = new /obj/item/reagent_containers/hypospray/cmo(src)
-	src.emag.reagents.add_reagent("wulumunusha", 30)
+	src.emag.reagents.add_reagent(/datum/reagent/wulumunusha, 30)
 	src.emag.name = "Wulumunusha Hypospray"
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(10000)
@@ -251,7 +253,7 @@ var/global/list/robot_modules = list(
 		S.update_icon()
 	if(src.emag)
 		var/obj/item/reagent_containers/hypospray/cmo/PS = src.emag
-		PS.reagents.add_reagent("wulumunusha", 2 * amount)
+		PS.reagents.add_reagent(/datum/reagent/wulumunusha, 2 * amount)
 	..()
 
 /obj/item/robot_module/medical/rescue
@@ -291,7 +293,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
 	src.emag = new /obj/item/reagent_containers/hypospray/cmo(src)
-	src.emag.reagents.add_reagent("wulumunusha", 30)
+	src.emag.reagents.add_reagent(/datum/reagent/wulumunusha, 30)
 	src.emag.name = "Wulumunusha Hypospray"
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(15000)
@@ -322,7 +324,7 @@ var/global/list/robot_modules = list(
 		S.update_icon()
 	if(src.emag)
 		var/obj/item/reagent_containers/spray/PS = src.emag
-		PS.reagents.add_reagent("wulumunusha", 2 * amount)
+		PS.reagents.add_reagent(/datum/reagent/wulumunusha, 2 * amount)
 	..()
 
 /obj/item/robot_module/engineering
@@ -529,7 +531,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/janitor/New()
 	..()
-	src.modules += new /obj/item/soap/nanotrasen(src)
+	src.modules += new /obj/item/soap/drone(src)
 	src.modules += new /obj/item/storage/bag/trash(src)
 	src.modules += new /obj/item/mop(src)
 	src.modules += new /obj/item/device/lightreplacer/advanced(src)
@@ -542,7 +544,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
 	src.emag = new /obj/item/reagent_containers/spray(src)
-	src.emag.reagents.add_reagent("lube", 250)
+	src.emag.reagents.add_reagent(/datum/reagent/lube, 250)
 	src.emag.name = "Lube spray"
 
 /obj/item/robot_module/janitor/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
@@ -551,7 +553,7 @@ var/global/list/robot_modules = list(
 	LR.Charge(R, amount)
 	if(src.emag)
 		var/obj/item/reagent_containers/spray/S = src.emag
-		S.reagents.add_reagent("lube", 2 * amount)
+		S.reagents.add_reagent(/datum/reagent/lube, 2 * amount)
 
 /obj/item/robot_module/clerical
 	name = "service robot module"
@@ -601,7 +603,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/robot_harvester(src)
 	src.modules += new /obj/item/material/kitchen/rollingpin(src)
 	src.modules += new /obj/item/material/knife(src)
-	src.modules += new /obj/item/soap(src) // a cheap bar of soap
+	src.modules += new /obj/item/soap/drone(src)
 	src.modules += new /obj/item/reagent_containers/glass/rag(src) // a rag for.. yeah.. the primary tool of bartender
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
@@ -627,7 +629,7 @@ var/global/list/robot_modules = list(
 	var/datum/reagents/R = new /datum/reagents(50)
 	src.emag.reagents = R
 	R.my_atom = src.emag
-	R.add_reagent("beer2", 50)
+	R.add_reagent(/datum/reagent/chloralhydrate/beer2, 50)
 	src.emag.name = "Mickey Finn's Special Brew"
 
 /obj/item/robot_module/clerical/general
@@ -858,7 +860,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/multitool/robotic(src)
 	src.modules += new /obj/item/device/lightreplacer(src)
 	src.modules += new /obj/item/gripper(src)
-	src.modules += new /obj/item/soap(src)
+	src.modules += new /obj/item/soap/drone(src)
 	src.modules += new /obj/item/gripper/no_use/loader(src)
 	src.modules += new /obj/item/extinguisher(src)
 	src.modules += new /obj/item/rfd/piping/borg(src)

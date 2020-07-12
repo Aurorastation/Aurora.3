@@ -24,13 +24,13 @@
 			C.confused = 10
 			C.Stun(3)
 			C.silent += 15
-			to_chat(C, span("danger", "The rune explodes in a bright flash!"))
+			to_chat(C, SPAN_DANGER("The rune explodes in a bright flash!"))
 			admin_attack_log(user, C, "Used a stun rune.", "Was victim of a stun rune.", "used a stun rune on")
 		else if(issilicon(L))
 			var/mob/living/silicon/S = L
 			S.Weaken(5)
 			flick("e_flash", S.flash)
 			S.silent += 15
-			to_chat(S, span("danger", "BZZZT... The rune has exploded in a bright flash!"))
+			to_chat(S, SPAN_DANGER("BZZZT... The rune has exploded in a bright flash!"))
 			admin_attack_log(user, S, "Used a stun rune.", "Was victim of a stun rune.", "used a stun rune on")
 	qdel(A)

@@ -359,4 +359,4 @@
 /obj/item/ectoplasm/bs/Initialize()
 	. = ..()
 	create_reagents(8)
-	reagents.add_reagent("bluespace_dust", 8)
+	reagents.add_reagent(/datum/reagent/bluespace_dust, 8)

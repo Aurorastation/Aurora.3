@@ -138,7 +138,7 @@
 /datum/reagent/drink/nuka_cola
 	value = 0.13
 
-/datum/reagent/drink/doctor_delight
+/datum/reagent/drink/doctorsdelight
 	value = 0.3
 
 /datum/reagent/drink/ice
@@ -186,7 +186,7 @@
 /datum/reagent/alcohol/ethanol/sake
 	value = 0.11
 
-/datum/reagent/alcohol/ethanol/tequilla
+/datum/reagent/alcohol/ethanol/tequila
 	value = 0.1
 
 /datum/reagent/alcohol/ethanol/thirteenloko
@@ -270,7 +270,7 @@
 /datum/reagent/alcohol/ethanol/corkpopper
 	value = 0.13
 
-/datum/reagent/alcohol/ethanol/cuba_libre
+/datum/reagent/alcohol/ethanol/cubalibre
 	value = 0.15
 
 /datum/reagent/alcohol/ethanol/demonsblood
@@ -396,7 +396,7 @@
 /datum/reagent/alcohol/ethanol/syndicatebomb
 	value = 0.21
 
-/datum/reagent/alcohol/ethanol/tequilla_sunrise
+/datum/reagent/alcohol/ethanol/tequila_sunrise
 	value = 0.13
 
 /datum/reagent/alcohol/ethanol/threemileisland
@@ -639,7 +639,7 @@
 /datum/reagent/thermite
 	value = 6
 
-/datum/reagent/space_cleaner
+/datum/reagent/spacecleaner
 	value = 0.7
 
 /datum/reagent/lube

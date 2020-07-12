@@ -62,8 +62,8 @@
 	if(!announced && owner && owner.client && !QDELETED(src))
 		announced = TRUE
 		to_chat(owner, "<hr>")
-		to_chat(owner, span("notice", "<font size = 3>You are <b>psionic</b>, touched by powers beyond understanding.</font>"))
-		to_chat(owner, span("notice", "<b>Shift-left-click your Psi icon</b> on the bottom right to <b>view a summary of how to use them</b>, or <b>left click</b> it to <b>suppress or unsuppress</b> your psionics. Beware: overusing your gifts can have <b>deadly consequences</b>."))
+		to_chat(owner, SPAN_NOTICE("<font size = 3>You are <b>psionic</b>, touched by powers beyond understanding.</font>"))
+		to_chat(owner, SPAN_NOTICE("<b>Shift-left-click your Psi icon</b> on the bottom right to <b>view a summary of how to use them</b>, or <b>left click</b> it to <b>suppress or unsuppress</b> your psionics. Beware: overusing your gifts can have <b>deadly consequences</b>."))
 		to_chat(owner, "<hr>")
 
 /datum/psi_complexus/process()
@@ -76,7 +76,7 @@
 				suppressed = TRUE
 				update_hud = TRUE
 		else
-			to_chat(owner, span("notice", "You have recovered your mental composure."))
+			to_chat(owner, SPAN_NOTICE("You have recovered your mental composure."))
 			update_hud = TRUE
 		return
 
@@ -167,7 +167,7 @@
 					if(I.damage > 0 && spend_power(heal_rate))
 						I.damage = max(I.damage - heal_rate, 0)
 						if(prob(25))
-							to_chat(H, span("notice", "Your innards itch as your autoredactive faculty mends your [I.name]."))
+							to_chat(H, SPAN_NOTICE("Your innards itch as your autoredactive faculty mends your [I.name]."))
 						return
 
 			// Heal broken bones.
@@ -180,25 +180,25 @@
 					if(heal_internal && (E.status & ORGAN_BROKEN) && E.damage < E.min_broken_damage) // So we don't mend and autobreak.
 						if(spend_power(heal_rate))
 							if(E.mend_fracture())
-								to_chat(H, span("notice", "Your autoredactive faculty coaxes together the shattered bones in your [E.name]."))
+								to_chat(H, SPAN_NOTICE("Your autoredactive faculty coaxes together the shattered bones in your [E.name]."))
 								return
 
 					if(heal_bleeding)
 
 						if((E.status & ORGAN_ARTERY_CUT) && spend_power(heal_rate))
-							to_chat(H, span("notice", "Your autoredactive faculty mends the torn artery in your [E.name], stemming the worst of the bleeding."))
+							to_chat(H, SPAN_NOTICE("Your autoredactive faculty mends the torn artery in your [E.name], stemming the worst of the bleeding."))
 							E.status &= ~ORGAN_ARTERY_CUT
 							return
 
 						if(E.status & ORGAN_TENDON_CUT)
-							to_chat(H, span("notice", "Your autoredactive faculty repairs the severed tendon in your [E.name]."))
+							to_chat(H, SPAN_NOTICE("Your autoredactive faculty repairs the severed tendon in your [E.name]."))
 							E.status &= ~ORGAN_TENDON_CUT
 							return TRUE
 
 						for(var/datum/wound/W in E.wounds)
 
 							if(W.bleeding() && spend_power(heal_rate))
-								to_chat(H, span("notice", "Your autoredactive faculty knits together severed veins, stemming the bleeding from \a [W.desc] on your [E.name]."))
+								to_chat(H, SPAN_NOTICE("Your autoredactive faculty knits together severed veins, stemming the bleeding from \a [W.desc] on your [E.name]."))
 								W.bleed_timer = 0
 								W.clamped = TRUE
 								E.status &= ~ORGAN_BLEEDING
@@ -209,13 +209,13 @@
 
 		if(owner.total_radiation && spend_power(heal_rate))
 			if(prob(25))
-				to_chat(owner, span("notice", "Your autoredactive faculty repairs some of the radiation damage to your body."))
+				to_chat(owner, SPAN_NOTICE("Your autoredactive faculty repairs some of the radiation damage to your body."))
 			owner.total_radiation = max(0, owner.total_radiation - heal_rate)
 			return
 
 		if(owner.getCloneLoss() && spend_power(heal_rate))
 			if(prob(25))
-				to_chat(owner, span("notice", "Your autoredactive faculty stitches together some of your mangled DNA."))
+				to_chat(owner, SPAN_NOTICE("Your autoredactive faculty stitches together some of your mangled DNA."))
 			owner.adjustCloneLoss(-heal_rate)
 			return
 
@@ -225,4 +225,4 @@
 		owner.adjustFireLoss(-(heal_rate))
 		owner.adjustOxyLoss(-(heal_rate))
 		if(prob(25))
-			to_chat(owner, span("notice", "Your skin crawls as your autoredactive faculty heals your body."))
+			to_chat(owner, SPAN_NOTICE("Your skin crawls as your autoredactive faculty heals your body."))

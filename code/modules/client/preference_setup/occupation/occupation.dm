@@ -263,11 +263,11 @@
 		var/choice = input("Choose an title for [job.title].", "Choose Title", pref.GetPlayerAltTitle(job)) as anything in choices|null
 		if(choice && CanUseTopic(user))
 			SetPlayerAltTitle(job, choice)
-			return TOPIC_REFRESH
+			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["set_job"])
 		if(SetJob(user, href_list["set_job"]))
-			return TOPIC_REFRESH
+			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["faction_preview"])
 		show_faction_menu(user, html_decode(href_list["faction_preview"]))
@@ -276,7 +276,7 @@
 	else if(href_list["faction_select"])
 		validate_and_set_faction(html_decode(href_list["faction_select"]))
 		show_faction_menu(user, html_decode(href_list["faction_select"]))
-		return TOPIC_REFRESH
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	return ..()
 

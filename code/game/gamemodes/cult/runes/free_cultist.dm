@@ -54,11 +54,11 @@
 				door.open()
 		
 		if(!cultist_free)
-			to_chat(cultist, span("cult", "Your fellow cultists have freed you!"))
+			to_chat(cultist, SPAN_CULT("Your fellow cultists have freed you!"))
 
 		for(var/mob/living/carbon/C in users)
 			if(cultist_free)
-				to_chat(C, span("cult", "\The [cultist] is already free."))
+				to_chat(C, SPAN_CULT("\The [cultist] is already free."))
 			else
 				C.say("Khari'd! Gual'te nikka!")
 		qdel(A)

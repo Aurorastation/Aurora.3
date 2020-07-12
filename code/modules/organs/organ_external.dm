@@ -587,6 +587,7 @@ This function completely restores a damaged organ to perfect condition.
 				to_chat(owner, "You feel \the [suit] constrict about your [name], supporting it.")
 				status |= ORGAN_SPLINTED
 				suit.supporting_limbs |= src
+				owner.update_hud_hands()
 
 //Updating germ levels. Handles organ germ levels and necrosis.
 /*

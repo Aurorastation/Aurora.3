@@ -63,7 +63,7 @@
 	update_recipe_list()
 
 	if(..() || (disabled && !panel_open))
-		to_chat(user, span("danger", "\The [src] is disabled!"))
+		to_chat(user, SPAN_DANGER("\The [src] is disabled!"))
 		return
 
 	if(shocked)
@@ -128,7 +128,7 @@
 
 /obj/machinery/autolathe/attackby(obj/item/O, mob/user)
 	if(busy)
-		to_chat(user, span("notice", "\The [src] is busy. Please wait for the completion of previous operation."))
+		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for the completion of previous operation."))
 		return
 
 	if(default_deconstruction_screwdriver(user, O))
@@ -191,12 +191,12 @@
 		mass_per_sheet += eating.matter[material]
 
 	if(!filltype)
-		to_chat(user, span("notice", "\The [src] is full. Please remove material from the autolathe in order to insert more."))
+		to_chat(user, SPAN_NOTICE("\The [src] is full. Please remove material from the autolathe in order to insert more."))
 		return
 	else if(filltype == 1)
-		to_chat(user, span("notice", "You fill \the [src] to capacity with \the [eating]."))
+		to_chat(user, SPAN_NOTICE("You fill \the [src] to capacity with \the [eating]."))
 	else
-		to_chat(user, span("notice", "You fill \the [src] with \the [eating]."))
+		to_chat(user, SPAN_NOTICE("You fill \the [src] with \the [eating]."))
 
 	flick("autolathe_o", src) // Plays metal insertion animation. Work out a good way to work out a fitting animation. ~Z
 

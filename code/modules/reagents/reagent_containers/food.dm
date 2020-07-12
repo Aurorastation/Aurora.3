@@ -31,5 +31,5 @@
 			var/obj/item/trash_item = new trash(user)
 			user.put_in_hands(trash_item)
 			target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \the [src].",
-								   span("notice","You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
+								   SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
 			qdel(src)

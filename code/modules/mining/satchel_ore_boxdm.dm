@@ -31,7 +31,7 @@
 			S.remove_from_storage_deferred(O, src, user) //This will move the item to this item's contents
 			CHECK_TICK
 		S.post_remove_from_storage_deferred(loc, user)
-		to_chat(user, span("notice", "You empty the satchel into the box."))
+		to_chat(user, SPAN_NOTICE("You empty the satchel into the box."))
 	if(istype(W, /obj/item/warp_core))
 		if(warp_core)
 			to_chat(user, SPAN_WARNING("\The [src] already has a warp core attached!"))
