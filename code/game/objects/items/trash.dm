@@ -139,9 +139,14 @@
 
 /obj/item/trash/can
 	name = "used can"
-	icon_state = "can-used"
+	icon_state = "cola"
 	drop_sound = 'sound/items/drop/soda.ogg'
 	pickup_sound = 'sound/items/pickup/soda.ogg'
+
+/obj/item/trash/can/Initialize()
+	. = ..()
+	pixel_x = rand(-4,4)
+	pixel_y = rand(-4,4)
 
 /obj/item/trash/tuna
 	name = "\improper Tuna Snax"
