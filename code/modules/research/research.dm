@@ -97,6 +97,8 @@ research holder datum.
 //Adds a tech to known_tech list. Checks to make sure there aren't duplicates and updates existing tech's levels if needed.
 //Input: datum/tech; Output: Null
 /datum/research/proc/AddTech2Known(var/datum/tech/T)
+	if(isnull(T))
+		return
 	var/datum/tech/known = known_tech[T.id]
 	var/will_update_progress = FALSE
 	if(T.level > known.level)

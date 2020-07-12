@@ -503,7 +503,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "Printing Research Information. Please Wait..."
 
 		if(1.0) //Main Menu
-			dat += "Main Menu:<BR><BR>"
+			dat += "<b><u>Main Menu:</b></u><HR>"
 			dat += "Loaded disk: "
 			dat += (t_disk || d_disk) ? (t_disk ? "technology storage disk" : "design storage disk") : "none"
 			dat += "<HR><UL>"
@@ -527,7 +527,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(1.1) //Research viewer
 			dat += "<A href='?src=\ref[src];menu=1.0'>Main Menu</A> || "
 			dat += "<A href='?src=\ref[src];print=1'>Print This Page</A><HR>"
-			dat += "Current Research Levels:<BR><BR>"
+			dat += "<b><u>Current Research Levels:</u></b><HR>"
 			dat += GetResearchLevelsInfo()
 			dat += "</UL>"
 
@@ -593,7 +593,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 		if(1.6) //R&D console settings
 			dat += "<A href='?src=\ref[src];menu=1.0'>Main Menu</A><HR>"
-			dat += "R&D Console Setting:<HR>"
+			dat += "<b><u>R&D Console Setting:</u></b><HR>"
 			dat += "<UL>"
 			if(sync)
 				dat += "<LI><A href='?src=\ref[src];sync=1'>Sync Database with Network</A><BR>"
@@ -608,26 +608,26 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(1.7) //R&D device linkage
 			dat += "<A href='?src=\ref[src];menu=1.0'>Main Menu</A> || "
 			dat += "<A href='?src=\ref[src];menu=1.6'>Settings Menu</A><HR>"
-			dat += "R&D Console Device Linkage Menu:<BR><BR>"
+			dat += "<b><u>R&D Console Device Linkage Menu:</u></b><HR>"
 			dat += "<A href='?src=\ref[src];find_device=1'>Re-sync with Nearby Devices</A><HR>"
 			dat += "Linked Devices:"
 			dat += "<UL>"
 
 			if(allow_analyzer)
 				if(linked_destroy)
-					dat += "<LI>Destructive Analyzer <A href='?src=\ref[src];disconnect=destroy'>(Disconnect)</A>"
+					dat += "<LI>Destructive Analyzer <A href='?src=\ref[src];disconnect=destroy'>Disconnect</A>"
 				else
 					dat += "<LI>(No Destructive Analyzer Linked)"
 
 			if(allow_lathe)
 				if(linked_lathe)
-					dat += "<LI>Protolathe <A href='?src=\ref[src];disconnect=lathe'>(Disconnect)</A>"
+					dat += "<LI>Protolathe <A href='?src=\ref[src];disconnect=lathe'>Disconnect</A>"
 				else
 					dat += "<LI>(No Protolathe Linked)"
 
 			if(allow_imprinter)
 				if(linked_imprinter)
-					dat += "<LI>Circuit Imprinter <A href='?src=\ref[src];disconnect=imprinter'>(Disconnect)</A>"
+					dat += "<LI>Circuit Imprinter <A href='?src=\ref[src];disconnect=imprinter'>Disconnect</A>"
 				else
 					dat += "<LI>(No Circuit Imprinter Linked)"
 				dat += "</UL>"
@@ -643,7 +643,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 		if(2.2)
 			dat += "<A href='?src=\ref[src];menu=1.0'>Main Menu</A><HR>"
-			dat += "Deconstruction Menu<HR>"
+			dat += "<b><u>Deconstruction Menu</u></b><HR>"
 			dat += "Name: [linked_destroy.loaded_item.name]<BR>"
 			dat += "Origin Tech:"
 			dat += "<UL>"
@@ -668,7 +668,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='?src=\ref[src];menu=3.4'>View Queue</A> || "
 			dat += "<A href='?src=\ref[src];menu=3.2'>Material Storage</A> || "
 			dat += "<A href='?src=\ref[src];menu=3.3'>Chemical Storage</A><HR>"
-			dat += "Protolathe Menu:<BR><BR>"
+			dat += "<b><u>Protolathe Menu:</u></b><HR>"
 			dat += "<B>Material Amount:</B> [linked_lathe.TotalMaterials()] cm<sup>3</sup> (MAX: [linked_lathe.max_material_storage])<BR>"
 			dat += "<B>Chemical Volume:</B> [linked_lathe.reagents.total_volume] (MAX: [linked_lathe.reagents.maximum_volume])<HR>"
 			dat += "<div class='rdconsole-build'>"
@@ -694,7 +694,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(3.2) //Protolathe Material Storage Sub-menu
 			dat += "<A href='?src=\ref[src];menu=1.0'>Main Menu</A> || "
 			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><HR>"
-			dat += "Material Storage<BR><HR>"
+			dat += "<b><u>Material Storage</u></b><BR><HR>"
 			dat += "<UL>"
 			for(var/M in linked_lathe.materials)
 				var/amount = linked_lathe.materials[M]
@@ -713,7 +713,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(3.3) //Protolathe Chemical Storage Submenu
 			dat += "<A href='?src=\ref[src];menu=1.0'>Main Menu</A> || "
 			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><HR>"
-			dat += "Chemical Storage<BR><HR>"
+			dat += "<b><u>Chemical Storage</u></b><BR><HR>"
 			for(var/datum/reagent/R in linked_lathe.reagents.reagent_list)
 				dat += "Name: [R.name] | Units: [R.volume] "
 				dat += "<A href='?src=\ref[src];disposeP=[R.type]'>(Purge)</A><BR>"
@@ -722,7 +722,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(3.4) // Protolathe queue
 			dat += "<A href='?src=\ref[src];menu=1.0'>Main Menu</A> || "
 			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><HR>"
-			dat += "Queue<BR><HR>"
+			dat += "<b><u>Queue</u></b><BR><HR>"
 			if(!linked_lathe.queue.len)
 				dat += "Empty"
 			else
@@ -747,7 +747,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='?src=\ref[src];menu=4.4'>View Queue</A> || "
 			dat += "<A href='?src=\ref[src];menu=4.3'>Material Storage</A> || "
 			dat += "<A href='?src=\ref[src];menu=4.2'>Chemical Storage</A><HR>"
-			dat += "Circuit Imprinter Menu:<BR><BR>"
+			dat += "<b><u>Circuit Imprinter Menu:</u></b><BR><HR>"
 			dat += "Material Amount: [linked_imprinter.TotalMaterials()] cm<sup>3</sup><BR>"
 			dat += "Chemical Volume: [linked_imprinter.reagents.total_volume]<HR>"
 			dat += "<div class='rdconsole-build'>"
@@ -773,7 +773,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(4.2)
 			dat += "<A href='?src=\ref[src];menu=1.0'>Main Menu</A> || "
 			dat += "<A href='?src=\ref[src];menu=4.1'>Imprinter Menu</A><HR>"
-			dat += "Chemical Storage<BR><HR>"
+			dat += "<b><u>Chemical Storage</u></b><BR><HR>"
 			for(var/datum/reagent/R in linked_imprinter.reagents.reagent_list)
 				dat += "Name: [R.name] | Units: [R.volume] "
 				dat += "<A href='?src=\ref[src];disposeI=[R.type]'>(Purge)</A><BR>"
@@ -782,7 +782,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(4.3)
 			dat += "<A href='?src=\ref[src];menu=1.0'>Main Menu</A> || "
 			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><HR>"
-			dat += "Material Storage<BR><HR>"
+			dat += "<b><u>Material Storage</u></b><BR><HR>"
 			dat += "<UL>"
 			for(var/M in linked_imprinter.materials)
 				var/amount = linked_imprinter.materials[M]
@@ -801,7 +801,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(4.4)
 			dat += "<A href='?src=\ref[src];menu=1.0'>Main Menu</A> || "
 			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><HR>"
-			dat += "Queue<BR><HR>"
+			dat += "<b><u>Queue</u></b><BR><HR>"
 			if(linked_imprinter.queue.len == 0)
 				dat += "Empty"
 			else
@@ -817,7 +817,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		if(5.0)
 			dat += "<A href='?src=\ref[src];menu=1.0'>Main Menu</A> || "
 			dat += "<A href='?src=\ref[src];print=2'>Print This Page</A><HR>"
-			dat += "List of Researched Technologies and Designs:"
+			dat += "<b><u>List of Researched Technologies and Designs:</u></b><HR>"
 			dat += GetResearchListInfo()
 
 	var/datum/browser/rdconsole = new(user, "rdconsole", "Research and Development Console", 850, 600)
