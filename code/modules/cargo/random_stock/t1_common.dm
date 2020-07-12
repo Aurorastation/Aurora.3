@@ -410,7 +410,7 @@ STOCK_ITEM_COMMON(bag, 3.5)
 		new type(L)
 
 STOCK_ITEM_COMMON(extinguish, 2.2)
-	for(var/i in 1 to rand(1, 3))
+	for(var/i in 1 to rand(1, 2))
 		var/type = pick( \
 			/obj/item/extinguisher, \
 			/obj/item/extinguisher/mini \
@@ -545,6 +545,11 @@ STOCK_ITEM_COMMON(custom_ka, 1)
 
 STOCK_ITEM_COMMON(towel, 1)
 	new /obj/item/towel(L)
+
+STOCK_ITEM_COMMON(camera, 1)
+	new /obj/item/device/camera(L)
+	if(prob(60))
+		new /obj/item/device/camera_film(L)
 
 STOCK_ITEM_COMMON(nothing, 0)
 	// do nothing

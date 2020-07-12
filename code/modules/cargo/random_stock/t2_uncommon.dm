@@ -171,9 +171,6 @@ STOCK_ITEM_UNCOMMON(MMI, 1.5)
 STOCK_ITEM_UNCOMMON(voidsuit, 2)
 	new /obj/random/voidsuit(L,1)
 
-STOCK_ITEM_UNCOMMON(nightvision, 2)
-	new /obj/item/clothing/glasses/night(L)
-
 STOCK_ITEM_UNCOMMON(violin, 2)
 	new /obj/item/device/violin(L)
 
@@ -274,8 +271,11 @@ STOCK_ITEM_UNCOMMON(manual, 2)
 	var/type = pick(booklist)
 	new type(L)
 
-STOCK_ITEM_UNCOMMON(jammer, 2)
-	new /obj/item/device/radiojammer(L)
+STOCK_ITEM_UNCOMMON(spystuff, 1)
+	if(prob(40))
+		new /obj/item/device/radiojammer(L)
+	else
+		new /obj/item/clothing/glasses/night(L)
 
 STOCK_ITEM_UNCOMMON(seeds, 1)
 	for(var/i in 1 to rand(1, 3))

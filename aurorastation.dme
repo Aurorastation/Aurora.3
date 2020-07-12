@@ -1275,6 +1275,8 @@
 #include "code\modules\cargo\bounties\assistant.dm"
 #include "code\modules\cargo\bounties\bot.dm"
 #include "code\modules\cargo\bounties\chef.dm"
+#include "code\modules\cargo\bounties\engineer.dm"
+#include "code\modules\cargo\bounties\hydroponics.dm"
 #include "code\modules\cargo\bounties\item.dm"
 #include "code\modules\cargo\bounties\reagent.dm"
 #include "code\modules\cargo\bounties\science.dm"
