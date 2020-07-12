@@ -137,7 +137,8 @@
 		affected.owner.custom_pain("You feel something rip in your [affected.name]!", 1)
 	user.drop_item()
 	affected.implants += tool
-	tool.pickup(target)
+	if(istype(tool, /obj/item/device/gps))
+		moved_event.register(target, tool, /obj/item/device/gps/proc/update_position)
 	tool.forceMove(affected)
 	affected.cavity = 0
 
