@@ -686,7 +686,7 @@ BLIND     // can't see anything
 	eye_color = COLOR_LIME
 
 /obj/item/clothing/glasses/eyepatch/hud/meson/Initialize()
-	..()
+	. = ..()
 	overlay = global_hud.meson
 
 /obj/item/clothing/glasses/eyepatch/hud/material
