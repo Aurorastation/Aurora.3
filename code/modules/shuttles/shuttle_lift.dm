@@ -7,7 +7,7 @@
 	sound_takeoff = 'sound/effects/lift_heavy_start.ogg'
 	sound_landing = 'sound/effects/lift_heavy_stop.ogg'
 	category = /datum/shuttle/autodock/ferry/lift
-	var/obj/machinery/computer/shuttle_control/assigned_controller = null
+	var/obj/machinery/computer/shuttle_control/assigned_controller
 
 /datum/shuttle/autodock/ferry/lift/New(_name, var/obj/effect/shuttle_landmark/initial_location)
 	..()
