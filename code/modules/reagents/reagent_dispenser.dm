@@ -34,7 +34,7 @@
 
 /obj/structure/reagent_dispensers/ex_act(severity)
 	reagents.splash_turf(get_turf(src), reagents.total_volume)
-	visible_message(span("danger", "\The [src] bursts open, spreading reagents all over the area!"))
+	visible_message(SPAN_DANGER("\The [src] bursts open, spreading reagents all over the area!"))
 	qdel(src)
 
 /obj/structure/reagent_dispensers/attackby(obj/item/O as obj, mob/user as mob)
@@ -293,7 +293,7 @@
 	if (istype(W, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = W
 		if(!R.can_use(3)) // like a tripod
-			to_chat(user, span("notice", "You need three rods to make a still!"))
+			to_chat(user, SPAN_NOTICE("You need three rods to make a still!"))
 			return
 		if(do_after(user, 20))
 			if (QDELETED(src))
@@ -301,10 +301,10 @@
 			R.use(3)
 			new /obj/structure/distillery(src.loc)
 			if(reagents)
-				to_chat(user, span("notice", "As you prop the still up on the rods, the reagents inside are spilled. However, you successfully make the still."))
+				to_chat(user, SPAN_NOTICE("As you prop the still up on the rods, the reagents inside are spilled. However, you successfully make the still."))
 				reagents.trans_to_turf(get_turf(src), reagents.total_volume)
 			else
-				to_chat(user, span("notice", "You successfully build a still."))
+				to_chat(user, SPAN_NOTICE("You successfully build a still."))
 			qdel(src)
 		return
 	. = ..()

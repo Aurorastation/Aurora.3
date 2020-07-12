@@ -88,7 +88,7 @@
 	if(istype(target,/obj/item))
 		var/obj/item/I = target
 		if(I.anchored)
-			to_chat(user, span("notice", "\The [I] is anchored in place."))
+			to_chat(user, SPAN_NOTICE("\The [I] is anchored in place."))
 			return
 		if(!I.origin_tech)
 			to_chat(user, SPAN_NOTICE("This doesn't seem to have a tech origin."))
@@ -301,7 +301,7 @@
 		mode = !mode
 		to_chat(user, SPAN_NOTICE("You set \the [src] to deploy [mode ? "doors" : "walls"]."))
 	else
-		to_chat(user, span("warning", "You can't switch modes while deploying a [mode ? "door" : "wall"]!"))
+		to_chat(user, SPAN_WARNING("You can't switch modes while deploying a [mode ? "door" : "wall"]!"))
 
 /obj/item/inflatable_dispenser/afterattack(var/atom/A, var/mob/user)
 	..(A, user)
@@ -336,7 +336,7 @@
 			newtype = /obj/structure/inflatable/wall
 
 	deploying = 1
-	user.visible_message(span("notice", "[user] starts deploying an inflatable [mode ? "door" : "wall"]."), span("notice", "You start deploying an inflatable [mode ? "door" : "wall"]!"))
+	user.visible_message(SPAN_NOTICE("[user] starts deploying an inflatable [mode ? "door" : "wall"]."), SPAN_NOTICE("You start deploying an inflatable [mode ? "door" : "wall"]!"))
 	playsound(T, 'sound/items/zip.ogg', 75, TRUE)
 	if(do_after(user, 30, needhand = FALSE))
 		new newtype(T)

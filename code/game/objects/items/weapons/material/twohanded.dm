@@ -375,7 +375,7 @@
 
 /obj/item/material/twohanded/chainsaw/proc/PowerUp()
 	var/turf/T = get_turf(src)
-	T.audible_message(span("notice", "\The [src] rumbles to life."))
+	T.audible_message(SPAN_NOTICE("\The [src] rumbles to life."))
 	playsound(src, "sound/weapons/chainsawstart.ogg", 25, 0, 30)
 	force = 15
 	force_unwielded = 30
@@ -390,7 +390,7 @@
 
 /obj/item/material/twohanded/chainsaw/proc/PowerDown()
 	var/turf/T = get_turf(src)
-	T.audible_message(span("notice", "\The [src] slowly powers down."))
+	T.audible_message(SPAN_NOTICE("\The [src] slowly powers down."))
 	force = initial(force)
 	force_wielded = initial(force_wielded)
 	throwforce = initial(throwforce)

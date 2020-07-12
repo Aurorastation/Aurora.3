@@ -59,7 +59,7 @@
 
 		if (istype(L, /mob/living/carbon/alien/diona) || istype(L, /mob/living/simple_animal) || istype(L, /mob/living/carbon/human))//Monkey-like things do attack_generic, not crew
 			if(contents.len && !locate(/obj/item/reagent_containers/food) in src) // you can tear open empty boxes for nesting material, or for food
-				to_chat(user, span("warning", "There's no food in that box!"))
+				to_chat(user, SPAN_WARNING("There's no food in that box!"))
 				return
 			var/damage
 			if (!L.mob_size)
@@ -85,9 +85,9 @@
 	..()
 	if (health < maxHealth)
 		if (health >= (maxHealth * 0.5))
-			to_chat(user, span("warning", "It is slightly torn."))
+			to_chat(user, SPAN_WARNING("It is slightly torn."))
 		else
-			to_chat(user, span("danger", "It is full of tears and holes."))
+			to_chat(user, SPAN_DANGER("It is full of tears and holes."))
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/storage/box/attack_self(mob/user as mob)

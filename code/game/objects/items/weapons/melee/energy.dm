@@ -286,12 +286,12 @@
 /obj/item/melee/energy/sword/hegemony/activate(mob/living/user)
 	..()
 	icon_state = "kataphract-esword1"
-	to_chat(user, span("notice", "\The [src] is now energised."))
+	to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 
 /obj/item/melee/energy/sword/hegemony/deactivate(mob/living/user)
 	..()
 	icon_state = initial(icon_state)
-	to_chat(user, span("notice", "\The [src] is de-energised."))
+	to_chat(user, SPAN_NOTICE("\The [src] is de-energised."))
 
 /obj/item/melee/energy/sword/knife
 	name = "energy utility knife"

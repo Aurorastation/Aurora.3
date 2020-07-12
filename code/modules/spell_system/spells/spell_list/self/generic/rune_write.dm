@@ -18,11 +18,11 @@
 
 /spell/rune_write/cast(null, mob/user = usr)
 	if(!isturf(user.loc))
-		to_chat(user, span("warning", "You do not have enough space to write a proper rune."))
+		to_chat(user, SPAN_WARNING("You do not have enough space to write a proper rune."))
 
 	var/rune = input(user, "Choose a rune to scribe", "Rune Scribing") as null|anything in SScult.runes_by_name//not cancellable.
 	if(locate(/obj/effect/rune) in get_turf(user))
-		to_chat(user, span("warning", "There is already a rune in this location."))
+		to_chat(user, SPAN_WARNING("There is already a rune in this location."))
 		return
 
 	if(!rune)

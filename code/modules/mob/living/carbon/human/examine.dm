@@ -242,7 +242,7 @@
 						to_chat(user, "<span class='deadsay'>[T.He] [T.has] a pulse!</span>")
 
 	else if (src.stat)
-		msg += span("warning", "[T.He] [T.is] not responding to anything around [T.him].\n")
+		msg += SPAN_WARNING("[T.He] [T.is] not responding to anything around [T.him].\n")
 
 	if(fire_stacks)
 		msg += "[T.He] [T.is] covered in some liquid.\n"

@@ -57,7 +57,7 @@
 	else
 		return
 
-	user.visible_message(span("warning","\The [user] spins the cylinder of \the [src]!"),span("warning","You spin the cylinder of \the [src]!"),span("notice","You hear something metallic spin and click."))
+	user.visible_message(SPAN_WARNING("\The [user] spins the cylinder of \the [src]!"), SPAN_WARNING("You spin the cylinder of \the [src]!"), SPAN_NOTICE("You hear something metallic spin and click."))
 	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
 
 /obj/item/gun/energy/blaster/revolver/pilot

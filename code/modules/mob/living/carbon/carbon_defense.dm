@@ -19,17 +19,17 @@
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
 		if(H.bg)
-			visible_message(span("danger", "[src] is hit by [AM] waking [t_him] up!"))
+			visible_message(SPAN_DANGER("[src] is hit by [AM] waking [t_him] up!"))
 			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
 				willfully_sleeping = FALSE
 			else
-				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
+				to_chat(H, SPAN_DANGER("You sense great disturbance to your physical body!"))
 		else if(!vr_mob)
-			visible_message(span("danger","[src] is hit by [AM], but they do not respond... Maybe they have S.S.D?"))
+			visible_message(SPAN_DANGER("[src] is hit by [AM], but they do not respond... Maybe they have S.S.D?"))
 	else if(client && willfully_sleeping)
-		visible_message(span("danger", "[src] is hit by [AM] waking [t_him] up!"))
+		visible_message(SPAN_DANGER("[src] is hit by [AM] waking [t_him] up!"))
 		sleeping = 0
 		willfully_sleeping = FALSE
 
@@ -53,7 +53,7 @@
 				sleeping = 0
 				willfully_sleeping = FALSE
 			else
-				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
+				to_chat(H, SPAN_DANGER("You sense great disturbance to your physical body!"))
 		else if(!vr_mob)
 			visible_message("<span class='danger'>[P] hit [src], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
@@ -79,7 +79,7 @@
 				sleeping = 0
 				willfully_sleeping = FALSE
 			else
-				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
+				to_chat(H, SPAN_DANGER("You sense great disturbance to your physical body!"))
 		else if(!vr_mob)
 			user.visible_message("<span class='danger'>[user] attacks [src] with [I] waking [t_him] up!</span>", \
 					    "<span class='danger'>You attack [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")

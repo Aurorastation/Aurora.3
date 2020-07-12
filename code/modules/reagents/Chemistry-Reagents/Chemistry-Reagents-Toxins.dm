@@ -344,7 +344,7 @@
 				S.target = null
 				++S.discipline
 		if(dose == removed)
-			S.visible_message(span("warning", "[S]'s flesh sizzles where the foam touches it!"), span("danger", "Your flesh burns in the foam!"))
+			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the foam touches it!"), SPAN_DANGER("Your flesh burns in the foam!"))
 
 /datum/reagent/toxin/plantbgone
 	name = "Plant-B-Gone"
@@ -720,7 +720,7 @@
 	if(istype(H) && (H.species.flags & NO_SCAN))
 		return
 	if (!(CE_UNDEXTROUS in M.chem_effects))
-		to_chat(M, span("warning", "Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
+		to_chat(M, SPAN_WARNING("Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
 		M.confused = max(M.confused, 250)
 	M.add_chemical_effect(CE_UNDEXTROUS, 1)
 	if(dose > 0.2)	
@@ -729,5 +729,5 @@
 /datum/reagent/toxin/dextrotoxin/Destroy()
 	if(holder && holder.my_atom && ismob(holder.my_atom))
 		var/mob/M = holder.my_atom
-		to_chat(M, span("warning", "You can feel sensation creeping back into your limbs..."))
+		to_chat(M, SPAN_WARNING("You can feel sensation creeping back into your limbs..."))
 	return ..()

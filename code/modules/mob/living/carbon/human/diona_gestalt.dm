@@ -116,19 +116,19 @@
 	set name = "Check light level"
 
 	if (!DS.light_organ || DS.light_organ.is_broken() || DS.light_organ.is_bruised())
-		to_chat(usr, span("danger", "Our response node is damaged or missing, without it we can't tell light from darkness. We can only hope this area is bright enough to let us regenerate it!"))
+		to_chat(usr, SPAN_DANGER("Our response node is damaged or missing, without it we can't tell light from darkness. We can only hope this area is bright enough to let us regenerate it!"))
 		return
 	var/light = get_lightlevel_diona(DS)
 	if (light <= -0.75)
-		to_chat(usr, span("danger", "It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!"))
+		to_chat(usr, SPAN_DANGER("It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!"))
 	else if (light <= 0)
-		to_chat(usr, span("danger", "This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!"))
+		to_chat(usr, SPAN_DANGER("This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!"))
 	else if (light > 0 && light < 1.5)
-		to_chat(usr, span("warning", "The light here can sustain us, barely. It feels cold and distant."))
+		to_chat(usr, SPAN_WARNING("The light here can sustain us, barely. It feels cold and distant."))
 	else if (light <= 3)
-		to_chat(usr, span("notice", "This light is comfortable and warm, Quite adequate for our needs."))
+		to_chat(usr, SPAN_NOTICE("This light is comfortable and warm, Quite adequate for our needs."))
 	else
-		to_chat(usr, span("notice", "This warm radiance is bliss. Here we are safe and energised! Stay a while.."))
+		to_chat(usr, SPAN_NOTICE("This warm radiance is bliss. Here we are safe and energised! Stay a while.."))
 
 
 
@@ -215,7 +215,7 @@
 
 	if(DS)
 		DS.pause_regen = !DS.pause_regen
-		to_chat(usr, span("notice", "You have [!DS.pause_regen ? "started" : "paused"] regeneration process."))
+		to_chat(usr, SPAN_NOTICE("You have [!DS.pause_regen ? "started" : "paused"] regeneration process."))
 
 /mob/living/carbon/human/proc/diona_detach_nymph()
 	set name = "Detach nymph"
@@ -226,10 +226,10 @@
 		return
 
 	if(nutrition <= 150)
-		to_chat(src, span("warning", "You lack nutrition to perform this action!"))
+		to_chat(src, SPAN_WARNING("You lack nutrition to perform this action!"))
 		return
 	if(DS.stored_energy <= 60)
-		to_chat(src, span("warning", "You lack energy to perform this action!"))
+		to_chat(src, SPAN_WARNING("You lack energy to perform this action!"))
 		return
 	// Choose our limb to detach
 	var/list/exclude = organs_by_name - list(BP_GROIN, BP_CHEST, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG)
@@ -238,7 +238,7 @@
 		return
 	var/obj/item/organ/external/O = organs_by_name[choice]
 	if(!O || O.is_stump())
-		to_chat(src, span("warning", "Cannot detach that!"))
+		to_chat(src, SPAN_WARNING("Cannot detach that!"))
 		return
 
 	// Get rid of our limb and replace with stump
@@ -256,7 +256,7 @@
 		parent_stump.update_damages()
 		parent.post_droplimb(src)
 		qdel(parent)
-	to_chat(src, span("notice", "You detach [O.name] nymph from your body."))
+	to_chat(src, SPAN_NOTICE("You detach [O.name] nymph from your body."))
 	qdel(O)
 
 	var/mob/living/carbon/alien/diona/M = locate(/mob/living/carbon/alien/diona) in contents
@@ -293,10 +293,10 @@
 	var/mob/living/carbon/alien/diona/nymph = DS.nym.resolve()
 
 	if(!nymph)
-		to_chat(src, span("warning", "You have no nymph!"))
+		to_chat(src, SPAN_WARNING("You have no nymph!"))
 		return
 	else if(nymph.stat == DEAD)
-		to_chat(src, span("danger", "Your nymph is not responding! Something could have happened to it!"))
+		to_chat(src, SPAN_DANGER("Your nymph is not responding! Something could have happened to it!"))
 		return
 	else
 		nymph.key = key

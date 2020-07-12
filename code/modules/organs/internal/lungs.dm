@@ -67,7 +67,7 @@
 
 	if(is_bruised() && rescued)
 		if(prob(4))
-			to_chat(owner, span("warning", "It feels hard to breathe..."))
+			to_chat(owner, SPAN_WARNING("It feels hard to breathe..."))
 			if (owner.losebreath < 5)
 				owner.losebreath = min(owner.losebreath + 1, 5) // it's still not good, but it's much better than an untreated collapsed lung
 
@@ -155,7 +155,7 @@
 			if(inhale_efficiency < 0.8)
 				owner.emote("gasp")
 			else if(prob(20))
-				to_chat(owner, span("warning", "It's hard to breathe..."))
+				to_chat(owner, SPAN_WARNING("It's hard to breathe..."))
 		breath_fail_ratio = 1 - inhale_efficiency
 		failed_inhale = 1
 	else

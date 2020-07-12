@@ -32,7 +32,7 @@
 /obj/structure/chemkit/examine(mob/user)
 	. = ..()
 	if(analyzer)
-		to_chat(user, span("notice", "The analyzer displays that the temperature is [round(reagents.get_temperature() - T0C,0.1)]C."))
+		to_chat(user, SPAN_NOTICE("The analyzer displays that the temperature is [round(reagents.get_temperature() - T0C,0.1)]C."))
 
 /obj/structure/chemkit/verb/phase_filter()
 	set name = "Set Phase Filter"
@@ -42,7 +42,7 @@
 		return 0
 	phase_filter = input("Which phase do you want to filter?", "Phase Filter", null) as null|anything in list("solid", "liquid", "gas", "none")
 	if(phase_filter)
-		to_chat(usr, span("notice", "You switch to a [phase_filter] filter."))
+		to_chat(usr, SPAN_NOTICE("You switch to a [phase_filter] filter."))
 	if(phase_filter == "none")
 		phase_filter = FALSE
 
@@ -59,7 +59,7 @@
 
 /obj/structure/chemkit/attack_hand(mob/user)
 	transfer_out = !transfer_out
-	to_chat(user, span("notice", "You are now [transfer_out ? "removing from" : "adding to"] \the [src]."))
+	to_chat(user, SPAN_NOTICE("You are now [transfer_out ? "removing from" : "adding to"] \the [src]."))
 
 /obj/structure/chemkit/proc/heat_item(obj/item/W, mob/user)
 	var/joules = 0
@@ -72,7 +72,7 @@
 	else
 		joules = 500 // we're assuming it's some kind of novelty toy like lunea's gloves, etc; not exactly a match but it still works
 	reagents.add_thermal_energy(joules)
-	user.visible_message(span("warning", "[user] holds \the [W] up to \the [src]!"), span("notice", "You use \the [W] to heat \the [src]'s contents."), span("notice", "You hear something sizzle."))
+	user.visible_message(SPAN_WARNING("[user] holds \the [W] up to \the [src]!"), SPAN_NOTICE("You use \the [W] to heat \the [src]'s contents."), SPAN_NOTICE("You hear something sizzle."))
 	user.setClickCooldown(joules/5000) // two seconds for welder, 1/5 second for matches but they run out
 
 /obj/structure/chemkit/proc/trans_item(obj/item/I, mob/user)
@@ -88,10 +88,10 @@
 			else
 				amt = reagents.trans_to_holder(I.reagents, reagents.get_free_space())
 		if(amt)
-			to_chat(user, span("notice", "You fill \the [I] with [amt] units from \the [src]."))
+			to_chat(user, SPAN_NOTICE("You fill \the [I] with [amt] units from \the [src]."))
 	else if(I.reagents && I.reagents.total_volume)
 		var/amt = I.reagents.trans_to_holder(reagents, I.reagents.total_volume) // just pour it if you can
-		to_chat(user, span("notice", "You pour [amt] units from \the [I] into \the [src]."))
+		to_chat(user, SPAN_NOTICE("You pour [amt] units from \the [I] into \the [src]."))
 
 /obj/structure/chemkit/proc/smash_sheet(obj/item/stack/stack, mob/user)
 	if(!istype(stack))
@@ -107,19 +107,19 @@
 			reagents.add_reagent(n, (amount_to_take*REAGENTS_PER_SHEET)*rand(6,8)/10)
 	else
 		reagents.add_reagent(sheet_components, (amount_to_take*REAGENTS_PER_SHEET)*rand(6,8)/10) // 60% to 80% efficiency when crushing sheets
-	to_chat(user, span("notice", "You [pick("crush","smash","grind")] [stack] into a fine powder."))
+	to_chat(user, SPAN_NOTICE("You [pick("crush","smash","grind")] [stack] into a fine powder."))
 	return
 
 /obj/structure/chemkit/proc/smash(obj/item/I, mob/user)
 	if(sheet_reagents[I.type])
 		smash_sheet(I, user)
 		return
-	to_chat(user, span("notice", "You [pick("crush","smash","grind")] [I] into a fine [pick("paste","powder","pulp")]."))
+	to_chat(user, SPAN_NOTICE("You [pick("crush","smash","grind")] [I] into a fine [pick("paste","powder","pulp")]."))
 	I.reagents.trans_to_holder(reagents, I.reagents.total_volume, rand(7, 10)/10) // 70% to 100% from smashing, since it's pretty thorough
 	qdel(I)
 
 /obj/structure/chemkit/proc/chop(obj/item/I, mob/user)
-	to_chat(user, span("notice", "You [pick("chop","cut","slice")] [I] into [pick("small","tiny")] [pick("pieces","chunks","bits","slices")]."))
+	to_chat(user, SPAN_NOTICE("You [pick("chop","cut","slice")] [I] into [pick("small","tiny")] [pick("pieces","chunks","bits","slices")]."))
 	I.reagents.trans_to_holder(reagents, I.reagents.total_volume, rand(4, 8)/10) // 40% to 80% from chopping, since it's not very efficient
 	qdel(I)
 
@@ -145,7 +145,7 @@
 		var/obj/item/smashed = pick(contents - analyzer)
 		if(!smashed.reagents && !sheet_reagents[smashed.type])
 			return // should never happen anyway, but still
-		to_chat(user, span("notice", "You begin to [pick("crush","smash","grind")] [smashed]."))
+		to_chat(user, SPAN_NOTICE("You begin to [pick("crush","smash","grind")] [smashed]."))
 		if(!do_after(user, 15 SECONDS))
 			return
 		smash(smashed, user)
@@ -197,18 +197,18 @@
 /obj/structure/distillery/proc/trans_item(obj/item/W, mob/user)
 	if(transfer_out)
 		if(!reagents.total_volume)
-			to_chat(user, span("notice", "\The [src] is empty."))
+			to_chat(user, SPAN_NOTICE("\The [src] is empty."))
 			return
 		var/amt = reagents.trans_to_holder(W.reagents, reagents.total_volume)
-		to_chat(user, span("notice", "You fill \the [W] with [amt] units from \the [src]."))
+		to_chat(user, SPAN_NOTICE("You fill \the [W] with [amt] units from \the [src]."))
 		return
 	else
 		if(!W.reagents || !W.reagents.total_volume)
-			to_chat(user, span("notice", "\The [W] is empty."))
+			to_chat(user, SPAN_NOTICE("\The [W] is empty."))
 			return
 		var/amt = min(10, W.reagents.total_volume)
 		W.reagents.trans_to_holder(src.reagents, amt) // just pour it if you can
-		to_chat(user, span("notice", "You pour [amt] units from \the [W] into \the [src]."))
+		to_chat(user, SPAN_NOTICE("You pour [amt] units from \the [W] into \the [src]."))
 		return
 
 /obj/structure/distillery/proc/distill()
@@ -241,10 +241,10 @@
 		return
 	if(W.isscrewdriver())
 		transfer_out = !transfer_out
-		to_chat(user, span("notice", "You [transfer_out ? "open" : "close"] the spigot on the keg, ready to [transfer_out ? "remove" : "add"] reagents."))
+		to_chat(user, SPAN_NOTICE("You [transfer_out ? "open" : "close"] the spigot on the keg, ready to [transfer_out ? "remove" : "add"] reagents."))
 		return
 	if(W.isFlameSource() && istype(welder))
-		to_chat(user, span("notice", "You light \the [src] and begin the distillation process."))
+		to_chat(user, SPAN_NOTICE("You light \the [src] and begin the distillation process."))
 		addtimer(CALLBACK(src, .proc/distill), 60 SECONDS)
 		src.icon_state = "distillery-active"
 		return

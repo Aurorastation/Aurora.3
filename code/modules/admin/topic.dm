@@ -576,7 +576,7 @@
 	else if(href_list["remove_psionics"])
 		var/datum/psi_complexus/psi = locate(href_list["remove_psionics"])
 		if(psi && psi.owner && !QDELETED(psi))
-			to_chat(psi.owner, span("notice", "<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
+			to_chat(psi.owner, SPAN_NOTICE("<b>Your psionic powers vanish abruptly, leaving you cold and empty.</b>"))
 			log_and_message_admins("removed all psionics from [key_name(psi.owner)].")
 			QDEL_NULL(psi)
 
