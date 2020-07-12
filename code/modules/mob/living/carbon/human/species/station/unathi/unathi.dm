@@ -30,7 +30,7 @@
 	economic_modifier = 7
 
 	num_alternate_languages = 2
-	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA, ACCENT_WASTELAND)
+	secondary_langs = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 	name_language = LANGUAGE_UNATHI
 
 	stamina	=	120			  // Unathi have the shortest but fastest sprint of all
@@ -105,7 +105,7 @@
 	zombie_type = "Unathi Zombie"
 
 	default_accent = ACCENT_HEGEMON_PEASANT
-	allowed_accents = list(ACCENT_HEGEMON_NOBLE, ACCENT_HEGEMON_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TRAD_PEASANT, ACCENT_DOMINIA)
+	allowed_accents = list(ACCENT_HEGEMON_NOBLE, ACCENT_HEGEMON_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TRAD_PEASANT, ACCENT_WASTELAND, ACCENT_DOMINIA)
 
 /datum/species/unathi/after_equip(var/mob/living/carbon/human/H)
 	. = ..()
