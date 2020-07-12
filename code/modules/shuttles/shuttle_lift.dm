@@ -23,7 +23,7 @@
 	var/obj/effect/shuttle_landmark/start_location = current_location
 	if(!obstruction_check(start_location, destination))
 		if(assigned_controller)
-			assigned_controller.audible_message("\The [assigned_controller] buzzes loudly: Lift error: Obstruction Detected")
+			assigned_controller.audible_message("\The [assigned_controller] buzzes loudly: <i>Obstruction detected!</i>")
 			playsound(assigned_controller.loc, "sound/machines/buzz-two.ogg", 50, 1)
 		return FALSE
 	..()
