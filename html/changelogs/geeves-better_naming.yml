@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "Tweaked the name of the 'check misc. lifeforms' turret option to 'Neutralize All Wildlife' to more accurately represent what it does."
-  - rscadd: "You no longer have to swipe on a turret or turret control panel to access it, as long as you have access. The option remains if you want to open it for others."
