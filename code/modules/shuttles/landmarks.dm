@@ -42,7 +42,6 @@
 /obj/effect/shuttle_landmark/LateInitialize()
 	if(!docking_controller)
 		return
-	testing("Docking controller: [docking_controller]")
 	var/docking_tag = docking_controller
 	docking_controller = SSshuttle.docking_registry[docking_tag]
 	if(!istype(docking_controller))
