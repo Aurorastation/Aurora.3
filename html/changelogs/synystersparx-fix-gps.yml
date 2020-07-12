@@ -1,0 +1,4 @@
+author: SynysterSparx
+delete-after: True
+changes: 
+  - bugfix: "Have target pickup implanted items, which will allow GPS to continue working."
