@@ -726,6 +726,8 @@ About the new airlock wires panel:
 	VUEUI_SET_CHECK(data["elea"], electrified_at, ., data)
 	var/isAI = issilicon(user) && !player_is_antag(user.mind)
 	VUEUI_SET_CHECK(data["isai"], isAI, ., data)
+	var/isAdmin = check_rights(R_ADMIN)
+	VUEUI_SET_CHECK(data["isadmin"], isAdmin, ., data)
 
 	VUEUI_SET_CHECK(data["idscan"], !aiDisabledIdScanner, ., data)
 	VUEUI_SET_CHECK(data["bolts"], !locked, ., data)
