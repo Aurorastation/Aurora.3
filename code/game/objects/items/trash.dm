@@ -142,11 +142,11 @@
 	icon_state = "cola"
 	drop_sound = 'sound/items/drop/soda.ogg'
 	pickup_sound = 'sound/items/pickup/soda.ogg'
+	randpixel = 4
 
 /obj/item/trash/can/Initialize()
 	. = ..()
-	pixel_x = rand(-4,4)
-	pixel_y = rand(-4,4)
+	randpixel_xy()
 
 /obj/item/trash/tuna
 	name = "\improper Tuna Snax"
