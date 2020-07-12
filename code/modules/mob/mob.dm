@@ -987,6 +987,9 @@
 /mob/proc/get_species(var/reference = 0)
 	return ""
 
+/mob/proc/get_pressure_weakness()
+	return 1
+
 /mob/proc/flash_weak_pain()
 	flick("weak_pain", pain)
 

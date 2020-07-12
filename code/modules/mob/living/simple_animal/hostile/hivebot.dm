@@ -162,7 +162,7 @@
 	LoseTarget()
 	stance = HOSTILE_STANCE_TIRED
 	addtimer(CALLBACK(src, .proc/wakeup), 50)
-	visible_message(span("danger","[src] suffers a teleportation malfunction!"))
+	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"))
 	playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 	var/turf/random_turf = get_turf(pick(orange(src,7)))
 	do_teleport(src, random_turf)
@@ -268,7 +268,7 @@
 		var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
 		S.set_up(5, 0, src.loc)
 		S.start()
-		visible_message(span("danger","[src] warps in!"))
+		visible_message(SPAN_DANGER("[src] warps in!"))
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
 		addtimer(CALLBACK(src, .proc/activate_beacon), 450)
 	latest_area = get_area(src)
@@ -343,7 +343,7 @@
 		if(activated == -1)
 			return
 		else
-			visible_message(span("warning","[src] suddenly activates!"))
+			visible_message(SPAN_WARNING("[src] suddenly activates!"))
 			icon_state = "hivebotbeacon_raising"
 			sleep(16)
 			icon_state = "hivebotbeacon_active"
@@ -376,7 +376,7 @@
 	S.start()
 
 	if(random_turf)
-		visible_message(span("danger","[src] disappears in a cloud of smoke!"))
+		visible_message(SPAN_DANGER("[src] disappears in a cloud of smoke!"))
 		playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 		do_teleport(src, random_turf)
 
@@ -387,7 +387,7 @@
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/warpbots()
 	if(!bot_amt)
-		visible_message(span("danger","[src] disappears in a cloud of smoke!"))
+		visible_message(SPAN_DANGER("[src] disappears in a cloud of smoke!"))
 		playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 		new /obj/effect/decal/cleanable/greenglow(src.loc)
 		qdel(src)
@@ -397,7 +397,7 @@
 		return
 
 	if(linked_bots.len < max_bots)
-		visible_message(span("warning","[src] radiates with energy!"))
+		visible_message(SPAN_WARNING("[src] radiates with energy!"))
 
 		if(guard_amt < 4 && prob(50))
 			bot_type = GUARDIAN
@@ -570,7 +570,7 @@
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/emp_act(severity)
 	LoseTarget()
 	stance = HOSTILE_STANCE_IDLE
-	visible_message(span("danger","[src] suffers a teleportation malfunction!"))
+	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"))
 	playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 	var/turf/random_turf = get_turf(pick(orange(src,7)))
 	do_teleport(src, random_turf)
@@ -600,9 +600,9 @@
 				if(I.matter)
 					busy = 1
 					update_icon()
-					src.visible_message(span("notice","[src] begins to harvest \the [I]."))
+					src.visible_message(SPAN_NOTICE("[src] begins to harvest \the [I]."))
 					if(do_after(src, 32))
-						src.visible_message(span("warning","[src] harvests \the [I]."))
+						src.visible_message(SPAN_WARNING("[src] harvests \the [I]."))
 						qdel(I)
 					busy = 0
 					update_icon()
@@ -610,11 +610,11 @@
 
 				if(istype(O, /obj/item/storage))
 					var/obj/item/storage/S = O
-					src.visible_message(span("notice","[src] begins to rip apart \the [S]."))
+					src.visible_message(SPAN_NOTICE("[src] begins to rip apart \the [S]."))
 					busy = 2
 					update_icon()
 					if(do_after(src, 32))
-						src.visible_message(span("warning","[src] rips \the [S] apart."))
+						src.visible_message(SPAN_WARNING("[src] rips \the [S] apart."))
 						S.spill(3, src.loc)
 						qdel(S)
 					busy = 0
@@ -623,11 +623,11 @@
 
 		if(istype(O, /obj/structure/table))
 			var/obj/structure/table/TB = O
-			src.visible_message(span("notice","[src] starts to dismantle \the [TB]."))
+			src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [TB]."))
 			busy = 2
 			update_icon()
 			if(do_after(src, 48))
-				src.visible_message(span("warning","[src] dismantles \the [TB]."))
+				src.visible_message(SPAN_WARNING("[src] dismantles \the [TB]."))
 				TB.break_to_parts(1)
 			busy = 0
 			update_icon()
@@ -636,11 +636,11 @@
 		if(istype(O, /obj/structure/bed))
 			var/obj/structure/bed/B = O
 			if(B.can_dismantle)
-				src.visible_message(span("notice","[src] starts to dismantle \the [B]."))
+				src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [B]."))
 				busy = 2
 				update_icon()
 				if(do_after(src, 48))
-					src.visible_message(span("warning","[src] dismantles \the [B]."))
+					src.visible_message(SPAN_WARNING("[src] dismantles \the [B]."))
 					B.dismantle()
 					qdel(B)
 				busy = 0
@@ -649,22 +649,22 @@
 
 		if(istype(O, /obj/item/stool))
 			var/obj/item/stool/S = O
-			src.visible_message(span("notice","[src] starts to dismantle \the [S]."))
+			src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [S]."))
 			busy = 2
 			update_icon()
 			if(do_after(src, 32))
-				src.visible_message(span("warning","[src] dismantles \the [S]."))
+				src.visible_message(SPAN_WARNING("[src] dismantles \the [S]."))
 				S.dismantle()
 			busy = 0
 			update_icon()
 			return
 
 		if(istype(O, /obj/effect/decal/cleanable/blood/gibs/robot))
-			src.visible_message(span("notice","[src] starts to recycle \the [O]."))
+			src.visible_message(SPAN_NOTICE("[src] starts to recycle \the [O]."))
 			busy = 1
 			update_icon()
 			if(do_after(src, 48))
-				src.visible_message(span("warning","[src] recycles \the [O]."))
+				src.visible_message(SPAN_WARNING("[src] recycles \the [O]."))
 				qdel(O)
 			busy = 0
 			update_icon()
@@ -674,11 +674,11 @@
 			var/turf/simulated/floor/T = src.loc
 			if(T.is_plating())
 				var/obj/structure/cable/C = O
-				src.visible_message(span("notice","[src] starts ripping up \the [C]."))
+				src.visible_message(SPAN_NOTICE("[src] starts ripping up \the [C]."))
 				busy = 2
 				update_icon()
 				if(do_after(src, 32))
-					src.visible_message(span("warning","[src] rips \the [C]."))
+					src.visible_message(SPAN_WARNING("[src] rips \the [C]."))
 					if(C.powernet && C.powernet.avail)
 						spark(src, 3, alldirs)
 					new/obj/item/stack/cable_coil(T, C.d1 ? 2 : 1, C.color)
@@ -690,11 +690,11 @@
 	if(istype(src.loc, /turf/simulated/floor))
 		var/turf/simulated/floor/T = src.loc
 		if(!T.is_plating())
-			src.visible_message(span("notice","[src] starts ripping up \the [T]."))
+			src.visible_message(SPAN_NOTICE("[src] starts ripping up \the [T]."))
 			busy = 2
 			update_icon()
 			if(do_after(src, 32))
-				src.visible_message(span("warning","[src] rips up \the [T]."))
+				src.visible_message(SPAN_WARNING("[src] rips up \the [T]."))
 				playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 				T.make_plating(1)
 			busy = 0
@@ -744,11 +744,11 @@
 	for(var/obj/O in T)
 		if(istype(O, /obj/structure/girder))
 			var/obj/structure/girder/G = O
-			src.visible_message(span("notice","[src] starts to tear \the [O] apart."))
+			src.visible_message(SPAN_NOTICE("[src] starts to tear \the [O] apart."))
 			busy = 1
 			if(do_after(src, 32))
 				src.do_attack_animation(G)
-				src.visible_message(span("warning","[src] tears \the [O] apart!"))
+				src.visible_message(SPAN_WARNING("[src] tears \the [O] apart!"))
 				G.dismantle()
 			busy = 0
 			continue
@@ -756,10 +756,10 @@
 		if((istype(O, /obj/machinery/door/firedoor) && O.density) || (istype(O, /obj/machinery/door/airlock) && O.density) || istype(O, /obj/machinery/door/blast) && O.density)
 			var/obj/machinery/door/D = O
 			if(D.stat & BROKEN)
-				src.visible_message(span("notice","[src] starts to tear \the [D] open."))
+				src.visible_message(SPAN_NOTICE("[src] starts to tear \the [D] open."))
 				busy = 1
 				if(do_after(src, 48))
-					src.visible_message(span("warning","[src] tears \the [D] apart!"))
+					src.visible_message(SPAN_WARNING("[src] tears \the [D] apart!"))
 					src.do_attack_animation(D)
 					new /obj/item/stack/material/steel(get_turf(D))
 					new /obj/item/stack/material/steel(get_turf(D))
@@ -799,12 +799,12 @@
 
 		if(istype(O, /obj/structure/reagent_dispensers))
 			var/obj/structure/reagent_dispensers/RD = O
-			src.visible_message(span("notice","[src] starts taking apart \the [RD]."))
+			src.visible_message(SPAN_NOTICE("[src] starts taking apart \the [RD]."))
 			busy = 1
 			if(do_after(src, 48))
 				src.do_attack_animation(RD)
 				RD.reagents.splash_turf(get_turf(RD.loc), RD.reagents.total_volume)
-				src.visible_message(span("danger","[RD] gets torn open, spreading its contents all over the area!"))
+				src.visible_message(SPAN_DANGER("[RD] gets torn open, spreading its contents all over the area!"))
 				new /obj/item/stack/material/steel(get_turf(RD))
 				new /obj/item/stack/material/steel(get_turf(RD))
 				qdel(RD)

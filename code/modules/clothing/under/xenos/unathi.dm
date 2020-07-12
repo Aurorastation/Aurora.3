@@ -64,7 +64,7 @@
 	if(use_check_and_message(usr))
 		return
 	if(has_down_and_sleeves == FALSE)
-		to_chat(usr, span("notice", "You cannot roll down the [src]!"))
+		to_chat(usr, SPAN_NOTICE("You cannot roll down the [src]!"))
 		return
 
 	if((rolled_sleeves == TRUE) && !(rolled_down))
@@ -73,12 +73,12 @@
 	if(rolled_down)
 		body_parts_covered = initial(body_parts_covered)
 		item_state = "[initial(item_state)]" // REMINDER!: Contained Sprites automatically take out the _un after the spritename, somehow.
-		to_chat(usr, span("notice", "You roll up your [src]."))
+		to_chat(usr, SPAN_NOTICE("You roll up your [src]."))
 		rolled_down = FALSE
 	else
 		body_parts_covered &= LOWER_TORSO|LEGS|FEET
 		item_state = "[initial(item_state)]_d"
-		to_chat(usr, span("notice", "You roll down your [src]."))
+		to_chat(usr, SPAN_NOTICE("You roll down your [src]."))
 		rolled_down = TRUE
 	update_clothing_icon()
 
@@ -90,22 +90,22 @@
 	if(use_check_and_message(usr))
 		return
 	if(has_down_and_sleeves == FALSE)
-		to_chat(usr, span("notice", "You cannot roll up your [src]'s sleeves!"))
+		to_chat(usr, SPAN_NOTICE("You cannot roll up your [src]'s sleeves!"))
 		return
 
 	if(rolled_down == TRUE)
-		to_chat(usr, span("notice", "You must roll up your [src] first!"))
+		to_chat(usr, SPAN_NOTICE("You must roll up your [src] first!"))
 		return
 
 	if(rolled_sleeves)
 		body_parts_covered = initial(body_parts_covered)
 		item_state = "[initial(item_state)]" // REMINDER!: Contained Sprites automatically take out the _un after the spritename, somehow.
-		to_chat(usr, span("notice", "You roll down your [src]'s sleeves."))
+		to_chat(usr, SPAN_NOTICE("You roll down your [src]'s sleeves."))
 		rolled_sleeves = FALSE
 	else
 		body_parts_covered &= ~(ARMS|HANDS)
 		item_state = "[initial(item_state)]_r"
-		to_chat(usr, span("notice", "You roll up your [src]'s sleeves."))
+		to_chat(usr, SPAN_NOTICE("You roll up your [src]'s sleeves."))
 		rolled_sleeves = TRUE
 	update_clothing_icon()
 

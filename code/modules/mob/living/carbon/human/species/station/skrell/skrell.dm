@@ -4,6 +4,7 @@
 	name_plural = "Skrell"
 	bodytype = "Skrell"
 	age_max = 500
+	default_genders = list(PLURAL)
 	economic_modifier = 12
 	icobase = 'icons/mob/human_races/skrell/r_skrell.dmi'
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
@@ -58,6 +59,10 @@
 	allowed_citizenships = list(CITIZENSHIP_JARGON, CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
 	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_MOROZ)
 	default_citizenship = CITIZENSHIP_JARGON
+
+	default_accent = ACCENT_SKRELL
+	allowed_accents = list(ACCENT_SKRELL, ACCENT_CETI, ACCENT_GIBSON, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_VENUS, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_ELYRA, 
+							ACCENT_SILVERSUN, ACCENT_KONYAN)
 
 	zombie_type = "Skrell Zombie"
 

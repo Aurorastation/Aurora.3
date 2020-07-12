@@ -286,7 +286,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 				found_rune = TRUE
 				break
 		if(!found_rune)
-			to_chat(usr, span("cult", "The astral cord that ties your body and your spirit has been severed. You are likely to wander the realm beyond until your body is finally dead and thus reunited with you."))
+			to_chat(usr, SPAN_CULT("The astral cord that ties your body and your spirit has been severed. You are likely to wander the realm beyond until your body is finally dead and thus reunited with you."))
 			return
 	stop_following()
 	mind.current.ajourn=0

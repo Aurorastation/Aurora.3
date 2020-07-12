@@ -129,7 +129,7 @@
 	pref.spawnpoint         = sanitize_inlist(pref.spawnpoint, SSatlas.spawn_locations, initial(pref.spawnpoint))
 	pref.machine_tag_status = text2num(pref.machine_tag_status) // SQL queries return as text, so make this a num
 
-/datum/category_item/player_setup_item/general/basic/content()
+/datum/category_item/player_setup_item/general/basic/content(var/mob/user)
 	var/list/dat = list("<b>Name:</b> ")
 	if (pref.can_edit_name)
 		dat += "<a href='?src=\ref[src];rename=1'><b>[pref.real_name]</b></a><br>"
@@ -196,8 +196,7 @@
 
 		var/datum/category_item/player_setup_item/general/equipment/equipment_item = category.items[4]
 		equipment_item.sanitize_character()	// sanitize equipment
-		pref.update_preview_icon()
-		return TOPIC_REFRESH
+		return TOPIC_UPDATE_PREVIEW
 
 	else if(href_list["age"])
 		var/new_age = input(user, "Choose your character's age:\n([pref.getMinAge()]-[pref.getMaxAge()])", "Character Preference", pref.age) as num|null

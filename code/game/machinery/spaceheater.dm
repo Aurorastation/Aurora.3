@@ -50,13 +50,13 @@
 /obj/machinery/space_heater/emag_act(var/remaining_charges, mob/user)
 	if(!emagged)
 		emagged = TRUE
-		to_chat(user, span("warning", "You disable \the [src]'s temperature safety checks!"))
+		to_chat(user, SPAN_WARNING("You disable \the [src]'s temperature safety checks!"))
 		spark(src, 3)
 		playsound(src, "sparks", 100, 1)
 		heating_power = 45000 //Overridden safeties make it stronger, and it needs to work more efficiently to make use of big temp ranges
 		return 1
 	else
-		to_chat(user, span("danger", "\The [src]'s temperature safety checks have already been disabled!"))
+		to_chat(user, SPAN_DANGER("\The [src]'s temperature safety checks have already been disabled!"))
 		return 0
 
 /obj/machinery/space_heater/attackby(obj/item/I, mob/user)
@@ -71,16 +71,16 @@
 				cell = I
 				I.add_fingerprint(user)
 
-				visible_message(span("notice", "[user] inserts a power cell into [src]."),
-					span("notice", "You insert the power cell into [src]."))
+				visible_message(SPAN_NOTICE("[user] inserts a power cell into [src]."),
+					SPAN_NOTICE("You insert the power cell into [src]."))
 				power_change()
 		else
-			to_chat(user, span("notice", "The hatch must be open to insert a power cell."))
+			to_chat(user, SPAN_NOTICE("The hatch must be open to insert a power cell."))
 			return
 	else if(I.isscrewdriver())
 		panel_open = !panel_open
-		user.visible_message(span("notice", "[user] [panel_open ? "opens" : "closes"] the hatch on the [src]."),
-				span("notice", "You [panel_open ? "open" : "close"] the hatch on the [src]."))
+		user.visible_message(SPAN_NOTICE("[user] [panel_open ? "opens" : "closes"] the hatch on the [src]."),
+				SPAN_NOTICE("You [panel_open ? "open" : "close"] the hatch on the [src]."))
 		update_icon()
 
 		if(!panel_open && user.machine == src)
@@ -96,8 +96,8 @@
 	src.add_fingerprint(user)
 	if(panel_open)
 		if(cell)
-			user.visible_message(span("notice", "\The [user] removes \the [cell] from \the [src]."),
-				span("notice", "You remove \the [cell] from \the [src]."))
+			user.visible_message(SPAN_NOTICE("\The [user] removes \the [cell] from \the [src]."),
+				SPAN_NOTICE("You remove \the [cell] from \the [src]."))
 			cell.update_icon()
 			user.put_in_hands(cell)
 			cell.add_fingerprint(user)
@@ -158,18 +158,18 @@
 
 			if("off")
 				on = !on
-				usr.visible_message(span("notice", "[usr] switches off the [src]."),
-					span("notice", "You switch off the [src]."))
+				usr.visible_message(SPAN_NOTICE("[usr] switches off the [src]."),
+					SPAN_NOTICE("You switch off the [src]."))
 				update_icon()
 
 			if("on")
 				if(cell)
 					on = !on
-					usr.visible_message(span("notice", "\The [usr] switches on \the [src]."),
-						span("notice", "You switch on \the [src]."))
+					usr.visible_message(SPAN_NOTICE("\The [usr] switches on \the [src]."),
+						SPAN_NOTICE("You switch on \the [src]."))
 					update_icon()
 				else
-					to_chat(usr, span("notice", "You can't turn it on without a cell installed!"))
+					to_chat(usr, SPAN_NOTICE("You can't turn it on without a cell installed!"))
 					return
 		updateDialog()
 	else

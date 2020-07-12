@@ -20,5 +20,5 @@
 				L.take_organ_damage(10, 0)
 			sleep(100)
 	else
-		to_chat(user, span("warning", "You must be standing on the rune!"))
+		to_chat(user, SPAN_WARNING("You must be standing on the rune!"))
 	return fizzle(user, A)

@@ -15,12 +15,12 @@
 /obj/item/stack/wrapping_paper/attackby(obj/item/W, mob/user)
 	..()
 	if (!isturf(loc))
-		to_chat(user, span("warning", "The paper must be set down for you to wrap a gift!"))
+		to_chat(user, SPAN_WARNING("The paper must be set down for you to wrap a gift!"))
 		return
 	if (W.w_class < 4)
 		var/a_used = 2 * (src.w_class - 1)
 		if (src.amount < a_used)
-			to_chat(user, span("warning", "You need more paper!"))
+			to_chat(user, SPAN_WARNING("You need more paper!"))
 			return
 		else
 			if(istype(W, /obj/item/smallDelivery) || istype(W, /obj/item/gift)) //No gift wrapping gifts!
@@ -43,7 +43,7 @@
 			return
 
 	else
-		to_chat(user, span("warning", "This object is far too large to wrap!"))
+		to_chat(user, SPAN_WARNING("This object is far too large to wrap!"))
 	return
 
 

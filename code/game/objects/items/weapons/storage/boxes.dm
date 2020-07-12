@@ -54,7 +54,7 @@
 
 		if (istype(L, /mob/living/carbon/alien/diona) || istype(L, /mob/living/simple_animal) || istype(L, /mob/living/carbon/human))//Monkey-like things do attack_generic, not crew
 			if(contents.len && !locate(/obj/item/reagent_containers/food) in src) // you can tear open empty boxes for nesting material, or for food
-				to_chat(user, span("warning", "There's no food in that box!"))
+				to_chat(user, SPAN_WARNING("There's no food in that box!"))
 				return
 			var/damage
 			if (!L.mob_size)
@@ -80,9 +80,9 @@
 	..()
 	if (health < maxHealth)
 		if (health >= (maxHealth * 0.5))
-			to_chat(user, span("warning", "It is slightly torn."))
+			to_chat(user, SPAN_WARNING("It is slightly torn."))
 		else
-			to_chat(user, span("danger", "It is full of tears and holes."))
+			to_chat(user, SPAN_DANGER("It is full of tears and holes."))
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/storage/box/attack_self(mob/user as mob)
@@ -491,33 +491,28 @@
 	starts_with = list(/obj/item/toy/snappop/syndi = 8)
 
 /obj/item/storage/box/matches
-	name = "matchbox"
-	desc = "A small box of 'Space-Proof' premium matches."
+	name = "safety match box"
+	desc = "A small box of 'Space-Proof' premium safety matches." //can't strike these anywhere other than matchboxes, so they're safety matches
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "matchbox"
-	item_state = "zippo"
-	w_class = 1
+	item_state = "box"
+	w_class = ITEMSIZE_TINY
 	drop_sound = 'sound/items/drop/matchbox.ogg'
 	pickup_sound =  'sound/items/pickup/matchbox.ogg'
 	slot_flags = SLOT_BELT
 	can_hold = list(/obj/item/flame/match)
 	starts_with = list(/obj/item/flame/match = 10)
 
-/obj/item/storage/box/matches/attackby(obj/item/flame/match/W as obj, mob/user as mob)
-	if(istype(W) && !W.lit && !W.burnt)
+/obj/item/storage/box/matches/attackby(obj/item/flame/match/W, mob/user)
+	if(istype(W) && !W.lit)
 		if(prob(25))
 			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_lit.ogg', 25, 0, -1)
-			user.visible_message("<span class='notice'>[user] manages to light the match on the matchbox.</span>")
-			W.lit = 1
-			W.damtype = "burn"
-			W.icon_state = "match_lit"
-			W.item_state = "match_lit"
-			START_PROCESSING(SSprocessing, W)
+			user.visible_message("<b>[user]</b> manages to light \the [W] by striking it on \the [src].", range = 3)
+			W.light()
 		else
 			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_hit.ogg', 25, 0, -1)
 	W.update_icon()
 	return
-
 
 /obj/item/storage/box/autoinjectors
 	name = "box of empty injectors"

@@ -130,7 +130,7 @@
 	open = !open
 	icon_state = "[initial(icon_state)][open ? "_open" : ""]"
 	item_state = icon_state
-	to_chat(user, span("notice", "You [open ? "open" : "close"] \the [src]."))
+	to_chat(user, SPAN_NOTICE("You [open ? "open" : "close"] \the [src]."))
 	// the below forces the shirt to hard reset its image so it resets later its fucking weird ok
 	inv_overlay = null
 	mob_overlay = null

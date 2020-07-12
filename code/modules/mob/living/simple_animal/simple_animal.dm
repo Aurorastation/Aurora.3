@@ -110,7 +110,7 @@
 
 	var/has_udder = FALSE
 	var/datum/reagents/udder = null
-	var/milk_type = "milk"
+	var/milk_type = /datum/reagent/drink/milk
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 
@@ -433,7 +433,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				to_chat(user, "<span class='warning'>The [O] is full.</span>")
 				return
 			user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
-			udder.trans_id_to(G, milk_type , rand(5,10))
+			udder.trans_type_to(G, milk_type , rand(5,10))
 			return
 
 	if(istype(O, /obj/item/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/gripper/))
@@ -453,9 +453,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(O, brush) && canbrush) //Brushing animals
-		visible_message(span("notice", "[user] gently brushes [src] with \the [O]."))
+		visible_message(SPAN_NOTICE("[user] gently brushes [src] with \the [O]."))
 		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off.
-			visible_message(span("notice", "[src] [speak_emote.len ? pick(speak_emote) : "rumbles"].")) //purring
+			visible_message(SPAN_NOTICE("[src] [speak_emote.len ? pick(speak_emote) : "rumbles"].")) //purring
 		return
 	if(!O.force)
 		visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
@@ -573,7 +573,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return
 
 	if(usr && !sound_time)
-		to_chat(usr, span("warning", "Ability on cooldown 2 seconds."))
+		to_chat(usr, SPAN_WARNING("Ability on cooldown 2 seconds."))
 		return
 
 	playsound(src, pick(emote_sounds), 75, 1)
@@ -686,7 +686,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	else
 		fall_asleep()
 
-	to_chat(src, span("notice","You are now [resting ? "resting" : "getting up"]"))
+	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]"))
 
 	update_icons()
 
@@ -731,7 +731,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			adjustFireLoss(rand(3, 5))
 
 /mob/living/simple_animal/get_digestion_product()
-	return "nutriment"
+	return /datum/reagent/nutriment
 
 /mob/living/simple_animal/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
 	..()

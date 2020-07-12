@@ -4,7 +4,7 @@
 		return
 
 	if(victim)
-		to_chat(src, span("warning", "I am already feeding..."))
+		to_chat(src, SPAN_WARNING("I am already feeding..."))
 		return
 
 	var/target = invalidFeedTarget(M)
@@ -39,7 +39,7 @@
 	loc = M.loc
 	canmove = FALSE
 	anchored = TRUE
-	visible_message(span("danger", "\The [src] leaps onto [victim], feeding on them!"), span("warning", "You start feeding on [victim]."))
+	visible_message(SPAN_DANGER("\The [src] leaps onto [victim], feeding on them!"), SPAN_WARNING("You start feeding on [victim]."))
 
 	regenerate_icons()
 
@@ -62,7 +62,7 @@
 				victim.adjustBruteLoss(is_adult ? rand(9, 17) : rand(6, 14))
 
 			else
-				to_chat(src, span("warning", "[pick("This subject is incompatible", "This subject does not have a life energy", "This subject is empty", "I am not satisfied", "I can not feed from this subject", "I do not feel nourished", "This subject is not food")]..."))
+				to_chat(src, SPAN_WARNING("[pick("This subject is incompatible", "This subject does not have a life energy", "This subject is empty", "I am not satisfied", "I can not feed from this subject", "I do not feel nourished", "This subject is not food")]..."))
 				Feedstop()
 				break
 
@@ -74,7 +74,7 @@
 				else if (istype(M, /mob/living/carbon))
 					var/mob/living/carbon/C = M
 					if(!(C.species && (C.species.flags & NO_PAIN)))
-						to_chat(M, span("danger", "[painMes]"))
+						to_chat(M, SPAN_DANGER("[painMes]"))
 
 			gain_nutrition(rand(20,25))
 
@@ -87,7 +87,7 @@
 				victim.updatehealth()
 
 			if(nutrition == get_max_nutrition())
-				visible_message(span("warning", "\The [src] releases [victim], content and full."), span("warning", "You are full."))
+				visible_message(SPAN_WARNING("\The [src] releases [victim], content and full."), SPAN_WARNING("You are full."))
 				break
 
 			sleep(30) // Deal damage every 3 seconds
@@ -108,14 +108,14 @@
 						++friends[real_assailant]
 
 		else
-			to_chat(src, span("notice", "This subject does not have a strong enough life energy anymore..."))
+			to_chat(src, SPAN_NOTICE("This subject does not have a strong enough life energy anymore..."))
 
 	victim = null
 
 /mob/living/carbon/slime/proc/Feedstop()
 	if(victim)
 		if(victim.client)
-			to_chat(victim, span("warning", "\The [src] has let go of your head!"))
+			to_chat(victim, SPAN_WARNING("\The [src] has let go of your head!"))
 		victim = null
 
 /mob/living/carbon/slime/proc/UpdateFeed(var/mob/M)
@@ -128,7 +128,7 @@
 	set desc = "This will let you evolve from baby to adult slime."
 
 	if(stat)
-		to_chat(src, span("notice", "I must be conscious to do this..."))
+		to_chat(src, SPAN_NOTICE("I must be conscious to do this..."))
 		return
 
 	if(!is_adult)
@@ -144,22 +144,22 @@
 			set_content(TRUE)
 			addtimer(CALLBACK(src, .proc/set_content, FALSE), 1200) // You get two minutes of safety
 		else
-			to_chat(src, span("notice", "I am not ready to evolve yet..."))
+			to_chat(src, SPAN_NOTICE("I am not ready to evolve yet..."))
 	else
-		to_chat(src, span("notice", "I have already evolved..."))
+		to_chat(src, SPAN_NOTICE("I have already evolved..."))
 
 /mob/living/carbon/slime/verb/Reproduce()
 	set category = "Slime"
 	set desc = "This will make you split into four Slimes."
 
 	if(stat)
-		to_chat(src, span("notice", "I must be conscious to do this..."))
+		to_chat(src, SPAN_NOTICE("I must be conscious to do this..."))
 		return
 
 	if(is_adult)
 		if(amount_grown >= 5)
 			if(stat)
-				to_chat(src, span("notice", "I must be conscious to do this..."))
+				to_chat(src, SPAN_NOTICE("I must be conscious to do this..."))
 				return
 
 			var/list/babies = list()
@@ -189,6 +189,6 @@
 				new_slime.key = src.key
 			qdel(src)
 		else
-			to_chat(src, span("notice", "I am not ready to reproduce yet..."))
+			to_chat(src, SPAN_NOTICE("I am not ready to reproduce yet..."))
 	else
-		to_chat(src, span("notice", "I am not old enough to reproduce yet..."))
+		to_chat(src, SPAN_NOTICE("I am not old enough to reproduce yet..."))

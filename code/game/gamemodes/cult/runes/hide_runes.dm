@@ -12,6 +12,6 @@
 	if(rune_found)
 		user.say("Kla'atu barada nikt'o!")
 		for(var/mob/V in viewers(get_turf(A)))
-			to_chat(V, span("warning", "\The [A] dissipates into a bloody cloud, veiling the surrounding runes."))
+			to_chat(V, SPAN_WARNING("\The [A] dissipates into a bloody cloud, veiling the surrounding runes."))
 		qdel(A)
 		return TRUE

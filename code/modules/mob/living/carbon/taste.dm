@@ -35,7 +35,7 @@ calculate text size per text.
 		for(var/datum/reagent/R in reagent_list)
 			if(!R.taste_mult)
 				continue
-			if(R.id == "nutriment" || R.id == "synnutriment") //this is ugly but apparently only nutriment (not subtypes) has taste data TODO figure out why
+			if(istype(R, /datum/reagent/nutriment))
 				var/list/taste_data = R.get_data()
 				for(var/taste in taste_data)
 					if(taste in tastes)
@@ -44,7 +44,7 @@ calculate text size per text.
 						tastes[taste] = taste_data[taste]
 			else
 				var/taste_desc = R.taste_description
-				var/taste_amount = get_reagent_amount(R.id) * R.taste_mult
+				var/taste_amount = get_reagent_amount(R.type) * R.taste_mult
 				if(R.taste_description in tastes)
 					tastes[taste_desc] += taste_amount
 				else
@@ -99,4 +99,4 @@ calculate text size per text.
 	return "[temp_text][temp_text ? " " : ""][english_list(out, "something indescribable")]."
 
 /mob/living/carbon/proc/get_fullness()
-	return nutrition + (reagents.get_reagent_amount("nutriment") * 25)
+	return nutrition + (reagents.get_reagent_amount(/datum/reagent/nutriment) * 25)

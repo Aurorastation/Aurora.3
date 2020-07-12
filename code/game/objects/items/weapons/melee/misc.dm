@@ -42,13 +42,13 @@
 	active= !active
 	if(active)
 		playsound(user, 'sound/weapons/saw/chainsawstart.ogg', 50, 1)
-		to_chat(user, span("notice", "\The [src] rumbles to life."))
+		to_chat(user, SPAN_NOTICE("\The [src] rumbles to life."))
 		force = 35
 		hitsound = 'sound/weapons/saw/chainsword.ogg'
 		icon_state = "chainswordon"
 		slot_flags = null
 	else
-		to_chat(user, span("notice", "\The [src] slowly powers down."))
+		to_chat(user, SPAN_NOTICE("\The [src] slowly powers down."))
 		force = initial(force)
 		hitsound = initial(hitsound)
 		icon_state = initial(icon_state)

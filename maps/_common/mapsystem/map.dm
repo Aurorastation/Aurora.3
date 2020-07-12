@@ -66,6 +66,7 @@
 
 	var/lobby_icon                         // The icon which contains the lobby image(s)
 	var/list/lobby_screens = list("title") // The list of lobby screen to pick() from. If left unset the first icon state is always selected.
+	var/lobby_transitions = FALSE          // If a number, transition between the lobby screens with this delay instead of picking just one.
 
 	var/use_overmap = FALSE		//If overmap should be used (including overmap space travel override)
 	var/overmap_size = 20		//Dimensions of overmap zlevel if overmap is used.

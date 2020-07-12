@@ -55,7 +55,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/boukha = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/brandy = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/grenadine = 5,
-		/obj/item/reagent_containers/food/drinks/bottle/tequilla = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/tequila = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/rum = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/cognac = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/cremeyvette = 4,
@@ -357,7 +357,7 @@
 	)
 	premium = list(
 		/obj/item/flame/lighter/zippo = 4,
-		/obj/item/storage/fancy/cigar = 5
+		/obj/item/storage/fancy/cigarettes/cigar = 5
 	)
 	prices = list(
 		/obj/item/storage/fancy/cigarettes/rugged = 67,
@@ -402,7 +402,7 @@
 		/obj/item/reagent_containers/glass/beaker = 4,
 		/obj/item/reagent_containers/dropper = 2,
 		/obj/item/stack/medical/bruise_pack = 5,
-		/obj/item/stack/medical/ointment = 5,		
+		/obj/item/stack/medical/ointment = 5,
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
 		/obj/item/stack/medical/advanced/ointment = 3,
 		/obj/item/stack/medical/splint = 2,

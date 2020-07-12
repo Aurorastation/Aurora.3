@@ -95,8 +95,8 @@ proc/get_radio_key_from_channel(var/channel)
 /mob/living/proc/get_default_language()
 	return default_language
 
-/mob/living/proc/is_muzzled()
-	return 0
+/mob/proc/is_muzzled()
+	return istype(wear_mask, /obj/item/clothing/mask/muzzle)
 
 /mob/living/proc/handle_speech_problems(var/message, var/verb, var/message_mode)
 	var/list/returns[4]
@@ -193,7 +193,7 @@ proc/get_radio_key_from_channel(var/channel)
 	// irrespective of distance or anything else.
 	if(speaking && (speaking.flags & HIVEMIND))
 		if(speaking.name == LANGUAGE_VAURCA && within_jamming_range(src))
-			to_chat(src, span("warning", "Your head buzzes as your message is blocked with jamming signals."))
+			to_chat(src, SPAN_WARNING("Your head buzzes as your message is blocked with jamming signals."))
 			return
 		speaking.broadcast(src,trim(message))
 		return 1

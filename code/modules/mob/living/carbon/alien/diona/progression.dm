@@ -20,15 +20,15 @@
 
 	var/limbs_can_grow = round((nutrition / evolve_nutrition) * 6,1)
 	if(limbs_can_grow <= 3) //Head, Trunk, Fork
-		to_chat(src, span("warning", "You do not have enough biomass to grow yet. Currently you can only grow [limbs_can_grow]/6 limbs. ([nutrition]/[evolve_nutrition] biomass)."))
+		to_chat(src, SPAN_WARNING("You do not have enough biomass to grow yet. Currently you can only grow [limbs_can_grow]/6 limbs. ([nutrition]/[evolve_nutrition] biomass)."))
 		return
 
 	if(gestalt)
-		to_chat(src, span("warning", "You are already part of a collective, if you wish to form your own, you must split off first."))
+		to_chat(src, SPAN_WARNING("You are already part of a collective, if you wish to form your own, you must split off first."))
 		return
 
 	if(!isturf(loc))
-		to_chat(src, span("warning", "There's not enough space to grow here. Stand on the floor!"))
+		to_chat(src, SPAN_WARNING("There's not enough space to grow here. Stand on the floor!"))
 		return
 
 	// confirm_evolution() handles choices and other specific requirements.
@@ -38,11 +38,11 @@
 
 	stunned = 10 // No more moving or talking for now
 	playsound(src.loc, 'sound/species/diona/gestalt_grow.ogg', 100, 1)
-	visible_message(span("warning", "[src] begins to shift and quiver."),
-	span("warning", "You begin to shift and quiver, feeling your awareness splinter."))
+	visible_message(SPAN_WARNING("[src] begins to shift and quiver."),
+	SPAN_WARNING("You begin to shift and quiver, feeling your awareness splinter."))
 	sleep(52)
-	visible_message(span("warning", "[src] erupts in a shower of shed bark as it splits into a tangle of new gestalt."),
-	span("warning", "All at once, we consume our stored nutrients to surge with growth, splitting into a tangle of new gestalt. We have attained a new form."))
+	visible_message(SPAN_WARNING("[src] erupts in a shower of shed bark as it splits into a tangle of new gestalt."),
+	SPAN_WARNING("All at once, we consume our stored nutrients to surge with growth, splitting into a tangle of new gestalt. We have attained a new form."))
 
 	var/mob/living/carbon/human/adult = new adult_form(get_turf(src))
 	adult.set_species(new_species)
@@ -86,7 +86,7 @@
 		if(limbs_to_remove <= 0)
 			break
 		var/obj/item/organ/external/O = adult.organs_by_name[organ_name]
-		to_chat(src, span("warning", "You didn't have enough biomass to grow your [O.name]!"))
+		to_chat(src, SPAN_WARNING("You didn't have enough biomass to grow your [O.name]!"))
 		O.droplimb(1, DROPLIMB_EDGE)
 		qdel(O)
 		limbs_to_remove -= 1
