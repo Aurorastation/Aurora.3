@@ -13,7 +13,7 @@
 	var/list/sad_emote = list("whimpers")
 
 /mob/living/simple_animal/hostile/commanded/Initialize()
-	..()
+	. = ..()
 	if(!short_name)
 		short_name = name
 

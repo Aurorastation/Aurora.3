@@ -70,6 +70,8 @@
 
 /mob/living/silicon/Destroy()
 	silicon_mob_list -= src
+	QDEL_NULL(computer)
+	QDEL_NULL(rcon)
 	QDEL_NULL(alarm_monitor)
 	QDEL_NULL(law_manager)
 	QDEL_NULL(computer)

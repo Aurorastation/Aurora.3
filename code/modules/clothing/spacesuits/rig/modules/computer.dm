@@ -25,8 +25,10 @@
 
 	module.holder.ui_interact(usr, nano_state = contained_state)
 
-/obj/item/rig_module/ai_container
+/mob
+	var/get_rig_stats = 0
 
+/obj/item/rig_module/ai_container
 	name = "IIS module"
 	desc = "An integrated intelligence system module suitable for most hardsuits."
 	icon_state = "IIS"
@@ -52,8 +54,10 @@
 
 	category = MODULE_GENERAL
 
-/mob
-	var/get_rig_stats = 0
+/obj/item/rig_module/ai_container/Destroy()
+	qdel(ai_card)
+	qdel(verb_holder)
+	return ..()
 
 /obj/item/rig_module/ai_container/process()
 	if(integrated_ai)
