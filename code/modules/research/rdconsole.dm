@@ -687,7 +687,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				if(linked_lathe.canBuild(D))
 					dat += "<LI><B><A href='?src=\ref[src];build=[D.type]'>[D.name]</A></B>[temp_dat]"
 				else
-					dat += "<LI><B>[D.name]</B>[temp_dat]"
+					dat += "<LI><B><div class='no-build'>[D.name]</div></B>[temp_dat]"
 			dat += "</UL>"
 			dat += "</div>"
 
@@ -766,7 +766,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				if(linked_imprinter.canBuild(D))
 					dat += "<LI><B><A href='?src=\ref[src];imprint=[D.type]'>[D.name]</A></B>[temp_dat]"
 				else
-					dat += "<LI><B>[D.name]</B>[temp_dat]"
+					dat += "<LI><B><div class='no-build'>[D.name]</div></B>[temp_dat]"
 			dat += "</UL>"
 			dat += "</div>"
 
