@@ -190,3 +190,8 @@
 	if(istype(l_ear, /obj/item/device/hearing_aid) || istype(r_ear, /obj/item/device/hearing_aid))
 		return TRUE
 	return FALSE
+
+/mob/living/carbon/human/proc/is_submerged()
+	if(lying && istype(loc, /turf/simulated/floor/beach/water)) // replace this when we port fluids
+		return TRUE
+	return FALSE

@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Drowning in the pool no longer causes your lungs to pop."
+  - bugfix: "You will no longer gasp for air when submerged, instead you will flail violently."

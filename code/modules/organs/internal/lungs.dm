@@ -80,7 +80,10 @@
 /obj/item/organ/internal/lungs/proc/handle_failed_breath()
 	if(prob(15) && !owner.nervous_system_failure())
 		if(!owner.is_asystole())
-			owner.emote("gasp")
+			if(owner.is_submerged())
+				owner.emote("flail")
+			else
+				owner.emote("gasp")
 		else
 			owner.emote(pick("shiver","twitch"))
 
@@ -153,7 +156,10 @@
 	if(inhale_efficiency < 1)
 		if(prob(20))
 			if(inhale_efficiency < 0.8)
-				owner.emote("gasp")
+				if(owner.is_submerged())
+					owner.emote("flail")
+				else
+					owner.emote("gasp")
 			else if(prob(20))
 				to_chat(owner, SPAN_WARNING("It's hard to breathe..."))
 		breath_fail_ratio = 1 - inhale_efficiency
