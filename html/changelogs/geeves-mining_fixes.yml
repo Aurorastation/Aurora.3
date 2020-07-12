@@ -1,0 +1,12 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - backend: "Stacks now spawn new stacks if their amount is larger than their max amount."
+  - bugfix: "Drills can now drill at the lowest Z-level with no station breach warning."
+  - bugfix: "Inputs and outputs for mining machines are no longer visible to players."
+  - rscadd: "Added descriptions to all the mining refinery machines."
+  - bugfix: "Stacking machine consoles now properly get their console screens."
+  - bugfix: "Stacking machines now do their stacking without having to access their console first."
+  - rscadd: "Added a small amount of invisible pixels to the processing consoles sprites, to prevent misclicks onto walls."
