@@ -33,10 +33,10 @@
 
 	if(!src.incorporeal_move)
 		src.incorporeal_move = 2
-		to_chat(src, span("notice", "You will now phase through solid matter."))
+		to_chat(src, SPAN_NOTICE("You will now phase through solid matter."))
 	else
 		src.incorporeal_move = 0
-		to_chat(src, span("notice", "You will no-longer phase through solid matter."))
+		to_chat(src, SPAN_NOTICE("You will no-longer phase through solid matter."))
 	return
 
 /mob/living/silicon/robot/bluespace/verb/bstrecover()
@@ -74,4 +74,4 @@
 	set category = "BST"
 
 	status_flags ^= GODMODE
-	to_chat(src, span("notice", "God mode is now [status_flags & GODMODE ? "enabled" : "disabled"]"))
+	to_chat(src, SPAN_NOTICE("God mode is now [status_flags & GODMODE ? "enabled" : "disabled"]"))

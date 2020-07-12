@@ -57,7 +57,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	if(user == src && zone_sel.selecting == BP_MOUTH && can_devour(I, silent = TRUE))
 		var/obj/item/blocked = src.check_mouth_coverage()
 		if(blocked)
-			to_chat(user, span("warning", "\The [blocked] is in the way!"))
+			to_chat(user, SPAN_WARNING("\The [blocked] is in the way!"))
 			return TRUE
 		if(devour(I))
 			return TRUE

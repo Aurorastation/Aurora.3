@@ -139,7 +139,7 @@
 
 /datum/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, removed)
 	if(prob(10*(strength/100)))
-		to_chat(M, span("danger","Your insides are burning!")) // it would be quite painful to inject alcohol or otherwise get it in your bloodstream directly, without metabolising any
+		to_chat(M, SPAN_DANGER("Your insides are burning!")) // it would be quite painful to inject alcohol or otherwise get it in your bloodstream directly, without metabolising any
 	M.adjustToxLoss(removed * blood_to_ingest_scale * (strength/100) )
 	affect_ingest(M,alien,removed * blood_to_ingest_scale)
 	return

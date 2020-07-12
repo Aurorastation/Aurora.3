@@ -1213,14 +1213,14 @@ var/list/admin_verbs_cciaa = list(
 		if (isnull(P) || !ismob(P))
 			var/msg = "P_LIST DEBUG: Found null entry in player_list!"
 			log_debug(msg)
-			message_admins(span("danger", msg))
+			message_admins(SPAN_DANGER(msg))
 			player_list -= P
 		else
 			var/mob/M = P
 			if (!M.client)
 				var/msg = "P_LIST DEBUG: Found a mob without a client in player_list! [M.name]"
 				log_debug(msg)
-				message_admins(span("danger", msg))
+				message_admins(SPAN_DANGER(msg))
 				player_list -= M
 
 /client/proc/reset_openturf()

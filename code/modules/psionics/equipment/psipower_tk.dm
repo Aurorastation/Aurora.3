@@ -33,7 +33,7 @@
 		focus = _focus
 		. = attack_self(owner)
 		if(!.)
-			to_chat(owner, span("warning", "\The [_focus] is too hefty for you to get a mind-grip on."))
+			to_chat(owner, SPAN_WARNING("\The [_focus] is too hefty for you to get a mind-grip on."))
 		qdel(src)
 		return FALSE
 
@@ -46,7 +46,7 @@
 	return TRUE
 
 /obj/item/psychic_power/telekinesis/attack_self(var/mob/user)
-	user.visible_message(span("notice", "\The [user] makes a strange gesture."))
+	user.visible_message(SPAN_NOTICE("\The [user] makes a strange gesture."))
 	sparkle()
 	return focus.do_simple_ranged_interaction(user)
 
@@ -60,13 +60,13 @@
 
 	var/distance = get_dist(get_turf(user), get_turf(focus ? focus : target))
 	if(distance > user.psi.get_rank(PSI_PSYCHOKINESIS))
-		to_chat(user, span("warning", "Your telekinetic power won't reach that far."))
+		to_chat(user, SPAN_WARNING("Your telekinetic power won't reach that far."))
 		return FALSE
 
 	if(target == focus)
 		attack_self(user)
 	else
-		user.visible_message(span("danger", "\The [user] gestures sharply!"))
+		user.visible_message(SPAN_DANGER("\The [user] gestures sharply!"))
 		sparkle()
 		if(!istype(target, /turf) && istype(focus,/obj/item) && target.Adjacent(focus))
 			var/obj/item/I = focus
