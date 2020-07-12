@@ -49,35 +49,33 @@ research holder datum.
 	var/list/possible_designs = list()		//List of all designs.
 	var/list/known_designs = list()			//List of available designs.
 
+	var/standard_start_level				// The level non-antag techs are set at
+	var/antag_start_level					// ditto but antag
+	var/load_tech = TRUE					// Whether we should gather the techs
+	var/load_designs = TRUE					// ditto but designs
+
 /datum/research/New()		//Insert techs into possible_tech here. Known_tech automatically updated.
-	for(var/tech_path in subtypesof(/datum/tech))
-		var/datum/tech/T = new tech_path(src)
-		known_tech[T.id] = T
-	for(var/design_path in subtypesof(/datum/design))
-		var/datum/design/D = new design_path(src)
-		possible_designs[D.type] = D
+	if(load_tech)
+		for(var/tech_path in subtypesof(/datum/tech))
+			var/datum/tech/T = new tech_path(src)
+			known_tech[T.id] = T
+			if(!T.antag_tech)
+				if(standard_start_level)
+					T.level = standard_start_level
+			else
+				if(antag_start_level)
+					T.level = antag_start_level
+	if(load_designs)
+		for(var/design_path in subtypesof(/datum/design))
+			var/datum/design/D = new design_path(src)
+			possible_designs[D.type] = D
 	RefreshResearch()
 
 /datum/research/techonly
-
-/datum/research/techonly/New()
-	for(var/tech_path in subtypesof(/datum/tech))
-		var/datum/tech/T = new tech_path(src)
-		known_tech[T.id] = T
-	RefreshResearch()
+	load_designs = FALSE
 
 /datum/research/hightech
-
-/datum/research/hightech/New()
-	for(var/tech_path in subtypesof(/datum/tech))
-		var/datum/tech/T = new tech_path(src)
-		if(!istype(T, /datum/tech/syndicate) && !istype(T, /datum/tech/arcane)) //illegal or antag shit we don't want to start with
-			T.level = 3
-		known_tech[T.id] = T
-	for(var/design_path in subtypesof(/datum/design))
-		var/datum/design/D = new design_path(src)
-		possible_designs[D.type] = D
-	RefreshResearch()
+	standard_start_level = 3
 
 //Checks to see if design has all the required pre-reqs.
 //Input: datum/design; Output: 0/1 (false/true)
@@ -166,6 +164,7 @@ research holder datum.
 	var/name = "name"					//Name of the technology.
 	var/desc = "description"			//General description of what it does and what it makes.
 	var/id = "id"						//An easily referenced ID. Must be alphanumeric, lower-case, and no symbols.
+	var/antag_tech
 	var/level = 1						//A simple number scale of the research level. Level 0 = Secret tech.
 	var/next_level_progress = 0			// The research progress until the next level is reached, makes things more gradual
 	var/next_level_threshold = 10		// The next threshold that must be reached before it ticks to the next level
@@ -219,12 +218,14 @@ research holder datum.
 	name = "Illegal Technologies Research"
 	desc = "The study of technologies that violate standard government regulations."
 	id = TECH_ILLEGAL
+	antag_tech = TRUE
 	level = 0
 
 /datum/tech/arcane
 	name = "Arcane Research"
 	desc = "Research into the occult and arcane field for use in practical science"
 	id = TECH_ARCANE
+	antag_tech = TRUE
 	level = 0
 
 /obj/item/disk/tech_disk
