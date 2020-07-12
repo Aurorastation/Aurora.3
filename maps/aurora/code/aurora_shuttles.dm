@@ -31,7 +31,7 @@
 } \
 /obj/effect/shuttle_landmark/escape_pod/start/pod##NUMBER { \
 	landmark_tag = "escape_pod_"+ #NUMBER +"_start"; \
-	docking_controller = "escape_pod_"+ #NUMBER +"_berth"; \
+	docking_controller = "escape_pod_" + #NUMBER +"_berth"; \
 } \
 /obj/effect/shuttle_landmark/escape_pod/out/pod##NUMBER { \
 	landmark_tag = "escape_pod_"+ #NUMBER +"_out"; \
