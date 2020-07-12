@@ -97,18 +97,20 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
 			var/server_processed = 0
 			if((id in S.id_with_upload) || istype(S, /obj/machinery/r_n_d/server/centcom))
-				for(var/id in files.known_tech)
-					var/datum/tech/T = files.known_tech[id]
+				for(var/tech_id in files.known_tech)
+					var/datum/tech/T = files.known_tech[tech_id]
 					S.files.AddTech2Known(T)
-				for(var/datum/design/D in files.known_designs)
+				for(var/path in files.known_designs)
+					var/datum/design/D = files.known_designs[path]
 					S.files.AddDesign2Known(D)
 				S.files.RefreshResearch()
 				server_processed = 1
 			if((id in S.id_with_download) && !istype(S, /obj/machinery/r_n_d/server/centcom))
-				for(var/id in S.files.known_tech)
-					var/datum/tech/T = S.files.known_tech[id]
+				for(var/tech_id in S.files.known_tech)
+					var/datum/tech/T = S.files.known_tech[tech_id]
 					files.AddTech2Known(T)
-				for(var/datum/design/D in S.files.known_designs)
+				for(var/path in S.files.known_designs)
+					var/datum/design/D = S.files.known_designs[path]
 					files.AddDesign2Known(D)
 				files.RefreshResearch()
 				server_processed = 1
@@ -119,22 +121,27 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 /obj/machinery/computer/rdconsole/proc/griefProtection() //Have it automatically push research to the centcomm server so wild griffins can't fuck up R&D's work
 	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachinery.all_machines)
-		for(var/id in files.known_tech)
-			var/datum/tech/T = files.known_tech[id]
+		for(var/tech_id in files.known_tech)
+			var/datum/tech/T = files.known_tech[tech_id]
 			C.files.AddTech2Known(files.known_tech[T])
-		for(var/datum/design/D in files.known_designs)
+		for(var/path in files.known_designs)
+			var/datum/design/D = files.known_designs[path]
 			C.files.AddDesign2Known(D)
 		C.files.RefreshResearch()
 
 /obj/machinery/computer/rdconsole/Initialize()
-	. = ..()
+	..()
 	files = new /datum/research(src) //Setup the research data holder.
 	if(!id)
 		for(var/obj/machinery/r_n_d/server/centcom/S in SSmachinery.all_machines)
 			S.setup()
 			break
 	SyncRDevices()
-	addtimer(CALLBACK(src, .proc/SyncTechs), 30)
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/computer/rdconsole/LateInitialize()
+	SyncTechs()
+	screen = 1.0
 
 /obj/machinery/computer/rdconsole/Destroy()
 	if(linked_destroy != null)
@@ -202,11 +209,13 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	else if(href_list["eject_tech"]) //Eject the technology disk.
 		t_disk.forceMove(loc)
+		usr.put_in_hands(t_disk)
 		t_disk = null
 		screen = 1.0
 
 	else if(href_list["copy_tech"]) //Copys some technology data from the research holder to the disk.
-		t_disk.stored = href_list["copy_tech_sent"]
+		var/datum/tech/T = files.known_tech[href_list["copy_tech_sent"]]
+		t_disk.stored = T
 		screen = 1.2
 
 	else if(href_list["updt_design"]) //Updates the research holder with design data from the design disk.
@@ -222,14 +231,14 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	else if(href_list["eject_design"]) //Eject the design disk.
 		d_disk.forceMove(loc)
+		usr.put_in_hands(d_disk)
 		d_disk = null
 		screen = 1.0
 
 	else if(href_list["copy_design"]) //Copy design data from the research holder to the design disk.
-		for(var/datum/design/D in files.known_designs)
-			if("[D.type]" == href_list["copy_design_ID"])
-				d_disk.blueprint = D
-				break
+		var/path = text2path(href_list["copy_design_sent"])
+		var/datum/design/D = files.known_designs[path]
+		d_disk.blueprint = D
 		screen = 1.4
 
 	else if(href_list["eject_item"]) //Eject the item inside the destructive analyzer.
@@ -239,6 +248,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 			else if(linked_destroy.loaded_item)
 				linked_destroy.loaded_item.forceMove(linked_destroy.loc)
+				if(linked_destroy.Adjacent(usr))
+					usr.put_in_hands(linked_destroy.loaded_item)
 				linked_destroy.loaded_item = null
 				linked_destroy.icon_state = "d_analyzer"
 				screen = 2.1
@@ -310,26 +321,17 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	else if(href_list["build"]) //Causes the Protolathe to build something.
 		if(linked_lathe)
-			var/datum/design/being_built = null
-			for(var/datum/design/D in files.known_designs)
-				if("[D.type]" == href_list["build"])
-					being_built = D
-					break
-			if(being_built)
-				linked_lathe.addToQueue(being_built)
-
+			var/path = text2path(href_list["build"])
+			var/datum/design/D = files.known_designs[path]
+			linked_lathe.addToQueue(D)
 		screen = 3.1
 		updateUsrDialog()
 
 	else if(href_list["imprint"]) //Causes the Circuit Imprinter to build something.
 		if(linked_imprinter)
-			var/datum/design/being_built = null
-			for(var/datum/design/D in files.known_designs)
-				if("[D.type]" == href_list["imprint"])
-					being_built = D
-					break
-			if(being_built)
-				linked_imprinter.addToQueue(being_built)
+			var/path = text2path(href_list["imprint"])
+			var/datum/design/D = files.known_designs[path]
+			linked_imprinter.addToQueue(D)
 		screen = 4.1
 		updateUsrDialog()
 
@@ -430,14 +432,18 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole/proc/GetResearchLevelsInfo()
 	var/dat
 	dat += "<UL>"
-	for(var/id in files.known_tech)
-		var/datum/tech/T = files.known_tech[id]
+	for(var/tech_id in files.known_tech)
+		var/datum/tech/T = files.known_tech[tech_id]
 		if(T.level < 1)
 			continue
 		dat += "<LI>"
-		dat += "[T.name]"
+		dat += "<u><b>[T.name]</b></u>"
 		dat += "<UL>"
 		dat +=  "<LI>Level: [T.level]"
+		if(T.level == 15)
+			dat +=  "<LI>Progress: Complete"
+		else
+			dat +=  "<LI>Progress: [T.next_level_progress]/[T.next_level_threshold]"
 		dat +=  "<LI>Summary: [T.desc]"
 		dat += "</UL>"
 	return dat
@@ -445,7 +451,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole/proc/GetResearchListInfo()
 	var/dat
 	dat += "<UL>"
-	for(var/datum/design/D in files.known_designs)
+	for(var/path in files.known_designs)
+		var/datum/design/D = files.known_designs[path]
 		if(D.build_path)
 			dat += "<LI><B>[D.name]</B>: [D.desc]"
 	dat += "</UL>"
@@ -546,10 +553,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='?src=\ref[src];menu=1.2'>Return to Disk Operations</A><HR>"
 			dat += "Load Technology to Disk:<BR><BR>"
 			dat += "<UL>"
-			for(var/id in files.known_tech)
-				var/datum/tech/T = files.known_tech[id]
+			for(var/tech_id in files.known_tech)
+				var/datum/tech/T = files.known_tech[tech_id]
 				dat += "<LI>[T.name] "
-				dat += "\[<A href='?src=\ref[src];copy_tech=1;copy_tech_sent=[T]'>copy to disk</A>\]"
+				dat += "\[<A href='?src=\ref[src];copy_tech=1;copy_tech_sent=[T.id]'>copy to disk</A>\]"
 			dat += "</UL>"
 
 		if(1.4) //Design Disk menu.
@@ -577,10 +584,11 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<A href='?src=\ref[src];menu=1.4'>Return to Disk Operations</A><HR>"
 			dat += "Load Design to Disk:<BR><BR>"
 			dat += "<UL>"
-			for(var/datum/design/D in files.known_designs)
+			for(var/path in files.known_designs)
+				var/datum/design/D = files.known_designs[path]
 				if(D.build_path)
 					dat += "<LI>[D.name] "
-					dat += "<A href='?src=\ref[src];copy_design=1;copy_design_ID=[D.type]'>\[copy to disk\]</A>"
+					dat += "<A href='?src=\ref[src];copy_design=1;copy_design_sent=[D.type]'>\[copy to disk\]</A>"
 			dat += "</UL>"
 
 		if(1.6) //R&D console settings
@@ -639,16 +647,16 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "Name: [linked_destroy.loaded_item.name]<BR>"
 			dat += "Origin Tech:"
 			dat += "<UL>"
-			for(var/T in linked_destroy.loaded_item.origin_tech)
-				dat += "<LI>[CallTechName(T)] [linked_destroy.loaded_item.origin_tech[T]]"
-				for(var/id in files.known_tech)
-					var/datum/tech/F = files.known_tech[id]
-					if(F.name == CallTechName(T))
-						dat += " (Current: [F.level])"
-						break
+			for(var/tech_id in linked_destroy.loaded_item.origin_tech)
+				var/datum/tech/T = files.known_tech[tech_id]
+				dat += "<LI>[capitalize_first_letters(T.name)]: \[Level: [linked_destroy.loaded_item.origin_tech[tech_id]] || Progress Contribution: [files.get_level_value(linked_destroy.loaded_item.origin_tech[tech_id])]\]"
+				dat += " (Current Level: [T.level] || Current Progress: [T.next_level_progress]/[T.next_level_threshold])"
 			dat += "</UL>"
-			dat += "<HR><A href='?src=\ref[src];deconstruct=1'>Deconstruct Item</A> || "
-			dat += "<A href='?src=\ref[src];eject_item=1'>Eject Item</A> || "
+			if(!istype(linked_destroy.loaded_item, /obj/item/stack))
+				dat += "<HR><A href='?src=\ref[src];deconstruct=1'>Deconstruct Item</A> || "
+			else
+				dat += "<HR><A href='?src=\ref[src];deconstruct=1'>Deconstruct One In Stack</A> || "
+			dat += "<A href='?src=\ref[src];eject_item=1'>Eject Item</A>"
 
 		/////////////////////PROTOLATHE SCREENS/////////////////////////
 		if(3.0)
@@ -663,8 +671,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "Protolathe Menu:<BR><BR>"
 			dat += "<B>Material Amount:</B> [linked_lathe.TotalMaterials()] cm<sup>3</sup> (MAX: [linked_lathe.max_material_storage])<BR>"
 			dat += "<B>Chemical Volume:</B> [linked_lathe.reagents.total_volume] (MAX: [linked_lathe.reagents.maximum_volume])<HR>"
+			dat += "<div class='rdconsole-build'>"
 			dat += "<UL>"
-			for(var/datum/design/D in files.known_designs)
+			for(var/path in files.known_designs)
+				var/datum/design/D = files.known_designs[path]
 				if(!D.build_path || !(D.build_type & PROTOLATHE))
 					continue
 				var/temp_dat
@@ -679,6 +689,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				else
 					dat += "<LI><B>[D.name]</B>[temp_dat]"
 			dat += "</UL>"
+			dat += "</div>"
 
 		if(3.2) //Protolathe Material Storage Sub-menu
 			dat += "<A href='?src=\ref[src];menu=1.0'>Main Menu</A> || "
@@ -721,9 +732,9 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 						if(linked_lathe.busy)
 							dat += "<B>1: [D.name]</B><BR>"
 						else
-							dat += "<B>1: [D.name]</B> (Awaiting materials) <A href='?src=\ref[src];removeP=[tmp]'>(Remove)</A><BR>"
+							dat += "<B>1: [D.name]</B> (Awaiting materials) <A href='?src=\ref[src];removeP=[tmp]'>Remove</A><BR>"
 					else
-						dat += "[tmp]: [D.name] <A href='?src=\ref[src];removeP=[tmp]'>(Remove)</A><BR>"
+						dat += "[tmp]: [D.name] <A href='?src=\ref[src];removeP=[tmp]'>Remove</A><BR>"
 					++tmp
 
 		///////////////////CIRCUIT IMPRINTER SCREENS////////////////////
@@ -739,8 +750,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "Circuit Imprinter Menu:<BR><BR>"
 			dat += "Material Amount: [linked_imprinter.TotalMaterials()] cm<sup>3</sup><BR>"
 			dat += "Chemical Volume: [linked_imprinter.reagents.total_volume]<HR>"
+			dat += "<div class='rdconsole-build'>"
 			dat += "<UL>"
-			for(var/datum/design/D in files.known_designs)
+			for(var/path in files.known_designs)
+				var/datum/design/D = files.known_designs[path]
 				if(!D.build_path || !(D.build_type & IMPRINTER))
 					continue
 				var/temp_dat
@@ -755,6 +768,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 				else
 					dat += "<LI><B>[D.name]</B>[temp_dat]"
 			dat += "</UL>"
+			dat += "</div>"
 
 		if(4.2)
 			dat += "<A href='?src=\ref[src];menu=1.0'>Main Menu</A> || "
@@ -796,7 +810,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					if(tmp == 1)
 						dat += "<B>1: [D.name]</B><BR>"
 					else
-						dat += "[tmp]: [D.name] <A href='?src=\ref[src];removeI=[tmp]'>(Remove)</A><BR>"
+						dat += "[tmp]: [D.name] <A href='?src=\ref[src];removeI=[tmp]'>Remove</A><BR>"
 					++tmp
 
 		///////////////////Research Information Browser////////////////////
@@ -806,8 +820,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "List of Researched Technologies and Designs:"
 			dat += GetResearchListInfo()
 
-	user << browse("<TITLE>Research and Development Console</TITLE><HR>[dat]", "window=rdconsole;size=850x600")
-	onclose(user, "rdconsole")
+	var/datum/browser/rdconsole = new(user, "rdconsole", "Research and Development Console", 850, 600)
+	rdconsole.add_stylesheet("rdconsole", 'html/browser/rdconsole.css')
+	rdconsole.set_content(dat)
+	rdconsole.open()
 
 /obj/machinery/computer/rdconsole/robotics
 	name = "robotics R&D console"

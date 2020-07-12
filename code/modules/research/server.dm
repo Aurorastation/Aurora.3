@@ -87,7 +87,8 @@
 		for(var/id in files.known_tech)
 			var/datum/tech/T = files.known_tech[id]
 			C.files.AddTech2Known(T)
-		for(var/datum/design/D in files.known_designs)
+		for(var/path in files.known_designs)
+			var/datum/design/D = files.known_designs[path]
 			C.files.AddDesign2Known(D)
 		C.files.RefreshResearch()
 
@@ -242,11 +243,8 @@
 	else if(href_list["reset_design"])
 		var/choice = alert("Design Data Deletion", "Are you sure you want to delete this design? If you still have the prerequisites for the design, it'll reset to its base reliability. Data lost cannot be recovered.", "Continue", "Cancel")
 		if(choice == "Continue")
-			for(var/datum/design/D in temp_server.files.known_designs)
-				if("[D.type]" == href_list["reset_design"])
-					temp_server.files.known_designs -= D
-					break
-		temp_server.files.RefreshResearch()
+			temp_server.files.known_designs -= href_list["reset_design"]
+			temp_server.files.RefreshResearch()
 
 	updateUsrDialog()
 	return
@@ -293,13 +291,15 @@
 		if(2) //Data Management menu
 			dat += "[temp_server.name] Data ManagementP<BR><BR>"
 			dat += "Known Technologies<BR>"
-			for(var/datum/tech/T in temp_server.files.known_tech)
+			for(var/path in temp_server.files.known_tech)
+				var/datum/tech/T = temp_server.files.known_tech[path]
 				dat += "* [T.name] "
 				dat += "<A href='?src=\ref[src];reset_tech=[T.id]'>(Reset)</A><BR>" //FYI, these are all strings.
 			dat += "Known Designs<BR>"
-			for(var/datum/design/D in temp_server.files.known_designs)
+			for(var/path in temp_server.files.known_designs)
+				var/datum/design/D = temp_server.files.known_designs[path]
 				dat += "* [D.name] "
-				dat += "<A href='?src=\ref[src];reset_design=[D.type]'>(Delete)</A><BR>"
+				dat += "<A href='?src=\ref[src];reset_design=[path]'>(Delete)</A><BR>"
 			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
 
 		if(3) //Server Data Transfer
