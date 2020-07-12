@@ -137,6 +137,7 @@
 		affected.owner.custom_pain("You feel something rip in your [affected.name]!", 1)
 	user.drop_item()
 	affected.implants += tool
+	tool.pickup(target)
 	tool.forceMove(affected)
 	affected.cavity = 0
 
