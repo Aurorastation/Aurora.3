@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Mech UIs can no longer be moved via click-drag."
+  - tweak: "The lower left mech UI has received a make-over."
+  - rscadd: "You can now use a cyborg analyzer on a mech to get its diagnostics report."
