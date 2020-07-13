@@ -138,8 +138,9 @@
 	user.drop_item()
 	affected.implants += tool
 	if(istype(tool, /obj/item/device/gps))
+		var/obj/item/device/gps/gps = tool
 		moved_event.register(target, tool, /obj/item/device/gps/proc/update_position)
-		implanted_into = target
+		gps.implanted_into = target
 	tool.forceMove(affected)
 	affected.cavity = 0
 
@@ -204,8 +205,9 @@
 				worm.leave_host()
 
 			else if(istype(obj, /obj/item/device/gps))
-				moved_event.unregister(target, obj)
-				obj.implanted_into = null
+				var/obj/item/device/gps/gps = obj
+				moved_event.unregister(target, gps)
+				gps.implanted_into = null
 			playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)
 		else
 			user.visible_message("<b>[user]</b> removes \the [tool] from [target]'s [affected.name].", \

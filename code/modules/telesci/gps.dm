@@ -35,7 +35,7 @@ var/list/GPS_list = list()
 		moved_event.unregister(held_by, src)
 		held_by = null
 	if(implanted_into)
-		move_event.unregister(implanted_into, src)
+		moved_event.unregister(implanted_into, src)
 		implanted_into = null
 	return ..()
 
