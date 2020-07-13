@@ -283,13 +283,6 @@ Follow by example and make good judgement based on length which list to include 
 		length = 4
 		chatname = "bowl cut"
 
-	braid_floorlength
-		name = "Braid, Floorlength"
-		icon_state = "hair_braid_floorlength"
-		gender = FEMALE
-		length = 4
-		chatname = "braid"
-
 	braid_grande
 		name = "Braid, Grande"
 		icon_state = "hair_braid_grande"
