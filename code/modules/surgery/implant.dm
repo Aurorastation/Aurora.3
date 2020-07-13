@@ -139,7 +139,7 @@
 	affected.implants += tool
 	if(istype(tool, /obj/item/device/gps))
 		var/obj/item/device/gps/gps = tool
-		moved_event.register(target, tool, /obj/item/device/gps/proc/update_position)
+		moved_event.register(target, gps, /obj/item/device/gps/proc/update_position)
 		gps.implanted_into = target
 	tool.forceMove(affected)
 	affected.cavity = 0
