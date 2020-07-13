@@ -202,6 +202,8 @@
 				worm.detach()
 				worm.leave_host()
 
+			else if(istype(obj, /obj/item/device/gps))
+				moved_event.unregister(target, obj)
 			playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)
 		else
 			user.visible_message("<b>[user]</b> removes \the [tool] from [target]'s [affected.name].", \
