@@ -34,7 +34,7 @@
 /obj/item/soap/attackby(var/obj/item/I, var/mob/user)
 	if(istype(I, /obj/item/key))
 		if(!key_data)
-			to_chat(user, span("notice", "You imprint \the [I] into \the [src]."))
+			to_chat(user, SPAN_NOTICE("You imprint \the [I] into \the [src]."))
 			var/obj/item/key/K = I
 			key_data = K.key_data
 			update_icon()
@@ -56,13 +56,13 @@
 	//I couldn't feasibly  fix the overlay bugs caused by cleaning items we are wearing.
 	//So this is a workaround. This also makes more sense from an IC standpoint. ~Carn
 	if(user.client && (target in user.client.screen))
-		to_chat(user, span("notice", "You need to take that [target.name] off before cleaning it."))
+		to_chat(user, SPAN_NOTICE("You need to take that [target.name] off before cleaning it."))
 	else if(istype(target,/obj/structure/sink) || istype(target,/obj/structure/sink))
-		to_chat(user, span("notice", "You wet \the [src] in the sink."))
+		to_chat(user, SPAN_NOTICE("You wet \the [src] in the sink."))
 		wet()
 	else if (istype(target, /obj/structure/mopbucket) || istype(target, /obj/item/reagent_containers/glass) || istype(target, /obj/structure/reagent_dispensers/watertank))
 		if (target.reagents && target.reagents.total_volume)
-			to_chat(user, span("notice", "You wet \the [src] in the [target]."))
+			to_chat(user, SPAN_NOTICE("You wet \the [src] in the [target]."))
 			wet()
 		else
 			to_chat(user, "\The [target] is empty!")
@@ -77,7 +77,7 @@
 		if (do_after(user, 25, needhand = 0))
 			target.clean_blood()
 			if(clean_msg)
-				to_chat(user, span("notice", "You scrub \the [target.name] out."))
+				to_chat(user, SPAN_NOTICE("You scrub \the [target.name] out."))
 			if(istype(target, /turf) || istype(target, /obj/effect/decal/cleanable) || istype(target, /obj/effect/overlay))
 				var/turf/T = get_turf(target)
 				if(T)
@@ -87,7 +87,7 @@
 //attack_as_weapon
 /obj/item/soap/attack(mob/living/target, mob/living/user, var/target_zone)
 	if(target && user && ishuman(target) && ishuman(user) && !target.stat && !user.stat && user.zone_sel &&user.zone_sel.selecting == BP_MOUTH )
-		user.visible_message(span("danger", "\The [user] washes \the [target]'s mouth out with soap!"))
+		user.visible_message(SPAN_DANGER("\The [user] washes \the [target]'s mouth out with soap!"))
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //prevent spam
 		return
 	..()

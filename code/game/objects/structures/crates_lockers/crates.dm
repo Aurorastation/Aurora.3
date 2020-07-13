@@ -51,9 +51,9 @@
 	for (var/mob/M in src)
 		M.forceMove(get_turf(src))
 		if (M.stat == CONSCIOUS)
-			M.visible_message(span("danger","\The [M.name] bursts out of the [src]!"), span("danger","You burst out of the [src]!"))
+			M.visible_message(SPAN_DANGER("\The [M.name] bursts out of the [src]!"), SPAN_DANGER("You burst out of the [src]!"))
 		else
-			M.visible_message(span("danger","\The [M.name] tumbles out of the [src]!"))
+			M.visible_message(SPAN_DANGER("\The [M.name] tumbles out of the [src]!"))
 
 	icon_state = icon_opened
 	opened = 1
@@ -172,7 +172,7 @@
 
 /obj/structure/closet/crate/toggle(var/mob/user)
 	if (!opened && tablestatus == -1)
-		to_chat(user, span("warning", "You can't open that while it's under the table"))
+		to_chat(user, SPAN_WARNING("You can't open that while it's under the table"))
 		return 0
 	else
 		return ..()
@@ -210,18 +210,18 @@
 
 	//User must be in reach of the crate
 	if (!user.Adjacent(src))
-		to_chat(user, span("warning", "You need to be closer to the crate!"))
+		to_chat(user, SPAN_WARNING("You need to be closer to the crate!"))
 		return
 
 	//One of us has to be near the table
 	if (!user.Adjacent(table) && !Adjacent(table))
-		to_chat(user, span("warning", "Take the crate closer to the table!"))
+		to_chat(user, SPAN_WARNING("Take the crate closer to the table!"))
 		return
 
 
 	for (var/obj/structure/closet/crate/C in get_turf(table))
 		if (C.tablestatus != -1)
-			to_chat(user, span("warning", "There's already a crate on this table!"))
+			to_chat(user, SPAN_WARNING("There's already a crate on this table!"))
 			return
 
 	//Crates are heavy, hauling them onto tables is hard.

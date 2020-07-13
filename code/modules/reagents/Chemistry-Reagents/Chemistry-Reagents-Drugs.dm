@@ -28,7 +28,7 @@
 		M.adjustNutritionLoss(power*removed*nutrition_percent)
 		var/hunger_strength = 1 - nutrition_percent
 		if(prob( round(hunger_strength*removed) ))
-			to_chat(M,span("notice",pick("You could really go for some munchies.","You feel the need to eat more.","You crave chips for some reason.","You kind of really want pizza.")))
+			to_chat(M, SPAN_NOTICE(pick("You could really go for some munchies.","You feel the need to eat more.","You crave chips for some reason.","You kind of really want pizza.")))
 
 	if(power > 20)
 		var/probmod = 5 + (power-20)
@@ -274,7 +274,7 @@
 	// doesn't make you vomit, though
 	if(prob(7))
 		M.emote(pick("twitch", "drool", "moan", "giggle"))
-		to_chat(M, span("warning", pick("You feel great!", "You don't have a care in the world.", "You couldn't care less about anything.", "You feel so relaxed...")))
+		to_chat(M, SPAN_WARNING(pick("You feel great!", "You don't have a care in the world.", "You couldn't care less about anything.", "You feel so relaxed...")))
 	M.adjustOxyLoss(0.01 * removed)
 	if(M.losebreath < 5)
 		M.losebreath++

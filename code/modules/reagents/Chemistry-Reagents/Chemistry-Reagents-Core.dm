@@ -142,7 +142,7 @@
 				S.target = null
 				++S.discipline
 		if(dose == removed)
-			S.visible_message(span("warning", "[S]'s flesh sizzles where the water touches it!"), span("danger", "Your flesh burns in the water!"))
+			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the water touches it!"), SPAN_DANGER("Your flesh burns in the water!"))
 
 
 /datum/reagent/water/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)

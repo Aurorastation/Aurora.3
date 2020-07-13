@@ -453,9 +453,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(O, brush) && canbrush) //Brushing animals
-		visible_message(span("notice", "[user] gently brushes [src] with \the [O]."))
+		visible_message(SPAN_NOTICE("[user] gently brushes [src] with \the [O]."))
 		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off.
-			visible_message(span("notice", "[src] [speak_emote.len ? pick(speak_emote) : "rumbles"].")) //purring
+			visible_message(SPAN_NOTICE("[src] [speak_emote.len ? pick(speak_emote) : "rumbles"].")) //purring
 		return
 	if(!O.force)
 		visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
@@ -573,7 +573,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return
 
 	if(usr && !sound_time)
-		to_chat(usr, span("warning", "Ability on cooldown 2 seconds."))
+		to_chat(usr, SPAN_WARNING("Ability on cooldown 2 seconds."))
 		return
 
 	playsound(src, pick(emote_sounds), 75, 1)
@@ -686,7 +686,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	else
 		fall_asleep()
 
-	to_chat(src, span("notice","You are now [resting ? "resting" : "getting up"]"))
+	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]"))
 
 	update_icons()
 

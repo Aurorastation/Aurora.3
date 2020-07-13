@@ -77,12 +77,12 @@
 			if(getBruteLoss())
 				adjustBruteLoss(-5)
 				adjustFireLoss(-5)
-				user.visible_message(span("notice", "\The [user] mends some of \the [src]'s wounds."))
+				user.visible_message(SPAN_NOTICE("\The [user] mends some of \the [src]'s wounds."))
 			else
 				if (health < maxHealth)
-					to_chat(user, span("notice", "Healing \the [src] any further is beyond your abilities."))
+					to_chat(user, SPAN_NOTICE("Healing \the [src] any further is beyond your abilities."))
 				else
-					to_chat(user, span("notice", "\The [src] is undamaged."))
+					to_chat(user, SPAN_NOTICE("\The [src] is undamaged."))
 			return
 	return ..()
 
@@ -90,9 +90,9 @@
 	..(user)
 	if(health < maxHealth)
 		if(health >= maxHealth / 2)
-			to_chat(user, span("warning", "It looks slightly dented."))
+			to_chat(user, SPAN_WARNING("It looks slightly dented."))
 		else
-			to_chat(user, span("warning", "It looks severely dented!"))
+			to_chat(user, SPAN_WARNING("It looks severely dented!"))
 
 /mob/living/simple_animal/construct/UnarmedAttack(var/atom/A, var/proximity)
 	if(istype(A, /obj/effect/rune))

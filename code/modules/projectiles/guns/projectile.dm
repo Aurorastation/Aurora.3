@@ -213,7 +213,7 @@
 		playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 		jam_num--
 		if(!jam_num)
-			visible_message(span("danger", "\The [user] unjams \the [src]!"))
+			visible_message(SPAN_DANGER("\The [user] unjams \the [src]!"))
 			playsound(src.loc, 'sound/items/glowstick.ogg', 100, 1)
 			unjam_cooldown = world.time
 	else if(unjam_cooldown + 2 SECONDS > world.time)

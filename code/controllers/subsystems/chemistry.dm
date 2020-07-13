@@ -141,6 +141,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 		if(!(cc.result in chemical_reagents))
 			log_debug("SSchemistry: Warning: Invalid result [cc.result] in [cc.name] reactions list.")
 			qdel(cc)
+			break
 
 		for(var/A in cc.required_reagents)
 			if(!(A in chemical_reagents))

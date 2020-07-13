@@ -30,7 +30,7 @@
 		return //how did they get here?
 
 	if(!ROUND_IS_STARTED)
-		to_chat(src, span("alert", "The game hasn't started yet!"))
+		to_chat(src, SPAN_ALERT("The game hasn't started yet!"))
 		return
 
 	bst_cooldown = TRUE
@@ -135,7 +135,7 @@
 	var/fall_override = TRUE
 
 /mob/living/carbon/human/bst/can_inject(var/mob/user, var/error_msg, var/target_zone)
-	to_chat(user, span("alert", "The [src] disarms you before you can inject them."))
+	to_chat(user, SPAN_ALERT("The [src] disarms you before you can inject them."))
 	user.drop_item()
 	return 0
 
@@ -309,10 +309,10 @@
 
 	if(!src.incorporeal_move)
 		src.incorporeal_move = 2
-		to_chat(src, span("notice", "You will now phase through solid matter."))
+		to_chat(src, SPAN_NOTICE("You will now phase through solid matter."))
 	else
 		src.incorporeal_move = 0
-		to_chat(src, span("notice", "You will no-longer phase through solid matter."))
+		to_chat(src, SPAN_NOTICE("You will no-longer phase through solid matter."))
 	return
 
 /mob/living/carbon/human/bst/verb/bstrecover()
@@ -352,7 +352,7 @@
 	set category = "BST"
 
 	status_flags ^= GODMODE
-	to_chat(src, span("notice", "God mode is now [status_flags & GODMODE ? "enabled" : "disabled"]"))
+	to_chat(src, SPAN_NOTICE("God mode is now [status_flags & GODMODE ? "enabled" : "disabled"]"))
 
 //Equipment. All should have canremove set to 0
 //All items with a /bst need the attack_hand() proc overrided to stop people getting overpowered items.
@@ -367,7 +367,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -386,7 +386,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -413,7 +413,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -430,7 +430,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -474,7 +474,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -491,7 +491,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -510,7 +510,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -524,7 +524,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()

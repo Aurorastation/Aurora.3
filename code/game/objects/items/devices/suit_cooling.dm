@@ -116,7 +116,7 @@
 /obj/item/device/suit_cooling_unit/proc/turn_off()
 	if(ismob(src.loc))
 		var/mob/M = src.loc
-		to_chat(M, span("warning", "\The [src] clicks and whines as it powers down."))
+		to_chat(M, SPAN_WARNING("\The [src] clicks and whines as it powers down."))
 	on = FALSE
 	update_icon()
 
@@ -130,7 +130,7 @@
 		cell.add_fingerprint(user)
 		cell.update_icon()
 
-		to_chat(user, span("notice", "You remove the [src.cell]."))
+		to_chat(user, SPAN_NOTICE("You remove the [src.cell]."))
 		src.cell = null
 		update_icon()
 		return
@@ -141,27 +141,27 @@
 	else
 		turn_on()
 		if(on)
-			to_chat(user, span("notice", "You switch on the [src]."))
+			to_chat(user, SPAN_NOTICE("You switch on the [src]."))
 
 /obj/item/device/suit_cooling_unit/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
 		if(cover_open)
 			cover_open = FALSE
-			to_chat(user, span("notice", "You screw the panel into place."))
+			to_chat(user, SPAN_NOTICE("You screw the panel into place."))
 		else
 			cover_open = TRUE
-			to_chat(user, span("notice", "You unscrew the panel."))
+			to_chat(user, SPAN_NOTICE("You unscrew the panel."))
 		update_icon()
 		return
 
 	if(istype(W, /obj/item/cell))
 		if(cover_open)
 			if(cell)
-				to_chat(user, span("warning", "There is a [cell] already installed here."))
+				to_chat(user, SPAN_WARNING("There is a [cell] already installed here."))
 			else
 				user.drop_from_inventory(W,src)
 				cell = W
-				to_chat(user, span("notice", "You insert the [cell]."))
+				to_chat(user, SPAN_NOTICE("You insert the [cell]."))
 		update_icon()
 		return
 
@@ -201,26 +201,26 @@
 
 	if(on)
 		if(attached_to_suit(src.loc))
-			to_chat(user, span("notice", "It's switched on and running."))
+			to_chat(user, SPAN_NOTICE("It's switched on and running."))
 		else if(ishuman(loc))
 			var/mob/living/carbon/human/H = loc
 			if(H.species.flags & ACCEPTS_COOLER)
-				to_chat(user, span("notice", "It's switched on and running, connected to the cooling systems of [H]."))
+				to_chat(user, SPAN_NOTICE("It's switched on and running, connected to the cooling systems of [H]."))
 		else
-			to_chat(user, span("notice", "It's switched on, but not attached to anything."))
+			to_chat(user, SPAN_NOTICE("It's switched on, but not attached to anything."))
 	else
-		to_chat(user, span("notice", "It is switched off."))
+		to_chat(user, SPAN_NOTICE("It is switched off."))
 
 	if(cover_open)
 		if(cell)
-			to_chat(user, span("notice", "The panel is open, exposing the [cell]."))
+			to_chat(user, SPAN_NOTICE("The panel is open, exposing the [cell]."))
 		else
-			to_chat(user, span("notice", "The panel is open."))
+			to_chat(user, SPAN_NOTICE("The panel is open."))
 
 	if(cell)
-		to_chat(user, span("notice", "The charge meter reads [round(cell.percent())]%."))
+		to_chat(user, SPAN_NOTICE("The charge meter reads [round(cell.percent())]%."))
 	else
-		to_chat(user, span("notice", "It doesn't have a power cell installed."))
+		to_chat(user, SPAN_NOTICE("It doesn't have a power cell installed."))
 
 /obj/item/device/suit_cooling_unit/no_cell
 	celltype = null

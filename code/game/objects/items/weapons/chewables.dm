@@ -15,7 +15,7 @@
 /obj/item/clothing/mask/chewable/attack_self(mob/user)
 	if(wrapped)
 		wrapped = FALSE
-		to_chat(user, span("notice", "You unwrap \the [name]."))
+		to_chat(user, SPAN_NOTICE("You unwrap \the [name]."))
 		playsound(src.loc, 'sound/items/drop/wrapper.ogg', 50, 1)
 		slot_flags = SLOT_EARS | SLOT_MASK
 		update_icon()
@@ -42,7 +42,7 @@ obj/item/clothing/mask/chewable/Initialize()
 		if(C.check_has_mouth())
 			START_PROCESSING(SSprocessing, src)
 		else
-			to_chat(user, span("notice", "You don't have a mouth, and can't make much use of \the [src]."))
+			to_chat(user, SPAN_NOTICE("You don't have a mouth, and can't make much use of \the [src]."))
 
 /obj/item/clothing/mask/chewable/dropped()
 	STOP_PROCESSING(SSprocessing, src)
@@ -96,7 +96,7 @@ obj/item/clothing/mask/chewable/Destroy()
 		if(ismob(loc))
 			var/mob/living/M = loc
 			if(!no_message)
-				to_chat(M, span("notice", "The [name] runs out of flavor."))
+				to_chat(M, SPAN_NOTICE("The [name] runs out of flavor."))
 			if(M.wear_mask)
 				M.remove_from_mob(src) //un-equip it so the overlays can update
 				M.update_inv_wear_mask(0)

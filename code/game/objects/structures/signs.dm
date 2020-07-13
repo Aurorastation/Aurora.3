@@ -639,12 +639,12 @@
 		return
 
 	if((!iswall(A) && !istype(A, /obj/structure/window)) || !isturf(user.loc))
-		to_chat(user, span("warning","You can't place this here!"))
+		to_chat(user, SPAN_WARNING("You can't place this here!"))
 		return
 
 	var/placement_dir = get_dir(user, A)
 	if (!(placement_dir in cardinal))
-		to_chat(user, span("warning","You must stand directly in front of the location you wish to place that on."))
+		to_chat(user, SPAN_WARNING("You must stand directly in front of the location you wish to place that on."))
 		return
 
 	var/obj/structure/sign/flag/P = new(user.loc)
@@ -694,7 +694,7 @@
 		if(!do_after(user, 2 SECONDS, act_target = src))
 			return 0
 
-		visible_message(span("warning","\The [user] rips \the [src] in a single, decisive motion!" ))
+		visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!" ))
 		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
 		icon_state = "poster_ripped"
 		name = "ripped poster"
@@ -706,11 +706,11 @@
 
 	if(istype(W, /obj/item/flame/lighter))
 
-		visible_message(span("warning","\The [user] starts to burn \the [src] down!"))
+		visible_message(SPAN_WARNING("\The [user] starts to burn \the [src] down!"))
 
 		if(!do_after(user, 2 SECONDS, act_target = src))
 			return 0
-		visible_message(span("warning","\The [user] burns \the [src] down!"))
+		visible_message(SPAN_WARNING("\The [user] burns \the [src] down!"))
 		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 100, 1)
 		new /obj/effect/decal/cleanable/ash(src.loc)
 
