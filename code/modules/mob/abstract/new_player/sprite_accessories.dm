@@ -549,13 +549,6 @@ Follow by example and make good judgement based on length which list to include 
 		gender = MALE
 		chatname = "short hair"
 
-	familyman
-		name = "Family Man, The"
-		icon_state = "hair_familyman"
-		gender = MALE
-		chatname = "homely hairdo"
-		length = 2
-
 	father
 		name = "Father"
 		icon_state = "hair_father"
