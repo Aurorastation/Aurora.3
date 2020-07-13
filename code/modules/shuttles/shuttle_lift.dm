@@ -59,6 +59,6 @@
 /obj/machinery/computer/shuttle_control/lift
 	name = "lift controller"
 	ui_template = "shuttle_control_console_lift.tmpl"
-	icon_state = "tiny"
-	icon_screen = "lift"
+	icon_state = "lift"
+	icon_screen = null
 	density = FALSE
