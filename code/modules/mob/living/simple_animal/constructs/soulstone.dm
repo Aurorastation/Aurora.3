@@ -36,26 +36,26 @@
 ///////////////////Options for using captured souls///////////////////////////////////////
 
 /obj/item/device/soulstone/attack_self(mob/user)
-	if (!in_range(src, user))
+	if(!in_range(src, user))
 		return
 	user.set_machine(src)
-	var/dat = "<TT><B>Soul Stone</B><BR>"
+
+	var/dat = ""
 	for(var/mob/living/simple_animal/shade/A in src)
-		dat += "Captured Soul: [A.name]<br>"
-		dat += {"<A href='byond://?src=\ref[src];choice=Summon'>Summon Shade</A>"}
-		dat += "<br>"
-		dat += {"<a href='byond://?src=\ref[src];choice=Close'> Close</a>"}
-	user << browse(dat, "window=aicard")
-	onclose(user, "aicard")
-	return
-
-
-
+		dat += "Captured Soul: [A.name]<hr>"
+		dat += "<A href='byond://?src=\ref[src];choice=Summon'>Summon Shade</A><br>"
+		dat += "<i>This will summon the spirit of [A.name] in a pure energy form. Be cautious, for they will be weak without a protective construct to house them.</i><hr>"
+	dat += "<a href='byond://?src=\ref[src];choice=Close'>Close</a>"
+	
+	var/datum/browser/soulstone_win = new(user, "soulstone", capitalize_first_letters(name))
+	soulstone_win.set_content(dat)
+	soulstone_win.add_stylesheet("cult", 'html/browser/cult.css')
+	soulstone_win.open()
 
 /obj/item/device/soulstone/Topic(href, href_list)
 	var/mob/U = usr
 	if (!in_range(src, U)||U.machine!=src)
-		U << browse(null, "window=aicard")
+		U << browse(null, "window=soulstone")
 		U.unset_machine()
 		return
 
@@ -64,7 +64,7 @@
 
 	switch(href_list["choice"])//Now we switch based on choice.
 		if ("Close")
-			U << browse(null, "window=aicard")
+			U << browse(null, "window=soulstone")
 			U.unset_machine()
 			return
 

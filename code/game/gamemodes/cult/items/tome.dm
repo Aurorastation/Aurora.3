@@ -64,7 +64,7 @@
 					return
 				var/datum/browser/tome_win = new(user, "Arcane Tome", "Nar'Sie's Runes")
 				tome_win.set_content(SScult.tome_data)
-				tome_win.add_stylesheet("tome", 'html/browser/tome.css')
+				tome_win.add_stylesheet("cult", 'html/browser/cult.css')
 				tome_win.open()
 				return
 			if("Scribe a rune")
