@@ -241,7 +241,11 @@
 			G.check_nuke_disks()
 
 		spawn(0)
-			if(loc) loc.Entered(src)
+			if(loc)
+				var/turf/T = loc
+				loc.Entered(src)
+				if(!T.is_hole)
+					fall_impact(text2num(pickweight(list("1" = 60, "2" = 30, "3" = 10))))
 
 //by default, transition randomly to another zlevel
 /atom/movable/proc/get_transit_zlevel()

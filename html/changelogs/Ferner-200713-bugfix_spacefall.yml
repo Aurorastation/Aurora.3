@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes: 
+  - bugfix: "Falling off the station will no longer have you end up floating forever through space."
