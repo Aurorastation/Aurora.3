@@ -422,10 +422,10 @@
 		switch(menustat)
 			if("menu")
 				if (beaker)
-					dat += "<table><tr><td colspan=7><H2>Commands</H2></td></tr>"
-					dat += "<tr><td><A href='?src=\ref[src];action=activate'>Activate Biogenerator</A></td></tr>"
-					dat += "<tr><td><A href='?src=\ref[src];action=detach'>Detach Container</A><BR></td></tr>"
-					dat += "<tr><td>Name</td><td>Cost</td><td colspan=5>Production Amount</td></tr>"
+					dat += "<table style='width:100%'><tr><td colspan='6'><H2>Commands</H2></td></tr>"
+					dat += "<tr><td colspan='2'><A href='?src=\ref[src];action=activate'>Activate Biogenerator</A></td></tr>"
+					dat += "<tr><td colspan='2'><A href='?src=\ref[src];action=detach'>Detach Container</A><BR></td></tr>"
+					dat += "<tr><td colspan='2'>Name</td><td colspan='2'>Cost</td><td colspan='4'>Production Amount</td></tr>"
 					var/lastclass = "Commands"
 
 					for (var/k in biorecipies)
@@ -439,19 +439,19 @@
 
 						if(emag == 0 || emagged == 1)
 							if(lastclass != class)
-								dat += "<tr><td colspan=7><H2>[class]</H2><td></tr>"
+								dat += "<tr><td colspan='6'><H2>[class]</H2></td></tr>"
 								lastclass = class
-							dat += "<tr><td>[name]<td>[round(cost/build_eff)]</td>"
+							dat += "<tr class='build'><td colspan='2'>[name]</td><td colspan='2'>[round(cost/build_eff)]</td>"
+							dat += "<td colspan='4'>"
 							for(var/num in listamount)
-								dat += "<td>"
 								var/fakenum = ""
 								if(num <= 9)
 									fakenum = "0"
 								if(num*round(cost/build_eff) > points)
-									dat += "([fakenum][num])"
+									dat += "<div class='no-build inline'>([fakenum][num])</div>"
 								else
 									dat += "<A href='?src=\ref[src];action=create;itemid=[id];count=[num]'>([fakenum][num])</A>"
-								dat += "</td>"
+							dat += "</td>"
 							dat += "</tr>"
 
 					dat += "</table>"
@@ -459,19 +459,20 @@
 				else
 					dat += "<BR><FONT COLOR=red>No beaker inside. Please insert a beaker.</FONT><BR>"
 			if("nopoints")
-				dat += "You do not have biomass to create products.<BR>Please, put growns into reactor and activate it.<BR>"
+				dat += "You do not have biomass to create products.<BR>Please put growns into the reactor and activate it.<BR>"
 				dat += "<A href='?src=\ref[src];action=menu'>Return to menu</A>"
 			if("complete")
 				dat += "Operation complete.<BR>"
 				dat += "<A href='?src=\ref[src];action=menu'>Return to menu</A>"
 			if("void")
-				dat += "<FONT COLOR=red>Error: No growns inside.</FONT><BR>Please, put growns into reactor.<BR>"
+				dat += "<FONT COLOR=red>Error: No growns inside.</FONT><BR>Please put growns into the reactor.<BR>"
 				dat += "<A href='?src=\ref[src];action=menu'>Return to menu</A>"
-	dat += "</body><html>"
+	dat += "</body></html>"
 
-	user << browse(dat, "window=biogenerator")
-	onclose(user, "biogenerator")
-	return
+	var/datum/browser/biogen_win = new(user, "biogenerator", "Biogenerator", 450, 500)
+	biogen_win.set_content(dat)
+	biogen_win.add_stylesheet("misc", 'html/browser/misc.css')
+	biogen_win.open()
 
 /obj/machinery/biogenerator/attack_hand(mob/user as mob)
 	interact(user)
@@ -556,6 +557,7 @@
 		if("detach")
 			if(beaker)
 				beaker.forceMove(src.loc)
+				usr.put_in_hands(beaker)
 				beaker = null
 				update_icon()
 		if("create")
