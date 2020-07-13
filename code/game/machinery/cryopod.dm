@@ -300,32 +300,18 @@ var/global/list/frozen_crew = list()
 // This function can not be undone; do not call this unless you are sure
 // Also make sure there is a valid control computer
 /obj/machinery/cryopod/proc/despawn_occupant()
+	var/list/items = occupant.get_contents()
+	var/turf/T = get_turf(src)
 	//Drop all items into the pod.
 	for(var/obj/item/W in occupant)
 		occupant.drop_from_inventory(W, src)
 
-		if(W.contents.len) //Make sure we catch anything not handled by qdel() on the items.
-			for(var/obj/item/O in W.contents)
-				if(istype(O,/obj/item/storage/internal)) //Stop eating pockets, you fuck!
-					continue
-				if(istype(O.loc, /obj/item/storage)) // keep stuff inside storage containers
-					continue
-				O.forceMove(src)
-
-	//Delete all items not on the preservation list.
-	var/list/items = src.contents.Copy()
-	items -= occupant // Don't delete the occupant
-
 	for(var/obj/item/W in items)
-		var/preserve = FALSE
-		// Snowflaaaake.
 		if(istype(W, /obj/item/device/mmi))
 			var/obj/item/device/mmi/brain = W
 			if(brain.brainmob && brain.brainmob.client && brain.brainmob.key)
-				brain.forceMove(get_turf(src))
+				brain.forceMove(T)
 				continue
-			else
-				preserve = TRUE
 		else if(istype(W, /obj/item/rig))
 			var/obj/item/rig/R = W
 			R.open = FALSE
@@ -333,21 +319,19 @@ var/global/list/frozen_crew = list()
 			R.offline = TRUE
 			R.sealing = FALSE
 			R.canremove = TRUE
-			preserve = TRUE
-		else
-			if(is_type_in_list(W, preserve_items))
-				preserve = TRUE
-			if(is_type_in_list(W.loc, preserve_items)) // keep stuff in storage safe
-				preserve = TRUE
-
-		if(!preserve)
+		
+		if(!is_type_in_list(W, preserve_items))
+			for(var/obj/item/I in W.contents)
+				I.forceMove(T)
+				items |= I
 			qdel(W)
+			continue
+
+		if(control_computer?.allow_items)
+			control_computer.frozen_items += W
+			W.forceMove(control_computer)
 		else
-			if(control_computer?.allow_items)
-				control_computer.frozen_items += W
-				W.forceMove(control_computer)
-			else
-				W.forceMove(get_turf(src))
+			W.forceMove(T)
 
 	global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message]", "[on_store_name]")
 	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] into storage."))
