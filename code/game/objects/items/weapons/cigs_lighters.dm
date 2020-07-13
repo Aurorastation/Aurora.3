@@ -251,7 +251,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		if(ismob(loc))
 			M = loc
 			if(!no_message)
-        to_chat(M, SPAN_NOTICE("Your [name] goes out, and you empty the ash."))
+				to_chat(M, SPAN_NOTICE("Your [name] goes out, and you empty the ash."))
 				playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 			lit = 0
 			icon_state = icon_off
