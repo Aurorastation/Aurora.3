@@ -1,11 +1,5 @@
 /datum/design/circuit/exosuit
-	design_order = 2.5
-
-/datum/design/circuit/exosuit/AssembleDesignName()
-	name = "Exosuit Software Design ([name])"
-
-/datum/design/circuit/exosuit/AssembleDesignDesc()
-	desc = "Allows for the construction of \a [name] module."
+	p_category = "Exosuit Software Designs"
 
 /datum/design/circuit/exosuit/engineering
 	name = "Engineering System Control"

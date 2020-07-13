@@ -87,9 +87,6 @@
 		for(var/id in files.known_tech)
 			var/datum/tech/T = files.known_tech[id]
 			C.files.AddTech2Known(T)
-		for(var/path in files.known_designs)
-			var/datum/design/D = files.known_designs[path]
-			C.files.AddDesign2Known(D)
 		C.files.RefreshResearch()
 
 /obj/machinery/r_n_d/server/proc/produce_heat()

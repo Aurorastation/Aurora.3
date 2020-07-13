@@ -47,6 +47,8 @@ research holder datum.
 /datum/research								//Holder for all the existing, archived, and known tech. Individual to console.
 	var/list/known_tech = list()			//List of locally known tech. Datum/tech go here.
 	var/list/possible_designs = list()		//List of all designs.
+	var/list/protolathe_categories = list()
+	var/list/imprinter_categories = list()
 	var/list/known_designs = list()			//List of available designs.
 
 	var/standard_start_level				// The level non-antag techs are set at
@@ -68,6 +70,10 @@ research holder datum.
 	if(load_designs)
 		for(var/design_path in subtypesof(/datum/design))
 			var/datum/design/D = new design_path(src)
+			if(D.build_type & PROTOLATHE)
+				protolathe_categories |= D.p_category
+			if(D.build_type & IMPRINTER)
+				imprinter_categories |= D.p_category
 			possible_designs[D.type] = D
 	RefreshResearch()
 
@@ -111,14 +117,12 @@ research holder datum.
 		known.next_level_progress = T.next_level_progress
 
 /datum/research/proc/AddDesign2Known(var/datum/design/D)
-	var/datum/design/known_d = known_designs[D.type]
-	if(known_d)
-		return
 	known_designs[D.type] = D
 
 //Refreshes known_tech and known_designs list
 //Input/Output: n/a
 /datum/research/proc/RefreshResearch()
+	known_designs.Cut() // this is to refresh the ordering of the designs, the alternative is an expensive insertion or sorting proc
 	for(var/path in possible_designs)
 		var/datum/design/PD = possible_designs[path]
 		if(DesignHasReqs(PD))

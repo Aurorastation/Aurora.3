@@ -388,9 +388,6 @@
 		for(var/id in RDC.files.known_tech)
 			var/datum/tech/T = RDC.files.known_tech[id]
 			files.AddTech2Known(T)
-		for(var/path in RDC.files.known_designs)
-			var/datum/design/D = RDC.files.known_designs[path]
-			files.AddDesign2Known(D)
 		files.RefreshResearch()
 		sync_message = "Sync complete."
 	update_categories()

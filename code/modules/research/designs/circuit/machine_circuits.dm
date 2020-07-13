@@ -1,9 +1,5 @@
 /datum/design/circuit/machine
-	design_order = 3
-
-/datum/design/circuit/machine/AssembleDesignName()
-	..()
-	name = "Machine Circuit Design ([item_name])"
+	p_category = "Machine Circuit Designs"
 
 /datum/design/circuit/machine/arcademachine
 	name = "Battle Arcade Machine"

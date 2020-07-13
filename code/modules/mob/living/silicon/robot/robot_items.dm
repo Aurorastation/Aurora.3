@@ -60,9 +60,7 @@
 			for(var/id in files.known_tech) //Uploading
 				var/datum/tech/T = files.known_tech[id]
 				S.files.AddTech2Known(T)
-			for(var/id in S.files.known_tech) //Downloading
-				var/datum/tech/T = S.files.known_tech[id]
-				files.AddTech2Known(S.files.known_tech[T])
+			files.known_tech = S.files.known_tech.Copy()
 			success = TRUE
 			files.RefreshResearch()
 		if(success)
