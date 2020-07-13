@@ -143,12 +143,11 @@
 		beacons[signal.data["beacon"] ] = signal.source
 
 
-//		if(istype(P)) P.updateSelfDialog()
-
 /obj/item/radio/integrated/mule/Topic(href, href_list)
 	..()
 	var/cmd = "command"
 	if(active) cmd = "command [active.suffix]"
+	var/obj/item/device/pda/PDA = src.hostpda
 
 	switch(href_list["op"])
 
@@ -191,6 +190,10 @@
 		if("stop", "go", "home")
 			post_signal(control_freq, cmd, href_list["op"], s_filter = RADIO_MULEBOT)
 			post_signal(control_freq, cmd, "bot_status", s_filter = RADIO_MULEBOT)
+		
+		if("summon")
+			post_signal(control_freq, cmd, "summon", "active", active, "target", get_turf(PDA) , s_filter = RADIO_MULEBOT)
+			post_signal(control_freq, cmd, "bot_status", "active", active, s_filter = RADIO_MULEBOT)
 
 
 

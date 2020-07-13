@@ -2,7 +2,7 @@
 	name = "cargo train tug"
 	desc = "A ridable electric car designed for pulling cargo trolleys."
 	icon = 'icons/obj/vehicles.dmi'
-	icon_state = "cargo_engine"
+	icon_state = "tug"
 	on = 0
 	powered = 1
 	locked = 0
@@ -25,7 +25,7 @@
 /obj/vehicle/train/cargo/trolley
 	name = "cargo train trolley"
 	icon = 'icons/obj/vehicles.dmi'
-	icon_state = "cargo_trailer"
+	icon_state = "mule"
 	anchored = 0
 	passenger_allowed = 0
 	locked = 0
@@ -369,3 +369,12 @@
 		anchored = 0
 	else
 		anchored = 1
+	update_icon()
+
+/obj/vehicle/train/cargo/trolley/update_icon()
+	. = ..()
+	cut_overlays()
+	if (lead || tow)
+		add_overlay("mule-light-linked")
+	else
+		add_overlay("mule-light-" + (open ? "paused" : "active"))

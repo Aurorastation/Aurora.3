@@ -4,11 +4,19 @@
 // Navigates via floor navbeacons
 // Remote Controlled from QM's PDA
 
+#define IDLE 0
+#define LOADING_UNLOADING 1
+#define NAVIGATING 2
+#define HOME 3
+#define NAV_BLOCKED 4
+#define NO_DESTINATION 5
+#define SUMMONED 6
 
 /obj/machinery/bot/mulebot
 	name = "Mulebot"
 	desc = "A Multiple Utility Load Effector bot."
-	icon_state = "mulebot0"
+	icon = 'icons/obj/vehicles.dmi'
+	icon_state = "mule_fast"
 	layer = MOB_LAYER
 	density = 1
 	anchored = 1
@@ -55,6 +63,8 @@
 
 	var/bloodiness = 0		// count of bloodiness
 	var/static/total_mules = 0
+	var/move_to_delay = 4
+	var/obj/mulebot_listener/listener = null
 
 /obj/machinery/bot/mulebot/Initialize()
 	. = ..()
@@ -64,9 +74,13 @@
 	cell = new(src)
 	cell.charge = 2000
 	cell.maxcharge = 2000
+
+	listener = new /obj/mulebot_listener(src)
+	listener.bot = WEAKREF(src)
+
 	if(SSradio)
-		SSradio.add_object(src, control_freq, filter = RADIO_MULEBOT)
-		SSradio.add_object(src, beacon_freq, filter = RADIO_NAVBEACONS)
+		SSradio.add_object(listener, control_freq, filter = RADIO_MULEBOT)
+		SSradio.add_object(listener, beacon_freq, filter = RADIO_NAVBEACONS)
 
 	total_mules++
 	if(!suffix)
@@ -78,8 +92,11 @@
 	qdel(wires)
 	wires = null
 	if(SSradio)
-		SSradio.remove_object(src,beacon_freq)
-		SSradio.remove_object(src,control_freq)
+		SSradio.remove_object(listener, beacon_freq)
+		SSradio.remove_object(listener, control_freq)
+
+	QDEL_NULL(listener)
+	target = null
 	return ..()
 
 // attack by item
@@ -102,10 +119,10 @@
 		if(open)
 			src.visible_message("[user] opens the maintenance hatch of [src]", "<span class='notice'>You open [src]'s maintenance hatch.</span>")
 			on = 0
-			icon_state="mulebot-hatch"
+			update_icon()
 		else
 			src.visible_message("[user] closes the maintenance hatch of [src]", "<span class='notice'>You close [src]'s maintenance hatch.</span>")
-			icon_state = "mulebot0"
+			update_icon()
 
 		updateDialog()
 	else if (I.iswrench())
@@ -314,24 +331,24 @@
 
 
 			if("setid")
-				refresh=0
+				refresh = 0
 				var/new_id = sanitize(input("Enter new bot ID", "Mulebot [suffix ? "([suffix])" : ""]", suffix) as text|null, MAX_NAME_LEN)
-				refresh=1
+				refresh = 1
 				if(new_id)
 					suffix = new_id
 					name = "Mulebot ([suffix])"
 					updateDialog()
 
 			if("sethome")
-				refresh=0
+				refresh = 0
 				var/new_home = input("Enter new home tag", "Mulebot [suffix ? "([suffix])" : ""]", home_destination) as text|null
-				refresh=1
+				refresh = 1
 				if(new_home)
 					home_destination = new_home
 					updateDialog()
 
 			if("unload")
-				if(load && mode !=1)
+				if(load && mode != LOADING_UNLOADING)
 					if(loc == target)
 						unload(loaddir)
 					else
@@ -379,15 +396,16 @@
 
 // called to load a crate
 /obj/machinery/bot/mulebot/proc/load(var/atom/movable/C)
-	if(wires.LoadCheck() && !istype(C,/obj/structure/closet/crate))
+	if(wires.LoadCheck() && (!istype(C, /obj/item) && !istype(C, /obj/structure)))
 		src.visible_message("[src] makes a sighing buzz.", "You hear an electronic buzzing sound.")
 		playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
-		return		// if not emagged, only allow crates to be loaded
+		return
 
 	//I'm sure someone will come along and ask why this is here... well people were dragging screen items onto the mule, and that was not cool.
 	//So this is a simple fix that only allows a selection of item types to be considered. Further narrowing-down is below.
-	if(!istype(C,/obj/item) && !istype(C,/obj/machinery) && !istype(C,/obj/structure) && !ismob(C))
+	if(!istype(C, /obj/item) && !istype(C, /obj/machinery) && !istype(C, /obj/structure) && !ismob(C))
 		return
+
 	if(!isturf(C.loc)) //To prevent the loading from stuff from someone's inventory, which wouldn't get handled properly.
 		return
 
@@ -396,7 +414,7 @@
 	for(var/obj/structure/plasticflaps/P in src.loc)//Takes flaps into account
 		if(!CanPass(C,P))
 			return
-	mode = 1
+	mode = LOADING_UNLOADING
 
 	// if a create, close before loading
 	var/obj/structure/closet/crate/crate = C
@@ -431,7 +449,7 @@
 	if(!load)
 		return
 
-	mode = 1
+	mode = LOADING_UNLOADING
 	cut_overlays()
 
 	load.forceMove(src.loc)
@@ -480,34 +498,28 @@
 		var/speed = (wires.Motor1() ? 1:0) + (wires.Motor2() ? 2:0)
 		switch(speed)
 			if(0)
-				// do nothing
+				return
 			if(1)
 				process_bot()
-				spawn(2)
-					process_bot()
-					sleep(2)
-					process_bot()
-					sleep(2)
-					process_bot()
-					sleep(2)
-					process_bot()
+				for (var/i = 2, i < 8, i += 2)
+					addtimer(CALLBACK(src, .proc/process_bot, i, TIMER_UNIQUE))
 			if(2)
 				process_bot()
-				spawn(4)
-					process_bot()
+				addtimer(CALLBACK(src, .proc/process_bot, 4, TIMER_UNIQUE))
 			if(3)
 				process_bot()
 
-	if(refresh) updateDialog()
+	if(refresh)
+		updateDialog()
 
 /obj/machinery/bot/mulebot/proc/process_bot()
 	switch(mode)
-		if(0)		// idle
-			icon_state = "mulebot0"
+		if(IDLE)		// idle
+			update_icon()
 			return
-		if(1)		// loading/unloading
+		if(LOADING_UNLOADING)		// loading/unloading
 			return
-		if(2,3,4)		// navigating to deliver,home, or blocked
+		if(NAVIGATING, HOME, NAV_BLOCKED)		// navigating to deliver,home, or blocked
 
 			if(loc == target)		// reached target
 				at_target()
@@ -519,10 +531,10 @@
 				reached_target = 0
 				if(next == loc)
 					path -= next
+					walk_to(src, src, 0, move_to_delay)
 					return
 
-
-				if(istype( next, /turf/simulated))
+				if(istype( next, /turf))
 					if(bloodiness)
 						var/obj/effect/decal/cleanable/blood/tracks/B = new(loc)
 						var/newdir = get_dir(next, loc)
@@ -538,26 +550,24 @@
 						bloodiness--
 
 
+					walk_to(src, next, 0, move_to_delay)	// attempt to move
 
-					var/moved = step_towards(src, next)	// attempt to move
-					if(cell) cell.use(1)
-					if(moved)	// successful move
-						blockcount = 0
-						path -= loc
+					if(cell)
+						cell.use(1)
 
-
-						if(mode==4)
-							spawn(1)
-								send_status()
+						if(mode == BLOCKED)
+							INVOKE_ASYNC(src, .proc/send_status)
 
 						if(destination == home_destination)
-							mode = 3
+							mode = HOME
+							update_icon()
 						else
-							mode = 2
+							mode = NAVIGATING
+							update_icon()
 
 					else		// failed to move
 						blockcount++
-						mode = 4
+						mode = NAV_BLOCKED
 						if(blockcount == 3)
 							src.visible_message("[src] makes an annoyed buzzing sound", "You hear an electronic buzzing sound.")
 							playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 0)
@@ -572,46 +582,91 @@
 								if(path.len > 0)
 									src.visible_message("[src] makes a delighted ping!", "You hear a ping.")
 									playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
-								mode = 4
-							mode =6
+								mode = NAV_BLOCKED
+							mode = 6
+							update_icon()
 							return
+						update_icon()
 						return
 				else
 					src.visible_message("[src] makes an annoyed buzzing sound", "You hear an electronic buzzing sound.")
 					playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 0)
 					mode = 5
+					update_icon()
 					return
 			else
 				mode = 5
+				update_icon()
 				return
 
 		if(5)		// calculate new path
 			mode = 6
-			spawn(0)
 
-				calc_path()
+			calc_path()
 
-				if(path.len > 0)
-					blockcount = 0
-					mode = 4
-					src.visible_message("[src] makes a delighted ping!", "You hear a ping.")
-					playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
+			if(path.len > 0)
+				blockcount = 0
+				mode = NAV_BLOCKED
+				src.visible_message("[src] makes a delighted ping!", "You hear a ping.")
+				playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 
-				else
-					src.visible_message("[src] makes a sighing buzz.", "You hear an electronic buzzing sound.")
-					playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
+			else
+				src.visible_message("[src] makes a sighing buzz.", "You hear an electronic buzzing sound.")
+				playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 
-					mode = 7
+				mode = NO_DESTINATION
+			update_icon()
 	return
 
+// signals bot status etc. to controller
+/obj/machinery/bot/mulebot/proc/send_status()
+
+	var/list/kv = list(
+		"type" = "mulebot",
+		"name" = suffix,
+		"loca" = (loc ? loc.loc : "Unknown"),	// somehow loc can be null and cause a runtime - Quarxink
+		"mode" = mode,
+		"powr" = (cell ? cell.percent() : 0),
+		"dest" = destination,
+		"home" = home_destination,
+		"load" = load,
+		"retn" = auto_return,
+		"pick" = auto_pickup
+	)
+	listener.post_signal_multiple(control_freq, kv)
 
 // calculates a path to the current destination
 // given an optional turf to avoid
 /obj/machinery/bot/mulebot/proc/calc_path(var/turf/avoid = null)
-	src.path = AStar(src.loc, src.target, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 250, id=botcard, exclude=avoid)
 	if(!src.path)
 		src.path = list()
 
+	path = AStar(loc, target, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 250, id=botcard, exclude=avoid)
+	if(isnull(path) || !path.len)
+		path = list()
+		return
+
+	var/list/path_new = list()
+	var/turf/last = path[path.len]
+	path_new.Add(path[1])
+	for(var/i = 2, i < path.len, i++)
+		if((path[i + 1].x == path[i].x) || (path[i + 1].y == path[i].y)) // we have a straight line, scan for more to cut down
+			path_new.Add(path[i])
+			for(var/j = i + 1, j < path.len, j++)
+				if((path[j + 1].x != path[j - 1].x) && (path[j + 1].y != path[j - 1].y)) // This is a corner and end point of our line
+					path_new.Add(path[j])
+					i = j + 1
+					break
+				else if(j == path.len - 1)
+					path = list()
+					path = path_new.Copy()
+					path.Add(last)
+					return
+		else
+			path_new.Add(path[i])
+	path = list()
+	path = path_new.Copy()
+	path.Add(last)
 
 // sets the current destination
 // signals all beacons matching the delivery code
@@ -619,16 +674,16 @@
 /obj/machinery/bot/mulebot/proc/set_destination(var/new_dest)
 	spawn(0)
 		new_destination = new_dest
-		post_signal(beacon_freq, "findbeacon", "delivery")
+		listener.post_signal(beacon_freq, "findbeacon", "delivery")
 		updateDialog()
 
 // starts bot moving to current destination
 /obj/machinery/bot/mulebot/proc/start()
 	if(destination == home_destination)
-		mode = 3
+		mode = HOME
 	else
-		mode = 2
-	icon_state = "mulebot[wires.MobAvoid()]"
+		mode = NAVIGATING
+	update_icon()
 
 // starts bot moving to home
 // sends a beacon query to find
@@ -636,7 +691,7 @@
 	spawn(0)
 		set_destination(home_destination)
 		mode = 4
-	icon_state = "mulebot[wires.MobAvoid()]"
+	update_icon()
 
 // called when bot reaches current target
 /obj/machinery/bot/mulebot/proc/at_target()
@@ -715,122 +770,6 @@
 		unload(0)
 	return
 
-// receive a radio signal
-// used for control and beacon reception
-
-/obj/machinery/bot/mulebot/receive_signal(datum/signal/signal)
-
-	if(!on)
-		return
-
-	var/recv = signal.data["command"]
-	// process all-bot input
-	if(recv=="bot_status" && wires.RemoteRX())
-		send_status()
-
-
-	recv = signal.data["command [suffix]"]
-	if(wires.RemoteRX())
-		// process control input
-		switch(recv)
-			if("stop")
-				mode = 0
-				return
-
-			if("go")
-				start()
-				return
-
-			if("target")
-				set_destination(signal.data["destination"] )
-				return
-
-			if("unload")
-				if(loc == target)
-					unload(loaddir)
-				else
-					unload(0)
-				return
-
-			if("home")
-				start_home()
-				return
-
-			if("bot_status")
-				send_status()
-				return
-
-			if("autoret")
-				auto_return = text2num(signal.data["value"])
-				return
-
-			if("autopick")
-				auto_pickup = text2num(signal.data["value"])
-				return
-
-	// receive response from beacon
-	recv = signal.data["beacon"]
-	if(wires.BeaconRX())
-		if(recv == new_destination)	// if the recvd beacon location matches the set destination
-									// the we will navigate there
-			destination = new_destination
-			target = signal.source.loc
-			var/direction = signal.data["dir"]	// this will be the load/unload dir
-			if(direction)
-				loaddir = text2num(direction)
-			else
-				loaddir = 0
-			icon_state = "mulebot[wires.MobAvoid()]"
-			calc_path()
-			updateDialog()
-
-// send a radio signal with a single data key/value pair
-/obj/machinery/bot/mulebot/proc/post_signal(var/freq, var/key, var/value)
-	post_signal_multiple(freq, list("[key]" = value) )
-
-// send a radio signal with multiple data key/values
-/obj/machinery/bot/mulebot/proc/post_signal_multiple(var/freq, var/list/keyval)
-
-	if(freq == beacon_freq && !wires.BeaconRX())
-		return
-	if(freq == control_freq && !wires.RemoteTX())
-		return
-
-	var/datum/radio_frequency/frequency = SSradio.return_frequency(freq)
-
-	if(!frequency) return
-
-
-
-	var/datum/signal/signal = new()
-
-	signal.source = src
-	signal.transmission_method = 1
-	signal.data = keyval
-
-	if (signal.data["findbeacon"])
-		frequency.post_signal(src, signal, filter = RADIO_NAVBEACONS)
-	else if (signal.data["type"] == "mulebot")
-		frequency.post_signal(src, signal, filter = RADIO_MULEBOT)
-	else
-		frequency.post_signal(src, signal)
-
-// signals bot status etc. to controller
-/obj/machinery/bot/mulebot/proc/send_status()
-	var/list/kv = list(
-		"type" = "mulebot",
-		"name" = suffix,
-		"loca" = (loc ? loc.loc : "Unknown"),	// somehow loc can be null and cause a runtime - Quarxink
-		"mode" = mode,
-		"powr" = (cell ? cell.percent() : 0),
-		"dest" = destination,
-		"home" = home_destination,
-		"load" = load,
-		"retn" = auto_return,
-		"pick" = auto_pickup
-	)
-	post_signal_multiple(control_freq, kv)
-
 /obj/machinery/bot/mulebot/emp_act(severity)
 	if (cell)
 		cell.emp_act(severity)
@@ -857,3 +796,147 @@
 	new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	unload(0)
 	qdel(src)
+
+/obj/machinery/bot/mulebot/update_icon()
+
+	cut_overlays()
+	if (open)
+		icon_state = initial(icon_state) + "-open"
+	
+	if (emagged)
+		add_overlay("mule_fast-light-emagged")
+	else if (mode == IDLE || mode == NAV_BLOCKED)
+		add_overlay("mule_fast-light-paused")
+	else if (mode == NAVIGATING || mode == LOADING_UNLOADING || mode == HOME)
+		add_overlay("mule_fast-light-active")
+	
+	if (load)
+		add_overlay(load)
+
+/obj/mulebot_listener
+	var/datum/weakref/bot
+
+/obj/mulebot_listener/Destroy()
+	bot = null
+	return ..()
+
+// send a radio signal with a single data key/value pair
+/obj/mulebot_listener/proc/post_signal(var/freq, var/key, var/value)
+	post_signal_multiple(freq, list("[key]" = value) )
+
+// send a radio signal with multiple data key/values
+/obj/mulebot_listener/proc/post_signal_multiple(var/freq, var/list/keyval)
+
+	var/obj/machinery/bot/mulebot/mule = bot.resolve()
+
+	if (!mule)
+		return
+
+	if(freq == mule.beacon_freq && !mule.wires.BeaconRX())
+		return
+
+	if(freq == mule.control_freq && !mule.wires.RemoteTX())
+		return
+
+	var/datum/radio_frequency/frequency = SSradio.return_frequency(freq)
+
+	if(!frequency)
+		return
+
+
+	var/datum/signal/signal = new()
+
+	signal.source = mule
+	signal.transmission_method = 1
+	signal.data = keyval
+
+	if (signal.data["findbeacon"])
+		frequency.post_signal(mule, signal, filter = RADIO_NAVBEACONS)
+	else if (signal.data["type"] == "mulebot")
+		frequency.post_signal(mule, signal, filter = RADIO_MULEBOT)
+	else
+		frequency.post_signal(mule, signal)
+
+/obj/mulebot_listener/receive_signal(datum/signal/signal)
+	var/obj/machinery/bot/mulebot/mule = bot.resolve()
+
+	if (!mule)
+		return
+	
+	if(!mule.on)
+		return
+
+	var/recv = signal.data["command"]
+	// process all-bot input
+	if(recv == "bot_status" && mule.wires.RemoteRX())
+		mule.send_status()
+
+	recv = signal.data["command [mule.suffix]"]
+	if(mule.wires.RemoteRX())
+		// process control input
+		switch(recv)
+			if("stop")
+				mule.mode = IDLE
+				mule.update_icon()
+				return
+
+			if("go")
+				mule.start()
+				return
+
+			if("target")
+				mule.set_destination(signal.data["destination"] )
+				return
+
+			if("unload")
+				if(mule.loc == mule.target)
+					mule.unload(mule.loaddir)
+				else
+					mule.unload(0)
+				return
+
+			if("home")
+				mule.start_home()
+				return
+
+			if("bot_status")
+				mule.send_status()
+				return
+
+			if("autoret")
+				mule.auto_return = text2num(signal.data["value"])
+				return
+
+			if("autopick")
+				mule.auto_pickup = text2num(signal.data["value"])
+				return
+			
+			if("summon")
+				mule.target = signal.data["target"]
+				mule.calc_path()
+				mule.start()
+				return
+
+	// receive response from beacon
+	recv = signal.data["beacon"]
+	if(mule.wires.BeaconRX())
+		if(recv == mule.new_destination)	// if the recvd beacon location matches the set destination
+									// the we will navigate there
+			mule.destination = mule.new_destination
+			mule.target = signal.source.loc
+			var/direction = signal.data["dir"]	// this will be the load/unload dir
+			if(direction)
+				mule.loaddir = text2num(direction)
+			else
+				mule.loaddir = 0
+			mule.update_icon()
+			mule.calc_path()
+			mule.updateDialog()
+
+#undef IDLE
+#undef LOADING_UNLOADING
+#undef NAVIGATING
+#undef HOME
+#undef NAV_BLOCKED
+#undef NO_DESTINATION
+#undef SUMMONED

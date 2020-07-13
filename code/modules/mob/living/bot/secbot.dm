@@ -68,7 +68,7 @@
 /mob/living/bot/secbot/Initialize()
 	. = ..()
 	listener = new /obj/secbot_listener(src)
-	listener.secbot = src
+	listener.bot = WEAKREF(src)
 
 	if(SSradio)
 		SSradio.add_object(listener, control_freq, filter = RADIO_SECBOT)
@@ -77,6 +77,10 @@
 /mob/living/bot/secbot/Destroy()
 	QDEL_NULL(listener)
 	target = null
+	if(SSradio)
+		SSradio.remove_object(listener, beacon_freq)
+		SSradio.remove_object(listener, control_freq)
+
 	return ..()
 
 /mob/living/bot/secbot/turn_off()
@@ -436,10 +440,10 @@
 	listener.post_signal_multiple(control_freq, kv)
 
 /obj/secbot_listener
-	var/mob/living/bot/secbot/secbot = null
+	var/datum/weakref/bot
 
 /obj/secbot_listener/Destroy()
-	secbot = null
+	bot = null
 	return ..()
 
 /obj/secbot_listener/proc/post_signal(var/freq, var/key, var/value) // send a radio signal with a single data key/value pair
@@ -448,6 +452,11 @@
 /obj/secbot_listener/proc/post_signal_multiple(var/freq, var/list/keyval) // send a radio signal with multiple data key/values
 	var/datum/radio_frequency/frequency = SSradio.return_frequency(freq)
 	if(!frequency)
+		return
+
+	var/mob/living/bot/secbot/secbot = bot.resolve()
+
+	if (!secbot)
 		return
 
 	var/datum/signal/signal = new()
@@ -463,6 +472,11 @@
 		frequency.post_signal(secbot, signal)
 
 /obj/secbot_listener/receive_signal(datum/signal/signal)
+	var/mob/living/bot/secbot/secbot = bot.resolve()
+
+	if (!secbot)
+		return
+
 	if(!secbot || !secbot.on)
 		return
 
@@ -487,7 +501,6 @@
 				secbot.patrol_target = signal.data["target"]
 				secbot.next_destination = secbot.destination
 				secbot.destination = null
-				//secbot.awaiting_beacon = 0
 				secbot.mode = SECBOT_SUMMON
 				secbot.calc_path()
 				secbot.say("Responding.")

@@ -68,7 +68,7 @@ var/list/prisonsecuritywarp = list() // Prison security goes to these.
 var/list/prisonwarped       = list() // List of players already warped.
 var/list/ninjastart         = list()
 
-var/list/cardinal    = list(NORTH, SOUTH, EAST, WEST)
+var/list/cardinal    = list(NORTH, SOUTH, EAST, WEST) // 1, 2, 4, 8
 var/list/cornerdirs  = list(NORTHWEST, SOUTHEAST, NORTHEAST, SOUTHWEST)
 var/list/alldirs     = list(NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
 var/list/reverse_dir = list( // reverse_dir[dir] = reverse of dir
