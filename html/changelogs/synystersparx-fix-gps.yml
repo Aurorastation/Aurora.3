@@ -1,0 +1,4 @@
+author: SynysterSparx
+delete-after: True
+changes: 
+  - bugfix: "GPS Move Event registered to target when surgically implanted."
