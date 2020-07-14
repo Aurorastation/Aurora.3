@@ -171,7 +171,6 @@ obj/item/clothing/mask/chewable/Destroy()
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
-	foldable = null
 	trash = /obj/item/trash/gum
 	closable = FALSE
 	icon_overlays = FALSE

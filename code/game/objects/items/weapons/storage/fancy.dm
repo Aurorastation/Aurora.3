@@ -15,11 +15,12 @@
  */
 
 /obj/item/storage/box/fancy
-	var/icon_type = null
-	var/storage_type = "box"
-	var/opened = FALSE
-	var/closable = TRUE
-	var/icon_overlays = TRUE
+	var/icon_type = null // what's in the box. remember to keep it singular.
+	var/storage_type = "box" // what type of box it is.
+	var/opened = FALSE // handles open/closing icons. also a failsafe.
+	var/closable = TRUE // if you can close the icon after opening.
+	var/icon_overlays = TRUE // whether the icon uses the update_icon() or a unique one.
+	foldable = null // most of this stuff isn't foldable by default, e.g. cig packets and vial boxes
 
 /obj/item/storage/box/fancy/open(mob/user)
 	. = ..()
@@ -73,6 +74,7 @@
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donut/normal = 6)
 	storage_slots = 6
 	icon_overlays = FALSE
+	foldable = /obj/item/stack/material/cardboard
 
 /obj/item/storage/box/fancy/donut/update_icon() // One of the few unique update_icon()s, due to having to store both regular and sprinkled donuts.
 	.=..()
@@ -105,6 +107,7 @@
 		/obj/item/reagent_containers/food/snacks/boiledegg
 		)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/egg = 12)
+	foldable = /obj/item/stack/material/cardboard
 
 /*
  * Candle Box
@@ -125,6 +128,7 @@
 	starts_with = list(/obj/item/flame/candle = 5)
 	opened = TRUE
 	closable = FALSE
+	foldable = /obj/item/stack/material/cardboard
 
 /obj/item/storage/box/fancy/candle_box/empty
 	starts_with = null
@@ -153,6 +157,7 @@
 	)
 	opened = TRUE
 	closable = FALSE
+	foldable = /obj/item/stack/material/cardboard
 
 /obj/item/storage/box/fancy/crayons/empty
 	starts_with = null
@@ -191,8 +196,6 @@
 	slot_flags = SLOT_BELT
 	can_hold = list(/obj/item/flame/match, /obj/item/trash/match)
 	starts_with = list(/obj/item/flame/match = 10)
-
-	foldable = null
 	icon_overlays = FALSE
 
 /obj/item/storage/box/fancy/matches/attackby(obj/item/flame/match/W, mob/user)
@@ -241,7 +244,6 @@
 	storage_slots = 6
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt)
 	var/cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette
-	foldable = null
 
 /obj/item/storage/box/fancy/cigarettes/Initialize()
 	flags |= NOREACT
@@ -354,7 +356,6 @@
 	storage_slots = 6
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
 	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial = 6)
-	foldable = null
 	chewable = FALSE
 
 /obj/item/storage/lockbox/vials

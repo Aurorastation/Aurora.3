@@ -542,7 +542,6 @@
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
-	foldable = null
 	trash = /obj/item/trash/cookiesnack
 	closable = FALSE
 	icon_overlays = FALSE
@@ -2227,7 +2226,6 @@
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 
-	foldable = null
 	trash = /obj/item/trash/admints
 	closable = FALSE
 	icon_overlays = FALSE
