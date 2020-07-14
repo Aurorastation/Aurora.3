@@ -42,7 +42,6 @@ changes:
   - maptweak: "Removed the surgical freezer as all its contents could be found elsewhere; O- blood bags were moved to freezers in the OR itself."
   - maptweak: "Added caution stripes to the ORs to mark areas that are off-limits for nonsterile personnel."
   - maptweak: "Adds a lot of sinks to the surgical wing. Stay sterile!"
-  - maptweak: "The waiting area in the surgical wing has been substantially expanded."
   - maptweak: "The Operating Rooms now have separate doors."
   - maptweak: "One of the ORs now has an observation area."
   - maptweak: "Gives paramedics access to the ORs in order to deliver patients. THIS DOES NOT MEAN THAT THEY CAN DO SURGERY."
