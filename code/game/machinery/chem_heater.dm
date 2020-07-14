@@ -1,5 +1,6 @@
 /obj/machinery/chem_heater
 	name = "chemical heater"
+	desc = "A simple device that can be used to heat the contents of a beaker to a precise temperature."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "mixer0b"
 	use_power = 0

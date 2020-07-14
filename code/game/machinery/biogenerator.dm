@@ -1,6 +1,6 @@
 /obj/machinery/biogenerator
-	name = "Biogenerator"
-	desc = ""
+	name = "biogenerator"
+	desc = "An advanced machine that can be used to convert grown plantlike biological material into various other bio-goods."
 	icon = 'icons/obj/biogenerator.dmi'
 	icon_state = "biogen-stand"
 	density = 1
