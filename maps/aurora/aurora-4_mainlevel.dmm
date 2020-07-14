@@ -826,10 +826,10 @@
 /area/maintenance/substation/security)
 "abL" = (
 /obj/structure/bed/chair,
-/obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgeryobs)
 "abM" = (
@@ -67107,10 +67107,6 @@
 	dir = 1;
 	name = "north bump";
 	pixel_y = 24
-	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
 	},
 /obj/structure/cable/green{
 	d2 = 2;
