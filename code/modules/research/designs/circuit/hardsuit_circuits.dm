@@ -1,6 +1,9 @@
 /datum/design/circuit/hardsuit
 	p_category = "Hardsuit Circuit Designs"
 
+/datum/design/circuit/hardsuit/AssembleDesignDesc()
+	desc = "Contains the software required to make this model of hardsuit."
+
 /datum/design/circuit/hardsuit/industrial
 	name = "Industrial Suit Central Circuit Board"
 	req_tech = list(TECH_DATA = 3)

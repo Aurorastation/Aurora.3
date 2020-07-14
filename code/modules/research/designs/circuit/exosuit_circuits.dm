@@ -1,6 +1,15 @@
 /datum/design/circuit/exosuit
 	p_category = "Exosuit Software Designs"
 
+/datum/design/circuit/exosuit/AssembleDesignDesc()
+	var/obj/item/circuitboard/exosystem/CB = new build_path
+	var/list/softwares = CB.contains_software
+	desc = "Contains software suited for: "
+	for(var/i = 1 to softwares.len)
+		desc += "<b>[capitalize_first_letters(softwares[i])]</b>"
+		if(length(softwares) != i)
+			desc += ", "
+
 /datum/design/circuit/exosuit/engineering
 	name = "Engineering System Control"
 	req_tech = list(TECH_DATA = 1)
