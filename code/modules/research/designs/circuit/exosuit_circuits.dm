@@ -2,6 +2,9 @@
 	p_category = "Exosuit Software Designs"
 
 /datum/design/circuit/exosuit/AssembleDesignDesc()
+	if(!build_path)
+		desc = "A circuitboard that contains exosystems software."
+		return
 	var/obj/item/circuitboard/exosystem/CB = new build_path
 	var/list/softwares = CB.contains_software
 	desc = "Contains software suited for: "
