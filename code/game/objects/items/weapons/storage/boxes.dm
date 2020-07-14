@@ -41,7 +41,7 @@
 	if(foldable)
 		desc_info += "You can fold this into a sheet. "
 	if(ispath(src.trash))
-		desc_info += "This can be crumpled up into a trash item when empty, or forcibly crumpled on harm intent."
+		desc_info += "This can be crumpled up into a trash item when empty, or forcibly crumpled on harm intent. "
 
 /obj/item/storage/box/proc/damage(var/severity)
 	health -= severity
