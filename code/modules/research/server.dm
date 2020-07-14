@@ -291,7 +291,7 @@
 			for(var/path in temp_server.files.known_tech)
 				var/datum/tech/T = temp_server.files.known_tech[path]
 				dat += "* [T.name] "
-				dat += "<A href='?src=\ref[src];reset_tech=[T.id]'>(Reset)</A><BR>" //FYI, these are all strings.
+				dat += "<A href='?src=\ref[src];reset_tech=[T.id]'>(Reset)</A><BR>"
 			dat += "Known Designs<BR>"
 			for(var/path in temp_server.files.known_designs)
 				var/datum/design/D = temp_server.files.known_designs[path]
