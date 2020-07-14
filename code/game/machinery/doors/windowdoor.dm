@@ -60,7 +60,7 @@
 /obj/machinery/door/window/CollidedWith(atom/movable/AM as mob|obj)
 	if(istype(AM, /mob/living/heavy_vehicle))
 		var/mob/living/heavy_vehicle/HV = AM
-		for(var/mob/user in HV.pilots)
+		for(var/user in HV.pilots)
 			AM = user
 			break
 	if (istype(AM, /mob/living/bot))
