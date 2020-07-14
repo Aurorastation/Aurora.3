@@ -1,9 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Spiderbots now appear on the radio with the name of the one controlling them."
-  - bugfix: "Mechs can now operate windoors."
-  - bugfix: "Remote mechs can now use mounted health analyzers."
-  - bugfix: "Mech rechargers will now charge the mech on top of them if there is a power change and the power is back."
