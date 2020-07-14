@@ -11,7 +11,6 @@
 	throw_range = 7
 	layer = OBJ_LAYER - 0.1
 	var/amount = 50					//How much paper is in the bin.  Gloves, actually, but this code is copied from the paper bin code.
-	var/list/papers = new/list()	//List of papers put in the bin for reference.  Actually gloves, see above.
 
 /obj/item/nitrilebox/MouseDrop(mob/user as mob)
 	if((user == usr && (!( usr.restrained() ) && (!( usr.stat ) && (usr.contents.Find(src) || in_range(src, usr))))))
@@ -41,22 +40,15 @@
 			to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
 			return
 	var/response = ""
-	if(!papers.len > 0)
+	if(amount > 0)
 		response = alert(user, "Do you take a pair of gloves?", "Take gloves?", "Yes", "No")
 		if (response != "Yes")
 			add_fingerprint(user)
 			return
-	if(amount >= 1)
 		amount--
-		if(amount==0)
-			update_icon()
 		var/obj/item/clothing/gloves/latex/nitrile/P
-		if(papers.len > 0)	//If there's any custom paper on the stack, use that instead of creating a new paper. (not sure what this does now that this is a glove box))
-			P = papers[papers.len]
-			papers.Remove(P)
-		else
-			if(response == "Yes")
-				P = new /obj/item/clothing/gloves/latex/nitrile
+		if(response == "Yes")
+			P = new /obj/item/clothing/gloves/latex/nitrile
 
 
 
@@ -83,9 +75,3 @@
 			to_chat(user, "<span class='notice'>There are no gloves in the box.  Time to throw it away.</span>")
 	return
 
-
-/obj/item/nitrilebox/update_icon()
-	if(amount < 1)
-		icon_state = "paper_bin0"
-	else
-		icon_state = "paper_bin1"
