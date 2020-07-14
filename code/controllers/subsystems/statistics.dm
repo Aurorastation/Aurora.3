@@ -51,7 +51,7 @@
 			if (!istype(C.mob, /mob/abstract))
 				if (C.is_afk(inactivity_threshold))
 					log_access("AFK: [key_name(C)]")
-					to_chat(C, span("warning", "You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected."))
+					to_chat(C, SPAN_WARNING("You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected."))
 					qdel(C)
 
 	// Handle population polling.
@@ -147,7 +147,7 @@
 	for (var/statistic in simple_statistics)
 		var/datum/statistic/S = simple_statistics[statistic]
 		if (S.broadcast_at_roundend && S.has_value())
-			dat += span("notice", "<b>[S]:</b> [S.get_roundend_lines()]")
+			dat += SPAN_NOTICE("<b>[S]:</b> [S.get_roundend_lines()]")
 
 	to_chat(world, dat.Join("\n"))
 

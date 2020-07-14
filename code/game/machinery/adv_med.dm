@@ -82,10 +82,10 @@
 	if (usr.stat != CONSCIOUS)
 		return
 	if (occupant)
-		to_chat(usr, span("warning", "The scanner is already occupied!"))
+		to_chat(usr, SPAN_WARNING("The scanner is already occupied!"))
 		return
 	if (usr.abiotic())
-		to_chat(usr, span("warning", "The subject cannot have abiotic items on."))
+		to_chat(usr, SPAN_WARNING("The subject cannot have abiotic items on."))
 		return
 	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
@@ -115,14 +115,14 @@
 	if (!istype(G, /obj/item/grab) || !isliving(G.affecting) )
 		return
 	if (occupant)
-		to_chat(user, span("warning", "The scanner is already occupied!"))
+		to_chat(user, SPAN_WARNING("The scanner is already occupied!"))
 		return
 	if (G.affecting.abiotic())
-		to_chat(user, span("warning", "Subject cannot have abiotic items on."))
+		to_chat(user, SPAN_WARNING("Subject cannot have abiotic items on."))
 		return
 
 	var/mob/living/M = G.affecting
-	user.visible_message(span("notice", "\The [user] starts putting \the [M] into \the [src]."), span("notice", "You start putting \the [M] into \the [src]."), range = 3)
+	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [M] into \the [src]."), SPAN_NOTICE("You start putting \the [M] into \the [src]."), range = 3)
 
 	if (do_mob(user, G.affecting, 30, needhand = 0))
 		var/bucklestatus = M.bucklecheck(user)
@@ -152,10 +152,10 @@
 		return
 	var/mob/living/M = O//Theres no reason this shouldn't be /mob/living
 	if (occupant)
-		to_chat(user, span("notice", "<B>The scanner is already occupied!</B>"))
+		to_chat(user, SPAN_NOTICE("<B>The scanner is already occupied!</B>"))
 		return
 	if (M.abiotic())
-		to_chat(user, span("notice", "<B>Subject cannot have abiotic items on.</B>"))
+		to_chat(user, SPAN_NOTICE("<B>Subject cannot have abiotic items on.</B>"))
 		return
 
 	var/mob/living/L = O
@@ -165,9 +165,9 @@
 		return
 
 	if(L == user)
-		user.visible_message("\The <b>[user]</b> starts climbing into \the [src].", span("notice", "You start climbing into \the [src]."), range = 3)
+		user.visible_message("\The <b>[user]</b> starts climbing into \the [src].", SPAN_NOTICE("You start climbing into \the [src]."), range = 3)
 	else
-		user.visible_message("\The <b>[user]</b> starts putting \the [L] into \the [src].", span("notice", "You start putting \the [L] into \the [src]."), range = 3)
+		user.visible_message("\The <b>[user]</b> starts putting \the [L] into \the [src].", SPAN_NOTICE("You start putting \the [L] into \the [src]."), range = 3)
 
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)

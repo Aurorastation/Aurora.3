@@ -15,7 +15,6 @@
 
 /mob/living/silicon/ai/Destroy()
 	QDEL_NULL(ntnet_monitor)
-
 	return ..()
 
 /mob/living/silicon/proc/init_subsystems()

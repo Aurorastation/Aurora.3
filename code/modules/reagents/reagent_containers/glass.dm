@@ -61,7 +61,7 @@
 /obj/item/reagent_containers/glass/proc/shatter(var/mob/user)
 	if(reagents.total_volume)
 		reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
-	audible_message(span("warning", "\The [src] shatters with a resounding crash!"), span("warning", "\The [src] breaks."))
+	audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"), SPAN_WARNING("\The [src] breaks."))
 	playsound(src, "shatter", 70, 1)
 	new /obj/item/material/shard(loc, "glass")
 	qdel(src)

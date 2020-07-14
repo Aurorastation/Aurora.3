@@ -193,7 +193,7 @@
 		if(!S.care_about_storage_depth)
 			storage_depth_matters = FALSE
 	if(storage_depth_matters && !src.Adjacent(user))
-		to_chat(user, span("notice", "\The [src] slips out of your grasp before you can grab it!")) // because things called before this can move it
+		to_chat(user, SPAN_NOTICE("\The [src] slips out of your grasp before you can grab it!")) // because things called before this can move it
 		return // please don't pick things up
 	src.pickup(user)
 	if(S)

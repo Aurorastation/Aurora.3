@@ -114,7 +114,7 @@ var/list/GPS_list = list()
 				if(was_tracked)
 					tracking |= gpstag
 			else
-				to_chat(usr, span("warning", "GPS tag already assigned, choose another."))
+				to_chat(usr, SPAN_WARNING("GPS tag already assigned, choose another."))
 
 		return TRUE
 

@@ -66,7 +66,7 @@
 					H.updatehealth()
 				else
 					src.take_organ_damage(d)
-				user.visible_message(span("danger", "[user] attacks [src]'s stomach wall with the [I.name]!"))
+				user.visible_message(SPAN_DANGER("[user] attacks [src]'s stomach wall with the [I.name]!"))
 				playsound(user.loc, 'sound/effects/attackblob.ogg', 50, 1)
 
 				if(prob(src.getBruteLoss() - 50))
@@ -75,7 +75,7 @@
 /mob/living/carbon/gib()
 	for(var/mob/M in contents)
 		M.dropInto(loc)
-		visible_message(span("danger", "\The [M] bursts out of \the [src]!"))
+		visible_message(SPAN_DANGER("\The [M] bursts out of \the [src]!"))
 	..()
 
 /mob/living/carbon/attack_hand(mob/M as mob)
@@ -105,11 +105,11 @@
 			show_ssd = H.species.show_ssd
 		if(H && show_ssd && !client && !teleop)
 			if(H.bg)
-				to_chat(H, span("danger", "You sense some disturbance to your physical body!"))
+				to_chat(H, SPAN_DANGER("You sense some disturbance to your physical body!"))
 			else if(!vr_mob)
-				visible_message(span("notice", "[M] [action] [src], but they do not respond... Maybe they have S.S.D?"))
+				visible_message(SPAN_NOTICE("[M] [action] [src], but they do not respond... Maybe they have S.S.D?"))
 		else if(client && willfully_sleeping)
-			visible_message(span("notice", "[M] [action] [src] waking [t_him] up!"))
+			visible_message(SPAN_NOTICE("[M] [action] [src] waking [t_him] up!"))
 			sleeping = 0
 			willfully_sleeping = FALSE
 	return
@@ -126,17 +126,17 @@
 	playsound(loc, "sparks", 50, 1, -1)
 	if(shock_damage > 15 || tesla_shock)
 		src.visible_message(
-			span("warning", "[src] was shocked by the [source]!"), \
-			span("danger", "You feel a powerful shock course through your body!"), \
-			span("warning", "You hear a heavy electrical crack.") \
+			SPAN_WARNING("[src] was shocked by the [source]!"), \
+			SPAN_DANGER("You feel a powerful shock course through your body!"), \
+			SPAN_WARNING("You hear a heavy electrical crack.") \
 		)
 		Stun(10)//This should work for now, more is really silly and makes you lay there forever
 		Weaken(10)
 	else
 		src.visible_message(
-			span("warning", "[src] was mildly shocked by the [source]."), \
-			span("warning", "You feel a mild shock course through your body."), \
-			span("warning", "You hear a light zapping.") \
+			SPAN_WARNING("[src] was mildly shocked by the [source]."), \
+			SPAN_WARNING("You feel a mild shock course through your body."), \
+			SPAN_WARNING("You hear a light zapping.") \
 		)
 	spark(loc, 5, alldirs)
 	return shock_damage
@@ -149,7 +149,7 @@
 	if(item_in_hand) //this segment checks if the item in your hand is twohanded.
 		if(istype(item_in_hand,/obj/item/material/twohanded) || istype(item_in_hand,/obj/item/gun) || istype(item_in_hand,/obj/item/pickaxe))
 			if(item_in_hand:wielded == 1)
-				to_chat(usr, span("warning", "Your other hand is too busy holding the [item_in_hand.name]"))
+				to_chat(usr, SPAN_WARNING("Your other hand is too busy holding the [item_in_hand.name]"))
 				return
 	src.hand = !src.hand
 	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
@@ -180,25 +180,25 @@
 	if (on_fire)
 		playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		if (M.on_fire)
-			M.visible_message(span("warning", "[M] tries to pat out [src]'s flames, but to no avail!"),
-			span("warning", "You try to pat out [src]'s flames, but to no avail! Put yourself out first!"))
+			M.visible_message(SPAN_WARNING("[M] tries to pat out [src]'s flames, but to no avail!"),
+			SPAN_WARNING("You try to pat out [src]'s flames, but to no avail! Put yourself out first!"))
 		else
-			M.visible_message(span("warning", "[M] tries to pat out [src]'s flames!"),
-			span("warning", "You try to pat out [src]'s flames! Hot!"))
+			M.visible_message(SPAN_WARNING("[M] tries to pat out [src]'s flames!"),
+			SPAN_WARNING("You try to pat out [src]'s flames! Hot!"))
 			if(do_mob(M, src, 1.5 SECONDS))
 				if (M.IgniteMob(prob(10)))
-					M.visible_message(span("danger", "The fire spreads from [src] to [M]!"),
-					span("danger", "The fire spreads to you as well!"))
+					M.visible_message(SPAN_DANGER("The fire spreads from [src] to [M]!"),
+					SPAN_DANGER("The fire spreads to you as well!"))
 				else
 					if (src.ExtinguishMob(1))
-						M.visible_message(span("warning", "[M] successfully pats out [src]'s flames."),
-						span("warning", "You successfully pat out [src]'s flames."))
+						M.visible_message(SPAN_WARNING("[M] successfully pats out [src]'s flames."),
+						SPAN_WARNING("You successfully pat out [src]'s flames."))
 	else if (!is_asystole())
 		if(src == M && istype(src, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = src
 			src.visible_message(
-				span("notice", "[src] examines [src.gender==MALE?"himself":"herself"]."), \
-				span("notice", "You check yourself for injuries.") \
+				SPAN_NOTICE("[src] examines [src.gender==MALE?"himself":"herself"]."), \
+				SPAN_NOTICE("You check yourself for injuries.") \
 				)
 
 			for(var/obj/item/organ/external/org in H.organs)
@@ -236,9 +236,9 @@
 				if(org.status & ORGAN_BLEEDING)
 					status += SPAN_DANGER("bleeding")
 				if(status.len)
-					src.show_message("My [org.name] is [span("warning", "[english_list(status)].")]", 1)
+					src.show_message("My [org.name] is [SPAN_WARNING("[english_list(status)].")]", 1)
 				else
-					src.show_message("My [org.name] feels [span("notice", "OK.")]" ,1)
+					src.show_message("My [org.name] feels [SPAN_NOTICE("OK.")]" ,1)
 
 			if((isskeleton(H)) && (!H.w_uniform) && (!H.wear_suit))
 				H.play_xylophone()
@@ -259,35 +259,35 @@
 				show_ssd = H.species.show_ssd
 			if(H && show_ssd && !client && !teleop)
 				if(H.bg)
-					to_chat(H, span("warning", "You sense some disturbance to your physical body, like someone is trying to wake you up."))
+					to_chat(H, SPAN_WARNING("You sense some disturbance to your physical body, like someone is trying to wake you up."))
 				else if(!vr_mob)
-					M.visible_message(span("notice", "[M] shakes [src] trying to wake [t_him] up!"), \
-										span("notice", "You shake [src], but they do not respond... Maybe they have S.S.D?"))
+					M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [t_him] up!"), \
+										SPAN_NOTICE("You shake [src], but they do not respond... Maybe they have S.S.D?"))
 			else if(lying)
 				if(src.sleeping)
 					src.sleeping = max(0,src.sleeping-5)
-					M.visible_message(span("notice", "[M] shakes [src] trying to wake [t_him] up!"), \
-										span("notice", "You shake [src] trying to wake [t_him] up!"))
+					M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [t_him] up!"), \
+										SPAN_NOTICE("You shake [src] trying to wake [t_him] up!"))
 				else
 					M.help_up_offer = !M.help_up_offer
 					if(M.help_up_offer)
-						M.visible_message(span("notice", "[M] holds a hand out to [src]."), \
-											span("notice", "You hold a hand out to [src]."))
+						M.visible_message(SPAN_NOTICE("[M] holds a hand out to [src]."), \
+											SPAN_NOTICE("You hold a hand out to [src]."))
 					else
-						M.visible_message(span("warning", "[M] retracts their hand from [src]'s direction."), \
-											span("warning", "You retract your hand from [src]'s direction."))
+						M.visible_message(SPAN_WARNING("[M] retracts their hand from [src]'s direction."), \
+											SPAN_WARNING("You retract your hand from [src]'s direction."))
 			else
 				var/mob/living/carbon/human/tapper = M
 				if(M.resting)
 					if(src.help_up_offer)
-						M.visible_message(span("notice", "[M] grabs onto [src]'s hand and is hoisted up."), \
-											span("notice", "You grab onto [src]'s hand and are hoisted up."))
+						M.visible_message(SPAN_NOTICE("[M] grabs onto [src]'s hand and is hoisted up."), \
+											SPAN_NOTICE("You grab onto [src]'s hand and are hoisted up."))
 						if(do_after(M, 0.5 SECONDS))
 							M.resting = 0
 							src.help_up_offer = 0
 					else
-						M.visible_message(span("warning", "[M] grabs onto [src], trying to pull themselves up."), \
-										  span("warning", "You grab onto [src], trying to pull yourself up."))
+						M.visible_message(SPAN_WARNING("[M] grabs onto [src], trying to pull themselves up."), \
+										  SPAN_WARNING("You grab onto [src], trying to pull yourself up."))
 						if(M.fire_stacks >= (src.fire_stacks + 3))
 							src.adjust_fire_stacks(1)
 							M.adjust_fire_stacks(-1)
@@ -300,7 +300,7 @@
 					tapper.species.tap(tapper,src)
 				else
 					M.visible_message("<b>[M]</b> taps [src] to get their attention!", \
-								span("notice", "You tap [src] to get their attention!"))
+								SPAN_NOTICE("You tap [src] to get their attention!"))
 
 			if(stat != DEAD)
 				AdjustParalysis(-3)
@@ -364,7 +364,7 @@
 	set category = "IC"
 
 	if(usr.sleeping)
-		to_chat(usr, span("warning", "You are already sleeping"))
+		to_chat(usr, SPAN_WARNING("You are already sleeping"))
 		return
 	if(alert(src,"You sure you want to sleep for a while?","Sleep","Yes","No") == "Yes")
 		willfully_sleeping = TRUE
@@ -382,7 +382,7 @@
 	if(buckled)
 		return 0
 	stop_pulling()
-	to_chat(src, span("warning", "You slipped on [slipped_on]!"))
+	to_chat(src, SPAN_WARNING("You slipped on [slipped_on]!"))
 	playsound(src.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 	Stun(stun_duration)
 	Weaken(Floor(stun_duration/2))
