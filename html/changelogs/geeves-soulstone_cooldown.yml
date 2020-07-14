@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "Soulstones now apply a 2 second click cooldown when used to suck up a soul, whether it was successful or not."
