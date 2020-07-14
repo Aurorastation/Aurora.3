@@ -692,20 +692,19 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			update_icon()
 			playsound(src.loc, pick(activation_sound), 75, 1)
 			if(istype(src, /obj/item/flame/lighter/zippo) )
-				user.visible_message(SPAN_NOTICE("Without even breaking stride, [user] flips open and lights [src] in one smooth movement."))
+				user.visible_message(FONT_SMALL("Without even breaking stride, <b>[user]</b> flips open and lights \the [src] in one smooth movement."), range = 3)
 			else
 				if(prob(95))
-					user.visible_message(SPAN_NOTICE("After a few attempts, [user] manages to light the [src]."))
+					user.visible_message(FONT_SMALL("After a few attempts, <b>[user]</b> manages to light \the [src]."), range = 3)
 				else
-
-					to_chat(user, SPAN_WARNING("You burn yourself while lighting the lighter."))
+					to_chat(user, FONT_SMALL("You burn yourself while lighting the lighter."))
 					if(user.IgniteMob())
-						user.visible_message(SPAN_DANGER("\The [user] accidentally sets themselves on fire!"))
-					if (user.l_hand == src)
-						user.apply_damage(2,BURN,BP_L_HAND)
+						user.visible_message(FONT_SMALL("<b>[user]</b> accidentally sets themselves on fire!"))
+					if(user.l_hand == src)
+						user.apply_damage(2, BURN,BP_L_HAND)
 					else
-						user.apply_damage(2,BURN,BP_R_HAND)
-					user.visible_message(SPAN_NOTICE("After a few attempts, [user] manages to light the [src], they however burn their finger in the process."))
+						user.apply_damage(2, BURN,BP_R_HAND)
+					user.visible_message(FONT_SMALL("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)
 
 			set_light(2, 1, l_color = LIGHT_COLOR_LAVA)
 			START_PROCESSING(SSprocessing, src)
@@ -714,9 +713,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			update_icon()
 			playsound(src.loc, deactivation_sound, 75, 1)
 			if(istype(src, /obj/item/flame/lighter/zippo) )
-				user.visible_message(SPAN_NOTICE("You hear a quiet click, as [user] shuts off [src] without even looking at what they're doing."))
+				user.visible_message(FONT_SMALL("You hear a quiet click, as <b>[user]</b> shuts off \the [src] without even looking at what they're doing."), range = 3)
 			else
-				user.visible_message(SPAN_NOTICE("[user] quietly shuts off the [src]."))
+				user.visible_message(FONT_SMALL("<b>[user]</b> quietly shuts off \the [src]."), range = 3)
 
 			set_light(0)
 			STOP_PROCESSING(SSprocessing, src)
