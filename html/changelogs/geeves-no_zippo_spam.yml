@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "Tweaked lighter activation messages to be less spammy. They appear smaller and only have a three tile range."
