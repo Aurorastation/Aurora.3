@@ -6,7 +6,7 @@
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	throwforce = 1
-	w_class = 5
+	w_class = 3
 	throw_speed = 3
 	throw_range = 7
 	layer = OBJ_LAYER - 0.1
@@ -25,7 +25,7 @@
 					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
 
-				to_chat(user, SPAN_NOTICE("You pick up /the [src]."))
+				to_chat(user, SPAN_NOTICE("You pick up [src]."))
 				user.put_in_hands(src)
 
 	return
@@ -47,11 +47,12 @@
 			return
 		amount--
 		var/obj/item/clothing/gloves/latex/nitrile/P
+		P = new()
 		P.forceMove(user.loc)
 		user.put_in_hands(P)
-		to_chat(user, SPAN_NOTICE("You take /the [P] out of /the [src]."))
+		to_chat(user, SPAN_NOTICE("You take [P] out of [src]."))
 	else
-		to_chat(user, SPAN_NOTICE("/The [src] is empty!"))
+		to_chat(user, SPAN_NOTICE("[src] is empty!"))
 
 	add_fingerprint(user)
 	return
