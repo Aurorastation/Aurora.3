@@ -105,7 +105,7 @@
 	zombie_type = "Unathi Zombie"
 
 	default_accent = ACCENT_HEGEMON_PEASANT
-	allowed_accents = list(ACCENT_HEGEMON_NOBLE, ACCENT_HEGEMON_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TRAD_PEASANT, ACCENT_DOMINIA)
+	allowed_accents = list(ACCENT_HEGEMON_NOBLE, ACCENT_HEGEMON_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TRAD_PEASANT, ACCENT_WASTELAND, ACCENT_DOMINIA)
 
 /datum/species/unathi/after_equip(var/mob/living/carbon/human/H)
 	. = ..()

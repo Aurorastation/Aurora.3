@@ -1353,7 +1353,7 @@
 	bitesize = 0.1 //this snack is supposed to be eating during looooong time. And this it not dinner food! --rastaf0
 
 /obj/item/reagent_containers/food/snacks/popcorn/Initialize()
-	..()
+	. = ..()
 	unpopped = rand(1,10)
 
 /obj/item/reagent_containers/food/snacks/popcorn/on_consume()
