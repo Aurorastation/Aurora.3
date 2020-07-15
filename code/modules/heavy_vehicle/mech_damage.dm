@@ -45,10 +45,9 @@
 		var/list/components = list(body, arms, legs, head)
 		components = shuffle(components)
 		for(var/obj/item/mech_component/MC in components)
-			if(MC)
-				MC.take_burn_damage(amount)
-				MC.update_health()
-				break
+			MC.take_burn_damage(amount)
+			MC.update_health()
+			break
 
 /mob/living/heavy_vehicle/adjustBruteLoss(var/amount, var/obj/item/mech_component/C)
 	if(C)
@@ -58,10 +57,9 @@
 		var/list/components = list(body, arms, legs, head)
 		components = shuffle(components)
 		for(var/obj/item/mech_component/MC in components)
-			if(MC)
-				MC.take_burn_damage(amount)
-				MC.update_health()
-				break
+			MC.take_burn_damage(amount)
+			MC.update_health()
+			break
 
 /mob/living/heavy_vehicle/proc/zoneToComponent(var/zone)
 	switch(zone)
