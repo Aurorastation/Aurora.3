@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "A shield worn on your back will now properly defend you from penetration in the rear."

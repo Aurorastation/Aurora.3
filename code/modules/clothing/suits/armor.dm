@@ -130,7 +130,7 @@
 	siemens_coefficient = 0
 	pocket_slots = 4
 
-/obj/item/clothing/suit/armor/laserproof/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/clothing/suit/armor/laserproof/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
 		var/obj/item/projectile/P = damage_source
 
@@ -200,7 +200,7 @@
 	slowdown = 1
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
-/obj/item/clothing/suit/armor/reactive/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/clothing/suit/armor/reactive/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(prob(50))
 		user.visible_message("<span class='danger'>The reactive teleport system flings [user] clear of the attack!</span>")
 		var/list/turfs = new/list()
