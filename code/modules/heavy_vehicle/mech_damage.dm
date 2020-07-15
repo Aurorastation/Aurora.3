@@ -118,7 +118,7 @@
 /mob/living/heavy_vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	// No gravity, stop falling into spess!
 	var/area/area = get_area(src)
-	if(istype(loc, /turf/space) || (area && !area.has_gravity()))
+	if(isspace(loc) || (area && !area.has_gravity()))
 		return FALSE
 
 	visible_message(SPAN_DANGER("\The [src] falls and lands on \the [loc]!"), "", SPAN_DANGER("You hear a thud!"))
