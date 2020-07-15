@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a paper scanner device that can scan paper and paper bundles and convert them into data files."
