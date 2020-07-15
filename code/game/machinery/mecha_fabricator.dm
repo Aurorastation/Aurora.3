@@ -271,6 +271,8 @@
 
 /obj/machinery/mecha_part_fabricator/proc/add_to_queue(var/path)
 	var/datum/design/D = files.known_designs[path]
+	if(!D)
+		return
 	queue += D
 	update_busy()
 
