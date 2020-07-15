@@ -221,6 +221,8 @@
 	suit["dominia sweater"] = /obj/item/clothing/under/dominia/sweater
 	suit["lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit
 	suit["hoodied lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit/hoodie
+	suit["dominia noblewoman dress"] = /obj/item/clothing/under/dominia/dress
+	suit["dominia summer dress"] = /obj/item/clothing/under/dominia/dress/summer
 	gear_tweaks += new/datum/gear_tweak/path(suit)
 
 /datum/gear/uniform/elyra_holo
