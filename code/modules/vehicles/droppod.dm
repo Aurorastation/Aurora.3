@@ -43,9 +43,9 @@
 	if(I.iswelder() && status == USED && !humanload && !passenger)
 		var/obj/item/weldingtool/W = I
 		if(W.welding)
-			src.visible_message(span("notice","[user] starts cutting \the [src] apart."))
+			src.visible_message(SPAN_NOTICE("[user] starts cutting \the [src] apart."))
 			if(do_after(user, 200))
-				src.visible_message(span("danger","\The [src] is cut apart by [user]!"))
+				src.visible_message(SPAN_DANGER("\The [src] is cut apart by [user]!"))
 				playsound(src, 'sound/items/Welder.ogg', 100, 1)
 				new /obj/item/stack/material/titanium(src.loc, 10)
 				new /obj/item/stack/material/plasteel(src.loc, 10)
@@ -225,7 +225,7 @@
 	var/target_turf = pick(turf_selection)
 	if(!target_turf)
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-		visible_message(span("warning","\The [src]'s screen displays an error: Targeting module malfunction. Attempt relaunch."))
+		visible_message(SPAN_WARNING("\The [src]'s screen displays an error: Targeting module malfunction. Attempt relaunch."))
 		status = READY
 		if(connected_blastdoor)
 			blastdoor_interact(TRUE)
@@ -235,7 +235,7 @@
 /obj/vehicle/droppod/proc/fire(var/turf/A)
 	if(!isturf(A))
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-		visible_message(span("warning","\The [src]'s screen displays an error: Targeting module malfunction. Attempt relaunch."))
+		visible_message(SPAN_WARNING("\The [src]'s screen displays an error: Targeting module malfunction. Attempt relaunch."))
 		status = READY
 		if(connected_blastdoor)
 			blastdoor_interact(TRUE)
@@ -243,7 +243,7 @@
 
 	if(!(src.z in validfirelocations))
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
-		visible_message(span("warning","\The [src]'s screen displays an error: Pod cannot be launched from this position."))
+		visible_message(SPAN_WARNING("\The [src]'s screen displays an error: Pod cannot be launched from this position."))
 		status = READY
 		if(connected_blastdoor)
 			blastdoor_interact(TRUE)
@@ -265,11 +265,11 @@
 		var/mob/M = humanload
 		shake_camera(M, 5, 1)
 	forceMove(A)
-	A.visible_message(span("danger","\The [src] crashes through the roof!"))
+	A.visible_message(SPAN_DANGER("\The [src] crashes through the roof!"))
 
 	var/turf/belowturf = GetBelow(A)
 	if(belowturf)
-		belowturf.visible_message(span("danger","You hear something crash into the ceiling above!"))
+		belowturf.visible_message(SPAN_DANGER("You hear something crash into the ceiling above!"))
 
 	status = USED
 
@@ -277,11 +277,11 @@
 	for(var/mob/T in A)
 		if(T.simulated)
 			T.gib()
-			T.visible_message(span("danger","[T] is squished by the drop pod!"))
+			T.visible_message(SPAN_DANGER("[T] is squished by the drop pod!"))
 	for(var/obj/B in A)
 		if(B.simulated && B.density)
 			qdel(B)
-			B.visible_message(span("danger","[B] is destroyed by the drop pod!"))
+			B.visible_message(SPAN_DANGER("[B] is destroyed by the drop pod!"))
 
 /obj/vehicle/droppod/proc/blastdoor_interact(var/open)
 	var/datum/wifi/sender/door/wifi_sender_blast = new(connected_blastdoor, src)

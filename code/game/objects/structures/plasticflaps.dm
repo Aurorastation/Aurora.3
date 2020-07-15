@@ -51,14 +51,14 @@
 	if(manipulating)	return
 	manipulating = TRUE
 	if(W.iswirecutter() || W.sharp && !W.noslice)
-		visible_message(span("notice", "[user] begins cutting down \the [src]."),
-					span("notice", "You begin cutting down \the [src]."))
+		visible_message(SPAN_NOTICE("[user] begins cutting down \the [src]."),
+					SPAN_NOTICE("You begin cutting down \the [src]."))
 		if(!do_after(user, 30/W.toolspeed))
 			manipulating = FALSE
 			return
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
-		visible_message(span("notice", "[user] cuts down \the [src]."),
-		span("notice", "You cut down \the [src]."))
+		visible_message(SPAN_NOTICE("[user] cuts down \the [src]."),
+		SPAN_NOTICE("You cut down \the [src]."))
 		qdel(src)
 
 /obj/structure/plasticflaps/mining //A specific type for mining that doesn't allow airflow because of them damn crates

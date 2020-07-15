@@ -2,6 +2,8 @@
 
 /obj/machinery/mineral/processing_unit_console
 	name = "ore redemption console"
+	desc = "A handy console which can be use to retrieve mining points for use in the mining vendor, or to set processing values for various ore types."
+	desc_info = "Up to date settings for the refinery can be found in the Aurorastation Guide to Mining wikipage."
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "production_console"
 	density = FALSE
@@ -182,10 +184,10 @@
 
 /obj/machinery/mineral/processing_unit_console/proc/print_report(var/mob/living/user)
 	if(!inserted_id)
-		to_chat(user, span("warning", "No ID inserted. Cannot digitally sign."))
+		to_chat(user, SPAN_WARNING("No ID inserted. Cannot digitally sign."))
 		return
 	if(!input_mats.len && !output_mats.len && !alloy_mats)
-		to_chat(user, span("warning", "There is no data to print."))
+		to_chat(user, SPAN_WARNING("There is no data to print."))
 		return
 	if(printing)
 		return
@@ -279,6 +281,7 @@
 
 /obj/machinery/mineral/processing_unit
 	name = "industrial smelter" //This isn't actually a goddamn furnace, we're in space and it's processing platinum and flammable phoron... //lol fuk u bay it is //i'm gay // based and redpilled
+	desc = "A large smelter and compression machine which heats up ore, then applies the process specified within the ore redemption console, outputting the result to the other side."
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "furnace-off"
 	density = TRUE

@@ -338,7 +338,7 @@
 
 
 			if(M.resting && src.help_up_offer)
-				M.visible_message(span("warning", "[M] slaps away [src]'s hand!"))
+				M.visible_message(SPAN_WARNING("[M] slaps away [src]'s hand!"))
 				src.help_up_offer = 0
 
 		if(I_DISARM)

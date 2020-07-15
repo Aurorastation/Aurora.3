@@ -172,7 +172,7 @@
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 	init_time = time
 	var/msg = "Initialized [name] subsystem within [time] second[time == 1 ? "" : "s"]!"
-	admin_notice(span("danger", msg), R_DEBUG)
+	admin_notice(SPAN_DANGER(msg), R_DEBUG)
 	world.log <<  "SS Init: [msg]"
 	log_ss_init(msg)
 	return time

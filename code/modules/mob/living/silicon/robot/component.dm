@@ -307,7 +307,7 @@
 	icon_state_broken = "camera_broken"
 
 /obj/item/robot_parts/robot_component/diagnosis_unit
-	name = "diagnosis unit"
+	name = "diagnostics unit"
 	icon_state = "analyser"
 	icon_state_broken = "analyser_broken"
 

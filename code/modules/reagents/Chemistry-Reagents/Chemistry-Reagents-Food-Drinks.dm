@@ -343,7 +343,7 @@
 		M.take_organ_damage(0, removed * 1.5 * dfactor)
 		data["temperature"] -= (6 * removed) / (1 + volume*0.1)//Cools off as it burns you
 		if (lastburnmessage+100 < world.time	)
-			to_chat(M, span("danger", "Searing hot oil burns you, wash it off quick!"))
+			to_chat(M, SPAN_DANGER("Searing hot oil burns you, wash it off quick!"))
 			lastburnmessage = world.time
 
 
@@ -2550,16 +2550,17 @@
 	glass_name = "glass of champagne mojito"
 	glass_desc = "Looks fun!"
 
-/datum/reagent/alcohol/ethanol/changelingsting
-	name = "Changeling Sting"
-	description = "You take a tiny sip and feel a burning sensation..."
-	color = "#2E6671"
+/datum/reagent/alcohol/ethanol/gibsonpunch
+	name = "Gibson Punch"
+	description = "An alcoholic fruit punch. It seems horribly sour at first, but a sweetly bitter aftertaste lingers in the mouth."
+	color = "#5f712e"
 	strength = 40
-	taste_description = "your brain coming out your nose"
+	taste_description = "sour and bitter fruit"
 
-	glass_icon_state = "changelingsting"
-	glass_name = "glass of Changeling Sting"
-	glass_desc = "A stingy drink."
+	glass_icon_state = "gibsonpunch"
+	glass_name = "glass of Gibson Punch"
+	glass_desc = "An alcoholic fruit punch."
+	glass_center_of_mass = list("x"=16, "y"=8)
 
 /datum/reagent/alcohol/ethanol/classic
 	name = "The Classic"
@@ -3139,18 +3140,18 @@
 	glass_desc = "A froofy, fruity, and sweet mixed drink. Understanding the name only brings shame."
 	glass_center_of_mass = list("x"=16, "y"=5)
 
-/datum/reagent/alcohol/ethanol/syndicatebomb
-	name = "Syndicate Bomb"
-	description = "Tastes like terrorism!"
-	color = "#2E6671"
+/datum/reagent/alcohol/ethanol/gibsonhooch
+	name = "Gibson Hooch"
+	description = "A disgusting concoction of cheap alcohol and soda - just what you need after a busy day at the factories."
+	color = "#5f641d"
 	strength = 65
-	taste_description = "purified antagonism"
+	taste_description = "cheap labor"
 	carbonated = TRUE
 
-	glass_icon_state = "syndicatebomb"
-	glass_name = "glass of Syndicate Bomb"
-	glass_desc = "Tastes like terrorism!"
-	glass_center_of_mass = list("x"=16, "y"=4)
+	glass_icon_state = "gibsonhooch"
+	glass_name = "glass of Gibson Hooch"
+	glass_desc = "A factory worker's favorite... Because they can't afford much else."
+	glass_center_of_mass = list("x"=16, "y"=10)
 
 /datum/reagent/alcohol/ethanol/tequila_sunrise
 	name = "Tequila Sunrise"

@@ -77,27 +77,27 @@
 	welcome_drone()
 
 /mob/living/silicon/robot/drone/mining/welcome_drone()
-	to_chat(src, span("danger", "<b>You are a mining drone, a tiny-brained robotic industrial machine.</b>"))
-	to_chat(src, span("danger", "You have little individual will, some personality, and no drives or urges other than your laws and the art of mining."))
-	to_chat(src, span("danger", "Remember, <b>you DO NOT take orders from the AI.</b>"))
+	to_chat(src, SPAN_DANGER("<b>You are a mining drone, a tiny-brained robotic industrial machine.</b>"))
+	to_chat(src, SPAN_DANGER("You have little individual will, some personality, and no drives or urges other than your laws and the art of mining."))
+	to_chat(src, SPAN_DANGER("Remember, <b>you DO NOT take orders from the AI.</b>"))
 
 /mob/living/silicon/robot/drone/mining/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/borg/upgrade))
-		to_chat(user, span("warning", "\The [src] is not compatible with \the [W]."))
+		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [W]."))
 		return
 
 	else if (istype(W, /obj/item/card/id) || istype(W, /obj/item/device/pda))
 		if(!allowed(user))
-			to_chat(user, span("warning", "Access denied."))
+			to_chat(user, SPAN_WARNING("Access denied."))
 			return
 		if(seeking_player)
 			to_chat(user, SPAN_WARNING("\The [src] is already in the reboot process."))
 			return
 		if(!config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
-			to_chat(user, span("warning", "The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
+			to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
 			return
 
-		user.visible_message(span("warning", "\The [user] swipes \his ID card through \the [src], attempting to reboot it."), span("warning", "You swipe your ID card through \the [src], attempting to reboot it."))
+		user.visible_message(SPAN_WARNING("\The [user] swipes \his ID card through \the [src], attempting to reboot it."), SPAN_WARNING("You swipe your ID card through \the [src], attempting to reboot it."))
 		request_player()
 		return
 	..()
@@ -110,7 +110,7 @@
 	var/turf/T = get_turf(src)
 	if (!T || isStationLevel(T.z))
 		return
-	to_chat(src, span("danger", "WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated."))
+	to_chat(src, SPAN_DANGER("WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated."))
 	gib()
 
 /**********************Minebot Upgrades**********************/
@@ -125,11 +125,11 @@
 	if(!istype(M) || !proximity)
 		return
 	if(upgrade_bot(M, user))
-		to_chat(user, span("notice", "You successfully install \the [src] into \the [M]."))
+		to_chat(user, SPAN_NOTICE("You successfully install \the [src] into \the [M]."))
 
 /obj/item/device/mine_bot_upgrade/proc/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.melee_upgrade)
-		to_chat(user, span("warning", "[src] already has a drill upgrade installed!"))
+		to_chat(user, SPAN_WARNING("[src] already has a drill upgrade installed!"))
 		return
 	M.mod_type = initial(M.mod_type)
 	M.uneq_all()
@@ -150,7 +150,7 @@
 
 /obj/item/device/mine_bot_upgrade/health/upgrade_bot(var/mob/living/silicon/robot/drone/mining/M, mob/user)
 	if(M.health_upgrade)
-		to_chat(user, span("warning", "[src] already has a reinforced chassis!"))
+		to_chat(user, SPAN_WARNING("[src] already has a reinforced chassis!"))
 		return
 	M.maxHealth = 100
 	M.health += 55

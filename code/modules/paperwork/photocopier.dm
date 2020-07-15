@@ -65,7 +65,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		if(copyitem)
 			copyitem.forceMove(usr.loc)
 			usr.put_in_hands(copyitem)
-			to_chat(usr, span("notice", "You take \the [copyitem] out of \the [src]."))
+			to_chat(usr, SPAN_NOTICE("You take \the [copyitem] out of \the [src]."))
 			copyitem = null
 			SSvueui.check_uis_for_change(src)
 	else if(href_list["aipic"])
@@ -96,15 +96,15 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		if(!copyitem)
 			user.drop_from_inventory(O,src)
 			copyitem = O
-			to_chat(user, span("notice", "You insert \the [O] into \the [src]."))
+			to_chat(user, SPAN_NOTICE("You insert \the [O] into \the [src]."))
 			flick(insert_anim, src)
 			playsound(loc, 'sound/bureaucracy/scan.ogg', 75, 1)
 			SSvueui.check_uis_for_change(src)
 		else
-			to_chat(user, span("notice", "There is already something in \the [src]."))
+			to_chat(user, SPAN_NOTICE("There is already something in \the [src]."))
 	else if(istype(O, /obj/item/device/toner))
 		if(toner <= 10) //allow replacing when low toner is affecting the print darkness
-			to_chat(user, span("notice", "You insert \the [O] into \the [src]."))
+			to_chat(user, SPAN_NOTICE("You insert \the [O] into \the [src]."))
 			flick("photocopier_toner", src)
 			playsound(loc, "switchsounds", 50, 1)
 			var/obj/item/device/toner/T = O
@@ -113,13 +113,13 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 			qdel(O)
 			SSvueui.check_uis_for_change(src)
 		else
-			to_chat(user, span("notice", "This cartridge is not yet ready for replacement! Use up the rest of the toner."))
+			to_chat(user, SPAN_NOTICE("This cartridge is not yet ready for replacement! Use up the rest of the toner."))
 			flick("photocopier_notoner", src)
 			playsound(loc, 'sound/machines/buzz-two.ogg', 75, 1)
 	else if(O.iswrench())
 		playsound(loc, O.usesound, 50, 1)
 		anchored = !anchored
-		to_chat(user, span("notice", "You [anchored ? "wrench" : "unwrench"] \the [src]."))
+		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 	return
 
 /obj/machinery/photocopier/proc/copy_type(var/c_item = copyitem) // helper proc to reduce ctrl+c ctrl+v
@@ -136,7 +136,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 		sleep(15*B.pages.len)
 		return B
 	else
-		to_chat(usr, span("warning", "\The [c_item] can't be copied by \the [src]."))
+		to_chat(usr, SPAN_WARNING("\The [c_item] can't be copied by \the [src]."))
 		return FALSE
 
 /obj/machinery/photocopier/ex_act(severity)
@@ -193,7 +193,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 
 	toner--
 	if(toner == 0)
-		visible_message(span("notice", "A red light on \the [src] flashes, indicating that it is out of toner."))
+		visible_message(SPAN_NOTICE("A red light on \the [src] flashes, indicating that it is out of toner."))
 		flick("photocopier_notoner", src)
 		playsound(loc, 'sound/machines/buzz-two.ogg', 75, 1)
 		return
@@ -221,7 +221,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 	toner -= 5	//photos use a lot of ink!
 	if(toner < 0)
 		toner = 0
-		visible_message(span("notice", "A red light on \the [src] flashes, indicating that it is out of toner."))
+		visible_message(SPAN_NOTICE("A red light on \the [src] flashes, indicating that it is out of toner."))
 		flick("photocopier_notoner", src)
 		playsound(loc, 'sound/machines/buzz-two.ogg', 75, 1)
 	return p
@@ -232,7 +232,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/photocopier, photocopiermonitor)
 	for(var/obj/item/W in bundle.pages)
 		if(toner <= 0 && need_toner)
 			toner = 0
-			visible_message(span("notice", "A red light on \the [src] flashes, indicating that it is out of toner."))
+			visible_message(SPAN_NOTICE("A red light on \the [src] flashes, indicating that it is out of toner."))
 			flick("photocopier_notoner", src)
 			playsound(loc, 'sound/machines/buzz-two.ogg', 75, 1)
 			break

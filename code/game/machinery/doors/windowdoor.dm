@@ -58,6 +58,11 @@
 	return ..()
 
 /obj/machinery/door/window/CollidedWith(atom/movable/AM as mob|obj)
+	if(istype(AM, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/HV = AM
+		for(var/user in HV.pilots)
+			AM = user
+			break
 	if (istype(AM, /mob/living/bot))
 		var/mob/living/bot/bot = AM
 		if(istype(bot))
