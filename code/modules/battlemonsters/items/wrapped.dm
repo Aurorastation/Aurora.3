@@ -30,8 +30,8 @@
 /obj/item/battle_monsters/wrapped/attack_self(mob/user)
 
 	user.visible_message(\
-		span("notice","\The [user] unwraps \the [src]."),\
-		span("notice","You unwrap \the [src].")\
+		SPAN_NOTICE("\The [user] unwraps \the [src]."),\
+		SPAN_NOTICE("You unwrap \the [src].")\
 	)
 	var/obj/item/battle_monsters/deck/generated_deck = new(get_turf(src))
 	GenerateCards(user,generated_deck)
@@ -39,6 +39,14 @@
 	user.put_in_active_hand(generated_deck)
 	generated_deck.update_icon()
 	qdel(src)
+
+/obj/item/battle_monsters/wrapped/basic
+	name = "battle monsters basic booster pack"
+	desc = "A pack of 7 basic battle monster cards, merely to prod the imagination."
+	icon_state = "pack2"
+	contained_cards = 7
+	rarity_max = BATTLE_MONSTERS_RARITY_COMMON
+	rarity_min = BATTLE_MONSTERS_RARITY_COMMON
 
 /obj/item/battle_monsters/wrapped/pro
 	name = "battle monsters booster pack"

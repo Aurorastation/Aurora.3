@@ -39,21 +39,24 @@
 	return 1
 
 /turf/simulated/wall/proc/try_touch(var/mob/user, var/rotting)
-
 	if(rotting)
 		if(reinf_material)
-			to_chat(user, "<span class='danger'>\The [reinf_material.display_name] feels porous and crumbly.</span>")
+			to_chat(user, SPAN_WARNING("\The [reinf_material.display_name] feels porous and crumbly."))
 		else
-			to_chat(user, "<span class='danger'>\The [material.display_name] crumbles under your touch!</span>")
+			to_chat(user, SPAN_WARNING("\The [material.display_name] crumbles under your touch!"))
 			dismantle_wall()
-			return 1
+			return TRUE
+
+	user.visible_message(SPAN_NOTICE("\The [user] starts feeling around and pushing on \the [src]..."), SPAN_NOTICE("You start feeling around and pushing on \the [src]..."))
+	if(!do_after(user, 30, TRUE, src))
+		return
 
 	if(!can_open)
-		to_chat(user, "<span class='notice'>You push the wall, but nothing happens.</span>")
-		playsound(src, 'sound/weapons/Genhit.ogg', 25, 1)
+		to_chat(user, SPAN_NOTICE("You push the wall, but nothing happens."))
+		playsound(src, 'sound/weapons/Genhit.ogg', 25, TRUE)
 	else
 		toggle_open(user)
-	return 0
+	return FALSE
 
 
 /turf/simulated/wall/attack_hand(var/mob/user)
@@ -373,21 +376,19 @@
 		var/weaken = 0
 		var/sound_to_play = 'sound/weapons/smash.ogg'
 		if(material)
-			weaken += material.integrity * 2
+			weaken += material.integrity * 2.5
 			sound_to_play = material.hitsound
 		if(reinf_material)
-			weaken += reinf_material.integrity * 2
+			weaken += reinf_material.integrity * 2.5
 		weaken /= 100 //For reference, plasteel's integrity is 600.
-		visible_message("<span class='notice'>[user] retracts their [W] and starts winding up a strike...</span>")
-		var/hit_delay = W.w_class * 10 //Heavier weapons take longer to swing, yeah?
-		if(do_after(user, hit_delay))
-			user.do_attack_animation(src)
-			playsound(src, sound_to_play, 50)
-			if(damage_to_deal > weaken && (damage_to_deal > MIN_DAMAGE_TO_HIT))
-				//Plasteel walls take 24 & 15 minimum damage.
-				//Steel walls take 3 & 15 minimum damage.
-				damage_to_deal -= weaken
-				visible_message("<span class='warning'>[user] strikes \the [src] with \the [W], [is_sharp(W) ? "slicing some of the plating" : "putting a heavy dent on it"]!</span>")
-				take_damage(damage_to_deal)
-			else
-				visible_message("<span class='warning'>[user] strikes \the [src] with \the [W], but it bounces off!</span>")
+		user.do_attack_animation(src)
+		playsound(src, sound_to_play, 50)
+		if(damage_to_deal > weaken && (damage_to_deal > MIN_DAMAGE_TO_HIT))
+			//Plasteel walls take 24 & 15 minimum damage.
+			//Steel walls take 3 & 15 minimum damage.
+			damage_to_deal -= weaken
+			visible_message("<span class='warning'>[user] strikes \the [src] with \the [W], [is_sharp(W) ? "slicing some of the plating" : "putting a heavy dent on it"]!</span>")
+			take_damage(damage_to_deal)
+		else
+			visible_message("<span class='warning'>[user] strikes \the [src] with \the [W], but it bounces off!</span>")
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

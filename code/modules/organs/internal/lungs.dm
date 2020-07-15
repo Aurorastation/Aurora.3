@@ -63,11 +63,11 @@
 				"<span class='danger'>You can't breathe!</span>",
 				"You hear someone gasp for air!",
 			)
-			owner.losebreath = 1
+			owner.losebreath = round(damage/2)
 
 	if(is_bruised() && rescued)
 		if(prob(4))
-			to_chat(owner, span("warning", "It feels hard to breathe..."))
+			to_chat(owner, SPAN_WARNING("It feels hard to breathe..."))
 			if (owner.losebreath < 5)
 				owner.losebreath = min(owner.losebreath + 1, 5) // it's still not good, but it's much better than an untreated collapsed lung
 
@@ -80,7 +80,10 @@
 /obj/item/organ/internal/lungs/proc/handle_failed_breath()
 	if(prob(15) && !owner.nervous_system_failure())
 		if(!owner.is_asystole())
-			owner.emote("gasp")
+			if(owner.is_submerged())
+				owner.emote("flail")
+			else
+				owner.emote("gasp")
 		else
 			owner.emote(pick("shiver","twitch"))
 
@@ -153,9 +156,12 @@
 	if(inhale_efficiency < 1)
 		if(prob(20))
 			if(inhale_efficiency < 0.8)
-				owner.emote("gasp")
+				if(owner.is_submerged())
+					owner.emote("flail")
+				else
+					owner.emote("gasp")
 			else if(prob(20))
-				to_chat(owner, span("warning", "It's hard to breathe..."))
+				to_chat(owner, SPAN_WARNING("It's hard to breathe..."))
 		breath_fail_ratio = 1 - inhale_efficiency
 		failed_inhale = 1
 	else
@@ -176,7 +182,6 @@
 				var/word = pick("extremely dizzy","short of breath","faint","confused")
 				to_chat(owner, "<span class='danger'>You feel [word].</span>")
 
-			owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS)
 			owner.co2_alert = 1
 			failed_exhale = 1
 
@@ -185,12 +190,6 @@
 				var/word = pick("dizzy","short of breath","faint","momentarily confused")
 				to_chat(owner, "<span class='warning'>You feel [word].</span>")
 
-			//scale linearly from 0 to 1 between safe_exhaled_max and safe_exhaled_max*0.7
-			var/ratio = 1.0 - (safe_exhaled_max - exhaled_pp)/(safe_exhaled_max*0.3)
-
-			//give them some oxyloss, up to the limit - we don't want people falling unconcious due to CO2 alone until they're pretty close to safe_exhaled_max.
-			if (owner.getOxyLoss() < 50*ratio)
-				owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS)
 			owner.co2_alert = 1
 			failed_exhale = 1
 
@@ -206,7 +205,7 @@
 	if(toxins_pp > safe_toxins_max)
 		var/ratio = (poison/safe_toxins_max) * 10
 		if(reagents)
-			reagents.add_reagent("toxin", Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
+			reagents.add_reagent(/datum/reagent/toxin, Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
 			breath.adjust_gas(poison_type, -poison/6, update = 0) //update after
 		owner.phoron_alert = max(owner.phoron_alert, 1)
 	else

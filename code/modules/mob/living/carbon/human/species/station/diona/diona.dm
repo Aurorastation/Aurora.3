@@ -3,6 +3,7 @@
 	short_name = "dio"
 	name_plural = "Dionaea"
 	bodytype = "Diona"
+	total_health = 140
 	age_min = 1
 	age_max = 1000
 	default_genders = list(NEUTER)
@@ -52,8 +53,6 @@
 	organ_med_burn_message = "<span class='danger'><font size=3>The nymph making up our %PARTNAME% burns terribly!</font></span>"
 	organ_high_burn_message = "<span class='danger'><font size=3>The nymph making up our %PARTNAME% screams in agony at the burning!</font></span>"
 
-	scream_emote = list("creaks in pain!", "rustles in agony!")
-	scream_emote = "screams!"
 	halloss_message = "creaks and crumbles to the floor."
 	halloss_message_self = "We can't take this much pain..."
 	pain_messages = list("We're in pain", "We hurt so much", "We can't stand the pain")
@@ -122,6 +121,9 @@
 	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_DOMINIA, CITIZENSHIP_IZWESKI, CITIZENSHIP_NONE)
 	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_MOROZ, RELIGION_THAKH, RELIGION_SKAKH, RELIGION_NONE, RELIGION_OTHER)
 
+	allowed_accents = list(ACCENT_DIONA)
+	default_accent = ACCENT_DIONA
+
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
 
@@ -148,7 +150,7 @@
 		H.updatehealth()
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
-		to_chat(H, span("danger", "We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
+		to_chat(H, SPAN_DANGER("We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
 		return 0
 
 /datum/species/diona/can_understand(var/mob/other)
@@ -169,7 +171,7 @@
 /datum/species/diona/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0)
 	if (!gibbed)
 		// This proc sleeps. Async it.
-		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs, TRUE)
+		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs)
 
 /datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
 // Diona without head can live, but they cannot talk as loud anymore.

@@ -11,7 +11,6 @@
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/random/visitor
 	possible_species = list("Human","Skrell","Tajara","Unathi")
-	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Pod Survivor"
@@ -26,9 +25,8 @@
 	. = ..()
 	var/t = pick(list("star", "priest", "rep", "smuggler", "hunter", "occultist", "pmc"))
 	if(t == "star")
-		welcome_message = "You are a stranded starlet!<br>You were relaxing comfortably in your cryo pod as tragedy struck - the pilot of your luxury yacht fell asleep under some mysterious circumstances. You were unceremoniously stuffed into an escape pod, and left to wander in space. What a despicable, low-quality plot to get rid of you. Should've chosen murder instead - you certainly know you'll convince someone nice to lend you a shuttle."
+		welcome_message = "You are a stranded star!<br>You were relaxing comfortably in your cryo pod as tragedy struck - the pilot of your luxury yacht fell asleep under some mysterious circumstances. You were unceremoniously stuffed into an escape pod, and left to wander in space. What a despicable, low-quality plot to get rid of you. Should've chosen murder instead - you certainly know you'll convince someone nice to lend you a shuttle."
 		outfit = /datum/outfit/admin/pod/star
-		possible_genders = list(FEMALE)
 		possible_species = list("Human","Skrell")
 	else if(t == "priest")
 		welcome_message = "You are a stranded Trinary Perfection priest!<br>You were traveling around space on your small shuttle, preaching peacefully of the future divinity of the synthetics, and the grand purpose of mankind as the ones to help them achieve that goal. Unfortunately, Dominians don't seem to be as peaceful in disagreeing with your views - and had to evacuate your shot-down ship. Have your prayers to the Divines helped you now?"
@@ -95,8 +93,8 @@
 /datum/outfit/admin/pod/star
 	name = "RescuePod - Star"
 
-	uniform = "dress selection"
-	shoes = "flats selection"
+	uniform = "suit selection"
+	shoes = "oxford shoe selection"
 
 	backpack_contents = list(
 		/obj/item/lipstick/random = 2,

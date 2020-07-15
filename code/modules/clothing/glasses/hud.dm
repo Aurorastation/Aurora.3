@@ -31,7 +31,7 @@
 	item_state = "healthhudpresc"
 
 /obj/item/clothing/glasses/hud/health/prescription/attack_self(mob/user)
-	to_chat(user, span("notice", "You detach a set of medical HUDs from your glasses."))
+	to_chat(user, SPAN_NOTICE("You detach a set of medical HUDs from your glasses."))
 	playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
 	var/obj/item/clothing/glasses/regular/R = new /obj/item/clothing/glasses/regular(user.loc)
 	user.put_in_hands(R)
@@ -56,7 +56,7 @@
 	item_state = "sechudpresc"
 
 /obj/item/clothing/glasses/hud/security/prescription/attack_self(mob/user)
-	to_chat(user, span("notice", "You detach a set of security HUDs from your glasses."))
+	to_chat(user, SPAN_NOTICE("You detach a set of security HUDs from your glasses."))
 	playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
 	var/obj/item/clothing/glasses/regular/R = new /obj/item/clothing/glasses/regular(user.loc)
 	user.put_in_hands(R)

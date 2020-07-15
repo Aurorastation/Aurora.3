@@ -55,6 +55,8 @@ var/global/list/robot_modules = list(
 	..()
 	R.module = src
 
+	src.modules += new /obj/item/inductive_charger(src)
+
 	add_camera_networks(R)
 	add_languages(R)
 	add_subsystems(R)
@@ -66,6 +68,7 @@ var/global/list/robot_modules = list(
 	R.set_module_sprites(sprites)
 	R.icon_selected = FALSE
 	R.choose_icon()
+	R.setup_icon_cache()
 
 /obj/item/robot_module/proc/Reset(var/mob/living/silicon/robot/R)
 	remove_camera_networks(R)
@@ -78,6 +81,7 @@ var/global/list/robot_modules = list(
 	R.set_module_sprites(list("Default" = "robot"))
 	R.icon_selected = FALSE
 	R.choose_icon()
+	R.setup_icon_cache()
 
 /obj/item/robot_module/Destroy()
 	for(var/module in modules)
@@ -113,9 +117,9 @@ var/global/list/robot_modules = list(
 			F.icon_state = "flash"
 		else if(F.times_used)
 			F.times_used--
-	if(E)
-		if(E.reagents.total_volume < E.reagents.maximum_volume)
-			E.reagents.add_reagent("monoammoniumphosphate", E.max_water * 0.2)
+
+	if(E?.reagents.total_volume < E.reagents.maximum_volume)
+		E.reagents.add_reagent(/datum/reagent/toxin/fertilizer/monoammoniumphosphate, E.max_water * 0.2)
 
 	if(!synths.len)
 		return
@@ -176,7 +180,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/medical
 	name = "medical robot module"
-	channels = list("Medical" = TRUE)
+	channels = list(CHANNEL_MEDICAL = TRUE)
 	networks = list(NETWORK_MEDICAL)
 	can_be_pushed = FALSE
 	sprites = list(
@@ -223,7 +227,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
 	src.emag = new /obj/item/reagent_containers/hypospray/cmo(src)
-	src.emag.reagents.add_reagent("wulumunusha", 30)
+	src.emag.reagents.add_reagent(/datum/reagent/wulumunusha, 30)
 	src.emag.name = "Wulumunusha Hypospray"
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(10000)
@@ -249,7 +253,7 @@ var/global/list/robot_modules = list(
 		S.update_icon()
 	if(src.emag)
 		var/obj/item/reagent_containers/hypospray/cmo/PS = src.emag
-		PS.reagents.add_reagent("wulumunusha", 2 * amount)
+		PS.reagents.add_reagent(/datum/reagent/wulumunusha, 2 * amount)
 	..()
 
 /obj/item/robot_module/medical/rescue
@@ -289,7 +293,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
 	src.emag = new /obj/item/reagent_containers/hypospray/cmo(src)
-	src.emag.reagents.add_reagent("wulumunusha", 30)
+	src.emag.reagents.add_reagent(/datum/reagent/wulumunusha, 30)
 	src.emag.name = "Wulumunusha Hypospray"
 
 	var/datum/matter_synth/medicine = new /datum/matter_synth/medicine(15000)
@@ -320,12 +324,12 @@ var/global/list/robot_modules = list(
 		S.update_icon()
 	if(src.emag)
 		var/obj/item/reagent_containers/spray/PS = src.emag
-		PS.reagents.add_reagent("wulumunusha", 2 * amount)
+		PS.reagents.add_reagent(/datum/reagent/wulumunusha, 2 * amount)
 	..()
 
 /obj/item/robot_module/engineering
 	name = "engineering robot module"
-	channels = list("Engineering" = TRUE)
+	channels = list(CHANNEL_ENGINEERING = TRUE)
 	networks = list(NETWORK_ENGINEERING)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 	sprites = list(
@@ -506,7 +510,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/janitor
 	name = "custodial robot module"
-	channels = list("Service" = TRUE)
+	channels = list(CHANNEL_SERVICE = TRUE)
 	networks = list(NETWORK_SERVICE)
 	sprites = list(
 			"Basic" = "robotjani",
@@ -527,7 +531,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/janitor/New()
 	..()
-	src.modules += new /obj/item/soap/nanotrasen(src)
+	src.modules += new /obj/item/soap/drone(src)
 	src.modules += new /obj/item/storage/bag/trash(src)
 	src.modules += new /obj/item/mop(src)
 	src.modules += new /obj/item/device/lightreplacer/advanced(src)
@@ -540,7 +544,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
 	src.emag = new /obj/item/reagent_containers/spray(src)
-	src.emag.reagents.add_reagent("lube", 250)
+	src.emag.reagents.add_reagent(/datum/reagent/lube, 250)
 	src.emag.name = "Lube spray"
 
 /obj/item/robot_module/janitor/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
@@ -549,11 +553,11 @@ var/global/list/robot_modules = list(
 	LR.Charge(R, amount)
 	if(src.emag)
 		var/obj/item/reagent_containers/spray/S = src.emag
-		S.reagents.add_reagent("lube", 2 * amount)
+		S.reagents.add_reagent(/datum/reagent/lube, 2 * amount)
 
 /obj/item/robot_module/clerical
 	name = "service robot module"
-	channels = list("Service" = TRUE)
+	channels = list(CHANNEL_SERVICE = TRUE)
 	networks = list(NETWORK_SERVICE)
 	languages = list(
 					LANGUAGE_SOL_COMMON =  TRUE,
@@ -599,7 +603,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/robot_harvester(src)
 	src.modules += new /obj/item/material/kitchen/rollingpin(src)
 	src.modules += new /obj/item/material/knife(src)
-	src.modules += new /obj/item/soap(src) // a cheap bar of soap
+	src.modules += new /obj/item/soap/drone(src)
 	src.modules += new /obj/item/reagent_containers/glass/rag(src) // a rag for.. yeah.. the primary tool of bartender
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
@@ -625,7 +629,7 @@ var/global/list/robot_modules = list(
 	var/datum/reagents/R = new /datum/reagents(50)
 	src.emag.reagents = R
 	R.my_atom = src.emag
-	R.add_reagent("beer2", 50)
+	R.add_reagent(/datum/reagent/chloralhydrate/beer2, 50)
 	src.emag.name = "Mickey Finn's Special Brew"
 
 /obj/item/robot_module/clerical/general
@@ -648,7 +652,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/miner
 	name = "miner robot module"
-	channels = list("Supply" = TRUE)
+	channels = list(CHANNEL_SUPPLY = TRUE)
 	networks = list(NETWORK_MINE)
 	sprites = list(
 			"Basic" = "robotmine",
@@ -670,12 +674,11 @@ var/global/list/robot_modules = list(
 /obj/item/robot_module/miner/New()
 	..()
 	src.modules += new /obj/item/borg/sight/material(src)
-	src.modules += new /obj/item/wrench/robotic(src)
-	src.modules += new /obj/item/screwdriver/robotic(src)
 	src.modules += new /obj/item/storage/bag/ore(src)
 	src.modules += new /obj/item/pickaxe/borgdrill(src)
 	src.modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/gripper/miner(src)
+	src.modules += new /obj/item/rfd/mining(src)
 	src.modules += new /obj/item/mining_scanner(src)
 	src.modules += new /obj/item/device/gps/mining(src) // for locating itself in the deep space
 	src.modules += new /obj/item/gun/custom_ka/cyborg(src)
@@ -685,11 +688,27 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	src.modules += new /obj/item/wrench/robotic(src)
+	src.modules += new /obj/item/screwdriver/robotic(src)
+	src.modules += new /obj/item/storage/part_replacer(src)
+	src.modules += new /obj/item/tank/jetpack/carbondioxide(src)
+
+	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
+	synths += metal
+
+	var/obj/item/stack/rods/cyborg/R = new /obj/item/stack/rods/cyborg(src)
+	R.synths = list(metal)
+	src.modules += R
+
+	var/obj/item/stack/flag/purple/borg/F = new /obj/item/stack/flag/purple/borg(src)
+	F.synths = list(metal)
+	src.modules += F
+
 	src.emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
 
 /obj/item/robot_module/research
 	name = "research module"
-	channels = list("Science" = TRUE)
+	channels = list(CHANNEL_SCIENCE = TRUE)
 	networks = list(NETWORK_RESEARCH)
 	sprites = list(
 			"Basic" = "robotsci",
@@ -714,8 +733,17 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/gripper/no_use/loader(src)
 	src.modules += new /obj/item/device/robotanalyzer(src)
 	src.modules += new /obj/item/card/robot(src)
+
+	var/datum/matter_synth/wire = new /datum/matter_synth/wire(15)
+	synths += wire
+	var/obj/item/stack/cable_coil/cyborg/C = new /obj/item/stack/cable_coil/cyborg(src)
+	C.synths = list(wire)
+	src.modules += C
+
+	src.modules += new /obj/item/weldingtool/experimental(src)
 	src.modules += new /obj/item/wrench/robotic(src)
 	src.modules += new /obj/item/screwdriver(src)
+	src.modules += new /obj/item/wirecutters/robotic(src)
 	src.modules += new /obj/item/surgery/scalpel(src)
 	src.modules += new /obj/item/surgery/circular_saw(src)
 	src.modules += new /obj/item/reagent_containers/syringe(src)
@@ -730,6 +758,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/extinguisher(src) // For navigating space and/or low grav, and just being useful.
 	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
 	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
+	src.modules += new /obj/item/storage/part_replacer(src)
 	src.emag = new /obj/item/hand_tele(src)
 
 	var/datum/matter_synth/nanite = new /datum/matter_synth/nanite(10000)
@@ -759,12 +788,6 @@ var/global/list/robot_modules = list(
 					LANGUAGE_DELVAHII =    FALSE,
 					LANGUAGE_YA_SSA =      FALSE
 					)
-
-	channels = list(
-		CHANNEL_COMMON = TRUE,
-		CHANNEL_ENTERTAINMENT = TRUE
-	)
-
 	sprites = list(
 					"Bloodhound" = "syndie_bloodhound",
 					"Treadhound" = "syndie_treadhound",
@@ -802,7 +825,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/combat
 	name = "combat robot module"
-	channels = list("Security" = TRUE)
+	channels = list(CHANNEL_SECURITY = TRUE)
 	networks = list(NETWORK_SECURITY)
 	sprites = list("Roller" = "droid-combat")
 	can_be_pushed = FALSE
@@ -837,7 +860,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/multitool/robotic(src)
 	src.modules += new /obj/item/device/lightreplacer(src)
 	src.modules += new /obj/item/gripper(src)
-	src.modules += new /obj/item/soap(src)
+	src.modules += new /obj/item/soap/drone(src)
 	src.modules += new /obj/item/gripper/no_use/loader(src)
 	src.modules += new /obj/item/extinguisher(src)
 	src.modules += new /obj/item/rfd/piping/borg(src)
@@ -903,7 +926,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/drone/construction
 	name = "construction drone module"
-	channels = list("Engineering" = TRUE)
+	channels = list(CHANNEL_ENGINEERING = TRUE)
 	languages = list()
 
 /obj/item/robot_module/drone/construction/New()
@@ -988,17 +1011,17 @@ var/global/list/robot_modules = list(
 					LANGUAGE_BORER =       TRUE
 					)
 	channels = list(
-		"Service" =       TRUE,
-		"Supply" =        TRUE,
-		"Science" =       TRUE,
-		"Security" =      TRUE,
-		"Engineering" =   TRUE,
-		"Medical" =       TRUE,
-		"Command" =       TRUE,
-		"Response Team" = TRUE,
-		"AI Private" =    TRUE
+		CHANNEL_SERVICE =       TRUE,
+		CHANNEL_SUPPLY =        TRUE,
+		CHANNEL_SCIENCE =       TRUE,
+		CHANNEL_SECURITY =      TRUE,
+		CHANNEL_ENGINEERING =   TRUE,
+		CHANNEL_MEDICAL =       TRUE,
+		CHANNEL_COMMAND =       TRUE,
+		CHANNEL_RESPONSE_TEAM = TRUE,
+		CHANNEL_AI_PRIVATE =    TRUE
 		)
-	sprites = list("Roller" = "droid-combat") //TMP // temp my left nut
+	sprites = list("Roller" = "droid-combat") //TMP // temp my left nut // temp my right nut
 	can_be_pushed = FALSE
 
 /obj/item/robot_module/bluespace/New(var/mob/living/silicon/robot/R)

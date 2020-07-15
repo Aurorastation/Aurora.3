@@ -8,7 +8,6 @@ mob/var/last_typed_time
 mob/var/obj/effect/decal/typing_indicator
 
 /mob/proc/set_typing_indicator(var/state)
-
 	if(!typing_indicator)
 		typing_indicator = new
 		typing_indicator.icon = 'icons/mob/talk.dmi'
@@ -61,26 +60,6 @@ mob/var/obj/effect/decal/typing_indicator
 	set_typing_indicator(0)
 	if(message)
 		me_verb(message)
-
-/mob/proc/handle_typing_indicator()
-	if(client)
-		if(!(client.prefs.toggles & SHOW_TYPING) && !hud_typing)
-			var/temp = winget(client, "input", "text")
-
-			if (temp != last_typed)
-				last_typed = temp
-				last_typed_time = world.time
-
-			if (world.time > last_typed_time + TYPING_INDICATOR_LIFETIME)
-				set_typing_indicator(0)
-				return
-			if(length(temp) > 5 && findtext(temp, "Say \"", 1, 7))
-				set_typing_indicator(1)
-			else if(length(temp) > 3 && findtext(temp, "Me ", 1, 5))
-				set_typing_indicator(1)
-
-			else
-				set_typing_indicator(0)
 
 /client/verb/typing_indicator()
 	set name = "Show/Hide Typing Indicator"

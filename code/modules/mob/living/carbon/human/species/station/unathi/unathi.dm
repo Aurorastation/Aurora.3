@@ -88,6 +88,12 @@
 		"Your scales bristle against the cold."
 		)
 
+	pain_emotes_with_pain_level = list(
+			list(/decl/emote/audible/wheeze, /decl/emote/audible/roar, /decl/emote/audible/bellow) = 80,
+			list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/wheeze, /decl/emote/audible/hiss) = 50,
+			list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/hiss) = 20,
+		)
+
 	pain_messages = list("It hurts so much", "You really need some painkillers", "Ancestors, it hurts")
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
@@ -97,6 +103,9 @@
 	default_citizenship = CITIZENSHIP_IZWESKI
 
 	zombie_type = "Unathi Zombie"
+
+	default_accent = ACCENT_HEGEMON_PEASANT
+	allowed_accents = list(ACCENT_HEGEMON_NOBLE, ACCENT_HEGEMON_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TRAD_PEASANT, ACCENT_WASTELAND, ACCENT_DOMINIA)
 
 /datum/species/unathi/after_equip(var/mob/living/carbon/human/H)
 	. = ..()

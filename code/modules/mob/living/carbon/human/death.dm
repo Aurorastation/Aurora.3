@@ -93,8 +93,7 @@
 	name = "Unknown"
 	real_name = "Unknown"
 
-	for(var/text in flavor_texts)
-		flavor_texts[text] = null
+	scrub_flavor_text()
 
 	mutations.Add(HUSK)
 	status_flags |= DISFIGURED	//makes them unknown without fucking up other stuff like admintools
@@ -118,13 +117,16 @@
 	if(!keep_name)
 		name = "Unknown"
 		real_name = "Unknown"
-		for(var/text in flavor_texts)
-			flavor_texts[text] = null
+		scrub_flavor_text()
 
 	mutations.Add(SKELETON)
 	status_flags |= DISFIGURED
 	update_body(TRUE)
 	return
+
+/mob/living/carbon/human/proc/scrub_flavor_text()
+	for(var/text in flavor_texts)
+		flavor_texts[text] = null
 
 /mob/living/carbon/human/proc/vr_disconnect()
 	if(remote_network)
