@@ -317,7 +317,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(pyjamas)
 
 /datum/gear/uniform/hanbok
-	display_name = "hanbok"
+	display_name = "hanbok (selection)"
 	path = /obj/item/clothing/under/hanbok
 
 /datum/gear/uniform/miscellaneous/hanbok/New()
