@@ -18,7 +18,7 @@ fundamental differences
 
 /obj/machinery/appliance/mixer/examine(var/mob/user)
 	. = ..()
-	to_chat(user, span("notice", "It is currently set to make a [selected_option]"))
+	to_chat(user, SPAN_NOTICE("It is currently set to make a [selected_option]"))
 
 /obj/machinery/appliance/mixer/Initialize()
 	. = ..()
@@ -36,7 +36,7 @@ fundamental differences
 		return
 
 	if (!usr.IsAdvancedToolUser())
-		to_chat(usr, "<span class='notice'>You can't operate [src].</span>")
+		to_chat(usr, SPAN_NOTICE("You can't operate [src]."))
 		return
 
 	if(output_options.len)
@@ -45,7 +45,7 @@ fundamental differences
 			return
 		else
 			selected_option = choice
-			to_chat(usr, "<span class='notice'>You prepare \the [src] to make \a [selected_option].</span>")
+			to_chat(usr, SPAN_NOTICE("You prepare \the [src] to make \a [selected_option]."))
 			var/datum/cooking_item/CI = cooking_objs[1]
 			CI.combine_target = selected_option
 
@@ -65,7 +65,7 @@ fundamental differences
 	if (stat)
 		return 1
 	else
-		to_chat(user, span("warning", "You can't remove ingredients while its turned on! Turn it off first or wait for it to finish."))
+		to_chat(user, SPAN_WARNING("You can't remove ingredients while its turned on! Turn it off first or wait for it to finish."))
 
 //Container is not removable
 /obj/machinery/appliance/mixer/removal_menu(var/mob/user)
@@ -97,7 +97,7 @@ fundamental differences
 
 /obj/machinery/appliance/mixer/can_insert(var/obj/item/I, var/mob/user)
 	if (!stat)
-		to_chat(user, span("warning","You can't add items while \the [src] is running. Wait for it to finish or turn the power off to abort"))
+		to_chat(user, SPAN_WARNING("You can't add items while \the [src] is running. Wait for it to finish or turn the power off to abort"))
 		return 0
 	else
 		return ..()

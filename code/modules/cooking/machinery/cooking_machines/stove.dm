@@ -18,7 +18,6 @@
 	optimal_power = 1.2
 
 	max_contents = 4
-	container_type = /obj/item/reagent_containers/cooking_container/pan
 
 	stat = POWEROFF	//Starts turned off
 
@@ -26,8 +25,8 @@
 	. = ..()
 	overlays.Cut()
 	var/list/pans = list()
-	for(var/datum/cooking_item/CI in cooking_objs)
-		switch(appliancetype)
+	for(var/obj/item/reagent_containers/cooking_container/CC in contents)
+		switch(CC.appliancetype)
 			if(SKILLET)
 				pans += image('icons/obj/cooking_machines.dmi', "skillet[Clamp(length(pans)+1, 1, 4)]")
 			if(SAUCEPAN)

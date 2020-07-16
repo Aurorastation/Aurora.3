@@ -21,12 +21,12 @@
 	if (.)	//no need to duplicate adjacency check
 		if (!stat)
 			if (temperature < min_temp)
-				to_chat(user, span("warning", "\The [src] is still heating up and is too cold to cook anything yet."))
+				to_chat(user, SPAN_WARNING("\The [src] is still heating up and is too cold to cook anything yet."))
 			else
-				to_chat(user, span("notice", "It is running at [round(get_efficiency(), 0.1)]% efficiency!"))
+				to_chat(user, SPAN_NOTICE("It is running at [round(get_efficiency(), 0.1)]% efficiency!"))
 			to_chat(user, "Temperature: [round(temperature - T0C, 0.1)]C / [round(optimal_temp - T0C, 0.1)]C")
 		else
-			to_chat(user, span("warning", "It is switched off."))
+			to_chat(user, SPAN_WARNING("It is switched off."))
 
 /obj/machinery/appliance/cooker/list_contents(var/mob/user)
 	if (cooking_objs.len)
@@ -39,7 +39,7 @@
 				string += "- [CI.container.label(num)], [report_progress(CI)]</br>"
 		to_chat(usr, string)
 	else
-		to_chat(usr, span("notice","It's empty."))
+		to_chat(usr, SPAN_NOTICE("It's empty."))
 
 /obj/machinery/appliance/cooker/proc/get_efficiency()
 	. = (cooking_power / optimal_power) * 100
@@ -55,8 +55,7 @@
 	temp_options["OFF"] = image('icons/misc/mark.dmi', "x3")
 	loss = (active_power_usage / resistance)*0.5
 	cooking_objs = list()
-	for (var/i = 0, i < max_contents, i++)
-		cooking_objs.Add(new /datum/cooking_item/(new container_type(src)))
+	// sorry, doesn't auto-start with containers!
 	cooking = 0
 
 	queue_icon_update()

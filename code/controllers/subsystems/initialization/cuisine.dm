@@ -7,6 +7,8 @@
 	init_order = SS_INIT_MISC
 	var/list/recipe_datums = list()
 
+/datum/controller/subsystem/atoms/New()
+	NEW_SS_GLOBAL(SScuisine)
 
 #define ADD_TO_RDATUMS(i,t) if (R.appliance & i) { LAZYADD(recipe_datums["[i]"], t); added++; }
 

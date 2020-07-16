@@ -37,8 +37,6 @@
 	var/selected_option
 	var/list/output_options = list()
 
-	var/container_type = null
-
 	var/combine_first = FALSE//If 1, this appliance will do combinaiton cooking before checking recipes
 
 /obj/machinery/appliance/Initialize()
@@ -193,8 +191,10 @@
 		return 0
 
 
-	if (container_type && istype(I, container_type))
-		return 1
+	if (istype(I, /obj/item/reagent_containers/cooking_container))
+		var/obj/item/reagent_containers/cooking_container/CC = I
+		if(CC.appliancetype && appliancetype)
+			return 1
 
 	// We're trying to cook something else. Check if it's valid.
 	var/obj/item/reagent_containers/food/snacks/check = I

@@ -38,8 +38,6 @@
 	var/selected_option
 	var/list/output_options = list()
 
-	var/container_type = null
-
 	var/combine_first = FALSE//If 1, this appliance will do combination cooking before checking recipes
 
 /obj/machinery/appliance/Initialize()
@@ -69,7 +67,7 @@
 			string += "-\a [CI.container.label(null, CI.combine_target)], [report_progress(CI)]</br>"
 		to_chat(usr, string)
 	else
-		to_chat(usr, span("notice","It is empty."))
+		to_chat(usr, SPAN_NOTICE("It is empty."))
 
 /obj/machinery/appliance/proc/report_progress(var/datum/cooking_item/CI)
 	if (!CI || !CI.max_cookwork)
@@ -82,17 +80,17 @@
 	if (progress < 0.25)
 		return "It's barely started cooking."
 	if (progress < 0.75)
-		return span("notice","It's cooking away nicely.")
+		return SPAN_NOTICE("It's cooking away nicely.")
 	if (progress < 1)
-		return span("notice", "<b>It's almost ready!</b>")
+		return SPAN_NOTICE("<b>It's almost ready!</b>")
 
 	var/half_overcook = (CI.overcook_mult - 1)*0.5
 	if (progress < 1+half_overcook)
 		return span("soghun","<b>It is done!</b>")
 	if (progress < CI.overcook_mult)
-		return span("warning","It looks overcooked, get it out!")
+		return SPAN_WARNING("It looks overcooked, get it out!")
 	else
-		return span("danger","It is burning!")
+		return SPAN_DANGER("It is burning!")
 
 /obj/machinery/appliance/update_icon()
 	if (!stat && cooking_objs.len)
@@ -145,15 +143,15 @@
 		return
 
 	if(output_options.len)
-		var/choice = input("What specific food do you wish to make with \the [src]?") as null|anything in output_options+"Default"
+		var/choice = input("What specific food do you wish to make with [src]?") as null|anything in output_options+"Default"
 		if(!choice)
 			return
 		if(choice == "Default")
 			selected_option = null
-			to_chat(usr, "<span class='notice'>You decide not to make anything specific with \the [src].</span>")
+			to_chat(usr, SPAN_NOTICE("You decide not to make anything specific with [src]."))
 		else
 			selected_option = choice
-			to_chat(usr, "<span class='notice'>You prepare \the [src] to make \a [selected_option] with the next thing you put in. Try putting several ingredients in a container!</span>")
+			to_chat(usr, SPAN_NOTICE("You prepare [src] to make \a [selected_option] with the next thing you put in. Try putting several ingredients in a container!"))
 
 //Handles all validity checking and error messages for inserting things
 /obj/machinery/appliance/proc/can_insert(var/obj/item/I, var/mob/user)
@@ -165,36 +163,38 @@
 	if(istype(G))
 
 		if(!can_cook_mobs)
-			to_chat(user, "<span class='warning'>That's not going to fit.</span>")
+			to_chat(user, SPAN_WARNING("That's not going to fit."))
 			return 0
 
 		if(!isliving(G.affecting))
-			to_chat(user, "<span class='warning'>You can't cook that.</span>")
+			to_chat(user, SPAN_WARNING("You can't cook that."))
 			return 0
 
 		return 2
 
 
 	if (!has_space(I))
-		to_chat(user, "<span class='warning'>There's no room in [src] for that!</span>")
+		to_chat(user, SPAN_WARNING("There's no room in [src] for that!"))
 		return 0
 
 
-	if (container_type && istype(I, container_type))
-		return 1
+	if (istype(I, /obj/item/reagent_containers/cooking_container))
+		var/obj/item/reagent_containers/cooking_container/CC = I
+		if(CC.appliancetype && appliancetype)
+			return 1
 
 	// We're trying to cook something else. Check if it's valid.
 	var/obj/item/reagent_containers/food/snacks/check = I
 	if(istype(check) && islist(check.cooked) && (cook_type in check.cooked))
-		to_chat(user, "<span class='warning'>\The [check] has already been [cook_type].</span>")
+		to_chat(user, SPAN_WARNING("[check] has already been [cook_type]."))
 		return 0
 	else if(istype(check, /obj/item/reagent_containers/glass))
-		to_chat(user, "<span class='warning'>That would probably break [src].</span>")
+		to_chat(user, SPAN_WARNING("That would probably break [src]."))
 		return 0
 	else if(I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/storage/part_replacer))
 		return 0
 	else if(!istype(check) && !istype(check, /obj/item/holder))
-		to_chat(user, "<span class='warning'>That's not edible.</span>")
+		to_chat(user, SPAN_WARNING("That's not edible."))
 		return 0
 
 	return 1
@@ -209,7 +209,7 @@
 
 /obj/machinery/appliance/attackby(var/obj/item/I, var/mob/user)
 	if(!cook_type || (stat & (BROKEN)))
-		to_chat(user, "<span class='warning'>\The [src] is not working.</span>")
+		to_chat(user, SPAN_WARNING("[src] is not working."))
 		return
 
 	var/result = can_insert(I, user)
@@ -246,7 +246,7 @@
 		I.forceMove(src)
 		cooking_objs.Add(CI)
 		if (CC.check_contents() == 0)//If we're just putting an empty container in, then dont start any processing.
-			user.visible_message("<span class='notice'>\The [user] puts \the [I] into \the [src].</span>")
+			user.visible_message(SPAN_NOTICE("[user] puts [I] into [src]."))
 			return
 	else
 		if (CI && istype(CI))
@@ -259,7 +259,7 @@
 		CI.combine_target = selected_option
 
 	// We can actually start cooking now.
-	user.visible_message("<span class='notice'>\The [user] puts \the [I] into \the [src].</span>")
+	user.visible_message(SPAN_NOTICE("[user] puts [I] into [src]."))
 
 	get_cooking_work(CI)
 	cooking = TRUE
@@ -354,7 +354,7 @@
 
 /obj/machinery/appliance/proc/finish_cooking(var/datum/cooking_item/CI)
 
-	src.visible_message("<span class='notice'>\The [src] pings!</span>")
+	src.visible_message(SPAN_NOTICE("[src] pings!"))
 	if(cooked_sound)
 		playsound(get_turf(src), cooked_sound, 50, 1)
 	//Check recipes first, a valid recipe overrides other options
@@ -364,7 +364,7 @@
 		C = CI.container
 	else
 		C = src
-	recipe = select_recipe(RECIPE_LIST(appliancetype), C)
+	recipe = select_recipe(RECIPE_LIST(C.appliancetype), C)
 
 	if (recipe)
 		CI.result_type = 4//Recipe type, a specific recipe will transform the ingredients into a new food
@@ -376,7 +376,7 @@
 			AM.forceMove(temp)
 
 		//making multiple copies of a recipe from one container. For example, tons of fries
-		while (select_recipe(RECIPE_LIST(appliancetype), C) == recipe)
+		while (select_recipe(RECIPE_LIST(C.appliancetype), C) == recipe)
 			var/list/TR = list()
 			TR += recipe.make_food(C)
 			for (var/atom/movable/AM in TR) //Move results to buffer
@@ -506,7 +506,7 @@
 	new /obj/item/reagent_containers/food/snacks/badrecipe(CI.container)
 
 	// Produce nasty smoke.
-	visible_message("<span class='danger'>\The [src] vomits a gout of rancid smoke!</span>")
+	visible_message(SPAN_DANGER("[src] vomits a gout of rancid smoke!"))
 	var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad
 	smoke.attach(src)
 	smoke.set_up(10, 0, get_turf(src), 300)

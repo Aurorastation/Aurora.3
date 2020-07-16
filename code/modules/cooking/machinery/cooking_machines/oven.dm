@@ -90,7 +90,7 @@
 
 /obj/machinery/appliance/cooker/oven/can_insert(var/obj/item/I, var/mob/user)
 	if (!open && !manip(I, user))
-		to_chat(user, "<span class='warning'>You can't put anything in while the door is closed!</span>")
+		to_chat(user, SPAN_WARNING("You can't put anything in while the door is closed!"))
 		return 0
 
 	else
@@ -98,7 +98,7 @@
 
 /obj/machinery/appliance/cooker/oven/can_remove_items(var/mob/user)
 	if (!open)
-		to_chat(user, "<span class='warning'>You can't take anything out while the door is closed!</span>")
+		to_chat(user, SPAN_WARNING("You can't take anything out while the door is closed!"))
 		return FALSE
 
 	else
@@ -110,7 +110,7 @@
 /obj/machinery/appliance/cooker/oven/finish_cooking(var/datum/cooking_item/CI)
 	if(CI.combine_target)
 		CI.result_type = 3//Combination type. We're making something out of our ingredients
-		src.visible_message("<span class='notice'>\The [src] pings!</span>")
+		src.visible_message(SPAN_NOTICE("[src] pings!"))
 		combination_cook(CI)
 		return
 	else

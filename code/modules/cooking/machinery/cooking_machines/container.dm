@@ -14,26 +14,11 @@
 		/obj/item/paper,
 		/obj/item/flame/candle
 		)
+	var/appliancetype // Bitfield, uses the same as appliances
 
 /obj/item/reagent_containers/cooking_container/Initialize()
 	. = ..()
 	create_reagents(max_reagents)
-
-/obj/item/reagent_containers/cooking_container/afterattack(var/obj/target, var/mob/user, var/proximity)
-	if(!is_open_container() || !proximity) //Is the container open & are they next to whatever they're clicking?
-		return 1 //If not, do nothing.
-	if(standard_dispenser_refill(user, target)) //Are they clicking a water tank/some dispenser?
-		return 1
-	if(standard_pour_into(user, target)) //Pouring into another beaker?
-		return
-	if(user.a_intent == I_HURT)
-		if(standard_splash_mob(user,target))
-			return 1
-		if(reagents && reagents.total_volume)
-			to_chat(user, "<span class='notice'>You splash the contents of \the [src] onto [target].</span>") //They are on harm intent, aka wanting to spill it.
-			reagents.splash(target, reagents.total_volume)
-			return 1
-	. = ..()
 
 /obj/item/reagent_containers/cooking_container/examine(var/mob/user)
 	. = ..()
@@ -43,20 +28,20 @@
 			string += "[A.name] </br>"
 		to_chat(user, span("notice", string))
 	if (reagents.total_volume)
-		to_chat(user, span("notice", "It contains [reagents.total_volume]u of reagents."))
+		to_chat(user, SPAN_NOTICE("It contains [reagents.total_volume]u of reagents."))
 
 
 /obj/item/reagent_containers/cooking_container/attackby(var/obj/item/I as obj, var/mob/user as mob)
 	for (var/possible_type in insertable)
 		if (istype(I, possible_type))
 			if (!can_fit(I))
-				to_chat(user, span("warning","There's no more space in the [src] for that!"))
+				to_chat(user, SPAN_WARNING("There's no more space in the [src] for that!"))
 				return 0
 
 			if(!user.unEquip(I))
 				return
 			I.forceMove(src)
-			to_chat(user, span("notice", "You put the [I] into the [src]"))
+			to_chat(user, SPAN_NOTICE("You put the [I] into the [src]"))
 			return
 
 /obj/item/reagent_containers/cooking_container/verb/empty()
@@ -73,7 +58,7 @@
 		return
 
 	if (user.stat || user.restrained())
-		to_chat(user, "<span class='notice'>You are in no fit state to do this.</span>")
+		to_chat(user, SPAN_NOTICE("You are in no fit state to do this."))
 		return
 
 	if (!Adjacent(user))
@@ -81,13 +66,13 @@
 		return
 
 	if (!contents.len)
-		to_chat(user, span("warning", "There's nothing in the [src] you can remove!"))
+		to_chat(user, SPAN_WARNING("There's nothing in the [src] you can remove!"))
 		return
 
 	for (var/atom/movable/A in contents)
 		A.forceMove(get_turf(src))
 
-	to_chat(user, span("notice", "You remove all the solid items from the [src]."))
+	to_chat(user, SPAN_NOTICE("You remove all the solid items from the [src]."))
 
 /obj/item/reagent_containers/cooking_container/proc/check_contents()
 	if (contents.len == 0)
@@ -164,21 +149,59 @@
 	icon_state = "ovendish"
 	max_space = 30
 	max_reagents = 120
+	appliancetype = OVEN
 
 /obj/item/reagent_containers/cooking_container/pan
-	name = "pan"
-	shortname = "pan"
+	name = "skillet"
+	shortname = "skillet"
 	desc = "Chuck ingredients in this to fry something on the stove."
+	icon_state = "skillet"
+	max_reagents = 15
+	force = 15
+	hitsound = 'sound/weapons/smash.ogg'
+	flags = OPENCONTAINER // Will still react
+	appliancetype = SKILLET
+
+/obj/item/reagent_containers/cooking_container/pan/Initialize(var/mat_key)
+	. = ..()
+	var/material/material = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
+	if(material.name != MATERIAL_STEEL)
+		color = material.icon_colour
+	name = "[material.display_name] [initial(name)]"
+
+/obj/item/reagent_containers/cooking_container/saucepan
+	name = "saucepan"
+	shortname = "saucepan"
+	desc = "Is it a pot? Is it a pan? It's a saucepan!"
 	icon_state = "pan"
-	max_space = 30
-	max_reagents = 30
+	max_reagents = 60
 	slot_flags = SLOT_HEAD
 	force = 15
 	hitsound = 'sound/weapons/smash.ogg'
 	flags = OPENCONTAINER // Will still react
+	appliancetype = SAUCEPAN
 
-/obj/item/reagent_containers/cooking_container/pan/New(var/newloc, var/mat_key) // we use New instead of Initialize because, uh, material, i guess
-	..(newloc)
+/obj/item/reagent_containers/cooking_container/pan/Initialize(var/mat_key)
+	. = ..()
+	var/material/material = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
+	if(material.name != MATERIAL_STEEL)
+		color = material.icon_colour
+	name = "[material.display_name] [initial(name)]"
+
+/obj/item/reagent_containers/cooking_container/pot
+	name = "cooking pot"
+	shortname = "pot"
+	desc = "Boil things with this. Maybe even stick 'em in a stew."
+	icon_state = "pan"
+	max_space = 50
+	max_reagents = 120
+	force = 15
+	hitsound = 'sound/weapons/smash.ogg'
+	flags = OPENCONTAINER // Will still react
+	appliancetype = POT
+
+/obj/item/reagent_containers/cooking_container/pot/Initialize(var/mat_key)
+	. = ..()
 	var/material/material = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
 	if(material.name != MATERIAL_STEEL)
 		color = material.icon_colour
@@ -189,3 +212,4 @@
 	shortname = "basket"
 	desc = "Put ingredients in this; designed for use with a deep fryer. Warranty void if used."
 	icon_state = "basket"
+	appliancetype = FRYER
