@@ -315,3 +315,10 @@
 	pyjamas["blue pyjamas"] = /obj/item/clothing/under/pj/blue
 	pyjamas["red pyjamas"] = /obj/item/clothing/under/pj/red
 	gear_tweaks += new/datum/gear_tweak/path(pyjamas)
+
+/datum/gear/uniform/miscellaneous/hanbok/New()
+	..()
+	var/hanbok = list()
+	hanbok["magenta-blue hanbok"] = /obj/item/clothing/hanbok
+	hanbok["white-pink hanbok"] = /obj/item/clothing/hanbok/pink
+	gear_tweaks += new/datum/gear_tweak/path(hanbok)
