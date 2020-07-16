@@ -223,11 +223,14 @@
 
 /obj/machinery/power/port_gen/pacman/handleInactive()
 	var/cooling_temperature = 20
-	var/datum/gas_mixture/environment = loc.return_air()
-	if (environment)
-		var/ratio = min(environment.return_pressure()/ONE_ATMOSPHERE, 1)
-		var/ambient = environment.temperature - T20C
-		cooling_temperature += ambient*ratio
+
+	var/turf/T = get_turf(src)
+	if(T)
+		var/datum/gas_mixture/environment = T.return_air()
+		if (environment)
+			var/ratio = min(environment.return_pressure()/ONE_ATMOSPHERE, 1)
+			var/ambient = environment.temperature - T20C
+			cooling_temperature += ambient*ratio
 
 	if (temperature > cooling_temperature)
 		var/temp_loss = (temperature - cooling_temperature)/TEMPERATURE_DIVISOR
