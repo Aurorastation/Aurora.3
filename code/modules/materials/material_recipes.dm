@@ -277,3 +277,10 @@
 		list(
 			new /datum/stack_recipe("diamond floor tile", /turf/simulated/floor/diamond, 1, 4, 20)
 		))
+
+/material/leather/generate_recipes()
+	..()
+	recipes += new /datum/stack_recipe_list("[display_name] construction",
+		list(
+			new /datum/stack_recipe("leather briefcase", /obj/item/storage/briefcase/real, 1, 4, 20)
+		))
