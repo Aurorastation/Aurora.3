@@ -35,7 +35,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.old_mob)
-			to_chat(H, span("warning", "The chair rejects you! You cannot recursively control bodies."))
+			to_chat(H, SPAN_WARNING("The chair rejects you! You cannot recursively control bodies."))
 			return
 	add_overlay(image('icons/obj/furniture.dmi', src, "vr_helmet", MOB_LAYER + 1))
 

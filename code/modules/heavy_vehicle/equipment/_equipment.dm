@@ -88,6 +88,10 @@
 		if(!icon_state)
 			icon = holding.icon
 			icon_state = holding.icon_state
+		if(istype(holding, /obj/item/gun))
+			var/obj/item/gun/G = holding
+			G.has_safety = FALSE
+			G.safety_state = FALSE
 		desc = "[holding.desc] This one is suitable for installation on an exosuit."
 
 /obj/item/mecha_equipment/mounted_system/Destroy()

@@ -15,7 +15,6 @@
 
 	outfit = /datum/outfit/admin/kataphract
 	possible_species = list("Unathi")
-	possible_genders = list(MALE, FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Kataphract-Hopeful"

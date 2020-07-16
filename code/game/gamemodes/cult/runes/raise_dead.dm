@@ -19,7 +19,7 @@
 				break
 	if(!corpse_to_raise)
 		if(is_sacrifice_target)
-			to_chat(user, span("warning", "The Geometer of blood wants this mortal for himself."))
+			to_chat(user, SPAN_WARNING("The Geometer of blood wants this mortal for himself."))
 		return fizzle(user)
 
 	is_sacrifice_target = FALSE
@@ -38,9 +38,9 @@
 
 	if(!body_to_maim)
 		if(is_sacrifice_target)
-			to_chat(user, span("cult", "The Geometer of Blood wants that corpse for himself."))
+			to_chat(user, SPAN_CULT("The Geometer of Blood wants that corpse for himself."))
 		else
-			to_chat(user, span("warning", "The sacrifical corpse is not dead. You must free it from this world of illusions before it may be used."))
+			to_chat(user, SPAN_WARNING("The sacrifical corpse is not dead. You must free it from this world of illusions before it may be used."))
 		return fizzle(user)
 
 	var/mob/abstract/observer/ghost
@@ -55,7 +55,7 @@
 		break
 
 	if(!ghost)
-		to_chat(user, span("warning", "You require a restless spirit which clings to this world. Beckon their prescence with the sacred chants of Nar-Sie."))
+		to_chat(user, SPAN_WARNING("You require a restless spirit which clings to this world. Beckon their prescence with the sacred chants of Nar-Sie."))
 		var/area/Ar = get_area(A)
 		for(var/mob/M in dead_mob_list)
 			to_chat(M, "[ghost_follow_link(user, M)] <span class='cult'>A cultist is attempting to revive a body in [Ar.name]!</span>")
@@ -84,6 +84,6 @@
 		var/obj/item/organ/external/limb = pick(possible_limbs)
 		limb.droplimb(FALSE, DROPLIMB_BURN)
 
-	to_chat(corpse_to_raise, span("cult", "Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind something sinister takes root."))
-	to_chat(corpse_to_raise, span("cult", "Assist your new compatriots in their dark dealings. Their goal is yours, and yours is theirs. You serve the Dark One above all else. Bring it back."))
+	to_chat(corpse_to_raise, SPAN_CULT("Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind something sinister takes root."))
+	to_chat(corpse_to_raise, SPAN_CULT("Assist your new compatriots in their dark dealings. Their goal is yours, and yours is theirs. You serve the Dark One above all else. Bring it back."))
 	return

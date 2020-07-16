@@ -629,9 +629,9 @@ default behaviour is:
 											location.add_blood(M)
 											if(ishuman(M))
 												var/mob/living/carbon/human/H = M
-												var/total_blood = round(H.vessel.get_reagent_amount("blood"))
+												var/total_blood = round(H.vessel.get_reagent_amount(/datum/reagent/blood))
 												if(total_blood > 0)
-													H.vessel.remove_reagent("blood", 1)
+													H.vessel.remove_reagent(/datum/reagent/blood, 1)
 
 
 						step(pulling, get_dir(pulling.loc, T))
@@ -736,27 +736,27 @@ default behaviour is:
 					resist_chance = 30 * resist_power
 				else
 					resist_chance = 70 * resist_power //only a bit difficult to break out of a passive grab
-				resist_msg = span("warning", "[src] pulls away from [G.assailant]'s grip!")
+				resist_msg = SPAN_WARNING("[src] pulls away from [G.assailant]'s grip!")
 			if(GRAB_AGGRESSIVE)
 				if(incapacitated(INCAPACITATION_DISABLED) || src.lying)
 					resist_chance = 15 * resist_power
 				else
 					resist_chance = 50 * resist_power
-				resist_msg = span("warning", "[src] has broken free of [G.assailant]'s grip!")
+				resist_msg = SPAN_WARNING("[src] has broken free of [G.assailant]'s grip!")
 			if(GRAB_NECK)
 				//If the you move when grabbing someone then it's easier for them to break free. Same if the affected mob is immune to stun.
 				if(world.time - G.assailant.l_move_time < 30 || !stunned || !src.lying || incapacitated(INCAPACITATION_DISABLED))
 					resist_chance = 15 * resist_power
 				else
 					resist_chance = 3 * resist_power
-				resist_msg = span("danger", "[src] has broken free of [G.assailant]'s headlock!")
+				resist_msg = SPAN_DANGER("[src] has broken free of [G.assailant]'s headlock!")
 
 		if(prob(resist_chance))
 			visible_message(resist_msg)
 			qdel(G)
 
 	if(resisting)
-		visible_message(span("warning", "[src] resists!"))
+		visible_message(SPAN_WARNING("[src] resists!"))
 		setClickCooldown(25)
 
 /mob/living/verb/lay_down()
@@ -897,9 +897,9 @@ default behaviour is:
 	if (!composition_reagent)//if no reagent has been set, then we'll set one
 		var/type = find_type(src)
 		if (type & TYPE_SYNTHETIC)
-			src.composition_reagent = "iron"
+			src.composition_reagent = /datum/reagent/iron
 		else
-			src.composition_reagent = "protein"
+			src.composition_reagent = /datum/reagent/nutriment/protein
 
 	//if the mob is a simple animal with a defined meat quantity
 	if (istype(src, /mob/living/simple_animal))
@@ -939,6 +939,16 @@ default behaviour is:
 	LAZYREMOVE(auras, aura)
 	update_icons()
 	return TRUE
+
+/mob/living/proc/apply_radiation_effects()
+	var/area/A = get_area(src)
+	if(!A)
+		return FALSE
+	if(isNotStationLevel(A.z))
+		return FALSE
+	if(A.flags & RAD_SHIELDED)
+		return FALSE
+	. = TRUE
 
 /mob/living/Destroy()
 	if(auras)

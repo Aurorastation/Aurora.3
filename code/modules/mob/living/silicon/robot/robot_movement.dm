@@ -29,3 +29,6 @@
 		var/turf/B = GetAbove(get_turf(src))
 		if(up_hint)
 			up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
+
+/mob/living/silicon/robot/movement_delay()
+	return speed

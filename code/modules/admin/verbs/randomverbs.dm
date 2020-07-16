@@ -335,7 +335,7 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 
 	R.uneq_all()
 	R.mod_type = initial(R.mod_type)
-	R.hands.icon_state = initial(R.hands.icon_state)
+	R.hands.icon_state = "nomod"
 
 	R.module.Reset(R)
 	QDEL_NULL(R.module)

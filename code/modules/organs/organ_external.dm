@@ -254,15 +254,16 @@
 
 	var/laser = (damage_flags & DAM_LASER)
 	var/sharp = (damage_flags & DAM_SHARP)
+	var/edge = (damage_flags & DAM_EDGE)
 	var/blunt = !!(brute && !sharp && !edge)
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
 		if(owner && (owner.can_feel_pain()))
 			owner.emote(pick("scream", "groan"))	//getting hit on broken hand hurts
+
 	if(used_weapon)
 		add_autopsy_data("[used_weapon]", brute + burn)
 
-	var/can_cut = (prob(brute*2) || sharp) && !(status & ORGAN_ROBOT)
 	var/spillover = 0
 	if(!is_damageable(brute + burn))
 		spillover = brute_dam + burn_dam + brute - max_damage
@@ -278,6 +279,13 @@
 	if(brute_dam + brute > min_broken_damage && prob(brute_dam + brute * (1 + blunt)))
 		fracture()
 
+	// High brute damage or sharp objects may damage internal organs
+	if(length(internal_organs))
+		if(damage_internal_organs(brute, burn, damage_flags))
+			brute /= 2
+			burn /= 2
+
+	var/can_cut = !BP_IS_ROBOTIC(src) && (sharp || prob(brute))
 	if(brute)
 		var/to_create = BRUISE
 		if(can_cut)
@@ -293,24 +301,14 @@
 		else
 			createwound(BURN, burn)
 
-	add_pain(0.8 * burn + 0.6 * brute)
+	add_pain(0.6 * burn + 0.4 * brute)
 
 	//If there are still hurties to dispense
 	if (spillover)
 		owner.shock_stage += spillover * config.organ_damage_spillover_multiplier
 
-	// High brute damage or sharp objects may damage internal organs
-	if(length(internal_organs))
-		if(damage_internal_organs(brute, burn, damage_flags))
-			var/brute_div = 2 //We want melee weapons to not be affected by this.
-			if(damage_flags & DAM_BULLET)
-				brute_div = 1.25
-			brute /= brute_div
-			burn /= 2
-
 	// sync the organ's damage with its wounds
 	update_damages()
-
 	if(owner)
 		owner.updatehealth() //droplimb will call updatehealth() again if it does end up being called
 
@@ -352,7 +350,7 @@
 	if(!length(victims))
 		return FALSE
 
-	organ_hit_chance += 5 * damage_amt/organ_damage_threshold
+	organ_hit_chance += 5 * damage_amt / organ_damage_threshold
 
 	if(encased && !(status & ORGAN_BROKEN)) //ribs protect
 		organ_hit_chance *= 0.6
@@ -589,6 +587,7 @@ This function completely restores a damaged organ to perfect condition.
 				to_chat(owner, "You feel \the [suit] constrict about your [name], supporting it.")
 				status |= ORGAN_SPLINTED
 				suit.supporting_limbs |= src
+				owner.update_hud_hands()
 
 //Updating germ levels. Handles organ germ levels and necrosis.
 /*

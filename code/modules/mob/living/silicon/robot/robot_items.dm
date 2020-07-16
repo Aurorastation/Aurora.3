@@ -88,7 +88,7 @@
 	if(istype(target,/obj/item))
 		var/obj/item/I = target
 		if(I.anchored)
-			to_chat(user, span("notice", "\The [I] is anchored in place."))
+			to_chat(user, SPAN_NOTICE("\The [I] is anchored in place."))
 			return
 		if(!I.origin_tech)
 			to_chat(user, SPAN_NOTICE("This doesn't seem to have a tech origin."))
@@ -225,6 +225,18 @@
 	T.visible_message(SPAN_NOTICE("\The [src.loc] dispenses a sheet of crisp white paper."))
 	new /obj/item/paper(T)
 
+/obj/item/proc/on_module_hotbar(var/mob/living/silicon/robot/R)
+	return
+
+/obj/item/proc/on_module_store(var/mob/living/silicon/robot/R)
+	return
+
+/obj/item/proc/on_module_activate(var/mob/living/silicon/robot/R)
+	return
+
+/obj/item/proc/on_module_deactivate(var/mob/living/silicon/robot/R)
+	return
+
 //Personal shielding for the combat module.
 /obj/item/borg/combat/shield
 	name = "personal shielding"
@@ -232,6 +244,14 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "shield1" //placeholder for now // four fucking years alberyk. FOUR
 	var/shield_level = 0.5 //Percentage of damage absorbed by the shield.
+	var/image/shield_overlay
+
+/obj/item/borg/combat/shield/on_module_activate(mob/living/silicon/robot/R)
+	shield_overlay = image(R.icon, "[R.module_sprites[R.icontype]]-shield")
+	R.add_overlay(shield_overlay)
+
+/obj/item/borg/combat/shield/on_module_deactivate(mob/living/silicon/robot/R)
+	R.cut_overlay(shield_overlay)
 
 /obj/item/borg/combat/shield/verb/set_shield_level()
 	set name = "Set shield level"
@@ -247,6 +267,14 @@
 	desc = "By retracting limbs and tucking in its head, a combat android can roll at high speeds."
 	icon = 'icons/obj/decals.dmi'
 	icon_state = "shock"
+
+/obj/item/borg/combat/mobility/on_module_activate(mob/living/silicon/robot/R)
+	R.icon_state = "[R.module_sprites[R.icontype]]-roll"
+	R.speed = -2
+
+/obj/item/borg/combat/mobility/on_module_deactivate(mob/living/silicon/robot/R)
+	R.icon_state = R.module_sprites[R.icontype]
+	R.speed = initial(R.speed)
 
 /obj/item/inflatable_dispenser
 	name = "inflatables dispenser"
@@ -273,7 +301,7 @@
 		mode = !mode
 		to_chat(user, SPAN_NOTICE("You set \the [src] to deploy [mode ? "doors" : "walls"]."))
 	else
-		to_chat(user, span("warning", "You can't switch modes while deploying a [mode ? "door" : "wall"]!"))
+		to_chat(user, SPAN_WARNING("You can't switch modes while deploying a [mode ? "door" : "wall"]!"))
 
 /obj/item/inflatable_dispenser/afterattack(var/atom/A, var/mob/user)
 	..(A, user)
@@ -308,7 +336,7 @@
 			newtype = /obj/structure/inflatable/wall
 
 	deploying = 1
-	user.visible_message(span("notice", "[user] starts deploying an inflatable [mode ? "door" : "wall"]."), span("notice", "You start deploying an inflatable [mode ? "door" : "wall"]!"))
+	user.visible_message(SPAN_NOTICE("[user] starts deploying an inflatable [mode ? "door" : "wall"]."), SPAN_NOTICE("You start deploying an inflatable [mode ? "door" : "wall"]!"))
 	playsound(T, 'sound/items/zip.ogg', 75, TRUE)
 	if(do_after(user, 30, needhand = FALSE))
 		new newtype(T)
@@ -392,6 +420,11 @@
 
 /obj/item/weldingtool/robotic
 	icon = 'icons/obj/robot_items.dmi'
+
+/obj/item/soap/drone
+	name = "integrated soap"
+	desc = "An advanced bar of soap that connects to an internal reservoir of a custodial bot, allowing it to stay wet for longer periods of time."
+	capacity = 50
 
 /obj/item/inductive_charger
 	name = "inductive charger"

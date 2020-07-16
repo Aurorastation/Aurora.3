@@ -112,7 +112,7 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	if(lastteleport + (5 SECONDS) > world.time)
-		to_chat(H, span("warning", "The teleporter needs time to cool down!"))
+		to_chat(H, SPAN_WARNING("The teleporter needs time to cool down!"))
 		return FALSE
 
 	if(!istype(H.loc, /turf))
@@ -146,7 +146,7 @@
 	phase_in(H,get_turf(H))
 
 	if(T != get_turf(H))
-		to_chat(H,span("warning","Something interferes with your [src]!"))
+		to_chat(H, SPAN_WARNING("Something interferes with your [src]!"))
 
 	for(var/obj/item/grab/G in H.contents)
 		if(G.affecting)

@@ -109,7 +109,7 @@
 // Calculate how vulnerable the human is to under- and overpressure.
 // Returns 0 (equals 0 %) if sealed in an undamaged suit, 1 if unprotected (equals 100%).
 // Suitdamage can modifiy this in 10% steps.
-/mob/living/carbon/human/proc/get_pressure_weakness()
+/mob/living/carbon/human/get_pressure_weakness()
 	var/pressure_adjustment_coefficient = 1 // Assume no protection at first.
 
 	if(wear_suit && (wear_suit.item_flags & STOPPRESSUREDAMAGE) && head && (head.item_flags & STOPPRESSUREDAMAGE)) // Complete set of pressure-proof suit worn, assume fully sealed.
@@ -640,7 +640,7 @@
 			bodytemperature = Clamp(bodytemperature+fever, normal_temp, normal_temp + 9) // temperature should range from 37C to 46C, 98.6F to 115F
 			if(fever > 1)
 				if(prob(20/3)) // every 30 seconds, roughly
-					to_chat(src, span("warning", pick("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")))
+					to_chat(src, SPAN_WARNING(pick("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")))
 				if(prob(20)) // once every 10 seconds, roughly
 					drowsyness += 4
 				if(prob(20))
@@ -727,7 +727,7 @@
 			return 1
 
 		if(hallucination && !(species.flags & (NO_POISON|IS_PLANT)))
-			handle_hallucinations() 
+			handle_hallucinations()
 
 		if(get_shock() >= (species.total_health * 0.75))
 			if(!stat)
@@ -1314,12 +1314,12 @@
 
 	if (nutrition <= 0)
 		if (prob(1.5))
-			to_chat(src, span("warning", "You feel hungry and exhausted, eat something to regain your energy!"))
+			to_chat(src, SPAN_WARNING("You feel hungry and exhausted, eat something to regain your energy!"))
 		return
 
 	if (hydration <= 0)
 		if (prob(1.5))
-			to_chat(src, span("warning", "You feel thirsty and exhausted, drink something to regain your energy!"))
+			to_chat(src, SPAN_WARNING("You feel thirsty and exhausted, drink something to regain your energy!"))
 		return
 
 	if (stamina != max_stamina)

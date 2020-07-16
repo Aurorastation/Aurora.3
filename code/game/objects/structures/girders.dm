@@ -181,20 +181,18 @@
 		var/damage_to_deal = W.force
 		var/weaken = 0
 		if(reinf_material)
-			weaken += reinf_material.integrity * 2.5 //Since girders don't have a secondary material, buff 'em up a bit.
+			weaken += reinf_material.integrity * 3 //Since girders don't have a secondary material, buff 'em up a bit.
 		weaken /= 100
-		visible_message("<span class='notice'>[user] retracts their [W] and starts winding up a strike...</span>")
-		var/hit_delay = W.w_class * 10 //Heavier weapons take longer to swing, yeah?
-		if(do_after(user, hit_delay))
-			do_attack_animation(src)
-			playsound(src, 'sound/weapons/smash.ogg', 50)
-			if(damage_to_deal > weaken && (damage_to_deal > MIN_DAMAGE_TO_HIT))
-				damage_to_deal -= weaken
-				visible_message("<span class='warning'>[user] strikes \the [src] with \the [W], [is_sharp(W) ? "slicing" : "denting"] a support rod!</span>")
-				take_damage(damage_to_deal)
-			else
-				visible_message("<span class='warning'>[user] strikes \the [src] with \the [W], but it bounces off!</span>")
-			return
+		do_attack_animation(src)
+		playsound(src, 'sound/weapons/smash.ogg', 50)
+		if(damage_to_deal > weaken && (damage_to_deal > MIN_DAMAGE_TO_HIT))
+			damage_to_deal -= weaken
+			visible_message("<span class='warning'>[user] strikes \the [src] with \the [W], [is_sharp(W) ? "slicing" : "denting"] a support rod!</span>")
+			take_damage(damage_to_deal)
+		else
+			visible_message("<span class='warning'>[user] strikes \the [src] with \the [W], but it bounces off!</span>")
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		return
 
 	return ..()
 

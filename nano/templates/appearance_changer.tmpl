@@ -23,6 +23,19 @@
     </div>
 {{/if}}
 
+{{if data.change_accent}}
+    <div class="item">
+        <div class="itemLabelNarrow">
+            Accents:
+        </div>
+        <div class="itemContentWide">
+            {{for data.accents}}
+                {{:helper.link(value.accent, null, { 'accent' : value.accent}, null, data.accent == value.accent ? 'selected' : null)}}
+            {{/for}}
+        </div>
+    </div>
+{{/if}}
+
 {{if data.change_eye_color || data.change_skin_tone || data.change_skin_color || data.change_hair_color || data.change_facial_hair_color}}
     <div class="item">
         <div class="itemLabelNarrow">

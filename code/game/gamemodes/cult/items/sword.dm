@@ -30,9 +30,9 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/organ/external/affecting = H.get_organ(zone)
-		to_chat(user, span("cult", "An unexplicable force rips through your [affecting.name], tearing the sword from your grasp!"))
+		to_chat(user, SPAN_CULT("An unexplicable force rips through your [affecting.name], tearing the sword from your grasp!"))
 	else
-		to_chat(user, span("cult", "An unexplicable force rips through you, tearing the sword from your grasp!"))
+		to_chat(user, SPAN_CULT("An unexplicable force rips through you, tearing the sword from your grasp!"))
 
 	//random amount of damage between half of the blade's force and the full force of the blade.
 	user.apply_damage(rand(force/2, force), BRUTE, zone, 0, damage_flags = DAM_SHARP|DAM_EDGE)
@@ -49,13 +49,13 @@
 /obj/item/melee/cultblade/pickup(mob/living/user)
 	..()
 	if(!iscultist(user))
-		to_chat(user, span("cult", "An overwhelming feeling of dread comes over you as you pick up \the [src]. It would be wise to be rid of this blade quickly."))
+		to_chat(user, SPAN_CULT("An overwhelming feeling of dread comes over you as you pick up \the [src]. It would be wise to be rid of this blade quickly."))
 		user.make_dizzy(120)
 
 /obj/item/melee/cultblade/attackby(obj/item/I, mob/user)
 	..()
 	if(istype(I, /obj/item/nullrod))
-		to_chat(user, span("notice", "You cleanse \the [src] of taint, restoring the blade to its original state."))
+		to_chat(user, SPAN_NOTICE("You cleanse \the [src] of taint, restoring the blade to its original state."))
 		var/obj/item/material/sword/blade = new(get_turf(src))
 		blade.force = 15
 		qdel(src)

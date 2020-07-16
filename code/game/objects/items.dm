@@ -61,6 +61,8 @@
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
 	var/item_state_slots //overrides the default item_state for particular slots.
 
+	var/build_from_parts = FALSE // when it uses coloration and a part of it wants to remain uncolored. e.g., handle of the screwdriver is colored while the head is not.
+	var/worn_overlay = null // used similarly as above, except for inhands.
 
 	//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 	// Used to specify the icon file to be used when the item is worn. If not set the default icon for that slot will be used.
@@ -84,6 +86,7 @@
 	var/list/sprite_sheets_obj
 
 	var/icon_override  //Used to override hardcoded clothing dmis in human clothing pr
+
 
 	var/charge_failure_message = " cannot be recharged."
 
@@ -190,7 +193,7 @@
 		if(!S.care_about_storage_depth)
 			storage_depth_matters = FALSE
 	if(storage_depth_matters && !src.Adjacent(user))
-		to_chat(user, span("notice", "\The [src] slips out of your grasp before you can grab it!")) // because things called before this can move it
+		to_chat(user, SPAN_NOTICE("\The [src] slips out of your grasp before you can grab it!")) // because things called before this can move it
 		return // please don't pick things up
 	src.pickup(user)
 	if(S)
@@ -475,38 +478,6 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/proc/on_give(var/mob/giver, var/mob/receiver)
 	return
 
-/*
-/obj/item/verb/verb_pickup()
-	set src in oview(1)
-	set category = "Object"
-	set name = "Pick up"
-	if(!(usr)) //BS12 EDIT
-		return
-	if(!usr.canmove || usr.stat || usr.restrained() || !Adjacent(usr))
-		return
-	if((!istype(usr, /mob/living/carbon)) || (istype(usr, /mob/living/carbon/brain)))//Is humanoid, and is not a brain
-		to_chat(usr, "<span class='warning'>You can't pick things up!</span>")
-		return
-	if( usr.stat || usr.restrained() )//Is not asleep/dead and is not restrained
-		to_chat(usr, "<span class='warning'>You can't pick things up!</span>")
-		return
-	if(src.anchored) //Object isn't anchored
-		to_chat(usr, "<span class='warning'>You can't pick that up!</span>")
-		return
-	if(!usr.hand && usr.r_hand) //Right hand is not full
-		to_chat(usr, "<span class='warning'>Your right hand is full.</span>")
-		return
-	if(usr.hand && usr.l_hand) //Left hand is not full
-		to_chat(usr, "<span class='warning'>Your left hand is full.</span>")
-		return
-	if(!istype(src.loc, /turf)) //Object is on a turf
-		to_chat(usr, "<span class='warning'>You can't pick that up!</span>")
-		return
-	//All checks are done, time to pick it up!
-	usr.UnarmedAttack(src)
-	return
-*/
-
 /mob/living/carbon/verb/verb_pickup(obj/item/I in range(1))
 	set category = "Object"
 	set name = "Pick up"
@@ -553,8 +524,11 @@ var/list/global/slot_flags_enumeration = list(
 //If a negative value is returned, it should be treated as a special return value for bullet_act() and handled appropriately.
 //For non-projectile attacks this usually means the attack is blocked.
 //Otherwise should return 0 to indicate that the attack is not affected in any way.
-/obj/item/proc/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/proc/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	return 0
+
+/obj/item/proc/can_shield_back()
+	return
 
 /obj/item/proc/get_loc_turf()
 	var/atom/L = loc
@@ -856,3 +830,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(user)
 		attack_self(user)
 	return TRUE
+
+//Override this for items that can be flame sources.
+/obj/item/proc/isFlameSource()
+	return FALSE
