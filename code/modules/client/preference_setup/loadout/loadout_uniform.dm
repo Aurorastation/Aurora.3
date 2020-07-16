@@ -316,11 +316,12 @@
 	pyjamas["red pyjamas"] = /obj/item/clothing/under/pj/red
 	gear_tweaks += new/datum/gear_tweak/path(pyjamas)
 
-/datum/gear/uniform/hanbok
-	display_name = "hanbok (selection)"
+/datum/gear/uniform/under/hanbok
+	display_name = "hanbok selection"
+	description = "A selection of traditional Korean outfits."
 	path = /obj/item/clothing/under/hanbok
 
-/datum/gear/uniform/miscellaneous/hanbok/New()
+/datum/gear/uniform/under/hanbok/New()
 	..()
 	var/hanbok = list()
 	hanbok["magenta-blue hanbok"] = /obj/item/clothing/under/hanbok
