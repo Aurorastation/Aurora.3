@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Schlorrgo now harmlessly bounce when falling down z-levels."
