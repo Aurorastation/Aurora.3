@@ -580,3 +580,15 @@
 	icon_state = "croptop"
 	item_state = "croptop_s"
 	worn_state = "croptop"
+
+/obj/item/clothing/hanbok
+	name = "hanbok"
+	desc = "A traditional Korean hanbok."
+	icon_state = "hanbok"
+	item_state = "hanbok"
+
+/obj/item/clothing/hanbok/pink
+	name = "hanbok"
+	desc = "A traditional Korean hanbok. This one is pink and white."
+	icon_state = "hanbok_pink"
+	item_state = "hanbok_pink"
