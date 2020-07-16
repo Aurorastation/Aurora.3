@@ -156,7 +156,7 @@
 
 			if(H.wear_mask && istype(H.wear_mask,/obj/item/clothing/mask/gas/voice))
 				changed_voice = 1
-				var/list/impersonated = new()
+				var/list/impersonated = list()
 				var/mob/living/carbon/human/I = impersonated[speaker_name]
 				if(!I)
 					for(var/mob/living/carbon/human/M in mob_list)

@@ -2018,6 +2018,9 @@
 	if(accent && speaking && speaking.allow_accents)
 		var/used_accent = accent //starts with the mob's default accent
 
+		if(mind?.changeling)
+			used_accent = mind.changeling.mimiced_accent
+
 		if(istype(back,/obj/item/rig)) //checks for the rig voice changer module
 			var/obj/item/rig/rig = back
 			if(rig.speech && rig.speech.voice_holder && rig.speech.voice_holder.active && rig.speech.voice_holder.current_accent)
