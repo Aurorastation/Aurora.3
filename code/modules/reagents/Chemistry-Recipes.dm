@@ -36,6 +36,7 @@
 	var/reaction_sound = 'sound/effects/bubbles.ogg'
 
 	var/log_is_important = 0 // If this reaction should be considered important for logging. Important recipes message admins when mixed, non-important ones just log to file.
+
 /datum/chemical_reaction/proc/can_happen(var/datum/reagents/holder)
 	//check that all the required reagents are present
 	if(!holder.has_all_reagents(required_reagents))
@@ -664,7 +665,7 @@
 	name = "Paroxetine"
 	id = "paroxetine"
 	result = /datum/reagent/mental/paroxetine
-	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/acetone = 1, /datum/reagent/norepinephrine = 1)
+	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/ammonia = 1, /datum/reagent/copper = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/fluvoxamine
@@ -2386,10 +2387,10 @@
 	required_reagents = list(/datum/reagent/iron = 1, /datum/reagent/alcohol/ethanol/wine = 5, /datum/reagent/alcohol/ethanol/vodka = 5)
 	result_amount = 10
 
-/datum/chemical_reaction/drink/changelingsting
-	name = "Changeling Sting"
-	id = "changelingsting"
-	result = /datum/reagent/alcohol/ethanol/changelingsting
+/datum/chemical_reaction/drink/gibsonpunch
+	name = "Gibson Punch"
+	id = "gibsonpunch"
+	result = /datum/reagent/alcohol/ethanol/gibsonpunch
 	required_reagents = list(/datum/reagent/alcohol/ethanol/screwdrivercocktail = 1, /datum/reagent/drink/limejuice = 1, /datum/reagent/drink/lemonjuice = 1)
 	result_amount = 3
 
@@ -2428,10 +2429,10 @@
 	required_reagents = list(/datum/reagent/alcohol/ethanol/ale = 1, /datum/reagent/alcohol/ethanol/irishcream = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/drink/syndicatebomb
-	name = "Syndicate Bomb"
-	id = "syndicatebomb"
-	result = /datum/reagent/alcohol/ethanol/syndicatebomb
+/datum/chemical_reaction/drink/gibsonhooch
+	name = "Gibson Hooch"
+	id = "gibsonhooch"
+	result = /datum/reagent/alcohol/ethanol/gibsonhooch
 	required_reagents = list(/datum/reagent/alcohol/ethanol/beer = 1, /datum/reagent/alcohol/ethanol/whiskeycola = 1)
 	result_amount = 2
 

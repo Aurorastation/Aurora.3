@@ -327,4 +327,4 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(ishuman(user))
 		ChangeTurf(/turf/space)
-		to_chat(user, span("notice","You clear away the metal foam."))
+		to_chat(user, SPAN_NOTICE("You clear away the metal foam."))

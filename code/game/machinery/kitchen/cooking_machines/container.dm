@@ -20,44 +20,30 @@
 	create_reagents(max_reagents)
 	flags |= OPENCONTAINER
 
-/obj/item/reagent_containers/cooking_container/afterattack(var/obj/target, var/mob/user, var/proximity)
-	if(!is_open_container() || !proximity) //Is the container open & are they next to whatever they're clicking?
-		return 1 //If not, do nothing.
-	if(standard_dispenser_refill(user, target)) //Are they clicking a water tank/some dispenser?
-		return 1
-	if(standard_pour_into(user, target)) //Pouring into another beaker?
-		return
-	if(user.a_intent == I_HURT)
-		if(standard_splash_mob(user,target))
-			return 1
-		if(reagents && reagents.total_volume)
-			to_chat(user, "<span class='notice'>You splash the contents of \the [src] onto [target].</span>") //They are on harm intent, aka wanting to spill it.
-			reagents.splash(target, reagents.total_volume)
-			return 1
-	. = ..()
 
 /obj/item/reagent_containers/cooking_container/examine(var/mob/user)
-	. = ..()
+	..()
 	if (contents.len)
 		var/string = "It contains....</br>"
 		for (var/atom/movable/A in contents)
 			string += "[A.name] </br>"
-		to_chat(user, span("notice", string))
+		to_chat(user, SPAN_NOTICE(string))
 	if (reagents.total_volume)
-		to_chat(user, span("notice", "It contains [reagents.total_volume]u of reagents."))
+		to_chat(user, SPAN_NOTICE("It contains [reagents.total_volume]u of reagents."))
 
 
 /obj/item/reagent_containers/cooking_container/attackby(var/obj/item/I as obj, var/mob/user as mob)
 	for (var/possible_type in insertable)
 		if (istype(I, possible_type))
 			if (!can_fit(I))
-				to_chat(user, span("warning","There's no more space in the [src] for that!"))
+				to_chat(user, SPAN_WARNING("There's no more space in the [src] for that!"))
 				return 0
 
 			if(!user.unEquip(I))
 				return
 			I.forceMove(src)
-			to_chat(user, span("notice", "You put the [I] into the [src]"))
+			to_chat(user, SPAN_NOTICE("You put the [I] into the [src]"))
+			return
 
 /obj/item/reagent_containers/cooking_container/verb/empty()
 	set src in oview(1)
@@ -81,13 +67,13 @@
 		return
 
 	if (!contents.len)
-		to_chat(user, span("warning", "There's nothing in the [src] you can remove!"))
+		to_chat(user, SPAN_WARNING("There's nothing in the [src] you can remove!"))
 		return
 
 	for (var/atom/movable/A in contents)
 		A.forceMove(get_turf(src))
 
-	to_chat(user, span("notice", "You remove all the solid items from the [src]."))
+	to_chat(user, SPAN_NOTICE("You remove all the solid items from the [src]."))
 
 /obj/item/reagent_containers/cooking_container/proc/check_contents()
 	if (contents.len == 0)
@@ -162,6 +148,7 @@
 	shortname = "shelf"
 	desc = "Put ingredients in this; designed for use with an oven. Warranty void if used."
 	icon_state = "ovendish"
+	center_of_mass = list("x" = 16,"y" = 12)
 	max_space = 30
 	max_reagents = 120
 

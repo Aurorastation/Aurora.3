@@ -341,7 +341,7 @@
 				S.target = null
 				++S.discipline
 		if(dose == removed)
-			S.visible_message(span("warning", "[S]'s flesh sizzles where the space cleaner touches it!"), span("danger", "Your flesh burns in the space cleaner!"))
+			S.visible_message(SPAN_WARNING("[S]'s flesh sizzles where the space cleaner touches it!"), SPAN_DANGER("Your flesh burns in the space cleaner!"))
 
 /datum/reagent/lube
 	name = "Space Lube"
@@ -494,7 +494,7 @@
 /datum/reagent/mutone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	stored_value += removed
 	if(stored_value >= 5)
-		to_chat(M,span("notice","You feel strange..."))
+		to_chat(M, SPAN_NOTICE("You feel strange..."))
 		if(prob(25))
 			randmutb(M)
 		else
@@ -544,7 +544,7 @@
 /datum/reagent/venenum/initial_effect(var/mob/living/carbon/M, var/alien)
 	stored_value = metabolism
 	stored_dna = M.dna.Clone()
-	to_chat(M,span("warning","Your skin starts crawling..."))
+	to_chat(M, SPAN_WARNING("Your skin starts crawling..."))
 
 /datum/reagent/venenum/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	stored_value += removed
@@ -567,7 +567,7 @@
 		M.real_name = M.dna.real_name
 		M.UpdateAppearance()
 
-	to_chat(M,span("warning","You seem back to your normal self."))
+	to_chat(M, SPAN_WARNING("You seem back to your normal self."))
 
 /datum/reagent/fuel/zoragel
 	name = "Inert Gel"

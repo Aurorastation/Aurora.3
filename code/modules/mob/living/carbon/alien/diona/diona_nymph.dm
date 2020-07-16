@@ -111,27 +111,27 @@
 	var/light = get_lightlevel_diona(DS)
 
 	if (light <= -0.75)
-		to_chat(usr, span("danger", "It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!"))
+		to_chat(usr, SPAN_DANGER("It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!"))
 	else if (light <= 0)
-		to_chat(usr, span("danger", "This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!"))
+		to_chat(usr, SPAN_DANGER("This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!"))
 	else if (light > 0 && light < 1.5)
-		to_chat(usr, span("warning", "The light here can sustain us, barely. It feels cold and distant."))
+		to_chat(usr, SPAN_WARNING("The light here can sustain us, barely. It feels cold and distant."))
 	else if (light <= 3)
-		to_chat(usr, span("notice", "This light is comfortable and warm, Quite adequate for our needs."))
+		to_chat(usr, SPAN_NOTICE("This light is comfortable and warm, Quite adequate for our needs."))
 	else
-		to_chat(usr, span("notice", "This warm radiance is bliss. Here we are safe and energised! Stay a while..."))
+		to_chat(usr, SPAN_NOTICE("This warm radiance is bliss. Here we are safe and energised! Stay a while..."))
 
 /mob/living/carbon/alien/diona/start_pulling(var/atom/movable/AM)
 	//TODO: Collapse these checks into one proc (see pai and drone)
 	if(istype(AM,/obj/item))
 		var/obj/item/O = AM
 		if(O.w_class > 2)
-			to_chat(src, span("warning", "You are too small to pull that."))
+			to_chat(src, SPAN_WARNING("You are too small to pull that."))
 			return
 		else
 			..()
 	else
-		to_chat(src, span("warning", "You are too small to pull that."))
+		to_chat(src, SPAN_WARNING("You are too small to pull that."))
 		return
 
 /mob/living/carbon/alien/diona/put_in_hands(var/obj/item/W) // No hands.
@@ -355,11 +355,11 @@
 			if(meat.name == "meat")
 				meat.name = "[src.name] [meat.name]"
 		if(issmall(src))
-			user.visible_message(span("warning", "[user] chops up \the [src]!"))
+			user.visible_message(SPAN_WARNING("[user] chops up \the [src]!"))
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 			qdel(src)
 		else
-			user.visible_message(span("warning", "[user] butchers \the [src] messily!"))
+			user.visible_message(SPAN_WARNING("[user] butchers \the [src] messily!"))
 			gib()
 
 

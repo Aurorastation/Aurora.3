@@ -39,17 +39,24 @@
 		)
 	var/base_block_chance = 50
 
-/obj/item/shield/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(user.incapacitated())
 		return 0
 
+	var/shield_dir = reverse_dir[user.dir]
+	if(on_back)
+		shield_dir = user.dir
+
 	//block as long as they are not directly behind us
-	var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
+	var/bad_arc = shield_dir //arc of directions from which we cannot block
 	if(check_shield_arc(user, bad_arc, damage_source, attacker))
 		if(prob(get_block_chance(user, damage, damage_source, attacker)))
 			user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
 			return 1
 	return 0
+
+/obj/item/shield/can_shield_back()
+	return TRUE
 
 /obj/item/shield/proc/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	return base_block_chance
@@ -139,7 +146,7 @@
 	var/shield_power = 150
 	var/active = 0
 
-/obj/item/shield/energy/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/shield/energy/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(!active)
 		return 0 //turn it on first!
 
@@ -150,8 +157,12 @@
 		spark(user.loc, 5)
 		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
 
+	var/shield_dir = reverse_dir[user.dir]
+	if(on_back)
+		shield_dir = user.dir
+
 	//block as long as they are not directly behind us
-	var/bad_arc = reverse_direction(user.dir) //arc of directions from which we cannot block
+	var/bad_arc = shield_dir //arc of directions from which we cannot block
 	if(check_shield_arc(user, bad_arc, damage_source, attacker))
 
 		if(prob(get_block_chance(user, damage, damage_source, attacker)))
@@ -299,7 +310,7 @@
 		throw_speed = 2
 		w_class = 4
 		slot_flags = SLOT_BACK
-		to_chat(user, span("notice","You extend \the [src] downward with a sharp snap of your wrist."))
+		to_chat(user, SPAN_NOTICE("You extend \the [src] downward with a sharp snap of your wrist."))
 	else
 		icon_state = "[initial(icon_state)]"
 		item_state = "[initial(item_state)]"
@@ -308,7 +319,7 @@
 		throw_speed = 3
 		w_class = 3
 		slot_flags = 0
-		to_chat(user, span("notice","\The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame."))
+		to_chat(user, SPAN_NOTICE("\The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame."))
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user

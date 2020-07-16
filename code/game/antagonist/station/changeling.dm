@@ -87,3 +87,10 @@
 						return 0
 					return 1
  	return 0
+
+/datum/antagonist/changeling/remove_antagonist(var/datum/mind/player, var/show_message = TRUE, var/implanted)
+	. = ..()
+	if(.)
+		player.current.verbs -= /datum/changeling/proc/EvolutionMenu
+		for(var/datum/power/changeling/P in powerinstances)
+			player.current.verbs -= P.verbpath

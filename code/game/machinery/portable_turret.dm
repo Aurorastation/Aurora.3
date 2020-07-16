@@ -46,7 +46,7 @@
 	var/check_records = 1	//checks if a security record exists at all
 	var/check_weapons = 0	//checks if it can shoot people that have a weapon they aren't authorized to have
 	var/check_access = 1	//if this is active, the turret shoots everything that does not meet the access requirements
-	var/check_anomalies = 1	//checks if it can shoot at unidentified lifeforms (ie xenos)
+	var/check_wildlife = 1	//checks if it can shoot at simple animals or anything that passes issmall
 	var/check_synth	 = 0 	//if active, will shoot at anything not an AI or cyborg
 	var/ailock = 0 			// AI cannot use this
 
@@ -78,15 +78,15 @@
 	..()
 	var/msg = ""
 	if(!health)
-		msg += span("danger", "\The [src] is destroyed!")
+		msg += SPAN_DANGER("\The [src] is destroyed!")
 	else if(health / maxhealth < 0.35)
-		msg += span("danger", "\The [src] is critically damaged!")
+		msg += SPAN_DANGER("\The [src] is critically damaged!")
 	else if(health / maxhealth < 0.6)
-		msg += span("warning", "\The [src] is badly damaged!")
+		msg += SPAN_WARNING("\The [src] is badly damaged!")
 	else if(health / maxhealth < 1)
-		msg += span("notice", "\The [src] is slightly damaged!")
+		msg += SPAN_NOTICE("\The [src] is slightly damaged!")
 	else
-		msg += span("good", "\The [src] is not damaged!")
+		msg += SPAN_GOOD("\The [src] is not damaged!")
 	to_chat(user, msg)
 
 /obj/machinery/porta_turret/crescent
@@ -97,7 +97,7 @@
 	check_arrest = TRUE
 	check_records = TRUE
 	check_weapons = TRUE
-	check_anomalies = TRUE
+	check_wildlife = TRUE
 	immobile = TRUE
 	no_salvage = TRUE
 	req_one_access = list(access_cent_specops, access_cent_general)
@@ -185,14 +185,15 @@
 
 /obj/machinery/porta_turret/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
-		to_chat(user, "<span class='notice'>There seems to be a firewall preventing you from accessing this device.</span>")
-		return 1
+		to_chat(user, SPAN_WARNING("There seems to be a firewall preventing you from accessing this device."))
+		return TRUE
 
-	if(locked && !issilicon(user))
-		to_chat(user, "<span class='notice'>Access denied.</span>")
-		return 1
+	if(!issilicon(user))
+		if(locked && !allowed(user))
+			to_chat(user, SPAN_WARNING("Access denied."))
+			return TRUE
 
-	return 0
+	return FALSE
 
 /obj/machinery/porta_turret/attack_ai(mob/user)
 	ui_interact(user)
@@ -213,11 +214,11 @@
 
 	var/usedSettings = list(
 		"check_synth" = "Neutralize All Non-Synthetics",
+		"check_wildlife" = "Neutralize All Wildlife",
 		"check_weapons" = "Check Weapon Authorization",
 		"check_records" = "Check Security Records",
-		"check_arrest" ="Check Arrest Status",
-		"check_access" = "Check Access Authorization",
-		"check_anomalies" = "Check misc. Lifeforms"
+		"check_arrest" = "Check Arrest Status",
+		"check_access" = "Check Access Authorization"
 	)
 	VUEUI_SET_IFNOTSET(data["settings"], list(), ., data)
 	for(var/v in usedSettings)
@@ -279,8 +280,8 @@
 			check_arrest = value
 		else if(href_list["command"] == "check_access")
 			check_access = value
-		else if(href_list["command"] == "check_anomalies")
-			check_anomalies = value
+		else if(href_list["command"] == "check_wildlife")
+			check_wildlife = value
 		SSvueui.check_uis_for_change(src)
 		return 1
 
@@ -443,7 +444,7 @@
 		check_records = prob(50)
 		check_weapons = prob(50)
 		check_access = prob(20)	// check_access is a pretty big deal, so it's least likely to get turned on
-		check_anomalies = prob(50)
+		check_wildlife = prob(50)
 		if(prob(5))
 			emagged = TRUE
 
@@ -566,10 +567,10 @@
 		return TURRET_NOT_TARGET
 
 	if(isanimal(L) || issmall(L)) // Animals are not so dangerous
-		return check_anomalies ? TURRET_SECONDARY_TARGET : TURRET_NOT_TARGET
+		return check_wildlife ? TURRET_SECONDARY_TARGET : TURRET_NOT_TARGET
 
 	if(isalien(L)) // Xenos are dangerous
-		return check_anomalies ? TURRET_PRIORITY_TARGET	: TURRET_NOT_TARGET
+		return check_wildlife ? TURRET_PRIORITY_TARGET	: TURRET_NOT_TARGET
 
 	if(ishuman(L))	//if the target is a human, analyze threat level
 		if(assess_perp(L) < 4)
@@ -717,7 +718,7 @@
 	var/check_records
 	var/check_arrest
 	var/check_weapons
-	var/check_anomalies
+	var/check_wildlife
 	var/ailock
 
 /obj/machinery/porta_turret/proc/setState(var/datum/turret_checks/TC)
@@ -741,7 +742,7 @@
 	check_records = TC.check_records
 	check_arrest = TC.check_arrest
 	check_weapons = TC.check_weapons
-	check_anomalies = TC.check_anomalies
+	check_wildlife = TC.check_wildlife
 	ailock = TC.ailock
 
 	src.power_change()

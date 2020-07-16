@@ -125,29 +125,29 @@
 	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 	if(!stomach || !stomach.is_usable())
 		if(!silent)
-			to_chat(src, span("warning", "Your stomach is not functional!"))
+			to_chat(src, SPAN_WARNING("Your stomach is not functional!"))
 		return FALSE
 
 	if(!stomach.can_eat_atom(victim))
 		if(!silent)
-			to_chat(src, span("warning", "You are not capable of devouring \the [victim] whole!"))
+			to_chat(src, SPAN_WARNING("You are not capable of devouring \the [victim] whole!"))
 		return FALSE
 
 	if(stomach.is_full(victim))
 		if(!silent)
-			to_chat(src, span("warning", "Your [stomach.name] is full!"))
+			to_chat(src, SPAN_WARNING("Your [stomach.name] is full!"))
 		return FALSE
 
 	if(species?.gluttonous & GLUT_MESSY)
 		if(ismob(victim))
 			var/mob/M = victim
 			if(ishuman(victim))
-				to_chat(src, span("warning", "You can't devour humanoids!"))
+				to_chat(src, SPAN_WARNING("You can't devour humanoids!"))
 				return FALSE
 			for(var/obj/item/grab/G in M.grabbed_by)
 				if(G && G.state < GRAB_NECK)
 					if(!silent)
-						to_chat(src, span("warning", "You need a tighter hold on \the [M]!"))
+						to_chat(src, SPAN_WARNING("You need a tighter hold on \the [M]!"))
 					return FALSE
 		else
 			return FALSE
@@ -518,7 +518,7 @@
 			if(7)//snowflake arc - only happens when they have long hair.
 				damage_areas = list(BP_R_HAND, BP_R_ARM, BP_CHEST, BP_HEAD)
 				h_style = "skinhead"
-				visible_message(span("warning", "[src]'s hair gets a burst of electricty through it, burning and turning to dust!"), span("danger", "your hair burns as the current flows through it, turning to dust!"), span("notice", "You hear a crackling sound, and smell burned hair!."))
+				visible_message(SPAN_WARNING("[src]'s hair gets a burst of electricty through it, burning and turning to dust!"), SPAN_DANGER("your hair burns as the current flows through it, turning to dust!"), SPAN_NOTICE("You hear a crackling sound, and smell burned hair!."))
 				update_hair()
 	else
 		damage_areas = list(def_zone)
@@ -563,18 +563,18 @@
 
 	if (shock_damage > 15)
 		visible_message(
-		span("warning", "[src] was shocked by the [source]!"),
-		span("danger", "You feel a powerful shock course through your body!"),
-		span("warning", "You hear a heavy electrical crack.")
+		SPAN_WARNING("[src] was shocked by the [source]!"),
+		SPAN_DANGER("You feel a powerful shock course through your body!"),
+		SPAN_WARNING("You hear a heavy electrical crack.")
 		)
 		Stun(10)//This should work for now, more is really silly and makes you lay there forever
 		Weaken(10)
 
 	else
 		visible_message(
-		span("warning", "[src] was mildly shocked by the [source]."),
-		span("warning", "You feel a mild shock course through your body."),
-		span("warning", "You hear a light zapping.")
+		SPAN_WARNING("[src] was mildly shocked by the [source]."),
+		SPAN_WARNING("You feel a mild shock course through your body."),
+		SPAN_WARNING("You hear a light zapping.")
 		)
 
 	spark(loc, 5, alldirs)
@@ -627,7 +627,7 @@
 									U.handle_regular_hud_updates()
 
 			if(!modified)
-				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
+				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
 
 	if (href_list["secrecord"])
 		if(hasHUD(usr,"security"))
@@ -652,7 +652,7 @@
 					read = 1
 
 			if(!read)
-				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
+				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
 
 	if (href_list["secrecordComment"])
 		if(hasHUD(usr,"security"))
@@ -679,7 +679,7 @@
 					to_chat(usr, "<a href='?src=\ref[src];secrecordadd=`'>\[Add comment\]</a>")
 
 			if(!read)
-				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
+				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
 
 	if (href_list["secrecordadd"])
 		if(hasHUD(usr,"security"))
@@ -737,7 +737,7 @@
 								U.handle_regular_hud_updates()
 
 			if(!modified)
-				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
+				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
 
 	if (href_list["medrecord"])
 		if(hasHUD(usr,"medical"))
@@ -763,7 +763,7 @@
 					read = 1
 
 			if(!read)
-				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
+				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
 
 	if (href_list["medrecordComment"])
 		if(hasHUD(usr,"medical"))
@@ -790,7 +790,7 @@
 					to_chat(usr, "<a href='?src=\ref[src];medrecordadd=`'>\[Add comment\]</a>")
 
 			if(!read)
-				to_chat(usr, span("warning", "Unable to locate a data core entry for this person."))
+				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
 
 	if (href_list["medrecordadd"])
 		if(hasHUD(usr,"medical"))
@@ -894,17 +894,17 @@
 
 	if(is_berserk())
 		if(!silent)
-			to_chat(src, span("warning", "You are in no state to use that!"))
+			to_chat(src, SPAN_WARNING("You are in no state to use that!"))
 		return 0
 
 	if(!species.has_fine_manipulation)
 		if(!silent)
-			to_chat(src, span("warning", "You don't have the dexterity to use that!"))
+			to_chat(src, SPAN_WARNING("You don't have the dexterity to use that!"))
 		return 0
 
 	if(disabilities & MONKEYLIKE)
 		if(!silent)
-			to_chat(src, span("warning", "You don't have the dexterity to use that!"))
+			to_chat(src, SPAN_WARNING("You don't have the dexterity to use that!"))
 		return 0
 
 	return 1
@@ -933,7 +933,7 @@
 
 /mob/living/carbon/human/proc/play_xylophone()
 	if(!src.xylophone)
-		visible_message(span("warning", "\The [src] begins playing \his ribcage like a xylophone. It's quite spooky."),span("notice", "You begin to play a spooky refrain on your ribcage."),span("warning", "You hear a spooky xylophone melody."))
+		visible_message(SPAN_WARNING("\The [src] begins playing \his ribcage like a xylophone. It's quite spooky."), SPAN_NOTICE("You begin to play a spooky refrain on your ribcage."), SPAN_WARNING("You hear a spooky xylophone melody."))
 		var/song = pick('sound/effects/xylophone1.ogg','sound/effects/xylophone2.ogg','sound/effects/xylophone3.ogg')
 		playsound(loc, song, 50, 1, -1)
 		xylophone = 1
@@ -978,10 +978,10 @@
 
 	var/obj/effect/decal/cleanable/vomit/splat
 	if(vomitReceptacle)
-		src.visible_message(span("warning", "[src] vomits into \the [vomitReceptacle]!"), span("warning", "You vomit into \the [vomitReceptacle]!"))
+		src.visible_message(SPAN_WARNING("[src] vomits into \the [vomitReceptacle]!"), SPAN_WARNING("You vomit into \the [vomitReceptacle]!"))
 		splat = new /obj/effect/decal/cleanable/vomit(vomitReceptacle)
 	else
-		src.visible_message(span("warning", "\The [src] vomits!"), span("warning", "You vomit!"))
+		src.visible_message(SPAN_WARNING("\The [src] vomits!"), SPAN_WARNING("You vomit!"))
 		var/turf/location = loc
 		if(istype(location, /turf/simulated))
 			splat = new /obj/effect/decal/cleanable/vomit(location)
@@ -1020,9 +1020,9 @@
 
 	if(deliberate)
 		if(incapacitated())
-			to_chat(src, span("warning", "You cannot do that right now."))
+			to_chat(src, SPAN_WARNING("You cannot do that right now."))
 			return
-		visible_message(span("warning", "\The [src] retches a bit..."))
+		visible_message(SPAN_WARNING("\The [src] retches a bit..."))
 		if(!do_after(src, 30))
 			return
 		timevomit = max(timevomit, 5)
@@ -1031,10 +1031,10 @@
 	level = Clamp(level, 1, 3)
 
 	lastpuke = TRUE
-	to_chat(src, span("warning", "You feel nauseous..."))
+	to_chat(src, SPAN_WARNING("You feel nauseous..."))
 	if(level > 1)
 		sleep(150 / timevomit)	//15 seconds until second warning
-		to_chat(src, span("warning", "You feel like you are about to throw up!"))
+		to_chat(src, SPAN_WARNING("You feel like you are about to throw up!"))
 		if(level > 2)
 			sleep(100 / timevomit)	//and you have 10 more for mad dash to the bucket
 			empty_stomach()
@@ -1134,7 +1134,7 @@
 	regenerate_icons()
 	check_dna()
 
-	visible_message(span("notice", "\The [src] morphs and changes [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] appearance!"), span("notice", "You change your appearance!"), span("warning", "Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!"))
+	visible_message(SPAN_NOTICE("\The [src] morphs and changes [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] appearance!"), SPAN_NOTICE("You change your appearance!"), SPAN_WARNING("Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!"))
 
 /mob/living/carbon/human/proc/remotesay()
 	set name = "Project mind"
@@ -1160,10 +1160,10 @@
 
 	var/say = sanitize(input("What do you wish to say"))
 	if(mRemotetalk in target.mutations)
-		target.show_message(span("notice", "You hear [src.real_name]'s voice: [say]"))
+		target.show_message(SPAN_NOTICE("You hear [src.real_name]'s voice: [say]"))
 	else
-		target.show_message(span("notice", "You hear a voice that seems to echo around the room: [say]"))
-	usr.show_message(span("notice", "You project your mind into [target.real_name]: [say]"))
+		target.show_message(SPAN_NOTICE("You hear a voice that seems to echo around the room: [say]"))
+	usr.show_message(SPAN_NOTICE("You project your mind into [target.real_name]: [say]"))
 	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]",ckey=key_name(usr))
 	for(var/mob/abstract/observer/G in dead_mob_list)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
@@ -1367,12 +1367,12 @@
 			if(!istype(O,/obj/item/implant) && prob(5)) //Moving with things stuck in you could be bad.
 				// All kinds of embedded objects cause bleeding.
 				if(!can_feel_pain())
-					to_chat(src, span("warning", "You feel [O] moving inside your [organ.name]."))
+					to_chat(src, SPAN_WARNING("You feel [O] moving inside your [organ.name]."))
 				else
 					var/msg = pick( \
-						span("warning", "A spike of pain jolts your [organ.name] as you bump [O] inside."), \
-						span("warning", "Your movement jostles [O] in your [organ.name] painfully."), \
-						span("warning", "Your movement jostles [O] in your [organ.name] painfully."))
+						SPAN_WARNING("A spike of pain jolts your [organ.name] as you bump [O] inside."), \
+						SPAN_WARNING("Your movement jostles [O] in your [organ.name] painfully."), \
+						SPAN_WARNING("Your movement jostles [O] in your [organ.name] painfully."))
 					custom_pain(msg, 10, 10, organ)
 
 /mob/living/carbon/human/verb/check_pulse()
@@ -1388,29 +1388,29 @@
 		self = 1
 
 	if (src.species.flags & NO_BLOOD)
-		to_chat(usr, span("warning", self ? "You have no pulse." : "[src] has no pulse!"))
+		to_chat(usr, SPAN_WARNING(self ? "You have no pulse." : "[src] has no pulse!"))
 		return
 
 	if(!self)
-		usr.visible_message(span("notice", "[usr] kneels down, puts \his hand on [src]'s wrist and begins counting their pulse."),\
+		usr.visible_message(SPAN_NOTICE("[usr] kneels down, puts \his hand on [src]'s wrist and begins counting their pulse."),\
 		"You begin counting [src]'s pulse")
 	else
-		usr.visible_message(span("notice", "[usr] begins counting their pulse."),\
+		usr.visible_message(SPAN_NOTICE("[usr] begins counting their pulse."),\
 		"You begin counting your pulse.")
 
 	if(pulse())
-		to_chat(usr, span("notice", "[self ? "You have a" : "[src] has a"] pulse! Counting..."))
+		to_chat(usr, SPAN_NOTICE("[self ? "You have a" : "[src] has a"] pulse! Counting..."))
 	else
-		to_chat(usr, span("warning", "[src] has no pulse!"))	//it is REALLY UNLIKELY that a dead person would check his own pulse)
+		to_chat(usr, SPAN_WARNING("[src] has no pulse!"))	//it is REALLY UNLIKELY that a dead person would check his own pulse)
 		return
 
 	to_chat(usr, "You must[self ? "" : " both"] remain still until counting is finished.")
 	if(do_mob(usr, src, 60))
 		var/pulsae = src.get_pulse(GETPULSE_HAND)
 		var/introspect = self ? "Your" : "[src]'s"
-		to_chat(usr, span("notice", "[introspect] pulse is [pulsae]."))
+		to_chat(usr, SPAN_NOTICE("[introspect] pulse is [pulsae]."))
 	else
-		to_chat(usr, span("warning", "You failed to check the pulse. Try again."))
+		to_chat(usr, SPAN_WARNING("You failed to check the pulse. Try again."))
 
 /mob/living/carbon/human/proc/set_species(var/new_species, var/default_colour, var/kpg=0, var/change_hair = TRUE)
 	cached_bodytype = null
@@ -1523,26 +1523,26 @@
 		verbs -= /mob/living/carbon/human/proc/bloody_doodle
 
 	if (src.gloves)
-		to_chat(src, span("warning", "Your [src.gloves] are getting in the way."))
+		to_chat(src, SPAN_WARNING("Your [src.gloves] are getting in the way."))
 		return
 
 	var/turf/simulated/T = src.loc
 	if (!istype(T)) //to prevent doodling out of mechs and lockers
-		to_chat(src, span("warning", "You cannot reach the floor."))
+		to_chat(src, SPAN_WARNING("You cannot reach the floor."))
 		return
 
 	var/direction = input(src,"Which way?","Tile selection") as anything in list("Here","North","South","East","West")
 	if (direction != "Here")
 		T = get_step(T,text2dir(direction))
 	if (!istype(T))
-		to_chat(src, span("warning", "You cannot doodle there."))
+		to_chat(src, SPAN_WARNING("You cannot doodle there."))
 		return
 
 	var/num_doodles = 0
 	for (var/obj/effect/decal/cleanable/blood/writing/W in T)
 		num_doodles++
 	if (num_doodles > 4)
-		to_chat(src, span("warning", "There is no space to write on!"))
+		to_chat(src, SPAN_WARNING("There is no space to write on!"))
 		return
 
 	var/max_length = bloody_hands * 30 //tweeter style
@@ -1555,7 +1555,7 @@
 
 		if (length(message) > max_length)
 			message += "-"
-			to_chat(src, span("warning", "You ran out of blood to write with!"))
+			to_chat(src, SPAN_WARNING("You ran out of blood to write with!"))
 
 		var/obj/effect/decal/cleanable/blood/writing/W = new(T)
 		W.basecolor = (hand_blood_color) ? hand_blood_color : "#A10808"
@@ -1591,7 +1591,7 @@
 	if(!. && error_msg && user)
 		if(!fail_msg)
 			fail_msg = "There is no exposed flesh or thin material [target_zone == BP_HEAD ? "on their head" : "on their body"] to inject into."
-		to_chat(user, span("alert", "[fail_msg]"))
+		to_chat(user, SPAN_ALERT("[fail_msg]"))
 
 /mob/living/carbon/human/print_flavor_text(var/shrink = 1)
 	var/list/equipment = list(src.head,src.wear_mask,src.glasses,src.w_uniform,src.wear_suit,src.gloves,src.shoes)
@@ -1699,11 +1699,11 @@
 	var/obj/item/organ/external/current_limb = organs_by_name[choice]
 
 	if(self)
-		U.visible_message(span("warning", "[U] tries to relocate their [current_limb.joint]..."), \
-		span("warning", "You brace yourself to relocate your [current_limb.joint]..."))
+		U.visible_message(SPAN_WARNING("[U] tries to relocate their [current_limb.joint]..."), \
+		SPAN_WARNING("You brace yourself to relocate your [current_limb.joint]..."))
 	else
-		U.visible_message(span("warning", "[U] tries to relocate [S]'s [current_limb.joint]..."), \
-		span("warning", "You begin to relocate [S]'s [current_limb.joint]..."))
+		U.visible_message(SPAN_WARNING("[U] tries to relocate [S]'s [current_limb.joint]..."), \
+		SPAN_WARNING("You begin to relocate [S]'s [current_limb.joint]..."))
 
 	if(!do_after(U, 30))
 		return
@@ -1711,12 +1711,12 @@
 		return
 
 	if(self)
-		U.visible_message(span("danger", "[U] pops their [current_limb.joint] back in!"), \
-		span("danger", "You pop your [current_limb.joint] back in!"))
+		U.visible_message(SPAN_DANGER("[U] pops their [current_limb.joint] back in!"), \
+		SPAN_DANGER("You pop your [current_limb.joint] back in!"))
 		playsound(src.loc, "fracture", 50, 1, -2)
 	else
-		U.visible_message(span("danger", "[U] pops [S]'s [current_limb.joint] back in!"), \
-		span("danger", "You pop [S]'s [current_limb.joint] back in!"))
+		U.visible_message(SPAN_DANGER("[U] pops [S]'s [current_limb.joint] back in!"), \
+		SPAN_DANGER("You pop [S]'s [current_limb.joint] back in!"))
 		playsound(src.loc, "fracture", 50, 1, -2)
 	current_limb.undislocate()
 
@@ -1784,7 +1784,7 @@
 
 	if(stat) return
 	pulling_punches = !pulling_punches
-	to_chat(src, span("notice", "You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"]."))
+	to_chat(src, SPAN_NOTICE("You are now [pulling_punches ? "pulling your punches" : "not pulling your punches"]."))
 	return
 
 /mob/living/carbon/human/proc/get_traumas()
@@ -2017,6 +2017,9 @@
 /mob/living/carbon/human/proc/get_accent_icon(var/datum/language/speaking = null)
 	if(accent && speaking && speaking.allow_accents)
 		var/used_accent = accent //starts with the mob's default accent
+
+		if(mind?.changeling)
+			used_accent = mind.changeling.mimiced_accent
 
 		if(istype(back,/obj/item/rig)) //checks for the rig voice changer module
 			var/obj/item/rig/rig = back

@@ -64,8 +64,8 @@ var/global/list/ore_data = list()
 /ore/glass
 	name = ORE_SAND
 	display_name = MATERIAL_GLASS
-	smelts_to = "glass"
-	compresses_to = "sandstone"
+	smelts_to = MATERIAL_GLASS
+	compresses_to = MATERIAL_SANDSTONE
 	worth = 1
 
 /ore/phoron
@@ -73,9 +73,9 @@ var/global/list/ore_data = list()
 	display_name = "phoron crystals"
 	compresses_to = MATERIAL_PHORON
 	result_amount = 5
-	spread_chance = 25
+	spread_chance = 5
 	ore = /obj/item/ore/phoron
-	scan_icon = "mineral_uncommon"
+	scan_icon = "mineral_rare"
 	xarch_ages = list(
 		"thousand" = 999,
 		"million" = 999,
@@ -83,7 +83,7 @@ var/global/list/ore_data = list()
 		"billion_lower" = 10
 		)
 	xarch_source_mineral = "phoron"
-	worth = 8
+	worth = 30
 
 /ore/silver
 	name = ORE_SILVER
@@ -114,7 +114,7 @@ var/global/list/ore_data = list()
 /ore/diamond
 	name = "diamond"
 	display_name = "diamond"
-	compresses_to = "diamond"
+	compresses_to = MATERIAL_DIAMOND
 	result_amount = 5
 	spread_chance = 5
 	ore = /obj/item/ore/diamond
@@ -125,8 +125,8 @@ var/global/list/ore_data = list()
 /ore/platinum
 	name = ORE_PLATINUM
 	display_name = "raw platinum"
-	smelts_to = "platinum"
-	compresses_to = "osmium"
+	smelts_to = MATERIAL_PLATINUM
+	compresses_to = MATERIAL_OSMIUM
 	alloy = TRUE
 	result_amount = 5
 	spread_chance = 15
@@ -137,7 +137,7 @@ var/global/list/ore_data = list()
 /ore/hydrogen
 	name = ORE_HYDROGEN
 	display_name = "metallic hydrogen"
-	smelts_to = "tritium"
-	compresses_to = "mhydrogen"
+	smelts_to = MATERIAL_TRITIUM
+	compresses_to = MATERIAL_HYDROGEN_METALLIC
 	scan_icon = "mineral_rare"
 	worth = 30

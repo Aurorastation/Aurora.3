@@ -24,7 +24,7 @@
 	var/check_records = 1	//checks if a security record exists at all
 	var/check_weapons = 0	//checks if it can shoot people that have a weapon they aren't authorized to have
 	var/check_access = 1	//if this is active, the turret shoots everything that does not meet the access requirements
-	var/check_anomalies = 1	//checks if it can shoot at unidentified lifeforms (ie xenos)
+	var/check_wildlife = 1	//checks if it can shoot at simple animals or anything that passes issmall
 	var/check_synth = 0 	//if active, will shoot at anything not an AI or cyborg
 	var/ailock = 0 	//Silicons cannot use this
 	req_access = list(access_ai_upload)
@@ -75,14 +75,15 @@
 
 /obj/machinery/turretid/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
-		to_chat(user, "<span class='notice'>There seems to be a firewall preventing you from accessing this device.</span>")
-		return 1
+		to_chat(user, SPAN_WARNING("There seems to be a firewall preventing you from accessing this device."))
+		return TRUE
 
-	if(locked && !issilicon(user))
-		to_chat(user, "<span class='notice'>Access denied.</span>")
-		return 1
+	if(!issilicon(user))
+		if(locked && !allowed(user))
+			to_chat(user, SPAN_WARNING("Access denied."))
+			return TRUE
 
-	return 0
+	return FALSE
 
 /obj/machinery/turretid/CanUseTopic(mob/user)
 	if(isLocked(user))
@@ -138,11 +139,11 @@
 
 	var/usedSettings = list(
 		"check_synth" = "Neutralize All Non-Synthetics",
+		"check_wildlife" = "Neutralize All Wildlife",
 		"check_weapons" = "Check Weapon Authorization",
 		"check_records" = "Check Security Records",
-		"check_arrest" ="Check Arrest Status",
-		"check_access" = "Check Access Authorization",
-		"check_anomalies" = "Check misc. Lifeforms"
+		"check_arrest" = "Check Arrest Status",
+		"check_access" = "Check Access Authorization"
 	)
 	VUEUI_SET_IFNOTSET(data["settings"], list(), ., data)
 	for(var/v in usedSettings)
@@ -191,8 +192,8 @@
 				check_arrest = value
 			else if(href_list["command"] == "check_access")
 				check_access = value
-			else if(href_list["command"] == "check_anomalies")
-				check_anomalies = value
+			else if(href_list["command"] == "check_wildlife")
+				check_wildlife = value
 			updateTurrets()
 			update_icon()
 			SSvueui.check_uis_for_change(src)
@@ -224,7 +225,7 @@
 	TC.check_records = check_records
 	TC.check_arrest = check_arrest
 	TC.check_weapons = check_weapons
-	TC.check_anomalies = check_anomalies
+	TC.check_wildlife = check_wildlife
 	TC.ailock = ailock
 
 	return TC
@@ -280,7 +281,7 @@
 		check_records = pick(0, 1)
 		check_weapons = pick(0, 1)
 		check_access = pick(0, 0, 0, 0, 1)	// check_access is a pretty big deal, so it's least likely to get turned on
-		check_anomalies = pick(0, 1)
+		check_wildlife = pick(0, 1)
 
 		enabled=0
 		updateTurrets()
