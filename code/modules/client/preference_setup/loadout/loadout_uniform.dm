@@ -316,10 +316,13 @@
 	pyjamas["red pyjamas"] = /obj/item/clothing/under/pj/red
 	gear_tweaks += new/datum/gear_tweak/path(pyjamas)
 
+/datum/gear/uniform/kimono
+	display_name = "hanbok"
+	path = /obj/item/clothing/hanbok
+
 /datum/gear/uniform/miscellaneous/hanbok/New()
 	..()
 	var/hanbok = list()
 	hanbok["magenta-blue hanbok"] = /obj/item/clothing/hanbok
 	hanbok["white-pink hanbok"] = /obj/item/clothing/hanbok/pink
 	gear_tweaks += new/datum/gear_tweak/path(hanbok)
-	slot_flags = SLOT_ICLOTHING
