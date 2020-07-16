@@ -288,12 +288,12 @@
 				if(H.can_commune() || H.stat >= UNCONSCIOUS)
 					return
 				if(prob(10) && !(H.species.flags & NO_BLOOD))
-					to_chat(H,SPAN_WARNING("Your nose begins to bleed..."))
+					to_chat(H, SPAN_WARNING("Your nose begins to bleed..."))
 					H.drip(3)
 				else if(prob(25) && (H.can_feel_pain()))
-					to_chat(H,SPAN_WARNING("Your head hurts..."))
+					to_chat(H, SPAN_WARNING("Your head hurts..."))
 				else if(prob(50))
-					to_chat(H,SPAN_WARNING("Your mind buzzes..."))
+					to_chat(H, SPAN_WARNING("Your mind buzzes..."))
 
 /datum/psionic_power/coercion/psiping
 	name =              "Psi Ping"

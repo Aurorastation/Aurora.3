@@ -57,7 +57,7 @@
 
 /obj/machinery/chemical_dispenser/ert/attackby(obj/item/W, mob/user)
 	if(W.iswrench())
-		to_chat(user, span("notice","This dispenser is riveted to the floor and cannot be unanchored."))
+		to_chat(user, SPAN_NOTICE("This dispenser is riveted to the floor and cannot be unanchored."))
 		return
 	else
 		return ..()

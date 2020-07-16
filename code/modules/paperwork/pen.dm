@@ -142,7 +142,7 @@ Pen exclusive commands
 
 /obj/item/pen/fountain/attack_self(var/mob/user)
 	playsound(loc, 'sound/items/penclick.ogg', 50, 1)
-	to_chat(user, span("notice", "You snap the nib into position to write [cursive ? "normally" : "in cursive"]."))
+	to_chat(user, SPAN_NOTICE("You snap the nib into position to write [cursive ? "normally" : "in cursive"]."))
 	cursive = !cursive
 
 /*

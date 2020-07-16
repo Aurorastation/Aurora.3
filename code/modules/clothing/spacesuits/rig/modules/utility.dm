@@ -422,7 +422,7 @@
 			if(!raw_choice)
 				return 0
 			voice_holder.current_accent = raw_choice
-			to_chat(usr, span("notice", "You are now mimicking the [raw_choice] accent."))
+			to_chat(usr, SPAN_NOTICE("You are now mimicking the [raw_choice] accent."))
 	return 1
 
 /obj/item/rig_module/maneuvering_jets

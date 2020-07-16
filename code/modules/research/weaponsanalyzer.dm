@@ -111,7 +111,7 @@
 		update_icon()
 
 	else
-		to_chat(usr, span("warning", "There is nothing in \the [src]."))
+		to_chat(usr, SPAN_WARNING("There is nothing in \the [src]."))
 
 /obj/machinery/weapons_analyzer/update_icon()
 	icon_state = initial(icon_state)

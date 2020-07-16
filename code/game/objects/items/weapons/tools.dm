@@ -295,16 +295,16 @@
 /obj/item/weldingtool/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
 		if(isrobot(loc))
-			to_chat(user, span("alert", "You cannot modify your own welder!"))
+			to_chat(user, SPAN_ALERT("You cannot modify your own welder!"))
 			return
 		if(welding)
-			to_chat(user, span("danger", "Stop welding first!"))
+			to_chat(user, SPAN_DANGER("Stop welding first!"))
 			return
 		status = !status
 		if(status)
-			to_chat(user, span("notice", "You secure the welder."))
+			to_chat(user, SPAN_NOTICE("You secure the welder."))
 		else
-			to_chat(user, span("notice", "The welder can now be attached and modified."))
+			to_chat(user, SPAN_NOTICE("The welder can now be attached and modified."))
 		add_fingerprint(user)
 		return
 
@@ -352,28 +352,28 @@
 			return ..()
 
 		if(H.isSynthetic() && H == user && !(H.get_species() == "Military Frame"))
-			to_chat(user, span("warning", "You can't repair damage to your own body - it's against OH&S."))
+			to_chat(user, SPAN_WARNING("You can't repair damage to your own body - it's against OH&S."))
 			return
 
 		if (!welding)
-			to_chat(user, span("warning", "You need to light the welding tool first!"))
+			to_chat(user, SPAN_WARNING("You need to light the welding tool first!"))
 			return
 
 		if(S.brute_dam)
 			if(S.brute_dam > ROBOLIMB_SELF_REPAIR_CAP)
-				to_chat(user, span("warning", "The damage is far too severe to patch over externally!"))
+				to_chat(user, SPAN_WARNING("The damage is far too severe to patch over externally!"))
 				return
 			else
 				repair_organ(user, H, S)
 
 		else if(S.open != 2)
-			to_chat(user, span("notice", "You can't see any external damage to repair."))
+			to_chat(user, SPAN_NOTICE("You can't see any external damage to repair."))
 	else
 		return ..()
 
 /obj/item/weldingtool/proc/repair_organ(var/mob/living/user, var/mob/living/carbon/human/target, var/obj/item/organ/external/affecting)
 	if(!affecting.brute_dam)
-		user.visible_message(span("notice", "\The [user] finishes repairing the physical damage on \the [target]'s [affecting.name]."))
+		user.visible_message(SPAN_NOTICE("\The [user] finishes repairing the physical damage on \the [target]'s [affecting.name]."))
 		return
 
 	if(do_mob(user, target, 30))
@@ -384,7 +384,7 @@
 				"repairs some joints"
 			)
 			affecting.heal_damage(brute = 15, robo_repair = TRUE)
-			user.visible_message(span("warning", "\The [user] [pick(repair_messages)] on [target]'s [affecting.name] with \the [src]."))
+			user.visible_message(SPAN_WARNING("\The [user] [pick(repair_messages)] on [target]'s [affecting.name] with \the [src]."))
 			playsound(target, 'sound/items/Welder2.ogg', 15)
 			repair_organ(user, target, affecting)
 
@@ -405,7 +405,7 @@
 		switch(alert("Are you sure you want to do this? It is quite dangerous and could get you in trouble.", "Heat up fuel tank", "No", "Yes"))
 			if("Yes")
 				log_and_message_admins("is attempting to welderbomb", user)
-				to_chat(user, span("alert", "You start heating the fueltank..."))
+				to_chat(user, SPAN_ALERT("You start heating the fueltank..."))
 				tank.armed = 1
 				if(do_after(user, 100))
 					if(tank.defuse)
@@ -414,7 +414,7 @@
 						tank.armed = 0
 						return
 					log_and_message_admins("triggered a fuel tank explosion", user)
-					to_chat(user, span("alert", "That was stupid of you."))
+					to_chat(user, SPAN_ALERT("That was stupid of you."))
 					tank.ex_act(3.0)
 					return
 				else
@@ -457,7 +457,7 @@
 		return 1
 	else
 		if(M)
-			to_chat(M, span("notice", "You need more welding fuel to complete this task."))
+			to_chat(M, SPAN_NOTICE("You need more welding fuel to complete this task."))
 		return 0
 
 //Returns whether or not the welding tool is currently on.

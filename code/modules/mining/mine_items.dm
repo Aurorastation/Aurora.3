@@ -779,7 +779,7 @@
 		if(istype(target, /mob/living/simple_animal))
 			var/mob/living/simple_animal/M = target
 			if(!(M.find_type() & revive_type))
-				to_chat(user, span("info", "\The [src] does not work on this sort of creature."))
+				to_chat(user, SPAN_INFO("\The [src] does not work on this sort of creature."))
 				return
 			if(M.stat == DEAD)
 				if(!malfunctioning)
@@ -792,10 +792,10 @@
 				playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
 				return
 			else
-				to_chat(user, span("info", "\The [src] is only effective on the dead."))
+				to_chat(user, SPAN_INFO("\The [src] is only effective on the dead."))
 				return
 		else
-			to_chat(user, span("info", "\The [src] is only effective on lesser beings."))
+			to_chat(user, SPAN_INFO("\The [src] is only effective on lesser beings."))
 			return
 
 /obj/item/lazarus_injector/emp_act()
@@ -805,9 +805,9 @@
 /obj/item/lazarus_injector/examine(mob/user)
 	..()
 	if(!loaded)
-		to_chat(user, span("info", "\The [src] is empty."))
+		to_chat(user, SPAN_INFO("\The [src] is empty."))
 	if(malfunctioning)
-		to_chat(user, span("info", "The display on \the [src] seems to be flickering."))
+		to_chat(user, SPAN_INFO("The display on \the [src] seems to be flickering."))
 
 /**********************Point Transfer Card**********************/
 
@@ -822,10 +822,10 @@
 		if(points)
 			var/obj/item/card/id/C = I
 			C.mining_points += points
-			to_chat(user, span("info", "You transfer [points] points to \the [C]."))
+			to_chat(user, SPAN_INFO("You transfer [points] points to \the [C]."))
 			points = 0
 		else
-			to_chat(user, span("info", "There's no points left on \the [src]."))
+			to_chat(user, SPAN_INFO("There's no points left on \the [src]."))
 	..()
 
 /obj/item/card/mining_point_card/examine(mob/user)
@@ -981,10 +981,10 @@ var/list/total_extraction_beacons = list()
 /obj/item/resonator/attack_self(mob/user)
 	if(burst_time == 50)
 		burst_time = 30
-		to_chat(user, span("info", "You set the resonator's fields to detonate after 3 seconds."))
+		to_chat(user, SPAN_INFO("You set the resonator's fields to detonate after 3 seconds."))
 	else
 		burst_time = 50
-		to_chat(user, span("info", "You set the resonator's fields to detonate after 5 seconds."))
+		to_chat(user, SPAN_INFO("You set the resonator's fields to detonate after 5 seconds."))
 
 /obj/item/resonator/afterattack(atom/target, mob/user, proximity_flag)
 	..()
