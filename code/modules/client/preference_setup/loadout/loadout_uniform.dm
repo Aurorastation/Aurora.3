@@ -322,3 +322,4 @@
 	hanbok["magenta-blue hanbok"] = /obj/item/clothing/hanbok
 	hanbok["white-pink hanbok"] = /obj/item/clothing/hanbok/pink
 	gear_tweaks += new/datum/gear_tweak/path(hanbok)
+	slot_flags = SLOT_ICLOTHING
