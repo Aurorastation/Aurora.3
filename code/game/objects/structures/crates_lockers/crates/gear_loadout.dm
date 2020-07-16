@@ -262,6 +262,7 @@
 	new /obj/item/clothing/shoes/magboots(src)
 
 /obj/structure/closet/crate/secure/gear_loadout/dominia/fill()
+	new /obj/item/rig/jinxiang/equipped(src)
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
 	new /obj/item/clothing/head/helmet/space/void/dominia(src)
