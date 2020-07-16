@@ -316,7 +316,7 @@
 	pyjamas["red pyjamas"] = /obj/item/clothing/under/pj/red
 	gear_tweaks += new/datum/gear_tweak/path(pyjamas)
 
-/datum/gear/uniform/kimono
+/datum/gear/uniform/hanbok
 	display_name = "hanbok"
 	path = /obj/item/clothing/under/hanbok
 
