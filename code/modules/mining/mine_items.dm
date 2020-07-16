@@ -782,15 +782,16 @@
 				to_chat(user, SPAN_INFO("\The [src] does not work on this sort of creature."))
 				return
 			if(M.stat == DEAD)
-				if(!malfunctioning)
+				if(malfunctioning)
 					M.faction = "neutral"
-				M.revive()
-				M.icon_state = M.icon_living
-				loaded = FALSE
-				user.visible_message(SPAN_NOTICE("\The [user] injects \the [M] with \the [src], reviving it."))
-				feedback_add_details("lazarus_injector", "[M.type]")
-				playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
-				return
+				else
+					M.revive()
+					M.icon_state = M.icon_living
+					loaded = FALSE
+					user.visible_message(SPAN_NOTICE("\The [user] injects \the [M] with \the [src], reviving it."))
+					feedback_add_details("lazarus_injector", "[M.type]")
+					playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
+					return
 			else
 				to_chat(user, SPAN_INFO("\The [src] is only effective on the dead."))
 				return
