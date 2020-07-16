@@ -318,11 +318,11 @@
 
 /datum/gear/uniform/kimono
 	display_name = "hanbok"
-	path = /obj/item/clothing/hanbok
+	path = /obj/item/clothing/under/hanbok
 
 /datum/gear/uniform/miscellaneous/hanbok/New()
 	..()
 	var/hanbok = list()
-	hanbok["magenta-blue hanbok"] = /obj/item/clothing/hanbok
-	hanbok["white-pink hanbok"] = /obj/item/clothing/hanbok/pink
+	hanbok["magenta-blue hanbok"] = /obj/item/clothing/under/hanbok
+	hanbok["white-pink hanbok"] = /obj/item/clothing/under/hanbok/pink
 	gear_tweaks += new/datum/gear_tweak/path(hanbok)
