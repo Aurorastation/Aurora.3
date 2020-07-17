@@ -193,7 +193,7 @@
 
 	if (istype(I, /obj/item/reagent_containers/cooking_container))
 		var/obj/item/reagent_containers/cooking_container/CC = I
-		if(CC.appliancetype && appliancetype)
+		if(CC.appliancetype & appliancetype)
 			return 1
 
 	// We're trying to cook something else. Check if it's valid.

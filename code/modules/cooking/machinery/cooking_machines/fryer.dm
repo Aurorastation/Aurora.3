@@ -10,18 +10,12 @@
 	appliancetype = FRYER
 	active_power_usage = 12 KILOWATTS
 	heating_power = 12000
-
 	optimal_power = 1.35
-
 	idle_power_usage = 3.6 KILOWATTS
 	//Power used to maintain temperature once it's heated.
 	//Going with 25% of the active power. This is a somewhat arbitrary value
-
 	resistance = 10000	// Approx. 4 minutes.
-
 	max_contents = 2
-	container_type = /obj/item/reagent_containers/cooking_container/fryer
-
 	stat = NOPOWER//Starts turned off
 
 	var/datum/reagents/oil
@@ -173,7 +167,8 @@
 		else if(BP_IS_ROBOTIC(E))
 			nopain = 1
 
-	user.visible_message(SPAN_DANGER("[user] shoves [victim][E ? "'s [E.name]" : ""] into [src]!"))
+	var/part = E ? "'s [E.name]" : ""
+	user.visible_message(SPAN_DANGER("[user] shoves [victim][part] into [src]!"))
 	if (damage > 0)
 		if(E)
 

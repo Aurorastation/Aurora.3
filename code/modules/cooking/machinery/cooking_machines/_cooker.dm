@@ -113,7 +113,7 @@
 		if(!LAZYLEN(cooking_objs))
 			return ..()
 		for(var/datum/cooking_item/CI in cooking_objs)
-			CI.container.reagents?.add_thermal_energy(heating_power / resistance)
+			CI.container.reagents?.add_thermal_energy(heating_power)
 		return ..()
 	. = ..()
 

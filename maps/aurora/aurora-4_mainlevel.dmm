@@ -19367,10 +19367,6 @@
 /area/rnd/research)
 "aHQ" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -2;
-	pixel_y = 5
-	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aHR" = (
@@ -23734,7 +23730,6 @@
 "aPn" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/standard,
-/obj/machinery/microwave,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aPo" = (
@@ -34507,10 +34502,6 @@
 "bhV" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -2;
-	pixel_y = 5
-	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bhW" = (
@@ -50342,9 +50333,6 @@
 "bOY" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/machinery/microwave{
-	pixel_y = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bOZ" = (
@@ -51462,9 +51450,6 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bSo" = (
-/obj/machinery/vending/dinnerware{
-	products = list(/obj/item/tray = 24, /obj/item/material/kitchen/utensil/fork = 24, /obj/item/material/kitchen/utensil/knife = 24, /obj/item/material/kitchen/utensil/spoon = 24, /obj/item/material/knife = 2, /obj/item/material/hatchet/butch = 2, /obj/item/reagent_containers/food/drinks/drinkingglass = 24, /obj/item/clothing/suit/chef/classic = 2, /obj/item/material/kitchen/rollingpin = 2, /obj/item/reagent_containers/cooking_container/oven = 5, /obj/item/reagent_containers/cooking_container/fryer = 4, /obj/item/storage/toolbox/lunchbox/nt = 6, /obj/item/reagent_containers/glass/beaker/bowl = 4, /obj/item/reagent_containers/glass/rag = 8)
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -51474,6 +51459,7 @@
 	name = "Station Intercom (General)";
 	pixel_y = -26
 	},
+/obj/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bSp" = (
@@ -56617,9 +56603,6 @@
 /area/quartermaster/break_room)
 "cdJ" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_y = 6
-	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled,
 /area/quartermaster/break_room)
@@ -60251,7 +60234,7 @@
 "fdq" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/glass/beaker/bowl,
+/obj/item/reagent_containers/cooking_container/plate/bowl,
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = 2;
 	pixel_y = 12
@@ -62049,13 +62032,6 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
 	dir = 1
-	},
-/obj/machinery/microwave{
-	broken = 2;
-	desc = "It's practically falling apart.";
-	icon_state = "mwb";
-	name = "Shoddy Microwave";
-	pixel_y = 2
 	},
 /obj/machinery/door/blast/shutters{
 	dir = 4;
@@ -63960,15 +63936,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
-"onC" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/machinery/microwave{
-	pixel_x = -2;
-	pixel_y = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "opv" = (
 /obj/structure/closet,
 /obj/item/pickaxe{
@@ -66486,7 +66453,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/flour,
 /obj/structure/table,
-/obj/item/reagent_containers/glass/beaker/bowl,
+/obj/item/reagent_containers/cooking_container/plate/bowl,
 /obj/machinery/light_construct{
 	dir = 8
 	},
@@ -100332,7 +100299,7 @@ ays
 rWM
 bNJ
 bGr
-onC
+bOY
 bPD
 lGd
 oaR

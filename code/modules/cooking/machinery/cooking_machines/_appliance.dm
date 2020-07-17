@@ -180,7 +180,7 @@
 
 	if (istype(I, /obj/item/reagent_containers/cooking_container))
 		var/obj/item/reagent_containers/cooking_container/CC = I
-		if(CC.appliancetype && appliancetype)
+		if(CC.appliancetype & appliancetype)
 			return 1
 
 	// We're trying to cook something else. Check if it's valid.
@@ -261,6 +261,7 @@
 	// We can actually start cooking now.
 	user.visible_message(SPAN_NOTICE("[user] puts [I] into [src]."))
 
+	if(selected_option || select_recipe(RECIPE_LIST(CI.container ? CI.container.appliancetype ? appliancetype), CI.container ? CI.container : src)
 	get_cooking_work(CI)
 	cooking = TRUE
 	return CI
@@ -335,7 +336,7 @@
 		//If cookwork has gone from above to below 0, then this item finished cooking
 		finish_cooking(CI)
 
-	else if (!CI.burned && CI.cookwork > CI.max_cookwork * CI.overcook_mult)
+	else if (can_burn_food && !CI.burned && CI.cookwork > CI.max_cookwork * CI.overcook_mult)
 		burn_food(CI)
 
 	// Gotta hurt.
@@ -360,11 +361,14 @@
 	//Check recipes first, a valid recipe overrides other options
 	var/datum/recipe/recipe = null
 	var/atom/C = null
+	var/appliance
 	if (CI.container)
 		C = CI.container
+		appliance = CI.container.appliancetype
 	else
 		C = src
-	recipe = select_recipe(RECIPE_LIST(C.appliancetype), C)
+		appliance = appliancetype
+	recipe = select_recipe(RECIPE_LIST(appliance), C)
 
 	if (recipe)
 		CI.result_type = 4//Recipe type, a specific recipe will transform the ingredients into a new food
@@ -376,7 +380,7 @@
 			AM.forceMove(temp)
 
 		//making multiple copies of a recipe from one container. For example, tons of fries
-		while (select_recipe(RECIPE_LIST(C.appliancetype), C) == recipe)
+		while (select_recipe(RECIPE_LIST(appliance), C) == recipe)
 			var/list/TR = list()
 			TR += recipe.make_food(C)
 			for (var/atom/movable/AM in TR) //Move results to buffer

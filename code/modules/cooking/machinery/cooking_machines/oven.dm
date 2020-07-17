@@ -9,18 +9,13 @@
 	active_power_usage = 6 KILOWATTS
 	heating_power = 6000
 	//Based on a double deck electric convection oven
-
 	resistance = 10000 // Approx. 4 minutes.
 	idle_power_usage = 2 KILOWATTS
 	//uses ~30% power to stay warm
 	optimal_power = 1.2
-
 	light_x = 2
 	max_contents = 5
-	container_type = /obj/item/reagent_containers/cooking_container/oven
-
 	stat = POWEROFF	//Starts turned off
-
 	var/open = FALSE // Start closed so people don't heat up ovens with the door open
 
 	output_options = list(

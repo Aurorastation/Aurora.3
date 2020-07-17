@@ -26,13 +26,18 @@
 	overlays.Cut()
 	var/list/pans = list()
 	for(var/obj/item/reagent_containers/cooking_container/CC in contents)
+		var/image/pan_overlay
 		switch(CC.appliancetype)
 			if(SKILLET)
-				pans += image('icons/obj/cooking_machines.dmi', "skillet[Clamp(length(pans)+1, 1, 4)]")
+				pan_overlay = image('icons/obj/cooking_machines.dmi', "skillet[Clamp(length(pans)+1, 1, 4)]")
 			if(SAUCEPAN)
-				pans += image('icons/obj/cooking_machines.dmi', "pan[Clamp(length(pans)+1, 1, 4)]")
+				pan_overlay = image('icons/obj/cooking_machines.dmi', "pan[Clamp(length(pans)+1, 1, 4)]")
 			if(POT)
-				pans += image('icons/obj/cooking_machines.dmi', "pot[Clamp(length(pans)+1, 1, 4)]")
+				pan_overlay = image('icons/obj/cooking_machines.dmi', "pot[Clamp(length(pans)+1, 1, 4)]")
+			else
+				continue
+		pan_overlay.color = CC.color
+		pans += pan_overlay
 	if(!LAZYLEN(pans))
 		return
 	overlays += pans

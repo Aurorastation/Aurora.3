@@ -6,7 +6,7 @@
 	icon = 'icons/obj/cooking_machines.dmi'
 	var/shortname
 	var/max_space = 20//Maximum sum of w-classes of foods in this container at once
-	var/max_reagents = 80//Maximum units of reagents
+	volume = 80//Maximum units of reagents
 	flags = OPENCONTAINER | NOREACT
 	var/list/insertable = list(
 		/obj/item/reagent_containers/food/snacks,
@@ -15,10 +15,7 @@
 		/obj/item/flame/candle
 		)
 	var/appliancetype // Bitfield, uses the same as appliances
-
-/obj/item/reagent_containers/cooking_container/Initialize()
-	. = ..()
-	create_reagents(max_reagents)
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/reagent_containers/cooking_container/examine(var/mob/user)
 	. = ..()
@@ -26,7 +23,7 @@
 		var/string = "It contains....</br>"
 		for (var/atom/movable/A in contents)
 			string += "[A.name] </br>"
-		to_chat(user, span("notice", string))
+		to_chat(user, SPAN_NOTICE(string))
 	if (reagents.total_volume)
 		to_chat(user, SPAN_NOTICE("It contains [reagents.total_volume]u of reagents."))
 
@@ -35,13 +32,13 @@
 	for (var/possible_type in insertable)
 		if (istype(I, possible_type))
 			if (!can_fit(I))
-				to_chat(user, SPAN_WARNING("There's no more space in the [src] for that!"))
+				to_chat(user, SPAN_WARNING("There's no more space in [src] for that!"))
 				return 0
 
 			if(!user.unEquip(I))
 				return
 			I.forceMove(src)
-			to_chat(user, SPAN_NOTICE("You put the [I] into the [src]"))
+			to_chat(user, SPAN_NOTICE("You put [I] into [src]."))
 			return
 
 /obj/item/reagent_containers/cooking_container/verb/empty()
@@ -66,13 +63,13 @@
 		return
 
 	if (!contents.len)
-		to_chat(user, SPAN_WARNING("There's nothing in the [src] you can remove!"))
+		to_chat(user, SPAN_WARNING("There's nothing in [src] you can remove!"))
 		return
 
 	for (var/atom/movable/A in contents)
 		A.forceMove(get_turf(src))
 
-	to_chat(user, SPAN_NOTICE("You remove all the solid items from the [src]."))
+	to_chat(user, SPAN_NOTICE("You remove all the solid items from [src]."))
 
 /obj/item/reagent_containers/cooking_container/proc/check_contents()
 	if (contents.len == 0)
@@ -148,33 +145,38 @@
 	desc = "Put ingredients in this; designed for use with an oven. Warranty void if used."
 	icon_state = "ovendish"
 	max_space = 30
-	max_reagents = 120
+	volume = 120
 	appliancetype = OVEN
 
-/obj/item/reagent_containers/cooking_container/pan
+/obj/item/reagent_containers/cooking_container/skillet
 	name = "skillet"
 	shortname = "skillet"
 	desc = "Chuck ingredients in this to fry something on the stove."
 	icon_state = "skillet"
-	max_reagents = 15
+	volume = 15
 	force = 15
 	hitsound = 'sound/weapons/smash.ogg'
 	flags = OPENCONTAINER // Will still react
 	appliancetype = SKILLET
 
-/obj/item/reagent_containers/cooking_container/pan/Initialize(var/mat_key)
+/obj/item/reagent_containers/cooking_container/skillet/Initialize(var/mat_key)
 	. = ..()
 	var/material/material = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
 	if(material.name != MATERIAL_STEEL)
 		color = material.icon_colour
 	name = "[material.display_name] [initial(name)]"
 
+/obj/item/reagent_containers/cooking_container/skillet/standard_splash_mob(var/mob/user, var/mob/target)
+	if(!reagents || !reagents.total_volume)
+		return 0
+	return ..()
+
 /obj/item/reagent_containers/cooking_container/saucepan
 	name = "saucepan"
 	shortname = "saucepan"
 	desc = "Is it a pot? Is it a pan? It's a saucepan!"
 	icon_state = "pan"
-	max_reagents = 60
+	volume = 60
 	slot_flags = SLOT_HEAD
 	force = 15
 	hitsound = 'sound/weapons/smash.ogg'
@@ -192,13 +194,14 @@
 	name = "cooking pot"
 	shortname = "pot"
 	desc = "Boil things with this. Maybe even stick 'em in a stew."
-	icon_state = "pan"
+	icon_state = "pot"
 	max_space = 50
-	max_reagents = 120
+	volume = 180
 	force = 15
 	hitsound = 'sound/weapons/smash.ogg'
 	flags = OPENCONTAINER // Will still react
 	appliancetype = POT
+	w_class = ITEMSIZE_LARGE
 
 /obj/item/reagent_containers/cooking_container/pot/Initialize(var/mat_key)
 	. = ..()
@@ -213,3 +216,52 @@
 	desc = "Put ingredients in this; designed for use with a deep fryer. Warranty void if used."
 	icon_state = "basket"
 	appliancetype = FRYER
+
+/obj/item/reagent_containers/cooking_container/plate
+	name = "serving plate"
+	shortname = "plate"
+	desc = "A plate. You plate foods on this plate."
+	icon_state = "plate"
+	appliancetype = MIX
+	volume = 5 // for things like jelly sandwiches etc
+
+/obj/item/reagent_containers/cooking_container/plate/MouseDrop(var/obj/over_obj)
+	if(!istype(over_obj, /mob/living) || Adjacent(over_obj))
+	
+	if((loc != over_obj) || !(length(contents) || reagents?.total_volume))
+		return ..()
+	var/datum/recipe/recipe = select_recipe(RECIPE_LIST(appliancetype), src)
+	if(!recipe)
+		return
+	var/list/results = recipe.make_food(src)
+	var/obj/temp = new /obj(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
+	for (var/atom/movable/AM in results)
+		AM.forceMove(temp)
+
+	//making multiple copies of a recipe from one container. For example, tons of fries
+	while (select_recipe(RECIPE_LIST(appliancetype), src) == recipe)
+		var/list/TR = list()
+		TR += recipe.make_food(src)
+		for (var/atom/movable/AM in TR) //Move results to buffer
+			AM.forceMove(temp)
+		results += TR
+
+	for (var/r in results)
+		var/obj/item/reagent_containers/food/snacks/R = r
+		R.forceMove(src) //Move everything from the buffer back to the container
+
+	QDEL_NULL(temp) //delete buffer object
+	return ..()
+
+/obj/item/reagent_containers/cooking_container/plate/bowl
+	name = "serving bowl"
+	shortname = "bowl"
+	desc = "A bowl. You bowl foods... wait, what?"
+	volume = 180
+	icon = 'icons/obj/kitchen.dmi'
+	icon_state = "mixingbowl"
+	center_of_mass = list("x" = 17,"y" = 7)
+	matter = list(DEFAULT_WALL_MATERIAL = 300)
+	volume = 180
+	amount_per_transfer_from_this = 10
+	possible_transfer_amounts = list(5,10,15,25,30,60,180)
