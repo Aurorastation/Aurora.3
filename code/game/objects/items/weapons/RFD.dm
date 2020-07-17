@@ -163,6 +163,8 @@ RFD Construction-Class
 /obj/item/rfd/construction/afterattack(atom/A, mob/user, proximity)
 	if(!proximity)
 		return
+	if(ismob(A.loc) || ismob(A.loc.loc) || istype(A, /obj/structure/table))
+		return
 	if(disabled && !isrobot(user))
 		return FALSE
 	if(istype(get_area(A),/area/shuttle)||istype(get_area(A),/turf/space/transit))
@@ -170,10 +172,11 @@ RFD Construction-Class
 	var/turf/t = get_turf(A)
 	if (isNotStationLevel(t.z))
 		return FALSE
-	return alter_turf(A, user, (mode == 3))
+	if(istype(A, /obj/machinery/door/airlock))
+		t = A
+	return alter_turf(t, user, (mode == 3))
 
 /obj/item/rfd/construction/proc/alter_turf(var/turf/T,var/mob/user,var/deconstruct)
-
 	if(working)
 		return FALSE
 
@@ -232,8 +235,14 @@ RFD Construction-Class
 	if(build_delay && !can_use(user,T))
 		return FALSE
 
-	if(build_turf)
+	if(ispath(build_turf, /turf))
+		var/original_type = T.type
 		T.ChangeTurf(build_turf)
+		if(istype(T, /turf/simulated/wall))
+			var/turf/simulated/wall/W = T
+			W.under_turf = original_type
+	else if(ispath(build_turf, /obj))
+		new build_turf(T)
 	else
 		qdel(T)
 

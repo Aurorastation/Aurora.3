@@ -135,11 +135,9 @@
 
 	//THERMITE related stuff. Calls src.thermitemelt() which handles melting simulated walls and the relevant effects
 	if(thermite)
-		if(W.iswelder() )
-			var/obj/item/weldingtool/WT = W
-			if( WT.remove_fuel(0,user) )
-				thermitemelt(user)
-				return
+		if(W.isFlameSource())
+			thermitemelt(user)
+			return
 
 		else if(istype(W, /obj/item/gun/energy/plasmacutter))
 			thermitemelt(user)
@@ -149,7 +147,7 @@
 			var/obj/item/melee/energy/blade/EB = W
 
 			spark(EB, 5)
-			to_chat(user, "<span class='notice'>You slash \the [src] with \the [EB]; the thermite ignites!</span>")
+			to_chat(user, "<span class='notice'>You slash \the [src] with \the [EB], igniting the thermite!</span>")
 			playsound(src, "sparks", 50, 1)
 			playsound(src, 'sound/weapons/blade.ogg', 50, 1)
 

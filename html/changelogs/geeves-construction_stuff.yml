@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Walls will now not change the turf it is built on to plating, returning it to what it originally when deconstructed."
+  - tweak: "Airlock electronics can now be removed when the airlock is bolted, welded, and the panel is open. The power no longer needs to be disabled."
+  - rscadd: "Walls made of seethrough materials are now seethrough and lasers and light will pass through as expected."
+  - rscadd: "Thermite will now ignite if a source of flame touches it, which includes lighters and matches."
