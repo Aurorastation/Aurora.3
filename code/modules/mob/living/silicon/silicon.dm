@@ -70,6 +70,8 @@
 
 /mob/living/silicon/Destroy()
 	silicon_mob_list -= src
+	QDEL_NULL(computer)
+	QDEL_NULL(rcon)
 	QDEL_NULL(alarm_monitor)
 	QDEL_NULL(law_manager)
 	QDEL_NULL(computer)
@@ -190,7 +192,7 @@
 //can't inject synths
 /mob/living/silicon/can_inject(mob/user, error_msg)
 	if(error_msg)
-		to_chat(user, span("alert", "The armoured plating is too tough."))
+		to_chat(user, SPAN_ALERT("The armoured plating is too tough."))
 	return FALSE
 
 //Silicon mob language procs

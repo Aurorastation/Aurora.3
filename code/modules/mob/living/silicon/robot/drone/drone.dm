@@ -31,6 +31,7 @@
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "repairbot"
 	braintype = "Robot"
+	mod_type = "Engineering"
 	gender = NEUTER
 
 	// Health
@@ -163,7 +164,7 @@
 	if(!laws)
 		laws = new law_type
 	if(!module)
-		module = new module_type(src)
+		module = new module_type(src, src)
 
 	flavor_text = "It's a tiny little repair drone. The casing is stamped with an corporate logo and the subscript: '[current_map.company_name] Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'"
 	playsound(get_turf(src), 'sound/machines/twobeep.ogg', 50, 0)
@@ -291,7 +292,7 @@
 	to_chat(src, "<b>Obey these laws:</b>")
 	laws.show_laws(src)
 	to_chat(src, SPAN_DANGER("ALERT: [user] is your new master. Obey your new laws and their commands."))
-	to_chat(src, span("notice", "You have acquired new radio frequency."))
+	to_chat(src, SPAN_NOTICE("You have acquired new radio frequency."))
 	remove_language(LANGUAGE_ROBOT)
 	add_language(LANGUAGE_ROBOT, TRUE)
 

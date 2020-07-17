@@ -49,15 +49,15 @@
 			if (fullness > (550 * (1 + M.overeatduration / 2000)))
 				to_chat(M, "You cannot force anymore food down!")
 				return
-			M.visible_message(span("notice", "\The [user] [is_liquid ? "drinks" : "eats"] some [loaded] from \the [src]."))
+			M.visible_message(SPAN_NOTICE("\The [user] [is_liquid ? "drinks" : "eats"] some [loaded] from \the [src]."))
 		else
 			if (fullness > (550 * (1 + M.overeatduration / 2000)))
 				to_chat(M, "You cannot force anymore food down their throat!")
 				return
-			user.visible_message(span("warning", "\The [user] begins to feed \the [M]!"))
+			user.visible_message(SPAN_WARNING("\The [user] begins to feed \the [M]!"))
 			if(!(M.can_force_feed(user, loaded) && do_mob(user, M, 5 SECONDS)))
 				return
-			M.visible_message(span("notice", "\The [user] feeds some [loaded] to \the [M] with \the [src]."))
+			M.visible_message(SPAN_NOTICE("\The [user] feeds some [loaded] to \the [M] with \the [src]."))
 		reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
 		if(is_liquid)
 			playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
@@ -67,7 +67,7 @@
 		cut_overlays()
 		return
 	else
-		to_chat(user, span("warning", "You don't have anything on \the [src].")) 	//if we have help intent and no food scooped up DON'T STAB OURSELVES WITH THE FORK)
+		to_chat(user, SPAN_WARNING("You don't have anything on \the [src].")) 	//if we have help intent and no food scooped up DON'T STAB OURSELVES WITH THE FORK)
 		return
 
 /obj/item/material/kitchen/utensil/fork
@@ -114,7 +114,7 @@
 
 /obj/item/material/kitchen/utensil/knife/attack(mob/target, mob/living/user, var/target_zone)
 	if ((user.is_clumsy()) && prob(50))
-		to_chat(user, span("warning", "You accidentally cut yourself with \the [src]."))
+		to_chat(user, SPAN_WARNING("You accidentally cut yourself with \the [src]."))
 		user.take_organ_damage(20)
 		return
 	return ..()
@@ -139,7 +139,7 @@
 
 /obj/item/material/kitchen/rollingpin/attack(mob/living/M, mob/living/user, var/target_zone)
 	if ((user.is_clumsy()) && prob(50))
-		to_chat(user, span("warning", "\The [src] slips out of your hand and hits your head."))
+		to_chat(user, SPAN_WARNING("\The [src] slips out of your hand and hits your head."))
 		user.drop_from_inventory(src)
 		user.take_organ_damage(10)
 		user.Paralyse(2)

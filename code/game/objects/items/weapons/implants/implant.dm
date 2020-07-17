@@ -612,7 +612,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 
 	for(var/obj/item/implant/mindshield/I in H)
 		if(I.implanted)
-			to_chat(H, span("danger", "Rage surges through your body, but the nanobots from your mind shield implant stop it soon after it starts!"))
+			to_chat(H, SPAN_DANGER("Rage surges through your body, but the nanobots from your mind shield implant stop it soon after it starts!"))
 			return TRUE
 
 	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
@@ -621,10 +621,10 @@ the implant may become unstable and either pre-maturely inject the subject or si
 		log_and_message_admins("[key_name(H)] was implanted by an aggression implant, but was not effected.", H)
 	else if(antag_data?.id == MODE_LOYALIST)
 		clear_antag_roles(H.mind, 1)
-		to_chat(H, span("danger", "You feel a surge of rage override your loyalty!"))
+		to_chat(H, SPAN_DANGER("You feel a surge of rage override your loyalty!"))
 		log_and_message_admins("[key_name(H)] was implanted by an aggression implant, clearing their loyalist status!", H)
 	else
-		to_chat(H, span("danger", "You feel a surge of rage course through your body and very soul!"))
+		to_chat(H, SPAN_DANGER("You feel a surge of rage course through your body and very soul!"))
 		log_and_message_admins("[key_name(H)] was implanted by an aggression implant!", H)
 	return TRUE
 

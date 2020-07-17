@@ -119,17 +119,17 @@
 
 	switch(M.a_intent)
 		if(I_HELP)
-			M.visible_message(span("notice","[M] [response_help] \the [src]"))
+			M.visible_message(SPAN_NOTICE("[M] [response_help] \the [src]"))
 			computer.toggle_service("flashlight", src)
 
 		if(I_DISARM)
-			M.visible_message(span("notice","[M] [response_disarm] \the [src]"))
+			M.visible_message(SPAN_NOTICE("[M] [response_disarm] \the [src]"))
 			M.do_attack_animation(src)
 			close_up()
 
 		if(I_HURT)
 			apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [M.name]")
-			M.visible_message(span("danger","[M] [response_harm] \the [src]"))
+			M.visible_message(SPAN_DANGER("[M] [response_harm] \the [src]"))
 			M.do_attack_animation(src)
 			updatehealth()
 
