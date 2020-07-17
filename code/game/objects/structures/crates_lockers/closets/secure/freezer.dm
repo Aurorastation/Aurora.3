@@ -21,8 +21,6 @@
 		new /obj/item/reagent_containers/food/condiment/flour(src)
 	new /obj/item/reagent_containers/food/condiment/sugar(src)
 	new /obj/item/reagent_containers/food/condiment/shaker/spacespice(src)
-	new /obj/item/reagent_containers/food/condiment/pacid(src)
-	new /obj/item/reagent_containers/glass/bottle/antitoxin(src)
 
 /obj/structure/closet/secure_closet/freezer/kitchen/mining
 	req_access = list()
