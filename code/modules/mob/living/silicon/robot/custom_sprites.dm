@@ -9,6 +9,7 @@ var/list/robot_custom_icons
 	else if(config.load_customsynths_from == "json")
 		loadsynths_from_json()
 	return 1
+
 /mob/living/silicon/robot/proc/set_custom_sprite()
 	var/datum/custom_synth/sprite = robot_custom_icons[name]
 	if(istype(sprite) && sprite.synthckey == ckey)
@@ -20,4 +21,4 @@ var/list/robot_custom_icons
 				icon_state = "[sprite.synthicon]-Standard"
 			else
 				to_chat(src, "<span class='warning'>Could not locate [sprite.synthicon]-Standard sprite.</span>")
-				icon =  'icons/mob/robots.dmi'
+				icon = 'icons/mob/robots.dmi'
