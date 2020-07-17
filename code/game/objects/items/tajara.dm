@@ -1,4 +1,4 @@
-/obj/item/storage/fancy/cigarettes/pra
+/obj/item/storage/box/fancy/cigarettes/pra
 	name = "\improper Labourer's Choice cigarette packet"
 	desc = "Jokingly referred to an essential part of a working class citizen's breakfast, beside state-provided provisions."
 	desc_fluff = "Imported from the People's Republic of Adhomai."
@@ -8,11 +8,11 @@
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
 	can_hold = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/flame/lighter, /obj/item/trash/cigbutt, /obj/item/tajcard)
 
-/obj/item/storage/fancy/cigarettes/pra/fill()
+/obj/item/storage/box/fancy/cigarettes/pra/fill()
 	..()
 	new /obj/item/tajcard(src)
 
-/obj/item/storage/fancy/cigarettes/dpra
+/obj/item/storage/box/fancy/cigarettes/dpra
 	name = "\improper Shastar List'ya cigarette packet"
 	desc = "Rumored to be a de-facto currency for Adhominian knuckles off-planet."
 	desc_fluff = "Imported from the Democratic People's Republic of Adhomai."
@@ -20,7 +20,7 @@
 	item_state = "Bpacket"
 	cigarette_to_spawn = /obj/item/clothing/mask/smokable/cigarette/adhomai
 
-/obj/item/storage/fancy/cigarettes/nka
+/obj/item/storage/box/fancy/cigarettes/nka
 	name = "\improper Gato Royales cigarette packet"
 	desc = "Popular with the aristocrats of the New Kingdom of Adhomai for its mild menthol flavor."
 	desc_fluff = "Imported from the New Kingdom of Adhomai."
