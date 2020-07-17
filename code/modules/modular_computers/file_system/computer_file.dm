@@ -27,8 +27,8 @@ var/global/file_uid = 0
 	return ..()
 
 // Returns independent copy of this file.
-/datum/computer_file/proc/clone(var/rename = FALSE)
-	var/datum/computer_file/temp = new type
+/datum/computer_file/proc/clone(var/rename = FALSE, var/computer)
+	var/datum/computer_file/temp = new type(computer)
 	temp.unsendable = unsendable
 	temp.undeletable = undeletable
 	temp.size = size
