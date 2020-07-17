@@ -76,6 +76,10 @@
 	desc = "It's a chair. It looks comfy."
 	icon_state = "comfychair_preview"
 
+/obj/structure/bed/chair/comfy/dismantle()
+	material.place_sheet(get_turf(src))
+	..()
+
 /obj/structure/bed/chair/comfy/brown/Initialize(mapload,var/newmaterial)
 	. = ..(mapload, MATERIAL_STEEL, MATERIAL_LEATHER)
 
@@ -106,6 +110,11 @@
 /obj/structure/bed/chair/office
 	anchored = 0
 	buckle_movable = 1
+
+/obj/structure/bed/chair/office/dismantle()
+	for(var/i = 1 to 4)
+		material.place_sheet(get_turf(src))
+	..()
 
 /obj/structure/bed/chair/office/update_icon()
 	return
