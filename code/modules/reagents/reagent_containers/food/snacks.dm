@@ -31,8 +31,12 @@
 
 /obj/item/reagent_containers/food/snacks/on_consume(mob/user, mob/target)
 	if(!reagents.total_volume && !trash)
-		target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \a [src].",
-					 SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \a [src]."))
+		if(src.reagents_to_add == bitesize)
+			target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \a [src].",
+					 	SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \a [src]."))
+		else // Kind of weird to "finish" eating something in one bite
+			target.visible_message("<b>[target]</b> eats \the [src].",
+					 	SPAN_NOTICE("You eat \the [src]."))
 		qdel(src)
 	else
 		..()
@@ -472,7 +476,7 @@
 	reagents_to_add = list(/datum/reagent/sugar = 3)
 
 /obj/item/reagent_containers/food/snacks/candy/koko
-	name = "\improper koko bar"
+	name = "koko bar"
 	desc = "A sweet and gritty candy bar cultivated exclusively on the Compact ruled world of Ha'zana. A good pick-me-up for Unathi, but has no effect on other species."
 	icon_state = "kokobar"
 	trash = /obj/item/trash/kokobar
@@ -528,7 +532,7 @@
 	bitesize = 1
 
 /obj/item/reagent_containers/food/snacks/cookiesnack
-	name = "Carps Ahoy! miniature cookies"
+	name = "\improper Carps Ahoy! miniature cookies"
 	desc = "Cap'n Carpie's miniature cookies! Now 100% carpotoxin free!"
 	icon_state = "cookiesnack"
 	trash = /obj/item/trash/cookiesnack
@@ -3341,7 +3345,7 @@
 	reagent_data = list(/datum/reagent/nutriment = list("pizza crust" = 5))
 
 	reagents_to_add = list(/datum/reagent/nutriment/coating/batter = 2, /datum/reagent/nutriment/triglyceride/oil = 1)
-	
+
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/crunch/Initialize()
 	. = ..()
 	coating = reagents.get_reagent(/datum/reagent/nutriment/coating/batter)
