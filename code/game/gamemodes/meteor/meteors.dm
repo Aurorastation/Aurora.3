@@ -163,6 +163,9 @@
 		return
 	..()
 
+/obj/effect/meteor/proc/get_shield_damage()
+	return max(((max(hits, 2)) * rand(30, 60)) , 0)
+
 /obj/effect/meteor/proc/make_debris()
 	for(var/throws = dropamt, throws > 0, throws--)
 		var/loot_path = pickweight(meteor_loot)

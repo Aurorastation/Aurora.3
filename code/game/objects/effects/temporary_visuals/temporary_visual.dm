@@ -7,10 +7,19 @@
 	var/duration = 10 //in deciseconds
 	var/randomdir = TRUE
 
-/obj/effect/temp_visual/Initialize()
+/obj/effect/temp_visual/Initialize(var/mapload, var/duration, var/_icon = 'icons/effects/effects.dmi', var/state)
 	. = ..()
 	if(randomdir)
 		set_dir(pick(global.cardinal))
+
+	if(_icon)
+		icon = _icon
+
+	if(state)
+		icon_state = state
+
+	if(duration)
+		src.duration = duration
 
 	QDEL_IN(src, duration)
 

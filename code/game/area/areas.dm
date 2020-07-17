@@ -49,6 +49,7 @@
 	var/station_area = 0
 	var/centcomm_area = 0
 	var/has_weird_power = FALSE	// If TRUE, SSmachinery will not use the inlined power checks and will call powered() and use_power() on this area.
+	var/external_area = FALSE // IF TRUE, this area is an external area like space or outside and will be treated as such for shields wrapping around a ship/building
 
 // Don't move this to Initialize(). Things in here need to run before SSatoms does.
 /area/New()
