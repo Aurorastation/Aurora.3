@@ -8,13 +8,14 @@
 	flags = CONDUCT | NOBLOODY
 	var/number = 0
 	var/obj/machinery/abstract/intercom_listener/power_interface
+	var/global/list/screen_overlays
 	var/radio_sound = null
 	clickvol = 40
 
 /obj/item/device/radio/intercom/custom
 	name = "station intercom (Custom)"
-	broadcasting = 0
-	listening = 0
+	broadcasting = FALSE
+	listening = FALSE
 
 /obj/item/device/radio/intercom/interrogation
 	name = "station intercom (Interrogation)"
@@ -30,8 +31,8 @@
 
 /obj/item/device/radio/intercom/department
 	canhear_range = 5
-	broadcasting = 0
-	listening = 1
+	broadcasting = FALSE
+	listening = TRUE
 
 /obj/item/device/radio/intercom/department/medbay
 	name = "station intercom (Medbay)"
@@ -49,7 +50,17 @@
 /obj/item/device/radio/intercom/Initialize()
 	. = ..()
 	power_interface = new(loc, src)
+	generate_overlays()
 	update_icon()
+
+/obj/item/device/radio/intercom/proc/generate_overlays(var/force = 0)
+	if(LAZYLEN(screen_overlays) && !force)
+		return
+	LAZYINITLIST(screen_overlays)
+	screen_overlays["intercom_screen"] = make_screen_overlay(icon, "intercom_screen")
+	screen_overlays["intercom_scanline"] = make_screen_overlay(icon, "intercom_scanline")
+	screen_overlays["intercom_b"] = make_screen_overlay(icon, "intercom_b")
+	screen_overlays["intercom_l"] = make_screen_overlay(icon, "intercom_l")
 
 /obj/item/device/radio/intercom/department/medbay/Initialize()
 	. = ..()
@@ -137,20 +148,16 @@
 		set_light(FALSE)
 		return
 	else
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "intercom_screen", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
-		var/mutable_appearance/scanline_overlay = mutable_appearance(icon, "intercom_scanline", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(scanline_overlay)
+		add_overlay(screen_overlays["intercom_screen"])
+		add_overlay(screen_overlays["intercom_scanline"])
 		set_light(1.4, 1, COLOR_CYAN)
 		if(broadcasting)
-			var/mutable_appearance/button_overlay = mutable_appearance(icon, "intercom_b", EFFECTS_ABOVE_LIGHTING_LAYER)
-			add_overlay(button_overlay)
+			add_overlay(screen_overlays["intercom_b"])
 		if(listening)
-			var/mutable_appearance/button_overlay = mutable_appearance(icon, "intercom_l", EFFECTS_ABOVE_LIGHTING_LAYER)
-			add_overlay(button_overlay)
+			add_overlay(screen_overlays["intercom_l"])
 
 /obj/item/device/radio/intercom/broadcasting
-	broadcasting = 1
+	broadcasting = TRUE
 
 /obj/item/device/radio/intercom/locked
     var/locked_frequency
@@ -165,8 +172,8 @@
 /obj/item/device/radio/intercom/locked/ai_private
 	name = "\improper AI intercom"
 	frequency = AI_FREQ
-	broadcasting = 1
-	listening = 1
+	broadcasting = TRUE
+	listening = TRUE
 
 /obj/item/device/radio/intercom/locked/confessional
 	name = "confessional intercom"

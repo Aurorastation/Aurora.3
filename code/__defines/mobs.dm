@@ -126,6 +126,9 @@
 #define BP_AUG_RADIO        "integrated radio"
 #define BP_AUG_FUEL_CELL    "integrated fuel cell"
 #define BP_AUG_AIR_ANALYZER "integrated air analyzer"
+#define BP_AUG_LANGUAGE     "integrated language processor"
+#define BP_AUG_PSI         "psionic receiver"
+#define BP_AUG_CALF_OVERRIDE     "calf overdrive"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
@@ -311,6 +314,10 @@
 #define TASTE_DULL 0.5 //anything below 30%
 #define TASTE_NUMB 0.1 //anything below 150%
 
+//Used by emotes
+#define VISIBLE_MESSAGE 1
+#define AUDIBLE_MESSAGE 2
+
 //helper for inverting armor blocked values into a multiplier
 #define BLOCKED_MULT(blocked) max(1 - (blocked/100), 0)
 
@@ -352,3 +359,8 @@
 #define AURA_TYPE_WEAPON "Weapon"
 #define AURA_TYPE_THROWN "Thrown"
 #define AURA_TYPE_LIFE   "Life"
+
+// Robot Overlay Defines
+#define ROBOT_PANEL_EXPOSED  "exposed"
+#define ROBOT_PANEL_CELL     "cell"
+#define ROBOT_PANEL_NO_CELL  "no cell"

@@ -256,7 +256,7 @@
 		return
 
 	if(broken)
-		to_chat(user,span("notice","\The [src] seems to be broken after so many years of misuse, perhaps due to reckless hooligans breaking into the display case and carelessly bashing keys."))
+		to_chat(user, SPAN_NOTICE("\The [src] seems to be broken after so many years of misuse, perhaps due to reckless hooligans breaking into the display case and carelessly bashing keys."))
 		return
 
 	usr.machine = src

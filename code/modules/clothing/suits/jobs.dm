@@ -226,13 +226,13 @@ obj/item/clothing/suit/apron/overalls/blue
 	if(icon_state == icon_open)
 		item_state = icon_closed
 		icon_state = icon_closed
-		to_chat(usr, span("notice", "You zip up the hazard vest."))
+		to_chat(usr, SPAN_NOTICE("You zip up the hazard vest."))
 	else if(icon_state == icon_closed)
 		item_state = icon_open
 		icon_state = icon_open
-		to_chat(usr, span("notice", "You unzip the hazard vest."))
+		to_chat(usr, SPAN_NOTICE("You unzip the hazard vest."))
 	else
-		to_chat(usr, span("notice", "You attempt to zip up your [src], before promptly realising how silly you are."))
+		to_chat(usr, SPAN_NOTICE("You attempt to zip up your [src], before promptly realising how silly you are."))
 		return
 	update_clothing_icon()
 
@@ -306,6 +306,14 @@ obj/item/clothing/suit/apron/overalls/blue
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
 
+/obj/item/clothing/suit/storage/toggle/suitjacket/blazer
+	name = "blazer"
+	desc = "A charming jacket."
+	desc_fluff = "for when you want to play ball sports like an aristocrat."
+	icon_state = "blazer_open"
+	item_state = "blazer_open"
+	icon_open = "blazer_open"
+	icon_closed = "blazer"
 
 //Medical
 /obj/item/clothing/suit/storage/toggle/fr_jacket

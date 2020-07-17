@@ -10,6 +10,9 @@
 	if(!istype(G))
 		to_chat(src, "<span class='warning'>We must be grabbing a creature in our active hand to absorb them.</span>")
 		return
+	if(!src.get_pressure_weakness())
+		to_chat(src, "<span class='warning'>We cannot absorb this creature from inside a sealed environment.</span>")
+		return
 	var/mob/living/carbon/human/T = G.affecting
 	if(!istype(T))
 		to_chat(src, "<span class='warning'>[T] is not compatible with our biology.</span>")
@@ -18,7 +21,7 @@
 		to_chat(src, "<span class='warning'>We do not know how to parse this creature's DNA!</span>")
 		return
 	if(islesserform(T))
-		to_chat(src, "<span class='warning'>This creature DNA is not compatible with our form!</span>")
+		to_chat(src, "<span class='warning'>This creature's DNA is not compatible with our form!</span>")
 		return
 	if(HUSK in T.mutations)
 		to_chat(src, "<span class='warning'>This creature's DNA is ruined beyond useability!</span>")
@@ -50,7 +53,7 @@
 				to_chat(T, "<span class='danger'>You feel a sharp stabbing pain!</span>")
 				playsound(get_turf(src), 'sound/effects/lingstabs.ogg', 50, 1)
 				var/obj/item/organ/external/affecting = T.get_organ(src.zone_sel.selecting)
-				if(affecting.take_damage(39, 0, 1, 0, "massive puncture wound"))
+				if(affecting.take_damage(40, 0, damage_flags = DAM_SHARP|DAM_EDGE, used_weapon = "massive puncture wound"))
 					T.UpdateDamageIcon()
 
 		feedback_add_details("changeling_powers","A[stage]")
@@ -65,7 +68,7 @@
 	playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 
 	changeling.chem_charges += 50
-	changeling.geneticpoints += 5
+	changeling.geneticpoints += 3
 
 	//Steal all of their languages!
 	for(var/language in T.languages)

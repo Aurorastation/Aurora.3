@@ -233,7 +233,7 @@
 	if (href_list["view_jobban"])
 		var/reason = jobban_isbanned(ckey, href_list["view_jobban"])
 		if (!reason)
-			to_chat(src, span("notice", "You do not appear jobbanned from this job. If you are still stopped from entering the role however, please adminhelp."))
+			to_chat(src, SPAN_NOTICE("You do not appear jobbanned from this job. If you are still stopped from entering the role however, please adminhelp."))
 			return
 
 		var/data = "<center>Jobbanned from: <b>[href_list["view_jobban"]]</b><br>"
@@ -734,3 +734,21 @@
 		sleep(1)
 	else
 		stoplag(5)
+
+/client/MouseDrag(src_object, over_object, src_location, over_location, src_control, over_control, params)
+	. = ..()
+
+	if(over_object)
+		var/mob/living/M = mob
+		if(istype(get_turf(over_object), /atom))
+			var/atom/A = get_turf(over_object)
+			if(src && src.buildmode)
+				build_click(M, src.buildmode, params, A)
+				return
+
+		if(istype(M) && !M.incapacitated())
+			var/obj/item/gun/gun = mob.get_active_hand()
+			if(istype(gun) && gun.can_autofire())
+				M.set_dir(get_dir(M, over_object))
+				gun.Fire(get_turf(over_object), mob, params, (get_dist(over_object, mob) <= 1), FALSE)
+	CHECK_TICK

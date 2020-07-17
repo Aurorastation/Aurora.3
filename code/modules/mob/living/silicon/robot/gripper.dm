@@ -35,7 +35,7 @@
 /obj/item/gripper/examine(var/mob/user)
 	..()
 	if(wrapped)
-		to_chat(user, span("notice", "It is holding \the [wrapped]"))
+		to_chat(user, SPAN_NOTICE("It is holding \the [wrapped]"))
 
 /proc/grippersafety(var/obj/item/gripper/G)
 	if(!G || !G.wrapped)//The object must have been lost
@@ -59,6 +59,8 @@
 					to_chat(user, SPAN_NOTICE("You collect \the [I]."))
 				I.forceMove(src)
 				wrapped = I
+				wrapped.pixel_x = 0
+				wrapped.pixel_y = 0
 				update_icon()
 				return TRUE
 		if(feedback)
@@ -90,6 +92,12 @@
 		update_icon()
 	return ..()
 
+/obj/item/gripper/CtrlClick(mob/user)
+	if(wrapped)
+		drop(get_turf(src))
+		return
+	to_chat(user, SPAN_WARNING("\The [src] isn't gripping anything!"))
+
 /obj/item/gripper/verb/drop_item()
 	set name = "Drop Item"
 	set desc = "Release an item from your magnetic gripper."
@@ -98,8 +106,13 @@
 	drop(get_turf(src))
 
 /obj/item/gripper/proc/drop(var/atom/target)
-	if(wrapped?.loc == src)
-		wrapped.forceMove(target)
+	if(wrapped)
+		if(wrapped.loc == src)
+			if(force_holder)
+				wrapped.force = force_holder
+			wrapped.forceMove(target)
+			force_holder = null
+		to_chat(loc, SPAN_NOTICE("You release \the [wrapped].")) // loc will always be the cyborg
 	wrapped = null
 	update_icon()
 	return TRUE
@@ -153,6 +166,8 @@
 		if(!isturf(target.loc))
 			return
 		grip_item(target, user)
+	else if (istype(target, /obj/machinery/mining)) // to prevent them from activating it by accident
+		return
 	else if (!just_dropped)
 		target.attack_ai(user)
 	just_dropped = FALSE
@@ -198,6 +213,9 @@
 		/obj/item/stock_parts,
 		/obj/item/device/mmi,
 		/obj/item/robot_parts,
+		/obj/item/mech_component,
+		/obj/item/mecha_equipment,
+		/obj/item/device/radio/exosuit,
 		/obj/item/borg/upgrade,
 		/obj/item/device/flash, //to build borgs,
 		/obj/item/organ/internal/brain, //to insert into MMIs,
@@ -229,7 +247,6 @@
 		/obj/item/reagent_containers/spray,
 		/obj/item/storage/pill_bottle,
 		/obj/item/hand_labeler,
-		/obj/item/virusdish,
 		/obj/item/paper,
 		/obj/item/stack/material/phoron,
 		/obj/item/reagent_containers/blood,

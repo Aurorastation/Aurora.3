@@ -89,8 +89,8 @@
 		new /obj/effect/overlay/temp/bluespace_fissure(get_turf(src))
 		new /obj/effect/overlay/temp/bluespace_fissure(get_turf(linked_to))
 		user.forceMove(get_turf(linked_to))
-		user.visible_message(span("warning", "[user] [slip_in_message]."), span("notice", "You enter \the [src]..."))
-		user.visible_message(span("warning", "[user] [slip_out_message]."), span("notice", "...and find your way to the other side."))
+		user.visible_message(SPAN_WARNING("[user] [slip_in_message]."), SPAN_NOTICE("You enter \the [src]..."))
+		user.visible_message(SPAN_WARNING("[user] [slip_out_message]."), SPAN_NOTICE("...and find your way to the other side."))
 
 /datum/brain_trauma/special/love
 	name = "Hyper-dependency"

@@ -89,97 +89,6 @@
 	else
 		alert("Invalid mob")
 
-/*
-/client/proc/cmd_admin_monkeyize(var/mob/M in mob_list)
-	set category = "Fun"
-	set name = "Make Monkey"
-
-	if(!ROUND_IS_STARTED)
-		alert("Wait until the game starts")
-		return
-	if(istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/target = M
-		log_admin("[key_name(src)] is attempting to monkeyize [M.key].")
-		spawn(10)
-			target.monkeyize()
-	else
-		alert("Invalid mob")
-
-/client/proc/cmd_admin_changelinginize(var/mob/M in mob_list)
-	set category = "Fun"
-	set name = "Make Changeling"
-
-	if(!ROUND_IS_STARTED)
-		alert("Wait until the game starts")
-		return
-	if(istype(M, /mob/living/carbon/human))
-		log_admin("[key_name(src)] has made [M.key] a changeling.")
-		spawn(10)
-			M.absorbed_dna[M.real_name] = M.dna.Clone()
-			M.make_changeling()
-			if(M.mind)
-				M.mind.special_role = "Changeling"
-	else
-		alert("Invalid mob")
-*/
-/*
-/client/proc/cmd_admin_abominize(var/mob/M in mob_list)
-	set category = null
-	set name = "Make Abomination"
-
-	to_chat(usr, "Ruby Mode disabled. Command aborted.")
-	return
-	if(!ROUND_IS_STARTED)
-		alert("Wait until the game starts.")
-		return
-	if(istype(M, /mob/living/carbon/human))
-		log_admin("[key_name(src)] has made [M.key] an abomination.")
-
-	//	spawn(10)
-	//		M.make_abomination()
-
-*/
-/*
-/client/proc/make_cultist(var/mob/M in mob_list) // -- TLE, modified by Urist
-	set category = "Fun"
-	set name = "Make Cultist"
-	set desc = "Makes target a cultist"
-	if(!cultwords["travel"])
-		runerandom()
-	if(M)
-		if(M.mind in SSticker.mode.cult)
-			return
-		else
-			if(alert("Spawn that person a tome?",,"Yes","No")=="Yes")
-				to_chat(M, "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie. A tome, a message from your new master, appears on the ground.")
-				new /obj/item/book/tome(M.loc)
-			else
-				to_chat(M, "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie.")
-			var/glimpse=pick("1","2","3","4","5","6","7","8")
-			switch(glimpse)
-				if("1")
-					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["travel"]] is travel...")
-				if("2")
-					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["blood"]] is blood...")
-				if("3")
-					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["join"]] is join...")
-				if("4")
-					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["hell"]] is Hell...")
-				if("5")
-					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["destroy"]] is destroy...")
-				if("6")
-					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["technology"]] is technology...")
-				if("7")
-					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["self"]] is self...")
-				if("8")
-					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["see"]] is see...")
-
-			if(M.mind)
-				M.mind.special_role = "Cultist"
-				SSticker.mode.cult += M.mind
-			to_chat(src, "Made [M] a cultist.")
-*/
-
 //TODO: merge the vievars version into this or something maybe mayhaps
 /client/proc/cmd_debug_del_all()
 	set category = "Debug"
@@ -357,76 +266,101 @@
 	for(var/areatype in areas_without_camera)
 		to_world("* [areatype]")
 
-/client/proc/cmd_admin_dress()
+/client/proc/cmd_admin_grab_observers()
 	set category = "Fun"
-	set name = "Select equipment"
+	set name = "Grab Observers"
+	set desc = "Grabs players that are observing and spawns them as basic humans beneath your feet."
+
+	var/list/chosen_observers = list()
+	var/next_observer = "NotGeeves"
+	while(next_observer != "== Finished ==")
+		var/list/valid_choices = player_list
+		for(var/choice in valid_choices)
+			if(choice in chosen_observers)
+				valid_choices -= choice
+			if(!isobserver(choice))
+				valid_choices -= choice
+		valid_choices += "== Finished =="
+		next_observer = input("Choose an observer you want to add to the list.", "Choose Observer") as null|anything in valid_choices
+		if(!next_observer || isnull(next_observer))
+			next_observer = "== Finished =="
+		else
+			chosen_observers += next_observer
+	chosen_observers -= "== Finished =="
+
+	for(var/spawn_observer in chosen_observers)
+		var/mob/living/carbon/human/H = new /mob/living/carbon/human(get_turf(usr))
+		do_dressing(H)
+		var/mob/abstract/observer/O = spawn_observer
+		H.ckey = O.ckey
+		qdel(O)
+
+/client/proc/cmd_admin_dress(mob/living/carbon/human/H in human_mob_list)
+	set category = "Fun"
+	set name = "Set Human Outfit"
 
 	if(!check_rights(R_FUN))
 		return
+	do_dressing(H)
 
-	var/mob/living/carbon/human/M = input("Select mob.", "Select equipment.") as null|anything in human_mob_list
-	if(!M) return
-
-	var/list/choices = list(
-		"strip",
-		"as job...",
-		"emergency response team"
-	)
-
-	var/admin_outfits = subtypesof(/datum/outfit/admin)
-	for(var/type in admin_outfits)
-		var/datum/outfit/O = type
-		var/name = initial(O.name)
-		if(name != "Naked")
-			choices[initial(O.name)] = type
-
-	var/dostrip = 0
-	switch(alert("Strip [M] before dressing?", "Strip?", "Yes", "No", "Cancel"))
-		if("Yes")
-			dostrip = 1
-		if("Cancel")
-			return
-
-	var/dresscode = input("Select dress for [M]", "Robust quick dress shop") as null|anything in choices
-	if (isnull(dresscode))
+/client/proc/do_dressing(var/mob/living/carbon/human/M = null)
+	if(!M || !istype(M))
+		M = input("Select a mob you would like to dress.", "Set Human Outfit") as null|anything in human_mob_list
+	if(!M)
 		return
 
-	feedback_add_details("admin_verb","SEQ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	var/list/outfit_catagories = list()
+	switch(alert("Would you like ERT outfits, or standard admin outfits?", "ERT-or-Admin?", "ERT", "Admin", "Cancel"))
+		if("Cancel")
+			return
+		if("ERT")
+			outfit_catagories["NT-ERT"] = typesof(/datum/outfit/admin/ert/nanotrasen)
+			outfit_catagories["Deathsquad"] = typesof(/datum/outfit/admin/deathsquad)
+			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/ert/legion)
+			outfit_catagories["Syndicate"] = typesof(/datum/outfit/admin/deathsquad/syndicate)
+			outfit_catagories["Freelance Mercenaries"] = typesof(/datum/outfit/admin/ert/mercenary)
+			outfit_catagories["Kataphracts"] = typesof(/datum/outfit/admin/ert/kataphract)
+			outfit_catagories["IAC"] = typesof(/datum/outfit/admin/ert/iac)
+		if("Admin")
+			outfit_catagories["NanoTrasen"] = typesof(/datum/outfit/admin/nt)
+			outfit_catagories["Antagonist"] = typesof(/datum/outfit/admin/syndicate)
+			outfit_catagories["Ceres Lance"] = typesof(/datum/outfit/admin/lance)
+			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/tcfl)
+			outfit_catagories["Killers"] = typesof(/datum/outfit/admin/killer)
+			outfit_catagories["Job"] = subtypesof(/datum/outfit/job)
+			outfit_catagories["Miscellaneous"] = typesof(/datum/outfit/admin/random)
+			outfit_catagories["Miscellaneous"] += /datum/outfit/admin/random_employee
 
-	if(dostrip)
-		for (var/obj/item/I in M)
-			if (istype(I, /obj/item/implant))
+	var/chosen_catagory = input("Select an outfit catagory.", "Robust Quick-dress Shop") as null|anything in outfit_catagories
+	if(isnull(chosen_catagory))
+		return
+
+	var/list/outfit_types = list()
+	for(var/outfit in outfit_catagories[chosen_catagory])
+		var/datum/outfit/admin/A = new outfit
+		outfit_types[A.name] = A
+
+	var/chosen_outfit = input("Select an outfit.", "Robust Quick-dress Shop") as null|anything in outfit_types
+	if(isnull(chosen_outfit))
+		return
+
+	feedback_add_details("admin_verb","SEQ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc
+
+	var/datum/outfit/O = outfit_types[chosen_outfit]
+	if(O)
+		for(var/obj/item/I in M)
+			if(istype(I, /obj/item/implant))
 				continue
 			M.drop_from_inventory(I)
 			if(I.loc != M)
 				qdel(I)
-
-	switch(dresscode)
-		if("strip")
-			//do nothing
-
-		if("as job...")
-			var/datum/job/jobdatum
-			var/jobname = input("Select job", "Robust quick dress shop") as null|anything in get_all_jobs()
-			jobdatum = SSjobs.GetJob(jobname)
-			if(jobdatum)
-				dresscode = "[jobdatum.title]"
-				M.job = jobdatum.title
-				jobdatum.equip(M)
-
-		if("emergency response team")
-			ert.equip(M)
-
-		else
-			var/datum/outfit/O = choices[dresscode]
-			if(O)
-				M.preEquipOutfit(O,FALSE)
-				M.equipOutfit(O,FALSE)
+		M.preEquipOutfit(O, FALSE)
+		M.equipOutfit(O, FALSE)
 
 	M.regenerate_icons()
 
-	log_admin("[key_name(usr)] changed the equipment of [key_name(M)] to [dresscode].",admin_key=key_name(usr),ckey=key_name(M))
-	message_admins("<span class='notice'>[key_name_admin(usr)] changed the equipment of [key_name_admin(M)] to [dresscode]..</span>", 1)
+	log_admin("[key_name(usr)] changed the equipment of [key_name(M)] to [chosen_outfit].",admin_key=key_name(usr),ckey=key_name(M))
+	message_admins("<span class='notice'>[key_name_admin(usr)] changed the equipment of [key_name_admin(M)] to [chosen_outfit].</span>", 1)
 	return
 
 /client/proc/startSinglo()

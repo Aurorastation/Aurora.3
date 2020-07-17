@@ -112,12 +112,12 @@
 /obj/effect/step_trigger/teleporter/random/Trigger(var/atom/movable/A)
 	if(teleport_x && teleport_y && teleport_z)
 		if(teleport_x_offset && teleport_y_offset && teleport_z_offset)
-			if(ismob(A))
+			if(isliving(A))
 				var/mob/M = A
 				M.visible_message(FONT_LARGE(SPAN_WARNING("\The [A] blinks out of reality!")), FONT_LARGE(SPAN_WARNING("You feel your stomach churn as you slip into bluespace!")))
 			A.x = rand(teleport_x, teleport_x_offset)
 			A.y = rand(teleport_y, teleport_y_offset)
 			A.z = rand(teleport_z, teleport_z_offset)
-			if(ismob(A))
+			if(isliving(A))
 				var/mob/M = A
 				M.visible_message(FONT_LARGE(SPAN_WARNING("\The [A] blinks into reality!")), FONT_LARGE(SPAN_WARNING("You feel your stomach turn as you get thrown out of bluespace!")))

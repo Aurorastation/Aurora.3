@@ -22,6 +22,12 @@
 	// Look and feel
 	name = "drone"
 	real_name = "drone"
+	desc_info = "Drones are player-controlled synthetics which are lawed to maintain the station and not \
+	interact with anyone else, except for other drones.  They hold a wide array of tools to build, repair, maintain, and clean. \
+	They fuction similarly to other synthetics, in that they require recharging regularly, have laws, and are resilient to many hazards, \
+	such as fire, radiation, vacuum, and more.  Ghosts can join the round as a maintenance drone by using the appropriate verb in the 'ghost' tab. \
+	An inactive drone can be rebooted by swiping an ID card on it with engineering or robotics access, and an active drone can be shut down in the same manner."
+	desc_antag = "An Electromagnetic Sequencer can be used to subvert the drone to your cause."
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "repairbot"
 	braintype = "Robot"
@@ -285,7 +291,7 @@
 	to_chat(src, "<b>Obey these laws:</b>")
 	laws.show_laws(src)
 	to_chat(src, SPAN_DANGER("ALERT: [user] is your new master. Obey your new laws and their commands."))
-	to_chat(src, span("notice", "You have acquired new radio frequency."))
+	to_chat(src, SPAN_NOTICE("You have acquired new radio frequency."))
 	remove_language(LANGUAGE_ROBOT)
 	add_language(LANGUAGE_ROBOT, TRUE)
 

@@ -224,7 +224,7 @@
 	var/atom/movable/I = new gift_type(get_turf(user))
 	user.remove_from_mob(src)
 	user.put_in_hands(I)
-	to_chat(user, span("notice", "You open the gift, revealing your new [I.name]! Just what you always wanted!"))
+	to_chat(user, SPAN_NOTICE("You open the gift, revealing your new [I.name]! Just what you always wanted!"))
 	qdel(src)
 	return
 
@@ -294,7 +294,7 @@
 	user.remove_from_mob(src)
 	if (!user.put_in_hands(I))
 		user.forceMove(get_turf(src))
-	to_chat(user, span("notice", "You open the gift, revealing your new [I.name]! Just what you always wanted!"))
+	to_chat(user, SPAN_NOTICE("You open the gift, revealing your new [I.name]! Just what you always wanted!"))
 	qdel(src)
 	return
 
@@ -309,7 +309,6 @@
 		/obj/random/backpack,
 		/obj/item/inflatable_duck,
 		/obj/item/beach_ball,
-		/obj/item/clothing/under/redcoat,
 		/obj/item/clothing/under/syndicate/tracksuit,
 		/obj/item/clothing/under/rank/clown,
 		/obj/item/clothing/under/mime,
@@ -339,6 +338,6 @@
 	var/atom/movable/I = new gift_type(get_turf(user))
 	user.remove_from_mob(src)
 	user.put_in_hands(I)
-	to_chat(user, span("notice", "You open the gift, revealing your new [I.name]! Just what you always wanted!"))
+	to_chat(user, SPAN_NOTICE("You open the gift, revealing your new [I.name]! Just what you always wanted!"))
 	qdel(src)
 	return

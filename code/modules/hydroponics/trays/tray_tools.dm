@@ -3,8 +3,22 @@
 /obj/item/wirecutters/clippers
 	name = "plant clippers"
 	desc = "A tool used to take samples from plants."
+	icon_state = "plantclippers"
+	item_state = "plantclippers"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
+		)
 	toolspeed = 0.7
 	bomb_defusal_chance = 40 // 40% chance to successfully defuse a bomb, higher than standard because plant clippers are smaller
+	build_from_parts = FALSE
+
+/obj/item/wirecutters/clippers/update_icon()
+	var/matrix/tf = matrix()
+	if(istype(loc, /obj/item/storage))
+		tf.Turn(-90) //Vertical for storing compactly
+		tf.Translate(-1,0) //Could do this with pixel_x but let's just update the appearance once.
+	transform = tf
 
 /obj/item/device/analyzer/plant_analyzer
 	name = "plant analyzer"
@@ -99,7 +113,7 @@
 
 		dat += "<br>This sample contains: "
 		for(var/datum/reagent/R in grown_reagents.reagent_list)
-			dat += "<br>- [R.id], [grown_reagents.get_reagent_amount(R.id)] unit(s)"
+			dat += "<br>- [R.name], [grown_reagents.get_reagent_amount(R.type)] unit(s)"
 
 	dat += "<h2>Other Data</h2>"
 

@@ -233,6 +233,7 @@
 	..()
 	if(color)
 		set_light(1.5,1.5,color)
+		filters = filter(type="drop_shadow", color = color + "F0", size = 2, offset = 1, x = 0, y = 0)
 
 /obj/item/clothing/ears/skrell/goop/Initialize()
 	. = ..()

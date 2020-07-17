@@ -49,7 +49,7 @@
 
 		if (istype(W,/obj/item/clothing/mask/smokable/cigarette))
 			var/obj/item/clothing/mask/smokable/cigarette/cig = W
-			if (cig.lit == 1)
+			if (cig.lit == TRUE)
 				src.visible_message("[user] crushes [cig] in \the [src], putting it out.")
 				playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 				STOP_PROCESSING(SSprocessing, cig)
@@ -59,7 +59,7 @@
 				W = butt
 				//spawn(1)
 				//	TemperatureAct(150)
-			else if (cig.lit == 0)
+			else if (cig.lit == FALSE)
 				to_chat(user, "You place [cig] in [src] without even smoking it. Why would you do that?")
 
 		src.visible_message("[user] places [W] in [src].")

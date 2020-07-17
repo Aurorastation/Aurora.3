@@ -4,6 +4,7 @@
 	name = "exosuit hardpoint system"
 	icon = 'icons/mecha/mech_equipment.dmi'
 	icon_state = ""
+	var/on_mech_icon_state
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_PLASTIC = 5000, MATERIAL_OSMIUM = 500)
 	force = 10
 	var/restricted_hardpoints
@@ -87,6 +88,10 @@
 		if(!icon_state)
 			icon = holding.icon
 			icon_state = holding.icon_state
+		if(istype(holding, /obj/item/gun))
+			var/obj/item/gun/G = holding
+			G.has_safety = FALSE
+			G.safety_state = FALSE
 		desc = "[holding.desc] This one is suitable for installation on an exosuit."
 
 /obj/item/mecha_equipment/mounted_system/Destroy()

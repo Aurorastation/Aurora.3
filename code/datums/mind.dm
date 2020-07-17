@@ -382,7 +382,7 @@
 				if (istype(R))
 					R.emagged = 0
 					if (R.activated(R.module.emag))
-						R.module_active = null
+						R.set_module_active(null)
 					if(R.module_state_1 == R.module.emag)
 						R.module_state_1 = null
 						R.contents -= R.module.emag
@@ -401,7 +401,7 @@
 						R.emagged = 0
 						if (R.module)
 							if (R.activated(R.module.emag))
-								R.module_active = null
+								R.set_module_active(null)
 							if(R.module_state_1 == R.module.emag)
 								R.module_state_1 = null
 								R.contents -= R.module.emag

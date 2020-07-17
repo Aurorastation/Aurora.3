@@ -188,8 +188,6 @@
 /obj/machinery/smartfridge/secure/virology/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/glass/beaker/vial/))
 		return 1
-	if(istype(O,/obj/item/virusdish/))
-		return 1
 	return 0
 
 /obj/machinery/smartfridge/chemistry
@@ -361,7 +359,7 @@
 				item_quants[O.name]++
 			else
 				item_quants[O.name] = 1
-			user.visible_message("<span class='notice'>[user] has added \the [O] to \the [src].</span>", "<span class='notice'>You add \the [O] to \the [src].</span>")
+			user.visible_message("<b>[user]</b> adds \a [O] to \the [src].", "<span class='notice'>You add \the [O] to \the [src].</span>")
 
 			SSnanoui.update_uis(src)
 			return

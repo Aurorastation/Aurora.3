@@ -45,9 +45,9 @@
 
 	return the_reagent
 
-/datum/reagents/proc/get_reagent(var/id) // Returns reference to reagent matching passed ID
+/datum/reagents/proc/get_reagent(var/rtype) // Returns reference to reagent matching passed type
 	for(var/datum/reagent/A in reagent_list)
-		if (A.id == id)
+		if (A.type == rtype)
 			return A
 
 	return null
@@ -62,15 +62,15 @@
 
 	return the_name
 
-/datum/reagents/proc/get_master_reagent_id() // Returns the id of the reagent with the biggest volume.
-	var/the_id = null
+/datum/reagents/proc/get_master_reagent_type() // Returns the type of the reagent with the biggest volume.
+	var/the_type = null
 	var/the_volume = 0
 	for(var/datum/reagent/A in reagent_list)
 		if(A.volume > the_volume)
 			the_volume = A.volume
-			the_id = A.id
+			the_type = A.type
 
-	return the_id
+	return the_type
 
 /datum/reagents/proc/update_total() // Updates volume and temperature.
 
@@ -78,7 +78,7 @@
 
 	for(var/datum/reagent/R in reagent_list)
 		if(R.volume < MINIMUM_CHEMICAL_VOLUME)
-			del_reagent(R.id)
+			del_reagent(R.type)
 		else
 			total_volume += R.volume
 
@@ -114,7 +114,7 @@
 
 		//need to rebuild this to account for chain reactions
 		for(var/datum/reagent/R in reagent_list)
-			eligible_reactions |= SSchemistry.chemical_reactions[R.id]
+			eligible_reactions |= SSchemistry.chemical_reactions[R.type]
 
 		for(var/datum/chemical_reaction/C in eligible_reactions)
 			if(C.can_happen(src) && C.process(src))
@@ -137,7 +137,7 @@
 
 /* Holder-to-chemical */
 
-/datum/reagents/proc/add_reagent(var/id, var/amount, var/data = null, var/safety = 0, var/temperature = 0, var/thermal_energy = 0)
+/datum/reagents/proc/add_reagent(var/rtype, var/amount, var/data = null, var/safety = 0, var/temperature = 0, var/thermal_energy = 0)
 	if(!isnum(amount) || amount <= 0)
 		return 0
 
@@ -146,7 +146,7 @@
 	amount = min(amount, get_free_space())
 
 	for(var/datum/reagent/R in reagent_list)
-		if(R.id == id) //Existing reagent
+		if(R.type == rtype) //Existing reagent
 			R.volume += amount
 			if(thermal_energy > 0 && old_amount > 0)
 				R.add_thermal_energy(thermal_energy * (amount/old_amount) )
@@ -159,7 +159,7 @@
 			update_holder(!safety)
 			return 1
 
-	var/datum/reagent/D = SSchemistry.chemical_reagents[id] //New reagent
+	var/datum/reagent/D = SSchemistry.chemical_reagents[rtype] //New reagent
 	if(D)
 		var/datum/reagent/R = new D.type()
 		reagent_list += R
@@ -177,15 +177,15 @@
 		update_holder(!safety)
 		return 1
 	else
-		warning("[my_atom] attempted to add a reagent called '[id]' which doesn't exist. ([usr])")
+		warning("[my_atom] attempted to add a reagent called '[rtype]' which doesn't exist. ([usr])")
 	return 0
 
-/datum/reagents/proc/remove_reagent(var/id, var/amount, var/safety = 0)
+/datum/reagents/proc/remove_reagent(var/rtype, var/amount, var/safety = 0)
 	if(!isnum(amount))
 		return 0
 
 	for(var/datum/reagent/current in reagent_list)
-		if(current.id == id)
+		if(current.type == rtype)
 			amount = min(amount,current.volume)
 			var/old_volume = current.volume
 			current.volume -= amount
@@ -194,9 +194,9 @@
 			return 1
 	return 0
 
-/datum/reagents/proc/del_reagent(var/id)
+/datum/reagents/proc/del_reagent(var/rtype)
 	for(var/datum/reagent/current in reagent_list)
-		if (current.id == id)
+		if (current.type == rtype)
 			if(ismob(my_atom))
 				current.final_effect(my_atom)
 			reagent_list -= current
@@ -204,9 +204,9 @@
 			update_holder(FALSE)
 			return 0
 
-/datum/reagents/proc/has_reagent(var/id, var/amount = 0)
+/datum/reagents/proc/has_reagent(var/rtype, var/amount = 0)
 	for(var/datum/reagent/current in reagent_list)
-		if(current.id == id)
+		if(current.type == rtype)
 			if(current.volume >= amount)
 				return 1
 			else
@@ -215,8 +215,8 @@
 
 /datum/reagents/proc/has_any_reagent(var/list/check_reagents)
 	for(var/datum/reagent/current in reagent_list)
-		if(current.id in check_reagents)
-			if(current.volume >= check_reagents[current.id])
+		if(current.type in check_reagents)
+			if(current.volume >= check_reagents[current.type])
 				return 1
 			else
 				return 0
@@ -226,39 +226,39 @@
 	//this only works if check_reagents has no duplicate entries... hopefully okay since it expects an associative list
 	var/missing = check_reagents.len
 	for(var/datum/reagent/current in reagent_list)
-		if(current.id in check_reagents)
-			if(current.volume >= check_reagents[current.id])
+		if(current.type in check_reagents)
+			if(current.volume >= check_reagents[current.type])
 				missing--
 	return !missing
 
 /datum/reagents/proc/clear_reagents()
 	for(var/datum/reagent/current in reagent_list)
-		del_reagent(current.id)
+		del_reagent(current.type)
 	return
 
-/datum/reagents/proc/get_reagent_amount(var/id)
+/datum/reagents/proc/get_reagent_amount(var/rtype)
 	for(var/datum/reagent/current in reagent_list)
-		if(current.id == id)
+		if(current.type == rtype)
 			return current.volume
 	return 0
 
-/datum/reagents/proc/get_data(var/id)
+/datum/reagents/proc/get_data(var/rtype)
 	for(var/datum/reagent/current in reagent_list)
-		if(current.id == id)
+		if(current.type == rtype)
 			return current.get_data()
 	return 0
 
 /datum/reagents/proc/get_reagents()
 	. = list()
 	for(var/datum/reagent/current in reagent_list)
-		. += "[current.id] ([current.volume])"
+		. += "[current.name] ([current.volume])"
 	return english_list(., "EMPTY", "", ", ", ", ")
 
 /datum/reagents/proc/get_ids_by_phase(var/phase) // this proc will probably need to be changed if you can have one reagent in multiple states at the same time
 	. = list()
 	for(var/datum/reagent/current in reagent_list)
 		if(phase == current.reagent_state)
-			. += current.id
+			. += current.type
 
 /* Holder-to-holder and similar procs */
 
@@ -272,7 +272,7 @@
 
 	for(var/datum/reagent/current in reagent_list)
 		var/amount_to_remove = current.volume * part
-		remove_reagent(current.id, amount_to_remove, 1)
+		remove_reagent(current.type, amount_to_remove, 1)
 
 	update_holder()
 	return amount
@@ -295,9 +295,9 @@
 	for(var/datum/reagent/current in reagent_list)
 		var/amount_to_transfer = current.volume * part
 		var/energy_to_transfer = current.get_thermal_energy() * (amount_to_transfer / current.volume)
-		target.add_reagent(current.id, amount_to_transfer * multiplier, current.get_data(), TRUE, thermal_energy = energy_to_transfer * multiplier) // We don't react until everything is in place
+		target.add_reagent(current.type, amount_to_transfer * multiplier, current.get_data(), TRUE, thermal_energy = energy_to_transfer * multiplier) // We don't react until everything is in place
 		if(!copy)
-			remove_reagent(current.id, amount_to_transfer, TRUE)
+			remove_reagent(current.type, amount_to_transfer, TRUE)
 
 	if(!copy)
 		update_holder()
@@ -334,11 +334,11 @@
 
 	trans_to(target, amount, multiplier, copy)
 
-/datum/reagents/proc/trans_id_to(var/target, var/id, var/amount = 1)
+/datum/reagents/proc/trans_type_to(var/target, var/rtype, var/amount = 1)
 	if (!target)
 		return
 
-	var/datum/reagent/transfering_reagent = get_reagent(id)
+	var/datum/reagent/transfering_reagent = get_reagent(rtype)
 
 	if (istype(target, /atom))
 		var/atom/A = target
@@ -352,10 +352,10 @@
 
 
 	var/datum/reagents/F = new /datum/reagents(amount)
-	var/tmpdata = get_data(id)
+	var/tmpdata = get_data(rtype)
 	var/transfering_thermal_energy = transfering_reagent.get_thermal_energy() * (amount/transfering_reagent.volume)
-	F.add_reagent(id, amount, tmpdata, thermal_energy = transfering_thermal_energy)
-	remove_reagent(id, amount)
+	F.add_reagent(rtype, amount, tmpdata, thermal_energy = transfering_thermal_energy)
+	remove_reagent(rtype, amount)
 
 
 	if (istype(target, /atom))
@@ -363,15 +363,15 @@
 	else if (istype(target, /datum/reagents))
 		return F.trans_to_holder(target, amount)
 
-/datum/reagents/proc/trans_ids_to(var/target, var/list/ids, var/amount = 1) // amount is distributed equally over all reagents
+/datum/reagents/proc/trans_ids_to(var/target, var/list/rtypes, var/amount = 1) // amount is distributed equally over all reagents
 	if(!target)
 		return
-	if(!LAZYLEN(ids)) // it's always going to be defined but, you know, good practice and all
+	if(!LAZYLEN(rtypes)) // it's always going to be defined but, you know, good practice and all
 		return
-	var/amounteach = amount / ids.len
+	var/amounteach = amount / rtypes.len
 	. = 0
-	for(var/id in ids)
-		. += src.trans_id_to(target, id, amounteach)
+	for(var/rtype in rtypes)
+		. += src.trans_type_to(target, rtype, amounteach)
 
 // When applying reagents to an atom externally, touch() is called to trigger any on-touch effects of the reagent.
 // This does not handle transferring reagents to things.
@@ -393,11 +393,11 @@
 	if(temperature >= REAGENTS_BURNING_TEMP_HIGH)
 		var/burn_damage = Clamp(total_volume*(temperature - REAGENTS_BURNING_TEMP_HIGH)*REAGENTS_BURNING_TEMP_HIGH_DAMAGE,0,REAGENTS_BURNING_TEMP_HIGH_DAMAGE_CAP)
 		target.adjustFireLoss(burn_damage)
-		target.visible_message(span("danger","The hot liquid burns \the [target]!"))
+		target.visible_message(SPAN_DANGER("The hot liquid burns \the [target]!"))
 	else if(temperature <= REAGENTS_BURNING_TEMP_LOW)
 		var/burn_damage = Clamp(total_volume*(REAGENTS_BURNING_TEMP_LOW - temperature)*REAGENTS_BURNING_TEMP_LOW_DAMAGE,0,REAGENTS_BURNING_TEMP_LOW_DAMAGE_CAP)
 		target.adjustFireLoss(burn_damage)
-		target.visible_message(span("danger","The freezing liquid burns \the [target]!"))
+		target.visible_message(SPAN_DANGER("The freezing liquid burns \the [target]!"))
 
 	for(var/datum/reagent/current in reagent_list)
 		current.touch_mob(target, current.volume)
@@ -556,4 +556,7 @@
 /* Atom reagent creation - use it all the time */
 
 /atom/proc/create_reagents(var/max_vol)
-	reagents = new/datum/reagents(max_vol, src)
+	if(reagents)
+		reagents.maximum_volume = max(reagents.maximum_volume, max_vol)
+	else
+		reagents = new/datum/reagents(max_vol, src)

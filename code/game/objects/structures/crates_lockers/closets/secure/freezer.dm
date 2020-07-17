@@ -20,7 +20,7 @@
 		for(var/i = 0, i < 2, i++)
 			new /obj/item/reagent_containers/food/condiment/flour(src)
 		new /obj/item/reagent_containers/food/condiment/sugar(src)
-		new /obj/item/reagent_containers/food/condiment/spacespice(src)
+		new /obj/item/reagent_containers/food/condiment/shaker/spacespice(src)
 
 /obj/structure/closet/secure_closet/freezer/kitchen/mining
 	req_access = list()

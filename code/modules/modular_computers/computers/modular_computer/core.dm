@@ -52,7 +52,7 @@
 /obj/item/modular_computer/proc/get_preset_programs(preset_type)
 	for(var/datum/modular_computer_app_presets/prs in ntnet_global.available_software_presets)
 		if(prs.type == preset_type)
-			return prs.return_install_programs()
+			return prs.return_install_programs(src)
 
 // Used to perform preset-specific hardware changes.
 /obj/item/modular_computer/proc/install_default_hardware()
@@ -64,6 +64,7 @@
 		var/programs = get_preset_programs(_app_preset_type)
 		for(var/datum/computer_file/program/prog in programs)
 			if(!prog.is_supported_by_hardware(hardware_flag, FALSE))
+				qdel(prog)
 				continue
 			hard_drive.store_file(prog)
 

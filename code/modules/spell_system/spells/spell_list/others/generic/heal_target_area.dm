@@ -13,12 +13,14 @@
 
 	amt_dam_brute = -10
 	amt_dam_fire = -10
+	amt_organ = -2
 
 /spell/targeted/heal_target/area/empower_spell()
 	if(!..())
 		return 0
 	amt_dam_brute -= 5
 	amt_dam_fire -= 5
+	amt_organ -= 1
 	range += 2
 
 	return "[src] now heals more in a wider area."

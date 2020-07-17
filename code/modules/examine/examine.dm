@@ -10,6 +10,7 @@
 	var/desc_info = null //Helpful blue text.
 	var/desc_fluff = null //Green text about the atom's fluff, if any exists.
 	var/desc_antag = null //Malicious red text, for the antags.
+	var/description_cult = null // Spooky purple text, telling cultists how they can use certain items
 
 //Override these if you need special behaviour for a specific type.
 /atom/proc/get_desc_info()
@@ -36,14 +37,20 @@
 /mob/living/carbon/human/get_desc_fluff()
 	return print_flavor_text(0)
 
+/atom/proc/get_description_cult()
+	if(description_cult)
+		return description_cult
+	return
+
 /* The examine panel itself */
 
 /client/var/description_holders[0]
 
-/client/proc/update_description_holders(atom/A, update_antag_info=0)
+/client/proc/update_description_holders(atom/A, update_antag_info = FALSE, show_cult_info = FALSE)
 	description_holders["info"] = A.get_desc_info()
 	description_holders["fluff"] = A.get_desc_fluff()
 	description_holders["antag"] = (update_antag_info)? A.get_desc_antag() : ""
+	description_holders["cult"] = show_cult_info ? A.get_description_cult() : ""
 
 	description_holders["name"] = "[A.name]"
 	description_holders["icon"] = "\icon[A]"
@@ -60,6 +67,8 @@
 			stat(null,"<font color='#298A08'><b>[description_holders["fluff"]]</b></font>") //Yellow, fluff-related text.
 		if(description_holders["antag"])
 			stat(null,"<font color='#8A0808'><b>[description_holders["antag"]]</b></font>") //Red, malicious antag-related text
+		if(description_holders["cult"])
+			stat(null,"<font color='#9A0AAD'><b>[description_holders["cult"]]</b></font>") // Spooky purple text, telling cultists how they can use certain items
 
 //override examinate verb to update description holders when things are examined
 /mob/examinate(atom/A as mob|obj|turf in view())
@@ -69,6 +78,7 @@
 	if(!A)
 		return 0
 
-	var/is_antag = ((mind && mind.special_role) || isobserver(src)) //ghosts don't have minds
+	var/is_antag = mind?.special_role || isobserver(src) //ghosts don't have minds
+	var/is_cult = mind?.special_role == "Cultist" || isobserver(src)
 	if(client)
-		client.update_description_holders(A, is_antag)
+		client.update_description_holders(A, is_antag, is_cult)

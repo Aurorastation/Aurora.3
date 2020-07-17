@@ -15,7 +15,6 @@
 
 	outfit = /datum/outfit/admin/kataphract
 	possible_species = list("Unathi")
-	possible_genders = list(MALE, FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Kataphract-Hopeful"
@@ -132,6 +131,11 @@
 		H.w_uniform.color = uniform_colour
 	if(H?.shoes)
 		H.shoes.color = uniform_colour
+
+	var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
+	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
+	A.replaced(H, affected)
+	H.update_body()
 
 /datum/outfit/admin/kataphract/knight
 	name = "Kataphract Knight"

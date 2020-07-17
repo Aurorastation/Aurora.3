@@ -67,6 +67,8 @@
 	var/environment_smash = 0
 	var/resistance		  = 0	// Damage reduction
 
+	var/wizard_master
+
 	//Null rod stuff
 	var/supernatural = 0
 	var/purge = 0
@@ -108,7 +110,7 @@
 
 	var/has_udder = FALSE
 	var/datum/reagents/udder = null
-	var/milk_type = "milk"
+	var/milk_type = /datum/reagent/drink/milk
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 
@@ -376,11 +378,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 		if(I_HELP)
 			if (health > 0)
-				M.visible_message("<span class='notice'>[M] [response_help] \the [src]</span>")
+				M.visible_message("<span class='notice'>[M] [response_help] \the [src].</span>")
 				poke()
 
 		if(I_DISARM)
-			M.visible_message("<span class='notice'>[M] [response_disarm] \the [src]</span>")
+			M.visible_message("<span class='notice'>[M] [response_disarm] \the [src].</span>")
 			M.do_attack_animation(src)
 			poke(1)
 			//TODO: Push the mob away or something
@@ -431,7 +433,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				to_chat(user, "<span class='warning'>The [O] is full.</span>")
 				return
 			user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
-			udder.trans_id_to(G, milk_type , rand(5,10))
+			udder.trans_type_to(G, milk_type , rand(5,10))
 			return
 
 	if(istype(O, /obj/item/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/gripper/))
@@ -451,9 +453,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(O, brush) && canbrush) //Brushing animals
-		visible_message(span("notice", "[user] gently brushes [src] with \the [O]."))
+		visible_message(SPAN_NOTICE("[user] gently brushes [src] with \the [O]."))
 		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off.
-			visible_message(span("notice", "[src] [speak_emote.len ? pick(speak_emote) : "rumbles"].")) //purring
+			visible_message(SPAN_NOTICE("[src] [speak_emote.len ? pick(speak_emote) : "rumbles"].")) //purring
 		return
 	if(!O.force)
 		visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
@@ -571,7 +573,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return
 
 	if(usr && !sound_time)
-		to_chat(usr, span("warning", "Ability on cooldown 2 seconds."))
+		to_chat(usr, SPAN_WARNING("Ability on cooldown 2 seconds."))
 		return
 
 	playsound(src, pick(emote_sounds), 75, 1)
@@ -595,6 +597,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		make_noise(sound_chance)
 
 	..(message, null, verb)
+
+/mob/living/simple_animal/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, pick(speak), language, small, show_to, duration)
 
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb
@@ -681,7 +686,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	else
 		fall_asleep()
 
-	to_chat(src, span("notice","You are now [resting ? "resting" : "getting up"]"))
+	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]"))
 
 	update_icons()
 
@@ -726,13 +731,13 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			adjustFireLoss(rand(3, 5))
 
 /mob/living/simple_animal/get_digestion_product()
-	return "nutriment"
+	return /datum/reagent/nutriment
 
 /mob/living/simple_animal/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
 	..()
 	switch(get_bullet_impact_effect_type(def_zone))
 		if(BULLET_IMPACT_MEAT)
-			if(P.damtype == BRUTE)
+			if(P.damage_type == BRUTE)
 				var/hit_dir = get_dir(P.starting, src)
 				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
 				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
@@ -741,3 +746,12 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				var/matrix/M = new()
 				B.transform = M.Scale(scale)
 				B.update_icon()
+
+/mob/living/simple_animal/proc/spawn_into_wizard_familiar(var/mob/user)
+	if(src.ckey)
+		return
+	src.ckey = user.ckey
+	SSghostroles.remove_spawn_atom("wizard_familiar", src)
+	if(wizard_master)
+		add_spell(new /spell/contract/return_master(wizard_master), "const_spell_ready")
+	to_chat(src, "<B>You are [src], a familiar to [wizard_master]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>")

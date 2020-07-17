@@ -13,7 +13,7 @@
 
 /datum/gear/smoking/cigarcase
 	display_name = "cigar case"
-	path = /obj/item/storage/fancy/cigar
+	path = /obj/item/storage/fancy/cigarettes/cigar
 	cost = 2
 
 /datum/gear/smoking/cigarettes
@@ -21,6 +21,7 @@
 	description = "A selection of cigarette packets."
 	path = /obj/item/storage/fancy/cigarettes
 	cost = 2
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/smoking/cigarettes/New()
 	..()
@@ -30,6 +31,8 @@
 	cigarettes["DromedaryCo cigarette packet"] = /obj/item/storage/fancy/cigarettes/dromedaryco
 	cigarettes["Nico-Tine cigarette packet"] = /obj/item/storage/fancy/cigarettes/nicotine
 	cigarettes["Working Tajara cigarette packet"] = /obj/item/storage/fancy/cigarettes/pra
+	cigarettes["Shastar Leaves cigarette packet"] = /obj/item/storage/fancy/cigarettes/dpra
+	cigarettes["Royal Choice cigarette packet"] = /obj/item/storage/fancy/cigarettes/nka
 	gear_tweaks += new/datum/gear_tweak/path(cigarettes)
 
 /datum/gear/smoking/chew
@@ -37,6 +40,7 @@
 	description = "A selection of chewing tobacco."
 	path = /obj/item/storage/chewables/tobacco
 	cost = 2
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/smoking/chew/New()
 	..()
@@ -52,6 +56,7 @@
 	description = "A selection of tobacco leaves."
 	path = /obj/item/storage/chewables/rollable
 	cost = 2
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/smoking/leaves/New()
 	..()

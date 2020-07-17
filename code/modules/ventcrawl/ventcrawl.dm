@@ -32,7 +32,7 @@ var/global/list/can_enter_vent_with = list(
 
 /mob/living/carbon/slime/can_ventcrawl()
 	if(victim)
-		to_chat(src, span("warning", "You cannot ventcrawl while feeding."))
+		to_chat(src, SPAN_WARNING("You cannot ventcrawl while feeding."))
 		return FALSE
 	return TRUE
 

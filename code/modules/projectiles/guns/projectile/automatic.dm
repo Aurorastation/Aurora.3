@@ -17,9 +17,9 @@
 	sel_mode = 1
 
 	firemodes = list(
-		list(mode_name="semiauto",       can_autofire=0, burst=1, fire_delay=null, move_delay=null,     burst_accuracy=null,            dispersion=null),
-		list(mode_name="3-round bursts", can_autofire=0, burst=3, fire_delay=null, move_delay=null,    burst_accuracy=list(1,0,0),      dispersion=list(0, 10, 15)),
-		list(mode_name="short bursts",   can_autofire=0, burst=5, fire_delay=null, move_delay=null,    burst_accuracy=list(1,0,,-1,-1), dispersion=list(5, 10, 15, 20)),
+		list(mode_name="semiauto",       can_autofire=0, burst=1),
+		list(mode_name="3-round bursts", can_autofire=0, burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10, 15)),
+		list(mode_name="short bursts",   can_autofire=0, burst=5, burst_accuracy=list(1,0,,-1,-1), dispersion=list(5, 10, 15, 20)),
 		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
 		)
 
@@ -118,9 +118,9 @@
 	is_wieldable = TRUE
 
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay=10,   move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=null,    burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)),
-		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=null,    burst_accuracy=list(1,0,0,-1,-1), dispersion=list(5, 5, 15)),
+		list(mode_name="semiauto",       burst=1, fire_delay=10),
+		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)),
+		list(mode_name="short bursts",   burst=5, burst_accuracy=list(1,0,0,-1,-1), dispersion=list(5, 5, 15)),
 		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
@@ -202,9 +202,9 @@
 
 	burst_delay = 4
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1,    fire_delay=10,   move_delay=null, use_launcher=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3,    fire_delay=null, move_delay=null,    use_launcher=null, burst_accuracy=list(2,1,1), dispersion=list(0, 7.5)),
-		list(mode_name="fire grenades",  burst=null, fire_delay=null, move_delay=null, use_launcher=1,    burst_accuracy=null, dispersion=null)
+		list(mode_name="semiauto", burst=1, fire_delay=10),
+		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(2,1,1), dispersion=list(0, 7.5)),
+		list(mode_name="fire grenades", use_launcher=1)
 		)
 
 	var/use_launcher = 0
@@ -274,9 +274,9 @@
 	magazine_type = /obj/item/ammo_magazine/a762
 
 	firemodes = list(
-		list(mode_name="short bursts",	burst=5, move_delay=null, burst_accuracy = list(1,0,0,-1,-1),          dispersion = list(3, 6, 9)),
-		list(mode_name="long bursts",	burst=8, move_delay=null, burst_accuracy = list(1,0,0,-1,-1,-1,-2,-2), dispersion = list(8)),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
+		list(mode_name="short bursts",	burst=5, burst_accuracy = list(1,0,0,-1,-1), dispersion = list(3, 6, 9)),
+		list(mode_name="long bursts",	burst=8, burst_accuracy = list(1,0,0,-1,-1,-1,-2,-2), dispersion = list(8)),
+		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=1, one_hand_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
 		)
 
 	var/cover_open = 0
@@ -367,8 +367,8 @@
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 	firemodes = list(
-		list(mode_name="single coil", burst = 1, fire_delay = null,  move_delay = null, burst_accuracy = null, dispersion = null),
-		list(mode_name="dual coil",	  burst = 2, move_delay = 1, accuracy = list(-2,-3), dispersion = list(20))
+		list(mode_name="single coil", burst = 1),
+		list(mode_name="dual coil", burst = 2, move_delay = 1, accuracy = list(-2,-3), dispersion = list(20))
 		)
 
 
@@ -392,9 +392,9 @@
 	is_wieldable = TRUE
 
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, move_delay=null,    burst_accuracy=list(2,1,1),       dispersion=list(0, 10, 15)),
-		list(mode_name="short bursts",   burst=5, move_delay=null,    burst_accuracy=list(2,1,1,0,0), dispersion=list(5, 10, 15))
+		list(mode_name="semiauto", burst=1),
+		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(2,1,1), dispersion=list(0, 10, 15)),
+		list(mode_name="short bursts", burst=5, burst_accuracy=list(2,1,1,0,0), dispersion=list(5, 10, 15))
 		)
 
 
@@ -443,8 +443,8 @@
 	accuracy_wielded = 0
 
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay= 10,  move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=null,    burst_accuracy=list(0,-1,-1),       dispersion=list(0, 10, 15))
+		list(mode_name="semiauto", burst=1, fire_delay= 10),
+		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(0,-1,-1), dispersion=list(0, 10, 15))
 		)
 
 /obj/item/gun/projectile/automatic/rifle/shotgun/update_icon()

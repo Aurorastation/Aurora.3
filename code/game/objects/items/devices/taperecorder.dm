@@ -28,6 +28,8 @@
 
 /obj/item/device/taperecorder/Destroy()
 	listening_objects -= src
+	if(portable_drive)
+		QDEL_NULL(portable_drive)
 	return ..()
 
 /obj/item/device/taperecorder/hear_talk(mob/living/M, msg, var/verb = "says", datum/language/speaking = null)
@@ -233,11 +235,10 @@
 	P.name = "Transcript"
 	usr.put_in_hands(P)
 	can_print = FALSE
-	addtimer(CALLBACK(src, .proc/toggle_can_print), 300)
-	can_print = TRUE
+	addtimer(CALLBACK(src, .proc/set_can_print, 1), 150)
 
-/obj/item/device/taperecorder/proc/toggle_can_print()
-	can_print = !can_print
+/obj/item/device/taperecorder/proc/set_can_print(var/set_state = TRUE)
+	can_print = set_state
 
 /obj/item/device/taperecorder/verb/eject_usb()
 	set name = "Eject Portable Storage"
@@ -261,7 +262,8 @@
 		file_data += "[printed_message]<BR>"
 
 	F.stored_data = file_data
-	portable_drive.store_file(F)
+	if(!portable_drive.store_file(F))
+		to_chat(usr, SPAN_WARNING("\The [portable_drive] does not have enough space to store the latest transcript, but will eject anyway."))
 
 	to_chat(usr, SPAN_NOTICE("You eject the portable drive."))
 	usr.put_in_hands(portable_drive)

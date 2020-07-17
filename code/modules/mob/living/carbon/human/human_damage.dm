@@ -14,6 +14,8 @@
 		var/fire_dmg = getFireLoss()
 		if(fire_dmg > maxHealth * 3)
 			ChangeToSkeleton()
+			real_name = "Unknown"
+			name = real_name
 		else if(fire_dmg > maxHealth * 1.5)
 			ChangeToHusk()
 
@@ -353,8 +355,8 @@ This function restores the subjects blood to max.
 */
 /mob/living/carbon/human/proc/restore_blood()
 	if(!(species.flags & NO_BLOOD))
-		var/total_blood = vessel.get_reagent_amount("blood")
-		vessel.add_reagent("blood",560.0-total_blood)
+		var/total_blood = vessel.get_reagent_amount(/datum/reagent/blood)
+		vessel.add_reagent(/datum/reagent/blood,560.0-total_blood)
 
 
 /*
@@ -455,4 +457,4 @@ This function restores all organs.
 
 /mob/living/carbon/human/remove_blood_simple(var/blood)
 	if(should_have_organ(BP_HEART))
-		vessel.remove_reagent("blood", blood)
+		vessel.remove_reagent(/datum/reagent/blood, blood)

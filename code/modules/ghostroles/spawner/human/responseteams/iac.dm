@@ -2,7 +2,7 @@
 	name = "IAC Doctor"
 	short_name = "iacdoctor"
 	mob_name_prefix = "Dr. "
-	max_count = 2
+	max_count = 3
 	desc = "A highly trained doctor. Can do most medical procedures even under severe stress. The de-facto lead of the IAC response team."
 	welcome_message = "You are part of the Interstellar Aid Corps, an intergalactic entity set on aiding all in need."
 	outfit = /datum/outfit/admin/ert/iac
@@ -12,7 +12,7 @@
 	name = "IAC Bodyguard"
 	short_name = "iacbodyguard"
 	mob_name_prefix = "Bdg. "
-	max_count = 1
+	max_count = 2
 	desc = "A highly trained bodyguard. Sticks close to the medics while they work."
 	outfit = /datum/outfit/admin/ert/iac/bodyguard
 

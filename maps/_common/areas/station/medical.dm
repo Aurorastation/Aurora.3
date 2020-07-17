@@ -121,29 +121,16 @@
 	name = "Robotics"
 	icon_state = "medresearch"
 
-/area/medical/virology
-	name = "Medical - Virology"
-	icon_state = "virology"
-
-/area/medical/virologyaccess
-	name = "Medical - Virology Access"
-	icon_state = "virology"
-
-/area/medical/virologytesting
-	name = "Medical Sublevel - Virology Testing"
-	icon_state = "virology"
-
-/area/medical/quarantine
-	name = "Medical Sublevel - Quarantine Ward"
-	icon_state = "virology"
-
-/area/medical/quarantineaccess
-	name = "Medical Sublevel - Quarantine Access"
-	icon_state = "virology"
-
-/area/medical/quarantineautopsy
-	name = "Medical Sublevel - Quarantine Autopsy"
-	icon_state = "virology"
+/area/medical/abandoned
+	name = "Abandoned Sector"
+	icon_state = "green"
+	ambience = list(
+		'sound/ambience/ambimaint1.ogg',
+		'sound/ambience/ambimaint2.ogg',
+		'sound/ambience/ambimaint3.ogg',
+		'sound/ambience/ambimaint4.ogg',
+		'sound/ambience/ambimaint5.ogg'
+	)
 
 /area/medical/morgue
 	name = "Medical - Long-term Morgue"
@@ -216,4 +203,3 @@
 /area/medical/main_storage
 	name = "Medical - Main Storage"
 	icon_state = "exam_room"
-

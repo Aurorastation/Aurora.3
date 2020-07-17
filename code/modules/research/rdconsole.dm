@@ -702,7 +702,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "Chemical Storage<BR><HR>"
 			for(var/datum/reagent/R in linked_lathe.reagents.reagent_list)
 				dat += "Name: [R.name] | Units: [R.volume] "
-				dat += "<A href='?src=\ref[src];disposeP=[R.id]'>(Purge)</A><BR>"
+				dat += "<A href='?src=\ref[src];disposeP=[R.type]'>(Purge)</A><BR>"
 				dat += "<A href='?src=\ref[src];disposeallP=1'><U>Disposal All Chemicals in Storage</U></A><BR>"
 
 		if(3.4) // Protolathe queue
@@ -759,7 +759,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "Chemical Storage<BR><HR>"
 			for(var/datum/reagent/R in linked_imprinter.reagents.reagent_list)
 				dat += "Name: [R.name] | Units: [R.volume] "
-				dat += "<A href='?src=\ref[src];disposeI=[R.id]'>(Purge)</A><BR>"
+				dat += "<A href='?src=\ref[src];disposeI=[R.type]'>(Purge)</A><BR>"
 				dat += "<A href='?src=\ref[src];disposeallI=1'><U>Disposal All Chemicals in Storage</U></A><BR>"
 
 		if(4.3)
@@ -807,12 +807,12 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	onclose(user, "rdconsole")
 
 /obj/machinery/computer/rdconsole/robotics
-	name = "Robotics R&D Console"
+	name = "robotics R&D console"
 	id = 2
 	req_access = list(access_robotics)
 	allow_analyzer = FALSE
 	allow_lathe = FALSE
 
 /obj/machinery/computer/rdconsole/core
-	name = "Core R&D Console"
+	name = "core R&D console"
 	id = 1

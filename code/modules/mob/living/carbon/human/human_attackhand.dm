@@ -100,9 +100,6 @@
 
 			return
 
-	if(istype(M,/mob/living/carbon))
-		M.spread_disease_to(src, "Contact")
-
 	var/datum/martial_art/attacker_style = H.martial_art
 
 	switch(M.a_intent)
@@ -123,7 +120,7 @@
 				H.visible_message("<span class='notice'>\The [H] performs CPR on \the [src]!</span>")
 
 				if(is_asystole())
-					if(prob(5 * rand(0.5, 1)))
+					if(prob(5 * rand(2, 3)))
 						var/obj/item/organ/external/chest = get_organ(BP_CHEST)
 						if(chest)
 							chest.fracture()
@@ -341,7 +338,7 @@
 
 
 			if(M.resting && src.help_up_offer)
-				M.visible_message(span("warning", "[M] slaps away [src]'s hand!"))
+				M.visible_message(SPAN_WARNING("[M] slaps away [src]'s hand!"))
 				src.help_up_offer = 0
 
 		if(I_DISARM)

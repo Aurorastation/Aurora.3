@@ -55,7 +55,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/boukha = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/brandy = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/grenadine = 5,
-		/obj/item/reagent_containers/food/drinks/bottle/tequilla = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/tequila = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/rum = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/cognac = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/cremeyvette = 4,
@@ -116,6 +116,7 @@
 	random_itemcount = 0
 	vending_sound = "machines/vending/vending_cans.ogg"
 	light_color = COLOR_PALE_BLUE_GRAY
+	exclusive_screen = FALSE
 
 
 /obj/machinery/vending/assist
@@ -356,7 +357,7 @@
 	)
 	premium = list(
 		/obj/item/flame/lighter/zippo = 4,
-		/obj/item/storage/fancy/cigar = 5
+		/obj/item/storage/fancy/cigarettes/cigar = 5
 	)
 	prices = list(
 		/obj/item/storage/fancy/cigarettes/rugged = 67,
@@ -401,7 +402,7 @@
 		/obj/item/reagent_containers/glass/beaker = 4,
 		/obj/item/reagent_containers/dropper = 2,
 		/obj/item/stack/medical/bruise_pack = 5,
-		/obj/item/stack/medical/ointment = 5,		
+		/obj/item/stack/medical/ointment = 5,
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
 		/obj/item/stack/medical/advanced/ointment = 3,
 		/obj/item/stack/medical/splint = 2,
@@ -418,7 +419,7 @@
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
 	temperature_setting = -1
-	light_color = COLOR_GREEN_GRAY
+	light_color = LIGHT_COLOR_GREEN
 
 
 //This one's from bay12
@@ -454,7 +455,7 @@
 	desc = "A wall-mounted version of the NanoMed."
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
 	icon_state = "wallmed"
-	deny_time = 14
+	deny_time = 15
 	req_access = list(access_medical)
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
@@ -467,7 +468,6 @@
 	)
 	contraband = list(
 		/obj/item/reagent_containers/syringe/dylovene = 4,
-		/obj/item/reagent_containers/syringe/antiviral = 4,
 		/obj/item/reagent_containers/pill/tox = 1
 	)
 	premium = list(
@@ -475,14 +475,14 @@
 	)
 	random_itemcount = 0
 	temperature_setting = -1
-	light_color = COLOR_GREEN_GRAY
+	light_color = LIGHT_COLOR_GREEN
 
 
 /obj/machinery/vending/wallmed2
 	name = "NanoMed"
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	icon_state = "wallmed"
-	deny_time = 14
+	deny_time = 15
 	req_access = list(access_medical)
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
@@ -501,7 +501,7 @@
 	)
 	random_itemcount = 0
 	temperature_setting = -1
-	light_color = COLOR_GREEN_GRAY
+	light_color = LIGHT_COLOR_GREEN
 
 
 /obj/machinery/vending/security
@@ -536,6 +536,7 @@
 	restock_items = 1
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
+	exclusive_screen = FALSE
 
 
 /obj/machinery/vending/hydronutrients
@@ -1033,6 +1034,7 @@
 	vend_id = "battlemonsters"
 	products = list(
 		/obj/item/book/manual/wiki/battlemonsters = 10,
+		/obj/item/battle_monsters/wrapped/basic = 5,
 		/obj/item/battle_monsters/wrapped = 10,
 		/obj/item/battle_monsters/wrapped/pro = 10,
 		/obj/item/battle_monsters/wrapped/species = 4, //Human monsters
