@@ -321,29 +321,23 @@
 /obj/machinery/power/port_gen/pacman/attack_ai(mob/user)
 	ui_interact(user)
 
-VUEUI_MONITOR_VARS(/obj/machinery/power/port_gen/pacman, pacmanmonitor)
-	watch_var("active", "active")
-	watch_var("power_output", "output_set")
-	watch_var("max_power_output", "output_max")
-	watch_var("max_safe_output", "output_safe")
-	watch_var("temperature", "temperature_current")
-	watch_var("max_temperature", "temperature_max")
-	watch_var("overheating", "temperature_overheat")
-
 /obj/machinery/power/port_gen/pacman/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	var/monitordata = ..()
-	if(monitordata)
-		. = data = monitordata
+	if(!data)
+		. = data = list()
+
+	data["active"] = active
+	data["output_set"] = power_output
+	data["output_max"] = max_power_output
+	data["output_safe"] = max_safe_output
+	data["temperature_current"] = temperature
+	data["temperature_max"] = max_temperature
+	data["temperature_overheat"] = overheating
 
 	var/datum/gas_mixture/environment = loc.return_air()
-	VUEUI_SET_CHECK(data["temperature_min"], Floor(environment.temperature - T0C), ., data)
+	data["temperature_min"] = Floor(environment.temperature - T0C)
 	data["output_min"] = initial(power_output)
-	VUEUI_SET_CHECK(data["is_broken"], IsBroken(), ., data)
-
-	var/is_ai = FALSE
-	if(isAI(user) || (isrobot(user) && !Adjacent(user)))
-		is_ai = TRUE
-	VUEUI_SET_CHECK(data["is_ai"], is_ai, ., data)
+	data["is_broken"] = IsBroken()
+	data["is_ai"] = (isAI(user) || (isrobot(user) && !Adjacent(user)))
 
 	var/list/fuel = list(
 		"fuel_stored" = round((sheets * 1000) + (sheet_left * 1000)),
@@ -353,9 +347,10 @@ VUEUI_MONITOR_VARS(/obj/machinery/power/port_gen/pacman, pacmanmonitor)
 		)
 
 	LAZYINITLIST(data["fuel"])
-	VUEUI_SET_CHECK_LIST(data["fuel"], fuel, ., data)
+	data["fuel"] = fuel
+	data["output_watts"] = power_output * power_gen
 
-	VUEUI_SET_CHECK(data["output_watts"], power_output * power_gen, ., data)
+	return data
 
 /obj/machinery/power/port_gen/pacman/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
@@ -388,15 +383,6 @@ VUEUI_MONITOR_VARS(/obj/machinery/power/port_gen/pacman, pacmanmonitor)
 				power_output++
 		SSvueui.check_uis_for_change(src)
 
-VUEUI_MONITOR_VARS(/obj/machinery/power/port_gen/pacman/super, superpacmanmonitor)
-	watch_var("active", "active")
-	watch_var("power_output", "output_set")
-	watch_var("max_power_output", "output_max")
-	watch_var("max_safe_output", "output_safe")
-	watch_var("temperature", "temperature_current")
-	watch_var("max_temperature", "temperature_max")
-	watch_var("overheating", "temperature_overheat")
-
 /obj/machinery/power/port_gen/pacman/super
 	name = "S.U.P.E.R.P.A.C.M.A.N.-type Portable Generator"
 	desc = "A power generator that utilizes uranium sheets as fuel. Can run for much longer than the standard PACMAN type generators. Rated for 80 kW max safe output."
@@ -423,15 +409,6 @@ VUEUI_MONITOR_VARS(/obj/machinery/power/port_gen/pacman/super, superpacmanmonito
 
 	explosion(loc, 3, 3, 5, 3)
 	qdel(src)
-
-VUEUI_MONITOR_VARS(/obj/machinery/power/port_gen/pacman/mrs, mrspacmanmonitor)
-	watch_var("active", "active")
-	watch_var("power_output", "output_set")
-	watch_var("max_power_output", "output_max")
-	watch_var("max_safe_output", "output_safe")
-	watch_var("temperature", "temperature_current")
-	watch_var("max_temperature", "temperature_max")
-	watch_var("overheating", "temperature_overheat")
 
 /obj/machinery/power/port_gen/pacman/mrs
 	name = "M.R.S.P.A.C.M.A.N.-type Portable Generator"
