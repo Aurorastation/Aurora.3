@@ -1,6 +1,6 @@
 /obj/machinery/computer/prisoner
 	name = "prisoner management console"
-	desc = "A console that can be used to track tracking implants, and deliver the activation signal to chemical implants."
+	desc = "A console that can be used to track tracking implants, and deliver an activation signal to chemical implants."
 	icon_screen = "explosive"
 	light_color = LIGHT_COLOR_ORANGE
 	req_access = list(access_armory)
