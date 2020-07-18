@@ -346,6 +346,21 @@
 	icon_state = "charcoal_suit"
 	item_state = "bl_suit"
 	worn_state = "charcoal_suit"
+	
+/obj/item/clothing/under/suit_jacket/alt
+	name = "female executive suit"
+	desc = "A formal trouser suit for women, intended for the station's finest."
+	icon_state = "black_suit_fem"
+	item_state_slots = list(slot_r_hand_str = "lawyer_black", slot_l_hand_str = "lawyer_black")
+	worn_state = "black_suit_fem"
+
+/obj/item/clothing/under/suit_jacket/alt/skirt
+	name = "executive skirt"
+	desc = "A formal suit skirt for women, intended for the station's finest."
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+	icon_state = "black_formal_skirt"
+	item_state = "black_formal_skirt"
+	worn_state = "black_formal_skirt"
 
 /obj/item/clothing/under/suit_jacket/navy
 	name = "navy suit"
