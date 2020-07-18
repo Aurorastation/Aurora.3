@@ -35,4 +35,5 @@
 	..()
 	var/earrings = list()
 	earrings["stud earrings"] = /obj/item/clothing/ears/earring/stud
-	earrings["dangle earrings"] = /obj/item/clothing/ears/earring/dangle/
+	earrings["dangle earrings"] = /obj/item/clothing/ears/earring/dangle
+	gear_tweaks += new/datum/gear_tweak/path(earrings)
