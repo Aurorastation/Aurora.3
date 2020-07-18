@@ -57,7 +57,7 @@
 		return TRUE
 	return FALSE
 
-/datum/bounty/item/engineer/phoron_tank/
+/datum/bounty/item/engineer/phoron_tank
 	name = "Full Tank of Phoron"
 	description = "Another station has requested supplies to test a new engine. In particular, they request a full tank of phoron. Please don't send a whole canister; they'll get... ideas."
 	reward_low = 22
@@ -136,8 +136,17 @@
 	/datum/bounty/item/engineer/bookcase
 	name = "Bookcases"
 	description = "We're showing some love to one of the libraries on the %DOCKSHORT. A bonus will be paid to any station who has some skilled engineers build some for us."
-	reward_low = 65
-	reward_high = 75
+	reward_low = 60
+	reward_high = 70
 	required_count = 4
 	random_count = 1
 	wanted_types = list(/obj/structure/bookcase)
+
+/datum/bounty/item/engineer/generator
+	name = "Portable Generators"
+	description = "Another station reported some engine troubles, and needs a few portable generators to maintain critical operations. Ship any type of P.A.C.M.A.N. generators to receive a bonus."
+	reward_low = 50
+	reward_high = 62
+	required_count = 2
+	random_count = 1
+	wanted_types = list(/obj/machinery/power/port_gen/pacman)

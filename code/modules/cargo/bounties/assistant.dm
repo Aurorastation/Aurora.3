@@ -163,3 +163,13 @@
 	if(S && S.reagents.get_reagent_amount(/datum/reagent/spacecleaner) >= 200)
 		return TRUE
 	return FALSE
+
+//Can't wait to see people have fun with THIS one.
+/datum/bounty/item/assistant/photograph
+	name = "Photographs"
+	description = "The %DOCKNAME is holding a morale project, and part of that is to display photographs from the various stations. Send us some for a participation bonus!"
+	reward_low = 15
+	reward_high = 25
+	required_count = 8
+	random_count = 2
+	wanted_types = list(/obj/item/photo)

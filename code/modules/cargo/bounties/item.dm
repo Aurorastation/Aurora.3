@@ -35,6 +35,6 @@
 		return
 	shipped_count += 1
 
-/datum/bounty/item/compatible_with(datum/other_bounty)
+/datum/bounty/item/compatible_with(var/datum/other_bounty)
 	return type != other_bounty.type
 

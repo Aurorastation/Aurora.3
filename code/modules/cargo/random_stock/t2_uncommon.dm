@@ -330,7 +330,7 @@ STOCK_ITEM_UNCOMMON(randomhide, 0.5)
 	var/obj/item/stack/material/animalhide/spawn_hide = pick(typesof(/obj/item/stack/material/animalhide))
 	new spawn_hide(L, rand(5, 50))
 
-STOCK_ITEM_UNCOMMON(hoodie, 0.5)
+STOCK_ITEM_UNCOMMON(hoodie, 1)
 	new /obj/random/hoodie(L)
 
 STOCK_ITEM_UNCOMMON(bang, 0.5)
@@ -377,7 +377,21 @@ STOCK_ITEM_UNCOMMON(pops, 0.5)
 		new /obj/item/storage/box/snappops/syndi(L)
 
 STOCK_ITEM_UNCOMMON(collectable_headwear, 0.5)
-	var/type = pick(subtypesof(/obj/item/clothing/head/collectable/))
+	var/type = pick(subtypesof(/obj/item/clothing/head/collectable))
+	new type(L)
+
+STOCK_ITEM_UNCOMMON(pickaxes, 1)
+	var/list/pickaxe_type = list(
+		/obj/item/pickaxe = 10,
+		/obj/item/pickaxe/hammer = 1,
+		/obj/item/pickaxe/silver = 2,
+		/obj/item/pickaxe/drill = 5,
+		/obj/item/pickaxe/gold = 0.5,
+		/obj/item/pickaxe/diamond = 0.25,
+		/obj/item/pickaxe/brush = 1,
+		/obj/item/pickaxe/hand = 2
+		)
+	var/type = pickweight(pickaxe_type)
 	new type(L)
 
 STOCK_ITEM_UNCOMMON(alt_glasses, 1)

@@ -47,7 +47,7 @@
 
 // When randomly generating the bounty list, duplicate bounties must be avoided.
 // This proc is used to determine if two bounties are duplicates, or incompatible in general.
-/datum/bounty/proc/compatible_with(other_bounty)
+/datum/bounty/proc/compatible_with(var/datum/other_bounty)
 	return TRUE
 
 /datum/bounty/proc/mark_high_priority(scale_reward = 2)
@@ -99,12 +99,10 @@
 // Returns FALSE if the bounty is incompatible with the current bounties.
 /datum/controller/subsystem/cargo/proc/try_add_bounty(datum/bounty/new_bounty)
 	if(!new_bounty || !new_bounty.name || !new_bounty.description)
-		log_debug("Unable to add due to lack of new_bounty, name, or description")
 		return FALSE
 	for(var/i in bounties_list)
 		var/datum/bounty/B = i
 		if(!B.compatible_with(new_bounty) || !new_bounty.compatible_with(B))
-			log_debug("[B.name] is not compatible with [new_bounty.name] or other way around")
 			return FALSE
 	bounties_list += new_bounty
 	return TRUE
@@ -118,7 +116,7 @@
 			var/subtype = pick(subtypesof(/datum/bounty/item/assistant))
 			return new subtype
 		if(2)
-			var/subtype = pick(subtypesof(/datum/bounty/item/assistant))
+			var/subtype = pick(subtypesof(/datum/bounty/item/engineer))
 			return new subtype
 		if(3)
 			var/subtype = pick(subtypesof(/datum/bounty/item/chef))
@@ -136,7 +134,7 @@
 			var/subtype = pick(subtypesof(/datum/bounty/item/science))
 			return new subtype
 		if(8)
-			var/subtype = pick(subtypesof(/datum/bounty/item/slime))
+			var/subtype = pick(subtypesof(/datum/bounty/item/hydroponicist))
 			return new subtype
 		if(9)
 			var/subtype = pick(subtypesof(/datum/bounty/item/bot))

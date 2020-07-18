@@ -6,7 +6,7 @@
 	"We're holding an office party and need some drink variety.",
 	"We're holding a mixing competition, and you'll receive a bonus for competing.",
 	"One of our agents has had a hard day and need to unwind so badly they're willing to put up for a bounty.",
-	"We're doing a public taste test for a PR campaign.",
+	"We need some drinks for a PR campaign setup.",
 	"One of our bartenders is having trouble getting inspired, and wants to see a different drink.")
 
 /datum/bounty/reagent/completion_string()
@@ -49,8 +49,8 @@
 		/datum/reagent/alcohol/ethanol/coffee/b52,
 		/datum/reagent/alcohol/ethanol/bananahonk,
 		/datum/reagent/alcohol/ethanol/bilk,
-		/datum/reagent/alcohol/ethanol/black_russian,
-		/datum/reagent/alcohol/ethanol/bloody_mary,
+		/datum/reagent/alcohol/ethanol/blackrussian,
+		/datum/reagent/alcohol/ethanol/bloodymary,
 		/datum/reagent/alcohol/ethanol/martini,
 		/datum/reagent/alcohol/ethanol/cubalibre,
 		/datum/reagent/alcohol/ethanol/erikasurprise,
@@ -61,7 +61,7 @@
 		/datum/reagent/alcohol/ethanol/irishcarbomb,
 		/datum/reagent/alcohol/ethanol/manhattan,
 		/datum/reagent/alcohol/ethanol/margarita,
-		/datum/reagent/alcohol/ethanol/gargle_blaster,
+		/datum/reagent/alcohol/ethanol/gargleblaster,
 		/datum/reagent/alcohol/ethanol/screwdrivercocktail,
 		/datum/reagent/alcohol/ethanol/cobaltvelvet,
 		/datum/reagent/alcohol/ethanol/snowwhite,
@@ -101,11 +101,12 @@
 /datum/bounty/reagent/complex_drink/New()
 	..()
 	// Don't worry about making this comprehensive. It doesn't matter if some drinks are skipped.
-	var/list/possible_reagents = list(/datum/reagent/alcohol/ethanol/hooch,
+	var/list/possible_reagents = list(
+		/datum/reagent/alcohol/ethanol/hooch,
 		/datum/reagent/alcohol/ethanol/atomicbomb,
 		/datum/reagent/alcohol/ethanol/beepsky_smash,
 		/datum/reagent/alcohol/ethanol/booger,
-		/datum/reagent/alcohol/ethanol/hippies_delight,
+		/datum/reagent/alcohol/ethanol/hippiesdelight,
 		/datum/reagent/alcohol/ethanol/goldschlager,
 		/datum/reagent/alcohol/ethanol/manhattan_proj,
 		/datum/reagent/alcohol/ethanol/neurotoxin,
@@ -137,7 +138,7 @@
 /datum/bounty/reagent/chemical/New()
 	..()
 	// Don't worry about making this comprehensive. It doesn't matter if some chems are skipped.
-	var/list/possible_reagents = list(/datum/reagent/nutriment/honey,
+	var/list/possible_reagents = list(
 		/datum/reagent/leporazine,
 		/datum/reagent/clonexadone,
 		/datum/reagent/space_drugs,
@@ -148,11 +149,11 @@
 		/datum/reagent/mental/escitalopram,
 		/datum/reagent/mental/risperidone,
 		/datum/reagent/rmt,
-		/datum/reagent/frostoil,
-		/datum/reagent/slimejelly,
+		/datum/reagent/tramadol,
 		/datum/reagent/oxycodone,
 		/datum/reagent/imidazoline,
 		/datum/reagent/peridaxon,
+		/datum/reagent/mannitol,
 		/datum/reagent/ipecac,
 		/datum/reagent/hyperzine,
 		/datum/reagent/calomel,

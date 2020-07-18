@@ -47,18 +47,37 @@
 
 /datum/bounty/item/science/borgbody
 	name = "Robot Endoskeleton"
-	description = "Due to a sudden spike accidents, management has decided to rely more on cyborgs. Ship us a fully assembled robot endoskeletons without a mmi/posibrain inside of it."
-	reward_low = 65
-	reward_high = 75
-	required_count = 2
+	description = "The %DOCKSHORT has decided to rely more on cyborgs for dangerous tasks. Ship us a fully assembled robot endoskeletons without a mmi/posibrain inside of it."
+	reward_low = 50
+	reward_high = 65
+	required_count = 1
 	wanted_types = list(/obj/item/robot_parts/robot_suit)
 
+/datum/bounty/item/science/borgbody/applies_to(obj/O)
+	if(!..())
+		return FALSE
+	if(!istype(O, /obj/item/robot_parts/robot_suit))
+		return FALSE
+	var/obj/item/robot_parts/robot_suit/RS = O
+	if(RS.check_completion())
+		return TRUE
+	return FALSE
+	
 /datum/bounty/item/science/forcegloves
 	name = "Force Gloves"
 	description = "%PERSONNAME has been challenged to a sparring duel in the holodeck. Ship them a pair of forcegloves so there can be a fair fight."
 	reward_low = 25
 	reward_high = 35
 	wanted_types = list(/obj/item/clothing/gloves/force)
+
+/datum/bounty/item/science/fossil
+	name = "Fossil"
+	description = "We want to set up a display in one of the libraries on the %DOCKSHORT. Ship us a unique discovery when you are done displaying it on-station."
+	reward_low = 75
+	reward_high = 85
+	required_count = 1
+	random_count = 1 //wants one or two
+	wanted_types = list(/obj/item/fossil, /obj/skeleton)
 
 /datum/bounty/item/science/circuitboard
 	name = "Telecomms Monitor Circuitboard"
@@ -102,9 +121,9 @@
 
 /datum/bounty/item/science/battery
 	name = "Heavy-Duty Power Cell"
-	description = "%COMPNAME has requested some power cells to fill their supply closet. Please charge them first."
-	reward_low = 20
-	reward_high = 25
+	description = "%COMPNAME has requested some power cells to fill their supply closet. Please fully charge them first."
+	reward_low = 35
+	reward_high = 45
 	required_count = 4
 	random_count = 1
 	wanted_types = list(/obj/item/cell/apc)
@@ -121,20 +140,20 @@
 
 /datum/bounty/item/science/battery/high
 	name = "High-Capacity power Cell"
-	reward_low = 30
-	reward_high = 35
+	reward_low = 45
+	reward_high = 50
 	wanted_types = list(/obj/item/cell/high)
 
 /datum/bounty/item/science/battery/super
 	name = "Super-Capacity power Cell"
-	reward_low = 40
-	reward_high = 45
+	reward_low = 45
+	reward_high = 50
 	required_count = 3
 	wanted_types = list(/obj/item/cell/super)
 
 /datum/bounty/item/science/battery/hyper
 	name = "Hyper-Capacity power Cell"
-	reward_low = 45
-	reward_high = 50
+	reward_low = 50
+	reward_high = 60
 	required_count = 3
 	wanted_types = list(/obj/item/cell/hyper)

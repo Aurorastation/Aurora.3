@@ -10,12 +10,12 @@
 
 /datum/bounty/item/hydroponicist/ert
 	name = "Rations"
-	description = "%BOSSSHORT is sending ERT out on a long mission. We need something for them to eat!"
+	description = "%BOSSSHORT is sending ERT out on a long mission. We need some long-lasting rations for them to eat!"
 	reward_low = 22
 	reward_high = 28
 	required_count = 6
 	random_count = 2
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/liquidfood, /obj/item/pen/crayon, /obj/item/storage/field_ration)
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/liquidfood, /obj/item/pen/crayon)
 
 /datum/bounty/item/hydroponicist/towels
 	name = "Towels"
@@ -56,50 +56,54 @@
 				/obj/item/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube,
 				/obj/item/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube)
 
-/datum/bounty/item/hydroponicist/random_produce
-	name = "Produce"
-	description = "%BOSSNAME is in need of a bundle of fresh produce for an upcoming luncheon. Send your best!"
+/datum/bounty/item/hydroponicist/produce
+	name = "Produce - Any"
+	description = "%BOSSNAME is in need of a bundle of fresh produce. Send your best!"
 	reward_low = 30
-	reward_high = 37
-	required_count = 12 
+	reward_high = 35
+	required_count = 18
 	random_count = 5
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/grown)
-	var/datum/seed/wanted_produce 
+	var/list/produce_picks = list(/datum/seed)
 
-/datum/bounty/item/hydroponicist/random_produce/New()
-	..()
-	var/list/produce_picks = list()
-	var/list/forbidden = list(/datum/seed/berry/poison, 
-				/datum/seed/nettle, 
-				/datum/seed/tomato, 
-				/datum/seed/realeggplant, 
-				/datum/seed/tomato, 
-				/datum/seed/koisspore,
-				/datum/seed/koisspore/black,
-				/datum/seed/mushroom/mold,
-				/datum/seed/mushroom/poison,
-				/datum/seed/mushroom/ghost,
-				/datum/seed/weeds,
-				/datum/seed/kudzu,
-				/datum/seed/diona,
-				/datum/seed/tobacco,
-				/datum/seed/flower)
-	for(var/datum/seed/S in subtypesof(/datum/seed))
-		if(locate(S) in forbidden)
-			continue
-		produce_picks += S
-	var/chosen = pick(produce_picks)
-	wanted_produce = new chosen
-	name = wanted_produce.seed_name
-
-/datum/bounty/item/hydroponicist/random_produce/applies_to(obj/O)
+/datum/bounty/item/hydroponicist/produce/applies_to(obj/O)
 	if(!istype(O, /obj/item/reagent_containers/food/snacks/grown))
 		return FALSE
 	var/obj/item/reagent_containers/food/snacks/grown/G = O
-	if(G.bitecount > 0)
+	if(G.bitecount > 0) //still not accepting partially-eaten food
 		return FALSE
-	if(G.seed == wanted_produce)
+	if(is_type_in_list(G.seed, produce_picks)) //check if it's a type we want.
 		return TRUE
-	else
-		world << "Unequal wants. produce seed is [G.seed] and wanted_produce is [wanted_produce]"
 	return FALSE
+
+/datum/bounty/item/hydroponicist/produce/fruit
+	name = "Produce - Fruit"
+	description = "%BOSSNAME is in need of a bundle of fresh fruit. Send your best!"
+	required_count = 12
+	random_count = 3
+	produce_picks = list(/datum/seed/tomato, 
+				/datum/seed/berry, 
+				/datum/seed/apple, 
+				/datum/seed/grapes,
+				/datum/seed/banana,
+				/datum/seed/watermelon,
+				/datum/seed/citrus,
+				/datum/seed/cherries,
+				/datum/seed/nifberries,
+				/datum/seed/dyn,
+				/datum/seed/wulumunusha,
+				/datum/seed/sugartree)
+
+/datum/bounty/item/hydroponicist/produce/mushroom
+	name = "Produce - Mushrooms"
+	description = "%BOSSNAME is in need of some fresh mushrooms. Send your best!"
+	required_count = 15
+	random_count = 3
+	produce_picks = list(/datum/seed/mushroom)
+
+/datum/bounty/item/hydroponicist/produce/tobacco
+	name = "Produce - Tobacco"
+	description = "%BOSSNAME is in need of some fresh tobacco leaves. Send your best!"
+	required_count = 10
+	random_count = 2
+	produce_picks = list(/datum/seed/tobacco)

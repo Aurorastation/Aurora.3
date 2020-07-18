@@ -1,0 +1,12 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added new cargo bounties."
+  - rscadd: "Adjusted cargo bounties. Reward amounts are semi-randomized, as is the number of required items for some bounties. The types of bounties that appear are more randomized."
+  - tweak: "Altered some bounty descriptions."
+  - tweak: "Any food that has bites taken out of it will no longer count for the related bounty."
+  - tweak: "More types of pies, muffins, and kabobs should now count for their respective bounties."
+  - tweak: "Further adjusted cargo warehouse spawns."
+  
