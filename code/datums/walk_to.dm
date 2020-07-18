@@ -40,11 +40,12 @@ var/static/list/walking_list = list()
 		return
 
 	if (timeout > 0 && previous_location == get_turf(source))
-		if (last_time_stuck && world.time >= last_time_stuck + timeout)
+		if (last_time_stuck && (world.time >= last_time_stuck + timeout))
 			timeout()
 			return
-		else
+		else if (!last_time_stuck)
 			last_time_stuck = world.time
+
 	else if(timeout > 0)
 		last_time_stuck = world.time
 
@@ -61,7 +62,6 @@ var/static/list/walking_list = list()
 	notify(FALSE)
 	stop()
 	QDEL_NULL(src)
-
 
 // Proc that is used for walk_to_custom, similar to `walk_to`. Returns reference to walking object if you want to stop it.
 // Calling it on already walking object will restart walking.

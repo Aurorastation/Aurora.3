@@ -192,7 +192,7 @@
 			post_signal(control_freq, cmd, "bot_status", s_filter = RADIO_MULEBOT)
 		
 		if("summon")
-			post_signal(control_freq, cmd, "summon", "active", active, "target", get_turf(PDA) , s_filter = RADIO_MULEBOT)
+			post_signal(control_freq, cmd, "summon", "active", active, "target", PDA, s_filter = RADIO_MULEBOT)
 			post_signal(control_freq, cmd, "bot_status", "active", active, s_filter = RADIO_MULEBOT)
 
 

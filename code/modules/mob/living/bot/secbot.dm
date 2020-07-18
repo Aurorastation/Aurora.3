@@ -41,7 +41,7 @@
 	var/next_destination = "__nearest__"	// This is the next beacon's ID
 	var/nearest_beacon				// Tag of the beakon that we assume to be the closest one
 
-	var/bot_version = 1.4
+	var/bot_version = 2.4
 	var/list/threat_found_sounds = list(
 		'sound/voice/bcriminal.ogg',
 		'sound/voice/bjustice.ogg',

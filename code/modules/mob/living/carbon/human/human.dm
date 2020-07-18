@@ -410,7 +410,8 @@
 	..()
 	if(istype(AM, /obj/machinery/bot/mulebot))
 		var/obj/machinery/bot/mulebot/MB = AM
-		MB.RunOver(src)
+		if (!MB.wires.MobAvoid())
+			MB.RunOver(src)
 
 	if(istype(AM, /obj/vehicle))
 		var/obj/vehicle/V = AM

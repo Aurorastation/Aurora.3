@@ -268,6 +268,7 @@
 #include "code\datums\records.dm"
 #include "code\datums\server_greeting.dm"
 #include "code\datums\statistic.dm"
+#include "code\datums\walk_to.dm"
 #include "code\datums\weakref.dm"
 #include "code\datums\brain_damage\brain_trauma.dm"
 #include "code\datums\brain_damage\imaginary_friend.dm"

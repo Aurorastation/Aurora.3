@@ -374,10 +374,10 @@
 			if(QC.active && !isnull(QC.botstatus))
 				var/area/loca = QC.botstatus["loca"]
 				var/loca_name = sanitize(loca.name)
-				muleData["botstatus"] =  list("loca" = loca_name, "mode" = QC.botstatus["mode"],"home"=QC.botstatus["home"],"powr" = QC.botstatus["powr"],"retn" =QC.botstatus["retn"], "pick"=QC.botstatus["pick"], "load" = QC.botstatus["load"], "dest" = sanitize(QC.botstatus["dest"]))
+				muleData["botstatus"] =  list("loca" = loca_name, "mode" = QC.botstatus["mode"], "modestat" = QC.botstatus["modestat"],"home"=QC.botstatus["home"],"powr" = QC.botstatus["powr"],"retn" =QC.botstatus["retn"], "pick"=QC.botstatus["pick"], "load" = QC.botstatus["load"], "dest" = sanitize(QC.botstatus["dest"]))
 
 			else
-				muleData["botstatus"] = list("loca" = null, "mode" = -1,"home"=null,"powr" = null,"retn" =null, "pick"=null, "load" = null, "dest" = null)
+				muleData["botstatus"] = list("loca" = null, "mode" = -1, "modestat" = "nothing","home"=null,"powr" = null,"retn" =null, "pick"=null, "load" = null, "dest" = null)
 
 
 			var/mulebotsCount=0
@@ -393,7 +393,7 @@
 			muleData["count"] = mulebotsCount
 
 		else
-			muleData["botstatus"] =  list("loca" = null, "mode" = -1,"home"=null,"powr" = null,"retn" =null, "pick"=null, "load" = null, "dest" = null)
+			muleData["botstatus"] =  list("loca" = null, "mode" = -1, "modestat" = "nothing", "home"=null,"powr" = null,"retn" =null, "pick"=null, "load" = null, "dest" = null)
 			muleData["active"] = 0
 			mulebotsData[++mulebotsData.len] = list("Name" = "No bots found", "Location" = "Invalid", "ref"= null)
 			muleData["bots"] = mulebotsData

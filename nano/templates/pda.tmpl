@@ -849,23 +849,7 @@ Used In File(s): \code\game\objects\items\devices\PDA\PDA.dm
                         <span class="good">Mode:</span>
                     </div>
                     <div class="itemContent">
-                        <span class="average">
-                            {{if data.records.mulebot.botstatus.mode ==0}}
-                                Ready
-                            {{else data.records.mulebot.botstatus.mode == 1}}
-                                Loading/Unloading
-                            {{else data.records.mulebot.botstatus.mode ==2}}
-                                Navigating to Delivery Location
-                            {{else data.records.mulebot.botstatus.mode == 3}}
-                                Navigating to Home
-                            {{else data.records.mulebot.botstatus.mode ==4}}
-                                Waiting for Clear Path
-                            {{else data.records.mulebot.botstatus.mode ==5 || data.records.mulebot.botstatus.mode == 6}}
-                                Calculating navigation Path
-                            {{else data.records.mulebot.botstatus.mode ==7}}
-                                Unable to locate destination
-                            {{/if}}
-                        </span>
+                        <span class="average">{{:data.records.mulebot.botstatus.modestat}}</span>
                     </div>
                 </div>
                 <div class="item">
