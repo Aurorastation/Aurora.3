@@ -180,7 +180,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/storage/box/gloves                             = TRADER_THIS_TYPE,
 		/obj/item/storage/box/cdeathalarm_kit                    = TRADER_THIS_TYPE,
 		/obj/item/storage/box/beakers                            = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/glass/bottle/norepinephrine = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/stoxin         = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/chloralhydrate = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/antitoxin      = TRADER_THIS_TYPE,
