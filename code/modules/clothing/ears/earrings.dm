@@ -1,4 +1,9 @@
 
+/obj/item/clothing/ears/earring
+    name = "earring"
+    desc = "An earring of some kind."
+    icon = 'icons/obj/clothing/ears.dmi'
+
 /obj/item/clothing/ears/earring/stud
 	name = "stud earrings"
 	desc = "A pair of small stud earrings."
