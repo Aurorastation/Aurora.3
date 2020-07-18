@@ -78,7 +78,7 @@
 	icon_state = "judge"
 	item_state = "judge"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	allowed = list(/obj/item/storage/fancy/cigarettes,/obj/item/spacecash)
+	allowed = list(/obj/item/storage/box/fancy/cigarettes,/obj/item/spacecash)
 	flags_inv = HIDEJUMPSUIT
 
 /obj/item/clothing/suit/wcoat
@@ -314,7 +314,7 @@
 	item_state = "mgreen"
 	icon_open = "mgreen_open"
 	icon_closed = "mgreen"
-	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask)
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan
 	icon_state = "mtan"
@@ -443,7 +443,7 @@
 	item_state = "trackjacket"
 	icon_open = "trackjacket_open"
 	icon_closed = "trackjacket"
-	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/fancy/cigarettes, /obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask)
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/cigarettes, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
 	contained_sprite = 1
 
 /obj/item/clothing/suit/storage/toggle/track/blue
@@ -489,7 +489,7 @@
 	item_state = "varsity"
 	icon_open = "varsity_open"
 	icon_closed = "varsity"
-	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask)
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
 
 /obj/item/clothing/suit/storage/toggle/varsity/red
 	name = "red varsity jacket"

@@ -59,16 +59,17 @@ var/global/list/frozen_crew = list()
 	if(!(ROUND_IS_STARTED))
 		return
 
-	dat += "<hr/><br/><b>[storage_name]</b><br/>"
-	dat += "<i>Welcome, [user.real_name].</i><br/><br/><hr/>"
-	dat += "<a href='?src=\ref[src];log=1'>View Storage Log</a>.<br>"
+	dat += "<hr><b>[storage_name]</b><br>"
+	dat += "<i>Welcome, [user.real_name].</i><br><hr><br>"
+	dat += "<a href='?src=\ref[src];log=1'>View Storage Log</a><br>"
 	if(allow_items)
-		dat += "<a href='?src=\ref[src];view=1'>View Objects</a>.<br>"
-		dat += "<a href='?src=\ref[src];item=1'>Recover Object</a>.<br>"
-		dat += "<a href='?src=\ref[src];allitems=1'>Recover All Objects</a>.<br>"
+		dat += "<a href='?src=\ref[src];view=1'>View Objects</a><br>"
+		dat += "<a href='?src=\ref[src];item=1'>Recover Object</a><br>"
+		dat += "<a href='?src=\ref[src];allitems=1'>Recover All Objects</a><br>"
 
-	user << browse(dat, "window=cryopod_console")
-	onclose(user, "cryopod_console")
+	var/datum/browser/cryocon_win = new(user, "cryopod_console", "Cryogenic Oversight Console")
+	cryocon_win.set_content(dat)
+	cryocon_win.open()
 
 /obj/machinery/computer/cryopod/Topic(href, href_list)
 	if(..())
@@ -82,12 +83,14 @@ var/global/list/frozen_crew = list()
 		if(!length(frozen_crew))
 			to_chat(user, SPAN_WARNING("Nothing has been stored recently."))
 			return
-		var/dat = "<center><b>Recently Stored [storage_type]</b></center><br/><hr/>"
+		var/dat = "<center><b>Recently Stored [storage_type]</b></center><hr>"
 		for(var/person in frozen_crew)
-			dat += " - [person]<br/>"
-		dat += "<hr/>"
+			dat += " - [person]<br>"
+		dat += "<hr>"
 
-		user << browse(dat, "window=cryolog")
+		var/datum/browser/cryolog_win = new(user, "cryolog", "Cryogenic Storage Log")
+		cryolog_win.set_content(dat)
+		cryolog_win.open()
 
 	if(href_list["view"])
 		if(!allow_items)
@@ -96,19 +99,21 @@ var/global/list/frozen_crew = list()
 			to_chat(user, SPAN_WARNING("There are no stored objects."))
 			return
 
-		var/dat = "<center><b>Recently Stored Objects</b></center><br/><hr/>"
+		var/dat = "<center><b>Recently Stored Objects</b></center><br><hr>"
 		for(var/obj/item/I in frozen_items)
-			dat += " - [I.name]<br/>"
-		dat += "<hr/>"
+			dat += " - [I.name]<br>"
+		dat += "<hr>"
 
-		user << browse(dat, "window=cryoitems")
+		var/datum/browser/cryoitems_win = new(user, "cryoitems", "Cryogenic Storage Log")
+		cryoitems_win.set_content(dat)
+		cryoitems_win.open()
 
 	else if(href_list["item"])
 		if(!allow_items)
 			return
 
 		if(frozen_items.len <= 0)
-			to_chat(user, SPAN_NOTICE("There is nothing to recover from storage."))
+			to_chat(user, SPAN_WARNING("There is nothing to recover from storage."))
 			return
 
 		var/obj/item/I = input(user, "Please choose which object to retrieve.", "Object recovery", null) as null|anything in frozen_items
@@ -116,12 +121,14 @@ var/global/list/frozen_crew = list()
 			return
 
 		if(!(I in frozen_items))
-			to_chat(user, SPAN_NOTICE("\The [I] is no longer in storage."))
+			to_chat(user, SPAN_WARNING("\The [I] is no longer in storage."))
 			return
 
 		visible_message(SPAN_NOTICE("The console beeps happily as it disgorges \the [I]."), range = 3)
 
 		I.forceMove(get_turf(src))
+		if(Adjacent(user))
+			user.put_in_hands(I)
 		frozen_items -= I
 		log_and_message_admins("has retrieved \an [I] from \the [src]", user, get_turf(src))
 
@@ -130,7 +137,7 @@ var/global/list/frozen_crew = list()
 			return
 
 		if(frozen_items.len <= 0)
-			to_chat(user, SPAN_NOTICE("There is nothing to recover from storage."))
+			to_chat(user, SPAN_WARNING("There is nothing to recover from storage."))
 			return
 
 		visible_message(SPAN_NOTICE("The console beeps happily as it disgorges the desired objects."), range = 3)

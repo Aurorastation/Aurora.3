@@ -3,14 +3,9 @@
 	set name = "Show Laws"
 	show_laws()
 
-/mob/living/silicon/robot/show_laws(var/everyone = 0)
+/mob/living/silicon/robot/show_laws()
 	laws_sanity_check()
-	var/who
 
-	if(everyone)
-		who = world // why god
-	else
-		who = src
 	if(law_update)
 		if(connected_ai)
 			if(connected_ai.stat || connected_ai.control_disabled)
@@ -26,18 +21,18 @@
 			to_chat(src, SPAN_WARNING("<b>No AI selected to sync laws with, disabling lawsync protocol.</b>"))
 			law_update = FALSE
 
-	to_chat(who, SPAN_WARNING("<b>Obey these laws:</b>"))
-	laws.show_laws(who)
-	to_chat(who, SPAN_WARNING("<b>(No law overrides any other law unless explicitly stated; laws refer to the stationbound unit and not the player)</b>"))
+	to_chat(src, SPAN_WARNING("<b>Obey these laws:</b>"))
+	laws.show_laws(src)
+	to_chat(src, SPAN_WARNING("<b>(No law overrides any other law unless explicitly stated; laws refer to the stationbound unit and not the player)</b>"))
 	// TODO: Update to new antagonist system.
 	if(mind && (mind.special_role == "traitor" && mind.original == src) && connected_ai)
-		to_chat(who, SPAN_NOTICE("<b>Remember, [connected_ai.name] is technically your master, but your objective comes first.</b>"))
+		to_chat(src, SPAN_NOTICE("<b>Remember, [connected_ai.name] is technically your master, but your objective comes first.</b>"))
 	else if(connected_ai)
-		to_chat(who, SPAN_NOTICE("<b>Remember, [connected_ai.name] is your master, other AIs can be ignored.</b>"))
+		to_chat(src, SPAN_NOTICE("<b>Remember, [connected_ai.name] is your master, other AIs can be ignored.</b>"))
 	else if(emagged)
-		to_chat(who, SPAN_NOTICE("<b>Remember, you are not required to listen to the AI.</b>"))
+		to_chat(src, SPAN_NOTICE("<b>Remember, you are not required to listen to the AI.</b>"))
 	else
-		to_chat(who, SPAN_NOTICE("<b>Remember, you are not bound to any AI, you are not required to listen to them.</b>"))
+		to_chat(src, SPAN_NOTICE("<b>Remember, you are not bound to any AI, you are not required to listen to them.</b>"))
 
 
 /mob/living/silicon/robot/lawsync()

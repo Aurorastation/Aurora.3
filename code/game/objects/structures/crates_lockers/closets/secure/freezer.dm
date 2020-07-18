@@ -55,7 +55,7 @@
 	for(var/i = 0, i < 2, i++)
 		new /obj/item/reagent_containers/food/drinks/soymilk(src)
 	for(var/i = 0, i < 2, i++)
-		new /obj/item/storage/fancy/egg_box(src)
+		new /obj/item/storage/box/fancy/egg_box(src)
 
 
 /obj/structure/closet/secure_closet/freezer/money
