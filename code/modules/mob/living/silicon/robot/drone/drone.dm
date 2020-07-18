@@ -180,7 +180,7 @@
 
 /mob/living/silicon/robot/drone/updateicon()
 	cut_overlays()
-	if(stat == CONSCIOUS)
+	if(stat == CONSCIOUS && isturf(loc))
 		if(!emagged)
 			add_overlay("eyes-[icon_state]")
 		else
