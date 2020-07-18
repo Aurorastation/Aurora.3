@@ -88,7 +88,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/storage/backpack/fluff              = TRADER_BLACKLIST_ALL, // Custom items, let's not
 		/obj/item/storage/belt/champion               = TRADER_THIS_TYPE,
 		/obj/item/storage/briefcase                   = TRADER_THIS_TYPE,
-		/obj/item/storage/fancy                       = TRADER_SUBTYPES_ONLY,
+		/obj/item/storage/box/fancy                       = TRADER_SUBTYPES_ONLY,
 		/obj/item/storage/laundry_basket              = TRADER_THIS_TYPE,
 		/obj/item/storage/secure/briefcase            = TRADER_THIS_TYPE,
 		/obj/item/storage/bag/plants                  = TRADER_THIS_TYPE,

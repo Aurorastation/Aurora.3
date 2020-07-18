@@ -362,6 +362,8 @@
 		user.prepare_for_slotmove(W)
 	W.forceMove(src)
 	W.on_enter_storage(src)
+	if(use_sound)
+		playsound(src.loc, src.use_sound, 50, 0, -5)
 	if(user)
 		W.dropped(user)
 		if(!istype(W, /obj/item/forensics))
@@ -408,8 +410,8 @@
 	if(!istype(W))
 		return FALSE
 
-	if(istype(src, /obj/item/storage/fancy))
-		var/obj/item/storage/fancy/F = src
+	if(istype(src, /obj/item/storage/box/fancy))
+		var/obj/item/storage/box/fancy/F = src
 		F.update_icon(TRUE)
 
 	for(var/mob/M in range(1, get_turf(src)))
@@ -472,7 +474,7 @@
 		user.s_active.show_to(user)
 
 	// who knows what the fuck this does
-	if (istype(src, /obj/item/storage/fancy))
+	if (istype(src, /obj/item/storage/box/fancy))
 		update_icon(1)
 	else
 		update_icon()
@@ -484,7 +486,6 @@
 		return
 
 	return handle_item_insertion(W, prevent_messages)
-
 
 /obj/item/storage/attackby(obj/item/W as obj, mob/user as mob)
 	..()
