@@ -740,7 +740,6 @@
 
 // called when bot bumps into anything
 /obj/machinery/bot/mulebot/Collide(var/atom/obs)
-	message_admins("called")
 	if(!wires.MobAvoid())		//usually just bumps, but if avoidance disabled knock over mobs
 		var/mob/M = obs
 		if(ismob(M))
@@ -754,7 +753,6 @@
 				M.lying = 1
 
 	if(on && botcard && istype(obs, /obj/machinery/door))
-		message_admins("trying to open")
 		var/obj/machinery/door/D = obs
 		if(!istype(D, /obj/machinery/door/firedoor) && !istype(D, /obj/machinery/door/blast) && D.check_access(botcard))
 			D.open()
