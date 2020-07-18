@@ -65,7 +65,7 @@
 		/datum/reagent/alcohol/ethanol/screwdrivercocktail,
 		/datum/reagent/alcohol/ethanol/cobaltvelvet,
 		/datum/reagent/alcohol/ethanol/snowwhite,
-		/datum/reagent/alcohol/ethanol/syndicatebomb,
+		/datum/reagent/alcohol/ethanol/gibsonhooch,
 		/datum/reagent/alcohol/ethanol/manly_dorf,
 		/datum/reagent/alcohol/ethanol/thirteenloko,
 		/datum/reagent/alcohol/ethanol/vodkamartini,
