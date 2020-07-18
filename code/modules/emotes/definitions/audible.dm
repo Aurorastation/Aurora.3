@@ -216,11 +216,11 @@
 	emote_message_3p_target = "USER hisses softly at TARGET."
 	emote_message_3p = "USER hisses softly."
 
-/decl/emote/audible/hiss/lizhiss
+/decl/emote/audible/hiss/long
 	key = "hiss2"
 	emote_sound = 'sound/voice/LizardHiss.ogg'
 
-/decl/emote/audible/hiss/lizhiss2
+/decl/emote/audible/hiss/short
 	key = "hiss3"
 	emote_sound = 'sound/voice/LizardHissShort.ogg'
 
