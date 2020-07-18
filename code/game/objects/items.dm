@@ -834,3 +834,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 //Override this for items that can be flame sources.
 /obj/item/proc/isFlameSource()
 	return FALSE
+
+/obj/item/proc/glasses_examine_atom(var/atom/A, var/user)
+	return
