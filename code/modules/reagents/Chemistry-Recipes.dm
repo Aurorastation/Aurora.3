@@ -482,7 +482,7 @@
 	name = "Diethylamine"
 	id = "diethylamine"
 	result = /datum/reagent/diethylamine
-	required_reagents = list (/datum/reagent/ammonia = 1, /datum/reagent/alcohol/ethanol = 1)
+	required_reagents = list(/datum/reagent/ammonia = 1, /datum/reagent/alcohol/ethanol = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/space_cleaner
@@ -2079,7 +2079,7 @@
 	result_amount = 6
 
 /datum/chemical_reaction/drink/beepsky_smash
-	name = "Beepksy Smash"
+	name = "Beepsky Smash"
 	id = "beepksysmash"
 	result = /datum/reagent/alcohol/ethanol/beepskysmash
 	required_reagents = list(/datum/reagent/drink/limejuice = 1, /datum/reagent/alcohol/ethanol/whiskey = 1, /datum/reagent/iron = 1)
@@ -2103,14 +2103,14 @@
 	name = "The Manly Dorf"
 	id = "manlydorf"
 	result = /datum/reagent/alcohol/ethanol/manly_dorf
-	required_reagents = list (/datum/reagent/alcohol/ethanol/beer = 1, /datum/reagent/alcohol/ethanol/ale = 2)
+	required_reagents = list(/datum/reagent/alcohol/ethanol/beer = 1, /datum/reagent/alcohol/ethanol/ale = 2)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/hooch
 	name = "Hooch"
 	id = "hooch"
 	result = /datum/reagent/alcohol/ethanol/hooch
-	required_reagents = list (/datum/reagent/sugar = 1, /datum/reagent/alcohol/ethanol/moonshine = 1, /datum/reagent/fuel = 1)
+	required_reagents = list(/datum/reagent/sugar = 1, /datum/reagent/alcohol/ethanol/moonshine = 1, /datum/reagent/fuel = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/irish_coffee

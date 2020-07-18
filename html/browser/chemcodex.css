@@ -1,0 +1,39 @@
+body {
+	background: #272727 url(uiBackground.png) 50% 0 repeat-x;
+	background-attachment: fixed;
+	padding: 5px 10px;
+	font-size: 80%;
+}
+
+.recipe-block {
+	background-color: rgba(56, 56, 56, 0.2);
+	border-bottom: 1px solid transparent;
+	padding: 10px 0;
+	transition: background-color 0.2s, color 0.2s; border-bottom 0.2s;
+}
+
+.recipe-block:hover {
+	background-color: rgba(27, 27, 27, 0.7);
+	color: #a1bfd6;
+	border-bottom: 1px solid #4f7c9e;
+}
+
+.list-block {
+	display: inline-block;
+	vertical-align: top;
+	padding-right: 20px;
+}
+
+.sub-text {
+	font-size: 80%;
+}
+
+h2,
+h3 {
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+p {
+	line-height: 50%;
+}

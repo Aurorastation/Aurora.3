@@ -169,6 +169,8 @@
 	pda =  /obj/item/device/pda/chemist
 	id = /obj/item/card/id/white
 
+	l_hand = /obj/item/chemistry_codex
+
 	backpack = /obj/item/storage/backpack/pharmacy
 	satchel = /obj/item/storage/backpack/satchel_pharm
 	dufflebag = /obj/item/storage/backpack/duffel/pharm
