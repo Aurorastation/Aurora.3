@@ -64,6 +64,7 @@
 	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
 	skirts["plaid skirt"] = /obj/item/clothing/under/skirt/plaid
 	skirts["pleated skirt"] = /obj/item/clothing/under/skirt/pleated
+	skirts["high skirt"] = /obj/item/clothing/under/skirt/high
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
 
 /datum/gear/uniform/suit
@@ -88,6 +89,8 @@
 	suits["shiny black suit"] = /obj/item/clothing/under/lawyer/black
 	suits["tan suit"] = /obj/item/clothing/under/suit_jacket/tan
 	suits["white suit"] = /obj/item/clothing/under/suit_jacket/white
+	suits["female executive suit"] = /obj/item/clothing/under/suit_jacket/alt
+	suits["executive skirt"] = /obj/item/clothing/under/suit_jacket/alt/skirt
 	gear_tweaks += new/datum/gear_tweak/path(suits)
 
 /datum/gear/uniform/scrubs
