@@ -41,3 +41,5 @@ changes:
   - tweak: "Adjusted 3 'borgo sprite lines, Treadhead, Treadmate, and the Recolored Droid lines to have more detail and more department color. Including better animations for the treads."
   - tweak: "Changed the names for afew sprites to better reflect Lore and give the sprite lines more grounding with permission from Niennab 'Synth Lore Dev'"
   - rscadd: "Added a new animation for the Zeng-Hu Droids 'RecoloredDroids' It's v. nice."
+  - tweak: "Added a new eye animation for all of the HD-MADs and adjusted their sprite to fit it."
+  - bugfix: "Fixed two Drone bugs, one by excluding them from the new intent system, and another by making their overlays check for them on local turf to apply their eyes to them."
