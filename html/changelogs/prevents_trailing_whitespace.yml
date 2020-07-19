@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Trailing whitespaces on chat messages is now removed, preventing messages occuring with several whitespaces and then the automatically added period."
