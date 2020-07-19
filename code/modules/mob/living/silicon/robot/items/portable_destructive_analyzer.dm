@@ -58,10 +58,10 @@
 	if(response == "Sync")
 		var/success = FALSE
 		for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
-			for(var/datum/tech/T in files.known_tech) //Uploading
+			for(var/id in files.known_tech) //Uploading
+				var/datum/tech/T = files.known_tech[id]
 				S.files.AddTech2Known(T)
-			for(var/datum/tech/T in S.files.known_tech) //Downloading
-				files.AddTech2Known(T)
+			files.known_tech = S.files.known_tech.Copy()
 			success = TRUE
 			files.RefreshResearch()
 		if(success)

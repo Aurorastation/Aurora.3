@@ -160,11 +160,9 @@
 
 /obj/machinery/r_n_d/protolathe/proc/addToQueue(var/datum/design/D)
 	queue += D
-	return
 
 /obj/machinery/r_n_d/protolathe/proc/removeFromQueue(var/index)
 	queue.Cut(index, index + 1)
-	return
 
 /obj/machinery/r_n_d/protolathe/proc/canBuild(var/datum/design/D)
 	for(var/M in D.materials)
