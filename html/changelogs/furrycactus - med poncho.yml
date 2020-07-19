@@ -38,4 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - tweak: "Changed the medical poncho and the medical winter coat to be green instead of blue. The light blue medical winter coat still exists, but was repurposed as an IAC winter coat."
+  - tweak: "Changed the medical winter coat to be white and green instead of blue. Repurposed the blue version into an IAC winter coat, with some small tweaks."
+  - tweak: "Changed the medical poncho to be white and green instead of white, green, and blue. Added a white and blue version as an IAC poncho."

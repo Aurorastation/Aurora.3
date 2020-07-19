@@ -124,6 +124,12 @@
 	item_state = "coatmedical"
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)
 
+/obj/item/clothing/suit/storage/hooded/wintercoat/iac
+	name = "IAC winter coat"
+	icon_state = "coatIAC"
+	item_state = "coatIAC"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)	
+
 /obj/item/clothing/suit/storage/hooded/wintercoat/science
 	name = "science winter coat"
 	icon_state = "coatscience"
