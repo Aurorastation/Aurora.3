@@ -110,6 +110,8 @@
 		return
 
 	else if(href_list["editrights"])
+		// TODO: FIX THIS
+
 		if(!check_rights(R_PERMISSIONS))
 			message_admins("[key_name_admin(usr)] attempted to edit the admin permissions without sufficient rights.")
 			log_admin("[key_name(usr)] attempted to edit the admin permissions without sufficient rights.",admin_key=key_name(usr))
