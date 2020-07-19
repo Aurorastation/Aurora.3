@@ -108,8 +108,8 @@
 	M.hallucination = max(M.hallucination, 100)
 	M.add_chemical_effect(CE_HALLUCINATE, 2)
 
-/datum/reagent/philopsybin
-	name = "philopsybin"
+/datum/reagent/psilocybin
+	name = "psilocybin"
 	description = "A strong psycotropic derived from certain species of mushroom."
 	color = "#E700E7"
 	overdose = REAGENTS_OVERDOSE
@@ -117,7 +117,7 @@
 	taste_description = "mushroom"
 	fallback_specific_heat = 1.2
 
-/datum/reagent/philopsybin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/psilocybin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return

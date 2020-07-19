@@ -881,7 +881,7 @@
 	reagent_data = list(/datum/reagent/nutriment = list("raw" = 2, "mushroom" = 2))
 	bitesize = 6
 
-	reagents_to_add = list(/datum/reagent/philopsybin = 3)
+	reagents_to_add = list(/datum/reagent/psilocybin = 3)
 
 /obj/item/reagent_containers/food/snacks/tomatomeat
 	name = "tomato slice"
@@ -1265,7 +1265,7 @@
 	reagents_to_add = list(/datum/reagent/nutriment = 5)
 	reagent_data = list(/datum/reagent/nutriment = list("sweetness" = 3, "mushroom" = 3, "pie" = 2))
 	bitesize = 3
-	reagents_to_add = list(/datum/reagent/toxin/amatoxin = 3, /datum/reagent/philopsybin = 1)
+	reagents_to_add = list(/datum/reagent/toxin/amatoxin = 3, /datum/reagent/psilocybin = 1)
 
 /obj/item/reagent_containers/food/snacks/plump_pie
 	name = "plump pie"
@@ -1575,7 +1575,7 @@
 	reagent_data = list(/datum/reagent/nutriment = list("mushroom" = 6))
 	bitesize = 3
 
-	reagents_to_add = list(/datum/reagent/philopsybin = 6)
+	reagents_to_add = list(/datum/reagent/psilocybin = 6)
 
 /obj/item/reagent_containers/food/snacks/amanitajelly
 	name = "amanita jelly"
@@ -1587,7 +1587,7 @@
 	reagents_to_add = list(/datum/reagent/nutriment = 6)
 	reagent_data = list(/datum/reagent/nutriment = list("jelly" = 3, "mushroom" = 3))
 	bitesize = 3
-	reagents_to_add = list(/datum/reagent/toxin/amatoxin = 6, /datum/reagent/philopsybin = 3)
+	reagents_to_add = list(/datum/reagent/toxin/amatoxin = 6, /datum/reagent/psilocybin = 3)
 
 /obj/item/reagent_containers/food/snacks/poppypretzel
 	name = "poppy pretzel"
@@ -1966,7 +1966,7 @@
 	reagent_data = list(/datum/reagent/nutriment = list("waffle" = 7, "sweetness" = 1))
 	bitesize = 4
 
-	reagents_to_add = list(/datum/reagent/philopsybin = 8)
+	reagents_to_add = list(/datum/reagent/psilocybin = 8)
 
 /obj/item/reagent_containers/food/snacks/stew
 	name = "stew"

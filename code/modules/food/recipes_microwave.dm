@@ -256,7 +256,7 @@
 
 
 /datum/recipe/spacylibertyduff
-	reagents = list(/datum/reagent/water = 5, /datum/reagent/alcohol/ethanol/vodka = 5, /datum/reagent/philopsybin = 5)
+	reagents = list(/datum/reagent/water = 5, /datum/reagent/alcohol/ethanol/vodka = 5, /datum/reagent/psilocybin = 5)
 	result = /obj/item/reagent_containers/food/snacks/spacylibertyduff
 
 /datum/recipe/amanitajelly
@@ -354,7 +354,7 @@
 	result = /obj/item/reagent_containers/food/snacks/soup/tomato
 
 /datum/recipe/rofflewaffles
-	reagents = list(/datum/reagent/philopsybin = 5, /datum/reagent/sugar = 10)
+	reagents = list(/datum/reagent/psilocybin = 5, /datum/reagent/sugar = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
 		/obj/item/reagent_containers/food/snacks/dough

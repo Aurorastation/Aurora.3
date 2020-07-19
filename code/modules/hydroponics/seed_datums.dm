@@ -482,7 +482,7 @@
 	seed_name = "reishi"
 	display_name = "reishi"
 	mutants = list("libertycap","glowshroom")
-	chems = list(/datum/reagent/nutriment = list(1,50), /datum/reagent/philopsybin = list(3,5))
+	chems = list(/datum/reagent/nutriment = list(1,50), /datum/reagent/psilocybin = list(3,5))
 
 /datum/seed/mushroom/hallucinogenic/setup_traits()
 	..()
@@ -516,7 +516,7 @@
 	seed_name = "fly amanita"
 	display_name = "fly amanita mushrooms"
 	mutants = list("destroyingangel","plastic","panocelium")
-	chems = list(/datum/reagent/nutriment = list(1), /datum/reagent/toxin/amatoxin = list(3,3), /datum/reagent/philopsybin = list(1,25))
+	chems = list(/datum/reagent/nutriment = list(1), /datum/reagent/toxin/amatoxin = list(3,3), /datum/reagent/psilocybin = list(1,25))
 
 /datum/seed/mushroom/poison/setup_traits()
 	..()
@@ -534,7 +534,7 @@
 	seed_name = "destroying angel"
 	display_name = "destroying angel mushrooms"
 	mutants = null
-	chems = list(/datum/reagent/nutriment = list(1,50), /datum/reagent/toxin/amatoxin = list(13,3), /datum/reagent/philopsybin = list(1,25))
+	chems = list(/datum/reagent/nutriment = list(1,50), /datum/reagent/toxin/amatoxin = list(13,3), /datum/reagent/psilocybin = list(1,25))
 
 /datum/seed/mushroom/poison/death/setup_traits()
 	..()
@@ -551,7 +551,7 @@
 	seed_name = "panocelium"
 	display_name = "panocelium mushrooms"
 	mutants = null
-	chems = list(/datum/reagent/nutriment = list(1,50), /datum/reagent/toxin/panotoxin = list(10,3), /datum/reagent/philopsybin = list(1,25))
+	chems = list(/datum/reagent/nutriment = list(1,50), /datum/reagent/toxin/panotoxin = list(10,3), /datum/reagent/psilocybin = list(1,25))
 
 /datum/seed/mushroom/poison/panocelium/setup_traits()
 	..()

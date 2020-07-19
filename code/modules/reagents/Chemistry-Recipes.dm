@@ -728,7 +728,7 @@
 	name = "Red Nightshade"
 	id = "berserk"
 	result = /datum/reagent/toxin/berserk
-	required_reagents = list(/datum/reagent/philopsybin = 1, /datum/reagent/alcohol/ethanol/moonshine = 1)
+	required_reagents = list(/datum/reagent/psilocybin = 1, /datum/reagent/alcohol/ethanol/moonshine = 1)
 	result_amount = 1
 
 /* Makeshift Chemicals and Drugs */
@@ -2454,7 +2454,7 @@
 	name = "Hippies Delight"
 	id = "hippiesdelight"
 	result = /datum/reagent/alcohol/ethanol/hippiesdelight
-	required_reagents = list(/datum/reagent/philopsybin = 1, /datum/reagent/alcohol/ethanol/gargleblaster = 1)
+	required_reagents = list(/datum/reagent/psilocybin = 1, /datum/reagent/alcohol/ethanol/gargleblaster = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/drink/bananahonk

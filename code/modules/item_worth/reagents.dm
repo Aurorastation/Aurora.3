@@ -519,7 +519,7 @@
 /datum/reagent/clonexadone
 	value = 5.5
 
-/datum/reagent/oaresetamil
+/datum/reagent/paresetamil
 	value = 3.3
 
 /datum/reagent/traumadil
@@ -729,7 +729,7 @@
 /datum/reagent/mindbreaker
 	value = 0.6
 
-/datum/reagent/philopsybin
+/datum/reagent/psilocybin
 	value = 0.7
 
 /datum/reagent/slimetoxin
