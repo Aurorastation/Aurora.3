@@ -1,11 +1,17 @@
 /datum/design/circuit/exosuit
-	design_order = 2.5
-
-/datum/design/circuit/exosuit/AssembleDesignName()
-	name = "Exosuit Software Design ([name])"
+	p_category = "Exosuit Software Designs"
 
 /datum/design/circuit/exosuit/AssembleDesignDesc()
-	desc = "Allows for the construction of \a [name] module."
+	if(!build_path)
+		desc = "A circuitboard that contains exosystems software."
+		return
+	var/obj/item/circuitboard/exosystem/CB = new build_path
+	var/list/softwares = CB.contains_software
+	desc = "Contains software suited for: "
+	for(var/i = 1 to softwares.len)
+		desc += "<b>[capitalize_first_letters(softwares[i])]</b>"
+		if(length(softwares) != i)
+			desc += ", "
 
 /datum/design/circuit/exosuit/engineering
 	name = "Engineering System Control"
