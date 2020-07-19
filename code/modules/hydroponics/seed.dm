@@ -397,7 +397,7 @@
 			/datum/reagent/hyperzine,
 			/datum/reagent/hyronalin,
 			/datum/reagent/impedrezene,
-			/datum/reagent/mental/paroxetine,
+			/datum/reagent/mental/peroxitin,
 			/datum/reagent/mercury,
 			/datum/reagent/mindbreaker,
 			/datum/reagent/slimetoxin,
@@ -416,7 +416,7 @@
 			/datum/reagent/synaptizine,
 			/datum/reagent/thermite,
 			/datum/reagent/toxin,
-			/datum/reagent/tramadol,
+			/datum/reagent/traumadil,
 			/datum/reagent/water,
 			/datum/reagent/woodpulp,
 			)

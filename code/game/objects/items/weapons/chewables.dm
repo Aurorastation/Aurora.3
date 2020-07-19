@@ -221,8 +221,8 @@ obj/item/clothing/mask/chewable/Destroy()
 /obj/item/clothing/mask/chewable/candy/lolli/meds/Initialize()
 	. = ..()
 	var/datum/reagent/payload = pick(list(
-				/datum/reagent/paracetamol,
-				/datum/reagent/tramadol,
+				/datum/reagent/paresetamil,
+				/datum/reagent/traumadil,
 				/datum/reagent/dylovene))
 	reagents.add_reagent(payload, 15)
 	color = reagents.get_color()

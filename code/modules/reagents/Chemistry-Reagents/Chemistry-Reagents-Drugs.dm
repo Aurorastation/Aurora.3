@@ -108,8 +108,8 @@
 	M.hallucination = max(M.hallucination, 100)
 	M.add_chemical_effect(CE_HALLUCINATE, 2)
 
-/datum/reagent/psilocybin
-	name = "Psilocybin"
+/datum/reagent/philopsybin
+	name = "philopsybin"
 	description = "A strong psycotropic derived from certain species of mushroom."
 	color = "#E700E7"
 	overdose = REAGENTS_OVERDOSE
@@ -117,7 +117,7 @@
 	taste_description = "mushroom"
 	fallback_specific_heat = 1.2
 
-/datum/reagent/psilocybin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/philopsybin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
@@ -218,7 +218,7 @@
 
 /datum/reagent/guwan_painkillers/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(dose > 5 && volume <= 3)
-		M.adjustHalLoss(removed*300) //So oxycodone can't be used with it.
+		M.adjustHalLoss(removed*300) //So oxycordine can't be used with it.
 	else
 		if(dose > 5)
 			M.add_chemical_effect(CE_PAINKILLER, 50)
@@ -270,7 +270,7 @@
 
 /datum/reagent/toxin/lean/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 40)
-	M.add_chemical_effect(CE_PAINKILLER, 40) // basically like paracetamol, but a bit worse
+	M.add_chemical_effect(CE_PAINKILLER, 40) // basically like Paresetamil, but a bit worse
 	// doesn't make you vomit, though
 	if(prob(7))
 		M.emote(pick("twitch", "drool", "moan", "giggle"))
@@ -283,7 +283,7 @@
 
 /datum/reagent/toxin/krok
 	name = "Krok Juice"
-	description = "An Eridanian variant of krokodil, known for causing prosthetic malfunctions."
+	description = "An advanced Eridanian variant of ancient krokodil, known for causing prosthetic malfunctions."
 	strength = 3
 	metabolism = REM
 	overdose = 15
@@ -305,7 +305,7 @@
 			if(HAND_RIGHT, ARM_RIGHT)
 				H.drop_r_hand()
 	if(robo)
-		H.add_chemical_effect(CE_PAINKILLER, 80) // equivalent to tramadol
+		H.add_chemical_effect(CE_PAINKILLER, 80) // equivalent to traumadil
 	var/obj/item/organ/internal/eyes/eyes = H.internal_organs_by_name[H.species.vision_organ || BP_EYES]
 	if(eyes.status & ORGAN_ROBOT)
 		M.hallucination = max(M.hallucination, 40)

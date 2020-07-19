@@ -397,7 +397,7 @@
 	if(istype(A, /mob/living))
 		var/mob/living/L = A
 		if(L.reagents)
-			var/madhouse = pick(/datum/reagent/psilocybin,/datum/reagent/mindbreaker,/datum/reagent/impedrezene,/datum/reagent/cryptobiolin,/datum/reagent/soporific,/datum/reagent/mutagen)
+			var/madhouse = pick(/datum/reagent/philopsybin,/datum/reagent/mindbreaker,/datum/reagent/impedrezene,/datum/reagent/cryptobiolin,/datum/reagent/soporific,/datum/reagent/mutagen)
 			var/madhouse_verbal_component = pick(thoughts)
 			L.reagents.add_reagent("[madhouse]", 3)
 			to_chat(L, "<span class='alium'><b><i>[madhouse_verbal_component]</i></b></span>")

@@ -186,9 +186,9 @@
 
 /* Painkillers */
 
-/datum/reagent/paracetamol
-	name = "Paracetamol"
-	description = "Most probably know this as Tylenol, but this chemical is a mild, simple painkiller. Does not work when inhaled."
+/datum/reagent/paresetamil
+	name = "Paresetamil"
+	description = "Most probably compare this to ancient Tylenol, but this chemical is a more advanced, mild, simple painkiller. Does not work when inhaled."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = 60
@@ -200,17 +200,17 @@
 	metabolism_min = 0.005
 	breathe_mul = 0
 
-/datum/reagent/paracetamol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/paresetamil/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 50)
 	M.add_chemical_effect(CE_NOFEVER, ((max_dose/2)^2-(dose-max_dose/2))/(max_dose/4)) // creates a smooth curve peaking at half the dose metabolised
 
-/datum/reagent/paracetamol/overdose(var/mob/living/carbon/M, var/alien)
+/datum/reagent/paresetamil/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.hallucination = max(M.hallucination, 25)
 
-/datum/reagent/tramadol
-	name = "Tramadol"
-	description = "Tramadol is a very effective painkiller designed for victims of heavy physical trauma. Does not work when inhaled."
+/datum/reagent/traumadil
+	name = "Traumadil"
+	description = "Traumadil is a very effective painkiller designed for victims of heavy physical trauma. Does not work when inhaled."
 	reagent_state = LIQUID
 	color = "#CB68FC"
 	overdose = 30
@@ -222,16 +222,16 @@
 	metabolism_min = 0.005
 	breathe_mul = 0
 
-/datum/reagent/tramadol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/traumadil/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 80)
 
-/datum/reagent/tramadol/overdose(var/mob/living/carbon/M, var/alien)
+/datum/reagent/traumadil/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.hallucination = max(M.hallucination, 40)
 
-/datum/reagent/oxycodone
-	name = "Oxycodone"
-	description = "Oxycodone is incredibly potent and very addictive painkiller. Do not mix with alcohol. Does not work when inhaled."
+/datum/reagent/oxycordine
+	name = "Oxycordine"
+	description = "Oxycordine is an advanced medicine often compared to ancient Oxycodone, it's an incredibly potent and very addictive painkiller. Do not mix with alcohol. Does not work when inhaled."
 	reagent_state = LIQUID
 	color = "#800080"
 	overdose = 20
@@ -242,7 +242,7 @@
 	metabolism_min = 0.005
 	breathe_mul = 0
 
-/datum/reagent/oxycodone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/oxycordine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
@@ -252,7 +252,7 @@
 		M.hallucination = max(M.hallucination, bac * 300)
 		M.druggy = max(M.druggy, bac * 100)
 
-/datum/reagent/oxycodone/overdose(var/mob/living/carbon/M, var/alien)
+/datum/reagent/oxycordine/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.druggy = max(M.druggy, 20)
 	M.hallucination = max(M.hallucination, 60)
@@ -307,8 +307,8 @@
 	M.hallucination = max(M.hallucination, 25)
 	..()
 
-/datum/reagent/imidazoline
-	name = "Imidazoline"
+/datum/reagent/imadazolin
+	name = "Imadazolin"
 	description = "Heals eye damage"
 	reagent_state = LIQUID
 	color = "#C8A5DC"
@@ -317,7 +317,7 @@
 	taste_mult = 0.33 //Specifically to cut the dull toxin taste out of foods using carrot
 	taste_description = "dull toxin"
 
-/datum/reagent/imidazoline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/imadazolin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.eye_blurry = max(M.eye_blurry - 5 * removed, 0)
 	M.eye_blind = max(M.eye_blind - 5 * removed, 0)
 	if(ishuman(M))
@@ -327,7 +327,7 @@
 			if(E.damage > 0)
 				E.damage = max(E.damage - 5 * removed, 0)
 
-/datum/reagent/imidazoline/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/imadazolin/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 15)
 	..()
 
@@ -511,15 +511,15 @@
 	M.add_chemical_effect(CE_EMETIC, dose/8) // chance per 2 second tick to cause vomiting
 	M.add_chemical_effect(CE_ANTIBIOTIC, dose) // strength of antibiotics; amount absorbed, need >5 to be effective. takes 50 seconds to work
 
-/datum/reagent/ondansetron
-	name = "Ondansetron"
-	description = "Ondansetron is a medication used to prevent nausea and vomiting."
+/datum/reagent/ondansitrine
+	name = "Ondansitrine"
+	description = "Ondansitrine is a medication used to prevent nausea and vomiting."
 	color = "#f5f2d0"
 	taste_description = "bitterness"
 	metabolism = REM * 0.25
 	fallback_specific_heat = 1
 
-/datum/reagent/ondansetron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/ondansitrine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
 	M.add_chemical_effect(CE_ANTIEMETIC, dose/4) // 1u should suppress 2u thetamycin
@@ -553,9 +553,9 @@
 	if(prob(50))
 		M.drowsyness = max(M.drowsyness, 3)
 
-/datum/reagent/antihistamine
-	name = "Diphenhydramine"
-	description = "A common antihistamine medication, also known as Benadryl. Known for causing drowsiness in larger doses."
+/datum/reagent/antihestamil
+	name = "Antihestamil"
+	description = "A modern antihistamine medication, often compared to ancient Benadryl. Known for causing drowsiness in larger doses."
 	scannable = 1
 	reagent_state = LIQUID
 	taste_description = "bitterness"
@@ -566,7 +566,7 @@
 	ingest_mul = 1
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
-/datum/reagent/antihistamine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/antihestamil/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(dose/2))
 		M.drowsyness += 2
 
@@ -707,7 +707,7 @@
 
 /datum/reagent/mental/nicotine
 	name = "Nicotine"
-	description = "Nicotine is a stimulant and relaxant commonly found in tobacco products. It is very poisonous, unless at very low doses."
+	description = "Nicotine is an ancient stimulant and relaxant commonly found in tobacco products. It is very poisonous, unless at very low doses."
 	reagent_state = LIQUID
 	color = "#333333"
 	metabolism = 0.0016 * REM
@@ -735,9 +735,9 @@
 	M.Weaken(10 * removed * scale)
 	M.add_chemical_effect(CE_PULSE, 0.5)
 
-/datum/reagent/mental/methylphenidate
-	name = "Methylphenidate"
-	description = "Methylphenidate is an AHDH treatment drug that treats basic distractions such as phobias and hallucinations at moderate doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
+/datum/reagent/mental/mefylthenidate
+	name = "Mefylthenidate"
+	description = "Mefylthenidate is an AHDH treatment drug that treats basic distractions such as phobias and hallucinations at moderate doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
 	reagent_state = LIQUID
 	color = "#8888AA"
 	metabolism = 0.01 * REM
@@ -759,13 +759,13 @@
 		/datum/brain_trauma/mild/hallucinations = 2
 	)
 
-/datum/reagent/mental/methylphenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/mental/mefylthenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_HALLUCINATE, -1)
 	..()
 
-/datum/reagent/mental/fluvoxamine
-	name = "Fluvoxamine"
-	description = "Fluvoxamine is safe and effective at treating basic phobias, as well as schizophrenia and muscle weakness at higher doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
+/datum/reagent/mental/flevoxamil
+	name = "Flevoxamil"
+	description = "Flevoxamil is safe and effective at treating basic phobias, as well as schizophrenia and muscle weakness at higher doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.01 * REM
@@ -788,9 +788,9 @@
 		/datum/brain_trauma/mild/hallucinations = 2
 	)
 
-/datum/reagent/mental/sertraline
-	name = "Sertraline"
-	description = "Sertraline is cheap, safe, and effective at treating basic phobias, however it does not last as long as other drugs of it's class. Withdrawl effects are uncommon. Side effects are rare."
+/datum/reagent/mental/sertramine
+	name = "Sertramine"
+	description = "Sertramine is cheap, safe, and effective at treating basic phobias, however it does not last as long as other drugs of it's class. Withdrawl effects are uncommon. Side effects are rare."
 	reagent_state = LIQUID
 	color = "#88AA88"
 	metabolism = 0.02 * REM
@@ -809,11 +809,11 @@
 		/datum/brain_trauma/mild/phobia/ = 10,
 		/datum/brain_trauma/mild/hallucinations = 5
 	)
-	suppressing_reagents = list(/datum/reagent/mental/fluvoxamine = 5)
+	suppressing_reagents = list(/datum/reagent/mental/flevoxamil = 5)
 
-/datum/reagent/mental/escitalopram
-	name = "Escitalopram"
-	description = "Escitalopram is expensive, safe and very effective at treating basic phobias as well as advanced phobias like monophobia. A common side effect is drowsiness, and a rare side effect is hallucinations. Withdrawl effects are uncommon."
+/datum/reagent/mental/exytilopram
+	name = "Exytilopram"
+	description = "Exytilopram is expensive, safe and very effective at treating basic phobias as well as advanced phobias like monophobia. A common side effect is drowsiness, and a rare side effect is hallucinations. Withdrawl effects are uncommon."
 	reagent_state = LIQUID
 	color = "#FF8888"
 	metabolism = 0.01 * REM
@@ -834,13 +834,13 @@
 		/datum/brain_trauma/mild/hallucinations = 10
 	)
 	suppressing_reagents = list(
-		/datum/reagent/mental/fluvoxamine = 5,
-		/datum/reagent/mental/sertraline = 5
+		/datum/reagent/mental/flevoxamil = 5,
+		/datum/reagent/mental/sertramine = 5
 	)
 
-/datum/reagent/mental/paroxetine
-	name = "Paroxetine"
-	description = "Paroxetine is effective at treating basic phobias while also preventing the body from overheating. Side effects are rare, and include hallucinations. Withdrawl effects are frequent and unsafe."
+/datum/reagent/mental/peroxitin
+	name = "Peroxitin"
+	description = "Peroxitin is effective at treating basic phobias while also preventing the body from overheating. Side effects are rare, and include hallucinations. Withdrawl effects are frequent and unsafe."
 	reagent_state = LIQUID
 	color = "#AA8866"
 	metabolism = 0.01 * REM
@@ -861,19 +861,19 @@
 		/datum/brain_trauma/mild/hallucinations = 50
 	)
 	suppressing_reagents = list(
-		/datum/reagent/mental/escitalopram = 5,
-		/datum/reagent/mental/fluvoxamine = 10,
-		/datum/reagent/mental/sertraline = 10
+		/datum/reagent/mental/exytilopram = 5,
+		/datum/reagent/mental/flevoxamil = 10,
+		/datum/reagent/mental/sertramine = 10
 	)
 
-/datum/reagent/mental/paroxetine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/mental/peroxitin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.bodytemperature > 310)
 		M.bodytemperature = max(310, M.bodytemperature - removed*100)
 	. = ..()
 
-/datum/reagent/mental/duloxetine
-	name = "Duloxetine"
-	description = "Duloxetine is effective at treating basic phobias and concussions. A rare side effect is hallucinations. Withdrawl effects are common."
+/datum/reagent/mental/daloxitin
+	name = "Daloxitin"
+	description = "Daloxitin is effective at treating basic phobias and concussions. A rare side effect is hallucinations. Withdrawl effects are common."
 	reagent_state = LIQUID
 	color = "#88FFFF"
 	metabolism = 0.01 * REM
@@ -896,15 +896,15 @@
 		/datum/brain_trauma/mild/concussion = 10
 	)
 	suppressing_reagents = list(
-		/datum/reagent/mental/paroxetine = 5,
-		/datum/reagent/mental/escitalopram = 5,
-		/datum/reagent/mental/fluvoxamine = 10,
-		/datum/reagent/mental/sertraline = 10
+		/datum/reagent/mental/peroxitin = 5,
+		/datum/reagent/mental/exytilopram = 5,
+		/datum/reagent/mental/flevoxamil = 10,
+		/datum/reagent/mental/sertramine = 10
 	)
 
-/datum/reagent/mental/venlafaxine
-	name = "Venlafaxine"
-	description = "Venlafaxine is effective at treating basic phobias, monophobia, and stuttering. Side effects are uncommon and include hallucinations. Withdrawl effects are common."
+/datum/reagent/mental/vinlaphaxin
+	name = "Vinlaphaxin"
+	description = "Vinlaphaxin is effective at treating basic phobias, monophobia, and stuttering. Side effects are uncommon and include hallucinations. Withdrawl effects are common."
 	reagent_state = LIQUID
 	color = "#FF88FF"
 	metabolism = 0.01 * REM
@@ -927,16 +927,16 @@
 		/datum/brain_trauma/mild/hallucinations = 25
 	)
 	suppressing_reagents = list(
-		/datum/reagent/mental/duloxetine = 5,
-		/datum/reagent/mental/paroxetine = 5,
-		/datum/reagent/mental/escitalopram = 5,
-		/datum/reagent/mental/fluvoxamine = 10,
-		/datum/reagent/mental/sertraline = 10
+		/datum/reagent/mental/daloxitin = 5,
+		/datum/reagent/mental/peroxitin = 5,
+		/datum/reagent/mental/exytilopram = 5,
+		/datum/reagent/mental/flevoxamil = 10,
+		/datum/reagent/mental/sertramine = 10
 	)
 
-/datum/reagent/mental/risperidone
-	name = "Risperidone"
-	description = "Risperidone is a potent antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. Withdrawl symptoms are dangerous and almost always occur."
+/datum/reagent/mental/resparidil
+	name = "Resparidil"
+	description = "Resparidil is a potent antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. Withdrawl symptoms are dangerous and almost always occur."
 	reagent_state = LIQUID
 	color = "#FF4444"
 	metabolism = 0.02 * REM
@@ -967,19 +967,19 @@
 		/datum/brain_trauma/severe/monophobia = 50
 	)
 	suppressing_reagents = list(
-		/datum/reagent/mental/venlafaxine = 20,
-		/datum/reagent/mental/duloxetine = 20,
-		/datum/reagent/mental/paroxetine = 20,
-		/datum/reagent/mental/escitalopram = 20
+		/datum/reagent/mental/vinlaphaxin = 20,
+		/datum/reagent/mental/daloxitin = 20,
+		/datum/reagent/mental/peroxitin = 20,
+		/datum/reagent/mental/exytilopram = 20
 	)
 
-/datum/reagent/mental/risperidone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/mental/resparidil/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_HALLUCINATE, -2)
 	..()
 
-/datum/reagent/mental/olanzapine
-	name = "Olanzapine"
-	description = "Olanzapine is a high-strength, expensive antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. The medication metabolizes quickly, and withdrawl is dangerous."
+/datum/reagent/mental/olinzapil
+	name = "Olinzapil"
+	description = "Olinzapil is a high-strength, expensive antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. The medication metabolizes quickly, and withdrawl is dangerous."
 	reagent_state = LIQUID
 	color = "#FF8844"
 	metabolism = 0.02 * REM
@@ -1007,13 +1007,13 @@
 		/datum/brain_trauma/special/imaginary_friend = 50
 	)
 	suppressing_reagents = list(
-		/datum/reagent/mental/venlafaxine = 20,
-		/datum/reagent/mental/duloxetine = 20,
-		/datum/reagent/mental/paroxetine = 20,
-		/datum/reagent/mental/escitalopram = 20
+		/datum/reagent/mental/vinlaphaxin = 20,
+		/datum/reagent/mental/daloxitin = 20,
+		/datum/reagent/mental/peroxitin = 20,
+		/datum/reagent/mental/exytilopram = 20
 	)
 
-/datum/reagent/mental/olanzapine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/mental/olinzapil/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_HALLUCINATE, -2)
 	..()
 
@@ -1104,9 +1104,9 @@
 		if (!modifier)
 			modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
-/datum/reagent/mannitol
-	name = "Mannitol"
-	description = "Mannitol is a super strength chemical that heals brain tissue damage and cures dumbness, cerebral blindness, cerebral paralysis, colorblindness, and aphasia. More effective when the patient's body temperature is less than 170K."
+/datum/reagent/minitamil
+	name = "Minitamil"
+	description = "Minitamil is a super strength chemical that heals brain tissue damage and cures dumbness, cerebral blindness, cerebral paralysis, colorblindness, and aphasia. More effective when the patient's body temperature is less than 170K."
 	reagent_state = LIQUID
 	color = "#FFFF00"
 	metabolism = REM * 2 //0.4
@@ -1122,7 +1122,7 @@
 		/datum/brain_trauma/severe/aphasia/
 	)
 
-/datum/reagent/mannitol/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+/datum/reagent/minitamil/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 	var/chance = dose*removed
@@ -1145,8 +1145,8 @@
 //Narcolepsy
 //Discoordination
 
-/datum/reagent/calomel
-	name = "Calomel"
+/datum/reagent/cylomel
+	name = "Cylomel"
 	description = "A highly toxic medicine that quickly purges most chemicals from the bloodstream. Overdose causes bloodloss and more toxin buildup, however works twice as fast."
 	color = "#222244"
 	metabolism = 0.5 * REM
@@ -1155,7 +1155,7 @@
 	taste_description = "thick salt"
 	reagent_state = SOLID
 
-/datum/reagent/calomel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/cylomel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/is_overdosed = overdose && (dose > overdose)
 	if(is_overdosed)
 		removed *= 2
@@ -1247,8 +1247,8 @@
 		M.make_dizzy(5)
 		M.make_jittery(5)
 
-/datum/reagent/ipecac
-	name = "Ipecac"
+/datum/reagent/ipacic
+	name = "Ipacic"
 	description = "A simple emetic, Induces vomiting in the patient, emptying stomach contents"
 	reagent_state = LIQUID
 	color = "#280f0b"
@@ -1256,13 +1256,13 @@
 	scannable = 1
 	taste_description = "sweet syrup"
 
-/datum/reagent/ipecac/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/ipacic/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (prob(10+dose))
 		to_chat(M, pick("You feel nauseous!", "Your stomach churns uncomfortably.", "You feel like you're about to throw up.", "You feel queasy.", "You feel bile in your throat."))
 
 	M.add_chemical_effect(CE_EMETIC, dose)
 
-/datum/reagent/ipecac/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/ipacic/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(2 * removed) //If you inject it you're doing it wrong
 
 /datum/reagent/azoth

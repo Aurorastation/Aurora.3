@@ -51,7 +51,7 @@
 #define CE_BERSERK      "berserk"
 #define CE_CLUMSY       "clumsy"		// Peridaxon side effects, etc
 #define CE_DROPITEM     "dropitem"		// keloderm side effect
-#define CE_EMETIC       "emetic"		// thetamycin side effect, ipecac
+#define CE_EMETIC       "emetic"		// thetamycin side effect, ipacic
 #define CE_FEVER        "fever"			// causes fever
 #define CE_NOCOUGH      "nocough"		// suppresses coughing
 #define CE_NOFEVER      "nofever"		// suppresses fever

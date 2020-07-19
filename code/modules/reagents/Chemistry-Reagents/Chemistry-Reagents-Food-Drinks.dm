@@ -788,7 +788,7 @@
 /datum/reagent/drink/carrotjuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
-		M.reagents.add_reagent(/datum/reagent/imidazoline, removed * 0.2)
+		M.reagents.add_reagent(/datum/reagent/imadazolin, removed * 0.2)
 
 /datum/reagent/drink/grapejuice
 	name = "Grape Juice"

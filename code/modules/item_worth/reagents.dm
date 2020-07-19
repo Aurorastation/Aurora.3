@@ -519,13 +519,13 @@
 /datum/reagent/clonexadone
 	value = 5.5
 
-/datum/reagent/paracetamol
+/datum/reagent/oaresetamil
 	value = 3.3
 
-/datum/reagent/tramadol
+/datum/reagent/traumadil
 	value = 3.1
 
-/datum/reagent/oxycodone
+/datum/reagent/oxycordine
 	value = 3.3
 
 /datum/reagent/synaptizine
@@ -534,7 +534,7 @@
 /datum/reagent/alkysine
 	value = 5.9
 
-/datum/reagent/imidazoline
+/datum/reagent/imadazolin
 	value = 4.2
 
 /datum/reagent/peridaxon
@@ -570,31 +570,31 @@
 /datum/reagent/leporazine
 	value = 2
 
-/datum/reagent/mental/methylphenidate
+/datum/reagent/mental/mefylthenidate
 	value = 6
 
-/datum/reagent/mental/sertraline
+/datum/reagent/mental/sertramine
 	value = 6
 
-/datum/reagent/mental/fluvoxamine
+/datum/reagent/mental/flevoxamil
 	value = 6
 
-/datum/reagent/mental/escitalopram
+/datum/reagent/mental/exsytilopram
 	value = 6
 
-/datum/reagent/mental/paroxetine
+/datum/reagent/mental/peroxitin
 	value = 3.5
 
-/datum/reagent/mental/duloxetine
+/datum/reagent/mental/daloxitin
 	value = 6
 
-/datum/reagent/mental/venlafaxine
+/datum/reagent/mental/vinlaphaxin
 	value = 6
 
-/datum/reagent/mental/risperidone
+/datum/reagent/mental/resparidil
 	value = 6
 
-/datum/reagent/mental/olanzapine
+/datum/reagent/mental/olinzapil
 	value = 6
 
 /datum/reagent/mental/truthserum
@@ -606,7 +606,7 @@
 /datum/reagent/rezadone
 	value = 5
 
-/datum/reagent/ipecac
+/datum/reagent/ipacic
 	value = 2
 
 /datum/reagent/crayon_dust
@@ -729,7 +729,7 @@
 /datum/reagent/mindbreaker
 	value = 0.6
 
-/datum/reagent/psilocybin
+/datum/reagent/philopsybin
 	value = 0.7
 
 /datum/reagent/slimetoxin

@@ -92,7 +92,7 @@
 			descriptors |= "radioactive"
 		if(reagents.has_reagent(/datum/reagent/toxin/amatoxin) || reagents.has_reagent(/datum/reagent/toxin))
 			descriptors |= "poisonous"
-		if(reagents.has_reagent(/datum/reagent/psilocybin) || reagents.has_reagent(/datum/reagent/space_drugs))
+		if(reagents.has_reagent(/datum/reagent/philopsybin) || reagents.has_reagent(/datum/reagent/space_drugs))
 			descriptors |= "hallucinogenic"
 		if(reagents.has_reagent(/datum/reagent/bicaridine) || reagents.has_reagent(/datum/reagent/dylovene))
 			descriptors |= "medicinal"

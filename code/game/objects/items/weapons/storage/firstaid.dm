@@ -99,7 +99,7 @@
 		/obj/item/storage/pill_bottle/dermaline = 1,
 		/obj/item/storage/pill_bottle/dexalin_plus = 1,
 		/obj/item/storage/pill_bottle/dylovene = 1,
-		/obj/item/storage/pill_bottle/tramadol = 1,
+		/obj/item/storage/pill_bottle/traumadil = 1,
 		/obj/item/reagent_containers/inhaler/hyperzine = 1,
 		/obj/item/stack/medical/splint = 1
 	)
@@ -217,25 +217,25 @@
 	desc = "Contains pills used to treat burns."
 	starts_with = list(/obj/item/reagent_containers/pill/kelotane = 7)
 
-/obj/item/storage/pill_bottle/antihistamine
-	name = "bottle of diphenhydramine pills"
-	desc = "Diphenhydramine, a common antihistamine used to reduce symptoms of allergies. Helps with sneezing."
-	starts_with = list(/obj/item/reagent_containers/pill/antihistamine = 7)
+/obj/item/storage/pill_bottle/antihestamil
+	name = "bottle of Antihestamil pills"
+	desc = "Often compared to ancient Diphenhydramine, Antihestamil is a modern antihistamine used to reduce symptoms of allergies. Helps with sneezing."
+	starts_with = list(/obj/item/reagent_containers/pill/antihestamil = 7)
 
-/obj/item/storage/pill_bottle/tramadol
-	name = "bottle of Tramadol pills"
+/obj/item/storage/pill_bottle/traumadil
+	name = "bottle of Traudil pills"
 	desc = "Contains pills used to relieve pain."
-	starts_with = list(/obj/item/reagent_containers/pill/tramadol = 7)
+	starts_with = list(/obj/item/reagent_containers/pill/traumadil = 7)
 
-/obj/item/storage/pill_bottle/paracetamol
-	name = "bottle of paracetamol pills"
+/obj/item/storage/pill_bottle/paresetamil
+	name = "bottle of paresetamill pills"
 	desc = "Contains pills used to relieve pain and reduce fevers."
-	starts_with = list(/obj/item/reagent_containers/pill/paracetamol = 7)
+	starts_with = list(/obj/item/reagent_containers/pill/paresetamil = 7)
 
-/obj/item/storage/pill_bottle/escitalopram
-	name = "bottle of Escitalopram pills"
+/obj/item/storage/pill_bottle/exsytilopram
+	name = "bottle of Exsytilopram pills"
 	desc = "Contains pills used to stabilize a patient's mood."
-	starts_with = list(/obj/item/reagent_containers/pill/escitalopram = 7)
+	starts_with = list(/obj/item/reagent_containers/pill/exytilopram = 7)
 
 /obj/item/storage/pill_bottle/rmt
 	name = "bottle of RMT pills"
