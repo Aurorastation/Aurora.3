@@ -6,7 +6,7 @@
 
 /mob/living/silicon/robot/death(gibbed)
 	if(camera)
-		camera.status = 0
+		camera.status = FALSE
 	if(module)
 		var/obj/item/gripper/G = locate(/obj/item/gripper) in module
 		if(G)

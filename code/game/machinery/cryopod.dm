@@ -152,12 +152,12 @@ var/global/list/frozen_crew = list()
 
 /obj/item/circuitboard/cryopodcontrol
 	name = "Circuit board (Cryogenic Oversight Console)"
-	build_path = "/obj/machinery/computer/cryopod"
+	build_path = /obj/machinery/computer/cryopod
 	origin_tech = list(TECH_DATA = 3)
 
 /obj/item/circuitboard/robotstoragecontrol
 	name = "Circuit board (Robotic Storage Console)"
-	build_path = "/obj/machinery/computer/cryopod/robot"
+	build_path = /obj/machinery/computer/cryopod/robot
 	origin_tech = list(TECH_DATA = 3)
 
 //Decorative structures to go alongside cryopods.
@@ -197,21 +197,19 @@ var/global/list/frozen_crew = list()
 	var/last_no_computer_message = 0
 
 	// These items are preserved when the process() despawn proc occurs.
-	var/list/preserve_items = list(
-		/obj/item/hand_tele,
-		/obj/item/card/id/captains_spare,
-		/obj/item/aicard,
-		/obj/item/device/mmi,
-		/obj/item/device/paicard,
-		/obj/item/storage,
-		/obj/item/rig,
-		/obj/item/gun,
-		/obj/item/pinpointer,
-		/obj/item/clothing/suit,
-		/obj/item/clothing/shoes/magboots,
-		/obj/item/blueprints,
-		/obj/item/clothing/head/helmet/space
+	var/list/items_blacklist = list(
+		/obj/item/organ,
+		/obj/item/implant,
+		/obj/item/card/id,
+		/obj/item/modular_computer,
+		/obj/item/device/pda,
+		/obj/item/cartridge
 	)
+
+	//For subtypes of the blacklist that are allowed to be kept
+	var/list/items_whitelist = list(
+		/obj/item/card/id/captains_spare
+		)
 
 /obj/machinery/cryopod/robot
 	name = "robotic storage unit"
@@ -310,32 +308,20 @@ var/global/list/frozen_crew = list()
 // This function can not be undone; do not call this unless you are sure
 // Also make sure there is a valid control computer
 /obj/machinery/cryopod/proc/despawn_occupant()
+	var/list/items = occupant.get_contents()
+	var/turf/T = get_turf(src)
 	//Drop all items into the pod.
 	for(var/obj/item/W in occupant)
 		occupant.drop_from_inventory(W, src)
-
-		if(W.contents.len) //Make sure we catch anything not handled by qdel() on the items.
-			for(var/obj/item/O in W.contents)
-				if(istype(O,/obj/item/storage/internal)) //Stop eating pockets, you fuck!
-					continue
-				if(istype(O.loc, /obj/item/storage)) // keep stuff inside storage containers
-					continue
-				O.forceMove(src)
-
-	//Delete all items not on the preservation list.
-	var/list/items = src.contents.Copy()
-	items -= occupant // Don't delete the occupant
-
+	//Prepare items tnat require modification before dropping
 	for(var/obj/item/W in items)
-		var/preserve = FALSE
-		// Snowflaaaake.
 		if(istype(W, /obj/item/device/mmi))
 			var/obj/item/device/mmi/brain = W
 			if(brain.brainmob && brain.brainmob.client && brain.brainmob.key)
-				brain.forceMove(get_turf(src))
+				brain.forceMove(T)
+				items -= brain
 				continue
-			else
-				preserve = TRUE
+
 		else if(istype(W, /obj/item/rig))
 			var/obj/item/rig/R = W
 			R.open = FALSE
@@ -343,21 +329,18 @@ var/global/list/frozen_crew = list()
 			R.offline = TRUE
 			R.sealing = FALSE
 			R.canremove = TRUE
-			preserve = TRUE
-		else
-			if(is_type_in_list(W, preserve_items))
-				preserve = TRUE
-			if(is_type_in_list(W.loc, preserve_items)) // keep stuff in storage safe
-				preserve = TRUE
 
-		if(!preserve)
+		if(!is_type_in_list(W, items_whitelist) && is_type_in_list(W, items_blacklist))
+			items.Remove(W)
 			qdel(W)
-		else
+
+	for(var/obj/item/W in items)
+		if(W.loc == src)
 			if(control_computer?.allow_items)
 				control_computer.frozen_items += W
 				W.forceMove(control_computer)
 			else
-				W.forceMove(get_turf(src))
+				W.forceMove(T)
 
 	global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message]", "[on_store_name]")
 	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] into storage."))

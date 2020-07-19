@@ -258,7 +258,7 @@
 /datum/reagent/alcohol/ethanol/cmojito
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/changelingsting
+/datum/reagent/alcohol/ethanol/gibsonpunch
 	value = 0.19
 
 /datum/reagent/alcohol/ethanol/classic
@@ -393,7 +393,7 @@
 /datum/reagent/alcohol/ethanol/suidream
 	value = 0.12
 
-/datum/reagent/alcohol/ethanol/syndicatebomb
+/datum/reagent/alcohol/ethanol/gibsonhooch
 	value = 0.21
 
 /datum/reagent/alcohol/ethanol/tequila_sunrise

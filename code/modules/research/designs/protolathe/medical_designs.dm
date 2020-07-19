@@ -1,10 +1,6 @@
 /datum/design/item/medical
 	materials = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
-	design_order = 4
-
-/datum/design/item/medical/AssembleDesignName()
-	..()
-	name = "Biotech Device Design ([item_name])"
+	p_category = "Biotech Device Designs"
 
 /datum/design/item/medical/health_analyzer
 	name = "Health Analyzer"
@@ -115,20 +111,15 @@
 	build_path = /obj/item/reagent_containers/personal_inhaler_cartridge/bluespace
 
 /datum/design/item/beaker
-	design_order = 4.1
-
-/datum/design/item/beaker/AssembleDesignName()
-	name = "Advanced Beaker Design ([item_name])"
+	p_category = "Advanced Beaker Design"
 
 /datum/design/item/beaker/noreact
-	name = "Cryostasis"
 	desc = "A cryostasis beaker that allows for chemical storage without reactions. Can hold up to 50 units."
 	req_tech = list(TECH_MATERIAL = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 3000)
 	build_path = /obj/item/reagent_containers/glass/beaker/noreact
 
 /datum/design/item/beaker/bluespace
-	name = "Bluespace"
 	desc = "A bluespace beaker, powered by experimental bluespace technology and Element Cuban combined with the Compound Pete. Can hold up to 300 units."
 	req_tech = list(TECH_BLUESPACE = 2, TECH_MATERIAL = 6)
 	materials = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_PHORON = 3000, MATERIAL_DIAMOND = 500)

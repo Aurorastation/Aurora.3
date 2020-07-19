@@ -105,7 +105,7 @@
 		"custom_cigarettes" = list(
 			name = "Empty Cigarettes (x6)",
 			class = "Items",
-			object = /obj/item/storage/fancy/cigarettes/blank,
+			object = /obj/item/storage/box/fancy/cigarettes/blank,
 			cost = 500,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -185,7 +185,7 @@
 		"crayon_box" = list(
 			name = "Crayon Box",
 			class = "Items",
-			object = /obj/item/storage/fancy/crayons,
+			object = /obj/item/storage/box/fancy/crayons,
 			cost = 600,
 			amount = list(1,2,3,4,5),
 			emag = 0

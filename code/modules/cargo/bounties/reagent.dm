@@ -60,7 +60,7 @@
 		/datum/reagent/alcohol/ethanol/snowwhite,\
 		/datum/reagent/drink/coffee/soy_latte,\
 		/datum/reagent/drink/coffee/cafe_latte,\
-		/datum/reagent/alcohol/ethanol/syndicatebomb,\
+		/datum/reagent/alcohol/ethanol/gibsonhooch,\
 		/datum/reagent/alcohol/ethanol/manly_dorf,\
 		/datum/reagent/alcohol/ethanol/thirteenloko,\
 		/datum/reagent/alcohol/ethanol/vodkamartini,\
