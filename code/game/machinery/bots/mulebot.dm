@@ -192,23 +192,7 @@
 
 	if(!open)
 
-		dat += "Status: "
-		switch(mode)
-			if(0)
-				dat += "Ready"
-			if(1)
-				dat += "Loading/Unloading"
-			if(2)
-				dat += "Navigating to Delivery Location"
-			if(3)
-				dat += "Navigating to Home"
-			if(4)
-				dat += "Waiting for clear path"
-			if(5,6)
-				dat += "Calculating navigation path"
-			if(7)
-				dat += "Unable to locate destination"
-
+		dat += "Status: " + get_mode_status()
 
 		dat += "<BR>Current Load: [A ? A.name : "<i>none</i>"]<BR>"
 		dat += "Destination: [!destination ? "<i>none</i>" : destination]<BR>"
@@ -303,7 +287,8 @@
 
 			if("stop")
 				if(mode >=2)
-					mode = 0
+					mode = IDLE
+					stop()
 					updateDialog()
 
 			if("go")
@@ -894,45 +879,54 @@
 	recv = signal.data["command [mule.suffix]"]
 	if(mule.wires.RemoteRX())
 		// process control input
-		switch(recv)
-			if("stop")
+		switch (recv)
+			if ("stop")
 				mule.mode = IDLE
 				mule.update_icon()
 				mule.stop()
 				return
 
-			if("go")
+			if ("go")
 				mule.start()
 				return
 
-			if("target")
+			if ("target")
 				mule.set_destination(signal.data["destination"] )
 				return
+			
+			if ("target_custom")
+				var/turf/T = get_turf(locate(signal.data["destination"][0], signal.data["destination"][1], signal.data["destination"][2]))
+				if (!T)
+					mule.mode = CANNOT_REACH
+					return
+				
+				mule.target = T
+				return
 
-			if("unload")
+			if ("unload")
 				if(mule.loc == mule.target)
 					mule.unload(mule.loaddir)
 				else
 					mule.unload(0)
 				return
 
-			if("home")
+			if ("home")
 				mule.start_home()
 				return
 
-			if("bot_status")
+			if ("bot_status")
 				mule.send_status()
 				return
 
-			if("autoret")
+			if ("autoret")
 				mule.auto_return = text2num(signal.data["value"])
 				return
 
-			if("autopick")
+			if ("autopick")
 				mule.auto_pickup = text2num(signal.data["value"])
 				return
 			
-			if("summon")
+			if ("summon")
 				mule.stop()
 				var/obj/item/device/pda/pda = signal.data["target"]
 				if (!pda)

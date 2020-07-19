@@ -168,8 +168,15 @@
 			post_signal(control_freq, cmd, "bot_status", s_filter = RADIO_MULEBOT)
 		if("setdest")
 			if(beacons)
-				var/dest = input("Select Bot Destination", "Mulebot [active.suffix] Interlink", active.destination) as null|anything in beacons
-				if(dest)
+				var/dest = input("Select Bot Destination", "Mulebot [active.suffix] Interlink", active.destination + list("custom")) as null|anything in beacons
+				if (dest == "custom")
+					var/x = input("Input X from 0 to 255.", "Mulebot [active.suffix] Interlink") as num | null
+					var/y = input("Input Y from 0 to 255.", "Mulebot [active.suffix] Interlink") as num | null
+					var/z = input("Input Z from 0 to 255.", "Mulebot [active.suffix] Interlink") as num | null
+
+					post_signal(control_freq, cmd, "target_custom", "destination", list(x, y, z), s_filter = RADIO_MULEBOT)
+					post_signal(control_freq, cmd, "bot_status", s_filter = RADIO_MULEBOT)
+				else if (dest)
 					post_signal(control_freq, cmd, "target", "destination", dest, s_filter = RADIO_MULEBOT)
 					post_signal(control_freq, cmd, "bot_status", s_filter = RADIO_MULEBOT)
 
