@@ -11,7 +11,7 @@
 	..()
 	wanted_types = typecacheof(wanted_types)
 	exclude_types = typecacheof(exclude_types)
-	if(random_count)
+	if(random_count > 0)
 		required_count = rand(max(1, required_count - random_count), required_count + random_count)
 		//adjust the reward. If more than standard required_count, increase reward. If less, decrease.
 		//Will make the reward more/less depending if it was randomized to require more/less, by 5% of the item's reward per difference. Not huge.

@@ -49,11 +49,12 @@
 	random_count = 2
 	wanted_types = list(/obj/structure/reagent_dispensers/fueltank)
 
-/datum/bounty/item/engineer/fuel_tank/applies_to(obj/O)
+/datum/bounty/item/engineer/fuel_tank/applies_to(var/obj/structure/reagent_dispensers/fueltank/O)
 	if(!..())
 		return FALSE
-	var/obj/structure/reagent_dispensers/fueltank/F = O
-	if(F && F.reagents.get_reagent_amount(/datum/reagent/fuel) >= 750)
+	if(!istype(O))
+		return FALSE
+	if(O.reagents.get_reagent_amount(/datum/reagent/fuel) >= 750)
 		return TRUE
 	return FALSE
 
@@ -65,15 +66,15 @@
 	wanted_types = list(/obj/item/tank)
 	var/moles_required = 20 // A full tank is 28 moles, but we give some leeway.
 
-/datum/bounty/item/engineer/phoron_tank/applies_to(obj/O)
+/datum/bounty/item/engineer/phoron_tank/applies_to(var/obj/item/tank/O)
 	if(!..())
 		return FALSE
-	var/obj/item/tank/T = O
-	if(T)
-		if(!T.air_contents.gas["phoron"])
-			return FALSE
-		return T.air_contents.gas["phoron"] >= moles_required
-	return FALSE
+	if(!istype(O))
+		return FALSE
+	if(!O.air_contents.gas["phoron"])
+		return FALSE
+	return O.air_contents.gas["phoron"] >= moles_required
+
 
 /datum/bounty/item/engineer/vending
 	name = "Vending Machines"
@@ -101,11 +102,12 @@
 	required_count = 3
 	wanted_types = list(/obj/machinery/portable_atmospherics/powered/pump)
 
-/datum/bounty/item/engineer/pap/applies_to(obj/O)
+/datum/bounty/item/engineer/pap/applies_to(var/obj/machinery/portable_atmospherics/powered/pump/O)
 	if(!..())
 		return FALSE
-	var/obj/machinery/portable_atmospherics/powered/pump/P = O
-	if(P?.holding.air_contents.return_pressure() >= 5000)
+	if(!istype(O))
+		return FALSE
+	if(O.holding.air_contents.return_pressure() >= 5000)
 		return TRUE
 	return FALSE
 

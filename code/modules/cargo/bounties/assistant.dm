@@ -65,11 +65,12 @@
 	random_count = 1
 	wanted_types = list(/obj/structure/reagent_dispensers/watertank)
 
-/datum/bounty/item/assistant/water_tank/applies_to(obj/O)
+/datum/bounty/item/assistant/water_tank/applies_to(var/obj/structure/reagent_dispensers/watertank/O)
 	if(!..())
 		return FALSE
-	var/obj/structure/reagent_dispensers/watertank/W = O
-	if(W && W.reagents.get_reagent_amount(/datum/reagent/water) >= 750)
+	if(!istype(O))
+		return FALSE
+	if(O.reagents.get_reagent_amount(/datum/reagent/water) >= 750)
 		return TRUE
 	return FALSE
 
@@ -122,11 +123,12 @@
 	reward_high = 28
 	wanted_types = list(/obj/structure/sculpting_block)
 
-/datum/bounty/item/assistant/statue/applies_to(obj/O)
+/datum/bounty/item/assistant/statue/applies_to(var/obj/structure/sculpting_block/O)
 	if(!..())
 		return FALSE
-	var/obj/structure/sculpting_block/S = O
-	if(S?.sculpted)
+	if(!istype(O))
+		return FALSE
+	if(O.sculpted)
 		return TRUE
 	return FALSE
 
@@ -156,11 +158,12 @@
 	random_count = 1
 	wanted_types = list(/obj/item/reagent_containers/spray)
 
-/datum/bounty/item/assistant/cleaner/applies_to(obj/O)
+/datum/bounty/item/assistant/cleaner/applies_to(var/obj/item/reagent_containers/spray/O)
 	if(!..())
 		return FALSE
-	var/obj/item/reagent_containers/spray/S = O
-	if(S && S.reagents.get_reagent_amount(/datum/reagent/spacecleaner) >= 200)
+	if(!istype(O))
+		return FALSE
+	if(O.reagents.get_reagent_amount(/datum/reagent/spacecleaner) >= 200)
 		return TRUE
 	return FALSE
 

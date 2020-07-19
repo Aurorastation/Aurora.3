@@ -28,11 +28,12 @@
 	reward_high = 35
 	wanted_types = list(/obj/item/clothing/suit/space/void/security)
 
-/datum/bounty/item/security/voidsuit/applies_to(obj/O)
+/datum/bounty/item/security/voidsuit/applies_to(var/obj/item/clothing/suit/space/void/security/O)
 	if(!..())
 		return FALSE
-	var/obj/item/clothing/suit/space/void/security/S = O
-	if(S && S.helmet)
+	if(!istype(O))
+		return FALSE
+	if(O.helmet)
 		return TRUE
 	return FALSE
 
@@ -81,11 +82,12 @@
 	random_count = 1
 	wanted_types = list(/obj/item/reagent_containers/spray/pepper)
 
-/datum/bounty/item/security/pepper/applies_to(obj/O)
+/datum/bounty/item/security/pepper/applies_to(var/obj/item/reagent_containers/spray/pepper/O)
 	if(!..())
 		return FALSE
-	var/obj/item/reagent_containers/spray/pepper/P = O
-	if(P && P.reagents.get_reagent_amount(/datum/reagent/capsaicin/condensed) >= 25)
+	if(!istype(O))
+		return FALSE
+	if(O.reagents.get_reagent_amount(/datum/reagent/capsaicin/condensed) >= 25)
 		return TRUE
 	return FALSE
 
@@ -99,10 +101,11 @@
 	wanted_types = list(/obj/item/device/flash)
 	include_subtypes = FALSE
 
-/datum/bounty/item/security/flash/applies_to(obj/O)
+/datum/bounty/item/security/flash/applies_to(var/obj/item/device/flash/O)
 	if(!..())
 		return FALSE
-	var/obj/item/device/flash/F = O
-	if(F && !F.broken)
+	if(!istype(O))
+		return FALSE
+	if(!O.broken)
 		return TRUE
 	return FALSE

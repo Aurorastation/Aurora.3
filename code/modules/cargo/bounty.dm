@@ -1,7 +1,14 @@
+#define BOUNTY_MIN 1000
+#define BOUNTY_MAX 15000
+
+#define BOUNTY_NUM_LOW 1
+#define BOUNTY_NUM_MED 2
+#define BOUNTY_NUM_HIGH 3
+
 /datum/bounty
 	var/name
 	var/description
-	var/reward = 1000 // In credits. Mostly a fallback
+	var/reward = BOUNTY_MIN // In credits. Mostly a fallback
 	var/reward_low = 0	//x100 in credits. Minimum paid out. If 0, uses reward value instead
 	var/reward_high = 0	//x100 in credits. Maximum paid out. If 0, uses reward value instead
 	var/claimed = FALSE
@@ -54,7 +61,7 @@
 	if(high_priority)
 		return
 	high_priority = TRUE
-	reward = min(round(reward * scale_reward), 15000)	//15k limit
+	reward = min(round(reward * scale_reward), BOUNTY_MAX)	//15k limit
 
 //Generates a list of available bounties to be displayed
 /datum/controller/subsystem/cargo/proc/get_bounty_list()
@@ -159,36 +166,36 @@
 
 // Called lazily at startup to populate bounties_list with random bounties.
 /datum/controller/subsystem/cargo/proc/setupBounties()
-	for(var/i = 0; i < 3; i++)
+	for(var/i = 0; i < BOUNTY_NUM_HIGH; i++)
 		CHECK_TICK
 		var/datum/bounty/subtype = pick(subtypesof(/datum/bounty/item/assistant))
 		try_add_bounty(new subtype)
 
-	for(var/i = 0; i < 3; i++)
+	for(var/i = 0; i < BOUNTY_NUM_HIGH; i++)
 		CHECK_TICK
 		var/list/subtypes = subtypesof(/datum/bounty/item/bot)
 		subtypes += subtypesof(/datum/bounty/item/science)
 		var/datum/bounty/subtype = pick(subtypes)
 		try_add_bounty(new subtype)
 
-	for(var/i = 0; i < 2; i++)
+	for(var/i = 0; i < BOUNTY_NUM_MED; i++)
 		CHECK_TICK
 		var/datum/bounty/subtype = pick(subtypesof(/datum/bounty/item/chef))
 		try_add_bounty(new subtype)
 
-	for(var/i = 0; i < 2; i++)
+	for(var/i = 0; i <  BOUNTY_NUM_MED; i++)
 		CHECK_TICK
 		var/datum/bounty/subtype = pick(subtypesof(/datum/bounty/item/hydroponicist))
 		try_add_bounty(new subtype)
 
-	for(var/i = 0; i < 3; i++)
+	for(var/i = 0; i < BOUNTY_NUM_HIGH; i++)
 		CHECK_TICK
 		var/list/subtypes = subtypesof(/datum/bounty/item/security)
 		subtypes += subtypesof(/datum/bounty/item/engineer)
 		var/datum/bounty/subtype = pick(subtypes)
 		try_add_bounty(new subtype)
 
-	for(var/i = 0; i < 1; i++)
+	for(var/i = 0; i < BOUNTY_NUM_LOW; i++)
 		CHECK_TICK
 		var/list/subtypes = subtypesof(/datum/bounty/weapon_prototype)
 		subtypes += subtypesof(/datum/bounty/item/slime)

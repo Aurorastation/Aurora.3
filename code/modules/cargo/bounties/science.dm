@@ -53,13 +53,12 @@
 	required_count = 1
 	wanted_types = list(/obj/item/robot_parts/robot_suit)
 
-/datum/bounty/item/science/borgbody/applies_to(obj/O)
+/datum/bounty/item/science/borgbody/applies_to(var/obj/item/robot_parts/robot_suit/O)
 	if(!..())
 		return FALSE
-	if(!istype(O, /obj/item/robot_parts/robot_suit))
+	if(!istype(O))
 		return FALSE
-	var/obj/item/robot_parts/robot_suit/RS = O
-	if(RS.check_completion())
+	if(O.check_completion())
 		return TRUE
 	return FALSE
 	
@@ -128,13 +127,12 @@
 	random_count = 1
 	wanted_types = list(/obj/item/cell/apc)
 
-/datum/bounty/item/science/battery/applies_to(obj/O)
+/datum/bounty/item/science/battery/applies_to(var/obj/item/cell/O)
 	if(!..())
 		return FALSE
-	if(!istype(O, /obj/item/cell))
+	if(!istype(O))
 		return FALSE
-	var/obj/item/cell/C = O
-	if(C.charge == C.maxcharge)
+	if(O.charge == O.maxcharge)
 		return TRUE
 	return FALSE
 

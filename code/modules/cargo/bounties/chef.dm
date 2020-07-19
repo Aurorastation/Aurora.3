@@ -94,7 +94,7 @@
 	reward_high = 135
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/burger/superbite)
 
-/datum/bounty/item/chef/superbite/compatible_with(datum/other_bounty)
+/datum/bounty/item/chef/superbite/compatible_with(var/datum/other_bounty)
 	if(istype(other_bounty, /datum/bounty/item/chef/burger))
 		return FALSE
 	return ..()
@@ -180,7 +180,7 @@
 	random_count = 1
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/burger)
 
-/datum/bounty/item/chef/burger/compatible_with(datum/other_bounty)
+/datum/bounty/item/chef/burger/compatible_with(var/datum/other_bounty)
 	if(istype(other_bounty, /datum/bounty/item/chef/superbite))
 		return FALSE
 	return ..()

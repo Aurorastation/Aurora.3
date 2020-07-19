@@ -66,13 +66,12 @@
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/grown)
 	var/list/produce_picks = list(/datum/seed)
 
-/datum/bounty/item/hydroponicist/produce/applies_to(obj/O)
-	if(!istype(O, /obj/item/reagent_containers/food/snacks/grown))
+/datum/bounty/item/hydroponicist/produce/applies_to(var/obj/item/reagent_containers/food/snacks/grown/O)
+	if(!istype(O))
 		return FALSE
-	var/obj/item/reagent_containers/food/snacks/grown/G = O
-	if(G.bitecount > 0) //still not accepting partially-eaten food
+	if(O.bitecount > 0) //still not accepting partially-eaten food
 		return FALSE
-	if(is_type_in_list(G.seed, produce_picks)) //check if it's a type we want.
+	if(is_type_in_list(O.seed, produce_picks)) //check if it's a type we want.
 		return TRUE
 	return FALSE
 
