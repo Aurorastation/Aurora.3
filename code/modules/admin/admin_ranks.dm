@@ -201,7 +201,11 @@ var/list/forum_groupids_to_ranks = list()
 		if (r)
 			rights |= r.rights
 
-	var/primary_rank = forum_groupids_to_ranks["user.forum_primary_group"]?.rank_name || "Administrator"
+	var/primary_rank = "Administrator"
+
+	if (forum_groupids_to_ranks["user.forum_primary_group"])
+		var/datum/admin_rank/r = forum_groupids_to_ranks["user.forum_primary_group"]
+		primary_rank = r.rank_name
 
 	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_admins VALUES (:ckey:, :rank:, :flags:)")
 	query.Execute(list("ckey" = ckey(user.ckey), "rank" = primary_rank, "flags" = rights))
