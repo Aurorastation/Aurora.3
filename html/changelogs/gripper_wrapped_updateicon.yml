@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Items held in grippers (e.g. beakers) will now properly update the gripper's icon with their own changes while being held and used."
