@@ -38,4 +38,4 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Added a MASS of new movestate animations for all of our simple animals. Except goats. And afew Tajara mobs. This was mostly animation practice. The biggest change is the Walking Mushroom which now has chill."
+  - rscadd: "Added a MASS of new movestate animations for all of our simple animals. Except goats. And a few Tajara mobs. This was mostly animation practice. The biggest change is the Walking Mushroom which now has chill."
