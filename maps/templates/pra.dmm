@@ -324,7 +324,7 @@
 "aU" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/wood,
-/obj/item/storage/fancy/cigarettes/cigar,
+/obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/item/flame/lighter/zippo,
 /turf/simulated/floor/wood,
 /area/derelict/ship)

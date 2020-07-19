@@ -87,16 +87,25 @@ obj/item/clothing/mask/chewable/Destroy()
 
 /obj/item/clothing/mask/chewable/proc/spitout(var/mob/user, var/no_message)
 	STOP_PROCESSING(SSprocessing, src)
-	if (type_butt)
-		var/obj/item/butt = new type_butt(get_turf(src))
+	if(type_butt)
+		var/obj/item/butt = new type_butt(user)
 		transfer_fingerprints_to(butt)
 		butt.color = color
 		if(brand)
 			butt.desc += " This one is \a [brand]."
 		if(ismob(loc))
 			var/mob/living/M = loc
-			if (!no_message)
-				to_chat(M, SPAN_NOTICE("You spit out the [name]."))
+			if(!no_message)
+				to_chat(M, SPAN_NOTICE("The [name] runs out of flavor."))
+			if(M.wear_mask)
+				M.remove_from_mob(src) //un-equip it so the overlays can update
+				M.update_inv_wear_mask(0)
+				M.equip_to_slot_if_possible(butt, slot_wear_mask)
+			else
+				M.remove_from_mob(src) // if it gets blocked somehow, since chewables shouldn't be processing outside the mask slot.
+				M.update_inv_l_hand(0)
+				M.update_inv_r_hand(1)
+				M.put_in_hands(butt)
 		qdel(src)
 
 /obj/item/clothing/mask/chewable/tobacco/bad
@@ -153,22 +162,27 @@ obj/item/clothing/mask/chewable/Destroy()
 	color = reagents.get_color()
 	update_icon()
 
-/obj/item/storage/box/gum
+/obj/item/storage/box/fancy/gum
 	name = "\improper Chewy Fruit flavored gum"
 	desc = "A small pack of chewing gum in various flavors."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "gum_pack"
 	item_state = "candy"
+	icon_type = "gum stick"
+	storage_type = "packaging"
 	slot_flags = SLOT_EARS
 	w_class = 1
 	starts_with = list(/obj/item/clothing/mask/chewable/candy/gum = 5)
-	can_hold = list(/obj/item/clothing/mask/chewable/candy/gum,
-					/obj/item/trash/spitgum)
-	use_sound = 'sound/items/drop/wrapper.ogg'
+	can_hold = list(/obj/item/clothing/mask/chewable/candy/gum, /obj/item/trash/spitgum)
+	max_storage_space = 5
+
+	use_sound = 'sound/items/storage/wrapper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
-	max_storage_space = 5
-	foldable = null
+
+	trash = /obj/item/trash/gum
+	closable = FALSE
+	icon_overlays = FALSE
 
 /obj/item/clothing/mask/chewable/candy/lolli
 	name = "lollipop"

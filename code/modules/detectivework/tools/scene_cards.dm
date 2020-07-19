@@ -1,4 +1,4 @@
-/obj/item/storage/fancy/csi_markers
+/obj/item/storage/box/fancy/csi_markers
 	name = "crime scene markers box"
 	desc = "A cardboard box for crime scene marker cards."
 	icon = 'icons/obj/forensics.dmi'

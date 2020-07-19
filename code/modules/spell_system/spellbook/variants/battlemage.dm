@@ -3,7 +3,7 @@
 
 
 /datum/spellbook/battlemage
-	name = "\improper battlemage's bible"
+	name = "battlemage's bible"
 	feedback = "BM"
 	desc = "A treatise on the use of magic in combat situation."
 	book_desc = "Mix physical with the mystical in head to head combat."

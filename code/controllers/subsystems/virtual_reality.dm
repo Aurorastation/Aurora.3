@@ -115,6 +115,7 @@
 /mob/living/simple_animal/spiderbot/get_vr_name(mob/user)
 	real_name = "Remote-Bot ([user.real_name])"
 	name = real_name
+	voice_name = user.real_name // name that'll display on radios
 
 /mob/proc/ckey_transfer(var/mob/target, var/null_vr_mob = TRUE)
 	target.ckey = src.ckey

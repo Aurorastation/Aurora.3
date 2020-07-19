@@ -216,7 +216,7 @@
 		if(I.damage > 0 && I.robotic >= 2)
 			is_organ_damaged = 1
 			break
-	return affected.open == 3 && is_organ_damaged
+	return is_organ_damaged && affected.open == (BP_IS_ROBOTIC(affected) ? 3 : 2)
 
 /datum/surgery_step/robotics/fix_organ_robotic/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))

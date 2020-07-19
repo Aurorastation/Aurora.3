@@ -109,35 +109,28 @@
 		interact(user)
 
 /obj/machinery/space_heater/interact(mob/user)
-
-
-	var/dat
-	dat = "Power cell: "
+	var/dat = "Power cell: "
 	if(cell)
-		dat += "Detected<BR>"
+		dat += "Detected<br>"
 	else
-		dat += "Not Detected<BR>"
+		dat += "Not Detected<br>"
 	dat += "Power: "
 	if(on)
-		dat += "<A href='?src=\ref[src];op=off'>On</A><BR>"
+		dat += "<A href='?src=\ref[src];op=off'>On</A><br>"
 	else
-		dat += "<A href='?src=\ref[src];op=on'>Off</A><BR>"
+		dat += "<A href='?src=\ref[src];op=on'>Off</A><br>"
 
-	dat += "Power Level: [cell ? round(cell.percent(),1) : 0]%<BR><BR>"
+	dat += "Power Level: [cell ? round(cell.percent(),1) : 0]%<br><br>"
 
 	dat += "Set Temperature: "
-
 	dat += "<A href='?src=\ref[src];op=temp;val=-5'>-</A>"
-
-	dat += " [set_temperature]K ([set_temperature-T0C]&deg;C)"
-	dat += "<A href='?src=\ref[src];op=temp;val=5'>+</A><BR>"
+	dat += " [set_temperature]K ([set_temperature-T0C]&deg;C) "
+	dat += "<A href='?src=\ref[src];op=temp;val=5'>+</A><br>"
 
 	user.set_machine(src)
-	user << browse("<HEAD><TITLE>Space Heater Control Panel</TITLE></HEAD><TT>[dat]</TT>", "window=spaceheater")
-	onclose(user, "spaceheater")
-	return // needed?
-
-
+	var/datum/browser/heater_win = new(user, "spaceheater", "Space Heater Control Panel")
+	heater_win.set_content(dat)
+	heater_win.open()
 
 /obj/machinery/space_heater/Topic(href, href_list)
 	if (usr.stat)

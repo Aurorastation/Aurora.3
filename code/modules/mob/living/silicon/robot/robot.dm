@@ -213,7 +213,7 @@
 	ai_camera = new /obj/item/device/camera/siliconcam/robot_camera(src)
 	laws = new law_preset()
 	if(spawn_module)
-		new spawn_module(src)
+		new spawn_module(src, src)
 	if(key_type)
 		radio.keyslot = new key_type(radio)
 		radio.recalculateChannels()
@@ -305,7 +305,7 @@
 		icon_state = module_sprites[icontype]
 	return module_sprites
 
-/mob/living/silicon/robot/proc/pick_module()
+/mob/living/silicon/robot/proc/pick_module(var/set_module)
 	if(selecting_module)
 		return
 	selecting_module = TRUE
@@ -329,7 +329,8 @@
 	var/module_type = robot_modules[mod_type]
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 100, TRUE)
 	spark(get_turf(src), 5, alldirs)
-	new module_type(src)
+
+	new module_type(src, src) // i have no choice but to do this, due to how funky initialize is
 
 	hands.icon_state = lowertext(mod_type)
 	feedback_inc("cyborg_[lowertext(mod_type)]", 1)
@@ -393,8 +394,6 @@
 
 /mob/living/silicon/robot/verb/Namepick()
 	set category = "Robot Commands"
-	if(custom_name)
-		return FALSE
 
 	spawn(0)
 		var/newname
@@ -403,7 +402,8 @@
 			custom_name = newname
 
 		updatename()
-		set_module_sprites(module.sprites) // custom synth icons
+		if(module)
+			set_module_sprites(module.sprites) // custom synth icons
 		SSrecords.reset_manifest()
 
 // this verb lets cyborgs see the stations manifest
@@ -768,18 +768,15 @@
 			if(!opened)
 				to_chat(user, SPAN_WARNING("You cannot install \the [U] while the maintenance hatch is closed."))
 				return
-			else if(!src.module && U.require_module)
-				to_chat(user, SPAN_WARNING("\The [src] cannot be upgraded with this until it has chosen a module."))
-				return
 			else if(U.locked)
 				to_chat(user, SPAN_WARNING("\The [U] is locked down!"))
 				return
 			else
-				if(U.action(src))
+				if(U.action(src, user))
+					to_chat(src, SPAN_NOTICE("\The [user] has installed \a [U] into you."))
 					to_chat(user, SPAN_NOTICE("You apply the upgrade to \the [src]."))
 					user.drop_from_inventory(U, src)
-				else
-					to_chat(user, SPAN_WARNING("You fail to apply the upgrade to \the [src]."))
+				return
 		else
 			if(W.force && !(istype(W, /obj/item/device/robotanalyzer) || istype(W, /obj/item/device/healthanalyzer)) )
 				spark_system.queue()

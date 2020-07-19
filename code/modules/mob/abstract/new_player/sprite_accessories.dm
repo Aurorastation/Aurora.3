@@ -227,12 +227,6 @@ Follow by example and make good judgement based on length which list to include 
 		length = 2
 		chatname = "messy ponytail"
 
-	big_bow
-		name = "Big Bow"
-		icon_state = "hair_big_bow"
-		length = 4
-		chatname = "hair rings"
-
 	bob
 		name = "Bob"
 		icon_state = "hair_bob"
@@ -288,13 +282,6 @@ Follow by example and make good judgement based on length which list to include 
 		gender = MALE
 		length = 4
 		chatname = "bowl cut"
-
-	braid_floorlength
-		name = "Braid, Floorlength"
-		icon_state = "hair_braid_floorlength"
-		gender = FEMALE
-		length = 4
-		chatname = "braid"
 
 	braid_grande
 		name = "Braid, Grande"
@@ -387,13 +374,6 @@ Follow by example and make good judgement based on length which list to include 
 	bun_odango3
 		name = "Bun, Odango 3"
 		icon_state = "hair_bun_odango3"
-		gender = FEMALE
-		length = 3
-		chatname = "hair buns"
-
-	bun_odango4
-		name = "Bun, Odango 4"
-		icon_state = "hair_bun_odango4"
 		gender = FEMALE
 		length = 3
 		chatname = "hair buns"
@@ -503,12 +483,6 @@ Follow by example and make good judgement based on length which list to include 
 		length = 4
 		chatname = "dreadlocks"
 
-	drills_celes
-		name = "Drills, Celes"
-		icon_state = "hair_drills_celes"
-		length = 3
-		chatname = "hair drills"
-
 	drills_drillruru
 		name = "Drills, Drillruru"
 		icon_state = "hair_drills_drillruru"
@@ -522,12 +496,6 @@ Follow by example and make good judgement based on length which list to include 
 		gender = FEMALE
 		length = 3
 		chatname = "hair drills"
-
-	duelist
-		name = "Duelist"
-		icon_state = "hair_duelist"
-		length = 4
-		chatname = "spiked hair"
 
 	emo
 		name = "Emo"
@@ -580,13 +548,6 @@ Follow by example and make good judgement based on length which list to include 
 		icon_state = "hair_fade_none"
 		gender = MALE
 		chatname = "short hair"
-
-	familyman
-		name = "Family Man, The"
-		icon_state = "hair_familyman"
-		gender = MALE
-		chatname = "homely hairdo"
-		length = 2
 
 	father
 		name = "Father"

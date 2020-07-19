@@ -168,10 +168,17 @@ emp_act
 	return null
 
 /mob/living/carbon/human/proc/check_shields(var/damage = 0, var/atom/damage_source = null, var/mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	for(var/obj/item/shield in list(l_hand, r_hand, wear_suit))
-		if(!shield) continue
-		. = shield.handle_shield(src, damage, damage_source, attacker, def_zone, attack_text)
-		if(.) return
+	for(var/obj/item/shield in list(l_hand, r_hand, wear_suit, back))
+		if(!shield)
+			continue
+		if(!shield.can_shield_back())
+			continue
+		var/is_on_back = FALSE
+		if(back && back == shield)
+			is_on_back = TRUE
+		. = shield.handle_shield(src, is_on_back, damage, damage_source, attacker, def_zone, attack_text)
+		if(.)
+			return
 	return 0
 
 /mob/living/carbon/human/emp_act(severity)

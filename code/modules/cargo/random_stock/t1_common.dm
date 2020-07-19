@@ -89,16 +89,16 @@ STOCK_ITEM_COMMON(aid, 4)
 	new /obj/random/firstaid(L)
 
 STOCK_ITEM_COMMON(flame, 2)
-	new /obj/item/storage/box/matches(L)
+	new /obj/item/storage/box/fancy/matches(L)
 	new /obj/item/flame/lighter/random(L)
 
 STOCK_ITEM_COMMON(candles, 1.5)
-	new /obj/item/storage/fancy/candle_box(L)
+	new /obj/item/storage/box/fancy/candle_box(L)
 	if(prob(75))
-		new /obj/item/storage/fancy/candle_box(L)
+		new /obj/item/storage/box/fancy/candle_box(L)
 
 STOCK_ITEM_COMMON(crayons, 1.5)
-	new /obj/item/storage/fancy/crayons(L)
+	new /obj/item/storage/box/fancy/crayons(L)
 
 STOCK_ITEM_COMMON(figure, 1)
 	new /obj/random/action_figure(L)
@@ -121,7 +121,7 @@ STOCK_ITEM_COMMON(vials, 2)
 	if(prob(20))
 		new /obj/item/storage/lockbox/vials(L)
 	else
-		new /obj/item/storage/fancy/vials(L)
+		new /obj/item/storage/box/fancy/vials(L)
 
 STOCK_ITEM_COMMON(smallcell, 4)
 	for(var/i in 1 to rand(1, 2))
