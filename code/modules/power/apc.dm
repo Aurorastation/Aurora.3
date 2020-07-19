@@ -1,3 +1,66 @@
+//update_state
+#define UPDATE_CELL_IN 			 (1<<0)
+#define UPDATE_OPENED1 			 (1<<1)
+#define UPDATE_OPENED2 			 (1<<2)
+#define UPDATE_MAINT 			 (1<<3)
+#define UPDATE_BROKE 			 (1<<4)
+#define UPDATE_BLUESCREEN 		 (1<<5)
+#define UPDATE_WIREEXP 			 (1<<6)
+#define UPDATE_ALLGOOD 			 (1<<7)
+
+//update_overlay
+#define APC_UPOVERLAY_CHARGING0  (1<<0)
+#define APC_UPOVERLAY_CHARGING1  (1<<1)
+#define APC_UPOVERLAY_CHARGING2  (1<<2)
+#define APC_UPOVERLAY_EQUIPMENT0 (1<<3)
+#define APC_UPOVERLAY_EQUIPMENT1 (1<<4)
+#define APC_UPOVERLAY_EQUIPMENT2 (1<<5)
+#define APC_UPOVERLAY_LIGHTING0  (1<<6)
+#define APC_UPOVERLAY_LIGHTING1  (1<<7)
+#define APC_UPOVERLAY_LIGHTING2  (1<<8)
+#define APC_UPOVERLAY_ENVIRON0   (1<<9)
+#define APC_UPOVERLAY_ENVIRON1   (1<<10)
+#define APC_UPOVERLAY_ENVIRON2   (1<<11)
+#define APC_UPOVERLAY_LOCKED     (1<<12)
+#define APC_UPOVERLAY_OPERATING  (1<<13)
+
+//has_electronics
+#define HAS_ELECTRONICS_NONE	 0
+#define HAS_ELECTRONICS_CONNECT  1
+#define HAS_ELECTRONICS_SECURED	 2
+
+//opened
+#define COVER_CLOSED			 0
+#define COVER_OPENED			 1
+#define COVER_REMOVED			 2
+
+//charging
+#define CHARGING_OFF			 0
+#define CHARGING_ON			     1
+#define CHARGING_FULL			 2
+
+//channel settings
+#define CHANNEL_OFF         0
+#define CHANNEL_OFF_AUTO    1
+#define CHANNEL_ON          2
+#define CHANNEL_ON_AUTO     3
+
+//channel types
+#define CHANNEL_EQUIPMENT   0
+#define CHANNEL_LIGHTING    1
+#define CHANNEL_ENVIRONMENT 2
+
+//charge_mode states
+#define CHARGE_MODE_CHARGE    0
+#define CHARGE_MODE_DISCHARGE 1
+#define CHARGE_MODE_STABLE    2
+
+//autoflag states
+#define AUTOFLAG_OFF                0
+#define AUTOFLAG_ENVIRON_ON         1
+#define AUTOFLAG_ENVIRON_LIGHTS_ON  2
+#define AUTOFLAG_ALL_ON             3
+
 // the Area Power Controller (APC), formerly Power Distribution Unit (PDU)
 // one per area, needs wire conection to power network through a terminal
 
@@ -1222,7 +1285,7 @@
 			power_alarm.triggerAlarm(loc, src)
 			autoflag = AUTOFLAG_OFF
 
-obj/machinery/power/apc/proc/autoset(var/val, var/on)
+/obj/machinery/power/apc/proc/autoset(var/val, var/on)
 	if(on == CHANNEL_EQUIPMENT)
 		if(val == CHANNEL_ON)
 			return CHANNEL_OFF
@@ -1364,3 +1427,49 @@ obj/machinery/power/apc/proc/autoset(var/val, var/on)
 		charge_mode = CHARGE_MODE_STABLE
 	last_time = world.time
 	time = ((time_secs / 3600) > 1) ? ("[round(time_secs / 3600)] hours, [round((time_secs % 3600) / 60)] minutes") : ("[round(time_secs / 60)] minutes, [round(time_secs % 60)] seconds")
+
+#undef UPDATE_CELL_IN
+#undef UPDATE_OPENED1
+#undef UPDATE_OPENED2
+#undef UPDATE_MAINT
+#undef UPDATE_BROKE
+#undef UPDATE_BLUESCREEN
+#undef UPDATE_WIREEXP
+#undef UPDATE_ALLGOOD
+#undef APC_UPOVERLAY_CHARGING0
+#undef APC_UPOVERLAY_CHARGING1
+#undef APC_UPOVERLAY_CHARGING2
+#undef APC_UPOVERLAY_EQUIPMENT0
+#undef APC_UPOVERLAY_EQUIPMENT1
+#undef APC_UPOVERLAY_EQUIPMENT2
+#undef APC_UPOVERLAY_LIGHTING0
+#undef APC_UPOVERLAY_LIGHTING1
+#undef APC_UPOVERLAY_LIGHTING2
+#undef APC_UPOVERLAY_ENVIRON0
+#undef APC_UPOVERLAY_ENVIRON1
+#undef APC_UPOVERLAY_ENVIRON2
+#undef APC_UPOVERLAY_LOCKED
+#undef APC_UPOVERLAY_OPERATING
+#undef HAS_ELECTRONICS_NONE
+#undef HAS_ELECTRONICS_CONNECT
+#undef HAS_ELECTRONICS_SECURED
+#undef COVER_CLOSED
+#undef COVER_OPENED
+#undef COVER_REMOVED
+#undef CHARGING_OFF
+#undef CHARGING_ON
+#undef CHARGING_FULL
+#undef CHANNEL_OFF
+#undef CHANNEL_OFF_AUTO
+#undef CHANNEL_ON
+#undef CHANNEL_ON_AUTO
+#undef CHANNEL_EQUIPMENT
+#undef CHANNEL_LIGHTING
+#undef CHANNEL_ENVIRONMENT
+#undef CHARGE_MODE_CHARGE
+#undef CHARGE_MODE_DISCHARGE
+#undef CHARGE_MODE_STABLE
+#undef AUTOFLAG_OFF
+#undef AUTOFLAG_ENVIRON_ON
+#undef AUTOFLAG_ENVIRON_LIGHTS_ON
+#undef AUTOFLAG_ALL_ON
