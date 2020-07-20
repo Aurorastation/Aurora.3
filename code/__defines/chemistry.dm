@@ -63,15 +63,16 @@
 #define CE_PACIFIED     "pacified"
 #define CE_PAINKILLER   "painkiller"
 #define CE_PULSE        "xcardic"		// increases or decreases heartrate
-#define CE_UNDEXTROUS "undextrous" // arms no work right
+#define CE_UNDEXTROUS   "undextrous"    // arms no work right
 #define CE_HALLUCINATE  "hallucinogen"	//Makes hallucinations stronger or weaker
+#define CE_CRYO 	    "cryogenic"     // Prevents damage from being frozen
 
 // Apply healing effects
 #define CE_ANTIBIOTIC   "antibiotic"	// Thetamycin
 #define CE_ANTITOXIN    "antitoxin"		// Dylovene and stuff
 #define CE_BLOODRESTORE "bloodrestore"	// Iron/nutriment
 #define CE_BRAIN_REGEN  "brainfix"		// Alkysine
-#define CE_OXYGENATED   "oxygen"		// Dexalin
+#define CE_OXYGENATED   "oxygenated"	// Dexalin
 
 // Deal damage
 #define CE_BREATHLOSS   "breathloss"

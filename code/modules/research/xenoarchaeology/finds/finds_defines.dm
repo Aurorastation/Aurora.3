@@ -83,7 +83,7 @@
 		if(ARCHAEO_PEN)
 			return "mercury"
 		if(ARCHAEO_CRYSTAL)
-			return "nitrogen"
+			return GAS_NITROGEN
 		if(ARCHAEO_CULTBLADE)
 			return "potassium"
 		if(ARCHAEO_TELEBEACON)
@@ -93,9 +93,9 @@
 		if(ARCHAEO_CULTROBES)
 			return "potassium"
 		if(ARCHAEO_SOULSTONE)
-			return "nitrogen"
+			return GAS_NITROGEN
 		if(ARCHAEO_SHARD)
-			return "nitrogen"
+			return GAS_NITROGEN
 		if(ARCHAEO_RODS)
 			return "iron"
 		if(ARCHAEO_STOCKPARTS)

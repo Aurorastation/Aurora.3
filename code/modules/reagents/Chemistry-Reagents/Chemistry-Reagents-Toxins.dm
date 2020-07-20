@@ -108,7 +108,7 @@
 				else if(P.is_broken())
 					return
 				else
-					P.air_contents.adjust_gas("phoron", (0.5*removed))
+					P.air_contents.adjust_gas(GAS_PHORON, (0.5*removed))
 
 		else
 			..()
@@ -134,7 +134,7 @@
 /datum/reagent/toxin/phoron/touch_turf(var/turf/simulated/T)
 	if(!istype(T))
 		return
-	T.assume_gas("phoron", volume, T20C)
+	T.assume_gas(GAS_PHORON, volume, T20C)
 	remove_self(volume)
 
 /datum/reagent/toxin/phoron_salt //Remember to exclude in RNG chems.
@@ -186,7 +186,7 @@
 					qdel(H)
 
 	var/datum/gas_mixture/environment = T.return_air()
-	environment.adjust_gas("phoron",-amount*10)
+	environment.adjust_gas(GAS_PHORON,-amount*10)
 
 /datum/reagent/toxin/cyanide //Fast and Lethal
 	name = "Cyanide"

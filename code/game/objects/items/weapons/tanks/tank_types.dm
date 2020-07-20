@@ -13,17 +13,17 @@
 /obj/item/tank/oxygen
 	name = "oxygen tank"
 	desc = "A tank of oxygen."
-	icon_state = "oxygen"
+	icon_state = GAS_OXYGEN
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
 
 
 /obj/item/tank/oxygen/Initialize()
 	. = ..()
-	air_contents.adjust_gas("oxygen", (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+	air_contents.adjust_gas(GAS_OXYGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 
 /obj/item/tank/oxygen/examine(mob/user)
-	if(..(user, 0) && air_contents.gas["oxygen"] < 10)
+	if(..(user, 0) && air_contents.gas[GAS_OXYGEN] < 10)
 		to_chat(user, text("<span class='warning'>The meter on \the [src] indicates you are almost out of oxygen!</span>"))
 		//playsound(usr, 'sound/effects/alert.ogg', 50, 1)
 
@@ -52,8 +52,8 @@
 /obj/item/tank/anesthetic/Initialize()
 	. = ..()
 
-	air_contents.gas["oxygen"] = (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C) * O2STANDARD
-	air_contents.gas["sleeping_agent"] = (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD
+	air_contents.gas[GAS_OXYGEN] = (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C) * O2STANDARD
+	air_contents.gas[GAS_N2O] = (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD
 	air_contents.update_values()
 
 /*
@@ -62,16 +62,16 @@
 /obj/item/tank/air
 	name = "air tank"
 	desc = "Mixed anyone?"
-	icon_state = "oxygen"
+	icon_state = GAS_OXYGEN
 
 	examine(mob/user)
-		if(..(user, 0) && air_contents.gas["oxygen"] < 1 && loc==user)
+		if(..(user, 0) && air_contents.gas[GAS_OXYGEN] < 1 && loc==user)
 			to_chat(user, "<span class='danger'>The meter on the [src.name] indicates you are almost out of air!</span>")
 			user << sound('sound/effects/alert.ogg')
 
 /obj/item/tank/air/Initialize()
 	. = ..()
-	air_contents.adjust_multi("oxygen", (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * O2STANDARD, "nitrogen", (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD)
+	air_contents.adjust_multi(GAS_OXYGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * O2STANDARD, GAS_NITROGEN, (6*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C) * N2STANDARD)
 
 
 /*
@@ -122,11 +122,11 @@
 
 /obj/item/tank/emergency_oxygen/Initialize()
 	. = ..()
-	air_contents.adjust_gas("oxygen", (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+	air_contents.adjust_gas(GAS_OXYGEN, (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 
 /obj/item/tank/emergency_oxygen/examine(mob/user)
-	if(..(user, 0) && air_contents.gas["oxygen"] < 0.2 && loc==user)
+	if(..(user, 0) && air_contents.gas[GAS_OXYGEN] < 0.2 && loc==user)
 		to_chat(user, text("<span class='danger'>The meter on the [src.name] indicates you are almost out of air!</span>"))
 		user << sound('sound/effects/alert.ogg')
 
@@ -159,10 +159,10 @@
 
 /obj/item/tank/emergency_nitrogen/Initialize()
 	. = ..()
-	air_contents.adjust_gas("nitrogen", (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+	air_contents.adjust_gas(GAS_NITROGEN, (3*ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 
 /obj/item/tank/emergency_nitrogen/examine(mob/user)
-	if(..(user, 0) && air_contents.gas["nitrogen"] < 0.2 && loc==user)
+	if(..(user, 0) && air_contents.gas[GAS_NITROGEN] < 0.2 && loc==user)
 		to_chat(user, text("<span class='danger'>The meter on \the [src] indicates you are almost out of air!</span>"))
 		user << sound('sound/effects/alert.ogg')
 
@@ -178,9 +178,9 @@
 /obj/item/tank/nitrogen/Initialize()
 	. = ..()
 
-	air_contents.adjust_gas("nitrogen", (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
+	air_contents.adjust_gas(GAS_NITROGEN, (3*ONE_ATMOSPHERE)*70/(R_IDEAL_GAS_EQUATION*T20C))
 
 /obj/item/tank/nitrogen/examine(mob/user)
-	if(..(user, 0) && air_contents.gas["nitrogen"] < 10)
+	if(..(user, 0) && air_contents.gas[GAS_NITROGEN] < 10)
 		to_chat(user, text("<span class='danger'>The meter on \the [src] indicates you are almost out of nitrogen!</span>"))
 		//playsound(user, 'sound/effects/alert.ogg', 50, 1)

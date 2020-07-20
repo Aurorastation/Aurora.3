@@ -449,7 +449,7 @@ var/global/list/golem_types = list("Coal Golem",
 	sleep(1)
 	var/turf/location = get_turf(H)
 	for(var/turf/simulated/floor/target_tile in range(0,location))
-		target_tile.assume_gas("phoron", 200, 100+T0C)
+		target_tile.assume_gas(GAS_PHORON, 200, 100+T0C)
 		spawn (0) target_tile.hotspot_expose(700, 400)
 	qdel(H)
 
@@ -783,9 +783,9 @@ var/global/list/golem_types = list("Coal Golem",
 	bodytype = "Human"
 
 	breath_pressure = 16
-	breath_type = "oxygen"
-	poison_type = "phoron"
-	exhale_type = "carbon_dioxide"
+	breath_type = GAS_OXYGEN
+	poison_type = GAS_PHORON
+	exhale_type = GAS_CO2
 
 	cold_level_1 = 260
 	cold_level_2 = 200

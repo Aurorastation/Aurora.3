@@ -316,7 +316,7 @@
 	body_parts_covered = FACE|EYES
 	gas_filter_strength = 3
 	w_class = 2.0
-	filtered_gases = list("nitrogen", "sleeping_agent")
+	filtered_gases = list(GAS_NITROGEN, GAS_N2O)
 	armor = list(melee = 25, bullet = 10, laser = 25, energy = 25, bomb = 0, bio = 50, rad = 15)
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "m_metalg"
