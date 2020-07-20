@@ -240,14 +240,14 @@
 	return
 
 /obj/machinery/body_scanconsole
+	name = "body scanner console"
+	desc = "An advanced control panel that can be used to interface with a connected body scanner."
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "body_scannerconsole"
 	var/obj/machinery/bodyscanner/connected
 	var/known_implants = list(/obj/item/implant/chem, /obj/item/implant/death_alarm, /obj/item/implant/mindshield, /obj/item/implant/tracking)
 	var/collapse_desc = ""
 	var/broken_desc = ""
-	name = "Body Scanner Console"
-	desc = "A control panel for some kind of medical device."
-	icon = 'icons/obj/sleeper.dmi'
-	icon_state = "body_scannerconsole"
 	density = 0
 	anchored = 1
 	component_types = list(
