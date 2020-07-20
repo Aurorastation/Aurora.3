@@ -1,6 +1,5 @@
 //Severe traumas, when your brain gets abused way too much.
 //These range from very annoying to completely debilitating.
-//They can be suppressed with Peroxitin, and require brain surgery to solve.
 
 /datum/brain_trauma/severe
 

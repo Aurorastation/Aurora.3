@@ -397,7 +397,6 @@
 			/datum/reagent/hyperzine,
 			/datum/reagent/hyronalin,
 			/datum/reagent/impedrezene,
-			/datum/reagent/mental/peroxitin,
 			/datum/reagent/mercury,
 			/datum/reagent/mindbreaker,
 			/datum/reagent/slimetoxin,

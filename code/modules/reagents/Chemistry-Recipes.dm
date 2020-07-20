@@ -661,13 +661,6 @@
 	required_reagents = list(/datum/reagent/norepinephrine = 1, /datum/reagent/hyperzine = 1, /datum/reagent/dexalin/plus = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/peroxitin
-	name = "peroxitin"
-	id = "peroxitin"
-	result = /datum/reagent/mental/peroxitin
-	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/ammonia = 1, /datum/reagent/copper = 1)
-	result_amount = 3
-
 /datum/chemical_reaction/neurostabin
 	name = "Neurostabin"
 	id = "neurostabin"
