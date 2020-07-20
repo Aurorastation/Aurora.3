@@ -219,11 +219,11 @@
 
 /obj/item/storage/pill_bottle/antihistadryl
 	name = "bottle of Antihistadryl pills"
-	desc = "Often compared to ancient Diphenhydramine, Antihistadryl is a modern antihistamine used to reduce symptoms of allergies. Helps with sneezing."
+	desc = "Often compared to ancient brands, Antihistadryl is a modern antihistamine used to reduce symptoms of allergies. Helps with sneezing."
 	starts_with = list(/obj/item/reagent_containers/pill/antihistadryl = 7)
 
 /obj/item/storage/pill_bottle/traumatonin
-	name = "bottle of Traudil pills"
+	name = "bottle of Traumatonin pills"
 	desc = "Contains pills used to relieve pain."
 	starts_with = list(/obj/item/reagent_containers/pill/traumatonin = 7)
 

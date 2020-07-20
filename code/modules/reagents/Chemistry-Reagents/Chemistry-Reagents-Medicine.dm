@@ -67,7 +67,7 @@
 
 /datum/reagent/dylovene
 	name = "Dylovene"
-	description = "Dylovene is a broad-spectrum antitoxin."
+	description = "Dylovene is a broad-spectrum OTC antitoxin. It's used in a variety of cases including during accidental poisonings."
 	reagent_state = LIQUID
 	color = "#00A000"
 	scannable = TRUE
@@ -188,7 +188,7 @@
 
 /datum/reagent/paraphenol
 	name = "Paraphenol"
-	description = "Most probably compare this to ancient Tylenol, but this chemical is a more advanced, mild, simple painkiller. Does not work when inhaled."
+	description = "Most probably compare this to ancient light painkiller brands, but they'd be wrong, this chemical is a more advanced, mild, simple painkiller. Does not work when inhaled."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = 60
@@ -231,7 +231,7 @@
 
 /datum/reagent/oxycorphine
 	name = "Oxycorphine"
-	description = "Oxycorphine is an advanced medicine often compared to ancient Oxycodone, it's an incredibly potent and very addictive painkiller. Do not mix with alcohol. Does not work when inhaled."
+	description = "Oxycorphine is an advanced medicine often compared to ancient brands of old, it's an incredibly potent and very addictive painkiller. Do not mix with alcohol. Does not work when inhaled."
 	reagent_state = LIQUID
 	color = "#800080"
 	overdose = 20
@@ -309,7 +309,7 @@
 
 /datum/reagent/oculine
 	name = "Oculine"
-	description = "Heals eye damage"
+	description = "Oculine is a chemical often used for the healing of eye tissue and other deformaties. It has been known to linger within many modern breeds of vegetables due to pollutants."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
@@ -555,7 +555,7 @@
 
 /datum/reagent/antihistadryl
 	name = "Antihistadryl"
-	description = "A modern antihistamine medication, often compared to ancient Benadryl. Known for causing drowsiness in larger doses."
+	description = "A modern antihistamine medication, often compared to ancient brands of old. Used for suppressing alergies, coughing and sneezing, causes drowsiness in larger doses."
 	scannable = 1
 	reagent_state = LIQUID
 	taste_description = "bitterness"
