@@ -426,6 +426,17 @@
 		msg += "Their eye glows green."
 	to_chat(user, msg)
 
+/mob/living/silicon/robot/drone/self_diagnosis()
+	if(!is_component_functioning("diagnosis unit"))
+		return null
+
+	var/datum/robot_component/diagnosis_unit/C = components["diagnosis unit"]
+
+	var/dat = "<HEAD><TITLE>[src.name] Self-Diagnosis Report</TITLE></HEAD><BODY>\n"
+	dat += "<b>Self-Diagnosis System Report</b><br><table><tr><td>Brute Damage:</td><td>[bruteloss]</td></tr><tr><td>Electronics Damage:</td><td>[fireloss]</td></tr><tr><td>Powered:</td><td>[(!C.idle_usage || C.is_powered()) ? "Yes" : "No"]</td></tr><tr><td>Toggled:</td><td>[ C.toggled ? "Yes" : "No"]</td></table>"
+
+	return dat
+
 /mob/living/silicon/robot/drone/construction/welcome_drone()
 	to_chat(src, SPAN_NOTICE("<b>You are a construction drone, an autonomous engineering and fabrication system.</b>."))
 	to_chat(src, SPAN_NOTICE("You are assigned to a NanoTrasen construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."))
