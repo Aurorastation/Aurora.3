@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Maintenance Drone diagnostic screen now shows overall status rather than individual component status, as they cannot actually take component damage, only overall damage."
