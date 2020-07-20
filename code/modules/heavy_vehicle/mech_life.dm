@@ -1,9 +1,6 @@
 /mob/living/heavy_vehicle/handle_disabilities()
 	return
 
-/mob/living/heavy_vehicle/handle_status_effects()
-	return
-
 /mob/living/heavy_vehicle/Life()
 
 	// Size offsets for large mechs.
@@ -128,13 +125,6 @@
 	explosion(T, -1, 0, 2)
 	qdel(src)
 	return
-
-/mob/living/heavy_vehicle/handle_status_effects()
-	..()
-	if(hallucination > 0)
-		hallucination--
-	else if(hallucination < 0)
-		hallucination = 0
 
 /mob/living/heavy_vehicle/handle_vision()
 	if(head)

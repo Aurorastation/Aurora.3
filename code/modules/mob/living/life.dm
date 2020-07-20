@@ -19,8 +19,7 @@
 
 	blinded = 0 // Placing this here just show how out of place it is.
 
-	if(handle_regular_status_updates()) // Status & health update, are we dead or alive etc.
-		handle_status_effects() //all special effects, stunned, weakened, jitteryness, hallucination, sleeping, etc
+	handle_regular_status_updates()
 
 	if(stat != DEAD)
 		aura_check(AURA_TYPE_LIFE)
@@ -78,23 +77,6 @@
 		else
 			stat = CONSCIOUS
 		return 1
-
-//this updates all special effects: stunned, sleeping, weakened, druggy, stuttering, etc..
-/mob/living/proc/handle_status_effects()
-	if(paralysis)
-		paralysis = max(paralysis-1,0)
-	if(stunned)
-		stunned = max(stunned-1,0)
-		if(!stunned)
-			update_icons()
-
-	if(weakened)
-		weakened = max(weakened-1,0)
-		if(!weakened)
-			update_icons()
-
-	if(confused)
-		confused = max(0, confused - 1)
 
 /mob/living/proc/handle_disabilities()
 	//Eyes

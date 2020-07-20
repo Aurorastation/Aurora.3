@@ -144,7 +144,7 @@
 	var/datum/gas_mixture/airtank
 
 	var/stasis_power = 20
-	var/degradation_time = 150 //ticks until stasis power degrades, ~5 minutes
+	var/degradation_time = 2 MINUTES //ticks until stasis power degrades
 
 /obj/structure/closet/body_bag/cryobag/Initialize()
 	. = ..()
@@ -207,6 +207,7 @@
 
 	if(H.stasis_sources[STASIS_CRYOBAG] != stasis_power)
 		H.SetStasis(stasis_power, STASIS_CRYOBAG)
+	H.eye_blind = 3
 
 /obj/structure/closet/body_bag/cryobag/return_air() //Used to make stasis bags protect from vacuum.
 	if(airtank)
@@ -226,16 +227,3 @@
 	desc = "Pretty useless now.."
 	icon_state = "bodybag_used"
 	icon = 'icons/obj/cryobag.dmi'
-
-/obj/structure/closet/body_bag/cryobag/blank
-	stasis_power = 60
-	degradation_time = 1800 //ticks until stasis power degrades, ~5 minutes
-
-/obj/structure/closet/body_bag/cryobag/blank/open()
-	. = ..()
-	new /obj/item/usedcryobag(loc)
-	qdel(src)
-
-/obj/structure/closet/body_bag/cryobag/blank/Initialize()
-	. = ..()
-	START_PROCESSING(SSprocessing, src)

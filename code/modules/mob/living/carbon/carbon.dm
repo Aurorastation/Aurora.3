@@ -35,9 +35,6 @@
 
 		. = 1
 
-		if(!client && !mind && species)
-			species.handle_npc(src)
-
 /mob/living/carbon/Destroy()
 	QDEL_NULL(touching)
 	bloodstr = null
