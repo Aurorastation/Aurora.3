@@ -2,8 +2,8 @@
 /datum/bounty/item/hydroponicist/potato_cells
 	name = "Potato Batteries"
 	description = "%BOSSNAME is researching an environmentally-friendly power source on another station. Send us some potato batteries."
-	reward_low = 20
-	reward_high = 30
+	reward_low = 2000
+	reward_high = 3000
 	required_count = 6
 	random_count = 3
 	wanted_types = list(/obj/item/cell/potato)
@@ -11,8 +11,8 @@
 /datum/bounty/item/hydroponicist/ert
 	name = "Rations"
 	description = "%BOSSSHORT is sending ERT out on a long mission. We need some long-lasting rations for them to eat!"
-	reward_low = 22
-	reward_high = 28
+	reward_low = 2200
+	reward_high = 2800
 	required_count = 6
 	random_count = 2
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/liquidfood, /obj/item/pen/crayon)
@@ -20,8 +20,8 @@
 /datum/bounty/item/hydroponicist/towels
 	name = "Towels"
 	description = "%BOSSSHORT is having the sickest pool party ever. Send us some towels for a reward, and maybe an invitation!"
-	reward_low = 30
-	reward_high = 35
+	reward_low = 3000
+	reward_high = 3500
 	required_count = 8
 	random_count = 3
 	wanted_types = list(/obj/item/towel, /obj/item/towel_flat)
@@ -29,8 +29,8 @@
 /datum/bounty/item/hydroponicist/gloves
 	name = "Botanical Gloves"
 	description = "%BOSSNAME is participating in a massive tree-planting initiative on Biesel. Help us help the company's image by sending our volunteers some gardening gloves!"
-	reward_low = 22
-	reward_high = 30
+	reward_low = 2200
+	reward_high = 3000
 	required_count = 4
 	random_count = 1
 	wanted_types = list(/obj/item/clothing/gloves/botanic_leather)
@@ -38,8 +38,8 @@
 /datum/bounty/item/hydroponicist/flower_crown
 	name = "Flower Crowns"
 	description = "It's time for the monthly %COMPNAME company dance. This month's theme is floral in nature, so send us some flower crowns to give to attendees."
-	reward_low = 36
-	reward_high = 44
+	reward_low = 3600
+	reward_high = 4400
 	required_count = 6
 	random_count = 2
 	wanted_types = list(/obj/item/clothing/head/sunflower_crown, /obj/item/clothing/head/lavender_crown, /obj/item/clothing/head/poppy_crown)
@@ -47,8 +47,8 @@
 /datum/bounty/item/assistant/animal_cubes
 	name = "Xeno Cubes"
 	description = "Monkeys are very limiting for xenostudies research. Please ship some alternative cubes (wrapped) to alleviate a shortage experienced by our other labs."
-	reward_low = 20
-	reward_high = 26
+	reward_low = 2000
+	reward_high = 2600
 	required_count = 4
 	random_count = 1
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped/farwacube,
@@ -59,8 +59,8 @@
 /datum/bounty/item/hydroponicist/produce
 	name = "Produce - Any"
 	description = "%BOSSNAME is in need of a bundle of fresh produce. Send your best!"
-	reward_low = 30
-	reward_high = 35
+	reward_low = 3000
+	reward_high = 3500
 	required_count = 18
 	random_count = 5
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/grown)

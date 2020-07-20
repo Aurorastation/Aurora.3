@@ -37,8 +37,8 @@
 
 /datum/bounty/reagent/simple_drink
 	name = "Simple Drink"
-	reward_low = 10
-	reward_high = 15
+	reward_low = 1000
+	reward_high = 1800
 
 /datum/bounty/reagent/simple_drink/New()
 	..()
@@ -95,8 +95,8 @@
 //Complex drinks. Requires coordination with other departments for ingredients
 /datum/bounty/reagent/complex_drink
 	name = "Complex Drink"
-	reward_low = 20
-	reward_high = 30
+	reward_low = 2000
+	reward_high = 3200
 
 /datum/bounty/reagent/complex_drink/New()
 	..()
@@ -132,8 +132,8 @@
 //Medicines, toxins, and drugs
 /datum/bounty/reagent/chemical
 	name = "Chemical"
-	reward_low = 20
-	reward_high = 30
+	reward_low = 2000
+	reward_high = 3200
 
 /datum/bounty/reagent/chemical/New()
 	..()

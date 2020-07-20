@@ -1,6 +1,6 @@
 /datum/bounty/item/slime
-	reward_low = 40
-	reward_high = 60
+	reward_low = 4000
+	reward_high = 6000
 
 /datum/bounty/item/slime/New()
 	..()

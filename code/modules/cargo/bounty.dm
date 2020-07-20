@@ -9,14 +9,14 @@
 	var/name
 	var/description
 	var/reward = BOUNTY_MIN // In credits. Mostly a fallback
-	var/reward_low = 0	//x100 in credits. Minimum paid out. If 0, uses reward value instead
-	var/reward_high = 0	//x100 in credits. Maximum paid out. If 0, uses reward value instead
+	var/reward_low = 0	//If 0, uses reward value instead
+	var/reward_high = 0	//If 0, uses reward value instead. Must be higher than reward_low
 	var/claimed = FALSE
 	var/high_priority = FALSE
 
 /datum/bounty/New()
-	if(reward_low && reward_high)
-		reward = rand(reward_low, reward_high) * 100	//Keeps it tidy like 1200, 4500, instead of getting like 1457 credits
+	if(reward_low > 0 && reward_high > reward_low)
+		reward = round(rand(reward_low, reward_high), 100)	
 	description = replacetext(description, "%DOCKNAME",current_map.dock_name)
 	description = replacetext(description, "%DOCKSHORT",current_map.dock_short)
 	description = replacetext(description, "%BOSSNAME",current_map.boss_name)
