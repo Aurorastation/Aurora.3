@@ -1,3 +1,5 @@
+//Planty recipes
+//====================
 /datum/recipe/fries
 	appliance = FRYER
 	items = list(
@@ -20,6 +22,20 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/risottoballs
 
+/datum/recipe/onionrings
+	appliance = FRYER
+	fruit = list("onion" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/doughslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/onionrings
+
+/datum/recipe/friedmushroom
+	appliance = FRYER
+	fruit = list("plumphelmet" = 1)
+	coating = /datum/reagent/nutriment/coating/beerbatter
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/friedmushroom
 
 //Meaty Recipes
 //====================
@@ -66,13 +82,6 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/crunch
 	coating = /datum/reagent/nutriment/coating/batter
-
-/datum/recipe/friedmushroom
-	appliance = FRYER
-	fruit = list("plumphelmet" = 1)
-	coating = /datum/reagent/nutriment/coating/beerbatter
-	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
-	result = /obj/item/reagent_containers/food/snacks/friedmushroom
 
 
 //Sweet Recipes.

@@ -7,6 +7,13 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/human/burger
 
+/datum/recipe/mouseburger
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/meat/rat
+	)
+	result = /obj/item/reagent_containers/food/snacks/burger/mouse
+
 /datum/recipe/plainburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
@@ -49,13 +56,6 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger/tofu
 
-/datum/recipe/mouseburger
-	items = list(
-		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/meat/rat
-	)
-	result = /obj/item/reagent_containers/food/snacks/burger/mouse
-
 /datum/recipe/hotdog
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
@@ -70,50 +70,14 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/classichotdog
 
-
-/datum/recipe/waffles
-	reagents = list(/datum/reagent/sugar = 10)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough
-	)
-	result = /obj/item/reagent_containers/food/snacks/waffles
-
-/datum/recipe/donkpocket
-	items = list(
-		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/meatball
-	)
-	result = /obj/item/reagent_containers/food/snacks/donkpocket //does it make sense for newly made donk to come out cold? no, do I care? coincidentally, also no.
-
 /datum/recipe/hotdiggitydonk //heated donk
 	items = list(
 		/obj/item/reagent_containers/food/snacks/donkpocket
 	)
 	result = /obj/item/reagent_containers/food/snacks/donkpocket/warm
 
-/datum/recipe/eggplantparm
-	fruit = list("eggplant" = 1)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/cheesewedge,
-		/obj/item/reagent_containers/food/snacks/cheesewedge
-		)
-	result = /obj/item/reagent_containers/food/snacks/eggplantparm
-
-/datum/recipe/soywafers
-	fruit = list("soybeans" = 1)
-	reagents = list(/datum/reagent/nutriment/flour = 10)
-	reagent_mix = RECIPE_REAGENT_REPLACE
-	result = /obj/item/reagent_containers/food/snacks/soywafers
-
-/datum/recipe/berryclafoutis
-	fruit = list("berries" = 1)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
-	)
-	result = /obj/item/reagent_containers/food/snacks/berryclafoutis
-
 /datum/recipe/wingfangchu
+	appliance = FRYER
 	reagents = list(/datum/reagent/nutriment/soysauce = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/xenomeat
@@ -153,17 +117,8 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/tofukabob
 
-
-
-/datum/recipe/loadedbakedpotato
-	fruit = list("potato" = 1)
-	items = list(/obj/item/reagent_containers/food/snacks/cheesewedge)
-	result = /obj/item/reagent_containers/food/snacks/loadedbakedpotato
-
-
-
-
 /datum/recipe/popcorn
+	appliance = SAUCEPAN
 	fruit = list("corn" = 1)
 	result = /obj/item/reagent_containers/food/snacks/popcorn
 
@@ -172,10 +127,12 @@
 
 
 /datum/recipe/spacylibertyduff
+	appliance = OVEN
 	reagents = list(/datum/reagent/water = 5, /datum/reagent/alcohol/ethanol/vodka = 5, /datum/reagent/psilocybin = 5)
 	result = /obj/item/reagent_containers/food/snacks/spacylibertyduff
 
 /datum/recipe/amanitajelly
+	appliance = SAUCEPAN
 	reagents = list(/datum/reagent/water = 5, /datum/reagent/alcohol/ethanol/vodka = 5, /datum/reagent/toxin/amatoxin = 5)
 	result = /obj/item/reagent_containers/food/snacks/amanitajelly
 	make_food(var/obj/container as obj)
@@ -212,12 +169,14 @@
 	result = /obj/item/reagent_containers/food/snacks/sandwich
 
 /datum/recipe/toastedsandwich
+	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sandwich
 	)
 	result = /obj/item/reagent_containers/food/snacks/toastedsandwich
 
 /datum/recipe/grilledcheese
+	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice,
 		/obj/item/reagent_containers/food/snacks/breadslice,
@@ -259,7 +218,6 @@
 	result = /obj/item/reagent_containers/food/snacks/stewedsoymeat
 
 /datum/recipe/superbiteburger
-	appliance = MIX
 	fruit = list("tomato" = 1)
 	reagents = list(/datum/reagent/sodiumchloride = 5, /datum/reagent/blackpepper = 5)
 	items = list(
@@ -277,6 +235,7 @@
 	result = /obj/item/reagent_containers/food/snacks/candiedapple
 
 /datum/recipe/applepie
+	appliance = OVEN
 	fruit = list("apple" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/sliceable/flatdough)
 	result = /obj/item/reagent_containers/food/snacks/applepie
@@ -372,7 +331,7 @@
 // bs12 food port stuff
 //////////////////////////////////////////
 /datum/recipe/mint
-	appliance = MIX
+	appliance = SAUCEPAN
 	reagents = list(/datum/reagent/sugar = 5, /datum/reagent/frostoil = 5)
 	result = /obj/item/reagent_containers/food/snacks/mint
 
@@ -449,7 +408,6 @@
 	result = /obj/item/reagent_containers/food/snacks/chilicheesefries
 
 /datum/recipe/donerkebab
-	appliance = MIX
 	fruit = list("tomato" = 1, "cabbage" = 1)
 	reagents = list(/datum/reagent/sodiumchloride = 1)
 	items = list(
@@ -459,7 +417,6 @@
 	result = /obj/item/reagent_containers/food/snacks/donerkebab
 
 /datum/recipe/sashimi
-	appliance = MIX
 	reagents = list(/datum/reagent/nutriment/soysauce = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/carpmeat
@@ -470,7 +427,6 @@
 // Chip update
 
 /datum/recipe/cheese_cracker
-	appliance = MIX
 	items = list(
 		/obj/item/reagent_containers/food/snacks/spreads,
 		/obj/item/reagent_containers/food/snacks/breadslice,
@@ -490,7 +446,6 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger/bacon
 
-
 /datum/recipe/fish_taco
 	appliance = MIX | SKILLET
 	fruit = list("chili" = 1, "lemon" = 1)
@@ -500,37 +455,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/fish_taco
 
-/datum/recipe/blt
-	appliance = MIX | SKILLET // you should be toasting the bread but whatever, you do you
-	fruit = list("tomato" = 1, "cabbage" = 1)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/breadslice,
-		/obj/item/reagent_containers/food/snacks/breadslice,
-		/obj/item/reagent_containers/food/snacks/bacon,
-		/obj/item/reagent_containers/food/snacks/bacon
-	)
-	result = /obj/item/reagent_containers/food/snacks/blt
-
-/datum/recipe/onionrings
-	appliance = FRYER
-	fruit = list("onion" = 1)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/doughslice
-	)
-	result = /obj/item/reagent_containers/food/snacks/onionrings
-
-/datum/recipe/berrymuffin
-	appliance = OVEN
-	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/sugar = 5)
-	reagent_mix = RECIPE_REAGENT_REPLACE
-	items = list(
-		/obj/item/reagent_containers/food/snacks/dough
-	)
-	fruit = list("berries" = 1)
-	result = /obj/item/reagent_containers/food/snacks/berrymuffin
-
 /datum/recipe/porkbowl
-	appliance = MIX
 	reagents = list(/datum/reagent/water = 5, /datum/reagent/nutriment/rice = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(

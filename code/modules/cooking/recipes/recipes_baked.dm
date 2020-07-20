@@ -1,19 +1,4 @@
-/datum/recipe/dionaroast
-	appliance = OVEN
-	fruit = list("apple" = 1)
-	reagents = list(/datum/reagent/acid/polyacid = 5) //It dissolves the carapace. Still poisonous, though.
-	items = list(/obj/item/reagent_containers/food/snacks/meat/dionanymph)
-	result = /obj/item/reagent_containers/food/snacks/dionaroast
-	reagent_mix = RECIPE_REAGENT_REPLACE //No eating polyacid
-
-/datum/recipe/ribplate //Putting this here for not seeing a roast section.
-	appliance = OVEN
-	reagents = list(/datum/reagent/honey = 5, /datum/reagent/spacespice = 2, /datum/reagent/blackpepper = 1)
-	items = list(/obj/item/reagent_containers/food/snacks/meat)
-	reagent_mix = RECIPE_REAGENT_REPLACE
-	result = /obj/item/reagent_containers/food/snacks/ribplate
-
-//Pizzas
+//Toast
 //=========================
 /datum/recipe/pizzamargherita
 	appliance = OVEN
@@ -95,15 +80,57 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/bacon_flatbread
 
-/datum/recipe/enchiladas_new
+/datum/recipe/soywafers
 	appliance = OVEN
-	fruit = list("chili" = 2)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/cutlet,
-		/obj/item/reagent_containers/food/snacks/tortilla
-	)
-	result = /obj/item/reagent_containers/food/snacks/enchiladas
+	fruit = list("soybeans" = 1)
+	reagents = list(/datum/reagent/nutriment/flour = 10)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/soywafers
 
+/datum/recipe/berryclafoutis
+	appliance = OVEN
+	fruit = list("berries" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
+	)
+	result = /obj/item/reagent_containers/food/snacks/berryclafoutis
+
+//Tacos
+//=========================
+/datum/recipe/loadedbakedpotato // It counts if you split it to put toppings in.
+	appliance = OVEN
+	fruit = list("potato" = 1)
+	items = list(/obj/item/reagent_containers/food/snacks/cheesewedge)
+	result = /obj/item/reagent_containers/food/snacks/loadedbakedpotato
+
+//Salads
+//=========================
+/datum/recipe/dionaroast
+	appliance = OVEN
+	fruit = list("apple" = 1)
+	reagents = list(/datum/reagent/acid/polyacid = 5) //It dissolves the carapace. Still poisonous, though.
+	items = list(/obj/item/reagent_containers/food/snacks/meat/dionanymph)
+	result = /obj/item/reagent_containers/food/snacks/dionaroast
+	reagent_mix = RECIPE_REAGENT_REPLACE //No eating polyacid
+
+/datum/recipe/ribplate //Putting this here for not seeing a roast section.
+	appliance = OVEN
+	reagents = list(/datum/reagent/honey = 5, /datum/reagent/spacespice = 2, /datum/reagent/blackpepper = 1)
+	items = list(/obj/item/reagent_containers/food/snacks/meat)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/ribplate
+
+/datum/recipe/eggplantparm
+	appliance = OVEN
+	fruit = list("eggplant" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+		)
+	result = /obj/item/reagent_containers/food/snacks/eggplantparm
+
+//Calzones
+//=========================
 /datum/recipe/meat_pocket
 	appliance = OVEN
 	items = list(
@@ -113,3 +140,11 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/meat_pocket
 	result_quantity = 2
+
+/datum/recipe/donkpocket
+	appliance = OVEN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/meatball
+	)
+	result = /obj/item/reagent_containers/food/snacks/donkpocket //does it make sense for newly made donk to come out cold? no, do I care? coincidentally, also no.

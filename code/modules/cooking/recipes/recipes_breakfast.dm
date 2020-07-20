@@ -70,6 +70,16 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/muffin
 
+/datum/recipe/berrymuffin
+	appliance = OVEN
+	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/sugar = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough
+	)
+	fruit = list("berries" = 1)
+	result = /obj/item/reagent_containers/food/snacks/berrymuffin
+
 /datum/recipe/quiche
 	appliance = OVEN
 	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/nutriment/protein/egg = 9, /datum/reagent/nutriment/flour = 10)
@@ -86,3 +96,12 @@
 		)
 	result = /obj/item/reagent_containers/food/snacks/pancakes
 	result_quantity = 2
+
+/datum/recipe/waffles
+	appliance = SKILLET
+	reagents = list(/datum/reagent/sugar = 10)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough
+	)
+	result = /obj/item/reagent_containers/food/snacks/waffles

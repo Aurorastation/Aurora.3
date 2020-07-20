@@ -47,8 +47,8 @@
 		return
 
 	var/datum/reagent/master = reagents.get_master_reagent()
-	name = master.condiment_name || (reagents.reagent_list.len == 1) ? "[master.name] bottle" : "condiment bottle"
-	desc = master.condiment_desc || (reagents.reagent_list.len == 1) ? master.description : "A mixture of various condiments. [reagents.get_master_reagent_name()] is one of them."
+	name = master.condiment_name || (reagents.reagent_list.len == 1 ? "[master.name] bottle" : "condiment bottle")
+	desc = master.condiment_desc || (reagents.reagent_list.len == 1 ? master.description : "A mixture of various condiments. [reagents.get_master_reagent_name()] is one of them.")
 	icon_state = master.condiment_icon_state || "mixedcondiments"
 	center_of_mass = master.condiment_center_of_mass || list("x"=16, "y"=6)
 

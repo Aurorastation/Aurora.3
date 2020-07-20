@@ -76,7 +76,7 @@
 		var/obj/O = target
 		if(!(O.flags & NOBLUDGEON) && reagents)
 			reagents.apply_force(O.force)
-		return ..()
+	return ..()
 
 /obj/item/reagent_containers/proc/get_temperature()
 	if(reagents)
@@ -243,6 +243,8 @@
 		return 0
 
 	if(!reagents || !reagents.total_volume)
+		if(force) // bash people!
+			return 0
 		to_chat(user, "<span class='notice'>[src] is empty.</span>")
 		return 1
 

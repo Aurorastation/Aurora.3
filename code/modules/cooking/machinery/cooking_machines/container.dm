@@ -226,9 +226,9 @@
 	volume = 5 // for things like jelly sandwiches etc
 
 /obj/item/reagent_containers/cooking_container/plate/MouseDrop(var/obj/over_obj)
-	if(!istype(over_obj, /mob/living) || Adjacent(over_obj))
-	
-	if((loc != over_obj) || !(length(contents) || reagents?.total_volume))
+	if(!istype(over_obj, /mob/living) || !Adjacent(over_obj))
+		return ..()
+	if((over_obj != usr) || !(length(contents) || reagents?.total_volume))
 		return ..()
 	var/datum/recipe/recipe = select_recipe(RECIPE_LIST(appliancetype), src)
 	if(!recipe)

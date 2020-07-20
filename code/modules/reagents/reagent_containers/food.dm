@@ -12,6 +12,7 @@
 	possible_transfer_amounts = null
 	volume = 50 //Sets the default container amount for all food items.
 	var/filling_color = "#FFFFFF" //Used by sandwiches
+	var/ingredient_name // Also used by sandwiches; if null, it just uses the normal name.
 	var/trash = null
 	var/is_liquid = TRUE
 

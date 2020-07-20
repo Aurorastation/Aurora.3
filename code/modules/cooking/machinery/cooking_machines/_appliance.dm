@@ -261,9 +261,10 @@
 	// We can actually start cooking now.
 	user.visible_message(SPAN_NOTICE("[user] puts [I] into [src]."))
 
-	if(selected_option || select_recipe(RECIPE_LIST(CI.container ? CI.container.appliancetype ? appliancetype), CI.container ? CI.container : src)
-	get_cooking_work(CI)
-	cooking = TRUE
+	if(selected_option || select_recipe(RECIPE_LIST(CI.container ? CI.container.appliancetype : appliancetype), CI.container ? CI.container : src)) // we have a valid recipe OR we're doing combo cooking
+		// this is to stop reagents from burning when you're heating stuff
+		get_cooking_work(CI)
+		cooking = TRUE
 	return CI
 
 /obj/machinery/appliance/proc/get_cooking_work(var/datum/cooking_item/CI)

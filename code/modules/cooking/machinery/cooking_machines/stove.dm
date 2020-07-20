@@ -40,4 +40,4 @@
 		pans += pan_overlay
 	if(!LAZYLEN(pans))
 		return
-	overlays += pans
+	add_overlay(pans)

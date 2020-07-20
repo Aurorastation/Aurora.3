@@ -2915,6 +2915,7 @@
 	name = "cheese wedge"
 	desc = "A wedge of delicious Cheddar. The cheese wheel it was cut from can't have gone far."
 	icon_state = "cheesewedge"
+	ingredient_name = "cheese"
 	filling_color = "#FFF700"
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=10)
