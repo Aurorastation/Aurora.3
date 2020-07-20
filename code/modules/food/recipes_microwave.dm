@@ -23,17 +23,24 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/human/burger
 
-/datum/recipe/plainburger
+/datum/recipe/mouseburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/meat //do not place this recipe before /datum/recipe/humanburger
+		/obj/item/reagent_containers/food/snacks/meat/rat
 	)
-	result = /obj/item/reagent_containers/food/snacks/burger
+	result = /obj/item/reagent_containers/food/snacks/burger/mouse
 
 /datum/recipe/syntiburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
 		/obj/item/reagent_containers/food/snacks/meat/syntiflesh
+	)
+	result = /obj/item/reagent_containers/food/snacks/burger
+
+/datum/recipe/plainburger
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/meat //do not place this recipe before /datum/recipe/humanburger or /datum/recipe/mouseburger
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger
 
@@ -92,13 +99,6 @@
 		/obj/item/clothing/head/beret
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger/mime
-
-/datum/recipe/mouseburger
-	items = list(
-		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/meat/rat
-	)
-	result = /obj/item/reagent_containers/food/snacks/burger/mouse
 
 /datum/recipe/hotdog
 	items = list(
