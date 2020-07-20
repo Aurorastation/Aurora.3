@@ -56,10 +56,14 @@
 /obj/screen/new_player/title/Initialize()
 	icon = current_map.lobby_icon
 	var/list/known_icon_states = icon_states(icon)
-	for(var/lobby_screen in current_map.lobby_screens)
-		if(!(lobby_screen in known_icon_states))
-			error("Lobby screen '[lobby_screen]' did not exist in the icon set [icon].")
-			current_map.lobby_screens -= lobby_screen
+	if(!length(current_map.lobby_screens))
+		for(var/screen in known_icon_states)
+			current_map.lobby_screens += screen
+	else
+		for(var/screen in known_icon_states)
+			if(!(screen in current_map.lobby_screens))
+				error("Lobby screen '[screen]' does not exist!")
+				current_map.lobby_screens -= screen
 
 	if(length(current_map.lobby_screens))
 		if(current_map.lobby_transitions && isnum(current_map.lobby_transitions))
@@ -166,27 +170,27 @@
 
 /obj/screen/new_player/selection/manifest/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/pop.ogg')
+	sound_to(player, 'sound/effects/menu_click.ogg')
 	player.ViewManifest()
 
 /obj/screen/new_player/selection/observe/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/pop.ogg')
+	sound_to(player, 'sound/effects/menu_click.ogg')
 	player.new_player_observe()
 
 /obj/screen/new_player/selection/settings/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/pop.ogg')
+	sound_to(player, 'sound/effects/menu_click.ogg')
 	player.setupcharacter()
 
 /obj/screen/new_player/selection/changelog/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/pop.ogg')
+	sound_to(player, 'sound/effects/menu_click.ogg')
 	player.client.changes()
 
 /obj/screen/new_player/selection/poll/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/pop.ogg')
+	sound_to(player, 'sound/effects/menu_click.ogg')
 	player.handle_player_polling()
 
 /mob/abstract/new_player/proc/setupcharacter()

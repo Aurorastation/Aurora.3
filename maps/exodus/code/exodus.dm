@@ -4,8 +4,8 @@
 	name = "Exodus"
 	full_name = "NSS Exodus"
 	path = "exodus"
-
-	lobby_screens = list("exodus_art")
+	lobby_icon = 'icons/misc/titlescreens/aurora.dmi'
+	lobby_transitions = 10 SECONDS
 
 	station_name = "NSS Exodus"
 	station_short = "Exodus"
