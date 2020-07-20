@@ -190,3 +190,8 @@
 	item_cost = 6
 	path = /obj/item/device/radio/electropack
 	desc = "A backpack wired with electrodes. Sync up with a signaller, attach to an unwilling host and pulse the signal to shock them."
+
+/datum/uplink_item/item/tools/ammo_display
+	name = "Holographic Ammo Display"
+	item_cost = 2
+	path = /obj/item/ammo_display

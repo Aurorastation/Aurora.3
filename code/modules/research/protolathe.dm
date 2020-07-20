@@ -1,5 +1,6 @@
 /obj/machinery/r_n_d/protolathe
 	name = "protolathe"
+	desc = "An upgraded variant of a common Autolathe, this can only be operated via a nearby RnD console, but can manufacture cutting edge technology, provided it has the design and the correct materials."
 	icon_state = "protolathe"
 	flags = OPENCONTAINER
 
