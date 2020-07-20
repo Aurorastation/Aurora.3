@@ -1719,11 +1719,19 @@
 	filling_color = "#D1F4FF"
 
 	reagents_to_add = list(/datum/reagent/water = 10)
+
 /obj/item/reagent_containers/food/snacks/soup/wish/Initialize()
 	. = ..()
 	if(prob(25))
 		src.desc = "A wish come true!"
 		reagents.add_reagent(/datum/reagent/nutriment, 8, list("something good" = 8))
+
+/obj/item/reagent_containers/food/snacks/soup/diona
+	name = "dionae soup"
+	desc = "An aromatic, healthy dish made from boiled dionae nymph."
+	icon_state = "dionaesoup"
+	reagent_data = list(/datum/reagent/nutriment = list("diona delicacy" = 5))
+	reagents_to_add = list(/datum/reagent/nutriment = 11, /datum/reagent/water = 5, /datum/reagent/radium = 2)
 
 /obj/item/reagent_containers/food/snacks/hotchili
 	name = "hot chili"
@@ -3552,7 +3560,7 @@
 	pizza = new /obj/item/reagent_containers/food/snacks/sliceable/pizza/meatpizza(src)
 	boxtag = "Meatlover's Supreme"
 
-/obj/item/reagent_containers/food/snacks/dionaroast
+/obj/item/reagent_containers/food/snacks/sliceable/dionaroast
 	name = "roast diona"
 	desc = "It's like an enormous, leathery carrot. With an eye."
 	icon_state = "dionaroast"
@@ -3562,7 +3570,19 @@
 	reagents_to_add = list(/datum/reagent/nutriment = 6)
 	reagent_data = list(/datum/reagent/nutriment = list("dionae delicacy" = 3))
 	bitesize = 2
+	slice_path = /obj/item/reagent_containers/food/snacks/diona_cuts
+	slices_num = 3
 
+/obj/item/reagent_containers/food/snacks/diona_cuts
+	name = "dionae cuts"
+	desc = "A plate of succulent slow roasted dionae nymph slices."
+	icon_state = "dionaecuts"
+	trash = /obj/item/trash/waffles
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/diona_cuts/filled
+	reagent_data = list(/datum/reagent/nutriment = list("diona delicacy" = 5))
+	reagents_to_add = list(/datum/reagent/nutriment = 2, /datum/reagent/radium = 2)
 
 ///////////////////////////////////////////
 // new old food stuff from bs12
@@ -4607,13 +4627,10 @@
 	icon_state = "tajaran_stew"
 	bitesize = 2
 
-	reagents_to_add = list(/datum/reagent/nutriment = 4)
+	reagents_to_add = list(/datum/reagent/nutriment = 4, /datum/reagent/water = 4)
 	reagent_data = list(/datum/reagent/nutriment = list("sweetness" = 2))
 	desc_fluff = "Traditional adhomian stews are made with diced vegetables, such as Nif-Berries, and meat, Snow Strider is commonly used by the rural population, while \
 	industrialized Fatshouters's beef is prefered by the city's inhabitants."
-
-	reagents_to_add = list(/datum/reagent/nutriment/protein = 4)
-	reagents_to_add = list(/datum/reagent/water = 4)
 
 /obj/item/reagent_containers/food/snacks/adhomian_can
 	name = "canned fatshouters meat"
@@ -4902,3 +4919,20 @@
 	reagent_data = list(/datum/reagent/nutriment = list("bread" = 2))
 	reagents_to_add = list(/datum/reagent/nutriment = 6, /datum/reagent/nutriment/triglyceride = 5)
 	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/stew/diona
+	name = "dionae stew"
+	desc = "A steaming bowl of juicy dionae nymph. Extra cosy."
+	icon_state = "dionaestew"
+	reagent_data = list(/datum/reagent/nutriment = list("diona delicacy" = 5))
+	reagents_to_add = list(/datum/reagent/nutriment = 8, /datum/reagent/drink/carrotjuice = 2, /datum/reagent/drink/potatojuice = 2, /datum/reagent/radium = 2)
+
+/obj/item/reagent_containers/food/snacks/diona_bites
+	name = "dionae bites"
+	desc = "Freeze dried Dionae bites artfully crafted by Getmore chefs for that home cooked taste on the go!"
+	icon_state = "dionaebites"
+	reagent_data = list(/datum/reagent/nutriment = list("diona delicacy" = 5))
+	reagents_to_add = list(/datum/reagent/nutriment = 6)
+	trash = /obj/item/trash/diona_bites
+	bitesize = 3
+
