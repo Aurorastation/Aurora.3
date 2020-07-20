@@ -1,8 +1,0 @@
-author: Code by Geeves, Sprite by Kyres
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added a holographic ammo display, that provides the number of bullets left as a number next to the sprite."
-  - rscadd: "Added the HAD to the devices and tools uplink, as well as to cargo under Zavodskoi."
-  - bugfix: "Fixes a bug with gunshot residue when certain gloves are worn."
