@@ -788,9 +788,9 @@
 		/datum/brain_trauma/mild/hallucinations = 2
 	)
 
-/datum/reagent/mental/sertramine
-	name = "Sertramine"
-	description = "Sertramine is cheap, safe, and effective at treating basic phobias, however it does not last as long as other drugs of it's class. Withdrawl effects are uncommon. Side effects are rare."
+/datum/reagent/mental/parvosil
+	name = "Parvosil"
+	description = "Parvosil is cheap, safe, and effective at treating basic phobias, however it does not last as long as other drugs of it's class. Withdrawl effects are uncommon. Side effects are rare."
 	reagent_state = LIQUID
 	color = "#88AA88"
 	metabolism = 0.02 * REM
@@ -835,41 +835,8 @@
 	)
 	suppressing_reagents = list(
 		/datum/reagent/mental/neurostabin = 5,
-		/datum/reagent/mental/sertramine = 5
+		/datum/reagent/mental/parvosil = 5
 	)
-
-/datum/reagent/mental/peroxitin
-	name = "Peroxitin"
-	description = "Peroxitin is effective at treating basic phobias while also preventing the body from overheating. Side effects are rare, and include hallucinations. Withdrawl effects are frequent and unsafe."
-	reagent_state = LIQUID
-	color = "#AA8866"
-	metabolism = 0.01 * REM
-	data = 0
-	taste_description = "bandaid"
-	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel decent.")
-	badmessage = list("You worry about the littlest thing.","You feel like you are at risk.","You think you see things.")
-	worstmessage = list("You start to overreact to sounds and movement...","Your hear dangerous thoughts in your head...","You are really starting to see things...")
-	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.75
-	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia/ = 5
-	)
-	dosage_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 5
-	)
-	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/phobia/ = 25,
-		/datum/brain_trauma/mild/hallucinations = 50
-	)
-	suppressing_reagents = list(
-		/datum/reagent/mental/minaphobin = 5,
-		/datum/reagent/mental/neurostabin = 10,
-		/datum/reagent/mental/sertramine = 10
-	)
-
-/datum/reagent/mental/peroxitin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.bodytemperature > 310)
-		M.bodytemperature = max(310, M.bodytemperature - removed*100)
-	. = ..()
 
 /datum/reagent/mental/concusil
 	name = "Concusil"
@@ -896,10 +863,10 @@
 		/datum/brain_trauma/mild/concussion = 10
 	)
 	suppressing_reagents = list(
-		/datum/reagent/mental/peroxitin = 5,
+		/datum/reagent/mental/neurapan = 5,
 		/datum/reagent/mental/minaphobin = 5,
 		/datum/reagent/mental/neurostabin = 10,
-		/datum/reagent/mental/sertramine = 10
+		/datum/reagent/mental/parvosil = 10
 	)
 
 /datum/reagent/mental/orastabin
@@ -928,10 +895,10 @@
 	)
 	suppressing_reagents = list(
 		/datum/reagent/mental/concusil = 5,
-		/datum/reagent/mental/peroxitin = 5,
+		/datum/reagent/mental/neurapan = 5,
 		/datum/reagent/mental/minaphobin = 5,
 		/datum/reagent/mental/neurostabin = 10,
-		/datum/reagent/mental/sertramine = 10
+		/datum/reagent/mental/parvosil = 10
 	)
 
 /datum/reagent/mental/neurapan
@@ -969,7 +936,7 @@
 	suppressing_reagents = list(
 		/datum/reagent/mental/orastabin = 20,
 		/datum/reagent/mental/concusil = 20,
-		/datum/reagent/mental/peroxitin = 20,
+		/datum/reagent/mental/neurapan = 20,
 		/datum/reagent/mental/minaphobin = 20
 	)
 
@@ -1009,7 +976,7 @@
 	suppressing_reagents = list(
 		/datum/reagent/mental/orastabin = 20,
 		/datum/reagent/mental/concusil = 20,
-		/datum/reagent/mental/peroxitin = 20,
+		/datum/reagent/mental/neurapan = 20,
 		/datum/reagent/mental/minaphobin = 20
 	)
 

@@ -675,10 +675,10 @@
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/iron = 1, /datum/reagent/potassium = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/sertramine
-	name = "Sertramine"
-	id = "sertramine"
-	result = /datum/reagent/mental/sertramine
+/datum/chemical_reaction/parvosil
+	name = "Parvosil"
+	id = "parvosil"
+	result = /datum/reagent/mental/parvosil
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/aluminum = 1, /datum/reagent/potassium = 1)
 	result_amount = 3
 
@@ -721,7 +721,7 @@
 	name = "Paxazide"
 	id = "paxazide"
 	result = /datum/reagent/pacifier
-	required_reagents = list(/datum/reagent/mental/truthserum = 1, /datum/reagent/mental/sertramine = 1)
+	required_reagents = list(/datum/reagent/mental/truthserum = 1, /datum/reagent/mental/parvosil = 1)
 	result_amount = 1
 
 /datum/chemical_reaction/berserk

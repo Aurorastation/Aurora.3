@@ -573,7 +573,7 @@
 /datum/reagent/mental/corophenidate
 	value = 6
 
-/datum/reagent/mental/sertramine
+/datum/reagent/mental/parvosil
 	value = 6
 
 /datum/reagent/mental/neurostabin
