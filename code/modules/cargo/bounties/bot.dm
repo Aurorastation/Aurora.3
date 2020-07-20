@@ -24,7 +24,7 @@
 
 /datum/bounty/item/bot/farmbot
 	name = "Farmbot"
-	description = "After a k'ois incident multiple botanists are hospitalized. Provide a few farmbots to handle their duties while they recover."
+	description = "After a k'ois incident multiple botanists were hospitalized. Provide a few farmbots to handle their duties while they recover."
 	reward_low = 3700
 	reward_high = 4300
 	required_count = 3
@@ -47,4 +47,3 @@
 	reward_high = 6000
 	required_count = 2
 	wanted_types = list(/mob/living/bot/medbot)
-
