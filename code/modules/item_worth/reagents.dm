@@ -519,13 +519,13 @@
 /datum/reagent/clonexadone
 	value = 5.5
 
-/datum/reagent/paresetamil
+/datum/reagent/paraphenol
 	value = 3.3
 
-/datum/reagent/traumadil
+/datum/reagent/traumatonin
 	value = 3.1
 
-/datum/reagent/oxycordine
+/datum/reagent/oxycorphine
 	value = 3.3
 
 /datum/reagent/synaptizine
@@ -534,7 +534,7 @@
 /datum/reagent/alkysine
 	value = 5.9
 
-/datum/reagent/imadazolin
+/datum/reagent/oculine
 	value = 4.2
 
 /datum/reagent/peridaxon
@@ -570,13 +570,13 @@
 /datum/reagent/leporazine
 	value = 2
 
-/datum/reagent/mental/mefylthenidate
+/datum/reagent/mental/corophenidate
 	value = 6
 
 /datum/reagent/mental/sertramine
 	value = 6
 
-/datum/reagent/mental/flevoxamil
+/datum/reagent/mental/neurostabin
 	value = 6
 
 /datum/reagent/mental/exsytilopram
@@ -585,16 +585,16 @@
 /datum/reagent/mental/peroxitin
 	value = 3.5
 
-/datum/reagent/mental/daloxitin
+/datum/reagent/mental/concusil
 	value = 6
 
-/datum/reagent/mental/vinlaphaxin
+/datum/reagent/mental/orastabin
 	value = 6
 
-/datum/reagent/mental/resparidil
+/datum/reagent/mental/neurapan
 	value = 6
 
-/datum/reagent/mental/olinzapil
+/datum/reagent/mental/nerospectan
 	value = 6
 
 /datum/reagent/mental/truthserum
@@ -606,7 +606,7 @@
 /datum/reagent/rezadone
 	value = 5
 
-/datum/reagent/ipacic
+/datum/reagent/emetinol
 	value = 2
 
 /datum/reagent/crayon_dust

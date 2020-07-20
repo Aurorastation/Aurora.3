@@ -122,30 +122,30 @@
 	icon_state = "pill11"
 	reagents_to_add = list(/datum/reagent/kelotane = 15)
 
-/obj/item/reagent_containers/pill/paresetamil
-	name = "Paresetamil pill"
+/obj/item/reagent_containers/pill/paraphenol
+	name = "Paraphenol pill"
 	desc = "A painkiller for the ages. Chewables!"
 	icon_state = "pill8"
-	reagents_to_add = list(/datum/reagent/paresetamil = 15)
+	reagents_to_add = list(/datum/reagent/paraphenol = 15)
 
-/obj/item/reagent_containers/pill/traumadil
-	name = "Traumadil pill"
+/obj/item/reagent_containers/pill/traumatonin
+	name = "Traumatonin pill"
 	desc = "A simple painkiller."
 	icon_state = "pill8"
-	reagents_to_add = list(/datum/reagent/traumadil = 15)
+	reagents_to_add = list(/datum/reagent/traumatonin = 15)
 
 
-/obj/item/reagent_containers/pill/mefylthenidate
-	name = "Mefylthenidate pill"
+/obj/item/reagent_containers/pill/corophenidate
+	name = "Corophenidate pill"
 	desc = "Improves the ability to concentrate."
 	icon_state = "pill8"
-	reagents_to_add = list(/datum/reagent/mental/mefylthenidate = 15)
+	reagents_to_add = list(/datum/reagent/mental/corophenidate = 15)
 
-/obj/item/reagent_containers/pill/exytilopram
-	name = "Exytilopram pill"
+/obj/item/reagent_containers/pill/minaphobin
+	name = "Minaphobin pill"
 	desc = "Mild anti-depressant."
 	icon_state = "pill8"
-	reagents_to_add = list(/datum/reagent/mental/exytilopram = 15)
+	reagents_to_add = list(/datum/reagent/mental/minaphobin = 15)
 
 /obj/item/reagent_containers/pill/norepinephrine
 	name = "norepinephrine pill"
@@ -217,8 +217,8 @@
 	icon_state = "pill19"
 	reagents_to_add = list(/datum/reagent/rmt = 15)
 
-/obj/item/reagent_containers/pill/antihestamil
-	name = "Antihestamil"
-	desc = "Contains modern Antihestamil, often compared to ancient Benadryl. Helps with sneezing, can cause drowsiness."
+/obj/item/reagent_containers/pill/antihistadryl
+	name = "Antihistadryl"
+	desc = "Contains modern Antihistadryl, often compared to ancient Benadryl. Helps with sneezing, can cause drowsiness."
 	icon_state = "pill19"
-	reagents_to_add = list(/datum/reagent/antihestamil = 5)
+	reagents_to_add = list(/datum/reagent/antihistadryl = 5)

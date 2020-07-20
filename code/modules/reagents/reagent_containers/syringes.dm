@@ -431,12 +431,12 @@
 	mode = SYRINGE_INJECT
 	update_icon()
 
-/obj/item/reagent_containers/syringe/cylomel
-	name = "Syringe (cylomel)"
+/obj/item/reagent_containers/syringe/dialynel
+	name = "Syringe (dialynel)"
 	desc = "Contains purging medicine."
-	reagents_to_add = list(/datum/reagent/cylomel = 15)
+	reagents_to_add = list(/datum/reagent/dialynel = 15)
 
-/obj/item/reagent_containers/syringe/cylomel/Initialize()
+/obj/item/reagent_containers/syringe/dialynel/Initialize()
 	. = ..()
 	mode = SYRINGE_INJECT
 	update_icon()

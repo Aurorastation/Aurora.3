@@ -416,7 +416,7 @@
 			/datum/reagent/synaptizine,
 			/datum/reagent/thermite,
 			/datum/reagent/toxin,
-			/datum/reagent/traumadil,
+			/datum/reagent/traumatonin,
 			/datum/reagent/water,
 			/datum/reagent/woodpulp,
 			)

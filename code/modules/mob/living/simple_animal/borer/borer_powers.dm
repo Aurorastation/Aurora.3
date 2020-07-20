@@ -205,7 +205,7 @@
 		to_chat(src, SPAN_WARNING("You don't have enough chemicals!"))
 		return
 
-	var/list/choices = list("Norepinephrine" = /datum/reagent/norepinephrine, "Bicaridine" = /datum/reagent/norepinephrine, "Kelotane" = /datum/reagent/norepinephrine, "Dylovene" = /datum/reagent/dylovene, "Hyperzine" = /datum/reagent/hyperzine, "Peridaxon" = /datum/reagent/peridaxon, "Traumadil" = /datum/reagent/traumadil, "Flevoxamil" = /datum/reagent/mental/flevoxamil)
+	var/list/choices = list("Norepinephrine" = /datum/reagent/norepinephrine, "Bicaridine" = /datum/reagent/norepinephrine, "Kelotane" = /datum/reagent/norepinephrine, "Dylovene" = /datum/reagent/dylovene, "Hyperzine" = /datum/reagent/hyperzine, "Peridaxon" = /datum/reagent/peridaxon, "Traumatonin" = /datum/reagent/traumatonin, "Neurostabin" = /datum/reagent/mental/neurostabin)
 	var/chem = input("Select a chemical to secrete.", "Chemicals") as null|anything in choices
 
 	if(!chem || chemicals < 20 || !host || controlling || !src || stat) //Sanity check.

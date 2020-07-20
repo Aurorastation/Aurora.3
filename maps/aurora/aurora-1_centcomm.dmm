@@ -27429,14 +27429,14 @@
 /obj/item/storage/pill_bottle/antitox{
 	pixel_x = 6
 	},
-/obj/item/storage/pill_bottle/traumadil{
+/obj/item/storage/pill_bottle/traumatonin{
 	pixel_y = -12
 	},
-/obj/item/storage/pill_bottle/traumadil{
+/obj/item/storage/pill_bottle/traumatonin{
 	pixel_x = -6;
 	pixel_y = -12
 	},
-/obj/item/storage/pill_bottle/traumadil{
+/obj/item/storage/pill_bottle/traumatonin{
 	pixel_x = 6;
 	pixel_y = -12
 	},

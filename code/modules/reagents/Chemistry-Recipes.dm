@@ -153,25 +153,25 @@
 	required_reagents = list(/datum/reagent/silicon = 1, /datum/reagent/potassium = 1, /datum/reagent/ammonia = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/traumadil
-	name = "Traumadil"
-	id = "traumadil"
-	result = /datum/reagent/traumadil
+/datum/chemical_reaction/traumatonin
+	name = "Traumatonin"
+	id = "traumatonin"
+	result = /datum/reagent/traumatonin
 	required_reagents = list(/datum/reagent/norepinephrine = 1, /datum/reagent/alcohol/ethanol = 1, /datum/reagent/acetone = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/paresetamil
-	name = "Paresetamil"
-	id = "paresetamil"
-	result = /datum/reagent/paresetamil
-	required_reagents = list(/datum/reagent/traumadil = 1, /datum/reagent/sugar = 1, /datum/reagent/water = 1)
+/datum/chemical_reaction/paraphenol
+	name = "Paraphenol"
+	id = "paraphenol"
+	result = /datum/reagent/paraphenol
+	required_reagents = list(/datum/reagent/traumatonin = 1, /datum/reagent/sugar = 1, /datum/reagent/water = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/oxycordine
-	name = "Oxycordine"
-	id = "oxycordine"
-	result = /datum/reagent/oxycordine
-	required_reagents = list(/datum/reagent/alcohol/ethanol = 1, /datum/reagent/traumadil = 1)
+/datum/chemical_reaction/oxycorphine
+	name = "Oxycorphine"
+	id = "oxycorphine"
+	result = /datum/reagent/oxycorphine
+	required_reagents = list(/datum/reagent/alcohol/ethanol = 1, /datum/reagent/traumatonin = 1)
 	catalysts = list(/datum/reagent/toxin/phoron = 5)
 	result_amount = 1
 
@@ -371,25 +371,25 @@
 	required_reagents = list(/datum/reagent/cryptobiolin = 1, /datum/reagent/dylovene = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/antihestamil
-	name = "Antihestamil"
-	id = "antihestamil"
-	result = /datum/reagent/antihestamil
+/datum/chemical_reaction/antihistadryl
+	name = "Antihistadryl"
+	id = "antihistadryl"
+	result = /datum/reagent/antihistadryl
 	required_reagents = list(/datum/reagent/cryptobiolin = 1, /datum/reagent/norepinephrine = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/ondansitrine
-	name = "Ondansitrine"
-	id = "ondansitrine"
-	result = /datum/reagent/ondansitrine
-	required_reagents = list(/datum/reagent/antihestamil = 1, /datum/reagent/synaptizine = 1, /datum/reagent/water = 3)
+/datum/chemical_reaction/asinolyatrine
+	name = "Asinolyatrine"
+	id = "asinolyatrine"
+	result = /datum/reagent/asinolyatrine
+	required_reagents = list(/datum/reagent/antihistadryl = 1, /datum/reagent/synaptizine = 1, /datum/reagent/water = 3)
 	catalysts = list(/datum/reagent/tungsten = 5)
 	result_amount = 3
 
-/datum/chemical_reaction/imadazolin
-	name = "imadazolin"
-	id = "imadazolin"
-	result = /datum/reagent/imadazolin
+/datum/chemical_reaction/oculine
+	name = "oculine"
+	id = "oculine"
+	result = /datum/reagent/oculine
 	required_reagents = list(/datum/reagent/carbon = 1, /datum/reagent/hydrazine = 1, /datum/reagent/dylovene = 1)
 	result_amount = 2
 
@@ -400,10 +400,10 @@
 	required_reagents = list(/datum/reagent/acetone = 1, /datum/reagent/dylovene = 1, /datum/reagent/carbon = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/ipacic
-	name = "Ipacic"
-	id = "ipacic"
-	result = /datum/reagent/ipacic
+/datum/chemical_reaction/emetinol
+	name = "Emetinol"
+	id = "emetinol"
+	result = /datum/reagent/emetinol
 	required_reagents = list(/datum/reagent/hydrazine = 1, /datum/reagent/dylovene = 1, /datum/reagent/alcohol/ethanol = 1)
 	result_amount = 3
 
@@ -568,10 +568,10 @@
 	catalysts = list(/datum/reagent/toxin/phoron = 5)
 	result_amount = 3
 
-/datum/chemical_reaction/cylomel
-	name = "Cylomel"
-	id = "cylomel"
-	result = /datum/reagent/cylomel
+/datum/chemical_reaction/dialynel
+	name = "Dialynel"
+	id = "dialynel"
+	result = /datum/reagent/dialynel
 	required_reagents = list(/datum/reagent/mercury = 1, /datum/reagent/sodiumchloride = 1, /datum/reagent/ammonia = 1)
 	result_amount = 3
 
@@ -608,7 +608,7 @@
 	name = "Pulmodeiectionem"
 	id = "pulmodeiectionem"
 	result = /datum/reagent/pulmodeiectionem
-	required_reagents = list(/datum/reagent/cylomel = 1, /datum/reagent/lexorin = 1)
+	required_reagents = list(/datum/reagent/dialynel = 1, /datum/reagent/lexorin = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/pneumalin
@@ -625,10 +625,10 @@
 	required_reagents = list(/datum/reagent/sugar = 0.4, /datum/reagent/water = 1, /datum/reagent/sodiumchloride = 0.9)
 	result_amount = 1
 
-/datum/chemical_reaction/minitamil
-	name = "Minitamil"
-	id = "minitamil"
-	result = /datum/reagent/minitamil
+/datum/chemical_reaction/neuranol
+	name = "Neuranol"
+	id = "neuranol"
+	result = /datum/reagent/neuranol
 	required_reagents = list(/datum/reagent/toxin/phoron = 0.1, /datum/reagent/alkysine = 1, /datum/reagent/cryoxadone = 0.1)
 	result_amount = 1
 
@@ -641,17 +641,17 @@
 
 //Mental Medication
 
-/datum/chemical_reaction/mefylthenidate
-	name = "Mefylthenidate"
-	id = "mefylthenidate"
-	result = /datum/reagent/mental/mefylthenidate
+/datum/chemical_reaction/corophenidate
+	name = "Corophenidate"
+	id = "corophenidate"
+	result = /datum/reagent/mental/corophenidate
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/hydrazine = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/exytilopram
-	name = "Exytilopram"
-	id = "exytilopram"
-	result = /datum/reagent/mental/exytilopram
+/datum/chemical_reaction/minaphobin
+	name = "Minaphobin"
+	id = "minaphobin"
+	result = /datum/reagent/mental/minaphobin
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/carbon = 1)
 	result_amount = 2
 
@@ -668,10 +668,10 @@
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/ammonia = 1, /datum/reagent/copper = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/flevoxamil
-	name = "Flevoxamil"
-	id = "flevoxamil"
-	result = /datum/reagent/mental/flevoxamil
+/datum/chemical_reaction/neurostabin
+	name = "Neurostabin"
+	id = "neurostabin"
+	result = /datum/reagent/mental/neurostabin
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/iron = 1, /datum/reagent/potassium = 1)
 	result_amount = 3
 
@@ -682,31 +682,31 @@
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/aluminum = 1, /datum/reagent/potassium = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/daloxitin
-	name = "Daloxitin"
-	id = "daloxitin"
-	result = /datum/reagent/mental/daloxitin
+/datum/chemical_reaction/concusil
+	name = "Concusil"
+	id = "concusil"
+	result = /datum/reagent/mental/concusil
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/silicon = 1, /datum/reagent/alcohol/ethanol = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/vinlaphaxin
-	name = "Vinlaphaxin"
-	id = "vinlaphaxin"
-	result = /datum/reagent/mental/vinlaphaxin
+/datum/chemical_reaction/orastabin
+	name = "Orastabin"
+	id = "orastabin"
+	result = /datum/reagent/mental/orastabin
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/sodium = 1, /datum/reagent/tungsten = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/resparidil
-	name = "Resparidil"
-	id = "resparidil"
-	result = /datum/reagent/mental/resparidil
+/datum/chemical_reaction/neurapan
+	name = "Neurapan"
+	id = "neurapan"
+	result = /datum/reagent/mental/neurapan
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/space_drugs = 1, /datum/reagent/alcohol/ethanol = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/olinzapil
-	name = "Olinzapil"
-	id = "olinzapil"
-	result = /datum/reagent/mental/olinzapil
+/datum/chemical_reaction/nerospectan
+	name = "Nerospectan"
+	id = "nerospectan"
+	result = /datum/reagent/mental/nerospectan
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/space_drugs = 1, /datum/reagent/silicon = 1)
 	result_amount = 3
 
@@ -766,8 +766,8 @@
 	name = "Nightlife"
 	id = "night_juice"
 	result = /datum/reagent/night_juice
-	required_reagents = list(/datum/reagent/mental/mefylthenidate = 1, /datum/reagent/synaptizine = 1, /datum/reagent/nitroglycerin = 1)
-	required_temperatures_min = list(/datum/reagent/mental/mefylthenidate = T0C+200, /datum/reagent/synaptizine = T0C+200, /datum/reagent/nitroglycerin = T0C+200)
+	required_reagents = list(/datum/reagent/mental/corophenidate = 1, /datum/reagent/synaptizine = 1, /datum/reagent/nitroglycerin = 1)
+	required_temperatures_min = list(/datum/reagent/mental/corophenidate = T0C+200, /datum/reagent/synaptizine = T0C+200, /datum/reagent/nitroglycerin = T0C+200)
 	result_amount = 3
 
 /* Solidification */
