@@ -7,8 +7,6 @@
 	center_of_mass = list("x"=16, "y"=16)
 	w_class = 2
 	is_liquid = FALSE
-	var/bitesize = 1
-	var/bitecount = 0
 	var/slice_path
 	var/slices_num
 	var/dried_type = null
@@ -29,20 +27,6 @@
 /obj/item/reagent_containers/food/snacks/standard_splash_mob(var/mob/user, var/mob/target)
 	return 1 //Returning 1 will cancel everything else in a long line of things it should do.
 
-/obj/item/reagent_containers/food/snacks/on_consume(mob/user, mob/target)
-	if(!reagents.total_volume && !trash)
-		target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \a [src].",
-				   SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \a [src]."))
-		if(src.reagents_to_add == bitesize)
-			target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \a [src].",
-					   SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \a [src]."))
-		else // Kind of weird to "finish" eating something in one bite
-			target.visible_message("<b>[target]</b> eats \a [src].",
-					   SPAN_NOTICE("You eat \a [src]."))
-		qdel(src)
-	else
-		..()
-	
 /obj/item/reagent_containers/food/snacks/attack_self(mob/user as mob)
 	return
 
@@ -189,7 +173,7 @@
 				if(!U.reagents)
 					U.create_reagents(5)
 
-				if (U.reagents.total_volume > 0)
+				if(U.reagents.total_volume > 0)
 					to_chat(user, SPAN_WARNING("You already have \the [src] on \the [U]."))
 					return
 
@@ -208,11 +192,7 @@
 				reagents.trans_to_obj(U, min(reagents.total_volume,5))
 				if(is_liquid)
 					U.is_liquid = TRUE
-				if (reagents.total_volume <= 0)
-					if(trash)
-						var/obj/item/TrashItem = new trash(user)
-						user.put_in_hands(TrashItem)
-					qdel(src)
+				on_consume(user, user)
 				return
 
 	if(is_sliceable())
