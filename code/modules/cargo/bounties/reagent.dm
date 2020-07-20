@@ -5,7 +5,7 @@
 	var/list/possible_descriptions = list("We're interested in testing the quality of our stations' bartenders!",
 	"We're holding an office party and need some drink variety.",
 	"We're holding a mixing competition, and you'll receive a bonus for competing.",
-	"One of our agents has had a hard day and need to unwind so badly they're willing to put up for a bounty.",
+	"One of our agents has had a hard day and needs to unwind so badly they're willing to put up for a bounty.",
 	"We need some drinks for a PR campaign setup.",
 	"One of our bartenders is having trouble getting inspired, and wants to see a different drink.")
 
