@@ -223,7 +223,7 @@
 	starts_with = list(/obj/item/reagent_containers/pill/antihestamil = 7)
 
 /obj/item/storage/pill_bottle/traumadil
-	name = "bottle of Traudil pills"
+	name = "bottle of Traumadil pills"
 	desc = "Contains pills used to relieve pain."
 	starts_with = list(/obj/item/reagent_containers/pill/traumadil = 7)
 
