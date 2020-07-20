@@ -527,14 +527,34 @@
 	reagent_data = list(/datum/reagent/nutriment = list("cookie" = 2))
 	bitesize = 1
 
-/obj/item/reagent_containers/food/snacks/cookiesnack
+/obj/item/storage/box/fancy/cookiesnack
 	name = "Carps Ahoy! miniature cookies"
-	desc = "Cap'n Carpie's miniature cookies! Now 100% carpotoxin free!"
+	desc = "A packet of Cap'n Carpie's miniature cookies! Now 100% carpotoxin free!"
+	icon = 'icons/obj/food.dmi'
 	icon_state = "cookiesnack"
+	icon_type = "cookie"
+	storage_type = "packaging"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/cookiesnack = 6)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/cookiesnack)
+	max_storage_space = 6
+
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+
 	trash = /obj/item/trash/cookiesnack
+	closable = FALSE
+	icon_overlays = FALSE
+
+/obj/item/reagent_containers/food/snacks/cookiesnack
+	name = "miniature cookie"
+	desc = "These are a lot smaller than you've imagined. They don't even deserve to be dunked in milk."
+	icon_state = "cookie_mini"
+	slot_flags = SLOT_EARS
 	filling_color = "#DBC94F"
-	reagents_to_add = list(/datum/reagent/nutriment/synthetic = 2, /datum/reagent/sugar = 1)
-	reagent_data = list(/datum/reagent/nutriment/synthetic = list("stale cookie" = 2))
+
+	reagents_to_add = list(/datum/reagent/nutriment = 0.5)
+	reagent_data = list(/datum/reagent/nutriment =  list("sweetness" = 1, "stale cookie" = 2, "childhood disappointment" = 1))
 	bitesize = 1
 
 /obj/item/reagent_containers/food/snacks/chocolatebar
@@ -1353,7 +1373,7 @@
 	bitesize = 0.1 //this snack is supposed to be eating during looooong time. And this it not dinner food! --rastaf0
 
 /obj/item/reagent_containers/food/snacks/popcorn/Initialize()
-	..()
+	. = ..()
 	unpopped = rand(1,10)
 
 /obj/item/reagent_containers/food/snacks/popcorn/on_consume()
@@ -2190,26 +2210,33 @@
 	bitesize = 1
 
 	reagents_to_add = list(/datum/reagent/nutriment/mint = 1)
+	reagent_data = list(/datum/reagent/nutriment/mint =  list("sweetness" = 1, "menthol" = 1))
 
 /obj/item/reagent_containers/food/snacks/mint/admints
 	desc = "Spearmint, peppermint's non-festive cousin."
 	icon_state = "admint"
 
-/obj/item/storage/box/admints
+/obj/item/storage/box/fancy/admints
 	name = "Ad-mints"
 	desc = "A pack of air fresheners for your mouth."
 	icon = 'icons/obj/food.dmi'
 	icon_state = "admint_pack"
 	item_state = "candy"
+	icon_type = "mint"
+	storage_type = "packaging"
 	slot_flags = SLOT_EARS
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	starts_with = list(/obj/item/reagent_containers/food/snacks/mint/admints = 6)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/mint/admints)
-	use_sound = 'sound/items/drop/wrapper.ogg'
+	max_storage_space = 6
+
+	use_sound = 'sound/items/storage/wrapper.ogg'
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
-	max_storage_space = 6
-	foldable = null
+
+	trash = /obj/item/trash/admints
+	closable = FALSE
+	icon_overlays = FALSE
 
 /obj/item/reagent_containers/food/snacks/soup/mushroom
 	name = "chantrelle soup"

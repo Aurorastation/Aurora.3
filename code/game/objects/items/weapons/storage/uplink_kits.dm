@@ -168,24 +168,24 @@
 
 /obj/item/storage/box/syndie_kit/cigarette/fill()
 	..()
-	var/obj/item/storage/fancy/cigarettes/pack
-	pack = new /obj/item/storage/fancy/cigarettes(src)
+	var/obj/item/storage/box/fancy/cigarettes/pack
+	pack = new /obj/item/storage/box/fancy/cigarettes(src)
 	fill_cigarre_package(pack, list(/datum/reagent/aluminum = 5, /datum/reagent/potassium = 5, /datum/reagent/sulfur = 5))
 	pack.desc += " 'F' has been scribbled on it."
 
-	pack = new /obj/item/storage/fancy/cigarettes(src)
+	pack = new /obj/item/storage/box/fancy/cigarettes(src)
 	fill_cigarre_package(pack, list(/datum/reagent/aluminum = 5, /datum/reagent/potassium = 5, /datum/reagent/sulfur = 5))
 	pack.desc += " 'F' has been scribbled on it."
 
-	pack = new /obj/item/storage/fancy/cigarettes(src)
+	pack = new /obj/item/storage/box/fancy/cigarettes(src)
 	fill_cigarre_package(pack, list(/datum/reagent/potassium = 5, /datum/reagent/sugar = 5, /datum/reagent/phosphorus = 5))
 	pack.desc += " 'S' has been scribbled on it."
 
-	pack = new /obj/item/storage/fancy/cigarettes(src)
+	pack = new /obj/item/storage/box/fancy/cigarettes(src)
 	fill_cigarre_package(pack, list(/datum/reagent/potassium = 5, /datum/reagent/sugar = 5, /datum/reagent/phosphorus = 5))
 	pack.desc += " 'S' has been scribbled on it."
 
-	pack = new /obj/item/storage/fancy/cigarettes(src)
+	pack = new /obj/item/storage/box/fancy/cigarettes(src)
 	// Dylovene. Going with 1.5 rather than 1.6666666...
 	fill_cigarre_package(pack, list(/datum/reagent/potassium = 1.5, /datum/reagent/ammonia = 1.5, /datum/reagent/silicon = 1.5))
 	// Mindbreaker
@@ -193,13 +193,13 @@
 
 	pack.desc += " 'MB' has been scribbled on it."
 
-	pack = new /obj/item/storage/fancy/cigarettes(src)
+	pack = new /obj/item/storage/box/fancy/cigarettes(src)
 	pack.reagents.add_reagent(/datum/reagent/tricordrazine, 15 * pack.storage_slots)
 	pack.desc += " 'T' has been scribbled on it."
 
 	new /obj/item/flame/lighter/zippo(src)
 
-/proc/fill_cigarre_package(var/obj/item/storage/fancy/cigarettes/C, var/list/reagents)
+/proc/fill_cigarre_package(var/obj/item/storage/box/fancy/cigarettes/C, var/list/reagents)
 	for(var/reagent in reagents)
 		C.reagents.add_reagent(reagent, reagents[reagent] * C.storage_slots)
 
