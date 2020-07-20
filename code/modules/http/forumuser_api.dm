@@ -1,9 +1,9 @@
-var/gloabl/forumuser_api_key = null
+var/global/forumuser_api_key = null
 
 /datum/forum_user
 	var/forum_member_id
 	var/forum_name
-	var/forum_priamry_group
+	var/forum_primary_group
 	var/list/forum_secondary_groups = list()
 	var/discord_id
 	var/ckey
@@ -56,8 +56,8 @@ var/gloabl/forumuser_api_key = null
 		return R
 
 	var/list/users = list()
-	for (d in R.body)
-		users += new forum_user(d)
+	for (var/d in R.body)
+		users += new /datum/forum_user(d)
 
 	R.body = users
 

@@ -51,7 +51,7 @@ var/list/forum_groupids_to_ranks = list()
 			if ("r_everything","r_host","r_all")
 				. |= (R_BUILDMODE | R_ADMIN | R_BAN | R_FUN | R_SERVER | R_DEBUG | R_PERMISSIONS | R_POSSESS | R_STEALTH | R_REJUVINATE | R_VAREDIT | R_SOUNDS | R_SPAWN | R_MOD | R_CCIAA | R_DEV)
 			else
-				crash_with("Unknown rank in [rank_file]: [auth]")
+				crash_with("Unknown rank in file: [auth]")
 
 /proc/load_admin_ranks(rank_file="config/admin_ranks.json")
 	admin_ranks.Cut()
@@ -60,7 +60,7 @@ var/list/forum_groupids_to_ranks = list()
 
 	for (var/list/group in data)
 		var/datum/admin_rank/rank = new(group)
-		admin_ranks[rank.name] = rank
+		admin_ranks[rank.rank_name] = rank
 		forum_groupids_to_ranks["[rank.group_id]"] = rank
 
 /hook/startup/proc/loadAdmins()

@@ -307,8 +307,11 @@ var/list/gamemode_cache = list()
 
 	var/forum_api_path
 	// global.forum_api_key - see modules/http/forum_api.dm
-
 	var/news_use_forum_api = FALSE
+
+	var/forumuser_api_url
+	var/use_forumuser_api = FALSE
+	// global.forumuser_api_key - see modules/http/forumuser_api.dm
 
 	var/profiler_is_enabled = FALSE
 	var/profiler_restart_period = 120 SECONDS
