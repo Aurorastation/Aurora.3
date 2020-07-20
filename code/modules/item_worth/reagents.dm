@@ -579,11 +579,8 @@
 /datum/reagent/mental/neurostabin
 	value = 6
 
-/datum/reagent/mental/exsytilopram
+/datum/reagent/mental/minaphobin
 	value = 6
-
-/datum/reagent/mental/peroxitin
-	value = 3.5
 
 /datum/reagent/mental/concusil
 	value = 6

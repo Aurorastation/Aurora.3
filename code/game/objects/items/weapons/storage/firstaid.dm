@@ -228,12 +228,12 @@
 	starts_with = list(/obj/item/reagent_containers/pill/traumatonin = 7)
 
 /obj/item/storage/pill_bottle/paraphenol
-	name = "bottle of paresetamill pills"
+	name = "bottle of paraphenol pills"
 	desc = "Contains pills used to relieve pain and reduce fevers."
 	starts_with = list(/obj/item/reagent_containers/pill/paraphenol = 7)
 
-/obj/item/storage/pill_bottle/exsytilopram
-	name = "bottle of Exsytilopram pills"
+/obj/item/storage/pill_bottle/minaphobin
+	name = "bottle of minaphobin pills"
 	desc = "Contains pills used to stabilize a patient's mood."
 	starts_with = list(/obj/item/reagent_containers/pill/minaphobin = 7)
 
