@@ -213,7 +213,7 @@
 	starts_with = list(/obj/item/reagent_containers/pill/inaprovaline = 7)
 
 /obj/item/storage/pill_bottle/kelotane
-	name = "bottle of kelotane pills"
+	name = "bottle of Kelotane pills"
 	desc = "Contains pills used to treat burns."
 	starts_with = list(/obj/item/reagent_containers/pill/kelotane = 7)
 
@@ -228,12 +228,12 @@
 	starts_with = list(/obj/item/reagent_containers/pill/mortaphenyl = 7)
 
 /obj/item/storage/pill_bottle/perconol
-	name = "bottle of perconol pills"
+	name = "bottle of Perconol pills"
 	desc = "Contains pills used to relieve pain and reduce fevers."
 	starts_with = list(/obj/item/reagent_containers/pill/perconol = 7)
 
 /obj/item/storage/pill_bottle/minaphobin
-	name = "bottle of minaphobin pills"
+	name = "bottle of Minaphobin pills"
 	desc = "Contains pills used to stabilize a patient's mood."
 	starts_with = list(/obj/item/reagent_containers/pill/minaphobin = 7)
 
