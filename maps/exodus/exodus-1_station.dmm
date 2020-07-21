@@ -2746,7 +2746,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/item/storage/fancy/donut,
+/obj/item/storage/box/fancy/donut,
 /obj/effect/floor_decal/corner/blue,
 /turf/simulated/floor/tiled,
 /area/security/main)
@@ -8164,7 +8164,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/storage/fancy/vials,
+/obj/item/storage/box/fancy/vials,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
 "aoX" = (
@@ -10923,7 +10923,7 @@
 	name = "Prisoner's Locker"
 	},
 /obj/item/flame/lighter/zippo,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/box/fancy/cigarettes,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aut" = (
@@ -18426,7 +18426,7 @@
 	pixel_x = -2;
 	pixel_y = 5
 	},
-/obj/item/storage/fancy/crayons,
+/obj/item/storage/box/fancy/crayons,
 /turf/simulated/floor/carpet,
 /area/chapel/office)
 "aJt" = (
@@ -18779,7 +18779,7 @@
 /area/security/nuke_storage)
 "aJY" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/cigarettes{
+/obj/item/storage/box/fancy/cigarettes{
 	pixel_y = 2
 	},
 /obj/machinery/alarm{
@@ -21886,7 +21886,7 @@
 /area/hallway/secondary/entry/port)
 "aQa" = (
 /obj/structure/table/wood,
-/obj/item/storage/fancy/cigarettes{
+/obj/item/storage/box/fancy/cigarettes{
 	pixel_y = 2
 	},
 /obj/random/single{
@@ -27330,7 +27330,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/item/storage/fancy/donut,
+/obj/item/storage/box/fancy/donut,
 /obj/effect/floor_decal/corner/blue/full,
 /turf/simulated/floor/tiled,
 /area/bridge)
@@ -29104,7 +29104,7 @@
 	},
 /obj/machinery/light,
 /obj/structure/table/stone/marble,
-/obj/item/storage/fancy/donut,
+/obj/item/storage/box/fancy/donut,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
 "bed" = (
@@ -30455,7 +30455,7 @@
 /area/crew_quarters/captain)
 "bgT" = (
 /obj/structure/table/wood,
-/obj/item/storage/fancy/donut,
+/obj/item/storage/box/fancy/donut,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -31888,7 +31888,7 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/item/storage/fancy/donut,
+/obj/item/storage/box/fancy/donut,
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
 "bjH" = (
@@ -39379,7 +39379,7 @@
 	name = "Station Intercom (General)";
 	pixel_y = -29
 	},
-/obj/item/storage/box/matches,
+/obj/item/storage/box/fancy/matches,
 /obj/item/clothing/mask/smokable/cigarette/cigar,
 /obj/item/reagent_containers/food/drinks/flask{
 	pixel_x = 8
@@ -40546,7 +40546,7 @@
 "bzA" = (
 /obj/effect/floor_decal/corner/white,
 /obj/structure/table/standard,
-/obj/item/storage/fancy/tray,
+/obj/item/storage/box/fancy/tray,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bzB" = (
@@ -53242,7 +53242,7 @@
 "bWV" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/glass,
-/obj/item/storage/fancy/donut,
+/obj/item/storage/box/fancy/donut,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bWW" = (
@@ -55930,7 +55930,7 @@
 	maxcharge = 15000
 	},
 /obj/item/clothing/glasses/welding/superior,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/box/fancy/cigarettes,
 /obj/item/book/manual/supermatter_engine,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/chief)
@@ -58800,7 +58800,7 @@
 	dir = 4;
 	pixel_x = -22
 	},
-/obj/item/storage/fancy/tray,
+/obj/item/storage/box/fancy/tray,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "chF" = (
@@ -58853,7 +58853,7 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/item/storage/fancy/tray,
+/obj/item/storage/box/fancy/tray,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery2)
 "chI" = (
@@ -67160,7 +67160,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)
 "cxj" = (
-/obj/item/storage/fancy/vials,
+/obj/item/storage/box/fancy/vials,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4

@@ -31,6 +31,7 @@
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "repairbot"
 	braintype = "Robot"
+	mod_type = "Engineering"
 	gender = NEUTER
 
 	// Health
@@ -163,7 +164,7 @@
 	if(!laws)
 		laws = new law_type
 	if(!module)
-		module = new module_type(src)
+		module = new module_type(src, src)
 
 	flavor_text = "It's a tiny little repair drone. The casing is stamped with an corporate logo and the subscript: '[current_map.company_name] Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'"
 	playsound(get_turf(src), 'sound/machines/twobeep.ogg', 50, 0)
@@ -424,6 +425,17 @@
 	else
 		msg += "Their eye glows green."
 	to_chat(user, msg)
+
+/mob/living/silicon/robot/drone/self_diagnosis()
+	if(!is_component_functioning("diagnosis unit"))
+		return null
+
+	var/datum/robot_component/diagnosis_unit/C = components["diagnosis unit"]
+
+	var/dat = "<HEAD><TITLE>[src.name] Self-Diagnosis Report</TITLE></HEAD><BODY>\n"
+	dat += "<b>Self-Diagnosis System Report</b><br><table><tr><td>Brute Damage:</td><td>[bruteloss]</td></tr><tr><td>Electronics Damage:</td><td>[fireloss]</td></tr><tr><td>Powered:</td><td>[(!C.idle_usage || C.is_powered()) ? "Yes" : "No"]</td></tr><tr><td>Toggled:</td><td>[ C.toggled ? "Yes" : "No"]</td></table>"
+
+	return dat
 
 /mob/living/silicon/robot/drone/construction/welcome_drone()
 	to_chat(src, SPAN_NOTICE("<b>You are a construction drone, an autonomous engineering and fabrication system.</b>."))

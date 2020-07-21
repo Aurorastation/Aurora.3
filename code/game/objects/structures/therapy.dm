@@ -476,7 +476,7 @@
 
 /obj/machinery/chakraconsole
 	name = "Therapy Pod Console"
-	desc = "A control panel for some kind of medical device."
+	desc = "An advanced control panel that can be used to interface with a connected therapy pod."
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "sleeper_s_scannerconsole"
 	density = 0

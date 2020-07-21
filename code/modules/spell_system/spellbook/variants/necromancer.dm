@@ -3,7 +3,7 @@
 
 
 /datum/spellbook/necromancer
-	name = "\improper necromancer's grimoire"
+	name = "necromancer's grimoire"
 	feedback = "NG"
 	desc = "A grimoire full of spells dealing with the death and the afterlife."
 	book_desc = "A spellbook full of dark magic dealing mostly with the afterlife."
