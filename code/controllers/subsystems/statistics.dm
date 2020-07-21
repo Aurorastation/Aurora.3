@@ -50,7 +50,7 @@
 	if(config.kick_inactive)
 		var/inactivity_threshold = config.kick_inactive MINUTES
 		for(var/client/C in clients)
-			if(!isliving(C.mob)))
+			if(!isobserver(C.mob) && !C.holder)
 				if(C.is_afk(inactivity_threshold))
 					log_access("AFK: [key_name(C)]")
 					to_chat(C, SPAN_WARNING("You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected."))
