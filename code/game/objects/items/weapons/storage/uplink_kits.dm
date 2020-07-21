@@ -219,11 +219,11 @@
 
 /obj/item/storage/box/syndie_kit/stimulants
 	name = "box of stimulants"
-	desc = "Comes with a combat inhaler, a large cartridge of hyperzine, a large cartridge of norepinephrine, and a large empty cartridge."
+	desc = "Comes with a combat inhaler, a large cartridge of hyperzine, a large cartridge of inaprovaline, and a large empty cartridge."
 	starts_with = list(
 		/obj/item/personal_inhaler/combat = 1,
 		/obj/item/reagent_containers/personal_inhaler_cartridge/large/hyperzine = 1,
-		/obj/item/reagent_containers/personal_inhaler_cartridge/large/norepinephrine = 1,
+		/obj/item/reagent_containers/personal_inhaler_cartridge/large/inaprovaline = 1,
 		/obj/item/reagent_containers/personal_inhaler_cartridge/large = 1,
 	)
 

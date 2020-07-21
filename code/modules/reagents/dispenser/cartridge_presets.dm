@@ -81,7 +81,7 @@
 	// ERT
 	alkysine	spawn_reagent = /datum/reagent/alkysine
 	arithrazine	spawn_reagent = /datum/reagent/arithrazine
-	cetahydramine	spawn_reagent = /datum/reagent/cetahydramine
+	benadryl	spawn_reagent = /datum/reagent/antihistamine
 	bicaridine	spawn_reagent = /datum/reagent/bicaridine
 	chloral		spawn_reagent = /datum/reagent/chloralhydrate
 	clonexadone	spawn_reagent = /datum/reagent/clonexadone
@@ -95,12 +95,12 @@
 	ethylredox	spawn_reagent = /datum/reagent/ethylredoxrazine
 	hyperzine	spawn_reagent = /datum/reagent/hyperzine
 	hyronalin	spawn_reagent = /datum/reagent/hyronalin
-	oculine	spawn_reagent = /datum/reagent/oculine
+	imidazoline	spawn_reagent = /datum/reagent/imidazoline
 	kelotane	spawn_reagent = /datum/reagent/kelotane
 	leporazine	spawn_reagent = /datum/reagent/leporazine
-	norepi		spawn_reagent = /datum/reagent/norepinephrine
-	oxycomorphine	spawn_reagent = /datum/reagent/oxycomorphine
-	perconol	spawn_reagent = /datum/reagent/perconol
+	norepi		spawn_reagent = /datum/reagent/inaprovaline
+	oxycodone	spawn_reagent = /datum/reagent/oxycodone
+	paracetamol	spawn_reagent = /datum/reagent/paracetamol
 	peridaxon	spawn_reagent = /datum/reagent/peridaxon
 	pneumalin	spawn_reagent = /datum/reagent/pneumalin
 	rezadone	spawn_reagent = /datum/reagent/rezadone
@@ -109,5 +109,5 @@
 	sterilizine	spawn_reagent = /datum/reagent/sterilizine
 	synaptizine	spawn_reagent = /datum/reagent/synaptizine
 	thetamycin	spawn_reagent = /datum/reagent/thetamycin
-	mortaphenyl	spawn_reagent = /datum/reagent/mortaphenyl
+	tramadol	spawn_reagent = /datum/reagent/tramadol
 	tricord		spawn_reagent = /datum/reagent/tricordrazine

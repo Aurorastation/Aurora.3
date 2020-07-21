@@ -243,10 +243,10 @@
 /datum/reagent/alcohol/ethanol/bilk
 	value = 0.12
 
-/datum/reagent/alcohol/ethanol/black_russian
+/datum/reagent/alcohol/ethanol/blackrussian
 	value = 0.14
 
-/datum/reagent/alcohol/ethanol/bloody_mary
+/datum/reagent/alcohol/ethanol/bloodymary
 	value = 0.14
 
 /datum/reagent/alcohol/ethanol/booger
@@ -294,7 +294,7 @@
 /datum/reagent/alcohol/ethanol/erikasurprise
 	value = 0.16
 
-/datum/reagent/alcohol/ethanol/gargle_blaster
+/datum/reagent/alcohol/ethanol/gargleblaster
 	value = 0.21
 
 /datum/reagent/alcohol/ethanol/gintonic
@@ -303,7 +303,7 @@
 /datum/reagent/alcohol/ethanol/goldschlager
 	value = 0.2
 
-/datum/reagent/alcohol/ethanol/hippies_delight
+/datum/reagent/alcohol/ethanol/hippiesdelight
 	value = 0.12
 
 /datum/reagent/alcohol/ethanol/hooch
@@ -492,7 +492,7 @@
 /datum/reagent/alcohol/ethanol/tallrussian
 	value = 0.15
 
-/datum/reagent/norepinephrine
+/datum/reagent/inaprovaline
 	value = 2.5
 
 /datum/reagent/bicaridine
