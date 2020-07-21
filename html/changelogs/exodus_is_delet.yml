@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - rscdel: "Removes remaining references to the Exodus and the Exodus map."
