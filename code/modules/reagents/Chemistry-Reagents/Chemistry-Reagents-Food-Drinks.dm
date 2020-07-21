@@ -4310,3 +4310,14 @@
 	description = "A delicious seasonal flavoring."
 	color = "#AE771C"
 	taste_description = "autumn bliss"
+
+/datum/reagent/diona_powder
+	name = "Dionae Powder"
+	description = "Powdered Dionae ambergris to add that extra pazazz to any dish."
+	reagent_state = SOLID
+	color = "#e08702"
+	taste_description = "diona delicacy"
+	fallback_specific_heat = 2
+	condiment_name = "bottle of dionae powder"
+	condiment_icon_state = "dionaepowder"
+	condiment_center_of_mass = list("x"=16, "y"=10)
