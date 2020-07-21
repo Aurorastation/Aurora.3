@@ -5,6 +5,8 @@
 	wait = 1 MINUTE
 	flags = SS_NO_TICK_CHECK | SS_BACKGROUND
 	priority = SS_PRIORITY_STATISTICS
+	
+	var/kicked_clients = 0
 
 	var/list/messages = list()		//Stores messages of non-standard frequencies
 	var/list/messages_admin = list()
@@ -45,14 +47,15 @@
 
 /datum/controller/subsystem/statistics/fire()
 	// Handle AFK.
-	if (config.kick_inactive)
+	if(config.kick_inactive)
 		var/inactivity_threshold = config.kick_inactive MINUTES
-		for (var/client/C in clients)
-			if (!istype(C.mob, /mob/abstract))
-				if (C.is_afk(inactivity_threshold))
+		for(var/client/C in clients)
+			if(!isliving(C.mob)))
+				if(C.is_afk(inactivity_threshold))
 					log_access("AFK: [key_name(C)]")
 					to_chat(C, SPAN_WARNING("You have been inactive for more than [config.kick_inactive] minute\s and have been disconnected."))
 					qdel(C)
+					kicked_clients++
 
 	// Handle population polling.
 	if (config.sql_enabled && config.sql_stats)
@@ -312,3 +315,6 @@
 	if (!S)
 		return FALSE
 	S.increment_value(key)
+
+/datum/controller/subsystem/statistics/stat_entry()
+	..("Kicked: [kicked_clients]")
