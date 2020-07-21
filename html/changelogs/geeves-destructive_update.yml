@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Destructive Analyzer UIs now properly update when you place an item in them."
