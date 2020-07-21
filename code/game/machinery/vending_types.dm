@@ -393,7 +393,7 @@
 	vend_id = "meds"
 	products = list(
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 4,
-		/obj/item/reagent_containers/glass/bottle/norepinephrine = 4,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 4,
 		/obj/item/reagent_containers/glass/bottle/toxin = 4,
 		/obj/item/reagent_containers/glass/bottle/coughsyrup = 4,
 		/obj/item/reagent_containers/syringe = 12,
@@ -462,7 +462,7 @@
 	products = list(
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
-		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 4,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 4,
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/device/breath_analyzer  = 1
 	)
@@ -487,7 +487,7 @@
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 5,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 5,
 		/obj/item/reagent_containers/syringe/dylovene = 3,
 		/obj/item/stack/medical/bruise_pack = 3,
 		/obj/item/stack/medical/ointment = 3,

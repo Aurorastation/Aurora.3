@@ -8,13 +8,13 @@
 	var/reagent = /datum/reagent/
 
 
-/obj/item/reagent_containers/glass/bottle/robot/norepinephrine
-	name = "internal norepinephrine bottle"
-	desc = "A small bottle. Contains norepinephrine - used to stabilize patients."
+/obj/item/reagent_containers/glass/bottle/robot/inaprovaline
+	name = "internal inaprovaline bottle"
+	desc = "A small bottle. Contains inaprovaline - used to stabilize patients."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle-4"
-	reagent = /datum/reagent/norepinephrine
-	reagents_to_add = list(/datum/reagent/norepinephrine = 60)
+	reagent = /datum/reagent/inaprovaline
+	reagents_to_add = list(/datum/reagent/inaprovaline = 60)
 
 /obj/item/reagent_containers/glass/bottle/robot/antitoxin
 	name = "internal anti-toxin bottle"
