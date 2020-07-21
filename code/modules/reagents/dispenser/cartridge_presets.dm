@@ -81,7 +81,7 @@
 	// ERT
 	alkysine	spawn_reagent = /datum/reagent/alkysine
 	arithrazine	spawn_reagent = /datum/reagent/arithrazine
-	benadryl	spawn_reagent = /datum/reagent/cetahydramine
+	cetahydramine	spawn_reagent = /datum/reagent/cetahydramine
 	bicaridine	spawn_reagent = /datum/reagent/bicaridine
 	chloral		spawn_reagent = /datum/reagent/chloralhydrate
 	clonexadone	spawn_reagent = /datum/reagent/clonexadone
@@ -98,7 +98,7 @@
 	oculine	spawn_reagent = /datum/reagent/oculine
 	kelotane	spawn_reagent = /datum/reagent/kelotane
 	leporazine	spawn_reagent = /datum/reagent/leporazine
-	norepi		spawn_reagent = /datum/reagent/inaprovaline
+	inaprov		spawn_reagent = /datum/reagent/inaprovaline
 	oxycomorphine	spawn_reagent = /datum/reagent/oxycomorphine
 	perconol	spawn_reagent = /datum/reagent/perconol
 	peridaxon	spawn_reagent = /datum/reagent/peridaxon
