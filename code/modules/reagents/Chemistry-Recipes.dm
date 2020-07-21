@@ -373,7 +373,7 @@
 
 /datum/chemical_reaction/cetahydramine
 	name = "Cetahydramine"
-	id = "Cetahydramine"
+	id = "cetahydramine"
 	result = /datum/reagent/cetahydramine
 	required_reagents = list(/datum/reagent/cryptobiolin = 1, /datum/reagent/inaprovaline = 1)
 	result_amount = 2
