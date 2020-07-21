@@ -555,7 +555,7 @@
 
 /datum/reagent/cetahydramine
 	name = "Cetahydramine"
-	description = "A modern antihistamine medication, often compared to ancient brands of old. Used for suppressing alergies, coughing and sneezing, causes drowsiness in larger doses."
+	description = "A modern cetahydramine medication, often compared to ancient brands of old. Used for suppressing alergies, coughing and sneezing, causes drowsiness in larger doses."
 	scannable = 1
 	reagent_state = LIQUID
 	taste_description = "bitterness"
