@@ -224,8 +224,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		set_light(2, 0.25, "#E38F46")
 		START_PROCESSING(SSprocessing, src)
 
-/obj/item/clothing/mask/smokable/proc/die(var/no_message = 0, var/mob/living/M)
+/obj/item/clothing/mask/smokable/proc/die(var/no_message = 0)
 	var/turf/T = get_turf(src)
+	var/mob/living/M
 	set_light(0)
 	playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 	if(type_butt)

@@ -86,7 +86,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	icon_state = "spit-chew"
 	slot_flags = SLOT_EARS | SLOT_MASK
 
-/obj/item/clothing/mask/chewable/proc/spitout(var/transfer_color = 1, var/no_message = 0, var/mob/living/M)
+/obj/item/clothing/mask/chewable/proc/spitout(var/transfer_color = 1, var/no_message = 0)
 	STOP_PROCESSING(SSprocessing, src)
 	if(type_butt)
 		var/obj/item/butt = new type_butt(src.loc)
@@ -96,7 +96,7 @@ obj/item/clothing/mask/chewable/Destroy()
 		if(brand)
 			butt.desc += " This one is \a [brand]."
 		if(ismob(loc))
-			M = loc
+			var/mob/living/M = loc
 			if(!no_message)
 				to_chat(M, SPAN_NOTICE("The [name] runs out of flavor."))
 			if(M.wear_mask)
