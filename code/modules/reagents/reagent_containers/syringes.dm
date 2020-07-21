@@ -391,12 +391,12 @@
 /// Syringes. END
 ////////////////////////////////////////////////////////////////////////////////
 
-/obj/item/reagent_containers/syringe/norepinephrine
-	name = "Syringe (norepinephrine)"
-	desc = "Contains norepinephrine - used to stabilize patients."
-	reagents_to_add = list(/datum/reagent/norepinephrine = 15)
+/obj/item/reagent_containers/syringe/inaprovaline
+	name = "Syringe (inaprovaline)"
+	desc = "Contains inaprovaline - used to stabilize patients."
+	reagents_to_add = list(/datum/reagent/inaprovaline = 15)
 
-/obj/item/reagent_containers/syringe/norepinephrine/Initialize()
+/obj/item/reagent_containers/syringe/inaprovaline/Initialize()
 	. = ..()
 	mode = SYRINGE_INJECT
 	update_icon()

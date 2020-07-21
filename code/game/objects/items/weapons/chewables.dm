@@ -237,7 +237,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	. = ..()
 	var/datum/reagent/payload = pick(list(
 				/datum/reagent/dylovene,
-				/datum/reagent/norepinephrine))
+				/datum/reagent/inaprovaline))
 	reagents.add_reagent(payload, 15)
 	color = reagents.get_color()
 	desc = "[desc] This one is labeled '[initial(payload.name)]'."
