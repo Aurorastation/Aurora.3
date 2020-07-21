@@ -6,9 +6,6 @@
 	size = 2
 	available_on_ntnet = TRUE
 
-	var/list/ignored_reaction_path = list(/datum/chemical_reaction/slime)
-	var/list/ignored_result_path = list(/datum/reagent/drink, /datum/reagent/alcohol, /datum/reagent/paint)
-
 /datum/computer_file/program/chemistry_codex/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
@@ -32,62 +29,4 @@
 	// Here goes listification
 	if(data["reactions"] == null)
 		. = data
-		data["reactions"] = list()
-		for(var/chem_path in SSchemistry.chemical_reactions_clean)
-			if(ignored_reaction_path && is_path_in_list(chem_path, ignored_reaction_path))
-				continue
-			var/datum/chemical_reaction/CR = new chem_path
-			if(!CR.result)
-				continue
-			if(ignored_result_path && is_path_in_list(CR.result, ignored_result_path))
-				continue
-			var/datum/reagent/R = new CR.result
-			var/reactionData = list(id = CR.id)
-			reactionData["result"] = list(
-				name = R.name,
-				description = R.description,
-				amount = CR.result_amount
-			)
-			
-			reactionData["reagents"] = list()
-			for(var/reagent in CR.required_reagents)
-				var/datum/reagent/required_reagent = reagent
-				reactionData["reagents"] += list(list(
-					name = initial(required_reagent.name),
-					amount = CR.required_reagents[reagent]
-				))
-			
-			reactionData["catalysts"] = list()
-			for(var/reagent_path in CR.catalysts)
-				var/datum/reagent/required_reagent = reagent_path
-				reactionData["catalysts"] += list(list(
-					name = initial(required_reagent.name),
-					amount = CR.catalysts[reagent_path]
-				))
-
-			reactionData["inhibitors"] = list()
-			for(var/reagent_path in CR.inhibitors)
-				var/datum/reagent/required_reagent = reagent_path
-				var/inhibitor_amount = CR.inhibitors[reagent_path] ? CR.inhibitors[reagent_path] : "Any"
-				reactionData["inhibitors"] += list(list(
-					name = initial(required_reagent.name),
-					amount = inhibitor_amount
-				))
-
-			reactionData["temp_min"] = list()
-			for(var/reagent_path in CR.required_temperatures_min)
-				var/datum/reagent/required_reagent = reagent_path
-				reactionData["temp_min"] += list(list(
-					name = initial(required_reagent.name),
-					temp = CR.required_temperatures_min[reagent_path]
-				))
-			
-			reactionData["temp_max"] = list()
-			for(var/reagent_path in CR.required_temperatures_max)
-				var/datum/reagent/required_reagent = reagent_path
-				reactionData["temp_max"] += list(list(
-					name = initial(required_reagent.name),
-					temp = CR.required_temperatures_max[reagent_path]
-				))
-			
-			data["reactions"] += list(reactionData)
+		data["reactions"] = SSchemistry.codex_data
