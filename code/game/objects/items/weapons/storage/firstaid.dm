@@ -99,7 +99,7 @@
 		/obj/item/storage/pill_bottle/dermaline = 1,
 		/obj/item/storage/pill_bottle/dexalin_plus = 1,
 		/obj/item/storage/pill_bottle/dylovene = 1,
-		/obj/item/storage/pill_bottle/traumatonin = 1,
+		/obj/item/storage/pill_bottle/mortaphenyl = 1,
 		/obj/item/reagent_containers/inhaler/hyperzine = 1,
 		/obj/item/stack/medical/splint = 1
 	)
@@ -217,20 +217,20 @@
 	desc = "Contains pills used to treat burns."
 	starts_with = list(/obj/item/reagent_containers/pill/kelotane = 7)
 
-/obj/item/storage/pill_bottle/antihistadryl
-	name = "bottle of Antihistadryl pills"
-	desc = "Often compared to ancient brands, Antihistadryl is a modern antihistamine used to reduce symptoms of allergies. Helps with sneezing."
-	starts_with = list(/obj/item/reagent_containers/pill/antihistadryl = 7)
+/obj/item/storage/pill_bottle/cetahydramine
+	name = "bottle of Cetahydramine pills"
+	desc = "Often compared to ancient brands, Cetahydramine is a modern antihistamine used to reduce symptoms of allergies. Helps with sneezing."
+	starts_with = list(/obj/item/reagent_containers/pill/cetahydramine = 7)
 
-/obj/item/storage/pill_bottle/traumatonin
-	name = "bottle of Traumatonin pills"
+/obj/item/storage/pill_bottle/mortaphenyl
+	name = "bottle of Mortaphenyl pills"
 	desc = "Contains pills used to relieve pain."
-	starts_with = list(/obj/item/reagent_containers/pill/traumatonin = 7)
+	starts_with = list(/obj/item/reagent_containers/pill/mortaphenyl = 7)
 
-/obj/item/storage/pill_bottle/paraphenol
-	name = "bottle of paraphenol pills"
+/obj/item/storage/pill_bottle/perconol
+	name = "bottle of perconol pills"
 	desc = "Contains pills used to relieve pain and reduce fevers."
-	starts_with = list(/obj/item/reagent_containers/pill/paraphenol = 7)
+	starts_with = list(/obj/item/reagent_containers/pill/perconol = 7)
 
 /obj/item/storage/pill_bottle/minaphobin
 	name = "bottle of minaphobin pills"

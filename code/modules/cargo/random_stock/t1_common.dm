@@ -331,9 +331,9 @@ STOCK_ITEM_COMMON(pills, 1.2)
 		/obj/item/storage/pill_bottle/dylovene, \
 		/obj/item/storage/pill_bottle/norepinephrine, \
 		/obj/item/storage/pill_bottle/kelotane, \
-		/obj/item/storage/pill_bottle/antihistadryl, \
-		/obj/item/storage/pill_bottle/traumatonin, \
-		/obj/item/storage/pill_bottle/paraphenol \
+		/obj/item/storage/pill_bottle/cetahydramine, \
+		/obj/item/storage/pill_bottle/mortaphenyl, \
+		/obj/item/storage/pill_bottle/perconol \
 	)
 	var/newtype = pick(options)
 	new newtype(L)

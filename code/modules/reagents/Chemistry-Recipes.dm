@@ -153,25 +153,25 @@
 	required_reagents = list(/datum/reagent/silicon = 1, /datum/reagent/potassium = 1, /datum/reagent/ammonia = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/traumatonin
-	name = "Traumatonin"
-	id = "traumatonin"
-	result = /datum/reagent/traumatonin
+/datum/chemical_reaction/mortaphenyl
+	name = "Mortaphenyl"
+	id = "mortaphenyl"
+	result = /datum/reagent/mortaphenyl
 	required_reagents = list(/datum/reagent/norepinephrine = 1, /datum/reagent/alcohol/ethanol = 1, /datum/reagent/acetone = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/paraphenol
-	name = "Paraphenol"
-	id = "paraphenol"
-	result = /datum/reagent/paraphenol
-	required_reagents = list(/datum/reagent/traumatonin = 1, /datum/reagent/sugar = 1, /datum/reagent/water = 1)
+/datum/chemical_reaction/perconol
+	name = "Perconol"
+	id = "perconol"
+	result = /datum/reagent/perconol
+	required_reagents = list(/datum/reagent/mortaphenyl = 1, /datum/reagent/sugar = 1, /datum/reagent/water = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/oxycorphine
-	name = "Oxycorphine"
-	id = "oxycorphine"
-	result = /datum/reagent/oxycorphine
-	required_reagents = list(/datum/reagent/alcohol/ethanol = 1, /datum/reagent/traumatonin = 1)
+/datum/chemical_reaction/oxycomorphine
+	name = "Oxycomorphine"
+	id = "oxycomorphine"
+	result = /datum/reagent/oxycomorphine
+	required_reagents = list(/datum/reagent/alcohol/ethanol = 1, /datum/reagent/mortaphenyl = 1)
 	catalysts = list(/datum/reagent/toxin/phoron = 5)
 	result_amount = 1
 
@@ -371,10 +371,10 @@
 	required_reagents = list(/datum/reagent/cryptobiolin = 1, /datum/reagent/dylovene = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/antihistadryl
-	name = "Antihistadryl"
-	id = "antihistadryl"
-	result = /datum/reagent/antihistadryl
+/datum/chemical_reaction/cetahydramine
+	name = "Cetahydramine"
+	id = "cetahydramine"
+	result = /datum/reagent/cetahydramine
 	required_reagents = list(/datum/reagent/cryptobiolin = 1, /datum/reagent/norepinephrine = 1)
 	result_amount = 2
 
@@ -382,7 +382,7 @@
 	name = "Asinolyatrine"
 	id = "asinolyatrine"
 	result = /datum/reagent/asinolyatrine
-	required_reagents = list(/datum/reagent/antihistadryl = 1, /datum/reagent/synaptizine = 1, /datum/reagent/water = 3)
+	required_reagents = list(/datum/reagent/cetahydramine = 1, /datum/reagent/synaptizine = 1, /datum/reagent/water = 3)
 	catalysts = list(/datum/reagent/tungsten = 5)
 	result_amount = 3
 
@@ -400,10 +400,10 @@
 	required_reagents = list(/datum/reagent/acetone = 1, /datum/reagent/dylovene = 1, /datum/reagent/carbon = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/emetinol
-	name = "Emetinol"
-	id = "emetinol"
-	result = /datum/reagent/emetinol
+/datum/chemical_reaction/verunol
+	name = "Verunol Syrup"
+	id = "verunol"
+	result = /datum/reagent/verunol
 	required_reagents = list(/datum/reagent/hydrazine = 1, /datum/reagent/dylovene = 1, /datum/reagent/alcohol/ethanol = 1)
 	result_amount = 3
 
@@ -568,10 +568,10 @@
 	catalysts = list(/datum/reagent/toxin/phoron = 5)
 	result_amount = 3
 
-/datum/chemical_reaction/dialynel
-	name = "Dialynel"
-	id = "dialynel"
-	result = /datum/reagent/dialynel
+/datum/chemical_reaction/fluvectionem
+	name = "Fluvectionem"
+	id = "fluvectionem"
+	result = /datum/reagent/fluvectionem
 	required_reagents = list(/datum/reagent/mercury = 1, /datum/reagent/sodiumchloride = 1, /datum/reagent/ammonia = 1)
 	result_amount = 3
 
@@ -608,7 +608,7 @@
 	name = "Pulmodeiectionem"
 	id = "pulmodeiectionem"
 	result = /datum/reagent/pulmodeiectionem
-	required_reagents = list(/datum/reagent/dialynel = 1, /datum/reagent/lexorin = 1)
+	required_reagents = list(/datum/reagent/fluvectionem = 1, /datum/reagent/lexorin = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/pneumalin
@@ -625,10 +625,10 @@
 	required_reagents = list(/datum/reagent/sugar = 0.4, /datum/reagent/water = 1, /datum/reagent/sodiumchloride = 0.9)
 	result_amount = 1
 
-/datum/chemical_reaction/neuranol
-	name = "Neuranol"
-	id = "neuranol"
-	result = /datum/reagent/neuranol
+/datum/chemical_reaction/cataleptinol
+	name = "Cataleptinol"
+	id = "cataleptinol"
+	result = /datum/reagent/cataleptinol
 	required_reagents = list(/datum/reagent/toxin/phoron = 0.1, /datum/reagent/alkysine = 1, /datum/reagent/cryoxadone = 0.1)
 	result_amount = 1
 
@@ -675,10 +675,10 @@
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/aluminum = 1, /datum/reagent/potassium = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/concusil
-	name = "Concusil"
-	id = "concusil"
-	result = /datum/reagent/mental/concusil
+/datum/chemical_reaction/emoxanyl
+	name = "Emoxanyl"
+	id = "emoxanyl"
+	result = /datum/reagent/mental/emoxanyl
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/silicon = 1, /datum/reagent/alcohol/ethanol = 1)
 	result_amount = 3
 

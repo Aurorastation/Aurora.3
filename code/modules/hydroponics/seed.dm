@@ -415,7 +415,7 @@
 			/datum/reagent/synaptizine,
 			/datum/reagent/thermite,
 			/datum/reagent/toxin,
-			/datum/reagent/traumatonin,
+			/datum/reagent/mortaphenyl,
 			/datum/reagent/water,
 			/datum/reagent/woodpulp,
 			)

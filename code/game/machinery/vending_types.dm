@@ -407,8 +407,8 @@
 		/obj/item/stack/medical/advanced/ointment = 3,
 		/obj/item/stack/medical/splint = 2,
 		/obj/item/reagent_containers/pill/antitox = 6,
-		/obj/item/reagent_containers/pill/antihistadryl = 6,
-		/obj/item/reagent_containers/pill/paraphenol = 6,
+		/obj/item/reagent_containers/pill/cetahydramine = 6,
+		/obj/item/reagent_containers/pill/perconol = 6,
 		/obj/item/reagent_containers/food/drinks/medcup = 4
 	)
 	contraband = list(
@@ -471,7 +471,7 @@
 		/obj/item/reagent_containers/pill/tox = 1
 	)
 	premium = list(
-		/obj/item/reagent_containers/pill/traumatonin = 4
+		/obj/item/reagent_containers/pill/mortaphenyl = 4
 	)
 	random_itemcount = 0
 	temperature_setting = -1
@@ -497,7 +497,7 @@
 		/obj/item/reagent_containers/pill/tox = 3
 	)
 	premium = list(
-		/obj/item/reagent_containers/pill/traumatonin = 4
+		/obj/item/reagent_containers/pill/mortaphenyl = 4
 	)
 	random_itemcount = 0
 	temperature_setting = -1

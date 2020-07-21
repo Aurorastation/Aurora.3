@@ -36769,7 +36769,7 @@
 	pixel_y = -32
 	},
 /obj/item/storage/pill_bottle/antitox,
-/obj/item/storage/pill_bottle/traumatonin,
+/obj/item/storage/pill_bottle/mortaphenyl,
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
@@ -42884,7 +42884,7 @@
 	name = "Pill Cabinet"
 	},
 /obj/item/storage/pill_bottle/antitox,
-/obj/item/storage/pill_bottle/traumatonin,
+/obj/item/storage/pill_bottle/mortaphenyl,
 /obj/item/reagent_containers/syringe/norepinephrine,
 /turf/simulated/wall,
 /area/medical/sleeper)

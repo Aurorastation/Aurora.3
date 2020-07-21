@@ -431,12 +431,12 @@
 	mode = SYRINGE_INJECT
 	update_icon()
 
-/obj/item/reagent_containers/syringe/dialynel
-	name = "Syringe (dialynel)"
+/obj/item/reagent_containers/syringe/fluvectionem
+	name = "Syringe (fluvectionem)"
 	desc = "Contains purging medicine."
-	reagents_to_add = list(/datum/reagent/dialynel = 15)
+	reagents_to_add = list(/datum/reagent/fluvectionem = 15)
 
-/obj/item/reagent_containers/syringe/dialynel/Initialize()
+/obj/item/reagent_containers/syringe/fluvectionem/Initialize()
 	. = ..()
 	mode = SYRINGE_INJECT
 	update_icon()

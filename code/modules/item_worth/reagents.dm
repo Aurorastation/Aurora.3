@@ -519,13 +519,13 @@
 /datum/reagent/clonexadone
 	value = 5.5
 
-/datum/reagent/paraphenol
+/datum/reagent/perconol
 	value = 3.3
 
-/datum/reagent/traumatonin
+/datum/reagent/mortaphenyl
 	value = 3.1
 
-/datum/reagent/oxycorphine
+/datum/reagent/oxycomorphine
 	value = 3.3
 
 /datum/reagent/synaptizine
@@ -582,7 +582,7 @@
 /datum/reagent/mental/minaphobin
 	value = 6
 
-/datum/reagent/mental/concusil
+/datum/reagent/mental/emoxanyl
 	value = 6
 
 /datum/reagent/mental/orastabin
@@ -603,7 +603,7 @@
 /datum/reagent/rezadone
 	value = 5
 
-/datum/reagent/emetinol
+/datum/reagent/verunol
 	value = 2
 
 /datum/reagent/crayon_dust

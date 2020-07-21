@@ -122,17 +122,17 @@
 	icon_state = "pill11"
 	reagents_to_add = list(/datum/reagent/kelotane = 15)
 
-/obj/item/reagent_containers/pill/paraphenol
-	name = "Paraphenol pill"
+/obj/item/reagent_containers/pill/perconol
+	name = "Perconol pill"
 	desc = "A painkiller for the ages. Chewables!"
 	icon_state = "pill8"
-	reagents_to_add = list(/datum/reagent/paraphenol = 15)
+	reagents_to_add = list(/datum/reagent/perconol = 15)
 
-/obj/item/reagent_containers/pill/traumatonin
-	name = "Traumatonin pill"
+/obj/item/reagent_containers/pill/mortaphenyl
+	name = "Mortaphenyl pill"
 	desc = "A simple painkiller."
 	icon_state = "pill8"
-	reagents_to_add = list(/datum/reagent/traumatonin = 15)
+	reagents_to_add = list(/datum/reagent/mortaphenyl = 15)
 
 
 /obj/item/reagent_containers/pill/corophenidate
@@ -217,8 +217,8 @@
 	icon_state = "pill19"
 	reagents_to_add = list(/datum/reagent/rmt = 15)
 
-/obj/item/reagent_containers/pill/antihistadryl
-	name = "Antihistadryl"
-	desc = "Contains modern Antihistadryl, often compared to ancient Benadryl. Helps with sneezing, can cause drowsiness."
+/obj/item/reagent_containers/pill/cetahydramine
+	name = "Cetahydramine"
+	desc = "Contains modern Cetahydramine, often compared to ancient Benadryl. Helps with sneezing, can cause drowsiness."
 	icon_state = "pill19"
-	reagents_to_add = list(/datum/reagent/antihistadryl = 5)
+	reagents_to_add = list(/datum/reagent/cetahydramine = 5)

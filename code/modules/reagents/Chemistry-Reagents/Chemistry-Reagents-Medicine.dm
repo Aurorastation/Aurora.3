@@ -186,8 +186,8 @@
 
 /* Painkillers */
 
-/datum/reagent/paraphenol
-	name = "Paraphenol"
+/datum/reagent/perconol
+	name = "Perconol"
 	description = "Most probably compare this to ancient light painkiller brands, but they'd be wrong, this chemical is a more advanced, mild, simple painkiller. Does not work when inhaled."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
@@ -200,17 +200,17 @@
 	metabolism_min = 0.005
 	breathe_mul = 0
 
-/datum/reagent/paraphenol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/perconol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 50)
 	M.add_chemical_effect(CE_NOFEVER, ((max_dose/2)^2-(dose-max_dose/2))/(max_dose/4)) // creates a smooth curve peaking at half the dose metabolised
 
-/datum/reagent/paraphenol/overdose(var/mob/living/carbon/M, var/alien)
+/datum/reagent/perconol/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.hallucination = max(M.hallucination, 25)
 
-/datum/reagent/traumatonin
-	name = "Traumatonin"
-	description = "Traumatonin is a very effective painkiller designed for victims of heavy physical trauma. Does not work when inhaled."
+/datum/reagent/mortaphenyl
+	name = "Mortaphenyl"
+	description = "Mortaphenyl is a very effective painkiller designed for victims of heavy physical trauma. Does not work when inhaled."
 	reagent_state = LIQUID
 	color = "#CB68FC"
 	overdose = 30
@@ -222,16 +222,16 @@
 	metabolism_min = 0.005
 	breathe_mul = 0
 
-/datum/reagent/traumatonin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 80)
 
-/datum/reagent/traumatonin/overdose(var/mob/living/carbon/M, var/alien)
+/datum/reagent/mortaphenyl/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.hallucination = max(M.hallucination, 40)
 
-/datum/reagent/oxycorphine
-	name = "Oxycorphine"
-	description = "Oxycorphine is an advanced medicine often compared to ancient brands of old, it's an incredibly potent and very addictive painkiller. Do not mix with alcohol. Does not work when inhaled."
+/datum/reagent/oxycomorphine
+	name = "Oxycomorphine"
+	description = "Oxycomorphine is an advanced medicine often compared to ancient brands of old, it's an incredibly potent and very addictive painkiller. Do not mix with alcohol. Does not work when inhaled."
 	reagent_state = LIQUID
 	color = "#800080"
 	overdose = 20
@@ -242,7 +242,7 @@
 	metabolism_min = 0.005
 	breathe_mul = 0
 
-/datum/reagent/oxycorphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/oxycomorphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
@@ -252,7 +252,7 @@
 		M.hallucination = max(M.hallucination, bac * 300)
 		M.druggy = max(M.druggy, bac * 100)
 
-/datum/reagent/oxycorphine/overdose(var/mob/living/carbon/M, var/alien)
+/datum/reagent/oxycomorphine/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.druggy = max(M.druggy, 20)
 	M.hallucination = max(M.hallucination, 60)
@@ -553,8 +553,8 @@
 	if(prob(50))
 		M.drowsyness = max(M.drowsyness, 3)
 
-/datum/reagent/antihistadryl
-	name = "Antihistadryl"
+/datum/reagent/cetahydramine
+	name = "Cetahydramine"
 	description = "A modern antihistamine medication, often compared to ancient brands of old. Used for suppressing alergies, coughing and sneezing, causes drowsiness in larger doses."
 	scannable = 1
 	reagent_state = LIQUID
@@ -566,7 +566,7 @@
 	ingest_mul = 1
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
-/datum/reagent/antihistadryl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/cetahydramine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(dose/2))
 		M.drowsyness += 2
 
@@ -838,9 +838,9 @@
 		/datum/reagent/mental/parvosil = 5
 	)
 
-/datum/reagent/mental/concusil
-	name = "Concusil"
-	description = "Concusil is effective at treating basic phobias and concussions. A rare side effect is hallucinations. Withdrawl effects are common."
+/datum/reagent/mental/emoxanyl
+	name = "Emoxanyl"
+	description = "Emoxanyl is effective at treating basic phobias and concussions. A rare side effect is hallucinations. Withdrawl effects are common."
 	reagent_state = LIQUID
 	color = "#88FFFF"
 	metabolism = 0.01 * REM
@@ -894,7 +894,7 @@
 		/datum/brain_trauma/mild/hallucinations = 25
 	)
 	suppressing_reagents = list(
-		/datum/reagent/mental/concusil = 5,
+		/datum/reagent/mental/emoxanyl = 5,
 		/datum/reagent/mental/neurapan = 5,
 		/datum/reagent/mental/minaphobin = 5,
 		/datum/reagent/mental/neurostabin = 10,
@@ -935,7 +935,7 @@
 	)
 	suppressing_reagents = list(
 		/datum/reagent/mental/orastabin = 20,
-		/datum/reagent/mental/concusil = 20,
+		/datum/reagent/mental/emoxanyl = 20,
 		/datum/reagent/mental/neurapan = 20,
 		/datum/reagent/mental/minaphobin = 20
 	)
@@ -975,7 +975,7 @@
 	)
 	suppressing_reagents = list(
 		/datum/reagent/mental/orastabin = 20,
-		/datum/reagent/mental/concusil = 20,
+		/datum/reagent/mental/emoxanyl = 20,
 		/datum/reagent/mental/neurapan = 20,
 		/datum/reagent/mental/minaphobin = 20
 	)
@@ -1071,9 +1071,9 @@
 		if (!modifier)
 			modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
-/datum/reagent/neuranol
-	name = "Neuranol"
-	description = "Neuranol is a super strength chemical that heals brain tissue damage and cures dumbness, cerebral blindness, cerebral paralysis, colorblindness, and aphasia. More effective when the patient's body temperature is less than 170K."
+/datum/reagent/cataleptinol
+	name = "Cataleptinol"
+	description = "Cataleptinol is a super strength chemical that heals brain tissue damage and cures dumbness, cerebral blindness, cerebral paralysis, colorblindness, and aphasia. More effective when the patient's body temperature is less than 170K."
 	reagent_state = LIQUID
 	color = "#FFFF00"
 	metabolism = REM * 2 //0.4
@@ -1089,7 +1089,7 @@
 		/datum/brain_trauma/severe/aphasia/
 	)
 
-/datum/reagent/neuranol/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+/datum/reagent/cataleptinol/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 	var/chance = dose*removed
@@ -1112,8 +1112,8 @@
 //Narcolepsy
 //Discoordination
 
-/datum/reagent/dialynel
-	name = "Dialynel"
+/datum/reagent/fluvectionem
+	name = "Fluvectionem"
 	description = "A highly toxic medicine that quickly purges most chemicals from the bloodstream. Overdose causes bloodloss and more toxin buildup, however works twice as fast."
 	color = "#222244"
 	metabolism = 0.5 * REM
@@ -1122,7 +1122,7 @@
 	taste_description = "thick salt"
 	reagent_state = SOLID
 
-/datum/reagent/dialynel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/fluvectionem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/is_overdosed = overdose && (dose > overdose)
 	if(is_overdosed)
 		removed *= 2
@@ -1214,8 +1214,8 @@
 		M.make_dizzy(5)
 		M.make_jittery(5)
 
-/datum/reagent/emetinol
-	name = "Emetinol"
+/datum/reagent/verunol
+	name = "Verunol Syrup"
 	description = "A simple emetic, Induces vomiting in the patient, emptying stomach contents"
 	reagent_state = LIQUID
 	color = "#280f0b"
@@ -1223,13 +1223,13 @@
 	scannable = 1
 	taste_description = "sweet syrup"
 
-/datum/reagent/emetinol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/verunol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (prob(10+dose))
 		to_chat(M, pick("You feel nauseous!", "Your stomach churns uncomfortably.", "You feel like you're about to throw up.", "You feel queasy.", "You feel bile in your throat."))
 
 	M.add_chemical_effect(CE_EMETIC, dose)
 
-/datum/reagent/emetinol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/verunol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(2 * removed) //If you inject it you're doing it wrong
 
 /datum/reagent/azoth

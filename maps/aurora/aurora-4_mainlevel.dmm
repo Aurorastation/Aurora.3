@@ -8645,7 +8645,7 @@
 /obj/item/stack/medical/bruise_pack,
 /obj/item/stack/medical/ointment,
 /obj/item/reagent_containers/pill/kelotane,
-/obj/item/reagent_containers/pill/paraphenol,
+/obj/item/reagent_containers/pill/perconol,
 /obj/item/reagent_containers/pill/antitox,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -12131,7 +12131,7 @@
 	icon_state = "1-8"
 	},
 /obj/item/reagent_containers/pill/kelotane,
-/obj/item/reagent_containers/pill/paraphenol,
+/obj/item/reagent_containers/pill/perconol,
 /obj/item/reagent_containers/pill/antitox,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
@@ -31905,7 +31905,7 @@
 /obj/item/reagent_containers/glass/bottle/norepinephrine,
 /obj/item/stack/medical/bruise_pack,
 /obj/item/stack/medical/bruise_pack,
-/obj/item/storage/pill_bottle/traumatonin,
+/obj/item/storage/pill_bottle/mortaphenyl,
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
@@ -35677,7 +35677,7 @@
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin,
 /obj/item/storage/pill_bottle/dermaline,
-/obj/item/storage/pill_bottle/traumatonin,
+/obj/item/storage/pill_bottle/mortaphenyl,
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/reagent_containers/syringe/antibiotic,
@@ -42684,7 +42684,7 @@
 /obj/item/reagent_containers/glass/bottle/norepinephrine,
 /obj/item/stack/medical/bruise_pack,
 /obj/item/stack/medical/bruise_pack,
-/obj/item/storage/pill_bottle/traumatonin,
+/obj/item/storage/pill_bottle/mortaphenyl,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -42729,7 +42729,7 @@
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin,
 /obj/item/storage/pill_bottle/dermaline,
-/obj/item/storage/pill_bottle/traumatonin,
+/obj/item/storage/pill_bottle/mortaphenyl,
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/reagent_containers/syringe/antibiotic,
