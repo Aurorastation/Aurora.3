@@ -147,11 +147,11 @@
 	icon_state = "pill8"
 	reagents_to_add = list(/datum/reagent/mental/minaphobin = 15)
 
-/obj/item/reagent_containers/pill/inaprovaline
-	name = "inaprovaline pill"
+/obj/item/reagent_containers/pill/norepinephrine
+	name = "norepinephrine pill"
 	desc = "Used to stabilize patients."
 	icon_state = "pill20"
-	reagents_to_add = list(/datum/reagent/inaprovaline = 30)
+	reagents_to_add = list(/datum/reagent/norepinephrine = 30)
 
 /obj/item/reagent_containers/pill/dexalin
 	name = "Dexalin pill"

@@ -98,7 +98,7 @@
 	oculine	spawn_reagent = /datum/reagent/oculine
 	kelotane	spawn_reagent = /datum/reagent/kelotane
 	leporazine	spawn_reagent = /datum/reagent/leporazine
-	norepi		spawn_reagent = /datum/reagent/inaprovaline
+	norepi		spawn_reagent = /datum/reagent/norepinephrine
 	oxycomorphine	spawn_reagent = /datum/reagent/oxycomorphine
 	perconol	spawn_reagent = /datum/reagent/perconol
 	peridaxon	spawn_reagent = /datum/reagent/peridaxon

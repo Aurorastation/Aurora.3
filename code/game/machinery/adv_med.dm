@@ -423,7 +423,7 @@
 		VUEUI_SET_CHECK(data["paralysis"], occupant.paralysis, ., data)
 		VUEUI_SET_CHECK(data["bodytemp"], occupant.bodytemperature, ., data)
 		VUEUI_SET_CHECK(data["occupant"], !!occupant, ., data)
-		VUEUI_SET_CHECK(data["norepiAmt"], R.get_reagent_amount(/datum/reagent/inaprovaline), ., data)
+		VUEUI_SET_CHECK(data["norepiAmt"], R.get_reagent_amount(/datum/reagent/norepinephrine), ., data)
 		VUEUI_SET_CHECK(data["soporAmt"], R.get_reagent_amount(/datum/reagent/soporific), ., data)
 		VUEUI_SET_CHECK(data["bicardAmt"], R.get_reagent_amount(/datum/reagent/bicaridine), ., data)
 		VUEUI_SET_CHECK(data["dexAmt"], R.get_reagent_amount(/datum/reagent/dexalin), ., data)
@@ -598,7 +598,7 @@
 		"paralysis" = H.paralysis,
 		"bodytemp" = H.bodytemperature,
 		"borer_present" = H.has_brain_worms(),
-		"norepinephrine_amount" = H.reagents.get_reagent_amount(/datum/reagent/inaprovaline),
+		"norepinephrine_amount" = H.reagents.get_reagent_amount(/datum/reagent/norepinephrine),
 		"dexalin_amount" = H.reagents.get_reagent_amount(/datum/reagent/dexalin),
 		"stoxin_amount" = H.reagents.get_reagent_amount(/datum/reagent/soporific),
 		"bicaridine_amount" = H.reagents.get_reagent_amount(/datum/reagent/bicaridine),
@@ -635,7 +635,7 @@
 	if(occ["borer_present"])
 		dat += "Large growth detected in frontal lobe, possibly cancerous. Surgical removal is recommended.<br>"
 
-	dat += text("Inaprovaline: [] units<BR>", occ["norepinephrine_amount"])
+	dat += text("Norepinephrine: [] units<BR>", occ["norepinephrine_amount"])
 	dat += text("Soporific: [] units<BR>", occ["stoxin_amount"])
 	dat += text("[]\tDermaline: [] units</FONT><BR>", ("<font color='[occ["dermaline_amount"] < 30  ? "black" : "red"]'>"), occ["dermaline_amount"])
 	dat += text("[]\tBicaridine: [] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 30  ? "black" : "red"]'>"), occ["bicaridine_amount"])

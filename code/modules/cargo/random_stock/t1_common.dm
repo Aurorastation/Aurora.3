@@ -329,7 +329,7 @@ STOCK_ITEM_COMMON(pills, 1.2)
 		/obj/item/storage/pill_bottle/dexalin_plus, \
 		/obj/item/storage/pill_bottle/dermaline, \
 		/obj/item/storage/pill_bottle/dylovene, \
-		/obj/item/storage/pill_bottle/inaprovaline, \
+		/obj/item/storage/pill_bottle/norepinephrine, \
 		/obj/item/storage/pill_bottle/kelotane, \
 		/obj/item/storage/pill_bottle/cetahydramine, \
 		/obj/item/storage/pill_bottle/mortaphenyl, \
