@@ -54,16 +54,14 @@
 	var/lobby_index = 1
 
 /obj/screen/new_player/title/Initialize()
-	icon = current_map.lobby_icon
-	var/list/known_icon_states = icon_states(icon)
+	if(!current_map.lobby_icon)
+		current_map.lobby_icon = pick(current_map.lobby_icons)
 	if(!length(current_map.lobby_screens))
-		for(var/screen in known_icon_states)
-			current_map.lobby_screens += screen
-	else
+		var/list/known_icon_states = icon_states(current_map.lobby_icon)
 		for(var/screen in known_icon_states)
 			if(!(screen in current_map.lobby_screens))
-				error("Lobby screen '[screen]' does not exist!")
-				current_map.lobby_screens -= screen
+				current_map.lobby_screens += screen
+	icon = current_map.lobby_icon
 
 	if(length(current_map.lobby_screens))
 		if(current_map.lobby_transitions && isnum(current_map.lobby_transitions))
@@ -75,8 +73,8 @@
 				addtimer(CALLBACK(src, .proc/Update), current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE)
 		else
 			icon_state = pick(current_map.lobby_screens)
-	else
-		icon_state = LAZYACCESS(known_icon_states, 1)
+	else //This should basically never happen.
+		crash_with("No lobby screens found!")
 
 	. = ..()
 

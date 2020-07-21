@@ -39,4 +39,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - rscadd: "Added five new synthlore related title screens."
+  - rscadd: "Title screens are now divided in different categories. Right now we only have human and synthetics. Categories shown are randomly picked at roundstart."
   - rscadd: "Added a new sound for menu clicks."
