@@ -103,10 +103,10 @@
 			to_chat(user,"The offical designation \"[official_name]\" is etched neatly on the side.")
 
 	if(installed_cell)
-		to_chat(user,"It has [get_ammo()] shots remaining.")
+		to_chat(user, "It has <b>[get_ammo()]</b> shots remaining.")
 
 /obj/item/gun/custom_ka/get_ammo()
-	if(!installed_cell)
+	if(!installed_cell || !installed_cell.stored_charge)
 		return 0
 	return round(installed_cell.stored_charge / cost_increase)
 

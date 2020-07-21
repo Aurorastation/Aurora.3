@@ -2,7 +2,7 @@
 
 /obj/machinery/computer/operating
 	name = "patient monitoring console"
-	desc_info = "This console gives information on the status of the patient on the adjacent operating table, notably their consciousness."
+	desc = "A console that displays information on the status of the patient on an adjacent operating table."
 	density = TRUE
 	anchored = TRUE
 

@@ -164,6 +164,14 @@
 	name = "\improper Carps Ahoy! miniature cookies"
 	icon_state = "cookiesnack"
 
+/obj/item/trash/admints
+	name = "\improper Ad-mints"
+	icon_state = "admint_pack"
+
+/obj/item/trash/gum
+	name = "\improper Chewy Fruit flavored gum"
+	icon_state = "gum_pack"
+
 /obj/item/trash/stew
 	name = "empty pot"
 	icon = 'icons/obj/food.dmi'
@@ -188,3 +196,7 @@
 	icon_state = "candy_bowl"
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
+/obj/item/trash/diona_bites
+	name = "dionae bites"
+	icon_state = "dionaebitesempty"

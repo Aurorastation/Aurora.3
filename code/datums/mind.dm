@@ -137,7 +137,9 @@
 			output += "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
 			obj_count++
 
-	recipient << browse(output,"window=memory")
+	var/datum/browser/memory_win = new(recipient, "memory")
+	memory_win.set_content(output)
+	memory_win.open()
 
 /datum/mind/proc/edit_memory()
 	if(!ROUND_IS_STARTED)
