@@ -400,7 +400,7 @@
 			/datum/reagent/mercury,
 			/datum/reagent/mindbreaker,
 			/datum/reagent/slimetoxin,
-			/datum/reagent/norepinephrine,
+			/datum/reagent/inaprovaline,
 			/datum/reagent/peridaxon,
 			/datum/reagent/toxin/phoron,
 			/datum/reagent/toxin/plasticide,
