@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Mechs now take MUCH less damage when dropping down z-levels, and the damage is now properly applied to only the legs."
+  - bugfix: "Fixed mech damage being applied randomly instead of to the targetted component."
