@@ -768,6 +768,7 @@
 	throw_speed = 3
 	throw_range = 5
 	var/loaded = TRUE
+	var/emagged = FALSE
 	var/malfunctioning = FALSE
 	var/revive_type = TYPE_ORGANIC //So you can't revive boss monsters or robots with it
 	origin_tech = list(TECH_BIO = 7, TECH_MATERIAL = 4)
