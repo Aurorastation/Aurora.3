@@ -115,7 +115,7 @@
 	. = ..()
 	pockets = new /obj/item/storage/internal(src)
 	pockets.storage_slots = 4
-	pockets.max_w_class = 2
+	pockets.max_w_class = ITEMSIZE_SMALL
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/armor/riot
