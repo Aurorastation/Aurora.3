@@ -219,7 +219,7 @@
 
 /obj/item/storage/pill_bottle/cetahydramine
 	name = "bottle of Cetahydramine pills"
-	desc = "Often compared to ancient brands, Cetahydramine is a modern cetahydramine used to reduce symptoms of allergies. Helps with sneezing."
+	desc = "Often compared to ancient brands, Cetahydramine is a modern chem used to reduce symptoms of allergies. Helps with sneezing."
 	starts_with = list(/obj/item/reagent_containers/pill/cetahydramine = 7)
 
 /obj/item/storage/pill_bottle/mortaphenyl
