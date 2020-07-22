@@ -184,6 +184,10 @@
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel03
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/focusing
 
+/obj/item/gun/custom_ka/frame03/prebuilt/shaft_miner
+	name = "class C-M kinetic accelerator"
+	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/damage
+
 /obj/item/gun/custom_ka/frame04/prebuilt
 	name = "class B kinetic accelerator"
 	installed_cell = /obj/item/custom_ka_upgrade/cells/cell04
