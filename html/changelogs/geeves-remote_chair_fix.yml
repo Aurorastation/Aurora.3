@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Remote control chairs can no longer be duplicated via dismantlement."
