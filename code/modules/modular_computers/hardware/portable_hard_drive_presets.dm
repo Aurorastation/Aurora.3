@@ -4,7 +4,7 @@
 
 /obj/item/computer_hardware/hard_drive/portable/super/preset/all/proc/add_programs()
 	for(var/F in typesof(/datum/computer_file/program))
-		var/datum/computer_file/program/prog = new F
+		var/datum/computer_file/program/prog = new F("Compless")
 		// Invalid type (shouldn't be possible but just in case), invalid filetype (not executable program) or invalid filename (unset program)
 		if(!prog || !istype(prog) || prog.filename == "UnknownProgram" || prog.filetype != "PRG")
 			continue
@@ -42,7 +42,7 @@
 /obj/structure/closet/crate/software_backup/Initialize()
 	. = ..()
 	for(var/F in subtypesof(/datum/computer_file/program))
-		var/datum/computer_file/program/prog = new F
+		var/datum/computer_file/program/prog = new F("Compless")
 		// Invalid type (shouldn't be possible but just in case), invalid filetype (not executable program) or invalid filename (unset program)
 		if(!prog || !istype(prog) || prog.filename == "UnknownProgram" || prog.filetype != "PRG")
 			continue

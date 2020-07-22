@@ -9,12 +9,11 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 3
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 5
 	throw_range = 10
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 1, TECH_ENGINEERING = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 200)
-	var/mode = 1
 
 /obj/item/device/robotanalyzer/attack(mob/living/M, mob/living/user)
 	if((user.is_clumsy() || (DUMB in user.mutations)) && prob(50))
@@ -100,4 +99,3 @@
 				to_chat(user, SPAN_NOTICE("No prosthetics located."))
 
 	add_fingerprint(user)
-	return

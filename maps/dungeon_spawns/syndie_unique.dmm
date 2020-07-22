@@ -36,7 +36,6 @@
 /area/mine/unexplored)
 "k" = (
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_red,
@@ -55,7 +54,6 @@
 "s" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/floor_decal/industrial/warning{
-	icon_state = "warning";
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_red,
@@ -93,7 +91,6 @@
 /area/mine/unexplored)
 "y" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	icon_state = "warningcorner";
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_red,

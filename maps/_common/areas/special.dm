@@ -254,6 +254,17 @@
 	name = "Kataphract Chapter - Hull"
 	icon_state = "blue"
 
+/area/burglar_base
+	name = "Burglar Base"
+	icon_state = "yellow"
+	requires_power = FALSE
+	no_light_control = TRUE
+
+/area/burglar_base/pod
+	name = "Burglar Pod"
+	base_turf = /turf/space
+	flags = SPAWN_ROOF
+
 /area/skipjack_station
 	name = "Skipjack"
 	icon_state = "yellow"

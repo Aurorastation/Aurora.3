@@ -74,7 +74,7 @@
 		var/datum/category_group/player_setup_category/cat = category
 		cat.modified = TRUE
 
-/datum/category_item/player_setup_item/general/language/content()
+/datum/category_item/player_setup_item/general/language/content(var/mob/user)
 	var/list/dat = list("<b>Languages</b><br>")
 	var/datum/species/S = all_species[pref.species]
 	if(S.language)

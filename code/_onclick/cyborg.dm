@@ -58,27 +58,26 @@
 	var/obj/item/W = get_active_hand()
 
 	// Cyborgs have no range-checking unless there is item use
-	if(!W)
+	if(!W || isrobot(A.loc.loc))
 		A.add_hiddenprint(src)
 		A.attack_robot(src)
 		return
 
 	// buckled cannot prevent machine interlinking but stops arm movement
-	if( buckled )
+	if(buckled)
 		return
 
 	if(W == A)
-
 		W.attack_self(src)
 		return
 
-
 	//Handling using grippers
-	if (istype(W, /obj/item/gripper))
+	if(istype(W, /obj/item/gripper))
 		var/obj/item/gripper/G = W
 		//If the gripper contains something, then we will use its contents to attack
 		if (G.wrapped && (G.wrapped.loc == G))
 			GripperClickOn(A, params, G)
+			G.update_icon() //We may need to update our gripper based on a change in the wrapped item
 			return
 
 	// cyborgs are prohibited from using storage items so we can I think safely remove (A.loc in contents)

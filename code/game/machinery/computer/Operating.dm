@@ -2,8 +2,9 @@
 
 /obj/machinery/computer/operating
 	name = "patient monitoring console"
-	density = 1
-	anchored = 1.0
+	desc = "A console that displays information on the status of the patient on an adjacent operating table."
+	density = TRUE
+	anchored = TRUE
 
 	light_color = LIGHT_COLOR_CYAN
 	icon_screen = "crew"
@@ -47,7 +48,7 @@
 		src.victim = src.table.victim
 		var/brain_result = victim.get_brain_status()
 		if(victim.isFBP())
-			brain_result = "normal"
+			brain_result = "<span class='danger'>N/A</span>"
 		dat += {"
 <B>Patient Information:</B><BR>
 Brain Activity: <b>[brain_result]</b><br>

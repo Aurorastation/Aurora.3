@@ -76,3 +76,6 @@ var/datum/antagonist/revolutionary/revs
 				and the uplink disguised as a radio to equip them. DO NOT PLAY THIS ROLE AS A SUPER TRAITOR. \
 				Doing so may lead to administrative action being taken.",
 				"Antagonist Introduction", "I understand.")
+
+/datum/antagonist/revolutionary/get_antag_radio()
+	return "Mercenary"

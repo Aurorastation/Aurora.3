@@ -1,12 +1,6 @@
 /datum/design/circuit/aimodule
 	materials = list(MATERIAL_GLASS = 2000, MATERIAL_GOLD = 100)
-	design_order = 0
-
-/datum/design/circuit/aimodule/AssembleDesignName()
-	name = "AI Law Board Design ([name])"
-
-/datum/design/circuit/aimodule/AssembleDesignDesc()
-	desc = "Allows for the construction of \a '[name]' AI law boards."
+	p_category = "AI Law Board Designs"
 
 /datum/design/circuit/aimodule/safeguard
 	name = "Safeguard"

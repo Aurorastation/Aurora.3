@@ -67,13 +67,13 @@
 	if(damagetaken)
 		switch(damagetaken)
 			if(1 to 8)
-				to_chat(user, span("warning", "It has very faint hairline fractures."))
+				to_chat(user, SPAN_WARNING("It has very faint hairline fractures."))
 			if(8 to 20)
-				to_chat(user, span("warning", "It has several cracks across its surface."))
+				to_chat(user, SPAN_WARNING("It has several cracks across its surface."))
 			if(20 to 30)
-				to_chat(user, span("warning", "It is chipped and deeply cracked, it may shatter with much more pressure."))
+				to_chat(user, SPAN_WARNING("It is chipped and deeply cracked, it may shatter with much more pressure."))
 			if(30 to INFINITY)
-				to_chat(user, span("warning", "It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight."))
+				to_chat(user, SPAN_WARNING("It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight."))
 
 
 /obj/structure/cult/pylon/Move()
@@ -140,7 +140,7 @@
 					damagetaken = max(0, damagetaken-1) //An empowered pylon slowly self repairs
 					empowered = max(0, empowered - 0.2)
 					if(prob(10))
-						visible_message(span("warning", "Cracks in the [src] gradually seal as new crystalline matter grows to fill them."))
+						visible_message(SPAN_WARNING("Cracks in the [src] gradually seal as new crystalline matter grows to fill them."))
 
 	if(empowered && prob(4))
 		empowered = max(0, empowered - 1) //Overcharging gradually wears off over time
@@ -164,11 +164,11 @@
 		return FALSE
 
 	if(isbroken)
-		to_chat(user, span("warning", "The pylon lies silent."))
+		to_chat(user, SPAN_WARNING("The pylon lies silent."))
 		return FALSE
 
 	if(pylonmode != PYLON_IDLE)
-		to_chat(user, span("warning", "This pylon is already tracking a sacrifice."))
+		to_chat(user, SPAN_WARNING("This pylon is already tracking a sacrifice."))
 		return FALSE
 
 	if(!victim.mob_size || victim.mob_size > 6)
@@ -190,7 +190,7 @@
 	sacrificer = user
 	//Sacrifice accepted, display message here
 	speak_to(user, "Your sacrifice has been deemed worthy, and accepted. End its life now, and liberate its soul, to seal our contract...")
-	to_chat(sacrifice, span("danger", "You feel an invisible force grip your soul, as you're drawn inexorably towards the pylon. Every part of you screams to flee from here!"))
+	to_chat(sacrifice, SPAN_DANGER("You feel an invisible force grip your soul, as you're drawn inexorably towards the pylon. Every part of you screams to flee from here!"))
 
 	if(istype(sacrifice.loc, /obj/item/holder))
 		var/obj/item/holder/H = sacrifice.loc
@@ -237,7 +237,7 @@
 				walk_to(sacrifice, 0) //If we're not in a valid situation, cancel walking to prevent bugginess
 
 /obj/structure/cult/pylon/proc/finalize_sacrifice()
-	sacrifice.visible_message(span("danger", "\The [sacrifice]'s physical form unwinds as its soul is extracted from the remains, and drawn into the pylon!"))
+	sacrifice.visible_message(SPAN_DANGER("\The [sacrifice]'s physical form unwinds as its soul is extracted from the remains, and drawn into the pylon!"))
 	if(istype(sacrifice.loc, /obj/item/holder))
 		var/obj/item/holder/H = sacrifice.loc
 		H.release_to_floor()
@@ -331,7 +331,7 @@
 
 /obj/structure/cult/pylon/attack_hand(mob/M)
 	if (M.a_intent == "help")
-		to_chat(M, span("warning", "The pylon feels warm to the touch..."))
+		to_chat(M, SPAN_WARNING("The pylon feels warm to the touch..."))
 	else
 		attackpylon(M, 4, M)
 
@@ -381,7 +381,7 @@
 			shatter()
 			return
 		if(I.damtype != BRUTE)
-			to_chat(user, span("warning", "You swing at the pylon to no effect."))
+			to_chat(user, SPAN_WARNING("You swing at the pylon to no effect."))
 			return
 
 	if(istype(source, /obj/item/projectile))
@@ -390,7 +390,7 @@
 		var/obj/item/projectile/proj = source
 		if(proj.damage_type == BURN)
 			if(empowered <= 0)
-				visible_message(span("cult", "The beam refracts inside the pylon, splitting into an indistinct violet glow. The crystal takes on a new, more ominous aura!"))
+				visible_message(SPAN_CULT("The beam refracts inside the pylon, splitting into an indistinct violet glow. The crystal takes on a new, more ominous aura!"))
 			empowered += damage * 0.2
 			//When shot with a laser, the pylon absorbs the beam, becoming empowered for a while, glowing brighter
 			// and firing more powerful blasts which have some armor penetration
@@ -414,21 +414,21 @@
 			shatter()
 		else
 			if(user && !ranged)
-				to_chat(user, span("warning", "You hit the pylon!"))
+				to_chat(user, SPAN_WARNING("You hit the pylon!"))
 			playsound(get_turf(src), 'sound/effects/glass_hit.ogg', 75, 1)
 	else
 		if(prob(damagetaken))
 			if(user)
-				to_chat(user, span("warning", "You pulverize what was left of the pylon!"))
+				to_chat(user, SPAN_WARNING("You pulverize what was left of the pylon!"))
 			qdel(src)
 		else if(user && !ranged)
-			to_chat(user, span("warning", "You hit the pylon!"))
+			to_chat(user, SPAN_WARNING("You hit the pylon!"))
 		playsound(get_turf(src), 'sound/effects/glass_hit.ogg', 75, 1)
 
 	start_process()
 
 /obj/structure/cult/pylon/proc/shatter()
-	visible_message(span("danger", "The pylon shatters into shards of crystal!"), span("warning", "You hear a tinkle of crystal shards."))
+	visible_message(SPAN_DANGER("The pylon shatters into shards of crystal!"), SPAN_WARNING("You hear a tinkle of crystal shards."))
 	playsound(get_turf(src), "shatter", 75, 1)
 	isbroken = TRUE
 	if(pylonmode == PYLON_TURRET)
@@ -457,13 +457,13 @@
 /obj/structure/cult/pylon/proc/repair(mob/user)
 	if(isbroken)
 		if(user)
-			to_chat(user, span("notice", "You weave forgotten magic, summoning the shards of the crystal and knitting them anew, until it hovers flawless once more."))
+			to_chat(user, SPAN_NOTICE("You weave forgotten magic, summoning the shards of the crystal and knitting them anew, until it hovers flawless once more."))
 		isbroken = 0
 		density = 1
 	else if(damagetaken > 0)
-		to_chat(user, span("notice", "You meld the crystal lattice back into integrity, sealing over the cracks until they never were."))
+		to_chat(user, SPAN_NOTICE("You meld the crystal lattice back into integrity, sealing over the cracks until they never were."))
 	else
-		to_chat(user, span("notice", "The crystal lights up at your touch."))
+		to_chat(user, SPAN_NOTICE("The crystal lights up at your touch."))
 
 	process_interval = 1 //Wake up the crystal
 	notarget = 0

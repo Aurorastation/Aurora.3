@@ -2,6 +2,7 @@
 */
 /obj/machinery/smartfridge
 	name = "\improper SmartFridge"
+	desc = "An advanced food storage vendor that keeps food at the exact temperature it needs to be for optimal taste."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "smartfridge"
 	layer = 2.9
@@ -188,8 +189,6 @@
 /obj/machinery/smartfridge/secure/virology/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/glass/beaker/vial/))
 		return 1
-	if(istype(O,/obj/item/virusdish/))
-		return 1
 	return 0
 
 /obj/machinery/smartfridge/chemistry
@@ -361,7 +360,7 @@
 				item_quants[O.name]++
 			else
 				item_quants[O.name] = 1
-			user.visible_message("<span class='notice'>[user] has added \the [O] to \the [src].</span>", "<span class='notice'>You add \the [O] to \the [src].</span>")
+			user.visible_message("<b>[user]</b> adds \a [O] to \the [src].", "<span class='notice'>You add \the [O] to \the [src].</span>")
 
 			SSnanoui.update_uis(src)
 			return

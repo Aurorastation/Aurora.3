@@ -5,7 +5,7 @@
 	pixel_y = -8
 	center_of_mass = list("x"=24, "y"=20)
 
-	var/mech_health = 300
+	var/mech_health = 600
 	var/obj/item/robot_parts/robot_component/diagnosis_unit/diagnostics
 	var/obj/item/cell/cell
 	var/obj/item/robot_parts/robot_component/armor/mech_armor
@@ -53,6 +53,17 @@
 		to_chat(user, "<span class='warning'>It is missing a diagnostics unit.</span>")
 	if(!mech_armor)
 		to_chat(user, "<span class='warning'>It is missing armor plating.</span>")
+
+/obj/item/mech_component/chassis/return_diagnostics(mob/user)
+	..()
+	if(diagnostics)
+		to_chat(user, SPAN_NOTICE(" Diagnostics Unit Integrity: <b>[round(((diagnostics.max_dam - diagnostics.total_dam) / diagnostics.max_dam)) * 100]%</b>"))
+	else
+		to_chat(user, SPAN_WARNING(" Diagnostics Unit Missing or Non-functional."))
+	if(mech_armor)
+		to_chat(user, SPAN_NOTICE(" Armor Integrity: <b>[round(((mech_armor.max_dam - mech_armor.total_dam) / mech_armor.max_dam)) * 100]%</b>"))
+	else
+		to_chat(user, SPAN_WARNING(" Armor Missing or Non-functional."))
 
 /obj/item/mech_component/chassis/Initialize()
 	. = ..()

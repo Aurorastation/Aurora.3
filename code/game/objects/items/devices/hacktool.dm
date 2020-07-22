@@ -46,7 +46,7 @@
 		return 0
 
 	if(A.Adjacent(user))
-		A.ui_interact(user, state = hack_state)
+		A.ui_interact(user)
 	return 1
 
 /obj/item/device/multitool/hacktool/proc/attempt_hack(var/mob/user, var/atom/target)
@@ -54,7 +54,7 @@
 		to_chat(user, "<span class='warning'>You are already hacking!</span>")
 		return 0
 	if(target in current_hacks)
-		to_chat(user, span("warning", "You are already hacking this door!"))
+		to_chat(user, SPAN_WARNING("You are already hacking this door!"))
 		return 0
 	if(!is_type_in_list(target, supported_types))
 		to_chat(user, "\icon[src] <span class='warning'>Unable to hack this target!</span>")

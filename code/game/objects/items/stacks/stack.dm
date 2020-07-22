@@ -34,6 +34,10 @@
 		stacktype = type
 	if (amount)
 		src.amount = amount
+		if(amount > max_amount)
+			var/amount_overdue = max_amount - amount
+			new type(get_turf(src), amount_overdue)
+			amount -= amount_overdue
 
 	if (icon_has_variants && !item_state)
 		item_state = icon_state
@@ -58,10 +62,11 @@
 
 /obj/item/stack/examine(mob/user)
 	if(..(user, 1))
-		if(!uses_charge)
-			to_chat(user, "There [src.amount == 1 ? "is" : "are"] [src.amount] [src.singular_name]\s in the stack.")
-		else
-			to_chat(user, "There is enough charge for [get_amount()].")
+		if(!iscoil())
+			if(!uses_charge)
+				to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s in the stack.")
+			else
+				to_chat(user, "You have enough charge to produce <b>[get_amount()]</b>.")
 
 /obj/item/stack/attack_self(mob/user as mob)
 	list_recipes(user)
@@ -197,7 +202,7 @@
 /obj/item/stack/proc/can_use(var/used, var/mob/user=null)
 	if (get_amount() < used)
 		if(user && isrobot(user))
-			to_chat(user, span("warning", "You don't have enough charge left in your synthesizer!"))
+			to_chat(user, SPAN_WARNING("You don't have enough charge left in your synthesizer!"))
 		return 0
 	return 1
 

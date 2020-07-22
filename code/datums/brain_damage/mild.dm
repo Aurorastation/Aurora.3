@@ -195,7 +195,7 @@
 					I.attack_self(owner)
 			if(3)
 				var/prev_intent = owner.a_intent
-				owner.a_intent = I_HURT
+				owner.set_intent(I_HURT)
 
 				var/list/mob/living/targets = list()
 				var/range = 1
@@ -211,13 +211,13 @@
 				if(LAZYLEN(targets))
 					to_chat(owner, "<span class='warning'>Your arm spasms!</span>")
 					owner.ClickOn(pick(targets))
-				owner.a_intent = prev_intent
+				owner.set_intent(prev_intent)
 			if(4)
 				var/prev_intent = owner.a_intent
-				owner.a_intent = I_HURT
+				owner.set_intent(I_HURT)
 				to_chat(owner, "<span class='warning'>Your arm spasms!</span>")
 				owner.ClickOn(owner)
-				owner.a_intent = prev_intent
+				owner.set_intent(prev_intent)
 			if(5)
 				if(owner.incapacitated())
 					return

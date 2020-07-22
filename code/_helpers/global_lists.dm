@@ -56,7 +56,7 @@ var/global/list/facial_hair_styles_female_list = list()
 var/global/list/skin_styles_female_list = list()		//unused
 var/global/list/body_marking_styles_list = list()
 var/global/list/chargen_disabilities_list = list()
-var/global/static/list/valid_player_genders = list(MALE, FEMALE, NEUTER)
+var/global/static/list/valid_player_genders = list(MALE, FEMALE, NEUTER, PLURAL)
 
 //Backpacks
 var/global/list/backbaglist = list("Nothing", "Backpack", "Satchel", "Satchel Alt", "Duffel Bag", "Messenger Bag")
@@ -68,7 +68,6 @@ var/list/datum/visualnet/visual_nets = list()
 var/datum/visualnet/camera/cameranet = new()
 
 // Runes
-var/global/list/rune_list = new()
 var/global/list/escape_list = list()
 var/global/list/endgame_exits = list()
 var/global/list/endgame_safespawns = list()

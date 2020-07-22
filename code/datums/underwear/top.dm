@@ -78,3 +78,23 @@
 	name = "Swimming Top"
 	icon_state = "swimtop"
 	has_color = TRUE
+
+/datum/category_item/underwear/top/sarashi
+	name = "Sarashi, Stomach"
+	icon_state = "sarashi_stomach"
+	has_color = TRUE
+
+/datum/category_item/underwear/top/sarashi_torso
+	name = "Sarashi, Torso"
+	icon_state = "sarashi_torso"
+	has_color = TRUE
+
+/datum/category_item/underwear/top/sarashi_mchest
+	name = "Sarashi, Male Chest"
+	icon_state = "sarashi_mchest"
+	has_color = TRUE
+
+/datum/category_item/underwear/top/sarashi_fchest
+	name = "Sarashi, Female Chest"
+	icon_state = "sarashi_fchest"
+	has_color = TRUE

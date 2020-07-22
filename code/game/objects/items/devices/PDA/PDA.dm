@@ -1113,7 +1113,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/proc/create_message(var/mob/living/U = usr, var/obj/item/device/pda/P, var/tap = 1)
 	if(tap)
-		U.visible_message("<span class='notice'>\The [U] taps on \his PDA's screen.</span>")
+		U.visible_message("<b>\The [U]</b> taps on \his PDA's screen.")
 	var/t = input(U, "Please enter message", P.name, null) as text|null
 	t = sanitize(t)
 	//t = readd_quotes(t)
@@ -1399,7 +1399,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	try_sort_pda_list()
 
 /obj/item/device/pda/attack(mob/living/C, mob/living/user)
-	health_scan_mob(C, user, TRUE)
+	if(scanmode == 1)
+		health_scan_mob(C, user, TRUE)
 
 /obj/item/device/pda/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
 	if(!proximity) return

@@ -6,6 +6,7 @@
 
 	use_power = 1
 	idle_power_usage = 10
+	var/checks_for_access = FALSE
 
 	var/on = 1
 
@@ -31,9 +32,17 @@ obj/machinery/embedded_controller/radio/Destroy()
 	update_icon()
 
 /obj/machinery/embedded_controller/attack_ai(mob/user as mob)
+	if(checks_for_access)
+		if(!allowed(user))
+			to_chat(user, SPAN_WARNING("Access Denied."))
+			return
 	src.ui_interact(user)
 
 /obj/machinery/embedded_controller/attack_hand(mob/user as mob)
+	if(checks_for_access)
+		if(!allowed(user))
+			to_chat(user, SPAN_WARNING("Access Denied."))
+			return
 
 	if(!user.IsAdvancedToolUser())
 		return 0

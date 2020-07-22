@@ -23,7 +23,6 @@
 	..()
 	var/jackets = list()
 	jackets["bomber jacket"] = /obj/item/clothing/suit/storage/toggle/bomber
-	jackets["dominian bomber jacket"] = /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	jackets["corporate black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen
 	jackets["corporate brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
 	jackets["black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket
@@ -84,13 +83,14 @@
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
 	cost = 1
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/suit/iacvest
 	display_name = "IAC vest"
 	description = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps."
 	path = /obj/item/clothing/suit/storage/iacvest
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Resident")
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/poncho
 	display_name = "poncho selection"
@@ -183,7 +183,7 @@
 /datum/gear/suit/winter/medical
 	display_name = "winter coat, medical"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/medical
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Paramedic", "Medical Resident", "Psychiatrist", "Pharmacist")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Emergency Medical Technician", "Medical Resident", "Psychiatrist", "Pharmacist")
 
 /datum/gear/suit/winter/engineering
 	display_name = "winter coat, engineering"
@@ -231,8 +231,8 @@
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/dominia
-	display_name = "dominia great coat selection"
-	description = "A selection of Dominian coats."
+	display_name = "dominia coat and jacket selection"
+	description = "A selection of Dominian coats and jackets."
 	path = /obj/item/clothing/suit/storage/toggle/dominia
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -242,6 +242,7 @@
 	coat["dominia great coat, red"] = /obj/item/clothing/suit/storage/toggle/dominia
 	coat["dominia great coat, gold"] = /obj/item/clothing/suit/storage/toggle/dominia/gold
 	coat["dominia great coat, black"] = /obj/item/clothing/suit/storage/toggle/dominia/black
+	coat["dominian bomber jacket"] = /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/tcfl
@@ -324,3 +325,21 @@
 	cardigan["sweater cardigan"] = /obj/item/clothing/suit/storage/toggle/cardigan/sweater
 	cardigan["argyle cardigan"] = /obj/item/clothing/suit/storage/toggle/cardigan/argyle
 	gear_tweaks += new/datum/gear_tweak/path(cardigan)
+
+/datum/gear/suit/himeo
+	display_name = "himean coat"
+	path = /obj/item/clothing/suit/storage/toggle/himeo
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/vysoka
+	display_name = "chokha selection"
+	description = "A selection of Vysokan chokhas."
+	path = /obj/item/clothing/suit/storage/vysoka_m
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/vysoka/New()
+	..()
+	var/coat = list()
+	coat["feminine chokha"] = /obj/item/clothing/suit/storage/vysoka_f
+	coat["masculine chokha"] = /obj/item/clothing/suit/storage/vysoka_m
+	gear_tweaks += new/datum/gear_tweak/path(coat)

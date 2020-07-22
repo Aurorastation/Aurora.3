@@ -111,3 +111,19 @@
 	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/augment/language_processor
+	display_name = "language processor"
+	description = "An augment that allows a vaurca to speak and understand a related language. These are only used by their respective hives."
+	path = /obj/item/organ/internal/augment/language/klax
+	cost = 2
+	sort_category = "Xenowear - Vaurca"
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior")
+	flags = GEAR_NO_SELECTION
+
+/datum/gear/augment/language_processor/New()
+	..()
+	var/language_processors = list()
+	language_processors["K'laxan [LANGUAGE_UNATHI] language processor"] = /obj/item/organ/internal/augment/language/klax
+	language_processors["C'thur [LANGUAGE_SKRELLIAN] language processor"] = /obj/item/organ/internal/augment/language/cthur
+	gear_tweaks += new /datum/gear_tweak/path(language_processors)

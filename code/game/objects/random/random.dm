@@ -97,11 +97,12 @@
 	desc = "This is a random bomb supply."
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "signaller"
-	spawnlist = list(
-		/obj/item/device/assembly/igniter,
-		/obj/item/device/assembly/prox_sensor,
-		/obj/item/device/assembly/signaler,
-		/obj/item/device/multitool
+	problist = list(
+		/obj/item/device/assembly/igniter = 2,
+		/obj/item/device/assembly/prox_sensor = 2,
+		/obj/item/device/assembly/signaler = 2,
+		/obj/item/device/multitool = 1,
+		/obj/item/device/transfer_valve = 0.5
 	)
 
 /obj/random/toolbox
@@ -153,8 +154,7 @@
 		/obj/item/storage/pill_bottle/antitox = 2,
 		/obj/item/storage/pill_bottle/tramadol = 2,
 		/obj/item/reagent_containers/syringe/dylovene = 2,
-		/obj/item/reagent_containers/syringe/antiviral = 1,
-		/obj/item/reagent_containers/syringe/norepinephrine = 2,
+		/obj/item/reagent_containers/syringe/inaprovaline = 2,
 		/obj/item/stack/nanopaste = 1
 	)
 
@@ -204,6 +204,24 @@
 		/obj/item/clothing/mask/gas/voice = 1,
 		/obj/item/clothing/gloves/brassknuckles = 2,
 		/obj/item/reagent_containers/inhaler/space_drugs = 2
+	)
+
+/obj/random/smokable
+	name = "random smokable"
+	desc = "This is a random smoking item."
+	icon = 'icons/obj/cigs_lighters.dmi'
+	icon_state = "cigpacket"
+	problist = list(
+		/obj/item/storage/box/fancy/cigarettes = 30,
+		/obj/item/storage/box/fancy/cigarettes/blank = 5,
+		/obj/item/storage/box/fancy/cigarettes/acmeco = 2,
+		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 10,
+		/obj/item/storage/box/fancy/cigarettes/cigar = 9,
+		/obj/item/storage/box/fancy/cigarettes/nicotine = 10,
+		/obj/item/storage/box/fancy/cigarettes/rugged = 10,
+		/obj/item/storage/box/fancy/cigarettes/pra = 5,
+		/obj/item/storage/box/fancy/cigarettes/dpra = 2,
+		/obj/item/storage/box/fancy/cigarettes/nka = 2
 	)
 
 /obj/random/energy
@@ -571,7 +589,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/gin,
 		/obj/item/reagent_containers/food/drinks/bottle/whiskey,
 		/obj/item/reagent_containers/food/drinks/bottle/vodka,
-		/obj/item/reagent_containers/food/drinks/bottle/tequilla,
+		/obj/item/reagent_containers/food/drinks/bottle/tequila,
 		/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing,
 		/obj/item/reagent_containers/food/drinks/bottle/rum,
 		/obj/item/reagent_containers/food/drinks/bottle/champagne,
@@ -686,7 +704,6 @@
 	icon_state = "black"
 	spawnlist = list(
 		/obj/item/clothing/under/color/black,
-		/obj/item/clothing/under/color/blackf,
 		/obj/item/clothing/under/color/blue,
 		/obj/item/clothing/under/color/green,
 		/obj/item/clothing/under/color/grey,
@@ -729,7 +746,6 @@
 		/obj/item/clothing/head/cueball = 0.25,
 		/obj/item/clothing/head/hardhat = 1.2,
 		/obj/item/clothing/head/helmet/augment = 0.1,
-		/obj/item/clothing/head/kitty = 0.2,
 		/obj/item/clothing/head/pirate = 0.2,
 		/obj/item/clothing/head/plaguedoctorhat = 0.3,
 		/obj/item/clothing/head/pumpkin/lantern = 0.4,
@@ -772,17 +788,10 @@
 		/obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen = 0.7,
 		/obj/item/clothing/suit/storage/vest = 0.2,
 		/obj/item/clothing/suit/syndicatefake = 0.6,
-		/obj/item/clothing/under/assistantformal = 0.75,
-		/obj/item/clothing/under/captain_fly = 0.5,
 		/obj/item/clothing/under/mime = 0.1,
 		/obj/item/clothing/under/overalls = 1,
 		/obj/item/clothing/under/rainbow = 0.9,
 		/obj/item/clothing/under/rank/clown = 0.1,
-		/obj/item/clothing/under/rank/dispatch = 0.8,
-		/obj/item/clothing/under/rank/mailman = 0.6,
-		/obj/item/clothing/under/rank/vice = 0.8,
-		/obj/item/clothing/under/redcoat = 0.5,
-		/obj/item/clothing/under/serviceoveralls = 0.75,
 		/obj/item/clothing/under/syndicate/tacticool = 0.4,
 		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
 		/obj/item/device/firing_pin = 0.3,
@@ -857,11 +866,11 @@
 		/obj/item/storage/box/pineapple = 0.1,
 		/obj/item/storage/box/smokebombs = 0.1,
 		/obj/item/storage/box/syringes = 0.3,
-		/obj/item/storage/fancy/cigarettes = 1.2,
-		/obj/item/storage/fancy/cigarettes/acmeco = 0.3,
-		/obj/item/storage/fancy/cigarettes/blank = 1,
-		/obj/item/storage/fancy/cigarettes/dromedaryco = 0.8,
-		/obj/item/storage/fancy/crayons = 0.5,
+		/obj/item/storage/box/fancy/cigarettes = 1.2,
+		/obj/item/storage/box/fancy/cigarettes/acmeco = 0.3,
+		/obj/item/storage/box/fancy/cigarettes/blank = 1,
+		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 0.8,
+		/obj/item/storage/box/fancy/crayons = 0.5,
 		/obj/item/storage/wallet/random/ = 0.1,
 		/obj/item/trap/animal = 0.8,
 		/obj/random/arcade = 0.25,
@@ -1105,7 +1114,7 @@
 		/obj/item/toy/sword								= 22,
 		/obj/item/gun/projectile/revolver/capgun	= 11,
 		/obj/item/toy/crossbow							= 11,
-		/obj/item/storage/fancy/crayons			= 11,
+		/obj/item/storage/box/fancy/crayons			= 11,
 		/obj/item/toy/spinningtoy						= 11,
 		/obj/item/toy/prize/ripley						= 1,
 		/obj/item/toy/prize/fireripley					= 1,

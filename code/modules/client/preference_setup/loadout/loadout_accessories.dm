@@ -90,7 +90,7 @@
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Emergency Medical Technician", "Medical Resident")
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
@@ -110,7 +110,7 @@
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
 	path = /obj/item/clothing/accessory/storage/pouches/white
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Emergency Medical Technician", "Medical Resident")
 
 /datum/gear/accessory/pouches
 	display_name = "drop pouches, simple"
@@ -183,6 +183,7 @@
 /datum/gear/accessory/silversun
 	display_name = "silversun floral shirt selection"
 	path = /obj/item/clothing/accessory/silversun
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/silversun/New()
 	..()

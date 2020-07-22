@@ -30,11 +30,12 @@
 	title_suffix = "Zeng"
 
 	allowed_role_types = list(
+		/datum/job/visitor,
 		/datum/job/doctor,
 		/datum/job/surgeon,
 		/datum/job/pharmacist,
 		/datum/job/psychiatrist,
-		/datum/job/paramedic,
+		/datum/job/med_tech,
 		/datum/job/roboticist,
 		/datum/job/xenobiologist,
 		/datum/job/representative
@@ -54,11 +55,11 @@
 		"Trauma Physician" = /datum/outfit/job/doctor/zeng_hu,
 		"Nurse" = /datum/outfit/job/doctor/zeng_hu,
 		"Pharmacist" = /datum/outfit/job/pharmacist/zeng_hu,
-		"Biochemist" = /datum/outfit/job/pharmacist/zeng_hu,
+		"Chemist" = /datum/outfit/job/pharmacist/zeng_hu,
 		"Psychiatrist" = /datum/outfit/job/psychiatrist/zeng_hu,
 		"Psychologist" = /datum/outfit/job/psychiatrist/zeng_hu,
-		"Paramedic" = /datum/outfit/job/paramedic/zeng_hu,
-		"Emergency Medical Technician" = /datum/outfit/job/paramedic/zeng_hu,
+		"Paramedic" = /datum/outfit/job/med_tech/paramed/zeng_hu,
+		"Emergency Medical Technician" = /datum/outfit/job/med_tech/paramed/zeng_hu,
 		"Roboticist" = /datum/outfit/job/roboticist/zeng_hu,
 		"Biomechanical Engineer" = /datum/outfit/job/roboticist/zeng_hu,
 		"Mechatronic Engineer" = /datum/outfit/job/roboticist/zeng_hu,
@@ -92,7 +93,7 @@
 	uniform = /obj/item/clothing/under/rank/zeng
 	id = /obj/item/card/id/zeng_hu
 
-/datum/outfit/job/paramedic/zeng_hu
+/datum/outfit/job/med_tech/paramed/zeng_hu
 	name = "Paramedic - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng
 	id = /obj/item/card/id/zeng_hu

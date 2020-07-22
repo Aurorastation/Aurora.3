@@ -13,11 +13,13 @@
 	var/on = TRUE
 	var/department = "Somewhere" //whatever department/desk you put this thing
 	var/pinged = FALSE //for cooldown
+	var/global/list/screen_overlays
 
 /obj/machinery/ringer/Initialize()
 	. = ..()
 	if(id)
 		ringers = new(id, src)
+	generate_overlays()
 	update_icon()
 
 /obj/machinery/ringer/power_change()
@@ -28,6 +30,15 @@
 	QDEL_NULL(ringers)
 	return ..()
 
+/obj/machinery/ringer/proc/generate_overlays(var/force = 0)
+	if(LAZYLEN(screen_overlays) && !force)
+		return
+	LAZYINITLIST(screen_overlays)
+	screen_overlays["bell-active"] = make_screen_overlay(icon, "bell-active")
+	screen_overlays["bell-alert"] = make_screen_overlay(icon, "bell-alert")
+	screen_overlays["bell-scanline"] = make_screen_overlay(icon, "bell-scanline")
+	screen_overlays["bell-standby"] = make_screen_overlay(icon, "bell-standby")
+
 /obj/machinery/ringer/update_icon()
 	cut_overlays()
 	if(!on || stat & NOPOWER)
@@ -35,19 +46,15 @@
 		set_light(FALSE)
 		return
 	if(rings_pdas || rings_pdas.len)
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "bell-active", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
+		add_overlay(screen_overlays["bell-active"])
 		set_light(1.4, 1, COLOR_CYAN)
 	if(pinged)
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "bell-alert", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
+		add_overlay(screen_overlays["bell-alert"])
 		set_light(1.4, 1, COLOR_CYAN)
 	if(on)
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "bell-scanline", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
+		add_overlay(screen_overlays["bell-scanline"])
 	else
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "bell-standby", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
+		add_overlay(screen_overlays["bell-standby"])
 		set_light(1.4, 1, COLOR_CYAN)
 
 /obj/machinery/ringer/attackby(obj/item/C as obj, mob/living/user as mob)

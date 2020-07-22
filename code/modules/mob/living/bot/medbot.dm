@@ -21,12 +21,11 @@
 	var/injection_amount = 15 //How much reagent do we inject at a time?
 	var/heal_threshold = 10 //Start healing when they have this much damage in a category
 	var/use_beaker = 0 //Use reagents in beaker instead of default treatment agents.
-	var/treatment_brute = "tricordrazine"
-	var/treatment_oxy = "tricordrazine"
-	var/treatment_fire = "tricordrazine"
-	var/treatment_tox = "tricordrazine"
-	var/treatment_virus = "deltamivir"
-	var/treatment_emag = "toxin"
+	var/treatment_brute = /datum/reagent/tricordrazine
+	var/treatment_oxy = /datum/reagent/tricordrazine
+	var/treatment_fire = /datum/reagent/tricordrazine
+	var/treatment_tox = /datum/reagent/tricordrazine
+	var/treatment_emag = /datum/reagent/toxin
 	var/declare_treatment = 0 //When attempting to treat a patient, should it notify everyone wearing medhuds?
 
 
@@ -74,7 +73,8 @@
 				break
 
 /mob/living/bot/medbot/UnarmedAttack(var/mob/living/carbon/human/H, var/proximity)
-	if(!..())
+	. = ..()
+	if(!.)
 		return
 
 	if(!on)
@@ -84,6 +84,9 @@
 		return
 
 	if(H.stat == DEAD)
+		if(pAI)
+			to_chat(pAI.pai, SPAN_WARNING("\The [H] is dead, you cannot help them now."))
+			return
 		var/death_message = pick("No! NO!", "Live, damnit! LIVE!", "I... I've never lost a patient before. Not today, I mean.")
 		say(death_message)
 		patient = null
@@ -301,10 +304,6 @@
 
 	if((H.getToxLoss() >= heal_threshold) && (!H.reagents.has_reagent(treatment_tox)))
 		return treatment_tox
-
-	for(var/datum/disease2/disease/D in H.virus2)
-		if (!H.reagents.has_reagent(treatment_virus))
-			return treatment_virus // STOP DISEASE FOREVER
 
 /* Construction */
 

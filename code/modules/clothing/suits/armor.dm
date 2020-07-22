@@ -58,7 +58,7 @@
 	..()
 
 /obj/item/clothing/suit/armor/vest
-	name = "armor"
+	name = "armored vest"
 	desc = "An armored vest that protects against some damage."
 	icon_state = "armor"
 	item_state = "armor"
@@ -100,24 +100,6 @@
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	pocket_slots = 4//More slots because coat
 
-/obj/item/clothing/suit/storage/toggle/armor/hos/jensen
-	name = "armored trenchcoat"
-	desc = "A trenchcoat augmented with a special alloy for some protection and style."
-	icon_state = "jensencoat"
-	item_state = "jensencoat"
-	icon_open = "jensencoat_open"
-	icon_closed = "jensencoat"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
-	allowed = list(/obj/item/gun/energy,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/flashlight)
-
-/obj/item/clothing/suit/storage/toggle/armor/hos/jensen/Initialize()
-	. = ..()
-	pockets = new/obj/item/storage/internal(src)
-	pockets.storage_slots = 4
-	pockets.max_w_class = 2
-	pockets.max_storage_space = 8
-
 /obj/item/clothing/suit/armor/riot
 	name = "riot vest"
 	desc = "A vest of armor with heavy padding to protect against melee attacks. Looks like it might impair movement."
@@ -148,7 +130,7 @@
 	siemens_coefficient = 0
 	pocket_slots = 4
 
-/obj/item/clothing/suit/armor/laserproof/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/clothing/suit/armor/laserproof/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
 		var/obj/item/projectile/P = damage_source
 
@@ -218,7 +200,7 @@
 	slowdown = 1
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
-/obj/item/clothing/suit/armor/reactive/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/clothing/suit/armor/reactive/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(prob(50))
 		user.visible_message("<span class='danger'>The reactive teleport system flings [user] clear of the attack!</span>")
 		var/list/turfs = new/list()
@@ -465,9 +447,12 @@
 /obj/item/clothing/suit/storage/vest/merc
 	name = "heavy armor vest"
 	desc = "A high-quality armor vest in a fetching tan. It is surprisingly flexible and light, even with the added webbing and armor plating."
-	icon_state = "mercwebvest"
-	item_state = "mercwebvest"
+	icon = 'icons/clothing/kit/heavy_armor.dmi'
+	item_state = "vest"
+	icon_state = "vest"
+	contained_sprite = TRUE
 	armor = list(melee = 60, bullet = 60, laser = 60, energy = 40, bomb = 40, bio = 0, rad = 0)
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
 //ert related armor
 

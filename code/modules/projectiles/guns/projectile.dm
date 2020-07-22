@@ -6,6 +6,9 @@
 /obj/item/gun/projectile
 	name = "gun"
 	desc = "A gun that fires bullets."
+	desc_info = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
+	then click where you want to fire.  To reload, click the weapon in your hand to unload (if needed), then add the appropiate ammo.  The description \
+	will tell you what caliber you need."
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	w_class = 3
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
@@ -68,6 +71,7 @@
 	if(chambered)
 		chambered.expend()
 		process_chambered()
+	update_maptext()
 
 /obj/item/gun/projectile/handle_click_empty()
 	..()
@@ -76,7 +80,7 @@
 /obj/item/gun/projectile/special_check(var/mob/user)
 	if(!..())
 		return FALSE
-	if(!jam_num && jam_chance && getAmmo())
+	if(!jam_num && jam_chance && get_ammo())
 		if(prob(jam_chance))
 			playsound(src.loc, 'sound/items/trayhit2.ogg', 50, 1)
 			to_chat(user, "<span class='danger'>\The [src] jams!</span>")
@@ -90,7 +94,7 @@
 	if(chambered.leaves_residue)
 		var/mob/living/carbon/human/H = loc
 		if(istype(H))
-			if(!H.gloves)
+			if(!istype(H.gloves, /obj/item/clothing))
 				H.gunshot_residue = chambered.caliber
 			else
 				var/obj/item/clothing/G = H.gloves
@@ -166,6 +170,7 @@
 		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
 		playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 
+	update_maptext()
 	update_icon()
 
 //attempts to unload src. If allow_dump is set to 0, the speedloader unloading method will be disabled
@@ -196,6 +201,7 @@
 			user.visible_message("[user] removes \a [C] from [src].", "<span class='notice'>You remove \a [C] from [src].</span>")
 	else
 		to_chat(user, "<span class='warning'>[src] is empty.</span>")
+	update_maptext()
 	update_icon()
 
 /obj/item/gun/projectile/attackby(obj/item/A, mob/user)
@@ -207,7 +213,7 @@
 		playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 		jam_num--
 		if(!jam_num)
-			visible_message(span("danger", "\The [user] unjams \the [src]!"))
+			visible_message(SPAN_DANGER("\The [user] unjams \the [src]!"))
 			playsound(src.loc, 'sound/items/glowstick.ogg', 100, 1)
 			unjam_cooldown = world.time
 	else if(unjam_cooldown + 2 SECONDS > world.time)
@@ -245,10 +251,10 @@
 		to_chat(user, "<span class='warning'>It looks jammed.</span>")
 	if(ammo_magazine)
 		to_chat(user, "It has \a [ammo_magazine] loaded.")
-	to_chat(user, "Has [getAmmo()] round\s remaining.")
+	to_chat(user, "Has [get_ammo()] round\s remaining.")
 	return
 
-/obj/item/gun/projectile/proc/getAmmo()
+/obj/item/gun/projectile/get_ammo()
 	var/bullets = 0
 	if(loaded)
 		bullets += loaded.len

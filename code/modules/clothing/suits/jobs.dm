@@ -128,7 +128,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	blood_overlay_type = "coat"
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
+	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
 	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
 
@@ -141,7 +141,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_open = "detective_open"
 	icon_closed = "detective"
 	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
+	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
 	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
 	siemens_coefficient = 0.7
@@ -226,13 +226,13 @@ obj/item/clothing/suit/apron/overalls/blue
 	if(icon_state == icon_open)
 		item_state = icon_closed
 		icon_state = icon_closed
-		to_chat(usr, span("notice", "You zip up the hazard vest."))
+		to_chat(usr, SPAN_NOTICE("You zip up the hazard vest."))
 	else if(icon_state == icon_closed)
 		item_state = icon_open
 		icon_state = icon_open
-		to_chat(usr, span("notice", "You unzip the hazard vest."))
+		to_chat(usr, SPAN_NOTICE("You unzip the hazard vest."))
 	else
-		to_chat(usr, span("notice", "You attempt to zip up your [src], before promptly realising how silly you are."))
+		to_chat(usr, SPAN_NOTICE("You attempt to zip up your [src], before promptly realising how silly you are."))
 		return
 	update_clothing_icon()
 

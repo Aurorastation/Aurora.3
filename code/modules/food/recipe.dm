@@ -33,7 +33,7 @@
 
 
 /datum/recipe
-	var/list/reagents // example: = list("berryjuice" = 5) // do not list same reagent twice
+	var/list/reagents // example: = list(/datum/reagent/drink/berryjuice = 5) // do not list same reagent twice
 	var/list/items    // example: = list(/obj/item/crowbar, /obj/item/welder) // place /foo/bar before /foo
 	var/list/fruit    // example: = list("fruit" = 3)
 	var/coating = null//Required coating on all items in the recipe. The default value of null explitly requires no coating
@@ -213,7 +213,7 @@
 	if (reagents && reagents.len)
 		for (var/r in reagents)
 			//Doesnt matter whether or not there's enough, we assume that check is done before
-			container.reagents.trans_id_to(buffer, r, reagents[r])
+			container.reagents.trans_type_to(buffer, r, reagents[r])
 
 	/*
 	Now we've removed all the ingredients that were used and we have the buffer containing the total of
@@ -256,24 +256,24 @@
 			//We want the highest of each.
 			//Iterate through everything in buffer. If the target has less than the buffer, then top it up
 			for (var/datum/reagent/R in buffer.reagent_list)
-				var/rvol = holder.get_reagent_amount(R.id)
+				var/rvol = holder.get_reagent_amount(R.type)
 				if (rvol < R.volume)
 					//Transfer the difference
-					buffer.trans_id_to(holder, R.id, R.volume-rvol)
+					buffer.trans_type_to(holder, R.type, R.volume-rvol)
 
 		if (RECIPE_REAGENT_MIN)
 			//Min is slightly more complex. We want the result to have the lowest from each side
 			//But zero will not count. Where a side has zero its ignored and the side with a nonzero value is used
 			for (var/datum/reagent/R in buffer.reagent_list)
-				var/rvol = holder.get_reagent_amount(R.id)
+				var/rvol = holder.get_reagent_amount(R.type)
 				if (rvol == 0) //If the target has zero of this reagent
-					buffer.trans_id_to(holder, R.id, R.volume)
+					buffer.trans_type_to(holder, R.type, R.volume)
 					//Then transfer all of ours
 
 				else if (rvol > R.volume)
 					//if the target has more than ours
 					//Remove the difference
-					holder.remove_reagent(R.id, rvol-R.volume)
+					holder.remove_reagent(R.type, rvol-R.volume)
 
 
 	if (results.len > 1)

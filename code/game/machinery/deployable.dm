@@ -279,7 +279,7 @@ for reference:
 	var/assembly_time = 8 SECONDS
 
 /obj/item/deployable_kit/attack_self(mob/user)
-	to_chat(user, span("notice","You start assembling \the [src]..."))
+	to_chat(user, SPAN_NOTICE("You start assembling \the [src]..."))
 	if(do_after(user, assembly_time))
 		assemble_kit(user)
 		qdel(src)
@@ -287,7 +287,7 @@ for reference:
 /obj/item/deployable_kit/proc/assemble_kit(mob/user)
 	playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
 	var/atom/A = new kit_product(user.loc)
-	user.visible_message(span("notice","[user] assembles \a [A]."),span("notice","You assemble \a [A]."))
+	user.visible_message(SPAN_NOTICE("[user] assembles \a [A]."), SPAN_NOTICE("You assemble \a [A]."))
 	A.add_fingerprint(user)
 
 /obj/item/deployable_kit/legion_barrier
@@ -341,3 +341,17 @@ for reference:
 	w_class = 3
 	kit_product = /obj/machinery/iv_drip
 	assembly_time = 4 SECONDS
+
+/obj/item/deployable_kit/remote_mech
+	name = "mech control centre assembly kit"
+	desc = "A quick assembly kit to put together a mech control centre."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "barrier_kit"
+	w_class = ITEMSIZE_LARGE
+	kit_product = /obj/structure/bed/chair/remote/mech/portable
+	assembly_time = 20 SECONDS
+
+/obj/item/deployable_kit/remote_mech/brig
+	name = "brig mech control centre assembly kit"
+	desc = "A quick assembly kit to put together a brig mech control centre."
+	kit_product = /obj/structure/bed/chair/remote/mech/prison/portable

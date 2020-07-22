@@ -1,7 +1,26 @@
-// Pretty much everything here is stolen from the dna scanner FYI
-
-
 /obj/machinery/bodyscanner
+	name = "body scanner"
+	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
+	desc_info = "The advanced scanner detects and reports internal injuries such as bone fractures, internal bleeding, and organ damage. \
+	This is useful if you are about to perform surgery.<br>\
+	<br>\
+	Click your target with Grab intent, then click on the scanner to place them in it. Click the red terminal to operate. \
+	Right-click the scanner and click 'Eject Occupant' to remove them.  You can enter the scanner yourself in a similar way, using the 'Enter Body Scanner' \
+	verb."
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "body_scanner"
+	density = TRUE
+	anchored = TRUE
+	component_types = list(
+			/obj/item/circuitboard/bodyscanner,
+			/obj/item/stock_parts/capacitor = 2,
+			/obj/item/stock_parts/scanning_module = 2,
+			/obj/item/device/healthanalyzer
+		)
+	use_power = 1
+	idle_power_usage = 60
+	active_power_usage = 10000	//10 kW. It's a big all-body scanner.
+
 	var/mob/living/carbon/occupant
 	var/last_occupant_name = ""
 	var/locked
@@ -19,22 +38,6 @@
 		"Diona",
 		"Monkey"
 	)
-	name = "Body Scanner"
-	desc = "A state-of-the-art medical diagnostics machine. Guaranteed detection of all your bodily ailments or your money back!"
-	icon = 'icons/obj/sleeper.dmi'
-	icon_state = "body_scanner"
-	density = 1
-	anchored = 1
-	component_types = list(
-			/obj/item/circuitboard/bodyscanner,
-			/obj/item/stock_parts/capacitor = 2,
-			/obj/item/stock_parts/scanning_module = 2,
-			/obj/item/device/healthanalyzer
-		)
-
-	use_power = 1
-	idle_power_usage = 60
-	active_power_usage = 10000	//10 kW. It's a big all-body scanner.
 
 /obj/machinery/bodyscanner/Initialize()
 	. = ..()
@@ -79,10 +82,10 @@
 	if (usr.stat != CONSCIOUS)
 		return
 	if (occupant)
-		to_chat(usr, span("warning", "The scanner is already occupied!"))
+		to_chat(usr, SPAN_WARNING("The scanner is already occupied!"))
 		return
 	if (usr.abiotic())
-		to_chat(usr, span("warning", "The subject cannot have abiotic items on."))
+		to_chat(usr, SPAN_WARNING("The subject cannot have abiotic items on."))
 		return
 	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
@@ -112,14 +115,14 @@
 	if (!istype(G, /obj/item/grab) || !isliving(G.affecting) )
 		return
 	if (occupant)
-		to_chat(user, span("warning", "The scanner is already occupied!"))
+		to_chat(user, SPAN_WARNING("The scanner is already occupied!"))
 		return
 	if (G.affecting.abiotic())
-		to_chat(user, span("warning", "Subject cannot have abiotic items on."))
+		to_chat(user, SPAN_WARNING("Subject cannot have abiotic items on."))
 		return
 
 	var/mob/living/M = G.affecting
-	user.visible_message(span("notice", "\The [user] starts putting \the [M] into \the [src]."), span("notice", "You start putting \the [M] into \the [src]."), range = 3)
+	user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [M] into \the [src]."), SPAN_NOTICE("You start putting \the [M] into \the [src]."), range = 3)
 
 	if (do_mob(user, G.affecting, 30, needhand = 0))
 		var/bucklestatus = M.bucklecheck(user)
@@ -149,10 +152,10 @@
 		return
 	var/mob/living/M = O//Theres no reason this shouldn't be /mob/living
 	if (occupant)
-		to_chat(user, span("notice", "<B>The scanner is already occupied!</B>"))
+		to_chat(user, SPAN_NOTICE("<B>The scanner is already occupied!</B>"))
 		return
 	if (M.abiotic())
-		to_chat(user, span("notice", "<B>Subject cannot have abiotic items on.</B>"))
+		to_chat(user, SPAN_NOTICE("<B>Subject cannot have abiotic items on.</B>"))
 		return
 
 	var/mob/living/L = O
@@ -162,9 +165,9 @@
 		return
 
 	if(L == user)
-		user.visible_message(span("notice", "\The [user] starts climbing into \the [src]."), span("notice", "You start climbing into \the [src]."), range = 3)
+		user.visible_message("\The <b>[user]</b> starts climbing into \the [src].", SPAN_NOTICE("You start climbing into \the [src]."), range = 3)
 	else
-		user.visible_message(span("notice", "\The [user] starts putting \the [L] into \the [src]."), span("notice", "You start putting \the [L] into \the [src]."), range = 3)
+		user.visible_message("\The <b>[user]</b> starts putting \the [L] into \the [src].", SPAN_NOTICE("You start putting \the [L] into \the [src]."), range = 3)
 
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
@@ -237,14 +240,14 @@
 	return
 
 /obj/machinery/body_scanconsole
+	name = "body scanner console"
+	desc = "An advanced control panel that can be used to interface with a connected body scanner."
+	icon = 'icons/obj/sleeper.dmi'
+	icon_state = "body_scannerconsole"
 	var/obj/machinery/bodyscanner/connected
 	var/known_implants = list(/obj/item/implant/chem, /obj/item/implant/death_alarm, /obj/item/implant/mindshield, /obj/item/implant/tracking)
 	var/collapse_desc = ""
 	var/broken_desc = ""
-	name = "Body Scanner Console"
-	desc = "A control panel for some kind of medical device."
-	icon = 'icons/obj/sleeper.dmi'
-	icon_state = "body_scannerconsole"
 	density = 0
 	anchored = 1
 	component_types = list(
@@ -252,6 +255,7 @@
 			/obj/item/stock_parts/scanning_module = 2,
 			/obj/item/stock_parts/console_screen
 		)
+	var/global/image/console_overlay
 
 /obj/machinery/body_scanconsole/Destroy()
 	if (connected)
@@ -267,8 +271,9 @@
 	if((stat & BROKEN) || (stat & NOPOWER))
 		return
 	else
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "body_scannerconsole-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
+		if(!console_overlay)
+			console_overlay = make_screen_overlay(icon, "body_scannerconsole-screen")
+		add_overlay(console_overlay)
 		set_light(1.4, 1, COLOR_RED)
 
 /obj/machinery/body_scanconsole/proc/get_collapsed_lung_desc()
@@ -418,18 +423,17 @@
 		VUEUI_SET_CHECK(data["paralysis"], occupant.paralysis, ., data)
 		VUEUI_SET_CHECK(data["bodytemp"], occupant.bodytemperature, ., data)
 		VUEUI_SET_CHECK(data["occupant"], !!occupant, ., data)
-		VUEUI_SET_CHECK(data["norepiAmt"], R.get_reagent_amount("norepinephrine"), ., data)
-		VUEUI_SET_CHECK(data["soporAmt"], R.get_reagent_amount("stoxin"), ., data)
-		VUEUI_SET_CHECK(data["bicardAmt"], R.get_reagent_amount("bicaridine"), ., data)
-		VUEUI_SET_CHECK(data["dexAmt"], R.get_reagent_amount("dexalin"), ., data)
-		VUEUI_SET_CHECK(data["dermAmt"], R.get_reagent_amount("dermaline"), ., data)
+		VUEUI_SET_CHECK(data["norepiAmt"], R.get_reagent_amount(/datum/reagent/inaprovaline), ., data)
+		VUEUI_SET_CHECK(data["soporAmt"], R.get_reagent_amount(/datum/reagent/soporific), ., data)
+		VUEUI_SET_CHECK(data["bicardAmt"], R.get_reagent_amount(/datum/reagent/bicaridine), ., data)
+		VUEUI_SET_CHECK(data["dexAmt"], R.get_reagent_amount(/datum/reagent/dexalin), ., data)
+		VUEUI_SET_CHECK(data["dermAmt"], R.get_reagent_amount(/datum/reagent/dermaline), ., data)
 		VUEUI_SET_CHECK(data["otherAmt"], R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"]), ., data)
 		VUEUI_SET_CHECK_LIST(data["bodyparts"], get_external_wound_data(occupant), ., data)
 		VUEUI_SET_CHECK_LIST(data["organs"], get_internal_wound_data(occupant), ., data)
 		var/list/missing 		= get_missing_organs(occupant)
 		VUEUI_SET_CHECK_LIST(data["missingparts"], missing, ., data)
 		VUEUI_SET_CHECK(data["hasmissing"], missing.len, ., data)
-		VUEUI_SET_CHECK(data["hasvirus"], occupant.virus2.len || occupant.viruses.len, ., data)
 		VUEUI_SET_CHECK(data["hastgvirus"], occupant.viruses.len, ., data)
 		VUEUI_SET_CHECK_LIST(data["tgvirus"], occupant.viruses, ., data)
 
@@ -580,7 +584,6 @@
 	var/list/occupant_data = list(
 		"stationtime" = worldtime2text(),
 		"brain_activity" = H.get_brain_status(),
-		"virus_present" = H.virus2.len,
 		"blood_volume" = H.get_blood_volume(),
 		"blood_oxygenation" = H.get_blood_oxygenation(),
 		"blood_pressure" = H.get_blood_pressure(),
@@ -595,12 +598,12 @@
 		"paralysis" = H.paralysis,
 		"bodytemp" = H.bodytemperature,
 		"borer_present" = H.has_brain_worms(),
-		"norepinephrine_amount" = H.reagents.get_reagent_amount("norepinephrine"),
-		"dexalin_amount" = H.reagents.get_reagent_amount("dexalin"),
-		"stoxin_amount" = H.reagents.get_reagent_amount("stoxin"),
-		"bicaridine_amount" = H.reagents.get_reagent_amount("bicaridine"),
-		"dermaline_amount" = H.reagents.get_reagent_amount("dermaline"),
-		"blood_amount" = H.vessel.get_reagent_amount("blood"),
+		"inaprovaline_amount" = H.reagents.get_reagent_amount(/datum/reagent/inaprovaline),
+		"dexalin_amount" = H.reagents.get_reagent_amount(/datum/reagent/dexalin),
+		"stoxin_amount" = H.reagents.get_reagent_amount(/datum/reagent/soporific),
+		"bicaridine_amount" = H.reagents.get_reagent_amount(/datum/reagent/bicaridine),
+		"dermaline_amount" = H.reagents.get_reagent_amount(/datum/reagent/dermaline),
+		"blood_amount" = H.vessel.get_reagent_amount(/datum/reagent/blood),
 		"disabilities" = H.sdisabilities,
 		"tg_diseases_list" = H.viruses.Copy(),
 		"lung_ruptured" = H.is_lung_ruptured(),
@@ -632,15 +635,11 @@
 	if(occ["borer_present"])
 		dat += "Large growth detected in frontal lobe, possibly cancerous. Surgical removal is recommended.<br>"
 
-	dat += text("Norepinephrine: [] units<BR>", occ["norepinephrine_amount"])
+	dat += text("Inaprovaline: [] units<BR>", occ["inaprovaline_amount"])
 	dat += text("Soporific: [] units<BR>", occ["stoxin_amount"])
 	dat += text("[]\tDermaline: [] units</FONT><BR>", ("<font color='[occ["dermaline_amount"] < 30  ? "black" : "red"]'>"), occ["dermaline_amount"])
 	dat += text("[]\tBicaridine: [] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 30  ? "black" : "red"]'>"), occ["bicaridine_amount"])
 	dat += text("[]\tDexalin: [] units</font><BR>", ("<font color='[occ["dexalin_amount"] < 30  ? "black" : "red"]'>"), occ["dexalin_amount"])
-
-	for(var/datum/disease/D in occ["tg_diseases_list"])
-		if(!D.hidden[SCANNER])
-			dat += text("<font color='red'><B>Warning: [D.form] Detected</B>\nName: [D.name].\nType: [D.spread].\nStage: [D.stage]/[D.max_stages].\nPossible Cure: [D.cure]</FONT><BR>")
 
 	dat += "<HR><table border='1'>"
 	dat += "<tr>"

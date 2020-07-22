@@ -9,15 +9,15 @@
 	display_name = "glasses, prescription"
 	path = /obj/item/clothing/glasses/regular
 
-/datum/gear/eyes/glasses/prescriptionhipster
+/datum/gear/eyes/glasses/hipster
 	display_name = "glasses, hipster"
 	path = /obj/item/clothing/glasses/regular/hipster
 
-/datum/gear/eyes/glasses/prescriptionhipster
+/datum/gear/eyes/glasses/circle
 	display_name = "glasses, circle"
 	path = /obj/item/clothing/glasses/regular/circle
 
-/datum/gear/eyes/glasses/prescriptionhipster
+/datum/gear/eyes/glasses/jamjar
 	display_name = "glasses, jamjar"
 	path = /obj/item/clothing/glasses/regular/jamjar
 
@@ -68,7 +68,7 @@
 /datum/gear/eyes/medical
 	display_name = "medical HUD"
 	path = /obj/item/clothing/glasses/hud/health
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Resident")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Emergency Medical Technician", "Psychiatrist", "Medical Resident")
 
 /datum/gear/eyes/medical/aviator
 	display_name = "aviators, medical"
@@ -112,7 +112,7 @@
 /datum/gear/eyes/medpatch
 	display_name = "HUDpatch, Medical"
 	path = /obj/item/clothing/glasses/eyepatch/hud/medical
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Resident")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Emergency Medical Technician", "Psychiatrist", "Medical Resident")
 	cost = 2
 
 /datum/gear/eyes/mespatch

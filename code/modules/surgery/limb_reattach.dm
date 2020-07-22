@@ -29,12 +29,12 @@
 
 /datum/surgery_step/limb/attach/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/E = tool
-	user.visible_message("[user] starts attaching [E.name] to [target]'s [E.amputation_point].", \
-		"You start attaching [E.name] to [target]'s [E.amputation_point].")
+	user.visible_message("<b>[user]</b> starts attaching [E.name] to [target]'s [E.amputation_point].", \
+		SPAN_NOTICE("You start attaching [E.name] to [target]'s [E.amputation_point]."))
 
 /datum/surgery_step/limb/attach/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/E = tool
-	user.visible_message("<span class='notice'>[user] has attached [target]'s [E.name] to the [E.amputation_point].</span>",	\
+	user.visible_message("<b>[user]</b> attaches [target]'s [E.name] to the [E.amputation_point].",	\
 		"<span class='notice'>You have attached [target]'s [E.name] to the [E.amputation_point].</span>")
 	user.drop_from_inventory(E)
 	E.replaced(target)
@@ -70,7 +70,7 @@
 
 /datum/surgery_step/limb/connect/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/E = target.get_organ(target_zone)
-	user.visible_message("<span class='notice'>[user] has connected tendons and muscles in [target]'s [E.amputation_point] with [tool].</span>",	\
+	user.visible_message("<b>[user]</b> has connected tendons and muscles in [target]'s [E.amputation_point] with [tool].",	\
 		"<span class='notice'>You have connected tendons and muscles in [target]'s [E.amputation_point] with [tool].</span>")
 	E.status &= ~ORGAN_DESTROYED
 	if(E.children)
@@ -101,12 +101,12 @@
 		return isnull(target.get_organ(target_zone))
 
 /datum/surgery_step/limb/mechanize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("[user] starts attaching \the [tool] to [target].", \
-		"You start attaching \the [tool] to [target].")
+	user.visible_message("<b>[user]</b> starts attaching \the [tool] to [target].", \
+		SPAN_NOTICE("You start attaching \the [tool] to [target]."))
 
 /datum/surgery_step/limb/mechanize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/robot_parts/L = tool
-	user.visible_message("<span class='notice'>[user] has attached \the [tool] to [target].</span>",	\
+	user.visible_message("<b>[user]</b> has attached \the [tool] to [target].",	\
 		"<span class='notice'>You have attached \the [tool] to [target].</span>")
 
 	if(L.part)

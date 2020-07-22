@@ -54,6 +54,13 @@
 	light_power = 1
 	light_range = 1
 	light_color = LIGHT_COLOR_HALOGEN
+	var/global/image/glow_state
+
+/obj/effect/temp_visual/constellation/Initialize()
+	. = ..()
+	if(!glow_state)
+		glow_state = make_screen_overlay(icon, icon_state)
+	add_overlay(glow_state)
 
 /obj/effect/temp_visual/constellation/attackby(obj/item/W as obj, mob/user as mob)
 	visible_message("<span class='notice'>\The [src] vanishes!</span>")
@@ -178,14 +185,14 @@
 
 // Could add some stuff to this in the future? I dunno. I just couldn't figure out how to callback to_chat LOL - geeves
 /obj/item/jargontag/proc/do_loyalty(var/mob/wearer)
-	to_chat(wearer, span("good", "You feel an intense feeling of loyalty towards the Jargon Federation surge through your brain."))
+	to_chat(wearer, SPAN_GOOD("You feel an intense feeling of loyalty towards the Jargon Federation surge through your brain."))
 
 /obj/item/jargontag/proc/clamp_on(var/mob/wearer)
 	if(fried)
 		return
 	canremove = FALSE
 	icon_state = "[initial(icon_state)]_active"
-	to_chat(wearer, span("warning", "\The [src] clamps down around your ear, releasing a burst of static before going silent. Something probes at your ear canal..."))
+	to_chat(wearer, SPAN_WARNING("\The [src] clamps down around your ear, releasing a burst of static before going silent. Something probes at your ear canal..."))
 	addtimer(CALLBACK(src, .proc/do_loyalty, wearer), 15)
 
 /obj/item/jargontag/proc/unclamp()
@@ -193,7 +200,7 @@
 		return
 	if(!canremove)
 		icon_state = initial(icon_state)
-		visible_message(span("warning", "\The [src] fizzles loudly, then clicks open!"))
+		visible_message(SPAN_WARNING("\The [src] fizzles loudly, then clicks open!"))
 		canremove = TRUE
 		fried = TRUE
 
@@ -205,5 +212,5 @@
 		unclamp()
 		return TRUE
 	else
-		to_chat(user, span("notice", "\The [src] isn't locked down, your e-mag has no effect!"))
+		to_chat(user, SPAN_NOTICE("\The [src] isn't locked down, your e-mag has no effect!"))
 		return FALSE

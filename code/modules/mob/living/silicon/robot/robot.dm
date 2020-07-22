@@ -28,7 +28,7 @@
 	mob_bump_flag = ROBOT
 	mob_swap_flags = ROBOT|MONKEY|SLIME|SIMPLE_ANIMAL
 	mob_push_flags = ~HEAVY //trundle trundle
-	var/speed = 0 //Cause sec borgs gotta go fast //No they dont! // These comments aged like cheese.
+	var/speed = 0
 
 	// Lighting and sight
 	light_wedge = LIGHT_WIDE
@@ -52,6 +52,7 @@
 	var/crisis = FALSE //Admin-settable for combat module use.
 	var/crisis_override = FALSE
 	var/malf_AI_module = FALSE
+	var/flash_resistant = FALSE
 	var/overclocked = FALSE // cyborg controls if they enable the overclock
 	var/overclock_available = FALSE // if the overclock is available for use
 
@@ -68,10 +69,10 @@
 	var/spawn_module // Which module does this robot use when it spawns in?
 	var/selecting_module = 0 //whether the borg is in process of selecting its module or not.
 	var/obj/item/robot_module/module
-	var/module_active
-	var/module_state_1
-	var/module_state_2
-	var/module_state_3
+	var/obj/item/module_active
+	var/obj/item/module_state_1
+	var/obj/item/module_state_2
+	var/obj/item/module_state_3
 	var/cell_type = /obj/item/cell/high
 	var/has_jetpack = FALSE
 	var/has_pda = TRUE
@@ -123,6 +124,14 @@
 		/mob/living/silicon/robot/proc/robot_checklaws
 	)
 
+	// Overlays
+	var/has_cut_eye_overlay
+	var/image/eye_overlay
+	var/list/image/cached_eye_overlays
+	var/image/panel_overlay
+	var/list/image/cached_panel_overlays
+	var/image/shield_overlay
+
 /mob/living/silicon/robot/Initialize(mapload, unfinished = FALSE)
 	spark_system = bind_spark(src, 5)
 	add_language(LANGUAGE_ROBOT, TRUE)
@@ -136,7 +145,10 @@
 	module_sprites["Basic"] = "robot"
 	icontype = "Basic"
 	updatename(mod_type)
-	updateicon()
+
+	if(!client)
+		stat = UNCONSCIOUS
+	setup_icon_cache()
 
 	if(mmi?.brainobj)
 		mmi.brainobj.lobotomized = TRUE
@@ -201,7 +213,7 @@
 	ai_camera = new /obj/item/device/camera/siliconcam/robot_camera(src)
 	laws = new law_preset()
 	if(spawn_module)
-		new spawn_module(src)
+		new spawn_module(src, src)
 	if(key_type)
 		radio.keyslot = new key_type(radio)
 		radio.recalculateChannels()
@@ -291,11 +303,9 @@
 		else
 			icontype = module_sprites[1]
 		icon_state = module_sprites[icontype]
-
-	updateicon()
 	return module_sprites
 
-/mob/living/silicon/robot/proc/pick_module()
+/mob/living/silicon/robot/proc/pick_module(var/set_module)
 	if(selecting_module)
 		return
 	selecting_module = TRUE
@@ -319,7 +329,8 @@
 	var/module_type = robot_modules[mod_type]
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 100, TRUE)
 	spark(get_turf(src), 5, alldirs)
-	new module_type(src)
+
+	new module_type(src, src) // i have no choice but to do this, due to how funky initialize is
 
 	hands.icon_state = lowertext(mod_type)
 	feedback_inc("cyborg_[lowertext(mod_type)]", 1)
@@ -328,6 +339,7 @@
 	notify_ai(ROBOT_NOTIFICATION_NEW_MODULE, module.name)
 	SSrecords.reset_manifest()
 	selecting_module = FALSE
+	setup_icon_cache()
 
 /mob/living/silicon/robot/proc/updatename(var/prefix as text)
 	if(prefix)
@@ -370,6 +382,7 @@
 
 	if(!custom_sprite) //Check for custom sprite
 		set_custom_sprite()
+		setup_icon_cache()
 
 	//Flavour text.
 	if(client)
@@ -381,8 +394,6 @@
 
 /mob/living/silicon/robot/verb/Namepick()
 	set category = "Robot Commands"
-	if(custom_name)
-		return FALSE
 
 	spawn(0)
 		var/newname
@@ -391,7 +402,8 @@
 			custom_name = newname
 
 		updatename()
-		updateicon()
+		if(module)
+			set_module_sprites(module.sprites) // custom synth icons
 		SSrecords.reset_manifest()
 
 // this verb lets cyborgs see the stations manifest
@@ -407,7 +419,7 @@
 	var/dat = "<HEAD><TITLE>[src.name] Self-Diagnosis Report</TITLE></HEAD><BODY>\n"
 	for (var/V in components)
 		var/datum/robot_component/C = components[V]
-		dat += "<b>[C.name]</b><br><table><tr><td>Brute Damage:</td><td>[C.brute_damage]</td></tr><tr><td>Electronics Damage:</td><td>[C.electronics_damage]</td></tr><tr><td>Powered:</td><td>[(!C.idle_usage || C.is_powered()) ? "Yes" : "No"]</td></tr><tr><td>Toggled:</td><td>[ C.toggled ? "Yes" : "No"]</td></table><br>"
+		dat += "<b>[capitalize_first_letters(C.name)]</b><br><table><tr><td>Brute Damage:</td><td>[C.brute_damage]</td></tr><tr><td>Electronics Damage:</td><td>[C.electronics_damage]</td></tr><tr><td>Powered:</td><td>[(!C.idle_usage || C.is_powered()) ? "Yes" : "No"]</td></tr><tr><td>Toggled:</td><td>[ C.toggled ? "Yes" : "No"]</td></table>"
 
 	return dat
 
@@ -459,11 +471,13 @@
 	set name = "Self Diagnosis"
 
 	if(!is_component_functioning("diagnosis unit"))
-		to_chat(src, SPAN_WARNING("Your self-diagnosis component isn't functioning."))
+		to_chat(src, SPAN_WARNING("WARNING: Self-diagnosis component malfunctioning!"))
+		return
 
 	var/datum/robot_component/CO = get_component("diagnosis unit")
 	if(!cell_use_power(CO.active_usage))
-		to_chat(src, SPAN_WARNING("WARNING: Low Power."))
+		to_chat(src, SPAN_WARNING("WARNING: Power too low for self-diagnostic functions."))
+		return
 	var/dat = self_diagnosis()
 	src << browse(dat, "window=robotdiagnosis")
 
@@ -570,7 +584,7 @@
 					C.electronics_damage = WC.burn
 
 				to_chat(user, SPAN_NOTICE("You install the [W.name] into \the [src]."))
-				updateicon()
+				handle_panel_overlay()
 				return
 
 		if(istype(W, /obj/item/gripper)) //Code for allowing cyborgs to use rechargers
@@ -585,7 +599,7 @@
 						cell = null
 						cell_component.wrapped = null
 						cell_component.installed = FALSE
-						updateicon()
+						handle_panel_overlay()
 				else if(cell_component.installed == -1)
 					if(gripper.grip_item(cell_component.wrapped, user))
 						cell_component.wrapped = null
@@ -631,7 +645,7 @@
 							return
 						to_chat(user, SPAN_NOTICE("You close \the [src]'s maintenance hatch."))
 						opened = FALSE
-						updateicon()
+						handle_panel_overlay()
 				else if(wires_exposed && wires.IsAllCut())
 					//Cell is out, wires are exposed, remove MMI, produce damaged chassis, baleet original mob.
 					if(!mmi)
@@ -678,7 +692,7 @@
 							return
 						to_chat(user, SPAN_NOTICE("You open \the [src]'s maintenance hatch."))
 						opened = TRUE
-						updateicon()
+						handle_panel_overlay()
 		else if (istype(W, /obj/item/stock_parts/matter_bin) && opened) // Installing/swapping a matter bin
 			if(storage)
 				to_chat(user, SPAN_NOTICE("You replace \the [storage] with \the [W]"))
@@ -712,7 +726,7 @@
 				//This will mean that removing and replacing a power cell will repair the mount, but I don't care at this point. ~Z
 				C.brute_damage = 0
 				C.electronics_damage = 0
-				updateicon()
+				handle_panel_overlay()
 		else if (W.iswirecutter() || W.ismultitool())
 			if(wires_exposed)
 				wires.Interact(user)
@@ -721,15 +735,14 @@
 				return
 		else if(W.isscrewdriver() && opened && !cell)	// haxing
 			wires_exposed = !wires_exposed
-			user.visible_message(SPAN_NOTICE("\The [user] exposes \the [src]'s wires."), SPAN_NOTICE("You expose \the [src]'s wires."))
-			updateicon()
+			user.visible_message(SPAN_NOTICE("\The [user] [wires_exposed ? "exposes" : "covers"] \the [src]'s wires."), SPAN_NOTICE("You [wires_exposed ? "expose" : "cover"] \the [src]'s wires."))
+			handle_panel_overlay()
 		else if(W.isscrewdriver() && opened && cell)	// radio
 			if(radio)
 				radio.attackby(W, user) //Push it to the radio to let it handle everything
 			else
 				to_chat(user, SPAN_WARNING("\The [src] does not have a radio installed!"))
 				return
-			updateicon()
 		else if(istype(W, /obj/item/device/encryptionkey) && opened)
 			if(radio) //sanityyyyyy
 				radio.attackby(W, user) //GTFO, you have your own procs
@@ -746,7 +759,7 @@
 				if(allowed(user))
 					locked = !locked
 					to_chat(user, SPAN_NOTICE("You [ locked ? "lock" : "unlock"] [src]'s interface."))
-					updateicon()
+					handle_panel_overlay()
 				else
 					to_chat(user, SPAN_WARNING("Access denied."))
 					return
@@ -755,18 +768,15 @@
 			if(!opened)
 				to_chat(user, SPAN_WARNING("You cannot install \the [U] while the maintenance hatch is closed."))
 				return
-			else if(!src.module && U.require_module)
-				to_chat(user, SPAN_WARNING("\The [src] cannot be upgraded with this until it has chosen a module."))
-				return
 			else if(U.locked)
 				to_chat(user, SPAN_WARNING("\The [U] is locked down!"))
 				return
 			else
-				if(U.action(src))
+				if(U.action(src, user))
+					to_chat(src, SPAN_NOTICE("\The [user] has installed \a [U] into you."))
 					to_chat(user, SPAN_NOTICE("You apply the upgrade to \the [src]."))
 					user.drop_from_inventory(U, src)
-				else
-					to_chat(user, SPAN_WARNING("You fail to apply the upgrade to \the [src]."))
+				return
 		else
 			if(W.force && !(istype(W, /obj/item/device/robotanalyzer) || istype(W, /obj/item/device/healthanalyzer)) )
 				spark_system.queue()
@@ -793,7 +803,7 @@
 			cell = null
 			cell_component.wrapped = null
 			cell_component.installed = FALSE
-			updateicon()
+			handle_panel_overlay()
 		else if(cell_component.installed == -1)
 			cell_component.installed = FALSE
 			var/obj/item/broken_device = cell_component.wrapped
@@ -833,33 +843,6 @@
 		if(req in I.access) //have one of the required accesses
 			return TRUE
 	return FALSE
-
-/mob/living/silicon/robot/updateicon()
-	cut_overlays()
-
-	if(stat == CONSCIOUS)
-		if(a_intent == I_HELP)
-			add_overlay(image(icon, "eyes-[module_sprites[icontype]]-help", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
-		else
-			add_overlay(image(icon, "eyes-[module_sprites[icontype]]-harm", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
-
-	if(opened)
-		var/panelprefix = custom_sprite ? src.ckey : "ov"
-		if(wires_exposed)
-			add_overlay("[panelprefix]-openpanel +w")
-		else if(cell)
-			add_overlay("[panelprefix]-openpanel +c")
-		else
-			add_overlay("[panelprefix]-openpanel -c")
-
-	if(module_active && istype(module_active,/obj/item/borg/combat/shield))
-		add_overlay("[module_sprites[icontype]]-shield")
-
-	if(mod_type == "Combat")
-		if(module_active && istype(module_active,/obj/item/borg/combat/mobility))
-			icon_state = "[module_sprites[icontype]]-roll"
-		else
-			icon_state = module_sprites[icontype]
 
 /mob/living/silicon/robot/proc/installed_modules()
 	if(weapon_lock)
@@ -1110,8 +1093,8 @@
 		return
 
 	icon_state = module_sprites[icontype]
-	updateicon()
 	icon_selected = TRUE
+	setup_icon_cache()
 	playsound(get_turf(src), 'sound/effects/pop.ogg', 10, TRUE)
 	spark(get_turf(src), 5, alldirs)
 	verbs -= /mob/living/silicon/robot/proc/choose_icon
@@ -1243,7 +1226,6 @@
 					if(rebuild)
 						src.module.modules += new /obj/item/pickaxe/diamonddrill(src.module)
 						src.module.rebuild()
-				updateicon()
 		else
 			to_chat(user, SPAN_WARNING("You fail to hack into \the [src]."))
 			to_chat(src, SPAN_DANGER("Hack attempt detected and thwarted. Evacuate the area immediately."))

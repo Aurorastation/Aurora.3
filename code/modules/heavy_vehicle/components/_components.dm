@@ -9,7 +9,7 @@
 	var/total_damage = 0
 	var/brute_damage = 0
 	var/burn_damage = 0
-	var/max_damage = 60
+	var/max_damage = 120
 	var/damage_state = 1
 	var/list/has_hardpoints = list()
 	var/power_use = 0
@@ -43,6 +43,10 @@
 
 /obj/item/mech_component/proc/show_missing_parts(var/mob/user)
 	return
+
+/obj/item/mech_component/proc/return_diagnostics(var/mob/user)
+	to_chat(user, SPAN_NOTICE("[capitalize_first_letters(src.name)]:"))
+	to_chat(user, SPAN_NOTICE(" - Integrity: <b>[round(((max_damage - total_damage) / max_damage)) * 100]%</b>" ))
 
 /obj/item/mech_component/proc/prebuild()
 	return

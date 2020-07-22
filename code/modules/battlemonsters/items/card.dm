@@ -27,8 +27,8 @@
 /obj/item/battle_monsters/card/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	if(istype(A,/obj/structure/table) || istype(A,/obj/structure/dueling_table))
 		user.visible_message(\
-			span("notice","\The [user] plays \the [src]!"),\
-			span("notice","You play \the [src]!")\
+			SPAN_NOTICE("\The [user] plays \the [src]!"),\
+			SPAN_NOTICE("You play \the [src]!")\
 		)
 	..(A, user, click_parameters)
 
@@ -44,15 +44,15 @@
 		user.drop_from_inventory(src)
 		new_deck.icon_state = "hand"
 		user.put_in_inactive_hand(new_deck)
-		to_chat(user,span("notice","You combine \the [src] and the [adding_card] to form a hand."))
+		to_chat(user, SPAN_NOTICE("You combine \the [src] and the [adding_card] to form a hand."))
 	else
 		new_deck.set_dir(dir)
 		new_deck.pixel_x = pixel_x
 		new_deck.pixel_y = pixel_y
 		new_deck.layer = max(layer,new_deck.layer)
 		user.visible_message(\
-			span("notice","\The [user] combines \the [src] and the [adding_card] to form a deck."),\
-			span("notice","You combine \the [src] and the [adding_card] to form a deck.")\
+			SPAN_NOTICE("\The [user] combines \the [src] and the [adding_card] to form a deck."),\
+			SPAN_NOTICE("You combine \the [src] and the [adding_card] to form a deck.")\
 		)
 
 	new_deck.add_card(user,src)
@@ -63,19 +63,19 @@
 
 	if(src.loc == user)
 		if(!facedown)
-			to_chat(user,span("notice","You reveal \the [name] to yourself, preparing to play it face up."))
+			to_chat(user, SPAN_NOTICE("You reveal \the [name] to yourself, preparing to play it face up."))
 		else
-			to_chat(user,span("notice", "You prepare \the [name] to be played face down."))
+			to_chat(user, SPAN_NOTICE("You prepare \the [name] to be played face down."))
 	else
 		if(!facedown)
 			user.visible_message(\
-				span("notice","\The [user] flip the card face up and reveals \the [name]."),\
-				span("notice","You flip the card face up and reveal \the [name].")\
+				SPAN_NOTICE("\The [user] flip the card face up and reveals \the [name]."),\
+				SPAN_NOTICE("You flip the card face up and reveal \the [name].")\
 			)
 		else
 			user.visible_message(\
-				span("notice","\The [user] flips \the [name] face down."),\
-				span("notice","You flip \the [name] face down.")\
+				SPAN_NOTICE("\The [user] flips \the [name] face down."),\
+				SPAN_NOTICE("You flip \the [name] face down.")\
 			)
 
 	update_icon()
@@ -169,7 +169,7 @@
 	..()
 
 	if(facedown && src.loc != user)
-		to_chat(user,span("notice","You can't examine \the [src] while it's face down!"))
+		to_chat(user, SPAN_NOTICE("You can't examine \the [src] while it's face down!"))
 		return
 
 	if(trap_datum)
@@ -179,3 +179,22 @@
 	else
 		SSbattlemonsters.ExamineMonsterCard(user,prefix_datum,root_datum,suffix_datum)
 
+/obj/item/battle_monsters/card/MouseEntered(location, control, params)
+	. = ..()
+	if(!facedown || Adjacent(usr))
+		var/card_title = name
+		var/card_content = desc
+		if(trap_datum)
+			card_title = trap_datum.name
+			card_content = SSbattlemonsters.FormatSpellText(SSbattlemonsters.GetTrapFormatting(FALSE), trap_datum, FALSE)
+		else if(spell_datum)
+			card_title = spell_datum.name
+			card_content = SSbattlemonsters.FormatSpellText(SSbattlemonsters.GetSpellFormatting(FALSE), spell_datum, FALSE)
+		else
+			card_title = root_datum.name
+			card_content = SSbattlemonsters.FormatMonsterText(SSbattlemonsters.GetMonsterFormatting(FALSE), prefix_datum, root_datum, suffix_datum, FALSE)
+		openToolTip(usr, src, params, card_title, card_content)
+
+/obj/item/battle_monsters/card/MouseExited(location, control, params)
+	. = ..()
+	closeToolTip(usr)

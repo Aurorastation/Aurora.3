@@ -43,7 +43,7 @@
 
 /obj/item/clothing/ring/reagent/sleepy/Initialize()
 	. = ..()
-	reagents.add_reagent("chloralhydrate", 15)
+	reagents.add_reagent(/datum/reagent/chloralhydrate, 15)
 
 //Seals and Signet Rings
 

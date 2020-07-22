@@ -7,6 +7,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
+	intro_prefix = "the"
 	supervisors = "the captain"
 	selection_color = "#FFD737"
 	economic_modifier = 10
@@ -19,11 +20,11 @@
 	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
 			            access_heads, access_construction, access_sec_doors, access_research, access_medical,
-			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload)
+			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it)
 	minimal_access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels,
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
 			            access_heads, access_construction, access_sec_doors, access_research, access_medical,
-			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload)
+			            access_ce, access_RC_announce, access_keycard_auth, access_tcomsat, access_ai_upload, access_it)
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/chief_engineer
 
@@ -116,6 +117,7 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 2
+	intro_prefix = "an"
 	supervisors = "the chief engineer"
 	selection_color = "#FFEA95"
 	economic_modifier = 5
@@ -159,6 +161,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
+	intro_prefix = "an"
 	supervisors = "the Chief Engineer"
 	selection_color = "#FFEA95"
 	access = list(access_maint_tunnels, access_construction, access_engine_equip, access_engine)

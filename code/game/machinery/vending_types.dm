@@ -55,7 +55,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/boukha = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/brandy = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/grenadine = 5,
-		/obj/item/reagent_containers/food/drinks/bottle/tequilla = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/tequila = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/rum = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/cognac = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/cremeyvette = 4,
@@ -116,6 +116,7 @@
 	random_itemcount = 0
 	vending_sound = "machines/vending/vending_cans.ogg"
 	light_color = COLOR_PALE_BLUE_GRAY
+	exclusive_screen = FALSE
 
 
 /obj/machinery/vending/assist
@@ -198,10 +199,10 @@
 		/obj/item/reagent_containers/food/snacks/spacetwinkie = 6,
 		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 6,
 		/obj/item/reagent_containers/food/snacks/tastybread = 6,
-		/obj/item/reagent_containers/food/snacks/cookiesnack = 6,
-		/obj/item/storage/box/gum = 4,
+		/obj/item/storage/box/fancy/cookiesnack = 6,
+		/obj/item/storage/box/fancy/gum = 4,
 		/obj/item/clothing/mask/chewable/candy/lolli = 8,
-		/obj/item/storage/box/admints = 4,
+		/obj/item/storage/box/fancy/admints = 4,
 		/obj/item/reagent_containers/food/snacks/skrellsnacks = 3,
 		/obj/item/reagent_containers/food/snacks/meatsnack = 2,
 		/obj/item/reagent_containers/food/snacks/maps = 2,
@@ -226,10 +227,10 @@
 		/obj/item/reagent_containers/food/snacks/spacetwinkie = 15,
 		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 15,
 		/obj/item/reagent_containers/food/snacks/tastybread = 18,
-		/obj/item/storage/box/gum = 15,
+		/obj/item/storage/box/fancy/gum = 15,
 		/obj/item/clothing/mask/chewable/candy/lolli = 2,
-		/obj/item/storage/box/admints = 12,
-		/obj/item/reagent_containers/food/snacks/cookiesnack = 20,
+		/obj/item/storage/box/fancy/admints = 12,
+		/obj/item/storage/box/fancy/cookiesnack = 20,
 		/obj/item/reagent_containers/food/snacks/skrellsnacks = 40,
 		/obj/item/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/reagent_containers/food/snacks/maps = 23,
@@ -329,11 +330,11 @@
 	icon_state = "cigs"
 	vend_id = "smokes"
 	products = list(
-		/obj/item/storage/fancy/cigarettes/rugged = 6,
-		/obj/item/storage/fancy/cigarettes = 8,
-		/obj/item/storage/fancy/cigarettes/dromedaryco = 5,
-		/obj/item/storage/fancy/cigarettes/nicotine = 3,
-		/obj/item/storage/fancy/cigarettes/pra = 6,
+		/obj/item/storage/box/fancy/cigarettes/rugged = 6,
+		/obj/item/storage/box/fancy/cigarettes = 8,
+		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 5,
+		/obj/item/storage/box/fancy/cigarettes/nicotine = 3,
+		/obj/item/storage/box/fancy/cigarettes/pra = 6,
 		/obj/item/storage/chewables/rollable/bad = 6,
 		/obj/item/storage/chewables/rollable = 8,
 		/obj/item/storage/chewables/rollable/fine = 5,
@@ -341,29 +342,29 @@
 		/obj/item/storage/chewables/tobacco/bad = 6,
 		/obj/item/storage/chewables/tobacco = 8,
 		/obj/item/storage/chewables/tobacco/fine = 5,
-		/obj/item/storage/fancy/chewables/tobacco/nico = 3,
+		/obj/item/storage/box/fancy/chewables/tobacco/nico = 3,
 		/obj/item/storage/cigfilters = 6,
-		/obj/item/storage/fancy/cigpaper = 6,
-		/obj/item/storage/fancy/cigpaper/fine = 4,
-		/obj/item/storage/box/matches = 10,
+		/obj/item/storage/box/fancy/cigpaper = 6,
+		/obj/item/storage/box/fancy/cigpaper/fine = 4,
+		/obj/item/storage/box/fancy/matches = 10,
 		/obj/item/flame/lighter/random = 4,
 		/obj/item/spacecash/ewallet/lotto = 30
 	)
 	contraband = list(
-		/obj/item/storage/fancy/cigarettes/blank = 5,
-		/obj/item/storage/fancy/cigarettes/acmeco = 5,
+		/obj/item/storage/box/fancy/cigarettes/blank = 5,
+		/obj/item/storage/box/fancy/cigarettes/acmeco = 5,
 		/obj/item/clothing/mask/smokable/cigarette/rolled/sausage = 3
 	)
 	premium = list(
 		/obj/item/flame/lighter/zippo = 4,
-		/obj/item/storage/fancy/cigar = 5
+		/obj/item/storage/box/fancy/cigarettes/cigar = 5
 	)
 	prices = list(
-		/obj/item/storage/fancy/cigarettes/rugged = 67,
-		/obj/item/storage/fancy/cigarettes = 76,
-		/obj/item/storage/fancy/cigarettes/dromedaryco = 82,
-		/obj/item/storage/fancy/cigarettes/nicotine = 89,
-		/obj/item/storage/fancy/cigarettes/pra = 79,
+		/obj/item/storage/box/fancy/cigarettes/rugged = 67,
+		/obj/item/storage/box/fancy/cigarettes = 76,
+		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 82,
+		/obj/item/storage/box/fancy/cigarettes/nicotine = 89,
+		/obj/item/storage/box/fancy/cigarettes/pra = 79,
 		/obj/item/storage/chewables/rollable/bad = 56,
 		/obj/item/storage/chewables/rollable = 63,
 		/obj/item/storage/chewables/rollable/fine = 69,
@@ -371,12 +372,12 @@
 		/obj/item/storage/chewables/tobacco/bad = 55,
 		/obj/item/storage/chewables/tobacco = 74,
 		/obj/item/storage/chewables/tobacco/fine = 86,
-		/obj/item/storage/fancy/chewables/tobacco/nico = 91,
-		/obj/item/storage/box/matches = 12,
+		/obj/item/storage/box/fancy/chewables/tobacco/nico = 91,
+		/obj/item/storage/box/fancy/matches = 12,
 		/obj/item/flame/lighter/random = 12,
 		/obj/item/storage/cigfilters = 28,
-		/obj/item/storage/fancy/cigpaper = 35,
-		/obj/item/storage/fancy/cigpaper/fine = 42,
+		/obj/item/storage/box/fancy/cigpaper = 35,
+		/obj/item/storage/box/fancy/cigpaper/fine = 42,
 		/obj/item/spacecash/ewallet/lotto = 200
 	)
 	light_color = COLOR_BLUE_GRAY
@@ -392,7 +393,7 @@
 	vend_id = "meds"
 	products = list(
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 4,
-		/obj/item/reagent_containers/glass/bottle/norepinephrine = 4,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 4,
 		/obj/item/reagent_containers/glass/bottle/toxin = 4,
 		/obj/item/reagent_containers/glass/bottle/coughsyrup = 4,
 		/obj/item/reagent_containers/syringe = 12,
@@ -401,7 +402,7 @@
 		/obj/item/reagent_containers/glass/beaker = 4,
 		/obj/item/reagent_containers/dropper = 2,
 		/obj/item/stack/medical/bruise_pack = 5,
-		/obj/item/stack/medical/ointment = 5,		
+		/obj/item/stack/medical/ointment = 5,
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
 		/obj/item/stack/medical/advanced/ointment = 3,
 		/obj/item/stack/medical/splint = 2,
@@ -418,7 +419,7 @@
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
 	temperature_setting = -1
-	light_color = COLOR_GREEN_GRAY
+	light_color = LIGHT_COLOR_GREEN
 
 
 //This one's from bay12
@@ -454,20 +455,19 @@
 	desc = "A wall-mounted version of the NanoMed."
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
 	icon_state = "wallmed"
-	deny_time = 14
+	deny_time = 15
 	req_access = list(access_medical)
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
 		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/ointment = 2,
-		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 4,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 4,
 		/obj/item/device/healthanalyzer = 1,
 		/obj/item/device/breath_analyzer  = 1
 	)
 	contraband = list(
 		/obj/item/reagent_containers/syringe/dylovene = 4,
-		/obj/item/reagent_containers/syringe/antiviral = 4,
 		/obj/item/reagent_containers/pill/tox = 1
 	)
 	premium = list(
@@ -475,19 +475,19 @@
 	)
 	random_itemcount = 0
 	temperature_setting = -1
-	light_color = COLOR_GREEN_GRAY
+	light_color = LIGHT_COLOR_GREEN
 
 
 /obj/machinery/vending/wallmed2
 	name = "NanoMed"
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	icon_state = "wallmed"
-	deny_time = 14
+	deny_time = 15
 	req_access = list(access_medical)
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 5,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 5,
 		/obj/item/reagent_containers/syringe/dylovene = 3,
 		/obj/item/stack/medical/bruise_pack = 3,
 		/obj/item/stack/medical/ointment = 3,
@@ -501,7 +501,7 @@
 	)
 	random_itemcount = 0
 	temperature_setting = -1
-	light_color = COLOR_GREEN_GRAY
+	light_color = LIGHT_COLOR_GREEN
 
 
 /obj/machinery/vending/security
@@ -521,14 +521,14 @@
 		/obj/item/device/holowarrant = 5
 	)
 	premium = list(
-		/obj/item/storage/fancy/donut = 2
+		/obj/item/storage/box/fancy/donut = 2
 	)
 	contraband = list(
 		/obj/item/clothing/glasses/sunglasses = 2,
 		/obj/item/grenade/flashbang = 4
 	)
 	restock_blocked_items = list(
-		/obj/item/storage/fancy/donut,
+		/obj/item/storage/box/fancy/donut,
 		/obj/item/storage/box/evidence,
 		/obj/item/device/flash,
 		/obj/item/reagent_containers/spray/pepper
@@ -536,6 +536,7 @@
 	restock_items = 1
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
+	exclusive_screen = FALSE
 
 
 /obj/machinery/vending/hydronutrients
@@ -1033,6 +1034,7 @@
 	vend_id = "battlemonsters"
 	products = list(
 		/obj/item/book/manual/wiki/battlemonsters = 10,
+		/obj/item/battle_monsters/wrapped/basic = 5,
 		/obj/item/battle_monsters/wrapped = 10,
 		/obj/item/battle_monsters/wrapped/pro = 10,
 		/obj/item/battle_monsters/wrapped/species = 4, //Human monsters

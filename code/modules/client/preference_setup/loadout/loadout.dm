@@ -127,7 +127,7 @@ var/list/gear_datums = list()
 			else
 				total_cost += G.cost
 
-/datum/category_item/player_setup_item/loadout/content()
+/datum/category_item/player_setup_item/loadout/content(var/mob/user)
 	var/total_cost = 0
 	if(pref.gear && pref.gear.len)
 		for(var/i = 1; i <= pref.gear.len; i++)
@@ -228,7 +228,7 @@ var/list/gear_datums = list()
 				if(istype(G)) total_cost += G.cost
 			if((total_cost+TG.cost) <= MAX_GEAR_COST)
 				pref.gear += TG.display_name
-		return TOPIC_REFRESH
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 	if(href_list["gear"] && href_list["tweak"])
 		var/datum/gear/gear = gear_datums[href_list["gear"]]
 		var/datum/gear_tweak/tweak = locate(href_list["tweak"])
@@ -238,7 +238,7 @@ var/list/gear_datums = list()
 		if(!metadata || !CanUseTopic(user))
 			return TOPIC_NOACTION
 		set_tweak_metadata(gear, tweak, metadata)
-		return TOPIC_REFRESH
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	if(href_list["next_slot"] || href_list["prev_slot"])
 		//Set the current slot in the gear list to the currently selected gear
@@ -247,11 +247,15 @@ var/list/gear_datums = list()
 		//If we're moving up a slot..
 		if(href_list["next_slot"])
 			//change the current slot number
-			pref.gear_slot = ((pref.gear_slot+1) % 3) + 1
+			pref.gear_slot = pref.gear_slot+1
+			if(pref.gear_slot > config.loadout_slots)
+				pref.gear_slot = 1
 		//If we're moving down a slot..
 		else if(href_list["prev_slot"])
 			//change current slot one down
-			pref.gear_slot = ((pref.gear_slot-1) % 3) + 1
+			pref.gear_slot = pref.gear_slot-1
+			if(pref.gear_slot < 1)
+				pref.gear_slot = config.loadout_slots
 		// Set the currently selected gear to whatever's in the new slot
 		if(pref.gear_list["[pref.gear_slot]"])
 			pref.gear = pref.gear_list["[pref.gear_slot]"]
@@ -259,14 +263,14 @@ var/list/gear_datums = list()
 			pref.gear = list()
 			pref.gear_list["[pref.gear_slot]"] = list()
 		// Refresh?
-		return TOPIC_REFRESH
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["select_category"])
 		current_tab = href_list["select_category"]
-		return TOPIC_REFRESH
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 	else if(href_list["clear_loadout"])
 		pref.gear.Cut()
-		return TOPIC_REFRESH
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 	return ..()
 
 /datum/gear

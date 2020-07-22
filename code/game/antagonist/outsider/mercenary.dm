@@ -9,7 +9,7 @@ var/datum/antagonist/mercenary/mercs
 	landmark_id = "Syndicate-Spawn"
 	leader_welcome_text = "You are the leader of the mercenary strikeforce; hail to the chief. Use :t to speak to your underlings."
 	welcome_text = "To speak on the strike team's private channel use :t."
-	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_HAS_NUKE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER
+	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_HAS_NUKE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER | ANTAG_NO_FLAVORTEXT
 	id_type = /obj/item/card/id/syndicate
 	antaghud_indicator = "hudoperative"
 	required_age = 10
@@ -51,3 +51,6 @@ var/datum/antagonist/mercenary/mercs
 
 	give_codewords(player)
 	return TRUE
+
+/datum/antagonist/mercenary/get_antag_radio()
+	return "Mercenary"

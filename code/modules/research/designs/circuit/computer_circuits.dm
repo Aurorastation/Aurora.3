@@ -1,9 +1,5 @@
 /datum/design/circuit/computer
-	design_order = 1
-
-/datum/design/circuit/computer/AssembleDesignName()
-	..()
-	name = "Computer Circuit Design ([item_name])"
+	p_category = "Computer Circuit Designs"
 
 /datum/design/circuit/computer/seccamera
 	name = "Security Camera Monitor"
@@ -20,10 +16,6 @@
 /datum/design/circuit/computer/operating
 	name = "Patient Monitoring Console"
 	build_path = /obj/item/circuitboard/operating
-
-/datum/design/circuit/computer/pandemic
-	name = "PanD.E.M.I.C. 2200"
-	build_path = /obj/item/circuitboard/pandemic
 
 /datum/design/circuit/computer/teleconsole
 	name = "Teleporter Control Console"

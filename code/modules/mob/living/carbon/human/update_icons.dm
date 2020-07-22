@@ -119,6 +119,12 @@ There are several things that need to be remembered:
 #define GET_BODY_TYPE (cached_bodytype || (cached_bodytype = species.get_bodytype()))
 #define GET_TAIL_LAYER (dir == NORTH ? TAIL_NORTH_LAYER : TAIL_SOUTH_LAYER)
 
+/proc/overlay_image(icon,icon_state,color,flags)
+	var/image/ret = image(icon,icon_state)
+	ret.color = color
+	ret.appearance_flags = flags
+	return ret
+
 /mob/living/carbon/human
 	var/list/overlays_raw[TOTAL_LAYERS] // Our set of "raw" overlays that can be modified, but cannot be directly applied to the mob without preprocessing.
 	var/previous_damage_appearance // store what the body last looked like, so we only have to update it if something changed
@@ -218,6 +224,16 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icons()
 
+//Overlays for the worn overlay so you can overlay while you overlay
+//eg: ammo counters, primed grenade flashing, etc.
+//"icon_file" is used automatically for inhands etc. to make sure it gets the correct inhand file
+/obj/item/proc/worn_overlays(icon_file)
+	. = list()
+	if(build_from_parts)
+		var/mutable_appearance/M = mutable_appearance(icon_file, "[item_state]_[worn_overlay]")
+		M.appearance_flags = RESET_COLOR
+		. += M
+
 //BASE MOB SPRITE
 /mob/living/carbon/human/proc/update_body(var/update_icons=1)
 	if (QDELING(src))
@@ -261,7 +277,7 @@ There are several things that need to be remembered:
 	if (!base_icon)	// Icon ain't in the cache, so generate it.
 		//BEGIN CACHED ICON GENERATION.
 		var/obj/item/organ/external/chest = get_organ(BP_CHEST)
-		base_icon = chest.get_icon()
+		base_icon = chest.get_icon(skeleton)
 
 		for(var/obj/item/organ/external/part in organs)
 			if(isnull(part) || part.is_stump())
@@ -1054,12 +1070,14 @@ There are several things that need to be remembered:
 	if(client)
 		client.screen |= contents
 		if(hud_used)
+			update_hud_hands()
 			hud_used.hidden_inventory_update() 	//Updates the screenloc of the items on the 'other' inventory bar
 
 //update whether handcuffs appears on our hud.
-/mob/living/carbon/proc/update_hud_handcuffed()
-	if(hud_used && hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
+/mob/living/carbon/proc/update_hud_hands()
+	if(hud_used?.l_hand_hud_object)
 		hud_used.l_hand_hud_object.update_icon()
+	if(hud_used?.r_hand_hud_object)
 		hud_used.r_hand_hud_object.update_icon()
 
 /mob/living/carbon/human/update_inv_handcuffed(var/update_icons=1)
@@ -1082,7 +1100,7 @@ There are several things that need to be remembered:
 	else
 		overlays_raw[HANDCUFF_LAYER] = null
 
-	update_hud_handcuffed()
+	update_hud_hands()
 	if(update_icons)
 		update_icons()
 
@@ -1111,7 +1129,6 @@ There are several things that need to be remembered:
 	if(update_icons)
 		update_icons()
 
-
 /mob/living/carbon/human/update_inv_r_hand(var/update_icons=1)
 	if (QDELING(src))
 		return
@@ -1121,7 +1138,9 @@ There are several things that need to be remembered:
 		r_hand.screen_loc = ui_rhand	//TODO
 
 		//determine icon state to use
-		var/t_state
+		var/t_state = r_hand.item_state || r_hand.icon_state
+
+		var/image/result_layer
 		if(r_hand.contained_sprite)
 			r_hand.auto_adapt_species(src)
 			t_state = "[UNDERSCORE_OR_NULL(r_hand.icon_species_tag)][r_hand.item_state][WORN_RHAND]"
@@ -1130,8 +1149,6 @@ There are several things that need to be remembered:
 		else
 			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
 				t_state = r_hand.item_state_slots[slot_r_hand_str]
-			else
-				t_state = r_hand.item_state || r_hand.icon_state
 
 			//determine icon to use
 			var/icon/t_icon
@@ -1143,11 +1160,19 @@ There are several things that need to be remembered:
 			else
 				t_icon = INV_R_HAND_DEF_ICON
 
-			overlays_raw[R_HAND_LAYER] = image(t_icon, t_state)
+			result_layer = image(t_icon, t_state)
+
+			if(r_hand.color)
+				result_layer.color = r_hand.color
+
+			var/image/worn_overlays = r_hand.worn_overlays(t_icon)
+			if(worn_overlays)
+				result_layer.overlays.Add(worn_overlays)
+
+			overlays_raw[R_HAND_LAYER] = result_layer
 
 	if(update_icons)
 		update_icons()
-
 
 /mob/living/carbon/human/update_inv_l_hand(var/update_icons=1)
 	if (QDELING(src))
@@ -1158,7 +1183,9 @@ There are several things that need to be remembered:
 		l_hand.screen_loc = ui_lhand	//TODO
 
 		//determine icon state to use
-		var/t_state
+		var/t_state = l_hand.item_state || l_hand.icon_state
+
+		var/image/result_layer
 		if(l_hand.contained_sprite)
 			l_hand.auto_adapt_species(src)
 			t_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_tag)][l_hand.item_state][WORN_LHAND]"
@@ -1167,8 +1194,6 @@ There are several things that need to be remembered:
 		else
 			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
 				t_state = l_hand.item_state_slots[slot_l_hand_str]
-			else
-				t_state = l_hand.item_state || l_hand.icon_state
 
 			//determine icon to use
 			var/icon/t_icon
@@ -1180,7 +1205,16 @@ There are several things that need to be remembered:
 			else
 				t_icon = INV_L_HAND_DEF_ICON
 
-			overlays_raw[L_HAND_LAYER] = image(t_icon, t_state)
+			result_layer = image(t_icon, t_state)
+
+			if(l_hand.color)
+				result_layer.color = l_hand.color
+
+			var/image/worn_overlays = l_hand.worn_overlays(t_icon)
+			if(worn_overlays)
+				result_layer.overlays.Add(worn_overlays)
+
+			overlays_raw[L_HAND_LAYER] = result_layer
 
 	if(update_icons)
 		update_icons()

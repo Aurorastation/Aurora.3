@@ -11,7 +11,7 @@
 	w_class = 2.0
 	var/obj/item/implantcase/case = null
 	var/broadcasting = null
-	var/listening = 1.0
+	var/listening = TRUE
 	proc
 		update()
 

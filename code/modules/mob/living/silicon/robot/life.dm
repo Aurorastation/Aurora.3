@@ -14,6 +14,13 @@
 	if(client)
 		handle_regular_hud_updates()
 		update_items()
+	if(stat)
+		cut_overlay(eye_overlay)
+		has_cut_eye_overlay = TRUE
+	else if(has_cut_eye_overlay)
+		eye_overlay = cached_eye_overlays[a_intent]
+		add_overlay(eye_overlay)
+		has_cut_eye_overlay = null
 	if(stat != DEAD) //still using power
 		use_power()
 		process_killswitch()
