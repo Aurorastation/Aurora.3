@@ -1,6 +1,7 @@
 #define RFD_FLOORS_N_WALL 1
-#define RFD_AIRLOCK 2
-#define RFD_DECONSTRUCT 3
+#define RFD_WINDOWS_N_GRILLE 2
+#define RFD_AIRLOCK 3
+#define RFD_DECONSTRUCT 4
 
 //Contains the rapid construction device.
 /obj/item/rfd
@@ -144,6 +145,7 @@ RFD Construction-Class
 	. = ..()
 	radial_modes = list(
 		"Floors and Walls" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "wallfloor"),
+		"Windows and Grille" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "grillewindow"),
 		"Airlock" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "airlock"),
 		"Deconstruct" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "delete")
 	)
@@ -153,6 +155,8 @@ RFD Construction-Class
 	switch(current_mode)
 		if("Floors and Walls")
 			mode = RFD_FLOORS_N_WALL
+		if("Windows and Grille")
+			mode = RFD_WINDOWS_N_GRILLE
 		if("Airlock")
 			mode = RFD_AIRLOCK
 		if("Deconstruct")
@@ -168,7 +172,7 @@ RFD Construction-Class
 /obj/item/rfd/construction/afterattack(atom/A, mob/user, proximity)
 	if(!proximity)
 		return
-	if(!isturf(A.loc) || istype(A, /obj/structure/table))
+	if((!isturf(A) && !isturf(A.loc)) || istype(A, /obj/structure/table))
 		return
 	if(disabled && !isrobot(user))
 		return FALSE
@@ -186,32 +190,44 @@ RFD Construction-Class
 		return FALSE
 
 	var/turf/T = istype(A, /turf) ? A : null // the lower istypes will return false if T is null, which means we don't have to check whether it's an atom or a turf
-	if(mode == RFD_DECONSTRUCT && istype(A, /obj/machinery/door/airlock))
-		build_cost =  10
-		build_delay = 50
-		build_type = "airlock"
-	else if(mode == RFD_AIRLOCK && !deconstruct && istype(A, /turf/simulated/floor))
-		build_cost =  3
-		build_delay = 20
-		build_type = "airlock"
-		build_atom = /obj/machinery/door/airlock
-	else if(!deconstruct && istype(T, /turf/space) || istype(T, T.baseturf))
-		build_cost =  1
-		build_type =  "floor"
-		build_atom =  /turf/simulated/floor/airless
-	else if(deconstruct && istype(T, /turf/simulated/wall))
-		var/turf/simulated/wall/W = T
-		build_delay = deconstruct ? 50 : 40
-		build_cost =  5
-		build_type =  (!canRwall && W.reinf_material) ? null : "wall"
-		build_atom =  /turf/simulated/floor
-	else if(istype(T, /turf/simulated/floor))
-		build_delay = deconstruct ? 50 : 20
-		build_cost =  deconstruct ? 10 : 3
-		build_type =  deconstruct ? "floor" : "wall"
-		build_atom =  deconstruct ? T.baseturf : /turf/simulated/wall
-	else
-		return FALSE
+	if(mode == RFD_FLOORS_N_WALL)
+		if(istype(T, /turf/space) || istype(T, T.baseturf))
+			build_cost =  1
+			build_type =  "floor"
+			build_atom =  /turf/simulated/floor/airless
+		else if(istype(T, /turf/simulated/floor))
+			build_delay = 20
+			build_cost =  3
+			build_type =  "wall"
+			build_atom =  /turf/simulated/wall
+	else if(mode == RFD_WINDOWS_N_GRILLE)
+		if(istype(T, /turf/simulated/floor))
+			build_cost =  3
+			build_delay = 20
+			build_type = "window and grille section"
+			build_atom = /obj/effect/wingrille_spawn/reinforced
+	else if(mode == RFD_AIRLOCK)
+		if(istype(T, /turf/simulated/floor))
+			build_cost =  3
+			build_delay = 20
+			build_type = "airlock"
+			build_atom = /obj/machinery/door/airlock
+	else if(mode == RFD_DECONSTRUCT)
+		if(istype(A, /obj/machinery/door/airlock))
+			build_cost =  10
+			build_delay = 50
+			build_type = "airlock"
+		else if(istype(T, /turf/simulated/wall))
+			var/turf/simulated/wall/W = T
+			build_delay = 50
+			build_cost =  5
+			build_type =  (!canRwall && W.reinf_material) ? null : "wall"
+			build_atom =  /turf/simulated/floor
+		else if(istype(T, /turf/simulated/floor))
+			build_delay = 50
+			build_cost =  10
+			build_type =  "floor"
+			build_atom =  T.baseturf
 
 	if(!build_type)
 		working = FALSE
@@ -229,8 +245,8 @@ RFD Construction-Class
 	playsound(get_turf(src), 'sound/machines/hydraulic_short.ogg', 50, 1)
 
 	working = TRUE
-	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [T]."), SPAN_NOTICE("You start [deconstruct ? "deconstructing" : "constructing"] \a [build_type]..."))
-	var/obj/effect/constructing_effect/rfd_effect = new(get_turf(T), src.build_delay, src.mode)
+	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [A]."), SPAN_NOTICE("You start [deconstruct ? "deconstructing" : "constructing"] \a [build_type]..."))
+	var/obj/effect/constructing_effect/rfd_effect = new(get_turf(A), src.build_delay, src.mode)
 
 	if((build_delay && !do_after(user, build_delay)) || (!useResource(build_cost, user)))
 		working = FALSE
@@ -238,7 +254,7 @@ RFD Construction-Class
 		return FALSE
 
 	working = FALSE
-	if(build_delay && !can_use(user,T))
+	if(build_delay && !can_use(user, A))
 		return FALSE
 
 	if(ispath(build_atom, /turf))
@@ -248,9 +264,9 @@ RFD Construction-Class
 			var/turf/simulated/wall/W = T
 			W.under_turf = original_type
 	else if(ispath(build_atom, /obj))
-		new build_atom(T)
+		new build_atom(A)
 	else
-		qdel(T)
+		qdel(A)
 
 	rfd_effect.end_animation()
 	playsound(get_turf(src), 'sound/effects/magnetclamp.ogg', 50, 1)
