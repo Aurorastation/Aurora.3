@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - rscadd: "Added a local teleporter to mining, it is located south of the refinery area."
+  - rscadd: "Added a local teleporter circuiboard to the circuit imprinter, a machine that is capable of teleporting matter safely over small distances."
