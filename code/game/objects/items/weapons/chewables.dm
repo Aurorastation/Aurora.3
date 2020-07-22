@@ -84,10 +84,12 @@ obj/item/clothing/mask/chewable/Destroy()
 	desc = "A disgusting spitwad."
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "spit-chew"
+	drop_sound = 'sound/items/drop/flesh.ogg'
+	pickup_sound = 'sound/items/pickup/flesh.ogg'
 	slot_flags = SLOT_EARS | SLOT_MASK
 
 /obj/item/clothing/mask/chewable/proc/spitout(var/transfer_color = 1, var/no_message = 0)
-	STOP_PROCESSING(SSprocessing, src)
+	var/mob/living/M
 	if(type_butt)
 		var/obj/item/butt = new type_butt(src.loc)
 		transfer_fingerprints_to(butt)
@@ -96,7 +98,7 @@ obj/item/clothing/mask/chewable/Destroy()
 		if(brand)
 			butt.desc += " This one is \a [brand]."
 		if(ismob(loc))
-			var/mob/living/M = loc
+			M = loc
 			if(!no_message)
 				to_chat(M, SPAN_NOTICE("The [name] runs out of flavor."))
 			if(M.wear_mask)
@@ -106,7 +108,8 @@ obj/item/clothing/mask/chewable/Destroy()
 					M.update_inv_l_hand(0)
 					M.update_inv_r_hand(1)
 					M.put_in_hands(butt)
-		qdel(src)
+	STOP_PROCESSING(SSprocessing, src)
+	qdel(src)
 
 /obj/item/clothing/mask/chewable/tobacco/bad
 	name = "chewing tobacco"
@@ -148,6 +151,8 @@ obj/item/clothing/mask/chewable/Destroy()
 	desc = "A disgusting chewed up wad of gum."
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "spit-gum"
+	drop_sound = 'sound/items/drop/flesh.ogg'
+	pickup_sound = 'sound/items/pickup/flesh.ogg'
 	slot_flags = SLOT_EARS | SLOT_MASK
 
 /obj/item/clothing/mask/chewable/candy/gum
