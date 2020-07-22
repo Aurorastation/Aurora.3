@@ -378,10 +378,10 @@
 	required_reagents = list(/datum/reagent/cryptobiolin = 1, /datum/reagent/inaprovaline = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/asinolyatrine
-	name = "Asinolyatrine"
-	id = "asinolyatrine"
-	result = /datum/reagent/asinolyatrine
+/datum/chemical_reaction/asinodryl
+	name = "Asinodryl"
+	id = "asinodryl"
+	result = /datum/reagent/asinodryl
 	required_reagents = list(/datum/reagent/cetahydramine = 1, /datum/reagent/synaptizine = 1, /datum/reagent/water = 3)
 	catalysts = list(/datum/reagent/tungsten = 5)
 	result_amount = 3

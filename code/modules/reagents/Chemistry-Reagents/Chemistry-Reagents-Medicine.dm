@@ -511,15 +511,15 @@
 	M.add_chemical_effect(CE_EMETIC, dose/8) // chance per 2 second tick to cause vomiting
 	M.add_chemical_effect(CE_ANTIBIOTIC, dose) // strength of antibiotics; amount absorbed, need >5 to be effective. takes 50 seconds to work
 
-/datum/reagent/asinolyatrine
-	name = "Asinolyatrine"
-	description = "Asinolyatrine is a medication used to prevent nausea and vomiting."
+/datum/reagent/asinodryl
+	name = "Asinodryl"
+	description = "Asinodryl is a medication used to prevent nausea and vomiting."
 	color = "#f5f2d0"
 	taste_description = "bitterness"
 	metabolism = REM * 0.25
 	fallback_specific_heat = 1
 
-/datum/reagent/asinolyatrine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/asinodryl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
 	M.add_chemical_effect(CE_ANTIEMETIC, dose/4) // 1u should suppress 2u thetamycin
