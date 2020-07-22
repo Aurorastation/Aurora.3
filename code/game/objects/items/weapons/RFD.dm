@@ -67,22 +67,22 @@
 
 	if(istype(W, /obj/item/rfd_ammo))
 		if((stored_matter + 10) > 30)
-			to_chat(user, "<span class='notice'>The RFD can't hold any more matter-units.</span>")
+			to_chat(user, SPAN_NOTICE("The RFD can't hold any more matter-units."))
 			return
 		user.drop_from_inventory(W,src)
 		qdel(W)
 		stored_matter += 10
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>The RFD now holds [stored_matter]/30 matter-units.</span>")
+		to_chat(user, SPAN_NOTICE("The RFD now holds [stored_matter]/30 matter-units."))
 		update_icon()
 		return
 
 	if(W.isscrewdriver())  // Turning it into a crossbow
 		crafting = !crafting
 		if(!crafting)
-			to_chat(user, "<span class='notice'>You reassemble the RFD</span>")
+			to_chat(user, SPAN_NOTICE("You reassemble the RFD"))
 		else
-			to_chat(user, "<span class='notice'>The RFD can now be modified.</span>")
+			to_chat(user, SPAN_NOTICE("The RFD can now be modified."))
 		src.add_fingerprint(user)
 		return
 
@@ -98,7 +98,7 @@
 			add_fingerprint(user)
 			return
 		else
-			to_chat(user, "<span class='notice'>You need to fully assemble the crossbow frame first!</span>")
+			to_chat(user, SPAN_NOTICE("You need to fully assemble the crossbow frame first!"))
 			return
 	..()
 
@@ -218,7 +218,7 @@ RFD Construction-Class
 		return FALSE
 
 	if(mode == RFD_DECONSTRUCT && istype(A, /obj/machinery/door) && !A.density)
-		to_chat(user, "<span class='warning'>\The [build_type] must be closed before you can deconstruct it.</span>")
+		to_chat(user, SPAN_WARNING("\The [build_type] must be closed before you can deconstruct it."))
 		return FALSE
 
 	if(stored_matter < build_cost)
