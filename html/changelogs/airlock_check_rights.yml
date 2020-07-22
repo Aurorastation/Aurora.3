@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Airlocks will no longer produce a message saying you have insufficient rights when using the AI/cyborg airlock menu."
