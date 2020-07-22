@@ -1,5 +1,5 @@
-#define RFD_FLOORS_N_WALL 1
-#define RFD_WINDOWS_N_GRILLE 2
+#define RFD_FLOORS_AND_WALL 1
+#define RFD_WINDOWS_AND_GRILLE 2
 #define RFD_AIRLOCK 3
 #define RFD_DECONSTRUCT 4
 
@@ -29,12 +29,12 @@
 	pickup_sound = 'sound/items/pickup/gun.ogg'
 	var/stored_matter = 30 // Starts off full.
 	var/working = FALSE
-	var/mode = RFD_FLOORS_N_WALL
+	var/mode = RFD_FLOORS_AND_WALL
 	var/number_of_modes = 1
 	var/list/modes
 	var/crafting = FALSE
 
-	var/list/sendable_atoms = list(/obj/machinery/door/airlock) // a list of atoms that will be sent to the alter_atom proc if we click on them, rather than their turf
+	var/list/valid_atoms = list(/obj/machinery/door/airlock) // a list of atoms that will be sent to the alter_atom proc if we click on them, rather than their turf
 	var/build_cost = 0
 	var/build_type
 	var/build_atom
@@ -58,7 +58,7 @@
 /obj/item/rfd/attack_self(mob/user)
 	//Change the mode
 	if(++mode > number_of_modes)
-		mode = RFD_FLOORS_N_WALL
+		mode = RFD_FLOORS_AND_WALL
 	to_chat(user, SPAN_NOTICE("The mode selection dial is now at [modes[mode]]."))
 	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
 	if(prob(20))
@@ -154,15 +154,15 @@ RFD Construction-Class
 	var/current_mode = show_radial_menu(user, src, radial_modes, radius = 42, require_near = TRUE, tooltips = TRUE)
 	switch(current_mode)
 		if("Floors and Walls")
-			mode = RFD_FLOORS_N_WALL
+			mode = RFD_FLOORS_AND_WALL
 		if("Windows and Grille")
-			mode = RFD_WINDOWS_N_GRILLE
+			mode = RFD_WINDOWS_AND_GRILLE
 		if("Airlock")
 			mode = RFD_AIRLOCK
 		if("Deconstruct")
 			mode = RFD_DECONSTRUCT
 		else
-			mode = RFD_FLOORS_N_WALL
+			mode = RFD_FLOORS_AND_WALL
 	if(current_mode)
 		to_chat(user, SPAN_NOTICE("You switch the selection dial to <i>\"[current_mode]\"</i>."))
 		playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
@@ -181,7 +181,7 @@ RFD Construction-Class
 	var/turf/t = get_turf(A)
 	if(isNotStationLevel(t.z))
 		return FALSE
-	if(is_type_in_list(A, sendable_atoms))
+	if(is_type_in_list(A, valid_atoms))
 		return alter_atom(A, user, (mode == RFD_DECONSTRUCT))
 	return alter_atom(t, user, (mode == RFD_DECONSTRUCT))
 
@@ -189,8 +189,8 @@ RFD Construction-Class
 	if(working)
 		return FALSE
 
-	var/turf/T = istype(A, /turf) ? A : null // the lower istypes will return false if T is null, which means we don't have to check whether it's an atom or a turf
-	if(mode == RFD_FLOORS_N_WALL)
+	var/turf/T = isturf(A) ? A : null // the lower istypes will return false if T is null, which means we don't have to check whether it's an atom or a turf
+	if(mode == RFD_FLOORS_AND_WALL)
 		if(istype(T, /turf/space) || istype(T, T.baseturf))
 			build_cost =  1
 			build_type =  "floor"
@@ -200,7 +200,7 @@ RFD Construction-Class
 			build_cost =  3
 			build_type =  "wall"
 			build_atom =  /turf/simulated/wall
-	else if(mode == RFD_WINDOWS_N_GRILLE)
+	else if(mode == RFD_WINDOWS_AND_GRILLE)
 		if(istype(T, /turf/simulated/floor))
 			build_cost =  3
 			build_delay = 20
@@ -636,6 +636,6 @@ RFD Piping-Class
 #undef SCRUBBER_PIPE
 #undef DEVICES
 
-#undef RFD_FLOORS_N_WALL
+#undef RFD_FLOORS_AND_WALL
 #undef RFD_AIRLOCK
 #undef RFD_DECONSTRUCT
