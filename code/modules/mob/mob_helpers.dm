@@ -1227,8 +1227,8 @@ proc/is_blind(A)
 	a_intent = set_intent
 
 /mob/proc/get_accent_icon(var/datum/language/speaking = null, var/force_accent)
-	if(accent && speaking?.allow_accents)
-		var/used_accent = force_accent ? force_accent : accent
+	var/used_accent = force_accent ? force_accent : accent
+	if(used_accent && speaking?.allow_accents)
 		var/datum/accent/a = SSrecords.accents[used_accent]
 		var/final_icon = a.tag_icon
 		return "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[final_icon]'>"
