@@ -1,7 +1,7 @@
 /mob/living/silicon/robot/set_intent(var/set_intent)
 	a_intent = set_intent
 	cut_overlay(eye_overlay)
-	if(!stat && !isDrone(src))
+	if(!stat)
 		eye_overlay = cached_eye_overlays[a_intent]
 		add_overlay(eye_overlay)
 
@@ -26,7 +26,7 @@
 	if(eye_overlay)
 		cut_overlay(eye_overlay)
 	eye_overlay = cached_eye_overlays[a_intent]
-	if(!stat && !isDrone(src))
+	if(!stat)
 		add_overlay(eye_overlay)
 	var/panelprefix = custom_sprite ? src.ckey : "ov"
 	cached_panel_overlays = list(
