@@ -222,7 +222,7 @@ RFD Construction-Class
 			build_delay = 50
 			build_cost =  5
 			build_type =  (!canRwall && W.reinf_material) ? null : "wall"
-			build_atom =  /turf/simulated/floor
+			build_atom =  W.under_turf
 		else if(istype(T, /turf/simulated/floor))
 			build_delay = 50
 			build_cost =  10
