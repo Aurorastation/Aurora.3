@@ -41,16 +41,11 @@
 				else
 					message = stars(message)
 
-	var/accent_icon
-
+	var/accent_icon = speaker.get_accent_icon(language)
 	var/speaker_name = speaker.name
 	if(ishuman(speaker))
 		var/mob/living/carbon/human/H = speaker
 		speaker_name = H.GetVoice()
-
-	if(isliving(speaker))
-		var/mob/living/L = speaker
-		accent_icon = L.get_accent_icon(language)
 
 	if(italics)
 		message = "<i>[message]</i>"
