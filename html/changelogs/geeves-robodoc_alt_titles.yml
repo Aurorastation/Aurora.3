@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscdel: "Roboticist alt-titles have been removed. This doesn't affect their education or speciality, but they will be expected to be able to do a bit of everything."
