@@ -94,7 +94,7 @@
 	if(chambered.leaves_residue)
 		var/mob/living/carbon/human/H = loc
 		if(istype(H))
-			if(!H.gloves)
+			if(!istype(H.gloves, /obj/item/clothing))
 				H.gunshot_residue = chambered.caliber
 			else
 				var/obj/item/clothing/G = H.gloves

@@ -29,6 +29,8 @@
 	var/mothershuttle //tag of mothershuttle
 	var/motherdock    //tag of mothershuttle landmark, defaults to starting location
 
+	var/squishes = TRUE //decides whether or not things get squished when it moves.
+
 /datum/shuttle/New(_name, var/obj/effect/shuttle_landmark/initial_location)
 	..()
 	if(_name)
@@ -172,7 +174,7 @@
 
 	for(var/turf/src_turf in turf_translation)
 		var/turf/dst_turf = turf_translation[src_turf]
-		if(src_turf.is_solid_structure()) //in case someone put a hole in the shuttle and you were lucky enough to be under it
+		if(squishes && src_turf.is_solid_structure()) //in case someone put a hole in the shuttle and you were lucky enough to be under it
 			for(var/atom/movable/AM in dst_turf)
 				if(!AM.simulated)
 					continue

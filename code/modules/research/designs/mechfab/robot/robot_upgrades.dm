@@ -38,8 +38,8 @@
 	build_path = /obj/item/robot_parts/robot_component/jetpack
 
 /datum/design/item/robot_upgrade/syndicate
-	name = "Illegal Upgrade"
-	desc = "Allows for the construction of lethal upgrades for cyborgs."
+	name = "Non-standard Equipment Upgrade"
+	desc = "Allows cyborg-likes to access weaponry hidden within themselves."
 	req_tech = list(TECH_COMBAT = 4, TECH_ILLEGAL = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 15000, MATERIAL_DIAMOND = 10000)
 	build_path = /obj/item/borg/upgrade/syndicate

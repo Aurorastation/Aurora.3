@@ -3271,7 +3271,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /turf/unsimulated/floor{
 	name = "plating";
@@ -3972,7 +3972,7 @@
 	pixel_x = -4;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/glass/bottle/norepinephrine{
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
 	pixel_x = 4;
 	pixel_y = 7
 	},
@@ -4292,7 +4292,7 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/storage/fancy/donut{
+/obj/item/storage/box/fancy/donut{
 	pixel_y = 8
 	},
 /turf/simulated/floor/tiled,
@@ -6002,7 +6002,7 @@
 "avJ" = (
 /obj/structure/table/rack,
 /obj/item/storage/secure/briefcase,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/box/fancy/cigarettes,
 /obj/item/flame/lighter/zippo,
 /obj/item/storage/belt/utility,
 /obj/item/storage/backpack/satchel,
@@ -7474,7 +7474,7 @@
 /area/centcom/control)
 "ayU" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/fancy/donut,
+/obj/item/storage/box/fancy/donut,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -8164,7 +8164,7 @@
 /area/centcom/specops)
 "aAv" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/fancy/donut,
+/obj/item/storage/box/fancy/donut,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -8276,9 +8276,9 @@
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/storage/box/syringes,
 /obj/item/reagent_containers/hypospray/cmo,
 /obj/item/reagent_containers/hypospray/cmo,
@@ -8293,9 +8293,9 @@
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/storage/box/syringes,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/item/reagent_containers/hypospray/cmo,
@@ -10223,7 +10223,7 @@
 	dir = 5
 	},
 /obj/item/flame/lighter/zippo,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/box/fancy/cigarettes,
 /obj/item/material/ashtray/bronze{
 	pixel_x = -1;
 	pixel_y = 1
@@ -10241,7 +10241,7 @@
 	dir = 5
 	},
 /obj/item/flame/lighter/zippo,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/box/fancy/cigarettes,
 /obj/item/material/ashtray/bronze{
 	pixel_x = -1;
 	pixel_y = 1
@@ -10577,7 +10577,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
@@ -11693,7 +11693,7 @@
 /area/centcom/holding)
 "aIP" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/tray,
+/obj/item/storage/box/fancy/tray,
 /turf/unsimulated/floor{
 	icon_state = "whitehall"
 	},
@@ -13680,7 +13680,7 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/box/fancy/cigarettes,
 /obj/item/flame/lighter/zippo,
 /turf/simulated/floor/tiled,
 /area/skipjack_station/start)
@@ -15685,7 +15685,7 @@
 /obj/item/clothing/mask/smokable/pipe/cobpipe,
 /obj/item/clothing/mask/smokable/pipe,
 /obj/item/flame/lighter/zippo,
-/obj/item/storage/fancy/cigarettes/cigar,
+/obj/item/storage/box/fancy/cigarettes/cigar,
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "cult"
@@ -15952,7 +15952,7 @@
 /area/tdome)
 "aSY" = (
 /obj/structure/table/wood,
-/obj/item/storage/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
 /turf/unsimulated/floor{
 	icon_state = "carpet"
 	},
@@ -15979,7 +15979,7 @@
 /area/wizard_station)
 "aTb" = (
 /obj/structure/table/wood,
-/obj/item/storage/fancy/crayons,
+/obj/item/storage/box/fancy/crayons,
 /turf/unsimulated/floor{
 	icon_state = "carpetside"
 	},
@@ -16037,7 +16037,7 @@
 "aTi" = (
 /obj/structure/table/standard,
 /obj/item/flame/lighter/zippo,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/box/fancy/cigarettes,
 /turf/unsimulated/floor{
 	icon_state = "redbluefull";
 	dir = 8
@@ -17556,7 +17556,7 @@
 	pixel_x = 2;
 	premium = list();
 	prices = list();
-	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/random = 4, /obj/item/storage/fancy/cigarettes/cigar = 5, /obj/item/storage/fancy/cigarettes/acmeco = 5)
+	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/random = 4, /obj/item/storage/box/fancy/cigarettes/cigar = 5, /obj/item/storage/box/fancy/cigarettes/acmeco = 5)
 	},
 /turf/simulated/floor/lino/grey,
 /area/merchant_station)
@@ -18424,7 +18424,7 @@
 "bPG" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/glass,
-/obj/item/storage/fancy/cigarettes/dromedaryco,
+/obj/item/storage/box/fancy/cigarettes/dromedaryco,
 /obj/item/reagent_containers/food/drinks/cans/waterbottle,
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -18630,7 +18630,7 @@
 	pixel_x = 8;
 	pixel_y = 3
 	},
-/obj/item/storage/fancy/cigarettes/dromedaryco,
+/obj/item/storage/box/fancy/cigarettes/dromedaryco,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -19733,7 +19733,7 @@
 /area/shuttle/distress/centcom)
 "dDK" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/storage/fancy/tray,
+/obj/item/storage/box/fancy/tray,
 /turf/simulated/floor/carpet/rubber,
 /area/burglar_base/pod)
 "dEX" = (
@@ -19812,7 +19812,7 @@
 /obj/item/trash/plate,
 /obj/item/trash/cigbutt,
 /obj/item/trash/cigbutt,
-/obj/item/storage/box/matches{
+/obj/item/storage/box/fancy/matches{
 	pixel_y = 12
 	},
 /turf/unsimulated/floor{
@@ -19903,7 +19903,7 @@
 	},
 /area/shuttle/distress/centcom)
 "dNm" = (
-/obj/item/storage/fancy/cigarettes/cigar{
+/obj/item/storage/box/fancy/cigarettes/cigar{
 	layer = 3.01;
 	pixel_x = -5;
 	pixel_y = 6
@@ -21033,7 +21033,7 @@
 /area/centcom/legion/hangar5)
 "flZ" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/cigarettes,
+/obj/item/storage/box/fancy/cigarettes,
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
@@ -22597,7 +22597,7 @@
 /area/centcom/legion/hangar5)
 "hiU" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/tray,
+/obj/item/storage/box/fancy/tray,
 /turf/unsimulated/floor{
 	icon_state = "whitehall";
 	dir = 4
@@ -24196,7 +24196,7 @@
 /obj/item/melee/energy/sword/knife,
 /obj/item/melee/telebaton,
 /obj/item/device/megaphone,
-/obj/item/storage/fancy/cigarettes/cigar,
+/obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/item/flame/lighter/zippo,
 /obj/item/reagent_containers/food/drinks/bottle/victorygin,
 /obj/item/reagent_containers/food/drinks/bottle/whiskey,
@@ -27375,15 +27375,15 @@
 /area/shuttle/administration/centcom)
 "nmx" = (
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/glass/bottle/norepinephrine{
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
 	pixel_x = 8;
 	pixel_y = 10
 	},
-/obj/item/reagent_containers/glass/bottle/norepinephrine{
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
 	pixel_x = 8;
 	pixel_y = 5
 	},
-/obj/item/reagent_containers/glass/bottle/norepinephrine{
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
 	pixel_x = 8
 	},
 /turf/unsimulated/floor{
@@ -28072,7 +28072,7 @@
 /area/centcom/legion)
 "nZO" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/donut,
+/obj/item/storage/box/fancy/donut,
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -31791,7 +31791,7 @@
 /obj/machinery/vending/cigarette{
 	name = "Syndicate-Sponsored cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/cigarettes = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/storage/box/fancy/cigarettes = 10, /obj/item/storage/box/fancy/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /turf/unsimulated/floor{
 	name = "plating";
@@ -33906,7 +33906,7 @@
 /area/syndicate_station/start)
 "vqM" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/tray,
+/obj/item/storage/box/fancy/tray,
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "vre" = (

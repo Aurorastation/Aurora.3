@@ -646,19 +646,6 @@
 /mob/living/carbon/human/bst/fall_impact(var/damage_mod)
 	return FALSE
 
-/mob/living/heavy_vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
-	. = ..()
-	if (!.)
-		return
-
-	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
-
-	apply_damage(damage)
-
-	playsound(loc, "sound/effects/bang.ogg", 100, 1)
-	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
-
 /obj/vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	. = ..()
 	if (!.)

@@ -106,6 +106,7 @@
 	poncho["poncho, purple"] = /obj/item/clothing/accessory/poncho/purple
 	poncho["poncho, red"] = /obj/item/clothing/accessory/poncho/red
 	poncho["poncho, medical"] = /obj/item/clothing/accessory/poncho/roles/medical
+	poncho["poncho, IAC"] = /obj/item/clothing/accessory/poncho/roles/iac
 	poncho["poncho, engineering"] = /obj/item/clothing/accessory/poncho/roles/engineering
 	poncho["poncho, science"] = /obj/item/clothing/accessory/poncho/roles/science
 	poncho["poncho, cargo"] = /obj/item/clothing/accessory/poncho/roles/cargo
@@ -184,6 +185,11 @@
 	display_name = "winter coat, medical"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/medical
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Emergency Medical Technician", "Medical Resident", "Psychiatrist", "Pharmacist")
+
+/datum/gear/suit/winter/iac
+	display_name = "winter coat, IAC"
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/iac
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Emergency Medical Technician", "Medical Resident", "Psychiatrist", "Pharmacist")	
 
 /datum/gear/suit/winter/engineering
 	display_name = "winter coat, engineering"
