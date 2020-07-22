@@ -1,7 +1,7 @@
 /mob/living/silicon/robot/set_intent(var/set_intent)
 	a_intent = set_intent
 	cut_overlay(eye_overlay)
-	if(!stat && !isDrone(src))
+	if(!stat)
 		eye_overlay = cached_eye_overlays[a_intent]
 		add_overlay(eye_overlay)
 
@@ -22,17 +22,19 @@
 	cached_eye_overlays = list(
 		I_HELP = image(icon, "eyes-[module_sprites[icontype]]-help", layer = EFFECTS_ABOVE_LIGHTING_LAYER),
 		I_HURT = image(icon, "eyes-[module_sprites[icontype]]-harm", layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+
+/mob/living/silicon/robot/drone/proc/setup_icon_cache()
+	cached_eye_overlays = list(
+		I_HELP = image(icon, "eyes-[icontype]-help", layer = EFFECTS_ABOVE_LIGHTING_LAYER),
+		I_HURT = image(icon, "eyes-[icontype]-harm", layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+		I_EMAG = image(icon, "eyes-[icontype]-emag", layer = EFFECTS_ABOVE_LIGHTING_LAYER)
 	)
 	if(eye_overlay)
 		cut_overlay(eye_overlay)
 	eye_overlay = cached_eye_overlays[a_intent]
-	if(!stat && !isDrone(src))
+	if(!stat && !emagged)
 		add_overlay(eye_overlay)
-	var/panelprefix = custom_sprite ? src.ckey : "ov"
-	cached_panel_overlays = list(
-		ROBOT_PANEL_EXPOSED = image(icon, "[panelprefix]-openpanel +w"),
-		ROBOT_PANEL_CELL = image(icon, "[panelprefix]-openpanel +c"),
-		ROBOT_PANEL_NO_CELL = image(icon, "[panelprefix]-openpanel -c")
+		else add_overlay(I_EMAG)
 	)
 
 /mob/living/silicon/robot/proc/set_module_active(var/obj/item/given_module)
