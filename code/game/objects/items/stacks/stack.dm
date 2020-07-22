@@ -92,7 +92,7 @@
 		var/max_multiplier = round(src.get_amount() / R.req_amount)
 		var/title = ""
 		var/can_build = TRUE
-		can_build = can_build && (max_multiplier > 0)
+		can_build = (max_multiplier > 0)
 
 		if(R.res_amount > 1)
 			title += "[R.res_amount]x [R.title]\s"
@@ -134,20 +134,20 @@
 
 	if (!can_use(required))
 		if (produced>1)
-			to_chat(user, "<span class='warning'>You haven't got enough [src] to build \the [produced] [recipe.title]\s!</span>")
+			to_chat(user, SPAN_WARNING("You haven't got enough [src] to build \the [produced] [recipe.title]\s!"))
 		else
-			to_chat(user, "<span class='warning'>You haven't got enough [src] to build \the [recipe.title]!</span>")
+			to_chat(user, SPAN_WARNING("You haven't got enough [src] to build \the [recipe.title]!"))
 		return
 
 	if (recipe.one_per_turf && (locate(recipe.result_type) in user.loc))
-		to_chat(user, "<span class='warning'>There is another [recipe.title] here!</span>")
+		to_chat(user, SPAN_WARNING("There is another [recipe.title] here!"))
 		return
 
 	if (recipe.on_floor && !isfloor(user.loc))
-		to_chat(user, "<span class='warning'>\The [recipe.title] must be constructed on the floor!</span>")
+		to_chat(user, SPAN_WARNING("\The [recipe.title] must be constructed on the floor!"))
 		return
 
-	to_chat(user, "<span class='notice'>Building [recipe.title]...</span>")
+	to_chat(user, SPAN_NOTICE("Building [recipe.title]..."))
 	if (recipe.time)
 		if (!do_after(user, recipe.time))
 			return
@@ -315,7 +315,7 @@
 			continue
 		var/transfer = src.transfer_to(item)
 		if (transfer)
-			to_chat(user, "<span class='notice'>You add a new [item.singular_name] to the stack. It now contains [item.amount] [item.singular_name]\s.</span>")
+			to_chat(user, SPAN_NOTICE("You add a new [item.singular_name] to the stack. It now contains [item.amount] [item.singular_name]\s."))
 		if(!amount)
 			break
 
