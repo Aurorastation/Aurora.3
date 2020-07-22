@@ -1,3 +1,7 @@
+#define RFD_FLOORS_N_WALL 1
+#define RFD_AIRLOCK 2
+#define RFD_DECONSTRUCT 3
+
 //Contains the rapid construction device.
 /obj/item/rfd
 	name = "\improper Rapid-Fabrication-Device"
@@ -24,14 +28,15 @@
 	pickup_sound = 'sound/items/pickup/gun.ogg'
 	var/stored_matter = 30 // Starts off full.
 	var/working = FALSE
-	var/mode = 1
+	var/mode = RFD_FLOORS_N_WALL
 	var/number_of_modes = 1
 	var/list/modes
 	var/crafting = FALSE
 
+	var/list/sendable_atoms = list(/obj/machinery/door/airlock) // a list of atoms that will be sent to the alter_atom proc if we click on them, rather than their turf
 	var/build_cost = 0
 	var/build_type
-	var/build_turf
+	var/build_atom
 	var/build_delay
 
 /obj/item/rfd/Initialize()
@@ -52,7 +57,7 @@
 /obj/item/rfd/attack_self(mob/user)
 	//Change the mode
 	if(++mode > number_of_modes)
-		mode = 1
+		mode = RFD_FLOORS_N_WALL
 	to_chat(user, SPAN_NOTICE("The mode selection dial is now at [modes[mode]]."))
 	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
 	if(prob(20))
@@ -147,13 +152,13 @@ RFD Construction-Class
 	var/current_mode = show_radial_menu(user, src, radial_modes, radius = 42, require_near = TRUE, tooltips = TRUE)
 	switch(current_mode)
 		if("Floors and Walls")
-			mode = 1
+			mode = RFD_FLOORS_N_WALL
 		if("Airlock")
-			mode = 2
+			mode = RFD_AIRLOCK
 		if("Deconstruct")
-			mode = 3
+			mode = RFD_DECONSTRUCT
 		else
-			mode = 1
+			mode = RFD_FLOORS_N_WALL
 	if(current_mode)
 		to_chat(user, SPAN_NOTICE("You switch the selection dial to <i>\"[current_mode]\"</i>."))
 		playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
@@ -163,47 +168,48 @@ RFD Construction-Class
 /obj/item/rfd/construction/afterattack(atom/A, mob/user, proximity)
 	if(!proximity)
 		return
-	if(ismob(A.loc) || ismob(A.loc.loc) || istype(A, /obj/structure/table))
+	if(!isturf(A.loc) || istype(A, /obj/structure/table))
 		return
 	if(disabled && !isrobot(user))
 		return FALSE
 	if(istype(get_area(A),/area/shuttle)||istype(get_area(A),/turf/space/transit))
 		return FALSE
 	var/turf/t = get_turf(A)
-	if (isNotStationLevel(t.z))
+	if(isNotStationLevel(t.z))
 		return FALSE
-	if(istype(A, /obj/machinery/door/airlock))
-		t = A
-	return alter_turf(t, user, (mode == 3))
+	if(is_type_in_list(A, sendable_atoms))
+		return alter_atom(A, user, (mode == RFD_DECONSTRUCT))
+	return alter_atom(t, user, (mode == RFD_DECONSTRUCT))
 
-/obj/item/rfd/construction/proc/alter_turf(var/turf/T,var/mob/user,var/deconstruct)
+/obj/item/rfd/construction/proc/alter_atom(var/atom/A, var/mob/user, var/deconstruct)
 	if(working)
 		return FALSE
 
-	if(mode == 3 && istype(T,/obj/machinery/door/airlock))
+	var/turf/T = istype(A, /turf) ? A : null // the lower istypes will return false if T is null, which means we don't have to check whether it's an atom or a turf
+	if(mode == RFD_DECONSTRUCT && istype(A, /obj/machinery/door/airlock))
 		build_cost =  10
 		build_delay = 50
 		build_type = "airlock"
-	else if(mode == 2 && !deconstruct && istype(T,/turf/simulated/floor))
+	else if(mode == RFD_AIRLOCK && !deconstruct && istype(A, /turf/simulated/floor))
 		build_cost =  3
 		build_delay = 20
 		build_type = "airlock"
-		build_turf = /obj/machinery/door/airlock
-	else if(!deconstruct && (istype(T,/turf/space) || istype(T,T.baseturf)))
+		build_atom = /obj/machinery/door/airlock
+	else if(!deconstruct && istype(T, /turf/space) || istype(T, T.baseturf))
 		build_cost =  1
 		build_type =  "floor"
-		build_turf =  /turf/simulated/floor/airless
-	else if(deconstruct && istype(T,/turf/simulated/wall))
+		build_atom =  /turf/simulated/floor/airless
+	else if(deconstruct && istype(T, /turf/simulated/wall))
 		var/turf/simulated/wall/W = T
 		build_delay = deconstruct ? 50 : 40
 		build_cost =  5
 		build_type =  (!canRwall && W.reinf_material) ? null : "wall"
-		build_turf =  /turf/simulated/floor
-	else if(istype(T,/turf/simulated/floor))
+		build_atom =  /turf/simulated/floor
+	else if(istype(T, /turf/simulated/floor))
 		build_delay = deconstruct ? 50 : 20
 		build_cost =  deconstruct ? 10 : 3
 		build_type =  deconstruct ? "floor" : "wall"
-		build_turf =  deconstruct ? T.baseturf : /turf/simulated/wall
+		build_atom =  deconstruct ? T.baseturf : /turf/simulated/wall
 	else
 		return FALSE
 
@@ -211,7 +217,7 @@ RFD Construction-Class
 		working = FALSE
 		return FALSE
 
-	if(mode == 3 && !T.density && !istype(T,/turf/simulated/floor))
+	if(mode == RFD_DECONSTRUCT && istype(A, /obj/machinery/door) && !A.density)
 		to_chat(user, "<span class='warning'>\The [build_type] must be closed before you can deconstruct it.</span>")
 		return FALSE
 
@@ -235,14 +241,14 @@ RFD Construction-Class
 	if(build_delay && !can_use(user,T))
 		return FALSE
 
-	if(ispath(build_turf, /turf))
+	if(ispath(build_atom, /turf))
 		var/original_type = T.type
-		T.ChangeTurf(build_turf)
+		T.ChangeTurf(build_atom)
 		if(istype(T, /turf/simulated/wall))
 			var/turf/simulated/wall/W = T
 			W.under_turf = original_type
-	else if(ispath(build_turf, /obj))
-		new build_turf(T)
+	else if(ispath(build_atom, /obj))
+		new build_atom(T)
 	else
 		qdel(T)
 
@@ -251,7 +257,7 @@ RFD Construction-Class
 	build_cost = null
 	build_delay = null
 	build_type = null
-	build_turf = null // So it resets and any fuckery is avoided
+	build_atom = null // So it resets and any fuckery is avoided
 	return TRUE
 
 /obj/item/rfd/construction/borg
@@ -613,3 +619,7 @@ RFD Piping-Class
 #undef SUPPLY_PIPE
 #undef SCRUBBER_PIPE
 #undef DEVICES
+
+#undef RFD_FLOORS_N_WALL
+#undef RFD_AIRLOCK
+#undef RFD_DECONSTRUCT
