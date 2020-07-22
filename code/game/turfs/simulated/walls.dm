@@ -115,18 +115,18 @@
 	. = ..(user)
 
 	if(!damage)
-		to_chat(user, "<span class='notice'>It looks fully intact.</span>")
+		to_chat(user, SPAN_NOTICE("It looks fully intact."))
 	else
 		var/dam = damage / material.integrity
 		if(dam <= 0.3)
-			to_chat(user, "<span class='warning'>It looks slightly damaged.</span>")
+			to_chat(user, SPAN_WARNING("It looks slightly damaged."))
 		else if(dam <= 0.6)
-			to_chat(user, "<span class='warning'>It looks moderately damaged.</span>")
+			to_chat(user, SPAN_WARNING("It looks moderately damaged."))
 		else
-			to_chat(user, "<span class='danger'>It looks heavily damaged.</span>")
+			to_chat(user, SPAN_DANGER("It looks heavily damaged."))
 
 	if(locate(/obj/effect/overlay/wallrot) in src)
-		to_chat(user, "<span class='warning'>There is fungus growing on [src].</span>")
+		to_chat(user, SPAN_WARNING("There is fungus growing on [src]."))
 
 //Damage
 
@@ -138,7 +138,7 @@
 	src.ChangeTurf(under_turf)
 
 	if(do_message)
-		visible_message("<span class='danger'>\The [src] spontaneously combusts!</span>") //!!OH SHIT!!
+		visible_message(SPAN_DANGER("\The [src] spontaneously combusts!")) //!!OH SHIT!!
 
 /turf/simulated/wall/proc/take_damage(dam)
 	if(dam)
