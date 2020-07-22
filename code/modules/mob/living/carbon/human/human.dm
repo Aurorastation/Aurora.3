@@ -2032,9 +2032,7 @@
 				if(changer && changer.active && changer.current_accent)
 					used_accent = changer.current_accent
 
-		var/datum/accent/a = SSrecords.accents[used_accent]
-		var/final_icon = a.tag_icon
-		return "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[final_icon]'>"
+		return ..(speaking, used_accent)
 
 /mob/living/carbon/human/proc/generate_valid_accent()
 	var/list/valid_accents = new()
