@@ -958,3 +958,9 @@ default behaviour is:
 
 /mob/living/proc/needs_wheelchair()
 	return FALSE
+
+/mob/living/proc/get_accent_icon(var/datum/language/speaking = null)
+	if(accent && speaking && speaking.allow_accents)
+		var/datum/accent/a = SSrecords.accents[accent]
+		var/final_icon = a.tag_icon
+		return "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[final_icon]'>"

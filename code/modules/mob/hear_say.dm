@@ -48,7 +48,9 @@
 		var/mob/living/carbon/human/H = speaker
 		speaker_name = H.GetVoice()
 
-		accent_icon = H.get_accent_icon(language)
+	if(isliving(speaker))
+		var/mob/living/L = speaker
+		accent_icon = L.get_accent_icon(language)
 
 	if(italics)
 		message = "<i>[message]</i>"

@@ -2014,7 +2014,7 @@
 				randmutg(src) // Applies good mutation
 				domutcheck(src,null,MUTCHK_FORCED)
 
-/mob/living/carbon/human/proc/get_accent_icon(var/datum/language/speaking = null)
+/mob/living/carbon/human/get_accent_icon(var/datum/language/speaking = null)
 	if(accent && speaking && speaking.allow_accents)
 		var/used_accent = accent //starts with the mob's default accent
 

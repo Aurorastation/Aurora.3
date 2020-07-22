@@ -88,3 +88,5 @@
 #define ACCENT_SKRELL "Standard Nral'Malic"
 
 #define ACCENT_DIONA "Diona"
+
+#define ACCENT_SILICON "Text-to-Speech"
