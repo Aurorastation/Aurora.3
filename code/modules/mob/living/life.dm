@@ -101,12 +101,12 @@
 	if(stunned)
 		stunned = max(stunned-1,0)
 		if(!stunned)
-			update_icons()
+			update_icon()
 
 	if(weakened)
 		weakened = max(weakened-1,0)
 		if(!weakened)
-			update_icons()
+			update_icon()
 
 	if(confused)
 		confused = max(0, confused - 1)
