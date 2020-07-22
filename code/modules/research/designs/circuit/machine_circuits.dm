@@ -207,6 +207,11 @@
 	req_tech = list(TECH_DATA = 4, TECH_BLUESPACE = 4, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
 	build_path = /obj/item/circuitboard/telesci_pad
 
+/datum/design/circuit/machine/local_teleporter
+	name = "Local Teleporter"
+	req_tech = list(TECH_DATA = 2, TECH_BLUESPACE = 3, TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	build_path = /obj/item/circuitboard/local_teleporter
+
 /datum/design/circuit/machine/miningdrill
 	name = "Mining Drill Head"
 	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
