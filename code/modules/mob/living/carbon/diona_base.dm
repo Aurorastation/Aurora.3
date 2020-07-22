@@ -60,7 +60,7 @@ var/list/diona_banned_languages = list(
 
 /mob/living/carbon/alien/diona/death()
 	if(client && gestalt && switch_to_gestalt())
-		to_chat(gestalt, span("warning", "You feel tremendous pain as you lose connection to your detached nymph, there is no way to bring it back anymore."))
+		to_chat(gestalt, SPAN_WARNING("You feel tremendous pain as you lose connection to your detached nymph, there is no way to bring it back anymore."))
 	..()
 
 /mob/living/carbon/proc/diona_handle_radiation(var/datum/dionastats/DS)
@@ -92,7 +92,7 @@ var/list/diona_banned_languages = list(
 			return 0
 
 	if (consume_nutrition_from_air && (nutrition / max_nutrition > 0.25))
-		to_chat(src, span("notice", "You feel like you have replanished enough of nutrition to stay alive. Consuming more makes you feel gross."))
+		to_chat(src, SPAN_NOTICE("You feel like you have replanished enough of nutrition to stay alive. Consuming more makes you feel gross."))
 		consume_nutrition_from_air = !consume_nutrition_from_air
 		return
 
@@ -449,7 +449,7 @@ var/list/diona_banned_languages = list(
 	else if (DS.LMS == 2)
 		if (DS.EP >= 0.99)
 			DS.LMS = 1
-			to_chat(src, span("notice", "You bask in the light."))
+			to_chat(src, SPAN_NOTICE("You bask in the light."))
 		else if (DS.EP <= 0.4 && DS.last_lightlevel <= 0)
 			DS.LMS = 3
 			to_chat(src, "<span class='warning'>You feel lethargic as your energy drains away. Find some light!</span>")
@@ -559,9 +559,9 @@ var/list/diona_banned_languages = list(
 	set category = "Abilities"
 
 	if(!gestalt)
-		to_chat(src, span("warning", "You have no Gestalt!"))
+		to_chat(src, SPAN_WARNING("You have no Gestalt!"))
 	else if(gestalt.stat == DEAD)
-		to_chat(src, span("danger", "Your Gestlat is not responding! Something could have happened to it!"))
+		to_chat(src, SPAN_DANGER("Your Gestlat is not responding! Something could have happened to it!"))
 	else
 		gestalt.key = key
 		return TRUE
@@ -587,7 +587,7 @@ var/list/diona_banned_languages = list(
 				C.DS.regen_limb_progress = 0
 			else
 				C.diona_handle_regeneration(C.DS, TRUE)
-			to_chat(C, span("notice", "Your lost nymph merged back."))
+			to_chat(C, SPAN_NOTICE("Your lost nymph merged back."))
 			C.add_nymph()
 			verbs -= /mob/living/carbon/alien/diona/proc/switch_to_gestalt
 			C.verbs -= /mob/living/carbon/human/proc/switch_to_nymph

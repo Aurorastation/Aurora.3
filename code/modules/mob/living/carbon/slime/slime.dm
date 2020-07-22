@@ -283,10 +283,10 @@
 	if(victim)
 		if(victim == M)
 			if(prob(60))
-				visible_message(span("warning", "[M] attempts to wrestle \the [name] off!"))
+				visible_message(SPAN_WARNING("[M] attempts to wrestle \the [name] off!"))
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 			else
-				visible_message(span("warning", "[M] manages to wrestle \the [name] off!"))
+				visible_message(SPAN_WARNING("[M] manages to wrestle \the [name] off!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 				if(prob(90) && !client)
@@ -304,10 +304,10 @@
 
 		else
 			if(prob(30))
-				visible_message(span("warning", "[M] attempts to wrestle \the [name] off of [victim]!"))
+				visible_message(SPAN_WARNING("[M] attempts to wrestle \the [name] off of [victim]!"))
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 			else
-				visible_message(span("warning", "[M] manages to wrestle \the [name] off of [victim]!"))
+				visible_message(SPAN_WARNING("[M] manages to wrestle \the [name] off of [victim]!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
 				if(prob(80) && !client)
@@ -343,7 +343,7 @@
 			LAssailant = WEAKREF(M)
 
 			playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-			visible_message(span("warning", "[M] has grabbed [src] passively!"))
+			visible_message(SPAN_WARNING("[M] has grabbed [src] passively!"))
 
 		else
 
@@ -365,14 +365,14 @@
 						step_away(src,M,15)
 
 				playsound(loc, "punch", 25, 1, -1)
-				visible_message(span("danger", "[M] has punched [src]!"), \
-						span("danger", "[M] has punched [src]!"))
+				visible_message(SPAN_DANGER("[M] has punched [src]!"), \
+						SPAN_DANGER("[M] has punched [src]!"))
 
 				adjustBruteLoss(damage)
 				updatehealth()
 			else
 				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
-				visible_message(span("danger", "[M] has attempted to punch [src]!"))
+				visible_message(SPAN_DANGER("[M] has attempted to punch [src]!"))
 	return
 
 /mob/living/carbon/slime/attackby(obj/item/W, mob/user)

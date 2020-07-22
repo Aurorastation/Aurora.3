@@ -174,7 +174,7 @@ proc/get_radio_key_from_channel(var/channel)
 		else
 			message = copytext(message,3)
 
-	message = trim_left(message)
+	message = trim(message)
 
 	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE)
 	var/ending = copytext(message, length(message), (length(message) + 1))
@@ -193,7 +193,7 @@ proc/get_radio_key_from_channel(var/channel)
 	// irrespective of distance or anything else.
 	if(speaking && (speaking.flags & HIVEMIND))
 		if(speaking.name == LANGUAGE_VAURCA && within_jamming_range(src))
-			to_chat(src, span("warning", "Your head buzzes as your message is blocked with jamming signals."))
+			to_chat(src, SPAN_WARNING("Your head buzzes as your message is blocked with jamming signals."))
 			return
 		speaking.broadcast(src,trim(message))
 		return 1

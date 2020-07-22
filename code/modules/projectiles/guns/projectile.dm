@@ -94,7 +94,7 @@
 	if(chambered.leaves_residue)
 		var/mob/living/carbon/human/H = loc
 		if(istype(H))
-			if(!H.gloves)
+			if(!istype(H.gloves, /obj/item/clothing))
 				H.gunshot_residue = chambered.caliber
 			else
 				var/obj/item/clothing/G = H.gloves
@@ -213,7 +213,7 @@
 		playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 		jam_num--
 		if(!jam_num)
-			visible_message(span("danger", "\The [user] unjams \the [src]!"))
+			visible_message(SPAN_DANGER("\The [user] unjams \the [src]!"))
 			playsound(src.loc, 'sound/items/glowstick.ogg', 100, 1)
 			unjam_cooldown = world.time
 	else if(unjam_cooldown + 2 SECONDS > world.time)

@@ -21,8 +21,8 @@
 		if(G.seed && G.seed.kitchen_tag == "nfrihi")
 			if(!stat && eggsleft < 8)
 				user.visible_message(
-					span("notice", "\The [user] feeds \the [O] to \the [name]! It whistles happily."),
-					span("notice", "You feed \the [O] to \the [name]! It whistles happily."),
+					SPAN_NOTICE("\The [user] feeds \the [O] to \the [name]! It whistles happily."),
+					SPAN_NOTICE("You feed \the [O] to \the [name]! It whistles happily."),
 					"You hear a cluck.")
 				user.drop_from_inventory(O,get_turf(src))
 				qdel(O)
@@ -147,3 +147,8 @@
 	visible_message(SPAN_WARNING("[src] harmlessly bounces off \the [T]!"))
 	playsound(T, 'sound/effects/bangtaper.ogg', 50, 1, 1)
 	make_noise()
+
+/mob/living/simple_animal/schlorrgo/fall_impact()
+	visible_message(SPAN_NOTICE("\The [src] bounces after landing!"))
+	step(src, pick(alldirs), 1)
+	return FALSE

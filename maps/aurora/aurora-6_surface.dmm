@@ -8603,7 +8603,7 @@
 /area/shuttle/escape_pod2/station)
 "pX" = (
 /obj/structure/table/wood,
-/obj/item/storage/fancy/cigarettes{
+/obj/item/storage/box/fancy/cigarettes{
 	pixel_y = 2
 	},
 /obj/random/single{
@@ -10075,9 +10075,9 @@
 /area/storage/primary)
 "sY" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/crayons,
-/obj/item/storage/fancy/crayons,
-/obj/item/storage/fancy/crayons/chalkbox,
+/obj/item/storage/box/fancy/crayons,
+/obj/item/storage/box/fancy/crayons,
+/obj/item/storage/box/fancy/crayons/chalkbox,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "sZ" = (
@@ -22012,7 +22012,7 @@
 /area/shuttle/research/station)
 "Qk" = (
 /obj/structure/table/steel,
-/obj/item/storage/fancy/crayons/chalkbox,
+/obj/item/storage/box/fancy/crayons/chalkbox,
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Auxillary Tool Storage";
 	dir = 1
@@ -24447,8 +24447,8 @@
 /area/hallway/secondary/entry/stairs)
 "VA" = (
 /obj/structure/table/standard,
-/obj/item/reagent_containers/food/snacks/cookiesnack,
-/obj/item/reagent_containers/food/snacks/cookiesnack,
+/obj/item/storage/box/fancy/cookiesnack,
+/obj/item/storage/box/fancy/cookiesnack,
 /obj/item/reagent_containers/food/drinks/cans/waterbottle{
 	layer = 3.01;
 	pixel_x = -8;

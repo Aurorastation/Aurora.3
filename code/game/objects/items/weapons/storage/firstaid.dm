@@ -35,7 +35,7 @@
 		/obj/item/reagent_containers/pill/kelotane = 3,
 		/obj/item/stack/medical/ointment = 2,
 		/obj/item/device/healthanalyzer = 1,
-		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 1
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
 	)
 
 /obj/item/storage/firstaid/fire/fill()
@@ -48,7 +48,7 @@
 		/obj/item/stack/medical/bruise_pack = 3,
 		/obj/item/stack/medical/ointment = 2,
 		/obj/item/device/healthanalyzer = 1,
-		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 1
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1
 	)
 
 /obj/item/storage/firstaid/toxin
@@ -73,7 +73,7 @@
 	item_state = "o2"
 	starts_with = list(
 		/obj/item/reagent_containers/inhaler/dexalin = 4,
-		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 2,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
 		/obj/item/device/breath_analyzer = 1
 	)
 
@@ -83,7 +83,7 @@
 	icon_state = "advfirstaid"
 	item_state = "advfirstaid"
 	starts_with = list(
-		/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 1,
 		/obj/item/stack/medical/advanced/bruise_pack = 3,
 		/obj/item/stack/medical/advanced/ointment = 2,
 		/obj/item/stack/medical/splint = 1
@@ -164,22 +164,22 @@
 
 /obj/item/storage/pill_bottle/attack_self(mob/living/user)
 	if(user.get_inactive_hand())
-		to_chat(user, span("notice","You need an empty hand to take something out."))
+		to_chat(user, SPAN_NOTICE("You need an empty hand to take something out."))
 		return
 	if(contents.len)
 		var/obj/item/I = contents[1]
 		if(!remove_from_storage(I,user))
 			return
 		if(user.put_in_inactive_hand(I))
-			to_chat(user, span("notice","You take \the [I] out of \the [src]."))
+			to_chat(user, SPAN_NOTICE("You take \the [I] out of \the [src]."))
 			if(iscarbon(user))
 				var/mob/living/carbon/C = user
 				C.swap_hand()
 		else
 			I.dropInto(loc)
-			to_chat(user, span("notice","You fumble around with \the [src] and drop \the [I] on the floor."))
+			to_chat(user, SPAN_NOTICE("You fumble around with \the [src] and drop \the [I] on the floor."))
 	else
-		to_chat(user, span("warning","\The [src] is empty."))
+		to_chat(user, SPAN_WARNING("\The [src] is empty."))
 
 
 /obj/item/storage/pill_bottle/antitox
@@ -207,10 +207,10 @@
 	desc = "Contains pills used to treat toxic substances in the blood."
 	starts_with = list(/obj/item/reagent_containers/pill/dylovene = 7)
 
-/obj/item/storage/pill_bottle/norepinephrine
-	name = "bottle of Norepinephrine pills"
+/obj/item/storage/pill_bottle/inaprovaline
+	name = "bottle of Inaprovaline pills"
 	desc = "Contains pills used to stabilize patients."
-	starts_with = list(/obj/item/reagent_containers/pill/norepinephrine = 7)
+	starts_with = list(/obj/item/reagent_containers/pill/inaprovaline = 7)
 
 /obj/item/storage/pill_bottle/kelotane
 	name = "bottle of kelotane pills"

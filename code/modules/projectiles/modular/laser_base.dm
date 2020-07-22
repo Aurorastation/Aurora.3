@@ -173,7 +173,7 @@
 		for(var/v in gun_mods)
 			var/obj/item/laser_components/modifier/M = v
 			if(M.type == m.type)
-				to_chat(user, span("warning", "\The [name] already has [m]."))
+				to_chat(user, SPAN_WARNING("\The [name] already has [m]."))
 				return FALSE
 		gun_mods += A
 		user.drop_from_inventory(A,src)

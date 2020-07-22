@@ -31,7 +31,7 @@
 				continue
 			viable_sayers += H
 		if(!length(viable_sayers))
-			to_chat(src, span("notice", "There are no viable hosts to speak with."))
+			to_chat(src, SPAN_NOTICE("There are no viable hosts to speak with."))
 		else
 			var/mob/living/carbon/human/chosen_sayer = pick(viable_sayers)
 			log_say("[key_name(src)] : ([name]) [message]", ckey=key_name(src))

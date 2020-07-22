@@ -182,7 +182,7 @@
 	throw_range = 5
 	attack_verb = list("attacked", "hit", "bludgeoned")
 
-/obj/item/storage/fancy/tray
+/obj/item/storage/box/fancy/tray
 	name = "surgery tray"
 	desc = "A tray of surgical tools."
 	icon = 'icons/obj/surgery.dmi'
@@ -223,7 +223,7 @@
 		/obj/item/stack/medical/advanced/bruise_pack = 1,
 	)
 
-/obj/item/storage/fancy/tray/update_icon()
+/obj/item/storage/box/fancy/tray/update_icon()
 	cut_overlays()
 
 	var/list/types_and_overlays = list(
@@ -247,19 +247,19 @@
 			add_overlay(types_and_overlays[W.type])
 			types_and_overlays -= W.type
 
-/obj/item/storage/fancy/tray/fill()
+/obj/item/storage/box/fancy/tray/fill()
 	. = ..()
 	update_icon()
 
-/obj/item/storage/fancy/tray/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/storage/box/fancy/tray/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	update_icon()
 
-/obj/item/storage/fancy/tray/attack_hand(mob/user as mob)
+/obj/item/storage/box/fancy/tray/attack_hand(mob/user as mob)
 	if(ishuman(user))
 		src.open(user)
 
-/obj/item/storage/fancy/tray/MouseDrop(mob/user as mob)
+/obj/item/storage/box/fancy/tray/MouseDrop(mob/user as mob)
 	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
 		if(ishuman(user) && !user.get_active_hand())
 			var/mob/living/carbon/human/H = user
@@ -279,12 +279,12 @@
 
 	return
 
-/obj/item/storage/fancy/tray/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
+/obj/item/storage/box/fancy/tray/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
 	if(..() && contents.len)
 		spill(3, get_turf(M))
 		playsound(M, 'sound/items/trayhit2.ogg', 50, 1)  //sound playin' again
-		user.visible_message(span("danger", "[user] smashes \the [src] into [M], causing it to spill its contents across the area!"))
+		user.visible_message(SPAN_DANGER("[user] smashes \the [src] into [M], causing it to spill its contents across the area!"))
 
-/obj/item/storage/fancy/tray/throw_impact(atom/hit_atom)
+/obj/item/storage/box/fancy/tray/throw_impact(atom/hit_atom)
 	..()
 	spill(3, src.loc)

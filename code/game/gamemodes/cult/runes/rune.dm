@@ -34,7 +34,7 @@
 		rune.do_tome_action(user, I)
 		return
 	else if(istype(I, /obj/item/nullrod))
-		to_chat(user, span("notice", "You disrupt the vile magic with the deadening field of \the [I]!"))
+		to_chat(user, SPAN_NOTICE("You disrupt the vile magic with the deadening field of \the [I]!"))
 		qdel(src)
 		return
 	return

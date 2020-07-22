@@ -144,7 +144,7 @@
 	if(C.iswelder() && damaged)
 		var/obj/item/weldingtool/WT = C
 		if(do_after(user, 5/C.toolspeed, act_target = src) && WT.remove_fuel(1, user))
-			to_chat(user, span("notice","You slice apart the [src] leaving nothing useful behind."))
+			to_chat(user, SPAN_NOTICE("You slice apart the [src] leaving nothing useful behind."))
 			playsound(src, 'sound/items/Welder.ogg', 50, 1)
 			qdel(src)
 	else

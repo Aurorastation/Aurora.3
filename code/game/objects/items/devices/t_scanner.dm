@@ -28,7 +28,7 @@
 	icon_state = "t-ray[on]"
 
 /obj/item/device/t_scanner/emp_act()
-	audible_message(src, span("notice", "\The [src] buzzes oddly."))
+	audible_message(src, SPAN_NOTICE("\The [src] buzzes oddly."))
 	set_active(FALSE)
 
 /obj/item/device/t_scanner/attack_self(mob/user)
@@ -38,7 +38,7 @@
 /obj/item/device/t_scanner/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	var/obj/structure/disposalpipe/D = target
 	if(D && istype(D))
-		to_chat(user, span("info", "Pipe segment integrity: [(D.health / 10) * 100]%"))
+		to_chat(user, SPAN_INFO("Pipe segment integrity: [(D.health / 10) * 100]%"))
 
 /obj/item/device/t_scanner/proc/set_active(var/active)
 	on = active

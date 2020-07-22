@@ -156,7 +156,7 @@
 		return FALSE
 
 	if(owner.reagents)
-		owner.reagents.add_reagent(/datum/reagent/norepinephrine, 10)
+		owner.reagents.add_reagent(/datum/reagent/inaprovaline, 10)
 		owner.reagents.add_reagent(/datum/reagent/tricordrazine, 10)
 		owner.reagents.add_reagent(/datum/reagent/soporific, 15)
 		take_damage(15)

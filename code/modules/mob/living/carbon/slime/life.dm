@@ -164,7 +164,7 @@
 		nutrition = 0
 		adjustToxLoss(rand(1,3))
 		if(client && prob(5))
-			to_chat(src, span("danger", "You are starving!"))
+			to_chat(src, SPAN_DANGER("You are starving!"))
 
 	else if(nutrition >= get_grow_nutrition() && amount_grown < 5)
 		adjustNutritionLoss(20)

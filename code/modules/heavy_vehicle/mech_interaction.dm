@@ -167,14 +167,14 @@
 /mob/living/heavy_vehicle/setClickCooldown(var/timeout)
 	next_move = max(world.time + timeout, next_move)
 	for(var/hardpoint in hardpoint_hud_elements)
-		var/obj/screen/movable/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
+		var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
 		if(H)
 			H.color = "#FF0000"
 	addtimer(CALLBACK(src, .proc/reset_hardpoint_color), timeout)
 
 /mob/living/heavy_vehicle/proc/reset_hardpoint_color()
 	for(var/hardpoint in hardpoint_hud_elements)
-		var/obj/screen/movable/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
+		var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
 		if(H)
 			H.color = null
 
@@ -193,7 +193,7 @@
 		for(var/hardpoint in hardpoints)
 			if(hardpoint != selected_hardpoint)
 				continue
-			var/obj/screen/movable/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
+			var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
 			if(istype(H))
 				H.icon_state = "hardpoint"
 				break
@@ -469,6 +469,12 @@
 					to_chat(user, "<span class='notice'>You install \the [body.cell] into \the [src].</span>")
 					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 					visible_message("<span class='notice'>\The [user] installs \the [body.cell] into \the [src].</span>")
+				return
+			else if(istype(thing, /obj/item/device/robotanalyzer))
+				to_chat(user, SPAN_NOTICE("Diagnostic Report for \the [src]:"))
+				for(var/obj/item/mech_component/limb in list (head, body, arms, legs))
+					if(limb)
+						limb.return_diagnostics(user)
 				return
 
 	return ..()
