@@ -13560,10 +13560,7 @@
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/storage/box/gloves{
-	pixel_x = 2;
-	pixel_y = 2
-	},
+/obj/item/nitrilebox,
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	dir = 8
 	},
@@ -41126,7 +41123,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/storage/box/gloves,
+/obj/item/nitrilebox,
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
@@ -45301,7 +45298,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/storage/box/gloves,
+/obj/item/nitrilebox,
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";
@@ -50579,10 +50576,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/machinery/firealarm/east,
-/obj/item/storage/box/gloves{
-	pixel_x = 2;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bPG" = (

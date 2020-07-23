@@ -7978,7 +7978,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/storage/box/gloves,
+/obj/item/nitrilebox,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
