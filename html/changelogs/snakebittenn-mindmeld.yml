@@ -41,4 +41,4 @@ changes:
   - tweak: "Read Mind now respects if the person doesn't have a Zona Bovinae or psi-aug."
   - tweak: "Adds fluff messages to Commune and Read Mind if the target has a psi-aug."
   - rscdel: "Commune no longer hurts people."
-  - rscdel: "Chaplain no longer has any weird interactions with Commune.
+  - rscdel: "Chaplain no longer has any weird interactions with Commune."
