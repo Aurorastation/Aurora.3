@@ -65,7 +65,7 @@
 
 		if(proximity && target.is_open_container() && target.reagents)
 			if(!target.reagents.total_volume)
-				to_chat(user, SPAN_NOTICE("You can't dissolve \the [src] in the empty [target]."))
+				to_chat(user, SPAN_NOTICE("You can't dissolve \the [src] in an empty [target]."))
 				return
 			to_chat(user, SPAN_NOTICE("You dissolve \the [src] in [target]."))
 
