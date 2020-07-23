@@ -149,7 +149,7 @@ Implant Specifics:<BR>"}
 		return
 	var/mob/M = imp_in
 
-	if(M.stat == 2)
+	if(M.stat == DEAD)
 		activate("death")
 
 /obj/item/implant/explosive/deadman/activate(var/cause)
