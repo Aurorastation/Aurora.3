@@ -19,7 +19,7 @@
 	src.add_inherent_law("Safeguard and protect [current_map.company_name] property from damage to the best of your abilities.")
 	src.add_inherent_law("Serve and assist [current_map.company_name] staff to the best of your abilities, with priority as according to their rank and role.")
 	src.add_inherent_law("Protect and ensure the safety of crew and [current_map.company_name] staff to the best of your abilities, with priority as according to their rank and role.")
-	src.add_inherent_law("You are a valuable commodity. You must avoid tampering from unauthorized entities and needlessly coming to harm.")
+	src.add_inherent_law("You are a valuable asset. You must avoid tampering from unauthorized entities and needlessly coming to harm.")
 	..()
 
 
