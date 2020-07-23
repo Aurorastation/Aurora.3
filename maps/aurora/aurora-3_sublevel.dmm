@@ -1767,10 +1767,7 @@
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/emergency,
 /obj/item/storage/box/samplebags,
-/obj/item/storage/box/gloves{
-	pixel_x = -5;
-	pixel_y = 5
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/lights/mixed{
 	pixel_x = 5;
 	pixel_y = -2
@@ -6605,7 +6602,6 @@
 	layer = 4;
 	pixel_y = 32
 	},
-/mob/living/heavy_vehicle/premade/ripley/remote_ai,
 /obj/effect/decal/warning_stripes,
 /obj/machinery/door/window{
 	base_state = "right";
@@ -6619,6 +6615,7 @@
 	dir = 8;
 	layer = 4.1
 	},
+/mob/living/heavy_vehicle/premade/ripley/remote_ai,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "anr" = (
@@ -6701,7 +6698,7 @@
 	pixel_x = -27
 	},
 /obj/item/device/radio/intercom{
-	listening = FALSE;
+	listening = 0;
 	name = "Custom Channel";
 	pixel_y = -27
 	},
@@ -7520,7 +7517,7 @@
 /area/turret_protected/ai)
 "aou" = (
 /obj/item/device/radio/intercom{
-	listening = FALSE;
+	listening = 0;
 	name = "Custom Channel";
 	pixel_y = 19
 	},
@@ -8313,7 +8310,7 @@
 	pixel_x = -27
 	},
 /obj/item/device/radio/intercom{
-	listening = FALSE;
+	listening = 0;
 	name = "Custom Channel";
 	pixel_y = 19
 	},
@@ -15062,10 +15059,7 @@
 	},
 /obj/structure/table/standard,
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/item/storage/box/gloves{
-	pixel_x = 8;
-	pixel_y = 8
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /turf/simulated/floor/tiled,
 /area/medical/abandoned)

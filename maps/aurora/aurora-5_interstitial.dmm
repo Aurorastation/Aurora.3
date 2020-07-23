@@ -3761,9 +3761,9 @@
 /area/security/training)
 "hP" = (
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	frequency = 1481;
-	listening = FALSE;
+	listening = 0;
 	name = "station intercom (Isolation Room)";
 	pixel_x = 27
 	},
@@ -7978,7 +7978,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/storage/box/gloves,
+/obj/item/nitrilebox,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
