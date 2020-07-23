@@ -116,7 +116,7 @@
 	reagents_to_add = list(/datum/reagent/diethylamine = 60)
 
 /obj/item/reagent_containers/glass/bottle/pacid
-	name = "polytrinic Acid Bottle"
+	name = "polytrinic acid bottle"
 	desc = "A small bottle. Contains a small amount of Polytrinic Acid"
 	icon_state = "bottle-4"
 	reagents_to_add = list(/datum/reagent/acid/polyacid = 60)
