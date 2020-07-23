@@ -166,7 +166,7 @@ Implant Specifics:<BR>"}
 
 /obj/item/implant/explosive/deadman/implanted(mob/source)
 	START_PROCESSING(SSprocessing, src)
-	return 1
+	return TRUE
 
 /obj/item/implant/explosive/deadman/emp_act(severity)
 	if(malfunction)
