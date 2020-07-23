@@ -524,8 +524,11 @@ var/list/global/slot_flags_enumeration = list(
 //If a negative value is returned, it should be treated as a special return value for bullet_act() and handled appropriately.
 //For non-projectile attacks this usually means the attack is blocked.
 //Otherwise should return 0 to indicate that the attack is not affected in any way.
-/obj/item/proc/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/proc/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	return 0
+
+/obj/item/proc/can_shield_back()
+	return
 
 /obj/item/proc/get_loc_turf()
 	var/atom/L = loc
@@ -831,3 +834,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 //Override this for items that can be flame sources.
 /obj/item/proc/isFlameSource()
 	return FALSE
+
+/obj/item/proc/glasses_examine_atom(var/atom/A, var/user)
+	return

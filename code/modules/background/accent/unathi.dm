@@ -25,3 +25,11 @@
 	Although filled with variety due to the multitude of kingdoms composed in the Wasteland, the borders of where these accents used to be set no longer exist and have simply become \
 	what it is now, struggling to find identity."
 	tag_icon = "trad_peasant"
+
+/datum/accent/wastelander
+	name = ACCENT_WASTELAND
+	description = "Deep within the Wasteland, the most savage lands dominated by bandits, death cults, and nomadic peoples that have lost any connection to their ancestors culturally. \
+	The Deep Wasteland accent comes from a disconnection to original talking styles, and adds in more aggressive speech patterns. To both Hegemonic and Traditionalist, the Deep \
+	Wastelander accent is the sign of an individual who has grown up without a home or clan that could have taught them an ancestral dialect. The accent is apparent in both \
+	Sinta'Unathi and Sinta'Azaziba."
+	tag_icon = "deep_wastelander"

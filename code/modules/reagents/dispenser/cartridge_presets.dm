@@ -98,7 +98,7 @@
 	imidazoline	spawn_reagent = /datum/reagent/imidazoline
 	kelotane	spawn_reagent = /datum/reagent/kelotane
 	leporazine	spawn_reagent = /datum/reagent/leporazine
-	norepi		spawn_reagent = /datum/reagent/norepinephrine
+	norepi		spawn_reagent = /datum/reagent/inaprovaline
 	oxycodone	spawn_reagent = /datum/reagent/oxycodone
 	paracetamol	spawn_reagent = /datum/reagent/paracetamol
 	peridaxon	spawn_reagent = /datum/reagent/peridaxon

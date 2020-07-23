@@ -53,6 +53,7 @@
 	verbs |= /mob/living/proc/ventcrawl
 	verbs |= /mob/living/proc/hide
 	verbs |= /mob/living/simple_animal/spiderbot/proc/control_integrated_radio
+	voice_name = name
 
 /mob/living/simple_animal/spiderbot/attackby(var/obj/item/O as obj, var/mob/user as mob)
 
@@ -148,11 +149,11 @@
 		spawn(300)	src.explode()
 
 /mob/living/simple_animal/spiderbot/proc/transfer_personality(var/obj/item/device/mmi/M as obj)
-
-		src.mind = M.brainmob.mind
-		src.mind.key = M.brainmob.key
-		src.ckey = M.brainmob.ckey
-		src.name = "spider-bot ([M.brainmob.name])"
+	src.mind = M.brainmob.mind
+	src.mind.key = M.brainmob.key
+	src.ckey = M.brainmob.ckey
+	src.name = "spider-bot ([M.brainmob.name])"
+	src.voice_name = src.name
 
 /mob/living/simple_animal/spiderbot/proc/explode() //When emagged.
 	src.visible_message("<span class='danger'>\The [src] makes an odd warbling noise, fizzles, and explodes!</span>")
@@ -181,6 +182,7 @@
 		mmi = null
 		real_name = initial(real_name)
 		name = real_name
+		voice_name = name
 		update_icon()
 	remove_language("Robot Talk")
 	positronic = null

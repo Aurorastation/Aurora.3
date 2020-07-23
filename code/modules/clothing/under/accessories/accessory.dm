@@ -460,9 +460,15 @@
 
 /obj/item/clothing/accessory/poncho/roles/medical
 	name = "medical poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is white with green and blue tint, standard Medical colors."
+	desc = "A simple, comfortable cloak without sleeves. This one is white with a green tint, standard Medical colors."
 	icon_state = "medponcho"
 	item_state = "medponcho"
+
+/obj/item/clothing/accessory/poncho/roles/iac
+	name = "IAC poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is white with a blue tint, standard IAC colors."
+	icon_state = "IACponcho"
+	item_state = "IACponcho"	
 
 /obj/item/clothing/accessory/poncho/roles/engineering
 	name = "engineering poncho"

@@ -139,10 +139,10 @@
 
 /* Common reactions */
 
-/datum/chemical_reaction/norepinephrine
-	name = "Norepinephrine"
-	id = "norepinephrine"
-	result = /datum/reagent/norepinephrine
+/datum/chemical_reaction/inaprovaline
+	name = "Inaprovaline"
+	id = "inaprovaline"
+	result = /datum/reagent/inaprovaline
 	required_reagents = list(/datum/reagent/acetone = 1, /datum/reagent/carbon = 1, /datum/reagent/sugar = 1)
 	result_amount = 3
 
@@ -157,7 +157,7 @@
 	name = "Tramadol"
 	id = "tramadol"
 	result = /datum/reagent/tramadol
-	required_reagents = list(/datum/reagent/norepinephrine = 1, /datum/reagent/alcohol/ethanol = 1, /datum/reagent/acetone = 1)
+	required_reagents = list(/datum/reagent/inaprovaline = 1, /datum/reagent/alcohol/ethanol = 1, /datum/reagent/acetone = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/paracetamol
@@ -294,7 +294,7 @@
 	name = "Tricordrazine"
 	id = "tricordrazine"
 	result = /datum/reagent/tricordrazine
-	required_reagents = list(/datum/reagent/norepinephrine = 1, /datum/reagent/dylovene = 1)
+	required_reagents = list(/datum/reagent/inaprovaline = 1, /datum/reagent/dylovene = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/alkysine
@@ -331,8 +331,8 @@
 	name = "Bicaridine"
 	id = "bicaridine"
 	result = /datum/reagent/bicaridine
-	required_reagents = list(/datum/reagent/norepinephrine = 1, /datum/reagent/carbon = 1)
-	inhibitors = list(/datum/reagent/sugar = 1) // Messes with norepinephrine
+	required_reagents = list(/datum/reagent/inaprovaline = 1, /datum/reagent/carbon = 1)
+	inhibitors = list(/datum/reagent/sugar = 1) // Messes with inaprovaline
 	result_amount = 2
 
 /datum/chemical_reaction/hyperzine
@@ -375,7 +375,7 @@
 	name = "Diphenhydramine"
 	id = "diphenhydramine"
 	result = /datum/reagent/antihistamine
-	required_reagents = list(/datum/reagent/cryptobiolin = 1, /datum/reagent/norepinephrine = 1)
+	required_reagents = list(/datum/reagent/cryptobiolin = 1, /datum/reagent/inaprovaline = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/ondansetron
@@ -658,7 +658,7 @@
 /datum/chemical_reaction/adrenaline
 	name = "Adrenaline"
 	result = /datum/reagent/adrenaline
-	required_reagents = list(/datum/reagent/norepinephrine = 1, /datum/reagent/hyperzine = 1, /datum/reagent/dexalin/plus = 1)
+	required_reagents = list(/datum/reagent/inaprovaline = 1, /datum/reagent/hyperzine = 1, /datum/reagent/dexalin/plus = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/paroxetine
@@ -2387,10 +2387,10 @@
 	required_reagents = list(/datum/reagent/iron = 1, /datum/reagent/alcohol/ethanol/wine = 5, /datum/reagent/alcohol/ethanol/vodka = 5)
 	result_amount = 10
 
-/datum/chemical_reaction/drink/changelingsting
-	name = "Changeling Sting"
-	id = "changelingsting"
-	result = /datum/reagent/alcohol/ethanol/changelingsting
+/datum/chemical_reaction/drink/gibsonpunch
+	name = "Gibson Punch"
+	id = "gibsonpunch"
+	result = /datum/reagent/alcohol/ethanol/gibsonpunch
 	required_reagents = list(/datum/reagent/alcohol/ethanol/screwdrivercocktail = 1, /datum/reagent/drink/limejuice = 1, /datum/reagent/drink/lemonjuice = 1)
 	result_amount = 3
 
@@ -2429,10 +2429,10 @@
 	required_reagents = list(/datum/reagent/alcohol/ethanol/ale = 1, /datum/reagent/alcohol/ethanol/irishcream = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/drink/syndicatebomb
-	name = "Syndicate Bomb"
-	id = "syndicatebomb"
-	result = /datum/reagent/alcohol/ethanol/syndicatebomb
+/datum/chemical_reaction/drink/gibsonhooch
+	name = "Gibson Hooch"
+	id = "gibsonhooch"
+	result = /datum/reagent/alcohol/ethanol/gibsonhooch
 	required_reagents = list(/datum/reagent/alcohol/ethanol/beer = 1, /datum/reagent/alcohol/ethanol/whiskeycola = 1)
 	result_amount = 2
 
@@ -3568,4 +3568,4 @@
 	id = "rmt"
 	result = /datum/reagent/rmt
 	result_amount = 1
-	required_reagents = list(/datum/reagent/potassium = 1, /datum/reagent/norepinephrine = 1)
+	required_reagents = list(/datum/reagent/potassium = 1, /datum/reagent/inaprovaline = 1)

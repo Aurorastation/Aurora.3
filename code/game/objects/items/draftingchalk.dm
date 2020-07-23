@@ -96,7 +96,7 @@
 	desc = "A line drawn in a purple chalk."
 	color = "#a489c2"
 
-/obj/item/storage/fancy/crayons/chalkbox
+/obj/item/storage/box/fancy/crayons/chalkbox
 	name = "box of drafting chalk"
 	desc = "A box of drafting chalk for drafting floor plans."
 	icon_state = "chalkbox"
@@ -105,7 +105,7 @@
 		/obj/item/pen/drafting
 	)
 
-/obj/item/storage/fancy/crayons/chalkbox/fill()
+/obj/item/storage/box/fancy/crayons/chalkbox/fill()
 	new /obj/item/pen/drafting/red(src)
 	new /obj/item/pen/drafting(src)
 	new /obj/item/pen/drafting/yellow(src)
@@ -114,7 +114,7 @@
 	new /obj/item/pen/drafting/purple(src)
 	update_icon()
 
-/obj/item/storage/fancy/crayons/chalkbox/update_icon()
+/obj/item/storage/box/fancy/crayons/chalkbox/update_icon()
 	cut_overlays()
 	for(var/obj/item/pen/drafting/chalk in contents)
 		add_overlay("[chalk.colorName]")
