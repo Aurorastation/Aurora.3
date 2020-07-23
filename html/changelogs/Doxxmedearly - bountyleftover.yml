@@ -1,0 +1,6 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes: 
+  - tweak: "Removed the Advanced Energy Gun bounty, as it is not possible to obtain outside of antags or ERTs."
