@@ -1019,6 +1019,9 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/supply/dock)
 "aeq" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "27"
 	},
@@ -1028,13 +1031,13 @@
 	name = "Battery 3 Firing Control"
 	},
 /turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/turf/unsimulated/floor{
 	icon_state = "wood_siding10"
 	},
 /area/centcom/control)
 "aer" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "28"
 	},
@@ -1043,26 +1046,26 @@
 	},
 /obj/effect/decal/warning_stripes,
 /turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/turf/unsimulated/floor{
 	icon_state = "wood_siding2";
 	dir = 6
 	},
 /area/centcom/control)
 "aes" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "29"
 	},
 /obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/turf/unsimulated/floor{
 	icon_state = "wood_siding6"
 	},
 /area/centcom/control)
 "aet" = (
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
 /obj/structure/window/phoronreinforced,
 /obj/structure/window/phoronreinforced{
 	dir = 1
@@ -1071,13 +1074,13 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/turf/unsimulated/floor{
 	icon_state = "wood_siding9"
 	},
 /area/centcom/control)
 "aeu" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "27"
 	},
@@ -1087,13 +1090,13 @@
 	name = "Battery 2 Firing Control"
 	},
 /turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/turf/unsimulated/floor{
 	icon_state = "wood_siding10"
 	},
 /area/centcom/control)
 "aev" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "27"
 	},
@@ -1105,39 +1108,36 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/item/reagent_containers/glass/rag,
 /turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/turf/unsimulated/floor{
 	icon_state = "wood_siding10"
 	},
 /area/centcom/control)
 "aew" = (
-/obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "wood_siding1";
 	dir = 6
 	},
 /area/centcom/control)
 "aex" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/stool,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stool,
 /turf/unsimulated/floor{
 	icon_state = "wood_siding1";
 	dir = 6
 	},
 /area/centcom/control)
 "aey" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/storage/toolbox/electrical,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/toolbox/electrical,
 /turf/unsimulated/floor{
 	icon_state = "wood_siding1";
 	dir = 6
@@ -1257,6 +1257,9 @@
 /turf/unsimulated/wall/riveted,
 /area/template_noop)
 "aeS" = (
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
 /obj/structure/window/phoronreinforced{
 	dir = 8
 	},
@@ -1265,9 +1268,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding9"
 	},
@@ -2038,18 +2038,18 @@
 /turf/unsimulated/floor/plating,
 /area/centcom)
 "ahx" = (
-/obj/item/stool/padded,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
+/obj/item/stool/padded,
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "siding2"
 	},
 /area/centcom/holding)
 "ahy" = (
-/obj/effect/decal/cleanable/dirt,
 /turf/template_noop,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/shuttle/dark/cardinal{
 	icon_state = "swall_c"
 	},
@@ -2081,16 +2081,16 @@
 /turf/space/transit,
 /area/space)
 "ahD" = (
-/obj/effect/decal/cleanable/dirt,
 /turf/template_noop,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/shuttle/dark/cardinal{
 	icon_state = "swall_c";
 	dir = 8
 	},
 /area/template_noop)
 "ahE" = (
-/obj/effect/decal/cleanable/dirt,
 /turf/template_noop,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/wall/shuttle/dark/cardinal{
 	icon_state = "swall_c";
 	dir = 4
@@ -2493,7 +2493,7 @@
 /area/syndicate_mothership/control)
 "akn" = (
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	dir = 1;
 	frequency = 1213;
 	name = "Syndicate Ops Intercom";
@@ -2558,10 +2558,10 @@
 /area/syndicate_mothership/elite_squad)
 "akz" = (
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	dir = 1;
 	frequency = 1213;
-	listening = FALSE;
+	listening = 0;
 	name = "Syndicate Ops Intercom";
 	pixel_y = 28;
 	subspace_transmission = 1;
@@ -6111,10 +6111,10 @@
 /area/centcom/specops)
 "avV" = (
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	dir = 1;
 	frequency = 1441;
-	listening = FALSE;
+	listening = 0;
 	name = "Spec Ops Intercom";
 	pixel_y = 28
 	},
@@ -6478,7 +6478,7 @@
 	name = "Hull Door Control"
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	dir = 1;
 	frequency = 1441;
 	name = "Spec Ops Intercom";
@@ -7643,10 +7643,10 @@
 	dir = 8
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	dir = 1;
 	frequency = 1443;
-	listening = FALSE;
+	listening = 0;
 	name = "Spec Ops Intercom";
 	pixel_y = 28
 	},
@@ -7919,10 +7919,10 @@
 /area/centcom/specops)
 "azU" = (
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	dir = 1;
 	frequency = 1441;
-	listening = FALSE;
+	listening = 0;
 	name = "Spec Ops Intercom";
 	pixel_y = 28
 	},
@@ -8310,7 +8310,7 @@
 /obj/structure/table/reinforced,
 /obj/item/storage/box/autoinjectors,
 /obj/item/storage/box/beakers,
-/obj/item/storage/box/gloves,
+/obj/item/nitrilebox,
 /obj/item/storage/box/pillbottles,
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
@@ -12018,10 +12018,7 @@
 /area/centcom/holding)
 "aJB" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /turf/unsimulated/floor{
 	dir = 4;
@@ -12207,10 +12204,7 @@
 /area/centcom/holding)
 "aJX" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /obj/item/reagent_containers/spray/cleaner,
 /turf/unsimulated/floor{
@@ -23476,10 +23470,7 @@
 	pixel_y = 6
 	},
 /obj/item/storage/box/masks,
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/fire{
 	layer = 2.9;
@@ -33097,10 +33088,7 @@
 /area/centcom/legion/hangar5)
 "utC" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /turf/unsimulated/floor{
 	icon_state = "whitegreen";
@@ -33595,10 +33583,10 @@
 	},
 /area/centcom/legion)
 "vdb" = (
+/turf/unsimulated/floor/plating,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
 	},
-/turf/unsimulated/floor/plating,
 /turf/simulated/wall/shuttle/unique/tcfl{
 	icon_state = "1,5"
 	},
@@ -34296,10 +34284,7 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /obj/machinery/light{
 	dir = 4;

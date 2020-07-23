@@ -3295,9 +3295,9 @@
 	dir = 8
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	frequency = 1475;
-	listening = FALSE;
+	listening = 0;
 	name = "Station Intercom (Security)";
 	pixel_x = -30
 	},
@@ -3367,6 +3367,7 @@
 /turf/simulated/wall/r_wall,
 /area/crew_quarters/heads/hos)
 "ags" = (
+/turf/simulated/floor/plating,
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized{
@@ -3377,7 +3378,6 @@
 	dir = 8;
 	id = "RD"
 	},
-/turf/simulated/floor/plating,
 /turf/template_noop,
 /area/rnd/research)
 "agt" = (
@@ -4134,9 +4134,9 @@
 /area/security/brig)
 "ahN" = (
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	frequency = 1449;
-	listening = FALSE;
+	listening = 0;
 	pixel_y = 25
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4762,9 +4762,9 @@
 "aja" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	frequency = 1475;
-	listening = FALSE;
+	listening = 0;
 	name = "Station Intercom (Security)";
 	pixel_x = -30
 	},
@@ -10183,9 +10183,9 @@
 "asL" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	frequency = 1475;
-	listening = FALSE;
+	listening = 0;
 	name = "Station Intercom (Security)";
 	pixel_y = -30
 	},
@@ -21785,7 +21785,7 @@
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	frequency = 1480;
 	name = "Confessional Intercom";
 	pixel_x = 25
@@ -23170,7 +23170,7 @@
 "aSL" = (
 /obj/machinery/light/small,
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	frequency = 1480;
 	name = "Confessional Intercom";
 	pixel_x = 25
@@ -31937,7 +31937,7 @@
 	name = "tripai"
 	},
 /obj/item/device/radio/intercom{
-	listening = FALSE;
+	listening = 0;
 	name = "Custom Channel";
 	pixel_y = 20
 	},
@@ -31947,7 +31947,7 @@
 	pixel_y = -26
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	name = "Common Channel";
 	pixel_x = -25;
 	pixel_y = -4
@@ -31985,7 +31985,7 @@
 	pixel_y = 5
 	},
 /obj/item/device/radio/intercom{
-	listening = FALSE;
+	listening = 0;
 	name = "Custom Channel";
 	pixel_x = -27;
 	pixel_y = 4
@@ -31994,7 +31994,7 @@
 	name = "AI"
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	name = "Common Channel";
 	pixel_y = 25
 	},
@@ -32042,7 +32042,7 @@
 	name = "tripai"
 	},
 /obj/item/device/radio/intercom{
-	listening = FALSE;
+	listening = 0;
 	name = "Custom Channel";
 	pixel_y = 19
 	},
@@ -32052,7 +32052,7 @@
 	pixel_y = -26
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	name = "Common Channel";
 	pixel_x = 27;
 	pixel_y = -3
@@ -42969,10 +42969,7 @@
 "bDN" = (
 /obj/structure/table/standard,
 /obj/machinery/light,
-/obj/item/storage/box/gloves{
-	pixel_x = 4;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -44792,9 +44789,9 @@
 /area/medical/psych)
 "bHh" = (
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	frequency = 1481;
-	listening = FALSE;
+	listening = 0;
 	name = "station intercom (Isolation Room)";
 	pixel_x = 27
 	},
@@ -59122,10 +59119,7 @@
 /area/medical/surgeryobs)
 "chY" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
-	pixel_x = 4;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 8
@@ -66648,10 +66642,7 @@
 	dir = 4;
 	pixel_x = -22
 	},
-/obj/item/storage/box/gloves{
-	pixel_x = 4;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Virology Port";
@@ -74523,7 +74514,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/storage/box/gloves,
+/obj/item/nitrilebox,
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278

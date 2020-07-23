@@ -5891,10 +5891,7 @@
 /area/outpost/research/emergency_storage)
 "lX" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/gloves{
-	pixel_x = 4;
-	pixel_y = 5
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/samplebags{
 	pixel_x = 3;
 	pixel_y = -3

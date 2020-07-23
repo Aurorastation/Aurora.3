@@ -186,7 +186,7 @@
 	},
 /area/derelict/ship)
 "aM" = (
-/obj/item/clothing/gloves/yellow/vox,
+/obj/item/organ/stack/vox,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
