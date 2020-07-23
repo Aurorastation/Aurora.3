@@ -24447,15 +24447,9 @@
 /area/hallway/secondary/entry/stairs)
 "VA" = (
 /obj/structure/table/standard,
-<<<<<<< HEAD
-/obj/item/reagent_containers/food/snacks/cookiesnack,
-/obj/item/reagent_containers/food/snacks/cookiesnack,
+/obj/item/storage/box/fancy/cookiesnack,
+/obj/item/storage/box/fancy/cookiesnack,
 /obj/item/reagent_containers/food/drinks/waterbottle{
-=======
-/obj/item/storage/box/fancy/cookiesnack,
-/obj/item/storage/box/fancy/cookiesnack,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
->>>>>>> master
 	layer = 3.01;
 	pixel_x = -8;
 	pixel_y = 14

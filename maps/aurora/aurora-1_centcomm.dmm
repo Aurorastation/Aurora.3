@@ -18424,13 +18424,8 @@
 "bPG" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/glass,
-<<<<<<< HEAD
-/obj/item/storage/fancy/cigarettes/dromedaryco,
-/obj/item/reagent_containers/food/drinks/waterbottle,
-=======
 /obj/item/storage/box/fancy/cigarettes/dromedaryco,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
->>>>>>> master
+/obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
