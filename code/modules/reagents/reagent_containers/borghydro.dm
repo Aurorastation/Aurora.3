@@ -13,17 +13,17 @@
 	var/charge_tick = 0
 	var/recharge_time = 5 //Time it takes for shots to recharge (in seconds)
 
-	var/list/reagent_ids = list(/datum/reagent/tricordrazine, /datum/reagent/norepinephrine)
+	var/list/reagent_ids = list(/datum/reagent/tricordrazine, /datum/reagent/inaprovaline)
 	var/list/reagent_volumes = list()
 	var/list/reagent_names = list()
 
 	center_of_mass = null
 
 /obj/item/reagent_containers/borghypo/medical
-	reagent_ids = list(/datum/reagent/bicaridine, /datum/reagent/kelotane, /datum/reagent/dylovene, /datum/reagent/dexalin, /datum/reagent/norepinephrine, /datum/reagent/tramadol, /datum/reagent/thetamycin)
+	reagent_ids = list(/datum/reagent/bicaridine, /datum/reagent/kelotane, /datum/reagent/dylovene, /datum/reagent/dexalin, /datum/reagent/inaprovaline, /datum/reagent/tramadol, /datum/reagent/thetamycin)
 
 /obj/item/reagent_containers/borghypo/rescue
-	reagent_ids = list(/datum/reagent/tricordrazine, /datum/reagent/norepinephrine, /datum/reagent/tramadol, /datum/reagent/adrenaline)
+	reagent_ids = list(/datum/reagent/tricordrazine, /datum/reagent/inaprovaline, /datum/reagent/tramadol, /datum/reagent/adrenaline)
 
 /obj/item/reagent_containers/borghypo/Initialize()
 	. = ..()

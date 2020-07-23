@@ -315,6 +315,14 @@ BLIND     // can't see anything
 	desc = "A very oddly shaped pair of goggles with bits of wire poking out the sides. A soft humming sound emanates from it."
 	icon_state = "scanning"
 
+/obj/item/clothing/glasses/regular/scanners/glasses_examine_atom(var/atom/A, var/user)
+	if(isobj(A))
+		var/obj/O = A
+		if(length(O.origin_tech))
+			to_chat(user, FONT_SMALL("\The [O] grants these tech levels when deconstructed:"))
+			for(var/tech in O.origin_tech)
+				to_chat(user, FONT_SMALL("[capitalize_first_letters(tech)]: [O.origin_tech[tech]]"))
+
 /obj/item/clothing/glasses/regular/hipster
 	name = "prescription glasses"
 	desc = "Made by Uncool. Co."

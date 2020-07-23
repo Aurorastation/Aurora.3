@@ -141,14 +141,13 @@
 /material/cardboard/generate_recipes()
 	..()
 	recipes += new/datum/stack_recipe("box", /obj/item/storage/box)
-	recipes += new/datum/stack_recipe("donut box", /obj/item/storage/fancy/donut/empty)
-	recipes += new/datum/stack_recipe("egg box", /obj/item/storage/fancy/egg_box)
-	recipes += new/datum/stack_recipe("light tubes box", /obj/item/storage/box/lights/tubes)
-	recipes += new/datum/stack_recipe("light bulbs box", /obj/item/storage/box/lights/bulbs)
-	recipes += new/datum/stack_recipe("mouse traps box", /obj/item/storage/box/mousetraps)
+	recipes += new/datum/stack_recipe("donut box", /obj/item/storage/box/fancy/donut/empty)
+	recipes += new/datum/stack_recipe("egg carton", /obj/item/storage/box/fancy/egg_box)
+	recipes += new/datum/stack_recipe("candle pack", /obj/item/storage/box/fancy/candle_box/empty)
+	recipes += new/datum/stack_recipe("crayon box", /obj/item/storage/box/fancy/crayons/empty)
+	recipes += new/datum/stack_recipe("pizza box", /obj/item/pizzabox)
 	recipes += new/datum/stack_recipe("cardborg suit", /obj/item/clothing/suit/cardborg, 3)
 	recipes += new/datum/stack_recipe("cardborg helmet", /obj/item/clothing/head/cardborg)
-	recipes += new/datum/stack_recipe("pizza box", /obj/item/pizzabox)
 	recipes += new/datum/stack_recipe_list("folders",list( \
 		new/datum/stack_recipe("blue folder", /obj/item/folder/blue), \
 		new/datum/stack_recipe("grey folder", /obj/item/folder), \

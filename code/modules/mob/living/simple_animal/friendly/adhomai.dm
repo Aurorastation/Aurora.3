@@ -147,3 +147,8 @@
 	visible_message(SPAN_WARNING("[src] harmlessly bounces off \the [T]!"))
 	playsound(T, 'sound/effects/bangtaper.ogg', 50, 1, 1)
 	make_noise()
+
+/mob/living/simple_animal/schlorrgo/fall_impact()
+	visible_message(SPAN_NOTICE("\The [src] bounces after landing!"))
+	step(src, pick(alldirs), 1)
+	return FALSE

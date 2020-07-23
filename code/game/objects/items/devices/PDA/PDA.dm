@@ -1399,7 +1399,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	try_sort_pda_list()
 
 /obj/item/device/pda/attack(mob/living/C, mob/living/user)
-	health_scan_mob(C, user, TRUE)
+	if(scanmode == 1)
+		health_scan_mob(C, user, TRUE)
 
 /obj/item/device/pda/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
 	if(!proximity) return
