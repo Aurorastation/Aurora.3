@@ -203,8 +203,8 @@ Implant Specifics:<BR>"}
 	icon_state = "implant_evil"
 
 /obj/item/implant/explosive/Initialize()
+	. = ..()
 	if(uses_codewords)
-		. = ..()
 		phrase = "You are [pick(adjectives)]"
 
 /obj/item/implant/explosive/get_data()
