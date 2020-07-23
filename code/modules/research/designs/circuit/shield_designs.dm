@@ -1,14 +1,7 @@
 /datum/design/circuit/shield
 	req_tech = list(TECH_BLUESPACE = 4, TECH_PHORON = 3)
 	materials = list(MATERIAL_GLASS = 2000, MATERIAL_GOLD = 1000)
-	design_order = 5
-
-/datum/design/circuit/shield/AssembleDesignName()
-	name = "Shield Generator Circuit Design ([name])"
-
-/datum/design/circuit/shield/AssembleDesignDesc()
-	if(!desc)
-		desc = "Allows for the construction of \a [name] shield generator."
+	p_category = "Shield Generator Circuit Designs"
 
 /datum/design/circuit/shield/bubble
 	name = "Bubble"

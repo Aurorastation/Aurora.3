@@ -156,15 +156,15 @@
 		to_chat(user, SPAN_NOTICE("It is empty."))
 
 
-/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine
-	name = "autoinjector (norepinephrine)"
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
+	name = "autoinjector (inaprovaline)"
 	volume = 5
 	amount_per_transfer_from_this = 20
 	flags = 0
 
-/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine/Initialize()
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline/Initialize()
 	. =..()
-	reagents.add_reagent(/datum/reagent/norepinephrine, 5)
+	reagents.add_reagent(/datum/reagent/inaprovaline, 5)
 	update_icon()
 	return
 
@@ -182,7 +182,7 @@
 	volume = 35
 	amount_per_transfer_from_this = 35
 
-	reagents_to_add = list(/datum/reagent/tricordrazine = 15, /datum/reagent/norepinephrine = 5, /datum/reagent/dexalin/plus = 5, /datum/reagent/oxycodone = 5, /datum/reagent/mental/methylphenidate = 5)
+	reagents_to_add = list(/datum/reagent/tricordrazine = 15, /datum/reagent/inaprovaline = 5, /datum/reagent/dexalin/plus = 5, /datum/reagent/oxycodone = 5, /datum/reagent/mental/methylphenidate = 5)
 
 /obj/item/reagent_containers/hypospray/combat
 	name = "combat hypospray"

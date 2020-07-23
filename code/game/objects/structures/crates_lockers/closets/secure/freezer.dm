@@ -16,11 +16,11 @@
 	name = "kitchen cabinet"
 	req_access = list(access_kitchen)
 
-	fill()
-		for(var/i = 0, i < 2, i++)
-			new /obj/item/reagent_containers/food/condiment/flour(src)
-		new /obj/item/reagent_containers/food/condiment/sugar(src)
-		new /obj/item/reagent_containers/food/condiment/shaker/spacespice(src)
+/obj/structure/closet/secure_closet/freezer/kitchen/fill()
+	for(var/i = 0, i < 2, i++)
+		new /obj/item/reagent_containers/food/condiment/flour(src)
+	new /obj/item/reagent_containers/food/condiment/sugar(src)
+	new /obj/item/reagent_containers/food/condiment/shaker/spacespice(src)
 
 /obj/structure/closet/secure_closet/freezer/kitchen/mining
 	req_access = list()
@@ -55,7 +55,7 @@
 	for(var/i = 0, i < 2, i++)
 		new /obj/item/reagent_containers/food/drinks/soymilk(src)
 	for(var/i = 0, i < 2, i++)
-		new /obj/item/storage/fancy/egg_box(src)
+		new /obj/item/storage/box/fancy/egg_box(src)
 
 
 /obj/structure/closet/secure_closet/freezer/money

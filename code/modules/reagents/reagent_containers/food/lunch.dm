@@ -86,7 +86,7 @@ var/list/lunchables_alcohol_reagents_ = list(
 	/datum/reagent/alcohol/ethanol/atomicbomb,
 	/datum/reagent/alcohol/ethanol/beepsky_smash,
 	/datum/reagent/alcohol/ethanol/coffee,
-	/datum/reagent/alcohol/ethanol/hippies_delight,
+	/datum/reagent/alcohol/ethanol/hippiesdelight,
 	/datum/reagent/alcohol/ethanol/hooch,
 	/datum/reagent/alcohol/ethanol/thirteenloko,
 	/datum/reagent/alcohol/ethanol/manhattan_proj,

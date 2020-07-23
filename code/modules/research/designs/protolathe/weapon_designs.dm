@@ -1,16 +1,5 @@
 /datum/design/item/weapon
-	design_order = 2
-
-/datum/design/item/weapon/AssembleDesignName()
-	..()
-	name = "Advanced Weapon Design ([capitalize_first_letters(item_name)])"
-
-/datum/design/item/weapon/AssembleDesignDesc()
-	if(!desc)
-		if(build_path)
-			var/obj/item/I = build_path
-			desc = initial(I.desc)
-		..()
+	p_category = "Advanced Weapon Designs"
 
 /datum/design/item/weapon/gun/Fabricate()
 	var/obj/item/gun/C = ..()
@@ -32,7 +21,6 @@
 	build_path = /obj/item/ammo_casing/shotgun/stunshell
 
 /datum/design/item/weapon/chemsprayer
-	desc = "An advanced chem spraying device."
 	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_BIO = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 1000)
 	build_path = /obj/item/reagent_containers/spray/chemsprayer
@@ -59,14 +47,12 @@
 	build_path = /obj/item/melee/energy/glaive
 
 /datum/design/item/weapon/forcegloves
-	name = "Force Gloves"
 	desc = "These gloves bend gravity and bluespace, dampening inertia and augmenting the wearer's melee capabilities."
 	req_tech = list(TECH_COMBAT = 3, TECH_BLUESPACE = 3, TECH_ENGINEERING = 3, TECH_MAGNET = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 4000)
 	build_path = /obj/item/clothing/gloves/force/basic
 
 /datum/design/item/weapon/eshield
-	name = "Energy Shield"
 	desc = "A shield capable of stopping most projectile and melee attacks. It can be retracted, expanded, and stored anywhere."
 	req_tech = list(TECH_MAGNET = 3, TECH_MATERIAL = 4, TECH_ILLEGAL = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 3000, MATERIAL_PHORON = 1000)

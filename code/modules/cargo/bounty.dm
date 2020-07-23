@@ -1,18 +1,29 @@
+#define BOUNTY_MIN 1000
+#define BOUNTY_MAX 15000
+
+#define BOUNTY_NUM_LOW 1
+#define BOUNTY_NUM_MED 2
+#define BOUNTY_NUM_HIGH 3
+
 /datum/bounty
 	var/name
 	var/description
-	var/reward = 1000 // In credits.
+	var/reward = BOUNTY_MIN // In credits. Mostly a fallback
+	var/reward_low = 0	//If 0, uses reward value instead
+	var/reward_high = 0	//If 0, uses reward value instead. Must be higher than reward_low
 	var/claimed = FALSE
 	var/high_priority = FALSE
 
 /datum/bounty/New()
+	if(reward_low > 0 && reward_high > reward_low)
+		reward = round(rand(reward_low, reward_high), 100)	
 	description = replacetext(description, "%DOCKNAME",current_map.dock_name)
 	description = replacetext(description, "%DOCKSHORT",current_map.dock_short)
 	description = replacetext(description, "%BOSSNAME",current_map.boss_name)
 	description = replacetext(description, "%BOSSSHORT",current_map.boss_short)
 	description = replacetext(description, "%COMPNAME",current_map.company_name)
 	description = replacetext(description, "%COMPSHORT",current_map.company_short)
-
+	description = replacetext(description, "%PERSONNAME","[pick("Trooper", "Commander", "Agent", "Director", "Doctor")] [pick(last_names)]")
 
 // Displayed on bounty UI screen.
 /datum/bounty/proc/completion_string()
@@ -43,14 +54,14 @@
 
 // When randomly generating the bounty list, duplicate bounties must be avoided.
 // This proc is used to determine if two bounties are duplicates, or incompatible in general.
-/datum/bounty/proc/compatible_with(other_bounty)
+/datum/bounty/proc/compatible_with(var/datum/other_bounty)
 	return TRUE
 
 /datum/bounty/proc/mark_high_priority(scale_reward = 2)
 	if(high_priority)
 		return
 	high_priority = TRUE
-	reward = round(reward * scale_reward)
+	reward = min(round(reward * scale_reward), BOUNTY_MAX)	//15k limit
 
 //Generates a list of available bounties to be displayed
 /datum/controller/subsystem/cargo/proc/get_bounty_list()
@@ -112,7 +123,7 @@
 			var/subtype = pick(subtypesof(/datum/bounty/item/assistant))
 			return new subtype
 		if(2)
-			var/subtype = pick(subtypesof(/datum/bounty/item/assistant))
+			var/subtype = pick(subtypesof(/datum/bounty/item/engineer))
 			return new subtype
 		if(3)
 			var/subtype = pick(subtypesof(/datum/bounty/item/chef))
@@ -130,7 +141,7 @@
 			var/subtype = pick(subtypesof(/datum/bounty/item/science))
 			return new subtype
 		if(8)
-			var/subtype = pick(subtypesof(/datum/bounty/item/slime))
+			var/subtype = pick(subtypesof(/datum/bounty/item/hydroponicist))
 			return new subtype
 		if(9)
 			var/subtype = pick(subtypesof(/datum/bounty/item/bot))
@@ -155,34 +166,48 @@
 
 // Called lazily at startup to populate bounties_list with random bounties.
 /datum/controller/subsystem/cargo/proc/setupBounties()
-	for(var/i = 0; i < 3; ++i)
+	for(var/i = 0; i < BOUNTY_NUM_HIGH; i++)
 		CHECK_TICK
-		var/subtype = pick(subtypesof(/datum/bounty/item/assistant))
+		var/datum/bounty/subtype = pick(subtypesof(/datum/bounty/item/assistant))
 		try_add_bounty(new subtype)
 
-	for(var/i = 0; i < 1; ++i)
+	for(var/i = 0; i < BOUNTY_NUM_HIGH; i++)
 		CHECK_TICK
-		var/list/subtype = pick(subtypesof(/datum/bounty/item/bot))
+		var/list/subtypes = subtypesof(/datum/bounty/item/bot)
+		subtypes += subtypesof(/datum/bounty/item/science)
+		var/datum/bounty/subtype = pick(subtypes)
 		try_add_bounty(new subtype)
 
-	for(var/i = 0; i < 2; ++i)
+	for(var/i = 0; i < BOUNTY_NUM_MED; i++)
 		CHECK_TICK
-		var/list/subtype = pick(subtypesof(/datum/bounty/item/chef))
+		var/datum/bounty/subtype = pick(subtypesof(/datum/bounty/item/chef))
 		try_add_bounty(new subtype)
 
-	for(var/i = 0; i < 1; ++i)
+	for(var/i = 0; i <  BOUNTY_NUM_MED; i++)
 		CHECK_TICK
-		var/list/subtype = pick(subtypesof(/datum/bounty/item/security))
+		var/datum/bounty/subtype = pick(subtypesof(/datum/bounty/item/hydroponicist))
 		try_add_bounty(new subtype)
 
-	for(var/i = 0; i < 5; ++i)
+	for(var/i = 0; i < BOUNTY_NUM_HIGH; i++)
 		CHECK_TICK
-		var/list/subtype = pick(subtypesof(/datum/bounty/weapon_prototype, /datum/bounty/item/science, /datum/bounty/item/slime))
+		var/list/subtypes = subtypesof(/datum/bounty/item/security)
+		subtypes += subtypesof(/datum/bounty/item/engineer)
+		var/datum/bounty/subtype = pick(subtypes)
 		try_add_bounty(new subtype)
 
+	for(var/i = 0; i < BOUNTY_NUM_LOW; i++)
+		CHECK_TICK
+		var/list/subtypes = subtypesof(/datum/bounty/weapon_prototype)
+		subtypes += subtypesof(/datum/bounty/item/slime)
+		var/datum/bounty/subtype = pick(subtypes)
+		try_add_bounty(new subtype)
+
+	//add one of each reagent, then another one picked at random
 	try_add_bounty(new /datum/bounty/reagent/simple_drink)
 	try_add_bounty(new /datum/bounty/reagent/complex_drink)
 	try_add_bounty(new /datum/bounty/reagent/chemical)
+	var/datum/bounty/r_subtype = pick(subtypesof(/datum/bounty/reagent))
+	try_add_bounty(new r_subtype)
 
 	var/datum/bounty/B = pick(bounties_list)
 	B.mark_high_priority()
