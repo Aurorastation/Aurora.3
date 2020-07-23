@@ -288,7 +288,7 @@
 
 		log_say("[key_name(user)] communed to [key_name(target)]: [text]",ckey=key_name(src))
 
-		to_chat(user, SPAN_CULT("You psionically say to [target]:[text]"))
+		to_chat(user, SPAN_CULT("You psionically say to [target]: [text]"))
 
 		for (var/mob/M in player_list)
 			if (istype(M, /mob/abstract/new_player))
