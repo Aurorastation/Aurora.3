@@ -150,13 +150,11 @@ Implant Specifics:<BR>"}
 	var/mob/M = imp_in
 
 	if(M.stat == DEAD)
-		activate("death")
+		activate()
 
 /obj/item/implant/explosive/deadman/activate(var/cause)
-	switch(cause)
-		if("death")
-			small_countdown(src)
-			STOP_PROCESSING(SSprocessing, src)
+	small_countdown(src)
+	STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/implant/explosive/deadman/small_boom()
 	if(imp_in)
@@ -188,9 +186,6 @@ Implant Specifics:<BR>"}
 				small_countdown()
 			else if (prob(30))
 				meltdown()
-
-/obj/item/implant/explosive/deadman/islegal()
-	return 0
 
 //BS12 Explosive
 /obj/item/implant/explosive
