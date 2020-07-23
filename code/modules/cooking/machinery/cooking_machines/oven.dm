@@ -66,11 +66,11 @@
 
 	if (open)
 		open = FALSE
-		loss = 1
+		loss = (heating_power / resistance) * 0.5
 	else
 		open = TRUE
-		loss = 4
-		//When the oven door is opened, oven loses heat faster
+		loss = (heating_power / resistance) * 1.5
+		//When the oven door is opened, oven slowly loses heat
 
 	playsound(src, 'sound/machines/hatch_open.ogg', 20, 1)
 	update_icon()

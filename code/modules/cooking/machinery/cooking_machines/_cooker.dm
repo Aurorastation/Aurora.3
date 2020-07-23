@@ -76,7 +76,7 @@
 		to_chat(user, "You can't reach [src] from here.")
 		return
 
-	var/desired_temp = show_radial_menu(user, src, temp_options - (wasoff ? "OFF" : "[set_temp-T0C]"))
+	var/desired_temp = show_radial_menu(user, src, temp_options - (wasoff ? "OFF" : "[set_temp-T0C]"), require_near = TRUE, tooltips = TRUE, no_repeat_close = TRUE)
 	if(!desired_temp)
 		return
 
@@ -104,18 +104,19 @@
 	overlays += light
 
 /obj/machinery/appliance/cooker/machinery_process()
+	var/temp_change = heating_power
+	var/datum/gas_mixture/loc_air = loc.return_air()
 	if ((temperature >= set_temp) && (stat || use_power == 1))
-		temperature -= loss
+		temperature -= min(loss, temperature - loc_air.temperature)
+		temp_change = loss * resistance
 	if(!stat)
 		heat_up()
-	if( ( !(stat & POWEROFF) && !(stat & NOPOWER) ) ) // must be powered and turned on, to keep heating items
 		update_cooking_power() // update!
-		if(!LAZYLEN(cooking_objs))
-			return ..()
-		for(var/datum/cooking_item/CI in cooking_objs)
-			CI.container.reagents?.add_thermal_energy(heating_power)
-		return ..()
-	. = ..()
+	for(var/datum/cooking_item/CI in cooking_objs)
+		if(CI.container.reagents?.get_temperature() >= temperature)
+			temp_change = min(loss, CI.container.reagents?.get_temperature() - loc_air.temperature)
+		CI.container.reagents?.add_thermal_energy(temp_change)
+	return ..()
 
 /obj/machinery/appliance/cooker/power_change()
 	. = ..()

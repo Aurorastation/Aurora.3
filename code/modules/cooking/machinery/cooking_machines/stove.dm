@@ -23,7 +23,7 @@
 
 /obj/machinery/appliance/cooker/stove/update_icon()
 	. = ..()
-	overlays.Cut()
+	cut_overlays()
 	var/list/pans = list()
 	for(var/obj/item/reagent_containers/cooking_container/CC in contents)
 		var/image/pan_overlay

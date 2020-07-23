@@ -44,6 +44,10 @@
 	. = ..()
 	if(output_options.len)
 		verbs += /obj/machinery/appliance/proc/choose_output
+	if(powered())
+		stat &= ~NOPOWER
+	else
+		stat |= NOPOWER
 
 /obj/machinery/appliance/Destroy()
 	for (var/a in cooking_objs)

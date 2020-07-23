@@ -15,7 +15,7 @@
 	var/dry = 0
 	var/datum/reagent/nutriment/coating/coating = null
 	var/icon/flat_icon = null //Used to cache a flat icon generated from dipping in batter. This is used again to make the cooked-batter-overlay
-	var/do_coating_prefix = 1
+	var/do_coating_prefix = TRUE
 	//If 0, we wont do "battered thing" or similar prefixes. Mainly for recipes that include batter but have a special name
 
 	var/cooked_icon = null
@@ -27,7 +27,7 @@
 	var/flavor = null // set_flavor()
 
 /obj/item/reagent_containers/food/snacks/standard_splash_mob(var/mob/user, var/mob/target)
-	return 1 //Returning 1 will cancel everything else in a long line of things it should do.
+	return TRUE //Returning TRUE will cancel everything else in a long line of things it should do.
 
 /obj/item/reagent_containers/food/snacks/on_consume(mob/user, mob/target)
 	if(!reagents.total_volume && !trash)
@@ -716,6 +716,8 @@
 /obj/item/reagent_containers/food/snacks/egg/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(!(proximity && O.is_open_container()))
 		return ..()
+	if(istype(O, /obj/item/reagent_containers/cooking_container) && user.a_intent == I_HELP)
+		return ..() // don't crack it into a container on help intent
 	to_chat(user, "You crack \the [src] into \the [O].")
 	reagents.trans_to(O, reagents.total_volume)
 	qdel(src)

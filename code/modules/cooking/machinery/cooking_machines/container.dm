@@ -166,11 +166,6 @@
 		color = material.icon_colour
 	name = "[material.display_name] [initial(name)]"
 
-/obj/item/reagent_containers/cooking_container/skillet/standard_splash_mob(var/mob/user, var/mob/target)
-	if(!reagents || !reagents.total_volume)
-		return 0
-	return ..()
-
 /obj/item/reagent_containers/cooking_container/saucepan
 	name = "saucepan"
 	shortname = "saucepan"

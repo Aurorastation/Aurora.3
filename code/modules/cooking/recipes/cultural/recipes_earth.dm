@@ -39,6 +39,7 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //Ingredients are mixed together.
 
 /datum/recipe/cheesesauce
+	appliance = SKILLET
 	fruit = list("chili" = 1, "tomato" = 1)
 	reagents = list(/datum/reagent/spacespice = 1, /datum/reagent/blackpepper = 1,/datum/reagent/sodiumchloride = 1)
 	items = list(
@@ -48,6 +49,7 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //Ingredients are mixed together.
 
 /datum/recipe/redcurry
+	appliance = SKILLET
 	reagents = list(/datum/reagent/drink/milk/cream = 5, /datum/reagent/spacespice = 2, /datum/reagent/nutriment/rice = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/cutlet,
@@ -57,6 +59,7 @@
 	result = /obj/item/reagent_containers/food/snacks/redcurry
 
 /datum/recipe/greencurry
+	appliance = SKILLET
 	reagents = list(/datum/reagent/drink/milk/cream = 5, /datum/reagent/spacespice = 2, /datum/reagent/nutriment/rice = 5)
 	fruit = list("chili" = 1)
 	items = list(
@@ -67,28 +70,33 @@
 	result = /obj/item/reagent_containers/food/snacks/greencurry
 
 /datum/recipe/yellowcurry
+	appliance = SKILLET
 	reagents = list(/datum/reagent/drink/milk/cream = 5, /datum/reagent/spacespice = 2, /datum/reagent/nutriment/rice = 5)
 	fruit = list("peanut" = 2, "potato" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/yellowcurry
 
 /datum/recipe/friedrice
+	appliance = SKILLET | SAUCEPAN
 	reagents = list(/datum/reagent/water = 5, /datum/reagent/nutriment/rice = 10, /datum/reagent/nutriment/soysauce = 5)
 	fruit = list("carrot" = 1, "cabbage" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/friedrice
 
 /datum/recipe/risotto
+	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/alcohol/ethanol/wine = 5, /datum/reagent/nutriment/rice = 10, /datum/reagent/spacespice = 1)
 	fruit = list("mushroom" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Get that rice and wine outta here
 	result = /obj/item/reagent_containers/food/snacks/risotto
 
 /datum/recipe/boiledrice
+	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/water = 5, /datum/reagent/nutriment/rice = 10)
 	result = /obj/item/reagent_containers/food/snacks/boiledrice
 
 /datum/recipe/ricepudding
+	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/nutriment/rice = 10)
 	result = /obj/item/reagent_containers/food/snacks/ricepudding
 
