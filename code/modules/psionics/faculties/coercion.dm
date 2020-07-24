@@ -62,7 +62,7 @@
 
 	var/obj/item/organ/internal/augment/psi/psiaug
 	for (psiaug in target)
-		if(psiaug && !psiaug.is_broken())
+		if(!psiaug.is_broken())
 			break
 	if (!psiaug)
 		if(target.isSynthetic())
