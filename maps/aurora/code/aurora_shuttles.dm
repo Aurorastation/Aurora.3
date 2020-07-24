@@ -148,7 +148,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/merchant/interim
 	name = "In Transit"
 	landmark_tag = "nav_merchant_interim"
-	base_turf = /turf/space/transit
+	base_turf = /turf/space/transit/east
 
 /obj/effect/shuttle_landmark/merchant/dock
 	name = "Merchant Shuttle Dock"

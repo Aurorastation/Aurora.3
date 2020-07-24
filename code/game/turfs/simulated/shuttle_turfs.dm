@@ -161,13 +161,20 @@
 	smooth = null
 	canSmoothWith = null
 
-/obj/structure/shuttle_part //For placing them over space, if sprite covers not whole tile.
+/obj/structure/shuttle_part //For placing them over space, if the sprite doesn't cover the whole turf.
 	name = "shuttle part"
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "door0"
 	anchored = TRUE
 	density = TRUE
 	var/outside_part = TRUE
+	atmos_canpass = CANPASS_DENSITY
+
+/obj/structure/shuttle_part/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(density)
+		return 0
+	else
+		return ..()
 
 /obj/structure/window/shuttle/unique
 	name = "shuttle window"
