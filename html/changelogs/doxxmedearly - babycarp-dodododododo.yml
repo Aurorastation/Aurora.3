@@ -1,7 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes: 
-  - bugfix: "Toggling hide hair coverage on baby carp will no longer bring up a menu of mobs."
-  - tweak: "Baby carp no longer hide hair by default."
