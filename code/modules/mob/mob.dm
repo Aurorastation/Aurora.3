@@ -89,7 +89,7 @@
 			else
 				msg = alt
 				type = alt_type
-		if (type & 2 && (sdisabilities & DEAF || ear_deaf))//Hearing related
+		if (type & 2 && isdeaf(src))//Hearing related
 			if (!( alt ))
 				return
 			else

@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Hearing aids should now allow deaf characters to hear holocomms, radios, etc."
