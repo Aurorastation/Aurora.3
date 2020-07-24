@@ -65,7 +65,7 @@
 
 		if(proximity && target.is_open_container() && target.reagents)
 			if(!target.reagents.total_volume)
-				to_chat(user, SPAN_NOTICE("[target] is empty. Can't dissolve \the [src]."))
+				to_chat(user, SPAN_NOTICE("You can't dissolve \the [src] in an empty [target]."))
 				return
 			to_chat(user, SPAN_NOTICE("You dissolve \the [src] in [target]."))
 
@@ -128,19 +128,19 @@
 	icon_state = "pill8"
 	reagents_to_add = list(/datum/reagent/perconol = 15)
 
+
 /obj/item/reagent_containers/pill/mortaphenyl
 	name = "mortaphenyl pill"
-	desc = "A simple painkiller."
-	icon_state = "pill8"
-	reagents_to_add = list(/datum/reagent/mortaphenyl = 15)
 
+/obj/item/reagent_containers/pill/tramadol
+	name = "tramadol pill"
 
 /obj/item/reagent_containers/pill/corophenidate
 	name = "corophenidate pill"
 	desc = "Improves the ability to concentrate."
 	icon_state = "pill8"
 	reagents_to_add = list(/datum/reagent/mental/corophenidate = 15)
-
+  
 /obj/item/reagent_containers/pill/minaphobin
 	name = "minaphobin pill"
 	desc = "Mild anti-depressant."
@@ -212,8 +212,8 @@
 	. = ..()
 
 /obj/item/reagent_containers/pill/rmt
-	name = "RMT pill"
-	desc = "Contains chemical rampantly used by those seeking to remedy the effects of prolonged zero-gravity adaptations."
+	name = "regenerative-muscular tissue supplement pill"
+	desc = "Commonly abbreviated to RMT, it contains chemicals rampantly used by those seeking to remedy the effects of prolonged zero-gravity adaptations."
 	icon_state = "pill19"
 	reagents_to_add = list(/datum/reagent/rmt = 15)
 

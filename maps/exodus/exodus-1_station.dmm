@@ -42969,10 +42969,7 @@
 "bDN" = (
 /obj/structure/table/standard,
 /obj/machinery/light,
-/obj/item/storage/box/gloves{
-	pixel_x = 4;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -59122,10 +59119,7 @@
 /area/medical/surgeryobs)
 "chY" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
-	pixel_x = 4;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 8
@@ -66648,10 +66642,7 @@
 	dir = 4;
 	pixel_x = -22
 	},
-/obj/item/storage/box/gloves{
-	pixel_x = 4;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Virology Port";
@@ -74523,7 +74514,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/storage/box/gloves,
+/obj/item/nitrilebox,
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278

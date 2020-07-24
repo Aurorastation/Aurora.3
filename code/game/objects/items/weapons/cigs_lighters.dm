@@ -224,7 +224,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		set_light(2, 0.25, "#E38F46")
 		START_PROCESSING(SSprocessing, src)
 
-/obj/item/clothing/mask/smokable/proc/die(var/no_message = 0, var/mob/living/M)
+/obj/item/clothing/mask/smokable/proc/die(var/no_message = 0)
 	var/turf/T = get_turf(src)
 	set_light(0)
 	playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
@@ -232,7 +232,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/obj/item/butt = new type_butt(src.loc)
 		transfer_fingerprints_to(butt)
 		if(ismob(loc))
-			M = loc
+			var/mob/living/M = loc
 			if(!no_message)
 				to_chat(M, SPAN_NOTICE("Your [name] goes out."))
 			if(M.wear_mask)
@@ -249,7 +249,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	else
 		new /obj/effect/decal/cleanable/ash(T)
 		if(ismob(loc))
-			M = loc
+			var/mob/living/M = loc
 			if(!no_message)
 				to_chat(M, SPAN_NOTICE("Your [name] goes out, and you empty the ash."))
 				playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
