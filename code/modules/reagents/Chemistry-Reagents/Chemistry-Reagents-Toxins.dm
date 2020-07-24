@@ -229,7 +229,7 @@
 
 /datum/reagent/toxin/potassium_chlorophoride
 	name = "Potassium Chlorophoride"
-	description = "A specific chemical based on Potassium Chloride to stop the heart for surgery. Not safe to eat!"
+	description = "Potassium Chlorophoride is an expensive, vastly improved variant of Potassium Chloride. Potassium Chlorophoride, unlike the original drug, acts immediately to block neuromuscular junctions, causing general paralysis."
 	reagent_state = SOLID
 	color = "#FFFFFF"
 	strength = 10
@@ -521,7 +521,7 @@
 
 /datum/reagent/slimetoxin
 	name = "Mutation Toxin"
-	description = "A corruptive toxin produced by slimes."
+	description = "A transformative toxin isolated from jelly extract from green slimes. Use of the chemical has profound effects on the body’s cells, converting animal cells into unique slime cells. These slime cells begin to replace the normal cells of the body, resulting in the development of ‘slime people’, though eventually these degenerate into grey slimes."
 	reagent_state = LIQUID
 	color = "#13BC5E"
 	taste_description = "sludge"
@@ -535,7 +535,7 @@
 
 /datum/reagent/aslimetoxin
 	name = "Advanced Mutation Toxin"
-	description = "An advanced corruptive toxin produced by slimes."
+	description = "A transformative toxin isolated from jelly extract from black slimes. The chemical is fundamentally the same as regular Mutation Toxin, however its effect is magnitudes faster, degenerating a body into a grey slime immediately."
 	reagent_state = LIQUID
 	color = "#13BC5E"
 	taste_description = "sludge"
@@ -616,7 +616,7 @@
 
 /datum/reagent/toxin/berserk
 	name = "Red Nightshade"
-	description = "An illegal chemical enhancer, may cause aggressive and violent behavior."
+	description = "An illegal combat performance enhancer originating from the criminal syndicates of Mars. The drug stimulates regions of the brain responsible for violence and rage, inducing a feral, berserk state in users."
 	reagent_state = LIQUID
 	color = "#AF111C"
 	strength = 5
@@ -642,7 +642,7 @@
 
 /datum/reagent/toxin/spectrocybin
 	name = "Spectrocybin"
-	description = "A hallucinogen chemical, rumored to be used by mystics and religious figures in their rituals."
+	description = "Spectrocybin is a hallucinogenic chemical found in a unique strain of fungi. Little research has been conducted into the hallucinogenic properties of spectrocybin, though many spiritual creeds utilise the drug in rituals and claim it allows people to act as mediums between the living and dead."
 	reagent_state = LIQUID
 	color = "#800080"
 	strength = 5
