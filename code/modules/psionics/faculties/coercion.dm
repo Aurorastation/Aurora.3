@@ -68,7 +68,7 @@
 		if(target.isSynthetic())
 			to_chat(user, SPAN_ALIEN("There is no mind here for you to dip your mentality into."))
 			return
-		if (isvaurca(target))
+		else if (isvaurca(target))
 			to_chat (user, SPAN_CULT("You feel your thoughts pass right through a mind empty of psychic energy, unable to get a grasp on anything."))
 			return
 // do normal stuff here
