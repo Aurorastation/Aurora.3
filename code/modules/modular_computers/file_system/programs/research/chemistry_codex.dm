@@ -3,7 +3,9 @@
 	filedesc = "Chemistry codex"
 	program_icon_state = "generic"
 	extended_desc = "Useful program to view chemical reactions and how to make them."
-	size = 2
+	size = 14
+	required_access_run = access_medical
+	required_access_download = access_medical
 	available_on_ntnet = TRUE
 
 /datum/computer_file/program/chemistry_codex/ui_interact(mob/user)
