@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - tweak: "Chemistry dispensers now only animate if they're holding a container."
