@@ -418,14 +418,14 @@
 	name = "Soporific"
 	id = "stoxin"
 	result = /datum/reagent/soporific
-	required_reagents = list(/datum/reagent/chloralhydrate = 1, /datum/reagent/sugar = 4)
+	required_reagents = list(/datum/reagent/polysomnine = 1, /datum/reagent/sugar = 4)
 	inhibitors = list(/datum/reagent/phosphorus) // Messes with the smoke
 	result_amount = 5
 
-/datum/chemical_reaction/chloralhydrate
-	name = "Chloral Hydrate"
-	id = "chloralhydrate"
-	result = /datum/reagent/chloralhydrate
+/datum/chemical_reaction/polysomnine
+	name = "Polysomnine"
+	id = "polysomnine"
+	result = /datum/reagent/polysomnine
 	required_reagents = list(/datum/reagent/alcohol/ethanol = 1, /datum/reagent/acid/hydrochloric = 3, /datum/reagent/water = 1)
 	result_amount = 1
 
@@ -440,7 +440,7 @@
 	name = "Potassium Chlorophoride"
 	id = "potassium_chlorophoride"
 	result = /datum/reagent/toxin/potassium_chlorophoride
-	required_reagents = list(/datum/reagent/toxin/potassium_chloride = 1, /datum/reagent/toxin/phoron = 1, /datum/reagent/chloralhydrate = 1)
+	required_reagents = list(/datum/reagent/toxin/potassium_chloride = 1, /datum/reagent/toxin/phoron = 1, /datum/reagent/polysomnine = 1)
 	result_amount = 4
 
 /datum/chemical_reaction/zombiepowder

@@ -83,7 +83,7 @@
 	arithrazine	spawn_reagent = /datum/reagent/arithrazine
 	cetahydramine	spawn_reagent = /datum/reagent/cetahydramine
 	bicaridine	spawn_reagent = /datum/reagent/bicaridine
-	chloral		spawn_reagent = /datum/reagent/chloralhydrate
+	chloral		spawn_reagent = /datum/reagent/polysomnine
 	clonexadone	spawn_reagent = /datum/reagent/clonexadone
 	coughsyrup	spawn_reagent = /datum/reagent/coughsyrup
 	cryoxadone	spawn_reagent = /datum/reagent/cryoxadone

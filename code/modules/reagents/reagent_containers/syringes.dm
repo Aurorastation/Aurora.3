@@ -443,7 +443,7 @@
 
 
 /obj/item/reagent_containers/syringe/ld50_syringe/chloral
-	reagents_to_add = list(/datum/reagent/chloralhydrate = 60)
+	reagents_to_add = list(/datum/reagent/polysomnine = 60)
 
 /obj/item/reagent_containers/syringe/ld50_syringe/chloral/Initialize()
 	. = ..()

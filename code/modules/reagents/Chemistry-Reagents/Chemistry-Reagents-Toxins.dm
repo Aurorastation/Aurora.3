@@ -477,7 +477,7 @@
 		M.sleeping = max(M.sleeping, 20)
 		M.drowsyness = max(M.drowsyness, 60)
 
-/datum/reagent/lasorexant
+/datum/reagent/polysomnine
 	name = "Lasorexant"
 	description = "A powerful sedative. Lasts two times longer when inhaled."
 	reagent_state = SOLID
@@ -487,7 +487,7 @@
 	taste_description = "bitterness"
 	breathe_met = REM * 0.5 * 0.5
 
-/datum/reagent/lasorexant/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/polysomnine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
@@ -503,7 +503,7 @@
 	if(dose > 1)
 		M.add_chemical_effect(CE_TOXIN, removed)
 
-/datum/reagent/lasorexant/beer2 //disguised as normal beer for use by emagged brobots
+/datum/reagent/polysomnine/beer2 //disguised as normal beer for use by emagged brobots
 	name = "Beer"
 	description = "An alcoholic beverage made from malted grains, hops, yeast, and water. The fermentation appears to be incomplete." //If the players manage to analyze this, they deserve to know something is wrong.
 	reagent_state = LIQUID

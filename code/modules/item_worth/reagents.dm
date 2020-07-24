@@ -705,10 +705,10 @@
 /datum/reagent/soporific
 	value = 2.5
 
-/datum/reagent/chloralhydrate
+/datum/reagent/polysomnine
 	value = 2.6
 
-/datum/reagent/chloralhydrate/beer2
+/datum/reagent/polysomnine/beer2
 	value = 2.2
 
 /datum/reagent/space_drugs
