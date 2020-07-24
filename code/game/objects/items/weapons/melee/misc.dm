@@ -1,6 +1,5 @@
 /obj/item/melee
 	icon = 'icons/obj/weapons.dmi'
-	hitsound = "swing_hit"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_melee.dmi',
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_melee.dmi'

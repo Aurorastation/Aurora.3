@@ -102,7 +102,7 @@
 		H.f_style = H.species.default_f_style
 
 	H.update_hair()
-	playsound(H, 'sound/items/welder2.ogg', 20, 1)
+	playsound(H, 'sound/items/welder_pry.ogg', 20, 1)
 
 
 /obj/item/razor/attack(mob/M, mob/user, var/target_zone)

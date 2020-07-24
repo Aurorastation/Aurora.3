@@ -850,12 +850,12 @@ About the new airlock wires panel:
 			to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 			return
 		cut_verb = "cutting"
-		cut_sound = 'sound/items/Welder.ogg'
+		cut_sound = 'sound/items/welder.ogg'
 		cut_delay *= 1.5/WT.toolspeed
 		cutting = TRUE
 	else if(istype(tool,/obj/item/gun/energy/plasmacutter))
 		cut_verb = "cutting"
-		cut_sound = 'sound/items/Welder.ogg'
+		cut_sound = 'sound/items/welder.ogg'
 		cut_delay *= 1
 		cutting = TRUE
 	else if(istype(tool,/obj/item/melee/energy/blade) || istype(tool,/obj/item/melee/energy/sword))
@@ -1065,13 +1065,13 @@ About the new airlock wires panel:
 				SPAN_NOTICE("You begin welding [src] [welded ? "open" : "shut"]."),
 				"You hear a welding torch on metal."
 			)
-			playsound(src, 'sound/items/Welder.ogg', 50, 1)
+			playsound(src, 'sound/items/welder.ogg', 50, 1)
 			if (!do_after(user, 2/C.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open, src.density)))
 				return
 			if(!WT.remove_fuel(0,user))
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 				return
-			playsound(src, 'sound/items/Welder2.ogg', 50, 1)
+			playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
 			welded = !welded
 			update_icon()
 			return

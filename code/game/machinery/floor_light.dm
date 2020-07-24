@@ -33,7 +33,7 @@ var/list/floor_light_cache = list()
 		if(!WT.remove_fuel(0, user))
 			to_chat(user, "<span class='warning'>\The [src] must be on to complete this task.</span>")
 			return
-		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
 		if(!do_after(user, 20/W.toolspeed))
 			return
 		if(!src || !WT.isOn())

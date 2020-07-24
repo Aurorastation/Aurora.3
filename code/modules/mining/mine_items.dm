@@ -217,7 +217,6 @@
 	desc = "A mining hammer made of reinforced metal. You feel like smashing your boss in the face with this."
 	icon_state = "sledgehammer"
 	icon = 'icons/obj/weapons.dmi'
-	hitsound = "swing_hit"
 
 /obj/item/pickaxe/silver
 	name = "silver pickaxe"

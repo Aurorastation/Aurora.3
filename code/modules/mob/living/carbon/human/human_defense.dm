@@ -19,6 +19,7 @@ emp_act
 		if(martial_art && martial_art.deflection_chance)
 			if(prob(martial_art.deflection_chance))
 				src.visible_message("<span class='danger'>\The [src] deflects \the [P]!</span>")
+				playsound(src, "bulletflyby_sound", 75, 1)
 				return 0
 
 	def_zone = check_zone(def_zone)
@@ -386,6 +387,7 @@ emp_act
 
 		if(!zone)
 			visible_message("<span class='notice'>\The [O] misses [src] narrowly!</span>")
+			playsound(src, 'sound/effects/throw_miss.ogg', rand(10, 50), 1)
 			return
 
 		O.throwing = 0		//it hit, so stop moving

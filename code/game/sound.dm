@@ -206,14 +206,11 @@ var/list/switch_sound = list(
 	'sound/machines/switch4.ogg'
 )
 var/list/keyboard_sound = list(
-	'sound/machines/keyboard/keypress1.ogg',
-	'sound/machines/keyboard/keypress2.ogg',
-	'sound/machines/keyboard/keypress3.ogg',
-	'sound/machines/keyboard/keypress4.ogg',
-	'sound/machines/keyboard/keystroke1.ogg',
-	'sound/machines/keyboard/keystroke2.ogg',
-	'sound/machines/keyboard/keystroke3.ogg',
-	'sound/machines/keyboard/keystroke4.ogg'
+	'sound/machines/keyboard/keyboard1.ogg',
+	'sound/machines/keyboard/keyboard2.ogg',
+	'sound/machines/keyboard/keyboard3.ogg',
+	'sound/machines/keyboard/keyboard4.ogg',
+	'sound/machines/keyboard/keyboard5.ogg'
 )
 var/list/pickaxe_sound = list(
 	'sound/weapons/mine/pickaxe1.ogg',
@@ -236,7 +233,13 @@ var/list/bodyfall_sound = list(
 
 var/list/bodyfall_machine_sound = list(
 	'sound/effects/bodyfall_machine1.ogg',
-	'sound/effects/bodyfall_machine2.ogg',
+	'sound/effects/bodyfall_machine2.ogg'
+	)
+
+var/list/bulletflyby_sound = list(
+	'sound/effects/bulletflyby1.ogg',
+	'sound/effects/bulletflyby2.ogg',
+	'sound/effects/bulletflyby3.ogg'
 	)
 
 //var/list/gun_sound = list('sound/weapons/gunshot/gunshot1.ogg', 'sound/weapons/gunshot/gunshot2.ogg','sound/weapons/gunshot/gunshot3.ogg','sound/weapons/gunshot/gunshot4.ogg')
@@ -457,4 +460,5 @@ var/list/bodyfall_machine_sound = list(
 			if ("pickaxe") soundin = pick(pickaxe_sound)
 			if ("bodyfall") soundin = pick(bodyfall_sound)
 			if ("bodyfall_machine") soundin = pick(bodyfall_machine_sound)
+			if ("bulletflyby") soundin = pick(bulletflyby_sound)
 	return soundin

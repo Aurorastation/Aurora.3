@@ -32,7 +32,7 @@
 			'sound/misc/zapsplat/chitter2.ogg',
 			'sound/effects/squelch1.ogg',
 			'sound/items/Ratchet.ogg',
-			'sound/items/Welder.ogg',
+			'sound/items/welder.ogg',
 			'sound/items/Crowbar.ogg',
 			'sound/items/Screwdriver.ogg',
 			'sound/items/drill_use.ogg',

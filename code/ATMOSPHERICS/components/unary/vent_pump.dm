@@ -353,11 +353,11 @@
 		else if (WT.remove_fuel(0,user))
 			to_chat(user, SPAN_NOTICE("Now welding the vent."))
 			if(do_after(user, 30/W.toolspeed))
-				if(!src || !WT.isOn()) 
+				if(!src || !WT.isOn())
 					return
 				welded = !welded
 				update_icon()
-				playsound(src, 'sound/items/Welder2.ogg', 50, 1)
+				playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
 				user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
 									 SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
 									 "You hear welding.")

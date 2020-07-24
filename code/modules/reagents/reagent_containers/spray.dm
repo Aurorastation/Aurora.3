@@ -159,7 +159,6 @@
 	possible_transfer_amounts = null
 	volume = 40
 	safety = 1
-	hitsound = "swing_hit"
 	reagents_to_add = list(/datum/reagent/capsaicin/condensed = 40)
 
 /obj/item/reagent_containers/spray/pepper/examine(mob/user)

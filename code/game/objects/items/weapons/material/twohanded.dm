@@ -33,7 +33,6 @@
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_twohanded.dmi',
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_twohanded.dmi'
 		)
-	hitsound = "swing_hit"
 	drop_sound = 'sound/items/drop/sword.ogg'
 	pickup_sound = 'sound/items/pickup/sword.ogg'
 

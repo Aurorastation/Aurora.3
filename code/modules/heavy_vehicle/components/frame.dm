@@ -226,7 +226,7 @@
 		if(WT.remove_fuel(1, user))
 			visible_message("\The [user] [(is_reinforced == 3) ? "unwelds the reinforcement from" : "welds the reinforcement into"] \the [src].")
 			is_reinforced = (is_reinforced == FRAME_REINFORCED_WELDED) ? FRAME_REINFORCED_SECURE : FRAME_REINFORCED_WELDED
-			playsound(user.loc, 'sound/items/Welder.ogg', 50, 1)
+			playsound(user.loc, 'sound/items/welder.ogg', 50, 1)
 		else
 			to_chat(user, "<span class='warning'>Not enough fuel!</span>")
 			return

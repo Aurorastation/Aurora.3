@@ -8,7 +8,7 @@
 	throwforce = 10
 	damtype = BURN
 	force = 10
-	hitsound = 'sound/items/welder2.ogg'
+	hitsound = 'sound/items/welder_pry.ogg'
 
 /obj/item/scrying/attack_self(mob/living/user as mob)
 	if(!user.is_wizard())

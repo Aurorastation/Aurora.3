@@ -11,7 +11,6 @@
 	sharp = 0
 	edge = 0
 	icon = 'icons/obj/weapons.dmi'
-	hitsound = "swing_hit"
 
 	var/use_material_name = TRUE // Does the finished item put the material name in front of it?
 	var/applies_material_colour = 1

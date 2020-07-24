@@ -385,7 +385,7 @@
 			)
 			affecting.heal_damage(brute = 15, robo_repair = TRUE)
 			user.visible_message(SPAN_WARNING("\The [user] [pick(repair_messages)] on [target]'s [affecting.name] with \the [src]."))
-			playsound(target, 'sound/items/Welder2.ogg', 15)
+			playsound(target, 'sound/items/welder_pry.ogg', 15)
 			repair_organ(user, target, affecting)
 
 /obj/item/weldingtool/afterattack(obj/O, mob/user, proximity)
@@ -481,7 +481,7 @@
 				to_chat(M, "<span class='notice'>You switch the [src] on.</span>")
 			else if(T)
 				T.visible_message("<span class='danger'>\The [src] turns on.</span>")
-			playsound(loc, 'sound/items/WelderActivate.ogg', 50, 1)
+			playsound(loc, 'sound/items/welder_activate.ogg', 50, 1)
 			force = 15
 			damtype = BURN
 			w_class = ITEMSIZE_LARGE
@@ -498,7 +498,7 @@
 			to_chat(M, "<span class='notice'>You switch \the [src] off.</span>")
 		else if(T)
 			T.visible_message("<span class='warning'>\The [src] turns off.</span>")
-		playsound(loc, 'sound/items/WelderDeactivate.ogg', 50, 1)
+		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, 1)
 		force = 3
 		damtype = BRUTE
 		w_class = initial(w_class)
