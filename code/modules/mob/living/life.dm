@@ -121,12 +121,8 @@
 		eye_blurry = max(eye_blurry-1, 0)
 
 	//Ears
-	if(sdisabilities & DEAF)		//disabled-deaf, doesn't get better on its own
-		setEarDamage(-1, max(ear_deaf, 1))
-	else
-		// deafness heals slowly over time, unless ear_damage is over 100
-		if(ear_damage < 100)
-			adjustEarDamage(-0.05,-1)
+	handle_hearing()
+
 	if((is_pacified()) && a_intent == I_HURT)
 		to_chat(src, "<span class='notice'>You don't feel like harming anybody.</span>")
 		a_intent_change(I_HELP)
@@ -174,6 +170,13 @@
 			reset_view(null)
 	else if(!client.adminobs)
 		reset_view(null)
+
+/mob/living/proc/handle_hearing()
+	// deafness heals slowly over time, unless ear_damage is over HEARING_DAMAGE_LIMIT
+	if(ear_damage < HEARING_DAMAGE_LIMIT)
+		adjustEarDamage(-0.05, -1)
+	if(sdisabilities & DEAF) //disabled-deaf, doesn't get better on its own
+		setEarDamage(-1, max(ear_deaf, 1))
 
 /mob/living/proc/update_sight()
 	if(stat == DEAD || eyeobj)

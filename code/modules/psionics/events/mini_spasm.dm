@@ -25,7 +25,7 @@
 	for(var/obj/item/device/radio/radio in listening_objects)
 		if(radio.on)
 			for(var/mob/living/victim in range(radio.canhear_range, radio.loc))
-				if(isnull(victims[victim]) && victim.stat == CONSCIOUS && !victim.ear_deaf)
+				if(isnull(victims[victim]) && victim.stat == CONSCIOUS && !isdeaf(victim))
 					victims[victim] = radio
 	for(var/thing in victims)
 		var/mob/living/victim = thing
