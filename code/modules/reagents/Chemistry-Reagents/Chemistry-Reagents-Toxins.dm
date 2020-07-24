@@ -384,7 +384,7 @@
 
 /datum/reagent/lexorin
 	name = "Lexorin"
-	description = "Lexorin temporarily stops respiration. Causes tissue damage."
+	description = "Lexorin is a complex toxin that attempts to induce general hypoxia by weakening the diaphragm to prevent respiration and also by binding to haemoglobins to prevent oxygen molecules from doing the same."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
@@ -450,7 +450,7 @@
 
 /datum/reagent/soporific
 	name = "Soporific"
-	description = "An effective hypnotic used to treat insomnia, can act as a sedative. Lasts three times longer when inhaled."
+	description = "Soporific is highly diluted polysomnine which results in slower and more gradual sedation. This makes the drug ideal at treating insomnia and anxiety disorders, however is generally not reliable for sedation in preparation for surgery except in high doses."
 	reagent_state = LIQUID
 	color = "#009CA8"
 	metabolism = REM * 0.5
@@ -478,8 +478,8 @@
 		M.drowsyness = max(M.drowsyness, 60)
 
 /datum/reagent/polysomnine
-	name = "Lasorexant"
-	description = "A powerful sedative. Lasts two times longer when inhaled."
+	name = "Polysomnine"
+	description = "Polysomnine is a complex drug which rapidly induces sedation in preparation for surgery. Polysomnine’s sedative effect is fast acting, and sedated individuals wake up with zero amnesia regarding the events leading up to their sedation, however the only downside is how hard the drug is on the liver."
 	reagent_state = SOLID
 	color = "#000067"
 	metabolism = REM * 0.5

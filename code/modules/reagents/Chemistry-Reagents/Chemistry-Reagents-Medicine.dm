@@ -154,7 +154,7 @@
 
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
-	description = "A chemical mixture with almost magical healing powers. Its main limitation is that the targets body temperature must be under 170K for it to metabolise correctly."
+	description = "Cryoxadone is a ground-breaking and complex medication that, when acting on bodies cooler than 170K, is capable of increasing the rate at which wounds regenerate, as well as treating genetic damage. Cryoxadone, alongside Clonexadone, are the backbones of the cloning industry."
 	reagent_state = LIQUID
 	color = "#8080FF"
 	metabolism = REM * 0.5
@@ -170,7 +170,7 @@
 
 /datum/reagent/clonexadone
 	name = "Clonexadone"
-	description = "A liquid compound similar to that used in the cloning process. Can be used to 'finish' the cloning process when used in conjunction with a cryo tube. Its main limitation is that the targets body temperature must be under 170K for it to metabolise correctly."
+	description = "Clonexadone is a ground-breaking, complex medication that improved upon Cryoxadone. When acting on bodies cooler than 170K, the drug is capable of increasing the rate at which wounds regenerate, as well as treating genetic damage. Clonexadone, alongside Cryoxadone, are the backbones of the cloning industry."
 	reagent_state = LIQUID
 	color = "#80BFFF"
 	metabolism = REM * 0.5
@@ -1352,7 +1352,7 @@
 
 /datum/reagent/pacifier
 	name = "Paxazide"
-	description = "axazide is an expensive and unethical, psychoactive drug used to pacify people, suppressing regions of the brain responsible for anger and violence. Paxazide can be addictive due to its tranquilising effects, though withdrawal symptoms are scarce."
+	description = "Paxazide is an expensive and unethical, psychoactive drug used to pacify people, suppressing regions of the brain responsible for anger and violence. Paxazide can be addictive due to its tranquilising effects, though withdrawal symptoms are scarce."
 	reagent_state = LIQUID
 	color = "#1ca9c9"
 	taste_description = "numbness"

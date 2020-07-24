@@ -97,7 +97,7 @@
 
 /datum/reagent/mindbreaker
 	name = "Mindbreaker Toxin"
-	description = "A powerful hallucinogen, it can cause fatal effects in users."
+	description = "An incredibly potent hallucinogen designed to wreak havoc on the brain, resulting in disturbing hallucinations with long-term impacts on those given the drug - this drug is not pleasant, thus the name, and only hardcore addicts use the drug recreationally."
 	reagent_state = LIQUID
 	color = "#B31008"
 	metabolism = REM * 0.25
