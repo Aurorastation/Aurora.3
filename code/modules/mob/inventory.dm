@@ -385,7 +385,6 @@ var/list/slot_equipment_priority = list( \
 	//actually throw it!
 	if(item)
 		src.visible_message("<span class='warning'>[src] throws \a [item].</span>")
-		playsound(src, 'sound/effects/throw.ogg', rand(10, 50), 1)
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)
 		if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity() == 0))
@@ -399,6 +398,8 @@ var/list/slot_equipment_priority = list( \
 		if(istype(item,/obj/item))
 			var/obj/item/W = item
 			W.randpixel_xy()
+			var/volume = W.get_volume_by_throwforce_and_or_w_class()
+			playsound(src, 'sound/effects/throw.ogg', volume, TRUE, -1)
 
 		item.throw_at(target, item.throw_range, item.throw_speed, src)
 
