@@ -60,8 +60,9 @@
 		to_chat(user, SPAN_WARNING("\The [target] is in no state for a mind-read."))
 		return TRUE
 
-	var/obj/item/organ/internal/augment/psi/psiaug = locate() in target
-	if (!psiaug?.is_broken())
+	var/mob/living/carbon/C = target
+	var/obj/item/organ/internal/augment/psi/psiaug = C.internal_organs_by_name[BP_AUG_PSI]
+	if(psiaug && !psiaug.is_broken())
 		if(target.isSynthetic())
 			to_chat(user, SPAN_ALIEN("There is no mind here for you to dip your mentality into."))
 			return
@@ -263,8 +264,9 @@
 			to_chat(user, SPAN_CULT("Not even a psion of your level can speak to the dead."))
 			return
 
-		var/obj/item/organ/internal/augment/psi/psiaug = locate() in target
-		if (!psiaug?.is_broken())
+		var/mob/living/carbon/C = target
+		var/obj/item/organ/internal/augment/psi/psiaug = C.internal_organs_by_name[BP_AUG_PSI]
+		if(psiaug && !psiaug.is_broken())
 			if(target.isSynthetic())
 				to_chat(user, SPAN_ALIEN("Your thoughts fail to reach any mind at all."))
 				return
@@ -273,7 +275,7 @@
 				return
 		if (target.is_diona())
 			to_chat(user, SPAN_ALIEN("The creature's mind is incompatible, formless."))
-			return
+		return
 
 		for (var/obj/item/implant/mindshield/I in target)
 			if (I.implanted)
