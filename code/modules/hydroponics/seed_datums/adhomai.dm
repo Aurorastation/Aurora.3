@@ -102,7 +102,7 @@
 	seed_noun = "nodes"
 	display_name = "blizzard ear stalks"
 	mutants = null
-	chems = list("flour" = list(10,10))
+	chems = list(/datum/reagent/nutriment/flour = list(10,10))
 	splat_type = /obj/effect/plant
 	kitchen_tag = "nfrihi"
 
@@ -129,7 +129,7 @@
 	display_name = "sugar trees"
 	seed_noun = "seeds"
 	mutants = null
-	chems = list("sugar" = list(2,10))
+	chems = list(/datum/reagent/sugar = list(2,10))
 	kitchen_tag = "nmshaan"
 
 /datum/seed/nmshaan/setup_traits()

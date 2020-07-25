@@ -71,6 +71,7 @@
 	result = /obj/item/reagent_containers/food/snacks/classichotdog
 
 /datum/recipe/hotdiggitydonk //heated donk
+	appliance = OVEN
 	items = list(
 		/obj/item/reagent_containers/food/snacks/donkpocket
 	)
@@ -83,7 +84,6 @@
 		/obj/item/reagent_containers/food/snacks/xenomeat
 	)
 	result = /obj/item/reagent_containers/food/snacks/wingfangchu
-
 
 /datum/recipe/humankabob
 	items = list(
@@ -122,10 +122,6 @@
 	fruit = list("corn" = 1)
 	result = /obj/item/reagent_containers/food/snacks/popcorn
 
-
-
-
-
 /datum/recipe/spacylibertyduff
 	appliance = OVEN
 	reagents = list(/datum/reagent/water = 5, /datum/reagent/alcohol/ethanol/vodka = 5, /datum/reagent/psilocybin = 5)
@@ -153,6 +149,7 @@
 	result = /obj/item/reagent_containers/food/snacks/burger/bigbite
 
 /datum/recipe/fishandchips
+	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fries,
 		/obj/item/reagent_containers/food/snacks/carpmeat
@@ -185,6 +182,7 @@
 	result = /obj/item/reagent_containers/food/snacks/grilledcheese
 
 /datum/recipe/rofflewaffles
+	appliance = OVEN
 	reagents = list(/datum/reagent/psilocybin = 5, /datum/reagent/sugar = 10)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
@@ -241,7 +239,6 @@
 	result = /obj/item/reagent_containers/food/snacks/applepie
 
 /datum/recipe/slimeburger
-	appliance = MIX
 	reagents = list(/datum/reagent/slimejelly = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun
@@ -249,7 +246,6 @@
 	result = /obj/item/reagent_containers/food/snacks/burger/jelly/slime
 
 /datum/recipe/jellyburger
-	appliance = MIX
 	reagents = list(/datum/reagent/nutriment/cherryjelly = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun
@@ -266,7 +262,6 @@
 	result = /obj/item/reagent_containers/food/snacks/twobread
 
 /datum/recipe/slimesandwich
-	appliance = MIX
 	reagents = list(/datum/reagent/slimejelly = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice,
@@ -275,7 +270,6 @@
 	result = /obj/item/reagent_containers/food/snacks/jellysandwich/slime
 
 /datum/recipe/cherrysandwich
-	appliance = MIX
 	reagents = list(/datum/reagent/nutriment/cherryjelly = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice,
@@ -307,17 +301,14 @@
 	result = /obj/item/reagent_containers/food/snacks/plumphelmetbiscuit
 
 /datum/recipe/tossedsalad
-	appliance = MIX
 	fruit = list("cabbage" = 2, "tomato" = 1, "carrot" = 1, "apple" = 1)
 	result = /obj/item/reagent_containers/food/snacks/salad/tossedsalad
 
 /datum/recipe/aesirsalad
-	appliance = MIX
 	fruit = list("goldapple" = 1, "ambrosiadeus" = 1)
 	result = /obj/item/reagent_containers/food/snacks/salad/aesirsalad
 
 /datum/recipe/validsalad
-	appliance = MIX
 	fruit = list("potato" = 1, "ambrosia" = 3)
 	items = list(/obj/item/reagent_containers/food/snacks/meatball)
 	result = /obj/item/reagent_containers/food/snacks/salad/validsalad
@@ -367,7 +358,6 @@
 /////////////////////////////////////////////////////////////
 
 /datum/recipe/bearburger
-	appliance = MIX
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
 		/obj/item/reagent_containers/food/snacks/bearmeat
@@ -390,7 +380,6 @@
 	result = /obj/item/reagent_containers/food/snacks/stew/bear
 
 /datum/recipe/chickenfillet //Also just combinable, like burgers and hot dogs.
-	appliance = MIX
 	items = list(
 		/obj/item/reagent_containers/food/snacks/chickenkatsu,
 		/obj/item/reagent_containers/food/snacks/bun
@@ -437,7 +426,6 @@
 	result_quantity = 4
 
 /datum/recipe/baconburger
-	appliance = MIX
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
 		/obj/item/reagent_containers/food/snacks/meat,
@@ -456,6 +444,7 @@
 	result = /obj/item/reagent_containers/food/snacks/fish_taco
 
 /datum/recipe/porkbowl
+	appliance = SAUCEPAN
 	reagents = list(/datum/reagent/water = 5, /datum/reagent/nutriment/rice = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
@@ -476,6 +465,7 @@
 	result = /obj/item/reagent_containers/food/snacks/icecreamsandwich
 
 /datum/recipe/crab_legs
+	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/water = 10, /datum/reagent/sodiumchloride = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/crabmeat,

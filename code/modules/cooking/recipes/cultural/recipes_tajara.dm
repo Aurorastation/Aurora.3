@@ -21,6 +21,7 @@
 
 // Tajaran peasant food
 /datum/recipe/tajaran_stew
+	appliance = SAUCEPAN | POT
 	fruit = list("nifberries" = 2, "mushroom" = 1, "mtear" = 1)
 	reagents = list(/datum/reagent/water = 10)
 	items = list(
@@ -30,6 +31,7 @@
 	result = /obj/item/reagent_containers/food/snacks/stew/tajaran
 
 /datum/recipe/earthenroot_soup
+	appliance = SAUCEPAN | POT
 	fruit = list("earthenroot" = 2)
 	reagents = list(/datum/reagent/water = 10, /datum/reagent/spacespice = 1, /datum/reagent/sodiumchloride = 1)
 	result = /obj/item/reagent_containers/food/snacks/soup/earthenroot

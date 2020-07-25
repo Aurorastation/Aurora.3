@@ -9,6 +9,7 @@
 	result = /obj/item/reagent_containers/food/snacks/chipplate
 
 /datum/recipe/nachos
+	appliance = SKILLET // melt the cheese!
 	items = list(
 		/obj/item/reagent_containers/food/snacks/chipplate,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
@@ -39,7 +40,7 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //Ingredients are mixed together.
 
 /datum/recipe/cheesesauce
-	appliance = SKILLET
+	appliance = SKILLET | SAUCEPAN // melt the cheese
 	fruit = list("chili" = 1, "tomato" = 1)
 	reagents = list(/datum/reagent/spacespice = 1, /datum/reagent/blackpepper = 1,/datum/reagent/sodiumchloride = 1)
 	items = list(
@@ -101,6 +102,7 @@
 	result = /obj/item/reagent_containers/food/snacks/ricepudding
 
 /datum/recipe/bibimbap
+	appliance = SAUCEPAN | POT
 	fruit = list("carrot" = 1, "cabbage" = 1, "mushroom" = 1)
 	reagents = list(/datum/reagent/nutriment/rice = 5, /datum/reagent/spacespice = 2)
 	items = list(
@@ -111,6 +113,7 @@
 	result = /obj/item/reagent_containers/food/snacks/bibimbap
 
 /datum/recipe/boiledspagetti
+	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/water = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/spagetti
@@ -118,12 +121,14 @@
 	result = /obj/item/reagent_containers/food/snacks/boiledspagetti
 
 /datum/recipe/pastatomato
+	appliance = SAUCEPAN | POT
 	fruit = list("tomato" = 2)
 	reagents = list(/datum/reagent/water = 5)
 	items = list(/obj/item/reagent_containers/food/snacks/spagetti)
 	result = /obj/item/reagent_containers/food/snacks/pastatomato
 
 /datum/recipe/meatballspagetti
+	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/water = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/spagetti,
@@ -133,6 +138,7 @@
 	result = /obj/item/reagent_containers/food/snacks/meatballspagetti
 
 /datum/recipe/spesslaw
+	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/water = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/spagetti,
@@ -144,6 +150,7 @@
 	result = /obj/item/reagent_containers/food/snacks/spesslaw
 
 /datum/recipe/lomein
+	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/water = 5, /datum/reagent/nutriment/soysauce = 5)
 	fruit = list("carrot" = 1, "cabbage" = 1)
 	items = list(
@@ -242,6 +249,7 @@
 	result = /obj/item/reagent_containers/food/snacks/meatbun
 
 /datum/recipe/custardbun
+	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/spacespice = 1, /datum/reagent/water = 5, /datum/reagent/nutriment/protein/egg = 3)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice
@@ -250,6 +258,7 @@
 	result = /obj/item/reagent_containers/food/snacks/custardbun
 
 /datum/recipe/chickenmomo
+	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/spacespice = 2, /datum/reagent/water = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice,
@@ -261,6 +270,7 @@
 	result = /obj/item/reagent_containers/food/snacks/chickenmomo
 
 /datum/recipe/veggiemomo
+	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/spacespice = 2, /datum/reagent/water = 5)
 	fruit = list("carrot" = 1, "cabbage" = 1)
 	items = list(
