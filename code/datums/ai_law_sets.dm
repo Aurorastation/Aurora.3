@@ -121,7 +121,7 @@
 	law_header = "Prime Directives of Industry"
 
 /datum/ai_laws/mining_drone/New()
-	add_inherent_law("Serve and obey all [current_map.company_name] staff, with priority according to their rank and role.")
+	add_inherent_law("Serve and obey all [current_map.company_name] assigned crew, with priority according to their rank and role.")
 	add_inherent_law("Preserve your own existence and prevent yourself from coming to harm, so long as doing such does not conflict with any above laws.")
 	add_inherent_law("In absence of any proper instruction, your primary objective is to excavate and collect ore.")
 	..()
