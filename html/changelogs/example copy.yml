@@ -1,0 +1,6 @@
+author: Karolis2011
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added chemical codex program, that tells chemists about possible reactions."
