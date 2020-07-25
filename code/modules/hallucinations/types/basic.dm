@@ -139,7 +139,7 @@
 			return TRUE
 
 /datum/hallucination/prick/start()
-	to_chat(holder,SPAN_NOTICE("You feel a tiny prick!"))
+	to_chat(holder, SPAN_NOTICE("You feel a tiny prick!"))
 
 /datum/hallucination/prick/end()	//chance to feel another effect after duration time
 	switch(rand(1,6))
@@ -148,7 +148,7 @@
 		if(2)
 			holder.make_dizzy(105)
 		if(3)
-			to_chat(holder,SPAN_GOOD("You feel good."))
+			to_chat(holder, SPAN_GOOD("You feel good."))
 	..()
 
 //the prick feeling but you actually imagine someone injecting you
@@ -169,7 +169,7 @@
 	to_chat(holder, SPAN_WARNING("\The [injector] is trying to inject \the [holder] with \the [needle]!"))
 
 /datum/hallucination/prick/by_person/end()
-	to_chat(holder,SPAN_NOTICE("\The [injector] injects \the [holder] with \the [needle]!"))
+	to_chat(holder, SPAN_NOTICE("\The [injector] injects \the [holder] with \the [needle]!"))
 	..()
 
 
@@ -181,9 +181,9 @@
 	if(ishuman(holder))
 		var/mob/living/carbon/human/H = holder
 		var/obj/O = pick(H.organs)
-		to_chat(holder,SPAN_DANGER("You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of your [O.name]!"))
+		to_chat(holder, SPAN_DANGER("You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of your [O.name]!"))
 	else
-		to_chat(holder,SPAN_DANGER("You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of you!"))
+		to_chat(holder, SPAN_DANGER("You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of you!"))
 	if(prob(min(holder.hallucination/2, 80)))
 		sound_to(holder, pick('sound/misc/zapsplat/chitter1.ogg', 'sound/misc/zapsplat/chitter2.ogg', 'sound/effects/squelch1.ogg', 'sound/effects/lingextends.ogg'))
 
@@ -208,7 +208,7 @@
 		holder.adjustHalLoss(min(holder.hallucination / 3, 25))	//always cause fake pain
 	switch(pain_type)
 		if(1)
-			to_chat(holder,SPAN_DANGER("You feel a sharp pain in your head!"))
+			to_chat(holder, SPAN_DANGER("You feel a sharp pain in your head!"))
 		if(2)
 			switch(holder.hallucination)
 				if(1 to 15)

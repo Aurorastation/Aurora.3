@@ -1,5 +1,6 @@
 /obj/machinery/weapons_analyzer
 	name = "weapons analyzer"
+	desc = "A research device which can be used to put together modular energy weapons, or to gain knowledge about the effectiveness of various objects as weaponry."
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "weapon_analyzer"
 	density = TRUE
@@ -111,7 +112,7 @@
 		update_icon()
 
 	else
-		to_chat(usr, span("warning", "There is nothing in \the [src]."))
+		to_chat(usr, SPAN_WARNING("There is nothing in \the [src]."))
 
 /obj/machinery/weapons_analyzer/update_icon()
 	icon_state = initial(icon_state)

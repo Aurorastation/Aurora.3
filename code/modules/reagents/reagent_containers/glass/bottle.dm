@@ -61,11 +61,11 @@
 	if (!is_open_container())
 		add_overlay("lid_bottle")
 
-/obj/item/reagent_containers/glass/bottle/norepinephrine
-	name = "norepinephrine bottle"
-	desc = "A small bottle. Contains norepinephrine - used to stabilize patients."
+/obj/item/reagent_containers/glass/bottle/inaprovaline
+	name = "inaprovaline bottle"
+	desc = "A small bottle. Contains inaprovaline - used to stabilize patients."
 	icon_state = "bottle-4"
-	reagents_to_add = list(/datum/reagent/norepinephrine = 60)
+	reagents_to_add = list(/datum/reagent/inaprovaline = 60)
 
 /obj/item/reagent_containers/glass/bottle/toxin
 	name = "toxin bottle"
@@ -116,13 +116,13 @@
 	reagents_to_add = list(/datum/reagent/diethylamine = 60)
 
 /obj/item/reagent_containers/glass/bottle/pacid
-	name = "Polytrinic Acid Bottle"
+	name = "polytrinic acid bottle"
 	desc = "A small bottle. Contains a small amount of Polytrinic Acid"
 	icon_state = "bottle-4"
 	reagents_to_add = list(/datum/reagent/acid/polyacid = 60)
 
 /obj/item/reagent_containers/glass/bottle/adminordrazine
-	name = "Adminordrazine Bottle"
+	name = "adminordrazine bottle"
 	desc = "A small bottle. Contains the liquid essence of the gods."
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "holyflask"

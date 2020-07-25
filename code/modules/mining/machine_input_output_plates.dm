@@ -4,6 +4,7 @@
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x2"
 	name = "Input Area"
+	invisibility = INVISIBILITY_ABSTRACT
 	density = FALSE
 	anchored = TRUE
 
@@ -15,6 +16,7 @@
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x"
 	name = "Output Area"
+	invisibility = INVISIBILITY_ABSTRACT
 	density = FALSE
 	anchored = TRUE
 

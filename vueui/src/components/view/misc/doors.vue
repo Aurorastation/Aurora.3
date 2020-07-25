@@ -43,7 +43,7 @@
       </vui-group-item>
       <vui-group-item v-for="(c, k) in commands" :key="k" :label="c.n + ':'">
         <vui-button style="min-width: 6em" :class="{on: s[k]}" :params="{ command: k, activate: c.i ? 1 : 0 }">{{ c.et || 'Enabled' }}</vui-button>
-        <vui-button :disabled="c.a && s.isai" style="min-width: 6em" :class="{on: !s[k] && !c.d, danger: !s[k] && c.d}" :params="{ command: k, activate: c.i ? 0 : 1 }">{{ c.dt || 'Disabled' }}</vui-button>
+        <vui-button :disabled="!!((c.a && s.isai) || isAdmin)" style="min-width: 6em" :class="{on: !s[k] && !c.d, danger: !s[k] && c.d}" :params="{ command: k, activate: c.i ? 0 : 1 }">{{ c.dt || 'Disabled' }}</vui-button>
       </vui-group-item>
     </vui-group>
   </div>

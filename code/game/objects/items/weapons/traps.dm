@@ -190,7 +190,7 @@
 
 	if(!captured)
 		if(!is_type_in_list(M, allowed_mobs))
-			to_chat(user, span("warning", "[M] won't fit in there!"))
+			to_chat(user, SPAN_WARNING("[M] won't fit in there!"))
 		else if(do_after(user, 5 SECONDS))
 			capture(M)
 	else
@@ -208,7 +208,7 @@
 			to_chat(user, "<span class='warning'>[L] is trapped inside!</span>")
 			return
 	else if(deployed)
-		to_chat(user, span("warning", "It's set up and ready to capture something."))
+		to_chat(user, SPAN_WARNING("It's set up and ready to capture something."))
 	else
 		to_chat(user, "<span class='notice'>\The [src] is empty and un-deployed.</span>")
 
@@ -382,13 +382,13 @@
 		var/mob/living/M = G.affecting
 
 		if (G.state == GRAB_PASSIVE || G.state == GRAB_UPGRADING)
-			to_chat(user, span("notice", "You need a better grip on \the [M]!"))
+			to_chat(user, SPAN_NOTICE("You need a better grip on \the [M]!"))
 			return
 
 		user.visible_message("<span class='notice'>[user] starts putting [M] into \the [src].</span>", "<span class='notice'>You start putting [M] into \the [src].</span>")
 
 		if (!is_type_in_list(M, allowed_mobs))
-			to_chat(user, span("warning", "[M] won't fit in there!"))
+			to_chat(user, SPAN_WARNING("[M] won't fit in there!"))
 			return
 
 		if (do_mob(user, M, 3 SECONDS, needhand = 0))
@@ -399,7 +399,7 @@
 	else if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
 		if(!WT.welding)
-			to_chat(user, span("warning", "Your \the [W] is off!"))
+			to_chat(user, SPAN_WARNING("Your \the [W] is off!"))
 			return
 		user.visible_message("<span class='notice'>[user] is trying to slice \the [src] open!</span>",
 							 "<span class='notice'>You are trying to slice \the [src] open!</span>")
@@ -450,7 +450,7 @@
 		return
 
 	if(anchored && deployed)
-		to_chat(user, span("notice", "\The [src] is already anchored and set!"))
+		to_chat(user, SPAN_NOTICE("\The [src] is already anchored and set!"))
 	else if(anchored)
 		deploy(user)
 	else
@@ -573,9 +573,9 @@
 	if(user == buckled_mob)
 		return
 	else if(!anchored)
-		to_chat(user, span("warning", "You need to anchor \the [src] first!"))
+		to_chat(user, SPAN_WARNING("You need to anchor \the [src] first!"))
 	else if(captured)
-		to_chat(user, span("warning", "You can't deploy \the [src] with something caught!"))
+		to_chat(user, SPAN_WARNING("You can't deploy \the [src] with something caught!"))
 	else
 		..()
 
@@ -587,7 +587,7 @@
 			return
 
 		if(anchored && deployed)
-			to_chat(user, span("warning", "You can't do that while \the [src] is deployed! Undeploy it first."))
+			to_chat(user, SPAN_WARNING("You can't do that while \the [src] is deployed! Undeploy it first."))
 			return
 
 		user.visible_message("<span class='notice'>[user] begins [anchored ? "un" : "" ]securing \the [src]!</span>",
@@ -607,7 +607,7 @@
 
 /obj/item/trap/animal/large/MouseDrop(over_object, src_location, over_location)
 	if(captured)
-		to_chat(usr, span("warning", "The trap door's down, you can't get through there!"))
+		to_chat(usr, SPAN_WARNING("The trap door's down, you can't get through there!"))
 		return
 
 	if(!src.Adjacent(usr))

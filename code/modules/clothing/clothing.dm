@@ -200,7 +200,7 @@
 	playsound(src.loc, "shatter", 70, 1)
 	qdel(src)
 
-/obj/item/clothing/suit/armor/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/clothing/suit/armor/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(!material) // No point checking for reflection.
 		return ..()
 
@@ -626,7 +626,7 @@
 		item_flags = down_item_flags
 		flags_inv = down_flags_inv
 		if(self)
-			user.visible_message("<b>[user]</b> pulls \the [src] down to hang around their neck.", span("notice", "You pull \the [src] down to hang around your neck."))
+			user.visible_message("<b>[user]</b> pulls \the [src] down to hang around their neck.", SPAN_NOTICE("You pull \the [src] down to hang around your neck."))
 	else
 		gas_transfer_coefficient = initial(gas_transfer_coefficient)
 		body_parts_covered = initial(body_parts_covered)
@@ -635,7 +635,7 @@
 		item_flags = initial(item_flags)
 		flags_inv = initial(flags_inv)
 		if(self)
-			user.visible_message("<b>[user]</b> pulls \the [src] up to cover their face.", span("notice", "You pull \the [src] up to cover your face."))
+			user.visible_message("<b>[user]</b> pulls \the [src] up to cover their face.", SPAN_NOTICE("You pull \the [src] up to cover your face."))
 	usr.update_action_buttons()
 	update_clothing_icon()
 

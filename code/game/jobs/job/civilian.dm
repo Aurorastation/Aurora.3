@@ -296,6 +296,7 @@
 	minimal_access = list(access_library)
 	alt_titles = list("Curator", "Tech Support")
 	alt_outfits = list("Curator" = /datum/outfit/job/librarian/curator, "Tech Support" = /datum/outfit/job/librarian/tech_support)
+	title_accesses = list("Tech Support" = access_it)
 	outfit = /datum/outfit/job/librarian
 
 /datum/outfit/job/librarian

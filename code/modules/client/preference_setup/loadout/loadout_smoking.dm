@@ -1,6 +1,6 @@
 /datum/gear/smoking
-	display_name = "matchbook"
-	path = /obj/item/storage/box/matches
+	display_name = "matchbox"
+	path = /obj/item/storage/box/fancy/matches
 	sort_category = "Smoking"
 
 /datum/gear/smoking/zippo
@@ -13,26 +13,26 @@
 
 /datum/gear/smoking/cigarcase
 	display_name = "cigar case"
-	path = /obj/item/storage/fancy/cigarettes/cigar
+	path = /obj/item/storage/box/fancy/cigarettes/cigar
 	cost = 2
 
 /datum/gear/smoking/cigarettes
 	display_name = "cigarette packet selection"
 	description = "A selection of cigarette packets."
-	path = /obj/item/storage/fancy/cigarettes
+	path = /obj/item/storage/box/fancy/cigarettes
 	cost = 2
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/smoking/cigarettes/New()
 	..()
 	var/cigarettes = list()
-	cigarettes["Lucky Strike cigarette packet"] = /obj/item/storage/fancy/cigarettes/rugged
-	cigarettes["Trans-Stellar Duty Free cigarette packet"] = /obj/item/storage/fancy/cigarettes
-	cigarettes["DromedaryCo cigarette packet"] = /obj/item/storage/fancy/cigarettes/dromedaryco
-	cigarettes["Nico-Tine cigarette packet"] = /obj/item/storage/fancy/cigarettes/nicotine
-	cigarettes["Working Tajara cigarette packet"] = /obj/item/storage/fancy/cigarettes/pra
-	cigarettes["Shastar Leaves cigarette packet"] = /obj/item/storage/fancy/cigarettes/dpra
-	cigarettes["Royal Choice cigarette packet"] = /obj/item/storage/fancy/cigarettes/nka
+	cigarettes["Lucky Strike cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/rugged
+	cigarettes["Trans-Stellar Duty Free cigarette packet"] = /obj/item/storage/box/fancy/cigarettes
+	cigarettes["DromedaryCo cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dromedaryco
+	cigarettes["Nico-Tine cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/nicotine
+	cigarettes["Working Tajara cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/pra
+	cigarettes["Shastar Leaves cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dpra
+	cigarettes["Royal Choice cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/nka
 	gear_tweaks += new/datum/gear_tweak/path(cigarettes)
 
 /datum/gear/smoking/chew
@@ -48,7 +48,7 @@
 	chews["Rredouane Cuts chewing tobacco"] = /obj/item/storage/chewables/tobacco/bad
 	chews["Mendell Smooth chewing tobacco"] = /obj/item/storage/chewables/tobacco
 	chews["Taba-Kamu chewing tobacco"] = /obj/item/storage/chewables/tobacco/fine
-	chews["box of Nico-Tine gum"] = /obj/item/storage/fancy/chewables/tobacco/nico
+	chews["box of Nico-Tine gum"] = /obj/item/storage/box/fancy/chewables/tobacco/nico
 	gear_tweaks += new/datum/gear_tweak/path(chews)
 
 /datum/gear/smoking/leaves
@@ -85,11 +85,11 @@
 /datum/gear/smoking/cigpaper
 	display_name = "cigarette paper selection"
 	description = "A selection of cigarette papers."
-	path = /obj/item/storage/fancy/cigpaper
+	path = /obj/item/storage/box/fancy/cigpaper
 
 /datum/gear/smoking/cigpaper/New()
 	..()
 	var/cigpaper = list()
-	cigpaper["Gen. Eric cigarette paper"] = /obj/item/storage/fancy/cigpaper
-	cigpaper["Trident cigarette paper"] = /obj/item/storage/fancy/cigpaper/fine
+	cigpaper["Gen. Eric cigarette paper"] = /obj/item/storage/box/fancy/cigpaper
+	cigpaper["Trident cigarette paper"] = /obj/item/storage/box/fancy/cigpaper/fine
 	gear_tweaks += new/datum/gear_tweak/path(cigpaper)

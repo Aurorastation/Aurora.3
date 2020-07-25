@@ -26,24 +26,24 @@
 	. = ..(user)
 
 	if(health == maxhealth)
-		to_chat(user, span("notice", "It looks fully intact."))
+		to_chat(user, SPAN_NOTICE("It looks fully intact."))
 	else
 		var/perc = health / maxhealth
 		if(perc > 0.75)
-			to_chat(user, span("notice", "It has a few cracks."))
+			to_chat(user, SPAN_NOTICE("It has a few cracks."))
 		else if(perc > 0.5)
-			to_chat(user, span("warning", "It looks slightly damaged."))
+			to_chat(user, SPAN_WARNING("It looks slightly damaged."))
 		else if(perc > 0.25)
-			to_chat(user, span("warning", "It looks moderately damaged."))
+			to_chat(user, SPAN_WARNING("It looks moderately damaged."))
 		else
-			to_chat(user, span("danger", "It looks heavily damaged."))
+			to_chat(user, SPAN_DANGER("It looks heavily damaged."))
 	if(silicate)
 		if (silicate < 30)
-			to_chat(user, span("notice", "It has a thin layer of silicate."))
+			to_chat(user, SPAN_NOTICE("It has a thin layer of silicate."))
 		else if (silicate < 70)
-			to_chat(user, span("notice", "It is covered in silicate."))
+			to_chat(user, SPAN_NOTICE("It is covered in silicate."))
 		else
-			to_chat(user, span("notice", "There is a thick layer of silicate covering it."))
+			to_chat(user, SPAN_NOTICE("There is a thick layer of silicate covering it."))
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1)
 	var/initialhealth = health
@@ -59,13 +59,13 @@
 		if(sound_effect)
 			playsound(loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		if(health < maxhealth / 4 && initialhealth >= maxhealth / 4)
-			visible_message(span("danger", "[src] looks like it's about to shatter!"))
+			visible_message(SPAN_DANGER("[src] looks like it's about to shatter!"))
 			playsound(loc, "glasscrack", 100, 1)
 		else if(health < maxhealth / 2 && initialhealth >= maxhealth / 2)
-			visible_message(span("warning", "[src] looks seriously damaged!"))
+			visible_message(SPAN_WARNING("[src] looks seriously damaged!"))
 			playsound(loc, "glasscrack", 100, 1)
 		else if(health < maxhealth * 3/4 && initialhealth >= maxhealth * 3/4)
-			visible_message(span("warning", "Cracks begin to appear in [src]!"))
+			visible_message(SPAN_WARNING("Cracks begin to appear in [src]!"))
 			playsound(loc, "glasscrack", 100, 1)
 	return
 
@@ -89,7 +89,7 @@
 /obj/structure/window/proc/shatter(var/display_message = 1)
 	playsound(src, "shatter", 70, 1)
 	if(display_message)
-		visible_message(span("warning", "\The [src] shatters!"))
+		visible_message(SPAN_WARNING("\The [src] shatters!"))
 	if(dir == SOUTHWEST)
 		var/index = null
 		index = 0
@@ -157,7 +157,7 @@
 
 /obj/structure/window/hitby(AM as mob|obj)
 	..()
-	visible_message(span("danger", "[src] was hit by [AM]."))
+	visible_message(SPAN_DANGER("[src] was hit by [AM]."))
 	var/tforce = 0
 	if(ismob(AM))
 		tforce = 40
@@ -175,7 +175,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(HULK in user.mutations)
 		user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!"))
-		user.visible_message(span("danger", "[user] smashes through [src]!"))
+		user.visible_message(SPAN_DANGER("[user] smashes through [src]!"))
 		user.do_attack_animation(src)
 		shatter()
 
@@ -188,8 +188,8 @@
 
 		playsound(src.loc, 'sound/effects/glass_knock.ogg', 90, 1)
 		user.do_attack_animation(src)
-		user.visible_message(span("danger", "\The [user] bangs against \the [src]!"),
-							span("danger", "You bang against \the [src]!"),
+		user.visible_message(SPAN_DANGER("\The [user] bangs against \the [src]!"),
+							SPAN_DANGER("You bang against \the [src]!"),
 							"You hear a banging sound.")
 	else
 		playsound(src.loc, 'sound/effects/glass_knock.ogg', 60, 1)
@@ -201,16 +201,16 @@
 /obj/structure/window/attack_generic(var/mob/user, var/damage)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(damage >= 10)
-		visible_message(span("danger", "[user] smashes into [src]!"))
+		visible_message(SPAN_DANGER("[user] smashes into [src]!"))
 		take_damage(damage)
 	else
-		visible_message(span("notice", "\The [user] bonks \the [src] harmlessly."))
+		visible_message(SPAN_NOTICE("\The [user] bonks \the [src] harmlessly."))
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 10, 1, -2)
 	user.do_attack_animation(src)
 	return 1
 
 /obj/structure/window/do_simple_ranged_interaction(var/mob/user)
-	visible_message(span("notice", "Something knocks on \the [src]."))
+	visible_message(SPAN_NOTICE("Something knocks on \the [src]."))
 	playsound(loc, 'sound/effects/glass_hit.ogg', 50, 1)
 	return TRUE
 
@@ -230,26 +230,26 @@
 			state = 3 - state
 			update_nearby_icons()
 			playsound(loc, W.usesound, 75, 1)
-			to_chat(user, (state == 1 ? span("notice", "You have unfastened the window from the frame.") : span("notice", "You have fastened the window to the frame.")))
+			to_chat(user, (state == 1 ? SPAN_NOTICE("You have unfastened the window from the frame.") : SPAN_NOTICE("You have fastened the window to the frame.")))
 		else if(reinf && state == 0)
 			anchored = !anchored
 			update_nearby_icons()
 			playsound(loc, W.usesound, 75, 1)
-			to_chat(user, (anchored ? span("notice", "You have fastened the frame to the floor.") : span("notice", "You have unfastened the frame from the floor.")))
+			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the frame to the floor.") : SPAN_NOTICE("You have unfastened the frame from the floor.")))
 		else if(!reinf)
 			anchored = !anchored
 			update_nearby_icons()
 			playsound(loc, W.usesound, 75, 1)
-			to_chat(user, (anchored ? span("notice", "You have fastened the window to the floor.") : span("notice", "You have unfastened the window.")))
+			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the window to the floor.") : SPAN_NOTICE("You have unfastened the window.")))
 	else if(W.iscrowbar() && reinf && state <= 1)
 		state = 1 - state
 		playsound(loc, W.usesound, 75, 1)
-		to_chat(user, (state ? span("notice", "You have pried the window into the frame.") : span("notice", "You have pried the window out of the frame.")))
+		to_chat(user, (state ? SPAN_NOTICE("You have pried the window into the frame.") : SPAN_NOTICE("You have pried the window out of the frame.")))
 	else if(W.iswrench() && !anchored && (!state || !reinf))
 		if(!glasstype)
-			to_chat(user, span("notice", "You're not sure how to dismantle \the [src] properly."))
+			to_chat(user, SPAN_NOTICE("You're not sure how to dismantle \the [src] properly."))
 		else
-			visible_message(span("notice", "[user] dismantles \the [src]."))
+			visible_message(SPAN_NOTICE("[user] dismantles \the [src]."))
 			if(dir == SOUTHWEST)
 				var/obj/item/stack/material/mats = new glasstype(loc)
 				mats.amount = is_fulltile() ? 4 : 2
@@ -281,17 +281,17 @@
 	var/blocked = M.run_armor_check(def_zone, "melee")
 	switch (state)
 		if(1)
-			M.visible_message(span("warning", "[user] slams [M] against \the [src]!"))
+			M.visible_message(SPAN_WARNING("[user] slams [M] against \the [src]!"))
 			M.apply_damage(7, damtype, def_zone, blocked, src)
 			hit(10)
 		if(2)
-			M.visible_message(span("danger", "[user] bashes [M] against \the [src]!"))
+			M.visible_message(SPAN_DANGER("[user] bashes [M] against \the [src]!"))
 			if (prob(50))
 				M.Weaken(1)
 			M.apply_damage(10, damtype, def_zone, blocked, src)
 			hit(25)
 		if(3)
-			M.visible_message(span("danger", "<big>[user] crushes [M] against \the [src]!</big>"))
+			M.visible_message(SPAN_DANGER("<big>[user] crushes [M] against \the [src]!</big>"))
 			M.Weaken(5)
 			M.apply_damage(20, damtype, def_zone, blocked, src)
 			hit(50)

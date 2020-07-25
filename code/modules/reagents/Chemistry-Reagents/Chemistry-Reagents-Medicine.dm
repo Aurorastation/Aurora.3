@@ -1,8 +1,8 @@
 /* General medicine */
 
-/datum/reagent/norepinephrine
-	name = "Norepinephrine"
-	description = "Norepinephrine is a chemical that narrows blood vessels, raises blood pressure, and helps the blood pump more efficiently. Commonly used to stabilize patients."
+/datum/reagent/inaprovaline
+	name = "Inaprovaline"
+	description = "Inaprovaline is a chemical that narrows blood vessels, raises blood pressure, and helps the blood pump more efficiently. Commonly used to stabilize patients."
 	reagent_state = LIQUID
 	color = "#00BFFF"
 	overdose = REAGENTS_OVERDOSE * 2
@@ -12,7 +12,7 @@
 	scannable = 1
 	taste_description = "bitterness"
 
-/datum/reagent/norepinephrine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_STABLE)
 	M.add_chemical_effect(CE_PAINKILLER, 25)
 

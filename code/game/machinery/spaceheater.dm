@@ -50,13 +50,13 @@
 /obj/machinery/space_heater/emag_act(var/remaining_charges, mob/user)
 	if(!emagged)
 		emagged = TRUE
-		to_chat(user, span("warning", "You disable \the [src]'s temperature safety checks!"))
+		to_chat(user, SPAN_WARNING("You disable \the [src]'s temperature safety checks!"))
 		spark(src, 3)
 		playsound(src, "sparks", 100, 1)
 		heating_power = 45000 //Overridden safeties make it stronger, and it needs to work more efficiently to make use of big temp ranges
 		return 1
 	else
-		to_chat(user, span("danger", "\The [src]'s temperature safety checks have already been disabled!"))
+		to_chat(user, SPAN_DANGER("\The [src]'s temperature safety checks have already been disabled!"))
 		return 0
 
 /obj/machinery/space_heater/attackby(obj/item/I, mob/user)
@@ -71,16 +71,16 @@
 				cell = I
 				I.add_fingerprint(user)
 
-				visible_message(span("notice", "[user] inserts a power cell into [src]."),
-					span("notice", "You insert the power cell into [src]."))
+				visible_message(SPAN_NOTICE("[user] inserts a power cell into [src]."),
+					SPAN_NOTICE("You insert the power cell into [src]."))
 				power_change()
 		else
-			to_chat(user, span("notice", "The hatch must be open to insert a power cell."))
+			to_chat(user, SPAN_NOTICE("The hatch must be open to insert a power cell."))
 			return
 	else if(I.isscrewdriver())
 		panel_open = !panel_open
-		user.visible_message(span("notice", "[user] [panel_open ? "opens" : "closes"] the hatch on the [src]."),
-				span("notice", "You [panel_open ? "open" : "close"] the hatch on the [src]."))
+		user.visible_message(SPAN_NOTICE("[user] [panel_open ? "opens" : "closes"] the hatch on the [src]."),
+				SPAN_NOTICE("You [panel_open ? "open" : "close"] the hatch on the [src]."))
 		update_icon()
 
 		if(!panel_open && user.machine == src)
@@ -96,8 +96,8 @@
 	src.add_fingerprint(user)
 	if(panel_open)
 		if(cell)
-			user.visible_message(span("notice", "\The [user] removes \the [cell] from \the [src]."),
-				span("notice", "You remove \the [cell] from \the [src]."))
+			user.visible_message(SPAN_NOTICE("\The [user] removes \the [cell] from \the [src]."),
+				SPAN_NOTICE("You remove \the [cell] from \the [src]."))
 			cell.update_icon()
 			user.put_in_hands(cell)
 			cell.add_fingerprint(user)
@@ -109,35 +109,28 @@
 		interact(user)
 
 /obj/machinery/space_heater/interact(mob/user)
-
-
-	var/dat
-	dat = "Power cell: "
+	var/dat = "Power cell: "
 	if(cell)
-		dat += "Detected<BR>"
+		dat += "Detected<br>"
 	else
-		dat += "Not Detected<BR>"
+		dat += "Not Detected<br>"
 	dat += "Power: "
 	if(on)
-		dat += "<A href='?src=\ref[src];op=off'>On</A><BR>"
+		dat += "<A href='?src=\ref[src];op=off'>On</A><br>"
 	else
-		dat += "<A href='?src=\ref[src];op=on'>Off</A><BR>"
+		dat += "<A href='?src=\ref[src];op=on'>Off</A><br>"
 
-	dat += "Power Level: [cell ? round(cell.percent(),1) : 0]%<BR><BR>"
+	dat += "Power Level: [cell ? round(cell.percent(),1) : 0]%<br><br>"
 
 	dat += "Set Temperature: "
-
 	dat += "<A href='?src=\ref[src];op=temp;val=-5'>-</A>"
-
-	dat += " [set_temperature]K ([set_temperature-T0C]&deg;C)"
-	dat += "<A href='?src=\ref[src];op=temp;val=5'>+</A><BR>"
+	dat += " [set_temperature]K ([set_temperature-T0C]&deg;C) "
+	dat += "<A href='?src=\ref[src];op=temp;val=5'>+</A><br>"
 
 	user.set_machine(src)
-	user << browse("<HEAD><TITLE>Space Heater Control Panel</TITLE></HEAD><TT>[dat]</TT>", "window=spaceheater")
-	onclose(user, "spaceheater")
-	return // needed?
-
-
+	var/datum/browser/heater_win = new(user, "spaceheater", "Space Heater Control Panel")
+	heater_win.set_content(dat)
+	heater_win.open()
 
 /obj/machinery/space_heater/Topic(href, href_list)
 	if (usr.stat)
@@ -158,18 +151,18 @@
 
 			if("off")
 				on = !on
-				usr.visible_message(span("notice", "[usr] switches off the [src]."),
-					span("notice", "You switch off the [src]."))
+				usr.visible_message(SPAN_NOTICE("[usr] switches off the [src]."),
+					SPAN_NOTICE("You switch off the [src]."))
 				update_icon()
 
 			if("on")
 				if(cell)
 					on = !on
-					usr.visible_message(span("notice", "\The [usr] switches on \the [src]."),
-						span("notice", "You switch on \the [src]."))
+					usr.visible_message(SPAN_NOTICE("\The [usr] switches on \the [src]."),
+						SPAN_NOTICE("You switch on \the [src]."))
 					update_icon()
 				else
-					to_chat(usr, span("notice", "You can't turn it on without a cell installed!"))
+					to_chat(usr, SPAN_NOTICE("You can't turn it on without a cell installed!"))
 					return
 		updateDialog()
 	else

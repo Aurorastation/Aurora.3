@@ -82,8 +82,8 @@
 		M.update_inv_back()
 		M.update_action_buttons()
 
-	to_chat(usr, span("notice", "You toggle the thrusters [on? "on":"off"]."))
-	to_chat(usr, span("notice", "You toggle the stabilization [stabilization_on? "on":"off"]."))
+	to_chat(usr, SPAN_NOTICE("You toggle the thrusters [on? "on":"off"]."))
+	to_chat(usr, SPAN_NOTICE("You toggle the stabilization [stabilization_on? "on":"off"]."))
 
 /obj/item/tank/jetpack/proc/allow_thrust(num, mob/living/user as mob)
 	if(!(src.on))

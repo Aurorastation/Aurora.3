@@ -2,6 +2,7 @@
 
 /obj/machinery/atmospherics/unary/cryo_cell
 	name = "cryo cell"
+	desc = "A cryogenic chamber that can freeze occupants while keeping them alive, preventing them from taking any further damage. It can be loaded with a chemical cocktail for various medical benefits."
 	desc_info = "The cryogenic chamber, or 'cryo', treats most damage types, most notably genetic damage. It also stabilizes patients \
 	in critical condition by placing them in stasis, so they can be treated at a later time.<br>\
 	<br>\
@@ -207,7 +208,7 @@
 				LB.user_unbuckle_mob(user)
 			for(var/mob/living/carbon/slime/M in range(1, L))
 				if(M.victim == L)
-					to_chat(user, span("warning", "[L] will not fit into the cryo because they have a slime latched onto their head."))
+					to_chat(user, SPAN_WARNING("[L] will not fit into the cryo because they have a slime latched onto their head."))
 					return
 			if(put_mob(L))
 				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", range = 3)
@@ -222,7 +223,7 @@
 	var/mob/living/L = O
 	for(var/mob/living/carbon/slime/M in range(1,L))
 		if(M.victim == L)
-			to_chat(usr, span("warning", "[L.name] will not fit into the cryo because they have a slime latched onto their head."))
+			to_chat(usr, SPAN_WARNING("[L.name] will not fit into the cryo because they have a slime latched onto their head."))
 			return
 
 	var/bucklestatus = L.bucklecheck(user)
@@ -399,7 +400,7 @@
 	set src in oview(1)
 	for(var/mob/living/carbon/slime/M in range(1,usr))
 		if(M.victim == usr)
-			to_chat(usr, span("warning", "You cannot do this while a slime is latched onto you!"))
+			to_chat(usr, SPAN_WARNING("You cannot do this while a slime is latched onto you!"))
 			return
 	if (usr.stat != 0)
 		return

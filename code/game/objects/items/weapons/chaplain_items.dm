@@ -56,7 +56,7 @@
 	if(!ispath(nullchoices[picked]))
 		return
 
-	to_chat(user, span("notice", "You start reassembling your obsidian relic."))
+	to_chat(user, SPAN_NOTICE("You start reassembling your obsidian relic."))
 	if(!do_after(user, 2 SECONDS))
 		return
 
@@ -72,16 +72,16 @@
 
 	if(LAZYLEN(user.spell_list))
 		user.silence_spells(300) //30 seconds
-		to_chat(user, span("danger", "You've been silenced!"))
+		to_chat(user, SPAN_DANGER("You've been silenced!"))
 		return
 
 	if(!user.IsAdvancedToolUser())
-		to_chat(user, span("danger", "You don't have the dexterity to use this!"))
+		to_chat(user, SPAN_DANGER("You don't have the dexterity to use this!"))
 		return
 
 	if((user.is_clumsy()) && prob(50))
-		to_chat(user, span("danger", "The [src] slips out of your hand and you hit yourself!"))
-		visible_message(span("danger", "[user] fumbles with the [src] and hits themselves in the process!"))
+		to_chat(user, SPAN_DANGER("The [src] slips out of your hand and you hit yourself!"))
+		visible_message(SPAN_DANGER("[user] fumbles with the [src] and hits themselves in the process!"))
 		user.take_organ_damage(10)
 		user.Paralyse(20)
 		return
@@ -90,25 +90,25 @@
 		var/mob/living/K = M
 		if(cult && (K.mind in cult.current_antagonists) && prob(75))
 			if(do_after(user, 15))
-				K.visible_message(span("danger", "[user] waves \the [src] over \the [K]'s head, [K] looks captivated by it."), span("warning", "[user] waves the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>"))
+				K.visible_message(SPAN_DANGER("[user] waves \the [src] over \the [K]'s head, [K] looks captivated by it."), SPAN_WARNING("[user] waves the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>"))
 				var/choice = alert(K,"Do you want to give up your goal?","Become cleansed","Resist","Give in")
 				switch(choice)
 					if("Resist")
-						K.visible_message(span("warning", "The gaze in [K]'s eyes remains determined."), span("notice", "You turn away from the light, remaining true to the Geometer!"))
+						K.visible_message(SPAN_WARNING("The gaze in [K]'s eyes remains determined."), SPAN_NOTICE("You turn away from the light, remaining true to the Geometer!"))
 						K.say("*scream")
 						K.take_overall_damage(5, 15)
 						admin_attack_log(user, M, "attempted to deconvert", "was unsuccessfully deconverted by", "attempted to deconvert")
 					if("Give in")
-						K.visible_message(span("notice", "[K]'s eyes become clearer, the evil gone, but not without leaving scars."))
+						K.visible_message(SPAN_NOTICE("[K]'s eyes become clearer, the evil gone, but not without leaving scars."))
 						K.take_overall_damage(10, 20)
 						cult.remove_antagonist(K.mind)
 						admin_attack_log(user, M, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
 			else
-				user.visible_message(span("warning", "[user]'s concentration is broken!"), span("warning", "Your concentration is broken! You and your target need to stay uninterrupted for longer!"))
+				user.visible_message(SPAN_WARNING("[user]'s concentration is broken!"), SPAN_WARNING("Your concentration is broken! You and your target need to stay uninterrupted for longer!"))
 				return
 		else
-			to_chat(user, span("danger", "The [src] appears to do nothing."))
-			M.visible_message(span("danger", "\The [user] waves \the [src] over \the [M]'s head."))
+			to_chat(user, SPAN_DANGER("The [src] appears to do nothing."))
+			M.visible_message(SPAN_DANGER("\The [user] waves \the [src] over \the [M]'s head."))
 			if(ishuman(M))
 				var/mob/living/carbon/human/H = M
 				if(prob(25))
@@ -117,7 +117,7 @@
 					H.cure_all_traumas(cure_type = CURE_CRYSTAL)
 			return
 	else if(user.a_intent != I_HURT) // to prevent the chaplain from hurting peoples accidentally
-		to_chat(user, span("notice", "The [src] appears to do nothing."))
+		to_chat(user, SPAN_NOTICE("The [src] appears to do nothing."))
 		return
 	else
 		return ..()
@@ -127,7 +127,7 @@
 		return
 	if(istype(A, /turf/simulated/floor) && (cooldown + 5 SECONDS < world.time))
 		cooldown = world.time
-		user.visible_message(span("notice", "[user] loudly taps their [src.name] against the floor."))
+		user.visible_message(SPAN_NOTICE("[user] loudly taps their [src.name] against the floor."))
 		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 		var/rune_found = FALSE
 		for(var/obj/effect/rune/R in orange(2, get_turf(src)))
@@ -164,7 +164,7 @@
 		return ..()
 	else if(proximity)
 		if(contents.len)
-			to_chat(user, span("warning", "\The [src] is already full!"))
+			to_chat(user, SPAN_WARNING("\The [src] is already full!"))
 			return
 		user.visible_message("[user] scoops \the [A] into \the [src], securing the lid.", "You scoop \the [A] into \the [src], securing the lid.")
 		desc = "A vase used to store the ashes of the deceased. It contains some ashes."
@@ -172,7 +172,7 @@
 
 /obj/item/material/urn/attack_self(mob/user)
 	if(!contents.len)
-		to_chat(user, span("warning", "\The [src] is empty!"))
+		to_chat(user, SPAN_WARNING("\The [src] is empty!"))
 		return
 	else
 		for(var/obj/effect/decal/cleanable/ash/A in contents)

@@ -181,7 +181,7 @@
 		if(user.a_intent == I_HELP)
 			var/obj/item/organ/organ = M.get_organ(user.zone_sel.selecting)
 			if(organ)
-				user.visible_message(span("notice", "[user] places [src] against [M]'s [organ.name] and listens attentively."),
+				user.visible_message(SPAN_NOTICE("[user] places [src] against [M]'s [organ.name] and listens attentively."),
 									 "You place [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>.")
 				return
 	return ..(M,user)
@@ -460,9 +460,15 @@
 
 /obj/item/clothing/accessory/poncho/roles/medical
 	name = "medical poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is white with green and blue tint, standard Medical colors."
+	desc = "A simple, comfortable cloak without sleeves. This one is white with a green tint, standard Medical colors."
 	icon_state = "medponcho"
 	item_state = "medponcho"
+
+/obj/item/clothing/accessory/poncho/roles/iac
+	name = "IAC poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is white with a blue tint, standard IAC colors."
+	icon_state = "IACponcho"
+	item_state = "IACponcho"	
 
 /obj/item/clothing/accessory/poncho/roles/engineering
 	name = "engineering poncho"

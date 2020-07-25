@@ -10,9 +10,9 @@
 
 /datum/rune/apparition/do_rune_action(mob/living/user, atom/movable/A)
 	if(!iscarbon(user))
-		to_chat(user, span("warning", "Your primitive form cannot use this rune!"))
+		to_chat(user, SPAN_WARNING("Your primitive form cannot use this rune!"))
 	if(apparition)
-		to_chat(user, span("warning", "This rune already has an active apparition!"))
+		to_chat(user, SPAN_WARNING("This rune already has an active apparition!"))
 	var/mob/living/carbon/C = user
 
 	var/mob/abstract/observer/ghost
@@ -24,7 +24,7 @@
 		ghost = O
 		break
 	if(!ghost)
-		to_chat(user, span("warning", "There are no spirits in the area of the rune!"))
+		to_chat(user, SPAN_WARNING("There are no spirits in the area of the rune!"))
 		return fizzle(user)
 
 	user.say("Gal'h'rfikk harfrandid mud[pick("'","`")]gib!")
