@@ -71,9 +71,9 @@
 		else if (isvaurca(target))
 			to_chat (user, SPAN_CULT("You feel your thoughts pass right through a mind empty of psychic energy, unable to get a grasp on anything."))
 			return
-// do normal stuff here
 	if (target.is_diona())
 		to_chat(user, SPAN_ALIEN("The creature's mind is incompatible, formless."))
+		return
 
 	for (var/obj/item/implant/mindshield/I in target)
 		if (I.implanted)
@@ -255,6 +255,7 @@
 		return FALSE
 	. = ..()
 	if(.)
+		user.visible_message(SPAN_NOTICE("<i>[user] twitches softly, seemingly in intense focus.</i>"))
 		var/text = input("What would you like to say?", "Speak to creature", null, null)
 		text = sanitize(text)
 
@@ -276,7 +277,6 @@
 			if (isvaurca(target))
 				to_chat (user, SPAN_CULT("You feel your thoughts pass right through a mind empty of psychic energy."))
 				return
-	// do normal stuff here
 		if (target.is_diona())
 			to_chat(user, SPAN_ALIEN("The creature's mind is incompatible, formless."))
 			return
