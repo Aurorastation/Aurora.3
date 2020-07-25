@@ -19,14 +19,7 @@
 		/obj/item/reagent_containers/food/snacks/bun,
 		/obj/item/reagent_containers/food/snacks/meat //do not place this recipe before /datum/recipe/humanburger
 	)
-	result = /obj/item/reagent_containers/food/snacks/burger/monkey
-
-/datum/recipe/syntiburger
-	items = list(
-		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/meat/syntiflesh
-	)
-	result = /obj/item/reagent_containers/food/snacks/burger/monkey
+	result = /obj/item/reagent_containers/food/snacks/burger
 
 /datum/recipe/brainburger
 	items = list(
@@ -139,7 +132,7 @@
 
 /datum/recipe/bigbiteburger
 	items = list(
-		/obj/item/reagent_containers/food/snacks/burger/monkey,
+		/obj/item/reagent_containers/food/snacks/burger,
 		/obj/item/reagent_containers/food/snacks/meat,
 		/obj/item/reagent_containers/food/snacks/meat,
 		/obj/item/reagent_containers/food/snacks/meat
