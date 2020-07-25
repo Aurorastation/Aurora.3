@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "The crafting UI has been improved and categorized."
+  - rscadd: "Added the ability to craft leather briefcases."
