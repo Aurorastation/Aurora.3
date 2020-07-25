@@ -60,11 +60,8 @@
 		to_chat(user, SPAN_WARNING("\The [target] is in no state for a mind-read."))
 		return TRUE
 
-	var/obj/item/organ/internal/augment/psi/psiaug
-	for (psiaug in target)
-		if(!psiaug.is_broken())
-			break
-	if (!psiaug)
+	var/obj/item/organ/internal/augment/psi/psiaug = locate() in target
+	if (!psiaug?.is_broken())
 		if(target.isSynthetic())
 			to_chat(user, SPAN_ALIEN("There is no mind here for you to dip your mentality into."))
 			return
@@ -266,11 +263,8 @@
 			to_chat(user, SPAN_CULT("Not even a psion of your level can speak to the dead."))
 			return
 
-		var/obj/item/organ/internal/augment/psi/psiaug
-		for (psiaug in target)
-			if(psiaug && !psiaug.is_broken())
-				break
-		if (!psiaug)
+		var/obj/item/organ/internal/augment/psi/psiaug = locate() in target
+		if (!psiaug?.is_broken())
 			if(target.isSynthetic())
 				to_chat(user, SPAN_ALIEN("Your thoughts fail to reach any mind at all."))
 				return
