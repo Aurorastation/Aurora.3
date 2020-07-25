@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Tweaked various simple animal messages to make it look better in the chat log."
+  - tweak: "Aggressive grabs no longer refer to 'by the hands'."
+  - rscadd: "Getting a neck grab or higher on an aggressive animal restrains them from attacking."
+  - rscadd: "Strangling an animal now properly does damage to them."
