@@ -756,10 +756,6 @@
 			if(prob(2) && health && !failed_last_breath && !isSynthetic())
 				if(!paralysis)
 					emote("snore")
-				else
-					emote("groan")
-
-
 
 		//CONSCIOUS
 		else if(!in_stasis)
