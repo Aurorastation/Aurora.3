@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - rscadd: "Shaft miners now start with a mining coin that can be redeemed at a mining vendor to get enhanced equipment, instead of spawning with an upgrade in a toolbox."
+  - rscadd: "Shaft miners now start with a mining coin that can be redeemed at a mining vendor to get enhanced equipment, such as a mining drill or an upgraded kinetic accelerator, instead of spawning with a non-functional upgrade in a toolbox."
