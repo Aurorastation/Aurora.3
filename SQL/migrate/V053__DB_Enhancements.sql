@@ -15,11 +15,6 @@ ALTER TABLE `ss13_poll_vote`
 	ADD CONSTRAINT `FK_ss13_poll_vote_ss13_poll_option` FOREIGN KEY (`optionid`) REFERENCES `ss13_poll_option` (`id`) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
-ALTER TABLE `ss13_connection_log`
-	ADD CONSTRAINT `FK_ss13_connection_log_ss13_player` FOREIGN KEY (`ckey`) REFERENCES `ss13_player` (`ckey`) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
-
 UPDATE `ss13_death` SET `byondkey` = REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(LOWER(`byondkey`),' ',''),'_',''),'-',''),'.',''),'@','');
 UPDATE `ss13_death` SET `lakey` = REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(LOWER(`lakey`),' ',''),'_',''),'-',''),'.',''),'@','');
 
