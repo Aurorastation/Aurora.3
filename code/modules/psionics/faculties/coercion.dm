@@ -62,13 +62,13 @@
 
 	var/obj/item/organ/internal/augment/psi/psiaug
 	for (psiaug in target)
-		if(psiaug && !psiaug.is_broken())
+		if(!psiaug.is_broken())
 			break
 	if (!psiaug)
 		if(target.isSynthetic())
 			to_chat(user, SPAN_ALIEN("There is no mind here for you to dip your mentality into."))
 			return
-		if (isvaurca(target))
+		else if (isvaurca(target))
 			to_chat (user, SPAN_CULT("You feel your thoughts pass right through a mind empty of psychic energy, unable to get a grasp on anything."))
 			return
 // do normal stuff here
@@ -288,7 +288,7 @@
 
 		log_say("[key_name(user)] communed to [key_name(target)]: [text]",ckey=key_name(src))
 
-		to_chat(user, SPAN_CULT("You psionically say to [target]:[text]"))
+		to_chat(user, SPAN_CULT("You psionically say to [target]: [text]"))
 
 		for (var/mob/M in player_list)
 			if (istype(M, /mob/abstract/new_player))
