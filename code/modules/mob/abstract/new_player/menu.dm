@@ -145,7 +145,7 @@
 
 /obj/screen/new_player/selection/join_game/Click()
 	var/mob/abstract/new_player/player = usr
-	sound_to(player, 'sound/effects/pop.ogg')
+	sound_to(player, 'sound/effects/menu_click.ogg')
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP)
 		if(player.ready)
 			player.ready = FALSE
