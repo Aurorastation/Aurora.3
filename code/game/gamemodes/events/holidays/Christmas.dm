@@ -40,7 +40,7 @@
 			"Why doesn't Santa have any children?\n\n<i>Because he only comes down the chimney.</i>")
 		Joke.set_content_unsafe(title, content)
 		new /obj/item/clothing/head/festive(target.loc)
-		user.update_icons()
+		user.update_icon()
 		cracked = 1
 		icon_state = "cracker1"
 		var/obj/item/toy/xmas_cracker/other_half = new /obj/item/toy/xmas_cracker(target)

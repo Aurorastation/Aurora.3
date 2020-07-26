@@ -83,6 +83,7 @@
 #define ACCENT_HEGEMON_PEASANT "Peasant Hegemonic"
 #define ACCENT_TRAD_NOBLE "Noble Traditional"
 #define ACCENT_TRAD_PEASANT "Peasant Traditional"
+#define ACCENT_WASTELAND "Deep Wastelander"
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
 

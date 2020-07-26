@@ -24,7 +24,7 @@
 		if (issilicon(M) && alert(usr, "Synth detected. Would you like to run rename silicon verb automatically?",, "Yes", "No") == "Yes")
 			var/mob/living/silicon/S = M
 			S.SetName(new_name)
-			to_chat(usr, span("notice", "Silicon properly renamed."))
+			to_chat(usr, SPAN_NOTICE("Silicon properly renamed."))
 
 		href_list["datumrefresh"] = href_list["rename"]
 
@@ -466,7 +466,7 @@
 			to_chat(usr, "This can only be done on mobs with clients")
 			return
 
-		to_chat(usr, span("alert", "This command is temporarily disabled."))
+		to_chat(usr, SPAN_ALERT("This command is temporarily disabled."))
 		//SSnanoui.send_resources(H.client)
 
 		//to_chat(usr, "Resource files sent")

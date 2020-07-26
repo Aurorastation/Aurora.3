@@ -142,13 +142,10 @@
 
 
 /obj/item/rig_module/Destroy()
-
-	for (var/sm in stat_modules)
+	for(var/sm in stat_modules)
 		qdel(sm)
 	stat_modules.Cut()
-
 	holder = null
-
 	return ..()
 
 // Called when the module is installed into a suit.

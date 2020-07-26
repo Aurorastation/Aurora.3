@@ -20,6 +20,7 @@
 	health = 700
 	melee_damage_lower = 25
 	melee_damage_upper = 30
+	resist_mod = 15 // LOL good luck pal
 	heat_damage_per_tick = 20
 	cold_damage_per_tick = 20
 	faction = "spiders"

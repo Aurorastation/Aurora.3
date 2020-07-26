@@ -12,6 +12,7 @@ var/list/GPS_list = list()
 	var/gpstag = "COM0"
 	var/emped = 0
 	var/held_by = null
+	var/implanted_into = null
 	var/turf/locked_location
 	var/list/tracking = list()
 	var/list/static/gps_count = list()
@@ -33,6 +34,9 @@ var/list/GPS_list = list()
 	if(held_by)
 		moved_event.unregister(held_by, src)
 		held_by = null
+	if(implanted_into)
+		moved_event.unregister(implanted_into, src)
+		implanted_into = null
 	return ..()
 
 /obj/item/device/gps/pickup(var/mob/user)
@@ -114,7 +118,7 @@ var/list/GPS_list = list()
 				if(was_tracked)
 					tracking |= gpstag
 			else
-				to_chat(usr, span("warning", "GPS tag already assigned, choose another."))
+				to_chat(usr, SPAN_WARNING("GPS tag already assigned, choose another."))
 
 		return TRUE
 

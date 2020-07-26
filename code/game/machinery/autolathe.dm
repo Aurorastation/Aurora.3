@@ -51,8 +51,7 @@
 	print_loc = src
 
 /obj/machinery/autolathe/Destroy()
-	qdel(wires)
-	wires = null
+	QDEL_NULL(wires)
 	return ..()
 
 /obj/machinery/autolathe/proc/update_recipe_list()
@@ -63,13 +62,13 @@
 	update_recipe_list()
 
 	if(..() || (disabled && !panel_open))
-		to_chat(user, span("danger", "\The [src] is disabled!"))
+		to_chat(user, SPAN_DANGER("\The [src] is disabled!"))
 		return
 
 	if(shocked)
 		shock(user, 50)
 
-	var/dat = "<center><h1>Autolathe Control Panel</h1><hr/>"
+	var/dat = "<center>"
 
 	if(!disabled)
 		dat += "<table width = '100%'>"
@@ -77,14 +76,15 @@
 		var/material_bottom = "<tr>"
 
 		for(var/material in stored_material)
-			material_top += "<td width = '25%' align = center><b>[material]</b></td>"
+			material_top += "<td width = '25%' align = center><b>[capitalize_first_letters(material)]</b></td>"
 			material_bottom += "<td width = '25%' align = center>[stored_material[material]]<b>/[storage_capacity[material]]</b></td>"
 
 		dat += "[material_top]</tr>[material_bottom]</tr></table><hr>"
-		dat += "<h2>Printable Designs</h2><h3>Showing: <a href='?src=\ref[src];change_category=1'>[show_category]</a>.</h3></center><table width = '100%'>"
+		dat += "<h2>Printable Designs</h2><h3>Showing: <a href='?src=\ref[src];change_category=1'>[show_category]</a></h3></center><table width = '100%'>"
 
 		var/index = 0
-		for(var/datum/autolathe/recipe/R in machine_recipes)
+		for(var/recipe in machine_recipes)
+			var/datum/autolathe/recipe/R = recipe
 			index++
 			if(R.hidden && !hacked || (show_category != "All" && show_category != R.category))
 				continue
@@ -108,7 +108,7 @@
 					else
 						material_string += ", "
 					material_string += "[round(R.resources[material] * mat_efficiency)] [material]"
-				material_string += ".<br></td>"
+				material_string += "<br></td>"
 				//Build list of multipliers for sheets.
 				if(R.is_stack)
 					if(max_sheets)
@@ -119,16 +119,17 @@
 							multiplier_string += "<a href='?src=\ref[src];make=[index];multiplier=[i]'>\[x[i]\]</a>"
 						multiplier_string += "<a href='?src=\ref[src];make=[index];multiplier=[max_sheets]'>\[x[max_sheets]\]</a>"
 
-			dat += "<tr><td width = 180>[R.hidden ? "<font color = 'red'>*</font>" : ""]<b>[can_make ? "<a href='?src=\ref[src];make=[index];multiplier=1'>" : ""][R.name][can_make ? "</a>" : ""]</b>[R.hidden ? "<font color = 'red'>*</font>" : ""][multiplier_string]</td><td align = right>[material_string]</tr>"
-
+			dat += "<tr class='build'><td width = 40%>[R.hidden ? "<font color = 'red'>*</font>" : ""]<b>[can_make ? "<a href='?src=\ref[src];make=[index];multiplier=1'>" : "<div class='no-build'>"][R.name][can_make ? "</a>" : "</div>"]</b>[R.hidden ? "<font color = 'red'>*</font>" : ""][multiplier_string]</td><td align = right>[material_string]</tr>"
 		dat += "</table><hr>"
 
-	user << browse(dat, "window=autolathe")
-	onclose(user, "autolathe")
+	var/datum/browser/autolathe_win = new(user, "autolathe", "<center>Autolathe Control Panel</center>")
+	autolathe_win.set_content(dat)
+	autolathe_win.add_stylesheet("misc", 'html/browser/misc.css')
+	autolathe_win.open()
 
 /obj/machinery/autolathe/attackby(obj/item/O, mob/user)
 	if(busy)
-		to_chat(user, span("notice", "\The [src] is busy. Please wait for the completion of previous operation."))
+		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for the completion of previous operation."))
 		return
 
 	if(default_deconstruction_screwdriver(user, O))
@@ -191,12 +192,12 @@
 		mass_per_sheet += eating.matter[material]
 
 	if(!filltype)
-		to_chat(user, span("notice", "\The [src] is full. Please remove material from the autolathe in order to insert more."))
+		to_chat(user, SPAN_NOTICE("\The [src] is full. Please remove material from the autolathe in order to insert more."))
 		return
 	else if(filltype == 1)
-		to_chat(user, span("notice", "You fill \the [src] to capacity with \the [eating]."))
+		to_chat(user, SPAN_NOTICE("You fill \the [src] to capacity with \the [eating]."))
 	else
-		to_chat(user, span("notice", "You fill \the [src] with \the [eating]."))
+		to_chat(user, SPAN_NOTICE("You fill \the [src] with \the [eating]."))
 
 	flick("autolathe_o", src) // Plays metal insertion animation. Work out a good way to work out a fitting animation. ~Z
 

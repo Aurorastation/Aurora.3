@@ -197,7 +197,7 @@ field_generator power level display
 	if(draw_power(round(power_draw)) >= power_draw)
 		return 1
 	else
-		visible_message(span("alert", "\The [src] shuts down!"))
+		visible_message(SPAN_ALERT("\The [src] shuts down!"))
 		turn_off()
 		investigate_log("ran out of power and <font color='red'>deactivated</font>","singulo")
 		src.power = 0

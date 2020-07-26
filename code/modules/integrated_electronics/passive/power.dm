@@ -130,7 +130,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
 	var/volume = 60
-	var/list/fuel = list("phoron" = 50000, "slimejelly" = 25000, "fuel" = 15000, "carbon" = 10000, "ethanol"= 10000, "nutriment" =8000, "blood" = 5000)
+	var/list/fuel = list(/datum/reagent/toxin/phoron = 50000, /datum/reagent/slimejelly = 25000, /datum/reagent/fuel = 15000, /datum/reagent/carbon = 10000, /datum/reagent/alcohol/ethanol = 10000, /datum/reagent/nutriment = 8000, /datum/reagent/blood = 5000)
 
 /obj/item/integrated_circuit/passive/power/chemical_cell/New()
 	..()

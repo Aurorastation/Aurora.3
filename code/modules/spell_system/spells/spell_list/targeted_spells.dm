@@ -23,6 +23,8 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 	var/amt_dam_oxy = 0
 	var/amt_dam_tox = 0
 
+	var/amt_organ = 0
+
 	var/amt_eye_blind = 0
 	var/amt_eye_blurry = 0
 
@@ -143,3 +145,10 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 	target.dizziness += amt_dizziness
 	target.confused += amt_confused
 	target.stuttering += amt_stuttering
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+		for(var/obj/item/organ/O in H.internal_organs)
+			if(amt_organ > 0)
+				O.take_damage(amt_organ)
+			else
+				O.heal_damage(-(amt_organ))

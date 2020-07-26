@@ -21,7 +21,7 @@
 	. = ..()
 
 /obj/item/organ/internal/stomach/Initialize()
-	..()
+	. = ..()
 	ingested = new /datum/reagents/metabolism(240, owner, CHEM_INGEST)
 	if(!ingested.my_atom)
 		ingested.my_atom = src
@@ -42,7 +42,7 @@
 	. = ..()
 	if(.)
 		action.button_icon_state = "puke"
-		if(action.button) action.button.UpdateIcon()
+		if(action.button) action.button.update_icon()
 
 /obj/item/organ/internal/stomach/attack_self(mob/user)
 	. = ..()

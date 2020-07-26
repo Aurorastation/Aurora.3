@@ -67,6 +67,7 @@
 
 /obj/item/stock_parts
 	name = "stock part"
+	var/parent_stock_name = "stock part" // this will show up on the protolathe to show what the base version was called
 	desc = "What?"
 	gender = PLURAL
 	icon = 'icons/obj/stock_parts.dmi'
@@ -91,6 +92,7 @@
 
 /obj/item/stock_parts/capacitor
 	name = "capacitor"
+	parent_stock_name = "capacitor"
 	desc = "A basic capacitor used in the construction of a variety of devices."
 	icon_state = "capacitor"
 	origin_tech = list(TECH_POWER = 1)
@@ -98,6 +100,7 @@
 
 /obj/item/stock_parts/scanning_module
 	name = "scanning module"
+	parent_stock_name = "scanning module"
 	desc = "A compact, high resolution scanning module used in the construction of certain devices."
 	icon_state = "scan_module"
 	origin_tech = list(TECH_MAGNET = 1)
@@ -105,6 +108,7 @@
 
 /obj/item/stock_parts/manipulator
 	name = "micro-manipulator"
+	parent_stock_name = "micro-manipulator"
 	desc = "A tiny little manipulator used in the construction of certain devices."
 	icon_state = "micro_mani"
 	origin_tech = list(TECH_MATERIAL = 1, TECH_DATA = 1)
@@ -112,6 +116,7 @@
 
 /obj/item/stock_parts/micro_laser
 	name = "micro-laser"
+	parent_stock_name = "micro-laser"
 	desc = "A tiny laser used in certain devices."
 	icon_state = "micro_laser"
 	origin_tech = list(TECH_MAGNET = 1)
@@ -119,6 +124,7 @@
 
 /obj/item/stock_parts/matter_bin
 	name = "matter bin"
+	parent_stock_name = "matter bin"
 	desc = "A container for hold compressed matter awaiting re-construction."
 	icon_state = "matter_bin"
 	origin_tech = list(TECH_MATERIAL = 1)

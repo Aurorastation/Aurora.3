@@ -88,7 +88,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/storage/backpack/fluff              = TRADER_BLACKLIST_ALL, // Custom items, let's not
 		/obj/item/storage/belt/champion               = TRADER_THIS_TYPE,
 		/obj/item/storage/briefcase                   = TRADER_THIS_TYPE,
-		/obj/item/storage/fancy                       = TRADER_SUBTYPES_ONLY,
+		/obj/item/storage/box/fancy                       = TRADER_SUBTYPES_ONLY,
 		/obj/item/storage/laundry_basket              = TRADER_THIS_TYPE,
 		/obj/item/storage/secure/briefcase            = TRADER_THIS_TYPE,
 		/obj/item/storage/bag/plants                  = TRADER_THIS_TYPE,
@@ -180,9 +180,9 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/storage/box/gloves                             = TRADER_THIS_TYPE,
 		/obj/item/storage/box/cdeathalarm_kit                    = TRADER_THIS_TYPE,
 		/obj/item/storage/box/beakers                            = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/glass/bottle/norepinephrine = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/stoxin         = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/glass/bottle/chloralhydrate = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/glass/bottle/polysomnine = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/antitoxin      = TRADER_THIS_TYPE,
 		/obj/item/device/handheld_medical                        = TRADER_THIS_TYPE,
 		/obj/item/stack/medical/advanced/bruise_pack/spaceklot   = TRADER_THIS_TYPE

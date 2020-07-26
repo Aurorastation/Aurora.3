@@ -97,12 +97,12 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/structure/cable/hide(var/i)
 	if(istype(loc, /turf))
 		invisibility = i ? 101 : 0
-	updateicon()
+	update_icon()
 
 /obj/structure/cable/hides_under_flooring()
 	return TRUE
 
-/obj/structure/cable/proc/updateicon()
+/obj/structure/cable/update_icon()
 	icon_state = "[d1]-[d2]"
 	alpha = invisibility ? 127 : 255
 
@@ -653,7 +653,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 /obj/item/stack/cable_coil/examine(mob/user)
 	..()
-	to_chat(user, "There [src.amount == 1 ? "is" : "are"] [src.amount] [src.singular_name]\s of cable in the coil.")
+	to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil.")
 
 /obj/item/stack/cable_coil/verb/make_restraint(mob/user)
 	set name = "Make Cable Restraints"
@@ -767,7 +767,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			C.d1 = 11
 			C.d2 = dirn
 			C.add_fingerprint(user)
-			C.updateicon()
+			C.update_icon()
 
 			var/datum/powernet/PN = new()
 			PN.add_cable(C)
@@ -780,7 +780,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			D.d1 = 12
 			D.d2 = 0
 			D.add_fingerprint(user)
-			D.updateicon()
+			D.update_icon()
 
 			PN.add_cable(D)
 			D.mergeConnectedNetworksOnTurf()
@@ -801,7 +801,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			C.d1 = 0 //it's a O-X node cable
 			C.d2 = dirn
 			C.add_fingerprint(user)
-			C.updateicon()
+			C.update_icon()
 
 			//create a new powernet with the cable, if needed it will be merged later
 			var/datum/powernet/PN = new()
@@ -865,7 +865,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			NC.d1 = 0
 			NC.d2 = fdirn
 			NC.add_fingerprint()
-			NC.updateicon()
+			NC.update_icon()
 
 			//create a new powernet with the cable, if needed it will be merged later
 			var/datum/powernet/newPN = new()
@@ -912,7 +912,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 		C.d2 = nd2
 
 		C.add_fingerprint()
-		C.updateicon()
+		C.update_icon()
 
 
 		C.mergeConnectedNetworks(C.d1) //merge the powernets...

@@ -14,7 +14,7 @@ var/list/admin_verbs_lighting = list(
 
 	if (!check_rights(R_DEBUG|R_DEV)) return
 
-	to_chat(src, span("notice", "Lighting debug verbs have been shown."))
+	to_chat(src, SPAN_NOTICE("Lighting debug verbs have been shown."))
 	verbs += admin_verbs_lighting
 
 /client/proc/lighting_hide_verbs()
@@ -24,7 +24,7 @@ var/list/admin_verbs_lighting = list(
 
 	if (!check_rights(R_DEBUG|R_DEV)) return
 
-	to_chat(src, span("notice", "Lighting debug verbs have been hidden."))
+	to_chat(src, SPAN_NOTICE("Lighting debug verbs have been hidden."))
 	verbs -= admin_verbs_lighting
 
 /client/proc/lighting_flush()
@@ -95,7 +95,7 @@ var/list/admin_verbs_lighting = list(
 	if (!check_rights(R_DEBUG|R_SERVER)) return
 
 	if (!establish_db_connection(dbcon))
-		to_chat(usr, span("alert", "Unable to start profiling: No active database connection."))
+		to_chat(usr, SPAN_ALERT("Unable to start profiling: No active database connection."))
 		return
 
 	lighting_profiling = !lighting_profiling

@@ -140,7 +140,7 @@
 			scan_data += "<br>"
 
 	for(var/mob/O in viewers(usr))
-		O.show_message(span("notice", "\The [src] rattles and prints out a sheet of paper."), 1)
+		O.show_message(SPAN_NOTICE("\The [src] rattles and prints out a sheet of paper."), 1)
 		playsound(loc, "sound/bureaucracy/print_short.ogg", 50, 1)
 
 	sleep(10)
@@ -164,19 +164,19 @@
 		src.wdata = list()
 		src.chemtraces = list()
 		src.timeofdeath = null
-		to_chat(user, span("notice", "A new patient has been registered. Purging data for previous patient."))
+		to_chat(user, SPAN_NOTICE("A new patient has been registered. Purging data for previous patient."))
 
 	src.timeofdeath = M.timeofdeath
 
 	var/obj/item/organ/external/S = M.get_organ(user.zone_sel.selecting)
 	if(!S)
-		to_chat(usr, span("warning", "You can't scan this body part."))
+		to_chat(usr, SPAN_WARNING("You can't scan this body part."))
 		return
 	if(!S.open)
-		to_chat(usr, span("warning", "You have to cut the limb open first!"))
+		to_chat(usr, SPAN_WARNING("You have to cut the limb open first!"))
 		return
 	for(var/mob/O in viewers(M))
-		O.show_message(span("notice", "\The [user] scans the wounds on [M.name]'s [S.name] with \the [src]"), 1)
+		O.show_message(SPAN_NOTICE("\The [user] scans the wounds on [M.name]'s [S.name] with \the [src]"), 1)
 
 	src.add_data(S)
 

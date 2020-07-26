@@ -155,7 +155,7 @@
 proc/isdeaf(A)
 	if(istype(A, /mob))
 		var/mob/M = A
-		return (M.sdisabilities & DEAF) || M.ear_deaf
+		return M.ear_deaf
 	return 0
 
 proc/iscuffed(A)
@@ -451,22 +451,22 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 	if(ishuman(src) || isbrain(src) || isslime(src))
 		switch(input)
 			if(I_HELP,I_DISARM,I_GRAB,I_HURT)
-				a_intent = input
+				set_intent(input)
 			if("right")
-				a_intent = intent_numeric((intent_numeric(a_intent)+1) % 4)
+				set_intent(intent_numeric((intent_numeric(a_intent)+1) % 4))
 			if("left")
-				a_intent = intent_numeric((intent_numeric(a_intent)+3) % 4)
+				set_intent(intent_numeric((intent_numeric(a_intent)+3) % 4))
 		if(hud_used && hud_used.action_intent)
 			hud_used.action_intent.icon_state = "intent_[a_intent]"
 
 	else if(isrobot(src))
 		switch(input)
 			if(I_HELP)
-				a_intent = I_HELP
+				set_intent(I_HELP)
 			if(I_HURT)
-				a_intent = I_HURT
+				set_intent(I_HURT)
 			if("right","left")
-				a_intent = intent_numeric(intent_numeric(a_intent) - 3)
+				set_intent(intent_numeric(intent_numeric(a_intent) - 3))
 		if(hud_used && hud_used.action_intent)
 			if(a_intent == I_HURT)
 				hud_used.action_intent.icon_state = I_HURT
@@ -1033,9 +1033,9 @@ proc/is_blind(A)
 	//We create an MD5 hash of the mob's reference to use as its DNA string.
 	//This creates unique DNA for each creature in a consistently repeatable process
 	var/datum/reagents/vessel = new/datum/reagents(600)
-	vessel.add_reagent("blood",560)
+	vessel.add_reagent(/datum/reagent/blood,560)
 	for(var/datum/reagent/blood/B in vessel.reagent_list)
-		if(B.id == "blood")
+		if(B.type == /datum/reagent/blood)
 			B.data = list(
 				"donor" = WEAKREF(src),
 				"species" = name,
@@ -1222,3 +1222,6 @@ proc/is_blind(A)
 		W.set_dir(dir)
 		W.buckled_mob = src
 		W.add_fingerprint(src)
+
+/mob/proc/set_intent(var/set_intent)
+	a_intent = set_intent

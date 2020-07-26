@@ -25,7 +25,7 @@
 	for(var/obj/item/device/radio/radio in listening_objects)
 		if(radio.on)
 			for(var/mob/living/victim in range(radio.canhear_range, radio.loc))
-				if(isnull(victims[victim]) && victim.stat == CONSCIOUS && !victim.ear_deaf)
+				if(isnull(victims[victim]) && victim.stat == CONSCIOUS && !isdeaf(victim))
 					victims[victim] = radio
 	for(var/thing in victims)
 		var/mob/living/victim = thing
@@ -41,17 +41,17 @@
 		return
 
 	if(victim.psi)
-		to_chat(victim, span("danger", "A hauntingly familiar sound hisses from \icon[source] \the [source], and your vision flickers!"))
+		to_chat(victim, SPAN_DANGER("A hauntingly familiar sound hisses from \icon[source] \the [source], and your vision flickers!"))
 		victim.psi.backblast(rand(5,15))
 		victim.Paralyse(5)
 		victim.make_jittery(100)
 	else
-		to_chat(victim, span("danger", "An indescribable, brain-tearing sound hisses from \icon[source] \the [source], and you collapse in a seizure!"))
+		to_chat(victim, SPAN_DANGER("An indescribable, brain-tearing sound hisses from \icon[source] \the [source], and you collapse in a seizure!"))
 		victim.seizure()
 		var/new_latencies = rand(2,4)
 		var/list/faculties = list(PSI_COERCION, PSI_REDACTION, PSI_ENERGISTICS, PSI_PSYCHOKINESIS)
 		for(var/i = 1 to new_latencies)
-			to_chat(victim, span("danger", "<font size = 3>[pick(psi_operancy_messages)]</font>"))
+			to_chat(victim, SPAN_DANGER("<font size = 3>[pick(psi_operancy_messages)]</font>"))
 			victim.adjustBrainLoss(rand(10,20))
 			victim.set_psi_rank(pick_n_take(faculties), 1)
 			sleep(30)

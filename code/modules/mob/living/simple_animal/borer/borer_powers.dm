@@ -205,14 +205,15 @@
 		to_chat(src, SPAN_WARNING("You don't have enough chemicals!"))
 		return
 
-	var/chem = input("Select a chemical to secrete.", "Chemicals") as null|anything in list("Norepinephrine", "Bicaridine", "Kelotane", "Dylovene", "Hyperzine", "Peridaxon", "Tramadol", "Fluvoxamine")
+	var/list/choices = list("Inaprovaline" = /datum/reagent/inaprovaline, "Bicaridine" = /datum/reagent/bicaridine, "Kelotane" = /datum/reagent/kelotane, "Dylovene" = /datum/reagent/dylovene, "Hyperzine" = /datum/reagent/hyperzine, "Peridaxon" = /datum/reagent/peridaxon, "Mortaphenyl" = /datum/reagent/mortaphenyl, "Neurostabin" = /datum/reagent/mental/neurostabin)
+	var/chem = input("Select a chemical to secrete.", "Chemicals") as null|anything in choices
 
 	if(!chem || chemicals < 20 || !host || controlling || !src || stat) //Sanity check.
 		return
 
 	to_chat(src, SPAN_NOTICE("You squirt a measure of [chem] from your reservoirs into [host]'s bloodstream."))
 	to_chat(host, SPAN_WARNING("You feel cold fluid enter your bloodstream."))
-	host.reagents.add_reagent(lowertext(chem), 5)
+	host.reagents.add_reagent(choices[chem], 5)
 	chemicals -= 20
 
 /mob/living/simple_animal/borer/verb/dominate_victim()

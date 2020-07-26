@@ -128,6 +128,7 @@
 	new /obj/item/storage/backpack/satchel_sec(src)
 	new /obj/item/clothing/under/rank/head_of_security(src)
 	new /obj/item/clothing/under/rank/head_of_security/corp(src)
+	new /obj/item/clothing/suit/storage/toggle/armor/hos(src)
 	new /obj/item/clothing/suit/armor/hos(src)
 	new /obj/item/clothing/suit/storage/vest/hos(src)
 	new /obj/item/clothing/head/helmet/hos/cap(src)
