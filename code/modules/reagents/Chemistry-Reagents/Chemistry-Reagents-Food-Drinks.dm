@@ -2591,7 +2591,7 @@
 	name = "Cork Popper"
 	description = "A fancy cocktail with a hint of lemon."
 	color = "#766818"
-	strength = "30"
+	strength = 30
 	taste_description = "sour and smokey"
 
 	glass_icon_state = "corkpopper"
