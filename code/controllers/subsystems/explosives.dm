@@ -341,7 +341,7 @@ var/datum/controller/subsystem/explosives/SSexplosives
 				continue
 
 		var/dist = get_dist(M, epicenter) || 1
-		if ((reception & EXPLFX_SOUND) && M.ear_deaf <= 0)
+		if ((reception & EXPLFX_SOUND) && !isdeaf(M))
 			if (dist <= close_dist)
 				M.playsound_simple(epicenter, explosion_sound, min(100, volume), use_random_freq = TRUE, falloff = 5)
 				//You hear a far explosion if you're outside the blast radius. Small bombs shouldn't be heard all over the station.

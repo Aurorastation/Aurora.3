@@ -276,7 +276,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 /obj/machinery/microwave/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "cooking-microwave", 300, 300, capitalize(name))
+		ui = new(user, src, "machinery-cooking-microwave", 300, 300, capitalize(name))
 	ui.open()
 
 /***********************************

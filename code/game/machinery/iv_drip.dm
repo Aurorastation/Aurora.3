@@ -3,6 +3,7 @@
 	icon = 'icons/obj/iv_drip.dmi'
 	anchored = 0
 	density = 1
+	throwpass = TRUE
 
 	var/mob/living/carbon/human/attached = null
 	var/mode = 1 // 1 is injecting, 0 is taking blood.

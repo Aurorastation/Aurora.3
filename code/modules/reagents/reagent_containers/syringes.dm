@@ -209,7 +209,7 @@
 			if(istype(target, /obj/item/implantcase/chem))
 				return
 
-			if(!target.is_open_container() && !ismob(target) && !istype(target, /obj/item/reagent_containers/food) && !istype(target, /obj/item/slime_extract) && !istype(target, /obj/item/clothing/mask/smokable/cigarette) && !istype(target, /obj/item/storage/fancy/cigarettes))
+			if(!target.is_open_container() && !ismob(target) && !istype(target, /obj/item/reagent_containers/food) && !istype(target, /obj/item/slime_extract) && !istype(target, /obj/item/clothing/mask/smokable/cigarette) && !istype(target, /obj/item/storage/box/fancy/cigarettes))
 				to_chat(user, SPAN_NOTICE("You cannot directly fill this object."))
 				return
 			if(!target.reagents.get_free_space())
@@ -391,12 +391,12 @@
 /// Syringes. END
 ////////////////////////////////////////////////////////////////////////////////
 
-/obj/item/reagent_containers/syringe/norepinephrine
-	name = "Syringe (norepinephrine)"
-	desc = "Contains norepinephrine - used to stabilize patients."
-	reagents_to_add = list(/datum/reagent/norepinephrine = 15)
+/obj/item/reagent_containers/syringe/inaprovaline
+	name = "Syringe (inaprovaline)"
+	desc = "Contains inaprovaline - used to stabilize patients."
+	reagents_to_add = list(/datum/reagent/inaprovaline = 15)
 
-/obj/item/reagent_containers/syringe/norepinephrine/Initialize()
+/obj/item/reagent_containers/syringe/inaprovaline/Initialize()
 	. = ..()
 	mode = SYRINGE_INJECT
 	update_icon()

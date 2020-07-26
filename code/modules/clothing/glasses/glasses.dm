@@ -299,6 +299,7 @@ BLIND     // can't see anything
 		to_chat(user, SPAN_NOTICE("You attach a set of medical HUDs to your glasses."))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/clothing/glasses/hud/health/prescription/P = new /obj/item/clothing/glasses/hud/health/prescription(user.loc)
+		P.glasses_type = src.type
 		user.put_in_hands(P)
 		qdel(src)
 	if(istype(W, /obj/item/clothing/glasses/hud/security))
@@ -307,6 +308,7 @@ BLIND     // can't see anything
 		to_chat(user, SPAN_NOTICE("You attach a set of security HUDs to your glasses."))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/clothing/glasses/hud/security/prescription/P = new /obj/item/clothing/glasses/hud/security/prescription(user.loc)
+		P.glasses_type = src.type
 		user.put_in_hands(P)
 		qdel(src)
 
@@ -314,6 +316,14 @@ BLIND     // can't see anything
 	name = "scanning goggles"
 	desc = "A very oddly shaped pair of goggles with bits of wire poking out the sides. A soft humming sound emanates from it."
 	icon_state = "scanning"
+
+/obj/item/clothing/glasses/regular/scanners/glasses_examine_atom(var/atom/A, var/user)
+	if(isobj(A))
+		var/obj/O = A
+		if(length(O.origin_tech))
+			to_chat(user, FONT_SMALL("\The [O] grants these tech levels when deconstructed:"))
+			for(var/tech in O.origin_tech)
+				to_chat(user, FONT_SMALL("[capitalize_first_letters(tech)]: [O.origin_tech[tech]]"))
 
 /obj/item/clothing/glasses/regular/hipster
 	name = "prescription glasses"

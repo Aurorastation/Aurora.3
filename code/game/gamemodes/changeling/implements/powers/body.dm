@@ -316,6 +316,22 @@
 	feedback_add_details("changeling_powers", "RR")
 	return TRUE
 
+/mob/proc/changeling_mimic_accent()
+	set category = "Changeling"
+	set name = "Mimic Accent"
+	set desc = "Shape our vocal glands to mimic any accent we choose."
+
+	var/datum/changeling/changeling = changeling_power()
+	if(!changeling)
+		return
+
+	var/chosen_accent = input(src, "Choose an accent to mimic.", "Accent Mimicry") as null|anything in SSrecords.accents
+	if(!chosen_accent)
+		return
+
+	changeling.mimiced_accent = chosen_accent
+	to_chat(src, SPAN_NOTICE("We have chosen to mimic the [chosen_accent] accent."))
+
 // Fake Voice
 /mob/proc/changeling_mimicvoice()
 	set category = "Changeling"
