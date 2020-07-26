@@ -253,7 +253,7 @@
 		return FALSE
 	. = ..()
 	if(.)
-		user.visible_message(SPAN_NOTICE("<i>[user] twitches softly, seemingly in intense focus.</i>"))
+		user.visible_message(SPAN_NOTICE("<i>[user] blinks, their eyes briefly developing an unnatural shine.</i>"))
 		var/text = input("What would you like to say?", "Speak to creature", null, null)
 		text = sanitize(text)
 
