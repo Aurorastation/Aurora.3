@@ -43,18 +43,18 @@
 				to_chat(src, "Alert cancelled. Power has been restored without our assistance.")
 				ai_restore_power_routine = 0
 				src.blind.invisibility = 101
-				updateicon()
+				update_icon()
 				return
 			else if (ai_restore_power_routine==3)
 				to_chat(src, "Alert cancelled. Power has been restored.")
 				ai_restore_power_routine = 0
 				src.blind.invisibility = 101
-				updateicon()
+				update_icon()
 				return
 			else if (APU_power)
 				ai_restore_power_routine = 0
 				src.blind.invisibility = 101
-				updateicon()
+				update_icon()
 				return
 		else
 			var/area/current_area = get_area(src)
@@ -120,7 +120,7 @@
 									ai_restore_power_routine = 3
 									to_chat(src, "Here are your current laws:")
 									show_laws()
-									updateicon()
+									update_icon()
 							sleep(50)
 							theAPC = null
 
@@ -145,7 +145,7 @@
 
 /mob/living/silicon/ai/update_sight()
 	if(is_blinded())
-		updateicon()
+		update_icon()
 		src.blind.screen_loc = ui_entire_screen
 		if (src.blind.invisibility != 0)
 			src.blind.invisibility = 0

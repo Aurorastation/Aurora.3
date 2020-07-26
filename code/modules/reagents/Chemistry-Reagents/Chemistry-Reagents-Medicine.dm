@@ -2,7 +2,7 @@
 
 /datum/reagent/inaprovaline
 	name = "Inaprovaline"
-	description = "Inaprovaline is a chemical that narrows blood vessels, raises blood pressure, and helps the blood pump more efficiently. Commonly used to stabilize patients."
+	description = "Inaprovaline is a cardiostimulant which stabilises myocardial contractility, working towards maintaining a steady pulse and blood pressure. Inaprovaline also acts as a weak analgesic"
 	reagent_state = LIQUID
 	color = "#00BFFF"
 	overdose = REAGENTS_OVERDOSE * 2
@@ -18,7 +18,7 @@
 
 /datum/reagent/bicaridine
 	name = "Bicaridine"
-	description = "Bicaridine is an analgesic medication and can be used to treat blunt trauma. Lasts twice as long when inhaled, however it is generally twice as weak."
+	description = "Bicaridine is a complex medication which specifically targets damaged tissues and damaged blood vessels by encouraging the rate at which the damaged tissues are regenerated. Overdosing bicaridine allows the drug to take effect on damaged muscular tissues of arteries."
 	reagent_state = LIQUID
 	color = "#BF0000"
 	overdose = REAGENTS_OVERDOSE
@@ -39,7 +39,7 @@
 
 /datum/reagent/kelotane
 	name = "Kelotane"
-	description = "Kelotane is a drug used to treat burns."
+	description = "Kelotane is a complex medication which specifically targets tissues which have been lost to severe burning by encouraging the rate at which these damaged tissues are regenerated."
 	reagent_state = LIQUID
 	color = "#FFA800"
 	overdose = REAGENTS_OVERDOSE
@@ -53,7 +53,7 @@
 
 /datum/reagent/dermaline
 	name = "Dermaline"
-	description = "Dermaline is the next step in burn medication. Works twice as good as kelotane and enables the body to restore even the direst heat-damaged tissue."
+	description = "Dermaline is a recent improvement of kelotane, working in a similar way, though twice as effective. Dermaline is capable of recovering even the most dire of burnt tissues, being able to treat full-thickness burning."
 	reagent_state = LIQUID
 	color = "#FF8000"
 	fallback_specific_heat = 1
@@ -67,7 +67,7 @@
 
 /datum/reagent/dylovene
 	name = "Dylovene"
-	description = "Dylovene is a broad-spectrum antitoxin."
+	description = "Dylovene is a broad-spectrum over-the-counter antitoxin. It is used in response to a variety of poisoning cases, being able to neutralise and remove harmful toxins from the bloodstream."
 	reagent_state = LIQUID
 	color = "#00A000"
 	scannable = TRUE
@@ -101,7 +101,7 @@
 
 /datum/reagent/dexalin
 	name = "Dexalin"
-	description = "Dexalin is used in the treatment of oxygen deprivation. The medication is twice as powerful and lasts twice as long when inhaled."
+	description = "Dexalin is a complex oxygen therapeutic and is available OTC. The chemical utilises carbon nanostructures which cling to oxygen and, in pathological conditions where tissues are hypoxic, will oxygenate these regions. Dexalin is twice as efficient when inhaled."
 	reagent_state = LIQUID
 	color = "#0080FF"
 	overdose = REAGENTS_OVERDOSE
@@ -130,14 +130,14 @@
 /datum/reagent/dexalin/plus
 	name = "Dexalin Plus"
 	fallback_specific_heat = 1
-	description = "Dexalin Plus is used in the treatment of oxygen deprivation. It is highly effective, and is twice as powerful and lasts twice as long when inhaled."
+	description = "Dexalin Plus was a ground-breaking improvement of Dexalin, capable of transporting several times the amount of oxygen, allowing it to have more clinical uses in treating hypoxia. Dexalin Plus is twice as efficient when inhaled."
 	color = "#0040FF"
 	overdose = REAGENTS_OVERDOSE * 0.5
 	strength = 12
 
 /datum/reagent/tricordrazine
 	name = "Tricordrazine"
-	description = "Tricordrazine is a highly potent stimulant, originally derived from cordrazine. Can be used to treat a wide range of injuries, however it does not work when inhaled. Has different healing properties depending on the chemical's temperature."
+	description = "Tricordrazine is an old, though still useful, medication largely set aside following bicaridine and kelotane’s development. The drug increases the rate at which tissues regenerate, though far slower than modern medications."
 	reagent_state = LIQUID
 	color = "#8040FF"
 	scannable = 1
@@ -154,7 +154,7 @@
 
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
-	description = "A chemical mixture with almost magical healing powers. Its main limitation is that the targets body temperature must be under 170K for it to metabolise correctly."
+	description = "Cryoxadone is a ground-breaking and complex medication that, when acting on bodies cooler than 170K, is capable of increasing the rate at which wounds regenerate, as well as treating genetic damage. Cryoxadone, alongside Clonexadone, are the backbones of the cloning industry."
 	reagent_state = LIQUID
 	color = "#8080FF"
 	metabolism = REM * 0.5
@@ -170,7 +170,7 @@
 
 /datum/reagent/clonexadone
 	name = "Clonexadone"
-	description = "A liquid compound similar to that used in the cloning process. Can be used to 'finish' the cloning process when used in conjunction with a cryo tube. Its main limitation is that the targets body temperature must be under 170K for it to metabolise correctly."
+	description = "Clonexadone is a ground-breaking, complex medication that improved upon Cryoxadone. When acting on bodies cooler than 170K, the drug is capable of increasing the rate at which wounds regenerate, as well as treating genetic damage. Clonexadone, alongside Cryoxadone, are the backbones of the cloning industry."
 	reagent_state = LIQUID
 	color = "#80BFFF"
 	metabolism = REM * 0.5
@@ -186,9 +186,9 @@
 
 /* Painkillers */
 
-/datum/reagent/paracetamol
-	name = "Paracetamol"
-	description = "Most probably know this as Tylenol, but this chemical is a mild, simple painkiller. Does not work when inhaled."
+/datum/reagent/perconol
+	name = "Perconol"
+	description = "Perconol is an advanced NSAID medication which is highly effective at treating minor-mild pain, inflammation and high fevers. The drug is available over-the-counter for treating minor illnesses and mild pain. Perconol is not effective when inhaled."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = 60
@@ -200,17 +200,17 @@
 	metabolism_min = 0.005
 	breathe_mul = 0
 
-/datum/reagent/paracetamol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/perconol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 50)
 	M.add_chemical_effect(CE_NOFEVER, ((max_dose/2)^2-(dose-max_dose/2))/(max_dose/4)) // creates a smooth curve peaking at half the dose metabolised
 
-/datum/reagent/paracetamol/overdose(var/mob/living/carbon/M, var/alien)
+/datum/reagent/perconol/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.hallucination = max(M.hallucination, 25)
 
-/datum/reagent/tramadol
-	name = "Tramadol"
-	description = "Tramadol is a very effective painkiller designed for victims of heavy physical trauma. Does not work when inhaled."
+/datum/reagent/mortaphenyl
+	name = "Mortaphenyl"
+	description = "Mortaphenyl is an advanced synthetic opioid medication which is highly effective at treating mild-severe pain as a result of severe, physical injury. Mortaphenyl is not effective when inhaled."
 	reagent_state = LIQUID
 	color = "#CB68FC"
 	overdose = 30
@@ -222,16 +222,16 @@
 	metabolism_min = 0.005
 	breathe_mul = 0
 
-/datum/reagent/tramadol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 80)
 
-/datum/reagent/tramadol/overdose(var/mob/living/carbon/M, var/alien)
+/datum/reagent/mortaphenyl/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.hallucination = max(M.hallucination, 40)
 
-/datum/reagent/oxycodone
-	name = "Oxycodone"
-	description = "Oxycodone is incredibly potent and very addictive painkiller. Do not mix with alcohol. Does not work when inhaled."
+/datum/reagent/oxycomorphine
+	name = "Oxycomorphine"
+	description = "Oxycomorphine is a highly advanced synthetic opioid medication which is extremely effective at treating severe-agonising pain as a result of injuries usually incompatible with life. The drug is highly addictive and sense-numbing. Oxycomorphine is not effective when inhaled."
 	reagent_state = LIQUID
 	color = "#800080"
 	overdose = 20
@@ -242,7 +242,7 @@
 	metabolism_min = 0.005
 	breathe_mul = 0
 
-/datum/reagent/oxycodone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/oxycomorphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
@@ -252,7 +252,7 @@
 		M.hallucination = max(M.hallucination, bac * 300)
 		M.druggy = max(M.druggy, bac * 100)
 
-/datum/reagent/oxycodone/overdose(var/mob/living/carbon/M, var/alien)
+/datum/reagent/oxycomorphine/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.druggy = max(M.druggy, 20)
 	M.hallucination = max(M.hallucination, 60)
@@ -261,7 +261,7 @@
 
 /datum/reagent/synaptizine
 	name = "Synaptizine"
-	description = "Synaptizine is used to treat a robust array of conditions, such as drowsyness, paralysis, weakness, LSD overdose, hallucinations, and pain. Moderately poisonous, and should only be used as a last resort."
+	description = "Synaptizine is an advanced synaptic stimulant and nootropic which improves synaptic transmission and keeps one alert, giving it many clinical uses in the treatment of paralysis, weakness, narcolepsy and hallucinations. Synaptizine is difficult to metabolise and is hard on the liver."
 	reagent_state = LIQUID
 	color = "#99CCFF"
 	metabolism = REM * 0.05
@@ -290,7 +290,7 @@
 
 /datum/reagent/alkysine
 	name = "Alkysine"
-	description = "Alkysine is a drug used to lessen the damage to neurological tissue after a catastrophic injury. Can heal brain tissue."
+	description = "Alkysine is a complex drug which increases cerebral circulation, ensuring the brain does not become hypoxic and increasing the rate at which neurological function returns after a catastrophic injury."
 	reagent_state = LIQUID
 	color = "#FFFF66"
 	metabolism = REM * 0.25
@@ -307,9 +307,9 @@
 	M.hallucination = max(M.hallucination, 25)
 	..()
 
-/datum/reagent/imidazoline
-	name = "Imidazoline"
-	description = "Heals eye damage"
+/datum/reagent/oculine
+	name = "Oculine"
+	description = "Oculine is a complex organ-regenerative medication which increases the rate at which cells can differentiate into those required to recover damage to ocular tissues."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
@@ -317,7 +317,7 @@
 	taste_mult = 0.33 //Specifically to cut the dull toxin taste out of foods using carrot
 	taste_description = "dull toxin"
 
-/datum/reagent/imidazoline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/oculine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.eye_blurry = max(M.eye_blurry - 5 * removed, 0)
 	M.eye_blind = max(M.eye_blind - 5 * removed, 0)
 	if(ishuman(M))
@@ -327,13 +327,13 @@
 			if(E.damage > 0)
 				E.damage = max(E.damage - 5 * removed, 0)
 
-/datum/reagent/imidazoline/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/oculine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 15)
 	..()
 
 /datum/reagent/peridaxon
 	name = "Peridaxon"
-	description = "Used to encourage recovery of internal organs and nervous systems. Medicate cautiously."
+	description = "Peridaxon is complex, broad-spectrum organ-regenerative medication which increases the rate at which cells can differentiate into organ cells to recover damaged organ tissues. The drug is hard on the body, leading to confusion and drowsiness."
 	reagent_state = LIQUID
 	color = "#561EC3"
 	overdose = 10
@@ -353,7 +353,7 @@
 
 /datum/reagent/ryetalyn
 	name = "Ryetalyn"
-	description = "Ryetalyn can cure all genetic abnomalities via a catalytic process."
+	description = "Ryetalyn is a novel, highly advanced, broad-spectrum medication, developed by Dominian scientists, which has varying clinical uses in treating genetic abnormalities including certain cancers, autoimmune conditions, and Hulk Syndrome."
 	reagent_state = SOLID
 	color = "#004000"
 	overdose = REAGENTS_OVERDOSE
@@ -375,7 +375,7 @@
 
 /datum/reagent/hyperzine
 	name = "Hyperzine"
-	description = "Hyperzine is a highly effective, long lasting, muscle stimulant. Lasts twice as long when inhaled."
+	description = "Hyperzine is a complex cardio-synaptic stimulant drug designed to increase the performance of the body. Downsides include violent muscle spasms and tremors."
 	reagent_state = LIQUID
 	color = "#FF3300"
 	metabolism = REM * 0.15
@@ -404,7 +404,7 @@
 //Once all alcohol in the body is neutralised, it will then cure intoxication and sober the patient up
 /datum/reagent/ethylredoxrazine
 	name = "Ethylredoxrazine"
-	description = "A powerful oxidizer that reacts with ethanol."
+	description = "Ethylredoxrazine is a powerful medication which oxidises ethanol in the bloodstream, reducing the burden on the liver to complete this task. Ethylredoxrazine also blocks the reuptake of neurotransmitters responsible for symptoms of alcohol intoxication."
 	reagent_state = SOLID
 	color = "#605048"
 	metabolism = REM * 0.3
@@ -450,7 +450,7 @@
 
 /datum/reagent/hyronalin
 	name = "Hyronalin"
-	description = "Hyronalin is a medicinal drug used to counter the effect of radiation poisoning."
+	description = "Hyronalin is a complex anti-radiation medication which specifically targets ionised cells, reducing their cell division rate to prevent their growth before gradually destroying these afflicted cells."
 	reagent_state = LIQUID
 	color = "#408000"
 	metabolism = REM * 0.25
@@ -472,7 +472,7 @@
 
 /datum/reagent/arithrazine
 	name = "Arithrazine"
-	description = "Arithrazine is an unstable medication used for the most extreme cases of radiation poisoning."
+	description = "Arithrazine is a recent improvement of Hyronalin, rapidly destroying any ionised cells, though this often leads to collateral cell damage, resulting in contusions across affected parts of the body."
 	reagent_state = LIQUID
 	color = "#008000"
 	metabolism = REM * 0.25
@@ -496,7 +496,7 @@
 
 /datum/reagent/thetamycin
 	name = "Thetamycin"
-	description = "A theta-lactam antibiotic, effective against wound and organ bacterial infections."
+	description = "Thetamycin is a complex, broad-spectrum antibiotic developed to treat wound infections, organ infections, and septicaemia, even those caused by superbugs with high anti-bacterial resistances."
 	reagent_state = LIQUID
 	color = "#41C141"
 	metabolism = REM * 0.05
@@ -511,22 +511,22 @@
 	M.add_chemical_effect(CE_EMETIC, dose/8) // chance per 2 second tick to cause vomiting
 	M.add_chemical_effect(CE_ANTIBIOTIC, dose) // strength of antibiotics; amount absorbed, need >5 to be effective. takes 50 seconds to work
 
-/datum/reagent/ondansetron
-	name = "Ondansetron"
-	description = "Ondansetron is a medication used to prevent nausea and vomiting."
+/datum/reagent/asinodryl
+	name = "Asinodryl"
+	description = "Asinodryl is an anti-emetic medication which acts by preventing the two regions in the brain responsible for vomiting from controlling the act of emesis."
 	color = "#f5f2d0"
 	taste_description = "bitterness"
 	metabolism = REM * 0.25
 	fallback_specific_heat = 1
 
-/datum/reagent/ondansetron/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/asinodryl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		return
 	M.add_chemical_effect(CE_ANTIEMETIC, dose/4) // 1u should suppress 2u thetamycin
 
 /datum/reagent/coughsyrup
 	name = "Cough Syrup"
-	description = "A chemical that is used as a cough suppressant in low doses, and in higher doses it can be recreationally (ab)used."
+	description = "A complex antitussive medication available OTC which is very effective at suppressing cough reflexes. The medication also acts as a very weak analgesic medication, leading to it being a very cheap recreational drug or precursor to other recreational drugs."
 	scannable = 1
 	reagent_state = LIQUID
 	taste_description = "bitterness"
@@ -553,9 +553,9 @@
 	if(prob(50))
 		M.drowsyness = max(M.drowsyness, 3)
 
-/datum/reagent/antihistamine
-	name = "Diphenhydramine"
-	description = "A common antihistamine medication, also known as Benadryl. Known for causing drowsiness in larger doses."
+/datum/reagent/cetahydramine
+	name = "Cetahydramine"
+	description = "Cetahydramine is a complex antihistamine medication available OTC which blocks the release of histamine, thus making it effective at suppressing allergies and sneezing. Cetahydramine can cause drowsiness in larger doses, making it an effective sleep aid."
 	scannable = 1
 	reagent_state = LIQUID
 	taste_description = "bitterness"
@@ -566,13 +566,13 @@
 	ingest_mul = 1
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
-/datum/reagent/antihistamine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/cetahydramine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(dose/2))
 		M.drowsyness += 2
 
 /datum/reagent/sterilizine
 	name = "Sterilizine"
-	description = "Sterilizes wounds in preparation for surgery and thoroughly removes blood."
+	description = "Sterilizine is a chemical product composed of bleach and anti-toxins which can thoroughly disinfect wound sites and any biohazardous waste."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	touch_met = 5
@@ -605,7 +605,7 @@
 
 /datum/reagent/leporazine
 	name = "Leporazine"
-	description = "Leporazine can be use to stabilize an individual's body temperature."
+	description = "Leporazine is a complex medication which improves thermal homeostasis, stabilising and regulating the body’s core temperature. Leporazine often results in hyperventilation which should be monitored."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
@@ -707,7 +707,7 @@
 
 /datum/reagent/mental/nicotine
 	name = "Nicotine"
-	description = "Nicotine is a stimulant and relaxant commonly found in tobacco products. It is very poisonous, unless at very low doses."
+	description = "Nicotine is an ancient stimulant and relaxant commonly found in tobacco products. It is very poisonous, unless at very low doses."
 	reagent_state = LIQUID
 	color = "#333333"
 	metabolism = 0.0016 * REM
@@ -735,9 +735,9 @@
 	M.Weaken(10 * removed * scale)
 	M.add_chemical_effect(CE_PULSE, 0.5)
 
-/datum/reagent/mental/methylphenidate
-	name = "Methylphenidate"
-	description = "Methylphenidate is an AHDH treatment drug that treats basic distractions such as phobias and hallucinations at moderate doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
+/datum/reagent/mental/corophenidate
+	name = "Corophenidate"
+	description = "Corophenidate is a new generation, psychoactive stimulant used in the treatment of ADHD and ADD. It has far fewer side effects than previous generations of CNS stimulants. Withdrawal symptoms include hallucinations and disruption of focus."
 	reagent_state = LIQUID
 	color = "#8888AA"
 	metabolism = 0.01 * REM
@@ -759,13 +759,13 @@
 		/datum/brain_trauma/mild/hallucinations = 2
 	)
 
-/datum/reagent/mental/methylphenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/mental/corophenidate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_HALLUCINATE, -1)
 	..()
 
-/datum/reagent/mental/fluvoxamine
-	name = "Fluvoxamine"
-	description = "Fluvoxamine is safe and effective at treating basic phobias, as well as schizophrenia and muscle weakness at higher doses. Withdrawl effects are rare. Side effects are rare, and include hallucinations."
+/datum/reagent/mental/neurostabin
+	name = "Neurostabin"
+	description = "Neurostabin is a new generation, psychoactive drug used in the treatment of psychoses, and also has clinical significance in treating muscle weakness. It has far fewer side effects than previous generations of psychoactive drugs. Withdrawal symptoms include hallucinations and the development of phobias."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.01 * REM
@@ -788,9 +788,9 @@
 		/datum/brain_trauma/mild/hallucinations = 2
 	)
 
-/datum/reagent/mental/sertraline
-	name = "Sertraline"
-	description = "Sertraline is cheap, safe, and effective at treating basic phobias, however it does not last as long as other drugs of it's class. Withdrawl effects are uncommon. Side effects are rare."
+/datum/reagent/mental/parvosil
+	name = "Parvosil"
+	description = "Parvosil is a new generation, psychoactive drug used in the treatment of anxiety disorders such as phobias and social anxiety. It has far fewer side effects than previous generations of pysychoactive drugs. Withdrawal symptoms include hallucinations and heightened anxiety."
 	reagent_state = LIQUID
 	color = "#88AA88"
 	metabolism = 0.02 * REM
@@ -809,11 +809,11 @@
 		/datum/brain_trauma/mild/phobia/ = 10,
 		/datum/brain_trauma/mild/hallucinations = 5
 	)
-	suppressing_reagents = list(/datum/reagent/mental/fluvoxamine = 5)
+	suppressing_reagents = list(/datum/reagent/mental/neurostabin = 5)
 
-/datum/reagent/mental/escitalopram
-	name = "Escitalopram"
-	description = "Escitalopram is expensive, safe and very effective at treating basic phobias as well as advanced phobias like monophobia. A common side effect is drowsiness, and a rare side effect is hallucinations. Withdrawl effects are uncommon."
+/datum/reagent/mental/minaphobin
+	name = "Minaphobin"
+	description = "Minaphobin is a new generation, psychoactive drug used in the treatment of anxiety disorders such as phobias and social anxiety. It has far fewer side effects than previous generations of psychoactive drugs. Withdrawal symptoms include hallucinations and heightened anxiety."
 	reagent_state = LIQUID
 	color = "#FF8888"
 	metabolism = 0.01 * REM
@@ -834,46 +834,13 @@
 		/datum/brain_trauma/mild/hallucinations = 10
 	)
 	suppressing_reagents = list(
-		/datum/reagent/mental/fluvoxamine = 5,
-		/datum/reagent/mental/sertraline = 5
+		/datum/reagent/mental/neurostabin = 5,
+		/datum/reagent/mental/parvosil = 5
 	)
 
-/datum/reagent/mental/paroxetine
-	name = "Paroxetine"
-	description = "Paroxetine is effective at treating basic phobias while also preventing the body from overheating. Side effects are rare, and include hallucinations. Withdrawl effects are frequent and unsafe."
-	reagent_state = LIQUID
-	color = "#AA8866"
-	metabolism = 0.01 * REM
-	data = 0
-	taste_description = "bandaid"
-	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel decent.")
-	badmessage = list("You worry about the littlest thing.","You feel like you are at risk.","You think you see things.")
-	worstmessage = list("You start to overreact to sounds and movement...","Your hear dangerous thoughts in your head...","You are really starting to see things...")
-	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.75
-	suppress_traumas  = list(
-		/datum/brain_trauma/mild/phobia/ = 5
-	)
-	dosage_traumas = list(
-		/datum/brain_trauma/mild/hallucinations = 5
-	)
-	withdrawal_traumas = list(
-		/datum/brain_trauma/mild/phobia/ = 25,
-		/datum/brain_trauma/mild/hallucinations = 50
-	)
-	suppressing_reagents = list(
-		/datum/reagent/mental/escitalopram = 5,
-		/datum/reagent/mental/fluvoxamine = 10,
-		/datum/reagent/mental/sertraline = 10
-	)
-
-/datum/reagent/mental/paroxetine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.bodytemperature > 310)
-		M.bodytemperature = max(310, M.bodytemperature - removed*100)
-	. = ..()
-
-/datum/reagent/mental/duloxetine
-	name = "Duloxetine"
-	description = "Duloxetine is effective at treating basic phobias and concussions. A rare side effect is hallucinations. Withdrawl effects are common."
+/datum/reagent/mental/emoxanyl
+	name = "Emoxanyl"
+	description = "Emoxanyl is a novel, antioxidant medication which increases cerebral circulation and is used to treat anxiety, depression, concussion, and epilepsy. It has fewer side effects than many other forms of psychoactive drugs. Withdrawal symptoms include hallucinations and heightened anxiety."
 	reagent_state = LIQUID
 	color = "#88FFFF"
 	metabolism = 0.01 * REM
@@ -896,15 +863,15 @@
 		/datum/brain_trauma/mild/concussion = 10
 	)
 	suppressing_reagents = list(
-		/datum/reagent/mental/paroxetine = 5,
-		/datum/reagent/mental/escitalopram = 5,
-		/datum/reagent/mental/fluvoxamine = 10,
-		/datum/reagent/mental/sertraline = 10
+		/datum/reagent/mental/neurapan = 5,
+		/datum/reagent/mental/minaphobin = 5,
+		/datum/reagent/mental/neurostabin = 10,
+		/datum/reagent/mental/parvosil = 10
 	)
 
-/datum/reagent/mental/venlafaxine
-	name = "Venlafaxine"
-	description = "Venlafaxine is effective at treating basic phobias, monophobia, and stuttering. Side effects are uncommon and include hallucinations. Withdrawl effects are common."
+/datum/reagent/mental/orastabin
+	name = "Orastabin"
+	description = "Orastabin is a new generation, complex psychoactive medication used in the treatment of anxiety disorders and speech impediments. It has fewer side effects than many other forms of psychoactive drugs. Withdrawal symptoms include hallucinations and heightened anxiety."
 	reagent_state = LIQUID
 	color = "#FF88FF"
 	metabolism = 0.01 * REM
@@ -927,16 +894,16 @@
 		/datum/brain_trauma/mild/hallucinations = 25
 	)
 	suppressing_reagents = list(
-		/datum/reagent/mental/duloxetine = 5,
-		/datum/reagent/mental/paroxetine = 5,
-		/datum/reagent/mental/escitalopram = 5,
-		/datum/reagent/mental/fluvoxamine = 10,
-		/datum/reagent/mental/sertraline = 10
+		/datum/reagent/mental/emoxanyl = 5,
+		/datum/reagent/mental/neurapan = 5,
+		/datum/reagent/mental/minaphobin = 5,
+		/datum/reagent/mental/neurostabin = 10,
+		/datum/reagent/mental/parvosil = 10
 	)
 
-/datum/reagent/mental/risperidone
-	name = "Risperidone"
-	description = "Risperidone is a potent antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. Withdrawl symptoms are dangerous and almost always occur."
+/datum/reagent/mental/neurapan
+	name = "Neurapan"
+	description = "Neurapan is a groundbreaking, expensive antipsychotic medication capable of treating a whole spectrum of mental illnesses, including psychoses, anxiety disorders, Tourette Syndrome and depression, and can alleviate symptoms of stress. Neurapan can be addictive due to its tranquilising effects, and withdrawal symptoms are dangerous."
 	reagent_state = LIQUID
 	color = "#FF4444"
 	metabolism = 0.02 * REM
@@ -967,19 +934,19 @@
 		/datum/brain_trauma/severe/monophobia = 50
 	)
 	suppressing_reagents = list(
-		/datum/reagent/mental/venlafaxine = 20,
-		/datum/reagent/mental/duloxetine = 20,
-		/datum/reagent/mental/paroxetine = 20,
-		/datum/reagent/mental/escitalopram = 20
+		/datum/reagent/mental/orastabin = 20,
+		/datum/reagent/mental/emoxanyl = 20,
+		/datum/reagent/mental/neurapan = 20,
+		/datum/reagent/mental/minaphobin = 20
 	)
 
-/datum/reagent/mental/risperidone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/mental/neurapan/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_HALLUCINATE, -2)
 	..()
 
-/datum/reagent/mental/olanzapine
-	name = "Olanzapine"
-	description = "Olanzapine is a high-strength, expensive antipsychotic medication used to treat schizophrenia, stuttering, speech impediment, monophobia, hallucinations, tourettes, and muscle spasms. Side effects are common and include pacifism. The medication metabolizes quickly, and withdrawl is dangerous."
+/datum/reagent/mental/nerospectan
+	name = "Nerospectan"
+	description = "Nerospectan is an expensive, new generation anti-psychotic medication capable of treating a whole spectrum of mental illnesses, including psychoses, anxiety disorders, Tourette Syndrome and depression, and can alleviate symptoms of stress. Nerospectan can be addictive due to its tranquilising effects, and withdrawal symptoms are dangerous."
 	reagent_state = LIQUID
 	color = "#FF8844"
 	metabolism = 0.02 * REM
@@ -1007,19 +974,19 @@
 		/datum/brain_trauma/special/imaginary_friend = 50
 	)
 	suppressing_reagents = list(
-		/datum/reagent/mental/venlafaxine = 20,
-		/datum/reagent/mental/duloxetine = 20,
-		/datum/reagent/mental/paroxetine = 20,
-		/datum/reagent/mental/escitalopram = 20
+		/datum/reagent/mental/orastabin = 20,
+		/datum/reagent/mental/emoxanyl = 20,
+		/datum/reagent/mental/neurapan = 20,
+		/datum/reagent/mental/minaphobin = 20
 	)
 
-/datum/reagent/mental/olanzapine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/mental/nerospectan/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_HALLUCINATE, -2)
 	..()
 
 /datum/reagent/mental/truthserum
 	name = "Truth serum"
-	description = "This highly illegal, expensive, military strength truth serum is a must have for secret corporate interrogations. Do not ingest."
+	description = "Truth Serum, a refined variant of Paxazide, is an expensive and very unethical psychoactive drug capable of inhibiting defensive measures and reasoning in regards to communication, resulting in those under the effects of the drug to be very open to telling the truth."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.05 * REM
@@ -1104,9 +1071,9 @@
 		if (!modifier)
 			modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
-/datum/reagent/mannitol
-	name = "Mannitol"
-	description = "Mannitol is a super strength chemical that heals brain tissue damage and cures dumbness, cerebral blindness, cerebral paralysis, colorblindness, and aphasia. More effective when the patient's body temperature is less than 170K."
+/datum/reagent/cataleptinol
+	name = "Cataleptinol"
+	description = "Cataleptinol is a highly advanced, expensive medication capable of regenerating the most damaged of brain tissues. Cataleptinol is used in the treatment of dumbness, cerebral blindness, cerebral paralysis and aphasia. The drug is more effective when the patient’s core temperature is below 170K."
 	reagent_state = LIQUID
 	color = "#FFFF00"
 	metabolism = REM * 2 //0.4
@@ -1122,7 +1089,7 @@
 		/datum/brain_trauma/severe/aphasia/
 	)
 
-/datum/reagent/mannitol/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+/datum/reagent/cataleptinol/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 	var/chance = dose*removed
@@ -1145,9 +1112,9 @@
 //Narcolepsy
 //Discoordination
 
-/datum/reagent/calomel
-	name = "Calomel"
-	description = "A highly toxic medicine that quickly purges most chemicals from the bloodstream. Overdose causes bloodloss and more toxin buildup, however works twice as fast."
+/datum/reagent/fluvectionem
+	name = "Fluvectionem"
+	description = "Fluvectionem is a complex anti-toxin medication that is capable of purging the bloodstream of toxic reagents. The drug is capable of neutralising the most difficult of compounds and acts very fast, however it is inefficient and results in benign waste products that can be damaging to the liver."
 	color = "#222244"
 	metabolism = 0.5 * REM
 	overdose = 30
@@ -1155,7 +1122,7 @@
 	taste_description = "thick salt"
 	reagent_state = SOLID
 
-/datum/reagent/calomel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/fluvectionem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/is_overdosed = overdose && (dose > overdose)
 	if(is_overdosed)
 		removed *= 2
@@ -1181,7 +1148,7 @@
 
 /datum/reagent/pulmodeiectionem
 	name = "Pulmodeiectionem"
-	description = "A powdery chemical that damages the mucus lining in the the main broncus and the trachea, allowing particles to easily escape the lungs. Only works when inhaled. May cause long term damage to the lungs, and oxygen deprevation."
+	description = "Pulmodeiectionem is a complex anti-toxin medication that is capable of purging the lungs of toxic reagents by damaging the mucous lining of the bronchi and trachea, allowing particulate to be coughed out of the lungs. Pulmodeiectionem works only when inhaled and can cause long-term damage to the lungs."
 	color = "#550055"
 	metabolism = 2 * REM
 	overdose = 10
@@ -1211,7 +1178,7 @@
 
 /datum/reagent/pneumalin
 	name = "Pneumalin"
-	description = "A chemical that, when inhaled, restores tearing and bruising of the lungs. Overdosing can lower a patient's pulse to dangerous levels."
+	description = "Pneumalin is a powerful, organ-regenerative medication that increases the rate at which lung tissues are regenerated. Pneumalin only works when inhaled, and overdosing can lead to severe bradycardia."
 	color = "#8154b4"
 	overdose = 15
 	scannable = 1
@@ -1229,7 +1196,7 @@
 
 /datum/reagent/rezadone
 	name = "Rezadone"
-	description = "A powder with almost magical properties, this substance can effectively treat genetic damage in humanoids, though excessive consumption has side effects."
+	description = "Rezadone is an extremely expensive, ground-breaking miracle drug that is widely. The compound is capable of treating all kinds of physical damage, disfiguration, as well as genetic damage. Excessive consumption of rezadone can lead to severe disorientation."
 	reagent_state = SOLID
 	color = "#669900"
 	overdose = REAGENTS_OVERDOSE
@@ -1247,22 +1214,22 @@
 		M.make_dizzy(5)
 		M.make_jittery(5)
 
-/datum/reagent/ipecac
-	name = "Ipecac"
-	description = "A simple emetic, Induces vomiting in the patient, emptying stomach contents"
+/datum/reagent/verunol
+	name = "Verunol Syrup"
+	description = "A complex emetic medication that causes the patient to vomit due to gastric irritation and the stimulating of the vomit centres of the brain."
 	reagent_state = LIQUID
 	color = "#280f0b"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "sweet syrup"
 
-/datum/reagent/ipecac/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/verunol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (prob(10+dose))
 		to_chat(M, pick("You feel nauseous!", "Your stomach churns uncomfortably.", "You feel like you're about to throw up.", "You feel queasy.", "You feel bile in your throat."))
 
 	M.add_chemical_effect(CE_EMETIC, dose)
 
-/datum/reagent/ipecac/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/verunol/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(2 * removed) //If you inject it you're doing it wrong
 
 /datum/reagent/azoth
@@ -1298,7 +1265,7 @@
 
 /datum/reagent/adipemcina //Based on quinapril
 	name = "Adipemcina"
-	description = "Adipemcina is a heart medication used for treating high blood pressure, heart failure, and diabetes. Causes vomiting and liver damage when overdosed."
+	description = "Adipemcina is a complex, organ-regenerative medication that increases the rate at which cells differentiate into myocardial cells. Adipemcina overdoses result in severe liver damage and vomiting."
 	reagent_state = LIQUID
 	color = "#008000"
 	overdose = REAGENTS_OVERDOSE
@@ -1385,7 +1352,7 @@
 
 /datum/reagent/pacifier
 	name = "Paxazide"
-	description = "A mind altering chemical compound capable of suppressing violent tendencies."
+	description = "Paxazide is an expensive and unethical, psychoactive drug used to pacify people, suppressing regions of the brain responsible for anger and violence. Paxazide can be addictive due to its tranquilising effects, though withdrawal symptoms are scarce."
 	reagent_state = LIQUID
 	color = "#1ca9c9"
 	taste_description = "numbness"
@@ -1395,7 +1362,7 @@
 
 /datum/reagent/rmt
 	name = "Regenerative-Muscular Tissue Supplements"
-	description = "A chemical rampantly used by those seeking to remedy the effects of prolonged zero-gravity adaptations."
+	description = "RMT Supplement is a bioengineered, fast-acting growth factor that specifically helps recover bone and muscle mass caused by prolonged zero-gravity adaptations. It can also be used to treat chronic muscle weakness."
 	reagent_state = LIQUID
 	color = "#AA8866"
 	metabolism = 0.2 * REM

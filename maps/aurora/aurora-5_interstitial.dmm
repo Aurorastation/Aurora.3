@@ -5433,9 +5433,9 @@
 	req_access = list(64)
 	},
 /obj/item/clothing/suit/straight_jacket,
-/obj/item/reagent_containers/pill/methylphenidate,
-/obj/item/reagent_containers/pill/escitalopram,
-/obj/item/reagent_containers/pill/escitalopram,
+/obj/item/reagent_containers/pill/corophenidate,
+/obj/item/reagent_containers/pill/minaphobin,
+/obj/item/reagent_containers/pill/minaphobin,
 /obj/item/reagent_containers/syringe,
 /obj/item/clothing/mask/muzzle,
 /obj/random/soap,
@@ -7978,7 +7978,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/storage/box/gloves,
+/obj/item/nitrilebox,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
