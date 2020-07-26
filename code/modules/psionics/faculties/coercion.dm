@@ -59,44 +59,44 @@
 	if(target.stat == DEAD || (target.status_flags & FAKEDEATH) || !target.client)
 		to_chat(user, SPAN_WARNING("\The [target] is in no state for a mind-read."))
 		return TRUE
-
-	var/mob/living/carbon/C = target
-	var/obj/item/organ/internal/augment/psi/psiaug = C.internal_organs_by_name[BP_AUG_PSI]
-	if(psiaug && !psiaug.is_broken())
-		if(target.isSynthetic())
-			to_chat(user, SPAN_ALIEN("There is no mind here for you to dip your mentality into."))
+	if (iscarbon(target))
+		var/mob/living/carbon/C = target
+		var/obj/item/organ/internal/augment/psi/psiaug = C.internal_organs_by_name[BP_AUG_PSI]
+		if(psiaug && !psiaug.is_broken())
+			if(target.isSynthetic())
+				to_chat(user, SPAN_ALIEN("There is no mind here for you to dip your mentality into."))
+				return
+			else if (isvaurca(target))
+				to_chat (user, SPAN_CULT("You feel your thoughts pass right through a mind empty of psychic energy, unable to get a grasp on anything."))
+				return
+		if (target.is_diona())
+			to_chat(user, SPAN_ALIEN("The creature's mind is incompatible, formless."))
 			return
-		else if (isvaurca(target))
-			to_chat (user, SPAN_CULT("You feel your thoughts pass right through a mind empty of psychic energy, unable to get a grasp on anything."))
-			return
-	if (target.is_diona())
-		to_chat(user, SPAN_ALIEN("The creature's mind is incompatible, formless."))
-		return
 
-	for (var/obj/item/implant/mindshield/I in target)
-		if (I.implanted)
-			to_chat(user, SPAN_WARNING("\The [target]'s mind is protected from the mind-read."))
+		for (var/obj/item/implant/mindshield/I in target)
+			if (I.implanted)
+				to_chat(user, SPAN_WARNING("\The [target]'s mind is protected from the mind-read."))
+				return TRUE
+
+		user.visible_message(SPAN_WARNING("\The [user] touches \the [target]'s temple..."))
+		var/question =  input(user, "Say something?", "Read Mind", "Penny for your thoughts?") as null|text
+		if(!question || user.incapacitated() || !do_after(user, 20))
 			return TRUE
 
-	user.visible_message(SPAN_WARNING("\The [user] touches \the [target]'s temple..."))
-	var/question =  input(user, "Say something?", "Read Mind", "Penny for your thoughts?") as null|text
-	if(!question || user.incapacitated() || !do_after(user, 20))
+		var/started_mindread = world.time
+		if(psiaug)
+			to_chat(user, SPAN_NOTICE("<b>Your psyche links with [target]'s psi-receiver, seeking an answer from their mind's surface: <i>[question]</i></b>"))
+			to_chat(target, SPAN_NOTICE("<b>[user]'s psyche links with your psi-receiver, your mind is compelled to answer: <i>[question]</i></b>"))
+		else
+			to_chat(user, SPAN_NOTICE("<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking an answer: <i>[question]</i></b>"))
+			to_chat(target, SPAN_NOTICE("<b>Your mind is compelled to answer: <i>[question]</i></b>"))
+		var/answer =  sanitize(input(target, question, "Read Mind") as null|text)
+		if(!answer || world.time > started_mindread + 25 SECONDS || user.stat != CONSCIOUS || target.stat == DEAD)
+			to_chat(user, SPAN_NOTICE("<b>You receive nothing useful from \the [target].</b>"))
+		else
+			to_chat(user, SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: <i>[answer]</i></b>"))
+		msg_admin_attack("[key_name(user)] read mind of [key_name(target)] with question \"[question]\" and [answer?"got answer \"[answer]\".":"got no answer."]")
 		return TRUE
-
-	var/started_mindread = world.time
-	if(psiaug)
-		to_chat(user, SPAN_NOTICE("<b>Your psyche links with [target]'s psi-receiver, seeking an answer from their mind's surface: <i>[question]</i></b>"))
-		to_chat(target, SPAN_NOTICE("<b>[user]'s psyche links with your psi-receiver, your mind is compelled to answer: <i>[question]</i></b>"))
-	else
-		to_chat(user, SPAN_NOTICE("<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking an answer: <i>[question]</i></b>"))
-		to_chat(target, SPAN_NOTICE("<b>Your mind is compelled to answer: <i>[question]</i></b>"))
-	var/answer =  input(target, question, "Read Mind") as null|text
-	if(!answer || world.time > started_mindread + 25 SECONDS || user.stat != CONSCIOUS || target.stat == DEAD)
-		to_chat(user, SPAN_NOTICE("<b>You receive nothing useful from \the [target].</b>"))
-	else
-		to_chat(user, SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: <i>[answer]</i></b>"))
-	msg_admin_attack("[key_name(user)] read mind of [key_name(target)] with question \"[question]\" and [answer?"got answer \"[answer]\".":"got no answer."]")
-	return TRUE
 
 /datum/psionic_power/coercion/agony
 	name =          "Agony"
@@ -328,9 +328,8 @@
 			if(!T || L == user || L.stat == DEAD || L.invisibility == INVISIBILITY_LEVEL_TWO)
 				continue
 			if(L.isSynthetic() || L.is_diona() || isvaurca(L))
-				var/mob/living/carbon/C = target
-				var/obj/item/organ/internal/augment/psi/psiaug = C.internal_organs_by_name[BP_AUG_PSI]
-				if(psiaug && !psiaug.is_broken())
+				var/obj/item/organ/internal/augment/psiaug = locate() in L
+				if(!psiaug)
 					continue
 			var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = T)
 			ping_image.plane = LIGHTING_LAYER+1
