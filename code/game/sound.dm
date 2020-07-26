@@ -363,10 +363,13 @@ var/list/bodyfall_machine_sound = list(
 	else
 		return ..()
 
-/mob/proc/playsound_to(turf/source_turf, sound/original_sound, use_random_freq, modify_environment = TRUE, use_pressure = TRUE)
+/mob/proc/playsound_to(turf/source_turf, sound/original_sound, use_random_freq, modify_environment = TRUE, use_pressure = TRUE, required_preferences = 0, required_asfx_toggles = 0)
 	var/sound/S = copy_sound(original_sound)
 
 	var/pressure_factor = 1.0
+
+	if(!sound_can_play(required_preferences, required_asfx_toggles))
+		return 0
 
 	if (use_random_freq)
 		S.frequency = get_rand_frequency()
@@ -409,10 +412,10 @@ var/list/bodyfall_machine_sound = list(
 
 	return S.volume
 
-/mob/proc/playsound_simple(source, soundin, volume, use_random_freq = FALSE, frequency = 0, falloff = 0, use_pressure = TRUE)
+/mob/proc/playsound_simple(source, soundin, volume, use_random_freq = FALSE, frequency = 0, falloff = 0, use_pressure = TRUE, required_preferences = 0, required_asfx_toggles = 0)
 	var/sound/S = playsound_get_sound(soundin, volume, falloff, frequency)
 
-	playsound_to(source ? get_turf(source) : null, S, use_random_freq, use_pressure = use_pressure)
+	playsound_to(source ? get_turf(source) : null, S, use_random_freq, use_pressure = use_pressure, required_preferences = required_preferences, required_asfx_toggles = required_asfx_toggles)
 
 /client/proc/playtitlemusic()
 	if(!SSticker.login_music)	return

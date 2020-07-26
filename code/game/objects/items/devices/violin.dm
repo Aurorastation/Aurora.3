@@ -189,7 +189,9 @@
 		if("Cn9")	soundfile = 'sound/violin/Cn9.mid'
 		else		return
 
-	hearers(15, get_turf(src)) << sound(soundfile)
+	var/turf/source = get_turf(src)
+	for(var/mob/M in hearers(15, source))
+		M.playsound_simple(source, file(soundfile), 100, falloff = 5, required_asfx_toggles = ASFX_INSTRUMENT)
 
 /obj/item/device/violin/proc/playsong()
 	do
