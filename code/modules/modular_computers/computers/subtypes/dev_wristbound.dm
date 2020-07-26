@@ -15,13 +15,14 @@
 	light_strength = 1
 	menu_light_color = COLOR_GREEN
 	var/flipped = FALSE
+	contained_sprite = TRUE
 
 /obj/item/modular_computer/wristbound/verb/swapwrists()
 	set category = "Object"
 	set name = "Flip Wristbound Computer Wrist"
 	set src in usr
 
-	if (usr.stat || usr.restrained())
+	if(usr.stat || usr.restrained())
 		return
 
 	src.flipped = !src.flipped
@@ -30,7 +31,7 @@
 	else
 		src.item_state = initial(item_state)
 	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] hand.")
-	if (ismob(src.loc))
+	if(ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_gloves()
 
