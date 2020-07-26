@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "The Who and Staff Who actions now output into a window rather than into the chat."
+  - admin: "The extra info button for admins now also outputs to a window rather than into the chat."
