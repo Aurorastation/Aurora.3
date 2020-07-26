@@ -84,7 +84,8 @@
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/suit_sensors(comp),
 		new /datum/computer_file/program/records/medical(comp),
-		new /datum/computer_file/program/ntsl2_interpreter(comp)
+		new /datum/computer_file/program/ntsl2_interpreter(comp),
+		new /datum/computer_file/program/chemistry_codex(comp)
 	)
 	return _prg_list
 
@@ -105,7 +106,8 @@
 		new /datum/computer_file/program/suit_sensors(comp),
 		new /datum/computer_file/program/records/employment(comp),
 		new /datum/computer_file/program/records/medical(comp),
-		new /datum/computer_file/program/ntsl2_interpreter(comp)
+		new /datum/computer_file/program/ntsl2_interpreter(comp),
+		new /datum/computer_file/program/chemistry_codex(comp)
 	)
 	return _prg_list
 
@@ -125,7 +127,8 @@
 		new /datum/computer_file/program/civilian/cargoorder(comp),
 		new /datum/computer_file/program/ntnetmonitor(comp),
 		new /datum/computer_file/program/aidiag(comp),
-		new /datum/computer_file/program/ntsl2_interpreter(comp)
+		new /datum/computer_file/program/ntsl2_interpreter(comp),
+		new /datum/computer_file/program/chemistry_codex(comp)
 	)
 	return _prg_list
 
@@ -146,7 +149,8 @@
 		new /datum/computer_file/program/ntnetmonitor(comp),
 		new /datum/computer_file/program/aidiag(comp),
 		new /datum/computer_file/program/records/employment(comp),
-		new /datum/computer_file/program/ntsl2_interpreter(comp)
+		new /datum/computer_file/program/ntsl2_interpreter(comp),
+		new /datum/computer_file/program/chemistry_codex(comp)
 	)
 	return _prg_list
 
