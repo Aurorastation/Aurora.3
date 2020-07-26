@@ -1628,7 +1628,7 @@
 		if(10)
 			reagents.add_reagent(/datum/reagent/nutriment, 6)
 			reagents.add_reagent(/datum/reagent/drink/tomatojuice, 5)
-			reagents.add_reagent(/datum/reagent/imidazoline, 5)
+			reagents.add_reagent(/datum/reagent/oculine, 5)
 
 /obj/item/reagent_containers/food/snacks/soup/wish
 	name = "wish soup"
@@ -1885,7 +1885,7 @@
 	pickup_sound = 'sound/items/pickup/shovel.ogg'
 	filling_color = "#9E673A"
 	center_of_mass = list("x"=16, "y"=5)
-	reagents_to_add = list(/datum/reagent/nutriment = 6, /datum/reagent/nutriment/protein = 4, /datum/reagent/drink/tomatojuice = 5, /datum/reagent/imidazoline = 5, /datum/reagent/water = 5)
+	reagents_to_add = list(/datum/reagent/nutriment = 6, /datum/reagent/nutriment/protein = 4, /datum/reagent/drink/tomatojuice = 5, /datum/reagent/oculine = 5, /datum/reagent/water = 5)
 	reagent_data = list(/datum/reagent/nutriment = list("potato" = 2, "carrot" = 2, "eggplant" = 2, "mushroom" = 2))
 	bitesize = 10
 	is_liquid = TRUE
@@ -2018,7 +2018,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#FAA005"
 	center_of_mass = list("x"=16, "y"=11)
-	reagents_to_add = list(/datum/reagent/nutriment = 3, /datum/reagent/imidazoline = 3)
+	reagents_to_add = list(/datum/reagent/nutriment = 3, /datum/reagent/oculine = 3)
 	reagent_data = list(/datum/reagent/nutriment = list("carrot" = 3, "salt" = 1))
 	bitesize = 2
 
@@ -2274,7 +2274,7 @@
 	reagent_data = list(/datum/reagent/nutriment = list("mushroom" = 2, "potato" = 2, "carrot" = 2))
 	bitesize = 6
 
-	reagents_to_add = list(/datum/reagent/nutriment/protein = 4, /datum/reagent/hyperzine = 5, /datum/reagent/drink/tomatojuice = 5, /datum/reagent/imidazoline = 5, /datum/reagent/water = 5)
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 4, /datum/reagent/hyperzine = 5, /datum/reagent/drink/tomatojuice = 5, /datum/reagent/oculine = 5, /datum/reagent/water = 5)
 
 /obj/item/reagent_containers/food/snacks/bibimbap
 	name = "bibimbap bowl"
@@ -2283,7 +2283,7 @@
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#4f2100"
 	center_of_mass = list("x"=15, "y"=9)
-	reagents_to_add = list(/datum/reagent/nutriment = 6, /datum/reagent/nutriment/protein = 6, /datum/reagent/imidazoline = 3, /datum/reagent/spacespice = 2, /datum/reagent/nutriment/protein/egg = 3)
+	reagents_to_add = list(/datum/reagent/nutriment = 6, /datum/reagent/nutriment/protein = 6, /datum/reagent/oculine = 3, /datum/reagent/spacespice = 2, /datum/reagent/nutriment/protein/egg = 3)
 	reagent_data = list(/datum/reagent/nutriment = list("rice" = 2, "mushroom" = 2, "carrot" = 2))
 	bitesize = 4
 
@@ -2295,7 +2295,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#FCEE81"
 	center_of_mass = list("x"=16, "y"=10)
-	reagents_to_add = list(/datum/reagent/nutriment = 8, /datum/reagent/nutriment/protein = 2, /datum/reagent/drink/carrotjuice = 3, /datum/reagent/imidazoline = 1)
+	reagents_to_add = list(/datum/reagent/nutriment = 8, /datum/reagent/nutriment/protein = 2, /datum/reagent/drink/carrotjuice = 3, /datum/reagent/oculine = 1)
 	reagent_data = list(/datum/reagent/nutriment = list("rice" = 2, "mushroom" = 2, "cabbage" = 2))
 	bitesize = 2
 
@@ -2307,7 +2307,7 @@
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#FFFBDB"
 	center_of_mass = list("x"=17, "y"=11)
-	reagents_to_add = list(/datum/reagent/nutriment = 8, /datum/reagent/nutriment/rice = 5, /datum/reagent/drink/carrotjuice = 3, /datum/reagent/imidazoline = 1)
+	reagents_to_add = list(/datum/reagent/nutriment = 8, /datum/reagent/nutriment/rice = 5, /datum/reagent/drink/carrotjuice = 3, /datum/reagent/oculine = 1)
 	reagent_data = list(/datum/reagent/nutriment = list("soy" = 2,))
 	bitesize = 2
 
@@ -2395,7 +2395,7 @@
 	trash = /obj/item/trash/snacktray
 	filling_color = "#edd7d7"
 	center_of_mass = list("x"=15, "y"=9)
-	reagents_to_add = list(/datum/reagent/nutriment = 13, /datum/reagent/spacespice = 4, /datum/reagent/drink/carrotjuice = 3, /datum/reagent/imidazoline = 1)
+	reagents_to_add = list(/datum/reagent/nutriment = 13, /datum/reagent/spacespice = 4, /datum/reagent/drink/carrotjuice = 3, /datum/reagent/oculine = 1)
 	reagent_data = list(/datum/reagent/nutriment = list("buns" = 2, "cabbage" = 4))
 	bitesize = 3
 
@@ -2575,7 +2575,7 @@
 	slices_num = 5
 	filling_color = "#FFD675"
 	center_of_mass = list("x"=16, "y"=10)
-	reagents_to_add = list(/datum/reagent/nutriment = 25, /datum/reagent/imidazoline = 10)
+	reagents_to_add = list(/datum/reagent/nutriment = 25, /datum/reagent/oculine = 10)
 	reagent_data = list(/datum/reagent/nutriment = list("cake" = 10, "sweetness" = 10, "carrot" = 15))
 	bitesize = 2
 
@@ -2589,7 +2589,7 @@
 	center_of_mass = list("x"=16, "y"=14)
 
 /obj/item/reagent_containers/food/snacks/cakeslice/carrot/filled
-	reagents_to_add = list(/datum/reagent/nutriment = 5, /datum/reagent/imidazoline = 1)
+	reagents_to_add = list(/datum/reagent/nutriment = 5, /datum/reagent/oculine = 1)
 	reagent_data = list(/datum/reagent/nutriment = list("cake" = 5, "sweetness" = 5, "carrot" = 5))
 	bitesize = 2
 
@@ -3120,7 +3120,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/vegetablepizzaslice
 	slices_num = 6
 	center_of_mass = list("x"=16, "y"=11)
-	reagents_to_add = list(/datum/reagent/nutriment = 25, /datum/reagent/drink/tomatojuice = 6, /datum/reagent/imidazoline = 12)
+	reagents_to_add = list(/datum/reagent/nutriment = 25, /datum/reagent/drink/tomatojuice = 6, /datum/reagent/oculine = 12)
 	reagent_data = list(/datum/reagent/nutriment = list("pizza crust" = 10, "eggplant" = 5, "carrot" = 5, "corn" = 5))
 	bitesize = 2
 
@@ -3133,7 +3133,7 @@
 	center_of_mass = list("x"=18, "y"=13)
 
 /obj/item/reagent_containers/food/snacks/vegetablepizzaslice/filled
-	reagents_to_add = list(/datum/reagent/nutriment = 4, /datum/reagent/drink/tomatojuice = 2, /datum/reagent/imidazoline = 2)
+	reagents_to_add = list(/datum/reagent/nutriment = 4, /datum/reagent/drink/tomatojuice = 2, /datum/reagent/oculine = 2)
 	reagent_data = list(/datum/reagent/nutriment = list("pizza crust" = 5, "eggplant" = 5, "carrot" = 5, "corn" = 5))
 
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/crunch
@@ -3694,7 +3694,7 @@
 	icon_state = "koisjelly"
 	filling_color = "#E6E600"
 	bitesize = 5
-	reagents_to_add = list(/datum/reagent/kois = 25, /datum/reagent/imidazoline = 20, /datum/reagent/toxin/phoron = 25)
+	reagents_to_add = list(/datum/reagent/kois = 25, /datum/reagent/oculine = 20, /datum/reagent/toxin/phoron = 25)
 
 //unathi snacks - sprites by Araskael
 
