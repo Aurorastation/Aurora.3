@@ -275,7 +275,7 @@
 				return
 		if (target.is_diona())
 			to_chat(user, SPAN_ALIEN("The creature's mind is incompatible, formless."))
-		return
+			return
 
 		for (var/obj/item/implant/mindshield/I in target)
 			if (I.implanted)
@@ -328,8 +328,9 @@
 			if(!T || L == user || L.stat == DEAD || L.invisibility == INVISIBILITY_LEVEL_TWO)
 				continue
 			if(L.isSynthetic() || L.is_diona() || isvaurca(L))
-				var/obj/item/organ/internal/augment/psiaug = locate() in L
-				if(!psiaug)
+				var/mob/living/carbon/C = target
+				var/obj/item/organ/internal/augment/psi/psiaug = C.internal_organs_by_name[BP_AUG_PSI]
+				if(psiaug && !psiaug.is_broken())
 					continue
 			var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = T)
 			ping_image.plane = LIGHTING_LAYER+1
