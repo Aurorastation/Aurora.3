@@ -659,7 +659,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		wander = 0
 		walk_to(src,0)
 		movement_target = null
-		update_icons()
+		update_icon()
 
 //Wakes the mob up from sleeping
 /mob/living/simple_animal/proc/wake_up()
@@ -668,9 +668,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		resting = 0
 		canmove = 1
 		wander = 1
-		update_icons()
+		update_icon()
 
-/mob/living/simple_animal/update_icons()
+/mob/living/simple_animal/update_icon()
 	if (stat == DEAD)
 		icon_state = icon_dead
 	else if ((stat == UNCONSCIOUS || resting) && icon_rest)
@@ -689,7 +689,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]"))
 
-	update_icons()
+	update_icon()
 
 //Todo: add snowflakey shit to it.
 /mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)

@@ -1,8 +1,8 @@
 /mob/living/carbon/alien/regenerate_icons()
 	overlays = list()
-	update_icons()
+	update_icon()
 
-/mob/living/carbon/alien/update_icons()
+/mob/living/carbon/alien/update_icon()
 
 	var/state = 0
 	if(amount_grown > max_grown*0.75)
