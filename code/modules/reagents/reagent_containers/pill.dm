@@ -131,9 +131,9 @@
 
 /obj/item/reagent_containers/pill/mortaphenyl
 	name = "mortaphenyl pill"
-
-/obj/item/reagent_containers/pill/tramadol
-	name = "tramadol pill"
+	desc = "A mortaphenyl pill, it's a potent painkiller."
+	icon_state = "pill8"
+	reagents_to_add = list(/datum/reagent/mortaphenyl = 15)
 
 /obj/item/reagent_containers/pill/corophenidate
 	name = "corophenidate pill"
