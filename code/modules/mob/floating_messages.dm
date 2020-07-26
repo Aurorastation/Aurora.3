@@ -20,9 +20,13 @@ var/list/floating_chat_colors = list()
 	if(length(message) > limit)
 		message = "[copytext(message, 1, limit)]..."
 
-	if(!floating_chat_colors[name])
-		floating_chat_colors[name] = get_random_colour(0, 160, 230)
-	style += "color: [floating_chat_colors[name]];"
+	var/used_name = name
+	if(ismob(src))
+		var/mob/M = src
+		used_name = M.real_name
+	if(!floating_chat_colors[used_name])
+		floating_chat_colors[used_name] = get_random_colour(0, 160, 230)
+	style += "color: [floating_chat_colors[used_name]];"
 
 	// create 2 messages, one that appears if you know the language, and one that appears when you don't know the language
 	var/image/understood = generate_floating_text(src, capitalize(message), style, fontsize, duration, show_to)

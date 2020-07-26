@@ -958,3 +958,14 @@ default behaviour is:
 
 /mob/living/proc/needs_wheelchair()
 	return FALSE
+
+/mob/living/verb/change_floating_chat_color()
+	set name = "Change Floating Chat Color"
+	set category = "IC"
+
+	var/new_color = input(src, "Choose your floating chat color: ", "Floating Chat Color") as color|null
+	if(new_color)
+		var/list/colors = GetHexColors(new_color)
+		for(var/color in colors)
+			color = clamp(color, 160, 230)
+		floating_chat_colors[real_name] = rgb(colors[1], colors[2], colors[3])

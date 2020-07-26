@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Floating Chat messages now appear when you whisper as well."
+  - rscadd: "You can now change your floating chat message color from the IC tab."
+  - bugfix: "Fixes an extra space appearing in the textlog when whispering."
+  - bugfix: "Removed some more instances of (as ID name) that I missed before."

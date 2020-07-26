@@ -17,9 +17,6 @@
 	if (src.stat)
 		return
 
-	if(name != GetVoice())
-		alt_name = "(as [get_id_name("Unknown")])"
-
 	//parse the language code and consume it
 	var/datum/language/speaking = parse_language(message)
 	if (speaking)
@@ -137,23 +134,31 @@
 
 	var/list/listening_clients = list()	// The clients we're going to show the speech bubble to.
 
+	var/list/heard_clients = list()
 	for(var/mob/M in listening)
-		M.hear_say(message, whisper_text, speaking, alt_name, italics, src)
+		var/heard = M.hear_say(message, whisper_text, speaking, alt_name, italics, src)
 		if (M.client)
 			listening_clients += M.client
+		if(heard)
+			heard_clients += M.client
+		do_animate_chat(message, speaking, italics, heard_clients, 30)
 
 	if (eavesdropping.len)
 		var/new_message = stars(message)	//hopefully passing the message twice through stars() won't hurt... I guess if you already don't understand the language, when they speak it too quietly to hear normally you would be able to catch even less.
+		var/list/eavesdrop_clients = list()
 		for(var/mob/M in eavesdropping)
-			M.hear_say(new_message, whisper_text, speaking, alt_name, italics, src)
-			if (M.client)
+			var/heard = M.hear_say(new_message, whisper_text, speaking, alt_name, italics, src)
+			if(M.client)
 				listening_clients += M.client
+			if(heard)
+				eavesdrop_clients += M.client
+		do_animate_chat(new_message, speaking, italics, eavesdrop_clients, 30)
 
 	var/speech_bubble_test = say_test(message)
 	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
 	INVOKE_ASYNC(GLOBAL_PROC, /proc/flick_overlay, speech_bubble, listening_clients, 30)
 
 	if (watching.len)
-		var/rendered = "<span class='game say'><span class='name'>[src.name]</span> [not_heard].</span>"
+		var/rendered = "<span class='game say'><span class='name'>[src.name]</span>[not_heard].</span>"
 		for (var/mob/M in watching)
 			M.show_message(rendered, 2)
