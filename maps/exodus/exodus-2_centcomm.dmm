@@ -258,20 +258,20 @@
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "acc" = (
+/turf/simulated/wall/wood,
 /obj/structure/window/reinforced/holowindow{
 	dir = 1
 	},
 /obj/structure/window/reinforced/holowindow{
 	dir = 8
 	},
-/turf/simulated/wall/wood,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "acd" = (
+/turf/simulated/wall/wood,
 /obj/structure/window/reinforced/holowindow{
 	dir = 1
 	},
-/turf/simulated/wall/wood,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "ace" = (
@@ -363,24 +363,24 @@
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "acp" = (
+/turf/simulated/wall/wood,
 /obj/structure/window/reinforced/holowindow,
 /obj/structure/window/reinforced/holowindow{
 	dir = 8
 	},
-/turf/simulated/wall/wood,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "acq" = (
-/obj/structure/window/reinforced/holowindow,
 /turf/simulated/wall/wood,
+/obj/structure/window/reinforced/holowindow,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "acr" = (
+/turf/simulated/wall/wood,
 /obj/structure/window/reinforced/holowindow,
 /obj/structure/window/reinforced/holowindow{
 	dir = 4
 	},
-/turf/simulated/wall/wood,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "acs" = (
@@ -395,10 +395,10 @@
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "act" = (
+/turf/simulated/wall/wood,
 /obj/structure/window/reinforced/holowindow{
 	dir = 8
 	},
-/turf/simulated/wall/wood,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "acu" = (
@@ -429,22 +429,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "acw" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	name = "thrower_throwdownside";
-	nostop = 1;
-	stopper = 0;
-	tiles = 0
-	},
-/turf/space/transit,
-/area/template_noop)
-"acA" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	name = "thrower_throwdownside";
-	nostop = 1;
-	tiles = 0
-	},
+/obj/effect/step_trigger/thrower/shuttle/south,
 /turf/space/transit,
 /area/template_noop)
 "acF" = (
@@ -575,10 +560,10 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
 "acX" = (
+/turf/simulated/wall/wood,
 /obj/effect/floor_decal/carpet{
 	dir = 8
 	},
-/turf/simulated/wall/wood,
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "acY" = (
@@ -589,10 +574,10 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "ada" = (
+/turf/simulated/wall/wood,
 /obj/effect/floor_decal/carpet{
 	dir = 4
 	},
-/turf/simulated/wall/wood,
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "adb" = (
@@ -652,13 +637,6 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
-"adn" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	name = "thrower_leftnostop"
-	},
-/turf/space/transit,
-/area/template_noop)
 "adt" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -700,14 +678,6 @@
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_emptycourt)
-"adD" = (
-/obj/effect/step_trigger/thrower{
-	direction = 1;
-	name = "thrower_throwup";
-	tiles = 0
-	},
-/turf/space/transit,
-/area/template_noop)
 "adE" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet,
@@ -763,15 +733,6 @@
 /area/holodeck/source_courtroom)
 "adM" = (
 /obj/effect/shuttle_landmark/escape_pod/transit/pod5,
-/turf/space/transit,
-/area/template_noop)
-"adP" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	name = "thrower_throwdown";
-	stopper = 0;
-	tiles = 0
-	},
 /turf/space/transit,
 /area/template_noop)
 "adQ" = (
@@ -1613,15 +1574,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/syndicate_elite/mothership)
-"ahf" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	direction = 4;
-	name = "thrower_escapeshuttletop(right)";
-	tiles = 0
-	},
-/turf/space/transit,
-/area/template_noop)
 "aho" = (
 /obj/effect/landmark{
 	name = "Syndicate-Commando-Bomb"
@@ -1639,7 +1591,7 @@
 /area/syndicate_mothership/control)
 "ahq" = (
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	dir = 1;
 	frequency = 1213;
 	name = "Syndicate Ops Intercom";
@@ -1653,23 +1605,6 @@
 	icon_state = "plating"
 	},
 /area/syndicate_mothership)
-"ahr" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	name = "thrower_throwdown";
-	tiles = 0
-	},
-/turf/space/transit,
-/area/template_noop)
-"ahs" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	direction = 8;
-	name = "thrower_escapeshuttletop(left)";
-	tiles = 0
-	},
-/turf/space/transit,
-/area/template_noop)
 "ahw" = (
 /obj/effect/shuttle_landmark/merc/interim,
 /turf/space/transit,
@@ -1704,10 +1639,10 @@
 /area/syndicate_mothership/elite_squad)
 "ahR" = (
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	dir = 1;
 	frequency = 1213;
-	listening = FALSE;
+	listening = 0;
 	name = "Syndicate Ops Intercom";
 	pixel_y = 28;
 	subspace_transmission = 1;
@@ -2439,11 +2374,7 @@
 	name = "\improper Ninja Base"
 	})
 "alA" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	name = "thrower_throwdown";
-	tiles = 0
-	},
+/obj/effect/step_trigger/thrower/shuttle/south,
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
 	name = "escapeshuttle_leave";
@@ -2467,11 +2398,7 @@
 /turf/template_noop,
 /area/template_noop)
 "alB" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	name = "thrower_throwdown";
-	tiles = 0
-	},
+/obj/effect/step_trigger/thrower/shuttle/south,
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
 	name = "escapeshuttle_leave";
@@ -5352,10 +5279,10 @@
 /area/centcom/specops)
 "atK" = (
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	dir = 1;
 	frequency = 1441;
-	listening = FALSE;
+	listening = 0;
 	name = "Spec Ops Intercom";
 	pixel_y = 28
 	},
@@ -5807,16 +5734,8 @@
 	},
 /area/centcom/test)
 "avB" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	name = "thrower_throwdown";
-	tiles = 0
-	},
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	name = "thrower_throwdown";
-	tiles = 0
-	},
+/obj/effect/step_trigger/thrower/shuttle/south,
+/obj/effect/step_trigger/thrower/shuttle/south,
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
 	name = "escapeshuttle_leave";
@@ -6042,11 +5961,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	name = "thrower_throwdown";
-	tiles = 0
-	},
+/obj/effect/step_trigger/thrower/shuttle/south,
 /turf/template_noop,
 /area/template_noop)
 "awx" = (
@@ -6060,11 +5975,7 @@
 	teleport_z = 6;
 	teleport_z_offset = 6
 	},
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	name = "thrower_throwdown";
-	tiles = 0
-	},
+/obj/effect/step_trigger/thrower/shuttle/south,
 /turf/simulated/mineral,
 /area/template_noop)
 "awB" = (
@@ -6090,10 +6001,10 @@
 /area/centcom/specops)
 "awE" = (
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	dir = 1;
 	frequency = 1441;
-	listening = FALSE;
+	listening = 0;
 	name = "Spec Ops Intercom";
 	pixel_y = 28
 	},
@@ -6743,16 +6654,8 @@
 /turf/unsimulated/floor,
 /area/centcom/living)
 "ayz" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	name = "thrower_throwdown";
-	tiles = 0
-	},
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	name = "thrower_throwdown";
-	tiles = 0
-	},
+/obj/effect/step_trigger/thrower/shuttle/south,
+/obj/effect/step_trigger/thrower/shuttle/south,
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
 	name = "escapeshuttle_leave";
@@ -7862,7 +7765,7 @@
 	name = "Hull Door Control"
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	dir = 1;
 	frequency = 1441;
 	name = "Spec Ops Intercom";
@@ -10649,11 +10552,11 @@
 	},
 /area/centcom/control)
 "aLy" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/stool,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stool,
 /turf/unsimulated/floor{
 	icon_state = "wood_siding1";
 	dir = 6
@@ -12819,15 +12722,15 @@
 	},
 /area/centcom/holding)
 "aQF" = (
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
 /obj/structure/window/phoronreinforced,
 /obj/structure/window/phoronreinforced{
 	dir = 1
 	},
 /obj/structure/window/phoronreinforced{
 	dir = 8
-	},
-/turf/unsimulated/floor{
-	icon_state = "engine"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding9"
@@ -13266,13 +13169,13 @@
 	},
 /area/centcom/specops)
 "aRL" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "29"
 	},
 /obj/machinery/porta_turret/crescent,
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding6"
 	},
@@ -13819,10 +13722,10 @@
 	},
 /area/centcom/living)
 "aSW" = (
-/obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "wood_siding1";
 	dir = 6
@@ -13853,11 +13756,11 @@
 	},
 /area/centcom/control)
 "aTb" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/storage/toolbox/electrical,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/toolbox/electrical,
 /turf/unsimulated/floor{
 	icon_state = "wood_siding1";
 	dir = 6
@@ -14212,10 +14115,10 @@
 	dir = 8
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	dir = 1;
 	frequency = 1443;
-	listening = FALSE;
+	listening = 0;
 	name = "Spec Ops Intercom";
 	pixel_y = 28
 	},
@@ -14644,6 +14547,9 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "aUS" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "27"
 	},
@@ -14654,9 +14560,6 @@
 	},
 /obj/effect/decal/cleanable/cobweb,
 /obj/item/reagent_containers/glass/rag,
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding10"
 	},
@@ -15080,6 +14983,9 @@
 	},
 /area/centcom/holding)
 "aVN" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "27"
 	},
@@ -15087,9 +14993,6 @@
 /obj/machinery/button/remote/blast_door{
 	id = "battery3";
 	name = "Battery 3 Firing Control"
-	},
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding10"
@@ -15128,6 +15031,9 @@
 	},
 /area/centcom/specops)
 "aVS" = (
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
 /obj/structure/window/phoronreinforced{
 	dir = 8
 	},
@@ -15136,9 +15042,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic,
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding9"
 	},
@@ -15325,6 +15228,9 @@
 	},
 /area/centcom/control)
 "aWo" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "28"
 	},
@@ -15332,9 +15238,6 @@
 	desc = "Bluespace Artillery; the thinking man's solution."
 	},
 /obj/effect/decal/warning_stripes,
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding2";
 	dir = 6
@@ -15490,6 +15393,9 @@
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "aWE" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "27"
 	},
@@ -15497,9 +15403,6 @@
 /obj/machinery/button/remote/blast_door{
 	id = "battery2";
 	name = "Battery 2 Firing Control"
-	},
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding10"
@@ -16183,10 +16086,10 @@
 	},
 /area/centcom/control)
 "aYv" = (
-/obj/item/stool/padded,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
+/obj/item/stool/padded,
 /turf/unsimulated/floor{
 	name = "plating";
 	icon_state = "siding2"
@@ -18640,10 +18543,10 @@
 	},
 /area/centcom/spawning)
 "iBr" = (
-/obj/structure/bed/chair/unmovable,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
+/obj/structure/bed/chair/unmovable,
 /turf/unsimulated/floor{
 	icon_state = "wood_siding1"
 	},
@@ -18944,11 +18847,11 @@
 /turf/unsimulated/floor/plating,
 /area/tdome/tdome2)
 "kGz" = (
-/obj/machinery/vending/cola{
-	can_move = 0
-	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
+	},
+/obj/machinery/vending/cola{
+	can_move = 0
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding8"
@@ -19380,11 +19283,11 @@
 	},
 /area/centcom/holding)
 "nrU" = (
-/obj/structure/bed/chair/unmovable{
-	dir = 1
-	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
+	},
+/obj/structure/bed/chair/unmovable{
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding2"
@@ -19530,11 +19433,7 @@
 	},
 /area/centcom/holding)
 "oii" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	name = "thrower_throwdown";
-	tiles = 0
-	},
+/obj/effect/step_trigger/thrower/shuttle/south,
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
 	name = "escapeshuttle_leave";
@@ -19870,11 +19769,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "pXT" = (
-/obj/effect/step_trigger/thrower{
-	affect_ghosts = 1;
-	name = "thrower_throwdown";
-	tiles = 0
-	},
+/obj/effect/step_trigger/thrower/shuttle/south,
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
 	name = "escapeshuttle_leave";
@@ -19921,11 +19816,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
 "qiJ" = (
-/obj/machinery/vending/snack{
-	can_move = 0
-	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
+	},
+/obj/machinery/vending/snack{
+	can_move = 0
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_siding4"
@@ -24272,12 +24167,12 @@ aaq
 aaq
 aaq
 aaq
-acA
-acA
-acA
-acA
-acA
-acA
+acw
+acw
+acw
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -24513,7 +24408,7 @@ aaM
 aaM
 aaM
 aaM
-acA
+acw
 aaq
 aaq
 aaq
@@ -24529,12 +24424,12 @@ aaq
 aaq
 aaq
 aaq
-ahs
+acw
 aaq
 aaq
 aaq
 aaq
-acA
+acw
 aaq
 aaq
 aaq
@@ -24770,7 +24665,7 @@ aaM
 aaM
 aaM
 aaM
-acA
+acw
 aaq
 aaq
 aaq
@@ -24786,12 +24681,12 @@ aaq
 aaq
 aaq
 aaq
-ahs
+acw
 aaq
 ajI
 aaq
 aaq
-acA
+acw
 aaq
 aaq
 aaq
@@ -25043,12 +24938,12 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaq
 aaq
 aaq
-acA
+acw
 aaq
 aaq
 aaq
@@ -25300,12 +25195,12 @@ aaq
 aaq
 aaq
 aaq
-acA
-acA
-acA
-acA
-acA
-acA
+acw
+acw
+acw
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -25517,7 +25412,7 @@ aaq
 aaq
 aaq
 aaq
-acA
+acw
 aaM
 aaM
 aaM
@@ -25774,7 +25669,7 @@ aaq
 aaq
 aaq
 aaq
-acA
+acw
 aaM
 aaM
 aaM
@@ -25814,12 +25709,12 @@ aaq
 aaq
 aaq
 aaq
-acA
-acA
-acA
-acA
-acA
-acA
+acw
+acw
+acw
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -26031,7 +25926,7 @@ aaq
 aaq
 aaq
 aaq
-acA
+acw
 aaM
 aaM
 aaM
@@ -26071,12 +25966,12 @@ aaq
 aaq
 aaq
 aaq
-ahs
+acw
 aaq
 aaq
 aaq
 aaq
-acA
+acw
 aaq
 aaq
 aaq
@@ -26288,7 +26183,7 @@ aaq
 aaq
 aaq
 aaq
-acA
+acw
 aaM
 aaM
 aaM
@@ -26328,12 +26223,12 @@ aaq
 aaq
 aaq
 aaq
-ahs
+acw
 aaq
 ajL
 aaq
 aaq
-acA
+acw
 aaq
 aaq
 aaq
@@ -26545,7 +26440,7 @@ aaq
 aaq
 aaq
 aaq
-acA
+acw
 aaM
 aaM
 aaM
@@ -26585,12 +26480,12 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaq
 aaq
 aaq
-acA
+acw
 aaq
 aaq
 aaq
@@ -26842,12 +26737,12 @@ aaq
 aaq
 aaq
 aaq
-acA
-acA
-acA
-acA
-acA
-acA
+acw
+acw
+acw
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -30959,19 +30854,19 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
 acw
-ahf
-ahf
-ahf
-ahf
-ahf
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
 aaq
 aaa
 aaM
@@ -31209,14 +31104,14 @@ aaq
 aaq
 aaq
 aaq
-ahf
-ahr
-ahr
-ahr
-ahs
-ahf
-ahf
-ahf
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -31228,7 +31123,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaa
 aaM
@@ -31466,7 +31361,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaq
 aaq
@@ -31485,7 +31380,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaa
 aaM
@@ -31723,7 +31618,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaq
 aaq
@@ -31742,7 +31637,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaa
 aaM
@@ -31972,15 +31867,15 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
-ahf
-ahf
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -31999,7 +31894,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaa
 aaM
@@ -32228,21 +32123,15 @@ aaq
 aaq
 aaq
 aaq
-ahf
-ahs
+acw
+acw
 aaq
 aaq
 aaq
 aaq
 aaq
-ahf
-ahf
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
+acw
+acw
 aaq
 aaq
 aaq
@@ -32256,7 +32145,13 @@ aaq
 aaq
 aaq
 aaq
-ahf
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+acw
 aaq
 aaa
 aaM
@@ -32485,7 +32380,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaq
 aaq
@@ -32510,10 +32405,10 @@ aaq
 aaq
 aaq
 aaq
-ahf
-ahf
-ahf
-ahf
+acw
+acw
+acw
+acw
 aaq
 aaa
 aaM
@@ -32742,7 +32637,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaq
 aaq
@@ -32769,7 +32664,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaq
 aaa
@@ -32999,7 +32894,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaq
 aaq
@@ -33026,7 +32921,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaq
 aaa
@@ -33256,7 +33151,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaq
 aaq
@@ -33283,7 +33178,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaq
 aaa
@@ -33513,7 +33408,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaq
 aaq
@@ -33540,7 +33435,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaq
 aaa
@@ -33744,17 +33639,17 @@ aaq
 aaq
 aaq
 aaq
-adn
-adn
-adn
-adn
-adn
+acw
+acw
+acw
+acw
+acw
 aaq
-adn
-adn
-adn
-adn
-adn
+acw
+acw
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -33770,7 +33665,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaq
 aaq
@@ -33797,7 +33692,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaq
 aaa
@@ -34001,17 +33896,17 @@ aaq
 aaq
 aaq
 aaq
-adn
+acw
 aaq
 aaq
 aaq
-adn
+acw
 aaq
-adn
+acw
 aaq
 aaq
 aaq
-adn
+acw
 aaq
 aaq
 aaq
@@ -34027,7 +33922,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaq
 aaq
@@ -34052,10 +33947,10 @@ aaq
 aaq
 aaq
 aaq
-ahf
-ahf
-ahf
-ahf
+acw
+acw
+acw
+acw
 aaq
 aaa
 aaM
@@ -34258,17 +34153,17 @@ aaq
 aaq
 aaq
 aaq
-adn
+acw
 aaq
 adM
 aaq
-adn
+acw
 aaq
-adn
+acw
 aaq
 afw
 aaq
-adn
+acw
 aaq
 aaq
 aaq
@@ -34284,21 +34179,15 @@ aaq
 aaq
 aaq
 aaq
-ahf
-ahf
+acw
+acw
 aaq
 aaq
 aaq
 aaq
 aaq
-ahf
-ahf
-aaq
-aaq
-aaq
-aaq
-aaq
-aaq
+acw
+acw
 aaq
 aaq
 aaq
@@ -34312,7 +34201,13 @@ aaq
 aaq
 aaq
 aaq
-ahf
+aaq
+aaq
+aaq
+aaq
+aaq
+aaq
+acw
 aaq
 aaa
 aaM
@@ -34515,17 +34410,17 @@ aaq
 aaq
 aaq
 aaq
-adn
+acw
 aaq
 aaq
 aaq
-adn
+acw
 aaq
-adn
+acw
 aaq
 aaq
 aaq
-adn
+acw
 aaq
 aaq
 aaq
@@ -34542,15 +34437,15 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
-ahf
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -34569,7 +34464,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaa
 aaM
@@ -34772,17 +34667,17 @@ aaq
 aaq
 aaq
 aaq
-adn
+acw
 aaq
 aaq
 aaq
-adn
+acw
 aaq
-adn
+acw
 aaq
 aaq
 aaq
-adn
+acw
 aaq
 aaq
 aaq
@@ -34807,7 +34702,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaq
 aaq
@@ -34826,7 +34721,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaa
 aaM
@@ -35029,17 +34924,17 @@ aaq
 aaq
 aaq
 aaq
-adn
-adD
-adP
-adP
-adn
+acw
+acw
+acw
+acw
+acw
 aaq
-adn
-adD
-adP
-adP
-adn
+acw
+acw
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -35064,7 +34959,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -35083,7 +34978,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaa
 aaM
@@ -35321,14 +35216,14 @@ aaq
 aaq
 aaq
 aaq
-ahf
-ahf
-ahf
-ahf
-ahf
-ahf
-ahf
-ahf
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -35340,7 +35235,7 @@ aaq
 aaq
 aaq
 aaq
-ahf
+acw
 aaq
 aaa
 aaM
@@ -35585,19 +35480,19 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
 acw
-ahf
-ahf
-ahf
-ahf
-ahf
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
 aaq
 aaa
 aaM
@@ -39179,10 +39074,10 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
-ahr
-ahr
+acw
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -39426,21 +39321,21 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
 aaq
 aaq
-ahr
-ahr
+acw
+acw
 aaq
 aaq
 aaq
@@ -39683,7 +39578,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -39697,7 +39592,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -39940,8 +39835,8 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
+acw
+acw
 aaq
 aaq
 aaq
@@ -39954,7 +39849,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -40197,8 +40092,8 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
+acw
+acw
 aaq
 aaq
 aaq
@@ -40211,7 +40106,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -40454,7 +40349,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -40468,11 +40363,11 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
-ahr
-ahr
-ahr
+acw
+acw
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -40711,11 +40606,11 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
-ahr
-ahr
-ahr
+acw
+acw
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -40729,7 +40624,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -40970,9 +40865,9 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
-ahr
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -40986,8 +40881,8 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
+acw
+acw
 aaq
 aaq
 aaq
@@ -41225,9 +41120,9 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
-ahr
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -41244,8 +41139,8 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
+acw
+acw
 aaq
 aaq
 aaq
@@ -41482,7 +41377,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -41502,7 +41397,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -41739,8 +41634,8 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
+acw
+acw
 aaq
 aaq
 aaq
@@ -41759,7 +41654,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -41997,7 +41892,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -42016,7 +41911,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -42254,7 +42149,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -42273,7 +42168,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -42511,7 +42406,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -42530,7 +42425,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -42767,8 +42662,8 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
+acw
+acw
 aaq
 aaq
 aaq
@@ -42787,7 +42682,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -43024,7 +42919,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -43044,7 +42939,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -43281,9 +43176,9 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
-ahr
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -43300,8 +43195,8 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
+acw
+acw
 aaq
 aaq
 aaq
@@ -43540,9 +43435,9 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
-ahr
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -43556,8 +43451,8 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
+acw
+acw
 aaq
 aaq
 aaq
@@ -43795,11 +43690,11 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
-ahr
-ahr
-ahr
+acw
+acw
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -43813,7 +43708,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -44052,7 +43947,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -44066,11 +43961,11 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
-ahr
-ahr
-ahr
+acw
+acw
+acw
+acw
+acw
 aaq
 aaq
 aaq
@@ -44309,8 +44204,8 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
+acw
+acw
 aaq
 aaq
 aaq
@@ -44323,7 +44218,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -44566,8 +44461,8 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
+acw
+acw
 aaq
 aaq
 aaq
@@ -44580,7 +44475,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -44823,7 +44718,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -44837,7 +44732,7 @@ aaq
 aaq
 aaq
 aaq
-ahr
+acw
 aaq
 aaq
 aaq
@@ -45080,21 +44975,21 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
-ahr
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
+acw
 aaq
 aaq
-ahr
-ahr
+acw
+acw
 aaq
 aaq
 aaq
@@ -45347,10 +45242,10 @@ aaq
 aaq
 aaq
 aaq
-ahr
-ahr
-ahr
-ahr
+acw
+acw
+acw
+acw
 aaq
 aaq
 aaq
