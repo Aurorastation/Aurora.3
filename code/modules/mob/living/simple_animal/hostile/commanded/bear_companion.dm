@@ -15,6 +15,7 @@
 	attacktext = "swatted"
 	melee_damage_lower = 25
 	melee_damage_upper = 25
+	resist_mod = 5
 
 	min_oxy = 5
 	max_co2 = 5
