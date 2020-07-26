@@ -43,5 +43,6 @@ changes:
   - maptweak: "Added caution stripes to the ORs to mark areas that are off-limits for nonsterile personnel."
   - maptweak: "The Operating Rooms now have separate doors."
   - maptweak: "One of the ORs now has an observation area."
-  - maptweak: "Gives paramedics access to the ORs in order to deliver patients. THIS DOES NOT MEAN THAT THEY CAN DO SURGERY."
+  - maptweak: "Removes the MediExpress system."
+  - maptweak: "Gives paramedics access to the ORs in order to deliver patients and supplies. THIS DOES NOT MEAN THAT THEY CAN DO SURGERY."
   - maptweak: "Adds an area in Maintenance using the freed-up space."
