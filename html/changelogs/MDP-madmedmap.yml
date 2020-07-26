@@ -46,3 +46,4 @@ changes:
   - maptweak: "Removes the MediExpress system."
   - maptweak: "Gives paramedics access to the ORs in order to deliver patients and supplies. THIS DOES NOT MEAN THAT THEY CAN DO SURGERY."
   - maptweak: "Adds an area in Maintenance using the freed-up space."
+  - maptweak: "Slims Medical maintenance down on the sublevel and psych level."
