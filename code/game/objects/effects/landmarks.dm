@@ -254,3 +254,14 @@
 
 /obj/effect/landmark/distress_team_equipment
 	name = "distress equipment"
+
+/obj/effect/landmark/merc_equipment
+	name = "merc_equipment"
+	icon_state = "x"
+
+/obj/effect/landmark/merc_equipment/New()
+	var/list/list_of_spawnables = list(/mob/living/heavy_vehicle/premade/combat/merc)
+	var/path = pick(list_of_spawnables)
+	new path(src.loc)
+	if(ispath(path, /mob/living/heavy_vehicle))
+		new /obj/machinery/mech_recharger(src.loc)

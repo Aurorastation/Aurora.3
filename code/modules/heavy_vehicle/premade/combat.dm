@@ -69,3 +69,7 @@
 	)
 
 	. = ..()
+
+/mob/living/heavy_vehicle/premade/combat/merc
+	name = "mercenary exosuit"
+	e_color = COLOR_DARK_RED

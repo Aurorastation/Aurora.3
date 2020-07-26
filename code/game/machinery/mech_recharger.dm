@@ -22,6 +22,12 @@
 		/obj/item/stock_parts/manipulator = 2
 	)
 
+/obj/machinery/mech_recharger/Initialize(mapload, d, populate_components)
+	. = ..()
+	var/mob/living/heavy_vehicle/HV = locate() in src.loc
+	if(HV)
+		start_charging(HV)
+
 /obj/machinery/mech_recharger/Crossed(var/mob/living/heavy_vehicle/M)
 	. = ..()
 	if(istype(M) && charging != M)
