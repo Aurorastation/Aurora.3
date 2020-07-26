@@ -23977,6 +23977,15 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing)
+"bbn" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medsublevel)
 "bbp" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -28264,6 +28273,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/abandoned)
+"fbJ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medsublevel)
 "fbM" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -30272,13 +30288,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)
-"ksD" = (
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/medsublevel)
 "ksI" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -34941,15 +34950,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay4)
-"vPb" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/medsublevel)
 "vPT" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
@@ -76997,7 +76997,7 @@ jfp
 sXz
 sXz
 sXz
-vPb
+bbn
 unQ
 jjp
 ark
@@ -78796,7 +78796,7 @@ sXz
 aaa
 sXz
 cHi
-ksD
+fbJ
 aFt
 aFq
 lQi

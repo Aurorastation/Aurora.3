@@ -844,7 +844,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryobs)
 "abM" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
@@ -941,7 +941,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryobs)
 "abX" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -1124,14 +1124,14 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryobs)
 "acr" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryobs)
 "acs" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -1450,12 +1450,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"acS" = (
-/turf/simulated/floor/plating{
-	burnt = 1;
-	icon_state = "dmg4"
-	},
-/area/medical/surgerywing)
 "acU" = (
 /obj/structure/sink/kitchen{
 	dir = 4;
@@ -1541,7 +1535,7 @@
 "adc" = (
 /obj/structure/chemkit,
 /turf/simulated/floor/plating,
-/area/medical/surgerywing)
+/area/maintenance/medbay)
 "add" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Staff Smoking Lounge";
@@ -27901,7 +27895,7 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/bed/chair,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryobs)
 "aWv" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 30
@@ -29534,7 +29528,7 @@
 "aZi" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
-/area/medical/surgerywing)
+/area/maintenance/medbay)
 "aZj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -35074,11 +35068,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
-"biY" = (
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
-/area/medical/surgeryobs)
 "biZ" = (
 /obj/effect/floor_decal/corner/pink{
 	dir = 9
@@ -35721,7 +35710,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/medical/surgerywing)
+/area/medical/surgeryprep)
 "bkl" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -36281,7 +36270,7 @@
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/medical/surgerywing)
+/area/medical/surgeryprep)
 "blj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -41481,7 +41470,7 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryobs)
 "bvx" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/hologram/holopad,
@@ -41489,13 +41478,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgeryprep)
 "bvy" = (
 /turf/simulated/wall,
-/area/medical/surgeryobs)
+/area/medical/surgeryprep)
 "bvz" = (
 /turf/simulated/wall,
-/area/medical/surgerywing)
+/area/medical/surgeryobs)
 "bvA" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable/green{
@@ -41510,7 +41499,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryobs)
 "bvB" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -41554,7 +41543,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryobs)
 "bvH" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -41573,7 +41562,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgeryprep)
 "bvL" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -41816,7 +41805,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/medical/cryo)
+/area/medical/surgeryprep)
 "bwm" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 8
@@ -41824,14 +41813,14 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgeryprep)
 "bwo" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
 /obj/structure/bed/roller,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgeryprep)
 "bwp" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -41844,7 +41833,7 @@
 /obj/machinery/iv_drip,
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgeryprep)
 "bwq" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -41853,13 +41842,13 @@
 	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgeryprep)
 "bwr" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgeryprep)
 "bws" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -41872,7 +41861,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryprep)
 "bwt" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -41887,7 +41876,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryprep)
 "bwu" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -41898,7 +41887,7 @@
 	pixel_y = -29
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgeryprep)
 "bwy" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable/green{
@@ -41909,7 +41898,7 @@
 /obj/effect/floor_decal/sign/srg,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgeryprep)
 "bwz" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -41967,7 +41956,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryprep)
 "bwF" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
@@ -41975,7 +41964,7 @@
 /obj/effect/floor_decal/sign/srg,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryobs)
 "bwG" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -42719,7 +42708,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/medical/cryo)
+/area/medical/surgeryprep)
 "bxL" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
@@ -42728,21 +42717,21 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgeryprep)
 "bxO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgeryprep)
 "bxP" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgeryprep)
 "bxQ" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable/green{
@@ -42757,7 +42746,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgeryprep)
 "bxR" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable/green{
@@ -42773,7 +42762,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryprep)
 "bxS" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -42798,7 +42787,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryprep)
 "bxT" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -42822,7 +42811,7 @@
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 8
 	},
-/area/medical/surgerywing)
+/area/medical/surgeryobs)
 "bxU" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -42832,7 +42821,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryobs)
 "bxY" = (
 /obj/structure/mopbucket,
 /turf/simulated/floor/tiled,
@@ -43355,7 +43344,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
-/area/medical/cryo)
+/area/medical/surgeryprep)
 "bzj" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -43375,7 +43364,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bzk" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/bed/chair,
@@ -43383,7 +43372,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryobs)
 "bzl" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/bed/chair,
@@ -43393,7 +43382,7 @@
 	pixel_x = -25
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryobs)
 "bzn" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = null;
@@ -43403,7 +43392,7 @@
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 4
 	},
-/area/medical/medbay2)
+/area/medical/surgeryobs)
 "bzo" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -43938,7 +43927,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bAi" = (
 /obj/structure/window/reinforced/polarized{
 	id = "OR1"
@@ -43950,11 +43939,11 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bAj" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgeryprep)
 "bAk" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/medical{
@@ -43972,7 +43961,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bAl" = (
 /obj/structure/window/reinforced/polarized{
 	dir = 8;
@@ -43988,12 +43977,12 @@
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bAm" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/structure/bookcase,
 /turf/simulated/floor/plating,
-/area/medical/surgerywing)
+/area/maintenance/medbay)
 "bAn" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized{
@@ -44009,7 +43998,7 @@
 	id = "OR1"
 	},
 /turf/simulated/floor/plating,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bAo" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized{
@@ -44025,7 +44014,7 @@
 	},
 /obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bAr" = (
 /obj/item/mop,
 /obj/structure/table/rack{
@@ -44388,7 +44377,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bBi" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/power/apc{
@@ -44400,14 +44389,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bBj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/machinery/computer/operating,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bBl" = (
 /turf/simulated/wall,
 /area/maintenance/substation/medical)
@@ -44689,17 +44678,17 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bBU" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bBV" = (
 /obj/machinery/optable,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bBX" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/hologram/holopad,
@@ -44709,7 +44698,7 @@
 	pixel_x = 20
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery)
 "bBY" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized{
@@ -44725,7 +44714,7 @@
 	},
 /obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bBZ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized{
@@ -44737,7 +44726,7 @@
 	},
 /obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bCa" = (
 /obj/machinery/door/airlock/medical{
 	name = "Operating Theatre 2";
@@ -44747,33 +44736,33 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/ramp/bottom,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bCb" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bCc" = (
 /obj/machinery/optable,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bCd" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bCi" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bCj" = (
 /obj/machinery/computer/operating,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bCk" = (
 /obj/structure/ladder{
 	pixel_y = 16
@@ -45126,20 +45115,20 @@
 	},
 /obj/item/clothing/glasses/safety/goggles,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bCW" = (
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bCX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bCY" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery)
 "bCZ" = (
 /obj/item/toy/figure/md{
 	name = "surgeon action figure"
@@ -45147,7 +45136,7 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/medical/surgerywing)
+/area/maintenance/medbay)
 "bDa" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/power/apc{
@@ -45159,14 +45148,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery)
 "bDb" = (
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bDc" = (
 /obj/structure/curtain/medical,
 /turf/space,
-/area/medical/surgerywing)
+/area/medical/surgeryprep)
 "bDd" = (
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Substation - Medical Main"
@@ -45476,7 +45465,7 @@
 /obj/item/storage/box/fancy/tray,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bDM" = (
 /obj/structure/table/standard,
 /obj/machinery/camera/network/medbay{
@@ -45492,7 +45481,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bDN" = (
 /obj/structure/table/standard,
 /obj/item/device/radio{
@@ -45512,7 +45501,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bDO" = (
 /obj/machinery/button/windowtint{
 	id = "OR1";
@@ -45533,7 +45522,7 @@
 	req_access = list(45)
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery)
 "bDP" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/iv_drip,
@@ -45541,7 +45530,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bDR" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/industrial/warning,
@@ -45550,13 +45539,13 @@
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bDS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bDT" = (
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Medical Main Substation Bypass"
@@ -45580,7 +45569,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bDZ" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -45864,7 +45853,7 @@
 	},
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bEN" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -46310,18 +46299,18 @@
 	thrown_force_divisor = 0.01
 	},
 /turf/simulated/floor/plating,
-/area/medical/surgeryobs)
+/area/maintenance/medbay)
 "bFJ" = (
 /obj/structure/table,
 /obj/item/reagent_containers/blood/ripped,
 /obj/random/junk,
 /obj/random/soap,
 /turf/simulated/floor/plating,
-/area/medical/surgeryobs)
+/area/maintenance/medbay)
 "bFK" = (
 /obj/item/clothing/mask/muzzle/tape,
 /turf/simulated/floor/plating,
-/area/medical/surgeryobs)
+/area/maintenance/medbay)
 "bFM" = (
 /obj/structure/bookcase/manuals/medical,
 /obj/structure/bookcase/manuals/medical,
@@ -46329,7 +46318,7 @@
 	burnt = 1;
 	icon_state = "dmg4"
 	},
-/area/medical/surgerywing)
+/area/maintenance/medbay)
 "bFN" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
@@ -46359,7 +46348,7 @@
 	},
 /obj/item/clothing/glasses/safety/goggles,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bFR" = (
 /obj/structure/bed,
 /obj/item/bedsheet/medical,
@@ -46675,19 +46664,13 @@
 /obj/random/medical,
 /obj/random/medical,
 /turf/simulated/floor/plating,
-/area/medical/surgeryobs)
+/area/maintenance/medbay)
 "bGG" = (
 /obj/structure/bed/roller,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/structure/closet/body_bag,
 /turf/simulated/floor/plating,
-/area/medical/surgeryobs)
-"bGH" = (
-/turf/simulated/floor/plating{
-	burnt = 1;
-	icon_state = "dmg4"
-	},
-/area/medical/surgeryobs)
+/area/maintenance/medbay)
 "bGK" = (
 /obj/effect/floor_decal/corner/grey,
 /obj/effect/floor_decal/corner/white{
@@ -47169,17 +47152,17 @@
 /area/hydroponics)
 "bHy" = (
 /turf/simulated/wall,
-/area/medical/surgeryprep)
+/area/medical/surgery)
 "bHz" = (
 /obj/structure/table/standard,
 /obj/random/junk,
 /obj/random/tool,
 /turf/simulated/floor/plating,
-/area/medical/surgeryprep)
+/area/maintenance/medbay)
 "bHA" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/plating,
-/area/medical/surgeryprep)
+/area/maintenance/medbay)
 "bHD" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -47233,7 +47216,7 @@
 	},
 /obj/item/nitrilebox,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "bHJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
@@ -47478,24 +47461,17 @@
 	burnt = 1;
 	icon_state = "dmg4"
 	},
-/area/medical/surgeryprep)
-"bIz" = (
-/obj/structure/foamedmetal,
-/turf/simulated/floor/plating{
-	burnt = 1;
-	icon_state = "dmg4"
-	},
-/area/medical/surgeryobs)
+/area/maintenance/medbay)
 "bIB" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating{
 	burnt = 1;
 	icon_state = "dmg4"
 	},
-/area/medical/surgerywing)
+/area/maintenance/medbay)
 "bIC" = (
-/turf/simulated/floor/plating,
-/area/medical/surgerywing)
+/turf/simulated/wall,
+/area/medical/surgery2)
 "bIH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/meter{
@@ -47734,10 +47710,11 @@
 "bJm" = (
 /obj/item/clothing/glasses/sunglasses/blindfold/tape,
 /turf/simulated/floor/plating,
-/area/medical/surgeryprep)
+/area/maintenance/medbay)
 "bJo" = (
-/turf/simulated/floor/plating,
-/area/medical/surgeryprep)
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery2)
 "bJp" = (
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -48074,7 +48051,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bKi" = (
 /obj/structure/table/standard,
 /obj/machinery/camera/network/medbay{
@@ -48089,7 +48066,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bKj" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/masks{
@@ -48101,7 +48078,7 @@
 	},
 /obj/item/nitrilebox,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "bKk" = (
 /obj/machinery/power/apc{
 	dir = 1;
@@ -59344,7 +59321,7 @@
 /obj/structure/curtain/open/bed,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/plating,
-/area/medical/surgerywing)
+/area/maintenance/medbay)
 "dtt" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/dirt,
@@ -60567,7 +60544,7 @@
 	name = "Surgery Cleaner"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "gxO" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet,
@@ -60672,7 +60649,7 @@
 "gKs" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/plating,
-/area/medical/surgerywing)
+/area/maintenance/medbay)
 "gKF" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
@@ -60684,7 +60661,7 @@
 /obj/structure/closet,
 /obj/item/tape_roll,
 /turf/simulated/floor/plating,
-/area/medical/surgerywing)
+/area/maintenance/medbay)
 "gKO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -60700,7 +60677,7 @@
 	burnt = 1;
 	icon_state = "dmg4"
 	},
-/area/medical/surgeryobs)
+/area/maintenance/medbay)
 "gOO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -61049,7 +61026,7 @@
 	burnt = 1;
 	icon_state = "dmg4"
 	},
-/area/medical/surgerywing)
+/area/maintenance/medbay)
 "hAQ" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
@@ -61383,7 +61360,7 @@
 "ipL" = (
 /obj/random/junk,
 /turf/simulated/floor/plating,
-/area/medical/surgeryprep)
+/area/maintenance/medbay)
 "iqX" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -61752,10 +61729,6 @@
 "jDA" = (
 /turf/simulated/wall,
 /area/engineering/atmos)
-"jFC" = (
-/obj/structure/foamedmetal,
-/turf/simulated/floor/plating,
-/area/medical/surgeryobs)
 "jGj" = (
 /obj/structure/lattice,
 /turf/simulated/open/airless,
@@ -61886,10 +61859,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
-"kbS" = (
-/obj/structure/foamedmetal,
-/turf/simulated/floor/plating,
-/area/medical/surgerywing)
 "kcG" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -62533,7 +62502,7 @@
 "lIG" = (
 /obj/item/broken_bottle,
 /turf/simulated/floor/plating,
-/area/medical/surgerywing)
+/area/maintenance/medbay)
 "lJh" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/hologram/holopad,
@@ -62550,9 +62519,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"lKe" = (
-/turf/simulated/floor/plating,
-/area/medical/surgeryobs)
 "lKZ" = (
 /obj/structure/bookcase/manuals{
 	opacity = 0
@@ -62643,7 +62609,7 @@
 "lVA" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating,
-/area/medical/surgeryprep)
+/area/maintenance/medbay)
 "lWF" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -63486,7 +63452,7 @@
 	burnt = 1;
 	icon_state = "dmg4"
 	},
-/area/medical/surgeryprep)
+/area/maintenance/medbay)
 "nOq" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -63528,7 +63494,7 @@
 /obj/structure/foamedmetal,
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating,
-/area/medical/surgerywing)
+/area/maintenance/medbay)
 "nTY" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'RADIOACTIVE AREA'";
@@ -63714,7 +63680,7 @@
 	pixel_x = -8
 	},
 /turf/simulated/floor/plating,
-/area/medical/surgerywing)
+/area/maintenance/medbay)
 "oqH" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -64319,7 +64285,7 @@
 	reagents_to_add = list(/datum/reagent/coughsyrup = 14)
 	},
 /turf/simulated/floor/plating,
-/area/medical/surgerywing)
+/area/maintenance/medbay)
 "pzj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -64464,7 +64430,7 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass,
 /obj/item/reagent_containers/spray/sterilizine,
 /turf/simulated/floor/plating,
-/area/medical/surgerywing)
+/area/maintenance/medbay)
 "pUR" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 4
@@ -64644,7 +64610,7 @@
 /obj/random/booze,
 /obj/random/booze,
 /turf/simulated/floor/plating,
-/area/medical/surgerywing)
+/area/maintenance/medbay)
 "qvD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/machinery/meter{
@@ -64861,7 +64827,7 @@
 /obj/effect/floor_decal/sign/srg,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgeryprep)
 "qYo" = (
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
 	dir = 8
@@ -64934,7 +64900,7 @@
 "rdt" = (
 /obj/machinery/iv_drip,
 /turf/simulated/floor/plating,
-/area/medical/surgeryprep)
+/area/maintenance/medbay)
 "rgq" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -65335,11 +65301,6 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"sby" = (
-/obj/structure/table/rack,
-/obj/random/loot,
-/turf/simulated/floor/plating,
-/area/medical/surgeryprep)
 "sdW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -65619,7 +65580,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/surgeryobs)
+/area/medical/surgery)
 "sJS" = (
 /obj/machinery/computer/rdconsole/robotics,
 /obj/machinery/alarm{
@@ -66085,11 +66046,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
-"tEq" = (
-/obj/structure/closet,
-/obj/random/loot,
-/turf/simulated/floor/plating,
-/area/medical/surgeryprep)
 "tEu" = (
 /obj/item/stack/tile/floor_white{
 	pixel_x = 8;
@@ -66485,7 +66441,7 @@
 /obj/structure/closet/crate,
 /obj/random/junk,
 /turf/simulated/floor/plating,
-/area/medical/surgeryprep)
+/area/maintenance/medbay)
 "uoq" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
@@ -67574,7 +67530,7 @@
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
-/area/medical/surgerywing)
+/area/medical/surgery2)
 "wOo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/ammo_casing/c45/rubber,
@@ -102770,23 +102726,23 @@ bqK
 brP
 btf
 buf
-bvv
+bvy
 bwl
 bxK
 bzf
-bvv
-bvv
-bvv
-bvv
-bvv
-bvy
-bvy
-bvy
 bHy
 bHy
 bHy
 bHy
 bHy
+bHy
+blN
+blN
+blN
+blN
+blN
+blN
+blN
 bLK
 blN
 blN
@@ -103027,7 +102983,7 @@ bqL
 brQ
 btg
 bug
-bvv
+bvy
 bwm
 bxL
 bvK
@@ -103036,13 +102992,13 @@ bBh
 bBT
 bCU
 bHH
-bvy
+bHy
 bFI
 bGF
 bHz
-bJo
+bBo
 bJm
-bHy
+blN
 rdt
 bLL
 blN
@@ -103284,7 +103240,7 @@ bqM
 brR
 bth
 brL
-bvv
+bvy
 bwo
 bxP
 bAj
@@ -103293,14 +103249,14 @@ bCi
 bBU
 bCW
 bDL
-bvy
+bHy
 bFJ
 bGG
 bHA
 bIw
-bJo
-bHy
-sby
+bBo
+blN
+bDZ
 bKZ
 bMr
 bBo
@@ -103550,14 +103506,14 @@ bCj
 bBV
 bCW
 bDM
-bvy
-bFK
-bGH
-ipL
-bJo
-bJo
 bHy
-sby
+bFK
+bIw
+ipL
+bBo
+bBo
+blN
+bDZ
 bKZ
 blN
 bMX
@@ -103807,14 +103763,14 @@ sJR
 bCX
 bCX
 bDN
-bvy
-lKe
+bHy
+bBo
 gNO
 bIw
 bHA
 lVA
-bHy
-tEq
+blN
+bFP
 bKZ
 blN
 blN
@@ -104059,19 +104015,19 @@ bvy
 bwq
 bvx
 bwu
-bvy
+bHy
 bCY
 bBX
 bCY
 bDO
-bvz
-lKe
-lKe
-lKe
-jFC
-lVA
 bHy
-sby
+bBo
+bBo
+bBo
+lVA
+lVA
+blN
+bDZ
 bKZ
 blN
 bMY
@@ -104312,22 +104268,22 @@ bhS
 brT
 bfd
 buk
-biY
+bli
 bwr
 bxQ
 bwy
 bAk
 bDa
-bvz
-bvz
-bvz
-bvz
-bGH
-lKe
-jFC
-bIz
-nMW
 bHy
+bHy
+bHy
+bHy
+bIw
+bBo
+lVA
+bIB
+nMW
+blN
 uni
 bLL
 blN
@@ -104573,19 +104529,19 @@ bkk
 bws
 bxR
 bwE
-bvz
+bvy
 bDc
-bvz
+bvy
 bCZ
 oqn
-bvz
+blN
 bFM
-bIC
-kbS
+bBo
+lVA
 bIB
 bIB
 nMW
-bJo
+bBo
 bKZ
 bMs
 bBo
@@ -104832,13 +104788,13 @@ bxS
 qYj
 bzj
 bBi
-bvz
-bvz
-bvz
-bvz
+bIC
+bIC
+bIC
+bIC
 dsn
-bIC
-bIC
+bBo
+bBo
 bIB
 nQp
 blN
@@ -105087,16 +105043,16 @@ bvz
 bvz
 bxT
 bvz
-bvz
-bCY
+bIC
+bJo
 bEL
-bCY
+bJo
 bKh
-bvz
+bIC
 bAm
 gKs
 lIG
-bIC
+bBo
 pyd
 blN
 bBr
@@ -105349,11 +105305,11 @@ bDP
 bCb
 bCb
 guf
-bvz
+bIC
 gKs
 hAo
-bIC
-acS
+bBo
+bIw
 pUs
 blN
 uzx
@@ -105606,11 +105562,11 @@ bBj
 bCc
 bDb
 bKi
-bvz
 bIC
-bIC
+bBo
+bBo
 gKs
-bIC
+bBo
 quy
 blN
 bDZ
@@ -105863,7 +105819,7 @@ bDS
 bCd
 bDb
 bDR
-bvz
+bIC
 gKH
 aZi
 aZi
@@ -106120,12 +106076,12 @@ bDV
 wLl
 bFQ
 bKj
-bvz
-bvz
-bvz
-bvz
-bvz
-bvz
+bIC
+blN
+blN
+blN
+blN
+blN
 blN
 gdp
 kuG
@@ -106368,18 +106324,18 @@ bqS
 brY
 btq
 ivh
-bkr
-bkr
-bkr
+bvz
+bvz
+bvz
 bzn
-bkr
-bkr
-bkr
-bBl
-bBl
-bBl
-bBl
-bBl
+bIC
+bIC
+bIC
+bIC
+bIC
+bIC
+blN
+blN
 wEn
 xHy
 blN
