@@ -26,7 +26,7 @@
 	max_duration = 110
 
 /datum/surgery_step/generic/cut_face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	return ..() && target_zone == BP_MOUTH && target.op_stage.face == 0
+	return ..() && target_zone == BP_MOUTH && target.op_stage.face == FACE_NORMAL
 
 /datum/surgery_step/generic/cut_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts to cut open [target]'s face and neck with \the [tool].", \
@@ -36,7 +36,7 @@
 /datum/surgery_step/generic/cut_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> has cut open [target]'s face and neck with \the [tool]." , \
 		"<span class='notice'>You have cut open [target]'s face and neck with \the [tool].</span>",)
-	target.op_stage.face = 1
+	target.op_stage.face = FACE_CUT_OPEN
 
 /datum/surgery_step/generic/cut_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \
@@ -64,7 +64,7 @@
 	max_duration = 110
 
 /datum/surgery_step/robotics/face/synthskin/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	return ..() && target.op_stage.face == 0 && target.get_species() == "Shell Frame"
+	return ..() && target.op_stage.face == FACE_NORMAL && target.get_species() == "Shell Frame"
 
 /datum/surgery_step/robotics/face/synthskin/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] starts to cut open [target]'s synthskin face and neck with \the [tool].", \
@@ -74,7 +74,7 @@
 /datum/surgery_step/robotics/face/synthskin/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> has cut open [target]'s synthskin face and neck with \the [tool]." , \
 		"<span class='notice'>You have cut open [target]'s synthskin face and neck with \the [tool].</span>",)
-	target.op_stage.face = 1
+	target.op_stage.face = FACE_CUT_OPEN
 
 /datum/surgery_step/robotics/face/synthskin/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<span class='warning'>[user]'s hand slips, slicing [target]'s throat wth \the [tool]!</span>" , \

@@ -35,7 +35,7 @@
 /datum/surgery_step/generic/cut_with_laser/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open == 0 && target_zone != BP_MOUTH
+		return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
 
 /datum/surgery_step/generic/cut_with_laser/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -48,7 +48,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> has made a bloodless incision on [target]'s [affected.name] with \the [tool].", \
 		"<span class='notice'>You have made a bloodless incision on [target]'s [affected.name] with \the [tool].</span>")
-	affected.open = 1
+	affected.open = ORGAN_OPEN_INCISION
 
 	if(istype(target) && !(target.species.flags & NO_BLOOD))
 		affected.status |= ORGAN_BLEEDING
@@ -76,7 +76,7 @@
 /datum/surgery_step/generic/incision_manager/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open == 0 && target_zone != BP_MOUTH
+		return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
 
 /datum/surgery_step/generic/incision_manager/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -96,7 +96,7 @@
 
 	target.apply_damage(1, BRUTE, target_zone, 0)
 	affected.clamp_organ()
-	affected.open = 2
+	affected.open = ORGAN_OPEN_RETRACTED
 
 /datum/surgery_step/generic/incision_manager/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -121,7 +121,7 @@
 	else
 		if(..())
 			var/obj/item/organ/external/affected = target.get_organ(target_zone)
-			return affected && affected.open == 0 && target_zone != BP_MOUTH
+			return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
 
 
 /datum/surgery_step/generic/cut_open/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -135,7 +135,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> has made an incision on [target]'s [affected.name] with \the [tool].", \
 		"<span class='notice'>You have made an incision on [target]'s [affected.name] with \the [tool].</span>",)
-	affected.open = 1
+	affected.open = ORGAN_OPEN_INCISION
 
 	if(istype(target) && !(target.species.flags & NO_BLOOD))
 		affected.status |= ORGAN_BLEEDING
@@ -164,7 +164,7 @@
 	else
 		if(..())
 			var/obj/item/organ/external/affected = target.get_organ(target_zone)
-			return affected && affected.open == 0 && target_zone != BP_MOUTH
+			return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
 
 /datum/surgery_step/generic/cut_open_vaurca/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -177,7 +177,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> has drilled into [target]'s [affected.name] carapace with \the [tool].", \
 						 "<span class='notice'>You have drilled into [target]'s [affected.name] carapace with \the [tool].</span>",)
-	affected.open = 1
+	affected.open = ORGAN_OPEN_INCISION
 
 	if(istype(target) && !(target.species.flags & NO_BLOOD))
 		affected.status |= ORGAN_BLEEDING
@@ -203,7 +203,7 @@
 /datum/surgery_step/generic/clamp_bleeders/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open && (affected.status & ORGAN_BLEEDING)
+		return affected && affected.open > ORGAN_CLOSED && (affected.status & ORGAN_BLEEDING)
 
 /datum/surgery_step/generic/clamp_bleeders/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -239,7 +239,7 @@
 /datum/surgery_step/generic/retract_skin/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open == 1
+		return affected && affected.open == ORGAN_OPEN_INCISION
 
 /datum/surgery_step/generic/retract_skin/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -266,7 +266,7 @@
 		msg = "<b>[user]</b> keeps the incision open on [target]'s lower abdomen with \the [tool]."
 		self_msg = "<span class='notice'>You keep the incision open on [target]'s lower abdomen with \the [tool].</span>"
 	user.visible_message(msg, self_msg)
-	affected.open = 2
+	affected.open = ORGAN_OPEN_RETRACTED
 
 /datum/surgery_step/generic/retract_skin/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -295,7 +295,7 @@
 /datum/surgery_step/generic/cauterize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(..())
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open && target_zone != BP_MOUTH
+		return affected && affected.open > ORGAN_CLOSED && target_zone != BP_MOUTH
 
 /datum/surgery_step/generic/cauterize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -308,7 +308,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> cauterizes the incision on [target]'s [affected.name] with \the [tool].", \
 		"<span class='notice'>You cauterize the incision on [target]'s [affected.name] with \the [tool].</span>")
-	affected.open = 0
+	affected.open = ORGAN_CLOSED
 	affected.germ_level = 0
 	affected.status &= ~ORGAN_BLEEDING
 
@@ -374,7 +374,7 @@
 	if(istype(tool, /obj/item/melee/energy))//Code for energy weapons cauterising the cut
 		spawn(1)
 			affected = parent
-			affected.open = 0//Close open wounds
+			affected.open = ORGAN_CLOSED//Close open wounds
 			for(var/datum/wound/lost_limb/W in affected.wounds)
 				W.disinfected = 1//Cleanse the wound of any germs
 				W.autoheal_cutoff = INFINITY//Allow the wound to auto-heal, regardless of damage

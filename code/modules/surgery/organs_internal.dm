@@ -10,11 +10,11 @@
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected.encased)
-		return affected && affected.open == (affected.encased ? 3 : 2)
+		return affected && IS_ORGAN_FULLY_OPEN
 	if(BP_IS_ROBOTIC(affected))
-		return affected.augment_limit && affected.open == 3
+		return affected.augment_limit && affected.open == ORGAN_ENCASED_RETRACTED
 	else
-		return affected.augment_limit && affected.open == 2
+		return affected.augment_limit && affected.open == ORGAN_OPEN_RETRACTED
 
 //////////////////////////////////////////////////////////////////
 //				CHEST INTERNAL ORGAN SURGERY					//

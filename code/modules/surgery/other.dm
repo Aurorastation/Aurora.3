@@ -24,7 +24,7 @@
 	if(!affected)
 		return
 
-	return affected.open >= 2 && (affected.status & ORGAN_ARTERY_CUT)
+	return affected.open >= ORGAN_OPEN_RETRACTED && (affected.status & ORGAN_ARTERY_CUT)
 
 /datum/surgery_step/fix_vein/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -79,7 +79,7 @@
 		to_chat(user, SPAN_WARNING("\The [organ] is too damaged. Repair it first."))
 		return 0
 
-	return organ && affected.open >= 2 && (organ.status & ORGAN_DEAD)
+	return organ && affected.open >= ORGAN_OPEN_RETRACTED && (organ.status & ORGAN_DEAD)
 
 /datum/surgery_step/fix_dead_tissue/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -141,7 +141,7 @@
 		return 0
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && affected.open == 3 && (affected.status & ORGAN_DEAD)
+	return affected && affected.open == ORGAN_ENCASED_RETRACTED && (affected.status & ORGAN_DEAD)
 
 /datum/surgery_step/treat_necrosis/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -193,7 +193,7 @@
 
 /datum/surgery_step/fix_tendon/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && (affected.status & ORGAN_TENDON_CUT) && affected.open >= 2
+	return affected && (affected.status & ORGAN_TENDON_CUT) && affected.open >= ORGAN_OPEN_RETRACTED
 
 /datum/surgery_step/fix_tendon/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

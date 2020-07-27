@@ -12,7 +12,7 @@
 		return 0
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && !(affected.status & ORGAN_ROBOT) && affected.encased && affected.open >= 2
+	return affected && !(affected.status & ORGAN_ROBOT) && affected.encased && affected.open >= ORGAN_OPEN_RETRACTED
 
 
 /datum/surgery_step/open_encased/saw
@@ -30,7 +30,7 @@
 	if(!ishuman(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return ..() && affected && affected.open == 2
+	return ..() && affected && affected.open == ORGAN_OPEN_RETRACTED
 
 /datum/surgery_step/open_encased/saw/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))
@@ -49,7 +49,7 @@
 
 	user.visible_message("<b>[user]</b> has cut [target]'s [affected.encased] open with \the [tool].",		\
 		"<span class='notice'>You have cut [target]'s [affected.encased] open with \the [tool].</span>")
-	affected.open = 2.5
+	affected.open = ORGAN_ENCASED_OPEN
 
 /datum/surgery_step/open_encased/saw/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))
@@ -76,7 +76,7 @@
 	if(!ishuman(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return ..() && affected && affected.open == 2.5
+	return ..() && affected && affected.open == ORGAN_ENCASED_OPEN
 
 /datum/surgery_step/open_encased/retract/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))
@@ -99,7 +99,7 @@
 	user.visible_message(msg, SPAN_NOTICE(self_msg))
 	..()
 
-	affected.open = 3
+	affected.open = ORGAN_ENCASED_RETRACTED
 
 /datum/surgery_step/open_encased/retract/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))
@@ -126,7 +126,7 @@
 	if(!ishuman(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return ..() && affected && affected.open == 3
+	return ..() && affected && affected.open == ORGAN_ENCASED_RETRACTED
 
 /datum/surgery_step/open_encased/close/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))
@@ -150,7 +150,7 @@
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 
-	affected.open = 2.5
+	affected.open = ORGAN_ENCASED_OPEN
 
 /datum/surgery_step/open_encased/close/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))
@@ -183,7 +183,7 @@
 	if(!ishuman(target))
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return ..() && affected && affected.open == 2.5
+	return ..() && affected && affected.open == ORGAN_ENCASED_OPEN
 
 /datum/surgery_step/open_encased/mend/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))
@@ -207,4 +207,4 @@
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()
 
-	affected.open = 2
+	affected.open = ORGAN_OPEN_RETRACTED
