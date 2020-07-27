@@ -44,7 +44,7 @@
 		"Your synthetic flesh crawls in the heat, swelling into a disgusting morass of plastic."
 		)
 
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR | HAS_FBP | HAS_UNDERWEAR | HAS_SOCKS | HAS_SKIN_PRESET | HAS_LIPS
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR | HAS_FBP | HAS_SKIN_PRESET | HAS_UNDERWEAR | HAS_SOCKS | HAS_LIPS
 
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/shell),
@@ -155,7 +155,7 @@
 		)
 
 	flags = IS_IPC | ACCEPTS_COOLER
-	appearance_flags = HAS_EYE_COLOR
+	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 
 	heat_level_1 = 800
 	heat_level_2 = 1600
@@ -231,7 +231,7 @@
 
 	flags = IS_IPC | ACCEPTS_COOLER
 	spawn_flags = IS_RESTRICTED
-	appearance_flags = HAS_HAIR_COLOR
+	appearance_flags = HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 	vision_flags = DEFAULT_SIGHT | SEE_MOBS
 
 	virus_immune = 1
@@ -422,7 +422,7 @@
 
 	slowdown = -1.2
 
-	appearance_flags = HAS_EYE_COLOR
+	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 
 	examine_color = "#ff00ff"
 
@@ -472,7 +472,7 @@
 	grab_mod = 1.1
 	resist_mod = 4
 
-	appearance_flags = HAS_EYE_COLOR
+	appearance_flags = HAS_EYE_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 
 	examine_color = "#00afea"
 
