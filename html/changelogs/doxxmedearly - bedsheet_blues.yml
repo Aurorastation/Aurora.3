@@ -1,6 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes: 
-  - bugfix: "Folding/unfolding and rolling/unrolling a bedsheet will no longer bring up a list of mobs in view. You can't force others to do it for you."
