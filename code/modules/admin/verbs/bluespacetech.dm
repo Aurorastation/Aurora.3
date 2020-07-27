@@ -377,7 +377,7 @@
 	name = "bluespace technician's headset"
 	desc = "A Bluespace Technician's headset. The letters 'BST' are stamped on the side."
 	translate_binary = 1
-	translate_hive = 1
+	translate_hivenet = 1
 	canremove = 0
 	keyslot1 = new /obj/item/device/encryptionkey/binary
 	keyslot2 = new /obj/item/device/encryptionkey/ert
@@ -395,7 +395,6 @@
 /obj/item/device/radio/headset/ert/bst/recalculateChannels(var/setDescription = 0)
 	..(setDescription)
 	translate_binary = 1
-	translate_hive = 1
 	translate_hivenet = 1
 
 //Clothes

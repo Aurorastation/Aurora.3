@@ -126,7 +126,7 @@ var/global/list/default_medbay_channels = list(
 		ui.set_initial_data(data)
 		ui.open()
 
-/obj/item/device/radio/proc/setupRadioDescription()
+/obj/item/device/radio/proc/setupRadioDescription(var/additional_radio_desc)
 	var/radio_text = ""
 	for(var/i = 1 to channels.len)
 		var/channel = channels[i]
@@ -136,6 +136,8 @@ var/global/list/default_medbay_channels = list(
 			radio_text += ", "
 
 	radio_desc = radio_text
+	if(additional_radio_desc)
+		radio_desc += additional_radio_desc
 
 /obj/item/device/radio/proc/list_channels(var/mob/user)
 	return list_internal_channels(user)
