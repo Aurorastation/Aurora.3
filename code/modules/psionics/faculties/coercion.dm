@@ -62,16 +62,16 @@
 	if (iscarbon(target))
 		var/mob/living/carbon/C = target
 		var/obj/item/organ/internal/augment/psi/psiaug = C.internal_organs_by_name[BP_AUG_PSI]
-		if(psiaug && !psiaug.is_broken())
+		if(!psiaug || psiaug.is_broken())
 			if(target.isSynthetic())
 				to_chat(user, SPAN_ALIEN("There is no mind here for you to dip your mentality into."))
 				return
-			else if (isvaurca(target))
+			if (isvaurca(target))
 				to_chat (user, SPAN_CULT("You feel your thoughts pass right through a mind empty of psychic energy, unable to get a grasp on anything."))
 				return
-		if (target.is_diona())
-			to_chat(user, SPAN_ALIEN("The creature's mind is incompatible, formless."))
-			return
+			if (target.is_diona())
+				to_chat(user, SPAN_ALIEN("The creature's mind is incompatible, formless."))
+				return
 
 		for (var/obj/item/implant/mindshield/I in target)
 			if (I.implanted)
@@ -266,16 +266,16 @@
 
 		var/mob/living/carbon/C = target
 		var/obj/item/organ/internal/augment/psi/psiaug = C.internal_organs_by_name[BP_AUG_PSI]
-		if(psiaug && !psiaug.is_broken())
+		if(!psiaug || psiaug.is_broken())
 			if(target.isSynthetic())
 				to_chat(user, SPAN_ALIEN("Your thoughts fail to reach any mind at all."))
 				return
 			if (isvaurca(target))
 				to_chat (user, SPAN_CULT("You feel your thoughts pass right through a mind empty of psychic energy."))
 				return
-		if (target.is_diona())
-			to_chat(user, SPAN_ALIEN("The creature's mind is incompatible, formless."))
-			return
+			if (target.is_diona())
+				to_chat(user, SPAN_ALIEN("The creature's mind is incompatible, formless."))
+				return
 
 		for (var/obj/item/implant/mindshield/I in target)
 			if (I.implanted)
