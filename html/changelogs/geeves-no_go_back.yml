@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - bugfix: "You can now properly cancel out of an Admin PM prompt by pressing cancel."
+  - bugfix: "You can now properly cancel out of an Admin PM prompt or a Command Report Creation by pressing cancel."
