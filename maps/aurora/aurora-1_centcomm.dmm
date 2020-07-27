@@ -27420,14 +27420,14 @@
 /obj/item/storage/pill_bottle/antitox{
 	pixel_x = 6
 	},
-/obj/item/storage/pill_bottle/tramadol{
+/obj/item/storage/pill_bottle/mortaphenyl{
 	pixel_y = -12
 	},
-/obj/item/storage/pill_bottle/tramadol{
+/obj/item/storage/pill_bottle/mortaphenyl{
 	pixel_x = -6;
 	pixel_y = -12
 	},
-/obj/item/storage/pill_bottle/tramadol{
+/obj/item/storage/pill_bottle/mortaphenyl{
 	pixel_x = 6;
 	pixel_y = -12
 	},

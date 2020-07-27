@@ -85,11 +85,11 @@
 	icon_state = "bottle-3"
 	reagents_to_add = list(/datum/reagent/soporific = 60)
 
-/obj/item/reagent_containers/glass/bottle/chloralhydrate
+/obj/item/reagent_containers/glass/bottle/polysomnine
 	name = "chloral hydrate bottle"
 	desc = "A small bottle of Choral Hydrate. Mickey's Favorite!"
 	icon_state = "bottle-3"
-	reagents_to_add = list(/datum/reagent/chloralhydrate = 30)
+	reagents_to_add = list(/datum/reagent/polysomnine = 30)
 
 /obj/item/reagent_containers/glass/bottle/antitoxin
 	name = "dylovene bottle"

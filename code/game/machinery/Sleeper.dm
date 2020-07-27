@@ -22,10 +22,11 @@
 	var/list/available_chemicals = list(
 		/datum/reagent/inaprovaline,
 		/datum/reagent/soporific,
-		/datum/reagent/paracetamol,
+		/datum/reagent/perconol,
 		/datum/reagent/dylovene,
 		/datum/reagent/dexalin
 		)
+    
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/filtering = 0
 	var/allow_occupant_types = list(/mob/living/carbon/human)

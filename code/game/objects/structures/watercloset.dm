@@ -325,7 +325,7 @@
 			M.clean_blood()
 
 		if (update_icons_required)
-			M.update_icons()
+			M.update_icon()
 	else
 		O.clean_blood()
 
