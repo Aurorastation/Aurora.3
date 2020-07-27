@@ -1,0 +1,6 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes: 
+  - bugfix: "Closing laptops will now close the UI windows of the active program running on it."
