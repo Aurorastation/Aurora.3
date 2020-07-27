@@ -581,7 +581,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	var/reportbody
 	var/reporter = null
 
-	var/reporttype = input(usr, "Choose whether to use a template or custom report.", "Create Command Report") as null|anything in list("Template", "Custom", "Cancel")
+	var/reporttype = input(usr, "Choose whether to use a template or custom report.", "Create Command Report") as null|anything in list("Template", "Custom")
 	if(!reporttype)
 		return
 	switch(reporttype)
@@ -617,8 +617,6 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			reportbody = sanitize(input(usr, "Please enter anything you want. Anything. Serious.", "Body", "") as message|null, extra = 0)
 			if(!reportbody)
 				return
-		else
-			return
 
 	if (reporttype == "Template")
 		reporter = sanitizeSafe(input(usr, "Please enter your CCIA name. (blank for CCIAAMS)", "Name") as text|null)
