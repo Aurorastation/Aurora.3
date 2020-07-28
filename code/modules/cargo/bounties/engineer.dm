@@ -135,7 +135,7 @@
 	reward_high = 5700
 	wanted_types = list(/obj/machinery/pipedispenser/disposal)
 
-	/datum/bounty/item/engineer/bookcase
+/datum/bounty/item/engineer/bookcase
 	name = "Bookcases"
 	description = "We're showing some love to one of the libraries on the %DOCKSHORT. A bonus will be paid to any station who has some skilled engineers build some for us."
 	reward_low = 6000
