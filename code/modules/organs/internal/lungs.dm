@@ -65,11 +65,17 @@
 			)
 			owner.losebreath = round(damage/2)
 
-	if(is_bruised() && rescued)
-		if(prob(4))
-			to_chat(owner, SPAN_WARNING("It feels hard to breathe..."))
-			if (owner.losebreath < 5)
-				owner.losebreath = min(owner.losebreath + 1, 5) // it's still not good, but it's much better than an untreated collapsed lung
+	if(rescued)
+		if(is_bruised())
+			if(prob(4))
+				to_chat(owner, SPAN_WARNING("It feels hard to breathe..."))
+				if (owner.losebreath < 5)
+					owner.losebreath = min(owner.losebreath + 1, 5) // it's still not good, but it's much better than an untreated collapsed lung
+		else
+			if(prob(2))
+				to_chat(owner, SPAN_WARNING("It feels hard to breathe, and something in your chest is whistling..."))
+				if (owner.losebreath < 2)
+					owner.losebreath = min(owner.losebreath + 1, 2)
 
 /obj/item/organ/internal/lungs/proc/rupture()
 	var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
@@ -328,6 +334,8 @@
 	. = list()
 	if(is_bruised())
 		. += "[pick("wheezing", "gurgling")] sounds"
+	if(rescued)
+		. += "a whistling sound"
 
 	var/list/breathtype = list()
 	if(get_oxygen_deprivation() > 50)
@@ -340,6 +348,10 @@
 	. += "[english_list(breathtype)] breathing"
 
 	return english_list(.)
+
+/obj/item/organ/internal/lungs/surgical_fix(mob/user)
+	..()
+	rescued = FALSE
 
 #undef HUMAN_MAX_OXYLOSS
 #undef HUMAN_CRIT_MAX_OXYLOSS

@@ -1,0 +1,10 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Having an uninjured but rescued (jabbed with a syringe to reinflate) lung will still suffocate you slowly, and give a unique message."
+  - rscadd: "Rescued lungs can now be diagnosed by stethoscopes and advanced bodyscanners."
+  - rscadd: "You can no longer rescue lungs through armor."
+  - rscadd: "Rescuing someone's lung without giving them painkillers first will be very painful for them."
+  - rscadd: "Added instructions on how to rescue lungs to the syringe extra info."
