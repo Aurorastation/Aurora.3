@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Hardsuits are now have no toggle time if you do it while inside a suit cycler."
+  - tweak: "Hardsuits no longer drop to the floor if you move while putting them on."
+  - rscadd: "Moving while inside a suit cycler now allows you to quickly exit it."
