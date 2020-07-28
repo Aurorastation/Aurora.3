@@ -319,9 +319,9 @@
 	pyjamas["red pyjamas"] = /obj/item/clothing/under/pj/red
 	gear_tweaks += new/datum/gear_tweak/path(pyjamas)
 
-/datum/gear/uniform/under/hanbok
+/datum/gear/uniform/under/konyang
 	display_name = "hanbok selection"
-	description = "A selection of traditional Korean outfits."
+	description = "A selection of formal Konyanger dresses."
 	path = /obj/item/clothing/under/hanbok
 
 /datum/gear/uniform/under/konyang/New()
