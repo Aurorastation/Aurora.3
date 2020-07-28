@@ -49,7 +49,7 @@
 		SPAN_WARNING("Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!"))
 	affected.take_damage(5, 0)
 
-/datum/surgery_step/fix_dead_tissue		//Debridement
+/datum/surgery_step/internal/fix_dead_tissue		//Debridement
 	priority = 3
 	allowed_tools = list(
 		/obj/item/surgery/scalpel = 100,
@@ -63,7 +63,7 @@
 	min_duration = 110
 	max_duration = 160
 
-/datum/surgery_step/fix_dead_tissue/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/datum/surgery_step/internal/fix_dead_tissue/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 
@@ -79,9 +79,9 @@
 		to_chat(user, SPAN_WARNING("\The [organ] is too damaged. Repair it first."))
 		return 0
 
-	return organ && affected.open >= ORGAN_OPEN_RETRACTED && (organ.status & ORGAN_DEAD)
+	return organ.status & ORGAN_DEAD
 
-/datum/surgery_step/fix_dead_tissue/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/datum/surgery_step/internal/fix_dead_tissue/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	var/obj/item/organ/internal/organ
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
@@ -93,7 +93,7 @@
 	target.custom_pain("The pain in your [affected.name] is unbearable!", 75)
 	..()
 
-/datum/surgery_step/fix_dead_tissue/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/datum/surgery_step/internal/fix_dead_tissue/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/list/obj/item/organ/internal/dead_organs = list()
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
@@ -104,7 +104,7 @@
 		SPAN_NOTICE("You have cut away necrotic tissue in [target]'s [organ_to_fix.name] with \the [tool]."))
 	organ_to_fix.status &= ~ORGAN_DEAD
 
-/datum/surgery_step/fix_dead_tissue/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+/datum/surgery_step/internal/fix_dead_tissue/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!"), \
 		SPAN_WARNING("Your hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!"))

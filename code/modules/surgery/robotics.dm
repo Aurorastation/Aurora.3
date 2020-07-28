@@ -18,7 +18,7 @@
 		return FALSE
 	if(affected.status & ORGAN_DESTROYED)
 		return FALSE
-	if(!(BP_IS_ROBOTIC(affected))
+	if(!(BP_IS_ROBOTIC(affected)))
 		return FALSE
 	return TRUE
 
