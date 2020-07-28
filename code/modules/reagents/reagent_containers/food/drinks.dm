@@ -112,17 +112,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 		to_chat(user, "<span class='notice'>\The [src] is almost full!</span>")
 	else
 		to_chat(user, "<span class='notice'>\The [src] is full!</span>")
-
-/obj/item/reagent_containers/food/verb/shift_to_top()
-	set src in oview(1)
-	set name = "Shift to top"
-	set category = "Object"
-
-	if(usr.stat)
-		return
-
-	layer = TURF_LAYER+1
-	to_chat(usr, "<span class='notice'>You move [src] to the top.</span>")
+	
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Drinks. END
