@@ -35,8 +35,8 @@
 
 /datum/surgery_step/fix_vein/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<span class='notice'>[user] has patched the damaged [affected.artery_name] in [target]'s [affected.name] with \the [tool].</span>", \
-		"<span class='notice'>You have patched the damaged [affected.artery_name] in [target]'s [affected.name] with \the [tool].</span>")
+	user.visible_message(SPAN_NOTICE("[user] has patched the damaged [affected.artery_name] in [target]'s [affected.name] with \the [tool]."), \
+		SPAN_NOTICE("You have patched the damaged [affected.artery_name] in [target]'s [affected.name] with \the [tool]."))
 
 	affected.status &= ~ORGAN_ARTERY_CUT
 	affected.update_damages()
@@ -45,8 +45,8 @@
 
 /datum/surgery_step/fix_vein/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<span class='warning'>[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.name]!</span>" , \
-		"<span class='warning'>Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!</span>")
+	user.visible_message(SPAN_WARNING("[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.name]!") , \
+		SPAN_WARNING("Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!"))
 	affected.take_damage(5, 0)
 
 /datum/surgery_step/fix_dead_tissue		//Debridement
@@ -100,14 +100,14 @@
 		if(I && !(I.status & ORGAN_CUT_AWAY) && (I.status & ORGAN_DEAD) && !BP_IS_ROBOTIC(I))
 			dead_organs |= I
 	var/obj/item/organ/internal/organ_to_fix = dead_organs[1]
-	user.visible_message("<span class='notice'>[user] has cut away necrotic tissue from [target]'s [organ_to_fix.name] with \the [tool].</span>", \
-		"<span class='notice'>You have cut away necrotic tissue in [target]'s [organ_to_fix.name] with \the [tool].</span>")
+	user.visible_message(SPAN_NOTICE("[user] has cut away necrotic tissue from [target]'s [organ_to_fix.name] with \the [tool]."), \
+		SPAN_NOTICE("You have cut away necrotic tissue in [target]'s [organ_to_fix.name] with \the [tool]."))
 	organ_to_fix.status &= ~ORGAN_DEAD
 
 /datum/surgery_step/fix_dead_tissue/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<span class='warning'>[user]'s hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!</span>", \
-		"<span class='warning'>Your hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!</span>")
+	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!"), \
+		SPAN_WARNING("Your hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!"))
 	affected.sever_artery()
 
 /datum/surgery_step/treat_necrosis
@@ -163,8 +163,8 @@
 			affected.status &= ~ORGAN_DEAD
 			affected.owner.update_body(1)
 
-		user.visible_message("<span class='notice'>[user] applies [trans] units of the solution to affected tissue in [target]'s [affected.name]</span>", \
-			"<span class='notice'>You apply [trans] units of the solution to affected tissue in [target]'s [affected.name] with \the [tool].</span>")
+		user.visible_message(SPAN_NOTICE("[user] applies [trans] units of the solution to affected tissue in [target]'s [affected.name]"), \
+			SPAN_NOTICE("You apply [trans] units of the solution to affected tissue in [target]'s [affected.name] with \the [tool]."))
 
 /datum/surgery_step/treat_necrosis/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -174,8 +174,8 @@
 	var/obj/item/reagent_containers/container = tool
 	var/trans = container.reagents.trans_to_mob(target, container.amount_per_transfer_from_this, CHEM_BLOOD)
 
-	user.visible_message("<span class='warning'>[user]'s hand slips, applying [trans] units of the solution to the wrong place in [target]'s [affected.name] with the [tool]!</span>" , \
-		"<span class='warning'>Your hand slips, applying [trans] units of the solution to the wrong place in [target]'s [affected.name] with the [tool]!</span>")
+	user.visible_message(SPAN_WARNING("[user]'s hand slips, applying [trans] units of the solution to the wrong place in [target]'s [affected.name] with the [tool]!") , \
+		SPAN_WARNING("Your hand slips, applying [trans] units of the solution to the wrong place in [target]'s [affected.name] with the [tool]!"))
 
 	//no damage or anything, just wastes medicine
 
@@ -204,15 +204,15 @@
 
 /datum/surgery_step/fix_tendon/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<span class='notice'>[user] has reattached the [affected.tendon_name] in [target]'s [affected.name] with \the [tool].</span>", \
-		"<span class='notice'>You have reattached the [affected.tendon_name] in [target]'s [affected.name] with \the [tool].</span>")
+	user.visible_message(SPAN_NOTICE("[user] has reattached the [affected.tendon_name] in [target]'s [affected.name] with \the [tool]."), \
+		SPAN_NOTICE("You have reattached the [affected.tendon_name] in [target]'s [affected.name] with \the [tool]."))
 	affected.status &= ~ORGAN_TENDON_CUT
 	affected.update_damages()
 
 /datum/surgery_step/fix_tendon/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("<span class='warning'>[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.name]!</span>" , \
-		"<span class='warning'>Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!</span>")
+	user.visible_message(SPAN_WARNING("[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.name]!") , \
+		SPAN_WARNING("Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!"))
 	target.apply_damage(15, PAIN)
 
 /datum/surgery_step/hardsuit
@@ -247,5 +247,5 @@
 	if(!istype(rig))
 		return
 	rig.reset()
-	user.visible_message("<span class='notice'>[user] has cut through the support systems of [target]'s [rig] with \the [tool].</span>", \
-		"<span class='notice'>You have cut through the support systems of [target]'s [rig] with \the [tool].</span>")
+	user.visible_message(SPAN_NOTICE("[user] has cut through the support systems of [target]'s [rig] with \the [tool]."), \
+		SPAN_NOTICE("You have cut through the support systems of [target]'s [rig] with \the [tool]."))
