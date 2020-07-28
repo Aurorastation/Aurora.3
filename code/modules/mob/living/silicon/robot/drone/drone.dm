@@ -155,7 +155,7 @@
 		C.max_damage = 10
 
 	verbs -= /mob/living/silicon/robot/verb/Namepick
-	updateicon()
+	update_icon()
 	density = FALSE
 
 /mob/living/silicon/robot/drone/init()
@@ -182,7 +182,7 @@
 /mob/living/silicon/robot/drone/setup_icon_cache()
   return
 
-/mob/living/silicon/robot/drone/updateicon()
+/mob/living/silicon/robot/drone/update_icon()
 	cut_overlays()
 	if(stat == CONSCIOUS && isturf(loc))
 		if(!emagged)
@@ -203,7 +203,7 @@
 		return
 	hat = new_hat
 	new_hat.forceMove(src)
-	updateicon()
+	update_icon()
 
 //Drones cannot be upgraded with borg modules so we need to catch some items before they get used in ..().
 /mob/living/silicon/robot/drone/attackby(var/obj/item/W, var/mob/user)
@@ -272,7 +272,7 @@
 	to_chat(src, "<b>Obey these laws:</b>")
 	laws.show_laws(src)
 	to_chat(src, SPAN_DANGER("ALERT: [user.real_name] is your new master. Obey your new laws and \his commands."))
-	updateicon()
+	update_icon()
 	return TRUE
 
 /mob/living/silicon/robot/drone/proc/ai_hack(var/mob/user)

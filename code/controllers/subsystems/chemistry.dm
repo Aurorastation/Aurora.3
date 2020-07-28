@@ -11,6 +11,9 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 	var/list/datum/reagent/chemical_reagents
 
 	var/tmp/list/processing_holders = list()
+	var/list/codex_data = list()
+	var/list/codex_ignored_reaction_path = list(/datum/chemical_reaction/slime)
+	var/list/codex_ignored_result_path = list(/datum/reagent/drink, /datum/reagent/alcohol, /datum/reagent/paint)
 
 /datum/controller/subsystem/chemistry/proc/has_valid_specific_heat(var/datum/reagent/R) //Used for unit tests. Same as check_specific_heat but returns a boolean instead.
 
@@ -82,6 +85,7 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 /datum/controller/subsystem/chemistry/Initialize()
 	initialize_chemical_reagents()
 	initialize_chemical_reactions()
+	initialize_codex_data()
 	var/pre_secret_len = chemical_reactions.len
 	log_ss("chemistry", "Found [chemical_reagents.len] reagents, [pre_secret_len] reactions.")
 	load_secret_chemicals()
@@ -186,3 +190,65 @@ var/datum/controller/subsystem/chemistry/SSchemistry
 			chemical_reactions[rtype] += D
 		if(D.type)
 			chemical_reactions_clean[D.type] = D
+
+// Creates data for chemical codex
+/datum/controller/subsystem/chemistry/proc/initialize_codex_data()
+	codex_data = list()
+	for(var/chem_path in chemical_reactions_clean)
+		if(codex_ignored_reaction_path && is_path_in_list(chem_path, codex_ignored_reaction_path))
+			continue
+		var/datum/chemical_reaction/CR = new chem_path
+		if(!CR.result)
+			continue
+		if(codex_ignored_result_path && is_path_in_list(CR.result, codex_ignored_result_path))
+			continue
+		var/datum/reagent/R = new CR.result
+		var/reactionData = list(id = CR.id)
+		reactionData["result"] = list(
+			name = R.name,
+			description = R.description,
+			amount = CR.result_amount
+		)
+		
+		reactionData["reagents"] = list()
+		for(var/reagent in CR.required_reagents)
+			var/datum/reagent/required_reagent = reagent
+			reactionData["reagents"] += list(list(
+				name = initial(required_reagent.name),
+				amount = CR.required_reagents[reagent]
+			))
+		
+		reactionData["catalysts"] = list()
+		for(var/reagent_path in CR.catalysts)
+			var/datum/reagent/required_reagent = reagent_path
+			reactionData["catalysts"] += list(list(
+				name = initial(required_reagent.name),
+				amount = CR.catalysts[reagent_path]
+			))
+
+		reactionData["inhibitors"] = list()
+		for(var/reagent_path in CR.inhibitors)
+			var/datum/reagent/required_reagent = reagent_path
+			var/inhibitor_amount = CR.inhibitors[reagent_path] ? CR.inhibitors[reagent_path] : "Any"
+			reactionData["inhibitors"] += list(list(
+				name = initial(required_reagent.name),
+				amount = inhibitor_amount
+			))
+
+		reactionData["temp_min"] = list()
+		for(var/reagent_path in CR.required_temperatures_min)
+			var/datum/reagent/required_reagent = reagent_path
+			reactionData["temp_min"] += list(list(
+				name = initial(required_reagent.name),
+				temp = CR.required_temperatures_min[reagent_path]
+			))
+		
+		reactionData["temp_max"] = list()
+		for(var/reagent_path in CR.required_temperatures_max)
+			var/datum/reagent/required_reagent = reagent_path
+			reactionData["temp_max"] += list(list(
+				name = initial(required_reagent.name),
+				temp = CR.required_temperatures_max[reagent_path]
+			))
+		
+		codex_data += list(reactionData)

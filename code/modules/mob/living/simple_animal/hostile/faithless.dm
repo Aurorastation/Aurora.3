@@ -42,8 +42,9 @@
 	return 1
 
 /mob/living/simple_animal/hostile/faithless/FindTarget()
+	var/my_target = target_mob
 	. = ..()
-	if(.)
+	if(. && (prob(30) || (. != my_target)))
 		audible_emote("wails at [.]")
 
 /mob/living/simple_animal/hostile/faithless/AttackingTarget()
@@ -52,7 +53,7 @@
 	if(istype(L))
 		if(prob(12))
 			L.Weaken(3)
-			L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
+			L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"))
 
 /mob/living/simple_animal/hostile/faithless/cult
 	faction = "cult"

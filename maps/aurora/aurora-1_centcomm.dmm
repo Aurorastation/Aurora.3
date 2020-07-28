@@ -9231,7 +9231,7 @@
 /obj/structure/table/reinforced,
 /obj/item/storage/box/autoinjectors,
 /obj/item/storage/box/beakers,
-/obj/item/storage/box/gloves,
+/obj/item/nitrilebox,
 /obj/item/storage/box/pillbottles,
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
@@ -12931,10 +12931,7 @@
 /area/centcom/holding)
 "aJB" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /turf/unsimulated/floor{
 	dir = 4;
@@ -13120,10 +13117,7 @@
 /area/centcom/holding)
 "aJX" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /obj/item/reagent_containers/spray/cleaner,
 /turf/unsimulated/floor{
@@ -24215,10 +24209,7 @@
 	pixel_y = 6
 	},
 /obj/item/storage/box/masks,
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/fire{
 	layer = 2.9;
@@ -28005,14 +27996,14 @@
 /obj/item/storage/pill_bottle/antitox{
 	pixel_x = 6
 	},
-/obj/item/storage/pill_bottle/tramadol{
+/obj/item/storage/pill_bottle/mortaphenyl{
 	pixel_y = -12
 	},
-/obj/item/storage/pill_bottle/tramadol{
+/obj/item/storage/pill_bottle/mortaphenyl{
 	pixel_x = -6;
 	pixel_y = -12
 	},
-/obj/item/storage/pill_bottle/tramadol{
+/obj/item/storage/pill_bottle/mortaphenyl{
 	pixel_x = 6;
 	pixel_y = -12
 	},
@@ -33541,10 +33532,7 @@
 /area/centcom/legion/hangar5)
 "utC" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /turf/unsimulated/floor{
 	icon_state = "whitegreen";
@@ -34611,10 +34599,7 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /obj/machinery/light{
 	dir = 4;

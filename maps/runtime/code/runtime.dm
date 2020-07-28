@@ -2,6 +2,8 @@
 	name = "Runtime Station"
 	full_name = "Runtime Debugging Station"
 	path = "runtime"
+	lobby_icons = list('icons/misc/titlescreens/aurora/humans.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi')
+	lobby_transitions = 10 SECONDS
 
 	station_levels = list(1, 2, 3)
 	admin_levels = list()

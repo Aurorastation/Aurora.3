@@ -147,7 +147,7 @@
 /datum/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed)
 
 	if(alien != IS_DIONA)
-		M.intoxication += (strength / 100) * removed * 3.15
+		M.intoxication += (strength / 100) * removed * 3.5
 
 		if (druggy != 0)
 			M.druggy = max(M.druggy, druggy)

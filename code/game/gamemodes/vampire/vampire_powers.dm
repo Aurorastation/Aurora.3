@@ -832,7 +832,7 @@
 	vampire.use_blood(50)
 
 	T.reagents.add_reagent(/datum/reagent/rezadone, 3)
-	T.reagents.add_reagent(/datum/reagent/oxycodone, 0.15) //enough to get back onto their feet
+	T.reagents.add_reagent(/datum/reagent/oxycomorphine, 0.15) //enough to get back onto their feet
 
 // Convert a human into a vampire.
 /mob/living/carbon/human/proc/vampire_embrace()
