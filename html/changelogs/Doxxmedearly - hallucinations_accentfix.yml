@@ -1,7 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes: 
-  - bugfix: "Hallucinated sentences now have accent tags and have had their formatting cleaned up."
-  - bugfix: "Hallucinations now display emotes correctly."
