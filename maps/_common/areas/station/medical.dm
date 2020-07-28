@@ -132,6 +132,9 @@
 		'sound/ambience/ambimaint5.ogg'
 	)
 
+/area/medical/abandoned/virology_lab
+	name = "Abandoned Virology Lab"
+
 /area/medical/morgue
 	name = "Medical - Long-term Morgue"
 	icon_state = "morgue"
