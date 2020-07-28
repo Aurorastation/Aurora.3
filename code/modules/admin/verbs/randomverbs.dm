@@ -580,7 +580,6 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	var/reporttitle
 	var/reportbody
 	var/reporter = null
-
 	var/reporttype = input(usr, "Choose whether to use a template or custom report.", "Create Command Report") as null|anything in list("Template", "Custom")
 	if(!reporttype)
 		return
