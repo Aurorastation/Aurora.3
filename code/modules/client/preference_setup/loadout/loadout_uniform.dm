@@ -322,7 +322,7 @@
 /datum/gear/uniform/under/konyang
 	display_name = "hanbok selection"
 	description = "A selection of formal Konyanger dresses."
-	path = /obj/item/clothing/under/hanbok
+	path = /obj/item/clothing/under/konyang
 
 /datum/gear/uniform/under/konyang/New()
 	..()
