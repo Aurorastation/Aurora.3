@@ -8,8 +8,8 @@
 	blood_level = 1
 
 /datum/surgery_step/open_encased/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
-		return 0
+	if(!..())
+		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected && !(affected.status & ORGAN_ROBOT) && affected.encased && affected.open >= ORGAN_OPEN_RETRACTED
@@ -27,8 +27,8 @@
 	max_duration = 70
 
 /datum/surgery_step/open_encased/saw/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
-		return
+	if(!..())
+		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return ..() && affected && affected.open == ORGAN_OPEN_RETRACTED
 
@@ -73,8 +73,8 @@
 	max_duration = 40
 
 /datum/surgery_step/open_encased/retract/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
-		return
+	if(!..())
+		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return ..() && affected && affected.open == ORGAN_ENCASED_OPEN
 
@@ -123,8 +123,8 @@
 	max_duration = 40
 
 /datum/surgery_step/open_encased/close/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
-		return
+	if(!..())
+		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return ..() && affected && affected.open == ORGAN_ENCASED_RETRACTED
 
@@ -180,10 +180,10 @@
 	max_duration = 40
 
 /datum/surgery_step/open_encased/mend/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
-		return
+	if(!..())
+		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return ..() && affected && affected.open == ORGAN_ENCASED_OPEN
+	return affected && affected.open == ORGAN_ENCASED_OPEN
 
 /datum/surgery_step/open_encased/mend/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))

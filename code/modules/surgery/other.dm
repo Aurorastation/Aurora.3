@@ -17,8 +17,8 @@
 	max_duration = 90
 
 /datum/surgery_step/fix_vein/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
-		return 0
+	if(!..())
+		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(!affected)
@@ -64,8 +64,8 @@
 	max_duration = 160
 
 /datum/surgery_step/fix_dead_tissue/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
-		return 0
+	if(!..())
+		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	var/obj/item/organ/internal/organ
@@ -127,14 +127,14 @@
 	max_duration = 60
 
 /datum/surgery_step/treat_necrosis/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
 	if(!istype(tool, /obj/item/reagent_containers))
 		return 0
 
 	var/obj/item/reagent_containers/container = tool
 	if(!container.reagents.has_reagent(/datum/reagent/peridaxon))
-		return 0
-
-	if(!ishuman(target))
 		return 0
 
 	if (target_zone == BP_MOUTH)
@@ -192,6 +192,9 @@
 	max_duration = 90
 
 /datum/surgery_step/fix_tendon/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected && (affected.status & ORGAN_TENDON_CUT) && affected.open >= ORGAN_OPEN_RETRACTED
 
@@ -229,6 +232,9 @@
 	max_duration = 180
 
 /datum/surgery_step/hardsuit/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
 	if(!istype(target))
 		return 0
 	if(tool.iswelder())

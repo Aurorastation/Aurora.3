@@ -5,8 +5,8 @@
 	blood_level = 1
 
 /datum/surgery_step/internal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
-		return 0
+	if(!..())
+		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected.encased)
@@ -29,21 +29,19 @@
 	max_duration = 90
 
 /datum/surgery_step/internal/fix_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
-		return
+	if(!..())
+		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(!affected)
-		return
 	var/is_organ_damaged = 0
 	for(var/obj/item/organ/I in affected.internal_organs)
 		if(I.damage > 0)
 			is_organ_damaged = 1
 			break
-	return ..() && is_organ_damaged
+	return is_organ_damaged
 
 /datum/surgery_step/internal/fix_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
-		return
+	if(!..())
+		return FALSE
 
 	var/tool_name = "\the [tool]"
 	if(istype(tool, /obj/item/stack/medical/advanced/bruise_pack))
@@ -114,7 +112,7 @@
 
 /datum/surgery_step/internal/detach_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
-		return 0
+		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
@@ -135,7 +133,7 @@
 
 	target.op_stage.current_organ = organ_to_remove
 
-	return ..() && organ_to_remove
+	return organ_to_remove
 
 /datum/surgery_step/internal/detach_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -176,7 +174,7 @@
 
 /datum/surgery_step/internal/remove_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
-		return 0
+		return FALSE
 
 	target.op_stage.current_organ = null
 
@@ -233,12 +231,11 @@
 	max_duration = 80
 
 /datum/surgery_step/internal/replace_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
 	var/obj/item/organ/O = tool
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-
-	if(!affected)
-		return
-
 	var/organ_compatible
 	var/organ_missing
 
@@ -298,7 +295,7 @@
 		to_chat(user, SPAN_WARNING("You're pretty sure [target.species.name_plural] don't normally have [o_a][O.organ_tag]."))
 		return SURGERY_FAILURE
 
-	return ..() && organ_missing && organ_compatible
+	return organ_missing && organ_compatible
 
 /datum/surgery_step/internal/replace_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -338,7 +335,7 @@
 
 /datum/surgery_step/internal/attach_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
-		return 0
+		return FALSE
 
 	target.op_stage.current_organ = null
 
@@ -353,7 +350,7 @@
 		return 0
 
 	target.op_stage.current_organ = organ_to_replace
-	return ..()
+	return TRUE
 
 /datum/surgery_step/internal/attach_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] begins reattaching [target]'s [target.op_stage.current_organ] with \the [tool].", \
@@ -391,18 +388,18 @@
 
 /datum/surgery_step/internal/lobotomize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
-		return 0
+		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
-	if(!affected || !istype(sponge) || !(sponge in affected.internal_organs))
+	if(!istype(sponge) || !(sponge in affected.internal_organs))
 		return 0
 
 	if(!sponge.can_lobotomize || sponge.lobotomized)
 		return 0
 
 	target.op_stage.current_organ = sponge
-	return ..()
+	return TRUE
 
 /datum/surgery_step/internal/lobotomize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/internal/brain/B = target.op_stage.current_organ

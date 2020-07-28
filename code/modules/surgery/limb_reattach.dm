@@ -8,8 +8,8 @@
 	can_infect = 0
 
 /datum/surgery_step/limb/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
-		return 0
+	if(!..())
+		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected)
 		return 0
@@ -60,6 +60,9 @@
 	max_duration = 120
 
 /datum/surgery_step/limb/connect/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
 	var/obj/item/organ/external/E = target.get_organ(target_zone)
 	return E && !E.is_stump() && (E.status & ORGAN_DESTROYED)
 
@@ -93,12 +96,13 @@
 	max_duration = 100
 
 /datum/surgery_step/limb/mechanize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(..())
-		var/obj/item/robot_parts/p = tool
-		if(p.part)
-			if(!(target_zone in p.part))
-				return 0
-		return isnull(target.get_organ(target_zone))
+	if(!..())
+		return FALSE
+	var/obj/item/robot_parts/p = tool
+	if(p.part)
+		if(!(target_zone in p.part))
+			return 0
+	return isnull(target.get_organ(target_zone))
 
 /datum/surgery_step/limb/mechanize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> starts attaching \the [tool] to [target].", \

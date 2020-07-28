@@ -11,8 +11,8 @@
 		return 0
 	if(target_zone == BP_EYES)	//there are specific steps for eye surgery
 		return 0
-	if(!ishuman(target))
-		return 0
+	if(!..())
+		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected == null)
 		return 0
@@ -33,9 +33,10 @@
 	max_duration = 110
 
 /datum/surgery_step/generic/cut_with_laser/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(..())
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
 
 /datum/surgery_step/generic/cut_with_laser/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -74,9 +75,10 @@
 	max_duration = 120
 
 /datum/surgery_step/generic/incision_manager/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(..())
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
 
 /datum/surgery_step/generic/incision_manager/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -116,13 +118,13 @@
 	max_duration = 110
 
 /datum/surgery_step/generic/cut_open/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
 	if(isvaurca(target))
 		return 0
 	else
-		if(..())
-			var/obj/item/organ/external/affected = target.get_organ(target_zone)
-			return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
-
+		var/obj/item/organ/external/affected = target.get_organ(target_zone)
+		return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
 
 /datum/surgery_step/generic/cut_open/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -159,12 +161,13 @@
 	max_duration = 130
 
 /datum/surgery_step/generic/cut_open_vaurca/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
 	if(!(isvaurca(target)))
 		return 0
 	else
-		if(..())
-			var/obj/item/organ/external/affected = target.get_organ(target_zone)
-			return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
+		var/obj/item/organ/external/affected = target.get_organ(target_zone)
+		return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
 
 /datum/surgery_step/generic/cut_open_vaurca/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -201,9 +204,11 @@
 	max_duration = 60
 
 /datum/surgery_step/generic/clamp_bleeders/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(..())
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open > ORGAN_CLOSED && (affected.status & ORGAN_BLEEDING)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected && affected.open > ORGAN_CLOSED && (affected.status & ORGAN_BLEEDING)
 
 /datum/surgery_step/generic/clamp_bleeders/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -237,9 +242,11 @@
 	max_duration = 40
 
 /datum/surgery_step/generic/retract_skin/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(..())
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open == ORGAN_OPEN_INCISION
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected && affected.open == ORGAN_OPEN_INCISION
 
 /datum/surgery_step/generic/retract_skin/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -293,9 +300,11 @@
 	max_duration = 100
 
 /datum/surgery_step/generic/cauterize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(..())
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open > ORGAN_CLOSED && target_zone != BP_MOUTH
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected && affected.open > ORGAN_CLOSED && target_zone != BP_MOUTH
 
 /datum/surgery_step/generic/cauterize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -330,9 +339,10 @@
 	max_duration = 160
 
 /datum/surgery_step/generic/amputate/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
 	if(target_zone == BP_EYES)	//there are specific steps for eye surgery
-		return 0
-	if(!ishuman(target))
 		return 0
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected == null)

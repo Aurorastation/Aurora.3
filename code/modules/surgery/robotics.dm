@@ -7,20 +7,20 @@
 	can_infect = 0
 
 /datum/surgery_step/robotics/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
 	if(isslime(target))
-		return 0
+		return FALSE
 	if(target_zone == BP_EYES)	//there are specific steps for eye surgery
-		return 0
-	if(!ishuman(target))
-		return 0
+		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(affected == null)
-		return 0
+	if(isnull(affected))
+		return FALSE
 	if(affected.status & ORGAN_DESTROYED)
-		return 0
-	if(!(affected.status & ORGAN_ROBOT))
-		return 0
-	return 1
+		return FALSE
+	if(!(BP_IS_ROBOTIC(affected))
+		return FALSE
+	return TRUE
 
 /datum/surgery_step/robotics/unscrew_hatch
 	allowed_tools = list(
@@ -33,9 +33,11 @@
 	max_duration = 110
 
 /datum/surgery_step/robotics/unscrew_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(..())
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
 
 /datum/surgery_step/robotics/unscrew_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -65,9 +67,11 @@
 	max_duration = 40
 
 /datum/surgery_step/robotics/open_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(..())
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open == ORGAN_OPEN_INCISION
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected && affected.open == ORGAN_OPEN_INCISION
 
 /datum/surgery_step/robotics/open_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -97,9 +101,11 @@
 	max_duration = 100
 
 /datum/surgery_step/robotics/close_hatch/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(..())
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.open > ORGAN_CLOSED && target_zone != BP_MOUTH
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected && affected.open > ORGAN_CLOSED && target_zone != BP_MOUTH
 
 /datum/surgery_step/robotics/close_hatch/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -129,13 +135,15 @@
 	max_duration = 60
 
 /datum/surgery_step/robotics/repair_brute/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(..())
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		if(tool.iswelder())
-			var/obj/item/weldingtool/welder = tool
-			if(!welder.isOn() || !welder.remove_fuel(2,user))
-				return 0
-		return affected && affected.open == ORGAN_ENCASED_RETRACTED && affected.brute_dam > 0 && target_zone != BP_MOUTH
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(tool.iswelder())
+		var/obj/item/weldingtool/welder = tool
+		if(!welder.isOn() || !welder.remove_fuel(2,user))
+			return 0
+	return affected && affected.open == ORGAN_ENCASED_RETRACTED && affected.brute_dam > 0 && target_zone != BP_MOUTH
 
 /datum/surgery_step/robotics/repair_brute/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -164,18 +172,20 @@
 	max_duration = 60
 
 /datum/surgery_step/robotics/repair_burn/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(..())
-		var/obj/item/stack/cable_coil/C = tool
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && affected.burn_dam > 0 && target_zone != BP_MOUTH)
-		if(limb_can_operate)
-			if(istype(C))
-				if(!C.get_amount() >= 6)
-					to_chat(user, SPAN_DANGER("You need six or more cable pieces to repair this damage."))
-					return SURGERY_FAILURE
-				C.use(3)
-			return 1
-		return 0
+	if(!..())
+		return FALSE
+
+	var/obj/item/stack/cable_coil/C = tool
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/limb_can_operate = (affected && affected.open == ORGAN_ENCASED_RETRACTED && affected.burn_dam > 0 && target_zone != BP_MOUTH)
+	if(limb_can_operate)
+		if(istype(C))
+			if(!C.get_amount() >= 6)
+				to_chat(user, SPAN_DANGER("You need six or more cable pieces to repair this damage."))
+				return SURGERY_FAILURE
+			C.use(3)
+		return 1
+	return 0
 
 /datum/surgery_step/robotics/repair_burn/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -206,11 +216,10 @@
 	max_duration = 90
 
 /datum/surgery_step/robotics/fix_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
-		return
+	if(!..())
+		return FALSE
+
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(!affected)
-		return
 	var/is_organ_damaged = 0
 	for(var/obj/item/organ/I in affected.internal_organs)
 		if(I.damage > 0 && I.robotic >= 2)
@@ -275,9 +284,10 @@
 	max_duration = 110
 
 /datum/surgery_step/robotics/detach_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(!(affected && (affected.status & ORGAN_ROBOT)))
-		return 0
 	if(affected.open != ORGAN_ENCASED_RETRACTED)
 		return 0
 
@@ -295,7 +305,7 @@
 
 	target.op_stage.current_organ = organ_to_remove
 
-	return ..() && organ_to_remove
+	return organ_to_remove
 
 /datum/surgery_step/robotics/detach_organ_robotic/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> starts to decouple [target]'s [target.op_stage.current_organ] with \the [tool].", \
@@ -323,9 +333,10 @@
 	max_duration = 120
 
 /datum/surgery_step/robotics/attach_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(!(affected && (affected.status & ORGAN_ROBOT)))
-		return 0
 	if(affected.open != ORGAN_ENCASED_RETRACTED)
 		return 0
 
@@ -342,7 +353,7 @@
 		return 0
 
 	target.op_stage.current_organ = organ_to_replace
-	return ..()
+	return TRUE
 
 /datum/surgery_step/robotics/attach_organ_robotic/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("<b>[user]</b> begins reattaching [target]'s [target.op_stage.current_organ] with \the [tool].", \
@@ -370,6 +381,9 @@
 	max_duration = 80
 
 /datum/surgery_step/robotics/install_mmi/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
 	if(target_zone != BP_HEAD)
 		return
 

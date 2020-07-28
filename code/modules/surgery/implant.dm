@@ -8,8 +8,8 @@
 	priority = 1
 
 /datum/surgery_step/cavity/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
-		return 0
+	if(!..())
+		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected && IS_ORGAN_FULLY_OPEN && !(affected.status & ORGAN_BLEEDING)
 
@@ -50,9 +50,10 @@
 	max_duration = 80
 
 /datum/surgery_step/cavity/make_space/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(..())
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && !affected.cavity
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected && !affected.cavity
 
 /datum/surgery_step/cavity/make_space/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -81,9 +82,10 @@
 	max_duration = 80
 
 /datum/surgery_step/cavity/close_space/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(..())
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		return affected && affected.cavity
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	return affected && affected.cavity
 
 /datum/surgery_step/cavity/close_space/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -106,17 +108,18 @@
 	max_duration = 100
 
 /datum/surgery_step/cavity/place_item/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(..())
-		var/obj/item/organ/external/affected = target.get_organ(target_zone)
-		if(istype(user,/mob/living/silicon/robot))
-			return
-		if(affected && affected.cavity)
-			var/total_volume = tool.w_class
-			for(var/obj/item/I in affected.implants)
-				if(istype(I,/obj/item/implant))
-					continue
-				total_volume += I.w_class
-			return total_volume <= get_max_wclass(affected)
+	if(!..())
+		return FALSE
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	if(istype(user,/mob/living/silicon/robot))
+		return
+	if(affected && affected.cavity)
+		var/total_volume = tool.w_class
+		for(var/obj/item/I in affected.implants)
+			if(istype(I,/obj/item/implant))
+				continue
+			total_volume += I.w_class
+		return total_volume <= get_max_wclass(affected)
 
 /datum/surgery_step/cavity/place_item/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -159,8 +162,11 @@
 	max_duration = 100
 
 /datum/surgery_step/cavity/implant_removal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return ..() && affected
+	return affected
 
 /datum/surgery_step/cavity/implant_removal/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

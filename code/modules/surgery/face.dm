@@ -8,8 +8,8 @@
 	can_infect = 0
 
 /datum/surgery_step/face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
-		return 0
+	if(!..())
+		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(!affected || (affected.status & ORGAN_ROBOT))
 		return 0
@@ -51,7 +51,7 @@
 	can_infect = 0
 
 /datum/surgery_step/robotics/face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	return target_zone == BP_MOUTH
+	return ..() && target_zone == BP_MOUTH
 
 /datum/surgery_step/robotics/face/synthskin
 	allowed_tools = list(
