@@ -126,4 +126,3 @@
 			/obj/item/ammo_magazine/mc10mm = 3,
 			/obj/item/ammo_magazine/flechette = 2
 	)
-
