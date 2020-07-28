@@ -324,9 +324,9 @@
 	description = "A selection of traditional Korean outfits."
 	path = /obj/item/clothing/under/hanbok
 
-/datum/gear/uniform/under/hanbok/New()
+/datum/gear/uniform/under/konyang/New()
 	..()
 	var/hanbok = list()
-	hanbok["magenta-blue hanbok"] = /obj/item/clothing/under/hanbok
-	hanbok["white-pink hanbok"] = /obj/item/clothing/under/hanbok/pink
+	hanbok["magenta-blue hanbok"] = /obj/item/clothing/under/konyang
+	hanbok["white-pink hanbok"] = /obj/item/clothing/under/konyang/pink
 	gear_tweaks += new/datum/gear_tweak/path(hanbok)
