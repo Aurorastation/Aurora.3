@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Placing an item on a table now adjusts its layer. Items further north on the table will have a lower layer, items further south will have a higher one. This will assist in decorating tables."
