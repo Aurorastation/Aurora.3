@@ -1,4 +1,4 @@
-/datum/outfit/admin/hephaestus_trooper
+/datum/outfit/admin/megacorp/hephaestus_trooper
 	name = "Hephaestus Asset Protection"
 
 	uniform = /obj/item/clothing/under/rank/hephaestus/tech
@@ -27,7 +27,7 @@
 			/obj/item/grenade/flashbang = 2
 	)
 
-/datum/outfit/admin/hephaestus_trooper/heavy
+/datum/outfit/admin/megacorp/hephaestus_trooper/heavy
 	name = "Hephaestus Heavy Asset Protection"
 
 	back = /obj/item/gun/projectile/shotgun/pump/combat
@@ -40,7 +40,7 @@
 			/obj/item/ammo_casing/shotgun/pellet = 8
 	)
 
-/datum/outfit/admin/zenghu_trooper
+/datum/outfit/admin/megacorp/zenghu_trooper
 	name = "Zeng Hu Pharmaceuticals Asset Protection"
 
 	uniform = /obj/item/clothing/under/rank/zeng/civilian
@@ -69,15 +69,15 @@
 			/obj/item/grenade/flashbang = 2
 	)
 
-/datum/outfit/admin/zenghu_trooper/heavy
-	name = "Zeng Hu Pharmaceuticals Asset Protection"
+/datum/outfit/admin/megacorp/zenghu_trooper/heavy
+	name = "Zeng Hu Pharmaceuticals Heavy Asset Protection"
 
 	gloves = /obj/item/clothing/gloves/force
 	glasses = /obj/item/clothing/glasses/thermal
 
 	accessory_contents = list(/obj/item/gun/energy/decloner = 1)
 
-/datum/outfit/admin/zavodskoi_trooper
+/datum/outfit/admin/megacorp/zavodskoi_trooper
 	name = "Zavodskoi Interstellar Asset Protection"
 
 	uniform = /obj/item/clothing/under/rank/zavodskoi
@@ -112,7 +112,7 @@
 			/obj/item/ammo_magazine/mc9mm = 3
 	)
 
-/datum/outfit/admin/zavodskoi_trooper/heavy
+/datum/outfit/admin/megacorp/zavodskoi_trooper/heavy
 	name = "Zavodskoi Interstellar Heavy Asset Protection"
 
 	gloves = /obj/item/clothing/gloves/force
