@@ -1767,10 +1767,7 @@
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/emergency,
 /obj/item/storage/box/samplebags,
-/obj/item/storage/box/gloves{
-	pixel_x = -5;
-	pixel_y = 5
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/lights/mixed{
 	pixel_x = 5;
 	pixel_y = -2
@@ -15062,10 +15059,7 @@
 	},
 /obj/structure/table/standard,
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/item/storage/box/gloves{
-	pixel_x = 8;
-	pixel_y = 8
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /turf/simulated/floor/tiled,
 /area/medical/abandoned)
