@@ -80,6 +80,8 @@
 
 	var/cyborg_maptext_override
 	var/displays_maptext = FALSE
+	var/can_ammo_display = TRUE
+	var/obj/item/ammo_display
 	maptext_x = 22
 	maptext_y = 2
 
@@ -732,12 +734,18 @@
 
 	return ..()
 
+/obj/item/gun/throw_at()
+	..()
+	update_maptext()
+
+/obj/item/gun/on_give()
+	update_maptext()
+
 /obj/item/gun/dropped(mob/living/user)
 	..()
 	queue_icon_update()
 	//Unwields the item when dropped, deletes the offhand
-	if(displays_maptext)
-		maptext = ""
+	update_maptext()
 	if(is_wieldable)
 		if(user)
 			var/obj/item/offhand/O = user.get_inactive_hand()
@@ -748,7 +756,7 @@
 /obj/item/gun/pickup(mob/user)
 	..()
 	queue_icon_update()
-	update_maptext()
+	addtimer(CALLBACK(src, .proc/update_maptext), 1)
 	if(is_wieldable)
 		unwield()
 
@@ -820,7 +828,6 @@
 	return
 
 /obj/item/gun/attackby(var/obj/item/I, var/mob/user)
-
 	if(istype(I, /obj/item/material/knife/bayonet))
 		if(!can_bayonet)
 			return ..()
@@ -833,12 +840,40 @@
 		bayonet = I
 		to_chat(user, SPAN_NOTICE("You attach \the [I] to the front of \the [src]."))
 		update_icon()
+		return
+
+	if(istype(I, /obj/item/ammo_display))
+		if(!can_ammo_display)
+			to_chat(user, SPAN_WARNING("\The [I] cannot attach to \the [src]."))
+			return
+		if(ammo_display)
+			to_chat(user, SPAN_WARNING("\The [src] already has a holographic ammo display."))
+			return
+		if(displays_maptext)
+			to_chat(user, SPAN_WARNING("\The [src] is already displaying its ammo count."))
+			return
+		user.drop_from_inventory(I, src)
+		ammo_display = I
+		displays_maptext = TRUE
+		to_chat(user, SPAN_NOTICE("You attach \the [I] to \the [src]."))
+		return
 
 	if(I.iscrowbar() && bayonet)
 		to_chat(user, SPAN_NOTICE("You detach \the [bayonet] from \the [src]."))
 		bayonet.forceMove(get_turf(src))
+		user.put_in_hands(bayonet)
 		bayonet = null
 		update_icon()
+		return
+
+	if(I.iswrench() && ammo_display)
+		to_chat(user, SPAN_NOTICE("You wrench the ammo display loose from \the [src]."))
+		ammo_display.forceMove(get_turf(src))
+		user.put_in_hands(ammo_display)
+		ammo_display = null
+		displays_maptext = FALSE
+		maptext = ""
+		return
 
 	if(pin && I.isscrewdriver())
 		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"))
@@ -846,6 +881,7 @@
 			if(pin.durable || prob(50))
 				visible_message(SPAN_NOTICE("\The [user] pops \the [pin] out of \the [src]!"))
 				pin.forceMove(get_turf(src))
+				user.put_in_hands(pin)
 				pin = null//clear it out.
 			else
 				user.visible_message(
@@ -854,6 +890,7 @@
 				"You hear a metallic crack.")
 				qdel(pin)
 				pin = null
+		return
 	return ..()
 
 /obj/item/gun/proc/get_ammo()
@@ -865,6 +902,9 @@
 
 /obj/item/gun/proc/update_maptext()
 	if(displays_maptext)
+		if(!ismob(loc) && !ismob(loc.loc))
+			maptext = ""
+			return
 		if(get_ammo() > 9)
 			maptext_x = 18
 		else

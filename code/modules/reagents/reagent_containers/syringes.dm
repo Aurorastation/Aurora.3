@@ -391,12 +391,12 @@
 /// Syringes. END
 ////////////////////////////////////////////////////////////////////////////////
 
-/obj/item/reagent_containers/syringe/norepinephrine
-	name = "Syringe (norepinephrine)"
-	desc = "Contains norepinephrine - used to stabilize patients."
-	reagents_to_add = list(/datum/reagent/norepinephrine = 15)
+/obj/item/reagent_containers/syringe/inaprovaline
+	name = "Syringe (inaprovaline)"
+	desc = "Contains inaprovaline - used to stabilize patients."
+	reagents_to_add = list(/datum/reagent/inaprovaline = 15)
 
-/obj/item/reagent_containers/syringe/norepinephrine/Initialize()
+/obj/item/reagent_containers/syringe/inaprovaline/Initialize()
 	. = ..()
 	mode = SYRINGE_INJECT
 	update_icon()
@@ -431,19 +431,19 @@
 	mode = SYRINGE_INJECT
 	update_icon()
 
-/obj/item/reagent_containers/syringe/calomel
-	name = "Syringe (calomel)"
+/obj/item/reagent_containers/syringe/fluvectionem
+	name = "Syringe (fluvectionem)"
 	desc = "Contains purging medicine."
-	reagents_to_add = list(/datum/reagent/calomel = 15)
+	reagents_to_add = list(/datum/reagent/fluvectionem = 15)
 
-/obj/item/reagent_containers/syringe/calomel/Initialize()
+/obj/item/reagent_containers/syringe/fluvectionem/Initialize()
 	. = ..()
 	mode = SYRINGE_INJECT
 	update_icon()
 
 
 /obj/item/reagent_containers/syringe/ld50_syringe/chloral
-	reagents_to_add = list(/datum/reagent/chloralhydrate = 60)
+	reagents_to_add = list(/datum/reagent/polysomnine = 60)
 
 /obj/item/reagent_containers/syringe/ld50_syringe/chloral/Initialize()
 	. = ..()

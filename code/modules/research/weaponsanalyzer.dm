@@ -1,5 +1,6 @@
 /obj/machinery/weapons_analyzer
 	name = "weapons analyzer"
+	desc = "A research device which can be used to put together modular energy weapons, or to gain knowledge about the effectiveness of various objects as weaponry."
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "weapon_analyzer"
 	density = TRUE

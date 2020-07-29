@@ -99,6 +99,11 @@
 	name = "box (E)"
 	starts_with = list(/obj/item/implanter = 1, /obj/item/implant/explosive = 1)
 
+/obj/item/storage/box/syndie_kit/imp_deadman
+	name = "box (D)"
+	starts_with = list(/obj/item/implanter = 1, /obj/item/implant/explosive/deadman = 1)
+
+
 /obj/item/storage/box/syndie_kit/imp_uplink
 	name = "boxed uplink implant (with injector)"
 	starts_with = list(/obj/item/implanter/uplink = 1)
@@ -219,11 +224,11 @@
 
 /obj/item/storage/box/syndie_kit/stimulants
 	name = "box of stimulants"
-	desc = "Comes with a combat inhaler, a large cartridge of hyperzine, a large cartridge of norepinephrine, and a large empty cartridge."
+	desc = "Comes with a combat inhaler, a large cartridge of hyperzine, a large cartridge of inaprovaline, and a large empty cartridge."
 	starts_with = list(
 		/obj/item/personal_inhaler/combat = 1,
 		/obj/item/reagent_containers/personal_inhaler_cartridge/large/hyperzine = 1,
-		/obj/item/reagent_containers/personal_inhaler_cartridge/large/norepinephrine = 1,
+		/obj/item/reagent_containers/personal_inhaler_cartridge/large/inaprovaline = 1,
 		/obj/item/reagent_containers/personal_inhaler_cartridge/large = 1,
 	)
 

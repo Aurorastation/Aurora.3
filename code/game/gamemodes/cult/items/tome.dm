@@ -111,6 +111,7 @@
 			R.blood_DNA = list()
 			R.blood_DNA[scribe.dna.unique_enzymes] = scribe.dna.b_type
 			R.color = scribe.species.blood_color
+			R.filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = scribe.species.blood_color)
 	else
 		to_chat(user, SPAN_CULT("The book seems full of illegible scribbles."))
 

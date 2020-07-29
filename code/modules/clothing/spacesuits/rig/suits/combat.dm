@@ -209,3 +209,27 @@
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/fabricator/energy_net
 		)
+
+/obj/item/rig/jinxiang
+	name = "jinxiang-pattern combat suit control module"
+	desc = "An off-shoot of the core Bunker Suit design, utilized by the Imperial Dominian military and painted accordingly. This is a powerful suit specializing in melee confrontations."
+	icon_state = "jinxiang"
+	suit_type = "jinxiang combat suit"
+	armor = list(melee = 80, bullet = 40, laser = 30, energy = 20, bomb = 15, bio = 100, rad = 25)
+	offline_vision_restriction = TINT_HEAVY
+	offline_slowdown = 10
+
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
+
+	species_restricted = list("Human")
+
+	max_heat_protection_temperature = ARMOR_MAX_HEAT_PROTECTION_TEMPERATURE
+
+	glove_type = /obj/item/clothing/gloves/powerfist
+
+/obj/item/rig/jinxiang/equipped
+	initial_modules = list(
+		/obj/item/rig_module/actuators/combat
+		)

@@ -4254,7 +4254,7 @@
 	pixel_x = -4;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/glass/bottle/norepinephrine{
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
 	pixel_x = 4;
 	pixel_y = 7
 	},
@@ -6355,9 +6355,9 @@
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
@@ -6372,9 +6372,9 @@
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
@@ -6389,7 +6389,7 @@
 /obj/structure/table/reinforced,
 /obj/item/storage/box/autoinjectors,
 /obj/item/storage/box/beakers,
-/obj/item/storage/box/gloves,
+/obj/item/nitrilebox,
 /obj/item/storage/box/pillbottles,
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
@@ -13279,10 +13279,7 @@
 /area/centcom/control)
 "aRM" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /turf/unsimulated/floor{
 	dir = 4;
@@ -16010,10 +16007,7 @@
 /area/centcom/spawning)
 "aYd" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /obj/item/reagent_containers/spray/cleaner,
 /turf/unsimulated/floor{
@@ -17031,9 +17025,9 @@
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
@@ -18454,9 +18448,9 @@
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
@@ -19212,7 +19206,7 @@
 /obj/structure/table/reinforced,
 /obj/item/storage/box/autoinjectors,
 /obj/item/storage/box/beakers,
-/obj/item/storage/box/gloves,
+/obj/item/nitrilebox,
 /obj/item/storage/box/pillbottles,
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,

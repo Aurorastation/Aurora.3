@@ -155,7 +155,7 @@
 		C.max_damage = 10
 
 	verbs -= /mob/living/silicon/robot/verb/Namepick
-	updateicon()
+	update_icon()
 	density = FALSE
 
 /mob/living/silicon/robot/drone/init()
@@ -179,9 +179,12 @@
 	real_name = "maintenance drone ([rand(100,999)])"
 	name = real_name
 
-/mob/living/silicon/robot/drone/updateicon()
+/mob/living/silicon/robot/drone/setup_icon_cache()
+  return
+
+/mob/living/silicon/robot/drone/update_icon()
 	cut_overlays()
-	if(stat == CONSCIOUS)
+	if(stat == CONSCIOUS && isturf(loc))
 		if(!emagged)
 			add_overlay("eyes-[icon_state]")
 		else
@@ -200,7 +203,7 @@
 		return
 	hat = new_hat
 	new_hat.forceMove(src)
-	updateicon()
+	update_icon()
 
 //Drones cannot be upgraded with borg modules so we need to catch some items before they get used in ..().
 /mob/living/silicon/robot/drone/attackby(var/obj/item/W, var/mob/user)
@@ -269,7 +272,7 @@
 	to_chat(src, "<b>Obey these laws:</b>")
 	laws.show_laws(src)
 	to_chat(src, SPAN_DANGER("ALERT: [user.real_name] is your new master. Obey your new laws and \his commands."))
-	updateicon()
+	update_icon()
 	return TRUE
 
 /mob/living/silicon/robot/drone/proc/ai_hack(var/mob/user)
@@ -425,6 +428,17 @@
 	else
 		msg += "Their eye glows green."
 	to_chat(user, msg)
+
+/mob/living/silicon/robot/drone/self_diagnosis()
+	if(!is_component_functioning("diagnosis unit"))
+		return null
+
+	var/datum/robot_component/diagnosis_unit/C = components["diagnosis unit"]
+
+	var/dat = "<HEAD><TITLE>[src.name] Self-Diagnosis Report</TITLE></HEAD><BODY>\n"
+	dat += "<b>Self-Diagnosis System Report</b><br><table><tr><td>Brute Damage:</td><td>[bruteloss]</td></tr><tr><td>Electronics Damage:</td><td>[fireloss]</td></tr><tr><td>Powered:</td><td>[(!C.idle_usage || C.is_powered()) ? "Yes" : "No"]</td></tr><tr><td>Toggled:</td><td>[ C.toggled ? "Yes" : "No"]</td></table>"
+
+	return dat
 
 /mob/living/silicon/robot/drone/construction/welcome_drone()
 	to_chat(src, SPAN_NOTICE("<b>You are a construction drone, an autonomous engineering and fabrication system.</b>."))

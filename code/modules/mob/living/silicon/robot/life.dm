@@ -301,7 +301,7 @@
 		module_state_2:screen_loc = ui_inv2
 	if(module_state_3)
 		module_state_3:screen_loc = ui_inv3
-	updateicon()
+	update_icon()
 
 /mob/living/silicon/robot/proc/process_killswitch()
 	if(killswitch)

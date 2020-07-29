@@ -151,6 +151,7 @@
 	center_of_mass = list("x" = 16,"y" = 12)
 	max_space = 30
 	max_reagents = 120
+	unacidable = TRUE
 
 /obj/item/reagent_containers/cooking_container/fryer
 	name = "fryer basket"
