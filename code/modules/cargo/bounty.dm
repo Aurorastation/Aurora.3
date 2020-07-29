@@ -166,6 +166,7 @@
 
 // Called lazily at startup to populate bounties_list with random bounties.
 /datum/controller/subsystem/cargo/proc/setupBounties()
+
 	for(var/i = 0; i < BOUNTY_NUM_HIGH; i++)
 		CHECK_TICK
 		var/datum/bounty/subtype = pick(subtypesof(/datum/bounty/item/assistant))
@@ -209,12 +210,15 @@
 	var/datum/bounty/r_subtype = pick(subtypesof(/datum/bounty/reagent))
 	try_add_bounty(new r_subtype)
 
-	var/datum/bounty/B = pick(bounties_list)
-	B.mark_high_priority()
+	//phoron arc bounties. remove when arc is done.
+	var/datum/bounty/item/phoron_bounty = pick(/datum/bounty/item/phoron_sheet, /datum/bounty/item/phoron_canister)
+	try_add_bounty(new phoron_bounty)
+
+	//uncomment the below two lines when phoron scarcity arc is done
+	//var/datum/bounty/B = pick(bounties_list)
+	//B.mark_high_priority()
 
 	// Generate these last so they can't be high priority.
-	//try_add_bounty(new /datum/bounty/item/alien_organs)
-	//try_add_bounty(new /datum/bounty/item/syndicate_documents)
 	try_add_bounty(new /datum/bounty/more_bounties)
 
 /datum/controller/subsystem/cargo/proc/completed_bounty_count()
