@@ -19364,10 +19364,6 @@
 /area/rnd/research)
 "aHQ" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -2;
-	pixel_y = 5
-	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aHR" = (
@@ -23731,7 +23727,6 @@
 "aPn" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/standard,
-/obj/machinery/microwave,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aPo" = (
@@ -34504,10 +34499,6 @@
 "bhV" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -2;
-	pixel_y = 5
-	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bhW" = (
@@ -50328,9 +50319,6 @@
 "bOY" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/machinery/microwave{
-	pixel_y = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bOZ" = (
@@ -56600,9 +56588,6 @@
 /area/quartermaster/break_room)
 "cdJ" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_y = 6
-	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled,
 /area/quartermaster/break_room)
@@ -59848,11 +59833,7 @@
 /area/maintenance/medbay)
 "dZd" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/machinery/microwave{
-	pixel_x = -2;
-	pixel_y = 4
-	},
+/obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "eco" = (
@@ -60243,7 +60224,7 @@
 "fdq" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/glass/beaker/bowl,
+/obj/item/reagent_containers/cooking_container/plate/bowl,
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = 2;
 	pixel_y = 12
@@ -62046,13 +62027,6 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
 	dir = 1
-	},
-/obj/machinery/microwave{
-	broken = 2;
-	desc = "It's practically falling apart.";
-	icon_state = "mwb";
-	name = "Shoddy Microwave";
-	pixel_y = 2
 	},
 /obj/machinery/door/blast/shutters{
 	dir = 4;
@@ -66481,7 +66455,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/flour,
 /obj/structure/table,
-/obj/item/reagent_containers/glass/beaker/bowl,
+/obj/item/reagent_containers/cooking_container/plate/bowl,
 /obj/machinery/light_construct{
 	dir = 8
 	},
