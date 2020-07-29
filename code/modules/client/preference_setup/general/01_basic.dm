@@ -168,7 +168,10 @@
 			alert(user, "You can no longer edit the name of your character.<br><br>If there is a legitimate need, please contact an administrator regarding the matter.")
 			return TOPIC_NOACTION
 
+		var/current_character = pref.current_character
 		var/raw_name = input(user, "Choose your character's name:", "Character Name")  as text|null
+		if(current_character != pref.current_character) //Without this, you can switch slots while the input menu is up to change your character's name past the grace period
+			return
 		if (!isnull(raw_name) && CanUseTopic(user))
 			var/new_name = sanitize_name(raw_name, pref.species)
 			if(new_name)
