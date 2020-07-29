@@ -214,7 +214,7 @@ TRANSFER_TIMEOUT 72000
 #NO_DEAD_VOTE
 
 ## Uncomment to allow gamemodes to be voted for back-to-back
-#VOTE_ALLOW_LAST_GAMEMODE
+VOTE_ALLOW_LAST_GAMEMODE
 
 ## players' votes default to "No vote" (otherwise,  default to "No change")
 DEFAULT_NO_VOTE
