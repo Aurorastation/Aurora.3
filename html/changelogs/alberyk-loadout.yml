@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added megacorp outfits to the admin option in the set human outfit command."
