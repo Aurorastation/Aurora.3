@@ -64,7 +64,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(hazard)
 
 /datum/gear/suit/hoodie
-	display_name = "hoodie (selection)"
+	display_name = "hoodie selection"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -198,7 +198,7 @@
 /datum/gear/suit/winter/iac
 	display_name = "winter coat, IAC"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/iac
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Emergency Medical Technician", "Medical Resident", "Psychiatrist", "Pharmacist")	
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Emergency Medical Technician", "Medical Resident", "Psychiatrist", "Pharmacist")
 
 /datum/gear/suit/winter/engineering
 	display_name = "winter coat, engineering"

@@ -319,7 +319,7 @@
 	gear_tweaks += new/datum/gear_tweak/path(pyjamas)
 
 /datum/gear/uniform/miscellaneous/hanbok
-	display_name = "hanbok"
+	display_name = "hanbok selection"
 	description = "A selection of Koynanger formalwear."
 	path = /obj/item/clothing/under/konyang
 

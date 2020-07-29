@@ -10,7 +10,6 @@
 /obj/item/clothing/under/konyang/pink
 	name = "pink hanbok"
 	desc = "A traditional Konyang hanbok. This one is pink and white."
-	desc_fluff = "An ancient form of dress carried over from Earth by the initial Konyang colonists; the hanbok has since become a symbol of Konyang and its most iconic formalwear."
 	icon_state = "hanbok_pink"
 	worn_state = "hanbok_pink"
 	item_state = "hanbok_pink"
