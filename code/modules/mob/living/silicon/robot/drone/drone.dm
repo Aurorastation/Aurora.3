@@ -301,13 +301,16 @@
 
 //DRONE LIFE/DEATH
 /mob/living/silicon/robot/drone/process_level_restrictions()
+	//Abort if they should not get blown
+	if(lock_charge || scrambled_codes || emagged)
+		return FALSE
 	var/turf/T = get_turf(src)
 	var/area/A = get_area(T)
 	if((!T || !(A in the_station_areas)) && src.stat != DEAD)
-		to_chat(src, SPAN_WARNING("WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated."))
-		gib()
-		return
-	return
+		if(!self_destructing)
+			to_chat(src, SPAN_WARNING("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
+			start_self_destruct(TRUE)
+		return TRUE
 
 //For some goddamn reason robots have this hardcoded. Redefining it for our fragile friends here.
 /mob/living/silicon/robot/drone/updatehealth()
@@ -457,13 +460,16 @@
 /mob/living/silicon/robot/drone/construction/process_level_restrictions()
 	//Abort if they should not get blown
 	if(lock_charge || scrambled_codes || emagged)
-		return
-	//Check if they are not on station level -> abort
+		return FALSE
+	//Check if they are not on a station level -> else abort
 	var/turf/T = get_turf(src)
-	if(!T || isNotStationLevel(T.z))
-		return
-	to_chat(src, SPAN_WARNING("WARNING: Lost contact with controller. Anti-Theft mode activated."))
-	gib()
+	if (!T || isStationLevel(T.z))
+		return FALSE
+	
+	if(!self_destructing)
+		to_chat(src, SPAN_DANGER("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))		
+		start_self_destruct(TRUE)
+	return TRUE
 
 /proc/too_many_active_drones()
 	var/drones = 0
