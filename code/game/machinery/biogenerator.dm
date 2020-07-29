@@ -310,6 +310,22 @@
 			amount = list(1,2,3,5,7),
 			emag = FALSE
 		),
+		"adv_trauma_kit" = list(
+			name = "Advanced Trauma Kit",
+			class = "!@#$%^&*()",
+			object = /obj/item/stack/medical/advanced/bruise_pack,
+			cost = 600,
+			amount = list(1,2,3,4,5),
+			emag = TRUE
+		),
+		"adv_burn_kit" = list(
+			name = "Advanced Burn Kit",
+			class = "!@#$%^&*()",
+			object = /obj/item/stack/medical/advanced/ointment,
+			cost = 600,
+			amount = list(1,2,3,4,5),
+			emag = TRUE
+		),
 		// Antag Items (Emag)
 		"humanhide" = list(
 			name = "Human Hide",
