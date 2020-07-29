@@ -120,9 +120,9 @@
 
 	accessory_contents = list(/obj/item/gun/projectile/tanto = 1)
 
-	suit_store = /obj/item/gun/projectile/automatic/terminator
+	suit_store = /obj/item/gun/projectile/automatic/rifle/sol
 
 	backpack_contents = list(
 			/obj/item/ammo_magazine/mc10mm = 3,
-			/obj/item/ammo_magazine/flechette = 2
+			/obj/item/ammo_magazine/c762/sol = 2
 	)
