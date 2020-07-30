@@ -40,6 +40,7 @@
 	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /decl/surgery_step/cavity/make_space
+	name = "Hollow out cavity"
 	allowed_tools = list(
 	/obj/item/surgery/surgicaldrill = 100,	\
 	/obj/item/pen = 75,	\
@@ -70,6 +71,7 @@
 		SPAN_NOTICE("You make some space inside [target]'s [get_cavity(affected)] cavity with \the [tool].") )
 
 /decl/surgery_step/cavity/close_space
+	name = "Close cavity"
 	priority = 2
 	allowed_tools = list(
 	/obj/item/surgery/cautery = 100,			\
@@ -101,6 +103,7 @@
 		SPAN_NOTICE("You mend [target]'s [get_cavity(affected)] cavity walls with \the [tool].") )
 
 /decl/surgery_step/cavity/place_item
+	name = "Place item in cavity"
 	priority = 0
 	allowed_tools = list(/obj/item = 100)
 
@@ -152,6 +155,7 @@
 //////////////////////////////////////////////////////////////////
 
 /decl/surgery_step/cavity/implant_removal
+	name = "Remove foreign body"
 	allowed_tools = list(
 	/obj/item/surgery/hemostat = 100,	\
 	/obj/item/wirecutters = 75,	\

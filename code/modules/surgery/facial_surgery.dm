@@ -5,6 +5,7 @@
 //////////////////////////////////////////////////////////////////
 
 /decl/surgery_step/face
+	name = "Retract facial incisions"
 	priority = 2
 	can_infect = 0
 
@@ -47,6 +48,7 @@
 
 
 /decl/surgery_step/generic/alter_face
+	name = "Alter face"
 	allowed_tools = list(
 	/obj/item/surgery/hemostat = 100, 	\
 	/obj/item/stack/cable_coil = 75, 	\
@@ -92,6 +94,7 @@
 
 
 /decl/surgery_step/face/cauterize
+	name = "Cauterize face"
 	allowed_tools = list(
 	/obj/item/surgery/cautery = 100,			\
 	/obj/item/clothing/mask/smokable/cigarette = 75,	\
@@ -135,6 +138,7 @@
 	return ..() && target_zone == BP_MOUTH
 
 /decl/surgery_step/robotics/face/synthskinopen
+	name = "Retract facial incisions"
 	allowed_tools = list(
 	/obj/item/surgery/scalpel = 100,
 	/obj/item/material/knife = 75,
@@ -163,6 +167,7 @@
 	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /decl/surgery_step/robotics/face/prepare_face
+	name = "Prepare face"
 	allowed_tools = list(
 	/obj/item/surgery/retractor = 100,
 	/obj/item/material/knife/tacknife = 75
@@ -190,6 +195,7 @@
 	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /decl/surgery_step/robotics/face/alter_synthface
+	name = "Alter face"
 	allowed_tools = list(
 	/obj/item/device/multitool = 100, 	\
 	/obj/item/stack/cable_coil = 75, 	\
@@ -233,6 +239,7 @@
 	target.apply_damage(40, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /decl/surgery_step/robotics/face/seal_face
+	name = "Seal face"
 	allowed_tools = list(
 	/obj/item/surgery/cautery = 100,			\
 	/obj/item/clothing/mask/smokable/cigarette = 75,	\

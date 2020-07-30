@@ -1,6 +1,7 @@
 /* SURGERY STEPS */
 
 /decl/surgery_step
+	var/name
 	var/priority = 0	//steps with higher priority would be attempted first
 
 	// type path referencing tools that can be used for this step, and how well are they suited for it

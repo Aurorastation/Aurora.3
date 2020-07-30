@@ -23,6 +23,7 @@
 	return 1
 
 /decl/surgery_step/generic/cut_with_laser
+	name = "Make laser incision"
 	allowed_tools = list(
 	/obj/item/surgery/scalpel/laser3 = 95, \
 	/obj/item/surgery/scalpel/laser2 = 85, \
@@ -67,6 +68,7 @@
 	target.apply_damage(12.5, BURN, target_zone, 0, tool)
 
 /decl/surgery_step/generic/incision_manager
+	name = "Make managed incision"
 	allowed_tools = list(
 	/obj/item/surgery/scalpel/manager = 100
 	)
@@ -108,6 +110,7 @@
 	target.apply_damage(15, BURN, target_zone, 0, tool)
 
 /decl/surgery_step/generic/cut_open
+	name = "Make incision"
 	allowed_tools = list(
 	/obj/item/surgery/scalpel = 100,
 	/obj/item/material/knife = 75,
@@ -152,6 +155,7 @@
 	target.apply_damage(10, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /decl/surgery_step/generic/cut_open_vaurca
+	name = "Cut open vacura"
 	allowed_tools = list(
 	/obj/item/surgery/surgicaldrill = 85,
 	/obj/item/pickaxe/ = 15
@@ -194,6 +198,7 @@
 	target.apply_damage(15, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /decl/surgery_step/generic/clamp_bleeders
+	name = "Clamp bleeders"
 	allowed_tools = list(
 	/obj/item/surgery/hemostat = 100,	\
 	/obj/item/stack/cable_coil = 75, 	\
@@ -232,6 +237,7 @@
 	affected.sever_artery()
 
 /decl/surgery_step/generic/retract_skin
+	name = "Widen incision"
 	allowed_tools = list(
 	/obj/item/surgery/retractor = 100, 	\
 	/obj/item/crowbar = 75,	\
@@ -289,6 +295,7 @@
 	target.apply_damage(12, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 
 /decl/surgery_step/generic/cauterize
+	name = "Cauterize incision"
 	allowed_tools = list(
 	/obj/item/surgery/cautery = 100,
 	/obj/item/clothing/mask/smokable/cigarette = 25,
@@ -328,6 +335,7 @@
 	target.apply_damage(5, BURN, affected, tool)
 
 /decl/surgery_step/generic/amputate
+	name = "Amputate limb"
 	allowed_tools = list(
 	/obj/item/surgery/circular_saw = 100,
 	/obj/item/melee/energy = 100,

@@ -3,6 +3,7 @@
 //				GENERIC	RIBCAGE SURGERY							//
 //////////////////////////////////////////////////////////////////
 /decl/surgery_step/open_encased
+	name = "Saw through bone"
 	priority = 2
 	can_infect = 1
 	blood_level = 1
@@ -64,6 +65,7 @@
 
 
 /decl/surgery_step/open_encased/retract
+	name = "Retract bone"
 	allowed_tools = list(
 	/obj/item/surgery/retractor = 100, 	\
 	/obj/item/crowbar = 75

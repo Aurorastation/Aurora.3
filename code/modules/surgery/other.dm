@@ -5,6 +5,7 @@
 
 
 /decl/surgery_step/fix_vein
+	name = "Repair arterial bleeding"
 	priority = 3
 	allowed_tools = list(
 	/obj/item/surgery/FixOVein = 100, \
@@ -50,6 +51,7 @@
 	affected.take_damage(5, 0)
 
 /decl/surgery_step/internal/fix_dead_tissue		//Debridement
+	name = "Debride damaged tissue"
 	priority = 3
 	allowed_tools = list(
 		/obj/item/surgery/scalpel = 100,
@@ -111,6 +113,7 @@
 	affected.sever_artery()
 
 /decl/surgery_step/treat_necrosis
+	name = "Treat necrosis"
 	priority = 2
 	allowed_tools = list(
 		/obj/item/reagent_containers/dropper = 100,
@@ -180,6 +183,7 @@
 	//no damage or anything, just wastes medicine
 
 /decl/surgery_step/fix_tendon
+	name = "Repair tendons"
 	priority = 2
 	allowed_tools = list(
 		/obj/item/surgery/FixOVein = 100, \
@@ -219,6 +223,7 @@
 	target.apply_damage(15, PAIN)
 
 /decl/surgery_step/hardsuit
+	name = "Remove hardsuit"
 	allowed_tools = list(
 		/obj/item/weldingtool = 80,
 		/obj/item/surgery/circular_saw = 60,

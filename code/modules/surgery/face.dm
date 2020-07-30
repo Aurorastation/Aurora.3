@@ -4,6 +4,7 @@
 //////////////////////////////////////////////////////////////////
 
 /decl/surgery_step/face
+	name = "Make facial incisions"
 	priority = 2
 	can_infect = 0
 
@@ -47,6 +48,7 @@
 
 
 /decl/surgery_step/robotics/face
+	name = "Make facial incisions"
 	priority = 2
 	can_infect = 0
 

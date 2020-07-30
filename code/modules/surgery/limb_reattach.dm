@@ -22,6 +22,7 @@
 	return !isnull(organ_data)
 
 /decl/surgery_step/limb/attach
+	name = "Replace limb"
 	allowed_tools = list(/obj/item/organ/external = 100)
 
 	min_duration = 50
@@ -49,6 +50,7 @@
 	target.apply_damage(10, BRUTE, null, damage_flags = DAM_EDGE)
 
 /decl/surgery_step/limb/connect
+	name = "Connect limb"
 	allowed_tools = list(
 	/obj/item/surgery/hemostat = 100,	\
 	/obj/item/stack/cable_coil = 75, 	\
@@ -90,6 +92,7 @@
 	target.apply_damage(10, BRUTE, null, damage_flags = DAM_SHARP)
 
 /decl/surgery_step/limb/mechanize
+	name = "Attach prosthetic limb"
 	allowed_tools = list(/obj/item/robot_parts = 100)
 
 	min_duration = 80

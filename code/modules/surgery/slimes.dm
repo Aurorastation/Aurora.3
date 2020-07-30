@@ -11,6 +11,7 @@
 	return target.stat == 2
 
 /decl/surgery_step/slime/cut_flesh
+	name = "Open Slime"
 	allowed_tools = list(
 	/obj/item/surgery/scalpel = 100,
 	/obj/item/material/knife = 75,
@@ -37,6 +38,7 @@
 		SPAN_WARNING("Your hand slips, tearing [target]'s flesh with \the [tool]!"))
 
 /decl/surgery_step/slime/cut_innards
+	name = "Cut Innards"
 	allowed_tools = list(
 	/obj/item/surgery/scalpel = 100,
 	/obj/item/material/knife = 75,
@@ -63,6 +65,7 @@
 		SPAN_WARNING("Your hand slips, tearing [target]'s innards with \the [tool]!"))
 
 /decl/surgery_step/slime/saw_core
+	name = "Detach core"
 	allowed_tools = list(
 	/obj/item/surgery/circular_saw = 100, \
 	/obj/item/material/hatchet = 75

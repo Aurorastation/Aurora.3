@@ -23,6 +23,7 @@
 	return TRUE
 
 /decl/surgery_step/robotics/unscrew_hatch
+	name = "Unscrew hatch"
 	allowed_tools = list(
 		/obj/item/screwdriver = 100,
 		/obj/item/coin = 50,
@@ -57,6 +58,7 @@
 		SPAN_WARNING("Your [tool] slips, failing to unscrew [target]'s [affected.name]."))
 
 /decl/surgery_step/robotics/open_hatch
+	name = "Open hatch"
 	allowed_tools = list(
 		/obj/item/surgery/retractor = 100,
 		/obj/item/crowbar = 100,
@@ -91,6 +93,7 @@
 		SPAN_WARNING("Your [tool] slips, failing to open the hatch on [target]'s [affected.name]."))
 
 /decl/surgery_step/robotics/close_hatch
+	name = "Close hatch"
 	allowed_tools = list(
 		/obj/item/surgery/retractor = 100,
 		/obj/item/crowbar = 100,
@@ -126,6 +129,7 @@
 		SPAN_WARNING("Your [tool.name] slips, failing to close the hatch on [target]'s [affected.name]."))
 
 /decl/surgery_step/robotics/repair_brute
+	name = "Repair damage"
 	allowed_tools = list(
 		/obj/item/weldingtool = 100,
 		/obj/item/gun/energy/plasmacutter = 50
@@ -164,6 +168,7 @@
 	target.apply_damage(rand(5,10), BURN, affected)
 
 /decl/surgery_step/robotics/repair_burn
+	name = "Repair burns"
 	allowed_tools = list(
 		/obj/item/stack/cable_coil = 100
 	)
@@ -206,6 +211,7 @@
 	target.apply_damage(rand(5,10), BURN, affected)
 
 /decl/surgery_step/robotics/fix_organ_robotic //For artificial organs
+	name = "Repair robotic organ"
 	allowed_tools = list(
 	/obj/item/stack/nanopaste = 100,
 	/obj/item/surgery/bonegel = 30,
@@ -276,6 +282,7 @@
 			I.take_damage(rand(3,5),0)
 
 /decl/surgery_step/robotics/detach_organ_robotic
+	name = "Detach robotic organ"
 	allowed_tools = list(
 	/obj/item/device/multitool = 100
 	)
@@ -325,6 +332,7 @@
 	SPAN_WARNING("Your hand slips, disconnecting \the [tool]."))
 
 /decl/surgery_step/robotics/attach_organ_robotic
+	name = "Attach robotic organ"
 	allowed_tools = list(
 		/obj/item/screwdriver = 100
 	)
@@ -373,6 +381,7 @@
 		SPAN_WARNING("Your hand slips, disconnecting \the [tool]."))
 
 /decl/surgery_step/robotics/install_mmi
+	name = "Install MMI"
 	allowed_tools = list(
 	/obj/item/device/mmi = 100
 	)
