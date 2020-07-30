@@ -605,8 +605,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Player Panel"
 	set category = "Admin"
 	if(holder)
-		if(!global_player_panel)
-			global_player_panel = new()
+		var/static/datum/vueui_module/player_panel/global_player_panel = new()
 		global_player_panel.ui_interact(usr)
 	feedback_add_details("admin_verb","PPM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
