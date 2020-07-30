@@ -951,6 +951,13 @@ var/list/gamemode_cache = list()
 				if ("profiler_timeout_threshold")
 					profiler_timeout_threshold = text2num(value)
 
+				if ("forumuser_api_url")
+					forumuser_api_url = value
+				if ("use_forumuser_api")
+					use_forumuser_api = TRUE
+				if ("forumuser_api_key")
+					global.forumuser_api_key = value
+
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
 

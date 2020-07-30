@@ -55,6 +55,7 @@ var/list/forum_groupids_to_ranks = list()
 
 /proc/load_admin_ranks(rank_file="config/admin_ranks.json")
 	admin_ranks.Cut()
+	forum_groupids_to_ranks.Cut()
 
 	var/list/data = json_decode(file2text(rank_file))
 
@@ -64,6 +65,7 @@ var/list/forum_groupids_to_ranks = list()
 		forum_groupids_to_ranks["[rank.group_id]"] = rank
 
 /hook/startup/proc/loadAdmins()
+	load_admin_ranks()
 	load_admins()
 	return 1
 
@@ -71,8 +73,6 @@ var/list/forum_groupids_to_ranks = list()
 	clear_admins()
 
 	if(config.admin_legacy_system)
-		load_admin_ranks()
-
 		//load text from file
 		var/list/Lines = file2list("config/admins.txt")
 
@@ -118,7 +118,7 @@ var/list/forum_groupids_to_ranks = list()
 			load_admins()
 			return
 
-		var/DBQuery/query = dbcon.NewQuery("SELECT ckey, rank, (flags & 0xFFFF) as flags FROM ss13_player WHERE rank IS NOT NULL AND (flags & 0xFFFF) != 0")
+		var/DBQuery/query = dbcon.NewQuery("SELECT ckey, rank, flags FROM ss13_admins;")
 		query.Execute()
 		while(query.NextRow())
 			var/ckey = query.item[1]
@@ -167,9 +167,10 @@ var/list/forum_groupids_to_ranks = list()
 	if (!establish_db_connection(dbcon))
 		return
 
-	clear_admins_table()
+	var/list/admins_to_push = list()
 
-	for (var/datum/admin_rank/rank in admin_ranks)
+	for (var/rank_name in admin_ranks)
+		var/datum/admin_rank/rank = admin_ranks[rank_name]
 		var/datum/http_request/forumuser_api/req = new()
 
 		req.prepare_roles_query(rank.group_id)
@@ -181,10 +182,16 @@ var/list/forum_groupids_to_ranks = list()
 
 		if (resp.errored)
 			crash_with("Role request errored for id [rank.group_id] with: [resp.error]")
-			continue
+			log_and_message_admins("Loading admins from forumuser API FAILED. Please alert web-service maintainers immediately!")
+			return
 
 		for (var/datum/forum_user/user in resp.body)
-			insert_user_to_admins_table(user)
+			admins_to_push += user
+
+	// admin table is only cleared after ALL queries have been executed successfully.
+	clear_admins_table()
+	for (var/user in admins_to_push)
+		insert_user_to_admins_table(user)
 
 	if (reload_once_done)
 		load_admins()
@@ -203,8 +210,8 @@ var/list/forum_groupids_to_ranks = list()
 
 	var/primary_rank = "Administrator"
 
-	if (forum_groupids_to_ranks["user.forum_primary_group"])
-		var/datum/admin_rank/r = forum_groupids_to_ranks["user.forum_primary_group"]
+	if (forum_groupids_to_ranks["[user.forum_primary_group]"])
+		var/datum/admin_rank/r = forum_groupids_to_ranks["[user.forum_primary_group]"]
 		primary_rank = r.rank_name
 
 	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_admins VALUES (:ckey:, :rank:, :flags:)")

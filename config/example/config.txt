@@ -591,3 +591,14 @@ FAIL2TOPIC_ENABLED 0
 ## gets dumped. Time is in DECISECONDS (1/10th of a second). Might not be wise to
 ## use a value less than 10.
 #PROFILER_TIMEOUT_THRESHOLD 20
+
+### Forumuser API configuration
+### Enables the updating of the ss13_admins table from the forumuser API.
+### You can think of this as LDAP for admin ranks: a single central repo is
+### used for multiple different services.
+## Uncomment this to enable the use of the system. SQL admins MUST be enabled for this to work.
+#USE_FORUMUSER_API
+## The base URL of the API. Without a trailing slash.
+#FORUMUSER_API_URL
+## The API key of the system.
+#FORUMUSER_API_KEY
