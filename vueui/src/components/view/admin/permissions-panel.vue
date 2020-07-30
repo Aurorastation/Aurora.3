@@ -5,7 +5,7 @@
     </div>
     <div class="table">
       <div class="header">
-        <div class="header-item">Ckey</div>
+        <div class="header-item">Ckey <vui-button :params="{ action: 'add' }">Add</vui-button></div>
         <div class="header-item">Rank</div>
         <div class="header-item">Permissions</div>
       </div>

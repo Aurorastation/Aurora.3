@@ -165,67 +165,64 @@
 
 	return new_ckey
 
-/datum/vueui_module/permissions_panel/proc/log_admin_rank_modification(var/admin_ckey, var/new_rank)
-	if(config.admin_legacy_system)
+/datum/vueui_module/permissions_panel/proc/log_admin_rank_modification(admin_ckey, new_rank)
+	if (config.admin_legacy_system)
 		return
 
-	if(!usr.client?.holder || !(usr.client.holder.rights & R_PERMISSIONS))
-		to_chat(usr, "<span class='danger'>You do not have permission to do this!</span>")
+	if (!check_rights(R_PERMISSIONS))
+		to_chat(usr, SPAN_DANGER("You do not have permission to do this!"))
 		return
 
-	if(!establish_db_connection(dbcon))
-		to_chat(usr, "<span class='warning'>Failed to establish database connection</span>")
+	if (!establish_db_connection(dbcon))
+		to_chat(usr, SPAN_WARNING("Failed to establish database connection."))
 		return
 
-	if(!admin_ckey || !new_rank)
+	if (!admin_ckey || !new_rank)
 		return
 
 	admin_ckey = ckey(admin_ckey)
 
-	if(!admin_ckey)
+	if (!istext(admin_ckey) || !istext(new_rank))
 		return
 
-	if(!istext(admin_ckey) || !istext(new_rank))
-		return
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT ckey FROM `ss13_admins` WHERE ckey = :ckey:")
+	select_query.Execute(list("ckey" = admin_ckey))
 
-	var/DBQuery/select_query = dbcon.NewQuery("SELECT id FROM `ss13_player` WHERE ckey = '[admin_ckey]' AND rank IS NOT NULL")
-	select_query.Execute()
+	var/new_admin = TRUE
+	if (select_query.NextRow())
+		new_admin = FALSE
 
-	var/new_admin = 1
-	var/admin_id
-	while(select_query.NextRow())
-		new_admin = 0
-		admin_id = text2num(select_query.item[1])
-
-	if(new_admin)
-		var/DBQuery/update_query = dbcon.NewQuery("UPDATE `ss13_player` SET `rank` = '[new_rank]', flags = 0 WHERE ckey = '[admin_ckey]'")
-		update_query.Execute()
+	if (new_admin)
+		var/DBQuery/update_query = dbcon.NewQuery("INSERT INTO `ss13_admins` VALUES (:ckey:, :rank:, 0)")
+		update_query.Execute(list("ckey" = admin_ckey, "rank" = new_rank))
 		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Added new admin [admin_ckey] to rank [new_rank]');")
 		log_query.Execute()
-		to_chat(usr, "<span class='notice'>New admin added.</span>")
-	else if(!isnull(admin_id) && isnum(admin_id) && new_rank != "Removed")
-		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_player` SET rank = '[new_rank]' WHERE id = [admin_id]")
-		insert_query.Execute()
+		to_chat(usr, SPAN_NOTICE("New admin added to the DB."))
+
+	else if (new_rank != "Removed")
+		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_admins` SET rank = :rank: WHERE ckey = :ckey:")
+		insert_query.Execute(list("ckey" = admin_ckey, "rank" = new_rank))
 		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Edited the rank of [admin_ckey] to [new_rank]');")
 		log_query.Execute()
-		to_chat(usr, "<span class='notice'>Admin rank changed.</span>")
-	else if(!isnull(admin_id) && isnum(admin_id) && new_rank == "Removed")
-		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_player` SET rank = NULL, flags = 0 WHERE id = [admin_id]")
-		insert_query.Execute()
+		to_chat(usr, SPAN_NOTICE("Admin's rank changed."))
+
+	else if (new_rank == "Removed")
+		var/DBQuery/insert_query = dbcon.NewQuery("DELETE FROM ss13_admins WHERE ckey = :ckey:")
+		insert_query.Execute(list("ckey" = admin_ckey))
 		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Removed the rank of [admin_ckey]');")
 		log_query.Execute()
-		to_chat(usr, "<span class='notice'>Admin rank removed.</span>")
+		to_chat(usr, SPAN_NOTICE("Admin removed."))
 
-/datum/vueui_module/permissions_panel/proc/log_admin_permission_modification(var/admin_ckey, var/new_permission)
-	if(config.admin_legacy_system)
+/datum/vueui_module/permissions_panel/proc/log_admin_permission_modification(admin_ckey, new_permission)
+	if (config.admin_legacy_system)
 		return
 
-	if(!usr.client?.holder || !(usr.client.holder.rights & R_PERMISSIONS))
-		to_chat(usr, "<span class='danger'>You do not have permission to do this!</span>")
+	if (!check_rights(R_PERMISSIONS))
+		to_chat(usr, SPAN_DANGER("You do not have permission to do this!"))
 		return
 
-	if(!establish_db_connection(dbcon))
-		to_chat(usr, "<span class='warning'>Failed to establish database connection</span>")
+	if (!establish_db_connection(dbcon))
+		to_chat(usr, SPAN_WARNING("Failed to establish database connection."))
 		return
 
 	if(!admin_ckey || !new_permission)
@@ -233,36 +230,30 @@
 
 	admin_ckey = ckey(admin_ckey)
 
-	if(!admin_ckey)
-		return
-
 	if(istext(new_permission))
 		new_permission = text2num(new_permission)
 
 	if(!istext(admin_ckey) || !isnum(new_permission))
 		return
 
-	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, flags FROM ss13_player WHERE ckey = '[admin_ckey]'")
-	select_query.Execute()
+	var/DBQuery/select_query = dbcon.NewQuery("SELECT flags FROM ss13_admins WHERE ckey = :ckey:")
+	select_query.Execute(list("ckey" = admin_ckey))
 
-	var/admin_id
-	var/admin_rights
-	while(select_query.NextRow())
-		admin_id = text2num(select_query.item[1])
-		admin_rights = text2num(select_query.item[2])
-
-	if(!admin_id)
+	var/admin_rights = 0
+	if (select_query.NextRow())
+		admin_rights = text2num(select_query.item[1])
+	else
 		return
 
 	if(admin_rights & new_permission) //This admin already has this permission, so we are removing it.
-		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_player` SET flags = [admin_rights & ~new_permission] WHERE id = [admin_id]")
-		insert_query.Execute()
+		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_admins` SET flags = :flags: WHERE ckey = :ckey:")
+		insert_query.Execute(list("flags" = admin_rights & ~new_permission, "ckey" = admin_ckey))
 		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Removed permission [rights2text(new_permission)] (flag = [new_permission]) to admin [admin_ckey]');")
 		log_query.Execute()
-		to_chat(usr, "<span class='notice'>Permission removed.</span>")
+		to_chat(usr, SPAN_NOTICE("Permission removed."))
 	else //This admin doesn't have this permission, so we are adding it.
-		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_player` SET flags = '[admin_rights | new_permission]' WHERE id = [admin_id]")
-		insert_query.Execute()
+		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_admins` SET flags = :flags: WHERE ckey = :ckey:")
+		insert_query.Execute(list("flags" = admin_rights | new_permission, "ckey" = admin_ckey))
 		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Added permission [rights2text(new_permission)] (flag = [new_permission]) to admin [admin_ckey]')")
 		log_query.Execute()
-		to_chat(usr, "<span class='notice'>Permission added.</span>")
+		to_chat(usr, SPAN_NOTICE("Permission added."))
