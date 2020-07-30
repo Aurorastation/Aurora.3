@@ -86,7 +86,7 @@ STOCK_ITEM_UNCOMMON(mediumcell, 3)
 
 STOCK_ITEM_UNCOMMON(chempack, 5)
 	var/list/chems = SSchemistry.chemical_reagents.Copy()
-	var/list/exclusion = list(/datum/reagent/drink, /datum/reagent, /datum/reagent/adminordrazine, /datum/reagent/chloralhydrate/beer2, /datum/reagent/azoth, /datum/reagent/elixir,\
+	var/list/exclusion = list(/datum/reagent/drink, /datum/reagent, /datum/reagent/adminordrazine, /datum/reagent/polysomnine/beer2, /datum/reagent/azoth, /datum/reagent/elixir,\
 		/datum/reagent/liquid_fire, /datum/reagent/philosopher_stone, /datum/reagent/toxin/undead, /datum/reagent/love_potion, /datum/reagent/shapesand, /datum/reagent/usolve,\
 		/datum/reagent/sglue, /datum/reagent/black_matter, /datum/reagent/bottle_lightning, /datum/reagent/toxin/trioxin, /datum/reagent/toxin/phoron_salt, /datum/reagent/toxin/nanites, /datum/reagent/nitroglycerin)
 	chems -= exclusion

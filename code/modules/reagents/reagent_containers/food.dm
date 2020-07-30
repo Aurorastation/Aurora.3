@@ -11,6 +11,8 @@
 	flags = OPENCONTAINER
 	possible_transfer_amounts = null
 	volume = 50 //Sets the default container amount for all food items.
+	var/bitesize = 1
+	var/bitecount = 0
 	var/filling_color = "#FFFFFF" //Used by sandwiches
 	var/trash = null
 	var/is_liquid = TRUE
@@ -26,10 +28,12 @@
 
 /obj/item/reagent_containers/food/proc/on_consume(var/mob/user, var/mob/target)
 	if(!reagents.total_volume)
+		if(bitecount==1)
+			target.visible_message("<b>[target]</b> [is_liquid ? "drinks" : "eats"] \the [src].", SPAN_NOTICE("You [is_liquid ? "drink" : "eat"] \the [src]."))
+		else
+			target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \the [src].", SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
 		if(trash)
 			user.drop_from_inventory(src)	//so trash actually stays in the active hand.
-			var/obj/item/trash_item = new trash(user)
-			user.put_in_hands(trash_item)
-			target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \the [src].",
-								   SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \the [src]."))
-			qdel(src)
+			var/obj/item/TrashItem = new trash(user)
+			user.put_in_hands(TrashItem)
+		qdel(src)

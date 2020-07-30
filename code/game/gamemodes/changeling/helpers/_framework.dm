@@ -3,6 +3,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 /datum/changeling //stores changeling powers, changeling recharge thingie, changeling absorbed DNA and changeling ID (for changeling hivemind)
 	var/list/datum/absorbed_dna/absorbed_dna = list()
 	var/list/absorbed_languages = list()
+	var/list/hivemind_members = list()
 	var/absorbedcount = 0
 	var/chem_charges = 20
 	var/chem_recharge_rate = 0.5
@@ -12,7 +13,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/geneticdamage = 0
 	var/isabsorbing = 0
 	var/geneticpoints = 5
-	var/purchasedpowers = list()
+	var/list/purchasedpowers = list()
 	var/mimicing = ""
 	var/mimiced_accent = "Biesellite"
 	var/justate

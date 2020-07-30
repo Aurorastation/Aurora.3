@@ -155,7 +155,7 @@
 proc/isdeaf(A)
 	if(istype(A, /mob))
 		var/mob/M = A
-		return (M.sdisabilities & DEAF) || M.ear_deaf
+		return M.ear_deaf
 	return 0
 
 proc/iscuffed(A)

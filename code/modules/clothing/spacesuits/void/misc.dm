@@ -10,7 +10,6 @@
 	brightness_on = 6
 	refittable = FALSE
 
-
 /obj/item/clothing/suit/space/void/sol
 	name = "military voidsuit"
 	desc = "A sleek black space suit designed for combat. Looks to have seamless composite plating. Painted in Sol Alliance colors."
@@ -328,3 +327,30 @@
 	desc = "A large suit of spaceproof armour, segmented and worked together expertly. Tabs on the shoulders indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Knight."
 	icon_state = "rig-kataphract-lead"
 	item_state = "rig-kataphract-lead"
+
+/obj/item/clothing/head/helmet/space/void/dominia
+	name = "dominian prejoroub combat helmet"
+	desc = "A glamorous, decorated helmet with thick plating across its faces. It holds the emblematic markings of the Empire of Dominia, if its design wasn't unmistakable enough."
+	icon = 'icons/obj/clothing/voidsuit/dominia.dmi'
+	icon_state = "prejoroubhelm"
+	item_state = "prejoroubhelm"
+	contained_sprite = 1
+
+	armor = list(melee = 65, bullet = 55, laser = 25,energy = 25, bomb = 15, bio = 100, rad = 15)
+	siemens_coefficient = 0.35
+	species_restricted = list("Human")
+	brightness_on = 6
+
+/obj/item/clothing/suit/space/void/dominia
+	name = "dominian prejoroub combat suit"
+	desc = "An offshoot of the Coalition's vulture suit design, painted in Dominian colors with portability and maneuverability in mind over its bulkier counterpart."
+	icon = 'icons/obj/clothing/voidsuit/dominia.dmi'
+	icon_state = "prejoroub"
+	item_state = "prejoroub"
+	contained_sprite = 1
+
+	w_class = 3
+	armor = list(melee = 65, bullet = 55, laser = 25,energy = 25, bomb = 15, bio = 100, rad = 15)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	siemens_coefficient = 0.35
+	species_restricted = list("Human")
