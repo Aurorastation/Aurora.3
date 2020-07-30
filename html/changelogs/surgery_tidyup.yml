@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - bugfix: "Peridaxon surgery to restore necrotic external organs will now work properly on all types of external organ."
