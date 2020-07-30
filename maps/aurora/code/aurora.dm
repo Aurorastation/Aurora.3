@@ -84,7 +84,8 @@
 		/datum/shuttle/autodock/multi/antag/merc_aurora,
 		/datum/shuttle/autodock/ferry/legion,
 		/datum/shuttle/autodock/ferry/research_aurora,
-		/datum/shuttle/autodock/ferry/distress
+		/datum/shuttle/autodock/ferry/distress,
+		/datum/shuttle/autodock/multi/antag/merc_aurora_elite
 	)
 
 /datum/map/aurora/generate_asteroid()

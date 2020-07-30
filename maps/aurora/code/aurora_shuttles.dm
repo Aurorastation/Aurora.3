@@ -382,6 +382,48 @@ AURORA_ESCAPE_POD(3)
 	landmark_tag = "nav_merc_caverns"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
+//Merc Elite Shuttle
+/datum/shuttle/autodock/multi/antag/merc_aurora_elite
+	name = "Merc Elite"
+	current_location = "nav_merc-elite_start"
+	warmup_time = 10
+	shuttle_area = /area/shuttle/syndicate_elite
+	destination_tags = list(
+		"nav_mercelite_start",
+		"nav_mercelite_command",
+		"nav_mercelite_pool",
+		"nav_mercelite_merchant"
+		)
+
+	announcer = "NDV Icarus"
+	arrival_message = "Attention, we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the station - you've got incoming visitors, like it or not."
+	departure_message = "Attention, your guests are pulling away - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
+
+/obj/effect/shuttle_landmark/merc_elite/start
+	name = "Unknown Blacksite"
+	landmark_tag = "nav_mercelite_start"
+	base_turf = /turf/space
+
+/obj/effect/shuttle_landmark/merc_elite/command
+	name = "Command Surface"
+	landmark_tag = "nav_mercelite_command"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/merc_elite/pool
+	name = "Surface Pool"
+	landmark_tag = "nav_mercelite_pool"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/merc_elite/merchant
+	name = "Merchant Dock"
+	landmark_tag = "nav_mercelite_merchant"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/merc_elite/yellow
+	name = "Yellow Dock"
+	landmark_tag = "nav_mercelite_yellow"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
 // Tau Ceti Foreign Legion
 /datum/shuttle/autodock/ferry/legion
 	name = "Legion Shuttle"

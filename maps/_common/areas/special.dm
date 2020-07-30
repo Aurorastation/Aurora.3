@@ -87,6 +87,16 @@
 	icon_state = "syndie-control"
 	dynamic_lighting = 1
 
+/area/antag
+	name = "Unknown Blacksite"
+	icon_state = "dark"
+	requires_power = FALSE
+	no_light_control = TRUE
+	centcomm_area = TRUE
+
+/area/antag/mercenary
+	name = "Mercenary Base"
+
 //THUNDERDOME
 
 /area/tdome
