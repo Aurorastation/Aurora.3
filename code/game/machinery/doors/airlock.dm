@@ -424,7 +424,7 @@
 	name = "Phoron Airlock"
 	desc = "No way this can end badly."
 	icon = 'icons/obj/doors/Doorphoron.dmi'
-	mineral = GAS_PHORON
+	mineral = MATERIAL_PHORON
 	hatch_colour = "#891199"
 
 /obj/machinery/door/airlock/phoron/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
