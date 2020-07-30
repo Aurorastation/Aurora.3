@@ -6,6 +6,7 @@ obj/structure/firedoor_assembly
 	anchored = 0
 	opacity = 0
 	density = 1
+	build_amt = 4
 	var/wired = 0
 
 obj/structure/firedoor_assembly/update_icon()

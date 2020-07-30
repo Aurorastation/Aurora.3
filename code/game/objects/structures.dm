@@ -48,6 +48,11 @@
 		if(3.0)
 			return
 
+/obj/structure/proc/dismantle()
+	for(var/i = 1 to build_amt)
+		material.place_sheet(loc)
+	qdel(src)
+
 /obj/structure/Initialize(mapload)
 	. = ..()
 	if (!mapload)

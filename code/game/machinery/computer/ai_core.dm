@@ -5,6 +5,7 @@
 	icon_state = "0"
 	density = 1
 	anchored = 0
+	build_amt = 4
 	var/state = 0
 	var/datum/ai_laws/laws = new /datum/ai_laws/nanotrasen
 	var/obj/item/circuitboard/circuit = null

@@ -11,6 +11,7 @@
 	density = 1
 	climbable = 1
 	flags = OPENCONTAINER
+	build_amt = 15
 	//copypaste sorry
 	var/amount_per_transfer_from_this = 5 //shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
 	var/obj/item/storage/bag/trash/mybag	= null
@@ -20,7 +21,6 @@
 	var/obj/structure/mopbucket/mybucket = null
 	var/signs = 0	//maximum capacity hardcoded below
 	var/has_items = 0//This is set true whenever the cart has anything loaded/mounted on it
-	var/dismantled = 0//This is set true after the object has been dismantled to avoid an infintie loop
 	var/driving
 	var/mob/living/pulling
 
@@ -144,24 +144,21 @@
 		//This prevents dumb stuff like splashing the cart with the contents of a container, after putting said container into trash
 
 	else if (!has_items && (I.iswrench() || I.iswelder() || istype(I, /obj/item/gun/energy/plasmacutter)))
-		dismantle(user)
+		take_apart(user)
 		return
 	..()
 
-/obj/structure/janitorialcart/proc/dismantle(var/mob/user = null)
-	if (!dismantled)
-		if (has_items)
-			spill()
+/obj/structure/janitorialcart/proc/take_apart(var/mob/user = null)
+	if(has_items)
+		spill()
 
-		if (user)
-			playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-			user.visible_message("[user] starts taking apart the [src]", "You start disasembling the [src]")
-			if (!do_after(user, 30, needhand = 0))
-				return
+	if(user)
+		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+		user.visible_message("[user] starts taking apart the [src]", "You start disasembling the [src]")
+		if (!do_after(user, 30, needhand = 0))
+			return
 
-		new /obj/item/stack/material/steel(src.loc, 15)
-		dismantled = 1
-		qdel(src)
+	dismantle()
 
 /obj/structure/janitorialcart/ex_act(severity)
 	spill(100 / severity)

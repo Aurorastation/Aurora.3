@@ -5,6 +5,7 @@
 	anchored = 0
 	density = 1
 	w_class = 5
+	build_amt = 4
 	var/state = 0
 	var/base_icon_state = ""
 	var/base_name = "Airlock"
@@ -196,8 +197,7 @@
 				if(do_after(user, 40/W.toolspeed))
 					if(!src || !WT.isOn()) return
 					to_chat(user, "<span class='notice'>You dissasembled the airlock assembly!</span>")
-					new /obj/item/stack/material/steel(src.loc, 4)
-					qdel (src)
+					dismantle()
 		else
 			to_chat(user, "<span class='notice'>You need more welding fuel.</span>")
 			return

@@ -1925,7 +1925,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		has_bedroll = TRUE
 		return
 
-/obj/structure/closet/fluff/muhawir_tent/verb/dismantle()
+/obj/structure/closet/fluff/muhawir_tent/verb/dismantle_tent()
 	set name = "Dismantle Tent"
 	set category = "Object"
 	set src in view(1)

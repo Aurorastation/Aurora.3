@@ -10,6 +10,7 @@
 	anchored = FALSE
 	obj_flags = OBJ_FLAG_ROTATABLE
 
+	build_amt = 2
 	var/broken = FALSE
 	var/health = 70
 	var/maxhealth = 70
@@ -225,7 +226,7 @@
 				if(anchored)
 					return
 				user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))
-				material.place_sheet(get_turf(src), 2)
+				dismantle()
 				qdel(src)
 			return
 	// Wrench Open

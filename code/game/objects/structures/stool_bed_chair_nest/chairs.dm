@@ -4,6 +4,9 @@
 	icon_state = "chair_preview"
 	color = "#666666"
 	base_icon = "chair"
+
+	build_amt = 1
+
 	buckle_dir = 0
 	buckle_lying = 0 //force people to sit up in chairs when buckled
 	obj_flags = OBJ_FLAG_ROTATABLE_ANCHORED
@@ -75,10 +78,7 @@
 /obj/structure/bed/chair/comfy
 	desc = "It's a chair. It looks comfy."
 	icon_state = "comfychair_preview"
-
-/obj/structure/bed/chair/comfy/dismantle()
-	material.place_sheet(get_turf(src))
-	..()
+	build_amt = 2
 
 /obj/structure/bed/chair/comfy/brown/Initialize(mapload,var/newmaterial)
 	. = ..(mapload, MATERIAL_STEEL, MATERIAL_LEATHER)
@@ -111,11 +111,6 @@
 	anchored = 0
 	buckle_movable = 1
 	build_amt = 5
-
-/obj/structure/bed/chair/office/dismantle()
-	for(var/i = 1 to build_amt)
-		material.place_sheet(get_turf(src))
-	..()
 
 /obj/structure/bed/chair/office/update_icon()
 	return
@@ -224,6 +219,7 @@
 	name = "wooden chair"
 	desc = "Old is never too old to not be in fashion."
 	icon_state = "wooden_chair"
+	build_amt = 3
 
 /obj/structure/bed/chair/wood/update_icon()
 	return
