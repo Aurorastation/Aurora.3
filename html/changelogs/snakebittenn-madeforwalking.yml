@@ -40,3 +40,5 @@ delete-after: True
 changes: 
   - rscdel: "Deletes superfluous Black Boots from the loadout. These had the same exact sprite as jackboots, did you know?"
   - rscadd: "Adds knee high and thigh high jackboots. Also toeless versions."
+  - tweak: "Renames Jackboots to Black Boots."
+  - rscdel: "Nerfs Jackboot protection a bit."

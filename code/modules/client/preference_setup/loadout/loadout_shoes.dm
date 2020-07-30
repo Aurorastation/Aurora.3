@@ -1,17 +1,13 @@
 // Shoelocker
 /datum/gear/shoes
-	display_name = "jackboots"
-	path = /obj/item/clothing/shoes/jackboots
+	display_name = "sandals"
+	path = /obj/item/clothing/shoes/sandal
 	slot = slot_shoes
 	sort_category = "Shoes and Footwear"
 
 /datum/gear/shoes/winterboots
 	display_name = "winter boots"
 	path = /obj/item/clothing/shoes/winter
-
-/datum/gear/shoes/sandals
-	display_name = "sandals"
-	path = /obj/item/clothing/shoes/sandal
 
 /datum/gear/shoes/color
 	display_name = "shoe selection"
@@ -107,9 +103,9 @@
 /datum/gear/shoes/boots/New()
 	..()
 	var/shoes = list()
-	shoes["jackboots, short"] = /obj/item/clothing/shoes/jackboots
-	shoes["jackboots, knee"] = /obj/item/clothing/shoes/jackboots/knee
-	shoes["jackboots, thigh"] = /obj/item/clothing/shoes/jackboots/thigh
+	shoes["black boots, short"] = /obj/item/clothing/shoes/jackboots
+	shoes["black boots, knee"] = /obj/item/clothing/shoes/jackboots/knee
+	shoes["black boots, thigh"] = /obj/item/clothing/shoes/jackboots/thigh
 	shoes["cowboy boots"] = /obj/item/clothing/shoes/cowboy
 	shoes["classic cowboy boots"] = /obj/item/clothing/shoes/cowboy/classic
 	shoes["snakeskin cowboy boots"] = /obj/item/clothing/shoes/cowboy/snakeskin

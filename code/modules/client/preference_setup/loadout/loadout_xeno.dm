@@ -45,6 +45,6 @@
 	shoes["brown toeless workboots"] = /obj/item/clothing/shoes/workboots/toeless
 	shoes["grey toeless workboots"] = /obj/item/clothing/shoes/workboots/toeless/grey
 	shoes["dark toeless workboots"] = /obj/item/clothing/shoes/workboots/toeless/dark
-	shoes["toeless jackboots, short"] = /obj/item/clothing/shoes/jackboots/toeless
-	shoes["toeless jackboots, knee"] = /obj/item/clothing/shoes/jackboots/toeless/knee
-	shoes["toeless jackboots, thigh"] = /obj/item/clothing/shoes/jackboots/toeless/thigh
+	shoes["toeless black boots, short"] = /obj/item/clothing/shoes/jackboots/toeless
+	shoes["toeless black boots, knee"] = /obj/item/clothing/shoes/jackboots/toeless/knee
+	shoes["toeless black boots, thigh"] = /obj/item/clothing/shoes/jackboots/toeless/thigh
