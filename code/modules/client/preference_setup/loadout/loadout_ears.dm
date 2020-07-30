@@ -24,3 +24,16 @@
 /datum/gear/ears/circuitry
 	display_name = "earwear, circuitry (empty)"
 	path = /obj/item/clothing/ears/circuitry
+	
+/datum/gear/ears/earrings
+	display_name = "earring selection"
+	description = "A selection of eye-catching earrings."
+	path = /obj/item/clothing/ears/earring
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/ears/earrings/New()
+	..()
+	var/earrings = list()
+	earrings["stud earrings"] = /obj/item/clothing/ears/earring/stud
+	earrings["dangle earrings"] = /obj/item/clothing/ears/earring/dangle
+	gear_tweaks += new/datum/gear_tweak/path(earrings)

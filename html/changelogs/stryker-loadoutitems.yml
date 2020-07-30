@@ -1,0 +1,6 @@
+author: Stryker, Mwahahahaha
+delete-after: True
+
+changes: 
+  - rscadd: "Added several loadout items, hanboks, hoodies (sleeveless, short-sleeved, crop-top), colorable gloves, and colorable, pinnable tag accessories."
+  - rscadd: "Ported keyhole sweaters, bracelets, and earrings from polaris."

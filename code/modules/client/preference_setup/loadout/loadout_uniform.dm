@@ -317,3 +317,15 @@
 	pyjamas["blue pyjamas"] = /obj/item/clothing/under/pj/blue
 	pyjamas["red pyjamas"] = /obj/item/clothing/under/pj/red
 	gear_tweaks += new/datum/gear_tweak/path(pyjamas)
+
+/datum/gear/uniform/miscellaneous/hanbok
+	display_name = "hanbok selection"
+	description = "A selection of Koynanger formalwear."
+	path = /obj/item/clothing/under/konyang
+
+/datum/gear/uniform/miscellaneous/hanbok/New()
+	..()
+	var/hanbok = list()
+	hanbok["magenta-blue hanbok"] = /obj/item/clothing/under/konyang
+	hanbok["white-pink hanbok"] = /obj/item/clothing/under/konyang/pink
+	gear_tweaks += new/datum/gear_tweak/path(hanbok)
