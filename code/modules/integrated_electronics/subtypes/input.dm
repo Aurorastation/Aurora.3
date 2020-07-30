@@ -523,7 +523,7 @@
 		"temperature"    = IC_PINTYPE_NUMBER,
 		GAS_OXYGEN         = IC_PINTYPE_NUMBER,
 		GAS_NITROGEN       = IC_PINTYPE_NUMBER,
-		"carbon dioxide" = IC_PINTYPE_NUMBER,
+		GAS_CO2 = IC_PINTYPE_NUMBER,
 		GAS_PHORON         = IC_PINTYPE_NUMBER,
 		"other"          = IC_PINTYPE_NUMBER
 	)
