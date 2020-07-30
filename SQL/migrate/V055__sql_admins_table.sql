@@ -10,4 +10,5 @@ CREATE TABLE `ss13_admins` (
 ) ENGINE=InnoDB COLLATE='utf8mb4_unicode_ci';
 
 ALTER TABLE `ss13_player`
-  DROP COLUMN `rank`, `flags`;
+  DROP COLUMN `rank`,
+  DROP COLUMN `flags`;
