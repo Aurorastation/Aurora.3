@@ -128,7 +128,7 @@
 			if(blocked > 20)
 				user.visible_message("<b>[user]</b> jabs \the [src] into [H], but their armor blocks it!", SPAN_WARNING("You jab \the [src] into [H], but their armor blocks it!"))
 				return
-			user.visible_message("<b>[user]</b> jabs \the [src] between [P] ribs with \the [src]!", SPAN_NOTICE("You jab \the [src] between [SM] ribs!"))
+			user.visible_message("<b>[user]</b> jabs \the [src] between [P] ribs!", SPAN_NOTICE("You jab \the [src] between [SM] ribs!"))
 			H.apply_damage(3, BRUTE, BP_CHEST)
 			H.custom_pain("The pain in your chest is living hell!", 75, affecting = H.organs_by_name[BP_CHEST])
 			var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
