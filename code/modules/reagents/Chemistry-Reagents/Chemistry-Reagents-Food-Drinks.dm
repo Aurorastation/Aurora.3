@@ -788,7 +788,7 @@
 /datum/reagent/drink/carrotjuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
-		M.reagents.add_reagent(/datum/reagent/imidazoline, removed * 0.2)
+		M.reagents.add_reagent(/datum/reagent/oculine, removed * 0.2)
 
 /datum/reagent/drink/grapejuice
 	name = "Grape Juice"
@@ -2591,7 +2591,7 @@
 	name = "Cork Popper"
 	description = "A fancy cocktail with a hint of lemon."
 	color = "#766818"
-	strength = "30"
+	strength = 30
 	taste_description = "sour and smokey"
 
 	glass_icon_state = "corkpopper"
@@ -4310,3 +4310,14 @@
 	description = "A delicious seasonal flavoring."
 	color = "#AE771C"
 	taste_description = "autumn bliss"
+
+/datum/reagent/diona_powder
+	name = "Dionae Powder"
+	description = "Powdered Dionae ambergris to add that extra pazazz to any dish."
+	reagent_state = SOLID
+	color = "#e08702"
+	taste_description = "diona delicacy"
+	fallback_specific_heat = 2
+	condiment_name = "bottle of dionae powder"
+	condiment_icon_state = "dionaepowder"
+	condiment_center_of_mass = list("x"=16, "y"=10)

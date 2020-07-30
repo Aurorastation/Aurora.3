@@ -649,7 +649,7 @@
 		//strip their stuff and stick it in the crate
 		for(var/obj/item/I in M)
 			M.drop_from_inventory(I, locker)
-		M.update_icons()
+		M.update_icon()
 
 		//so they black out before warping
 		M.Paralyse(5)

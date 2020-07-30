@@ -1,6 +1,6 @@
 /obj/machinery/appliance/cooker/fryer
 	name = "deep fryer"
-	desc = "Deep fried <i>everything</i>."
+	desc = "A large kitchen appliance that can be used to deep fry food, which gives it a crunchy texture."
 	icon_state = "fryer_off"
 	can_cook_mobs = 1
 	cook_type = "deep fried"

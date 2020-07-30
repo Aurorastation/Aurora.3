@@ -84,13 +84,16 @@ obj/item/clothing/mask/chewable/Destroy()
 	desc = "A disgusting spitwad."
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "spit-chew"
+	drop_sound = 'sound/items/drop/flesh.ogg'
+	pickup_sound = 'sound/items/pickup/flesh.ogg'
+	slot_flags = SLOT_EARS | SLOT_MASK
 
-/obj/item/clothing/mask/chewable/proc/spitout(var/mob/user, var/no_message)
-	STOP_PROCESSING(SSprocessing, src)
+/obj/item/clothing/mask/chewable/proc/spitout(var/transfer_color = 1, var/no_message = 0)
 	if(type_butt)
-		var/obj/item/butt = new type_butt(user)
+		var/obj/item/butt = new type_butt(src.loc)
 		transfer_fingerprints_to(butt)
-		butt.color = color
+		if(transfer_color)
+			butt.color = color
 		if(brand)
 			butt.desc += " This one is \a [brand]."
 		if(ismob(loc))
@@ -100,13 +103,12 @@ obj/item/clothing/mask/chewable/Destroy()
 			if(M.wear_mask)
 				M.remove_from_mob(src) //un-equip it so the overlays can update
 				M.update_inv_wear_mask(0)
-				M.equip_to_slot_if_possible(butt, slot_wear_mask)
-			else
-				M.remove_from_mob(src) // if it gets blocked somehow, since chewables shouldn't be processing outside the mask slot.
-				M.update_inv_l_hand(0)
-				M.update_inv_r_hand(1)
-				M.put_in_hands(butt)
-		qdel(src)
+				if(!M.equip_to_slot_if_possible(butt, slot_wear_mask))
+					M.update_inv_l_hand(0)
+					M.update_inv_r_hand(1)
+					M.put_in_hands(butt)
+	STOP_PROCESSING(SSprocessing, src)
+	qdel(src)
 
 /obj/item/clothing/mask/chewable/tobacco/bad
 	name = "chewing tobacco"
@@ -148,6 +150,9 @@ obj/item/clothing/mask/chewable/Destroy()
 	desc = "A disgusting chewed up wad of gum."
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "spit-gum"
+	drop_sound = 'sound/items/drop/flesh.ogg'
+	pickup_sound = 'sound/items/pickup/flesh.ogg'
+	slot_flags = SLOT_EARS | SLOT_MASK
 
 /obj/item/clothing/mask/chewable/candy/gum
 	name = "chewing gum"
@@ -186,17 +191,23 @@ obj/item/clothing/mask/chewable/Destroy()
 
 /obj/item/clothing/mask/chewable/candy/lolli
 	name = "lollipop"
-	desc = "A simple artificially flavored sphere of sugar on a handle. Colloquially known as a sucker. Allegedly one is born every minute."
+	desc = "A simple artificially flavored sphere of sugar on a handle, colloquially known as a sucker. Allegedly one is born every minute."
 	type_butt = /obj/item/trash/lollibutt
 	icon_state = "lollipop"
 	item_state = "lollipop"
 	wrapped = TRUE
 
 /obj/item/trash/lollibutt
-	name = "popsicle stick"
-	desc = "A popsicle stick devoid of pop."
+	name = "lollipop stick"
+	desc = "A lollipop stick devoid of pop."
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "lollipop_stick"
+	slot_flags = SLOT_EARS | SLOT_MASK
+
+/obj/item/clothing/mask/chewable/candy/lolli/process()
+	chew()
+	if(chewtime < 1)
+		spitout(0)
 
 /obj/item/clothing/mask/chewable/candy/lolli/update_icon()
 	cut_overlays()
@@ -221,8 +232,8 @@ obj/item/clothing/mask/chewable/Destroy()
 /obj/item/clothing/mask/chewable/candy/lolli/meds/Initialize()
 	. = ..()
 	var/datum/reagent/payload = pick(list(
-				/datum/reagent/paracetamol,
-				/datum/reagent/tramadol,
+				/datum/reagent/perconol,
+				/datum/reagent/mortaphenyl,
 				/datum/reagent/dylovene))
 	reagents.add_reagent(payload, 15)
 	color = reagents.get_color()
@@ -237,7 +248,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	. = ..()
 	var/datum/reagent/payload = pick(list(
 				/datum/reagent/dylovene,
-				/datum/reagent/norepinephrine))
+				/datum/reagent/inaprovaline))
 	reagents.add_reagent(payload, 15)
 	color = reagents.get_color()
 	desc = "[desc] This one is labeled '[initial(payload.name)]'."

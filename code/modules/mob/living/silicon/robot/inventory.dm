@@ -68,11 +68,11 @@
 		store_module(module_state_3)
 		module_state_3 = null
 		inv3.icon_state = "inv3"
-	updateicon()
+	update_icon()
 	hud_used.update_robot_modules_display()
 
 /mob/living/silicon/robot/proc/activated(obj/item/O)
-	updateicon()
+	update_icon()
 
 	if(module_state_1 == O)
 		return 1

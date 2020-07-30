@@ -95,7 +95,7 @@
 
 /obj/item/robot_parts/robot_suit/Initialize()
 	. = ..()
-	updateicon()
+	update_icon()
 
 /obj/item/robot_parts/robot_suit/report_missing_parts(var/mob/user)
 	if(!head)
@@ -117,9 +117,9 @@
 	r_leg = new /obj/item/robot_parts/r_leg(src)
 	l_arm = new /obj/item/robot_parts/l_arm(src)
 	r_arm = new /obj/item/robot_parts/r_arm(src)
-	updateicon()
+	update_icon()
 
-/obj/item/robot_parts/robot_suit/proc/updateicon()
+/obj/item/robot_parts/robot_suit/update_icon()
 	cut_overlays()
 	if(l_arm)
 		add_overlay("l_arm+o")
@@ -163,7 +163,7 @@
 			return
 		user.drop_from_inventory(W, src)
 		l_leg = W
-		updateicon()
+		update_icon()
 		return
 
 	if(istype(W, /obj/item/robot_parts/r_leg))
@@ -172,7 +172,7 @@
 			return
 		user.drop_from_inventory(W, src)
 		r_leg = W
-		updateicon()
+		update_icon()
 		return
 
 	if(istype(W, /obj/item/robot_parts/l_arm))
@@ -181,7 +181,7 @@
 			return
 		user.drop_from_inventory(W, src)
 		l_arm = W
-		updateicon()
+		update_icon()
 		return
 
 	if(istype(W, /obj/item/robot_parts/r_arm))
@@ -190,7 +190,7 @@
 			return
 		user.drop_from_inventory(W, src)
 		r_arm = W
-		updateicon()
+		update_icon()
 		return
 
 	if(istype(W, /obj/item/robot_parts/chest))
@@ -201,7 +201,7 @@
 		if(C.wires && C.cell)
 			user.drop_from_inventory(W, src)
 			chest = W
-			updateicon()
+			update_icon()
 		else if(!C.wires)
 			to_chat(user, SPAN_WARNING("You need to attach wires to it first!"))
 		else
@@ -216,7 +216,7 @@
 		if(H.right_flash && H.left_flash)
 			user.drop_from_inventory(W, src)
 			head = W
-			updateicon()
+			update_icon()
 		else
 			to_chat(user, SPAN_WARNING("You need to attach a flash to it first!"))
 		return
@@ -254,6 +254,7 @@
 				forceMove(new_shell) //so people won't mess around with the chassis until it is deleted
 				M.brainmob.mind.transfer_to(new_shell)
 				qdel(M)
+				new_shell.add_language(LANGUAGE_EAL)
 				var/newname = sanitizeSafe(input(new_shell, "Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
 				if(!newname)
 					var/datum/language/L = all_languages[new_shell.species.default_language]

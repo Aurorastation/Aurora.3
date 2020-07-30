@@ -139,9 +139,14 @@
 
 /obj/item/trash/can
 	name = "used can"
-	icon_state = "can-used"
+	icon_state = "cola"
 	drop_sound = 'sound/items/drop/soda.ogg'
 	pickup_sound = 'sound/items/pickup/soda.ogg'
+	randpixel = 4
+
+/obj/item/trash/can/Initialize()
+	. = ..()
+	randpixel_xy()
 
 /obj/item/trash/tuna
 	name = "\improper Tuna Snax"
@@ -196,3 +201,7 @@
 	icon_state = "candy_bowl"
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
+/obj/item/trash/diona_bites
+	name = "dionae bites"
+	icon_state = "dionaebitesempty"

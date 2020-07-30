@@ -202,7 +202,7 @@ Pen exclusive commands
 /obj/item/pen/reagent/sleepy
 	desc = "It's a black ink pen with a sharp point and a carefully engraved \"Waffle Co.\""
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/datum/reagent/chloralhydrate = 22)
+	reagents_to_add = list(/datum/reagent/polysomnine = 22)
 
 
 /*
