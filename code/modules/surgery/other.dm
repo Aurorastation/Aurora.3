@@ -11,7 +11,7 @@
 	/obj/item/surgery/FixOVein = 100, \
 	/obj/item/stack/cable_coil = 75
 	)
-	can_infect = 1
+	can_infect = TRUE
 	blood_level = 1
 
 	min_duration = 70
@@ -59,7 +59,7 @@
 		/obj/item/material/shard = 50
 	)
 
-	can_infect = 1
+	can_infect = TRUE
 	blood_level = 1
 
 	min_duration = 110
@@ -123,7 +123,7 @@
 		/obj/item/reagent_containers/glass/bucket = 50
 	)
 
-	can_infect = 0
+	can_infect = FALSE
 	blood_level = 0
 
 	min_duration = 50
@@ -134,14 +134,14 @@
 		return FALSE
 
 	if(!istype(tool, /obj/item/reagent_containers))
-		return 0
+		return FALSE
 
 	var/obj/item/reagent_containers/container = tool
 	if(!container.reagents.has_reagent(/datum/reagent/peridaxon))
-		return 0
+		return FALSE
 
 	if (target_zone == BP_MOUTH)
-		return 0
+		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	return affected && IS_ORGAN_FULLY_OPEN && (affected.status & ORGAN_DEAD)
@@ -189,7 +189,7 @@
 		/obj/item/surgery/FixOVein = 100, \
 		/obj/item/stack/cable_coil = 75
 	)
-	can_infect = 1
+	can_infect = TRUE
 	blood_level = 1
 
 	min_duration = 70
@@ -230,7 +230,7 @@
 		/obj/item/gun/energy/plasmacutter = 100
 	)
 
-	can_infect = 0
+	can_infect = FALSE
 	blood_level = 0
 
 	min_duration = 120
@@ -241,11 +241,11 @@
 		return FALSE
 
 	if(!istype(target))
-		return 0
+		return FALSE
 	if(tool.iswelder())
 		var/obj/item/weldingtool/welder = tool
 		if(!welder.isOn() || !welder.remove_fuel(1,user))
-			return 0
+			return FALSE
 	return (target_zone == BP_CHEST) && istype(target.back, /obj/item/rig) && !(target.back.canremove)
 
 /decl/surgery_step/hardsuit/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

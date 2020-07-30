@@ -8,7 +8,7 @@
 /decl/surgery_step/slime/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
-	return target.stat == 2
+	return target.stat == DEAD
 
 /decl/surgery_step/slime/cut_flesh
 	name = "Open Slime"
@@ -88,7 +88,7 @@
 
 	if(target.cores >= 0)
 		new target.coretype(target.loc)
-	if(target.cores <= 0)
+	if(target.cores < 0)
 		target.icon_state = "[target.colour] baby slime dead-nocore"
 
 

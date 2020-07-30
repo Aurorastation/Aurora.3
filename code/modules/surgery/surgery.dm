@@ -15,7 +15,7 @@
 	var/max_duration = 0
 
 	// evil infection stuff that will make everyone hate me
-	var/can_infect = 0
+	var/can_infect = FALSE
 	//How much blood this step can get on surgeon. 1 - hands, 2 - full body.
 	var/blood_level = 0
 
@@ -24,24 +24,24 @@
 	for(var/T in allowed_tools)
 		if(istype(tool,T))
 			return allowed_tools[T]
-	return 0
+	return FALSE
 
 	// Checks if this step applies to the user mob at all
 /decl/surgery_step/proc/is_valid_target(mob/living/carbon/human/target)
 	if(!ishuman(target))
-		return 0
+		return FALSE
 
 	if(allowed_species)
 		for(var/species in allowed_species)
 			if(target.species.get_bodytype() == species)
-				return 1
+				return TRUE
 
 	if(disallowed_species)
 		for(var/species in disallowed_species)
 			if(target.species.get_bodytype() == species)
-				return 0
+				return FALSE
 
-	return 1
+	return TRUE
 
 
 // checks whether this step can be applied with the given user and target
@@ -65,7 +65,7 @@
 
 // does stuff to end the step, which is normally print a message + do whatever this step changes
 /decl/surgery_step/proc/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	return
+	return FALSE
 
 // stuff that happens when the step fails
 /decl/surgery_step/proc/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -73,7 +73,7 @@
 
 proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/human/user)
 	if(!istype(user) || !istype(E))
-		return
+		return FALSE
 
 	var/germ_level = user.germ_level
 	if(user.gloves)

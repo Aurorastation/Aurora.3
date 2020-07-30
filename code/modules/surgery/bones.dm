@@ -9,7 +9,7 @@
 	/obj/item/surgery/bonegel = 100,	\
 	/obj/item/tape_roll = 60
 	)
-	can_infect = 1
+	can_infect = TRUE
 	blood_level = 1
 
 	min_duration = 50
@@ -19,11 +19,11 @@
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && !(affected.status & ORGAN_ROBOT) && affected.open >= ORGAN_OPEN_RETRACTED && affected.open < ORGAN_ENCASED_RETRACTED && affected.stage == 0
+	return affected && !BP_IS_ROBOTIC(affected) && affected.open >= ORGAN_OPEN_RETRACTED && affected.open < ORGAN_ENCASED_RETRACTED && affected.stage == BONE_PRE_OP
 
 /decl/surgery_step/glue_bone/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if (affected.stage == 0)
+	if (affected.stage == BONE_PRE_OP)
 		user.visible_message("<b>[user]</b> starts applying some of [tool] to the damaged bones in [target]'s [affected.name]." , \
 		SPAN_NOTICE("You start applying some of [tool] to the damaged bones in [target]'s [affected.name]."))
 	target.custom_pain("Something in your [affected.name] is causing you a lot of pain!",1)
@@ -33,7 +33,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> applies some of [tool] to [target]'s bone in [affected.name].", \
 		SPAN_NOTICE("You apply some of [tool] to [target]'s bone in [affected.name]."))
-	affected.stage = 1
+	affected.stage = BONE_GLUED
 
 /decl/surgery_step/glue_bone/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -55,7 +55,7 @@
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && affected.name != BP_HEAD && !(affected.status & ORGAN_ROBOT) && affected.open >= ORGAN_OPEN_RETRACTED && affected.stage == 1
+	return affected && affected.name != BP_HEAD && !BP_IS_ROBOTIC(affected) && affected.open >= ORGAN_OPEN_RETRACTED && affected.stage == BONE_GLUED
 
 /decl/surgery_step/set_bone/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -69,7 +69,7 @@
 	if(affected.status & ORGAN_BROKEN)
 		user.visible_message("<b>[user]</b> sets the bone in [target]'s [affected.name] in place with \the [tool].", \
 			SPAN_NOTICE("You set the bone in [target]'s [affected.name] in place with \the [tool]."))
-		affected.stage = 2
+		affected.stage = BONE_SET
 	else
 		user.visible_message(SPAN_NOTICE("[user] sets the bone in [target]'s [affected.name] [SPAN_WARNING("in the WRONG place with \the [tool].")]"), \
 			SPAN_NOTICE("You set the bone in [target]'s [affected.name] [SPAN_WARNING("in the WRONG place with \the [tool].")]"))
@@ -95,7 +95,7 @@
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && affected.name == BP_HEAD && !(affected.status & ORGAN_ROBOT) && affected.open >= ORGAN_OPEN_RETRACTED && affected.stage == 1
+	return affected && affected.name == BP_HEAD && !BP_IS_ROBOTIC(affected) && affected.open >= ORGAN_OPEN_RETRACTED && affected.stage == BONE_GLUED
 
 /decl/surgery_step/mend_skull/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message("[user] is beginning to piece together [target]'s skull with \the [tool]."  , \
@@ -122,17 +122,17 @@
 	/obj/item/surgery/bonegel = 100,	\
 	/obj/item/tape_roll = 60
 	)
-	can_infect = 1
+	can_infect = TRUE
 	blood_level = 1
 
 	min_duration = 50
 	max_duration = 60
 
 /decl/surgery_step/finish_bone/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!ishuman(target))
-		return 0
+	if(!..())
+		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && affected.open >= ORGAN_OPEN_RETRACTED && affected.open < ORGAN_ENCASED_RETRACTED && !(affected.status & ORGAN_ROBOT) && affected.stage == 2
+	return affected && affected.open >= ORGAN_OPEN_RETRACTED && affected.open < ORGAN_ENCASED_RETRACTED && !BP_IS_ROBOTIC(affected) && affected.stage == BONE_SET
 
 /decl/surgery_step/finish_bone/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -146,7 +146,7 @@
 		SPAN_NOTICE("You have mended the damaged bones in [target]'s [affected.name] with \the [tool].") )
 	affected.status &= ~ORGAN_BROKEN
 	affected.status &= ~ORGAN_SPLINTED
-	affected.stage = 0
+	affected.stage = BONE_PRE_OP
 	affected.perma_injury = 0
 
 /decl/surgery_step/finish_bone/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

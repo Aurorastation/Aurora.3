@@ -5,7 +5,7 @@
 /decl/surgery_step/open_encased
 	name = "Saw through bone"
 	priority = 2
-	can_infect = 1
+	can_infect = TRUE
 	blood_level = 1
 
 /decl/surgery_step/open_encased/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -13,7 +13,7 @@
 		return FALSE
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && !(affected.status & ORGAN_ROBOT) && affected.encased && affected.open >= ORGAN_OPEN_RETRACTED
+	return affected && !BP_IS_ROBOTIC(affected) && affected.encased && affected.open >= ORGAN_OPEN_RETRACTED
 
 
 /decl/surgery_step/open_encased/saw
@@ -31,7 +31,7 @@
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return ..() && affected && affected.open == ORGAN_OPEN_RETRACTED
+	return affected && affected.open == ORGAN_OPEN_RETRACTED
 
 /decl/surgery_step/open_encased/saw/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))
@@ -78,7 +78,7 @@
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return ..() && affected && affected.open == ORGAN_ENCASED_OPEN
+	return affected && affected.open == ORGAN_ENCASED_OPEN
 
 /decl/surgery_step/open_encased/retract/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))
@@ -128,7 +128,7 @@
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return ..() && affected && affected.open == ORGAN_ENCASED_RETRACTED
+	return affected && affected.open == ORGAN_ENCASED_RETRACTED
 
 /decl/surgery_step/open_encased/close/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!ishuman(target))

@@ -4,23 +4,23 @@
 //////////////////////////////////////////////////////////////////
 
 /decl/surgery_step/generic
-	can_infect = 1
+	can_infect = TRUE
 
 /decl/surgery_step/generic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(isslime(target))
-		return 0
+		return FALSE
 	if(target_zone == BP_EYES)	//there are specific steps for eye surgery
-		return 0
+		return FALSE
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected == null)
-		return 0
+		return FALSE
 	if(affected.is_stump())
-		return 0
-	if(affected.status & ORGAN_ROBOT)
-		return 0
-	return 1
+		return FALSE
+	if(BP_IS_ROBOTIC(affected))
+		return FALSE
+	return TRUE
 
 /decl/surgery_step/generic/cut_with_laser
 	name = "Make laser incision"
@@ -93,7 +93,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> constructs a prepared incision on and within [target]'s [affected.name] with \the [tool].", \
 		SPAN_NOTICE("You have constructed a prepared incision on and within [target]'s [affected.name] with \the [tool]."),)
-	affected.open = 1
+	affected.open = ORGAN_OPEN_INCISION
 
 	if(istype(target) && !(target.species.flags & NO_BLOOD))
 		affected.status |= ORGAN_BLEEDING
@@ -124,7 +124,7 @@
 	if(!..())
 		return FALSE
 	if(isvaurca(target))
-		return 0
+		return FALSE
 	else
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
@@ -168,7 +168,7 @@
 	if(!..())
 		return FALSE
 	if(!(isvaurca(target)))
-		return 0
+		return FALSE
 	else
 		var/obj/item/organ/external/affected = target.get_organ(target_zone)
 		return affected && affected.open == ORGAN_CLOSED && target_zone != BP_MOUTH
@@ -351,22 +351,22 @@
 		return FALSE
 
 	if(target_zone == BP_EYES)	//there are specific steps for eye surgery
-		return 0
+		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected == null)
-		return 0
+		return FALSE
 
 	if(istype(tool, /obj/item/melee/energy))
 		var/obj/item/melee/energy/E = tool
 		if(!E.active)
 			to_chat(user, SPAN_WARNING("The energy blade is not turned on!"))
-			return 0
+			return FALSE
 
 	if(istype(tool, /obj/item/melee/chainsword))
 		var/obj/item/melee/chainsword/E = tool
 		if(!E.active)
 			to_chat(user, SPAN_WARNING("The blades aren't spinning, you can't cut anything!"))
-			return 0
+			return FALSE
 
 	return (affected.limb_flags & ORGAN_CAN_AMPUTATE)
 
@@ -382,21 +382,20 @@
 	user.visible_message(SPAN_DANGER("[user] amputates [target]'s [affected.name] at the [affected.amputation_point] with \the [tool]."), \
 		SPAN_DANGER("You amputate [target]'s [affected.name] with \the [tool]."))
 
-	var/clean = 1
+	var/clean = TRUE
 	if(istype(tool, /obj/item/melee/chainsword))//Chainswords rip and tear, so the limb removal is not clean
-		clean = 0
+		clean = FALSE
 
 	var/obj/item/organ/external/parent = affected.parent//Cache the parent organ of the limb before we sever it
 	affected.droplimb(clean,DROPLIMB_EDGE)
 
 	if(istype(tool, /obj/item/melee/energy))//Code for energy weapons cauterising the cut
-		spawn(1)
-			affected = parent
-			affected.open = ORGAN_CLOSED//Close open wounds
-			for(var/datum/wound/lost_limb/W in affected.wounds)
-				W.disinfected = 1//Cleanse the wound of any germs
-				W.autoheal_cutoff = INFINITY//Allow the wound to auto-heal, regardless of damage
-				W.max_bleeding_stage = 0//Stop bleeding
+		affected = parent
+		affected.open = ORGAN_CLOSED//Close open wounds
+		for(var/datum/wound/lost_limb/W in affected.wounds)
+			W.disinfected = TRUE//Cleanse the wound of any germs
+			W.autoheal_cutoff = INFINITY//Allow the wound to auto-heal, regardless of damage
+			W.max_bleeding_stage = 0//Stop bleeding
 
 /decl/surgery_step/generic/amputate/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

@@ -5,14 +5,14 @@
 
 /decl/surgery_step/limb
 	priority = 3 // Must be higher than /decl/surgery_step/internal
-	can_infect = 0
+	can_infect = FALSE
 
 /decl/surgery_step/limb/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected)
-		return 0
+		return FALSE
 	var/list/organ_data = target.species.has_limbs["[target_zone]"]
 	var/obj/item/organ/external/E = tool
 	if(E?.parent_organ)
@@ -56,7 +56,7 @@
 	/obj/item/stack/cable_coil = 75, 	\
 	/obj/item/device/assembly/mousetrap = 20
 	)
-	can_infect = 1
+	can_infect = TRUE
 
 	min_duration = 100
 	max_duration = 120
@@ -104,7 +104,7 @@
 	var/obj/item/robot_parts/p = tool
 	if(p.part)
 		if(!(target_zone in p.part))
-			return 0
+			return FALSE
 	return isnull(target.get_organ(target_zone))
 
 /decl/surgery_step/limb/mechanize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

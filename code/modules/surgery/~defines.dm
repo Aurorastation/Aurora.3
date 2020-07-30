@@ -9,3 +9,8 @@
 #undef FACE_RETRACTED
 #undef FACE_ALTERED
 #undef IS_ORGAN_FULLY_OPEN
+#undef BONE_PRE_OP
+#undef BONE_GLUED
+#undef BONE_SET
+#undef CAVITY_OPEN
+#undef CAVITY_CLOSED

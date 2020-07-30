@@ -16,11 +16,11 @@
 /decl/surgery_step/cavity/proc/get_max_wclass(var/obj/item/organ/external/affected)
 	switch(affected.name)
 		if(BP_HEAD)
-			return 1
+			return ITEMSIZE_TINY
 		if("upper body")
-			return 3
+			return ITEMSIZE_NORMAL
 		if("lower body")
-			return 2
+			return ITEMSIZE_SMALL
 	return 0
 
 /decl/surgery_step/cavity/proc/get_cavity(var/obj/item/organ/external/affected)
@@ -61,7 +61,7 @@
 	user.visible_message("[user] starts making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool].", \
 		"You start making some space inside [target]'s [get_cavity(affected)] cavity with \the [tool]." )
 	target.custom_pain("The pain in your chest is living hell!",1)
-	affected.cavity = 1
+	affected.cavity = CAVITY_OPEN
 	playsound(target.loc, 'sound/effects/squelch1.ogg', 25, 1)
 	..()
 
@@ -94,7 +94,7 @@
 	user.visible_message("<b>[user]</b> starts mending [target]'s [get_cavity(affected)] cavity wall with \the [tool].", \
 		"You start mending [target]'s [get_cavity(affected)] cavity wall with \the [tool]." )
 	target.custom_pain("The pain in your chest is living hell!", 75)
-	affected.cavity = 0
+	affected.cavity = CAVITY_CLOSED
 	..()
 
 /decl/surgery_step/cavity/close_space/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -137,7 +137,7 @@
 
 	user.visible_message("<b>[user]</b> puts \the [tool] inside [target]'s [get_cavity(affected)] cavity.", \
 		SPAN_NOTICE("You put \the [tool] inside [target]'s [get_cavity(affected)] cavity.") )
-	if(tool.w_class > get_max_wclass(affected)/2 && prob(50) && !(affected.status & ORGAN_ROBOT))
+	if(tool.w_class > get_max_wclass(affected)/2 && prob(50) && !BP_IS_ROBOTIC(affected))
 		to_chat(user, SPAN_WARNING("You tear \the [affected.artery_name] trying to fit an object so big!"))
 		affected.sever_artery()
 		affected.owner.custom_pain("You feel something rip in your [affected.name]!", 1)
@@ -148,7 +148,7 @@
 		moved_event.register(target, gps, /obj/item/device/gps/proc/update_position)
 		gps.implanted_into = target
 	tool.forceMove(affected)
-	affected.cavity = 0
+	affected.cavity = CAVITY_CLOSED
 
 //////////////////////////////////////////////////////////////////
 //					IMPLANT/ITEM REMOVAL SURGERY						//

@@ -6,14 +6,14 @@
 /decl/surgery_step/face
 	name = "Make facial incisions"
 	priority = 2
-	can_infect = 0
+	can_infect = FALSE
 
 /decl/surgery_step/face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(!affected || (affected.status & ORGAN_ROBOT))
-		return 0
+	if(!affected || BP_IS_ROBOTIC(affected))
+		return FALSE
 	return target_zone == BP_MOUTH
 
 /decl/surgery_step/generic/cut_face
@@ -50,7 +50,7 @@
 /decl/surgery_step/robotics/face
 	name = "Make facial incisions"
 	priority = 2
-	can_infect = 0
+	can_infect = FALSE
 
 /decl/surgery_step/robotics/face/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return ..() && target_zone == BP_MOUTH

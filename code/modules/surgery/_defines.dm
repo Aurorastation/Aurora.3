@@ -13,5 +13,14 @@
 #define FACE_RETRACTED          2
 #define FACE_ALTERED            3
 
+//bone repair
+#define BONE_PRE_OP             0
+#define BONE_GLUED              1
+#define BONE_SET                2
+
+//cavity
+#define CAVITY_CLOSED           0
+#define CAVITY_OPEN             1
+
 //macros
 #define IS_ORGAN_FULLY_OPEN affected.open == ((affected.encased || affected.robotic) ? ORGAN_ENCASED_RETRACTED : ORGAN_OPEN_RETRACTED)

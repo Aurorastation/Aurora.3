@@ -1,7 +1,7 @@
 // Internal surgeries.
 /decl/surgery_step/internal
 	priority = 2
-	can_infect = 1
+	can_infect = TRUE
 	blood_level = 1
 
 /decl/surgery_step/internal/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -33,10 +33,10 @@
 	if(!..())
 		return FALSE
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	var/is_organ_damaged = 0
+	var/is_organ_damaged = FALSE
 	for(var/obj/item/organ/I in affected.internal_organs)
 		if(I.damage > 0)
-			is_organ_damaged = 1
+			is_organ_damaged = TRUE
 			break
 	return is_organ_damaged
 
@@ -118,8 +118,8 @@
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	if(!(affected && !(affected.status & ORGAN_ROBOT)))
-		return 0
+	if(!(affected && !BP_IS_ROBOTIC(affected)))
+		return FALSE
 
 	target.op_stage.current_organ = null
 
@@ -131,7 +131,7 @@
 
 	var/organ_to_remove = input(user, "Which organ do you want to prepare for removal?") as null|anything in attached_organs
 	if(!organ_to_remove)
-		return 0
+		return FALSE
 
 	target.op_stage.current_organ = organ_to_remove
 
@@ -189,7 +189,7 @@
 
 	var/organ_to_remove = input(user, "Which organ do you want to remove?") as null|anything in removable_organs
 	if(!organ_to_remove)
-		return 0
+		return FALSE
 
 	target.op_stage.current_organ = organ_to_remove
 	return ..()
@@ -244,9 +244,9 @@
 	var/organ_missing
 
 	if(!istype(O))
-		return 0
+		return FALSE
 
-	if((affected.status & ORGAN_ROBOT) && !(O.status & ORGAN_ROBOT))
+	if(BP_IS_ROBOTIC(affected) && !(O.status & ORGAN_ROBOT))
 		to_chat(user, SPAN_DANGER("You cannot install a naked organ into a robotic body."))
 		return SURGERY_FAILURE
 
@@ -259,7 +259,7 @@
 	var/o_do = (O.gender == PLURAL) ? "don't" : "doesn't"
 
 	if(O.organ_tag == "limb")
-		return 0
+		return FALSE
 	else if(target.species.has_organ[O.organ_tag] || O.is_augment)
 
 		if(O.damage > (O.max_damage * 0.75))
@@ -285,13 +285,13 @@
 				return SURGERY_FAILURE
 
 		if(!target.internal_organs_by_name[O.organ_tag])
-			organ_missing = 1
+			organ_missing = TRUE
 		else
 			to_chat(user, SPAN_WARNING("\The [target] already has [o_a][O.organ_tag]."))
 			return SURGERY_FAILURE
 
 		if(O && affected.limb_name == O.parent_organ)
-			organ_compatible = 1
+			organ_compatible = TRUE
 		else
 			to_chat(user, SPAN_WARNING("\The [O.organ_tag] [o_do] normally go in \the [affected.name]."))
 			return SURGERY_FAILURE
@@ -347,12 +347,12 @@
 	var/list/removable_organs = list()
 	for(var/organ in target.internal_organs_by_name)
 		var/obj/item/organ/I = target.internal_organs_by_name[organ]
-		if(I && (I.status & ORGAN_CUT_AWAY) && !(I.status & ORGAN_ROBOT) && I.parent_organ == target_zone)
+		if(I && (I.status & ORGAN_CUT_AWAY) && !BP_IS_ROBOTIC(I) && I.parent_organ == target_zone)
 			removable_organs |= organ
 
 	var/organ_to_replace = input(user, "Which organ do you want to reattach?") as null|anything in removable_organs
 	if(!organ_to_replace)
-		return 0
+		return FALSE
 
 	target.op_stage.current_organ = organ_to_replace
 	return TRUE
@@ -399,10 +399,10 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
 	if(!istype(sponge) || !(sponge in affected.internal_organs))
-		return 0
+		return FALSE
 
 	if(!sponge.can_lobotomize || sponge.lobotomized)
-		return 0
+		return FALSE
 
 	target.op_stage.current_organ = sponge
 	return TRUE

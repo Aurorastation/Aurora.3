@@ -4,7 +4,7 @@
 //////////////////////////////////////////////////////////////////
 
 /decl/surgery_step/robotics
-	can_infect = 0
+	can_infect = FALSE
 
 /decl/surgery_step/robotics/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
@@ -146,7 +146,7 @@
 	if(tool.iswelder())
 		var/obj/item/weldingtool/welder = tool
 		if(!welder.isOn() || !welder.remove_fuel(2,user))
-			return 0
+			return FALSE
 	return affected && affected.open == ORGAN_ENCASED_RETRACTED && affected.brute_dam > 0 && target_zone != BP_MOUTH
 
 /decl/surgery_step/robotics/repair_brute/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -189,8 +189,8 @@
 				to_chat(user, SPAN_DANGER("You need six or more cable pieces to repair this damage."))
 				return SURGERY_FAILURE
 			C.use(3)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /decl/surgery_step/robotics/repair_burn/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -229,7 +229,7 @@
 	var/is_organ_damaged = 0
 	for(var/obj/item/organ/I in affected.internal_organs)
 		if(I.damage > 0 && I.robotic >= 2)
-			is_organ_damaged = 1
+			is_organ_damaged = TRUE
 			break
 	return is_organ_damaged && IS_ORGAN_FULLY_OPEN
 
@@ -296,7 +296,7 @@
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected.open != ORGAN_ENCASED_RETRACTED)
-		return 0
+		return FALSE
 
 	target.op_stage.current_organ = null
 
@@ -308,7 +308,7 @@
 
 	var/organ_to_remove = input(user, "Which organ do you want to prepare for removal?") as null|anything in attached_organs
 	if(!organ_to_remove)
-		return 0
+		return FALSE
 
 	target.op_stage.current_organ = organ_to_remove
 
@@ -346,7 +346,7 @@
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(affected.open != ORGAN_ENCASED_RETRACTED)
-		return 0
+		return FALSE
 
 	target.op_stage.current_organ = null
 
@@ -358,7 +358,7 @@
 
 	var/organ_to_replace = input(user, "Which organ do you want to reattach?") as null|anything in removable_organs
 	if(!organ_to_replace)
-		return 0
+		return FALSE
 
 	target.op_stage.current_organ = organ_to_replace
 	return TRUE
@@ -394,21 +394,21 @@
 		return FALSE
 
 	if(target_zone != BP_HEAD)
-		return
+		return FALSE
 
 	var/obj/item/device/mmi/M = tool
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(!(affected && affected.open == ORGAN_ENCASED_RETRACTED))
-		return 0
+		return FALSE
 
 	if(!istype(M))
-		return 0
+		return FALSE
 
 	if(!M.brainmob || !M.brainmob.client || !M.brainmob.ckey || M.brainmob.stat >= DEAD)
 		to_chat(user, SPAN_DANGER("That brain is not usable."))
 		return SURGERY_FAILURE
 
-	if(!(affected.status & ORGAN_ROBOT))
+	if(!BP_IS_ROBOTIC(affected))
 		to_chat(user, SPAN_DANGER("You cannot install a computer brain into a meat skull."))
 		return SURGERY_FAILURE
 
@@ -428,7 +428,7 @@
 		to_chat(user, SPAN_DANGER("Your subject already has a brain."))
 		return SURGERY_FAILURE
 
-	return 1
+	return TRUE
 
 /decl/surgery_step/robotics/install_mmi/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
