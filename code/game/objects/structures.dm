@@ -8,7 +8,9 @@
 	var/parts
 	var/list/climbers
 	var/list/footstep_sound	//footstep sounds when stepped on
+
 	var/material/material
+	var/build_amt // used by some structures to determine into how many pieces they should disassemble into or be made with
 
 /obj/structure/Destroy()
 	if(parts)

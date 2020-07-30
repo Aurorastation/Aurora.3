@@ -110,9 +110,10 @@
 /obj/structure/bed/chair/office
 	anchored = 0
 	buckle_movable = 1
+	build_amt = 5
 
 /obj/structure/bed/chair/office/dismantle()
-	for(var/i = 1 to 4)
+	for(var/i = 1 to build_amt)
 		material.place_sheet(get_turf(src))
 	..()
 
