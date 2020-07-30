@@ -10,7 +10,7 @@
 				 You can also crush cans on other people's foreheads as well."
 
 /obj/item/reagent_containers/food/drinks/cans/attack(mob/living/M, mob/user, var/target_zone)
-	if(istype(M, /mob/living/carbon) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
+	if(iscarbon(M)) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
 		if(M == user)
 			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [user.get_pronoun(1)] forehead!"), SPAN_NOTICE("You crush the can of [src.name] on your forehead."))
 		else
