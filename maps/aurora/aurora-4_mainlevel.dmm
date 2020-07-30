@@ -64710,26 +64710,26 @@
 /area/maintenance/vault)
 "pSX" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_x = -7;
 	pixel_y = 10
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_y = 10
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_x = 7;
 	pixel_y = 10
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	layer = 3.1;
 	pixel_x = -7;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_x = 7;
 	pixel_y = 4
 	},

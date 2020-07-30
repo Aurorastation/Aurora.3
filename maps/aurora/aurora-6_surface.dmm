@@ -24449,26 +24449,26 @@
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/cookiesnack,
 /obj/item/storage/box/fancy/cookiesnack,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	layer = 3.01;
 	pixel_x = -8;
 	pixel_y = 14
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	layer = 3.01;
 	pixel_x = -1;
 	pixel_y = 14
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	layer = 3.01;
 	pixel_x = 6;
 	pixel_y = 14
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_x = -5;
 	pixel_y = 17
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_x = 2;
 	pixel_y = 17
 	},
