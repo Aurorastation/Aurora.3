@@ -61,7 +61,7 @@
 				T.resources["silver"] =   rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
 				T.resources["uranium"] =  rand(RESOURCE_LOW_MIN,  RESOURCE_LOW_MAX)
 				T.resources["diamond"] =  0
-				T.resources[GAS_PHORON] =   0
+				T.resources[MATERIAL_PHORON] =   0
 				T.resources["osmium"] =   0
 				T.resources["hydrogen"] = 0
 			else if(tmp_cell < deep_val) // Rare metals.
