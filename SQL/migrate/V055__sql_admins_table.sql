@@ -8,3 +8,6 @@ CREATE TABLE `ss13_admins` (
   `flags` INT NOT NULL,
   CONSTRAINT `FK_ss13_admins_ss13_player_ckey` FOREIGN KEY(`ckey`) REFERENCES  `ss13_player` (`ckey`) ON UPDATE CASCADE
 ) ENGINE=InnoDB COLLATE='utf8mb4_unicode_ci';
+
+ALTER TABLE `ss13_player`
+  DROP COLUMN `rank`, `flags`;
