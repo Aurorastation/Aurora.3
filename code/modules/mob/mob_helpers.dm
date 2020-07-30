@@ -1227,6 +1227,7 @@ proc/is_blind(A)
 	a_intent = set_intent
 
 /mob/proc/get_accent_icon(var/datum/language/speaking = null, var/force_accent)
+	SHOULD_CALL_PARENT(TRUE)
 	var/used_accent = force_accent ? force_accent : accent
 	if(used_accent && speaking?.allow_accents)
 		var/datum/accent/a = SSrecords.accents[used_accent]
