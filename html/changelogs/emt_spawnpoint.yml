@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - bugfix: "Emergency Medical Technicians now properly spawn in the briefing room like the rest of medical."
