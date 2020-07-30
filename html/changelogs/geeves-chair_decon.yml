@@ -8,3 +8,4 @@ changes:
   - tweak: "Cloth, leather, carpet, and cotton no longer have good blunt and edge damages."
   - rscadd: "Deconstructed materials now neatly pack into one stack instead of spawning multiple stacks of one."
   - tweak: "Tweaked the deconstruction of various structures. They will likely drop more material now."
+  - rscadd: "Material crafting windows now have a back button when you're in a sub-list."

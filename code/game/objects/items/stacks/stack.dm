@@ -80,6 +80,8 @@
 
 	var/t1 = "<html><head><title>Constructions from [capitalize_first_letters(src.name)]</title></head><body><tt>Amount Left: [src.get_amount()]<br>"
 
+	if(sublist)
+		t1 += "<a href='?src=\ref[src];go_back=1'>Back</a><br>"
 	if(locate(/datum/stack_recipe_list) in recipes_sublist)
 		t1 += "<h2>Recipe Categories</h2>"
 	for(var/datum/stack_recipe_list/srl in recipes_sublist)
@@ -173,6 +175,10 @@
 /obj/item/stack/Topic(href, href_list)
 	..()
 	if((usr.restrained() || usr.stat || usr.get_active_hand() != src))
+		return
+
+	if(href_list["go_back"])
+		list_recipes(usr, recipes)
 		return
 
 	if(href_list["sublist"] && !href_list["make"])

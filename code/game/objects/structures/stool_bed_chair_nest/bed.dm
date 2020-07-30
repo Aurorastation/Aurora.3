@@ -106,7 +106,6 @@
 		if(can_dismantle)
 			playsound(src.loc, W.usesound, 50, 1)
 			dismantle()
-			qdel(src)
 	else if(istype(W,/obj/item/stack))
 		if(padding_material)
 			to_chat(user, "\The [src] is already padded.")
@@ -169,9 +168,9 @@
 	update_icon()
 
 /obj/structure/bed/dismantle()
-	..()
 	if(padding_material)
 		padding_material.place_sheet(get_turf(src))
+	..()
 
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
@@ -183,7 +182,7 @@
 	..(newloc, MATERIAL_WOOD, MATERIAL_LEATHER)
 
 /obj/structure/bed/padded/New(var/newloc)
-	..(newloc, MATERIAL_PLASTIC, MATERIAL_COTTON)
+	..(newloc, MATERIAL_PLASTIC, MATERIAL_CLOTH)
 
 /obj/structure/bed/aqua
 	name = "aquabed"
