@@ -117,7 +117,7 @@
 	var/p = input("Enter phoron amount (mol):","Phoron", initial(proto.phoron_amt)) as num|null
 	if(p == null) return
 
-	var/o = input("Enter oxygen amount (mol):",GAS_OXYGEN, initial(proto.oxygen_amt)) as num|null
+	var/o = input("Enter oxygen amount (mol):","Oxygen", initial(proto.oxygen_amt)) as num|null
 	if(o == null) return
 
 	var/c = input("Enter carbon dioxide amount (mol):","Carbon Dioxide", initial(proto.carbon_amt)) as num|null
