@@ -195,22 +195,16 @@
 	if (new_admin)
 		var/DBQuery/update_query = dbcon.NewQuery("INSERT INTO `ss13_admins` VALUES (:ckey:, :rank:, 0)")
 		update_query.Execute(list("ckey" = admin_ckey, "rank" = new_rank))
-		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Added new admin [admin_ckey] to rank [new_rank]');")
-		log_query.Execute()
 		to_chat(usr, SPAN_NOTICE("New admin added to the DB."))
 
 	else if (new_rank != "Removed")
 		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_admins` SET rank = :rank: WHERE ckey = :ckey:")
 		insert_query.Execute(list("ckey" = admin_ckey, "rank" = new_rank))
-		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Edited the rank of [admin_ckey] to [new_rank]');")
-		log_query.Execute()
 		to_chat(usr, SPAN_NOTICE("Admin's rank changed."))
 
 	else if (new_rank == "Removed")
 		var/DBQuery/insert_query = dbcon.NewQuery("DELETE FROM ss13_admins WHERE ckey = :ckey:")
 		insert_query.Execute(list("ckey" = admin_ckey))
-		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Removed the rank of [admin_ckey]');")
-		log_query.Execute()
 		to_chat(usr, SPAN_NOTICE("Admin removed."))
 
 /datum/vueui_module/permissions_panel/proc/log_admin_permission_modification(admin_ckey, new_permission)
@@ -248,12 +242,8 @@
 	if(admin_rights & new_permission) //This admin already has this permission, so we are removing it.
 		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_admins` SET flags = :flags: WHERE ckey = :ckey:")
 		insert_query.Execute(list("flags" = admin_rights & ~new_permission, "ckey" = admin_ckey))
-		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Removed permission [rights2text(new_permission)] (flag = [new_permission]) to admin [admin_ckey]');")
-		log_query.Execute()
 		to_chat(usr, SPAN_NOTICE("Permission removed."))
 	else //This admin doesn't have this permission, so we are adding it.
 		var/DBQuery/insert_query = dbcon.NewQuery("UPDATE `ss13_admins` SET flags = :flags: WHERE ckey = :ckey:")
 		insert_query.Execute(list("flags" = admin_rights | new_permission, "ckey" = admin_ckey))
-		var/DBQuery/log_query = dbcon.NewQuery("INSERT INTO `ss13_admin_log` (`id` ,`datetime` ,`adminckey` ,`adminip` ,`log` ) VALUES (NULL , NOW( ) , '[usr.ckey]', '[usr.client.address]', 'Added permission [rights2text(new_permission)] (flag = [new_permission]) to admin [admin_ckey]')")
-		log_query.Execute()
 		to_chat(usr, SPAN_NOTICE("Permission added."))

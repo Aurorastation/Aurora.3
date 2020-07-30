@@ -12,3 +12,5 @@ CREATE TABLE `ss13_admins` (
 ALTER TABLE `ss13_player`
   DROP COLUMN `rank`,
   DROP COLUMN `flags`;
+
+DROP TABLE `ss13_admin_log`;
