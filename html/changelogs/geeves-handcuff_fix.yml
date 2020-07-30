@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Hand overlays, such as handcuffs and damaged or destroyed hands, should now update correctly."
