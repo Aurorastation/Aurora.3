@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Making cable restraints no longer brings up a menu of people to do it on."
-  - rscadd: "Made cable restraints will now be put in an empty hand, if one exists."
