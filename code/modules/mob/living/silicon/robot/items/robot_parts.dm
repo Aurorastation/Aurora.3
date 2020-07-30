@@ -254,6 +254,7 @@
 				forceMove(new_shell) //so people won't mess around with the chassis until it is deleted
 				M.brainmob.mind.transfer_to(new_shell)
 				qdel(M)
+				new_shell.add_language(LANGUAGE_EAL)
 				var/newname = sanitizeSafe(input(new_shell, "Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)
 				if(!newname)
 					var/datum/language/L = all_languages[new_shell.species.default_language]
