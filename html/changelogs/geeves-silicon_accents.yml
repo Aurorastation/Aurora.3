@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Stationbounds now have accents, starting off with Text-to-Speech, and can choose to mimic any accent."
+  - rscadd: "The bots that robotics can produce now also have TTS accents."
+  - rscadd: "IPCs can choose to use the TTS accent if they wish."
