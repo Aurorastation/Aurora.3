@@ -22,11 +22,35 @@
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
+/obj/item/clothing/shoes/jackboots/knee
+	name = "knee-length jackboots"
+	desc = "Taller synthleather boots with an artificial shine."
+	icon_state = "kneeboots"
+	item_state = "kneeboots"
+
+/obj/item/clothing/shoes/jackboots/thigh
+	name = "thigh-length jackboots"
+	desc = "Even taller synthleather boots with an artificial shine."
+	icon_state = "thighboots"
+	item_state = "thighboots"
+
 /obj/item/clothing/shoes/jackboots/toeless
 	name = "toe-less jackboots"
 	desc = "Modified pair of jackboots, particularly friendly to those species whose toes hold claws."
 	icon_state = "jackboots_toeless"
 	species_restricted = null
+
+/obj/item/clothing/shoes/jackboots/toeless/knee
+	name = "knee-high toeless jackboots"
+	desc = "Modified pair of taller jackboots, particularly friendly to those species whose toes hold claws."
+	icon_state = "kneeboots_toeless"
+	item_state = "kneeboots_toeless"
+
+/obj/item/clothing/shoes/jackboots/toeless/thigh
+	name = "thigh-high toeless jackboots"
+	desc = "Modified pair of even taller jackboots, particularly friendly to those species whose toes hold claws."
+	icon_state = "kneeboots_toeless"
+	item_state = "kneeboots_toeless"
 
 /obj/item/clothing/shoes/workboots
 	name = "workboots"

@@ -5,18 +5,6 @@
 	slot = slot_shoes
 	sort_category = "Shoes and Footwear"
 
-/datum/gear/shoes/workboots
-	display_name = "workboots selection"
-	path = /obj/item/clothing/shoes/workboots
-
-/datum/gear/shoes/workboots/New()
-	..()
-	var/shoes = list()
-	shoes["brown workboots"] = /obj/item/clothing/shoes/workboots
-	shoes["grey workboots"] = /obj/item/clothing/shoes/workboots/grey
-	shoes["dark workboots"] = /obj/item/clothing/shoes/workboots/dark
-	gear_tweaks += new/datum/gear_tweak/path(shoes)
-
 /datum/gear/shoes/winterboots
 	display_name = "winter boots"
 	path = /obj/item/clothing/shoes/winter
@@ -111,9 +99,24 @@
 	shoes["high-tops, yellow"] = /obj/item/clothing/shoes/hitops/yellow
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
-/datum/gear/shoes/black_boots
-	display_name = "black boots"
-	path = /obj/item/clothing/shoes/black_boots
+/datum/gear/shoes/boots
+	display_name = "boot selection"
+	description = "Boots, in a variety of styles."
+	path = /obj/item/clothing/shoes/jackboots
+
+/datum/gear/shoes/boots/New()
+	..()
+	var/shoes = list()
+	shoes["jackboots, short"] = /obj/item/clothing/shoes/jackboots
+	shoes["jackboots, knee"] = /obj/item/clothing/shoes/jackboots/knee
+	shoes["jackboots, thigh"] = /obj/item/clothing/shoes/jackboots/thigh
+	shoes["cowboy boots"] = /obj/item/clothing/shoes/cowboy
+	shoes["classic cowboy boots"] = /obj/item/clothing/shoes/cowboy/classic
+	shoes["snakeskin cowboy boots"] = /obj/item/clothing/shoes/cowboy/snakeskin
+	shoes["brown workboots"] = /obj/item/clothing/shoes/workboots
+	shoes["grey workboots"] = /obj/item/clothing/shoes/workboots/grey
+	shoes["dark workboots"] = /obj/item/clothing/shoes/workboots/dark
+	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
 /datum/gear/shoes/lyodsuit_boots
 	display_name = "lyodsuit boots"
