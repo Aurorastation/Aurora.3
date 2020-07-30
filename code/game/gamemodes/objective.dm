@@ -747,7 +747,7 @@ datum/objective/heist/salvage
 				target = "plasteel"
 				target_amount = 100
 			if(4)
-				target = GAS_PHORON
+				target = MATERIAL_PHORON
 				target_amount = 100
 			if(5)
 				target = "silver"
