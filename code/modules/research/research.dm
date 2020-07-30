@@ -33,7 +33,7 @@ The tech datums are the actual "tech trees" that you improve through researching
 - Name:		Pretty obvious. This is often viewable to the players.
 - Desc:		Pretty obvious. Also player viewable.
 - ID:		This is the unique ID of the tech that is used by the various procs to find and/or maniuplate it.
-- Level:	This is the current level of the tech. All techs start at 1 and have a max of 20. Devices and some techs require a certain
+- Level:	This is the current level of the tech. All techs start at 1 and have a max of 15. Devices and some techs require a certain
 level in specific techs before you can produce them.
 - Req_tech:	This is a list of the techs required to unlock this tech path. If left blank, it'll automatically be loaded into the
 research holder datum.
@@ -47,101 +47,117 @@ research holder datum.
 /datum/research								//Holder for all the existing, archived, and known tech. Individual to console.
 	var/list/known_tech = list()			//List of locally known tech. Datum/tech go here.
 	var/list/possible_designs = list()		//List of all designs.
+	var/list/protolathe_categories = list()
+	var/list/imprinter_categories = list()
 	var/list/known_designs = list()			//List of available designs.
 
+	var/standard_start_level				// The level non-antag techs are set at
+	var/antag_start_level					// ditto but antag
+	var/load_tech = TRUE					// Whether we should gather the techs
+	var/load_designs = TRUE					// ditto but designs
+
 /datum/research/New()		//Insert techs into possible_tech here. Known_tech automatically updated.
-	for(var/T in typesof(/datum/tech) - /datum/tech)
-		known_tech += new T(src)
-	for(var/D in typesof(/datum/design) - /datum/design)
-		possible_designs += new D(src)
+	if(load_tech)
+		for(var/tech_path in subtypesof(/datum/tech))
+			var/datum/tech/T = new tech_path(src)
+			known_tech[T.id] = T
+			if(!T.antag_tech)
+				if(standard_start_level)
+					T.level = standard_start_level
+			else
+				if(antag_start_level)
+					T.level = antag_start_level
+	if(load_designs)
+		for(var/design_path in subtypesof(/datum/design))
+			var/datum/design/D = new design_path(src)
+			if(D.build_type & PROTOLATHE)
+				protolathe_categories |= D.p_category
+			if(D.build_type & IMPRINTER)
+				imprinter_categories |= D.p_category
+			possible_designs[D.type] = D
 	RefreshResearch()
 
 /datum/research/techonly
-
-/datum/research/techonly/New()
-	for(var/T in typesof(/datum/tech) - /datum/tech)
-		known_tech += new T(src)
-	RefreshResearch()
+	load_designs = FALSE
 
 /datum/research/hightech
-
-/datum/research/hightech/New()
-	for(var/T in typesof(/datum/tech) - /datum/tech)
-		known_tech += new T(src)
-	for(var/D in typesof(/datum/design) - /datum/design)
-		possible_designs += new D(src)
-	for(var/datum/tech/known in known_tech)
-		if(istype(known,/datum/tech/syndicate) || istype(known,/datum/tech/arcane)) //illegal or antag shit we don't want to start with
-			known.level = 0
-		else
-			known.level = 3
-	RefreshResearch()
+	standard_start_level = 3
 
 //Checks to see if design has all the required pre-reqs.
 //Input: datum/design; Output: 0/1 (false/true)
 /datum/research/proc/DesignHasReqs(var/datum/design/D)
-	if(D.req_tech.len == 0)
-		return 1
-
-	var/list/k_tech = list()
-
-	for(var/datum/tech/known in known_tech)
-		k_tech[known.id] = known.level
+	if(!D.req_tech.len)
+		return TRUE
 
 	for(var/req in D.req_tech)
-		if(isnull(k_tech[req]) || k_tech[req] < D.req_tech[req])
-			return 0
+		var/datum/tech/T = known_tech[req]
+		if(isnull(T))
+			return FALSE
+		if(T.level < D.req_tech[req])
+			return FALSE
 
-	return 1
+	return TRUE
 
 //Adds a tech to known_tech list. Checks to make sure there aren't duplicates and updates existing tech's levels if needed.
 //Input: datum/tech; Output: Null
 /datum/research/proc/AddTech2Known(var/datum/tech/T)
-	for(var/datum/tech/known in known_tech)
-		if(T.id == known.id)
-			if(T.level > known.level)
-				known.level = T.level
-			return
-	return
+	if(isnull(T))
+		return
+	var/datum/tech/known = known_tech[T.id]
+	var/will_update_progress = FALSE
+	if(T.level > known.level)
+		known.level = T.level
+		known.next_level_threshold = T.next_level_threshold
+		known.next_level_progress = 0
+		will_update_progress = TRUE
+	else if (T.level == known.level && T.next_level_progress > known.next_level_progress)
+		will_update_progress = TRUE
+
+	if(will_update_progress)
+		known.next_level_progress = T.next_level_progress
 
 /datum/research/proc/AddDesign2Known(var/datum/design/D)
-	if(!known_designs.len) // Special case
-		known_designs.Add(D)
-		return
-	for(var/i = 1 to known_designs.len)
-		var/datum/design/A = known_designs[i]
-		if("[A.type]" == "[D.type]") // We are guaranteed to reach this if the ids are the same, because sort_string will also be the same
-			return
-		if(A.design_order > D.design_order)
-			known_designs.Insert(i, D)
-			return
-	known_designs.Add(D)
-	return
+	known_designs[D.type] = D
 
 //Refreshes known_tech and known_designs list
 //Input/Output: n/a
 /datum/research/proc/RefreshResearch()
-	for(var/datum/design/PD in possible_designs)
+	known_designs.Cut() // this is to refresh the ordering of the designs, the alternative is an expensive insertion or sorting proc
+	for(var/path in possible_designs)
+		var/datum/design/PD = possible_designs[path]
 		if(DesignHasReqs(PD))
 			AddDesign2Known(PD)
-	for(var/datum/tech/T in known_tech)
-		T = between(0, T.level, 20)
-	return
+	for(var/id in known_tech)
+		var/datum/tech/T = known_tech[id]
+		T.level = between(0, T.level, MAX_TECH_LEVEL)
+		T.next_level_threshold = get_level_value(T.level)
+
+/datum/research/proc/get_level_value(var/level)
+	return 5 ** level
 
 //Refreshes the levels of a given tech.
 //Input: Tech's ID and Level; Output: null
-/datum/research/proc/UpdateTech(var/ID, var/level)
-	for(var/datum/tech/KT in known_tech)
-		if(KT.id == ID && KT.level <= level)
-			KT.level = max(KT.level + 1, level - 1)
-	return
+/datum/research/proc/UpdateTech(var/ID, var/update_level)
+	var/datum/tech/KT = known_tech[ID]
+	var/progress = get_level_value(update_level)
+	while(progress > 0)
+		if(KT.level >= MAX_TECH_LEVEL)
+			break
+		if(KT.next_level_progress + progress >= KT.next_level_threshold)
+			progress -= KT.next_level_threshold - KT.next_level_progress
+			KT.level++
+			KT.level = clamp(KT.level, 0, MAX_TECH_LEVEL)
+			KT.next_level_threshold = get_level_value(KT.level)
+			continue
+		KT.next_level_progress += progress
+		break
 
 // A simple helper proc to find the name of a tech with a given ID.
-/proc/CallTechName(var/ID) 
+/proc/CallTechName(var/ID)
 	for(var/T in subtypesof(/datum/tech))
 		var/datum/tech/check_tech = T
 		if(initial(check_tech.id) == ID)
-			return  initial(check_tech.name)
+			return initial(check_tech.name)
 
 /***************************************************************
 **						Technology Datums					  **
@@ -152,7 +168,10 @@ research holder datum.
 	var/name = "name"					//Name of the technology.
 	var/desc = "description"			//General description of what it does and what it makes.
 	var/id = "id"						//An easily referenced ID. Must be alphanumeric, lower-case, and no symbols.
+	var/antag_tech
 	var/level = 1						//A simple number scale of the research level. Level 0 = Secret tech.
+	var/next_level_progress = 0			// The research progress until the next level is reached, makes things more gradual
+	var/next_level_threshold = 10		// The next threshold that must be reached before it ticks to the next level
 
 /datum/tech/materials
 	name = "Materials Research"
@@ -203,12 +222,14 @@ research holder datum.
 	name = "Illegal Technologies Research"
 	desc = "The study of technologies that violate standard government regulations."
 	id = TECH_ILLEGAL
+	antag_tech = TRUE
 	level = 0
 
 /datum/tech/arcane
 	name = "Arcane Research"
 	desc = "Research into the occult and arcane field for use in practical science"
 	id = TECH_ARCANE
+	antag_tech = TRUE
 	level = 0
 
 /obj/item/disk/tech_disk
@@ -221,9 +242,19 @@ research holder datum.
 	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 10)
 	var/datum/tech/stored
 
-/obj/item/disk/tech_disk/New()
-	pixel_x = rand(-5.0, 5)
-	pixel_y = rand(-5.0, 5)
+/obj/item/disk/tech_disk/Initialize(mapload)
+	. = ..()
+	pixel_x = rand(-5, 5)
+	pixel_y = rand(-5, 5)
+
+/obj/item/disk/tech_disk/examine(mob/user, distance)
+	. = ..()
+	if(distance <= 1)
+		if(stored)
+			to_chat(user, FONT_SMALL("It is storing the following tech:"))
+			to_chat(user, FONT_SMALL(" - [stored.name]: Level - [stored.level] | Progress - [stored.next_level_progress]/[stored.next_level_threshold]"))
+		else
+			to_chat(user, FONT_SMALL("It doesn't have any tech stored."))
 
 /obj/item/disk/design_disk
 	name = "component design disk"
@@ -235,6 +266,16 @@ research holder datum.
 	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 10)
 	var/datum/design/blueprint
 
-/obj/item/disk/design_disk/New()
-	pixel_x = rand(-5.0, 5)
-	pixel_y = rand(-5.0, 5)
+/obj/item/disk/design_disk/Initialize(mapload)
+	. = ..()
+	pixel_x = rand(-5, 5)
+	pixel_y = rand(-5, 5)
+
+/obj/item/disk/design_disk/examine(mob/user, distance)
+	. = ..()
+	if(distance <= 1)
+		if(blueprint)
+			to_chat(user, FONT_SMALL("It is storing the following design:"))
+			to_chat(user, FONT_SMALL(" - [blueprint.name]"))
+		else
+			to_chat(user, FONT_SMALL("It doesn't have any blueprint stored."))

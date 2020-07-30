@@ -23,6 +23,23 @@ var/list/GPS_list = list()
 	name = "global positioning system ([gpstag])"
 	update_position()
 	add_overlay("working")
+
+	if(ismob(loc))
+		if(ishuman(loc))
+			var/mob/living/carbon/human/H = loc
+			if(src in H.get_equipped_items())
+				held_by = H
+			else
+				implanted_into = loc
+		else if(issilicon(loc))
+			implanted_into = loc
+	else if(istype(loc, /obj/item/robot_module))
+		implanted_into = loc.loc
+
+	if(held_by)
+		moved_event.register(held_by, src, /obj/item/device/gps/proc/update_position)
+	if(implanted_into)
+		moved_event.register(implanted_into, src, /obj/item/device/gps/proc/update_position)
 	moved_event.register(src, src, /obj/item/device/gps/proc/update_position)
 
 	for(var/gps in GPS_list)

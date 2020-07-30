@@ -4,6 +4,25 @@
 	flags = 0 //starts closed
 	drop_sound = 'sound/items/drop/soda.ogg'
 	pickup_sound = 'sound/items/pickup/soda.ogg'
+	desc_info = "Click it in your hand to open it.\
+				 If it's carbonated and closed, you can shake it by clicking on it with harm intent. \
+				 If it's empty, you can crush it on your forehead by selecting your head and clicking on yourself with harm intent. \
+				 You can also crush cans on other people's foreheads as well."
+
+/obj/item/reagent_containers/food/drinks/cans/attack(mob/living/M, mob/user, var/target_zone)
+	if(iscarbon(M) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
+		if(M == user)
+			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [user.get_pronoun(1)] forehead!"), SPAN_NOTICE("You crush the can of [src.name] on your forehead."))
+		else
+			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [M]'s forehead!"), SPAN_NOTICE("You crush the can of [src.name] on [M]'s forehead."))
+		M.apply_damage(2,BRUTE,BP_HEAD) // ouch.
+		playsound(M,'sound/items/soda_crush.ogg', rand(10,50), TRUE)
+		var/obj/item/trash/can/crushed_can = new /obj/item/trash/can(M.loc)
+		crushed_can.icon_state = icon_state
+		qdel(src)
+		user.put_in_hands(crushed_can)
+		return TRUE
+	. = ..()
 
 //DRINKS
 
@@ -13,16 +32,6 @@
 	icon_state = "cola"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/datum/reagent/drink/space_cola = 30)
-
-/obj/item/reagent_containers/food/drinks/cans/waterbottle
-	name = "bottled water"
-	desc = "Introduced to the vending machines by Skrellian request, this water comes straight from the Martian poles."
-	icon_state = "waterbottle"
-	center_of_mass = list("x"=16, "y"=8)
-	drop_sound = 'sound/items/drop/disk.ogg'
-	pickup_sound = 'sound/items/pickup/disk.ogg'
-
-	reagents_to_add = list(/datum/reagent/water = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/space_mountain_wind
 	name = "\improper Space Mountain Wind"
@@ -148,7 +157,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/zorahozm
 	name = "\improper High Octane Zorane Might"
-	desc = "A can of fizzy, acidic energy, with plenty V'krexi additives. It tastes like the bottom of your mouth is being impaled by a freezing cold spear, a spear laced with bees and salt."
+	desc = "A can of fizzy, acidic energy, with plenty of V'krexi additives. Tastes like impaling the bottom of your mouth with a freezing cold spear laced with bees and salt."
 	icon_state = "hozm"
 	center_of_mass = list("x"=16, "y"=8)
 
@@ -156,7 +165,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/zoravenom
 	name = "\improper Zo'ra Soda Sour Venom Grass (Diet!)"
-	desc = "A diet can of Venom Grass flavored energy drink, with V'krexi additives. It still tastes like a cloud of stinging polytrinic bees, but calories are nowhere to be found."
+	desc = "A diet can of Venom Grass flavored energy drink, with V'krexi additives. Still tastes like a cloud of stinging polytrinic bees, but calories are nowhere to be found."
 	icon_state = "sourvenomgrass"
 	center_of_mass = list("x"=16, "y"=8)
 
@@ -212,7 +221,7 @@
 
 /obj/item/reagent_containers/food/drinks/cans/dyn
 	name = "Cooling Breeze"
-	desc = "The most refreshing thing you can find on the market, based on a Skrell medicinal plant. No salt or sugar. "
+	desc = "The most refreshing thing you can find on the market, based on a Skrell medicinal plant. No salt or sugar."
 	icon_state = "dyncan"
 	center_of_mass = list("x"=16, "y"=10)
 	reagents_to_add = list(/datum/reagent/drink/dynjuice/cold = 30)

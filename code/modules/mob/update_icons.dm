@@ -4,9 +4,6 @@
 /mob/proc/regenerate_icons()		//TODO: phase this out completely if possible
 	return
 
-/mob/proc/update_icons()
-	return
-
 /mob/proc/update_hud()
 	return
 

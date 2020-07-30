@@ -228,7 +228,7 @@
 			SSatoms.ForceInitializeContents(mannequin)
 			mannequin.regenerate_icons()
 		else
-			mannequin.update_icons()
+			mannequin.update_icon()
 
 /datum/preferences/proc/update_preview_icon()
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = SSmob.get_mannequin(client.ckey)

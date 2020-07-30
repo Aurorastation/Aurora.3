@@ -929,7 +929,7 @@
 /obj/machinery/vending/wallmed2{
 	pixel_y = 28
 	},
-/obj/item/storage/fancy/tray,
+/obj/item/storage/box/fancy/tray,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
@@ -1471,7 +1471,7 @@
 /obj/machinery/vending/wallmed2{
 	pixel_y = -28
 	},
-/obj/item/storage/fancy/tray,
+/obj/item/storage/box/fancy/tray,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
 	},
@@ -3335,9 +3335,9 @@
 /area/security/brig)
 "agl" = (
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	frequency = 1449;
-	listening = FALSE;
+	listening = 0;
 	pixel_x = 27
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -6322,7 +6322,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/storage/fancy/cigarettes/dromedaryco,
+/obj/item/storage/box/fancy/cigarettes/dromedaryco,
 /obj/item/clothing/glasses/sunglasses,
 /turf/simulated/floor/tiled/dark,
 /area/security/security_office)
@@ -8130,7 +8130,7 @@
 /area/security/brig)
 "apn" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/donut,
+/obj/item/storage/box/fancy/donut,
 /obj/machinery/newscaster{
 	pixel_x = -28
 	},
@@ -8645,7 +8645,7 @@
 /obj/item/stack/medical/bruise_pack,
 /obj/item/stack/medical/ointment,
 /obj/item/reagent_containers/pill/kelotane,
-/obj/item/reagent_containers/pill/paracetamol,
+/obj/item/reagent_containers/pill/perconol,
 /obj/item/reagent_containers/pill/antitox,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
@@ -12131,7 +12131,7 @@
 	icon_state = "1-8"
 	},
 /obj/item/reagent_containers/pill/kelotane,
-/obj/item/reagent_containers/pill/paracetamol,
+/obj/item/reagent_containers/pill/perconol,
 /obj/item/reagent_containers/pill/antitox,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
@@ -13560,10 +13560,7 @@
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/storage/box/gloves{
-	pixel_x = 2;
-	pixel_y = 2
-	},
+/obj/item/nitrilebox,
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	dir = 8
 	},
@@ -18767,7 +18764,7 @@
 /area/server)
 "aGI" = (
 /obj/structure/table/wood,
-/obj/item/storage/fancy/donut{
+/obj/item/storage/box/fancy/donut{
 	pixel_y = 2
 	},
 /obj/machinery/firealarm/west,
@@ -19008,7 +19005,7 @@
 /area/crew_quarters/captain)
 "aHf" = (
 /obj/structure/table/wood,
-/obj/item/storage/fancy/cigarettes/cigar,
+/obj/item/storage/box/fancy/cigarettes/cigar,
 /obj/item/flame/lighter/zippo,
 /obj/item/hand_tele,
 /obj/item/device/radio/intercom{
@@ -22166,7 +22163,7 @@
 /area/crew_quarters/captain)
 "aMp" = (
 /obj/structure/table/wood,
-/obj/item/storage/fancy/donut,
+/obj/item/storage/box/fancy/donut,
 /turf/simulated/floor/carpet,
 /area/crew_quarters/captain)
 "aMq" = (
@@ -29650,7 +29647,7 @@
 /area/hallway/primary/port)
 "aZn" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/vials,
+/obj/item/storage/box/fancy/vials,
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28
@@ -30769,7 +30766,7 @@
 /area/maintenance/bar)
 "bbx" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/tray,
+/obj/item/storage/box/fancy/tray,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/alarm{
 	dir = 4;
@@ -30998,7 +30995,7 @@
 /area/medical/pharmacy)
 "bbQ" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/vials,
+/obj/item/storage/box/fancy/vials,
 /obj/item/reagent_containers/dropper,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
@@ -31010,7 +31007,7 @@
 /area/medical/pharmacy)
 "bbR" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/vials,
+/obj/item/storage/box/fancy/vials,
 /obj/item/reagent_containers/dropper,
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
@@ -31259,7 +31256,7 @@
 /area/crew_quarters/medbreak)
 "bcn" = (
 /obj/structure/table/glass,
-/obj/item/storage/fancy/donut,
+/obj/item/storage/box/fancy/donut,
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/newscaster{
 	pixel_y = 32
@@ -31902,10 +31899,10 @@
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/stack/medical/bruise_pack,
 /obj/item/stack/medical/bruise_pack,
-/obj/item/storage/pill_bottle/tramadol,
+/obj/item/storage/pill_bottle/mortaphenyl,
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
@@ -35677,7 +35674,7 @@
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin,
 /obj/item/storage/pill_bottle/dermaline,
-/obj/item/storage/pill_bottle/tramadol,
+/obj/item/storage/pill_bottle/mortaphenyl,
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/reagent_containers/syringe/antibiotic,
@@ -39513,6 +39510,10 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "brb" = (
@@ -39523,11 +39524,15 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
 /obj/effect/floor_decal/sign/cmo,
+/obj/structure/disposalpipe/sortjunction{
+	dir = 8;
+	name = "CMO Office";
+	sortType = "CMO Office"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "brc" = (
@@ -39535,11 +39540,17 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "brd" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
@@ -39891,10 +39902,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "brW" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
 	},
@@ -39908,20 +39915,21 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/disposalpipe/junction{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "brY" = (
-/obj/structure/disposalpipe/junction{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
@@ -39968,20 +39976,11 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/disposalpipe/sortjunction{
-	dir = 4;
-	icon_state = "pipe-j2s";
-	name = "CMO Office";
-	sortType = "CMO Office"
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bsf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bsg" = (
@@ -39997,11 +39996,6 @@
 	icon_state = "2-4"
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/disposalpipe/sortjunction{
-	dir = 4;
-	name = "Quarantine";
-	sortType = "Quarantine"
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bsh" = (
@@ -40009,9 +40003,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -40025,6 +40016,11 @@
 	icon_state = "1-8"
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/disposalpipe/sortjunction{
+	dir = 1;
+	name = "Medical Bay";
+	sortType = "Medical Bay"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "bsi" = (
@@ -40626,10 +40622,8 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/disposalpipe/sortjunction{
-	dir = 8;
-	name = "Quarantine";
-	sortType = "Quarantine"
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
@@ -40647,30 +40641,9 @@
 	icon_state = "1-4"
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/disposalpipe/sortjunction{
+/obj/structure/disposalpipe/segment{
 	dir = 8;
-	name = "CMO Office";
-	sortType = "CMO Office"
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/medbay2)
-"bto" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/disposalpipe/sortjunction{
-	dir = 8;
-	name = "Medical Bay";
-	sortType = "Medical Bay"
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
@@ -40693,7 +40666,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/disposalpipe/segment{
-	dir = 2;
+	dir = 4;
 	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
@@ -40727,6 +40700,9 @@
 	icon_state = "1-8"
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "btu" = (
@@ -40740,6 +40716,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/effect/floor_decal/corner/grey,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "btv" = (
@@ -40756,6 +40735,9 @@
 	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
@@ -40778,7 +40760,11 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/sign/c2,
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/sortjunction{
+	dir = 4;
+	name = "Quarantine";
+	sortType = "Quarantine"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "btx" = (
@@ -41126,7 +41112,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/storage/box/gloves,
+/obj/item/nitrilebox,
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
@@ -42681,10 +42667,10 @@
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/stack/medical/bruise_pack,
 /obj/item/stack/medical/bruise_pack,
-/obj/item/storage/pill_bottle/tramadol,
+/obj/item/storage/pill_bottle/mortaphenyl,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -42729,7 +42715,7 @@
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin,
 /obj/item/storage/pill_bottle/dermaline,
-/obj/item/storage/pill_bottle/tramadol,
+/obj/item/storage/pill_bottle/mortaphenyl,
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/reagent_containers/syringe/antibiotic,
@@ -45301,7 +45287,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/storage/box/gloves,
+/obj/item/nitrilebox,
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";
@@ -46610,7 +46596,7 @@
 /area/crew_quarters/sleep/research)
 "bGb" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/vials,
+/obj/item/storage/box/fancy/vials,
 /obj/item/reagent_containers/dropper,
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -47714,7 +47700,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
-/obj/item/storage/fancy/cigarettes/cigar,
+/obj/item/storage/box/fancy/cigarettes/cigar,
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "bIv" = (
@@ -49602,7 +49588,7 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
-/obj/item/storage/fancy/vials,
+/obj/item/storage/box/fancy/vials,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bMU" = (
@@ -50579,10 +50565,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/machinery/firealarm/east,
-/obj/item/storage/box/gloves{
-	pixel_x = 2;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bPG" = (
@@ -51748,7 +51731,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
-/obj/item/storage/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "bSR" = (
@@ -51938,12 +51921,12 @@
 	name = "Bar Requests Console";
 	pixel_y = 32
 	},
-/obj/item/storage/fancy/candle_box,
-/obj/item/storage/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/device/nanoquikpay,
-/obj/item/storage/box/matches,
+/obj/item/storage/box/fancy/matches,
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bTq" = (
@@ -52979,7 +52962,7 @@
 /area/maintenance/bar)
 "bVK" = (
 /obj/structure/closet/wardrobe/chaplain_black,
-/obj/item/storage/fancy/crayons,
+/obj/item/storage/box/fancy/crayons,
 /turf/simulated/floor/wood,
 /area/chapel/office)
 "bVM" = (
@@ -60562,6 +60545,10 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "fMf" = (
@@ -60964,6 +60951,13 @@
 	temperature = 278
 	},
 /area/crew_quarters/kitchen/freezer)
+"gNO" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/medbay2)
 "gOO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -61185,9 +61179,6 @@
 /area/maintenance/research_port)
 "hoV" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "hpp" = (
@@ -61387,8 +61378,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate,
 /obj/random/loot,
-/obj/item/storage/fancy/candle_box,
-/obj/item/storage/box/matches,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/matches,
 /turf/simulated/floor/wood,
 /area/maintenance/vault)
 "hKS" = (
@@ -61669,6 +61660,10 @@
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
@@ -64195,7 +64190,7 @@
 /turf/simulated/floor/lino/grey,
 /area/engineering/foyer)
 "oMh" = (
-/obj/item/storage/fancy/crayons/chalkbox,
+/obj/item/storage/box/fancy/crayons/chalkbox,
 /obj/structure/table/wood/gamblingtable,
 /turf/simulated/floor/lino/grey,
 /area/engineering/foyer)
@@ -64715,26 +64710,26 @@
 /area/maintenance/vault)
 "pSX" = (
 /obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_x = -7;
 	pixel_y = 10
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_y = 10
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_x = 7;
 	pixel_y = 10
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	layer = 3.1;
 	pixel_x = -7;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_x = 7;
 	pixel_y = 4
 	},
@@ -67651,8 +67646,8 @@
 /area/rnd/lab)
 "wil" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/storage/fancy/egg_box,
-/obj/item/storage/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/drinks/milk,
 /obj/item/reagent_containers/food/drinks/milk,
 /obj/item/reagent_containers/food/drinks/soymilk,
@@ -106733,7 +106728,7 @@ box
 aTg
 bqS
 brY
-bto
+btq
 ivh
 gKs
 bwy
@@ -107247,7 +107242,7 @@ boz
 bpO
 bqW
 bsc
-btq
+btm
 buw
 buw
 buw
@@ -107504,7 +107499,7 @@ boA
 bmZ
 bqX
 bsc
-btq
+btm
 bux
 bvC
 bvC
@@ -107761,7 +107756,7 @@ boB
 bpQ
 bqX
 bsc
-btq
+btm
 buv
 bvC
 bvC
@@ -108018,7 +108013,7 @@ boC
 bpR
 bqY
 bsc
-btq
+btm
 buw
 bvC
 bvC
@@ -108275,7 +108270,7 @@ bhZ
 bhZ
 bkr
 bsd
-btq
+btm
 bux
 bvC
 bvC
@@ -108531,8 +108526,8 @@ bnb
 boD
 bpS
 bra
-bsc
-btq
+gNO
+btm
 buv
 bvC
 bvC

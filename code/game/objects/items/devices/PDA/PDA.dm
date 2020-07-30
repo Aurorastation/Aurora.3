@@ -1182,7 +1182,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	else
 		L = get(src, /mob/living/silicon)
 
-	if(L)
+	if(L && L.stat == CONSCIOUS)
 		if(reception_message)
 			to_chat(L, reception_message)
 		SSnanoui.update_user_uis(L, src) // Update the receiving user's PDA UI so that they can see the new message
@@ -1399,7 +1399,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	try_sort_pda_list()
 
 /obj/item/device/pda/attack(mob/living/C, mob/living/user)
-	health_scan_mob(C, user, TRUE)
+	if(scanmode == 1)
+		health_scan_mob(C, user, TRUE)
 
 /obj/item/device/pda/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
 	if(!proximity) return

@@ -1767,10 +1767,7 @@
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/emergency,
 /obj/item/storage/box/samplebags,
-/obj/item/storage/box/gloves{
-	pixel_x = -5;
-	pixel_y = 5
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/lights/mixed{
 	pixel_x = 5;
 	pixel_y = -2
@@ -11852,7 +11849,7 @@
 /obj/item/reagent_containers/chem_disp_cartridge,
 /obj/item/reagent_containers/chem_disp_cartridge,
 /obj/item/reagent_containers/chem_disp_cartridge,
-/obj/item/storage/fancy/vials{
+/obj/item/storage/box/fancy/vials{
 	pixel_x = -4;
 	pixel_y = 10
 	},
@@ -14780,7 +14777,7 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 4
 	},
-/obj/item/storage/fancy/vials,
+/obj/item/storage/box/fancy/vials,
 /obj/item/reagent_containers/dropper{
 	pixel_y = 9
 	},
@@ -15062,10 +15059,7 @@
 	},
 /obj/structure/table/standard,
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/item/storage/box/gloves{
-	pixel_x = 8;
-	pixel_y = 8
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /turf/simulated/floor/tiled,
 /area/medical/abandoned)
@@ -16830,7 +16824,7 @@
 /area/rnd/xenoarch_atrium)
 "aGH" = (
 /obj/structure/table/standard,
-/obj/item/storage/fancy/vials,
+/obj/item/storage/box/fancy/vials,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aGI" = (
@@ -23078,7 +23072,7 @@
 /area/medical/medbay4)
 "aWF" = (
 /obj/effect/landmark/start{
-	name = "Paramedic"
+	name = "Emergency Medical Technician"
 	},
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
@@ -23263,7 +23257,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Paramedic"
+	name = "Emergency Medical Technician"
 	},
 /obj/structure/bed/chair/plastic{
 	dir = 8
@@ -30992,7 +30986,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/table/standard,
-/obj/item/storage/fancy/donut,
+/obj/item/storage/box/fancy/donut,
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
