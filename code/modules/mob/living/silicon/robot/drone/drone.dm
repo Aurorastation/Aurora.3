@@ -132,6 +132,8 @@
 	hat_x_offset = 1
 	hat_y_offset = -12
 
+	var/my_home_z
+
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
 
@@ -157,6 +159,9 @@
 	verbs -= /mob/living/silicon/robot/verb/Namepick
 	update_icon()
 	density = FALSE
+
+	var/turf/T = get_turf(src)
+	my_home_z = T.z
 
 /mob/living/silicon/robot/drone/init()
 	ai_camera = new /obj/item/device/camera/siliconcam/drone_camera(src)
@@ -458,7 +463,18 @@
 	name = real_name
 
 /mob/living/silicon/robot/drone/construction/process_level_restrictions()
-	return FALSE // we are allowed to go anywhere
+	//Abort if they should not get blown
+	if(lock_charge || scrambled_codes || emagged)
+		return FALSE
+	//Check if they are not on a station level -> else abort
+	var/turf/T = get_turf(src)
+	if (!T || AreConnectedZLevels(my_home_z, T.z))
+		return FALSE
+	
+	if(!self_destructing)
+		to_chat(src, SPAN_DANGER("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))		
+		start_self_destruct(TRUE)
+	return TRUE
 
 /proc/too_many_active_drones()
 	var/drones = 0
