@@ -247,7 +247,7 @@
 			for(var/mob/living/carbon/C in T)
 				C.weakened += 5
 				C.visible_message("<span class='notice'>\icon[C] [C] begins to float in the air!","You feel tingly and light, but it is difficult to move.</span>")
-		if(GAS_NITROGEN)
+		if("nitrogen")
 			success = 1
 			//
 		if("mercury")
