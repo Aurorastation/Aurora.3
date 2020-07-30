@@ -82,7 +82,6 @@
 /datum/species/machine/shell/handle_death(var/mob/living/carbon/human/H)
 	return
 
-
 /datum/species/machine/shell/rogue
 	name = "Rogue Shell"
 	short_name = "roguejak"
