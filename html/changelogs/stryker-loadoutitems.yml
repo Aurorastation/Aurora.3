@@ -1,0 +1,5 @@
+author: Stryker, Mwahahahaha
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed the skirt selection, high skirts should show up now."
