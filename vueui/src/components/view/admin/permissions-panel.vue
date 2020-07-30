@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="forumuserui_enabled" class="notice">
-        <center>Modifications done do not outlast the round!</center>
+      <center>Modifications done do not outlast the round!</center>
     </div>
     <div class="table">
       <div class="header">
