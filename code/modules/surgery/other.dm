@@ -144,7 +144,7 @@
 		return 0
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	return affected && affected.open == ORGAN_ENCASED_RETRACTED && (affected.status & ORGAN_DEAD)
+	return affected && IS_ORGAN_FULLY_OPEN && (affected.status & ORGAN_DEAD)
 
 /decl/surgery_step/treat_necrosis/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
