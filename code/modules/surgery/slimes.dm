@@ -6,9 +6,8 @@
 	return istype(target, /mob/living/carbon/slime/)
 
 /decl/surgery_step/slime/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	if(!..())
-		return FALSE
-	return target.stat == DEAD
+	SHOULD_CALL_PARENT(FALSE)
+	return isslime(target) && target.stat == DEAD
 
 /decl/surgery_step/slime/cut_flesh
 	name = "Open Slime"
