@@ -23072,7 +23072,7 @@
 /area/medical/medbay4)
 "aWF" = (
 /obj/effect/landmark/start{
-	name = "Paramedic"
+	name = "Emergency Medical Technician"
 	},
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 5
@@ -23257,7 +23257,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Paramedic"
+	name = "Emergency Medical Technician"
 	},
 /obj/structure/bed/chair/plastic{
 	dir = 8
