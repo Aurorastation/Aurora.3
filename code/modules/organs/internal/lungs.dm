@@ -125,7 +125,7 @@
 				to_chat(owner, FONT_LARGE(SPAN_WARNING("You feel vast amounts of air force itself into your lungs!")))
 			else
 				to_chat(owner, FONT_LARGE(SPAN_WARNING("You feel as if your lungs are about to blow!")))
-			addtimer(CALLBACK(src, .proc/enable_rupture), 20) // 2 seconds grace period
+			addtimer(CALLBACK(src, .proc/enable_rupture), 2 SECONDS, TIMER_UNIQUE)
 			checking_rupture = FALSE
 
 	var/safe_pressure_min = owner.species.breath_pressure // Minimum safe partial pressure of breathable gas in kPa
