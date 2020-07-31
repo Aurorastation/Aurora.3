@@ -170,13 +170,19 @@
 	name = "encryption key pouch"
 	desc = "A pouch designed to store three encryption keys."
 	icon = 'icons/obj/radio.dmi'
-	icon_state = "keypouch3" // make this keypouch0 if you want to map in an empty one
+	icon_state = "keypouch0"
 	icon_type = "key"
 	storage_type = "pouch"
 	center_of_mass = list("x" = 16,"y" = 7)
 	storage_slots = 3
 	can_hold = list(/obj/item/device/encryptionkey)
 	starts_with = null
+
+/obj/item/storage/box/fancy/keypouch/Initialize()
+	. = ..()
+	var/contents_length = length(contents)
+	if(length(contents))
+		icon_state = "keypouch[contents_length]"
 
 /obj/item/storage/box/fancy/keypouch/eng
 	starts_with = list(/obj/item/device/encryptionkey/eng_spare = 3)
