@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - bugfix: "It is now possible to build many types of flooring that were previously bugged, including diamond, some carpet styles, silver, gold and uranium."
