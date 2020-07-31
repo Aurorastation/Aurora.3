@@ -924,7 +924,7 @@ default behaviour is:
 		make_jittery(rand(150,200))
 		adjustHalLoss(rand(50,60))
 
-/mob/living/update_icons()
+/mob/living/update_icon()
 	for(var/aura in auras)
 		var/obj/aura/A = aura
 		var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
@@ -932,12 +932,12 @@ default behaviour is:
 
 /mob/living/proc/add_aura(var/obj/aura/aura)
 	LAZYDISTINCTADD(auras, aura)
-	update_icons()
+	update_icon()
 	return TRUE
 
 /mob/living/proc/remove_aura(var/obj/aura/aura)
 	LAZYREMOVE(auras, aura)
-	update_icons()
+	update_icon()
 	return TRUE
 
 /mob/living/proc/apply_radiation_effects()

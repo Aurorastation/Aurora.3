@@ -255,7 +255,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 10,
 		/obj/item/reagent_containers/food/drinks/cans/root_beer = 10,
 		/obj/item/reagent_containers/food/drinks/cans/starkist = 10,
-		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 10,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 10,
 		/obj/item/reagent_containers/food/drinks/cans/dyn = 10,
 		/obj/item/reagent_containers/food/drinks/cans/space_up = 10,
 		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 10,
@@ -278,7 +278,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 16,
 		/obj/item/reagent_containers/food/drinks/cans/root_beer = 13,
 		/obj/item/reagent_containers/food/drinks/cans/starkist = 15,
-		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 12,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 12,
 		/obj/item/reagent_containers/food/drinks/cans/dyn = 18,
 		/obj/item/reagent_containers/food/drinks/cans/space_up = 15,
 		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 13,
@@ -407,8 +407,8 @@
 		/obj/item/stack/medical/advanced/ointment = 3,
 		/obj/item/stack/medical/splint = 2,
 		/obj/item/reagent_containers/pill/antitox = 6,
-		/obj/item/reagent_containers/pill/antihistamine = 6,
-		/obj/item/reagent_containers/pill/paracetamol = 6,
+		/obj/item/reagent_containers/pill/cetahydramine = 6,
+		/obj/item/reagent_containers/pill/perconol = 6,
 		/obj/item/reagent_containers/food/drinks/medcup = 4
 	)
 	contraband = list(
@@ -471,7 +471,7 @@
 		/obj/item/reagent_containers/pill/tox = 1
 	)
 	premium = list(
-		/obj/item/reagent_containers/pill/tramadol = 4
+		/obj/item/reagent_containers/pill/mortaphenyl = 4
 	)
 	random_itemcount = 0
 	temperature_setting = -1
@@ -497,7 +497,7 @@
 		/obj/item/reagent_containers/pill/tox = 3
 	)
 	premium = list(
-		/obj/item/reagent_containers/pill/tramadol = 4
+		/obj/item/reagent_containers/pill/mortaphenyl = 4
 	)
 	random_itemcount = 0
 	temperature_setting = -1

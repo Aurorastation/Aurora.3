@@ -27,6 +27,14 @@
 	icon_state = "skirt_long"
 	item_state = "skirt_long"
 	worn_state = "skirt_long"
+	
+/obj/item/clothing/under/skirt/high
+	name = "high skirt"
+	desc = "A modest skirt going up to the waist."
+	desc_fluff = "For when covering your legs isn't enough."
+	icon_state = "skirt_high"
+	item_state = "skirt_high"
+	worn_state = "skirt_high"
 
 /obj/item/clothing/under/skirt/pencil
 	name = "pencil skirt"

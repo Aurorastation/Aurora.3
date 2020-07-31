@@ -13,7 +13,7 @@
 	blinded = null
 
 	//Status updates, death etc.
-	update_icons()
+	update_icon()
 
 /mob/living/carbon/alien/proc/can_progress()
 	return 1
@@ -86,7 +86,7 @@
 		else if(eye_blurry)
 			eye_blurry = max(eye_blurry-1, 0)
 
-		update_icons()
+		update_icon()
 
 	return 1
 

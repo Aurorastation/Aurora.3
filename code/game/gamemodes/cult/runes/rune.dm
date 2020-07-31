@@ -12,7 +12,7 @@
 	if(!R)
 		return INITIALIZE_HINT_QDEL
 	icon_state = "[rand(1, 6)]"
-	filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = "#FF0000") 
+	filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = "#FF0000")
 	rune = new R(src, src)
 	SScult.add_rune(rune)
 

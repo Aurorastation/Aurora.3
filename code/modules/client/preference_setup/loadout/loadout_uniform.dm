@@ -64,6 +64,7 @@
 	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
 	skirts["plaid skirt"] = /obj/item/clothing/under/skirt/plaid
 	skirts["pleated skirt"] = /obj/item/clothing/under/skirt/pleated
+	skirts["high skirt"] = /obj/item/clothing/under/skirt/high
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
 
 /datum/gear/uniform/suit
@@ -221,6 +222,8 @@
 	suit["dominia sweater"] = /obj/item/clothing/under/dominia/sweater
 	suit["lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit
 	suit["hoodied lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit/hoodie
+	suit["dominia noblewoman dress"] = /obj/item/clothing/under/dominia/dress
+	suit["dominia summer dress"] = /obj/item/clothing/under/dominia/dress/summer
 	gear_tweaks += new/datum/gear_tweak/path(suit)
 
 /datum/gear/uniform/elyra_holo
@@ -315,3 +318,15 @@
 	pyjamas["blue pyjamas"] = /obj/item/clothing/under/pj/blue
 	pyjamas["red pyjamas"] = /obj/item/clothing/under/pj/red
 	gear_tweaks += new/datum/gear_tweak/path(pyjamas)
+
+/datum/gear/uniform/miscellaneous/hanbok
+	display_name = "hanbok selection"
+	description = "A selection of Koynanger formalwear."
+	path = /obj/item/clothing/under/konyang
+
+/datum/gear/uniform/miscellaneous/hanbok/New()
+	..()
+	var/hanbok = list()
+	hanbok["magenta-blue hanbok"] = /obj/item/clothing/under/konyang
+	hanbok["white-pink hanbok"] = /obj/item/clothing/under/konyang/pink
+	gear_tweaks += new/datum/gear_tweak/path(hanbok)

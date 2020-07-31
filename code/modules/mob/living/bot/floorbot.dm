@@ -17,7 +17,7 @@
 	var/turf/target
 	var/floor_build_type = /decl/flooring/tiling // Basic steel floor.
 
-/mob/living/bot/floorbot/update_icons()
+/mob/living/bot/floorbot/update_icon()
 	if(repairing)
 		icon_state = "floorbot-c"
 	else if(amount > 0)
@@ -207,7 +207,7 @@
 	if(emagged && istype(A, /turf/simulated/floor))
 		var/turf/simulated/floor/F = A
 		repairing = 1
-		update_icons()
+		update_icon()
 		if(F.is_plating())
 			visible_message("<span class='warning'>[src] begins to tear the floor tile from the floor!</span>")
 			if(do_after(src, 50))
@@ -220,7 +220,7 @@
 				addTiles(1)
 		target = null
 		repairing = 0
-		update_icons()
+		update_icon()
 	else if(istype(A, /turf/space))
 		var/building = 2
 		if(locate(/obj/structure/lattice, A))
@@ -228,7 +228,7 @@
 		if(amount < building)
 			return
 		repairing = 1
-		update_icons()
+		update_icon()
 		visible_message("<span class='notice'>[src] begins to repair the hole.</span>")
 		if(do_after(src, 50))
 			if(A && (locate(/obj/structure/lattice, A) && building == 1 || !locate(/obj/structure/lattice, A) && building == 2)) // Make sure that it still needs repairs
@@ -240,12 +240,12 @@
 				A.attackby(I, src)
 		target = null
 		repairing = 0
-		update_icons()
+		update_icon()
 	else if(istype(A, /turf/simulated/floor))
 		var/turf/simulated/floor/F = A
 		if(!F.flooring && amount)
 			repairing = 1
-			update_icons()
+			update_icon()
 			visible_message("<span class='notice'>[src] begins to improve the floor.</span>")
 			if(do_after(src, 50))
 				if(!F.flooring)
@@ -253,12 +253,12 @@
 					addTiles(-1)
 			target = null
 			repairing = 0
-			update_icons()
+			update_icon()
 	else if(istype(A, /obj/item/stack/tile/floor) && amount < maxAmount)
 		var/obj/item/stack/tile/floor/T = A
 		visible_message("<span class='notice'>[src] begins to collect tiles.</span>")
 		repairing = 1
-		update_icons()
+		update_icon()
 		if(do_after(src, 20))
 			if(T)
 				var/eaten = min(maxAmount - amount, T.get_amount())
@@ -266,13 +266,13 @@
 				addTiles(eaten)
 		target = null
 		repairing = 0
-		update_icons()
+		update_icon()
 	else if(istype(A, /obj/item/stack/material) && amount + 4 <= maxAmount)
 		var/obj/item/stack/material/M = A
 		if(M.get_material_name() == DEFAULT_WALL_MATERIAL)
 			visible_message("<span class='notice'>[src] begins to make tiles.</span>")
 			repairing = 1
-			update_icons()
+			update_icon()
 			if(do_after(50))
 				if(M)
 					M.use(1)
@@ -389,7 +389,7 @@
 	amount = 120 // 1 for tile, 2 for lattice
 	maxAmount = 120
 
-/mob/living/bot/floorbot/floorbob/update_icons()
+/mob/living/bot/floorbot/floorbob/update_icon()
 	if(repairing)
 		icon_state = "floorbob-c"
 	else if(amount > 0)

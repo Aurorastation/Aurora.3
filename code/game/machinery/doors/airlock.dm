@@ -726,7 +726,7 @@ About the new airlock wires panel:
 	VUEUI_SET_CHECK(data["elea"], electrified_at, ., data)
 	var/isAI = issilicon(user) && !player_is_antag(user.mind)
 	VUEUI_SET_CHECK(data["isai"], isAI, ., data)
-	var/isAdmin = check_rights(R_ADMIN)
+	var/isAdmin = check_rights(R_ADMIN, show_msg = FALSE)
 	VUEUI_SET_CHECK(data["isadmin"], isAdmin, ., data)
 
 	VUEUI_SET_CHECK(data["idscan"], !aiDisabledIdScanner, ., data)
@@ -1101,11 +1101,14 @@ About the new airlock wires panel:
 			else if(!(stat & BROKEN))
 				..()
 				return
-		if(src.p_open && (operating < 0 || (!operating && welded && !src.arePowerSystemsOn() && density && !src.locked)))
+		if(p_open && !operating && welded)
+			if(!locked)
+				to_chat(user, SPAN_WARNING("The airlock bolts are in the way of the electronics, you need to drop them before you can reach them."))
+				return
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
-			user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to remove electronics from the airlock assembly.")
+			user.visible_message("<b>[user]</b> starts removing the electronics from the airlock assembly.", SPAN_NOTICE("You start removing the electronics from the airlock assembly."))
 			if(do_after(user,40/C.toolspeed))
-				to_chat(user, SPAN_NOTICE("You removed the airlock electronics!"))
+				user.visible_message("<b>[user]</b> removes the electronics from the airlock assembly.", SPAN_NOTICE("You remove the electronics from the airlock assembly."))
 				CreateAssembly()
 				return
 		else if(arePowerSystemsOn())
