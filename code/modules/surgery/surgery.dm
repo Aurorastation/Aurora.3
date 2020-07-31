@@ -110,7 +110,7 @@ proc/spread_germs_to_organ(var/obj/item/organ/external/E, var/mob/living/carbon/
 	// We didn't find a surgery, or decided not to perform one.
 	if(!istype(S))
 		to_chat(user, SPAN_WARNING("You aren't sure what you could do to \the [M] with \the [tool]."))
-		return TRUE
+		return FALSE
 
 	// Otherwise we can make a start on surgery!
 	else if(istype(M) && !QDELETED(M) && user.a_intent == I_HELP && user.get_active_hand() == tool)

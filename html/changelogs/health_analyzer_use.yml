@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Using non-surgery tool items on targets that are buckled to chairs, beds etc. e.g. health analyzers will now work properly again."
