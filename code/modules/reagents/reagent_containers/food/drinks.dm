@@ -112,7 +112,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 		to_chat(user, "<span class='notice'>\The [src] is almost full!</span>")
 	else
 		to_chat(user, "<span class='notice'>\The [src] is full!</span>")
-
+	
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Drinks. END
