@@ -1138,8 +1138,8 @@
 	name = "Tank to Connector"
 	},
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -1383,8 +1383,8 @@
 "adw" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /obj/effect/floor_decal/corner/green{
-	dir = 8;
-	icon_state = "corner_white_full"
+	icon_state = "corner_white_full";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -5056,8 +5056,8 @@
 	dir = 5
 	},
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
@@ -7204,8 +7204,8 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -14179,8 +14179,8 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/disposalpipe/junction{
-	dir = 4;
-	icon_state = "pipe-j2"
+	icon_state = "pipe-j2";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/white,
@@ -14946,8 +14946,8 @@
 	dir = 1
 	},
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
@@ -16912,8 +16912,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/table/rack,
-/obj/item/storage/bag/slimes,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aHP" = (
@@ -16989,8 +16987,8 @@
 /area/maintenance/research_xenobiology)
 "aHZ" = (
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -17371,8 +17369,8 @@
 	icon_state = "1-4"
 	},
 /obj/structure/disposalpipe/junction{
-	dir = 4;
-	icon_state = "pipe-j2"
+	icon_state = "pipe-j2";
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -20172,8 +20170,8 @@
 /area/medical/abandoned)
 "aOR" = (
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -20687,8 +20685,8 @@
 	pixel_y = 22
 	},
 /turf/simulated/floor/tiled{
-	dir = 5;
-	icon_state = "vault"
+	icon_state = "vault";
+	dir = 5
 	},
 /area/crew_quarters/sleep/medical)
 "aQm" = (
@@ -23283,8 +23281,8 @@
 /area/rnd/test_area)
 "bar" = (
 /obj/effect/floor_decal/industrial/warning/dust{
-	dir = 10;
-	tag = "icon-warning_dust (SOUTHWEST)"
+	tag = "icon-warning_dust (SOUTHWEST)";
+	dir = 10
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -23934,8 +23932,8 @@
 /area/engineering/atmos)
 "bcj" = (
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /obj/machinery/camera/network/engineering_outpost{
 	c_tag = "Engineering Sublevel - Atmospherics Central 2";
@@ -25039,8 +25037,8 @@
 /area/rnd/mixing)
 "biG" = (
 /obj/effect/floor_decal/industrial/warning/dust{
-	dir = 10;
-	tag = "icon-warning_dust (SOUTHWEST)"
+	tag = "icon-warning_dust (SOUTHWEST)";
+	dir = 10
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -26467,8 +26465,8 @@
 /area/engineering/storage_tesla)
 "ciz" = (
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /obj/structure/cryofeed{
 	dir = 4
@@ -26705,8 +26703,8 @@
 	pixel_y = 24
 	},
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
@@ -27576,8 +27574,8 @@
 	pixel_y = -3
 	},
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/lime/full,
 /turf/simulated/floor/tiled/white,
@@ -27738,8 +27736,8 @@
 /area/engineering/break_room)
 "eAq" = (
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
@@ -28642,8 +28640,8 @@
 /area/outpost/engineering/power)
 "gut" = (
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light_switch{
@@ -29004,13 +29002,13 @@
 /area/engineering/bathroom)
 "huY" = (
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "Tesla - Grid";
 	charge = 1e+007;
 	cur_coils = 4;
 	input_attempt = 1;
 	input_level = 500000;
 	output_attempt = 1;
-	output_level = 500000
+	output_level = 500000;
+	RCon_tag = "Tesla - Grid"
 	},
 /obj/structure/cable,
 /turf/simulated/floor/plating,
@@ -32070,8 +32068,8 @@
 /area/outpost/engineering/power)
 "oOd" = (
 /obj/effect/floor_decal/industrial/warning/dust{
-	dir = 10;
-	tag = "icon-warning_dust (SOUTHWEST)"
+	tag = "icon-warning_dust (SOUTHWEST)";
+	dir = 10
 	},
 /obj/structure/table/rack,
 /obj/item/ladder_mobile,
@@ -32280,8 +32278,8 @@
 	dir = 6
 	},
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/pink{
 	dir = 9
@@ -32315,8 +32313,8 @@
 /area/medical/patient_wing_gym)
 "pCR" = (
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /obj/machinery/power/terminal{
 	dir = 1
@@ -33350,10 +33348,6 @@
 	temperature = 278
 	},
 /area/medical/abandoned)
-"rQS" = (
-/obj/machinery/slime_extractor,
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenobiology)
 "rRi" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
@@ -33785,8 +33779,8 @@
 	dir = 6
 	},
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)
@@ -34979,8 +34973,8 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/disposalpipe/junction{
-	dir = 4;
-	icon_state = "pipe-j2"
+	icon_state = "pipe-j2";
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -62711,7 +62705,7 @@ aEQ
 wbr
 aGK
 aHO
-rQS
+aHM
 aJU
 aKQ
 aKQ
