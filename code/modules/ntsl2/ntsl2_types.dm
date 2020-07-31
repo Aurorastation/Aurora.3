@@ -78,7 +78,9 @@
 ]*/
 
 /datum/ntsl2_program/tcomm/proc/retrieve_messages(var/callback = null)
-	var/data = SSntsl2.send_task("tcom/get", callback = callback)
+	SSntsl2.send_task("tcom/get", callback = CALLBACK(src, .proc/_finish_retrieve_messages, callback))
+
+/datum/ntsl2_program/tcomm/proc/_finish_retrieve_messages(var/callback = null, var/data)
 	if(data)
 		var/list/signals = json_decode(data)
 		for(var/sl in signals)
@@ -105,3 +107,6 @@
 				sig = new()
 				sig.data["server"] = server
 				sig.tcombroadcast(html_encode(S["content"]), S["freq"], html_encode(S["source"]), html_encode(S["job"]), html_encode(S["verb"]), S["language"])
+	var/datum/callback/cb = callback
+	if(istype(cb))
+		cb.InvokeAsync()

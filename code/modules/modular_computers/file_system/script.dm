@@ -11,4 +11,4 @@
 	return temp
 
 /datum/computer_file/script/proc/calculate_size()
-	size = max(1, round(length(stored_data) / block_size))
+	size = max(1, round(length(code) / block_size))

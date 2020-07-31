@@ -10,7 +10,7 @@
 
 	var/datum/ntsl2_program/computer/running
 	var/is_running = FALSE
-	var/datum/computer_file/script/opened = NULL
+	var/datum/computer_file/script/opened
 	color = LIGHT_COLOR_GREEN
 
 /datum/computer_file/program/ntsl2_interpreter/kill_program()
@@ -88,12 +88,14 @@
 
 /datum/computer_file/program/ntsl2_interpreter/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	. = ..()
-	data = . || data || list("mode" = "list", "terminal" = "", "code" = "", "files" = "")
+	data = . || data || list("mode" = "list", "terminal" = "", "code" = "", "files" = list())
 	// Gather data for computer header
 	var/headerdata = get_header_data(data["_PC"])
 	if(headerdata)
 		data["_PC"] = headerdata
 		. = data
+
+	var/obj/item/computer_hardware/hard_drive/hdd = computer?.hard_drive
 	
 	data["mode"] = "list" // List is default mode
 	if(is_running)
@@ -101,9 +103,9 @@
 	else if (istype(opened))
 		data["mode"] = "edit"
 	else
-		for(var/datum/computer_file/script/F in computer?.stored_files)
+		for(var/datum/computer_file/script/F in hdd?.stored_files)
 			if(F.filetype == "NTS" && !F.password)
-				files.Add(list(list(
+				data["files"].Add(list(list(
 					"name" = F.filename,
 					"type" = F.filetype,
 					"size" = F.size,
