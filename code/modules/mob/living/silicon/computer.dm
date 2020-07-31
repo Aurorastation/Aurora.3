@@ -6,12 +6,16 @@
 		/mob/living/silicon/proc/subsystem_alarm_monitor,
 		/mob/living/silicon/proc/subsystem_law_manager,
 		/mob/living/silicon/ai/proc/subsystem_ntnet_monitor,
-		/mob/living/silicon/proc/computer_interact
+		/mob/living/silicon/proc/computer_interact,
+		/mob/living/silicon/proc/silicon_mimic_accent
 	)
 
 /mob/living/silicon/robot/syndicate
 	register_alarms = 0
-	silicon_subsystems = list(/mob/living/silicon/proc/subsystem_law_manager)
+	silicon_subsystems = list(
+		/mob/living/silicon/proc/subsystem_law_manager,
+		/mob/living/silicon/proc/silicon_mimic_accent
+	)
 
 /mob/living/silicon/ai/Destroy()
 	QDEL_NULL(ntnet_monitor)

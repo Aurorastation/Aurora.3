@@ -1,5 +1,6 @@
 /obj/item/nitrilebox
 	name = "nitrile gloves box"
+	desc = "Contains nitrile gloves."
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "nitrilebox"
 	item_state = "sheet-metal"

@@ -395,8 +395,6 @@
 	var/beaker_contents = ""
 	var/dat = ""
 
-	do_hair_pull(user)
-
 	if(!inuse)
 		for (var/obj/item/O in holdingitems)
 			processing_chamber += "\A [O.name]<BR>"
@@ -441,7 +439,7 @@
 
 	switch(href_list["action"])
 		if ("grind")
-			grind()
+			grind(usr)
 		if("eject")
 			eject()
 		if ("detach")
@@ -471,23 +469,24 @@
 		holdingitems -= O
 	holdingitems.Cut()
 
-/obj/machinery/reagentgrinder/proc/grind()
+/obj/machinery/reagentgrinder/proc/grind(mob/user)
 
 	power_change()
 	if(stat & (NOPOWER|BROKEN))
 		return
 
 	// Sanity check.
-	if (!beaker || (beaker && beaker.reagents.total_volume >= beaker.reagents.maximum_volume))
+	if(!beaker || (beaker && beaker.reagents.total_volume >= beaker.reagents.maximum_volume))
 		return
 
-	playsound(src.loc, 'sound/machines/blender.ogg', 50, 1)
-	inuse = 1
+	if(ishuman(user))
+		do_hair_pull(user)
+
+	playsound(get_turf(src), 'sound/machines/blender.ogg', 50, 1)
+	inuse = TRUE
 
 	// Reset the machine.
-	spawn(60)
-		inuse = 0
-		src.updateUsrDialog()
+	addtimer(CALLBACK(src, .proc/grind_reset), 60)
 
 	// Process.
 	for (var/obj/item/O in holdingitems)
@@ -520,6 +519,11 @@
 				qdel(O)
 			if (beaker.reagents.total_volume >= beaker.reagents.maximum_volume)
 				break
+
+/obj/machinery/reagentgrinder/proc/grind_reset()
+	inuse = FALSE
+	updateUsrDialog()
+
 
 /obj/machinery/reagentgrinder/MouseDrop_T(mob/living/carbon/human/target as mob, mob/user as mob)
 	if (!istype(target) || target.buckled || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))

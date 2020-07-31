@@ -23,6 +23,10 @@
 #define SCREEN_LAYER 22			//Mob HUD/effects layer
 #define CINEMA_LAYER 23
 
+#define LAYER_TABLE 2.8
+#define LAYER_UNDER_TABLE 2.79
+#define LAYER_ABOVE_TABLE 2.81
+
 #define MECH_UNDER_LAYER            4
 #define MECH_BASE_LAYER             4.01
 #define MECH_INTERMEDIATE_LAYER     4.02

@@ -237,7 +237,7 @@ Implant Specifics:<BR>"}
 	hear(msg)
 
 /obj/item/implant/explosive/hear(var/msg)
-	var/list/replacechars = list("'" = "","\"" = "",">" = "","<" = "","(" = "",")" = "")
+	var/list/replacechars = list("\"" = "",">" = "","<" = "","(" = "",")" = "")
 	msg = replace_characters(msg, replacechars)
 	if(findtext(msg,phrase))
 		activate()
@@ -320,7 +320,7 @@ Implant Specifics:<BR>"}
 /obj/item/implant/explosive/attack_self(mob/user)
 	elevel = alert("What sort of explosion would you prefer?", "Implant Intent", "Localized Limb", "Destroy Body", "Full Explosion")
 	phrase = input("Choose activation phrase:") as text
-	var/list/replacechars = list("'" = "","\"" = "",">" = "","<" = "","(" = "",")" = "")
+	var/list/replacechars = list("\"" = "",">" = "","<" = "","(" = "",")" = "")
 	phrase = replace_characters(phrase, replacechars)
 	user.mind.store_memory("\The [src] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.", 0, 0)
 	to_chat(user, "\The [src] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.")

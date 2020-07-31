@@ -1494,6 +1494,7 @@
 
 /datum/chemical_reaction/slime/cell/on_reaction(var/datum/reagents/holder, var/created_volume)
 	new /obj/item/cell/slime(get_turf(holder.my_atom))
+	..()
 
 /datum/chemical_reaction/slime/glow
 	name = "Slime Glow"
