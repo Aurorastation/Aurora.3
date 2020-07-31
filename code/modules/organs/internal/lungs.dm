@@ -98,7 +98,7 @@
 /obj/item/organ/internal/lungs/proc/enable_rupture()
 	rupture_imminent = TRUE
 	checking_rupture = TRUE
-	addtimer(CALLBACK(src, .proc/disable_rupture), 50)
+	addtimer(CALLBACK(src, .proc/disable_rupture), 5 SECONDS, TIMER_UNIQUE)
 
 /obj/item/organ/internal/lungs/proc/disable_rupture()
 	rupture_imminent = FALSE
