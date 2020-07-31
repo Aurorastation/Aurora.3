@@ -1189,6 +1189,10 @@
 	H.adjustOxyLoss(removed) //Every unit heals 1 oxy damage
 	H.add_chemical_effect(CE_PNEUMOTOXIC, -removed * 1.5)
 	H.add_chemical_effect(CE_PULSE, -1)
+
+	var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
+	L.rescued = FALSE
+
 	. = ..()
 
 /datum/reagent/pneumalin/overdose(var/mob/living/carbon/human/H, var/alien, var/removed)
