@@ -19,5 +19,5 @@
 /obj/machinery/computer/shuttle_control/multi/antag/syndicate/elite
 	name = "shuttle control console"
 	req_access = list(access_syndicate)
-	shuttle_tag = "Mercenary Elite"
+	shuttle_tag = "Merc Elite"
 	light_color = LIGHT_COLOR_RED

@@ -385,9 +385,10 @@ AURORA_ESCAPE_POD(3)
 //Merc Elite Shuttle
 /datum/shuttle/autodock/multi/antag/merc_aurora_elite
 	name = "Merc Elite"
-	current_location = "nav_merc-elite_start"
+	current_location = "nav_mercelite_start"
 	warmup_time = 10
 	shuttle_area = /area/shuttle/syndicate_elite
+	dock_target = "elite_shuttle_aft"
 	destination_tags = list(
 		"nav_mercelite_start",
 		"nav_mercelite_command",
@@ -402,6 +403,7 @@ AURORA_ESCAPE_POD(3)
 /obj/effect/shuttle_landmark/merc_elite/start
 	name = "Unknown Blacksite"
 	landmark_tag = "nav_mercelite_start"
+	docking_controller = "elite_shuttle_origin"
 	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/merc_elite/command
