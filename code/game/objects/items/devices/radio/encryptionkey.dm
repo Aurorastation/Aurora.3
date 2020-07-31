@@ -181,7 +181,7 @@
 /obj/item/storage/box/fancy/keypouch/Initialize()
 	. = ..()
 	var/contents_length = length(contents)
-	if(length(contents))
+	if(contents_length)
 		icon_state = "keypouch[contents_length]"
 
 /obj/item/storage/box/fancy/keypouch/eng
