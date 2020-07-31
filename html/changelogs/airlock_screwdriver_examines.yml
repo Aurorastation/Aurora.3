@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - rscadd: "Airlocks will now show a chat message when you open/close their maintenance panel with a screwdriver. If their panel is open, this will also show in their examine message."
