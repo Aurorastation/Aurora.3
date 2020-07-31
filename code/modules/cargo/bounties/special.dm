@@ -26,7 +26,7 @@
 	description = "Always prioritize this bounty. Failure to meet this quota may result in adverse impact upon your status in the NanoTrasen Corporation."
 	reward_low = 14000
 	reward_high = 18000
-	required_count = 150
+	required_count = 125
 	random_count = 25
 	wanted_types = list(/obj/item/stack/material/phoron)
 	high_priority = TRUE
