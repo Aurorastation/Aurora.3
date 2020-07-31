@@ -26658,15 +26658,16 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
 	},
-/obj/structure/cable/yellow{
-	icon_state = "0-2";
-	dir = 8;
-	d2 = 4
-	},
 /obj/machinery/power/emitter{
 	anchored = 1;
 	dir = 4;
 	state = 2
+	},
+/obj/structure/cable/yellow{
+	d1 = 0;
+	d2 = 8;
+	dir = 2;
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
