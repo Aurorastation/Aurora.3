@@ -1,6 +1,6 @@
 <template>
   <div>
-    <editor v-model="content" @init="editorInit" lang="javascript" theme="monokai" width="100%" height="10em"></editor>
+    <editor v-model="content" @init="editorInit" lang="javascript" theme="monokai" width="100%" height="10em"/>
   </div>
 </template>
 
