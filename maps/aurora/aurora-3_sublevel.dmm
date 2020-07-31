@@ -1138,8 +1138,8 @@
 	name = "Tank to Connector"
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -1383,8 +1383,8 @@
 "adw" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /obj/effect/floor_decal/corner/green{
-	icon_state = "corner_white_full";
-	dir = 8
+	dir = 8;
+	icon_state = "corner_white_full"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -1886,8 +1886,7 @@
 "aez" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sign/nosmoking_2{
-	pixel_x = -32;
-	pixel_y = 0
+	pixel_x = -32
 	},
 /obj/machinery/power/grounding_rod,
 /turf/simulated/floor/plating,
@@ -2338,13 +2337,13 @@
 /area/rnd/isolation_c)
 "afL" = (
 /obj/machinery/power/smes/buildable{
+	RCon_tag = "Tesla - Containment";
 	charge = 2e+006;
 	input_attempt = 1;
 	input_level_max = 350000;
 	is_critical = 1;
 	output_attempt = 1;
-	output_level_max = 350000;
-	RCon_tag = "Tesla - Containment"
+	output_level_max = 350000
 	},
 /obj/structure/cable/yellow,
 /turf/simulated/floor/plating,
@@ -5056,8 +5055,8 @@
 	dir = 5
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
@@ -7204,8 +7203,8 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -14179,8 +14178,8 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/disposalpipe/junction{
-	icon_state = "pipe-j2";
-	dir = 4
+	dir = 4;
+	icon_state = "pipe-j2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/white,
@@ -14946,8 +14945,8 @@
 	dir = 1
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
@@ -16912,6 +16911,8 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/table/rack,
+/obj/item/storage/bag/slimes,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aHP" = (
@@ -16987,8 +16988,8 @@
 /area/maintenance/research_xenobiology)
 "aHZ" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -17369,8 +17370,8 @@
 	icon_state = "1-4"
 	},
 /obj/structure/disposalpipe/junction{
-	icon_state = "pipe-j2";
-	dir = 4
+	dir = 4;
+	icon_state = "pipe-j2"
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -20170,8 +20171,8 @@
 /area/medical/abandoned)
 "aOR" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -20582,7 +20583,6 @@
 "aPZ" = (
 /obj/structure/table/standard,
 /obj/item/storage/bag/slimes,
-/obj/item/storage/bag/slimes,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "aQa" = (
@@ -20685,8 +20685,8 @@
 	pixel_y = 22
 	},
 /turf/simulated/floor/tiled{
-	icon_state = "vault";
-	dir = 5
+	dir = 5;
+	icon_state = "vault"
 	},
 /area/crew_quarters/sleep/medical)
 "aQm" = (
@@ -23281,8 +23281,8 @@
 /area/rnd/test_area)
 "bar" = (
 /obj/effect/floor_decal/industrial/warning/dust{
-	tag = "icon-warning_dust (SOUTHWEST)";
-	dir = 10
+	dir = 10;
+	tag = "icon-warning_dust (SOUTHWEST)"
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -23932,8 +23932,8 @@
 /area/engineering/atmos)
 "bcj" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /obj/machinery/camera/network/engineering_outpost{
 	c_tag = "Engineering Sublevel - Atmospherics Central 2";
@@ -25037,8 +25037,8 @@
 /area/rnd/mixing)
 "biG" = (
 /obj/effect/floor_decal/industrial/warning/dust{
-	tag = "icon-warning_dust (SOUTHWEST)";
-	dir = 10
+	dir = 10;
+	tag = "icon-warning_dust (SOUTHWEST)"
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -26465,8 +26465,8 @@
 /area/engineering/storage_tesla)
 "ciz" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /obj/structure/cryofeed{
 	dir = 4
@@ -26659,9 +26659,9 @@
 	dir = 8
 	},
 /obj/structure/cable/yellow{
-	icon_state = "0-2";
+	d2 = 4;
 	dir = 8;
-	d2 = 4
+	icon_state = "0-2"
 	},
 /obj/machinery/power/emitter{
 	anchored = 1;
@@ -26703,8 +26703,8 @@
 	pixel_y = 24
 	},
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
@@ -27574,8 +27574,8 @@
 	pixel_y = -3
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner_wide/lime/full,
 /turf/simulated/floor/tiled/white,
@@ -27736,8 +27736,8 @@
 /area/engineering/break_room)
 "eAq" = (
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
@@ -27852,8 +27852,7 @@
 	desc = "A warning sign which reads 'HIGH VOLTAGE'";
 	icon_state = "shock";
 	name = "HIGH VOLTAGE";
-	pixel_x = 32;
-	pixel_y = 0
+	pixel_x = 32
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -28640,8 +28639,8 @@
 /area/outpost/engineering/power)
 "gut" = (
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light_switch{
@@ -28766,8 +28765,7 @@
 	desc = "A warning sign which reads 'HIGH VOLTAGE'";
 	icon_state = "shock";
 	name = "HIGH VOLTAGE";
-	pixel_x = -32;
-	pixel_y = 0
+	pixel_x = -32
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -28941,8 +28939,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -29002,13 +29000,13 @@
 /area/engineering/bathroom)
 "huY" = (
 /obj/machinery/power/smes/buildable{
+	RCon_tag = "Tesla - Grid";
 	charge = 1e+007;
 	cur_coils = 4;
 	input_attempt = 1;
 	input_level = 500000;
 	output_attempt = 1;
-	output_level = 500000;
-	RCon_tag = "Tesla - Grid"
+	output_level = 500000
 	},
 /obj/structure/cable,
 /turf/simulated/floor/plating,
@@ -29212,8 +29210,8 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -30626,8 +30624,8 @@
 "lVK" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -30691,6 +30689,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medsublevel)
+"maT" = (
+/obj/machinery/slime_extractor,
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology)
 "mgM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -31862,7 +31864,6 @@
 	frequency = 1379;
 	master_tag = "tesla1_airlock_control";
 	name = "Engine Access Button";
-	pixel_x = 0;
 	pixel_y = 26;
 	req_access = list(11)
 	},
@@ -32068,8 +32069,8 @@
 /area/outpost/engineering/power)
 "oOd" = (
 /obj/effect/floor_decal/industrial/warning/dust{
-	tag = "icon-warning_dust (SOUTHWEST)";
-	dir = 10
+	dir = 10;
+	tag = "icon-warning_dust (SOUTHWEST)"
 	},
 /obj/structure/table/rack,
 /obj/item/ladder_mobile,
@@ -32278,8 +32279,8 @@
 	dir = 6
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner/pink{
 	dir = 9
@@ -32313,8 +32314,8 @@
 /area/medical/patient_wing_gym)
 "pCR" = (
 /obj/structure/cable{
-	icon_state = "0-4";
-	d2 = 4
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /obj/machinery/power/terminal{
 	dir = 1
@@ -33482,8 +33483,8 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -33779,8 +33780,8 @@
 	dir = 6
 	},
 /obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
+	dir = 8;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)
@@ -33997,7 +33998,6 @@
 	},
 /obj/machinery/camera/emp_proof{
 	c_tag = "Engineering Sublevel - Engine Camera 2";
-	dir = 2;
 	network = list("Engine")
 	},
 /obj/machinery/alarm{
@@ -34515,7 +34515,6 @@
 	master_tag = "tesla2_airlock_control";
 	name = "Engine Access Button";
 	pixel_x = 24;
-	pixel_y = 0;
 	req_access = list(11)
 	},
 /obj/machinery/door/airlock/hatch{
@@ -34973,8 +34972,8 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/disposalpipe/junction{
-	icon_state = "pipe-j2";
-	dir = 4
+	dir = 4;
+	icon_state = "pipe-j2"
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -62705,7 +62704,7 @@ aEQ
 wbr
 aGK
 aHO
-aHM
+maT
 aJU
 aKQ
 aKQ
