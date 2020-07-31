@@ -4,5 +4,4 @@ delete-after: True
 
 changes: 
   - rscadd: "Added a two second grace period to lung rupturing, you will get a large message prompting you of it happening before it does."
-  - tweak: "Only conscious people gasp and flail when they struggle to breathe."
   - bugfix: "You will now properly take oxygen damage if you fail to breathe with an undamaged lung."
