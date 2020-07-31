@@ -387,8 +387,8 @@
 	for(var/obj/machinery/computer/rdconsole/RDC in get_area(src))
 		if(!RDC.sync)
 			continue
-		for(var/id in RDC.files.known_tech)
-			var/datum/tech/T = RDC.files.known_tech[id]
+		for(var/id in SSresearch.global_research.known_tech)
+			var/datum/tech/T = SSresearch.global_research.known_tech[id]
 			files.AddTech2Known(T)
 		files.RefreshResearch()
 		sync_message = "Sync complete."

@@ -33,7 +33,6 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	icon_screen = "rdcomp"
 	light_color = "#a97faa"
 	circuit = /obj/item/circuitboard/rdconsole
-	var/datum/research/files							//Stores all the collected research data.
 	var/obj/item/disk/tech_disk/t_disk = null	//Stores the technology disk.
 	var/obj/item/disk/design_disk/d_disk = null	//Stores the design disk.
 
@@ -100,12 +99,12 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
 			var/server_processed = 0
 			if((id in S.id_with_upload) || istype(S, /obj/machinery/r_n_d/server/centcom))
-				for(var/tech_id in files.known_tech)
-					var/datum/tech/T = files.known_tech[tech_id]
-					S.files.AddTech2Known(T)
-				S.files.RefreshResearch()
+				for(var/tech_id in SSresearch.global_research.known_tech)
+					var/datum/tech/T = SSresearch.global_research.known_tech[tech_id]
+					S.backup_files.AddTech2Known(T)
+				S.backup_files.RefreshResearch()
 				server_processed = 1
-			files.known_tech = S.files.known_tech.Copy()
+			SSresearch.global_research.known_tech = S.backup_files.known_tech.Copy()
 			if(!istype(S, /obj/machinery/r_n_d/server/centcom) && server_processed)
 				S.produce_heat()
 		screen = 1.6
@@ -113,14 +112,14 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 /obj/machinery/computer/rdconsole/proc/griefProtection() //Have it automatically push research to the centcomm server so wild griffins can't fuck up R&D's work
 	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachinery.all_machines)
-		for(var/tech_id in files.known_tech)
-			var/datum/tech/T = files.known_tech[tech_id]
-			C.files.AddTech2Known(files.known_tech[T])
-		C.files.RefreshResearch()
+		for(var/tech_id in SSresearch.global_research.known_tech)
+			var/datum/tech/T = SSresearch.global_research.known_tech[tech_id]
+			C.backup_files.AddTech2Known(SSresearch.global_research.known_tech[T])
+		C.backup_files.RefreshResearch()
 
 /obj/machinery/computer/rdconsole/Initialize()
 	..()
-	files = new /datum/research(src) //Setup the research data holder.
+	SSresearch.global_research = new /datum/research(src) //Setup the research data holder.
 	if(!id)
 		for(var/obj/machinery/r_n_d/server/centcom/S in SSmachinery.all_machines)
 			S.setup()
@@ -189,7 +188,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		screen = 0.0
 		spawn(50)
 			screen = 1.2
-			files.AddTech2Known(t_disk.stored)
+			SSresearch.global_research.AddTech2Known(t_disk.stored)
 			updateUsrDialog()
 			griefProtection() //Update centcomm too
 
@@ -203,7 +202,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		screen = 1.0
 
 	else if(href_list["copy_tech"]) //Copys some technology data from the research holder to the disk.
-		var/datum/tech/T = files.known_tech[href_list["copy_tech_sent"]]
+		var/datum/tech/T = SSresearch.global_research.known_tech[href_list["copy_tech_sent"]]
 		t_disk.stored = T
 		screen = 1.2
 
@@ -211,7 +210,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		screen = 0.0
 		spawn(50)
 			screen = 1.4
-			files.AddDesign2Known(d_disk.blueprint)
+			SSresearch.global_research.AddDesign2Known(d_disk.blueprint)
 			updateUsrDialog()
 			griefProtection() //Update centcomm too
 
@@ -226,7 +225,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	else if(href_list["copy_design"]) //Copy design data from the research holder to the design disk.
 		var/path = text2path(href_list["copy_design_sent"])
-		var/datum/design/D = files.known_designs[path]
+		var/datum/design/D = SSresearch.global_research.known_designs[path]
 		d_disk.blueprint = D
 		screen = 1.4
 
@@ -263,7 +262,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 							return
 
 						for(var/T in linked_destroy.loaded_item.origin_tech)
-							files.UpdateTech(T, linked_destroy.loaded_item.origin_tech[T])
+							SSresearch.global_research.UpdateTech(T, linked_destroy.loaded_item.origin_tech[T])
 						if(linked_lathe && linked_destroy.loaded_item.matter) // Also sends salvaged materials to a linked protolathe, if any.
 							for(var/t in linked_destroy.loaded_item.matter)
 								if(t in linked_lathe.materials)
@@ -309,14 +308,14 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		sync = !sync
 
 	else if(href_list["protolathe_category"])
-		var/choice = input("Which category do you wish to display?") as null|anything in files.protolathe_categories+"All"
+		var/choice = input("Which category do you wish to display?") as null|anything in SSresearch.global_research.protolathe_categories+"All"
 		if(!choice)
 			return
 		protolathe_category = choice
 		updateUsrDialog()
 
 	else if(href_list["imprinter_category"])
-		var/choice = input("Which category do you wish to display?") as null|anything in files.imprinter_categories+"All"
+		var/choice = input("Which category do you wish to display?") as null|anything in SSresearch.global_research.imprinter_categories+"All"
 		if(!choice)
 			return
 		imprinter_category = choice
@@ -325,7 +324,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	else if(href_list["build"]) //Causes the Protolathe to build something.
 		if(linked_lathe)
 			var/path = text2path(href_list["build"])
-			var/datum/design/D = files.known_designs[path]
+			var/datum/design/D = SSresearch.global_research.known_designs[path]
 			linked_lathe.addToQueue(D)
 		screen = 3.1
 		updateUsrDialog()
@@ -333,7 +332,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	else if(href_list["imprint"]) //Causes the Circuit Imprinter to build something.
 		if(linked_imprinter)
 			var/path = text2path(href_list["imprint"])
-			var/datum/design/D = files.known_designs[path]
+			var/datum/design/D = SSresearch.global_research.known_designs[path]
 			linked_imprinter.addToQueue(D)
 		screen = 4.1
 		updateUsrDialog()
@@ -404,8 +403,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		var/choice = alert("R&D Console Database Reset", "Are you sure you want to reset the R&D console's database? Data lost cannot be recovered.", "Continue", "Cancel")
 		if(choice == "Continue")
 			screen = 0.0
-			qdel(files)
-			files = new /datum/research(src)
+			qdel(SSresearch.global_research)
+			SSresearch.global_research = new /datum/research(src)
 			spawn(20)
 				screen = 1.6
 				updateUsrDialog()
@@ -435,18 +434,18 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole/proc/GetResearchLevelsInfo()
 	var/dat
 	dat += "<UL>"
-	for(var/tech_id in files.known_tech)
-		var/datum/tech/T = files.known_tech[tech_id]
+	for(var/tech_id in SSresearch.global_research.known_tech)
+		var/datum/tech/T = SSresearch.global_research.known_tech[tech_id]
 		if(T.level < 1)
 			continue
 		dat += "<LI>"
 		dat += "<u><b>[T.name]</b></u>"
 		dat += "<UL>"
 		dat +=  "<LI>Level: [T.level]"
-		if(T.level == 15)
+		if(T.level == MAX_TECH_LEVEL)
 			dat +=  "<LI>Progress: Complete"
 		else
-			dat +=  "<LI>Progress: [T.next_level_progress]/[T.next_level_threshold]"
+			dat +=  "<LI>Progress: [text2num(T.next_level_progress)]/[text2num(T.next_level_threshold)]"
 		dat +=  "<LI>Summary: [T.desc]"
 		dat += "</UL>"
 	return dat
@@ -454,8 +453,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole/proc/GetResearchListInfo()
 	var/dat
 	dat += "<UL>"
-	for(var/path in files.known_designs)
-		var/datum/design/D = files.known_designs[path]
+	for(var/path in SSresearch.global_research.known_designs)
+		var/datum/design/D = SSresearch.global_research.known_designs[path]
 		if(D.build_path)
 			dat += "<LI><B>[D.name]</B>: [D.desc]"
 	dat += "</UL>"
@@ -467,7 +466,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	user.set_machine(src)
 	var/dat = ""
-	files.RefreshResearch()
+	SSresearch.global_research.RefreshResearch()
 	switch(screen) //A quick check to make sure you get the right screen when a device is disconnected.
 		if(2 to 2.9)
 			if(linked_destroy == null)
@@ -560,8 +559,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<div class='menu'>"
 			dat += "Load Technology to Disk:<BR><BR>"
 			dat += "<UL>"
-			for(var/tech_id in files.known_tech)
-				var/datum/tech/T = files.known_tech[tech_id]
+			for(var/tech_id in SSresearch.global_research.known_tech)
+				var/datum/tech/T = SSresearch.global_research.known_tech[tech_id]
 				dat += "<LI>[T.name] "
 				dat += "\[<A href='?src=\ref[src];copy_tech=1;copy_tech_sent=[T.id]'>copy to disk</A>\]"
 			dat += "</UL>"
@@ -595,8 +594,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<div class='menu'>"
 			dat += "Load Design to Disk:<BR><BR>"
 			dat += "<UL>"
-			for(var/path in files.known_designs)
-				var/datum/design/D = files.known_designs[path]
+			for(var/path in SSresearch.global_research.known_designs)
+				var/datum/design/D = SSresearch.global_research.known_designs[path]
 				if(D.build_path)
 					dat += "<LI>[D.name] "
 					dat += "<A href='?src=\ref[src];copy_design=1;copy_design_sent=[D.type]'>\[copy to disk\]</A>"
@@ -664,9 +663,9 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "Origin Tech:"
 			dat += "<UL>"
 			for(var/tech_id in linked_destroy.loaded_item.origin_tech)
-				var/datum/tech/T = files.known_tech[tech_id]
-				dat += "<LI>[capitalize_first_letters(T.name)]: \[Level: [linked_destroy.loaded_item.origin_tech[tech_id]] || Progress Contribution: [files.get_level_value(linked_destroy.loaded_item.origin_tech[tech_id])]\]"
-				dat += " (Current Level: [T.level] || Current Progress: [T.next_level_progress]/[T.next_level_threshold])"
+				var/datum/tech/T = SSresearch.global_research.known_tech[tech_id]
+				dat += "<LI>[capitalize_first_letters(T.name)]: \[Level: [linked_destroy.loaded_item.origin_tech[tech_id]] || Progress Contribution: [text2num(SSresearch.global_research.get_level_value(linked_destroy.loaded_item.origin_tech[tech_id]))]\]"
+				dat += " (Current Level: [T.level] || Current Progress: [text2num(T.next_level_progress)]/[text2num(T.next_level_threshold)])"
 			dat += "</UL>"
 			if(!istype(linked_destroy.loaded_item, /obj/item/stack))
 				dat += "<HR><A href='?src=\ref[src];deconstruct=1'>Deconstruct Item</A> || "
@@ -691,8 +690,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<div class='rdconsole-build'>"
 			dat += "<ul>"
 			var/last_category = ""
-			for(var/path in files.known_designs)
-				var/datum/design/D = files.known_designs[path]
+			for(var/path in SSresearch.global_research.known_designs)
+				var/datum/design/D = SSresearch.global_research.known_designs[path]
 				if(!D.build_path || !(D.build_type & PROTOLATHE))
 					continue
 				if(protolathe_category != "All" && D.p_category != protolathe_category)
@@ -778,8 +777,8 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "<div class='rdconsole-build'>"
 			dat += "<ul>"
 			var/last_category = ""
-			for(var/path in files.known_designs)
-				var/datum/design/D = files.known_designs[path]
+			for(var/path in SSresearch.global_research.known_designs)
+				var/datum/design/D = SSresearch.global_research.known_designs[path]
 				if(!D.build_path || !(D.build_type & IMPRINTER))
 					continue
 				if(imprinter_category != "All" && D.p_category != imprinter_category)

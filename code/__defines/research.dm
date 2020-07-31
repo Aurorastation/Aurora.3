@@ -17,4 +17,4 @@
 #define MECHFAB		0x4	//Mechfab
 #define CHASSIS		0x8	//For protolathe, but differently
 
-#define MAX_TECH_LEVEL 15
+#define MAX_TECH_LEVEL 10

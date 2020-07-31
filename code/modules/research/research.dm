@@ -33,7 +33,7 @@ The tech datums are the actual "tech trees" that you improve through researching
 - Name:		Pretty obvious. This is often viewable to the players.
 - Desc:		Pretty obvious. Also player viewable.
 - ID:		This is the unique ID of the tech that is used by the various procs to find and/or maniuplate it.
-- Level:	This is the current level of the tech. All techs start at 1 and have a max of 15. Devices and some techs require a certain
+- Level:	This is the current level of the tech. All techs start at 1 and have a max of 10. Devices and some techs require a certain
 level in specific techs before you can produce them.
 - Req_tech:	This is a list of the techs required to unlock this tech path. If left blank, it'll automatically be loaded into the
 research holder datum.
@@ -116,6 +116,14 @@ research holder datum.
 	if(will_update_progress)
 		known.next_level_progress = T.next_level_progress
 
+/datum/research/proc/add_points_to_tech(var/tech_id, var/points)
+	var/final_points = points
+	var/datum/tech/known = known_tech[tech_id]
+	if(known.next_level_progress + points > known.next_level_threshold)
+		final_points = (known.next_level_progress + points) - known.next_level_threshold
+		increase_level(tech_id)
+	known.next_level_progress += final_points
+
 /datum/research/proc/AddDesign2Known(var/datum/design/D)
 	known_designs[D.type] = D
 
@@ -145,12 +153,16 @@ research holder datum.
 			break
 		if(KT.next_level_progress + progress >= KT.next_level_threshold)
 			progress -= KT.next_level_threshold - KT.next_level_progress
-			KT.level++
-			KT.level = clamp(KT.level, 0, MAX_TECH_LEVEL)
-			KT.next_level_threshold = get_level_value(KT.level)
+			increase_level(KT.id)
 			continue
 		KT.next_level_progress += progress
 		break
+
+/datum/research/proc/increase_level(var/tech_id)
+	var/datum/tech/KT = known_tech[tech_id]
+	KT.level = min(KT.level + 1, MAX_TECH_LEVEL)
+	KT.next_level_progress = 0
+	KT.next_level_threshold = get_level_value(KT.level)
 
 // A simple helper proc to find the name of a tech with a given ID.
 /proc/CallTechName(var/ID)

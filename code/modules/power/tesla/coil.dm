@@ -5,6 +5,7 @@
 	icon_state = "coil"
 	anchored = 0
 	density = 1
+	var/making_power = TRUE // if this coil should make power, or add research points
 	var/power_loss = 2
 	var/input_power_multiplier = 1
 
@@ -19,6 +20,11 @@
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		power_multiplier += C.rating
 	input_power_multiplier = power_multiplier
+
+/obj/machinery/power/tesla_coil/attack_hand(mob/user)
+	making_power = !making_power
+	var/produce_msg = making_power ? "power" : "research points"
+	to_chat(user, SPAN_NOTICE("You set \the [src] to produce [produce_msg]."))
 
 /obj/machinery/power/tesla_coil/attackby(obj/item/W, mob/user)
 	if(default_deconstruction_screwdriver(user, W))
@@ -40,11 +46,16 @@
 
 /obj/machinery/power/tesla_coil/tesla_act(var/power, var/melt = FALSE)
 	if(anchored && !melt)
-		being_shocked = 1
+		being_shocked = TRUE
 		//don't lose arc power when it's not connected to anything
 		//please place tesla coils all around the station to maximize effectiveness
 		var/power_produced = powernet ? power / power_loss : power
-		add_avail(power_produced*input_power_multiplier)
+		var/final_power = power_produced * input_power_multiplier
+		if(making_power)
+			add_avail(final_power)
+		else
+			for(var/tech_id in list(TECH_ENGINEERING, TECH_POWER))
+				SSresearch.global_research.add_points_to_tech(tech_id, final_power / 1000)
 		flick("coilhit", src)
 		playsound(src.loc, 'sound/magic/LightningShock.ogg', 100, 1, extrarange = 5)
 		tesla_zap(src, 5, power_produced)
@@ -53,7 +64,7 @@
 		..()
 
 /obj/machinery/power/grounding_rod
-	name = "Grounding Rod"
+	name = "grounding rod"
 	desc = "Keep an area from being fried from Edison's Bane."
 	icon = 'icons/obj/tesla_engine/tesla_coil.dmi'
 	icon_state = "grounding_rod"

@@ -57,13 +57,14 @@
 			to_chat(user, SPAN_WARNING("\The [src] is empty. Put something inside it first."))
 	if(response == "Sync")
 		var/success = FALSE
+		for(var/id in SSresearch.global_research.known_tech)
+			var/datum/tech/T = SSresearch.global_research.known_tech[id]
+			SSresearch.global_research.AddTech2Known(T)
 		for(var/obj/machinery/r_n_d/server/S in SSmachinery.all_machines)
-			for(var/id in files.known_tech) //Uploading
-				var/datum/tech/T = files.known_tech[id]
-				S.files.AddTech2Known(T)
-			files.known_tech = S.files.known_tech.Copy()
-			success = TRUE
-			files.RefreshResearch()
+			S.backup_files.known_tech = SSresearch.global_research.known_tech.Copy()
+		files.known_tech = SSresearch.global_research.known_tech.Copy()
+		success = TRUE
+		files.RefreshResearch()
 		if(success)
 			to_chat(user, SPAN_NOTICE("You connect to the research server, push your data upstream to it, then pull the resulting merged data from the master branch.")) // fucking nerds
 			playsound(get_turf(src), 'sound/machines/twobeep.ogg', 50, TRUE)

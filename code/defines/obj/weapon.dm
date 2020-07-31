@@ -517,3 +517,8 @@
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "smes_coil"
 	origin_tech = list(TECH_MATERIAL = 19, TECH_ENGINEERING = 19, TECH_PHORON = 19, TECH_POWER = 19, TECH_BLUESPACE = 19, TECH_BIO = 19, TECH_COMBAT = 19, TECH_MAGNET = 19, TECH_DATA = 19, TECH_ILLEGAL = 19, TECH_ARCANE = 19)
+	var/increase_amount = 15
+
+/obj/item/research/attack_self(mob/user)
+	for(var/tech_id in origin_tech)
+		SSresearch.global_research.add_points_to_tech(tech_id, increase_amount)

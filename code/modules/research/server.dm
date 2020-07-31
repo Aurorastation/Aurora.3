@@ -3,7 +3,7 @@
 	desc = "A server which houses a back-up of all station research. It can be used to restore lost data, or to act as another point of retrieval."
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "server"
-	var/datum/research/files
+	var/datum/research/backup_files
 	var/health = 100
 	var/list/id_with_upload = list()	//List of R&D consoles with upload to server access.
 	var/list/id_with_download = list()	//List of R&D consoles with download from server access.
@@ -37,8 +37,8 @@
 	setup()
 
 /obj/machinery/r_n_d/server/proc/setup()
-	if(!files)
-		files = new /datum/research(src)
+	if(!backup_files)
+		backup_files = new /datum/research(src)
 	var/list/temp_list
 	if(!id_with_upload.len)
 		temp_list = list()
@@ -62,12 +62,12 @@
 			health = max(0, health - 1)
 	if(health <= 0)
 		griefProtection() //I dont like putting this in process() but it's the best I can do without re-writing a chunk of rd servers.
-		files.known_designs = list()
-		for(var/id in files.known_tech)
-			var/datum/tech/T = files.known_tech[id]
+		backup_files.known_designs = list()
+		for(var/id in backup_files.known_tech)
+			var/datum/tech/T = backup_files.known_tech[id]
 			if(prob(1))
 				T.level--
-		files.RefreshResearch()
+		backup_files.RefreshResearch()
 	if(delay)
 		delay--
 	else
@@ -82,13 +82,13 @@
 	griefProtection()
 	..()
 
-//Backup files to centcomm to help admins recover data after greifer attacks
+//Backup backup_files to centcomm to help admins recover data after greifer attacks
 /obj/machinery/r_n_d/server/proc/griefProtection()
 	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachinery.all_machines)
-		for(var/id in files.known_tech)
-			var/datum/tech/T = files.known_tech[id]
-			C.files.AddTech2Known(T)
-		C.files.RefreshResearch()
+		for(var/id in backup_files.known_tech)
+			var/datum/tech/T = backup_files.known_tech[id]
+			C.backup_files.AddTech2Known(T)
+		C.backup_files.RefreshResearch()
 
 /obj/machinery/r_n_d/server/proc/produce_heat()
 	if(!produces_heat)
@@ -154,8 +154,8 @@
 /obj/machinery/r_n_d/server/advanced //an advanced server that starts with higher tech levels
 
 /obj/machinery/r_n_d/server/advanced/setup()
-	if(!files)
-		files = new /datum/research/hightech(src)
+	if(!backup_files)
+		backup_files = new /datum/research/hightech(src)
 	var/list/temp_list
 	if(!id_with_upload.len)
 		temp_list = list()
@@ -233,17 +233,17 @@
 	else if(href_list["reset_tech"])
 		var/choice = alert("Technology Data Rest", "Are you sure you want to reset this technology to its default data? Data lost cannot be recovered.", "Continue", "Cancel")
 		if(choice == "Continue")
-			for(var/datum/tech/T in temp_server.files.known_tech)
+			for(var/datum/tech/T in temp_server.backup_files.known_tech)
 				if(T.id == href_list["reset_tech"])
 					T.level = 1
 					break
-		temp_server.files.RefreshResearch()
+		temp_server.backup_files.RefreshResearch()
 
 	else if(href_list["reset_design"])
 		var/choice = alert("Design Data Deletion", "Are you sure you want to delete this design? If you still have the prerequisites for the design, it'll reset to its base reliability. Data lost cannot be recovered.", "Continue", "Cancel")
 		if(choice == "Continue")
-			temp_server.files.known_designs -= href_list["reset_design"]
-			temp_server.files.RefreshResearch()
+			temp_server.backup_files.known_designs -= href_list["reset_design"]
+			temp_server.backup_files.RefreshResearch()
 
 	updateUsrDialog()
 	return
@@ -290,13 +290,13 @@
 		if(2) //Data Management menu
 			dat += "[temp_server.name] Data ManagementP<BR><BR>"
 			dat += "Known Technologies<BR>"
-			for(var/path in temp_server.files.known_tech)
-				var/datum/tech/T = temp_server.files.known_tech[path]
+			for(var/path in temp_server.backup_files.known_tech)
+				var/datum/tech/T = temp_server.backup_files.known_tech[path]
 				dat += "* [T.name] "
 				dat += "<A href='?src=\ref[src];reset_tech=[T.id]'>(Reset)</A><BR>"
 			dat += "Known Designs<BR>"
-			for(var/path in temp_server.files.known_designs)
-				var/datum/design/D = temp_server.files.known_designs[path]
+			for(var/path in temp_server.backup_files.known_designs)
+				var/datum/design/D = temp_server.backup_files.known_designs[path]
 				dat += "* [D.name] "
 				dat += "<A href='?src=\ref[src];reset_design=[path]'>(Delete)</A><BR>"
 			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
