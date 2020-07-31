@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - tweak: "Stationbounds can now once more bolt airlocks, but only if they are open. This allows them to easily permanently open airlocks for emergency purposes."
+  - tweak: "Stationbounds can now bolt airlocks open. This allows them to easily permanently open airlocks for emergency purposes."
