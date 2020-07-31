@@ -1,0 +1,7 @@
+author: Doxxmedearly
+
+delete-after: True
+
+changes: 
+  - bugfix: "Any hat that hides hair should now stop machinery from pulling hair."
+  - bugfix: "Hair no longer gets caught in grinders from simply interacting with it; it will only happen while grinding. It also will not pull hair if unpowered or broken."
