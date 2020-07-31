@@ -986,7 +986,7 @@
 
 /datum/reagent/mental/truthserum
 	name = "Truth serum"
-	description = "Truth Serum, a refined variant of Paxazide, is an expensive and very unethical psychoactive drug capable of inhibiting defensive measures and reasoning in regards to communication, resulting in those under the effects of the drug to be very open to telling the truth."
+	description = "Truth Serum is an expensive and very unethical psychoactive drug capable of inhibiting defensive measures and reasoning in regards to communication, resulting in those under the effects of the drug to be very open to telling the truth."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.05 * REM
