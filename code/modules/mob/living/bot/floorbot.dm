@@ -249,7 +249,7 @@
 			visible_message("<span class='notice'>[src] begins to improve the floor.</span>")
 			if(do_after(src, 50))
 				if(!F.flooring)
-					F.set_flooring(get_flooring_data(floor_build_type))
+					F.set_flooring(decls_repository.get_decl(floor_build_type))
 					addTiles(-1)
 			target = null
 			repairing = 0
