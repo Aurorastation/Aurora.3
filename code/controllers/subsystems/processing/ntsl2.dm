@@ -57,20 +57,21 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 /datum/controller/subsystem/processing/ntsl2/proc/sync_send(var/command, var/list/arguments, var/method = RUSTG_HTTP_METHOD_GET)
 	var/datum/http_request/request = build_request(command, arguments, method)
 	if(istype(request))
-		request.execute_blocking()
+		request.begin_async()
+		UNTIL(request.is_complete())
 		return handle_response(request.into_response(), command)
 
 
 /*
  * ASynchronous command to NTSL2 daemon. Returns id of task, meant to track progress of this task.
  */
-/datum/controller/subsystem/processing/ntsl2/proc/send_task(var/command, var/list/arguments, var/method = RUSTG_HTTP_METHOD_GET, var/program = null)
+/datum/controller/subsystem/processing/ntsl2/proc/send_task(var/command, var/list/arguments, var/method = RUSTG_HTTP_METHOD_GET, var/program = null, var/callback = null)
 	if(!connected)
 		return FALSE
 	var/datum/http_request/request = build_request(command, arguments, method)
 	if(istype(request))
 		request.begin_async()
-		var/task = list(request = request, program = program, command = command)
+		var/task = list(request = request, program = program, command = command, callback = callback)
 		var/task_id = "[current_task_id++]"
 		tasks[task_id] = task
 		return task_id
@@ -85,6 +86,10 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 			if(!response)
 				crash_with("NTSL2++: Program initialization failed, but program was handed out.")
 			program.id = response
+			for(var/c in program.ready_tasks)
+				var/datum/callback/callback = c
+				if(istype(callback))
+					callback.InvokeAsync()
 			return
 		if("execute")
 			log_debug("NTSL2++ Daemon could not be connected to. Functionality will not be enabled.")
@@ -93,8 +98,13 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 		if("computer/get_buffer")
 			if(response)
 				var/datum/ntsl2_program/computer/P = program
-				P.buffer = response
+				if(istype(P))
+					P.buffer = response
 			return
+	var/datum/callback/cb = task["callback"]
+	if(istype(cb))
+		cb.InvokeAsync(response)
+
 		
 
 /datum/controller/subsystem/processing/ntsl2/proc/is_complete(var/task_id)
@@ -140,3 +150,14 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 
 	. = ..()
 	
+/datum/controller/subsystem/processing/ntsl2/proc/editor(var/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new(user, src, "test", 300, 300, "Title of ui", state = interactive_state, ndata = list())
+	ui.open()
+
+/client/verb/TestEditor()
+	set name = "editor"
+	set category = "OOC"
+
+	SSntsl2.editor(usr)

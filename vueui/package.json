@@ -14,6 +14,7 @@
     "core-js-compat": "^3.6.5",
     "fuse.js": "^3.6.1",
     "vue": "^2.6.11",
+    "vue2-ace-editor": "0.0.15",
     "webpack": "^4.43.0"
   },
   "devDependencies": {

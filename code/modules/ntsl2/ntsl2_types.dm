@@ -49,7 +49,7 @@
 	. = ..()
 	src.server = server
 
-/datum/ntsl2_program/tcomm/proc/process_message(var/datum/signal/signal)
+/datum/ntsl2_program/tcomm/proc/process_message(var/datum/signal/signal, var/callback = null)
 	var/datum/language/signal_language = signal.data["language"]
 	SSntsl2.send_task("tcom/process", list(
 		id = id,
@@ -63,7 +63,7 @@
 			language = signal_language.name,
 			reference = ref(signal)
 		)
-	), RUSTG_HTTP_METHOD_POST)
+	), RUSTG_HTTP_METHOD_POST, callback = callback)
 	/* [
   {
 	"content": "AAAAA",
@@ -77,8 +77,8 @@
   }
 ]*/
 
-/datum/ntsl2_program/tcomm/proc/retrieve_messages()
-	var/data = SSntsl2.send_task("tcom/get")
+/datum/ntsl2_program/tcomm/proc/retrieve_messages(var/callback = null)
+	var/data = SSntsl2.send_task("tcom/get", callback = callback)
 	if(data)
 		var/list/signals = json_decode(data)
 		for(var/sl in signals)
