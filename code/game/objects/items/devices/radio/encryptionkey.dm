@@ -173,6 +173,8 @@
 	icon_state = "keypouch0"
 	icon_type = "key"
 	storage_type = "pouch"
+	opened = TRUE
+	closable = FALSE
 	center_of_mass = list("x" = 16,"y" = 7)
 	storage_slots = 3
 	can_hold = list(/obj/item/device/encryptionkey)
@@ -180,9 +182,7 @@
 
 /obj/item/storage/box/fancy/keypouch/Initialize()
 	. = ..()
-	var/contents_length = length(contents)
-	if(contents_length)
-		icon_state = "keypouch[contents_length]"
+	update_icon()
 
 /obj/item/storage/box/fancy/keypouch/eng
 	starts_with = list(/obj/item/device/encryptionkey/eng_spare = 3)
