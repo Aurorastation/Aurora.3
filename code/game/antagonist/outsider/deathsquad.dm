@@ -28,3 +28,22 @@ var/datum/antagonist/deathsquad/deathsquad
 /datum/antagonist/deathsquad/attempt_spawn()
 	if(..())
 		deployed = TRUE
+
+/datum/antagonist/deathsquad/equip(var/mob/living/carbon/human/player)
+	if(!..())
+		return FALSE
+
+	for (var/obj/item/I in player)
+		if (istype(I, /obj/item/implant))
+			continue
+		player.drop_from_inventory(I)
+		if(I.loc != player)
+			qdel(I)
+
+	player.preEquipOutfit(/datum/outfit/admin/deathsquad, FALSE)
+	player.equipOutfit(/datum/outfit/admin/deathsquad, FALSE)
+	player.force_update_limbs()
+	player.update_eyes()
+	player.regenerate_icons()
+
+	return TRUE

@@ -20,3 +20,22 @@ var/datum/antagonist/ert/ert
 /datum/antagonist/ert/New()
 	..()
 	ert = src
+
+/datum/antagonist/ert/equip(var/mob/living/carbon/human/player)
+	if(!..())
+		return FALSE
+
+	for (var/obj/item/I in player)
+		if (istype(I, /obj/item/implant))
+			continue
+		player.drop_from_inventory(I)
+		if(I.loc != player)
+			qdel(I)
+
+	player.preEquipOutfit(/datum/outfit/admin/ert/nanotrasen, FALSE)
+	player.equipOutfit(/datum/outfit/admin/ert/nanotrasen, FALSE)
+	player.force_update_limbs()
+	player.update_eyes()
+	player.regenerate_icons()
+
+	return TRUE

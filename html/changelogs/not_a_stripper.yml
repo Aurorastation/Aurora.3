@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - admin: "Syndicate Commando, Asset Protection Specialist and ERT now equip the player properly when assigned via the traitor panel."
