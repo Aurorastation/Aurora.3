@@ -138,7 +138,7 @@
 	data["files"] = list()
 	for(var/datum/computer_file/script/F in hdd?.stored_files)
 		if(F.filetype == "NTS" && !F.password)
-			data["files"].Add(list(list(
+			data["files"] += list(list(
 				"name" = F.filename,
 				"type" = F.filetype,
 				"size" = F.size,
