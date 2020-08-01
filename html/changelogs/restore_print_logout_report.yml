@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - admin: "Restores the 'Print Logout Report' for anyone with the R_MOD permission."
