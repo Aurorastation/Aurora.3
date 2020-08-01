@@ -124,7 +124,7 @@
 //Reloads all admins via remote command. Updates from the forumuser API if enabled.
 /datum/topic_command/admins_reload
 	name = "admins_reload"
-	description = "Reloads all and pulls new data from the forumuser API if it's enabled."
+	description = "Reloads all admins and pulls new data from the forumuser API if it's enabled."
 	params = list(
 		"senderkey" = list("name"="senderkey","desc"="A display friendly name for the sender.","req"=1,"type"="str")
 	)
