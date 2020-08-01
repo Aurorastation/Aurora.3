@@ -2,7 +2,7 @@
   <div>
     <vui-button v-show="!creating" @click="creating = true">New</vui-button>
     <template v-if="creating">
-      <input type="text" v-model="newname" />
+      <input type="text" v-model="newname" >
       <vui-button @click="newFile()">Create</vui-button>
     </template>
     <h2>Available files:</h2>

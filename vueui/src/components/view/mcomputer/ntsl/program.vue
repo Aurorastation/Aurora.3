@@ -2,7 +2,7 @@
   <div>
     <vui-button :params="{stop: 1}">Stop</vui-button>
     <br>
-    <component class="terminal" :is="term"></component>
+    <component class="terminal" :is="term"/>
   </div>
 </template>
 

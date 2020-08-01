@@ -121,7 +121,7 @@
 	if(headerdata)
 		data["_PC"] = headerdata
 		. = data
-\
+
 	var/obj/item/computer_hardware/hard_drive/hdd = computer?.hard_drive
 	
 	if(is_running && istype(running))
