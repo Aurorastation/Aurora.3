@@ -2,4 +2,4 @@ author: Skull132
 delete-after: True
 
 changes:
-  refactor: "Freezers, heaters, drop pods, intellicards, smartfridges are now VueUI. This may include minor changes in behaviour or looks."
+  - refactor: "Freezers, heaters, drop pods, intellicards, smartfridges are now VueUI. This may include minor changes in behaviour or looks."
