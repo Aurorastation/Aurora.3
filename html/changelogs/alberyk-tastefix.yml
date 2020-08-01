@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed nutriment subtypes not having proper taste."
