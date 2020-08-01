@@ -31,6 +31,8 @@
 		return FALSE // We are not ready to run code
 	if(copytext(topic, 1, 2) == "?")
 		var/data = input("", "Enter Data")
+		if(!data)
+			data = ""
 		SSntsl2.send_task("computer/topic", list(id = id, topic = copytext(topic, 2), data = data))
 	else
 		SSntsl2.send_task("computer/topic", list(id = id, topic = topic))

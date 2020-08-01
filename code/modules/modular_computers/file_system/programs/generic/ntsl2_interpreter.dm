@@ -18,6 +18,7 @@
 	if(istype(running))
 		running.kill()
 		running = null
+		opened = null
 		is_running = FALSE
 
 /datum/computer_file/program/ntsl2_interpreter/run_program(mob/user)
@@ -33,58 +34,84 @@
 	if(!istype(ui))
 		return
 
-	if(href_list["PRG_execfile"])
+	if(href_list["execute_file"])
 		. = TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
-		var/datum/computer_file/data/F = HDD.find_file_by_name(href_list["PRG_execfile"])
+		var/datum/computer_file/script/F = HDD.find_file_by_name(href_list["execute_file"])
 		if(istype(F))
-			var/oldtext = html_decode(F.stored_data)
-			oldtext = replacetext(oldtext, "\[editorbr\]", "\n")
-			is_running = TRUE
+			var/code = F.code
 			
 			if(istype(running))
-				running.name = href_list["PRG_execfile"]
-				running.execute(oldtext, usr)
+				running.execute(code, usr)
+				is_running = TRUE
 
-	if(href_list["editfile"])
-		. = TRUE
-		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
-		var/datum/computer_file/data/F = HDD.find_file_by_name(href_list["editfile"])
-		if(istype(F))
-			var/oldtext = html_decode(F.stored_data)
-			oldtext = replacetext(oldtext, "\[editorbr\]", "\n")
-			
-			ui.data["code"] = oldtext
-			. = TRUE
-
-	if(href_list["PRG_closefile"])
+	if(href_list["stop"])
 		. = TRUE
 		if(istype(running))
 			running.kill()
+			// Prepare for next execution
 			running = SSntsl2.new_program_computer(src)
 			is_running = FALSE
 
-	if(href_list["PRG_topic"])
-		if(istype(running))
-			running.handle_topic(href_list["PRG_topic"])
-		. = 1
-
-	if(href_list["PRG_refresh"])
+	if(href_list["edit_file"])
 		. = TRUE
+		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
+		var/datum/computer_file/script/F = HDD.find_file_by_name(href_list["edit_file"])
+		if(istype(F))
+			opened = F
 
-	/*if(.)
-		SSnanoui.update_uis(NM)
-*/
+	if(href_list["close"])
+		. = TRUE
+		if(istype(opened))
+			opened.code = href_list["code"]
+			opened.calculate_size()
+			opened = null
+
+	if(href_list["new"])
+		. = TRUE
+		if(!opened)
+			var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
+
+			opened = new()
+			opened.filename = sanitize(href_list["new"])
+			HDD.store_file(opened)
+
+	if(href_list["execute"])
+		. = TRUE
+		if(istype(opened))
+			opened.code = href_list["code"]
+			opened.calculate_size()
+
+			if(istype(running))
+				running.execute(opened.code, usr)
+				is_running = TRUE
+
+	if(href_list["terminal_topic"])
+		if(istype(running))
+			running.handle_topic(href_list["terminal_topic"])
+		. = TRUE
+	
+	if(.)
+		SSvueui.check_uis_for_change(src)
+		return FALSE
 
 /datum/computer_file/program/ntsl2_interpreter/ui_interact(mob/user as mob)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-ntsl-main", 450, 520, filedesc)
+		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-ntsl-main", 600, 520, filedesc)
+		ui.auto_update_content = TRUE
 	ui.open()
 
 /datum/computer_file/program/ntsl2_interpreter/vueui_transfer(oldobj)
-	SSvueui.transfer_uis(oldobj, src, "mcomputer-ntsl-main", 450, 520, filedesc)
+	var/uis = SSvueui.transfer_uis(oldobj, src, "mcomputer-ntsl-main", 600, 520, filedesc)
+	for(var/i in uis)
+		var/datum/vueui/ui = i
+		ui.auto_update_content = TRUE
 	return TRUE
+
+/datum/computer_file/program/ntsl2_interpreter/vueui_on_transfer(datum/vueui/ui)
+	. = ..()
+	ui.auto_update_content = FALSE
 
 /datum/computer_file/program/ntsl2_interpreter/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	. = ..()
@@ -94,23 +121,29 @@
 	if(headerdata)
 		data["_PC"] = headerdata
 		. = data
-
+\
 	var/obj/item/computer_hardware/hard_drive/hdd = computer?.hard_drive
 	
-	data["mode"] = "list" // List is default mode
-	if(is_running)
-		data["mode"] = "program"
+	if(is_running && istype(running))
+		VUEUI_SET_CHECK(data["mode"], "program", ., data)
+		data["terminal"] = running.buffer
+		. = data
 	else if (istype(opened))
-		data["mode"] = "edit"
+		VUEUI_SET_CHECK(data["mode"], "edit", ., data)
+		VUEUI_SET_CHECK(data["code"], opened.code, ., data)
 	else
-		for(var/datum/computer_file/script/F in hdd?.stored_files)
-			if(F.filetype == "NTS" && !F.password)
-				data["files"].Add(list(list(
-					"name" = F.filename,
-					"type" = F.filetype,
-					"size" = F.size,
-					"undeletable" = F.undeletable
-				)))
+		VUEUI_SET_CHECK(data["mode"], "list", ., data)
+
+	
+	data["files"] = list()
+	for(var/datum/computer_file/script/F in hdd?.stored_files)
+		if(F.filetype == "NTS" && !F.password)
+			data["files"].Add(list(list(
+				"name" = F.filename,
+				"type" = F.filetype,
+				"size" = F.size,
+				"undeletable" = F.undeletable
+			)))
 	
 
 /*
