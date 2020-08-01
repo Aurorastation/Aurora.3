@@ -99,6 +99,11 @@
 	if(!P.nodamage)
 		damaged = apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, damage_flags = P.damage_flags, used_weapon = "\a [P.name]")
 		bullet_impact_visuals(P, def_zone, damaged)
+		if(stat != DEAD)
+			var/area/A = get_area(src)
+			if(A?.flags & FIRING_RANGE)
+				for(var/tech_id in list(TECH_COMBAT, TECH_BIO))
+					SSresearch.global_research.add_points_to_tech(tech_id, P.damage ** 2)
 	P.on_hit(src, absorb, def_zone)
 	return absorb
 

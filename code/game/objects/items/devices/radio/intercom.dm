@@ -178,3 +178,7 @@
 /obj/item/device/radio/intercom/locked/confessional
 	name = "confessional intercom"
 	frequency = 1480
+
+/obj/item/device/radio/intercom/announcer/Initialize()
+	. = ..()
+	config(list("Common" = FALSE, "Entertainment" = FALSE, "Response Team" = FALSE, "Science" = FALSE, "Command" = FALSE, "Medical" = FALSE, "Engineering" = FALSE, "Security" = FALSE, "Supply" = FALSE, "Service" = FALSE, "Mercenary" = FALSE, "Raider" = FALSE, "Ninja" = FALSE, "AI Private" = FALSE))

@@ -139,7 +139,7 @@
 			health = maxHealth
 			amount_grown = 0
 			regenerate_icons()
-			name = text("[colour] [is_adult ? "adult" : "baby"] slime ([number])")
+			name = text("[slime_color] [is_adult ? "adult" : "baby"] slime ([number])")
 			real_name = name
 			set_content(TRUE)
 			addtimer(CALLBACK(src, .proc/set_content, FALSE), 1200) // You get two minutes of safety
@@ -166,10 +166,11 @@
 			var/new_nutrition = round(nutrition * 0.9)
 			var/new_powerlevel = round(powerlevel / 4)
 			for(var/i = 1, i <= 4, i++)
-				var/t = colour
+				var/new_color = slime_color
 				if(prob(mutation_chance))
-					t = slime_mutation[rand(1,4)]
-				var/mob/living/carbon/slime/M = new /mob/living/carbon/slime(loc, t)
+					new_color = slime_mutation[rand(1, 4)]
+				var/new_slime_path = text2path("/mob/living/carbon/slime/[new_color]")
+				var/mob/living/carbon/slime/M = new new_slime_path(loc)
 				if(ckey)
 					M.nutrition = new_nutrition //Player slimes are more robust at spliting. Once an oversight of poor copypasta, now a feature!
 				M.powerlevel = new_powerlevel
@@ -179,7 +180,7 @@
 				babies += M
 				M.set_content(TRUE)
 				addtimer(CALLBACK(M, .proc/set_content, FALSE), 1200) // You get two minutes of safety
-				feedback_add_details("slime_babies_born", "slimebirth_[replacetext(M.colour," ","_")]")
+				feedback_add_details("slime_babies_born", "slimebirth_[replacetext(M.slime_color," ","_")]")
 
 			var/mob/living/carbon/slime/new_slime = pick(babies)
 			new_slime.universal_speak = universal_speak

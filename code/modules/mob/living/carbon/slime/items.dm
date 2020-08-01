@@ -141,10 +141,10 @@
 		to_chat(user, SPAN_WARNING("The slime resists!"))
 		return ..()
 	var/mob/living/simple_animal/slime/pet = new /mob/living/simple_animal/slime(M.loc)
-	pet.icon_state = "[M.colour] baby slime"
-	pet.icon_living = "[M.colour] baby slime"
-	pet.icon_dead = "[M.colour] baby slime dead"
-	pet.colour = "[M.colour]"
+	pet.icon_state = "[M.slime_color] baby slime"
+	pet.icon_living = "[M.slime_color] baby slime"
+	pet.icon_dead = "[M.slime_color] baby slime dead"
+	pet.slime_color = "[M.slime_color]"
 	to_chat(user, SPAN_NOTICE("You feed the slime the potion, removing its powers and calming it."))
 	qdel(M)
 
@@ -172,10 +172,10 @@
 			to_chat(user, SPAN_WARNING("The slime resists!"))
 			return ..()
 		var/mob/living/simple_animal/adultslime/pet = new /mob/living/simple_animal/adultslime(M.loc)
-		pet.icon_state = "[M.colour] adult slime"
-		pet.icon_living = "[M.colour] adult slime"
-		pet.icon_dead = "[M.colour] baby slime dead"
-		pet.colour = "[M.colour]"
+		pet.icon_state = "[M.slime_color] adult slime"
+		pet.icon_living = "[M.slime_color] adult slime"
+		pet.icon_dead = "[M.slime_color] baby slime dead"
+		pet.slime_color = "[M.slime_color]"
 		to_chat(user, "You feed the slime the potion, removing it's powers and calming it.")
 		qdel(M)
 		var/newname = sanitize(input(user, "Would you like to give the slime a name?", "Name your new pet", "pet slime") as null|text, MAX_NAME_LEN)

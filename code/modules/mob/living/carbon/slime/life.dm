@@ -349,7 +349,7 @@
 			if(S != src)
 				frenemy = S
 		if(frenemy && prob(1))
-			if(frenemy.colour == colour)
+			if(frenemy.slime_color == slime_color)
 				set_intent(I_HELP)
 			else
 				set_intent(I_HURT)

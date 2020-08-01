@@ -117,12 +117,11 @@ research holder datum.
 		known.next_level_progress = T.next_level_progress
 
 /datum/research/proc/add_points_to_tech(var/tech_id, var/points)
-	var/final_points = points
 	var/datum/tech/known = known_tech[tech_id]
 	if(known.next_level_progress + points > known.next_level_threshold)
-		final_points = (known.next_level_progress + points) - known.next_level_threshold
 		increase_level(tech_id)
-	known.next_level_progress += final_points
+	else
+		known.next_level_progress += round(points)
 
 /datum/research/proc/AddDesign2Known(var/datum/design/D)
 	known_designs[D.type] = D

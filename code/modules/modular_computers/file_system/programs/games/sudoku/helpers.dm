@@ -56,6 +56,18 @@
 	//If we havent found any conflict and all tiles are filled, then the user has won the game.
 	else if (empty == 0)
 		message = "Congratulations! You win the game!"
+		if(!cheated)
+			var/exponent = 2
+			switch(new_difficulty)
+				if("Easy")
+					exponent = 2
+				if("Medium")
+					exponent = 3
+				if("Hard")
+					exponent = 4
+				if("Robust")
+					exponent = 5
+			SSresearch.global_research.add_points_to_tech(TECH_DATA, 30 ** exponent)
 		if (!won_game)
 			playsound(get_turf(program.computer), 'sound/magic/light.ogg', 50, 1)
 		won_game = 1

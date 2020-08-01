@@ -12,7 +12,7 @@
 	response_disarm = "shoos"
 	response_harm   = "stomps on"
 	emote_see = list("jiggles", "bounces in place")
-	var/colour = "grey"
+	var/slime_color = "grey"
 	mob_size = 3
 	composition_reagent = /datum/reagent/slimejelly
 
@@ -34,7 +34,7 @@
 	response_disarm = "shoos"
 	response_harm   = "stomps on"
 	emote_see = list("jiggles", "bounces in place")
-	var/colour = "grey"
+	var/slime_color = "grey"
 	mob_size = 6
 	composition_reagent = /datum/reagent/slimejelly
 
@@ -45,13 +45,13 @@
 
 /mob/living/simple_animal/adultslime/death()
 	var/mob/living/simple_animal/slime/S1 = new /mob/living/simple_animal/slime (src.loc)
-	S1.icon_state = "[src.colour] baby slime"
-	S1.icon_living = "[src.colour] baby slime"
-	S1.icon_dead = "[src.colour] baby slime dead"
-	S1.colour = "[src.colour]"
+	S1.icon_state = "[src.slime_color] baby slime"
+	S1.icon_living = "[src.slime_color] baby slime"
+	S1.icon_dead = "[src.slime_color] baby slime dead"
+	S1.slime_color = "[src.slime_color]"
 	var/mob/living/simple_animal/slime/S2 = new /mob/living/simple_animal/slime (src.loc)
-	S2.icon_state = "[src.colour] baby slime"
-	S2.icon_living = "[src.colour] baby slime"
-	S2.icon_dead = "[src.colour] baby slime dead"
-	S2.colour = "[src.colour]"
+	S2.icon_state = "[src.slime_color] baby slime"
+	S2.icon_living = "[src.slime_color] baby slime"
+	S2.icon_dead = "[src.slime_color] baby slime dead"
+	S2.slime_color = "[src.slime_color]"
 	qdel(src)

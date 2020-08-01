@@ -461,9 +461,10 @@ BREATH ANALYZER
 	var/mob/living/carbon/slime/T = M
 	to_chat(user, SPAN_NOTICE("**************************"))
 	to_chat(user, SPAN_NOTICE("Slime scan results:"))
-	to_chat(user, SPAN_NOTICE(capitalize_first_letters("[T.colour] [T.is_adult ? "adult" : "baby"] slime")))
+	to_chat(user, SPAN_NOTICE(capitalize_first_letters("[T.slime_color] [T.is_adult ? "adult" : "baby"] slime")))
 	to_chat(user, SPAN_NOTICE("Health: [T.health]"))
 	to_chat(user, SPAN_NOTICE("Nutrition: [T.nutrition]/[T.get_max_nutrition()]"))
+	to_chat(user, SPAN_NOTICE("Research Points: [T.research_points]"))
 	if(T.nutrition < T.get_starve_nutrition())
 		to_chat(user, SPAN_ALERT("Warning: slime is starving!"))
 	else if (T.nutrition < T.get_hunger_nutrition())
@@ -475,7 +476,7 @@ BREATH ANALYZER
 	else if(!T.cores)
 		to_chat(user, SPAN_WARNING("No slime cores detected."))
 	to_chat(user, SPAN_NOTICE("Genetic Information:"))
-	if(T.slime_mutation[4] == T.colour)
+	if(T.slime_mutation[4] == T.slime_color)
 		to_chat(user, SPAN_WARNING("This slime cannot evolve any further."))
 	else
 		var/list/poss_mutations = uniquelist(T.slime_mutation)

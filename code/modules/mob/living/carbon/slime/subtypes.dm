@@ -1,6 +1,6 @@
-/mob/living/carbon/slime/proc/mutation_table(var/colour)
+/mob/living/carbon/slime/proc/mutation_table(var/slime_color)
 	var/list/slime_mutation[4]
-	switch(colour)
+	switch(slime_color)
 		//Tier 1
 		if("grey")
 			slime_mutation[1] = "orange"
@@ -72,8 +72,8 @@
 			slime_mutation[4] = "black"
 		// Tier 5
 		else
-			slime_mutation[1] = colour
-			slime_mutation[2] = colour
-			slime_mutation[3] = colour
-			slime_mutation[4] = colour
+			slime_mutation[1] = slime_color
+			slime_mutation[2] = slime_color
+			slime_mutation[3] = slime_color
+			slime_mutation[4] = slime_color
 	return(slime_mutation)

@@ -60,7 +60,7 @@
 
 	///////////TIME FOR SUBSPECIES
 
-	var/colour = "grey"
+	var/slime_color = "grey"
 	var/coretype = /obj/item/slime_extract/grey
 	var/list/slime_mutation[4]
 
@@ -68,71 +68,92 @@
 	var/toxloss = 0
 	var/datum/reagents/metabolism/ingested
 
+	// Research points
+	var/list/research_types = list(TECH_BLUESPACE, TECH_BIO, TECH_MAGNET)
+	var/research_points = 25
+
 /mob/living/carbon/slime/get_ingested_reagents()
 	return ingested
 
-/mob/living/carbon/slime/Initialize(mapload, colour = "grey")
+/mob/living/carbon/slime/Initialize(mapload)
 	. = ..()
 
 	verbs += /mob/living/proc/ventcrawl
 
-	src.colour = colour
 	number = rand(1, 1000)
-	name = "[colour] [is_adult ? "adult" : "baby"] slime ([number])"
+	name = "[slime_color] [is_adult ? "adult" : "baby"] slime ([number])"
 	real_name = name
 	if(is_adult)
 		mob_size = 6
-	slime_mutation = mutation_table(colour)
+	slime_mutation = mutation_table(slime_color)
 	mutation_chance = rand(25, 35)
-	var/sanitizedcolour = replacetext(colour, " ", "")
-	coretype = text2path("/obj/item/slime_extract/[sanitizedcolour]")
+	var/sanitizedslime_color = replacetext(slime_color, " ", "")
+	coretype = text2path("/obj/item/slime_extract/[sanitizedslime_color]")
 	last_AI = world.time
 	regenerate_icons()
 
-/mob/living/carbon/slime/purple/Initialize(mapload, colour = "purple")
-	..()
+/mob/living/carbon/slime/grey
+	slime_color = "grey"
 
-/mob/living/carbon/slime/metal/Initialize(mapload, colour = "metal")
-	..()
+/mob/living/carbon/slime/purple
+	slime_color = "purple"
+	research_points = 50
 
-/mob/living/carbon/slime/orange/Initialize(mapload, colour = "orange")
-	..()
+/mob/living/carbon/slime/metal
+	slime_color = "metal"
+	research_points = 50
 
-/mob/living/carbon/slime/blue/Initialize(mapload, colour = "blue")
-	..()
+/mob/living/carbon/slime/orange
+	slime_color = "orange"
+	research_points = 50
 
-/mob/living/carbon/slime/dark_blue/Initialize(mapload, colour = "dark blue")
-	..()
+/mob/living/carbon/slime/blue
+	slime_color = "blue"
+	research_points = 50
 
-/mob/living/carbon/slime/dark_purple/Initialize(mapload, colour = "dark purple")
-	..()
+/mob/living/carbon/slime/dark_blue
+	slime_color = "dark blue"
+	research_points = 100
 
-/mob/living/carbon/slime/yellow/Initialize(mapload, colour = "yellow")
-	..()
+/mob/living/carbon/slime/dark_purple
+	slime_color = "dark purple"
+	research_points = 100
 
-/mob/living/carbon/slime/silver/Initialize(mapload, colour = "silver")
-	..()
+/mob/living/carbon/slime/yellow
+	slime_color = "yellow"
+	research_points = 100
 
-/mob/living/carbon/slime/pink/Initialize(mapload, colour = "pink")
-	..()
+/mob/living/carbon/slime/silver
+	slime_color = "silver"
+	research_points = 100
 
-/mob/living/carbon/slime/red/Initialize(mapload, colour = "red")
-	..()
+/mob/living/carbon/slime/pink
+	slime_color = "pink"
+	research_points = 150
 
-/mob/living/carbon/slime/gold/Initialize(mapload, colour = "gold")
-	..()
+/mob/living/carbon/slime/red
+	slime_color = "red"
+	research_points = 150
 
-/mob/living/carbon/slime/green/Initialize(mapload, colour = "green")
-	..()
+/mob/living/carbon/slime/gold
+	slime_color = "gold"
+	research_points = 150
 
-/mob/living/carbon/slime/oil/Initialize(mapload, colour = "oil")
-	..()
+/mob/living/carbon/slime/green
+	slime_color = "green"
+	research_points = 150
 
-/mob/living/carbon/slime/adamantine/Initialize(mapload, colour = "adamantine")
-	..()
+/mob/living/carbon/slime/oil
+	slime_color = "oil"
+	research_points = 175
 
-/mob/living/carbon/slime/black/Initialize(mapload, colour = "black")
-	..()
+/mob/living/carbon/slime/adamantine
+	slime_color = "adamantine"
+	research_points = 250
+
+/mob/living/carbon/slime/black
+	slime_color = "black"
+	research_points = 175
 
 /mob/living/carbon/slime/getToxLoss()
 	return toxloss

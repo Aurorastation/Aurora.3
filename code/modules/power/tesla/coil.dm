@@ -2,7 +2,7 @@
 	name = "tesla coil"
 	desc = "For the union!"
 	icon = 'icons/obj/tesla_engine/tesla_coil.dmi'
-	icon_state = "coil"
+	icon_state = "coil1"
 	anchored = 0
 	density = 1
 	var/making_power = TRUE // if this coil should make power, or add research points
@@ -23,6 +23,7 @@
 
 /obj/machinery/power/tesla_coil/attack_hand(mob/user)
 	making_power = !making_power
+	icon_state = "coil[making_power]"
 	var/produce_msg = making_power ? "power" : "research points"
 	to_chat(user, SPAN_NOTICE("You set \the [src] to produce [produce_msg]."))
 
@@ -56,7 +57,7 @@
 		else
 			for(var/tech_id in list(TECH_ENGINEERING, TECH_POWER))
 				SSresearch.global_research.add_points_to_tech(tech_id, final_power / 1000)
-		flick("coilhit", src)
+		flick("coil[making_power]hit", src)
 		playsound(src.loc, 'sound/magic/LightningShock.ogg', 100, 1, extrarange = 5)
 		tesla_zap(src, 5, power_produced)
 		addtimer(CALLBACK(src, .proc/reset_shocked), 10)

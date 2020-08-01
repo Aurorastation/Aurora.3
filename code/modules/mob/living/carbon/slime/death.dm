@@ -3,7 +3,8 @@
 		return
 
 	if(!gibbed && is_adult)
-		var/mob/living/carbon/slime/M = new /mob/living/carbon/slime(loc, colour)
+		var/new_slime_path = text2path("/mob/living/carbon/slime/[slime_color]")
+		var/mob/living/carbon/slime/M = new new_slime_path(loc)
 		M.rabid = TRUE
 		M.friends = friends.Copy()
 		step_away(M, src)
@@ -13,7 +14,7 @@
 		if(!client)
 			rabid = TRUE
 		number = rand(1, 1000)
-		name = "[colour] [is_adult ? "adult" : "baby"] slime ([number])"
+		name = "[slime_color] [is_adult ? "adult" : "baby"] slime ([number])"
 		real_name = name
 		return
 

@@ -324,6 +324,9 @@ BLIND     // can't see anything
 			to_chat(user, FONT_SMALL("\The [O] grants these tech levels when deconstructed:"))
 			for(var/tech in O.origin_tech)
 				to_chat(user, FONT_SMALL("[capitalize_first_letters(tech)]: [O.origin_tech[tech]]"))
+	else if(isslime(A))
+		var/mob/living/carbon/slime/S = A
+		to_chat(user, FONT_SMALL("\The [S] provides [S.research_points] research points in [english_list(S.research_types)]."))
 
 /obj/item/clothing/glasses/regular/hipster
 	name = "prescription glasses"
