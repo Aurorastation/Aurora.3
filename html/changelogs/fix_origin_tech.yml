@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed all items with invalid origin_techs, which would cause the RnD computer to break when putting them in the Destructive Analyzer."
