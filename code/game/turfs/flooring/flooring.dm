@@ -101,7 +101,6 @@
 	icon = 'icons/turf/total_floors.dmi'
 	icon_base = "asteroidfloor"
 	has_damage_range = null
-	build_type = null
 
 /decl/flooring/tiling/asteroid/plating
 	icon_base = "asteroidfloor"
