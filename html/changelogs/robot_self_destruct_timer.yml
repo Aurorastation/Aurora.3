@@ -1,7 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - tweak: "Robot and Drone self-destructs will now abort if you return to a company-owned area within 5 seconds, there are appropriate warning messages."
-  - tweak: "All forms of emagged drones may now travel anywhere without self-destructing, instead of only Mining & Construction drones."
