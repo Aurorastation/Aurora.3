@@ -379,7 +379,7 @@
 			update_icon()
 			return
 
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
 		user.visible_message("<span class='warning'>[user] cuts the fingertips off of \the [src].</span>","<span class='warning'>You cut the fingertips off of \the [src].</span>")
 
 		clipped = 1
@@ -689,7 +689,7 @@
 	if(usr.put_in_hands(holding))
 		usr.visible_message("<span class='danger'>\The [usr] pulls \a [holding] out of their boot!</span>")
 		holding = null
-		playsound(get_turf(src), 'sound/weapons/holster/sheathout.ogg', 25)
+		playsound(get_turf(src), 'sound/weapons/holster/unholster_knife.ogg', 25)
 	else
 		to_chat(usr, "<span class='warning'>Your need an empty, unbroken hand to do that.</span>")
 		holding.forceMove(src)

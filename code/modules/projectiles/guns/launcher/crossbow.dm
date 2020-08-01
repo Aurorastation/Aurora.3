@@ -11,7 +11,7 @@
 	sharp = 1
 	edge = 0
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = 'sound/items/pickup/sword.ogg'
+	pickup_sound = "pickup_sword"
 
 /obj/item/arrow/proc/removed() //Helper for metal rods falling apart.
 	return
@@ -27,7 +27,7 @@
 	icon_state = "metal-rod"
 	item_state = "bolt"
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = 'sound/items/pickup/sword.ogg'
+	pickup_sound = "pickup_sword"
 
 /obj/item/arrow/quill
 	name = "vox quill"

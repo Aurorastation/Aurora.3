@@ -1168,7 +1168,7 @@ var/list/total_extraction_beacons = list()
 				SPAN_NOTICE("You continue sculpting."))
 
 			if(prob(25))
-				playsound(user, 'sound/items/Screwdriver.ogg', 20, TRUE)
+				playsound(user, 'sound/items/screwdriver.ogg', 20, TRUE)
 			else
 				playsound(user, "sound/weapons/chisel[rand(1,2)].ogg", 20, TRUE)
 				spawn(3)

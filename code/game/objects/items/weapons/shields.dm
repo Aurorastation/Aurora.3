@@ -311,7 +311,7 @@
 
 /obj/item/shield/riot/tact/attack_self(mob/living/user)
 	active = !active
-	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
 
 	if(active)
 		icon_state = "[initial(icon_state)]_[active]"

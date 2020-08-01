@@ -6,7 +6,7 @@
 	item_state = "pulse_carbine"
 	slot_flags = SLOT_BELT
 	force = 5
-	fire_sound='sound/weapons/Laser.ogg'
+	fire_sound='sound/weapons/laser1.ogg'
 	projectile_type = /obj/item/projectile/beam
 	sel_mode = 2
 	accuracy = 1
@@ -20,7 +20,7 @@
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/laser1.ogg'),
 		list(mode_name="DESTROY", projectile_type=/obj/item/projectile/beam/pulse, fire_sound='sound/weapons/pulse.ogg', fire_delay=25)
 		)
 

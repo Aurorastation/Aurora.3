@@ -14,7 +14,7 @@
 	max_shots = 10
 	can_turret = 1
 	secondary_projectile_type = /obj/item/projectile/beam
-	secondary_fire_sound = 'sound/weapons/Laser.ogg'
+	secondary_fire_sound = 'sound/weapons/laser1.ogg'
 	can_switch_modes = 1
 	turret_is_lethal = 0
 
@@ -24,7 +24,7 @@
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="energystun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="energykill", fire_sound='sound/weapons/Laser.ogg')
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="energykill", fire_sound='sound/weapons/laser1.ogg')
 		)
 
 	var/crit_fail = 0 //Added crit_fail as a local variable
@@ -55,7 +55,7 @@
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg')
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/laser1.ogg')
 		)
 
 	var/lightfail = 0
@@ -135,7 +135,7 @@
 	fire_delay = 4
 	can_turret = 1
 	secondary_projectile_type = /obj/item/projectile/beam/pistol
-	secondary_fire_sound = 'sound/weapons/Laser.ogg'
+	secondary_fire_sound = 'sound/weapons/laser1.ogg'
 	can_switch_modes = 1
 	turret_sprite_set = "carbine"
 	turret_is_lethal = 0
@@ -146,7 +146,7 @@
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="epistolstun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="epistolkill", fire_sound='sound/weapons/Laser.ogg')
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="epistolkill", fire_sound='sound/weapons/laser1.ogg')
 		)
 
 /obj/item/gun/energy/pistol/hegemony
@@ -163,7 +163,7 @@
 	fire_delay = 3
 	can_turret = FALSE
 	secondary_projectile_type = /obj/item/projectile/beam/pistol/hegemony
-	secondary_fire_sound = 'sound/weapons/Laser.ogg'
+	secondary_fire_sound = 'sound/weapons/laser1.ogg'
 	can_switch_modes = TRUE
 
 	projectile_type = /obj/item/projectile/beam/stun
@@ -172,5 +172,5 @@
 
 	firemodes = list(
 		list(mode_name="incapacitate", projectile_type=/obj/item/projectile/beam/stun, modifystate="hegemony_pistol", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="smite", projectile_type=/obj/item/projectile/beam/pistol/hegemony, modifystate="hegemony_pistol", fire_sound='sound/weapons/Laser.ogg')
+		list(mode_name="smite", projectile_type=/obj/item/projectile/beam/pistol/hegemony, modifystate="hegemony_pistol", fire_sound='sound/weapons/laser1.ogg')
 		)

@@ -52,7 +52,7 @@
 				adjustBruteLoss(damage)
 				updatehealth()
 			else
-				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+				playsound(loc, "punchmiss", 25, 1, -1)
 				for(var/mob/O in viewers(src, null))
 					if ((O.client && !( O.blinded )))
 						O.show_message(text("<span class='danger'>[] has attempted to punch []!</span>", M, src), 1)

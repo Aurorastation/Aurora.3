@@ -104,6 +104,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	max_ammo = 5
 	multiple_sprites = 1
+	insert_sound = 'sound/weapons/clip_insert.ogg'
 
 /obj/item/ammo_magazine/mc9mm
 	name = "magazine (9mm)"
@@ -279,6 +280,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	max_ammo = 5
 	multiple_sprites = 1
+	insert_sound = 'sound/weapons/clip_insert.ogg'
 
 /obj/item/ammo_magazine/boltaction/vintage
 	name = "vintage stripper clip"
@@ -417,12 +419,14 @@
 	ammo_type = /obj/item/ammo_casing/gauss
 	max_ammo = 7
 	multiple_sprites = 1
+	insert_sound = 'sound/weapons/railgun_insert.ogg'
+
 
 /obj/item/ammo_magazine/gauss/emp
 	name = "ion slug box"
 	icon_state = "empslugbox"
 	ammo_type = /obj/item/ammo_casing/gauss/emp
-
+	insert_sound = 'sound/weapons/railgun_insert_emp.ogg'
 
 /obj/item/ammo_magazine/plasma
 	name = "heavy duty plasma cell"

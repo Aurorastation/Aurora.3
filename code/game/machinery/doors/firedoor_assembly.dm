@@ -27,7 +27,7 @@ obj/structure/firedoor_assembly/attackby(var/obj/item/C as obj, mob/user as mob)
 				to_chat(user, "<span class='notice'>You wire \the [src].</span>")
 
 	else if(C.iswirecutter() && wired )
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
 		user.visible_message("[user] cuts the wires from \the [src].", "You start to cut the wires from \the [src].")
 
 		if(do_after(user, 40/C.toolspeed))

@@ -72,7 +72,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	slot_flags = SLOT_BELT
 
-	fire_sound = 'sound/weapons/empty.ogg'
+	fire_sound = 'sound/weapons/click.ogg'
 	fire_sound_text = "a metallic thunk"
 	recoil = 0
 	release_force = 10

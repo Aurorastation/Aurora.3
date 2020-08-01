@@ -107,6 +107,7 @@
 	caliber = "shotgun"
 	projectile_type = /obj/item/projectile/bullet/shotgun
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
+	reload_sound = 'sound/weapons/reload_shell.ogg'
 
 /obj/item/ammo_casing/shotgun/pellet
 	name = "shotgun shell"
@@ -149,6 +150,7 @@
 	spent_icon = "stunshell-spent"
 	projectile_type = /obj/item/projectile/energy/electrode/stunshot
 	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_GLASS = 720)
+	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/shotgun/stunshell/emp_act(severity)
 	if(prob(100/severity)) BB = null
@@ -162,6 +164,7 @@
 	spent_icon = "fshell-spent"
 	projectile_type = /obj/item/projectile/energy/flash/flare
 	matter = list(DEFAULT_WALL_MATERIAL = 90, MATERIAL_GLASS = 90)
+	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/shotgun/incendiary
 	name = "incendiary shell"
@@ -178,6 +181,7 @@
 	spent_icon = "empshell-spent"
 	projectile_type  = /obj/item/projectile/ion
 	matter = list(DEFAULT_WALL_MATERIAL = 260, MATERIAL_URANIUM = 200)
+	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/tranq
 	name = "PPS shell"
@@ -287,6 +291,7 @@
 	desc = "A heavy ion gauss slug."
 	icon_state = "empslug"
 	projectile_type = /obj/item/projectile/ion/gauss
+	reload_sound = 'sound/weapons/reload_shell_emp.ogg'
 
 /obj/item/ammo_casing/plasma_slug
 	name = "plasma slug"

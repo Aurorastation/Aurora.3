@@ -230,11 +230,11 @@
 			..()
 	if(I.iscrowbar())
 		if(backpanelopen)
-			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+			playsound(src.loc, I.usesound, 50, 1)
 			to_chat(user, "<span class='notice'>You replace the back panel.</span>")
 			backpanelopen = 0
 		else
-			playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+			playsound(src.loc, I.usesound, 50, 1)
 			to_chat(user, "<span class='notice'>You open the back panel.</span>")
 			backpanelopen = 1
 

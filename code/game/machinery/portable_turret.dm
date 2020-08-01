@@ -63,7 +63,7 @@
 	var/eprojectile = /obj/item/projectile/beam		//holder for lethal (secondary) mode beam
 
 	var/shot_sound = 'sound/weapons/Taser.ogg'		//what sound should play when the turret fires
-	var/eshot_sound	= 'sound/weapons/Laser.ogg'		//what sound should play when the lethal turret fires
+	var/eshot_sound	= 'sound/weapons/laser1.ogg'		//what sound should play when the lethal turret fires
 
 	var/datum/effect_system/sparks/spark_system		//the spark system, used for generating... sparks?
 
@@ -782,7 +782,7 @@
 				return
 
 			else if(I.iscrowbar() && !anchored)
-				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
+				playsound(loc, I.usesound, 75, 1)
 				to_chat(user, "<span class='notice'>You dismantle the turret construction.</span>")
 				new /obj/item/stack/material/steel( loc, 5)
 				qdel(src)
@@ -953,7 +953,7 @@
 					qdel(src) // qdel
 
 			else if(I.iscrowbar())
-				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
+				playsound(loc, I.usesound, 75, 1)
 				to_chat(user, "<span class='notice'>You pry off the turret's exterior armor.</span>")
 				new /obj/item/stack/material/steel(loc, 2)
 				build_step = 6
@@ -1022,8 +1022,8 @@
 
 	projectile = /obj/item/projectile/ion/stun
 	eprojectile = /obj/item/projectile/ion
-	shot_sound = 'sound/weapons/Laser.ogg'
-	eshot_sound	= 'sound/weapons/Laser.ogg'
+	shot_sound = 'sound/weapons/laser1.ogg'
+	eshot_sound	= 'sound/weapons/laser1.ogg'
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/crossbow

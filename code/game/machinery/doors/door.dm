@@ -340,7 +340,7 @@
 
 	if(repairing && I.iscrowbar())
 		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+		playsound(src.loc, I.usesound, 100, 1)
 		repairing.forceMove(user.loc)
 		repairing = null
 		return

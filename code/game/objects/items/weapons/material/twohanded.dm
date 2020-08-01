@@ -34,7 +34,8 @@
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_twohanded.dmi'
 		)
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = 'sound/items/pickup/sword.ogg'
+	pickup_sound = "pickup_sword"
+	equip_sound = "equip_sword"
 
 /obj/item/material/twohanded/proc/unwield()
 	wielded = 0
@@ -82,7 +83,7 @@
 /obj/item/material/twohanded/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(wielded && default_parry_check(user, attacker, damage_source) && prob(parry_chance))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
+		playsound(user.loc, "punchmiss", 50, 1)
 		return 1
 	return 0
 

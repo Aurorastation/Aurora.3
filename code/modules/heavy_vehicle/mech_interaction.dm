@@ -47,7 +47,7 @@
 				selected_system.attack_self(user)
 				setClickCooldown(5)
 			return
-	
+
 	if(modifiers["ctrl"])
 		if(selected_system)
 			if(selected_system == A)
@@ -451,7 +451,7 @@
 
 				user.put_in_hands(body.cell)
 				to_chat(user, "<span class='notice'>You remove \the [body.cell] from \the [src].</span>")
-				playsound(user.loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(user.loc, thing.usesound, 50, 1)
 				visible_message("<span class='notice'>\The [user] pries out \the [body.cell] using the \the [thing].</span>")
 				body.cell = null
 				return
@@ -467,7 +467,7 @@
 					thing.forceMove(body)
 					body.cell = thing
 					to_chat(user, "<span class='notice'>You install \the [body.cell] into \the [src].</span>")
-					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+					playsound(user.loc, 'sound/items/screwdriver.ogg', 50, 1)
 					visible_message("<span class='notice'>\The [user] installs \the [body.cell] into \the [src].</span>")
 				return
 			else if(istype(thing, /obj/item/device/robotanalyzer))

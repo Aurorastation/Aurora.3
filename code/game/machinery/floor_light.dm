@@ -27,7 +27,7 @@ var/list/floor_light_cache = list()
 	if(W.isscrewdriver())
 		anchored = !anchored
 		visible_message("<span class='notice'>\The [user] has [anchored ? "attached" : "detached"] \the [src].</span>")
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
 	else if(W.iswelder() && (damaged || (stat & BROKEN)))
 		var/obj/item/weldingtool/WT = W
 		if(!WT.remove_fuel(0, user))
@@ -51,7 +51,7 @@ var/list/floor_light_cache = list()
 			return
 		else
 			to_chat(user, "<span class='notice'>You lever off the [name].</span>")
-			playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+			playsound(src.loc, W.usesound, 100, 1)
 			if(stat & BROKEN)
 				qdel(src)
 				return

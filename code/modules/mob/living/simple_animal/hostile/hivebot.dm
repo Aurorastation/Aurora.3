@@ -695,7 +695,7 @@
 			update_icon()
 			if(do_after(src, 32))
 				src.visible_message(SPAN_WARNING("[src] rips up \the [T]."))
-				playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+				playsound(src.loc, "crowbar", 100, 1)
 				T.make_plating(1)
 			busy = 0
 			update_icon()

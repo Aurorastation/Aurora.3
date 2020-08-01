@@ -1102,7 +1102,7 @@ About the new airlock wires panel:
 				..()
 				return
 		if(src.p_open && (operating < 0 || (!operating && welded && !src.arePowerSystemsOn() && density && !src.locked)))
-			playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+			playsound(src.loc, C.usesound, 100, 1)
 			user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to remove electronics from the airlock assembly.")
 			if(do_after(user,40/C.toolspeed))
 				to_chat(user, SPAN_NOTICE("You removed the airlock electronics!"))

@@ -342,7 +342,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/submachinemag
 	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag, /obj/item/ammo_magazine/submachinedrum)
-	fire_sound = 'sound/weapons/tommygun_shoot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_tommygun.ogg'
 
 /obj/item/gun/projectile/automatic/tommygun/update_icon()
 	..()
@@ -359,7 +359,7 @@
 	caliber = "trod"
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 7)
 	slot_flags = SLOT_BELT|SLOT_BACK
-	fire_sound = 'sound/effects/Explosion2.ogg'
+	fire_sound = 'sound/weapons/railgun.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/trodpack
 	allowed_magazines = list(/obj/item/ammo_magazine/trodpack)

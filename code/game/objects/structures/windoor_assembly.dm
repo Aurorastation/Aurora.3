@@ -152,7 +152,7 @@ obj/structure/windoor_assembly/Destroy()
 
 			//Removing wire from the assembly. Step 5 undone.
 			if(W.iswirecutter() && !src.electronics)
-				playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+				playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
 				user.visible_message("[user] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
 
 				if(do_after(user, 40/W.toolspeed))
@@ -170,7 +170,7 @@ obj/structure/windoor_assembly/Destroy()
 			else if(istype(W, /obj/item/airlock_electronics) && W:icon_state != "door_electronics_smoked")
 				var/obj/item/airlock_electronics/EL = W
 				if(!EL.is_installed)
-					playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+					playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
 					user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
 					EL.is_installed = 1
 					if(do_after(user, 40))
@@ -205,7 +205,7 @@ obj/structure/windoor_assembly/Destroy()
 					to_chat(usr, "<span class='warning'>The assembly is missing electronics.</span>")
 					return
 				usr << browse(null, "window=windoor_access")
-				playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+				playsound(src.loc, W.usesound, 100, 1)
 				user.visible_message("[user] pries the windoor into the frame.", "You start prying the windoor into the frame.")
 
 				if(do_after(user, 40/W.toolspeed))

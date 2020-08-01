@@ -113,6 +113,8 @@
 	var/safety_state = TRUE
 	var/has_safety = TRUE
 	var/image/safety_overlay
+	var/safetyon_sound = 'sound/weapons/blade_open.ogg'
+	var/safetyoff_sound = 'sound/weapons/blade_close.ogg'
 
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
@@ -638,7 +640,10 @@
 	update_icon()
 	if(user)
 		to_chat(user, SPAN_NOTICE("You switch the safety [safety_state ? "on" : "off"] on \the [src]."))
-		playsound(src, 'sound/weapons/safety_click.ogg', 30, 1)
+		if(!safety_state)
+			playsound(src, safetyon_sound, 30, 1)
+		else
+			playsound(src, safetyoff_sound, 30, 1)
 
 /obj/item/gun/verb/toggle_safety_verb()
 	set src in usr

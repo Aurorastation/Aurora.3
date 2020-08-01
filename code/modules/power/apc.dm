@@ -488,7 +488,7 @@
 			if (terminal)
 				to_chat(user, SPAN_WARNING("Disconnect wires first."))
 				return
-			playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+			playsound(loc, W.usesound, 50, 1)
 			to_chat(user, "You are trying to remove the power control board...")
 			if(do_after(user, 50/W.toolspeed))
 				if (has_electronics == HAS_ELECTRONICS_CONNECT)

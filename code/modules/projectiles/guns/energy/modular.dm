@@ -7,7 +7,7 @@
 	contained_sprite = TRUE
 	has_icon_ratio = FALSE
 	has_item_ratio = FALSE
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 3
 	force = 10

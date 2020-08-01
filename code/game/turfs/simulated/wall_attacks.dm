@@ -260,7 +260,7 @@
 		switch(construction_stage)
 			if(6)
 				if (W.iswirecutter())
-					playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
+					playsound(src, 'sound/items/wirecutter.ogg', 100, 1)
 					construction_stage = 5
 					to_chat(user, "<span class='notice'>You cut the outer grille.</span>")
 					update_icon()
@@ -308,7 +308,7 @@
 			if(3)
 				if (W.iscrowbar())
 					to_chat(user, "<span class='notice'>You struggle to pry off the cover.</span>")
-					playsound(src, 'sound/items/Crowbar.ogg', 100, 1)
+					playsound(src, W.usesound, 100, 1)
 					if(!do_after(user,100/W.toolspeed) || !istype(src, /turf/simulated/wall) || construction_stage != 3)
 						return
 					construction_stage = 2
@@ -349,7 +349,7 @@
 			if(0)
 				if(W.iscrowbar())
 					to_chat(user, "<span class='notice'>You struggle to pry off the outer sheath.</span>")
-					playsound(src, 'sound/items/Crowbar.ogg', 100, 1)
+					playsound(src, W.usesound, 100, 1)
 					sleep(100)
 					if(!istype(src, /turf/simulated/wall) || !user || !W || !T )	return
 					if(user.loc == T && user.get_active_hand() == W )

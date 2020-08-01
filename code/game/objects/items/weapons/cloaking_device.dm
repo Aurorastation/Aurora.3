@@ -69,7 +69,7 @@
 	if (!cell || !cell.checked_use(power_usage*5*CELLRATE))//Costs a small burst to enter cloak
 		if (owner)
 			to_chat(owner, "The [src] clicks uselessly, it has no power left.")
-		playsound(get_turf(src), 'sound/weapons/empty.ogg', 25, 1)
+		playsound(get_turf(src), 'sound/weapons/click.ogg', 25, 1)
 		return
 
 	START_PROCESSING(SSprocessing, src)

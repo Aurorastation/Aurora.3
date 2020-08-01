@@ -66,7 +66,7 @@
 	desc = "You can drill using this item. You dig?"
 	icon_state = "drill"
 	item_state = "drill"
-	hitsound = 'sound/weapons/saw/circsawhit.ogg'
+	hitsound = "drillhit"
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 10000)
 	flags = CONDUCT
 	force = 15.0

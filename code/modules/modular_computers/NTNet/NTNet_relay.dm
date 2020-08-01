@@ -131,7 +131,7 @@
 		if(!panel_open)
 			to_chat(user, SPAN_WARNING("Open the maintenance panel first."))
 			return
-		playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
+		playsound(get_turf(src), W.usesound, 50, 1)
 		to_chat(user, SPAN_NOTICE("You disassemble \the [src]!"))
 
 		for(var/atom/movable/A in component_parts)

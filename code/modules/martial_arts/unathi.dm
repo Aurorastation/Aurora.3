@@ -77,7 +77,7 @@
 		playsound(D, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 	else
 		D.visible_message("<span class='danger'>[A] attempted to disarm [D]!</span>")
-		playsound(D, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+		playsound(D, "punchmiss", 25, 1, -1)
 	return 1
 
 /datum/martial_art/kis_khan/proc/hammering_strike(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)

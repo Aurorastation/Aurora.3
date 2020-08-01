@@ -295,7 +295,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		var/turf/T = get_turf(src)
 		forceMove(T)
 		assembly = null
-		playsound(T, 'sound/items/Crowbar.ogg', 50, 1)
+		playsound(T, 'sound/items/crowbar_pry.ogg', 50, 1)
 		to_chat(usr, "<span class='notice'>You pop \the [src] out of the case, and slide it out.</span>")
 
 		if(istype(ea))
