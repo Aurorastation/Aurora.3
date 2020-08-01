@@ -55,5 +55,7 @@
 				if(flooring_type == type)
 					i++
 			if(i != 1)
-				log_unit_test("[ascii_red]--------------- Flooring build_type [type] is non-unique.")
+				log_unit_test("[ascii_red]--------------- Flooring build_type [type] is non-unique; exists [i] times.")
 		fail("Found non-unique build_types in flooring decl.")
+
+	return TRUE
