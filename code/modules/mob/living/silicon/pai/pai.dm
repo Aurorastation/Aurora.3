@@ -180,6 +180,7 @@
 	verbs += /mob/living/silicon/pai/proc/choose_chassis
 	verbs += /mob/living/silicon/pai/proc/choose_verbs
 	verbs += /mob/living/silicon/proc/computer_interact
+	verbs += /mob/living/silicon/proc/silicon_mimic_accent
 
 	//PDA
 	pda = new(src)

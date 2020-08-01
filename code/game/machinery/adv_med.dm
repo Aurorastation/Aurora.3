@@ -512,11 +512,14 @@
 		data["name"] = O.name
 		var/list/wounds = list()
 		data["damage"] = get_internal_damage(O)
-		if(istype(O, /obj/item/organ/internal/lungs) && H.is_lung_ruptured())
-			if(O.is_broken())
+		if(istype(O, /obj/item/organ/internal/lungs))
+			var/obj/item/organ/internal/lungs/L = O
+			if(L.is_broken())
 				wounds += get_broken_lung_desc()
-			else
+			else if(L.is_bruised())
 				wounds += get_collapsed_lung_desc()
+			if(L.rescued)
+				wounds += "Has a small puncture wound."
 
 		if(O.status & ORGAN_DEAD)
 			wounds += "Necrotic and decaying."

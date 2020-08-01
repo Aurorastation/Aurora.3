@@ -245,10 +245,6 @@
 // Law settings
 #define PERMABRIG_SENTENCE 90 // Measured in minutes
 
-#define LAYER_TABLE	2.8
-#define LAYER_UNDER_TABLE	2.79
-#define LAYER_ABOVE_TABLE	2.81
-
 // Stoplag.
 #define TICK_CHECK (world.tick_usage > CURRENT_TICKLIMIT)
 #define CHECK_TICK if (TICK_CHECK) stoplag()

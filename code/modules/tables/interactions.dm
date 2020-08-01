@@ -221,6 +221,7 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 /obj/structure/table/proc/auto_align(obj/item/W, click_parameters)
 	if(!W.center_of_mass)
 		W.randpixel_xy()
+		W.layer = initial(W.layer) + ((32 - W.pixel_y) / 1000)
 		return
 
 	if(!click_parameters)
@@ -236,6 +237,7 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 
 		W.pixel_x = (CELLSIZE * (0.5 + cell_x)) - W.center_of_mass["x"]
 		W.pixel_y = (CELLSIZE * (0.5 + cell_y)) - W.center_of_mass["y"]
+		W.layer = initial(W.layer) + ((32 - W.pixel_y) / 1000)
 
 #undef CELLS
 #undef CELLSIZE

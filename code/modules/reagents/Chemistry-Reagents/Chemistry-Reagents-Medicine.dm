@@ -986,7 +986,7 @@
 
 /datum/reagent/mental/truthserum
 	name = "Truth serum"
-	description = "Truth Serum, a refined variant of Paxazide, is an expensive and very unethical psychoactive drug capable of inhibiting defensive measures and reasoning in regards to communication, resulting in those under the effects of the drug to be very open to telling the truth."
+	description = "Truth Serum is an expensive and very unethical psychoactive drug capable of inhibiting defensive measures and reasoning in regards to communication, resulting in those under the effects of the drug to be very open to telling the truth."
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.05 * REM
@@ -1189,6 +1189,10 @@
 	H.adjustOxyLoss(removed) //Every unit heals 1 oxy damage
 	H.add_chemical_effect(CE_PNEUMOTOXIC, -removed * 1.5)
 	H.add_chemical_effect(CE_PULSE, -1)
+
+	var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
+	L.rescued = FALSE
+
 	. = ..()
 
 /datum/reagent/pneumalin/overdose(var/mob/living/carbon/human/H, var/alien, var/removed)
