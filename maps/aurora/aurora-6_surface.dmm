@@ -1116,21 +1116,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
-"cd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "ce" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -19473,11 +19458,6 @@
 	name = "Roof Solar Access";
 	req_access = list(12)
 	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "La" = (
@@ -23142,6 +23122,21 @@
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/simulated/floor/grass/alt,
 /area/hallway/secondary/entry/fore)
+"SF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/emergency)
 "SG" = (
 /obj/structure/cable/blue{
 	icon_state = "0-4"
@@ -24196,6 +24191,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
+"UU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/emergency)
 "UV" = (
 /turf/simulated/wall,
 /area/hallway/secondary/entry/central)
@@ -24817,15 +24821,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/departure_lounge)
-"Wh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "Wi" = (
 /turf/simulated/wall/r_wall,
 /area/storage/shields)
@@ -50011,7 +50006,7 @@ nJ
 BF
 Sg
 Rx
-cd
+SF
 nn
 xH
 nn
@@ -50269,19 +50264,19 @@ Cr
 wP
 Ar
 Om
-Wh
+UU
 Ah
 Dh
-Wh
-Wh
+UU
+UU
 nl
-Wh
-Wh
+UU
+UU
 Dh
 Ys
-Wh
+UU
 tL
-Wh
+UU
 Ng
 mb
 QR
