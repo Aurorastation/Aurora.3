@@ -1,0 +1,11 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Research is now contained globally, instead of per console, servers can still be used to save data."
+  - tweak: "Doppler arrays now report explosions to the science channel."
+  - rscadd: "Added slime cells to xenobiology."
+  - rscadd: "Scanner goggles now gives some info on slimes."
+  - rscadd: "Explosions on the same level as a doppler array, tesla coils set to produce research, suduko, and slime cells add research points to specific techs."
+  - rscadd: "Shooting any living being in a firing range will now produce research points, based on how much damage is dealt."

@@ -124,7 +124,7 @@
 		occupant.client.eye = occupant.client.mob
 		occupant.client.perspective = MOB_PERSPECTIVE
 
-	occupant.forceMove(get_step(src, dir))
+	occupant.forceMove(get_turf(src))
 	occupant = null
 	update_use_power(0)
 	update_icon()

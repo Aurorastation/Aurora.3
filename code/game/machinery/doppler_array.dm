@@ -45,7 +45,7 @@ var/list/doppler_arrays = list()
 	for(var/tech_id in list(TECH_MATERIAL, TECH_PHORON))
 		SSresearch.global_research.add_points_to_tech(tech_id, heavy_impact_range ** heavy_impact_range)
 	var/message = "Explosive disturbance detected - Epicenter at: grid ([x0],[y0],[z0]). Epicenter radius: [devastation_range]. Outer radius: [heavy_impact_range]. Shockwave radius: [light_impact_range]."
-	global_announcer.autosay(message, src.name, "Science")
+	global_announcer.autosay(message, "Tachyon-Doppler Array", "Science")
 
 /obj/machinery/doppler_array/power_change()
 	..()
