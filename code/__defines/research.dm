@@ -12,6 +12,8 @@
 #define TECH_ILLEGAL "syndicate"
 #define TECH_ARCANE "arcane"
 
+#define ALL_ORIGIN_TECHS list(TECH_MATERIAL, TECH_ENGINEERING, TECH_PHORON, TECH_POWER, TECH_BLUESPACE, TECH_BIO, TECH_COMBAT, TECH_MAGNET, TECH_DATA, TECH_ILLEGAL, TECH_ARCANE)
+
 #define IMPRINTER	0x1	//For circuits. Uses glass/chemicals.
 #define PROTOLATHE	0x2	//New stuff. Uses glass/metal/chemicals
 #define MECHFAB		0x4	//Mechfab

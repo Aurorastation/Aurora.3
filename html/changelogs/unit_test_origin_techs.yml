@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Adding a Subspace Wavelength Analyzer to the Destructive Analyzer will no longer break the RnD computer. "
