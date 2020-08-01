@@ -2142,6 +2142,7 @@
 #include "code\modules\modular_computers\file_system\programs\research\ai_restorer.dm"
 #include "code\modules\modular_computers\file_system\programs\research\chemistry_codex.dm"
 #include "code\modules\modular_computers\file_system\programs\research\ntmonitor.dm"
+#include "code\modules\modular_computers\file_system\programs\research\research_tracker.dm"
 #include "code\modules\modular_computers\file_system\programs\security\camera.dm"
 #include "code\modules\modular_computers\file_system\programs\security\digitalwarrant.dm"
 #include "code\modules\modular_computers\file_system\programs\security\penalmechs.dm"

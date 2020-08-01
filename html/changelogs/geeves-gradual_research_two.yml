@@ -1,4 +1,4 @@
-author: Geeves
+author: Geeves & Myazaki
 
 delete-after: True
 
@@ -9,3 +9,4 @@ changes:
   - rscadd: "Scanner goggles now gives some info on slimes."
   - rscadd: "Explosions on the same level as a doppler array, tesla coils set to produce research, suduko, and slime cells add research points to specific techs."
   - rscadd: "Shooting any living being in a firing range will now produce research points, based on how much damage is dealt."
+  - rscadd: "Added a Research Tracker program, preinstalled on Research wristbounds and laptops for mobile monitoring of research levels."
