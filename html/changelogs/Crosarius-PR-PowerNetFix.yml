@@ -1,0 +1,5 @@
+author: Crosarius
+delete-after: True
+
+changes: 
+  - bugfix: "Removed wire crossover between the mains powernet and the civillian surface subnet, which was occuring in the emergency service dock."
