@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="forumuserui_enabled" class="notice">
-      <center>Modifications done do not outlast the round!</center>
+      <center>Modifications done do not outlast the round! Use the forums/WI to modify ranks.</center>
     </div>
     <table>
       <tr>
