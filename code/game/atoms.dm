@@ -19,6 +19,8 @@
 
 	///Chemistry.
 	var/datum/reagents/reagents = null
+	var/list/reagents_to_add
+	var/list/reagent_data
 
 	var/list/atom_colours	 //used to store the different colors on an atom
 							//its inherent color, the colored paint applied on it, special color effect etc...
@@ -149,12 +151,18 @@
 
 	to_chat(user, "\icon[src] That's [f_name] [suffix]")
 	to_chat(user, desc)
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.glasses)
+			H.glasses.glasses_examine_atom(src, H)
+
 	if(description_cult && (user.mind?.special_role == "Cultist" || isobserver(src)))
-		to_chat(user, FONT_SMALL(span("cult", description_cult)))
+		to_chat(user, FONT_SMALL(SPAN_CULT(description_cult)))
 	if(desc_info || desc_fluff)
-		to_chat(user, span("notice", "This item has additional examine info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
+		to_chat(user, SPAN_NOTICE("This item has additional examine info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
 	if(desc_antag && player_is_antag(user.mind))
-		to_chat(user, span("notice", "This item has additional antag info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
+		to_chat(user, SPAN_NOTICE("This item has additional antag info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
 
 	return distance == -1 || (get_dist(src, user) <= distance)
 
@@ -378,14 +386,14 @@
 		var/obj/effect/decal/cleanable/vomit/this = new /obj/effect/decal/cleanable/vomit(src)
 		if(istype(inject_reagents) && inject_reagents.total_volume)
 			inject_reagents.trans_to_obj(this, min(15, inject_reagents.total_volume))
-			this.reagents.add_reagent("stomachacid", 5)
+			this.reagents.add_reagent(/datum/reagent/acid/stomach, 5)
 
 		// Make toxins vomit look different
 		if(toxvomit)
 			this.icon_state = "vomittox_[pick(1,4)]"
 
 /mob/living/proc/handle_additional_vomit_reagents(var/obj/effect/decal/cleanable/vomit/vomit)
-	vomit.reagents.add_reagent("stomachacid", 5)
+	vomit.reagents.add_reagent(/datum/reagent/acid/stomach, 5)
 
 /atom/proc/clean_blood()
 	if(!simulated)

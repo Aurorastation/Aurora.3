@@ -166,7 +166,7 @@
 			if ("text")
 				var/new_sign = input(usr, "Please input the new character signature.", "New signature", html2pencode(pref.signature)) as null|text
 				if (!new_sign)
-					to_chat(usr, span("notice", "Cancelled."))
+					to_chat(usr, SPAN_NOTICE("Cancelled."))
 					if (pref.signature)
 						return TOPIC_NOACTION
 					else
@@ -180,7 +180,7 @@
 			if ("font")
 				var/new_font = input(usr, "Please select the font to use.", "New font") as null|anything in list("Verdana", "Times New Roman", "Courier New")
 				if (!new_font)
-					to_chat(usr, span("notice", "Cancelled."))
+					to_chat(usr, SPAN_NOTICE("Cancelled."))
 					if (pref.signfont)
 						return TOPIC_NOACTION
 					else
@@ -203,7 +203,7 @@
 				show_browser(usr, html, "window=signaturehelp;size=350x300")
 				return TOPIC_HANDLED
 			if ("reset")
-				to_chat(usr, span("notice", "Signature reset."))
+				to_chat(usr, SPAN_NOTICE("Signature reset."))
 				pref.signfont = "Verdana"
 				pref.signature = "<i>[pref.real_name]</i>"
 				return TOPIC_REFRESH

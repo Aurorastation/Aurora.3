@@ -108,34 +108,34 @@
 		else if (href_list["add"])
 
 			if(href_list["amount"])
-				var/id = href_list["add"]
+				var/rtype = text2path(href_list["add"])
 				var/amount = Clamp((text2num(href_list["amount"])), 0, 200)
-				R.trans_id_to(src, id, amount)
+				R.trans_type_to(src, rtype, amount)
 
 		else if (href_list["addcustom"])
 
-			var/id = href_list["addcustom"]
+			var/rtype = text2path(href_list["addcustom"])
 			useramount = input("Select the amount to transfer.", 30, useramount) as num
 			useramount = Clamp(useramount, 0, 200)
-			src.Topic(null, list("amount" = "[useramount]", "add" = "[id]"))
+			src.Topic(null, list("amount" = "[useramount]", "add" = "[rtype]"))
 
 		else if (href_list["remove"])
 
 			if(href_list["amount"])
-				var/id = href_list["remove"]
+				var/rtype = text2path(href_list["remove"])
 				var/amount = Clamp((text2num(href_list["amount"])), 0, 200)
 				if(mode)
-					reagents.trans_id_to(beaker, id, amount)
+					reagents.trans_type_to(beaker, rtype, amount)
 				else
-					reagents.remove_reagent(id, amount)
+					reagents.remove_reagent(rtype, amount)
 
 
 		else if (href_list["removecustom"])
 
-			var/id = href_list["removecustom"]
+			var/rtype = text2path(href_list["removecustom"])
 			useramount = input("Select the amount to transfer.", 30, useramount) as num
 			useramount = Clamp(useramount, 0, 200)
-			src.Topic(null, list("amount" = "[useramount]", "remove" = "[id]"))
+			src.Topic(null, list("amount" = "[useramount]", "remove" = "[rtype]"))
 
 		else if (href_list["toggle"])
 			mode = !mode
@@ -249,22 +249,22 @@
 			for(var/datum/reagent/G in R.reagent_list)
 				dat += "[G.name] , [G.volume] Units - "
 				dat += "<A href='?src=\ref[src];analyze=1;desc=[G.description];name=[G.name]'>(Analyze)</A> "
-				dat += "<A href='?src=\ref[src];add=[G.id];amount=1'>(1)</A> "
-				dat += "<A href='?src=\ref[src];add=[G.id];amount=5'>(5)</A> "
-				dat += "<A href='?src=\ref[src];add=[G.id];amount=10'>(10)</A> "
-				dat += "<A href='?src=\ref[src];add=[G.id];amount=[G.volume]'>(All)</A> "
-				dat += "<A href='?src=\ref[src];addcustom=[G.id]'>(Custom)</A><BR>"
+				dat += "<A href='?src=\ref[src];add=[G.type];amount=1'>(1)</A> "
+				dat += "<A href='?src=\ref[src];add=[G.type];amount=5'>(5)</A> "
+				dat += "<A href='?src=\ref[src];add=[G.type];amount=10'>(10)</A> "
+				dat += "<A href='?src=\ref[src];add=[G.type];amount=[G.volume]'>(All)</A> "
+				dat += "<A href='?src=\ref[src];addcustom=[G.type]'>(Custom)</A><BR>"
 
 		dat += "<HR>Transfer to <A href='?src=\ref[src];toggle=1'>[(!mode ? "disposal" : "beaker")]:</A><BR>"
 		if(reagents.total_volume)
 			for(var/datum/reagent/N in reagents.reagent_list)
 				dat += "[N.name] , [N.volume] Units - "
 				dat += "<A href='?src=\ref[src];analyze=1;desc=[N.description];name=[N.name]'>(Analyze)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.id];amount=1'>(1)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.id];amount=5'>(5)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.id];amount=10'>(10)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.id];amount=[N.volume]'>(All)</A> "
-				dat += "<A href='?src=\ref[src];removecustom=[N.id]'>(Custom)</A><BR>"
+				dat += "<A href='?src=\ref[src];remove=[N.type];amount=1'>(1)</A> "
+				dat += "<A href='?src=\ref[src];remove=[N.type];amount=5'>(5)</A> "
+				dat += "<A href='?src=\ref[src];remove=[N.type];amount=10'>(10)</A> "
+				dat += "<A href='?src=\ref[src];remove=[N.type];amount=[N.volume]'>(All)</A> "
+				dat += "<A href='?src=\ref[src];removecustom=[N.type]'>(Custom)</A><BR>"
 		else
 			dat += "Empty<BR>"
 		if(!condi)
@@ -302,18 +302,18 @@
 	var/limit = 10
 	var/list/holdingitems = list()
 	var/list/sheet_reagents = list( //have a number of reagents which is a factor of REAGENTS_PER_SHEET (default 20) unless you like decimals
-		/obj/item/stack/material/iron = list("iron"),
-		/obj/item/stack/material/uranium = list("uranium"),
-		/obj/item/stack/material/phoron = list("phoron"),
-		/obj/item/stack/material/gold = list("gold"),
-		/obj/item/stack/material/silver = list("silver"),
-		/obj/item/stack/material/platinum = list("platinum"),
-		/obj/item/stack/material/mhydrogen = list("hydrazine"), // i guess
-		/obj/item/stack/material/steel = list("iron", "carbon"),
-		/obj/item/stack/material/plasteel = list("iron", "iron", "carbon", "carbon", "platinum"), //8 iron, 8 carbon, 4 platinum,
-		/obj/item/stack/material/sandstone = list("silicon", "acetone"),
-		/obj/item/stack/material/glass = list("silicate"),
-		/obj/item/stack/material/glass/phoronglass = list("platinum", "silicate", "silicate", "silicate"), //5 platinum, 15 silicate,
+		/obj/item/stack/material/iron = list(/datum/reagent/iron),
+		/obj/item/stack/material/uranium = list(/datum/reagent/uranium),
+		/obj/item/stack/material/phoron = list(/datum/reagent/toxin/phoron),
+		/obj/item/stack/material/gold = list(/datum/reagent/gold),
+		/obj/item/stack/material/silver = list(/datum/reagent/silver),
+		/obj/item/stack/material/platinum = list(/datum/reagent/platinum),
+		/obj/item/stack/material/mhydrogen = list(/datum/reagent/hydrazine), // i guess
+		/obj/item/stack/material/steel = list(/datum/reagent/iron, /datum/reagent/carbon),
+		/obj/item/stack/material/plasteel = list(/datum/reagent/iron, /datum/reagent/iron, /datum/reagent/carbon, /datum/reagent/carbon, /datum/reagent/platinum), //8 iron, 8 carbon, 4 platinum,
+		/obj/item/stack/material/sandstone = list(/datum/reagent/silicon, /datum/reagent/acetone),
+		/obj/item/stack/material/glass = list(/datum/reagent/silicate),
+		/obj/item/stack/material/glass/phoronglass = list(/datum/reagent/platinum, /datum/reagent/silicate, /datum/reagent/silicate, /datum/reagent/silicate), //5 platinum, 15 silicate,
 		)
 
 /obj/machinery/reagentgrinder/Initialize()
@@ -395,8 +395,6 @@
 	var/beaker_contents = ""
 	var/dat = ""
 
-	do_hair_pull(user)
-
 	if(!inuse)
 		for (var/obj/item/O in holdingitems)
 			processing_chamber += "\A [O.name]<BR>"
@@ -441,7 +439,7 @@
 
 	switch(href_list["action"])
 		if ("grind")
-			grind()
+			grind(usr)
 		if("eject")
 			eject()
 		if ("detach")
@@ -471,23 +469,24 @@
 		holdingitems -= O
 	holdingitems.Cut()
 
-/obj/machinery/reagentgrinder/proc/grind()
+/obj/machinery/reagentgrinder/proc/grind(mob/user)
 
 	power_change()
 	if(stat & (NOPOWER|BROKEN))
 		return
 
 	// Sanity check.
-	if (!beaker || (beaker && beaker.reagents.total_volume >= beaker.reagents.maximum_volume))
+	if(!beaker || (beaker && beaker.reagents.total_volume >= beaker.reagents.maximum_volume))
 		return
 
-	playsound(src.loc, 'sound/machines/blender.ogg', 50, 1)
-	inuse = 1
+	if(ishuman(user))
+		do_hair_pull(user)
+
+	playsound(get_turf(src), 'sound/machines/blender.ogg', 50, 1)
+	inuse = TRUE
 
 	// Reset the machine.
-	spawn(60)
-		inuse = 0
-		src.updateUsrDialog()
+	addtimer(CALLBACK(src, .proc/grind_reset), 60)
 
 	// Process.
 	for (var/obj/item/O in holdingitems)
@@ -520,6 +519,11 @@
 				qdel(O)
 			if (beaker.reagents.total_volume >= beaker.reagents.maximum_volume)
 				break
+
+/obj/machinery/reagentgrinder/proc/grind_reset()
+	inuse = FALSE
+	updateUsrDialog()
+
 
 /obj/machinery/reagentgrinder/MouseDrop_T(mob/living/carbon/human/target as mob, mob/user as mob)
 	if (!istype(target) || target.buckled || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))

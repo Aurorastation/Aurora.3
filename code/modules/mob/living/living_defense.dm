@@ -68,7 +68,7 @@
 	var/obj/item/cloaking_device/C = locate(/obj/item/cloaking_device) in src
 	if(C && C.active)
 		C.attack_self(src)//Should shut it off
-		update_icons()
+		update_icon()
 		to_chat(src, "<span class='notice'>Your [C.name] was disrupted!</span>")
 		Stun(2)
 
@@ -398,7 +398,7 @@
 	if(hud_used.action_buttons_hidden)
 		if(!hud_used.hide_actions_toggle)
 			hud_used.hide_actions_toggle = new(hud_used)
-			hud_used.hide_actions_toggle.UpdateIcon()
+			hud_used.hide_actions_toggle.update_icon()
 
 		if(!hud_used.hide_actions_toggle.moved)
 			hud_used.hide_actions_toggle.screen_loc = hud_used.ButtonNumberToScreenCoords(1)
@@ -417,7 +417,7 @@
 
 		var/obj/screen/movable/action_button/B = A.button
 
-		B.UpdateIcon()
+		B.update_icon()
 
 		B.name = A.UpdateName()
 

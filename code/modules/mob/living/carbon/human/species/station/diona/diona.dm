@@ -3,6 +3,7 @@
 	short_name = "dio"
 	name_plural = "Dionaea"
 	bodytype = "Diona"
+	total_health = 240
 	age_min = 1
 	age_max = 1000
 	default_genders = list(NEUTER)
@@ -149,7 +150,7 @@
 		H.updatehealth()
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
-		to_chat(H, span("danger", "We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
+		to_chat(H, SPAN_DANGER("We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
 		return 0
 
 /datum/species/diona/can_understand(var/mob/other)
@@ -170,7 +171,7 @@
 /datum/species/diona/handle_death(var/mob/living/carbon/human/H, var/gibbed = 0)
 	if (!gibbed)
 		// This proc sleeps. Async it.
-		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs, TRUE)
+		INVOKE_ASYNC(H, /mob/living/carbon/human/proc/diona_split_into_nymphs)
 
 /datum/species/diona/handle_speech_problems(mob/living/carbon/human/H, list/current_flags, message, message_verb, message_mode)
 // Diona without head can live, but they cannot talk as loud anymore.

@@ -314,6 +314,10 @@
 #define TASTE_DULL 0.5 //anything below 30%
 #define TASTE_NUMB 0.1 //anything below 150%
 
+//ear healing limit - past this ear_damage your ear will not recover its hearing over time
+#define HEARING_DAMAGE_LIMIT 100
+#define HEARING_DAMAGE_SLOW_HEAL 25
+
 //Used by emotes
 #define VISIBLE_MESSAGE 1
 #define AUDIBLE_MESSAGE 2
@@ -359,3 +363,8 @@
 #define AURA_TYPE_WEAPON "Weapon"
 #define AURA_TYPE_THROWN "Thrown"
 #define AURA_TYPE_LIFE   "Life"
+
+// Robot Overlay Defines
+#define ROBOT_PANEL_EXPOSED  "exposed"
+#define ROBOT_PANEL_CELL     "cell"
+#define ROBOT_PANEL_NO_CELL  "no cell"

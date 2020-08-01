@@ -54,7 +54,7 @@ var/list/lunchables_snacks_ = list(
 
 var/list/lunchables_drinks_ = list(
 	/obj/item/reagent_containers/food/drinks/cans/cola,
-	/obj/item/reagent_containers/food/drinks/cans/waterbottle,
+	/obj/item/reagent_containers/food/drinks/waterbottle,
 	/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind,
 	/obj/item/reagent_containers/food/drinks/cans/dr_gibb,
 	/obj/item/reagent_containers/food/drinks/cans/starkist,
@@ -71,7 +71,7 @@ var/list/lunchables_drinks_ = list(
 // This default list is a bit different, it contains items we don't want
 var/list/lunchables_drink_reagents_ = list(
 	/datum/reagent/drink/nothing,
-	/datum/reagent/drink/doctor_delight,
+	/datum/reagent/drink/doctorsdelight,
 	/datum/reagent/drink/dry_ramen,
 	/datum/reagent/drink/hell_ramen,
 	/datum/reagent/drink/hot_ramen,
@@ -86,7 +86,7 @@ var/list/lunchables_alcohol_reagents_ = list(
 	/datum/reagent/alcohol/ethanol/atomicbomb,
 	/datum/reagent/alcohol/ethanol/beepsky_smash,
 	/datum/reagent/alcohol/ethanol/coffee,
-	/datum/reagent/alcohol/ethanol/hippies_delight,
+	/datum/reagent/alcohol/ethanol/hippiesdelight,
 	/datum/reagent/alcohol/ethanol/hooch,
 	/datum/reagent/alcohol/ethanol/thirteenloko,
 	/datum/reagent/alcohol/ethanol/manhattan_proj,
@@ -135,6 +135,6 @@ var/list/lunchables_alcohol_reagents_ = list(
 		if(reagent_type in banned_reagents)
 			continue
 		var/datum/reagent/reagent = reagent_type
-		.[initial(reagent.name)] = initial(reagent.id)
+		.[initial(reagent.name)] = reagent_type
 
 	sortTim(., /proc/cmp_text_asc)

@@ -68,7 +68,7 @@
 		/obj/item/storage/wallet,
 		/obj/item/storage/photo_album,
 		/obj/item/storage/box/snappops,
-		/obj/item/storage/fancy/crayons,
+		/obj/item/storage/box/fancy/crayons,
 		/obj/item/storage/backpack/holding,
 		/obj/item/storage/belt/champion,
 		/obj/item/soap/deluxe,
@@ -164,7 +164,7 @@
 		/obj/item/storage/wallet,
 		/obj/item/storage/photo_album,
 		/obj/item/storage/box/snappops,
-		/obj/item/storage/fancy/crayons,
+		/obj/item/storage/box/fancy/crayons,
 		/obj/item/soap/deluxe,
 		/obj/item/pen/invisible,
 		/obj/item/clothing/gloves/watch,
@@ -191,7 +191,7 @@
 		/obj/item/bluespace_crystal,
 		/obj/item/flame/lighter/zippo,
 		/obj/item/device/taperecorder,
-		/obj/item/storage/fancy/cigarettes/dromedaryco,
+		/obj/item/storage/box/fancy/cigarettes/dromedaryco,
 		/obj/item/toy/bosunwhistle,
 		/obj/item/clothing/mask/fakemoustache,
 		/obj/item/clothing/mask/gas/clown_hat,
@@ -224,7 +224,7 @@
 	var/atom/movable/I = new gift_type(get_turf(user))
 	user.remove_from_mob(src)
 	user.put_in_hands(I)
-	to_chat(user, span("notice", "You open the gift, revealing your new [I.name]! Just what you always wanted!"))
+	to_chat(user, SPAN_NOTICE("You open the gift, revealing your new [I.name]! Just what you always wanted!"))
 	qdel(src)
 	return
 
@@ -294,7 +294,7 @@
 	user.remove_from_mob(src)
 	if (!user.put_in_hands(I))
 		user.forceMove(get_turf(src))
-	to_chat(user, span("notice", "You open the gift, revealing your new [I.name]! Just what you always wanted!"))
+	to_chat(user, SPAN_NOTICE("You open the gift, revealing your new [I.name]! Just what you always wanted!"))
 	qdel(src)
 	return
 
@@ -338,6 +338,6 @@
 	var/atom/movable/I = new gift_type(get_turf(user))
 	user.remove_from_mob(src)
 	user.put_in_hands(I)
-	to_chat(user, span("notice", "You open the gift, revealing your new [I.name]! Just what you always wanted!"))
+	to_chat(user, SPAN_NOTICE("You open the gift, revealing your new [I.name]! Just what you always wanted!"))
 	qdel(src)
 	return

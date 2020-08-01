@@ -53,6 +53,13 @@
 	desc_fluff = "Does not come with accompanying dog-sized version."
 	icon_state = "sweaterargyletubeneck"
 	item_state = "sweaterargyletubeneck"
+	
+/obj/item/clothing/accessory/sweaterkeyhole
+	name = "keyhole sweater"
+	desc = "A sweater, a piece of warm clothing, that has had a hole cut in it. Why would anyone make this?"
+	desc_fluff = "This style of sweater originates from the aerostats of Venus, and has become widespread throughout the human space of Orion Spur due to its appearance. It's not the most professional take on the sweater ever, but it's certainly eye-catching."
+	icon_state = "sweaterkeyhole"
+	item_state = "sweaterkeyhole"
 
 /obj/item/clothing/accessory/dressshirt
 	name = "dress shirt"
@@ -130,7 +137,7 @@
 	open = !open
 	icon_state = "[initial(icon_state)][open ? "_open" : ""]"
 	item_state = icon_state
-	to_chat(user, span("notice", "You [open ? "open" : "close"] \the [src]."))
+	to_chat(user, SPAN_NOTICE("You [open ? "open" : "close"] \the [src]."))
 	// the below forces the shirt to hard reset its image so it resets later its fucking weird ok
 	inv_overlay = null
 	mob_overlay = null

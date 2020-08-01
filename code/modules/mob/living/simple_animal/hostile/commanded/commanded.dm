@@ -13,7 +13,7 @@
 	var/list/sad_emote = list("whimpers")
 
 /mob/living/simple_animal/hostile/commanded/Initialize()
-	..()
+	. = ..()
 	if(!short_name)
 		short_name = name
 
@@ -214,7 +214,7 @@
 		stance = HOSTILE_STANCE_IDLE
 		target_mob = null
 		audible_emote("growls at [M].")
-		to_chat(M, span("warning", "Maybe you should keep your hands to yourself..."))
+		to_chat(M, SPAN_WARNING("Maybe you should keep your hands to yourself..."))
 		return
 
 	if(M.a_intent == I_HURT && retribution) //assume he wants to hurt us.

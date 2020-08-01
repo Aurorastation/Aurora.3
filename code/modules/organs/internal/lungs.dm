@@ -65,11 +65,17 @@
 			)
 			owner.losebreath = round(damage/2)
 
-	if(is_bruised() && rescued)
-		if(prob(4))
-			to_chat(owner, span("warning", "It feels hard to breathe..."))
-			if (owner.losebreath < 5)
-				owner.losebreath = min(owner.losebreath + 1, 5) // it's still not good, but it's much better than an untreated collapsed lung
+	if(rescued)
+		if(is_bruised())
+			if(prob(4))
+				to_chat(owner, SPAN_WARNING("It feels hard to breathe..."))
+				if (owner.losebreath < 5)
+					owner.losebreath = min(owner.losebreath + 1, 5) // it's still not good, but it's much better than an untreated collapsed lung
+		else
+			if(prob(2))
+				to_chat(owner, SPAN_WARNING("It feels hard to breathe, and something in your chest is whistling..."))
+				if (owner.losebreath < 2)
+					owner.losebreath = min(owner.losebreath + 1, 2)
 
 /obj/item/organ/internal/lungs/proc/rupture()
 	var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
@@ -80,7 +86,10 @@
 /obj/item/organ/internal/lungs/proc/handle_failed_breath()
 	if(prob(15) && !owner.nervous_system_failure())
 		if(!owner.is_asystole())
-			owner.emote("gasp")
+			if(owner.is_submerged())
+				owner.emote("flail")
+			else
+				owner.emote("gasp")
 		else
 			owner.emote(pick("shiver","twitch"))
 
@@ -153,9 +162,12 @@
 	if(inhale_efficiency < 1)
 		if(prob(20))
 			if(inhale_efficiency < 0.8)
-				owner.emote("gasp")
+				if(owner.is_submerged())
+					owner.emote("flail")
+				else
+					owner.emote("gasp")
 			else if(prob(20))
-				to_chat(owner, span("warning", "It's hard to breathe..."))
+				to_chat(owner, SPAN_WARNING("It's hard to breathe..."))
 		breath_fail_ratio = 1 - inhale_efficiency
 		failed_inhale = 1
 	else
@@ -199,7 +211,7 @@
 	if(toxins_pp > safe_toxins_max)
 		var/ratio = (poison/safe_toxins_max) * 10
 		if(reagents)
-			reagents.add_reagent("toxin", Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
+			reagents.add_reagent(/datum/reagent/toxin, Clamp(ratio, MIN_TOXIN_DAMAGE, MAX_TOXIN_DAMAGE))
 			breath.adjust_gas(poison_type, -poison/6, update = 0) //update after
 		owner.phoron_alert = max(owner.phoron_alert, 1)
 	else
@@ -322,6 +334,8 @@
 	. = list()
 	if(is_bruised())
 		. += "[pick("wheezing", "gurgling")] sounds"
+	if(rescued)
+		. += "a whistling sound"
 
 	var/list/breathtype = list()
 	if(get_oxygen_deprivation() > 50)
@@ -334,6 +348,10 @@
 	. += "[english_list(breathtype)] breathing"
 
 	return english_list(.)
+
+/obj/item/organ/internal/lungs/surgical_fix(mob/user)
+	..()
+	rescued = FALSE
 
 #undef HUMAN_MAX_OXYLOSS
 #undef HUMAN_CRIT_MAX_OXYLOSS

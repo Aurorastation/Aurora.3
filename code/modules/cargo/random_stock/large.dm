@@ -137,5 +137,6 @@ STOCK_ITEM_LARGE(dog, 0.2)
 	)
 	new dog(L)
 
-STOCK_ITEM_LARGE(nothing, 0)
-	// no-op
+STOCK_ITEM_LARGE(exosuit, 1.2) //A randomly generated exosuit in a very variable condition.
+	new /obj/machinery/mech_recharger(get_turf(L)) // exosuit would die without it otherwise
+	new /mob/living/heavy_vehicle/premade/random/extra(L)

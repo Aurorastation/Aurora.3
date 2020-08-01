@@ -17,7 +17,6 @@
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/ert_commander
 	possible_species = list("Human")
-	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Emergency Response Team Commander"
@@ -38,7 +37,6 @@
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/tcfl
 	possible_species = list("Human","M'sai Tajara","Skrell", "Unathi","Baseline Frame")
-	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Tau Ceti Foreign Legion Legate"
@@ -60,7 +58,6 @@
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/cciaa
 	possible_species = list("Human","Skrell")
-	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Emergency Response Team Commander"
@@ -85,7 +82,6 @@
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/protection_detail
 	possible_species = list("Human","Skrell")
-	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Civil Protection Officer"
@@ -111,7 +107,6 @@
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/nt/odinsec
 	possible_species = list("Human","Skrell")
-	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Odin Security Officer"
@@ -135,7 +130,6 @@
 
 	outfit = /datum/outfit/admin/ert/legion/sentinel
 	possible_species = list("Human", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Skrell", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Baseline Frame", "Diona")
-	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "TCFL Sentinel"
@@ -156,7 +150,6 @@
 
 	outfit = /datum/outfit/admin/nt/fib
 	possible_species = list("Human")
-	possible_genders = list(MALE,FEMALE)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "FIB Agent"

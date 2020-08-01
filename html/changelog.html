@@ -35,6 +35,682 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">31 July 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the FIB uniforms having no proper sprites.</li>
+			</ul>
+			<h3 class="author">Chada updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Moved the table_layers to the layers define, this should make it much easier to find for people in the future who go to mess with item layers.</li>
+			</ul>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Any hat that hides hair should now stop machinery from pulling hair.</li>
+				<li class="bugfix">Hair no longer gets caught in grinders from simply interacting with it; it will only happen while grinding. It also will not pull hair if unpowered or broken.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the cables under the Tesla Engine emitters not working properly.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Having an uninjured but rescued (jabbed with a syringe to reinflate) lung will still suffocate you slowly, and give a unique message.</li>
+				<li class="rscadd">Rescued lungs can now be diagnosed by stethoscopes and advanced bodyscanners.</li>
+				<li class="rscadd">You can no longer rescue lungs through armor.</li>
+				<li class="rscadd">Rescuing someone's lung without giving them painkillers first will be very painful for them.</li>
+				<li class="rscadd">Added instructions on how to rescue lungs to the syringe extra info.</li>
+				<li class="tweak">Rescued lungs can only be fixed by doing surgery on them.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Slime surgery now works properly again.</li>
+				<li class="bugfix">Using non-surgery tool items on targets that are buckled to chairs, beds etc. e.g. health analyzers will now work properly again.</li>
+				<li class="bugfix">It is now possible to build many types of flooring that were previously bugged, including diamond, some carpet styles, silver, gold and uranium.</li>
+				<li class="rscadd">Airlocks will now show a chat message when you open/close their maintenance panel with a screwdriver. If their panel is open, this will also show in their examine message.</li>
+			</ul>
+			<h3 class="author">sadkermit updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes an inaccuracy in Truth Serum's description.</li>
+			</ul>
+
+			<h2 class="date">30 July 2020</h2>
+			<h3 class="author">Aboshehab updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Entering [logo_zavod] will now place the zavod logo when written on a paper.</li>
+				<li class="tweak">Changed the prefix of nation flags from [logo_x] to [flag_x] to place a divide between the entities.</li>
+				<li class="rscadd">Added or changed a number of flags that can be placed on paper for nations. [flag_be] for Biesel, [flag_sol] for Sol, [flag_elyra] for Elyra, [flag_coc] for the Coalition, [flag_dom] for Dominia, [flag_jargon] for Jargon, [flag_pra] for PRA, [flag_dpra] for DPRA, [flag_nka] for NKA and [flag_izweski] for Hegemony.</li>
+			</ul>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Hardhats and paramedic helmets are a little larger, and no longer fit in pockets.</li>
+				<li class="tweak">Allows the use of apostrophes in explosive implant code phrases.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="maptweak">Moved the Tesla Bay further northward on the Engineering Sublevel again, more protection from delaminating Supermatter crystals.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">IPCs made by robotics now start with EAL.</li>
+				<li class="bugfix">Making cable restraints no longer brings up a menu of people to do it on.</li>
+				<li class="rscadd">Made cable restraints will now be put in an empty hand, if one exists.</li>
+				<li class="bugfix">Hand overlays, such as handcuffs and damaged or destroyed hands, should now update correctly.</li>
+				<li class="bugfix">Yellow slime extracts now properly use their cores.</li>
+				<li class="rscadd">Walls will now not change the turf it is built on to plating, returning it to what it originally when deconstructed.</li>
+				<li class="tweak">Airlock electronics can now be removed when the airlock is bolted, welded, and the panel is open. The power no longer needs to be disabled.</li>
+				<li class="rscadd">Walls made of seethrough materials are now seethrough and lasers and light will pass through as expected.</li>
+				<li class="rscadd">Thermite will now ignite if a source of flame touches it, which includes lighters and matches.</li>
+				<li class="rscadd">RFD-C units can now construct windows and grilles.</li>
+				<li class="rscadd">Added plastic and perconol pills to the biogenerator.</li>
+				<li class="rscadd">Added advanced trauma kits and advanced burn kits to the emag section of the biogenerator.</li>
+				<li class="tweak">Moved gauze and ointment out of the emag category and into the medical one.</li>
+				<li class="tweak">Tweaked how stacks are made in the biogenerator, should be a bit nicer now.</li>
+				<li class="bugfix">Fixed an oversight that caused the biogenerator to be twice as good as it actually should have been.</li>
+				<li class="rscadd">Added the ability to make whips out of leather.</li>
+				<li class="bugfix">Fixed the leather briefcase recipe.</li>
+				<li class="rscadd">The Who and Staff Who actions now output into a window rather than into the chat.</li>
+				<li class="admin">The extra info button for admins now also outputs to a window rather than into the chat.</li>
+				<li class="rscadd">Stationbounds now have accents, starting off with Text-to-Speech, and can choose to mimic any accent.</li>
+				<li class="rscadd">The bots that robotics can produce now also have TTS accents.</li>
+				<li class="rscadd">IPCs can choose to use the TTS accent if they wish.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Species that do not respect brainmed, excluding dionae and things like zombies that have less, should now have 200 health again.</li>
+				<li class="tweak">Diona max health has been increased from 140 to 240.</li>
+			</ul>
+			<h3 class="author">Stryker, Mwahahahaha updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added several loadout items, hanboks, hoodies (sleeveless, short-sleeved, crop-top), colorable gloves, and colorable, pinnable tag accessories.</li>
+				<li class="rscadd">Ported keyhole sweaters, bracelets, and earrings from polaris.</li>
+				<li class="bugfix">Fixed the skirt selection, high skirts should show up now.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">You can now crush cans on your head, so long as it's empty and you are targeting something's head with harm intent.</li>
+				<li class="rscadd">You can now bottle flip using bottled water. Just throw.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Emergency Medical Technicians now properly spawn in the briefing room like the rest of medical.</li>
+				<li class="bugfix">Cyborg GPSes will now update properly.</li>
+				<li class="bugfix">Peridaxon surgery to restore necrotic external organs will now work properly on all types of external organ.</li>
+			</ul>
+
+			<h2 class="date">29 July 2020</h2>
+			<h3 class="author">Chada updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The AI/borg Safeguard law has been rephrased to mention specifically Station assets instead of all NanoTrasen property.</li>
+			</ul>
+			<h3 class="author">Doxxmedearly, Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">When lings suck people dry, those people are added to the ling's internal hivemind, where they can communicate with each other.</li>
+				<li class="rscadd">The hiveminded person can ghost, which will tell the ling and the others in the hivemind that they have left.</li>
+				<li class="rscadd">The ling can eject people out of their hivemind. This has no benefit to the ling, unless the person was salty. This ability does not make salt okay.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added custom-made high definition developer title screens to the Runtime map.</li>
+			</ul>
+			<h3 class="author">mikomayzaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Nitrile gloves box now has a description.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Cryopods no longer allow you to withdraw headsets from previously frozen crew.</li>
+				<li class="rscadd">The matter decompiler will now decompile empty drinks cans.</li>
+			</ul>
+
+			<h2 class="date">28 July 2020</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Hallucinated sentences now have accent tags and have had their formatting cleaned up.</li>
+				<li class="bugfix">Hallucinations now display emotes correctly.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">You can now properly cancel out of an Admin PM prompt or a Command Report Creation by pressing cancel.</li>
+			</ul>
+			<h3 class="author">House_Of_Synth updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Urinals are no longer 50 brute per second CQC killing machines. Added a cooldown for attacking and a vibecheck for armour.</li>
+				<li class="rscadd">Added the deadman implant to the uplink. The implant costs 8 TC and will detonate when the implanted individual dies.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Faithless mobs will wail less often.</li>
+			</ul>
+
+			<h2 class="date">27 July 2020</h2>
+			<h3 class="author">Aboshehab updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Created Golden Deep citizenship along with the consular role for them.</li>
+				<li class="rscadd">Added Golden Deep and Elyra citizenship for all IPC frames.</li>
+				<li class="bugfix">Added any missing accents for all IPC frames plus some code tidying.</li>
+			</ul>
+			<h3 class="author">Chada updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Corrected an oversight with some of the overlays for the HD-MAD borg sprite line.</li>
+			</ul>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed an invisible gib sprite.</li>
+				<li class="bugfix">Folding/unfolding and rolling/unrolling a bedsheet will no longer bring up a list of mobs in view. You can't force others to do it for you.</li>
+				<li class="bugfix">Closing laptops will now close the UI windows of the active program running on it.</li>
+			</ul>
+			<h3 class="author">Snakebittenn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Actually adds has_underwear/has_socks to all the IPC frames. Please bully the PR author for not testing this beforehand.</li>
+			</ul>
+
+			<h2 class="date">26 July 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the zweihander having no sprite.</li>
+			</ul>
+			<h3 class="author">Chada updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Turned every real life chem into a new, fake version. They should still be relatively easy to recognize...</li>
+				<li class="rscdel">Deleted Peroxitin as a Chem, it's not very helpful and noone really used it..</li>
+				<li class="bugfix">Fixed a bug with mortaphenyl pills not having the mortaphenyl regent. Or any regent for that matter</li>
+				<li class="bugfix">Fixed a problem where the Arachnotronic 'borg sprite had a thin glowing line hovering above it.</li>
+			</ul>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The liver is less effective as filtering alcohol, and drinks hit a little harder.</li>
+				<li class="tweak">Removed the Advanced Energy Gun bounty, as it is not possible to obtain outside of antags or ERTs.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed bent disposal pipes appearing like straight pieces, fixed disposal construction being borked.</li>
+			</ul>
+			<h3 class="author">Skull132 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Added chemistry codex to the medical and research computer presets.</li>
+			</ul>
+			<h3 class="author">Snakebittenn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">IPCs can now wear underwear.</li>
+				<li class="bugfix">Shells can now wear lipstick.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">There is now a preference to toggle instrument sound effects under the ASFX menu.</li>
+				<li class="backend">Some changes to the way many things, mobs in particular, update their icons. Please report any icon issues.</li>
+			</ul>
+
+			<h2 class="date">25 July 2020</h2>
+			<h3 class="author">Chada updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Added the Synthetic prime directive to the 'borg Laws in the form of preserve which creates a form of fear RP for 'borgs.</li>
+				<li class="tweak">Altered all of the laws to have more clear phrasing, now it should be a lot harder to stretch them to enable undesirable behavior and have what could be construed as valid justifications.</li>
+				<li class="tweak">Added a clause for general crew to the Stationbound laws and separated it from NanoTrasen only, so it takes into account contractors, merchants and general visitors..</li>
+				<li class="bugfix">Changed afew law phrasings by request.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed an issue with the CMO's disposal bin.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">The HoS armored trenchcoat has been re-added.</li>
+				<li class="rscadd">The crafting UI has been improved and categorized.</li>
+				<li class="rscadd">Added the ability to craft leather briefcases.</li>
+				<li class="rscadd">Runes now look better and are easier to click.</li>
+				<li class="tweak">Tweaked various simple animal messages to make it look better in the chat log.</li>
+				<li class="tweak">Aggressive grabs no longer refer to 'by the hands'.</li>
+				<li class="rscadd">Getting a neck grab or higher on an aggressive animal restrains them from attacking.</li>
+				<li class="rscadd">Strangling an animal now properly does damage to them.</li>
+			</ul>
+			<h3 class="author">Karolis2011 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added chemical codex program, that tells chemists about possible reactions.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Removed excessive groaning from unconscious mobs.</li>
+				<li class="bugfix">The ready button now has the correct sound effect.</li>
+			</ul>
+			<h3 class="author">MattAtlas (Code), Lauren (Sprites) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added five new synthlore related title screens.</li>
+				<li class="rscadd">Title screens are now divided in different categories. Right now we only have human and synthetics. Categories shown are randomly picked at roundstart.</li>
+				<li class="rscadd">Added a new sound for menu clicks.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The 'save tag?' option for IPCs going to cryo will now operate properly.</li>
+				<li class="bugfix">Away site firing pins now properly prevent you shooting guns on the station, e.g. with the Expedition Shotgun.</li>
+				<li class="bugfix">PDA message alerts no longer appear for unconscious players.</li>
+				<li class="bugfix">Attachable HUDs will now properly remember the type of glasses they were attached to, and return that type when detached instead of always returning regular prescription glasses.</li>
+			</ul>
+
+			<h2 class="date">24 July 2020</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Toggling hide hair coverage on baby carp will no longer bring up a menu of mobs.</li>
+				<li class="tweak">Baby carp no longer hide hair by default.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Chemistry dispensers now only animate if they're holding a container.</li>
+			</ul>
+			<h3 class="author">FirinMaLazors updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a nitrile gloves box, and sprite, based on the paper bin.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Food that takes one bite to eat doesn't say 'you finish it' anymore. Sounded kind of weird to 'finish' something in one bite.</li>
+				<li class="bugfix">Fixes some grammar with swallowing pills.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Sleepers will properly inject chemicals into their occupants on demand.</li>
+				<li class="bugfix">The blob event will now spawn in many different maintenance locations.</li>
+				<li class="backend">Passing arguments to elements will now work.</li>
+				<li class="bugfix">Hearing aids should now allow deaf characters to hear holocomms, radios, etc.</li>
+			</ul>
+
+			<h2 class="date">23 July 2020</h2>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">APCs can be closed with a crowbar, again.</li>
+			</ul>
+
+			<h2 class="date">22 July 2020</h2>
+			<h3 class="author">Chada updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a MASS of new movestate animations for all of our simple animals. Except goats. And a few Tajara mobs. This was mostly animation practice. The biggest change is the Walking Mushroom which now has chill.</li>
+				<li class="tweak">Adjusted 3 'borgo sprite lines, Treadhead, Treadmate, and the Recolored Droid lines to have more detail and more department color. Including better animations for the treads.</li>
+				<li class="tweak">Changed the names for afew sprites to better reflect Lore and give the sprite lines more grounding with permission from Niennab 'Synth Lore Dev'</li>
+				<li class="rscadd">Added a new animation for the Zeng-Hu Droids 'RecoloredDroids' It's v. nice.</li>
+				<li class="tweak">Added a new eye animation for all of the HD-MADs and adjusted their sprite to fit it.</li>
+				<li class="bugfix">Fixed two Drone bugs, one by excluding them from the new intent system, and another by making their overlays check for them on local turf to apply their eyes to them. Also fixed some Toileto-tron and SD-MAD Sprite bugs..</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changed the medical winter coat to be white and green instead of blue. Repurposed the blue version into an IAC winter coat, with some small tweaks.</li>
+				<li class="tweak">Changed the medical poncho to be white and green instead of white, green, and blue. Added a white and blue version as an IAC poncho.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Remote control chairs can no longer be duplicated via dismantlement.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixes chewables not spawning in their trash item. i.e, chewing gum should give you gum wads once you finished chewing them.</li>
+				<li class="bugfix">Lollipops now show up onmob.</li>
+			</ul>
+			<h3 class="author">kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a Dominian gear loadout for mercenaries. One is 25TC for a solo mercenary, 100TC for a kit of four loadouts plus a powerful RIG similar to the bunker suit. Both loadouts come with fancy red e-shields and energy cutlasses.</li>
+				<li class="rscadd">Added two Dominian dresses to the Dominian outfit selection.</li>
+				<li class="bugfix">Fixed the Himean cap description.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Airlocks will no longer produce a message saying you have insufficient rights when using the AI/cyborg airlock menu.</li>
+				<li class="backend">Tided up APC code, no player-facing changes.</li>
+			</ul>
+
+			<h2 class="date">21 July 2020</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added new cargo bounties.</li>
+				<li class="rscadd">Adjusted cargo bounties. Reward amounts are semi-randomized, as is the number of required items for some bounties. The types of bounties that appear are more randomized.</li>
+				<li class="tweak">Altered some bounty descriptions.</li>
+				<li class="tweak">Any food that has bites taken out of it will no longer count for the related bounty.</li>
+				<li class="tweak">More types of pies, muffins, and kabobs should now count for their respective bounties.</li>
+				<li class="tweak">Further adjusted cargo warehouse spawns.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed the guest pass console frame being invisible.</li>
+			</ul>
+			<h3 class="author">Furrycactus updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Renamed all instances of 'Norepinephrine' to 'Inaprovaline'.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Mechs now take MUCH less damage when dropping down z-levels, and the damage is now properly applied to only the legs.</li>
+				<li class="bugfix">Fixed mech damage being applied randomly instead of to the targetted component.</li>
+				<li class="bugfix">Destructive Analyzer UIs now properly update when you place an item in them.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Improves the sound for picking up wood.</li>
+				<li class="bugfix">Lazarus injectors no longer set revived mobs to the neutral faction. Now when EMP'd, they set the mob to it's original faction.</li>
+				<li class="rscadd">Emagged lazarus injectors set the faction of revived mob to yours.</li>
+				<li class="bugfix">Fixes invisible foam swords.</li>
+				<li class="bugfix">Fixes PDAs being able to do medical scans without the proper prerequisites.</li>
+			</ul>
+
+			<h2 class="date">20 July 2020</h2>
+			<h3 class="author">Alberyk, Zundy updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added some dionae related food.</li>
+			</ul>
+			<h3 class="author">Code by Geeves, Sprite by Kyres updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a holographic ammo display, that provides the number of bullets left as a number next to the sprite.</li>
+				<li class="rscadd">Added the HAD to the devices and tools uplink, as well as to cargo under Zavodskoi.</li>
+				<li class="bugfix">Fixes a bug with gunshot residue when certain gloves are worn.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added exosuits to large stock spawns.</li>
+				<li class="rscadd">Gave various machines descriptions.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Items held in grippers (e.g. beakers) will now properly update the gripper's icon with their own changes while being held and used.</li>
+				<li class="bugfix">Maintenance Drone diagnostic screen now shows overall status rather than individual component status, as they cannot actually take component damage, only overall damage.</li>
+				<li class="bugfix">Changelings that are faking being dead will no longer perform emotes (e.g. screaming).</li>
+			</ul>
+
+			<h2 class="date">19 July 2020</h2>
+			<h3 class="author">Ferner, Kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added the possibility to map in lifts from Bay, with lift console sprites by Kyres1.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Movement should feel smoother.</li>
+			</ul>
+			<h3 class="author">Snakebittenn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds an actual sound to the hissing emote. Sounds from https://www.zapsplat.com/music/snake-hiss-short/ and https://www.zapsplat.com/music/snake-hissing/</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">You can now properly repair augments that are inside organic body parts, similarly to ones inside robotic body parts.</li>
+				<li class="bugfix">Trailing whitespaces on chat messages is now removed, preventing messages occuring with several whitespaces and then the automatically added period.</li>
+				<li class="tweak">P.A.C.M.A.N. UI will now be more responsive, along with some very minor bugfixes.</li>
+			</ul>
+
+			<h2 class="date">18 July 2020</h2>
+			<h3 class="author">DanseMacabre updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imagedel">Annihilates a number of non-sensical and anime-esque hairstyles.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">The RnD Console UI has been overhauled.</li>
+				<li class="rscadd">RnD levels are now a gradual progress instead of just leveling up, not much has changed, but deconstructed items now give more visual feedback to what they do.</li>
+				<li class="rscadd">Data disks now tell you what they contain.</li>
+				<li class="rscadd">The red scanning goggles now let you see examined items' tech levels.</li>
+				<li class="bugfix">RnD consoles should now open on the main menu instead of the research menu.</li>
+				<li class="tweak">Ejected items from the RnD console and destructive analyzer now go into your hands if you're adjacent.</li>
+				<li class="bugfix">Schlorrgo now harmlessly bounce when falling down z-levels.</li>
+			</ul>
+
+			<h2 class="date">17 July 2020</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Tweaked a lot of cyborg-related code in the backend, things should be smoother now.</li>
+				<li class="tweak">Replaced some mean robot building failure messages and replaced them with more neutral ones.</li>
+				<li class="rscadd">Examining robotic components will now tell you which components you still need to add.</li>
+				<li class="tweak">Installing robot modules have been tweaked, the error messages should be much more descriptive now.</li>
+				<li class="tweak">The illegal upgrade has been renamed to 'non-standard equipment module'.</li>
+				<li class="rscadd">Improved the UIs of, Memories/Notes, cult tomes, autolathes, biogenerators, chem heaters, wizard spellbooks, cryopods, soulstones, space heaters.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Improves accent tags. They should be more legible now.</li>
+				<li class="rscadd">The cookie snack now contains cookies, like the mint and gum packs. They've also been added to the rations box selection.</li>
+				<li class="rscadd">Matchboxes, Gum packs, mint packs and the cookie snack from the vending machines visibly open when clicked on.</li>
+				<li class="rscadd">Gum packs, mint packs and the cookie snack can be crumpled up when empty. If you really wanted to, you still can crumple it with things inside, so long as you're in harm intent.</li>
+				<li class="rscadd">Odd boxes, such as candle boxes, donut boxes, crayon boxes and egg boxes can be folded and unfolded from cardboard sheets.</li>
+				<li class="rscadd">Donut boxes, egg cartons and cigarette packets visibly open when clicked on. Alt-click to close.</li>
+				<li class="bugfix">Mints actually have a proper taste description now.</li>
+				<li class="bugfix">Burnt matches fit into matchboxes again.</li>
+				<li class="bugfix">Fixes matchbox icon states.</li>
+			</ul>
+
+			<h2 class="date">16 July 2020</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed tape recorder drive files being unable to be copied to work devices, by allowing work devices to copy text files to and from portable drives.</li>
+				<li class="tweak">Tech Support, Captains, CEs, and RDs can now install computer programs onto work devices.</li>
+				<li class="rscadd">Importing or exporting programs will now tell you if there isn't enough space or if the same file is already on the target hard drive.</li>
+			</ul>
+
+			<h2 class="date">15 July 2020</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Replaces the memey drinks 'Syndicate Bomb' and 'Changeling Sting' with 'Gibson Hooch' and 'Gibson Punch', respectively. Recipes are unchanged. New sprites by Carpe Venenum.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Changelings have received a free ability that allows them to mimic accents.</li>
+				<li class="rscadd">A shield worn on your back will now properly defend you from penetration in the rear.</li>
+				<li class="rscadd">Added a paper scanner device that can scan paper and paper bundles and convert them into data files.</li>
+			</ul>
+
+			<h2 class="date">14 July 2020</h2>
+			<h3 class="author">Alberyk, Sleepy wolf updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a deep wastelander accent option to unathi.</li>
+				<li class="rscadd">Added new icons to the unathi accent tags.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Soulstones now apply a 2 second click cooldown when used to suck up a soul, whether it was successful or not.</li>
+				<li class="bugfix">Spiderbots now appear on the radio with the name of the one controlling them.</li>
+				<li class="bugfix">Mechs can now operate windoors.</li>
+				<li class="bugfix">Remote mechs can now use mounted health analyzers.</li>
+				<li class="bugfix">Mech rechargers will now charge the mech on top of them if there is a power change and the power is back.</li>
+				<li class="rscadd">Burglars and Conflict has been added to the secret rotation.</li>
+				<li class="tweak">The minimum players amount needed for Burglars has been removed.</li>
+				<li class="tweak">Burglars max player cap has been increased to 20.</li>
+				<li class="tweak">Tweaked lighter activation messages to be less spammy. They appear smaller and only have a three tile range.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Bishops now have the martian accent.</li>
+				<li class="bugfix">Talisman runes no longer delete themselves.</li>
+				<li class="bugfix">Ghosts no longer phase out of reality when exiting bluespace.</li>
+			</ul>
+			<h3 class="author">SynysterSparx updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">GPS Move Event registered to target when surgically implanted.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Cigarettes and chewables stay in your mouth/hands when they go out.</li>
+				<li class="rscadd">Cigarettes no longer stay lit in storage containers.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Items within other items will always be properly destroyed when going to cryo-storage, if they are not supposed to be kept for reclaiming by other players.</li>
+			</ul>
+
+			<h2 class="date">13 July 2020</h2>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Falling off the station will no longer have you end up floating forever through space.</li>
+			</ul>
+
+			<h2 class="date">12 July 2020</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Mech UIs can no longer be moved via click-drag.</li>
+				<li class="tweak">The lower left mech UI has received a make-over.</li>
+				<li class="rscadd">You can now use a cyborg analyzer on a mech to get its diagnostics report.</li>
+				<li class="backend">Stacks now spawn new stacks if their amount is larger than their max amount.</li>
+				<li class="bugfix">Drills can now drill at the lowest Z-level with no station breach warning.</li>
+				<li class="bugfix">Inputs and outputs for mining machines are no longer visible to players.</li>
+				<li class="rscadd">Added descriptions to all the mining refinery machines.</li>
+				<li class="bugfix">Stacking machine consoles now properly get their console screens.</li>
+				<li class="bugfix">Stacking machines now do their stacking without having to access their console first.</li>
+				<li class="rscadd">Added a small amount of invisible pixels to the processing consoles sprites, to prevent misclicks onto walls.</li>
+				<li class="rscdel">Speaking with an ID that doesn't match your voice no longer displays (as Unknown) or (as ID name).</li>
+				<li class="tweak">Being disfigured makes speech difficult, thus your voice will appear as Unknown.</li>
+				<li class="rscadd">Wizard healing spells now heal internal organs as well.</li>
+				<li class="rscadd">Hacking no longer requires you to hold the tool (wirecutters, multitool, signaler) in your active hand, just that the tool is in one of your hands. This applies to cyborgs as well.</li>
+				<li class="tweak">Tweaked the name of the 'check misc. lifeforms' turret option to 'Neutralize All Wildlife' to more accurately represent what it does.</li>
+				<li class="rscadd">You no longer have to swipe on a turret or turret control panel to access it, as long as you have access. The option remains if you want to open it for others.</li>
+				<li class="bugfix">Drowning in the pool no longer causes your lungs to pop.</li>
+				<li class="bugfix">You will no longer gasp for air when submerged, instead you will flail violently.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed stairs randomly faceplanting you.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">A traitor AI/cyborg accessing an airlock UI will see the proper button state for dropping door bolts.</li>
+				<li class="tweak">Smoking or chewing tobacco products will no longer produce pain messages.</li>
+			</ul>
+
+			<h2 class="date">10 July 2020</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Borg modules (and maint drones) that had bars of soap now have soap that lasts 50 uses before needing to be re-wet.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Paroxetine's recipe is now 1 mindbreaker, 1 ammonia, 1 copper.</li>
+				<li class="bugfix">Cryogenics no longer swallow the items that spawn in your hands if you spawn there.</li>
+				<li class="bugfix">Mech Weaponry no longer have safeties, and can be used as normal.</li>
+				<li class="rscadd">Space Wizards and their Apprentices now spawn with chameleon clothes that only they can change the appearance of.</li>
+			</ul>
+
+			<h2 class="date">09 July 2020</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Melee weapon techniques targeting the feet should now work.</li>
+				<li class="bugfix">Cultist should now properly spawn.</li>
+				<li class="rscadd">Added a HUD overlay to the hand slots which indicate whether the hand is disabled, stumped, or removed.</li>
+				<li class="bugfix">Suit Cyclers will now only put ejected contents in your hands if you're adjacent to it. No more bluespace cyclers.</li>
+				<li class="tweak">Messes and spills now appear above pipes, scrubbers, and vents.</li>
+				<li class="rscadd">You can brush messes and spills away from pipes, scrubbers, and vents, by using your hands on them.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a cycle background option to the main menu.</li>
+				<li class="experiment">Reworked how character preview works. It should now be far more responsive.</li>
+			</ul>
+			<h3 class="author">Snakebittenn updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Skrell are now by default they/them.</li>
+				<li class="tweak">Adjusts Skrell blood color. It's #0081CD if you're curious.</li>
+				<li class="tweak">Adjusts the 'star' pod crash backstory to be for all sexes.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">You can wear matches in your mask slot now, you pyromaniac, you.</li>
+				<li class="bugfix">You no longer can keep matches lit inside storage containers.</li>
+				<li class="rscadd">You can light matches using lighters. Because why the hell not.</li>
+			</ul>
+			<h3 class="author">armrha updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Modified the define function to bypass bug from http://www.byond.com/forum/post/2061007 where the preprocessor inappropriately interprets a parenthesis in a string so that circuitboards display their type and name properly again</li>
+			</ul>
+
+			<h2 class="date">08 July 2020</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Removes Changeling abilities if their antagonist status is removed.</li>
+			</ul>
+
+			<h2 class="date">07 July 2020</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Adjusted cargo warehouse spawns. Added items, made some patterns less predictable, and removed some filler junk (Such as signs and huge stacks of trays).</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Flash rounds have been buffed. Scoring a headshot now ignores eye-protection, but only grants half the effects of a standard flash round effect.</li>
+				<li class="bugfix">Borg typing indicators now work again.</li>
+				<li class="tweak">Borg eye colours now change immediately upon switching intent.</li>
+				<li class="bugfix">Borgs that spawn without a client no longer have active eyes.</li>
+				<li class="bugfix">Fixed borg shielding and mobility modules not updating their icon states correctly.</li>
+				<li class="bugfix">Fixed mobility modules not correctly increasing speed.</li>
+				<li class="imageadd">Slightly resprited the 9mm pistol and its silencer attachment to not have a pitch black outline. Should look slightly nicer now.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Petting a pAI and toggling its flashlight now properly updates the pAIs flashlight program state.</li>
+			</ul>
+
+			<h2 class="date">06 July 2020</h2>
+			<h3 class="author">Decepter updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Made it so that Changelings can't absorb DNA if they're inside a sealed void suit.</li>
+			</ul>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added more accent choices for Skrell characters.</li>
+				<li class="bugfix">Added more missing accents for humans and IPCs.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Modular computers now properly print with their paper formatting.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Hitting walls is now instant instead of being charged up. This means you can no longer queue up an insane amount of attacks.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Bolds the amount of things in a stack when examined.</li>
+				<li class="bugfix">Lighters actually update their inhands now.</li>
+				<li class="imageadd">Lighters actually have inhands now.</li>
+				<li class="bugfix">Fixes the message for pulling cigarettes out of cigarette packets using your mouth.</li>
+			</ul>
+			<h3 class="author">Wowzwow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Paroxetine actually follows the recipie in the wiki now.</li>
+			</ul>
+			<h3 class="author">armrha updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Modified mob/living/simple_animal/friendly/cat and /mob/living/simple_animal to allow cats to turn colors in radiation, modified modules/events/radiation_storm so it would apply to cats.</li>
+			</ul>
+
+			<h2 class="date">05 July 2020</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Suit Cyclers have received new sprites, and any suits contained within will be on display as part of the sprite.</li>
+				<li class="rscadd">Using your ID, PDA, or Computer on a suit cycler will now attempt to unlock it.</li>
+				<li class="tweak">The grab strength needed to put someone into a suit cycler has been increased to a neck grab.</li>
+				<li class="bugfix">You can no longer put helmets and suits in a suit cycler that's containing someone.</li>
+				<li class="rscadd">Ejecting a helmet or suit from a suit cycler will now attempt to place it in one of your empty hands.</li>
+				<li class="rscadd">Added an audible ping to suit cycler action completion.</li>
+				<li class="rscadd">You can now click drag yourself into a suit cycler to climb into it.</li>
+				<li class="bugfix">Crematoriums can now face in any direction.</li>
+				<li class="bugfix">Crematoriums and morgues now properly do not deploy their tray if something is in the way.</li>
+				<li class="bugfix">Crematoriums now properly update their icons while they work.</li>
+			</ul>
+			<h3 class="author">MoondancerPony updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Added a new system to spawn reagents in things.</li>
+				<li class="refactor">Made reagents use type paths instead of IDs.</li>
+				<li class="tweak">Fixed some duplicate tobacco reagents.</li>
+			</ul>
+			<h3 class="author">Wowzewow (Wezzy) updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a information description to to cigarette packets on how to give yourself a cigarette with one hand.</li>
+				<li class="tweak">Tweaks the names of some cigarette packets to be (debatably) more witty and on the nose.</li>
+				<li class="imageadd">Improves the sprites of some tajaran cigarette packets.</li>
+				<li class="bugfix">Fixes cheap lighters not showing their flames properly.</li>
+			</ul>
+			<h3 class="author">Yonnimer updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Changes Dionae health to 240.</li>
+				<li class="tweak">Changes nymph health to 50.</li>
+				<li class="rscadd">When a dionae splits, their health is now divided among their nymphs</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Patting out flames on a target will now take priority over CPR, examining wounds, etc.</li>
+				<li class="bugfix">Can now pat out flames on targets that are dead, have no heartbeat or no heart.</li>
+			</ul>
+
 			<h2 class="date">04 July 2020</h2>
 			<h3 class="author">MattAtlas updated:</h3>
 			<ul class="changes bgimages16">

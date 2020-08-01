@@ -17,9 +17,16 @@
 	anchored = TRUE
 	clicksound = 'sound/machines/buttonbeep.ogg'
 	clickvol = 30
-	
+
 	var/mob/living/carbon/human/occupant = null
-	var/list/available_chemicals = list("norepinephrine" = "Norepinephrine", "stoxin" = "Soporific", "paracetamol" = "Paracetamol", "dylovene" = "Dylovene", "dexalin" = "Dexalin")
+	var/list/available_chemicals = list(
+		/datum/reagent/inaprovaline,
+		/datum/reagent/soporific,
+		/datum/reagent/perconol,
+		/datum/reagent/dylovene,
+		/datum/reagent/dexalin
+		)
+    
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/filtering = 0
 	var/allow_occupant_types = list(/mob/living/carbon/human)
@@ -105,8 +112,9 @@
 	var/list/reagents = list()
 	for(var/T in available_chemicals)
 		var/list/reagent = list()
-		reagent["id"] = T
-		reagent["name"] = available_chemicals[T]
+		reagent["type"] = T
+		var/datum/reagent/C = T
+		reagent["name"] = initial(C.name)
 		if(occupant)
 			reagent["amount"] = occupant.reagents.get_reagent_amount(T)
 		reagents += list(reagent)
@@ -164,8 +172,8 @@
 			toggle_pump()
 	if(href_list["chemical"] && href_list["amount"])
 		if(occupant && occupant.stat != DEAD)
-			if(href_list["chemical"] in available_chemicals) // Your hacks are bad and you should feel bad
-				inject_chemical(usr, href_list["chemical"], text2num(href_list["amount"]))
+			if(text2path(href_list["chemical"]) in available_chemicals)
+				inject_chemical(usr, text2path(href_list["chemical"]), text2num(href_list["amount"]))
 
 	return 1
 

@@ -122,7 +122,7 @@
 	attack_hand(usr)
 	return
 
-/mob/living/bot/farmbot/update_icons()
+/mob/living/bot/farmbot/update_icon()
 	if(on && action)
 		icon_state = "farmbot_[action]"
 	else
@@ -194,7 +194,7 @@
 				return
 			if(FARMBOT_COLLECT)
 				action = "collect"
-				update_icons()
+				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts [T.dead? "removing the plant from" : "harvesting"] \the [A]."))
 				attacking = TRUE
 				if(do_after(src, 30))
@@ -202,7 +202,7 @@
 					T.attack_hand(src)
 			if(FARMBOT_WATER)
 				action = "water"
-				update_icons()
+				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts watering \the [A]."))
 				attacking = TRUE
 				if(do_after(src, 30))
@@ -211,7 +211,7 @@
 					tank.reagents.trans_to(T, 100 - T.waterlevel)
 			if(FARMBOT_UPROOT)
 				action = "hoe"
-				update_icons()
+				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts uprooting the weeds in \the [A]."))
 				attacking = TRUE
 				if(do_after(src, 30))
@@ -220,40 +220,40 @@
 					T.update_icon()
 			if(FARMBOT_PESTKILL)
 				action = "hoe"
-				update_icons()
+				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts eliminating the pests in \the [A]."))
 				attacking = TRUE
 				if(do_after(src, 30))
 					visible_message(SPAN_NOTICE("[src] eliminates the pests in \the [A]."))
 					T.pestlevel = 0
-					T.reagents.add_reagent("nutriment", 0.5)
+					T.reagents.add_reagent(/datum/reagent/nutriment, 0.5)
 					T.update_icon()
 			if(FARMBOT_NUTRIMENT)
 				action = "fertile"
-				update_icons()
+				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts fertilizing \the [A]."))
 				attacking = TRUE
 				if(do_after(src, 30))
 					visible_message(SPAN_NOTICE("[src] waters \the [A]."))
-					T.reagents.add_reagent("ammonia", 10)
+					T.reagents.add_reagent(/datum/reagent/ammonia, 10)
 		attacking = FALSE
 		action = ""
-		update_icons()
+		update_icon()
 		T.update_icon()
 	else if(istype(A, /obj/structure/sink))
 		if(!tank || tank.reagents.total_volume >= tank.reagents.maximum_volume)
 			return
 		action = "water"
-		update_icons()
+		update_icon()
 		visible_message(SPAN_NOTICE("[src] starts refilling its tank from \the [A]."))
 		attacking = TRUE
 		while(do_after(src, 10) && tank.reagents.total_volume < tank.reagents.maximum_volume)
-			tank.reagents.add_reagent("water", 10)
+			tank.reagents.add_reagent(/datum/reagent/water, 10)
 			if(prob(5))
 				playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
 		attacking = FALSE
 		action = ""
-		update_icons()
+		update_icon()
 		visible_message(SPAN_NOTICE("[src] finishes refilling its tank."))
 	else if(emagged && ishuman(A))
 		var/action = pick("weed", "water")
@@ -297,7 +297,7 @@
 		return FALSE
 	if(tray.dead && removes_dead || tray.harvest && collects_produce)
 		return FARMBOT_COLLECT
-	else if(waters_trays && tray.waterlevel < 10 && !tray.reagents.has_reagent("water"))
+	else if(waters_trays && tray.waterlevel < 10 && !tray.reagents.has_reagent(/datum/reagent/water))
 		return FARMBOT_WATER
 	else if(uproots_weeds && tray.weedlevel >= 5)
 		return FARMBOT_UPROOT

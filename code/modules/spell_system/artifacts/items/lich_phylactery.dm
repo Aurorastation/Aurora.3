@@ -15,7 +15,7 @@
 	. = ..()
 	world_phylactery += src
 	create_reagents(120)
-	reagents.add_reagent("undead_ichor", 120)
+	reagents.add_reagent(/datum/reagent/toxin/undead, 120)
 
 /obj/item/phylactery/Destroy()
 	to_chat(lich, "<span class='danger'>Your phylactery was destroyed, your soul is cast into the abyss as your immortality vanishes away!</span>")

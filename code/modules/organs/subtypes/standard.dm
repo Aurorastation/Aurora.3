@@ -137,8 +137,17 @@
 	maim_bonus = 1
 	augment_limit = 1
 
+/obj/item/organ/external/hand/take_damage(brute, burn, damage_flags, used_weapon, list/forbidden_limbs, silent)
+	. = ..()
+	owner.update_hud_hands()
+
+/obj/item/organ/external/hand/sever_tendon()
+	. = ..()
+	owner.update_hud_hands()
+
 /obj/item/organ/external/hand/removed()
 	owner.drop_from_inventory(owner.gloves)
+	owner.update_hud_hands()
 	if(body_part == HAND_LEFT)
 		owner.drop_l_hand()
 	else

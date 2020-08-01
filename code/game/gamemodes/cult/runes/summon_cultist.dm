@@ -22,7 +22,7 @@
 			return
 		if(cultist.buckled || cultist.handcuffed || (!isturf(cultist.loc) && !istype(cultist.loc, /obj/structure/closet)))
 			for(var/mob/C in users)
-				to_chat(C, span("warning", "You cannot summon \the [cultist], for \his shackles of blood are strong."))
+				to_chat(C, SPAN_WARNING("You cannot summon \the [cultist], for \his shackles of blood are strong."))
 			return fizzle(user, A)
 		cultist.forceMove(get_turf(A))
 		cultist.lying = TRUE

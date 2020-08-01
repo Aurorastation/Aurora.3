@@ -50,7 +50,7 @@ paiicon is the pai icon sprite name
 		return
 	else
 	
-		var/DBQuery/customsynthsprites = dbcon.NewQuery("SELECT synthname, synthckey, synthicon, aichassisicon, aiholoicon, paiicon FROM ss13_customsynths WHERE deleted_at IS NULL ORDER BY synthckey ASC")
+		var/DBQuery/customsynthsprites = dbcon.NewQuery("SELECT synthname, synthckey, synthicon, aichassisicon, aiholoicon, paiicon FROM ss13_customsynths ORDER BY synthckey ASC")
 		customsynthsprites.Execute()
 		while(customsynthsprites.NextRow())
 			CHECK_TICK

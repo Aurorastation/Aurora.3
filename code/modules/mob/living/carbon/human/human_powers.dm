@@ -7,7 +7,7 @@
 	set category = "IC"
 
 	if(!use_check_and_message())
-		to_chat(src, span("warning", "You can't tie your hair when you are incapacitated!"))
+		to_chat(src, SPAN_WARNING("You can't tie your hair when you are incapacitated!"))
 		return
 
 	if(h_style)
@@ -850,7 +850,7 @@ mob/living/carbon/human/proc/change_monitor()
 			D.create_reagents(200)
 			if(!src)
 				return
-			D.reagents.add_reagent("greekfire", 200)
+			D.reagents.add_reagent(/datum/reagent/fuel/napalm, 200)
 			D.set_color()
 			D.set_up(my_target, rand(6,8), 1, 50)
 	return
@@ -895,7 +895,7 @@ mob/living/carbon/human/proc/change_monitor()
 			adjustBruteLoss(-10*O.amount)
 			adjustFireLoss(-10*O.amount)
 			if(!(species.flags & NO_BLOOD))
-				vessel.add_reagent("blood",20*O.amount)
+				vessel.add_reagent(/datum/reagent/blood,20*O.amount)
 			qdel(O)
 			last_special = world.time + 50
 
@@ -1129,9 +1129,9 @@ mob/living/carbon/human/proc/change_monitor()
 			feedback += "[dirs[d][dst]] psionic signature\s [dst],"
 		if(feedback.len > 1)
 			feedback[feedback.len - 1] += " and"
-		to_chat(src, span("notice", "You sense " + jointext(feedback, " ") + " towards the [dir2text(text2num(d))]."))
+		to_chat(src, SPAN_NOTICE("You sense " + jointext(feedback, " ") + " towards the [dir2text(text2num(d))]."))
 	if(!length(dirs))
-		to_chat(src, span("notice", "You detect no psionic signatures but your own."))
+		to_chat(src, SPAN_NOTICE("You detect no psionic signatures but your own."))
 
 // flick tongue out to read gasses
 /mob/living/carbon/human/proc/tongue_flick()
@@ -1146,7 +1146,7 @@ mob/living/carbon/human/proc/change_monitor()
 		return
 
 	if(head && (head.body_parts_covered & FACE))
-		to_chat(src, span("notice", "You can't flick your tongue out with something covering your face."))
+		to_chat(src, SPAN_NOTICE("You can't flick your tongue out with something covering your face."))
 		return
 	else
 		custom_emote(1, "flicks their tongue out.")
@@ -1172,17 +1172,17 @@ mob/living/carbon/human/proc/change_monitor()
 				if(80 to INFINITY)
 					composition = "Overwhelming"
 
-			airInfo += span("notice", "[gas_data.name[mix]]: [composition]")
-		airInfo += span("notice", "Temperature: [round(mixture.temperature-T0C)]&deg;C")
+			airInfo += SPAN_NOTICE("[gas_data.name[mix]]: [composition]")
+		airInfo += SPAN_NOTICE("Temperature: [round(mixture.temperature-T0C)]&deg;C")
 	else
-		airInfo += span("notice", "There is no air around to sample!")
+		airInfo += SPAN_NOTICE("There is no air around to sample!")
 
 	last_special = world.time + 20
 
 	if(airInfo?.len)
-		to_chat(src, span("notice", "You sense the following in the air:"))
+		to_chat(src, SPAN_NOTICE("You sense the following in the air:"))
 		for(var/line in airInfo)
-			to_chat(src, span("notice", "[line]"))
+			to_chat(src, SPAN_NOTICE("[line]"))
 		return
 
 /mob/living/carbon/human/proc/crush()

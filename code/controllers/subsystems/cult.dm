@@ -23,8 +23,10 @@
 	for(var/rune in subtypesof(/datum/rune))
 		var/datum/rune/R = new rune
 		runes_by_name[R.name] = rune
-		tome_data += "<b>[R.name]</b>: <i>[R.desc]</i>"
-		tome_data += "This rune [R.can_be_talisman() ? "<b><i>can</i></b>" : "<b><i>cannot</i></b>"] be turned into a talisman.<br>"
+		tome_data += "<div class='rune-block'>"
+		tome_data += "<b>[capitalize_first_letters(R.name)]</b>: <i>[R.desc]</i><br>"
+		tome_data += "This rune <b><i>[R.can_be_talisman() ? "can" : "cannot"]</i></b> be turned into a talisman.<br><hr>"
+		tome_data += "</div>"
 
 /datum/controller/subsystem/cult/proc/add_rune(var/datum/rune/R)
 	if(check_rune_limit())

@@ -126,7 +126,7 @@
 	if(max_count && count >= max_count)
 		disable()
 	if(welcome_message)
-		to_chat(user, span("notice", welcome_message))
+		to_chat(user, SPAN_NOTICE(welcome_message))
 	return TRUE
 
 //Proc to check if a specific user can edit this spawner (open/close/...)

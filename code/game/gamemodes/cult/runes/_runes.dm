@@ -26,7 +26,7 @@
 	return
 
 /datum/rune/proc/do_tome_action(var/mob/living/user, var/atom/movable/A)
-	to_chat(user, span("notice", "You retrace your steps, carefully undoing the lines of the rune."))
+	to_chat(user, SPAN_NOTICE("You retrace your steps, carefully undoing the lines of the rune."))
 	playsound(parent, 'sound/effects/projectile_impact/energy_meat1.ogg')
 	qdel(parent)
 

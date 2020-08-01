@@ -349,22 +349,22 @@
 	if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
 		if (!WT.welding)
-			to_chat(user, span("danger", "\The [WT] must be turned on!"))
+			to_chat(user, SPAN_DANGER("\The [WT] must be turned on!"))
 		else if (WT.remove_fuel(0,user))
-			to_chat(user, span("notice", "Now welding the vent."))
+			to_chat(user, SPAN_NOTICE("Now welding the vent."))
 			if(do_after(user, 30/W.toolspeed))
 				if(!src || !WT.isOn()) 
 					return
 				welded = !welded
 				update_icon()
 				playsound(src, 'sound/items/Welder2.ogg', 50, 1)
-				user.visible_message(span("notice", "\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
-									 span("notice", "You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
+				user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
+									 SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
 									 "You hear welding.")
 			else
-				to_chat(user, span("notice", "You fail to complete the welding."))
+				to_chat(user, SPAN_NOTICE("You fail to complete the welding."))
 		else
-			to_chat(user, span("warning", "You need more welding fuel to complete this task."))
+			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 			return 1
 	else
 		..()
@@ -387,24 +387,24 @@
 	if (!W.iswrench())
 		return ..()
 	if (!(stat & NOPOWER) && use_power)
-		to_chat(user, span("warning", "You cannot unwrench \the [src], turn it off first."))
+		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], turn it off first."))
 		return 1
 	var/turf/T = src.loc
 	if (node && node.level==1 && isturf(T) && !T.is_plating())
-		to_chat(user, span("warning", "You must remove the plating first."))
+		to_chat(user, SPAN_WARNING("You must remove the plating first."))
 		return 1
 	var/datum/gas_mixture/int_air = return_air()
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > 2*ONE_ATMOSPHERE)
-		to_chat(user, span("warning", "You cannot unwrench \the [src], it is too exerted due to internal pressure."))
+		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 		add_fingerprint(user)
 		return 1
 	playsound(src.loc, W.usesound, 50, 1)
-	to_chat(user, span("notice", "You begin to unfasten \the [src]..."))
+	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
 	if (do_after(user, 40/W.toolspeed))
 		user.visible_message( \
-			span("notice", "\The [user] unfastens \the [src]."), \
-			span("notice", "You have unfastened \the [src]."), \
+			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
+			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear a ratchet.")
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)

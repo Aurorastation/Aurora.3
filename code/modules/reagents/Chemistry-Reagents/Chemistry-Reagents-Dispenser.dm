@@ -1,6 +1,5 @@
 /datum/reagent/acetone
 	name = "Acetone"
-	id = "acetone"
 	description = "A colorless liquid solvent used in chemical synthesis."
 	reagent_state = LIQUID
 	color = "#808080"
@@ -30,7 +29,6 @@
 
 /datum/reagent/aluminum
 	name = "Aluminum"
-	id = "aluminum"
 	description = "A silvery white and ductile member of the boron group of chemical elements."
 	reagent_state = SOLID
 	color = "#A8A8A8"
@@ -40,7 +38,6 @@
 
 /datum/reagent/ammonia
 	name = "Ammonia"
-	id = "ammonia"
 	description = "A caustic substance commonly used in fertilizer or household cleaners. Poisonous to most lifeforms, lingers for a while if inhaled."
 	reagent_state = LIQUID
 	color = "#404030"
@@ -59,7 +56,6 @@
 
 /datum/reagent/carbon
 	name = "Carbon"
-	id = "carbon"
 	description = "A chemical element, the builing block of life."
 	reagent_state = SOLID
 	color = "#1C1300"
@@ -88,7 +84,6 @@
 
 /datum/reagent/copper
 	name = "Copper"
-	id = "copper"
 	description = "A highly ductile metal."
 	color = "#6E3B08"
 	taste_description = "copper"
@@ -100,7 +95,6 @@
 
 /datum/reagent/alcohol //Parent class for all alcoholic reagents, though this one shouldn't be used anywhere.
 	name = null	// This null name should prevent alcohol from being added to global lists.
-	id = "alcohol"
 	description = "An abstract type you shouldn't be able to see."
 	reagent_state = LIQUID
 	color = "#404030"
@@ -145,7 +139,7 @@
 
 /datum/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, removed)
 	if(prob(10*(strength/100)))
-		to_chat(M, span("danger","Your insides are burning!")) // it would be quite painful to inject alcohol or otherwise get it in your bloodstream directly, without metabolising any
+		to_chat(M, SPAN_DANGER("Your insides are burning!")) // it would be quite painful to inject alcohol or otherwise get it in your bloodstream directly, without metabolising any
 	M.adjustToxLoss(removed * blood_to_ingest_scale * (strength/100) )
 	affect_ingest(M,alien,removed * blood_to_ingest_scale)
 	return
@@ -153,7 +147,7 @@
 /datum/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed)
 
 	if(alien != IS_DIONA)
-		M.intoxication += (strength / 100) * removed * 3.15
+		M.intoxication += (strength / 100) * removed * 3.5
 
 		if (druggy != 0)
 			M.druggy = max(M.druggy, druggy)
@@ -173,7 +167,6 @@
 
 /datum/reagent/alcohol/ethanol
 	name = "Ethanol"
-	id = "ethanol"
 	description = "A well-known alcohol with a variety of applications."
 	flammability_divisor = 10
 
@@ -224,7 +217,6 @@
 // Most behavior is inherited from alcohol.
 /datum/reagent/alcohol/butanol
 	name = "Butanol"
-	id = "butanol"
 	description = "A fairly harmless alcohol that has intoxicating effects on certain species."
 	reagent_state = LIQUID
 	color = "#404030"
@@ -258,7 +250,6 @@
 
 /datum/reagent/hydrazine
 	name = "Hydrazine"
-	id = "hydrazine"
 	description = "A toxic, colorless, flammable liquid with a strong ammonia-like odor, in hydrate form."
 	reagent_state = LIQUID
 	color = "#808080"
@@ -290,7 +281,6 @@
 
 /datum/reagent/iron
 	name = "Iron"
-	id = "iron"
 	description = "Pure iron is a metal."
 	reagent_state = SOLID
 	color = "#353535"
@@ -304,7 +294,6 @@
 
 /datum/reagent/lithium
 	name = "Lithium"
-	id = "lithium"
 	description = "A chemical element, used as antidepressant."
 	reagent_state = SOLID
 	color = "#808080"
@@ -320,7 +309,6 @@
 
 /datum/reagent/mercury
 	name = "Mercury"
-	id = "mercury"
 	description = "A chemical element."
 	reagent_state = LIQUID
 	color = "#484848"
@@ -339,7 +327,6 @@
 
 /datum/reagent/phosphorus
 	name = "Phosphorus"
-	id = "phosphorus"
 	description = "A chemical element, the backbone of biological energy carriers."
 	reagent_state = SOLID
 	color = "#832828"
@@ -349,7 +336,6 @@
 
 /datum/reagent/potassium
 	name = "Potassium"
-	id = "potassium"
 	description = "A soft, low-melting solid that can easily be cut with a knife. Reacts violently with water."
 	reagent_state = SOLID
 	color = "#A0A0A0"
@@ -365,7 +351,6 @@
 
 /datum/reagent/radium
 	name = "Radium"
-	id = "radium"
 	description = "Radium is an alkaline earth metal. It is extremely radioactive."
 	reagent_state = SOLID
 	color = "#C7C7C7"
@@ -388,7 +373,6 @@
 
 /datum/reagent/acid
 	name = "Sulphuric acid"
-	id = "sacid"
 	description = "A very corrosive mineral acid with the molecular formula H2SO4."
 	reagent_state = LIQUID
 	color = "#DB5008"
@@ -480,7 +464,6 @@
 
 /datum/reagent/acid/hydrochloric //Like sulfuric, but less toxic and more acidic.
 	name = "Hydrochloric Acid"
-	id = "hclacid"
 	description = "A very corrosive mineral acid with the molecular formula HCl."
 	reagent_state = LIQUID
 	color = "#808080"
@@ -491,7 +474,6 @@
 
 /datum/reagent/acid/polyacid //Not in dispensers, but it should be here
 	name = "Polytrinic acid"
-	id = "pacid"
 	description = "Polytrinic acid is a an extremely corrosive chemical substance."
 	reagent_state = LIQUID
 	color = "#8E18A9"
@@ -501,14 +483,12 @@
 
 /datum/reagent/acid/stomach
 	name = "stomach acid"
-	id = "stomachacid"
 	taste_description = "coppery foulness"
 	power = 2
 	color = "#d8ff00"
 
 /datum/reagent/silicon
 	name = "Silicon"
-	id = "silicon"
 	description = "A tetravalent metalloid, silicon is less reactive than its chemical analog carbon."
 	reagent_state = SOLID
 	color = "#A8A8A8"
@@ -517,7 +497,6 @@
 
 /datum/reagent/sodium
 	name = "Sodium"
-	id = "sodium"
 	description = "A chemical element, readily reacts with water."
 	reagent_state = SOLID
 	color = "#808080"
@@ -526,7 +505,6 @@
 
 /datum/reagent/sugar
 	name = "Sugar"
-	id = "sugar"
 	description = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
 	reagent_state = SOLID
 	color = "#FFFFFF"
@@ -538,13 +516,15 @@
 	glass_desc = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
 
 	fallback_specific_heat = 0.332
+	condiment_name = "sugar"
+	condiment_desc = "Tasty space sugar!"
+	condiment_icon_state = "sugar"
 
 /datum/reagent/sugar/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustNutritionLoss(-removed*3)
 
 /datum/reagent/sulfur
 	name = "Sulfur"
-	id = "sulfur"
 	description = "A chemical element with a pungent smell."
 	reagent_state = SOLID
 	color = "#BF8C00"
@@ -558,7 +538,6 @@
 
 /datum/reagent/tungsten
 	name = "Tungsten"
-	id = "tungsten"
 	description = "A chemical element, and a strong oxidising agent."
 	reagent_state = SOLID
 	color = "#DCDCDC"

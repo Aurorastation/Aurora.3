@@ -78,7 +78,7 @@
 
 			if(!(module.category & allowed_module_types))
 				var/mod_name = get_module_category(module.category)
-				to_chat(user, span("warning", "\The [src] does not support [mod_name] modules!"))
+				to_chat(user, SPAN_WARNING("\The [src] does not support [mod_name] modules!"))
 				return 0
 
 			if(installed_modules.len)
