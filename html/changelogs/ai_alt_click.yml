@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - bugfix: "AI can now properly alt-click on objects to open the stat panel list of things on that turf without it immediately closing."
