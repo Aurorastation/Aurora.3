@@ -132,6 +132,8 @@
 	hat_x_offset = 1
 	hat_y_offset = -12
 
+	var/my_home_z
+
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
 
@@ -301,13 +303,16 @@
 
 //DRONE LIFE/DEATH
 /mob/living/silicon/robot/drone/process_level_restrictions()
+	//Abort if they should not get blown
+	if(lock_charge || scrambled_codes || emagged)
+		return FALSE
 	var/turf/T = get_turf(src)
 	var/area/A = get_area(T)
 	if((!T || !(A in the_station_areas)) && src.stat != DEAD)
-		to_chat(src, SPAN_WARNING("WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated."))
-		gib()
-		return
-	return
+		if(!self_destructing)
+			to_chat(src, SPAN_WARNING("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
+			start_self_destruct(TRUE)
+		return TRUE
 
 //For some goddamn reason robots have this hardcoded. Redefining it for our fragile friends here.
 /mob/living/silicon/robot/drone/updatehealth()
@@ -440,15 +445,17 @@
 
 	return dat
 
+/mob/living/silicon/robot/drone/construction/Initialize()
+	. = ..()
+	var/turf/T = get_turf(src)
+	my_home_z = T.z
+	flavor_text = "It's a bulky construction drone stamped with a NanoTrasen glyph."
+
 /mob/living/silicon/robot/drone/construction/welcome_drone()
 	to_chat(src, SPAN_NOTICE("<b>You are a construction drone, an autonomous engineering and fabrication system.</b>."))
 	to_chat(src, SPAN_NOTICE("You are assigned to a NanoTrasen construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."))
 	to_chat(src, SPAN_NOTICE("Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."))
 	to_chat(src, SPAN_NOTICE("<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."))
-
-/mob/living/silicon/robot/drone/construction/init()
-	..()
-	flavor_text = "It's a bulky construction drone stamped with a NanoTrasen glyph."
 
 /mob/living/silicon/robot/drone/construction/updatename()
 	real_name = "construction drone ([rand(100,999)])"
@@ -457,13 +464,16 @@
 /mob/living/silicon/robot/drone/construction/process_level_restrictions()
 	//Abort if they should not get blown
 	if(lock_charge || scrambled_codes || emagged)
-		return
-	//Check if they are not on station level -> abort
+		return FALSE
+	//Check if they are not on a station level -> else abort
 	var/turf/T = get_turf(src)
-	if(!T || isNotStationLevel(T.z))
-		return
-	to_chat(src, SPAN_WARNING("WARNING: Lost contact with controller. Anti-Theft mode activated."))
-	gib()
+	if (!T || AreConnectedZLevels(my_home_z, T.z))
+		return FALSE
+	
+	if(!self_destructing)
+		to_chat(src, SPAN_DANGER("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))		
+		start_self_destruct(TRUE)
+	return TRUE
 
 /proc/too_many_active_drones()
 	var/drones = 0
