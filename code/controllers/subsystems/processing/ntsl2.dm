@@ -149,15 +149,3 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 			tasks -= task_id
 
 	. = ..()
-	
-/datum/controller/subsystem/processing/ntsl2/proc/editor(var/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new(user, src, "test", 300, 300, "Title of ui", state = interactive_state, ndata = list())
-	ui.open()
-
-/client/verb/TestEditor()
-	set name = "editor"
-	set category = "OOC"
-
-	SSntsl2.editor(usr)
