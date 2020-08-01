@@ -206,13 +206,13 @@ var/global/list/minevendor_list = list( //keep in order of price
 
 /obj/machinery/mineral/equipment_vendor/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/coin/mining))
-		var/choice = input(user, "Which special equipment would you like to dispense from \the [src]?", capitalize_first_letters(name)) as null|anything in list("Kinetic Accelerator", "Hand-held Drill")
+		var/choice = input(user, "Which special equipment would you like to dispense from \the [src]?", capitalize_first_letters(name)) as null|anything in list("Enhanced Power Converter", "Hand-held Drill")
 		if(!choice || !I || !Adjacent(user))
 			return
 		var/obj/dispensed_equipment
 		switch(choice)
-			if("Kinetic Accelerator")
-				dispensed_equipment = new /obj/item/gun/custom_ka/frame03/prebuilt/shaft_miner(src)
+			if("Enhanced Power Converter")
+				dispensed_equipment = new /obj/item/custom_ka_upgrade/barrels/barrel02(src)
 			if("Hand-held Drill")
 				dispensed_equipment = new /obj/item/pickaxe/drill(src)
 		if(dispensed_equipment)
@@ -220,7 +220,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 			qdel(I)
 			user.put_in_hands(dispensed_equipment)
 		return
-	if(istype(I,/obj/item/card/id))
+	else if(istype(I,/obj/item/card/id))
 		var/obj/item/card/id/C = usr.get_active_hand()
 		if(istype(C) && !istype(inserted_id))
 			usr.drop_from_inventory(C,src)
