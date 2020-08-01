@@ -136,7 +136,7 @@
 		return FALSE
 
 	if(!target)
-		device.attack_self(holder.wearer, holder)
+		device.attack_self(holder.wearer)
 		return TRUE
 
 	var/turf/T = get_turf(target)
