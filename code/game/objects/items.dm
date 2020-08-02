@@ -345,7 +345,7 @@
 		if(equip_sound)
 			playsound(src, equip_sound, EQUIP_SOUND_VOLUME)
 		else
-			playsound(src, drop_sound, EQUIP_SOUND_VOLUME)
+			playsound(src, drop_sound, DROP_SOUND_VOLUME)
 	return
 
 //Defines which slots correspond to which slot flags

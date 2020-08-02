@@ -266,7 +266,7 @@ var/list/sword_pickup_sound = list(
 	'sound/items/pickup/sword2.ogg',
 	'sound/items/pickup/sword3.ogg'
 )
-var/list/sword_drop_sound = list(
+var/list/sword_equip_sound = list(
 	'sound/items/equip/sword1.ogg',
 	'sound/items/equip/sword2.ogg'
 )
@@ -498,7 +498,7 @@ var/list/gauss_fire_sound = list(
 			if ("crowbar") soundin = pick(crowbar_sound)
 			if ("casing_drop") soundin = pick(casing_drop_sound)
 			if ("drillhit") soundin = pick(drillhit_sound)
-			if ("drop_sword") soundin = pick(sword_drop_sound)
+			if ("equip_sword") soundin = pick(sword_equip_sound)
 			if ("pickup_sword") soundin = pick(sword_pickup_sound)
 			if ("gauss_fire") soundin = pick(gauss_fire_sound)
 	return soundin
