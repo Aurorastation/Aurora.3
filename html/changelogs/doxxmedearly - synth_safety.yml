@@ -1,0 +1,6 @@
+author: ChangeMe
+
+delete-after: True
+
+changes: 
+  - tweak: "AI and stationbounds can no longer disable airlock safeties. They can re-enable them if they are off and the wire isn't cut."
