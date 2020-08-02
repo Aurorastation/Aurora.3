@@ -56,3 +56,4 @@ changes:
   - soundadd: "New shotgun pump sound."
   - soundadd: "Makes revolver spin sound less crappy."
   - soundadd: "New sound for surgical drill."
+  - bugfix: "Equip sounds should play properly now."

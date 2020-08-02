@@ -51,7 +51,7 @@ var/list/floor_light_cache = list()
 			return
 		else
 			to_chat(user, "<span class='notice'>You lever off the [name].</span>")
-			playsound(src.loc, W.usesound, 100, 1)
+			playsound(src.loc, 'sound/items/crowbar_tile.ogg', 100, TRUE)
 			if(stat & BROKEN)
 				qdel(src)
 				return
