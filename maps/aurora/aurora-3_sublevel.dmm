@@ -28340,26 +28340,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
-"fWg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/cyan{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/plating,
-/area/outpost/engineering/power)
 "fXa" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -31108,11 +31088,6 @@
 /area/outpost/engineering/hallway)
 "mLz" = (
 /obj/structure/grille,
-/obj/structure/cable/cyan{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -31123,6 +31098,7 @@
 	dir = 1
 	},
 /obj/structure/window/phoronreinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
 "mOX" = (
@@ -48003,7 +47979,7 @@ adI
 gtA
 adI
 pJT
-fWg
+adI
 hqH
 gtA
 bRJ
