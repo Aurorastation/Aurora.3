@@ -29016,10 +29016,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
-	},
+/obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
 "hwN" = (
@@ -30890,10 +30887,6 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/structure/cable,
-/obj/machinery/power/terminal{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
@@ -31332,6 +31325,11 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/power/terminal,
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)

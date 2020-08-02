@@ -7731,13 +7731,13 @@
 	output_level = 500000
 	},
 /obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_smes)
