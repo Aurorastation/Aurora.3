@@ -38,9 +38,9 @@
 
 	if (!ui)
 		ui = new(user, src, "devices-aicard", 600, 400, "[name]", state = state)
-		ui.data = vueui_data_change(list(), user, ui)
 		ui.auto_update_content = TRUE
-		ui.open()
+
+	ui.open()
 
 /obj/item/aicard/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	data = list()

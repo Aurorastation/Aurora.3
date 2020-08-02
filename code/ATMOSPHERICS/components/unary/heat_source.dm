@@ -96,7 +96,6 @@
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
 		ui = new(user, src, "machinery-atmospherics-freezer", 440, 300, "Gas Heating System")
-		ui.data = vueui_data_change(null, user, ui)
 		ui.auto_update_content = TRUE
 	
 	ui.open()

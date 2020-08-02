@@ -203,7 +203,7 @@
 					return
 			status = LAUNCHING
 
-			var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+			var/datum/vueui/ui = href_list["vueui"]
 			ui?.close()
 
 			if(connected_blastdoor)

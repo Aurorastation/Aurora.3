@@ -419,10 +419,11 @@
 	if(!ui)
 		ui = new(user, src, "machinery-smartfridge", 400, 500, name, state = interactive_state)
 
-	ui.data = vueui_data_change(null, user, ui)
 	ui.open()
 
 /obj/machinery/smartfridge/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	world << "Yoink."
+
 	data = list()
 
 	data["contents"] = null
