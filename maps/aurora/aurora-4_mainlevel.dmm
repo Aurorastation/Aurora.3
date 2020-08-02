@@ -7721,6 +7721,15 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aoC" = (
+/obj/machinery/power/breakerbox/activated{
+	RCon_tag = "Engineering Supermatter Grid Bypass"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine_smes)
+"aoD" = (
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Supermatter - Grid";
 	charge = 1e+007;
@@ -7731,31 +7740,14 @@
 	output_level = 500000
 	},
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/turf/simulated/floor/plating,
-/area/engineering/engine_smes)
-"aoD" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
-/obj/machinery/power/terminal{
-	dir = 8
-	},
-/obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/structure/cable{
-	d1 = 4;
+/obj/structure/cable/yellow{
+	d1 = 0;
 	d2 = 8;
-	icon_state = "4-8"
+	dir = 2;
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_smes)
@@ -8462,7 +8454,12 @@
 	req_access = list(10);
 	specialfunctions = 4
 	},
-/obj/structure/cable{
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
@@ -9080,7 +9077,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aqZ" = (
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
@@ -9088,7 +9085,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "ara" = (
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
@@ -9103,7 +9100,7 @@
 	name = "Electrical Maintenance";
 	req_access = list(10)
 	},
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
@@ -9111,7 +9108,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_smes)
 "arc" = (
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
@@ -9890,11 +9887,11 @@
 /obj/machinery/power/terminal{
 	dir = 4
 	},
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
@@ -10917,7 +10914,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "atP" = (
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
@@ -12716,7 +12713,7 @@
 /obj/structure/cable/orange{
 	icon_state = "4-8"
 	},
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
@@ -13849,7 +13846,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "ayO" = (
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
@@ -13858,7 +13855,7 @@
 	name = "Powernet Sensor - Supermatter Output";
 	name_tag = "SM Output"
 	},
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d2 = 2;
 	icon_state = "0-2"
 	},
@@ -16778,7 +16775,7 @@
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8
 	},
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
@@ -19142,7 +19139,7 @@
 /obj/machinery/power/generator{
 	anchored = 1
 	},
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d2 = 4;
 	icon_state = "0-4"
 	},
@@ -19154,19 +19151,19 @@
 	anchored = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d2 = 4;
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aHs" = (
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
@@ -19175,7 +19172,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aHt" = (
-/obj/structure/cable{
+/obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
@@ -60016,6 +60013,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
+"eux" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	d1 = 0;
+	d2 = 8;
+	dir = 2;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/engine_smes)
 "exI" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -82297,7 +82306,7 @@ aiW
 ahZ
 anA
 aoD
-apS
+eux
 ard
 anI
 atT
