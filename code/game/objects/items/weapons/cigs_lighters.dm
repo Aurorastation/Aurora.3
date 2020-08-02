@@ -710,8 +710,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 						user.apply_damage(2, BURN,BP_L_HAND)
 					else
 						user.apply_damage(2, BURN,BP_R_HAND)
-					user.visible_message(SPAN_DANGER("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)
-
+					if(last_open <= world.time - 20) //Spam limiter.
+						last_open = world.time
+						user.visible_message(SPAN_DANGER("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)
 			set_light(2, 1, l_color = LIGHT_COLOR_LAVA)
 			START_PROCESSING(SSprocessing, src)
 		else
