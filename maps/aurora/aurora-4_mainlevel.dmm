@@ -59532,7 +59532,7 @@
 /area/maintenance/cargo)
 "dgV" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/kitchenspike,
+/obj/structure/bed/chair,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/bar)
 "dhL" = (
@@ -59709,6 +59709,7 @@
 	layer = 5;
 	name = "adjusted reinforced window"
 	},
+/obj/structure/closet/crate/freezer,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -59964,7 +59965,12 @@
 "eqx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/kitchenspike,
+/obj/item/material/ashtray/bronze,
+/obj/random/loot,
+/obj/structure/table/standard,
+/obj/item/trash/cigbutt,
+/obj/item/trash/cigbutt,
+/obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/bar)
 "erq" = (
@@ -61743,7 +61749,7 @@
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
 "iCN" = (
-/obj/structure/closet/crate/freezer,
+/obj/structure/kitchenspike,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
