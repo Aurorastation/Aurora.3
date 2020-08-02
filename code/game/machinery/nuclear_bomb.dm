@@ -434,7 +434,7 @@ var/bomb_set
 
 /obj/machinery/nuclearbomb/station/LateInitialize()
 	for(var/turf/simulated/floor/T in RANGE_TURFS(1, src))
-		T.set_flooring(get_flooring_data(/decl/flooring/reinforced/circuit/red))
+		T.set_flooring(decls_repository.get_decl(/decl/flooring/reinforced/circuit/red))
 		flash_tiles += T
 	update_icon()
 

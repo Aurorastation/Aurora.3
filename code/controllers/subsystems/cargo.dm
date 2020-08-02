@@ -167,6 +167,9 @@ var/datum/controller/subsystem/cargo/SScargo
 					item_query.item[11])
 			catch(var/exception/ei)
 				log_debug("SScargo: Error when loading item [item_id] from sql: [ei]")
+				var/DBQuery/item_error_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET load_error = :error_message: WHERE id = :id:")
+				item_error_query.Execute(list("id"=item_id,"error_message"="[ei]"))
+
 
 //Loads the cargo data from JSON
 /datum/controller/subsystem/cargo/proc/load_from_json()

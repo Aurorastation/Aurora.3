@@ -151,7 +151,7 @@ RFD Construction-Class
 	)
 
 /obj/item/rfd/construction/attack_self(mob/user)
-	var/current_mode = show_radial_menu(user, src, radial_modes, radius = 42, require_near = TRUE, tooltips = TRUE)
+	var/current_mode = RADIAL_INPUT(user, radial_modes)
 	switch(current_mode)
 		if("Floors and Walls")
 			mode = RFD_FLOORS_AND_WALL
@@ -300,7 +300,7 @@ RFD Construction-Class
 
 /obj/item/rfd/construction/mounted/useResource(var/amount, var/mob/user)
 	var/cost = amount*130 //so that a rig with default powercell can build ~2.5x the stuff a fully-loaded RFD-C can.
-	if(istype(loc,/obj/item/rig_module))
+	if(istype(loc, /obj/item/rig_module))
 		var/obj/item/rig_module/module = loc
 		if(module.holder && module.holder.cell)
 			if(module.holder.cell.charge >= cost)

@@ -1080,11 +1080,13 @@ About the new airlock wires panel:
 	else if(C.isscrewdriver())
 		if (src.p_open)
 			if (stat & BROKEN)
-				to_chat(usr, SPAN_WARNING("The panel is broken and cannot be closed."))
+				to_chat(user, SPAN_WARNING("The panel is broken and cannot be closed."))
 			else
 				src.p_open = 0
+				to_chat(user, SPAN_NOTICE("You tightly screw the panel on \the [src] closed."))
 		else
 			src.p_open = 1
+			to_chat(user, SPAN_NOTICE("You carefully unscrew the panel on \the [src]"))
 		src.update_icon()
 	else if(C.iswirecutter())
 		return src.attack_hand(user)
@@ -1487,15 +1489,17 @@ About the new airlock wires panel:
 		src.lock()
 	return
 
-/obj/machinery/door/airlock/examine()
+/obj/machinery/door/airlock/examine(mob/user)
 	..()
 	if (bolt_cut_state == BOLTS_EXPOSED)
-		to_chat(usr, "The bolt cover has been cut open.")
+		to_chat(user, "The bolt cover has been cut open.")
 	if (bolt_cut_state == BOLTS_CUT)
-		to_chat(usr, "The door bolts have been cut.")
+		to_chat(user, "The door bolts have been cut.")
 	if(bracer)
-		to_chat(usr, "\The [bracer] is installed on \the [src], preventing it from opening.")
-		to_chat(usr, bracer.health)
+		to_chat(user, "\The [bracer] is installed on \the [src], preventing it from opening.")
+		to_chat(user, bracer.health)
+	if(p_open)
+		to_chat(user, "\The [src]'s maintenance panel has been unscrewed and is hanging open.")
 
 #undef AIRLOCK_CRUSH_DIVISOR
 #undef CYBORG_AIRLOCKCRUSH_RESISTANCE

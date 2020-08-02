@@ -74,6 +74,9 @@
 		var/image/active_lights = make_screen_overlay(icon, "light_active")
 		add_overlay(active_lights)
 
+/obj/machinery/suit_cycler/relaymove(var/mob/user)
+	eject_occupant(user)
+
 /obj/machinery/suit_cycler/engineering
 	name = "engineering suit cycler"
 	model_text = "Engineering"
@@ -532,7 +535,7 @@
 	eject_occupant(usr)
 
 /obj/machinery/suit_cycler/proc/eject_occupant(mob/user)
-	if(locked || active)
+	if(user && (locked || active))
 		to_chat(user, SPAN_WARNING("\The [src] is locked!"))
 		return
 
@@ -546,10 +549,10 @@
 	occupant.forceMove(get_turf(src))
 	occupant = null
 
-	add_fingerprint(usr)
+	if(user)
+		add_fingerprint(user)
 	updateUsrDialog()
 	update_icon()
-	return
 
 //There HAS to be a less bloated way to do this. TODO: some kind of table/icon name coding? ~Z
 /obj/machinery/suit_cycler/proc/apply_paintjob()
