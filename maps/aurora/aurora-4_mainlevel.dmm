@@ -7721,7 +7721,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aoC" = (
-/obj/machinery/power/breakerbox/activated{
+/obj/machinery/power/breakerbox{
 	RCon_tag = "Engineering Supermatter Grid Bypass"
 	},
 /turf/simulated/floor/plating,

@@ -29014,7 +29014,7 @@
 /turf/simulated/wall,
 /area/engineering/bathroom)
 "huY" = (
-/obj/machinery/power/breakerbox/activated{
+/obj/machinery/power/breakerbox{
 	RCon_tag = "Engineering Tesla Grid Bypass"
 	},
 /turf/simulated/floor/plating,
