@@ -2,6 +2,6 @@ author: Crosarius
 delete-after: True
 
 changes: 
-  - bugfix: "Removed wire crossover between the mains powernet and the civillian surface subnet, which was occuring in the emergency service dock."
+  - bugfix: "Removed a wire crossover between the mains powernet and the civillian surface subnet, which was occuring in the emergency service dock."
 
   - bugfix: "Fixed a hanging loose end of cable which should connect telecommunications (and its solars) to civillian surface mains grid."
