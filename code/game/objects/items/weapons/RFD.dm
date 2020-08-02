@@ -359,7 +359,6 @@ RFD Service-Class
 		if(prob(20))
 			spark(get_turf(src), 3, alldirs)
 
-
 /obj/item/rfd/service/resolve_attackby(atom/A, mob/user as mob, var/click_parameters)
 	if(istype(user,/mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = user
