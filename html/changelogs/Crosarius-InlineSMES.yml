@@ -1,0 +1,8 @@
+# Your name.  
+author: Crosarius
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+changes: 
+  - maptweak: "The SM Output SMES and Tesla Output SMES have both been re-wired so that they are in-line with the main power grid, instead of buffering the output of their respective engine and the main power grid. Both engine output cabling has been changed from yellow to red to reflect the fact that they are now directly wired into the main grid."
