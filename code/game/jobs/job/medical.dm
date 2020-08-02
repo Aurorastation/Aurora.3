@@ -48,7 +48,7 @@
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
 /datum/job/doctor
-	title = "Medical Physician"
+	title = "Medical Technician"
 	flag = DOCTOR
 	department = "Medical"
 	department_flag = MEDSCI
@@ -61,8 +61,8 @@
 
 	minimum_character_age = 30
 
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
-	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
+	access = list(access_medical, access_medical_equip, access_morgue, access_pharmacy, access_virology, access_genetics, access_eva)
+	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_eva)
 	outfit = /datum/outfit/job/doctor
 
 /datum/job/surgeon
@@ -85,8 +85,8 @@
 	outfit = /datum/outfit/job/doctor/surgeon
 
 /datum/outfit/job/doctor
-	name = "Medical Physician"
-	base_name = "Medical Physician"
+	name = "Medical Technician"
+	base_name = "Medical Technician"
 	jobtype = /datum/job/doctor
 
 	uniform = /obj/item/clothing/under/rank/medical

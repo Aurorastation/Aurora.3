@@ -3,3 +3,4 @@ delete-after: True
 
 changes:
   - tweak: "Removed all alternate titles from medical jobs."
+  - rscdel: "Medical Technicians (used to be physicians) no longer have OR access."
