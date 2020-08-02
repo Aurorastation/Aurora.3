@@ -28340,6 +28340,26 @@
 	},
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
+"fWg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/outpost/engineering/power)
 "fXa" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -30890,11 +30910,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/structure/cable{
-	d1 = 16;
-	d2 = 0;
-	icon_state = "12-0"
-	},
+/obj/structure/cable,
 /obj/machinery/power/terminal{
 	dir = 4
 	},
@@ -35365,11 +35381,7 @@
 /area/maintenance/scisublevel)
 "wjT" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/cable{
-	d1 = 16;
-	d2 = 0;
-	icon_state = "12-0"
-	},
+/obj/structure/cable,
 /obj/machinery/power/tesla_coil,
 /turf/simulated/floor/plating,
 /area/outpost/engineering/power)
@@ -36128,26 +36140,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
-"xPi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/cyan{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/plating,
-/area/outpost/engineering/power)
 "xPQ" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -48011,7 +48003,7 @@ adI
 gtA
 adI
 pJT
-xPi
+fWg
 hqH
 gtA
 bRJ
