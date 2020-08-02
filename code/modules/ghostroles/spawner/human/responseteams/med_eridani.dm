@@ -15,6 +15,8 @@
 	max_count = 2
 	desc = "A highly trained bodyguard. Sticks close to the medics while they work."
 	outfit = /datum/outfit/admin/ert/med_eridani/bodyguard
+	possible_species = list("Human", "Off-Worlder Human")
+
 
 /datum/ghostspawner/human/ert/med_eridani/paramedic
 	name = "Eridani Medical Contractor Paramedic"
