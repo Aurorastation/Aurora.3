@@ -59965,12 +59965,11 @@
 "eqx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/material/ashtray/bronze,
+/obj/item/trash/cigbutt,
+/obj/item/trash/cigbutt,
+/obj/structure/table/steel,
+/obj/item/material/ashtray,
 /obj/random/loot,
-/obj/structure/table/standard,
-/obj/item/trash/cigbutt,
-/obj/item/trash/cigbutt,
-/obj/item/trash/cigbutt,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/bar)
 "erq" = (
