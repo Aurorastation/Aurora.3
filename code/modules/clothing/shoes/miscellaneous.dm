@@ -232,14 +232,6 @@ obj/item/clothing/shoes/sandal/clogs
 	desc = "A pair of toe-less heavy winter boots made out of animal furs, reaching up to the knee.  Modified for species whose toes have claws."
 	icon_state = "winterboots_toeless"
 
-/obj/item/clothing/shoes/black_boots
-	name = "black boots"
-	desc = "A pair of tough looking black boots."
-	icon_state = "jackboots"
-	item_state = "jackboots"
-	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
-	can_hold_knife = 1
-
 /obj/item/clothing/shoes/caligae
 	name = "caligae"
 	desc = "The standard Unathi marching footwear. Made of leather and rubber, with heavy hob-nailed soles, their unique design allows for improved traction and protection, leading to them catching on with other species."
