@@ -271,7 +271,7 @@
 	B1.reagents.add_reagent(/datum/reagent/potassium,20)
 	B1.reagents.add_reagent(/datum/reagent/soporific, 10)
 	B1.reagents.add_reagent(/datum/reagent/dylovene, 10)
-	B2.reagents.add_reagent(/datum/reagent/chloralhydrate,40)
+	B2.reagents.add_reagent(/datum/reagent/polysomnine,40)
 	B2.reagents.add_reagent(/datum/reagent/phosphorus,20)
 
 	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)

@@ -7,8 +7,7 @@
 				   it is under the joint administration of the Republic of Biesel and the trans-stellar corporate conglomerate NanoTrasen."
 	path = "aurora"
 
-	lobby_icon = 'icons/misc/aurora.dmi'
-	lobby_screens = list("nanotrasen", "idris", "hephaestus", "zavodskoi")
+	lobby_icons = list('icons/misc/titlescreens/aurora/humans.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi')
 	lobby_transitions = 10 SECONDS
 
 	station_levels = list(2, 3, 4, 5, 6, 7)

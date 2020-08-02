@@ -26,7 +26,7 @@
 		if(activable)
 			action.button_icon_state = action_button_icon
 			if(action.button)
-				action.button.UpdateIcon()
+				action.button.update_icon()
 
 /obj/item/organ/internal/augment/attack_self(var/mob/user)
 	. = ..()

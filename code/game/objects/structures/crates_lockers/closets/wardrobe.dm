@@ -17,9 +17,6 @@
 	new /obj/item/clothing/under/rank/cadet(src)
 	new /obj/item/clothing/under/rank/cadet(src)
 	new /obj/item/clothing/under/rank/cadet(src)
-	new /obj/item/clothing/shoes/black_boots(src)
-	new /obj/item/clothing/shoes/black_boots(src)
-	new /obj/item/clothing/shoes/black_boots(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/gloves/black_leather(src)
@@ -35,6 +32,8 @@
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
+	new /obj/item/clothing/shoes/jackboots/knee(src)
+	new /obj/item/clothing/shoes/jackboots/knee(src)
 	new /obj/item/clothing/shoes/jackboots/toeless(src)
 
 	return

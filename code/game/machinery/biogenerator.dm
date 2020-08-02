@@ -230,6 +230,14 @@
 			amount = list(1,5,10,25,50),
 			emag = 0
 		),
+		"plastic" = list(
+			name = "Plastic",
+			class = "Construction",
+			object = /obj/item/stack/material/plastic,
+			cost = 100,
+			amount = list(1,5,10,25,50),
+			emag = 0
+		),
 		"mushroom" = list(
 			name = "Pet Mushroom",
 			class = "Special",
@@ -278,23 +286,47 @@
 			amount = list(1,2,3,4,5),
 			emag = 0
 		),
-		// Antag Items (Emag)
 		"bruise_pack" = list(
 			name = "Bruise Pack",
-			class = "!@#$%^&*()",
+			class = "Medical",
 			object = /obj/item/stack/medical/bruise_pack,
 			cost = 400,
 			amount = list(1,2,3,4,5),
-			emag = 1
+			emag = FALSE
 		),
 		"ointment" = list(
 			name = "Burn Ointment",
-			class = "!@#$%^&*()",
+			class = "Medical",
 			object = /obj/item/stack/medical/ointment,
 			cost = 400,
 			amount = list(1,2,3,4,5),
-			emag = 1
+			emag = FALSE
 		),
+		"perconol_pill" = list(
+			name = "Perconol Pill",
+			class = "Medical",
+			object = /obj/item/reagent_containers/pill/perconol,
+			cost = 250,
+			amount = list(1,2,3,5,7),
+			emag = FALSE
+		),
+		"adv_trauma_kit" = list(
+			name = "Advanced Trauma Kit",
+			class = "!@#$%^&*()",
+			object = /obj/item/stack/medical/advanced/bruise_pack,
+			cost = 600,
+			amount = list(1,2,3,4,5),
+			emag = TRUE
+		),
+		"adv_burn_kit" = list(
+			name = "Advanced Burn Kit",
+			class = "!@#$%^&*()",
+			object = /obj/item/stack/medical/advanced/ointment,
+			cost = 600,
+			amount = list(1,2,3,4,5),
+			emag = TRUE
+		),
+		// Antag Items (Emag)
 		"humanhide" = list(
 			name = "Human Hide",
 			class = "!@#$%^&*()",
@@ -521,27 +553,48 @@
 	var/delay = totake/2
 	//Meat = 5 seconds
 
+	if(!processing)
+		processing = TRUE
+		update_icon()
+		updateUsrDialog()
+
+	sleep(delay)
+	var/obj/made_container
 	for(var/i = 1,i <= count; i++)
-		if (totake > points)
+		updateUsrDialog()
+		if(totake > points)
+			processing = FALSE
 			menustat = "nopoints"
-			return 0
+			update_icon()
+			return FALSE
 		else
-			if(!processing)
-				processing = 1
-				update_icon()
-				updateUsrDialog()
 			points -= totake
 			use_power(totake * 0.25)
-			sleep( delay )
 			playsound(src.loc, "switchsounds", 50, 1)
 			var/new_object = recipie_data["object"]
-			new new_object(loc)
+			if(ispath(new_object, /obj/item/reagent_containers/pill))
+				if(!made_container)
+					made_container = new /obj/item/storage/pill_bottle(loc)
+				new new_object(made_container)
+			else if(ispath(new_object, /obj/item/stack/medical)) // we want full amounts of medical supplies
+				new new_object(loc)
+				sleep(delay)
+			else if(ispath(new_object, /obj/item/stack))
+				var/subtract_amount = totake * (count - 1)
+				points -= subtract_amount
+				use_power(subtract_amount * 0.25)
+				new new_object(loc, count)
+				break
+			else
+				new new_object(loc)
+				sleep(delay)
 
 	sleep(10)
 
 	processing = 0
 	menustat = "complete"
 	update_icon()
+	updateUsrDialog()
 	return 1
 
 /obj/machinery/biogenerator/Topic(href, href_list)
@@ -568,8 +621,8 @@
 
 /obj/machinery/biogenerator/RefreshParts()
 	..()
-	var/man_rating = 1
-	var/bin_rating = 1
+	var/man_rating = 0
+	var/bin_rating = 0
 
 	for(var/obj/item/stock_parts/P in component_parts)
 		if(ismatterbin(P))

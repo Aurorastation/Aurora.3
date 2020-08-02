@@ -4,6 +4,11 @@
 	slot = slot_tie
 	sort_category = "Accessories"
 
+/datum/gear/accessory/bracelet
+	display_name = "bracelet (colourable)"
+	path = /obj/item/clothing/accessory/bracelet
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/suspenders
 	display_name = "suspenders"
 	path = /obj/item/clothing/accessory/suspenders
@@ -147,6 +152,7 @@
 	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweaterargyleturtleneck
 	sweater["tubeneck sweater"] = /obj/item/clothing/accessory/sweatertubeneck
 	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweaterargyletubeneck
+	sweater["keyhole sweater"] = /obj/item/clothing/accessory/sweaterkeyhole
 	gear_tweaks += new/datum/gear_tweak/path(sweater)
 
 /datum/gear/accessory/dressshirt
@@ -255,6 +261,11 @@
 /datum/gear/accessory/electronic_idbadge
 	display_name = "badge, electronic"
 	path = /obj/item/clothing/accessory/badge/idbadge/intel
+
+/datum/gear/accessory/namepin
+	display_name = "pin tag (colourable)"
+	path = /obj/item/clothing/accessory/badge/namepin
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/sleeve_patch
 	display_name = "shoulder sleeve patch"

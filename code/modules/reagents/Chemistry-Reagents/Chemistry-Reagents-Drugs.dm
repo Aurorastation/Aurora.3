@@ -97,7 +97,7 @@
 
 /datum/reagent/mindbreaker
 	name = "Mindbreaker Toxin"
-	description = "A powerful hallucinogen, it can cause fatal effects in users."
+	description = "An incredibly potent hallucinogen designed to wreak havoc on the brain, resulting in disturbing hallucinations with long-term impacts on those given the drug - this drug is not pleasant, thus the name, and only hardcore addicts use the drug recreationally."
 	reagent_state = LIQUID
 	color = "#B31008"
 	metabolism = REM * 0.25
@@ -109,7 +109,7 @@
 	M.add_chemical_effect(CE_HALLUCINATE, 2)
 
 /datum/reagent/psilocybin
-	name = "Psilocybin"
+	name = "psilocybin"
 	description = "A strong psycotropic derived from certain species of mushroom."
 	color = "#E700E7"
 	overdose = REAGENTS_OVERDOSE
@@ -218,7 +218,7 @@
 
 /datum/reagent/guwan_painkillers/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if(dose > 5 && volume <= 3)
-		M.adjustHalLoss(removed*300) //So oxycodone can't be used with it.
+		M.adjustHalLoss(removed*300) //So oxycomorphine can't be used with it.
 	else
 		if(dose > 5)
 			M.add_chemical_effect(CE_PAINKILLER, 50)
@@ -270,7 +270,7 @@
 
 /datum/reagent/toxin/lean/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 40)
-	M.add_chemical_effect(CE_PAINKILLER, 40) // basically like paracetamol, but a bit worse
+	M.add_chemical_effect(CE_PAINKILLER, 40) // basically like Perconol, but a bit worse
 	// doesn't make you vomit, though
 	if(prob(7))
 		M.emote(pick("twitch", "drool", "moan", "giggle"))
@@ -283,7 +283,7 @@
 
 /datum/reagent/toxin/krok
 	name = "Krok Juice"
-	description = "An Eridanian variant of krokodil, known for causing prosthetic malfunctions."
+	description = "An advanced Eridanian variant of ancient krokodil, known for causing prosthetic malfunctions."
 	strength = 3
 	metabolism = REM
 	overdose = 15
@@ -305,7 +305,7 @@
 			if(HAND_RIGHT, ARM_RIGHT)
 				H.drop_r_hand()
 	if(robo)
-		H.add_chemical_effect(CE_PAINKILLER, 80) // equivalent to tramadol
+		H.add_chemical_effect(CE_PAINKILLER, 80) // equivalent to mortaphenyl
 	var/obj/item/organ/internal/eyes/eyes = H.internal_organs_by_name[H.species.vision_organ || BP_EYES]
 	if(eyes.status & ORGAN_ROBOT)
 		M.hallucination = max(M.hallucination, 40)

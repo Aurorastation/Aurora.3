@@ -36769,7 +36769,7 @@
 	pixel_y = -32
 	},
 /obj/item/storage/pill_bottle/antitox,
-/obj/item/storage/pill_bottle/tramadol,
+/obj/item/storage/pill_bottle/mortaphenyl,
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
@@ -42884,7 +42884,7 @@
 	name = "Pill Cabinet"
 	},
 /obj/item/storage/pill_bottle/antitox,
-/obj/item/storage/pill_bottle/tramadol,
+/obj/item/storage/pill_bottle/mortaphenyl,
 /obj/item/reagent_containers/syringe/inaprovaline,
 /turf/simulated/wall,
 /area/medical/sleeper)
@@ -47957,7 +47957,7 @@
 /area/medical/sleeper)
 "bMO" = (
 /obj/effect/landmark/start{
-	name = "Paramedic"
+	name = "Emergency Medical Technician"
 	},
 /obj/item/stool/padded,
 /turf/simulated/floor/tiled/white,
@@ -47970,7 +47970,7 @@
 	req_access = list(5)
 	},
 /obj/effect/landmark/start{
-	name = "Paramedic"
+	name = "Emergency Medical Technician"
 	},
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medbay EMT Storage";

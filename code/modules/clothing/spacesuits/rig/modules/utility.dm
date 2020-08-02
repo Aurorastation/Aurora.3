@@ -126,32 +126,31 @@
 
 	category = MODULE_UTILITY
 
-/obj/item/rig_module/device/New()
-	..()
-	if(device_type) device = new device_type(src)
+/obj/item/rig_module/device/Initialize()
+	. = ..()
+	if(device_type)
+		device = new device_type(src)
 
 /obj/item/rig_module/device/engage(atom/target)
 	if(!..() || !device)
-		return 0
+		return FALSE
 
 	if(!target)
 		device.attack_self(holder.wearer)
-		return 1
+		return TRUE
 
 	var/turf/T = get_turf(target)
 	if(istype(T) && !T.Adjacent(get_turf(src)))
-		return 0
+		return FALSE
 
 	// Stop generating infinite devices please, and thank you.
 	if(istype(target, /obj/machinery/disposal))
-		return 0
+		return FALSE
 
-	var/resolved = target.attackby(device,holder.wearer)
+	var/resolved = target.attackby(device)
 	if(!resolved && device && target)
-		device.afterattack(target,holder.wearer,1)
-	return 1
-
-
+		device.afterattack(target, holder.wearer, TRUE)
+	return TRUE
 
 /obj/item/rig_module/chem_dispenser
 	name = "mounted chemical dispenser"
@@ -172,7 +171,7 @@
 
 	charges = list(
 		list("tricordrazine",	"tricordrazine",/datum/reagent/tricordrazine,		80),
-		list("tramadol",		"tramadol",		/datum/reagent/tramadol,			80),
+		list("mortaphenyl",		"mortaphenyl",		/datum/reagent/mortaphenyl,			80),
 		list("dexalin plus",	"dexalinp",		/datum/reagent/dexalin/plus,		80),
 		list("antibiotics",		"thetamycin",	/datum/reagent/thetamycin,			80),
 		list("antitoxins",		"dylovene",		/datum/reagent/dylovene,			80),
@@ -192,7 +191,7 @@
 	//just over a syringe worth of each. Want more? Go refill. Gives the ninja another reason to have to show their face.
 	charges = list(
 		list("tricordrazine",	"tricordrazine",/datum/reagent/tricordrazine,		20),
-		list("tramadol",		"tramadol",		/datum/reagent/tramadol,			20),
+		list("mortaphenyl",		"mortaphenyl",		/datum/reagent/mortaphenyl,			20),
 		list("dexalin plus",	"dexalinp",		/datum/reagent/dexalin/plus,		20),
 		list("antibiotics",		"thetamycin",	/datum/reagent/thetamycin,			20),
 		list("antitoxins",		"dylovene",		/datum/reagent/dylovene,			20),
@@ -293,7 +292,7 @@
 	charges = list(
 		list("synaptizine",	"synaptizine",	/datum/reagent/synaptizine,			30),
 		list("hyperzine",	"hyperzine",	/datum/reagent/hyperzine,			30),
-		list("oxycodone",	"oxycodone",	/datum/reagent/oxycodone,			30),
+		list("oxycomorphine",	"oxycomorphine",	/datum/reagent/oxycomorphine,			30),
 		list("nutrients",	"glucose",		/datum/reagent/nutriment/glucose,	80),
 		list("saline",		"saline",		/datum/reagent/saline,				80)
 		)
@@ -311,7 +310,7 @@
 	charges = list(
 		list("synaptizine",	"synaptizine",	/datum/reagent/synaptizine,	30),
 		list("hyperzine",	"hyperzine",	/datum/reagent/hyperzine,	30),
-		list("oxycodone",	"oxycodone",	/datum/reagent/oxycodone,	30),
+		list("oxycomorphine",	"oxycomorphine",	/datum/reagent/oxycomorphine,	30),
 		list("phoron",		"phoron",		/datum/reagent/toxin/phoron,60),
 		list("kois",		"k'ois paste",	/datum/reagent/kois,		80),
 		list("saline",		"saline",		/datum/reagent/saline,		80)
@@ -358,7 +357,7 @@
 
 	charges = list(
 		list("tricordrazine",	"tricordrazine",	/datum/reagent/tricordrazine,	40),
-		list("tramadol",		"tramadol",			/datum/reagent/tramadol,		40),
+		list("mortaphenyl",		"mortaphenyl",			/datum/reagent/mortaphenyl,		40),
 		list("dexalin",			"dexalin",			/datum/reagent/dexalin,			40),
 		list("inaprovaline",	"inaprovaline",	/datum/reagent/inaprovaline,	40)
 		)

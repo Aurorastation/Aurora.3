@@ -7,7 +7,7 @@
 	spell_flags = IGNOREDENSE | IGNORESPACE | NEEDSCLOTHES | Z2NOCAST | IGNOREPREV
 	cooldown_min = 600
 	cast_sound = 'sound/species/diona/gestalt_grow.ogg'
-	
+
 	level_max = list(Sp_TOTAL = 3, Sp_SPEED = 3, Sp_POWER = 1)
 
 	seed_type = /datum/seed/merlin_tear
@@ -27,7 +27,7 @@
 	name = "merlin tears"
 	seed_name = "merlin tears"
 	display_name = "merlin tears"
-	chems = list(/datum/reagent/bicaridine = list(3,7), /datum/reagent/dermaline = list(3,7), /datum/reagent/dylovene = list(3,7), /datum/reagent/tricordrazine = list(3,7), /datum/reagent/alkysine = list(1,2), /datum/reagent/imidazoline = list(1,2), /datum/reagent/peridaxon = list(4,5))
+	chems = list(/datum/reagent/bicaridine = list(3,7), /datum/reagent/dermaline = list(3,7), /datum/reagent/dylovene = list(3,7), /datum/reagent/tricordrazine = list(3,7), /datum/reagent/alkysine = list(1,2), /datum/reagent/oculine = list(1,2), /datum/reagent/peridaxon = list(4,5))
 	kitchen_tag = "berries"
 
 /datum/seed/merlin_tear/setup_traits()

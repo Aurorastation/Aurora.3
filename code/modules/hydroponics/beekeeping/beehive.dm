@@ -191,7 +191,7 @@
 			var/mob/living/simple_animal/bee/B = new(pick(spawn_turfs), src)
 			B.feral = angry
 			B.strength = swarmsize
-			B.update_icons()
+			B.update_icon()
 			bees_to_release -= swarmsize
 
 		//what's left over
@@ -199,7 +199,7 @@
 		B.strength = bees_to_release
 		B.icon_state = "bees[B.strength]"
 		B.feral = angry
-		B.update_icons()
+		B.update_icon()
 		bees_to_release = 0
 
 /obj/item/beehive_assembly

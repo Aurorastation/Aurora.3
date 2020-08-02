@@ -65,8 +65,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 		open(user)
 
 /obj/item/reagent_containers/food/drinks/proc/open(mob/user as mob)
-	playsound(loc,'sound/effects/canopen.ogg', rand(10,50), 1)
-	user.visible_message("<b>[user]</b> opens \the [src].", SPAN_NOTICE("You open \the [src] with an audible pop!"), "You can hear a pop,")
+	playsound(loc,'sound/items/soda_open.ogg', rand(10,50), 1)
+	user.visible_message("<b>[user]</b> opens \the [src].", SPAN_NOTICE("You open \the [src] with an audible pop!"), "You can hear a pop.")
 	flags |= OPENCONTAINER
 
 /obj/item/reagent_containers/food/drinks/proc/boom(mob/user as mob)
@@ -112,7 +112,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 		to_chat(user, "<span class='notice'>\The [src] is almost full!</span>")
 	else
 		to_chat(user, "<span class='notice'>\The [src] is full!</span>")
-
+	
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Drinks. END
@@ -275,6 +275,33 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 		is_liquid = FALSE
 	else
 		is_liquid = TRUE
+
+/obj/item/reagent_containers/food/drinks/waterbottle
+	name = "bottled water"
+	desc = "Introduced to the vending machines by Skrellian request, this water comes straight from the Martian poles."
+	icon_state = "waterbottle"
+	flags = 0 //starts closed
+	center_of_mass = list("x"=16, "y"=8)
+	drop_sound = 'sound/items/drop/disk.ogg'
+	pickup_sound = 'sound/items/pickup/disk.ogg'
+
+	reagents_to_add = list(/datum/reagent/water = 30)
+
+//heehoo bottle flipping
+/obj/item/reagent_containers/food/drinks/waterbottle/throw_impact()
+	. = ..()
+	if(!QDELETED(src))
+		if(prob(10)) // landed upright
+			src.visible_message(SPAN_NOTICE("\The [src] lands upright!"))
+		if(prob(1)) // landed upright on ITS CAP
+			src.visible_message(SPAN_NOTICE("\The [src] lands upright on its cap!"))
+			animate(src, transform = matrix(prob(50)? 180 : -180, MATRIX_ROTATE), time = 3, loop = 0)
+		else // landed on it's side
+			animate(src, transform = matrix(prob(50)? 90 : -90, MATRIX_ROTATE), time = 3, loop = 0)
+
+/obj/item/reagent_containers/food/drinks/waterbottle/pickup()
+	. = ..()
+	animate(src, transform = null, time = 1, loop = 0)
 
 /obj/item/reagent_containers/food/drinks/sillycup
 	name = "paper cup"

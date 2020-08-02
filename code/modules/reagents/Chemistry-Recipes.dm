@@ -153,25 +153,25 @@
 	required_reagents = list(/datum/reagent/silicon = 1, /datum/reagent/potassium = 1, /datum/reagent/ammonia = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/tramadol
-	name = "Tramadol"
-	id = "tramadol"
-	result = /datum/reagent/tramadol
+/datum/chemical_reaction/mortaphenyl
+	name = "Mortaphenyl"
+	id = "mortaphenyl"
+	result = /datum/reagent/mortaphenyl
 	required_reagents = list(/datum/reagent/inaprovaline = 1, /datum/reagent/alcohol/ethanol = 1, /datum/reagent/acetone = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/paracetamol
-	name = "Paracetamol"
-	id = "paracetamol"
-	result = /datum/reagent/paracetamol
-	required_reagents = list(/datum/reagent/tramadol = 1, /datum/reagent/sugar = 1, /datum/reagent/water = 1)
+/datum/chemical_reaction/perconol
+	name = "Perconol"
+	id = "perconol"
+	result = /datum/reagent/perconol
+	required_reagents = list(/datum/reagent/mortaphenyl = 1, /datum/reagent/sugar = 1, /datum/reagent/water = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/oxycodone
-	name = "Oxycodone"
-	id = "oxycodone"
-	result = /datum/reagent/oxycodone
-	required_reagents = list(/datum/reagent/alcohol/ethanol = 1, /datum/reagent/tramadol = 1)
+/datum/chemical_reaction/oxycomorphine
+	name = "Oxycomorphine"
+	id = "oxycomorphine"
+	result = /datum/reagent/oxycomorphine
+	required_reagents = list(/datum/reagent/alcohol/ethanol = 1, /datum/reagent/mortaphenyl = 1)
 	catalysts = list(/datum/reagent/toxin/phoron = 5)
 	result_amount = 1
 
@@ -371,25 +371,25 @@
 	required_reagents = list(/datum/reagent/cryptobiolin = 1, /datum/reagent/dylovene = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/antihistamine
-	name = "Diphenhydramine"
-	id = "diphenhydramine"
-	result = /datum/reagent/antihistamine
+/datum/chemical_reaction/cetahydramine
+	name = "Cetahydramine"
+	id = "cetahydramine"
+	result = /datum/reagent/cetahydramine
 	required_reagents = list(/datum/reagent/cryptobiolin = 1, /datum/reagent/inaprovaline = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/ondansetron
-	name = "Ondansetron"
-	id = "ondansetron"
-	result = /datum/reagent/ondansetron
-	required_reagents = list(/datum/reagent/antihistamine = 1, /datum/reagent/synaptizine = 1, /datum/reagent/water = 3)
+/datum/chemical_reaction/asinodryl
+	name = "Asinodryl"
+	id = "asinodryl"
+	result = /datum/reagent/asinodryl
+	required_reagents = list(/datum/reagent/cetahydramine = 1, /datum/reagent/synaptizine = 1, /datum/reagent/water = 3)
 	catalysts = list(/datum/reagent/tungsten = 5)
 	result_amount = 3
 
-/datum/chemical_reaction/imidazoline
-	name = "imidazoline"
-	id = "imidazoline"
-	result = /datum/reagent/imidazoline
+/datum/chemical_reaction/oculine
+	name = "oculine"
+	id = "oculine"
+	result = /datum/reagent/oculine
 	required_reagents = list(/datum/reagent/carbon = 1, /datum/reagent/hydrazine = 1, /datum/reagent/dylovene = 1)
 	result_amount = 2
 
@@ -400,10 +400,10 @@
 	required_reagents = list(/datum/reagent/acetone = 1, /datum/reagent/dylovene = 1, /datum/reagent/carbon = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/ipecac
-	name = "Ipecac"
-	id = "ipecac"
-	result = /datum/reagent/ipecac
+/datum/chemical_reaction/verunol
+	name = "Verunol Syrup"
+	id = "verunol"
+	result = /datum/reagent/verunol
 	required_reagents = list(/datum/reagent/hydrazine = 1, /datum/reagent/dylovene = 1, /datum/reagent/alcohol/ethanol = 1)
 	result_amount = 3
 
@@ -418,14 +418,14 @@
 	name = "Soporific"
 	id = "stoxin"
 	result = /datum/reagent/soporific
-	required_reagents = list(/datum/reagent/chloralhydrate = 1, /datum/reagent/sugar = 4)
+	required_reagents = list(/datum/reagent/polysomnine = 1, /datum/reagent/sugar = 4)
 	inhibitors = list(/datum/reagent/phosphorus) // Messes with the smoke
 	result_amount = 5
 
-/datum/chemical_reaction/chloralhydrate
-	name = "Chloral Hydrate"
-	id = "chloralhydrate"
-	result = /datum/reagent/chloralhydrate
+/datum/chemical_reaction/polysomnine
+	name = "Polysomnine"
+	id = "polysomnine"
+	result = /datum/reagent/polysomnine
 	required_reagents = list(/datum/reagent/alcohol/ethanol = 1, /datum/reagent/acid/hydrochloric = 3, /datum/reagent/water = 1)
 	result_amount = 1
 
@@ -440,7 +440,7 @@
 	name = "Potassium Chlorophoride"
 	id = "potassium_chlorophoride"
 	result = /datum/reagent/toxin/potassium_chlorophoride
-	required_reagents = list(/datum/reagent/toxin/potassium_chloride = 1, /datum/reagent/toxin/phoron = 1, /datum/reagent/chloralhydrate = 1)
+	required_reagents = list(/datum/reagent/toxin/potassium_chloride = 1, /datum/reagent/toxin/phoron = 1, /datum/reagent/polysomnine = 1)
 	result_amount = 4
 
 /datum/chemical_reaction/zombiepowder
@@ -482,7 +482,7 @@
 	name = "Diethylamine"
 	id = "diethylamine"
 	result = /datum/reagent/diethylamine
-	required_reagents = list (/datum/reagent/ammonia = 1, /datum/reagent/alcohol/ethanol = 1)
+	required_reagents = list(/datum/reagent/ammonia = 1, /datum/reagent/alcohol/ethanol = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/space_cleaner
@@ -568,10 +568,10 @@
 	catalysts = list(/datum/reagent/toxin/phoron = 5)
 	result_amount = 3
 
-/datum/chemical_reaction/calomel
-	name = "Calomel"
-	id = "calomel"
-	result = /datum/reagent/calomel
+/datum/chemical_reaction/fluvectionem
+	name = "Fluvectionem"
+	id = "fluvectionem"
+	result = /datum/reagent/fluvectionem
 	required_reagents = list(/datum/reagent/mercury = 1, /datum/reagent/sodiumchloride = 1, /datum/reagent/ammonia = 1)
 	result_amount = 3
 
@@ -608,7 +608,7 @@
 	name = "Pulmodeiectionem"
 	id = "pulmodeiectionem"
 	result = /datum/reagent/pulmodeiectionem
-	required_reagents = list(/datum/reagent/calomel = 1, /datum/reagent/lexorin = 1)
+	required_reagents = list(/datum/reagent/fluvectionem = 1, /datum/reagent/lexorin = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/pneumalin
@@ -625,10 +625,10 @@
 	required_reagents = list(/datum/reagent/sugar = 0.4, /datum/reagent/water = 1, /datum/reagent/sodiumchloride = 0.9)
 	result_amount = 1
 
-/datum/chemical_reaction/mannitol
-	name = "Mannitol"
-	id = "mannitol"
-	result = /datum/reagent/mannitol
+/datum/chemical_reaction/cataleptinol
+	name = "Cataleptinol"
+	id = "cataleptinol"
+	result = /datum/reagent/cataleptinol
 	required_reagents = list(/datum/reagent/toxin/phoron = 0.1, /datum/reagent/alkysine = 1, /datum/reagent/cryoxadone = 0.1)
 	result_amount = 1
 
@@ -641,17 +641,17 @@
 
 //Mental Medication
 
-/datum/chemical_reaction/methylphenidate
-	name = "Methylphenidate"
-	id = "methylphenidate"
-	result = /datum/reagent/mental/methylphenidate
+/datum/chemical_reaction/corophenidate
+	name = "Corophenidate"
+	id = "corophenidate"
+	result = /datum/reagent/mental/corophenidate
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/hydrazine = 1)
 	result_amount = 2
 
-/datum/chemical_reaction/escitalopram
-	name = "Escitalopram"
-	id = "escitalopram"
-	result = /datum/reagent/mental/escitalopram
+/datum/chemical_reaction/minaphobin
+	name = "Minaphobin"
+	id = "minaphobin"
+	result = /datum/reagent/mental/minaphobin
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/carbon = 1)
 	result_amount = 2
 
@@ -661,52 +661,45 @@
 	required_reagents = list(/datum/reagent/inaprovaline = 1, /datum/reagent/hyperzine = 1, /datum/reagent/dexalin/plus = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/paroxetine
-	name = "Paroxetine"
-	id = "paroxetine"
-	result = /datum/reagent/mental/paroxetine
-	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/ammonia = 1, /datum/reagent/copper = 1)
-	result_amount = 3
-
-/datum/chemical_reaction/fluvoxamine
-	name = "Fluvoxamine"
-	id = "fluvoxamine"
-	result = /datum/reagent/mental/fluvoxamine
+/datum/chemical_reaction/neurostabin
+	name = "Neurostabin"
+	id = "neurostabin"
+	result = /datum/reagent/mental/neurostabin
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/iron = 1, /datum/reagent/potassium = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/sertraline
-	name = "Sertraline"
-	id = "sertraline"
-	result = /datum/reagent/mental/sertraline
+/datum/chemical_reaction/parvosil
+	name = "Parvosil"
+	id = "parvosil"
+	result = /datum/reagent/mental/parvosil
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/aluminum = 1, /datum/reagent/potassium = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/duloxetine
-	name = "Duloxetine"
-	id = "duloxetine"
-	result = /datum/reagent/mental/duloxetine
+/datum/chemical_reaction/emoxanyl
+	name = "Emoxanyl"
+	id = "emoxanyl"
+	result = /datum/reagent/mental/emoxanyl
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/silicon = 1, /datum/reagent/alcohol/ethanol = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/venlafaxine
-	name = "Venlafaxine"
-	id = "venlafaxine"
-	result = /datum/reagent/mental/venlafaxine
+/datum/chemical_reaction/orastabin
+	name = "Orastabin"
+	id = "orastabin"
+	result = /datum/reagent/mental/orastabin
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/sodium = 1, /datum/reagent/tungsten = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/risperidone
-	name = "Risperidone"
-	id = "risperidone"
-	result = /datum/reagent/mental/risperidone
+/datum/chemical_reaction/neurapan
+	name = "Neurapan"
+	id = "neurapan"
+	result = /datum/reagent/mental/neurapan
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/space_drugs = 1, /datum/reagent/alcohol/ethanol = 1)
 	result_amount = 3
 
-/datum/chemical_reaction/olanzapine
-	name = "Olanzapine"
-	id = "olanzapine"
-	result = /datum/reagent/mental/olanzapine
+/datum/chemical_reaction/nerospectan
+	name = "Nerospectan"
+	id = "nerospectan"
+	result = /datum/reagent/mental/nerospectan
 	required_reagents = list(/datum/reagent/mindbreaker = 1, /datum/reagent/space_drugs = 1, /datum/reagent/silicon = 1)
 	result_amount = 3
 
@@ -721,7 +714,7 @@
 	name = "Paxazide"
 	id = "paxazide"
 	result = /datum/reagent/pacifier
-	required_reagents = list(/datum/reagent/mental/truthserum = 1, /datum/reagent/mental/sertraline = 1)
+	required_reagents = list(/datum/reagent/mental/truthserum = 1, /datum/reagent/mental/parvosil = 1)
 	result_amount = 1
 
 /datum/chemical_reaction/berserk
@@ -766,8 +759,8 @@
 	name = "Nightlife"
 	id = "night_juice"
 	result = /datum/reagent/night_juice
-	required_reagents = list(/datum/reagent/mental/methylphenidate = 1, /datum/reagent/synaptizine = 1, /datum/reagent/nitroglycerin = 1)
-	required_temperatures_min = list(/datum/reagent/mental/methylphenidate = T0C+200, /datum/reagent/synaptizine = T0C+200, /datum/reagent/nitroglycerin = T0C+200)
+	required_reagents = list(/datum/reagent/mental/corophenidate = 1, /datum/reagent/synaptizine = 1, /datum/reagent/nitroglycerin = 1)
+	required_temperatures_min = list(/datum/reagent/mental/corophenidate = T0C+200, /datum/reagent/synaptizine = T0C+200, /datum/reagent/nitroglycerin = T0C+200)
 	result_amount = 3
 
 /* Solidification */
@@ -1501,6 +1494,7 @@
 
 /datum/chemical_reaction/slime/cell/on_reaction(var/datum/reagents/holder, var/created_volume)
 	new /obj/item/cell/slime(get_turf(holder.my_atom))
+	..()
 
 /datum/chemical_reaction/slime/glow
 	name = "Slime Glow"
@@ -2079,7 +2073,7 @@
 	result_amount = 6
 
 /datum/chemical_reaction/drink/beepsky_smash
-	name = "Beepksy Smash"
+	name = "Beepsky Smash"
 	id = "beepksysmash"
 	result = /datum/reagent/alcohol/ethanol/beepskysmash
 	required_reagents = list(/datum/reagent/drink/limejuice = 1, /datum/reagent/alcohol/ethanol/whiskey = 1, /datum/reagent/iron = 1)
@@ -2103,14 +2097,14 @@
 	name = "The Manly Dorf"
 	id = "manlydorf"
 	result = /datum/reagent/alcohol/ethanol/manly_dorf
-	required_reagents = list (/datum/reagent/alcohol/ethanol/beer = 1, /datum/reagent/alcohol/ethanol/ale = 2)
+	required_reagents = list(/datum/reagent/alcohol/ethanol/beer = 1, /datum/reagent/alcohol/ethanol/ale = 2)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/hooch
 	name = "Hooch"
 	id = "hooch"
 	result = /datum/reagent/alcohol/ethanol/hooch
-	required_reagents = list (/datum/reagent/sugar = 1, /datum/reagent/alcohol/ethanol/moonshine = 1, /datum/reagent/fuel = 1)
+	required_reagents = list(/datum/reagent/sugar = 1, /datum/reagent/alcohol/ethanol/moonshine = 1, /datum/reagent/fuel = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/irish_coffee

@@ -464,7 +464,7 @@
 	if(!removed_hand_overlay)
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_removed" : "r_hand_removed"
 		removed_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
-	overlays.Cut()
+	cut_overlays()
 	if(hud.mymob && ishuman(hud.mymob))
 		var/mob/living/carbon/human/H = hud.mymob
 		var/obj/item/organ/external/O

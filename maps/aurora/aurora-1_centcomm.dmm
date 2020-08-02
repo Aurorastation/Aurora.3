@@ -2446,11 +2446,11 @@
 /obj/item/device/suit_cooling_unit{
 	pixel_x = 8
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_x = -6;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_x = -6;
 	pixel_y = 4
 	},
@@ -5438,11 +5438,11 @@
 /area/shuttle/administration/centcom)
 "auh" = (
 /obj/structure/closet/crate/freezer/rations,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
@@ -18419,7 +18419,7 @@
 /obj/structure/table/wood,
 /obj/item/material/ashtray/glass,
 /obj/item/storage/box/fancy/cigarettes/dromedaryco,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -24445,7 +24445,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchant/start)
 "jqI" = (
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_x = -6;
 	pixel_y = 4
 	},
@@ -27420,14 +27420,14 @@
 /obj/item/storage/pill_bottle/antitox{
 	pixel_x = 6
 	},
-/obj/item/storage/pill_bottle/tramadol{
+/obj/item/storage/pill_bottle/mortaphenyl{
 	pixel_y = -12
 	},
-/obj/item/storage/pill_bottle/tramadol{
+/obj/item/storage/pill_bottle/mortaphenyl{
 	pixel_x = -6;
 	pixel_y = -12
 	},
-/obj/item/storage/pill_bottle/tramadol{
+/obj/item/storage/pill_bottle/mortaphenyl{
 	pixel_x = 6;
 	pixel_y = -12
 	},
