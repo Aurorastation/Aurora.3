@@ -218,6 +218,30 @@ var/global/list/additional_antag_types = list()
 		antag.update_initial_spawn_target()
 		antag.build_candidate_list() //compile a list of all eligible candidates
 
+	if(length(antag_templates) > 1) // If we have multiple templates to satisfy, we must pick candidates who satisfy fewer templates first, and fill the template with fewest candidates first
+		var/list/template_candidates = list()
+		var/list/all_candidates = list() // All candidates for every template, may contain duplicates
+		var/list/antag_templates_by_initial_spawn_req = list()
+
+		for(var/datum/antagonist/antag in antag_templates)
+			template_candidates[antag.id] = length(antag.candidates)
+			all_candidates += antag.candidates
+			antag_templates_by_initial_spawn_req[antag] = antag.initial_spawn_req
+
+		sortTim(antag_templates_by_initial_spawn_req, /proc/cmp_numeric_asc, TRUE)
+		antag_templates = list_keys(antag_templates_by_initial_spawn_req)
+
+		var/list/valid_templates_per_candidate = list() // number of roles each candidate can satisfy
+		for(var/candidate in all_candidates)
+			valid_templates_per_candidate[candidate]++
+
+		sortTim(valid_templates_per_candidate, /proc/cmp_numeric_asc, TRUE)
+
+		for(var/datum/antagonist/antag in antag_templates)
+			antag.candidates = list_keys(valid_templates_per_candidate) & antag.candidates // orders antag.candidates by valid_templates_per_candidate
+		
+
+	for(var/datum/antagonist/antag in antag_templates)
 		//antag roles that replace jobs need to be assigned before the job controller hands out jobs.
 		if(antag.flags & ANTAG_OVERRIDE_JOB)
 			antag.attempt_spawn() //select antags to be spawned
