@@ -1,20 +1,10 @@
 <template>
   <div>
     <template v-if="has_ai">
-      <div class="item">
-        <div class="itemLabel">
-          Hardware Integrity:
-        </div>
-        <div class="itemContent">
-          {{hardware_integrity}}%
-        </div>
-        <div class="itemLabel">
-          Backup Capacitor:
-        </div>
-        <div class="itemContent">
-          {{backup_capacitor}}%
-        </div>
-      </div>
+      <vui-group>
+        <vui-group-item label="Hardware Integrity">{{hardware_integrity}}%</vui-group-item>
+        <vui-group-item label="Backup Capacitor">{{backup_capacitor}}%</vui-group-item>
+      </vui-group>
 
       <template v-if="has_laws">
         <table class="borders">
@@ -29,32 +19,28 @@
           </tr>
         </table>
       </template>
-      <template v-else>
-        <span class="notice">No laws found.</span>
-      </template>
+      <span class="notice" v-else>
+        No laws found.
+      </span>
 
-      <template v-if="operational">
-        <table>
-          <tr>
-            <td><span class="itemLabelWidest">Radio Subspace Transceiver</span></td>
-            <td><vui-button :params="{ radio: 0 }" v-bind:disabled="radio">Enabled</vui-button></td>
-            <td><vui-button class="danger" :params="{ radio: 1 }" v-bind:disabled="!radio">Disabled</vui-button></td>
-          </tr>
-          <tr>
-            <td><span class="itemLabelWidest">Wireless Interface</span></td>
-            <td><vui-button :params="{ wireless: 0 }" v-bind:disabled="wireless">Enabled</vui-button></td>
-            <td><vui-button class="danger" :params="{ wireless: 1 }" v-bind:disabled="!wireless">Disabled</vui-button></td>
-          </tr>
+      <vui-group v-if="operational">
+        <vui-group-item label="Radio Subspace Transceiver">
+          <vui-button :class="{selected: radio}" :params="{ radio: 0 }">Enabled</vui-button>
+          <vui-button :class="{danger: !radio}" :params="{ radio: 1 }">Disabled</vui-button>
+        </vui-group-item>
 
-          <tr v-if="flushing">
-            <td><span class="notice">AI wipe in progress...</span></td>
-          </tr>
-          <tr v-else>
-            <td><span class="itemLabelWidest">Wipe AI</span></td>
-            <td><vui-button class="danger" :params="{ wipe: 1 }">Wipe</vui-button></td>
-          </tr>
-        </table>
-      </template>
+        <vui-group-item label="Wireless Interface">
+          <vui-button :class="{selected: wireless}" :params="{ wireless: 0 }">Enabled</vui-button>
+          <vui-button :class="{danger: !wireless}" :params="{ wireless: 1 }">Disabled</vui-button>
+        </vui-group-item>
+
+        <vui-group-item v-if="flushing">
+          <span class="notice">AI wipe in progress...</span>
+        </vui-group-item>
+        <vui-group-item v-else label="Wipe AI">
+          <vui-button class="danger" :params="{ wipe: 1 }">Wipe</vui-button>
+        </vui-group-item>
+      </vui-group>
     </template>
     <template v-else>
       Stored AI: <span class="notice">No AI detected.</span>
