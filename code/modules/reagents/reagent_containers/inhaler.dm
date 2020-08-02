@@ -221,7 +221,15 @@
 		update_icon()
 		return
 
+/obj/item/reagent_containers/inhaler/pneumalin
+	name = "autoinhaler (pneumalin)"
+	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains pneumalin."
+	icon_state = "so_inhaler1"
+	empty_state = "so_inhaler0"
+	volume = 10
 
-
-
-
+	Initialize()
+		. =..()
+		reagents.add_reagent(/datum/reagent/pneumalin, volume)
+		update_icon()
+		return
