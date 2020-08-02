@@ -600,7 +600,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		if(G.reagents)
 			initial_volume = G.reagents.total_volume
 			G.reagents.trans_to_obj(src, G.reagents.total_volume)
-			G.reagents.trans_to_obj(src, G.reagents.taste_description)
 		name = "[G.name]-packed [initial(name)]"
 		burn_rate = initial(burn_rate)
 		qdel(G)
