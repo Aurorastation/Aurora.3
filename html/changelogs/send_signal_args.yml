@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - backend: "_SendSignal now properly formats arguments for sending to components and elements."
