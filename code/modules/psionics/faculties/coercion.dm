@@ -59,19 +59,6 @@
 	if(target.stat == DEAD || (target.status_flags & FAKEDEATH) || !target.client)
 		to_chat(user, SPAN_WARNING("\The [target] is in no state for a mind-read."))
 		return TRUE
-	if (iscarbon(target))
-		var/mob/living/carbon/C = target
-		var/obj/item/organ/internal/augment/psi/psiaug = C.internal_organs_by_name[BP_AUG_PSI]
-		if(!psiaug || psiaug.is_broken())
-			if(target.isSynthetic())
-				to_chat(user, SPAN_ALIEN("There is no mind here for you to dip your mentality into."))
-				return
-			if (isvaurca(target))
-				to_chat (user, SPAN_CULT("You feel your thoughts pass right through a mind empty of psychic energy, unable to get a grasp on anything."))
-				return
-			if (target.is_diona())
-				to_chat(user, SPAN_ALIEN("The creature's mind is incompatible, formless."))
-				return
 
 		for (var/obj/item/implant/mindshield/I in target)
 			if (I.implanted)
@@ -84,7 +71,8 @@
 			return TRUE
 
 		var/started_mindread = world.time
-		if(psiaug)
+		var/has_psiaug = target.has_psiaug(user)
+		if(has_psiaug)
 			to_chat(user, SPAN_NOTICE("<b>Your psyche links with [target]'s psi-receiver, seeking an answer from their mind's surface: <i>[question]</i></b>"))
 			to_chat(target, SPAN_NOTICE("<b>[user]'s psyche links with your psi-receiver, your mind is compelled to answer: <i>[question]</i></b>"))
 		else
@@ -264,19 +252,6 @@
 			to_chat(user, SPAN_CULT("Not even a psion of your level can speak to the dead."))
 			return
 
-		var/mob/living/carbon/C = target
-		var/obj/item/organ/internal/augment/psi/psiaug = C.internal_organs_by_name[BP_AUG_PSI]
-		if(!psiaug || psiaug.is_broken())
-			if(target.isSynthetic())
-				to_chat(user, SPAN_ALIEN("Your thoughts fail to reach any mind at all."))
-				return
-			if (isvaurca(target))
-				to_chat (user, SPAN_CULT("You feel your thoughts pass right through a mind empty of psychic energy."))
-				return
-			if (target.is_diona())
-				to_chat(user, SPAN_ALIEN("The creature's mind is incompatible, formless."))
-				return
-
 		for (var/obj/item/implant/mindshield/I in target)
 			if (I.implanted)
 				to_chat(user, SPAN_WARNING("\The [target]'s mind rejects your attempt to communicate."))
@@ -293,9 +268,10 @@
 				to_chat(M, "<span class='notice'>[user] psionically says to [target]:</span> [text]")
 
 		var/mob/living/carbon/human/H = target
+		var/has_psiaug = target.has_psiaug(user)
 		if(H.can_commune() || H.psi)
 			to_chat(H, SPAN_CULT("<b>You instinctively sense [user] passing a thought into your mind:</b> [text]"))
-		else if(psiaug)
+		else if(has_psiaug)
 			to_chat(H, SPAN_CULT("<b>You sense [user]'s psyche link with your psi-receiver, a thought sliding into your mind:</b> [text]"))
 		else
 			to_chat(H, SPAN_ALIEN("<b>A thought from outside your consciousness slips into your mind:</b> [text]"))
