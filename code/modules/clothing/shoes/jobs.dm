@@ -49,8 +49,8 @@
 /obj/item/clothing/shoes/jackboots/toeless/thigh
 	name = "thigh-high toeless black boots"
 	desc = "Modified pair of even taller boots, particularly friendly to those species whose toes hold claws."
-	icon_state = "kneeboots_toeless"
-	item_state = "kneeboots_toeless"
+	icon_state = "thighboots_toeless"
+	item_state = "thighboots_toeless"
 
 /obj/item/clothing/shoes/workboots
 	name = "workboots"
