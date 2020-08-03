@@ -1,7 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added phoron bounties. These will always be marked as the high priority bounties."
-  - rscdel: "Removed the positronic brain bounty."
