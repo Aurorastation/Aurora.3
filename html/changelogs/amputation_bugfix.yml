@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - bugfix: "Amputation of stumps and robotic limbs will now work properly again."

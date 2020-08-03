@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - bugfix: "All cigarettes and pipes now generate appropriate taste messages. However, some of these will now be consumed 2-3 times faster."
