@@ -59700,6 +59700,13 @@
 /area/maintenance/research_port)
 "dBV" = (
 /obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/fishfillet,
+/obj/item/reagent_containers/food/snacks/fishfillet,
+/obj/item/reagent_containers/food/snacks/fishfillet,
+/obj/item/reagent_containers/food/snacks/fishfillet,
+/obj/item/reagent_containers/food/snacks/fishfillet,
+/obj/item/reagent_containers/food/snacks/fishfillet,
+/obj/item/reagent_containers/food/snacks/fishfillet,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278

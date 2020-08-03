@@ -23,6 +23,15 @@
 
 //Meaty Recipes
 //====================
+/datum/recipe/cubanfish
+	appliance = FRYER
+	fruit = list("chili" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/fishfillet
+	)
+	result = /obj/item/reagent_containers/food/snacks/cubancarp
+
 /datum/recipe/cubancarp
 	appliance = FRYER
 	fruit = list("chili" = 1)

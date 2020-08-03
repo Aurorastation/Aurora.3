@@ -68,9 +68,16 @@
 /datum/recipe/fishburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/carpmeat
+		/obj/item/reagent_containers/food/snacks/fishfillet
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger/fish
+
+/datum/recipe/carpburger
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/carpmeat
+	)
+	result = /obj/item/reagent_containers/food/snacks/burger/fish //There are two recipes that both make the same thing. The reagent carryover will make the carp version toxic. This is true for all subsequent instances of these fish/carp recipe doubleups.
 
 /datum/recipe/tofuburger
 	items = list(
@@ -318,10 +325,17 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/burger/bigbite
 
-/datum/recipe/fishandchips
+/datum/recipe/carpandchips
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fries,
 		/obj/item/reagent_containers/food/snacks/carpmeat
+	)
+	result = /obj/item/reagent_containers/food/snacks/fishandchips
+
+/datum/recipe/fishandchips
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fries,
+		/obj/item/reagent_containers/food/snacks/fishfillet
 	)
 	result = /obj/item/reagent_containers/food/snacks/fishandchips
 
@@ -533,9 +547,17 @@
 /datum/recipe/fishfingers
 	reagents = list(/datum/reagent/nutriment/flour = 10,/datum/reagent/nutriment/protein/egg = 3)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/carpmeat
+		/obj/item/reagent_containers/food/snacks/fishfillet
 	)
 	result = /obj/item/reagent_containers/food/snacks/fishfingers
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/carpfingers
+	reagents = list(/datum/reagent/nutriment/flour = 10,/datum/reagent/nutriment/protein/egg = 3)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/carpmeat
+	)
+	result = /obj/item/reagent_containers/food/snacks/carpfingers
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/mysterysoup
@@ -830,10 +852,17 @@
 /datum/recipe/sashimi
 	reagents = list(/datum/reagent/nutriment/soysauce = 5)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/carpmeat
+		/obj/item/reagent_containers/food/snacks/fishfillet
 	)
 	result = /obj/item/reagent_containers/food/snacks/sashimi
 
+
+/datum/recipe/carpsashimi
+	reagents = list(/datum/reagent/nutriment/soysauce = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/carpmeat
+	)
+	result = /obj/item/reagent_containers/food/snacks/sashimi
 
 /datum/recipe/nugget
 	reagents = list(/datum/reagent/nutriment/flour = 5)
@@ -1017,6 +1046,19 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/egg_pancake
 
+/datum/recipe/grilled_fish
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fishfillet,
+		/obj/item/reagent_containers/food/snacks/fishfillet,
+		/obj/item/reagent_containers/food/snacks/fishfillet,
+		/obj/item/reagent_containers/food/snacks/fishfillet,
+		/obj/item/reagent_containers/food/snacks/fishfillet,
+		/obj/item/reagent_containers/food/snacks/fishfillet
+	)
+	reagents = list(/datum/reagent/spacespice = 1)
+	fruit = list("cabbage" = 1, "lime" = 1)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/grilled_carp
+
 /datum/recipe/grilled_carp
 	items = list(
 		/obj/item/reagent_containers/food/snacks/carpmeat,
@@ -1031,6 +1073,14 @@
 	result = /obj/item/reagent_containers/food/snacks/sliceable/grilled_carp
 
 /datum/recipe/sushi_roll
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fishfillet,
+		/obj/item/reagent_containers/food/snacks/boiledrice
+	)
+	fruit = list("cabbage" = 1)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/sushi_roll
+
+/datum/recipe/carp_roll
 	items = list(
 		/obj/item/reagent_containers/food/snacks/carpmeat,
 		/obj/item/reagent_containers/food/snacks/boiledrice
@@ -1081,6 +1131,14 @@
 	result = /obj/item/reagent_containers/food/snacks/nt_muffin
 
 /datum/recipe/fish_taco
+	fruit = list("chili" = 1, "lemon" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fishfillet,
+		/obj/item/reagent_containers/food/snacks/tortilla
+	)
+	result = /obj/item/reagent_containers/food/snacks/fish_taco
+
+/datum/recipe/carp_taco
 	fruit = list("chili" = 1, "lemon" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/carpmeat,
