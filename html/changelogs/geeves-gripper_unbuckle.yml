@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Borgs can now unbuckle people from rollerbeds and chairs by using an empty gripper on the chair or bed."
