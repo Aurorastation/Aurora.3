@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Vending machine screens no longer overlay over shutters."

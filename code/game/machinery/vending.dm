@@ -114,7 +114,7 @@
 	light_power = 1
 
 /obj/machinery/vending/Initialize()
-	. = ..()
+	..()
 	wires = new(src)
 	if(src.product_slogans)
 		src.slogan_list += text2list(src.product_slogans, ";")
@@ -126,11 +126,14 @@
 
 	if(src.product_ads)
 		src.ads_list += text2list(src.product_ads, ";")
-	
-	add_screen_overlay()
 
 	src.build_inventory()
 	power_change()
+
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/vending/LateInitialize()
+	add_screen_overlay()
 
 /obj/machinery/vending/proc/reset_light()
 	set_light(initial(light_range), initial(light_power), initial(light_color))
@@ -144,8 +147,12 @@
 			screen_overlays["[icon_state]-screen"] = make_screen_overlay(icon, "[icon_state]-screen")
 		if ("[icon_state]-deny" in states)
 			screen_overlays["[icon_state]-deny"] = make_screen_overlay(icon, "[icon_state]-deny")
-	add_overlay(screen_overlays["[icon_state]-[deny ? "deny" : "screen"]"])
 	reset_light()
+	var/obj/machinery/door/D = locate() in get_turf(src)
+	if(D)
+		if(D.density && D.opacity)
+			return
+	add_overlay(screen_overlays["[icon_state]-[deny ? "deny" : "screen"]"])
 
 /**
  *  Build src.product_records from the products lists

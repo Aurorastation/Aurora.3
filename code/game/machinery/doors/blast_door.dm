@@ -153,6 +153,10 @@
 	if(autoclose)
 		spawn(150)
 			close()
+	var/obj/machinery/vending/V = locate() in get_turf(src)
+	if(V)
+		V.cut_overlays()
+		V.add_screen_overlay()
 	return 1
 
 // Proc: close()
@@ -166,6 +170,9 @@
 		for(var/atom/movable/AM in turf)
 			if(AM.airlock_crush(damage))
 				take_damage(damage*0.2)
+	var/obj/machinery/vending/V = locate() in get_turf(src)
+	if(V)
+		V.cut_overlays()
 
 
 // Proc: repair()
