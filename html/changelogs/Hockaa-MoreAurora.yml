@@ -1,0 +1,6 @@
+author: Hocka
+
+delete-after: True
+
+changes:
+    - bugfix: "Hoodies will now stay unzipped when you unequip them or drop them."
