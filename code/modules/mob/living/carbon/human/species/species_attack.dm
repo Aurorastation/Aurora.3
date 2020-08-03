@@ -184,8 +184,7 @@
 		to_chat(user, "<span class='danger'>You feel that \the [target] has been already infected!</span>")
 
 	var/infection_chance = 80
-	var/armor = target.run_armor_check(zone,"melee")
-	infection_chance -= armor
+	infection_chance -= target.run_armor_check(zone,"melee")
 	if(prob(infection_chance))
 		if(target.reagents)
 			target.reagents.add_reagent(/datum/reagent/toxin/trioxin, 10)
