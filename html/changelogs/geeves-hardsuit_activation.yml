@@ -6,3 +6,5 @@ changes:
   - bugfix: "Fixed an issue with hardsuit items sometimes not working properly."
   - bugfix: "Fixed a bug that caused the wrong item to get displayed in an attack animation sometimes."
   - bugfix: "Fixed pickaxes not having an attack sound."
+  - bugfix: "Fixed spamming your hardsuit items causing you to do hotkey stuff when on click cooldown."
+  - bugfix: "Fixed a bug with doing actions on SSD people and not having the correct action come up."
