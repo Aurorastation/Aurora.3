@@ -147,7 +147,7 @@
 	if(istype(target, /obj/machinery/disposal))
 		return FALSE
 
-	var/resolved = target.attackby(device)
+	var/resolved = target.attackby(device, holder.wearer)
 	if(!resolved && device && target)
 		device.afterattack(target, holder.wearer, TRUE)
 	return TRUE
