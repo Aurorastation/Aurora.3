@@ -1,0 +1,6 @@
+author: Code by Geeves, Sprites by Sgtsammac
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added quick access medical pouches to medical storage and EMTs/Paramedics."

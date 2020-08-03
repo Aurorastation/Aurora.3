@@ -262,6 +262,8 @@
 	id = /obj/item/card/id/white
 	head = /obj/item/clothing/head/hardhat/emt
 
+	r_pocket = /obj/item/quick/pouch/medical/trauma_kit
+
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel_med
 	dufflebag = /obj/item/storage/backpack/duffel/med

@@ -5891,7 +5891,7 @@
 /area/outpost/research/emergency_storage)
 "lX" = (
 /obj/structure/table/rack,
-/obj/item/nitrilebox,
+/obj/item/quick/nitrilebox,
 /obj/item/storage/box/samplebags{
 	pixel_x = 3;
 	pixel_y = -3

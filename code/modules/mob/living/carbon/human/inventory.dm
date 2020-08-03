@@ -404,6 +404,8 @@ This saves us from having to call add_fingerprint() any time something is put in
 /mob/living/carbon/human/put_in_hands(var/obj/item/W)
 	if(!W)
 		return 0
+	if(W in src.contents)
+		u_equip(W)
 	if(put_in_active_hand(W))
 		update_inv_l_hand()
 		update_inv_r_hand()

@@ -6389,7 +6389,7 @@
 /obj/structure/table/reinforced,
 /obj/item/storage/box/autoinjectors,
 /obj/item/storage/box/beakers,
-/obj/item/nitrilebox,
+/obj/item/quick/nitrilebox,
 /obj/item/storage/box/pillbottles,
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
@@ -13279,7 +13279,7 @@
 /area/centcom/control)
 "aRM" = (
 /obj/structure/table/standard,
-/obj/item/nitrilebox,
+/obj/item/quick/nitrilebox,
 /obj/item/storage/box/masks,
 /turf/unsimulated/floor{
 	dir = 4;
@@ -16007,7 +16007,7 @@
 /area/centcom/spawning)
 "aYd" = (
 /obj/structure/table/standard,
-/obj/item/nitrilebox,
+/obj/item/quick/nitrilebox,
 /obj/item/storage/box/masks,
 /obj/item/reagent_containers/spray/cleaner,
 /turf/unsimulated/floor{
@@ -19206,7 +19206,7 @@
 /obj/structure/table/reinforced,
 /obj/item/storage/box/autoinjectors,
 /obj/item/storage/box/beakers,
-/obj/item/nitrilebox,
+/obj/item/quick/nitrilebox,
 /obj/item/storage/box/pillbottles,
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,

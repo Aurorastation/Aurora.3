@@ -13567,7 +13567,7 @@
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/nitrilebox,
+/obj/item/quick/nitrilebox,
 /obj/effect/floor_decal/corner_wide/mauve/full{
 	dir = 8
 	},
@@ -39007,6 +39007,11 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/closet/crate/medical,
+/obj/item/quick/pouch/medical/burn_kit,
+/obj/item/quick/pouch/medical/burn_kit,
+/obj/item/quick/pouch/medical/trauma_kit,
+/obj/item/quick/pouch/medical/trauma_kit,
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "bqa" = (
@@ -41119,7 +41124,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/nitrilebox,
+/obj/item/quick/nitrilebox,
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
@@ -45294,7 +45299,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/nitrilebox,
+/obj/item/quick/nitrilebox,
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";
@@ -50572,7 +50577,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/machinery/firealarm/east,
-/obj/item/nitrilebox,
+/obj/item/quick/nitrilebox,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bPG" = (
