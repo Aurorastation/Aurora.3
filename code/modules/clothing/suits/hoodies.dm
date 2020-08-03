@@ -5,6 +5,8 @@
 	var/hoodtype = null
 	var/suittoggled = 0
 	var/hooded = 0
+	var/lasticonstate = null
+	var/lastitemstate = null
 
 /obj/item/clothing/suit/storage/hooded/Initialize()
 	. = ..()
@@ -24,10 +26,14 @@
 	..()
 
 /obj/item/clothing/suit/storage/hooded/proc/RemoveHood()
-	icon_state = initial(icon_state)
-	item_state = initial(item_state)
-	suittoggled = 0
-
+	if(!lasticonstate && !lastitemstate)
+		suittoggled = 0
+	else
+		icon_state = "[lasticonstate]"
+		item_state = "[lastitemstate]"
+		suittoggled = 0
+	
+	
 	// Hood got nuked. Probably because of RIGs or the like.
 	if (!hood)
 		MakeHood()
@@ -64,6 +70,8 @@
 				to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
 				return
 			else
+				lasticonstate = icon_state
+				lastitemstate = item_state
 				H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
 				suittoggled = 1
 				icon_state = "[initial(icon_state)]_t"
@@ -239,6 +247,8 @@
 				to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
 				return
 			else
+				lasticonstate = icon_state
+				lastitemstate = item_state
 				H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
 				suittoggled = 1
 				icon_open = "[initial(icon_open)]_t" // this is where the change is.
