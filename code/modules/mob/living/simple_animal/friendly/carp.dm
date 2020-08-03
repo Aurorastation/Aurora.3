@@ -16,7 +16,7 @@
 	speak_chance = 1
 	turns_per_move = 5
 	see_in_dark = 6
-	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
 	response_help = "brushes"
 	response_disarm = "attempts to push"
 	response_harm = "injures"

@@ -811,22 +811,6 @@
 	reagent_data = list(/datum/reagent/nutriment = list("dryness" = 2, "bread" = 2))
 	bitesize = 1
 
-/obj/item/reagent_containers/food/snacks/carpmeat
-	name = "carp fillet"
-	desc = "A fillet of spess carp meat."
-	icon_state = "fishfillet"
-	filling_color = "#FFDEFE"
-	bitesize = 6
-	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 3, /datum/reagent/toxin/carpotoxin = 3)
-
-/obj/item/reagent_containers/food/snacks/fishfillet
-	name = "fish fillet"
-	desc = "A fillet of fish."
-	icon_state = "fishfillet"
-	filling_color = "#FFDEFE"
-	bitesize = 6
-	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 3)
-
 /obj/item/reagent_containers/food/snacks/dwellermeat
 	name = "worm fillet"
 	desc = "A fillet of electrifying cavern meat."
