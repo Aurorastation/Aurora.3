@@ -90,7 +90,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	/////////////////////////
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(M)
+	user.do_attack_animation(M, src)
 	if(!user.aura_check(AURA_TYPE_WEAPON, src, user))
 		return FALSE
 

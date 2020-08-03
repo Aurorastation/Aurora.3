@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed an issue with hardsuit items sometimes not working properly."
+  - bugfix: "Fixed a bug that caused the wrong item to get displayed in an attack animation sometimes."
+  - bugfix: "Fixed pickaxes not having an attack sound."
