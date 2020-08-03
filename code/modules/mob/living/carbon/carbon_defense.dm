@@ -99,7 +99,7 @@
 
 	//Apply weapon damage
 	var/damage_flags = I.damage_flags()
-	if(prob(blocked)) //armour provides a chance to turn sharp/edge weapon attacks into blunt ones
+	if(prob(blocked)) //armor provides a chance to turn sharp/edge weapon attacks into blunt ones
 		damage_flags &= ~DAM_SHARP
 		damage_flags &= ~DAM_EDGE
 

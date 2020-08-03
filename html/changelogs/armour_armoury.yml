@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - spellcheck: "Replaced all instances of armor/armory with armor/armory."

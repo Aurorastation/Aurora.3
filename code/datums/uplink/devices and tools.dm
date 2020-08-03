@@ -49,7 +49,7 @@
 	name = "Heavy Armor Kit"
 	item_cost = 4
 	path = /obj/item/storage/box/syndie_kit/armor
-	desc = "A heavy armour set consisting of a full kit. Not EVA capable."
+	desc = "A heavy armor set consisting of a full kit. Not EVA capable."
 
 /datum/uplink_item/item/tools/encryptionkey_radio
 	name = "Encrypted Radio Channel Key"

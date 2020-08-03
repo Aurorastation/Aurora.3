@@ -98,7 +98,7 @@
 // Xenoarch aliens.
 /mob/living/simple_animal/hostile/samak
 	name = "samak"
-	desc = "A fast, armoured predator accustomed to hiding and ambushing in cold terrain."
+	desc = "A fast, armored predator accustomed to hiding and ambushing in cold terrain."
 	faction = "samak"
 	icon_state = "samak"
 	icon_living = "samak"
