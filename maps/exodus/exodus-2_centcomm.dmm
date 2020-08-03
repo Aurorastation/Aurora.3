@@ -19043,7 +19043,7 @@
 /obj/structure/table/wood,
 /obj/item/material/ashtray/glass,
 /obj/item/storage/box/fancy/cigarettes/dromedaryco,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},

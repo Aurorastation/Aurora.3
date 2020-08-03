@@ -290,14 +290,16 @@
 		if(!C.signal_enabled)
 			return NONE
 		var/proctype = C.signal_procs[src][sigtype]
-		return NONE | INVOKE_ASYNC(C, proctype, arguments)
+		arguments = list(C, proctype) + arguments
+		return NONE | INVOKE_ASYNC(arglist(arguments))
 	. = NONE
 	for(var/I in target)
 		var/datum/C = I
 		if(!C.signal_enabled)
 			continue
 		var/proctype = C.signal_procs[src][sigtype]
-		. |= INVOKE_ASYNC(C, proctype, arguments)
+		arguments = list(C, proctype) + arguments
+		. |= INVOKE_ASYNC(arglist(arguments))
 
 // The type arg is casted so initial works, you shouldn't be passing a real instance into this
 /**

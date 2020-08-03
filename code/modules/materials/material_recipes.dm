@@ -281,5 +281,6 @@
 	..()
 	recipes += new /datum/stack_recipe_list("[display_name] construction",
 		list(
-			new /datum/stack_recipe("leather briefcase", /obj/item/storage/briefcase/real, 1, 4, 20)
+			new /datum/stack_recipe("leather briefcase", /obj/item/storage/briefcase/real, 4, 1, time = 20),
+			new /datum/stack_recipe("leather whip", /obj/item/melee/whip, 15, 1, time = 20)
 		))

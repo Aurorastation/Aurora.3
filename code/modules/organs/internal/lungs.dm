@@ -18,6 +18,10 @@
 
 	var/breathing = 0
 
+	// Handles rupture grace period
+	var/rupture_imminent = FALSE // If this is true and the pressure is too high or low, our lungs will rupture
+	var/checking_rupture = TRUE // If this is false, the rupture check won't run, granting a grace period
+
 	var/rescued = FALSE // whether or not a collapsed lung has been rescued with a syringe
 	var/oxygen_deprivation = 0
 	var/last_successful_breath
@@ -65,16 +69,23 @@
 			)
 			owner.losebreath = round(damage/2)
 
-	if(is_bruised() && rescued)
-		if(prob(4))
-			to_chat(owner, SPAN_WARNING("It feels hard to breathe..."))
-			if (owner.losebreath < 5)
-				owner.losebreath = min(owner.losebreath + 1, 5) // it's still not good, but it's much better than an untreated collapsed lung
+	if(rescued)
+		if(is_bruised())
+			if(prob(4))
+				to_chat(owner, SPAN_WARNING("It feels hard to breathe..."))
+				if (owner.losebreath < 5)
+					owner.losebreath = min(owner.losebreath + 1, 5) // it's still not good, but it's much better than an untreated collapsed lung
+		else
+			if(prob(2))
+				to_chat(owner, SPAN_WARNING("It feels hard to breathe, and something in your chest is whistling..."))
+				if (owner.losebreath < 2)
+					owner.losebreath = min(owner.losebreath + 1, 2)
 
 /obj/item/organ/internal/lungs/proc/rupture()
 	var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
 	if(istype(parent))
 		owner.custom_pain("You feel a stabbing pain in your [parent.name]!", 50, affecting = parent)
+	rupture_imminent = FALSE
 	bruise()
 
 /obj/item/organ/internal/lungs/proc/handle_failed_breath()
@@ -87,10 +98,16 @@
 		else
 			owner.emote(pick("shiver","twitch"))
 
-	if(damage || world.time > last_successful_breath + 2 MINUTES)
-		owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS*breath_fail_ratio)
-
+	owner.adjustOxyLoss(HUMAN_MAX_OXYLOSS * breath_fail_ratio)
 	owner.oxygen_alert = max(owner.oxygen_alert, 2)
+
+/obj/item/organ/internal/lungs/proc/enable_rupture()
+	rupture_imminent = TRUE
+	checking_rupture = TRUE
+	addtimer(CALLBACK(src, .proc/disable_rupture), 5 SECONDS, TIMER_UNIQUE)
+
+/obj/item/organ/internal/lungs/proc/disable_rupture()
+	rupture_imminent = FALSE
 
 /obj/item/organ/internal/lungs/proc/handle_breath(datum/gas_mixture/breath)
 	if(!owner)
@@ -101,9 +118,21 @@
 		handle_failed_breath()
 		return 1
 
+	var/high_pressure = breath.total_moles / (owner.species?.breath_vol_mul || 1) > BREATH_MOLES * 5
+	var/low_pressure = breath.total_moles / (owner.species?.breath_vol_mul || 1) < BREATH_MOLES / 5
 	//exposure to extreme pressures can rupture lungs
-	if(breath && (breath.total_moles/(owner.species?.breath_vol_mul || 1) < BREATH_MOLES / 5 || breath.total_moles/(owner.species?.breath_vol_mul || 1) > BREATH_MOLES * 5))
-		rupture()
+	if(checking_rupture && damage < min_bruised_damage && (high_pressure || low_pressure))
+		if(rupture_imminent)
+			rupture()
+		else
+			if(low_pressure)
+				to_chat(owner, FONT_LARGE(SPAN_WARNING("You feel air rapidly beginning to exit your lungs!")))
+			else if(high_pressure)
+				to_chat(owner, FONT_LARGE(SPAN_WARNING("You feel vast amounts of air force itself into your lungs!")))
+			else
+				to_chat(owner, FONT_LARGE(SPAN_WARNING("You feel as if your lungs are about to blow!")))
+			addtimer(CALLBACK(src, .proc/enable_rupture), 2 SECONDS, TIMER_UNIQUE)
+			checking_rupture = FALSE
 
 	var/safe_pressure_min = owner.species.breath_pressure // Minimum safe partial pressure of breathable gas in kPa
 	// Lung damage increases the minimum safe pressure.
@@ -328,6 +357,8 @@
 	. = list()
 	if(is_bruised())
 		. += "[pick("wheezing", "gurgling")] sounds"
+	if(rescued)
+		. += "a whistling sound"
 
 	var/list/breathtype = list()
 	if(get_oxygen_deprivation() > 50)
@@ -340,6 +371,10 @@
 	. += "[english_list(breathtype)] breathing"
 
 	return english_list(.)
+
+/obj/item/organ/internal/lungs/surgical_fix(mob/user)
+	..()
+	rescued = FALSE
 
 #undef HUMAN_MAX_OXYLOSS
 #undef HUMAN_CRIT_MAX_OXYLOSS

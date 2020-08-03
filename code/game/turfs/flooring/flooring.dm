@@ -1,12 +1,3 @@
-var/list/flooring_types
-
-/proc/get_flooring_data(var/flooring_path)
-	if(!flooring_types)
-		flooring_types = list()
-	if(!flooring_types["[flooring_path]"])
-		flooring_types["[flooring_path]"] = new flooring_path
-	return flooring_types["[flooring_path]"]
-
 // State values:
 // [icon_base]: initial base icon_state without edges or corners.
 // if has_base_range is set, append 0-has_base_range ie.
@@ -110,6 +101,7 @@ var/list/flooring_types
 	icon = 'icons/turf/total_floors.dmi'
 	icon_base = "asteroidfloor"
 	has_damage_range = null
+	build_type = null
 
 /decl/flooring/tiling/asteroid/plating
 	icon_base = "asteroidfloor"
@@ -248,6 +240,7 @@ var/list/flooring_types
 	icon_base = "rcircuit"
 	flags = TURF_ACID_IMMUNE
 	can_paint = 0
+	build_type = null
 
 /decl/flooring/reinforced/cult
 	name = "engraved floor"

@@ -86,8 +86,9 @@
 			if(victim)
 				victim.updatehealth()
 
-			if(nutrition == get_max_nutrition())
+			if(nutrition >= get_max_nutrition())
 				visible_message(SPAN_WARNING("\The [src] releases [victim], content and full."), SPAN_WARNING("You are full."))
+				check_friendship_increase() // increase our friendship with the person who fed us
 				break
 
 			sleep(30) // Deal damage every 3 seconds
@@ -96,19 +97,6 @@
 
 	canmove = TRUE
 	anchored = FALSE
-
-	if(M && invalidFeedTarget(M)) // This means that the slime drained the victim
-		if(!client)
-			if(victim && !rabid && !attacked && victim.LAssailant && victim.LAssailant != victim && prob(50))
-				var/real_assailant = victim.LAssailant.resolve()
-				if(real_assailant)
-					if(!(real_assailant in friends))
-						friends[real_assailant] = TRUE
-					else
-						++friends[real_assailant]
-
-		else
-			to_chat(src, SPAN_NOTICE("This subject does not have a strong enough life energy anymore..."))
 
 	victim = null
 
