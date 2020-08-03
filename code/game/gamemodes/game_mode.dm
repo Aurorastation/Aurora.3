@@ -240,11 +240,14 @@ var/global/list/additional_antag_types = list()
 		for(var/datum/antagonist/antag in antag_templates)
 			antag.candidates = list_keys(valid_templates_per_candidate) & antag.candidates // orders antag.candidates by valid_templates_per_candidate
 		
+		var/datum/antagonist/last_template = antag_templates[antag_templates.len]
+		last_template.candidates = shuffle(last_template.candidates)
 
 	for(var/datum/antagonist/antag in antag_templates)
 		//antag roles that replace jobs need to be assigned before the job controller hands out jobs.
 		if(antag.flags & ANTAG_OVERRIDE_JOB)
 			antag.attempt_spawn() //select antags to be spawned
+		antag.candidates = shuffle(antag.candidates) // makes selection past initial_spawn_req fairer
 
 ///post_setup()
 /datum/game_mode/proc/post_setup()
