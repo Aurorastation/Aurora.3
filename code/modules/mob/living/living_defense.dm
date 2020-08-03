@@ -90,7 +90,7 @@
 	//Armor
 	var/absorb = run_armor_check(def_zone, P.check_armour, P.armor_penetration)
 	var/damaged
-	if(prob(absorb))
+	if(absorb > 20)
 		if(P.damage_flags & DAM_SHARP || P.damage_flags & DAM_SHARP || P.damage_flags & DAM_LASER)
 			P.damage_flags &= ~DAM_SHARP
 			P.damage_flags &= ~DAM_EDGE
