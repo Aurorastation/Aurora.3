@@ -102,6 +102,7 @@ var/datum/antagonist/cultist/cult
 
 /datum/antagonist/cultist/proc/appraise_offering()
 	set name = "Appraise Offering"
+	set desc = "Find out if someone close-by can be converted to join the cult, or not."
 	set category = "IC"
 
 	var/list/targets = list()
