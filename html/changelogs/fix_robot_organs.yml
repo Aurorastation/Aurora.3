@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Repairing augments and robotic internal organs with nanopaste will now work again."

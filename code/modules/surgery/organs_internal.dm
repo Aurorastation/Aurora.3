@@ -100,6 +100,78 @@
 		if(I && I.damage > 0)
 			I.take_damage(dam_amt,0)
 
+/decl/surgery_step/internal/fix_organ_robotic //For artificial organs
+	name = "Repair robotic organ"
+	allowed_tools = list(
+	/obj/item/stack/nanopaste = 100,
+	/obj/item/surgery/bonegel = 30,
+	/obj/item/screwdriver = 70
+	)
+
+	min_duration = 70
+	max_duration = 90
+
+/decl/surgery_step/internal/fix_organ_robotic/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!..())
+		return FALSE
+
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+	var/is_organ_damaged = 0
+	for(var/obj/item/organ/I in affected.internal_organs)
+		if(I.damage > 0 && I.robotic >= 2)
+			is_organ_damaged = TRUE
+			break
+	return is_organ_damaged && IS_ORGAN_FULLY_OPEN
+
+/decl/surgery_step/internal/fix_organ_robotic/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!ishuman(target))
+		return
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+
+	for(var/obj/item/organ/I in affected.internal_organs)
+		if(I && I.damage > 0)
+			if(I.robotic >= 2)
+				user.visible_message("<b>[user]</b> starts mending the damage to [target]'s [I.name]'s mechanisms.", \
+					SPAN_NOTICE("You start mending the damage to [target]'s [I.name]'s mechanisms." ))
+
+	target.custom_pain("The pain in your [affected.name] is living hell!", 75)
+	..()
+
+/decl/surgery_step/internal/fix_organ_robotic/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!ishuman(target))
+		return
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+
+	for(var/obj/item/organ/I in affected.internal_organs)
+		if(I && I.damage > 0)
+			if(I.robotic >= 2)
+				user.visible_message("<b>[user]</b> repairs [target]'s [I.name] with [tool].", \
+					SPAN_NOTICE("You repair [target]'s [I.name] with [tool].") )
+				I.damage = 0
+				var/obj/item/organ/internal/brain/sponge = target.internal_organs_by_name[BP_BRAIN]
+				if(sponge && istype(I, sponge))
+					target.cure_all_traumas()
+				if(istype(tool, /obj/item/stack/nanopaste))
+					var/obj/item/stack/nanopaste/nanopaste = tool
+					nanopaste.use(1)
+					return
+
+/decl/surgery_step/internal/fix_organ_robotic/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	if(!ishuman(target))
+		return
+	var/obj/item/organ/external/affected = target.get_organ(target_zone)
+
+	user.visible_message(SPAN_WARNING("[user]'s hand slips, gumming up the mechanisms inside of [target]'s [affected.name] with \the [tool]!"), \
+		SPAN_WARNING("Your hand slips, gumming up the mechanisms inside of [target]'s [affected.name] with \the [tool]!"))
+
+	target.adjustToxLoss(5)
+	target.apply_damage(5, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
+
+	for(var/obj/item/organ/I in affected.internal_organs)
+		if(I)
+			I.take_damage(rand(3,5),0)
+
+
 /decl/surgery_step/internal/detach_organ
 	name = "Separate organ"
 	priority = 1
@@ -236,6 +308,7 @@
 
 /decl/surgery_step/internal/replace_organ/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(!..())
+		testing("Attempting to install [tool] failed with parent check!")
 		return FALSE
 
 	var/obj/item/organ/O = tool
@@ -246,7 +319,7 @@
 	if(!istype(O))
 		return FALSE
 
-	if(BP_IS_ROBOTIC(affected) && !(O.status & ORGAN_ROBOT))
+	if(BP_IS_ROBOTIC(affected) && !BP_IS_ROBOTIC(O))
 		to_chat(user, SPAN_DANGER("You cannot install a naked organ into a robotic body."))
 		return SURGERY_FAILURE
 
