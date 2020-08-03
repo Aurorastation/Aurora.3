@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Lyodsuits now lose their hoodie sprite when their mask is up, preventing a visual duplication."
