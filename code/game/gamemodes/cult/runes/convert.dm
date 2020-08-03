@@ -80,7 +80,7 @@
 						has_implant = TRUE
 				if(!has_implant)
 					to_chat(target, SPAN_CULT("..or will it?"))
-					target.gib() // people who can't be cultists get gibbed to preserve cult anonymity
+					target.adjustFireLoss(50)
 			else
 				var/choice = alert(target,"Do you want to join the cult?", "Submit to Nar'Sie", "Resist", "Submit")
 				waiting_for_input[target] = FALSE
