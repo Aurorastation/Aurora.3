@@ -9,8 +9,9 @@
 	Returns
 	a blocked amount between 0 - 100, representing the success of the armor check.
 */
-#define MOB_FIRE_LIGHT_RANGE  3  //These control the intensity and range of light given off by a mob which is on fire
-#define MOB_FIRE_LIGHT_POWER  2
+#define MOB_FIRE_LIGHT_RANGE    3  //These control the intensity and range of light given off by a mob which is on fire
+#define MOB_FIRE_LIGHT_POWER    2
+#define ARMOR_SOFTEN_THRESHOLD  20
 
 /mob/living/proc/run_armor_check(var/def_zone = null, var/attack_flag = "melee", var/armour_pen = 0, var/absorb_text = null, var/soften_text = null)
 	if(armour_pen >= 100)
@@ -38,7 +39,7 @@
 	//and the average damage absorption = (blocked/100)*(1-fullblock) + 1.0*(fullblock) = effective_armor
 	var/blocked = (effective_armor - fullblock)/(1 - fullblock)*100
 
-	if(blocked > 20)
+	if(blocked > ARMOR_SOFTEN_THRESHOLD)
 		//Should we show this every single time?
 		if(soften_text)
 			show_message("<span class='warning'>[soften_text]</span>")
@@ -90,7 +91,7 @@
 	//Armor
 	var/absorb = run_armor_check(def_zone, P.check_armour, P.armor_penetration)
 	var/damaged
-	if(absorb > 20)
+	if(absorb > ARMOR_SOFTEN_THRESHOLD)
 		if(P.damage_flags & DAM_SHARP || P.damage_flags & DAM_SHARP || P.damage_flags & DAM_LASER)
 			P.damage_flags &= ~DAM_SHARP
 			P.damage_flags &= ~DAM_EDGE

@@ -125,7 +125,7 @@
 			if(!do_mob(user, target, 1.5 SECONDS))
 				return
 			var/blocked = H.getarmor_organ(H.organs_by_name[BP_CHEST], "melee")
-			if(blocked > 20)
+			if(blocked > ARMOR_SOFTEN_THRESHOLD)
 				user.visible_message("<b>[user]</b> jabs \the [src] into [H], but their armor blocks it!", SPAN_WARNING("You jab \the [src] into [H], but their armor blocks it!"))
 				return
 			user.visible_message("<b>[user]</b> jabs \the [src] between [P] ribs!", SPAN_NOTICE("You jab \the [src] between [SM] ribs!"))
