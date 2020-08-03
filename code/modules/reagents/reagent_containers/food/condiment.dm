@@ -47,8 +47,8 @@
 		return
 
 	var/datum/reagent/master = reagents.get_master_reagent()
-	name = master.condiment_name || (reagents.reagent_list.len == 1) ? "[master.name] bottle" : "condiment bottle"
-	desc = master.condiment_desc || (reagents.reagent_list.len == 1) ? master.description : "A mixture of various condiments. [reagents.get_master_reagent_name()] is one of them."
+	name = master.condiment_name || (reagents.reagent_list.len == 1) ? master.condiment_name : "condiment bottle"
+	desc = master.condiment_desc ? master.condiment_desc : (reagents.reagent_list.len == 1) ? "Looks like it is [reagents.get_master_reagent_name()], but you are not sure." : "A mixture of various condiments. [reagents.get_master_reagent_name()] is one of them."
 	icon_state = master.condiment_icon_state || "mixedcondiments"
 	center_of_mass = master.condiment_center_of_mass || list("x"=16, "y"=6)
 
@@ -62,6 +62,8 @@
 
 /obj/item/reagent_containers/food/condiment/shaker
 	name = "shaker"
+	volume = 20
+	fixed_state = TRUE
 	center_of_mass = list("x"=17, "y"=11)
 	amount_per_transfer_from_this = 1
 	fixed_state = TRUE
@@ -74,40 +76,27 @@
 	shake(user)
 
 /obj/item/reagent_containers/food/condiment/shaker/salt
-	volume = 20
-	fixed_state = TRUE
 	reagents_to_add = list(/datum/reagent/sodiumchloride = 20)
 
 /obj/item/reagent_containers/food/condiment/shaker/peppermill
-	volume = 20
 	reagents_to_add = list(/datum/reagent/blackpepper = 20)
 
 /obj/item/reagent_containers/food/condiment/shaker/diona
-	volume = 20
 	reagents_to_add = list(/datum/reagent/diona_powder = 20)
-
-/obj/item/reagent_containers/food/condiment/flour
-	name = "flour sack"
-	desc = "A big bag of flour. Good for baking!"
-	icon = 'icons/obj/food.dmi'
-	icon_state = "flour"
-	item_state = "flour"
-	center_of_mass = list("x"=16, "y"=8)
-	volume = 220
-	fixed_state = TRUE
-	reagents_to_add = list(/datum/reagent/nutriment/flour = 200)
-
-/obj/item/reagent_containers/food/condiment/flour/Initialize()
-	. = ..()
-	randpixel_xy()
 
 /obj/item/reagent_containers/food/condiment/shaker/spacespice
 	icon_state = "spacespicebottle"
 	volume = 40
 	reagents_to_add = list(/datum/reagent/spacespice = 40)
 
+/obj/item/reagent_containers/food/condiment/flour
+	icon_state = "flour"
+	center_of_mass = list("x"=16, "y"=8)
+	volume = 220
+	fixed_state = TRUE
+	reagents_to_add = list(/datum/reagent/nutriment/flour = 200)
+
 /obj/item/reagent_containers/food/condiment/barbecue
-	icon_state = "barbecue"
 	fixed_state = TRUE
 	reagents_to_add = list(/datum/reagent/nutriment/barbecue = 20)
 

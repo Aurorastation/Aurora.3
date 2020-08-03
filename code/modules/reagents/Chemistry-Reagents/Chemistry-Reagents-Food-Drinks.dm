@@ -372,7 +372,9 @@
 	color = "#FFFFFF"
 	taste_description = "chalky wheat"
 	condiment_name = "flour sack"
+	condiment_desc = "A big bag of flour. Good for baking!"
 	condiment_icon_state = "flour"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /datum/reagent/nutriment/flour/touch_turf(var/turf/simulated/T)
 	if(!istype(T, /turf/space))
@@ -399,6 +401,7 @@
 	taste_description = "umami"
 	taste_mult = 1.1
 	condiment_name = "soy sauce"
+	condiment_desc = "A salty soy-based flavoring."
 	condiment_icon_state = "soysauce"
 
 /datum/reagent/nutriment/ketchup
@@ -409,6 +412,7 @@
 	color = "#731008"
 	taste_description = "ketchup"
 	condiment_name = "ketchup"
+	condiment_desc = "You feel more American already."
 	condiment_icon_state = "ketchup"
 	condiment_center_of_mass = list("x"=16, "y"=6)
 
@@ -420,6 +424,9 @@
 	color = "#FFFFFF"
 	taste_description = "rice"
 	taste_mult = 0.4
+	condiment_name = "rice sack"
+	condiment_icon_state = "rice"
+	condiment_center_of_mass = list("x"=16, "y"=8)
 
 /datum/reagent/nutriment/cherryjelly
 	name = "Cherry Jelly"
@@ -489,6 +496,7 @@
 	nutriment_factor = 4
 	color = "#d8c045"
 	condiment_name = "garlic sauce"
+	condiment_desc = "Perfect for repelling vampires and/or potential dates."
 
 /* Non-food stuff like condiments */
 
@@ -500,6 +508,7 @@
 	overdose = REAGENTS_OVERDOSE
 	taste_description = "salt"
 	condiment_name = "salt shaker"
+	condiment_desc = "Salt. From space oceans, presumably."
 	condiment_icon_state = "saltshakersmall"
 	condiment_center_of_mass = list("x"=17, "y"=11)
 
@@ -514,12 +523,13 @@
 
 /datum/reagent/blackpepper
 	name = "Black Pepper"
-	description = "Often used to flavor food or make people sneeze."
+	description = "A powder ground from peppercorns. *AAAACHOOO*"
 	reagent_state = SOLID
 	color = "#000000"
 	taste_description = "pepper"
 	fallback_specific_heat = 1.25
 	condiment_name = "pepper mill"
+	condiment_desc = "Often used to flavor food or make people sneeze."
 	condiment_icon_state = "peppermillsmall"
 	condiment_center_of_mass = list("x"=17, "y"=11)
 
@@ -533,13 +543,14 @@
 	taste_mult = 0.7
 	fallback_specific_heat = 1
 	condiment_name = "universal enzyme"
+	condiment_desc = "Used in cooking various dishes."
 	condiment_icon_state = "enzyme"
 
 /datum/reagent/frostoil
 	name = "Frost Oil"
 	description = "A special oil that chemically chills the body. Extracted from Ice Peppers."
 	reagent_state = LIQUID
-	color = "#B31008"
+	color = "#005BCC"
 	taste_description = "mint"
 	taste_mult = 1.5
 
@@ -4313,11 +4324,12 @@
 
 /datum/reagent/diona_powder
 	name = "Dionae Powder"
-	description = "Powdered Dionae ambergris to add that extra pazazz to any dish."
+	description = "Powdered Dionae ambergris."
 	reagent_state = SOLID
 	color = "#e08702"
 	taste_description = "diona delicacy"
 	fallback_specific_heat = 2
 	condiment_name = "bottle of dionae powder"
+	condiment_desc = "A vegetarian friendly way to add a little extra pizazz to any dish."
 	condiment_icon_state = "dionaepowder"
 	condiment_center_of_mass = list("x"=16, "y"=10)
