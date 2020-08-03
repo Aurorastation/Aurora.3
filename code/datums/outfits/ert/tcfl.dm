@@ -6,11 +6,19 @@
 	l_ear = /obj/item/device/radio/headset/legion
 	shoes = /obj/item/clothing/shoes/swat/ert
 	gloves = /obj/item/clothing/gloves/swat/ert
-	glasses =  /obj/item/clothing/glasses/sunglasses/aviator
+	glasses = /obj/item/clothing/glasses/sunglasses/aviator
 	back = /obj/item/storage/backpack/legion
 	id = /obj/item/card/id/distress/legion
 
 	backpack_contents = null
+
+/datum/outfit/admin/ert/legion/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(isvaurca(H))
+		H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(H), slot_wear_mask)
+		var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name["phoron reserve tank"]
+		H.internal = preserve
+		H.internals.icon_state = "internal1"
 
 /datum/outfit/admin/ert/legion/get_id_access()
 	return get_distress_access()
