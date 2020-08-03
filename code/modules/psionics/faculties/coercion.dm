@@ -57,34 +57,31 @@
 		return
 
 	if(target.stat == DEAD || (target.status_flags & FAKEDEATH) || !target.client)
-		to_chat(user, SPAN_WARNING("\The [target] is in no state for a mind-read."))
+		to_chat(user, SPAN_WARNING("[target] is in no state for a mind-read."))
 		return TRUE
 
-		for (var/obj/item/implant/mindshield/I in target)
-			if (I.implanted)
-				to_chat(user, SPAN_WARNING("\The [target]'s mind is protected from the mind-read."))
-				return TRUE
-
-		user.visible_message(SPAN_WARNING("\The [user] touches \the [target]'s temple..."))
-		var/question =  input(user, "Say something?", "Read Mind", "Penny for your thoughts?") as null|text
-		if(!question || user.incapacitated() || !do_after(user, 20))
-			return TRUE
-
-		var/started_mindread = world.time
-		var/has_psiaug = target.has_psiaug(user)
-		if(has_psiaug)
-			to_chat(user, SPAN_NOTICE("<b>Your psyche links with [target]'s psi-receiver, seeking an answer from their mind's surface: <i>[question]</i></b>"))
-			to_chat(target, SPAN_NOTICE("<b>[user]'s psyche links with your psi-receiver, your mind is compelled to answer: <i>[question]</i></b>"))
-		else
-			to_chat(user, SPAN_NOTICE("<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking an answer: <i>[question]</i></b>"))
-			to_chat(target, SPAN_NOTICE("<b>Your mind is compelled to answer: <i>[question]</i></b>"))
-		var/answer =  sanitize(input(target, question, "Read Mind") as null|text)
-		if(!answer || world.time > started_mindread + 25 SECONDS || user.stat != CONSCIOUS || target.stat == DEAD)
-			to_chat(user, SPAN_NOTICE("<b>You receive nothing useful from \the [target].</b>"))
-		else
-			to_chat(user, SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: <i>[answer]</i></b>"))
-		msg_admin_attack("[key_name(user)] read mind of [key_name(target)] with question \"[question]\" and [answer?"got answer \"[answer]\".":"got no answer."]")
+	user.visible_message(SPAN_WARNING("\The [user] touches \the [target]'s temple..."))
+	var/question =  sanitize(input(user, "Say something?", "Read Mind", "Penny for your thoughts?") as null|text)
+	if(!question || user.incapacitated() || !do_mob(user, target, 20))
 		return TRUE
+	var/psi_blocked = target.is_psi_blocked()
+	if(psi_blocked)
+		to_chat(user, psi_blocked)
+		return TRUE
+	var/started_mindread = world.time
+	if(target.has_psi_aug())
+		to_chat(user, SPAN_NOTICE("<b>Your psyche links with [target]'s psi-receiver, seeking an answer from their mind's surface: <i>[question]</i></b>"))
+		to_chat(target, SPAN_NOTICE("<b>[user]'s psyche links with your psi-receiver, your mind is compelled to answer: <i>[question]</i></b>"))
+	else
+		to_chat(user, SPAN_NOTICE("<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking an answer: <i>[question]</i></b>"))
+		to_chat(target, SPAN_NOTICE("<b>Your mind is compelled to answer: <i>[question]</i></b>"))
+	var/answer =  sanitize(input(target, question, "Read Mind") as null|text)
+	if(!answer || world.time > started_mindread + 25 SECONDS || user.stat != CONSCIOUS || target.stat == DEAD)
+		to_chat(user, SPAN_NOTICE("<b>You receive nothing useful from \the [target].</b>"))
+	else
+		to_chat(user, SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: <i>[answer]</i></b>"))
+	msg_admin_attack("[key_name(user)] read mind of [key_name(target)] with question \"[question]\" and [answer?"got answer \"[answer]\".":"got no answer."]")
+	return TRUE
 
 /datum/psionic_power/coercion/agony
 	name =          "Agony"
@@ -237,7 +234,7 @@
 	admin_log = FALSE
 
 /datum/psionic_power/coercion/commune/invoke(var/mob/living/user, var/mob/living/target)
-	if((target == user) || user.zone_sel.selecting != BP_MOUTH)
+	if(user.zone_sel.selecting != BP_MOUTH)
 		return FALSE
 	. = ..()
 	if(.)
@@ -252,10 +249,10 @@
 			to_chat(user, SPAN_CULT("Not even a psion of your level can speak to the dead."))
 			return
 
-		for (var/obj/item/implant/mindshield/I in target)
-			if (I.implanted)
-				to_chat(user, SPAN_WARNING("\The [target]'s mind rejects your attempt to communicate."))
-				return TRUE
+		var/psi_blocked = target.is_psi_blocked()
+		if(psi_blocked)
+			to_chat(user, psi_blocked)
+			return
 
 		log_say("[key_name(user)] communed to [key_name(target)]: [text]",ckey=key_name(src))
 
@@ -268,10 +265,9 @@
 				to_chat(M, "<span class='notice'>[user] psionically says to [target]:</span> [text]")
 
 		var/mob/living/carbon/human/H = target
-		var/has_psiaug = target.has_psiaug(user)
 		if(H.can_commune() || H.psi)
 			to_chat(H, SPAN_CULT("<b>You instinctively sense [user] passing a thought into your mind:</b> [text]"))
-		else if(has_psiaug)
+		else if(target.has_psi_aug())
 			to_chat(H, SPAN_CULT("<b>You sense [user]'s psyche link with your psi-receiver, a thought sliding into your mind:</b> [text]"))
 		else
 			to_chat(H, SPAN_ALIEN("<b>A thought from outside your consciousness slips into your mind:</b> [text]"))
