@@ -318,13 +318,6 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/burger/bigbite
 
-/datum/recipe/fishandchips
-	items = list(
-		/obj/item/reagent_containers/food/snacks/fries,
-		/obj/item/reagent_containers/food/snacks/fish
-	)
-	result = /obj/item/reagent_containers/food/snacks/fishandchips
-
 /datum/recipe/sandwich
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meatsteak,
@@ -529,22 +522,6 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sausage
 	result_quantity = 2
-
-/datum/recipe/fishfingers
-	reagents = list(/datum/reagent/nutriment/flour = 10,/datum/reagent/nutriment/protein/egg = 3)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/fish/fishfillet
-	)
-	result = /obj/item/reagent_containers/food/snacks/fishfingers
-	reagent_mix = RECIPE_REAGENT_REPLACE
-
-/datum/recipe/carpfingers
-	reagents = list(/datum/reagent/nutriment/flour = 10,/datum/reagent/nutriment/protein/egg = 3)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/fish/carpmeat
-	)
-	result = /obj/item/reagent_containers/food/snacks/carpfingers
-	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/mysterysoup
 	reagents = list(/datum/reagent/water = 10, /datum/reagent/nutriment/protein/egg = 3)

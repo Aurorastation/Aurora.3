@@ -825,15 +825,7 @@
 	icon_state = "fishfingers"
 	filling_color = "#FFDEFE"
 	bitesize = 3
-	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 7) //Extra reagents because we had to clear the original ingredients due to doughball reactions.
-
-/obj/item/reagent_containers/food/snacks/carpfingers
-	name = "fish fingers"
-	desc = "A finger of fish."
-	icon_state = "fishfingers"
-	filling_color = "#FFDEFE"
-	bitesize = 3
-	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 7, /datum/reagent/toxin/carpotoxin = 3) //Extra reagents because we had to clear the original ingredients due to doughball reactions.
+	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 7)
 
 /obj/item/reagent_containers/food/snacks/hugemushroomslice
 	name = "huge mushroom slice"
@@ -1811,7 +1803,7 @@
 	icon_state = "fishandchips"
 	filling_color = "#E3D796"
 	center_of_mass = list("x"=16, "y"=16)
-	reagents_to_add = list(/datum/reagent/nutriment = 3, /datum/reagent/nutriment/protein/seafood = 3)
+	reagents_to_add = list(/datum/reagent/nutriment = 3, /datum/reagent/nutriment/protein/seafood = 7)
 	reagent_data = list(/datum/reagent/nutriment = list("salt" = 1, "chips" = 3))
 	bitesize = 3
 
