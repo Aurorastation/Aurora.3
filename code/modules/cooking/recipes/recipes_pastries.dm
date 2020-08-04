@@ -181,6 +181,10 @@
 	items = list(/obj/item/reagent_containers/food/snacks/sliceable/flatdough)
 	result = /obj/item/reagent_containers/food/snacks/pie
 
+/datum/recipe/pie/apple
+	fruit = list("apple" = 1)
+	result = /obj/item/reagent_containers/food/snacks/applepie
+
 /datum/recipe/pie/cherry
 	fruit = list("cherries" = 1)
 	reagents = list(/datum/reagent/sugar = 10)
@@ -196,11 +200,11 @@
 	reagents = null
 	result = /obj/item/reagent_containers/food/snacks/plump_pie
 
-/datum/recipe/pumpkinpie
-	appliance = OVEN
-	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/sugar = 5, /datum/reagent/nutriment/protein/egg = 3, /datum/reagent/nutriment/flour = 10, /datum/reagent/nutriment/pumpkinpulp = 5, /datum/reagent/spacespice/pumpkinspice = 2)
+/datum/recipe/pie/pumpkin
+	fruit = null
+	reagents = list(/datum/reagent/sugar = 5, /datum/reagent/nutriment/pumpkinpulp = 5, /datum/reagent/spacespice/pumpkinspice = 2)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/pumpkinpie
-	reagent_mix = RECIPE_REAGENT_REPLACE //We dont want raw egg in the result
+	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/appletart
 	appliance = OVEN
@@ -215,3 +219,12 @@
 	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/sugar = 5, /datum/reagent/nutriment/protein/egg = 3, /datum/reagent/nutriment/flour = 10)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/keylimepie
 	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
+
+//Confections
+/datum/recipe/chocolateegg
+	appliance = SAUCEPAN | POT // melt the chocolate
+	items = list(
+		/obj/item/reagent_containers/food/snacks/egg,
+		/obj/item/reagent_containers/food/snacks/chocolatebar
+	)
+	result = /obj/item/reagent_containers/food/snacks/chocolateegg

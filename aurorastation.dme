@@ -1472,6 +1472,7 @@
 #include "code\modules\cooking\recipes\recipes_fryer.dm"
 #include "code\modules\cooking\recipes\recipes_meat.dm"
 #include "code\modules\cooking\recipes\recipes_mix.dm"
+#include "code\modules\cooking\recipes\recipes_pan.dm"
 #include "code\modules\cooking\recipes\recipes_pastries.dm"
 #include "code\modules\cooking\recipes\recipes_soup.dm"
 #include "code\modules\cooking\recipes\cultural\recipes_earth.dm"

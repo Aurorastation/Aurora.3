@@ -34,30 +34,11 @@
 	reagents = list(/datum/reagent/water = 20)
 	result= /obj/item/reagent_containers/food/snacks/soup/wish
 
-/datum/recipe/hotchili
-	appliance = SAUCEPAN | POT
-	fruit = list("chili" = 1, "tomato" = 1)
-	items = list(/obj/item/reagent_containers/food/snacks/meat)
-	result = /obj/item/reagent_containers/food/snacks/hotchili
-
-/datum/recipe/coldchili
-	appliance = SAUCEPAN | POT
-	fruit = list("icechili" = 1, "tomato" = 1)
-	items = list(/obj/item/reagent_containers/food/snacks/meat)
-	result = /obj/item/reagent_containers/food/snacks/coldchili
-
 /datum/recipe/tomatosoup
 	appliance = SAUCEPAN | POT
 	fruit = list("tomato" = 2)
 	reagents = list(/datum/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/tomato
-
-/datum/recipe/stew
-	appliance = POT
-	fruit = list("potato" = 1, "tomato" = 1, "carrot" = 1, "eggplant" = 1, "mushroom" = 1)
-	reagents = list(/datum/reagent/water = 10)
-	items = list(/obj/item/reagent_containers/food/snacks/meat)
-	result = /obj/item/reagent_containers/food/snacks/stew
 
 /datum/recipe/milosoup
 	appliance = POT
@@ -111,3 +92,39 @@
 	fruit = list("whitebeet" = 1, "cabbage" = 1)
 	reagents = list(/datum/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/beet
+
+// Stews
+/datum/recipe/stew
+	appliance = POT
+	fruit = list("potato" = 1, "tomato" = 1, "carrot" = 1, "eggplant" = 1, "mushroom" = 1)
+	reagents = list(/datum/reagent/water = 10)
+	items = list(/obj/item/reagent_containers/food/snacks/meat)
+	result = /obj/item/reagent_containers/food/snacks/stew
+
+/datum/recipe/bearstew
+	appliance = POT
+	fruit = list("potato" = 1, "tomato" = 1, "carrot" = 1, "eggplant" = 1, "mushroom" = 1)
+	reagents = list(/datum/reagent/water = 10)
+	items = list(/obj/item/reagent_containers/food/snacks/bearmeat)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/stew/bear
+
+// Chili
+/datum/recipe/bearchili
+	appliance = SAUCEPAN | POT
+	fruit = list("chili" = 1, "tomato" = 1)
+	items = list(/obj/item/reagent_containers/food/snacks/bearmeat)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/bearchili
+
+/datum/recipe/hotchili
+	appliance = SAUCEPAN | POT
+	fruit = list("chili" = 1, "tomato" = 1)
+	items = list(/obj/item/reagent_containers/food/snacks/meat)
+	result = /obj/item/reagent_containers/food/snacks/hotchili
+
+/datum/recipe/coldchili
+	appliance = SAUCEPAN | POT
+	fruit = list("icechili" = 1, "tomato" = 1)
+	items = list(/obj/item/reagent_containers/food/snacks/meat)
+	result = /obj/item/reagent_containers/food/snacks/coldchili

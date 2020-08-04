@@ -77,3 +77,11 @@
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/nugget
+
+/datum/recipe/fishandchips
+	appliance = SKILLET
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fries,
+		/obj/item/reagent_containers/food/snacks/carpmeat
+	)
+	result = /obj/item/reagent_containers/food/snacks/fishandchips

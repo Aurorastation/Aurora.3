@@ -1,5 +1,3 @@
-//Toast
-//=========================
 /datum/recipe/pizzamargherita
 	appliance = OVEN
 	fruit = list("tomato" = 1)
@@ -95,16 +93,12 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/berryclafoutis
 
-//Tacos
-//=========================
-/datum/recipe/loadedbakedpotato // It counts if you split it to put toppings in.
+/datum/recipe/loadedbakedpotato
 	appliance = OVEN
 	fruit = list("potato" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/cheesewedge)
 	result = /obj/item/reagent_containers/food/snacks/loadedbakedpotato
 
-//Salads
-//=========================
 /datum/recipe/dionaroast
 	appliance = OVEN
 	fruit = list("apple" = 1)
@@ -129,8 +123,6 @@
 		)
 	result = /obj/item/reagent_containers/food/snacks/eggplantparm
 
-//Calzones
-//=========================
 /datum/recipe/meat_pocket
 	appliance = OVEN
 	items = list(
@@ -148,3 +140,30 @@
 		/obj/item/reagent_containers/food/snacks/meatball
 	)
 	result = /obj/item/reagent_containers/food/snacks/donkpocket //does it make sense for newly made donk to come out cold? no, do I care? coincidentally, also no.
+
+/datum/recipe/plumphelmetbiscuit
+	appliance = OVEN
+	fruit = list("plumphelmet" = 1)
+	reagents = list(/datum/reagent/water = 5, /datum/reagent/nutriment/flour = 5)
+	result = /obj/item/reagent_containers/food/snacks/plumphelmetbiscuit
+
+/datum/recipe/spacylibertyduff
+	appliance = OVEN
+	reagents = list(/datum/reagent/water = 5, /datum/reagent/alcohol/ethanol/vodka = 5, /datum/reagent/psilocybin = 5)
+	result = /obj/item/reagent_containers/food/snacks/spacylibertyduff
+
+/datum/recipe/hotdiggitydonk //heated donk, in lieu of a microwave
+	appliance = OVEN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/donkpocket
+	)
+	result = /obj/item/reagent_containers/food/snacks/donkpocket/warm
+
+/datum/recipe/rofflewaffles
+	appliance = OVEN
+	reagents = list(/datum/reagent/psilocybin = 5, /datum/reagent/sugar = 10)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough
+	)
+	result = /obj/item/reagent_containers/food/snacks/rofflewaffles

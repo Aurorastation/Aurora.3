@@ -159,6 +159,15 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/lomein
 
+/datum/recipe/stewedsoymeat
+	appliance = SAUCEPAN
+	fruit = list("carrot" = 1, "tomato" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/soydope,
+		/obj/item/reagent_containers/food/snacks/soydope
+	)
+	result = /obj/item/reagent_containers/food/snacks/stewedsoymeat
+
 // Toasts
 //=========================
 /datum/recipe/tofurkey
