@@ -100,9 +100,9 @@
 /obj/item/organ/internal/stomach/proc/metabolize()
 	if(is_usable())
 		ingested.metabolize()
-	
+
 #define STOMACH_VOLUME 65
-	
+
 /obj/item/organ/internal/stomach/process()
 	..()
 	if(owner)
