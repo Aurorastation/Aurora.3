@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - bugfix: "Antagonist candidate selection is now more intelligent when there are multiple types of antagonist in the round to prepare for."
