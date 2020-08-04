@@ -75,7 +75,9 @@
 		var/mob/living/L = food
 		if((species.gluttonous & GLUT_TINY) && (L.mob_size <= MOB_TINY) && !ishuman(food)) // Anything MOB_TINY or smaller
 			return DEVOUR_SLOW
-		else if((species.gluttonous & (GLUT_SMALLER|GLUT_MESSY)) && owner.mob_size > L.mob_size) // Anything we're larger than
+		else if((species.gluttonous & GLUT_SMALLER) && owner.mob_size > L.mob_size) // Anything we're larger than
+			return DEVOUR_SLOW
+		else if(species.gluttonous & GLUT_MESSY) // Anything we're smaller than
 			return DEVOUR_SLOW
 		else if(species.gluttonous & GLUT_ANYTHING) // Eat anything ever
 			return DEVOUR_FAST

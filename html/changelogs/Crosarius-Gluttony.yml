@@ -1,0 +1,8 @@
+# Your name.  
+author: Crosarius
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed Unathi not being able to eat mobs larger than themselves in their usual spectacularly messy fashion. Carp, cows, etc are back on the menu+."
