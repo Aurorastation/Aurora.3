@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "TCFL vaurca now spawn with filter ports."
-  - bugfix: "Kataphract K'lax internals buttons now update correctly."
