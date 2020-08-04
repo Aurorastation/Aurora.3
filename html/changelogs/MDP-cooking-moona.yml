@@ -57,6 +57,7 @@ changes:
   - rscadd: "Adds several new plants from the Jargon Federation: q'lort, guami, eki, and ylpha."
   - rscadd: "Ports sushi from Baystation."
   - rscadd: "Adds new flavoring syrups, as well as simple syrup."
+  - rscadd: "Adds several new kinds of flavored latte."
   - tweak: "Changes the pumpkin spice latte recipes to use pumpkin spice flavoring syrup."
   - refactor: "Recipes are now spread out across more files."
   - refactor: "Seed datums are now spread out across more files and categorised."
