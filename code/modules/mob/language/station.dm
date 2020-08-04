@@ -2,8 +2,8 @@
 	name = LANGUAGE_ROOTSONG
 	desc = "A creaking, subvocal language spoken instinctively by the Dionaea. Due to the unique makeup of the average Diona, a phrase of Rootspeak can be a combination of anywhere from one to twelve individual voices and notes."
 	speech_verb = "creaks and rustles"
-	ask_verb = "creaks"
-	exclaim_verb = "rustles"
+	ask_verb = list("creaks")
+	exclaim_verb = list("rustles")
 	colour = "soghun"
 	key = "q"
 	flags = RESTRICTED|TCOMSSIM
@@ -24,8 +24,8 @@
 	name = LANGUAGE_UNATHI
 	desc = "The common language of Moghes, composed of sibilant hisses and rattles. Spoken natively by Unathi."
 	speech_verb = "hisses"
-	ask_verb = "hisses"
-	exclaim_verb = "roars"
+	ask_verb = list("hisses")
+	exclaim_verb = list("roars")
 	colour = "soghun"
 	key = "o"
 	flags = WHITELISTED|TCOMSSIM
@@ -48,8 +48,8 @@
 	name = LANGUAGE_SIIK_MAAS
 	desc = "The traditionally employed tongue of Adhomai, composed of expressive yowls and chirps. Native to the Tajara."
 	speech_verb = "mrowls"
-	ask_verb = "mrowls"
-	exclaim_verb = "yowls"
+	ask_verb = list("mrowls")
+	exclaim_verb = list("yowls")
 	colour = "tajaran"
 	key = "j"
 	flags = WHITELISTED|TCOMSSIM
@@ -85,8 +85,8 @@
 	name = LANGUAGE_SIIK_TAJR
 	desc = "A language native to the tajaran, it employes both verbal and non-verbal elements."
 	speech_verb = "mrowls"
-	ask_verb = "mrowls"
-	exclaim_verb = "yowls"
+	ask_verb = list("mrowls")
+	exclaim_verb = list("yowls")
 	signlang_verb = list("signs", "flicks their ears", "gestures")
 	colour = "tajaran_signlang"
 	key = "w"
@@ -101,8 +101,8 @@
 	name = LANGUAGE_YA_SSA
 	desc = "The traditional language of the tajaran nobility."
 	speech_verb = "mrowls"
-	ask_verb = "mrowls"
-	exclaim_verb = "yowls"
+	ask_verb = list("mrowls")
+	exclaim_verb = list("yowls")
 	colour = "yassa"
 	key = "r"
 	flags = WHITELISTED|TCOMSSIM
@@ -117,8 +117,8 @@
 	name = LANGUAGE_DELVAHII
 	desc = "A dialect developed by the Zhan-Khazan communities, commonly used in religious ceremonies dedicated to the Snow God and amongst settlements comprised mostly of Zhan-Khazan."
 	speech_verb = "mrowls"
-	ask_verb = "mrowls"
-	exclaim_verb = "yowls"
+	ask_verb = list("mrowls")
+	exclaim_verb = list("yowls")
 	colour = "delvahhi"
 	key = "n"
 	flags = WHITELISTED|TCOMSSIM
@@ -133,8 +133,8 @@
 	name = LANGUAGE_SKRELLIAN
 	desc = "A melodic and complex language spoken by the Skrell of Qerrbalak. Some of the notes are inaudible to humans."
 	speech_verb = "warbles"
-	ask_verb = "warbles"
-	exclaim_verb = "warbles"
+	ask_verb = list("warbles")
+	exclaim_verb = list("warbles")
 	colour = "skrell"
 	key = "k"
 	flags = WHITELISTED|TCOMSSIM
@@ -233,7 +233,7 @@
 	name = LANGUAGE_SOL_COMMON
 	desc = "With its roots in Mandarin Chinese, Common evolved as the official language of the Sol Alliance, with officials working to tie it together with a common tongue. It's spoken by state officials, taught in schools, and spoken by those who either feel a sense of national pride in the Alliance or otherwise fell sway to the culture."
 	speech_verb = "says"
-	whisper_verb = "whispers"
+	whisper_verb = list("whispers")
 	colour = "solcom"
 	key = "1"
 	flags = WHITELISTED | TCOMSSIM
@@ -248,14 +248,6 @@
 	"zu", "zun", "zuo")
 	allow_accents = TRUE
 
-/datum/language/human/get_spoken_verb(var/msg_end)
-	switch(msg_end)
-		if("!")
-			return pick("exclaims","shouts","yells") //TODO: make the basic proc handle lists of verbs.
-		if("?")
-			return ask_verb
-	return speech_verb
-
 /datum/language/human/get_random_name(var/gender)
 	if (prob(80))
 		if(gender==FEMALE)
@@ -269,8 +261,8 @@
 	name = LANGUAGE_EAL
 	desc = "A language of encoded tones that allow for IPCs to communicate auditorily between each other in a manner that allows for easier transfer of information."
 	speech_verb = "beeps"
-	ask_verb = "beeps"
-	exclaim_verb = "loudly beeps"
+	ask_verb = list("beeps")
+	exclaim_verb = list("loudly beeps")
 	colour = "changeling"
 	key = "6"
 	flags = RESTRICTED | NO_STUTTER | TCOMSSIM
@@ -286,8 +278,8 @@
 	name = LANGUAGE_AZAZIBA
 	desc = "A language of Moghes consisting of a combination of spoken word and gesticulation. While waning since Moghes entered the galactic stage, it enjoys popular use by Unathi that never fell to the Hegemony's cultural dominance."
 	speech_verb = "hisses"
-	ask_verb = "hisses"
-	exclaim_verb = "roars"
+	ask_verb = list("hisses")
+	exclaim_verb = list("roars")
 	signlang_verb = list("signs", "gestures aggressively")
 	colour = "soghun_alt"
 	key = "p"

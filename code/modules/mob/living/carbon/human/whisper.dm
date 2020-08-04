@@ -50,7 +50,7 @@
 			whisper_text = "[speaking.speech_verb] [adverb]"
 			not_heard = "[speaking.speech_verb] something [adverb]"
 	else
-		not_heard = "[whisper_text] something" //TODO get rid of the null language and just prevent speech if language is null
+		not_heard = "[whisper_text] something"
 
 	message = capitalize(trim(message))
 
