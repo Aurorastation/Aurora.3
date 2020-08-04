@@ -19,7 +19,8 @@
 
 	blinded = 0 // Placing this here just show how out of place it is.
 
-	handle_regular_status_updates()
+	if(handle_regular_status_updates())
+		handle_status_effects()
 
 	if(stat != DEAD)
 		aura_check(AURA_TYPE_LIFE)
@@ -77,6 +78,22 @@
 		else
 			stat = CONSCIOUS
 		return 1
+
+/mob/living/proc/handle_status_effects()
+	if(paralysis)
+		paralysis = max(paralysis-1,0)
+	if(stunned)
+		stunned = max(stunned-1,0)
+		if(!stunned)
+			update_icon()
+
+	if(weakened)
+		weakened = max(weakened-1,0)
+		if(!weakened)
+			update_icon()
+
+	if(confused)
+		confused = max(0, confused - 1)
 
 /mob/living/proc/handle_disabilities()
 	//Eyes

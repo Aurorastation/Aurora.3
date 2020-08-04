@@ -1,6 +1,9 @@
 /mob/living/heavy_vehicle/handle_disabilities()
 	return
 
+/mob/living/heavy_vehicle/handle_status_effects()
+	return
+
 /mob/living/heavy_vehicle/Life()
 
 	// Size offsets for large mechs.
