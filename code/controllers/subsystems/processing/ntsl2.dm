@@ -100,6 +100,8 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 				var/datum/ntsl2_program/computer/P = program
 				if(istype(P))
 					P.buffer = response
+					if(istype(P.buffer_update_callback))
+						P.buffer_update_callback.InvokeAsync()
 			return
 	var/datum/callback/cb = task["callback"]
 	if(istype(cb))

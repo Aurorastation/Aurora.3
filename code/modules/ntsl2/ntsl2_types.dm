@@ -1,11 +1,12 @@
 
 
-/datum/controller/subsystem/processing/ntsl2/proc/new_program_computer(var/computer)
+/datum/controller/subsystem/processing/ntsl2/proc/new_program_computer(var/buffer_callback)
 	var/datum/ntsl2_program/computer/P = new()
-	var/res = send_task("new_program", list(ref = "\ref[computer]", type = "Computer"), program = P)
+	var/res = send_task("new_program", list(type = "Computer"), program = P)
 	if(res)
 		programs += P
 		START_PROCESSING(SSntsl2, P)
+		P.buffer_update_callback = buffer_callback
 		return P
 	qdel(P)
 	return FALSE
@@ -25,6 +26,7 @@
 	name = "NTSL2++ interpreter"
 	var/buffer = ""
 	var/last_buffer_task = 0
+	var/datum/callback/buffer_update_callback
 
 /datum/ntsl2_program/computer/proc/handle_topic(var/topic)
 	if(!is_ready())

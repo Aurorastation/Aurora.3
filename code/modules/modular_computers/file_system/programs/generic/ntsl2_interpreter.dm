@@ -24,7 +24,7 @@
 /datum/computer_file/program/ntsl2_interpreter/run_program(mob/user)
 	. = ..()
 	if(.)
-		running = SSntsl2.new_program_computer(src)
+		running = SSntsl2.new_program_computer(CALLBACK(src, .proc/buffer_callback_handler))
 
 /datum/computer_file/program/ntsl2_interpreter/Topic(href, href_list)
 	if(..())
@@ -50,7 +50,7 @@
 		if(istype(running))
 			running.kill()
 			// Prepare for next execution
-			running = SSntsl2.new_program_computer(src)
+			running = SSntsl2.new_program_computer(CALLBACK(src, .proc/buffer_callback_handler))
 			is_running = FALSE
 
 	if(href_list["edit_file"])
@@ -99,19 +99,14 @@
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-ntsl-main", 600, 520, filedesc)
-		ui.auto_update_content = TRUE
 	ui.open()
 
 /datum/computer_file/program/ntsl2_interpreter/vueui_transfer(oldobj)
-	var/uis = SSvueui.transfer_uis(oldobj, src, "mcomputer-ntsl-main", 600, 520, filedesc)
-	for(var/i in uis)
-		var/datum/vueui/ui = i
-		ui.auto_update_content = TRUE
+	SSvueui.transfer_uis(oldobj, src, "mcomputer-ntsl-main", 600, 520, filedesc)
 	return TRUE
 
 /datum/computer_file/program/ntsl2_interpreter/vueui_on_transfer(datum/vueui/ui)
 	. = ..()
-	ui.auto_update_content = FALSE
 
 /datum/computer_file/program/ntsl2_interpreter/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	. = ..()
@@ -143,45 +138,8 @@
 				"type" = F.filetype,
 				"size" = F.size,
 				"undeletable" = F.undeletable
-			)))
+			))
 	
 
-/*
-/datum/nano_module/program/computer_ntsl2_interpreter
-	name = "NTSL2++ Interpreter"
-
-/datum/nano_module/program/computer_ntsl2_interpreter/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
-	var/list/data = host.initial_data()
-	var/datum/computer_file/program/ntsl2_interpreter/PRG
-	if(program)
-		PRG = program
-	else
-		return
-
-	var/obj/item/computer_hardware/hard_drive/HDD
-
-	if(!PRG.computer || !PRG.computer.hard_drive)
-		data["error"] = "I/O ERROR: Unable to access hard drive."
-	else if(istype(PRG.running) && PRG.is_running)
-		data["running"] = PRG.running.name
-		data["terminal"] = PRG.running.buffer
-	else
-		HDD = PRG.computer.hard_drive
-		var/list/files[0]
-		for(var/datum/computer_file/F in HDD.stored_files)
-			if(F.filetype == "TXT" && !F.password)
-				files.Add(list(list(
-					"name" = F.filename,
-					"type" = F.filetype,
-					"size" = F.size,
-					"undeletable" = F.undeletable
-				)))
-		data["files"] = files
-
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "ntsl_interpreter.tmpl", "NTSL2+ Interpreter", 575, 700, state = state)
-		ui.auto_update_layout = 1
-		ui.set_initial_data(data)
-		ui.open()
-*/
+/datum/computer_file/program/ntsl2_interpreter/proc/buffer_callback_handler()
+	SSvueui.check_uis_for_change(src)
