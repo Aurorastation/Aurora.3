@@ -44,3 +44,4 @@ changes:
   - rscdel: "Chaplain no longer has any weird interactions with Commune."
   - tweak: "Commune cost has been increased to 15, cooldown decreased to 10."
   - tweak: "Read mind cost increased to 30, cooldown decreased to 150."
+  - tweak: "Commune message was changed from temple tapping, as well as denial messages for Commune and Read Mind."
