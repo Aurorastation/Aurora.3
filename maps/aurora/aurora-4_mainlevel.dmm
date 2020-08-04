@@ -2406,6 +2406,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"aeB" = (
+/obj/item/device/radio/intercom{
+	desc = "Talk... listen through this.";
+	name = "Station Intercom (General)";
+	pixel_y = 25;
+	wires = 7
+	},
+/turf/simulated/floor/tiled,
+/area/janitor)
 "aeC" = (
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment{
@@ -31500,15 +31509,6 @@
 /turf/simulated/floor/tiled,
 /area/janitor)
 "bcN" = (
-/turf/simulated/floor/tiled,
-/area/janitor)
-"bcO" = (
-/obj/item/device/radio/intercom{
-	desc = "Talk... listen through this.";
-	name = "Station Intercom (Brig Radio)";
-	pixel_y = 25;
-	wires = 7
-	},
 /turf/simulated/floor/tiled,
 /area/janitor)
 "bcP" = (
@@ -84878,7 +84878,7 @@ aXN
 hxQ
 bas
 bau
-bcO
+aeB
 bcN
 bcN
 bcN
