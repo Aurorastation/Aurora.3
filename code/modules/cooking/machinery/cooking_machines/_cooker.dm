@@ -108,14 +108,16 @@
 	var/datum/gas_mixture/loc_air = loc.return_air()
 	if ((temperature >= set_temp) && (stat || use_power == 1))
 		temperature -= min(loss, temperature - loc_air.temperature)
-		temp_change = loss * resistance
+		temp_change = active_power_usage
 	if(!stat)
 		heat_up()
 		update_cooking_power() // update!
 	for(var/datum/cooking_item/CI in cooking_objs)
-		if(CI.container.reagents?.get_temperature() >= temperature)
-			temp_change = min(loss, CI.container.reagents?.get_temperature() - loc_air.temperature)
-		CI.container.reagents?.add_thermal_energy(temp_change)
+		if(!CI.container.reagents)
+			continue
+		if(CI.container.reagents.get_temperature() >= temperature)
+			temp_change = loss
+		CI.container.reagents.add_thermal_energy(temp_change)
 	return ..()
 
 /obj/machinery/appliance/cooker/power_change()

@@ -24,17 +24,17 @@
 /obj/item/reagent_containers/food/condiment/proc/shake(var/mob/user)
 	if(world.time >= next_shake)
 		if(reagents.total_volume > 0)
-			user.visible_message(pick(SPAN_NOTICE("[user] shakes \the [src]."), SPAN_NOTICE("[user] gives \the [src] a good shake.")), SPAN_NOTICE("You give \the [src] a good shake."))
+			user.visible_message(pick(SPAN_NOTICE("[user] shakes [src]."), SPAN_NOTICE("[user] gives [src] a good shake.")), SPAN_NOTICE("You give [src] a good shake."))
 			playsound(get_turf(src),'sound/items/condiment_shaking.ogg', rand(10,50), 1)
 		else
-			user.visible_message(pick(SPAN_NOTICE("[user] shakes \the [src], but it makes no noise."), SPAN_NOTICE("[user] gives \the [src] a good shake, but it makes no noise.")), SPAN_NOTICE("You give \the [src] a good shake, but it makes no noise."))
+			user.visible_message(pick(SPAN_NOTICE("[user] shakes [src], but it makes no noise."), SPAN_NOTICE("[user] gives [src] a good shake, but it makes no noise.")), SPAN_NOTICE("You give [src] a good shake, but it makes no noise."))
 		next_shake = world.time + 30
 
 /obj/item/reagent_containers/food/condiment/feed_sound(var/mob/user)
 	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 
 /obj/item/reagent_containers/food/condiment/self_feed_message(var/mob/user)
-	to_chat(user, "<span class='notice'>You swallow some of contents of \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You swallow some of the contents of [src]."))
 
 /obj/item/reagent_containers/food/condiment/on_reagent_change(var/force = FALSE)
 	if(fixed_state && !force)
@@ -64,6 +64,7 @@
 	name = "shaker"
 	center_of_mass = list("x"=17, "y"=11)
 	amount_per_transfer_from_this = 1
+	volume = 20
 	fixed_state = TRUE
 
 /obj/item/reagent_containers/food/condiment/shaker/Initialize()
@@ -74,16 +75,12 @@
 	shake(user)
 
 /obj/item/reagent_containers/food/condiment/shaker/salt
-	volume = 20
-	fixed_state = TRUE
 	reagents_to_add = list(/datum/reagent/sodiumchloride = 20)
 
 /obj/item/reagent_containers/food/condiment/shaker/peppermill
-	volume = 20
 	reagents_to_add = list(/datum/reagent/blackpepper = 20)
 
 /obj/item/reagent_containers/food/condiment/shaker/diona
-	volume = 20
 	reagents_to_add = list(/datum/reagent/diona_powder = 20)
 
 /obj/item/reagent_containers/food/condiment/flour

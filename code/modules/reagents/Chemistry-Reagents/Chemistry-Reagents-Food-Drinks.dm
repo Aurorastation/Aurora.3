@@ -1504,6 +1504,31 @@
 	..()
 	M.heal_organ_damage(0.1 * removed, 0)
 
+/datum/reagent/drink/coffee/latte/caramel
+	name = "Caramel Latte"
+	description = "A latte with caramel flavoring syrup added."
+	taste_description = "bitter caramel cream"
+
+	glass_icon_state = "caramel_latte"
+	glass_name = "glass of caramel latte"
+	glass_desc = "A latte with caramel syrup drizzled into it. Lovely!"
+/datum/reagent/drink/coffee/latte/mocha
+	name = "Mocha Latte"
+	description = "A latte with chocolate flavoring syrup added."
+	taste_description = "bitter chocolate cream"
+
+	glass_icon_state = "mocha_latte"
+	glass_name = "glass of chocolate latte"
+	glass_desc = "A latte with chocolate syrup drizzled into it. Lovely!"
+/datum/reagent/drink/coffee/latte/vanilla
+	name = "Vanilla Latte"
+	description = "A latte with vanilla flavoring syrup added."
+	taste_description = "bitter vanilla cream"
+
+	glass_icon_state = "caramel_latte"
+	glass_name = "glass of vanilla latte"
+	glass_desc = "A latte with vanilla syrup drizzled into it. Lovely!"
+
 /datum/reagent/drink/coffee/cappuccino
 	name = "Cappuccino"
 	description = "Espresso with steamed milk foam."
@@ -1558,7 +1583,7 @@
 	glass_name = "glass of pumpkin spice frappe"
 	glass_desc = "A seasonal treat popular around the autumn times."
 
-/datum/reagent/drink/coffee/pslatte
+/datum/reagent/drink/coffee/latte/pumpkinspice
 	name = "Pumpkin Spice Latte"
 	description = "A seasonal drink favored in autumn."
 	color = "#9C6B19"
@@ -4307,7 +4332,7 @@
 
 /datum/reagent/nutriment/pumpkinpulp
 	name = "Pumpkin Pulp"
-	description = "The gooey insides of a slain pumpkin"
+	description = "The gooey insides of a slain pumpkin. This day is the greatest..."
 	color = "#f9ab28"
 	taste_description = "gooey pumpkin"
 
@@ -4316,6 +4341,62 @@
 	description = "A delicious seasonal flavoring."
 	color = "#AE771C"
 	taste_description = "autumn bliss"
+
+/datum/reagent/drink/syrup_chocolate
+	name = "Chocolate Syrup"
+	description = "Thick chocolate syrup used to flavor drinks."
+	taste_description = "chocolate"
+	color = "#542a0c"
+
+	glass_name = "chocolate syrup"
+	glass_desc = "Thick chocolate syrup used to flavor drinks."
+
+/datum/reagent/drink/syrup_caramel
+	name = "Caramel Syrup"
+	description = "Thick caramel syrup used to flavor drinks."
+	taste_description = "caramel"
+	color = "#85461e"
+
+	glass_name = "caramel syrup"
+	glass_desc = "Thick caramel syrup used to flavor drinks."
+
+/datum/reagent/drink/syrup_vanilla
+	name = "Vanilla Syrup"
+	description = "Thick vanilla syrup used to flavor drinks."
+	taste_description = "vanilla"
+	color = "#f3e5ab"
+
+	glass_name = "vanilla syrup"
+	glass_desc = "Thick vanilla syrup used to flavor drinks."
+
+/datum/reagent/drink/syrup_pumpkin
+	name = "Pumpkin Spice Syrup"
+	description = "Thick spiced pumpkin syrup used to flavor drinks."
+	taste_description = "spiced pumpkin"
+	color = "#d88b4c"
+
+	glass_name = "pumpkin spice syrup"
+	glass_desc = "Thick spiced pumpkin syrup used to flavor drinks."
+
+/datum/reagent/drink/syrup_simple
+	name = "Simple Syrup"
+	description = "Thick, unflavored syrup used as a base for drinks or flavorings."
+	taste_description = "molasses"
+	color = "#ccccbb"
+	glass_name = "simple syrup"
+	glass_desc = "Thick, unflavored syrup used as a base for drinks or flavorings."
+
+/datum/reagent/nutriment/caramel
+	name = "Caramel Sugar"
+	reagent_state = SOLID
+	description = "Caramelised sugar, used in various recipes."
+	taste_description = "toasty sweetness"
+
+/datum/reagent/drink/caramel
+	name = "Caramel Sauce"
+	reagent_state = LIQUID
+	description = "A caramel-based sauce. Now you're caramel dancin'."
+	taste_description = "toasty sweet cream"
 
 /datum/reagent/diona_powder
 	name = "Dionae Powder"
