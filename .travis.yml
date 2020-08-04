@@ -9,7 +9,7 @@ env:
     MACRO_COUNT=77
     FLYWAY_BUILD="5.2.4"
     NODE_VERSION=10
-    RUST_G_VERSION="0.4.1"
+    RUST_G_VERSION="0.4.2a"
     PATH=/opt/python/3.7.1/bin:$PATH
     SPACEMAN_DMM_VERSION="suite-1.4"
   matrix:
