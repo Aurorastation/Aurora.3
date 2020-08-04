@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - bugfix: "Splitting stacks which are of type /obj/item/stack/.../full will no longer result in the new stack having the maximum amount in it."
