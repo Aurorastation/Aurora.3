@@ -14049,7 +14049,7 @@
 /obj/machinery/computer/general_air_control{
 	frequency = 1441;
 	name = "Tank Monitor";
-	sensors = list("n2_sensor" = GAS_NITROGEN, "o2_sensor" = GAS_OXYGEN, "co2_sensor" = "Carbon Dioxide", "ph_sensor" = "Phoron", "air_sensor" = "Air Tank")
+	sensors = list("n2_sensor" = "nitrogen", "o2_sensor" = "oxygen", "co2_sensor" = "Carbon Dioxide", "ph_sensor" = "Phoron", "air_sensor" = "Air Tank")
 	},
 /obj/machinery/requests_console{
 	department = "Atmospherics";

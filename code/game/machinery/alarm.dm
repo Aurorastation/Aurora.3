@@ -563,10 +563,10 @@
 			var/thresholds[0]
 
 			var/list/gas_names = list(
-				GAS_OXYGEN         = "O<sub>2</sub>",
-				"carbon dioxide" = "CO<sub>2</sub>",
-				GAS_PHORON         = "Phoron",
-				"other"          = "Other")
+				GAS_OXYGEN    = "O<sub>2</sub>",
+				GAS_CO2       = "CO<sub>2</sub>",
+				GAS_PHORON    = "Phoron",
+				"other"       = "Other")
 			for (var/g in gas_names)
 				thresholds[++thresholds.len] = list("name" = gas_names[g], "settings" = list())
 				selected = TLV[g]
