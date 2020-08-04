@@ -535,7 +535,7 @@
 
 /datum/reagent/enzyme
 	name = "Universal Enzyme"
-	description = "A universal enzyme used in the preperation of certain chemicals and foods."
+	description = "A universal enzyme used in the preparation of certain chemicals and foods."
 	reagent_state = LIQUID
 	color = "#365E30"
 	overdose = REAGENTS_OVERDOSE
@@ -543,7 +543,6 @@
 	taste_mult = 0.7
 	fallback_specific_heat = 1
 	condiment_name = "universal enzyme"
-	condiment_desc = "Used in cooking various dishes."
 	condiment_icon_state = "enzyme"
 
 /datum/reagent/frostoil
