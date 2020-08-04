@@ -82,12 +82,10 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/cake/carrot
-	appliance = OVEN
 	fruit = list("carrot" = 3)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/carrot
 
 /datum/recipe/cake/cheese
-	appliance = OVEN
 	items = list(
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
@@ -95,27 +93,25 @@
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/cheese
 
 /datum/recipe/cake/orange
-	appliance = OVEN
-	fruit = list("orange" = 1)
-	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/nutriment/flour = 15, /datum/reagent/nutriment/protein/egg = 9, /datum/reagent/drink/orangejuice = 3, /datum/reagent/sugar = 5)
+	fruit = list("orange" = 2)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/orange
 
 /datum/recipe/cake/lime
 	appliance = OVEN
-	fruit = list("lime" = 1)
-	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/nutriment/flour = 15, /datum/reagent/nutriment/protein/egg = 9, /datum/reagent/drink/limejuice = 3, /datum/reagent/sugar = 5)
+	fruit = list("lime" = 2)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/lime
 
 /datum/recipe/cake/lemon
 	appliance = OVEN
-	fruit = list("lemon" = 1)
-	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/nutriment/flour = 15, /datum/reagent/nutriment/protein/egg = 9, /datum/reagent/drink/lemonjuice = 3, /datum/reagent/sugar = 5)
+	fruit = list("lemon" = 2)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/lemon
 
 /datum/recipe/cake/chocolate
 	appliance = OVEN
-	items = list(/obj/item/reagent_containers/food/snacks/chocolatebar)
-	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/nutriment/flour = 15, /datum/reagent/nutriment/protein/egg = 9, /datum/reagent/nutriment/coco = 4, /datum/reagent/sugar = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/chocolatebar,
+		/obj/item/reagent_containers/food/snacks/chocolatebar
+	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/cake/chocolate
 
 /datum/recipe/cake/birthday
@@ -185,25 +181,19 @@
 	items = list(/obj/item/reagent_containers/food/snacks/sliceable/flatdough)
 	result = /obj/item/reagent_containers/food/snacks/pie
 
-/datum/recipe/cherrypie
-	appliance = OVEN
+/datum/recipe/pie/cherry
 	fruit = list("cherries" = 1)
 	reagents = list(/datum/reagent/sugar = 10)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
-	)
 	result = /obj/item/reagent_containers/food/snacks/cherrypie
 
-/datum/recipe/amanita_pie
-	appliance = OVEN
+/datum/recipe/pie/amanita
+	fruit = null
 	reagents = list(/datum/reagent/toxin/amatoxin = 5)
-	items = list(/obj/item/reagent_containers/food/snacks/sliceable/flatdough)
 	result = /obj/item/reagent_containers/food/snacks/amanita_pie
 
-/datum/recipe/plump_pie
-	appliance = OVEN
+/datum/recipe/pie/plump
 	fruit = list("plumphelmet" = 1)
-	items = list(/obj/item/reagent_containers/food/snacks/sliceable/flatdough)
+	reagents = null
 	result = /obj/item/reagent_containers/food/snacks/plump_pie
 
 /datum/recipe/pumpkinpie

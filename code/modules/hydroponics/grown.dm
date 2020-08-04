@@ -329,6 +329,7 @@
 	desc = "A slice of some tasty fruit."
 	icon = 'icons/obj/hydroponics_misc.dmi'
 	icon_state = ""
+	var/datum/seed/seed
 
 var/list/fruit_icon_cache = list()
 
@@ -343,9 +344,10 @@ var/list/fruit_icon_cache = list()
 	desc = "A slice of \a [S.seed_name]. Tasty, probably."
 	drop_sound = 'sound/items/drop/herb.ogg'
 	pickup_sound = 'sound/items/pickup/herb.ogg'
+	seed = S
 
-	var/rind_colour = S.get_trait(TRAIT_PRODUCT_COLOUR)
-	var/flesh_colour = S.get_trait(TRAIT_FLESH_COLOUR)
+	var/rind_colour = seed.get_trait(TRAIT_PRODUCT_COLOUR)
+	var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
 	if(!flesh_colour) flesh_colour = rind_colour
 	if(!fruit_icon_cache["rind-[rind_colour]"])
 		var/image/I = image(icon,"fruit_rind")

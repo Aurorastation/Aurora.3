@@ -232,18 +232,8 @@
 /obj/machinery/smartfridge/drying_rack/proc/dry()
 	for(var/obj/item/reagent_containers/food/snacks/S in contents)
 		if(S.dry) continue
-		if(S.dried_type == S.type)
-			S.dry = 1
+		if(S.on_dry(loc))
 			item_quants[S.name]--
-			S.name = "dried [S.name]"
-			S.color = "#AAAAAA"
-			S.forceMove(loc)
-		else
-			var/D = S.dried_type
-			new D(loc)
-			item_quants[S.name]--
-			qdel(S)
-		return
 	return
 
 /obj/machinery/smartfridge/machinery_process()

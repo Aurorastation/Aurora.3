@@ -1760,7 +1760,7 @@
 	id = "dough"
 	result = null
 	required_reagents = list(/datum/reagent/nutriment/protein/egg = 3, /datum/reagent/nutriment/flour = 10)
-	inhibitors = list(/datum/reagent/water = 1, /datum/reagent/alcohol/ethanol/beer = 1) //To prevent it messing with batter recipes
+	inhibitors = list(/datum/reagent/water = 1, /datum/reagent/alcohol/ethanol/beer = 1, /datum/reagent/sugar = 1) //To prevent it messing with batter and pie recipes
 	result_amount = 1
 
 /datum/chemical_reaction/dough/on_reaction(var/datum/reagents/holder, var/created_volume)

@@ -5,15 +5,15 @@
 	name = "shand"
 	seed_name = "S'Rendarr's hand"
 	display_name = "S'Rendarr's hand leaves"
-	chems = list(/datum/reagent/toxin/tobacco = list(1,5), /datum/reagent/bicaridine = list(3,5), /datum/reagent/mental/nicotine = list(1,3))
+	chems = list(/datum/reagent/toxin/tobacco = list(1, 5), /datum/reagent/bicaridine = list(3, 5), /datum/reagent/mental/nicotine = list(1, 3))
 	kitchen_tag = "shand"
 
 /datum/seed/shand/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,3)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_MATURATION, 3)
+	set_trait(TRAIT_PRODUCTION, 5)
+	set_trait(TRAIT_YIELD, 4)
+	set_trait(TRAIT_POTENCY, 10)
 	set_trait(TRAIT_PRODUCT_ICON,"alien3")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#378C61")
 	set_trait(TRAIT_PLANT_COLOUR,"#378C61")
@@ -28,15 +28,15 @@
 	name = "mtear"
 	seed_name = "Messa's tear"
 	display_name = "Messa's tear leaves"
-	chems = list(/datum/reagent/honey = list(1,10), /datum/reagent/kelotane = list(3,5))
+	chems = list(/datum/reagent/honey = list(1, 10), /datum/reagent/kelotane = list(3, 5))
 	kitchen_tag = "mtear"
 
 /datum/seed/mtear/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,3)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_MATURATION, 3)
+	set_trait(TRAIT_PRODUCTION, 5)
+	set_trait(TRAIT_YIELD, 4)
+	set_trait(TRAIT_POTENCY, 10)
 	set_trait(TRAIT_PRODUCT_ICON,"alien4")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#4CC5C7")
 	set_trait(TRAIT_PLANT_COLOUR,"#4CC789")
@@ -51,15 +51,15 @@
 	name = "earthenroot"
 	seed_name = "earthen-root"
 	display_name = "earthen-roots"
-	chems = list(/datum/reagent/nutriment = list(0,5), /datum/reagent/sugar = list(1,5), /datum/reagent/drink/earthenrootjuice = list(4,8))
+	chems = list(/datum/reagent/nutriment = list(0, 5), /datum/reagent/sugar = list(1, 5), /datum/reagent/drink/earthenrootjuice = list(4, 8))
 	kitchen_tag = "earthenroot"
 
 /datum/seed/earthenroot/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,7)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,5)
-	set_trait(TRAIT_POTENCY,8)
+	set_trait(TRAIT_MATURATION, 7)
+	set_trait(TRAIT_PRODUCTION, 5)
+	set_trait(TRAIT_YIELD, 5)
+	set_trait(TRAIT_POTENCY, 8)
 	set_trait(TRAIT_PRODUCT_ICON,"carrot2")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#87CEEB")
 	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
@@ -74,17 +74,17 @@
 	name = "nifberries"
 	seed_name = "dirt berries"
 	display_name = "dirt berries shrub"
-	chems = list(/datum/reagent/nutriment = list(0,15), /datum/reagent/nutriment/triglyceride/oil = list(1,5))
+	chems = list(/datum/reagent/nutriment = list(0, 15), /datum/reagent/nutriment/triglyceride/oil = list(1, 5))
 	kitchen_tag = "nifberries"
 
 /datum/seed/nifberries/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_JUICY,1)
-	set_trait(TRAIT_MATURATION,5)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,2)
-	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_HARVEST_REPEAT, 1)
+	set_trait(TRAIT_JUICY, 1)
+	set_trait(TRAIT_MATURATION, 5)
+	set_trait(TRAIT_PRODUCTION, 5)
+	set_trait(TRAIT_YIELD, 2)
+	set_trait(TRAIT_POTENCY, 10)
 	set_trait(TRAIT_PRODUCT_ICON,"bean")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#C4AE7A")
 	set_trait(TRAIT_PLANT_COLOUR,"#4D8F53")
@@ -102,16 +102,16 @@
 	seed_noun = "nodes"
 	display_name = "blizzard ear stalks"
 	mutants = null
-	chems = list(/datum/reagent/nutriment/flour = list(10,10))
+	chems = list(/datum/reagent/nutriment/flour/nfrihi = list(10, 10))
 	splat_type = /obj/effect/plant
 	kitchen_tag = "nfrihi"
 
 /datum/seed/mushroom/nfrihi/setup_traits()
 	..()
-	set_trait(TRAIT_MATURATION,6)
-	set_trait(TRAIT_PRODUCTION,1)
-	set_trait(TRAIT_YIELD,4)
-	set_trait(TRAIT_POTENCY,1)
+	set_trait(TRAIT_MATURATION, 6)
+	set_trait(TRAIT_PRODUCTION, 1)
+	set_trait(TRAIT_YIELD, 4)
+	set_trait(TRAIT_POTENCY, 1)
 	set_trait(TRAIT_PRODUCT_ICON,"nfrihi")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#DBDA72")
 	set_trait(TRAIT_PLANT_COLOUR,"#31331c")
@@ -129,15 +129,15 @@
 	display_name = "sugar trees"
 	seed_noun = "seeds"
 	mutants = null
-	chems = list(/datum/reagent/sugar = list(2,10))
+	chems = list(/datum/reagent/sugar = list(2, 10))
 	kitchen_tag = "nmshaan"
 
 /datum/seed/nmshaan/setup_traits()
 	..()
-	set_trait(TRAIT_HARVEST_REPEAT,1)
-	set_trait(TRAIT_MATURATION,9)
-	set_trait(TRAIT_PRODUCTION,5)
-	set_trait(TRAIT_YIELD,2)
+	set_trait(TRAIT_HARVEST_REPEAT, 1)
+	set_trait(TRAIT_MATURATION, 9)
+	set_trait(TRAIT_PRODUCTION, 5)
+	set_trait(TRAIT_YIELD, 2)
 	set_trait(TRAIT_PRODUCT_ICON,"nmshaan")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#c6c6c6")
 	set_trait(TRAIT_PLANT_COLOUR,"#31331c")

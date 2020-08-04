@@ -63,6 +63,20 @@
 /obj/item/seeds/grassseed
 	seed_type = "grass"
 
+/datum/seed/grass/sea
+	name = "seaweed"
+	seed_name = "seaweed"
+	display_name = "seaweed"
+	kitchen_tag = "seaweed"
+
+/datum/seed/grass/sea/setup_traits()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR, "#0F6E56")
+	set_trait(TRAIT_PLANT_COLOUR, "#0D4836")
+
+/obj/item/seeds/seaweed
+	seed_type = "seaweed"
+
 /datum/seed/peppercorn
 	name = "peppercorn"
 	seed_name = "peppercorn"

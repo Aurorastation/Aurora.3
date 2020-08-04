@@ -36,10 +36,40 @@
 	reagents = list(/datum/reagent/water = 10, /datum/reagent/spacespice = 1, /datum/reagent/sodiumchloride = 1)
 	result = /obj/item/reagent_containers/food/snacks/soup/earthenroot
 
-/*
-/datum/recipe/bloodsausage
-	fruit = list("nfrihi" = 2
-*/
+/datum/recipe/bloodpudding
+	appliance = SAUCEPAN | POT
+	reagents = list(/datum/reagent/nutriment/flour/nfrihi = 5, /datum/reagent/blood = 10)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/spreads/lard,
+		/obj/item/reagent_containers/food/snacks/meat/adhomai
+	)
+	result = /obj/item/reagent_containers/food/snacks/adhomian_sausage
+
+/datum/recipe/nomadskewer
+	appliance = MIX
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/adhomai,
+		/obj/item/stack/rods
+	)
+	fruit = list("earthenroot" = 1, "nifberries" = 1)
+	result = /obj/item/reagent_containers/food/snacks/nomadskewer
+
+/datum/chemical_reaction/fermentedworm
+	name = "Fermented Hma'trra Meat"
+	id = "fermentedworm"
+	result = null
+	required_reagents = list(/datum/reagent/enzyme = 5)
+
+/datum/chemical_reaction/fermentedworm/on_reaction(var/datum/reagents/holder, var/created_volume)
+	new /obj/item/reagent_containers/food/snacks/fermented_worm(holder.my_atom.loc)
+	qdel(holder.my_atom)
+	return
+
+/datum/chemical_reaction/fermentedworm/can_happen(var/datum/reagents/holder)
+	if(holder.my_atom && istype(holder.my_atom, /obj/item/reagent_containers/food/snacks/hmatrrameat))
+		if(holder.has_all_reagents(holder.my_atom.reagents_to_add)) // Make sure we haven't removed anything.
+			return ..()
+	return FALSE
 
 // Tajaran Seafood
 /datum/recipe/spicy_clams

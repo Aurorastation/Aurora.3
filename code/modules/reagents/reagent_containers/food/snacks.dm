@@ -24,6 +24,16 @@
 	//Placeholder for effect that trigger on eating that aren't tied to reagents.
 	var/flavor = null // set_flavor()
 
+/obj/item/reagent_containers/food/snacks/proc/on_dry(var/newloc)
+	if(dried_type == type)
+		name = "dried [name]"
+		color = "#AAAAAA"
+		dry = TRUE
+		return TRUE
+	new dried_type(newloc)
+	qdel(src)
+	return TRUE
+
 /obj/item/reagent_containers/food/snacks/standard_splash_mob(var/mob/user, var/mob/target)
 	return TRUE //Returning TRUE will cancel everything else in a long line of things it should do.
 
@@ -2147,7 +2157,7 @@
 	. = ..()
 	if(prob(10))
 		name = "exceptional plump helmet biscuit"
-		desc = "Microwave is taken by a fey mood! It has cooked an exceptional plump helmet biscuit!"
+		desc = "The chef is taken by a fey mood! It has cooked an exceptional plump helmet biscuit!"
 		reagents.add_reagent(/datum/reagent/nutriment, 8)
 		reagents.add_reagent(/datum/reagent/tricordrazine, 5)
 
@@ -3601,7 +3611,7 @@
 
 /obj/item/reagent_containers/food/snacks/skrellsnacks
 	name = "\improper SkrellSnax"
-	desc = "Cured fungus shipped all the way from Jargon 4, almost like jerky! Almost."
+	desc = "Cured eki shipped all the way from Jargon 4, almost like jerky! Almost."
 	icon_state = "skrellsnacks"
 	trash = /obj/item/trash/skrellsnacks
 	filling_color = "#A66829"
@@ -3609,6 +3619,51 @@
 	reagents_to_add = list(/datum/reagent/nutriment/synthetic = 10)
 	reagent_data = list(/datum/reagent/nutriment/synthetic = list("alien fungus" = 10))
 	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/squidmeat
+	name = "squid meat"
+	desc = "Soylent squid is (not) people!"
+	icon_state = "squidmeat"
+	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 2)
+
+/obj/item/reagent_containers/food/snacks/lortl
+	name = "lortl"
+	desc = "Dehydrated and salted q'lort slices, a very common Skrellian snack."
+	icon = 'icons/obj/hydroponics_products.dmi'
+	icon_state = "mushroom9"
+	color = "#B7D6BF"
+	filling_color = "#B7D6BF"
+	bitesize = 2
+	reagents_to_add = list(/datum/reagent/nutriment = 2, /datum/reagent/sodiumchloride = 2)
+	reagent_data = list(/datum/reagent/nutriment = list("dried fruit" = 2))
+
+/obj/item/reagent_containers/food/snacks/soup/qilvo
+	name = "qilvo"
+	desc = "Qilvo is a hot chowder made with algaes, sea grass, and mollusc meat. A beloved dish on Aliose."
+	icon_state = "qilvo"
+	filling_color = "#CFBA76"
+	bitesize = 4
+	reagents_to_add = list(/datum/reagent/nutriment = 5, /datum/reagent/nutriment/protein/seafood = 3, /datum/reagent/water = 5, /datum/reagent/drink/milk/cream = 3)
+	reagent_data = list(/datum/reagent/nutriment = list("cream" = 3, "seaweed" = 2))
+
+/obj/item/reagent_containers/food/snacks/soup/zantiri
+	name = "zantiri"
+	desc = "A soupy mush comprised of guami and eki, two plants native to Qerrbalak. In a bowl, it looks not unlike staring into a starry sky."
+	icon_state = "zantiri"
+	filling_color = "#141452"
+	bitesize = 5
+	reagents_to_add = list(/datum/reagent/nutriment = 8, /datum/reagent/water = 6)
+	reagent_data = list(/datum/reagent/nutriment = list("inky mush" = 5, "crunchy lichen" = 3))
+
+/obj/item/reagent_containers/food/snacks/xuqqil
+	name = "xuq'qil"
+	desc = "A large mushroom cap stuffed with cheese and crab meat."
+	icon_state = "xuqqil"
+	filling_color = "#833D67"
+	center_of_mass = list("x"=16, "y"=13)
+	reagents_to_add = list(/datum/reagent/nutriment = 4, /datum/reagent/nutriment/protein/cheese = 3, /datum/reagent/nutriment/protein/seafood = 3)
+	reagent_data = list(/datum/reagent/nutriment = list("mushroom" = 4))
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/friedkois
 	name = "fried k'ois"
@@ -4325,7 +4380,7 @@
 	icon_state = "clam"
 	bitesize = 2
 	desc_fluff = "Fishing and shellfish has a part in the diet of the population at the coastal areas, even if the ice can be an obstacle to most experienced fisherman. \
-	Spicy Ras'val clams, named after the sea, are a famous treat, being appreciated in other system besides S'rand'marr."
+	Spicy Ras'val clams, named after the sea, are a famous treat, being appreciated in other systems besides S'rand'marr."
 	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 2)
 
 /obj/item/reagent_containers/food/snacks/spicy_clams
@@ -4376,6 +4431,41 @@
 	desc_fluff = "While the People's republic territory includes several different regional cultures, it is possible to find common culinary traditions among its population. \
 	Salt-cured Fatshouters's meat also has been introduced widely, facilitated by the recent advances in the livestock husbandry techniques."
 	reagents_to_add = list(/datum/reagent/nutriment/protein = 5, /datum/reagent/sodiumchloride = 2)
+
+/obj/item/reagent_containers/food/snacks/nomadskewer
+	name = "nomad skewer"
+	icon_state = "kabob"
+	desc = "Fatshouter meat on a stick, served with flora native to Adhomai."
+	trash = /obj/item/stack/rods
+	filling_color = "#FFFEE0"
+	center_of_mass = list("x"=17, "y"=15)
+	bitesize = 2
+	reagent_data = list(/datum/reagent/nutriment = list("oily berries" = 8))
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 4, /datum/reagent/nutriment = 8, /datum/reagent/nutriment/triglyceride/oil = 3, /datum/reagent/sugar = 3, /datum/reagent/drink/earthenrootjuice = 6)
+
+/obj/item/reagent_containers/food/snacks/adhomian_sausage
+	name = "fatshouters bloodpudding"
+	desc = "A mixture of fatshouters meat, offal, blood and blizzard ears flour."
+	icon_state = "adhomian_sausage"
+	filling_color = "#DB0000"
+	bitesize = 2
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 12)
+
+/obj/item/reagent_containers/food/snacks/hmatrrameat
+	name = "Hma'trra fillet"
+	desc = "A fillet of glacier worm meat."
+	icon_state = "fishfillet"
+	filling_color = "#FFDEFE"
+	bitesize = 6
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 6)
+
+/obj/item/reagent_containers/food/snacks/fermented_worm
+	name = "fermented hma'trra"
+	desc = "A larged piece of fermented glacier worm meat."
+	icon_state = "fermented_worm"
+	filling_color = "#DB0000"
+	bitesize = 4
+	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 20, /datum/reagent/ammonia = 10)
 
 /obj/item/reagent_containers/food/snacks/onionrings
 	name = "onion rings"

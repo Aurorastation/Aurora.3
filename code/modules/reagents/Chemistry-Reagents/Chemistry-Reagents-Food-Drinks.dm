@@ -381,6 +381,12 @@
 
 		new /obj/effect/decal/cleanable/flour(T)
 
+/datum/reagent/nutriment/flour/nfrihi
+	name = "blizzard ear flour"
+	taste_description = "chalky starch"
+	color = "#DFDEA1"
+	condiment_name = "Adhomian flour sack"
+
 /datum/reagent/nutriment/coco
 	name = "Coco Powder"
 	description = "A fatty, bitter paste made from coco beans."

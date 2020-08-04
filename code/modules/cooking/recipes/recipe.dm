@@ -119,12 +119,23 @@
 		var/list/checklist = list()
 		 // You should trust Copy().
 		checklist = fruit.Copy()
-		for(var/obj/item/reagent_containers/food/snacks/grown/G in container)
-			if(!G.seed || !G.seed.kitchen_tag || isnull(checklist[G.seed.kitchen_tag]))
+		for(var/obj/item/reagent_containers/food/snacks/S in container)
+			var/use_tag
+			if(istype(S, /obj/item/reagent_containers/food/snacks/grown))
+				var/obj/item/reagent_containers/food/snacks/grown/G = S
+				if(!G.seed || !G.seed.kitchen_tag)
+					continue
+				use_tag = G.dry ? "dried [G.seed.kitchen_tag]" : G.seed.kitchen_tag
+			else if(istype(S, /obj/item/reagent_containers/food/snacks/fruit_slice))
+				var/obj/item/reagent_containers/food/snacks/fruit_slice/FS = S
+				if(!FS.seed || !FS.seed.kitchen_tag)
+					continue
+				use_tag = "[FS.seed.kitchen_tag] slice"
+			use_tag = "[S.dry ? "dried " : ""][use_tag]"
+			if(isnull(checklist[use_tag]))
 				continue
-
-			if (check_coating(G))
-				checklist[G.seed.kitchen_tag]--
+			if (check_coating(S))
+				checklist[use_tag]--
 		for(var/ktag in checklist)
 			if(!isnull(checklist[ktag]))
 				if(checklist[ktag] < 0)
@@ -163,23 +174,14 @@
 	return .
 
 //This is called on individual items within the container.
-/datum/recipe/proc/check_coating(var/obj/O)
-	if(!istype(O,/obj/item/reagent_containers/food/snacks))
+/datum/recipe/proc/check_coating(var/obj/item/reagent_containers/food/snacks/S)
+	if(!istype(S))
 		return 1//Only snacks can be battered
 
 	if (coating == -1)
 		return 1 //-1 value doesnt care
 
-	var/obj/item/reagent_containers/food/snacks/S = O
-	if (!S.coating)
-		if (!coating)
-			return 1
-		return 0
-	else if (S.coating.type == coating)
-		return 1
-
-	return 0
-
+	return !coating || (S.coating.type == coating)
 
 //general version
 /datum/recipe/proc/make(var/obj/container as obj)
