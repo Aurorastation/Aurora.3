@@ -94,7 +94,7 @@ LOG_PDA
 # SQL_ENABLED
 
 ## disconnect players who did nothing during the set amount of minutes
-# KICK_INACTIVE 10
+KICK_INACTIVE 10
 
 ##Show mods on staffwho
 SHOW_MODS

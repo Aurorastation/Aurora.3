@@ -2014,27 +2014,24 @@
 				randmutg(src) // Applies good mutation
 				domutcheck(src,null,MUTCHK_FORCED)
 
-/mob/living/carbon/human/proc/get_accent_icon(var/datum/language/speaking = null)
-	if(accent && speaking && speaking.allow_accents)
-		var/used_accent = accent //starts with the mob's default accent
+/mob/living/carbon/human/get_accent_icon(var/datum/language/speaking = null)
+	var/used_accent = accent //starts with the mob's default accent
 
-		if(mind?.changeling)
-			used_accent = mind.changeling.mimiced_accent
+	if(mind?.changeling)
+		used_accent = mind.changeling.mimiced_accent
 
-		if(istype(back,/obj/item/rig)) //checks for the rig voice changer module
-			var/obj/item/rig/rig = back
-			if(rig.speech && rig.speech.voice_holder && rig.speech.voice_holder.active && rig.speech.voice_holder.current_accent)
-				used_accent = rig.speech.voice_holder.current_accent
+	if(istype(back,/obj/item/rig)) //checks for the rig voice changer module
+		var/obj/item/rig/rig = back
+		if(rig.speech && rig.speech.voice_holder && rig.speech.voice_holder.active && rig.speech.voice_holder.current_accent)
+			used_accent = rig.speech.voice_holder.current_accent
 
-		for(var/obj/item/gear in list(wear_mask,wear_suit,head)) //checks for voice changers masks now
-			if(gear)
-				var/obj/item/voice_changer/changer = locate() in gear
-				if(changer && changer.active && changer.current_accent)
-					used_accent = changer.current_accent
+	for(var/obj/item/gear in list(wear_mask,wear_suit,head)) //checks for voice changers masks now
+		if(gear)
+			var/obj/item/voice_changer/changer = locate() in gear
+			if(changer && changer.active && changer.current_accent)
+				used_accent = changer.current_accent
 
-		var/datum/accent/a = SSrecords.accents[used_accent]
-		var/final_icon = a.tag_icon
-		return "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[final_icon]'>"
+	return ..(speaking, used_accent)
 
 /mob/living/carbon/human/proc/generate_valid_accent()
 	var/list/valid_accents = new()

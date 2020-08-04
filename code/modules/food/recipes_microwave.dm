@@ -23,19 +23,26 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/human/burger
 
-/datum/recipe/plainburger
+/datum/recipe/mouseburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/meat //do not place this recipe before /datum/recipe/humanburger
+		/obj/item/reagent_containers/food/snacks/meat/rat
 	)
-	result = /obj/item/reagent_containers/food/snacks/burger/monkey
+	result = /obj/item/reagent_containers/food/snacks/burger/mouse
 
 /datum/recipe/syntiburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
 		/obj/item/reagent_containers/food/snacks/meat/syntiflesh
 	)
-	result = /obj/item/reagent_containers/food/snacks/burger/monkey
+	result = /obj/item/reagent_containers/food/snacks/burger
+
+/datum/recipe/plainburger
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/meat //do not place this recipe before /datum/recipe/humanburger or /datum/recipe/mouseburger
+	)
+	result = /obj/item/reagent_containers/food/snacks/burger
 
 /datum/recipe/brainburger
 	items = list(
@@ -92,13 +99,6 @@
 		/obj/item/clothing/head/beret
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger/mime
-
-/datum/recipe/mouseburger
-	items = list(
-		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/meat/rat
-	)
-	result = /obj/item/reagent_containers/food/snacks/burger/mouse
 
 /datum/recipe/hotdog
 	items = list(
@@ -302,14 +302,14 @@
 
 /datum/recipe/spellburger
 	items = list(
-		/obj/item/reagent_containers/food/snacks/burger/monkey,
+		/obj/item/reagent_containers/food/snacks/burger,
 		/obj/item/clothing/head/wizard
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger/spell
 
 /datum/recipe/bigbiteburger
 	items = list(
-		/obj/item/reagent_containers/food/snacks/burger/monkey,
+		/obj/item/reagent_containers/food/snacks/burger,
 		/obj/item/reagent_containers/food/snacks/meat,
 		/obj/item/reagent_containers/food/snacks/meat,
 		/obj/item/reagent_containers/food/snacks/meat
@@ -1192,4 +1192,22 @@
 		/obj/item/reagent_containers/food/snacks/spreads/lard
 	)
 	result = /obj/item/reagent_containers/food/snacks/lardwich
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/dionae_soup
+	reagents = list(/datum/reagent/water = 10)
+	fruit = list("cabbage" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/dionanymph
+	)
+	result = /obj/item/reagent_containers/food/snacks/soup/diona
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/dionae_stew
+	reagents = list(/datum/reagent/water = 10)
+	fruit = list("potato" = 1, "carrot" = 1, "mushroom" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/dionanymph
+	)
+	result = /obj/item/reagent_containers/food/snacks/stew/diona
 	reagent_mix = RECIPE_REAGENT_REPLACE

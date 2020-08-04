@@ -223,3 +223,20 @@
 	..()
 	if(rolled_down == TRUE)
 		remove_mask()
+
+/obj/item/clothing/under/dominia/dress
+	name = "dominian noblewoman dress"
+	desc = "This is a dress in the style of Dominian nobility. It's the latest fashion across Dominian space."
+	icon = 'icons/clothing/under/uniforms/dominia_noble_dress.dmi'
+	icon_state = "dom_dress"
+	item_state = "dom_dress"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/dominia/dress/summer
+	name = "dominian summer dress"
+	desc = "This is a dress in the style of Dominian nobility. It's the latest fashion across Dominian space."
+	icon = 'icons/clothing/under/uniforms/dominia_summer_dress.dmi'
+	icon_state = "dom_dress"
+	item_state = "dom_dress"
+	contained_sprite = TRUE
+

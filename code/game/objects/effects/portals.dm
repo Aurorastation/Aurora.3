@@ -120,7 +120,7 @@
 /obj/effect/portal/spawner/phoron
 	num_of_spawns = 3
 	spawn_things = list(
-				"/obj/item/stack/material/phoron" = 10
+				"/obj/item/stack/material/phoron" = 3
 					   )
 
 /obj/effect/portal/spawner/monkey_cube

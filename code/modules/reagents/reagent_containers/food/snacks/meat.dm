@@ -81,4 +81,4 @@
 	name = "diona nymph meat"
 	desc = "A slab of weird green meat."
 	icon_state = "plantmeat"
-	reagents_to_add = list(/datum/reagent/nutriment/protein = 6)
+	reagents_to_add = list(/datum/reagent/diona_powder = 10)

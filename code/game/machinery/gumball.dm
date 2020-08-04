@@ -1,6 +1,6 @@
 /obj/machinery/gumballmachine
 	name = "gumball machine"
-	desc = "A colorful candy machine."
+	desc = "A lithe device with a glass globe on top, which can be operated to dispense various candies."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "gumball_100"
 	layer = 2.9

@@ -1,9 +1,10 @@
 /obj/structure/AIcore
-	density = 1
-	anchored = 0
 	name = "\improper AI core"
+	desc = "A large machine that can store an AI, give it power, and protection. Additionally, it provides site-wide camera access."
 	icon = 'icons/mob/AI.dmi'
 	icon_state = "0"
+	density = 1
+	anchored = 0
 	var/state = 0
 	var/datum/ai_laws/laws = new /datum/ai_laws/nanotrasen
 	var/obj/item/circuitboard/circuit = null

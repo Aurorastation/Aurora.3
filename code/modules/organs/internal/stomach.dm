@@ -42,7 +42,7 @@
 	. = ..()
 	if(.)
 		action.button_icon_state = "puke"
-		if(action.button) action.button.UpdateIcon()
+		if(action.button) action.button.update_icon()
 
 /obj/item/organ/internal/stomach/attack_self(mob/user)
 	. = ..()

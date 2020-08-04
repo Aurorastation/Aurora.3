@@ -614,7 +614,7 @@
 			var/normal_temp = species?.body_temperature || (T0C+37)
 			var/fever = chem_effects[CE_FEVER]
 			if(CE_NOFEVER in chem_effects)
-				fever -= chem_effects[CE_NOFEVER] // a dose of 16u paracetamol should offset a stage 4 virus
+				fever -= chem_effects[CE_NOFEVER] // a dose of 16u Perconol should offset a stage 4 virus
 			bodytemperature = Clamp(bodytemperature+fever, normal_temp, normal_temp + 9) // temperature should range from 37C to 46C, 98.6F to 115F
 			if(fever > 1)
 				if(prob(20/3)) // every 30 seconds, roughly
@@ -734,8 +734,6 @@
 			if(prob(2) && health && !failed_last_breath && !isSynthetic() && !InStasis())
 				if(!paralysis)
 					emote("snore")
-				else
-					emote("groan")
 
 		//CONSCIOUS
 		else if(!InStasis())
@@ -748,17 +746,6 @@
 		if(embedded_flag && !(life_tick % 10))
 			if(!embedded_needs_process())
 				embedded_flag = 0
-
-		//Ears
-		if(sdisabilities & DEAF)	//disabled-deaf, doesn't get better on its own
-			ear_deaf = max(ear_deaf, 1)
-		else if(ear_deaf)			//deafness, heals slowly over time
-			ear_deaf = max(ear_deaf-1, 0)
-		else if(istype(l_ear, /obj/item/clothing/ears/earmuffs) || istype(r_ear, /obj/item/clothing/ears/earmuffs))	//resting your ears with earmuffs heals ear damage faster
-			ear_damage = max(ear_damage-0.15, 0)
-			ear_deaf = max(ear_deaf, 1)
-		else if(ear_damage < 25)	//ear damage heals slowly under this threshold. otherwise you'll need earmuffs
-			ear_damage = max(ear_damage-0.05, 0)
 
 		//Resting
 		if(resting)
@@ -1269,6 +1256,20 @@
 
 	update_equipment_vision()
 	species.handle_vision(src)
+
+/mob/living/carbon/human/handle_hearing()
+	..()
+
+	if(ear_damage < HEARING_DAMAGE_LIMIT)
+		//Hearing aids allow our ear_deaf to reach zero, if we have a hearing disability
+		if(ear_deaf <= 1 && (sdisabilities & DEAF) && has_hearing_aid())
+			setEarDamage(-1, max(ear_deaf-1, 0))
+
+		if(istype(l_ear, /obj/item/clothing/ears/earmuffs) || istype(r_ear, /obj/item/clothing/ears/earmuffs))	//resting your ears with earmuffs heals ear damage faster
+			adjustEarDamage(-0.15, 0)
+			setEarDamage(-1, max(ear_deaf, 1))
+		else if(ear_damage < HEARING_DAMAGE_SLOW_HEAL)	//ear damage heals slowly under this threshold. otherwise you'll need earmuffs
+			adjustEarDamage(-0.05, 0)
 
 /mob/living/carbon/human/update_sight()
 	..()

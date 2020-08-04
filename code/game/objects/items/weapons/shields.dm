@@ -268,6 +268,18 @@
 	else
 		set_light(0)
 
+/obj/item/shield/energy/dominia
+	name = "dominian energy barrier"
+	desc = "A hardlight energy shield meant to provide excellent protection in melee engagements."
+	icon_state = "dominian-eshield0"
+
+/obj/item/shield/energy/dominia/update_icon()
+	icon_state = "dominian-eshield[active]"
+	if(active)
+		set_light(1.5, 1.5, "#ff5132")
+	else
+		set_light(0)
+
 // tact
 /obj/item/shield/riot/tact
 	name = "tactical shield"

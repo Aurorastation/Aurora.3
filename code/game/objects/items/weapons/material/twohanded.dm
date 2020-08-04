@@ -565,7 +565,7 @@
 
 /obj/item/material/twohanded/zweihander
 	icon_state = "zweihander0"
-	base_icon = "zweihander0"
+	base_icon = "zweihander"
 	name = "zweihander"
 	desc = "A german upgrade to the einhander models of ancient times."
 	force = 20

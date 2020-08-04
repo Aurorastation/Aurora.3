@@ -2446,11 +2446,11 @@
 /obj/item/device/suit_cooling_unit{
 	pixel_x = 8
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_x = -6;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_x = -6;
 	pixel_y = 4
 	},
@@ -3972,7 +3972,7 @@
 	pixel_x = -4;
 	pixel_y = 8
 	},
-/obj/item/reagent_containers/glass/bottle/norepinephrine{
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
 	pixel_x = 4;
 	pixel_y = 7
 	},
@@ -5438,11 +5438,11 @@
 /area/shuttle/administration/centcom)
 "auh" = (
 /obj/structure/closet/crate/freezer/rations,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
@@ -8276,9 +8276,9 @@
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/storage/box/syringes,
 /obj/item/reagent_containers/hypospray/cmo,
 /obj/item/reagent_containers/hypospray/cmo,
@@ -8293,9 +8293,9 @@
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
-/obj/item/reagent_containers/glass/bottle/norepinephrine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/storage/box/syringes,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/item/reagent_containers/hypospray/cmo,
@@ -8310,7 +8310,7 @@
 /obj/structure/table/reinforced,
 /obj/item/storage/box/autoinjectors,
 /obj/item/storage/box/beakers,
-/obj/item/storage/box/gloves,
+/obj/item/nitrilebox,
 /obj/item/storage/box/pillbottles,
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
@@ -12018,10 +12018,7 @@
 /area/centcom/holding)
 "aJB" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /turf/unsimulated/floor{
 	dir = 4;
@@ -12207,10 +12204,7 @@
 /area/centcom/holding)
 "aJX" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /obj/item/reagent_containers/spray/cleaner,
 /turf/unsimulated/floor{
@@ -18425,7 +18419,7 @@
 /obj/structure/table/wood,
 /obj/item/material/ashtray/glass,
 /obj/item/storage/box/fancy/cigarettes/dromedaryco,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -23476,10 +23470,7 @@
 	pixel_y = 6
 	},
 /obj/item/storage/box/masks,
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/fire{
 	layer = 2.9;
@@ -24454,7 +24445,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchant/start)
 "jqI" = (
-/obj/item/reagent_containers/food/drinks/cans/waterbottle{
+/obj/item/reagent_containers/food/drinks/waterbottle{
 	pixel_x = -6;
 	pixel_y = 4
 	},
@@ -27375,15 +27366,15 @@
 /area/shuttle/administration/centcom)
 "nmx" = (
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/glass/bottle/norepinephrine{
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
 	pixel_x = 8;
 	pixel_y = 10
 	},
-/obj/item/reagent_containers/glass/bottle/norepinephrine{
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
 	pixel_x = 8;
 	pixel_y = 5
 	},
-/obj/item/reagent_containers/glass/bottle/norepinephrine{
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
 	pixel_x = 8
 	},
 /turf/unsimulated/floor{
@@ -27429,14 +27420,14 @@
 /obj/item/storage/pill_bottle/antitox{
 	pixel_x = 6
 	},
-/obj/item/storage/pill_bottle/tramadol{
+/obj/item/storage/pill_bottle/mortaphenyl{
 	pixel_y = -12
 	},
-/obj/item/storage/pill_bottle/tramadol{
+/obj/item/storage/pill_bottle/mortaphenyl{
 	pixel_x = -6;
 	pixel_y = -12
 	},
-/obj/item/storage/pill_bottle/tramadol{
+/obj/item/storage/pill_bottle/mortaphenyl{
 	pixel_x = 6;
 	pixel_y = -12
 	},
@@ -33097,10 +33088,7 @@
 /area/centcom/legion/hangar5)
 "utC" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /turf/unsimulated/floor{
 	icon_state = "whitegreen";
@@ -34296,10 +34284,7 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /obj/machinery/light{
 	dir = 4;

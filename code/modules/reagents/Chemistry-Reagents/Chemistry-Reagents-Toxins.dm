@@ -229,7 +229,7 @@
 
 /datum/reagent/toxin/potassium_chlorophoride
 	name = "Potassium Chlorophoride"
-	description = "A specific chemical based on Potassium Chloride to stop the heart for surgery. Not safe to eat!"
+	description = "Potassium Chlorophoride is an expensive, vastly improved variant of Potassium Chloride. Potassium Chlorophoride, unlike the original drug, acts immediately to block neuromuscular junctions, causing general paralysis."
 	reagent_state = SOLID
 	color = "#FFFFFF"
 	strength = 10
@@ -384,7 +384,7 @@
 
 /datum/reagent/lexorin
 	name = "Lexorin"
-	description = "Lexorin temporarily stops respiration. Causes tissue damage."
+	description = "Lexorin is a complex toxin that attempts to induce general hypoxia by weakening the diaphragm to prevent respiration and also by binding to haemoglobins to prevent oxygen molecules from doing the same."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
@@ -450,7 +450,7 @@
 
 /datum/reagent/soporific
 	name = "Soporific"
-	description = "An effective hypnotic used to treat insomnia, can act as a sedative. Lasts three times longer when inhaled."
+	description = "Soporific is highly diluted polysomnine which results in slower and more gradual sedation. This makes the drug ideal at treating insomnia and anxiety disorders, however is generally not reliable for sedation in preparation for surgery except in high doses."
 	reagent_state = LIQUID
 	color = "#009CA8"
 	metabolism = REM * 0.5
@@ -477,9 +477,9 @@
 		M.sleeping = max(M.sleeping, 20)
 		M.drowsyness = max(M.drowsyness, 60)
 
-/datum/reagent/chloralhydrate
-	name = "Chloral Hydrate"
-	description = "A powerful sedative. Lasts two times longer when inhaled."
+/datum/reagent/polysomnine
+	name = "Polysomnine"
+	description = "Polysomnine is a complex drug which rapidly induces sedation in preparation for surgery. Polysomnine’s sedative effect is fast acting, and sedated individuals wake up with zero amnesia regarding the events leading up to their sedation, however the only downside is how hard the drug is on the liver."
 	reagent_state = SOLID
 	color = "#000067"
 	metabolism = REM * 0.5
@@ -487,7 +487,7 @@
 	taste_description = "bitterness"
 	breathe_met = REM * 0.5 * 0.5
 
-/datum/reagent/chloralhydrate/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/polysomnine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	var/mob/living/carbon/human/H = M
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
@@ -503,7 +503,7 @@
 	if(dose > 1)
 		M.add_chemical_effect(CE_TOXIN, removed)
 
-/datum/reagent/chloralhydrate/beer2 //disguised as normal beer for use by emagged brobots
+/datum/reagent/polysomnine/beer2 //disguised as normal beer for use by emagged brobots
 	name = "Beer"
 	description = "An alcoholic beverage made from malted grains, hops, yeast, and water. The fermentation appears to be incomplete." //If the players manage to analyze this, they deserve to know something is wrong.
 	reagent_state = LIQUID
@@ -521,7 +521,7 @@
 
 /datum/reagent/slimetoxin
 	name = "Mutation Toxin"
-	description = "A corruptive toxin produced by slimes."
+	description = "A transformative toxin isolated from jelly extract from green slimes. Use of the chemical has profound effects on the body’s cells, converting animal cells into unique slime cells. These slime cells begin to replace the normal cells of the body, resulting in the development of ‘slime people’, though eventually these degenerate into grey slimes."
 	reagent_state = LIQUID
 	color = "#13BC5E"
 	taste_description = "sludge"
@@ -535,7 +535,7 @@
 
 /datum/reagent/aslimetoxin
 	name = "Advanced Mutation Toxin"
-	description = "An advanced corruptive toxin produced by slimes."
+	description = "A transformative toxin isolated from jelly extract from black slimes. The chemical is fundamentally the same as regular Mutation Toxin, however its effect is magnitudes faster, degenerating a body into a grey slime immediately."
 	reagent_state = LIQUID
 	color = "#13BC5E"
 	taste_description = "sludge"
@@ -616,7 +616,7 @@
 
 /datum/reagent/toxin/berserk
 	name = "Red Nightshade"
-	description = "An illegal chemical enhancer, may cause aggressive and violent behavior."
+	description = "An illegal combat performance enhancer originating from the criminal syndicates of Mars. The drug stimulates regions of the brain responsible for violence and rage, inducing a feral, berserk state in users."
 	reagent_state = LIQUID
 	color = "#AF111C"
 	strength = 5
@@ -642,7 +642,7 @@
 
 /datum/reagent/toxin/spectrocybin
 	name = "Spectrocybin"
-	description = "A hallucinogen chemical, rumored to be used by mystics and religious figures in their rituals."
+	description = "Spectrocybin is a hallucinogenic chemical found in a unique strain of fungi. Little research has been conducted into the hallucinogenic properties of spectrocybin, though many spiritual creeds utilise the drug in rituals and claim it allows people to act as mediums between the living and dead."
 	reagent_state = LIQUID
 	color = "#800080"
 	strength = 5

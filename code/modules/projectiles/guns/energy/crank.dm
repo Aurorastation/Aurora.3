@@ -44,6 +44,7 @@
 		if(do_after(user,20))
 			to_chat(user, "<span class='notice'>You finish charging \the [src].</span>")
 			power_supply.give(charge_cost)
+			update_maptext()
 			update_icon()
 			is_charging = FALSE
 		else

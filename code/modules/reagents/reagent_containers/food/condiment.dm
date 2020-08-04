@@ -82,6 +82,10 @@
 	volume = 20
 	reagents_to_add = list(/datum/reagent/blackpepper = 20)
 
+/obj/item/reagent_containers/food/condiment/shaker/diona
+	volume = 20
+	reagents_to_add = list(/datum/reagent/diona_powder = 20)
+
 /obj/item/reagent_containers/food/condiment/flour
 	name = "flour sack"
 	desc = "A big bag of flour. Good for baking!"
@@ -110,3 +114,7 @@
 /obj/item/reagent_containers/food/condiment/garlicsauce
 	fixed_state = TRUE
 	reagents_to_add = list(/datum/reagent/nutriment/garlicsauce = 50)
+
+/obj/item/reagent_containers/food/condiment/pacid
+	name = "culinary acid"
+	reagents_to_add = list(/datum/reagent/acid/polyacid = 50)

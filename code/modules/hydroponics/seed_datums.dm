@@ -889,7 +889,7 @@
 	name = "carrot"
 	seed_name = "carrot"
 	display_name = "carrots"
-	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/imidazoline = list(3,5), /datum/reagent/drink/carrotjuice = list(10,20))
+	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/oculine = list(3,5), /datum/reagent/drink/carrotjuice = list(10,20))
 	kitchen_tag = "carrot"
 
 /datum/seed/carrots/setup_traits()

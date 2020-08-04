@@ -66,6 +66,7 @@
 	var/friendly = "nuzzles"
 	var/environment_smash = 0
 	var/resistance		  = 0	// Damage reduction
+	var/resist_mod = 1 // a multiplier for the chance the animal has to break out
 
 	var/wizard_master
 
@@ -378,11 +379,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 		if(I_HELP)
 			if (health > 0)
-				M.visible_message("<span class='notice'>[M] [response_help] \the [src].</span>")
+				M.visible_message("<b>\The [M]</b> [response_help] \the [src].")
 				poke()
 
 		if(I_DISARM)
-			M.visible_message("<span class='notice'>[M] [response_disarm] \the [src].</span>")
+			M.visible_message("<b>\The [M]</b> [response_disarm] \the [src]")
 			M.do_attack_animation(src)
 			poke(1)
 			//TODO: Push the mob away or something
@@ -404,7 +405,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			G.affecting = src
 			LAssailant = WEAKREF(M)
 
-			M.visible_message("<span class='warning'>[M] has grabbed [src] passively!</span>")
+			M.visible_message(SPAN_WARNING("\The [M] has grabbed \the [src] passively!"))
 			M.do_attack_animation(src)
 			poke(1)
 
@@ -415,7 +416,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 /mob/living/simple_animal/proc/unarmed_harm_attack(var/mob/living/carbon/human/user)
 	apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [user.name]")
-	user.visible_message(SPAN_WARNING("[user] [response_harm] \the [src]!"))
+	user.visible_message(SPAN_WARNING("<b>\The [user]</b> [response_harm] \the [src]!"), SPAN_WARNING("You [response_harm] \the [src]!"))
 	user.do_attack_animation(src)
 	poke(TRUE)
 
@@ -427,13 +428,13 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		var/obj/item/reagent_containers/glass/G = O
 		if(stat == CONSCIOUS && istype(G) && G.is_open_container())
 			if(udder.total_volume <= 0)
-				to_chat(user, "<span class='warning'>The udder is dry.</span>")
+				to_chat(user, SPAN_WARNING("The udder is dry."))
 				return
 			if(G.reagents.total_volume >= G.volume)
-				to_chat(user, "<span class='warning'>The [O] is full.</span>")
+				to_chat(user, SPAN_WARNING("The [O] is full."))
 				return
-			user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
-			udder.trans_type_to(G, milk_type , rand(5,10))
+			user.visible_message("<b>\The [user]</b> milks \the [src] using \the [O].")
+			udder.trans_type_to(G, milk_type, rand(5, 10))
 			return
 
 	if(istype(O, /obj/item/reagent_containers) || istype(O, /obj/item/stack/medical) || istype(O,/obj/item/gripper/))
@@ -453,14 +454,14 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(O, brush) && canbrush) //Brushing animals
-		visible_message(SPAN_NOTICE("[user] gently brushes [src] with \the [O]."))
+		visible_message("<b>\The [user]</b> gently brushes \the [src] with \the [O].")
 		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off.
-			visible_message(SPAN_NOTICE("[src] [speak_emote.len ? pick(speak_emote) : "rumbles"].")) //purring
+			visible_message("<b>[capitalize_first_letters(src.name)]</b> [speak_emote.len ? pick(speak_emote) : "rumbles"].") //purring
 		return
 	if(!O.force)
-		visible_message("<span class='notice'>[user] gently taps [src] with \the [O].</span>")
+		visible_message("<b>\The [user]</b> gently taps \the [src] with \the [O].")
 		poke()
-		return 0
+		return FALSE
 
 	if(O.force > resistance)
 		var/damage = O.force
@@ -473,10 +474,10 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		apply_damage(damage, O.damtype, used_weapon = "[O.name]")
 		poke(1)
 	else
-		to_chat(usr, "<span class='danger'>This weapon is ineffective, it does no damage.</span>")
+		to_chat(user, SPAN_WARNING("This weapon is ineffective, it does no damage."))
 		poke()
 
-	visible_message("<span class='danger'>\The [src] has been attacked with the [O] by [user].</span>")
+	visible_message(SPAN_DANGER("\The [src] has been attacked with \the [O] by \the [user]."))
 	user.do_attack_animation(src)
 
 
@@ -622,11 +623,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 					new path(get_turf(src))
 
 		if(issmall(src))
-			user.visible_message("<span class='danger'>[user] chops up \the [src]!</span>")
+			user.visible_message("<b>\The [user]</b> chops up \the [src]!")
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 			qdel(src)
 		else
-			user.visible_message("<span class='danger'>[user] butchers \the [src] messily!</span>")
+			user.visible_message("<b>\The [user]</b> butchers \the [src] messily!")
 			gib()
 
 //For picking up small animals
@@ -658,7 +659,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		wander = 0
 		walk_to(src,0)
 		movement_target = null
-		update_icons()
+		update_icon()
 
 //Wakes the mob up from sleeping
 /mob/living/simple_animal/proc/wake_up()
@@ -667,9 +668,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		resting = 0
 		canmove = 1
 		wander = 1
-		update_icons()
+		update_icon()
 
-/mob/living/simple_animal/update_icons()
+/mob/living/simple_animal/update_icon()
 	if (stat == DEAD)
 		icon_state = icon_dead
 	else if ((stat == UNCONSCIOUS || resting) && icon_rest)
@@ -688,14 +689,14 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]"))
 
-	update_icons()
+	update_icon()
 
 //Todo: add snowflakey shit to it.
 /mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	apply_damage(shock_damage, BURN)
 	playsound(loc, "sparks", 50, 1, -1)
 	spark(loc, 5, alldirs)
-	visible_message("<span class='warning'>[src] was shocked by [source]!</span>", "<span class='danger'>You are shocked by [source]!</span>", "<span class='notice'>You hear an electrical crack.</span>")
+	visible_message(SPAN_WARNING("\The [src] was shocked by \the [source]!"), SPAN_WARNING("You are shocked by \the [source]!"), SPAN_WARNING("You hear an electrical crack!"))
 
 
 /mob/living/simple_animal/can_fall()
@@ -755,3 +756,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	if(wizard_master)
 		add_spell(new /spell/contract/return_master(wizard_master), "const_spell_ready")
 	to_chat(src, "<B>You are [src], a familiar to [wizard_master]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>")
+
+/mob/living/simple_animal/get_resist_power()
+	return resist_mod

@@ -423,15 +423,15 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "babycarp"
 	item_state = "babycarp"
 	slot_flags = SLOT_HEAD
-	flags_inv = HIDEEARS|BLOCKHEADHAIR // carp wings blocks stuff - geeves
+	flags_inv = HIDEEARS
 	w_class = 1
 
-/obj/item/holder/carp/baby/verb/toggle_block_hair(mob/user)
+/obj/item/holder/carp/baby/verb/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
 	set category = "Object"
 
 	flags_inv ^= BLOCKHEADHAIR
-	to_chat(user, SPAN_NOTICE("[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
+	to_chat(usr, SPAN_NOTICE("\The [src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
 
 /obj/item/holder/borer
 	name = "cortical borer"

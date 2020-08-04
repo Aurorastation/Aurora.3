@@ -1402,12 +1402,12 @@
 /area/security/main)
 "acH" = (
 /obj/structure/table/standard,
-/obj/item/reagent_containers/syringe/norepinephrine,
-/obj/item/reagent_containers/syringe/norepinephrine{
+/obj/item/reagent_containers/syringe/inaprovaline,
+/obj/item/reagent_containers/syringe/inaprovaline{
 	pixel_x = -2;
 	pixel_y = 5
 	},
-/obj/item/reagent_containers/syringe/norepinephrine{
+/obj/item/reagent_containers/syringe/inaprovaline{
 	pixel_y = 10
 	},
 /obj/structure/cable/green{
@@ -36769,7 +36769,7 @@
 	pixel_y = -32
 	},
 /obj/item/storage/pill_bottle/antitox,
-/obj/item/storage/pill_bottle/tramadol,
+/obj/item/storage/pill_bottle/mortaphenyl,
 /obj/structure/table/standard{
 	name = "plastic table frame"
 	},
@@ -40124,7 +40124,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/reagent_containers/glass/bottle/norepinephrine{
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
 	pixel_x = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -42884,8 +42884,8 @@
 	name = "Pill Cabinet"
 	},
 /obj/item/storage/pill_bottle/antitox,
-/obj/item/storage/pill_bottle/tramadol,
-/obj/item/reagent_containers/syringe/norepinephrine,
+/obj/item/storage/pill_bottle/mortaphenyl,
+/obj/item/reagent_containers/syringe/inaprovaline,
 /turf/simulated/wall,
 /area/medical/sleeper)
 "bDG" = (
@@ -42969,10 +42969,7 @@
 "bDN" = (
 /obj/structure/table/standard,
 /obj/machinery/light,
-/obj/item/storage/box/gloves{
-	pixel_x = 4;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -47960,7 +47957,7 @@
 /area/medical/sleeper)
 "bMO" = (
 /obj/effect/landmark/start{
-	name = "Paramedic"
+	name = "Emergency Medical Technician"
 	},
 /obj/item/stool/padded,
 /turf/simulated/floor/tiled/white,
@@ -47973,7 +47970,7 @@
 	req_access = list(5)
 	},
 /obj/effect/landmark/start{
-	name = "Paramedic"
+	name = "Emergency Medical Technician"
 	},
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medbay EMT Storage";
@@ -59122,10 +59119,7 @@
 /area/medical/surgeryobs)
 "chY" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
-	pixel_x = 4;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 8
@@ -66648,10 +66642,7 @@
 	dir = 4;
 	pixel_x = -22
 	},
-/obj/item/storage/box/gloves{
-	pixel_x = 4;
-	pixel_y = 4
-	},
+/obj/item/nitrilebox,
 /obj/item/storage/box/masks,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Virology Port";
@@ -74523,7 +74514,7 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
-/obj/item/storage/box/gloves,
+/obj/item/nitrilebox,
 /turf/simulated/floor/tiled/dark{
 	name = "cooled dark floor";
 	temperature = 278

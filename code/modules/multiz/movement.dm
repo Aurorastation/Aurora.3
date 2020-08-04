@@ -376,10 +376,10 @@
 			!lying && thrust.allow_thrust(0.01, src))
 			return FALSE
 
-	for(var/mob/living/carbon/human/H in range(1, src)) // can't fall if someone's holding you
-		for(var/obj/item/grab/G in list(H.l_hand, H.r_hand))
-			if(G.state >= GRAB_AGGRESSIVE && G.affecting == src)
-				return FALSE
+	for(var/grab in grabbed_by)
+		var/obj/item/grab/G = grab
+		if(G.state >= GRAB_AGGRESSIVE)
+			return FALSE
 	return ..()
 
 /mob/living/carbon/human/bst/can_fall()
@@ -645,19 +645,6 @@
 
 /mob/living/carbon/human/bst/fall_impact(var/damage_mod)
 	return FALSE
-
-/mob/living/heavy_vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
-	. = ..()
-	if (!.)
-		return
-
-	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
-
-	apply_damage(damage)
-
-	playsound(loc, "sound/effects/bang.ogg", 100, 1)
-	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
 
 /obj/vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	. = ..()

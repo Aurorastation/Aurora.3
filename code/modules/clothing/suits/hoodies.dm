@@ -124,6 +124,12 @@
 	item_state = "coatmedical"
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)
 
+/obj/item/clothing/suit/storage/hooded/wintercoat/iac
+	name = "IAC winter coat"
+	icon_state = "coatIAC"
+	item_state = "coatIAC"
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)	
+
 /obj/item/clothing/suit/storage/hooded/wintercoat/science
 	name = "science winter coat"
 	icon_state = "coatscience"
@@ -250,3 +256,21 @@
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/grey //legacy item. for raiders, shuttle spawn
 	color = "#777777"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/short
+	icon_state = "hoodie_short"
+	icon_open = "hoodie_short_open"
+	icon_closed = "hoodie_short"
+	item_state = "hoodie_short"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/crop
+	icon_state = "hoodie_crop"
+	icon_open = "hoodie_crop_open"
+	icon_closed = "hoodie_crop"
+	item_state = "hoodie_crop"
+	
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
+	icon_state = "hoodie_sleeveless"
+	icon_open = "hoodie_sleeveless_open"
+	icon_closed = "hoodie_sleeveless"
+	item_state = "hoodie_sleeveless"

@@ -169,6 +169,9 @@
 					if(do_mob(assailant, affecting, 150))
 						A.visible_message(SPAN_WARNING("[A] falls unconscious..."), FONT_LARGE(SPAN_DANGER("The world goes dark as you fall unconscious...")))
 						A.Paralyse(20)
+		else if(istype(affecting, /mob/living/simple_animal))
+			if(affecting.stat != DEAD)
+				affecting.health -= 1
 
 	adjust_position()
 

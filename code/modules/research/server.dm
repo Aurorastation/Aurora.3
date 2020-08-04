@@ -1,5 +1,6 @@
 /obj/machinery/r_n_d/server
 	name = "R&D server"
+	desc = "A server which houses a back-up of all station research. It can be used to restore lost data, or to act as another point of retrieval."
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "server"
 	var/datum/research/files
@@ -169,6 +170,7 @@
 
 /obj/machinery/computer/rdservercontrol
 	name = "R&D server controller"
+	desc = "A console use to operate a RnD server, such as locking it, wiping it, or downloading its stored research."
 
 	icon_screen = "rdcomp"
 	light_color = "#a97faa"

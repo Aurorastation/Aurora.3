@@ -75,10 +75,10 @@ obj/machinery/air_sensor/Destroy()
 	return ..()
 
 /obj/machinery/computer/general_air_control
+	name = "atmosphere monitoring console"
+	desc = "A console that gives an atmospheric condition readout of various sensors connected to it."
 	icon_screen = "tank"
 	light_color = LIGHT_COLOR_CYAN
-
-	name = "Computer"
 
 	var/frequency = 1439
 	var/list/sensors = list()

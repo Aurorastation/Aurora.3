@@ -866,4 +866,5 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 /obj/machinery/computer/rdconsole/core
 	name = "core R&D console"
+	desc = "A console which is used to operate various research devices. It is the backbone of any megacorporate research division."
 	id = 1
