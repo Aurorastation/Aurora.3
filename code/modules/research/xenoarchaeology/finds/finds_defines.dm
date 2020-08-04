@@ -95,7 +95,7 @@
 		if(ARCHAEO_SOULSTONE)
 			return "nitrogen"
 		if(ARCHAEO_SHARD)
-			return GAS_NITROGEN
+			return "nitrogen"
 		if(ARCHAEO_RODS)
 			return "iron"
 		if(ARCHAEO_STOCKPARTS)
