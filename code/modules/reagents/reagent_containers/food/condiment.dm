@@ -47,9 +47,9 @@
 		return
 
 	var/datum/reagent/master = reagents.get_master_reagent()
-	name = master.condiment_name || (reagents.reagent_list.len == 1) ? master.condiment_name : "condiment bottle"
+	name = master.condiment_name || (reagents.reagent_list.len == 1) ? "master.condiment_name" : "condiment bottle"
 	// if no condiment_name, use generic bottle. master reagent names aren't used, because their capitalization doesn't play nice with grammar.
-	desc = master.condiment_desc ? master.condiment_desc : master.condiment_name ? master.description : (reagents.reagent_list.len == 1) ? "Looks like it is [reagents.get_master_reagent_name()], but you are not sure." : "A mixture of various condiments. [reagents.get_master_reagent_name()] is one of them."
+	desc = master.condiment_desc ? "master.condiment_desc" : master.condiment_name ? "master.description" : (reagents.reagent_list.len == 1) ? "Looks like it is [reagents.get_master_reagent_name()], but you are not sure." : "A mixture of various condiments. [reagents.get_master_reagent_name()] is one of them."
 	// usually uses condiment_desc. if no condiment_desc, but there's a condiment_name, use reagent name as an interim. else use the generic bottle description.
 	icon_state = master.condiment_icon_state || "mixedcondiments"
 	center_of_mass = master.condiment_center_of_mass || list("x"=16, "y"=6)
