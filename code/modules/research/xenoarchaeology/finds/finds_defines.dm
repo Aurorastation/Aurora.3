@@ -83,7 +83,7 @@
 		if(ARCHAEO_PEN)
 			return "mercury"
 		if(ARCHAEO_CRYSTAL)
-			return GAS_NITROGEN
+			return "nitrogen"
 		if(ARCHAEO_CULTBLADE)
 			return "potassium"
 		if(ARCHAEO_TELEBEACON)
