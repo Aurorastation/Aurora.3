@@ -110,13 +110,24 @@
 	data["isOperating"] = on
 	data["hasOccupant"] = occupant ? 1 : 0
 
-	var/kist/occupantData = list()
+	var/list/occupantData = list()
 	if (occupant)
 		occupantData["name"] = occupant.name
 		occupantData["stat"] = occupant.stat
 		occupantData["bodyTemperature"] = occupant.bodytemperature
+		var/cloneloss = "none"
+		var/amount = occupant.getCloneLoss()
+		if(amount > 50)
+			cloneloss = "severe"
+		else if(amount > 25)
+			cloneloss = "significant"
+		else if(amount > 10)
+			cloneloss = "moderate"
+		else if(amount)
+			cloneloss = "minor"
+		occupantData["cloneloss"] = "<br><br>Genetic degradation: [cloneloss]"
 	data["occupant"] = occupantData
-	data["cryostasis"] = "[occupant.GetStasis()]x"
+	data["cryostasis"] = "[occupant.stasis_value]x"
 
 	data["cellTemperature"] = round(air_contents.temperature)
 	data["cellTemperatureStatus"] = "good"
