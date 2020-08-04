@@ -93,7 +93,7 @@
 		if(ARCHAEO_CULTROBES)
 			return "potassium"
 		if(ARCHAEO_SOULSTONE)
-			return GAS_NITROGEN
+			return "nitrogen"
 		if(ARCHAEO_SHARD)
 			return GAS_NITROGEN
 		if(ARCHAEO_RODS)
