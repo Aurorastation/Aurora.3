@@ -1,7 +1,7 @@
 /datum/language/ling
 	name = LANGUAGE_CHANGELING
 	desc = "Although they are normally wary and suspicious of each other, changelings can commune over a distance."
-	speech_verb = "says"
+	speech_verb = list("says")
 	colour = "changeling"
 	key = "g"
 	flags = RESTRICTED | HIVEMIND
@@ -16,7 +16,7 @@
 /datum/language/corticalborer
 	name = LANGUAGE_BORER
 	desc = "A language Cortical Borers use to influence the minds of those nearby, or those they infest."
-	speech_verb = "sings"
+	speech_verb = list("sings")
 	ask_verb = list("sings")
 	exclaim_verb = list("sings")
 	colour = "alien"
@@ -46,7 +46,7 @@
 /datum/language/vox
 	name = LANGUAGE_VOX
 	desc = "The common tongue of the various Vox ships making up the Shoal. It sounds like chaotic shrieking to everyone else."
-	speech_verb = "shrieks"
+	speech_verb = list("shrieks")
 	ask_verb = list("creels")
 	exclaim_verb = list("SHRIEKS")
 	colour = "vox"
@@ -62,7 +62,7 @@
 /datum/language/cultcommon
 	name = LANGUAGE_CULT
 	desc = "The chants of the occult, the incomprehensible."
-	speech_verb = "intones"
+	speech_verb = list("intones")
 	ask_verb = list("intones")
 	exclaim_verb = list("chants")
 	colour = "cult"
@@ -87,7 +87,7 @@
 /datum/language/cult
 	name = LANGUAGE_OCCULT
 	desc = "The initiated can share their thoughts by means defying all reason."
-	speech_verb = "intones"
+	speech_verb = list("intones")
 	ask_verb = list("intones")
 	exclaim_verb = list("chants")
 	colour = "cult"
@@ -97,7 +97,7 @@
 /datum/language/terminator
 	name = LANGUAGE_TERMINATOR
 	desc = "A heavily encrypted communication network that piggybacks off of the state telecomms relays to covertly link Hephaestus black ops droids to their control AIs."
-	speech_verb = "buzzes"
+	speech_verb = list("buzzes")
 	ask_verb = list("buzzes")
 	exclaim_verb = list("buzzes")
 	colour = "bad"

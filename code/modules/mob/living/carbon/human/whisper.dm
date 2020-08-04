@@ -43,7 +43,7 @@
 	var/not_heard //the message displayed to people who could not hear the whispering
 	if(speaking)
 		if(speaking.whisper_verb)
-			whisper_text = speaking.whisper_verb
+			whisper_text = pick(speaking.whisper_verb)
 			not_heard = "[whisper_text] something"
 		else
 			var/adverb = pick("quietly", "softly")

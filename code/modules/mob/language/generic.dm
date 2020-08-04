@@ -22,8 +22,7 @@
 /datum/language/common
 	name = LANGUAGE_TCB
 	desc = "A spiritual successor of Esperanto, established in 2404 in Tau Ceti by Ceti intellectuals. Its unique, fully customized alphabet and structure allow it to be spoken even by most alien species. It's the official language of Tau Ceti and has growing traction in diplomatic circles and Universalists across human space."
-	speech_verb = "says"
-	whisper_verb = list("whispers")
+	speech_verb = list("says")
 	key = "0"
 	flags = RESTRICTED|TCOMSSIM
 	allow_accents = TRUE
@@ -38,7 +37,7 @@
 /datum/language/trader
 	name = LANGUAGE_TRADEBAND
 	desc = "Descended from latin and romance languages of old Earth, Tradeband remains the main tongue of the upper class of humanity. The language sounds elegant and well structured to most ears. It remains in popular use with traders, diplomats, and those seeking to hold onto a piece of a romantic past."
-	speech_verb = "enunciates"
+	speech_verb = list("enunciates")
 	colour = "say_quote"
 	key = "2"
 	flags = TCOMSSIM
@@ -55,7 +54,7 @@
 /datum/language/gutter
 	name = LANGUAGE_GUTTER
 	desc = "A language of renegades and frontiersmen descending from various languages from Earth like Hindi combined into a multi-rooted jumble that sounds incoherent or even barbarian to non-native speakers. This language is the only common cultural identity for humans in the frontier. Speaking this language in itself boldly declares the speaker a free spirit. Often called 'Gutter' by Alliance citizens."
-	speech_verb = "growls"
+	speech_verb = list("growls")
 	colour = "rough"
 	key = "3"
 	flags = TCOMSSIM
@@ -71,7 +70,7 @@
 /datum/language/sign
 	name = LANGUAGE_SIGN
 	desc = "A signed version of Ceti Basic, though its intent is primarily to help out people who are deaf and mute, "
-	speech_verb = "signs"
+	speech_verb = list("signs")
 	signlang_verb = list("signs", "gestures")
 	colour = "i"
 	key = "4"
@@ -87,7 +86,7 @@
 /datum/language/aphasia
 	name = LANGUAGE_GIBBERING
 	desc = "It is theorized that any sufficiently brain-damaged person can speak this language."
-	speech_verb = "garbles"
+	speech_verb = list("garbles")
 	ask_verb = list("mumbles")
 	whisper_verb = list("mutters")
 	exclaim_verb = list("screams incoherently")

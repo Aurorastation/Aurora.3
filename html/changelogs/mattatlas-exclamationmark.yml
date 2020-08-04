@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - rscadd: "You now only exclaims when you use one ! at the end of a sentence, and scream/yell/shout when you use !!, ?! or !?."
   - tweak: "Using an apostrophe at the end of a sentence now triggers autopunctuation."
+  - bugfix: "Fixed whisper verb weirdness."

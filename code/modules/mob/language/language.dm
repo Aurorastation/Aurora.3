@@ -7,7 +7,7 @@
 /datum/language
 	var/name = "an unknown language"  // Fluff name of language if any.
 	var/desc = "A language."          // Short description for 'Check Languages'.
-	var/speech_verb = "says"          // 'says', 'hisses', 'farts'.
+	var/speech_verb = list("says")          // 'says', 'hisses', 'farts'.)
 	var/list/ask_verb = list("asks")  // Used when sentence ends in a ?
 	var/list/exclaim_verb = list("exclaims") // Used when sentence ends in a !
 	var/list/shout_verb = list("shouts", "yells", "screams") //Used when a sentence ends in !!

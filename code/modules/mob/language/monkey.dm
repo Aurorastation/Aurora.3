@@ -1,7 +1,7 @@
 /datum/language/human/monkey
 	name = LANGUAGE_CHIMPANZEE
 	desc = "Ook ook ook."
-	speech_verb = "chimpers"
+	speech_verb = list("chimpers")
 	ask_verb = list("chimpers")
 	exclaim_verb = list("screeches")
 	key = "6"
@@ -33,7 +33,7 @@
 	name = LANGUAGE_BUG
 	desc = "Buzz buzz buzz."
 	key = "#"
-	speech_verb = "chitters"
+	speech_verb = list("chitters")
 	ask_verb = list("ponders")
 	exclaim_verb = list("buzzes")
 	syllables = list("vaur","uyek","uyit","avek","sc'theth","k'ztak","teth","wre'ge","lii","dra'","zo'","ra'","k'lax'","zz","vh","ik","ak",
