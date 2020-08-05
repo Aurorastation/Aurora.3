@@ -286,6 +286,7 @@
 					else
 						LAZYINITLIST(piece.armor)
 						piece.armor["bio"] = LAZYACCESS(src.armor, "bio") || 0
+					playsound(src, "[!seal_target ? 'sound/machines/BoltsDown.ogg' : 'sound/machines/BoltsUp.ogg']", 10, FALSE)
 
 				else
 					failed_to_seal = 1
