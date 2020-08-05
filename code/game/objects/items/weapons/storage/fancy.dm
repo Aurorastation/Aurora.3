@@ -20,7 +20,6 @@
 	var/opened = FALSE // handles open/closing icons. also a failsafe.
 	var/closable = TRUE // if you can close the icon after opening.
 	var/icon_overlays = TRUE // whether the icon uses the update_icon() or a unique one.
-	var/total_contents // calculating how much stuff is in it.
 	foldable = null // most of this stuff isn't foldable by default, e.g. cig packets and vial boxes
 
 /obj/item/storage/box/fancy/open(mob/user)
