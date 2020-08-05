@@ -49,7 +49,7 @@
 	total_contents = src.contents.len - itemremoved
 	if(opened) //use the open icon.
 		if(icon_overlays) //whether it uses the overlays/uses its own version.
-			src.icon_state = "[src.icon_type][src.storage_type][total_contents]"
+			src.icon_state = "[src.icon_type][src.storage_type][contents.len - itemremoved]"
 		else
 			icon_state = "[initial(icon_state)][src.opened]"
 
