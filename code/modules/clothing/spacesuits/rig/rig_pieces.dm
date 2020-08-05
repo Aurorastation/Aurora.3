@@ -53,6 +53,16 @@
 		"Vox" = 'icons/mob/species/vox/shoes.dmi'
 	)
 
+/obj/item/clothing/shoes/magboots/rig/handle_movement(var/turf/walking, var/running)
+	if(running)
+		if(footstep >= 2)
+			footstep = 0
+			playsound(src, 'sound/machines/rig/rigstep.ogg', 50, TRUE)
+		else
+			footstep++
+	else
+		playsound(src, 'sound/machines/rig/rigstep.ogg', 20, TRUE)
+
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit)
