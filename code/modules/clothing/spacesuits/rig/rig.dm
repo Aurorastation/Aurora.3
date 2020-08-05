@@ -226,8 +226,10 @@
 		wearer.visible_message("<span class='danger'>[wearer]'s suit flashes an error light.</span>","<span class='danger'>Your suit flashes an error light. It can't function properly without being fully deployed.</span>")
 		failed_to_seal = 1
 
-	if(!failed_to_seal)
+	var/is_in_cycler = istype(initiator.loc, /obj/machinery/suit_cycler)
+	seal_delay = is_in_cycler ? 1 : initial(seal_delay)
 
+	if(!failed_to_seal)
 		if(!instant)
 			wearer.visible_message("<font color='blue'>[wearer]'s suit emits a quiet hum as it begins to adjust its seals.</font>","<font color='blue'>With a quiet hum, the suit begins running checks and adjusting components.</font>")
 			if(seal_delay && !do_after(wearer, seal_delay, act_target = src))
@@ -321,6 +323,8 @@
 	if(airtight)
 		update_component_sealed()
 	update_icon(1)
+	if(is_in_cycler)
+		initiator.loc.update_icon()
 
 /obj/item/rig/proc/update_component_sealed()
 	for(var/obj/item/piece in list(helmet,boots,gloves,chest))
@@ -602,7 +606,7 @@
 			if(M && M.back == src)
 				if(!M.unEquip(src))
 					return
-			src.forceMove(get_turf(src))
+			M.put_in_hands(src)
 			return
 
 	if(istype(M) && M.back == src)

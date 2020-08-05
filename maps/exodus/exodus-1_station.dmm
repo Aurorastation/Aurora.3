@@ -47957,7 +47957,7 @@
 /area/medical/sleeper)
 "bMO" = (
 /obj/effect/landmark/start{
-	name = "Paramedic"
+	name = "Emergency Medical Technician"
 	},
 /obj/item/stool/padded,
 /turf/simulated/floor/tiled/white,
@@ -47970,7 +47970,7 @@
 	req_access = list(5)
 	},
 /obj/effect/landmark/start{
-	name = "Paramedic"
+	name = "Emergency Medical Technician"
 	},
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medbay EMT Storage";

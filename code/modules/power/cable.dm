@@ -655,24 +655,25 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	..()
 	to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil.")
 
-/obj/item/stack/cable_coil/verb/make_restraint(mob/user)
+/obj/item/stack/cable_coil/verb/make_restraint()
 	set name = "Make Cable Restraints"
 	set category = "Object"
-	var/mob/M = user
 
-	if(ishuman(M) && !M.restrained() && !M.stat && !M.paralysis && ! M.stunned)
-		if(!istype(user.loc,/turf)) return
-		if(src.amount <= 14)
-			to_chat(user, SPAN_WARNING("You need at least 15 lengths to make restraints!"))
+	if(ishuman(usr) && !usr.restrained() && !usr.stat && !usr.paralysis && ! usr.stunned)
+		if(!isturf(usr.loc))
 			return
-		to_chat(user, SPAN_NOTICE("You start winding some cable together to make some restraints."))
-		if(do_after(user, 150))
-			new/obj/item/handcuffs/cable(user.loc, color)
-			to_chat(user, SPAN_NOTICE("You wind some cable together to make some restraints."))
+		if(src.amount <= 14)
+			to_chat(usr, SPAN_WARNING("You need at least 15 lengths to make restraints!"))
+			return
+		to_chat(usr, SPAN_NOTICE("You start winding some cable together to make some restraints."))
+		if(do_after(usr, 150))
+			var/obj/item/handcuffs/cable/cuffs = new /obj/item/handcuffs/cable(usr.loc, color)
+			to_chat(usr, SPAN_NOTICE("You wind some cable together to make some restraints."))
 			playsound(src.loc, 'sound/weapons/cablecuff.ogg', 30, 1, -2)
-			src.use(15)
+			use(15)
+			usr.put_in_hands(cuffs)
 	else
-		to_chat(user, SPAN_WARNING("You cannot do that."))
+		to_chat(usr, SPAN_WARNING("You cannot do that."))
 
 /obj/item/stack/cable_coil/cyborg
 	name = "cable coil synthesizer"

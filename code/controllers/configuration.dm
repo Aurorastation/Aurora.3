@@ -116,9 +116,8 @@ var/list/gamemode_cache = list()
 
 	//game_options.txt configs
 
-	var/health_threshold_softcrit = 0
-	var/health_threshold_crit = 0
-	var/health_threshold_dead = -100
+	var/health_threshold_softcrit = 50
+	var/health_threshold_dead = 0
 
 	var/organ_health_multiplier = 1
 	var/organ_regeneration_multiplier = 1
@@ -957,8 +956,6 @@ var/list/gamemode_cache = list()
 			value = text2num(value)
 
 			switch(name)
-				if("health_threshold_crit")
-					config.health_threshold_crit = value
 				if("health_threshold_softcrit")
 					config.health_threshold_softcrit = value
 				if("health_threshold_dead")

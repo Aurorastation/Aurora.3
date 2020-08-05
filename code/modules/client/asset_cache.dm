@@ -191,7 +191,16 @@ var/list/asset_datums = list()
 		"eridanilogo.png" = 'html/images/eridanilogo.png',
 		"zavodlogo.png" = 'html/images/zavodlogo.png',
 		"hplogo.png" = 'html/images/hplogo.png',
-		"belogo.png" = 'html/images/belogo.png'
+		"beflag.png" = 'html/images/beflag.png',
+		"elyraflag.png" = 'html/images/elyraflag.png',
+		"solflag.png" = 'html/images/solflag.png',
+		"cocflag.png" = 'html/images/cocflag.png',
+		"domflag.png" = 'html/images/domflag.png',
+		"jargonflag.png" = 'html/images/jargonflag.png',
+		"praflag.png" = 'html/images/praflag.png',
+		"dpraflag.png" = 'html/images/dpraflag.png',
+		"nkaflag.png" = 'html/images/nkaflag.png',
+		"izweskiflag.png" = 'html/images/izweskiflag.png'
 	)
 
 /datum/asset/simple/changelog
