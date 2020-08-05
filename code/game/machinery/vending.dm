@@ -659,8 +659,10 @@
 		flick(src.icon_vend,src)
 	playsound(src.loc, "sound/[vending_sound]", 100, 1)
 	spawn(src.vend_delay)
-		var/obj/vended = new R.product_path(get_turf(src))
-		user.put_in_hands(vended)
+		var/vending_usr_dir = get_dir(src, user)
+		var/obj/vended = new R.product_path(get_step(src, vending_usr_dir))
+		if(Adjacent(user))
+			user.put_in_hands(vended)
 		src.status_message = ""
 		src.status_error = 0
 		src.vend_ready = 1
