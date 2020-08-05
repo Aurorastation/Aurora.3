@@ -924,23 +924,7 @@ proc/is_hot(obj/item/W as obj)
 	return surgery_attempt
 
 /proc/reverse_direction(var/dir)
-	switch(dir)
-		if(NORTH)
-			return SOUTH
-		if(NORTHEAST)
-			return SOUTHWEST
-		if(EAST)
-			return WEST
-		if(SOUTHEAST)
-			return NORTHWEST
-		if(SOUTH)
-			return NORTH
-		if(SOUTHWEST)
-			return NORTHEAST
-		if(WEST)
-			return EAST
-		if(NORTHWEST)
-			return SOUTHEAST
+	return turn(dir, 180)
 
 /*
 Checks if that loc and dir has a item on the wall

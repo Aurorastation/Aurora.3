@@ -1,24 +1,28 @@
 /////////////VISION CONE///////////////
-// Vision cone code by Honkertron (for Otuska) and Matt.
-// This vision cone code allows for mobs and/or items to blocked out from a players field of vision.
+// Vision cone code by Honkertron (for Otuska), Matt and Myazaki.
+// This vision cone code allows for mobs and/or items to be blocked out from a player's field of vision.
 // This code makes use of the "cone of effect" proc created by Lummox, contributed by Jtgibson.
 //
 // More info on that here:
 // http://www.byond.com/forum/?post=195138
 ///////////////////////////////////////
 
-//Defines.
-#define OPPOSITE_DIR(D) turn(D, 180)
-
 /client
 	var/list/hidden_atoms = list()
 	var/list/hidden_mobs = list()
 
-/proc/cone(atom/center = usr, dir = NORTH, list/list = oview(center))
-	for(var/atom/O in list) if(!O.InCone(center, dir)) list -= O
-	return list
+/proc/cone(turf/center, dir, list/list)
+	. = list()
+	for(var/turf/T in list)
+		if(T.InCone(center, dir))
+			for(var/mob/M in T.contents)
+				if(M.InCone(center, dir))
+					. += M
 
-/atom/proc/InCone(atom/center = usr, dir = NORTH)
+/atom/proc/InCone(turf/center, dir)
+	return FALSE
+
+/turf/InCone(turf/center, dir)
 	if(get_dist(center, src) == 0 || src == center) return 0
 	var/d = get_dir(center, src)
 
@@ -33,14 +37,17 @@
 		return (dir & (NORTH|SOUTH)) ? 1 : 0
 	return (dir & (EAST|WEST)) ? 1 : 0
 
-/mob/dead/InCone(mob/center = usr, dir = NORTH)
-	return
+/mob/dead/InCone(turf/center, dir)
+	return FALSE
 
-/mob/living/InCone(mob/center = usr, dir = NORTH)
+/mob/InCone(turf/center, dir)
+	return TRUE
+
+/mob/living/InCone(turf/center, dir)
 	. = ..()
 	for(var/obj/item/grab/G in center)//TG doesn't have the grab item. But if you're porting it and you do then uncomment this.
 		if(src == G.affecting)
-			return 0
+			return FALSE
 		else
 			return .
 
@@ -53,31 +60,29 @@
 			hide_cone()
 		return
 
-	var/delay = 10
-	if(src.client)
+	var/delay = 1 SECONDS
+	if(client)
 		var/image/I = null
-		for(I in src.client.hidden_atoms)
-			I.override = 0
-			addtimer(CALLBACK(src, .proc/clear_cone_effect, I), delay)
-			delay += 10
+		for(I in client.hidden_atoms)
+			I.override = FALSE
+			QDEL_IN(I, delay)
+			delay += 1 SECONDS
 
 		check_fov()
-		src.client.hidden_atoms = list()
-		src.client.hidden_mobs = list()
-		src.vision_cone_overlay.dir = src.dir
-		if(vision_cone_overlay.alpha != 0)
-			var/mob/living/M
-			for(M in cone(src, OPPOSITE_DIR(src.dir), view(10, src)))
+		client.hidden_atoms.Cut()
+		client.hidden_mobs.Cut()
+		vision_cone_overlay.dir = dir
+		if(vision_cone_overlay.alpha)
+			var/turf/T = get_turf(src)
+			for(var/cone_mob in cone(T, reverse_direction(dir), get_rectangle_in_dir(T, client.view, reverse_direction(dir)) & oview(client.view, T)))
+				var/mob/living/M = cone_mob
 				I = image("split", M)
-				I.override = 1
-				src.client.images += I
-				src.client.hidden_atoms += I
-				src.client.hidden_mobs += M
-				if(src.pulling == M)//If we're pulling them we don't want them to be invisible, too hard to play like that.
-					I.override = 0
-
-/mob/living/proc/clear_cone_effect(var/image/I)
-	qdel(I)
+				I.override = TRUE
+				client.images += I
+				client.hidden_atoms += I
+				client.hidden_mobs += M
+				if(pulling == M)//If we're pulling them we don't want them to be invisible, too hard to play like that.
+					I.override = FALSE
 
 /mob/living/proc/SetFov(var/n)
 	if(!can_have_vision_cone)
@@ -93,14 +98,14 @@
 		return
 
 	if(isnull(vision_cone_overlay))
-		src.vision_cone_overlay = new /obj/screen/fov()
-		src.client.screen |= src.vision_cone_overlay
+		vision_cone_overlay = new /obj/screen/fov()
+		client.screen |= vision_cone_overlay
 
 	if(resting || lying || client.eye != client.mob)
-		src.vision_cone_overlay.alpha = 0
+		vision_cone_overlay.alpha = 0
 		return
 
-	else if(src.vision_cone_overlay)
+	else if(vision_cone_overlay)
 		show_cone()
 	else
 		hide_cone()
@@ -110,14 +115,25 @@
 	if(!can_have_vision_cone)
 		return
 
-	if(src.vision_cone_overlay)
-		src.vision_cone_overlay.alpha = 255
+	if(vision_cone_overlay)
+		vision_cone_overlay.alpha = 255
 
 /mob/living/proc/hide_cone()
-	if(src.vision_cone_overlay)
-		src.vision_cone_overlay.alpha = 0
+	if(vision_cone_overlay)
+		vision_cone_overlay.alpha = 0
 
 /mob/living/set_dir()
 	. = ..()
 	if(.)
 		update_vision_cone()
+
+// Rotates a rectangle around a center turf
+/proc/get_rectangle_in_dir(var/turf/T, var/length, var/dir)
+	var/matrix/M = new
+	var/matrix/N = new
+	M.Turn(dir2angle(dir))
+	N.Turn((dir2angle(dir)+180) % 360)
+	. = block(\
+		locate(T.x + (M.a+M.b) * length - 0.5*abs((M.a + M.b)-1), T.y + (M.d+M.e) * length - 0.5*abs((M.d + M.e)-1), T.z),\
+		locate(T.x + N.a * length - 0.5*abs((M.a + M.b)-1), T.y + N.d * length - 0.5*abs((M.d + M.e)-1), T.z)\
+		)

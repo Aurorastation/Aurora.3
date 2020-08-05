@@ -1,0 +1,6 @@
+author: mikomyazaki & MattAtlas
+
+delete-after: True
+
+changes: 
+  - experiment: "Players now have vision cones, preventing seeing mobs in a 90 degree arc behind themselves, unless that mob is grabbing you."

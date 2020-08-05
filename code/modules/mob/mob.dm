@@ -1271,7 +1271,7 @@
 		src.throw_icon.icon_state = "act_throw_on"
 
 /mob/proc/is_invisible_to(var/mob/viewer)
-	return (!alpha || !mouse_opacity || viewer.see_invisible < invisibility || (viewer.client && (src in (viewer.client.hidden_mobs || viewer.client.hidden_atoms))))
+	return (!alpha || !mouse_opacity || viewer.see_invisible < invisibility || (viewer.client && (src in viewer.client.hidden_mobs)))
 
 //Admin helpers
 /mob/proc/wind_mob(var/mob/admin)
