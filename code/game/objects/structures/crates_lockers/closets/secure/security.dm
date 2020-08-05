@@ -135,7 +135,6 @@
 	new /obj/item/clothing/head/helmet/hos(src)
 	new /obj/item/clothing/head/beret/sec/hos(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
-	new /obj/item/clothing/shoes/black_boots(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
 	new /obj/item/cartridge/hos(src)
@@ -216,7 +215,6 @@
 	new /obj/item/clothing/head/helmet/warden/commissar(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/accessory/badge/warden(src)
-	new /obj/item/clothing/shoes/black_boots(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
 	new /obj/item/cartridge/security(src)

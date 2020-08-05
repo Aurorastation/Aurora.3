@@ -6,6 +6,7 @@
 	// Speaking
 	gender = NEUTER
 	voice_name = "Synthesized Voice"
+	accent = ACCENT_SILICON
 	var/list/speech_synthesizer_langs = list() //which languages can be vocalized by the speech synthesizer
 	var/speak_statement = "states"
 	var/speak_exclamation = "declares"
@@ -42,7 +43,8 @@
 	var/list/silicon_subsystems = list(
 		/mob/living/silicon/proc/subsystem_alarm_monitor,
 		/mob/living/silicon/proc/subsystem_law_manager,
-		/mob/living/silicon/proc/computer_interact
+		/mob/living/silicon/proc/computer_interact,
+		/mob/living/silicon/proc/silicon_mimic_accent
 	)
 
 	// Utility
