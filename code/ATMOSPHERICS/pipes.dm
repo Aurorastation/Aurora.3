@@ -82,6 +82,11 @@
 	if(istype(W,/obj/item/device/pipe_painter))
 		return 0
 
+	if(istype(W, /obj/item/device/analyzer) && Adjacent(user))
+		var/obj/item/device/analyzer/A = W
+		A.analyze_gases(src, user)
+		return FALSE
+
 	if (!W.iswrench() && !istype(W, /obj/item/pipewrench))
 		return ..()
 	var/turf/T = src.loc
@@ -1157,9 +1162,12 @@
 	if(istype(W, /obj/item/device/pipe_painter))
 		return
 
+	
+	
 	if(istype(W, /obj/item/device/analyzer) && in_range(user, src))
 		var/obj/item/device/analyzer/A = W
 		A.analyze_gases(src, user)
+		return 0
 
 /obj/machinery/atmospherics/pipe/tank/air
 	name = "Pressure Tank (Air)"
