@@ -45,7 +45,6 @@
 	update_icon()
 
 /obj/item/storage/box/fancy/update_icon(var/itemremoved = 0)
-	total_contents = src.contents.len - itemremoved
 	if(opened) //use the open icon.
 		if(icon_overlays) //whether it uses the overlays/uses its own version.
 			src.icon_state = "[src.icon_type][src.storage_type][contents.len - itemremoved]"
