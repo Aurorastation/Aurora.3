@@ -20,6 +20,7 @@
 	var/opened = FALSE // handles open/closing icons. also a failsafe.
 	var/closable = TRUE // if you can close the icon after opening.
 	var/icon_overlays = TRUE // whether the icon uses the update_icon() or a unique one.
+	var/total_contents // calculating how much stuff is in it.
 	foldable = null // most of this stuff isn't foldable by default, e.g. cig packets and vial boxes
 
 /obj/item/storage/box/fancy/open(mob/user)
@@ -30,6 +31,7 @@
 
 /obj/item/storage/box/fancy/Initialize()
 	. = ..()
+	update_icon()
 	if(closable)
 		desc_info += "Alt-click to open and close the box. " //aka force override icon state. for you know, style.
 
@@ -44,9 +46,9 @@
 	update_icon()
 
 /obj/item/storage/box/fancy/update_icon(var/itemremoved = 0)
+	total_contents = src.contents.len - itemremoved
 	if(opened) //use the open icon.
 		if(icon_overlays) //whether it uses the overlays/uses its own version.
-			var/total_contents = src.contents.len - itemremoved
 			src.icon_state = "[src.icon_type][src.storage_type][total_contents]"
 		else
 			icon_state = "[initial(icon_state)][src.opened]"
