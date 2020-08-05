@@ -27,7 +27,8 @@
 
 /obj/item/reagent_containers/ladle/update_icon()
 	cut_overlays()
-	if(reagents.total_volume)
-		var/over = image(icon, "ladle_overlay")
-		over.color = reagents.get_color()
-		add_overlay(over)
+	if(!reagents.total_volume)
+		return
+	var/image/over = image(icon, "ladle_overlay")
+	over.color = reagents.get_color()
+	add_overlay(over)
