@@ -14,8 +14,8 @@ var/datum/antagonist/loyalists/loyalists
 	loss_feedback_tag = "You were thwarted by the Contenders."
 	antaghud_indicator = "fellowship"
 
-	hard_cap = 4
-	hard_cap_round = 8
+	hard_cap = 3
+	hard_cap_round = 3
 	initial_spawn_req = 3
 	initial_spawn_target = 8
 

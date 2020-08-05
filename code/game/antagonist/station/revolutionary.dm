@@ -15,8 +15,8 @@ var/datum/antagonist/revolutionary/revs
 	flags = ANTAG_SUSPICIOUS | ANTAG_VOTABLE
 	antaghud_indicator = "contender"
 
-	hard_cap = 4
-	hard_cap_round = 8
+	hard_cap = 3
+	hard_cap_round = 3
 	initial_spawn_req = 3
 	initial_spawn_target = 8
 
