@@ -131,12 +131,12 @@
 	if(device_type)
 		device = new device_type(src)
 
-/obj/item/rig_module/device/engage(atom/target)
+/obj/item/rig_module/device/engage(atom/target, mob/user)
 	if(!..() || !device)
 		return FALSE
 
 	if(!target)
-		device.attack_self(holder.wearer)
+		device.attack_self(user)
 		return TRUE
 
 	var/turf/T = get_turf(target)
@@ -147,9 +147,9 @@
 	if(istype(target, /obj/machinery/disposal))
 		return FALSE
 
-	var/resolved = target.attackby(device, holder.wearer)
+	var/resolved = target.attackby(device, user)
 	if(!resolved && device && target)
-		device.afterattack(target, holder.wearer, TRUE)
+		device.afterattack(target, user, TRUE)
 	return TRUE
 
 /obj/item/rig_module/chem_dispenser
@@ -236,7 +236,7 @@
 		to_chat(user, "<span class='danger'>None of the reagents seem suitable.</span>")
 	return 1
 
-/obj/item/rig_module/chem_dispenser/engage(atom/target)
+/obj/item/rig_module/chem_dispenser/engage(atom/target, mob/user)
 
 	if(!..())
 		return 0
@@ -391,7 +391,7 @@
 	..()
 	holder.speech = src
 
-/obj/item/rig_module/voice/engage()
+/obj/item/rig_module/voice/engage(atom/target, mob/user)
 
 	if(!..())
 		return 0
@@ -405,23 +405,23 @@
 		if("Enable")
 			active = 1
 			voice_holder.active = 1
-			to_chat(usr, "<font color='blue'>You enable the speech synthesiser.</font>")
+			message_user(user, SPAN_NOTICE("You enable the speech synthesiser."), SPAN_NOTICE("\The [user] enables the speech synthesiser."))
 		if("Disable")
 			active = 0
 			voice_holder.active = 0
-			to_chat(usr, "<font color='blue'>You disable the speech synthesiser.</font>")
+			message_user(user, SPAN_NOTICE("You disable the speech synthesiser."), SPAN_NOTICE("\The [user] disables the speech synthesiser."))
 		if("Set Name")
-			var/raw_choice = sanitize(input(usr, "Please enter a new name.")  as text|null, MAX_NAME_LEN)
+			var/raw_choice = sanitize(input(user, "Please enter a new name.") as text|null, MAX_NAME_LEN)
 			if(!raw_choice)
 				return 0
 			voice_holder.voice = raw_choice
-			to_chat(usr, "<font color='blue'>You are now mimicking <B>[voice_holder.voice]</B>.</font>")
+			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic <b>[voice_holder.voice]</b>."), SPAN_NOTICE("\The [user] set the speech synthesizer to mimic <b>[voice_holder.voice]</b>."))
 		if("Set Accent")
-			var/raw_choice = input(usr, "Please choose an accent to mimick.") as null|anything in SSrecords.accents
+			var/raw_choice = input(user, "Please choose an accent to mimick.") as null|anything in SSrecords.accents
 			if(!raw_choice)
 				return 0
 			voice_holder.current_accent = raw_choice
-			to_chat(usr, SPAN_NOTICE("You are now mimicking the [raw_choice] accent."))
+			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic the [raw_choice] accent."), SPAN_NOTICE("\The [user] set the speech synthesizer the [raw_choice] accent."))
 	return 1
 
 /obj/item/rig_module/maneuvering_jets
@@ -449,7 +449,7 @@
 
 	category = MODULE_GENERAL
 
-/obj/item/rig_module/maneuvering_jets/engage()
+/obj/item/rig_module/maneuvering_jets/engage(atom/target, mob/user)
 	if(!..())
 		return 0
 	jets.toggle_rockets()
@@ -509,13 +509,13 @@
 
 	category = MODULE_GENERAL
 
-/obj/item/rig_module/device/paperdispenser/engage(atom/target)
+/obj/item/rig_module/device/paperdispenser/engage(atom/target, mob/user)
 
 	if(!..() || !device)
 		return 0
 
 	if(!target)
-		device.attack_hand(holder.wearer)
+		device.attack_hand(user)
 		return 1
 
 /obj/item/rig_module/device/pen
@@ -549,17 +549,17 @@
 	deniedstamp = new /obj/item/stamp/denied(src)
 	device = iastamp
 
-/obj/item/rig_module/device/stamp/engage(atom/target)
+/obj/item/rig_module/device/stamp/engage(atom/target, mob/user)
 	if(!..() || !device)
 		return 0
 
 	if(!target)
 		if(device == iastamp)
 			device = deniedstamp
-			to_chat(holder.wearer, "<span class='notice'>Switched to denied stamp.</span>")
+			message_user(user, SPAN_NOTICE("You set \the [src] to the denied stamp."), SPAN_NOTICE("\The [user] set \the [src] to the denied stamp."))
 		else if(device == deniedstamp)
 			device = iastamp
-			to_chat(holder.wearer, "<span class='notice'>Switched to internal affairs stamp.</span>")
+			message_user(user, SPAN_NOTICE("You set \the [src] to the internal affairs stamp."), SPAN_NOTICE("\The [user] set \the [src] to the internal affairs stamp."))
 		return 1
 
 /obj/item/rig_module/device/decompiler
@@ -618,7 +618,7 @@
 
 	category = MODULE_LIGHT_COMBAT
 
-/obj/item/rig_module/actuators/engage(var/atom/target)
+/obj/item/rig_module/actuators/engage(atom/target, mob/user)
 	if (!..())
 		return 0
 
@@ -769,7 +769,7 @@
 
 	category = MODULE_VAURCA
 
-/obj/item/rig_module/boring/engage()
+/obj/item/rig_module/boring/engage(atom/target, mob/user)
 	if (!..())
 		return 0
 

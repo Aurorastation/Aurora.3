@@ -75,7 +75,7 @@
 				rig.last_remote_message = world.time
 			else
 				return FALSE
-		rig.selected_module.engage(A, alert_ai)
+		rig.selected_module.engage(A, src, alert_ai)
 		if(ismob(A)) // No instant mob attacking - though modules have their own cooldowns
 			setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		return TRUE

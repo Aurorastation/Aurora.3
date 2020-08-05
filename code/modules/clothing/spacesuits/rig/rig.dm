@@ -319,7 +319,7 @@
 
 	if(canremove)
 		for(var/obj/item/rig_module/module in installed_modules)
-			module.deactivate()
+			module.deactivate(initiator)
 	if(airtight)
 		update_component_sealed()
 	update_icon(1)
@@ -555,15 +555,21 @@
 
 //TODO: Fix Topic vulnerabilities for malfunction and AI override.
 /obj/item/rig/Topic(href,href_list)
-	if(!check_suit_access(usr))
+	if(ismob(href))
+		do_rig_thing(href, href_list)
+		return
+	do_rig_thing(usr, href_list)
+
+/obj/item/rig/proc/do_rig_thing(mob/user, var/list/href_list)
+	if(!check_suit_access(user))
 		return 0
 
 	if(href_list["toggle_piece"])
-		if(ishuman(usr) && (usr.stat || usr.stunned || usr.lying))
-			return 0
-		toggle_piece(href_list["toggle_piece"], usr)
+		if(ishuman(user) && (user.stat || user.stunned || user.lying))
+			return FALSE
+		toggle_piece(href_list["toggle_piece"], user)
 	else if(href_list["toggle_seals"])
-		toggle_seals(usr)
+		toggle_seals(user)
 	else if(href_list["interact_module"])
 
 		var/module_index = text2num(href_list["interact_module"])
@@ -572,11 +578,11 @@
 			var/obj/item/rig_module/module = installed_modules[module_index]
 			switch(href_list["module_mode"])
 				if("activate")
-					module.activate()
+					module.activate(user)
 				if("deactivate")
-					module.deactivate()
+					module.deactivate(user)
 				if("engage")
-					module.engage()
+					module.engage(null, user)
 				if("select")
 					selected_module = module
 				if("select_charge_type")
@@ -587,9 +593,9 @@
 	else if(href_list["toggle_suit_lock"])
 		locked = !locked
 
-	usr.set_machine(src)
-	src.add_fingerprint(usr)
-	return 0
+	user.set_machine(src)
+	src.add_fingerprint(user)
+	return FALSE
 
 /obj/item/rig/proc/notify_ai(var/message)
 	for(var/obj/item/rig_module/ai_container/module in installed_modules)

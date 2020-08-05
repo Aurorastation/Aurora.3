@@ -62,7 +62,7 @@
 	accepted_item.charges++
 	return 1
 
-/obj/item/rig_module/grenade_launcher/engage(atom/target)
+/obj/item/rig_module/grenade_launcher/engage(atom/target, mob/user)
 
 	if(!..())
 		return 0
@@ -70,10 +70,8 @@
 	if(!target)
 		return 0
 
-	var/mob/living/carbon/human/H = holder.wearer
-
 	if(!charge_selected)
-		to_chat(H, "<span class='danger'>You have not selected a grenade type.</span>")
+		to_chat(user, "<span class='danger'>You have not selected a grenade type.</span>")
 		return 0
 
 	var/datum/rig_charge/charge = charges[charge_selected]
@@ -82,13 +80,13 @@
 		return 0
 
 	if(charge.charges <= 0)
-		to_chat(H, "<span class='danger'>Insufficient grenades!</span>")
+		to_chat(user, "<span class='danger'>Insufficient grenades!</span>")
 		return 0
 
 	charge.charges--
-	var/obj/item/grenade/new_grenade = new charge.product_type(get_turf(H))
-	H.visible_message("<span class='danger'>[H] launches \a [new_grenade]!</span>")
-	new_grenade.activate(H)
+	var/obj/item/grenade/new_grenade = new charge.product_type(get_turf(holder.wearer))
+	holder.wearer.visible_message("<span class='danger'>[user] launches \a [new_grenade]!</span>")
+	new_grenade.activate(user)
 	new_grenade.throw_at(target,fire_force,fire_distance)
 
 /obj/item/rig_module/grenade_launcher/frag
@@ -140,16 +138,16 @@
 	if(istype(gun, /obj/item/gun))
 		gun.has_safety = FALSE
 
-/obj/item/rig_module/mounted/engage(atom/target)
+/obj/item/rig_module/mounted/engage(atom/target, mob/user)
 
 	if(!..())
 		return 0
 
 	if(!target)
-		gun.attack_self(holder.wearer)
+		gun.attack_self(user)
 		return 1
 
-	gun.Fire(target,holder.wearer)
+	gun.Fire(target, user)
 	return 1
 
 /obj/item/rig_module/mounted/egun
@@ -295,7 +293,7 @@
 
 	if(holder && holder.wearer)
 		if(!(locate(/obj/item/melee/energy/blade) in holder.wearer))
-			deactivate()
+			deactivate(holder.wearer)
 			return 0
 
 	return ..()
@@ -347,7 +345,7 @@
 
 	category = MODULE_SPECIAL
 
-/obj/item/rig_module/fabricator/engage(atom/target)
+/obj/item/rig_module/fabricator/engage(atom/target, mob/user)
 
 	if(!..())
 		return 0
@@ -355,9 +353,8 @@
 	var/mob/living/H = holder.wearer
 
 	if(target)
-		var/obj/item/firing = new fabrication_type()
-		firing.forceMove(get_turf(src))
-		H.visible_message("<span class='danger'>[H] launches \a [firing]!</span>")
+		var/obj/item/firing = new fabrication_type(get_turf(src))
+		holder.wearer.visible_message("<span class='danger'>[user] launches \a [firing]!</span>")
 		firing.throw_at(target,fire_force,fire_distance)
 	else
 		if(H.l_hand && H.r_hand)
@@ -365,7 +362,7 @@
 		else
 			var/obj/item/new_weapon = new fabrication_type()
 			new_weapon.forceMove(H)
-			to_chat(H, "<font color='blue'><b>You quickly fabricate \a [new_weapon].</b></font>")
+			message_user(user, SPAN_NOTICE("You quickly fabricate \a [new_weapon]."), SPAN_NOTICE("\The [user] fabricates \a [new_weapon]."))
 			H.put_in_hands(new_weapon)
 
 	return 1
@@ -396,7 +393,7 @@
 
 	category = MODULE_LIGHT_COMBAT
 
-/obj/item/rig_module/tesla_coil/engage()
+/obj/item/rig_module/tesla_coil/engage(atom/target, mob/user)
 	if(!..())
 		return 0
 

@@ -58,10 +58,11 @@
 	interface_name = "optical scanners"
 	interface_desc = "An integrated multi-mode vision system."
 
-	usable = 1
-	toggleable = 1
-	disruptive = 0
-	confined_use = 1
+	engage_on_activate = FALSE
+	usable = TRUE
+	toggleable = TRUE
+	disruptive = FALSE
+	confined_use = TRUE
 
 	engage_string = "Cycle Visor Mode"
 	activate_string = "Enable Visor"
@@ -187,17 +188,12 @@
 	..()
 	holder.visor = src
 
-/obj/item/rig_module/vision/engage()
-
-	var/starting_up = !active
-
+/obj/item/rig_module/vision/engage(atom/target, mob/user)
 	if(!..() || !vision_modes)
-		return 0
-
-	// Don't cycle if this engage() is being called by activate().
-	if(starting_up)
-		to_chat(holder.wearer, "<font color='blue'>You activate your visual sensors.</font>")
-		return 1
+		return FALSE
+	if(!active)
+		to_chat(user, SPAN_WARNING("\The [src] isn't activated!"))
+		return FALSE
 
 	if(vision_modes.len > 1)
 		vision_index++
@@ -205,10 +201,10 @@
 			vision_index = 1
 		vision = vision_modes[vision_index]
 
-		to_chat(holder.wearer, "<font color='blue'>You cycle your sensors to <b>[vision.mode]</b> mode.</font>")
+		message_user(user, SPAN_NOTICE("You cycle \the [src] to <b>[vision.mode]</b> mode."), SPAN_NOTICE("\The [user] cycles \the [src] to <b>[vision.mode]</b> mode."))
 	else
-		to_chat(holder.wearer, "<font color='blue'>Your sensors only have one mode.</font>")
-	return 1
+		to_chat(user, SPAN_WARNING("\The [src] only has one mode."))
+	return TRUE
 
 /obj/item/rig_module/vision/New()
 	..()

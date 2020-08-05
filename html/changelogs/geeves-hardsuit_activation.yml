@@ -8,3 +8,5 @@ changes:
   - bugfix: "Fixed pickaxes not having an attack sound."
   - bugfix: "Fixed spamming your hardsuit items causing you to do hotkey stuff when on click cooldown."
   - bugfix: "Fixed a bug with doing actions on SSD people and not having the correct action come up."
+  - bugfix: "Fixed hardsuit visor cycling bringing up the activation message, despite not activating."
+  - rscadd: "Added unique messages to pAI / AI interacting with the hardsuit, messaging both parties."

@@ -145,7 +145,7 @@
 
 	return 0
 
-/obj/item/rig_module/ai_container/engage(atom/target)
+/obj/item/rig_module/ai_container/engage(atom/target, mob/user)
 
 	if(!..())
 		return 0
@@ -178,7 +178,7 @@
 				if(user)
 					to_chat(user, "<span class='danger'>You cannot eject your currently stored AI. Purge it manually.</span>")
 				return 0
-			to_chat(user, "<span class='danger'>You purge the remaining scraps of data from your previous AI, freeing it for use.</span>")
+			message_user(user, SPAN_NOTICE("You purge the remaining scraps of data from your previous AI, freeing it for use."), SPAN_NOTICE("\The [user] purges \the [integrated_ai]."))
 			if(integrated_ai)
 				integrated_ai.ghostize()
 				qdel(integrated_ai)
@@ -257,7 +257,7 @@
 	..()
 	stored_research = list()
 
-/obj/item/rig_module/datajack/engage(atom/target)
+/obj/item/rig_module/datajack/engage(atom/target, mob/user)
 
 	if(!..())
 		return 0
@@ -401,7 +401,7 @@
 	total_power_drained = 0
 	return ..()
 
-/obj/item/rig_module/power_sink/engage(atom/target)
+/obj/item/rig_module/power_sink/engage(atom/target, mob/user)
 
 	if(!..())
 		return 0
@@ -434,7 +434,7 @@
 /obj/item/rig_module/power_sink/accepts_item(var/obj/item/input_device, var/mob/living/user)
 	var/can_drain = input_device.drain_power(1)
 	if(can_drain > 0)
-		engage(input_device)
+		engage(input_device, user)
 		return 1
 	return 0
 

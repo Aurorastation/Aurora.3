@@ -105,18 +105,18 @@
 	playsound(T, "sparks", 50, 1)
 	anim(T,M,'icons/mob/mob.dmi',,"phaseout",,M.dir)
 
-/obj/item/rig_module/teleporter/engage(var/atom/target, var/notify_ai)
+/obj/item/rig_module/teleporter/engage(atom/target, mob/user, var/notify_ai)
 
 	if(!..()) return FALSE
 
 	var/mob/living/carbon/human/H = holder.wearer
 
 	if(lastteleport + (5 SECONDS) > world.time)
-		to_chat(H, SPAN_WARNING("The teleporter needs time to cool down!"))
+		to_chat(user, SPAN_WARNING("The teleporter needs time to cool down!"))
 		return FALSE
 
 	if(!istype(H.loc, /turf))
-		to_chat(H, "<span class='warning'>You cannot teleport out of your current location.</span>")
+		to_chat(user, "<span class='warning'>You cannot teleport out of your current location.</span>")
 		return FALSE
 
 	var/turf/T
@@ -126,19 +126,19 @@
 		T = get_teleport_loc(get_turf(H), H, rand(5, 9))
 
 	if(!T || T.density)
-		to_chat(H, "<span class='warning'>You cannot teleport into solid walls.</span>")
+		to_chat(user, "<span class='warning'>You cannot teleport into solid walls.</span>")
 		return FALSE
 
 	if(isAdminLevel(T.z))
-		to_chat(H, "<span class='warning'>You cannot use your teleporter on this Z-level.</span>")
+		to_chat(user, "<span class='warning'>You cannot use your teleporter on this Z-level.</span>")
 		return FALSE
 
 	if(T.contains_dense_objects())
-		to_chat(H, "<span class='warning'>You cannot teleport to a location with solid objects.</span>")
+		to_chat(user, "<span class='warning'>You cannot teleport to a location with solid objects.</span>")
 		return FALSE
 
 	if((T.z != H.z || get_dist(T, get_turf(H)) > world.view) && target)
-		to_chat(H, "<span class='warning'>You cannot teleport to such a distant object.</span>")
+		to_chat(user, "<span class='warning'>You cannot teleport to such a distant object.</span>")
 		return FALSE
 
 	phase_out(H,get_turf(H))
@@ -146,7 +146,7 @@
 	phase_in(H,get_turf(H))
 
 	if(T != get_turf(H))
-		to_chat(H, SPAN_WARNING("Something interferes with your [src]!"))
+		to_chat(user, SPAN_WARNING("Something interferes with your [src]!"))
 
 	for(var/obj/item/grab/G in H.contents)
 		if(G.affecting)
@@ -173,7 +173,7 @@
 
 	category = MODULE_SPECIAL
 
-/obj/item/rig_module/fabricator/energy_net/engage(atom/target)
+/obj/item/rig_module/fabricator/energy_net/engage(atom/target, mob/user)
 
 	if(holder && holder.wearer)
 		if(..(target) && target)
@@ -270,21 +270,21 @@
 
 	interface_name = "emergency power generator"
 	interface_desc = "A high yield power generating device that takes a long time to recharge."
-	var/generation_ammount = 3500
+	var/generation_amount = 3500
 
 	category = MODULE_SPECIAL
 
-/obj/item/rig_module/emergency_powergenerator/engage()
+/obj/item/rig_module/emergency_powergenerator/engage(atom/target, mob/user)
 	if(!..())
 		return
 	var/mob/living/carbon/human/H = holder.wearer
 	if(cooldown)
-		to_chat(H, "<span class='danger'>There isn't enough power stored up yet!</span>")
+		to_chat(user, "<span class='danger'>There isn't enough power stored up yet!</span>")
 		return 0
 	else
-		to_chat(H, "<span class='danger'>Your suit emits a loud sound as power is rapidly injected into your suits battery!</span>")
+		message_user(user, SPAN_NOTICE("You inject a burst of power into \the [holder]."), SPAN_NOTICE("Your suit emits a loud sound as power is rapidly injected into your suit's battery!"))
 		playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
-		holder.cell.give(generation_ammount)
+		holder.cell.give(generation_amount)
 		cooldown = 1
 		addtimer(CALLBACK(src, /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown), 2 MINUTES)
 
