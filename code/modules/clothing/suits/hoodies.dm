@@ -3,10 +3,9 @@
 /obj/item/clothing/suit/storage/hooded
 	var/obj/item/clothing/head/winterhood/hood
 	var/hoodtype = null
-	var/suittoggled = 0
+	var/suittoggled = FALSE
 	var/hooded = 0
-	var/lasticonstate = null
-	var/lastitemstate = null
+	var/lasticonstate
 
 /obj/item/clothing/suit/storage/hooded/Initialize()
 	. = ..()
@@ -26,12 +25,12 @@
 	..()
 
 /obj/item/clothing/suit/storage/hooded/proc/RemoveHood()
-	if(!lasticonstate && !lastitemstate)
-		suittoggled = 0
+	if(!lasticonstate)
+		suittoggled = FALSE
 	else
 		icon_state = "[lasticonstate]"
-		item_state = "[lastitemstate]"
-		suittoggled = 0
+		item_state = "[lasticonstate]"
+		suittoggled = FALSE
 	
 	
 	// Hood got nuked. Probably because of RIGs or the like.
@@ -71,9 +70,8 @@
 				return
 			else
 				lasticonstate = icon_state
-				lastitemstate = item_state
 				H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
-				suittoggled = 1
+				suittoggled = TRUE
 				icon_state = "[initial(icon_state)]_t"
 				item_state = "[initial(item_state)]_t"
 				H.update_inv_wear_suit()
@@ -248,13 +246,12 @@
 				return
 			else
 				lasticonstate = icon_state
-				lastitemstate = item_state
 				H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
-				suittoggled = 1
+				suittoggled = TRUE
 				icon_open = "[initial(icon_open)]_t" // this is where the change is.
 				icon_closed = "[initial(icon_closed)]_t"
-				icon_state = "[initial(icon_state)]_t"
-				item_state = "[initial(item_state)]_t"
+				icon_state = "[icon_state]_t"
+				item_state = "[item_state]_t"
 				H.update_inv_wear_suit()
 	else
 		RemoveHood()
