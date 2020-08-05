@@ -53,10 +53,12 @@
 	center_of_mass = master.condiment_center_of_mass || list("x"=16, "y"=6)
 
 /obj/item/reagent_containers/food/condiment/enzyme
+	icon_state = "enzyme" // for map preview
 	fixed_state = TRUE
 	reagents_to_add = list(/datum/reagent/enzyme = 50)
 
 /obj/item/reagent_containers/food/condiment/sugar
+	icon_state = "sugar"
 	fixed_state = TRUE
 	reagents_to_add = list(/datum/reagent/sugar = 50)
 
@@ -75,18 +77,20 @@
 	shake(user)
 
 /obj/item/reagent_containers/food/condiment/shaker/salt
+	icon_state = "saltshakersmall"
 	reagents_to_add = list(/datum/reagent/sodiumchloride = 20)
 
 /obj/item/reagent_containers/food/condiment/shaker/peppermill
+	icon_state = "peppermillsmall"
 	reagents_to_add = list(/datum/reagent/blackpepper = 20)
 
 /obj/item/reagent_containers/food/condiment/shaker/diona
+	icon_state = "dionaepowder"
 	reagents_to_add = list(/datum/reagent/diona_powder = 20)
 
 /obj/item/reagent_containers/food/condiment/flour
 	name = "flour sack"
 	desc = "A big bag of flour. Good for baking!"
-	icon = 'icons/obj/food.dmi'
 	icon_state = "flour"
 	item_state = "flour"
 	center_of_mass = list("x"=16, "y"=8)

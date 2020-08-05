@@ -2457,6 +2457,7 @@
 #include "code\modules\reagents\reagent_containers\hypospray.dm"
 #include "code\modules\reagents\reagent_containers\inhaler.dm"
 #include "code\modules\reagents\reagent_containers\inhaler_advanced.dm"
+#include "code\modules\reagents\reagent_containers\ladle.dm"
 #include "code\modules\reagents\reagent_containers\pill.dm"
 #include "code\modules\reagents\reagent_containers\spray.dm"
 #include "code\modules\reagents\reagent_containers\syringes.dm"

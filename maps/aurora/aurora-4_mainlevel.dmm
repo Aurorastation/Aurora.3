@@ -19364,6 +19364,9 @@
 /area/rnd/research)
 "aHQ" = (
 /obj/structure/table/standard,
+/obj/item/storage/box/snack{
+	name = "corporate care package"
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aHR" = (
@@ -23717,11 +23720,11 @@
 "aPm" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
+/obj/item/storage/box/snack{
+	pixel_x = 4;
+	pixel_y = 4
 	},
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/snack,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aPn" = (
@@ -33701,7 +33704,6 @@
 "bgE" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bgF" = (
@@ -34499,6 +34501,9 @@
 "bhV" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
+/obj/item/storage/box/snack{
+	name = "corporate care package"
+	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bhW" = (
@@ -55784,7 +55789,9 @@
 /area/quartermaster/break_room)
 "cbZ" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/snack{
+	name = "corporate care package"
+	},
 /turf/simulated/floor/carpet,
 /area/quartermaster/break_room)
 "cca" = (
@@ -59772,6 +59779,20 @@
 /obj/item/stack/rods,
 /turf/simulated/floor/airless,
 /area/maintenance/cargo)
+"dLv" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/condiment/pacid,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "dNy" = (
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator)
@@ -100561,7 +100582,7 @@ bGr
 bPb
 bOR
 vEy
-gpm
+dLv
 dGy
 iBt
 xTH
