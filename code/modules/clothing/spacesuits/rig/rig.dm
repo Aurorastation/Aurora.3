@@ -310,8 +310,10 @@
 	canremove = seal_target
 	to_chat(wearer, "<font color='blue'><b>Your entire suit [canremove ? "loosens as the components relax" : "tightens around you as the components lock into place"].</b></font>")
 	playsound(src, 'sound/machines/rig/rigstarted.ogg', 10, FALSE)
-	if (has_sealed_state)
+	if(has_sealed_state)
 		icon_state = canremove ? initial(icon_state) : "[initial(icon_state)]_sealed"
+	if(!canremove)
+		playsound(src, 'sound/machines/rig/rigonline.ogg', 10, FALSE)
 
 	if(dnaLock && !offline)
 		if(dnaLock != wearer.dna)
@@ -667,6 +669,7 @@
 				if(istype(holder))
 					if(use_obj && check_slot == use_obj)
 						to_chat(wearer, "<font color='blue'><b>Your [use_obj.name] [use_obj.gender == PLURAL ? "retract" : "retracts"] swiftly.</b></font>")
+						playsound(src, 'sound/machines/BoltsUp.ogg', 10, FALSE)
 						use_obj.canremove = 1
 						holder.drop_from_inventory(use_obj,get_turf(src)) //TODO: TEST THIS CODE!
 						use_obj.dropped()
@@ -684,6 +687,7 @@
 					return
 			else
 				to_chat(wearer, "<span class='notice'>Your [use_obj.name] [use_obj.gender == PLURAL ? "deploy" : "deploys"] swiftly.</span>")
+				playsound(src, 'sound/machines/BoltsDown.ogg', 10, FALSE)
 
 	if(piece == "helmet" && helmet)
 		helmet.update_light(wearer)
