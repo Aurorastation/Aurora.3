@@ -660,7 +660,7 @@
 	playsound(src.loc, "sound/[vending_sound]", 100, 1)
 	addtimer(CALLBACK(src, .proc/vend_product, R, user), vend_delay)
 
-obj/machinery/vending/proc/vend_product(var/datum/data/vending_product/R, mob/user)
+/obj/machinery/vending/proc/vend_product(var/datum/data/vending_product/R, mob/user)
 	var/vending_usr_dir = get_dir(src, user)
 	var/obj/vended = new R.product_path(get_step(src, vending_usr_dir))
 	if(Adjacent(user))
