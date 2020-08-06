@@ -660,7 +660,7 @@ default behaviour is:
 	// Other viewers only need to update their vision for this moving mob, not their entire cone, as they are stationary
 	for(var/viewer in oviewers(world.view, src))
 		var/mob/M = viewer
-		if(M.client.view != world.view && get_dist(M, src) > M.client.view)
+		if(M.client && M.client.view != world.view && get_dist(M, src) > M.client.view)
 			continue
 		if(M.client)
 			M.update_vision_cone()
