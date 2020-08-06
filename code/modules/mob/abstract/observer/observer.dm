@@ -163,11 +163,11 @@ Works together with spawning an observer, noted above.
 	//Check if they are a staff member
 	if(check_rights(R_MOD|R_ADMIN|R_DEV, show_msg=FALSE, user=src))
 		return FALSE
-	
+
 	//Check if the z level is in the restricted list
 	if (!(check in current_map.restricted_levels))
 		return FALSE
-	
+
 	return TRUE
 
 /mob/abstract/observer/proc/teleport_to_spawn(var/message)
@@ -407,7 +407,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		moved_event.unregister(following, src)
 		destroyed_event.unregister(following, src)
 		following = null
-	
+
 
 /mob/abstract/observer/move_to_destination(var/atom/movable/am, var/old_loc, var/new_loc)
 	var/turf/T = get_turf(new_loc)
@@ -442,7 +442,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			forceMove(T)
 		else
 			to_chat(src, "This mob is not located in the game world.")
-		
+
 		teleport_if_needed()
 
 /mob/abstract/observer/memory()
@@ -512,6 +512,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 		var/turf/T = get_turf(testvent)
 
+		//Skip areas that contain turrets
+		var/area/A = T.loc
+		if (A && A.turrets.len)
+			continue
 
 
 		//We test the environment of the tile, to see if its habitable for a mouse
@@ -924,7 +928,7 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 /mob/abstract/observer/verb/ghost_spawner()
 	set category = "Ghost"
 	set name = "Ghost Spawner"
-	
+
 	if(!ROUND_IS_STARTED)
 		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
 		return

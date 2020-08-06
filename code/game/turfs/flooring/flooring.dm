@@ -101,6 +101,7 @@
 	icon = 'icons/turf/total_floors.dmi'
 	icon_base = "asteroidfloor"
 	has_damage_range = null
+	build_type = null
 
 /decl/flooring/tiling/asteroid/plating
 	icon_base = "asteroidfloor"
@@ -239,6 +240,7 @@
 	icon_base = "rcircuit"
 	flags = TURF_ACID_IMMUNE
 	can_paint = 0
+	build_type = null
 
 /decl/flooring/reinforced/cult
 	name = "engraved floor"

@@ -41,7 +41,7 @@
 	var/holding_still = 0	// AI variable, cooloff-ish for how long it's going to stay in one place
 	var/target_patience = 0 // AI variable, cooloff-ish for how long it's going to follow its target
 
-	var/list/friends = list() // A list of friends; they are not considered targets for feeding; passed down after splitting
+	var/list/friends = list() // A list of friends; the higher their number value, the more we consider them a friend, people at 0 are no longer friends
 
 	var/list/speech_buffer = list() // Last phrase said near it and person who said it
 

@@ -35,7 +35,54 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">05 August 2020</h2>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Rats no longer spawn in areas covered by turrets.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Lyodsuits now lose their hoodie sprite when their mask is up, preventing a visual duplication.</li>
+			</ul>
+
+			<h2 class="date">04 August 2020</h2>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">TCFL vaurca now spawn with filter ports.</li>
+				<li class="bugfix">Kataphract K'lax internals buttons now update correctly.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Splitting stacks which are of type /obj/item/stack/.../full will no longer result in the new stack having the maximum amount in it.</li>
+				<li class="bugfix">Antagonist candidate selection is now more intelligent when there are multiple types of antagonist in the round to prepare for.</li>
+			</ul>
+
+			<h2 class="date">03 August 2020</h2>
+			<h3 class="author">Doxxmedearly updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added phoron bounties. These will always be marked as the high priority bounties.</li>
+				<li class="rscdel">Removed the positronic brain bounty.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Amputation of stumps and robotic limbs will now work properly again.</li>
+				<li class="bugfix">All cigarettes and pipes now generate appropriate taste messages. However, some of these will now be consumed 2-3 times faster.</li>
+				<li class="bugfix">Repairing augments and robotic internal organs with nanopaste will now work again.</li>
+			</ul>
+
 			<h2 class="date">02 August 2020</h2>
+			<h3 class="author">Crosarius updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Removed a wire crossover between the mains powernet and the civillian surface subnet, which was occuring in the emergency service dock.</li>
+				<li class="bugfix">Fixed a hanging loose end of cable which should connect telecommunications (and its solars) to civillian surface mains grid.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Killing a slime attached to someone will now detach it.</li>
+				<li class="tweak">Slimes will not hunt if their nutrition is more than 80% of their max nutrition, and they aren't rabid or attacked.</li>
+				<li class="bugfix">Fixed slime friendship.</li>
+				<li class="rscadd">Slime friendship is now guaranteed if you feed them.</li>
+			</ul>
 			<h3 class="author">Snakebittenn updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="rscdel">Deletes superfluous Black Boots from the loadout. These had the same exact sprite as jackboots, did you know?</li>
@@ -44,6 +91,11 @@
 				<li class="rscdel">Nerfs Jackboot protection a bit.</li>
 				<li class="bugfix">Xenos can now select boots again.</li>
 				<li class="bugfix">Toeless thigh high boots are now actually thigh high.</li>
+			</ul>
+			<h3 class="author">mikomyazaki updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Constructing generic station flooring will no longer create the wrong type.</li>
+				<li class="backend">_SendSignal now properly formats arguments for sending to components and elements.</li>
 			</ul>
 
 			<h2 class="date">01 August 2020</h2>

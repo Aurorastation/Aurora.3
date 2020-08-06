@@ -50380,23 +50380,23 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bPe" = (
-/obj/structure/table/stone/marble,
-/obj/item/material/hook,
-/obj/item/material/hatchet/butch,
 /obj/machinery/firealarm/west,
+/obj/structure/table/stone/marble,
+/obj/item/material/hatchet/butch,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
 	},
 /area/crew_quarters/kitchen/freezer)
 "bPf" = (
-/obj/structure/table/stone/marble,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1";
 	name = "adjusted light fixture";
 	pixel_x = -16
 	},
+/obj/structure/table/stone/marble,
+/obj/item/material/hook,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -50916,13 +50916,14 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bQA" = (
-/obj/structure/closet/secure_closet/freezer/meat,
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";
 	pixel_x = -24
 	},
 /obj/structure/cable/green,
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/door/window/southleft,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -51139,7 +51140,12 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bRg" = (
-/obj/structure/kitchenspike,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'STAND CLEAR'.";
+	name = "\improper CAUTION: STAND CLEAR";
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -59525,8 +59531,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "dgV" = (
-/obj/structure/bed/chair,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/bed/chair,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/bar)
 "dhL" = (
@@ -59699,6 +59705,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "dBV" = (
+/obj/structure/window/reinforced{
+	layer = 5;
+	name = "adjusted reinforced window"
+	},
 /obj/structure/closet/crate/freezer,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
@@ -59953,12 +59963,12 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "eqx" = (
-/obj/structure/table/steel,
-/obj/item/trash/cigbutt,
-/obj/item/trash/cigbutt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/material/ashtray,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/item/trash/cigbutt,
+/obj/item/trash/cigbutt,
+/obj/structure/table/steel,
+/obj/item/material/ashtray,
 /obj/random/loot,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/bar)
@@ -60443,9 +60453,10 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
 "fBZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+/obj/effect/floor_decal/industrial/loading{
+	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -61407,7 +61418,9 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
 "hND" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -61735,7 +61748,7 @@
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
 "iCN" = (
-/obj/machinery/gibber,
+/obj/structure/kitchenspike,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -66517,6 +66530,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
+"tLL" = (
+/obj/machinery/gibber,
+/obj/machinery/door/window/eastleft,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer{
+	name = "cold storage tiles";
+	temperature = 278
+	},
+/area/crew_quarters/kitchen/freezer)
 "tPt" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized{
@@ -66562,6 +66586,7 @@
 	pixel_x = 26;
 	req_access = list(28)
 	},
+/obj/structure/closet/secure_closet/freezer/meat,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -101880,7 +101905,7 @@ bPf
 kgr
 meJ
 dBV
-bRg
+tLL
 jPX
 yfB
 bSx
