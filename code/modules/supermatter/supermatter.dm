@@ -113,7 +113,7 @@
 	. = ..()
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
 	soundloop = new(list(src), TRUE)
-	filters += filter(type="rays", size=0, flags=FILTER_OVERLAY, factor=1)
+	filters += filter(type="rays", size=0, factor=1)
 
 /obj/machinery/power/supermatter/Destroy()
 	QDEL_NULL(radio)
@@ -314,7 +314,7 @@
 
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
 
-	animate(filters[filters.len], size=max(0, power+1), density=max(0, power/20), offset=++filter_offset, time=1 SECONDS, easing=ELASTIC_EASING|EASE_IN|EASE_OUT)
+	animate(filters[filters.len], size=max(0, power+1), offset=++filter_offset, time=1 SECONDS, easing=ELASTIC_EASING|EASE_IN|EASE_OUT)
 	return 1
 
 
