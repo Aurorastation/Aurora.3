@@ -62,6 +62,11 @@
 			hide_cone()
 		return
 
+	for(var/obj/item/item in src)
+		if(item.zoom)
+			hide_cone()
+			return
+
 	var/delay = 1 SECONDS
 	if(client)
 		var/image/I = null
