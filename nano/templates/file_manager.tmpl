@@ -6,12 +6,20 @@
 {{else}}
 	{{if data.filename}}
 		<h2>Viewing file {{:data.filename}}</h2>
-		<div class='item'>
-		{{:helper.link('CLOSE', null, { "PRG_closefile" : 1 })}}
-		{{:helper.link('EDIT', null, { "PRG_edit" : 1 })}}
-		{{:helper.link('PRINT', null, { "PRG_printfile" : 1 })}}
-		</div><hr>
-		{{:data.filedata}}
+		{{if data.scriptdata}}
+			<div class='item'>
+			{{:helper.link('CLOSE', null, { "PRG_closefile" : 1 })}}
+			{{:helper.link('PRINT', null, { "PRG_printfile" : 1 })}}
+			</div><hr>
+			{{:data.scriptdata}}
+		{{else}}
+			<div class='item'>
+			{{:helper.link('CLOSE', null, { "PRG_closefile" : 1 })}}
+			{{:helper.link('EDIT', null, { "PRG_edit" : 1 })}}
+			{{:helper.link('PRINT', null, { "PRG_printfile" : 1 })}}
+			</div><hr>
+			{{:data.filedata}}
+		{{/if}}
 	{{else}}
 		<h2>Available files (local):</h2>
 		<table>
