@@ -663,12 +663,14 @@ default behaviour is:
 		if(M.client && M.client.view != world.view && get_dist(M, src) > M.client.view)
 			continue
 		if(M.client)
-			M.update_vision_cone()
 			var/turf/T = get_turf(M)
-
-			if(T.InCone(T, M.dir))
-				M.add_to_mobs_hidden_atoms(src)
+			var/turf/Ts = get_turf(src)
+			if(Ts.InCone(T, reverse_direction(M.dir)))
+				if(!(src in M.client.hidden_mobs))
+					if(M.InCone(T, M.dir))
+						M.add_to_mobs_hidden_atoms(src)
 			else
+				testing("removing [src] from [M]'s hidden mobs list!")
 				if(src in M.client.hidden_mobs)
 					M.client.hidden_mobs -= src
 					for(var/image in M.client.hidden_atoms)
@@ -678,6 +680,7 @@ default behaviour is:
 							M.client.hidden_atoms -= I
 							M.client.images -= I
 							QDEL_IN(I, 1 SECONDS)
+							break
 
 	update_vision_cone()
 
