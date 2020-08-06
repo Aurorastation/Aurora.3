@@ -16,11 +16,11 @@
 	for(var/turf/T in list)
 		if(T.InCone(center, dir))
 			for(var/mob/M in T.contents)
-				if(M.InCone(center, dir))
-					. += M
+				. += M.InCone(center, dir)
 
+// Should return atoms that are in the cone
 /atom/proc/InCone(turf/center, dir)
-	return FALSE
+	return
 
 /turf/InCone(turf/center, dir)
 	if(get_dist(center, src) == 0 || src == center) return 0
@@ -38,18 +38,20 @@
 	return (dir & (EAST|WEST)) ? 1 : 0
 
 /mob/dead/InCone(turf/center, dir)
-	return FALSE
+	return src
 
 /mob/InCone(turf/center, dir)
-	return TRUE
+	return src
 
 /mob/living/InCone(turf/center, dir)
 	. = ..()
-	for(var/obj/item/grab/G in center)//TG doesn't have the grab item. But if you're porting it and you do then uncomment this.
+	for(var/obj/item/grab/G in src)
 		if(src == G.affecting)
-			return FALSE
+			continue
 		else
-			return .
+			. += src
+	if(pulling)
+		. += pulling
 
 /mob/proc/update_vision_cone()
 	return
@@ -74,15 +76,20 @@
 		vision_cone_overlay.dir = dir
 		if(vision_cone_overlay.alpha)
 			var/turf/T = get_turf(src)
-			for(var/cone_mob in cone(T, reverse_direction(dir), get_rectangle_in_dir(T, client.view, reverse_direction(dir)) & oview(client.view, T)))
-				var/mob/living/M = cone_mob
-				I = image("split", M)
-				I.override = TRUE
-				client.images += I
-				client.hidden_atoms += I
-				client.hidden_mobs += M
-				if(pulling == M)//If we're pulling them we don't want them to be invisible, too hard to play like that.
-					I.override = FALSE
+			for(var/cone_atom in cone(T, reverse_direction(dir), get_rectangle_in_dir(T, client.view, reverse_direction(dir)) & oview(client.view, T)))
+				add_to_mobs_hidden_atoms(cone_atom)
+
+/mob/proc/add_to_mobs_hidden_atoms(atom/A)
+	var/image/I
+	I = image("split", A)
+	I.override = TRUE
+	client.images += I
+	client.hidden_atoms += I
+	if(ismob(A))
+		var/mob/hidden_mob = A
+		client.hidden_mobs += hidden_mob
+		if(pulling == hidden_mob)//If we're pulling them we don't want them to be invisible, too hard to play like that.
+			I.override = FALSE
 
 /mob/living/proc/SetFov(var/n)
 	if(!can_have_vision_cone)

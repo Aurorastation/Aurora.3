@@ -657,9 +657,27 @@ default behaviour is:
 		for(var/mob/living/carbon/slime/M in view(1,src))
 			M.UpdateFeed(src)
 
+	// Other viewers only need to update their vision for this moving mob, not their entire cone, as they are stationary
+	for(var/viewer in oviewers(world.view, src))
+		var/mob/M = viewer
+		if(M.client.view != world.view && get_dist(M, src) > M.client.view)
+			continue
+		if(M.client)
+			M.update_vision_cone()
+			var/turf/T = get_turf(M)
 
-	for(var/mob/M in oview(src))
-		M.update_vision_cone()
+			if(T.InCone(T, M.dir))
+				M.add_to_mobs_hidden_atoms(src)
+			else
+				if(src in M.client.hidden_mobs)
+					M.client.hidden_mobs -= src
+					for(var/image in M.client.hidden_atoms)
+						var/image/I = image
+						if(I.loc == src)
+							I.override = FALSE
+							M.client.hidden_atoms -= I
+							M.client.images -= I
+							QDEL_IN(I, 1 SECONDS)
 
 	update_vision_cone()
 
