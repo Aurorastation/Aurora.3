@@ -67,7 +67,7 @@
 				"<span class='danger'>You can't breathe!</span>",
 				"You hear someone gasp for air!",
 			)
-			owner.losebreath = round(damage/2)
+			owner.losebreath += round(damage/2)
 
 	if(rescued)
 		if(is_bruised())
