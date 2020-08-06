@@ -256,7 +256,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			M.update_inv_wear_mask(0)
 			M.update_inv_l_hand(0)
 			M.update_inv_r_hand(1)
-		lit = 0
+		lit = FALSE
 		icon_state = icon_off
 		item_state = icon_off
 		STOP_PROCESSING(SSprocessing, src)
