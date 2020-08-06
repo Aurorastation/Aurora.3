@@ -1,0 +1,47 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.  
+author: Snakebittenn
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - tweak: "Read Mind now respects if the person doesn't have a Zona Bovinae or psi-aug."
+  - tweak: "Adds fluff messages to Commune and Read Mind if the target has a psi-aug."
+  - rscdel: "Commune no longer hurts people."
+  - rscdel: "Chaplain no longer has any weird interactions with Commune."
+  - tweak: "Commune cost has been increased to 15, cooldown decreased to 10."
+  - tweak: "Read mind cost increased to 30, cooldown decreased to 150."
+  - tweak: "Commune message was changed from temple tapping, as well as denial messages for Commune and Read Mind."

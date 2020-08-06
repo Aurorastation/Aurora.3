@@ -2393,6 +2393,7 @@
 #include "code\modules\psionics\interface\ui_hub.dm"
 #include "code\modules\psionics\mob\mob.dm"
 #include "code\modules\psionics\mob\mob_assay.dm"
+#include "code\modules\psionics\mob\mob_helpers.dm"
 #include "code\modules\psionics\mob\mob_interactions.dm"
 #include "code\modules\random_map\_random_map_setup.dm"
 #include "code\modules\random_map\random_map.dm"
