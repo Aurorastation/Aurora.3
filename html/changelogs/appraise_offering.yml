@@ -1,0 +1,7 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - tweak: "Characters that cannot be converted by the Cult will no longer be gibbed if this is attempted."
+  - rscadd: "Cultists have a new verb, 'Appraise Offering' in the IC tab which allows them to see if a nearby mob can be converted or not."
