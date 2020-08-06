@@ -97,6 +97,9 @@
 /area/antag/mercenary
 	name = "Mercenary Base"
 
+/area/antag/raider
+	name = "Raider Hideout"
+
 //THUNDERDOME
 
 /area/tdome

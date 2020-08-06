@@ -230,6 +230,20 @@
 	icon = 'icons/turf/shuttles_unique/ccia_shuttle.dmi'
 	icon_state = "6,2"
 
+//burglar shuttle
+
+/turf/simulated/wall/shuttle/unique/burglar
+	icon = 'icons/turf/shuttles_unique/ccia_shuttle_gray.dmi'
+	icon_state = "8,4"
+
+/obj/structure/shuttle_part/burglar
+	icon = 'icons/turf/shuttles_unique/ccia_shuttle_gray.dmi'
+	icon_state = "2,0"
+
+/obj/structure/window/shuttle/unique/burglar
+	icon = 'icons/turf/shuttles_unique/ccia_shuttle_gray.dmi'
+	icon_state = "1,3"
+
 //ert shuttle
 
 /turf/simulated/wall/shuttle/unique/ert

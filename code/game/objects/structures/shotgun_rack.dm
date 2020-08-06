@@ -74,3 +74,12 @@
 /obj/structure/shotgun_rack/improvised/Initialize()
 	. = ..()
 	rack_shotgun = new/obj/item/gun/projectile/shotgun/improvised(src)
+
+/obj/structure/shotgun_rack/dragunov
+	name = "antique sniper rifle rack"
+	desc = "A wooden rack holding an old sniper rifle. Still packs a punch."
+	icon_state = "shotgun_rack_dragunov"
+
+/obj/structure/shotgun_rack/dragunov/Initialize()
+	. = ..()
+	rack_shotgun = new/obj/item/gun/projectile/dragunov(src)
