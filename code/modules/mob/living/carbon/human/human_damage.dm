@@ -286,7 +286,7 @@
 
 
 /*
-In most cases it makes more sense to use apply_damage() instead! And make sure to check armour if applicable.
+In most cases it makes more sense to use apply_damage() instead! And make sure to check armor if applicable.
 */
 //Damages ONE external organ, organ gets randomly selected from damagable ones.
 //It automatically updates damage overlays if necesary

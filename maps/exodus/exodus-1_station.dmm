@@ -445,7 +445,7 @@
 /area/security/tactical)
 "abf" = (
 /obj/machinery/camera/network/security{
-	c_tag = "Armoury - Tactical Equipment"
+	c_tag = "Armory - Tactical Equipment"
 	},
 /obj/machinery/anti_bluespace,
 /turf/simulated/floor/tiled/dark,
@@ -965,7 +965,7 @@
 /area/maintenance/security_port)
 "aca" = (
 /turf/simulated/wall/r_wall,
-/area/security/armoury)
+/area/security/armory)
 "acb" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -1301,7 +1301,7 @@
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "acy" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Ammunition (45. less-than-lethal)"
@@ -1312,7 +1312,7 @@
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "acz" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Ammunition (shotgun less-than-lethal)"
@@ -1331,7 +1331,7 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "acA" = (
 /obj/item/stool{
 	pixel_y = 8
@@ -1353,13 +1353,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "acC" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "acD" = (
 /obj/structure/table/standard,
 /obj/machinery/cell_charger,
@@ -1556,24 +1556,24 @@
 /obj/item/clothing/head/helmet/riot,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "acV" = (
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "acW" = (
 /obj/machinery/alarm{
 	pixel_y = 22
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "acX" = (
 /obj/machinery/door/blast/regular{
-	id = "Armoury";
+	id = "Armory";
 	name = "Emergency Access"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "acY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1717,18 +1717,18 @@
 	dir = 8
 	},
 /obj/machinery/camera/network/security{
-	c_tag = "Armoury - Secure";
+	c_tag = "Armory - Secure";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "adm" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "adn" = (
 /obj/structure/table/standard,
 /obj/machinery/recharger,
@@ -1737,7 +1737,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "ado" = (
 /obj/structure/table/rack,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1748,7 +1748,7 @@
 /obj/item/reagent_containers/spray/pepper,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "adp" = (
 /obj/structure/table/rack,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1765,7 +1765,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "adq" = (
 /obj/structure/table/rack,
 /obj/item/storage/box/chemimp{
@@ -1786,19 +1786,19 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "adr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "ads" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "adt" = (
 /obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner/blue,
@@ -1906,17 +1906,17 @@
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "adF" = (
 /obj/machinery/button/remote/blast_door{
-	id = "Armoury";
-	name = "Armoury Access";
+	id = "Armory";
+	name = "Armory Access";
 	pixel_x = -1;
 	pixel_y = -28;
 	req_access = list(3)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "adG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -2056,7 +2056,7 @@
 /obj/item/clothing/head/helmet/ballistic,
 /obj/item/clothing/head/helmet/ballistic,
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "adV" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced,
@@ -2080,7 +2080,7 @@
 /obj/item/clothing/head/helmet/ablative,
 /obj/item/clothing/head/helmet/ablative,
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "adW" = (
 /obj/machinery/flasher/portable,
 /obj/machinery/power/apc{
@@ -2093,7 +2093,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "adX" = (
 /obj/machinery/light,
 /obj/machinery/flasher/portable,
@@ -2104,7 +2104,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "adY" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2119,16 +2119,16 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "adZ" = (
 /obj/machinery/light,
 /obj/machinery/flasher/portable,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/security/armoury)
+/area/security/armory)
 "aea" = (
 /obj/machinery/button/remote/blast_door{
-	id = "Armoury";
+	id = "Armory";
 	name = "Emergency Access";
 	pixel_x = -28;
 	pixel_y = 4;
@@ -2237,7 +2237,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/highsecurity{
-	name = "Secure Armoury Section";
+	name = "Secure Armory Section";
 	req_access = list(3)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2457,7 +2457,7 @@
 	pixel_y = 32
 	},
 /obj/machinery/camera/network/security{
-	c_tag = "Armoury"
+	c_tag = "Armory"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
@@ -2917,7 +2917,7 @@
 "afB" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
-	name = "Armoury";
+	name = "Armory";
 	req_access = list(3)
 	},
 /obj/structure/cable/green{
@@ -3898,7 +3898,7 @@
 /obj/item/clipboard,
 /obj/item/pen,
 /obj/item/paper{
-	info = "\[center]\[Large]\[b]NSS Exodus\[/b]\[/large]\[br] \[small]Armoury Inventory\[/small]\[/center] \[hr] \[hr] \[br] \[b]Weaponry\[/b]\[br] \[field] Energy Gun(s)\[br] \[field] Laser Gun(s)\[br] \[field] Ion Rifle(s)\[br] \[field] Combat Shotgun(s) \[hr] \[b]Armour\[/b]\[br] \[field] Bulletproof Vest(s)\[br] \[field] Abalative Vest(s)\[br] \[field] Biohazard Suit(s)\[br] \[field] Bomb Suit(s) \[hr] \[b]Auxiliary Equipment\[/b]\[br] \[field] Gasmask(s)\[br] \[field] box(es) of Flashbangs\[br] \[field] box(es) of Handcuffs\[br] \[field] box(es) of R.O.B.U.S.T. Cartridges \[hr] \[b]Riot Equipment\[/b]\[br] \[field] Stun Baton(s)\[br] \[field] Riot Suit(s)\[br] \[field] Riot Shield(s) \[hr] \[b]Tactical Equipment\[/b]\[br] \[field] Tactical Armour(s)\[br] \[field] Tactical Helmet(s)\[br] \[field] Tactical Jumpsuit(s)\[br] \[field] Green Balaclava(s)\[br] \[field] Tactical HUD(s)\[br] \[field] Combat Belt(s)\[br] \[field] Black Glove(s)\[br] \[field] Jackboot(s) \[hr] \[b]Implants\[/b]\[br] \[field] Tracking Implant Box(es)\[br] \[field] Chemical Implant Box(es) \[hr] \[b]Defense Systems\[/b]\[br] \[field] Deployable Barrier(s)\[br] \[field] Portable Flasher(s) \[hr] \[b]Other\[/b]\[br] \[field] Holobadge Box(es) \[hr] \[b]\[center]Warden's's Signature:\[/b] \[field]\[/center] \[hr]";
+	info = "\[center]\[Large]\[b]NSS Exodus\[/b]\[/large]\[br] \[small]Armory Inventory\[/small]\[/center] \[hr] \[hr] \[br] \[b]Weaponry\[/b]\[br] \[field] Energy Gun(s)\[br] \[field] Laser Gun(s)\[br] \[field] Ion Rifle(s)\[br] \[field] Combat Shotgun(s) \[hr] \[b]Armor\[/b]\[br] \[field] Bulletproof Vest(s)\[br] \[field] Abalative Vest(s)\[br] \[field] Biohazard Suit(s)\[br] \[field] Bomb Suit(s) \[hr] \[b]Auxiliary Equipment\[/b]\[br] \[field] Gasmask(s)\[br] \[field] box(es) of Flashbangs\[br] \[field] box(es) of Handcuffs\[br] \[field] box(es) of R.O.B.U.S.T. Cartridges \[hr] \[b]Riot Equipment\[/b]\[br] \[field] Stun Baton(s)\[br] \[field] Riot Suit(s)\[br] \[field] Riot Shield(s) \[hr] \[b]Tactical Equipment\[/b]\[br] \[field] Tactical Armor(s)\[br] \[field] Tactical Helmet(s)\[br] \[field] Tactical Jumpsuit(s)\[br] \[field] Green Balaclava(s)\[br] \[field] Tactical HUD(s)\[br] \[field] Combat Belt(s)\[br] \[field] Black Glove(s)\[br] \[field] Jackboot(s) \[hr] \[b]Implants\[/b]\[br] \[field] Tracking Implant Box(es)\[br] \[field] Chemical Implant Box(es) \[hr] \[b]Defense Systems\[/b]\[br] \[field] Deployable Barrier(s)\[br] \[field] Portable Flasher(s) \[hr] \[b]Other\[/b]\[br] \[field] Holobadge Box(es) \[hr] \[b]\[center]Warden's's Signature:\[/b] \[field]\[/center] \[hr]";
 	name = "Armory Inventory"
 	},
 /obj/structure/table/reinforced/steel,

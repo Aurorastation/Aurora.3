@@ -5,7 +5,7 @@
 	damage = 30
 	damage_type = BURN
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_LASER_MEAT, BULLET_IMPACT_METAL = SOUNDS_LASER_METAL)
-	check_armour = "laser"
+	check_armor = "laser"
 	eyeblur = 4
 	damage_flags = DAM_LASER
 	var/frequency = 1
@@ -23,7 +23,7 @@
 	damage = 0
 	damage_type = BURN
 	no_attack_log = 1
-	check_armour = "laser"
+	check_armor = "laser"
 	eyeblur = 2
 
 /obj/item/projectile/beam/pistol
@@ -105,7 +105,7 @@
 	damage = 0
 	no_attack_log = 1
 	damage_type = BURN
-	check_armour = "laser"
+	check_armor = "laser"
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser/blue
 	tracer_type = /obj/effect/projectile/tracer/laser/blue
@@ -125,7 +125,7 @@
 	damage = 0
 	no_attack_log = 1
 	damage_type = BURN
-	check_armour = "laser"
+	check_armor = "laser"
 
 /obj/item/projectile/beam/lastertag/red/on_hit(var/atom/target, var/blocked = 0)
 	if(istype(target, /mob/living/carbon/human))
@@ -140,7 +140,7 @@
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	damage = 0
 	damage_type = BURN
-	check_armour = "laser"
+	check_armor = "laser"
 
 	muzzle_type = /obj/effect/projectile/muzzle/disabler
 	tracer_type = /obj/effect/projectile/tracer/disabler

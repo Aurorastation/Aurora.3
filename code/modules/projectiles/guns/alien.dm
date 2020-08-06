@@ -105,7 +105,7 @@
 	icon_state = "particle"
 	damage = 60
 	damage_type = BRUTE
-	check_armour = "bullet"
+	check_armor = "bullet"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 
 	embed = 0
