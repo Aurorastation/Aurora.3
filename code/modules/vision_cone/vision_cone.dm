@@ -134,7 +134,7 @@
 		return
 
 	if(vision_cone_overlay)
-		vision_cone_overlay.alpha = 255
+		vision_cone_overlay.alpha = client.prefs.fov_cone_alpha
 
 /mob/living/proc/hide_cone()
 	if(vision_cone_overlay)

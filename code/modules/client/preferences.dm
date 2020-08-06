@@ -160,6 +160,8 @@ datum/preferences
 	var/bgstate = "000"
 	var/list/bgstate_options = list("000", "FFF", "steel", "white", "plating", "reinforced")
 
+	var/fov_cone_alpha = 255
+
 /datum/preferences/New(client/C)
 	new_setup()
 

@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - experiment: "Players now have vision cones, preventing seeing mobs in a 90 degree arc behind themselves, unless that mob is grabbing you."
+  - rscadd: "You can adjust the darkness of your FOV cone in the global preferences menu of character setup."

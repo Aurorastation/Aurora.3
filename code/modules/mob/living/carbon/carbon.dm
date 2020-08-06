@@ -455,9 +455,6 @@
 /mob/living/carbon/proc/need_breathe()
 	return
 
-/*/mob/living/carbon/human/is_invisible_to(var/mob/viewer)
-	return (is_cloaked() || ..())*/
-
 /**
  *  Return FALSE if victim can't be devoured, DEVOUR_FAST if they can be devoured quickly, DEVOUR_SLOW for slow devour
  */
