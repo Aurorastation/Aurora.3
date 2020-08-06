@@ -1836,6 +1836,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "nai_gloves"
 	item_state = "nai_gloves"
 	contained_sprite = TRUE
+	forensics_flags = 0
 
 
 /obj/item/fluff/muhawir_bedroll //Bedroll - Muhawir Nawfal - menown

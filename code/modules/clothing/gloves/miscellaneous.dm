@@ -58,6 +58,7 @@
 	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
+	forensics_flags = NO_FINGERPRINTS | NO_FIBERS
 
 /obj/item/clothing/gloves/latex
 	name = "latex gloves"
@@ -67,15 +68,16 @@
 	siemens_coefficient = 1.0 //thin latex gloves, much more conductive than fabric gloves (basically a capacitor for AC)
 	permeability_coefficient = 0.01
 	germ_level = 0
-	fingerprint_chance = 75
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
+	forensics_flags = NO_FINGERPRINTS | NO_FIBERS
 
 /obj/item/clothing/gloves/latex/nitrile
 	name = "nitrile gloves"
 	desc = "Sterile nitrile gloves."
 	icon_state = "nitrile"
 	item_state = "nitrile"
+	forensics_flags = NO_FINGERPRINTS | NO_FIBERS
 
 /obj/item/clothing/gloves/latex/nitrile/unathi
 	name = "unathi nitrile gloves"
@@ -130,10 +132,10 @@
 	species_restricted = null
 	gender = NEUTER
 	body_parts_covered = null
-	fingerprint_chance = 100
 	var/flipped = 0
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	forensics_flags = 0
 
 /obj/item/clothing/gloves/watch/silver
 	desc = "It's a GaussIo ZeitMeister, a finely tuned wristwatch encased in silver."
@@ -245,9 +247,9 @@
 	icon_state = "cobalt_armchains"
 	item_state = "cobalt_armchains"
 	siemens_coefficient = 1.0
-	fingerprint_chance = 100
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	forensics_flags = 0
 
 /obj/item/clothing/gloves/armchain/emerald
 	name = "emerald arm chains"
@@ -267,7 +269,6 @@
 	icon_state = "cobalt_bracers"
 	item_state = "cobalt_bracers"
 	siemens_coefficient = 1.0
-	fingerprint_chance = 100
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
@@ -326,12 +327,12 @@
 	item_state = "knuckledusters"
 	attack_verb = list("punched", "beaten", "struck")
 	siemens_coefficient = 1
-	fingerprint_chance = 100
 	force = 5
 	punch_force = 5
 	clipped = 1
 	drop_sound = 'sound/items/drop/sword.ogg'
 	pickup_sound = 'sound/items/pickup/sword.ogg'
+	forensics_flags = 0
 
 /obj/item/clothing/gloves/powerfist
 	name = "power fist"
@@ -340,7 +341,6 @@
 	item_state = "powerfist"
 	attack_verb = list("whacked", "fisted", "power-punched")
 	siemens_coefficient = 1
-	fingerprint_chance = 50
 	force = 5
 	punch_force = 10
 	clipped = 1
@@ -396,7 +396,6 @@
 	icon_state = "ballisticfist"
 	item_state = "ballisticfist"
 	siemens_coefficient = 1
-	fingerprint_chance = 50
 	siemens_coefficient = 1
 	clipped = 1
 	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
@@ -457,7 +456,6 @@
 	name = "ballistic gauntlets"
 	icon_state = "dual-ballisticfist"
 	item_state = "ballisticfist" //just reuse the single inhand
-	fingerprint_chance = 0
 	gender = PLURAL
 
 /obj/item/clothing/gloves/ballistic/double/Initialize()

@@ -201,3 +201,7 @@
 #define SUIT_SENSOR_BINARY   1
 #define SUIT_SENSOR_VITAL    2
 #define SUIT_SENSOR_TRACKING 3
+
+// Forensics
+#define NO_FINGERPRINTS 0x1
+#define NO_FIBERS 0x2

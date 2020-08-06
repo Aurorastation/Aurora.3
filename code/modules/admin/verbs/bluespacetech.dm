@@ -408,6 +408,7 @@
 	siemens_coefficient = 0
 	cold_protection = FULL_BODY
 	heat_protection = FULL_BODY
+	forensics_flags = NO_FINGERPRINTS | NO_FIBERS
 
 /obj/item/clothing/under/rank/centcom_officer/bst/attack_hand()
 	if(!usr)
@@ -425,6 +426,8 @@
 	siemens_coefficient = 0
 	permeability_coefficient = 0
 	canremove = 0
+	forensics_flags = NO_FINGERPRINTS | NO_FIBERS
+
 
 /obj/item/clothing/gloves/swat/bst/attack_hand()
 	if(!usr)

@@ -9,6 +9,7 @@
 	emp_protection = 10
 	slowdown = 0
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
+
 	offline_slowdown = 0
 	offline_vision_restriction = 0
 
@@ -20,9 +21,11 @@
 /obj/item/clothing/suit/space/rig/light
 	name = "suit"
 	breach_threshold = 18 //comparable to voidsuits
+	forensics_flags = NO_FINGERPRINTS | NO_FIBERS
 
 /obj/item/clothing/gloves/rig/light
 	name = "gloves"
+	forensics_flags = NO_FINGERPRINTS | NO_FIBERS
 
 /obj/item/clothing/shoes/magboots/rig/light
 	name = "shoes"

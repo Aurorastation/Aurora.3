@@ -269,12 +269,15 @@
 				fingerprintslast = H.key
 			H.gloves.add_fingerprint(M)
 
-		//Deal with gloves the pass finger/palm prints.
-		if(!ignoregloves)
-			if(istype(H.gloves, /obj/item/clothing/gloves) && H.gloves != src)
-				var/obj/item/clothing/gloves/G = H.gloves
-				if(!prob(G.fingerprint_chance))
-					return 0
+		//Gloves block prints. No more probability; They either do or they don't.
+		var/obj/item/clothing/gloves/G = H.gloves
+		if (H.gloves && !ignoregloves)
+			if (G.forensics_flags & NO_FINGERPRINTS)
+				if(fingerprintslast != M.key)
+					fingerprintshidden += "(Wearing gloves) Real name: [M.real_name], Key: [M.key]"
+					fingerprintslast = M.key
+				G.add_fingerprint(M,1) //Adds your fingerprint to the inside of the gloves.
+				return 0
 
 		//More adminstuffz
 		if(fingerprintslast != H.key)

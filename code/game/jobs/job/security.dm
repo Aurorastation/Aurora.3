@@ -190,11 +190,11 @@
 /datum/outfit/job/forensics/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/tajara(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/latex/nitrile/tajara(H), slot_gloves)
 	else if(isunathi(H))
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black/unathi(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/latex/nitrile/unathi(H), slot_gloves)
 	else
-		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
+		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/latex/nitrile(H), slot_gloves)
 
 
 /datum/outfit/job/forensics/csi

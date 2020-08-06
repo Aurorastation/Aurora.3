@@ -27,6 +27,7 @@
 	var/default_material = null // Set this to something else if you want material attributes on init.
 	var/material_armor_modifer = 1 // Adjust if you want seperate types of armor made from the same material to have different protectiveness (e.g. makeshift vs real armor)
 	var/refittable = TRUE // If false doesn't let the clothing be refit in suit cyclers
+	var/forensics_flags = 0
 
 
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
@@ -337,7 +338,6 @@
 	var/wired = 0
 	var/obj/item/cell/cell = 0
 	var/clipped = 0
-	var/fingerprint_chance = 0
 	var/obj/item/clothing/ring/ring = null		//Covered ring
 	var/mob/living/carbon/human/wearer = null	//Used for covered rings when dropping
 	var/punch_force = 0			//How much damage do these gloves add to a punch?
@@ -351,6 +351,7 @@
 		)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
+	forensics_flags = NO_FINGERPRINTS //If you're wearing gloves, they should stop fingerprints. Fingerless gloves will be dealt with on a case-by-case basis.
 
 /obj/item/clothing/gloves/update_clothing_icon()
 	if (ismob(src.loc))
@@ -378,7 +379,7 @@
 			to_chat(user, "<span class='notice'>\The [src] have already been clipped!</span>")
 			update_icon()
 			return
-
+		forensics_flags &= ~NO_FINGERPRINTS // If you cut the fingertips off your gloves, they don't conceal your prints.
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		user.visible_message("<span class='warning'>[user] cuts the fingertips off of \the [src].</span>","<span class='warning'>You cut the fingertips off of \the [src].</span>")
 
@@ -386,6 +387,7 @@
 		siemens_coefficient += 0.25
 		name = "modified [name]"
 		desc = "[desc]<br>They have had the fingertips cut off of them."
+
 		if("exclude" in species_restricted)
 			species_restricted -= "Unathi"
 			species_restricted -= "Tajara"

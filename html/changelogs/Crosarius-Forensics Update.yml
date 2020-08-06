@@ -1,0 +1,12 @@
+# Your name.  
+author: Crosarius
+
+delete-after: True
+
+changes: 
+  - tweak: "Latex gloves, nitrile gloves, Ninja clothing/suit/gloves, Bluespace Technician gloves/clothing will no longer leave forensic evidence."
+  - tweak: "CSI and Forensic Technicians now spawn with nitrile gloves instead of black gloves."
+  - bugfix: "Fixed oversight where most gloves did not prevent fingerprints from being generated when touching things. Certain gloves will still not protect you - including watches, fingerless gloves, armchains, brass knuckles, etc"
+  - tweak: "Manually snipping your gloves with wirecutters will cause them to lose their fingerprint blocking abilities."
+  - bugfix: "Fixed bug where opening a door by clicking on it would not generate forensic evidence."
+

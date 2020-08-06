@@ -270,6 +270,7 @@
 	return src.attack_hand(user)
 
 /obj/machinery/door/attack_hand(mob/user as mob)
+	src.add_fingerprint(user)
 	if(src.operating > 0 || isrobot(user))	return //borgs can't attack doors open because it conflicts with their AI-like interaction with them.
 
 	if(src.operating) return
