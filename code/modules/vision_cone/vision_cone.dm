@@ -78,6 +78,12 @@
 		check_fov()
 		client.hidden_atoms.Cut()
 		client.hidden_mobs.Cut()
+
+
+		if(resting || lying)
+			hide_cone()
+			return
+
 		vision_cone_overlay.dir = dir
 		if(vision_cone_overlay.alpha)
 			var/turf/T = get_turf(src)
