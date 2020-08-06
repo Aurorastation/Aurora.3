@@ -253,7 +253,7 @@
 			if (prob(50))
 				Paralyse(10)
 
-	// factor in armour
+	// factor in armor
 	var/protection = BLOCKED_MULT(getarmor(null, "bomb"))
 	b_loss *= protection
 	f_loss *= protection

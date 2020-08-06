@@ -333,15 +333,17 @@
 /mob/living/silicon/robot/proc/process_level_restrictions()
 	//Abort if they should not get blown
 	if(lock_charge || scrambled_codes || emagged)
-		return
+		return FALSE
 	//Check if they are on a player level -> abort
 	var/turf/T = get_turf(src)
 	if(!T || isStationLevel(T.z))
-		return
+		return FALSE
 	//If they are on centcom -> abort
 	if(istype(get_area(src), /area/centcom) || istype(get_area(src), /area/shuttle/escape) || istype(get_area(src), /area/shuttle/arrival))
-		return
-	self_destruct(TRUE)
+		return FALSE
+	if(!self_destructing)
+		start_self_destruct(TRUE)
+	return TRUE
 
 /mob/living/silicon/robot/update_fire()
 	cut_overlay(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))

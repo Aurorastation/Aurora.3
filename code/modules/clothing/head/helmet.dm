@@ -54,7 +54,7 @@
 	armor = list(melee = 62, bullet = 50, laser = 50, energy = 35, bomb = 10, bio = 2, rad = 0)
 
 /obj/item/clothing/head/helmet/hos/dermal
-	name = "dermal armour patch"
+	name = "dermal armor patch"
 	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."
 	icon_state = "dermal"
 	allow_hair_covering = FALSE

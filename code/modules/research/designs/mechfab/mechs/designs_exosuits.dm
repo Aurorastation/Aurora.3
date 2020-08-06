@@ -5,27 +5,27 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 15000)
 	category = "Exosuit (Body)"
 
-/datum/design/item/mechfab/exosuit/basic_armour
+/datum/design/item/mechfab/exosuit/basic_armor
 	name = "Basic Exosuit Armor"
 	build_path = /obj/item/robot_parts/robot_component/armor/mech
 	time = 30
 	materials = list(DEFAULT_WALL_MATERIAL = 6000)
 
-/datum/design/item/mechfab/exosuit/radproof_armour
+/datum/design/item/mechfab/exosuit/radproof_armor
 	name = "Radiation-proof Exosuit Armor"
 	build_path = /obj/item/robot_parts/robot_component/armor/mech/radproof
 	time = 50
 	req_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 12500)
 
-/datum/design/item/mechfab/exosuit/em_armour
+/datum/design/item/mechfab/exosuit/em_armor
 	name = "EM-shielded Exosuit Armor"
 	build_path = /obj/item/robot_parts/robot_component/armor/mech/em
 	time = 50
 	req_tech = list(TECH_MATERIAL = 2, TECH_POWER = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_SILVER = 1000)
 
-/datum/design/item/mechfab/exosuit/combat_armour
+/datum/design/item/mechfab/exosuit/combat_armor
 	name = "Combat Exosuit Armor"
 	build_path = /obj/item/robot_parts/robot_component/armor/mech/combat
 	time = 50

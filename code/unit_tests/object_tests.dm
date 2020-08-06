@@ -31,3 +31,31 @@
 		pass("All \[[all_types.len]\] mapped in machinery types were found in SSmachinery.all_machines.")
 
 	return 1
+
+/**
+ * Tests whether all floor tiles have a unique or null build type. Else constructing them may result in the wrong turf.
+ */
+/datum/unit_test/flooring_build_type_conflicts
+	name = "OBJECTS: All flooring shall have a unique build type"
+
+/datum/unit_test/flooring_build_type_conflicts/start_test()
+	var/list/known_types = list()
+	var/list/decls = decls_repository.get_decls_of_subtype(/decl/flooring)
+	for(var/flooring_type in decls)
+		var/decl/flooring/F = decls[flooring_type]
+		if(!isnull(F.build_type))
+			known_types += F.build_type
+
+	if(known_types.len == length(uniquelist(known_types)))
+		pass("All flooring types had a unique or null build type.")
+	else
+		for(var/type in known_types)
+			var/i = 0
+			for(var/flooring_type in known_types)
+				if(flooring_type == type)
+					i++
+			if(i != 1)
+				log_unit_test("[ascii_red]--------------- Flooring build_type [type] is non-unique; exists [i] times.")
+		fail("Found non-unique build_types in flooring decl.")
+
+	return TRUE

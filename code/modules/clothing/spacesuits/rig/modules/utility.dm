@@ -126,32 +126,31 @@
 
 	category = MODULE_UTILITY
 
-/obj/item/rig_module/device/New()
-	..()
-	if(device_type) device = new device_type(src)
+/obj/item/rig_module/device/Initialize()
+	. = ..()
+	if(device_type)
+		device = new device_type(src)
 
 /obj/item/rig_module/device/engage(atom/target)
 	if(!..() || !device)
-		return 0
+		return FALSE
 
 	if(!target)
 		device.attack_self(holder.wearer)
-		return 1
+		return TRUE
 
 	var/turf/T = get_turf(target)
 	if(istype(T) && !T.Adjacent(get_turf(src)))
-		return 0
+		return FALSE
 
 	// Stop generating infinite devices please, and thank you.
 	if(istype(target, /obj/machinery/disposal))
-		return 0
+		return FALSE
 
-	var/resolved = target.attackby(device,holder.wearer)
+	var/resolved = target.attackby(device)
 	if(!resolved && device && target)
-		device.afterattack(target,holder.wearer,1)
-	return 1
-
-
+		device.afterattack(target, holder.wearer, TRUE)
+	return TRUE
 
 /obj/item/rig_module/chem_dispenser
 	name = "mounted chemical dispenser"

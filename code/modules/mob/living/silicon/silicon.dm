@@ -194,7 +194,7 @@
 //can't inject synths
 /mob/living/silicon/can_inject(mob/user, error_msg)
 	if(error_msg)
-		to_chat(user, SPAN_ALERT("The armoured plating is too tough."))
+		to_chat(user, SPAN_ALERT("The armored plating is too tough."))
 	return FALSE
 
 //Silicon mob language procs
