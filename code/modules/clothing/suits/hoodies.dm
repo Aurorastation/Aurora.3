@@ -28,8 +28,8 @@
 	if(!lasticonstate)
 		suittoggled = FALSE
 	else
-		icon_state = "[lasticonstate]"
-		item_state = "[lasticonstate]"
+		icon_state = lasticonstate
+		item_state = lasticonstate
 		suittoggled = FALSE
 	
 	
