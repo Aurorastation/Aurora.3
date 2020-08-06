@@ -670,7 +670,6 @@ default behaviour is:
 					if(M.InCone(T, M.dir))
 						M.add_to_mobs_hidden_atoms(src)
 			else
-				testing("removing [src] from [M]'s hidden mobs list!")
 				if(src in M.client.hidden_mobs)
 					M.client.hidden_mobs -= src
 					for(var/image in M.client.hidden_atoms)
