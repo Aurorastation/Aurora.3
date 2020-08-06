@@ -70,7 +70,7 @@
 	melee_damage_upper = 15
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag
-	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
 
 	min_oxy = 0
 
