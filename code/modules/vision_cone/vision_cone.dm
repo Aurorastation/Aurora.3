@@ -86,7 +86,7 @@
 			for(var/cone_atom in cone(T, reverse_direction(dir), get_rectangle_in_dir(T, client.view, reverse_direction(dir)) & oview(client.view, T)))
 				add_to_mobs_hidden_atoms(cone_atom)
 
-/mob/proc/add_to_mobs_hidden_atoms(atom/A)
+/mob/living/proc/add_to_mobs_hidden_atoms(atom/A)
 	var/image/I
 	I = image("split", A)
 	I.override = TRUE
@@ -145,7 +145,7 @@
 	if(vision_cone_overlay)
 		vision_cone_overlay.alpha = 0
 
-/mob/proc/remove_cone()
+/mob/living/proc/remove_cone()
 	if(vision_cone_overlay)
 		client.screen -= vision_cone_overlay
 
