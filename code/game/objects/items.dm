@@ -736,7 +736,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		M.client.view = world.view
 		if(M.vision_cone_overlay)
 			var/mob/living/vision_cone_mob = M
-			vision_cone_mob.show_cone()
+			vision_cone_mob.update_vision_cone()
 		if(!M.hud_used.hud_shown)
 			M.toggle_zoom_hud()
 		zoom = 0

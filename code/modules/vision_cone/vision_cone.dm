@@ -64,7 +64,7 @@
 
 	for(var/obj/item/item in src)
 		if(item.zoom)
-			hide_cone()
+			remove_cone()
 			return
 
 	var/delay = 1 SECONDS
