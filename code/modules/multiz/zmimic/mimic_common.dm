@@ -2,8 +2,24 @@
 /atom/proc/update_above()
 	return
 
+/turf/proc/is_above_space()
+	var/turf/T = GetBelow(src)
+	while (T && (T.z_flags & ZM_MIMIC_BELOW))
+		T = GetBelow(T)
+
+	return istype(T, /turf/space)
+
+/turf/update_icon()
+	..()
+	if (above)
+		update_above()
+
+/atom/movable/update_icon()
+	..()
+	UPDATE_OO_IF_PRESENT
+
 /**
- * Used to check wether or not an atom can pass through a turf.
+ * Used to check whether or not an atom can pass through a turf.
  *
  * @param	A The atom that's moving either up or down from this turf or to it.
  * @param	direction The direction of the atom's movement in relation to its
@@ -19,18 +35,6 @@
 			return FALSE
 		if(direction == DOWN) //on a turf above, trying to enter
 			return !density
-
-/**
- * Used to check whether or not the specific open turf eventually leads into spess.
- *
- * @return	TRUE if the turf eventually leads into space. FALSE otherwise.
- */
-/turf/proc/is_above_space()
-	var/turf/T = GetBelow(src)
-	while (T && (T.flags & MIMIC_BELOW))
-		T = GetBelow(T)
-
-	return istype(T, /turf/space)
 
 /turf/simulated/open/CanZPass(atom, direction)
 	return TRUE

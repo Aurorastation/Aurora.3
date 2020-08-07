@@ -65,6 +65,7 @@
 #include "code\__defines\vueui.dm"
 #include "code\__defines\webhook.dm"
 #include "code\__defines\ZAS.dm"
+#include "code\__defines\zmimic.dm"
 #include "code\__defines\dcs\flags.dm"
 #include "code\__defines\dcs\helpers.dm"
 #include "code\__defines\dcs\signals.dm"

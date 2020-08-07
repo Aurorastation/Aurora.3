@@ -29,9 +29,9 @@
 		return
 
 	var/turf/T
-	if (flags & MIMIC_BELOW)
-		CALCULATE_NEIGHBORS(src, ao_neighbors_mimic, T, (T.flags & MIMIC_BELOW))
-	if (AO_SELF_CHECK(src) && !(flags & MIMIC_NO_AO))
+	if (z_flags & ZM_MIMIC_BELOW)
+		CALCULATE_NEIGHBORS(src, ao_neighbors_mimic, T, (T.z_flags & ZM_MIMIC_BELOW))
+	if (AO_SELF_CHECK(src) && !(z_flags & ZM_MIMIC_NO_AO))
 		CALCULATE_NEIGHBORS(src, ao_neighbors, T, AO_TURF_CHECK(T))
 
 /proc/make_ao_image(corner, i, px = 0, py = 0, pz = 0, pw = 0)
@@ -105,9 +105,9 @@
 	var/list/cache = SSicon_cache.ao_cache
 	CUT_AO(shadower, ao_overlays_mimic)
 	CUT_AO(src, ao_overlays)
-	if (flags & MIMIC_BELOW)
+	if (z_flags & ZM_MIMIC_BELOW)
 		REGEN_AO(shadower, ao_overlays_mimic, ao_neighbors_mimic)
-	if (!has_opaque_atom && !(flags & MIMIC_NO_AO))
+	if (!has_opaque_atom && !(z_flags & ZM_MIMIC_NO_AO))
 		REGEN_AO(src, ao_overlays, ao_neighbors)
 
 #undef REGEN_AO
