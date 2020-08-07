@@ -115,6 +115,7 @@
 		occupantData["name"] = occupant.name
 		occupantData["stat"] = occupant.stat
 		occupantData["bodyTemperature"] = occupant.bodytemperature
+		occupantData["cryostasis"] = "[occupant.stasis_value]x"
 		var/cloneloss = "none"
 		var/amount = occupant.getCloneLoss()
 		if(amount > 50)
@@ -127,7 +128,6 @@
 			cloneloss = "minor"
 		occupantData["cloneloss"] = "<br><br>Genetic degradation: [cloneloss]"
 	data["occupant"] = occupantData
-	data["cryostasis"] = "[occupant.stasis_value]x"
 
 	data["cellTemperature"] = round(air_contents.temperature)
 	data["cellTemperatureStatus"] = "good"
