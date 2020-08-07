@@ -1232,4 +1232,4 @@ proc/is_blind(A)
 	if(used_accent && speaking?.allow_accents)
 		var/datum/accent/a = SSrecords.accents[used_accent]
 		var/final_icon = a.tag_icon
-		return "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[final_icon]'>"
+		return icon2html(icon('./icons/accent_tags.dmi', tagname), src, realsize=TRUE, class="text_tag")

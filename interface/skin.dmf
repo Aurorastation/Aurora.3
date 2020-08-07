@@ -1019,8 +1019,8 @@ window "Telecomms IDE"
 window "mainwindow"
 	elem "mainwindow"
 		type = MAIN
-		pos = 281,0
-		size = 640x480
+		pos = 372,0
+		size = 1001x720
 		anchor1 = none
 		anchor2 = none
 		background-color = none
@@ -1052,29 +1052,6 @@ window "mainwindow"
 		saved-params = "splitter"
 		right = "rpane"
 		is-vert = true
-	elem "input"
-		type = INPUT
-		pos = 0,462
-		size = 520x20
-		anchor1 = 0,100
-		anchor2 = 100,100
-		font-family = "Calibri Light"
-		font-size = 12
-		background-color = #d0e6e3
-		is-default = true
-		saved-params = "command"
-	elem "saybutton"
-		type = BUTTON
-		pos = 520,462
-		size = 40x20
-		anchor1 = 100,100
-		anchor2 = none
-		background-color = #8cd0cd
-		saved-params = "is-checked"
-		text = "Chat"
-		command = ".winset \"saybutton.is-checked=true?input.command=\"!say \\\"\" macrobutton.is-checked=false:input.command=\""
-		is-flat = true
-		button-type = pushbox
 	elem "tooltip"
 		type = BROWSER
 		pos = 0,0
@@ -1092,7 +1069,6 @@ window "mapwindow"
 		size = 640x480
 		anchor1 = none
 		anchor2 = none
-		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		titlebar = false
 		statusbar = false
@@ -1173,6 +1149,42 @@ window "mainwindow"
 		text = "Chat"
 		command = ".winset \"saybutton.is-checked=true?input.command=\"!say \\\"\" macrobutton.is-checked=false:input.command=\""
 		button-type = pushbox
+
+
+window "outputwindow"
+	elem "outputwindow"
+		type = MAIN
+		pos = 281,0
+		size = 640x480
+		anchor1 = none
+		anchor2 = none
+		background-color = none
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+	elem "browseroutput"
+		type = BROWSER
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = #ffffff
+		is-visible = false
+		saved-params = ""
+		auto-format = false
+	elem "output"
+		type = OUTPUT
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		is-default = true
+		saved-params = ""
+
 
 window "rpane"
 	elem "rpane"

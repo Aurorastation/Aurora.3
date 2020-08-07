@@ -139,10 +139,10 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/proc/prevent_tracking()
 	return 0
 
-/obj/item/card/id/proc/show(mob/user )
+/obj/item/card/id/proc/show(mob/user)
 	if(front && side)
-		to_chat(user, browse_rsc(front, "front.png"))
-		to_chat(user, browse_rsc(side, "side.png"))
+		send_rsc(user, front, "front.png")
+		send_rsc(user, side, "side.png")
 	var/datum/browser/popup = new(user, "idcard", name, 650, 260)
 	popup.set_content(dat())
 	popup.set_title_image(usr.browse_rsc_icon(src.icon, src.icon_state))

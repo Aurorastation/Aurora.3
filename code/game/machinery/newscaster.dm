@@ -280,7 +280,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 							i++
 							dat+="<BLOCKQUOTE style=\"padding:2px 4px;border-left:4px #797979 solid\">[MESSAGE.body] <FONT SIZE=1>\[Likes: <FONT COLOR='DarkGreen'>[MESSAGE.likes]</FONT> Dislikes: <FONT COLOR='maroon'>[MESSAGE.dislikes]</FONT>\]</FONT><BR>"
 							if(MESSAGE.img)
-								to_chat(usr, browse_rsc(MESSAGE.img, "tmp_photo[i].png"))
+								send_rsc(usr, MESSAGE.img, "tmp_photo[i].png")
 								dat+="<img src='tmp_photo[i].png' width = '180'><BR>"
 								if(MESSAGE.caption)
 									dat+="<FONT SIZE=1><B>[MESSAGE.caption]</B></FONT><BR>"
@@ -386,7 +386,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 				dat+="<B>Description</B>: [SSnews.wanted_issue.body]<BR>"
 				dat+="<B>Photo:</B>: "
 				if(SSnews.wanted_issue.img)
-					to_chat(usr, browse_rsc(SSnews.wanted_issue.img, "tmp_photow.png"))
+					send_rsc(usr, SSnews.wanted_issue.img, "tmp_photow.png")
 					dat+="<BR><img src='tmp_photow.png' width = '180'>"
 				else
 					dat+="None"
@@ -868,7 +868,7 @@ obj/item/newspaper/attack_self(mob/user as mob)
 							i++
 							dat+="-[MESSAGE.body] <BR>"
 							if(MESSAGE.img)
-								to_chat(user, browse_rsc(MESSAGE.img, "tmp_photo[i].png"))
+								send_rsc(usr, MESSAGE.img, "tmp_photo[i].png")
 								dat+="<img src='tmp_photo[i].png' width = '180'><BR>"
 							dat+="<FONT SIZE=1>\[[MESSAGE.message_type] by <FONT COLOR='maroon'>[MESSAGE.author]</FONT>\]</FONT><BR><BR>"
 						dat+="</ul>"
@@ -884,7 +884,7 @@ obj/item/newspaper/attack_self(mob/user as mob)
 					dat+="<B>Description</B>: [important_message.body]<BR>"
 					dat+="<B>Photo:</B>: "
 					if(important_message.img)
-						to_chat(user, browse_rsc(important_message.img, "tmp_photow.png"))
+						send_rsc(user, important_message.img, "tmp_photow.png")
 						dat+="<BR><img src='tmp_photow.png' width = '180'>"
 					else
 						dat+="None"
