@@ -110,7 +110,7 @@
 		to_chat(user, SPAN_WARNING("\The [initial(name)] is dry!"))
 	else
 		if (!(last_clean && world.time < last_clean + 120) )
-			user.visible_message("<b>[user]</b> starts to wipe [A] with [src]!")
+			user.visible_message("<b>[user]</b> starts to wipe [A] with [src].")
 			clean_msg = TRUE
 			last_clean = world.time
 		else
