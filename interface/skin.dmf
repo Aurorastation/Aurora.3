@@ -1050,18 +1050,22 @@ window "mainwindow"
 		size = 640x440
 		anchor1 = none
 		anchor2 = none
+		background-color = none
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-maximized = true
 		icon = 'icons\\ss13_64.png'
 		macro = "macro"
 		menu = "menu"
+		outer-size = 1936x1056
+		inner-size = 1920x997
 	elem "asset_cache_browser"
 		type = BROWSER
 		pos = 424,208
 		size = 1x1
 		anchor1 = none
 		anchor2 = none
+		background-color = none
 		is-visible = false
 		saved-params = ""
 	elem "hotkey_toggle"
@@ -1070,10 +1074,11 @@ window "mainwindow"
 		size = 80x20
 		anchor1 = 100,100
 		anchor2 = none
-		is-flat = true
+		background-color = none
 		saved-params = ""
 		text = "Hotkey Toggle"
 		command = ".winset \"mainwindow.macro!=macro ? mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true : mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true\""
+		is-flat = true
 		button-type = pushbox
 	elem "mainvsplit"
 		type = CHILD
@@ -1081,6 +1086,7 @@ window "mainwindow"
 		size = 634x416
 		anchor1 = 0,0
 		anchor2 = 100,100
+		background-color = none
 		saved-params = "splitter"
 		right = "rpane"
 		is-vert = true
@@ -1099,13 +1105,13 @@ window "mainwindow"
 		type = BUTTON
 		pos = 520,420
 		size = 40x20
-		background-color = #8cd0cd
-		is-flat = true
 		anchor1 = 100,100
 		anchor2 = none
+		background-color = #8cd0cd
 		saved-params = "is-checked"
 		text = "Chat"
 		command = ".winset \"saybutton.is-checked=true?input.command=\"!say \\\"\" macrobutton.is-checked=false:input.command=\""
+		is-flat = true
 		button-type = pushbox
 	elem "tooltip"
 		type = BROWSER
@@ -1116,7 +1122,6 @@ window "mainwindow"
 		background-color = none
 		is-visible = false
 		saved-params = ""
-
 
 window "outputwindow"
 	elem "outputwindow"
@@ -1133,6 +1138,7 @@ window "outputwindow"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
+		outer-size = 654x494
 	elem "browseroutput"
 		type = BROWSER
 		pos = 0,0
@@ -1142,7 +1148,6 @@ window "outputwindow"
 		background-color = #ffffff
 		is-visible = false
 		saved-params = ""
-		auto-format = false
 	elem "output"
 		type = OUTPUT
 		pos = 0,0
@@ -1151,7 +1156,6 @@ window "outputwindow"
 		anchor2 = 100,100
 		is-default = true
 		saved-params = ""
-
 
 window "rpane"
 	elem "rpane"
@@ -1168,6 +1172,7 @@ window "rpane"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
+		outer-size = 654x494
 	elem "rpanewindow"
 		type = CHILD
 		pos = 0,0
@@ -1301,6 +1306,7 @@ window "browserwindow"
 		size = 640x480
 		anchor1 = none
 		anchor2 = none
+		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		title = "Browser"
 		titlebar = false
@@ -1309,6 +1315,7 @@ window "browserwindow"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
+		outer-size = 654x494
 	elem "browser"
 		type = BROWSER
 		pos = 0,0
@@ -1328,6 +1335,7 @@ window "infowindow"
 		size = 640x480
 		anchor1 = none
 		anchor2 = none
+		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		title = "Info"
 		titlebar = false
@@ -1336,6 +1344,7 @@ window "infowindow"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
+		outer-size = 654x494
 	elem "info"
 		type = INFO
 		pos = 0,0
@@ -1346,6 +1355,7 @@ window "infowindow"
 		right-click = true
 		saved-params = ""
 		highlight-color = #00aa00
+		tab-background-color = none
 		on-show = ".winset\"rpane.infob.is-visible=true;rpane.browseb.is-visible=true?rpane.infob.pos=130,0:rpane.infob.pos=65,0 rpane.textb.is-visible=true rpane.infob.is-checked=true rpane.rpanewindow.pos=0,30 rpane.rpanewindow.size=0x0 rpane.rpanewindow.left=infowindow\""
 		on-hide = ".winset\"rpane.infob.is-visible=false;rpane.browseb.is-visible=true?rpane.browseb.is-checked=true rpane.rpanewindow.left=browserwindow:rpane.textb.is-visible=true rpane.rpanewindow.pos=0,30 rpane.rpanewindow.size=0x0 rpane.rpanewindow.left=\""
 
@@ -1406,15 +1416,19 @@ window "preferences_window"
 		size = 1200x800
 		anchor1 = none
 		anchor2 = none
+		background-color = none
 		is-visible = false
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
+		outer-size = 1216x839
+		inner-size = 1200x800
 	elem "preferences_browser"
 		type = BROWSER
 		pos = 0,0
 		size = 1000x800
 		anchor1 = 0,0
 		anchor2 = 80,100
+		background-color = none
 		saved-params = ""
 	elem "character_preview_map"
 		type = MAP
@@ -1422,4 +1436,5 @@ window "preferences_window"
 		size = 200x800
 		anchor1 = 80,0
 		anchor2 = 100,100
-		right-click = false
+		saved-params = "zoom;letterbox;zoom-mode"
+
