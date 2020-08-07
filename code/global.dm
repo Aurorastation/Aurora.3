@@ -113,10 +113,9 @@ var/list/robot_module_types = list(
 	"Construction",
 	"Medical",
 	"Rescue",
-	"Mining",
 	"Custodial",
+	"Supply",
 	"Service",
-	"Clerical",
 	"Research"
 )
 
