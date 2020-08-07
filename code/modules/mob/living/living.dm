@@ -666,7 +666,7 @@ default behaviour is:
 			else
 				var/turf/T = get_turf(M)
 				var/turf/Ts = get_turf(src)
-				if(Ts.InCone(T, reverse_direction(M.dir)))
+				if(Ts.InConeDirection(T, reverse_direction(M.dir)))
 					if(!(src in M.client.hidden_mobs))
 						if(M.InCone(T, M.dir))
 							M.add_to_mobs_hidden_atoms(src)
