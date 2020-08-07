@@ -282,7 +282,7 @@
 
 /obj/item/laser_components/modifier/stock/gyro
 	name = "stability stock"
-	desc = "A better version of na improved stock. This stock is more ergonomic, with in-built gyroscope increasing handly and accuracy."
+	desc = "A better version of an improved stock. This stock is more ergonomic, with in-built gyroscope increasing handly and accuracy."
 	fire_delay = 0.7
 	accuracy = 1.5
 	icon_state = "stable_stock"

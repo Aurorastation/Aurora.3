@@ -16,6 +16,8 @@
 #define SPAN_SUBTLE(X) "<span class='subtle'>[X]</span>"
 #define SPAN_SOGHUN(X) "<span class='soghun'>[X]</span>"
 
+#define FONT_COLOR(COLOR, X) "<font color='[COLOR]'>[X]</font>"
+
 #define FONT_SMALL(X) "<font size='1'>[X]</font>"
 #define FONT_NORMAL(X) "<font size='2'>[X]</font>"
 #define FONT_LARGE(X) "<font size='3'>[X]</font>"

@@ -2,6 +2,8 @@
 #define CHASSIS_MEDIUM 3
 #define CHASSIS_LARGE 4
 
+#define NO_PIN "nopin"
+
 #define MOD_SILENCE 1
 #define MOD_NUCLEAR_CHARGE 2
 

@@ -1,0 +1,11 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Replaced officer tasers with reliable modular taser pistols. Includes screwdriver for disassembly."
+  - rscadd: "Added examines to modular weapons that displays component conditions."
+  - tweak: "Small modular laser assemblies can now be modified by hand, only larger chassis require the analyzer."
+  - rscadd: "Modifiers can now be added directly onto small modular assemblies by hand, no need to disassemble."
+  - bugfix: "Fixed modular weapons having the incorrect fire delay, max number of shots, and criticality rating, on occassion."
+  - bugfix: "Small laser assemblies can now use their scopes again."

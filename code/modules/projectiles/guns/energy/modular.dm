@@ -17,7 +17,7 @@
 	zoomdevicename = null
 	max_shots = 0
 	burst_delay = 0
-	pin = null
+	pin = NO_PIN
 	var/origin_chassis
 	var/gun_type
 	var/list/gun_mods = list()
@@ -30,21 +30,48 @@
 	var/named = 0
 	var/described = 0
 
+/obj/item/gun/energy/laser/prototype/Initialize(mapload, var/set_icon_state, var/size, var/set_capacitor, var/set_focusing_lens, var/set_modulator, var/list/set_gun_mods)
+	. = ..()
+	icon_state = set_icon_state
+	modifystate = set_icon_state
+	origin_chassis = size
+	capacitor = set_capacitor
+	capacitor.forceMove(src)
+	focusing_lens = set_focusing_lens
+	focusing_lens.forceMove(src)
+	modulator = set_modulator
+	modulator.forceMove(src)
+	if(length(set_gun_mods))
+		for(var/v in set_gun_mods)
+			var/obj/item/laser_components/modifier/mod = v
+			gun_mods += mod
+			mod.forceMove(src)
+			if(mod.gun_overlay)
+				underlays += mod.gun_overlay
+	updatetype()
+
 /obj/item/gun/energy/laser/prototype/examine(mob/user)
 	..(user)
 	if(get_dist(src, user) > 1)
 		return
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-			to_chat(user, "You can see \the [modifier] attached.")
+			to_chat(user, "You can see \the [modifier] attached. [modifier.get_condition()]")
 	if(capacitor)
-		to_chat(user, "You can see \the [capacitor] attached.")
+		to_chat(user, "You can see \the [capacitor] attached. [capacitor.get_condition()]")
 	if(focusing_lens)
-		to_chat(user, "You can see \the [focusing_lens] attached.")
+		to_chat(user, "You can see \the [focusing_lens] attached. [focusing_lens.get_condition()]")
 	if(modulator)
-		to_chat(user, "You can see \the [modulator] attached.")
+		to_chat(user, "You can see \the [modulator] attached. [modulator.get_condition()]")
 
 /obj/item/gun/energy/laser/prototype/attackby(var/obj/item/D, var/mob/user)
+	if(origin_chassis == CHASSIS_SMALL && ismodifier(D))
+		gun_mods += D
+		user.drop_from_inventory(D, src)
+		to_chat(user, SPAN_NOTICE("You add \the [D] to \the [src]."))
+		handle_mod()
+		update_icon()
+		return
 	if(!D.isscrewdriver())
 		return ..()
 	to_chat(user, "You disassemble \the [src].")
@@ -155,15 +182,19 @@
 			if(MOD_NUCLEAR_CHARGE)
 				self_recharge = 1
 				criticality *= 2
-		fire_delay *= modifier.fire_delay
+		if(modifier.fire_delay)
+			fire_delay *= modifier.fire_delay
 		reliability += modifier.reliability
 		burst += modifier.burst
 		burst_delay += modifier.burst_delay
-		max_shots *= modifier.shots
+		if(modifier.shots)
+			max_shots *= modifier.shots
+			power_supply.maxcharge = max_shots * charge_cost
 		force = min(force + modifier.gun_force, 40)
 		chargetime += modifier.chargetime*10
 		accuracy += modifier.accuracy
-		criticality *= modifier.criticality
+		if(modifier.criticality)
+			criticality *= modifier.criticality
 		if(modifier.scope_name)
 			zoomdevicename = modifier.scope_name
 
@@ -265,7 +296,7 @@
 	set popup_menu = 1
 
 	if(zoomdevicename)
-		if(wielded)
+		if(wielded || origin_chassis == CHASSIS_SMALL)
 			toggle_scope(2.0, usr)
 		else
 			to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
