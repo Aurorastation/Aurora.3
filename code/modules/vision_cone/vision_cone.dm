@@ -45,7 +45,6 @@
 
 /mob/living/InCone(turf/center, dir)
 	. = ..()
-	. += src
 	if(pulling)
 		. += pulling
 
