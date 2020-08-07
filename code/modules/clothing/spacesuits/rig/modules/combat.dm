@@ -202,7 +202,6 @@
 
 	name = "mounted plasma cannon"
 	desc = "A marvel of Elyran weapons technology which utilizes superheated plasma to pierce thick armor with gruesome results. This one seems fitted for RIG usage."
-
 	icon_state = "plasma"
 
 	interface_name = "mounted plasma cannon"
