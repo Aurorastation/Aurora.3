@@ -384,8 +384,6 @@
 	prefs.last_id = computer_id			//these are gonna be used for banning
 	if (byond_version >= 511 && prefs.clientfps)
 		fps = prefs.clientfps
-	if(SStheming)
-		SStheming.apply_theme_from_perfs(src)
 
 	// Server greeting shenanigans.
 	if (server_greeting.find_outdated_info(src, 1) && !info_sent)
@@ -763,26 +761,3 @@
 				M.set_dir(get_dir(M, over_object))
 				gun.Fire(get_turf(over_object), mob, params, (get_dist(over_object, mob) <= 1), FALSE)
 	CHECK_TICK
-
-/client/verb/toggle_fullscreen()
-	set name = "Toggle Fullscreen"
-	set category = "OOC"
-
-	fullscreen = !fullscreen
-
-	if (fullscreen)
-		winset(usr, "mainwindow", "titlebar=false")
-		winset(usr, "mainwindow", "can-resize=false")
-		winset(usr, "mainwindow", "is-maximized=false")
-		winset(usr, "mainwindow", "is-maximized=true")
-		winset(usr, "mainwindow", "statusbar=false")
-		winset(usr, "mainwindow", "menu=")
-//		winset(usr, "mainwindow.mainvsplit", "size=0x0")
-	else
-		winset(usr, "mainwindow", "is-maximized=false")
-		winset(usr, "mainwindow", "titlebar=true")
-		winset(usr, "mainwindow", "can-resize=true")
-		winset(usr, "mainwindow", "statusbar=true")
-		winset(usr, "mainwindow", "menu=menu")
-
-	fit_viewport()

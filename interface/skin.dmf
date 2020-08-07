@@ -1070,6 +1070,7 @@ window "mainwindow"
 		size = 80x20
 		anchor1 = 100,100
 		anchor2 = none
+		is-flat = true
 		saved-params = ""
 		text = "Hotkey Toggle"
 		command = ".winset \"mainwindow.macro!=macro ? mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true : mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true\""
@@ -1090,6 +1091,7 @@ window "mainwindow"
 		anchor1 = 0,100
 		anchor2 = 100,100
 		font-family = "Calibri Light"
+		font-size = 12
 		background-color = #d0e6e3
 		is-default = true
 		saved-params = "command"
