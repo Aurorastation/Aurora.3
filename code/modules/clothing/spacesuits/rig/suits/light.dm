@@ -73,6 +73,20 @@
 /obj/item/clothing/gloves/lightrig/hacker
 	siemens_coefficient = 0
 
+/obj/item/rig/light/hacker/ninja
+	initial_modules = list(
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/datajack,
+		/obj/item/rig_module/electrowarfare_suite,
+		/obj/item/rig_module/voice,
+		/obj/item/rig_module/vision,
+		/obj/item/rig_module/teleporter,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/device/door_hack
+		)
+
+
 /obj/item/rig/light/ninja
 	name = "stealth suit control module"
 	suit_type = "stealth suit"
@@ -232,5 +246,15 @@
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/fabricator/energy_net,
 		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/mounted/xray
+		)
+/obj/item/rig/light/offworlder/techno/ninja
+	initial_modules = list(
+		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/chem_dispenser/offworlder,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/device/door_hack,
 		/obj/item/rig_module/mounted/xray
 		)
