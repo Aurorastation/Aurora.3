@@ -659,27 +659,28 @@ default behaviour is:
 
 	// Other viewers only need to update their vision for this moving mob, not their entire cone, as they are stationary
 	for(var/viewer in oviewers(world.view, src))
-		var/mob/M = viewer
-		if(M.client && M.client.view != world.view && get_dist(M, src) > M.client.view)
-			continue
-		if(M.client)
-			var/turf/T = get_turf(M)
-			var/turf/Ts = get_turf(src)
-			if(Ts.InCone(T, reverse_direction(M.dir)))
-				if(!(src in M.client.hidden_mobs))
-					if(M.InCone(T, M.dir))
-						M.add_to_mobs_hidden_atoms(src)
+		var/mob/living/M = viewer
+		if(M.client && istype(M))
+			if(M.client.view != world.view && get_dist(M, src) > M.client.view)
+				continue
 			else
-				if(src in M.client.hidden_mobs)
-					M.client.hidden_mobs -= src
-					for(var/image in M.client.hidden_atoms)
-						var/image/I = image
-						if(I.loc == src)
-							I.override = FALSE
-							M.client.hidden_atoms -= I
-							M.client.images -= I
-							QDEL_IN(I, 1 SECONDS)
-							break
+				var/turf/T = get_turf(M)
+				var/turf/Ts = get_turf(src)
+				if(Ts.InCone(T, reverse_direction(M.dir)))
+					if(!(src in M.client.hidden_mobs))
+						if(M.InCone(T, M.dir))
+							M.add_to_mobs_hidden_atoms(src)
+				else
+					if(src in M.client.hidden_mobs)
+						M.client.hidden_mobs -= src
+						for(var/image in M.client.hidden_atoms)
+							var/image/I = image
+							if(I.loc == src)
+								I.override = FALSE
+								M.client.hidden_atoms -= I
+								M.client.images -= I
+								QDEL_IN(I, 1 SECONDS)
+								break
 
 	update_vision_cone()
 
