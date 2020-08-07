@@ -5,3 +5,5 @@ delete-after: True
 changes: 
   - experiment: "Players now have vision cones, preventing seeing mobs in a 90 degree arc behind themselves, unless that mob is grabbing you."
   - rscadd: "You can adjust the darkness of your FOV cone in the global preferences menu of character setup."
+  - tweak: "Diona do not have vision cones."
+  - admin: "Bluespace Technicians do not have vision cones, and have a verb to toggle it."
