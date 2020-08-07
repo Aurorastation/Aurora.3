@@ -33,6 +33,14 @@
 		return (dir & (NORTH|SOUTH)) ? 1 : 0
 	return (dir & (EAST|WEST)) ? 1 : 0
 
+/mob/living/proc/toggle_vision_cone()
+	set name = "Toggle Vision Cone"
+	set category = "OOC"
+	set desc = "Toggle the ability to have a vision cone"
+
+	can_have_vision_cone = !can_have_vision_cone
+	check_fov()
+
 // Should return atoms that are in the cone.
 /atom/proc/InCone(turf/center, dir)
 	SHOULD_CALL_PARENT(TRUE)
