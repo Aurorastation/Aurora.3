@@ -45,11 +45,7 @@
 
 /mob/living/InCone(turf/center, dir)
 	. = ..()
-	for(var/obj/item/grab/G in src)
-		if(src == G.affecting)
-			continue
-		else
-			. += src
+	. += src
 	if(pulling)
 		. += pulling
 
@@ -101,6 +97,15 @@
 		client.hidden_mobs += hidden_mob
 		if(pulling && (pulling == hidden_mob || pulling == hidden_mob.buckled))//If we're pulling them we don't want them to be invisible, too hard to play like that.
 			I.override = FALSE
+			return
+		for(var/obj/item/grab/G in src)
+			if(A == G.affecting)
+				I.override = FALSE
+				return
+		for(var/obj/item/grab/G in A)
+			if(src == G.affecting)
+				I.override = FALSE
+				return
 
 /mob/living/proc/SetFov(var/n)
 	if(!can_have_vision_cone)
