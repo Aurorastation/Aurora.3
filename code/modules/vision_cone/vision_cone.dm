@@ -59,7 +59,7 @@
 /mob/living/update_vision_cone()
 	if(!can_have_vision_cone)
 		if(vision_cone_overlay)
-			hide_cone()
+			remove_cone()
 		return
 
 	for(var/obj/item/item in src)
@@ -139,6 +139,10 @@
 /mob/living/proc/hide_cone()
 	if(vision_cone_overlay)
 		vision_cone_overlay.alpha = 0
+
+/mob/proc/remove_cone()
+	if(vision_cone_overlay)
+		client.screen -= vision_cone_overlay
 
 /mob/living/set_dir()
 	. = ..()
