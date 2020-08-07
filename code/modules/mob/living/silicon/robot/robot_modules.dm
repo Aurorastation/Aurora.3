@@ -1,8 +1,7 @@
 var/global/list/robot_modules = list(
 	"Service" 		= /obj/item/robot_module/clerical/butler,
-	"Clerical" 		= /obj/item/robot_module/clerical/general,
 	"Research" 		= /obj/item/robot_module/research,
-	"Mining" 		= /obj/item/robot_module/miner,
+	"Supply" 		= /obj/item/robot_module/supply,
 	"Rescue" 		= /obj/item/robot_module/medical/rescue,
 	"Medical" 		= /obj/item/robot_module/medical/general,
 	"Combat" 		= /obj/item/robot_module/combat,
@@ -633,46 +632,28 @@ var/global/list/robot_modules = list(
 	RG.add_reagent(/datum/reagent/polysomnine/beer2, 50)
 	src.emag.name = "Mickey Finn's Special Brew"
 
-/obj/item/robot_module/clerical/general
-	name = "clerical robot module"
-
-/obj/item/robot_module/clerical/general/Initialize()
-	. = ..()
-	src.modules += new /obj/item/pen/robopen(src)
-	src.modules += new /obj/item/form_printer(src)
-	src.modules += new /obj/item/gripper/paperwork(src)
-	src.modules += new /obj/item/hand_labeler(src)
-	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
-	src.modules += new /obj/item/device/nanoquikpay(src)
-	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
-	src.modules += new /obj/item/device/gps(src) // For being located while disabled and coordinating with life sensor consoles.
-	src.modules += new /obj/item/extinguisher/mini(src) // For navigating space and/or low grav, and just being useful.
-	src.modules += new /obj/item/device/flash(src) // Non-lethal tool that prevents any 'borg from going lethal on Crew so long as it's an option according to laws.
-	src.modules += new /obj/item/crowbar/robotic(src) // Base crowbar that all 'borgs should have access to.
-	src.emag = new /obj/item/stamp/chameleon(src)
-
-/obj/item/robot_module/miner
-	name = "miner robot module"
+/obj/item/robot_module/supply
+	name = "supply robot module"
 	channels = list(CHANNEL_SUPPLY = TRUE)
 	networks = list(NETWORK_MINE)
 	sprites = list(
-			"Basic" = "robotmine",
-			"Landmate" = "landmatemine",
-			"Treadmate" = "treadmatemine",
-			"Treadhead" = "treadheadmine",
-			"Arachnotronic" = "arachnotronicmine",
-			"Toileto-tron" = "toiletbotmine",
-			"Zeng-hu Droid" = "droidrecolormine",
-			"HD-MAD" = "mcspizzytronmine",
-			"SD-MAD" = "floatspizzytronmine",
-			"Heph Droid" = "heavymine",
-			"Venus Drone" = "dronerecolormine",
-			"Unbranded-MAD" = "offfloatspizzytronmine",
+			"Basic" = "robotsupp",
+			"Landmate" = "landmatesupp",
+			"Treadmate" = "treadmatesupp",
+			"Treadhead" = "treadheadsupp",
+			"Arachnotronic" = "arachnotronicsupp",
+			"Toileto-tron" = "toiletbotsupp",
+			"Zeng-hu Droid" = "droidrecolorsupp",
+			"HD-MAD" = "mcspizzytronsupp",
+			"SD-MAD" = "floatspizzytronsupp",
+			"Heph Droid" = "heavysupp",
+			"Venus Drone" = "dronerecolorsupp",
+			"Unbranded-MAD" = "offfloatspizzytronsupp",
 			"Unbranded-Android" = "droid",
 			)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
-/obj/item/robot_module/miner/Initialize()
+/obj/item/robot_module/supply/Initialize()
 	. = ..()
 	src.modules += new /obj/item/borg/sight/material(src)
 	src.modules += new /obj/item/storage/bag/ore(src)
@@ -681,7 +662,12 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/gripper/miner(src)
 	src.modules += new /obj/item/rfd/mining(src)
 	src.modules += new /obj/item/mining_scanner(src)
-	src.modules += new /obj/item/device/gps/mining(src) // for locating itself in the deep space
+	src.modules += new /obj/item/pen/robopen(src)
+	src.modules += new /obj/item/form_printer(src)
+	src.modules += new /obj/item/gripper/paperwork(src)
+	src.modules += new /obj/item/hand_labeler(src)
+	src.modules += new /obj/item/tape_roll(src) //allows it to place flyers
+	src.modules += new /obj/item/device/nanoquikpay(src)
 	src.modules += new /obj/item/gun/custom_ka/cyborg(src)
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
@@ -693,6 +679,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/screwdriver/robotic(src)
 	src.modules += new /obj/item/storage/part_replacer(src)
 	src.modules += new /obj/item/tank/jetpack/carbondioxide(src)
+	src.emag = new /obj/item/stamp/chameleon(src)
 
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
 	synths += metal
