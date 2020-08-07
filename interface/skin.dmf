@@ -1050,6 +1050,7 @@ window "mainwindow"
 		size = 640x440
 		anchor1 = none
 		anchor2 = none
+		title = "Space Station 13 - Aurora Station"
 		background-color = none
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
