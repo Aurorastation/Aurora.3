@@ -120,7 +120,7 @@
 		update_icon()
 		if(do_after(user,cleantime))
 			if(clean_msg)
-				user.visible_message("<b>[user]</b> finishes wiping [A]!")
+				user.visible_message("<b>[user]</b> finishes wiping [A].")
 		A.on_rag_wipe(src)
 
 /obj/item/reagent_containers/glass/rag/attack(atom/target as obj|turf|area, mob/user as mob , flag)
