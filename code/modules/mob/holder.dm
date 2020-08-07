@@ -240,6 +240,8 @@ var/list/holder_mob_icon_cache = list()
 
 // Override to add stuff that should happen when scooping
 /mob/living/proc/post_scoop()
+	can_have_vision_cone = FALSE
+	update_vision_cone()
 	return
 
 /mob/living/proc/get_holder_location()

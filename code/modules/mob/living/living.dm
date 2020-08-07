@@ -734,6 +734,8 @@ default behaviour is:
 		to_chat(src, "<span class='warning'>You struggle free of \the [H.loc].</span>")
 		H.forceMove(get_turf(H))
 
+	can_have_vision_cone = initial(can_have_vision_cone)
+
 /mob/living/proc/escape_buckle()
 	if(buckled)
 		buckled.user_unbuckle_mob(src)
