@@ -80,6 +80,8 @@
 		/obj/item/rig_module/device/door_hack
 		)
 
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY
+
 /obj/item/rig/retro
 	name = "retrofitted military hardsuit control module"
 	desc = "An old repurposed construction exoskeleton redesigned for combat. Its colors and insignias match those of the Tau Ceti Foreign Legion."
@@ -156,6 +158,8 @@
 		/obj/item/rig_module/fabricator/energy_net
 		)
 
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY
+
 /obj/item/rig/strike
 	name = "strike hardsuit control module"
 	desc = "An expensive hardsuit utilized by Eridani security contractors to field heavy weapons and coordinate non-lethal takedowns directly. Usually seen spearheading police raids."
@@ -196,6 +200,8 @@
 		/obj/item/rig_module/device/drill
 		)
 
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY
+
 /obj/item/rig/elyran
 	name = "elyran battlesuit control module"
 	desc = "An advanced Elyran hardsuit specialized in scorched earth tactics."
@@ -235,6 +241,8 @@
 		/obj/item/rig_module/device/door_hack,
 		/obj/item/rig_module/mounted/plasma
 		)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY
 
 /obj/item/rig/bunker
 	name = "bunker suit control module"
@@ -300,3 +308,5 @@
 		/obj/item/rig_module/device/door_hack,
 		/obj/item/rig_module/mounted/energy_blade
 		)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY

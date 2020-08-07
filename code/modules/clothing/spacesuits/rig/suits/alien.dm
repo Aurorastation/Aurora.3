@@ -38,6 +38,8 @@
 		/obj/item/rig_module/device/door_hack
 		)
 
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY
+
 /obj/item/rig/vaurca
 	name = "combat exoskeleton control module"
 	desc = "An ancient piece of equipment from a bygone age, This highly advanced Vaurcan technology rarely sees use outside of a battlefield."
