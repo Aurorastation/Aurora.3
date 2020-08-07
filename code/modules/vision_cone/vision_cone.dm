@@ -169,6 +169,6 @@
 	M.Turn(dir2angle(dir))
 	N.Turn((dir2angle(dir)+180) % 360)
 	. = block(\
-		locate(T.x + (M.a+M.b) * length - 0.5*abs((M.a + M.b)-1), T.y + (M.d+M.e) * length - 0.5*abs((M.d + M.e)-1), T.z),\
-		locate(T.x + N.a * length - 0.5*abs((M.a + M.b)-1), T.y + N.d * length - 0.5*abs((M.d + M.e)-1), T.z)\
+		locate(T.x + (M.a+M.b) * length - 0.5*(M.a + M.b - 1), T.y + (M.d+M.e) * length - 0.5*(M.d + M.e - 1), T.z),\
+		locate(T.x + N.a * length - 0.5*(M.a + M.b - 1), T.y + N.d * length - 0.5*(M.d + M.e - 1), T.z)\
 		)
