@@ -115,7 +115,7 @@
 			to_chat(usr,"[icon2html(src, usr)]<span class='warning'>[transaction].</span>")
 		else
 			playsound(src, 'sound/machines/chime.ogg', 50, 1)
-			src.visible_message("[icon2html(src, usr)] \The [src] chimes.")
+			src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
 			print_receipt()
 			sum = 0
 			receipt = ""

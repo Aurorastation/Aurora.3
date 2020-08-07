@@ -102,9 +102,9 @@
 					if(interval > 0)
 						//apply the touch effect to the holder
 						if(holder)
-							to_chat(holder, "the [icon2html(src, usr)] [src] held by [holder] shudders in your grasp.")
+							to_chat(holder, "[icon2html(src, viewers(get_turf(src)))] [src] held by [holder] shudders in your grasp.")
 						else
-							src.loc.visible_message("the [icon2html(src, usr)] [src] shudders.")
+							src.loc.visible_message("[icon2html(src, viewers(get_turf(src)))] [src] shudders.")
 						inserted_battery.battery_effect.DoEffectTouch(holder)
 
 						//consume power
@@ -130,13 +130,13 @@
 
 			//work out if we need to shutdown
 			if(inserted_battery.stored_charge <= 0)
-				src.loc.visible_message("<span class='notice'>[icon2html(src, usr)] [src] buzzes.</span>", "<span class='notice'>[icon2html(src, usr)] You hear something buzz.</span>")
+				src.loc.visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] [src] buzzes.</span>", "<span class='notice'>You hear something buzz.</span>")
 				shutdown_emission()
 			else if(world.time > time_end)
-				src.loc.visible_message("<span class='notice'>[icon2html(src, usr)] [src] chimes.</span>", "<span class='notice'>[icon2html(src, usr)] You hear something chime.</span>")
+				src.loc.visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] [src] chimes.</span>", "<span class='notice'>You hear something chime.</span>")
 				shutdown_emission()
 		else
-			src.visible_message("<span class='notice'>[icon2html(src, usr)] [src] buzzes.</span>", "<span class='notice'>[icon2html(src, usr)] You hear something buzz.</span>")
+			src.visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] [src] buzzes.</span>", "<span class='notice'>You hear something buzz.</span>")
 			shutdown_emission()
 		last_process = world.time
 

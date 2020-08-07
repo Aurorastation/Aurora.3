@@ -1016,52 +1016,6 @@ window "Telecomms IDE"
 		multi-line = true
 		no-command = true
 
-window "mainwindow"
-	elem "mainwindow"
-		type = MAIN
-		pos = 372,0
-		size = 1001x720
-		anchor1 = none
-		anchor2 = none
-		background-color = none
-		is-default = true
-		saved-params = "pos;size;is-minimized;is-maximized"
-		icon = 'icons\\ss13_64.png'
-		title = "Space Station 13 - Aurora Station"
-		macro = "macro"
-		menu = "menu"
-	elem "hotkey_toggle"
-		type = BUTTON
-		pos = 560,462
-		size = 80x20
-		anchor1 = 100,100
-		anchor2 = none
-		background-color = #e6b099
-		saved-params = ""
-		text = "Hotkey Toggle"
-		command = ".winset \"mainwindow.macro!=macro ? mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true : mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true\""
-		is-flat = true
-		button-type = pushbox
-	elem "mainvsplit"
-		type = CHILD
-		pos = 0,0
-		size = 1001x720
-		anchor1 = 0,0
-		anchor2 = 100,100
-		background-color = none
-		saved-params = "splitter"
-		right = "rpane"
-		is-vert = true
-	elem "tooltip"
-		type = BROWSER
-		pos = 0,0
-		size = 999x999
-		anchor1 = none
-		anchor2 = none
-		background-color = none
-		is-visible = false
-		saved-params = ""
-
 window "mapwindow"
 	elem "mapwindow"
 		type = MAIN
@@ -1135,20 +1089,31 @@ window "mainwindow"
 		size = 517x20
 		anchor1 = 0,100
 		anchor2 = 100,100
-		background-color = #d3b5b5
+		font-family = "Calibri Light"
+		background-color = #d0e6e3
 		is-default = true
-		border = sunken
 		saved-params = "command"
 	elem "saybutton"
 		type = BUTTON
 		pos = 520,420
 		size = 40x20
+		background-color = #8cd0cd
+		is-flat = true
 		anchor1 = 100,100
 		anchor2 = none
 		saved-params = "is-checked"
 		text = "Chat"
 		command = ".winset \"saybutton.is-checked=true?input.command=\"!say \\\"\" macrobutton.is-checked=false:input.command=\""
 		button-type = pushbox
+	elem "tooltip"
+		type = BROWSER
+		pos = 0,0
+		size = 999x999
+		anchor1 = none
+		anchor2 = none
+		background-color = none
+		is-visible = false
+		saved-params = ""
 
 
 window "outputwindow"

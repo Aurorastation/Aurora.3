@@ -127,7 +127,7 @@
 				if(transaction_locked && !transaction_paid)
 					if(transaction_amount <= E.worth)
 						playsound(src, 'sound/machines/chime.ogg', 50, 1)
-						src.visible_message("[icon2html(src, usr)] \The [src] chimes.")
+						src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
 						transaction_paid = 1
 
 						//transfer the money
@@ -244,7 +244,7 @@
 					to_chat(usr,"[icon2html(src, usr)]<span class='warning'>[message].</span>")
 				else
 					playsound(src, 'sound/machines/chime.ogg', 50, 1)
-					src.visible_message("[icon2html(src, usr)] \The [src] chimes.")
+					src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
 					transaction_paid = 1
 			else
 				to_chat(usr, "[icon2html(src, usr)]<span class='warning'>EFTPOS is not connected to an account.</span>")
@@ -257,5 +257,5 @@
 			else
 				usr.visible_message("<span class='info'>\The [usr] swipes a card through \the [src].</span>")
 				playsound(src, 'sound/machines/chime.ogg', 50, 1)
-				src.visible_message("[icon2html(src, usr)] \The [src] chimes.")
+				src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
 				transaction_paid = 1

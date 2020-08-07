@@ -128,7 +128,7 @@
 		if(mix_message)
 			var/list/seen = viewers(4, T)
 			for(var/mob/M in seen)
-				M.show_message("<span class='notice'>[icon2html(container, usr)] [mix_message]</span>", 1)
+				M.show_message("<span class='notice'>[icon2html(container, viewers(get_turf(src)))] [mix_message]</span>", 1)
 		if(reaction_sound)
 			playsound(T, reaction_sound, 80, 1)
 
@@ -1222,7 +1222,7 @@
 	var/obj/item/slime_extract/T = holder.my_atom
 	T.uses--
 	if(T.uses <= 0)
-		T.visible_message("[icon2html(T, usr)]<span class='notice'>\The [T]'s power is consumed in the reaction.</span>")
+		T.visible_message("[icon2html(T, viewers(get_turf(src)))]<span class='notice'>\The [T]'s power is consumed in the reaction.</span>")
 		T.name = "used slime extract"
 		T.desc = "This extract has been used up."
 

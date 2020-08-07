@@ -509,7 +509,7 @@
 		occupant.apply_effect(radiation_level * 10, IRRADIATE)
 
 /obj/machinery/suit_cycler/proc/finished_job()
-	visible_message("[icon2html(src, usr)] <span class='notice'>\The [src] pings loudly.</span>")
+	visible_message("[icon2html(src, viewers(get_turf(src)))] <span class='notice'>\The [src] pings loudly.</span>")
 	playsound(loc, 'sound/machines/ping.ogg', 50, FALSE)
 	active = FALSE
 	update_icon()
