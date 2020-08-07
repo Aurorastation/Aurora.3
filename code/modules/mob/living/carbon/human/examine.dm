@@ -47,7 +47,7 @@
 		T = gender_datums[PLURAL]
 	else
 		if(icon)
-			msg += "\icon[icon] " //fucking BYOND: this should stop dreamseeker crashing if we -somehow- examine somebody before their icon is generated
+			msg += "[icon2html(icon, usr)] " //fucking BYOND: this should stop dreamseeker crashing if we -somehow- examine somebody before their icon is generated
 
 	if(!T)
 		// Just in case someone VVs the gender to something strange. It'll runtime anyway when it hits usages, better to CRASH() now with a helpful message.
@@ -71,16 +71,16 @@
 				tie_msg_warn += "! Attached to it is [lowertext(english_list(U.accessories))]"
 
 		if(w_uniform.blood_color)
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[w_uniform] [w_uniform.gender==PLURAL?"some":"a"] [fluid_color_type_map(w_uniform.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[w_uniform]'>[w_uniform.name]</a>[tie_msg_warn].</span>\n"
+			msg += "<span class='warning'>[T.He] [T.is] wearing [icon2html(w_uniform, usr)] [w_uniform.gender==PLURAL?"some":"a"] [fluid_color_type_map(w_uniform.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[w_uniform]'>[w_uniform.name]</a>[tie_msg_warn].</span>\n"
 		else
-			msg += "[T.He] [T.is] wearing \icon[w_uniform] <a href='?src=\ref[src];lookitem_desc_only=\ref[w_uniform]'>\a [w_uniform]</a>[tie_msg].\n"
+			msg += "[T.He] [T.is] wearing [icon2html(w_uniform, usr)] <a href='?src=\ref[src];lookitem_desc_only=\ref[w_uniform]'>\a [w_uniform]</a>[tie_msg].\n"
 
 	//head
 	if(head)
 		if(head.blood_color)
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[head] [head.gender==PLURAL?"some":"a"] [fluid_color_type_map(head.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>[head.name]</a> on [T.his] head!</span>\n"
+			msg += "<span class='warning'>[T.He] [T.is] wearing [icon2html(head, usr)] [head.gender==PLURAL?"some":"a"] [fluid_color_type_map(head.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>[head.name]</a> on [T.his] head!</span>\n"
 		else
-			msg += "[T.He] [T.is] wearing \icon[head] <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>\a [head]</a> on [T.his] head.\n"
+			msg += "[T.He] [T.is] wearing [icon2html(head, usr)] <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>\a [head]</a> on [T.his] head.\n"
 
 	//suit/armor
 	if(wear_suit)
@@ -93,42 +93,42 @@
 				tie_msg_warn += "! Attached to it is [lowertext(english_list(U.accessories))]"
 
 		if(wear_suit.blood_color)
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[wear_suit] [wear_suit.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_suit.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_suit]'>[wear_suit.name]</a>[tie_msg_warn].</span>\n"
+			msg += "<span class='warning'>[T.He] [T.is] wearing [icon2html(wear_suit, usr)] [wear_suit.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_suit.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_suit]'>[wear_suit.name]</a>[tie_msg_warn].</span>\n"
 		else
-			msg += "[T.He] [T.is] wearing \icon[wear_suit] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_suit]'>\a [wear_suit]</a>[tie_msg].\n"
+			msg += "[T.He] [T.is] wearing [icon2html(wear_suit, usr)] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_suit]'>\a [wear_suit]</a>[tie_msg].\n"
 
 		//suit/armor storage
 		if(s_store && !skipsuitstorage)
 			if(s_store.blood_color)
-				msg += "<span class='warning'>[T.He] [T.is] carrying \icon[s_store] [s_store.gender==PLURAL?"some":"a"] [fluid_color_type_map(s_store.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>[s_store.name]</a> on [T.his] [wear_suit.name]!</span>\n"
+				msg += "<span class='warning'>[T.He] [T.is] carrying [icon2html(s_store, usr)] [s_store.gender==PLURAL?"some":"a"] [fluid_color_type_map(s_store.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>[s_store.name]</a> on [T.his] [wear_suit.name]!</span>\n"
 			else
-				msg += "[T.He] [T.is] carrying \icon[s_store] <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>\a [s_store]</a> on [T.his] [wear_suit.name].\n"
+				msg += "[T.He] [T.is] carrying [icon2html(s_store, usr)] <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>\a [s_store]</a> on [T.his] [wear_suit.name].\n"
 	else if(s_store && !skipsuitstorage)
 		if(s_store.blood_color)
-			msg += "<span class='warning'>[T.He] [T.is] carrying \icon[s_store] [s_store.gender==PLURAL?"some":"a"] [fluid_color_type_map(s_store.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>[s_store.name]</a> on [T.his] chest!</span>\n"
+			msg += "<span class='warning'>[T.He] [T.is] carrying [icon2html(s_store, usr)] [s_store.gender==PLURAL?"some":"a"] [fluid_color_type_map(s_store.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>[s_store.name]</a> on [T.his] chest!</span>\n"
 		else
-			msg += "[T.He] [T.is] carrying \icon[s_store] <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>\a [s_store]</a> on [T.his] chest.\n"
+			msg += "[T.He] [T.is] carrying [icon2html(s_store, usr)] <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>\a [s_store]</a> on [T.his] chest.\n"
 
 	//back
 	if(back)
 		if(back.blood_color)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[back] [fluid_color_type_map(back.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[back]'>[back]</a> on [T.his] back.</span>\n"
+			msg += "<span class='warning'>[T.He] [T.has] [icon2html(back, usr)] [fluid_color_type_map(back.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[back]'>[back]</a> on [T.his] back.</span>\n"
 		else
-			msg += "[T.He] [T.has] \icon[back] <a href='?src=\ref[src];lookitem_desc_only=\ref[back]'>\a [back]</a> on [T.his] back.\n"
+			msg += "[T.He] [T.has] [icon2html(back, usr)] <a href='?src=\ref[src];lookitem_desc_only=\ref[back]'>\a [back]</a> on [T.his] back.\n"
 
 	//left hand
 	if(l_hand)
 		if(l_hand.blood_color)
-			msg += "<span class='warning'>[T.He] [T.is] holding \icon[l_hand] [l_hand.gender==PLURAL?"some":"a"] [fluid_color_type_map(l_hand.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[l_hand]'>[l_hand.name]</a> in [T.his] left hand!</span>\n"
+			msg += "<span class='warning'>[T.He] [T.is] holding [icon2html(l_hand, usr)] [l_hand.gender==PLURAL?"some":"a"] [fluid_color_type_map(l_hand.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[l_hand]'>[l_hand.name]</a> in [T.his] left hand!</span>\n"
 		else
-			msg += "[T.He] [T.is] holding \icon[l_hand] <a href='?src=\ref[src];lookitem_desc_only=\ref[l_hand]'>\a [l_hand]</a> in [T.his] left hand.\n"
+			msg += "[T.He] [T.is] holding [icon2html(l_hand, usr)] <a href='?src=\ref[src];lookitem_desc_only=\ref[l_hand]'>\a [l_hand]</a> in [T.his] left hand.\n"
 
 	//right hand
 	if(r_hand)
 		if(r_hand.blood_color)
-			msg += "<span class='warning'>[T.He] [T.is] holding \icon[r_hand] [r_hand.gender==PLURAL?"some":"a"] [fluid_color_type_map(r_hand.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[r_hand]'>[r_hand.name]</a> in [T.his] right hand!</span>\n"
+			msg += "<span class='warning'>[T.He] [T.is] holding [icon2html(r_hand, usr)] [r_hand.gender==PLURAL?"some":"a"] [fluid_color_type_map(r_hand.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[r_hand]'>[r_hand.name]</a> in [T.his] right hand!</span>\n"
 		else
-			msg += "[T.He] [T.is] holding \icon[r_hand] <a href='?src=\ref[src];lookitem_desc_only=\ref[r_hand]'>\a [r_hand]</a> in [T.his] right hand.\n"
+			msg += "[T.He] [T.is] holding [icon2html(r_hand, usr)] <a href='?src=\ref[src];lookitem_desc_only=\ref[r_hand]'>\a [r_hand]</a> in [T.his] right hand.\n"
 
 	//gloves
 	if(gloves && !skipgloves)
@@ -139,60 +139,60 @@
 			if(ID)
 				gloves_name = "[C.name] ([ID.registered_name] ([ID.assignment]))"
 		if(gloves.blood_color)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[gloves] [gloves.gender==PLURAL?"some":"a"] [fluid_color_type_map(gloves.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[gloves]'>[gloves_name]</a> on [T.his] hands!</span>\n"
+			msg += "<span class='warning'>[T.He] [T.has] [icon2html(gloves, usr)] [gloves.gender==PLURAL?"some":"a"] [fluid_color_type_map(gloves.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[gloves]'>[gloves_name]</a> on [T.his] hands!</span>\n"
 		else
-			msg += "[T.He] [T.has] \icon[gloves] <a href='?src=\ref[src];lookitem_desc_only=\ref[gloves]'>\a [gloves_name]</a> on [T.his] hands.\n"
+			msg += "[T.He] [T.has] [icon2html(gloves, usr)] <a href='?src=\ref[src];lookitem_desc_only=\ref[gloves]'>\a [gloves_name]</a> on [T.his] hands.\n"
 	else if(blood_color)
 		msg += "<span class='warning'>[T.He] [T.has] [fluid_color_type_map(hand_blood_color)]-stained hands!</span>\n"
 
 	//handcuffed?
 	if(handcuffed)
 		if(istype(handcuffed, /obj/item/handcuffs/cable))
-			msg += "<span class='warning'>[T.He] [T.is] \icon[handcuffed] restrained with cable!</span>\n"
+			msg += "<span class='warning'>[T.He] [T.is] [icon2html(handcuffed, usr)] restrained with cable!</span>\n"
 		else
-			msg += "<span class='warning'>[T.He] [T.is] \icon[handcuffed] handcuffed!</span>\n"
+			msg += "<span class='warning'>[T.He] [T.is] [icon2html(handcuffed, usr)] handcuffed!</span>\n"
 
 	//buckled
 	if(buckled)
-		msg += "<span class='warning'>[T.He] [T.is] \icon[buckled] buckled to [buckled]!</span>\n"
+		msg += "<span class='warning'>[T.He] [T.is] [icon2html(buckled, usr)] buckled to [buckled]!</span>\n"
 
 	//belt
 	if(belt)
 		if(belt.blood_color)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[belt] [belt.gender==PLURAL?"some":"a"] [fluid_color_type_map(belt.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[belt]'>[belt.name]</a> about [T.his] waist!</span>\n"
+			msg += "<span class='warning'>[T.He] [T.has] [icon2html(belt, usr)] [belt.gender==PLURAL?"some":"a"] [fluid_color_type_map(belt.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[belt]'>[belt.name]</a> about [T.his] waist!</span>\n"
 		else
-			msg += "[T.He] [T.has] \icon[belt] <a href='?src=\ref[src];lookitem_desc_only=\ref[belt]'>\a [belt]</a> about [T.his] waist.\n"
+			msg += "[T.He] [T.has] [icon2html(belt, usr)] <a href='?src=\ref[src];lookitem_desc_only=\ref[belt]'>\a [belt]</a> about [T.his] waist.\n"
 
 	//shoes
 	if(shoes && !skipshoes)
 		if(shoes.blood_color)
-			msg += "<span class='warning'>[T.He] [T.is] wearing \icon[shoes] [shoes.gender==PLURAL?"some":"a"] [fluid_color_type_map(shoes.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[shoes]'>[shoes.name]</a> on [T.his] feet!</span>\n"
+			msg += "<span class='warning'>[T.He] [T.is] wearing [icon2html(shoes, usr)] [shoes.gender==PLURAL?"some":"a"] [fluid_color_type_map(shoes.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[shoes]'>[shoes.name]</a> on [T.his] feet!</span>\n"
 		else
-			msg += "[T.He] [T.is] wearing \icon[shoes] <a href='?src=\ref[src];lookitem_desc_only=\ref[shoes]'>\a [shoes]</a> on [T.his] feet.\n"
+			msg += "[T.He] [T.is] wearing [icon2html(shoes, usr)] <a href='?src=\ref[src];lookitem_desc_only=\ref[shoes]'>\a [shoes]</a> on [T.his] feet.\n"
 	else if(footprint_color)
 		msg += "<span class='warning'>[T.He] [T.has] [fluid_color_type_map(footprint_color)]-stained feet!</span>\n"
 
 	//mask
 	if(wear_mask && !skipmask)
 		if(wear_mask.blood_color)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[wear_mask] [wear_mask.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_mask.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>[wear_mask.name]</a> on [T.his] face!</span>\n"
+			msg += "<span class='warning'>[T.He] [T.has] [icon2html(wear_mask, usr)] [wear_mask.gender==PLURAL?"some":"a"] [fluid_color_type_map(wear_mask.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>[wear_mask.name]</a> on [T.his] face!</span>\n"
 		else
-			msg += "[T.He] [T.has] \icon[wear_mask] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>\a [wear_mask]</a> on [T.his] face.\n"
+			msg += "[T.He] [T.has] [icon2html(wear_mask, usr)] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_mask]'>\a [wear_mask]</a> on [T.his] face.\n"
 
 	//eyes
 	if(glasses && !skipeyes)
 		if(glasses.blood_color)
-			msg += "<span class='warning'>[T.He] [T.has] \icon[glasses] [glasses.gender==PLURAL?"some":"a"] [fluid_color_type_map(glasses.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[glasses]'>[glasses]</a> covering [T.his] eyes!</span>\n"
+			msg += "<span class='warning'>[T.He] [T.has] [icon2html(glasses, usr)] [glasses.gender==PLURAL?"some":"a"] [fluid_color_type_map(glasses.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[glasses]'>[glasses]</a> covering [T.his] eyes!</span>\n"
 		else
-			msg += "[T.He] [T.has] \icon[glasses] <a href='?src=\ref[src];lookitem_desc_only=\ref[glasses]'>\a [glasses]</a> covering [T.his] eyes.\n"
+			msg += "[T.He] [T.has] [icon2html(glasses, usr)] <a href='?src=\ref[src];lookitem_desc_only=\ref[glasses]'>\a [glasses]</a> covering [T.his] eyes.\n"
 
 	//left ear
 	if(l_ear && !skipears)
-		msg += "[T.He] [T.has] \icon[l_ear] <a href='?src=\ref[src];lookitem_desc_only=\ref[l_ear]'>\a [l_ear]</a> on [T.his] left ear.\n"
+		msg += "[T.He] [T.has] [icon2html(l_ear, usr)] <a href='?src=\ref[src];lookitem_desc_only=\ref[l_ear]'>\a [l_ear]</a> on [T.his] left ear.\n"
 
 	//right ear
 	if(r_ear && !skipears)
-		msg += "[T.He] [T.has] \icon[r_ear] <a href='?src=\ref[src];lookitem_desc_only=\ref[r_ear]'>\a [r_ear]</a> on [T.his] right ear.\n"
+		msg += "[T.He] [T.has] [icon2html(r_ear, usr)] <a href='?src=\ref[src];lookitem_desc_only=\ref[r_ear]'>\a [r_ear]</a> on [T.his] right ear.\n"
 
 	//ID
 	if(wear_id)
@@ -202,7 +202,7 @@
 			var/obj/item/card/id/ID = C.GetID()
 			if(ID)
 				id_name = "[C.name] ([ID.registered_name] ([ID.assignment]))"
-		msg += "[T.He] [T.is] wearing \icon[wear_id] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_id]'>\a [id_name]</a>.\n"
+		msg += "[T.He] [T.is] wearing [icon2html(wear_id, usr)] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_id]'>\a [id_name]</a>.\n"
 
 	//Jitters
 	if(is_jittery)

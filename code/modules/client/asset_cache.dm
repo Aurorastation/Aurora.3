@@ -127,6 +127,12 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 /proc/register_asset(asset_name, asset)
 	SSassets.cache[asset_name] = asset
 
+//Generated names do not include file extention.
+//Used mainly for code that deals with assets in a generic way
+//The same asset will always lead to the same asset name
+/proc/generate_asset_name(file)
+	return "asset.[md5(fcopy_rsc(file))]"
+
 //These datums are used to populate the asset cache, the proc "register()" does this.
 
 //all of our asset datums, used for referring to these later

@@ -961,7 +961,7 @@ About the new airlock wires panel:
 			else if(!activate)
 				if(issilicon(usr) && !player_is_antag(usr.mind))
 					to_chat(usr, SPAN_NOTICE("The door bolts will raise in five seconds."))
-					src.visible_message("\icon[src.icon] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in FIVE SECONDS.\"</span>")
+					src.visible_message("[icon2html(src.icon, usr)] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in FIVE SECONDS.\"</span>")
 					addtimer(CALLBACK(src, .proc/unlock), 50)
 				else if(unlock())
 					to_chat(usr, SPAN_NOTICE("The door bolts have been raised."))

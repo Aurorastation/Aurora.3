@@ -1,10 +1,15 @@
+var/datum/controller/subsystem/chat/SSchat
+
 /datum/controller/subsystem/chat
 	name = "Chat"
 	wait = 1
-	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	flags = SS_FIRE_IN_LOBBY
 	priority = SS_PRIORITY_CHAT
 	init_order = SS_INIT_CHAT
 	var/list/payload = list()
+
+/datum/controller/subsystem/chat/Initialize()
+	NEW_SS_GLOBAL(SSchat)
 
 /datum/controller/subsystem/chat/fire()
 	for(var/i in payload)
@@ -23,7 +28,7 @@
 		CRASH("to_chat called with invalid input type")
 
 	if(target == world)
-		target = GLOB.clients
+		target = clients
 
 	//Some macros remain in the string even after parsing and fuck up the eventual output
 	var/original_message = message

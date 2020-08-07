@@ -215,7 +215,7 @@
 	var/list/data = list("div" = "", "content" = "", "update" = 1, "changeHash" = null)
 
 	if (outdated_info & OUTDATED_NOTE)
-		to_chat(user, output("#note-placeholder", "greeting.browser:RemoveElement"))
+		to_target(user, output("#note-placeholder", "greeting.browser:RemoveElement"))
 
 		data["div"] = "#note"
 		data["update"] = 1

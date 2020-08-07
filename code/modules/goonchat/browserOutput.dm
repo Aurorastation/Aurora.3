@@ -3,11 +3,10 @@ For the main html chat area
 *********************************/
 
 //Precaching a bunch of shit
-GLOBAL_DATUM_INIT(iconCache, /savefile, new("data/tmp/iconCache.sav")) //Cache of icons for the browser output
+var/savefile/iconCache = new("data/tmp/iconCache.sav") //Cache of icons for the browser output
 
 //Should match the value set in the browser js
 #define MAX_COOKIE_LENGTH 5
-#define SPAM_TRIGGER_AUTOMUTE 10
 
 //On client, created on login
 /datum/chatOutput
@@ -132,7 +131,7 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("data/tmp/iconCache.sav")) //Cache o
 		sleep(30)
 
 /proc/syncChatRegexes()
-	for (var/user in GLOB.clients)
+	for (var/user in clients)
 		var/client/C = user
 		var/datum/chatOutput/Cchat = C.chatOutput
 		if (Cchat && !Cchat.broken && Cchat.loaded)
@@ -214,7 +213,7 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("data/tmp/iconCache.sav")) //Cache o
 
 //Called by js client on js error
 /datum/chatOutput/proc/debug(error)
-	log_world("\[[time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")]\] Client: [(src.owner.key ? src.owner.key : src.owner)] triggered JS error: [error]")
+	log_debug("\[[time2text(world.realtime, "YYYY-MM-DD hh:mm:ss")]\] Client: [(src.owner.key ? src.owner.key : src.owner)] triggered JS error: [error]")
 
 //Global chat procs
 /proc/to_chat_immediate(target, message, handle_whitespace = TRUE, trailing_newline = TRUE)
@@ -222,7 +221,7 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("data/tmp/iconCache.sav")) //Cache o
 		return
 
 	if(target == world)
-		target = GLOB.clients
+		target = clients
 
 	var/original_message = message
 	if(handle_whitespace)
@@ -281,7 +280,7 @@ GLOBAL_DATUM_INIT(iconCache, /savefile, new("data/tmp/iconCache.sav")) //Cache o
 		send_output(C, url_encode(url_encode(message)), "browseroutput:output")
 
 /proc/to_chat(target, message, handle_whitespace = TRUE, trailing_newline = TRUE)
-	if(Master.current_runlevel == RUNLEVEL_INIT || !SSchat?.initialized)
+	if(Master.initializing || !SSchat)
 		to_chat_immediate(target, message, handle_whitespace, trailing_newline)
 		return
 	SSchat.queue(target, message, handle_whitespace, trailing_newline)

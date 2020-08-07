@@ -1,4 +1,4 @@
-GLOBAL_DATUM_INIT(is_http_protocol, /regex, regex("^https?://"))
+var/regex/is_http_protocol = regex("^https?://")
 
 
 //Converts an icon to base64. Operates by putting the icon in the iconCache savefile,
@@ -7,8 +7,8 @@ GLOBAL_DATUM_INIT(is_http_protocol, /regex, regex("^https?://"))
 /proc/icon2base64(icon/icon, iconKey = "misc")
 	if (!isicon(icon))
 		return FALSE
-	to_save(GLOB.iconCache[iconKey], icon)
-	var/iconData = GLOB.iconCache.ExportText(iconKey)
+	to_save(iconCache[iconKey], icon)
+	var/iconData = iconCache.ExportText(iconKey)
 	var/list/partial = splittext(iconData, "{")
 	return replacetext(copytext(partial[2], 3, -5), "\n", "")
 
@@ -21,7 +21,7 @@ GLOBAL_DATUM_INIT(is_http_protocol, /regex, regex("^https?://"))
 	if (!target)
 		return
 	if (target == world)
-		target = GLOB.clients
+		target = clients
 
 	var/list/targets
 	if (!islist(target))

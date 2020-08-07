@@ -222,7 +222,7 @@
 	if( ishuman(AM) )
 		if(!stat)
 			var/mob/M = AM
-			to_chat(M, "<span class='notice'>\icon[src] Squeek!</span>")
+			to_chat(M, "<span class='notice'>[icon2html(src, usr)] Squeek!</span>")
 			poke(1) //Wake up if stepped on
 			if (prob(95))
 				squeak(0)

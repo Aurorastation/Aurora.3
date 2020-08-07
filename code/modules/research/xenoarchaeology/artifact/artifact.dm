@@ -63,7 +63,7 @@
 		var/obj/item/device/measuring_tape/P = W
 		user.visible_message("<span class='notice'>[user] extends [P] towards [src].</span>","<span class='notice'>You extend [P] towards [src].</span>")
 		if(do_after(user,40))
-			to_chat(user, "<span class='notice'>\icon[P] [src] has been excavated to a depth of [2*src.excavation_level]cm.</span>")
+			to_chat(user, "<span class='notice'>[icon2html(P, usr)] [src] has been excavated to a depth of [2*src.excavation_level]cm.</span>")
 		return
 
 	if (istype(W, /obj/item/pickaxe))

@@ -112,7 +112,7 @@
 			continue
 
 		var/message = "Notification from \the [department]!"
-		pda.new_info(pda.message_silent, pda.ttone, "\icon[pda] <b>[message]</b>")
+		pda.new_info(pda.message_silent, pda.ttone, "[icon2html(pda, usr)] <b>[message]</b>")
 
 	addtimer(CALLBACK(src, .proc/unping), 45 SECONDS)
 
