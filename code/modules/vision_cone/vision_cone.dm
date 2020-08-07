@@ -18,7 +18,7 @@
 			for(var/mob/M in T.contents)
 				. += M.InCone(center, dir)
 
-/turf/InConeDirection(turf/center, dir)
+/turf/proc/InConeDirection(turf/center, dir)
 	if(get_dist(center, src) == 0 || src == center) return 0
 	var/d = get_dir(center, src)
 
