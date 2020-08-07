@@ -2333,7 +2333,6 @@
 #include "code\modules\projectiles\guns\energy\mining.dm"
 #include "code\modules\projectiles\guns\energy\modular.dm"
 #include "code\modules\projectiles\guns\energy\nuclear.dm"
-#include "code\modules\projectiles\guns\energy\plasma.dm"
 #include "code\modules\projectiles\guns\energy\pulse.dm"
 #include "code\modules\projectiles\guns\energy\rifle.dm"
 #include "code\modules\projectiles\guns\energy\special.dm"
