@@ -352,7 +352,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		var/part_a = "<span class='[frequency_span_class(display_freq)]'>[accent_icon ? accent_icon + " " : ""]<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>" // goes in the actual output
 
 		// --- Some more pre-message formatting ---
-		var/part_b = "</span> <span class='message'>" // Tweaked for security headsets -- TLE
+		var/part_b = "</span> <span class='message linkify'>" // Tweaked for security headsets -- TLE
 		var/part_c = "</span></span>"
 
 
@@ -366,7 +366,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		// --- This following recording is intended for research and feedback in the use of department radio channels ---
 
-		var/part_blackbox_b = "</span><b> \[[freq_text]\]</b> <span class='message'>" // Tweaked for security headsets -- TLE
+		var/part_blackbox_b = "</span><b> \[[freq_text]\]</b> <span class='message linkify'>" // Tweaked for security headsets -- TLE
 		var/blackbox_msg = "[part_a][name][part_blackbox_b][quotedmsg][part_c]"
 		//var/blackbox_admin_msg = "[part_a][M.name] (Real name: [M.real_name])[part_blackbox_b][quotedmsg][part_c]"
 
@@ -554,8 +554,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		// Create a radio headset for the sole purpose of using its icon
 		var/static/obj/item/device/radio/headset/radio = new
 
-		var/part_b = "</span><b> \[[freq_text]\][part_b_extra]</b> <span class='message'>" // Tweaked for security headsets -- TLE
-		var/part_blackbox_b = "</span><b> \[[freq_text]\]</b> <span class='message'>" // Tweaked for security headsets -- TLE
+		var/part_b = "</span><b> \[[freq_text]\][part_b_extra]</b> <span class='message linkify'>" // Tweaked for security headsets -- TLE
+		var/part_blackbox_b = "</span><b> \[[freq_text]\]</b> <span class='message linkify'>" // Tweaked for security headsets -- TLE
 		var/part_c = "</span></span>"
 
 		var/blackbox_msg = "[part_a][source][part_blackbox_b]\"[text]\"[part_c]"

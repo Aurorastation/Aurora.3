@@ -445,14 +445,14 @@
 				phrases += list("What did you come here for[add]?","Don't touch me[add].","You're not getting out of here[add].", "You're a failure, [pick(names)].","Just kill yourself already, [pick(names)].","Put on some clothes[add].","You're a horrible person[add].","You know nobody wants you here, right[add]?")
 
 			message = pick(phrases)
-			to_chat(holder,"<span class='game say'>[accent_tag] <B>[talker]</B> [talker.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
+			to_chat(holder,"<span class='game say'>[accent_tag] <B>[talker]</B> [talker.say_quote(message)], <span class='message linkify'><span class='body'>\"[message]\"</span></span></span>")
 		else	//More varied messages using text list and different speech prefixes
 			//message prep
 			var/speak_prefix = pick("Hey", "Uh", "Um", "Oh", "Ah")		//For variety, we have a different greeting. This one has a chance of picking a starter....
 			speak_prefix = "[speak_prefix], [pick(names)][pick(".","!","?")]"		//...then adds the name, and ends it randomly with ., !, or ? ("Hey, name?" "Oh, name!" "Ah, name." "Name!"") etc.
 
 			message = prob(70) ? "[speak_prefix] [pick(SShallucinations.hallucinated_phrases)]" : pick(SShallucinations.hallucinated_phrases) //Here's the message that uses the hallucinated_phrases text list. Won't always apply the speak_prefix; sometimes they say weird shit without addressing you.
-			to_chat(holder,"<span class='game say'>[accent_tag] <B>[talker]</B> [talker.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
+			to_chat(holder,"<span class='game say'>[accent_tag] <B>[talker]</B> [talker.say_quote(message)], <span class='message linkify'><span class='body'>\"[message]\"</span></span></span>")
 
 	repeats -= 1
 	if(repeats)	//And we do it all over again, one or two more times.

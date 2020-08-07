@@ -20,7 +20,7 @@
 	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
 
 	var/message_start = "<i><span class='game say'>[name], <span class='name'>[speaker.name]</span>"
-	var/message_body = "<span class='message'>[speaker.say_quote(message)], \"[message]\"</span></span></i>"
+	var/message_body = "<span class='message linkify'>[speaker.say_quote(message)], \"[message]\"</span></span></i>"
 
 	for (var/mob/M in dead_mob_list)
 		if(!istype(M,/mob/abstract/new_player) && !istype(M,/mob/living/carbon/brain)) //No meta-evesdropping
@@ -43,7 +43,7 @@
 	for (var/mob/living/M in listening)
 		if(istype(M, /mob/living/silicon) || M.binarycheck())
 			continue
-		M.show_message("<i><span class='game say'><span class='name'>synthesised voice</span> <span class='message'>beeps, \"beep beep beep\"</span></span></i>",2)
+		M.show_message("<i><span class='game say'><span class='name'>synthesised voice</span> <span class='message linkify'>beeps, \"beep beep beep\"</span></span></i>",2)
 
 	//robot binary xmitter component power usage
 	if (isrobot(speaker))

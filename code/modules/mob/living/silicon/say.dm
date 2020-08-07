@@ -91,7 +91,7 @@
 		if(speaking)
 			to_chat(src, "<i><span class='game say'>Holopad transmitted, <span class='name'>[real_name]</span> [speaking.format_message(message, verb)]</span></i>")
 		else
-			to_chat(src, "<i><span class='game say'>Holopad transmitted, <span class='name'>[real_name]</span> [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span></i>")
+			to_chat(src, "<i><span class='game say'>Holopad transmitted, <span class='name'>[real_name]</span> [verb], <span class='message linkify'><span class='body'>\"[message]\"</span></span></span></i>")
 
 		//This is so pAI's and people inside lockers/boxes,etc can hear the AI Holopad, the alternative being recursion through contents.
 		//This is much faster.
@@ -136,8 +136,8 @@
 
 	var/obj/machinery/hologram/holopad/T = src.holo
 	if(T?.masters[src])
-		var/rendered = "<span class='game say'><span class='name'>[name]</span> <span class='message'>[message]</span></span>"
-		to_chat(src, "<i><span class='game say'>Holopad action relayed, <span class='name'>[real_name]</span> <span class='message'>[message]</span></span></i>")
+		var/rendered = "<span class='game say'><span class='name'>[name]</span> <span class='message linkify'>[message]</span></span>"
+		to_chat(src, "<i><span class='game say'>Holopad action relayed, <span class='name'>[real_name]</span> <span class='message linkify'>[message]</span></span></i>")
 
 		for(var/mob/M in viewers(get_turf(T)))
 			to_chat(M, rendered)

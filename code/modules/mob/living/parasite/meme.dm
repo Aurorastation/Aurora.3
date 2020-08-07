@@ -223,7 +223,7 @@ var/controlling
 	if(!use_points(150)) return
 
 	message = say_quote(message)
-	var/rendered = "<span class='game say'><span class='name'>[speaker]</span> <span class='message'>[message]</span></span>"
+	var/rendered = "<span class='game say'><span class='name'>[speaker]</span> <span class='message linkify'>[message]</span></span>"
 	target.show_message(rendered)
 
 	to_chat(usr, "<i>You make [target] hear:</i> [rendered]")

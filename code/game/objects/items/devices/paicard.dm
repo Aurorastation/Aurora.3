@@ -387,7 +387,7 @@
 
 /obj/item/device/paicard/see_emote(mob/living/M, text)
 	if(pai && pai.client && !pai.canmove)
-		var/rendered = "<span class='message'>[text]</span>"
+		var/rendered = "<span class='message linkify'>[text]</span>"
 		pai.show_message(rendered, 2)
 	..()
 
@@ -416,6 +416,6 @@
 
 /obj/item/device/paicard/show_message(msg, type, alt, alt_type)
 	if(pai && pai.client)
-		var/rendered = "<span class='message'>[msg]</span>"
+		var/rendered = "<span class='message linkify'>[msg]</span>"
 		pai.show_message(rendered, type)
 	..()

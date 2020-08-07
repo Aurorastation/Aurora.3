@@ -206,7 +206,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			if(speaking)
 				rendered = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [speaking.format_message(text, verb)]</span></i>"
 			else
-				rendered = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [verb], <span class='message'>\"[text]\"</span></span></i>"
+				rendered = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [verb], <span class='message linkify'>\"[text]\"</span></span></i>"
 			master.show_message(rendered, 2)
 	var/name_used = M.GetVoice()
 	if(targetpad) //If this is the pad you're making the call from
@@ -216,7 +216,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			targetpad.audible_message(message)
 			targetpad.last_message = message
 		else
-			message = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [verb], <span class='message'>\"[text]\"</span></span></i>"
+			message = "<i><span class='game say'>Holopad received, <span class='name'>[name_used]</span> [verb], <span class='message linkify'>\"[text]\"</span></span></i>"
 	if(sourcepad) //If this is a pad receiving a call
 		if(name_used==caller_id||text==last_message||findtext(text, "Holopad received")) //prevent echoes
 			return
@@ -226,29 +226,29 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(M)
 		for(var/mob/living/silicon/ai/master in masters)
 			//var/name_used = M.GetVoice()
-			var/rendered = "<i><span class='game say'>Holopad received, <span class='message'>[text]</span></span></i>"
+			var/rendered = "<i><span class='game say'>Holopad received, <span class='message linkify'>[text]</span></span></i>"
 			//The lack of name_used is needed, because message already contains a name.  This is needed for simple mobs to emote properly.
 			master.show_message(rendered, 2)
 		for(var/mob/living/carbon/master in masters)
 			//var/name_used = M.GetVoice()
-			var/rendered = "<i><span class='game say'>Holopad received, <span class='message'>[text]</span></span></i>"
+			var/rendered = "<i><span class='game say'>Holopad received, <span class='message linkify'>[text]</span></span></i>"
 			//The lack of name_used is needed, because message already contains a name.  This is needed for simple mobs to emote properly.
 			master.show_message(rendered, 2)
 		if(targetpad)
-			targetpad.visible_message("<i><span class='message'>[text]</span></i>")
+			targetpad.visible_message("<i><span class='message linkify'>[text]</span></i>")
 
 /obj/machinery/hologram/holopad/show_message(msg, type, alt, alt_type)
 	for(var/mob/living/silicon/ai/master in masters)
-		var/rendered = "<i><span class='game say'>The holographic image of <span class='message'>[msg]</span></span></i>"
+		var/rendered = "<i><span class='game say'>The holographic image of <span class='message linkify'>[msg]</span></span></i>"
 		master.show_message(rendered, type)
 	if(findtext(msg, "Holopad received,"))
 		return
 	for(var/mob/living/carbon/master in masters)
-		var/rendered = "<i><span class='game say'>The holographic image of <span class='message'>[msg]</span></span></i>"
+		var/rendered = "<i><span class='game say'>The holographic image of <span class='message linkify'>[msg]</span></span></i>"
 		master.show_message(rendered, type)
 	if(targetpad)
 		for(var/mob/living/carbon/master in view(targetpad))
-			var/rendered = "<i><span class='game say'>The holographic image of <span class='message'>[msg]</span></span></i>"
+			var/rendered = "<i><span class='game say'>The holographic image of <span class='message linkify'>[msg]</span></span></i>"
 			master.show_message(rendered, type)
 
 /obj/machinery/hologram/holopad/proc/create_holo(mob/living/silicon/ai/A, mob/living/carbon/caller_id, turf/T = loc)
