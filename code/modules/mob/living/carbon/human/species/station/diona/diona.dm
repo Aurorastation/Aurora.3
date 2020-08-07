@@ -124,6 +124,8 @@
 	allowed_accents = list(ACCENT_DIONA)
 	default_accent = ACCENT_DIONA
 
+	have_vision_cone = FALSE
+
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
 
