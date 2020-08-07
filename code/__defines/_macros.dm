@@ -79,7 +79,11 @@
 
 #define isprojectile(A) istype(A, /obj/item/projectile)
 
-#define to_chat(target, message)                            target << message
+/// General I/O helpers
+#define to_target(target, payload)                          target << (payload)
+#define from_target(target, receiver)                       target >> (receiver)
+
+#define legacy_chat(target, message)                        to_target(target, message)
 #define to_world(message)                                   world << message
 #define sound_to(target, sound)                             target << sound
 #define to_file(file_entry, file_content)                   file_entry << file_content
