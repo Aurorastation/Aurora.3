@@ -214,7 +214,7 @@ var/const/NO_EMAG_ACT = -50
 				to_chat(user, "<span class='notice'>Biometric Imprinting successful!</span>")
 				return
 
-	user.visible_message("<b>[user]/b> shows you: [icon2html(src, viewers(get_turf(src)))] [src.name]. The assignment on the card: [src.assignment]",\
+	user.visible_message("<b>[user]</b> shows you: [icon2html(src, viewers(get_turf(src)))] [src.name]. The assignment on the card: [src.assignment]",\
 		"You flash your ID card: [icon2html(src, viewers(get_turf(src)))] [src.name]. The assignment on the card: [src.assignment]")
 
 	src.add_fingerprint(user)
