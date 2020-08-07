@@ -34,7 +34,8 @@
 
 	initial_modules = list(
 		/obj/item/rig_module/vision/thermal,
-		/obj/item/rig_module/chem_dispenser/combat
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/device/door_hack
 		)
 
 /obj/item/rig/vaurca
