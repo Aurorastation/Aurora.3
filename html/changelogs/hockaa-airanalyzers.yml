@@ -4,4 +4,4 @@ delete-after: True
 
 changes:
     - bugfix: "Air Analyzers now analyze pipes (like the PDA scanners.)"
-    - tweak: "Air analysis now shows the total amount of moles in the analyzed system."
+    - tweak: "Air analyzers now show the total amount of moles in the analyzed system."
