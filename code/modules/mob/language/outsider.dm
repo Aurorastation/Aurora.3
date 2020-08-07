@@ -1,7 +1,7 @@
 /datum/language/ling
 	name = LANGUAGE_CHANGELING
 	desc = "Although they are normally wary and suspicious of each other, changelings can commune over a distance."
-	speech_verb = "says"
+	speech_verb = list("says")
 	colour = "changeling"
 	key = "g"
 	flags = RESTRICTED | HIVEMIND
@@ -16,9 +16,9 @@
 /datum/language/corticalborer
 	name = LANGUAGE_BORER
 	desc = "A language Cortical Borers use to influence the minds of those nearby, or those they infest."
-	speech_verb = "sings"
-	ask_verb = "sings"
-	exclaim_verb = "sings"
+	speech_verb = list("sings")
+	ask_verb = list("sings")
+	exclaim_verb = list("sings")
 	colour = "alien"
 	key = "v"
 	flags = RESTRICTED
@@ -46,9 +46,9 @@
 /datum/language/vox
 	name = LANGUAGE_VOX
 	desc = "The common tongue of the various Vox ships making up the Shoal. It sounds like chaotic shrieking to everyone else."
-	speech_verb = "shrieks"
-	ask_verb = "creels"
-	exclaim_verb = "SHRIEKS"
+	speech_verb = list("shrieks")
+	ask_verb = list("creels")
+	exclaim_verb = list("SHRIEKS")
 	colour = "vox"
 	key = "5"
 	flags = WHITELISTED
@@ -62,9 +62,9 @@
 /datum/language/cultcommon
 	name = LANGUAGE_CULT
 	desc = "The chants of the occult, the incomprehensible."
-	speech_verb = "intones"
-	ask_verb = "intones"
-	exclaim_verb = "chants"
+	speech_verb = list("intones")
+	ask_verb = list("intones")
+	exclaim_verb = list("chants")
 	colour = "cult"
 	key = "f"
 	flags = RESTRICTED
@@ -87,9 +87,9 @@
 /datum/language/cult
 	name = LANGUAGE_OCCULT
 	desc = "The initiated can share their thoughts by means defying all reason."
-	speech_verb = "intones"
-	ask_verb = "intones"
-	exclaim_verb = "chants"
+	speech_verb = list("intones")
+	ask_verb = list("intones")
+	exclaim_verb = list("chants")
 	colour = "cult"
 	key = "y"
 	flags = RESTRICTED | HIVEMIND
@@ -97,9 +97,9 @@
 /datum/language/terminator
 	name = LANGUAGE_TERMINATOR
 	desc = "A heavily encrypted communication network that piggybacks off of the state telecomms relays to covertly link Hephaestus black ops droids to their control AIs."
-	speech_verb = "buzzes"
-	ask_verb = "buzzes"
-	exclaim_verb = "buzzes"
+	speech_verb = list("buzzes")
+	ask_verb = list("buzzes")
+	exclaim_verb = list("buzzes")
 	colour = "bad"
 	key = "#"
 	flags = RESTRICTED | HIVEMIND
