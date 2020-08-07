@@ -99,7 +99,7 @@
 	if(ismob(A))
 		var/mob/hidden_mob = A
 		client.hidden_mobs += hidden_mob
-		if(pulling == hidden_mob)//If we're pulling them we don't want them to be invisible, too hard to play like that.
+		if(pulling && (pulling == hidden_mob || pulling == hidden_mob.buckled))//If we're pulling them we don't want them to be invisible, too hard to play like that.
 			I.override = FALSE
 
 /mob/living/proc/SetFov(var/n)
