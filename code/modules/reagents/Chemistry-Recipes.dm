@@ -2891,7 +2891,7 @@
 	name = "Dr. Daniels"
 	id = "dr_daniels"
 	result = /datum/reagent/alcohol/ethanol/drdaniels
-	required_reagents = list(/datum/reagent/drink/dr_gibb_diet = 3, /datum/reagent/alcohol/ethanol/whiskey = 1, /datum/reagent/honey = 1)
+	required_reagents = list(/datum/reagent/drink/dr_gibb_diet = 3, /datum/reagent/alcohol/ethanol/whiskey = 1, /datum/reagent/nutriment/honey = 1)
 	result_amount = 5
 
 /datum/chemical_reaction/drink/meatshake
@@ -2912,7 +2912,7 @@
 	name = "Messa's Mead"
 	id = "messa_mead"
 	result = /datum/reagent/alcohol/ethanol/messa_mead
-	required_reagents = list(/datum/reagent/honey = 1, /datum/reagent/drink/earthenrootjuice = 1)
+	required_reagents = list(/datum/reagent/nutriment/honey = 1, /datum/reagent/drink/earthenrootjuice = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/drink/winter_offensive
