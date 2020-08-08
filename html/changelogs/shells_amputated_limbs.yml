@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - tweak: "Shells are now able to have amputated limbs in the character setup."
