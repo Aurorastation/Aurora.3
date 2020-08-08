@@ -362,6 +362,7 @@ CREATE TABLE `ss13_characters_flavour` (
   `robot_miner` text,
   `robot_custodial` text,
   `robot_service` text,
+  `robot_clerical` text,
   `robot_security` text,
   `robot_research` text,
   PRIMARY KEY (`char_id`),
