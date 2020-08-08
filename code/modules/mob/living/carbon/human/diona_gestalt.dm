@@ -90,10 +90,10 @@
 
 
 //This is called when a gestalt is hit by an explosion. Nymphs will take damage too
-//Damage to nymphs depends on the severity of the blast, and on explosive-resistant armour worn by the gestalt
-//A severity 1 explosion without armour will usually kill all nymphs in the gestalt
+//Damage to nymphs depends on the severity of the blast, and on explosive-resistant armor worn by the gestalt
+//A severity 1 explosion without armor will usually kill all nymphs in the gestalt
 //Damage is randomised for each nymph, often some will survive and others wont
-//Nymphs have 100 health, so without armour there is a small possibility for each nymph to survive a severity 1 blast
+//Nymphs have 100 health, so without armor there is a small possibility for each nymph to survive a severity 1 blast
 /mob/living/carbon/human/proc/diona_contained_explosion_damage(var/severity)
 	var/damage = 0
 	var/damage_factor = 0.1 //Safety value

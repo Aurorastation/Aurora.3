@@ -27,7 +27,7 @@
 /obj/item/mech_component/propulsion/heavy
 	name = "heavy legs"
 	exosuit_desc_string = "heavy hydraulic legs"
-	desc = "Oversized actuators struggle to move these armoured legs."
+	desc = "Oversized actuators struggle to move these armored legs."
 	icon_state = "heavy_legs"
 	move_delay = 5
 	max_damage = 200
@@ -37,7 +37,7 @@
 /obj/item/mech_component/sensors/heavy
 	name = "heavy sensors"
 	exosuit_desc_string = "a reinforced monoeye"
-	desc = "A solitary sensor moves inside a recessed slit in the armour plates."
+	desc = "A solitary sensor moves inside a recessed slit in the armor plates."
 	icon_state = "heavy_head"
 	max_damage = 240
 	power_use = 0
@@ -52,7 +52,7 @@
 	hatch_descriptor = "hatch"
 	desc = "The HI-Koloss chassis is a veritable juggernaut, capable of protecting a pilot even in the most hostile of environments. It handles like a battlecruiser, however."
 	pilot_coverage = 100
-	exosuit_desc_string = "a heavily armoured chassis"
+	exosuit_desc_string = "a heavily armored chassis"
 	icon_state = "heavy_body"
 	max_damage = 300
 	mech_health = 1000
@@ -68,7 +68,7 @@
 	hatch_descriptor = "hatch"
 	desc = "The HI-Koloss chassis is a veritable juggernaut, capable of protecting a pilot even in the most hostile of environments. It handles like a battlecruiser, however."
 	pilot_coverage = 100
-	exosuit_desc_string = "a heavily armoured chassis"
+	exosuit_desc_string = "a heavily armored chassis"
 	icon_state = "heavy_body"
 	max_damage = 450
 	mech_health = 1250

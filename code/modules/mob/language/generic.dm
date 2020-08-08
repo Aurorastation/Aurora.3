@@ -22,8 +22,7 @@
 /datum/language/common
 	name = LANGUAGE_TCB
 	desc = "A spiritual successor of Esperanto, established in 2404 in Tau Ceti by Ceti intellectuals. Its unique, fully customized alphabet and structure allow it to be spoken even by most alien species. It's the official language of Tau Ceti and has growing traction in diplomatic circles and Universalists across human space."
-	speech_verb = "says"
-	whisper_verb = "whispers"
+	speech_verb = list("says")
 	key = "0"
 	flags = RESTRICTED|TCOMSSIM
 	allow_accents = TRUE
@@ -34,20 +33,11 @@
 	"pur", "qiu", "que", "ra", "ras", "re", "ri", "rig", "ril", "ro", "roj", "ron", "roso", "rou", "ru", "sa", "san", "sci", "sek", "shi", "shiia", "shiue", "shiwu", "shu", "shui", "si", "siaj", "sku", "so", "som", "sti", "str", "stre", "su", "suno", "ta", "tan", "tas", "te", "tel", "tem",
 	"the", "ti", "tian", "tita", "tiu", "to", "toj", "ton", "tran", "tre", "tri", "trin", "tro", "trus", "un", "undo", "uno ", "uz", "va", "var", "varm", "vas", "ve", "vek", "ven", "ves", "vi", "via", "vin", "vino", "vint", "vir", "von", "vu", "whe", "wu", "yong", "zem", "zo", "zoj", "zon")
 
-//TODO flag certain languages to use the mob-type specific say_quote and then get rid of these.
-/datum/language/common/get_spoken_verb(var/msg_end)
-	switch(msg_end)
-		if("!")
-			return pick("exclaims","shouts","yells") //TODO: make the basic proc handle lists of verbs.
-		if("?")
-			return ask_verb
-	return speech_verb
-
 // Galactic common languages (systemwide accepted standards).
 /datum/language/trader
 	name = LANGUAGE_TRADEBAND
 	desc = "Descended from latin and romance languages of old Earth, Tradeband remains the main tongue of the upper class of humanity. The language sounds elegant and well structured to most ears. It remains in popular use with traders, diplomats, and those seeking to hold onto a piece of a romantic past."
-	speech_verb = "enunciates"
+	speech_verb = list("enunciates")
 	colour = "say_quote"
 	key = "2"
 	flags = TCOMSSIM
@@ -64,7 +54,7 @@
 /datum/language/gutter
 	name = LANGUAGE_GUTTER
 	desc = "A language of renegades and frontiersmen descending from various languages from Earth like Hindi combined into a multi-rooted jumble that sounds incoherent or even barbarian to non-native speakers. This language is the only common cultural identity for humans in the frontier. Speaking this language in itself boldly declares the speaker a free spirit. Often called 'Gutter' by Alliance citizens."
-	speech_verb = "growls"
+	speech_verb = list("growls")
 	colour = "rough"
 	key = "3"
 	flags = TCOMSSIM
@@ -80,7 +70,7 @@
 /datum/language/sign
 	name = LANGUAGE_SIGN
 	desc = "A signed version of Ceti Basic, though its intent is primarily to help out people who are deaf and mute, "
-	speech_verb = "signs"
+	speech_verb = list("signs")
 	signlang_verb = list("signs", "gestures")
 	colour = "i"
 	key = "4"
@@ -96,10 +86,10 @@
 /datum/language/aphasia
 	name = LANGUAGE_GIBBERING
 	desc = "It is theorized that any sufficiently brain-damaged person can speak this language."
-	speech_verb = "garbles"
-	ask_verb = "mumbles"
-	whisper_verb = "mutters"
-	exclaim_verb = "screams incoherently"
+	speech_verb = list("garbles")
+	ask_verb = list("mumbles")
+	whisper_verb = list("mutters")
+	exclaim_verb = list("screams incoherently")
 	key = "i"
 	syllables = list("m","n","gh","h","l","s","r","a","e","i","o","u")
 	space_chance = 20

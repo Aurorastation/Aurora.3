@@ -7,11 +7,12 @@
 /datum/language
 	var/name = "an unknown language"  // Fluff name of language if any.
 	var/desc = "A language."          // Short description for 'Check Languages'.
-	var/speech_verb = "says"          // 'says', 'hisses', 'farts'.
-	var/ask_verb = "asks"             // Used when sentence ends in a ?
-	var/exclaim_verb = "exclaims"     // Used when sentence ends in a !
-	var/whisper_verb                  // Optional. When not specified speech_verb + quietly/softly is used instead.
-	var/signlang_verb = list("signs") // list of emotes that might be displayed if this language has NONVERBAL or SIGNLANG flags
+	var/list/speech_verb = list("says")          // 'says', 'hisses', 'farts'.)
+	var/list/ask_verb = list("asks")  // Used when sentence ends in a ?
+	var/list/exclaim_verb = list("exclaims") // Used when sentence ends in a !
+	var/list/shout_verb = list("shouts", "yells", "screams") //Used when a sentence ends in !!
+	var/list/whisper_verb = list("says quietly", "says softly", "whispers")  // Optional. When not specified speech_verb + quietly/softly is used instead.
+	var/list/signlang_verb = list("signs") // list of emotes that might be displayed if this language has NONVERBAL or SIGNLANG flags
 	var/colour = "body"               // CSS style to use for strings in this language.
 	var/key = "x"                     // Character used to speak in language eg. :o for Unathi.
 	var/flags = 0                     // Various language flags.
@@ -123,10 +124,11 @@
 	// if you yell, you'll be heard from two tiles over instead of one
 	return (copytext(message, length(message)) == "!") ? 2 : 1
 
-/datum/language/proc/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
+/datum/language/proc/broadcast(var/mob/living/speaker, var/message, var/speaker_mask)
 	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
 
-	if(!speaker_mask) speaker_mask = speaker.name
+	if(!speaker_mask)
+		speaker_mask = speaker.name
 	message = format_message(message, get_spoken_verb(message))
 
 	for(var/mob/player in player_list)
@@ -149,13 +151,22 @@
 /datum/language/proc/check_special_condition(var/mob/other)
 	return 1
 
-/datum/language/proc/get_spoken_verb(var/msg_end)
+/datum/language/proc/get_spoken_verb(var/msg_end, var/pre_end)
+	var/chosen_verb = speech_verb
 	switch(msg_end)
 		if("!")
-			return exclaim_verb
+			if(pre_end == "!" || pre_end == "?")
+				chosen_verb = shout_verb
+			else
+				chosen_verb = exclaim_verb
 		if("?")
-			return ask_verb
-	return speech_verb
+			if(pre_end == "!")
+				chosen_verb = shout_verb
+			else
+				chosen_verb = ask_verb
+		else
+			chosen_verb = speech_verb
+	return pick(chosen_verb)
 
 // Language handling.
 /mob/proc/add_language(var/language)
