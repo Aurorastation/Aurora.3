@@ -31,8 +31,8 @@
 		icon_state = lasticonstate
 		item_state = lasticonstate
 		suittoggled = FALSE
-	
-	
+
+
 	// Hood got nuked. Probably because of RIGs or the like.
 	if (!hood)
 		MakeHood()
@@ -122,31 +122,26 @@
 	name = "security winter coat"
 	icon_state = "coatsecurity"
 	item_state = "coatsecurity"
-	armor = list(melee = 25, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/medical
 	name = "medical winter coat"
 	icon_state = "coatmedical"
 	item_state = "coatmedical"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/iac
 	name = "IAC winter coat"
 	icon_state = "coatIAC"
 	item_state = "coatIAC"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)	
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/science
 	name = "science winter coat"
 	icon_state = "coatscience"
 	item_state = "coatscience"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/engineering
 	name = "engineering winter coat"
 	icon_state = "coatengineer"
 	item_state = "coatengineer"
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 20)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos
 	name = "atmospherics winter coat"
@@ -275,7 +270,7 @@
 	icon_open = "hoodie_crop_open"
 	icon_closed = "hoodie_crop"
 	item_state = "hoodie_crop"
-	
+
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
 	icon_state = "hoodie_sleeveless"
 	icon_open = "hoodie_sleeveless_open"

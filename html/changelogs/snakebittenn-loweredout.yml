@@ -44,3 +44,4 @@ changes:
   - rscdel: "Removes gray ushanka, red/purple berets, and feather trilby from the loadout."
   - rscdel: "Removes corporate leather jackets, extraneous military jacket, atmos winter coat, and puffer coats from the loadout."
   - rscdel: "Removes kimono, ugly/redundant pants/shorts, black tango dress, and some extraneous jumpsuits from the loadout."
+  - rscdel: "Removes armor values from winter coats."
