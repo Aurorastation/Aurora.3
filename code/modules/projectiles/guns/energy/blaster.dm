@@ -22,6 +22,34 @@
 		list(mode_name="2-round bursts", burst=2, fire_delay=null, move_delay=2,    burst_accuracy=list(1,0,0),       dispersion=list(0, 10, 15))
 		)
 
+/obj/item/gun/energy/secblaster
+	name = "security blaster"
+	desc = "A standard issue NanoTrasen Security service weapon." // Placeholder for the PR. If there's a loreman who wants to describe this monstrosity, just hmu
+	icon = 'icons/obj/guns/secblaster.dmi'
+	icon_state = "secblaster"
+	item_state = "secblaster"
+	fire_sound = 'sound/weapons/taser.ogg'
+	secondary_fire_sound = 'sound/weapons/gunshot/bolter.ogg'
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	w_class = 2
+	force = 5
+	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
+	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	projectile_type = /obj/item/projectile/energy/stunblaster
+	secondary_projectile_type = /obj/item/projectile/energy/blaster
+	max_shots = 10 //Placeholder for the PR. I asked some secmans in OOC chat and they recommended at least 10 shots.
+	has_item_ratio = FALSE
+	modifystate = "secblasterstun"
+	smartgun = 1
+
+	sel_mode = 1
+
+	firemodes = list(
+		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/stunblaster, modifystate="secblasterstun", fire_sound='sound/weapons/taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster, modifystate="secblasterkill", fire_sound='sound/weapons/gunshot/bolter.ogg', recoil = 1)
+		)
+
+
 /obj/item/gun/energy/blaster/mounted/mech
 	name = "rapidfire blaster"
 	desc = "An aged but reliable rapidfire blaster tuned to expel projectiles at high fire rates."

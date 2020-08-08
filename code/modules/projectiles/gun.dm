@@ -77,6 +77,7 @@
 	var/list/burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	var/list/dispersion = list(0)
 	var/reliability = 100
+	var/smartgun = 0
 
 	var/cyborg_maptext_override
 	var/displays_maptext = FALSE
@@ -273,6 +274,12 @@
 		return FALSE
 
 	add_fingerprint(user)
+
+	// Handles smartgun alert level restriction.
+	if(smartgun && get_security_level() == "green" && firemodes[sel_mode].name != "stun") // Prevents smartguns from firing if they're not sent to stun
+		handle_click_empty(user)
+		to_chat(user, SPAN_WARNING("\The smartgun system prevents \the [src] from firing!"))
+		return FALSE
 
 	if(safety())
 		if(user.a_intent == I_HURT)
@@ -537,6 +544,11 @@
 			return
 		if(safety() && user.a_intent != I_HURT)
 			user.visible_message(SPAN_WARNING("The safety was on. How anticlimatic!"))
+			handle_click_empty(user)
+			mouthshoot = FALSE
+			return
+		if(smartgun && get_security_level() == "green" && firemodes[sel_mode].name != "stun")
+			user.visible_message(SPAN_WARNING("The smartgun system prevents \the [src] from firing. How anticlimatic!"))
 			handle_click_empty(user)
 			mouthshoot = FALSE
 			return
