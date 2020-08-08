@@ -84,7 +84,7 @@
 #define from_target(target, receiver)                       target >> (receiver)
 
 #define legacy_chat(target, message)                        to_target(target, message)
-#define to_world(message)                                   world << message
+#define to_world(message)                                   to_chat(world, message)
 #define sound_to(target, sound)                             target << sound
 #define to_file(file_entry, file_content)                   file_entry << file_content
 #define to_save(handle, value)                              to_target(handle, value) //semantics postport: what did they mean by this
