@@ -16,7 +16,8 @@
 	for(var/turf/T in list)
 		if(T.InConeDirection(center, dir))
 			for(var/mob/M in T.contents)
-				. += M.InCone(center, dir)
+				if(!istype(M, /mob/abstract))
+					. += M.InCone(center, dir)
 
 /turf/proc/InConeDirection(turf/center, dir)
 	if(get_dist(center, src) == 0 || src == center) return 0
