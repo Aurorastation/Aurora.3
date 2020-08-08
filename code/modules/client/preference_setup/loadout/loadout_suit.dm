@@ -23,8 +23,6 @@
 	..()
 	var/jackets = list()
 	jackets["bomber jacket"] = /obj/item/clothing/suit/storage/toggle/bomber
-	jackets["corporate black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen
-	jackets["corporate brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket/nanotrasen
 	jackets["black jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket
 	jackets["brown jacket"] = /obj/item/clothing/suit/storage/toggle/brown_jacket
 	jackets["biker jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/biker
@@ -36,7 +34,6 @@
 	jackets["flight jacket, white"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/white
 	jackets["military jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military
 	jackets["military jacket, tan"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan
-	jackets["old military jacket"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old
 	jackets["old military jacket, badge"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt
 	jackets["flannel jacket, green"] = /obj/item/clothing/suit/storage/toggle/flannel
 	jackets["flannel jacket, red"] = /obj/item/clothing/suit/storage/toggle/flannel/red
@@ -146,7 +143,6 @@
 	coat["trenchcoat, grey alternate"] = /obj/item/clothing/suit/storage/toggle/trench/grey_alt
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
-
 /datum/gear/suit/det_trenchcoat
 	display_name = "detective trenchcoat selection"
 	description = "A selection of detective trenchcoats."
@@ -161,64 +157,31 @@
 	coat["technicolor trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/technicolor
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
+/datum/gear/suit/winter
+	display_name = "winter coat selection"
+	description = "A selection of coats for the thermally challenged."
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat
+
+/datum/gear/suit/winter/New()
+	..()
+	var/wintercoat = list()
+	wintercoat["winter coat"] = /obj/item/clothing/suit/storage/hooded/wintercoat
+	wintercoat["winter coat, red"] = /obj/item/clothing/suit/storage/hooded/wintercoat/red
+	wintercoat["winter coat, captain"] = /obj/item/clothing/suit/storage/hooded/wintercoat/captain
+	wintercoat["winter coat, security"] = /obj/item/clothing/suit/storage/hooded/wintercoat/security
+	wintercoat["winter coat, science"] = /obj/item/clothing/suit/storage/hooded/wintercoat/science
+	wintercoat["winter coat, IAC"] = /obj/item/clothing/suit/storage/hooded/wintercoat/iac
+	wintercoat["winter coat, medical"] = /obj/item/clothing/suit/storage/hooded/wintercoat/medical
+	wintercoat["winter coat, engineering"] = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering
+	wintercoat["winter coat, hydroponics"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
+	wintercoat["winter coat, cargo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
+	wintercoat["winter coat, mining"] = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
+	gear_tweaks += new/datum/gear_tweak/path(wintercoat)
 
 /datum/gear/suit/ian
 	display_name = "worn shirt"
 	description = "A worn out, curiously comfortable t-shirt with a picture of Ian."
 	path = /obj/item/clothing/suit/ianshirt
-
-/datum/gear/suit/winter
-	display_name = "winter coat"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat
-
-/datum/gear/suit/winter/red
-	display_name = "winter coat, red"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/red
-
-/datum/gear/suit/winter/captain
-	display_name = "winter coat, captain"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/captain
-	allowed_roles = list("Captain")
-
-/datum/gear/suit/winter/security
-	display_name = "winter coat, security"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/security
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
-
-/datum/gear/suit/winter/science
-	display_name = "winter coat, science"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/science
-	allowed_roles = list("Research Director", "Scientist", "Xenobiologist", "Roboticist", "Lab Assistant", "Geneticist")
-
-/datum/gear/suit/winter/medical
-	display_name = "winter coat, medical"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/medical
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Emergency Medical Technician", "Medical Resident", "Psychiatrist", "Pharmacist")
-
-/datum/gear/suit/winter/iac
-	display_name = "winter coat, IAC"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/iac
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Emergency Medical Technician", "Medical Resident", "Psychiatrist", "Pharmacist")
-
-/datum/gear/suit/winter/engineering
-	display_name = "winter coat, engineering"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering
-	allowed_roles = list("Station Engineer", "Chief Engineer", "Engineering Apprentice")
-
-/datum/gear/suit/winter/atmos
-	display_name = "winter coat, atmospherics"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos
-	allowed_roles = list("Atmospheric Technician", "Chief Engineer")
-
-/datum/gear/suit/winter/hydro
-	display_name = "winter coat, hydroponics"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
-	allowed_roles = list("Head of Personnel", "Gardener")
-
-/datum/gear/suit/winter/cargo
-	display_name = "winter coat, cargo"
-	path = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
-	allowed_roles = list("Cargo Technician", "Quartermaster", "Head of Personnel")
 
 /datum/gear/suit/winter/mining
 	display_name = "winter coat, mining"
@@ -318,14 +281,6 @@
 		var/obj/item/clothing/suit/storage/toggle/track/track = track_style
 		tracks[initial(track.name)] = track
 	gear_tweaks += new/datum/gear_tweak/path(sortAssoc(tracks))
-
-/datum/gear/suit/puffer_coat
-	display_name = "puffer coat"
-	path = /obj/item/clothing/suit/jacket/puffer
-
-/datum/gear/suit/puffer_vest
-	display_name = "puffer vest"
-	path = /obj/item/clothing/suit/jacket/puffer/vest
 
 /datum/gear/suit/cardigan
 	display_name = "cardigan selection"

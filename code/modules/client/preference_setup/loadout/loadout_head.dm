@@ -4,10 +4,6 @@
 	slot = slot_head
 	sort_category = "Hats and Headwear"
 
-/datum/gear/head/ushanka_grey
-	display_name = "ushanka, grey"
-	path = /obj/item/clothing/head/ushanka/grey
-
 /datum/gear/head/bandana
 	display_name = "bandana selection"
 	path = /obj/item/clothing/head/bandana
@@ -39,21 +35,12 @@
 	caps["grey cap"] = /obj/item/clothing/head/soft/grey
 	caps["white cap"] = /obj/item/clothing/head/soft/white
 	caps["flat cap"] = /obj/item/clothing/head/flatcap
-	caps["mailman cap"] = /obj/item/clothing/head/mailman
 	gear_tweaks += new/datum/gear_tweak/path(caps)
 
 /datum/gear/head/beret
-	display_name = "beret, red"
-	path = /obj/item/clothing/head/beret
-
-/datum/gear/head/beret/eng
 	display_name = "beret, engie-orange"
 	path = /obj/item/clothing/head/beret/engineering
 	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
-
-/datum/gear/head/beret/purp
-	display_name = "beret, purple"
-	path = /obj/item/clothing/head/beret/purple
 
 /datum/gear/head/beret/color
 	display_name = "beret (colorable)"
@@ -146,7 +133,6 @@
 	hats["hat, bowler"] = /obj/item/clothing/head/bowler
 	hats["hat, fez"] = /obj/item/clothing/head/fez
 	hats["hat, tophat"] = /obj/item/clothing/head/that
-	hats["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby
 	hats["hat, black fedora"] = /obj/item/clothing/head/fedora
 	hats["hat, brown fedora"] = /obj/item/clothing/head/fedora/brown
 	hats["hat, dark brown fedora"] = /obj/item/clothing/head/fedora/brown/dark

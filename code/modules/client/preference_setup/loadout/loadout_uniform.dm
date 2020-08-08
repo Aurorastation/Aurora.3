@@ -9,10 +9,6 @@
     display_name = "crop top"
     path = /obj/item/clothing/under/croptop
 
-/datum/gear/uniform/cropdress
-    display_name = "crop dress"
-    path = /obj/item/clothing/under/cropdress
-
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
 	path = /obj/item/clothing/under/rank/iacjumpsuit
@@ -39,11 +35,8 @@
 	jumpsuit["aqua jumpsuit"] = /obj/item/clothing/under/aqua
 	jumpsuit["purple jumpsuit"] = /obj/item/clothing/under/purple
 	jumpsuit["light purple jumpsuit"] = /obj/item/clothing/under/lightpurple
-	jumpsuit["light green jumpsuit"] = /obj/item/clothing/under/lightgreen
-	jumpsuit["brown jumpsuit"] = /obj/item/clothing/under/brown
 	jumpsuit["light brown jumpsuit"] = /obj/item/clothing/under/lightbrown
 	jumpsuit["yellow green jumpsuit"] = /obj/item/clothing/under/yellowgreen
-	jumpsuit["light red jumpsuit"] = /obj/item/clothing/under/lightred
 	jumpsuit["dark red jumpsuit"] = /obj/item/clothing/under/darkred
 	jumpsuit["rainbow jumpsuit"] = /obj/item/clothing/under/rainbow
 	gear_tweaks += new/datum/gear_tweak/path(jumpsuit)
@@ -124,8 +117,6 @@
 	dress["dress, stripped"] = /obj/item/clothing/under/dress/stripeddress
 	dress["dress, sailor"] = /obj/item/clothing/under/dress/sailordress
 	dress["dress, red swept"] = /obj/item/clothing/under/dress/red_swept_dress
-	dress["dress, black tango"] = /obj/item/clothing/under/dress/blacktango
-	dress["dress, black tango alternative"] = /obj/item/clothing/under/dress/blacktango/alt
 	dress["cheongsam, white"] = /obj/item/clothing/under/cheongsam
 	dress["cheongsam, red"] = /obj/item/clothing/under/cheongsam/red
 	dress["cheongsam, blue"] = /obj/item/clothing/under/cheongsam/blue
@@ -133,6 +124,7 @@
 	dress["cheongsam, purple"] = /obj/item/clothing/under/cheongsam/purple
 	dress["dress, blue"] = /obj/item/clothing/under/dress/bluedress
 	dress["dress, dark red"] = /obj/item/clothing/under/dress/darkreddress
+	dress["dress, crop"] = /obj/item/clothing/under/cropdress
 	gear_tweaks += new/datum/gear_tweak/path(dress)
 
 /datum/gear/uniform/uniform_captain
@@ -153,15 +145,12 @@
 /datum/gear/uniform/pants/New()
 	..()
 	var/pants = list()
-	pants["jeans"] = /obj/item/clothing/under/pants
 	pants["classic jeans"] = /obj/item/clothing/under/pants/classic
 	pants["must hang jeans"] = /obj/item/clothing/under/pants/musthang
 	pants["black jeans"] = /obj/item/clothing/under/pants/jeansblack
 	pants["young folks jeans"] = /obj/item/clothing/under/pants/youngfolksjeans
-	pants["white pants"] = /obj/item/clothing/under/pants/white
 	pants["black pants"] = /obj/item/clothing/under/pants/black
 	pants["red pants"] = /obj/item/clothing/under/pants/red
-	pants["tan pants"] = /obj/item/clothing/under/pants/tan
 	pants["khaki pants"] = /obj/item/clothing/under/pants/khaki
 	pants["track pants"] = /obj/item/clothing/under/pants/track
 	pants["blue track pants"] = /obj/item/clothing/under/pants/track/blue
@@ -176,10 +165,6 @@
 	pants["athletic shorts, green"] = /obj/item/clothing/under/shorts/green
 	pants["athletic shorts, black"] = /obj/item/clothing/under/shorts/black
 	pants["athletic shorts, grey"] = /obj/item/clothing/under/shorts/grey
-	pants["jean shorts"] = /obj/item/clothing/under/shorts/jeans
-	pants["jean short shorts"] = /obj/item/clothing/under/shorts/jeans/female
-	pants["classic jeans shorts"] = /obj/item/clothing/under/shorts/jeans/classic
-	pants["classic jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/classic/female
 	pants["mustang jeans shorts"] = /obj/item/clothing/under/shorts/jeans/mustang
 	pants["mustang jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/mustang/female
 	pants["young folks jeans shorts"] = /obj/item/clothing/under/shorts/jeans/youngfolks
@@ -239,11 +224,6 @@
 	suit["elyran holographic suit, masculine"] = /obj/item/clothing/under/elyra_holo/masc
 	gear_tweaks += new/datum/gear_tweak/path(suit)
 
-/datum/gear/uniform/miscellaneous/kimono
-	display_name = "kimono"
-	path = /obj/item/clothing/under/kimono
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
 /datum/gear/uniform/officer
 	display_name = "uniforms, (Security Officer)"
 	description = "A selection of officer uniforms."
@@ -286,7 +266,6 @@
 	uniform["warden uniform, corporate"] = /obj/item/clothing/under/rank/warden/corp
 	uniform["warden uniform, dark blue"] = /obj/item/clothing/under/rank/warden/dark_blue
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
-
 
 /datum/gear/uniform/hos
 	display_name = "uniform, corporate (Head of Security)"
