@@ -39,4 +39,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - rscdel: "Removed the Clerical Module from 'borgos, it's not useful, it's not used. Paperwork is a valid niche but doesn't have enough usecases to justify its own module."
-  - tweak: "Renamed the Borgo Mining Module to Supply. By and large, gave it the old Clerical tools. So now it can do paperwork AND mine."
+  - tweak: "Renamed the Borgo Mining Module to Supply. By and large, gave it the old Clerical tools. So now it can do paperwork AND mine. Also gave the same paperwork tools to Research and Service."
