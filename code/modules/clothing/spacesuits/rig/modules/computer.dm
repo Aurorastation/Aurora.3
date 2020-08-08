@@ -220,8 +220,8 @@
 			else
 				user.drop_from_inventory(ai,src)
 				ai_card = ai
-				to_chat(ai_mob, "<font color='blue'>You have been transferred to \the [holder]'s [src].</font>")
-				to_chat(user, "<font color='blue'>You load [ai_mob] into \the [holder]'s [src].</font>")
+				to_chat(ai_mob, "<span class='notice'>You have been transferred to \the [holder]'s [src].</span>")
+				to_chat(user, "<span class='notice'>You load [ai_mob] into \the [holder]'s [src].</span>")
 
 			integrated_ai = ai_mob
 
@@ -275,7 +275,7 @@
 		var/obj/item/disk/tech_disk/disk = input_device
 		if(disk.stored)
 			if(load_data(disk.stored))
-				to_chat(user, "<font color='blue'>Download successful; disk erased.</font>")
+				to_chat(user, "<span class='notice'>Download successful; disk erased.</span>")
 				disk.stored = null
 			else
 				to_chat(user, "<span class='warning'>The disk is corrupt. It is useless to you.</span>")
@@ -301,7 +301,7 @@
 		else
 			// Maybe consider a way to drop all your data into a target repo in the future.
 			if(load_data(incoming_files.known_tech))
-				to_chat(user, "<font color='blue'>Download successful; local and remote repositories synchronized.</font>")
+				to_chat(user, "<span class='notice'>Download successful; local and remote repositories synchronized.</span>")
 			else
 				to_chat(user, "<span class='warning'>Scan complete. There is nothing useful stored on this terminal.</span>")
 		return 1
@@ -484,9 +484,9 @@
 /obj/item/rig_module/power_sink/proc/drain_complete(var/mob/living/M)
 
 	if(!interfaced_with)
-		if(M) to_chat(M, "<font color='blue'><b>Total power drained:</b> [round(total_power_drained/500)]kJ.</font>")
+		if(M) to_chat(M, "<span class='notice'><b>Total power drained:</b> [round(total_power_drained/500)]kJ.</span>")
 	else
-		if(M) to_chat(M, "<font color='blue'><b>Total power drained from [interfaced_with]:</b> [round(total_power_drained/500)]kJ.</font>")
+		if(M) to_chat(M, "<span class='notice'><b>Total power drained from [interfaced_with]:</b> [round(total_power_drained/500)]kJ.</span>")
 		interfaced_with.drain_power(0,1,0) // Damage the victim.
 
 	drain_loc = null

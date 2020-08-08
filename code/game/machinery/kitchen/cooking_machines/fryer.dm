@@ -210,7 +210,7 @@
 			to_chat(victim, "<span class='danger'>Searing hot oil scorches your [arrows_var2]!</span>")
 
 
-		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has [cook_type] \the [victim] ([victim.ckey]) in \a [src]</font>")
+		user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has [cook_type] \the [victim] ([victim.ckey]) in \a [src]</span>")
 		victim.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been [cook_type] in \a [src] by [user.name] ([user.ckey])</font>")
 		msg_admin_attack("[key_name_admin(user)] [cook_type] \the [victim] ([victim.ckey]) in \a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(victim))
 

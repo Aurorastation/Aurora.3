@@ -44,7 +44,7 @@
 
 	var/mob/living/carbon/human/H = holder.wearer
 
-	to_chat(H, "<font color='blue'><b>You are now invisible to normal detection.</b></font>")
+	to_chat(H, "<span class='notice'><b>You are now invisible to normal detection.</b></span>")
 	H.invisibility = INVISIBILITY_LEVEL_TWO
 
 	anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity",null,20,null)

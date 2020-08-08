@@ -231,7 +231,7 @@
 				break
 
 	if(total_transferred)
-		to_chat(user, "<font color='blue'>You transfer [total_transferred] units into the suit reservoir.</font>")
+		to_chat(user, "<span class='notice'>You transfer [total_transferred] units into the suit reservoir.</span>")
 	else
 		to_chat(user, "<span class='danger'>None of the reagents seem suitable.</span>")
 	return 1
@@ -405,17 +405,17 @@
 		if("Enable")
 			active = 1
 			voice_holder.active = 1
-			to_chat(usr, "<font color='blue'>You enable the speech synthesiser.</font>")
+			to_chat(usr, "<span class='notice'>You enable the speech synthesiser.</span>")
 		if("Disable")
 			active = 0
 			voice_holder.active = 0
-			to_chat(usr, "<font color='blue'>You disable the speech synthesiser.</font>")
+			to_chat(usr, "<span class='notice'>You disable the speech synthesiser.</span>")
 		if("Set Name")
 			var/raw_choice = sanitize(input(usr, "Please enter a new name.")  as text|null, MAX_NAME_LEN)
 			if(!raw_choice)
 				return 0
 			voice_holder.voice = raw_choice
-			to_chat(usr, "<font color='blue'>You are now mimicking <B>[voice_holder.voice]</B>.</font>")
+			to_chat(usr, "<span class='notice'>You are now mimicking <B>[voice_holder.voice]</B>.</span>")
 		if("Set Accent")
 			var/raw_choice = input(usr, "Please choose an accent to mimick.") as null|anything in SSrecords.accents
 			if(!raw_choice)

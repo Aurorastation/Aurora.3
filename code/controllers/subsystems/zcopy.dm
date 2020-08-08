@@ -276,7 +276,7 @@
 			if (A == T)
 				out += "<li>[icon2html(A, usr)] plane [A.plane], layer [A.layer], Z-level [A.z] - [A] ([A.type]) - <font color='green'>SELF</font></li>"
 			else    // foreign turfs - not visible here, but good for figuring out layering
-				out += "<li>[icon2html(A, usr)] plane [A.plane], layer [A.layer], Z-level [A.z] - [A] ([A.type]) - <font color='red'>FOREIGN</font></li>"
+				out += "<li>[icon2html(A, usr)] plane [A.plane], layer [A.layer], Z-level [A.z] - [A] ([A.type]) - <span class='warning'>FOREIGN</span></li>"
 		else
 			out += "<li>[icon2html(A, usr)] plane [A.plane], layer [A.layer], Z-level [A.z] - [A] ([A.type])</li>"
 

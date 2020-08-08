@@ -144,7 +144,7 @@ var/global/Holiday = null
 //Run at the  start of a round
 /proc/Holiday_Game_Start()
 	if(Holiday)
-		to_world("<font color='blue'>and...</font>")
+		to_world("<span class='notice'>and...</span>")
 		to_world("<h4>Happy [Holiday] Everybody!</h4>")
 		switch(Holiday)			//special holidays
 			if("Easter")

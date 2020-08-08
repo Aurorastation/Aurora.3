@@ -164,7 +164,7 @@
 			if(O.completed)
 				out += "(<font color='green'>complete</font>)"
 			else
-				out += "(<font color='red'>incomplete</font>)"
+				out += "(<span class='warning'>incomplete</span>)"
 			out += " <a href='?src=\ref[src];obj_completed=\ref[O]'>\[toggle\]</a>"
 			out += " <a href='?src=\ref[src];obj_delete=\ref[O]'>\[remove\]</a><br>"
 			num++

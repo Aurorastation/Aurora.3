@@ -60,7 +60,7 @@
 				location.add_blood(H) // Plik plik, the sound of blood
 
 		M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been attacked with [src.name] by [user.name] ([user.ckey])</font>")
-		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to attack [M.name] ([M.ckey])</font>")
+		user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [src.name] to attack [M.name] ([M.ckey])</span>")
 		msg_admin_attack("[key_name_admin(user)] used the [src.name] to attack [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 
 		if(prob(15))

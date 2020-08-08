@@ -101,7 +101,7 @@
 		dat += "<br>"
 		dat += "<br>"
 	dat += "<hr>"
-	dat += "<font color='blue'><b>Always wear safety gear and consult a field manual before operation.</b></font><br>"
+	dat += "<span class='notice'><b>Always wear safety gear and consult a field manual before operation.</b></span><br>"
 	if(!locked)
 		dat += "<A href='?src=\ref[src];lock=1'>Lock console</A><br>"
 	else

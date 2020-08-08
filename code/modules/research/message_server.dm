@@ -126,7 +126,7 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 					if(!Console.silent)
 						playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
 						Console.audible_message(text("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'PRIORITY Alert in [sender]'"),,5)
-					Console.message_log += "<B><FONT color='red'>High Priority message from <A href='?src=\ref[Console];write=[sender]'>[sender]</A></FONT></B><BR>[authmsg]"
+					Console.message_log += "<B><span class='warning'>High Priority message from <A href='?src=\ref[Console];write=[sender]'>[sender]</A></span></B><BR>[authmsg]"
 				else
 					if(!Console.silent)
 						playsound(Console.loc, 'sound/machines/twobeep.ogg', 50, 1)
