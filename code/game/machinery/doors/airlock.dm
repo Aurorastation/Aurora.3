@@ -1104,7 +1104,7 @@ About the new airlock wires panel:
 				..()
 				return
 		if(p_open && !operating && welded)
-			if(!locked && bolt_cut_state == BOLTS_FINE)
+			if(!locked && bolt_cut_state != BOLTS_CUT)
 				to_chat(user, SPAN_WARNING("The airlock bolts are in the way of the electronics, you need to drop them before you can reach them."))
 				return
 			playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
