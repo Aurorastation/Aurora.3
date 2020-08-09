@@ -43,7 +43,18 @@
 	ui.open()
 
 /obj/item/aicard/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	data = list()
+	data = list(
+		"has_ai" = FALSE,
+		"name" = null,
+		"hardware_integrity" = null,
+		"backup_capacitor" = null,
+		"radio" = null,
+		"wireless" = null,
+		"operational" = null,
+		"flushing" = FALSE,
+		"laws" = null,
+		"has_laws" = null
+	)
 
 	data["has_ai"] = carded_ai != null
 	if (carded_ai)

@@ -36,10 +36,8 @@
                     icon="arrow-alt-circle-down">All</vui-button>
       </div>
     </template>
-    <div v-else>
-      <span class="average">
-        No products loaded.
-      </span>
+    <div v-else class="average">
+      No products loaded.
     </div>
   </div>
 </template>

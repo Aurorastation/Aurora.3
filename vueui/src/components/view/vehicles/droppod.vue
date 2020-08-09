@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2><span class="white">Welcome, Operative.</span></h2>
+    <h2 class="white">Welcome, Operative.</h2>
 
     <h2>Please select your launch target:</h2>
 

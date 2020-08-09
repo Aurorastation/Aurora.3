@@ -6,19 +6,17 @@
         <vui-group-item label="Backup Capacitor">{{backup_capacitor}}%</vui-group-item>
       </vui-group>
 
-      <template v-if="has_laws">
-        <table class="borders">
-          <tr><td class="law_index">Index</td><td>Law</td></tr>
-            
-          <div class="itemLabelNarrow">
-            Laws:
-          </div>
-          <tr v-for="law in laws" :key="law.index">
-            <td valign="top">{{law.index}}</td>
-            <td>{{law.law}}</td>
-          </tr>
-        </table>
-      </template>
+      <table v-if="has_laws" class="borders">
+        <tr><td class="law_index">Index</td><td>Law</td></tr>
+          
+        <div class="itemLabelNarrow">
+          Laws:
+        </div>
+        <tr v-for="law in laws" :key="law.index">
+          <td valign="top">{{law.index}}</td>
+          <td>{{law.law}}</td>
+        </tr>
+      </table>
       <span class="notice" v-else>
         No laws found.
       </span>
@@ -56,6 +54,7 @@ export default {
 };
 </script>
 
+<!--
 <style lang="scss" scoped>
 table.borders   {
     width:95%; 
@@ -98,3 +97,4 @@ td.position {
     width: 37px;
 }
 </style>
+-->
