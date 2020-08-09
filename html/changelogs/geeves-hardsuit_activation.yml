@@ -10,3 +10,6 @@ changes:
   - bugfix: "Fixed a bug with doing actions on SSD people and not having the correct action come up."
   - bugfix: "Fixed hardsuit visor cycling bringing up the activation message, despite not activating."
   - rscadd: "Added unique messages to pAI / AI interacting with the hardsuit, messaging both parties."
+  - tweak: "pAI no longer have a three second wait time between using modules. Standard cooldowns still apply."
+  - tweak: "Walking around as a pAI in a RIG now only drains 10 cell charge, instead of 200."
+  - bugfix: "pAI can now properly puppet their unconscious or dead RIG pilot."

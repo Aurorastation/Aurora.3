@@ -200,7 +200,8 @@
 	// The ONLY THING all the different AI systems have in common is that they all store the mob inside an item.
 	var/mob/living/ai_mob = locate(/mob/living) in ai.contents
 	if(ai_mob)
-
+		ai_mob.resting = FALSE
+		ai_mob.canmove = TRUE
 		if(ai_mob.key && ai_mob.client)
 
 			if(istype(ai, /obj/item/aicard))

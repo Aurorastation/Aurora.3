@@ -864,12 +864,14 @@
 	to_chat(user, "<span class='notice'>\The [wearer] is now [wearer.resting ? "resting" : "getting up"].</span>")
 
 /obj/item/rig/proc/forced_move(var/direction, var/mob/user)
-
 	// Why is all this shit in client/Move()? Who knows?
 	if(world.time < wearer_move_delay)
 		return
 
 	if(!wearer || !wearer.loc || !ai_can_move_suit(user, check_user_module = 1))
+		return
+
+	if(!wearer.stat) // don't force move if our wearer is awake
 		return
 
 	//This is sota the goto stop mobs from moving var
@@ -942,7 +944,7 @@
 			wearer_move_delay += 2
 			return wearer.buckled.relaymove(wearer,direction)
 
-	cell.use(200) //Arbitrary, TODO
+	cell.use(10)
 	wearer.Move(get_step(get_turf(wearer),direction),direction)
 
 // This returns the rig if you are contained inside one, but not if you are wearing it
