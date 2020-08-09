@@ -2,8 +2,8 @@
 /*
 	run_armor_check() args
 	def_zone - What part is getting hit, if null will check entire body
-	attack_flag - The type of armour to be checked
-	armour_pen - reduces the effectiveness of armour
+	attack_flag - The type of armor to be checked
+	armor_pen - reduces the effectiveness of armor
 	absorb_text - shown if the armor check is 100% successful
 	soften_text - shown if the armor check is more than 0% successful and less than 100%
 	Returns
@@ -12,16 +12,16 @@
 #define MOB_FIRE_LIGHT_RANGE  3  //These control the intensity and range of light given off by a mob which is on fire
 #define MOB_FIRE_LIGHT_POWER  2
 
-/mob/living/proc/run_armor_check(var/def_zone = null, var/attack_flag = "melee", var/armour_pen = 0, var/absorb_text = null, var/soften_text = null)
-	if(armour_pen >= 100)
+/mob/living/proc/run_armor_check(var/def_zone = null, var/attack_flag = "melee", var/armor_pen = 0, var/absorb_text = null, var/soften_text = null)
+	if(armor_pen >= 100)
 		return 0 //might as well just skip the processing
 
 	var/armor = getarmor(def_zone, attack_flag)
 
-	if(armour_pen >= armor)
+	if(armor_pen >= armor)
 		return 0 //effective_armor is going to be 0, fullblock is going to be 0, blocked is going to 0, let's save ourselves the trouble
 
-	var/effective_armor = (armor - armour_pen)/100
+	var/effective_armor = (armor - armor_pen)/100
 	var/fullblock = (effective_armor*effective_armor) * ARMOR_BLOCK_CHANCE_MULT
 
 	if(fullblock >= 1 || prob(fullblock*100))
@@ -31,7 +31,7 @@
 			show_message("<span class='warning'>Your armor absorbs the blow!</span>")
 		return 100
 
-	//this makes it so that X armour blocks X% damage, when including the chance of hard block.
+	//this makes it so that X armor blocks X% damage, when including the chance of hard block.
 	//I double checked and this formula will also ensure that a higher effective_armor
 	//will always result in higher (non-fullblock) damage absorption too, which is also a nice property
 	//In particular, blocked will increase from 0 to 50 as effective_armor increases from 0 to 0.999 (if it is 1 then we never get here because ofc)
@@ -88,7 +88,7 @@
 		return
 
 	//Armor
-	var/absorb = run_armor_check(def_zone, P.check_armour, P.armor_penetration)
+	var/absorb = run_armor_check(def_zone, P.check_armor, P.armor_penetration)
 	var/damaged
 	if(prob(absorb))
 		if(P.damage_flags & DAM_SHARP || P.damage_flags & DAM_SHARP || P.damage_flags & DAM_LASER)
@@ -184,7 +184,7 @@
 
 	//Apply weapon damage
 	var/damage_flags = I.damage_flags()
-	if(prob(blocked)) //armour provides a chance to turn sharp/edge weapon attacks into blunt ones
+	if(prob(blocked)) //armor provides a chance to turn sharp/edge weapon attacks into blunt ones
 		damage_flags &= ~DAM_SHARP
 		damage_flags &= ~DAM_EDGE
 

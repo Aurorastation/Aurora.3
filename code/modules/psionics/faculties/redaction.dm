@@ -2,7 +2,7 @@
 	id = PSI_REDACTION
 	name = "Redaction"
 	associated_intent = I_HELP
-	armour_types = list("bio", "rad")
+	armor_types = list("bio", "rad")
 
 /datum/psionic_power/redaction
 	faculty = PSI_REDACTION

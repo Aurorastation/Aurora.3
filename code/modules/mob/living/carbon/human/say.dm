@@ -106,18 +106,13 @@
 */
 
 /mob/living/carbon/human/say_quote(var/message, var/datum/language/speaking = null)
-	var/verb = "says"
 	var/ending = copytext(message, length(message))
+	var/pre_ending = copytext(message, length(message) - 1, length(message))
 
 	if(speaking)
-		verb = speaking.get_spoken_verb(ending)
+		. = speaking.get_spoken_verb(ending, pre_ending)
 	else
-		if(ending == "!")
-			verb=pick("exclaims","shouts","yells")
-		else if(ending == "?")
-			verb="asks"
-
-	return verb
+		. = ..()
 
 /mob/living/carbon/human/handle_speech_problems(var/message, var/verb, var/message_mode)
 	message = handle_speech_muts(message,verb)

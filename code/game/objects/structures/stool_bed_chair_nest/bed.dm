@@ -152,6 +152,11 @@
 						"<span class='notice'>You hear metal clanking.</span>")
 			qdel(W)
 
+	else if(istype(W, /obj/item/gripper) && buckled_mob)
+		var/obj/item/gripper/G = W
+		if(!G.wrapped)
+			user_unbuckle_mob(user)
+
 	else if(!istype(W, /obj/item/bedsheet))
 		..()
 

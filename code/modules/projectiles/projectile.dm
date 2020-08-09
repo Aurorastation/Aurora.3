@@ -32,7 +32,7 @@
 	var/damage_type = BRUTE		//BRUTE, BURN, TOX, OXY, CLONE, PAIN are the only things that should be in here
 	var/damage_flags = DAM_BULLET
 	var/nodamage = FALSE		//Determines if the projectile will skip any damage inflictions
-	var/check_armour = "bullet" //Defines what armor to use when it hits things.  Must be set to bullet, laser, energy,or bomb	//Cael - bio and rad are also valid
+	var/check_armor = "bullet" //Defines what armor to use when it hits things.  Must be set to bullet, laser, energy,or bomb	//Cael - bio and rad are also valid
 	var/list/impact_sounds	//for different categories, IMPACT_MEAT etc
 
 	var/stun = 0
@@ -121,7 +121,7 @@
 		new hit_effect(target.loc)
 
 	L.apply_effects(stun, weaken, paralyze, 0, stutter, eyeblur, drowsy, agony, incinerate, blocked)
-	L.apply_effect(irradiate, IRRADIATE, L.getarmor(null, "rad")) //radiation protection is handled separately from other armour types.
+	L.apply_effect(irradiate, IRRADIATE, L.getarmor(null, "rad")) //radiation protection is handled separately from other armor types.
 	return 1
 
 //called when the projectile stops flying because it collided with something

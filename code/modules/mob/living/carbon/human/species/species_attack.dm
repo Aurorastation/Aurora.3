@@ -123,7 +123,7 @@
 	attack_name = "power fist"
 	shredding = 1
 
-/datum/unarmed_attack/terminator/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
+/datum/unarmed_attack/terminator/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()
 	if(prob(25) && target.mob_size <= 30)
 		playsound(user, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
@@ -138,7 +138,7 @@
 		sleep(1)
 		step_away(target,user,15)
 		sleep(1)
-		target.apply_effect(attack_damage * 0.4, WEAKEN, armour)
+		target.apply_effect(attack_damage * 0.4, WEAKEN, armor)
 
 /datum/unarmed_attack/claws/cleave
 	attack_verb = list("cleaved", "plowed", "swiped")
@@ -149,7 +149,7 @@
 	attack_name = "massive claws"
 	shredding = 1
 
-/datum/unarmed_attack/claws/cleave/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
+/datum/unarmed_attack/claws/cleave/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()
 	var/hit_mobs = 0
 	for(var/mob/living/L in orange(1,user))
@@ -157,7 +157,7 @@
 			continue
 		if(L == target)
 			continue
-		L.apply_damage(rand(5,20), BRUTE, zone, armour)
+		L.apply_damage(rand(5,20), BRUTE, zone, armor)
 		to_chat(L, "<span class='danger'>\The [user] [pick(attack_verb)] you with its [attack_noun]!</span>")
 		hit_mobs++
 	if(hit_mobs)
@@ -176,7 +176,7 @@
 /datum/unarmed_attack/bite/infectious
 	shredding = 1
 
-/datum/unarmed_attack/bite/infectious/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
+/datum/unarmed_attack/bite/infectious/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()
 	if(target && target.stat == DEAD)
 		return
@@ -184,8 +184,7 @@
 		to_chat(user, "<span class='danger'>You feel that \the [target] has been already infected!</span>")
 
 	var/infection_chance = 80
-	var/armor = target.run_armor_check(zone,"melee")
-	infection_chance -= armor
+	infection_chance -= target.run_armor_check(zone,"melee")
 	if(prob(infection_chance))
 		if(target.reagents)
 			target.reagents.add_reagent(/datum/reagent/toxin/trioxin, 10)
@@ -206,7 +205,7 @@
 	attack_sound = 'sound/effects/sparks4.ogg'
 	attack_name = "electrifying touch"
 
-/datum/unarmed_attack/shocking/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
+/datum/unarmed_attack/shocking/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()
 	if(prob(25))
 		target.electrocute_act(20, user, def_zone = zone)
@@ -219,7 +218,7 @@
 	attack_name = "flaming touch"
 	damage_type = BURN
 
-/datum/unarmed_attack/flame/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armour,var/attack_damage,var/zone)
+/datum/unarmed_attack/flame/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()
 	if(prob(25))
 		target.apply_effect(1, INCINERATE, 0)

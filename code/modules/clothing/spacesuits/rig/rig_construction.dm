@@ -114,7 +114,7 @@
 
 /obj/item/rig_assembly/combat/illegal/hacker
 	name = "cybersuit control module assembly"
-	desc = "An assembly for an advanced powered armour suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
+	desc = "An assembly for an advanced powered armor suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
 	icon_base = "hacker"
 	icon_state = "hacker1"
 	rig_type = /obj/item/rig/light/hacker

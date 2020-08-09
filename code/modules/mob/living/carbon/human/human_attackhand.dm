@@ -329,12 +329,12 @@
 						var/obj/item/clothing/gloves/force/X = H.gloves
 						real_damage *= X.amplification
 
-			var/armour = run_armor_check(hit_zone, "melee")
+			var/armor = run_armor_check(hit_zone, "melee")
 			// Apply additional unarmed effects.
-			attack.apply_effects(H, src, armour, rand_damage, hit_zone)
+			attack.apply_effects(H, src, armor, rand_damage, hit_zone)
 
 			// Finally, apply damage to target
-			apply_damage(real_damage, hit_dam_type, hit_zone, armour, damage_flags = damage_flags)
+			apply_damage(real_damage, hit_dam_type, hit_zone, armor, damage_flags = damage_flags)
 
 
 			if(M.resting && src.help_up_offer)
