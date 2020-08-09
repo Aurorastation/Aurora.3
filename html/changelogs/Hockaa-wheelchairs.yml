@@ -1,0 +1,6 @@
+author: Hocka
+
+delete-after: True
+
+changes: 
+    - bugfix: "Spawned on the Odin with amputated legs or feet now spawns you in a wheelchair."
