@@ -112,7 +112,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 		to_chat(user, "<span class='notice'>\The [src] is almost full!</span>")
 	else
 		to_chat(user, "<span class='notice'>\The [src] is full!</span>")
-	
+
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Drinks. END
@@ -291,11 +291,12 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 /obj/item/reagent_containers/food/drinks/waterbottle/throw_impact()
 	. = ..()
 	if(!QDELETED(src))
-		if(prob(10)) // landed upright
-			src.visible_message(SPAN_NOTICE("\The [src] lands upright!"))
-		if(prob(1)) // landed upright on ITS CAP
-			src.visible_message(SPAN_NOTICE("\The [src] lands upright on its cap!"))
-			animate(src, transform = matrix(prob(50)? 180 : -180, MATRIX_ROTATE), time = 3, loop = 0)
+		if(prob(10)) // landed upright in some way
+			if(prob(10)) // landed upright on ITS CAP (1% chance)
+				src.visible_message(SPAN_NOTICE("\The [src] lands upright on its cap!"))
+				animate(src, transform = matrix(prob(50)? 180 : -180, MATRIX_ROTATE), time = 3, loop = 0)
+			else
+				src.visible_message(SPAN_NOTICE("\The [src] lands upright!"))
 		else // landed on it's side
 			animate(src, transform = matrix(prob(50)? 90 : -90, MATRIX_ROTATE), time = 3, loop = 0)
 

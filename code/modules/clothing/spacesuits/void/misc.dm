@@ -291,7 +291,7 @@
 
 /obj/item/clothing/suit/space/void/kataphract
 	name = "kataphract voidsuit"
-	desc = "A large suit of spaceproof armour, segmented and worked together expertly. Tabs on the shoulders indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony."
+	desc = "A large suit of spaceproof armor, segmented and worked together expertly. Tabs on the shoulders indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony."
 	icon = 'icons/obj/clothing/species/unathi/suits.dmi'
 	icon_override = 'icons/mob/species/unathi/suit.dmi'
 	icon_state = "rig-kataphract"
@@ -312,7 +312,7 @@
 
 /obj/item/clothing/suit/space/void/kataphract/spec
 	name = "kataphract specialist voidsuit"
-	desc = "A large suit of spaceproof armour, segmented and worked together expertly. Tabs on the shoulders indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Specialist."
+	desc = "A large suit of spaceproof armor, segmented and worked together expertly. Tabs on the shoulders indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Specialist."
 	icon_state = "rig-kataphract-spec"
 	item_state = "rig-kataphract-spec"
 
@@ -324,7 +324,7 @@
 
 /obj/item/clothing/suit/space/void/kataphract/lead
 	name = "kataphract knight voidsuit"
-	desc = "A large suit of spaceproof armour, segmented and worked together expertly. Tabs on the shoulders indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Knight."
+	desc = "A large suit of spaceproof armor, segmented and worked together expertly. Tabs on the shoulders indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Knight."
 	icon_state = "rig-kataphract-lead"
 	item_state = "rig-kataphract-lead"
 
