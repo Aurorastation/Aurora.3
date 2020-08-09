@@ -1,0 +1,7 @@
+author: Hocka
+
+delete-after: True
+
+changes: 
+    - bugfix: "Trying to pry out airlock electronics after cutting the bolts with a welder no longer creates a loop of non-existant bolts being in the way."
+    - bugfix: "CentCom airlocks are now opaque by default."
