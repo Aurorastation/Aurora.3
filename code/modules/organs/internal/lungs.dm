@@ -67,7 +67,7 @@
 				"<span class='danger'>You can't breathe!</span>",
 				"You hear someone gasp for air!",
 			)
-			owner.losebreath = round(damage/2)
+			owner.losebreath += round(damage/2)
 
 	if(rescued)
 		if(is_bruised())
@@ -160,14 +160,14 @@
 	if(owner.species.breath_type)
 		breath_type = species.breath_type
 	else
-		breath_type = "oxygen"
+		breath_type = GAS_OXYGEN
 
 	inhaling = breath.gas[breath_type]
 
 	if(owner.species.poison_type)
 		poison_type = species.poison_type
 	else
-		poison_type = "phoron"
+		poison_type = GAS_PHORON
 	poison = breath.gas[poison_type]
 
 	if(owner.species.exhale_type)
@@ -241,8 +241,8 @@
 		owner.phoron_alert = 0
 
 	// If there's some other shit in the air lets deal with it here.
-	if(breath.gas["sleeping_agent"])
-		var/SA_pp = (breath.gas["sleeping_agent"] / breath.total_moles) * breath_pressure
+	if(breath.gas[GAS_N2O])
+		var/SA_pp = (breath.gas[GAS_N2O] / breath.total_moles) * breath_pressure
 
 		// Enough to make us paralysed for a bit
 		if(SA_pp > SA_para_min)
@@ -259,7 +259,7 @@
 			if(prob(20))
 				spawn(0)
 					owner.emote(pick("giggle", "laugh"))
-		breath.adjust_gas("sleeping_agent", -breath.gas["sleeping_agent"]/6, update = 0) //update after
+		breath.adjust_gas(GAS_N2O, -breath.gas[GAS_N2O]/6, update = 0) //update after
 
 	// Were we able to breathe?
 	if (failed_inhale || failed_exhale)

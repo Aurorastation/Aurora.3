@@ -32,11 +32,11 @@ var/global/list/rad_collectors = list()
 
 
 	if(P)
-		if(P.air_contents.gas["phoron"] == 0)
+		if(P.air_contents.gas[GAS_PHORON] == 0)
 			investigate_log("<span class='warning'>out of fuel</span>.","singulo")
 			eject()
 		else
-			P.air_contents.adjust_gas("phoron", -0.001*drainratio)
+			P.air_contents.adjust_gas(GAS_PHORON, -0.001*drainratio)
 	return
 
 
@@ -46,7 +46,7 @@ var/global/list/rad_collectors = list()
 			toggle_power()
 			user.visible_message("[user.name] turns the [src.name] [active? "on":"off"].", \
 			"You turn the [src.name] [active? "on":"off"].")
-			investigate_log("turned [active?"<font color='green'>on</font>":"<span class='warning'>off</span>"] by [user.key]. [P?"Fuel: [round(P.air_contents.gas["phoron"]/0.29)]%":"<span class='warning'>It is empty</span>"].","singulo")
+			investigate_log("turned [active?"<font color='green'>on</font>":"<span class='warning'>off</span>"] by [user.key]. [P?"Fuel: [round(P.air_contents.gas[GAS_PHORON]/0.29)]%":"<span class='warning'>It is empty</span>"].","singulo")
 			return
 		else
 			to_chat(user, "<span class='warning'>The controls are locked!</span>")
@@ -125,7 +125,7 @@ var/global/list/rad_collectors = list()
 /obj/machinery/power/rad_collector/proc/receive_pulse(var/pulse_strength)
 	if(P && active)
 		var/power_produced = 0
-		power_produced = P.air_contents.gas["phoron"]*pulse_strength*20
+		power_produced = P.air_contents.gas[GAS_PHORON]*pulse_strength*20
 		add_avail(power_produced)
 		last_power_new = power_produced
 		return

@@ -123,8 +123,7 @@
 		if(istype(inserted_id))
 			if(href_list["choice"] == "eject")
 				inserted_id.forceMove(loc)
-				if(!usr.get_active_hand())
-					usr.put_in_hands(inserted_id)
+				usr.put_in_hands(inserted_id)
 				inserted_id = null
 			if(href_list["choice"] == "claim")
 				if(access_mining_station in inserted_id.access)
