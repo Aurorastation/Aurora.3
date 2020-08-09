@@ -275,10 +275,9 @@
 
 	add_fingerprint(user)
 
-	// Handles smartgun alert level restriction.
-	if(smartgun && get_security_level() == "green" && firemodes[sel_mode].name != "stun") // Prevents smartguns from firing if they're not sent to stun
+	if(smartgun && smartgun_check())
+		to_chat(user, SPAN_WARNING("The smartgun system prevents \the [src] from firing!"))
 		handle_click_empty(user)
-		to_chat(user, SPAN_WARNING("\The smartgun system prevents \the [src] from firing!"))
 		return FALSE
 
 	if(safety())
@@ -547,7 +546,7 @@
 			handle_click_empty(user)
 			mouthshoot = FALSE
 			return
-		if(smartgun && get_security_level() == "green" && firemodes[sel_mode].name != "stun")
+		if(smartgun && smartgun_check()) // Checks smartgun status.
 			user.visible_message(SPAN_WARNING("The smartgun system prevents \the [src] from firing. How anticlimatic!"))
 			handle_click_empty(user)
 			mouthshoot = FALSE
@@ -922,3 +921,20 @@
 		else
 			maptext_x = 22
 		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[get_ammo()]</span>"
+
+//Smartgun stuff
+/obj/item/gun/proc/smartgun_check() 	// If the security level is Green and the current firemode doesn't have a taser effect, return TRUE. Otherwise, return FALSE.
+	if(istype(src, /obj/item/gun/energy)) // Only energy guns can be smart guns
+		var/obj/item/projectile/energy/P
+		var/datum/firemode/current_mode = firemodes[sel_mode]
+		for(var/settingname in current_mode.settings) // This is some bizzaire shit from the firemode datum. Don't ask me why they put a list inside a datum.
+			var/settingvalue = current_mode.settings[settingname]
+			if(settingname == "projectile_type")
+				P = new settingvalue
+		if(smartgun && get_security_level() == "green" &! P.taser_effect)
+			return TRUE
+		else
+			return FALSE
+	return FALSE
+
+
