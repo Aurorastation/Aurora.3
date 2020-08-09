@@ -352,8 +352,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		var/part_a = "<span class='[frequency_span_class(display_freq)]'>[accent_icon ? accent_icon + " " : ""]<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>" // goes in the actual output
 
 		// --- Some more pre-message formatting ---
-		var/part_b = "</span> <span class='message linkify'>" // Tweaked for security headsets -- TLE
-		var/part_c = "</span></span>"
+		var/part_b = "</span> <span class='message linkify'></span>" // Tweaked for security headsets -- TLE
+		var/part_c = "</span>"
 
 
 		// --- Filter the message; place it in quotes apply a verb ---
@@ -411,7 +411,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		if (length(heard_masked))
 			for (var/mob/R in heard_masked)
-				R.hear_radio(message,verbage, speaking, part_a, part_b, M, 0, name)
+				R.hear_radio(message, verbage, speaking, part_a, part_b, M, 0, name)
 
 		/* --- Process all the mobs that heard the voice normally (understood) --- */
 
