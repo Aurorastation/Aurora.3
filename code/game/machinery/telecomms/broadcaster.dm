@@ -354,6 +354,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		// --- Some more pre-message formatting ---
 		var/part_b = "</span> <span class='message linkify'></span>" // Tweaked for security headsets -- TLE
 		var/part_c = "</span>"
+		message += "</span>"
 
 
 		// --- Filter the message; place it in quotes apply a verb ---
