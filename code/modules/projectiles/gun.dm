@@ -77,7 +77,7 @@
 	var/list/burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	var/list/dispersion = list(0)
 	var/reliability = 100
-	var/smartgun = 0
+	var/smartgun = FALSE
 
 	var/cyborg_maptext_override
 	var/displays_maptext = FALSE
@@ -921,20 +921,3 @@
 		else
 			maptext_x = 22
 		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[get_ammo()]</span>"
-
-//Smartgun stuff
-/obj/item/gun/proc/smartgun_check() 	// If the security level is Green and the current firemode doesn't have a taser effect, return TRUE. Otherwise, return FALSE.
-	if(istype(src, /obj/item/gun/energy)) // Only energy guns can be smart guns
-		var/obj/item/projectile/energy/P
-		var/datum/firemode/current_mode = firemodes[sel_mode]
-		for(var/settingname in current_mode.settings) // This is some bizzaire shit from the firemode datum. Don't ask me why they put a list inside a datum.
-			var/settingvalue = current_mode.settings[settingname]
-			if(settingname == "projectile_type")
-				P = new settingvalue
-		if(smartgun && get_security_level() == "green" &! P.taser_effect)
-			return TRUE
-		else
-			return FALSE
-	return FALSE
-
-

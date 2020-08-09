@@ -40,7 +40,7 @@
 	max_shots = 10 //Placeholder for the PR. I asked some secmans in OOC chat and they recommended at least 10 shots.
 	has_item_ratio = FALSE
 	modifystate = "secblasterstun"
-	smartgun = 1
+	smartgun = TRUE
 
 	sel_mode = 1
 
