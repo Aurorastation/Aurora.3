@@ -28,8 +28,7 @@
 	icon = 'icons/obj/guns/secblaster.dmi'
 	icon_state = "secblaster"
 	item_state = "secblaster"
-	fire_sound = 'sound/weapons/taser.ogg'
-	secondary_fire_sound = 'sound/weapons/gunshot/bolter.ogg'
+	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = 2
 	force = 5
@@ -37,7 +36,8 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	projectile_type = /obj/item/projectile/energy/stunblaster
 	secondary_projectile_type = /obj/item/projectile/energy/blaster
-	max_shots = 10 //Placeholder for the PR. I asked some secmans in OOC chat and they recommended at least 10 shots.
+	max_shots = 12 //12 shots stun, 8 shots lethal.
+	charge_cost = 50
 	has_item_ratio = FALSE
 	modifystate = "secblasterstun"
 	smartgun = TRUE
@@ -45,8 +45,8 @@
 	sel_mode = 1
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/stunblaster, modifystate="secblasterstun", fire_sound='sound/weapons/taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster, modifystate="secblasterkill", fire_sound='sound/weapons/gunshot/bolter.ogg', recoil = 1)
+		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/stunblaster, modifystate="secblasterstun", charge_cost = 50, fire_sound = 'sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster, modifystate="secblasterkill", recoil = 1, charge_cost = 75, fire_sound = 'sound/weapons/gunshot/bolter.ogg')
 		)
 
 

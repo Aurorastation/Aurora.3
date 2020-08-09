@@ -8,4 +8,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Implements an alert-level activated smartgun blaster. This weapon is intended to replace the security taser and .45 pistol with rubber bullets as their standard sidearm. The security blaster can be fired on stun during Green alert, but cannot be fired on lethal until the alert level is changed from Green. It is able to fire lethally during Biohazard, Blue, Red and Delta alerts."
+  - rscadd: "Implements a security level activated smartgun blaster to the security arsenal. This weapon replaces the security taser and .45 pistol as the primary service weapon of Security Officers and the Warden."
+  - maptweak: "Moves the .45 pistols and rubber .45 magazines from the Security Officer secure lockers to the armoury."
+  - maptweak: "Replaces the Warden's energy pistol with a smartgun blaster."

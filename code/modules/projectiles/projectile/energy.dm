@@ -236,12 +236,14 @@
 /obj/item/projectile/energy/stunblaster
 	name = "stun bolt"
 	icon_state = "spark"
-	damage = 2 //Flavor.
-	damage_type = BURN
-	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
-	taser_effect = 1
+	damage = 5
 	agony = 40
+	taser_effect = 1
 	eyeblur = 1
+	damage_type = BURN
+	pass_flags = PASSTABLE
+	muzzle_type = /obj/effect/projectile/muzzle/bolt
+
 
 /obj/item/projectile/energy/blaster/heavy
 	damage = 35
