@@ -325,13 +325,16 @@
 
 	return ..()
 
-/obj/item/rig_module/device/door_hack/activate()
+/obj/item/rig_module/device/door_hack/activate(mob/user)
 	..()
 
 	var/mob/living/M = holder.wearer
 
 	if(M.l_hand && M.r_hand)
-		to_chat(M, SPAN_DANGER("Your hands are full."))
+		if(M == user)
+			to_chat(M, SPAN_WARNING("Your hands are full."))
+		else
+			to_chat(user, SPAN_WARNING("[M]'s hands are full."))
 		deactivate()
 		return
 

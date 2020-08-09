@@ -413,7 +413,7 @@
 	if(target.drain_power(1) <= 0)
 		return FALSE
 
-	to_chat(H, SPAN_NOTICE("You begin draining power from \the [target]!"))
+	message_user(user, SPAN_NOTICE("You begin draining power from \the [target]!"), SPAN_NOTICE("[user] begins draining power from \the [target]!"))
 	interfaced_with = target
 	drain_loc = interfaced_with.loc
 

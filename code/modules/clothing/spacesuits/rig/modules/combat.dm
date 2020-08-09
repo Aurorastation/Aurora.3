@@ -286,13 +286,16 @@
 
 	return ..()
 
-/obj/item/rig_module/mounted/energy_blade/activate()
+/obj/item/rig_module/mounted/energy_blade/activate(mob/user)
 	..()
 
 	var/mob/living/M = holder.wearer
 
 	if(M.l_hand && M.r_hand)
-		to_chat(M, "<span class='danger'>Your hands are full.</span>")
+		if(M == user)
+			to_chat(M, SPAN_WARNING("Your hands are full."))
+		else
+			to_chat(user, SPAN_WARNING("[M]'s hands are full."))
 		deactivate()
 		return
 

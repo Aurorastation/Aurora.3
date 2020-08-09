@@ -634,13 +634,13 @@
 	var/mob/living/carbon/human/H = holder.wearer
 
 	if (!isturf(H.loc))
-		to_chat(H, SPAN_WARNING("You cannot leap out of your current location!"))
+		to_chat(user, SPAN_WARNING("You cannot leap out of your current location!"))
 		return FALSE
 
 	var/turf/T = get_turf(target)
 
 	if (!T || T.density)
-		to_chat(H, SPAN_WARNING("You cannot leap at solid walls!"))
+		to_chat(user, SPAN_WARNING("You cannot leap at solid walls!"))
 		return FALSE
 
 	// Saved, we need it more than 1 place.
@@ -653,11 +653,11 @@
 				continue
 
 			if (aa.density)
-				to_chat(H, SPAN_WARNING("You cannot leap at a location with solid objects on it!"))
+				to_chat(user, SPAN_WARNING("You cannot leap at a location with solid objects on it!"))
 				return FALSE
 
 	if (T.z != H.z || dist > leapDistance)
-		to_chat(H, SPAN_WARNING("You cannot leap at such a distant object!"))
+		to_chat(user, SPAN_WARNING("You cannot leap at such a distant object!"))
 		return FALSE
 
 	// Handle leaping at targets with a combat capable version here.
@@ -677,18 +677,18 @@
 	else
 		var/turf/simulated/open/TA = GetAbove(src)
 		if (!istype(TA))
-			to_chat(H, SPAN_WARNING("There is a ceiling above you that stop you from leaping upwards!"))
+			to_chat(user, SPAN_WARNING("There is a ceiling above you that stop you from leaping upwards!"))
 			return FALSE
 
 		for (var/atom/A in TA)
 			if (!A.CanPass(src, TA, 1.5, 0))
-				to_chat(H, SPAN_WARNING("\The [A] blocks you!"))
+				to_chat(user, SPAN_WARNING("\The [A] blocks you!"))
 				return FALSE
 
 		var/turf/leapEnd = get_step(TA, H.dir)
 		var/valid_climbable = is_valid_turf(leapEnd)
 		if(!valid_climbable)
-			to_chat(H, SPAN_WARNING("There is no valid ledge to scale ahead of you!"))
+			to_chat(user, SPAN_WARNING("There is no valid ledge to scale ahead of you!"))
 			return
 
 		H.visible_message(SPAN_NOTICE("\The [H] leaps up, out of view!"), SPAN_NOTICE("You leap up!"))
