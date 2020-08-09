@@ -274,11 +274,11 @@
 	if(istype(src, /obj/item/gun/energy)) // Only energy guns can be smart guns
 		var/obj/item/projectile/energy/P
 		var/datum/firemode/current_mode = firemodes[sel_mode]
-		for(var/settingname in current_mode.settings) // This is some bizzaire shit from the firemode datum. Don't ask me why they put a list inside a datum.
+		for(var/settingname in current_mode.settings) // A roundabout way of extracting the projectile type from the settings() list in the firemode datum.
 			var/settingvalue = current_mode.settings[settingname]
 			if(settingname == "projectile_type")
 				P = new settingvalue
-		if(smartgun && get_security_level() == "green" &! P.taser_effect)
+		if(smartgun && (get_security_level() == "green" || get_security_level() == "blue") &! P.taser_effect) //Would be better with security level flags, but security level doesn't use them.
 			return TRUE
 		else
 			return FALSE
