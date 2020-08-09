@@ -30,6 +30,14 @@
 			amount = list(1,2,3,4,5),
 			emag = 0
 		),
+		"fishfillet" = list(
+			name = "Fish Fillet",
+			class = "Food",
+			object = /obj/item/reagent_containers/food/snacks/fish/fishfillet,
+			cost = 50,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
 		"soywafers" = list(
 			name = "Soy Wafers",
 			class = "Food",

@@ -162,7 +162,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/weldermes = "USER lights NAME with FLAME"
 	var/ignitermes = "USER lights NAME with FLAME"
 	var/initial_volume = 0
-	var/burn_rate = 0
+	var/burn_rate = 0 // Do not make lower than MINIMUM_CHEMICAL_VOLUME 0.01
 	var/last_drag = 0 //Spam limiter for audio/message when taking a drag of cigarette.
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
@@ -253,12 +253,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			if(!no_message)
 				to_chat(M, SPAN_NOTICE("Your [name] goes out, and you empty the ash."))
 				playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
-			lit = 0
-			icon_state = icon_off
-			item_state = icon_off
 			M.update_inv_wear_mask(0)
 			M.update_inv_l_hand(0)
 			M.update_inv_r_hand(1)
+		lit = FALSE
+		icon_state = icon_off
+		item_state = icon_off
 		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/clothing/mask/smokable/attackby(obj/item/W as obj, mob/user as mob)
@@ -298,7 +298,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_off = "cigoff"
 	type_butt = /obj/item/trash/cigbutt
 	chem_volume = 30
-	burn_rate = 0.006 //Lasts ~166 seconds)
+	burn_rate = 0.012 //Lasts ~83 seconds)
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to light their NAME with FLAME.</span>"
 	zippomes = "<span class='notice'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
@@ -356,7 +356,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 
 /obj/item/clothing/mask/smokable/cigarette/vanilla
-	burn_rate = 0.003 //300 seconds
+	burn_rate = 0.015
 
 /obj/item/clothing/mask/smokable/cigarette/vanilla/Initialize()
 	. = ..()
@@ -375,7 +375,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	reagents.add_reagent(/datum/reagent/serotrotium,3)
 
 /obj/item/clothing/mask/smokable/cigarette/blank
-	burn_rate = 0.003 //300 seconds
+	burn_rate = 0.015
 	chem_volume = 15
 
 /obj/item/clothing/mask/smokable/cigarette/blank/Initialize()
@@ -428,7 +428,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "cigaroff"
 	type_butt = /obj/item/trash/cigbutt/cigarbutt
 	throw_speed = 0.5
-	burn_rate = 0.003 //Lasts ~300 seconds
+	burn_rate = 0.015
 	chem_volume = 60
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to offend their NAME by lighting it with FLAME.</span>"
@@ -536,7 +536,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "pipeoff"
 	icon_on = "pipeon"  //Note - these are in masks.dmi
 	icon_off = "pipeoff"
-	burn_rate = 0.003
+	burn_rate = 0.015
 	w_class = ITEMSIZE_TINY
 	chem_volume = 30
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
@@ -657,6 +657,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/deactivation_sound = 'sound/items/cigs_lighters/cheap_off.ogg'
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
+	var/last_open = 0 //prevent message spamming.
+	var/last_close = 0
 
 /obj/item/flame/lighter/zippo
 	name = "\improper Zippo lighter"
@@ -691,31 +693,38 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			lit = TRUE
 			update_icon()
 			playsound(src.loc, pick(activation_sound), 75, 1)
-			if(istype(src, /obj/item/flame/lighter/zippo) )
-				user.visible_message(FONT_SMALL("Without even breaking stride, <b>[user]</b> flips open and lights \the [src] in one smooth movement."), range = 3)
-			else
+			if(istype(src, /obj/item/flame/lighter/zippo))
+				if(last_open <= world.time - 20) //Spam limiter.
+					last_open = world.time
+					user.visible_message(SPAN_NOTICE("Without even breaking stride, <b>[user]</b> flips open and lights \the [src] in one smooth movement."), range = 3)
+			else // cheap lighter.
 				if(prob(95))
-					user.visible_message(FONT_SMALL("After a few attempts, <b>[user]</b> manages to light \the [src]."), range = 3)
+					if(last_open <= world.time - 20) //Spam limiter.
+						last_open = world.time
+						user.visible_message(SPAN_NOTICE("After a few attempts, <b>[user]</b> manages to light \the [src]."), range = 3)
 				else
-					to_chat(user, FONT_SMALL("You burn yourself while lighting the lighter."))
+					to_chat(user, SPAN_DANGER("You burn yourself while lighting the lighter.")) // shouldn't be a problem - you got hurt, after all.
 					if(user.IgniteMob())
-						user.visible_message(FONT_SMALL("<b>[user]</b> accidentally sets themselves on fire!"))
+						user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally sets themselves on fire!"))
 					if(user.l_hand == src)
 						user.apply_damage(2, BURN,BP_L_HAND)
 					else
 						user.apply_damage(2, BURN,BP_R_HAND)
-					user.visible_message(FONT_SMALL("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)
-
+					if(last_open <= world.time - 20) //Spam limiter.
+						last_open = world.time
+						user.visible_message(SPAN_DANGER("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)
 			set_light(2, 1, l_color = LIGHT_COLOR_LAVA)
 			START_PROCESSING(SSprocessing, src)
 		else
 			lit = FALSE
 			update_icon()
 			playsound(src.loc, deactivation_sound, 75, 1)
-			if(istype(src, /obj/item/flame/lighter/zippo) )
-				user.visible_message(FONT_SMALL("You hear a quiet click, as <b>[user]</b> shuts off \the [src] without even looking at what they're doing."), range = 3)
-			else
-				user.visible_message(FONT_SMALL("<b>[user]</b> quietly shuts off \the [src]."), range = 3)
+			if(last_close <= world.time - 20) //Spam limiter.
+				last_close = world.time
+				if(istype(src, /obj/item/flame/lighter/zippo))
+					user.visible_message(SPAN_NOTICE("You hear a quiet click, as <b>[user]</b> shuts off \the [src] without even looking at what they're doing."), range = 3)
+				else
+					user.visible_message(SPAN_NOTICE("<b>[user]</b> quietly shuts off \the [src]."), range = 3)
 
 			set_light(0)
 			STOP_PROCESSING(SSprocessing, src)

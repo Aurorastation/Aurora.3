@@ -658,22 +658,26 @@
 	if (src.icon_vend) //Show the vending animation if needed
 		flick(src.icon_vend,src)
 	playsound(src.loc, "sound/[vending_sound]", 100, 1)
-	spawn(src.vend_delay)
-		var/obj/vended = new R.product_path(get_turf(src))
+	addtimer(CALLBACK(src, .proc/vend_product, R, user), vend_delay)
+
+/obj/machinery/vending/proc/vend_product(var/datum/data/vending_product/R, mob/user)
+	var/vending_usr_dir = get_dir(src, user)
+	var/obj/vended = new R.product_path(get_step(src, vending_usr_dir))
+	if(Adjacent(user))
 		user.put_in_hands(vended)
-		src.status_message = ""
-		src.status_error = 0
-		src.vend_ready = 1
-		currently_vending = null
-		SSnanoui.update_uis(src)
-		if(istype(vended,/obj/item/reagent_containers/))
-			var/obj/item/reagent_containers/RC = vended
-			if(RC.reagents)
-				switch(temperature_setting)
-					if(-1)
-						use_power(RC.reagents.set_temperature(cooling_temperature))
-					if(1)
-						use_power(RC.reagents.set_temperature(heating_temperature))
+	src.status_message = ""
+	src.status_error = 0
+	src.vend_ready = 1
+	currently_vending = null
+	SSnanoui.update_uis(src)
+	if(istype(vended,/obj/item/reagent_containers/))
+		var/obj/item/reagent_containers/RC = vended
+		if(RC.reagents)
+			switch(temperature_setting)
+				if(-1)
+					use_power(RC.reagents.set_temperature(cooling_temperature))
+				if(1)
+					use_power(RC.reagents.set_temperature(heating_temperature))
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
 	to_chat(user, "<span class='notice'>You insert \the [R.product_name] in the product receptor.</span>")
