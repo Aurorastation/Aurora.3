@@ -338,14 +338,16 @@
 
 	if(target)
 		var/obj/item/firing = new fabrication_type(get_turf(src))
-		holder.wearer.visible_message("<span class='danger'>[user] launches \a [firing]!</span>")
-		firing.throw_at(target,fire_force,fire_distance)
+		holder.wearer.visible_message(SPAN_DANGER("[user] launches \a [firing]!"))
+		firing.throw_at(target, fire_force, fire_distance)
 	else
 		if(H.l_hand && H.r_hand)
-			to_chat(H, "<span class='danger'>Your hands are full.</span>")
+			if(H == user)
+				to_chat(H, SPAN_WARNING("Your hands are full."))
+			else
+				to_chat(user, SPAN_WARNING("[H]'s hands are full."))
 		else
-			var/obj/item/new_weapon = new fabrication_type()
-			new_weapon.forceMove(H)
+			var/obj/item/new_weapon = new fabrication_type(H)
 			message_user(user, SPAN_NOTICE("You quickly fabricate \a [new_weapon]."), SPAN_NOTICE("\The [user] fabricates \a [new_weapon]."))
 			H.put_in_hands(new_weapon)
 
