@@ -133,6 +133,16 @@
 	log_and_message_admins("[queryparams["senderkey"]] initiated a remote reload of the admins list.")
 
 	if (config.use_forumuser_api)
-		update_admins_from_api(reload_once_done=FALSE)
+		if (!update_admins_from_api(reload_once_done=FALSE))
+			statuscode = 500
+			response = "Updating admins from the forumuser API failed. Aborted."
+			return FALSE
+		else
+			statuscode = 201
+			response = "Admins updated from the forumuser API and reloaded."
+	else
+		statuscode = 200
+		response = "Admins reloaded."
 
 	load_admins()
+	return TRUE

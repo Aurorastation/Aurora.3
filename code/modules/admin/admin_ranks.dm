@@ -166,7 +166,7 @@ var/list/forum_groupids_to_ranks = list()
 
 	if (!establish_db_connection(dbcon))
 		log_and_message_admins("Failed to connect to database in update_admins_from_api(). Carrying on with old staff lists.")
-		return
+		return FALSE
 
 	var/list/admins_to_push = list()
 
@@ -184,7 +184,7 @@ var/list/forum_groupids_to_ranks = list()
 		if (resp.errored)
 			crash_with("Role request errored for id [rank.group_id] with: [resp.error]")
 			log_and_message_admins("Loading admins from forumuser API FAILED. Please alert web-service maintainers immediately!")
-			return
+			return FALSE
 
 		for (var/datum/forum_user/user in resp.body)
 			admins_to_push += user
@@ -200,6 +200,8 @@ var/list/forum_groupids_to_ranks = list()
 
 	if (reload_once_done)
 		load_admins()
+
+	return TRUE
 
 /proc/insert_user_to_admins_table(datum/forum_user/user)
 	var/rights = 0
