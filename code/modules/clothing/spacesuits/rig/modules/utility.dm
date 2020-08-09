@@ -442,10 +442,13 @@
 /obj/item/rig_module/maneuvering_jets/engage(atom/target, mob/user)
 	if(!..())
 		return FALSE
-	jets.toggle_rockets()
+	var/list/extra_mobs = list()
+	if(user != holder.wearer)
+		extra_mobs += holder.wearer
+	jets.proc_toggle_rockets(user, extra_mobs)
 	return TRUE
 
-/obj/item/rig_module/maneuvering_jets/activate()
+/obj/item/rig_module/maneuvering_jets/activate(mob/user)
 	if(active)
 		return FALSE
 
@@ -459,14 +462,20 @@
 		holder.update_icon()
 
 	if(!jets.on)
-		jets.toggle()
+		var/list/extra_mobs = list()
+		if(user != holder.wearer)
+			extra_mobs += holder.wearer
+		jets.proc_toggle(user, extra_mobs)
 	return TRUE
 
-/obj/item/rig_module/maneuvering_jets/deactivate()
+/obj/item/rig_module/maneuvering_jets/deactivate(mob/user)
 	if(!..())
 		return FALSE
 	if(jets.on)
-		jets.toggle()
+		var/list/extra_mobs = list()
+		if(user != holder.wearer)
+			extra_mobs += holder.wearer
+		jets.proc_toggle(user, extra_mobs)
 	return TRUE
 
 /obj/item/rig_module/maneuvering_jets/New()
