@@ -562,8 +562,8 @@
 			mouthshoot = FALSE
 			return
 		if(smartgun && smartgun_check()) // Checks smartgun status.
-			user.visible_message(SPAN_WARNING("The smartgun system prevents \the [src] from firing. How anticlimatic!"))
 			handle_click_empty(user)
+			user.visible_message(SPAN_WARNING("The smartgun system prevents \the [src] from firing. How anticlimatic!"))
 			mouthshoot = FALSE
 			return
 		if(silenced)
