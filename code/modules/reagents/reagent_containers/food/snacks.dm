@@ -2422,7 +2422,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#EDE5AD"
 	center_of_mass = list("x"=16, "y"=9)
-	reagents_to_add = list(/datum/reagent/nutriment = 1, /datum/reagent/honey = 2)
+	reagents_to_add = list(/datum/reagent/nutriment = 1, /datum/reagent/nutriment/honey = 2)
 	reagent_data = list(/datum/reagent/nutriment = list("bread" = 3))
 	bitesize = 4
 
@@ -2445,7 +2445,7 @@
 	filling_color = "#7A3D11"
 	center_of_mass = list("x"=16, "y"=13)
 	bitesize = 4
-	reagents_to_add = list(/datum/reagent/nutriment/protein = 6, /datum/reagent/nutriment/triglyceride = 2, /datum/reagent/blackpepper = 1, /datum/reagent/honey = 5)
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 6, /datum/reagent/nutriment/triglyceride = 2, /datum/reagent/blackpepper = 1, /datum/reagent/nutriment/honey = 5)
 
 /////////////////////////////////////////////////Sliceable////////////////////////////////////////
 // All the food items that can be sliced into smaller bits like Meatbread and Cheesewheels
@@ -3794,7 +3794,7 @@
 	name = "honey bun"
 	desc = "A sticky pastry bun glazed with honey."
 	icon_state = "honeybun"
-	reagents_to_add = list(/datum/reagent/nutriment = 3, /datum/reagent/honey = 3)
+	reagents_to_add = list(/datum/reagent/nutriment = 3, /datum/reagent/nutriment/honey = 3)
 	reagent_data = list(/datum/reagent/nutriment = list("pastry" = 1))
 	bitesize = 3
 

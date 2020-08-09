@@ -33,16 +33,10 @@
 
 /obj/item/reagent_containers/food/snacks/honeycomb/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/honey,10)
+	reagents.add_reagent(/datum/reagent/nutriment/honey,10)
 	reagents.add_reagent(/datum/reagent/nutriment, 0.5)
 	reagents.add_reagent(/datum/reagent/sugar, 2)
 	bitesize = 2
-
-/datum/reagent/honey
-	name = "Honey"
-	description = "A golden yellow syrup, loaded with sugary sweetness."
-	color = "#FFFF00"
-	fallback_specific_heat = 0.75
 
 /obj/item/book/manual/hydroponics_beekeeping
 	name = "The Ins and Outs of Apiculture - A Precise Art"
