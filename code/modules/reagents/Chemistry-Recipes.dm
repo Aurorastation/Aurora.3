@@ -870,7 +870,7 @@
 /datum/chemical_reaction/napalm/on_reaction(var/datum/reagents/holder, var/created_volume)
 	var/turf/location = get_turf(holder.my_atom.loc)
 	for(var/turf/simulated/floor/target_tile in range(0,location))
-		target_tile.assume_gas("phoron", created_volume, 400+T0C)
+		target_tile.assume_gas(GAS_PHORON, created_volume, 400+T0C)
 		spawn (0) target_tile.hotspot_expose(700, 400)
 	holder.del_reagent(/datum/reagent/fuel/napalm)
 	return
@@ -1466,7 +1466,7 @@
 /datum/chemical_reaction/slime/fire/proc/do_reaction(var/datum/reagents/holder)
 	var/turf/location = get_turf(holder.my_atom)
 	for(var/turf/simulated/floor/target_tile in range(1, location))
-		target_tile.assume_gas("phoron", 25, 1400)
+		target_tile.assume_gas(GAS_PHORON, 25, 1400)
 		target_tile.hotspot_expose(700, 400)
 
 //Yellow
@@ -3497,7 +3497,7 @@
 	if(created_volume)
 		var/turf/simulated/floor/T = get_turf(holder.my_atom.loc)
 		if(istype(T))
-			T.assume_gas("oxygen", created_volume*10, (created_thermal_energy/created_volume) )
+			T.assume_gas(GAS_OXYGEN, created_volume*10, (created_thermal_energy/created_volume) )
 
 /datum/chemical_reaction/phoron_salt_fire
 	name = "Phoron Salt Fire"
@@ -3511,7 +3511,7 @@
 /datum/chemical_reaction/phoron_salt_fire/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
 	var/turf/location = get_turf(holder.my_atom)
 	for(var/turf/simulated/floor/target_tile in range(0,location))
-		target_tile.assume_gas("phoron", created_volume*2, created_thermal_energy / 25) //2 because there is 2 phoron in 1u of phoron salts
+		target_tile.assume_gas(GAS_PHORON, created_volume*2, created_thermal_energy / 25) //2 because there is 2 phoron in 1u of phoron salts
 		addtimer(CALLBACK(target_tile, /turf/simulated/floor/.proc/hotspot_expose, 700, 400), 1)
 	holder.del_reagent(/datum/reagent/toxin/phoron_salt)
 	return

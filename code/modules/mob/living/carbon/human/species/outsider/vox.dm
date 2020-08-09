@@ -40,8 +40,8 @@
 	gluttonous = 2
 	virus_immune = 1
 
-	breath_type = "nitrogen"
-	poison_type = "oxygen"
+	breath_type = GAS_NITROGEN
+	poison_type = GAS_OXYGEN
 	siemens_coefficient = 0.2
 
 	flags = NO_SCAN
@@ -113,8 +113,8 @@
 	fall_mod = 0.5
 
 	eyes = "blank_eyes"
-	breath_type = "nitrogen"
-	poison_type = "oxygen"
+	breath_type = GAS_NITROGEN
+	poison_type = GAS_OXYGEN
 
 	flags = NO_SCAN | NO_PAIN
 	spawn_flags = IS_RESTRICTED
