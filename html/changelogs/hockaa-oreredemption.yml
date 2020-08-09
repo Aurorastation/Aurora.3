@@ -1,0 +1,6 @@
+author: Hocka
+
+delete-after: True
+
+changes: 
+    - tweak: "Ejecting your ID from the Ore Redemption console will now put the ID in your inactive hand if it's empty and your active hand is full."
