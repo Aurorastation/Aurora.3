@@ -30,6 +30,7 @@
 
 /obj/item/storage/box/fancy/Initialize()
 	. = ..()
+	update_icon()
 	if(closable)
 		desc_info += "Alt-click to open and close the box. " //aka force override icon state. for you know, style.
 
@@ -46,8 +47,7 @@
 /obj/item/storage/box/fancy/update_icon(var/itemremoved = 0)
 	if(opened) //use the open icon.
 		if(icon_overlays) //whether it uses the overlays/uses its own version.
-			var/total_contents = src.contents.len - itemremoved
-			src.icon_state = "[src.icon_type][src.storage_type][total_contents]"
+			src.icon_state = "[src.icon_type][src.storage_type][contents.len - itemremoved]"
 		else
 			icon_state = "[initial(icon_state)][src.opened]"
 

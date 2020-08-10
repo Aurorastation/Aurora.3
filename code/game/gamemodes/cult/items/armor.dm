@@ -15,7 +15,7 @@
 
 /obj/item/clothing/head/helmet/space/cult
 	name = "eldritch voidsuit helmet"
-	desc = "A bulky armoured voidsuit helmet, bristling with menacing spikes. It looks space proof."
+	desc = "A bulky armored voidsuit helmet, bristling with menacing spikes. It looks space proof."
 	icon_state = "cult_helmet"
 	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 30, bio = 30, rad = 30)
 	siemens_coefficient = 0
@@ -27,9 +27,9 @@
 
 /obj/item/clothing/suit/space/cult
 	name = "eldritch voidsuit"
-	icon_state = "cult_armour"
-	item_state = "cult_armour"
-	desc = "A bulky armoured voidsuit, bristling with menacing spikes. It looks space proof."
+	icon_state = "cult_armor"
+	item_state = "cult_armor"
+	desc = "A bulky armored voidsuit, bristling with menacing spikes. It looks space proof."
 	w_class = ITEMSIZE_NORMAL
 	allowed = list(/obj/item/book/tome, /obj/item/melee/cultblade, /obj/item/tank, /obj/item/device/suit_cooling_unit)
 	slowdown = 1

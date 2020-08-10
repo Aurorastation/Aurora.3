@@ -29,7 +29,7 @@
 
 /obj/item/rig/ert/engineer
 	name = "ERT-E suit control module"
-	desc = "A suit worn by the engineering division of an Emergency Response Team. Has orange highlights. Less armoured than the security variant, but offers full radiation protection."
+	desc = "A suit worn by the engineering division of an Emergency Response Team. Has orange highlights. Less armored than the security variant, but offers full radiation protection."
 	suit_type = "ERT engineer"
 	icon_state = "ert_engineer_rig"
 	emp_protection = 30
@@ -47,7 +47,7 @@
 
 /obj/item/rig/ert/medical
 	name = "ERT-M suit control module"
-	desc = "A suit worn by the medical division of an Emergency Response Team. Has white highlights. Less armoured than the security variant, but offers full radiation protection."
+	desc = "A suit worn by the medical division of an Emergency Response Team. Has white highlights. Less armored than the security variant, but offers full radiation protection."
 	suit_type = "ERT medic"
 	icon_state = "ert_medical_rig"
 	emp_protection = 30
@@ -65,7 +65,7 @@
 
 /obj/item/rig/ert/security
 	name = "ERT-S suit control module"
-	desc = "A suit worn by the security division of an Emergency Response Team. Has red highlights. Trades full radiation protection for a slightly better armour."
+	desc = "A suit worn by the security division of an Emergency Response Team. Has red highlights. Trades full radiation protection for a slightly better armor."
 	suit_type = "ERT security"
 	icon_state = "ert_security_rig"
 	emp_protection = 30
@@ -82,7 +82,7 @@
 
 /obj/item/rig/ert/janitor
 	name = "ERT-J suit control module"
-	desc = "A suit worn by the janitoral division of an Emergency Response Team. Has purple highlights. Less armoured than security the variant, but offers full radiation protection."
+	desc = "A suit worn by the janitoral division of an Emergency Response Team. Has purple highlights. Less armored than security the variant, but offers full radiation protection."
 	suit_type = "ERT janitor"
 	icon_state = "ert_janitor_rig"
 	initial_modules = list(
@@ -98,7 +98,7 @@
 
 /obj/item/rig/ert/assetprotection
 	name = "heavy asset protection suit control module"
-	desc = "A heavy suit worn by the highest level of Asset Protection, don't mess with the person wearing this. Armoured and space ready."
+	desc = "A heavy suit worn by the highest level of Asset Protection, don't mess with the person wearing this. Armored and space ready."
 	suit_type = "heavy asset protection"
 	icon_state = "asset_protection_rig"
 	armor = list(melee = 80, bullet = 75, laser = 60, energy = 40, bomb = 80, bio = 100, rad =100)

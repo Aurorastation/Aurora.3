@@ -521,10 +521,10 @@
 	outputs = list(
 		"pressure"       = IC_PINTYPE_NUMBER,
 		"temperature"    = IC_PINTYPE_NUMBER,
-		"oxygen"         = IC_PINTYPE_NUMBER,
-		"nitrogen"       = IC_PINTYPE_NUMBER,
-		"carbon dioxide" = IC_PINTYPE_NUMBER,
-		"phoron"         = IC_PINTYPE_NUMBER,
+		GAS_OXYGEN         = IC_PINTYPE_NUMBER,
+		GAS_NITROGEN       = IC_PINTYPE_NUMBER,
+		GAS_CO2 = IC_PINTYPE_NUMBER,
+		GAS_PHORON         = IC_PINTYPE_NUMBER,
 		"other"          = IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
@@ -621,10 +621,10 @@
 	var/total_moles = environment.total_moles
 
 	if (total_moles)
-		var/o2_level = environment.gas["oxygen"]/total_moles
-		var/n2_level = environment.gas["nitrogen"]/total_moles
-		var/co2_level = environment.gas["carbon_dioxide"]/total_moles
-		var/phoron_level = environment.gas["phoron"]/total_moles
+		var/o2_level = environment.gas[GAS_OXYGEN]/total_moles
+		var/n2_level = environment.gas[GAS_NITROGEN]/total_moles
+		var/co2_level = environment.gas[GAS_CO2]/total_moles
+		var/phoron_level = environment.gas[GAS_PHORON]/total_moles
 		var/unknown_level =  1-(o2_level+n2_level+co2_level+phoron_level)
 		set_pin_data(IC_OUTPUT, 1, pressure)
 		set_pin_data(IC_OUTPUT, 2, round(environment.temperature-T0C,0.1))
@@ -713,8 +713,8 @@
 	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
 	power_draw_per_use = 20
 
-	var/gas_name = "oxygen"
-	var/gas_display_name = "oxygen"
+	var/gas_name = GAS_OXYGEN
+	var/gas_display_name = GAS_OXYGEN
 
 /obj/item/integrated_circuit/input/gas_sensor/Initialize()
 	name = "[gas_display_name] sensor"
@@ -742,16 +742,16 @@
 	activate_pin(2)
 
 /obj/item/integrated_circuit/input/gas_sensor/co2
-	gas_name = "carbon_dioxide"
+	gas_name = GAS_CO2
 	gas_display_name = "carbon dioxide"
 
 /obj/item/integrated_circuit/input/gas_sensor/nitrogen
-	gas_name = "nitrogen"
+	gas_name = GAS_NITROGEN
 	gas_display_name = "nitrogen"
 
 /obj/item/integrated_circuit/input/gas_sensor/phoron
-	gas_name = "phoron"
-	gas_display_name = "phoron"
+	gas_name = GAS_PHORON
+	gas_display_name = GAS_PHORON
 
 /obj/item/integrated_circuit/input/turfpoint
 	name = "tile pointer"

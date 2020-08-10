@@ -328,8 +328,36 @@ RFD Service-Class
 	desc = "A RFD, modified to deploy service items."
 	icon_state = "rfd-s"
 	item_state = "rfd-s"
-	modes = list("Cigarette", "Drinking Glass","Paper","Pen","Dice Pack")
-	number_of_modes = 5
+	var/list/radial_modes = list()
+
+/obj/item/rfd/service/Initialize()
+	. = ..()
+	radial_modes = list(
+		"Cigarette" = image(icon = 'icons/obj/clothing/masks.dmi', icon_state = "cigoff"),
+		"Drinking Glass" = image(icon = 'icons/obj/drinks.dmi', icon_state = "glass_empty"),
+		"Paper" = image(icon = 'icons/obj/bureaucracy.dmi', icon_state = "paper"),
+		"Pen" = image(icon = 'icons/obj/bureaucracy.dmi', icon_state = "pen"),
+		"Dice Pack" = image(icon = 'icons/obj/dice.dmi', icon_state = "dicebag"),
+	)
+
+/obj/item/rfd/service/attack_self(mob/user)
+	var/current_mode = RADIAL_INPUT(user, radial_modes)
+	switch(current_mode)
+		if("Cigarette")
+			mode = 1
+		if("Drinking Glass")
+			mode = 2
+		if("Paper")
+			mode = 3
+		if("Pen")
+			mode = 4
+		if("Dice Pack")
+			mode = 5
+	if(current_mode)
+		to_chat(user, SPAN_NOTICE("You switch the selection dial to <i>\"[current_mode]\"</i>."))
+		playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
+		if(prob(20))
+			spark(get_turf(src), 3, alldirs)
 
 /obj/item/rfd/service/resolve_attackby(atom/A, mob/user as mob, var/click_parameters)
 	if(istype(user,/mob/living/silicon/robot))

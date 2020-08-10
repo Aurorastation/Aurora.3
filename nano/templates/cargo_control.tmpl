@@ -280,7 +280,7 @@
     {{props data.bounties}}
         {{if value.high_priority}}
             <tr style={{:value.background}}>
-                <td><b>{{:value.name}}</b></td>
+                <td style="text-transform:capitalize;"><b>{{:value.name}}</b></td>
                 <td><b>High Priority: {{:value.description}}</b></td>
                 <td><b>{{:value.reward_string}}</b></td>
                 <td>{{:value.completion_string}}</td>
@@ -294,7 +294,7 @@
             </tr>
         {{else}}
             <tr style={{:value.background}}>
-                <td>{{:value.name}}</td>
+                <td style="text-transform:capitalize;">{{:value.name}}</td>
                 <td>{{:value.description}}</td>
                 <td>{{:value.reward_string}}</td>
                 <td>{{:value.completion_string}}</td>
@@ -397,7 +397,7 @@
         </tr>
     {{props data.order_details.items}}
 		<tr>
-			<td>{{:value.name}}</td>
+			<td style="text-transform:capitalize;">{{:value.name}}</td>
             <td>{{:value.supplier_name}}</td>
             <td>{{:value.price}}</td>
 		</tr>

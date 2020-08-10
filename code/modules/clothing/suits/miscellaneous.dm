@@ -9,7 +9,7 @@
  * Lasertag
  */
 /obj/item/clothing/suit/bluetag
-	name = "blue laser tag armour"
+	name = "blue laser tag armor"
 	desc = "Blue Pride, Station Wide."
 	icon_state = "bluetag"
 	item_state = "bluetag"
@@ -19,7 +19,7 @@
 	siemens_coefficient = 1.0
 
 /obj/item/clothing/suit/redtag
-	name = "red laser tag armour"
+	name = "red laser tag armor"
 	desc = "Reputed to go faster."
 	icon_state = "redtag"
 	item_state = "redtag"
