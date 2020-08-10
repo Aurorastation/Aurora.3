@@ -77,7 +77,6 @@
 	var/list/burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	var/list/dispersion = list(0)
 	var/reliability = 100
-//	var/smartgun = 0
 
 	var/cyborg_maptext_override
 	var/displays_maptext = FALSE
