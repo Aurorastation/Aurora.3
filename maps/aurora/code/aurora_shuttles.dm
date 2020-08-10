@@ -388,7 +388,7 @@ AURORA_ESCAPE_POD(3)
 	current_location = "nav_mercelite_start"
 	warmup_time = 10
 	shuttle_area = /area/shuttle/syndicate_elite
-	dock_target = "elite_shuttle_aft"
+	dock_target = "elite_shuttle_starboard"
 	destination_tags = list(
 		"nav_mercelite_start",
 		"nav_mercelite_command",

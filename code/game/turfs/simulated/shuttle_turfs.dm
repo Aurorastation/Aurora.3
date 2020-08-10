@@ -343,6 +343,20 @@
 	icon = 'icons/turf/shuttles_unique/merc_shuttle.dmi'
 	icon_state = "6,2"
 
+//mercenary shuttle - small
+
+/turf/simulated/wall/shuttle/unique/mercenary/small
+	icon = 'icons/turf/shuttles_unique/merc_shuttle_small.dmi'
+	icon_state = "1,2"
+
+/obj/structure/shuttle_part/mercenary/small
+	icon = 'icons/turf/shuttles_unique/merc_shuttle_small.dmi'
+	icon_state = "1,0"
+
+/obj/structure/window/shuttle/unique/mercenary/small
+	icon = 'icons/turf/shuttles_unique/merc_shuttle_small.dmi'
+	icon_state = "4,13"
+
 //arrivals shuttle
 
 /turf/simulated/wall/shuttle/unique/arrivals
