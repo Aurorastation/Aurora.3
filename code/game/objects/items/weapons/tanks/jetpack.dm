@@ -65,7 +65,7 @@
 	proc_toggle_rockets(usr)
 
 /obj/item/tank/jetpack/proc/proc_toggle_rockets(mob/user, var/list/message_mobs)
-	stabilization_on = !src.stabilization_on
+	stabilization_on = !stabilization_on
 	to_chat(user, SPAN_NOTICE("You toggle \the [src]'s stabilization [stabilization_on ? "on" : "off"]."))
 	for(var/M in message_mobs)
 		to_chat(M, SPAN_NOTICE("[user] toggles \the [src]'s stabilization [stabilization_on ? "on" : "off"]."))
