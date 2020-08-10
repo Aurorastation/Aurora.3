@@ -223,3 +223,24 @@ Pins Below.
 /obj/item/device/firing_pin/away_site/pin_auth(mob/living/user)
 	var/turf/T = get_turf(src)
 	return !isStationLevel(T.z)
+
+/obj/item/device/firing_pin/security_level
+	name = "security level firing pin"
+	desc = "This security level locked firing pin allows weapons to be fired only when the security level is elevated."
+	fail_message = "<span class='warning'>SECURITY LEVEL INSUFFICIENT.</span>"
+
+/obj/item/device/firing_pin/security_level/pin_auth(mob/living/user)
+	if(istype(gun, /obj/item/gun/energy))
+		var/obj/item/projectile/energy/P
+		var/list/gunfiremodes = gun.firemodes
+		var/datum/firemode/current_mode = gunfiremodes[gun.sel_mode]
+		for(var/settingname in current_mode.settings) // A roundabout way of extracting the projectile type from the settings() list in the firemode datum.
+			var/settingvalue = current_mode.settings[settingname]
+			if(settingname == "projectile_type")
+				P = new settingvalue
+		if((get_security_level() == "green" || get_security_level() == "blue") &! P.taser_effect)
+			return 0
+	else if(get_security_level() == "green" || get_security_level() == "blue")
+		return 0
+
+	return 1

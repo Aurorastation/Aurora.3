@@ -22,34 +22,6 @@
 		list(mode_name="2-round bursts", burst=2, fire_delay=null, move_delay=2,    burst_accuracy=list(1,0,0),       dispersion=list(0, 10, 15))
 		)
 
-/obj/item/gun/energy/secblaster
-	name = "security blaster"
-	desc = "A standard issue NanoTrasen Security service weapon." // Placeholder for the PR. If there's a loreman who wants to describe this monstrosity, just hmu
-	icon = 'icons/obj/guns/secblaster.dmi'
-	icon_state = "secblaster"
-	item_state = "secblaster"
-	fire_sound = 'sound/weapons/Taser.ogg'
-	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	w_class = 2
-	force = 5
-	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	projectile_type = /obj/item/projectile/energy/stunblaster
-	secondary_projectile_type = /obj/item/projectile/energy/blaster
-	max_shots = 12 //12 shots stun, 8 shots lethal.
-	charge_cost = 50
-	has_item_ratio = FALSE
-	modifystate = "secblasterstun"
-	smartgun = TRUE
-
-	sel_mode = 1
-
-	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/stunblaster, modifystate="secblasterstun", charge_cost = 50, fire_sound = 'sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster, modifystate="secblasterkill", recoil = 1, charge_cost = 75, fire_sound = 'sound/weapons/gunshot/bolter.ogg')
-		)
-
-
 /obj/item/gun/energy/blaster/mounted/mech
 	name = "rapidfire blaster"
 	desc = "An aged but reliable rapidfire blaster tuned to expel projectiles at high fire rates."
@@ -144,3 +116,68 @@
 		toggle_scope(2.0, usr)
 	else
 		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+
+/obj/item/gun/energy/secblaster
+	name = "service blaster"
+	desc = "The NT BP-7 is a multi-mode blaster pistol developed and produced by Nanotrasen for its internal security departments." // Placeholder for the PR. If there's a loreman who wants to describe this monstrosity, just hmu
+	icon = 'icons/obj/guns/secblaster/secblasters.dmi'
+	icon_state = "secblaster"
+	item_state = "secblaster"
+	fire_sound = 'sound/weapons/secblasterstun.ogg'
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	w_class = 2
+	force = 5
+	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
+	matter = list(DEFAULT_WALL_MATERIAL = 2000)
+	projectile_type = /obj/item/projectile/energy/stunblaster
+	secondary_projectile_type = /obj/item/projectile/energy/blaster
+	max_shots = 12 //12 shots stun, 8 shots lethal.
+	charge_cost = 50
+	has_item_ratio = FALSE
+	modifystate = "secblasterstun"
+	pin = /obj/item/device/firing_pin/security_level
+	var/modelselected = FALSE
+
+	sel_mode = 1
+	firemodes = list(
+		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/stunblaster, modifystate="secblasterstun", charge_cost = 50, fire_sound = 'sound/weapons/secblasterstun.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster, modifystate="secblasterkill", recoil = 1, charge_cost = 75, fire_sound = 'sound/weapons/secblasterlethal.ogg')
+		)
+
+/obj/item/gun/energy/secblaster/verb/select_frame()
+	set name = "Select Model"
+	set category = "Object"
+	set desc = "Click to select the model of your gun."
+
+	var/mob/M = usr
+	var/user_reply
+
+	if(!M.mind)	return 0
+	if(modelselected)
+		to_chat(M, "The model of this gun has already been set.")
+		return 0
+
+	user_reply = input("Select your frame.") in list("sub-compact","service","magnum")
+	if(src && !M.stat && in_range(M,src))
+		if(user_reply == "sub-compact")
+			icon = 'icons/obj/guns/secblaster/secblasterc.dmi'
+			name = "sub-compact blaster"
+		if(user_reply == "service")
+			icon = 'icons/obj/guns/secblaster/secblasters.dmi'
+			name = "service blaster"
+		if(user_reply == "magnum")
+			icon = 'icons/obj/guns/secblaster/secblasterm.dmi'
+			name = "magnum blaster"
+		update_icon()
+		to_chat(M, "You select the [user_reply] model.")
+		user_reply = input("Is this what you wanted?") in list("yes","no")
+		if(src && !M.stat && in_range(M,src))
+			if (user_reply == "yes")
+				modelselected = TRUE
+				return 1
+	icon = 'icons/obj/guns/secblaster/secblasters.dmi'
+	name = "service blaster"
+	return 1
+
+/obj/item/gun/energy/secblaster/command
+	pin = /obj/item/device/firing_pin

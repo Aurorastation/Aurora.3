@@ -235,9 +235,9 @@
 
 /obj/item/projectile/energy/stunblaster
 	name = "stun bolt"
-	icon_state = "spark"
-	damage = 5
-	agony = 40
+	icon_state = "blue_laser"
+	damage = 2
+	agony = 43
 	taser_effect = 1
 	eyeblur = 1
 	damage_type = BURN

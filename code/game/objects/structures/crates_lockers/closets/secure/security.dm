@@ -29,7 +29,7 @@
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/device/radio/headset/heads/captain/alt(src)
 	new /obj/item/cartridge/captain(src)
-	new /obj/item/gun/energy/pistol(src)
+	new /obj/item/gun/energy/secblaster/command(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/melee/telebaton(src)
 	// acting captain briefcase
@@ -82,7 +82,7 @@
 	new /obj/item/cartridge/hop(src)
 	new /obj/item/device/radio/headset/heads/hop(src)
 	new /obj/item/device/radio/headset/heads/hop/alt(src)
-	new /obj/item/gun/energy/pistol(src)
+	new /obj/item/gun/energy/secblaster/command(src)
 	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/device/flash(src)
 
@@ -146,7 +146,7 @@
 	new /obj/item/shield/riot/tact(src)
 	new /obj/item/melee/baton/loaded(src)
 	new /obj/item/melee/telebaton(src)
-	new /obj/item/gun/energy/pistol(src)
+	new /obj/item/gun/energy/secblaster/command(src)
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/device/holowarrant(src)

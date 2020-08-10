@@ -77,7 +77,7 @@
 	var/list/burst_accuracy = list(0) //allows for different accuracies for each shot in a burst. Applied on top of accuracy
 	var/list/dispersion = list(0)
 	var/reliability = 100
-	var/smartgun = 0
+//	var/smartgun = 0
 
 	var/cyborg_maptext_override
 	var/displays_maptext = FALSE
@@ -206,6 +206,7 @@
 			return TRUE
 		else
 			pin.auth_fail(user)
+			handle_click_empty(user)
 			return FALSE
 	else
 		if(needspin)
@@ -269,31 +270,11 @@
 	else
 		return ..() //Pistolwhippin'
 
-//Smartgun stuff
-/obj/item/gun/proc/smartgun_check() 	// If the security level is Green and the current firemode doesn't have a taser effect, return TRUE. Otherwise, return FALSE.
-	if(istype(src, /obj/item/gun/energy)) // Only energy guns can be smart guns
-		var/obj/item/projectile/energy/P
-		var/datum/firemode/current_mode = firemodes[sel_mode]
-		for(var/settingname in current_mode.settings) // A roundabout way of extracting the projectile type from the settings() list in the firemode datum.
-			var/settingvalue = current_mode.settings[settingname]
-			if(settingname == "projectile_type")
-				P = new settingvalue
-		if(smartgun && (get_security_level() == "green" || get_security_level() == "blue") &! P.taser_effect) //Would be better with security level flags, but security level doesn't use them.
-			return TRUE
-		else
-			return FALSE
-	return FALSE
-
 /obj/item/gun/proc/fire_checks(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 	if(!user || !target)
 		return FALSE
 
 	add_fingerprint(user)
-
-	if(smartgun && smartgun_check())
-		to_chat(user, SPAN_WARNING("The smartgun system prevents \the [src] from firing!"))
-		handle_click_empty(user)
-		return FALSE
 
 	if(safety())
 		if(user.a_intent == I_HURT)
@@ -549,21 +530,16 @@
 	if (istype(in_chamber))
 		user.visible_message(SPAN_WARNING("\The [user] pulls the trigger."))
 		if (!pin && needspin)//Checks the pin of the gun.
-			user.visible_message(SPAN_WARNING("*click click*"))
+			handle_click_empty(user)
 			mouthshoot = FALSE
 			return
 		if (!pin.pin_auth() && needspin)
-			user.visible_message(SPAN_WARNING("*click click*"))
+			handle_click_empty(user)
 			mouthshoot = FALSE
 			return
 		if(safety() && user.a_intent != I_HURT)
 			user.visible_message(SPAN_WARNING("The safety was on. How anticlimatic!"))
 			handle_click_empty(user)
-			mouthshoot = FALSE
-			return
-		if(smartgun && smartgun_check()) // Checks smartgun status.
-			handle_click_empty(user)
-			user.visible_message(SPAN_WARNING("The smartgun system prevents \the [src] from firing. How anticlimatic!"))
 			mouthshoot = FALSE
 			return
 		if(silenced)
