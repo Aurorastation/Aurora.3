@@ -12,6 +12,7 @@
 	var/zippolighters = list()
 	zippolighters["regular Zippo"] = /obj/item/flame/lighter/zippo
 	zippolighters["black Zippo"] = /obj/item/flame/lighter/zippo/black
+	zippolighters["black cross Zippo"] = /obj/item/flame/lighter/zippo/black/cross
 	zippolighters["golden Zippo"] = /obj/item/flame/lighter/zippo/gold
 	zippolighters["royal Zippo"] = /obj/item/flame/lighter/zippo/royal
 	zippolighters["Dominian Zippo"] = /obj/item/flame/lighter/zippo/dominia

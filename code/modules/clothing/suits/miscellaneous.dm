@@ -438,9 +438,9 @@
 /obj/item/clothing/suit/storage/toggle/trench/colorable
 	name = "trenchcoat"
 	desc = "A sleek canvas trenchcoat"
-	icon_state = "trenchcoat_colorable"
-	item_state = "trenchcoat_colorable"
-	icon_open = "trenchcoat_colorable_open"
+	icon_state = "trench_colorable"
+	item_state = "trench_colorable"
+	icon_open = "trench_colorable_open"
 	icon_closed = "trenchcoat_colorable"
 
 /obj/item/clothing/suit/storage/toggle/track
