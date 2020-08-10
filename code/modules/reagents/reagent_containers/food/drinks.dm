@@ -325,8 +325,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc = "A plastic medicine cup. Like a shot glass for medicine."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "medcup"
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
+	drop_sound = 'sound/items/drop/drinkglass.ogg'
+	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
 	possible_transfer_amounts = null
 	volume = 15
 

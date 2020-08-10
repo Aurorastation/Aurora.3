@@ -1,3 +1,8 @@
+#define RFD_FLOORS_AND_WALL 1
+#define RFD_WINDOWS_AND_GRILLE 2
+#define RFD_AIRLOCK 3
+#define RFD_DECONSTRUCT 4
+
 //Contains the rapid construction device.
 /obj/item/rfd
 	name = "\improper Rapid-Fabrication-Device"

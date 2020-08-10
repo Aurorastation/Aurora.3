@@ -8,8 +8,8 @@
 	slot_flags = SLOT_EARS
 	var/colour = "red"
 	var/open = 0
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
+	drop_sound = 'sound/items/drop/screwdriver.ogg'
+	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 
 /obj/item/lipstick/purple
 	name = "purple lipstick"

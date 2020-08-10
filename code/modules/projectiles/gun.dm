@@ -104,6 +104,8 @@
 	var/wielded = 0
 	var/needspin = TRUE
 	var/is_wieldable = FALSE
+	var/wield_sound = "wield_generic"
+	var/unwield_sound = null
 
 	//aiming system stuff
 	var/multi_aim = 0 //Used to determine if you can target multiple people.
@@ -113,6 +115,8 @@
 	var/safety_state = TRUE
 	var/has_safety = TRUE
 	var/image/safety_overlay
+
+	// sounds n shit
 	var/safetyon_sound = 'sound/weapons/blade_open.ogg'
 	var/safetyoff_sound = 'sound/weapons/blade_close.ogg'
 
@@ -713,6 +717,8 @@
 		recoil = initial(recoil)
 	if(accuracy_wielded)
 		accuracy = initial(accuracy)
+	if(unwield_sound)
+		playsound(src.loc, unwield_sound, 50, 1)
 
 	update_icon()
 	update_held_icon()
@@ -725,6 +731,8 @@
 		recoil = recoil_wielded
 	if(accuracy_wielded)
 		accuracy = accuracy_wielded
+	if(wield_sound)
+		playsound(src.loc, wield_sound, 50, 1)
 
 	update_icon()
 	update_held_icon()
@@ -772,6 +780,9 @@
 	icon_state = "offhand"
 	item_state = "nothing"
 	name = "offhand"
+	drop_sound = null
+	pickup_sound = null
+	equip_sound = null
 
 /obj/item/offhand/proc/unwield()
 	if(ismob(loc))

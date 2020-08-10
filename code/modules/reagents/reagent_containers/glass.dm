@@ -62,7 +62,7 @@
 	if(reagents.total_volume)
 		reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
 	audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"), SPAN_WARNING("\The [src] breaks."))
-	playsound(src, "shatter", 70, 1)
+	playsound(src, "glass_break", 70, 1)
 	new /obj/item/material/shard(loc, "glass")
 	qdel(src)
 
@@ -102,8 +102,8 @@
 	item_state = "beaker"
 	center_of_mass = list("x" = 15,"y" = 11)
 	matter = list(MATERIAL_GLASS = 500)
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
+	drop_sound = 'sound/items/drop/drinkglass.ogg'
+	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
 	fragile = 4
 
 /obj/item/reagent_containers/glass/beaker/Initialize()

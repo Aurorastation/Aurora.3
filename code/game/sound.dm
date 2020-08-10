@@ -132,10 +132,20 @@ var/list/footstepfx = list(
 	"sand"
 	)
 
-var/list/shatter_sound = list(
+var/list/glass_break_sound = list(
 	'sound/effects/glass_break1.ogg',
 	'sound/effects/glass_break2.ogg',
 	'sound/effects/glass_break3.ogg'
+)
+var/list/cardboard_break_sound = list(
+	'sound/effects/cardboard_break1.ogg',
+	'sound/effects/cardboard_break2.ogg',
+	'sound/effects/cardboard_break3.ogg',
+)
+var/list/wood_break_sound = list(
+	'sound/effects/wood_break1.ogg',
+	'sound/effects/wood_break2.ogg',
+	'sound/effects/wood_break3.ogg',
 )
 var/list/explosion_sound = list(
 	'sound/effects/Explosion1.ogg',
@@ -261,6 +271,11 @@ var/list/drillhit_sound = list(
 	'sound/weapons/saw/drillhit2.ogg'
 )
 // drop/equip/pickup sounds if there are multiple.
+var/list/wield_generic_sound = list(
+	'sound/items/wield/wield_generic1.ogg',
+	'sound/items/wield/wield_generic2.ogg',
+	'sound/items/wield/wield_generic3.ogg'
+)
 var/list/sword_pickup_sound = list(
 	'sound/items/pickup/sword1.ogg',
 	'sound/items/pickup/sword2.ogg',
@@ -477,8 +492,11 @@ var/list/gauss_fire_sound = list(
 			if ("lava") soundin = pick(lava_footstep)
 			if ("snow") soundin = pick(snow_footstep)
 			if ("sand") soundin = pick(sand_footstep)
+			// shatter sfx. mainly for materials
+			if ("glass_break") soundin = pick(glass_break_sound)
+			if ("cardboard_break") soundin = pick(cardboard_break_sound)
+			if ("wood_break") soundin = pick(wood_break_sound)
 			//misc
-			if ("shatter") soundin = pick(shatter_sound)
 			if ("explosion") soundin = pick(explosion_sound)
 			if ("sparks") soundin = pick(spark_sound)
 			if ("rustle") soundin = pick(rustle_sound)
@@ -501,6 +519,7 @@ var/list/gauss_fire_sound = list(
 			if ("crowbar") soundin = pick(crowbar_sound)
 			if ("casing_drop") soundin = pick(casing_drop_sound)
 			if ("drillhit") soundin = pick(drillhit_sound)
+			if ("wield_generic") soundin = pick(wield_generic_sound)
 			if ("equip_sword") soundin = pick(sword_equip_sound)
 			if ("pickup_sword") soundin = pick(sword_pickup_sound)
 			if ("gauss_fire") soundin = pick(gauss_fire_sound)

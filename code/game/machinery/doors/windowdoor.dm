@@ -47,7 +47,7 @@
 		ae.icon_state = "door_electronics_smoked"
 		operating = 0
 	src.density = 0
-	playsound(src, "shatter", 70, 1)
+	playsound(src, "glass_break", 70, 1)
 	if(display_message)
 		visible_message("[src] shatters!")
 	qdel(src)

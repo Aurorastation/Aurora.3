@@ -57,3 +57,4 @@ changes:
   - soundadd: "Makes revolver spin sound less crappy."
   - soundadd: "New sound for surgical drill."
   - bugfix: "Equip sounds should play properly now."
+  - soundadd: "Materials now have corresponding sounds. What this means is that wooden baseball bats sound different from metal ones.."
