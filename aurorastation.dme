@@ -1645,6 +1645,7 @@
 #include "code\modules\holodeck\HolodeckObjects.dm"
 #include "code\modules\holodeck\HolodeckPrograms.dm"
 #include "code\modules\http\forum_api.dm"
+#include "code\modules\http\forumuser_api.dm"
 #include "code\modules\http\http.dm"
 #include "code\modules\hydroponics\grown.dm"
 #include "code\modules\hydroponics\grown_inedible.dm"

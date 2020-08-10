@@ -36,6 +36,10 @@
 
 	populate_code_phrases()
 
+	if (config.use_forumuser_api)
+		update_admins_from_api(TRUE)
+
+
 	..(timeofday)
 
 /proc/sorted_add_area(area/A)
