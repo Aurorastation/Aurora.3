@@ -135,7 +135,6 @@
 	charge_cost = 50
 	has_item_ratio = FALSE
 	modifystate = "secblasterstun"
-	pin = /obj/item/device/firing_pin/security_level
 	var/modelselected = FALSE
 
 	sel_mode = 1
@@ -179,5 +178,5 @@
 	name = "service blaster"
 	return 1
 
-/obj/item/gun/energy/secblaster/command
-	pin = /obj/item/device/firing_pin
+/obj/item/gun/energy/secblaster/security
+	pin = /obj/item/device/firing_pin/security_level
