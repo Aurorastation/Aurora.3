@@ -262,6 +262,21 @@ em						{font-style: normal;font-weight: bold;}
 /* LOG */
 .log_message			{color: #386aff;font-weight: bold;}
 
+/* CHAT TAGS */
+.tag				{color: #fff; border-radius: 15px; font-weight: bold; padding-left: 4px; padding-right: 4px;}
+.ooc_tag			{background-color: #002eb8;}
+.looc_tag			{color: #000; background-color: #46b2b2;}
+.dev_tag			{background-color: #2c7731;}
+.admin_tag			{background-color: #9611d4;}
+.mod_tag			{background-color: #663a0e;}
+.dead_tag			{background-color: #530fad;}
+.pmin_tag			{background-color: #ff0000;}
+.pmout_tag			{background-color: #ff0000;}
+.pmoutalt_tag		{background-color: #b54a4a;}
+.pmother_tag		{background-color: #498db6;}
+.help_tag			{background-color: #ff0000;}
+.aooc_tag			{background-color: #920000;}
+
 /* OOC */
 .ooc					{font-weight: bold;}
 .ooc img.text_tag		{width: 32px; height: 10px; vertical-align: middle;}
@@ -270,7 +285,7 @@ em						{font-style: normal;font-weight: bold;}
 .ooc .looc				{color: #6699CC;}
 .ooc .elevated			{color: #2e78d9;}
 .ooc .moderator			{color: #184880;}
-.ooc .developer			{color: #1b521f;}
+.ooc .developer			{color: #2c7731;}
 .ooc .admin				{color: #b82e00;}
 
 /* Admin: Private Messages */
@@ -284,7 +299,7 @@ em						{font-style: normal;font-weight: bold;}
 .mod_channel .admin		{color: #b82e00;	font-weight: bold;}
 .admin_channel			{color: #9611D4;	font-weight: bold;}
 .cciaasay				{color: #22a9b4;	font-weight: bold;}
-.devsay					{color: #1b521f;	font-weight: bold;}
+.devsay					{color: #2c7731;	font-weight: bold;}
 
 /* Radio: Misc */
 .deadsay				{color: #530FAD;}
