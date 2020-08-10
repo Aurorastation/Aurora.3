@@ -8,6 +8,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Implements a multi-mode blaster pistol to the security arsenal. This weapon replaces the security taser and .45 pistol as the primary sidearm of Security Officers and the Warden, and replaces the energy pistol for the Head of Security, the Head of Pesonnel, and the Captain."
-  - rscadd: "Implements a security-level restricted firing pin. This firing pin comes standard in the security model of the blaster pistol, but not the ones belonging to the Head of Security, the Head of Personnel, or the Captain."
+  - rscadd: "Implements a multi-mode blaster pistol to the security arsenal. This weapon replaces the security taser and .45 pistol as the primary sidearm of Security Officers and the Warden, and comes with a security-level activated firing pin."
+  - rscadd: "Replaces the outdated energy pistols belonging to Command staff who have them, NT-affiliated Liasions, and ERT Protection Detail with unrestricted-pin service blasters."
+  - rscadd: "Implements a security-level restricted firing pin, which will only allow weapons to be fired on stun until the alert level is sufficiently elevated."
   - maptweak: "Moves the .45 pistols and rubber .45 magazines from the Security Officer secure lockers to the armoury."
