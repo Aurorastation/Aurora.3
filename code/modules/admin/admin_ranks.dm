@@ -22,31 +22,31 @@ var/list/forum_groupids_to_ranks = list()
 				. |= R_ADMIN
 			if ("r_ban")
 				. |= R_BAN
-			if ("r_fun")						
+			if ("r_fun")
 				. |= R_FUN
-			if ("r_server")					
+			if ("r_server")
 				. |= R_SERVER
-			if ("r_debug")					
+			if ("r_debug")
 				. |= R_DEBUG
-			if ("r_permissions","r_rights")	
+			if ("r_permissions","r_rights")
 				. |= R_PERMISSIONS
-			if ("r_possess")					
+			if ("r_possess")
 				. |= R_POSSESS
-			if ("r_stealth")					
+			if ("r_stealth")
 				. |= R_STEALTH
-			if ("r_rejuv","r_rejuvinate")	
+			if ("r_rejuv","r_rejuvinate")
 				. |= R_REJUVINATE
-			if ("r_varedit")					
+			if ("r_varedit")
 				. |= R_VAREDIT
 			if ("r_sound","r_sounds")
 				. |= R_SOUNDS
 			if ("r_spawn","r_create")
 				. |= R_SPAWN
-			if ("r_moderator")				
+			if ("r_moderator")
 				. |= R_MOD
-			if ("r_developer")		
+			if ("r_developer")
 				. |= R_DEV
-			if ("r_cciaa")			
+			if ("r_cciaa")
 				. |= R_CCIAA
 			if ("r_everything","r_host","r_all")
 				. |= (R_BUILDMODE | R_ADMIN | R_BAN | R_FUN | R_SERVER | R_DEBUG | R_PERMISSIONS | R_POSSESS | R_STEALTH | R_REJUVINATE | R_VAREDIT | R_SOUNDS | R_SPAWN | R_MOD | R_CCIAA | R_DEV)
@@ -107,13 +107,15 @@ var/list/forum_groupids_to_ranks = list()
 			//find the client for a ckey if they are connected and associate them with the new admin datum
 			D.associate(directory[ckey])
 
+			log_debug("AdminRanks: Upaded Admins from Legacy System")
+
 	else
 		//The current admin system uses SQL
 
 		establish_db_connection(dbcon)
 		if(!dbcon.IsConnected())
-			error("Failed to connect to database in load_admins(). Reverting to legacy system.")
-			log_misc("Failed to connect to database in load_admins(). Reverting to legacy system.")
+			error("AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
+			log_misc("AdminRanks: Failed to connect to database in load_admins(). Reverting to legacy system.")
 			config.admin_legacy_system = 1
 			load_admins()
 			return
@@ -126,14 +128,14 @@ var/list/forum_groupids_to_ranks = list()
 			var/rights = query.item[3]
 			if(istext(rights))
 				rights = text2num(rights)
-			
+
 			var/datum/admins/D = new /datum/admins(rank, rights, ckey)
 			//find the client for a ckey if they are connected and associate them with the new admin datum
 			D.associate(directory[ckey])
 
 		if(!admin_datums)
-			error("The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
-			log_misc("The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
+			error("AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
+			log_misc("AdminRanks: The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
 			config.admin_legacy_system = 1
 			load_admins()
 			return
@@ -165,7 +167,7 @@ var/list/forum_groupids_to_ranks = list()
 	set background = TRUE
 
 	if (!establish_db_connection(dbcon))
-		log_and_message_admins("Failed to connect to database in update_admins_from_api(). Carrying on with old staff lists.")
+		log_and_message_admins("AdminRanks: Failed to connect to database in update_admins_from_api(). Carrying on with old staff lists.")
 		return FALSE
 
 	var/list/admins_to_push = list()
@@ -183,7 +185,7 @@ var/list/forum_groupids_to_ranks = list()
 
 		if (resp.errored)
 			crash_with("Role request errored for id [rank.group_id] with: [resp.error]")
-			log_and_message_admins("Loading admins from forumuser API FAILED. Please alert web-service maintainers immediately!")
+			log_and_message_admins("AdminRanks: Loading admins from forumuser API FAILED. Please alert web-service maintainers immediately!")
 			return FALSE
 
 		for (var/datum/forum_user/user in resp.body)
@@ -200,6 +202,8 @@ var/list/forum_groupids_to_ranks = list()
 
 	if (reload_once_done)
 		load_admins()
+
+	log_debug("AdminRanks: Updated Admins from ForumUserAPI")
 
 	return TRUE
 
