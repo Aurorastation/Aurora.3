@@ -136,7 +136,6 @@
 	has_item_ratio = FALSE
 	modifystate = "secblasterstun"
 	var/modelselected = FALSE
-
 	sel_mode = 1
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/stunblaster, modifystate="secblasterstun", charge_cost = 50, fire_sound = 'sound/weapons/secblasterstun.ogg'),
