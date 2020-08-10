@@ -32,7 +32,7 @@
 	backpack_contents = list(
 		/obj/item/storage/box/ceti_visa = 1,
 		/obj/item/storage/box/tcfl_pamphlet = 1,
-		/obj/item/gun/energy/pistol = 1
+		/obj/item/gun/energy/secblaster/command = 1
 	)
 
 
