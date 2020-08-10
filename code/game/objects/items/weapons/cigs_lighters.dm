@@ -670,6 +670,80 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
+/obj/item/flame/lighter/zippo/coalition
+	name = "Coalition Zippo lighter"
+	desc = "A zippo lighter with a depiction of the Coalition of Colonies flag."
+	desc_fluff = "As there are hundreds of cultures in the Coalition of Colonies, so too are there hundreds of local variations of zippo lighters. The most prized zippos tend to be those from the industrial colony of Himeo, where a strong work ethic and technological advancements combine to produce high-quality lighters that ignite through the harshest of conditions. Most exported Himean lighters have their logos scratched off, rebranded, and given a fresh coat of paint, much to the chagrin of their manufacturers."
+	icon_state = "coalitionzippo"
+	item_state = "coalitionzippo"
+	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
+	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
+	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
+/obj/item/flame/lighter/zippo/dominia
+	name = "Dominian Zippo lighter"
+	desc = "A zippo lighter with a depiction of the Imperial standard of Dominia."
+	desc_fluff = "While never officially endorsed by the Emperor, lighters featuring a stylized Imperial standard are a common sight throughout the Empire. Due to the simplicity with which the standard can be recreated, these lighters are found even in the poorer frontier regions in the Empire and are commonly seen as a sign of patriotism."
+	icon_state = "dominiazippo"
+	item_state = "dominiazippo"
+	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
+	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
+	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
+/obj/item/flame/lighter/zippo/sol
+	name = "Solarian Zippo lighter"
+	desc = "A zippo lighter with a depiction of the flag of the Sol Alliance."
+	desc_fluff = "Zippo lighters with the flag of the Sol Alliance continue a long-standing tradition of Earth. While originally proclaiming patriotism to the nation, in the face of movements for more colonial self-determination, these lighters now push forward a message of unity."
+	icon_state = "solzippo"
+	item_state = "solzippo"
+	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
+	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
+	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
+/obj/item/flame/lighter/zippo/tcfl
+	name = "Bieselite Zippo lighter"
+	desc = "A zippo lighter with a depiction of the Bieselite flag."
+	desc_fluff = "In their rush to expand the Tau Ceti Foreign Legion, the Republic of Biesel manufactured thousands of Biesel-patterned zippo lighters to compliment the jackets and berets that were so often touted by recruiters. In the wake of Frost's Invasion, the popularity of such lighters has only increased and they serve as a small show of patriotism. A small NanoTrasen logo is stenciled on the base."
+	icon_state = "tcflzippo"
+	item_state = "tcflzippo"
+	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
+	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
+	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
+/obj/item/flame/lighter/zippo/royal
+	name = "royal Zippo lighter"
+	desc = "A gold-plated zippo with a two-piece cover. A small chemical resevoir in the lighter allows for purple flames that burn with greater intensity."
+	icon_state = "royalzippo"
+	item_state = "royalzippo"
+	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
+	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
+	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
+/obj/item/flame/lighter/zippo/gold
+	name = "golden Zippo lighter"
+	desc = "A golden zippo lighter. Badasses and chainsmokers might settle for a zippo, no sir - you can do better with this solid, 24-karat golden piece!"
+	icon_state = "goldzippo"
+	item_state = "goldzippo"
+	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
+	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
+	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
+/obj/item/flame/lighter/zippo/black
+	name = "black Zippo lighter"
+	desc = "A black zippo lighter with a rounded cover. This one seems to burn lower and slower, producing a faint glow."
+	icon_state = "blackzippo"
+	item_state = "blackzippo"
+	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
+	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
+	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
 /obj/item/flame/lighter/random/Initialize()
 	. = ..()
 	icon_state = "lighter-[pick("r","c","y","g")]"

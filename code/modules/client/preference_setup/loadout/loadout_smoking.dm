@@ -4,8 +4,21 @@
 	sort_category = "Smoking"
 
 /datum/gear/smoking/zippo
-	display_name = "zippo"
+	display_name = "zippo lighter selection"
 	path = /obj/item/flame/lighter/zippo
+
+/datum/gear/smoking/zippo/New()
+	..()
+	var/zippolighters = list()
+	zippolighters["regular Zippo"] = /obj/item/flame/lighter/zippo
+	zippolighters["black Zippo"] = /obj/item/flame/lighter/zippo/black
+	zippolighters["golden Zippo"] = /obj/item/flame/lighter/zippo/gold
+	zippolighters["royal Zippo"] = /obj/item/flame/lighter/zippo/royal
+	zippolighters["Dominian Zippo"] = /obj/item/flame/lighter/zippo/dominia
+	zippolighters["Coalition Zippo"] = /obj/item/flame/lighter/zippo/coalition
+	zippolighters["Solarian Zippo"] = /obj/item/flame/lighter/zippo/sol
+	zippolighters["Bieselite Zippo"] = /obj/item/flame/lighter/zippo/tcfl
+	gear_tweaks += new/datum/gear_tweak/path(zippolighters)
 
 /datum/gear/smoking/lighter
 	display_name = "cheap lighter"

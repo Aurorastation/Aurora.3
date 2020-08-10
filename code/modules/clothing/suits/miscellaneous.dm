@@ -435,6 +435,14 @@
 	icon_open = "trenchcoat_grey_open"
 	icon_closed = "trenchcoat_grey"
 
+/obj/item/clothing/suit/storage/toggle/trench/colorable
+	name = "trenchcoat"
+	desc = "A sleek canvas trenchcoat"
+	icon_state = "trenchcoat_colorable"
+	item_state = "trenchcoat_colorable"
+	icon_open = "trenchcoat_colorable_open"
+	icon_closed = "trenchcoat_colorable"
+
 /obj/item/clothing/suit/storage/toggle/track
 	name = "track jacket"
 	desc = "a track jacket, for the athletic."
