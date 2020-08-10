@@ -306,8 +306,11 @@ var/list/gamemode_cache = list()
 
 	var/forum_api_path
 	// global.forum_api_key - see modules/http/forum_api.dm
-
 	var/news_use_forum_api = FALSE
+
+	var/forumuser_api_url
+	var/use_forumuser_api = FALSE
+	// global.forumuser_api_key - see modules/http/forumuser_api.dm
 
 	var/profiler_is_enabled = FALSE
 	var/profiler_restart_period = 120 SECONDS
@@ -946,6 +949,13 @@ var/list/gamemode_cache = list()
 					profiler_restart_period = text2num(value) SECONDS
 				if ("profiler_timeout_threshold")
 					profiler_timeout_threshold = text2num(value)
+
+				if ("forumuser_api_url")
+					forumuser_api_url = value
+				if ("use_forumuser_api")
+					use_forumuser_api = TRUE
+				if ("forumuser_api_key")
+					global.forumuser_api_key = value
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

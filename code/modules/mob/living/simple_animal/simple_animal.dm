@@ -200,21 +200,21 @@
 			if (abs(Environment.temperature - bodytemperature) > 40)
 				bodytemperature += ((Environment.temperature - bodytemperature) / 5)
 
-			if(min_oxy && Environment.gas["oxygen"] < min_oxy)
+			if(min_oxy && Environment.gas[GAS_OXYGEN] < min_oxy)
 				atmos_suitable = 0
-			else if(max_oxy && Environment.gas["oxygen"] > max_oxy)
+			else if(max_oxy && Environment.gas[GAS_OXYGEN] > max_oxy)
 				atmos_suitable = 0
-			else if(min_tox && Environment.gas["phoron"] < min_tox)
+			else if(min_tox && Environment.gas[GAS_PHORON] < min_tox)
 				atmos_suitable = 0
-			else if(max_tox && Environment.gas["phoron"] > max_tox)
+			else if(max_tox && Environment.gas[GAS_PHORON] > max_tox)
 				atmos_suitable = 0
-			else if(min_n2 && Environment.gas["nitrogen"] < min_n2)
+			else if(min_n2 && Environment.gas[GAS_NITROGEN] < min_n2)
 				atmos_suitable = 0
-			else if(max_n2 && Environment.gas["nitrogen"] > max_n2)
+			else if(max_n2 && Environment.gas[GAS_NITROGEN] > max_n2)
 				atmos_suitable = 0
-			else if(min_co2 && Environment.gas["carbon_dioxide"] < min_co2)
+			else if(min_co2 && Environment.gas[GAS_CO2] < min_co2)
 				atmos_suitable = 0
-			else if(max_co2 && Environment.gas["carbon_dioxide"] > max_co2)
+			else if(max_co2 && Environment.gas[GAS_CO2] > max_co2)
 				atmos_suitable = 0
 
 	//Atmos effect

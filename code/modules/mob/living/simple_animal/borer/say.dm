@@ -11,7 +11,7 @@
 	if(stat)
 		return
 
-	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, ">" = TRUE, "\"" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE)
+	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, ">" = TRUE, "\"" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE, "*" = TRUE, "/" = TRUE)
 	var/ending = copytext(message, length(message), (length(message) + 1))
 	if(ending && !correct_punctuation[ending])
 		message += "."
