@@ -445,7 +445,7 @@
 	var/list/extra_mobs = list()
 	if(user != holder.wearer)
 		extra_mobs += holder.wearer
-	jets.proc_toggle_rockets(user, extra_mobs)
+	jets.toggle_rockets_stabilization(user, extra_mobs)
 	return TRUE
 
 /obj/item/rig_module/maneuvering_jets/activate(mob/user)
@@ -465,7 +465,7 @@
 		var/list/extra_mobs = list()
 		if(user != holder.wearer)
 			extra_mobs += holder.wearer
-		jets.proc_toggle(user, extra_mobs)
+		jets.toggle_jetpack(user, extra_mobs)
 	return TRUE
 
 /obj/item/rig_module/maneuvering_jets/deactivate(mob/user)
@@ -475,7 +475,7 @@
 		var/list/extra_mobs = list()
 		if(user != holder.wearer)
 			extra_mobs += holder.wearer
-		jets.proc_toggle(user, extra_mobs)
+		jets.toggle_jetpack(user, extra_mobs)
 	return TRUE
 
 /obj/item/rig_module/maneuvering_jets/New()

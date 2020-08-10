@@ -62,9 +62,9 @@
 	set name = "Toggle Jetpack Stabilization"
 	set category = "Object"
 
-	proc_toggle_rockets(usr)
+	toggle_rockets_stabilization(usr)
 
-/obj/item/tank/jetpack/proc/proc_toggle_rockets(mob/user, var/list/message_mobs)
+/obj/item/tank/jetpack/proc/toggle_rockets_stabilization(mob/user, var/list/message_mobs)
 	stabilization_on = !stabilization_on
 	to_chat(user, SPAN_NOTICE("You toggle \the [src]'s stabilization [stabilization_on ? "on" : "off"]."))
 	for(var/M in message_mobs)
@@ -74,11 +74,11 @@
 	set name = "Toggle Jetpack"
 	set category = "Object"
 
-	proc_toggle(usr)
+	toggle_jetpack(usr)
 
-/obj/item/tank/jetpack/proc/proc_toggle(mob/user, var/list/message_mobs)
+/obj/item/tank/jetpack/proc/toggle_jetpack(mob/user, var/list/message_mobs)
 	on = !on
-	stabilization_on = !stabilization_on
+	toggle_rockets_stabilization(user, message_mobs)
 	if(on)
 		icon_state = "[icon_state]-on"
 		ion_trail.start()
@@ -92,10 +92,6 @@
 	to_chat(user, SPAN_NOTICE("You toggle \the [src]'s thrusters [on ? "on" : "off"]."))
 	for(var/M in message_mobs)
 		to_chat(M, SPAN_NOTICE("[user] toggles \the [src]'s thrusters [on ? "on" : "off"]."))
-
-	to_chat(user, SPAN_NOTICE("You toggle \the [src]'s stabilization [stabilization_on ? "on" : "off"]."))
-	for(var/M in message_mobs)
-		to_chat(M, SPAN_NOTICE("[user] toggles \the [src]'s stabilization [stabilization_on ? "on" : "off"]."))
 
 /obj/item/tank/jetpack/proc/allow_thrust(num, mob/living/user as mob)
 	if(!(src.on))
