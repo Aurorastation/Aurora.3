@@ -1071,7 +1071,7 @@ About the new airlock wires panel:
 			if(!WT.remove_fuel(0,user))
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 				return
-			playsound(src, 'sound/items/Welder2.ogg', 50, 1)
+			playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
 			welded = !welded
 			update_icon()
 			return

@@ -306,7 +306,7 @@
 			if(3)
 				if (W.iscrowbar())
 					to_chat(user, SPAN_NOTICE("You struggle to pry off the cover."))
-					playsound(src, 'sound/items/Crowbar.ogg', 100, 1)
+					playsound(src, 'sound/items/crowbar.ogg', 100, 1)
 					if(!do_after(user,100/W.toolspeed) || !istype(src, /turf/simulated/wall) || construction_stage != 3)
 						return
 					construction_stage = 2
@@ -347,7 +347,7 @@
 			if(0)
 				if(W.iscrowbar())
 					to_chat(user, SPAN_NOTICE("You struggle to pry off the outer sheath."))
-					playsound(src, 'sound/items/Crowbar.ogg', 100, 1)
+					playsound(src, 'sound/items/crowbar.ogg', 100, 1)
 					sleep(100)
 					if(!istype(src, /turf/simulated/wall) || !user || !W || !T )	return
 					if(user.loc == T && user.get_active_hand() == W )
