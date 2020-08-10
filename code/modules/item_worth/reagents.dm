@@ -519,13 +519,13 @@
 /datum/reagent/clonexadone
 	value = 5.5
 
-/datum/reagent/paracetamol
+/datum/reagent/perconol
 	value = 3.3
 
-/datum/reagent/tramadol
+/datum/reagent/mortaphenyl
 	value = 3.1
 
-/datum/reagent/oxycodone
+/datum/reagent/oxycomorphine
 	value = 3.3
 
 /datum/reagent/synaptizine
@@ -534,7 +534,7 @@
 /datum/reagent/alkysine
 	value = 5.9
 
-/datum/reagent/imidazoline
+/datum/reagent/oculine
 	value = 4.2
 
 /datum/reagent/peridaxon
@@ -570,31 +570,28 @@
 /datum/reagent/leporazine
 	value = 2
 
-/datum/reagent/mental/methylphenidate
+/datum/reagent/mental/corophenidate
 	value = 6
 
-/datum/reagent/mental/sertraline
+/datum/reagent/mental/parvosil
 	value = 6
 
-/datum/reagent/mental/fluvoxamine
+/datum/reagent/mental/neurostabin
 	value = 6
 
-/datum/reagent/mental/escitalopram
+/datum/reagent/mental/minaphobin
 	value = 6
 
-/datum/reagent/mental/paroxetine
-	value = 3.5
-
-/datum/reagent/mental/duloxetine
+/datum/reagent/mental/emoxanyl
 	value = 6
 
-/datum/reagent/mental/venlafaxine
+/datum/reagent/mental/orastabin
 	value = 6
 
-/datum/reagent/mental/risperidone
+/datum/reagent/mental/neurapan
 	value = 6
 
-/datum/reagent/mental/olanzapine
+/datum/reagent/mental/nerospectan
 	value = 6
 
 /datum/reagent/mental/truthserum
@@ -606,7 +603,7 @@
 /datum/reagent/rezadone
 	value = 5
 
-/datum/reagent/ipecac
+/datum/reagent/verunol
 	value = 2
 
 /datum/reagent/crayon_dust
@@ -708,10 +705,10 @@
 /datum/reagent/soporific
 	value = 2.5
 
-/datum/reagent/chloralhydrate
+/datum/reagent/polysomnine
 	value = 2.6
 
-/datum/reagent/chloralhydrate/beer2
+/datum/reagent/polysomnine/beer2
 	value = 2.2
 
 /datum/reagent/space_drugs

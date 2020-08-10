@@ -5,13 +5,14 @@
 	/client/proc/toggle_vox_voice,
 	/client/proc/Toggle_dropsounds,
 	/client/proc/Toggle_arcadesounds,
-	/client/proc/Toggle_radiosounds
+	/client/proc/Toggle_radiosounds,
+	/client/proc/Toggle_instrumentsounds
 )
 
 /client/verb/asf_toggle()
 	set name = "Open ASFX Tab"
 	set category = "Preferences"
-	set desc = "Open the ambiance sound effects toggle tab"
+	set desc = "Open the ambience sound effects toggle tab"
 
 	verbs ^= asfx_togs
 	return
@@ -100,3 +101,15 @@
 		to_chat(src, "You will now hear radio sounds.")
 	else
 		to_chat(src, "<font color='red'>You will no longer hear radio sounds.</font>")
+
+/client/proc/Toggle_instrumentsounds()
+	set name = "Toggle Instrument SFX"
+	set category = "SoundFx Prefs"
+	set desc = "Toggles hearing noises made by instruments."
+
+	prefs.asfx_togs ^= ASFX_INSTRUMENT
+	prefs.save_preferences()
+	if(prefs.asfx_togs & ASFX_INSTRUMENT)
+		to_chat(src, "You will now hear instrument sounds.")
+	else
+		to_chat(src, "<font color='red'>You will no longer hear instrument sounds.</font>")

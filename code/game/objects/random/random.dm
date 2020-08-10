@@ -152,7 +152,7 @@
 		/obj/item/bodybag/cryobag = 1,
 		/obj/item/storage/pill_bottle/kelotane = 2,
 		/obj/item/storage/pill_bottle/antitox = 2,
-		/obj/item/storage/pill_bottle/tramadol = 2,
+		/obj/item/storage/pill_bottle/mortaphenyl = 2,
 		/obj/item/reagent_containers/syringe/dylovene = 2,
 		/obj/item/reagent_containers/syringe/inaprovaline = 2,
 		/obj/item/stack/nanopaste = 1
@@ -178,7 +178,7 @@
 	icon_state = "purplecomb"
 //	spawn_nothing_percentage = 50
 	problist = list(
-		/obj/item/storage/pill_bottle/tramadol = 3,
+		/obj/item/storage/pill_bottle/mortaphenyl = 3,
 		/obj/item/storage/pill_bottle/happy = 2,
 		/obj/item/storage/pill_bottle/zoom = 2,
 		/obj/item/reagent_containers/glass/beaker/vial/random/toxin = 1,
@@ -881,7 +881,6 @@
 		/obj/random/coin = 1.2,
 		/obj/random/colored_jumpsuit = 0.7,
 		/obj/random/contraband = 0.9,
-		/obj/random/document = 0.5,
 		/obj/random/firstaid = 0.4,
 		/obj/random/gloves = 2,
 		/obj/random/glowstick = 0.4,
@@ -1058,7 +1057,6 @@
 		/obj/item/ammo_casing/c9mm/rubber = 0.5,
 		/obj/item/ammo_casing/c45/flash = 0.5,
 		/obj/item/ammo_casing/shotgun/beanbag = 0.5,
-		/obj/random/document/junk = 0.5,
 		/obj/item/flame/lighter/random = 0.25,
 		/obj/item/lipstick/random = 0.25,
 		/obj/item/reagent_containers/glass/beaker/vial/random = 0.1,

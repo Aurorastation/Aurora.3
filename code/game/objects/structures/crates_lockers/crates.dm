@@ -493,7 +493,7 @@
 /obj/structure/closet/crate/freezer/rations/fill()
 	for(var/i=1,i<=6,i++)
 		new /obj/item/reagent_containers/food/snacks/liquidfood(src)
-		new /obj/item/reagent_containers/food/drinks/cans/waterbottle(src)
+		new /obj/item/reagent_containers/food/drinks/waterbottle(src)
 
 /obj/structure/closet/crate/bin
 	name = "large bin"

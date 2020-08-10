@@ -166,7 +166,7 @@
 	var/mob/living/L = target
 	L.cloaked = 1
 	L.mouse_opacity = 0
-	L.update_icons()
+	L.update_icon()
 
 
 /datum/modifier/cloaking_device/deactivate()
@@ -180,7 +180,7 @@
 	var/mob/living/L = target
 	L.cloaked = 0
 	L.mouse_opacity = 1
-	L.update_icons()
+	L.update_icon()
 
 
 /datum/modifier/cloaking_device/check_validity()

@@ -236,7 +236,7 @@
 		short_name = short_input
 		return 1
 
-/mob/living/bot/secbot/ed209/update_icons()
+/mob/living/bot/secbot/ed209/update_icon()
 	if(on && is_attacking)
 		icon_state = "ed209-c"
 	else

@@ -788,7 +788,7 @@
 /datum/reagent/drink/carrotjuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
-		M.reagents.add_reagent(/datum/reagent/imidazoline, removed * 0.2)
+		M.reagents.add_reagent(/datum/reagent/oculine, removed * 0.2)
 
 /datum/reagent/drink/grapejuice
 	name = "Grape Juice"
@@ -2591,7 +2591,7 @@
 	name = "Cork Popper"
 	description = "A fancy cocktail with a hint of lemon."
 	color = "#766818"
-	strength = "30"
+	strength = 30
 	taste_description = "sour and smokey"
 
 	glass_icon_state = "corkpopper"

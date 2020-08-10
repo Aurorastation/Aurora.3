@@ -366,12 +366,12 @@
 
 	if(prob(5))
 		consume_gasses = list()
-		var/gas = pick("oxygen","nitrogen","phoron","carbon_dioxide")
+		var/gas = pick(GAS_OXYGEN,GAS_NITROGEN,GAS_PHORON,GAS_CO2)
 		consume_gasses[gas] = rand(3,9)
 
 	if(prob(5))
 		exude_gasses = list()
-		var/gas = pick("oxygen","nitrogen","phoron","carbon_dioxide")
+		var/gas = pick(GAS_OXYGEN,GAS_NITROGEN,GAS_PHORON,GAS_CO2)
 		exude_gasses[gas] = rand(3,9)
 
 	chems = list()
@@ -397,7 +397,6 @@
 			/datum/reagent/hyperzine,
 			/datum/reagent/hyronalin,
 			/datum/reagent/impedrezene,
-			/datum/reagent/mental/paroxetine,
 			/datum/reagent/mercury,
 			/datum/reagent/mindbreaker,
 			/datum/reagent/slimetoxin,
@@ -416,7 +415,7 @@
 			/datum/reagent/synaptizine,
 			/datum/reagent/thermite,
 			/datum/reagent/toxin,
-			/datum/reagent/tramadol,
+			/datum/reagent/mortaphenyl,
 			/datum/reagent/water,
 			/datum/reagent/woodpulp,
 			)

@@ -28,7 +28,7 @@
 	fruit = list("chili" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/carpmeat
+		/obj/item/reagent_containers/food/snacks/fish
 	)
 	result = /obj/item/reagent_containers/food/snacks/cubancarp
 
@@ -74,6 +74,23 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/friedmushroom
 
+//Fishy Recipes
+//==================
+/datum/recipe/fishandchips
+	appliance = FRYER
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fries,
+		/obj/item/reagent_containers/food/snacks/fish
+	)
+	result = /obj/item/reagent_containers/food/snacks/fishandchips
+
+/datum/recipe/fishfingers
+	appliance = FRYER
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish
+	)
+	coating = /datum/reagent/nutriment/coating/batter
+	result = /obj/item/reagent_containers/food/snacks/fishfingers
 
 //Sweet Recipes.
 //==================

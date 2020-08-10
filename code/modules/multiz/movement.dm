@@ -376,10 +376,10 @@
 			!lying && thrust.allow_thrust(0.01, src))
 			return FALSE
 
-	for(var/mob/living/carbon/human/H in range(1, src)) // can't fall if someone's holding you
-		for(var/obj/item/grab/G in list(H.l_hand, H.r_hand))
-			if(G.state >= GRAB_AGGRESSIVE && G.affecting == src)
-				return FALSE
+	for(var/grab in grabbed_by)
+		var/obj/item/grab/G = grab
+		if(G.state >= GRAB_AGGRESSIVE)
+			return FALSE
 	return ..()
 
 /mob/living/carbon/human/bst/can_fall()

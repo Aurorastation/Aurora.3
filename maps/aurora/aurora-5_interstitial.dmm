@@ -5433,9 +5433,9 @@
 	req_access = list(64)
 	},
 /obj/item/clothing/suit/straight_jacket,
-/obj/item/reagent_containers/pill/methylphenidate,
-/obj/item/reagent_containers/pill/escitalopram,
-/obj/item/reagent_containers/pill/escitalopram,
+/obj/item/reagent_containers/pill/corophenidate,
+/obj/item/reagent_containers/pill/minaphobin,
+/obj/item/reagent_containers/pill/minaphobin,
 /obj/item/reagent_containers/syringe,
 /obj/item/clothing/mask/muzzle,
 /obj/random/soap,

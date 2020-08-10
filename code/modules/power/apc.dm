@@ -506,7 +506,7 @@
 						new /obj/item/module/power_control(loc)
 		else if (opened < COVER_REMOVED)
 			panel_open = FALSE
-			opened = COVER_OPENED
+			opened = COVER_CLOSED
 			update_icon()
 	else if (W.iscrowbar() && !((stat & BROKEN) || hacker) )
 		if(coverlocked && !(stat & MAINT))

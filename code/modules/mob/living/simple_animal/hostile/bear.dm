@@ -25,6 +25,7 @@
 	maxHealth = 80
 	melee_damage_lower = 10
 	melee_damage_upper = 18
+	resist_mod = 4
 	break_stuff_probability = 80
 	mob_size = 17
 	butchering_products = list(/obj/item/clothing/head/bearpelt = 1)
@@ -366,10 +367,10 @@
 			melee_damage_upper = initial(melee_damage_upper)
 			growl_soft()
 
-	update_icons()
+	update_icon()
 
 
-/mob/living/simple_animal/hostile/bear/update_icons()
+/mob/living/simple_animal/hostile/bear/update_icon()
 	if (stat == DEAD)
 		icon_state = "bear_dead"
 	else if (bearmode == BEARMODE_INDOORS)

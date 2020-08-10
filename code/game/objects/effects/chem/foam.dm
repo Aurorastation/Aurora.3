@@ -33,7 +33,7 @@
 	if(metal)
 		var/obj/structure/foamedmetal/M = new /obj/structure/foamedmetal(src.loc)
 		M.metal = metal
-		M.updateicon()
+		M.update_icon()
 	flick("[icon_state]-disolve", src)
 	QDEL_IN(src, 5)
 
@@ -143,7 +143,7 @@
 	set_opacity(0)
 	return ..()
 
-/obj/structure/foamedmetal/proc/updateicon()
+/obj/structure/foamedmetal/update_icon()
 	if(metal == 1)
 		icon_state = "metalfoam"
 	else

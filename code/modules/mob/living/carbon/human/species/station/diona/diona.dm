@@ -3,7 +3,7 @@
 	short_name = "dio"
 	name_plural = "Dionaea"
 	bodytype = "Diona"
-	total_health = 140
+	total_health = 240
 	age_min = 1
 	age_max = 1000
 	default_genders = list(NEUTER)

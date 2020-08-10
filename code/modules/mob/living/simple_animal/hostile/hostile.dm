@@ -67,8 +67,8 @@
 	if(!isnull(T))
 		stance = HOSTILE_STANCE_ATTACK
 	if(isliving(T))
-		custom_emote(1, "[attack_emote] [T]")
-		if(istype(T, /mob/living/simple_animal/hostile/))
+		visible_message(SPAN_WARNING("\The [src] [attack_emote] [T]."))
+		if(istype(T, /mob/living/simple_animal/hostile))
 			var/mob/living/simple_animal/hostile/H = T
 			H.being_targeted(src)
 	return T
@@ -80,7 +80,7 @@
 	target_mob = H
 	FoundTarget()
 	stance = HOSTILE_STANCE_ATTACKING
-	custom_emote(1, "gets taunted by [H] and begins to retaliate!")
+	visible_message(SPAN_WARNING("\The [src] gets taunted by \the [H] and begins to retaliate!"))
 
 /mob/living/simple_animal/hostile/bullet_act(var/obj/item/projectile/P, var/def_zone)
 	..()
@@ -165,6 +165,12 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		return
 	if(!see_target())
 		LoseTarget()
+	for(var/grab in grabbed_by)
+		var/obj/item/grab/G = grab
+		if(G.state >= GRAB_NECK)
+			visible_message(SPAN_WARNING("\The [G.assailant] restrains \the [src] from attacking!"))
+			resist_grab()
+			return
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
 		L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext)
@@ -177,7 +183,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		var/obj/machinery/porta_turret/T = target_mob
 		src.do_attack_animation(T)
 		T.take_damage(max(melee_damage_lower, melee_damage_upper) / 2)
-		visible_message("<span class='danger'>\The [src] [attacktext] \the [T]!</span>")
+		visible_message(SPAN_DANGER("\The [src] [attacktext] \the [T]!"))
 		return T
 
 /mob/living/simple_animal/hostile/proc/LoseTarget()
@@ -227,7 +233,7 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	// This code checks if we are not going to hit our target
 	if(smart && !check_fire(target_mob))
 		return
-	visible_message("<span class='warning'> <b>[src]</b> fires at [target]!</span>")
+	visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] fires at \the [target]!"))
 
 	if(rapid)
 		var/datum/callback/shoot_cb = CALLBACK(src, .proc/shoot_wrapper, target, loc, src)
@@ -283,13 +289,13 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	if(prob(break_stuff_probability) || bypass_prob) //bypass_prob is used to make mob destroy things in the way to our target
 		for(var/dir in cardinal) // North, South, East, West
 			var/obj/effect/energy_field/e = locate(/obj/effect/energy_field, get_step(src, dir))
-			if(e)
-				e.Stress(rand(1,2))
-				visible_message("<span class='danger'>\The [src] [attacktext] \the [e]!</span>")
+			if(e && !e.invisibility && e.density)
+				e.Stress(rand(0.5, 1.5))
+				visible_message(SPAN_DANGER("[capitalize_first_letters(src.name)] [attacktext] \the [e]!"))
 				src.do_attack_animation(e)
 				target_mob = e
 				stance = HOSTILE_STANCE_ATTACKING
-				return 1
+				return TRUE
 			for(var/obj/structure/window/obstacle in get_step(src, dir))
 				if(obstacle.dir == reverse_dir[dir]) // So that windows get smashed in the right order
 					obstacle.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)

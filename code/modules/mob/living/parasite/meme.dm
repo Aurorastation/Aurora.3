@@ -390,7 +390,7 @@ var/controlling
 		M.show_message("<B>[host]</B> whispers something incoherent.",2) // 2 stands for hearable message
 
 	// Find out whether the target can hear
-	if(target.disabilities & 32 || target.ear_deaf)
+	if(target.disabilities & 32 || isdeaf(target))
 		to_chat(src, "<span class='warning'>Your target doesn't seem to hear you.</span>")
 		return
 
@@ -434,7 +434,7 @@ var/controlling
 		M.show_message("<B>[host]</B> screams something incoherent!",2) // 2 stands for hearable message
 
 	// Find out whether the target can hear
-	if(target.disabilities & 32 || target.ear_deaf)
+	if(target.disabilities & 32 || isdeaf(target))
 		to_chat(src, "<span class='warning'>Your target doesn't seem to hear you.</span>")
 		return
 

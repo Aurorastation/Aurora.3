@@ -47,12 +47,18 @@
 				return TRUE
 	return FALSE
 
+/proc/is_path_in_list(var/check_path, var/list/L)
+	for(var/path in L)
+		if(ispath(check_path, path))
+			return TRUE
+	return FALSE
+
 //Checks for specific types in a list
 /proc/is_type_in_list(var/datum/A, var/list/L)
 	for(var/type in L)
 		if(istype(A, type))
-			return 1
-	return 0
+			return TRUE
+	return FALSE
 
 /proc/instances_of_type_in_list(var/datum/A, list/L, strict = FALSE)
 	. = 0
@@ -716,6 +722,11 @@
 		group_list[key] = values
 
 	values += value
+
+/proc/list_keys(var/list/L) // Return a list of keys in a list
+	. = list()
+	for(var/e in L)
+		. += e
 
 // Return a list of the values in an assoc list (including null)
 /proc/list_values(var/list/L)

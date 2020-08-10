@@ -233,7 +233,7 @@
 		var/mob/M = obj.loc
 		if(ismob(M))
 			M.remove_from_mob(obj)
-			M.update_icons()	//so their overlays update
+			M.update_icon()	//so their overlays update
 
 	if(!silent)
 		var/obj/oldobj = obj

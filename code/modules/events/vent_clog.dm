@@ -26,7 +26,7 @@
 		/datum/reagent/fuel,
 		/datum/reagent/blood,
 		/datum/reagent/sterilizine,
-		/datum/reagent/ipecac,
+		/datum/reagent/verunol,
 		/datum/reagent/toxin/fertilizer/monoammoniumphosphate
 	)
 	var/list/gunk_data = list(

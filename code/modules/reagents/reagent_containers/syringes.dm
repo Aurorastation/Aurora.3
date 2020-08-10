@@ -9,6 +9,7 @@
 /obj/item/reagent_containers/syringe
 	name = "syringe"
 	desc = "A syringe."
+	desc_info = "This tool can be used to reinflate a collapsed lung. To do this, activate grab intent, select the patient's chest, then click on them. It will hurt a lot, but it will buy time until surgery can be performed."
 	icon = 'icons/obj/syringe.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_medical.dmi',
@@ -120,17 +121,20 @@
 		if (check_zone(user.zone_sel.selecting) == BP_CHEST) // impromptu needle thoracostomy, re-inflate a collapsed lung
 			var/P = (user == target) ? "their" : (target.name + "\'s")
 			var/SM = (user == target) ? "your" : (target.name + "\'s")
-			user.visible_message(SPAN_DANGER("[user] aims \the [src] between [P] ribs!"), SPAN_DANGER("You aim \the [src] between [SM] ribs!"))
+			user.visible_message("<b>[user]</b> aims \the [src] between [P] ribs!", SPAN_NOTICE("You aim \the [src] between [SM] ribs!"))
 			if(!do_mob(user, target, 1.5 SECONDS))
 				return
-			user.visible_message(SPAN_WARNING("[user] jabs \the [src] between [P] ribs with \the [src]!"), SPAN_WARNING("You jab \the [src] between [SM] ribs!"))
-			if(H.is_lung_ruptured())
-				var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
-				if(!L.rescued)
-					L.rescued = TRUE
-				else
-					L.rescued = FALSE
-					L.take_damage(3)
+			var/blocked = H.getarmor_organ(H.organs_by_name[BP_CHEST], "melee")
+			if(blocked > 20)
+				user.visible_message("<b>[user]</b> jabs \the [src] into [H], but their armor blocks it!", SPAN_WARNING("You jab \the [src] into [H], but their armor blocks it!"))
+				return
+			user.visible_message("<b>[user]</b> jabs \the [src] between [P] ribs!", SPAN_NOTICE("You jab \the [src] between [SM] ribs!"))
+			H.apply_damage(3, BRUTE, BP_CHEST)
+			H.custom_pain("The pain in your chest is living hell!", 75, affecting = H.organs_by_name[BP_CHEST])
+			var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
+			if(!L)
+				return
+			L.rescued = TRUE
 			return
 
 	if(user.a_intent == I_HURT && ishuman(user))
@@ -431,19 +435,19 @@
 	mode = SYRINGE_INJECT
 	update_icon()
 
-/obj/item/reagent_containers/syringe/calomel
-	name = "Syringe (calomel)"
+/obj/item/reagent_containers/syringe/fluvectionem
+	name = "Syringe (fluvectionem)"
 	desc = "Contains purging medicine."
-	reagents_to_add = list(/datum/reagent/calomel = 15)
+	reagents_to_add = list(/datum/reagent/fluvectionem = 15)
 
-/obj/item/reagent_containers/syringe/calomel/Initialize()
+/obj/item/reagent_containers/syringe/fluvectionem/Initialize()
 	. = ..()
 	mode = SYRINGE_INJECT
 	update_icon()
 
 
 /obj/item/reagent_containers/syringe/ld50_syringe/chloral
-	reagents_to_add = list(/datum/reagent/chloralhydrate = 60)
+	reagents_to_add = list(/datum/reagent/polysomnine = 60)
 
 /obj/item/reagent_containers/syringe/ld50_syringe/chloral/Initialize()
 	. = ..()

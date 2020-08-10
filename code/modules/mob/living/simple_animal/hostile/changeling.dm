@@ -23,6 +23,7 @@
 	harm_intent_damage = 0
 	melee_damage_lower = 30
 	melee_damage_upper = 30
+	resist_mod = 3
 	mob_size = 25
 	environment_smash = 2
 	attacktext = "mangled"

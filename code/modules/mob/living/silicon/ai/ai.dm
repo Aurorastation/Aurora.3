@@ -288,7 +288,7 @@ var/list/ai_verbs_default = list(
 		selected_sprite = new/datum/ai_icon("Custom", "[sprite.aichassisicon]", "4", "[sprite.aichassisicon]-crash", "#FFFFFF", "#FFFFFF", "#FFFFFF")
 	else
 		selected_sprite = default_ai_icon
-	updateicon()
+	update_icon()
 
 /mob/living/silicon/ai/pointed(atom/A as mob|obj|turf in view())
 	set popup_menu = 0
@@ -372,7 +372,7 @@ var/list/ai_verbs_default = list(
 	if (!custom_sprite)
 		var/new_sprite = input("Select an icon!", "AI", selected_sprite) as null|anything in ai_icons
 		if(new_sprite) selected_sprite = new_sprite
-	updateicon()
+	update_icon()
 
 // this verb lets the ai see the stations manifest
 /mob/living/silicon/ai/proc/ai_roster()
@@ -824,7 +824,7 @@ var/list/ai_verbs_default = list(
 	multitool_mode = !multitool_mode
 	to_chat(src, "<span class='notice'>Multitool mode: [multitool_mode ? "E" : "Dise"]ngaged</span>")
 
-/mob/living/silicon/ai/updateicon()
+/mob/living/silicon/ai/update_icon()
 	if(!selected_sprite) selected_sprite = default_ai_icon
 
 	if(stat == DEAD)
