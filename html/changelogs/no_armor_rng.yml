@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - tweak: "Armor no longer has a random chance to fully block attacks."
