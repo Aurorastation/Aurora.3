@@ -1,0 +1,6 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - backend: "Added support for an external API for updating the ingame staff list."
+  - refactor: "Permissions Panel is now a VueUI panel."
