@@ -39,6 +39,7 @@
 	var/build_type
 	var/build_atom
 	var/build_delay
+	var/last_fail = 0
 
 /obj/item/rfd/Initialize()
 	. = ..()
