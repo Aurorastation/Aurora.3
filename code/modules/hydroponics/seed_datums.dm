@@ -1171,7 +1171,7 @@
 	name = "mtear"
 	seed_name = "Messa's tear"
 	display_name = "Messa's tear leaves"
-	chems = list(/datum/reagent/honey = list(1,10), /datum/reagent/kelotane = list(3,5))
+	chems = list(/datum/reagent/nutriment/honey = list(1,10), /datum/reagent/kelotane = list(3,5))
 	kitchen_tag = "mtear"
 
 /datum/seed/mtear/setup_traits()

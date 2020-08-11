@@ -723,6 +723,11 @@
 
 	values += value
 
+/proc/list_keys(var/list/L) // Return a list of keys in a list
+	. = list()
+	for(var/e in L)
+		. += e
+
 // Return a list of the values in an assoc list (including null)
 /proc/list_values(var/list/L)
 	. = list()

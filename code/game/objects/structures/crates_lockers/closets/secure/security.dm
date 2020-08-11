@@ -154,6 +154,7 @@
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/storage/belt/security(src)
+	new /obj/item/storage/box/fancy/keypouch/sec(src)
 
 /obj/structure/closet/secure_closet/hos2
 	name = "head of security's attire"

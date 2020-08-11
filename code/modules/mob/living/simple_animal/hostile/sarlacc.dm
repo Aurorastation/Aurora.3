@@ -364,7 +364,7 @@
 	nodamage = 1
 	taser_effect = 1
 	agony = 20
-	check_armour = "energy"
+	check_armor = "energy"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	var/list/thoughts = list(
 		"You hear a cacophany of alien sounds.",

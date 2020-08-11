@@ -10,16 +10,15 @@
  */
 
 /obj/item/rig_module/stealth_field
-
 	name = "active camouflage module"
 	desc = "A robust hardsuit-integrated stealth module."
 	icon_state = "cloak"
 
-	toggleable = 1
-	disruptable = 1
-	disruptive = 0
-	attackdisrupts = 1
-	confined_use = 1
+	toggleable = TRUE
+	disruptable = TRUE
+	disruptive = FALSE
+	attackdisrupts = TRUE
+	confined_use = TRUE
 
 	use_power_cost = 75
 	active_power_cost = 5
@@ -38,45 +37,40 @@
 	category = MODULE_SPECIAL
 
 /obj/item/rig_module/stealth_field/activate()
-
 	if(!..())
-		return 0
+		return FALSE
 
 	var/mob/living/carbon/human/H = holder.wearer
 
-	to_chat(H, "<font color='blue'><b>You are now invisible to normal detection.</b></font>")
+	to_chat(H, SPAN_NOTICE("<b>You are now invisible to normal detection.</b>"))
 	H.invisibility = INVISIBILITY_LEVEL_TWO
 
-	anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity",null,20,null)
+	anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity", null, 20, null)
 
-	H.visible_message("<span class='notice'>[H] vanishes into thin air!</span>", "<span class='notice'>You vanish into thin air!</span>")
+	H.visible_message(SPAN_NOTICE("[H] vanishes into thin air!"), SPAN_NOTICE("You vanish into thin air!"))
 
 /obj/item/rig_module/stealth_field/deactivate()
-
 	if(!..())
-		return 0
+		return FALSE
 
 	var/mob/living/carbon/human/H = holder.wearer
 
-	to_chat(H, "<span class='danger'>You are now visible.</span>")
-	H.invisibility = 0
+	to_chat(H, SPAN_NOTICE("<b>You are now visible.</b>"))
+	H.invisibility = FALSE
 
-	anim(get_turf(H), H,'icons/mob/mob.dmi',,"uncloak",,H.dir)
-	anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity",null,20,null)
+	anim(get_turf(H), H, 'icons/mob/mob.dmi', ,"uncloak", , H.dir)
+	anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity", null, 20, null)
 
-	for(var/mob/O in oviewers(H))
-		O.show_message("[H.name] appears from thin air!",1)
+	H.visible_message(SPAN_NOTICE("[H] appears from thin air!"), SPAN_NOTICE("You appear from thin air!"))
 	playsound(get_turf(H), 'sound/effects/stealthoff.ogg', 10, 1)
 
-
 /obj/item/rig_module/teleporter
-
 	name = "bluespace teleportation module"
 	desc = "A complex, sleek-looking, hardsuit-integrated teleportation module that exploits bluespace energy to phase from one location to another instantaneously."
 	icon_state = "teleporter"
 	use_power_cost = 40
 	redundant = 1
-	usable = 1
+	usable = TRUE
 	selectable = 1
 	var/lastteleport
 
@@ -87,36 +81,34 @@
 
 	category = MODULE_SPECIAL
 
-/obj/item/rig_module/teleporter/proc/phase_in(var/mob/M,var/turf/T)
-
+/obj/item/rig_module/teleporter/proc/phase_in(var/mob/M, var/turf/T)
 	if(!M || !T)
 		return
 
 	holder.spark_system.queue()
 	playsound(T, 'sound/effects/phasein.ogg', 25, 1)
 	playsound(T, 'sound/effects/sparks2.ogg', 50, 1)
-	anim(T,M,'icons/mob/mob.dmi',,"phasein",,M.dir)
+	anim(T, M, 'icons/mob/mob.dmi', ,"phasein", , M.dir)
 
-/obj/item/rig_module/teleporter/proc/phase_out(var/mob/M,var/turf/T)
-
+/obj/item/rig_module/teleporter/proc/phase_out(var/mob/M, var/turf/T)
 	if(!M || !T)
 		return
 
 	playsound(T, "sparks", 50, 1)
-	anim(T,M,'icons/mob/mob.dmi',,"phaseout",,M.dir)
+	anim(T, M, 'icons/mob/mob.dmi', ,"phaseout", ,M.dir)
 
-/obj/item/rig_module/teleporter/engage(var/atom/target, var/notify_ai)
-
-	if(!..()) return FALSE
+/obj/item/rig_module/teleporter/engage(atom/target, mob/user, var/notify_ai)
+	if(!..())
+		return FALSE
 
 	var/mob/living/carbon/human/H = holder.wearer
 
 	if(lastteleport + (5 SECONDS) > world.time)
-		to_chat(H, SPAN_WARNING("The teleporter needs time to cool down!"))
+		to_chat(user, SPAN_WARNING("The teleporter needs time to cool down!"))
 		return FALSE
 
 	if(!istype(H.loc, /turf))
-		to_chat(H, "<span class='warning'>You cannot teleport out of your current location.</span>")
+		to_chat(user, SPAN_WARNING("You cannot teleport out of your current location."))
 		return FALSE
 
 	var/turf/T
@@ -126,19 +118,19 @@
 		T = get_teleport_loc(get_turf(H), H, rand(5, 9))
 
 	if(!T || T.density)
-		to_chat(H, "<span class='warning'>You cannot teleport into solid walls.</span>")
+		to_chat(user, SPAN_WARNING("You cannot teleport into solid walls."))
 		return FALSE
 
 	if(isAdminLevel(T.z))
-		to_chat(H, "<span class='warning'>You cannot use your teleporter on this Z-level.</span>")
+		to_chat(user, SPAN_WARNING("You cannot use your teleporter on this Z-level."))
 		return FALSE
 
 	if(T.contains_dense_objects())
-		to_chat(H, "<span class='warning'>You cannot teleport to a location with solid objects.</span>")
+		to_chat(user, SPAN_WARNING("You cannot teleport to a location with solid objects."))
 		return FALSE
 
 	if((T.z != H.z || get_dist(T, get_turf(H)) > world.view) && target)
-		to_chat(H, "<span class='warning'>You cannot teleport to such a distant object.</span>")
+		to_chat(user, SPAN_WARNING("You cannot teleport to such a distant object."))
 		return FALSE
 
 	phase_out(H,get_turf(H))
@@ -146,7 +138,7 @@
 	phase_in(H,get_turf(H))
 
 	if(T != get_turf(H))
-		to_chat(H, SPAN_WARNING("Something interferes with your [src]!"))
+		to_chat(user, SPAN_WARNING("Something interferes with your [src]!"))
 
 	for(var/obj/item/grab/G in H.contents)
 		if(G.affecting)
@@ -158,7 +150,6 @@
 	return TRUE
 
 /obj/item/rig_module/fabricator/energy_net
-
 	name = "net projector"
 	desc = "Some kind of complex energy projector with a hardsuit mount."
 	icon_state = "enet"
@@ -173,33 +164,31 @@
 
 	category = MODULE_SPECIAL
 
-/obj/item/rig_module/fabricator/energy_net/engage(atom/target)
-
+/obj/item/rig_module/fabricator/energy_net/engage(atom/target, mob/user)
 	if(holder && holder.wearer)
 		if(..(target) && target)
-			holder.wearer.Beam(target,"n_beam",,10)
-		return 1
-	return 0
+			holder.wearer.Beam(target, "n_beam", , 10)
+		return TRUE
+	return FALSE
 
 /obj/item/rig_module/self_destruct
-
 	name = "self-destruct module"
 	desc = "Oh my God, Captain. A bomb."
 	icon_state = "deadman"
-	usable = 1
-	active = 1
-	permanent = 1
+	usable = TRUE
+	active = TRUE
+	permanent = TRUE
 
 	engage_string = "Detonate"
 
 	interface_name = "dead man's switch"
 	interface_desc = "An integrated self-destruct module. When the wearer dies, so does the surrounding area. Do not press this button."
-	var/list/explosion_values = list(3,4,5,6)
+	var/list/explosion_values = list(3, 4, 5, 6)
 
 	category = MODULE_SPECIAL
 
 /obj/item/rig_module/self_destruct/small
-	explosion_values = list(1,2,3,4)
+	explosion_values = list(1, 2, 3, 4)
 
 /obj/item/rig_module/self_destruct/activate()
 	return
@@ -208,13 +197,12 @@
 	return
 
 /obj/item/rig_module/self_destruct/process()
-
 	// Not being worn, leave it alone.
 	if(!holder || !holder.wearer || !holder.wearer.wear_suit == holder)
-		return 0
+		return FALSE
 
 	//OH SHIT.
-	if(holder.wearer.stat == 2)
+	if(holder.wearer.stat == DEAD)
 		engage(1)
 
 /obj/item/rig_module/self_destruct/engage(var/skip_check)
@@ -231,8 +219,8 @@
 	name = "EMP dissipation module"
 	desc = "A bewilderingly complex bundle of fiber optics and chips. Seems like it uses a good deal of power."
 	active_power_cost = 10
-	toggleable = 1
-	usable = 0
+	toggleable = TRUE
+	usable = FALSE
 	use_power_cost = 70
 	module_cooldown = 30
 
@@ -255,36 +243,36 @@
 	if(!..())
 		return
 
-	holder.emp_protection = max(0,(holder.emp_protection - protection_amount))
+	holder.emp_protection = max(0, (holder.emp_protection - protection_amount))
 
 /obj/item/rig_module/emergency_powergenerator
 	name = "emergency power generator"
 	desc = "A high yield power generating device that takes a long time to recharge."
 	active_power_cost = 0
-	toggleable = 0
-	usable = 1
-	confined_use = 1
+	toggleable = FALSE
+	usable = TRUE
+	confined_use = TRUE
 	var/cooldown = 0
 
 	engage_string = "Use Emergency Power"
 
 	interface_name = "emergency power generator"
 	interface_desc = "A high yield power generating device that takes a long time to recharge."
-	var/generation_ammount = 3500
+	var/generation_amount = 3500
 
 	category = MODULE_SPECIAL
 
-/obj/item/rig_module/emergency_powergenerator/engage()
+/obj/item/rig_module/emergency_powergenerator/engage(atom/target, mob/user)
 	if(!..())
 		return
 	var/mob/living/carbon/human/H = holder.wearer
 	if(cooldown)
-		to_chat(H, "<span class='danger'>There isn't enough power stored up yet!</span>")
-		return 0
+		to_chat(user, SPAN_DANGER("There isn't enough power stored up yet!"))
+		return FALSE
 	else
-		to_chat(H, "<span class='danger'>Your suit emits a loud sound as power is rapidly injected into your suits battery!</span>")
+		message_user(user, SPAN_NOTICE("You inject a burst of power into \the [holder]."), SPAN_NOTICE("Your suit emits a loud sound as power is rapidly injected into your suit's battery!"))
 		playsound(H.loc, 'sound/effects/sparks2.ogg', 50, 1)
-		holder.cell.give(generation_ammount)
+		holder.cell.give(generation_amount)
 		cooldown = 1
 		addtimer(CALLBACK(src, /obj/item/rig_module/emergency_powergenerator/proc/reset_cooldown), 2 MINUTES)
 
@@ -320,9 +308,9 @@
 	use_power_cost = 10
 	module_cooldown = 5
 
-	usable = 0
+	usable = FALSE
 	selectable = 0
-	toggleable = 1
+	toggleable = TRUE
 
 	interface_name = "advanced door hacking tool"
 	interface_desc = "An advanced door hacking tool that sports a low power cost and incredibly quick door hacking time. The device also supports hacking several signals at once remotely, and the last 10 doors hacked can be instantly accessed."
@@ -330,22 +318,23 @@
 	category = MODULE_SPECIAL
 
 /obj/item/rig_module/device/door_hack/process()
-
 	if(holder && holder.wearer)
 		if(!(locate(/obj/item/device/multitool/hacktool/rig) in holder.wearer))
 			deactivate()
-			return 0
+			return FALSE
 
 	return ..()
 
-/obj/item/rig_module/device/door_hack/activate()
-
+/obj/item/rig_module/device/door_hack/activate(mob/user)
 	..()
 
 	var/mob/living/M = holder.wearer
 
 	if(M.l_hand && M.r_hand)
-		to_chat(M, "<span class='danger'>Your hands are full.</span>")
+		if(M == user)
+			to_chat(M, SPAN_WARNING("Your hands are full."))
+		else
+			to_chat(user, SPAN_WARNING("[M]'s hands are full."))
 		deactivate()
 		return
 
@@ -354,7 +343,6 @@
 	M.put_in_hands(hacktool)
 
 /obj/item/rig_module/device/door_hack/deactivate()
-
 	..()
 
 	var/mob/living/M = holder.wearer

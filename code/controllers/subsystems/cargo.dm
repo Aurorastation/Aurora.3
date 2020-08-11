@@ -118,57 +118,48 @@ var/datum/controller/subsystem/cargo/SScargo
 		category_query.Execute()
 		while(category_query.NextRow())
 			CHECK_TICK
-			var/category_id = category_query.item[1]
-			try
-				add_category(
-					category_query.item[2],
-					category_query.item[3],
-					category_query.item[4],
-					category_query.item[5],
-					text2num(category_query.item[6]))
-			catch(var/exception/ec)
-				log_debug("SScargo: Error when loading category [category_id] from sql: [ec]")
+			add_category(
+				category_query.item[2],
+				category_query.item[3],
+				category_query.item[4],
+				category_query.item[5],
+				text2num(category_query.item[6]))
 		//Load the suppliers
 		var/DBQuery/supplier_query = dbcon.NewQuery("SELECT id, short_name, name, description, tag_line, shuttle_time, shuttle_price, available, price_modifier FROM ss13_cargo_suppliers WHERE deleted_at is NULL")
 		supplier_query.Execute()
 		while(supplier_query.NextRow())
 			CHECK_TICK
-			var/supplier_id = supplier_query.item[1]
-			try
-				add_supplier(
-					supplier_query.item[2],
-					supplier_query.item[3],
-					supplier_query.item[4],
-					supplier_query.item[5],
-					supplier_query.item[6],
-					supplier_query.item[7],
-					supplier_query.item[8],
-					supplier_query.item[9])
-			catch(var/exception/es)
-				log_debug("SScargo: Error when loading supplier [supplier_id] from sql: [es]")
+			add_supplier(
+				supplier_query.item[2],
+				supplier_query.item[3],
+				supplier_query.item[4],
+				supplier_query.item[5],
+				supplier_query.item[6],
+				supplier_query.item[7],
+				supplier_query.item[8],
+				supplier_query.item[9])
 		//Load the items
 		var/DBQuery/item_query = dbcon.NewQuery("SELECT id, name, supplier, description, categories, price, items, access, container_type, groupable, item_mul FROM ss13_cargo_items WHERE deleted_at IS NULL AND approved_at IS NOT NULL AND supplier IS NOT NULL ORDER BY order_by ASC, name ASC, supplier ASC")
 		item_query.Execute()
 		while(item_query.NextRow())
 			CHECK_TICK
 			var/item_id = item_query.item[1]
-			try
-				add_item(
-					item_query.item[1],
-					item_query.item[2],
-					item_query.item[3],
-					item_query.item[4],
-					json_decode(item_query.item[5]),
-					item_query.item[6],
-					json_decode(item_query.item[7]),
-					item_query.item[8],
-					item_query.item[9],
-					item_query.item[10],
-					item_query.item[11])
-			catch(var/exception/ei)
-				log_debug("SScargo: Error when loading item [item_id] from sql: [ei]")
-				var/DBQuery/item_error_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET load_error = :error_message: WHERE id = :id:")
-				item_error_query.Execute(list("id"=item_id,"error_message"="[ei]"))
+			var/error_message = add_item(
+				item_query.item[1],
+				item_query.item[2],
+				item_query.item[3],
+				item_query.item[4],
+				item_query.item[5],
+				item_query.item[6],
+				item_query.item[7],
+				item_query.item[8],
+				item_query.item[9],
+				item_query.item[10],
+				item_query.item[11])
+			if(error_message && istext(error_message))
+				log_debug("SScargo: Error when loading item [item_id] from sql: [error_message]")
+				var/DBQuery/item_error_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET error_message = :error_message: WHERE id = :id:")
+				item_error_query.Execute(list("id"=item_id,"error_message"=error_message))
 
 
 //Loads the cargo data from JSON
@@ -186,51 +177,45 @@ var/datum/controller/subsystem/cargo/SScargo
 	//Load the cargo categories
 	for (var/category in cargoconfig["categories"])
 		CHECK_TICK
-		try
-			add_category(
-				cargoconfig["categories"][category]["name"],
-				cargoconfig["categories"][category]["display_name"],
-				cargoconfig["categories"][category]["description"],
-				cargoconfig["categories"][category]["icon"],
-				cargoconfig["categories"][category]["price_modifier"])
-		catch(var/exception/ec)
-			log_debug("SScargo: Error when loading category: [ec]")
+		add_category(
+			cargoconfig["categories"][category]["name"],
+			cargoconfig["categories"][category]["display_name"],
+			cargoconfig["categories"][category]["description"],
+			cargoconfig["categories"][category]["icon"],
+			cargoconfig["categories"][category]["price_modifier"])
 	//Load the suppliers
 	for (var/supplier in cargoconfig["suppliers"])
 		CHECK_TICK
-		try
-			add_supplier(
-				supplier,
-				cargoconfig["suppliers"][supplier]["name"],
-				cargoconfig["suppliers"][supplier]["description"],
-				cargoconfig["suppliers"][supplier]["tag_line"],
-				cargoconfig["suppliers"][supplier]["shuttle_time"],
-				cargoconfig["suppliers"][supplier]["shuttle_price"],
-				cargoconfig["suppliers"][supplier]["available"],
-				cargoconfig["suppliers"][supplier]["price_modifier"])
-		catch(var/exception/es)
-			log_debug("SScargo: Error when loading supplier: [es]")
+		add_supplier(
+			supplier,
+			cargoconfig["suppliers"][supplier]["name"],
+			cargoconfig["suppliers"][supplier]["description"],
+			cargoconfig["suppliers"][supplier]["tag_line"],
+			cargoconfig["suppliers"][supplier]["shuttle_time"],
+			cargoconfig["suppliers"][supplier]["shuttle_price"],
+			cargoconfig["suppliers"][supplier]["available"],
+			cargoconfig["suppliers"][supplier]["price_modifier"])
 	//Load the cargoitems
 	for (var/item in cargoconfig["items"])
 		CHECK_TICK
-		try
-			add_item(
-				null,
-				cargoconfig["items"][item]["name"],
-				cargoconfig["items"][item]["supplier"],
-				cargoconfig["items"][item]["description"],
-				cargoconfig["items"][item]["categories"],
-				cargoconfig["items"][item]["price"],
-				cargoconfig["items"][item]["items"],
-				cargoconfig["items"][item]["access"],
-				cargoconfig["items"][item]["container_type"],
-				cargoconfig["items"][item]["groupable"],
-				cargoconfig["items"][item]["item_mul"])
-		catch(var/exception/ei)
-			log_debug("SScargo: Error when loading supplier: [ei]")
+		var/error_message = add_item(
+			null,
+			cargoconfig["items"][item]["name"],
+			cargoconfig["items"][item]["supplier"],
+			cargoconfig["items"][item]["description"],
+			cargoconfig["items"][item]["categories"],
+			cargoconfig["items"][item]["price"],
+			cargoconfig["items"][item]["items"],
+			cargoconfig["items"][item]["access"],
+			cargoconfig["items"][item]["container_type"],
+			cargoconfig["items"][item]["groupable"],
+			cargoconfig["items"][item]["item_mul"])
+		if(error_message && istext(error_message))
+			log_debug("SScargo: Error when loading item: [error_message]")
 	return 1
 
 //Add a new Category to the Cargo Subsystem
+//Returns the /datum/cargo_category on success or a error message
 /datum/controller/subsystem/cargo/proc/add_category(var/name,var/display_name,var/description,var/icon,var/price_modifier)
 	var/datum/cargo_category/cc = new()
 	cc.name = name
@@ -244,6 +229,7 @@ var/datum/controller/subsystem/cargo/SScargo
 	return cc
 
 //Add a new Supplier to the Cargo Subsystem
+//Returns the /datum/cargo_supplier/ on success or a error message
 /datum/controller/subsystem/cargo/proc/add_supplier(var/short_name,var/name,var/description,var/tag_line,var/shuttle_time,var/shuttle_price,var/available,var/price_modifier)
 	var/datum/cargo_supplier/cs = new()
 	cs.short_name = short_name
@@ -258,9 +244,10 @@ var/datum/controller/subsystem/cargo/SScargo
 	cargo_suppliers[cs.short_name] = cs
 	return cs
 
-//Add a new item to the cargo subsystem, the categories and the items need to be a list and CAN NOT be passed as a json string.
+//Add a new item to the cargo subsystem, the categories and the items need to be a list or a JSON String
 //Decoding of the string MUST take place before
-/datum/controller/subsystem/cargo/proc/add_item(var/id=null,var/name,var/supplier="nt",var/description,var/list/categories,var/price,var/list/items,var/access=0,var/container_type=CARGO_CONTAINER_CRATE,var/groupable=1,var/item_mul=1)
+//Returns the /datum/cargo_item on success or a error message
+/datum/controller/subsystem/cargo/proc/add_item(var/id=null,var/name,var/supplier="nt",var/description,var/categories,var/price,var/items,var/access=0,var/container_type=CARGO_CONTAINER_CRATE,var/groupable=1,var/item_mul=1)
 	//TODO-CARGO: Maybe add the option to specify access as string instead of number
 
 	//If no item ID is supplied generate one ourselfs (use the next free id)
@@ -274,6 +261,13 @@ var/datum/controller/subsystem/cargo/SScargo
 
 	var/datum/cargo_item/ci = new()
 	try
+		//Check if categories and items are a list and try decode them (from json) if they are not.
+		if(!islist(categories))
+			categories = json_decode(categories)
+
+		if(!islist(items))
+			items = json_decode(items)
+
 		ci.id = id
 		ci.name = name
 		ci.supplier = supplier
@@ -287,28 +281,32 @@ var/datum/controller/subsystem/cargo/SScargo
 		ci.item_mul = text2num(item_mul)
 		ci.amount = length(ci.items)*ci.item_mul
 	catch(var/exception/e)
-		log_debug("SScargo: Error when loading item: [e]")
+		log_debug("SScargo: Error when loading item [name] - [id]: [e]")
 		qdel(ci)
-		return
+		return "Error when loading item [name] - [id]: [e]"
 
+	var/path_error = null
 	for(var/item in ci.items)
 		var/itempath = text2path(ci.items[item]["path"])
 		if(!ispath(itempath))
 			log_debug("SScargo: Warning - Attempted to add item with invalid path - [ci.id] - [ci.name] - [ci.items[item]["path"]]")
-			return
+			path_error += "Attempted to add item with invalid path - [ci.id] - [ci.name] - [ci.items[item]["path"]].\n"
+
+	if(path_error)
+		return path_error
 
 	//Check if a valid container is specified
 	if(!(ci.container_type == CARGO_CONTAINER_CRATE || ci.container_type == CARGO_CONTAINER_FREEZER || ci.container_type == CARGO_CONTAINER_BOX))
-		log_debug("SScargo: Invalid container type specified for item - Aborting")
+		log_debug("SScargo: Invalid container type specified for item [name] - [id]: Aborting")
 		qdel(ci)
-		return
+		return "Invalid container type specified for item [name] - [id]"
 
 	//Verify the suppliers exist
 	var/datum/cargo_supplier/cs = get_supplier_by_name(ci.supplier)
 	if(!cs)
-		log_debug("SScargo: [ci.supplier] is not a valid supplier for item [ci.name].")
-		QDEL_NULL(ci)
-		return
+		log_debug("SScargo: [supplier] is not a valid supplier for item [name] - [id]")
+		qdel(ci)
+		return "[supplier] is not a valid supplier for item [name] - [id]"
 
 	//Setting the supplier
 	ci.supplier_datum = cs
@@ -321,7 +319,11 @@ var/datum/controller/subsystem/cargo/SScargo
 
 	//Log a message if no categories are specified
 	if(ci.categories.len == 0)
-		log_debug("SScargo: No categories specified for item [ci.name].")
+		log_debug("SScargo: No categories specified for item [ci.name]")
+		ci.supplier_datum = null
+		qdel(ci)
+		return "No categories specified for item [name] - [id]"
+
 
 	//Add the item to the categories
 	for(var/category in ci.categories)
