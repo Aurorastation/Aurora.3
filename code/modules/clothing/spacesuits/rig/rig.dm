@@ -101,7 +101,7 @@
 
 	if(src.loc == usr)
 		to_chat(usr, "The maintenance panel is [open ? "open" : "closed"].")
-		to_chat(usr, "Hardsuit systems are [offline ? "<span class='warning'>offline</span>" : "<font color='green'>online</font>"].")
+		to_chat(usr, "Hardsuit systems are [offline ? "<span class='warning'>offline</span>" : "<span class='good'>online</span>"].")
 
 /obj/item/rig/Initialize()
 	. = ..()

@@ -258,7 +258,7 @@ a.popt {text-decoration: none;}
 /* OUTPUT COLORS */
 .highlight {background: yellow;}
 
-h1, h2, h3, h4, h5, h6	{color: #a4bad6;font-family: Georgia, Verdana, sans-serif;}
+h1, h2, h3, h4, h5, h6	{color: #a4bad6; font-family: Georgia, Verdana, sans-serif; line-height: 10%;}
 
 em						{font-style: normal;	font-weight: bold;}
 
@@ -267,12 +267,12 @@ em						{font-style: normal;	font-weight: bold;}
 
 /* CHAT TAGS */
 .tag				{color: #fff; border-radius: 15px; font-weight: bold; padding-left: 4px; padding-right: 4px;}
-.ooc_tag			{background-color: #002eb8;}
+.ooc_tag			{background-color: #3c5dc0;}
 .looc_tag			{color: #000; background-color: #46b2b2;}
 .dev_tag			{background-color: #2c7731;}
 .admin_tag			{background-color: #9611d4;}
 .mod_tag			{background-color: #663a0e;}
-.dead_tag			{background-color: #530fad;}
+.dead_tag			{background-color: #9269c7;}
 .pmin_tag			{background-color: #ff0000;}
 .pmout_tag			{background-color: #ff0000;}
 .pmoutalt_tag		{background-color: #b54a4a;}
@@ -284,7 +284,7 @@ em						{font-style: normal;	font-weight: bold;}
 .ooc					{font-weight: bold;}
 .ooc img.text_tag		{width: 32px; height: 10px; vertical-align: middle;}
 
-.ooc .everyone			{color: #002eb8;}
+.ooc .everyone			{color: #3c5dc0;}
 .ooc .looc				{color: #6699CC;}
 .ooc .elevated			{color: #2e78d9;}
 .ooc .moderator			{color: #184880;}
@@ -305,13 +305,13 @@ em						{font-style: normal;	font-weight: bold;}
 .devsay					{color: #2c7731;	font-weight: bold;}
 
 /* Radio: Misc */
-.deadsay				{color: #530FAD;}
+.deadsay				{color: #9269c7;}
 .radio					{color: #008000;}
 .deptradio				{color: #ff00ff;}	/* when all other department colors fail */
-.newscaster				{color: #750000;}
+.newscaster				{color: #b43c3c;}
 
 /* Radio Channels */
-.comradio				{color: #193A7A;}
+.comradio				{color: #5e8adb;}
 .syndradio				{color: #6D3F40;}
 .centradio				{color: #5C5C8A;}
 .airadio				{color: #FF00FF;}
@@ -327,6 +327,7 @@ em						{font-style: normal;	font-weight: bold;}
 /* Miscellaneous */
 .name					{font-weight: bold;}
 .alert					{color: #d82020;}
+.vote					{color: #9933ff;}
 h1.alert, h2.alert		{color: #a4bad6;}
 
 .emote					{font-style: italic;}

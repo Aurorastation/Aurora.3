@@ -98,13 +98,13 @@ var/datum/controller/subsystem/vote/SSvote
 					else
 						factor = 1.4
 				choices["Initiate Crew Transfer"]["votes"] = round(choices["Initiate Crew Transfer"]["votes"] * factor)
-				to_world("<font color='purple'>Crew Transfer Factor: [factor]</font>")
+				to_world("<span class='vote'>Crew Transfer Factor: [factor]</span>")
 				greatest_votes = max(choices["Initiate Crew Transfer"]["votes"], choices["Continue The Round"]["votes"])
 
 	if(mode == "crew_transfer")
 		if(round(get_round_duration() / 36000)+12 <= 14)
 			// Credit to Scopes @ oldcode.
-			to_world("<font color='purple'><b>Majority voting rule in effect. 2/3rds majority needed to initiate transfer.</b></font>")
+			to_world("<span class='vote'><b>Majority voting rule in effect. 2/3rds majority needed to initiate transfer.</b></span>")
 			choices["Initiate Crew Transfer"]["votes"] = round(choices["Initiate Crew Transfer"]["votes"] - round(total_votes / 3))
 			greatest_votes = max(choices["Initiate Crew Transfer"]["votes"], choices["Continue The Round"]["votes"])
 
@@ -143,7 +143,7 @@ var/datum/controller/subsystem/vote/SSvote
 		if(mode == "add_antagonist")
 			antag_add_failed = 1
 	log_vote(text)
-	to_world("<font color='purple'>[text]</font>")
+	to_world("<span class='vote'>[text]</span>")
 
 /datum/controller/subsystem/vote/proc/result()
 	. = announce_result()
@@ -287,7 +287,7 @@ var/datum/controller/subsystem/vote/SSvote
 			text += "\n[sanitizeSafe(question)]"
 
 		log_vote(text)
-		to_world("<font color='purple'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src];open=1'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</font>")
+		to_world("<span class='vote'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src];open=1'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</span>")
 		for(var/cc in clients)
 			var/client/C = cc
 			if(C.prefs.asfx_togs & ASFX_VOTE) //Personal mute

@@ -51,7 +51,7 @@
 
 		if(9)
 			sound_to(holder, 'sound/effects/nuclearsiren.ogg')
-			to_chat(holder, "<font color='#008000'><b>Supermatter Monitor</b> states, \"WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT.\"</font>")
+			to_chat(holder, "<span class='radio'><b>Supermatter Monitor</b> states, \"WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT.\"</span>")
 			addtimer(CALLBACK(src, .proc/delam_call), 20)
 			addtimer(CALLBACK(src, .proc/delam_call), 35)
 
@@ -84,7 +84,7 @@
 	var/mob/living/caller = pick(people)
 	var/caller_accent = get_hallucinated_accent(caller)
 
-	to_chat(holder, "[caller_accent] <font color='#008000'><b>[pick(people)]</b> says, \"[radio_exclaim]\"</font>")
+	to_chat(holder, "[caller_accent] <span class='radio'><b>[pick(people)]</b> says, \"[radio_exclaim]\"</span>")
 
 
 /datum/hallucination/pda	//fake PDA messages. this only plays the beep and sends something to chat; it won't show up in the PDA.
@@ -269,7 +269,7 @@
 			"[pal] will keep you safe.",
 			"You feel captivated by [pal]'s charisma.",
 			"[pal] might as well be family to you.")
-		to_chat(holder, "<font color='green'><i>[pick(halpal_emotes)]</i></font>")
+		to_chat(holder, "<span class='good'><i>[pick(halpal_emotes)]</i></span>")
 
 /datum/hallucination/passive
 	duration = 600	//minute fallback

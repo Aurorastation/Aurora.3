@@ -208,7 +208,7 @@
 			if(pref.job_civilian_low & ASSISTANT)
 				dat += " <font color=green>\[Yes]</font>"
 			else
-				dat += " <font color=red>\[No]</font>"
+				dat += " <span class='attack'>\[No]</span>"
 			if(job.alt_titles) //Blatantly cloned from a few lines down.
 				dat += "</a></td></tr><tr style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
 			dat += "</a></td></tr>"
@@ -221,7 +221,7 @@
 		else if(pref.GetJobDepartment(job, 3) & job.flag)
 			dat += " <font color=orange>\[Low]</font>"
 		else
-			dat += " <font color=red>\[NEVER]</font>"
+			dat += " <span class='attack'>\[NEVER]</span>"
 		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
 			dat += "</a></td></tr><tr style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
 		dat += "</a></td></tr>"
@@ -232,7 +232,7 @@
 
 	switch(pref.alternate_option)
 		if(BE_ASSISTANT)
-			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=red>Be assistant if preference unavailable</font></a></u></center><br>"
+			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><span class='attack'>Be assistant if preference unavailable</span></a></u></center><br>"
 		if(RETURN_TO_LOBBY)
 			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=purple>Return to lobby if preference unavailable</font></a></u></center><br>"
 

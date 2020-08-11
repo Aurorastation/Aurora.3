@@ -66,9 +66,9 @@
 
 /datum/announcement/priority/command/MessageAndSound(var/message as text, var/message_title as text, var/message_sound)
 	var/command_title
-	command_title += "<h2><font color='#272727'>[current_map.boss_name] Update</font></h2>"
+	command_title += "<h2 class='alert'>[current_map.boss_name] Update</h2>"
 	if (message_title)
-		command_title += "<h3><span class='alert'>[message_title]</span></h3>"
+		command_title += "<h3 class='alert'>[message_title]</h3>"
 
 	var/command_body
 	command_body += "<br><span class='alert'>[message]</span><br>"

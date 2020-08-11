@@ -255,7 +255,7 @@ a.popt {text-decoration: none;}
 /* OUTPUT COLORS */
 .highlight {background: yellow;}
 
-h1, h2, h3, h4, h5, h6	{color: #0000ff;font-family: Georgia, Verdana, sans-serif;}
+h1, h2, h3, h4, h5, h6	{color: #0000ff; font-family: Georgia, Verdana, sans-serif; line-height: 10%;}
 
 em						{font-style: normal;font-weight: bold;}
 
@@ -324,6 +324,7 @@ em						{font-style: normal;font-weight: bold;}
 /* Miscellaneous */
 .name					{font-weight: bold;}
 .alert					{color: #ff0000;}
+.vote					{color: #6c18c0}
 h1.alert, h2.alert		{color: #000080;}
 
 .emote					{font-style: italic;}
