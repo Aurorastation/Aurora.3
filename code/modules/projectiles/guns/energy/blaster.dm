@@ -125,7 +125,7 @@
 	item_state = "secblaster"
 	fire_sound = 'sound/weapons/secblasterstun.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	force = 5
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
