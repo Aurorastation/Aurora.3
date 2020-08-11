@@ -306,7 +306,7 @@
 			if(3)
 				if (W.iscrowbar())
 					to_chat(user, SPAN_NOTICE("You struggle to pry off the cover."))
-					playsound(src, 'sound/items/crowbar.ogg', 100, 1)
+					playsound(src, W.usesound, 100, 1)
 					if(!do_after(user,100/W.toolspeed) || !istype(src, /turf/simulated/wall) || construction_stage != 3)
 						return
 					construction_stage = 2
