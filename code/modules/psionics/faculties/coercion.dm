@@ -300,7 +300,7 @@
 			if(!T || L == user || L.stat == DEAD || L.invisibility == INVISIBILITY_LEVEL_TWO)
 				continue
 			if(L.isSynthetic() || L.is_diona() || isvaurca(L))
-				psiaug = has_psi_aug()
+				var/obj/item/organ/internal/augment/psiaug = locate() in L
 				if(!psiaug)
 					continue
 			var/image/ping_image = image(icon = 'icons/effects/effects.dmi', icon_state = "sonar_ping", loc = T)
