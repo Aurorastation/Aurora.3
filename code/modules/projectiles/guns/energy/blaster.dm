@@ -146,14 +146,16 @@
 	set name = "Select Model"
 	set category = "Object"
 	set desc = "Click to select the model of your gun."
-
+	
+	if(!istype(usr, /mob))
+		return FALSE
 	var/mob/M = usr
 	var/user_reply
 
-	if(!M.mind)	return 0
+	if(!M.mind)	return FALSE
 	if(modelselected)
 		to_chat(M, "The model of this gun has already been set.")
-		return 0
+		return FALSE
 
 	user_reply = input("Select your frame.") in list("sub-compact","service","magnum")
 	if(!QDELETED(src) && !M.stat && in_range(M,src))
@@ -172,10 +174,10 @@
 		if(!QDELETED(src) && !M.stat && in_range(M,src))
 			if (user_reply == "yes")
 				modelselected = TRUE
-				return 1
+				return TRUE
 	icon = 'icons/obj/guns/secblaster/secblasters.dmi'
 	name = "service blaster"
-	return 1
+	return TRUE
 
 /obj/item/gun/energy/secblaster/security
 	pin = /obj/item/device/firing_pin/security_level
