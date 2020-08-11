@@ -347,7 +347,7 @@
 			if(0)
 				if(W.iscrowbar())
 					to_chat(user, SPAN_NOTICE("You struggle to pry off the outer sheath."))
-					playsound(src, 'sound/items/crowbar.ogg', 100, 1)
+					playsound(src, W.usesound, 100, 1)
 					sleep(100)
 					if(!istype(src, /turf/simulated/wall) || !user || !W || !T )	return
 					if(user.loc == T && user.get_active_hand() == W )
