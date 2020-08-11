@@ -238,6 +238,7 @@
 	icon_state = "blue_laser"
 	damage = 2
 	agony = 43
+	speed = 0.4
 	taser_effect = TRUE
 	eyeblur = TRUE
 	damage_type = BURN
