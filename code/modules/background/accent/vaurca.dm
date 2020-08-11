@@ -1,4 +1,4 @@
-datum/accent/zora
+/datum/accent/zora
     name = ACCENT_ZORA
     description = "Zo'rane is the modern day dialect of the Zo'ra hive, composed of buzzing, cheap bisellite voice modulators that manage to sway most voices \
     into a more gender neutral tone, while retaining a distinct alien dialect. To other vaurcae, this accent is reminiscent of the authority the Zo'ra held - \
@@ -6,7 +6,7 @@ datum/accent/zora
     a harsh buzzing in the throat."
     tag_icon = "zora"
 
-datum/accent/klax
+/datum/accent/klax
     name = ACCENT_KLAX
     description = "K'laxane is the modern day dialect of the K'lax hive. Primitive modulators, even among K'lax standards, manage to capture a similarity to the \
     peasantry of the Izweski Hegemony on Moghes - however, they do not fully replicate it, retaining a more drawn out and dreamy tone. To other vaurcae, this is \
@@ -16,7 +16,7 @@ datum/accent/klax
     Hegemonic tongue."
     tag_icon = "klax"
 
-datum/accent/cthur
+/datum/accent/cthur
     name = ACCENT_CTHUR
     description = "C'thuric is the modern day dialect of the C'thur hive, a sly and sneering take on the unyielding Nral'Malic. Modulators are unfortunately \
     still cheap, capturing a very monotone and unchanging method of speaking. Voices are warped into being clear and concise, many C'thur adopting a blunt and \
