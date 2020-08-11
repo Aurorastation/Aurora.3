@@ -670,17 +670,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
-/obj/item/flame/lighter/zippo/coalition
-	name = "\improper Coalition Zippo lighter"
-	desc = "A zippo lighter with a depiction of the Coalition of Colonies flag. This lighter utilizes advanced fuel from Xanu Prime which burns hotter, causing a blue flame."
-	desc_fluff = "As there are hundreds of cultures in the Coalition of Colonies, so too are there hundreds of local variations of zippo lighters. The most prized zippos tend to be those from the industrial colony of Himeo, where a strong work ethic and technological advancements combine to produce high-quality lighters that ignite through the harshest of conditions. Most exported Himean lighters have their logos scratched off, rebranded, and given a fresh coat of paint, much to the chagrin of their manufacturers."
-	icon_state = "coalitionzippo"
-	item_state = "coalitionzippo"
-	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
-	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-
 /obj/item/flame/lighter/zippo/dominia
 	name = "\improper Dominian Zippo lighter"
 	desc = "A zippo lighter with a depiction of the Imperial standard of Dominia."
@@ -714,21 +703,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
-/obj/item/flame/lighter/zippo/royal
+/obj/item/flame/lighter/zippo/purple/royal
 	name = "royal Zippo lighter"
 	desc = "A gold-plated zippo with a two-piece cover. A small chemical resevoir in the lighter allows for purple flames that burn with greater intensity."
 	icon_state = "royalzippo"
 	item_state = "royalzippo"
-	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
-	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-
-/obj/item/flame/lighter/zippo/gold
-	name = "golden Zippo lighter"
-	desc = "A golden zippo lighter. Badasses and chainsmokers might settle for a zippo, no sir - you can do better with this solid, 24-karat golden piece!"
-	icon_state = "goldzippo"
-	item_state = "goldzippo"
 	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
 	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
 	drop_sound = 'sound/items/drop/accessory.ogg'
@@ -764,6 +743,28 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
+/obj/item/flame/lighter/zippo/blue/coalition
+	name = "\improper Coalition Zippo lighter"
+	desc = "A zippo lighter with a depiction of the Coalition of Colonies flag. This lighter utilizes advanced fuel from Xanu Prime which burns hotter, causing a blue flame."
+	desc_fluff = "As there are hundreds of cultures in the Coalition of Colonies, so too are there hundreds of local variations of zippo lighters. The most prized zippos tend to be those from the industrial colony of Himeo, where a strong work ethic and technological advancements combine to produce high-quality lighters that ignite through the harshest of conditions. Most exported Himean lighters have their logos scratched off, rebranded, and given a fresh coat of paint, much to the chagrin of their manufacturers."
+	icon_state = "coalitionzippo"
+	item_state = "coalitionzippo"
+	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
+	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
+	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
+/obj/item/flame/lighter/zippo/blue/gold
+	name = "golden Zippo lighter"
+	desc = "A golden zippo lighter. Badasses and chainsmokers might settle for a zippo, no sir - you can do better with this solid, 24-karat golden piece!"
+	icon_state = "goldzippo"
+	item_state = "goldzippo"
+	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
+	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
+	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
 
 /obj/item/flame/lighter/random/Initialize()
 	. = ..()
@@ -808,7 +809,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 					if(last_open <= world.time - 20) //Spam limiter.
 						last_open = world.time
 						user.visible_message(SPAN_DANGER("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)
-			set_light(2, 1, l_color = LIGHT_COLOR_LAVA)
+			if(istype(src, /obj/item/flame/lighter/zippo/blue))
+				set_light(2, 1, l_color = LIGHT_COLOR_BLUE)
+			else if(istype(src, /obj/item/flame/lighter/zippo/purple))
+				set_light(2, 1, l_color = LIGHT_COLOR_VIOLET)
+			else if(istype(src, /obj/item/flame/lighter/zippo/himeo))
+				set_light(3, 3, l_color = LIGHT_COLOR_LAVA)
+			else
+				set_light(2, 1, l_color = LIGHT_COLOR_LAVA)
 			START_PROCESSING(SSprocessing, src)
 		else
 			lit = FALSE
