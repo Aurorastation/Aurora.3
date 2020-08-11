@@ -6,7 +6,7 @@
     a harsh buzzing in the throat."
     tag_icon = "zora"
 
-datum/accent/klax
+/datum/accent/klax
     name = ACCENT_KLAX
     description = "K'laxane is the modern day dialect of the K'lax hive. Primitive modulators, even among K'lax standards, manage to capture a similarity to the \
     peasantry of the Izweski Hegemony on Moghes - however, they do not fully replicate it, retaining a more drawn out and dreamy tone. To other vaurcae, this is \
