@@ -136,6 +136,7 @@
 	has_item_ratio = FALSE
 	modifystate = "secblasterstun"
 	sel_mode = 1
+	var/selectframecheck = FALSE
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/stunblaster, modifystate="secblasterstun", charge_cost = 50, fire_sound = 'sound/weapons/secblasterstun.ogg'),
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster, modifystate="secblasterkill", recoil = 1, charge_cost = 75, fire_sound = 'sound/weapons/secblasterlethal.ogg')
@@ -145,7 +146,7 @@
 	set name = "Select Model"
 	set category = "Object"
 	set desc = "Click to select the model of your gun."
-	
+
 	if(!istype(usr, /mob))
 		return FALSE
 	var/mob/M = usr
@@ -154,7 +155,7 @@
 	if(!M.mind)	return FALSE
 
 	user_reply = input("Select your frame.") in list("sub-compact","service","magnum")
-	if(!QDELETED(src) && !M.stat && in_range(M,src))
+	if(!QDELETED(src) && !M.stat && in_range(M,src) &! selectframecheck)
 		if(user_reply == "sub-compact")
 			icon = 'icons/obj/guns/secblaster/secblasterc.dmi'
 			name = "sub-compact blaster"
@@ -167,8 +168,9 @@
 		update_icon()
 		to_chat(M, "You select the [user_reply] model.")
 		user_reply = input("Is this what you wanted?") in list("yes","no")
-		if(!QDELETED(src) && !M.stat && in_range(M,src))
+		if(!QDELETED(src) && !M.stat && in_range(M,src) &! selectframecheck)
 			if (user_reply == "yes")
+				selectframecheck = TRUE
 				verbs -= /obj/item/gun/energy/secblaster/verb/select_frame
 				return TRUE
 	icon = 'icons/obj/guns/secblaster/secblasters.dmi'
