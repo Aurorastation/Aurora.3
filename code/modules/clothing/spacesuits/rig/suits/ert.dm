@@ -106,7 +106,7 @@
 	emp_protection = 50
 
 	species_restricted = list("Human")
-	
+
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
@@ -125,3 +125,12 @@
 
 /obj/item/rig/ert/assetprotection/empty
 	initial_modules = list()
+
+/obj/item/rig/ert/assetprotection/einstein
+	name = "apotheosis suit control module"
+	desc = "A heavy suit with Einstein Engines branding coating it, not to mention the obvious colors."
+	suit_type = "apotheosis"
+	icon_state = "apotheosis"
+
+	req_access = list()
+	req_one_access = list()

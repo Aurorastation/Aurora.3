@@ -125,12 +125,9 @@
 /datum/topic_command/admins_reload
 	name = "admins_reload"
 	description = "Reloads all admins and pulls new data from the forumuser API if it's enabled."
-	params = list(
-		"senderkey" = list("name"="senderkey","desc"="A display friendly name for the sender.","req"=1,"type"="str")
-	)
 
 /datum/topic_command/broadcast_text/run_command(queryparams)
-	log_and_message_admins("[queryparams["senderkey"]] initiated a remote reload of the admins list.")
+	log_and_message_admins("AdminRanks: remote reload of the admins list initiated.")
 
 	if (config.use_forumuser_api)
 		if (!update_admins_from_api(reload_once_done=FALSE))

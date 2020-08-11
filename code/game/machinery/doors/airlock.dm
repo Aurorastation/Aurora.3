@@ -154,19 +154,20 @@
 	panel_visible_while_open = TRUE
 	hatch_colour = "#eaeaea"
 
-/obj/machinery/door/airlock/centcom
-	name = "Airlock"
-	icon = 'icons/obj/doors/Doorele.dmi'
-	opacity = TRUE
-	hatch_colour = "#606061"
-	hashatch = FALSE
-
 /obj/machinery/door/airlock/vaurca
 	name = "Alien Biomass Airlock"
 	icon = 'icons/obj/doors/Doorvaurca.dmi'
 	opacity = TRUE
 	hatch_colour = "#606061"
 	hashatch = FALSE
+
+/obj/machinery/door/airlock/centcom
+	name = "Airlock"
+	icon = 'icons/obj/doors/Doorele.dmi'
+	opacity = TRUE
+	hatch_colour = "#606061"
+	hashatch = FALSE
+	hackProof = TRUE
 
 /obj/machinery/door/airlock/centcom/attackby(obj/item/I, mob/user)
 	if (operating)
@@ -188,6 +189,12 @@
 
 /obj/machinery/door/airlock/centcom/emag_act()
 	return NO_EMAG_ACT
+
+/obj/machinery/door/airlock/centcom/ex_act()
+	return
+
+/obj/machinery/door/airlock/centcom/emp_act()
+	return
 
 /obj/machinery/door/airlock/vault
 	name = "Vault"
