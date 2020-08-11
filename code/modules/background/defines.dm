@@ -90,7 +90,7 @@
 
 #define ACCENT_DIONA "Diona"
 
-#define ACCENT_SILICON "Text-to-Speech"
+#define ACCENT_TTS "Text-to-Speech"
 
 #define ACCENT_ZORA "Zo'rane"
 #define ACCENT_KLAX "K'laxane"
