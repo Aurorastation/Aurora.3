@@ -1,4 +1,4 @@
-datum/accent/zora
+/datum/accent/zora
     name = ACCENT_ZORA
     description = "Zo'rane is the modern day dialect of the Zo'ra hive, composed of buzzing, cheap bisellite voice modulators that manage to sway most voices \
     into a more gender neutral tone, while retaining a distinct alien dialect. To other vaurcae, this accent is reminiscent of the authority the Zo'ra held - \
