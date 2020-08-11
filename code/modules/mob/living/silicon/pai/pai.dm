@@ -149,6 +149,7 @@
 		P.set_light(l_range, l_power, l_color, uv, angle, no_update)
 
 /mob/living/silicon/pai/post_scoop()
+	..()
 	if(istype(loc, /obj/item/holder/pai))
 		var/obj/item/holder/pai/P = loc
 		P.set_light(light_range, light_power, light_color, uv_intensity, light_wedge)
@@ -366,7 +367,7 @@
 	resting = FALSE
 
 	can_have_vision_cone = TRUE
-	show_cone()
+	check_fov()
 
 /mob/living/silicon/pai/verb/fold_up()
 	set category = "pAI Commands"

@@ -89,6 +89,10 @@ var/list/holder_mob_icon_cache = list()
 		mob_container = M
 		mob_container.forceMove(src.loc)//if the holder was placed into a disposal, this should place the animal in the disposal
 		M.reset_view()
+		if(isliving(M))
+			var/mob/living/L = M
+			L.can_have_vision_cone = TRUE
+			L.update_vision_cone()
 		M.Released()
 
 	contained = null
@@ -102,6 +106,10 @@ var/list/holder_mob_icon_cache = list()
 	for(var/mob/M in contents)
 		M.forceMove(T) //if the holder was placed into a disposal, this should place the animal in the disposal
 		M.reset_view()
+		if(isliving(M))
+			var/mob/living/L = M
+			L.can_have_vision_cone = TRUE
+			L.update_vision_cone()
 		M.Released()
 
 	contained = null
@@ -240,6 +248,7 @@ var/list/holder_mob_icon_cache = list()
 
 // Override to add stuff that should happen when scooping
 /mob/living/proc/post_scoop()
+	SHOULD_CALL_PARENT(TRUE)
 	can_have_vision_cone = FALSE
 	update_vision_cone()
 	return

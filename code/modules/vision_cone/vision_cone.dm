@@ -127,11 +127,18 @@
 
 /mob/living/proc/check_fov()
 	if(!can_have_vision_cone)
+		if(client)
+			for(var/hidden in client.hidden_atoms)
+				var/image/I = hidden
+				client.images -= I
+			client.hidden_atoms.Cut()
+			client.hidden_mobs.Cut()
+			remove_cone()
 		return
 
 	if(isnull(vision_cone_overlay))
 		vision_cone_overlay = new /obj/screen/fov()
-		client.screen |= vision_cone_overlay
+	client.screen |= vision_cone_overlay
 
 	if(resting || lying || client.eye != client.mob)
 		vision_cone_overlay.alpha = 0
