@@ -814,7 +814,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			else if(istype(src, /obj/item/flame/lighter/zippo/purple))
 				set_light(2, 1, l_color = LIGHT_COLOR_VIOLET)
 			else if(istype(src, /obj/item/flame/lighter/zippo/himeo))
-				set_light(3, 3, l_color = LIGHT_COLOR_LAVA)
+				set_light(2, 2, l_color = LIGHT_COLOR_LAVA)
 			else
 				set_light(2, 1, l_color = LIGHT_COLOR_LAVA)
 			START_PROCESSING(SSprocessing, src)
