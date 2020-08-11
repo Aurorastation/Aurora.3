@@ -35,9 +35,9 @@
 		return
 
 	if(!visor.active)
-		visor.activate()
+		visor.activate(usr)
 	else
-		visor.deactivate()
+		visor.deactivate(usr)
 
 /obj/item/rig/proc/toggle_helmet()
 
@@ -156,13 +156,13 @@
 		return
 
 	if(!visor.active)
-		visor.activate()
+		visor.activate(usr)
 
 	if(!visor.active)
 		to_chat(usr, "<span class='warning'>The visor is suffering a hardware fault and cannot be configured.</span>")
 		return
 
-	visor.engage()
+	visor.engage(null, usr)
 
 /obj/item/rig/verb/alter_voice()
 
@@ -186,7 +186,7 @@
 		to_chat(usr, "<span class='warning'>The hardsuit does not have a speech synthesiser.</span>")
 		return
 
-	speech.engage()
+	speech.engage(null, usr)
 
 /obj/item/rig/verb/select_module()
 
@@ -257,10 +257,10 @@
 
 	if(module.active)
 		to_chat(usr, "<font color='blue'><b>You attempt to deactivate \the [module.interface_name].</b></font>")
-		module.deactivate()
+		module.deactivate(usr)
 	else
 		to_chat(usr, "<font color='blue'><b>You attempt to activate \the [module.interface_name].</b></font>")
-		module.activate()
+		module.activate(usr)
 
 /obj/item/rig/verb/engage_module()
 
@@ -294,4 +294,4 @@
 		return
 
 	to_chat(usr, "<font color='blue'><b>You attempt to engage the [module.interface_name].</b></font>")
-	module.engage()
+	module.engage(null, usr)

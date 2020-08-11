@@ -82,7 +82,7 @@
 		else
 			msg += "[T.He] [T.is] wearing \icon[head] <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>\a [head]</a> on [T.his] head.\n"
 
-	//suit/armour
+	//suit/armor
 	if(wear_suit)
 		var/tie_msg
 		var/tie_msg_warn
@@ -97,7 +97,7 @@
 		else
 			msg += "[T.He] [T.is] wearing \icon[wear_suit] <a href='?src=\ref[src];lookitem_desc_only=\ref[wear_suit]'>\a [wear_suit]</a>[tie_msg].\n"
 
-		//suit/armour storage
+		//suit/armor storage
 		if(s_store && !skipsuitstorage)
 			if(s_store.blood_color)
 				msg += "<span class='warning'>[T.He] [T.is] carrying \icon[s_store] [s_store.gender==PLURAL?"some":"a"] [fluid_color_type_map(s_store.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[s_store]'>[s_store.name]</a> on [T.his] [wear_suit.name]!</span>\n"
