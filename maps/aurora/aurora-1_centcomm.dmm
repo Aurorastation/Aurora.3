@@ -26716,6 +26716,7 @@
 	name = "dead plant"
 	},
 /obj/machinery/light/small/emergency{
+	brightness_power = 0.5;
 	brightness_range = 5;
 	dir = 1;
 	name = "adjusted emergency light"
