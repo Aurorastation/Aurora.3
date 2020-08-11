@@ -14,7 +14,7 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BACK
 	charge_cost = 300
-	max_shots = 6
+	max_shots = 10
 	secondary_projectile_type = /obj/item/projectile/ion
 	secondary_fire_sound = 'sound/magic/LightningBolt.ogg'
 	can_turret = 1
@@ -23,7 +23,7 @@
 
 	firemodes = list(
 		list(mode_name="single", projectile_type=/obj/item/projectile/ion/single, modifystate="ionriflestun", fire_sound='sound/magic/LightningShock.ogg', charge_cost = 300),
-		list(mode_name="blast", projectile_type=/obj/item/projectile/ion/blast, modifystate="ionriflekill", fire_sound='sound/magic/LightningBolt.ogg', charge_cost = 1800)
+		list(mode_name="blast", projectile_type=/obj/item/projectile/ion/blast, modifystate="ionriflekill", fire_sound='sound/magic/LightningBolt.ogg', charge_cost = 3000)
 		)
 
 /obj/item/gun/energy/rifle/ionrifle/emp_act(severity)
