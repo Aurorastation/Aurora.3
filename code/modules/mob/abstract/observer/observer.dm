@@ -536,11 +536,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 				atmos_suitable = 0
 			else if (Environment.temperature < mintemp)
 				atmos_suitable = 0
-			else if(Environment.gas["oxygen"] < min_oxy)
+			else if(Environment.gas[GAS_OXYGEN] < min_oxy)
 				atmos_suitable = 0
-			else if(Environment.gas["phoron"] > max_phoron)
+			else if(Environment.gas[GAS_PHORON] > max_phoron)
 				atmos_suitable = 0
-			else if(Environment.gas["carbon_dioxide"] > max_co2)
+			else if(Environment.gas[GAS_CO2] > max_co2)
 				atmos_suitable = 0
 			else if(Environment.return_pressure() < min_pressure)
 				atmos_suitable = 0

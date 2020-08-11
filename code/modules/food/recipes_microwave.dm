@@ -794,7 +794,7 @@
 	result = /obj/item/reagent_containers/food/snacks/poachedegg
 
 /datum/recipe/honeytoast
-	reagents = list(/datum/reagent/honey = 5)
+	reagents = list(/datum/reagent/nutriment/honey = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice
 	)

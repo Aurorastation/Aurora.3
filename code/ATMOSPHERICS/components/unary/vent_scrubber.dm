@@ -21,7 +21,7 @@
 
 	var/hibernate = 0 //Do we even process?
 	var/scrubbing = 1 //0 = siphoning, 1 = scrubbing
-	var/list/scrubbing_gas = list("carbon_dioxide")
+	var/list/scrubbing_gas = list(GAS_CO2)
 
 	var/panic = 0 //is this scrubber panicked?
 
@@ -112,11 +112,11 @@
 		"power" = use_power,
 		"scrubbing" = scrubbing,
 		"panic" = panic,
-		"filter_o2" = ("oxygen" in scrubbing_gas),
-		"filter_n2" = ("nitrogen" in scrubbing_gas),
-		"filter_co2" = ("carbon_dioxide" in scrubbing_gas),
-		"filter_phoron" = ("phoron" in scrubbing_gas),
-		"filter_n2o" = ("sleeping_agent" in scrubbing_gas),
+		"filter_o2" = (GAS_OXYGEN in scrubbing_gas),
+		"filter_n2" = (GAS_NITROGEN in scrubbing_gas),
+		"filter_co2" = (GAS_CO2 in scrubbing_gas),
+		"filter_phoron" = (GAS_PHORON in scrubbing_gas),
+		"filter_n2o" = (GAS_N2O in scrubbing_gas),
 		"sigtype" = "status"
 	)
 
@@ -212,30 +212,30 @@
 
 	var/list/toggle = list()
 
-	if(!isnull(signal.data["o2_scrub"]) && text2num(signal.data["o2_scrub"]) != ("oxygen" in scrubbing_gas))
-		toggle += "oxygen"
+	if(!isnull(signal.data["o2_scrub"]) && text2num(signal.data["o2_scrub"]) != (GAS_OXYGEN in scrubbing_gas))
+		toggle += GAS_OXYGEN
 	else if(signal.data["toggle_o2_scrub"])
-		toggle += "oxygen"
+		toggle += GAS_OXYGEN
 
-	if(!isnull(signal.data["n2_scrub"]) && text2num(signal.data["n2_scrub"]) != ("nitrogen" in scrubbing_gas))
-		toggle += "nitrogen"
+	if(!isnull(signal.data["n2_scrub"]) && text2num(signal.data["n2_scrub"]) != (GAS_NITROGEN in scrubbing_gas))
+		toggle += GAS_NITROGEN
 	else if(signal.data["toggle_n2_scrub"])
-		toggle += "nitrogen"
+		toggle += GAS_NITROGEN
 
-	if(!isnull(signal.data["co2_scrub"]) && text2num(signal.data["co2_scrub"]) != ("carbon_dioxide" in scrubbing_gas))
-		toggle += "carbon_dioxide"
+	if(!isnull(signal.data["co2_scrub"]) && text2num(signal.data["co2_scrub"]) != (GAS_CO2 in scrubbing_gas))
+		toggle += GAS_CO2
 	else if(signal.data["toggle_co2_scrub"])
-		toggle += "carbon_dioxide"
+		toggle += GAS_CO2
 
-	if(!isnull(signal.data["tox_scrub"]) && text2num(signal.data["tox_scrub"]) != ("phoron" in scrubbing_gas))
-		toggle += "phoron"
+	if(!isnull(signal.data["tox_scrub"]) && text2num(signal.data["tox_scrub"]) != (GAS_PHORON in scrubbing_gas))
+		toggle += GAS_PHORON
 	else if(signal.data["toggle_tox_scrub"])
-		toggle += "phoron"
+		toggle += GAS_PHORON
 
-	if(!isnull(signal.data["n2o_scrub"]) && text2num(signal.data["n2o_scrub"]) != ("sleeping_agent" in scrubbing_gas))
-		toggle += "sleeping_agent"
+	if(!isnull(signal.data["n2o_scrub"]) && text2num(signal.data["n2o_scrub"]) != (GAS_N2O in scrubbing_gas))
+		toggle += GAS_N2O
 	else if(signal.data["toggle_n2o_scrub"])
-		toggle += "sleeping_agent"
+		toggle += GAS_N2O
 
 	scrubbing_gas ^= toggle
 
