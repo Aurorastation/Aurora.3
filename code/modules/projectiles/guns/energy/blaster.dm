@@ -169,7 +169,7 @@
 		update_icon()
 		to_chat(M, "You select the [user_reply] model.")
 		user_reply = input("Is this what you wanted?") in list("yes","no")
-		if(src && !M.stat && in_range(M,src))
+		if(!QDELETED(src) && !M.stat && in_range(M,src))
 			if (user_reply == "yes")
 				modelselected = TRUE
 				return 1
