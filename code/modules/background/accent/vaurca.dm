@@ -16,7 +16,7 @@
     Hegemonic tongue."
     tag_icon = "klax"
 
-datum/accent/cthur
+/datum/accent/cthur
     name = ACCENT_CTHUR
     description = "C'thuric is the modern day dialect of the C'thur hive, a sly and sneering take on the unyielding Nral'Malic. Modulators are unfortunately \
     still cheap, capturing a very monotone and unchanging method of speaking. Voices are warped into being clear and concise, many C'thur adopting a blunt and \
