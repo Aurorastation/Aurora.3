@@ -441,7 +441,7 @@
 	icon_state = "trench_colorable"
 	item_state = "trench_colorable"
 	icon_open = "trench_colorable_open"
-	icon_closed = "trenchcoat_colorable"
+	icon_closed = "trench_colorable"
 
 /obj/item/clothing/suit/storage/toggle/track
 	name = "track jacket"

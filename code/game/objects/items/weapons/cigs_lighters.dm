@@ -727,7 +727,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "black Zippo lighter"
 	desc = "A black zippo lighter with a rounded cover. This one seems to burn lower and slower, producing a faint glow. This one has a cross painted on it."
 	icon_state = "blackcrosszippo"
-	item_state = "blackcrosszippo"
+	item_state = "blackzippo"
 	activation_sound = 'sound/items/cigs_lighters/zippo_on.ogg'
 	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
 	drop_sound = 'sound/items/drop/accessory.ogg'
