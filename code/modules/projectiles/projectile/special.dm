@@ -12,7 +12,7 @@
 	return 1
 
 /obj/item/projectile/ion/blast
-	pulse_range = 3
+	pulse_range = 2
 
 /obj/item/projectile/ion/single/on_impact(var/atom/A)
 	if(isipc(A))

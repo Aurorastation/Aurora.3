@@ -1022,8 +1022,8 @@
 
 	projectile = /obj/item/projectile/ion/single
 	eprojectile = /obj/item/projectile/ion/blast
-	shot_sound = 'sound/weapons/ionsingle.ogg'
-	eshot_sound	= 'sound/weapons/ionblast.ogg'
+	shot_sound = 'sound/magic/LightningShock.ogg'
+	eshot_sound	= 'sound/magic/LightningBolt.ogg'
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/crossbow
