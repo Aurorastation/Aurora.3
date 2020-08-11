@@ -149,6 +149,7 @@
 	name = "Cardox"
 	description = "Cardox is a mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
 	reagent_state = LIQUID
+	scannable = TRUE
 	color = "#EEEEEE"
 	metabolism = 0.3 // 100 seconds for 30 units to metabolise.
 	taste_description = "cherry"
@@ -452,6 +453,7 @@
 	name = "Soporific"
 	description = "Soporific is highly diluted polysomnine which results in slower and more gradual sedation. This makes the drug ideal at treating insomnia and anxiety disorders, however is generally not reliable for sedation in preparation for surgery except in high doses."
 	reagent_state = LIQUID
+	scannable = TRUE
 	color = "#009CA8"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE
@@ -481,9 +483,10 @@
 	name = "Polysomnine"
 	description = "Polysomnine is a complex drug which rapidly induces sedation in preparation for surgery. Polysomnine’s sedative effect is fast acting, and sedated individuals wake up with zero amnesia regarding the events leading up to their sedation, however the only downside is how hard the drug is on the liver."
 	reagent_state = SOLID
+	scannable = TRUE
 	color = "#000067"
 	metabolism = REM * 0.5
-	overdose = REAGENTS_OVERDOSE * 0.5
+	overdose = 15
 	taste_description = "bitterness"
 	breathe_met = REM * 0.5 * 0.5
 
@@ -652,9 +655,17 @@
 
 /datum/reagent/toxin/spectrocybin/affect_blood(var/mob/living/carbon/M, var/removed)
 	..()
-	M.hallucination = max(M.hallucination, 50)
+	M.hallucination = max(M.hallucination, 25) //Lowered from 50 to 25 due to the new flavour messages that will be appearing in chat ontop of hallucination messages.
 	if(prob(10))
 		M.see_invisible = SEE_INVISIBLE_CULT
+	if(dose < 5)
+		if(prob(10))
+			to_chat(M, pick("<span class='notice'>You hear the clinking of dinner plates and laughter.</span>", "<span class='notice'>You hear a distant voice of someone you know talking to you.</span>", "<span class='notice'>Fond memories of a departed loved one flocks to your mind.</span>", "<span class='notice'>You feel the reassuring presence of a departed loved one.</span>", "<span class='notice'>You feel a hand squeezing yours.</span>"))
+	if(dose > 5)
+		if(prob(15))
+			to_chat(M, pick("<span class='notice'>You feel cold air wrapping around you.</span>", "<span class='danger'>It’s freezing here!</span>", "<span class='notice'>You feel fingers tracing up your back.</span>", "<span class='notice'>You hear the distant wailing and sobbing of a departed loved one.</span>", "<span class='notice'>You feel like you are being closely watched.</span>", "<span class='notice'>You hear the hysterical laughter of a departed loved one.</span>", "<span class='notice'>You no longer feel the reassuring presence of a departed loved one.</span>", "<span class='notice'>You feel a hand taking hold of yours, digging its nails into you as it clings on.</span>", "<span class='danger'>Your head spins amid the cacophony of screaming, wailing and maniacal laughter of distant loved ones.</span>"))
+		if(prob(5))
+			M.emote("shiver")
 
 /datum/reagent/toxin/trioxin
 	name = "Trioxin"

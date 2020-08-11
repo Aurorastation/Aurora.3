@@ -610,6 +610,17 @@
 			if(prob(nausea))
 				delayed_vomit()
 
+		if(CE_ITCH in chem_effects)
+			var/itching = chem_effects[CE_NOITCH]
+			if(CE_ITCH in chem_effects)
+				itching -= chem_effects[CE_NOITCH]
+			if(itching > 2)
+				if(prob(5))
+					to_chat(src, SPAN_NOTICE(pick("You have an annoying itch.", "You have a slight itch.")))
+			if(itching > 5)
+				if(prob(5))
+					to_chat(src, SPAN_WARNING(pick("The itch is becoming progressively worse.", "You need to scratch that itch!", "The itch isn't going!")))
+
 		if(CE_FEVER in chem_effects)
 			var/normal_temp = species?.body_temperature || (T0C+37)
 			var/fever = chem_effects[CE_FEVER]

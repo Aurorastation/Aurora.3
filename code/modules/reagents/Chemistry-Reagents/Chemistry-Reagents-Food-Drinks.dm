@@ -471,6 +471,12 @@
 	M.adjustNutritionLoss(10*removed)
 	M.overeatduration = 0
 
+/datum/reagent/lipozine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustNutritionLoss(10*removed)
+	if(prob(2))
+		to_chat(M, SPAN_DANGER("You feel yourself wasting away."))
+		M.adjustHalLoss(10)
+
 /datum/reagent/nutriment/barbecue
 	name = "Barbecue Sauce"
 	description = "Barbecue sauce for barbecues and long shifts."

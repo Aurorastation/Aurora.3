@@ -5,7 +5,7 @@
 	description = "Inaprovaline is a cardiostimulant which stabilises myocardial contractility, working towards maintaining a steady pulse and blood pressure. Inaprovaline also acts as a weak analgesic"
 	reagent_state = LIQUID
 	color = "#00BFFF"
-	overdose = REAGENTS_OVERDOSE * 2
+	overdose = REAGENTS_OVERDOSE //Reduced from 60u to 30u because 60u is pretty unobtainable.
 	metabolism = REM * 0.5
 	metabolism_min = REM * 0.125
 	breathe_mul = 0.5
@@ -15,6 +15,10 @@
 /datum/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_STABLE)
 	M.add_chemical_effect(CE_PAINKILLER, 25)
+
+/datum/reagent/inaprovaline/overdose(var/mob/living/carbon/M, var/alien, var/removed)	
+	if(prob(2))
+		to_chat(M, pick("<span class='notice'>Your chest feels tight.</span>", "<span class='danger'>Your chest is hurting!</span>"))
 
 /datum/reagent/bicaridine
 	name = "Bicaridine"
@@ -29,6 +33,7 @@
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
+	M.add_chemical_effect(CE_ITCH, dose/2)
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
 	..()//Bicard overdose heals arterial bleeding
@@ -50,6 +55,7 @@
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(!(locate(/datum/reagent/dermaline) in M.reagents.reagent_list))
 		M.heal_organ_damage(0, 6 * removed)
+		M.add_chemical_effect(CE_ITCH, dose/2)
 
 /datum/reagent/dermaline
 	name = "Dermaline"
@@ -59,17 +65,21 @@
 	fallback_specific_heat = 1
 	scannable = TRUE
 	metabolism = REM * 0.5
-	overdose = REAGENTS_OVERDOSE * 0.5
+	overdose = 15
 	taste_mult = 1.5
 
 /datum/reagent/dermaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(0, 12 * removed)
+	
+/datum/reagent/dermaline/overdose(var/mob/living/carbon/M, var/alien)
+	M.add_chemical_effect(CE_ITCH, 5)
 
 /datum/reagent/dylovene
 	name = "Dylovene"
 	description = "Dylovene is a broad-spectrum over-the-counter antitoxin. It is used in response to a variety of poisoning cases, being able to neutralise and remove harmful toxins from the bloodstream."
 	reagent_state = LIQUID
 	color = "#00A000"
+	overdose = REAGENTS_OVERDOSE //No reason for dylovene to not overdose.
 	scannable = TRUE
 	metabolism = REM * 0.5
 
@@ -98,6 +108,9 @@
 		if((remove_generic && istype(R, /datum/reagent/toxin)) || (R.type in remove_toxins))
 			M.reagents.remove_reagent(R.type, removing)
 			return
+
+/datum/reagent/dylovene/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustNutritionLoss(5 * removed)
 
 /datum/reagent/dexalin
 	name = "Dexalin"
@@ -132,7 +145,7 @@
 	fallback_specific_heat = 1
 	description = "Dexalin Plus was a ground-breaking improvement of Dexalin, capable of transporting several times the amount of oxygen, allowing it to have more clinical uses in treating hypoxia. Dexalin Plus is twice as efficient when inhaled."
 	color = "#0040FF"
-	overdose = REAGENTS_OVERDOSE * 0.5
+	overdose = 15
 	strength = 12
 
 /datum/reagent/tricordrazine
@@ -140,6 +153,7 @@
 	description = "Tricordrazine is an old, though still useful, medication largely set aside following bicaridine and kelotane’s development. The drug increases the rate at which tissues regenerate, though far slower than modern medications."
 	reagent_state = LIQUID
 	color = "#8040FF"
+	overdose = REAGENTS_OVERDOSE //No reason for tricordrazine to not overdose.
 	scannable = 1
 	fallback_specific_heat = 1
 	taste_description = "bitterness"
@@ -151,6 +165,10 @@
 	//Heals 10% more brute and less burn for every 1 celcius above 20 celcius, up 50% more/less.
 	//Heals 10% more burn and less brute for every 1 celcius below 20 celcius, up to 50% more/less.
 	M.heal_organ_damage(3 * removed * power,3 * removed * power)
+
+/datum/reagent/tricordrazine/overdose(var/mob/living/carbon/M, var/alien)
+	M.dizziness = max(125, M.dizziness)
+	M.make_dizzy(5)
 
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
@@ -193,7 +211,7 @@
 	description = "Perconol is an advanced NSAID medication which is highly effective at treating minor-mild pain, inflammation and high fevers. The drug is available over-the-counter for treating minor illnesses and mild pain. Perconol is not effective when inhaled."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
-	overdose = 60
+	overdose = REAGENTS_OVERDOSE //Reduced from 60u to 30u because 60u is pretty unobtainable.
 	scannable = 1
 	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
 	ingest_met = REM * 2 // .4 units per tick
@@ -226,17 +244,39 @@
 
 /datum/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 80)
+	M.eye_blurry = max(M.eye_blurry, 5)
+	M.drowsyness += 2
+	if(prob(2))
+		to_chat(M, SPAN_NOTICE(pick("Your movements feel very slow.", "You feel very groggy.", "You feel numb in places.")))
+
+	var/mob/living/carbon/human/H = M
+	if(!istype(H))
+		return
+	var/bac = H.get_blood_alcohol()
+	if(bac >= 0.02)
+		M.hallucination = max(M.hallucination, bac * 300)
+		M.add_chemical_effect(CE_EMETIC, dose/6)
+	if(bac >= 0.05)
+		if(M.losebreath < 15)
+			M.losebreath++
+
+	if((locate(/datum/reagent/oxycomorphine) in M.reagents.reagent_list)) //Oxycomorphine & Mortaphenyl contraindicated. Both do the same job, so the effects would compound and immediately go to OD.
+		overdose = dose/2 //Straight to overdose.
 
 /datum/reagent/mortaphenyl/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.hallucination = max(M.hallucination, 40)
-
+	M.add_chemical_effect(CE_EMETIC, dose/6)
+	if(M.losebreath < 15)
+		M.losebreath++
+		
 /datum/reagent/oxycomorphine
 	name = "Oxycomorphine"
 	description = "Oxycomorphine is a highly advanced synthetic opioid medication which is extremely effective at treating severe-agonising pain as a result of injuries usually incompatible with life. The drug is highly addictive and sense-numbing. Oxycomorphine is not effective when inhaled."
 	reagent_state = LIQUID
 	color = "#800080"
 	overdose = 20
+	scannable = TRUE
 	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
 	ingest_met = REM * 2 // .4 units per tick
 	breathe_met = REM * 4 // .8 units per tick
@@ -246,6 +286,10 @@
 
 /datum/reagent/oxycomorphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
+	M.eye_blurry = max(M.eye_blurry, 5)
+	M.drowsyness += 2
+	if(prob(2))
+		to_chat(M, pick("<span class='notice'>Your movements feel very slow.</span>", "<span class='notice'>You feel very groggy.</span>", "<span class='notice'>You feel numb in places.</span>"))
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
 		return
@@ -253,11 +297,18 @@
 	if(bac >= 0.02)
 		M.hallucination = max(M.hallucination, bac * 300)
 		M.druggy = max(M.druggy, bac * 100)
+		M.add_chemical_effect(CE_EMETIC, dose/6)
+	if(bac >= 0.05)	
+		if(M.losebreath < 15)
+			M.losebreath++
 
 /datum/reagent/oxycomorphine/overdose(var/mob/living/carbon/M, var/alien)
 	..()
 	M.druggy = max(M.druggy, 20)
 	M.hallucination = max(M.hallucination, 60)
+	M.add_chemical_effect(CE_EMETIC, dose/6)
+	if(M.losebreath < 15)
+		M.losebreath++
 
 /* Other medicine */
 
@@ -267,7 +318,7 @@
 	reagent_state = LIQUID
 	color = "#99CCFF"
 	metabolism = REM * 0.05
-	overdose = REAGENTS_OVERDOSE
+	overdose = 10 //Lowered from 30 to 10 due to metabolism being so slow, you'll never metabolise 30 before your liver explodes.
 	scannable = 1
 	var/datum/modifier/modifier
 	taste_description = "bitterness"
@@ -275,7 +326,8 @@
 
 /datum/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.drowsyness = max(M.drowsyness - 5, 0)
-	M.AdjustParalysis(-1)
+	if(dose < overdose)
+		M.AdjustParalysis(-1) //Required so, when overdosing, synaptizine doesn't immediately take you out of the seizure.
 	M.AdjustStunned(-1)
 	M.AdjustWeakened(-1)
 	holder.remove_reagent(/datum/reagent/mindbreaker, 5)
@@ -285,6 +337,12 @@
 	M.add_chemical_effect(CE_HALLUCINATE, -1)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+
+/datum/reagent/synaptizine/overdose(var/mob/living/carbon/M, var/alien)
+	if(prob(20))
+		to_chat(M, pick("<span class='notice'>You feel a tingly sensation in your body.</span>", "<span class='notice'>You can smell something unusual.</span>", "<span class='notice'>You can taste something unusual.</span>"))
+	if(prob(dose/2))
+		M.seizure()
 
 /datum/reagent/synaptizine/Destroy()
 	QDEL_NULL(modifier)
@@ -304,9 +362,13 @@
 /datum/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_BRAIN_REGEN, 30*removed)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
+	M.dizziness = max(125, M.dizziness) // Countered with Ethylredoxrazine - gives the drug more use beyond 'anti-alcohol drug'.
+	M.make_dizzy(5)
 
 /datum/reagent/alkysine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 25)
+	if(prob(10))
+		to_chat(M, pick("<span class='danger'>You have a painful headache!</span>", "<span class='danger'>You feel a throbbing pain behind your eyes!</span>"))
 	..()
 
 /datum/reagent/oculine
@@ -381,7 +443,7 @@
 	reagent_state = LIQUID
 	color = "#FF3300"
 	metabolism = REM * 0.15
-	overdose = REAGENTS_OVERDOSE * 0.5
+	overdose = 15
 	var/datum/modifier = null
 	taste_description = "acid"
 	metabolism_min = REM * 0.025
@@ -394,6 +456,19 @@
 	M.add_chemical_effect(CE_PULSE, 1)
 	if (!modifier)
 		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+	
+	if((locate(/datum/reagent/adrenaline) in M.reagents.reagent_list))
+		overdose = dose/2 //Straight to overdose.
+
+/datum/reagent/hyperzine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustNutritionLoss(10*removed)	
+	M.add_chemical_effect(CE_PULSE, 2)
+	if(prob(5))
+		to_chat(M, pick("<span class='danger'>Your heart is beating rapidly!</span>", "<span class='danger'>Your chest hurts!</span>"))
+	if(prob(2))
+		M.visible_message("[M] twitches violently, grimacing.", "You twitch violently and feel yourself sprain a joint.")
+		M.take_organ_damage(8 * removed, 0)
+		M.adjustHalLoss(20)
 
 /datum/reagent/hyperzine/Destroy()
 	QDEL_NULL(modifier)
@@ -471,6 +546,11 @@
 		M.adjustToxLoss(45 * removed) // Tested numbers myself
 	else
 		M.apply_radiation(-30 * removed)
+		M.add_chemical_effect(CE_ITCH, dose/2)
+
+/datum/reagent/hyronalin/overdose(var/mob/living/carbon/M, var/alien, var/removed)	
+	if(prob(60))
+		M.take_organ_damage(4 * removed, 0) //Hyronaline OD deals brute damage to the same degree as Arithrazine
 
 /datum/reagent/arithrazine
 	name = "Arithrazine"
@@ -493,8 +573,13 @@
 		M.adjustToxLoss(115 * removed) // Tested numbers myself
 	else
 		M.apply_radiation(-70 * removed)
+		M.add_chemical_effect(CE_ITCH, dose/2)
 		if(prob(60))
 			M.take_organ_damage(4 * removed, 0)
+
+/datum/reagent/arithrazine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	if(prob(50))
+		M.take_organ_damage(6 * removed, 0) //Even more collateral damage dealt by arithrazine.
 
 /datum/reagent/thetamycin
 	name = "Thetamycin"
@@ -513,11 +598,16 @@
 	M.add_chemical_effect(CE_EMETIC, dose/8) // chance per 2 second tick to cause vomiting
 	M.add_chemical_effect(CE_ANTIBIOTIC, dose) // strength of antibiotics; amount absorbed, need >5 to be effective. takes 50 seconds to work
 
+/datum/reagent/thetamycin/overdose(var/mob/living/carbon/M, var/alien)
+	M.dizziness = max(150, M.dizziness)
+	M.make_dizzy(5)
+
 /datum/reagent/asinodryl
 	name = "Asinodryl"
 	description = "Asinodryl is an anti-emetic medication which acts by preventing the two regions in the brain responsible for vomiting from controlling the act of emesis."
 	color = "#f5f2d0"
 	taste_description = "bitterness"
+	scannable = TRUE
 	metabolism = REM * 0.25
 	fallback_specific_heat = 1
 
@@ -569,6 +659,7 @@
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
 /datum/reagent/cetahydramine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_NOITCH, dose)
 	if(prob(dose/2))
 		M.drowsyness += 2
 
@@ -615,10 +706,18 @@
 	taste_description = "bitterness"
 
 /datum/reagent/leporazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.bodytemperature > 310)
-		M.bodytemperature = max(310, M.bodytemperature - (40 * TEMPERATURE_DAMAGE_COEFFICIENT))
-	else if(M.bodytemperature < 311)
-		M.bodytemperature = min(310, M.bodytemperature + (40 * TEMPERATURE_DAMAGE_COEFFICIENT))
+	if(dose < overdose)
+		if(M.bodytemperature > 310)
+			M.bodytemperature = max(310, M.bodytemperature - (40 * TEMPERATURE_DAMAGE_COEFFICIENT))
+		else if(M.bodytemperature < 311)
+			M.bodytemperature = min(310, M.bodytemperature + (40 * TEMPERATURE_DAMAGE_COEFFICIENT))
+
+/datum/reagent/leporazine/overdose(var/mob/living/carbon/M, var/alien)
+	M.bodytemperature = max(M.bodytemperature - 2 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
+	if(prob(2))
+		M.emote("shiver")
+	if(prob(2))
+		to_chat(M, "<span class='notice'>You feel very cold...</span>")
 
 /* mental */
 
@@ -765,6 +864,10 @@
 	M.add_chemical_effect(CE_HALLUCINATE, -1)
 	..()
 
+/datum/reagent/mental/corophendiate/overdose(var/mob/living/carbon/M, var/alien)
+	M.add_chemical_effect(CE_EMETIC, dose/6)
+
+
 /datum/reagent/mental/neurostabin
 	name = "Neurostabin"
 	description = "Neurostabin is a new generation, psychoactive drug used in the treatment of psychoses, and also has clinical significance in treating muscle weakness. It has far fewer side effects than previous generations of psychoactive drugs. Withdrawal symptoms include hallucinations and the development of phobias."
@@ -790,6 +893,9 @@
 		/datum/brain_trauma/mild/hallucinations = 2
 	)
 
+/datum/reagent/mental/neurostabin/overdose(var/mob/living/carbon/M, var/alien)
+	M.add_chemical_effect(CE_EMETIC, dose/6)
+
 /datum/reagent/mental/parvosil
 	name = "Parvosil"
 	description = "Parvosil is a new generation, psychoactive drug used in the treatment of anxiety disorders such as phobias and social anxiety. It has far fewer side effects than previous generations of pysychoactive drugs. Withdrawal symptoms include hallucinations and heightened anxiety."
@@ -812,6 +918,9 @@
 		/datum/brain_trauma/mild/hallucinations = 5
 	)
 	suppressing_reagents = list(/datum/reagent/mental/neurostabin = 5)
+
+/datum/reagent/mental/parvosil/overdose(var/mob/living/carbon/M, var/alien)
+	M.add_chemical_effect(CE_EMETIC, dose/6)
 
 /datum/reagent/mental/minaphobin
 	name = "Minaphobin"
@@ -839,6 +948,9 @@
 		/datum/reagent/mental/neurostabin = 5,
 		/datum/reagent/mental/parvosil = 5
 	)
+
+/datum/reagent/mental/minaphobin/overdose(var/mob/living/carbon/M, var/alien)
+	M.add_chemical_effect(CE_EMETIC, dose/6)
 
 /datum/reagent/mental/emoxanyl
 	name = "Emoxanyl"
@@ -870,6 +982,9 @@
 		/datum/reagent/mental/neurostabin = 10,
 		/datum/reagent/mental/parvosil = 10
 	)
+
+/datum/reagent/mental/emoxanyl/overdose(var/mob/living/carbon/M, var/alien)
+	M.add_chemical_effect(CE_EMETIC, dose/6)
 
 /datum/reagent/mental/orastabin
 	name = "Orastabin"
@@ -903,16 +1018,20 @@
 		/datum/reagent/mental/parvosil = 10
 	)
 
+/datum/reagent/mental/orastabin/overdose(var/mob/living/carbon/M, var/alien)
+	M.add_chemical_effect(CE_EMETIC, dose/6)
+
 /datum/reagent/mental/neurapan
 	name = "Neurapan"
 	description = "Neurapan is a groundbreaking, expensive antipsychotic medication capable of treating a whole spectrum of mental illnesses, including psychoses, anxiety disorders, Tourette Syndrome and depression, and can alleviate symptoms of stress. Neurapan can be addictive due to its tranquilising effects, and withdrawal symptoms are dangerous."
 	reagent_state = LIQUID
 	color = "#FF4444"
+	overdose = 10 
 	metabolism = 0.02 * REM
 	data = 0
-	taste_description = "cardboard"
-	goodmessage = list("Your mind feels as one.","You feel comfortable speaking.","Your body feels good.","Your thoughts are pure.")
-	badmessage = list("You start hearing voices...","You think you see things...","You feel really upset...","You want attention...")
+	taste_description = "tranquility"
+	goodmessage = list("Your mind feels as one.","You feel incredibly comfortable.","Your body feels good.","Your thoughts are clear.", "You feel stress free.", "Nothing is bothering you anymore.")
+	badmessage = list("The tranquility fades and you start hearing voices...","You think you see things...","You remember the stress you left behind...","You want attention...")
 	worstmessage = list("You think you start seeing things...","You swear someone inside you spoke to you...","You hate feeling alone...","You feel really upset...")
 	messagedelay = ANTIDEPRESSANT_MESSAGE_DELAY * 0.5
 	suppress_traumas  = list(
@@ -945,6 +1064,20 @@
 /datum/reagent/mental/neurapan/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_HALLUCINATE, -2)
 	..()
+
+/datum/reagent/mental/neurapan/overdose(var/mob/living/carbon/M, var/alien) //Will likely improve Neurapan's OD at some point in the future and make it something really interesting.
+	M.eye_blurry = max(M.eye_blurry, 30)
+	M.drowsyness = max(M.drowsyness, 10)
+	M.make_dizzy(15)
+	if((locate(/datum/reagent/oxycomorphine) in M.reagents.reagent_list))
+		M.add_chemical_effect(CE_PACIFIED, 1)
+		M.ear_deaf = 20
+		if(prob(3))
+			to_chat(M, SPAN_GOOD(pick("You lose all sense of connection to the real world.", "Everything is so tranquil.", "You feel dettached from reality.", "Your feel disconnected from your body.", "You are aware of nothing but your conscious thoughts.")))
+	else
+		if(prob(2))
+			to_chat(M, SPAN_GOOD(pick("You lose all sense of connection to the real world.", "Stress was an inconvenience that you are now free of.", "You feel dettached from reality.", "Your mind feels disconnected from your body.", "You can feel time passing by and it no longer bothers you.")))
+
 
 /datum/reagent/mental/nerospectan
 	name = "Nerospectan"
@@ -986,8 +1119,11 @@
 	M.add_chemical_effect(CE_HALLUCINATE, -2)
 	..()
 
+/datum/reagent/mental/nerospectan/overdose(var/mob/living/carbon/M, var/alien)
+	M.add_chemical_effect(CE_EMETIC, dose/6)
+
 /datum/reagent/mental/truthserum
-	name = "Truth serum"
+	name = "Truth Serum"
 	description = "Truth Serum is an expensive and very unethical psychoactive drug capable of inhibiting defensive measures and reasoning in regards to communication, resulting in those under the effects of the drug to be very open to telling the truth."
 	reagent_state = LIQUID
 	color = "#888888"
@@ -1006,6 +1142,9 @@
 	)
 	messagedelay = 30
 	ingest_mul = 0 //Stomach acid will melt the nanobots
+
+/datum/reagent/mental/truthserum/overdose(var/mob/living/carbon/M, var/alien)
+	M.add_chemical_effect(CE_EMETIC, dose/6)
 
 /datum/reagent/mental/vaam
 	name = "V'krexi Amino Acid Mixture"
@@ -1092,7 +1231,6 @@
 	)
 
 /datum/reagent/cataleptinol/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
-
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 	var/chance = dose*removed
 	if(M.bodytemperature < 170)
@@ -1119,7 +1257,7 @@
 	description = "Fluvectionem is a complex anti-toxin medication that is capable of purging the bloodstream of toxic reagents. The drug is capable of neutralising the most difficult of compounds and acts very fast, however it is inefficient and results in benign waste products that can be damaging to the liver."
 	color = "#222244"
 	metabolism = 0.5 * REM
-	overdose = 30
+	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	taste_description = "thick salt"
 	reagent_state = SOLID
@@ -1292,6 +1430,7 @@
 	name = "Saline"
 	description = "A liquid compound that restores hydration when injected directly into the bloodstream. Excellent at solving severe hydration problems. Yes, it's literally just saline."
 	reagent_state = LIQUID
+	scannable = TRUE
 	color = "#1ca9c9"
 	taste_description = "salty water"
 	unaffected_species = IS_MACHINE
@@ -1370,7 +1509,13 @@
 	name = "Regenerative-Muscular Tissue Supplements"
 	description = "RMT Supplement is a bioengineered, fast-acting growth factor that specifically helps recover bone and muscle mass caused by prolonged zero-gravity adaptations. It can also be used to treat chronic muscle weakness."
 	reagent_state = LIQUID
+	scannable = TRUE
 	color = "#AA8866"
+	overdose = REAGENTS_OVERDOSE //No reason for RMT not to have an overdose.
 	metabolism = 0.2 * REM
 	taste_description = "sourness"
 	fallback_specific_heat = 1
+
+/datum/reagent/rmt/overdose(var/mob/living/carbon/H, var/alien)
+	if(prob(2))
+		to_chat(H, pick("<span class='notice'>Your muscles are stinging a bit.</span>", "<span class='notice'>Your muscles ache.</span>"))
