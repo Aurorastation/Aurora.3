@@ -232,8 +232,7 @@ Pins Below.
 /obj/item/device/firing_pin/security_level/pin_auth(mob/living/user)
 	if(istype(gun, /obj/item/gun/energy))
 		var/obj/item/projectile/energy/P
-		var/list/gunfiremodes = gun.firemodes
-		var/datum/firemode/current_mode = gunfiremodes[gun.sel_mode]
+		var/datum/firemode/current_mode = gun.firemodes[gun.sel_mode]
 		for(var/settingname in current_mode.settings) // A roundabout way of extracting the projectile type from the settings() list in the firemode datum.
 			var/settingvalue = current_mode.settings[settingname]
 			if(settingname == "projectile_type")
