@@ -155,7 +155,7 @@
 	if(!M.mind)	return FALSE
 
 	user_reply = input("Select your frame.") in list("sub-compact","service","magnum")
-	if(!QDELETED(src) && !M.stat && in_range(M,src) &! selectframecheck)
+	if(!QDELETED(src) && !M.stat && in_range(M,src) && !selectframecheck)
 		if(user_reply == "sub-compact")
 			icon = 'icons/obj/guns/secblaster/secblasterc.dmi'
 			name = "sub-compact blaster"
@@ -168,7 +168,7 @@
 		update_icon()
 		to_chat(M, "You select the [user_reply] model.")
 		user_reply = input("Is this what you wanted?") in list("yes","no")
-		if(!QDELETED(src) && !M.stat && in_range(M,src) &! selectframecheck)
+		if(!QDELETED(src) && !M.stat && in_range(M,src) && !selectframecheck)
 			if (user_reply == "yes")
 				selectframecheck = TRUE
 				verbs -= /obj/item/gun/energy/secblaster/verb/select_frame
