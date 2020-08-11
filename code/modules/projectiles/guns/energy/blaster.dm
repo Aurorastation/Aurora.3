@@ -156,7 +156,7 @@
 		return 0
 
 	user_reply = input("Select your frame.") in list("sub-compact","service","magnum")
-	if(src && !M.stat && in_range(M,src))
+	if(!QDELETED(src) && !M.stat && in_range(M,src))
 		if(user_reply == "sub-compact")
 			icon = 'icons/obj/guns/secblaster/secblasterc.dmi'
 			name = "sub-compact blaster"
