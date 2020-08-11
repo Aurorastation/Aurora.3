@@ -5,4 +5,4 @@ delete-after: True
 changes: 
   - tweak: "Renamed the ion rifle firemodes from stun/kill to single/blast"
   - tweak: "Ion rifle now uses lightning sounds when shooting instead of the default laser."
-  - balance: "The ion rifle blast setting now consumes all 10 charges."
+  - balance: "The ion rifle blast setting now consumes 10 charges."
