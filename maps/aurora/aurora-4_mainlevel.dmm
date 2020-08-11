@@ -52559,7 +52559,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/bar)
 "bUF" = (
-/obj/structure/shotgun_rack/double{
+/obj/structure/weapon_rack/double{
 	pixel_x = -32
 	},
 /obj/structure/sink{
