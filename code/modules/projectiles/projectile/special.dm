@@ -11,8 +11,10 @@
 	empulse(A, pulse_range, pulse_range)
 	return 1
 
+/obj/item/projectile/ion/blast
+	pulse_range = 3
 
-/obj/item/projectile/ion/stun/on_impact(var/atom/A)
+/obj/item/projectile/ion/single/on_impact(var/atom/A)
 	if(isipc(A))
 		var/mob/living/carbon/human/H = A
 		var/obj/item/organ/internal/surge/s = H.internal_organs_by_name["surge"]

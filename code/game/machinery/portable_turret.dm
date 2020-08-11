@@ -1020,10 +1020,10 @@
 	egun = 1
 	sprite_set = "ion"
 
-	projectile = /obj/item/projectile/ion/stun
-	eprojectile = /obj/item/projectile/ion
-	shot_sound = 'sound/weapons/Laser.ogg'
-	eshot_sound	= 'sound/weapons/Laser.ogg'
+	projectile = /obj/item/projectile/ion/single
+	eprojectile = /obj/item/projectile/ion/blast
+	shot_sound = 'sound/weapons/ionsingle.ogg'
+	eshot_sound	= 'sound/weapons/ionblast.ogg'
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/crossbow

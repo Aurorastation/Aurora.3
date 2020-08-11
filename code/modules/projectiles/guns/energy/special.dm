@@ -1,12 +1,12 @@
 /obj/item/gun/energy/rifle/ionrifle
 	name = "ion rifle"
-	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT. Has two settings: Stun and Lethal."
+	desc = "The NT Mk70 EW Halicon is a man portable anti-armor weapon designed to disable mechanical threats, produced by NT. Has two settings: Single and Blast."
 	icon = 'icons/obj/guns/ionrifle.dmi'
 	icon_state = "ionriflestun100"
 	item_state = "ionriflestun100" // so the human update icon uses the icon_state instead.
 	modifystate = "ionriflestun"
-	projectile_type = /obj/item/projectile/ion/stun
-	fire_sound = 'sound/weapons/Laser.ogg'
+	projectile_type = /obj/item/projectile/ion/single
+	fire_sound = 'sound/weapons/ionsingle.ogg'
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
 	w_class = 4
 	accuracy = 1
@@ -14,16 +14,16 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BACK
 	charge_cost = 300
-	max_shots = 10
+	max_shots = 6
 	secondary_projectile_type = /obj/item/projectile/ion
-	secondary_fire_sound = 'sound/weapons/Laser.ogg'
+	secondary_fire_sound = 'sound/weapons/ionblast.ogg'
 	can_turret = 1
 	can_switch_modes = 1
 	turret_sprite_set = "ion"
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/ion/stun, modifystate="ionriflestun", fire_sound='sound/weapons/Laser.ogg', charge_cost = 300),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/ion, modifystate="ionriflekill", fire_sound='sound/weapons/Laser.ogg', charge_cost = 450)
+		list(mode_name="single", projectile_type=/obj/item/projectile/ion/single, modifystate="ionriflestun", fire_sound='sound/weapons/ionsingle.ogg', charge_cost = 300),
+		list(mode_name="blast", projectile_type=/obj/item/projectile/ion/blast, modifystate="ionriflekill", fire_sound='sound/weapons/ionblast.ogg', charge_cost = 1800)
 		)
 
 /obj/item/gun/energy/rifle/ionrifle/emp_act(severity)
