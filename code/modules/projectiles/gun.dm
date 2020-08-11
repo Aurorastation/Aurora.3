@@ -320,7 +320,8 @@
 		if(pointblank)
 			process_point_blank(projectile, user, target)
 
-		if(process_projectile(projectile, user, target, user.zone_sel.selecting, clickparams))
+		var/selected_zone = user.zone_sel ? user.zone_sel.selecting : BP_CHEST
+		if(process_projectile(projectile, user, target, selected_zone, clickparams))
 			var/show_emote = TRUE
 			if(i > 1 && burst_delay < 3 && burst < 5)
 				show_emote = FALSE
@@ -626,10 +627,12 @@
 
 	return new_mode
 
-/obj/item/gun/attack_self(mob/user)
+/obj/item/gun/attack_self(mob/user, var/list/message_mobs)
 	var/datum/firemode/new_mode = switch_firemodes(user)
 	if(new_mode)
 		to_chat(user, SPAN_NOTICE("\The [src] is now set to [new_mode.name]."))
+	for(var/M in message_mobs)
+		to_chat(M, SPAN_NOTICE("[user] has set \the [src] to [new_mode.name]."))
 
 // Safety Procs
 
