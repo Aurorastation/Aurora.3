@@ -1,4 +1,4 @@
 author: Ferner
 delete-after: True
 changes: 
-  - bugfix: "Centcom airlocks can no longer be tampered with via door hacking tools."
+  - bugfix: "Centcom airlocks can no longer be tampered with via door hacking tools, blown up or be affected by emp."

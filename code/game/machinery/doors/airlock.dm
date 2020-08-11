@@ -190,6 +190,12 @@
 /obj/machinery/door/airlock/centcom/emag_act()
 	return NO_EMAG_ACT
 
+/obj/machinery/door/airlock/centcom/ex_act()
+	return
+
+/obj/machinery/door/airlock/centcom/emp_act()
+	return
+
 /obj/machinery/door/airlock/vault
 	name = "Vault"
 	icon = 'icons/obj/doors/vault.dmi'
