@@ -198,6 +198,17 @@
 
 	gun_type = /obj/item/gun/energy/pulse/mounted
 
+/obj/item/rig_module/mounted/plasma
+
+	name = "mounted plasma cannon"
+	desc = "A marvel of Elyran weapons technology which utilizes superheated plasma to pierce thick armor with gruesome results. This one seems fitted for RIG usage."
+	icon_state = "plasma"
+
+	interface_name = "mounted plasma cannon"
+	interface_desc = "A shoulder-mounted cell-powered burst plasma cannon."
+
+	gun_type = /obj/item/gun/energy/mountedplasma
+
 /obj/item/rig_module/mounted/smg
 
 	name = "mounted submachine gun"
