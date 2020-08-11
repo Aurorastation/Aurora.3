@@ -40,6 +40,21 @@
 		/obj/item/rig_module/electrowarfare_suite, //might as well
 		/obj/item/rig_module/actuators/combat // What the dude above me said.
 		)
+
+/obj/item/rig/merc/ninja
+	initial_modules = list(
+		/obj/item/rig_module/mounted,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/grenade_launcher,
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/device/door_hack,
+		/obj/item/rig_module/electrowarfare_suite,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/actuators/combat
+		)
+
 /obj/item/clothing/head/helmet/space/rig/merc/distress
 	light_overlay = "helmet_light_rhino"
 	light_color = "#7ffbf7"
@@ -71,3 +86,12 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
+/obj/item/rig/merc/distress/ninja
+	initial_modules = list(
+		/obj/item/rig_module/mounted,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/device/door_hack,
+		/obj/item/rig_module/actuators/combat
+		)

@@ -61,15 +61,24 @@
 /obj/item/tank/jetpack/verb/toggle_rockets()
 	set name = "Toggle Jetpack Stabilization"
 	set category = "Object"
-	src.stabilization_on = !( src.stabilization_on )
-	to_chat(usr, "You toggle the stabilization [stabilization_on? "on":"off"].")
+
+	toggle_rockets_stabilization(usr)
+
+/obj/item/tank/jetpack/proc/toggle_rockets_stabilization(mob/user, var/list/message_mobs)
+	stabilization_on = !stabilization_on
+	to_chat(user, SPAN_NOTICE("You toggle \the [src]'s stabilization [stabilization_on ? "on" : "off"]."))
+	for(var/M in message_mobs)
+		to_chat(M, SPAN_NOTICE("[user] toggles \the [src]'s stabilization [stabilization_on ? "on" : "off"]."))
 
 /obj/item/tank/jetpack/verb/toggle()
 	set name = "Toggle Jetpack"
 	set category = "Object"
 
+	toggle_jetpack(usr)
+
+/obj/item/tank/jetpack/proc/toggle_jetpack(mob/user, var/list/message_mobs)
 	on = !on
-	stabilization_on = !stabilization_on
+	toggle_rockets_stabilization(user, message_mobs)
 	if(on)
 		icon_state = "[icon_state]-on"
 		ion_trail.start()
@@ -77,13 +86,12 @@
 		icon_state = initial(icon_state)
 		ion_trail.stop()
 
-	if (ismob(usr))
-		var/mob/M = usr
-		M.update_inv_back()
-		M.update_action_buttons()
+	user.update_inv_back()
+	user.update_action_buttons()
 
-	to_chat(usr, SPAN_NOTICE("You toggle the thrusters [on? "on":"off"]."))
-	to_chat(usr, SPAN_NOTICE("You toggle the stabilization [stabilization_on? "on":"off"]."))
+	to_chat(user, SPAN_NOTICE("You toggle \the [src]'s thrusters [on ? "on" : "off"]."))
+	for(var/M in message_mobs)
+		to_chat(M, SPAN_NOTICE("[user] toggles \the [src]'s thrusters [on ? "on" : "off"]."))
 
 /obj/item/tank/jetpack/proc/allow_thrust(num, mob/living/user as mob)
 	if(!(src.on))
@@ -177,7 +185,7 @@
 	to_chat(usr, "You toggle the stabilization [stabilization_on? "on":"off"].")
 
 /obj/item/tank/jetpack/rig
-	name = "jetpack"
+	name = "hardsuit jetpack"
 	var/obj/item/rig/holder
 
 /obj/item/tank/jetpack/rig/examine()
