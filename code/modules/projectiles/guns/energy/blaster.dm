@@ -135,7 +135,6 @@
 	charge_cost = 50
 	has_item_ratio = FALSE
 	modifystate = "secblasterstun"
-	var/modelselected = FALSE
 	sel_mode = 1
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/stunblaster, modifystate="secblasterstun", charge_cost = 50, fire_sound = 'sound/weapons/secblasterstun.ogg'),
@@ -153,9 +152,6 @@
 	var/user_reply
 
 	if(!M.mind)	return FALSE
-	if(modelselected)
-		to_chat(M, "The model of this gun has already been set.")
-		return FALSE
 
 	user_reply = input("Select your frame.") in list("sub-compact","service","magnum")
 	if(!QDELETED(src) && !M.stat && in_range(M,src))
@@ -173,7 +169,7 @@
 		user_reply = input("Is this what you wanted?") in list("yes","no")
 		if(!QDELETED(src) && !M.stat && in_range(M,src))
 			if (user_reply == "yes")
-				modelselected = TRUE
+				verbs -= /obj/item/gun/energy/secblaster/verb/select_frame
 				return TRUE
 	icon = 'icons/obj/guns/secblaster/secblasters.dmi'
 	name = "service blaster"
