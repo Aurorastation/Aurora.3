@@ -238,8 +238,8 @@
 	icon_state = "blue_laser"
 	damage = 2
 	agony = 43
-	taser_effect = 1
-	eyeblur = 1
+	taser_effect = TRUE
+	eyeblur = TRUE
 	damage_type = BURN
 	pass_flags = PASSTABLE
 	muzzle_type = /obj/effect/projectile/muzzle/bolt

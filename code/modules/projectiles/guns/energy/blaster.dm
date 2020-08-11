@@ -135,6 +135,7 @@
 	charge_cost = 50
 	has_item_ratio = FALSE
 	modifystate = "secblasterstun"
+	pin = /obj/item/device/firing_pin/security_level
 	sel_mode = 1
 	var/selectframecheck = FALSE
 	firemodes = list(
@@ -147,15 +148,13 @@
 	set category = "Object"
 	set desc = "Click to select the model of your gun."
 
-	if(!istype(usr, /mob))
-		return FALSE
 	var/mob/M = usr
 	var/user_reply
 
 	if(!M.mind)	return FALSE
 
 	user_reply = input("Select your frame.") in list("sub-compact","service","magnum")
-	if(!QDELETED(src) && !M.stat && in_range(M,src) && !selectframecheck)
+	if(!use_check_and_message(usr))
 		if(user_reply == "sub-compact")
 			icon = 'icons/obj/guns/secblaster/secblasterc.dmi'
 			name = "sub-compact blaster"
@@ -167,9 +166,9 @@
 			name = "magnum blaster"
 		update_icon()
 		to_chat(M, "You select the [user_reply] model.")
-		user_reply = input("Is this what you wanted?") in list("yes","no")
-		if(!QDELETED(src) && !M.stat && in_range(M,src) && !selectframecheck)
-			if (user_reply == "yes")
+		user_reply = input("Is this what you wanted?") in list("Yes","No")
+		if(!use_check_and_message(usr))
+			if (user_reply == "Yes")
 				selectframecheck = TRUE
 				verbs -= /obj/item/gun/energy/secblaster/verb/select_frame
 				return TRUE
@@ -177,5 +176,5 @@
 	name = "service blaster"
 	return TRUE
 
-/obj/item/gun/energy/secblaster/security
-	pin = /obj/item/device/firing_pin/security_level
+/obj/item/gun/energy/secblaster/unlocked
+	pin = /obj/item/device/firing_pin

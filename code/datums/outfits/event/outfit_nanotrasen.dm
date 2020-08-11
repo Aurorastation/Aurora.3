@@ -52,7 +52,7 @@
 		/obj/item/storage/box/engineer = 1,
 		/obj/item/clothing/head/helmet/swat/peacekeeper = 1,
 		/obj/item/clothing/accessory/holster/hip = 1,
-		/obj/item/gun/energy/secblaster = 1
+		/obj/item/gun/energy/secblaster/unlocked = 1
 	)
 
 	implants = list(

@@ -237,9 +237,9 @@ Pins Below.
 			var/settingvalue = current_mode.settings[settingname]
 			if(settingname == "projectile_type")
 				P = new settingvalue
-		if((security_level == SEC_LEVEL_GREEN || security_level == SEC_LEVEL_BLUE) &! P.taser_effect)
-			return 0
-	else if(security_level == SEC_LEVEL_GREEN || security_level == SEC_LEVEL_BLUE)
-		return 0
+		if(P?.taser_effect)
+			return TRUE
+	if(security_level != SEC_LEVEL_GREEN && security_level != SEC_LEVEL_BLUE)
+		return TRUE
 
-	return 1
+	return FALSE
