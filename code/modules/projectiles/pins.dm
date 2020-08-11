@@ -227,7 +227,7 @@ Pins Below.
 /obj/item/device/firing_pin/security_level
 	name = "security level firing pin"
 	desc = "This security level locked firing pin allows weapons to be fired only when the security level is elevated."
-	fail_message = SPAN_WARNING("SECURITY LEVEL INSUFFICIENT.")
+	fail_message = "<span class='warning'>SECURITY LEVEL INSUFFICIENT.</span>"
 
 /obj/item/device/firing_pin/security_level/pin_auth(mob/living/user)
 	if(istype(gun, /obj/item/gun/energy))
