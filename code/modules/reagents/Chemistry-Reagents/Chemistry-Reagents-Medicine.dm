@@ -18,7 +18,7 @@
 
 /datum/reagent/inaprovaline/overdose(var/mob/living/carbon/M, var/alien, var/removed)	
 	if(prob(2))
-		to_chat(M, pick("<span class='notice'>Your chest feels tight.</span>", "<span class='danger'>Your chest is hurting!</span>"))
+		to_chat(M, pick(SPAN_WARNING("Your chest feels tight.", "Your chest is aching a bit.")))
 
 /datum/reagent/bicaridine
 	name = "Bicaridine"
@@ -289,7 +289,7 @@
 	M.eye_blurry = max(M.eye_blurry, 5)
 	M.drowsyness += 2
 	if(prob(2))
-		to_chat(M, pick("<span class='notice'>Your movements feel very slow.</span>", "<span class='notice'>You feel very groggy.</span>", "<span class='notice'>You feel numb in places.</span>"))
+		to_chat(M, SPAN_WARNING(pick("Your movements feel very slow.", "You feel very groggy.", "You feel numb in places.")))
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
 		return
@@ -340,7 +340,7 @@
 
 /datum/reagent/synaptizine/overdose(var/mob/living/carbon/M, var/alien)
 	if(prob(20))
-		to_chat(M, pick("<span class='notice'>You feel a tingly sensation in your body.</span>", "<span class='notice'>You can smell something unusual.</span>", "<span class='notice'>You can taste something unusual.</span>"))
+		to_chat(M, SPAN_WARNING(pick("You feel a tingly sensation in your body.", "You can smell something unusual.", "You can taste something unusual.")))
 	if(prob(dose/2))
 		M.seizure()
 
@@ -368,7 +368,7 @@
 /datum/reagent/alkysine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 25)
 	if(prob(10))
-		to_chat(M, pick("<span class='danger'>You have a painful headache!</span>", "<span class='danger'>You feel a throbbing pain behind your eyes!</span>"))
+		to_chat(M, SPAN_DANGER(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!")))
 	..()
 
 /datum/reagent/oculine
@@ -464,7 +464,7 @@
 	M.adjustNutritionLoss(10*removed)	
 	M.add_chemical_effect(CE_PULSE, 2)
 	if(prob(5))
-		to_chat(M, pick("<span class='danger'>Your heart is beating rapidly!</span>", "<span class='danger'>Your chest hurts!</span>"))
+		to_chat(M, SPAN_DANGER(pick("Your heart is beating rapidly!", "Your chest hurts!")))
 	if(prob(2))
 		M.visible_message("[M] twitches violently, grimacing.", "You twitch violently and feel yourself sprain a joint.")
 		M.take_organ_damage(8 * removed, 0)
@@ -540,7 +540,7 @@
 /datum/reagent/hyronalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.is_diona())
 		if(last_taste_time + 950 < world.time) // Not to spam message
-			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
+			to_chat(M, SPAN_DANGER("Your body withers as you feel a searing pain throughout."))
 			last_taste_time = world.time
 		metabolism = REM * 0.22
 		M.adjustToxLoss(45 * removed) // Tested numbers myself
@@ -567,7 +567,7 @@
 /datum/reagent/arithrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.is_diona())
 		if(last_taste_time + 450 < world.time) // Not to spam message
-			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
+			to_chat(M, SPAN_DANGER("Your body withers as you feel a searing pain throughout."))
 			last_taste_time = world.time
 		metabolism = REM * 0.195
 		M.adjustToxLoss(115 * removed) // Tested numbers myself
@@ -717,7 +717,7 @@
 	if(prob(2))
 		M.emote("shiver")
 	if(prob(2))
-		to_chat(M, "<span class='notice'>You feel very cold...</span>")
+		to_chat(M, SPAN_WARNING("You feel very cold..."))
 
 /* mental */
 
@@ -788,7 +788,7 @@
 					break
 			if(!suppress_withdrawl)
 				if (H.shock_stage < 20 && worstmessage.len)
-					to_chat(H,"<span class='danger'>[pick(worstmessage)]</span>")
+					to_chat(H, SPAN_DANGER("[pick(worstmessage)]"))
 				messagedelay = initial(messagedelay) * 0.25
 				for(var/k in withdrawal_traumas)
 					var/datum/brain_trauma/BT = k
@@ -797,11 +797,11 @@
 						B.gain_trauma(BT,FALSE)
 		else if(hastrauma || volume < max_dose*0.5) //If your current dose is not high enough, then alert the player.
 			if (H.shock_stage < 10 && badmessage.len)
-				to_chat(H,"<span class='warning'>[pick(badmessage)]</span>")
+				to_chat(H, SPAN_WARNING("[pick(badmessage)]"))
 			messagedelay = initial(messagedelay) * 0.5
 		else
 			if (H.shock_stage < 5 && goodmessage.len)
-				to_chat(H,"<span class='good'>[pick(goodmessage)]</span>")
+				to_chat(H, SPAN_GOOD("[pick(goodmessage)]"))
 			messagedelay = initial(messagedelay)
 
 	data = world.time + (messagedelay SECONDS)
@@ -1492,7 +1492,7 @@
 	if(ishuman(M))
 		if(M && M.stat == DEAD)
 			M.adjustOxyLoss(-rand(15,20))
-			M.visible_message("<span class='danger'>\The [M] shudders violently!</span>")
+			M.visible_message(SPAN_DANGER("\The [M] shudders violently!"))
 			M.stat = 0
 
 /datum/reagent/pacifier
@@ -1518,4 +1518,4 @@
 
 /datum/reagent/rmt/overdose(var/mob/living/carbon/H, var/alien)
 	if(prob(2))
-		to_chat(H, pick("<span class='notice'>Your muscles are stinging a bit.</span>", "<span class='notice'>Your muscles ache.</span>"))
+		to_chat(H, pick(SPAN_WARNING("Your muscles are stinging a bit.", "Your muscles ache.")))

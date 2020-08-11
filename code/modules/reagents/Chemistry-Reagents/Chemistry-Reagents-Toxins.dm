@@ -363,7 +363,7 @@
 		if(locate(/obj/effect/overlay/wallrot) in W)
 			for(var/obj/effect/overlay/wallrot/E in W)
 				qdel(E)
-			W.visible_message("<span class='notice'>The fungi are completely dissolved by the solution!</span>")
+			W.visible_message(SPAN_NOTICE("The fungi are completely dissolved by the solution!"))
 
 /datum/reagent/toxin/plantbgone/touch_obj(var/obj/O, var/volume)
 	if(istype(O, /obj/structure/alien/weeds))
@@ -444,7 +444,7 @@
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	if(prob(10))
-		to_chat(M, "<span class='danger'>Your insides are burning!</span>")
+		to_chat(M, SPAN_DANGER("Your insides are burning!"))
 		M.add_chemical_effect(CE_TOXIN, rand(100, 300) * removed)
 	else if(prob(40))
 		M.heal_organ_damage(25 * removed, 0)
@@ -533,7 +533,7 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.species.name != "Slime")
-			to_chat(M, "<span class='danger'>Your flesh rapidly mutates!</span>")
+			to_chat(M, SPAN_DANGER("Your flesh rapidly mutates!"))
 			H.set_species("Slime")
 
 /datum/reagent/aslimetoxin
@@ -546,7 +546,7 @@
 /datum/reagent/aslimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) // TODO: check if there's similar code anywhere else
 	if(M.transforming)
 		return
-	to_chat(M, "<span class='danger'>Your flesh rapidly mutates!</span>")
+	to_chat(M, SPAN_DANGER("Your flesh rapidly mutates!"))
 	M.transforming = 1
 	M.canmove = 0
 	M.icon = null
@@ -659,11 +659,11 @@
 	if(prob(10))
 		M.see_invisible = SEE_INVISIBLE_CULT
 	if(dose < 5)
-		if(prob(10))
-			to_chat(M, pick("<span class='notice'>You hear the clinking of dinner plates and laughter.</span>", "<span class='notice'>You hear a distant voice of someone you know talking to you.</span>", "<span class='notice'>Fond memories of a departed loved one flocks to your mind.</span>", "<span class='notice'>You feel the reassuring presence of a departed loved one.</span>", "<span class='notice'>You feel a hand squeezing yours.</span>"))
+		if(prob(3))
+			to_chat(M, SPAN_CULT(pick("You hear the clinking of dinner plates and laughter.", "You hear a distant voice of someone you know talking to you.", "Fond memories of a departed loved one flocks to your mind.", "You feel the reassuring presence of a departed loved one.", "You feel a hand squeezing yours.")))
 	if(dose > 5)
-		if(prob(15))
-			to_chat(M, pick("<span class='notice'>You feel cold air wrapping around you.</span>", "<span class='danger'>It’s freezing here!</span>", "<span class='notice'>You feel fingers tracing up your back.</span>", "<span class='notice'>You hear the distant wailing and sobbing of a departed loved one.</span>", "<span class='notice'>You feel like you are being closely watched.</span>", "<span class='notice'>You hear the hysterical laughter of a departed loved one.</span>", "<span class='notice'>You no longer feel the reassuring presence of a departed loved one.</span>", "<span class='notice'>You feel a hand taking hold of yours, digging its nails into you as it clings on.</span>", "<span class='danger'>Your head spins amid the cacophony of screaming, wailing and maniacal laughter of distant loved ones.</span>"))
+		if(prob(5))
+			to_chat(M, SPAN_CULT(pick("You feel cold air wrapping around you.", "You feel fingers tracing up your back.", "You hear the distant wailing and sobbing of a departed loved one.", "You feel like you are being closely watched.", "You hear the hysterical laughter of a departed loved one.", "You no longer feel the reassuring presence of a departed loved one.", "You feel a hand taking hold of yours, digging its nails into you as it clings on.", "Your head spins amid the cacophony of screaming, wailing and maniacal laughter of distant loved ones.")))
 		if(prob(5))
 			M.emote("shiver")
 

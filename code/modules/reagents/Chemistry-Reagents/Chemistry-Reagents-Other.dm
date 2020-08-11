@@ -690,7 +690,7 @@
 /datum/reagent/bluespace_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
 		M.make_jittery(5)
-		to_chat(M, "<span class='warning'>You feel unstable...</span>")
+		to_chat(M, SPAN_WARNING("You feel unstable..."))
 
 	if(prob(10))
 		do_teleport(M, get_turf(M), 5, asoundin = 'sound/effects/phasein.ogg')
@@ -720,7 +720,7 @@
 		I.canremove = 0
 		I.desc += " It appears to glisten with some gluey substance."
 		remove_self(10*I.w_class)
-		I.visible_message("<span class='notice'>[I] begins to glisten with some gluey substance.</span>")
+		I.visible_message(SPAN_NOTICE("[I] begins to glisten with some gluey substance."))
 
 /datum/reagent/usolve
 	name = "Universal Solvent"
@@ -735,7 +735,7 @@
 		var/obj/item/I = O
 		I.canremove = initial(I.canremove)
 		I.desc = initial(I.desc)
-		I.visible_message("<span class='notice'>A thin shell of glue cracks off of [I].</span>")
+		I.visible_message(SPAN_NOTICE("A thin shell of glue cracks off of [I]."))
 		remove_self(10*I.w_class)
 
 /datum/reagent/shapesand
@@ -756,7 +756,7 @@
 		mimic.item_state = O.item_state
 		mimic.overlays = O.overlays
 		remove_self(10*O.w_class)
-		mimic.visible_message("<span class='notice'>The sand forms into an exact duplicate of [O].</span>")
+		mimic.visible_message(SPAN_NOTICE("The sand forms into an exact duplicate of [O]."))
 
 /obj/item/shapesand
 	name = "shapesand"
@@ -769,7 +769,7 @@
 	return 1
 
 /obj/item/shapesand/afterattack(atom/A, mob/living/user)
-	to_chat(user, "<span class='warning'>As you attempt to use the [src], it crumbles into inert sand!</span>")
+	to_chat(user, SPAN_WARNING("As you attempt to use the [src], it crumbles into inert sand!"))
 	new /obj/item/ore/glass(get_turf(src))
 	qdel(src)
 	return
