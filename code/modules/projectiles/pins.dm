@@ -231,7 +231,7 @@ Pins Below.
 
 /obj/item/device/firing_pin/security_level/pin_auth(mob/living/user)
 	if(istype(gun, /obj/item/gun/energy))
-		var/obj/item/projectile/energy/thegun = gun
+		var/obj/item/gun/energy/thegun = gun
 		var/obj/item/projectile/energy/P = new thegun.projectile_type
 		if(P?.taser_effect)
 			return TRUE
