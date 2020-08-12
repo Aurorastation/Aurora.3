@@ -198,7 +198,7 @@
 			var/obj/item/weldingtool/T = W
 			if(T.remove_fuel(0,user))
 				if(!src || !T.isOn()) return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 				to_chat(user, "<span class='notice'>You shorten the barrel with the welding tool.</span>")
 				var/obj/item/gun/projectile/improvised_handgun/G = new(get_turf(src))
 				G.jam_chance = rand(1,100)

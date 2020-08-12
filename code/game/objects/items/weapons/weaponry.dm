@@ -163,7 +163,8 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = 'sound/items/pickup/sword.ogg'
+	pickup_sound = "pickup_sword"
+	equip_sound = "equip_sword"
 
 /obj/item/sord
 	name = "\improper SORD"

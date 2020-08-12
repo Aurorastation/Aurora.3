@@ -378,7 +378,7 @@ var/global/list/golem_types = list("Coal Golem",
 	death_message = "shatters into many shards!"
 	death_message_range = 7
 
-	death_sound = "shatter"
+	death_sound = "glass_break"
 
 	heat_level_1 = T0C+350
 	heat_level_2 = T0C+550
