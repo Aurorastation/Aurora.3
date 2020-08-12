@@ -27,8 +27,7 @@
 		else if(screen == 1)
 			dat += "<HR>Detected Firearms<BR>"
 			for(var/obj/item/device/firing_pin/security_level/P in smartguns)
-				var/obj/item/device/firing_pin/security_level/thispin = new [smartguns[P]]
-				dat += "[thispin] ----- [thispin.registered_user]<BR>"
+				dat += "[P.gun.name] ----- [P.registered_user]<BR>"
 				dat += "********************************<BR>"
 			dat += "<HR><A href='?src=\ref[src];lock=1'>Lock Console</A>"
 

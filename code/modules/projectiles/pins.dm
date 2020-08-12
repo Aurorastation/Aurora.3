@@ -235,6 +235,7 @@ var/list/smartguns = list()
 
 /obj/item/device/firing_pin/security_level/Initialize()
 	smartguns += src
+	return ..()
 
 /obj/item/device/firing_pin/security_level/Destroy()
 	smartguns -= src
