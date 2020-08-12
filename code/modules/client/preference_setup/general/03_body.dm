@@ -281,7 +281,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		out += "\[...\]<br><br>"
 	else
 		out += "<br><br>"
-
+	
 	out += "</td></tr></table><b>Hair</b><br>"
 	if(has_flag(mob_species, HAS_HAIR_COLOR))
 		out += "<a href='?src=\ref[src];hair_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_hair, pref.g_hair, pref.b_hair))] "
@@ -304,7 +304,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			out += "<br><b>Body Color</b><br>"
 			out += "<a href='?src=\ref[src];skin_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_skin, pref.g_skin, pref.b_skin))] <br>"
 
-
+	
 
 	out += "<br><a href='?src=\ref[src];marking_style=1'>Body Markings +</a><br>"
 	for(var/M in pref.body_markings)
@@ -750,3 +750,4 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.rlimb_data[organ] = null
 	while(null in pref.rlimb_data)
 		pref.rlimb_data -= null*/
+
