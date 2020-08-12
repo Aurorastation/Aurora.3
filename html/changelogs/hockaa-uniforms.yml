@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - bugfix: "If you have something else from the loadout equipped to your uniform slot your job's uniform will now be put in your backpack."
+  - bugfix: "Lyodsuit masks no longer show hair."
