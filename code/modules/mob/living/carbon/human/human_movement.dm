@@ -4,6 +4,13 @@
 	if(species.slowdown)
 		tally = species.slowdown
 
+	if(ishuman(pulling))
+		var/mob/living/carbon/human/H = pulling
+		var/pulldelay
+		pulldelay = H.species.slowdown
+		if(pulldelay > species.slowdown)
+			tally += H.species.slowdown
+
 	if (istype(loc, /turf/space)) return -1 // It's hard to be slowed down in space by... anything
 
 	if (isopenturf(loc)) //open space checks
