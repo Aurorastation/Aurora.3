@@ -5,7 +5,7 @@
 	icon_state = "blaster_pistol"
 	item_state = "blaster_pistol"
 	has_item_ratio = FALSE
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = 2
 	force = 5
@@ -117,6 +117,7 @@
 	else
 		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
 
+
 /obj/item/gun/energy/secblaster
 	name = "service blaster"
 	desc = "The NT BP-7 is a multi-mode blaster pistol developed and produced by Nanotrasen for its internal security departments." // Placeholder for the PR. If there's a loreman who wants to describe this monstrosity, just hmu
@@ -178,3 +179,4 @@
 
 /obj/item/gun/energy/secblaster/unlocked
 	pin = /obj/item/device/firing_pin
+

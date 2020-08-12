@@ -63,21 +63,19 @@
 	return loc == card
 
 /mob/living/proc/HardsuitClickOn(var/atom/A, var/alert_ai = 0)
-	if(!can_use_rig() || !canClick())
-		return 0
+	if(!can_use_rig())
+		return FALSE
+	if(!canClick()) // return true to stop the initial click from going through if we're just on cooldown
+		return TRUE
 	var/obj/item/rig/rig = get_rig()
 	if(istype(rig) && !rig.offline && rig.selected_module)
-		if(src != rig.wearer)
-			if(rig.ai_can_move_suit(src, check_user_module = 1) && (rig.last_remote_message + 3 SECONDS < world.time))
-				message_admins("[key_name_admin(src, include_name = 1)] is trying to force \the [key_name_admin(rig.wearer, include_name = 1)] to use a hardsuit module.")
-				rig.last_remote_message = world.time
-			else
-				return 0
-		rig.selected_module.engage(A, alert_ai)
+		if(src != rig.wearer && !rig.ai_can_move_suit(src, TRUE))
+			return FALSE
+		rig.selected_module.engage(A, src, alert_ai)
 		if(ismob(A)) // No instant mob attacking - though modules have their own cooldowns
 			setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 #undef MIDDLE_CLICK
 #undef ALT_CLICK

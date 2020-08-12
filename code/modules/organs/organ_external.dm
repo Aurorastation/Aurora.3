@@ -258,7 +258,7 @@
 	var/blunt = !!(brute && !sharp && !edge)
 
 	if(status & ORGAN_BROKEN && prob(40) && brute)
-		if(owner && (owner.can_feel_pain()))
+		if(owner && (owner.can_feel_pain()) && owner.stat == CONSCIOUS)
 			owner.emote(pick("scream", "groan"))	//getting hit on broken hand hurts
 
 	if(used_weapon)

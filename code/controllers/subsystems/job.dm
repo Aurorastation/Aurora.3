@@ -494,6 +494,9 @@
 	var/list/spawn_in_storage = list()
 	to_chat(H,"<span class='notice'>You have ten minutes to reach the station before you will be forced there.</span>")
 
+	if(H.needs_wheelchair())
+		H.equip_wheelchair()
+
 	if(job)
 		//Equip custom gear loadout.
 		var/list/custom_equip_slots = list() //If more than one item takes the same slot, all after the first one spawn in storage.

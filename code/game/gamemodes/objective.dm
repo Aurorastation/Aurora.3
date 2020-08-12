@@ -503,7 +503,7 @@ datum/objective/steal
 
 				for(var/obj/item/I in all_items) //Check for phoron tanks
 					if(istype(I, steal_target))
-						found_amount += (target_name=="28 moles of phoron (full tank)" ? (I:air_contents:gas["phoron"]) : (I:amount))
+						found_amount += (target_name=="28 moles of phoron (full tank)" ? (I:air_contents:gas[GAS_PHORON]) : (I:amount))
 				return found_amount>=target_amount
 
 			if("50 coins (in bag)")
@@ -747,7 +747,7 @@ datum/objective/heist/salvage
 				target = "plasteel"
 				target_amount = 100
 			if(4)
-				target = "phoron"
+				target = MATERIAL_PHORON
 				target_amount = 100
 			if(5)
 				target = "silver"
