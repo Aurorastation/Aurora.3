@@ -701,6 +701,7 @@
 // H, job, and prefs MUST be supplied and not null.
 // leftovers, storage, custom_equip_slots can be passed if their return values are required (proc mutates passed list), or ignored if not required.
 /datum/controller/subsystem/jobs/proc/EquipCustom(mob/living/carbon/human/H, datum/job/job, datum/preferences/prefs, list/leftovers = null, list/storage = null, list/custom_equip_slots = list())
+	var/keepuniform = job.get_outfit(H)
 	Debug("EC/([H]): Entry.")
 	if (!istype(H) || !job)
 		Debug("EC/([H]): Abort: invalid arguments.")
@@ -715,6 +716,8 @@
 		var/datum/gear/G = gear_datums[thing]
 		if(G)
 
+			if(G.slot == slot_w_uniform)
+				UniformReturn(keepuniform, H)
 			if(G.augment) //augments are handled somewhere else
 				continue
 
@@ -933,4 +936,8 @@
 	C.screen -= T
 	qdel(T)
 
+/datum/controller/subsystem/jobs/proc/UniformReturn(uniform, mob/living/carbon/human/H)
+	var/datum/outfit/U = new uniform
+	var/uniformspawn = new U.uniform(H)
+	H.equip_or_collect(uniformspawn, H.back)
 #undef Debug

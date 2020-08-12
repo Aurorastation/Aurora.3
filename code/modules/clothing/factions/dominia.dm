@@ -4,6 +4,7 @@
 	icon = 'icons/clothing/masks/lyodsuit.dmi'
 	icon_state = "dom_thermal_mask"
 	item_state = "dom_thermal_mask"
+	flags_inv = BLOCKHAIR
 	contained_sprite = TRUE
 	canremove = FALSE
 
