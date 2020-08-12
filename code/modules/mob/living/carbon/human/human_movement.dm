@@ -10,7 +10,7 @@
 		pulldelay = H.species.slowdown
 		if(pulldelay > species.slowdown)
 			tally = H.species.slowdown
-		tally += ClotheSlowdown()
+		tally += H.ClothesSlowdown()
 
 	if (istype(loc, /turf/space)) return -1 // It's hard to be slowed down in space by... anything
 
@@ -27,6 +27,7 @@
 	if(can_feel_pain())
 		if(get_shock() >= 10) tally += (get_shock() / 10) //pain shouldn't slow you down if you can't even feel it
 
+	tally += ClothesSlowdown()
 
 	if(species)
 		tally += species.get_species_tally(src)
