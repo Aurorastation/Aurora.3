@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - rscadd: "Supermatter crystals now have a light-rays effect that scales with their power level."
