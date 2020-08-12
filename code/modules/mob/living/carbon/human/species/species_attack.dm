@@ -126,7 +126,7 @@
 /datum/unarmed_attack/terminator/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()
 	if(prob(25) && target.mob_size <= 30)
-		playsound(user, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+		playsound(user, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>[user] shoves hard, sending [target] flying!</span>")
 		var/T = get_turf(user)
 		spark(T, 3, alldirs)
