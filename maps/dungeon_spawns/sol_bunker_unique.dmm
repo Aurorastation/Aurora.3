@@ -929,7 +929,6 @@
 /area/dungeon/sol_outpost)
 "cD" = (
 /obj/structure/table/wood,
-/obj/random/document/junk,
 /turf/simulated/floor/wood,
 /area/dungeon/sol_outpost)
 "cE" = (

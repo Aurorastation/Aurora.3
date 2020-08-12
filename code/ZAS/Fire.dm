@@ -153,7 +153,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 	else
 		set_light(5, FIRE_LIGHT_1, no_update = TRUE)
 	
-	air_contents.adjust_gas("carbon_dioxide", firelevel * 0.07)
+	air_contents.adjust_gas(GAS_CO2, firelevel * 0.07)
 
 	for(var/mob/living/L in loc)
 		L.FireBurn(firelevel, air_contents.temperature, air_contents.return_pressure())  //Burn the mobs!
@@ -323,7 +323,7 @@ turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
 		//remove_by_flag() and adjust_gas() handle the group_multiplier for us.
 		remove_by_flag(XGM_GAS_OXIDIZER, used_oxidizers)
 		remove_by_flag(XGM_GAS_FUEL, used_gas_fuel)
-		adjust_gas("carbon_dioxide", used_oxidizers)
+		adjust_gas(GAS_CO2, used_oxidizers)
 
 		if(zone)
 			zone.remove_liquidfuel(used_liquid_fuel, !check_combustability())

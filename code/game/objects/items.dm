@@ -10,7 +10,7 @@
 	var/health
 	var/burn_point
 	var/burning
-	var/hitsound
+	var/hitsound = "swing_hit" //generic hit sound.
 	var/storage_cost
 	var/slot_flags = 0		//This is used to determine on which slots an item can fit.
 	var/no_attack_log = 0			//If it's an item we don't want to log attack_logs with, set this to 1
@@ -51,7 +51,7 @@
 	///Used when thrown into a mob
 	var/mob_throw_hit_sound
 	///Sound used when equipping the item into a valid slot
-	var/equip_sound
+	var/equip_sound = null
 	///Sound uses when picking the item up (into your hands)
 	var/pickup_sound = 'sound/items/pickup/device.ogg'
 	///Sound uses when dropping the item, or when its thrown.
@@ -286,8 +286,8 @@
 	..()
 	if(isliving(hit_atom)) //Living mobs handle hit sounds differently.
 		var/volume = get_volume_by_throwforce_and_or_w_class()
-		if (throwforce > 0)
-			if (mob_throw_hit_sound)
+		if(throwforce > 0)
+			if(mob_throw_hit_sound)
 				playsound(hit_atom, mob_throw_hit_sound, volume, TRUE, -1)
 			else if(hitsound)
 				playsound(hit_atom, hitsound, volume, TRUE, -1)
@@ -339,13 +339,13 @@
 	equip_slot = slot
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()
-	if((slot_flags & slot))
+	if(slot == slot_l_hand || slot == slot_r_hand)
+		playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
+	else if(slot_flags && slot)
 		if(equip_sound)
 			playsound(src, equip_sound, EQUIP_SOUND_VOLUME)
 		else
-			playsound(src, drop_sound, EQUIP_SOUND_VOLUME)
-	else if(slot == slot_l_hand || slot == slot_r_hand)
-		playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
+			playsound(src, drop_sound, DROP_SOUND_VOLUME)
 	return
 
 //Defines which slots correspond to which slot flags
