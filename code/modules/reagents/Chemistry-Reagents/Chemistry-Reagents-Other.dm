@@ -287,7 +287,7 @@
 	M.adjustFireLoss(3 * removed)
 
 /datum/reagent/spacecleaner
-	name = "Space cleaner"
+	name = "Space Cleaner"
 	description = "A compound used to clean things. Now with 50% more sodium hypochlorite!"
 	reagent_state = LIQUID
 	color = "#A5F0EE"

@@ -400,7 +400,7 @@
 		M.losebreath++
 
 /datum/reagent/mutagen
-	name = "Unstable mutagen"
+	name = "Unstable Mutagen"
 	description = "Might cause unpredictable mutations. Keep away from children."
 	reagent_state = LIQUID
 	color = "#13BC5E"
@@ -657,14 +657,15 @@
 
 /datum/reagent/toxin/spectrocybin/affect_blood(var/mob/living/carbon/M, var/removed)
 	..()
-	M.hallucination = max(M.hallucination, 20) //Lowered from 50 to 20 due to the new flavour messages that will be appearing in chat ontop of hallucination messages.
-	if(prob(20)) //Increased from 10% chance to 20% chance just to make it more likely for a ghost to be spotted.
-		M.see_invisible = SEE_INVISIBLE_CULT
+	if(dose < overdose)	
+		M.hallucination = max(M.hallucination, 20) //Lowered from 50 to 20 due to the new flavour messages that will be appearing in chat ontop of hallucination messages.
+		if(prob(20)) //Increased from 10% chance to 20% chance just to make it more likely for a ghost to be spotted.
+			M.see_invisible = SEE_INVISIBLE_CULT
 	if(dose < 5)
 		if(prob(10))
 			M.emote("shiver")
 			to_chat(M, SPAN_GOOD(pick("You hear the clinking of dinner plates and laughter.", "You hear a distant voice of someone you know talking to you.", "Fond memories of a departed loved one flocks to your mind.", "You feel the reassuring presence of a departed loved one.", "You feel a hand squeezing yours.")))
-	if(dose > 5)
+	else if(dose < 10)
 		M.bodytemperature = max(M.bodytemperature - 2 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
 		M.make_jittery(5)
 		if(prob(5))
