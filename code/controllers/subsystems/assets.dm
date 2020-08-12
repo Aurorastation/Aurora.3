@@ -16,7 +16,7 @@
 	..("C:[target_clients.len]")
 
 /datum/controller/subsystem/assets/Initialize(timeofday)
-	for(var/type in typesof(/datum/asset) - list(/datum/asset, /datum/asset/simple))
+	for(var/type in typesof(/datum/asset) - list(/datum/asset, /datum/asset/simple, /datum/asset/group, /datum/asset/group/goonchat))
 		var/datum/asset/A = new type()
 		A.register()
 		CHECK_TICK
