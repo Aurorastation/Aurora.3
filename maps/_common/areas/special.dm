@@ -47,6 +47,9 @@
 /area/centcom/holding
 	name = "Holding Facility"
 
+/area/centcom/checkpoint
+	ambience = AMBIENCE_ARRIVALS
+
 /area/centcom/checkpoint/fore
 	name = "Fore Checkpoint"
 
@@ -60,9 +63,12 @@
 /area/centcom/legion/hangar5
 	name = "BLV The Tower - Hangar 5"
 	icon_state = "blvhangar5"
+	ambience = AMBIENCE_HANGAR
+	sound_env = HANGAR
 
 /area/centcom/distress_prep
 	name = "Distress Team Preparation"
+	ambience = AMBIENCE_HIGHSEC
 
 //SYNDICATES
 
@@ -71,6 +77,7 @@
 	icon_state = "syndie-ship"
 	requires_power = 0
 	dynamic_lighting = 0
+	ambience = AMBIENCE_HIGHSEC
 	no_light_control = 1
 	centcomm_area = 1
 
@@ -139,6 +146,7 @@
 	icon_state = "yellow"
 	requires_power = 0
 	flags = RAD_SHIELDED | SPAWN_ROOF
+	ambience = AMBIENCE_HIGHSEC
 	no_light_control = 1
 
 /area/syndicate_station/start
@@ -183,6 +191,7 @@
 	icon_state = "yellow"
 	requires_power = 0
 	dynamic_lighting = 0
+	ambience = AMBIENCE_OTHERWORLDLY
 	no_light_control = 1
 	centcomm_area = 1
 
@@ -249,6 +258,8 @@
 /area/kataphract_chapter/hangar
 	name = "Kataphract Chapter - Hangar"
 	icon_state = "green"
+	ambience = AMBIENCE_HANGAR
+	sound_env = HANGAR
 
 /area/kataphract_chapter/hull
 	name = "Kataphract Chapter - Hull"
@@ -271,6 +282,7 @@
 	requires_power = 0
 	no_light_control = 1
 	base_turf = /turf/space
+	ambience = AMBIENCE_HIGHSEC
 	flags = SPAWN_ROOF
 
 /area/skipjack_station/start
@@ -308,12 +320,12 @@
 /area/djstation
 	name = "Listening Post"
 	icon_state = "LP"
+	ambience = AMBIENCE_TECH_RUINS
 	no_light_control = 1
 
 /area/djstation/solars
 	name = "Listening Post Solars"
 	icon_state = "LPS"
-
 
 //merchant station and shuttle
 

@@ -4,13 +4,7 @@
 	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
 	sound_env = TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
-	ambience = list(
-		'sound/ambience/ambimaint1.ogg',
-		'sound/ambience/ambimaint2.ogg',
-		'sound/ambience/ambimaint3.ogg',
-		'sound/ambience/ambimaint4.ogg',
-		'sound/ambience/ambimaint5.ogg'
-	)
+	ambience = AMBIENCE_MAINTENANCE
 	station_area = 1
 
 /area/maintenance/civ
@@ -242,6 +236,7 @@
 	name = "Substation"
 	icon_state = "substation"
 	sound_env = SMALL_ENCLOSED
+	ambience = AMBIENCE_SUBSTATION
 
 /area/maintenance/substation/engineering // Engineering
 	name = "Engineering Substation"
@@ -287,6 +282,7 @@
 /area/solar
 	requires_power = 1
 	always_unpowered = 1
+	ambience = AMBIENCE_SPACE
 	base_turf = /turf/space
 	station_area = 1
 

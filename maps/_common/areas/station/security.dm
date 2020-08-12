@@ -55,6 +55,7 @@
 /area/security/armory
 	name = "Security - Armory"
 	icon_state = "Warden"
+	ambience = AMBIENCE_HIGHSEC
 
 /area/security/forensics_office
 	name = "Security - Forensic Office"
@@ -81,6 +82,7 @@
 /area/security/tactical
 	name = "Security - Tactical Equipment"
 	icon_state = "Tactical"
+	ambience = AMBIENCE_HIGHSEC
 
 /area/security/security_office
 	name = "Security - Security Office"
@@ -106,6 +108,7 @@
 /area/security/nuke_storage
 	name = "Vault"
 	icon_state = "nuke_storage"
+	ambience = AMBIENCE_HIGHSEC
 	holomap_color = null
 	flags = HIDE_FROM_HOLOMAP
 
@@ -116,6 +119,7 @@
 /area/security/checkpoint2
 	name = "Security - Arrivals Checkpoint"
 	icon_state = "security"
+	ambience = AMBIENCE_ARRIVALS
 
 /area/security/bridge_surface_checkpoint
 	name = "Bridge Security Checkpoint"

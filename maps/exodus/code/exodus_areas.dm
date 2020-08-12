@@ -65,7 +65,7 @@ area/syndicate_station/southwest
 /area/AIsattele
 	name = "AI Satellite Teleporter Room"
 	icon_state = "teleporter"
-	ambience = list('sound/ambience/ambimalf.ogg')
+	ambience = AMBIENCE_AI
 
 /area/shuttle/alien/base
 	icon_state = "shuttle"

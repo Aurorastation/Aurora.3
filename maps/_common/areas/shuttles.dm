@@ -14,6 +14,7 @@
 
 /area/shuttle/arrival
 	name = "Arrival Shuttle"
+	ambience = AMBIENCE_ARRIVALS
 	flags = RAD_SHIELDED | SPAWN_ROOF
 
 /area/shuttle/arrival/centcom
@@ -169,6 +170,7 @@
 /area/shuttle/specops/centcom
 	name = "Special Ops Shuttle"
 	flags = RAD_SHIELDED | SPAWN_ROOF
+	ambience = AMBIENCE_HIGHSEC
 	base_turf = /turf/unsimulated/floor/plating
 	icon_state = "shuttlered"
 	centcomm_area = 1
@@ -181,6 +183,7 @@
 /area/shuttle/syndicate_elite
 	name = "Merc Elite Shuttle"
 	flags = RAD_SHIELDED | SPAWN_ROOF
+	ambience = AMBIENCE_HIGHSEC
 
 /area/shuttle/syndicate_elite/mothership
 	icon_state = "shuttlered"

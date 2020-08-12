@@ -142,13 +142,13 @@
  	station_area = 1
 
 /area/chapel
- 	station_area = 1
+	station_area = 1
 
 /area/chapel/main
 	name = "Chapel"
 	icon_state = "chapel"
-	ambience = list('sound/ambience/ambicha1.ogg','sound/ambience/ambicha2.ogg','sound/ambience/ambicha3.ogg','sound/ambience/ambicha4.ogg','sound/music/traitor.ogg')
 	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_CHAPEL
 
 /area/chapel/office
 	name = "Chapel Office"
@@ -198,10 +198,11 @@
 	name = "Cargo Mining Dock"
 	icon_state = "mining"
 
-/area/janitor/
+/area/janitor
 	name = "Custodial Closet"
 	icon_state = "janitor"
 	station_area = 1
+	ambience = AMBIENCE_MAINTENANCE
 
 /area/janitor/stairs
 	name = "Stairwell Custodial Closet"
