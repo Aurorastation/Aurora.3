@@ -107,7 +107,7 @@
 		return FALSE
 	if(!istype(O))
 		return FALSE
-	if(O.holding.air_contents.return_pressure() >= 5000)
+	if(O.air_contents.return_pressure() >= 5000)
 		return TRUE
 	return FALSE
 
