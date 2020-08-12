@@ -18901,7 +18901,7 @@
 /obj/machinery/door/blast/odin/shuttle/tcfl/shutter{
 	dir = 8;
 	id = "tcfl_hangar5";
-	name = "Armoury"
+	name = "Armory"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
@@ -22882,7 +22882,7 @@
 "hDc" = (
 /obj/machinery/door/blast/odin/shuttle/tcfl/shutter{
 	id = "tcfl_hangar5";
-	name = "Armoury"
+	name = "Armory"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -25135,7 +25135,7 @@
 /obj/machinery/door/blast/odin/shuttle/tcfl/shutter{
 	dir = 8;
 	id = "tcfl_hangar5";
-	name = "Armoury"
+	name = "Armory"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
@@ -26805,7 +26805,7 @@
 /obj/machinery/door/blast/odin/shuttle/tcfl/shutter{
 	dir = 4;
 	id = "tcfl_hangar5";
-	name = "Armoury"
+	name = "Armory"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
@@ -27010,7 +27010,7 @@
 /obj/machinery/door/blast/odin/shuttle/tcfl/shutter{
 	dir = 4;
 	id = "tcfl_hangar5";
-	name = "Armoury"
+	name = "Armory"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)

@@ -101,17 +101,14 @@
 	cut_overlays()
 	if(damage >= broken_damage)
 		icon_state = icon_state_broken
-		var/mutable_appearance/broken_overlay = mutable_appearance(icon, "broken", layer + 0.1, plane)
-		add_overlay(broken_overlay)
+		add_overlay("broken")
 		return
 	if(!enabled)
 		if(icon_state_screensaver && working)
-			var/icon/screensaver_icon = icon(icon, icon_state_screensaver)
-			if(is_holographic)
-				var/icon/alpha_mask = new('icons/effects/effects.dmi', "scanline")
-				screensaver_icon.AddAlphaMask(alpha_mask)
-			var/mutable_appearance/screensaver_overlay = mutable_appearance(screensaver_icon, pick(screensaver_icon.IconStates()), layer + 0.1, plane)
-			add_overlay(screensaver_overlay)
+			if (is_holographic)
+				holographic_overlay(src, src.icon, icon_state_screensaver)
+			else
+				add_overlay(icon_state_screensaver)
 
 		if (screensaver_light_range && working)
 			set_light(screensaver_light_range, 1, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
@@ -120,20 +117,16 @@
 		return
 	if(active_program)
 		var/state = active_program.program_icon_state ? active_program.program_icon_state : icon_state_menu
-		var/icon/state_icon = icon(icon, state)
-		if(is_holographic)
-			var/icon/alpha_mask = new('icons/effects/effects.dmi', "scanline")
-			state_icon.AddAlphaMask(alpha_mask)
-		var/mutable_appearance/state_overlay = mutable_appearance(state_icon, pick(state_icon.IconStates()), layer + 0.1, plane)
-		add_overlay(state_overlay)
+		if (is_holographic)
+			holographic_overlay(src, src.icon, state)
+		else
+			add_overlay(state)
 		set_light(light_strength, l_color = active_program.color)
 	else
-		var/icon/menu_icon = icon(icon, icon_state_menu)
-		if(is_holographic)
-			var/icon/alpha_mask = new('icons/effects/effects.dmi', "scanline")
-			menu_icon.AddAlphaMask(alpha_mask)
-		var/mutable_appearance/menu_overlay = mutable_appearance(menu_icon, pick(menu_icon.IconStates()), layer + 0.1, plane)
-		add_overlay(menu_overlay)
+		if (is_holographic)
+			holographic_overlay(src, src.icon, icon_state_menu)
+		else
+			add_overlay(icon_state_menu)
 		set_light(light_strength, l_color = menu_light_color)
 
 /obj/item/modular_computer/proc/turn_on(var/mob/user)

@@ -29,7 +29,7 @@
 	..()
 	construct = new /datum/construction/reversible/rig_assembly/combat(src)
 	construct.board_type = board_type
-	construct.target_board_type = target_board_type	
+	construct.target_board_type = target_board_type
 	construct.steps[12]["key"] = board_type // defining board in construction step
 	construct.steps[10]["key"] = target_board_type
 	construct.result = "[rig_type]"
@@ -114,7 +114,7 @@
 
 /obj/item/rig_assembly/combat/illegal/hacker
 	name = "cybersuit control module assembly"
-	desc = "An assembly for an advanced powered armour suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
+	desc = "An assembly for an advanced powered armor suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
 	icon_base = "hacker"
 	icon_state = "hacker1"
 	rig_type = /obj/item/rig/light/hacker
@@ -141,17 +141,17 @@
 	if(I.iswelder())
 		var/obj/item/weldingtool/W = I
 		if (W.remove_fuel(0, user))
-			playsound(holder, 'sound/items/Welder2.ogg', 50, 1)
+			playsound(holder, 'sound/items/welder_pry.ogg', 50, 1)
 		else
 			return 0
 	else if(I.iswrench())
-		playsound(holder, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(holder, I.usesound, 50, 1)
 
 	else if(I.isscrewdriver())
-		playsound(holder, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(holder, I.usesound, 50, 1)
 
 	else if(I.iswirecutter())
-		playsound(holder, 'sound/items/Wirecutter.ogg', 50, 1)
+		playsound(holder, I.usesound, 50, 1)
 
 	else if(I.iscoil())
 		var/obj/item/stack/cable_coil/C = used_atom
@@ -333,7 +333,7 @@
 		return 0
 
 	switch(index)
-		
+
 		if(14)
 			if(diff==FORWARD)
 				user.visible_message("[user] adds the wiring to [holder].", "You add the wiring to [holder].")

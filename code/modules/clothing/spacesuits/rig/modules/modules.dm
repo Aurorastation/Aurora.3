@@ -24,6 +24,7 @@
 	var/module_cooldown = 10
 	var/next_use = 0
 
+	var/engage_on_activate = TRUE       // Whether the rig should call engage() in its activate() proc
 	var/toggleable                      // Set to 1 for the device to show up as an active effect.
 	var/usable                          // Set to 1 for the device to have an on-use effect.
 	var/selectable                      // Set to 1 to be able to assign the device as primary system.
@@ -31,7 +32,7 @@
 	var/permanent                       // If set, the module can't be removed.
 	var/disruptive = 1                  // Can disrupt by other effects.
 	var/activates_on_touch              // If set, unarmed attacks will call engage() on the target.
-	var/confined_use = 0				// If set, can be used inside mechs and other vehicles.
+	var/confined_use = FALSE				// If set, can be used inside mechs and other vehicles.
 
 	var/active                          // Basic module status
 	var/disruptable                     // Will deactivate if some other powers are used.
@@ -60,56 +61,52 @@
 	var/list/stat_rig_module/stat_modules = new()
 	var/category	// Use for restricting modules for specific suits, to specialize
 
-/obj/item/rig_module/examine()
+/obj/item/rig_module/examine(mob/user)
 	..()
 	switch(damage)
 		if(0)
-			to_chat(usr, "It is undamaged.")
+			to_chat(user, SPAN_NOTICE("It is undamaged."))
 		if(1)
-			to_chat(usr, "It is badly damaged.")
+			to_chat(user, SPAN_WARNING("It is badly damaged."))
 		if(2)
-			to_chat(usr, "It is almost completely destroyed.")
+			to_chat(user, SPAN_DANGER("It is almost completely destroyed."))
 
-/obj/item/rig_module/attackby(obj/item/W as obj, mob/user as mob)
-
-	if(istype(W,/obj/item/stack/nanopaste))
-
+/obj/item/rig_module/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/stack/nanopaste))
 		if(damage == 0)
-			to_chat(user, "There is no damage to mend.")
+			to_chat(user, SPAN_WARNING("There is no damage to mend."))
 			return
 
-		to_chat(user, "You start mending the damaged portions of \the [src]...")
-
+		to_chat(user, SPAN_NOTICE("You start mending the damaged portions of \the [src]..."))
 		if(!do_after(user,30) || !W || !src)
 			return
 
 		var/obj/item/stack/nanopaste/paste = W
 		damage = 0
-		to_chat(user, "You mend the damage to [src] with [W].")
+		to_chat(user, SPAN_NOTICE("You mend the damage to \the [src] with \the [W]."))
 		paste.use(1)
 		return
 
 	else if(W.iscoil())
-
 		switch(damage)
 			if(0)
-				to_chat(user, "There is no damage to mend.")
+				to_chat(user, SPAN_WARNING("There is no damage to mend."))
 				return
 			if(2)
-				to_chat(user, "There is no damage that you are capable of mending with such crude tools.")
+				to_chat(user, SPAN_WARNING("\The [src] is too damaged to repair with cable coil, it needs nanopaste."))
 				return
 
 		var/obj/item/stack/cable_coil/cable = W
 		if(!cable.amount >= 5)
-			to_chat(user, "You need five units of cable to repair \the [src].")
+			to_chat(user, SPAN_WARNING("You need five units of cable to repair \the [src]."))
 			return
 
-		to_chat(user, "You start mending the damaged portions of \the [src]...")
-		if(!do_after(user,30) || !W || !src)
+		to_chat(user, SPAN_NOTICE("You start mending the damaged portions of \the [src]..."))
+		if(!do_after(user, 30) || !W || !src)
 			return
 
 		damage = 1
-		to_chat(user, "You mend some of damage to [src] with [W], but you will need more advanced tools to fix it completely.")
+		to_chat(user, SPAN_NOTICE("You mend some of damage to \the [src] with \the [W], but you will need more advanced tools to fix it completely."))
 		cable.use(5)
 		return
 	..()
@@ -134,11 +131,11 @@
 
 		charges = processed_charges
 
-	stat_modules +=	new/stat_rig_module/activate(src)
-	stat_modules +=	new/stat_rig_module/deactivate(src)
-	stat_modules +=	new/stat_rig_module/engage(src)
-	stat_modules +=	new/stat_rig_module/select(src)
-	stat_modules +=	new/stat_rig_module/charge(src)
+	stat_modules += new /stat_rig_module/activate(src)
+	stat_modules += new /stat_rig_module/deactivate(src)
+	stat_modules += new /stat_rig_module/engage(src)
+	stat_modules += new /stat_rig_module/select(src)
+	stat_modules += new /stat_rig_module/charge(src)
 
 
 /obj/item/rig_module/Destroy()
@@ -154,50 +151,50 @@
 	return
 
 //Proc for one-use abilities like teleport.
-/obj/item/rig_module/proc/engage()
-
+/obj/item/rig_module/proc/engage(atom/target, mob/user)
 	if(damage >= 2)
-		to_chat(usr, "<span class='warning'>The [interface_name] is damaged beyond use!</span>")
-		return 0
+		to_chat(user, SPAN_WARNING("\The [interface_name] is damaged beyond use!"))
+		return FALSE
 
 	if(world.time < next_use)
-		to_chat(usr, "<span class='warning'>You cannot use the [interface_name] again so soon.</span>")
-		return 0
+		to_chat(user, SPAN_WARNING("You cannot use \the [interface_name] again so soon."))
+		return FALSE
 
 	if(!holder || holder.canremove)
-		to_chat(usr, "<span class='warning'>The suit is not initialized.</span>")
-		return 0
+		to_chat(user, SPAN_WARNING("The suit is not initialized."))
+		return FALSE
 
-	if(usr.lying || usr.stat || usr.stunned || usr.paralysis || usr.weakened)
-		to_chat(usr, "<span class='warning'>You cannot use the suit in this state.</span>")
-		return 0
+	if(user.lying || user.stat || user.stunned || user.paralysis || user.weakened)
+		to_chat(user, SPAN_WARNING("You cannot use the suit in this state."))
+		return FALSE
 
 	if(holder.wearer && holder.wearer.lying)
-		to_chat(usr, "<span class='warning'>The suit cannot function while the wearer is prone.</span>")
-		return 0
+		to_chat(user, SPAN_WARNING("The suit cannot function while the wearer is prone."))
+		return FALSE
 
-	if(holder.security_check_enabled && !holder.check_suit_access(usr))
-		to_chat(usr, "<span class='danger'>Access denied.</span>")
-		return 0
+	if(holder.security_check_enabled && !holder.check_suit_access(user))
+		to_chat(user, SPAN_DANGER("Access denied."))
+		return FALSE
 
-	if(!holder.check_power_cost(usr, use_power_cost, 0, src, (istype(usr,/mob/living/silicon ? 1 : 0) ) ) )
-		return 0
+	if(!holder.check_power_cost(user, use_power_cost, 0, src, (istype(user,/mob/living/silicon ? 1 : 0) ) ) )
+		return FALSE
 
-	if(!confined_use && istype(usr.loc, /mob/living/heavy_vehicle))
-		to_chat(usr, "<span class='danger'>You cannot use the suit in the confined space.</span>")
-		return 0
+	if(!confined_use && istype(user.loc, /mob/living/heavy_vehicle))
+		to_chat(user, SPAN_DANGER("You cannot use the suit in the confined space."))
+		return FALSE
 
 	next_use = world.time + module_cooldown
 
-	return 1
+	return TRUE
 
 // Proc for toggling on active abilities.
-/obj/item/rig_module/proc/activate()
+/obj/item/rig_module/proc/activate(mob/user)
+	if(active)
+		return FALSE
+	if(engage_on_activate && !engage(null, user))
+		return FALSE
 
-	if(active || !engage())
-		return 0
-
-	active = 1
+	active = TRUE
 
 	spawn(1)
 		if(suit_overlay_active)
@@ -206,15 +203,14 @@
 			suit_overlay = null
 		holder.update_icon()
 
-	return 1
+	return TRUE
 
 // Proc for toggling off active abilities.
-/obj/item/rig_module/proc/deactivate()
-
+/obj/item/rig_module/proc/deactivate(mob/user)
 	if(!active)
-		return 0
+		return FALSE
 
-	active = 0
+	active = FALSE
 
 	spawn(1)
 		if(suit_overlay_inactive)
@@ -224,7 +220,7 @@
 		if(holder)
 			holder.update_icon()
 
-	return 1
+	return TRUE
 
 // Called when the module is uninstalled from a suit.
 /obj/item/rig_module/proc/removed()
@@ -242,7 +238,14 @@
 // Called by holder rigsuit attackby()
 // Checks if an item is usable with this module and handles it if it is
 /obj/item/rig_module/proc/accepts_item(var/obj/item/input_device)
-	return 0
+	return FALSE
+
+/obj/item/rig_module/proc/message_user(mob/user, var/user_text, var/wearer_text)
+	to_chat(user, user_text)
+
+	if(holder.wearer && user != holder.wearer)
+		to_chat(holder.wearer, wearer_text)
+		return
 
 /mob/living/carbon/human/Stat()
 	. = ..()
@@ -277,7 +280,7 @@
 	return
 
 /stat_rig_module/proc/CanUse()
-	return 0
+	return FALSE
 
 /stat_rig_module/Click()
 	if(CanUse())
@@ -331,8 +334,8 @@
 /stat_rig_module/select/CanUse()
 	if(module.selectable)
 		name = module.holder.selected_module == module ? "Selected" : "Select"
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /stat_rig_module/charge/New()
 	..()
@@ -352,8 +355,8 @@
 	if(module.charges && module.charges.len)
 		var/datum/rig_charge/charge = module.charges[module.charge_selected]
 		name = "[charge.display_name] ([charge.charges]C) - Change"
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /mob/living/carbon/human/ClickOn(atom/A, params)
 	. = ..()

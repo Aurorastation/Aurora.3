@@ -162,6 +162,7 @@
 	taste_description = "sludge"
 
 /datum/reagent/cryoxadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_CRYO, 1)
 	if(M.bodytemperature < 170)
 		M.add_chemical_effect(CE_PULSE, -2)
 		M.adjustCloneLoss(-10 * removed)
@@ -178,6 +179,7 @@
 	taste_description = "slime"
 
 /datum/reagent/clonexadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_CRYO, 1)
 	if(M.bodytemperature < 170)
 		M.add_chemical_effect(CE_PULSE, -2)
 		M.adjustCloneLoss(-30 * removed)

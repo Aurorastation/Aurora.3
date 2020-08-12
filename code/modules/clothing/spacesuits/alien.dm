@@ -1,4 +1,4 @@
-// Vox space gear (vaccuum suit, low pressure armour)
+// Vox space gear (vaccuum suit, low pressure armor)
 // Can't be equipped by any other species due to bone structure and vox cybernetics.
 /obj/item/clothing/suit/space/vox
 	w_class = 3
@@ -35,7 +35,7 @@
 	name = "alien pressure suit"
 	icon_state = "vox-pressure"
 	item_state = "vox-pressure"
-	desc = "A huge, armoured, pressurized suit, designed for distinctly nonhuman proportions."
+	desc = "A huge, armored, pressurized suit, designed for distinctly nonhuman proportions."
 
 /obj/item/clothing/head/helmet/space/vox/carapace
 	name = "alien visor"
@@ -44,10 +44,10 @@
 	desc = "A glowing visor, perhaps stolen from a depressed Cylon."
 
 /obj/item/clothing/suit/space/vox/carapace
-	name = "alien carapace armour"
+	name = "alien carapace armor"
 	icon_state = "vox-carapace"
 	item_state = "vox-carapace"
-	desc = "An armoured, segmented carapace with glowing purple lights. It looks pretty run-down."
+	desc = "An armored, segmented carapace with glowing purple lights. It looks pretty run-down."
 
 /obj/item/clothing/head/helmet/space/vox/stealth
 	name = "alien stealth helmet"
@@ -68,7 +68,7 @@
 	desc = "An alien helmet with enormous goggled lenses."
 
 /obj/item/clothing/suit/space/vox/medic
-	name = "alien armour"
+	name = "alien armor"
 	icon_state = "vox-medic"
 	item_state = "vox-medic"
 	desc = "An almost organic looking nonhuman pressure suit."
@@ -88,7 +88,7 @@
 
 /obj/item/clothing/shoes/magboots/vox
 
-	desc = "A pair of heavy, jagged armoured foot pieces, seemingly suitable for a velociraptor."
+	desc = "A pair of heavy, jagged armored foot pieces, seemingly suitable for a velociraptor."
 	name = "vox magclaws"
 	item_state = "boots-vox"
 	icon_state = "boots-vox"

@@ -32,7 +32,7 @@
 			if(confirm == "Yes") //This is pretty copypasta-y
 				to_chat(user, SPAN_NOTICE("You activate the analyzer's microlaser, analyzing \the [loaded_item] and breaking it down."))
 				flick("portable_analyzer_scan", src)
-				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+				playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 				for(var/T in loaded_item.origin_tech)
 					files.UpdateTech(T, loaded_item.origin_tech[T])
 					to_chat(user, SPAN_NOTICE("\The [loaded_item] had level [loaded_item.origin_tech[T]] in [CallTechName(T)]."))

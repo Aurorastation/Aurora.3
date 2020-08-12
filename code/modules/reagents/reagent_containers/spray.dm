@@ -31,7 +31,7 @@
 /obj/item/reagent_containers/spray/AltClick()
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	safety = !safety
-	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+	playsound(src.loc, 'sound/weapons/safety_click.ogg', 50, 1)
 	to_chat(usr, "<span class = 'notice'>You twist the locking cap on the end of the nozzle. \The [src] is now [safety ? "locked" : "unlocked"].</span>")
 
 
@@ -61,7 +61,7 @@
 		return
 
 	if(safety)
-		playsound(src.loc, 'sound/weapons/empty.ogg', 25, 1)
+		playsound(src.loc, 'sound/weapons/safety_click.ogg', 25, 1)
 		to_chat(user, "<span class='notice'>The safety is on!</span>")
 		return
 
@@ -159,7 +159,6 @@
 	possible_transfer_amounts = null
 	volume = 40
 	safety = 1
-	hitsound = "swing_hit"
 	reagents_to_add = list(/datum/reagent/capsaicin/condensed = 40)
 
 /obj/item/reagent_containers/spray/pepper/examine(mob/user)
@@ -172,7 +171,7 @@
 /obj/item/reagent_containers/spray/pepper/attack_self(var/mob/user)
 	safety = !safety
 	to_chat(user, "<span class = 'notice'>You switch the safety [safety ? "on" : "off"].</span>")
-	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+	playsound(src.loc, 'sound/weapons/safety_click.ogg', 50, 1)
 
 /obj/item/reagent_containers/spray/waterflower
 	name = "water flower"

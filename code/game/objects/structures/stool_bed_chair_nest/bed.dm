@@ -135,7 +135,7 @@
 			to_chat(user, "\The [src] has no padding to remove.")
 			return
 		to_chat(user, "You remove the padding from \the [src].")
-		playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src, 'sound/items/wirecutter.ogg', 100, 1)
 		remove_padding()
 
 	else if(istype(W, /obj/item/grab))
@@ -151,6 +151,11 @@
 						"<span class='danger'>You are buckled to [src] by [user.name]!</span>",\
 						"<span class='notice'>You hear metal clanking.</span>")
 			qdel(W)
+
+	else if(istype(W, /obj/item/gripper) && buckled_mob)
+		var/obj/item/gripper/G = W
+		if(!G.wrapped)
+			user_unbuckle_mob(user)
 
 	else if(!istype(W, /obj/item/bedsheet))
 		..()

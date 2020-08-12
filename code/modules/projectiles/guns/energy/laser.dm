@@ -5,7 +5,7 @@
 	icon_state = "laserrifle100"
 	item_state = "laserrifle100"
 	has_item_ratio = FALSE // the back and suit slots have ratio sprites but the in-hands dont
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	accuracy = 1
 	w_class = 3
@@ -42,7 +42,7 @@ obj/item/gun/energy/retro
 	item_state = "retro"
 	has_item_ratio = FALSE
 	desc = "An older model of the basic lasergun. Nevertheless, it is still quite deadly and easy to maintain, making it a favorite amongst pirates and other outlaws."
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT
 	w_class = 3
 	projectile_type = /obj/item/projectile/beam
@@ -63,7 +63,7 @@ obj/item/gun/energy/retro
 	item_state = "caplaser"
 	has_item_ratio = FALSE
 	force = 5
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT
 	w_class = 3
 	projectile_type = /obj/item/projectile/beam
@@ -180,7 +180,7 @@ obj/item/gun/energy/retro
 	item_state = "lasershotgun"
 	modifystate = null
 	has_item_ratio = FALSE
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = ITEMSIZE_LARGE
 	accuracy = 0
@@ -223,7 +223,7 @@ obj/item/gun/energy/retro
 	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 2)
 	self_recharge = 1
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	projectile_type = /obj/item/projectile/beam/lastertag/blue
 	var/required_vest
 

@@ -115,9 +115,9 @@
 	// Environment tolerance/life processes vars.
 	var/reagent_tag                                   //Used for metabolizing reagents.
 	var/breath_pressure = 16                          // Minimum partial pressure safe for breathing, kPa
-	var/breath_type = "oxygen"                        // Non-oxygen gas breathed, if any.
-	var/poison_type = "phoron"                        // Poisonous air.
-	var/exhale_type = "carbon_dioxide"                // Exhaled gas type.
+	var/breath_type = GAS_OXYGEN                        // Non-oxygen gas breathed, if any.
+	var/poison_type = GAS_PHORON                        // Poisonous air.
+	var/exhale_type = GAS_CO2                // Exhaled gas type.
 	var/breath_vol_mul = 1 							  // The fraction of air used, relative to the default carbon breath volume (1/2 L)
 	var/breath_eff_mul = 1 								  // The efficiency of breathing, relative to the default carbon breath efficiency (1/6)
 	var/cold_level_1 = 260                            // Cold damage level 1 below this point.
@@ -630,7 +630,7 @@
 		return
 	for(var/pain_emotes in pain_emotes_with_pain_level)
 		var/pain_level = pain_emotes_with_pain_level[pain_emotes]
-		if(pain_level >= pain_power)
+		if(pain_power >= pain_level)
 			// This assumes that if a pain-level has been defined it also has a list of emotes to go with it
 			var/decl/emote/E = decls_repository.get_decl(pick(pain_emotes))
 			return E.key

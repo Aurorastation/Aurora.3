@@ -126,3 +126,30 @@
 			/obj/item/ammo_magazine/mc10mm = 3,
 			/obj/item/ammo_magazine/c762/sol = 2
 	)
+
+/datum/outfit/admin/megacorp/einstein_trooper/heavy
+	name = "Einstein Engines Asset Protection"
+
+	uniform = /obj/item/clothing/under/syndicate
+	back = /obj/item/rig/ert/assetprotection/einstein
+	belt = /obj/item/storage/belt/security/tactical
+	shoes = null
+	gloves = null
+	mask = /obj/item/clothing/mask/gas/swat
+	l_ear = /obj/item/device/radio/headset/syndicate
+	glasses = /obj/item/clothing/glasses/sunglasses/sechud/tactical
+	id = /obj/item/card/id/syndicate
+	l_pocket = /obj/item/plastique
+	r_pocket = /obj/item/melee/energy/sword
+	l_hand = /obj/item/gun/energy/rifle/pulse
+	accessory = /obj/item/clothing/accessory/holster/hip
+	accessory_contents = list(/obj/item/gun/projectile/revolver/mateba = 1)
+
+	belt_contents = list(
+		/obj/item/ammo_magazine/a454 = 2,
+		/obj/item/melee/baton/loaded = 1,
+		/obj/item/shield/energy = 1,
+		/obj/item/grenade/flashbang = 2,
+		/obj/item/handcuffs = 2,
+		/obj/item/grenade/frag = 1
+	)

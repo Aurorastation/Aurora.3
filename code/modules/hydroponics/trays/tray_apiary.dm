@@ -90,7 +90,7 @@
 			else
 				to_chat(user, "<span class='notice'>You begin to harvest the honey.</span>")
 			if(do_after(user,50/O.toolspeed))
-				G.reagents.add_reagent(/datum/reagent/honey,harvestable_honey)
+				G.reagents.add_reagent(/datum/reagent/nutriment/honey,harvestable_honey)
 				harvestable_honey = 0
 				to_chat(user, "<span class='notice'>You successfully harvest the honey.</span>")
 		else

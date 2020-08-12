@@ -47,7 +47,7 @@
 		ae.icon_state = "door_electronics_smoked"
 		operating = 0
 	src.density = 0
-	playsound(src, "shatter", 70, 1)
+	playsound(src, "glass_break", 70, 1)
 	if(display_message)
 		visible_message("[src] shatters!")
 	qdel(src)
@@ -187,7 +187,7 @@
 
 	//If it's emagged, crowbar can pry electronics out.
 	if (src.operating == -1 && I.iscrowbar())
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+		playsound(src.loc, I.usesound, 100, 1)
 		user.visible_message("[user] removes the electronics from the windoor.", "You start to remove electronics from the windoor.")
 		if (do_after(user,60/I.toolspeed))
 			to_chat(user, "<span class='notice'>You removed the windoor electronics!</span>")

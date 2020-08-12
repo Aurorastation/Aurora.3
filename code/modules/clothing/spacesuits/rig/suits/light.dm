@@ -1,7 +1,7 @@
 // Light rigs are not space-capable, but don't suffer excessive slowdown or sight issues when depowered.
 /obj/item/rig/light
 	name = "light suit control module"
-	desc = "A lighter, less armoured hardsuit."
+	desc = "A lighter, less armored hardsuit."
 	icon_state = "ninja_rig"
 	suit_type = "light suit"
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/cell,/obj/item/material/twohanded/fireaxe)
@@ -36,7 +36,7 @@
 /obj/item/rig/light/hacker
 	name = "cybersuit control module"
 	suit_type = "cyber"
-	desc = "An advanced powered armour suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
+	desc = "An advanced powered armor suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
 	icon_state = "hacker_rig"
 
 	req_access = list(access_syndicate)
@@ -75,6 +75,20 @@
 
 /obj/item/clothing/gloves/lightrig/hacker
 	siemens_coefficient = 0
+
+/obj/item/rig/light/hacker/ninja
+	initial_modules = list(
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/datajack,
+		/obj/item/rig_module/electrowarfare_suite,
+		/obj/item/rig_module/voice,
+		/obj/item/rig_module/vision,
+		/obj/item/rig_module/teleporter,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/device/door_hack
+		)
+
 
 /obj/item/rig/light/ninja
 	name = "stealth suit control module"
@@ -235,5 +249,15 @@
 		/obj/item/rig_module/actuators/combat,
 		/obj/item/rig_module/fabricator/energy_net,
 		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/mounted/xray
+		)
+/obj/item/rig/light/offworlder/techno/ninja
+	initial_modules = list(
+		/obj/item/rig_module/device/healthscanner/vitalscanner,
+		/obj/item/rig_module/chem_dispenser/offworlder,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/device/door_hack,
 		/obj/item/rig_module/mounted/xray
 		)

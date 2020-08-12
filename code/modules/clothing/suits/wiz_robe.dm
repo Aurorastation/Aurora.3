@@ -84,14 +84,14 @@
 
 /obj/item/clothing/suit/wizrobe/magusblue
 	name = "magus robe"
-	desc = "A set of armoured robes that seem to radiate a dark power"
+	desc = "A set of armored robes that seem to radiate a dark power"
 	icon_state = "magusblue"
 	item_state = "magusblue"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
 
 /obj/item/clothing/suit/wizrobe/magusred
 	name = "magus robe"
-	desc = "A set of armoured robes that seem to radiate a dark power"
+	desc = "A set of armored robes that seem to radiate a dark power"
 	icon_state = "magusred"
 	item_state = "magusred"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
