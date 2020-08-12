@@ -659,6 +659,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	pickup_sound = 'sound/items/pickup/card.ogg'
 	var/last_open = 0 //prevent message spamming.
 	var/last_close = 0
+	var/flame_light_range = 1
+	var/flame_light_power = 2
+	var/flame_light_color = LIGHT_COLOR_LAVA
 
 /obj/item/flame/lighter/zippo
 	name = "\improper Zippo lighter"
@@ -691,11 +694,12 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "tcflzippo"
 	item_state = "tcflzippo"
 
-/obj/item/flame/lighter/zippo/purple/royal
+/obj/item/flame/lighter/zippo/royal
 	name = "royal Zippo lighter"
 	desc = "A gold-plated zippo with a two-piece cover. A small chemical resevoir in the lighter allows for purple flames that burn with greater intensity."
 	icon_state = "royalzippo"
 	item_state = "royalzippo"
+	flame_light_color = LIGHT_COLOR_VIOLET
 
 /obj/item/flame/lighter/zippo/black
 	name = "black Zippo lighter"
@@ -715,19 +719,22 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc_fluff = "Lighters of all kinds are a common sight in the United Syndicates of Himeo, where light sources are required for daily life in its dark tunnels, and its lighters are prized throughout the Coalition for their quality. The common emblem of the planet - a white circle surrounded by red triangles - is often featured on lighters originating from the planet."
 	icon_state = "himeozippo"
 	item_state = "himeozippo"
+	flame_light_range = 2
 
-/obj/item/flame/lighter/zippo/blue/coalition
+/obj/item/flame/lighter/zippo/coalition
 	name = "\improper Coalition Zippo lighter"
 	desc = "A zippo lighter with a depiction of the Coalition of Colonies flag. This lighter utilizes advanced fuel from Xanu Prime which burns hotter, causing a blue flame."
 	desc_fluff = "As there are hundreds of cultures in the Coalition of Colonies, so too are there hundreds of local variations of zippo lighters. The most prized zippos tend to be those from the industrial colony of Himeo, where a strong work ethic and technological advancements combine to produce high-quality lighters that ignite through the harshest of conditions. Most exported Himean lighters have their logos scratched off, rebranded, and given a fresh coat of paint, much to the chagrin of their manufacturers."
 	icon_state = "coalitionzippo"
 	item_state = "coalitionzippo"
+	flame_light_color = LIGHT_COLOR_BLUE
 
-/obj/item/flame/lighter/zippo/blue/gold
+/obj/item/flame/lighter/zippo/gold
 	name = "golden Zippo lighter"
 	desc = "A golden zippo lighter. Badasses and chainsmokers might settle for a zippo, no sir - you can do better with this solid, 24-karat golden piece!"
 	icon_state = "goldzippo"
 	item_state = "goldzippo"
+	flame_light_color = LIGHT_COLOR_BLUE
 
 /obj/item/flame/lighter/random/Initialize()
 	. = ..()
@@ -745,16 +752,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	update_held_icon()
 
 /obj/item/flame/lighter/proc/set_flame_light()
-	set_light(2, 1, l_color = LIGHT_COLOR_LAVA)
-
-/obj/item/flame/lighter/zippo/blue/set_flame_light()
-	set_light(2, 1, l_color = LIGHT_COLOR_BLUE)
-
-/obj/item/flame/lighter/zippo/purple/set_flame_light()
-	set_light(2, 1, l_color = LIGHT_COLOR_VIOLET)
-
-/obj/item/flame/lighter/zippo/himeo/set_flame_light()
-	set_light(2, 2, l_color = LIGHT_COLOR_LAVA)
+	set_light(flame_light_power, flame_light_range, l_color = flame_light_color)
 
 /obj/item/flame/lighter/attack_self(mob/living/user)
 	if(!base_state)

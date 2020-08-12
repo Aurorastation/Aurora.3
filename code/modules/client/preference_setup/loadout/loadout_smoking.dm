@@ -13,10 +13,10 @@
 	zippolighters["regular zippo"] = /obj/item/flame/lighter/zippo
 	zippolighters["black zippo"] = /obj/item/flame/lighter/zippo/black
 	zippolighters["black cross zippo"] = /obj/item/flame/lighter/zippo/black/cross
-	zippolighters["golden zippo"] = /obj/item/flame/lighter/zippo/blue/gold
-	zippolighters["royal zippo"] = /obj/item/flame/lighter/zippo/purple/royal
+	zippolighters["golden zippo"] = /obj/item/flame/lighter/zippo/gold
+	zippolighters["royal zippo"] = /obj/item/flame/lighter/zippo/royal
 	zippolighters["dominian zippo"] = /obj/item/flame/lighter/zippo/dominia
-	zippolighters["coalition zippo"] = /obj/item/flame/lighter/zippo/blue/coalition
+	zippolighters["coalition zippo"] = /obj/item/flame/lighter/zippo/coalition
 	zippolighters["solarian zippo"] = /obj/item/flame/lighter/zippo/sol
 	zippolighters["bieselite zippo"] = /obj/item/flame/lighter/zippo/tcfl
 	zippolighters["himeo zippo"] = /obj/item/flame/lighter/zippo/himeo
