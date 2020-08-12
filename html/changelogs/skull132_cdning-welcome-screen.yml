@@ -1,5 +1,0 @@
-author: Skull132
-delete-after: True
-
-changes:
-  - backend: "The Welcome Window now uses resources from the Cloudflare CDN. This should make resource downloading faster."
