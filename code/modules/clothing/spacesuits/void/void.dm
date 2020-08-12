@@ -230,7 +230,7 @@
 			var/choice = input("What component would you like to remove?") as null|anything in list(helmet,boots,tank)
 			if(!choice) return
 
-			playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+			playsound(src, 'sound/items/screwdriver.ogg', 50, 1)
 			if(choice == tank)	//No, a switch doesn't work here. Sorry. ~Techhead
 				to_chat(user, "You pop \the [tank] out of \the [src]'s storage compartment.")
 				tank.forceMove(get_turf(src))
@@ -247,7 +247,7 @@
 			to_chat(user, "\The [src] does not have anything installed.")
 		return
 	else if(istype(W,/obj/item/clothing/head/helmet/space))
-		if(helmet)	
+		if(helmet)
 			to_chat(user, "\The [src] already has a helmet installed.")
 		else
 			playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)

@@ -220,7 +220,7 @@ var/list/slot_equipment_priority = list( \
 		return
 
 	if(I.drop_sound)
-		playsound(I, I.drop_sound, 25, 0, required_asfx_toggles = ASFX_DROPSOUND)
+		playsound(I, I.drop_sound, DROP_SOUND_VOLUME, 0, required_asfx_toggles = ASFX_DROPSOUND)
 
 /*
 	Removes the object from any slots the mob might have, calling the appropriate icon update proc.
@@ -375,7 +375,6 @@ var/list/slot_equipment_priority = list( \
 	if(!item || !can_throw)
 		return //Grab processing has a chance of returning null
 
-
 	src.remove_from_mob(item)
 	item.loc = src.loc
 
@@ -383,27 +382,24 @@ var/list/slot_equipment_priority = list( \
 		to_chat(src, "<span class='notice'>You set [item] down gently on the ground.</span>")
 		return
 
-
 	//actually throw it!
-	if (item)
+	if(item)
 		src.visible_message("<span class='warning'>[src] throws \a [item].</span>")
-
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)
 		if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity() == 0))
 			src.inertia_dir = get_dir(target, src)
 			step(src, inertia_dir)
-
-
 /*
 		if(istype(src.loc, /turf/space) || (src.flags & NOGRAV)) //they're in space, move em one space in the opposite direction
 			src.inertia_dir = get_dir(target, src)
 			step(src, inertia_dir)
 */
-
 		if(istype(item,/obj/item))
 			var/obj/item/W = item
 			W.randpixel_xy()
+			var/volume = W.get_volume_by_throwforce_and_or_w_class()
+			playsound(src, 'sound/effects/throw.ogg', volume, TRUE, -1)
 
 		item.throw_at(target, item.throw_range, item.throw_speed, src)
 

@@ -208,6 +208,7 @@
 
 		if (prob(miss_chance))
 			visible_message("<span class='notice'>\The [O] misses [src] narrowly!</span>")
+			playsound(src, 'sound/effects/throw_miss.ogg', 50, 1)
 			return
 
 		src.visible_message("<span class='warning'>[src] has been hit by [O].</span>")

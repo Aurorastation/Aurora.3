@@ -214,7 +214,7 @@
 	attack_verb = list("scorched", "burned")
 	attack_noun = list("flaming fist")
 	damage = 10
-	attack_sound = 'sound/items/Welder.ogg'
+	attack_sound = 'sound/items/welder.ogg'
 	attack_name = "flaming touch"
 	damage_type = BURN
 

@@ -106,7 +106,7 @@
 	var/heating_temperature = T0C + 57 //Best temp for coffee.
 
 	var/vending_sound = "machines/vending/vending_drop.ogg"
-	
+
 	var/global/list/screen_overlays
 	var/exclusive_screen = TRUE // Are we not allowed to show the deny and screen states at the same time?
 
@@ -126,7 +126,7 @@
 
 	if(src.product_ads)
 		src.ads_list += text2list(src.product_ads, ";")
-	
+
 	add_screen_overlay()
 
 	src.build_inventory()

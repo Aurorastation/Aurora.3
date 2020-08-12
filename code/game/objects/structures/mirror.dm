@@ -28,7 +28,7 @@
 	if(shattered)	return
 	shattered = 1
 	icon_state = "mirror_broke"
-	playsound(src, "shatter", 70, 1)
+	playsound(src, "glass_break", 70, 1)
 	desc = "Oh no, seven years of bad luck!"
 
 

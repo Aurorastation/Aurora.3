@@ -109,7 +109,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 	if(hitstaken > 0) //Cosmetic damage overlay
 		add_overlay(screen_overlays["crack[hitstaken]"])
-	
+
 	icon_state = initial(icon_state)
 	return
 
@@ -749,7 +749,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] smashes the [src.name]!" )
 					src.isbroken=1
-					playsound(src.loc, "shatter", 100, 1)
+					playsound(src.loc, "glass_break", 100, 1)
 				else
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] forcefully slams the [src.name] with the [I.name]!" )
