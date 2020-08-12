@@ -744,6 +744,18 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		item_state = "[base_state]"
 	update_held_icon()
 
+/obj/item/flame/lighter/proc/set_flame_light()
+	set_light(2, 1, l_color = LIGHT_COLOR_LAVA)
+
+/obj/item/flame/lighter/zippo/blue/set_flame_light()
+	set_light(2, 1, l_color = LIGHT_COLOR_BLUE)
+
+/obj/item/flame/lighter/zippo/purple/set_flame_light()
+	set_light(2, 1, l_color = LIGHT_COLOR_VIOLET)
+
+/obj/item/flame/lighter/zippo/himeo/set_flame_light()
+	set_light(2, 2, l_color = LIGHT_COLOR_LAVA)
+
 /obj/item/flame/lighter/attack_self(mob/living/user)
 	if(!base_state)
 		base_state = icon_state
@@ -772,14 +784,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 					if(last_open <= world.time - 20) //Spam limiter.
 						last_open = world.time
 						user.visible_message(SPAN_DANGER("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)
-			if(istype(src, /obj/item/flame/lighter/zippo/blue))
-				set_light(2, 1, l_color = LIGHT_COLOR_BLUE)
-			else if(istype(src, /obj/item/flame/lighter/zippo/purple))
-				set_light(2, 1, l_color = LIGHT_COLOR_VIOLET)
-			else if(istype(src, /obj/item/flame/lighter/zippo/himeo))
-				set_light(2, 2, l_color = LIGHT_COLOR_LAVA)
-			else
-				set_light(2, 1, l_color = LIGHT_COLOR_LAVA)
+			set_flame_light()
 			START_PROCESSING(SSprocessing, src)
 		else
 			lit = FALSE
