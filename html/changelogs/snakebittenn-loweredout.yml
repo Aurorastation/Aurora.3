@@ -39,9 +39,7 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
   - tweak: "Rolls a lot of loadout items under selections."
-  - rscdel: "Removes ties with clips, horrible tie, and navy tie from the loadout."
   - rscdel: "Removes fake sunglasses from the loadout."
-  - rscdel: "Removes gray ushanka, red/purple berets, and feather trilby from the loadout."
-  - rscdel: "Removes corporate leather jackets, extraneous military jacket, atmos winter coat, and puffer coats from the loadout."
-  - rscdel: "Removes kimono, ugly/redundant pants/shorts, black tango dress, and some extraneous jumpsuits from the loadout."
+  - rscdel: "Removes red/purple berets from the loadout."
+  - rscdel: "Removes kimono from the loadout."
   - rscdel: "Removes armor values from winter coats."

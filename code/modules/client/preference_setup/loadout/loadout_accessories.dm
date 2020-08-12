@@ -74,11 +74,15 @@
 	..()
 	var/ties = list()
 	ties["red tie"] = /obj/item/clothing/accessory/red
+	ties["red tie with a clip"] = /obj/item/clothing/accessory/tie/red_clip
 	ties["orange tie"] = /obj/item/clothing/accessory/tie/orange
 	ties["yellow tie"] = /obj/item/clothing/accessory/tie/yellow
+	ties["horrible tie"] = /obj/item/clothing/accessory/horrible
 	ties["green tie"] = /obj/item/clothing/accessory/tie/green
 	ties["dark green tie"] = /obj/item/clothing/accessory/tie/darkgreen
 	ties["blue tie"] = /obj/item/clothing/accessory/blue
+	ties["blue tie with a clip"] = /obj/item/clothing/accessory/tie/blue_clip
+	ties["navy tie"] = /obj/item/clothing/accessory/tie/navy
 	ties["purple tie"] = /obj/item/clothing/accessory/tie/purple
 	ties["black tie"] = /obj/item/clothing/accessory/tie/black
 	ties["white tie"] = /obj/item/clothing/accessory/tie/white

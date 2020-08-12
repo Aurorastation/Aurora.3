@@ -35,8 +35,11 @@
 	jumpsuit["aqua jumpsuit"] = /obj/item/clothing/under/aqua
 	jumpsuit["purple jumpsuit"] = /obj/item/clothing/under/purple
 	jumpsuit["light purple jumpsuit"] = /obj/item/clothing/under/lightpurple
+	jumpsuit["light green jumpsuit"] = /obj/item/clothing/under/lightgreen
+	jumpsuit["brown jumpsuit"] = /obj/item/clothing/under/brown
 	jumpsuit["light brown jumpsuit"] = /obj/item/clothing/under/lightbrown
 	jumpsuit["yellow green jumpsuit"] = /obj/item/clothing/under/yellowgreen
+	jumpsuit["light red jumpsuit"] = /obj/item/clothing/under/lightred
 	jumpsuit["dark red jumpsuit"] = /obj/item/clothing/under/darkred
 	jumpsuit["rainbow jumpsuit"] = /obj/item/clothing/under/rainbow
 	gear_tweaks += new/datum/gear_tweak/path(jumpsuit)
@@ -117,6 +120,8 @@
 	dress["dress, stripped"] = /obj/item/clothing/under/dress/stripeddress
 	dress["dress, sailor"] = /obj/item/clothing/under/dress/sailordress
 	dress["dress, red swept"] = /obj/item/clothing/under/dress/red_swept_dress
+	dress["dress, black tango"] = /obj/item/clothing/under/dress/blacktango
+	dress["dress, black tango alternative"] = /obj/item/clothing/under/dress/blacktango/alt
 	dress["cheongsam, white"] = /obj/item/clothing/under/cheongsam
 	dress["cheongsam, red"] = /obj/item/clothing/under/cheongsam/red
 	dress["cheongsam, blue"] = /obj/item/clothing/under/cheongsam/blue
@@ -145,12 +150,15 @@
 /datum/gear/uniform/pants/New()
 	..()
 	var/pants = list()
+	pants["jeans"] = /obj/item/clothing/under/pants
 	pants["classic jeans"] = /obj/item/clothing/under/pants/classic
 	pants["must hang jeans"] = /obj/item/clothing/under/pants/musthang
 	pants["black jeans"] = /obj/item/clothing/under/pants/jeansblack
 	pants["young folks jeans"] = /obj/item/clothing/under/pants/youngfolksjeans
+	pants["white pants"] = /obj/item/clothing/under/pants/white
 	pants["black pants"] = /obj/item/clothing/under/pants/black
 	pants["red pants"] = /obj/item/clothing/under/pants/red
+	pants["tan pants"] = /obj/item/clothing/under/pants/tan
 	pants["khaki pants"] = /obj/item/clothing/under/pants/khaki
 	pants["track pants"] = /obj/item/clothing/under/pants/track
 	pants["blue track pants"] = /obj/item/clothing/under/pants/track/blue
@@ -175,6 +183,10 @@
 	pants["grey jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans
 	pants["khaki shorts"] = /obj/item/clothing/under/shorts/khaki
 	pants["khaki shorts shorts"] = /obj/item/clothing/under/shorts/khaki/female
+	pants["jean shorts"] = /obj/item/clothing/under/shorts/jeans
+	pants["jean short shorts"] = /obj/item/clothing/under/shorts/jeans/female
+	pants["classic jeans shorts"] = /obj/item/clothing/under/shorts/jeans/classic
+	pants["classic jeans shorts shorts"] = /obj/item/clothing/under/shorts/jeans/classic/female
 	gear_tweaks += new/datum/gear_tweak/path(pants)
 
 /datum/gear/uniform/colorpants

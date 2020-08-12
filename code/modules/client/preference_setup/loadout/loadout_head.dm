@@ -4,6 +4,10 @@
 	slot = slot_head
 	sort_category = "Hats and Headwear"
 
+/datum/gear/head/ushanka_grey
+	display_name = "ushanka, grey"
+	path = /obj/item/clothing/head/ushanka/grey
+
 /datum/gear/head/bandana
 	display_name = "bandana selection"
 	path = /obj/item/clothing/head/bandana
@@ -141,6 +145,7 @@
 	hats["hat, cowboy"] = /obj/item/clothing/head/cowboy
 	hats["hat, wide-brimmed cowboy"] = /obj/item/clothing/head/cowboy/wide
 	hats["hat, sombrero"] = /obj/item/clothing/head/sombrero
+	hats["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby
 	gear_tweaks += new/datum/gear_tweak/path(hats)
 
 /datum/gear/head/hijab
