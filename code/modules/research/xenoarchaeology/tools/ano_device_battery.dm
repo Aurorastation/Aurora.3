@@ -163,7 +163,7 @@
 	if(href_list["startup"])
 		if(inserted_battery && inserted_battery.battery_effect && (inserted_battery.stored_charge > 0) )
 			activated = 1
-			src.visible_message("<span class='notice'>[icon2html(src, usr)] [src] whirrs.</span>", "[icon2html(src, usr)]<span class='notice'>You hear something whirr.</span>")
+			src.visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] [src] whirrs.</span>", "<span class='notice'>You hear something whirr.</span>")
 			if(!inserted_battery.battery_effect.activated)
 				inserted_battery.battery_effect.ToggleActivate(1)
 			time_end = world.time + duration

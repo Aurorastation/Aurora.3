@@ -311,7 +311,7 @@
 
 	if(dnaLock && !offline)
 		if(dnaLock != wearer.dna)
-			visible_message("[icon2html(src.icon, usr)] <b>[src]</b> announces, <span class='notice'>\"DNA mismatch. Unauthorized access detected.\"</span>")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"DNA mismatch. Unauthorized access detected.\"</span>")
 			crushing = TRUE
 
 	if(wearer != initiator)

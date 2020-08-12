@@ -100,14 +100,14 @@ log transactions
 
 	//display a message to the user
 	var/response = pick("Initiating withdraw. Have a nice day!", "CRITICAL ERROR: Activating cash chamber panic siphon.","PIN Code accepted! Emptying account balance.", "Jackpot!")
-	to_chat(user, "<span class='warning'>[icon2html(src, usr)] The [src] beeps: \"[response]\"</span>")
+	to_chat(user, "<span class='warning'>[icon2html(src, user)] The [src] beeps: \"[response]\"</span>")
 	return 1
 
 /obj/machinery/atm/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/card))
 		if(emagged)
 			//prevent inserting id into an emagged ATM
-			to_chat(user, "<span class='warning'>[icon2html(src, usr)] CARD READER ERROR. This system has been compromised!</span>")
+			to_chat(user, "<span class='warning'>[icon2html(src, user)] CARD READER ERROR. This system has been compromised!</span>")
 			return
 		else if(istype(I,/obj/item/card/emag))
 			I.resolve_attackby(src, user)
@@ -148,7 +148,7 @@ log transactions
 
 /obj/machinery/atm/attack_hand(mob/user as mob)
 	if(istype(user, /mob/living/silicon))
-		to_chat(user, "<span class='warning'>[icon2html(src, usr)] Artificial unit recognized. Artificial units do not currently receive monetary compensation, as per system banking regulation #1005.</span>")
+		to_chat(user, "<span class='warning'>[icon2html(src, user)] Artificial unit recognized. Artificial units do not currently receive monetary compensation, as per system banking regulation #1005.</span>")
 		return
 	if(get_dist(src,user) <= 1)
 

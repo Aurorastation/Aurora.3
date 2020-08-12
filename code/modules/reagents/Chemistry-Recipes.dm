@@ -1564,7 +1564,7 @@
 	..()
 	for(var/mob/living/carbon/slime/slime in viewers(get_turf(holder.my_atom), null))
 		slime.rabid = TRUE
-		slime.visible_message(SPAN_WARNING("[icon2html(slime, usr)] \The [slime] is driven into a frenzy!"))
+		slime.visible_message(SPAN_WARNING("[icon2html(slime, viewers(get_turf(slime)))] \The [slime] is driven into a frenzy!"))
 
 //Pink
 /datum/chemical_reaction/slime/ppotion

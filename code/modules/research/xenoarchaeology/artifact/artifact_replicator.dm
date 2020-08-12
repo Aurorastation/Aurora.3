@@ -139,9 +139,9 @@
 		if(index > 0 && index <= construction.len)
 			if(stored_materials.len > spawning_types.len)
 				if(spawning_types.len)
-					src.visible_message("<span class='notice'>[icon2html(src, usr)] a [pick("light","dial","display","meter","pad")] on [src]'s front [pick("blinks","flashes")] [pick("red","yellow","blue","orange","purple","green","white")].</span>")
+					src.visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] a [pick("light","dial","display","meter","pad")] on [src]'s front [pick("blinks","flashes")] [pick("red","yellow","blue","orange","purple","green","white")].</span>")
 				else
-					src.visible_message("<span class='notice'>[icon2html(src, usr)] [src]'s front compartment slides shut.</span>")
+					src.visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] [src]'s front compartment slides shut.</span>")
 
 				spawning_types.Add(construction[construction[index]])
 				spawn_progress_time = 0

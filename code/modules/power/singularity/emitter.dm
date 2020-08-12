@@ -269,4 +269,4 @@
 	if(!locked)
 		activate(null)
 	else
-		visible_message("[icon2html(src, usr)] [src] whines, \"Access denied!\"")
+		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] whines, \"Access denied!\"")

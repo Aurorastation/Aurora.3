@@ -116,5 +116,5 @@
 			listening|=M
 
 	for(var/mob/M in listening)
-		to_chat(M, "[icon2html(holder_atom, usr)] <b>[holder_atom]</b> reverberates, <span class='notice'>\"[msg]\"</span>")
+		to_chat(M, "[icon2html(holder_atom, M)] <b>[holder_atom]</b> reverberates, <span class='notice'>\"[msg]\"</span>")
 	last_talk_time = world.time

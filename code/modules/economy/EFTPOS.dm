@@ -111,7 +111,7 @@
 	else
 		user << browse(null,"window=eftpos")
 
-/obj/item/device/eftpos/attackby(obj/item/O as obj, user as mob)
+/obj/item/device/eftpos/attackby(var/obj/item/O, var/mob/user)
 
 	var/obj/item/card/id/I = O.GetID()
 
@@ -119,7 +119,7 @@
 		if(linked_account)
 			scan_card(I, O)
 		else
-			to_chat(usr, "[icon2html(src, usr)]<span class='warning'>Unable to connect to linked account.</span>")
+			to_chat(user, "[icon2html(src, user)]<span class='warning'>Unable to connect to linked account.</span>")
 	else if (istype(O, /obj/item/spacecash/ewallet))
 		var/obj/item/spacecash/ewallet/E = O
 		if (linked_account)
@@ -144,11 +144,11 @@
 						T.time = worldtime2text()
 						SSeconomy.add_transaction_log(linked_account,T)
 					else
-						to_chat(usr, "[icon2html(src, usr)]<span class='warning'>\The [O] doesn't have that much money!</span>")
+						to_chat(user, "[icon2html(src, user)]<span class='warning'>\The [O] doesn't have that much money!</span>")
 			else
-				to_chat(usr, "[icon2html(src, usr)]<span class='warning'>Connected account has been suspended.</span>")
+				to_chat(user, "[icon2html(src, user)]<span class='warning'>Connected account has been suspended.</span>")
 		else
-			to_chat(usr, "[icon2html(src, usr)]<span class='warning'>EFTPOS is not connected to an account.</span>")
+			to_chat(user, "[icon2html(src, user)]<span class='warning'>EFTPOS is not connected to an account.</span>")
 
 	else
 		..()

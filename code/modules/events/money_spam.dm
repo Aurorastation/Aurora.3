@@ -188,4 +188,4 @@
 				L = get(P, /mob/living/silicon)
 
 			if(L)
-				to_chat(L, "[icon2html(P, usr)] <b>Message from [sender] (Unknown / spam?), </b>\"[message]\" (Unable to Reply)")
+				to_chat(L, "[icon2html(P, L)] <b>Message from [sender] (Unknown / spam?), </b>\"[message]\" (Unable to Reply)")

@@ -59,6 +59,7 @@
 				if (announcer)
 					to_chat(M, "<span class='alert'> -[html_encode(announcer)]</span>")
 				if(message_sound && !isdeaf(M) && (M.client.prefs.asfx_togs & ASFX_VOX))
+					to_world("sending to [M]")
 					sound_to(M, message_sound)
 
 /datum/announcement/minor/MessageAndSound(var/message as text, var/message_title as text)
@@ -79,7 +80,7 @@
 	to_world("<font size=4 color='red'>[message_title]</font>")
 	to_world("<span class='warning'>[message]</span>")
 	if(message_sound)
-		to_world(message_sound)
+		sound_to(world, message_sound)
 
 /datum/announcement/proc/NewsCast(message as text, message_title as text)
 	if(!newscast)

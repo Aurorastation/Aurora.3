@@ -44,9 +44,9 @@
 	if(..(user, 1))
 		if (mybucket)
 			var/contains = mybucket.reagents.total_volume
-			to_chat(user, "[icon2html(src, usr)] The bucket contains [contains] unit\s of liquid!")
+			to_chat(user, "[icon2html(src, user)] The bucket contains [contains] unit\s of liquid!")
 		else
-			to_chat(user, "[icon2html(src, usr)] There is no bucket mounted on it!")
+			to_chat(user, "[icon2html(src, user)] There is no bucket mounted on it!")
 	//everything else is visible, so doesn't need to be mentioned
 
 
