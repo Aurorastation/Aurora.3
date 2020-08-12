@@ -1,5 +1,0 @@
-author: Skull132
-delete-after: True
-
-changes:
-  - backend: "NanoUI is now CDN-powered. Again, should make initial resource load less intensive."
