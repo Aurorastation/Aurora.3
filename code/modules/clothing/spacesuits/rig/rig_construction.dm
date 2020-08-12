@@ -250,7 +250,7 @@
 				user.visible_message("[user] secures external armor layer.", "You secure external reinforced armor layer.")
 			else
 				user.visible_message("[user] pries external armor layer from [holder].", "You prie external armor layer from [holder].")
-				var/obj/item/stack/material/plasteel/MS = new /obj/item/stack/material/plasteel(get_turf(holder))
+				var/obj/item/stack/material/steel/MS = new /obj/item/stack/material/steel(get_turf(holder))
 				MS.amount = 5
 				r.icon_state = r.icon_base + "3"
 		if(1)
