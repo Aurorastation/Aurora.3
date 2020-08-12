@@ -176,5 +176,14 @@
 	name = "service blaster"
 	return TRUE
 
+/obj/item/gun/energy/secblaster/attackby(obj/item/C as obj, mob/user as mob)
+	if(istype(C, /obj/item/card/id))
+		if(istype(pin, /obj/item/device/firing_pin/security_level))
+			var/obj/item/device/firing_pin/security_level/thispin = pin
+			thispin.register_user(C, user)
+			return
+		to_chat(user, SPAN_NOTICE("You press your ID card against \the [name] but nothing happens."))
+	return
+
 /obj/item/gun/energy/secblaster/unlocked
 	pin = /obj/item/device/firing_pin

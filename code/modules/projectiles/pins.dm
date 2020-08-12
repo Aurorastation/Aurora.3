@@ -224,14 +224,26 @@ Pins Below.
 	var/turf/T = get_turf(src)
 	return !isStationLevel(T.z)
 
+var/list/smartguns = list()
+
 /obj/item/device/firing_pin/security_level
 	name = "security level firing pin"
 	desc = "This security level locked firing pin allows weapons to be fired only when the security level is elevated."
 	fail_message = "<span class='warning'>SECURITY LEVEL INSUFFICIENT.</span>"
+	durable = TRUE
+	var/registered_user = "Unregistered"
+
+/obj/item/device/firing_pin/security_level/Initialize()
+	smartguns += src
+
+/obj/item/device/firing_pin/security_level/Destroy()
+	smartguns -= src
+	return ..()
 
 /obj/item/device/firing_pin/security_level/pin_auth(mob/living/user)
-	if(istype(gun, /obj/item/gun/energy))
-		var/obj/item/projectile/energy/thegun = gun
+	world << "smartgun list: [smartguns]"
+	if(istype(gun, /obj/item/gun/energy/))
+		var/obj/item/gun/energy/thegun = gun
 		var/obj/item/projectile/energy/P = new thegun.projectile_type
 		if(P?.taser_effect)
 			return TRUE
@@ -239,3 +251,12 @@ Pins Below.
 		return TRUE
 
 	return FALSE
+
+/obj/item/device/firing_pin/security_level/proc/register_user(obj/item/card/id/C, mob/living/user)
+	if(C.registered_name == registered_user)
+		to_chat(user, SPAN_NOTICE("You press your ID card against \the [name]\'s RFID scanner and it buzzes as it clears your identity."))
+		registered_user = "Unregistered"
+		return
+	to_chat(user, SPAN_NOTICE("You press your ID card against \the [name]\'s RFID scanner and it chimes as it registers your identity."))
+	registered_user = C.registered_name
+	return
