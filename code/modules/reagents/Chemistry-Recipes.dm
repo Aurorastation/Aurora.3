@@ -619,10 +619,11 @@
 	result_amount = 2
 
 /datum/chemical_reaction/saline
-	name = "Saline"
+	name = "Saline Plus"
 	id = "saline"
 	result = /datum/reagent/saline
 	required_reagents = list(/datum/reagent/sugar = 0.4, /datum/reagent/water = 1, /datum/reagent/sodiumchloride = 0.9)
+	catalysts = list(/datum/reagent/toxin/phoron = 5) //Added a phoron catalyst to make it seem like an enhanced, futuristic variant of saline.
 	result_amount = 1
 
 /datum/chemical_reaction/cataleptinol

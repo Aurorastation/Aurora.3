@@ -63,6 +63,7 @@
 	taste_description = "sour chalk"
 	taste_mult = 1.5
 	fallback_specific_heat = 0.018
+	scannable = 1
 
 /datum/reagent/carbon/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	var/datum/reagents/ingested = M.get_ingested_reagents()
@@ -88,10 +89,11 @@
 	color = "#6E3B08"
 	taste_description = "copper"
 	fallback_specific_heat = 1.148
+	scannable = 1
 
 /datum/reagent/copper/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (alien & IS_SKRELL)
-		M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
+		M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed) //Lowered from 8 to 4, with saline now being the major blood restorative drug and the minerals being supplements only.
 
 /datum/reagent/alcohol //Parent class for all alcoholic reagents, though this one shouldn't be used anywhere.
 	name = null	// This null name should prevent alcohol from being added to global lists.
@@ -285,12 +287,13 @@
 	reagent_state = SOLID
 	color = "#353535"
 	taste_description = "metal"
+	scannable = 1
 
 	fallback_specific_heat = 1.181
 
 /datum/reagent/iron/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (!(alien & (IS_SKRELL | IS_VAURCA)))
-		M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
+		M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed) //Lowered from 8 to 4, with saline now being the major blood restorative drug and the minerals being supplements only.
 
 /datum/reagent/lithium
 	name = "Lithium"
@@ -529,12 +532,13 @@
 	reagent_state = SOLID
 	color = "#BF8C00"
 	taste_description = "rotten eggs"
+	scannable = 1
 
 	fallback_specific_heat = 0.503
 
 /datum/reagent/sulfur/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (alien & IS_VAURCA)
-		M.add_chemical_effect(CE_BLOODRESTORE, 8 * removed)
+		M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed) //Lowered from 8 to 4, with saline now being the major blood restorative drug and the minerals being supplements only.
 
 /datum/reagent/tungsten
 	name = "Tungsten"

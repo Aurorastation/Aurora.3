@@ -254,7 +254,7 @@
 /datum/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 80)
 	M.eye_blurry = max(M.eye_blurry, 5)
-	M.drowsyness = max(M.drowsyness, 3)
+	M.confused = max(M.confused, 10)
 	if(prob(2))
 		to_chat(M, SPAN_NOTICE(pick("Your movements feel very slow.", "You feel very groggy.", "You feel numb in places.")))
 
@@ -296,7 +296,7 @@
 /datum/reagent/oxycomorphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
 	M.eye_blurry = max(M.eye_blurry, 5)
-	M.drowsyness = max(M.drowsyness, 3)
+	M.confused = max(M.confused, 20)
 	if(prob(2))
 		to_chat(M, SPAN_WARNING(pick("Your movements feel very slow.", "You feel very groggy.", "You feel numb in places.")))
 	var/mob/living/carbon/human/H = M
@@ -1439,27 +1439,31 @@
 
 /datum/reagent/saline
 	name = "Saline Plus"
-	description = "Saline Plus, or Vaughan's Saline Solution, is an improvement upon the various saline solutions of old. Saline Plus has wide clinical applications in the treatment of dehydration and hypovolaemia, with no debate as to whether it is effective or not."
+	description = "Saline Plus, or Vaughan's Saline Solution, is an expensive improvement upon the various saline solutions of old. Saline Plus has wide clinical applications in the treatment of dehydration and hypovolaemia, with no more debates as to whether it is effective or not."
 	reagent_state = LIQUID
 	scannable = TRUE
-	metabolism = REM * 0.5
-	overdose = 30
+	metabolism = REM * 2
+	overdose = 20
 	color = "#1ca9c9"
-	taste_description = "premium salty water with additives"
+	taste_description = "premium salty water"
 	unaffected_species = IS_MACHINE
 	ingest_mul = 0
 	breathe_mul = 0 
 
 /datum/reagent/saline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed)
-	if( (M.hydration > M.max_hydration) > CREW_HYDRATION_OVERHYDRATED)
+	if((M.hydration > M.max_hydration) > CREW_HYDRATION_OVERHYDRATED)
 		M.adjustHydrationLoss(-removed*2)
 	else
 		M.adjustHydrationLoss(-removed*5)
+	if(dose < overdose)
+		M.add_chemical_effect(CE_BLOODRESTORE, 5 * removed) //Replaces iron, copper and sulphur as the main blood restorative medication. Expensive & finnicky to make, though.
+	
 
-/datum/reagent/saline/affect_blood(var/mob/living/carbon/M, var/alien)
+/datum/reagent/saline/overdose(var/mob/living/carbon/M, var/alien)
 	M.confused = max(M.confused, 20)
 	M.make_jittery(5)
+	if(prob(5))
+		M.emote("twitch")
 	if(prob(3))
 		to_chat(M, SPAN_WARNING(pick("What's the time again?", "What day is it?", "You feel confused...", "You ankles have swollen a bit.", "Your wrists have swollen a bit.", "Your lips feel numb.")))
 

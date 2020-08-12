@@ -648,7 +648,7 @@
 	description = "Spectrocybin is a hallucinogenic chemical found in a unique strain of fungi. Little research has been conducted into the hallucinogenic properties of spectrocybin, though many spiritual creeds utilise the drug in rituals and claim it allows people to act as mediums between the living and dead."
 	reagent_state = LIQUID
 	color = "#800080"
-	strength = 3 //Was pretty strong during testing - liver failure before you hit the spooky messages.
+	strength = 5 //Was pretty strong during testing - liver failure before you hit the spooky messages.
 	overdose = 10
 	taste_description = "acid"
 	metabolism = REM * 0.5 // Reduced from 0.2u/t to 0.1u/t to prolong the progression from good messages to bad.
@@ -657,7 +657,7 @@
 
 /datum/reagent/toxin/spectrocybin/affect_blood(var/mob/living/carbon/M, var/removed)
 	..()
-	M.hallucination = max(M.hallucination, 30) //Lowered from 50 to 30 due to the new flavour messages that will be appearing in chat ontop of hallucination messages.
+	M.hallucination = max(M.hallucination, 20) //Lowered from 50 to 20 due to the new flavour messages that will be appearing in chat ontop of hallucination messages.
 	if(prob(20)) //Increased from 10% chance to 20% chance just to make it more likely for a ghost to be spotted.
 		M.see_invisible = SEE_INVISIBLE_CULT
 	if(dose < 5)
@@ -668,14 +668,14 @@
 		M.bodytemperature = max(M.bodytemperature - 2 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
 		M.make_jittery(5)
 		if(prob(5))
-			M.visible_message(SPAN_WARNING("[M] trembles, their face as pale as a ghost's."))
+			M.visible_message("[M] trembles uncontrollably.", "<span class='warning'>You tremble uncontrollably.</span>")
 			to_chat(M, SPAN_CULT(pick("You feel fingers tracing up your back.", "You hear the distant wailing and sobbing of a departed loved one.", "You feel like you are being closely watched.", "You hear the hysterical laughter of a departed loved one.", "You no longer feel the reassuring presence of a departed loved one.", "You feel a hand taking hold of yours, digging its nails into you as it clings on.")))
 		
 /datum/reagent/toxin/spectrocybin/overdose(var/mob/living/carbon/M)
 	M.see_invisible = SEE_INVISIBLE_CULT
-	M.hallucination = max(0, M.hallucination - 10)
 	if(!modifier)
 		modifier = M.add_modifier(/datum/modifier/berserk, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+	M.hallucination = 0 //Brings down hallucination quickly to prevent message spam from being switched between harm and help by hallucinoatory pacification and bereserk
 	M.add_chemical_effect(CE_BERSERK, 1)
 	if(M.a_intent != I_HURT)
 		M.a_intent_change(I_HURT)
