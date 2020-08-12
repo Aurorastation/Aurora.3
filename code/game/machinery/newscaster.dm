@@ -879,7 +879,7 @@ obj/item/newspaper/attack_self(mob/user as mob)
 				for(var/datum/feed_channel/NP in src.news_content)
 					src.pages++
 				if(src.important_message!=null)
-					dat+="<DIV STYLE='float:center;'><FONT SIZE=4><B>Wanted Issue:</B></FONT SIZE></DIV><BR><BR>"
+					dat+="<DIV STYLE='float:center;'><FONT SIZE=4><B>Wanted Issue:</B></FONT></DIV><BR><BR>"
 					dat+="<B>Criminal name</B>: <span class='boldannounce'>[important_message.author]</span><BR>"
 					dat+="<B>Description</B>: [important_message.body]<BR>"
 					dat+="<B>Photo:</B>: "
