@@ -670,6 +670,7 @@ default behaviour is:
 					if(!(src in M.client.hidden_mobs))
 						if(M.InCone(T, M.dir))
 							M.add_to_mobs_hidden_atoms(src)
+					Ts.show_footsteps(M, T, src)
 				else
 					if(src in M.client.hidden_mobs)
 						M.client.hidden_mobs -= src
