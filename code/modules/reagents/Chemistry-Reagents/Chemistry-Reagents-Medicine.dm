@@ -18,7 +18,7 @@
 
 /datum/reagent/inaprovaline/overdose(var/mob/living/carbon/M, var/alien, var/removed)	
 	if(prob(2))
-		to_chat(M, pick(SPAN_WARNING("Your chest feels tight.", "Your chest is aching a bit.")))
+		to_chat(M, SPAN_WARNING(pick("Your chest feels tight.", "Your chest is aching a bit.")))
 
 /datum/reagent/bicaridine
 	name = "Bicaridine"
@@ -34,13 +34,15 @@
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
 	M.add_chemical_effect(CE_ITCH, dose/2)
+	M.adjustHydrationLoss(2)
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
-	..()//Bicard overdose heals arterial bleeding
+	..()
+	M.add_chemical_effect(CE_ITCH, 5)
 	var/mob/living/carbon/human/H = M
 	for(var/obj/item/organ/external/E in H.organs)
 		if(E.status & ORGAN_ARTERY_CUT && prob(2))
-			E.status &= ~ORGAN_ARTERY_CUT
+			E.status &= ~ORGAN_ARTERY_CUT //Bicard overdose heals arterial bleeding
 
 /datum/reagent/kelotane
 	name = "Kelotane"
@@ -55,7 +57,11 @@
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(!(locate(/datum/reagent/dermaline) in M.reagents.reagent_list))
 		M.heal_organ_damage(0, 6 * removed)
-		M.add_chemical_effect(CE_ITCH, dose/2)
+
+/datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.heal_organ_damage(0, 6 * removed)
+	if((locate(/datum/reagent/dermaline) in M.reagents.reagent_list))
+		M.add_chemical_effect(CE_ITCH, dose * 2)
 
 /datum/reagent/dermaline
 	name = "Dermaline"
@@ -70,6 +76,8 @@
 
 /datum/reagent/dermaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(0, 12 * removed)
+	M.add_chemical_effect(CE_ITCH, dose/2)
+	M.adjustHydrationLoss(2)
 	
 /datum/reagent/dermaline/overdose(var/mob/living/carbon/M, var/alien)
 	M.add_chemical_effect(CE_ITCH, 5)
@@ -111,6 +119,7 @@
 
 /datum/reagent/dylovene/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustNutritionLoss(5 * removed)
+	M.adjustHydrationLoss(5 * removed)
 
 /datum/reagent/dexalin
 	name = "Dexalin"
@@ -245,7 +254,7 @@
 /datum/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 80)
 	M.eye_blurry = max(M.eye_blurry, 5)
-	M.drowsyness += 2
+	M.drowsyness = max(M.drowsyness, 3)
 	if(prob(2))
 		to_chat(M, SPAN_NOTICE(pick("Your movements feel very slow.", "You feel very groggy.", "You feel numb in places.")))
 
@@ -253,10 +262,10 @@
 	if(!istype(H))
 		return
 	var/bac = H.get_blood_alcohol()
-	if(bac >= 0.02)
+	if(bac >= 0.03)
 		M.hallucination = max(M.hallucination, bac * 300)
 		M.add_chemical_effect(CE_EMETIC, dose/6)
-	if(bac >= 0.05)
+	if(bac >= 0.08)
 		if(M.losebreath < 15)
 			M.losebreath++
 
@@ -287,7 +296,7 @@
 /datum/reagent/oxycomorphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 200)
 	M.eye_blurry = max(M.eye_blurry, 5)
-	M.drowsyness += 2
+	M.drowsyness = max(M.drowsyness, 3)
 	if(prob(2))
 		to_chat(M, SPAN_WARNING(pick("Your movements feel very slow.", "You feel very groggy.", "You feel numb in places.")))
 	var/mob/living/carbon/human/H = M
@@ -298,7 +307,9 @@
 		M.hallucination = max(M.hallucination, bac * 300)
 		M.druggy = max(M.druggy, bac * 100)
 		M.add_chemical_effect(CE_EMETIC, dose/6)
-	if(bac >= 0.05)	
+	if(bac >= 0.04)
+		if(prob(3))
+			to_chat(M, SPAN_WARNING(pick("You're having trouble breathing.", "You begin to feel a bit light headed.", "Your breathing is very shallow.", "")))
 		if(M.losebreath < 15)
 			M.losebreath++
 
@@ -898,7 +909,7 @@
 
 /datum/reagent/mental/parvosil
 	name = "Parvosil"
-	description = "Parvosil is a new generation, psychoactive drug used in the treatment of anxiety disorders such as phobias and social anxiety. It has far fewer side effects than previous generations of pysychoactive drugs. Withdrawal symptoms include hallucinations and heightened anxiety."
+	description = "Parvosil is a new generation, psychoactive drug used in the treatment of anxiety disorders such as phobias and social anxiety. It has far fewer side effects than previous generations of psychoactive drugs. Withdrawal symptoms include hallucinations and heightened anxiety."
 	reagent_state = LIQUID
 	color = "#88AA88"
 	metabolism = 0.02 * REM
@@ -1066,17 +1077,17 @@
 	..()
 
 /datum/reagent/mental/neurapan/overdose(var/mob/living/carbon/M, var/alien) //Will likely improve Neurapan's OD at some point in the future and make it something really interesting.
+	M.add_chemical_effect(CE_PACIFIED, 1)
 	M.eye_blurry = max(M.eye_blurry, 30)
-	M.drowsyness = max(M.drowsyness, 10)
-	M.make_dizzy(15)
 	if((locate(/datum/reagent/oxycomorphine) in M.reagents.reagent_list))
-		M.add_chemical_effect(CE_PACIFIED, 1)
 		M.ear_deaf = 20
+		M.drowsyness = max(M.drowsyness, 10)
+		M.make_dizzy(15)
 		if(prob(3))
 			to_chat(M, SPAN_GOOD(pick("You lose all sense of connection to the real world.", "Everything is so tranquil.", "You feel dettached from reality.", "Your feel disconnected from your body.", "You are aware of nothing but your conscious thoughts.")))
 	else
-		if(prob(2))
-			to_chat(M, SPAN_GOOD(pick("You lose all sense of connection to the real world.", "Stress was an inconvenience that you are now free of.", "You feel dettached from reality.", "Your mind feels disconnected from your body.", "You can feel time passing by and it no longer bothers you.")))
+		if(prob(3))
+			to_chat(M, SPAN_GOOD(pick("Stress was an inconvenience that you are now free of.", "You feel somewhat dettached from reality.", "You can feel time passing by and it no longer bothers you.")))
 
 
 /datum/reagent/mental/nerospectan
@@ -1141,7 +1152,7 @@
 		/datum/brain_trauma/severe/pacifism = 25
 	)
 	messagedelay = 30
-	ingest_mul = 0 //Stomach acid will melt the nanobots
+	ingest_mul = 1 //Changed from 0 to 1 - think there was a mistake thinking this was Nanomachines or something. Can be reverted, but the Chemistry Guide does use oral admin. of doses as a guideline of how long it's effects last.
 
 /datum/reagent/mental/truthserum/overdose(var/mob/living/carbon/M, var/alien)
 	M.add_chemical_effect(CE_EMETIC, dose/6)
@@ -1340,7 +1351,7 @@
 
 /datum/reagent/rezadone
 	name = "Rezadone"
-	description = "Rezadone is an extremely expensive, ground-breaking miracle drug that is widely. The compound is capable of treating all kinds of physical damage, disfiguration, as well as genetic damage. Excessive consumption of rezadone can lead to severe disorientation."
+	description = "Rezadone is an extremely expensive, ground-breaking miracle drug. The compound is capable of treating all kinds of physical damage, disfiguration, as well as genetic damage. Excessive consumption of rezadone can lead to severe disorientation."
 	reagent_state = SOLID
 	color = "#669900"
 	overdose = REAGENTS_OVERDOSE
@@ -1427,19 +1438,30 @@
 			M.vomit()
 
 /datum/reagent/saline
-	name = "Saline"
-	description = "A liquid compound that restores hydration when injected directly into the bloodstream. Excellent at solving severe hydration problems. Yes, it's literally just saline."
+	name = "Saline Plus"
+	description = "Saline Plus, or Vaughan's Saline Solution, is an improvement upon the various saline solutions of old. Saline Plus has wide clinical applications in the treatment of dehydration and hypovolaemia, with no debate as to whether it is effective or not."
 	reagent_state = LIQUID
 	scannable = TRUE
+	metabolism = REM * 0.5
+	overdose = 30
 	color = "#1ca9c9"
-	taste_description = "salty water"
+	taste_description = "premium salty water with additives"
 	unaffected_species = IS_MACHINE
+	ingest_mul = 0
+	breathe_mul = 0 
 
 /datum/reagent/saline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed)
 	if( (M.hydration > M.max_hydration) > CREW_HYDRATION_OVERHYDRATED)
 		M.adjustHydrationLoss(-removed*2)
 	else
 		M.adjustHydrationLoss(-removed*5)
+
+/datum/reagent/saline/affect_blood(var/mob/living/carbon/M, var/alien)
+	M.confused = max(M.confused, 20)
+	M.make_jittery(5)
+	if(prob(3))
+		to_chat(M, SPAN_WARNING(pick("What's the time again?", "What day is it?", "You feel confused...", "You ankles have swollen a bit.", "Your wrists have swollen a bit.", "Your lips feel numb.")))
 
 /datum/reagent/coagulant
 	name = "Coagulant"
@@ -1461,6 +1483,8 @@
 	overdose = 20
 	metabolism = 0.1
 	value = 2
+	breathe_mul = 0
+	ingest_mul = 0
 
 /datum/reagent/adrenaline/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
@@ -1518,4 +1542,4 @@
 
 /datum/reagent/rmt/overdose(var/mob/living/carbon/H, var/alien)
 	if(prob(2))
-		to_chat(H, pick(SPAN_WARNING("Your muscles are stinging a bit.", "Your muscles ache.")))
+		to_chat(H, SPAN_WARNING(pick("Your muscles are stinging a bit.", "Your muscles ache.")))

@@ -648,24 +648,44 @@
 	description = "Spectrocybin is a hallucinogenic chemical found in a unique strain of fungi. Little research has been conducted into the hallucinogenic properties of spectrocybin, though many spiritual creeds utilise the drug in rituals and claim it allows people to act as mediums between the living and dead."
 	reagent_state = LIQUID
 	color = "#800080"
-	strength = 5
+	strength = 3 //Was pretty strong during testing - liver failure before you hit the spooky messages.
+	overdose = 10
 	taste_description = "acid"
-	metabolism = REM
+	metabolism = REM * 0.5 // Reduced from 0.2u/t to 0.1u/t to prolong the progression from good messages to bad.
 	unaffected_species = IS_DIONA | IS_MACHINE
+	var/datum/modifier/modifier
 
 /datum/reagent/toxin/spectrocybin/affect_blood(var/mob/living/carbon/M, var/removed)
 	..()
-	M.hallucination = max(M.hallucination, 25) //Lowered from 50 to 25 due to the new flavour messages that will be appearing in chat ontop of hallucination messages.
-	if(prob(10))
+	M.hallucination = max(M.hallucination, 30) //Lowered from 50 to 30 due to the new flavour messages that will be appearing in chat ontop of hallucination messages.
+	if(prob(20)) //Increased from 10% chance to 20% chance just to make it more likely for a ghost to be spotted.
 		M.see_invisible = SEE_INVISIBLE_CULT
 	if(dose < 5)
-		if(prob(3))
-			to_chat(M, SPAN_CULT(pick("You hear the clinking of dinner plates and laughter.", "You hear a distant voice of someone you know talking to you.", "Fond memories of a departed loved one flocks to your mind.", "You feel the reassuring presence of a departed loved one.", "You feel a hand squeezing yours.")))
-	if(dose > 5)
-		if(prob(5))
-			to_chat(M, SPAN_CULT(pick("You feel cold air wrapping around you.", "You feel fingers tracing up your back.", "You hear the distant wailing and sobbing of a departed loved one.", "You feel like you are being closely watched.", "You hear the hysterical laughter of a departed loved one.", "You no longer feel the reassuring presence of a departed loved one.", "You feel a hand taking hold of yours, digging its nails into you as it clings on.", "Your head spins amid the cacophony of screaming, wailing and maniacal laughter of distant loved ones.")))
-		if(prob(5))
+		if(prob(10))
 			M.emote("shiver")
+			to_chat(M, SPAN_GOOD(pick("You hear the clinking of dinner plates and laughter.", "You hear a distant voice of someone you know talking to you.", "Fond memories of a departed loved one flocks to your mind.", "You feel the reassuring presence of a departed loved one.", "You feel a hand squeezing yours.")))
+	if(dose > 5)
+		M.bodytemperature = max(M.bodytemperature - 2 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
+		M.make_jittery(5)
+		if(prob(5))
+			M.visible_message(SPAN_WARNING("[M] trembles, their face as pale as a ghost's."))
+			to_chat(M, SPAN_CULT(pick("You feel fingers tracing up your back.", "You hear the distant wailing and sobbing of a departed loved one.", "You feel like you are being closely watched.", "You hear the hysterical laughter of a departed loved one.", "You no longer feel the reassuring presence of a departed loved one.", "You feel a hand taking hold of yours, digging its nails into you as it clings on.")))
+		
+/datum/reagent/toxin/spectrocybin/overdose(var/mob/living/carbon/M)
+	M.see_invisible = SEE_INVISIBLE_CULT
+	M.hallucination = max(0, M.hallucination - 10)
+	if(!modifier)
+		modifier = M.add_modifier(/datum/modifier/berserk, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+	M.add_chemical_effect(CE_BERSERK, 1)
+	if(M.a_intent != I_HURT)
+		M.a_intent_change(I_HURT)
+	if(prob(10))
+		M.emote(pick("shiver", "twitch"))
+		to_chat(M, SPAN_CULT(pick("You feel a cold and threatening air wrapping around you.", "Whispering shadows, ceaseless in their demands, twist your thoughts...", "The whispering, anything to make them stop!", "Your head spins amid the cacophony of screaming, wailing and maniacal laughter of distant loved ones.", "You feel vestiges of decaying souls cling to you, trying to re-enter the world of the living.")))
+
+/datum/reagent/toxin/spectrocybin/Destroy()
+	QDEL_NULL(modifier)
+	return ..()
 
 /datum/reagent/toxin/trioxin
 	name = "Trioxin"
