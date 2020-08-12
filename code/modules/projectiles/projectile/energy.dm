@@ -236,12 +236,11 @@
 /obj/item/projectile/energy/stunblaster
 	name = "stun bolt"
 	icon_state = "blue_laser"
-	damage = 2
-	agony = 43
+	agony = 45
 	speed = 0.4
+	damage_type = PAIN // Can't blow your own head off with a stunbolt.
 	taser_effect = TRUE
 	eyeblur = TRUE
-	damage_type = BURN
 	pass_flags = PASSTABLE
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 

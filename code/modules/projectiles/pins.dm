@@ -231,12 +231,8 @@ Pins Below.
 
 /obj/item/device/firing_pin/security_level/pin_auth(mob/living/user)
 	if(istype(gun, /obj/item/gun/energy))
-		var/obj/item/projectile/energy/P
-		var/datum/firemode/current_mode = gun.firemodes[gun.sel_mode]
-		for(var/settingname in current_mode.settings) // A roundabout way of extracting the projectile type from the settings() list in the firemode datum.
-			var/settingvalue = current_mode.settings[settingname]
-			if(settingname == "projectile_type")
-				P = new settingvalue
+		var/obj/item/projectile/energy/thegun = gun
+		var/obj/item/projectile/energy/P = new thegun.projectile_type
 		if(P?.taser_effect)
 			return TRUE
 	if(security_level != SEC_LEVEL_GREEN && security_level != SEC_LEVEL_BLUE)
