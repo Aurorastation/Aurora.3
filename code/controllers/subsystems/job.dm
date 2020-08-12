@@ -701,6 +701,7 @@
 // H, job, and prefs MUST be supplied and not null.
 // leftovers, storage, custom_equip_slots can be passed if their return values are required (proc mutates passed list), or ignored if not required.
 /datum/controller/subsystem/jobs/proc/EquipCustom(mob/living/carbon/human/H, datum/job/job, datum/preferences/prefs, list/leftovers = null, list/storage = null, list/custom_equip_slots = list())
+	var/keepuniform = job.get_outfit(H)
 	Debug("EC/([H]): Entry.")
 	if (!istype(H) || !job)
 		Debug("EC/([H]): Abort: invalid arguments.")
@@ -714,6 +715,9 @@
 	for(var/thing in prefs.gear)
 		var/datum/gear/G = gear_datums[thing]
 		if(G)
+
+			if(G.slot == slot_w_uniform)
+				UniformReturn(keepuniform, H)
 
 			if(G.augment) //augments are handled somewhere else
 				continue
@@ -747,7 +751,7 @@
 				else
 					metadata = list()
 				var/obj/item/CI = G.spawn_item(null,metadata)
-				if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head || G.slot == slot_w_uniform)
+				if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
 					if (leftovers)
 						leftovers += thing
 					Debug("EC/([H]): [thing] failed mask/suit/head check; leftovers=[!!leftovers]")
@@ -759,6 +763,7 @@
 				else if (leftovers)
 					leftovers += thing
 					Debug("EC/([H]): Unable to equip [thing]; sending to overflow.")
+
 			else if (storage)
 				storage += thing
 				Debug("EC/([H]): Unable to equip [thing]; sending to storage.")
@@ -770,6 +775,7 @@
 // Returns a list of items that failed to equip & should be put in storage if possible.
 // H and prefs must not be null.
 /datum/controller/subsystem/jobs/proc/EquipCustomDeferred(mob/living/carbon/human/H, datum/preferences/prefs, list/items, list/used_slots)
+
 	. = list()
 	Debug("ECD/([H]): Entry.")
 	for (var/thing in items)
@@ -932,5 +938,10 @@
 	sleep(5)
 	C.screen -= T
 	qdel(T)
+
+/datum/controller/subsystem/jobs/proc/UniformReturn(uniform, mob/living/carbon/human/H)
+	var/datum/outfit/U = new uniform
+	var/uniformspawn = new U.uniform(H)
+	H.equip_or_collect(uniformspawn, H.back)
 
 #undef Debug
