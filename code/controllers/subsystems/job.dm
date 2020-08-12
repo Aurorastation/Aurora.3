@@ -718,7 +718,6 @@
 
 			if(G.slot == slot_w_uniform)
 				UniformReturn(keepuniform, H)
-
 			if(G.augment) //augments are handled somewhere else
 				continue
 
@@ -763,7 +762,6 @@
 				else if (leftovers)
 					leftovers += thing
 					Debug("EC/([H]): Unable to equip [thing]; sending to overflow.")
-
 			else if (storage)
 				storage += thing
 				Debug("EC/([H]): Unable to equip [thing]; sending to storage.")
@@ -775,7 +773,6 @@
 // Returns a list of items that failed to equip & should be put in storage if possible.
 // H and prefs must not be null.
 /datum/controller/subsystem/jobs/proc/EquipCustomDeferred(mob/living/carbon/human/H, datum/preferences/prefs, list/items, list/used_slots)
-
 	. = list()
 	Debug("ECD/([H]): Entry.")
 	for (var/thing in items)
@@ -943,5 +940,4 @@
 	var/datum/outfit/U = new uniform
 	var/uniformspawn = new U.uniform(H)
 	H.equip_or_collect(uniformspawn, H.back)
-
 #undef Debug
