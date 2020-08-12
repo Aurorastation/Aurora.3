@@ -74,8 +74,8 @@
 	randpixel = 5
 	w_class = ITEMSIZE_SMALL
 	var/rating = STOCK_PART_BASIC
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
+	drop_sound = 'sound/items/drop/component.ogg'
+	pickup_sound = 'sound/items/pickup/component.ogg'
 
 /obj/item/stock_parts/Initialize()
 	. = ..()
@@ -89,6 +89,8 @@
 	icon_state = "screen"
 	origin_tech = list(TECH_MATERIAL = 1)
 	matter = list(MATERIAL_GLASS = 200)
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/stock_parts/capacitor
 	name = "capacitor"
@@ -121,6 +123,8 @@
 	icon_state = "micro_laser"
 	origin_tech = list(TECH_MAGNET = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 10, MATERIAL_GLASS = 20)
+	drop_sound = 'sound/items/drop/glass_small.ogg'
+	pickup_sound = 'sound/items/pickup/glass_small.ogg'
 
 /obj/item/stock_parts/matter_bin
 	name = "matter bin"
@@ -129,6 +133,8 @@
 	icon_state = "matter_bin"
 	origin_tech = list(TECH_MATERIAL = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 80)
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 
 //Rank 2
 

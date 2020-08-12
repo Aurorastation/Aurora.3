@@ -347,7 +347,7 @@ Class Procs:
 		return 0
 	if(!LAZYLEN(component_parts))
 		return 0
-
+	var/parts_replaced = FALSE
 	if(panel_open)
 		var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
 		var/P
@@ -383,6 +383,7 @@ Class Procs:
 						component_parts += B
 						B.forceMove(src)
 						to_chat(user, "<span class='notice'>[A.name] replaced with [B.name].</span>")
+						parts_replaced = TRUE
 						break
 		RefreshParts()
 		update_icon()
@@ -390,10 +391,12 @@ Class Procs:
 		to_chat(user, "<span class='notice'>Following parts detected in the machine:</span>")
 		for(var/obj/item/C in component_parts)
 			to_chat(user, "<span class='notice'>    [C.name]</span>")
+	if(parts_replaced) //only play sound when RPED actually replaces parts
+		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
 	return 1
 
 /obj/machinery/proc/dismantle()
-	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+	playsound(loc, "crowbar", 50, 1)
 	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(loc)
 	M.set_dir(src.dir)
 	M.state = 3

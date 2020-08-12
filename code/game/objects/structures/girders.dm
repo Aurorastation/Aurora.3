@@ -150,7 +150,7 @@
 			return
 
 	else if(W.iswirecutter() && state == 1)
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>Now removing support struts...</span>")
 		if(do_after(user,40/W.toolspeed))
 			if(!src) return
@@ -159,7 +159,7 @@
 			reset_girder()
 
 	else if(W.iscrowbar() && state == 0 && anchored)
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+		playsound(src.loc, W.usesound, 100, 1)
 		to_chat(user, "<span class='notice'>Now dislodging the girder...</span>")
 		if(do_after(user, 40/W.toolspeed))
 			if(!src) return

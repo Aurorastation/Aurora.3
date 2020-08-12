@@ -24,7 +24,7 @@
 				if(!WT.remove_fuel(0, user))
 					to_chat(user, "The welding tool must be on to complete this task.")
 					return
-				playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
+				playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
 				if(do_after(user, 20/P.toolspeed))
 					if(!src || !WT.isOn()) return
 					to_chat(user, "<span class='notice'>You deconstruct the frame.</span>")
@@ -53,7 +53,7 @@
 				src.state = 2
 				src.icon_state = "2"
 			if(P.iscrowbar() && circuit)
-				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(src.loc, P.usesound, 50, 1)
 				to_chat(user, "<span class='notice'>You remove the circuit board.</span>")
 				src.state = 1
 				src.icon_state = "0"
@@ -79,7 +79,7 @@
 						icon_state = "3"
 		if(3)
 			if(P.iswirecutter())
-				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+				playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You remove the cables.</span>")
 				src.state = 2
 				src.icon_state = "2"
@@ -100,7 +100,7 @@
 						src.icon_state = "4"
 		if(4)
 			if(P.iscrowbar())
-				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(src.loc, P.usesound, 50, 1)
 				to_chat(user, "<span class='notice'>You remove the glass keyboard.</span>")
 				src.state = 3
 				src.icon_state = "3"

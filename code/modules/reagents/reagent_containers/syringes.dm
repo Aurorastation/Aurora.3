@@ -36,8 +36,8 @@
 	var/visible_name = "a syringe"
 	var/time = 30
 	center_of_mass = null
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
+	drop_sound = 'sound/items/drop/glass_small.ogg'
+	pickup_sound = 'sound/items/pickup/glass_small.ogg'
 
 /obj/item/reagent_containers/syringe/Initialize()
 	. = ..()

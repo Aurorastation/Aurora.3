@@ -44,7 +44,7 @@
 	req_one_access = list(access_atmospherics, access_engine_equip)
 	clicksound = "button"
 	clickvol = 30
-	
+
 	var/alarm_id = null
 	var/breach_detection = 1 // Whether to use automatic breach detection or not
 	var/frequency = 1439
@@ -762,7 +762,7 @@
 
 			if (wiresexposed && W.iswirecutter())
 				user.visible_message("<span class='warning'>[user] has cut the wires inside \the [src]!</span>", "You cut the wires inside \the [src].")
-				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+				playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
 				buildstage = 1
 				update_icon()
@@ -796,7 +796,7 @@
 
 			else if(W.iscrowbar())
 				to_chat(user, "You start prying out the circuit.")
-				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(src.loc, W.usesound, 50, 1)
 				if(do_after(user,20/W.toolspeed))
 					to_chat(user, "You pry out the circuit!")
 					var/obj/item/airalarm_electronics/circuit = new /obj/item/airalarm_electronics()

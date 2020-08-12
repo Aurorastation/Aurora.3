@@ -1,0 +1,60 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.  
+author: Wowzewow (Wezzy)
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - soundadd: "RFDs have new sounds, such as building, deconstructing, changing modes, etc."
+  - bugfix: "RFD-S now uses the proper empty animation."
+  - soundadd: "Reloading guns with magazines, bullets and shells have unique sounds."
+  - soundadd: "New explosion sound has been added."
+  - soundadd: "Sounds for bullets and things missing have been added."
+  - soundadd: "Throwing stuff now makes a sound."
+  - soundadd: "Crowbars, welders and wrenches have new sounds."
+  - soundadd: "Bullet casing drop sounds should play properly now."
+  - soundadd: "Equipping swords now has a cool sheathe sound."
+  - soundadd: "The RPED has a new sound when in use."
+  - soundadd: "New keyboard sounds."
+  - soundadd: "The sound used for targeting people sounds less bitcrushed now."
+  - soundadd: "New sound effects for guns jamming and being empty."
+  - soundadd: "New sound effects for gauss rifles."
+  - soundadd: "The sound for switching safeties on guns and laser guns have been updated."
+  - soundadd: "New shotgun pump sound."
+  - soundadd: "Makes revolver spin sound less crappy."
+  - soundadd: "New sound for surgical drill."
+  - bugfix: "Equip sounds should play properly now."
+  - soundadd: "Materials now have corresponding sounds. What this means is that wooden baseball bats sound different from metal ones.."
