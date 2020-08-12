@@ -220,7 +220,7 @@
 	description = "Perconol is an advanced NSAID medication which is highly effective at treating minor-mild pain, inflammation and high fevers. The drug is available over-the-counter for treating minor illnesses and mild pain. Perconol is not effective when inhaled."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
-	overdose = REAGENTS_OVERDOSE //Reduced from 60u to 30u because 60u is pretty unobtainable.
+	overdose = REAGENTS_OVERDOSE //Reduced from 60u to 20u because 60u is pretty unobtainable.
 	scannable = 1
 	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
 	ingest_met = REM * 2 // .4 units per tick
@@ -378,8 +378,8 @@
 
 /datum/reagent/alkysine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 25)
-	if(prob(10))
-		to_chat(M, SPAN_DANGER(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!")))
+	if(prob(5))
+		to_chat(M, SPAN_WARNING(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!")))
 	..()
 
 /datum/reagent/oculine
@@ -476,7 +476,7 @@
 	M.add_chemical_effect(CE_PULSE, 2)
 	if(prob(5))
 		to_chat(M, SPAN_DANGER(pick("Your heart is beating rapidly!", "Your chest hurts!")))
-	if(prob(2))
+	if(prob(dose - overdose))
 		M.visible_message("[M] twitches violently, grimacing.", "You twitch violently and feel yourself sprain a joint.")
 		M.take_organ_damage(8 * removed, 0)
 		M.adjustHalLoss(20)
@@ -876,7 +876,7 @@
 	..()
 
 /datum/reagent/mental/corophendiate/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_chemical_effect(CE_EMETIC, dose/6)
+	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
 
 
 /datum/reagent/mental/neurostabin
@@ -905,7 +905,7 @@
 	)
 
 /datum/reagent/mental/neurostabin/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_chemical_effect(CE_EMETIC, dose/6)
+	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
 
 /datum/reagent/mental/parvosil
 	name = "Parvosil"
@@ -931,7 +931,7 @@
 	suppressing_reagents = list(/datum/reagent/mental/neurostabin = 5)
 
 /datum/reagent/mental/parvosil/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_chemical_effect(CE_EMETIC, dose/6)
+	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
 
 /datum/reagent/mental/minaphobin
 	name = "Minaphobin"
@@ -961,7 +961,7 @@
 	)
 
 /datum/reagent/mental/minaphobin/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_chemical_effect(CE_EMETIC, dose/6)
+	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
 
 /datum/reagent/mental/emoxanyl
 	name = "Emoxanyl"
@@ -995,7 +995,7 @@
 	)
 
 /datum/reagent/mental/emoxanyl/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_chemical_effect(CE_EMETIC, dose/6)
+	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
 
 /datum/reagent/mental/orastabin
 	name = "Orastabin"
@@ -1030,7 +1030,7 @@
 	)
 
 /datum/reagent/mental/orastabin/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_chemical_effect(CE_EMETIC, dose/6)
+	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
 
 /datum/reagent/mental/neurapan
 	name = "Neurapan"
@@ -1131,7 +1131,7 @@
 	..()
 
 /datum/reagent/mental/nerospectan/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_chemical_effect(CE_EMETIC, dose/6)
+	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
 
 /datum/reagent/mental/truthserum
 	name = "Truth Serum"
@@ -1155,7 +1155,7 @@
 	ingest_mul = 1 //Changed from 0 to 1 - think there was a mistake thinking this was Nanomachines or something. Can be reverted, but the Chemistry Guide does use oral admin. of doses as a guideline of how long it's effects last.
 
 /datum/reagent/mental/truthserum/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_chemical_effect(CE_EMETIC, dose/6)
+	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
 
 /datum/reagent/mental/vaam
 	name = "V'krexi Amino Acid Mixture"
@@ -1432,10 +1432,10 @@
 	..()
 
 /datum/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)
+	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
 	if(istype(M))
 		if(prob(25))
 			M.add_chemical_effect(CE_HEPATOTOXIC, 1)
-			M.vomit()
 
 /datum/reagent/saline
 	name = "Saline Plus"
@@ -1458,7 +1458,6 @@
 	if(dose < overdose)
 		M.add_chemical_effect(CE_BLOODRESTORE, 5 * removed) //Replaces iron, copper and sulphur as the main blood restorative medication. Expensive & finnicky to make, though.
 	
-
 /datum/reagent/saline/overdose(var/mob/living/carbon/M, var/alien)
 	M.confused = max(M.confused, 20)
 	M.make_jittery(5)
@@ -1528,10 +1527,14 @@
 	description = "Paxazide is an expensive and unethical, psychoactive drug used to pacify people, suppressing regions of the brain responsible for anger and violence. Paxazide can be addictive due to its tranquilising effects, though withdrawal symptoms are scarce."
 	reagent_state = LIQUID
 	color = "#1ca9c9"
+	overdose = REAGENTS_OVERDOSE
 	taste_description = "numbness"
 
 /datum/reagent/pacifier/affect_blood(var/mob/living/carbon/H, var/alien, var/removed)
 	H.add_chemical_effect(CE_PACIFIED, 1)
+
+/datum/reagent/pacifier/overdose(var/mob/living/carbon/H, var/alien)
+	H.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
 
 /datum/reagent/rmt
 	name = "Regenerative-Muscular Tissue Supplements"
