@@ -9,7 +9,8 @@
 		var/pulldelay
 		pulldelay = H.species.slowdown
 		if(pulldelay > species.slowdown)
-			tally += H.species.slowdown
+			tally = H.species.slowdown
+		tally += ClotheSlowdown()
 
 	if (istype(loc, /turf/space)) return -1 // It's hard to be slowed down in space by... anything
 
@@ -26,8 +27,6 @@
 	if(can_feel_pain())
 		if(get_shock() >= 10) tally += (get_shock() / 10) //pain shouldn't slow you down if you can't even feel it
 
-	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head))
-		tally += I.slowdown
 
 	if(species)
 		tally += species.get_species_tally(src)
@@ -176,3 +175,7 @@
 
 /mob/living/carbon/human/mob_negates_gravity()
 	return (shoes && shoes.negates_gravity())
+
+/mob/living/carbon/human/proc/ClothesSlowdown()
+	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head))
+		. += I.slowdown
