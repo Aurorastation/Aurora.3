@@ -241,8 +241,7 @@ var/list/smartguns = list()
 	return ..()
 
 /obj/item/device/firing_pin/security_level/pin_auth(mob/living/user)
-	world << "smartgun list: [smartguns]"
-	if(istype(gun, /obj/item/gun/energy/))
+	if(istype(gun, /obj/item/gun/energy))
 		var/obj/item/gun/energy/thegun = gun
 		var/obj/item/projectile/energy/P = new thegun.projectile_type
 		if(P?.taser_effect)
