@@ -327,13 +327,19 @@
 	required_reagents = list(/datum/reagent/dexalin = 1, /datum/reagent/carbon = 1, /datum/reagent/iron = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/butazoline
+	name = "Butazoline"
+	id = "butazoline"
+	result = /datum/reagent/butazoline
+	required_reagents = list(/datum/reagent/inaprovaline = 1, /datum/reagent/aluminum = 1)
+	result_amount = 2
+
 /datum/chemical_reaction/bicaridine
 	name = "Bicaridine"
 	id = "bicaridine"
 	result = /datum/reagent/bicaridine
-	required_reagents = list(/datum/reagent/inaprovaline = 1, /datum/reagent/carbon = 1)
-	inhibitors = list(/datum/reagent/sugar = 1) // Messes with inaprovaline
-	result_amount = 2
+	required_reagents = list(/datum/reagent/butazoline = 1, /datum/reagent/carbon = 1)
+	result_amount = 3
 
 /datum/chemical_reaction/hyperzine
 	name = "Hyperzine"

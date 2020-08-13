@@ -20,28 +20,51 @@
 	if(prob(2))
 		to_chat(M, SPAN_WARNING(pick("Your chest feels tight.", "Your chest is aching a bit.")))
 
-/datum/reagent/bicaridine
+/datum/reagent/butazoline //The kelotane for bicaridine. Weak at treating brute, but can OD for the unique effects.
+	name = "Butazoline"
+	description = "Butazoline is a complex medication which specifically targets damaged tissues and damaged blood vessels by encouraging the rate at which the damaged tissues are regenerated. Overdosing bicaridine allows the drug to take effect on damaged muscular tissues of arteries."
+	reagent_state = LIQUID
+	color ="#E62E50"
+	scannable = 1
+	overdose = 20
+	metabolism = REM * 0.5
+	taste_description = "bitterness"
+	fallback_specific_heat = 1
+
+/datum/reagent/butazoline/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+	M.heal_organ_damage(5 * removed, 0)
+	if((locate(/datum/reagent/bicaridine) in M.reagents.reagent_list))
+		M.add_chemical_effect(CE_ITCH, dose)
+		M.adjustHydrationLoss(2*removed)
+		M.adjustCloneLoss(1*removed) // Cell regeneration spiralling out of control resulting in genetic damage.
+
+/datum/reagent/butazoline/overdose(var/mob/living/carbon/human/M, var/alien, var/removed)
+	M.dizziness = max(100, M.dizziness)
+	M.make_dizzy(5)
+	M.adjustHydrationLoss(5*removed)
+	M.adjustNutritionLoss(5*removed)
+	
+	var/mob/living/carbon/human/H = M 
+	if(dose == overdose * 1.5) //At a 30 unit overdose, it will begin to clot arterial bleeding.
+		for(var/obj/item/organ/external/E in H.organs)
+			if(E.status & ORGAN_ARTERY_CUT && prob(2))
+				E.status &= ~ORGAN_ARTERY_CUT
+
+/datum/reagent/bicaridine //Brute healing properties buffed to be on the same level as Dermaline. However, no longer fixes arterial bleeding when overdosed (see Butazoline instead)
 	name = "Bicaridine"
-	description = "Bicaridine is a complex medication which specifically targets damaged tissues and damaged blood vessels by encouraging the rate at which the damaged tissues are regenerated. Overdosing bicaridine allows the drug to take effect on damaged muscular tissues of arteries."
+	description = "Bicaridine, a recent improvement upon Butazoline, is specialised at treating the most traumatic of wounds, though less so for treating severe bleeding."
 	reagent_state = LIQUID
 	color = "#BF0000"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	metabolism = REM * 0.5
-	taste_description = "bitterness"
+	taste_description = "tin can"
 	taste_mult = 3
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.heal_organ_damage(5 * removed, 0)
+	M.heal_organ_damage(8 * removed, 0)
 	M.add_chemical_effect(CE_ITCH, dose/2)
-	M.adjustHydrationLoss(1)
-
-/datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
-	..()
-	var/mob/living/carbon/human/H = M
-	for(var/obj/item/organ/external/E in H.organs)
-		if(E.status & ORGAN_ARTERY_CUT && prob(2))
-			E.status &= ~ORGAN_ARTERY_CUT //Bicard overdose heals arterial bleeding
+	M.adjustHydrationLoss(1*removed)
 
 /datum/reagent/kelotane
 	name = "Kelotane"
@@ -57,7 +80,8 @@
 	M.heal_organ_damage(0, 6 * removed)
 	if((locate(/datum/reagent/dermaline) in M.reagents.reagent_list)) //Instead of just disabling kelotane when dermaline is present, I've opted to have them function together, however with the drawback of very severe itching which deals brute.
 		M.add_chemical_effect(CE_ITCH, dose)
-		M.adjustHydrationLoss(1)
+		M.adjustHydrationLoss(2*removed)
+		M.adjustCloneLoss(1*removed) // Cell regeneration spiralling out of control resulting in genetic damage.
 
 /datum/reagent/dermaline
 	name = "Dermaline"
@@ -73,7 +97,7 @@
 /datum/reagent/dermaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(0, 12 * removed)
 	M.add_chemical_effect(CE_ITCH, dose/2)
-	M.adjustHydrationLoss(1)
+	M.adjustHydrationLoss(1*removed)
 
 /datum/reagent/dylovene
 	name = "Dylovene"
@@ -172,7 +196,7 @@
 	M.heal_organ_damage(3 * removed * power,3 * removed * power)
 
 /datum/reagent/tricordrazine/overdose(var/mob/living/carbon/M, var/alien)
-	M.dizziness = max(125, M.dizziness)
+	M.dizziness = max(100, M.dizziness)
 	M.make_dizzy(5)
 
 /datum/reagent/cryoxadone
@@ -333,7 +357,7 @@
 
 /datum/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.drowsyness = max(M.drowsyness - 5, 0)
-	if(dose < overdose)
+	if(is_overdosed == FALSE)
 		M.AdjustParalysis(-1) //Required so, when overdosing, synaptizine doesn't immediately take you out of the seizure.
 	M.AdjustStunned(-1)
 	M.AdjustWeakened(-1)
@@ -367,7 +391,7 @@
 	metabolism_min = REM * 0.075
 
 /datum/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(dose < overdose)
+	if(is_overdosed == FALSE)
 		M.add_chemical_effect(CE_BRAIN_REGEN, 30*removed)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 	M.dizziness = max(125, M.dizziness) // Countered with Ethylredoxrazine to give the drug more use beyond 'anti-alcohol drug'.
@@ -723,7 +747,7 @@
 	taste_description = "bitterness"
 
 /datum/reagent/leporazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(dose < overdose)
+	if(is_overdosed == FALSE)
 		if(M.bodytemperature > 310)
 			M.bodytemperature = max(310, M.bodytemperature - (40 * TEMPERATURE_DAMAGE_COEFFICIENT))
 		else if(M.bodytemperature < 311)
@@ -1291,7 +1315,6 @@
 	reagent_state = SOLID
 
 /datum/reagent/fluvectionem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	var/is_overdosed = overdose && (dose > overdose)
 	if(is_overdosed)
 		removed *= 2
 
@@ -1472,7 +1495,7 @@
 		M.adjustHydrationLoss(-removed*2)
 	else
 		M.adjustHydrationLoss(-removed*5)
-	if(dose < overdose)
+	if(is_overdosed == FALSE)
 		M.add_chemical_effect(CE_BLOODRESTORE, 5 * removed) //Replaces iron, copper and sulphur as the main blood restorative medication. Expensive & finnicky to make, though.
 	
 /datum/reagent/saline/overdose(var/mob/living/carbon/M, var/alien)
@@ -1482,15 +1505,6 @@
 		M.emote("twitch")
 	if(prob(3))
 		to_chat(M, SPAN_WARNING(pick("What's the time again?", "What day is it?", "You feel confused...", "You ankles have swollen a bit.", "Your wrists have swollen a bit.", "Your lips feel numb.")))
-
-/datum/reagent/coagulant
-	name = "Coagulant"
-	description = "A chemical that can temporarily stop the blood loss caused by internal wounds."
-	reagent_state = LIQUID
-	color = "#8b0000"
-	overdose = REAGENTS_OVERDOSE
-	taste_description = "bitterness"
-	fallback_specific_heat = 1
 
 /datum/reagent/adrenaline
 	name = "Adrenaline"

@@ -657,7 +657,7 @@
 
 /datum/reagent/toxin/spectrocybin/affect_blood(var/mob/living/carbon/M, var/removed)
 	..()
-	if(dose < overdose)	
+	if(is_overdosed == FALSE)	
 		M.hallucination = max(M.hallucination, 20) //Lowered from 50 to 20 due to the new flavour messages that will be appearing in chat ontop of hallucination messages.
 		if(prob(20)) //Increased from 10% chance to 20% chance just to make it more likely for a ghost to be spotted.
 			M.see_invisible = SEE_INVISIBLE_CULT

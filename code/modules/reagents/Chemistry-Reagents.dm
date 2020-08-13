@@ -17,6 +17,7 @@
 	var/dose = 0
 	var/max_dose = 0
 	var/overdose = 0
+	var/is_overdosed = FALSE
 	var/scannable = 0 // Shows up on health analyzers.
 	var/affects_dead = 0
 	var/glass_icon_state = null
@@ -83,6 +84,7 @@
 	max_dose = max(volume, max_dose)
 
 	if(overdose && (dose > overdose) && (location != CHEM_TOUCH))
+		is_overdosed = TRUE
 		overdose(M, alien, removed, dose/overdose)
 
 	if(dose == 0)

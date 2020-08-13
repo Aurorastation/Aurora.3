@@ -151,6 +151,7 @@
 		/obj/item/bodybag = 2,
 		/obj/item/bodybag/cryobag = 1,
 		/obj/item/storage/pill_bottle/kelotane = 2,
+		/obj/item/storage/pill_bottle/butazoline = 2,
 		/obj/item/storage/pill_bottle/antitox = 2,
 		/obj/item/storage/pill_bottle/mortaphenyl = 2,
 		/obj/item/reagent_containers/syringe/dylovene = 2,
@@ -167,8 +168,9 @@
 		/obj/item/storage/firstaid/regular = 3,
 		/obj/item/storage/firstaid/toxin = 2,
 		/obj/item/storage/firstaid/o2 = 2,
-		/obj/item/storage/firstaid/adv = 1,
-		/obj/item/storage/firstaid/fire = 2
+		/obj/item/storage/firstaid/fire = 2,
+		/obj/item/storage/firstaid/brute = 1,
+		/obj/item/storage/firstaid/adv = 1
 	)
 
 /obj/random/contraband
