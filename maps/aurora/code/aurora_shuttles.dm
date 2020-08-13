@@ -157,15 +157,18 @@ AURORA_ESCAPE_POD(3)
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 // Admin Shuttle
-/datum/shuttle/autodock/ferry/admin
+
+/datum/shuttle/autodock/multi/admin
 	name = "Crescent Shuttle"
-	location = 1
-	warmup_time = 10	//want some warmup time so people can cancel.
-	ceiling_type = /turf/simulated/shuttle_roof/dark
+	current_location = "nav_admin_start"
+	warmup_time = 10
 	shuttle_area = /area/shuttle/administration/centcom
 	dock_target = "admin_shuttle"
-	waypoint_station = "nav_admin_dock"
-	waypoint_offsite = "nav_admin_start"
+	destination_tags = list(
+		"nav_admin_start",
+		"nav_admin_command",
+		"nav_admin_green"
+		)
 
 /obj/effect/shuttle_landmark/admin/start
 	name = "Crescent Shuttle Base"
@@ -173,10 +176,16 @@ AURORA_ESCAPE_POD(3)
 	docking_controller = "admin_shuttle_bay"
 	base_turf = /turf/unsimulated/floor/plating
 
-/obj/effect/shuttle_landmark/admin/dock
-	name = "Crescent Shuttle Dock"
-	landmark_tag = "nav_admin_dock"
+/obj/effect/shuttle_landmark/admin/command
+	name = "Command Surface Dock"
+	landmark_tag = "nav_admin_command"
 	docking_controller = "admin_shuttle_dock_airlock"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/admin/green
+	name = "Emergency Services Dock"
+	landmark_tag = "nav_admin_green"
+	docking_controller = "green_dock_north"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 // CCIA Shuttle
@@ -207,7 +216,6 @@ AURORA_ESCAPE_POD(3)
 	name = "Phoenix Shuttle"
 	location = 1
 	warmup_time = 10
-	ceiling_type = /turf/simulated/shuttle_roof/dark
 	shuttle_area = /area/shuttle/specops/centcom
 	dock_target = "specops_shuttle_port"
 	waypoint_station = "nav_ert_dock"
@@ -231,15 +239,16 @@ AURORA_ESCAPE_POD(3)
 	name = "Burglar Pod"
 	current_location = "nav_burglar_start"
 	landmark_transition = "nav_burglar_interim"
+	dock_target = "burglar_shuttle"
 	warmup_time = 10
 	move_time = 75
-	ceiling_type = /turf/simulated/shuttle_roof/dark
 	shuttle_area = /area/burglar_base/pod
 	destination_tags = list(
 		"nav_burglar_start",
 		"nav_burglar_surface",
 		"nav_burglar_under",
-		"nav_burglar_caverns"
+		"nav_burglar_caverns",
+		"nav_burglar_blue"
 		)
 
 	announcer = "NDV Icarus"
@@ -247,8 +256,9 @@ AURORA_ESCAPE_POD(3)
 	departure_message = "Attention, your guests are pulling away - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
 
 /obj/effect/shuttle_landmark/burglar/start
-	name = "Homebase"
+	name = "Hideout"
 	landmark_tag = "nav_burglar_start"
+	docking_controller = "burglar_hideout"
 	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/burglar/interim
@@ -257,20 +267,26 @@ AURORA_ESCAPE_POD(3)
 	base_turf = /turf/space/transit/south
 
 /obj/effect/shuttle_landmark/burglar/surface
-	name = "Surface Aft of Cargo"
+	name = "Exposed Hull, Surface Aft of Cargo"
 	landmark_tag = "nav_burglar_surface"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/burglar/under
-	name = "Under the Station"
+	name = "Under the Station, At radiator"
 	landmark_tag = "nav_burglar_under"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 	base_turf = /turf/space
 
 /obj/effect/shuttle_landmark/burglar/caverns
-	name = "Caverns by Mining"
+	name = "Caverns Fore of Mining"
 	landmark_tag = "nav_burglar_caverns"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/burglar/blue
+	name = "Blue Dock"
+	landmark_tag = "nav_burglar_blue"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	docking_controller = "distress_shuttle_dock"
 
 //Skipjack.
 /datum/shuttle/autodock/multi/antag/skipjack_aurora
@@ -383,7 +399,7 @@ AURORA_ESCAPE_POD(3)
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 //Merc Elite Shuttle
-/datum/shuttle/autodock/multi/antag/merc_aurora_elite
+/datum/shuttle/autodock/multi/merc_aurora_elite
 	name = "Merc Elite"
 	current_location = "nav_mercelite_start"
 	warmup_time = 10
@@ -396,10 +412,6 @@ AURORA_ESCAPE_POD(3)
 		"nav_mercelite_yellow",
 		"nav_mercelite_green"
 		)
-
-	announcer = "NDV Icarus"
-	arrival_message = "Attention, we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the station - you've got incoming visitors, like it or not."
-	departure_message = "Attention, your guests are pulling away - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
 
 /obj/effect/shuttle_landmark/merc_elite/start
 	name = "Unknown Blacksite"
@@ -433,17 +445,21 @@ AURORA_ESCAPE_POD(3)
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 // Tau Ceti Foreign Legion
-/datum/shuttle/autodock/ferry/legion
+/datum/shuttle/autodock/multi/legion
 	name = "Legion Shuttle"
-	location = 1
+	current_location = "nav_legion_start"
 	warmup_time = 10
 	move_time = 75
 	ceiling_type = /turf/simulated/shuttle_roof/legion
 	shuttle_area = /area/shuttle/legion/centcom
 	dock_target = "legion_shuttle"
-	waypoint_offsite = "nav_legion_start"
 	landmark_transition = "nav_legion_interim"
-	waypoint_station = "nav_legion_dock"
+	destination_tags = list(
+		"nav_legion_start",
+		"nav_legion_green",
+		"nav_legion_merchant",
+		"nav_legion_medical"
+		)
 
 /obj/effect/shuttle_landmark/legion/start
 	name = "Legion Base"
@@ -456,10 +472,22 @@ AURORA_ESCAPE_POD(3)
 	landmark_tag = "nav_legion_interim"
 	base_turf = /turf/space/transit/east
 
-/obj/effect/shuttle_landmark/legion/dock
-	name = "Legion Dock"
-	landmark_tag = "nav_legion_dock"
+/obj/effect/shuttle_landmark/legion/green
+	name = "Emergency Services Dock (Main Entrypoint)"
+	landmark_tag = "nav_legion_green"
 	docking_controller = "legion_shuttle_dock"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/legion/merchant
+	name = "Merchant Dock"
+	landmark_tag = "nav_legion_merchant"
+	docking_controller = "merchant_shuttle_dock"
+	special_dock_targets = list("Legion Shuttle" = "legion_shuttle_aft_airlock")
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/legion/medical
+	name = "External Airlock by Medical"
+	landmark_tag = "nav_legion_medical"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /datum/shuttle/autodock/ferry/research_aurora
@@ -490,17 +518,19 @@ AURORA_ESCAPE_POD(3)
 
 // Distress Team Shuttle
 
-/datum/shuttle/autodock/ferry/distress
+/datum/shuttle/autodock/multi/distress
 	name = "Distress Shuttle"
-	location = 1
+	current_location = "nav_distress_away"
 	warmup_time = 10
 	move_time = 45
 	dock_target = "distress_shuttle_aft"
-	ceiling_type = /turf/simulated/shuttle_roof/dark
 	shuttle_area = /area/shuttle/distress/centcom
-	waypoint_offsite = "nav_distress_away"
 	landmark_transition = "nav_distress_interim"
-	waypoint_station = "nav_distress_dock"
+	destination_tags = list(
+		"nav_distress_away",
+		"nav_distress_green",
+		"nav_distress_blue"
+		)
 
 /obj/effect/shuttle_landmark/distress/start
 	name = "Distress Base"
@@ -512,9 +542,16 @@ AURORA_ESCAPE_POD(3)
 	landmark_tag = "nav_distress_interim"
 	base_turf = /turf/space/transit/east
 
-/obj/effect/shuttle_landmark/distress/dock
-	name = "Distress Dock"
-	landmark_tag = "nav_distress_dock"
+/obj/effect/shuttle_landmark/distress/green
+	name = "Emergency Services Dock"
+	landmark_tag = "nav_distress_green"
+	docking_controller = "green_dock_west"
+	special_dock_targets = list("Distress Shuttle" = "distress_shuttle_fore")
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/distress/blue
+	name = "Blue Dock"
+	landmark_tag = "nav_distress_blue"
 	docking_controller = "distress_shuttle_dock"
 	special_dock_targets = list("Distress Shuttle" = "distress_shuttle_fore")
 	landmark_flags = SLANDMARK_FLAG_AUTOSET

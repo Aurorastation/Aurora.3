@@ -92,14 +92,18 @@ EXODUS_ESCAPE_POD(5)
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 // Admin Shuttle
-/datum/shuttle/autodock/ferry/admin
+
+/datum/shuttle/autodock/multi/admin
 	name = "Crescent Shuttle"
-	location = 1
+	current_location = "nav_admin_start"
 	warmup_time = 10
 	shuttle_area = /area/shuttle/administration/centcom
 	dock_target = "admin_shuttle"
-	waypoint_station = "nav_admin_dock"
-	waypoint_offsite = "nav_admin_start"
+	destination_tags = list(
+		"nav_admin_start",
+		"nav_admin_command",
+		"nav_admin_green"
+		)
 
 /obj/effect/shuttle_landmark/admin/start
 	name = "Crescent Shuttle Base"
@@ -107,10 +111,16 @@ EXODUS_ESCAPE_POD(5)
 	docking_controller = "admin_shuttle_bay"
 	base_turf = /turf/unsimulated/floor/plating
 
-/obj/effect/shuttle_landmark/admin/dock
-	name = "Crescent Shuttle Dock"
-	landmark_tag = "nav_admin_dock"
+/obj/effect/shuttle_landmark/admin/command
+	name = "Command Surface Dock"
+	landmark_tag = "nav_admin_command"
 	docking_controller = "admin_shuttle_dock_airlock"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/admin/green
+	name = "Emergency Services Dock"
+	landmark_tag = "nav_admin_green"
+	docking_controller = "green_dock_north"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 // CCIA Shuttle
