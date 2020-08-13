@@ -226,7 +226,7 @@
 	new /obj/item/taperoll/police(src)
 	new /obj/item/reagent_containers/spray/pepper(src)
 	new /obj/item/melee/baton/loaded(src)
-	new /obj/item/gun/energy/secblaster(src)
+	new /obj/item/gun/energy/secblaster/unlocked(src)
 	//Belts
 	if (prob(50))
 		new /obj/item/clothing/accessory/storage/black_vest(src)
