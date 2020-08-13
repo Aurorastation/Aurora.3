@@ -58,7 +58,7 @@
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	metabolism = REM * 0.5
-	taste_description = "tin can"
+	taste_description = "bitterness"
 	taste_mult = 3
 
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -88,6 +88,7 @@
 	description = "Dermaline is a recent improvement of kelotane, working in a similar way, though twice as effective. Dermaline is capable of recovering even the most dire of burnt tissues, being able to treat full-thickness burning."
 	reagent_state = LIQUID
 	color = "#FF8000"
+	taste_description = "bitterness"
 	fallback_specific_heat = 1
 	scannable = TRUE
 	metabolism = REM * 0.5
@@ -107,8 +108,8 @@
 	overdose = REAGENTS_OVERDOSE //No reason for dylovene to not overdose.
 	scannable = TRUE
 	metabolism = REM * 0.5
-
 	taste_description = "a roll of gauze"
+
 	var/remove_generic = TRUE
 	var/list/remove_toxins = list(
 		/datum/reagent/toxin/zombiepowder
@@ -710,7 +711,7 @@
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	touch_met = 5
-	taste_description = "bitterness"
+	taste_description = "burning bleach"
 	germ_adjust = 20
 
 /datum/reagent/sterilizine/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
@@ -1362,10 +1363,20 @@
 					break
 
 			H.adjustOxyLoss(2*removed) //Every unit deals 2 oxy damage
-			if(prob(75)) //Cough uncontrolably
+			if(prob(50)) //Cough uncontrolably | Lowered from 75 to 50, was very frequent.
 				H.emote("cough")
 				H.add_chemical_effect(CE_PNEUMOTOXIC, 0.2*removed)
 	. = ..()
+
+/datum/reagent/pulmodeiectionem/affect_ingest(var/mob/living/carbon/human/H, var/alien, var/removed)
+	if(volume > 5)
+		if(prob(25))
+			H.visible_message("[H] coughs up a cloud of dust.", "You cough up a cloud of dust.")
+			volume = volume - 10
+		
+/datum/reagent/pulmodeiectionem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustToxLoss(2 * removed)
+	M.add_chemical_effect(CE_ITCH, dose)
 
 /datum/reagent/pneumalin
 	name = "Pneumalin"
