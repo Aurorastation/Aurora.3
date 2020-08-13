@@ -227,7 +227,7 @@
 			var/turf/target_turf = get_turf(part)
 			if(part.outside_part)
 				target_turf.ChangeTurf(destination.base_turf)
-		for(var/obj/structure/window/shuttle/unique/SW)
+		for(var/obj/structure/window/shuttle/unique/SW in sub_area)
 			if(SW.outside_window)
 				var/turf/target_turf = get_turf(SW)
 				target_turf.ChangeTurf(destination.base_turf)
