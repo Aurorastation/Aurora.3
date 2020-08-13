@@ -107,7 +107,7 @@
 
 	if(M.a_intent != I_HELP)
 		var/action
-		switch(a_intent)
+		switch(M.a_intent)
 			if(I_GRAB)
 				action = "grabbed"
 			if(I_DISARM)
@@ -133,7 +133,6 @@
 			visible_message(SPAN_NOTICE("[M] [action] [src] waking [t_him] up!"))
 			sleeping = 0
 			willfully_sleeping = FALSE
-	return
 
 /mob/living/carbon/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	if(status_flags & GODMODE)

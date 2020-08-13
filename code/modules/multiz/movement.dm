@@ -468,7 +468,7 @@
 			if(51 to INFINITY)
 				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
 			else
-				playsound(src.loc, "sound/weapons/genhit1.ogg", 75, 1)
+				playsound(src.loc, "swing_hit", 75, 1)
 	else
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
@@ -621,11 +621,11 @@
 			if(-INFINITY to 10)
 				playsound(src.loc, "sound/weapons/bladeslice.ogg", 50, 1)
 			if(11 to 50)
-				playsound(src.loc, "sound/weapons/punch[rand(1, 4)].ogg", 75, 1)
+				playsound(src.loc, "punch", 75, 1)
 			if(51 to INFINITY)
 				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
 			else
-				playsound(src.loc, "sound/weapons/genhit1.ogg", 75, 1)
+				playsound(src.loc, "swing_hit", 75, 1)
 	else
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 

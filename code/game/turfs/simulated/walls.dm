@@ -173,7 +173,7 @@
 
 /turf/simulated/wall/proc/dismantle_wall(var/devastated, var/explode, var/no_product, var/no_change = FALSE)
 	if (!no_change)	// No change is TRUE when this is called by destroy.
-		playsound(src, 'sound/items/Welder.ogg', 100, 1)
+		playsound(src, 'sound/items/welder.ogg', 100, 1)
 
 	if(!no_product)
 		if(reinf_material)

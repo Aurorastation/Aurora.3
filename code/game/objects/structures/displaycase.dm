@@ -40,7 +40,7 @@
 			src.density = 0
 			src.destroyed = 1
 			new /obj/item/material/shard( src.loc )
-			playsound(src, "shatter", 70, 1)
+			playsound(src, "glass_break", 70, 1)
 			update_icon()
 	else
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
