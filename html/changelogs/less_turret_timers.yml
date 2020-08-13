@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Turrets no longer constantly try to reset themselves, even when in a dormant state."
