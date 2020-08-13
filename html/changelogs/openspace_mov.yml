@@ -1,7 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - bugfix: "Moving through open spaces or space turfs is no longer inherently faster than any other turf."
-  - bugfix: "Moving along lattices or similar in space will now apply the normal speed modifiers instead of ignoring the lattice."
