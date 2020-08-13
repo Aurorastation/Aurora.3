@@ -751,9 +751,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		item_state = "[base_state]"
 	update_held_icon()
 
-/obj/item/flame/lighter/proc/set_flame_light()
-	set_light(flame_light_power, flame_light_range, l_color = flame_light_color)
-
 /obj/item/flame/lighter/attack_self(mob/living/user)
 	if(!base_state)
 		base_state = icon_state
@@ -782,7 +779,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 					if(last_open <= world.time - 20) //Spam limiter.
 						last_open = world.time
 						user.visible_message(SPAN_DANGER("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)
-			set_flame_light()
+			set_light(flame_light_power, flame_light_range, l_color = flame_light_color)
 			START_PROCESSING(SSprocessing, src)
 		else
 			lit = FALSE
