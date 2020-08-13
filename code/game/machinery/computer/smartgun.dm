@@ -23,12 +23,13 @@
 /obj/machinery/computer/smartguncontrol/ui_interact(var/mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new /datum/vueui/modularcomputer(user, src, "security-smartguncontrol", 400, 500, "Smartgun Control")
+		ui = new /datum/vueui/modularcomputer(user, src, "security-smartguncontrol", 600, 350, "Smartgun Control")
 	ui.open()
+	ui.auto_update_content = TRUE
 
 /obj/machinery/computer/smartguncontrol/vueui_transfer(oldobj)
 	. = FALSE
-	var/uis = SSvueui.transfer_uis(oldobj, src, "security-smartguncontrol", 400, 500, "Smartgun Control")
+	var/uis = SSvueui.transfer_uis(oldobj, src, "security-smartguncontrol", 600, 350, "Smartgun Control")
 	for(var/tui in uis)
 		var/datum/vueui/ui = tui
 		ui.auto_update_content = TRUE
@@ -48,7 +49,7 @@
 		if(ARE_Z_CONNECTED(T.z, Ts.z))
 			var/list/smartgun_info = list(
 				"gun_name" = P.gun.name,
-				"registered_user" = P.registered_user,
+				"registered_info" = P.registered_user,
 				"lock_status" = P.lockstatus,
 				"disable_status" = P.disablestatus,
 				"ref" = "\ref[P]",
