@@ -382,6 +382,7 @@
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/under/det/classic(src)
 	new /obj/item/clothing/shoes/laceup(src)
+	new /obj/item/gun/energy/secblaster(src)
 	//Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
