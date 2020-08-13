@@ -141,6 +141,9 @@
 		var/obj/item/organ/internal/eyes/E = H.get_eyes(no_synthetic = TRUE)
 		if(E && istype(E))
 			E.take_damage(removed * (strength / 12))
+	else if(alien == IS_VAURCA) //Vaurca need a mixture of phoron and oxygen. Too much dexalin likely imbalances that.
+		M.adjustToxLoss(removed * strength / 2)
+		M.eye_blurry = max(M.eye_blurry, 5)
 
 /datum/reagent/dexalin/plus
 	name = "Dexalin Plus"
@@ -364,9 +367,10 @@
 	metabolism_min = REM * 0.075
 
 /datum/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_BRAIN_REGEN, 30*removed)
+	if(dose < overdose)
+		M.add_chemical_effect(CE_BRAIN_REGEN, 30*removed)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
-	M.dizziness = max(125, M.dizziness) // Countered with Ethylredoxrazine - gives the drug more use beyond 'anti-alcohol drug'.
+	M.dizziness = max(125, M.dizziness) // Countered with Ethylredoxrazine to give the drug more use beyond 'anti-alcohol drug'.
 	M.make_dizzy(5)
 	var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
 	if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
@@ -374,6 +378,7 @@
 			B.gain_trauma_type(pick(/datum/brain_trauma/mild/dumbness, /datum/brain_trauma/mild/muscle_weakness, /datum/brain_trauma/mild/colorblind)) //Very specifically picked traumas that people shouldn't have too many issues with. Subject to debate.
 
 /datum/reagent/alkysine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_BRAIN_REGEN, 10*removed) //Effectiveness reduced by two-thirds when overdosed.
 	M.hallucination = max(M.hallucination, 15)
 	var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
 	if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))

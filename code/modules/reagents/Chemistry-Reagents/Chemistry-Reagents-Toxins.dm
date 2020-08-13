@@ -636,7 +636,7 @@
 	M.add_chemical_effect(CE_BERSERK, 1)
 	if(M.a_intent != I_HURT)
 		M.a_intent_change(I_HURT)
-	if(prob(20))
+	if(prob(10))
 		M.add_chemical_effect(CE_NEUROTOXIC, 5*removed)
 
 /datum/reagent/toxin/berserk/Destroy()

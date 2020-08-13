@@ -107,6 +107,8 @@
 /datum/reagent/mindbreaker/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 100)
 	M.add_chemical_effect(CE_HALLUCINATE, 2)
+	if(prob(10))
+		M.add_chemical_effect(CE_NEUROTOXIC, 5*removed)
 
 /datum/reagent/psilocybin
 	name = "Psilocybin"
