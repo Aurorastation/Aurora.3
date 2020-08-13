@@ -47,6 +47,9 @@
 	item_state = "nothing"
 	w_class = 5.0
 
+	drop_sound = null
+	pickup_sound = null
+	equip_sound = null
 
 /obj/item/grab/New(mob/user, mob/victim)
 	..()
@@ -266,6 +269,7 @@
 	if(state < GRAB_AGGRESSIVE)
 		if(!allow_upgrade)
 			return
+		playsound(loc, "grab", 50, FALSE, -1)
 		if(!affecting.lying)
 			assailant.visible_message(SPAN_WARNING("[assailant] grabs [affecting] aggressively by the hands!"))
 		else
@@ -279,6 +283,7 @@
 		if(isslime(affecting))
 			to_chat(assailant, SPAN_NOTICE("You try to squeeze [affecting], but your hands sink right through!"))
 			return
+		playsound(loc, "grab", 50, FALSE, -1)
 		assailant.visible_message(SPAN_WARNING("[assailant] reinforces \his grip on [affecting]'s neck'!"))
 		state = GRAB_NECK
 		icon_state = "grabbed+1"
@@ -297,6 +302,7 @@
 		hud.icon_state = "kill1"
 		hud.name = "loosen"
 		state = GRAB_KILL
+		playsound(loc, "grab", 50, FALSE, -1)
 		assailant.visible_message(SPAN_DANGER("[assailant] starts strangling [affecting]!"))
 
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>is being strangled by [assailant.name] ([assailant.ckey])</font>"

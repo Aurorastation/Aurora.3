@@ -248,6 +248,13 @@ var/list/bodyfall_machine_sound = list(
 	'sound/effects/bodyfall_machine1.ogg',
 	'sound/effects/bodyfall_machine2.ogg'
 )
+var/list/grab_sound = list(
+	'sound/weapons/grab/grab1.ogg',
+	'sound/weapons/grab/grab2.ogg',
+	'sound/weapons/grab/grab3.ogg',
+	'sound/weapons/grab/grab4.ogg',
+	'sound/weapons/grab/grab5.ogg'
+)
 var/list/bulletflyby_sound = list(
 	'sound/effects/bulletflyby1.ogg',
 	'sound/effects/bulletflyby2.ogg',
@@ -515,6 +522,7 @@ var/list/gauss_fire_sound = list(
 			if ("pickaxe") soundin = pick(pickaxe_sound)
 			if ("bodyfall") soundin = pick(bodyfall_sound)
 			if ("bodyfall_machine") soundin = pick(bodyfall_machine_sound)
+			if ("grab") soundin = pick(grab_sound)
 			if ("bulletflyby") soundin = pick(bulletflyby_sound)
 			if ("crowbar") soundin = pick(crowbar_sound)
 			if ("casing_drop") soundin = pick(casing_drop_sound)
