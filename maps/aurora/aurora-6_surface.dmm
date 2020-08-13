@@ -1109,6 +1109,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
+"cd" = (
+/obj/effect/shuttle_landmark/merc_elite/yellow,
+/turf/unsimulated/chasm_mask,
+/area/mine/explored)
 "cf" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
@@ -5372,7 +5376,7 @@
 /area/tcommsat/chamber)
 "ka" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1331;
+	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "nuke_shuttle_dock_outer";
 	locked = 1;
@@ -5381,7 +5385,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 1331;
+	frequency = 1337;
 	master_tag = "nuke_shuttle_dock_airlock";
 	name = "exterior access button";
 	pixel_x = -5;
@@ -5398,10 +5402,9 @@
 /area/hallway/secondary/entry/port)
 "kc" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1331;
+	frequency = 1337;
 	id_tag = "nuke_shuttle_dock_airlock";
 	pixel_y = 30;
-	req_access = null;
 	req_one_access = list(13);
 	tag_airpump = "nuke_shuttle_dock_pump";
 	tag_chamber_sensor = "nuke_shuttle_dock_sensor";
@@ -5409,21 +5412,21 @@
 	tag_interior_door = "nuke_shuttle_dock_inner"
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1331;
+	frequency = 1337;
 	id_tag = "nuke_shuttle_dock_sensor";
 	master_tag = "nuke_shuttle_dock_airlock";
 	pixel_y = -25
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1331;
+	frequency = 1337;
 	id_tag = "nuke_shuttle_dock_pump"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
 "kd" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1331;
+	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "nuke_shuttle_dock_inner";
 	locked = 1;
@@ -5441,7 +5444,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1331;
+	frequency = 1337;
 	master_tag = "nuke_shuttle_dock_airlock";
 	name = "interior access button";
 	pixel_x = -28;
@@ -7421,6 +7424,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"nM" = (
+/obj/effect/shuttle_landmark/merc_elite/merchant,
+/turf/unsimulated/chasm_mask,
+/area/mine/explored)
 "nN" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -8753,6 +8760,10 @@
 "qm" = (
 /turf/simulated/open,
 /area/turbolift/main_arrivals)
+"qn" = (
+/obj/effect/shuttle_landmark/merc_elite/green,
+/turf/unsimulated/chasm_mask,
+/area/mine/explored)
 "qo" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -11057,7 +11068,7 @@
 /area/hydroponics/garden)
 "uX" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1331;
+	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "green_dock_west_inner";
 	locked = 1;
@@ -12003,7 +12014,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1380;
+	frequency = 1337;
 	master_tag = "command_surface_airlock";
 	name = "interior access button";
 	pixel_x = -25;
@@ -16598,7 +16609,7 @@
 /area/hallway/secondary/entry/aft)
 "Fj" = (
 /obj/machinery/airlock_sensor{
-	frequency = 1380;
+	frequency = 1337;
 	id_tag = "merchant_shuttle_dock_sensor";
 	pixel_y = -27
 	},
@@ -16609,7 +16620,7 @@
 /area/hallway/secondary/entry/aft)
 "Fk" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "merchant_shuttle_dock_outer";
 	locked = 1;
@@ -16617,7 +16628,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 1380;
+	frequency = 1337;
 	master_tag = "merchant_shuttle_dock";
 	name = "exterior access button";
 	pixel_y = 32;
@@ -20024,7 +20035,7 @@
 /area/tcommsat/entrance)
 "LA" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "merchant_shuttle_dock_inner";
 	locked = 1;
@@ -20032,7 +20043,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1380;
+	frequency = 1337;
 	master_tag = "merchant_shuttle_dock";
 	name = "interior access button";
 	pixel_y = 32;
@@ -20186,11 +20197,11 @@
 "LP" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1380;
+	frequency = 1337;
 	id_tag = "merchant_shuttle_dock_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1380;
+	frequency = 1337;
 	id_tag = "merchant_shuttle_dock";
 	pixel_y = 29;
 	req_access = list(13);
@@ -20721,6 +20732,10 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/pool)
+"MS" = (
+/obj/effect/shuttle_landmark/merc_elite/command,
+/turf/unsimulated/chasm_mask,
+/area/mine/explored)
 "MT" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -21539,7 +21554,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1331;
+	frequency = 1337;
 	master_tag = "green_dock_west";
 	name = "interior access button";
 	pixel_x = -27;
@@ -21764,19 +21779,21 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "Pg" = (
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "bridge blast";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "command_surface_outer";
 	locked = 1;
 	name = "Command Docking Exterior Access";
+	req_access = list(13)
+	},
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1337;
+	master_tag = "command_surface_airlock";
+	name = "exterior access button";
+	pixel_x = -7;
+	pixel_y = 25;
 	req_access = list(13)
 	},
 /turf/simulated/floor/plating,
@@ -22628,7 +22645,7 @@
 /area/crew_quarters/fitness/pool)
 "QW" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1331;
+	frequency = 1337;
 	id_tag = "green_dock_west";
 	pixel_y = 29;
 	req_access = list(13);
@@ -22639,11 +22656,11 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1331;
+	frequency = 1337;
 	id_tag = "green_dock_west_pump"
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1331;
+	frequency = 1337;
 	id_tag = "green_dock_west_sensor";
 	pixel_x = -1;
 	pixel_y = -25
@@ -22801,7 +22818,7 @@
 /area/hallway/secondary/entry/emergency)
 "Rn" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1380;
+	frequency = 1337;
 	id_tag = "command_surface_airlock";
 	pixel_y = 30;
 	req_one_access = list(13);
@@ -24457,6 +24474,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
+"UJ" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "command_surface_outer";
+	locked = 1;
+	name = "Command Docking Exterior Access";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/bridge_elevator/surface)
 "UK" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -25099,14 +25127,14 @@
 "VW" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1380;
+	frequency = 1337;
 	id_tag = "command_surface_pump"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator/surface)
 "VX" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "command_surface_inner";
 	locked = 1;
@@ -25160,7 +25188,7 @@
 /area/storage/tools)
 "Wb" = (
 /obj/machinery/airlock_sensor{
-	frequency = 1380;
+	frequency = 1337;
 	id_tag = "command_surface_sensor";
 	pixel_y = -25
 	},
@@ -25656,7 +25684,7 @@
 /area/hallway/secondary/entry/aft)
 "Xc" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1331;
+	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "green_dock_west_outer";
 	locked = 1;
@@ -25665,7 +25693,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 1331;
+	frequency = 1337;
 	master_tag = "green_dock_west";
 	name = "exterior access button";
 	pixel_x = -7;
@@ -26209,18 +26237,6 @@
 /obj/item/clothing/suit/bluetag,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
-"Yg" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	master_tag = "command_surface_airlock";
-	name = "exterior access button";
-	pixel_x = 23;
-	pixel_y = 25;
-	req_access = list(13)
-	},
-/turf/unsimulated/floor/asteroid/ash,
-/area/mine/explored)
 "Yh" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -26710,7 +26726,7 @@
 /area/hallway/secondary/entry/aft)
 "Zc" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1380;
+	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "command_surface_inner";
 	locked = 1;
@@ -45321,7 +45337,7 @@ aa
 aa
 aa
 aa
-aa
+qn
 aa
 aa
 aa
@@ -48109,7 +48125,7 @@ aa
 aa
 aa
 aa
-aa
+cd
 aa
 aa
 aa
@@ -59226,7 +59242,7 @@ aa
 aa
 aa
 aa
-aa
+nM
 aa
 aa
 aa
@@ -68710,7 +68726,7 @@ aw
 aw
 aw
 aa
-aa
+MS
 aa
 aa
 aa
@@ -69480,7 +69496,7 @@ aa
 aa
 aa
 aw
-Yg
+aw
 aw
 aw
 aw
@@ -69738,7 +69754,7 @@ aa
 aa
 AP
 Pg
-Pg
+UJ
 AP
 aa
 aw

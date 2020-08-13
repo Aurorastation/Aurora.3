@@ -392,8 +392,9 @@ AURORA_ESCAPE_POD(3)
 	destination_tags = list(
 		"nav_mercelite_start",
 		"nav_mercelite_command",
-		"nav_mercelite_pool",
-		"nav_mercelite_merchant"
+		"nav_mercelite_merchant",
+		"nav_mercelite_yellow",
+		"nav_mercelite_green"
 		)
 
 	announcer = "NDV Icarus"
@@ -404,26 +405,31 @@ AURORA_ESCAPE_POD(3)
 	name = "Unknown Blacksite"
 	landmark_tag = "nav_mercelite_start"
 	docking_controller = "elite_shuttle_origin"
-	base_turf = /turf/space
+	base_turf = /turf/unsimulated/floor/plating
 
 /obj/effect/shuttle_landmark/merc_elite/command
-	name = "Command Surface"
+	name = "Command Surface - Maintenance"
 	landmark_tag = "nav_mercelite_command"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
-
-/obj/effect/shuttle_landmark/merc_elite/pool
-	name = "Surface Pool"
-	landmark_tag = "nav_mercelite_pool"
+	docking_controller = "command_surface_airlock"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/merc_elite/merchant
 	name = "Merchant Dock"
 	landmark_tag = "nav_mercelite_merchant"
+	docking_controller = "merchant_shuttle_dock"
+	special_dock_targets = list("Merc Elite" = "elite_shuttle_port")
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/merc_elite/yellow
 	name = "Yellow Dock"
 	landmark_tag = "nav_mercelite_yellow"
+	docking_controller = "nuke_shuttle_dock_airlock"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/merc_elite/green
+	name = "Emergency Services Dock"
+	landmark_tag = "nav_mercelite_green"
+	docking_controller = "green_dock_west"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 // Tau Ceti Foreign Legion
