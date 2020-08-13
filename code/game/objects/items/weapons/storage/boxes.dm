@@ -289,6 +289,11 @@
 	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons."
 	starts_with = list(/obj/item/device/firing_pin = 7)
 
+/obj/item/storage/box/securitypins
+	name = "box of smartgun pins"
+	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons.  These firing pins are smartgun enabled."
+	starts_with = list(/obj/item/device/firing_pin/security_pin = 7)
+
 /obj/item/storage/box/testpins
 	name = "box of firing pins"
 	desc = "A box of NT brand Testing Authentication pins; allows guns to fire in designated firing ranges."

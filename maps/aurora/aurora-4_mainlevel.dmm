@@ -13270,6 +13270,7 @@
 	},
 /obj/item/storage/box/firingpins,
 /obj/structure/table/rack,
+/obj/item/storage/box/securitypins,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "axQ" = (

@@ -26,9 +26,17 @@
 			dat += "<HR><A href='?src=\ref[src];lock=1'>Unlock Console</A>"
 		else if(screen == 1)
 			dat += "<HR>Detected Firearms<BR>"
-			for(var/obj/item/device/firing_pin/security_level/P in smartguns)
-				dat += "[P.gun.name] ----- [P.registered_user]<BR>"
-				dat += "********************************<BR>"
+			for(var/obj/item/device/firing_pin/security_pin/P in smartguns)
+				if(!P.gun) continue
+				dat += "[P.gun.name] - [P.registered_user]"
+				if(P.lockstatus)
+					dat += "<A href='?src=\ref[src];togglepin=\ref[P]'>(<font color=red>Unlock</font>)</A> - "
+				else
+					dat += "<A href='?src=\ref[src];togglepin=\ref[P]'>(<font color=red>Lock</font>)</A> - "
+				if(P.disablestatus)
+					dat += "<A href='?src=\ref[src];toggledisable=\ref[P]'>(<font color=red>Enable</font>)</A><BR>"
+				else
+					dat += "<A href='?src=\ref[src];toggledisable=\ref[P]'>(<font color=red>Disable</font>)</A><BR>"
 			dat += "<HR><A href='?src=\ref[src];lock=1'>Lock Console</A>"
 
 		user << browse(dat, "window=computer;size=400x500")
@@ -47,6 +55,14 @@
 			return
 		if((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
 			usr.set_machine(src)
+
+			if(href_list["togglepin"])
+				var/obj/item/device/firing_pin/security_pin/P = locate(href_list["togglepin"])
+				if(P)	P.unlock()
+
+			if(href_list["toggledisable"])
+				var/obj/item/device/firing_pin/security_pin/P = locate(href_list["toggledisable"])
+				if(P)	P.disable()
 
 			if(href_list["lock"])
 				if(src.allowed(usr))

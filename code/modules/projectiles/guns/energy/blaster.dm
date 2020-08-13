@@ -136,7 +136,7 @@
 	charge_cost = 50
 	has_item_ratio = FALSE
 	modifystate = "secblasterstun"
-	pin = /obj/item/device/firing_pin/security_level
+	pin = /obj/item/device/firing_pin/security_pin
 	sel_mode = 1
 	var/selectframecheck = FALSE
 	firemodes = list(
@@ -179,8 +179,8 @@
 
 /obj/item/gun/energy/secblaster/attackby(obj/item/C as obj, mob/user as mob)
 	if(istype(C, /obj/item/card/id))
-		if(istype(pin, /obj/item/device/firing_pin/security_level))
-			var/obj/item/device/firing_pin/security_level/thispin = pin
+		if(istype(pin, /obj/item/device/firing_pin/security_pin))
+			var/obj/item/device/firing_pin/security_pin/thispin = pin
 			thispin.register_user(C, user)
 			return
 		to_chat(user, SPAN_NOTICE("You press your ID card against \the [name] but nothing happens."))
