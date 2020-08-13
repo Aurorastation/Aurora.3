@@ -11,6 +11,7 @@
 #define NAV_BLOCKED 4
 #define CANNOT_REACH 5
 #define SUMMONED 6
+#define MOVING_LEVELS 7
 
 /obj/machinery/bot/mulebot
 	name = "Mulebot"
@@ -32,6 +33,7 @@
 	suffix = ""
 
 	var/turf/target				// this is turf to navigate to (location of beacon)
+	var/turf/final_target
 	var/loaddir = 0				// this the direction to unload onto/load from
 	var/new_destination = ""	// pending new destination (waiting for beacon response)
 	var/destination = ""		// destination description
@@ -39,7 +41,7 @@
 	req_access = list(access_cargo) // added robotics access so assembly line drop-off works properly -veyveyr //I don't think so, Tim. You need to add it to the MULE's hidden robot ID card. -NEO
 	var/list/path = list()
 
-	var/mode = 0
+	var/mode = IDLE
 
 	var/blockcount	= 0		//number of times retried a blocked path
 	var/reached_target = 1 	//true if already reached the target
@@ -86,7 +88,7 @@
 	unload(0)
 	qdel(wires)
 	wires = null
-	mode = 0
+	mode = IDLE
 	stop()
 	if(SSradio)
 		SSradio.remove_object(listener, beacon_freq)
@@ -527,7 +529,7 @@
 			return
 		if (LOADING_UNLOADING)		// loading/unloading
 			return
-		if (NAVIGATING, SUMMONED)		// navigating to deliver, home
+		if (NAVIGATING, SUMMONED, MOVING_LEVELS)	// navigating to deliver, home or between Z levels
 			if (!walk)
 				calc_path()
 				try_walking()
@@ -582,6 +584,20 @@
 		src.visible_message("[src] makes an annoyed buzzing sound", "You hear an electronic buzzing sound.")
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 75, 0)
 	else if (loc == target)
+		if (MOVING_LEVELS && loc != final_target)
+
+			// Change it to elevator above or below
+			var/obj/machinery/mulebotelevator/elevator = locate(/obj/machinery/mulebotelevator/) in target.contents
+			if (elevator)
+				stop()
+				elevator.move_mule(src, final_target)
+				if (loc.z == final_target.z)
+					mode = SUMMONED
+
+				target = final_target
+				calc_path()
+				return
+
 		at_target()
 		stop_walking(src)
 		return
@@ -591,13 +607,16 @@
 // signals bot status etc. to controller
 /obj/machinery/bot/mulebot/proc/send_status()
 	var/load_name
+	var/atom/movable/AM
 	if (!load)
 		load_name = "none"
-	var/atom/movable/AM = load.resolve()
-	if (!AM)
-		load_name = "none"
 	else
-		load_name = AM.name
+		
+		AM = load.resolve()
+		if (!AM)
+			load_name = "none"
+		else
+			load_name = AM.name
 
 	var/list/kv = list(
 		"type" = "mulebot",
@@ -630,30 +649,67 @@
 			return "Responding to [summon_name]"
 		if (CANNOT_REACH)
 			return "Cannot reach destination! Location: [get_area(src)]"
+		if (MOVING_LEVELS)
+			return "Navigating to the nearest mulebot elevator"
+
+/obj/machinery/bot/mulebot/proc/check_levels()
+	var/turf/current_turf = get_turf(src)
+	if (target.z == current_turf.z)
+		return TRUE
+
+	var/obj/machinery/mulebotelevator/local_elevator
+	var/dist = 9999
+	for(var/i in muleelevators)
+		var/obj/machinery/mulebotelevator/elevator = i
+		if (elevator.z != src.z)
+			continue
+		
+		if (get_dist(elevator, src) < dist)
+			dist = get_dist(elevator, src)
+			local_elevator = i
+	
+	if (local_elevator)
+		target = get_turf(local_elevator)
+		mode = MOVING_LEVELS
+		return TRUE
+
+	return FALSE
+
 
 // calculates a path to the current destination
 // given an optional turf to avoid
-/obj/machinery/bot/mulebot/proc/calc_path(var/turf/avoid = null)
-	if(!src.path)
+/obj/machinery/bot/mulebot/proc/calc_path(var/turf/avoid = null, var/turf/custom_target = null)
+	if (!src.path)
 		src.path = list()
 
-	path = AStar(loc, target, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 250, id=botcard, exclude=avoid)
-	if(isnull(path) || !path.len)
+	if (!check_levels())
+		mode = CANNOT_REACH
+		return
+
+	if (!custom_target)
+		custom_target = target
+
+	if (target == null)
+		mode = CANNOT_REACH
+		return
+
+	path = AStar(loc, custom_target, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 250, id = botcard, exclude = avoid)
+	if (isnull(path) || !path.len)
 		path = list()
 		return
 
 	var/list/path_new = list()
 	var/turf/last = path[path.len]
 	path_new.Add(path[1])
-	for(var/i = 2, i < path.len, i++)
-		if((path[i + 1].x == path[i].x) || (path[i + 1].y == path[i].y)) // we have a straight line, scan for more to cut down
+	for (var/i = 2, i < path.len, i++)
+		if ((path[i + 1].x == path[i].x) || (path[i + 1].y == path[i].y)) // we have a straight line, scan for more to cut down
 			path_new.Add(path[i])
 			for(var/j = i + 1, j < path.len, j++)
-				if((path[j + 1].x != path[j - 1].x) && (path[j + 1].y != path[j - 1].y)) // This is a corner and end point of our line
+				if ((path[j + 1].x != path[j - 1].x) && (path[j + 1].y != path[j - 1].y)) // This is a corner and end point of our line
 					path_new.Add(path[j])
 					i = j + 1
 					break
-				else if(j == path.len - 1)
+				else if (j == path.len - 1)
 					path = list()
 					path = path_new.Copy()
 					path.Add(last)
@@ -901,6 +957,7 @@
 					return
 				
 				mule.target = T
+				mule.final_target = T
 				return
 
 			if ("unload")
@@ -933,6 +990,7 @@
 					return
 
 				mule.target = get_turf(pda)
+				mule.final_target = mule.target
 				mule.summon_name = pda.owner
 				mule.mode = SUMMONED
 				return
@@ -960,3 +1018,4 @@
 #undef NAV_BLOCKED
 #undef CANNOT_REACH
 #undef SUMMONED
+#undef MOVING_LEVELS

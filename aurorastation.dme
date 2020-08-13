@@ -661,6 +661,7 @@
 #include "code\game\machinery\atmoalter\scrubber.dm"
 #include "code\game\machinery\bots\bots.dm"
 #include "code\game\machinery\bots\mulebot.dm"
+#include "code\game\machinery\bots\mulebotelevator.dm"
 #include "code\game\machinery\camera\camera.dm"
 #include "code\game\machinery\camera\camera_assembly.dm"
 #include "code\game\machinery\camera\motion.dm"
