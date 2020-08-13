@@ -34,11 +34,10 @@
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
 	M.add_chemical_effect(CE_ITCH, dose/2)
-	M.adjustHydrationLoss(2)
+	M.adjustHydrationLoss(1)
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien)
 	..()
-	M.add_chemical_effect(CE_ITCH, 5)
 	var/mob/living/carbon/human/H = M
 	for(var/obj/item/organ/external/E in H.organs)
 		if(E.status & ORGAN_ARTERY_CUT && prob(2))
@@ -55,13 +54,10 @@
 	taste_description = "bitterness"
 
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(!(locate(/datum/reagent/dermaline) in M.reagents.reagent_list))
-		M.heal_organ_damage(0, 6 * removed)
-
-/datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(0, 6 * removed)
-	if((locate(/datum/reagent/dermaline) in M.reagents.reagent_list))
-		M.add_chemical_effect(CE_ITCH, dose * 2)
+	if((locate(/datum/reagent/dermaline) in M.reagents.reagent_list)) //Instead of just disabling kelotane when dermaline is present, I've opted to have them function together, however with the drawback of very severe itching which deals brute.
+		M.add_chemical_effect(CE_ITCH, dose)
+		M.adjustHydrationLoss(1)
 
 /datum/reagent/dermaline
 	name = "Dermaline"
@@ -77,10 +73,7 @@
 /datum/reagent/dermaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(0, 12 * removed)
 	M.add_chemical_effect(CE_ITCH, dose/2)
-	M.adjustHydrationLoss(2)
-	
-/datum/reagent/dermaline/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_chemical_effect(CE_ITCH, 5)
+	M.adjustHydrationLoss(1)
 
 /datum/reagent/dylovene
 	name = "Dylovene"
@@ -365,7 +358,7 @@
 	reagent_state = LIQUID
 	color = "#FFFF66"
 	metabolism = REM * 0.25
-	overdose = REAGENTS_OVERDOSE
+	overdose = 10 //Hopefully might stop people hammering in alkysine wondering why it does not work and will reduce the need for chemists to stock so much of it.
 	scannable = 1
 	taste_description = "bitterness"
 	metabolism_min = REM * 0.075
@@ -375,9 +368,17 @@
 	M.add_chemical_effect(CE_PAINKILLER, 10)
 	M.dizziness = max(125, M.dizziness) // Countered with Ethylredoxrazine - gives the drug more use beyond 'anti-alcohol drug'.
 	M.make_dizzy(5)
+	var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
+	if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
+		if(prob(dose/3) && !B.has_trauma_type(BRAIN_TRAUMA_MILD)) //Psychiatrists will actually have something mechanical to deal with should someone hammer in too much alkysine.
+			B.gain_trauma_type(pick(/datum/brain_trauma/mild/dumbness, /datum/brain_trauma/mild/muscle_weakness, /datum/brain_trauma/mild/colorblind)) //Very specifically picked traumas that people shouldn't have too many issues with. Subject to debate.
 
 /datum/reagent/alkysine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
-	M.hallucination = max(M.hallucination, 25)
+	M.hallucination = max(M.hallucination, 15)
+	var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
+	if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
+		if(prob(dose - overdose / 2) && !B.has_trauma_type(BRAIN_TRAUMA_SEVERE) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
+			B.gain_trauma_type(/datum/brain_trauma/severe/paralysis, /datum/brain_trauma/severe/aphasia)
 	if(prob(5))
 		to_chat(M, SPAN_WARNING(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!")))
 	..()
@@ -1229,7 +1230,7 @@
 	reagent_state = LIQUID
 	color = "#FFFF00"
 	metabolism = REM * 2 //0.4
-	overdose = REAGENTS_OVERDOSE
+	overdose = 15
 	scannable = 1
 	taste_description = "bitterness"
 	metabolism_min = REM * 0.25
@@ -1243,6 +1244,8 @@
 
 /datum/reagent/cataleptinol/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_PAINKILLER, 10)
+	M.dizziness = max(100, M.dizziness)
+	M.make_dizzy(5)
 	var/chance = dose*removed
 	if(M.bodytemperature < 170)
 		chance = (chance*4) + 5
@@ -1253,6 +1256,15 @@
 	if(prob(chance))
 		M.cure_trauma_type(pick(curable_traumas))
 
+/datum/reagent/cataleptinol/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	M.hallucination = max(M.hallucination, 15)
+	var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
+	if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
+		if(prob(dose - overdose / 2) && !B.has_trauma_type(BRAIN_TRAUMA_SEVERE) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
+			B.gain_trauma_type(pick(/datum/brain_trauma/severe/paralysis, /datum/brain_trauma/severe/aphasia, /datum/brain_trauma/mild/dumbness, /datum/brain_trauma/mild/muscle_weakness, /datum/brain_trauma/mild/colorblind))
+	if(prob(5))
+		to_chat(M, SPAN_WARNING(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!")))
+	..()
 
 
 //Things that are not cured/treated by medication:
