@@ -271,14 +271,14 @@ var/list/drillhit_sound = list(
 	'sound/weapons/saw/drillhit2.ogg'
 )
 var/list/bottlehit_intact_sound = list(
-	'sound/weapons/bpttlehit_intact1.ogg',
-	'sound/weapons/bpttlehit_intact2.ogg',
-	'sound/weapons/bpttlehit_intact3.ogg'
+	'sound/weapons/bottlehit_intact1.ogg',
+	'sound/weapons/bottlehit_intact2.ogg',
+	'sound/weapons/bottlehit_intact3.ogg'
 )
 var/list/bottlehit_broken_sound = list(
-	'sound/weapons/bpttlehit_broken1.ogg',
-	'sound/weapons/bpttlehit_broken2.ogg',
-	'sound/weapons/bpttlehit_broken3.ogg'
+	'sound/weapons/bottlehit_broken1.ogg',
+	'sound/weapons/bottlehit_broken2.ogg',
+	'sound/weapons/bottlehit_broken3.ogg'
 )
 // drop/equip/pickup sounds if there are multiple.
 var/list/wield_generic_sound = list(
