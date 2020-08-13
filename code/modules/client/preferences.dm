@@ -39,7 +39,7 @@ datum/preferences
 	var/can_edit_ipc_tag = TRUE
 	var/gender = MALE					//gender of character (well duh)
 	var/age = 30						//age of character
-	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
+	var/spawnpoint = /datum/spawnpoint/arrivals //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/backbag = 2						//backpack type
 	var/backbag_style = 1
