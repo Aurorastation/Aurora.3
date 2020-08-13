@@ -1,0 +1,7 @@
+author: Burrito Justice
+
+delete-after: True
+
+changes:
+  - rscadd: "Added body markings for the G1, G2, Bishop, Zeng-Hu, and Xion IPC frames to be colored and customized."
+  - tweak: "Changed how species are checked in the code. They will check for bodytype OR species name under the species datum."

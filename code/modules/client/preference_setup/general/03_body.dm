@@ -363,7 +363,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					continue
 				if(pref.gender == FEMALE && S.gender == MALE)
 					continue
-				if(!(bodytype in S.species_allowed))
+				if(!((bodytype in S.species_allowed) || (mob_species.name in S.species_allowed)))
 					continue
 				valid_hairstyles[hairstyle] = hair_styles_list[hairstyle]
 
@@ -380,7 +380,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					continue
 				if(pref.gender == FEMALE && S.gender == MALE)
 					continue
-				if(!(bodytype in S.species_allowed))
+				if(!((bodytype in S.species_allowed) || (mob_species.name in S.species_allowed)))
 					continue
 
 				valid_facialhairstyles[facialhairstyle] = facial_hair_styles_list[facialhairstyle]
@@ -420,7 +420,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/list/valid_hairstyles = list()
 		for(var/hairstyle in hair_styles_list)
 			var/datum/sprite_accessory/S = hair_styles_list[hairstyle]
-			if(!(bodytype in S.species_allowed))
+			if(!((bodytype in S.species_allowed) || (mob_species.name in S.species_allowed)))
 				continue
 
 			valid_hairstyles[hairstyle] = hair_styles_list[hairstyle]
@@ -488,7 +488,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				continue
 			if(pref.gender == FEMALE && S.gender == MALE)
 				continue
-			if(!(bodytype in S.species_allowed))
+			if(!((bodytype in S.species_allowed) || (mob_species.name in S.species_allowed)))
 				continue
 
 			valid_facialhairstyles[facialhairstyle] = facial_hair_styles_list[facialhairstyle]
@@ -506,7 +506,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			var/datum/sprite_accessory/S = usable_markings[M]
 			if(!S.species_allowed.len)
 				continue
-			else if(!(btype in S.species_allowed))
+			else if(!((btype in S.species_allowed) || (species.name in S.species_allowed)))
 				usable_markings -= M
 
 		if (!usable_markings.len)

@@ -27,7 +27,7 @@
 	// Determines if the accessory will be skipped or included in random hair generations
 	var/gender = NEUTER
 
-	// Restrict some styles to specific species
+	// Restrict some styles to specific species. This can use the bodytype var or the name var in the species datum.
 	var/list/species_allowed = list("Human")
 
 	// Whether or not the accessory can be affected by colouration
@@ -2942,8 +2942,9 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_HEAD)
 		species_allowed = list("Diona")
 
+//bishop
 	bishop_lights
-		name = "Lights Colour"
+		name = "Bishop - Lights Colour"
 		icon = 'icons/mob/human_races/markings_bishop.dmi'
 		icon_state = "bishop_lights"
 		icon_blend_mode = ICON_MULTIPLY
@@ -2952,16 +2953,109 @@ Follow by example and make good judgement based on length which list to include 
 		species_allowed = list("Bishop Accessory Frame")
 
 		bishop_mask
-			name = "Face Mask"
+			name = "Bishop - Face Mask"
 			icon_state = "bishop_mask"
 			do_colouration = FALSE
 			body_parts = list(BP_HEAD)
 
 			bishop_triangular_mask
-				name = "Triangular Face Mask"
+				name = "Bishop - Triangular Face Mask"
 				icon_state = "bishop_triangular_mask"
 
-/*
+		bishop_panels
+			name = "Bishop - Full Body Panel Colors"
+			icon_state = "bishop_panels"
+			body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
+
+			bishop_head
+				name = "Bishop - Head Panel Colors"
+				body_parts = list(BP_HEAD)
+
+			bishop_legs
+				name = "Bishop - Leg Panel Colors"
+				body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
+
+			bishop_arms
+				name = "Bishop - Arm Panel Colors"
+				body_parts = list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM)
+
+//hephaestus g1
+	g1_primary
+		name = "G1 - Primary Panel Colors"
+		icon = 'icons/mob/human_races/markings_industrial.dmi'
+		icon_state = "g1_primary"
+		icon_blend_mode = ICON_MULTIPLY
+		is_painted = TRUE
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
+		species_allowed = list("Hephaestus G1 Industrial Frame")
+
+		/*g1_secondary
+			name = "G1 - Secondary Finish Colors"
+			icon_state = "g1_secondary"*/
+
+		g1_lights
+			name = "G1 - Lights Color"
+			icon_state = "g1_lights"
+			body_parts = list(BP_CHEST,BP_HEAD)
+
+//hephaestus g2
+	g2_primary
+		name = "G2 - Primary Panel Colors"
+		icon = 'icons/mob/human_races/markings_hephaestus.dmi'
+		icon_state = "g2_primary"
+		icon_blend_mode = ICON_MULTIPLY
+		is_painted = TRUE
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
+		species_allowed = list("Hephaestus G2 Industrial Frame")
+
+		/*g2_secondary
+			name = "G2 - Secondary Finish Colors"
+			icon_state = "g2_secondary"*/
+
+		g2_lights
+			name = "G2 - Lights Color"
+			icon_state = "g2_lights"
+			body_parts = list(BP_L_ARM,BP_R_ARM,BP_L_LEG,BP_R_LEG,BP_GROIN,BP_CHEST,BP_HEAD)
+
+//zeng-hu mobility frame
+	zeng_primary
+		name = "Zeng-Hu - Primary Panel Colors"
+		icon = 'icons/mob/human_races/markings_zenghu.dmi'
+		icon_state = "zeng_primary"
+		icon_blend_mode = ICON_MULTIPLY
+		is_painted = TRUE
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
+		species_allowed = list("Zeng-Hu Mobility Frame")
+
+		/*zeng_secondary
+			name = "Zeng-Hu - Secondary Finish Colors"
+			icon_state = "zeng_secondary"*/
+
+		zeng_lights
+			name = "Zeng-Hu - Lights Color"
+			icon_state = "zeng_lights"
+			body_parts = list(BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
+
+//xion
+	xion_primary
+		name = "Xion - Primary Panel Colors"
+		icon = 'icons/mob/human_races/markings_xion.dmi'
+		icon_state = "xion_primary"
+		icon_blend_mode = ICON_MULTIPLY
+		is_painted = TRUE
+		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
+		species_allowed = list("Xion Industrial Frame")
+
+		/*xion_secondary
+			name = "Xion - Secondary Finish Colors"
+			icon_state = "xion_secondary"*/
+
+		xion_lights
+			name = "Xion - Lights Color"
+			icon_state = "xion_lights"
+			body_parts = list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
+
+/*zeng-hu - old as heck
 	zenghu
 		icon = 'icons/mob/human_races/markings_zenghu.dmi'
 		icon_state = "outer"
