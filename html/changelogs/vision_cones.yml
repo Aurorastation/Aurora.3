@@ -7,3 +7,4 @@ changes:
   - rscadd: "You can adjust the darkness of your FOV cone in the global preferences menu of character setup."
   - tweak: "Diona do not have vision cones."
   - admin: "Bluespace Technicians do not have vision cones, and have a verb to toggle it."
+  - tweak: "You now walk slower if you are moving in the direction opposite to your facing direction."
