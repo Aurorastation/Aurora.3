@@ -6,9 +6,7 @@
 
 	if(ishuman(pulling))
 		var/mob/living/carbon/human/H = pulling
-		var/pulldelay
-		pulldelay = H.species.slowdown
-		if(pulldelay > species.slowdown)
+		if(H.species.slowdown> species.slowdown)
 			tally = H.species.slowdown
 		tally += H.ClothesSlowdown()
 
