@@ -92,7 +92,7 @@
 
 	tally += config.human_delay
 
-	if(face_dir != dir)
+	if(facing_dir != dir)
 		tally += 3
 
 	tally = round(tally,1)
