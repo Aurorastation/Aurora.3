@@ -13247,7 +13247,7 @@
 /turf/simulated/wall,
 /area/security/armory)
 "axO" = (
-/obj/machinery/computer/prisoner,
+/obj/machinery/computer/smartguncontrol,
 /obj/machinery/requests_console{
 	department = "Security";
 	departmentType = 5;
@@ -13270,6 +13270,7 @@
 	},
 /obj/item/storage/box/firingpins,
 /obj/structure/table/rack,
+/obj/item/storage/box/securitypins,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "axQ" = (

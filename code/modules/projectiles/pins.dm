@@ -224,18 +224,81 @@ Pins Below.
 	var/turf/T = get_turf(src)
 	return !isStationLevel(T.z)
 
-/obj/item/device/firing_pin/security_level
+var/list/smartguns = list() //A list of all initialized smartguns. Used in the smartgun tracking console in smartgun.dm
+
+/obj/item/device/firing_pin/security_pin
 	name = "security level firing pin"
 	desc = "This security level locked firing pin allows weapons to be fired only when the security level is elevated."
 	fail_message = "<span class='warning'>SECURITY LEVEL INSUFFICIENT.</span>"
+	durable = TRUE
+	var/registered_user = "Unregistered"
+	var/lockstatus = TRUE
+	var/disablestatus = FALSE
 
-/obj/item/device/firing_pin/security_level/pin_auth(mob/living/user)
-	if(istype(gun, /obj/item/gun/energy))
-		var/obj/item/gun/energy/thegun = gun
-		var/obj/item/projectile/energy/P = new thegun.projectile_type
-		if(P?.taser_effect)
+/obj/item/device/firing_pin/security_pin/Initialize() //Adds smartgun pins to the list of initialized smartguns.
+	smartguns += src
+	return ..()
+
+/obj/item/device/firing_pin/security_pin/Destroy() //Removes the smartgun pins from the list of initialized smartguns.
+	smartguns -= src
+	return ..()
+
+/obj/item/device/firing_pin/security_pin/pin_auth(mob/living/user)
+	if(!disablestatus)
+		if(istype(gun, /obj/item/gun/energy)) //Only energy weapons can be fired on stun.
+			var/obj/item/gun/energy/thegun = gun
+			var/obj/item/projectile/energy/P = new thegun.projectile_type
+			if(P?.taser_effect) // Allow people to shoot if their gun is set to stun.
+				return TRUE
+		if((security_level != SEC_LEVEL_GREEN && security_level != SEC_LEVEL_BLUE) || !lockstatus) //Allow lethal gunfire only if the alert level isn't Green or Blue, or if someone unlocked the pin.
 			return TRUE
-	if(security_level != SEC_LEVEL_GREEN && security_level != SEC_LEVEL_BLUE)
-		return TRUE
-
 	return FALSE
+
+/obj/item/device/firing_pin/security_pin/proc/register_user(obj/item/card/id/C, mob/living/user)//Registers users as the owner of the smartgun pin.
+	if(C.registered_name == registered_user)
+		to_chat(user, SPAN_NOTICE("You press your ID against the RFID reader and it deregisters your identity."))
+		registered_user = "Unregistered"
+		return
+	to_chat(user, SPAN_NOTICE("You press your ID against the RFID reader and it chimes as it registers your identity."))
+	registered_user = C.registered_name
+	return
+
+/obj/item/device/firing_pin/security_pin/proc/disable()// Toggles the disable restriction on the weapons. Allows NO firing at all!
+	var/mob/living/user
+	if(ismob(loc.loc))
+		user = loc.loc // pin -> gun -> user
+	else
+		user = loc.loc.loc // pin -> gun -> holster/bag/etc -> user
+
+	if(disablestatus)
+		playsound(user, 'sound/weapons/laser_safetyon.ogg')
+		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s trigger unlocks.</b>"))
+		fail_message = "<span class='warning'>SECURITY LEVEL INSUFFICIENT.</span>"
+	else
+		playsound(user, 'sound/weapons/laser_safetyoff.ogg')
+		to_chat(user, SPAN_WARNING("<b>\The [gun]'s trigger locks!</b>"))
+		fail_message = "<span class='warning'>WEAPON DISABLED.</span>"
+	disablestatus = !disablestatus
+	return
+
+/obj/item/device/firing_pin/security_pin/proc/unlock() // Toggles the security level restriction on or off. Allows lethal gunfire on Green/Blue alert when toggled
+	var/mob/living/user
+	if(ismob(loc.loc))
+		user = loc.loc // pin -> gun -> user
+	else
+		user = loc.loc.loc // pin -> gun -> holster/bag/etc -> user
+
+	if(lockstatus)
+		playsound(user, 'sound/weapons/laser_safetyon.ogg')
+		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s security level restriction disengages.</b>"))
+	else
+		playsound(user, 'sound/weapons/laser_safetyoff.ogg')
+		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s security level restriction engages.</b>"))
+	lockstatus = !lockstatus
+	return
+
+/obj/item/device/firing_pin/security_pin/attackby(obj/item/C as obj, mob/user as mob) //Lets people register their IDs to the pin.
+	if(istype(C, /obj/item/card/id))
+		register_user(C, user)
+		return
+	return . = ..()
