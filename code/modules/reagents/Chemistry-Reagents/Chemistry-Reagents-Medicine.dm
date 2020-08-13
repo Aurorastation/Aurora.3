@@ -377,8 +377,8 @@
 	M.hallucination = max(M.hallucination, 15)
 	var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
 	if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
-		if(prob(dose - overdose / 2) && !B.has_trauma_type(BRAIN_TRAUMA_SEVERE) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
-			B.gain_trauma_type(/datum/brain_trauma/severe/paralysis, /datum/brain_trauma/severe/aphasia)
+		if(prob(dose - overdose / 2) && !B.has_trauma_type(BRAIN_TRAUMA_SEVERE) && !B.has_trauma_type(BRAIN_TRAUMA_MILD) && !B.has_trauma_type(BRAIN_TRAUMA_SPECIAL))
+			B.gain_trauma_type(/datum/brain_trauma/severe/paralysis, /datum/brain_trauma/severe/aphasia, /datum/brain_trauma/special/imaginary_friend)
 	if(prob(5))
 		to_chat(M, SPAN_WARNING(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!")))
 	..()
@@ -1260,8 +1260,8 @@
 	M.hallucination = max(M.hallucination, 15)
 	var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
 	if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
-		if(prob(dose - overdose / 2) && !B.has_trauma_type(BRAIN_TRAUMA_SEVERE) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
-			B.gain_trauma_type(pick(/datum/brain_trauma/severe/paralysis, /datum/brain_trauma/severe/aphasia, /datum/brain_trauma/mild/dumbness, /datum/brain_trauma/mild/muscle_weakness, /datum/brain_trauma/mild/colorblind))
+		if(prob(dose - overdose / 2) && !B.has_trauma_type(BRAIN_TRAUMA_SEVERE) && !B.has_trauma_type(BRAIN_TRAUMA_MILD) && !B.has_trauma_type(BRAIN_TRAUMA_SPECIAL))
+			B.gain_trauma_type(pick(/datum/brain_trauma/severe/paralysis, /datum/brain_trauma/severe/aphasia, /datum/brain_trauma/mild/dumbness, /datum/brain_trauma/mild/muscle_weakness, /datum/brain_trauma/mild/colorblind, /datum/brain_trauma/special/imaginary_friend))
 	if(prob(5))
 		to_chat(M, SPAN_WARNING(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!")))
 	..()
