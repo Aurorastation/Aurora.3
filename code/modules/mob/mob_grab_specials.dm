@@ -121,7 +121,7 @@
 		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
 		return
 	if(target.grab_joint(attacker, target_zone))
-		playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+		playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 		return
 
 /obj/item/grab/proc/pin_down(mob/target, mob/attacker)
