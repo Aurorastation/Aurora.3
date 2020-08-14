@@ -89,16 +89,16 @@ STOCK_ITEM_COMMON(aid, 4)
 	new /obj/random/firstaid(L)
 
 STOCK_ITEM_COMMON(flame, 2)
-	new /obj/item/storage/box/matches(L)
+	new /obj/item/storage/box/fancy/matches(L)
 	new /obj/item/flame/lighter/random(L)
 
 STOCK_ITEM_COMMON(candles, 1.5)
-	new /obj/item/storage/fancy/candle_box(L)
+	new /obj/item/storage/box/fancy/candle_box(L)
 	if(prob(75))
-		new /obj/item/storage/fancy/candle_box(L)
+		new /obj/item/storage/box/fancy/candle_box(L)
 
 STOCK_ITEM_COMMON(crayons, 1.5)
-	new /obj/item/storage/fancy/crayons(L)
+	new /obj/item/storage/box/fancy/crayons(L)
 
 STOCK_ITEM_COMMON(figure, 1)
 	new /obj/random/action_figure(L)
@@ -121,7 +121,7 @@ STOCK_ITEM_COMMON(vials, 2)
 	if(prob(20))
 		new /obj/item/storage/lockbox/vials(L)
 	else
-		new /obj/item/storage/fancy/vials(L)
+		new /obj/item/storage/box/fancy/vials(L)
 
 STOCK_ITEM_COMMON(smallcell, 4)
 	for(var/i in 1 to rand(1, 2))
@@ -329,11 +329,11 @@ STOCK_ITEM_COMMON(pills, 1.2)
 		/obj/item/storage/pill_bottle/dexalin_plus, \
 		/obj/item/storage/pill_bottle/dermaline, \
 		/obj/item/storage/pill_bottle/dylovene, \
-		/obj/item/storage/pill_bottle/norepinephrine, \
+		/obj/item/storage/pill_bottle/inaprovaline, \
 		/obj/item/storage/pill_bottle/kelotane, \
-		/obj/item/storage/pill_bottle/antihistamine, \
-		/obj/item/storage/pill_bottle/tramadol, \
-		/obj/item/storage/pill_bottle/paracetamol \
+		/obj/item/storage/pill_bottle/cetahydramine, \
+		/obj/item/storage/pill_bottle/mortaphenyl, \
+		/obj/item/storage/pill_bottle/perconol \
 	)
 	var/newtype = pick(options)
 	new newtype(L)
@@ -410,7 +410,7 @@ STOCK_ITEM_COMMON(bag, 3.5)
 		new type(L)
 
 STOCK_ITEM_COMMON(extinguish, 2.2)
-	for(var/i in 1 to rand(1, 3))
+	for(var/i in 1 to rand(1, 2))
 		var/type = pick( \
 			/obj/item/extinguisher, \
 			/obj/item/extinguisher/mini \
@@ -528,9 +528,9 @@ STOCK_ITEM_COMMON(gasmask, 2)
 	new type(L)
 
 STOCK_ITEM_COMMON(mining, 2)
-	var/list/mine_items = list(/obj/item/shovel, /obj/item/pickaxe, /obj/item/clothing/glasses/material,
+	var/list/mine_items = list(/obj/item/shovel, /obj/item/clothing/glasses/material,
 				/obj/item/device/flashlight/lantern, /obj/item/mining_scanner, /obj/item/storage/box/excavation)
-	for(var/i in 1 to rand(1, 3))
+	for(var/i in 1 to rand(1, 2))
 		var/to_spawn = pick(mine_items)
 		new to_spawn(L)
 
@@ -545,6 +545,11 @@ STOCK_ITEM_COMMON(custom_ka, 1)
 
 STOCK_ITEM_COMMON(towel, 1)
 	new /obj/item/towel(L)
+
+STOCK_ITEM_COMMON(camera, 1)
+	new /obj/item/device/camera(L)
+	if(prob(60))
+		new /obj/item/device/camera_film(L)
 
 STOCK_ITEM_COMMON(nothing, 0)
 	// do nothing

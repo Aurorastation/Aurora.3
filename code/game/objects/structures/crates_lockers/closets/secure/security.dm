@@ -128,13 +128,13 @@
 	new /obj/item/storage/backpack/satchel_sec(src)
 	new /obj/item/clothing/under/rank/head_of_security(src)
 	new /obj/item/clothing/under/rank/head_of_security/corp(src)
+	new /obj/item/clothing/suit/storage/toggle/armor/hos(src)
 	new /obj/item/clothing/suit/armor/hos(src)
 	new /obj/item/clothing/suit/storage/vest/hos(src)
 	new /obj/item/clothing/head/helmet/hos/cap(src)
 	new /obj/item/clothing/head/helmet/hos(src)
 	new /obj/item/clothing/head/beret/sec/hos(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
-	new /obj/item/clothing/shoes/black_boots(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
 	new /obj/item/cartridge/hos(src)
@@ -154,6 +154,7 @@
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/storage/belt/security(src)
+	new /obj/item/storage/box/fancy/keypouch/sec(src)
 
 /obj/structure/closet/secure_closet/hos2
 	name = "head of security's attire"
@@ -215,7 +216,6 @@
 	new /obj/item/clothing/head/helmet/warden/commissar(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/accessory/badge/warden(src)
-	new /obj/item/clothing/shoes/black_boots(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
 	new /obj/item/cartridge/security(src)

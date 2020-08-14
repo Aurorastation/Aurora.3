@@ -81,7 +81,10 @@
 	if(!people.len)
 		return
 	var/radio_exclaim = pick("Oh SHIT!", "Oh fuck.", "Uhhh!", "That's not good!", "FUCK.", "Engineering?", "It's under control!", "We're fucked!", "Ohhhh boy.", "What?!", "Um, <b>what?!</b>")
-	to_chat(holder, "<font color='#008000'><b>[pick(people)]</b> says, \"[radio_exclaim]\"</font>")
+	var/mob/living/caller = pick(people)
+	var/caller_accent = get_hallucinated_accent(caller)
+
+	to_chat(holder, "[caller_accent] <font color='#008000'><b>[pick(people)]</b> says, \"[radio_exclaim]\"</font>")
 
 
 /datum/hallucination/pda	//fake PDA messages. this only plays the beep and sends something to chat; it won't show up in the PDA.
@@ -217,7 +220,7 @@
 					to_chat(holder, SPAN_DANGER("You feel a throbbing pain in your [O.name]!"))
 				if(HAL_POWER_MED to INFINITY)
 					to_chat(holder, SPAN_DANGER("You feel an excruciating pain in your [O.name]!"))
-					holder.emote("me",1,"winces.")
+					holder.emote("whimper")
 		if(3)
 			switch(holder.hallucination)
 				if(1 to 15)
@@ -226,7 +229,7 @@
 					to_chat(holder, SPAN_DANGER("The muscles in your body cramp up painfully."))
 				if(HAL_POWER_MED to INFINITY)
 					to_chat(holder, SPAN_DANGER("There's pain all over your body!"))
-					holder.emote("me",1,"flinches as all the muscles in their body cramp up.")
+					holder.emote("twitch_v")
 		if(4)
 			switch(holder.hallucination)
 				if(1 to 15)
@@ -235,7 +238,7 @@
 					to_chat(holder, SPAN_DANGER("You want to scratch the itch on your [O.name] badly!"))
 				if(HAL_POWER_MED to INFINITY)
 					to_chat(holder, SPAN_DANGER("You can't focus on anything but scratching the itch on your [O.name]!"))
-					holder.emote("me",1,"shivers slightly.")
+					holder.emote("shiver")
 		if(5)
 			switch(holder.hallucination)
 				if(1 to 15)
@@ -244,7 +247,7 @@
 					to_chat(holder, SPAN_DANGER("You feel a horrible burning sensation on your [O.name]!"))
 				if(HAL_POWER_MED to INFINITY)
 					to_chat(holder, SPAN_DANGER("It feels like your [O.name] is being burnt to the bone!"))
-					holder.emote("me",1,"flinches.")
+					holder.emote("esweat")
 
 //sort of like the vampire friend messages.
 /datum/hallucination/friendly
@@ -412,9 +415,11 @@
 
 	if(!candidates.len)	//No candidates, no effect.
 		end()
+		return
 
 	var/mob/living/talker = pick(candidates)	//Who is talking to us?
 	var/message		//What will they say?
+	var/accent_tag = get_hallucinated_accent(talker) //Can't forget the accent
 
 	//Name selection. This gives us variety. Sometimes it will be your last name, sometimes your first.
 	var/list/names = list()
@@ -440,15 +445,14 @@
 				phrases += list("What did you come here for[add]?","Don't touch me[add].","You're not getting out of here[add].", "You're a failure, [pick(names)].","Just kill yourself already, [pick(names)].","Put on some clothes[add].","You're a horrible person[add].","You know nobody wants you here, right[add]?")
 
 			message = pick(phrases)
-			to_chat(holder,"<span class='game say'><B>[talker]</B> [talker.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
+			to_chat(holder,"<span class='game say'>[accent_tag] <B>[talker]</B> [talker.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 		else	//More varied messages using text list and different speech prefixes
-			
 			//message prep
-			var/speak_prefix = pick("Hey", "Uh", "Um", "Oh", "Ah", "")		//For variety, we have a different greeting. This one has a chance of picking a starter....
-			speak_prefix = "[speak_prefix][pick(names)][pick(".","!","?")]"		//...then adds the name, and ends it randomly with ., !, or ? ("Hey, name?" "Oh, name!" "Ah, name." "Name!"") etc.
+			var/speak_prefix = pick("Hey", "Uh", "Um", "Oh", "Ah")		//For variety, we have a different greeting. This one has a chance of picking a starter....
+			speak_prefix = "[speak_prefix], [pick(names)][pick(".","!","?")]"		//...then adds the name, and ends it randomly with ., !, or ? ("Hey, name?" "Oh, name!" "Ah, name." "Name!"") etc.
 
 			message = prob(70) ? "[speak_prefix] [pick(SShallucinations.hallucinated_phrases)]" : pick(SShallucinations.hallucinated_phrases) //Here's the message that uses the hallucinated_phrases text list. Won't always apply the speak_prefix; sometimes they say weird shit without addressing you.
-			to_chat(holder,"<span class='game say'><B>[talker]</B> [talker.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
+			to_chat(holder,"<span class='game say'>[accent_tag] <B>[talker]</B> [talker.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 
 	repeats -= 1
 	if(repeats)	//And we do it all over again, one or two more times.
@@ -473,9 +477,10 @@
 		if(!M.stat)
 			whisper_candidates += M
 	if(whisper_candidates.len)
-		var/whisperer = pick(whisper_candidates)
+		var/mob/living/whisperer = pick(whisper_candidates)
+		var/whisper_accent = get_hallucinated_accent(whisperer)
 		if(prob(70))
-			to_chat(holder, "<B>[whisperer]</B> whispers, <I>\"[pick(SShallucinations.hallucinated_phrases)]\"</I>")
+			to_chat(holder, "[whisper_accent] <B>[whisperer]</B> whispers, <I>\"[pick(SShallucinations.hallucinated_phrases)]\"</I>")
 		else
 			to_chat(holder, "<B>[whisperer]</B> [pick("gently nudges", "pokes at", "taps", "looks at", "pats")] [holder], trying to get their attention.")
 
@@ -490,4 +495,4 @@
 	var/list/whisper_candidates = list("A familiar voice", "A distant voice", "A child's voice", "Something inside your head", "Your own voice", "A ghastly voice")
 	to_chat(holder, "<B>[pick(whisper_candidates)]</B> whispers directly into your mind, <I>\"[pick(SShallucinations.hallucinated_phrases)]\"</I>")
 	sound_to(holder, pick('sound/hallucinations/behind_you1.ogg', 'sound/hallucinations/behind_you2.ogg', 'sound/hallucinations/i_see_you1.ogg', 'sound/hallucinations/i_see_you2.ogg', 'sound/hallucinations/turn_around1.ogg', 'sound/hallucinations/turn_around2.ogg'))
-	holder.emote("me",1,"shivers.")
+	holder.emote("shiver")

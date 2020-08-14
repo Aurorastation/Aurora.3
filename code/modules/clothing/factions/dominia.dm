@@ -4,6 +4,7 @@
 	icon = 'icons/clothing/masks/lyodsuit.dmi'
 	icon_state = "dom_thermal_mask"
 	item_state = "dom_thermal_mask"
+	flags_inv = BLOCKHAIR
 	contained_sprite = TRUE
 	canremove = FALSE
 
@@ -181,6 +182,7 @@
 /obj/item/clothing/under/dominia/lyodsuit/hoodie/proc/create_mask()
 	if(!mask)
 		mask = new /obj/item/clothing/mask/lyodsuit(src)
+	item_state = "dom_thermal"
 
 /obj/item/clothing/under/dominia/lyodsuit/hoodie/proc/remove_mask()
 	// Mask got nuked. Probably because of RIGs or the like.
@@ -189,6 +191,8 @@
 	if(ishuman(mask.loc))
 		var/mob/living/carbon/H = mask.loc
 		H.unEquip(mask, 1)
+		item_state = initial(item_state)
+		H.update_inv_w_uniform()
 	mask.forceMove(src)
 	hood_raised = FALSE
 
@@ -223,3 +227,20 @@
 	..()
 	if(rolled_down == TRUE)
 		remove_mask()
+
+/obj/item/clothing/under/dominia/dress
+	name = "dominian noblewoman dress"
+	desc = "This is a dress in the style of Dominian nobility. It's the latest fashion across Dominian space."
+	icon = 'icons/clothing/under/uniforms/dominia_noble_dress.dmi'
+	icon_state = "dom_dress"
+	item_state = "dom_dress"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/dominia/dress/summer
+	name = "dominian summer dress"
+	desc = "This is a dress in the style of Dominian nobility. It's the latest fashion across Dominian space."
+	icon = 'icons/clothing/under/uniforms/dominia_summer_dress.dmi'
+	icon_state = "dom_dress"
+	item_state = "dom_dress"
+	contained_sprite = TRUE
+

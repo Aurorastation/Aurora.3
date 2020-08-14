@@ -460,9 +460,15 @@
 
 /obj/item/clothing/accessory/poncho/roles/medical
 	name = "medical poncho"
-	desc = "A simple, comfortable cloak without sleeves. This one is white with green and blue tint, standard Medical colors."
+	desc = "A simple, comfortable cloak without sleeves. This one is white with a green tint, standard Medical colors."
 	icon_state = "medponcho"
 	item_state = "medponcho"
+
+/obj/item/clothing/accessory/poncho/roles/iac
+	name = "IAC poncho"
+	desc = "A simple, comfortable cloak without sleeves. This one is white with a blue tint, standard IAC colors."
+	icon_state = "IACponcho"
+	item_state = "IACponcho"	
 
 /obj/item/clothing/accessory/poncho/roles/engineering
 	name = "engineering poncho"
@@ -691,7 +697,24 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
-
+/obj/item/clothing/accessory/badge/namepin
+	name = "pin tag"
+	desc = "A small strip of metal to label its wearer."
+	icon_state = "namepintag"
+	overlay_state = null
+	badge_string = null
+	slot_flags = SLOT_TIE
+	w_class = 1
+	
+/obj/item/clothing/accessory/bracelet
+	name = "bracelet"
+	desc = "A simple bracelet with a clasp."
+	icon_state = "bracelet"
+	w_class = 1
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
+	flippable = 1
+	
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"
 	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing."

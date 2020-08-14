@@ -1,9 +1,5 @@
 /datum/design/item/modular_weapon
-	design_order = 2.5
-
-/datum/design/item/modular_weapon/AssembleDesignName()
-	..()
-	name = "Modular Weapon Design ([capitalize_first_letters(item_name)])"
+	p_category = "Modular Weapon Designs"
 
 /datum/design/item/modular_weapon/firing_pin
 	req_tech = list(TECH_MATERIAL = 1)

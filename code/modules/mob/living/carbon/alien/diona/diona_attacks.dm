@@ -23,7 +23,7 @@
 		H.put_in_hands(hat)
 		H.visible_message(SPAN_WARNING("\The [H] removes \the [src]'s [hat]."))
 		hat = null
-		update_icons()
+		update_icon()
 	else
 		return ..()
 

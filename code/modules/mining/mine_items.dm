@@ -68,6 +68,7 @@
 	var/digspeed //moving the delay to an item var so R&D can make improved picks. --NEO
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	attack_verb = list("hit", "pierced", "sliced", "attacked")
+	hitsound = 'sound/weapons/rapidslice.ogg'
 	var/drill_sound = "pickaxe"
 	var/drill_verb = "excavating"
 	var/autodrill = 0 //pickaxes must be manually swung to mine, drills can mine rocks via bump
@@ -77,6 +78,8 @@
 
 	var/excavation_amount = 40
 	var/wielded = FALSE
+	var/wield_sound = "wield_generic"
+	var/unwield_sound = null
 	var/force_unwielded = 5.0
 	var/force_wielded = 15.0
 	var/digspeed_unwielded = 30
@@ -90,12 +93,16 @@
 	force = force_unwielded
 	digspeed = digspeed_unwielded
 	name = initial(name)
+	if(src.unwield_sound)
+		playsound(src.loc, unwield_sound, 25, 1)
 	update_icon()
 
 /obj/item/pickaxe/proc/wield()
 	wielded = TRUE
 	force = force_wielded
 	digspeed = digspeed_wielded
+	if(src.wield_sound)
+		playsound(src.loc, wield_sound, 25, 1)
 	update_icon()
 
 /obj/item/pickaxe/update_icon()
@@ -190,8 +197,10 @@
 	item_state = null
 	name = "offhand"
 	simulated = FALSE
-
 	action_button_name = null
+	drop_sound = null
+	pickup_sound = null
+	equip_sound = null
 
 /obj/item/pickaxe/proc/copy_stats(obj/item/pickaxe/parent)
 	digspeed_wielded = parent.digspeed_wielded
@@ -217,7 +226,6 @@
 	desc = "A mining hammer made of reinforced metal. You feel like smashing your boss in the face with this."
 	icon_state = "sledgehammer"
 	icon = 'icons/obj/weapons.dmi'
-	hitsound = "swing_hit"
 
 /obj/item/pickaxe/silver
 	name = "silver pickaxe"
@@ -768,6 +776,7 @@
 	throw_speed = 3
 	throw_range = 5
 	var/loaded = TRUE
+	var/emagged = FALSE
 	var/malfunctioning = FALSE
 	var/revive_type = TYPE_ORGANIC //So you can't revive boss monsters or robots with it
 	origin_tech = list(TECH_BIO = 7, TECH_MATERIAL = 4)
@@ -782,12 +791,14 @@
 				to_chat(user, SPAN_INFO("\The [src] does not work on this sort of creature."))
 				return
 			if(M.stat == DEAD)
-				if(!malfunctioning)
-					M.faction = "neutral"
+				if(emagged)	//if emagged, will set anything revived to the user's faction. convert station pets to the traitor side!
+					M.faction = user.faction
+				if(malfunctioning) //when EMP'd, will set the mob faction to its initial faction, so any taming will be reverted.
+					M.faction = initial(M.faction)
 				M.revive()
 				M.icon_state = M.icon_living
 				loaded = FALSE
-				user.visible_message(SPAN_NOTICE("\The [user] injects \the [M] with \the [src], reviving it."))
+				user.visible_message(SPAN_NOTICE("\The [user] revives \the [M] by injecting it with \the [src]."))
 				feedback_add_details("lazarus_injector", "[M.type]")
 				playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
 				return
@@ -802,11 +813,16 @@
 	if(!malfunctioning)
 		malfunctioning = TRUE
 
+/obj/item/lazarus_injector/emag_act(mob/user)
+	if(!emagged)
+		to_chat(user, SPAN_WARNING("You overload \the [src]'s injection matrix."))
+		emagged = TRUE
+
 /obj/item/lazarus_injector/examine(mob/user)
 	..()
 	if(!loaded)
 		to_chat(user, SPAN_INFO("\The [src] is empty."))
-	if(malfunctioning)
+	if(malfunctioning || emagged)
 		to_chat(user, SPAN_INFO("The display on \the [src] seems to be flickering."))
 
 /**********************Point Transfer Card**********************/
@@ -1161,7 +1177,7 @@ var/list/total_extraction_beacons = list()
 				SPAN_NOTICE("You continue sculpting."))
 
 			if(prob(25))
-				playsound(user, 'sound/items/Screwdriver.ogg', 20, TRUE)
+				playsound(user, 'sound/items/screwdriver.ogg', 20, TRUE)
 			else
 				playsound(user, "sound/weapons/chisel[rand(1,2)].ogg", 20, TRUE)
 				spawn(3)
@@ -1215,8 +1231,7 @@ var/list/total_extraction_beacons = list()
 	icon_state = "punchingbag"
 	anchored = TRUE
 	layer = 5.1
-	var/list/hit_sounds = list('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg',\
-	'sound/weapons/punch1.ogg', 'sound/weapons/punch2.ogg', 'sound/weapons/punch3.ogg', 'sound/weapons/punch4.ogg')
+	var/list/hit_sounds = list("swing_hit", "punch")
 
 /obj/structure/punching_bag/attack_hand(mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

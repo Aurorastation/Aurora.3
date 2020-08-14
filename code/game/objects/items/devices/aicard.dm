@@ -1,5 +1,5 @@
 /obj/item/aicard
-	name = "inteliCard"
+	name = "intelliCard"
 	icon = 'icons/obj/pai.dmi'
 	icon_state = "aicard" // aicard-full
 	item_state = "electronic"

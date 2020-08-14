@@ -151,6 +151,12 @@
 
 	to_chat(user, "\icon[src] That's [f_name] [suffix]")
 	to_chat(user, desc)
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.glasses)
+			H.glasses.glasses_examine_atom(src, H)
+
 	if(description_cult && (user.mind?.special_role == "Cultist" || isobserver(src)))
 		to_chat(user, FONT_SMALL(SPAN_CULT(description_cult)))
 	if(desc_info || desc_fluff)

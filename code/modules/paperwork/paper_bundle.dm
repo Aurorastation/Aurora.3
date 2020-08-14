@@ -29,6 +29,7 @@
 	if(istype(W, /obj/item/paper) || istype(W, /obj/item/photo))
 		insert_sheet_at(user, pages.len+1, W)
 		amount++
+		attack_self(usr) //Update the browsed page.
 
 	// burning
 	else if(istype(W, /obj/item/flame))
@@ -43,6 +44,7 @@
 			amount++
 
 		to_chat(user, "<span class='notice'>You add \the [W.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>")
+		attack_self(usr) //Update the browsed page.
 		qdel(W)
 	else
 		if(istype(W, /obj/item/tape_roll))
@@ -53,7 +55,6 @@
 		P.attackby(W, user)
 
 	update_icon()
-	attack_self(usr) //Update the browsed page.
 	add_fingerprint(usr)
 	return
 

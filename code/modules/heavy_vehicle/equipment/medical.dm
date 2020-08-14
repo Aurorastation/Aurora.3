@@ -271,5 +271,4 @@
 
 /obj/item/device/healthanalyzer/mech/attack(mob/living/M, var/mob/living/heavy_vehicle/user)
 	for(var/mob/pilot in user.pilots)
-		health_scan_mob(M, pilot, FALSE)
-		return
+		health_scan_mob(M, pilot, TRUE, TRUE)

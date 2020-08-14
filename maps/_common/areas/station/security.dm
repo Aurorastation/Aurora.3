@@ -52,7 +52,7 @@
 	name = "Security - Warden's Office"
 	icon_state = "Warden"
 
-/area/security/armoury
+/area/security/armory
 	name = "Security - Armory"
 	icon_state = "Warden"
 

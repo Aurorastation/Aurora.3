@@ -2,6 +2,7 @@
 */
 /obj/machinery/smartfridge
 	name = "\improper SmartFridge"
+	desc = "An advanced food storage vendor that keeps food at the exact temperature it needs to be for optimal taste."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "smartfridge"
 	layer = 2.9

@@ -1,6 +1,6 @@
 /obj/machinery/appliance/mixer/cereal
 	name = "cereal maker"
-	desc = "Now with Dann O's available!"
+	desc = "A small kitchen appliance that can be used to combine various foodstuffs into filling cereal."
 	icon = 'icons/obj/cooking_machines.dmi'
 	icon_state = "cereal_off"
 	cook_type = "cerealized"

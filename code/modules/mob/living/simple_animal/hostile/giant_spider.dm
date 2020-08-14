@@ -25,6 +25,7 @@
 	health = 200
 	melee_damage_lower = 15
 	melee_damage_upper = 20
+	resist_mod = 1.5
 	heat_damage_per_tick = 20
 	cold_damage_per_tick = 20
 	var/poison_per_bite = 5

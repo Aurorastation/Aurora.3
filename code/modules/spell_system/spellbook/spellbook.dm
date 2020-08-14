@@ -78,14 +78,15 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			var/name = "" //name of target
 			var/desc = "" //description of target
 			var/info = "" //additional information
+			dat += "<div class='spell-block'>"
 			if(ispath(spellbook.spells[i],/datum/spellbook))
 				var/datum/spellbook/S = spellbook.spells[i]
-				name = initial(S.name)
+				name = html_decode(capitalize_first_letters(initial(S.name)))
 				desc = initial(S.book_desc)
 				info = "<font color='#ff33cc'>[initial(S.max_uses)] Spell Slots</font>"
 			else if(ispath(spellbook.spells[i],/obj))
 				var/obj/O = spellbook.spells[i]
-				name = "Artefact: [capitalize(initial(O.name))]" //because 99.99% of objects dont have capitals in them and it makes it look weird.
+				name = "Artefact: [capitalize_first_letters(initial(O.name))]" //because 99.99% of objects dont have capitals in them and it makes it look weird.
 				desc = initial(O.desc)
 			else if(ispath(spellbook.spells[i],/spell))
 				var/spell/S = spellbook.spells[i]
@@ -110,9 +111,14 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			if(spellbook.book_flags & CAN_MAKE_CONTRACTS)
 				dat += " <A href='byond://?src=\ref[src];path=[spellbook.spells[i]];contract=1;'>Make Contract</a>"
 			dat += "<br><i>[desc]</i><br>"
+			dat += "</div>"
 		dat += "<center><A href='byond://?src=\ref[src];reset=1'>Re-memorize your spellbook.</a></center>"
 		dat += "<center><A href='byond://?src=\ref[src];lock=1'>[spellbook.book_flags & LOCKED ? "Unlock" : "Lock"] the spellbook.</a></center>"
-	user << browse(dat,"window=spellbook")
+
+	var/datum/browser/spellbook_win = new(user, "spellbook", spellbook.title)
+	spellbook_win.set_content(dat)
+	spellbook_win.add_stylesheet("spellbook", 'html/browser/spellbook.css')
+	spellbook_win.open()
 
 /obj/item/spellbook/Topic(href,href_list)
 	..()
@@ -233,7 +239,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	return "You learn the spell [S]"
 
 /datum/spellbook
-	var/name = "\improper book of tomes"
+	var/name = "book of tomes"
 	var/desc = "The legendary book of spells of the wizard."
 	var/book_desc = "Holds information on the various tomes available to a wizard"
 	var/feedback = "" //doesn't need one.

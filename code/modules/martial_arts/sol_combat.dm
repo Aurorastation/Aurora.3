@@ -96,7 +96,7 @@ datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/liv
 			A.put_in_hands(I)
 	else
 		A.visible_message("<span class='danger'>[A] attempted to disarm [D]!</span>")
-		playsound(D, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+		playsound(D, "punchmiss", 25, 1, -1)
 	return 1
 
 /datum/martial_art/sol_combat/proc/sol_combat_help()

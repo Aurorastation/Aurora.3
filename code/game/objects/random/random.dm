@@ -152,9 +152,9 @@
 		/obj/item/bodybag/cryobag = 1,
 		/obj/item/storage/pill_bottle/kelotane = 2,
 		/obj/item/storage/pill_bottle/antitox = 2,
-		/obj/item/storage/pill_bottle/tramadol = 2,
+		/obj/item/storage/pill_bottle/mortaphenyl = 2,
 		/obj/item/reagent_containers/syringe/dylovene = 2,
-		/obj/item/reagent_containers/syringe/norepinephrine = 2,
+		/obj/item/reagent_containers/syringe/inaprovaline = 2,
 		/obj/item/stack/nanopaste = 1
 	)
 
@@ -178,7 +178,7 @@
 	icon_state = "purplecomb"
 //	spawn_nothing_percentage = 50
 	problist = list(
-		/obj/item/storage/pill_bottle/tramadol = 3,
+		/obj/item/storage/pill_bottle/mortaphenyl = 3,
 		/obj/item/storage/pill_bottle/happy = 2,
 		/obj/item/storage/pill_bottle/zoom = 2,
 		/obj/item/reagent_containers/glass/beaker/vial/random/toxin = 1,
@@ -212,16 +212,16 @@
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpacket"
 	problist = list(
-		/obj/item/storage/fancy/cigarettes = 30,
-		/obj/item/storage/fancy/cigarettes/blank = 5,
-		/obj/item/storage/fancy/cigarettes/acmeco = 2,
-		/obj/item/storage/fancy/cigarettes/dromedaryco = 10,
-		/obj/item/storage/fancy/cigarettes/cigar = 9,
-		/obj/item/storage/fancy/cigarettes/nicotine = 10,
-		/obj/item/storage/fancy/cigarettes/rugged = 10,
-		/obj/item/storage/fancy/cigarettes/pra = 5,
-		/obj/item/storage/fancy/cigarettes/dpra = 2,
-		/obj/item/storage/fancy/cigarettes/nka = 2
+		/obj/item/storage/box/fancy/cigarettes = 30,
+		/obj/item/storage/box/fancy/cigarettes/blank = 5,
+		/obj/item/storage/box/fancy/cigarettes/acmeco = 2,
+		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 10,
+		/obj/item/storage/box/fancy/cigarettes/cigar = 9,
+		/obj/item/storage/box/fancy/cigarettes/nicotine = 10,
+		/obj/item/storage/box/fancy/cigarettes/rugged = 10,
+		/obj/item/storage/box/fancy/cigarettes/pra = 5,
+		/obj/item/storage/box/fancy/cigarettes/dpra = 2,
+		/obj/item/storage/box/fancy/cigarettes/nka = 2
 	)
 
 /obj/random/energy
@@ -866,11 +866,11 @@
 		/obj/item/storage/box/pineapple = 0.1,
 		/obj/item/storage/box/smokebombs = 0.1,
 		/obj/item/storage/box/syringes = 0.3,
-		/obj/item/storage/fancy/cigarettes = 1.2,
-		/obj/item/storage/fancy/cigarettes/acmeco = 0.3,
-		/obj/item/storage/fancy/cigarettes/blank = 1,
-		/obj/item/storage/fancy/cigarettes/dromedaryco = 0.8,
-		/obj/item/storage/fancy/crayons = 0.5,
+		/obj/item/storage/box/fancy/cigarettes = 1.2,
+		/obj/item/storage/box/fancy/cigarettes/acmeco = 0.3,
+		/obj/item/storage/box/fancy/cigarettes/blank = 1,
+		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 0.8,
+		/obj/item/storage/box/fancy/crayons = 0.5,
 		/obj/item/storage/wallet/random/ = 0.1,
 		/obj/item/trap/animal = 0.8,
 		/obj/random/arcade = 0.25,
@@ -881,7 +881,6 @@
 		/obj/random/coin = 1.2,
 		/obj/random/colored_jumpsuit = 0.7,
 		/obj/random/contraband = 0.9,
-		/obj/random/document = 0.5,
 		/obj/random/firstaid = 0.4,
 		/obj/random/gloves = 2,
 		/obj/random/glowstick = 0.4,
@@ -1058,7 +1057,6 @@
 		/obj/item/ammo_casing/c9mm/rubber = 0.5,
 		/obj/item/ammo_casing/c45/flash = 0.5,
 		/obj/item/ammo_casing/shotgun/beanbag = 0.5,
-		/obj/random/document/junk = 0.5,
 		/obj/item/flame/lighter/random = 0.25,
 		/obj/item/lipstick/random = 0.25,
 		/obj/item/reagent_containers/glass/beaker/vial/random = 0.1,
@@ -1114,7 +1112,7 @@
 		/obj/item/toy/sword								= 22,
 		/obj/item/gun/projectile/revolver/capgun	= 11,
 		/obj/item/toy/crossbow							= 11,
-		/obj/item/storage/fancy/crayons			= 11,
+		/obj/item/storage/box/fancy/crayons			= 11,
 		/obj/item/toy/spinningtoy						= 11,
 		/obj/item/toy/prize/ripley						= 1,
 		/obj/item/toy/prize/fireripley					= 1,

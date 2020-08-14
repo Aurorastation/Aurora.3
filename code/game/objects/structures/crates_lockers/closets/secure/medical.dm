@@ -17,8 +17,8 @@
 	new /obj/item/reagent_containers/dropper(src)
 	new /obj/item/reagent_containers/glass/beaker(src)
 	new /obj/item/reagent_containers/glass/beaker(src)
-	new /obj/item/reagent_containers/glass/bottle/norepinephrine(src)
-	new /obj/item/reagent_containers/glass/bottle/norepinephrine(src)
+	new /obj/item/reagent_containers/glass/bottle/inaprovaline(src)
+	new /obj/item/reagent_containers/glass/bottle/inaprovaline(src)
 	new /obj/item/reagent_containers/glass/bottle/antitoxin(src)
 	new /obj/item/reagent_containers/glass/bottle/antitoxin(src)
 
@@ -117,6 +117,7 @@
 	new /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt(src)
 	new /obj/item/storage/box/inhalers(src)
 	new /obj/item/clothing/glasses/hud/health/aviator(src)
+	new /obj/item/storage/box/fancy/keypouch/med(src)
 
 /obj/structure/closet/secure_closet/CMO2
 	name = "chief medical officer's attire"

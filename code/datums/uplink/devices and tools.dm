@@ -49,7 +49,7 @@
 	name = "Heavy Armor Kit"
 	item_cost = 4
 	path = /obj/item/storage/box/syndie_kit/armor
-	desc = "A heavy armour set consisting of a full kit. Not EVA capable."
+	desc = "A heavy armor set consisting of a full kit. Not EVA capable."
 
 /datum/uplink_item/item/tools/encryptionkey_radio
 	name = "Encrypted Radio Channel Key"
@@ -190,3 +190,8 @@
 	item_cost = 6
 	path = /obj/item/device/radio/electropack
 	desc = "A backpack wired with electrodes. Sync up with a signaller, attach to an unwilling host and pulse the signal to shock them."
+
+/datum/uplink_item/item/tools/ammo_display
+	name = "Holographic Ammo Display"
+	item_cost = 2
+	path = /obj/item/ammo_display

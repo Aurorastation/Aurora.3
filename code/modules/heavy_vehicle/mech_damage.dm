@@ -37,17 +37,29 @@
 	maxHealth = body.mech_health
 	health = maxHealth-(getFireLoss()+getBruteLoss())
 
-/mob/living/heavy_vehicle/adjustFireLoss(var/amount)
-	var/obj/item/mech_component/MC = pick(list(arms, legs, body, head))
-	if(MC)
-		MC.take_burn_damage(amount)
-		MC.update_health()
+/mob/living/heavy_vehicle/adjustFireLoss(var/amount, var/obj/item/mech_component/C)
+	if(C)
+		C.take_brute_damage(amount)
+		C.update_health()
+	else
+		var/list/components = list(body, arms, legs, head)
+		components = shuffle(components)
+		for(var/obj/item/mech_component/MC in components)
+			MC.take_burn_damage(amount)
+			MC.update_health()
+			break
 
-/mob/living/heavy_vehicle/adjustBruteLoss(var/amount)
-	var/obj/item/mech_component/MC = pick(list(arms, legs, body, head))
-	if(MC)
-		MC.take_brute_damage(amount)
-		MC.update_health()
+/mob/living/heavy_vehicle/adjustBruteLoss(var/amount, var/obj/item/mech_component/C)
+	if(C)
+		C.take_brute_damage(amount)
+		C.update_health()
+	else
+		var/list/components = list(body, arms, legs, head)
+		components = shuffle(components)
+		for(var/obj/item/mech_component/MC in components)
+			MC.take_burn_damage(amount)
+			MC.update_health()
+			break
 
 /mob/living/heavy_vehicle/proc/zoneToComponent(var/zone)
 	switch(zone)
@@ -100,3 +112,20 @@
 			for(var/thing in pilots)
 				var/mob/pilot = thing
 				pilot.emp_act(severity)
+
+/mob/living/heavy_vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
+	// No gravity, stop falling into spess!
+	var/area/area = get_area(src)
+	if(isspace(loc) || (area && !area.has_gravity()))
+		return FALSE
+
+	visible_message(SPAN_DANGER("\The [src] falls and lands on \the [loc]!"), "", SPAN_DANGER("You hear a thud!"))
+
+	var/z_velocity = 5 * (levels_fallen**2) // 1z - 5, 2z - 20, 3z - 45
+	var/damage = max((z_velocity + rand(-10, 10)) * damage_mod, 0)
+
+	apply_damage(damage, BRUTE, BP_L_LEG) // can target any leg, it will be changed to the proper component
+
+	playsound(loc, "sound/effects/bang.ogg", 100, 1)
+	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
+	return TRUE

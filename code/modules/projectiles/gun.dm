@@ -78,7 +78,10 @@
 	var/list/dispersion = list(0)
 	var/reliability = 100
 
+	var/cyborg_maptext_override
 	var/displays_maptext = FALSE
+	var/can_ammo_display = TRUE
+	var/obj/item/ammo_display
 	maptext_x = 22
 	maptext_y = 2
 
@@ -101,6 +104,8 @@
 	var/wielded = 0
 	var/needspin = TRUE
 	var/is_wieldable = FALSE
+	var/wield_sound = "wield_generic"
+	var/unwield_sound = null
 
 	//aiming system stuff
 	var/multi_aim = 0 //Used to determine if you can target multiple people.
@@ -110,6 +115,10 @@
 	var/safety_state = TRUE
 	var/has_safety = TRUE
 	var/image/safety_overlay
+
+	// sounds n shit
+	var/safetyon_sound = 'sound/weapons/blade_open.ogg'
+	var/safetyoff_sound = 'sound/weapons/blade_close.ogg'
 
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
@@ -130,7 +139,8 @@
 
 	if(istype(loc, /obj/item/robot_module))
 		has_safety = FALSE
-		displays_maptext = TRUE
+		if(!cyborg_maptext_override)
+			displays_maptext = TRUE
 		update_maptext()
 
 	if(istype(loc, /obj/item/rig_module))
@@ -316,7 +326,8 @@
 		if(pointblank)
 			process_point_blank(projectile, user, target)
 
-		if(process_projectile(projectile, user, target, user.zone_sel.selecting, clickparams))
+		var/selected_zone = user.zone_sel ? user.zone_sel.selecting : BP_CHEST
+		if(process_projectile(projectile, user, target, selected_zone, clickparams))
 			var/show_emote = TRUE
 			if(i > 1 && burst_delay < 3 && burst < 5)
 				show_emote = FALSE
@@ -622,10 +633,12 @@
 
 	return new_mode
 
-/obj/item/gun/attack_self(mob/user)
+/obj/item/gun/attack_self(mob/user, var/list/message_mobs)
 	var/datum/firemode/new_mode = switch_firemodes(user)
 	if(new_mode)
 		to_chat(user, SPAN_NOTICE("\The [src] is now set to [new_mode.name]."))
+	for(var/M in message_mobs)
+		to_chat(M, SPAN_NOTICE("[user] has set \the [src] to [new_mode.name]."))
 
 // Safety Procs
 
@@ -634,7 +647,10 @@
 	update_icon()
 	if(user)
 		to_chat(user, SPAN_NOTICE("You switch the safety [safety_state ? "on" : "off"] on \the [src]."))
-		playsound(src, 'sound/weapons/safety_click.ogg', 30, 1)
+		if(!safety_state)
+			playsound(src, safetyon_sound, 30, 1)
+		else
+			playsound(src, safetyoff_sound, 30, 1)
 
 /obj/item/gun/verb/toggle_safety_verb()
 	set src in usr
@@ -704,6 +720,8 @@
 		recoil = initial(recoil)
 	if(accuracy_wielded)
 		accuracy = initial(accuracy)
+	if(unwield_sound)
+		playsound(src.loc, unwield_sound, 50, 1)
 
 	update_icon()
 	update_held_icon()
@@ -716,6 +734,8 @@
 		recoil = recoil_wielded
 	if(accuracy_wielded)
 		accuracy = accuracy_wielded
+	if(wield_sound)
+		playsound(src.loc, wield_sound, 50, 1)
 
 	update_icon()
 	update_held_icon()
@@ -730,12 +750,18 @@
 
 	return ..()
 
+/obj/item/gun/throw_at()
+	..()
+	update_maptext()
+
+/obj/item/gun/on_give()
+	update_maptext()
+
 /obj/item/gun/dropped(mob/living/user)
 	..()
 	queue_icon_update()
 	//Unwields the item when dropped, deletes the offhand
-	if(displays_maptext)
-		maptext = ""
+	update_maptext()
 	if(is_wieldable)
 		if(user)
 			var/obj/item/offhand/O = user.get_inactive_hand()
@@ -746,7 +772,7 @@
 /obj/item/gun/pickup(mob/user)
 	..()
 	queue_icon_update()
-	update_maptext()
+	addtimer(CALLBACK(src, .proc/update_maptext), 1)
 	if(is_wieldable)
 		unwield()
 
@@ -757,6 +783,9 @@
 	icon_state = "offhand"
 	item_state = "nothing"
 	name = "offhand"
+	drop_sound = null
+	pickup_sound = null
+	equip_sound = null
 
 /obj/item/offhand/proc/unwield()
 	if(ismob(loc))
@@ -818,7 +847,6 @@
 	return
 
 /obj/item/gun/attackby(var/obj/item/I, var/mob/user)
-
 	if(istype(I, /obj/item/material/knife/bayonet))
 		if(!can_bayonet)
 			return ..()
@@ -831,12 +859,40 @@
 		bayonet = I
 		to_chat(user, SPAN_NOTICE("You attach \the [I] to the front of \the [src]."))
 		update_icon()
+		return
+
+	if(istype(I, /obj/item/ammo_display))
+		if(!can_ammo_display)
+			to_chat(user, SPAN_WARNING("\The [I] cannot attach to \the [src]."))
+			return
+		if(ammo_display)
+			to_chat(user, SPAN_WARNING("\The [src] already has a holographic ammo display."))
+			return
+		if(displays_maptext)
+			to_chat(user, SPAN_WARNING("\The [src] is already displaying its ammo count."))
+			return
+		user.drop_from_inventory(I, src)
+		ammo_display = I
+		displays_maptext = TRUE
+		to_chat(user, SPAN_NOTICE("You attach \the [I] to \the [src]."))
+		return
 
 	if(I.iscrowbar() && bayonet)
 		to_chat(user, SPAN_NOTICE("You detach \the [bayonet] from \the [src]."))
 		bayonet.forceMove(get_turf(src))
+		user.put_in_hands(bayonet)
 		bayonet = null
 		update_icon()
+		return
+
+	if(I.iswrench() && ammo_display)
+		to_chat(user, SPAN_NOTICE("You wrench the ammo display loose from \the [src]."))
+		ammo_display.forceMove(get_turf(src))
+		user.put_in_hands(ammo_display)
+		ammo_display = null
+		displays_maptext = FALSE
+		maptext = ""
+		return
 
 	if(pin && I.isscrewdriver())
 		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"))
@@ -844,6 +900,7 @@
 			if(pin.durable || prob(50))
 				visible_message(SPAN_NOTICE("\The [user] pops \the [pin] out of \the [src]!"))
 				pin.forceMove(get_turf(src))
+				user.put_in_hands(pin)
 				pin = null//clear it out.
 			else
 				user.visible_message(
@@ -852,6 +909,7 @@
 				"You hear a metallic crack.")
 				qdel(pin)
 				pin = null
+		return
 	return ..()
 
 /obj/item/gun/proc/get_ammo()
@@ -863,6 +921,9 @@
 
 /obj/item/gun/proc/update_maptext()
 	if(displays_maptext)
+		if(!ismob(loc) && !ismob(loc.loc))
+			maptext = ""
+			return
 		if(get_ammo() > 9)
 			maptext_x = 18
 		else

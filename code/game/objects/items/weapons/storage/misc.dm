@@ -51,7 +51,7 @@
 	update_icon()
 
 //cigarette papers
-/obj/item/storage/fancy/cigpaper
+/obj/item/storage/box/fancy/cigpaper
 	name = "\improper Gen. Eric cigarette paper"
 	desc = "A ubiquitous brand of cigarette paper, allegedly endorsed by 24th century war hero General Eric Osmundsun for rolling your own cigarettes. Osmundsun died in a freak kayak accident. As it ate him alive during his last campaign. It was pretty freaky."
 	icon = 'icons/obj/cigs_lighters.dmi'
@@ -59,7 +59,7 @@
 	item_state = "cigpacket"
 	drop_sound = 'sound/items/drop/wrapper.ogg'
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
-	use_sound = 'sound/items/drop/wrapper.ogg'
+	use_sound = 'sound/items/storage/wrapper.ogg'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
@@ -71,7 +71,7 @@
 	starts_with = list(/obj/item/paper/cig = 10)
 	make_exact_fit()
 
-/obj/item/storage/fancy/cigpaper/update_icon()
+/obj/item/storage/box/fancy/cigpaper/update_icon()
 	. = ..()
 	if(contents.len)
 		icon_state = "[initial(icon_state)]"
@@ -93,9 +93,9 @@
 	make_exact_fit()
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
-	use_sound = 'sound/items/drop/wrapper.ogg'
+	use_sound = 'sound/items/storage/wrapper.ogg'
 
-/obj/item/storage/fancy/cigpaper/fine
+/obj/item/storage/box/fancy/cigpaper/fine
 	name = "\improper Trident cigarette paper"
 	desc = "A fancy brand of Trident cigarette paper, for rolling your own cigarettes. Like a person who appreciates the finer things in life."
 	icon = 'icons/obj/cigs_lighters.dmi'
@@ -149,12 +149,13 @@
 	item_state = "Dpacket"
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco/fine = 6)
 
-/obj/item/storage/fancy/chewables/tobacco/nico
+/obj/item/storage/box/fancy/chewables/tobacco/nico
 	name = "box of Nico-Tine gum"
 	desc = "A Sol-approved brand of nicotine gum. Cut out the middleman for your addiction fix."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "chew_nico"
 	item_state = "Epacket"
+	icon_type = "gum stick"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
@@ -165,7 +166,7 @@
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	use_sound = 'sound/items/storage/box.ogg'
 
-/obj/item/storage/fancy/chewables/tobacco/update_icon()
+/obj/item/storage/box/fancy/chewables/tobacco/update_icon()
 	icon_state = "[initial(icon_state)][contents.len]"
 
 //loose leaf

@@ -103,10 +103,10 @@
 			to_chat(user,"The offical designation \"[official_name]\" is etched neatly on the side.")
 
 	if(installed_cell)
-		to_chat(user,"It has [get_ammo()] shots remaining.")
+		to_chat(user, "It has <b>[get_ammo()]</b> shots remaining.")
 
 /obj/item/gun/custom_ka/get_ammo()
-	if(!installed_cell)
+	if(!installed_cell || !installed_cell.stored_charge)
 		return 0
 	return round(installed_cell.stored_charge / cost_increase)
 
@@ -445,7 +445,7 @@
 			installed_cell.forceMove(src)
 			update_stats()
 			update_icon()
-			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
+			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
 	else if(istype(I,/obj/item/custom_ka_upgrade/barrels))
 		if(!installed_cell)
 			to_chat(user,"You must install a power cell before installing \the [I].")
@@ -458,7 +458,7 @@
 			installed_barrel.forceMove(src)
 			update_stats()
 			update_icon()
-			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
+			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
 	else if(istype(I,/obj/item/custom_ka_upgrade/upgrade_chips))
 		if(!installed_cell || !installed_barrel)
 			to_chat(user,"A barrel and a cell need to be installed before you install \the [I].")
@@ -475,7 +475,7 @@
 			installed_upgrade_chip.forceMove(src)
 			update_stats()
 			update_icon()
-			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
+			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
 
 	if(installed_cell)
 		installed_cell.attackby(I,user)

@@ -1,5 +1,6 @@
 /mob/living/silicon/robot/drone/mining
 	icon_state = "miningdrone"
+	mod_type = "Mining"
 	law_type = /datum/ai_laws/mining_drone
 	module_type = /obj/item/robot_module/mining_drone/basic
 	holder_type = /obj/item/holder/drone/mining
@@ -41,7 +42,7 @@
 
 	verbs -= /mob/living/silicon/robot/verb/Namepick
 	verbs -= /mob/living/silicon/robot/drone/verb/set_mail_tag
-	updateicon()
+	update_icon()
 	density = FALSE
 
 /mob/living/silicon/robot/drone/mining/updatename()
@@ -53,7 +54,7 @@
 	if(!laws)
 		laws = new law_type
 	if(!module)
-		module = new module_type(src)
+		module = new module_type(src, src)
 
 	flavor_text = "It's a tiny little mining drone. The casing is stamped with an corporate logo and the subscript: '[current_map.company_name] Automated Pickaxe!'"
 	playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
@@ -104,13 +105,15 @@
 /mob/living/silicon/robot/drone/mining/process_level_restrictions()
 	//Abort if they should not get blown
 	if(lock_charge || scrambled_codes || emagged)
-		return
-	//Check if they are not on a station level -> abort
+		return FALSE
+	//Check if they are not on a station level -> else abort
 	var/turf/T = get_turf(src)
 	if (!T || isStationLevel(T.z))
-		return
-	to_chat(src, SPAN_DANGER("WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated."))
-	gib()
+		return FALSE
+	if(!self_destructing)
+		to_chat(src, SPAN_DANGER("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
+		start_self_destruct(TRUE)
+	return TRUE
 
 /**********************Minebot Upgrades**********************/
 

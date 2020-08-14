@@ -2,6 +2,10 @@
 	if(stat == DEAD)
 		return
 
+	if(victim)
+		step_away(src, victim)
+		victim = null
+
 	if(!gibbed && is_adult)
 		var/mob/living/carbon/slime/M = new /mob/living/carbon/slime(loc, colour)
 		M.rabid = TRUE

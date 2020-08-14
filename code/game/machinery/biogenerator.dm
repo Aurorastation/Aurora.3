@@ -1,6 +1,6 @@
 /obj/machinery/biogenerator
-	name = "Biogenerator"
-	desc = ""
+	name = "biogenerator"
+	desc = "An advanced machine that can be used to convert grown plantlike biological material into various other bio-goods."
 	icon = 'icons/obj/biogenerator.dmi'
 	icon_state = "biogen-stand"
 	density = 1
@@ -26,6 +26,14 @@
 			name = "Bio Meat",
 			class = "Food",
 			object = /obj/item/reagent_containers/food/snacks/meat/biogenerated,
+			cost = 50,
+			amount = list(1,2,3,4,5),
+			emag = 0
+		),
+		"fishfillet" = list(
+			name = "Fish Fillet",
+			class = "Food",
+			object = /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 			cost = 50,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -105,7 +113,7 @@
 		"custom_cigarettes" = list(
 			name = "Empty Cigarettes (x6)",
 			class = "Items",
-			object = /obj/item/storage/fancy/cigarettes/blank,
+			object = /obj/item/storage/box/fancy/cigarettes/blank,
 			cost = 500,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -185,7 +193,7 @@
 		"crayon_box" = list(
 			name = "Crayon Box",
 			class = "Items",
-			object = /obj/item/storage/fancy/crayons,
+			object = /obj/item/storage/box/fancy/crayons,
 			cost = 600,
 			amount = list(1,2,3,4,5),
 			emag = 0
@@ -226,6 +234,14 @@
 			name = "Wax",
 			class = "Construction",
 			object = /obj/item/stack/wax,
+			cost = 100,
+			amount = list(1,5,10,25,50),
+			emag = 0
+		),
+		"plastic" = list(
+			name = "Plastic",
+			class = "Construction",
+			object = /obj/item/stack/material/plastic,
 			cost = 100,
 			amount = list(1,5,10,25,50),
 			emag = 0
@@ -278,23 +294,47 @@
 			amount = list(1,2,3,4,5),
 			emag = 0
 		),
-		// Antag Items (Emag)
 		"bruise_pack" = list(
 			name = "Bruise Pack",
-			class = "!@#$%^&*()",
+			class = "Medical",
 			object = /obj/item/stack/medical/bruise_pack,
 			cost = 400,
 			amount = list(1,2,3,4,5),
-			emag = 1
+			emag = FALSE
 		),
 		"ointment" = list(
 			name = "Burn Ointment",
-			class = "!@#$%^&*()",
+			class = "Medical",
 			object = /obj/item/stack/medical/ointment,
 			cost = 400,
 			amount = list(1,2,3,4,5),
-			emag = 1
+			emag = FALSE
 		),
+		"perconol_pill" = list(
+			name = "Perconol Pill",
+			class = "Medical",
+			object = /obj/item/reagent_containers/pill/perconol,
+			cost = 250,
+			amount = list(1,2,3,5,7),
+			emag = FALSE
+		),
+		"adv_trauma_kit" = list(
+			name = "Advanced Trauma Kit",
+			class = "!@#$%^&*()",
+			object = /obj/item/stack/medical/advanced/bruise_pack,
+			cost = 600,
+			amount = list(1,2,3,4,5),
+			emag = TRUE
+		),
+		"adv_burn_kit" = list(
+			name = "Advanced Burn Kit",
+			class = "!@#$%^&*()",
+			object = /obj/item/stack/medical/advanced/ointment,
+			cost = 600,
+			amount = list(1,2,3,4,5),
+			emag = TRUE
+		),
+		// Antag Items (Emag)
 		"humanhide" = list(
 			name = "Human Hide",
 			class = "!@#$%^&*()",
@@ -422,10 +462,10 @@
 		switch(menustat)
 			if("menu")
 				if (beaker)
-					dat += "<table><tr><td colspan=7><H2>Commands</H2></td></tr>"
-					dat += "<tr><td><A href='?src=\ref[src];action=activate'>Activate Biogenerator</A></td></tr>"
-					dat += "<tr><td><A href='?src=\ref[src];action=detach'>Detach Container</A><BR></td></tr>"
-					dat += "<tr><td>Name</td><td>Cost</td><td colspan=5>Production Amount</td></tr>"
+					dat += "<table style='width:100%'><tr><td colspan='6'><H2>Commands</H2></td></tr>"
+					dat += "<tr><td colspan='2'><A href='?src=\ref[src];action=activate'>Activate Biogenerator</A></td></tr>"
+					dat += "<tr><td colspan='2'><A href='?src=\ref[src];action=detach'>Detach Container</A><BR></td></tr>"
+					dat += "<tr><td colspan='2'>Name</td><td colspan='2'>Cost</td><td colspan='4'>Production Amount</td></tr>"
 					var/lastclass = "Commands"
 
 					for (var/k in biorecipies)
@@ -439,19 +479,19 @@
 
 						if(emag == 0 || emagged == 1)
 							if(lastclass != class)
-								dat += "<tr><td colspan=7><H2>[class]</H2><td></tr>"
+								dat += "<tr><td colspan='6'><H2>[class]</H2></td></tr>"
 								lastclass = class
-							dat += "<tr><td>[name]<td>[round(cost/build_eff)]</td>"
+							dat += "<tr class='build'><td colspan='2'>[name]</td><td colspan='2'>[round(cost/build_eff)]</td>"
+							dat += "<td colspan='4'>"
 							for(var/num in listamount)
-								dat += "<td>"
 								var/fakenum = ""
 								if(num <= 9)
 									fakenum = "0"
 								if(num*round(cost/build_eff) > points)
-									dat += "([fakenum][num])"
+									dat += "<div class='no-build inline'>([fakenum][num])</div>"
 								else
 									dat += "<A href='?src=\ref[src];action=create;itemid=[id];count=[num]'>([fakenum][num])</A>"
-								dat += "</td>"
+							dat += "</td>"
 							dat += "</tr>"
 
 					dat += "</table>"
@@ -459,19 +499,20 @@
 				else
 					dat += "<BR><FONT COLOR=red>No beaker inside. Please insert a beaker.</FONT><BR>"
 			if("nopoints")
-				dat += "You do not have biomass to create products.<BR>Please, put growns into reactor and activate it.<BR>"
+				dat += "You do not have biomass to create products.<BR>Please put growns into the reactor and activate it.<BR>"
 				dat += "<A href='?src=\ref[src];action=menu'>Return to menu</A>"
 			if("complete")
 				dat += "Operation complete.<BR>"
 				dat += "<A href='?src=\ref[src];action=menu'>Return to menu</A>"
 			if("void")
-				dat += "<FONT COLOR=red>Error: No growns inside.</FONT><BR>Please, put growns into reactor.<BR>"
+				dat += "<FONT COLOR=red>Error: No growns inside.</FONT><BR>Please put growns into the reactor.<BR>"
 				dat += "<A href='?src=\ref[src];action=menu'>Return to menu</A>"
-	dat += "</body><html>"
+	dat += "</body></html>"
 
-	user << browse(dat, "window=biogenerator")
-	onclose(user, "biogenerator")
-	return
+	var/datum/browser/biogen_win = new(user, "biogenerator", "Biogenerator", 450, 500)
+	biogen_win.set_content(dat)
+	biogen_win.add_stylesheet("misc", 'html/browser/misc.css')
+	biogen_win.open()
 
 /obj/machinery/biogenerator/attack_hand(mob/user as mob)
 	interact(user)
@@ -520,27 +561,48 @@
 	var/delay = totake/2
 	//Meat = 5 seconds
 
+	if(!processing)
+		processing = TRUE
+		update_icon()
+		updateUsrDialog()
+
+	sleep(delay)
+	var/obj/made_container
 	for(var/i = 1,i <= count; i++)
-		if (totake > points)
+		updateUsrDialog()
+		if(totake > points)
+			processing = FALSE
 			menustat = "nopoints"
-			return 0
+			update_icon()
+			return FALSE
 		else
-			if(!processing)
-				processing = 1
-				update_icon()
-				updateUsrDialog()
 			points -= totake
 			use_power(totake * 0.25)
-			sleep( delay )
 			playsound(src.loc, "switchsounds", 50, 1)
 			var/new_object = recipie_data["object"]
-			new new_object(loc)
+			if(ispath(new_object, /obj/item/reagent_containers/pill))
+				if(!made_container)
+					made_container = new /obj/item/storage/pill_bottle(loc)
+				new new_object(made_container)
+			else if(ispath(new_object, /obj/item/stack/medical)) // we want full amounts of medical supplies
+				new new_object(loc)
+				sleep(delay)
+			else if(ispath(new_object, /obj/item/stack))
+				var/subtract_amount = totake * (count - 1)
+				points -= subtract_amount
+				use_power(subtract_amount * 0.25)
+				new new_object(loc, count)
+				break
+			else
+				new new_object(loc)
+				sleep(delay)
 
 	sleep(10)
 
 	processing = 0
 	menustat = "complete"
 	update_icon()
+	updateUsrDialog()
 	return 1
 
 /obj/machinery/biogenerator/Topic(href, href_list)
@@ -556,6 +618,7 @@
 		if("detach")
 			if(beaker)
 				beaker.forceMove(src.loc)
+				usr.put_in_hands(beaker)
 				beaker = null
 				update_icon()
 		if("create")
@@ -566,8 +629,8 @@
 
 /obj/machinery/biogenerator/RefreshParts()
 	..()
-	var/man_rating = 1
-	var/bin_rating = 1
+	var/man_rating = 0
+	var/bin_rating = 0
 
 	for(var/obj/item/stock_parts/P in component_parts)
 		if(ismatterbin(P))

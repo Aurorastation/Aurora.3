@@ -174,9 +174,9 @@ proc/get_radio_key_from_channel(var/channel)
 		else
 			message = copytext(message,3)
 
-	message = trim_left(message)
+	message = trim(message)
 
-	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE)
+	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, ">" = TRUE, "\"" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE, "*" = TRUE, "/" = TRUE)
 	var/ending = copytext(message, length(message), (length(message) + 1))
 	if(ending && !correct_punctuation[ending] && !(HULK in mutations))
 		message += "."

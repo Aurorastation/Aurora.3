@@ -156,12 +156,20 @@
 	desc = "A pair of tight-fitting synthleather gloves."
 	icon_state = "black_leather"
 	item_state = "black_leather"
+	
+/obj/item/clothing/gloves/black_leather/colour
+	icon_state = "full_leather_colour"
+	item_state = "full_leather_colour"
 
 /obj/item/clothing/gloves/fingerless
 	desc = "A pair of gloves that don't actually cover the fingers."
 	name = "fingerless gloves"
 	icon_state = "fingerlessgloves"
 	item_state = "fingerlessgloves"
+
+/obj/item/clothing/gloves/fingerless/colour
+	icon_state = "fingerlessgloves_colour"
+	item_state = "fingerlessgloves_colour" 
 	fingerprint_chance = 100
 	clipped = 1
 	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")

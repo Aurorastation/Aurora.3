@@ -788,7 +788,7 @@
 /datum/reagent/drink/carrotjuice/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
-		M.reagents.add_reagent(/datum/reagent/imidazoline, removed * 0.2)
+		M.reagents.add_reagent(/datum/reagent/oculine, removed * 0.2)
 
 /datum/reagent/drink/grapejuice
 	name = "Grape Juice"
@@ -2550,16 +2550,17 @@
 	glass_name = "glass of champagne mojito"
 	glass_desc = "Looks fun!"
 
-/datum/reagent/alcohol/ethanol/changelingsting
-	name = "Changeling Sting"
-	description = "You take a tiny sip and feel a burning sensation..."
-	color = "#2E6671"
+/datum/reagent/alcohol/ethanol/gibsonpunch
+	name = "Gibson Punch"
+	description = "An alcoholic fruit punch. It seems horribly sour at first, but a sweetly bitter aftertaste lingers in the mouth."
+	color = "#5f712e"
 	strength = 40
-	taste_description = "your brain coming out your nose"
+	taste_description = "sour and bitter fruit"
 
-	glass_icon_state = "changelingsting"
-	glass_name = "glass of Changeling Sting"
-	glass_desc = "A stingy drink."
+	glass_icon_state = "gibsonpunch"
+	glass_name = "glass of Gibson Punch"
+	glass_desc = "An alcoholic fruit punch."
+	glass_center_of_mass = list("x"=16, "y"=8)
 
 /datum/reagent/alcohol/ethanol/classic
 	name = "The Classic"
@@ -2590,7 +2591,7 @@
 	name = "Cork Popper"
 	description = "A fancy cocktail with a hint of lemon."
 	color = "#766818"
-	strength = "30"
+	strength = 30
 	taste_description = "sour and smokey"
 
 	glass_icon_state = "corkpopper"
@@ -3139,18 +3140,18 @@
 	glass_desc = "A froofy, fruity, and sweet mixed drink. Understanding the name only brings shame."
 	glass_center_of_mass = list("x"=16, "y"=5)
 
-/datum/reagent/alcohol/ethanol/syndicatebomb
-	name = "Syndicate Bomb"
-	description = "Tastes like terrorism!"
-	color = "#2E6671"
+/datum/reagent/alcohol/ethanol/gibsonhooch
+	name = "Gibson Hooch"
+	description = "A disgusting concoction of cheap alcohol and soda - just what you need after a busy day at the factories."
+	color = "#5f641d"
 	strength = 65
-	taste_description = "purified antagonism"
+	taste_description = "cheap labor"
 	carbonated = TRUE
 
-	glass_icon_state = "syndicatebomb"
-	glass_name = "glass of Syndicate Bomb"
-	glass_desc = "Tastes like terrorism!"
-	glass_center_of_mass = list("x"=16, "y"=4)
+	glass_icon_state = "gibsonhooch"
+	glass_name = "glass of Gibson Hooch"
+	glass_desc = "A factory worker's favorite... Because they can't afford much else."
+	glass_center_of_mass = list("x"=16, "y"=10)
 
 /datum/reagent/alcohol/ethanol/tequila_sunrise
 	name = "Tequila Sunrise"
@@ -4309,3 +4310,14 @@
 	description = "A delicious seasonal flavoring."
 	color = "#AE771C"
 	taste_description = "autumn bliss"
+
+/datum/reagent/diona_powder
+	name = "Dionae Powder"
+	description = "Powdered Dionae ambergris to add that extra pazazz to any dish."
+	reagent_state = SOLID
+	color = "#e08702"
+	taste_description = "diona delicacy"
+	fallback_specific_heat = 2
+	condiment_name = "bottle of dionae powder"
+	condiment_icon_state = "dionaepowder"
+	condiment_center_of_mass = list("x"=16, "y"=10)

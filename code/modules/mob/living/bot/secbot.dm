@@ -90,7 +90,7 @@
 	frustration = 0
 	mode = SECBOT_IDLE
 
-/mob/living/bot/secbot/update_icons()
+/mob/living/bot/secbot/update_icon()
 	if(on && is_attacking)
 		icon_state = "secbot-c"
 	else
@@ -295,7 +295,7 @@
 			playsound(loc, 'sound/weapons/Egloves.ogg', 50, 1, -1)
 			do_attack_animation(C)
 			is_attacking = 1
-			update_icons()
+			update_icon()
 			addtimer(CALLBACK(src, .proc/stop_attacking_cb), 2)
 			visible_message("<span class='warning'>[C] was prodded by [src] with a stun baton!</span>")
 		else
@@ -313,13 +313,13 @@
 		do_attack_animation(M)
 		playsound(loc, "swing_hit", 50, 1, -1)
 		is_attacking = 1
-		update_icons()
+		update_icon()
 		addtimer(CALLBACK(src, .proc/stop_attacking_cb), 2)
 		visible_message("<span class='warning'>[M] was beaten by [src] with a stun baton!</span>")
 
 /mob/living/bot/secbot/proc/stop_attacking_cb()
 	is_attacking = FALSE
-	update_icons()
+	update_icon()
 
 /mob/living/bot/secbot/explode()
 	visible_message("<span class='warning'>[src] blows apart!</span>")

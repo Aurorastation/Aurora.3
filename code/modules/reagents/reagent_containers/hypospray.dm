@@ -156,25 +156,25 @@
 		to_chat(user, SPAN_NOTICE("It is empty."))
 
 
-/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine
-	name = "autoinjector (norepinephrine)"
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
+	name = "autoinjector (inaprovaline)"
 	volume = 5
 	amount_per_transfer_from_this = 20
 	flags = 0
 
-/obj/item/reagent_containers/hypospray/autoinjector/norepinephrine/Initialize()
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline/Initialize()
 	. =..()
-	reagents.add_reagent(/datum/reagent/norepinephrine, 5)
+	reagents.add_reagent(/datum/reagent/inaprovaline, 5)
 	update_icon()
 	return
 
 /obj/item/reagent_containers/hypospray/autoinjector/stimpack
 	name = "stimpack"
-	desc = "A simple chemical cocktail of hyperzine and tramadol designed to boost efficiency by 6,000% (estimated). Hoo-rah!"
+	desc = "A simple chemical cocktail of hyperzine and mortaphenyl designed to boost efficiency by 6,000% (estimated). Hoo-rah!"
 	volume = 20
 	amount_per_transfer_from_this = 20
 
-	reagents_to_add = list(/datum/reagent/hyperzine = 12, /datum/reagent/tramadol = 8)
+	reagents_to_add = list(/datum/reagent/hyperzine = 12, /datum/reagent/mortaphenyl = 8)
 
 /obj/item/reagent_containers/hypospray/autoinjector/survival
 	name = "survival autoinjector"
@@ -182,7 +182,7 @@
 	volume = 35
 	amount_per_transfer_from_this = 35
 
-	reagents_to_add = list(/datum/reagent/tricordrazine = 15, /datum/reagent/norepinephrine = 5, /datum/reagent/dexalin/plus = 5, /datum/reagent/oxycodone = 5, /datum/reagent/mental/methylphenidate = 5)
+	reagents_to_add = list(/datum/reagent/tricordrazine = 15, /datum/reagent/inaprovaline = 5, /datum/reagent/dexalin/plus = 5, /datum/reagent/oxycomorphine = 5, /datum/reagent/mental/corophenidate = 5)
 
 /obj/item/reagent_containers/hypospray/combat
 	name = "combat hypospray"
@@ -193,4 +193,4 @@
 	armorcheck = 0
 	time = 0
 
-	reagents_to_add = list(/datum/reagent/oxycodone = 5, /datum/reagent/synaptizine = 5, /datum/reagent/hyperzine = 5, /datum/reagent/arithrazine = 5)
+	reagents_to_add = list(/datum/reagent/oxycomorphine = 5, /datum/reagent/synaptizine = 5, /datum/reagent/hyperzine = 5, /datum/reagent/arithrazine = 5)
