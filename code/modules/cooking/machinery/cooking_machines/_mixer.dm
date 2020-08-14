@@ -40,12 +40,12 @@ fundamental differences
 		return
 
 	if(output_options.len)
-		var/choice = input("What specific food do you wish to make with \the [src]?") as null|anything in output_options
+		var/choice = input("What specific food do you wish to make with [src]?") as null|anything in output_options
 		if(!choice)
 			return
 		else
 			selected_option = choice
-			to_chat(usr, SPAN_NOTICE("You prepare \the [src] to make \a [selected_option]."))
+			to_chat(usr, SPAN_NOTICE("You prepare [src] to make \a [selected_option]."))
 			var/datum/cooking_item/CI = cooking_objs[1]
 			CI.combine_target = selected_option
 
@@ -97,7 +97,7 @@ fundamental differences
 
 /obj/machinery/appliance/mixer/can_insert(var/obj/item/I, var/mob/user)
 	if (!stat)
-		to_chat(user, SPAN_WARNING("You can't add items while \the [src] is running. Wait for it to finish or turn the power off to abort"))
+		to_chat(user, SPAN_WARNING("You can't add items while [src] is running. Wait for it to finish or turn the power off to abort"))
 		return 0
 	else
 		return ..()

@@ -21,7 +21,7 @@
 	if (.)	//no need to duplicate adjacency check
 		if (!stat)
 			if (temperature < min_temp)
-				to_chat(user, SPAN_WARNING("\The [src] is still heating up and is too cold to cook anything yet."))
+				to_chat(user, SPAN_WARNING("[src] is still heating up and is too cold to cook anything yet."))
 			else
 				to_chat(user, SPAN_NOTICE("It is running at [round(get_efficiency(), 0.1)]% efficiency!"))
 			to_chat(user, "Temperature: [round(temperature - T0C, 0.1)]C / [round(optimal_temp - T0C, 0.1)]C")

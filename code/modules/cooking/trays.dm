@@ -61,7 +61,7 @@
 			break
 
 	if(protected)
-		to_chat(M, "<span class='warning'>You get slammed in the face with the tray, against your mask!</span>")
+		to_chat(M, SPAN_WARNING("You get slammed in the face with the tray, against your mask!"))
 		if(prob(33) && !issilicon(M))
 			add_blood(H)
 			if (H.wear_mask)
@@ -86,7 +86,7 @@
 			return
 
 	else if (!issilicon(M))//No eye or head protection, tough luck!
-		to_chat(M, "<span class='danger'>You get slammed in the face with the tray!</span>")
+		to_chat(M, SPAN_DANGER("You get slammed in the face with the tray!"))
 		if(prob(33))
 			add_blood(M)
 			var/turf/location = get_turf(H)
@@ -110,7 +110,7 @@
 
 	if(istype(I, /obj/item/material/kitchen/rollingpin))
 		if(cooldown < world.time - 25)
-			user.visible_message("<span class='warning'>[user] bashes [src] with [I]!</span>")
+			user.visible_message(SPAN_DANGER("[user] bashes [src] with [I]!"))
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 			cooldown = world.time
 		return

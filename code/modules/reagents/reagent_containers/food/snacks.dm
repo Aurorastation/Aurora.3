@@ -3616,7 +3616,14 @@
 	name = "squid meat"
 	desc = "Soylent squid is (not) people!"
 	icon_state = "squidmeat"
-	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 2)
+	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 3)
+
+/obj/item/reagent_containers/food/snacks/squidmeat/attackby(var/obj/item/W, var/mob/user)
+	if(is_sharp(W) && (locate(/obj/structure/table) in loc))
+		var/transfer_amt = Floor(reagents.total_volume/3)
+		for(var/i = 1 to 3)
+			var/obj/item/reagent_containers/food/snacks/sashimi/sashimi = new(get_turf(src), "squid")
+			reagents.trans_to(sashimi, transfer_amt)
 
 /obj/item/reagent_containers/food/snacks/lortl
 	name = "lortl"
@@ -3813,17 +3820,6 @@
 	reagents_to_add = list(/datum/reagent/nutriment = 5, /datum/reagent/nutriment/protein = 4)
 	reagent_data = list(/datum/reagent/nutriment = list("dough" = 4, "cabbage" = 2))
 	bitesize = 3
-
-/obj/item/reagent_containers/food/snacks/sashimi
-	name = "sashimi"
-	desc = "A traditional human dish."
-	icon_state = "sashimi"
-	trash = /obj/item/trash/grease
-	drop_sound = 'sound/items/trayhit1.ogg'
-	filling_color = "#FFDEFE"
-	center_of_mass = list("x"=17, "y"=13)
-	bitesize = 4
-	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 3)
 
 /obj/item/reagent_containers/food/snacks/nugget
 	name = "chicken nugget"

@@ -55,8 +55,10 @@
 	icon = 'icons/obj/sushi.dmi'
 	desc = "Thinly sliced raw fish. Tasty."
 	icon_state = "sashimi"
+	filling_color = "#FFDEFE"
 	gender = PLURAL
-	bitesize = 1
+	bitesize = 3
+	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 3)
 	var/fish_type = "fish"
 	var/slices = 1
 
@@ -68,14 +70,13 @@
 
 /obj/item/reagent_containers/food/snacks/sashimi/update_icon()
 	icon_state = "sashimi_base"
-	var/list/adding = list()
+	cut_overlays()
 	var/slice_offset = (slices-1)*2
 	for(var/slice = 1 to slices)
 		var/image/I = image(icon = icon, icon_state = "sashimi")
 		I.pixel_x = slice_offset-((slice-1)*4)
 		I.pixel_y = I.pixel_x
-		adding += I
-	set_overlays(adding)
+		add_overlay(I)
 
 /obj/item/reagent_containers/food/snacks/sashimi/attackby(var/obj/item/I, var/mob/user)
 	if(!(locate(/obj/structure/table) in loc))
@@ -85,7 +86,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/sashimi))
 		var/obj/item/reagent_containers/food/snacks/sashimi/other_sashimi = I
 		if(slices + other_sashimi.slices > 5)
-			to_chat(user, "<span class='warning'>Show some restraint, would you?</span>")
+			to_chat(user, SPAN_WARNING("You can't stack the sashimi that high!"))
 			return
 		if(!user.unEquip(I))
 			return
@@ -100,7 +101,7 @@
 	// Make sushi.
 	if(istype(I, /obj/item/reagent_containers/food/snacks/boiledrice))
 		if(slices > 1)
-			to_chat(user, "<span class='warning'>Putting more than one slice of fish on your sushi is just greedy.</span>")
+			to_chat(user, SPAN_WARNING("Putting more than one slice of fish on your sushi is just greedy."))
 		else
 			if(!user.unEquip(I))
 				return
@@ -123,7 +124,7 @@
 	if(istype(I, /obj/item/reagent_containers/food/snacks/sashimi))
 		var/obj/item/reagent_containers/food/snacks/sashimi/sashimi = I
 		if(sashimi.slices > 1)
-			to_chat(user, "<span class='warning'>Putting more than one slice of fish on your sushi is just greedy.</span>")
+			to_chat(user, SPAN_WARNING("Putting more than one slice of fish on your sushi is just greedy."))
 			return
 	if(is_type_in_typecache(I, acceptable_types))
 		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), src, I)
