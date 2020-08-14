@@ -362,7 +362,6 @@
 	if(prob(organ_hit_chance))
 		var/obj/item/organ/internal/victim = pickweight(victims)
 		damage_amt = max(damage_amt*victim.damage_reduction, 0)
-		world << "Damage given to: <b>[victim]</b>: [damage_amt]"
 		victim.take_internal_damage(damage_amt)
 		return TRUE
 
