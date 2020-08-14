@@ -82,7 +82,7 @@
 	total_mules++
 	if(!suffix)
 		suffix = "#[total_mules]"
-	name = "Mulebot ([suffix])"
+	name = name + "([suffix])"
 
 /obj/machinery/bot/mulebot/Destroy()
 	unload(0)
