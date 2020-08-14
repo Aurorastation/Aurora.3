@@ -270,7 +270,7 @@
 	appliance = MIX | SKILLET
 	fruit = list("chili" = 1, "lemon" = 1)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/carpmeat,
+		/obj/item/reagent_containers/food/snacks/fish,
 		/obj/item/reagent_containers/food/snacks/tortilla
 	)
 	result = /obj/item/reagent_containers/food/snacks/fish_taco

@@ -82,6 +82,6 @@
 	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fries,
-		/obj/item/reagent_containers/food/snacks/carpmeat
+		/obj/item/reagent_containers/food/snacks/fish
 	)
 	result = /obj/item/reagent_containers/food/snacks/fishandchips
