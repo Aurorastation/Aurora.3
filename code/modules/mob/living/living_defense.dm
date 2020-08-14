@@ -13,6 +13,7 @@
 #define MOB_FIRE_LIGHT_POWER  2
 
 /mob/living/proc/run_armor_check(var/def_zone = null, var/attack_flag = "melee", var/armor_pen = 0, var/absorb_text = null, var/soften_text = null)
+	testing("Running armor check")
 	if(armor_pen >= 100)
 		return 0 //might as well just skip the processing
 
@@ -21,9 +22,9 @@
 	if(armor_pen >= armor)
 		return 0 //effective_armor is going to be 0
 
-	var/blocked = (armor - armor_pen)/100
+	var/blocked = (armor - armor_pen)
 
-	if(blocked >= 1)
+	if(blocked >= 100)
 		if(absorb_text)
 			show_message("<span class='warning'>[absorb_text]</span>")
 		else
@@ -37,6 +38,7 @@
 		else
 			show_message("<span class='warning'>Your armor softens the blow!</span>")
 
+	testing("Blocked is [blocked]")
 	return round(blocked, 1)
 
 //Adds two armor values together.
