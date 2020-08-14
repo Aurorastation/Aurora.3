@@ -16582,10 +16582,6 @@
 /area/medical/abandoned)
 "aHb" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets{
-	pixel_x = 2;
-	pixel_y = 4
-	},
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -27227,7 +27223,10 @@
 	icon_state = "0-4"
 	},
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/snack{
+	name = "corporate care package";
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "dHl" = (
@@ -27801,9 +27800,6 @@
 	},
 /area/mine/unexplored)
 "eCT" = (
-/obj/machinery/microwave{
-	pixel_y = 4
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -32509,13 +32505,16 @@
 /area/engineering/break_room)
 "pQb" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light/small{
 	dir = 4
 	},
 /obj/item/reagent_containers/food/drinks/teapot{
 	pixel_y = 16
+	},
+/obj/item/storage/box/snack{
+	name = "corporate care package";
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/patient_wing_hallway)
@@ -34779,10 +34778,6 @@
 "uYK" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -2;
-	pixel_y = 5
-	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
 "uZy" = (
@@ -35981,14 +35976,15 @@
 /area/engineering/backup_SMES)
 "xsE" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_y = 4
-	},
 /obj/machinery/light_switch{
 	pixel_y = 26
 	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
+	},
+/obj/item/storage/box/snack{
+	name = "corporate care package";
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)

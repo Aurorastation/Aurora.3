@@ -10,6 +10,7 @@
 	force = 6
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
+	center_of_mass = list("x"=14, "y"=6)
 
 /obj/item/reagent_containers/ladle/afterattack(var/obj/target, var/mob/user, var/flag)
 	if(!target.is_open_container()) // Taking from something, or trying to hit someone?

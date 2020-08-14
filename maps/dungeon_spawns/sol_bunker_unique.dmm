@@ -30,8 +30,7 @@
 /turf/simulated/floor/lino,
 /area/dungeon/sol_outpost)
 "ag" = (
-/obj/structure/table/standard,
-/obj/machinery/microwave,
+/obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/lino,
 /area/dungeon/sol_outpost)
 "ah" = (
@@ -49,7 +48,7 @@
 /area/dungeon/sol_outpost)
 "aj" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/snack,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "ak" = (
@@ -1242,6 +1241,11 @@
 /obj/item/reagent_containers/toothbrush,
 /turf/simulated/floor/tiled/white,
 /area/dungeon/sol_outpost)
+"eF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/reagent_containers/cooking_container/skillet,
+/turf/simulated/floor/tiled/steel,
+/area/dungeon/sol_outpost)
 
 (1,1,1) = {"
 aa
@@ -1696,7 +1700,7 @@ aD
 aA
 aP
 aN
-aN
+eF
 bq
 bE
 bR

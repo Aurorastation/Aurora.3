@@ -1515,19 +1515,6 @@
 	icon_state = "white"
 	},
 /area/derelict)
-"eb" = (
-/obj/structure/table/reinforced,
-/obj/machinery/microwave{
-	pixel_x = -1;
-	pixel_y = 8
-	},
-/turf/simulated/floor/lino,
-/area/derelict)
-"ec" = (
-/obj/machinery/media/jukebox,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/lino,
-/area/derelict)
 "ed" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -1743,6 +1730,8 @@
 	req_access = list(150)
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/plate,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -1765,11 +1754,11 @@
 	opacity = 0
 	},
 /obj/structure/table/reinforced,
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/storage/box/snack{
+	pixel_x = -1;
+	pixel_y = 8
+	},
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -2530,6 +2519,17 @@
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
+/area/derelict)
+"Cf" = (
+/obj/machinery/media/jukebox,
+/turf/simulated/floor/lino,
+/area/derelict)
+"NB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/lino,
 /area/derelict)
 
 (1,1,1) = {"
@@ -6607,8 +6607,8 @@ bl
 bl
 bl
 ab
-eb
-bl
+ab
+NB
 bl
 bl
 ab
@@ -6682,8 +6682,8 @@ bl
 bl
 bl
 ab
-ab
-bn
+Cf
+bl
 bl
 bl
 ab
@@ -6757,7 +6757,7 @@ ab
 dw
 dw
 ab
-ec
+bl
 bl
 bl
 ab

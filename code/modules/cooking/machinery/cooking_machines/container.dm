@@ -178,7 +178,7 @@
 	flags = OPENCONTAINER // Will still react
 	appliancetype = SAUCEPAN
 
-/obj/item/reagent_containers/cooking_container/pan/Initialize(var/mat_key)
+/obj/item/reagent_containers/cooking_container/saucepan/Initialize(var/mat_key)
 	. = ..()
 	var/material/material = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
 	if(material.name != MATERIAL_STEEL)

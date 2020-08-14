@@ -3295,9 +3295,9 @@
 	dir = 8
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	frequency = 1475;
-	listening = FALSE;
+	listening = 0;
 	name = "Station Intercom (Security)";
 	pixel_x = -30
 	},
@@ -3367,6 +3367,7 @@
 /turf/simulated/wall/r_wall,
 /area/crew_quarters/heads/hos)
 "ags" = (
+/turf/simulated/floor/plating,
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized{
@@ -3377,7 +3378,6 @@
 	dir = 8;
 	id = "RD"
 	},
-/turf/simulated/floor/plating,
 /turf/template_noop,
 /area/rnd/research)
 "agt" = (
@@ -4134,9 +4134,9 @@
 /area/security/brig)
 "ahN" = (
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	frequency = 1449;
-	listening = FALSE;
+	listening = 0;
 	pixel_y = 25
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4762,9 +4762,9 @@
 "aja" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	frequency = 1475;
-	listening = FALSE;
+	listening = 0;
 	name = "Station Intercom (Security)";
 	pixel_x = -30
 	},
@@ -10183,9 +10183,9 @@
 "asL" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	frequency = 1475;
-	listening = FALSE;
+	listening = 0;
 	name = "Station Intercom (Security)";
 	pixel_y = -30
 	},
@@ -11652,15 +11652,17 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/microwave,
+/obj/item/storage/box/snack{
+	name = "corporate care package";
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "awj" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
-/obj/item/storage/box/donkpockets{
-	pixel_x = -3;
-	pixel_y = -3
+/obj/item/storage/box/snack{
+	name = "corporate care package";
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -21785,7 +21787,7 @@
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	frequency = 1480;
 	name = "Confessional Intercom";
 	pixel_x = 25
@@ -23170,7 +23172,7 @@
 "aSL" = (
 /obj/machinery/light/small,
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	frequency = 1480;
 	name = "Confessional Intercom";
 	pixel_x = 25
@@ -23961,17 +23963,13 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
 "aUq" = (
-/obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -3;
-	pixel_y = 6
-	},
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
 	},
+/obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
 "aUr" = (
@@ -31937,7 +31935,7 @@
 	name = "tripai"
 	},
 /obj/item/device/radio/intercom{
-	listening = FALSE;
+	listening = 0;
 	name = "Custom Channel";
 	pixel_y = 20
 	},
@@ -31947,7 +31945,7 @@
 	pixel_y = -26
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	name = "Common Channel";
 	pixel_x = -25;
 	pixel_y = -4
@@ -31985,7 +31983,7 @@
 	pixel_y = 5
 	},
 /obj/item/device/radio/intercom{
-	listening = FALSE;
+	listening = 0;
 	name = "Custom Channel";
 	pixel_x = -27;
 	pixel_y = 4
@@ -31994,7 +31992,7 @@
 	name = "AI"
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	name = "Common Channel";
 	pixel_y = 25
 	},
@@ -32042,7 +32040,7 @@
 	name = "tripai"
 	},
 /obj/item/device/radio/intercom{
-	listening = FALSE;
+	listening = 0;
 	name = "Custom Channel";
 	pixel_y = 19
 	},
@@ -32052,7 +32050,7 @@
 	pixel_y = -26
 	},
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	name = "Common Channel";
 	pixel_x = 27;
 	pixel_y = -3
@@ -44789,9 +44787,9 @@
 /area/medical/psych)
 "bHh" = (
 /obj/item/device/radio/intercom{
-	broadcasting = TRUE;
+	broadcasting = 1;
 	frequency = 1481;
-	listening = FALSE;
+	listening = 0;
 	name = "station intercom (Isolation Room)";
 	pixel_x = 27
 	},
@@ -70258,21 +70256,13 @@
 /area/medical/abandoned)
 "cDh" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
+/obj/item/storage/box/snack{
+	name = "corporate care package";
+	pixel_y = 4
 	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/abandoned)
-"cDi" = (
-/obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -3;
-	pixel_y = 6
+/obj/item/storage/box/snack{
+	name = "corporate care package";
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/abandoned)
@@ -70941,18 +70931,17 @@
 /area/engineering/engine_monitoring)
 "cEz" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -2;
-	pixel_y = 5
-	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "cEA" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
 /obj/machinery/status_display{
 	layer = 4;
 	pixel_y = 32
+	},
+/obj/item/storage/box/snack{
+	name = "corporate care package";
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
@@ -75308,6 +75297,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/fore)
+"lWR" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/item/storage/box/snack{
+	name = "corporate care package";
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics/garden)
 "lXF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -117310,7 +117309,7 @@ cze
 cmi
 cmi
 cmi
-cDi
+cES
 cEf
 cET
 cFy
@@ -118024,7 +118023,7 @@ aWe
 aWe
 aWe
 aWe
-aWe
+lWR
 aWe
 bfO
 bhn

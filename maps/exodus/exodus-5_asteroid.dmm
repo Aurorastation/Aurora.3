@@ -1442,11 +1442,6 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/wood,
 /area/outpost/research/kitchen)
-"dh" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
-/turf/simulated/floor/wood,
-/area/outpost/research/kitchen)
 "di" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 4
@@ -2049,13 +2044,19 @@
 /area/outpost/research/kitchen)
 "eg" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
 /obj/machinery/light,
+/obj/item/storage/box/snack{
+	name = "corporate care package";
+	pixel_y = 4
+	},
 /turf/simulated/floor/wood,
 /area/outpost/research/kitchen)
 "eh" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave,
+/obj/item/storage/box/snack{
+	name = "corporate care package";
+	pixel_y = 4
+	},
 /turf/simulated/floor/wood,
 /area/outpost/research/kitchen)
 "ei" = (
@@ -7420,7 +7421,10 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/snack{
+	name = "corporate care package";
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_north)
 "pe" = (
@@ -7434,9 +7438,6 @@
 "pf" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/cobweb2,
-/obj/machinery/microwave{
-	pixel_y = 6
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
@@ -8641,7 +8642,10 @@
 /area/outpost/engineering/meeting)
 "rc" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/snack{
+	name = "corporate care package";
+	pixel_y = 4
+	},
 /turf/simulated/floor/carpet,
 /area/outpost/engineering/meeting)
 "rd" = (
@@ -9420,7 +9424,6 @@
 	dir = 8
 	},
 /obj/structure/table/standard,
-/obj/machinery/microwave,
 /turf/simulated/floor/wood,
 /area/outpost/engineering/meeting)
 "sA" = (
@@ -12163,7 +12166,10 @@
 /area/outpost/mining_west)
 "xw" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave,
+/obj/item/storage/box/snack{
+	name = "corporate care package";
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "xx" = (
@@ -12262,14 +12268,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/outpost/mining_west)
-"xH" = (
-/obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_y = 6
-	},
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled,
-/area/outpost/mining_main/dorms)
 "xI" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled,
@@ -12406,11 +12404,6 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "yc" = (
-/turf/simulated/floor/tiled,
-/area/outpost/mining_west)
-"yd" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "ye" = (
@@ -12881,12 +12874,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/explored)
-"yR" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
-/obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled,
-/area/outpost/mining_main/dorms)
 "yS" = (
 /obj/structure/cable/blue{
 	d2 = 4;
@@ -16082,6 +16069,15 @@
 /obj/effect/shuttle_landmark/skipjack/mining_asteroid,
 /turf/template_noop,
 /area/template_noop)
+"FU" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/item/storage/box/snack{
+	name = "corporate care package";
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/dorms)
 "MY" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -30663,7 +30659,7 @@ ja
 ja
 xb
 xw
-yd
+yc
 yF
 zq
 zO
@@ -48138,9 +48134,9 @@ ab
 ab
 ab
 wx
-xH
 yr
-yR
+FU
+yr
 wx
 ab
 cS
@@ -61636,7 +61632,7 @@ bB
 bY
 bY
 by
-dh
+dg
 df
 eh
 eD

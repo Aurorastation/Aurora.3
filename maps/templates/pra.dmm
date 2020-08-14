@@ -276,9 +276,7 @@
 /area/derelict/ship)
 "aN" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/closet/secure_closet/freezer/kitchen{
-	req_access = null
-	},
+/obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "aO" = (
@@ -587,12 +585,6 @@
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
-"bI" = (
-/obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/table/wood,
-/obj/machinery/microwave,
-/turf/simulated/floor/tiled/white,
-/area/derelict/ship)
 "bJ" = (
 /turf/simulated/floor/shuttle/black,
 /area/derelict/ship)
@@ -601,7 +593,18 @@
 /area/derelict/ship)
 "bL" = (
 /obj/effect/floor_decal/corner/black/diagonal,
-/obj/structure/table/wood,
+/obj/structure/closet/secure_closet/freezer/kitchen{
+	req_access = null
+	},
+/obj/item/storage/box/snack,
+/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/cooking_container/plate,
+/obj/item/reagent_containers/cooking_container/pot,
+/obj/item/reagent_containers/cooking_container/pot,
+/obj/item/reagent_containers/cooking_container/saucepan,
+/obj/item/reagent_containers/cooking_container/saucepan,
+/obj/item/reagent_containers/cooking_container/skillet,
+/obj/item/reagent_containers/cooking_container/skillet,
 /turf/simulated/floor/tiled/white,
 /area/derelict/ship)
 "bM" = (
@@ -2031,7 +2034,7 @@ aG
 aG
 aG
 by
-bI
+aG
 ab
 bT
 bQ
