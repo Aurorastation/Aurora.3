@@ -135,9 +135,10 @@
 	icon_state = "brute"
 	item_state = "brute"
 	starts_with = list(
-		/obj/item/stack/medical/bruise_pack = 3,
+		/obj/item/stack/medical/bruise_pack = 2,
 		/obj/item/stack/medical/advanced/bruise_pack = 2,
-		/obj/item/reagent_containers/pill/bicaridine = 2
+		/obj/item/reagent_containers/pill/bicaridine = 2,
+		/obj/item/device/healthanalyzer = 1
 	)
 
 /*
