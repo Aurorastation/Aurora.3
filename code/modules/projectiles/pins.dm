@@ -30,6 +30,10 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	if(istype(loc, /obj/item/gun))
 		gun = loc
 
+/obj/item/device/firing_pin/proc/examine_info()
+		return
+
+
 /obj/item/device/firing_pin/afterattack(atom/target, mob/user, proximity_flag)
 	if(proximity_flag)
 		if(istype(target, /obj/item/gun))
@@ -227,11 +231,24 @@ Pins Below.
 var/list/wireless_firing_pins = list() //A list of all initialized wireless firing pins. Used in the firearm tracking console in guntracker.dm
 
 /obj/item/device/firing_pin/wireless
-	name = "security level firing pin"
-	desc = "This security level locked firing pin allows weapons to be fired only when the security level is elevated."
-	fail_message = "<span class='warning'>SECURITY LEVEL INSUFFICIENT.</span>"
+	name = "wireless-control firing pin"
+	desc = "This firing pin is wirelessly controlled. On automatic mode it allow allows weapons to be fired on stun unless the alert level is elevated. Otherwise, it can be controlled from a firearm control console."
+	fail_message = "<span class='warning'>\The [gun] refuses to fire!</span>"
 	var/registered_user = "Unregistered"
 	var/lockstatus = WIRELESS_PIN_AUTOMATIC
+
+/obj/item/device/firing_pin/wireless/examine_info(mob/user)
+	var/wireless_description
+	switch(lockstatus)
+		if(WIRELESS_PIN_AUTOMATIC)
+			wireless_description = "is in automatic mode"
+		if(WIRELESS_PIN_DISABLED)
+			wireless_description = "has locked the trigger"
+		if(WIRELESS_PIN_STUN)
+			wireless_description = "is in stun-only mode"
+		if(WIRELESS_PIN_LETHAL)
+			wireless_description = "is in unrestricted mode"
+	to_chat(user, "The wireless-control firing pin [wireless_description].")
 
 /obj/item/device/firing_pin/wireless/Initialize() //Adds wireless pins to the list of initialized wireless firing pins.
 	wireless_firing_pins += src
@@ -282,7 +299,7 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 
 	if(i == WIRELESS_PIN_DISABLED)
 		playsound(user, 'sound/weapons/laser_safetyoff.ogg')
-		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s wireless firing pin deactivates.</b>"))
+		to_chat(user, SPAN_WARNING("<b>\The wireless firing pin locks \the [gun]'s trigger!</b>"))
 		lockstatus = WIRELESS_PIN_DISABLED
 
 	if(i == WIRELESS_PIN_STUN)

@@ -120,7 +120,7 @@
 
 /obj/item/gun/energy/disruptorpistol
 	name = "disruptor pistol"
-	desc = "Developed and produced by NanoTrasen for its internal security division, the NT DP-7 is a state of the art energy pistol capable of firing reduced-power blaster bolts which disrupt the central nervous system, inducing a stunning effect on the victim. It is also capable of firing full-power blaster bolts."
+	desc = "Developed and produced by NanoTrasen for its internal security division, the NT DP-7 is a state of the art blaster pistol capable of firing reduced-power bolts which disrupt the central nervous system, inducing a stunning effect on the victim. It is also capable of firing full-power blaster bolts."
 	icon = 'icons/obj/guns/disruptorpistol/disruptorpistols.dmi'
 	icon_state = "disruptorpistol"
 	item_state = "disruptorpistol"

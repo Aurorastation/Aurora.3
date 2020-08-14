@@ -611,6 +611,7 @@
 	if(needspin)
 		if(pin)
 			to_chat(user, "\The [pin] is installed in the trigger mechanism.")
+			pin.examine_info(user)
 		else
 			to_chat(user, "It doesn't have a firing pin installed, and won't fire.")
 	if(firemodes.len > 1)
