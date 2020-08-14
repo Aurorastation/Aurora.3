@@ -172,14 +172,5 @@
 	icon = 'icons/obj/guns/disruptorpistol/disruptorpistols.dmi'
 	return TRUE
 
-/obj/item/gun/energy/disruptorpistol/attackby(obj/item/C as obj, mob/user as mob)
-	if(istype(C, /obj/item/card/id))
-		if(istype(pin, /obj/item/device/firing_pin/wireless))
-			var/obj/item/device/firing_pin/wireless/thispin = pin
-			thispin.register_user(C, user)
-			return
-		to_chat(user, SPAN_NOTICE("You press your ID card against \the [name] but nothing happens."))
-	return
-
 /obj/item/gun/energy/disruptorpistol/security
 	pin = /obj/item/device/firing_pin/wireless

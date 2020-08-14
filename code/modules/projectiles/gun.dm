@@ -863,6 +863,9 @@
 		update_icon()
 		return
 
+	if(pin?.attackby(I, user))
+		return
+
 	if(istype(I, /obj/item/ammo_display))
 		if(!can_ammo_display)
 			to_chat(user, SPAN_WARNING("\The [I] cannot attach to \the [src]."))

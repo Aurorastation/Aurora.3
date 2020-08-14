@@ -233,7 +233,7 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 /obj/item/device/firing_pin/wireless
 	name = "wireless-control firing pin"
 	desc = "This firing pin is wirelessly controlled. On automatic mode it allow allows weapons to be fired on stun unless the alert level is elevated. Otherwise, it can be controlled from a firearm control console."
-	fail_message = "<span class='warning'>\The [gun] refuses to fire!</span>"
+	fail_message = "<span class='warning'>The wireless-control firing pin clicks!</span>"
 	var/registered_user = "Unregistered"
 	var/lockstatus = WIRELESS_PIN_AUTOMATIC
 
@@ -260,6 +260,8 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 
 /obj/item/device/firing_pin/wireless/pin_auth(mob/living/user)
 	if(lockstatus != WIRELESS_PIN_DISABLED) // If it's disabled it's disabled. No shooting on any mode.
+		if(lockstatus == WIRELESS_PIN_LETHAL) //Pin is unrestricted.
+			return TRUE
 		if(istype(gun, /obj/item/gun/energy)) //Only energy weapons can be fired on stun.
 			var/obj/item/gun/energy/thegun = gun
 			var/obj/item/projectile/energy/P = new thegun.projectile_type
@@ -273,48 +275,47 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 			return TRUE
 	return FALSE
 
-/obj/item/device/firing_pin/wireless/proc/register_user(obj/item/card/id/C, mob/living/user)//Registers users as the owner of the wireless pin.
-	if(C.registered_name == registered_user)
-		to_chat(user, SPAN_NOTICE("You press your ID against the RFID reader and it deregisters your identity."))
-		registered_user = "Unregistered"
-		return
-	to_chat(user, SPAN_NOTICE("You press your ID against the RFID reader and it chimes as it registers your identity."))
-	registered_user = C.registered_name
-	return
-
 /obj/item/device/firing_pin/wireless/proc/unlock(var/i) // Changes the current allowed firestates of the weapon.
-	var/mob/living/user
-	if(ismob(loc.loc))
-		user = loc.loc // pin -> gun -> user
-	else
-		user = loc.loc.loc // pin -> gun -> holster/bag/etc -> user
+	var/mob/user = get_holding_mob(src)
 
 	if(i == lockstatus)
 		return
 
 	if(i == WIRELESS_PIN_AUTOMATIC)
 		playsound(user, 'sound/weapons/laser_safetyon.ogg')
-		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s wireless firing pin is now set to automatic.</b>"))
+		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s wireless-control firing pin is now set to automatic.</b>"))
 		lockstatus = WIRELESS_PIN_AUTOMATIC
 
 	if(i == WIRELESS_PIN_DISABLED)
 		playsound(user, 'sound/weapons/laser_safetyoff.ogg')
-		to_chat(user, SPAN_WARNING("<b>\The wireless firing pin locks \the [gun]'s trigger!</b>"))
+		to_chat(user, SPAN_WARNING("<b>\The wireless-control firing pin locks \the [gun]'s trigger!</b>"))
 		lockstatus = WIRELESS_PIN_DISABLED
 
 	if(i == WIRELESS_PIN_STUN)
 		playsound(user, 'sound/weapons/laser_safetyon.ogg')
-		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s wireless firing pin is now set to stun only.</b>"))
+		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s wireless-control firing pin is now set to stun only.</b>"))
 		lockstatus = WIRELESS_PIN_STUN
 
 	if(i == WIRELESS_PIN_LETHAL)
 		playsound(user, 'sound/weapons/laser_safetyon.ogg')
-		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s wireless firing pin is now unrestricted.</b>"))
+		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s wireless-control firing pin is now unrestricted.</b>"))
 		lockstatus = WIRELESS_PIN_LETHAL
 	return
 
 /obj/item/device/firing_pin/wireless/attackby(obj/item/C as obj, mob/user as mob) //Lets people register their IDs to the pin.
 	if(istype(C, /obj/item/card/id))
-		register_user(C, user)
-		return
-	return . = ..()
+		var/obj/item/card/id/idcard = C
+		if(idcard.registered_name == registered_user)
+			to_chat(user, SPAN_NOTICE("You press your ID against the RFID reader and it deregisters your identity."))
+			registered_user = "Unregistered"
+			return TRUE
+		to_chat(user, SPAN_NOTICE("You press your ID against the RFID reader and it chimes as it registers your identity."))
+		registered_user = idcard.registered_name
+		return TRUE
+	return FALSE
+
+/obj/item/device/firing_pin/wireless/gun_insert(mob/living/user, obj/item/gun/G)
+	gun = G
+	user.drop_from_inventory(src,gun)
+	gun.pin = src
+	return
