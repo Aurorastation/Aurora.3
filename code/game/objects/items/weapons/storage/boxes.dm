@@ -290,9 +290,9 @@
 	starts_with = list(/obj/item/device/firing_pin = 7)
 
 /obj/item/storage/box/securitypins
-	name = "box of smartgun pins"
-	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons.  These firing pins are smartgun enabled."
-	starts_with = list(/obj/item/device/firing_pin/security_pin = 7)
+	name = "box of wireless-control firing pins"
+	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons.  These firing pins are wireless-control enabled."
+	starts_with = list(/obj/item/device/firing_pin/wireless = 7)
 
 /obj/item/storage/box/testpins
 	name = "box of firing pins"

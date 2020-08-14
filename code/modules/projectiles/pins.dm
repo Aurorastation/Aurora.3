@@ -224,37 +224,39 @@ Pins Below.
 	var/turf/T = get_turf(src)
 	return !isStationLevel(T.z)
 
-var/list/smartguns = list() //A list of all initialized smartguns. Used in the smartgun tracking console in smartgun.dm
+var/list/wireless_firing_pins = list() //A list of all initialized wireless firing pins. Used in the firearm tracking console in guntracker.dm
 
-/obj/item/device/firing_pin/security_pin
+/obj/item/device/firing_pin/wireless
 	name = "security level firing pin"
 	desc = "This security level locked firing pin allows weapons to be fired only when the security level is elevated."
 	fail_message = "<span class='warning'>SECURITY LEVEL INSUFFICIENT.</span>"
-	durable = TRUE
 	var/registered_user = "Unregistered"
-	var/lockstatus = TRUE
-	var/disablestatus = FALSE
+	var/lockstatus = WIRELESS_PIN_AUTOMATIC
 
-/obj/item/device/firing_pin/security_pin/Initialize() //Adds smartgun pins to the list of initialized smartguns.
-	smartguns += src
+/obj/item/device/firing_pin/wireless/Initialize() //Adds wireless pins to the list of initialized wireless firing pins.
+	wireless_firing_pins += src
 	return ..()
 
-/obj/item/device/firing_pin/security_pin/Destroy() //Removes the smartgun pins from the list of initialized smartguns.
-	smartguns -= src
+/obj/item/device/firing_pin/wireless/Destroy() //Removes the wireless pins from the list of initialized wireless firing pins.
+	wireless_firing_pins -= src
 	return ..()
 
-/obj/item/device/firing_pin/security_pin/pin_auth(mob/living/user)
-	if(!disablestatus)
+/obj/item/device/firing_pin/wireless/pin_auth(mob/living/user)
+	if(lockstatus != WIRELESS_PIN_DISABLED) // If it's disabled it's disabled. No shooting on any mode.
 		if(istype(gun, /obj/item/gun/energy)) //Only energy weapons can be fired on stun.
 			var/obj/item/gun/energy/thegun = gun
 			var/obj/item/projectile/energy/P = new thegun.projectile_type
-			if(P?.taser_effect) // Allow people to shoot if their gun is set to stun.
+			if(P?.taser_effect) // We've already checked whether it's disabled, and no other lockstatus excludes stun.
 				return TRUE
-		if((security_level != SEC_LEVEL_GREEN && security_level != SEC_LEVEL_BLUE) || !lockstatus) //Allow lethal gunfire only if the alert level isn't Green or Blue, or if someone unlocked the pin.
+			if(security_level != SEC_LEVEL_GREEN && security_level != SEC_LEVEL_BLUE && lockstatus == WIRELESS_PIN_STUN) // We're on elevated alert, but the gun has been manually set to only allow stun.
+				if(!P?.taser_effect) // Check if we're not shooting a stun effect.
+					return FALSE
+
+		if(security_level != SEC_LEVEL_GREEN && security_level != SEC_LEVEL_BLUE && lockstatus != WIRELESS_PIN_STUN) // If there's an elevated alert and the lockstatus isn't on stun.
 			return TRUE
 	return FALSE
 
-/obj/item/device/firing_pin/security_pin/proc/register_user(obj/item/card/id/C, mob/living/user)//Registers users as the owner of the smartgun pin.
+/obj/item/device/firing_pin/wireless/proc/register_user(obj/item/card/id/C, mob/living/user)//Registers users as the owner of the wireless pin.
 	if(C.registered_name == registered_user)
 		to_chat(user, SPAN_NOTICE("You press your ID against the RFID reader and it deregisters your identity."))
 		registered_user = "Unregistered"
@@ -263,41 +265,38 @@ var/list/smartguns = list() //A list of all initialized smartguns. Used in the s
 	registered_user = C.registered_name
 	return
 
-/obj/item/device/firing_pin/security_pin/proc/disable()// Toggles the disable restriction on the weapons. Allows NO firing at all!
+/obj/item/device/firing_pin/wireless/proc/unlock(var/i) // Changes the current allowed firestates of the weapon.
 	var/mob/living/user
 	if(ismob(loc.loc))
 		user = loc.loc // pin -> gun -> user
 	else
 		user = loc.loc.loc // pin -> gun -> holster/bag/etc -> user
 
-	if(disablestatus)
+	if(i == lockstatus)
+		return
+
+	if(i == WIRELESS_PIN_AUTOMATIC)
 		playsound(user, 'sound/weapons/laser_safetyon.ogg')
-		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s trigger unlocks.</b>"))
-		fail_message = "<span class='warning'>SECURITY LEVEL INSUFFICIENT.</span>"
-	else
+		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s wireless firing pin is now set to automatic.</b>"))
+		lockstatus = WIRELESS_PIN_AUTOMATIC
+
+	if(i == WIRELESS_PIN_DISABLED)
 		playsound(user, 'sound/weapons/laser_safetyoff.ogg')
-		to_chat(user, SPAN_WARNING("<b>\The [gun]'s trigger locks!</b>"))
-		fail_message = "<span class='warning'>WEAPON DISABLED.</span>"
-	disablestatus = !disablestatus
+		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s wireless firing pin deactivates.</b>"))
+		lockstatus = WIRELESS_PIN_DISABLED
+
+	if(i == WIRELESS_PIN_STUN)
+		playsound(user, 'sound/weapons/laser_safetyon.ogg')
+		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s wireless firing pin is now set to stun only.</b>"))
+		lockstatus = WIRELESS_PIN_STUN
+
+	if(i == WIRELESS_PIN_LETHAL)
+		playsound(user, 'sound/weapons/laser_safetyon.ogg')
+		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s wireless firing pin is now unrestricted.</b>"))
+		lockstatus = WIRELESS_PIN_LETHAL
 	return
 
-/obj/item/device/firing_pin/security_pin/proc/unlock() // Toggles the security level restriction on or off. Allows lethal gunfire on Green/Blue alert when toggled
-	var/mob/living/user
-	if(ismob(loc.loc))
-		user = loc.loc // pin -> gun -> user
-	else
-		user = loc.loc.loc // pin -> gun -> holster/bag/etc -> user
-
-	if(lockstatus)
-		playsound(user, 'sound/weapons/laser_safetyon.ogg')
-		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s security level restriction disengages.</b>"))
-	else
-		playsound(user, 'sound/weapons/laser_safetyoff.ogg')
-		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s security level restriction engages.</b>"))
-	lockstatus = !lockstatus
-	return
-
-/obj/item/device/firing_pin/security_pin/attackby(obj/item/C as obj, mob/user as mob) //Lets people register their IDs to the pin.
+/obj/item/device/firing_pin/wireless/attackby(obj/item/C as obj, mob/user as mob) //Lets people register their IDs to the pin.
 	if(istype(C, /obj/item/card/id))
 		register_user(C, user)
 		return

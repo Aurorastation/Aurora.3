@@ -143,6 +143,6 @@
 	build_path = /obj/machinery/computer/slot_machine
 	origin_tech = list(TECH_DATA = 2)
 
-/obj/item/circuitboard/smartguncontrol
-	name = T_BOARD("smartgun control console")
-	build_path = /obj/machinery/computer/smartguncontrol
+/obj/item/circuitboard/guntracker
+	name = T_BOARD("firearm control console")
+	build_path = /obj/machinery/computer/guntracker

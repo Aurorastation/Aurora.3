@@ -233,8 +233,8 @@
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 	hit_effect = /obj/effect/temp_visual/blaster_effect
 
-/obj/item/projectile/energy/stunblaster
-	name = "stun bolt"
+/obj/item/projectile/energy/disruptorstun
+	name = "disruptor bolt"
 	icon_state = "blue_laser"
 	agony = 45
 	speed = 0.4

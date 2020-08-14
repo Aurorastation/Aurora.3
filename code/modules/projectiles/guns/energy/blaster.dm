@@ -118,33 +118,32 @@
 		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
 
 
-/obj/item/gun/energy/secblaster
-	name = "service blaster"
-	desc = "The NT BP-7 is a multi-mode blaster pistol developed and produced by Nanotrasen for its internal security departments." // Placeholder for the PR. If there's a loreman who wants to describe this monstrosity, just hmu
-	icon = 'icons/obj/guns/secblaster/secblasters.dmi'
-	icon_state = "secblaster"
-	item_state = "secblaster"
-	fire_sound = 'sound/weapons/secblasterstun.ogg'
+/obj/item/gun/energy/disruptorpistol
+	name = "disruptor pistol"
+	desc = "Developed and produced by NanoTrasen for its internal security division, the NT DP-7 is a state of the art energy pistol capable of firing reduced-power blaster bolts which disrupt the central nervous system, inducing a stunning effect on the victim. It is also capable of firing full-power blaster bolts."
+	icon = 'icons/obj/guns/disruptorpistol/disruptorpistols.dmi'
+	icon_state = "disruptorpistol"
+	item_state = "disruptorpistol"
+	fire_sound = 'sound/weapons/disruptorstun.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = ITEMSIZE_SMALL
 	force = 5
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	projectile_type = /obj/item/projectile/energy/stunblaster
+	projectile_type = /obj/item/projectile/energy/disruptorstun
 	secondary_projectile_type = /obj/item/projectile/energy/blaster
 	max_shots = 12 //12 shots stun, 8 shots lethal.
 	charge_cost = 50
 	has_item_ratio = FALSE
-	modifystate = "secblasterstun"
-	pin = /obj/item/device/firing_pin/security_pin
+	modifystate = "disruptorpistolstun"
 	sel_mode = 1
 	var/selectframecheck = FALSE
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/stunblaster, modifystate="secblasterstun", charge_cost = 50, fire_sound = 'sound/weapons/secblasterstun.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster, modifystate="secblasterkill", recoil = 1, charge_cost = 75, fire_sound = 'sound/weapons/secblasterlethal.ogg')
+		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/disruptorstun, modifystate="disruptorpistolstun", charge_cost = 50, fire_sound = 'sound/weapons/disruptorstun.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster, modifystate="disruptorpistolkill", recoil = 1, charge_cost = 75, fire_sound = 'sound/weapons/disruptorlethal.ogg')
 		)
 
-/obj/item/gun/energy/secblaster/verb/select_frame()
+/obj/item/gun/energy/disruptorpistol/verb/select_frame()
 	set name = "Select Model"
 	set category = "Object"
 	set desc = "Click to select the model of your gun."
@@ -157,35 +156,30 @@
 	user_reply = input("Select your frame.") in list("sub-compact","service","magnum")
 	if(!use_check_and_message(usr))
 		if(user_reply == "sub-compact")
-			icon = 'icons/obj/guns/secblaster/secblasterc.dmi'
-			name = "sub-compact blaster"
+			icon = 'icons/obj/guns/disruptorpistol/disruptorpistolc.dmi'
 		if(user_reply == "service")
-			icon = 'icons/obj/guns/secblaster/secblasters.dmi'
-			name = "service blaster"
+			icon = 'icons/obj/guns/disruptorpistol/disruptorpistols.dmi'
 		if(user_reply == "magnum")
-			icon = 'icons/obj/guns/secblaster/secblasterm.dmi'
-			name = "magnum blaster"
+			icon = 'icons/obj/guns/disruptorpistol/disruptorpistolm.dmi'
 		update_icon()
 		to_chat(M, "You select the [user_reply] model.")
 		user_reply = input("Is this what you wanted?") in list("Yes","No")
 		if(!use_check_and_message(usr))
 			if (user_reply == "Yes")
 				selectframecheck = TRUE
-				verbs -= /obj/item/gun/energy/secblaster/verb/select_frame
+				verbs -= /obj/item/gun/energy/disruptorpistol/verb/select_frame
 				return TRUE
-	icon = 'icons/obj/guns/secblaster/secblasters.dmi'
-	name = "service blaster"
+	icon = 'icons/obj/guns/disruptorpistol/disruptorpistols.dmi'
 	return TRUE
 
-/obj/item/gun/energy/secblaster/attackby(obj/item/C as obj, mob/user as mob)
+/obj/item/gun/energy/disruptorpistol/attackby(obj/item/C as obj, mob/user as mob)
 	if(istype(C, /obj/item/card/id))
-		if(istype(pin, /obj/item/device/firing_pin/security_pin))
-			var/obj/item/device/firing_pin/security_pin/thispin = pin
+		if(istype(pin, /obj/item/device/firing_pin/wireless))
+			var/obj/item/device/firing_pin/wireless/thispin = pin
 			thispin.register_user(C, user)
 			return
 		to_chat(user, SPAN_NOTICE("You press your ID card against \the [name] but nothing happens."))
 	return
 
-/obj/item/gun/energy/secblaster/unlocked
-	pin = /obj/item/device/firing_pin
-
+/obj/item/gun/energy/disruptorpistol/security
+	pin = /obj/item/device/firing_pin/wireless
