@@ -192,6 +192,8 @@
 			if(S.name in job.blacklisted_species)
 				dat += "<del>[dispRank]</del></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
 				continue
+		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
+			dispRank = "<span style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];' width='60%' align='center'>&nbsp<a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></span>"
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
 			dat += "<font color=orange>[dispRank]</font></td><td></td></tr>"
 			continue
@@ -208,9 +210,7 @@
 			if(pref.job_civilian_low & ASSISTANT)
 				dat += " <font color=green>\[Yes]</font>"
 			else
-				dat += " <span class='attack'>\[No]</span>"
-			if(job.alt_titles) //Blatantly cloned from a few lines down.
-				dat += "</a></td></tr><tr style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
+				dat += " <font color=red>\[No]</font>"
 			dat += "</a></td></tr>"
 			continue
 
@@ -221,9 +221,7 @@
 		else if(pref.GetJobDepartment(job, 3) & job.flag)
 			dat += " <font color=orange>\[Low]</font>"
 		else
-			dat += " <span class='attack'>\[NEVER]</span>"
-		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
-			dat += "</a></td></tr><tr style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
+			dat += " <font color=red>\[NEVER]</font>"
 		dat += "</a></td></tr>"
 
 	dat += "</td'></tr></table>"
