@@ -1500,7 +1500,7 @@
 	reagent_state = LIQUID
 	scannable = TRUE
 	metabolism = REM * 2
-	overdose = 20
+	overdose = 5 // Low overdose and fast metabolism to encourage IV drip usage. Overdose isn't too severe if a player doesn't realise this.
 	color = "#1ca9c9"
 	taste_description = "premium salty water"
 	unaffected_species = IS_MACHINE
@@ -1520,8 +1520,6 @@
 	M.make_jittery(5)
 	if(prob(dose - overdose / 2))
 		M.emote("twitch")
-	if(prob(dose - overdose / 4))
-		to_chat(M, SPAN_WARNING(pick("What's the time again?", "What day is it?", "You feel confused...", "You ankles have swollen a bit.", "Your wrists have swollen a bit.", "Your lips feel numb.")))
 
 /datum/reagent/adrenaline
 	name = "Adrenaline"

@@ -620,6 +620,7 @@
 			if(itching > 3)
 				if(prob(10))
 					to_chat(src, SPAN_WARNING(pick("The itch is becoming progressively worse.", "You need to scratch that itch!", "The itch isn't going!")))
+					src.emote("scratch")
 					src.take_organ_damage(4, 0)
 
 		if(CE_FEVER in chem_effects)
