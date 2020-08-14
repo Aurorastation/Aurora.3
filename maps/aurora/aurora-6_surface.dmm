@@ -18565,6 +18565,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/machinery/mulebotelevator,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
 "Jb" = (

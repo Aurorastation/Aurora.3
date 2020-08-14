@@ -33981,6 +33981,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/patient_wing_gym)
+"tqm" = (
+/obj/machinery/mulebotelevator,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "tqx" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -59553,7 +59557,7 @@ aba
 akG
 jfT
 ayi
-aba
+tqm
 aba
 aaa
 aaa

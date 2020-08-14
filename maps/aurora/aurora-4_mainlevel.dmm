@@ -55927,6 +55927,7 @@
 	dir = 2;
 	icon_state = "pipe-j2"
 	},
+/obj/machinery/mulebotelevator,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
 "ccn" = (
@@ -62490,6 +62491,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"kQN" = (
+/obj/machinery/mulebotelevator,
+/turf/simulated/floor/tiled/asteroid/airless,
+/area/outpost/mining_main/eva)
 "kRK" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -64616,6 +64621,17 @@
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice)
+"pwB" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;direction=2";
+	freq = 1400;
+	location = "Mining ore dropoff"
+	},
+/turf/simulated/floor/tiled/asteroid/airless,
+/area/outpost/mining_main/eva)
 "pxU" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -67730,6 +67746,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"wjz" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/bot/mulebot{
+	name = "Mining Mulebot"
+	},
+/turf/simulated/floor/tiled/asteroid/airless,
+/area/outpost/mining_main/eva)
 "wkb" = (
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -90925,7 +90948,7 @@ cfX
 gmt
 pQp
 pQp
-pQp
+pwB
 cfX
 pQp
 pQp
@@ -91186,8 +91209,8 @@ cgl
 cey
 chA
 ceN
-ceN
-ceN
+wjz
+wjz
 xBz
 aab
 aab
@@ -91700,7 +91723,7 @@ cgT
 cey
 chl
 chy
-ceN
+kQN
 jcx
 xBz
 aab
