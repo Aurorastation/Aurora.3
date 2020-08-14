@@ -2995,7 +2995,7 @@ Follow by example and make good judgement based on length which list to include 
 
 		g1_legs
 			name = "G1 - Leg Panel Colors"
-			bod_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
+			body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
 
 		g1_arms
 			name = "G1 - Arm Panel Colors"
@@ -3022,7 +3022,7 @@ Follow by example and make good judgement based on length which list to include 
 
 		g2_legs
 			name = "G2 - Leg Panel Colors"
-			bod_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
+			body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
 
 		g2_arms
 			name = "G2 - Arm Panel Colors"
@@ -3049,7 +3049,7 @@ Follow by example and make good judgement based on length which list to include 
 
 		zeng_legs
 			name = "Zeng-Hu - Leg Panel Colors"
-			bod_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
+			body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
 
 		zeng_arms
 			name = "Zeng-Hu - Arm Panel Colors"
@@ -3076,7 +3076,7 @@ Follow by example and make good judgement based on length which list to include 
 
 		xion_legs
 			name = "Xion - Leg Panel Colors"
-			bod_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
+			body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
 
 		xion_arms
 			name = "Xion - Arm Panel Colors"
