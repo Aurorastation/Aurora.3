@@ -124,7 +124,7 @@
 	icon = 'icons/obj/guns/disruptorpistol/disruptorpistols.dmi'
 	icon_state = "disruptorpistol"
 	item_state = "disruptorpistol"
-	fire_sound = 'sound/weapons/disruptorstun.ogg'
+	fire_sound = 'sound/weapons/gunshot/bolter.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = ITEMSIZE_SMALL
 	force = 5
@@ -139,8 +139,8 @@
 	sel_mode = 1
 	var/selectframecheck = FALSE
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/disruptorstun, modifystate="disruptorpistolstun", charge_cost = 50, fire_sound = 'sound/weapons/disruptorstun.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster, modifystate="disruptorpistolkill", recoil = 1, charge_cost = 75, fire_sound = 'sound/weapons/disruptorlethal.ogg')
+		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/disruptorstun, modifystate="disruptorpistolstun", charge_cost = 50, fire_sound = 'sound/weapons/gunshot/bolter.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster, modifystate="disruptorpistolkill", recoil = 1, charge_cost = 75, fire_sound = 'sound/weapons/gunshot/bolter.ogg')
 		)
 
 /obj/item/gun/energy/disruptorpistol/verb/select_frame()
