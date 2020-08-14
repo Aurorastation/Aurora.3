@@ -59,7 +59,6 @@
 				if (announcer)
 					to_chat(M, "<span class='alert'> -[html_encode(announcer)]</span>")
 				if(message_sound && !isdeaf(M) && (M.client.prefs.asfx_togs & ASFX_VOX))
-					to_world("sending to [M]")
 					sound_to(M, message_sound)
 
 /datum/announcement/minor/MessageAndSound(var/message as text, var/message_title as text)
