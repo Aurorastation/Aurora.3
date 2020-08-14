@@ -76,7 +76,7 @@
 	//This is a bitfield, more than one type can be used
 
 /datum/recipe/proc/get_appliance_names()
-	var/appliance_names
+	var/list/appliance_names
 	if(appliance & MIX)
 		LAZYADD(appliance_names, "a mixing bowl or ")
 	if(appliance & FRYER)
@@ -204,7 +204,7 @@
 //We will not touch things which are not required for this recipe. They will be left behind for the caller
 //to decide what to do. They may be used again to make another recipe or discarded, or merged into the results,
 //thats no longer the concern of this proc
-	var/datum/reagents/buffer = new /datum/reagents(1000000000000)//
+	var/datum/reagents/buffer = new /datum/reagents(1e12)//
 
 	//Find items we need
 	if (LAZYLEN(items))

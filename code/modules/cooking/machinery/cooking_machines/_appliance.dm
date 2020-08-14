@@ -320,7 +320,7 @@
 
 	else if(istype(I, /obj/item/holder))
 		var/obj/item/holder/H = I
-		var/mob/living/contained = locate(/mob/living) in H
+		var/mob/living/contained = H.contained
 		if (contained)
 			work += (contained.mob_size * contained.mob_size * 2)+2
 
@@ -346,7 +346,7 @@
 
 	// Gotta hurt.
 	for(var/obj/item/holder/H in CI.container.contents)
-		var/mob/living/M = locate() in H
+		var/mob/living/M = H.contained
 		if (M)
 			M.apply_damage(rand(1,3), mobdamagetype, BP_CHEST)
 
@@ -591,7 +591,7 @@
 
 //This function creates a food item which represents a dead mob
 /obj/machinery/appliance/proc/create_mob_food(var/obj/item/holder/H, var/datum/cooking_item/CI)
-	var/mob/living/victim = locate() in H
+	var/mob/living/victim = H.contained
 	if (!istype(H) || !victim)
 		qdel(H)
 		return null
@@ -601,7 +601,7 @@
 	var/obj/item/reagent_containers/food/snacks/variable/mob/result = new /obj/item/reagent_containers/food/snacks/variable/mob(CI.container)
 	result.w_class = victim.mob_size
 	var/reagent_amount = victim.mob_size ** 2 * 3
-	if(istype(victim, /mob/living/simple_animal))
+	if(isanimal(victim)
 		var/mob/living/simple_animal/SA = src
 		if (SA.meat_amount)
 			reagent_amount = SA.meat_amount*9 // at a rate of 9 protein per meat
