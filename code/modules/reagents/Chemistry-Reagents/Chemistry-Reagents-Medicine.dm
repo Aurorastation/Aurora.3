@@ -21,25 +21,25 @@
 		to_chat(M, SPAN_WARNING(pick("Your chest feels tight.", "Your chest is aching a bit.", "You have a stabbing pain in your chest.")))
 		M.adjustHalLoss(5)
 
-/datum/reagent/butazoline //The kelotane for bicaridine. Weak at treating brute, but can OD for the unique effects.
-	name = "Butazoline"
-	description = "Butazoline is a complex medication which specifically targets damaged tissues and damaged blood vessels by encouraging the rate at which the damaged tissues are regenerated. Overdosing bicaridine allows the drug to take effect on damaged muscular tissues of arteries."
+/datum/reagent/butazoline //Bicaridine is the kelotane of brute medications. It's slow at treating brute, however can OD to treat AB.
+	name = "Bicaridine"
+	description = "Bicaridine is a complex medication which specifically targets damaged tissues and damaged blood vessels by encouraging the rate at which the damaged tissues are regenerated. Overdosing bicaridine allows the drug to take effect on damaged muscular tissues of arteries."
 	reagent_state = LIQUID
-	color ="#E62E50"
+	color ="#BF0000"
 	scannable = 1
-	overdose = 20
+	overdose = REAGENTS_OVERDOSE
 	metabolism = REM * 0.5
 	taste_description = "bitterness"
 	fallback_specific_heat = 1
 
-/datum/reagent/butazoline/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
-	M.heal_organ_damage(4 * removed, 0)
-	if((locate(/datum/reagent/bicaridine) in M.reagents.reagent_list))
+/datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+	M.heal_organ_damage(5 * removed, 0)
+	if((locate(/datum/reagent/butazoline) in M.reagents.reagent_list))
 		M.add_chemical_effect(CE_ITCH, dose)
 		M.adjustHydrationLoss(2*removed)
 		M.adjustCloneLoss(1*removed) // Cell regeneration spiralling out of control resulting in genetic damage.
 
-/datum/reagent/butazoline/overdose(var/mob/living/carbon/human/M, var/alien, var/removed)
+/datum/reagent/bicaridine/overdose(var/mob/living/carbon/human/M, var/alien, var/removed)
 	M.dizziness = max(100, M.dizziness)
 	M.make_dizzy(5)
 	M.adjustHydrationLoss(5*removed)
@@ -51,18 +51,18 @@
 			if(E.status & ORGAN_ARTERY_CUT && prob(2))
 				E.status &= ~ORGAN_ARTERY_CUT
 
-/datum/reagent/bicaridine //Brute healing properties buffed to be on the same level as Dermaline. However, no longer fixes arterial bleeding when overdosed (see Butazoline instead)
-	name = "Bicaridine"
-	description = "Bicaridine, a recent improvement upon Butazoline, is specialised at treating the most traumatic of wounds, though less so for treating severe bleeding."
+/datum/reagent/butazoline //Butazoline is the dermaline of brute medications. Fast at treating brute, but cannot OD to treat arterial bleeding.
+	name = "Butazoline"
+	description = "Butazoline, a recent improvement upon Bicaridine, is specialised at treating the most traumatic of wounds, though less so for treating severe bleeding."
 	reagent_state = LIQUID
-	color = "#BF0000"
+	color = "#E62E50"
 	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	metabolism = REM * 0.5
 	taste_description = "bitterness"
 	taste_mult = 3
 
-/datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/butazoline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(8 * removed, 0)
 	M.add_chemical_effect(CE_ITCH, dose/2)
 	M.adjustHydrationLoss(1*removed)

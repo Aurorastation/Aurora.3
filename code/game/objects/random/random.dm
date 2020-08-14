@@ -151,7 +151,7 @@
 		/obj/item/bodybag = 2,
 		/obj/item/bodybag/cryobag = 1,
 		/obj/item/storage/pill_bottle/kelotane = 2,
-		/obj/item/storage/pill_bottle/butazoline = 2,
+		/obj/item/storage/pill_bottle/bicaridine = 2,
 		/obj/item/storage/pill_bottle/antitox = 2,
 		/obj/item/storage/pill_bottle/mortaphenyl = 2,
 		/obj/item/reagent_containers/syringe/dylovene = 2,

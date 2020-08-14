@@ -20,7 +20,7 @@
 	center_of_mass = null
 
 /obj/item/reagent_containers/borghypo/medical
-	reagent_ids = list(/datum/reagent/butazoline, /datum/reagent/kelotane, /datum/reagent/dylovene, /datum/reagent/dexalin, /datum/reagent/inaprovaline, /datum/reagent/mortaphenyl, /datum/reagent/thetamycin)
+	reagent_ids = list(/datum/reagent/bicaridine, /datum/reagent/kelotane, /datum/reagent/dylovene, /datum/reagent/dexalin, /datum/reagent/inaprovaline, /datum/reagent/mortaphenyl, /datum/reagent/thetamycin)
 
 /obj/item/reagent_containers/borghypo/rescue
 	reagent_ids = list(/datum/reagent/tricordrazine, /datum/reagent/inaprovaline, /datum/reagent/mortaphenyl, /datum/reagent/adrenaline)

@@ -122,12 +122,6 @@
 	icon_state = "pill11"
 	reagents_to_add = list(/datum/reagent/kelotane = 15)
 
-/obj/item/reagent_containers/pill/butazoline
-	name = "butazoline pill"
-	desc = "Used to treat bleeding."
-	icon_state = "pill18"
-	reagents_to_add = list(/datum/reagent/butazoline = 10)
-
 /obj/item/reagent_containers/pill/perconol
 	name = "perconol pill"
 	desc = "A painkiller for the ages. Chewables!"
@@ -185,7 +179,7 @@
 
 /obj/item/reagent_containers/pill/bicaridine
 	name = "bicaridine pill"
-	desc = "Used to treat physical injuries."
+	desc = "Used to treat minor injuries and bleeding."
 	icon_state = "pill18"
 	reagents_to_add = list(/datum/reagent/bicaridine = 20)
 

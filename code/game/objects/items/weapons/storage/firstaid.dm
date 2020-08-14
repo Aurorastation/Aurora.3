@@ -137,7 +137,7 @@
 	starts_with = list(
 		/obj/item/stack/medical/bruise_pack = 3,
 		/obj/item/stack/medical/advanced/bruise_pack = 2,
-		/obj/item/reagent_containers/pill/butazoline = 2
+		/obj/item/reagent_containers/pill/bicaridine = 2
 	)
 
 /*
@@ -218,10 +218,10 @@
 	desc = "Contains pills used to treat burns."
 	starts_with = list(/obj/item/reagent_containers/pill/kelotane = 7)
 
-obj/item/storage/pill_bottle/butazoline
-	name = "bottle of Butazoline pills"
+obj/item/storage/pill_bottle/bicaridine
+	name = "bottle of Bicaridine pills"
 	desc = "Contains pills used to treat bleeding."
-	starts_with = list(/obj/item/reagent_containers/pill/butazoline = 7)
+	starts_with = list(/obj/item/reagent_containers/pill/bicaridine = 7)
 
 /obj/item/storage/pill_bottle/cetahydramine
 	name = "bottle of Cetahydramine pills"
