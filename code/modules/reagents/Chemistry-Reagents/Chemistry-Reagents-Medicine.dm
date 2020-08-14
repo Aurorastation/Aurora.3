@@ -373,10 +373,13 @@
 		modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
 /datum/reagent/synaptizine/overdose(var/mob/living/carbon/M, var/alien)
-	if(prob(20))
+	if(prob(dose - overdose * 3))
 		to_chat(M, SPAN_WARNING(pick("You feel a tingly sensation in your body.", "You can smell something unusual.", "You can taste something unusual.")))
-	if(prob(dose/2))
-		M.seizure()
+	if(prob(dose - overdose))
+		if(prob(75))
+			M.emote(pick("twitch", "shiver"))
+		else
+			M.seizure()
 
 /datum/reagent/synaptizine/Destroy()
 	QDEL_NULL(modifier)
@@ -505,14 +508,14 @@
 		overdose = dose/2 //Straight to overdose.
 
 /datum/reagent/hyperzine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
-	M.adjustNutritionLoss(10*removed)	
+	M.adjustNutritionLoss(5*removed)	
 	M.add_chemical_effect(CE_PULSE, 2)
 	if(prob(5))
 		to_chat(M, SPAN_DANGER(pick("Your heart is beating rapidly!", "Your chest hurts!")))
-	if(prob(dose - overdose))
+	if(prob(dose - overdose / 2))
 		M.visible_message("[M] twitches violently, grimacing.", "You twitch violently and feel yourself sprain a joint.")
-		M.take_organ_damage(8 * removed, 0)
-		M.adjustHalLoss(20)
+		M.take_organ_damage(5 * removed, 0)
+		M.adjustHalLoss(15)
 
 /datum/reagent/hyperzine/Destroy()
 	QDEL_NULL(modifier)
