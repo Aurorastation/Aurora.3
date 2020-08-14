@@ -32,7 +32,7 @@
 	fallback_specific_heat = 1
 
 /datum/reagent/butazoline/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
-	M.heal_organ_damage(5 * removed, 0)
+	M.heal_organ_damage(4 * removed, 0)
 	if((locate(/datum/reagent/bicaridine) in M.reagents.reagent_list))
 		M.add_chemical_effect(CE_ITCH, dose)
 		M.adjustHydrationLoss(2*removed)
