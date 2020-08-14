@@ -75,6 +75,8 @@
 	var/warning_color = "#B8B800"
 	var/emergency_color = "#D9D900"
 
+	var/filter_offset = 0
+
 	var/grav_pulling = 0
 	var/pull_radius = 14
 	// Time in ticks between delamination ('exploding') and exploding (as in the actual boom)
@@ -111,6 +113,7 @@
 	. = ..()
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
 	soundloop = new(list(src), TRUE)
+	filters += filter(type="rays", size=0, factor=1)
 
 /obj/machinery/power/supermatter/Destroy()
 	QDEL_NULL(radio)
@@ -311,6 +314,7 @@
 
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
 
+	animate(filters[filters.len], size=max(0, power+1), offset=++filter_offset, time=1 SECONDS, easing=ELASTIC_EASING|EASE_IN|EASE_OUT)
 	return 1
 
 

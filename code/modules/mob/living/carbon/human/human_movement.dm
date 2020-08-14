@@ -9,12 +9,10 @@
 		if(H.species.slowdown> species.slowdown)
 			tally = H.species.slowdown
 		tally += H.ClothesSlowdown()
-
-	if (istype(loc, /turf/space)) return -1 // It's hard to be slowed down in space by... anything
-
-	if (isopenturf(loc)) //open space checks
+    
+	if (istype(loc, /turf/space) || isopenturf(loc))
 		if(!(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc) || locate(/obj/structure/ladder, loc)))
-			return -1
+			return 0
 
 	if(embedded_flag)
 		handle_embedded_objects() //Moving with objects stuck in you can cause bad times.
