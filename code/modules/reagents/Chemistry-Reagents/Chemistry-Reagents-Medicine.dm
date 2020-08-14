@@ -31,15 +31,16 @@
 	metabolism = REM * 0.5
 	taste_description = "bitterness"
 	fallback_specific_heat = 1
+	taste_mult = 3
 
-/datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
+/datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
 	if((locate(/datum/reagent/butazoline) in M.reagents.reagent_list))
 		M.add_chemical_effect(CE_ITCH, dose)
 		M.adjustHydrationLoss(2*removed)
 		M.adjustCloneLoss(1*removed) // Cell regeneration spiralling out of control resulting in genetic damage.
 
-/datum/reagent/bicaridine/overdose(var/mob/living/carbon/human/M, var/alien, var/removed)
+/datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	M.dizziness = max(100, M.dizziness)
 	M.make_dizzy(5)
 	M.adjustHydrationLoss(5*removed)
@@ -56,7 +57,7 @@
 	description = "Butazoline, a recent improvement upon Bicaridine, is specialised at treating the most traumatic of wounds, though less so for treating severe bleeding."
 	reagent_state = LIQUID
 	color = "#E62E50"
-	overdose = REAGENTS_OVERDOSE
+	overdose = 15
 	scannable = 1
 	metabolism = REM * 0.5
 	taste_description = "bitterness"
