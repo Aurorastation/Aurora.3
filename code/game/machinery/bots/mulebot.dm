@@ -590,7 +590,11 @@
 			var/obj/machinery/mulebotelevator/elevator = locate(/obj/machinery/mulebotelevator/) in target.contents
 			if (elevator)
 				stop()
-				elevator.move_mule(src, final_target)
+
+				if (!elevator.move_mule(src, final_target))
+					mode = CANNOT_REACH
+					return
+
 				if (loc.z == final_target.z)
 					mode = SUMMONED
 
@@ -667,7 +671,7 @@
 		if (get_dist(elevator, src) < dist)
 			dist = get_dist(elevator, src)
 			local_elevator = i
-	
+
 	if (local_elevator)
 		target = get_turf(local_elevator)
 		mode = MOVING_LEVELS
