@@ -143,6 +143,9 @@
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster, modifystate="disruptorpistolkill", recoil = 1, charge_cost = 75, fire_sound = 'sound/weapons/gunshot/bolter.ogg')
 		)
 
+/obj/item/gun/energy/disruptorpistol/security
+	pin = /obj/item/device/firing_pin/wireless
+
 /obj/item/gun/energy/disruptorpistol/verb/select_frame()
 	set name = "Select Model"
 	set category = "Object"
@@ -171,6 +174,3 @@
 				return TRUE
 	icon = 'icons/obj/guns/disruptorpistol/disruptorpistols.dmi'
 	return TRUE
-
-/obj/item/gun/energy/disruptorpistol/security
-	pin = /obj/item/device/firing_pin/wireless
