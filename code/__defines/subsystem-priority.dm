@@ -48,7 +48,7 @@
 #define SS_PRIORITY_LIGHTING    50	// Queued lighting engine updates.
 #define SS_PRIORITY_MOB         30	// Mob Life().
 #define SS_PRIORITY_AIR         30	// ZAS processing.
-#define SS_PRIORITY_CHAT        20  // Chat
+#define SS_PRIORITY_CHAT        30  // Chat
 #define SS_PRIORITY_NANOUI      20	// UI updates.
 #define SS_PRIORITY_VOTE        20
 #define SS_PRIORITY_ELECTRONICS 20	// Integrated Electronics processing.
