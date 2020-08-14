@@ -21,8 +21,8 @@
 	var/wielded = 0
 	var/force_wielded = 0
 	var/force_unwielded
-	var/wieldsound = null
-	var/unwieldsound = null
+	var/wield_sound = "wield_generic"
+	var/unwield_sound = null
 	var/base_icon
 	var/base_name
 	var/unwielded_force_divisor = 0.25
@@ -33,20 +33,25 @@
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_twohanded.dmi',
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_twohanded.dmi'
 		)
-	hitsound = "swing_hit"
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = 'sound/items/pickup/sword.ogg'
+	pickup_sound = "pickup_sword"
+	equip_sound = "equip_sword"
+	hitsound = 'sound/weapons/bladeslice.ogg'
+
+/obj/item/material/twohanded/proc/wield()
+	wielded = 1
+	force = force_wielded
+	update_icon()
+	if(src.wield_sound)
+		playsound(src.loc, wield_sound, 25, 1)
 
 /obj/item/material/twohanded/proc/unwield()
 	wielded = 0
 	force = force_unwielded
 	name = "[base_name]"
 	update_icon()
-
-/obj/item/material/twohanded/proc/wield()
-	wielded = 1
-	force = force_wielded
-	update_icon()
+	if(src.unwield_sound)
+		playsound(src.loc, unwield_sound, 25, 1)
 
 /obj/item/material/twohanded/update_force()
 	base_name = name
@@ -83,7 +88,7 @@
 /obj/item/material/twohanded/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(wielded && default_parry_check(user, attacker, damage_source) && prob(parry_chance))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
+		playsound(user.loc, "punchmiss", 50, 1)
 		return 1
 	return 0
 
@@ -114,8 +119,6 @@
 	if(wielded) //Trying to unwield it
 		unwield()
 		to_chat(user, "<span class='notice'>You are now carrying the [name] with one hand.</span>")
-		if (src.unwieldsound)
-			playsound(src.loc, unwieldsound, 50, 1)
 
 		var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
 		if(O && istype(O))
@@ -127,9 +130,7 @@
 			to_chat(user, "<span class='warning'>You need your other hand to be empty.</span>")
 			return
 		wield()
-		to_chat(user, "<span class='notice'>You grab the [base_name] with both hands.</span>")
-		if (src.wieldsound)
-			playsound(src.loc, wieldsound, 50, 1)
+		to_chat(user, "<span class='notice'>You grip the [base_name] with both hands.</span>")
 
 		var/obj/item/material/twohanded/offhand/O = new /obj/item/material/twohanded/offhand(user) ////Let's reserve his other hand~
 		O.name = "[base_name] - offhand"
@@ -160,6 +161,10 @@
 	icon_state = "offhand"
 	name = "offhand"
 	default_material = "placeholder"
+	drop_sound = null
+	pickup_sound = null
+	equip_sound = null
+	use_material_sound = FALSE
 
 /obj/item/material/twohanded/offhand/unwield()
 	if (ismob(loc))
@@ -196,6 +201,7 @@
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	applies_material_colour = 0
 	can_embed = 0
+	use_material_sound = FALSE
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 
@@ -232,11 +238,11 @@
 	thrown_force_divisor = 1.2 // 24 damage for steel (weight 20)
 	edge = 1
 	sharp = 0
-	hitsound = 'sound/weapons/bladeslice.ogg'
 	mob_throw_hit_sound =  'sound/weapons/pierce.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	default_material = "glass"
 	var/obj/item/grenade/explosive = null
+	use_material_sound = FALSE
 
 /obj/item/material/twohanded/spear/Destroy()
 	if(explosive)
@@ -338,7 +344,6 @@
 	edge = 1
 	origin_tech = list(TECH_COMBAT = 5)
 	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
-	hitsound = "sound/weapons/bladeslice.ogg"
 	can_embed = 0
 	applies_material_colour = 0
 	default_material = "steel"
@@ -350,6 +355,7 @@
 
 	var/cutting = 0 //Ignore
 	var/powered = 0 //Ignore
+	use_material_sound = FALSE
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 
@@ -526,7 +532,6 @@
 
 	AltClick(usr)
 
-
 /obj/item/material/twohanded/pike
 	icon_state = "pike0"
 	base_icon = "pike"
@@ -543,6 +548,7 @@
 	reach = 2
 	applies_material_colour = 0
 	can_embed = 0
+	use_material_sound = FALSE
 	drop_sound = 'sound/items/drop/woodweapon.ogg'
 	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 

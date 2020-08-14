@@ -290,13 +290,13 @@
 			to_chat(user, SPAN_DANGER("\The [WT] must be turned on!"))
 		else if (WT.remove_fuel(0,user))
 			to_chat(user, SPAN_NOTICE("Now welding \the [src]."))
-			playsound(src, 'sound/items/Welder.ogg', 50, 1)
+			playsound(src, 'sound/items/welder.ogg', 50, 1)
 			if(do_after(user, 20/W.toolspeed, act_target = src))
-				if(!src || !WT.isOn()) 
+				if(!src || !WT.isOn())
 					return
 				welded = !welded
 				update_icon()
-				playsound(src, 'sound/items/Welder2.ogg', 50, 1)
+				playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
 				user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
 									 SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
 									 "You hear welding.")

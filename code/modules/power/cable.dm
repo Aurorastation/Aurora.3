@@ -148,7 +148,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 		for(var/mob/O in viewers(src, null))
 			O.show_message(SPAN_WARNING("[user] cuts the cable."), 1)
-			playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+			playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 
 		if(d1 == 11 || d2 == 11)
 			var/turf/turf = GetBelow(src)
@@ -598,7 +598,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 			)
 			affecting.heal_damage(burn = 15, robo_repair = TRUE)
 			user.visible_message(SPAN_NOTICE("\The [user] [pick(repair_messages)] in [target]'s [affecting.name] with \the [src]."))
-			playsound(target, 'sound/items/Wirecutter.ogg', 15)
+			playsound(target, 'sound/items/wirecutter.ogg', 15)
 			repair_organ(user, target, affecting)
 		else
 			to_chat(user, SPAN_WARNING("You don't have enough cable for this!"))
@@ -1020,7 +1020,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	if(I.iswirecutter())
 		user.visible_message("[user] cuts the noose.",
 							 SPAN_NOTICE("You cut the noose."))
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 		if(buckled_mob)
 			buckled_mob.visible_message(SPAN_DANGER("[buckled_mob] falls over and hits the ground!"),\
 										SPAN_DANGER("You fall over and hit the ground!"))

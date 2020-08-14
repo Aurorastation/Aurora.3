@@ -244,7 +244,7 @@
 		if("fire")
 			damage = (W.force / fire_resist)
 			if(W.iswelder())
-				playsound(loc, 'sound/items/Welder.ogg', 100, 1)
+				playsound(loc, 'sound/items/welder.ogg', 100, 1)
 		if("brute")
 			if(prob(30) && !issilicon(user))
 				visible_message("<span class='danger'>\The [W] gets caught in the gelatinous folds of \the [src]</span>")

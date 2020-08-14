@@ -209,7 +209,7 @@
 			user.visible_message(SPAN_NOTICE("[user] screws the cover of the [src] closed."), SPAN_NOTICE("You screw the cover of the [src] closed."))
 			clipped = 0
 			return
-//		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+//		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
 		user.visible_message(SPAN_NOTICE("[user] unscrews the cover of the [src]."), SPAN_NOTICE("You unscrew the cover of the [src]."))
 		clipped = 1
 		return
@@ -331,7 +331,7 @@
 	punch_force = 5
 	clipped = 1
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = 'sound/items/pickup/sword.ogg'
+	pickup_sound = "pickup_sword"
 
 /obj/item/clothing/gloves/powerfist
 	name = "power fist"

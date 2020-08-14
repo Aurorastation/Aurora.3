@@ -29,7 +29,7 @@
 	..()
 	construct = new /datum/construction/reversible/rig_assembly/combat(src)
 	construct.board_type = board_type
-	construct.target_board_type = target_board_type	
+	construct.target_board_type = target_board_type
 	construct.steps[12]["key"] = board_type // defining board in construction step
 	construct.steps[10]["key"] = target_board_type
 	construct.result = "[rig_type]"
@@ -141,17 +141,17 @@
 	if(I.iswelder())
 		var/obj/item/weldingtool/W = I
 		if (W.remove_fuel(0, user))
-			playsound(holder, 'sound/items/Welder2.ogg', 50, 1)
+			playsound(holder, 'sound/items/welder_pry.ogg', 50, 1)
 		else
 			return 0
 	else if(I.iswrench())
-		playsound(holder, 'sound/items/Ratchet.ogg', 50, 1)
+		playsound(holder, I.usesound, 50, 1)
 
 	else if(I.isscrewdriver())
-		playsound(holder, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(holder, I.usesound, 50, 1)
 
 	else if(I.iswirecutter())
-		playsound(holder, 'sound/items/Wirecutter.ogg', 50, 1)
+		playsound(holder, I.usesound, 50, 1)
 
 	else if(I.iscoil())
 		var/obj/item/stack/cable_coil/C = used_atom
@@ -249,8 +249,8 @@
 			if(diff==FORWARD)
 				user.visible_message("[user] secures external armor layer.", "You secure external reinforced armor layer.")
 			else
-				user.visible_message("[user] pries external armor layer from [holder].", "You prie external armor layer from [holder].")
-				var/obj/item/stack/material/plasteel/MS = new /obj/item/stack/material/plasteel(get_turf(holder))
+				user.visible_message("[user] pries the external armor layer from [holder].", "You pry the external armor layer from [holder].")
+				var/obj/item/stack/material/steel/MS = new /obj/item/stack/material/steel(get_turf(holder))
 				MS.amount = 5
 				r.icon_state = r.icon_base + "3"
 		if(1)
@@ -333,7 +333,7 @@
 		return 0
 
 	switch(index)
-		
+
 		if(14)
 			if(diff==FORWARD)
 				user.visible_message("[user] adds the wiring to [holder].", "You add the wiring to [holder].")
@@ -398,7 +398,7 @@
 			if(diff==FORWARD)
 				user.visible_message("[user] secures internal armor layer.", "You secure internal armor layer.")
 			else
-				user.visible_message("[user] pries internal armor layer from [holder].", "You prie internal armor layer from [holder].")
+				user.visible_message("[user] pries the internal armor layer from [holder].", "You pry the internal armor layer from [holder].")
 				var/obj/item/stack/material/steel/MS = new /obj/item/stack/material/steel(get_turf(holder))
 				MS.amount = 5
 				r.icon_state = r.icon_base + "4"
@@ -417,7 +417,7 @@
 			if(diff==FORWARD)
 				user.visible_message("[user] secures external armor layer.", "You secure external reinforced armor layer.")
 			else
-				user.visible_message("[user] pries external armor layer from [holder].", "You prie external armor layer from [holder].")
+				user.visible_message("[user] pries the external armor layer from [holder].", "You pry the external armor layer from [holder].")
 				var/obj/item/stack/material/plasteel/MS = new /obj/item/stack/material/plasteel(get_turf(holder))
 				MS.amount = 5
 				r.icon_state = r.icon_base + "4"
