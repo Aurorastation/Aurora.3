@@ -244,7 +244,7 @@
 	outfit = /datum/outfit/job/med_tech
 	alt_outfits = list("Paramedic" = /datum/outfit/job/med_tech/paramed)
 
-	blacklisted_species = list("Diona")
+	blacklisted_species = list("Diona", "Hephaestus G2 Industrial Frame", "Hephaestus G1 Industrial Frame")
 
 /datum/outfit/job/med_tech
 	name = "Emergency Medical Technician"
