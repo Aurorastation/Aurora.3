@@ -601,7 +601,7 @@
 	var/obj/item/reagent_containers/food/snacks/variable/mob/result = new /obj/item/reagent_containers/food/snacks/variable/mob(CI.container)
 	result.w_class = victim.mob_size
 	var/reagent_amount = victim.mob_size ** 2 * 3
-	if(isanimal(victim)
+	if(isanimal(victim))
 		var/mob/living/simple_animal/SA = src
 		if (SA.meat_amount)
 			reagent_amount = SA.meat_amount*9 // at a rate of 9 protein per meat
