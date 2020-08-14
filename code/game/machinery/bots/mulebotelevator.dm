@@ -1,4 +1,4 @@
-var/static/list/muleelevators = list()
+var/static/list/obj/machinery/mulebotelevator/muleelevators = list()
 
 /obj/machinery/mulebotelevator
 	name = "Mulebot elevator"
