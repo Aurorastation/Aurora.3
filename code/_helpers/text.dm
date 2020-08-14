@@ -66,11 +66,10 @@
 /**
   * Filters out undesirable characters from names.
   *
-  * * strict - return null immidiately instead of filtering out  TODO: port from tg
   * * allow_numbers - allows numbers and common special characters - used for silicon/other weird things names
   */
 
-/proc/sanitizeName(input, max_length = MAX_NAME_LEN, allow_numbers = 0, force_first_letter_uppercase = TRUE)
+/proc/sanitizeName(input, max_length = MAX_NAME_LEN, allow_numbers = TRUE)
 	if(!input)
 		return //Rejects the input if it is null
 
@@ -105,8 +104,6 @@
 			// 0  .. 9
 			if(48 to 57)   //Numbers
 				if(last_char_group == NO_CHARS_DETECTED || !allow_numbers) //suppress at start of string
-					//if(strict)
-					//	return  TODO: port from tg
 					continue
 				number_of_alphanumeric++
 				last_char_group = NUMBERS_DETECTED
@@ -114,16 +111,12 @@
 			// '  -  .
 			if(39,45,46)   //Common name punctuation
 				if(last_char_group == NO_CHARS_DETECTED)
-					//if(strict)
-					//	return  TODO: port from tg
 					continue
 				last_char_group = SYMBOLS_DETECTED
 
 			// ~   |   @  :  #  $  %  &  *  +
 			if(126,124,64,58,35,36,37,38,42,43)			//Other symbols that we'll allow (mainly for AI)
 				if(last_char_group == NO_CHARS_DETECTED || !allow_numbers) //suppress at start of string
-					//if(strict)
-					//	return  TODO: port from tg
 					continue
 				last_char_group = SYMBOLS_DETECTED
 
@@ -149,7 +142,7 @@
 	if(last_char_group == SPACES_DETECTED)
 		output = copytext_char(output, 1, -1) //removes the last character (in this case a space)
 
-	for(var/bad_name in list("space","floor","wall","r-wall","monkey","unknown","inactive ai"))	//prevents these common metagamey names
+	for(var/bad_name in list("space","floor","wall","r-wall","monkey","unknown","inactive ai","plating"))	//prevents these common metagamey names
 		if(cmptext(output,bad_name))
 			return	//(not case sensitive)
 
