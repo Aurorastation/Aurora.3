@@ -5,7 +5,7 @@
 	description = "Inaprovaline is a cardiostimulant which stabilises myocardial contractility, working towards maintaining a steady pulse and blood pressure. Inaprovaline also acts as a weak analgesic"
 	reagent_state = LIQUID
 	color = "#00BFFF"
-	overdose = REAGENTS_OVERDOSE //Reduced from 60u to 30u because 60u is pretty unobtainable.
+	overdose = REAGENTS_OVERDOSE //Reduced from 60u to 20u because 60u is pretty unobtainable.
 	metabolism = REM * 0.5
 	metabolism_min = REM * 0.125
 	breathe_mul = 0.5
@@ -18,7 +18,8 @@
 
 /datum/reagent/inaprovaline/overdose(var/mob/living/carbon/M, var/alien, var/removed)	
 	if(prob(2))
-		to_chat(M, SPAN_WARNING(pick("Your chest feels tight.", "Your chest is aching a bit.")))
+		to_chat(M, SPAN_WARNING(pick("Your chest feels tight.", "Your chest is aching a bit.", "You have a stabbing pain in your chest.")))
+		M.adjustHalLoss(5)
 
 /datum/reagent/butazoline //The kelotane for bicaridine. Weak at treating brute, but can OD for the unique effects.
 	name = "Butazoline"
@@ -409,7 +410,7 @@
 	if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
 		if(prob(dose - overdose / 2) && !B.has_trauma_type(BRAIN_TRAUMA_SEVERE) && !B.has_trauma_type(BRAIN_TRAUMA_MILD) && !B.has_trauma_type(BRAIN_TRAUMA_SPECIAL))
 			B.gain_trauma_type(/datum/brain_trauma/severe/paralysis, /datum/brain_trauma/severe/aphasia, /datum/brain_trauma/special/imaginary_friend)
-	if(prob(5))
+	if(prob(dose - overdose / 2))
 		to_chat(M, SPAN_WARNING(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!")))
 	..()
 
@@ -1512,9 +1513,9 @@
 /datum/reagent/saline/overdose(var/mob/living/carbon/M, var/alien)
 	M.confused = max(M.confused, 20)
 	M.make_jittery(5)
-	if(prob(5))
+	if(prob(dose - overdose / 2))
 		M.emote("twitch")
-	if(prob(3))
+	if(prob(dose - overdose / 4))
 		to_chat(M, SPAN_WARNING(pick("What's the time again?", "What day is it?", "You feel confused...", "You ankles have swollen a bit.", "Your wrists have swollen a bit.", "Your lips feel numb.")))
 
 /datum/reagent/adrenaline
