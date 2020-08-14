@@ -1,4 +1,4 @@
-var/static/list/walking_list = list()
+var/static/list/datum/walk_to_custom/walking_list = list()
 
 // Class that is essentially walk_to. Can call a callback when finished walking or was unable to reach destination.
 // Accepts same paramaters as DM walk_to, plus accespts optional callback and timeout.
