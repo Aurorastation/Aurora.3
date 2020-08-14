@@ -2980,8 +2980,8 @@ Follow by example and make good judgement based on length which list to include 
 				body_parts = list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM)
 
 //hephaestus g1
-	g1_primary
-		name = "G1 - Primary Panel Colors"
+	g1_panels
+		name = "G1 - Full Panel Colors"
 		icon = 'icons/mob/human_races/markings_industrial.dmi'
 		icon_state = "g1_primary"
 		icon_blend_mode = ICON_MULTIPLY
@@ -2989,9 +2989,17 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
 		species_allowed = list("Hephaestus G1 Industrial Frame")
 
-		/*g1_secondary
-			name = "G1 - Secondary Finish Colors"
-			icon_state = "g1_secondary"*/
+		g1_head
+			name = "G1 - Head Panel Colors"
+			body_parts = list(BP_HEAD)
+
+		g1_legs
+			name = "G1 - Leg Panel Colors"
+			bod_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
+
+		g1_arms
+			name = "G1 - Arm Panel Colors"
+			body_parts = list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM)
 
 		g1_lights
 			name = "G1 - Lights Color"
@@ -2999,8 +3007,8 @@ Follow by example and make good judgement based on length which list to include 
 			body_parts = list(BP_CHEST,BP_HEAD)
 
 //hephaestus g2
-	g2_primary
-		name = "G2 - Primary Panel Colors"
+	g2_panels
+		name = "G2 - Full Panel Colors"
 		icon = 'icons/mob/human_races/markings_hephaestus.dmi'
 		icon_state = "g2_primary"
 		icon_blend_mode = ICON_MULTIPLY
@@ -3008,9 +3016,17 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
 		species_allowed = list("Hephaestus G2 Industrial Frame")
 
-		/*g2_secondary
-			name = "G2 - Secondary Finish Colors"
-			icon_state = "g2_secondary"*/
+		g2_head
+			name = "G2 - Head Panel Colors"
+			body_parts = list(BP_HEAD)
+
+		g2_legs
+			name = "G2 - Leg Panel Colors"
+			bod_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
+
+		g2_arms
+			name = "G2 - Arm Panel Colors"
+			body_parts = list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM)
 
 		g2_lights
 			name = "G2 - Lights Color"
@@ -3018,8 +3034,8 @@ Follow by example and make good judgement based on length which list to include 
 			body_parts = list(BP_L_ARM,BP_R_ARM,BP_L_LEG,BP_R_LEG,BP_GROIN,BP_CHEST,BP_HEAD)
 
 //zeng-hu mobility frame
-	zeng_primary
-		name = "Zeng-Hu - Primary Panel Colors"
+	zeng_panels
+		name = "Zeng-Hu - Full Panel Colors"
 		icon = 'icons/mob/human_races/markings_zenghu.dmi'
 		icon_state = "zeng_primary"
 		icon_blend_mode = ICON_MULTIPLY
@@ -3027,9 +3043,17 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
 		species_allowed = list("Zeng-Hu Mobility Frame")
 
-		/*zeng_secondary
-			name = "Zeng-Hu - Secondary Finish Colors"
-			icon_state = "zeng_secondary"*/
+		zeng_head
+			name = "Zeng-Hu - Head Panel Colors"
+			body_parts = list(BP_HEAD)
+
+		zeng_legs
+			name = "Zeng-Hu - Leg Panel Colors"
+			bod_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
+
+		zeng_arms
+			name = "Zeng-Hu - Arm Panel Colors"
+			body_parts = list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM)
 
 		zeng_lights
 			name = "Zeng-Hu - Lights Color"
@@ -3037,8 +3061,8 @@ Follow by example and make good judgement based on length which list to include 
 			body_parts = list(BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
 
 //xion
-	xion_primary
-		name = "Xion - Primary Panel Colors"
+	xion_panels
+		name = "Xion - Full Panel Colors"
 		icon = 'icons/mob/human_races/markings_xion.dmi'
 		icon_state = "xion_primary"
 		icon_blend_mode = ICON_MULTIPLY
@@ -3046,51 +3070,19 @@ Follow by example and make good judgement based on length which list to include 
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
 		species_allowed = list("Xion Industrial Frame")
 
-		/*xion_secondary
-			name = "Xion - Secondary Finish Colors"
-			icon_state = "xion_secondary"*/
+		xion_head
+			name = "Xion - Head Panel Colors"
+			body_parts = list(BP_HEAD)
+
+		xion_legs
+			name = "Xion - Leg Panel Colors"
+			bod_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
+
+		xion_arms
+			name = "Xion - Arm Panel Colors"
+			body_parts = list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM)
 
 		xion_lights
 			name = "Xion - Lights Color"
 			icon_state = "xion_lights"
 			body_parts = list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
-
-/*zeng-hu - old as heck
-	zenghu
-		icon = 'icons/mob/human_races/markings_zenghu.dmi'
-		icon_state = "outer"
-		icon_blend_mode = ICON_MULTIPLY
-		name = "Outer Finish"
-		body_parts = list(BP_HEAD)
-		species_allowed = list("Zeng-Hu Mobility Frame")
-		is_painted = TRUE
-
-		inner
-			name = "Inner Finish"
-			icon_state = "inner"
-			body_parts = list(BP_L_FOOT, BP_R_FOOT, BP_L_HAND, BP_R_HAND, BP_L_LEG, BP_R_LEG)
-
-			l_foot
-				name = "Inner Finish (Left Leg)"
-				body_parts = list(BP_L_FOOT, BP_L_LEG)
-
-			r_foot
-				name = "Inner Finish (Right Leg)"
-				body_parts = list(BP_R_FOOT, BP_R_LEG)
-
-			l_hand
-				name = "Inner Finish (Left Arm)"
-				body_parts = list(BP_L_HAND, BP_L_ARM)
-
-			r_hand
-				name = "Inner Finish (Right Arm)"
-				body_parts = list(BP_R_HAND, BP_R_ARM)
-
-		crest_leser
-			name = "Head Coloration (Lesser)"
-			icon_state = "lesser"
-
-		crest_greater
-			name = "Head Coloration (Greater)"
-			icon_state = "greater"
-*/
