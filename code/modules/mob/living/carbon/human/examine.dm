@@ -75,6 +75,10 @@
 		else
 			msg += "[T.He] [T.is] wearing \icon[w_uniform] <a href='?src=\ref[src];lookitem_desc_only=\ref[w_uniform]'>\a [w_uniform]</a>[tie_msg].\n"
 
+	//when the player is winded by an admin
+	if(paralysis > 6000)
+		msg += "<span><font color='#002eb8'><b>OOC Information:</b></font> <font color='red'>This player has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</font></span>\n"
+
 	//head
 	if(head)
 		if(head.blood_color)

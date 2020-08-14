@@ -29558,7 +29558,6 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/mob/living/bot/secbot/beepsky,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aZd" = (
