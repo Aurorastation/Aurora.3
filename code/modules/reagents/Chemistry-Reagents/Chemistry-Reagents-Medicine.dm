@@ -80,7 +80,7 @@
 
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(0, 6 * removed)
-	if((locate(/datum/reagent/dermaline) in M.reagents.reagent_list)) //Instead of just disabling kelotane when dermaline is present, I've opted to have them function together, however with the drawback of very severe itching which deals brute.
+	if((locate(/datum/reagent/dermaline) in M.reagents.reagent_list)) //Instead of just disabling kelotane when dermaline is present, I've opted to have them function together, however with the drawback of genetic damage. It becomes a case of weighing your options - Keloderm will be great for severe burns, but creates more problems if you're using it to treat minor burns.
 		M.add_chemical_effect(CE_ITCH, dose)
 		M.adjustHydrationLoss(2*removed)
 		M.adjustCloneLoss(1*removed) // Cell regeneration spiralling out of control resulting in genetic damage.
