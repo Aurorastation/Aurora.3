@@ -175,7 +175,7 @@
 	if(W.iswelder() && ( (istext(glass)) || (glass == 1) || (!anchored) ))
 		var/obj/item/weldingtool/WT = W
 		if (WT.remove_fuel(0, user))
-			playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+			playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 			if(istext(glass))
 				user.visible_message("[user] welds the [glass] plating off the airlock assembly.", "You start to weld the [glass] plating off the airlock assembly.")
 				if(do_after(user, 40/W.toolspeed))
@@ -228,7 +228,7 @@
 				to_chat(user, "<span class='notice'>You wire the airlock.</span>")
 
 	else if(W.iswirecutter() && state == 1 )
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
 		user.visible_message("[user] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
 
 		if(do_after(user, 40/W.toolspeed))
@@ -240,7 +240,7 @@
 	else if(istype(W, /obj/item/airlock_electronics) && state == 1)
 		var/obj/item/airlock_electronics/EL = W
 		if(!EL.is_installed)
-			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+			playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
 			user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
 			EL.is_installed = 1
 			if(do_after(user, 40/W.toolspeed))
@@ -261,7 +261,7 @@
 			src.state = 1
 			return
 
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+		playsound(src.loc, W.usesound, 100, 1)
 		user.visible_message("\The [user] starts removing the electronics from the airlock assembly.", "You start removing the electronics from the airlock assembly.")
 
 		if(do_after(user, 40/W.toolspeed))
@@ -278,7 +278,7 @@
 		if (S)
 			if (S.get_amount() >= 1)
 				if(material_name == "rglass")
-					playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+					playsound(src.loc, "crowbar", 100, 1)
 					user.visible_message("[user] adds [S.name] to the airlock assembly.", "You start to install [S.name] into the airlock assembly.")
 					if(do_after(user, 40) && !glass)
 						if (S.use(1))
@@ -290,7 +290,7 @@
 						to_chat(user, "You cannot make an airlock out of that material.")
 						return
 					if(S.get_amount() >= 2)
-						playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+						playsound(src.loc, "crowbar", 100, 1)
 						user.visible_message("[user] adds [S.name] to the airlock assembly.", "You start to install [S.name] into the airlock assembly.")
 						if(do_after(user, 40) && !glass)
 							if (S.use(2))

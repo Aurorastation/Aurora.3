@@ -134,7 +134,7 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough
 	)
-	reagents = list(/datum/reagent/honey = 5)
+	reagents = list(/datum/reagent/nutriment/honey = 5)
 	result = /obj/item/reagent_containers/food/snacks/honeybun
 
 /datum/recipe/truffle

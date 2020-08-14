@@ -46,7 +46,7 @@
 			src.visible_message(SPAN_NOTICE("[user] starts cutting \the [src] apart."))
 			if(do_after(user, 200))
 				src.visible_message(SPAN_DANGER("\The [src] is cut apart by [user]!"))
-				playsound(src, 'sound/items/Welder.ogg', 100, 1)
+				playsound(src, 'sound/items/welder.ogg', 100, 1)
 				new /obj/item/stack/material/titanium(src.loc, 10)
 				new /obj/item/stack/material/plasteel(src.loc, 10)
 				var/obj/item/stack/cable_coil/C = new /obj/item/stack/cable_coil(src.loc)

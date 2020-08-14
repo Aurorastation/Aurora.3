@@ -4,6 +4,7 @@
 	icon = 'icons/clothing/masks/lyodsuit.dmi'
 	icon_state = "dom_thermal_mask"
 	item_state = "dom_thermal_mask"
+	flags_inv = BLOCKHAIR
 	contained_sprite = TRUE
 	canremove = FALSE
 
@@ -181,6 +182,7 @@
 /obj/item/clothing/under/dominia/lyodsuit/hoodie/proc/create_mask()
 	if(!mask)
 		mask = new /obj/item/clothing/mask/lyodsuit(src)
+	item_state = "dom_thermal"
 
 /obj/item/clothing/under/dominia/lyodsuit/hoodie/proc/remove_mask()
 	// Mask got nuked. Probably because of RIGs or the like.
@@ -189,6 +191,8 @@
 	if(ishuman(mask.loc))
 		var/mob/living/carbon/H = mask.loc
 		H.unEquip(mask, 1)
+		item_state = initial(item_state)
+		H.update_inv_w_uniform()
 	mask.forceMove(src)
 	hood_raised = FALSE
 

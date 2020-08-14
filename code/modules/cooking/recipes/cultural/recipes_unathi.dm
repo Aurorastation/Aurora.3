@@ -57,24 +57,16 @@
 /datum/recipe/grilled_carp
 	appliance = SKILLET // 'grilled' is even in the name
 	items = list(
-		/obj/item/reagent_containers/food/snacks/carpmeat,
-		/obj/item/reagent_containers/food/snacks/carpmeat,
-		/obj/item/reagent_containers/food/snacks/carpmeat,
-		/obj/item/reagent_containers/food/snacks/carpmeat,
-		/obj/item/reagent_containers/food/snacks/carpmeat,
-		/obj/item/reagent_containers/food/snacks/carpmeat
+		/obj/item/reagent_containers/food/snacks/fish,
+		/obj/item/reagent_containers/food/snacks/fish,
+		/obj/item/reagent_containers/food/snacks/fish,
+		/obj/item/reagent_containers/food/snacks/fish,
+		/obj/item/reagent_containers/food/snacks/fish,
+		/obj/item/reagent_containers/food/snacks/fish
 	)
 	reagents = list(/datum/reagent/spacespice = 1)
 	fruit = list("cabbage" = 1, "lime" = 1)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/grilled_carp
-
-/datum/recipe/sushi_roll
-	items = list(
-		/obj/item/reagent_containers/food/snacks/carpmeat,
-		/obj/item/reagent_containers/food/snacks/boiledrice
-	)
-	fruit = list("cabbage" = 1)
-	result = /obj/item/reagent_containers/food/snacks/sliceable/sushi_roll
 
 /datum/recipe/bacon_stick
 	items = list(
@@ -92,3 +84,11 @@
 		/obj/item/reagent_containers/food/snacks/omelette
 	)
 	result = /obj/item/reagent_containers/food/snacks/egg_pancake
+
+/datum/recipe/sushi_roll
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish,
+		/obj/item/reagent_containers/food/snacks/boiledrice
+	)
+	fruit = list("cabbage" = 1)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/sushi_roll

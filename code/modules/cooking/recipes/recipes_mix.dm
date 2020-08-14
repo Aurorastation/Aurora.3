@@ -38,7 +38,7 @@
 /datum/recipe/fishburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/carpmeat
+		/obj/item/reagent_containers/food/snacks/fish
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger/fish
 
@@ -240,7 +240,7 @@
 /datum/recipe/sashimi
 	reagents = list(/datum/reagent/nutriment/soysauce = 5)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/carpmeat
+		/obj/item/reagent_containers/food/snacks/fish
 	)
 	result = /obj/item/reagent_containers/food/snacks/sashimi
 

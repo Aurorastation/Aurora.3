@@ -285,7 +285,7 @@
 		if(!(O.status & ORGAN_ROBOT))
 			playsound(target.loc, 'sound/effects/squelch1.ogg', 15, 1)
 		else
-			playsound(target.loc, 'sound/items/Ratchet.ogg', 50, 1)
+			playsound(target.loc, 'sound/items/wrench.ogg', 50, 1)
 
 		target.update_body()
 		target.updatehealth()

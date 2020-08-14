@@ -11,7 +11,8 @@
 	magazine_type = /obj/item/ammo_magazine/boltaction
 	max_shells = 5
 
-	pump_snd = 'sound/weapons/riflebolt.ogg'
+	rack_sound = 'sound/weapons/riflebolt.ogg'
+	rack_verb = "pull back the bolt on"
 	has_wield_state = TRUE
 
 	can_bayonet = TRUE
@@ -167,12 +168,12 @@
 	if(!open_bolt)
 		open_bolt = 1
 		icon_state = "springfield-openbolt"
-		playsound(M, 'sound/weapons/riflebolt.ogg', 60, 1)
+		playsound(M, rack_sound, 60, 1)
 		update_icon()
 		return
 	open_bolt = 0
 	icon_state = "springfield"
-	playsound(M, 'sound/weapons/riflebolt.ogg', 60, 1)
+	playsound(M, rack_sound, 60, 1)
 	if(has_clip)
 		has_clip.forceMove(get_turf(src))
 		has_clip = null
@@ -235,7 +236,7 @@
 	item_state = "gauss_thumper"
 	caliber = "gauss"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
-	fire_sound = 'sound/weapons/railgun.ogg'
+	fire_sound = "gauss_fire"
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
 
@@ -264,7 +265,7 @@
 	desc = "An outdated and power hungry gauss cannon, modified to deliver high explosive rounds at high velocities."
 	icon = 'icons/obj/guns/gauss_thumper.dmi'
 	icon_state = "gauss_thumper"
-	fire_sound = 'sound/weapons/railgun.ogg'
+	fire_sound = "gauss_fire"
 	fire_delay = 30
 	charge_meter = 0
 	max_shots = 3

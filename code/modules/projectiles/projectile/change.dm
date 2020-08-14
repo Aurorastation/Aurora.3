@@ -4,7 +4,7 @@
 	damage = 0
 	damage_type = BURN
 	nodamage = 1
-	check_armour = "energy"
+	check_armor = "energy"
 
 /obj/item/projectile/change/on_hit(var/atom/change)
 	wabbajack(change)

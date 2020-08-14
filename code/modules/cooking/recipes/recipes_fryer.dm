@@ -44,7 +44,7 @@
 	fruit = list("chili" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/carpmeat
+		/obj/item/reagent_containers/food/snacks/fish
 	)
 	result = /obj/item/reagent_containers/food/snacks/cubancarp
 
@@ -83,6 +83,23 @@
 	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/crunch
 	coating = /datum/reagent/nutriment/coating/batter
 
+//Fishy Recipes
+//==================
+/datum/recipe/fishandchips
+	appliance = FRYER
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fries,
+		/obj/item/reagent_containers/food/snacks/fish
+	)
+	result = /obj/item/reagent_containers/food/snacks/fishandchips
+
+/datum/recipe/fishfingers
+	appliance = FRYER
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish
+	)
+	coating = /datum/reagent/nutriment/coating/batter
+	result = /obj/item/reagent_containers/food/snacks/fishfingers
 
 //Sweet Recipes.
 //==================
@@ -141,15 +158,6 @@
 	)
 	reagents = list(/datum/reagent/nutriment/soysauce = 5, /datum/reagent/nutriment/coating/batter = 10)
 	result = /obj/item/reagent_containers/food/snacks/sweet_and_sour
-
-/datum/recipe/fishfingers
-	appliance = SKILLET | OVEN | FRYER // fry 'em, bake 'em, whatever you want, they're fish fingers
-	reagents = list(/datum/reagent/nutriment/flour = 10,/datum/reagent/nutriment/protein/egg = 3)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/carpmeat
-	)
-	result = /obj/item/reagent_containers/food/snacks/fishfingers
-	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/wingfangchu
 	appliance = FRYER
