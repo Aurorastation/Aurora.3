@@ -21,7 +21,7 @@
 		to_chat(M, SPAN_WARNING(pick("Your chest feels tight.", "Your chest is aching a bit.", "You have a stabbing pain in your chest.")))
 		M.adjustHalLoss(5)
 
-/datum/reagent/butazoline //Bicaridine is the kelotane of brute medications. It's slow at treating brute, however can OD to treat AB.
+/datum/reagent/bicaridine //Bicaridine is the kelotane of brute medications. It's slow at treating brute, however can OD to treat AB.
 	name = "Bicaridine"
 	description = "Bicaridine is a complex medication which specifically targets damaged tissues and damaged blood vessels by encouraging the rate at which the damaged tissues are regenerated. Overdosing bicaridine allows the drug to take effect on damaged muscular tissues of arteries."
 	reagent_state = LIQUID
