@@ -352,7 +352,7 @@
 	reagent_state = LIQUID
 	color = "#99CCFF"
 	metabolism = REM * 0.05
-	overdose = 10 //Lowered from 30 to 10 due to metabolism being so slow, you'll never metabolise 30 before your liver explodes.
+	overdose = 5 //Lowered from 30 to 5 due to metabolism being so slow, you'll never metabolise 30 before your liver explodes.
 	scannable = 1
 	var/datum/modifier/modifier
 	taste_description = "bitterness"
@@ -505,7 +505,8 @@
 		modifier = M.add_modifier(/datum/modifier/stimulant, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 	
 	if((locate(/datum/reagent/adrenaline) in M.reagents.reagent_list))
-		overdose = dose/2 //Straight to overdose.
+		if(M.reagents.get_reagent_amount(/datum/reagent/adrenaline) > 5) //So you can tolerate being attacked whilst hyperzine is in your system.
+			overdose = dose/2 //Straight to overdose.
 
 /datum/reagent/hyperzine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustNutritionLoss(5*removed)	
