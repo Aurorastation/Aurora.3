@@ -1,0 +1,6 @@
+author: Hocka
+
+delete-after: True
+
+changes: 
+  - bugfix: "Spawning on the Odin now gives you your job uniform as well."
