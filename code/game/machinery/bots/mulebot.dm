@@ -299,7 +299,7 @@
 					updateDialog()
 
 			if("home")
-				if(mode == 0 || mode == 2)
+				if(mode == IDLE || mode == NAVIGATING)
 					start_home()
 					updateDialog()
 
@@ -750,6 +750,7 @@
 // called when bot reaches current target
 /obj/machinery/bot/mulebot/proc/at_target()
 	if(!reached_target)
+		mode = LOADING_UNLOADING
 		src.visible_message("[src] makes a chiming sound!", "You hear a chime.")
 		playsound(src.loc, 'sound/machines/chime.ogg', 50, 0)
 		reached_target = 1
@@ -774,9 +775,9 @@
 		if(auto_return && destination != home_destination)
 			// auto return set and not at home already
 			start_home()
-			mode = 4
+			mode = NAVIGATING
 		else
-			mode = 0	// otherwise go idle
+			mode = IDLE	// otherwise go idle
 
 	stop()
 	send_status()	// report status to anyone listening
@@ -1006,11 +1007,14 @@
 									// the we will navigate there
 			mule.destination = mule.new_destination
 			mule.target = signal.source.loc
+			mule.final_target = mule.target
+			mule.mode = NAVIGATING
 			var/direction = signal.data["dir"]	// this will be the load/unload dir
 			if(direction)
 				mule.loaddir = text2num(direction)
 			else
 				mule.loaddir = 0
+
 			mule.update_icon()
 			mule.calc_path()
 			mule.updateDialog()
