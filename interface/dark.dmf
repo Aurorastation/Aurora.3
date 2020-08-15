@@ -627,6 +627,9 @@ macro "hotkeymode"
 	elem 
 		name = "."
 		command = "move-down"
+	elem
+		name = "SHIFT"
+		command = "toggle-movement-mode"
 
 macro "borgmacro"
 	elem 

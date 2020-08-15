@@ -961,3 +961,19 @@ default behaviour is:
 
 /mob/living/proc/needs_wheelchair()
 	return FALSE
+
+/mob/living/verb/toggle_movement_mode()
+	set name = "Toggle Movement Mode"
+	set desc = "Swap between running or walking."
+	set category = "IC"
+
+	switch(m_intent)
+		if("run")
+			m_intent = "walk"
+		if("walk")
+			m_intent = "run"
+
+	if(client)
+		var/obj/screen/movement_intent/M = locate() in client.screen
+		if(M)
+			M.update_move_icon(src)
