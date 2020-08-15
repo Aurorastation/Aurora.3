@@ -168,7 +168,7 @@
 		var/obj/item/organ/internal/eyes/E = H.get_eyes(no_synthetic = TRUE)
 		if(E && istype(E))
 			E.take_damage(removed * (strength / 12))
-	else if(alien == IS_VAURCA) //Vaurca need a mixture of phoron and oxygen. Too much dexalin likely imbalances that.
+	if(alien == IS_VAURCA) //Vaurca need a mixture of phoron and oxygen. Too much dexalin likely imbalances that.
 		M.adjustToxLoss(removed * strength / 2)
 		M.eye_blurry = max(M.eye_blurry, 5)
 
@@ -594,7 +594,6 @@
 		M.adjustToxLoss(45 * removed) // Tested numbers myself
 	else
 		M.apply_radiation(-30 * removed)
-		M.add_chemical_effect(CE_ITCH, dose/2)
 
 /datum/reagent/hyronalin/overdose(var/mob/living/carbon/M, var/alien, var/removed)	
 	if(prob(60))
@@ -1499,7 +1498,7 @@
 	description = "Saline Plus, or Vaughan's Saline Solution, is an expensive improvement upon the various saline solutions of old. Saline Plus has wide clinical applications in the treatment of dehydration and hypovolaemia, with no more debates as to whether it is effective or not."
 	reagent_state = LIQUID
 	scannable = TRUE
-	metabolism = REM * 2
+	metabolism = REM * 4
 	overdose = 5 // Low overdose and fast metabolism to encourage IV drip usage. Overdose isn't too severe if a player doesn't realise this.
 	color = "#1ca9c9"
 	taste_description = "premium salty water"
@@ -1513,7 +1512,7 @@
 	else
 		M.adjustHydrationLoss(-removed*5)
 	if(is_overdosed == FALSE)
-		M.add_chemical_effect(CE_BLOODRESTORE, 5 * removed) //Replaces iron, copper and sulphur as the main blood restorative medication. Expensive & finnicky to make, though.
+		M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed) //Replaces iron, copper and sulphur as the main blood restorative medication. Expensive & finnicky to make, though.
 	
 /datum/reagent/saline/overdose(var/mob/living/carbon/M, var/alien)
 	M.confused = max(M.confused, 20)
