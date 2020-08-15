@@ -49,10 +49,10 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 			else
 				to_chat(user, "<span class ='notice'>This firearm already has a firing pin installed.</span>")
 
-/obj/item/device/firing_pin/emag_act(mob/user)
+/obj/item/device/firing_pin/emag_act()
 	if(!emagged)
 		emagged = TRUE
-		to_chat(user, "<span class='notice'>You override the authentication mechanism.</span>")
+		to_chat(get_holding_mob(src), "<span class='notice'>You override the authentication mechanism.</span>")
 
 /obj/item/device/firing_pin/proc/gun_insert(mob/living/user, obj/item/gun/G)
 	gun = G
