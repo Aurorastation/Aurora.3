@@ -17,17 +17,17 @@
           <td>{{ gun.registered_info }}</td>
           <td>{{ gun.gun_name }}</td>
           <td>
-            <template v-if="gun.automatic_state">
-              <vui-button class="button selectedoption" :params="{ togglepin1: gun.ref }">Automatic</vui-button>
-            </template>
-            <template v-else>
-              <vui-button :params="{ togglepin1: gun.ref }">Automatic</vui-button>
-            </template>
             <template v-if="gun.disabled_state">
               <vui-button class="button selectedoption" :params="{ togglepin2: gun.ref }">Disabled</vui-button>
             </template>
             <template v-else>
               <vui-button :params="{ togglepin2: gun.ref }">Disabled</vui-button>
+            </template>
+            <template v-if="gun.automatic_state">
+              <vui-button class="button selectedoption" :params="{ togglepin1: gun.ref }">Automatic</vui-button>
+            </template>
+            <template v-else>
+              <vui-button :params="{ togglepin1: gun.ref }">Automatic</vui-button>
             </template>
             <template v-if="gun.stun_state">
               <vui-button class="button selectedoption" :params="{ togglepin3: gun.ref }">Stun Only</vui-button>
