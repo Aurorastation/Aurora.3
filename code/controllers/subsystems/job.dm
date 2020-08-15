@@ -381,6 +381,8 @@
 			H.equip_wheelchair()
 
 	to_chat(H, "<B>You are [job.total_positions == 1 ? "the" : "a"] [alt_title ? alt_title : rank].</B>")
+	
+	UniformReturn(H, H.client.prefs, job)
 
 	if(job.supervisors)
 		to_chat(H, "<b>As [job.intro_prefix] [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
@@ -503,6 +505,7 @@
 		var/list/custom_equip_leftovers = list()
 
 		EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
+		UniformReturn(H, H.client.prefs, job)
 
 		Debug("EP/([H]): EC Complated, running pre_equip and late_equip.")
 
@@ -701,7 +704,6 @@
 // H, job, and prefs MUST be supplied and not null.
 // leftovers, storage, custom_equip_slots can be passed if their return values are required (proc mutates passed list), or ignored if not required.
 /datum/controller/subsystem/jobs/proc/EquipCustom(mob/living/carbon/human/H, datum/job/job, datum/preferences/prefs, list/leftovers = null, list/storage = null, list/custom_equip_slots = list())
-	var/keepuniform = job.get_outfit(H)
 	Debug("EC/([H]): Entry.")
 	if (!istype(H) || !job)
 		Debug("EC/([H]): Abort: invalid arguments.")
@@ -716,8 +718,6 @@
 		var/datum/gear/G = gear_datums[thing]
 		if(G)
 
-			if(G.slot == slot_w_uniform)
-				UniformReturn(keepuniform, H)
 			if(G.augment) //augments are handled somewhere else
 				continue
 
@@ -772,7 +772,7 @@
 // Attempts to equip custom items that failed to equip in EquipCustom.
 // Returns a list of items that failed to equip & should be put in storage if possible.
 // H and prefs must not be null.
-/datum/controller/subsystem/jobs/proc/EquipCustomDeferred(mob/living/carbon/human/H, datum/preferences/prefs, list/items, list/used_slots)
+/datum/controller/subsystem/jobs/proc/EquipCustomDeferred(mob/living/carbon/human/H, datum/preferences/prefs, list/items, list/used_slots, datum/job/job)
 	. = list()
 	Debug("ECD/([H]): Entry.")
 	for (var/thing in items)
@@ -936,8 +936,13 @@
 	C.screen -= T
 	qdel(T)
 
-/datum/controller/subsystem/jobs/proc/UniformReturn(uniform, mob/living/carbon/human/H)
+/datum/controller/subsystem/jobs/proc/UniformReturn(mob/living/carbon/human/H, datum/preferences/prefs, datum/job/job)
+	var/uniform = job.get_outfit(H)
 	var/datum/outfit/U = new uniform
 	var/uniformspawn = new U.uniform(H)
-	H.equip_or_collect(uniformspawn, H.back)
+	for(var/item in prefs.gear)
+		var/datum/gear/L = gear_datums[item]
+		if(L.slot == slot_w_uniform)
+			H.equip_or_collect(uniformspawn, H.back)
+			break
 #undef Debug
