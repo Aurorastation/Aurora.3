@@ -873,7 +873,7 @@
 	
 	if (emagged)
 		add_overlay("mule_fast-light-emagged")
-	else if (mode == IDLE || mode == NAV_BLOCKED)
+	else if (mode == IDLE || mode == HOME || mode == NAV_BLOCKED || mode == CANNOT_REACH)
 		add_overlay("mule_fast-light-paused")
 	else if (mode == NAVIGATING || mode == LOADING_UNLOADING || mode == MOVING_LEVELS || mode == SUMMONED)
 		add_overlay("mule_fast-light-active")
