@@ -1,0 +1,54 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes: 
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.  
+author: PoZe
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - tweak: "Mulebot's code has be re-hauled. Mulebots are now capable of moving between Z levels using their own mulebot elevators."
+  - rscadd: "Mulebots now can be summoned to a person via PDA controls."
+  - rscadd: "Mulebots can now accept Custom X/Y/Z coordinates as destination."
+  - tweak: "Mulebots can now accept most cargo types."
+  - tweak: "Mulebots cargo is no longer inside of them code wise. It is on top of them, which means it can be intercated with(you can put active turrets on top of them)."
+  - tweak: "Mulebots are now using new movement system that is designed to have continous movement from point A to B. They are now much faster and agile."
+  - tweak: "Mulebots now include unsimulated turfs in their paths too, meaning they can navigate asteroid no problem."
+  - tweak: "Cargo trolley now has purple lights indicating if they are latched or not."
+  - maptweak: "Added two mining mulebots and beacons outside of mining. Added ore dropoff beacon for mining right next to the airlock."
+  - maptweak: "Added mulebot elevators that are right next to mining ladder and lead to each Z level that the ladder goes."
+  - maptweak: "Added mulebot elevators inside of station that goes Surface <-> Interstitial <-> Main."
+  - imageadd: "Cargo train and trolley sprites have been changed, from the same set as mulebot. Cargo train/trolley now has all direction sprites"
+  - imageadd: "Mulebot's sprite has been changed. Used from Nebula station."
+  - backend: "Added new notifiable movement system designed to help with creating continous movement that uses paths."
