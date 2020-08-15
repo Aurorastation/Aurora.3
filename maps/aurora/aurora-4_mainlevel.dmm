@@ -35692,7 +35692,7 @@
 /obj/item/reagent_containers/glass/bottle/antitoxin,
 /obj/item/storage/pill_bottle/dermaline,
 /obj/item/storage/pill_bottle/mortaphenyl,
-/obj/item/storage/pill_bottle/dylovene,
+/obj/item/storage/pill_bottle/bicaridine, //Replaced one dylovene pill bottle with a bicaridine pill bottle. This will especially help nurses/paramedics on low-pop who have no chemist/physician.
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/reagent_containers/syringe/antibiotic,
 /obj/item/reagent_containers/syringe/antibiotic,

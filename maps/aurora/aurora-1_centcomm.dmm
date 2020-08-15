@@ -8717,11 +8717,13 @@
 /obj/item/storage/pill_bottle/kelotane,
 /obj/item/storage/pill_bottle/kelotane,
 /obj/item/storage/pill_bottle/antitox,
-/obj/item/storage/pill_bottle/kelotane,
+/obj/item/storage/pill_bottle/bicaridine, //Switched out 1 kelotane pill bottle with a bicaridine pill bottle.
+/obj/item/reagent_containers/glass/bottle/saline,
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/brute, //More first-aid kit variety.
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 1
@@ -8743,11 +8745,13 @@
 /obj/item/storage/pill_bottle/kelotane,
 /obj/item/storage/pill_bottle/kelotane,
 /obj/item/storage/pill_bottle/antitox,
-/obj/item/storage/pill_bottle/kelotane,
+/obj/item/storage/pill_bottle/bicaridine,
+/obj/item/reagent_containers/glass/bottle/saline,
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/brute,
 /obj/machinery/light,
 /turf/unsimulated/floor{
 	icon_state = "vault";

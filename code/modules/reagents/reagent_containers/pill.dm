@@ -90,7 +90,7 @@
 	name = "anti-toxins pill"
 	desc = "Neutralizes many common toxins."
 	icon_state = "pill17"
-	reagents_to_add = list(/datum/reagent/dylovene = 25)
+	reagents_to_add = list(/datum/reagent/dylovene = 10) //Reduced from 25u to 10u.
 
 /obj/item/reagent_containers/pill/tox
 	name = "toxins pill"
@@ -120,38 +120,38 @@
 	name = "kelotane pill"
 	desc = "Used to treat burns."
 	icon_state = "pill11"
-	reagents_to_add = list(/datum/reagent/kelotane = 15)
+	reagents_to_add = list(/datum/reagent/kelotane = 10)
 
 /obj/item/reagent_containers/pill/perconol
 	name = "perconol pill"
 	desc = "A painkiller for the ages. Chewables!"
 	icon_state = "pill8"
-	reagents_to_add = list(/datum/reagent/perconol = 15)
+	reagents_to_add = list(/datum/reagent/perconol = 10)
 
 
 /obj/item/reagent_containers/pill/mortaphenyl
 	name = "mortaphenyl pill"
 	desc = "A mortaphenyl pill, it's a potent painkiller."
 	icon_state = "pill8"
-	reagents_to_add = list(/datum/reagent/mortaphenyl = 15)
+	reagents_to_add = list(/datum/reagent/mortaphenyl = 10)
 
 /obj/item/reagent_containers/pill/corophenidate
 	name = "corophenidate pill"
 	desc = "Improves the ability to concentrate."
 	icon_state = "pill8"
-	reagents_to_add = list(/datum/reagent/mental/corophenidate = 15)
+	reagents_to_add = list(/datum/reagent/mental/corophenidate = 5)
   
 /obj/item/reagent_containers/pill/minaphobin
 	name = "minaphobin pill"
 	desc = "Mild anti-depressant."
 	icon_state = "pill8"
-	reagents_to_add = list(/datum/reagent/mental/minaphobin = 15)
+	reagents_to_add = list(/datum/reagent/mental/minaphobin = 5)
 
 /obj/item/reagent_containers/pill/inaprovaline
 	name = "inaprovaline pill"
 	desc = "Used to stabilize patients."
 	icon_state = "pill20"
-	reagents_to_add = list(/datum/reagent/inaprovaline = 30)
+	reagents_to_add = list(/datum/reagent/inaprovaline = 10)
 
 /obj/item/reagent_containers/pill/dexalin
 	name = "dexalin pill"
@@ -169,7 +169,7 @@
 	name = "dermaline pill"
 	desc = "Used to treat burn wounds."
 	icon_state = "pill12"
-	reagents_to_add = list(/datum/reagent/dermaline = 15)
+	reagents_to_add = list(/datum/reagent/dermaline = 10)
 
 /obj/item/reagent_containers/pill/dylovene
 	name = "dylovene pill"
@@ -177,11 +177,17 @@
 	icon_state = "pill13"
 	reagents_to_add = list(/datum/reagent/dylovene = 15)
 
+/obj/item/reagent_containers/pill/butazoline
+	name = "butazoline pill"
+	desc = "Used to treat major injuries."
+	icon_state = "pill18"
+	reagents_to_add = list(/datum/reagent/butazoline = 10)
+
 /obj/item/reagent_containers/pill/bicaridine
 	name = "bicaridine pill"
 	desc = "Used to treat minor injuries and bleeding."
 	icon_state = "pill18"
-	reagents_to_add = list(/datum/reagent/bicaridine = 20)
+	reagents_to_add = list(/datum/reagent/bicaridine = 10)
 
 /obj/item/reagent_containers/pill/happy
 	name = "happy pill"
@@ -194,6 +200,12 @@
 	desc = "Zoooom!"
 	icon_state = "pill18"
 	reagents_to_add = list(/datum/reagent/impedrezene = 10, /datum/reagent/synaptizine = 5, /datum/reagent/hyperzine = 5)
+
+obj/item/reagent_containers/pill/tranquility
+	name = "tranquility pill"
+	desc = "Peace, at last."
+	icon_state = "pill8"
+	reagents_to_add = list(/datum/reagent/mental/neurapan = 15, /datum/reagent/impedrezene = 10)
 
 /obj/item/reagent_containers/pill/thetamycin
 	name = "thetamycin pill"

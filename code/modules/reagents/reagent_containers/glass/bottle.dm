@@ -97,6 +97,12 @@
 	icon_state = "bottle-4"
 	reagents_to_add = list(/datum/reagent/dylovene = 60)
 
+/obj/item/reagent_containers/glass/bottle/saline
+	name = "saline bottle"
+	desc = "A small bottle of saline for attaching to drips. Re-hydrates a patient and helps with increasing blood volume."
+	icon_state = "bottle-3"
+	reagents_to_add = list(/datum/reagent/saline = 60)
+
 /obj/item/reagent_containers/glass/bottle/mutagen
 	name = "unstable mutagen bottle"
 	desc = "A small bottle of unstable mutagen. Randomly changes the DNA structure of whoever comes in contact."
