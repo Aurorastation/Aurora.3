@@ -1668,6 +1668,7 @@
 	result = null
 	required_reagents = list(/datum/reagent/drink/milk/soymilk = 10)
 	catalysts = list(/datum/reagent/enzyme = 5)
+	inhibitors = list(/datum/reagent/sodiumchloride = 1) // To prevent conflict with Soy Sauce recipe.
 	result_amount = 1
 
 /datum/chemical_reaction/tofu/on_reaction(var/datum/reagents/holder, var/created_volume)
@@ -1713,7 +1714,8 @@
 	name = "Soy Sauce"
 	id = "soysauce"
 	result = /datum/reagent/nutriment/soysauce
-	required_reagents = list(/datum/reagent/drink/milk/soymilk = 4, /datum/reagent/acid = 1)
+	required_reagents = list(/datum/reagent/drink/milk/soymilk = 4, /datum/reagent/sodiumchloride = 1)
+	catalysts = list(/datum/reagent/enzyme = 5)
 	result_amount = 5
 
 /datum/chemical_reaction/ketchup
