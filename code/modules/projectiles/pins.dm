@@ -30,7 +30,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	if(istype(loc, /obj/item/gun))
 		gun = loc
 
-/obj/item/device/firing_pin/proc/examine_info()
+/obj/item/device/firing_pin/proc/examine_info() // Part of what allows people to see what firing mode  their wireless control pin is in. Returns nothing here if there's no wireless-control firing pin.
 		return
 
 
@@ -258,24 +258,33 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 	wireless_firing_pins -= src
 	return ..()
 
+/*
+	The return of this pin_auth is dependent on the wireless pin's lockstatus. For the purposes of this, only energy projectiles
+	that have a taser_effect are considered "stun" projectiles. All ballistic firearms are considered as being lethal, regardless
+	of ammunition loaded. Behaviours should be as follows:
+	Automatic: The weapon will only fire on stun while the security level is Green or Blue. On Yellow, Red & Delta alert the weapon is unrestricted
+	Disabled: The weapon will not fire under any circumstance.
+	Stun-Only: The weapon will only fire on stun regardless of the current security level.
+	Lethal: The weapon will fire on all modes regardless of the current security level.
+*/
 /obj/item/device/firing_pin/wireless/pin_auth(mob/living/user)
-	if(lockstatus != WIRELESS_PIN_DISABLED) // If it's disabled it's disabled. No shooting on any mode.
-		if(lockstatus == WIRELESS_PIN_LETHAL) //Pin is unrestricted.
+	if(lockstatus != WIRELESS_PIN_DISABLED)
+		if(lockstatus == WIRELESS_PIN_LETHAL)
 			return TRUE
-		if(istype(gun, /obj/item/gun/energy)) //Only energy weapons can be fired on stun.
+		if(istype(gun, /obj/item/gun/energy))
 			var/obj/item/gun/energy/thegun = gun
 			var/obj/item/projectile/energy/P = new thegun.projectile_type
-			if(P?.taser_effect) // We've already checked whether it's disabled, and no other lockstatus excludes stun.
+			if(P?.taser_effect)
 				return TRUE
-			if(security_level != SEC_LEVEL_GREEN && security_level != SEC_LEVEL_BLUE && lockstatus == WIRELESS_PIN_STUN) // We're on elevated alert, but the gun has been manually set to only allow stun.
-				if(!P?.taser_effect) // Check if we're not shooting a stun effect.
+			if(security_level != SEC_LEVEL_GREEN && security_level != SEC_LEVEL_BLUE && lockstatus == WIRELESS_PIN_STUN)
+				if(!P?.taser_effect)
 					return FALSE
 
-		if(security_level != SEC_LEVEL_GREEN && security_level != SEC_LEVEL_BLUE && lockstatus != WIRELESS_PIN_STUN) // If there's an elevated alert and the lockstatus isn't on stun.
+		if(security_level != SEC_LEVEL_GREEN && security_level != SEC_LEVEL_BLUE && lockstatus != WIRELESS_PIN_STUN)
 			return TRUE
 	return FALSE
 
-/obj/item/device/firing_pin/wireless/proc/unlock(var/i) // Changes the current allowed firestates of the weapon.
+/obj/item/device/firing_pin/wireless/proc/unlock(var/i) // Changes the current lockstatus of the weapon, and sends a message and sfx to whoever is holding it.
 	var/mob/user = get_holding_mob(src)
 
 	if(i == lockstatus)
@@ -302,7 +311,7 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 		lockstatus = WIRELESS_PIN_LETHAL
 	return
 
-/obj/item/device/firing_pin/wireless/attackby(obj/item/C as obj, mob/user as mob) //Lets people register their IDs to the pin.
+/obj/item/device/firing_pin/wireless/attackby(obj/item/C as obj, mob/user as mob) //Lets people register their IDs to the pin. Using it once registers you, using it again clears you.
 	if(istype(C, /obj/item/card/id))
 		var/obj/item/card/id/idcard = C
 		if(idcard.registered_name == registered_user)
@@ -313,9 +322,3 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 		registered_user = idcard.registered_name
 		return TRUE
 	return FALSE
-
-/obj/item/device/firing_pin/wireless/gun_insert(mob/living/user, obj/item/gun/G)
-	gun = G
-	user.drop_from_inventory(src,gun)
-	gun.pin = src
-	return

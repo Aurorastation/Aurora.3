@@ -146,7 +146,7 @@
 /obj/item/gun/energy/disruptorpistol/security
 	pin = /obj/item/device/firing_pin/wireless
 
-/obj/item/gun/energy/disruptorpistol/verb/select_frame()
+/obj/item/gun/energy/disruptorpistol/verb/select_frame() // Let's people choose the aesthetic model of their gun. No stat changes.
 	set name = "Select Model"
 	set category = "Object"
 	set desc = "Click to select the model of your gun."

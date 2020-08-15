@@ -611,7 +611,7 @@
 	if(needspin)
 		if(pin)
 			to_chat(user, "\The [pin] is installed in the trigger mechanism.")
-			pin.examine_info(user)
+			pin.examine_info(user) // Allows people to check the current firemode of their wireless-control firing pin. Returns nothing if there's no wireless-control firing pin.
 		else
 			to_chat(user, "It doesn't have a firing pin installed, and won't fire.")
 	if(firemodes.len > 1)
@@ -863,7 +863,7 @@
 		update_icon()
 		return
 
-	if(pin?.attackby(I, user))
+	if(pin?.attackby(I, user)) //Allows users to use their ID on a gun with a wireless-control firing pin to register their identity.
 		return
 
 	if(istype(I, /obj/item/ammo_display))

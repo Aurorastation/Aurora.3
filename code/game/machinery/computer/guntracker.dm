@@ -51,7 +51,6 @@
 				"gun_name" = P.gun.name,
 				"registered_info" = P.registered_user,
 				"ref" = "\ref[P]",
-				"area" = get_area(P),
 				"automatic_state" = (P.lockstatus == 1),
 				"disabled_state" = (P.lockstatus == 2),
 				"stun_state" = (P.lockstatus == 3),
@@ -69,22 +68,22 @@
 	if((usr.contents.Find(src) || (in_range(src, usr) && isturf(loc))) || issilicon(usr))
 		usr.set_machine(src)
 
-		if(href_list["togglepin1"])
+		if(href_list["togglepin1"]) // Sets the wireless-control firing pin to automatic
 			var/obj/item/device/firing_pin/wireless/P = locate(href_list["togglepin1"])
 			if(P)
 				P.unlock(1)
 
-		if(href_list["togglepin2"])
+		if(href_list["togglepin2"]) // Sets the wireless-control firing pin to disabled
 			var/obj/item/device/firing_pin/wireless/P = locate(href_list["togglepin2"])
 			if(P)
 				P.unlock(2)
 
-		if(href_list["togglepin3"])
+		if(href_list["togglepin3"]) // Sets the wireless-control firing pin to stun-only
 			var/obj/item/device/firing_pin/wireless/P = locate(href_list["togglepin3"])
 			if(P)
 				P.unlock(3)
 
-		if(href_list["togglepin4"])
+		if(href_list["togglepin4"]) // Sets the wireless-control firing pin to unrestricted
 			var/obj/item/device/firing_pin/wireless/P = locate(href_list["togglepin4"])
 			if(P)
 				P.unlock(4)
