@@ -3,4 +3,4 @@ author: mikomyazaki
 delete-after: True
 
 changes: 
-  - rscadd: "Hotkey SHIFT will now toggle walk/run in hotkey mode."
+  - rscadd: "Hotkey / will now toggle walk/run in hotkey mode."
