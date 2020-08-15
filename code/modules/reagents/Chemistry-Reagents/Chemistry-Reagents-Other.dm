@@ -1,7 +1,7 @@
 /* Paint and crayons */
 
 /datum/reagent/crayon_dust
-	name = "Crayon dust"
+	name = "Crayon Dust"
 	description = "Intensely coloured powder obtained by grinding crayons."
 	reagent_state = LIQUID
 	color = "#888888"
@@ -10,42 +10,42 @@
 	fallback_specific_heat = 0.4
 
 /datum/reagent/crayon_dust/red
-	name = "Red crayon dust"
+	name = "Red Crayon Dust"
 	color = "#FE191A"
 	taste_description = "chalky strawberry wax"
 
 /datum/reagent/crayon_dust/orange
-	name = "Orange crayon dust"
+	name = "Orange Crayon Dust"
 	color = "#FFBE4F"
 	taste_description = "chalky orange peels"
 
 /datum/reagent/crayon_dust/yellow
-	name = "Yellow crayon dust"
+	name = "Yellow Crayon Dust"
 	color = "#FDFE7D"
 	taste_description = "chalky lemon rinds"
 
 /datum/reagent/crayon_dust/green
-	name = "Green crayon dust"
+	name = "Green Crayon Dust"
 	color = "#18A31A"
 	taste_description = "chalky lime rinds"
 
 /datum/reagent/crayon_dust/blue
-	name = "Blue crayon dust"
+	name = "Blue Crayon Dust"
 	color = "#247CFF"
 	taste_description = "chalky blueberry skins"
 
 /datum/reagent/crayon_dust/purple
-	name = "Purple crayon dust"
+	name = "Purple Crayon Dust"
 	color = "#CC0099"
 	taste_description = "chalky grape skins"
 
 /datum/reagent/crayon_dust/grey //Mime
-	name = "Grey crayon dust"
+	name = "Grey Crayon Dust"
 	color = "#808080"
 	taste_description = "chalky crushed dreams"
 
 /datum/reagent/crayon_dust/brown //Rainbow
-	name = "Brown crayon dust"
+	name = "Brown Crayon Dust"
 	color = "#846F35"
 	taste_description = "raw, powerful creativity"
 
@@ -255,7 +255,7 @@
 	taste_description = "metal"
 
 /datum/reagent/foaming_agent // Metal foaming agent. This is lithium hydride. Add other recipes (e.g. LiH + H2O -> LiOH + H2) eventually.
-	name = "Foaming agent"
+	name = "Foaming Agent"
 	description = "A agent that yields metallic foam when mixed with light metal and a strong acid."
 	reagent_state = SOLID
 	color = "#664B63"

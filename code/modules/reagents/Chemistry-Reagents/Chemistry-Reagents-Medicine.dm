@@ -1500,7 +1500,7 @@
 	scannable = TRUE
 	metabolism = REM * 4
 	overdose = 5 // Low overdose and fast metabolism to encourage IV drip usage. Overdose isn't too severe if a player doesn't realise this.
-	color = "#1ca9c9"
+	color = "#0064C877" //Saline is just salty water, now coloured the same as Water.
 	taste_description = "premium salty water"
 	unaffected_species = IS_MACHINE
 	ingest_mul = 0

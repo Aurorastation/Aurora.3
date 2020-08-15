@@ -375,7 +375,7 @@
 			return
 
 /datum/reagent/acid
-	name = "Sulphuric acid"
+	name = "Sulphuric Acid"
 	description = "A very corrosive mineral acid with the molecular formula H2SO4."
 	reagent_state = LIQUID
 	color = "#DB5008"
@@ -476,7 +476,7 @@
 	fallback_specific_heat = 1.710
 
 /datum/reagent/acid/polyacid //Not in dispensers, but it should be here
-	name = "Polytrinic acid"
+	name = "Polytrinic Acid"
 	description = "Polytrinic acid is a an extremely corrosive chemical substance."
 	reagent_state = LIQUID
 	color = "#8E18A9"
@@ -485,7 +485,7 @@
 	taste_description = "acid"
 
 /datum/reagent/acid/stomach
-	name = "stomach acid"
+	name = "Stomach Acid"
 	taste_description = "coppery foulness"
 	power = 2
 	color = "#d8ff00"
