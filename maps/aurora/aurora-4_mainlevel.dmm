@@ -61339,6 +61339,19 @@
 	},
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
+"hzU" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/bot/mulebot{
+	home_destination = "Mining Mulebot 2 Home";
+	name = "Mining Mulebot"
+	},
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;direction=2";
+	freq = 1400;
+	location = "Mining Mulebot 2 Home"
+	},
+/turf/simulated/floor/tiled/asteroid/airless,
+/area/outpost/mining_main/eva)
 "hAn" = (
 /obj/structure/disposalpipe/junction{
 	dir = 4
@@ -67749,7 +67762,13 @@
 "wjz" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/bot/mulebot{
+	home_destination = "Mining Mulebot 1 Home";
 	name = "Mining Mulebot"
+	},
+/obj/machinery/navbeacon{
+	codes_txt = "delivery;direction=2";
+	freq = 1400;
+	location = "Mining Mulebot 1 Home"
 	},
 /turf/simulated/floor/tiled/asteroid/airless,
 /area/outpost/mining_main/eva)
@@ -91210,7 +91229,7 @@ cey
 chA
 ceN
 wjz
-wjz
+hzU
 xBz
 aab
 aab
