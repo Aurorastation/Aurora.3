@@ -23,13 +23,13 @@
 /obj/machinery/computer/guntracker/ui_interact(var/mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new /datum/vueui/modularcomputer(user, src, "security-guntracker", 800, 400, "Firearm Control")
+		ui = new /datum/vueui/modularcomputer(user, src, "security-guntracker", 600, 400, "Firearm Control")
 	ui.open()
 	ui.auto_update_content = TRUE
 
 /obj/machinery/computer/guntracker/vueui_transfer(oldobj)
 	. = FALSE
-	var/uis = SSvueui.transfer_uis(oldobj, src, "security-guntracker", 800, 400, "Firearm Control")
+	var/uis = SSvueui.transfer_uis(oldobj, src, "security-guntracker", 600, 400, "Firearm Control")
 	for(var/tui in uis)
 		var/datum/vueui/ui = tui
 		ui.auto_update_content = TRUE
