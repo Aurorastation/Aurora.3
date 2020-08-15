@@ -51,10 +51,10 @@
 				"gun_name" = P.gun.name,
 				"registered_info" = P.registered_user,
 				"ref" = "\ref[P]",
-				"automatic_state" = (P.lockstatus == 1),
-				"disabled_state" = (P.lockstatus == 2),
-				"stun_state" = (P.lockstatus == 3),
-				"lethal_state" = (P.lockstatus == 4)
+				"automatic_state" = (P.lockstatus == WIRELESS_PIN_AUTOMATIC),
+				"disabled_state" = (P.lockstatus == WIRELESS_PIN_DISABLED),
+				"stun_state" = (P.lockstatus == WIRELESS_PIN_STUN),
+				"lethal_state" = (P.lockstatus == WIRELESS_PIN_LETHAL)
 				)
 			wireless_firing_pins_data[++wireless_firing_pins_data.len] = guntracker_info
 
@@ -71,22 +71,22 @@
 		if(href_list["togglepin1"]) // Sets the wireless-control firing pin to automatic
 			var/obj/item/device/firing_pin/wireless/P = locate(href_list["togglepin1"])
 			if(P)
-				P.unlock(1)
+				P.unlock(WIRELESS_PIN_AUTOMATIC)
 
 		if(href_list["togglepin2"]) // Sets the wireless-control firing pin to disabled
 			var/obj/item/device/firing_pin/wireless/P = locate(href_list["togglepin2"])
 			if(P)
-				P.unlock(2)
+				P.unlock(WIRELESS_PIN_DISABLED)
 
 		if(href_list["togglepin3"]) // Sets the wireless-control firing pin to stun-only
 			var/obj/item/device/firing_pin/wireless/P = locate(href_list["togglepin3"])
 			if(P)
-				P.unlock(3)
+				P.unlock(WIRELESS_PIN_STUN)
 
 		if(href_list["togglepin4"]) // Sets the wireless-control firing pin to unrestricted
 			var/obj/item/device/firing_pin/wireless/P = locate(href_list["togglepin4"])
 			if(P)
-				P.unlock(4)
+				P.unlock(WIRELESS_PIN_LETHAL)
 
 		if(href_list["lock"])
 			if(allowed(usr))

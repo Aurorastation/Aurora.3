@@ -274,12 +274,12 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 		if(istype(gun, /obj/item/gun/energy))
 			var/obj/item/gun/energy/thegun = gun
 			var/obj/item/projectile/energy/P = new thegun.projectile_type
-			if(P?.taser_effect)
+			if(!P)
+				return FALSE
+			if(P.taser_effect)
 				return TRUE
 			if(security_level != SEC_LEVEL_GREEN && security_level != SEC_LEVEL_BLUE && lockstatus == WIRELESS_PIN_STUN)
-				if(!P?.taser_effect)
-					return FALSE
-
+				return FALSE
 		if(security_level != SEC_LEVEL_GREEN && security_level != SEC_LEVEL_BLUE && lockstatus != WIRELESS_PIN_STUN)
 			return TRUE
 	return FALSE
@@ -292,26 +292,26 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 
 	if(i == WIRELESS_PIN_AUTOMATIC)
 		playsound(user, 'sound/weapons/laser_safetyon.ogg')
-		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s wireless-control firing pin is now set to automatic.</b>"))
+		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now set to automatic.</b>"))
 		lockstatus = WIRELESS_PIN_AUTOMATIC
 
 	if(i == WIRELESS_PIN_DISABLED)
 		playsound(user, 'sound/weapons/laser_safetyoff.ogg')
-		to_chat(user, SPAN_WARNING("<b>\The wireless-control firing pin locks \the [gun]'s trigger!</b>"))
+		to_chat(user, SPAN_WARNING("<b>\The wireless-control firing pin locks \the [gun.name]'s trigger!</b>"))
 		lockstatus = WIRELESS_PIN_DISABLED
 
 	if(i == WIRELESS_PIN_STUN)
 		playsound(user, 'sound/weapons/laser_safetyon.ogg')
-		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s wireless-control firing pin is now set to stun only.</b>"))
+		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now set to stun only.</b>"))
 		lockstatus = WIRELESS_PIN_STUN
 
 	if(i == WIRELESS_PIN_LETHAL)
 		playsound(user, 'sound/weapons/laser_safetyon.ogg')
-		to_chat(user, SPAN_NOTICE("<b>\The [gun]'s wireless-control firing pin is now unrestricted.</b>"))
+		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now unrestricted.</b>"))
 		lockstatus = WIRELESS_PIN_LETHAL
 	return
 
-/obj/item/device/firing_pin/wireless/attackby(obj/item/C as obj, mob/user as mob) //Lets people register their IDs to the pin. Using it once registers you, using it again clears you.
+/obj/item/device/firing_pin/wireless/attackby(obj/item/C, mob/user) //Lets people register their IDs to the pin. Using it once registers you, using it again clears you.
 	if(istype(C, /obj/item/card/id))
 		var/obj/item/card/id/idcard = C
 		if(idcard.registered_name == registered_user)

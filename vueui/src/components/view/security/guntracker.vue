@@ -17,30 +17,10 @@
           <td>{{ gun.registered_info }}</td>
           <td>{{ gun.gun_name }}</td>
           <td>
-            <template v-if="gun.disabled_state">
-              <vui-button class="button selectedoption" :params="{ togglepin2: gun.ref }">Disabled</vui-button>
-            </template>
-            <template v-else>
-              <vui-button :params="{ togglepin2: gun.ref }">Disabled</vui-button>
-            </template>
-            <template v-if="gun.automatic_state">
-              <vui-button class="button selectedoption" :params="{ togglepin1: gun.ref }">Automatic</vui-button>
-            </template>
-            <template v-else>
-              <vui-button :params="{ togglepin1: gun.ref }">Automatic</vui-button>
-            </template>
-            <template v-if="gun.stun_state">
-              <vui-button class="button selectedoption" :params="{ togglepin3: gun.ref }">Stun Only</vui-button>
-            </template>
-            <template v-else>
-              <vui-button :params="{ togglepin3: gun.ref }">Stun Only</vui-button>
-            </template>
-            <template v-if="gun.lethal_state">
-              <vui-button class="button selectedoption" :params="{ togglepin4: gun.ref }">Unrestricted</vui-button>
-            </template>
-            <template v-else>
-              <vui-button :params="{ togglepin4: gun.ref }">Unrestricted</vui-button>
-            </template>
+            <vui-button :class="{'button' : 1, 'selectedoption' : gun.disabled_state}" :params="{ togglepin2: gun.ref }">Disabled</vui-button>
+            <vui-button :class="{'button' : 1, 'selectedoption' : gun.automatic_state}" :params="{ togglepin1: gun.ref }">Automatic</vui-button>
+            <vui-button :class="{'button' : 1, 'selectedoption' : gun.stun_state}" :params="{ togglepin3: gun.ref }">Stun Only</vui-button>
+            <vui-button :class="{'button' : 1, 'selectedoption' : gun.lethal_state}" :params="{ togglepin4: gun.ref }">Unrestricted</vui-button>
           </td>
         </tr></table>
     </template>
@@ -51,9 +31,7 @@
 
 <script>
 export default {
-			data() {
-			return this.$root.$data.state
-			},
+		data() {return this.$root.$data.state},
 
 };
 </script>
