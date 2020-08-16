@@ -107,7 +107,7 @@
 		if(istype(target,/obj/item/clothing/mask/smokable/cigarette))
 			var/obj/item/clothing/mask/smokable/cigarette/S = target
 			S.light(SPAN_NOTICE("\The [user] snaps \his fingers and \the [S] lights up."))
-			playsound(S.loc, "sparks", 50, 1)
+			playsound(S.loc, /decl/sound_category/spark_sound, 50, 1)
 		else
 			var/datum/effect_system/sparks/spark_system
 			spark_system = bind_spark(src, 3)

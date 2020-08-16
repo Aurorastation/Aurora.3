@@ -21,7 +21,7 @@
 			'sound/misc/nymphchirp.ogg',
 			'sound/machines/twobeep.ogg',
 			'sound/machines/windowdoor.ogg',
-			"glass_break",
+			/decl/sound_category/glass_break_sound,
 			'sound/weapons/railgun.ogg',
 			'sound/effects/phasein.ogg',
 			"sparks",

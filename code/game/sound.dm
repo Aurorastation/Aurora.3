@@ -73,10 +73,8 @@
 		)
 
 /proc/playsound_get_sound(soundin, volume, fall_off, frequency = 0, environment = -1)
-	if (ispath(soundin))
+	if(ispath(soundin))
 		soundin = get_sfx(soundin)
-	if(istext(soundin))
-		log_debug("Text sound received: [soundin]")
 
 	var/sound/S = sound(soundin)
 
@@ -231,6 +229,9 @@
 
 /proc/get_sfx(var/sound_category)
 	var/decl/sound_category/SC = decls_repository.get_decl(sound_category)
+	if(!istype(SC))
+		crash_with("Non-decl path in get_sfx: [sound_category]")
+		return
 	return SC.get_sound()
 
 /decl/sound_category
@@ -244,11 +245,11 @@
 
 /decl/sound_category/catwalk_footstep
 	sounds = list(
-			'sound/effects/footstep/catwalk1.ogg',
-			'sound/effects/footstep/catwalk2.ogg',
-			'sound/effects/footstep/catwalk3.ogg',
-			'sound/effects/footstep/catwalk4.ogg',
-			'sound/effects/footstep/catwalk5.ogg'
+		'sound/effects/footstep/catwalk1.ogg',
+		'sound/effects/footstep/catwalk2.ogg',
+		'sound/effects/footstep/catwalk3.ogg',
+		'sound/effects/footstep/catwalk4.ogg',
+		'sound/effects/footstep/catwalk5.ogg'
 	)
 
 /decl/sound_category/wood_footstep
@@ -338,121 +339,121 @@
 
 /decl/sound_category/glass_break_sound
 	sounds = list(
-	'sound/effects/glass_break1.ogg',
-	'sound/effects/glass_break2.ogg',
-	'sound/effects/glass_break3.ogg'
+		'sound/effects/glass_break1.ogg',
+		'sound/effects/glass_break2.ogg',
+		'sound/effects/glass_break3.ogg'
 	)
 
 /decl/sound_category/cardboard_break_sound
 	sounds = list(
-	'sound/effects/cardboard_break1.ogg',
-	'sound/effects/cardboard_break2.ogg',
-	'sound/effects/cardboard_break3.ogg',
+		'sound/effects/cardboard_break1.ogg',
+		'sound/effects/cardboard_break2.ogg',
+		'sound/effects/cardboard_break3.ogg',
 	)
 
 /decl/sound_category/ood_break_sound
 	sounds = list(
-	'sound/effects/wood_break1.ogg',
-	'sound/effects/wood_break2.ogg',
-	'sound/effects/wood_break3.ogg',
+		'sound/effects/wood_break1.ogg',
+		'sound/effects/wood_break2.ogg',
+		'sound/effects/wood_break3.ogg',
 	)
 
 /decl/sound_category/explosion_sound
 	sounds = list(
-	'sound/effects/Explosion1.ogg',
-	'sound/effects/Explosion2.ogg'
+		'sound/effects/Explosion1.ogg',
+		'sound/effects/Explosion2.ogg'
 	)
 
-/decl/sound_category/spark_sound	
+/decl/sound_category/spark_sound
 	sounds = list(
-	'sound/effects/sparks1.ogg',
-	'sound/effects/sparks2.ogg',
-	'sound/effects/sparks3.ogg',
-	'sound/effects/sparks4.ogg'
+		'sound/effects/sparks1.ogg',
+		'sound/effects/sparks2.ogg',
+		'sound/effects/sparks3.ogg',
+		'sound/effects/sparks4.ogg'
 	)
 
 /decl/sound_category/rustle_sound
 	sounds = list(
-	'sound/items/storage/rustle1.ogg',
-	'sound/items/storage/rustle2.ogg',
-	'sound/items/storage/rustle3.ogg',
-	'sound/items/storage/rustle4.ogg',
-	'sound/items/storage/rustle5.ogg'
+		'sound/items/storage/rustle1.ogg',
+		'sound/items/storage/rustle2.ogg',
+		'sound/items/storage/rustle3.ogg',
+		'sound/items/storage/rustle4.ogg',
+		'sound/items/storage/rustle5.ogg'
 	)
 
 /decl/sound_category/punch_sound
 	sounds = list(
-	'sound/weapons/punch1.ogg',
-	'sound/weapons/punch2.ogg',
-	'sound/weapons/punch3.ogg',
-	'sound/weapons/punch4.ogg'
+		'sound/weapons/punch1.ogg',
+		'sound/weapons/punch2.ogg',
+		'sound/weapons/punch3.ogg',
+		'sound/weapons/punch4.ogg'
 	)
 
 /decl/sound_category/punchmiss_sound
 	sounds = list(
-	'sound/weapons/punchmiss1.ogg',
-	'sound/weapons/punchmiss2.ogg'
+		'sound/weapons/punchmiss1.ogg',
+		'sound/weapons/punchmiss2.ogg'
 	)
 
 /decl/sound_category/clown_sound
 	sounds = list(
-	'sound/effects/clownstep1.ogg',
-	'sound/effects/clownstep2.ogg'
+		'sound/effects/clownstep1.ogg',
+		'sound/effects/clownstep2.ogg'
 	)
 
 /decl/sound_category/swing_hit_sound
 	sounds = list(
-	'sound/weapons/genhit1.ogg',
-	'sound/weapons/genhit2.ogg',
-	'sound/weapons/genhit3.ogg'
+		'sound/weapons/genhit1.ogg',
+		'sound/weapons/genhit2.ogg',
+		'sound/weapons/genhit3.ogg'
 	)
 
 /decl/sound_category/hiss_sound
 	sounds = list(
-	'sound/voice/hiss1.ogg',
-	'sound/voice/hiss2.ogg',
-	'sound/voice/hiss3.ogg',
-	'sound/voice/hiss4.ogg'
+		'sound/voice/hiss1.ogg',
+		'sound/voice/hiss2.ogg',
+		'sound/voice/hiss3.ogg',
+		'sound/voice/hiss4.ogg'
 	)
 
 /decl/sound_category/page_sound
 	sounds = list(
-	'sound/effects/pageturn1.ogg',
-	'sound/effects/pageturn2.ogg',
-	'sound/effects/pageturn3.ogg'
+		'sound/effects/pageturn1.ogg',
+		'sound/effects/pageturn2.ogg',
+		'sound/effects/pageturn3.ogg'
 	)
 
 /decl/sound_category/fracture_sound
 	sounds = list(
-	'sound/effects/bonebreak1.ogg',
-	'sound/effects/bonebreak2.ogg',
-	'sound/effects/bonebreak3.ogg',
-	'sound/effects/bonebreak4.ogg'
+		'sound/effects/bonebreak1.ogg',
+		'sound/effects/bonebreak2.ogg',
+		'sound/effects/bonebreak3.ogg',
+		'sound/effects/bonebreak4.ogg'
 	)
 
 /decl/sound_category/button_sound
 	sounds = list(
-	'sound/machines/button1.ogg',
-	'sound/machines/button2.ogg',
-	'sound/machines/button3.ogg',
-	'sound/machines/button4.ogg'
+		'sound/machines/button1.ogg',
+		'sound/machines/button2.ogg',
+		'sound/machines/button3.ogg',
+		'sound/machines/button4.ogg'
 	)
 
 /decl/sound_category/computerbeep_sound
 	sounds = list(
-	'sound/machines/compbeep1.ogg',
-	'sound/machines/compbeep2.ogg',
-	'sound/machines/compbeep3.ogg',
-	'sound/machines/compbeep4.ogg',
-	'sound/machines/compbeep5.ogg'
+		'sound/machines/compbeep1.ogg',
+		'sound/machines/compbeep2.ogg',
+		'sound/machines/compbeep3.ogg',
+		'sound/machines/compbeep4.ogg',
+		'sound/machines/compbeep5.ogg'
 	)
 
 /decl/sound_category/switch_sound
 	sounds = list(
-	'sound/machines/switch1.ogg',
-	'sound/machines/switch2.ogg',
-	'sound/machines/switch3.ogg',
-	'sound/machines/switch4.ogg'
+		'sound/machines/switch1.ogg',
+		'sound/machines/switch2.ogg',
+		'sound/machines/switch3.ogg',
+		'sound/machines/switch4.ogg'
 	)
 
 /decl/sound_category/keyboard_sound

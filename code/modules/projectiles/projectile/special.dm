@@ -267,7 +267,7 @@
 /obj/item/projectile/magic/teleport/on_hit(var/atom/hit_atom)
 	var/turf/T = get_turf(hit_atom)
 	single_spark(T)
-	playsound(src.loc, "sparks", 50, 1)
+	playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
 	if(isliving(hit_atom))
 		blink_mob(hit_atom)
 	return ..()

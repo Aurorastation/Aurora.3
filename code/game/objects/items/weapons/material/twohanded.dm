@@ -88,7 +88,7 @@
 /obj/item/material/twohanded/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(wielded && default_parry_check(user, attacker, damage_source) && prob(parry_chance))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-		playsound(user.loc, "punchmiss", 50, 1)
+		playsound(user.loc, /decl/sound_category/punchmiss_sound, 50, 1)
 		return 1
 	return 0
 

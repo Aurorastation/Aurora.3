@@ -19,7 +19,7 @@ emp_act
 		if(martial_art && martial_art.deflection_chance)
 			if(prob(martial_art.deflection_chance))
 				src.visible_message("<span class='danger'>\The [src] deflects \the [P]!</span>")
-				playsound(src, "bulletflyby_sound", 75, 1)
+				playsound(src, /decl/sound_category/bulletflyby_sound, 75, 1)
 				return 0
 
 	def_zone = check_zone(def_zone)

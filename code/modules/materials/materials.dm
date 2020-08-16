@@ -106,7 +106,7 @@
 	var/weapon_pickup_sound = 'sound/items/pickup/metalweapon.ogg'
 	var/weapon_hitsound = "swing_hit"
 
-	var/shatter_sound = "glass_break" //sound it makes when it breaks.
+	var/shatter_sound = /decl/sound_category/glass_break_sound //sound it makes when it breaks.
 
 /material/proc/build_rod_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
 	if(!rod_product)

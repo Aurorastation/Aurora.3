@@ -68,7 +68,7 @@
 		var/mob/living/L = against
 		L.IgniteMob()
 
-	playsound(src, "glass_break", 70, 1)
+	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	src.transfer_fingerprints_to(B)
 
 	qdel(src)
