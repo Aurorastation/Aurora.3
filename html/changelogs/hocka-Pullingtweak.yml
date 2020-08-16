@@ -1,6 +1,0 @@
-author: Hocka
-
-delete-after: True
-
-changes: 
-  - tweak: "If you pull a human mob who's slowdown is greater than yours your speed will slow down to match them."
