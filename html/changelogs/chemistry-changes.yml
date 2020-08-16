@@ -52,5 +52,6 @@ changes:
   - tweak: "Soy Sauce is now made with salt instead of sulphuric acid."
   - tweak: "Brute First-Aid Kits have had their contents shuffled about to include a health analyser and 2 bicaridine pills."
   - rscadd: "Added more chemical contraband that can be found in maintenance and the cargo warehouse."
-  - tweak: "Pill bottles which spawn at round-start now have the dosage of the pills on the label."
+  - rscadd: "You can now purchase Sideeffect-Be-Gone autoinjectors from the Traitor Uplink. Combat Medical Kits also contain 1 of these autoinjectors."
+  - tweak: "Pill bottles which spawn at round-start now have the dosage of the pills on the label to prevent accidental overdoses."
   - spellcheck: "Some chemical typos have been fixed. Uncapitalised chemicals have been capitalised."
