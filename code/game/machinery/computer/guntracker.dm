@@ -58,7 +58,7 @@
 				)
 			wireless_firing_pins_data[++wireless_firing_pins_data.len] = guntracker_info
 
-	data["wireless_firing_pins"] = sortByKey(wireless_firing_pins_data, "registered_user")
+	data["wireless_firing_pins"] = sortByKey(wireless_firing_pins_data, "registered_info")
 
 	return data
 
