@@ -21,7 +21,7 @@
 	//Departments that the cycler can paint suits to look like.
 	var/list/departments = list("Engineering", "Mining", "Medical", "Security", "Atmos")
 	//Species that the suits can be configured to fit.
-	var/list/species = list("Human", "Skrell", "Unathi", "Tajara", "Vaurca", "Machine")
+	var/list/species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 
 	var/target_department
 	var/target_species
@@ -113,7 +113,7 @@
 	model_text = "Wizardry"
 	req_access = null
 	departments = list("Wizardry")
-	species = list("Human", "Tajara", "Skrell", "Unathi", "Machine")
+	species = list(SPECIES_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE
 
 /obj/machinery/suit_cycler/hos
@@ -121,7 +121,7 @@
 	model_text = "head of Security"
 	req_access = list(access_hos)
 	departments = list("Head of Security") // ONE MAN DEPARTMENT HOO HA GIMME CRAYONS - Geeves
-	species = list("Human", "Tajara", "Skrell", "Unathi", "Machine")
+	species = list(SPECIES_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE
 
 /obj/machinery/suit_cycler/captain
@@ -129,7 +129,7 @@
 	model_text = "Captain"
 	req_access = list(access_captain)
 	departments = list("Captain")
-	species = list("Human", "Tajara", "Skrell", "Unathi", "Machine")
+	species = list(SPECIES_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE
 
 /obj/machinery/suit_cycler/science
@@ -137,7 +137,7 @@
 	model_text = "Research"
 	req_access = list(access_research)
 	departments = list("Research")
-	species = list("Human", "Tajara", "Skrell", "Unathi", "Machine")
+	species = list(SPECIES_HUMAN, BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE
 
 /obj/machinery/suit_cycler/freelancer
@@ -145,7 +145,7 @@
 	model_text = "Freelancers"
 	req_access = list(access_distress)
 	departments = list("Freelancers")
-	species = list("Human", "Tajara", "Skrell", "Unathi", "Machine")
+	species = list("Human", BODYTYPE_TAJARA, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_IPC)
 	can_repair = TRUE
 
 /obj/machinery/suit_cycler/MouseDrop_T(mob/living/M, mob/living/user)

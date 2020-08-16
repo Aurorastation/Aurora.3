@@ -49,7 +49,7 @@
 	desc = "A face concealing mask worn by the members of the cult of Raskara."
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
-	species_restricted = list("Tajara")
+	species_restricted = list(BODYTYPE_TAJARA)
 	icon_state = "raskara_mask"
 	item_state = "raskara_mask"
 
@@ -91,7 +91,7 @@
 	contained_sprite = TRUE
 	body_parts_covered = HEAD|FACE|EYES
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
-	species_restricted = list("Tajara")
+	species_restricted = list(BODYTYPE_TAJARA)
 	armor = list(melee = 60, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
 	allow_hair_covering = FALSE
 	desc_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \

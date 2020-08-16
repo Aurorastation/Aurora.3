@@ -1,8 +1,8 @@
 /datum/species/machine
-	name = "Baseline Frame"
+	name = SPECIES_IPC
 	short_name = "ipc"
 	name_plural = "Baselines"
-	bodytype = "Machine"
+	bodytype = BODYTYPE_IPC
 	age_min = 1
 	age_max = 30
 	economic_modifier = 3
