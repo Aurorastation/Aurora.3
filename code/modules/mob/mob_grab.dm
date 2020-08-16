@@ -271,7 +271,9 @@
 			return
 		playsound(loc, "grab", 50, FALSE, -1)
 		if(!affecting.lying)
-			assailant.visible_message(SPAN_WARNING("[assailant] grabs [affecting] aggressively by the hands!"))
+			assailant.visible_message(SPAN_WARNING("[assailant] grabs [affecting] aggressively by the hands!"), SPAN_WARNING("You grab [affecting] aggressively by the hands!"), exclude_mobs = list(affecting))
+			if(!affecting.stat)
+				to_chat(affecting, SPAN_WARNING("[assailant] grabs you aggressively by the hands!."))
 		else
 			assailant.visible_message(SPAN_WARNING("[assailant] pins [affecting] down to the ground by the hands!"))
 			apply_pinning(affecting, assailant)
@@ -281,10 +283,14 @@
 		hud.icon_state = "reinforce1"
 	else if(state < GRAB_NECK)
 		if(isslime(affecting))
-			to_chat(assailant, SPAN_NOTICE("You try to squeeze [affecting], but your hands sink right through!"))
+			assailant.visible_message(SPAN_WARNING("[assailant] tries to squeeze [affecting], but \his hands sink right through!"), SPAN_WARNING("You try to squeeze [affecting], but your hands sink right through!"), exclude_mobs = list(affecting))
+			if(!affecting.stat)
+				to_chat(affecting, SPAN_WARNING("[assailant] tries to squeeze you, but their hands sink right through!"))
 			return
 		playsound(loc, "grab", 50, FALSE, -1)
-		assailant.visible_message(SPAN_WARNING("[assailant] reinforces \his grip on [affecting]'s neck'!"))
+		assailant.visible_message(SPAN_WARNING("[assailant] reinforces \his grip on [affecting]'s neck!"), SPAN_WARNING("You reinforce your grip on [affecting]'s neck!"), exclude_mobs = list(affecting))
+		if(!affecting.stat)
+			to_chat(affecting, SPAN_WARNING("[assailant] reinforces \his grip on your neck!"))
 		state = GRAB_NECK
 		icon_state = "grabbed+1"
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their neck grabbed by [assailant.name] ([assailant.ckey])</font>"
@@ -297,13 +303,17 @@
 		if(ishuman(affecting))
 			var/mob/living/carbon/human/H = affecting
 			if(H.head && (H.head.item_flags & AIRTIGHT))
-				to_chat(assailant, SPAN_WARNING("[H]'s headgear prevents you from choking them out!"))
+				assailant.visible_message(SPAN_WARNING("[affecting]'s headgear prevents [assailant] from choking them out!"), SPAN_WARNING("[affecting]'s headgear prevents you from choking them out!"), exclude_mobs = list(affecting))
+				if(!H.stat)
+					to_chat(affecting, SPAN_WARNING("Your headgear prevents [assailant] from choking you out!"))
 				return
 		hud.icon_state = "kill1"
 		hud.name = "loosen"
 		state = GRAB_KILL
 		playsound(loc, "grab", 50, FALSE, -1)
-		assailant.visible_message(SPAN_DANGER("[assailant] starts strangling [affecting]!"))
+		assailant.visible_message(SPAN_DANGER("[assailant] starts strangling [affecting]!"), SPAN_DANGER("You start strangling [affecting]!"), exclude_mobs = list(affecting))
+		if(!affecting.stat)
+			to_chat(affecting, SPAN_WARNING("[assailant] starts to strangle you!"))
 
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>is being strangled by [assailant.name] ([assailant.ckey])</font>"
 		assailant.attack_log += "\[[time_stamp()]\] <font color='red'>is strangling [affecting.name] ([affecting.ckey])</font>"
@@ -319,7 +329,9 @@
 		hud.icon_state = "kill"
 		hud.name = "kill"
 		state = GRAB_NECK
-		assailant.visible_message(SPAN_WARNING("[assailant] stops strangling [affecting]!"))
+		assailant.visible_message(SPAN_WARNING("[assailant] stops strangling [affecting]!"), SPAN_WARNING("You stop strangling [affecting]!"), exclude_mobs = list(affecting))
+		if(!affecting.stat)
+			to_chat(affecting, SPAN_WARNING("[assailant] stops to strangling you!"))
 	adjust_position()
 
 //This is used to make sure the victim hasn't managed to yackety sax away before using the grab.
@@ -358,7 +370,9 @@
 			switch(assailant.a_intent)
 				if(I_HELP)
 					if(force_down)
-						to_chat(assailant, SPAN_WARNING("You are no longer pinning [affecting] to the ground."))
+						assailant.visible_message(SPAN_WARNING("[assailant] is no longer pinning [affecting] to the ground."), SPAN_WARNING("You are no longer pinning [affecting] to the ground."), exclude_mobs = list(affecting))
+						if(!affecting.stat)
+							to_chat(affecting, SPAN_WARNING("[assailant] stops pinning you to the ground."))
 						force_down = 0
 						return
 					inspect_organ(affecting, assailant, hit_zone)
@@ -391,7 +405,9 @@
 
 /obj/item/grab/proc/reset_kill_state()
 	if(state == GRAB_KILL)
-		assailant.visible_message(SPAN_DANGER("[assailant] stops strangling [affecting] to move."))
+		assailant.visible_message(SPAN_DANGER("[assailant] stops strangling [affecting] to move."), SPAN_DANGER("You stop strangling [affecting] to move."), exclude_mobs = list(affecting))
+		if(!affecting.stat)
+			to_chat(affecting, SPAN_DANGER("[assailant] stops to strangling you to move."))
 		hud.icon_state = "kill"
 		state = GRAB_NECK
 

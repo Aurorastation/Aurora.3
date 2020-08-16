@@ -109,65 +109,46 @@
 // message is the message output to anyone who can see e.g. "[src] does something!"
 // self_message (optional) is what the src mob sees  e.g. "You do something!"
 // blind_message (optional) is what blind people will hear e.g. "You hear something!"
+/mob/visible_message(message, self_message, blind_message, range = world.view, checkghosts = null, narrate = FALSE, list/exclude_objs = null, list/exclude_mobs = null)
+	var/turf/T = get_turf(src)
+	var/list/mobs = list()
+	var/list/objs = list()
+	get_mobs_and_objs_in_view_fast(T,range, mobs, objs, checkghosts)
 
-/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view)
-	var/list/messageturfs = list() //List of turfs we broadcast to.
-	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
-	for (var/turf in view(range, get_turf(src)))
-		messageturfs += turf
-
-	for(var/A in player_list)
-		var/mob/M = A
-		if (QDELETED(M))
-			warning("Null or QDELETED object [DEBUG_REF(M)] found in player list! Removing.")
-			player_list -= M
+	for(var/o in objs)
+		var/obj/O = o
+		if (exclude_objs?.len && (O in exclude_objs))
+			exclude_objs -= O
 			continue
-		if (!M.client || istype(M, /mob/abstract/new_player))
-			continue
-		if((get_turf(M) in messageturfs) || (isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
-			messagemobs += M
+		O.show_message(message, VISIBLE_MESSAGE, blind_message, AUDIBLE_MESSAGE)
 
-	for(var/A in messagemobs)
-		var/mob/M = A
+	for(var/m in mobs)
+		var/mob/M = m
+		if (exclude_mobs?.len && (M in exclude_mobs))
+			exclude_mobs -= M
+			continue
+
+		var/mob_message = message
+
 		if(isobserver(M))
-			M.show_message("[ghost_follow_link(src, M)] [message]", 1)
-			continue
+			if(ghost_skip_message(M))
+				continue
+			mob_message = add_ghost_track(mob_message, M)
+
 		if(self_message && M == src)
-			M.show_message(self_message, 1, blind_message, 2)
-		else if(M.see_invisible < invisibility)  // Cannot view the invisible, but you can hear it.
-			if(blind_message)
-				M.show_message(blind_message, 2)
-		else
-			M.show_message(message, 1, blind_message, 2)
+			M.show_message(self_message, VISIBLE_MESSAGE, blind_message, AUDIBLE_MESSAGE)
+			continue
 
-// Designed for mobs contained inside things, where a normal visible message wont actually be visible
-// Useful for visible actions by pAIs, and held mobs
-// Broadcaster is the place the action will be seen/heard from, mobs in sight of THAT will see the message. This is generally the object or mob that src is contained in
-// message is the message output to anyone who can see e.g. "[src] does something!"
-// self_message (optional) is what the src mob sees  e.g. "You do something!"
-// blind_message (optional) is what blind people will hear e.g. "You hear something!"
-//This is obsolete now
-/mob/proc/contained_visible_message(var/atom/broadcaster, var/message, var/self_message, var/blind_message)
-	var/self_served = 0
-	for(var/mob/M in viewers(broadcaster))
-		if(self_message && M==src)
-			M.show_message(self_message, 1, blind_message, 2)
-			self_served = 1
-		else if(M.see_invisible < invisibility)  // Cannot view the invisible, but you can hear it.
-			if(blind_message)
-				M.show_message(blind_message, 2)
-		else
-			M.show_message(message, 1, blind_message, 2)
+		if((!M.is_blind() && M.see_invisible >= src.invisibility) || narrate)
+			M.show_message(mob_message, VISIBLE_MESSAGE, blind_message, AUDIBLE_MESSAGE)
+			continue
 
-	if (!self_served)
-		src.show_message(self_message, 1, blind_message, 2)
-
-// Returns an amount of power drawn from the object (-1 if it's not viable).
-// If drain_check is set it will not actually drain power, just return a value.
-// If surge is set, it will destroy/damage the recipient and not return any power.
-// Not sure where to define this, so it can sit here for the rest of time.
-/atom/proc/drain_power(var/drain_check,var/surge, var/amount = 0)
-	return -1
+		if(blind_message)
+			M.show_message(blind_message, AUDIBLE_MESSAGE)
+			continue
+	//Multiz, have shadow do same
+	if(bound_overlay)
+		bound_overlay.visible_message(message, blind_message, range)
 
 // Show a message to all mobs and objects in earshot of this one
 // This would be for audible actions by the src mob
@@ -175,30 +156,70 @@
 // self_message (optional) is what the src mob hears.
 // deaf_message (optional) is what deaf people will see.
 // hearing_distance (optional) is the range, how many tiles away the message can be heard.
-/mob/audible_message(var/message, var/deaf_message, var/hearing_distance, var/self_message)
-
-	var/range = world.view
-	if(hearing_distance)
-		range = hearing_distance
-
+/mob/audible_message(message, self_message, deaf_message, hearing_distance = world.view, checkghosts = null, narrate = FALSE, list/exclude_objs = null, list/exclude_mobs = null)
 	var/turf/T = get_turf(src)
-
 	var/list/mobs = list()
 	var/list/objs = list()
-	get_mobs_and_objs_in_view_fast(T, range, mobs, objs)
-
+	get_mobs_and_objs_in_view_fast(T, hearing_distance, mobs, objs, checkghosts)
 
 	for(var/m in mobs)
 		var/mob/M = m
-		if(self_message && M==src)
-			M.show_message(self_message,2,deaf_message,1)
+		if (exclude_mobs?.len && (M in exclude_mobs))
+			exclude_mobs -= M
 			continue
+		var/mob_message = message
 
-		M.show_message(message,2,deaf_message,1)
+		if(isobserver(M))
+			if(ghost_skip_message(M))
+				continue
+			mob_message = add_ghost_track(mob_message, M)
+
+		if(self_message && M == src)
+			M.show_message(self_message, AUDIBLE_MESSAGE, deaf_message, VISIBLE_MESSAGE)
+		else if(M.see_invisible >= invisibility || narrate) // Cannot view the invisible
+			M.show_message(mob_message, AUDIBLE_MESSAGE, deaf_message, VISIBLE_MESSAGE)
+		else
+			M.show_message(mob_message, AUDIBLE_MESSAGE)
 
 	for(var/o in objs)
 		var/obj/O = o
-		O.show_message(message,2,deaf_message,1)
+		if (exclude_objs?.len && (O in exclude_objs))
+			exclude_objs -= O
+			continue
+		O.show_message(message, AUDIBLE_MESSAGE, deaf_message, VISIBLE_MESSAGE)
+
+/mob/proc/add_ghost_track(var/message, var/mob/abstract/observer/M)
+	ASSERT(istype(M))
+	var/list/messageturfs = list()//List of turfs we broadcast to.
+	for (var/turf in view(world.view, get_turf(src)))
+		messageturfs += turf
+
+	var/remote = ""
+	if((get_turf(M) in messageturfs) || (isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
+		remote = "\[R\]"
+
+	var/track = "([ghost_follow_link(src, M)])"
+
+	message = track + remote + " " + message
+	return message
+
+/mob/proc/ghost_skip_message(var/mob/abstract/observer/M)
+	ASSERT(istype(M))
+	var/list/messageturfs = list()//List of turfs we broadcast to.
+	for (var/turf in view(world.view, get_turf(src)))
+		messageturfs += turf
+
+	if((get_turf(M) in messageturfs) || (isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
+		if(!client)
+			return TRUE
+	return FALSE
+
+// Returns an amount of power drawn from the object (-1 if it's not viable).
+// If drain_check is set it will not actually drain power, just return a value.
+// If surge is set, it will destroy/damage the recipient and not return any power.
+// Not sure where to define this, so it can sit here for the rest of time.
+/atom/proc/drain_power(var/drain_check,var/surge, var/amount = 0)
+	return -1
 
 /mob/proc/findname(msg)
 	for(var/mob/M in mob_list)
@@ -221,6 +242,12 @@
 	if(!buckled)
 		return UNBUCKLED
 	return restrained() ? FULLY_BUCKLED : PARTIALLY_BUCKLED
+
+/mob/proc/is_blind()
+	return ((sdisabilities & BLIND) || incapacitated(INCAPACITATION_KNOCKOUT))
+
+/mob/proc/is_deaf()
+	return ((sdisabilities & DEAF) || incapacitated(INCAPACITATION_KNOCKOUT))
 
 /mob/proc/is_physically_disabled()
 	return incapacitated(INCAPACITATION_DISABLED)
