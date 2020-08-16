@@ -48,7 +48,7 @@
 		var/turf/Ts = get_turf(P)
 		if(ARE_Z_CONNECTED(T.z, Ts.z))
 			var/list/guntracker_info = list(
-				"gun_name" = P.gun.name,
+				"gun_name" = capitalize_first_letters(P.gun.name),
 				"registered_info" = P.registered_user,
 				"ref" = "\ref[P]",
 				"automatic_state" = (P.lockstatus == WIRELESS_PIN_AUTOMATIC),
