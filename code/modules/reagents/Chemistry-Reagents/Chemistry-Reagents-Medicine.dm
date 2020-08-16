@@ -262,7 +262,7 @@
 
 /datum/reagent/mortaphenyl
 	name = "Mortaphenyl"
-	description = "Mortaphenyl is an advanced synthetic opioid medication which is highly effective at treating mild-severe pain as a result of severe, physical injury. Mortaphenyl is not effective when inhaled."
+	description = "Mortaphenyl is an advanced, powerful analgesic medication which is highly effective at treating mild-severe pain as a result of severe, physical injury. Mortaphenyl is not effective when inhaled."
 	reagent_state = LIQUID
 	color = "#CB68FC"
 	overdose = 30
@@ -304,7 +304,7 @@
 		
 /datum/reagent/oxycomorphine
 	name = "Oxycomorphine"
-	description = "Oxycomorphine is a highly advanced synthetic opioid medication which is extremely effective at treating severe-agonising pain as a result of injuries usually incompatible with life. The drug is highly addictive and sense-numbing. Oxycomorphine is not effective when inhaled."
+	description = "Oxycomorphine is a highly advanced, powerful analgesic medication which is extremely effective at treating severe-agonising pain as a result of injuries usually incompatible with life. The drug is highly addictive and sense-numbing. Oxycomorphine is not effective when inhaled."
 	reagent_state = LIQUID
 	color = "#800080"
 	overdose = 20
