@@ -169,6 +169,8 @@ var/global/list/golem_types = list("Coal Golem",
 	icobase = 'icons/mob/human_races/golem/r_bronze.dmi'
 	deform = 'icons/mob/human_races/golem/r_bronze.dmi'
 
+	bodytype = "Human"
+
 	meat_type = /obj/item/stack/material/bronze
 
 	siemens_coefficient = 1.5
@@ -313,6 +315,8 @@ var/global/list/golem_types = list("Coal Golem",
 
 	icobase = 'icons/mob/human_races/golem/r_cloth.dmi'
 	deform = 'icons/mob/human_races/golem/r_cloth.dmi'
+
+	bodytype = "Human"
 
 	slowdown = -2
 
