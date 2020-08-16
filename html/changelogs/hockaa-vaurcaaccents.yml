@@ -1,7 +1,0 @@
-author: Hocka
-
-delete-after: True
-
-changes: 
-    - rscadd: "Adds three Vaurca-specific accents: Zo'rane, K'laxane and C'thuric."
-    - tweak: "Vaurca no longer have access to the Biesel accent by default, instead it is replaced by TTS."
