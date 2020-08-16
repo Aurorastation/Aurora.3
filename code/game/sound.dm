@@ -491,14 +491,14 @@
 
 /decl/sound_category/bodyfall_machine_sound
 	sounds = list(
-	'sound/effects/bodyfall_machine1.ogg',
-	'sound/effects/bodyfall_machine2.ogg'
+		'sound/effects/bodyfall_machine1.ogg',
+		'sound/effects/bodyfall_machine2.ogg'
 	)
 /decl/sound_category/bulletflyby_sound
-	sounds = list(
-	'sound/effects/bulletflyby1.ogg',
-	'sound/effects/bulletflyby2.ogg',
-	'sound/effects/bulletflyby3.ogg'
+		sounds = list(
+		'sound/effects/bulletflyby1.ogg',
+		'sound/effects/bulletflyby2.ogg',
+		'sound/effects/bulletflyby3.ogg'
 	)
 
 /decl/sound_category/crowbar_sound
