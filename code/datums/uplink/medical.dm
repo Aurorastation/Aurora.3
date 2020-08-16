@@ -29,10 +29,10 @@
 	item_cost = 6
 	path = /obj/item/storage/box/syndie_kit/stimulants
 
-/datum/uplink_item/item/medical/sideeffectbgone
+/datum/uplink_item/item/medical/sideeffectbegone
 	name = "Box of Sideeffect-Be-Gone Injectors"
 	item_cost = 4
-	path = /obj/item/storage_box/syndie_kit/sideeffectbgone
+	path = /obj/item/storage/box/syndie_kit/sideeffectbegone
 
 /datum/uplink_item/item/medical/firstaid
 	name = "Standard First-Aid Kit"

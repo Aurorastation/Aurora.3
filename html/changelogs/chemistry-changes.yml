@@ -55,3 +55,4 @@ changes:
   - rscadd: "You can now purchase Sideeffect-Be-Gone autoinjectors from the Traitor Uplink. Combat Medical Kits also contain 1 of these autoinjectors."
   - tweak: "Pill bottles which spawn at round-start and in kits now have the dosage of the pills on the label to prevent accidental overdoses."
   - spellcheck: "Some chemical typos have been fixed. Uncapitalised chemicals have been capitalised."
+  - tweak: "You can find all of the chemical changes on the feedback thread (https://forums.aurorastation.org/topic/14761-full-chem-rework-feedback-thread/) as it may be a while before the Chemistry Guide is updated to reflect these changes.."

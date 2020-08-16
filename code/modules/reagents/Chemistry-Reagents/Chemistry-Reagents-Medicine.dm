@@ -456,12 +456,20 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		H.add_chemical_effect(CE_CLUMSY, 1)
-		for(var/obj/item/organ/internal/I in H.internal_organs)
-			if(I.organ_tag == BP_BRAIN)
-				if(I.damage >= I.min_bruised_damage)
-					continue
-			if((I.damage > 0) && (I.robotic != 2)) //Peridaxon heals only non-robotic organs
-				I.damage = max(I.damage - removed, 0)
+		if(is_overdosed == FALSE) //Stops healing organs when overdosed.
+			for(var/obj/item/organ/internal/I in H.internal_organs)
+				if(I.organ_tag == BP_BRAIN)
+					if(I.damage >= I.min_bruised_damage)
+						continue
+				if((I.damage > 0) && (I.robotic != 2)) //Peridaxon heals only non-robotic organs
+					I.damage = max(I.damage - removed, 0)
+
+/datum/reagent/peridaxon/overdose(var/mob/living/carbon/M, var/alien)
+	M.dizziness = max(150, M.dizziness)
+	M.make_dizzy(5)
+	if(prob(dose - overdose / 2))
+		to_chat(M, SPAN_DANGER("You feel your insides twisting and burning."))
+		M.adjustHalLoss(15)
 
 /datum/reagent/ryetalyn
 	name = "Ryetalyn"
