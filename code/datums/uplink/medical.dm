@@ -10,17 +10,17 @@
 	path = /obj/item/storage/box/sinpockets
 
 /datum/uplink_item/item/medical/combathypo
-	name = "Combat hypospray"
+	name = "Combat Hypospray"
 	item_cost = 6
 	path = /obj/item/reagent_containers/hypospray/combat
 
 /datum/uplink_item/item/medical/surgery
-	name = "Surgery kit"
+	name = "Surgery Kit"
 	item_cost = 10
 	path = /obj/item/storage/firstaid/surgery
 
 /datum/uplink_item/item/medical/combat
-	name = "Combat medical kit"
+	name = "Combat Medical Kit"
 	item_cost = 12
 	path = /obj/item/storage/firstaid/combat
 
@@ -28,6 +28,11 @@
 	name = "Box of Combat Stimulants"
 	item_cost = 6
 	path = /obj/item/storage/box/syndie_kit/stimulants
+
+/datum/uplink_item/item/medical/sideeffectbgone
+	name = "Box of Sideeffect-Be-Gone Injectors"
+	item_cost = 4
+	path = /obj/item/storage_box/syndie_kit/sideeffectbgone
 
 /datum/uplink_item/item/medical/firstaid
 	name = "Standard First-Aid Kit"

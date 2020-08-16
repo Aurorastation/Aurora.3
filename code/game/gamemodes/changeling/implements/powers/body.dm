@@ -253,6 +253,7 @@
 	C.SetStunned(0)
 	C.SetWeakened(0)
 	C.lying = FALSE
+	C.eye_blurry = 0
 	C.reagents.add_reagent(/datum/reagent/hyperzine, 0.10) //Certainly this can't be abused. - Geeves
 	C.reagents.add_reagent(/datum/reagent/oxycomorphine, 0.10)
 	C.update_canmove()

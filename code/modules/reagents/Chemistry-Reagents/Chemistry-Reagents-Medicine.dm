@@ -38,7 +38,7 @@
 	if((locate(/datum/reagent/butazoline) in M.reagents.reagent_list))
 		M.add_chemical_effect(CE_ITCH, dose)
 		M.adjustHydrationLoss(2*removed)
-		M.adjustCloneLoss(1*removed) // Cell regeneration spiralling out of control resulting in genetic damage.
+		M.adjustCloneLoss(2.5*removed) // Cell regeneration spiralling out of control resulting in genetic damage.
 
 /datum/reagent/bicaridine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	M.dizziness = max(100, M.dizziness)
@@ -83,7 +83,7 @@
 	if((locate(/datum/reagent/dermaline) in M.reagents.reagent_list)) //Instead of just disabling kelotane when dermaline is present, I've opted to have them function together, however with the drawback of genetic damage. It becomes a case of weighing your options - Keloderm will be great for severe burns, but creates more problems if you're using it to treat minor burns.
 		M.add_chemical_effect(CE_ITCH, dose)
 		M.adjustHydrationLoss(2*removed)
-		M.adjustCloneLoss(1*removed) // Cell regeneration spiralling out of control resulting in genetic damage.
+		M.adjustCloneLoss(2.5*removed) // Cell regeneration spiralling out of control resulting in genetic damage.
 
 /datum/reagent/dermaline
 	name = "Dermaline"
@@ -240,7 +240,7 @@
 
 /datum/reagent/perconol
 	name = "Perconol"
-	description = "Perconol is an advanced NSAID medication which is highly effective at treating minor-mild pain, inflammation and high fevers. The drug is available over-the-counter for treating minor illnesses and mild pain. Perconol is not effective when inhaled."
+	description = "Perconol is an advanced, analgesic medication which is highly effective at treating minor-mild pain, inflammation and high fevers. The drug is available over-the-counter for treating minor illnesses and mild pain. Perconol is not effective when inhaled."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE //Reduced from 60u to 20u because 60u is pretty unobtainable.
@@ -366,6 +366,7 @@
 	M.AdjustWeakened(-1)
 	holder.remove_reagent(/datum/reagent/mindbreaker, 5)
 	M.hallucination = max(0, M.hallucination - 10)
+	M.eye_blurry = max(M.eye_blurry - 5 * removed, 0)
 	M.adjustToxLoss(5 * removed) // It used to be incredibly deadly due to an oversight. Not anymore!
 	M.add_chemical_effect(CE_PAINKILLER, 40)
 	M.add_chemical_effect(CE_HALLUCINATE, -1)
@@ -1001,7 +1002,7 @@
 
 /datum/reagent/mental/emoxanyl
 	name = "Emoxanyl"
-	description = "Emoxanyl is a novel, antioxidant medication which increases cerebral circulation and is used to treat anxiety, depression, concussion, and epilepsy. It has fewer side effects than many other forms of psychoactive drugs. Withdrawal symptoms include hallucinations and heightened anxiety."
+	description = "Emoxanyl is a novel, psychoactive medication which increases cerebral circulation and is used to treat anxiety, depression, concussion, and epilepsy. It has fewer side effects than many other forms of psychoactive drugs. Withdrawal symptoms include hallucinations and heightened anxiety."
 	reagent_state = LIQUID
 	color = "#88FFFF"
 	metabolism = 0.01 * REM

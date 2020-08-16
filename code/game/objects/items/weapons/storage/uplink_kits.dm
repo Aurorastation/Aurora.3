@@ -232,6 +232,11 @@
 		/obj/item/reagent_containers/personal_inhaler_cartridge/large = 1,
 	)
 
+/obj/item/storage_box/syndie_kit/sideeffectbgone
+	name - "box of sideeffect-be-gone injectors"
+	desc ="Comes with 2x autoinjectors filled with drugs to counter chemical side-effects. Each injector has 2 uses."
+	starts_with = list(/obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone = 2)
+
 /obj/item/storage/box/syndie_kit/random_weapon
 	desc = "An untraceable gun of varying quality. Acquired from unknown sources. Includes ammunition if applicable."
 	starts_with = list(/obj/random/weapon_and_ammo = 1)

@@ -100,7 +100,7 @@
 		/obj/item/storage/pill_bottle/dexalin_plus = 1,
 		/obj/item/storage/pill_bottle/dylovene = 1,
 		/obj/item/storage/pill_bottle/mortaphenyl = 1,
-		/obj/item/reagent_containers/inhaler/hyperzine = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone = 1, //replaced the hyperzine autoinhaler for a 2-use anti-sideeffect autoinjector. this includes synaptizine, so no loss by removing the hyperzine inhaler
 		/obj/item/stack/medical/splint = 1
 	)
 
