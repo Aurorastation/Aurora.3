@@ -1,0 +1,6 @@
+author: Stryker, Mwahahahaha, NewOriginalSchwann
+delete-after: True
+
+changes: 
+  - rscadd: "Adds a selection of zippo lighters to the loadout (smoking tab)."
+  - rscadd: "Adds a colorable trenchcoat to the loadout (suits and overwear)."
