@@ -1,6 +1,0 @@
-author: NiennaB
-delete-after: True
-
-changes: 
-  - tweak: "Speed of IPC baseline screen animations decreased by adding new frames."
-  - tweak: "Tweaked several baseline screens (static, static2, breakout, monoeye, RGB)."
