@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - bugfix: "NT Quik Pay device's UI will now function properly."
