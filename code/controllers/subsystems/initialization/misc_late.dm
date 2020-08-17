@@ -11,13 +11,13 @@
 	for (var/thing in all_areas)
 		var/area/AR = thing
 		picked = null
-		if(!(istype(AR, /area/shuttle) || istype(AR, /area/syndicate_station) || istype(AR, /area/wizard_station)))
+		if(!(istype(AR, /area/shuttle) || istype(AR, /area/syndicate_station) || istype(AR, /area/antag/wizard)))
 			picked = pick_area_turf(AR.type, list(/proc/is_station_turf))
 			if (picked)
 				teleportlocs += AR.name
 				teleportlocs[AR.name] = AR
 
-		if(istype(AR, /area/turret_protected/aisat) || istype(AR, /area/tdome) || istype(AR, /area/shuttle/specops/centcom))
+		if(istype(AR, /area/turret_protected/aisat) || istype(AR, /area/tdome) || istype(AR, /area/shuttle/specops))
 			ghostteleportlocs += AR.name
 			ghostteleportlocs[AR.name] = AR
 

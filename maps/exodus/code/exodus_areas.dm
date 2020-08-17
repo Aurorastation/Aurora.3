@@ -57,22 +57,7 @@ area/syndicate_station/southwest
 	name = "Operating Theatre 2"
 	icon_state = "surgery"
 
-/area/alien
-	name = "Alien base"
-	icon_state = "yellow"
-	requires_power = 0
-
 /area/AIsattele
 	name = "AI Satellite Teleporter Room"
 	icon_state = "teleporter"
 	ambience = list('sound/ambience/ambimalf.ogg')
-
-/area/shuttle/alien/base
-	icon_state = "shuttle"
-	name = "Alien Shuttle Base"
-	requires_power = 1
-
-/area/shuttle/alien/mine
-	icon_state = "shuttle"
-	name = "Alien Shuttle Mine"
-	requires_power = 1

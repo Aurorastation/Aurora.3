@@ -3509,14 +3509,14 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "gF" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "7,2";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "gG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -5734,7 +5734,7 @@
 	name = "Cockpit Access"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "kD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/chair/office/dark,
@@ -5746,7 +5746,7 @@
 	icon_state = "2,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "kF" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -6730,7 +6730,7 @@
 	},
 /obj/effect/shuttle_landmark/escape_pod/start/pod1,
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod1/station)
+/area/shuttle/escape_pod/pod1)
 "mu" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -6747,7 +6747,7 @@
 	},
 /obj/effect/shuttle_landmark/escape_pod/start/pod2,
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod2/station)
+/area/shuttle/escape_pod/pod2)
 "mv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
@@ -6772,7 +6772,7 @@
 	},
 /obj/effect/shuttle_landmark/escape_pod/start/pod3,
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod3/station)
+/area/shuttle/escape_pod/pod3)
 "mx" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector,
@@ -7042,7 +7042,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "na" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -8086,7 +8086,7 @@
 	icon_state = "0,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "pa" = (
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
@@ -8646,7 +8646,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,1"
 	},
-/area/shuttle/escape_pod2/station)
+/area/shuttle/escape_pod/pod2)
 "pX" = (
 /obj/structure/table/wood,
 /obj/item/storage/box/fancy/cigarettes{
@@ -8768,7 +8768,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,2"
 	},
-/area/shuttle/escape_pod2/station)
+/area/shuttle/escape_pod/pod2)
 "qj" = (
 /obj/structure/bed/chair,
 /turf/simulated/floor/tiled,
@@ -9441,19 +9441,19 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,2"
 	},
-/area/shuttle/escape_pod3/station)
+/area/shuttle/escape_pod/pod3)
 "rx" = (
 /obj/structure/shuttle_part/escape_pod{
 	icon_state = "0,3"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/escape_pod1/station)
+/area/shuttle/escape_pod/pod1)
 "ry" = (
 /obj/structure/window/shuttle/unique/escape_pod{
 	icon_state = "1,3"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod1/station)
+/area/shuttle/escape_pod/pod1)
 "rz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -9571,7 +9571,7 @@
 	icon_state = "0,6";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "rL" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -9670,7 +9670,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod1/station)
+/area/shuttle/escape_pod/pod1)
 "rX" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -9688,7 +9688,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod2/station)
+/area/shuttle/escape_pod/pod2)
 "rY" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -9706,7 +9706,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod3/station)
+/area/shuttle/escape_pod/pod3)
 "rZ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -9727,7 +9727,7 @@
 	icon_state = "3,5";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "sb" = (
 /obj/structure/table/standard,
 /obj/random/tech_supply,
@@ -9868,7 +9868,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,0"
 	},
-/area/shuttle/escape_pod1/station)
+/area/shuttle/escape_pod/pod1)
 "sp" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -9879,12 +9879,12 @@
 	req_access = list(13)
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod1/station)
+/area/shuttle/escape_pod/pod1)
 "sq" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,0"
 	},
-/area/shuttle/escape_pod2/station)
+/area/shuttle/escape_pod/pod2)
 "sr" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -9895,12 +9895,12 @@
 	req_access = list(13)
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod2/station)
+/area/shuttle/escape_pod/pod2)
 "ss" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,0"
 	},
-/area/shuttle/escape_pod3/station)
+/area/shuttle/escape_pod/pod3)
 "st" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -9911,7 +9911,7 @@
 	req_access = list(13)
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod3/station)
+/area/shuttle/escape_pod/pod3)
 "su" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -10031,7 +10031,7 @@
 	icon_state = "10,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "sH" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -10621,7 +10621,7 @@
 /obj/machinery/light/small,
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "tV" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth{
 	frequency = 1380;
@@ -10728,7 +10728,7 @@
 	pixel_y = 30
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "uh" = (
 /obj/effect/shuttle_landmark/merc_elite/yellow,
 /turf/unsimulated/chasm_mask,
@@ -10890,7 +10890,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,0"
 	},
-/area/shuttle/escape_pod2/station)
+/area/shuttle/escape_pod/pod2)
 "uB" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -11025,7 +11025,7 @@
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "uO" = (
 /turf/simulated/wall,
 /area/hallway/secondary/entry/locker)
@@ -11065,7 +11065,7 @@
 	icon_state = "4,12";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "uT" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -11132,7 +11132,7 @@
 	id_tag = "science_shuttle_in"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "va" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/tape_roll,
@@ -11467,7 +11467,7 @@
 	icon_state = "5,15"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "vG" = (
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal,
@@ -11486,7 +11486,7 @@
 	icon_state = "11,1";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "vK" = (
 /obj/machinery/light{
 	dir = 4
@@ -11507,14 +11507,14 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,0"
 	},
-/area/shuttle/escape_pod3/station)
+/area/shuttle/escape_pod/pod3)
 "vN" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "0,4";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "vO" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -11675,7 +11675,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "we" = (
 /obj/effect/landmark{
 	name = "carpspawn"
@@ -11792,7 +11792,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "wl" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -11821,7 +11821,7 @@
 	tag_interior_door = "science_shuttle_in"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "wm" = (
 /obj/machinery/light{
 	dir = 8
@@ -11836,7 +11836,7 @@
 	icon_state = "5,13"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "wq" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -11921,7 +11921,7 @@
 	icon_state = "2,3"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/escape_pod3/station)
+/area/shuttle/escape_pod/pod3)
 "wy" = (
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
@@ -12028,7 +12028,7 @@
 	icon_state = "9,9";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "wM" = (
 /obj/structure/closet/crate/internals{
 	name = "emergency equipment"
@@ -12049,7 +12049,7 @@
 /obj/item/device/flashlight/flare/glowstick/red,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "wN" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
@@ -12113,7 +12113,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "wT" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -12144,7 +12144,7 @@
 	icon_state = "0,3";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "wX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/powered/scrubber,
@@ -12160,7 +12160,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "wZ" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -12298,14 +12298,14 @@
 	icon_state = "9,8";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "xm" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "11,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "xo" = (
 /obj/effect/decal/cleanable/generic,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -12315,7 +12315,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,1"
 	},
-/area/shuttle/escape_pod2/station)
+/area/shuttle/escape_pod/pod2)
 "xq" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ywflowers,
@@ -12642,7 +12642,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "xX" = (
 /turf/space,
 /turf/simulated/wall/shuttle/unique/research{
@@ -12650,18 +12650,18 @@
 	icon_state = "8,11";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "xY" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "xZ" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,1"
 	},
-/area/shuttle/escape_pod1/station)
+/area/shuttle/escape_pod/pod1)
 "ya" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -12681,7 +12681,7 @@
 	icon_state = "4,11";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "yc" = (
 /obj/structure/sign/double/map/right{
 	pixel_y = 30
@@ -13104,7 +13104,7 @@
 /obj/item/gun/energy/laser/shotgun/research,
 /obj/item/gun/energy/laser/shotgun/research,
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "yL" = (
 /obj/item/modular_computer/console/preset/security,
 /turf/simulated/floor/wood,
@@ -13198,7 +13198,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "yU" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
@@ -13437,7 +13437,7 @@
 	icon_state = "4,13";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "zq" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled,
@@ -13746,7 +13746,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "zS" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -14261,7 +14261,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "AF" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/item/device/radio/intercom{
@@ -14274,7 +14274,7 @@
 	icon_state = "0,3"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/escape_pod3/station)
+/area/shuttle/escape_pod/pod3)
 "AI" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/corner/white/diagonal{
@@ -14474,7 +14474,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/item/stool/padded,
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "AZ" = (
 /turf/simulated/wall,
 /area/storage/tools)
@@ -14491,7 +14491,7 @@
 	icon_state = "9,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Bc" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -14769,7 +14769,7 @@
 	icon_state = "4,5";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "BD" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -14811,7 +14811,7 @@
 	icon_state = "9,10";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "BI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -14836,7 +14836,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "BK" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -15085,7 +15085,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Ci" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/mime,
@@ -15454,7 +15454,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,2"
 	},
-/area/shuttle/escape_pod1/station)
+/area/shuttle/escape_pod/pod1)
 "CW" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -15546,7 +15546,7 @@
 	icon_state = "9,4";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "De" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -15565,7 +15565,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Dg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -15626,7 +15626,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,2"
 	},
-/area/shuttle/escape_pod2/station)
+/area/shuttle/escape_pod/pod2)
 "Dl" = (
 /obj/machinery/atm{
 	pixel_y = 27
@@ -15637,7 +15637,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,1"
 	},
-/area/shuttle/escape_pod3/station)
+/area/shuttle/escape_pod/pod3)
 "Dn" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -15697,7 +15697,7 @@
 	icon_state = "12,5";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Dq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -15730,7 +15730,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Du" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -15818,7 +15818,7 @@
 "DA" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "DB" = (
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
@@ -15889,14 +15889,14 @@
 	icon_state = "12,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "DJ" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "3,1";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "DK" = (
 /obj/structure/shuttle_part/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -15904,7 +15904,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "DL" = (
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Corridor Camera 9";
@@ -15923,7 +15923,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "DN" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -15938,14 +15938,14 @@
 	icon_state = "11,5";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "DP" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "12,6";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "DQ" = (
 /obj/structure/shuttle_part/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -15953,7 +15953,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "DR" = (
 /obj/machinery/light{
 	dir = 8;
@@ -16036,7 +16036,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Eb" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -17346,7 +17346,7 @@
 	icon_state = "7,15"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Gp" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 4
@@ -18229,7 +18229,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "HS" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -18257,7 +18257,7 @@
 	icon_state = "4,2";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "HV" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Cargo Bay Warehouse Maintenance";
@@ -18384,14 +18384,14 @@
 	icon_state = "3,4";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Ik" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "9,5";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Il" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -18513,7 +18513,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Ix" = (
 /obj/machinery/light{
 	dir = 8;
@@ -18734,7 +18734,7 @@
 	icon_state = "6,2";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "IU" = (
 /obj/effect/decal/warning_stripes,
 /obj/structure/ladder{
@@ -19104,7 +19104,7 @@
 	icon_state = "1,3"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod2/station)
+/area/shuttle/escape_pod/pod2)
 "JJ" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -19113,7 +19113,7 @@
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "JK" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -19564,7 +19564,7 @@
 	icon_state = "0,2";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "KI" = (
 /obj/structure/table/wood,
 /obj/item/folder/blue,
@@ -19658,7 +19658,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "KU" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -20189,7 +20189,7 @@
 	icon_state = "9,1";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "LJ" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -20243,7 +20243,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "LP" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -20389,7 +20389,7 @@
 	name = "Storage"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Mb" = (
 /obj/structure/mirror{
 	pixel_x = 28
@@ -20471,7 +20471,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Mk" = (
 /obj/structure/closet/toolcloset,
 /obj/random/tech_supply,
@@ -20502,7 +20502,7 @@
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Mo" = (
 /obj/structure/cryofeed,
 /obj/structure/window/reinforced{
@@ -20729,7 +20729,7 @@
 	icon_state = "6,9";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "MN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -20808,7 +20808,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "MV" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
@@ -20836,7 +20836,7 @@
 	icon_state = "0,1";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "MY" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/lino/grey,
@@ -20900,7 +20900,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Nf" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -20941,7 +20941,7 @@
 	icon_state = "4,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Ni" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -20984,7 +20984,7 @@
 	icon_state = "2,3"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/escape_pod1/station)
+/area/shuttle/escape_pod/pod1)
 "Nn" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -21114,7 +21114,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/closet/walllocker/emerglocker/north,
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "ND" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/plating,
@@ -21465,7 +21465,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Ot" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -21505,14 +21505,14 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,2"
 	},
-/area/shuttle/escape_pod1/station)
+/area/shuttle/escape_pod/pod1)
 "Ow" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "8,2";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Ox" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -21583,7 +21583,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,2"
 	},
-/area/shuttle/escape_pod3/station)
+/area/shuttle/escape_pod/pod3)
 "OD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -21642,7 +21642,7 @@
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "OK" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -21664,7 +21664,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "OM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -21689,7 +21689,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "OP" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
@@ -21749,7 +21749,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "OW" = (
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
@@ -21800,13 +21800,13 @@
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Pb" = (
 /obj/machinery/door/airlock/science{
 	name = "Compilation Office"
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Pc" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -21820,7 +21820,7 @@
 	icon_state = "7,13"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Pe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
@@ -21893,14 +21893,14 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Pm" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "9,3";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Pn" = (
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
@@ -21960,7 +21960,7 @@
 	icon_state = "3,2";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Pu" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -21993,7 +21993,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Px" = (
 /turf/simulated/wall,
 /area/maintenance/cargo/surface)
@@ -22039,7 +22039,7 @@
 	icon_state = "5,14"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "PD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -22064,7 +22064,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "PG" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/camera/network/telecom{
@@ -22140,7 +22140,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "PM" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1337;
@@ -22163,7 +22163,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "PO" = (
 /obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/plating,
@@ -22192,7 +22192,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "PS" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -22229,7 +22229,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "PX" = (
 /obj/machinery/door/airlock/glass{
 	name = "Auxillary Tool Storage"
@@ -22253,7 +22253,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/rd,
 /turf/simulated/floor/carpet,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Qa" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
@@ -22288,7 +22288,7 @@
 	icon_state = "4,10";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Qe" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -22297,7 +22297,7 @@
 /area/crew_quarters/fitness)
 "Qf" = (
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Qg" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -22339,7 +22339,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Qk" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/fancy/crayons/chalkbox,
@@ -22380,7 +22380,7 @@
 	icon_state = "5,10";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Qo" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -22457,7 +22457,7 @@
 	icon_state = "6,16"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Qx" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
@@ -22525,7 +22525,7 @@
 	icon_state = "1,3"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod3/station)
+/area/shuttle/escape_pod/pod3)
 "QF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -22738,14 +22738,14 @@
 	icon_state = "6,10";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Ra" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "3,3";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Rb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -22839,7 +22839,7 @@
 	icon_state = "1,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Rl" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
@@ -22928,7 +22928,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Rt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -22962,7 +22962,7 @@
 	icon_state = "2,3"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/escape_pod2/station)
+/area/shuttle/escape_pod/pod2)
 "Rw" = (
 /obj/machinery/computer/telecomms/traffic,
 /obj/machinery/alarm{
@@ -23047,7 +23047,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "RE" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -23085,7 +23085,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "RJ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -23133,7 +23133,7 @@
 	icon_state = "6,3";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "RO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -23181,7 +23181,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,1"
 	},
-/area/shuttle/escape_pod1/station)
+/area/shuttle/escape_pod/pod1)
 "RT" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -23198,7 +23198,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "RV" = (
 /turf/space,
 /turf/simulated/wall/shuttle/unique/research{
@@ -23206,7 +23206,7 @@
 	icon_state = "1,1";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "RW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -23461,7 +23461,7 @@
 	icon_state = "7,5";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Sz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -23490,7 +23490,7 @@
 	icon_state = "8,12";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "SC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -23733,7 +23733,7 @@
 	icon_state = "9,2";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "SX" = (
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
@@ -23818,7 +23818,7 @@
 	icon_state = "3,8";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Td" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
@@ -23985,7 +23985,7 @@
 	icon_state = "3,10";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Tw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -24182,7 +24182,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "TR" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -24286,7 +24286,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Uh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
@@ -24400,7 +24400,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Ur" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -24425,7 +24425,7 @@
 	icon_state = "7,14"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Uu" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -24455,7 +24455,7 @@
 	icon_state = "3,9";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Uy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -24528,7 +24528,7 @@
 	pixel_x = 30
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "UG" = (
 /obj/structure/closet,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -24605,7 +24605,7 @@
 	icon_state = "5,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "UQ" = (
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
@@ -24686,7 +24686,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "UZ" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -24766,7 +24766,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Vh" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -24816,7 +24816,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Vn" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -24833,7 +24833,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,0"
 	},
-/area/shuttle/escape_pod1/station)
+/area/shuttle/escape_pod/pod1)
 "Vp" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/grass/alt,
@@ -24856,7 +24856,7 @@
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Vs" = (
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
@@ -24900,7 +24900,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Vx" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -25007,7 +25007,7 @@
 	icon_state = "0,3"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/escape_pod2/station)
+/area/shuttle/escape_pod/pod2)
 "VF" = (
 /obj/effect/floor_decal/plaque,
 /turf/simulated/floor/tiled,
@@ -25040,7 +25040,7 @@
 	icon_state = "6,4";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "VK" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -25131,7 +25131,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,1"
 	},
-/area/shuttle/escape_pod3/station)
+/area/shuttle/escape_pod/pod3)
 "VR" = (
 /obj/structure/shuttle_part/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -25139,7 +25139,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "VS" = (
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -25480,7 +25480,7 @@
 	icon_state = "5,2";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Wx" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
@@ -25558,7 +25558,7 @@
 	icon_state = "3,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "WG" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -25607,14 +25607,14 @@
 	icon_state = "10,1";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "WO" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "2,1";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "WP" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -25642,7 +25642,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "WR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/filingcabinet/chestdrawer{
@@ -25694,7 +25694,7 @@
 	icon_state = "12,1";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "WV" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -25775,7 +25775,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Xe" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -25884,7 +25884,7 @@
 	icon_state = "6,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Xp" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 5
@@ -26197,7 +26197,7 @@
 	icon_state = "6,5";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "XV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -26366,7 +26366,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Yo" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -26427,7 +26427,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Yu" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
@@ -26604,7 +26604,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "YK" = (
 /obj/structure/bed/chair,
 /obj/machinery/firealarm/north,
@@ -26623,7 +26623,7 @@
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/carpet,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "YN" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -26665,7 +26665,7 @@
 	name = "Private Quarters"
 	},
 /turf/simulated/floor/wood,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "YS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -26862,7 +26862,7 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Zl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -26957,7 +26957,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "Zy" = (
 /obj/structure/weightlifter,
 /obj/machinery/alarm{
@@ -27021,7 +27021,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "ZE" = (
 /obj/structure/ladder{
 	pixel_y = 16
@@ -27038,7 +27038,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research/station)
+/area/shuttle/research)
 "ZG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -27142,7 +27142,7 @@
 	icon_state = "8,13";
 	name = "survey shuttle"
 	},
-/area/shuttle/research/station)
+/area/shuttle/research)
 "ZP" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,

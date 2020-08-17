@@ -21,7 +21,7 @@
 #define AURORA_ESCAPE_POD(NUMBER) \
 /datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod##NUMBER { \
 	name = "Escape Pod " + #NUMBER; \
-	shuttle_area = /area/shuttle/escape_pod##NUMBER/station; \
+	shuttle_area = /area/shuttle/escape_pod/pod##NUMBER; \
 	location = 0; \
 	dock_target = "escape_pod_" + #NUMBER; \
 	arming_controller = "escape_pod_"+ #NUMBER +"_berth"; \
@@ -51,7 +51,7 @@ AURORA_ESCAPE_POD(3)
 	location = 1
 	move_time = 20
 	warmup_time = 10
-	shuttle_area = /area/shuttle/escape/centcom
+	shuttle_area = /area/shuttle/escape
 	dock_target = "escape_shuttle"
 	waypoint_station = "nav_emergency_dock"
 	landmark_transition = "nav_emergency_interim"
@@ -80,7 +80,7 @@ AURORA_ESCAPE_POD(3)
 	name = "Arrival Shuttle"
 	location = 1
 	warmup_time = 10
-	shuttle_area = /area/shuttle/arrival/centcom
+	shuttle_area = /area/shuttle/arrival
 	move_time = 60
 	dock_target = "arrival_shuttle"
 	waypoint_station = "nav_arrival_dock"
@@ -125,14 +125,13 @@ AURORA_ESCAPE_POD(3)
 	docking_controller = "cargo_bay"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
-
-// Merchant Shuttle
+//-// Merchant Shuttle //-//
 
 /datum/shuttle/autodock/ferry/merchant_aurora
 	name = "Merchant Shuttle"
 	location = 1
 	warmup_time = 10
-	shuttle_area = /area/shuttle/merchant/start
+	shuttle_area = /area/shuttle/merchant
 	move_time = 20
 	dock_target = "merchant_shuttle"
 	waypoint_station = "nav_merchant_dock"
@@ -156,13 +155,13 @@ AURORA_ESCAPE_POD(3)
 	docking_controller = "merchant_shuttle_dock"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
-// Admin Shuttle
+//-// Admin Corvette //-//
 
 /datum/shuttle/autodock/multi/admin
 	name = "Crescent Shuttle"
 	current_location = "nav_admin_start"
 	warmup_time = 10
-	shuttle_area = /area/shuttle/administration/centcom
+	shuttle_area = /area/shuttle/administration
 	dock_target = "admin_shuttle"
 	destination_tags = list(
 		"nav_admin_start",
@@ -188,12 +187,13 @@ AURORA_ESCAPE_POD(3)
 	docking_controller = "green_dock_north"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
-// CCIA Shuttle
+//-// CCIA Shuttle //-//
+
 /datum/shuttle/autodock/ferry/autoreturn/ccia
 	name = "Agent Shuttle"
 	location = 1
 	warmup_time = 10
-	shuttle_area = /area/shuttle/transport1/centcom
+	shuttle_area = /area/shuttle/transport1
 	dock_target = "centcom_shuttle"
 	waypoint_station = "nav_ccia_dock"
 	waypoint_offsite = "nav_ccia_start"
@@ -211,12 +211,13 @@ AURORA_ESCAPE_POD(3)
 	docking_controller = "centcom_shuttle_dock_airlock"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
-// ERT Shuttle (the NT one)
+//-// ERT Shuttle (the NT one) //-//
+
 /datum/shuttle/autodock/ferry/specops/ert_aurora
 	name = "Phoenix Shuttle"
 	location = 1
 	warmup_time = 10
-	shuttle_area = /area/shuttle/specops/centcom
+	shuttle_area = /area/shuttle/specops
 	dock_target = "specops_shuttle_port"
 	waypoint_station = "nav_ert_dock"
 	waypoint_offsite = "nav_ert_start"
@@ -234,7 +235,8 @@ AURORA_ESCAPE_POD(3)
 	special_dock_targets = list("Phoenix Shuttle" = "specops_shuttle_fore")
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
-//Burglar Pod
+//-// Burglar Shuttle //-//
+
 /datum/shuttle/autodock/multi/antag/burglar_aurora
 	name = "Burglar Pod"
 	current_location = "nav_burglar_start"
@@ -242,7 +244,7 @@ AURORA_ESCAPE_POD(3)
 	dock_target = "burglar_shuttle"
 	warmup_time = 10
 	move_time = 75
-	shuttle_area = /area/burglar_base/pod
+	shuttle_area = /area/shuttle/burglar
 	destination_tags = list(
 		"nav_burglar_start",
 		"nav_burglar_surface",
@@ -288,7 +290,8 @@ AURORA_ESCAPE_POD(3)
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 	docking_controller = "distress_shuttle_dock"
 
-//Skipjack.
+//-// Raider Skipjack //-//
+
 /datum/shuttle/autodock/multi/antag/skipjack_aurora
 	name = "Skipjack"
 	current_location = "nav_skipjack_start"
@@ -296,7 +299,7 @@ AURORA_ESCAPE_POD(3)
 	dock_target = "vox_east_control"
 	warmup_time = 10
 	move_time = 75
-	shuttle_area = /area/skipjack_station/start
+	shuttle_area = /area/shuttle/skipjack
 	destination_tags = list(
 		"nav_skipjack_start",
 		"nav_skipjack_surface",
@@ -342,7 +345,8 @@ AURORA_ESCAPE_POD(3)
 	landmark_tag = "nav_skipjack_interstitial"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
-//Nuke Ops shuttle.
+//-// Mercenary Shuttle //-//
+
 /datum/shuttle/autodock/multi/antag/merc_aurora
 	name = "Mercenary Shuttle"
 	current_location = "nav_merc_start"
@@ -350,8 +354,7 @@ AURORA_ESCAPE_POD(3)
 	dock_target = "merc_shuttle"
 	warmup_time = 10
 	move_time = 75
-	ceiling_type = /turf/simulated/shuttle_roof/dark
-	shuttle_area = /area/syndicate_station/start
+	shuttle_area = /area/shuttle/mercenary
 	destination_tags = list(
 		"nav_merc_dock",
 		"nav_merc_start",
@@ -398,7 +401,8 @@ AURORA_ESCAPE_POD(3)
 	landmark_tag = "nav_merc_caverns"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
-//Merc Elite Shuttle
+//-// Merc Elite Shuttle //-//
+
 /datum/shuttle/autodock/multi/merc_aurora_elite
 	name = "Merc Elite"
 	current_location = "nav_mercelite_start"
@@ -444,14 +448,15 @@ AURORA_ESCAPE_POD(3)
 	docking_controller = "green_dock_west"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
-// Tau Ceti Foreign Legion
+//-// TCFL Dropship //-//
+
 /datum/shuttle/autodock/multi/legion
 	name = "Legion Shuttle"
 	current_location = "nav_legion_start"
 	warmup_time = 10
 	move_time = 75
 	ceiling_type = /turf/simulated/shuttle_roof/legion
-	shuttle_area = /area/shuttle/legion/centcom
+	shuttle_area = /area/shuttle/legion
 	dock_target = "legion_shuttle"
 	landmark_transition = "nav_legion_interim"
 	destination_tags = list(
@@ -490,12 +495,14 @@ AURORA_ESCAPE_POD(3)
 	landmark_tag = "nav_legion_medical"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
+//-// Research Shuttle //-//
+
 /datum/shuttle/autodock/ferry/research_aurora
 	name = "Research Shuttle"
 	location = 0
 	warmup_time = 10
 	move_time = 85
-	shuttle_area = /area/shuttle/research/station
+	shuttle_area = /area/shuttle/research
 	dock_target = "science_shuttle"
 	waypoint_station = "nav_research_dock"
 	landmark_transition = "nav_research_interim"
@@ -516,7 +523,7 @@ AURORA_ESCAPE_POD(3)
 	name = "Away Site"
 	landmark_tag = "nav_research_away"
 
-// Distress Team Shuttle
+//-// Distress Team Shuttle //-//
 
 /datum/shuttle/autodock/multi/distress
 	name = "Distress Shuttle"
@@ -524,7 +531,7 @@ AURORA_ESCAPE_POD(3)
 	warmup_time = 10
 	move_time = 45
 	dock_target = "distress_shuttle_aft"
-	shuttle_area = /area/shuttle/distress/centcom
+	shuttle_area = /area/shuttle/distress
 	landmark_transition = "nav_distress_interim"
 	destination_tags = list(
 		"nav_distress_away",

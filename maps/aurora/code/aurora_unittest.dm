@@ -10,16 +10,14 @@
 		,/area/shuttle
 		,/area/holodeck
 		,/area/supply/station
-		,/area/wizard_station
 		,/area/tdome
 		,/area/centcom
-		,/area/syndicate_mothership
+		,/area/antag
 		,/area/beach
 		,/area/prison
 		,/area/supply/dock
 		,/area/turbolift
 		,/area/mine
-		,/area/merchant_ship
 	)
 	ut_apc_exempt_areas = list(/area/construction
 		,/area/medical/genetics
