@@ -11,7 +11,7 @@
 
 /datum/uplink_item/item/medical/combathypo
 	name = "Combat hypospray"
-	item_cost = 4
+	item_cost = 5
 	path = /obj/item/reagent_containers/hypospray/combat
 
 /datum/uplink_item/item/medical/surgery
@@ -26,7 +26,7 @@
 
 /datum/uplink_item/item/medical/stimulants
 	name = "Box of Combat Stimulants"
-	item_cost = 2
+	item_cost = 4
 	path = /obj/item/storage/box/syndie_kit/stimulants
 
 /datum/uplink_item/item/medical/firstaid
