@@ -1,33 +1,26 @@
-/obj/machinery/computer/guntracker
-	name = "firearm control console"
-	desc = "A console that can be used to track wireless-enabled firearms, and remotely control their activation."
-	icon_screen = "explosive"
-	light_color = LIGHT_COLOR_ORANGE
-	req_access = list(access_armory)
-	circuit = /obj/item/circuitboard/guntracker
-	var/id = 0.0
-	var/temp = null
-	var/status = 0
-	var/timeleft = 60
-	var/stop = 0.0
-	var/screen = 0 // 0 - No Access Denied, 1 - Access allowed
+/datum/computer_file/program/guntracker
+	filename = "guntracker"
+	filedesc = "Firearm Control"
+	extended_desc = "Official NTsec program for the tracking and remote control of wireless-enabled firearms."
+	program_icon_state = "security"
+	color = LIGHT_COLOR_ORANGE
+	size = 8
+	requires_ntnet = TRUE
+	available_on_ntnet = TRUE
+	required_access_download = access_armory
+//	required_access_run = access_armory
+	usage_flags = PROGRAM_CONSOLE
 
-/obj/machinery/computer/guntracker/attack_ai(var/mob/user)
-	return attack_hand(user)
+/datum/computer_file/program/guntracker/ui_interact(var/mob/user)
 
-/obj/machinery/computer/guntracker/attack_hand(var/mob/user)
-	if(..())
-		return
-	ui_interact(user)
-
-/obj/machinery/computer/guntracker/ui_interact(var/mob/user)
+/datum/computer_file/program/guntracker/ui_interact(var/mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
 		ui = new /datum/vueui/modularcomputer(user, src, "security-guntracker", 600, 400, "Firearm Control")
 	ui.open()
 	ui.auto_update_content = TRUE
 
-/obj/machinery/computer/guntracker/vueui_transfer(oldobj)
+/datum/computer_file/program/guntracker/vueui_transfer(oldobj)
 	. = FALSE
 	var/uis = SSvueui.transfer_uis(oldobj, src, "security-guntracker", 600, 400, "Firearm Control")
 	for(var/tui in uis)
@@ -35,12 +28,11 @@
 		ui.auto_update_content = TRUE
 		. = TRUE
 
-/obj/machinery/computer/guntracker/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
+/datum/computer_file/program/guntracker/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
 	data = . || data || list()
 
-	data["screen"] = screen
-	var/turf/T = get_turf(src)
+	var/turf/T = get_turf(computer.loc)
 	var/list/wireless_firing_pins_data = list()
 	for(var/obj/item/device/firing_pin/wireless/P in wireless_firing_pins)
 		if(!P.gun)
@@ -62,10 +54,11 @@
 
 	return data
 
-/obj/machinery/computer/guntracker/Topic(href, href_list)
+/datum/computer_file/program/guntracker/Topic(href, href_list)
 	if(..())
 		return
-	if((usr.contents.Find(src) || (in_range(src, usr) && isturf(loc))) || issilicon(usr))
+
+	if((usr.contents.Find(src) || (in_range(src, usr) && isturf(computer.loc))) || issilicon(usr))
 		usr.set_machine(src)
 
 		if(href_list["togglepin1"]) // Sets the wireless-control firing pin to automatic
@@ -88,9 +81,4 @@
 			if(P)
 				P.unlock(WIRELESS_PIN_LETHAL)
 
-		if(href_list["lock"])
-			if(allowed(usr))
-				screen = !screen
-			else
-				to_chat(usr, "Unauthorized Access.")
 	return

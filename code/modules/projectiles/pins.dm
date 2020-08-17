@@ -228,7 +228,7 @@ Pins Below.
 	var/turf/T = get_turf(src)
 	return !isStationLevel(T.z)
 
-var/list/wireless_firing_pins = list() //A list of all initialized wireless firing pins. Used in the firearm tracking console in guntracker.dm
+var/list/wireless_firing_pins = list() //A list of all initialized wireless firing pins. Used in the firearm tracking program in guntracker.dm
 
 /obj/item/device/firing_pin/wireless
 	name = "wireless-control firing pin"
@@ -284,28 +284,28 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 			return TRUE
 	return FALSE
 
-/obj/item/device/firing_pin/wireless/proc/unlock(var/i) // Changes the current lockstatus of the weapon, and sends a message and sfx to whoever is holding it.
+/obj/item/device/firing_pin/wireless/proc/unlock(var/guntrackeroutput) // Changes the current lockstatus of the weapon, and sends a message and sfx to whoever is holding it.
 	var/mob/user = get_holding_mob(src)
 
-	if(i == lockstatus)
+	if(guntrackeroutput == lockstatus)
 		return
 
-	if(i == WIRELESS_PIN_AUTOMATIC)
+	if(guntrackeroutput == WIRELESS_PIN_AUTOMATIC)
 		playsound(user, 'sound/weapons/laser_safetyon.ogg')
 		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now set to automatic.</b>"))
 		lockstatus = WIRELESS_PIN_AUTOMATIC
 
-	if(i == WIRELESS_PIN_DISABLED)
+	if(guntrackeroutput == WIRELESS_PIN_DISABLED)
 		playsound(user, 'sound/weapons/laser_safetyoff.ogg')
 		to_chat(user, SPAN_WARNING("<b>\The wireless-control firing pin locks \the [gun.name]'s trigger!</b>"))
 		lockstatus = WIRELESS_PIN_DISABLED
 
-	if(i == WIRELESS_PIN_STUN)
+	if(guntrackeroutput == WIRELESS_PIN_STUN)
 		playsound(user, 'sound/weapons/laser_safetyon.ogg')
 		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now set to stun only.</b>"))
 		lockstatus = WIRELESS_PIN_STUN
 
-	if(i == WIRELESS_PIN_LETHAL)
+	if(guntrackeroutput == WIRELESS_PIN_LETHAL)
 		playsound(user, 'sound/weapons/laser_safetyon.ogg')
 		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now unrestricted.</b>"))
 		lockstatus = WIRELESS_PIN_LETHAL

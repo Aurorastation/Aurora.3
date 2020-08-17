@@ -13247,7 +13247,7 @@
 /turf/simulated/wall,
 /area/security/armory)
 "axO" = (
-/obj/machinery/computer/guntracker,
+/obj/machinery/computer/prisoner,
 /obj/machinery/requests_console{
 	department = "Security";
 	departmentType = 5;
