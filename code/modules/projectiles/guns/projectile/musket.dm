@@ -31,6 +31,8 @@
 	fire_sound = 'sound/weapons/gunshot/musket.ogg'
 	recoil = 4
 
+	ammo_type = /obj/item/ammo_casing/musket
+
 	var/has_powder = FALSE
 
 /obj/item/gun/projectile/musket/update_icon()

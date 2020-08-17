@@ -1496,7 +1496,7 @@
 		/obj/item/gun/projectile/shotgun/pump/combat = 1,
 		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1,
 		/obj/item/gun/projectile/automatic/rifle/adhomian = 1,
-		/obj/item/gun/projectile/musket = 1
+		/obj/item/gun/projectile/musket = 0.5
 		)
 
 	var/list/Epic = list(
