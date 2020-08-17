@@ -95,7 +95,7 @@
 		SSvueui.check_uis_for_change(src)
 		return FALSE
 
-/datum/computer_file/program/ntsl2_interpreter/ui_interact(mob/user as mob)
+/datum/computer_file/program/ntsl2_interpreter/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
 		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-ntsl-main", 600, 520, filedesc)
@@ -120,7 +120,7 @@
 	var/obj/item/computer_hardware/hard_drive/hdd = computer?.hard_drive
 	
 	if(is_running && istype(running))
-		VUEUI_SET_CHECK(data["mode"], "program", ., data)
+		data["mode"] = "program"
 		data["terminal"] = running.buffer
 		. = data
 	else if (istype(opened))
