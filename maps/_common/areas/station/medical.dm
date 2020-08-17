@@ -121,20 +121,6 @@
 	name = "Robotics"
 	icon_state = "medresearch"
 
-/area/medical/abandoned
-	name = "Abandoned Sector"
-	icon_state = "green"
-	ambience = list(
-		'sound/ambience/ambimaint1.ogg',
-		'sound/ambience/ambimaint2.ogg',
-		'sound/ambience/ambimaint3.ogg',
-		'sound/ambience/ambimaint4.ogg',
-		'sound/ambience/ambimaint5.ogg'
-	)
-
-/area/medical/abandoned/virology_lab
-	name = "Abandoned Virology Lab"
-
 /area/medical/morgue
 	name = "Medical - Long-term Morgue"
 	icon_state = "morgue"
