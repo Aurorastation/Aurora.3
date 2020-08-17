@@ -1,6 +1,6 @@
 /mob/living/bot
 	name = "Bot"
-	accent = ACCENT_SILICON
+	accent = ACCENT_TTS
 	health = 20
 	maxHealth = 20
 	icon = 'icons/obj/aibots.dmi'

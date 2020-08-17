@@ -327,6 +327,7 @@
 			EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
 
 		job.equip(H)
+		UniformReturn(H, H.client.prefs, job)
 
 		if (!megavend)
 			spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
@@ -701,7 +702,6 @@
 // H, job, and prefs MUST be supplied and not null.
 // leftovers, storage, custom_equip_slots can be passed if their return values are required (proc mutates passed list), or ignored if not required.
 /datum/controller/subsystem/jobs/proc/EquipCustom(mob/living/carbon/human/H, datum/job/job, datum/preferences/prefs, list/leftovers = null, list/storage = null, list/custom_equip_slots = list())
-	var/keepuniform = job.get_outfit(H)
 	Debug("EC/([H]): Entry.")
 	if (!istype(H) || !job)
 		Debug("EC/([H]): Abort: invalid arguments.")
@@ -716,8 +716,6 @@
 		var/datum/gear/G = gear_datums[thing]
 		if(G)
 
-			if(G.slot == slot_w_uniform)
-				UniformReturn(keepuniform, H)
 			if(G.augment) //augments are handled somewhere else
 				continue
 
@@ -936,8 +934,12 @@
 	C.screen -= T
 	qdel(T)
 
-/datum/controller/subsystem/jobs/proc/UniformReturn(uniform, mob/living/carbon/human/H)
+/datum/controller/subsystem/jobs/proc/UniformReturn(mob/living/carbon/human/H, datum/preferences/prefs, datum/job/job)
+	var/uniform = job.get_outfit(H)
 	var/datum/outfit/U = new uniform
-	var/uniformspawn = new U.uniform(H)
-	H.equip_or_collect(uniformspawn, H.back)
+	for(var/item in prefs.gear)
+		var/datum/gear/L = gear_datums[item]
+		if(L.slot == slot_w_uniform)
+			H.equip_or_collect(new U.uniform(H), H.back)
+			break
 #undef Debug
