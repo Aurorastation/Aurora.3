@@ -422,8 +422,6 @@
 	ui.open()
 
 /obj/machinery/smartfridge/vueui_data_change(list/data, mob/user, datum/vueui/ui)
-	world << "Yoink."
-
 	data = list()
 
 	data["contents"] = null
