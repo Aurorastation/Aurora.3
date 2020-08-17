@@ -648,7 +648,7 @@
 	description = "Spectrocybin is a hallucinogenic chemical found in a unique strain of fungi. Little research has been conducted into the hallucinogenic properties of spectrocybin, though many spiritual creeds utilise the drug in rituals and claim it allows people to act as mediums between the living and dead."
 	reagent_state = LIQUID
 	color = "#800080"
-	strength = 5 //Was pretty strong during testing - liver failure before you hit the spooky messages.
+	strength = 5 // Was pretty strong during testing - liver failure before you hit the spooky messages.
 	overdose = 10
 	taste_description = "acid"
 	metabolism = REM * 0.5 // Reduced from 0.2u/t to 0.1u/t to prolong the progression from good messages to bad.
