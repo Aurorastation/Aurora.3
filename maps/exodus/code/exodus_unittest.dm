@@ -1,7 +1,5 @@
 /datum/map/exodus
 	ut_environ_exempt_areas = list(/area/space
-		,/area/syndicate_station
-		,/area/skipjack_station
 		,/area/solar
 		,/area/shuttle
 		,/area/holodeck
