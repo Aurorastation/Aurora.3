@@ -46,7 +46,7 @@
 			src.visible_message(SPAN_NOTICE("[user] starts cutting \the [src] apart."))
 			if(do_after(user, 200))
 				src.visible_message(SPAN_DANGER("\The [src] is cut apart by [user]!"))
-				playsound(src, 'sound/items/Welder.ogg', 100, 1)
+				playsound(src, 'sound/items/welder.ogg', 100, 1)
 				new /obj/item/stack/material/titanium(src.loc, 10)
 				new /obj/item/stack/material/plasteel(src.loc, 10)
 				var/obj/item/stack/cable_coil/C = new /obj/item/stack/cable_coil(src.loc)
@@ -149,16 +149,20 @@
 	else if ((!humanload || !passenger) && status != USED)
 		load(user)
 
-/obj/vehicle/droppod/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
-	var/data[0]
+/obj/vehicle/droppod/ui_interact(mob/user)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if (!ui)
+		ui = new(user, src, "vehicles-droppod", 400, 400, "Drop Pod", state = default_state)
+		ui.data = vueui_data_change(null, user, ui)
+
+	ui.open()
+
+/obj/vehicle/droppod/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	data = list()
+
 	data["status"] = status
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "droppod.tmpl", "Drop Pod", 400, 400, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
 /obj/vehicle/droppod/Topic(href, href_list)
 	if(..())
@@ -198,11 +202,13 @@
 				if(alert(user, "WARNING: You are not in the droppod! Are you sure you wish to launch?", "Launch Confirmation", "Yes", "No") == "No")
 					return
 			status = LAUNCHING
-			var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
-			if(ui)
-				ui.close()
+
+			var/datum/vueui/ui = href_list["vueui"]
+			ui?.close()
+
 			if(connected_blastdoor)
 				blastdoor_interact()
+
 			fire_at_area(A)
 
 /obj/vehicle/droppod/proc/fire_at_area(var/area/A)

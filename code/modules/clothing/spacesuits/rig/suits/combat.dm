@@ -20,7 +20,6 @@
 
 /obj/item/rig/combat/equipped
 
-
 	initial_modules = list(
 		/obj/item/rig_module/mounted,
 		/obj/item/rig_module/vision/thermal,
@@ -33,7 +32,7 @@
 
 /obj/item/rig/military
 	name = "military hardsuit control module"
-	desc = "A powerfull hardsuit designed for military operations."
+	desc = "A powerful hardsuit designed for military operations."
 	icon_state = "military_rig"
 	suit_type = "military hardsuit"
 	armor = list(melee = 80, bullet = 75, laser = 60, energy = 15, bomb = 80, bio = 100, rad = 30)
@@ -66,6 +65,22 @@
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/actuators/combat
 		)
+
+/obj/item/rig/military/ninja
+	initial_modules = list(
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/grenade_launcher/frag,
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/chem_dispenser/injector,
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/device/door_hack
+		)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY
 
 /obj/item/rig/retro
 	name = "retrofitted military hardsuit control module"
@@ -130,6 +145,21 @@
 		/obj/item/rig_module/mounted/taser
 		)
 
+/obj/item/rig/gunslinger/ninja
+
+	initial_modules = list(
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/mounted,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/mounted/taser,
+		/obj/item/rig_module/device/door_hack,
+		/obj/item/rig_module/fabricator/energy_net
+		)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY
+
 /obj/item/rig/strike
 	name = "strike hardsuit control module"
 	desc = "An expensive hardsuit utilized by Eridani security contractors to field heavy weapons and coordinate non-lethal takedowns directly. Usually seen spearheading police raids."
@@ -154,6 +184,23 @@
 		/obj/item/rig_module/power_sink,
 		/obj/item/rig_module/mounted/taser
 		)
+
+/obj/item/rig/strike/ninja
+
+	initial_modules = list(
+		/obj/item/rig_module/vision/nvg,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/chem_dispenser/injector,
+		/obj/item/rig_module/device/door_hack,
+		/obj/item/rig_module/device/drill
+		)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY
 
 /obj/item/rig/elyran
 	name = "elyran battlesuit control module"
@@ -180,6 +227,22 @@
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/actuators/combat
 		)
+
+/obj/item/rig/elyran/ninja
+	req_access = list(access_syndicate)
+
+	initial_modules = list(
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/device/door_hack,
+		/obj/item/rig_module/mounted/plasma
+		)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY
 
 /obj/item/rig/bunker
 	name = "bunker suit control module"
@@ -233,3 +296,17 @@
 	initial_modules = list(
 		/obj/item/rig_module/actuators/combat
 		)
+
+/obj/item/rig/jinxiang/ninja
+	initial_modules = list(
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/fabricator/energy_net,
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/device/door_hack,
+		/obj/item/rig_module/mounted/energy_blade
+		)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY

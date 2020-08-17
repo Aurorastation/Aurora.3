@@ -176,18 +176,21 @@ note dizziness decrements automatically in the mob's Life() proc.
 	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, time = 2)
 	animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, time = 2)
 
-/mob/do_attack_animation(atom/A)
+/mob/do_attack_animation(atom/A, var/atom/attack_item)
 	..()
 	is_floating = 0 // If we were without gravity, the bouncing animation got stopped, so we make sure we restart the bouncing after the next movement.
 
 	// What icon do we use for the attack?
 	var/image/I
-	if(hand && l_hand) // Attacked with item in left hand.
-		I = image(l_hand.icon, A, l_hand.icon_state, A.layer + 1)
-	else if (!hand && r_hand) // Attacked with item in right hand.
-		I = image(r_hand.icon, A, r_hand.icon_state, A.layer + 1)
-	else // Attacked with a fist?
-		return
+	if(attack_item)
+		I = image(attack_item.icon, A, attack_item.icon_state, A.layer + 1)
+	else
+		if(hand && l_hand) // Attacked with item in left hand.
+			I = image(l_hand.icon, A, l_hand.icon_state, A.layer + 1)
+		else if (!hand && r_hand) // Attacked with item in right hand.
+			I = image(r_hand.icon, A, r_hand.icon_state, A.layer + 1)
+		else // Attacked with a fist?
+			return
 
 	// Who can see the attack?
 	var/list/viewing = list()

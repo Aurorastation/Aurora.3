@@ -7730,6 +7730,15 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "aoC" = (
+/obj/machinery/power/breakerbox{
+	RCon_tag = "Engineering Supermatter Grid Bypass"
+	},
+/turf/simulated/floor/plating,
+/area/engineering/engine_smes)
+"aoD" = (
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Supermatter - Grid";
 	charge = 1e+007;
@@ -7743,16 +7752,11 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/turf/simulated/floor/plating,
-/area/engineering/engine_smes)
-"aoD" = (
-/obj/structure/cable{
-	d1 = 4;
+/obj/structure/cable/yellow{
+	d1 = 0;
 	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/alarm{
-	pixel_y = 28
+	dir = 2;
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_smes)
@@ -8451,9 +8455,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "apR" = (
-/obj/machinery/power/terminal{
-	dir = 1
-	},
 /obj/machinery/button/remote/airlock{
 	id = "engine_electrical_maintenance";
 	name = "Door Bolt Control";
@@ -8463,8 +8464,14 @@
 	specialfunctions = 4
 	},
 /obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
 	d2 = 2;
-	icon_state = "0-2"
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_smes)
@@ -9893,7 +9900,11 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/structure/cable/yellow,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "asu" = (
@@ -29547,7 +29558,6 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/mob/living/bot/secbot/beepsky,
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aZd" = (
@@ -60019,6 +60029,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
+"eux" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	d1 = 0;
+	d2 = 8;
+	dir = 2;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled,
+/area/engineering/engine_smes)
 "exI" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -82315,7 +82337,7 @@ aiW
 ahZ
 anA
 aoD
-apS
+eux
 ard
 anI
 atT
