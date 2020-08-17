@@ -760,6 +760,10 @@
 				else if (leftovers)
 					leftovers += thing
 					Debug("EC/([H]): Unable to equip [thing]; sending to overflow.")
+			else if(G.slot == slot_back)
+				// Explains that only one custom bag is allowed
+				// Subject to change, felt for balancing though, spawning with infinite bags was a bit...
+				to_chat(H, "<span class='warning'>You cannot have more than one custom bag.</span>")
 			else if (storage)
 				storage += thing
 				Debug("EC/([H]): Unable to equip [thing]; sending to storage.")
