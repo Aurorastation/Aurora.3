@@ -160,7 +160,7 @@
 /obj/vehicle/droppod/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	data = list()
 
-	data["is_operational"] = status
+	data["status"] = status
 
 	return data
 
