@@ -2351,6 +2351,7 @@
 #include "code\modules\projectiles\guns\projectile\dartgun.dm"
 #include "code\modules\projectiles\guns\projectile\improvised.dm"
 #include "code\modules\projectiles\guns\projectile\minigun.dm"
+#include "code\modules\projectiles\guns\projectile\musket.dm"
 #include "code\modules\projectiles\guns\projectile\pistol.dm"
 #include "code\modules\projectiles\guns\projectile\plasma.dm"
 #include "code\modules\projectiles\guns\projectile\revolver.dm"
