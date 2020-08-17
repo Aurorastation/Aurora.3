@@ -158,15 +158,6 @@
 			return round(num)
 		return n_ceil(num)
 
-// Clamps N between min and max
-/proc/n_clamp(var/num, var/min=-1, var/max=1)
-	if(isnum(num)&&isnum(min)&&isnum(max))
-		if(num<=min)
-			return min
-		if(num>=max)
-			return max
-		return num
-
 // Returns 1 if N is inbetween Min and Max
 /proc/n_inrange(var/num, var/min=-1, var/max=1)
 	if(isnum(num)&&isnum(min)&&isnum(max))

@@ -1,7 +1,7 @@
 /datum/computer_file/program/ntsl2_interpreter
 	filename = "ntslinterpreter"
 	filedesc = "NTSL2++ Interpreter"
-	extended_desc = "This program is used to run NTSL2+ programs."
+	extended_desc = "This program is used to run NTSL2++ scripts."
 	program_icon_state = "generic"
 	usage_flags = PROGRAM_ALL
 	size = 8

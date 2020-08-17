@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Utils from "../../../../utils"
+import Utils from "@/utils"
 
 const co = {
   props: ['fg', 'bg'],

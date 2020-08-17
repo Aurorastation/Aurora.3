@@ -49,14 +49,14 @@
 </template>
 
 <script>
-import Utils from '../../../../utils';
+import Utils from "@/utils"
 export default {
   data() {
-    return this.$root.$data;
+    return this.$root.$data
   },
   methods: {
     s(parameters) {
-      Utils.sendToTopic(parameters);
+      Utils.sendToTopic(parameters)
     }
   }
 };
