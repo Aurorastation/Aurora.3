@@ -16,7 +16,7 @@
 /obj/structure/weapon_rack/attackby(obj/item/W, mob/user)
 	if(isrobot(user))
 		return
-	if(initial(icon_state) + "_[W.icon_state]" in icon_states(icon))
+	if((initial(icon_state) + "_[W.icon_state]") in icon_states(icon))
 		user.unEquip(W)
 		W.forceMove(src)
 		held_weapon = W
