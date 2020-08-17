@@ -223,3 +223,10 @@
 
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
+
+/obj/item/clothing/accessory/tajaran/srendarr
+	name = "holy sun rosette"
+	desc = "A simple rosette accessory depicting the Tajaran god S'rendarr."
+	icon_state = "rosette"
+	item_state = "rosette"
+	flippable = FALSE
