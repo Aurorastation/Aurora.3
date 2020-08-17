@@ -42,7 +42,7 @@
 	l_hand =  /obj/item/storage/briefcase
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
-		/obj/item/gun/energy/disruptorpistol = 1
+		/obj/item/gun/energy/pistol = 1
 	)
 
 	implants = list(
