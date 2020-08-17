@@ -132,10 +132,20 @@ var/list/footstepfx = list(
 	"sand"
 	)
 
-var/list/shatter_sound = list(
+var/list/glass_break_sound = list(
 	'sound/effects/glass_break1.ogg',
 	'sound/effects/glass_break2.ogg',
 	'sound/effects/glass_break3.ogg'
+)
+var/list/cardboard_break_sound = list(
+	'sound/effects/cardboard_break1.ogg',
+	'sound/effects/cardboard_break2.ogg',
+	'sound/effects/cardboard_break3.ogg',
+)
+var/list/wood_break_sound = list(
+	'sound/effects/wood_break1.ogg',
+	'sound/effects/wood_break2.ogg',
+	'sound/effects/wood_break3.ogg',
 )
 var/list/explosion_sound = list(
 	'sound/effects/Explosion1.ogg',
@@ -159,6 +169,10 @@ var/list/punch_sound = list(
 	'sound/weapons/punch2.ogg',
 	'sound/weapons/punch3.ogg',
 	'sound/weapons/punch4.ogg'
+)
+var/list/punchmiss_sound = list(
+	'sound/weapons/punchmiss1.ogg',
+	'sound/weapons/punchmiss2.ogg'
 )
 var/list/clown_sound = list(
 	'sound/effects/clownstep1.ogg',
@@ -206,39 +220,76 @@ var/list/switch_sound = list(
 	'sound/machines/switch4.ogg'
 )
 var/list/keyboard_sound = list(
-	'sound/machines/keyboard/keypress1.ogg',
-	'sound/machines/keyboard/keypress2.ogg',
-	'sound/machines/keyboard/keypress3.ogg',
-	'sound/machines/keyboard/keypress4.ogg',
-	'sound/machines/keyboard/keystroke1.ogg',
-	'sound/machines/keyboard/keystroke2.ogg',
-	'sound/machines/keyboard/keystroke3.ogg',
-	'sound/machines/keyboard/keystroke4.ogg'
+	'sound/machines/keyboard/keyboard1.ogg',
+	'sound/machines/keyboard/keyboard2.ogg',
+	'sound/machines/keyboard/keyboard3.ogg',
+	'sound/machines/keyboard/keyboard4.ogg',
+	'sound/machines/keyboard/keyboard5.ogg'
 )
 var/list/pickaxe_sound = list(
 	'sound/weapons/mine/pickaxe1.ogg',
 	'sound/weapons/mine/pickaxe2.ogg',
 	'sound/weapons/mine/pickaxe3.ogg',
 	'sound/weapons/mine/pickaxe4.ogg'
-	)
+)
 var/list/glasscrack_sound = list(
 	'sound/effects/glass_crack1.ogg',
 	'sound/effects/glass_crack2.ogg',
 	'sound/effects/glass_crack3.ogg',
 	'sound/effects/glass_crack4.ogg'
-	)
+)
 var/list/bodyfall_sound = list(
 	'sound/effects/bodyfall1.ogg',
 	'sound/effects/bodyfall2.ogg',
 	'sound/effects/bodyfall3.ogg',
 	'sound/effects/bodyfall4.ogg'
-	)
-
+)
 var/list/bodyfall_machine_sound = list(
 	'sound/effects/bodyfall_machine1.ogg',
-	'sound/effects/bodyfall_machine2.ogg',
-	)
-
+	'sound/effects/bodyfall_machine2.ogg'
+)
+var/list/bulletflyby_sound = list(
+	'sound/effects/bulletflyby1.ogg',
+	'sound/effects/bulletflyby2.ogg',
+	'sound/effects/bulletflyby3.ogg'
+)
+var/list/crowbar_sound = list(
+	'sound/items/crowbar1.ogg',
+	'sound/items/crowbar2.ogg',
+	'sound/items/crowbar3.ogg',
+	'sound/items/crowbar4.ogg'
+)
+var/list/casing_drop_sound = list(
+	'sound/items/drop/casing1.ogg',
+	'sound/items/drop/casing2.ogg',
+	'sound/items/drop/casing3.ogg',
+	'sound/items/drop/casing4.ogg',
+	'sound/items/drop/casing5.ogg'
+)
+var/list/drillhit_sound = list(
+	'sound/weapons/saw/drillhit1.ogg',
+	'sound/weapons/saw/drillhit2.ogg'
+)
+// drop/equip/pickup sounds if there are multiple.
+var/list/wield_generic_sound = list(
+	'sound/items/wield/wield_generic1.ogg',
+	'sound/items/wield/wield_generic2.ogg',
+	'sound/items/wield/wield_generic3.ogg'
+)
+var/list/sword_pickup_sound = list(
+	'sound/items/pickup/sword1.ogg',
+	'sound/items/pickup/sword2.ogg',
+	'sound/items/pickup/sword3.ogg'
+)
+var/list/sword_equip_sound = list(
+	'sound/items/equip/sword1.ogg',
+	'sound/items/equip/sword2.ogg'
+)
+// gunshots, if multiple.
+var/list/gauss_fire_sound = list(
+	'sound/weapons/gaussrifle1.ogg',
+	'sound/weapons/gaussrifle2.ogg'
+)
 //var/list/gun_sound = list('sound/weapons/gunshot/gunshot1.ogg', 'sound/weapons/gunshot/gunshot2.ogg','sound/weapons/gunshot/gunshot3.ogg','sound/weapons/gunshot/gunshot4.ogg')
 
 /proc/playsound(atom/source, soundin, vol, vary, extrarange, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0)
@@ -441,12 +492,16 @@ var/list/bodyfall_machine_sound = list(
 			if ("lava") soundin = pick(lava_footstep)
 			if ("snow") soundin = pick(snow_footstep)
 			if ("sand") soundin = pick(sand_footstep)
+			// shatter sfx. mainly for materials
+			if ("glass_break") soundin = pick(glass_break_sound)
+			if ("cardboard_break") soundin = pick(cardboard_break_sound)
+			if ("wood_break") soundin = pick(wood_break_sound)
 			//misc
-			if ("shatter") soundin = pick(shatter_sound)
 			if ("explosion") soundin = pick(explosion_sound)
 			if ("sparks") soundin = pick(spark_sound)
 			if ("rustle") soundin = pick(rustle_sound)
 			if ("punch") soundin = pick(punch_sound)
+			if ("punchmiss") soundin = pick(punchmiss_sound)
 			if ("clownstep") soundin = pick(clown_sound)
 			if ("swing_hit") soundin = pick(swing_hit_sound)
 			if ("hiss") soundin = pick(hiss_sound)
@@ -460,4 +515,12 @@ var/list/bodyfall_machine_sound = list(
 			if ("pickaxe") soundin = pick(pickaxe_sound)
 			if ("bodyfall") soundin = pick(bodyfall_sound)
 			if ("bodyfall_machine") soundin = pick(bodyfall_machine_sound)
+			if ("bulletflyby") soundin = pick(bulletflyby_sound)
+			if ("crowbar") soundin = pick(crowbar_sound)
+			if ("casing_drop") soundin = pick(casing_drop_sound)
+			if ("drillhit") soundin = pick(drillhit_sound)
+			if ("wield_generic") soundin = pick(wield_generic_sound)
+			if ("equip_sword") soundin = pick(sword_equip_sound)
+			if ("pickup_sword") soundin = pick(sword_pickup_sound)
+			if ("gauss_fire") soundin = pick(gauss_fire_sound)
 	return soundin

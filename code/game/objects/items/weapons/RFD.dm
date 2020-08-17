@@ -39,6 +39,7 @@
 	var/build_type
 	var/build_atom
 	var/build_delay
+	var/last_fail = 0
 
 /obj/item/rfd/Initialize()
 	. = ..()
@@ -60,7 +61,7 @@
 	if(++mode > number_of_modes)
 		mode = RFD_FLOORS_AND_WALL
 	to_chat(user, SPAN_NOTICE("The mode selection dial is now at [modes[mode]]."))
-	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
+	playsound(get_turf(src), 'sound/weapons/laser_safetyon.ogg', 50, FALSE)
 	if(prob(20))
 		spark(get_turf(loc), 3, alldirs)
 
@@ -73,7 +74,7 @@
 		user.drop_from_inventory(W,src)
 		qdel(W)
 		stored_matter += 10
-		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
+		playsound(src.loc, 'sound/weapons/laser_reload1.ogg', 50, FALSE)
 		to_chat(user, SPAN_NOTICE("The RFD now holds [stored_matter]/30 matter-units."))
 		update_icon()
 		return
@@ -165,7 +166,10 @@ RFD Construction-Class
 			mode = RFD_FLOORS_AND_WALL
 	if(current_mode)
 		to_chat(user, SPAN_NOTICE("You switch the selection dial to <i>\"[current_mode]\"</i>."))
-		playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
+		if(mode == 3)
+			playsound(get_turf(src), 'sound/weapons/laser_safetyoff.ogg', 50, FALSE)
+		else
+			playsound(get_turf(src), 'sound/weapons/laser_safetyon.ogg', 50, FALSE)
 		if(prob(20))
 			spark(get_turf(src), 3, alldirs)
 
@@ -242,7 +246,7 @@ RFD Construction-Class
 		flick("[icon_state]-empty", src)
 		return FALSE
 
-	playsound(get_turf(src), 'sound/machines/hydraulic_short.ogg', 50, 1)
+	playsound(get_turf(src), 'sound/items/rfd_start.ogg', 50, FALSE)
 
 	working = TRUE
 	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [A]."), SPAN_NOTICE("You start [deconstruct ? "deconstructing" : "constructing"] \a [build_type]..."))
@@ -269,7 +273,7 @@ RFD Construction-Class
 		qdel(A)
 
 	rfd_effect.end_animation()
-	playsound(get_turf(src), 'sound/effects/magnetclamp.ogg', 50, 1)
+	playsound(get_turf(src), 'sound/items/rfd_end.ogg', 50, FALSE)
 	build_cost = null
 	build_delay = null
 	build_type = null
@@ -366,14 +370,18 @@ RFD Service-Class
 			return
 	else
 		if(stored_matter <= 0)
-			user << "The \'Low Ammo\' light on the device blinks yellow."
-			flick("[icon_state]-empty", src)
+			if(last_fail <= world.time - 20) //Spam limiter.
+				last_fail = world.time
+				to_chat(user, "The \'Low Ammo\' light on the device blinks yellow.")
+				playsound(get_turf(src), 'sound/items/rfd_empty.ogg', 50, FALSE)
+				flick("[icon_state]-empty", src)
 			return
 
 	if(!istype(A, /obj/structure/table) && !istype(A, /turf/simulated/floor))
 		return
 
-	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
+	playsound(src.loc, 'sound/items/rfd_dispense.ogg', 20, FALSE)
+	sleep(2)
 	var/used_energy = 0
 	var/obj/product
 
@@ -396,6 +404,7 @@ RFD Service-Class
 
 	to_chat(user, "Dispensing [product ? product : "product"]...")
 	product.forceMove(get_turf(A))
+	playsound(src.loc, 'sound/machines/click.ogg' , 10, 1)
 	if(istype(A, /obj/structure/table))
 		var/obj/structure/table/T = A
 		T.auto_align(product, click_parameters)
@@ -426,13 +435,19 @@ RFD Mining-Class
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.stat || !R.cell || R.cell.charge <= 500)
-			to_chat(user, SPAN_WARNING("You are unable to produce enough charge to use \the [src]!"))
-			flick("[icon_state]-empty", src)
+			if(last_fail <= world.time - 20) //Spam limiter.
+				last_fail = world.time
+				to_chat(user, SPAN_WARNING("You are unable to produce enough charge to use \the [src]!"))
+				playsound(get_turf(src), 'sound/items/rfd_empty.ogg', 50, FALSE)
+				flick("[icon_state]-empty", src)
 			return
 	else
 		if(stored_matter <= 0)
-			user << "The \'Low Ammo\' light on the device blinks yellow."
-			flick("[icon_state]-empty", src)
+			if(last_fail <= world.time - 20) //Spam limiter.
+				last_fail = world.time
+				to_chat(user, "The \'Low Ammo\' light on the device blinks yellow.")
+				playsound(get_turf(src), 'sound/items/rfd_empty.ogg', 50, FALSE)
+				flick("[icon_state]-empty", src)
 			return
 
 	if(!istype(A, /turf/simulated/floor) && !istype(A, /turf/unsimulated/floor))
@@ -490,20 +505,24 @@ RFD Mining-Class
 		return
 
 	if(malftransformermade)
-		to_chat(user, "There is already a transformer machine made!")
-		flick("[icon_state]-empty", src)
+		if(last_fail <= world.time - 20) //Spam limiter.
+			last_fail = world.time
+			to_chat(user, "There is already a transformer machine made!")
+			playsound(get_turf(src), 'sound/items/rfd_empty.ogg', 50, FALSE)
+			flick("[icon_state]-empty", src)
 		return
 
 	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
 	var/used_energy = 100
 	to_chat(user, "Fabricating machine...")
+	playsound(get_turf(src), 'sound/items/rfd_start.ogg', 50, FALSE)
 	if(do_after(user, 30 SECONDS, act_target = src))
 		var/obj/product = new /obj/machinery/transformer
 		malftransformermade = 1
 		product.forceMove(get_turf(A))
 		stored_matter = 0
 		update_icon()
-
+		playsound(get_turf(src), 'sound/items/rfd_end.ogg', 50, FALSE)
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
@@ -590,15 +609,17 @@ RFD Piping-Class
 
 	if(stored_matter < build_cost)
 		to_chat(user, SPAN_WARNING("The \'Low Ammo\' light on the device blinks yellow."))
+		playsound(get_turf(src), 'sound/items/rfd_empty.ogg', 50, FALSE)
 		flick("[icon_state]-empty", src)
 		return FALSE
 
-	playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
+	playsound(get_turf(src), 'sound/items/rfd_start.ogg', 50, FALSE)
 
 	working = TRUE
 	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [T]."), SPAN_NOTICE("You start laying down your pipe..."))
 
 	if((build_delay && !do_after(user, build_delay)) || (!useResource(build_cost, user)))
+		playsound(get_turf(src), 'sound/items/rfd_interrupt.ogg', 50, FALSE)
 		working = FALSE
 		return FALSE
 
@@ -611,12 +632,12 @@ RFD Piping-Class
 		pipe_dir = NORTHEAST
 	new /obj/item/pipe(T, selected_pipe, pipe_dir)
 
+	playsound(get_turf(src), 'sound/items/rfd_end.ogg', 50, FALSE)
 	working = FALSE
-	playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, TRUE)
 	return TRUE
 
 /obj/item/rfd/piping/attack_self(mob/user)
-	playsound(get_turf(src), 'sound/effects/pop.ogg', 50, FALSE)
+	playsound(get_turf(src), 'sound/weapons/laser_safetyon.ogg', 50, FALSE)
 	var/list/pipe_selection = list()
 	switch(selected_mode)
 		if(STANDARD_PIPE)

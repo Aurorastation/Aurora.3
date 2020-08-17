@@ -42,7 +42,7 @@
 		if(!do_after(user, 30/W.toolspeed))
 			manipulating = FALSE
 			return
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 		visible_message(SPAN_NOTICE("[user] cuts down \the [src]."),
 					SPAN_NOTICE("You cut down \the [src]."))
 		if(istype(src, /obj/structure/curtain/open/medical))

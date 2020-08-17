@@ -6,7 +6,7 @@
 	// Speaking
 	gender = NEUTER
 	voice_name = "Synthesized Voice"
-	accent = ACCENT_SILICON
+	accent = ACCENT_TTS
 	var/list/speech_synthesizer_langs = list() //which languages can be vocalized by the speech synthesizer
 	var/speak_statement = "states"
 	var/speak_exclamation = "declares"

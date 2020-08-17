@@ -53,7 +53,7 @@
 
 	if(!can_open)
 		to_chat(user, SPAN_NOTICE("You push the wall, but nothing happens."))
-		playsound(src, 'sound/weapons/Genhit.ogg', 25, TRUE)
+		playsound(src, 'sound/weapons/genhit.ogg', 25, TRUE)
 	else
 		toggle_open(user)
 	return FALSE
@@ -124,7 +124,7 @@
 			var/obj/item/weldingtool/WT = W
 			if(WT.remove_fuel(0,user))
 				to_chat(user, SPAN_NOTICE("You burn away the fungi with \the [WT]."))
-				playsound(src, 'sound/items/Welder.ogg', 10, 1)
+				playsound(src, 'sound/items/welder.ogg', 10, 1)
 				for(var/obj/effect/overlay/wallrot/WR in src)
 					qdel(WR)
 				return
@@ -165,7 +165,7 @@
 
 		if(WT.remove_fuel(0,user))
 			to_chat(user, SPAN_NOTICE("You start repairing the damage to [src]."))
-			playsound(src, 'sound/items/Welder.ogg', 100, 1)
+			playsound(src, 'sound/items/welder.ogg', 100, 1)
 			if(do_after(user, max(5, damage / 5)) && WT && WT.isOn())
 				to_chat(user, SPAN_NOTICE("You finish repairing the damage to [src]."))
 				take_damage(-damage)
@@ -189,7 +189,7 @@
 				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 				return
 			dismantle_verb = "cutting"
-			dismantle_sound = 'sound/items/Welder.ogg'
+			dismantle_sound = 'sound/items/welder.ogg'
 			cut_delay *= 0.7
 		else if(istype(W, /obj/item/gun/energy/plasmacutter))
 			var/obj/item/gun/energy/plasmacutter/PC = W
@@ -296,7 +296,7 @@
 					cut_cover = 1
 				if(cut_cover)
 					to_chat(user, SPAN_NOTICE("You begin slicing through the metal cover."))
-					playsound(src, 'sound/items/Welder.ogg', 100, 1)
+					playsound(src, 'sound/items/welder.ogg', 100, 1)
 					if(!do_after(user, 60/W.toolspeed) || !istype(src, /turf/simulated/wall) || construction_stage != 4)
 						return
 					construction_stage = 3
@@ -306,7 +306,7 @@
 			if(3)
 				if (W.iscrowbar())
 					to_chat(user, SPAN_NOTICE("You struggle to pry off the cover."))
-					playsound(src, 'sound/items/Crowbar.ogg', 100, 1)
+					playsound(src, W.usesound, 100, 1)
 					if(!do_after(user,100/W.toolspeed) || !istype(src, /turf/simulated/wall) || construction_stage != 3)
 						return
 					construction_stage = 2
@@ -336,7 +336,7 @@
 					cut_cover = 1
 				if(cut_cover)
 					to_chat(user, SPAN_NOTICE("You begin slicing through the support rods."))
-					playsound(src, 'sound/items/Welder.ogg', 100, 1)
+					playsound(src, 'sound/items/welder.ogg', 100, 1)
 					if(!do_after(user,70/W.toolspeed) || !istype(src, /turf/simulated/wall) || construction_stage != 1)
 						return
 					construction_stage = 0
@@ -347,7 +347,7 @@
 			if(0)
 				if(W.iscrowbar())
 					to_chat(user, SPAN_NOTICE("You struggle to pry off the outer sheath."))
-					playsound(src, 'sound/items/Crowbar.ogg', 100, 1)
+					playsound(src, W.usesound, 100, 1)
 					sleep(100)
 					if(!istype(src, /turf/simulated/wall) || !user || !W || !T )	return
 					if(user.loc == T && user.get_active_hand() == W )

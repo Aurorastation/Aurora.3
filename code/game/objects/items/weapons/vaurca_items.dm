@@ -385,7 +385,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "gaussrifle"
 	item_state = "gaussrifle"
-	fire_sound = 'sound/effects/Explosion2.ogg'
+	fire_sound = "gauss_fire"
 	fire_sound_text = "a subdued boom"
 	fire_delay = 12
 	slot_flags = SLOT_BACK
@@ -420,7 +420,7 @@
 	pump(user)
 
 /obj/item/gun/launcher/crossbow/vaurca/proc/pump(mob/M as mob)
-	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, 1)
+	playsound(M, 'sound/weapons/shotgun_pump.ogg', 60, 1)
 
 	if(bolt)
 		if(tension < max_tension)
