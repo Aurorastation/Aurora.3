@@ -4,7 +4,6 @@
 /turf/simulated/wall/shuttle
 	icon = 'icons/turf/smooth/shuttle_wall.dmi'
 	icon_state = "map-shuttle"
-	roof_flags = ROOF_CLEANUP
 	permit_ao = 0
 	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
 	use_standard_smoothing = 1
@@ -406,7 +405,6 @@
 	name = "shuttle floor"
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "floor"
-	roof_flags = ROOF_CLEANUP
 	permit_ao = 0
 	initial_flooring = /decl/flooring/shuttle
 	footstep_sound = "plating"

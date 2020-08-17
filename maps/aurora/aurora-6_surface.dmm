@@ -172,7 +172,8 @@
 	name = "exterior access button";
 	pixel_x = -25;
 	pixel_y = -25;
-	req_access = list(11,13)
+	req_access = null;
+	req_one_access = list(10,11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -202,7 +203,8 @@
 	id_tag = "solar_tool_outer";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = list(11,13)
+	req_access = null;
+	req_one_access = list(10,11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -284,7 +286,8 @@
 	id_tag = "solar_tool_inner";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = list(11,13)
+	req_access = null;
+	req_one_access = list(10,11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -337,7 +340,8 @@
 	name = "interior access button";
 	pixel_x = 25;
 	pixel_y = 25;
-	req_access = list(11,13)
+	req_access = null;
+	req_one_access = list(10,11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -458,7 +462,8 @@
 "aQ" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Gamma Solar Array";
-	req_access = list(11)
+	req_access = null;
+	req_one_access = list(10,11,13)
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -3576,7 +3581,8 @@
 	name = "exterior access button";
 	pixel_x = 25;
 	pixel_y = -25;
-	req_access = list(11,13)
+	req_access = null;
+	req_one_access = list(10,11,13)
 	},
 /turf/simulated/floor/airless,
 /area/solar/port)
@@ -3587,7 +3593,8 @@
 	id_tag = "brig_solar_outer";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = list(11,13)
+	req_access = null;
+	req_one_access = list(10,11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -3633,7 +3640,8 @@
 	id_tag = "brig_solar_inner";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = list(11,13)
+	req_access = null;
+	req_one_access = list(10,11,13)
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -3654,7 +3662,7 @@
 	name = "interior access button";
 	pixel_x = -25;
 	pixel_y = -25;
-	req_access = list(11,13)
+	req_access = list(10,11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -3701,7 +3709,8 @@
 "gT" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Beta Solar Array";
-	req_access = list(11)
+	req_access = null;
+	req_one_access = list(10,11,13)
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -3942,27 +3951,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
-"hq" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge - Auxiliary Dock"
-	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1399;
-	master_tag = "admin_shuttle_dock_airlock";
-	name = "interior access button";
-	pixel_x = -8;
-	pixel_y = 26;
-	req_one_access = list(13)
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "hr" = (
 /obj/machinery/light{
 	dir = 4;
@@ -5382,6 +5370,9 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/status_display{
+	layer = 3.5
+	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "jY" = (
@@ -5706,20 +5697,6 @@
 	},
 /turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
-"kA" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1399;
-	icon_state = "door_locked";
-	id_tag = "admin_shuttle_dock_inner";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "kB" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
@@ -7436,26 +7413,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
-"nL" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1399;
-	master_tag = "admin_shuttle_dock_airlock";
-	name = "exterior access button";
-	pixel_x = 25;
-	pixel_y = 5;
-	req_access = list(10,13)
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1399;
-	icon_state = "door_locked";
-	id_tag = "admin_shuttle_dock_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "nM" = (
 /obj/random/junk,
 /turf/unsimulated/chasm_mask,
@@ -7638,6 +7595,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
+"oc" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "od" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -8387,7 +8350,8 @@
 "pv" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Alpha Solar Array";
-	req_access = list(11)
+	req_access = null;
+	req_one_access = list(10,11,13)
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -8714,7 +8678,8 @@
 	name = "interior access button";
 	pixel_x = -25;
 	pixel_y = -25;
-	req_access = list(11,13)
+	req_access = null;
+	req_one_access = list(10,11,13)
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 8
@@ -8792,6 +8757,18 @@
 "qm" = (
 /turf/simulated/open,
 /area/turbolift/main_arrivals)
+"qn" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1399;
+	icon_state = "door_locked";
+	id_tag = "admin_shuttle_dock_inner";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "qo" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -8822,7 +8799,8 @@
 	id_tag = "solar_aft_inner";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = list(11,13)
+	req_access = null;
+	req_one_access = list(10,11,13)
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/structure/cable/yellow{
@@ -8998,7 +8976,8 @@
 	id_tag = "solar_aft_outer";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = list(11,13)
+	req_access = null;
+	req_one_access = list(10,11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -9094,8 +9073,8 @@
 	name = "exterior access button";
 	pixel_x = -25;
 	pixel_y = 25;
-	req_access = list(11,13);
-	req_one_access = null
+	req_access = null;
+	req_one_access = list(10,11,13)
 	},
 /turf/simulated/floor/airless,
 /area/solar/starboard)
@@ -9572,15 +9551,6 @@
 	name = "survey shuttle"
 	},
 /area/shuttle/research)
-"rL" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "rM" = (
 /obj/effect/shuttle_landmark/admin/command,
 /turf/unsimulated/chasm_mask,
@@ -9707,20 +9677,6 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod3)
-"rZ" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "sa" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -10086,11 +10042,8 @@
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "sP" = (
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
@@ -10100,14 +10053,15 @@
 	frequency = 1380;
 	master_tag = "ert_shuttle_dock_airlock";
 	name = "interior access button";
+	pixel_x = 2;
 	pixel_y = 25;
 	req_access = list(13)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
@@ -10326,6 +10280,24 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"tm" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1399;
+	master_tag = "admin_shuttle_dock_airlock";
+	name = "interior access button";
+	pixel_x = -27;
+	pixel_y = 22;
+	req_one_access = list(13)
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "tn" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -10337,19 +10309,6 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
-/area/bridge/levela)
-"to" = (
-/obj/machinery/status_display{
-	layer = 4;
-	pixel_x = -32
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
 /area/bridge/levela)
 "tp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -10505,6 +10464,27 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
+"tI" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1399;
+	layer = 3.5;
+	master_tag = "admin_shuttle_dock_airlock";
+	name = "exterior access button";
+	pixel_x = 21;
+	pixel_y = 10;
+	req_access = list(10,13)
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1399;
+	icon_state = "door_locked";
+	id_tag = "admin_shuttle_dock_outer";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "tJ" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -10665,15 +10645,9 @@
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "ub" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/floor_decal/corner/paleblue/full{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/bridge/levela)
-"uc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/paleblue{
-	dir = 1
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
@@ -12176,15 +12150,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
-"xa" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "xb" = (
 /obj/effect/floor_decal/corner/paleblue/full,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -12284,11 +12249,27 @@
 	pixel_y = -25;
 	req_access = list(13)
 	},
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
-	},
 /obj/machinery/light/small{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
+"xk" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
+	name = "KEEP CLEAR: DOCKING AREA"
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
@@ -12644,7 +12625,6 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/research)
 "xX" = (
-/turf/space,
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "8,11";
@@ -12675,7 +12655,6 @@
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "yb" = (
-/turf/space,
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "4,11";
@@ -13455,9 +13434,6 @@
 "zs" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Red Dock Command";
 	dir = 8
@@ -15024,6 +15000,24 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
+"Ca" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
+	icon_state = "space";
+	layer = 4;
+	name = "EXTERNAL AIRLOCK"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "Cb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sink{
@@ -15440,6 +15434,17 @@
 /obj/random/random_flag,
 /turf/simulated/floor/wood,
 /area/store)
+"CS" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1399;
+	icon_state = "door_locked";
+	id_tag = "admin_shuttle_dock_inner";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "CT" = (
 /obj/machinery/firealarm/south,
 /obj/machinery/light{
@@ -15691,7 +15696,6 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "Dp" = (
-/turf/space,
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "12,5";
@@ -18672,6 +18676,26 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
+"IM" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
+	icon_state = "space";
+	layer = 4;
+	name = "EXTERNAL AIRLOCK"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "IN" = (
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
@@ -19052,6 +19076,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
+"JB" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "JC" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -19558,7 +19589,6 @@
 /turf/simulated/floor/carpet,
 /area/sconference_room)
 "KH" = (
-/turf/space,
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "0,2";
@@ -20390,6 +20420,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/research)
+"Ma" = (
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_x = -32
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "Mb" = (
 /obj/structure/mirror{
 	pixel_x = 28
@@ -20626,26 +20670,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
-"MD" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
-	icon_state = "space";
-	layer = 4;
-	name = "EXTERNAL AIRLOCK"
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "ME" = (
 /obj/machinery/light{
 	dir = 1;
@@ -20831,11 +20855,13 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/store)
 "MX" = (
-/turf/simulated/wall/shuttle/unique/research{
+/obj/structure/shuttle_part/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "0,1";
-	name = "survey shuttle"
+	name = "survey shuttle";
+	opacity = 1
 	},
+/turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/research)
 "MY" = (
 /obj/effect/decal/cleanable/dirt,
@@ -21315,6 +21341,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/store)
+"Oc" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "Od" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -21626,6 +21664,15 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"OG" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "OH" = (
 /obj/structure/closet/secure_closet/personal,
 /turf/simulated/floor/tiled,
@@ -22091,6 +22138,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomfoyer)
+"PH" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "PI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -22780,31 +22839,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
-"Rf" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1399;
-	id_tag = "admin_shuttle_dock_pump"
-	},
-/obj/machinery/light/small,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1399;
-	id_tag = "admin_shuttle_dock_airlock";
-	pixel_y = -30;
-	req_one_access = list(13);
-	tag_airpump = "admin_shuttle_dock_pump";
-	tag_chamber_sensor = "admin_shuttle_dock_sensor";
-	tag_exterior_door = "admin_shuttle_dock_outer";
-	tag_interior_door = "admin_shuttle_dock_inner"
-	},
-/obj/machinery/airlock_sensor{
-	frequency = 1399;
-	id_tag = "admin_shuttle_dock_sensor";
-	pixel_x = -8;
-	pixel_y = -30
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "Rg" = (
 /obj/machinery/porta_turret{
 	dir = 6
@@ -23067,6 +23101,17 @@
 /obj/random/soap,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
+"RG" = (
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "RH" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -23200,7 +23245,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/research)
 "RV" = (
-/turf/space,
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "1,1";
@@ -23419,6 +23463,20 @@
 /obj/structure/grille,
 /turf/simulated/floor/airless,
 /area/solar/port)
+"Sr" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/status_display{
+	layer = 3.5
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/exit)
 "Ss" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -23455,6 +23513,24 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
+"Sx" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
+	name = "KEEP CLEAR: DOCKING AREA"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "Sy" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -23860,6 +23936,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"Tg" = (
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "Th" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -23944,6 +24030,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
+"Tp" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "Tq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -24268,6 +24363,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
+"Uc" = (
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Auxiliary Dock";
+	dir = 4;
+	pixel_y = 11
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1399;
+	id_tag = "admin_shuttle_dock_sensor";
+	pixel_x = -27;
+	pixel_y = 7
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "Ud" = (
 /obj/random/loot,
 /obj/structure/closet,
@@ -24432,6 +24541,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
+"Uv" = (
+/obj/machinery/door/airlock/external{
+	icon_state = "door_locked";
+	locked = 1
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "Uw" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
@@ -25552,6 +25668,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/shields)
+"WE" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "WF" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -25689,11 +25810,13 @@
 /turf/simulated/floor/tiled,
 /area/storage/tools)
 "WU" = (
-/turf/simulated/wall/shuttle/unique/research{
+/obj/structure/shuttle_part/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "12,1";
-	name = "survey shuttle"
+	name = "survey shuttle";
+	opacity = 1
 	},
+/turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/research)
 "WV" = (
 /obj/effect/floor_decal/corner/lime{
@@ -26264,6 +26387,26 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
+"Yc" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1399;
+	id_tag = "admin_shuttle_dock_airlock";
+	pixel_x = 27;
+	req_one_access = list(13);
+	tag_airpump = "admin_shuttle_dock_pump";
+	tag_chamber_sensor = "admin_shuttle_dock_sensor";
+	tag_exterior_door = "admin_shuttle_dock_outer";
+	tag_interior_door = "admin_shuttle_dock_inner"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1399;
+	id_tag = "admin_shuttle_dock_pump"
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "Yd" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -26296,6 +26439,13 @@
 /obj/item/clothing/suit/bluetag,
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
+"Yg" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
 "Yh" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -57943,7 +58093,7 @@ hE
 is
 is
 is
-is
+Sr
 fW
 ie
 kv
@@ -76992,11 +77142,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-rJ
+IM
+yR
+yR
+Oc
+rV
 rV
 rV
 rV
@@ -77245,19 +77395,19 @@ aa
 aa
 aa
 aa
+rM
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-ag
-ag
-rV
-rV
-rV
+Tj
+Uc
+CS
+tm
+Tp
+oc
+Yg
+RG
+Ma
 ub
 uJ
 vx
@@ -77506,16 +77656,16 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-ag
-ag
-ag
-rV
+tI
+Yc
+qn
+Tg
+JB
+JB
+WE
 sP
-to
-uc
+tS
+tS
 Pk
 vy
 wm
@@ -77763,13 +77913,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-ag
+Sx
+yR
+yR
+Oc
 rV
+rV
+PH
 sQ
 tp
 ud
@@ -78026,7 +78176,7 @@ aa
 aa
 aa
 aa
-su
+wf
 sR
 tq
 ue
@@ -78282,8 +78432,8 @@ aa
 aa
 aa
 aa
-rZ
-sv
+aa
+OG
 sS
 yg
 uf
@@ -78540,7 +78690,7 @@ aa
 aa
 aa
 aa
-sw
+xk
 sT
 sw
 aa
@@ -79832,7 +79982,7 @@ aa
 uL
 aa
 wf
-xg
+Uv
 yk
 yR
 uf
@@ -80089,7 +80239,7 @@ aa
 uM
 aa
 wf
-xi
+sN
 wf
 aa
 aa
@@ -80346,7 +80496,7 @@ aa
 rV
 aa
 wf
-xi
+sN
 wf
 aa
 aa
@@ -80602,9 +80752,9 @@ aa
 aa
 rJ
 aa
-wf
-xi
-wf
+uL
+sN
+uL
 aa
 aa
 aa
@@ -80859,9 +81009,9 @@ aa
 aa
 aa
 aa
-wf
-xi
-wf
+Ca
+Uv
+xk
 aa
 aa
 aa
@@ -81116,9 +81266,9 @@ aa
 aa
 aa
 aa
-wf
-xh
-wf
+aa
+aa
+aa
 aa
 aa
 aa
@@ -81373,9 +81523,9 @@ aa
 aa
 aa
 aa
-wf
-xi
-wf
+aa
+aa
+aa
 aa
 aa
 aa
@@ -81630,9 +81780,9 @@ aa
 aa
 aa
 aa
-wf
-xi
-wf
+aa
+aa
+aa
 aa
 aa
 aa
@@ -81887,9 +82037,9 @@ aa
 aa
 aa
 aa
-wf
-xi
-wf
+aa
+aa
+aa
 aa
 aa
 aa
@@ -82144,9 +82294,9 @@ aa
 aa
 aa
 aa
-wf
-xi
-wf
+aa
+aa
+aa
 aa
 aa
 aa
@@ -82401,9 +82551,9 @@ aa
 aa
 aa
 aa
-wf
-xi
-wf
+aa
+aa
+aa
 aa
 aa
 aa
@@ -82658,9 +82808,9 @@ aa
 aa
 aa
 aa
-wf
-xh
-wf
+aa
+aa
+aa
 aa
 aa
 aa
@@ -82915,9 +83065,9 @@ aa
 aa
 aa
 aa
-wf
-xi
-wf
+aa
+aa
+aa
 aa
 aa
 aa
@@ -83172,9 +83322,9 @@ aa
 aa
 aa
 aa
-wf
-xi
-wf
+aa
+aa
+aa
 aa
 aa
 aa
@@ -83429,9 +83579,9 @@ aa
 aa
 aa
 aa
-wf
-xi
-wf
+aa
+aa
+aa
 aa
 aa
 aa
@@ -83686,9 +83836,9 @@ aa
 aa
 aa
 aa
-wf
-xi
-wf
+aa
+aa
+aa
 aa
 aa
 aa
@@ -83943,9 +84093,9 @@ aa
 aa
 aa
 aa
-wf
-hq
-wf
+aa
+aa
+aa
 aa
 aa
 aa
@@ -84199,10 +84349,10 @@ aa
 aa
 aa
 aa
-MD
-rL
-kA
-wf
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -84452,14 +84602,14 @@ aa
 aa
 aa
 aa
-rM
 aa
 aa
 aa
-Tj
-sN
-Rf
-yl
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -84713,10 +84863,10 @@ aa
 aa
 aa
 aa
-nL
-sN
-sN
-wf
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -84970,10 +85120,10 @@ aa
 aa
 aa
 aa
-rZ
-yR
-yR
-xa
+aa
+aa
+aa
+aa
 aa
 aa
 aa

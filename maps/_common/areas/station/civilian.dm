@@ -96,6 +96,7 @@
 
 /area/crew_quarters/fitness/pool
 	name = "Surface - Pool"
+	lightswitch = TRUE
 
 /area/crew_quarters/fitness/changing
 	name = "Surface - Changing Room"

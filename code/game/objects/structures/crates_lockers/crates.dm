@@ -690,7 +690,10 @@
 		"critter" = "critteropen",
 		"largemetal" = "largemetalopen",
 		"medicalcrate" = "medicalcrateopen",
-		"tcflcrate" = "tcflcrateopen"
+		"tcflcrate" = "tcflcrateopen",
+		"necrocrate" = "necrocrateopen",
+		"zenghucrate" = "zenghucrateopen",
+		"hephcrate" = "hephcrateopen"
 	)
 
 

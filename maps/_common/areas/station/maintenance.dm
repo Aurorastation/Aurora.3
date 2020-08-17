@@ -128,7 +128,7 @@
 	icon_state = "maint_engineering"
 
 /area/maintenance/medsublevel_port
-	name = "Medical - Old Quarantine"
+	name = "Old Quarantine"
 	icon_state = "maint_medbay"
 
 /area/maintenance/scisublevel

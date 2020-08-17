@@ -14,7 +14,7 @@
 	var/category = /datum/shuttle
 	var/multiz = 0	//how many multiz levels, starts at 0
 
-	var/ceiling_type = /turf/simulated/shuttle_roof
+	var/ceiling_type = /turf/simulated/floor/airless/ceiling
 
 	var/sound_takeoff = 'sound/effects/shuttle_takeoff.ogg'
 	var/sound_landing = 'sound/effects/shuttle_landing.ogg'

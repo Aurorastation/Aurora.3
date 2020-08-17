@@ -9,6 +9,7 @@
 /obj/effect/shuttle_landmark/escape_pod/start
 	name = "Docked"
 	base_turf = /turf/simulated/floor/reinforced/airless
+	base_area = /area/mine/explored
 
 /obj/effect/shuttle_landmark/escape_pod/transit
 	name = "In transit"
@@ -62,6 +63,7 @@ AURORA_ESCAPE_POD(3)
 	landmark_tag = "nav_emergency_start"
 	docking_controller = "centcom_dock"
 	base_turf = /turf/unsimulated/floor/plating
+	base_area = /area/centcom/evac
 
 /obj/effect/shuttle_landmark/emergency/interim
 	name = "In Transit"
@@ -92,11 +94,12 @@ AURORA_ESCAPE_POD(3)
 	landmark_tag = "nav_arrival_start"
 	docking_controller = "centcom_setup"
 	base_turf = /turf/unsimulated/floor/plating
+	base_area = /area/centcom/spawning
 
 /obj/effect/shuttle_landmark/arrival/interim
 	name = "In Transit"
 	landmark_tag = "nav_arrival_interim"
-	base_turf = /turf/space/transit/east
+	base_turf = /turf/space/transit/west
 
 /obj/effect/shuttle_landmark/arrival/dock
 	name = "Arrival Shuttle Dock"
@@ -118,6 +121,7 @@ AURORA_ESCAPE_POD(3)
 	name = "Supply Centcom Dock"
 	landmark_tag = "nav_supply_start"
 	base_turf = /turf/unsimulated/floor/plating
+	base_area = /area/centcom
 
 /obj/effect/shuttle_landmark/supply/dock
 	name = "Supply Shuttle Dock"
@@ -143,11 +147,12 @@ AURORA_ESCAPE_POD(3)
 	landmark_tag = "nav_merchant_start"
 	docking_controller = "merchant_station"
 	base_turf = /turf/space/dynamic
+	base_area = /area/template_noop
 
 /obj/effect/shuttle_landmark/merchant/interim
 	name = "In Transit"
 	landmark_tag = "nav_merchant_interim"
-	base_turf = /turf/space/transit/east
+	base_turf = /turf/space/transit/west
 
 /obj/effect/shuttle_landmark/merchant/dock
 	name = "Merchant Shuttle Dock"
@@ -165,26 +170,27 @@ AURORA_ESCAPE_POD(3)
 	dock_target = "admin_shuttle"
 	destination_tags = list(
 		"nav_admin_start",
-		"nav_admin_command",
-		"nav_admin_green"
+		"nav_admin_green",
+		"nav_admin_command"
 		)
 
 /obj/effect/shuttle_landmark/admin/start
-	name = "Crescent Shuttle Base"
+	name = "Corvette Hangar"
 	landmark_tag = "nav_admin_start"
 	docking_controller = "admin_shuttle_bay"
 	base_turf = /turf/unsimulated/floor/plating
-
-/obj/effect/shuttle_landmark/admin/command
-	name = "Command Surface Dock"
-	landmark_tag = "nav_admin_command"
-	docking_controller = "admin_shuttle_dock_airlock"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_area = /area/centcom
 
 /obj/effect/shuttle_landmark/admin/green
 	name = "Emergency Services Dock"
 	landmark_tag = "nav_admin_green"
 	docking_controller = "green_dock_north"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/admin/command
+	name = "Command Surface Dock"
+	landmark_tag = "nav_admin_command"
+	docking_controller = "admin_shuttle_dock_airlock"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 //-// CCIA Shuttle //-//
@@ -204,6 +210,7 @@ AURORA_ESCAPE_POD(3)
 	landmark_tag = "nav_ccia_start"
 	docking_controller = "centcom_shuttle_bay"
 	base_turf = /turf/unsimulated/floor/plating
+	base_area = /area/centcom/ferry
 
 /obj/effect/shuttle_landmark/ccia/dock
 	name = "Agent Shuttle Dock"
@@ -227,6 +234,7 @@ AURORA_ESCAPE_POD(3)
 	landmark_tag = "nav_ert_start"
 	docking_controller = "specops_centcom_dock"
 	base_turf = /turf/unsimulated/floor/plating
+	base_area = /area/centcom/specops
 
 /obj/effect/shuttle_landmark/ert/dock
 	name = "ERT Dock"
@@ -261,7 +269,8 @@ AURORA_ESCAPE_POD(3)
 	name = "Hideout"
 	landmark_tag = "nav_burglar_start"
 	docking_controller = "burglar_hideout"
-	base_turf = /turf/space
+	base_turf = /turf/unsimulated/floor/plating
+	base_area = /area/antag/burglar
 
 /obj/effect/shuttle_landmark/burglar/interim
 	name = "In Transit"
@@ -274,13 +283,13 @@ AURORA_ESCAPE_POD(3)
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/burglar/under
-	name = "Under the Station, At radiator"
+	name = "Under the Station, By Radiators"
 	landmark_tag = "nav_burglar_under"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
 	base_turf = /turf/space
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/burglar/caverns
-	name = "Caverns Fore of Mining"
+	name = "Caverns, Fore of Mining"
 	landmark_tag = "nav_burglar_caverns"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
@@ -305,7 +314,8 @@ AURORA_ESCAPE_POD(3)
 		"nav_skipjack_surface",
 		"nav_skipjack_under",
 		"nav_skipjack_caverns",
-		"nav_skipjack_interstitial"
+		"nav_skipjack_interstitial",
+		"nav_skipjack_toxins"
 		)
 
 	landmark_transition = "nav_skipjack_interim"
@@ -314,10 +324,11 @@ AURORA_ESCAPE_POD(3)
 	departure_message = "Attention, your guests are pulling away - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
 
 /obj/effect/shuttle_landmark/skipjack/start
-	name = "Pirate Hideout"
+	name = "Raider Hideout"
 	landmark_tag = "nav_skipjack_start"
 	docking_controller = "pirate_hideout"
 	base_turf = /turf/space/dynamic
+	base_area = /area/template_noop
 
 /obj/effect/shuttle_landmark/skipjack/interim
 	name = "In Transit"
@@ -325,24 +336,29 @@ AURORA_ESCAPE_POD(3)
 	base_turf = /turf/space/transit/south
 
 /obj/effect/shuttle_landmark/skipjack/surface
-	name = "Surface Aft of Cargo"
+	name = "Surface, Aft of Cargo"
 	landmark_tag = "nav_skipjack_surface"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/skipjack/under
-	name = "Under the Station"
+	name = "Under the Station, By Radiators"
 	landmark_tag = "nav_skipjack_under"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 	base_turf = /turf/space/dynamic
 
 /obj/effect/shuttle_landmark/skipjack/caverns
-	name = "Caverns by Mining"
+	name = "Caverns, Aft of Mining"
 	landmark_tag = "nav_skipjack_caverns"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/skipjack/interstitial
-	name = "Interstitial by Medical"
+	name = "Interstitial, Exposed Hull by Medical"
 	landmark_tag = "nav_skipjack_interstitial"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/skipjack/toxins
+	name = "Caverns, By Bombrange"
+	landmark_tag = "nav_skipjack_toxins"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 //-// Mercenary Shuttle //-//
@@ -373,6 +389,7 @@ AURORA_ESCAPE_POD(3)
 	landmark_tag = "nav_merc_start"
 	docking_controller = "merc_base"
 	base_turf = /turf/space/dynamic
+	base_area = /area/template_noop
 
 /obj/effect/shuttle_landmark/merc/interim
 	name = "In Transit"
@@ -380,24 +397,24 @@ AURORA_ESCAPE_POD(3)
 	base_turf = /turf/space/transit/south
 
 /obj/effect/shuttle_landmark/merc/dock
-	name = "Station Dock"
+	name = "Yellow Dock"
 	landmark_tag = "nav_merc_dock"
 	docking_controller = "nuke_shuttle_dock_airlock"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/merc/surface
-	name = "Surface by Command"
+	name = "Surface, Aft of Command"
 	landmark_tag = "nav_merc_surface"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/effect/shuttle_landmark/merc/under
-	name = "Under the Station"
+	name = "Under the Station, At Radiators"
 	landmark_tag = "nav_merc_under"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 	base_turf = /turf/space/dynamic
 
 /obj/effect/shuttle_landmark/merc/caverns
-	name = "Caverns Fore of the Station"
+	name = "Caverns, Fore of Security"
 	landmark_tag = "nav_merc_caverns"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
@@ -418,10 +435,11 @@ AURORA_ESCAPE_POD(3)
 		)
 
 /obj/effect/shuttle_landmark/merc_elite/start
-	name = "Unknown Blacksite"
+	name = "Shuttle Hangar"
 	landmark_tag = "nav_mercelite_start"
 	docking_controller = "elite_shuttle_origin"
 	base_turf = /turf/unsimulated/floor/plating
+	base_area = /area/antag/mercenary
 
 /obj/effect/shuttle_landmark/merc_elite/command
 	name = "Command Surface - Maintenance"
@@ -467,15 +485,16 @@ AURORA_ESCAPE_POD(3)
 		)
 
 /obj/effect/shuttle_landmark/legion/start
-	name = "Legion Base"
+	name = "BLV The Tower"
 	landmark_tag = "nav_legion_start"
 	docking_controller = "legion_hangar"
 	base_turf = /turf/unsimulated/floor/plating
+	base_area = /area/centcom/legion/hangar5
 
 /obj/effect/shuttle_landmark/legion/interim
 	name = "In Transit"
 	landmark_tag = "nav_legion_interim"
-	base_turf = /turf/space/transit/east
+	base_turf = /turf/space/transit/west
 
 /obj/effect/shuttle_landmark/legion/green
 	name = "Emergency Services Dock (Main Entrypoint)"
@@ -513,6 +532,7 @@ AURORA_ESCAPE_POD(3)
 	landmark_tag = "nav_research_dock"
 	docking_controller = "science_bridge"
 	base_turf = /turf/unsimulated/floor/asteroid/ash
+	base_area = /area/mine/explored
 
 /obj/effect/shuttle_landmark/research/interim
 	name = "In Transit"
@@ -540,14 +560,16 @@ AURORA_ESCAPE_POD(3)
 		)
 
 /obj/effect/shuttle_landmark/distress/start
-	name = "Distress Base"
+	name = "Distress Preparation Wing"
 	landmark_tag = "nav_distress_away"
 	docking_controller = "distress_shuttle_origin"
+	base_turf = /turf/unsimulated/floor/plating
+	base_area = /area/centcom/distress_prep
 
 /obj/effect/shuttle_landmark/distress/interim
 	name = "In Transit"
 	landmark_tag = "nav_distress_interim"
-	base_turf = /turf/space/transit/east
+	base_turf = /turf/space/transit/west
 
 /obj/effect/shuttle_landmark/distress/green
 	name = "Emergency Services Dock"
