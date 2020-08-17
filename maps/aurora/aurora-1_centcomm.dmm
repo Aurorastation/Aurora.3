@@ -2537,6 +2537,10 @@
 	pixel_x = -4;
 	pixel_y = 8
 	},
+/obj/item/stack/cable_coil{
+	pixel_x = -6;
+	pixel_y = -1
+	},
 /turf/unsimulated/floor,
 /area/centcom/legion)
 "akG" = (
@@ -15089,8 +15093,7 @@
 	},
 /obj/effect/decal/cleanable/vomit,
 /turf/unsimulated/floor{
-	icon_state = "cult";
-	name = "plating"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "bfw" = (
@@ -15177,13 +15180,6 @@
 /obj/machinery/cryopod,
 /turf/unsimulated/floor,
 /area/centcom/ferry)
-"bjl" = (
-/obj/effect/decal/cleanable/dirt,
-/mob/living/heavy_vehicle/premade/combatripley,
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/area/centcom/legion/hangar5)
 "bjr" = (
 /obj/structure/flora/rock{
 	pixel_x = 3;
@@ -16551,6 +16547,10 @@
 "cEO" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/deck/cards,
+/obj/item/storage/box/fancy/crayons{
+	pixel_x = 17;
+	pixel_y = 14
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -18488,6 +18488,14 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/button/remote/airlock{
+	dir = 8;
+	id = "tower_stall_2";
+	name = "Door Bolt Control";
+	pixel_x = -10;
+	pixel_y = 23;
+	specialfunctions = 4
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -18864,7 +18872,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "eHI" = (
@@ -19931,7 +19939,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/cigbutt,
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "fHj" = (
@@ -20750,7 +20758,9 @@
 	dir = 2;
 	name = "Droppods"
 	},
-/turf/unsimulated/floor,
+/turf/unsimulated/floor{
+	icon_state = "new_reinforced"
+	},
 /area/centcom/legion/hangar5)
 "gsJ" = (
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -20950,9 +20960,10 @@
 /area/merchant_station/warehouse)
 "gxW" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/microwave{
-	broken = 2;
+/obj/effect/decal/fake_object{
+	density = 1;
 	desc = "This microwave has been through a lot of abuse.";
+	icon = 'icons/obj/kitchen.dmi';
 	icon_state = "mwb";
 	name = "Trashed microwave";
 	pixel_y = 3
@@ -21562,8 +21573,7 @@
 	req_access = list(111)
 	},
 /turf/unsimulated/floor{
-	icon_state = "cult";
-	name = "plating"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "gYQ" = (
@@ -21716,7 +21726,9 @@
 /area/centcom/distress_prep)
 "his" = (
 /obj/machinery/suit_storage_unit/standard_unit,
-/turf/unsimulated/floor,
+/turf/unsimulated/floor{
+	icon_state = "new_reinforced"
+	},
 /area/centcom/legion/hangar5)
 "hiO" = (
 /obj/structure/reagent_dispensers/lube,
@@ -21847,7 +21859,7 @@
 	pixel_y = 25
 	},
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "hpN" = (
@@ -22722,7 +22734,10 @@
 	pixel_x = 1;
 	pixel_y = 9
 	},
-/obj/item/pen,
+/obj/item/pen{
+	pixel_x = 1;
+	pixel_y = 10
+	},
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
@@ -22766,6 +22781,7 @@
 	pixel_y = 8
 	},
 /obj/item/storage/box/tcfl_pamphlet,
+/obj/item/material/twohanded/pike/flag,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "idA" = (
@@ -22896,7 +22912,7 @@
 /obj/item/trash/cigbutt,
 /obj/item/trash/cigbutt,
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "ihq" = (
@@ -23476,7 +23492,9 @@
 /area/shuttle/transport1/centcom)
 "iGT" = (
 /obj/machinery/light/small,
-/turf/unsimulated/floor,
+/turf/unsimulated/floor{
+	icon_state = "new_reinforced"
+	},
 /area/centcom/legion/hangar5)
 "iGY" = (
 /obj/item/modular_computer/console/preset/merchant,
@@ -23725,7 +23743,7 @@
 	name = "Droppod C"
 	},
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion/hangar5)
 "iNh" = (
@@ -24521,11 +24539,10 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "jBI" = (
-/obj/item/stack/cable_coil{
-	pixel_x = -6;
-	pixel_y = 7
+/turf/unsimulated/floor{
+	icon_state = "elevatorshaft";
+	name = "elevator machinery"
 	},
-/turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "jBJ" = (
 /obj/machinery/computer/message_monitor,
@@ -24605,7 +24622,7 @@
 	name = "Droppod D"
 	},
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion/hangar5)
 "jEI" = (
@@ -24870,6 +24887,12 @@
 	icon_state = "steel_dirty"
 	},
 /area/antag/raider)
+"jVp" = (
+/mob/living/heavy_vehicle/premade/combatripley,
+/turf/unsimulated/floor{
+	icon_state = "cafeteria"
+	},
+/area/centcom/legion)
 "jWm" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/northright{
@@ -25087,6 +25110,15 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
+"kbX" = (
+/obj/machinery/door/airlock/silver{
+	id_tag = "tower_stall_1";
+	name = "Washroom"
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/legion/hangar5)
 "kci" = (
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/syndicate_elite)
@@ -25128,7 +25160,7 @@
 "kdI" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "kdV" = (
@@ -26017,6 +26049,10 @@
 "kWI" = (
 /obj/machinery/light/small{
 	dir = 4
+	},
+/obj/machinery/acting/changer{
+	pixel_x = 3;
+	pixel_y = -1
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -27575,7 +27611,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "mnU" = (
@@ -27840,8 +27876,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/black,
 /turf/unsimulated/floor{
-	icon_state = "cult";
-	name = "plating"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "myW" = (
@@ -27983,6 +28018,7 @@
 /obj/structure/flora/pottedplant{
 	anchored = 1;
 	icon_state = "plant-27";
+	layer = 3;
 	pixel_x = -8;
 	pixel_y = 33
 	},
@@ -27992,6 +28028,15 @@
 	icon_state = "memorial3";
 	layer = 2.99;
 	name = "memorial Table";
+	pixel_y = 20
+	},
+/obj/effect/decal/fake_object{
+	desc = "<i>In memoriam. Made the ultimate sacrifice aboard the NSS Aurora, bravely defending its crew against a horrible geist, saving countless from an equally grim fate.</i>. The picture shows a tajara deep in thought, playing chess against a compatriot.";
+	dir = 1;
+	icon = 'icons/obj/decals.dmi';
+	icon_state = "memorial_picture";
+	name = "framed picture of Vol. Rrhamaja";
+	pixel_x = -8;
 	pixel_y = 20
 	},
 /turf/unsimulated/floor,
@@ -28011,6 +28056,10 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1/centcom)
+"mHq" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/unsimulated/floor,
+/area/centcom/legion)
 "mHx" = (
 /obj/structure/bed/chair/comfy/brown{
 	dir = 4
@@ -28701,8 +28750,13 @@
 	},
 /area/centcom/legion/hangar5)
 "nkw" = (
-/obj/structure/bedsheetbin,
+/obj/structure/bedsheetbin{
+	pixel_y = 4
+	},
 /obj/structure/table/reinforced,
+/obj/item/material/twohanded/pike/flag{
+	pixel_y = 6
+	},
 /turf/unsimulated/floor{
 	icon_state = "cafeteria"
 	},
@@ -29094,8 +29148,7 @@
 	pixel_y = 7
 	},
 /turf/unsimulated/floor{
-	icon_state = "cult";
-	name = "plating"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "nBV" = (
@@ -29223,7 +29276,7 @@
 /obj/item/stool,
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "nHh" = (
@@ -29850,7 +29903,7 @@
 	name = "Droppod A"
 	},
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion/hangar5)
 "ogL" = (
@@ -32001,7 +32054,8 @@
 /area/centcom/shared_dream)
 "qoi" = (
 /obj/machinery/door/airlock/silver{
-	name = "Toilet"
+	id_tag = "tower_stall_2";
+	name = "Washroom"
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -32241,8 +32295,7 @@
 	req_access = list(111)
 	},
 /turf/unsimulated/floor{
-	icon_state = "cult";
-	name = "plating"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "qzW" = (
@@ -32735,7 +32788,6 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/mob/living/heavy_vehicle/premade/combatripley,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
@@ -33755,8 +33807,7 @@
 	req_access = list(111)
 	},
 /turf/unsimulated/floor{
-	icon_state = "cult";
-	name = "plating"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "rUd" = (
@@ -33985,6 +34036,7 @@
 	pixel_y = 8
 	},
 /obj/item/storage/box/tcfl_pamphlet,
+/obj/item/material/twohanded/pike/flag,
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
 	},
@@ -35649,6 +35701,14 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
+"tFI" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "new_reinforced"
+	},
+/area/centcom/legion/hangar5)
 "tFU" = (
 /obj/machinery/door/airlock/centcom{
 	id_tag = "tcfllegate";
@@ -35686,7 +35746,7 @@
 	name = "Droppod B"
 	},
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion/hangar5)
 "tIb" = (
@@ -36435,6 +36495,13 @@
 	identifier = "TCFLERTSpawn - Pilot";
 	name = "igs - TCFLERT - Pilot"
 	},
+/obj/machinery/button/remote/airlock{
+	id = "tower_stall_1";
+	name = "Door Bolt Control";
+	pixel_x = -23;
+	pixel_y = -22;
+	specialfunctions = 4
+	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
 	},
@@ -37165,7 +37232,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "vcK" = (
@@ -37646,7 +37713,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "vAk" = (
@@ -38081,8 +38148,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "cult";
-	name = "plating"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "vUd" = (
@@ -38637,7 +38703,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/unsimulated/floor{
-	icon_state = "dark"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "wmN" = (
@@ -38704,8 +38770,7 @@
 /area/syndicate_station/start)
 "wpg" = (
 /turf/unsimulated/floor{
-	icon_state = "cult";
-	name = "plating"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "wpj" = (
@@ -39464,7 +39529,7 @@
 /turf/unsimulated/floor/plating,
 /area/supply/dock)
 "wUi" = (
-/obj/structure/janitorialcart{
+/obj/structure/janitorialcart/full{
 	dir = 8
 	},
 /turf/unsimulated/floor/plating,
@@ -39532,6 +39597,11 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/ferry)
+"wWz" = (
+/turf/unsimulated/floor{
+	icon_state = "new_reinforced"
+	},
+/area/centcom/legion/hangar5)
 "wWL" = (
 /obj/effect/decal/fake_object{
 	density = 1;
@@ -39558,7 +39628,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "wYp" = (
@@ -39793,7 +39863,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
-	icon_state = "engine"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "xkz" = (
@@ -40207,7 +40277,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "dark"
+	icon_state = "new_reinforced"
 	},
 /area/centcom/legion)
 "xDD" = (
@@ -40421,6 +40491,16 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/specops/centcom)
+"xQb" = (
+/obj/item/screwdriver{
+	pixel_y = 12
+	},
+/obj/item/stack/tile/floor{
+	pixel_x = -3;
+	pixel_y = -2
+	},
+/turf/unsimulated/floor,
+/area/centcom/legion)
 "xRj" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8;
@@ -91650,8 +91730,8 @@ aaM
 aaM
 vyc
 wyM
+jVp
 jfA
-hWb
 pWD
 hWb
 hWb
@@ -92943,7 +93023,7 @@ cON
 bWA
 vec
 jBI
-cON
+xQb
 gAi
 ozQ
 cWU
@@ -93200,7 +93280,7 @@ cON
 bWA
 kNH
 akF
-cON
+mHq
 gAi
 qEL
 cWU
@@ -98844,9 +98924,9 @@ aaM
 aaM
 vyc
 ldQ
-bjl
 rRg
-bjl
+rRg
+rRg
 ldQ
 oQd
 cpE
@@ -101162,8 +101242,8 @@ mzf
 ldQ
 iHR
 ogE
-uJT
-nCq
+tFI
+wWz
 gsr
 eTj
 cRg
@@ -101419,8 +101499,8 @@ mNk
 ldQ
 ldQ
 ldQ
-nCq
-nCq
+wWz
+wWz
 gsr
 uJT
 cRg
@@ -101676,8 +101756,8 @@ iVa
 ldQ
 ijL
 tIa
-uJT
-nCq
+tFI
+wWz
 sMK
 fNk
 cRg
@@ -101933,8 +102013,8 @@ iVa
 ldQ
 ldQ
 ldQ
-nCq
-nCq
+wWz
+wWz
 ldQ
 ldQ
 ldQ
@@ -102190,7 +102270,7 @@ kBT
 ldQ
 omT
 iNb
-uJT
+tFI
 iGT
 ldQ
 nCq
@@ -102447,8 +102527,8 @@ vyc
 ldQ
 ldQ
 ldQ
-nCq
-nCq
+wWz
+wWz
 ldQ
 nCq
 cRg
@@ -102704,8 +102784,8 @@ aaM
 ldQ
 vPK
 jEg
-uJT
-nCq
+tFI
+wWz
 yhm
 nCq
 cRg
@@ -102723,7 +102803,7 @@ nCq
 ldQ
 yjn
 sQb
-wdJ
+kbX
 utl
 lBN
 aaM
