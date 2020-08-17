@@ -1,4 +1,15 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aaa" = (
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/mob/living/heavy_vehicle/premade/superheavy,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/administration)
 "aab" = (
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
@@ -60,6 +71,9 @@
 	},
 /area/shuttle/administration)
 "aah" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "27"
 	},
@@ -69,13 +83,13 @@
 	name = "Battery 3 Firing Control"
 	},
 /turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/turf/unsimulated/floor{
 	icon_state = "wood_siding10"
 	},
 /area/centcom/control)
 "aai" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "28"
 	},
@@ -84,26 +98,26 @@
 	},
 /obj/effect/decal/warning_stripes,
 /turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/turf/unsimulated/floor{
 	dir = 6;
 	icon_state = "wood_siding2"
 	},
 /area/centcom/control)
 "aaj" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "29"
 	},
 /obj/machinery/porta_turret/crescent,
 /turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/turf/unsimulated/floor{
 	icon_state = "wood_siding6"
 	},
 /area/centcom/control)
 "aak" = (
+/turf/unsimulated/floor{
+	icon_state = "wood_siding9"
+	},
 /obj/structure/window/phoronreinforced,
 /obj/structure/window/phoronreinforced{
 	dir = 1
@@ -112,13 +126,13 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_siding9"
-	},
-/turf/unsimulated/floor{
 	icon_state = "engine"
 	},
 /area/centcom/control)
 "aal" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "27"
 	},
@@ -128,13 +142,13 @@
 	name = "Battery 2 Firing Control"
 	},
 /turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/turf/unsimulated/floor{
 	icon_state = "wood_siding10"
 	},
 /area/centcom/control)
 "aam" = (
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "27"
 	},
@@ -146,28 +160,25 @@
 /obj/effect/decal/cleanable/cobweb,
 /obj/item/reagent_containers/glass/rag,
 /turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/turf/unsimulated/floor{
 	icon_state = "wood_siding10"
 	},
 /area/centcom/control)
 "aan" = (
-/obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	dir = 6;
 	icon_state = "wood_siding1"
 	},
 /area/centcom/control)
 "aao" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/stool,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stool,
 /turf/unsimulated/floor{
 	dir = 6;
 	icon_state = "wood_siding1"
@@ -200,11 +211,11 @@
 /turf/space/transit/south,
 /area/template_noop)
 "aar" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/storage/toolbox/electrical,
 /turf/unsimulated/floor{
 	icon_state = "engine"
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/toolbox/electrical,
 /turf/unsimulated/floor{
 	dir = 6;
 	icon_state = "wood_siding1"
@@ -214,27 +225,40 @@
 /turf/unsimulated/mineral/asteroid,
 /area/antag/raider)
 "aat" = (
-/obj/structure/window/phoronreinforced{
-	dir = 8
+/obj/structure/bed/chair/shuttle,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -30;
+	pixel_y = 2
 	},
-/obj/structure/window/phoronreinforced{
-	dir = 1
+/obj/structure/closet/walllocker/emerglocker/north{
+	layer = 3;
+	pixel_x = -1;
+	pixel_y = 29;
+	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding9"
-	},
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/area/centcom/control)
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/specops)
 "aau" = (
 /obj/structure/shuttle_part/ert{
 	icon_state = "0,4";
 	opacity = 1
 	},
 /turf/unsimulated/floor/plating,
+/area/shuttle/specops)
+"aav" = (
+/obj/machinery/mech_recharger,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/specops)
+"aaw" = (
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
 "aax" = (
 /obj/effect/step_trigger/teleporter/random{
@@ -249,21 +273,39 @@
 	},
 /turf/space/transit/south,
 /area/template_noop)
+"aay" = (
+/obj/item/modular_computer/console/preset/command,
+/obj/machinery/light{
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/specops)
 "aaz" = (
-/obj/item/stool/padded,
+/turf/unsimulated/floor{
+	icon_state = "wood_siding9"
+	},
+/obj/structure/window/phoronreinforced{
+	dir = 8
+	},
+/obj/structure/window/phoronreinforced{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/area/centcom/control)
+"aaA" = (
 /turf/unsimulated/floor{
 	icon_state = "siding2";
 	name = "plating"
 	},
+/obj/item/stool/padded,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
 /area/centcom/holding)
-"aaA" = (
-/obj/effect/wingrille_spawn/reinforced/crescent,
-/turf/space,
-/turf/unsimulated/floor/plating,
-/area/antag/raider)
 "aaB" = (
 /turf/space/transit/west,
 /area/template_noop)
@@ -281,6 +323,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/merchant_station)
+"aaD" = (
+/turf/space,
+/obj/effect/wingrille_spawn/reinforced/crescent,
+/turf/unsimulated/floor/plating,
+/area/antag/raider)
 "aaF" = (
 /turf/space,
 /turf/unsimulated/wall/steel,
@@ -4150,17 +4197,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
-"ats" = (
-/obj/machinery/mech_recharger,
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/mob/living/heavy_vehicle/premade/superheavy,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
 "att" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -4558,8 +4594,8 @@
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
 /obj/machinery/light/spot{
-	brightness_color = "#FA644B";
-	color = "#FA644B";
+	brightness_color = "#fa8282";
+	color = "#fa8282";
 	dir = 1;
 	icon_state = "tube1";
 	name = "military spotlight"
@@ -8159,14 +8195,6 @@
 "aCv" = (
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
-"aCw" = (
-/obj/machinery/mech_recharger,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/specops)
 "aCx" = (
 /turf/simulated/wall/shuttle/unique/ert{
 	icon_state = "8,3"
@@ -8328,14 +8356,6 @@
 "aCV" = (
 /obj/effect/shuttle_landmark/ert/start,
 /obj/machinery/computer/shuttle_control/specops,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/specops)
-"aCW" = (
-/obj/item/modular_computer/console/preset/command,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
 "aCX" = (
@@ -24150,8 +24170,8 @@
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
 /obj/machinery/light/spot{
-	brightness_color = "#FA644B";
-	color = "#FA644B";
+	brightness_color = "#fa8282";
+	color = "#fa8282";
 	dir = 8;
 	icon_state = "tube1";
 	name = "military spotlight"
@@ -25607,8 +25627,8 @@
 	name = "military corvette"
 	},
 /obj/machinery/light/spot{
-	brightness_color = "#FA644B";
-	color = "#FA644B";
+	brightness_color = "#fa8282";
+	color = "#fa8282";
 	icon_state = "tube1";
 	name = "military spotlight"
 	},
@@ -31128,8 +31148,8 @@
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
 /obj/machinery/light/spot{
-	brightness_color = "#FA644B";
-	color = "#FA644B";
+	brightness_color = "#fa8282";
+	color = "#fa8282";
 	dir = 1;
 	icon_state = "tube1";
 	name = "military spotlight"
@@ -32538,8 +32558,8 @@
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
 /obj/machinery/light/spot{
-	brightness_color = "#FA644B";
-	color = "#FA644B";
+	brightness_color = "#fa8282";
+	color = "#fa8282";
 	dir = 4;
 	icon_state = "tube1";
 	name = "military spotlight"
@@ -33247,24 +33267,6 @@
 	icon_state = "4,4"
 	},
 /area/shuttle/burglar)
-"run" = (
-/obj/structure/bed/chair/shuttle,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = -30;
-	pixel_y = 2
-	},
-/obj/structure/closet/walllocker/emerglocker/north{
-	layer = 3;
-	pixel_x = -1;
-	pixel_y = 29;
-	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
-	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/specops)
 "rvl" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -38450,8 +38452,8 @@
 	name = "military corvette"
 	},
 /obj/machinery/light/spot{
-	brightness_color = "#FA644B";
-	color = "#FA644B";
+	brightness_color = "#fa8282";
+	color = "#fa8282";
 	icon_state = "tube1";
 	name = "military spotlight"
 	},
@@ -40896,8 +40898,8 @@
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
 /obj/machinery/light/spot{
-	brightness_color = "#FA644B";
-	color = "#FA644B";
+	brightness_color = "#fa8282";
+	color = "#fa8282";
 	dir = 8;
 	icon_state = "tube1";
 	name = "military spotlight"
@@ -59898,7 +59900,7 @@ sXD
 sym
 sym
 fdr
-aaA
+aaD
 ajd
 aaM
 aaM
@@ -70890,8 +70892,8 @@ aBi
 aBH
 ave
 aCd
-run
-aCv
+aat
+aaw
 aCv
 cYA
 iEW
@@ -72143,7 +72145,7 @@ arY
 arY
 arY
 arX
-ats
+aaa
 iPJ
 atM
 atM
@@ -72432,9 +72434,9 @@ avs
 ave
 ave
 rkF
-aCw
+aav
 aCv
-aCW
+aay
 enU
 iLs
 ave
@@ -75533,7 +75535,7 @@ aFd
 vfs
 aEP
 aEP
-aaz
+aaA
 aGq
 aGE
 aGF
@@ -75790,7 +75792,7 @@ aFi
 aFo
 aEP
 aEP
-aaz
+aaA
 aGq
 aGF
 aGF
@@ -76047,7 +76049,7 @@ aEP
 aEP
 aEP
 aEP
-aaz
+aaA
 aGq
 aGF
 aGF
@@ -76304,7 +76306,7 @@ aEP
 aEP
 aEP
 aEP
-aaz
+aaA
 aGq
 aGF
 aGF
@@ -76561,7 +76563,7 @@ aEP
 aEP
 aFy
 aEP
-aaz
+aaA
 aGq
 aGF
 aGF
@@ -76818,7 +76820,7 @@ aEP
 aEP
 aEP
 aEP
-aaz
+aaA
 aGq
 aGF
 aGF
@@ -83223,7 +83225,7 @@ awl
 axe
 axA
 aBp
-aat
+aaz
 auT
 ifh
 wne

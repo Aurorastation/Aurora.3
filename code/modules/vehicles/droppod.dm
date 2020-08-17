@@ -282,7 +282,7 @@
 		var/mob/M = humanload
 		shake_camera(M, 5, 1)
 	forceMove(A)
-	set_light(5,1,"#FA8282")
+	set_light(5,1,LIGHT_COLOR_EMERGENCY_SOFT)
 	A.visible_message(SPAN_DANGER("\The [src] crashes through the roof!"))
 
 	var/turf/belowturf = GetBelow(A)
@@ -312,4 +312,3 @@
 #undef READY
 #undef USED
 #undef LAUNCHING
-
