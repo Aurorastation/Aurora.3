@@ -110,7 +110,7 @@
 		to_chat(user, SPAN_WARNING("\The [initial(name)] is dry!"))
 	else
 		if (!(last_clean && world.time < last_clean + 120) )
-			user.visible_message("<b>[user]</b> starts to wipe [A] with [src]!")
+			user.visible_message("<b>[user]</b> starts to wipe [A] with [src].")
 			clean_msg = TRUE
 			last_clean = world.time
 		else
@@ -120,7 +120,7 @@
 		update_icon()
 		if(do_after(user,cleantime))
 			if(clean_msg)
-				user.visible_message("<b>[user]</b> finishes wiping [A]!")
+				user.visible_message("<b>[user]</b> finishes wiping [A].")
 		A.on_rag_wipe(src)
 
 /obj/item/reagent_containers/glass/rag/attack(atom/target as obj|turf|area, mob/user as mob , flag)
