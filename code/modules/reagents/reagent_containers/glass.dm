@@ -236,7 +236,6 @@
 	unacidable = 0
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
-	var/carving_weapon = /obj/item/wirecutters
 	var/helmet_type = /obj/item/clothing/head/helmet/bucket
 	no_shatter = TRUE
 	fragile = 0
@@ -248,7 +247,7 @@
 		user.put_in_hands(new /obj/item/bucket_sensor)
 		qdel(src)
 		return
-	else if(istype(D, carving_weapon))
+	else if(D.iswirecutter())
 		to_chat(user, "<span class='notice'>You cut a big hole in \the [src] with \the [D].</span>")
 		user.put_in_hands(new helmet_type)
 		qdel(src)
@@ -288,7 +287,6 @@
 	matter = list("wood" = 50)
 	drop_sound = 'sound/items/drop/wooden.ogg'
 	pickup_sound = 'sound/items/pickup/wooden.ogg'
-	carving_weapon = /obj/item/material/hatchet
 	helmet_type = /obj/item/clothing/head/helmet/bucket/wood
 
 /obj/item/reagent_containers/glass/bucket/wood/attackby(var/obj/D, mob/user as mob)
