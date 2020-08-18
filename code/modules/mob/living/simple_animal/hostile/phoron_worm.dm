@@ -72,7 +72,7 @@
 	set desc = "Hide or not under the earth."
 	set category = "Abilities"
 
-	if(!health)
+	if(health <= 0 )
 		return
 
 	if(last_special > world.time)
