@@ -21,7 +21,7 @@
 		to_chat(M, SPAN_WARNING(pick("Your chest feels tight.", "Your chest is aching a bit.", "You have a stabbing pain in your chest.")))
 		M.adjustHalLoss(5)
 
-/datum/reagent/bicaridine //Bicaridine is the kelotane of brute medications. It's slow at treating brute, however can OD to treat AB.
+/datum/reagent/bicaridine
 	name = "Bicaridine"
 	description = "Bicaridine is a complex medication which specifically targets damaged tissues and damaged blood vessels by encouraging the rate at which the damaged tissues are regenerated. Overdosing bicaridine allows the drug to take effect on damaged muscular tissues of arteries."
 	reagent_state = LIQUID
@@ -47,12 +47,12 @@
 	M.adjustNutritionLoss(5*removed)
 	
 	var/mob/living/carbon/human/H = M 
-	if(dose == overdose * 1.5) //Once the metabolised dose is at 30 units and volume in the blood is also greater than 30 units,
+	if(dose == overdose * 1.5) //Bicaridine treats arterial bleeding when dose is greater than 30u and when the drug is overdosing (chemical volume in blood greater than 20).
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & ORGAN_ARTERY_CUT && prob(2))
 				E.status &= ~ORGAN_ARTERY_CUT
 
-/datum/reagent/butazoline //Butazoline is the dermaline of brute medications. Fast at treating brute, but cannot OD to treat arterial bleeding.
+/datum/reagent/butazoline
 	name = "Butazoline"
 	description = "Butazoline, a recent improvement upon Bicaridine, is specialised at treating the most traumatic of wounds, though less so for treating severe bleeding."
 	reagent_state = LIQUID
@@ -290,7 +290,7 @@
 			M.losebreath++
 
 	if((locate(/datum/reagent/oxycomorphine) in M.reagents.reagent_list))
-		overdose = dose/2 //Straight to overdose.
+		overdose = volume/2 //Straight to overdose.
 
 /datum/reagent/mortaphenyl/overdose(var/mob/living/carbon/M, var/alien)
 	..()
@@ -513,7 +513,7 @@
 	
 	if((locate(/datum/reagent/adrenaline) in M.reagents.reagent_list))
 		if(M.reagents.get_reagent_amount(/datum/reagent/adrenaline) > 5) //So you can tolerate being attacked whilst hyperzine is in your system.
-			overdose = dose/2 //Straight to overdose.
+			overdose = volume/2 //Straight to overdose.
 
 /datum/reagent/hyperzine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustNutritionLoss(5*removed)	
@@ -1375,7 +1375,7 @@
 					break
 
 			H.adjustOxyLoss(2*removed) //Every unit deals 2 oxy damage
-			if(prob(50)) //Cough uncontrolably | Lowered from 75 to 50, was very frequent.
+			if(prob(50)) //Cough uncontrolably.
 				H.emote("cough")
 				H.add_chemical_effect(CE_PNEUMOTOXIC, 0.2*removed)
 	. = ..()

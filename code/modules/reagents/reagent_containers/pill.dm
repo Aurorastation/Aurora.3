@@ -90,7 +90,7 @@
 	name = "Anti-toxins Pill"
 	desc = "Neutralizes many common toxins."
 	icon_state = "pill17"
-	reagents_to_add = list(/datum/reagent/dylovene = 10) //Reduced from 25u to 10u.
+	reagents_to_add = list(/datum/reagent/dylovene = 10)
 
 /obj/item/reagent_containers/pill/tox
 	name = "Toxins Pill"

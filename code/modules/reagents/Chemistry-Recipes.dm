@@ -630,7 +630,7 @@
 	id = "saline"
 	result = /datum/reagent/saline
 	required_reagents = list(/datum/reagent/sugar = 0.4, /datum/reagent/water = 1, /datum/reagent/sodiumchloride = 0.9)
-	catalysts = list(/datum/reagent/toxin/phoron = 5) //Added a phoron catalyst to make it seem like an enhanced, futuristic variant of saline.
+	catalysts = list(/datum/reagent/toxin/phoron = 5)
 	result_amount = 1
 
 /datum/chemical_reaction/cataleptinol
