@@ -76,7 +76,7 @@
 		return
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='warning'>You must wait a little while before you can use this ability again!</span>")
+		to_chat(src, SPAN_WARNING ("You must wait a little while before you can use this ability again!"))
 		return
 
 	if(burrowing)
@@ -97,7 +97,7 @@
 	update_icon()
 	pass_flags = PASSTABLE | PASSMOB
 	layer = ON_TURF_LAYER
-	visible_message("<span class='danger'>\The [src] burrows into the ground!</span>")
+	visible_message(SPAN_DANGER("\The [src] burrows into the ground!"))
 
 /mob/living/simple_animal/hostile/phoron_worm/proc/unburrow()
 	if(!burrowing)
@@ -108,7 +108,7 @@
 	update_icon()
 	pass_flags = initial(pass_flags)
 	layer = initial(layer)
-	visible_message("<span class='danger'>\The [src] emerges from the ground!</span>")
+	visible_message(SPAN_DANGER("\The [src] emerges from the ground!"))
 
 /mob/living/simple_animal/hostile/phoron_worm/verb/eat_phoron()
 	set name = "Consume Phoron"
@@ -121,5 +121,5 @@
 	var/obj/item/stack/material/P = locate() in get_turf(src)
 	if(P.material.name == MATERIAL_PHORON)
 		adjustBruteLoss(-5*P.amount)
-		visible_message("<span class='danger'>\The [src] consumes \the [P]!</span>")
+		visible_message(SPAN_DANGER("\The [src] consumes \the [P]!"))
 		qdel(P)
