@@ -198,8 +198,10 @@
 	return
 
 /obj/item/organ/external/Initialize(mapload)
-	if (robotize_type)
+	if(robotize_type)
 		robotize(robotize_type)
+		drop_sound = 'sound/items/drop/prosthetic.ogg'
+		pickup_sound = 'sound/items/pickup/prosthetic.ogg'
 
 	. = ..(mapload, FALSE)
 	if(isnull(pain_disability_threshold))

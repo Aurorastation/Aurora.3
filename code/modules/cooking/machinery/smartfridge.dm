@@ -284,7 +284,7 @@
 		cut_overlays()
 		if(panel_open)
 			add_overlay(icon_panel)
-		SSnanoui.update_uis(src)
+		SSvueui.check_uis_for_change(src)
 		return
 
 	if(O.ismultitool()||O.iswirecutter())
@@ -335,8 +335,22 @@
 		item_quants[O.name]++
 		user.visible_message("<b>[user]</b> adds \a [O] to [src].", SPAN_NOTICE("You add [O] to [src]."))
 
-		SSnanoui.update_uis(src)
+		SSvueui.check_uis_for_change(src)
 		return
+		if(contents.len >= max_n_of_items)
+			to_chat(user, "<span class='notice'>\The [src] is full.</span>")
+			return 1
+		else
+			user.remove_from_mob(O)
+			O.forceMove(src)
+			if(item_quants[O.name])
+				item_quants[O.name]++
+			else
+				item_quants[O.name] = 1
+			user.visible_message("<b>[user]</b> adds \a [O] to \the [src].", "<span class='notice'>You add \the [O] to \the [src].</span>")
+
+			SSvueui.check_uis_for_change(src)
+			return
 
 	if(istype(O, /obj/item/storage/bag) || istype(O, /obj/item/storage/box/produce))
 		var/obj/item/storage/P = O
@@ -344,18 +358,16 @@
 		for(var/obj/G in P.contents)
 			if(accept_check(G))
 				if(length(contents) >= max_n_of_items)
-					to_chat(user, SPAN_NOTICE("[src] is full."))
-					return TRUE
+					break
 				P.remove_from_storage(G,src)
 				item_quants[G.name]++
 				plants_loaded++
 		if(plants_loaded)
-
 			user.visible_message("<b>[user]</b> loads [src] with [P].", SPAN_NOTICE("You load [src] with [P]."))
 			if(length(P.contents) > 0)
 				to_chat(user, SPAN_NOTICE("Some items are refused."))
-
-		SSnanoui.update_uis(src)
+		SSvueui.check_uis_for_change(src)
+		return TRUE
 	to_chat(user, SPAN_NOTICE("[src] smartly refuses [O]."))
 	return TRUE
 
@@ -364,7 +376,7 @@
 		return FALSE
 	emagged = 1
 	locked = -1
-	to_chat(user, "You short out the product lock on [src].")
+	to_chat(user, SPAN_NOTICE("You short out the product lock on [src]."))
 	return TRUE
 
 /obj/machinery/smartfridge/attack_ai(mob/user as mob)
@@ -380,10 +392,18 @@
 *   SmartFridge Menu
 ********************/
 
-/obj/machinery/smartfridge/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/smartfridge/ui_interact(mob/user)
 	user.set_machine(src)
 
-	var/data[0]
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if(!ui)
+		ui = new(user, src, "machinery-smartfridge", 400, 500, name, state = interactive_state)
+
+	ui.open()
+
+/obj/machinery/smartfridge/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	data = list()
+
 	data["contents"] = null
 	data["electrified"] = seconds_electrified > 0
 	data["shoot_inventory"] = shoot_inventory
@@ -399,23 +419,17 @@
 
 	if(length(items) > 0)
 		data["contents"] = items
-
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if(!ui)
-		ui = new(user, src, ui_key, "smartfridge.tmpl", name, 400, 500)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /obj/machinery/smartfridge/Topic(href, href_list)
-	if(..()) return FALSE
+	if(..())
+		return TRUE
 
-	var/mob/user = usr
-	var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
-
-	add_fingerprint(user)
+	add_fingerprint(usr)
 
 	if(href_list["close"])
-		user.unset_machine()
+		var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
+		usr.unset_machine()
 		ui.close()
 		return FALSE
 
@@ -435,8 +449,9 @@
 					O.forceMove(loc)
 					i--
 					if(i <= 0)
-						return TRUE
+						break
 
+		SSvueui.check_uis_for_change(src)
 		return TRUE
 	return FALSE
 
