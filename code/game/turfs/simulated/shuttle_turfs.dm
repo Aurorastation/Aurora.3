@@ -290,7 +290,6 @@
 /turf/simulated/wall/shuttle/unique/raider
 	icon = 'icons/turf/shuttles_unique/raider_shuttle.dmi'
 	icon_state = "5,4"
-	roof_flags = null
 
 /obj/structure/shuttle_part/raider
 	icon = 'icons/turf/shuttles_unique/raider_shuttle.dmi'
