@@ -4,7 +4,7 @@
 
     <h2>Please select your launch target:</h2>
 
-    <div v-if="is_operational">
+    <div v-if="status == 0">
       <div>Pod status: <span class="good">Operational.</span></div>
       <div><vui-button icon="cog" :params="{ fire: 'arrivals'}">Departures</vui-button></div>
       <div><vui-button icon="cog" :params="{ fire: 'cargo'}">Cargo Surface</vui-button></div>
