@@ -12,6 +12,139 @@
 	},
 /turf/space/transit,
 /area/template_noop)
+"aab" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 1
+	},
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_courtroom)
+"aac" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_courtroom)
+"aad" = (
+/obj/structure/window/reinforced/holowindow,
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_courtroom)
+"aae" = (
+/obj/structure/window/reinforced/holowindow,
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_courtroom)
+"aaf" = (
+/obj/structure/window/reinforced/holowindow,
+/obj/structure/window/reinforced/holowindow{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_courtroom)
+"aag" = (
+/obj/structure/window/reinforced/holowindow{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_courtroom)
+"aah" = (
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 10
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 9
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_meetinghall)
+"aai" = (
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet,
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_meetinghall)
+"aaj" = (
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "27"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "battery3";
+	name = "Battery 3 Firing Control"
+	},
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/area/centcom/control)
+"aak" = (
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "28"
+	},
+/obj/machinery/computer/artillerycontrol{
+	desc = "Bluespace Artillery; the thinking man's solution."
+	},
+/obj/effect/decal/warning_stripes,
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/area/centcom/control)
+"aal" = (
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "29"
+	},
+/obj/machinery/porta_turret/crescent,
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/area/centcom/control)
+"aam" = (
+/obj/structure/window/phoronreinforced,
+/obj/structure/window/phoronreinforced{
+	dir = 1
+	},
+/obj/structure/window/phoronreinforced{
+	dir = 8
+	},
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/area/centcom/control)
+"aan" = (
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "27"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "battery2";
+	name = "Battery 2 Firing Control"
+	},
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/area/centcom/control)
+"aao" = (
+/obj/structure/artilleryplaceholder/decorative{
+	icon_state = "27"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "battery1";
+	name = "Battery 1 Firing Control"
+	},
+/obj/effect/decal/cleanable/cobweb,
+/obj/item/reagent_containers/glass/rag,
+/turf/unsimulated/floor{
+	icon_state = "gcircuit"
+	},
+/area/centcom/control)
 "aap" = (
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
@@ -38,6 +171,120 @@
 "aaq" = (
 /turf/space/transit,
 /area/template_noop)
+"aar" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stool,
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/area/centcom/control)
+"aas" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/storage/toolbox/electrical,
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/area/centcom/control)
+"aat" = (
+/obj/structure/window/phoronreinforced{
+	dir = 8
+	},
+/obj/structure/window/phoronreinforced{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/area/centcom/control)
+"aau" = (
+/obj/item/stool/padded,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/holding)
+"aav" = (
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 6
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 5
+	},
+/turf/simulated/floor/holofloor/wood,
+/area/holodeck/source_meetinghall)
+"aaw" = (
+/obj/effect/floor_decal/carpet{
+	dir = 10
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 6
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 9
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 5
+	},
+/turf/simulated/floor/holofloor/lino,
+/area/holodeck/source_meetinghall)
+"aax" = (
+/turf/unsimulated/floor/plating,
+/area/shuttle/administration)
+"aay" = (
+/obj/structure/shuttle/engine/propulsion{
+	dir = 8;
+	icon_state = "propulsion_l"
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/administration)
+"aaz" = (
+/obj/structure/shuttle/engine/heater{
+	dir = 8
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/administration)
+"aaA" = (
+/obj/structure/shuttle/engine/propulsion{
+	dir = 8;
+	icon_state = "propulsion_r"
+	},
+/turf/unsimulated/floor/plating,
+/area/shuttle/administration)
+"aaB" = (
+/obj/structure/bed/chair/unmovable{
+	dir = 1
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/spawning)
+"aaC" = (
+/obj/machinery/vending/snack{
+	can_move = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/spawning)
+"aaD" = (
+/obj/machinery/vending/cola{
+	can_move = 0
+	},
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/spawning)
+"aaE" = (
+/obj/structure/bed/chair/unmovable,
+/turf/unsimulated/floor{
+	icon_state = "floor"
+	},
+/area/centcom/spawning)
 "aaM" = (
 /turf/template_noop,
 /area/template_noop)
@@ -125,10 +372,6 @@
 	icon_state = "plant-10"
 	},
 /turf/simulated/floor/holofloor/tiled,
-/area/holodeck/source_courtroom)
-"abB" = (
-/turf/simulated/wall/wood,
-/turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "abC" = (
 /turf/simulated/floor/holofloor/reinforced,
@@ -257,23 +500,6 @@
 /obj/structure/bed/chair/holochair,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
-"acc" = (
-/turf/simulated/wall/wood,
-/obj/structure/window/reinforced/holowindow{
-	dir = 1
-	},
-/obj/structure/window/reinforced/holowindow{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_courtroom)
-"acd" = (
-/turf/simulated/wall/wood,
-/obj/structure/window/reinforced/holowindow{
-	dir = 1
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_courtroom)
 "ace" = (
 /obj/machinery/door/window/holowindoor{
 	dir = 1;
@@ -362,27 +588,6 @@
 /obj/structure/bed/chair/holochair,
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
-"acp" = (
-/turf/simulated/wall/wood,
-/obj/structure/window/reinforced/holowindow,
-/obj/structure/window/reinforced/holowindow{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_courtroom)
-"acq" = (
-/turf/simulated/wall/wood,
-/obj/structure/window/reinforced/holowindow,
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_courtroom)
-"acr" = (
-/turf/simulated/wall/wood,
-/obj/structure/window/reinforced/holowindow,
-/obj/structure/window/reinforced/holowindow{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_courtroom)
 "acs" = (
 /obj/structure/window/reinforced/holowindow,
 /obj/machinery/door/window/holowindoor{
@@ -392,13 +597,6 @@
 	name = "Witness Box"
 	},
 /obj/structure/bed/chair/holochair,
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_courtroom)
-"act" = (
-/turf/simulated/wall/wood,
-/obj/structure/window/reinforced/holowindow{
-	dir = 8
-	},
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_courtroom)
 "acu" = (
@@ -436,10 +634,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/unsimulated/wall,
 /area/prison/solitary)
-"acG" = (
-/turf/simulated/wall/wood,
-/turf/simulated/floor/holofloor/desert,
-/area/holodeck/source_picnicarea)
 "acH" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -559,25 +753,7 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_theatre)
-"acX" = (
-/turf/simulated/wall/wood,
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
-"acY" = (
-/turf/simulated/wall/wood,
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
 "acZ" = (
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_courtroom)
-"ada" = (
-/turf/simulated/wall/wood,
-/obj/effect/floor_decal/carpet{
-	dir = 4
-	},
 /turf/simulated/floor/holofloor/carpet,
 /area/holodeck/source_courtroom)
 "adb" = (
@@ -950,39 +1126,6 @@
 /obj/structure/flora/grass/both,
 /turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_snowfield)
-"aeM" = (
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet,
-/obj/effect/floor_decal/carpet{
-	dir = 10
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 9
-	},
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
-"aeN" = (
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet,
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
-"aeO" = (
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet,
-/obj/effect/floor_decal/carpet{
-	dir = 6
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 5
-	},
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
 "aeP" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -1032,10 +1175,6 @@
 /obj/structure/flora/tree/pine,
 /turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_snowfield)
-"afa" = (
-/turf/simulated/wall/wood,
-/turf/simulated/floor/holofloor/wood,
-/area/holodeck/source_meetinghall)
 "afb" = (
 /obj/machinery/door/window/holowindoor{
 	name = "Red Team"
@@ -1124,21 +1263,6 @@
 /obj/structure/flora/grass/green,
 /turf/simulated/floor/holofloor/snow,
 /area/holodeck/source_snowfield)
-"afA" = (
-/obj/effect/floor_decal/carpet{
-	dir = 10
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 6
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 9
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 5
-	},
-/turf/simulated/floor/holofloor/carpet,
-/area/holodeck/source_meetinghall)
 "afB" = (
 /obj/structure/holostool,
 /obj/effect/floor_decal/carpet{
@@ -3073,12 +3197,6 @@
 	icon_state = "floor6"
 	},
 /area/shuttle/mercenary)
-"anN" = (
-/obj/structure/lattice,
-/obj/structure/grille,
-/obj/structure/lattice,
-/turf/template_noop,
-/area/template_noop)
 "anO" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/rifle/ionrifle,
@@ -5929,13 +6047,6 @@
 	icon_state = "vault"
 	},
 /area/centcom/specops)
-"axg" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 8;
-	icon_state = "propulsion_r"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/administration)
 "axh" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/fancy/donut,
@@ -10327,17 +10438,6 @@
 	icon_state = "engine"
 	},
 /area/centcom/control)
-"aLy" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/item/stool,
-/turf/unsimulated/floor{
-	dir = 6;
-	icon_state = "wood_siding1"
-	},
-/area/centcom/control)
 "aLz" = (
 /obj/machinery/light/spot{
 	dir = 4;
@@ -11660,15 +11760,6 @@
 	icon_state = "whitehall"
 	},
 /area/centcom/holding)
-"aOI" = (
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/turf/unsimulated/floor{
-	icon_state = "siding4";
-	name = "plating"
-	},
-/area/centcom/holding)
 "aOJ" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Bluespace Artillery Deck";
@@ -12389,15 +12480,6 @@
 /obj/item/pen/multi,
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant)
-"aQr" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/turf/unsimulated/floor{
-	dir = 6;
-	icon_state = "wood_siding1"
-	},
-/area/centcom/control)
 "aQs" = (
 /obj/structure/shuttle/engine/propulsion{
 	dir = 8;
@@ -12497,21 +12579,6 @@
 	icon_state = "whiteblue"
 	},
 /area/centcom/holding)
-"aQF" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
-	dir = 1
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 8
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding9"
-	},
-/area/centcom/control)
 "aQG" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -12854,13 +12921,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom)
-"aRx" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 8;
-	icon_state = "propulsion_l"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/administration)
 "aRy" = (
 /turf/simulated/floor/plating,
 /area/centcom/specops)
@@ -12944,18 +13004,6 @@
 	icon_state = "delivery"
 	},
 /area/centcom/specops)
-"aRL" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "29"
-	},
-/obj/machinery/porta_turret/crescent,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding6"
-	},
-/area/centcom/control)
 "aRM" = (
 /obj/structure/table/standard,
 /obj/item/nitrilebox,
@@ -13329,13 +13377,6 @@
 	icon_state = "floor4"
 	},
 /area/shuttle/administration)
-"aSB" = (
-/turf/simulated/floor/plating,
-/turf/simulated/wall/shuttle/dark/cardinal{
-	dir = 5;
-	icon_state = "diagonalWall3"
-	},
-/area/shuttle/administration)
 "aSC" = (
 /obj/structure/table/standard,
 /obj/item/surgery/retractor{
@@ -13494,16 +13535,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/living)
-"aSW" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor{
-	dir = 6;
-	icon_state = "wood_siding1"
-	},
-/area/centcom/control)
 "aSX" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Unisex Restroom"
@@ -13526,17 +13557,6 @@
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "podhatch"
-	},
-/area/centcom/control)
-"aTb" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/item/storage/toolbox/electrical,
-/turf/unsimulated/floor{
-	dir = 6;
-	icon_state = "wood_siding1"
 	},
 /area/centcom/control)
 "aTc" = (
@@ -13875,13 +13895,6 @@
 	icon_state = "bluecorner"
 	},
 /area/centcom/control)
-"aTO" = (
-/turf/simulated/floor/plating,
-/turf/simulated/wall/shuttle/dark/cardinal{
-	dir = 4;
-	icon_state = "diagonalWall3"
-	},
-/area/shuttle/administration)
 "aTP" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -14319,24 +14332,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station)
-"aUS" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "27"
-	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	id = "battery1";
-	name = "Battery 1 Firing Control"
-	},
-/obj/effect/decal/cleanable/cobweb,
-/obj/item/reagent_containers/glass/rag,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding10"
-	},
-/area/centcom/control)
 "aUT" = (
 /obj/machinery/light{
 	dir = 1;
@@ -14755,22 +14750,6 @@
 	icon_state = "whitered"
 	},
 /area/centcom/holding)
-"aVN" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "27"
-	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	id = "battery3";
-	name = "Battery 3 Firing Control"
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding10"
-	},
-/area/centcom/control)
 "aVO" = (
 /obj/machinery/light{
 	dir = 4
@@ -14803,22 +14782,6 @@
 	icon_state = "vault"
 	},
 /area/centcom/specops)
-"aVS" = (
-/turf/unsimulated/floor{
-	icon_state = "engine"
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 8
-	},
-/obj/structure/window/phoronreinforced{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding9"
-	},
-/area/centcom/control)
 "aVT" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -15000,22 +14963,6 @@
 	icon_state = "vault"
 	},
 /area/centcom/control)
-"aWo" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "28"
-	},
-/obj/machinery/computer/artillerycontrol{
-	desc = "Bluespace Artillery; the thinking man's solution."
-	},
-/obj/effect/decal/warning_stripes,
-/turf/unsimulated/floor{
-	dir = 6;
-	icon_state = "wood_siding2"
-	},
-/area/centcom/control)
 "aWp" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -15165,22 +15112,6 @@
 /obj/random/plushie,
 /turf/simulated/floor/wood,
 /area/merchant_station)
-"aWE" = (
-/turf/unsimulated/floor{
-	icon_state = "gcircuit"
-	},
-/obj/structure/artilleryplaceholder/decorative{
-	icon_state = "27"
-	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	id = "battery2";
-	name = "Battery 2 Firing Control"
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding10"
-	},
-/area/centcom/control)
 "aWF" = (
 /obj/item/device/radio/intercom{
 	name = "Station Intercom (General)";
@@ -15772,12 +15703,6 @@
 /obj/structure/cryofeed,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
-"aYm" = (
-/obj/structure/shuttle/engine/heater{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/administration)
 "aYn" = (
 /obj/machinery/mass_driver{
 	dir = 8;
@@ -15852,16 +15777,6 @@
 	icon_state = "dark"
 	},
 /area/centcom/control)
-"aYv" = (
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/obj/item/stool/padded,
-/turf/unsimulated/floor{
-	icon_state = "siding2";
-	name = "plating"
-	},
-/area/centcom/holding)
 "aYw" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -15871,13 +15786,6 @@
 	icon_state = "dark"
 	},
 /area/centcom/specops)
-"aYx" = (
-/turf/simulated/floor/plating,
-/turf/simulated/wall/shuttle/dark/cardinal{
-	dir = 6;
-	icon_state = "diagonalWall3"
-	},
-/area/shuttle/administration)
 "aYy" = (
 /obj/machinery/door/window/northright{
 	name = "Women's Changing Room"
@@ -16502,13 +16410,6 @@
 "aZW" = (
 /turf/unsimulated/wall/riveted,
 /area/centcom/holding)
-"aZX" = (
-/turf/simulated/floor/plating,
-/turf/simulated/wall/shuttle/dark/cardinal{
-	dir = 8;
-	icon_state = "diagonalWall3"
-	},
-/area/shuttle/administration)
 "aZY" = (
 /obj/structure/sign/nosmoking_2,
 /turf/unsimulated/wall/riveted,
@@ -18309,15 +18210,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/spawning)
-"iBr" = (
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/obj/structure/bed/chair/unmovable,
-/turf/unsimulated/floor{
-	icon_state = "wood_siding1"
-	},
-/area/centcom/spawning)
 "iBs" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -18610,17 +18502,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/tdome/tdome2)
-"kGz" = (
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/obj/machinery/vending/cola{
-	can_move = 0
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding8"
-	},
-/area/centcom/spawning)
 "kIc" = (
 /obj/structure/simple_door/wood,
 /turf/unsimulated/floor{
@@ -19040,17 +18921,6 @@
 	icon_state = "red"
 	},
 /area/centcom/holding)
-"nrU" = (
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/obj/structure/bed/chair/unmovable{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding2"
-	},
-/area/centcom/spawning)
 "nzK" = (
 /obj/structure/shuttle/engine/propulsion{
 	icon_state = "burst_r"
@@ -19559,17 +19429,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/legion)
-"qiJ" = (
-/turf/unsimulated/floor{
-	icon_state = "floor"
-	},
-/obj/machinery/vending/snack{
-	can_move = 0
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood_siding4"
-	},
-/area/centcom/spawning)
 "qkB" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Real Fake Doors! and Co";
@@ -46866,15 +46725,15 @@ aPx
 aPx
 aPx
 aoK
-aZX
-aRx
-axg
-aSB
+aax
+aay
+aaA
+aax
 aoK
-aZX
-aRx
-axg
-aSB
+aax
+aay
+aaA
+aax
 aoK
 aoK
 aoK
@@ -47122,17 +46981,17 @@ aPx
 aPx
 aPx
 aPx
-aZX
+aax
 aMM
-aYm
-aYm
+aaz
+aaz
 aMM
 aMM
 aMM
-aYm
-aYm
+aaz
+aaz
 aMM
-aSB
+aax
 aoK
 aoK
 aPx
@@ -47378,7 +47237,7 @@ aox
 aTk
 aPx
 aoK
-aZX
+aax
 aMM
 aMM
 apT
@@ -47390,7 +47249,7 @@ arH
 arT
 aMM
 aMM
-aSB
+aax
 aoK
 aPx
 aAB
@@ -47634,7 +47493,7 @@ aaM
 aox
 aPx
 aPx
-aZX
+aax
 apb
 apn
 aps
@@ -47648,7 +47507,7 @@ arH
 asg
 aOy
 aMM
-aSB
+aax
 aPx
 aPx
 aWe
@@ -50461,7 +50320,7 @@ aaM
 aox
 aPx
 aPx
-aYx
+aax
 aMM
 apq
 apn
@@ -50475,7 +50334,7 @@ apn
 apn
 aqL
 aMM
-aTO
+aax
 aPx
 aAB
 aWe
@@ -50976,7 +50835,7 @@ aox
 aPx
 aPx
 aoK
-aYx
+aax
 aMM
 apy
 aqa
@@ -50988,7 +50847,7 @@ aMM
 arV
 aSA
 aMM
-aTO
+aax
 aoK
 aPx
 aPx
@@ -51234,17 +51093,17 @@ aTk
 aPx
 aoK
 aoK
-aYx
+aax
 aMM
 aMM
-aTO
+aax
 aoK
 aoK
 aoK
-aYx
+aax
 aMM
 aMM
-aTO
+aax
 aoK
 aoK
 aPx
@@ -52572,10 +52431,10 @@ aXY
 aCi
 aCi
 aCi
-aOI
-aOI
-aOI
-aOI
+aCi
+aCi
+aCi
+aCi
 aPT
 aND
 aOB
@@ -52828,7 +52687,7 @@ aXY
 aXY
 aCi
 aCi
-aYv
+aau
 aPk
 aLe
 aMm
@@ -53085,7 +52944,7 @@ aLT
 aCJ
 aCi
 aCi
-aYv
+aau
 aPk
 aMm
 aMm
@@ -53342,7 +53201,7 @@ aWg
 aCK
 aCi
 aCi
-aYv
+aau
 aPk
 aMm
 aMm
@@ -53599,7 +53458,7 @@ aUx
 aCK
 aCi
 aCi
-aYv
+aau
 aPk
 aMm
 aMm
@@ -53856,7 +53715,7 @@ aCi
 aCi
 aCT
 aCi
-aYv
+aau
 aPk
 aMm
 aMm
@@ -54113,7 +53972,7 @@ aCi
 aCi
 aCi
 aCi
-aYv
+aau
 aPk
 aMm
 aMm
@@ -60305,7 +60164,7 @@ aVB
 aXm
 aXm
 aXm
-qiJ
+aaC
 aXm
 aXm
 aXm
@@ -60508,17 +60367,17 @@ aYq
 aTL
 aVc
 aMt
-aQF
+aam
 aYq
 aTL
 aVc
 aMt
-aQF
+aam
 aYq
 aTL
 aVc
 aVj
-aVS
+aat
 aZp
 aZW
 aTn
@@ -60561,9 +60420,9 @@ aUH
 aVB
 aXm
 aXm
-nrU
+aaB
 pgL
-iBr
+aaE
 aXm
 aXm
 aYM
@@ -60818,9 +60677,9 @@ aNf
 aVB
 aXm
 aXm
-nrU
+aaB
 dir
-iBr
+aaE
 aXm
 aXm
 dpG
@@ -61277,18 +61136,18 @@ alI
 aZp
 aQJ
 aOb
-aVN
-aQr
+aaj
+aNP
 aLw
 aQJ
 aOb
-aWE
-aQr
+aan
+aNP
 aLw
 aQJ
 aOb
-aUS
-aSW
+aao
+aWG
 aWG
 aZp
 aZW
@@ -61332,9 +61191,9 @@ aUH
 aVB
 aXm
 aXm
-nrU
+aaB
 ttJ
-iBr
+aaE
 aXm
 aXm
 aYM
@@ -61534,18 +61393,18 @@ aaM
 aZp
 aUz
 aSk
-aWo
-aQr
+aak
+aNP
 aLw
 aUz
 aSk
-aWo
-aQr
+aak
+aNP
 aLw
 aUz
 aSk
-aWo
-aLy
+aak
+aar
 aWG
 aZp
 aZW
@@ -61589,9 +61448,9 @@ hnE
 aVB
 aXm
 aXm
-nrU
+aaB
 wUW
-iBr
+aaE
 aXm
 aXm
 aYM
@@ -61791,18 +61650,18 @@ alI
 aZp
 aRh
 aMV
-aRL
-aQr
+aal
+aNP
 aLw
 aRh
 aMV
-aRL
-aQr
+aal
+aNP
 aLw
 aRh
 aMV
-aRL
-aTb
+aal
+aas
 aWG
 aZp
 aZW
@@ -61846,9 +61705,9 @@ aUH
 aVB
 aXm
 aXm
-nrU
+aaB
 yks
-iBr
+aaE
 aXm
 aXm
 aYM
@@ -62360,9 +62219,9 @@ aNf
 aVB
 aXm
 aXm
-nrU
+aaB
 wUW
-iBr
+aaE
 aXm
 aXm
 aYM
@@ -62617,9 +62476,9 @@ aUH
 aVB
 aXm
 aXm
-nrU
+aaB
 gkp
-iBr
+aaE
 aXm
 aXm
 aYM
@@ -62875,7 +62734,7 @@ aVB
 aXm
 aXm
 aXm
-kGz
+aaD
 aXm
 aXm
 aXm
@@ -70891,8 +70750,8 @@ abv
 abN
 abY
 acj
-acG
-acG
+aci
+aci
 acj
 adh
 abN
@@ -71148,8 +71007,8 @@ abv
 abO
 abX
 acj
-acG
-acG
+aci
+aci
 acj
 adg
 abO
@@ -72701,8 +72560,8 @@ ael
 ael
 ael
 afn
-afA
-afA
+aaw
+aaw
 afn
 afn
 afn
@@ -73212,8 +73071,8 @@ adE
 acI
 aed
 ael
-aeM
-afa
+aah
+ael
 afn
 afC
 afV
@@ -73469,8 +73328,8 @@ adF
 acI
 aed
 ael
-aeN
-afa
+aai
+ael
 afn
 afC
 afV
@@ -73726,8 +73585,8 @@ adF
 acI
 aed
 ael
-aeN
-afa
+aai
+ael
 afn
 afC
 afV
@@ -73983,8 +73842,8 @@ adF
 acI
 aed
 ael
-aeN
-afa
+aai
+ael
 afn
 afC
 afV
@@ -74240,8 +74099,8 @@ adF
 acI
 aed
 ael
-aeO
-afa
+aav
+ael
 afn
 afC
 afV
@@ -76027,12 +75886,12 @@ aaM
 "}
 (214,1,1) = {"
 aaP
-abB
+abR
 abR
 abR
 aco
 acN
-acX
+adw
 adj
 adw
 adj
@@ -76284,12 +76143,12 @@ aaM
 "}
 (215,1,1) = {"
 aaP
-abB
 abR
-abB
-acp
+abR
+abR
+aad
 acO
-acY
+acZ
 adk
 acZ
 adk
@@ -76541,10 +76400,10 @@ aaM
 "}
 (216,1,1) = {"
 aaP
-abB
+abR
 abR
 acb
-acq
+aae
 acO
 acZ
 acZ
@@ -76798,12 +76657,12 @@ aaM
 "}
 (217,1,1) = {"
 aaP
-abB
 abR
-abB
-acr
+abR
+abR
+aaf
 acO
-acY
+acZ
 adk
 acZ
 adk
@@ -77055,12 +76914,12 @@ aaM
 "}
 (218,1,1) = {"
 aaP
-abB
+abR
 abR
 abR
 acs
 acP
-ada
+adx
 adl
 adx
 adl
@@ -77312,16 +77171,16 @@ aaM
 "}
 (219,1,1) = {"
 aaP
-abB
 abR
-acc
-act
-act
-act
-act
-act
-act
-act
+abR
+aab
+aag
+aag
+aag
+aag
+aag
+aag
+aag
 aee
 aet
 aeR
@@ -77569,16 +77428,16 @@ aaM
 "}
 (220,1,1) = {"
 aaP
-abB
 abR
-acd
+abR
+aac
 acu
 acQ
 acQ
 acQ
 acQ
 adH
-abB
+abR
 aee
 aer
 aeQ
@@ -77826,7 +77685,7 @@ aaM
 "}
 (221,1,1) = {"
 aaP
-abB
+abR
 abR
 ace
 acv
@@ -77835,7 +77694,7 @@ acR
 acR
 acR
 adI
-abB
+abR
 aee
 aet
 aeR
@@ -80500,7 +80359,7 @@ amt
 anp
 aaM
 aaM
-anN
+alH
 anT
 aoi
 aot
