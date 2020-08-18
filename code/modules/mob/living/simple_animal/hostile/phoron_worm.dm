@@ -123,3 +123,13 @@
 		adjustBruteLoss(-5*P.amount)
 		visible_message(SPAN_DANGER("\The [src] consumes \the [P]!"))
 		qdel(P)
+
+/mob/living/simple_animal/hostile/phoron_worm/small
+	name = "black trident worm"
+	desc = "An utterly tremendous, disgustingly bloated worm which relishes in the consumption of phoron."
+	icon = 'icons/mob/npc/small_phoron_worm.dmi'
+	maxHealth = 80
+	health = 80
+	harm_intent_damage = 5
+	melee_damage_lower = 15
+	melee_damage_upper = 15
