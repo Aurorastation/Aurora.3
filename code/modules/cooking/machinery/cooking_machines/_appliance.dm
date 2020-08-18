@@ -217,7 +217,7 @@
 		I.forceMove(src)
 		cooking_objs.Add(CI)
 		if (CC.check_contents() == 0)//If we're just putting an empty container in, then dont start any processing.
-			user.visible_message(SPAN_NOTICE("[user] puts [I] into [src]."))
+			user.visible_message("<b>[user]</b> puts [I] into [src].")
 			return
 	else
 		if (CI && istype(CI))
@@ -230,7 +230,7 @@
 		CI.combine_target = selected_option
 
 	// We can actually start cooking now.
-	user.visible_message(SPAN_NOTICE("[user] puts [I] into [src]."))
+	user.visible_message("<b>[user]</b> puts [I] into [src].")
 
 	if(selected_option || select_recipe(RECIPE_LIST(CI.container ? CI.container.appliancetype : appliancetype), CI.container ? CI.container : src)) // we have a valid recipe OR we're doing combo cooking
 		// this is to stop reagents from burning when you're heating stuff
@@ -316,7 +316,7 @@
 
 /obj/machinery/appliance/proc/finish_cooking(var/datum/cooking_item/CI)
 
-	visible_message(SPAN_NOTICE("[src] pings!"))
+	visible_message("<b>[src]</b> pings!")
 	if(cooked_sound)
 		playsound(get_turf(src), cooked_sound, 50, 1)
 	//Check recipes first, a valid recipe overrides other options

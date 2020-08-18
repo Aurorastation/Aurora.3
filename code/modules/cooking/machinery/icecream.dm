@@ -134,9 +134,9 @@
 		product_types[make_type] += amount
 		var/flavour = get_flavour_name(make_type)
 		if(make_type > 6)
-			visible_message(SPAN_NOTICE("[user] cooks up some [flavour] cones."))
+			visible_message("<b>[user]</b> cooks up some [flavour] cones.")
 		else
-			visible_message(SPAN_NOTICE("[user] whips up some [flavour] icecream."))
+			visible_message("<b>[user]</b> whips up some [flavour] icecream.")
 	else
 		to_chat(user, SPAN_WARNING("You don't have the ingredients to make this."))
 
@@ -148,7 +148,7 @@
 	if(href_list["select"])
 		dispense_flavour = text2num(href_list["select"])
 		flavour_name = get_flavour_name(dispense_flavour)
-		visible_message(SPAN_NOTICE("[usr] sets [src] to dispense [flavour_name] flavoured icecream."))
+		visible_message("<b>[usr]</b> sets [src] to dispense [flavour_name] flavoured icecream.")
 
 	if(href_list["cone"])
 		var/dispense_cone = text2num(href_list["cone"])
@@ -161,7 +161,7 @@
 		I.cone_type = cone_name
 		I.icon_state = "icecream_cone_[cone_name]"
 		I.desc = "Delicious [cone_name] cone, but no ice cream."
-		visible_message(SPAN_NOTICE("[usr] dispenses a crunchy [cone_name] cone from [src]."))
+		visible_message("<b>[usr]</b> dispenses a crunchy [cone_name] cone from [src].")
 
 	if(href_list["make"])
 		var/amount = (text2num(href_list["amount"]))
