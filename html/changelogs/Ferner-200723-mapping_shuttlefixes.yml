@@ -1,0 +1,12 @@
+author: Ferner, Stryker
+delete-after: True
+changes: 
+  - maptweak: "Remapped the antagonist bases, they're now compressed and in closer proximity together with some added theme. Compressed BLV The Tower a bit, removing the unused hangar, tweaked most other shuttles."
+  - maptweak: "Changed around the emergency services dock a bit, allowing for additional shuttles to dock there, including the distress team one."
+  - maptweak: "Facelifted the arrivals spawnpoint to leave a better first impression on newcomers, tweaked the ccia shuttle hangar to look a little more fancy."
+  - tweak: "Some shuttles now have additional landing spots. Added two new bluespace beacons, that ninjas can start at."
+  - rscadd: "Added a carriable republic of biesel flag that the tclf can carry into battle if they so wish, added some species specific versions of the standard legion helmet. (Spriting by Stryker)"
+  - rscadd: "Re-added a functional version of the merc elite shuttle, for use in events, admin shenaginans and the like."
+  - bugfix: "The burglar pen no longer works on admin z-levels."
+  - bugfix: "Fixes a whole load of issues related to the centcom z-level, overlaps, non-functioning buttons, edges and other ugly stuff."
+  - tweak: "Unusual containers now have a slightly larger spritepool."
