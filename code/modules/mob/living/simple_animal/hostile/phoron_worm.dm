@@ -45,7 +45,7 @@
 
 /mob/living/simple_animal/hostile/phoron_worm/death()
 	..(null,"collapses under its own weight!")
-	var/T = get_turf(src)
+	var/turf/T = get_turf(src)
 	new /obj/effect/gibspawner/xeno(T)
 	qdel(src)
 
