@@ -77,7 +77,7 @@
 		stat &= ~POWEROFF
 	use_power = !(stat & POWEROFF)
 	if(wasoff != (stat & POWEROFF))
-		user.visible_message("[user] turns [src] [use_power ? "on" : "off"].", "You turn [use_power ? "on" : "off"] [src].")
+		user.visible_message("<b>[user]</b> turns [use_power ? "on" : "off"] [src].", "You turn [use_power ? "on" : "off"] [src].")
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
 	update_icon()
 
