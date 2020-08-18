@@ -84,7 +84,7 @@
 	else
 		burrow()
 
-	last_special = world.time + 100
+	last_special = world.time + 10 SECONDS
 
 	return
 
