@@ -17,95 +17,22 @@
 	w_class = 3.0
 	flags = CONDUCT
 	matter = list(DEFAULT_WALL_MATERIAL = 3000)
-	var/list/carrying = list() // List of things on the tray. - Doohl
+	hitsound = "trayhit"
+	drop_sound = "trayhit"
 	var/max_carry = 20
 	var/current_weight = 0
-
-	var/safedrop = 0//Used to tell when we should or shouldn't spill if the tray is dropped.
+	var/cooldown = 0	//shield bash cooldown. based on world.time
+	var/safedrop = 0	//Used to tell when we should or shouldn't spill if the tray is dropped.
 	//Safedrop is set true when throwing, because it will spill on impact. And when placing on a table
 
-/obj/item/tray/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
-
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-
-	// Drop all the things. All of them.
-	spill(user, M.loc)
-
-	//Note: Added a robot check to all stun/weaken procs, beccause weakening a robot causes its active modules to bug out
-	var/mob/living/carbon/human/H = M      ///////////////////////////////////// /Let's have this ready for later.
-
-
-	if(!(target_zone == (BP_EYES || BP_HEAD))) //////////////hitting anything else other than the eyes
-		if(prob(33) && !issilicon(M))//robots dont bleed
-			add_blood(H)
-			var/turf/location = H.loc
-			if (istype(location, /turf/simulated))
-				location.add_blood(H)     ///Plik plik, the sound of blood
-
-		admin_attack_log(user, M, "Bashed with a tray.", "Has been bashed with a tray.", "bashed with a tray")
-
-		if(prob(15))
-			if(!issilicon(M)) M.Weaken(3)
-			M.take_organ_damage(3)
-		else
-			M.take_organ_damage(5)
-		playsound(M, pick('sound/items/trayhit1.ogg', 'sound/items/trayhit2.ogg'), 50, 1)
-		visible_message(SPAN_DANGER("[user] slams [M] with the tray!"), SPAN_DANGER("You hear metal crashing."))
+/obj/item/tray/apply_hit_effect(mob/living/target, mob/living/user, var/hit_zone)
+	. = ..()
+	if(isemptylist(contents))
 		return
-
-	var/protected = 0
-	for(var/slot in list(slot_head, slot_wear_mask, slot_glasses))
-		var/obj/item/protection = M.get_equipped_item(slot)
-		if(istype(protection) && (protection.body_parts_covered & FACE))
-			protected = 1
-			break
-
-	if(protected)
-		to_chat(M, SPAN_WARNING("You get slammed in the face with the tray, against your mask!"))
-		if(prob(33) && !issilicon(M))
-			add_blood(H)
-			if (H.wear_mask)
-				H.wear_mask.add_blood(H)
-			if (H.head)
-				H.head.add_blood(H)
-			if (H.glasses && prob(33))
-				H.glasses.add_blood(H)
-			var/turf/location = get_turf(H)
-			if (istype(location))     //Addin' blood! At least on the floor and item :v
-				location.add_blood(H)
-
-		playsound(M, pick('sound/items/trayhit1.ogg', 'sound/items/trayhit2.ogg'), 50, 1)
-		visible_message(SPAN_DANGER("[user] slams [M] with the tray!"), SPAN_DANGER("You hear metal crashing."))
-		if(prob(10))
-			if(!istype(M,/mob/living/silicon))
-				M.Stun(rand(1,3))
-			M.take_organ_damage(3)
-			return
-		else
-			M.take_organ_damage(5)
-			return
-
-	else if (!issilicon(M))//No eye or head protection, tough luck!
-		to_chat(M, SPAN_DANGER("You get slammed in the face with the tray!"))
-		if(prob(33))
-			add_blood(M)
-			var/turf/location = get_turf(H)
-			if (istype(location))
-				location.add_blood(H)
-
-		playsound(M, pick('sound/items/trayhit1.ogg', 'sound/items/trayhit2.ogg'), 50, 1)
-		visible_message(SPAN_DANGER("[user] slams [M] with the tray!"), SPAN_DANGER("You hear metal crashing."))
-		M.take_organ_damage(4)
-		if(prob(30))
-			M.Stun(rand(2,4))
-			return
-		if(prob(30))
-			M.Weaken(2)
-
-/obj/item/tray/var/cooldown = 0	//shield bash cooldown. based on world.time
+	spill(user, target.loc)
 
 /obj/item/tray/attackby(obj/item/I as obj, mob/user as mob, var/click_params)
-	if (istype(user,/mob/living/silicon/robot))//safety to stop robots losing their items
+	if (isrobot(I.loc))//safety to stop robots losing their items
 		return
 
 	if(istype(I, /obj/item/material/kitchen/rollingpin))
@@ -126,42 +53,50 @@
 
 //Clicking an item individually loads it. clicking a table places the tray on it safely
 /obj/item/tray/afterattack(atom/target, mob/user as mob, proximity)
-	if (proximity)
-		if (istype(target, /obj/item))
-			var/obj/item/I = target
-			attempt_load_item(I,user)
-
 	if (istype(target,/obj/structure/table))
-		safedrop = 1
+		safedrop = TRUE
+	if (!proximity)
+		return
+	if (!istype(target,/obj/item))
+		return
+	var/obj/item/I = target
+	attempt_load_item(I,user)
 
 /obj/item/tray/AltClick(var/mob/user)
-	if (user.stat || user.incapacitated() || !user.Adjacent(src)) return
+	if (user.stat || user.incapacitated() || !user.Adjacent(src))
+		return
 	unload_at_loc(user=user)
 
 /obj/item/tray/proc/attempt_load_item(var/obj/item/I, var/mob/user, var/messages = TRUE, var/click_params)
-	if(I in carrying || !I)
+	if(!I || I in contents)
 		return
-	if( I != src && !I.anchored && !istype(I, /obj/item/projectile) )
-		if(istype(I, /obj/item/tray))
-			var/obj/item/tray/T = I
-			if(current_weight || T.current_weight) // Just an easter egg for people who try to cheat.
-				T.spill()
-				spill()
-				user.visible_message(
-					SPAN_WARNING("[user] tries to stack two trays and spills their contents everywhere!"),
-					SPAN_WARNING("You spill both the trays' contents!"),
-					SPAN_WARNING("You hear the sound of metal crashing!")
-				)
+	if(I == src || I.anchored || istype(I, /obj/item/projectile))
+		return
+	if(istype(I, /obj/item/tray))
+		var/obj/item/tray/T = I
+		if(!(current_weight || T.current_weight))
 			return
-		var/remaining = max_carry - current_weight
-		if (remaining >= I.w_class)
-			load_item(I,user, click_params)
-			if (messages)
-				to_chat(user, SPAN_NOTICE("You place [I] on the tray."))
-			return 1
+		T.spill()
+		spill()
+		user.visible_message(
+			"<b>[user]</b> tries to stack two trays and spills their contents everywhere!",
+			SPAN_WARNING("You spill both the trays' contents!"),
+			SPAN_WARNING("You hear the sound of metal crashing!")
+		)
+		return
+	var/remaining = max_carry - current_weight
+	if (remaining >= I.w_class)
+		load_item(I,user, click_params)
 		if (messages)
-			to_chat(user, SPAN_NOTICE("The tray can't take that much weight!"))
-	return 0
+			user.visible_message(
+				"<b>[user]</b> places [I] on the tray.",
+				SPAN_NOTICE("You place [I] on the tray."),
+				SPAN_NOTICE("You hear something being placed on a tray.")
+			)
+		return TRUE
+	if (messages)
+		to_chat(user, SPAN_NOTICE("The tray can't take that much weight!"))
+	return FALSE
 
 
 /obj/item/tray/proc/load_item(var/obj/item/I, var/mob/user, var/click_params)
@@ -169,7 +104,6 @@
 	I.forceMove(src)
 	auto_align(I, click_params)
 	current_weight += I.w_class
-	carrying += I
 	vis_contents += I
 	I.vis_flags |= VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
 	item_equipped_event.register(I, src, /obj/item/tray/proc/pick_up)
@@ -215,21 +149,20 @@
 		contained.forceMove(dropspot)
 	vis_contents.Remove(contained)
 	contained.vis_flags = initial(contained.vis_flags)
-	carrying.Remove(contained)
 	current_weight -= min(contained.w_class, current_weight)
 
 /obj/item/tray/proc/unload_at_loc(var/turf/dropspot = null, var/mob/user)
 	if (!current_weight)
 		return
-	if (!istype(loc,/turf) && !dropspot)//check that we're not being held by a mob
+	if (!isturf(loc) && !dropspot)//check that we're not being held by a mob
 		to_chat(user, SPAN_NOTICE("Place the tray down first!"))
 		return
 	if (!dropspot)
 		dropspot = get_turf(src)
 
-	for(var/obj/item/I in carrying)
+	for(var/obj/item/I in contents)
 		unload_item(I, dropspot)
-	user.visible_message("[user] unloads the tray.", "You unload the tray.")
+	user.visible_message("<b>[user]</b> unloads the tray.", SPAN_NOTICE("You unload the tray."))
 
 
 /obj/item/tray/proc/spill(var/mob/user = null, var/turf/dropspot = null)
@@ -242,11 +175,11 @@
 	if (!dropspot)
 		dropspot = get_turf(src)
 
-	for(var/obj/item/I in carrying)
+	for(var/obj/item/I in contents)
 		unload_item(I, dropspot)
 		I.throw_at(get_edge_target_turf(src, pick(alldirs)), rand(0, 2), 10)
 	if (user)
-		user.visible_message(SPAN_NOTICE("[user] spills their tray all over the floor."))
+		user.visible_message("<b>[user]</b> spills their tray all over the floor.", SPAN_WARNING("You spill the tray!"))
 	else
 		visible_message(SPAN_NOTICE("The tray scatters its contents all over the area."))
 	playsound(dropspot, pick('sound/items/trayhit1.ogg', 'sound/items/trayhit2.ogg'), 50, 1)
@@ -260,16 +193,17 @@
 
 /obj/item/tray/dropped(mob/user)
 	spawn(1)//A hack to avoid race conditions. Dropped procs too quickly
-		if (istype(loc, /mob))
+		if (ismob(loc))
 			//If this is true, then the tray has just switched hands and is still held by a mob
 			return
 
 		if (!safedrop)
 			spill(user, loc)
 
-		safedrop = 0
+		safedrop = FALSE
 
 /obj/item/tray/resolve_attackby(atom/A, mob/user, var/click_parameters)
-	if(istype(A,/obj/structure/table))
-		safedrop = 1
+	if(!istype(A,/obj/structure/table))
+		return
+	safedrop = TRUE
 	..(A, user, click_parameters)

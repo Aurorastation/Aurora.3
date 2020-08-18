@@ -70,7 +70,7 @@
 /obj/machinery/icecream_vat/Initialize()
 	. = ..()
 	create_reagents(100)
-	while(product_types.len < CONE_CHOC)
+	while(length(product_types) < CONE_CHOC)
 		product_types.Add(5)
 
 /obj/machinery/icecream_vat/attack_hand(mob/user as mob)
@@ -106,8 +106,8 @@
 		var/obj/item/reagent_containers/food/snacks/icecream/I = O
 		if(!I.ice_creamed)
 			if(product_types[dispense_flavour] > 0)
-				src.visible_message("\icon[src] <span class='info'>[user] scoops delicious [flavour_name] icecream into [I].</span>")
-				product_types[dispense_flavour] -= 1
+				visible_message("\icon[src] <b>[user]</b> scoops [flavour_name] icecream into [I].")
+				product_types[dispense_flavour]--
 				I.add_ice_cream(flavour_name)
 			//	if(beaker)
 			//		beaker.reagents.trans_to(I, 10)
@@ -117,11 +117,10 @@
 				to_chat(user, SPAN_WARNING("There is not enough icecream left!"))
 		else
 			to_chat(user, SPAN_NOTICE("[O] already has icecream in it."))
-		return 1
+		return TRUE
 	else if(O.is_open_container())
 		return
-	else
-		..()
+	..()
 
 /obj/machinery/icecream_vat/proc/make(var/mob/user, var/make_type, var/amount)
 	for(var/R in get_ingredient_list(make_type))
@@ -135,9 +134,9 @@
 		product_types[make_type] += amount
 		var/flavour = get_flavour_name(make_type)
 		if(make_type > 6)
-			src.visible_message(SPAN_NOTICE("[user] cooks up some [flavour] cones."))
+			visible_message(SPAN_NOTICE("[user] cooks up some [flavour] cones."))
 		else
-			src.visible_message(SPAN_NOTICE("[user] whips up some [flavour] icecream."))
+			visible_message(SPAN_NOTICE("[user] whips up some [flavour] icecream."))
 	else
 		to_chat(user, SPAN_WARNING("You don't have the ingredients to make this."))
 
@@ -149,20 +148,20 @@
 	if(href_list["select"])
 		dispense_flavour = text2num(href_list["select"])
 		flavour_name = get_flavour_name(dispense_flavour)
-		src.visible_message(SPAN_NOTICE("[usr] sets [src] to dispense [flavour_name] flavoured icecream."))
+		visible_message(SPAN_NOTICE("[usr] sets [src] to dispense [flavour_name] flavoured icecream."))
 
 	if(href_list["cone"])
 		var/dispense_cone = text2num(href_list["cone"])
 		var/cone_name = get_flavour_name(dispense_cone)
-		if(product_types[dispense_cone] >= 1)
-			product_types[dispense_cone] -= 1
-			var/obj/item/reagent_containers/food/snacks/icecream/I = new(src.loc)
-			I.cone_type = cone_name
-			I.icon_state = "icecream_cone_[cone_name]"
-			I.desc = "Delicious [cone_name] cone, but no ice cream."
-			src.visible_message(SPAN_NOTICE("[usr] dispenses a crunchy [cone_name] cone from [src]."))
-		else
+		if(product_types[dispense_cone] <= 1)
 			to_chat(usr, SPAN_WARNING("There are no [cone_name] cones left!"))
+			return
+		product_types[dispense_cone]--
+		var/obj/item/reagent_containers/food/snacks/icecream/I = new(loc)
+		I.cone_type = cone_name
+		I.icon_state = "icecream_cone_[cone_name]"
+		I.desc = "Delicious [cone_name] cone, but no ice cream."
+		visible_message(SPAN_NOTICE("[usr] dispenses a crunchy [cone_name] cone from [src]."))
 
 	if(href_list["make"])
 		var/amount = (text2num(href_list["amount"]))
@@ -179,7 +178,7 @@
 
 	if(href_list["close"])
 		usr.unset_machine()
-		usr << browse(null,"window=icecreamvat")
+		show_browser(usr, null,"window=icecreamvat")
 	return
 
 /obj/item/reagent_containers/food/snacks/icecream

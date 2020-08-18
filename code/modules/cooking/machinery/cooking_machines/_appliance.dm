@@ -42,7 +42,7 @@
 
 /obj/machinery/appliance/Initialize()
 	. = ..()
-	if(output_options.len)
+	if(!isemptylist(output_options))
 		verbs += /obj/machinery/appliance/proc/choose_output
 	if(powered())
 		stat &= ~NOPOWER
@@ -64,14 +64,14 @@
 		return TRUE
 
 /obj/machinery/appliance/proc/list_contents(var/mob/user)
-	if (cooking_objs.len)
-		var/string = "Contains..."
-		for (var/a in cooking_objs)
-			var/datum/cooking_item/CI = a
-			string += "-\a [CI.container.label(null, CI.combine_target)], [report_progress(CI)]</br>"
-		to_chat(usr, string)
-	else
-		to_chat(usr, SPAN_NOTICE("It is empty."))
+	if (isemptylist(cooking_objs))
+		to_chat(user, SPAN_NOTICE("It is empty."))
+		return
+	var/string = "Contains..."
+	for (var/a in cooking_objs)
+		var/datum/cooking_item/CI = a
+		string += "-\a [CI.container.label(null, CI.combine_target)], [report_progress(CI)]</br>"
+	to_chat(user, string)
 
 /obj/machinery/appliance/proc/report_progress(var/datum/cooking_item/CI)
 	if (!CI || !CI.max_cookwork)
@@ -80,41 +80,28 @@
 	if (!CI.cookwork)
 		return "It is cold."
 	var/progress = CI.cookwork / CI.max_cookwork
-
-	if (progress < 0.25)
-		return "It's barely started cooking."
-	if (progress < 0.75)
-		return SPAN_NOTICE("It's cooking away nicely.")
-	if (progress < 1)
-		return SPAN_NOTICE("<b>It's almost ready!</b>")
-
 	var/half_overcook = (CI.overcook_mult - 1)*0.5
+	switch(progress)
+		if (0 to 0.25)
+			return "It's barely started cooking."
+		if (0.25 to 0.75)
+			return SPAN_NOTICE("It's cooking away nicely.")
+		if (0.75 to 1)
+			return SPAN_NOTICE("<b>It's almost ready!</b>")
 	if (progress < 1+half_overcook)
-		return span("soghun","<b>It is done!</b>")
+		return SPAN_SOGHUN("<b>It is done!</b>")
 	if (progress < CI.overcook_mult)
 		return SPAN_WARNING("It looks overcooked, get it out!")
-	else
-		return SPAN_DANGER("It is burning!")
+	return SPAN_DANGER("It is burning!")
 
 /obj/machinery/appliance/update_icon()
-	if (!stat && cooking_objs.len)
+	if (!stat && length(cooking_objs))
 		icon_state = on_icon
 	else
 		icon_state = off_icon
 
-/obj/machinery/appliance/proc/attempt_toggle_power(mob/user)
-	if (!isliving(user))
-		return
-
-	if (!user.IsAdvancedToolUser())
-		to_chat(user, "You lack the dexterity to do that!")
-		return
-
-	if (user.stat || user.restrained() || user.incapacitated())
-		return
-
-	if (!Adjacent(user) && !issilicon(user))
-		to_chat(user, "You can't reach [src] from here.")
+/obj/machinery/appliance/proc/attempt_toggle_power(mob/user, ranged = FALSE)
+	if (use_check_and_message(user, ranged && USE_ALLOW_NON_ADJACENT))
 		return
 
 	stat ^= POWEROFF // Toggles power
@@ -125,42 +112,27 @@
 	update_icon()
 
 /obj/machinery/appliance/AICtrlClick(mob/user)
-	attempt_toggle_power(user)
+	attempt_toggle_power(user, TRUE)
 
-/obj/machinery/appliance/proc/choose_output()
+/obj/machinery/appliance/proc/choose_output(ranged = FALSE)
 	set src in view()
 	set name = "Choose output"
 	set category = "Object"
 
-	if (!isliving(usr))
+	if (use_check_and_message(usr, ranged && USE_ALLOW_NON_ADJACENT))
 		return
-
-	if (!usr.IsAdvancedToolUser())
-		to_chat(usr, "You lack the dexterity to do that!")
+	if(isemptylist(output_options))
 		return
-
-	if (usr.stat || usr.restrained() || usr.incapacitated())
+	var/choice = input("What specific food do you wish to make with [src]?") as null|anything in output_options+"Default"
+	if(!choice)
 		return
-
-	if (!Adjacent(usr) && !issilicon(usr))
-		to_chat(usr, "You can't adjust the [src] from this distance, get closer!")
-		return
-
-	if(output_options.len)
-		var/choice = input("What specific food do you wish to make with [src]?") as null|anything in output_options+"Default"
-		if(!choice)
-			return
-		if(choice == "Default")
-			selected_option = null
-			to_chat(usr, SPAN_NOTICE("You decide not to make anything specific with [src]."))
-		else
-			selected_option = choice
-			to_chat(usr, SPAN_NOTICE("You prepare [src] to make \a [selected_option] with the next thing you put in. Try putting several ingredients in a container!"))
+	selected_option = (choice == "Default") ? null : choice
+	to_chat(usr, SPAN_NOTICE("You decide to make [choice == "Default" ? "nothing specific" : choice] with [src]."))
 
 //Handles all validity checking and error messages for inserting things
 /obj/machinery/appliance/proc/can_insert(var/obj/item/I, var/mob/user)
-	if(istype(I.loc, /mob/living/silicon) || istype(I.loc, /obj/item/rig_module))
-		return 0
+	if(issilicon(I.loc) || istype(I.loc, /obj/item/rig_module))
+		return FALSE
 
 	// We are trying to cook a grabbed mob.
 	var/obj/item/grab/G = I
@@ -168,48 +140,44 @@
 
 		if(!can_cook_mobs)
 			to_chat(user, SPAN_WARNING("That's not going to fit."))
-			return 0
+			return FALSE
 
 		if(!isliving(G.affecting))
 			to_chat(user, SPAN_WARNING("You can't cook that."))
-			return 0
+			return FALSE
 
 		return 2
 
-
 	if (!has_space(I))
 		to_chat(user, SPAN_WARNING("There's no room in [src] for that!"))
-		return 0
-
+		return FALSE
 
 	if (istype(I, /obj/item/reagent_containers/cooking_container))
 		var/obj/item/reagent_containers/cooking_container/CC = I
 		if(CC.appliancetype & appliancetype)
-			return 1
+			return TRUE
 
 	// We're trying to cook something else. Check if it's valid.
 	var/obj/item/reagent_containers/food/snacks/check = I
 	if(istype(check) && islist(check.cooked) && (cook_type in check.cooked))
 		to_chat(user, SPAN_WARNING("[check] has already been [cook_type]."))
-		return 0
+		return FALSE
 	else if(istype(check, /obj/item/reagent_containers/glass))
 		to_chat(user, SPAN_WARNING("That would probably break [src]."))
-		return 0
+		return FALSE
 	else if(I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/storage/part_replacer))
-		return 0
+		return FALSE
 	else if(!istype(check) && !istype(check, /obj/item/holder))
 		to_chat(user, SPAN_WARNING("That's not edible."))
-		return 0
-
-	return 1
+		return FALSE
+	return TRUE
 
 
 //This function is overridden by cookers that do stuff with containers
 /obj/machinery/appliance/proc/has_space(var/obj/item/I)
-	if (cooking_objs.len >= max_contents)
+	if (length(cooking_objs) >= max_contents)
 		return FALSE
-
-	else return TRUE
+	return TRUE
 
 /obj/machinery/appliance/attackby(var/obj/item/I, var/mob/user)
 	if(!cook_type || (stat & (BROKEN)))
@@ -224,8 +192,7 @@
 			return
 		else if(default_deconstruction_crowbar(user, I))
 			return
-		else
-			return
+		return
 
 	if(result == 2)
 		var/obj/item/grab/G = I
@@ -288,34 +255,25 @@
 			CI.max_oil += R.volume * 0.10
 
 	//Rescaling cooking work to avoid insanely long times for large things
-	var/buffer = CI.max_cookwork
-	CI.max_cookwork = 0
-	var/multiplier = 1
-	var/step = 4
-	while (buffer > step)
-		buffer -= step
-		CI.max_cookwork += step*multiplier
-		multiplier *= 0.95
-
-	CI.max_cookwork += buffer*multiplier
+	var/brackets = CI.max_cookwork / 4
+	CI.max_cookwork = 4*(1-0.95**brackets)/0.05
 
 //Just a helper to save code duplication in the above
 /obj/machinery/appliance/proc/oilwork(var/obj/item/I, var/datum/cooking_item/CI)
 	var/obj/item/reagent_containers/food/snacks/S = I
 	var/work = 0
-	if (istype(S))
-		if (S.reagents)
-			for (var/r in S.reagents.reagent_list)
-				var/datum/reagent/R = r
-				if (istype(R, /datum/reagent/nutriment))
-					work += R.volume *3//Core nutrients contribute much more than peripheral chemicals
+	if (istype(S) && S.reagents)
+		for (var/r in S.reagents.reagent_list)
+			var/datum/reagent/R = r
+			if (istype(R, /datum/reagent/nutriment))
+				work += R.volume *3//Core nutrients contribute much more than peripheral chemicals
 
-					//Nonfat reagents will soak oil
-					if (!istype(R, /datum/reagent/nutriment/triglyceride))
-						CI.max_oil += R.volume * 0.35
-				else
-					work += R.volume
-					CI.max_oil += R.volume * 0.15
+				//Nonfat reagents will soak oil
+				if (!istype(R, /datum/reagent/nutriment/triglyceride))
+					CI.max_oil += R.volume * 0.35
+			else
+				work += R.volume
+				CI.max_oil += R.volume * 0.15
 
 
 	else if(istype(I, /obj/item/holder))
@@ -331,9 +289,7 @@
 	if (!CI.max_cookwork)
 		return FALSE
 
-	var/was_done = FALSE
-	if (CI.cookwork >= CI.max_cookwork)
-		was_done = TRUE
+	var/was_done = (CI.cookwork >= CI.max_cookwork)
 
 	CI.cookwork += cooking_power
 
@@ -360,7 +316,7 @@
 
 /obj/machinery/appliance/proc/finish_cooking(var/datum/cooking_item/CI)
 
-	src.visible_message(SPAN_NOTICE("[src] pings!"))
+	visible_message(SPAN_NOTICE("[src] pings!"))
 	if(cooked_sound)
 		playsound(get_turf(src), cooked_sound, 50, 1)
 	//Check recipes first, a valid recipe overrides other options
@@ -399,7 +355,7 @@
 			R.cooked |= cook_type
 
 		QDEL_NULL(temp) //delete buffer object
-		. = 1 //None of the rest of this function is relevant for recipe cooking
+		. = TRUE //None of the rest of this function is relevant for recipe cooking
 
 	else if(CI.combine_target)
 		CI.result_type = 3//Combination type. We're making something out of our ingredients
@@ -477,7 +433,7 @@
 	var/num = 6 //Maximum number of words
 	while (num > 0)
 		num--
-		if (!words.len)
+		if (isemptylist(words))
 			break
 		//Add prefixes from the ingredients in a random order until we run out or hit limit
 		result.name = "[pop(words)] [result.name]"
@@ -522,41 +478,38 @@
 	smoke.start()
 
 /obj/machinery/appliance/CtrlClick(var/mob/user)
-	if(!anchored)
-		return ..()
-	attempt_toggle_power(user)
+	if(use_check(user))
+		return
+	attempt_toggle_power(user, FALSE)
 
 /obj/machinery/appliance/attack_hand(var/mob/user)
-	if (cooking_objs.len)
-		if (removal_menu(user))
-			return
-		else
-			..()
+	if (isemptylist(cooking_objs))
+		return
+	if (removal_menu(user))
+		return
+	. = ..()
 
 /obj/machinery/appliance/proc/removal_menu(var/mob/user)
-	if (can_remove_items(user))
-		var/list/menuoptions = list()
-		for (var/a in cooking_objs)
-			var/datum/cooking_item/CI = a
-			if (CI.container)
-				menuoptions[CI.container.label(menuoptions.len)] = CI
+	if (!can_remove_items(user))
+		return FALSE
+	var/list/choices = list()
+	var/list/menuoptions = list()
+	for (var/a in cooking_objs)
+		var/datum/cooking_item/CI = a
+		if (CI.container)
+			var/current_iteration_len = length(menuoptions) + 1
+			menuoptions[CI.container.label(current_iteration_len)] = CI
+			choices[CI.container.label(current_iteration_len)] = image(CI.container.icon, icon_state = CI.container.icon_state)
 
-		var/selection = input(user, "Which item would you like to remove?", "Remove ingredients") as null|anything in menuoptions
-		if (selection)
-			var/datum/cooking_item/CI = menuoptions[selection]
-			eject(CI, user)
-			update_icon()
-		return TRUE
-	return FALSE
+	var/selection = RADIAL_INPUT(user, choices)
+	if (selection)
+		var/datum/cooking_item/CI = menuoptions[selection]
+		eject(CI, user)
+		update_icon()
+	return TRUE
 
 /obj/machinery/appliance/proc/can_remove_items(var/mob/user)
-	if (!Adjacent(user))
-		return FALSE
-
-	if (isanimal(user))
-		return FALSE
-
-	return TRUE
+	return !use_check_and_message(user)
 
 /obj/machinery/appliance/proc/eject(var/datum/cooking_item/CI, var/mob/user = null)
 	var/obj/item/thing
@@ -669,11 +622,12 @@
 	var/scan_rating = 0
 	var/cap_rating = 0
 
-	for(var/obj/item/stock_parts/capacitor/C in component_parts)
-		cap_rating += C.rating - 1
-	for(var/obj/item/stock_parts/scanning_module/S in component_parts)
-		cap_rating += S.rating - 1
+	for(var/obj/item/stock_parts/P in component_parts)
+		if(iscapacitor(P))
+			cap_rating += P.rating - 1
+		if(isscanner(P))
+			scan_rating += P.rating - 1
 
-	active_power_usage = initial(active_power_usage) - scan_rating * 25
-	heating_power = initial(heating_power) + cap_rating * 50
-	cooking_power = cooking_coeff * (1 + (scan_rating + cap_rating) / 20) // 100% eff. becomes 120%, 140%, 160% w/ better parts
+	active_power_usage = initial(active_power_usage) - scan_rating * 25 // 25W less per tier
+	heating_power = initial(heating_power) + cap_rating * 50 // + 50W per tier
+	cooking_power = cooking_coeff * (1 + (scan_rating + cap_rating) / 20) // +20% per tier

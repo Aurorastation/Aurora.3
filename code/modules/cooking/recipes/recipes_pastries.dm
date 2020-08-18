@@ -55,9 +55,9 @@
 	if (.)
 		var/obj/item/paper/paper = locate() in container
 		if (!paper || !istype(paper))
-			return 0
+			return FALSE
 		if (!paper.info)
-			return 0
+			return FALSE
 	return .
 
 /datum/recipe/brownies

@@ -172,7 +172,7 @@
 	if (damage > 0)
 		if(E)
 
-			if(E.children && E.children.len)
+			if(LAZYLEN(E.children))
 				for(var/obj/item/organ/external/child in E.children)
 					if(nopain && nopain < 2 && !BP_IS_ROBOTIC(child))
 						nopain = 0
@@ -203,22 +203,21 @@
 			//Its empty, handle scooping some hot oil out of the fryer
 			oil.trans_to(I, I.reagents.maximum_volume)
 			user.visible_message("[user] scoops some oil out of [src].", SPAN_NOTICE("You scoop some oil out of [src]."))
-			return 1
-		else
+			return TRUE
 	//It contains stuff, handle pouring any oil into the fryer
 	//Possibly in future allow pouring non-oil reagents in, in  order to sabotage it and poison food.
 	//That would really require coding some sort of filter or better replacement mechanism first
 	//So for now, restrict to oil only
-			var/amount = 0
-			for (var/datum/reagent/R in I.reagents.reagent_list)
-				if (istype(R, /datum/reagent/nutriment/triglyceride/oil))
-					var/delta = oil.get_free_space()
-					delta = min(delta, R.volume)
-					oil.add_reagent(R.type, delta)
-					I.reagents.remove_reagent(R.type, delta)
-					amount += delta
-			if (amount > 0)
-				user.visible_message("[user] pours some oil into [src].", SPAN_NOTICE("You pour [amount]u of oil into [src]."), SPAN_NOTICE("You hear something viscous being poured into a metal container."))
-				return 1
+		var/amount = 0
+		for (var/datum/reagent/R in I.reagents.reagent_list)
+			if (istype(R, /datum/reagent/nutriment/triglyceride/oil))
+				var/delta = oil.get_free_space()
+				delta = min(delta, R.volume)
+				oil.add_reagent(R.type, delta)
+				I.reagents.remove_reagent(R.type, delta)
+				amount += delta
+		if (amount > 0)
+			user.visible_message("[user] pours some oil into [src].", SPAN_NOTICE("You pour [amount]u of oil into [src]."), SPAN_NOTICE("You hear something viscous being poured into a metal container."))
+			return TRUE
 	//If neither of the above returned, then call parent as normal
 	..()

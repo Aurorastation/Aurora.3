@@ -5,7 +5,7 @@
 	cook_type = "baked"
 	appliancetype = OVEN
 	food_color = "#a34719"
-	can_burn_food = 1
+	can_burn_food = TRUE
 	active_power_usage = 6 KILOWATTS
 	heating_power = 6000
 	//Based on a double deck electric convection oven
@@ -53,24 +53,11 @@
 	try_toggle_door(usr)
 
 /obj/machinery/appliance/cooker/oven/proc/try_toggle_door(mob/user)
-	if (!isliving(usr) || isAI(user))
+	if(use_check_and_message(user))
 		return
-
-	if (!usr.IsAdvancedToolUser())
-		to_chat(usr, "You lack the dexterity to do that.")
-		return
-
-	if (!Adjacent(usr))
-		to_chat(usr, "You can't reach the [src] from there, get closer!")
-		return
-
-	if (open)
-		open = FALSE
-		loss = (heating_power / resistance) * 0.5
-	else
-		open = TRUE
-		loss = (heating_power / resistance) * 1.5
-		//When the oven door is opened, oven slowly loses heat
+	open = !open
+	loss = (heating_power / resistance) * (0.5 + open)
+	//When the oven door is opened, oven slowly loses heat
 
 	playsound(src, 'sound/machines/hatch_open.ogg', 20, 1)
 	update_icon()
@@ -78,15 +65,12 @@
 /obj/machinery/appliance/cooker/oven/proc/manip(var/obj/item/I)
 	// check if someone's trying to manipulate the machine
 
-	if(I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/storage/part_replacer) || istype(I, /obj/item/stock_parts))
-		return TRUE
-	else
-		return FALSE
+	return I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/storage/part_replacer) || istype(I, /obj/item/stock_parts)
 
 /obj/machinery/appliance/cooker/oven/can_insert(var/obj/item/I, var/mob/user)
 	if (!open && !manip(I, user))
 		to_chat(user, SPAN_WARNING("You can't put anything in while the door is closed!"))
-		return 0
+		return FALSE
 
 	else
 		return ..()
@@ -95,9 +79,7 @@
 	if (!open)
 		to_chat(user, SPAN_WARNING("You can't take anything out while the door is closed!"))
 		return FALSE
-
-	else
-		return ..()
+	return ..()
 
 
 //Oven has lots of recipes and combine options. The chance for interference is high, so
@@ -105,8 +87,7 @@
 /obj/machinery/appliance/cooker/oven/finish_cooking(var/datum/cooking_item/CI)
 	if(CI.combine_target)
 		CI.result_type = 3//Combination type. We're making something out of our ingredients
-		src.visible_message(SPAN_NOTICE("[src] pings!"))
+		visible_message(SPAN_NOTICE("[src] pings!"))
 		combination_cook(CI)
 		return
-	else
-		..()
+	..()

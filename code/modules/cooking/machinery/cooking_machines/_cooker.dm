@@ -29,7 +29,7 @@
 			to_chat(user, SPAN_WARNING("It is switched off."))
 
 /obj/machinery/appliance/cooker/list_contents(var/mob/user)
-	if (cooking_objs.len)
+	if (length(cooking_objs))
 		var/string = "Contains...</br>"
 		var/num = 0
 		for (var/a in cooking_objs)
@@ -60,20 +60,9 @@
 
 	queue_icon_update()
 
-/obj/machinery/appliance/cooker/attempt_toggle_power(mob/user)
+/obj/machinery/appliance/cooker/attempt_toggle_power(mob/user, ranged = FALSE)
 	var/wasoff = stat & POWEROFF
-	if (!isliving(user))
-		return
-
-	if (!user.IsAdvancedToolUser())
-		to_chat(user, "You lack the dexterity to do that!")
-		return
-
-	if (user.stat || user.restrained() || user.incapacitated())
-		return
-
-	if (!Adjacent(user) && !issilicon(user))
-		to_chat(user, "You can't reach [src] from here.")
+	if (use_check_and_message(user))
 		return
 
 	var/desired_temp = show_radial_menu(user, src, temp_options - (wasoff ? "OFF" : "[set_temp-T0C]"), require_near = TRUE, tooltips = TRUE, no_repeat_close = TRUE)
@@ -144,26 +133,25 @@
 			update_icon()
 		temperature += heating_power / resistance
 		update_cooking_power()
-		return 1
-	else
-		if (use_power == 2)
-			use_power = 1
-			playsound(src, 'sound/machines/click.ogg', 20, 1)
-			update_icon()
+		return TRUE
+	if (use_power == 2)
+		use_power = 1
+		playsound(src, 'sound/machines/click.ogg', 20, 1)
+		update_icon()
 
 //Cookers do differently, they use containers
 /obj/machinery/appliance/cooker/has_space(var/obj/item/I)
 	if (istype(I, /obj/item/reagent_containers/cooking_container))
 		//Containers can go into an empty slot
-		if (cooking_objs.len < max_contents)
-			return 1
+		if (length(cooking_objs) < max_contents)
+			return TRUE
 	else
 		//Any food items directly added need an empty container. A slot without a container cant hold food
 		for (var/datum/cooking_item/CI in cooking_objs)
 			if (CI.container.check_contents() == 0)
 				return CI
 
-	return 0
+	return FALSE
 
 /obj/machinery/appliance/cooker/add_content(var/obj/item/I, var/mob/user)
 	var/datum/cooking_item/CI = ..()

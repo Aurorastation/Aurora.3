@@ -46,13 +46,6 @@
 	var/result_quantity = 1 //number of instances of result that are created.
 	var/time = 100    // 1/10 part of second
 
-	var/hidden_from_codex = FALSE
-	var/lore_text
-	var/mechanics_text
-	var/antag_text
-	var/added_to_codex = FALSE //to prevent duplicates
-
-
 	#define RECIPE_REAGENT_REPLACE		0 //Reagents in the ingredients are discarded.
 	//Only the reagents present in the result at compiletime are used
 	#define RECIPE_REAGENT_MAX	1 //The result will contain the maximum of each reagent present between the two pools. Compiletime result, and sum of ingredients
@@ -63,7 +56,7 @@
 
 	var/finished_temperature = T0C + 40 //The temperature of the reagents of the final product.Only affects nutrient type.
 
-	var/appliance = MIX//Which apppliances this recipe can be made in.
+	var/appliance = MIX//Which appliances this recipe can be made in.
 	//List of defines is in _defines/misc.dm. But for reference they are:
 	/*
 		MIX
@@ -92,94 +85,92 @@
 	return english_list(appliance_names, and_text = " or ")
 
 /datum/recipe/proc/check_reagents(var/datum/reagents/avail_reagents)
-	if (!reagents || !reagents.len)
-		return 1
+	if (isemptylist(reagents))
+		return TRUE
 
 	if (!avail_reagents)
-		return 0
+		return FALSE
 
-	. = 1
+	. = TRUE
 	for (var/r_r in reagents)
 		var/aval_r_amnt = avail_reagents.get_reagent_amount(r_r)
 		if (aval_r_amnt - reagents[r_r] >= 0)
 			if (aval_r_amnt>reagents[r_r])
-				. = 0
+				. = FALSE
 		else
 			return -1
 
-	if ((reagents?(reagents.len):(0)) < avail_reagents.reagent_list.len)
-		return 0
+	if ((reagents?length(reagents):0) < length(avail_reagents.reagent_list))
+		return FALSE
 	return .
 
 /datum/recipe/proc/check_fruit(var/obj/container)
-	if (!fruit || !fruit.len)
-		return 1
-	. = 1
-	if(fruit && fruit.len)
-		var/list/checklist = list()
-		 // You should trust Copy().
-		checklist = fruit.Copy()
-		for(var/obj/item/reagent_containers/food/snacks/S in container)
-			var/use_tag
-			if(istype(S, /obj/item/reagent_containers/food/snacks/grown))
-				var/obj/item/reagent_containers/food/snacks/grown/G = S
-				if(!G.seed || !G.seed.kitchen_tag)
-					continue
-				use_tag = G.dry ? "dried [G.seed.kitchen_tag]" : G.seed.kitchen_tag
-			else if(istype(S, /obj/item/reagent_containers/food/snacks/fruit_slice))
-				var/obj/item/reagent_containers/food/snacks/fruit_slice/FS = S
-				if(!FS.seed || !FS.seed.kitchen_tag)
-					continue
-				use_tag = "[FS.seed.kitchen_tag] slice"
-			use_tag = "[S.dry ? "dried " : ""][use_tag]"
-			if(isnull(checklist[use_tag]))
+	if (isemptylist(fruit))
+		return TRUE
+	. = TRUE
+	var/list/checklist = list()
+		// You should trust Copy().
+	checklist = fruit.Copy()
+	for(var/obj/item/reagent_containers/food/snacks/S in container)
+		var/use_tag
+		if(istype(S, /obj/item/reagent_containers/food/snacks/grown))
+			var/obj/item/reagent_containers/food/snacks/grown/G = S
+			if(!G.seed || !G.seed.kitchen_tag)
 				continue
-			if (check_coating(S))
-				checklist[use_tag]--
-		for(var/ktag in checklist)
-			if(!isnull(checklist[ktag]))
-				if(checklist[ktag] < 0)
-					. = 0
-				else if(checklist[ktag] > 0)
-					. = -1
-					break
+			use_tag = G.dry ? "dried [G.seed.kitchen_tag]" : G.seed.kitchen_tag
+		else if(istype(S, /obj/item/reagent_containers/food/snacks/fruit_slice))
+			var/obj/item/reagent_containers/food/snacks/fruit_slice/FS = S
+			if(!FS.seed || !FS.seed.kitchen_tag)
+				continue
+			use_tag = "[FS.seed.kitchen_tag] slice"
+		use_tag = "[S.dry ? "dried " : ""][use_tag]"
+		if(isnull(checklist[use_tag]))
+			continue
+		if (check_coating(S))
+			checklist[use_tag]--
+	for(var/ktag in checklist)
+		if(!isnull(checklist[ktag]))
+			if(checklist[ktag] < 0)
+				. = FALSE
+			else if(checklist[ktag] > 0)
+				. = -1
+				break
 	return .
 
 /datum/recipe/proc/check_items(var/obj/container as obj)
-	if (!items || !items.len)
-		return 1
-	. = 1
-	if (items && items.len)
-		var/list/checklist = list()
-		checklist = items.Copy() // You should really trust Copy
-		for(var/obj/O in container)
-			if(istype(O,/obj/item/reagent_containers/food/snacks/grown))
-				continue // Fruit is handled in check_fruit().
-			var/found = 0
-			for(var/i = 1; i < checklist.len+1; i++)
-				var/item_type = checklist[i]
-				if (istype(O,item_type))
-					if(check_coating(O))
-						checklist.Cut(i, i+1)
-						found = 1
-						break
+	if (isemptylist(items))
+		return TRUE
+	. = TRUE
+	var/list/checklist = list()
+	checklist = items.Copy() // You should really trust Copy
+	for(var/obj/O in container)
+		if(istype(O,/obj/item/reagent_containers/food/snacks/grown))
+			continue // Fruit is handled in check_fruit().
+		var/found = 0
+		for(var/i = 1; i < length(checklist)+1; i++)
+			var/item_type = checklist[i]
+			if (istype(O,item_type))
+				if(check_coating(O))
+					checklist.Cut(i, i+1)
+					found = 1
+					break
 
-			if (!found)
-				. = 0
-			if (!checklist.len && . != 1)
-				return //No need to iterate through everything if we know theres at least oen extraneous ingredient
-		if (checklist.len)
-			. = -1
+		if (!found)
+			. = FALSE
+		if (isemptylist(checklist) && . != 1)
+			return //No need to iterate through everything if we know theres at least oen extraneous ingredient
+	if (length(checklist))
+		. = -1
 
 	return .
 
 //This is called on individual items within the container.
 /datum/recipe/proc/check_coating(var/obj/item/reagent_containers/food/snacks/S)
 	if(!istype(S))
-		return 1//Only snacks can be battered
+		return TRUE//Only snacks can be battered
 
 	if (coating == -1)
-		return 1 //-1 value doesnt care
+		return TRUE //-1 value doesnt care
 
 	return !coating || (S.coating.type == coating)
 
@@ -290,13 +281,13 @@
 					holder.remove_reagent(R.type, rvol-R.volume)
 
 
-	if (results.len > 1)
+	if (length(results) > 1)
 		//If we're here, then holder is a buffer containing the total reagents for all the results.
 		//So now we redistribute it among them
 		var/total = holder.total_volume
 		for (var/i in results)
 			var/atom/a = i //optimisation
-			holder.trans_to(a, total / results.len)
+			holder.trans_to(a, total / length(results))
 
 	return results
 
@@ -309,10 +300,6 @@
 		if((recipe.check_reagents(obj.reagents) < exact) || (recipe.check_items(obj) < exact) || (recipe.check_fruit(obj) < exact))
 			continue
 		possible_recipes |= recipe
-	if (!possible_recipes.len)
+	if (isemptylist(possible_recipes))
 		return null
-	else if (possible_recipes.len == 1)
-		return possible_recipes[1]
-	else //okay, let's select the most complicated recipe
-		sortTim(possible_recipes, /proc/cmp_recipe_complexity_dsc)
-		return possible_recipes[1]
+	return possible_recipes[1]

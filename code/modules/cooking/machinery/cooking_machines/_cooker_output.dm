@@ -32,7 +32,7 @@
 
 	var/matrix/M = matrix()
 	M.Scale(scale)
-	src.transform = M
+	transform = M
 
 	w_class = round(w_class * scale)
 	if (!prefix)

@@ -19,13 +19,12 @@
 
 /obj/item/reagent_containers/cooking_container/examine(var/mob/user)
 	. = ..()
-	if (contents.len)
-		var/string = "It contains....</br>"
-		for (var/atom/movable/A in contents)
-			string += "[A.name] </br>"
+	if (length(contents))
+		var/string = "It contains:</br><ul><li>"
+		string += jointext(contents, "</li></br><li>") + "</li></ul>"
 		to_chat(user, SPAN_NOTICE(string))
 	if (reagents.total_volume)
-		to_chat(user, SPAN_NOTICE("It contains [reagents.total_volume]u of reagents."))
+		to_chat(user, SPAN_NOTICE("It contains [reagents.total_volume] units of reagents."))
 
 
 /obj/item/reagent_containers/cooking_container/attackby(var/obj/item/I as obj, var/mob/user as mob)
@@ -33,7 +32,7 @@
 		if (istype(I, possible_type))
 			if (!can_fit(I))
 				to_chat(user, SPAN_WARNING("There's no more space in [src] for that!"))
-				return 0
+				return FALSE
 
 			if(!user.unEquip(I))
 				return
@@ -62,7 +61,7 @@
 		to_chat(user, "You can't reach [src] from here.")
 		return
 
-	if (!contents.len)
+	if (isemptylist(contents))
 		to_chat(user, SPAN_WARNING("There's nothing in [src] you can remove!"))
 		return
 
@@ -72,13 +71,13 @@
 	to_chat(user, SPAN_NOTICE("You remove all the solid items from [src]."))
 
 /obj/item/reagent_containers/cooking_container/proc/check_contents()
-	if (contents.len == 0)
+	if (length(contents) == 0)
 		if (!reagents || reagents.total_volume == 0)
-			return 0//Completely empty
-	else if (contents.len == 1)
+			return 0.0//Completely empty
+	else if (length(contents) == 1)
 		if (!reagents || reagents.total_volume == 0)
-			return 1//Contains only a single object which can be extracted alone
-	return 2//Contains multiple objects and/or reagents
+			return 1.0//Contains only a single object which can be extracted alone
+	return 2.0//Contains multiple objects and/or reagents
 
 /obj/item/reagent_containers/cooking_container/AltClick(var/mob/user)
 	do_empty(user)
@@ -101,17 +100,14 @@
 		.+= " [number]"
 	.+= " - "
 	if (CT)
-		.+=CT
-	else if (contents.len)
-		for (var/obj/O in contents)
-			.+=O.name//Just append the name of the first object
-			return
+		return . + CT
+	else if (LAZYLEN(contents))
+		var/obj/O = locate() in contents
+		return . + O.name //Just append the name of the first object
 	else if (reagents && reagents.total_volume > 0)
 		var/datum/reagent/R = reagents.get_master_reagent()
-		.+=R.name//Append name of most voluminous reagent
-		return
-	else
-		. += "empty"
+		return . + R.name//Append name of most voluminous reagent
+	return . + "empty"
 
 
 /obj/item/reagent_containers/cooking_container/proc/can_fit(var/obj/item/I)
@@ -120,7 +116,7 @@
 		total += J.w_class
 
 	if((max_space - total) >= I.w_class)
-		return 1
+		return TRUE
 
 
 //Takes a reagent holder as input and distributes its contents among the items in the container
@@ -154,7 +150,7 @@
 	desc = "Chuck ingredients in this to fry something on the stove."
 	icon_state = "skillet"
 	volume = 15
-	force = 15
+	force = 11
 	hitsound = 'sound/weapons/smash.ogg'
 	flags = OPENCONTAINER // Will still react
 	appliancetype = SKILLET
@@ -173,7 +169,7 @@
 	icon_state = "pan"
 	volume = 60
 	slot_flags = SLOT_HEAD
-	force = 15
+	force = 8
 	hitsound = 'sound/weapons/smash.ogg'
 	flags = OPENCONTAINER // Will still react
 	appliancetype = SAUCEPAN
@@ -192,7 +188,7 @@
 	icon_state = "pot"
 	max_space = 50
 	volume = 180
-	force = 15
+	force = 8
 	hitsound = 'sound/weapons/smash.ogg'
 	flags = OPENCONTAINER // Will still react
 	appliancetype = POT
@@ -221,9 +217,9 @@
 	volume = 5 // for things like jelly sandwiches etc
 
 /obj/item/reagent_containers/cooking_container/plate/MouseDrop(var/obj/over_obj)
-	if(!istype(over_obj, /mob/living) || !Adjacent(over_obj))
+	if(over_obj != usr || use_check(usr))
 		return ..()
-	if((over_obj != usr) || !(length(contents) || reagents?.total_volume))
+	if(!(length(contents) || reagents?.total_volume))
 		return ..()
 	var/datum/recipe/recipe = select_recipe(RECIPE_LIST(appliancetype), src)
 	if(!recipe)

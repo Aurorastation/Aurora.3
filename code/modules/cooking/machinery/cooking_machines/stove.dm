@@ -38,6 +38,6 @@
 				continue
 		pan_overlay.color = CC.color
 		pans += pan_overlay
-	if(!LAZYLEN(pans))
+	if(isemptylist(pans))
 		return
 	add_overlay(pans)

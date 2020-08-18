@@ -32,75 +32,68 @@ fundamental differences
 	set name = "Choose output"
 	set category = "Object"
 
-	if (!isliving(usr))
+	if (use_check_and_message(usr))
 		return
 
-	if (!usr.IsAdvancedToolUser())
-		to_chat(usr, SPAN_NOTICE("You can't operate [src]."))
+	if(isemptylist(output_options))
 		return
-
-	if(output_options.len)
-		var/choice = input("What specific food do you wish to make with [src]?") as null|anything in output_options
-		if(!choice)
-			return
-		else
-			selected_option = choice
-			to_chat(usr, SPAN_NOTICE("You prepare [src] to make \a [selected_option]."))
-			var/datum/cooking_item/CI = cooking_objs[1]
-			CI.combine_target = selected_option
+	var/choice = input("What specific food do you wish to make with [src]?") as null|anything in output_options
+	if(!choice)
+		return
+	selected_option = choice
+	to_chat(usr, SPAN_NOTICE("You set [src] to make \a [selected_option]."))
+	var/datum/cooking_item/CI = cooking_objs[1]
+	CI.combine_target = selected_option
 
 
 /obj/machinery/appliance/mixer/has_space(var/obj/item/I)
 	var/datum/cooking_item/CI = cooking_objs[1]
 	if (!CI || !CI.container)
-		return 0
+		return FALSE
 
 	if (CI.container.can_fit(I))
 		return CI
 
-	return 0
+	return FALSE
 
 
 /obj/machinery/appliance/mixer/can_remove_items(var/mob/user)
 	if (stat)
-		return 1
-	else
-		to_chat(user, SPAN_WARNING("You can't remove ingredients while its turned on! Turn it off first or wait for it to finish."))
+		return ..()
+	to_chat(user, SPAN_WARNING("You can't remove ingredients while [src] is turned on! Turn it off first or wait for it to finish."))
+	return FALSE
 
 //Container is not removable
 /obj/machinery/appliance/mixer/removal_menu(var/mob/user)
-	if (can_remove_items(user))
-		var/list/menuoptions = list()
-		for (var/a in cooking_objs)
-			var/datum/cooking_item/CI = a
-			if (CI.container)
-				if (!CI.container.check_contents())
-					to_chat(user, "There's nothing in the [src] you can remove!")
-					return
+	if (!can_remove_items(user))
+		return FALSE
+	var/list/menuoptions = list()
+	for (var/datum/cooking_item/CI in cooking_objs)
+		if (!CI.container?.check_contents())
+			to_chat(user, "There's nothing in [src] to remove!")
+			return
+		for (var/obj/item/I in CI.container)
+			menuoptions[I.name] = I
 
-				for (var/obj/item/I in CI.container)
-					menuoptions[I.name] = I
+	var/selection = RADIAL_INPUT(user, menuoptions)
+	if (!selection)
+		return FALSE
+	var/obj/item/I = menuoptions[selection]
+	if (!user?.put_in_hands(I))
+		I.forceMove(get_turf(src))
+	update_icon()
+	return TRUE
 
-		var/selection = input(user, "Which item would you like to remove? If you want to remove chemicals, use an empty beaker.", "Remove ingredients") as null|anything in menuoptions
-		if (selection)
-			var/obj/item/I = menuoptions[selection]
-			if (!user || !user.put_in_hands(I))
-				I.forceMove(get_turf(src))
-			update_icon()
-		return 1
-	return 0
-
-/obj/machinery/appliance/mixer/attempt_toggle_power(var/mob/user)
-	. = ..()
+/obj/machinery/appliance/mixer/attempt_toggle_power(var/mob/user, ranged = FALSE)
+	. = ..(user, ranged)
 	if(use_power)
 		get_cooking_work(cooking_objs[1])
 
 /obj/machinery/appliance/mixer/can_insert(var/obj/item/I, var/mob/user)
 	if (!stat)
 		to_chat(user, SPAN_WARNING("You can't add items while [src] is running. Wait for it to finish or turn the power off to abort"))
-		return 0
-	else
-		return ..()
+		return FALSE
+	return ..()
 
 /obj/machinery/appliance/mixer/finish_cooking(var/datum/cooking_item/CI)
 	..()

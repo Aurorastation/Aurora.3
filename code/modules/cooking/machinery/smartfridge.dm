@@ -89,17 +89,14 @@
 		CHECK_TICK
 
 	for(var/obj/item/reagent_containers/food/snacks/grown/g in contents)
-		if(item_quants[g.name])
-			item_quants[g.name]++
-		else
-			item_quants[g.name] = 1
+		item_quants[g.name]++
 
 /obj/machinery/smartfridge/Initialize()
 	. = ..()
 	if(is_secure)
 		wires = new/datum/wires/smartfridge/secure(src)
 	else
-		wires = new/datum/wires/smartfridge(src)
+		wires = new(src)
 
 /obj/machinery/smartfridge/Destroy()
 	qdel(wires)
@@ -108,8 +105,8 @@
 
 /obj/machinery/smartfridge/proc/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/food/snacks/grown/) || istype(O,/obj/item/seeds/))
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/machinery/smartfridge/foodheater
 	name = "\improper SmartHeater"
@@ -120,8 +117,8 @@
 
 /obj/machinery/smartfridge/foodheater/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/food/snacks))
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/machinery/smartfridge/seeds
 	name = "\improper MegaSeed Storage"
@@ -133,8 +130,8 @@
 
 /obj/machinery/smartfridge/seeds/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/seeds/))
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/machinery/smartfridge/secure/extract
 	name = "\improper Slime Extract Storage"
@@ -147,8 +144,8 @@
 
 /obj/machinery/smartfridge/secure/extract/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/slime_extract))
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/machinery/smartfridge/secure/medbay
 	name = "\improper Refrigerated Chemical Storage"
@@ -159,23 +156,23 @@
 
 /obj/machinery/smartfridge/secure/medbay/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/glass/))
-		return 1
+		return TRUE
 	if(istype(O,/obj/item/storage/pill_bottle/))
-		return 1
+		return TRUE
 	if(istype(O,/obj/item/reagent_containers/pill/))
-		return 1
+		return TRUE
 	if(istype(O,/obj/item/reagent_containers/inhaler))
-		return 1
+		return TRUE
 	if(istype(O,/obj/item/reagent_containers/personal_inhaler_cartridge	))
-		return 1
+		return TRUE
 	if(istype(O,/obj/item/reagent_containers/inhaler))
-		return 1
+		return TRUE
 	if(istype(O,/obj/item/reagent_containers/hypospray/autoinjector))
-		return 1
+		return TRUE
 	if(istype(O,/obj/item/personal_inhaler))
-		return 1
+		return TRUE
 
-	return 0
+	return FALSE
 
 /obj/machinery/smartfridge/secure/virology
 	name = "\improper Refrigerated Virus Storage"
@@ -187,8 +184,8 @@
 
 /obj/machinery/smartfridge/secure/virology/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/glass/beaker/vial/))
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/machinery/smartfridge/chemistry
 	name = "\improper Smart Chemical Storage"
@@ -196,8 +193,8 @@
 
 /obj/machinery/smartfridge/chemistry/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/storage/pill_bottle) || istype(O,/obj/item/reagent_containers))
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/machinery/smartfridge/chemistry/virology
 	name = "\improper Smart Virus Storage"
@@ -211,22 +208,22 @@
 
 /obj/machinery/smartfridge/drinks/accept_check(var/obj/item/O as obj)
 	if(istype(O,/obj/item/reagent_containers/glass) || istype(O,/obj/item/reagent_containers/food/drinks) || istype(O,/obj/item/reagent_containers/food/condiment))
-		return 1
+		return TRUE
 
 /obj/machinery/smartfridge/drying_rack
 	name = "\improper Drying Rack"
 	desc = "A machine for drying plants."
 
 /obj/machinery/smartfridge/drying_rack/accept_check(var/obj/item/O as obj)
-	if(istype(O, /obj/item/reagent_containers/food/snacks/))
-		var/obj/item/reagent_containers/food/snacks/S = O
-		if (S.dried_type)
-			return 1
-	return 0
+	if(!istype(O, /obj/item/reagent_containers/food/snacks/))
+		return FALSE
+	var/obj/item/reagent_containers/food/snacks/S = O
+	if (S.dried_type)
+		return TRUE
 
 /obj/machinery/smartfridge/drying_rack/machinery_process()
 	..()
-	if (contents.len)
+	if (length(contents))
 		dry()
 
 /obj/machinery/smartfridge/drying_rack/proc/dry()
@@ -239,35 +236,28 @@
 /obj/machinery/smartfridge/machinery_process()
 	if(stat & (BROKEN|NOPOWER))
 		return
-	if(src.seconds_electrified > 0)
-		src.seconds_electrified--
-	if(src.shoot_inventory && prob(2))
-		src.throw_item()
-	if(cooling || heating)
-
-		var/mod = cooling ? -1 : 1
-
-		for(var/obj/item/I in contents)
-
-			if(!I.reagents)
-				continue
-
-			var/r_temperature = I.reagents.get_temperature()
-
-			if(mod == 1 && r_temperature <= heating_temperature)
-				continue
-			else if(mod == -1 && r_temperature <= cooling_temperature)
-				continue
-
-			var/thermal_energy_change = 0
-
-			if(mod == 1) //GOING UP
-				thermal_energy_change = min(active_power_usage,I.reagents.get_thermal_energy_change(r_temperature,heating_temperature))
-			else if (mod == -1) //GOING DOWN
-				thermal_energy_change = max(-active_power_usage,I.reagents.get_thermal_energy_change(r_temperature,cooling_temperature))
-
-			I.reagents.add_thermal_energy(thermal_energy_change)
-			use_power(active_power_usage)
+	if(seconds_electrified > 0)
+		seconds_electrified--
+	if(shoot_inventory && prob(2))
+		throw_item()
+	if(!cooling && !heating)
+		return
+	var/mod = cooling ? -1 : 1
+	for(var/obj/item/I in contents)
+		if(!I.reagents)
+			continue
+		var/r_temperature = I.reagents.get_temperature()
+		if(mod == 1 && r_temperature <= heating_temperature)
+			continue
+		else if(mod == -1 && r_temperature <= cooling_temperature)
+			continue
+		var/thermal_energy_change = 0
+		if(mod == 1) //GOING UP
+			thermal_energy_change = min(active_power_usage,I.reagents.get_thermal_energy_change(r_temperature,heating_temperature))
+		else if (mod == -1) //GOING DOWN
+			thermal_energy_change = max(-active_power_usage,I.reagents.get_thermal_energy_change(r_temperature,cooling_temperature))
+		I.reagents.add_thermal_energy(thermal_energy_change)
+		use_power(active_power_usage)
 
 
 
@@ -332,61 +322,50 @@
 			attack_hand(user)
 		return
 
-
-
 	if(stat & NOPOWER)
 		to_chat(user, SPAN_NOTICE("[src] is unpowered and useless."))
 		return
 
 	if(accept_check(O))
-		if(contents.len >= max_n_of_items)
+		if(length(contents) >= max_n_of_items)
 			to_chat(user, SPAN_NOTICE("[src] is full."))
-			return 1
-		else
-			user.remove_from_mob(O)
-			O.forceMove(src)
-			if(item_quants[O.name])
-				item_quants[O.name]++
-			else
-				item_quants[O.name] = 1
-			user.visible_message("<b>[user]</b> adds \a [O] to [src].", SPAN_NOTICE("You add [O] to [src]."))
+			return TRUE
+		user.remove_from_mob(O)
+		O.forceMove(src)
+		item_quants[O.name]++
+		user.visible_message("<b>[user]</b> adds \a [O] to [src].", SPAN_NOTICE("You add [O] to [src]."))
 
-			SSnanoui.update_uis(src)
-			return
+		SSnanoui.update_uis(src)
+		return
 
 	if(istype(O, /obj/item/storage/bag) || istype(O, /obj/item/storage/box/produce))
 		var/obj/item/storage/P = O
 		var/plants_loaded = 0
 		for(var/obj/G in P.contents)
 			if(accept_check(G))
-				if(contents.len >= max_n_of_items)
+				if(length(contents) >= max_n_of_items)
 					to_chat(user, SPAN_NOTICE("[src] is full."))
-					return 1
-				else
-					P.remove_from_storage(G,src)
-					if(item_quants[G.name])
-						item_quants[G.name]++
-					else
-						item_quants[G.name] = 1
-					plants_loaded++
+					return TRUE
+				P.remove_from_storage(G,src)
+				item_quants[G.name]++
+				plants_loaded++
 		if(plants_loaded)
 
 			user.visible_message(SPAN_NOTICE("[user] loads [src] with [P]."), SPAN_NOTICE("You load [src] with [P]."))
-			if(P.contents.len > 0)
+			if(length(P.contents) > 0)
 				to_chat(user, SPAN_NOTICE("Some items are refused."))
 
 		SSnanoui.update_uis(src)
-
-	else
-		to_chat(user, SPAN_NOTICE("[src] smartly refuses [O]."))
-		return 1
+	to_chat(user, SPAN_NOTICE("[src] smartly refuses [O]."))
+	return TRUE
 
 /obj/machinery/smartfridge/secure/emag_act(var/remaining_charges, var/mob/user)
-	if(!emagged)
-		emagged = 1
-		locked = -1
-		to_chat(user, "You short out the product lock on [src].")
-		return 1
+	if(emagged)
+		return FALSE
+	emagged = 1
+	locked = -1
+	to_chat(user, "You short out the product lock on [src].")
+	return TRUE
 
 /obj/machinery/smartfridge/attack_ai(mob/user as mob)
 	attack_hand(user)
@@ -418,27 +397,27 @@
 		if(count > 0)
 			items.Add(list(list("display_name" = html_encode(capitalize(K)), "vend" = i, "quantity" = count)))
 
-	if(items.len > 0)
+	if(length(items) > 0)
 		data["contents"] = items
 
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
-		ui = new(user, src, ui_key, "smartfridge.tmpl", src.name, 400, 500)
+		ui = new(user, src, ui_key, "smartfridge.tmpl", name, 400, 500)
 		ui.set_initial_data(data)
 		ui.open()
 
 /obj/machinery/smartfridge/Topic(href, href_list)
-	if(..()) return 0
+	if(..()) return FALSE
 
 	var/mob/user = usr
 	var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
 
-	src.add_fingerprint(user)
+	add_fingerprint(user)
 
 	if(href_list["close"])
 		user.unset_machine()
 		ui.close()
-		return 0
+		return FALSE
 
 	if(href_list["vendItem"])
 		var/index = text2num(href_list["vendItem"])
@@ -456,16 +435,16 @@
 					O.forceMove(loc)
 					i--
 					if(i <= 0)
-						return 1
+						return TRUE
 
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/machinery/smartfridge/proc/throw_item()
 	var/obj/throw_item = null
 	var/mob/living/target = locate() in view(7,src)
 	if(!target)
-		return 0
+		return FALSE
 
 	for (var/O in item_quants)
 		if(item_quants[O] <= 0) //Try to use a record that actually has something to dump.
@@ -474,25 +453,25 @@
 		item_quants[O]--
 		for(var/obj/T in contents)
 			if(T.name == O)
-				T.forceMove(src.loc)
+				T.forceMove(loc)
 				throw_item = T
 				break
 		break
 	if(!throw_item)
-		return 0
+		return FALSE
 	spawn(0)
 		throw_item.throw_at(target,16,3,src)
-	src.visible_message(SPAN_DANGER("[src] launches [throw_item.name] at [target.name]!"))
-	return 1
+	visible_message(SPAN_DANGER("[src] launches [throw_item.name] at [target.name]!"))
+	return TRUE
 
 /************************
 *   Secure SmartFridges
 *************************/
 
 /obj/machinery/smartfridge/secure/Topic(href, href_list)
-	if(stat & (NOPOWER|BROKEN)) return 0
-	if(usr.contents.Find(src) || (in_range(src, usr) && istype(loc, /turf)))
+	if(stat & (NOPOWER|BROKEN)) return FALSE
+	if(usr.contents.Find(src) || (in_range(src, usr) && isturf(loc)))
 		if(!allowed(usr) && !emagged && locked != -1 && href_list["vendItem"])
 			to_chat(usr, SPAN_WARNING("Access denied."))
-			return 0
+			return FALSE
 	return ..()
