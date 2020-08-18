@@ -252,7 +252,7 @@
 	if(!charge)
 		return FALSE
 
-	var/chems_to_use = 10
+	var/chems_to_use = 5
 	if(charge.charges <= 0)
 		to_chat(user, SPAN_WARNING("Insufficient chems!"))
 		return FALSE

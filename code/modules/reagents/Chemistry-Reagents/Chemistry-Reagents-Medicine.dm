@@ -5,7 +5,7 @@
 	description = "Inaprovaline is a cardiostimulant which stabilises myocardial contractility, working towards maintaining a steady pulse and blood pressure. Inaprovaline also acts as a weak analgesic"
 	reagent_state = LIQUID
 	color = "#00BFFF"
-	overdose = REAGENTS_OVERDOSE //Reduced from 60u to 20u because 60u is pretty unobtainable.
+	overdose = REAGENTS_OVERDOSE
 	metabolism = REM * 0.5
 	metabolism_min = REM * 0.125
 	breathe_mul = 0.5
@@ -36,7 +36,7 @@
 /datum/reagent/bicaridine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(5 * removed, 0)
 	if((locate(/datum/reagent/butazoline) in M.reagents.reagent_list))
-		M.add_chemical_effect(CE_ITCH, dose)
+		M.add_chemical_effect(CE_ITCH, dose * 2)
 		M.adjustHydrationLoss(2*removed)
 		M.adjustCloneLoss(2.5*removed) // Cell regeneration spiralling out of control resulting in genetic damage.
 
@@ -47,7 +47,7 @@
 	M.adjustNutritionLoss(5*removed)
 	
 	var/mob/living/carbon/human/H = M 
-	if(dose == overdose * 1.5) //At a 30 unit overdose, it will begin to clot arterial bleeding.
+	if(dose == overdose * 1.5) //Once the metabolised dose is at 30 units and volume in the blood is also greater than 30 units,
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & ORGAN_ARTERY_CUT && prob(2))
 				E.status &= ~ORGAN_ARTERY_CUT
@@ -56,7 +56,7 @@
 	name = "Butazoline"
 	description = "Butazoline, a recent improvement upon Bicaridine, is specialised at treating the most traumatic of wounds, though less so for treating severe bleeding."
 	reagent_state = LIQUID
-	color = "#E62E50"
+	color = "#ff5555"
 	overdose = 15
 	scannable = 1
 	metabolism = REM * 0.5
@@ -65,7 +65,7 @@
 
 /datum/reagent/butazoline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(8 * removed, 0)
-	M.add_chemical_effect(CE_ITCH, dose/2)
+	M.add_chemical_effect(CE_ITCH, dose)
 	M.adjustHydrationLoss(1*removed)
 
 /datum/reagent/kelotane
@@ -80,10 +80,10 @@
 
 /datum/reagent/kelotane/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(0, 6 * removed)
-	if((locate(/datum/reagent/dermaline) in M.reagents.reagent_list)) //Instead of just disabling kelotane when dermaline is present, I've opted to have them function together, however with the drawback of genetic damage. It becomes a case of weighing your options - Keloderm will be great for severe burns, but creates more problems if you're using it to treat minor burns.
-		M.add_chemical_effect(CE_ITCH, dose)
+	if((locate(/datum/reagent/dermaline) in M.reagents.reagent_list))
+		M.add_chemical_effect(CE_ITCH, dose * 2)
 		M.adjustHydrationLoss(2*removed)
-		M.adjustCloneLoss(2.5*removed) // Cell regeneration spiralling out of control resulting in genetic damage.
+		M.adjustCloneLoss(2.5*removed) //Cell regeneration spiralling out of control resulting in genetic damage.
 
 /datum/reagent/dermaline
 	name = "Dermaline"
@@ -99,7 +99,7 @@
 
 /datum/reagent/dermaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.heal_organ_damage(0, 12 * removed)
-	M.add_chemical_effect(CE_ITCH, dose/2)
+	M.add_chemical_effect(CE_ITCH, dose)
 	M.adjustHydrationLoss(1*removed)
 
 /datum/reagent/dylovene
@@ -107,7 +107,7 @@
 	description = "Dylovene is a broad-spectrum over-the-counter antitoxin. It is used in response to a variety of poisoning cases, being able to neutralise and remove harmful toxins from the bloodstream."
 	reagent_state = LIQUID
 	color = "#00A000"
-	overdose = REAGENTS_OVERDOSE //No reason for dylovene to not overdose.
+	overdose = REAGENTS_OVERDOSE
 	scannable = TRUE
 	metabolism = REM * 0.5
 	taste_description = "a roll of gauze"
@@ -185,7 +185,7 @@
 	description = "Tricordrazine is an old, though still useful, medication largely set aside following bicaridine and kelotane’s development. The drug increases the rate at which tissues regenerate, though far slower than modern medications."
 	reagent_state = LIQUID
 	color = "#8040FF"
-	overdose = REAGENTS_OVERDOSE //No reason for tricordrazine to not overdose.
+	overdose = 30
 	scannable = 1
 	fallback_specific_heat = 1
 	taste_description = "bitterness"
@@ -199,8 +199,7 @@
 	M.heal_organ_damage(3 * removed * power,3 * removed * power)
 
 /datum/reagent/tricordrazine/overdose(var/mob/living/carbon/M, var/alien)
-	M.dizziness = max(100, M.dizziness)
-	M.make_dizzy(5)
+	M.add_chemical_effect(CE_ITCH, dose)
 
 /datum/reagent/cryoxadone
 	name = "Cryoxadone"
@@ -243,7 +242,7 @@
 	description = "Perconol is an advanced, analgesic medication which is highly effective at treating minor-mild pain, inflammation and high fevers. The drug is available over-the-counter for treating minor illnesses and mild pain. Perconol is not effective when inhaled."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
-	overdose = REAGENTS_OVERDOSE //Reduced from 60u to 20u because 60u is pretty unobtainable.
+	overdose = REAGENTS_OVERDOSE
 	scannable = 1
 	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
 	ingest_met = REM * 2 // .4 units per tick
@@ -265,7 +264,7 @@
 	description = "Mortaphenyl is an advanced, powerful analgesic medication which is highly effective at treating mild-severe pain as a result of severe, physical injury. Mortaphenyl is not effective when inhaled."
 	reagent_state = LIQUID
 	color = "#CB68FC"
-	overdose = 30
+	overdose = 15
 	scannable = 1
 	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
 	ingest_met = REM * 2 // .4 units per tick
@@ -278,8 +277,6 @@
 	M.add_chemical_effect(CE_PAINKILLER, 80)
 	M.eye_blurry = max(M.eye_blurry, 5)
 	M.confused = max(M.confused, 10)
-	if(prob(2))
-		to_chat(M, SPAN_NOTICE(pick("Your movements feel very slow.", "You feel very groggy.", "You feel numb in places.")))
 
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
@@ -292,7 +289,7 @@
 		if(M.losebreath < 15)
 			M.losebreath++
 
-	if((locate(/datum/reagent/oxycomorphine) in M.reagents.reagent_list)) //Oxycomorphine & Mortaphenyl contraindicated. Both do the same job, so the effects would compound and immediately go to OD.
+	if((locate(/datum/reagent/oxycomorphine) in M.reagents.reagent_list))
 		overdose = dose/2 //Straight to overdose.
 
 /datum/reagent/mortaphenyl/overdose(var/mob/living/carbon/M, var/alien)
@@ -307,7 +304,7 @@
 	description = "Oxycomorphine is a highly advanced, powerful analgesic medication which is extremely effective at treating severe-agonising pain as a result of injuries usually incompatible with life. The drug is highly addictive and sense-numbing. Oxycomorphine is not effective when inhaled."
 	reagent_state = LIQUID
 	color = "#800080"
-	overdose = 20
+	overdose = 10
 	scannable = TRUE
 	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
 	ingest_met = REM * 2 // .4 units per tick
@@ -320,8 +317,7 @@
 	M.add_chemical_effect(CE_PAINKILLER, 200)
 	M.eye_blurry = max(M.eye_blurry, 5)
 	M.confused = max(M.confused, 20)
-	if(prob(2))
-		to_chat(M, SPAN_WARNING(pick("Your movements feel very slow.", "You feel very groggy.", "You feel numb in places.")))
+
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
 		return
@@ -360,13 +356,14 @@
 
 /datum/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.drowsyness = max(M.drowsyness - 5, 0)
-	if(is_overdosed == FALSE)
-		M.AdjustParalysis(-1) //Required so, when overdosing, synaptizine doesn't immediately take you out of the seizure.
+	if(is_overdosed == FALSE) // Will prevent synaptizine interrupting a seizure caused by its own overdose.
+		M.AdjustParalysis(-1) 
 	M.AdjustStunned(-1)
 	M.AdjustWeakened(-1)
 	holder.remove_reagent(/datum/reagent/mindbreaker, 5)
 	M.hallucination = max(0, M.hallucination - 10)
-	M.eye_blurry = max(M.eye_blurry - 5 * removed, 0)
+	M.eye_blurry = max(M.eye_blurry - 5, 0)
+	M.confused = max(M.confused - 10, 0)
 	M.adjustToxLoss(5 * removed) // It used to be incredibly deadly due to an oversight. Not anymore!
 	M.add_chemical_effect(CE_PAINKILLER, 40)
 	M.add_chemical_effect(CE_HALLUCINATE, -1)
@@ -374,9 +371,9 @@
 		modifier = M.add_modifier(/datum/modifier/adrenaline, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
 
 /datum/reagent/synaptizine/overdose(var/mob/living/carbon/M, var/alien)
-	if(prob(dose - overdose * 3))
+	if(prob(dose / 2))
 		to_chat(M, SPAN_WARNING(pick("You feel a tingly sensation in your body.", "You can smell something unusual.", "You can taste something unusual.")))
-	if(prob(dose - overdose))
+	if(prob(dose / 3))
 		if(prob(75))
 			M.emote(pick("twitch", "shiver"))
 		else
@@ -391,31 +388,33 @@
 	description = "Alkysine is a complex drug which increases cerebral circulation, ensuring the brain does not become hypoxic and increasing the rate at which neurological function returns after a catastrophic injury."
 	reagent_state = LIQUID
 	color = "#FFFF66"
-	metabolism = REM * 0.25
-	overdose = 10 //Hopefully might stop people hammering in alkysine wondering why it does not work and will reduce the need for chemists to stock so much of it.
+	metabolism = REM //0.2u/tick
+	overdose = 10
 	scannable = 1
 	taste_description = "bitterness"
 	metabolism_min = REM * 0.075
 
 /datum/reagent/alkysine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(is_overdosed == FALSE)
-		M.add_chemical_effect(CE_BRAIN_REGEN, 30*removed)
-	M.add_chemical_effect(CE_PAINKILLER, 10)
-	M.dizziness = max(125, M.dizziness) // Countered with Ethylredoxrazine to give the drug more use beyond 'anti-alcohol drug'.
-	M.make_dizzy(5)
-	var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
-	if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
-		if(prob(dose/3) && !B.has_trauma_type(BRAIN_TRAUMA_MILD)) //Psychiatrists will actually have something mechanical to deal with should someone hammer in too much alkysine.
-			B.gain_trauma_type(pick(/datum/brain_trauma/mild/dumbness, /datum/brain_trauma/mild/muscle_weakness, /datum/brain_trauma/mild/colorblind)) //Very specifically picked traumas that people shouldn't have too many issues with. Subject to debate.
+	if(volume < 2) //Increased effectiveness & no side-effects if given via IV drip with low transfer rate.
+		M.add_chemical_effect(CE_BRAIN_REGEN, 40) //1 unit of Alkysine fed via drip at a low transfer rate will raise activity by 10%.
+	else 
+		M.add_chemical_effect(CE_BRAIN_REGEN, 30) //1 unit of Alkysine will raise brain activity by 7.5%.
+		M.add_chemical_effect(CE_PAINKILLER, 10)
+		M.dizziness = max(125, M.dizziness)
+		M.make_dizzy(5)
+		if(is_overdosed == FALSE)
+			var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
+			if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
+				if(prob(dose/5) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
+					B.gain_trauma_type(pick(/datum/brain_trauma/mild/dumbness, /datum/brain_trauma/mild/muscle_weakness, /datum/brain_trauma/mild/colorblind)) //Handpicked suggested traumas considered less disruptive and conducive to roleplay.
 
 /datum/reagent/alkysine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_BRAIN_REGEN, 10*removed) //Effectiveness reduced by two-thirds when overdosed.
 	M.hallucination = max(M.hallucination, 15)
 	var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
 	if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
-		if(prob(dose - overdose / 2) && !B.has_trauma_type(BRAIN_TRAUMA_SEVERE) && !B.has_trauma_type(BRAIN_TRAUMA_MILD) && !B.has_trauma_type(BRAIN_TRAUMA_SPECIAL))
+		if(prob(dose / 2) && !B.has_trauma_type(BRAIN_TRAUMA_SEVERE) && !B.has_trauma_type(BRAIN_TRAUMA_MILD) && !B.has_trauma_type(BRAIN_TRAUMA_SPECIAL))
 			B.gain_trauma_type(/datum/brain_trauma/severe/paralysis, /datum/brain_trauma/severe/aphasia, /datum/brain_trauma/special/imaginary_friend)
-	if(prob(dose - overdose / 2))
+	if(prob(dose))
 		to_chat(M, SPAN_WARNING(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!")))
 	..()
 
@@ -456,18 +455,17 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		H.add_chemical_effect(CE_CLUMSY, 1)
-		if(is_overdosed == FALSE) //Stops healing organs when overdosed.
-			for(var/obj/item/organ/internal/I in H.internal_organs)
-				if(I.organ_tag == BP_BRAIN)
-					if(I.damage >= I.min_bruised_damage)
-						continue
-				if((I.damage > 0) && (I.robotic != 2)) //Peridaxon heals only non-robotic organs
-					I.damage = max(I.damage - removed, 0)
+		for(var/obj/item/organ/internal/I in H.internal_organs)
+			if(I.organ_tag == BP_BRAIN)
+				if(I.damage >= I.min_bruised_damage)
+					continue
+			if((I.damage > 0) && (I.robotic != 2)) //Peridaxon heals only non-robotic organs
+				I.damage = max(I.damage - removed, 0)
 
 /datum/reagent/peridaxon/overdose(var/mob/living/carbon/M, var/alien)
 	M.dizziness = max(150, M.dizziness)
 	M.make_dizzy(5)
-	if(prob(dose - overdose / 2))
+	if(prob(dose / 2))
 		to_chat(M, SPAN_DANGER("You feel your insides twisting and burning."))
 		M.adjustHalLoss(15)
 
@@ -522,8 +520,8 @@
 	M.add_chemical_effect(CE_PULSE, 2)
 	if(prob(5))
 		to_chat(M, SPAN_DANGER(pick("Your heart is beating rapidly!", "Your chest hurts!")))
-	if(prob(dose - overdose / 2))
-		M.visible_message("[M] twitches violently, grimacing.", "You twitch violently and feel yourself sprain a joint.")
+	if(prob(dose / 3))
+		M.visible_message("<b>[M]</b> twitches violently, grimacing.", "You twitch violently and feel yourself sprain a joint.")
 		M.take_organ_damage(5 * removed, 0)
 		M.adjustHalLoss(15)
 
@@ -635,7 +633,7 @@
 
 /datum/reagent/arithrazine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(50))
-		M.take_organ_damage(6 * removed, 0) //Even more collateral damage dealt by arithrazine.
+		M.take_organ_damage(6 * removed, 0) //Even more collateral damage dealt by arithrazine when overdosed.
 
 /datum/reagent/thetamycin
 	name = "Thetamycin"
@@ -715,7 +713,7 @@
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
 /datum/reagent/cetahydramine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	M.add_chemical_effect(CE_NOITCH, dose)
+	M.add_chemical_effect(CE_NOITCH, dose * 2) // 5 units of cetahydramine will counter 10 units of dermaline/butazoline itching.
 	if(prob(dose/2))
 		M.drowsyness += 2
 
@@ -921,7 +919,7 @@
 	..()
 
 /datum/reagent/mental/corophendiate/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
+	M.add_chemical_effect(CE_EMETIC, dose / 6)
 
 
 /datum/reagent/mental/neurostabin
@@ -950,7 +948,7 @@
 	)
 
 /datum/reagent/mental/neurostabin/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
+	M.add_chemical_effect(CE_EMETIC, dose / 6)
 
 /datum/reagent/mental/parvosil
 	name = "Parvosil"
@@ -976,7 +974,7 @@
 	suppressing_reagents = list(/datum/reagent/mental/neurostabin = 5)
 
 /datum/reagent/mental/parvosil/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
+	M.add_chemical_effect(CE_EMETIC, dose / 6)
 
 /datum/reagent/mental/minaphobin
 	name = "Minaphobin"
@@ -1006,7 +1004,7 @@
 	)
 
 /datum/reagent/mental/minaphobin/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
+	M.add_chemical_effect(CE_EMETIC, dose / 6)
 
 /datum/reagent/mental/emoxanyl
 	name = "Emoxanyl"
@@ -1040,7 +1038,7 @@
 	)
 
 /datum/reagent/mental/emoxanyl/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
+	M.add_chemical_effect(CE_EMETIC, dose / 6)
 
 /datum/reagent/mental/orastabin
 	name = "Orastabin"
@@ -1075,7 +1073,7 @@
 	)
 
 /datum/reagent/mental/orastabin/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
+	M.add_chemical_effect(CE_EMETIC, dose / 6)
 
 /datum/reagent/mental/neurapan
 	name = "Neurapan"
@@ -1121,7 +1119,7 @@
 	M.add_chemical_effect(CE_HALLUCINATE, -2)
 	..()
 
-/datum/reagent/mental/neurapan/overdose(var/mob/living/carbon/M, var/alien) //Will likely improve Neurapan's OD at some point in the future and make it something really interesting.
+/datum/reagent/mental/neurapan/overdose(var/mob/living/carbon/M, var/alien)
 	M.add_chemical_effect(CE_PACIFIED, 1)
 	M.eye_blurry = max(M.eye_blurry, 30)
 	if((locate(/datum/reagent/oxycomorphine) in M.reagents.reagent_list))
@@ -1176,7 +1174,7 @@
 	..()
 
 /datum/reagent/mental/nerospectan/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
+	M.add_chemical_effect(CE_EMETIC, dose / 6)
 
 /datum/reagent/mental/truthserum
 	name = "Truth Serum"
@@ -1197,10 +1195,10 @@
 		/datum/brain_trauma/severe/pacifism = 25
 	)
 	messagedelay = 30
-	ingest_mul = 1 //Changed from 0 to 1 - think there was a mistake thinking this was Nanomachines or something. Can be reverted, but the Chemistry Guide does use oral admin. of doses as a guideline of how long it's effects last.
+	ingest_mul = 1
 
 /datum/reagent/mental/truthserum/overdose(var/mob/living/carbon/M, var/alien)
-	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
+	M.add_chemical_effect(CE_EMETIC, dose / 6)
 
 /datum/reagent/mental/vaam
 	name = "V'krexi Amino Acid Mixture"
@@ -1273,7 +1271,7 @@
 	description = "Cataleptinol is a highly advanced, expensive medication capable of regenerating the most damaged of brain tissues. Cataleptinol is used in the treatment of dumbness, cerebral blindness, cerebral paralysis and aphasia. The drug is more effective when the patient’s core temperature is below 170K."
 	reagent_state = LIQUID
 	color = "#FFFF00"
-	metabolism = REM * 2 //0.4
+	metabolism = REM //0.2u/tick
 	overdose = 15
 	scannable = 1
 	taste_description = "bitterness"
@@ -1293,9 +1291,9 @@
 	var/chance = dose*removed
 	if(M.bodytemperature < 170)
 		chance = (chance*4) + 5
-		M.add_chemical_effect(CE_BRAIN_REGEN, 30*removed)
+		M.add_chemical_effect(CE_BRAIN_REGEN, 30) //1 unit of cryo-tube Cataleptinol will raise brain activity by 10%.
 	else
-		M.add_chemical_effect(CE_BRAIN_REGEN, 10*removed)
+		M.add_chemical_effect(CE_BRAIN_REGEN, 20) //1 unit of Cataleptinol will raise brain activity by 5%.
 
 	if(prob(chance))
 		M.cure_trauma_type(pick(curable_traumas))
@@ -1304,7 +1302,7 @@
 	M.hallucination = max(M.hallucination, 15)
 	var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
 	if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
-		if(prob(dose - overdose / 2) && !B.has_trauma_type(BRAIN_TRAUMA_SEVERE) && !B.has_trauma_type(BRAIN_TRAUMA_MILD) && !B.has_trauma_type(BRAIN_TRAUMA_SPECIAL))
+		if(prob(dose / 2) && !B.has_trauma_type(BRAIN_TRAUMA_SEVERE) && !B.has_trauma_type(BRAIN_TRAUMA_MILD) && !B.has_trauma_type(BRAIN_TRAUMA_SPECIAL))
 			B.gain_trauma_type(pick(/datum/brain_trauma/severe/paralysis, /datum/brain_trauma/severe/aphasia, /datum/brain_trauma/mild/dumbness, /datum/brain_trauma/mild/muscle_weakness, /datum/brain_trauma/mild/colorblind, /datum/brain_trauma/special/imaginary_friend))
 	if(prob(5))
 		to_chat(M, SPAN_WARNING(pick("You have a painful headache!", "You feel a throbbing pain behind your eyes!")))
@@ -1497,7 +1495,7 @@
 	..()
 
 /datum/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)
-	M.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
+	M.add_chemical_effect(CE_EMETIC, dose / 6)
 	if(istype(M))
 		if(prob(25))
 			M.add_chemical_effect(CE_HEPATOTOXIC, 1)
@@ -1507,9 +1505,9 @@
 	description = "Saline Plus, or Vaughan's Saline Solution, is an expensive improvement upon the various saline solutions of old. Saline Plus has wide clinical applications in the treatment of dehydration and hypovolaemia, with no more debates as to whether it is effective or not."
 	reagent_state = LIQUID
 	scannable = TRUE
-	metabolism = REM * 4
-	overdose = 5 // Low overdose and fast metabolism to encourage IV drip usage. Overdose isn't too severe if a player doesn't realise this.
-	color = "#0064C877" //Saline is just salty water, now coloured the same as Water.
+	metabolism = REM * 4 
+	overdose = 5 // Low overdose and fast metabolism to necessitate IV drip usage
+	color = "#0064C877"
 	taste_description = "premium salty water"
 	unaffected_species = IS_MACHINE
 	ingest_mul = 0
@@ -1521,12 +1519,12 @@
 	else
 		M.adjustHydrationLoss(-removed*5)
 	if(is_overdosed == FALSE)
-		M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed) //Replaces iron, copper and sulphur as the main blood restorative medication. Expensive & finnicky to make, though.
+		M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed)
 	
 /datum/reagent/saline/overdose(var/mob/living/carbon/M, var/alien)
 	M.confused = max(M.confused, 20)
 	M.make_jittery(5)
-	if(prob(dose - overdose / 2))
+	if(prob(dose / 2))
 		M.emote("twitch")
 
 /datum/reagent/adrenaline
@@ -1588,7 +1586,7 @@
 	H.add_chemical_effect(CE_PACIFIED, 1)
 
 /datum/reagent/pacifier/overdose(var/mob/living/carbon/H, var/alien)
-	H.add_chemical_effect(CE_EMETIC, dose - overdose / 6)
+	H.add_chemical_effect(CE_EMETIC, dose / 6)
 
 /datum/reagent/rmt
 	name = "Regenerative-Muscular Tissue Supplements"
@@ -1596,7 +1594,7 @@
 	reagent_state = LIQUID
 	scannable = TRUE
 	color = "#AA8866"
-	overdose = REAGENTS_OVERDOSE //No reason for RMT not to have an overdose.
+	overdose = REAGENTS_OVERDOSE
 	metabolism = 0.2 * REM
 	taste_description = "sourness"
 	fallback_specific_heat = 1

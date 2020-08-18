@@ -11,7 +11,7 @@
 		)
 	icon_state = null
 	item_state = "bottle"
-	amount_per_transfer_from_this = 10
+	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(5,10,15,25,30,60)
 	flags = 0
 	volume = 60

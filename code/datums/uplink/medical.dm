@@ -31,7 +31,7 @@
 
 /datum/uplink_item/item/medical/sideeffectbegone
 	name = "Box of Sideeffect-Be-Gone Injectors"
-	item_cost = 4
+	item_cost = 3
 	path = /obj/item/storage/box/syndie_kit/sideeffectbegone
 
 /datum/uplink_item/item/medical/firstaid

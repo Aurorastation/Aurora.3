@@ -18,7 +18,7 @@
 #define REAGENTS_PER_SHEET 20
 #define MAX_PILL_SPRITE 20 //max icon state of the pill sprites
 
-#define REAGENTS_OVERDOSE 20 //Default overdose reduced from 30 to 20. 30u is hard for even 2 poorly communicating doctors to hit; 20u is hard for 1 doctor to hit, but easier for 2 poorly communicating doctors to hit.
+#define REAGENTS_OVERDOSE 20
 #define REAGENTS_BURNING_TEMP_HIGH T0C + 65 //Temperature at which high temperature burns occur
 #define REAGENTS_BURNING_TEMP_HIGH_DAMAGE 0.0001 //Damage per celcius per unit above the REAGENTS_BURNING_TEMP_HIGH define per unit.
 #define REAGENTS_BURNING_TEMP_HIGH_DAMAGE_CAP 20 //Maximum amount of burn damage to deal due to high temperature reagents.

@@ -88,6 +88,7 @@
 
 /datum/reagent/impedrezene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.jitteriness = max(M.jitteriness - 5, 0)
+	M.confused = max(M.confused, 10)
 	if(prob(80))
 		M.add_chemical_effect(CE_NEUROTOXIC, 3*removed)
 	if(prob(50))

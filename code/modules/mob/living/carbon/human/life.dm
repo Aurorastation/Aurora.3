@@ -611,17 +611,15 @@
 				delayed_vomit()
 
 		if(CE_ITCH in chem_effects)
-			var/itching = chem_effects[CE_NOITCH]
-			if(CE_ITCH in chem_effects)
+			var/itching = chem_effects[CE_ITCH]
+			if(CE_NOITCH in chem_effects)
 				itching -= chem_effects[CE_NOITCH]
-			if(itching > 1)
+			if(itching < 5)
 				if(prob(5))
-					to_chat(src, SPAN_NOTICE(pick("You have an annoying itch.", "You have a slight itch.")))
-			if(itching > 3)
-				if(prob(10))
+					to_chat(src, SPAN_WARNING(pick("You have an annoying itch.", "You have a slight itch.")))
+			if(itching >= 5)
+				if(prob(2))
 					to_chat(src, SPAN_WARNING(pick("The itch is becoming progressively worse.", "You need to scratch that itch!", "The itch isn't going!")))
-					src.emote("scratch")
-					src.take_organ_damage(4, 0)
 
 		if(CE_FEVER in chem_effects)
 			var/normal_temp = species?.body_temperature || (T0C+37)
