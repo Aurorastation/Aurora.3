@@ -331,6 +331,18 @@ var/datum/controller/subsystem/timer/SStimer
 	src.flags = flags
 	src.hash = hash
 
+	var/static/timeadded = world.time
+	var/static/count = 0
+
+	if (timeadded != world.time)
+		timeadded = world.time
+		count = 0
+	else
+		count++
+
+		if (count > 100)
+			crash_with("Timer New crash: [count] in one tick.")
+
 	if (flags & TIMER_CLIENT_TIME)
 		timeToRun = REALTIMEOFDAY + wait
 	else
@@ -358,6 +370,19 @@ var/datum/controller/subsystem/timer/SStimer
 
 /datum/timedevent/Destroy()
 	..()
+
+	var/static/timeadded = world.time
+	var/static/count = 0
+
+	if (timeadded != world.time)
+		timeadded = world.time
+		count = 0
+	else
+		count++
+
+		if (count > 100)
+			crash_with("Timer Destroy crash: [count] in one tick.")
+
 	if (flags & TIMER_UNIQUE && hash)
 		SStimer.hashes -= hash
 
