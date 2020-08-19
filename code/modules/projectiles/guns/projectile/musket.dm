@@ -70,7 +70,7 @@
 					return
 				C.reagents.remove_reagent(/datum/reagent/gunpowder, 5)
 				has_powder = TRUE
-				to_chat(user, "<span class='notice'>You fill \the [src] with gunpowder.</span>")
+				to_chat(user, SPAN_NOTICE("You fill \the [src] with gunpowder."))
 
 /obj/item/reagent_containers/powder_horn
 	name = "powder horn"
