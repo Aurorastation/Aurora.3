@@ -97,6 +97,7 @@
 	update_icon()
 	pass_flags = PASSTABLE | PASSMOB
 	layer = ON_TURF_LAYER
+	density = FALSE
 	visible_message(SPAN_DANGER("\The [src] burrows into the ground!"))
 
 /mob/living/simple_animal/hostile/phoron_worm/proc/unburrow()
@@ -108,7 +109,14 @@
 	update_icon()
 	pass_flags = initial(pass_flags)
 	layer = initial(layer)
+	density = TRUE
 	visible_message(SPAN_DANGER("\The [src] emerges from the ground!"))
+	if(mob_size > 15)
+		for(var/mob/living/M in (get_turf(src)))
+			if(M != src)
+				M.apply_damage(50, BRUTE)
+				M.apply_effect(6, STUN, blocked)
+				M.throw_at(get_random_turf_in_range(get_turf(src), 1), 2)
 
 /mob/living/simple_animal/hostile/phoron_worm/verb/eat_phoron()
 	set name = "Consume Phoron"
