@@ -85,6 +85,16 @@
 		M.adjustHydrationLoss(2*removed)
 		M.adjustCloneLoss(2.5*removed) //Cell regeneration spiralling out of control resulting in genetic damage.
 
+/datum/reagent/kelotane/overdose(var/mob/living/carbon/M, var/alien)
+	var/mob/living/carbon/human/H = M
+	var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
+	if(!(head.disfigured))
+		if(prob(10))
+			to_chat(M, SPAN_WARNING(pick("Blisters start forming on your face.", "Your face feels numb.", "Your face feels swollen.", "You face hurts to touch.")))
+		if(prob(2))
+			to_chat(M, SPAN_DANGER("Your face has swollen and blistered to such a degree that you are no longer recognisable!"))
+			head.disfigured = TRUE
+
 /datum/reagent/dermaline
 	name = "Dermaline"
 	description = "Dermaline is a recent improvement of kelotane, working in a similar way, though twice as effective. Dermaline is capable of recovering even the most dire of burnt tissues, being able to treat full-thickness burning."

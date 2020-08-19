@@ -17,7 +17,7 @@
 	var/dose = 0
 	var/max_dose = 0
 	var/overdose = 0 //Volume of a chemical required in the blood to meet overdose criteria.
-	var/od_minimum_dose = 1 //Metabolised dose of a chemical required to meet overdose criteria. 
+	var/od_minimum_dose = 5 //Metabolised dose of a chemical required to meet overdose criteria. 
 	var/is_overdosed = FALSE
 	var/scannable = 0 // Shows up on health analyzers.
 	var/affects_dead = 0

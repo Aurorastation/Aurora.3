@@ -44,6 +44,7 @@ changes:
   - rscadd: "Certain chemicals have been totally overhauled to make them more unique."
   - tweak: "Overdoses are now triggered by volume in the blood and by a minimum metabolise dose (capping at 5 units)."
   - tweak: "The default OD threshold is now 20u. Poor communication between doctors is now more likely to result in ODs."
+  - tweak: "Alkysine and Cataleptinol will now actually heal the brain at varying rates, as opposed to both treating the same amount of low damage."
   - tweak: "The default chemical transfer rates of RIG injectors, Medibots and bottles have been reduced to allow more precise dose measurements."
   - tweak: "More medical chemicals will appear on medical scans as opposed to being registered as unknown substances."
   - rscadd: "Introducing Butazoline, the dermaline equivalent for treating brute injuries. It cannot treat arterial bleeding like Bicaridine, however."

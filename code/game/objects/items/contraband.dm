@@ -23,6 +23,7 @@
 /obj/item/reagent_containers/glass/beaker/vial/random/toxin
 	random_reagent_list = list(
 		list(/datum/reagent/mindbreaker = 10, /datum/reagent/space_drugs = 20)	= 3,
+		list(/datum/reagent/mercury = 15)										= 3,
 		list(/datum/reagent/toxin/carpotoxin = 15)								= 2,
 		list(/datum/reagent/impedrezene = 15)									= 2,
 		list(/datum/reagent/toxin/dextrotoxin = 10)								= 1,

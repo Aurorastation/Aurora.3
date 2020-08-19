@@ -243,7 +243,7 @@ About Reagents:
 			Ditto, breathing. Defaults to affect_blood with 75% dose.
 
 		overdose(var/mob/living/carbon/M, var/alien)
-			Called when dose is above overdose. Defaults to M.adjustToxLoss(REM).
+			Called when volume is above overdose and dose is greater than a minimum dose. Defaults to M.adjustToxLoss(REM).
 
 		initialize_data(var/newdata)
 			Called when reagent is created. Defaults to setting [data] to [newdata].

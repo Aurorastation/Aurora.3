@@ -312,21 +312,35 @@
 
 /datum/reagent/mercury
 	name = "Mercury"
-	description = "A chemical element."
+	description = "A toxic chemical element, one of only two elements that is liquid at human room temperature and pressure."
 	reagent_state = LIQUID
 	color = "#484848"
-	ingest_met = REM*0.2
+	ingest_met = REM*0.1
+	breathe_met = REM*0.4 
+	breathe_mul = 2 //mercury vapours more dangerous than eating/touching mercury.
 	taste_mult = 0 //mercury apparently is tasteless
+	scannable = 1
 
 	fallback_specific_heat = 0.631
 
-/datum/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(M.canmove && !M.restrained() && !(istype(M.loc, /turf/space)))
-		step(M, pick(cardinal))
-	if(prob(5))
-		M.emote(pick("twitch", "drool", "moan"))
-
-	M.adjustBrainLoss(removed)
+/datum/reagent/mercury/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)	
+	M.add_chemical_effect(CE_NEUROTOXIC, 2*removed)
+	if(dose > 1)
+		if(prob(dose/2))
+			to_chat(M, SPAN_WARNING(pick("You feel a tingly sensation in your body.", "You can smell something unusual.", "You can taste something unusual.", "You hear a faint white-noise that's gradually getting louder.")))
+		M.dizziness = max(125, M.dizziness)
+		M.make_dizzy(5)
+	if(dose > 4)
+		M.confused = max(M.confused, 10)
+		if(prob(dose/4))			
+			M.emote(pick("twitch", "shiver", "drool"))
+		if(prob(dose/4))
+			M.visible_message("<b>[M]</b> chuckles spontaneously.", "You chuckle spontaneously.")
+	if(dose > 8)
+		if(prob(2))
+			to_chat(M, SPAN_WARNING("You can't feel any sensation in your extremities."))
+		M.add_chemical_effect(CE_UNDEXTROUS, 1) //A budget dextrotoxin that's a tad more dangerous and slower to take effect.
+		M.Weaken(10)
 
 /datum/reagent/phosphorus
 	name = "Phosphorus"
