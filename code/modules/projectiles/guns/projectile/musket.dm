@@ -57,7 +57,7 @@
 	has_powder = FALSE
 	return ..()
 
-/obj/item/gun/projectile/musket/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/gun/projectile/musket/attackby(obj/item/W, mob/user)
 	..()
 	if (istype(W, /obj/item/reagent_containers))
 		if(has_powder)
