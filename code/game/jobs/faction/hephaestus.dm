@@ -70,9 +70,8 @@
 
 	job_species_blacklist = list(
 		"Corporate Liaison" = list(
-			"Tajara",
-			"M'sai Tajara",
-			"Zhan-Khazan Tajara"
+			"Vaurca Worker", 
+			"Vaurca Warrior"
 		)
 	)
 

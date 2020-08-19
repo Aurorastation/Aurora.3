@@ -54,7 +54,11 @@
 		"Corporate Liaison" = list(
 			"Tajara",
 			"M'sai Tajara",
-			"Zhan-Khazan Tajara"
+			"Zhan-Khazan Tajara",
+			"Diona",
+			"Vaurca Worker", 
+			"Vaurca Warrior",
+			"Unathi"
 		)
 	)
 

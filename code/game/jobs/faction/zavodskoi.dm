@@ -57,7 +57,11 @@
 			"Xion Industrial Frame",
 			"Zeng-Hu Mobility Frame",
 			"Bishop Accessory Frame",
-			"Shell Frame"
+			"Shell Frame",
+			"Unathi",
+			"Tajara",
+			"M'sai Tajara",
+			"Zhan-Khazan Tajara"
 		)
 	)
 
