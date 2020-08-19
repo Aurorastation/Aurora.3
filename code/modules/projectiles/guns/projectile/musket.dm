@@ -48,7 +48,7 @@
 		return 0
 
 	if(!wielded)
-		to_chat(user, "<span class='warning'>You can't fire without stabilizing \the [src]!</span>")
+		to_chat(user, SPAN_WARNING("You can't fire without stabilizing \the [src]!"))
 		return FALSE
 
 	var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
