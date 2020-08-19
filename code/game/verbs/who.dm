@@ -3,7 +3,9 @@
 	set name = "Who"
 	set category = "OOC"
 
-	var/msg = "<b>Current Players:</b><br>"
+	var/header = "<b>Current Players:</b><br>"
+	var/count
+	var/msg
 	var/total_num = 0
 
 	if(holder && (R_ADMIN & holder.rights || R_MOD & holder.rights))
@@ -52,7 +54,8 @@
 			total_num++
 			msg += "<br>"
 
-	msg += "<b>Total Players: [total_num]</b>"
+	count = "<b>Total Players: [total_num]</b><br>"
+	msg = header + count + msg
 
 	var/datum/browser/who_win = new(usr, "who", "Who", 450, 500)
 	who_win.set_content(msg)
