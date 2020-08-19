@@ -114,7 +114,7 @@
 	density = TRUE
 	visible_message(SPAN_DANGER("\The [src] emerges from the ground!"))
 	if(mob_size > 15)
-		for(var/mob/living/M in (get_turf(src)))
+		for(var/mob/living/M in orange(1,src))
 			if(M != src)
 				M.apply_damage(50, BRUTE)
 				M.apply_effect(6, STUN, blocked)
