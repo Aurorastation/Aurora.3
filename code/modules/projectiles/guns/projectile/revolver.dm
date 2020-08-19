@@ -282,4 +282,4 @@
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 		playsound(user.loc, "punchmiss", 50, 1)
 		return 1
-	return 0
+	return FALSE
