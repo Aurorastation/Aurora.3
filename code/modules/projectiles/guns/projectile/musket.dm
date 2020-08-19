@@ -45,7 +45,7 @@
 /obj/item/gun/projectile/musket/special_check(mob/user)
 	if(!has_powder)
 		to_chat(user, "<span class='warning'>\The [src] is not loaded with gunpowder!</span>")
-		return 0
+		return FALSE
 
 	if(!wielded)
 		to_chat(user, SPAN_WARNING("You can't fire without stabilizing \the [src]!"))
