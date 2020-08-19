@@ -61,7 +61,7 @@
 	..()
 	if (istype(W, /obj/item/reagent_containers))
 		if(has_powder)
-			to_chat(user, "<span class='notice'>\The [src] is already full of gunpowder.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is already full of gunpowder."))
 			return
 		var/obj/item/reagent_containers/C = W
 		if(C.reagents.has_reagent(/datum/reagent/gunpowder, 5))
