@@ -177,7 +177,11 @@ About Reagents:
 			Maximum amount of reagent that has ever been in a mob. Exists so dose won't grow infinitely when small amounts of reagent are added over time.
 
 		overdose
-			If [dose] is bigger than [overdose], overdose() proc is called every tick.
+		od_minimum_dose
+			If [volume] is bigger than [overdose]
+			AND
+			If [dose] is bigger than [od_minimum_dose]
+			THEN the overdose() proc is called every tick.
 
 		scannable
 			If set to 1, will show up on health analyzers by name.

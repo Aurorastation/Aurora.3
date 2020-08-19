@@ -243,6 +243,7 @@
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
+	od_minimum_dose = 2
 	scannable = 1
 	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
 	ingest_met = REM * 2 // .4 units per tick
@@ -266,6 +267,7 @@
 	color = "#CB68FC"
 	overdose = 15
 	scannable = 1
+	od_minimum_dose = 2
 	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
 	ingest_met = REM * 2 // .4 units per tick
 	breathe_met = REM * 4 // .8 units per tick
@@ -305,6 +307,7 @@
 	reagent_state = LIQUID
 	color = "#800080"
 	overdose = 10
+	od_minimum_dose = 2
 	scannable = TRUE
 	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
 	ingest_met = REM * 2 // .4 units per tick
@@ -348,7 +351,8 @@
 	reagent_state = LIQUID
 	color = "#99CCFF"
 	metabolism = REM * 0.05
-	overdose = 5 //Lowered from 30 to 5 due to metabolism being so slow, you'll never metabolise 30 before your liver explodes.
+	overdose = 5
+	od_minimum_dose = 1
 	scannable = 1
 	var/datum/modifier/modifier
 	taste_description = "bitterness"
@@ -640,6 +644,7 @@
 	description = "Thetamycin is a complex, broad-spectrum antibiotic developed to treat wound infections, organ infections, and septicaemia, even those caused by superbugs with high anti-bacterial resistances."
 	reagent_state = LIQUID
 	color = "#41C141"
+	od_minimum_dose = 1
 	metabolism = REM * 0.05
 	breathe_met = REM * 2 // .4 units per tick
 	// touch is slow
@@ -787,6 +792,7 @@
 	data = 0
 	scannable = 1
 	overdose = REAGENTS_OVERDOSE
+	od_minimum_dose = 0.02
 	taste_description = "bugs"
 	ingest_mul = 1
 	var/alchohol_affected = 1
@@ -814,7 +820,7 @@
 	var/obj/item/organ/internal/brain/B = H.internal_organs_by_name[BP_BRAIN]
 	var/bac = H.get_blood_alcohol()
 
-	if(alchohol_affected && bac > 0.01)
+	if(alchohol_affected && bac > 0.03)
 		H.hallucination = max(H.hallucination, bac * 400)
 
 	if(B) //You won't feel anything if you don't have a brain.
@@ -866,7 +872,8 @@
 	reagent_state = LIQUID
 	color = "#333333"
 	metabolism = 0.0016 * REM
-	overdose = 3
+	overdose = 5
+	od_minimum_dose = 3
 	data = 0
 	taste_description = "bitterness"
 	goodmessage = list("You feel good.","You feel relaxed.","You feel alert and focused.")
@@ -896,6 +903,7 @@
 	reagent_state = LIQUID
 	color = "#8888AA"
 	metabolism = 0.01 * REM
+	od_minimum_dose = 0.2
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You feel focused.","You feel like you have no distractions.","You feel willing to work.")
@@ -928,6 +936,7 @@
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.01 * REM
+	od_minimum_dose = 0.2
 	data = 0
 	taste_description = "bitterness"
 	goodmessage = list("You do not feel the need to worry about simple things.","You feel calm and level-headed.","You feel fine.")
@@ -956,6 +965,7 @@
 	reagent_state = LIQUID
 	color = "#88AA88"
 	metabolism = 0.02 * REM
+	od_minimum_dose = 0.4
 	data = 0
 	taste_description = "paper"
 	goodmessage = list("You feel fine.","You feel rational.","You feel decent.")
@@ -982,6 +992,7 @@
 	reagent_state = LIQUID
 	color = "#FF8888"
 	metabolism = 0.01 * REM
+	od_minimum_dose = 0.2
 	data = 0
 	taste_description = "duct tape"
 	goodmessage = list("You feel relaxed.","You feel at ease.","You feel care free.")
@@ -1012,6 +1023,7 @@
 	reagent_state = LIQUID
 	color = "#88FFFF"
 	metabolism = 0.01 * REM
+	od_minimum_dose = 0.2
 	data = 0
 	taste_description = "scotch tape"
 	goodmessage = list("You feel at ease.","Your mind feels healthy..")
@@ -1046,6 +1058,7 @@
 	reagent_state = LIQUID
 	color = "#FF88FF"
 	metabolism = 0.01 * REM
+	od_minimum_dose = 0.2
 	data = 0
 	taste_description = "glue"
 	goodmessage = list("You feel at ease.","Your mind feels healthy..","You feel unafraid to speak...")
@@ -1082,6 +1095,7 @@
 	color = "#FF4444"
 	overdose = 10 
 	metabolism = 0.02 * REM
+	od_minimum_dose = 0.4
 	data = 0
 	taste_description = "tranquility"
 	goodmessage = list("Your mind feels as one.","You feel incredibly comfortable.","Your body feels good.","Your thoughts are clear.", "You feel stress free.", "Nothing is bothering you anymore.")
@@ -1139,6 +1153,7 @@
 	reagent_state = LIQUID
 	color = "#FF8844"
 	metabolism = 0.02 * REM
+	od_minimum_dose = 0.4
 	data = 0
 	taste_description = "paint"
 	goodmessage = list("Your mind feels as one.","You feel comfortable speaking.","Your body feels good.","Your thoughts are pure.","Your body feels responsive.","You can handle being alone.")
@@ -1182,6 +1197,7 @@
 	reagent_state = LIQUID
 	color = "#888888"
 	metabolism = 0.05 * REM
+	od_minimum_dose = 1
 	data = 0
 	scannable = 0
 	taste_description = "something"
@@ -1244,7 +1260,8 @@
 	reagent_state = LIQUID
 	color = "#008000"
 	metabolism = 0.0016 * REM
-	overdose = 3
+	overdose = 5
+	od_minimum_dose = 3
 	data = 0
 	taste_description = "sugar"
 	goodmessage = list("You feel pleasantly warm.","You feel like you've been basking in the sun.","You feel focused and warm...")
@@ -1382,9 +1399,12 @@
 
 /datum/reagent/pulmodeiectionem/affect_ingest(var/mob/living/carbon/human/H, var/alien, var/removed)
 	if(volume > 5)
-		if(prob(25))
-			H.visible_message("[H] coughs up a cloud of dust.", "You cough up a cloud of dust.")
+		if(prob(50))
+			H.visible_message("<b>[H]</b> splutters, coughing up a cloud of purple dust.", "You cough up a cloud of purple dust.")
 			volume = volume - 10
+		else
+			H.adjustOxyLoss(2)
+			H.add_chemical_effect(CE_PNEUMOTOXIC, 0.1)
 		
 /datum/reagent/pulmodeiectionem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(2 * removed)

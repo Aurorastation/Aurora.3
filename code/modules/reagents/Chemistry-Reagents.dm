@@ -16,7 +16,8 @@
 	var/breathe_mul = 0.75
 	var/dose = 0
 	var/max_dose = 0
-	var/overdose = 0
+	var/overdose = 0 //Volume of a chemical required in the blood to meet overdose criteria.
+	var/od_minimum_dose = 1 //Metabolised dose of a chemical required to meet overdose criteria. 
 	var/is_overdosed = FALSE
 	var/scannable = 0 // Shows up on health analyzers.
 	var/affects_dead = 0
@@ -83,10 +84,7 @@
 	removed = M.get_metabolism(removed)
 	max_dose = max(volume, max_dose)
 
-	var/min_metabolised_dose = metabolism*100 //Drugs with a low metabolism rate will need a smaller metabolised dose to start an overdose; higher metabolism drugs will have larger metabolised dose criterias (capped at 5u).
-	if(min_metabolised_dose > 5)
-		min_metabolised_dose = 5 //Ensures maximum minimum dose required = 5 units to prevent drugs with high metabolism rates requiring a 50u dose to tick the OD criteria.
-	if(overdose && (volume > overdose) && (dose > min_metabolised_dose) && (location != CHEM_TOUCH)) //OD based on volume in blood, but waits for a small amount of the drug to metabolise before kicking in.
+	if(overdose && (volume > overdose) && (dose > od_minimum_dose) && (location != CHEM_TOUCH)) //OD based on volume in blood, but waits for a small amount of the drug to metabolise before kicking in.
 		is_overdosed = TRUE
 		overdose(M, alien, removed, dose/overdose) //Actual overdose threshold now = overdose + min_metabolised_dose. ie. Synaptizine; 5u OD threshold + 1 unit (0.01*100) min. metab'd dose = 6u actual OD threshold.
 

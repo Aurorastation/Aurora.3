@@ -213,7 +213,8 @@
 	reagent_state = SOLID
 	color = "#FFFFFF"
 	strength = 0
-	overdose = REAGENTS_OVERDOSE
+	overdose = 5
+	od_minimum_dose = 20
 	taste_description = "salt"
 
 /datum/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien)
@@ -234,7 +235,8 @@
 	reagent_state = SOLID
 	color = "#FFFFFF"
 	strength = 10
-	overdose = 20
+	overdose = 5
+	od_minimum_dose = 20
 	taste_description = "salt"
 
 /datum/reagent/toxin/potassium_chlorophoride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -649,7 +651,8 @@
 	reagent_state = LIQUID
 	color = "#800080"
 	strength = 5
-	overdose = 10
+	overdose = 5  //5 units per ghostmushroom.
+	od_minimum_dose = 1
 	taste_description = "acid"
 	metabolism = REM * 0.5
 	unaffected_species = IS_DIONA | IS_MACHINE
