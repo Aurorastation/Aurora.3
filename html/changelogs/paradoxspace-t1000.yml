@@ -3,5 +3,4 @@ author: ParadoxSpace & mikomyazaki
 delete-after: True
 
 changes: 
-  - rscadd: "IPCs can now be Zavodskoi Interstellar contractors. However, they cannot be corp reps."
-  - rscadd: "Tajara can only be NT/Independent corp reps."
+  - tweak: "Corp. Liason species blacklists have been updated for NT, EPMC, Hephaestus, Idris, Zavodskoi, Zeng-Hu."
