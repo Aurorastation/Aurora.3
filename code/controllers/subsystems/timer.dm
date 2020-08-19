@@ -340,7 +340,7 @@ var/datum/controller/subsystem/timer/SStimer
 	else
 		count++
 
-		if (count > 100)
+		if (count > 500)
 			crash_with("Timer New crash: [count] in one tick.")
 
 	if (flags & TIMER_CLIENT_TIME)
@@ -380,7 +380,7 @@ var/datum/controller/subsystem/timer/SStimer
 	else
 		count++
 
-		if (count > 100)
+		if (count > 500)
 			crash_with("Timer Destroy crash: [count] in one tick.")
 
 	if (flags & TIMER_UNIQUE && hash)
