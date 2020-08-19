@@ -41,6 +41,8 @@
 
 	tameable = FALSE
 
+	universal_understand = TRUE
+
 	var/burrowing = FALSE
 
 /mob/living/simple_animal/hostile/phoron_worm/death()
