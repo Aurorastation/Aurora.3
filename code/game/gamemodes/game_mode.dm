@@ -185,6 +185,12 @@ var/global/list/additional_antag_types = list()
 				else
 					potential = antag.candidates
 				if(islist(potential))
+					for(var/potential_antag in potential)
+						var/datum/mind/player = potential_antag
+						if(!(antag.flags & ANTAG_OVERRIDE_JOB) && player.assigned_role in antag.restricted_jobs)
+							potential -= potential_antag
+							antag.candidates -= player
+							log_debug("GAMEMODE: Player [player.name] [player.ckey] was removed from the potential antags list due to being given the role [player.assigned_role] which is a restricted job!")
 					if(potential.len)
 						log_debug("GAMEMODE: Found [potential.len] potential antagonists for [antag.role_text].")
 						total_enemy_count += potential.len
