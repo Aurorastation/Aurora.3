@@ -939,7 +939,6 @@
 /datum/reagent/mental/corophendiate/overdose(var/mob/living/carbon/M, var/alien)
 	M.add_chemical_effect(CE_EMETIC, dose / 6)
 
-
 /datum/reagent/mental/neurostabin
 	name = "Neurostabin"
 	description = "Neurostabin is a new generation, psychoactive drug used in the treatment of psychoses, and also has clinical significance in treating muscle weakness. It has far fewer side effects than previous generations of psychoactive drugs. Withdrawal symptoms include hallucinations and the development of phobias."

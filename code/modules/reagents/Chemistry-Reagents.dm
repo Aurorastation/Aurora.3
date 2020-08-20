@@ -86,7 +86,7 @@
 
 	if(overdose && (volume > overdose) && (dose > od_minimum_dose) && (location != CHEM_TOUCH)) //OD based on volume in blood, but waits for a small amount of the drug to metabolise before kicking in.
 		is_overdosed = TRUE
-		overdose(M, alien, removed, dose/overdose) //Actual overdose threshold now = overdose + min_metabolised_dose. ie. Synaptizine; 5u OD threshold + 1 unit (0.01*100) min. metab'd dose = 6u actual OD threshold.
+		overdose(M, alien, removed, dose/overdose) //Actual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.
 
 	if(dose == 0)
 		initial_effect(M,alien)
