@@ -58,7 +58,7 @@
 	..()
 
 /obj/item/mop/update_icon()
-	icon_state = "[initial(icon_state)][reagents.total_volume > 1 ? "_wet" :]"
+	icon_state = "[initial(icon_state)][reagents.total_volume > 1 ? "_wet" : null]"
 	item_state = icon_state
 	update_held_icon()
 
