@@ -302,4 +302,6 @@
 		possible_recipes |= recipe
 	if (isemptylist(possible_recipes))
 		return null
+	if (length(possible_recipes) > 1)
+		sortTim(possible_recipes, /proc/cmp_recipe_complexity_dsc) // Select the most complex recipe
 	return possible_recipes[1]

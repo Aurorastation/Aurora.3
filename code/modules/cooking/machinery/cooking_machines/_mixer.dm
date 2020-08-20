@@ -75,7 +75,7 @@ fundamental differences
 		for (var/obj/item/I in CI.container)
 			menuoptions[I.name] = I
 
-	var/selection = RADIAL_INPUT(user, menuoptions)
+	var/selection = show_radial_menu(user, src, menuoptions, require_near = TRUE, tooltips = TRUE, no_repeat_close = TRUE)
 	if (!selection)
 		return FALSE
 	var/obj/item/I = menuoptions[selection]

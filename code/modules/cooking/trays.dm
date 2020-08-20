@@ -51,7 +51,7 @@
 ============~~~~~====================~~~~~===============
 */
 
-//Clicking an item individually loads it. clicking a table places the tray on it safely
+//Clicking a table places the tray on it safely.
 /obj/item/tray/afterattack(atom/target, mob/user as mob, proximity)
 	if (istype(target,/obj/structure/table))
 		safedrop = TRUE
@@ -59,8 +59,7 @@
 		return
 	if (!istype(target,/obj/item))
 		return
-	var/obj/item/I = target
-	attempt_load_item(I,user)
+	. = ..()
 
 /obj/item/tray/AltClick(var/mob/user)
 	if (user.stat || user.incapacitated() || !user.Adjacent(src))
@@ -115,7 +114,7 @@
 	set src in view(1)
 	unload_at_loc(user = usr)
 
-#define CELLS 8								//Amount of cells per row/column in grid
+#define CELLS 16							//Amount of cells per row/column in grid
 #define CELLSIZE (world.icon_size/CELLS)	//Size of a cell in pixels
 
 /obj/item/tray/proc/auto_align(obj/item/W, click_parameters)
@@ -203,7 +202,6 @@
 		safedrop = FALSE
 
 /obj/item/tray/resolve_attackby(atom/A, mob/user, var/click_parameters)
-	if(!istype(A,/obj/structure/table))
-		return
-	safedrop = TRUE
-	..(A, user, click_parameters)
+	if(istype(A,/obj/structure/table))
+		safedrop = TRUE
+	return ..(A, user, click_parameters)

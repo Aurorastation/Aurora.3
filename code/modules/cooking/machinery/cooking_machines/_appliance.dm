@@ -501,7 +501,7 @@
 			menuoptions[CI.container.label(current_iteration_len)] = CI
 			choices[CI.container.label(current_iteration_len)] = image(CI.container.icon, icon_state = CI.container.icon_state)
 
-	var/selection = RADIAL_INPUT(user, choices)
+	var/selection = show_radial_menu(user, src, choices, require_near = TRUE, tooltips = TRUE, no_repeat_close = TRUE)
 	if (selection)
 		var/datum/cooking_item/CI = menuoptions[selection]
 		eject(CI, user)

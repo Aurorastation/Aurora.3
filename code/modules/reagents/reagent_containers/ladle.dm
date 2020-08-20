@@ -13,15 +13,22 @@
 	center_of_mass = list("x"=14, "y"=6)
 
 /obj/item/reagent_containers/ladle/afterattack(var/obj/target, var/mob/user, var/flag)
-	if(!target.is_open_container()) // Taking from something, or trying to hit someone?
-		return ..()
-	if(target.reagents || !target.reagents.total_volume)
+	if(!target.is_open_container() || !flag)
+		return ..(target, user, flag)
+	if(reagents.total_volume)
+		if(!target.reagents.get_free_space())
+			to_chat(user, SPAN_NOTICE("[target] is full.")
+			return TRUE
+
+		var/trans = target.reagents.trans_to_obj(src, amount_per_transfer_from_this)
+		user.visible_message(
+			"<b>[user]</b> scoops something up from [target] with [src].",
+			SPAN_NOTICE("You scoop up [trans] units with [src].")
+		)
+		return TRUE
+	if(!target.reagents || !target.reagents.total_volume)
 		to_chat(user, SPAN_NOTICE("[target] is empty."))
 		return TRUE
-
-	var/trans = target.reagents.trans_to_obj(src, amount_per_transfer_from_this)
-	to_chat(user, SPAN_NOTICE("You scoop up [trans] units with [src]."))
-	return TRUE
 
 /obj/item/reagent_containers/ladle/on_reagent_change()
 	update_icon()

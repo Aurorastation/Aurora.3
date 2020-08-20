@@ -540,6 +540,7 @@
 	fallback_specific_heat = 1
 	condiment_name = "universal enzyme"
 	condiment_icon_state = "enzyme"
+	condiment_center_of_mass = list("x"=18, "y"=7)
 
 /datum/reagent/frostoil
 	name = "Frost Oil"
@@ -1792,6 +1793,7 @@
 	glass_icon_state  = "glass_brown"
 	glass_name = "glass of Space Cola"
 	glass_desc = "A glass of refreshing Space Cola"
+	glass_center_of_mass = list("x"=17, "y"=6)
 
 /datum/reagent/drink/spacemountainwind
 	name = "Mountain Wind"

@@ -25,7 +25,6 @@
 		if (!added)
 			log_debug("SSCuisine: warning: recipe '[type]' does not have a valid appliance type.")
 			qdel(R)
-	sortTim(recipe_datums, /proc/cmp_recipe_complexity_dsc)
 	. = ..(timeofday)
 
 #undef ADD_TO_RDATUMS
