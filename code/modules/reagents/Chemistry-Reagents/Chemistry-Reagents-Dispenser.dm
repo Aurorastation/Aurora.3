@@ -332,7 +332,7 @@
 			to_chat(M, SPAN_WARNING(pick("You feel a tingly sensation in your body.", "You can smell something unusual.", "You can taste something unusual.", "You hear a faint white-noise that's gradually getting louder.")))
 		M.confused = max(M.confused, 10)
 	if(dose > 4)
-		H.add_chemical_effect(CE_CLUMSY, 1)
+		M.add_chemical_effect(CE_CLUMSY, 1)
 		if(prob(dose/4))			
 			M.emote(pick("twitch", "shiver", "drool"))
 		if(prob(dose/4))
