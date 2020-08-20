@@ -833,7 +833,6 @@
 	req_access = list(access_engine)
 	vend_id = "tools"
 	products = list(
-		/obj/item/clothing/glasses/meson = 2,
 		/obj/item/device/multitool = 4,
 		/obj/item/powerdrill = 2,
 		/obj/item/airlock_electronics = 10,
@@ -920,7 +919,6 @@
 		/obj/item/clothing/shoes/orange = 4,
 		/obj/item/clothing/head/hardhat = 4,
 		/obj/item/storage/belt/utility = 4,
-		/obj/item/clothing/glasses/meson = 4,
 		/obj/item/clothing/gloves/yellow = 4,
 		/obj/item/screwdriver = 12,
 		/obj/item/crowbar = 12,
