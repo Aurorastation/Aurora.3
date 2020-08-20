@@ -36,6 +36,10 @@
 
 /obj/structure/bed/chair/remote/user_buckle_mob(mob/user)
 	..()
+	var/area/A = get_area(src)
+		if(!A.powered(EQUIP))
+			to_chat(user, SPAN_WARNING("\The [src] is not powered."))
+			return FALSE
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.old_mob)
