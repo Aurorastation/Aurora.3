@@ -59,4 +59,5 @@
 		if(istype(M) && M.vr_mob)
 			M.vr_mob.body_return()
 		cut_overlays()
+		STOP_PROCESSING(SSprocessing, src)
 	..()
