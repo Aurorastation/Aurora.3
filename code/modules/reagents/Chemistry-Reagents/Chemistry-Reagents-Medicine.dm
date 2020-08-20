@@ -481,7 +481,7 @@
 	M.make_dizzy(5)
 	if(prob(dose / 2))
 		to_chat(M, SPAN_DANGER("You feel your insides twisting and burning."))
-		M.adjustHalLoss(15)
+		M.adjustHalLoss(5)
 
 /datum/reagent/ryetalyn
 	name = "Ryetalyn"
