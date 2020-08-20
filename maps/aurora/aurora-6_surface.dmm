@@ -891,7 +891,6 @@
 /obj/structure/table/reinforced,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/glasses/meson,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/tank/oxygen,
 /obj/random/tech_supply,
@@ -21608,7 +21607,6 @@
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
 /obj/item/clothing/head/hardhat/red,
-/obj/item/clothing/glasses/meson,
 /obj/structure/table/rack{
 	dir = 1
 	},
