@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed the canned fatshouters meat's can having the wrong sprite after it was eaten."
