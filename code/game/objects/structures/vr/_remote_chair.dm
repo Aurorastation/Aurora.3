@@ -11,6 +11,10 @@
 	if(portable_type)
 		name = "portable [name]"
 
+/obj/structure/bed/chair/remote/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
 /obj/structure/bed/chair/remote/examine(mob/user)
 	..()
 	if(portable_type)
@@ -38,6 +42,15 @@
 			to_chat(H, SPAN_WARNING("The chair rejects you! You cannot recursively control bodies."))
 			return
 	add_overlay(image('icons/obj/furniture.dmi', src, "vr_helmet", MOB_LAYER + 1))
+	START_PROCESSING(SSprocessing, src)
+
+
+/obj/structure/bed/chair/remote/process()
+	..()
+	if(buckled_mob)
+		var/area/A = get_area(src)
+		if(!A.powered(EQUIP))
+			user_unbuckle_mob(buckled_mob)
 
 // Return to our body in the unfortunate event that we get unbuckled while plugged in
 /obj/structure/bed/chair/remote/user_unbuckle_mob(mob/user)

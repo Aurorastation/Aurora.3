@@ -351,6 +351,13 @@ for reference:
 	kit_product = /obj/structure/bed/chair/remote/mech/portable
 	assembly_time = 20 SECONDS
 
+/obj/item/deployable_kit/remote_mech/assemble_kit(mob/user)
+	var/area/A = get_area(user)
+	if(!A.powered(EQUIP))
+		to_chat(user, SPAN_WARNING("\The [src] can not be deployed on a not properly powered area."))
+		return FALSE
+	..()
+
 /obj/item/deployable_kit/remote_mech/brig
 	name = "brig mech control centre assembly kit"
 	desc = "A quick assembly kit to put together a brig mech control centre."
