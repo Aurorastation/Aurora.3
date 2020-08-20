@@ -354,7 +354,7 @@ for reference:
 /obj/item/deployable_kit/remote_mech/attack_self(mob/user)
 	var/area/A = get_area(user)
 	if(!A.powered(EQUIP))
-		to_chat(user, SPAN_WARNING("\The [src] can not be deployed on a not properly powered area."))
+		to_chat(user, SPAN_WARNING("\The [src] can not be deployed in an unpowered area."))
 		return FALSE
 	..()
 
