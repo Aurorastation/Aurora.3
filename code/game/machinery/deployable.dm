@@ -351,7 +351,7 @@ for reference:
 	kit_product = /obj/structure/bed/chair/remote/mech/portable
 	assembly_time = 20 SECONDS
 
-/obj/item/deployable_kit/remote_mech/assemble_kit(mob/user)
+/obj/item/deployable_kit/remote_mech/attack_self(mob/user)
 	var/area/A = get_area(user)
 	if(!A.powered(EQUIP))
 		to_chat(user, SPAN_WARNING("\The [src] can not be deployed on a not properly powered area."))
