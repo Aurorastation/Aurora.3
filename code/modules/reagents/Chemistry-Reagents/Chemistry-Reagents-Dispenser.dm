@@ -317,7 +317,9 @@
 	color = "#484848"
 	ingest_met = REM*0.1
 	breathe_met = REM*0.4 
-	breathe_mul = 2 //mercury vapours more dangerous than eating/touching mercury.
+	breathe_mul = 2 //mercury vapours and skin absorption more dangerous than eating mercury.
+	touch_met = REM*0.1
+	touch_mul = 1.25
 	taste_mult = 0 //mercury apparently is tasteless
 	scannable = 1
 

@@ -361,7 +361,7 @@
 	reagent_state = LIQUID
 	color = "#99CCFF"
 	metabolism = REM * 0.05
-	overdose = 5
+	overdose = 10
 	od_minimum_dose = 1
 	scannable = 1
 	var/datum/modifier/modifier
@@ -370,7 +370,7 @@
 
 /datum/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.drowsyness = max(M.drowsyness - 5, 0)
-	if(is_overdosed == FALSE) // Will prevent synaptizine interrupting a seizure caused by its own overdose.
+	if(!is_overdosed) // Will prevent synaptizine interrupting a seizure caused by its own overdose.
 		M.AdjustParalysis(-1) 
 	M.AdjustStunned(-1)
 	M.AdjustWeakened(-1)
@@ -416,7 +416,7 @@
 		M.add_chemical_effect(CE_PAINKILLER, 10)
 		M.dizziness = max(125, M.dizziness)
 		M.make_dizzy(5)
-		if(is_overdosed == FALSE)
+		if(!is_overdosed)
 			var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
 			if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
 				if(prob(dose/5) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
@@ -775,7 +775,7 @@
 	taste_description = "bitterness"
 
 /datum/reagent/leporazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(is_overdosed == FALSE)
+	if(!is_overdosed)
 		if(M.bodytemperature > 310)
 			M.bodytemperature = max(310, M.bodytemperature - (40 * TEMPERATURE_DAMAGE_COEFFICIENT))
 		else if(M.bodytemperature < 311)
@@ -1154,7 +1154,6 @@
 	else
 		if(prob(3))
 			to_chat(M, SPAN_GOOD(pick("Stress was an inconvenience that you are now free of.", "You feel somewhat dettached from reality.", "You can feel time passing by and it no longer bothers you.")))
-
 
 /datum/reagent/mental/nerospectan
 	name = "Nerospectan"
@@ -1547,7 +1546,7 @@
 		M.adjustHydrationLoss(-removed*2)
 	else
 		M.adjustHydrationLoss(-removed*5)
-	if(is_overdosed == FALSE)
+	if(volume < 2)
 		M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed)
 	
 /datum/reagent/saline/overdose(var/mob/living/carbon/M, var/alien)

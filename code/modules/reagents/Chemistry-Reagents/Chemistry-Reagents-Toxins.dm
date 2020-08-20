@@ -660,7 +660,7 @@
 
 /datum/reagent/toxin/spectrocybin/affect_blood(var/mob/living/carbon/M, var/removed)
 	..()
-	if(is_overdosed == FALSE)	
+	if(!is_overdosed)	
 		M.hallucination = max(M.hallucination, 20)
 		if(prob(20))
 			M.see_invisible = SEE_INVISIBLE_CULT
