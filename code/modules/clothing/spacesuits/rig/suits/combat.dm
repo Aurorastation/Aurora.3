@@ -104,7 +104,8 @@
 		/obj/item/melee/energy/sword,
 		/obj/item/handcuffs,
 		/obj/item/material/twohanded/fireaxe,
-		/obj/item/rfd/construction
+		/obj/item/rfd/construction,
+		/obj/item/material/twohanded/pike/flag
 	)
 
 	species_restricted = list(BODYTYPE_HUMAN,BODYTYPE_TAJARA,BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_IPC, BODYTYPE_VAURCA)

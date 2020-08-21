@@ -18,8 +18,6 @@
 	outfit = /datum/outfit/job/representative
 	alt_titles = list("Consular Officer")
 
-	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
-
 /datum/job/representative/get_outfit(mob/living/carbon/human/H, alt_title = null)
 	if(H.mind?.role_alt_title == "Consular Officer" || alt_title == "Consular Officer")
 		var/datum/citizenship/citizenship = SSrecords.citizenships[H.citizenship]
