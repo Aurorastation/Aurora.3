@@ -254,7 +254,7 @@
 /area/dungeon/skrell_ship)
 "aT" = (
 /obj/item/material/shard/phoron{
-	step_x = 1
+	pixel_x = 1
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/shuttle/skrell,
