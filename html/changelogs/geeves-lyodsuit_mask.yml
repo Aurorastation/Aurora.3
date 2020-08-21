@@ -1,9 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Lyodsuit masks now act as a breath mask, but it's really bad at filtration if not hooked up to a tank."
-  - rscadd: "Lyodsuit masks can now be rolled up to reveal your face."
-  - rscadd: "Lyodsuit hoodies' mask toggling is now an action button as well as a right click verb."
-  - bugfix: "Fixed lyodsuit hoodies' sprites being janky."
