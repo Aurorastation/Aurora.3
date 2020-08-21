@@ -3129,6 +3129,7 @@
 /area/shuttle/skipjack)
 "aoo" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,6";
 	name = "transport shuttle"
@@ -5730,18 +5731,6 @@
 	icon_state = "podhatch"
 	},
 /area/centcom/control)
-"axE" = (
-/obj/effect/decal/fake_object{
-	desc = "Ding.";
-	icon = 'icons/obj/doors/doorlift.dmi';
-	icon_state = "door_open";
-	name = "elevator door"
-	},
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/centcom/spawning)
 "axG" = (
 /obj/structure/artilleryplaceholder/decorative{
 	icon_state = "30"
@@ -8233,6 +8222,7 @@
 /area/shuttle/administration)
 "aCP" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "2,21";
 	name = "transport shuttle"
@@ -8241,6 +8231,7 @@
 /area/shuttle/escape)
 "aCQ" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "4,22";
 	name = "transport shuttle"
@@ -8908,15 +8899,13 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/flame/lighter/zippo,
-/obj/item/storage/box/fancy/cigarettes,
-/obj/item/material/ashtray/bronze{
-	pixel_x = -1;
-	pixel_y = 1
-	},
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
+/obj/item/storage/box/fancy/matches{
+	pixel_y = 9
+	},
+/obj/item/storage/box/fancy/matches,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -8925,14 +8914,22 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/flame/lighter/zippo,
-/obj/item/storage/box/fancy/cigarettes,
-/obj/item/material/ashtray/bronze{
-	pixel_x = -1;
-	pixel_y = 1
-	},
 /obj/structure/window/reinforced/crescent{
 	dir = 4
+	},
+/obj/item/storage/box/fancy/cigarettes{
+	layer = 2.99;
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/storage/box/fancy/cigarettes{
+	pixel_x = 4;
+	pixel_y = 7
+	},
+/obj/item/storage/box/fancy/cigarettes{
+	layer = 2.98;
+	pixel_x = -10;
+	pixel_y = 7
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -8942,7 +8939,7 @@
 /obj/machinery/camera/network/crescent{
 	c_tag = "Crescent Bar East"
 	},
-/obj/structure/flora/pottedplant/random,
+/obj/machinery/recharge_station,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -10264,7 +10261,7 @@
 	desc = "A panel that controls the elevator.";
 	icon = 'icons/obj/turbolift.dmi';
 	icon_state = "panel";
-	name = "elevator Button";
+	name = "elevator panel";
 	pixel_y = 31
 	},
 /obj/effect/landmark{
@@ -16373,6 +16370,7 @@
 /area/antag/wizard)
 "czb" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "12,21";
 	name = "transport shuttle"
@@ -17188,7 +17186,8 @@
 /area/shuttle/skipjack)
 "dhF" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "9,22"
+	icon_state = "9,22";
+	outside_window = 1
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
@@ -18537,6 +18536,7 @@
 /area/antag/mercenary)
 "eqv" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "13,20";
 	name = "transport shuttle"
@@ -19536,6 +19536,7 @@
 /area/shuttle/distress)
 "fpC" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,13";
 	name = "transport shuttle"
@@ -20900,6 +20901,7 @@
 /area/centcom/legion/hangar5)
 "gxk" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,14";
 	name = "transport shuttle"
@@ -21011,6 +21013,7 @@
 /area/centcom/legion)
 "gAI" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,9";
 	name = "transport shuttle"
@@ -22486,7 +22489,8 @@
 /area/shuttle/legion)
 "hXd" = (
 /obj/structure/window/shuttle/unique/transfer{
-	icon_state = "5,22"
+	icon_state = "5,22";
+	outside_window = 1
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
@@ -22613,6 +22617,38 @@
 	},
 /turf/simulated/floor/ice,
 /area/centcom/shared_dream)
+"iag" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed.";
+	icon = 'icons/obj/storage.dmi';
+	icon_state = "tcflcrate";
+	layer = 3.01;
+	name = "foreign legion supply crate";
+	pixel_x = 3;
+	pixel_y = 8
+	},
+/obj/effect/decal/fake_object{
+	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed.";
+	icon = 'icons/obj/storage.dmi';
+	icon_state = "tcflcrate";
+	layer = 3.02;
+	name = "foreign legion supply crate"
+	},
+/obj/effect/decal/fake_object{
+	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed.";
+	icon = 'icons/obj/storage.dmi';
+	icon_state = "tcflcrate";
+	layer = 3.02;
+	name = "foreign legion supply crate";
+	pixel_x = 2;
+	pixel_y = 19
+	},
+/turf/unsimulated/floor{
+	icon_state = "engine"
+	},
+/area/centcom/legion/hangar5)
 "iax" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -22850,6 +22886,7 @@
 /area/merchant_station)
 "igh" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,5";
 	name = "transport shuttle"
@@ -22990,6 +23027,21 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 1
+	},
+/obj/item/storage/box/fancy/cookiesnack{
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = -7;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = -1;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_x = 5;
+	pixel_y = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
@@ -25311,6 +25363,7 @@
 /area/shuttle/transport1)
 "kiY" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,7";
 	name = "transport shuttle"
@@ -25716,6 +25769,7 @@
 /area/shuttle/syndicate_elite)
 "kHM" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,18";
 	name = "transport shuttle"
@@ -26397,6 +26451,12 @@
 	icon_state = "lino_grey"
 	},
 /area/antag/raider)
+"lon" = (
+/obj/structure/flora/pottedplant/random,
+/turf/unsimulated/floor{
+	icon_state = "wood"
+	},
+/area/centcom/holding)
 "lou" = (
 /obj/structure/table/standard,
 /obj/item/clipboard,
@@ -26465,6 +26525,7 @@
 /area/shuttle/distress)
 "lsf" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "1,20";
 	name = "transport shuttle"
@@ -27453,6 +27514,7 @@
 /area/centcom/spawning)
 "mfM" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,11";
 	name = "transport shuttle"
@@ -29535,6 +29597,7 @@
 /area/shuttle/merchant)
 "nQR" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,10";
 	name = "transport shuttle"
@@ -30051,6 +30114,7 @@
 /area/shuttle/administration)
 "ooT" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,16";
 	name = "transport shuttle"
@@ -31276,6 +31340,7 @@
 /area/centcom/distress_prep)
 "pEj" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,8";
 	name = "transport shuttle"
@@ -34817,6 +34882,7 @@
 /area/centcom/legion/hangar5)
 "sXd" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,12";
 	name = "transport shuttle"
@@ -35115,6 +35181,7 @@
 /area/centcom/ferry)
 "teC" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,17";
 	name = "transport shuttle"
@@ -35976,6 +36043,7 @@
 /area/holodeck/source_picnicarea)
 "tWH" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "10,22";
 	name = "transport shuttle"
@@ -37068,6 +37136,7 @@
 /area/shuttle/arrival)
 "uVB" = (
 /obj/structure/shuttle_part/transfer{
+	density = 0;
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
 	icon_state = "14,15";
 	name = "transport shuttle"
@@ -37312,7 +37381,7 @@
 	desc = "A panel to control the elevator.";
 	icon = 'icons/obj/turbolift.dmi';
 	icon_state = "panel";
-	name = "elevator Button"
+	name = "elevator panel"
 	},
 /turf/simulated/wall/elevator,
 /area/centcom/legion)
@@ -38728,15 +38797,12 @@
 /obj/structure/table/wood{
 	dir = 5
 	},
-/obj/item/flame/lighter/zippo,
-/obj/item/storage/box/fancy/cigarettes,
-/obj/item/material/ashtray/bronze{
-	pixel_x = -1;
-	pixel_y = 1
-	},
 /obj/machinery/light/spot{
 	dir = 1;
 	icon_state = "tube1"
+	},
+/obj/item/material/ashtray/glass{
+	pixel_y = 3
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -76079,7 +76145,7 @@ kvf
 mQX
 aDM
 aEM
-aEP
+lon
 aEP
 aEP
 aEP
@@ -80211,7 +80277,7 @@ nfY
 ciV
 aId
 tBQ
-axE
+ksI
 ksI
 uEt
 aMW
@@ -80468,7 +80534,7 @@ nfY
 ciV
 aIU
 tBQ
-axE
+ksI
 ksI
 aMH
 aMW
@@ -81496,7 +81562,7 @@ nfY
 ciV
 aId
 tBQ
-axE
+ksI
 ksI
 aMH
 aMW
@@ -81753,7 +81819,7 @@ nfY
 ciV
 aIU
 tBQ
-axE
+ksI
 ksI
 aMH
 aMW
@@ -98947,7 +99013,7 @@ aaM
 aaM
 vyc
 ldQ
-rRg
+iag
 rRg
 rRg
 ldQ

@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes: 
+  - bugfix: "Fixed holodeck swords lacking icons and being named 'Item', fixed some misc leftover stuff on the centcomm level."
