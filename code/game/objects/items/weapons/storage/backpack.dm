@@ -307,7 +307,6 @@
 	desc = "A trendy looking satchel."
 	icon_state = "satchel-col"
 
-
 //ERT backpacks.
 /obj/item/storage/backpack/ert
 	name = "emergency response team backpack"
