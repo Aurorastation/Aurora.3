@@ -3592,7 +3592,7 @@
 	result = /datum/reagent/nutriment/caramel
 	required_reagents = list(/datum/reagent/sugar = 1)
 	result_amount = 1
-	required_temperatures_min = list(/datum/reagent/nutriment/caramel = T0C + 82) // no maximum! i mean technically it should burn at some point but ehh
+	required_temperatures_min = list(/datum/reagent/sugar = T0C + 82) // no maximum! i mean technically it should burn at some point but ehh
 	mix_message = "The sugar melts into a sticky, brown liquid."
 
 /datum/chemical_reaction/caramelsauce
@@ -3602,7 +3602,7 @@
 	required_reagents = list(/datum/reagent/nutriment/caramel = 2, /datum/reagent/drink/milk/cream = 1, /datum/reagent/drink/syrup_simple = 2)
 	result_amount = 5
 	mix_message = "The solution thickens into a glossy, brown sauce."
-	required_temperatures_min = list(/datum/reagent/drink/caramel = T0C + 82) // You don't want the syrup to crystallise/caramelise; that'd just make more caramel...
+	required_temperatures_max = list(/datum/reagent/nutriment/caramel = T0C + 82) // You don't want the syrup to crystallise/caramelise; that'd just make more caramel...
 
 /datum/chemical_reaction/simplesyrup
 	name = "Simple Syrup"

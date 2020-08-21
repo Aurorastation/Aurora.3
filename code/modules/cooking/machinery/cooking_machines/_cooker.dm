@@ -32,9 +32,8 @@
 	if (length(cooking_objs))
 		var/string = "Contains...</br>"
 		var/num = 0
-		for (var/a in cooking_objs)
+		for (var/datum/cooking_item/CI in cooking_objs)
 			num++
-			var/datum/cooking_item/CI = a
 			if (CI && CI.container)
 				string += "- [CI.container.label(num)], [report_progress(CI)]</br>"
 		to_chat(usr, string)

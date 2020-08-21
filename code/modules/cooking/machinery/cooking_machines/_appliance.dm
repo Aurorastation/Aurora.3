@@ -67,10 +67,10 @@
 	if (isemptylist(cooking_objs))
 		to_chat(user, SPAN_NOTICE("It is empty."))
 		return
-	var/string = "Contains..."
-	for (var/a in cooking_objs)
-		var/datum/cooking_item/CI = a
-		string += "-\a [CI.container.label(null, CI.combine_target)], [report_progress(CI)]</br>"
+	var/string = "Contains...<ul>"
+	for (var/datum/cooking_item/CI in cooking_objs)
+		string += "<li>\a [CI.container.label(null, CI.combine_target)], [report_progress(CI)]</li>"
+	string += "</ul>"
 	to_chat(user, string)
 
 /obj/machinery/appliance/proc/report_progress(var/datum/cooking_item/CI)

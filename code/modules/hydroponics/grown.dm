@@ -234,6 +234,8 @@
 						for(var/i=0;i<slices;i++)
 							var/obj/item/reagent_containers/food/snacks/fruit_slice/F = new(get_turf(src),seed)
 							reagents.trans_to_obj(F,reagents_to_transfer)
+							if(dry)
+								F.on_dry()
 						qdel(src)
 						return
 	..()
@@ -329,6 +331,9 @@
 	desc = "A slice of some tasty fruit."
 	icon = 'icons/obj/hydroponics_misc.dmi'
 	icon_state = ""
+	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
+	dried_type = /obj/item/reagent_containers/food/snacks/fruit_slice
 	var/datum/seed/seed
 
 var/list/fruit_icon_cache = list()
@@ -342,8 +347,6 @@ var/list/fruit_icon_cache = list()
 
 	name = "[S.seed_name] slice"
 	desc = "A slice of \a [S.seed_name]. Tasty, probably."
-	drop_sound = 'sound/items/drop/herb.ogg'
-	pickup_sound = 'sound/items/pickup/herb.ogg'
 	seed = S
 
 	var/rind_colour = seed.get_trait(TRAIT_PRODUCT_COLOUR)
@@ -353,9 +356,9 @@ var/list/fruit_icon_cache = list()
 		var/image/I = image(icon,"fruit_rind")
 		I.color = rind_colour
 		fruit_icon_cache["rind-[rind_colour]"] = I
-	overlays |= fruit_icon_cache["rind-[rind_colour]"]
+	add_overlay(fruit_icon_cache["rind-[rind_colour]"])
 	if(!fruit_icon_cache["slice-[rind_colour]"])
 		var/image/I = image(icon,"fruit_slice")
 		I.color = flesh_colour
 		fruit_icon_cache["slice-[rind_colour]"] = I
-	overlays |= fruit_icon_cache["slice-[rind_colour]"]
+	add_overlay(fruit_icon_cache["slice-[rind_colour]"])

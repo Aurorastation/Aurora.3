@@ -108,9 +108,7 @@
 	if (isemptylist(fruit))
 		return TRUE
 	. = TRUE
-	var/list/checklist = list()
-		// You should trust Copy().
-	checklist = fruit.Copy()
+	var/list/checklist = fruit.Copy()
 	for(var/obj/item/reagent_containers/food/snacks/S in container)
 		var/use_tag
 		if(istype(S, /obj/item/reagent_containers/food/snacks/grown))
@@ -141,8 +139,7 @@
 	if (isemptylist(items))
 		return TRUE
 	. = TRUE
-	var/list/checklist = list()
-	checklist = items.Copy() // You should really trust Copy
+	var/list/checklist = items.Copy()
 	for(var/obj/O in container)
 		if(istype(O,/obj/item/reagent_containers/food/snacks/grown))
 			continue // Fruit is handled in check_fruit().

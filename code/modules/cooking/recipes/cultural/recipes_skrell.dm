@@ -37,4 +37,4 @@
 		/obj/item/reagent_containers/food/snacks/squidmeat
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
-	result = /obj/item/reagent_containers/food/snacks/qilvo
+	result = /obj/item/reagent_containers/food/snacks/soup/qilvo

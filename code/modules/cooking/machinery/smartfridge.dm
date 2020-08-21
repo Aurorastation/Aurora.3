@@ -230,7 +230,8 @@
 	for(var/obj/item/reagent_containers/food/snacks/S in contents)
 		if(S.dry) continue
 		if(S.on_dry(loc))
-			item_quants[S.name]--
+			if(!(S in contents))
+				item_quants[S.name]--
 	return
 
 /obj/machinery/smartfridge/machinery_process()

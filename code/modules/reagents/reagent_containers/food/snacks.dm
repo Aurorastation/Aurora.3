@@ -29,8 +29,10 @@
 		name = "dried [name]"
 		color = "#AAAAAA"
 		dry = TRUE
+		if(newloc)
+			forceMove(newloc)
 		return TRUE
-	new dried_type(newloc)
+	new dried_type(newloc || src.loc)
 	qdel(src)
 	return TRUE
 
@@ -3628,13 +3630,24 @@
 /obj/item/reagent_containers/food/snacks/lortl
 	name = "lortl"
 	desc = "Dehydrated and salted q'lort slices, a very common Skrellian snack."
-	icon = 'icons/obj/hydroponics_products.dmi'
-	icon_state = "mushroom9"
-	color = "#B7D6BF"
+	icon = 'icons/obj/hydroponics_misc.dmi'
 	filling_color = "#B7D6BF"
 	bitesize = 2
 	reagents_to_add = list(/datum/reagent/nutriment = 2, /datum/reagent/sodiumchloride = 2)
 	reagent_data = list(/datum/reagent/nutriment = list("dried fruit" = 2))
+
+/obj/item/reagent_containers/food/snacks/lortl/Initialize()
+	. = ..()
+	if(!fruit_icon_cache["rind-#B1E4BE"])
+		var/image/I = image(icon,"fruit_rind")
+		I.color = "#B1E4BE"
+		fruit_icon_cache["rind-#B1E4BE"] = I
+	add_overlay(fruit_icon_cache["rind-#B1E4BE"])
+	if(!fruit_icon_cache["slice-#B1E4BE"])
+		var/image/I = image(icon,"fruit_slice")
+		I.color = "#9FE4B0"
+		fruit_icon_cache["slice-#B1E4BE"] = I
+	add_overlay(fruit_icon_cache["slice-#B1E4BE"])
 
 /obj/item/reagent_containers/food/snacks/soup/qilvo
 	name = "qilvo"

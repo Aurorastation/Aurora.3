@@ -8,6 +8,7 @@
 	w_class = ITEMSIZE_SMALL
 	volume = 30
 	force = 6
+	flags = OPENCONTAINER | NOBLUDGEON
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 	center_of_mass = list("x"=14, "y"=6)
@@ -17,17 +18,27 @@
 		return ..(target, user, flag)
 	if(reagents.total_volume)
 		if(!target.reagents.get_free_space())
-			to_chat(user, SPAN_NOTICE("[target] is full.")
+			to_chat(user, SPAN_NOTICE("[target] is full."))
 			return TRUE
-
-		var/trans = target.reagents.trans_to_obj(src, amount_per_transfer_from_this)
+		var/trans = reagents.trans_to(target, amount_per_transfer_from_this) //sprinkling reagents on generic non-mobs
 		user.visible_message(
-			"<b>[user]</b> scoops something up from [target] with [src].",
-			SPAN_NOTICE("You scoop up [trans] units with [src].")
+			"<b>[user]</b> pours into [target] from [src].",
+			SPAN_NOTICE("You transfer [trans] units of the solution.")
 		)
 		return TRUE
-	if(!target.reagents || !target.reagents.total_volume)
-		to_chat(user, SPAN_NOTICE("[target] is empty."))
+	else
+		if(!target.reagents || !target.reagents.total_volume)
+			to_chat(user, SPAN_NOTICE("[target] is empty."))
+			return TRUE
+		if(istype(target, /obj/item/reagent_containers/food/snacks))
+			var/obj/item/reagent_containers/food/snacks/S = target
+			if(!S.isliquid)
+				return TRUE
+		var/trans = target.reagents.trans_to_obj(src, amount_per_transfer_from_this)
+		user.visible_message(
+			"<b>[user]</b> scoops from [target] with [src].",
+			SPAN_NOTICE("You scoop up [trans] units with [src].")
+		)
 		return TRUE
 
 /obj/item/reagent_containers/ladle/on_reagent_change()
