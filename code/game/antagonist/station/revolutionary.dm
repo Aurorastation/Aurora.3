@@ -15,10 +15,10 @@ var/datum/antagonist/revolutionary/revs
 	flags = ANTAG_SUSPICIOUS | ANTAG_VOTABLE
 	antaghud_indicator = "contender"
 
-	hard_cap = 2
-	hard_cap_round = 4
-	initial_spawn_req = 2
-	initial_spawn_target = 4
+	hard_cap = 3
+	hard_cap_round = 3
+	initial_spawn_req = 3
+	initial_spawn_target = 8
 
 	// Inround revs.
 	faction_role_text = "Contender"
@@ -29,7 +29,7 @@ var/datum/antagonist/revolutionary/revs
 	faction_invisible = FALSE
 
 	restricted_jobs = list("AI", "Cyborg")
-	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security")
+	protected_jobs = list("Lab Assistant", "Medical Resident", "Engineering Apprentice", "Assistant", "Security Cadet", "Captain", "Head of Security")
 	required_age = 31
 
 /datum/antagonist/revolutionary/New()
