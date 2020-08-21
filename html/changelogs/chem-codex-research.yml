@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Research can now access and download the Chemistry Codex that is installed on the Research wrist computers."
