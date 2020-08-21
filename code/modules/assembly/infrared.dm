@@ -110,7 +110,7 @@
 	interact(mob/user as mob)//TODO: change this this to the wire control panel
 		if(!secured)	return
 		user.set_machine(src)
-		var/dat = text("<TT><B>Infrared Laser</B>\n<B>Status</B>: <A href='?src=\ref[src];state=[!on]'>[on ? "On" : "Off"]</A><BR>\n<B>Visibility</B>: <A href='?src=\ref[src];visible=[!visible]'>[visible ? "Visible" : "Invisible"]</A><BR>\n</TT>")
+		var/dat = "<TT><B>Infrared Laser</B>\n<B>Status</B>: <A href='?src=\ref[src];state=[!on]'>[on ? "On" : "Off"]</A><BR>\n<B>Visibility</B>: <A href='?src=\ref[src];visible=[!visible]'>[visible ? "Visible" : "Invisible"]</A><BR>\n</TT>"
 		dat += "<BR><BR><A href='?src=\ref[src];refresh=1'>Refresh</A>"
 		dat += "<BR><BR><A href='?src=\ref[src];close=1'>Close</A>"
 		user << browse(dat, "window=infra")

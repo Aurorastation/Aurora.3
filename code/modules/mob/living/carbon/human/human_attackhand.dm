@@ -47,8 +47,8 @@
 					if(G.cell.charge >= 2500)
 						G.cell.use(G.cell.charge)	//So it drains the cell.
 						visible_message(SPAN_DANGER("[src] has been touched with the stun gloves by [M]!"))
-						M.attack_log += text("\[[time_stamp()]\] <font color='red'>Stungloved [src.name] ([src.ckey])</font>")
-						src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been stungloved by [M.name] ([M.ckey])</font>")
+						M.attack_log += "\[[time_stamp()]\] <font color='red'>Stungloved [src.name] ([src.ckey])</font>"
+						src.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been stungloved by [M.name] ([M.ckey])</font>"
 
 						msg_admin_attack("[key_name_admin(M)] stungloved [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 
@@ -296,8 +296,8 @@
 				H.visible_message(SPAN_DANGER("[attack_message]"))
 
 			playsound(loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
-			H.attack_log += text("\[[time_stamp()]\] <font color='red'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [src.name] ([src.ckey])</font>")
-			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>[miss_type ? (miss_type == 1 ? "Was missed by" : "Has blocked") : "Has Been [pick(attack.attack_verb)]"] by [H.name] ([H.ckey])</font>")
+			H.attack_log += "\[[time_stamp()]\] <font color='red'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [src.name] ([src.ckey])</font>"
+			src.attack_log += "\[[time_stamp()]\] <font color='orange'>[miss_type ? (miss_type == 1 ? "Was missed by" : "Has blocked") : "Has been [pick(attack.attack_verb)]"] by [H.name] ([H.ckey])</font>"
 			msg_admin_attack("[key_name(H)] [miss_type ? (miss_type == 1 ? "has missed" : "was blocked by") : "has [pick(attack.attack_verb)]"] [key_name(src)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(src))
 
 			if(miss_type)
@@ -368,8 +368,8 @@
 			if(attacker_style && attacker_style.disarm_act(H, src))
 				return TRUE
 
-			M.attack_log += text("\[[time_stamp()]\] <font color='red'>Disarmed [src.name] ([src.ckey])</font>")
-			src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>")
+			M.attack_log += "\[[time_stamp()]\] <font color='red'>Disarmed [src.name] ([src.ckey])</font>"
+			src.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been disarmed by [M.name] ([M.ckey])</font>"
 
 			msg_admin_attack("[key_name(M)] disarmed [src.name] ([src.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[M.x];Y=[M.y];Z=[M.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 			M.do_attack_animation(src)
@@ -466,8 +466,8 @@
 	if(!damage)
 		return
 
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [src.name] ([src.ckey])</font>")
-	src.attack_log += text("\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>")
+	user.attack_log += "\[[time_stamp()]\] <font color='red'>attacked [src.name] ([src.ckey])</font>"
+	src.attack_log += "\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>"
 	src.visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"))
 	user.do_attack_animation(src)
 

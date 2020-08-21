@@ -202,7 +202,7 @@
 
 /mob/proc/findname(msg)
 	for(var/mob/M in mob_list)
-		if (M.real_name == text("[msg]"))
+		if (M.real_name == "[msg]")
 			return M
 	return 0
 
@@ -282,13 +282,13 @@
 	<BR><B>Head(Mask):</B> <A href='?src=\ref[src];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
 	<BR><B>Left Hand:</B> <A href='?src=\ref[src];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
 	<BR><B>Right Hand:</B> <A href='?src=\ref[src];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
-	<BR><B>Back:</B> <A href='?src=\ref[src];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? text(" <A href='?src=\ref[src];item=internal'>Set Internal</A>") : "")]
-	<BR>[(internal ? text("<A href='?src=\ref[src];item=internal'>Remove Internal</A>") : "")]
+	<BR><B>Back:</B> <A href='?src=\ref[src];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? " <A href='?src=\ref[src];item=internal'>Set Internal</A>" : "")]
+	<BR>[(internal ? "<A href='?src=\ref[src];item=internal'>Remove Internal</A>" : "")]
 	<BR><A href='?src=\ref[src];item=pockets'>Empty Pockets</A>
 	<BR><A href='?src=\ref[user];refresh=1'>Refresh</A>
 	<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>
 	<BR>"}
-	user << browse(dat, text("window=mob[name];size=325x500"))
+	user << browse(dat, "window=mob[name];size=325x500")
 	onclose(user, "mob[name]")
 	return
 
@@ -597,7 +597,7 @@
 
 /mob/Topic(href, href_list)
 	if(href_list["mach_close"])
-		var/t1 = text("window=[href_list["mach_close"]]")
+		var/t1 = "window=[href_list["mach_close"]]"
 		unset_machine()
 		src << browse(null, t1)
 

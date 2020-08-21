@@ -13,7 +13,7 @@
 
 /obj/item/implantcase/proc/update()
 	if (src.imp)
-		src.icon_state = text("implantcase-[src.imp.implant_color]")
+		src.icon_state = "implantcase-[src.imp.implant_color]"
 	else
 		src.icon_state = "implantcase-0"
 	return
@@ -28,9 +28,9 @@
 			return
 		t = sanitizeSafe(t, MAX_NAME_LEN)
 		if(t)
-			src.name = text("Glass Case - '[t]'")
+			src.name = "Glass Case - '[t]'"
 		else
-			src.name = "Glass Case"
+			src.name = "Glass Case[t?" - '[t]'" : null]"
 	else if(istype(I, /obj/item/reagent_containers/syringe))
 		if(!src.imp)	return
 		if(!src.imp.allow_reagents)	return

@@ -381,12 +381,12 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 			n_letter = copytext(te, p, p+n_mod)
 		if (prob(50))
 			if (prob(30))
-				n_letter = text("[n_letter]-[n_letter]-[n_letter]")
+				n_letter = "[n_letter]-[n_letter]-[n_letter]"
 			else
-				n_letter = text("[n_letter]-[n_letter]")
+				n_letter = "[n_letter]-[n_letter]"
 		else
-			n_letter = text("[n_letter]")
-		t = text("[t][n_letter]")
+			n_letter = "[n_letter]"
+		t = "[t][n_letter]"
 		p=p+n_mod
 	return sanitize(t)
 
@@ -413,7 +413,7 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 
 /proc/findname(msg)
 	for(var/mob/M in mob_list)
-		if (M.real_name == text("[msg]"))
+		if (M.real_name == "[msg]")
 			return 1
 	return 0
 

@@ -3,7 +3,7 @@
 		return FALSE
 
 	if(user.incapacitated() || !user.Adjacent(src))
-		user << browse(null, text("window=mob[src.name]"))
+		user << browse(null, "window=mob[src.name]")
 		return FALSE
 
 	var/obj/item/target_slot = get_equipped_item(text2num(slot_to_strip))
@@ -115,8 +115,8 @@
 	if (suit.has_sensor >= 2)
 		to_chat(user, SPAN_WARNING("\The [src]'s suit sensor controls are locked."))
 		return
-	attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their sensors toggled by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Attempted to toggle [name]'s ([ckey]) sensors</font>")
+	attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their sensors toggled by [user.name] ([user.ckey])</font>"
+	user.attack_log += "\[[time_stamp()]\] <font color='red'>Attempted to toggle [name]'s ([ckey]) sensors</font>"
 	suit.set_sensors(user)
 
 // Remove all splints.

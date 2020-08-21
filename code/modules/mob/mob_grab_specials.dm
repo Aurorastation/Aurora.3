@@ -109,8 +109,8 @@
 		target.visible_message(SPAN_DANGER("[target] [target.species.knockout_message]"))
 
 	playsound(attacker.loc, "swing_hit", 25, 1, -1)
-	attacker.attack_log += text("\[[time_stamp()]\] <font color='red'>Headbutted [target.name] ([target.ckey])</font>")
-	target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Headbutted by [attacker.name] ([attacker.ckey])</font>")
+	attacker.attack_log += "\[[time_stamp()]\] <font color='red'>Headbutted [target.name] ([target.ckey])</font>"
+	target.attack_log += "\[[time_stamp()]\] <font color='orange'>Headbutted by [attacker.name] ([attacker.ckey])</font>"
 	msg_admin_attack("[key_name(attacker)] has headbutted [key_name(target)]",ckey=key_name(attacker),ckey_target=key_name(target))
 
 	qdel(src)

@@ -262,9 +262,9 @@
 /mob/living/carbon/alien/diona/Stat()
 	..()
 	if(statpanel("Status"))
-		stat(null, text("Biomass: [nutrition]/[evolve_nutrition]"))
+		stat(null, "Biomass: [nutrition]/[evolve_nutrition]")
 		if(nutrition > evolve_nutrition)
-			stat(null, text("You have enough biomass to grow!"))
+			stat(null, "You have enough biomass to grow!")
 
 //Overriding this function from /mob/living/carbon/alien/life.dm
 /mob/living/carbon/alien/diona/handle_regular_status_updates()

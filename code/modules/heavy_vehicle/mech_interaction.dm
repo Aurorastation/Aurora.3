@@ -547,7 +547,7 @@
 			var/mob/living/carbon/human/D = H
 			if(D.lying)
 				D.attack_log += "\[[time_stamp()]\]<font color='orange'> Was trampled by [src]</font>"
-				attack_log += text("\[[time_stamp()]\] <font color='red'>trampled [D.name] ([D.ckey]) with \the [src].</font>")
+				attack_log += "\[[time_stamp()]\] <font color='red'>trampled [D.name] ([D.ckey]) with \the [src].</font>"
 				msg_admin_attack("[src] trampled [key_name(D)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)" )
 				src.visible_message(SPAN_DANGER("\The [src] runs over \the [D]!"))
 				D.apply_damage(legs.trample_damage, BRUTE)

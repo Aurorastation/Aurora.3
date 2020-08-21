@@ -536,11 +536,11 @@
 // this function displays the cyborgs current cell charge in the stat panel
 /mob/living/silicon/robot/proc/show_cell_power()
 	if(cell)
-		stat(null, text("Charge Left: [round(cell.percent())]%"))
-		stat(null, text("Cell Rating: [round(cell.maxcharge)]")) // Round just in case we somehow get crazy values
-		stat(null, text("Power Cell Load: [round(used_power_this_tick)]W"))
+		stat(null, "Charge Left: [round(cell.percent())]%")
+		stat(null, "Cell Rating: [round(cell.maxcharge)]") // Round just in case we somehow get crazy values
+		stat(null, "Power Cell Load: [round(used_power_this_tick)]W")
 	else
-		stat(null, text("No Cell Inserted!"))
+		stat(null, "No Cell Inserted!")
 
 // update the status screen display
 /mob/living/silicon/robot/Stat()
@@ -548,7 +548,7 @@
 	if(statpanel("Status"))
 		show_cell_power()
 		show_jetpack_pressure()
-		stat(null, text("Lights: [lights_on ? "ON" : "OFF"]"))
+		stat(null, "Lights: [lights_on ? "ON" : "OFF"]")
 		if(module)
 			for(var/datum/matter_synth/ms in module.synths)
 				stat("[ms.name]: [ms.energy]/[ms.max_energy_multiplied]")
@@ -867,21 +867,21 @@
 
 	for (var/obj in module.modules)
 		if (!obj)
-			dat += text("<B>Resource depleted</B><BR>")
+			dat += "<B>Resource depleted</B><BR>"
 		else if(activated(obj))
-			dat += text("[obj]: <B>Activated</B><BR>")
+			dat += "[obj]: <B>Activated</B><BR>"
 		else
-			dat += text("[obj]: <A HREF=?src=\ref[src];act=\ref[obj]>Activate</A><BR>")
+			dat += "[obj]: <A HREF=?src=\ref[src];act=\ref[obj]>Activate</A><BR>"
 	if (emagged)
 		if(activated(module.emag))
-			dat += text("[module.emag]: <B>Activated</B><BR>")
+			dat += "[module.emag]: <B>Activated</B><BR>"
 		else
-			dat += text("[module.emag]: <A HREF=?src=\ref[src];act=\ref[module.emag]>Activate</A><BR>")
+			dat += "[module.emag]: <A HREF=?src=\ref[src];act=\ref[module.emag]>Activate</A><BR>"
 	if(malf_AI_module)
 		if(activated(module.malf_AI_module))
-			dat += text("[module.malf_AI_module]: <B>Activated</B><BR>")
+			dat += "[module.malf_AI_module]: <B>Activated</B><BR>"
 		else
-			dat += text("[module.malf_AI_module]: <A HREF=?src=\ref[src];act=\ref[module.malf_AI_module]>Activate</A><BR>")
+			dat += "[module.malf_AI_module]: <A HREF=?src=\ref[src];act=\ref[module.malf_AI_module]>Activate</A><BR>"
 	src << browse(dat, "window=robotmod")
 
 

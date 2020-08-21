@@ -230,7 +230,7 @@
 					if(!access_allowed)
 						id_card.access += access_type
 	if(id_card)
-		id_card.name = text("[id_card.registered_name]'s ID Card ([id_card.assignment])")
+		id_card.name = "[id_card.registered_name]'s ID Card ([id_card.assignment])"
 
 	SSnanoui.update_uis(NM)
 	return TRUE
