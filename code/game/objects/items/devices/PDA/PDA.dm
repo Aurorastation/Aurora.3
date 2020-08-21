@@ -459,7 +459,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 
 	data["idInserted"] = (id ? 1 : 0)
-	data["idLink"] = (id ? text("[id.registered_name], [id.assignment]") : "--------")
+	data["idLink"] = (id ? "[id.registered_name], [id.assignment]" : "--------")
 
 	data["cart_loaded"] = cartridge ? 1:0
 	if(cartridge)
@@ -1173,7 +1173,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if (!beep_silent)
 		playsound(loc, 'sound/machines/twobeep.ogg', 50, 1)
 		for (var/mob/O in hearers(2, loc))
-			O.show_message(text("\icon[src] *[message_tone]*"))
+			O.show_message("\icon[src] *[message_tone]*")
 	//Search for holder of the PDA.
 	var/mob/living/L = null
 	if(loc && isliving(loc))
@@ -1523,12 +1523,12 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		var/name = P.owner
 		if (name in names)
 			namecounts[name]++
-			name = text("[name] ([namecounts[name]])")
+			name = "[name] ([namecounts[name]])"
 		else
 			names.Add(name)
 			namecounts[name] = 1
 
-		plist[text("[name]")] = P
+		plist["[name]"] = P
 	return plist
 
 /obj/item/device/pda/CouldUseTopic(var/mob/user)

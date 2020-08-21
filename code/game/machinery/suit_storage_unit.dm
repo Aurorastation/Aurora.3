@@ -114,9 +114,10 @@
 		dat+= ""
 		dat+= "<Font color ='black'><B>Maintenance panel controls</B></font><HR>"
 		dat+= "<font color ='grey'>The panel is ridden with controls, button and meters, labeled in strange signs and symbols that <BR>you cannot understand. Probably the manufactoring world's language.<BR> Among other things, a few controls catch your eye.<BR><BR></font>"
-		dat+= text("<font color ='black'>A small dial with a \"ë\" symbol embroidded on it. It's pointing towards a gauge that reads []</font>.<BR> <font color='blue'><A href='?src=\ref[];toggleUV=1'> Turn towards []</A><BR></font>",(src.issuperUV ? "15nm" : "185nm"),src,(src.issuperUV ? "185nm" : "15nm") )
-		dat+= text("<font color ='black'>A thick old-style button, with 2 grimy LED lights next to it. The [] LED is on.</font><BR><font color ='blue'><A href='?src=\ref[];togglesafeties=1'>Press button</a></font>",(src.safetieson? "<font color='green'><B>GREEN</B></font>" : "<font color='red'><B>RED</B></font>"),src)
-		dat+= text("<HR><BR><A href='?src=\ref[];mach_close=suit_storage_unit'>Close panel</A>", user)
+		dat+= "<font color ='black'>A small dial with a \"ë\" symbol embroidded on it. It's pointing towards a gauge that reads 1[src.issuperUV ? "" : "8"]5nm</font>.<BR> <font color='blue'><A href='?src=\ref[src];toggleUV=1'> Turn towards 1[src.issuperUV ? "8" : ""]5nm</A><BR></font>"
+		var/safety_text = safetieson? "<font color='green'><B>GREEN</B></font>" : "<font color='red'><B>RED</B></font>"
+		dat+= "<font color ='black'>A thick old-style button, with 2 grimy LED lights next to it. The [safety_text] LED is on.</font><BR><font color ='blue'><A href='?src=\ref[src];togglesafeties=1'>Press button</a></font>"
+		dat+= "<HR><BR><A href='?src=\ref[user];mach_close=suit_storage_unit'>Close panel</A>"
 		//user << browse(dat, "window=ssu_m_panel;size=400x500")
 		//onclose(user, "ssu_m_panel")
 	else if(src.isUV) //The thing is running its cauterisation cycle. You have to wait.
@@ -131,32 +132,36 @@
 			dat+= ""
 			dat+= "<font color='blue'><font size = 4><B>U-Stor-It Suit Storage Unit, model DS1900</B></FONT><BR>"
 			dat+= "<B>Welcome to the Unit control panel.</B></FONT><HR>"
-			dat+= text("<font color='black'>Helmet storage compartment: <B>[]</B></font><BR>",(src.HELMET ? HELMET.name : "</font><font color ='grey'>No helmet detected.") )
+			var/helmname = src.HELMET ? HELMET.name : "</font><font color ='grey'>No helmet detected."
+			dat+= "<font color='black'>Helmet storage compartment: <B>[helmname]</B></font><BR>"
 			if(HELMET && src.isopen)
-				dat+=text("<A href='?src=\ref[];dispense_helmet=1'>Dispense helmet</A><BR>",src)
-			dat+= text("<font color='black'>Suit storage compartment: <B>[]</B></font><BR>",(src.SUIT ? SUIT.name : "</font><font color ='grey'>No exosuit detected.") )
+				dat+="<A href='?src=\ref[src];dispense_helmet=1'>Dispense helmet</A><BR>"
+			var/suitname = src.SUIT ? SUIT.name : "</font><font color ='grey'>No exosuit detected."
+			dat+= "<font color='black'>Suit storage compartment: <B>[suitname]</B></font><BR>"
 			if(SUIT && src.isopen)
-				dat+=text("<A href='?src=\ref[];dispense_suit=1'>Dispense suit</A><BR>",src)
-			dat+= text("<font color='black'>Breathmask storage compartment: <B>[]</B></font><BR>",(src.MASK ? MASK.name : "</font><font color ='grey'>No breathmask detected.") )
+				dat+="<A href='?src=\ref[src];dispense_suit=1'>Dispense suit</A><BR>"
+			var/maskname = src.MASK ? MASK.name : "</font><font color ='grey'>No breathmask detected."
+			dat+= "<font color='black'>Breathmask storage compartment: <B>[maskname]</B></font><BR>"
 			if(MASK && src.isopen)
-				dat+=text("<A href='?src=\ref[];dispense_mask=1'>Dispense mask</A><BR>",src)
+				dat+="<A href='?src=\ref[src];dispense_mask=1'>Dispense mask</A><BR>"
 			if(src.OCCUPANT)
 				dat+= "<HR><B><font color ='red'>WARNING: Biological entity detected inside the Unit's storage. Please remove.</B></font><BR>"
 				dat+= "<A href='?src=\ref[src];eject_guy=1'>Eject extra load</A>"
-			dat+= text("<HR><font color='black'>Unit is: [] - <A href='?src=\ref[];toggle_open=1'>[] Unit</A></font> ",(src.isopen ? "Open" : "Closed"),src,(src.isopen ? "Close" : "Open"))
+			dat+= "<HR><font color='black'>Unit is: [(src.isopen ? "Open" : "Closed")] - <A href='?src=\ref[src];toggle_open=1'>[src.isopen ? "Close" : "Open"] Unit</A></font>"
 			if(src.isopen)
 				dat+="<HR>"
 			else
-				dat+= text(" - <A href='?src=\ref[];toggle_lock=1'><font color ='orange'>*[] Unit*</A></font><HR>",src,(src.islocked ? "Unlock" : "Lock") )
-			dat+= text("Unit status: []",(src.islocked? "<font color ='red'><B>**LOCKED**</B></font><BR>" : "<font color ='green'><B>**UNLOCKED**</B></font><BR>") )
-			dat+= text("<A href='?src=\ref[];start_UV=1'>Start Disinfection cycle</A><BR>",src)
-			dat += text("<BR><BR><A href='?src=\ref[];mach_close=suit_storage_unit'>Close control panel</A>", user)
+				dat+= " - <A href='?src=\ref[src];toggle_lock=1'><font color ='orange'>*[src.islocked ? "Unlock" : "Lock"] Unit*</A></font><HR>"
+			var/lock_text = src.islocked? "<font color ='red'><B>**LOCKED**</B></font><BR>" : "<font color ='green'><B>**UNLOCKED**</B></font><BR>"
+			dat+= "Unit status: [lock_text]"
+			dat+= "<A href='?src=\ref[src];start_UV=1'>Start Disinfection cycle</A><BR>"
+			dat += "<BR><BR><A href='?src=\ref[user];mach_close=suit_storage_unit'>Close control panel</A>"
 			//user << browse(dat, "window=Suit Storage Unit;size=400x500")
 			//onclose(user, "Suit Storage Unit")
 		else //Ohhhh shit it's dirty or broken! Let's inform the guy.
 			dat+= ""
 			dat+= "<font color='maroon'><B>Unit chamber is too contaminated to continue usage. Please call for a qualified individual to perform maintenance.</font></B><BR><BR>"
-			dat+= text("<HR><A href='?src=\ref[];mach_close=suit_storage_unit'>Close control panel</A>", user)
+			dat+= "<HR><A href='?src=\ref[user]mach_close=suit_storage_unit'>Close control panel</A>"
 			//user << browse(dat, "window=suit_storage_unit;size=400x500")
 			//onclose(user, "suit_storage_unit")
 
@@ -440,7 +445,7 @@
 	if ( (src.OCCUPANT) || (src.HELMET) || (src.SUIT) )
 		to_chat(usr, "<font color='red'>It's too cluttered inside for you to fit in!</font>")
 		return
-	usr.visible_message(SPAN_NOTICE("[usr] starts squeezing into [src]!"), SPAN_NOTICE("You start squeezing into [src]!"), range = 3)
+	usr.visible_message("<span class='notice'>[usr] starts squeezing into [src]!</span>", "<span class='notice'>You start squeezing into [src]!</span>", range = 3)
 	if(do_after(usr, 10))
 		usr.stop_pulling()
 		usr.client.perspective = EYE_PERSPECTIVE
@@ -464,7 +469,7 @@
 	if(I.isscrewdriver())
 		src.panelopen = !src.panelopen
 		playsound(src.loc, I.usesound, 100, 1)
-		to_chat(user, text("<font color='blue'>You [] the unit's maintenance panel.</font>",(src.panelopen ? "open up" : "close") ))
+		user.visible_message("<b>[user] [(panelopen ? "opens up" : "closes")] the unit's maintenance panel.", SPAN_NOTICE("You [(panelopen ? "open up" : "close")] the unit's maintenance panel."))
 		update_icon()
 		src.updateUsrDialog()
 		return
@@ -481,7 +486,7 @@
 		if ( (src.OCCUPANT) || (src.HELMET) || (src.SUIT) ) //Unit needs to be absolutely empty
 			to_chat(user, "<font color='red'>The unit's storage area is too cluttered.</font>")
 			return
-		user.visible_message(SPAN_NOTICE("[user] starts putting [G.affecting] into [src]."), SPAN_NOTICE("You start putting [G.affecting] into [src]."), range = 3)
+		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
 		if(do_after(user, 20))
 			if(!G || !G.affecting) return //derpcheck
 			var/mob/M = G.affecting

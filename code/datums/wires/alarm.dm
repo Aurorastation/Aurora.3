@@ -18,7 +18,8 @@ var/const/AALARM_WIRE_AALARM = 16
 /datum/wires/alarm/GetInteractWindow()
 	var/obj/machinery/alarm/A = holder
 	. += ..()
-	. += text("<br>\n[(A.locked ? "The Air Alarm is locked." : "The Air Alarm is unlocked.")]<br>\n[((A.shorted || (A.stat & (NOPOWER|BROKEN))) ? "The Air Alarm is offline." : "The Air Alarm is working properly!")]<br>\n[(A.aidisabled ? "The 'AI control allowed' light is off." : "The 'AI control allowed' light is on.")]")
+	var/is_offline = A.shorted || (A.stat & (NOPOWER|BROKEN))
+	. += "<br>\nThe Air Alarm is [A.locked ? "" : "un"]locked.<br>\nThe Air Alarm is [is_offline ? "offline." : "working properly!"]<br>\nThe 'AI control allowed' light is [A.aidisabled ? "off" : "on"]."
 
 /datum/wires/alarm/UpdateCut(var/index, var/mended)
 	var/obj/machinery/alarm/A = holder

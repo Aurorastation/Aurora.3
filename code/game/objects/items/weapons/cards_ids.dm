@@ -43,7 +43,7 @@
 	set src in usr
 
 	if (t)
-		src.name = text("data disk- '[t]'")
+		src.name = "data disk- '[t]'"
 	else
 		src.name = "data disk"
 	src.add_fingerprint(usr)
@@ -179,17 +179,17 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")
-	dat += text("Name: [registered_name]</A><BR>")
-	dat += text("Sex: [sex]</A><BR>\n")
-	dat += text("Age: [age]</A><BR>\n")
-	dat += text("Citizenship: [citizenship]</A><BR>\n")
-	dat += text("Religion: [religion]</A><BR>\n")
-	dat += text("Rank: [assignment]</A><BR>\n")
-	dat += text("Fingerprint: [fingerprint_hash]</A><BR>\n")
-	dat += text("Blood Type: [blood_type]<BR>\n")
-	dat += text("DNA Hash: [dna_hash]<BR><BR>\n")
+	dat += "Name: [registered_name]</A><BR>"
+	dat += "Sex: [sex]</A><BR>\n"
+	dat += "Age: [age]</A><BR>\n"
+	dat += "Citizenship: [citizenship]</A><BR>\n"
+	dat += "Religion: [religion]</A><BR>\n"
+	dat += "Rank: [assignment]</A><BR>\n"
+	dat += "Fingerprint: [fingerprint_hash]</A><BR>\n"
+	dat += "Blood Type: [blood_type]<BR>\n"
+	dat += "DNA Hash: [dna_hash]<BR><BR>\n"
 	if(mining_points)
-		dat += text("Ore Redemption Points: [mining_points]<BR><BR>\n")
+		dat += "Ore Redemption Points: [mining_points]<BR><BR>\n"
 	if(front && side)
 		dat +="<td align = center valign = top>Photo:<br><img src=front.png height=128 width=128 border=4><img src=side.png height=128 width=128 border=4></td>"
 	dat += "</tr></table>"

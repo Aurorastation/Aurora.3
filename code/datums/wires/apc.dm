@@ -10,7 +10,7 @@
 /datum/wires/apc/GetInteractWindow()
 	var/obj/machinery/power/apc/A = holder
 	. += ..()
-	. += text("<br>\n[(A.locked ? "The APC is locked." : "The APC is unlocked.")]<br>\n[(A.shorted ? "The APCs power has been shorted." : "The APC is working properly!")]<br>\n[(A.aidisabled ? "The 'AI control allowed' light is off." : "The 'AI control allowed' light is on.")]")
+	. += "<br>\nThe APC is [A.locked ? "" : "un"]locked.<br>\nThe APC[A.shorted ? "'s power has been shorted." : " is working properly!"]<br>\nThe 'AI control allowed' light is [A.aidisabled ? "off" : "on"]."
 
 /datum/wires/apc/CanUse(var/mob/living/L)
 	var/obj/machinery/power/apc/A = holder

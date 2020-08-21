@@ -254,7 +254,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			screen = RCS_SENTPASS
 			message_log += "<B>Message sent to [recipient]</B><BR>[message]"
 		else
-			audible_message(text("\icon[src] *The Requests Console beeps: 'NOTICE: No server detected!'"),,4)
+			audible_message("\icon[src] *The Requests Console beeps: 'NOTICE: No server detected!'", hearing_distance = 4)
 
 	//Handle screen switching
 	if(href_list["setScreen"])
@@ -371,7 +371,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/card/id/T = O
-			msgVerified = text("<font color='green'><b>Verified by [T.registered_name] ([T.assignment])</b></font>")
+			msgVerified = SPAN_GOOD("<b>Verified by [T.registered_name] ([T.assignment])</b>")
 			updateUsrDialog()
 		if(screen == RCS_ANNOUNCE)
 			var/obj/item/card/id/ID = O
@@ -386,7 +386,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/stamp/T = O
-			msgStamped = text("<font color='blue'><b>Stamped with the [T.name]</b></font>")
+			msgStamped = "<font color='blue'><b>Stamped with the [T.name]</b></font>"
 			updateUsrDialog()
 	else if (istype(O, /obj/item/paper_bundle))
 		if(lid)	//More of that restocking business
@@ -395,7 +395,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			user.drop_from_inventory(C,get_turf(src))
 			qdel(C)
 			for (var/mob/U in hearers(4, src.loc))
-				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
+				U.show_message("\icon[src] *The Requests Console beeps: 'Paper added.'")
 		else
 			to_chat(user, SPAN_NOTICE("I should open the lid to add more paper, or try faxing one paper at a time."))
 	else if (istype(O, /obj/item/paper))
@@ -405,7 +405,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			qdel(C)
 			paperstock++
 			for (var/mob/U in hearers(4, src.loc))
-				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
+				U.show_message("\icon[src] *The Requests Console beeps: 'Paper added.'")
 		else if(screen == 0)	//Faxing them papers
 			var/pass = 0
 			var/sendto = input("Select department.", "Send Fax", null, null) in allConsoles
@@ -453,12 +453,12 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 						P.set_content_unsafe(pname, info)
 						Console.print(P, 0, 'sound/machines/twobeep.ogg')
 						for (var/mob/player in hearers(4, Console.loc))
-							player.show_message(text("\icon[Console] *The Requests Console beeps: 'Fax received'"))
+							player.show_message("\icon[Console] *The Requests Console beeps: 'Fax received'")
 						Console.paperstock--
 				if(sent == 1)
-					user.show_message(text("\icon[src] *The Requests Console beeps: 'Message Sent.'"))
+					user.show_message("\icon[src] *The Requests Console beeps: 'Message Sent.'")
 			else
-				user.show_message(text("\icon[src] *The Requests Console beeps: 'NOTICE: No server detected!'"))
+				user.show_message("\icon[src] *The Requests Console beeps: 'NOTICE: No server detected!'")
 
 	return
 
