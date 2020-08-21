@@ -40,6 +40,17 @@
 	if(!is_open_container())
 		to_chat(user, "<span class='notice'>Airtight lid seals it completely.</span>")
 
+/obj/item/reagent_containers/glass/get_additional_forensics_swab_info()
+	var/list/additional_evidence = ..()
+	var/datum/reagent/blood/B = locate() in reagents.reagent_list
+	if(B)
+		additional_evidence["type"] = EVIDENCE_TYPE_BLOOD
+		additional_evidence["sample_type"] = "blood"
+		additional_evidence["dna"] += B.data["blood_DNA"]
+		additional_evidence["sample_message"] = "You dip the swab inside \the [src.name] to sample its contents."
+
+	return additional_evidence
+
 /obj/item/reagent_containers/glass/attack_self()
 	..()
 	if(is_open_container())
