@@ -116,6 +116,10 @@
 	icon_state = "dark"
 	initial_flooring = /decl/flooring/tiling/dark
 
+/turf/simulated/floor/tiled/dark/airless
+	oxygen = 0
+	nitrogen = 0
+
 /turf/simulated/floor/tiled/red
 	name = "red floor"
 	color = COLOR_RED_GRAY

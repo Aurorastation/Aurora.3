@@ -250,6 +250,11 @@
 	icon_state = "tcomsatcham"
 	no_light_control = 1
 
+/area/dungeon/skrell_ship
+    name = "Crashed Skrell Ship"
+    icon_state = "purple"
+    flags = RAD_SHIELDED | SPAWN_ROOF
+
 //Misc
 
 /area/beach
