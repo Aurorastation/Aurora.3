@@ -24,7 +24,6 @@
 /* Tosses things in a certain direction */
 
 /obj/effect/step_trigger/thrower
-	var/direction = SOUTH // the direction of throw
 	var/tiles = 3	// if 0: forever until atom hits a stopper
 	var/immobilize = 1 // if nonzero: prevents mobs from moving while they're being flung
 	var/speed = 1	// delay of movement
@@ -61,28 +60,63 @@
 
 			// Calculate if we should stop the process
 			if(!nostop)
-				for(var/obj/effect/step_trigger/T in get_step(AM, direction))
+				for(var/obj/effect/step_trigger/T in get_step(AM, dir))
 					if(T.stopper && T != src)
 						stopthrow = 1
 			else
-				for(var/obj/effect/step_trigger/teleporter/T in get_step(AM, direction))
+				for(var/obj/effect/step_trigger/teleporter/T in get_step(AM, dir))
 					if(T.stopper)
 						stopthrow = 1
 
 			if(AM)
 				var/predir = AM.dir
-				step(AM, direction)
+				step(AM, dir)
 				if(!facedir)
 					AM.set_dir(predir)
 
-
-
 		affecting.Remove(AM)
-
 		if(ismob(AM))
 			var/mob/M = AM
 			if(immobilize)
 				M.canmove = 1
+
+/obj/effect/step_trigger/thrower/shuttle
+	icon_state = "dir_arrow"
+	affect_ghosts = TRUE
+	nostop = TRUE
+	tiles = 0
+
+/obj/effect/step_trigger/thrower/shuttle/north
+	name = "north_thrower"
+	dir = NORTH
+
+/obj/effect/step_trigger/thrower/shuttle/northeast
+	name = "northeast_thrower"
+	dir = NORTHEAST
+
+/obj/effect/step_trigger/thrower/shuttle/east
+	name = "east_thrower"
+	dir = EAST
+
+/obj/effect/step_trigger/thrower/shuttle/southeast
+	name = "southeast_thrower"
+	dir = SOUTHEAST
+
+/obj/effect/step_trigger/thrower/shuttle/south
+	name = "south_thrower"
+	dir = SOUTH
+
+/obj/effect/step_trigger/thrower/shuttle/southwest
+	name = "southwest_thrower"
+	dir = SOUTHWEST
+
+/obj/effect/step_trigger/thrower/shuttle/west
+	name = "west_thrower"
+	dir = WEST
+
+/obj/effect/step_trigger/thrower/shuttle/northwest
+	name = "northwest_thrower"
+	dir = NORTHWEST
 
 /* Stops things thrown by a thrower, doesn't do anything */
 
