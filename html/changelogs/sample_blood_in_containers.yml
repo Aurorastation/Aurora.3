@@ -1,0 +1,4 @@
+author: mikomyazaki
+delete-after: True
+changes: 
+  - rscadd: "You can now sample blood inside containers (like bottles, beakers) using a swab."
