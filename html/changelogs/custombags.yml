@@ -3,6 +3,5 @@ author: Sparky_hotdog
 delete-after: True
 
 changes: 
-  - rscadd: "Added a Bags section to loadout preferences to cater to all your custom item needs. 
+  - rscadd: "Added a Bags section to loadout preferences to cater to all your custom item needs."
   - tweak: "Starting with a custom bag means you won't start with the one from your equipment preferences."
-
