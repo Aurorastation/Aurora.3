@@ -305,7 +305,7 @@
 		cut_overlays()
 		if(panel_open)
 			add_overlay(icon_panel)
-		SSnanoui.update_uis(src)
+		SSvueui.check_uis_for_change(src)
 		return
 
 	if(O.ismultitool()||O.iswirecutter())
@@ -362,7 +362,7 @@
 				item_quants[O.name] = 1
 			user.visible_message("<b>[user]</b> adds \a [O] to \the [src].", "<span class='notice'>You add \the [O] to \the [src].</span>")
 
-			SSnanoui.update_uis(src)
+			SSvueui.check_uis_for_change(src)
 			return
 
 	if(istype(O, /obj/item/storage/bag) || istype(O, /obj/item/storage/box/produce))
@@ -386,7 +386,7 @@
 			if(P.contents.len > 0)
 				to_chat(user, "<span class='notice'>Some items are refused.</span>")
 
-		SSnanoui.update_uis(src)
+		SSvueui.check_uis_for_change(src)
 
 	else
 		to_chat(user, "<span class='notice'>\The [src] smartly refuses [O].</span>")
@@ -412,10 +412,18 @@
 *   SmartFridge Menu
 ********************/
 
-/obj/machinery/smartfridge/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/smartfridge/ui_interact(mob/user)
 	user.set_machine(src)
 
-	var/data[0]
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if(!ui)
+		ui = new(user, src, "machinery-smartfridge", 400, 500, name, state = interactive_state)
+
+	ui.open()
+
+/obj/machinery/smartfridge/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+	data = list()
+
 	data["contents"] = null
 	data["electrified"] = seconds_electrified > 0
 	data["shoot_inventory"] = shoot_inventory
@@ -432,22 +440,17 @@
 	if(items.len > 0)
 		data["contents"] = items
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if(!ui)
-		ui = new(user, src, ui_key, "smartfridge.tmpl", src.name, 400, 500)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /obj/machinery/smartfridge/Topic(href, href_list)
-	if(..()) return 0
+	if(..())
+		return 1
 
-	var/mob/user = usr
-	var/datum/nanoui/ui = SSnanoui.get_open_ui(user, src, "main")
-
-	src.add_fingerprint(user)
+	src.add_fingerprint(usr)
 
 	if(href_list["close"])
-		user.unset_machine()
+		var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
+		usr.unset_machine()
 		ui.close()
 		return 0
 
@@ -467,8 +470,9 @@
 					O.forceMove(loc)
 					i--
 					if(i <= 0)
-						return 1
+						break
 
+		SSvueui.check_uis_for_change(src)
 		return 1
 	return 0
 

@@ -367,10 +367,10 @@
 			melee_damage_upper = initial(melee_damage_upper)
 			growl_soft()
 
-	update_icons()
+	update_icon()
 
 
-/mob/living/simple_animal/hostile/bear/update_icons()
+/mob/living/simple_animal/hostile/bear/update_icon()
 	if (stat == DEAD)
 		icon_state = "bear_dead"
 	else if (bearmode == BEARMODE_INDOORS)

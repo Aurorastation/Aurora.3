@@ -191,7 +191,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 					//finally give it a bit of an oomf
 					playsound(get_turf(usr),'sound/effects/phasein.ogg',50,1)
 	if(href_list["reset"])
-		var/area/wizard_station/A = locate()
+		var/area/antag/wizard/A = locate()
 		if(usr in A.contents)
 			uses = spellbook.max_uses
 			H.spellremove()

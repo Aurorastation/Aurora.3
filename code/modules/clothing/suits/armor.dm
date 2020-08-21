@@ -73,7 +73,7 @@
 
 /obj/item/clothing/suit/armor/vest/warden
 	name = "warden's jacket"
-	desc = "An armoured jacket with silver rank pips and livery."
+	desc = "An armored jacket with silver rank pips and livery."
 	icon_state = "warden_jacket"
 	item_state = "warden_jacket"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
@@ -93,7 +93,7 @@
 
 /obj/item/clothing/suit/armor/hos
 	name = "head of security's jacket"
-	desc = "An armoured jacket with golden rank pips and livery."
+	desc = "An armored jacket with golden rank pips and livery."
 	icon_state = "hos"
 	item_state = "hos"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
@@ -275,7 +275,7 @@
 	holster = new()
 	holster.icon_state = null
 	holster.on_attached(src)	//its inside a suit, we set  this so it can be drawn from
-	QDEL_NULL(pockets)	//Tactical armour has internal holster instead of pockets, so we null this out
+	QDEL_NULL(pockets)	//Tactical armor has internal holster instead of pockets, so we null this out
 	cut_overlays()	// Remove the holster's overlay.
 
 /obj/item/clothing/suit/armor/tactical/attackby(obj/item/W as obj, mob/user as mob)
@@ -536,7 +536,7 @@
 	item_state = "hegemony_armor"
 	armor = list(melee = 70, bullet = 40, laser = 55, energy = 15, bomb = 25, bio = 0, rad = 40)
 
-// Vaurca version of Unathi armour
+// Vaurca version of Unathi armor
 /obj/item/clothing/suit/armor/unathi/klax
 	name = "klaxan hopeful body armor"
 	desc = "An armored chestplate designated to be worn by a K'lax hopeful. The retrofit is only a bit shoddy."
@@ -557,6 +557,16 @@
 	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS | ARMS
 	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
+	allowed = list(
+		/obj/item/gun,
+		/obj/item/reagent_containers/spray/pepper,
+		/obj/item/ammo_magazine,
+		/obj/item/ammo_casing,
+		/obj/item/melee/baton,
+		/obj/item/handcuffs,
+		/obj/item/device/flashlight,
+		/obj/item/material/twohanded/pike/flag
+		)
 
 /obj/item/clothing/suit/storage/vest/legion/legate
 	name = "foreign legion legate coat"

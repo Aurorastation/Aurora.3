@@ -14,8 +14,8 @@ STOCK_ITEM_UNCOMMON(plasteel, 3)
 STOCK_ITEM_UNCOMMON(silver, 2)
 	new /obj/item/stack/material/silver(L, rand(5,30))
 
-STOCK_ITEM_UNCOMMON(phoronsheets, 2)
-	new /obj/item/stack/material/phoron(L, rand(5,50))
+STOCK_ITEM_UNCOMMON(phoronsheets, 1.5)
+	new /obj/item/stack/material/phoron(L, rand(5,40))
 
 STOCK_ITEM_UNCOMMON(phoronglass, 2)
 	new /obj/item/stack/material/glass/phoronglass(L, 50)
@@ -86,7 +86,7 @@ STOCK_ITEM_UNCOMMON(mediumcell, 3)
 
 STOCK_ITEM_UNCOMMON(chempack, 5)
 	var/list/chems = SSchemistry.chemical_reagents.Copy()
-	var/list/exclusion = list(/datum/reagent/drink, /datum/reagent, /datum/reagent/adminordrazine, /datum/reagent/chloralhydrate/beer2, /datum/reagent/azoth, /datum/reagent/elixir,\
+	var/list/exclusion = list(/datum/reagent/drink, /datum/reagent, /datum/reagent/adminordrazine, /datum/reagent/polysomnine/beer2, /datum/reagent/azoth, /datum/reagent/elixir,\
 		/datum/reagent/liquid_fire, /datum/reagent/philosopher_stone, /datum/reagent/toxin/undead, /datum/reagent/love_potion, /datum/reagent/shapesand, /datum/reagent/usolve,\
 		/datum/reagent/sglue, /datum/reagent/black_matter, /datum/reagent/bottle_lightning, /datum/reagent/toxin/trioxin, /datum/reagent/toxin/phoron_salt, /datum/reagent/toxin/nanites, /datum/reagent/nitroglycerin)
 	chems -= exclusion

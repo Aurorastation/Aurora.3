@@ -85,11 +85,11 @@
 	icon_state = "bottle-3"
 	reagents_to_add = list(/datum/reagent/soporific = 60)
 
-/obj/item/reagent_containers/glass/bottle/chloralhydrate
+/obj/item/reagent_containers/glass/bottle/polysomnine
 	name = "chloral hydrate bottle"
 	desc = "A small bottle of Choral Hydrate. Mickey's Favorite!"
 	icon_state = "bottle-3"
-	reagents_to_add = list(/datum/reagent/chloralhydrate = 30)
+	reagents_to_add = list(/datum/reagent/polysomnine = 30)
 
 /obj/item/reagent_containers/glass/bottle/antitoxin
 	name = "dylovene bottle"
@@ -181,3 +181,27 @@
 	desc = "A small bottle of thetamycin. Used for disinfecting whatever wounds security caused."
 	icon_state = "bottle-4"
 	reagents_to_add = list(/datum/reagent/thetamycin = 60)
+
+/obj/item/reagent_containers/glass/bottle/bicaridine
+	name = "bicaridine bottle"
+	desc = "A small bottle. Contains bicaridine - treats damaged tissues."
+	icon_state = "bottle-1"
+	reagents_to_add = list(/datum/reagent/bicaridine = 60)
+
+/obj/item/reagent_containers/glass/bottle/dermaline
+	name = "dermaline bottle"
+	desc = "A small bottle. Contains dermaline - treats burnt tissues."
+	icon_state = "bottle-2"
+	reagents_to_add = list(/datum/reagent/dermaline = 60)
+
+/obj/item/reagent_containers/glass/bottle/peridaxon
+	name = "peridaxon bottle"
+	desc = "A small bottle. Contains peridaxon - treats damaged organs."
+	icon_state = "bottle-2"
+	reagents_to_add = list(/datum/reagent/peridaxon = 60)
+
+/obj/item/reagent_containers/glass/bottle/mortaphenyl
+	name = "mortaphenyl bottle"
+	desc = "A small bottle. Contains mortaphenyl - treats mild-severe pain as a result of severe, physical injury."
+	icon_state = "bottle-3"
+	reagents_to_add = list(/datum/reagent/mortaphenyl = 60)

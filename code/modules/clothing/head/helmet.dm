@@ -54,7 +54,7 @@
 	armor = list(melee = 62, bullet = 50, laser = 50, energy = 35, bomb = 10, bio = 2, rad = 0)
 
 /obj/item/clothing/head/helmet/hos/dermal
-	name = "dermal armour patch"
+	name = "dermal armor patch"
 	desc = "You're not quite sure how you manage to take it on and off, but it implants nicely in your head."
 	icon_state = "dermal"
 	allow_hair_covering = FALSE
@@ -290,6 +290,11 @@
 	flags_inv = HIDEEARS|HIDEEYES|BLOCKHEADHAIR
 	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
+	sprite_sheets = list(
+		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
+		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
+		"Machine" = 'icons/mob/species/machine/helmet.dmi'
+		)
 
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light_dual"

@@ -74,13 +74,7 @@
 				//waiting_for_input ensures this is only shown once, so they basically auto-resist from here on out. They still need to find a way to get off the freaking rune if they don't want to burn to death, though.
 				to_chat(target, SPAN_CULT("Your blood pulses. Your head throbs. The world goes red. All at once you are aware of a horrible, horrible truth. The veil of reality has been ripped away and in the festering wound left behind, something sinister takes root."))
 				to_chat(target, SPAN_CULT("And you were able to force it out of your mind. Though the memory of that dark, horrible vision will surely haunt you for decades to come."))
-				var/has_implant // we don't want people with loy implants to just get gibbed
-				for(var/obj/item/implant/mindshield/L in target)
-					if(L?.imp_in == target)
-						has_implant = TRUE
-				if(!has_implant)
-					to_chat(target, SPAN_CULT("..or will it?"))
-					target.gib() // people who can't be cultists get gibbed to preserve cult anonymity
+				target.visible_message(SPAN_WARNING("The markings below [target] lose their glow, this unworthy offering has been rejected!"))
 			else
 				var/choice = alert(target,"Do you want to join the cult?", "Submit to Nar'Sie", "Resist", "Submit")
 				waiting_for_input[target] = FALSE

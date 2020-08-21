@@ -630,7 +630,7 @@ var/global/list/robot_modules = list(
 	var/datum/reagents/RG = new /datum/reagents(50)
 	src.emag.reagents = RG
 	RG.my_atom = src.emag
-	RG.add_reagent(/datum/reagent/chloralhydrate/beer2, 50)
+	RG.add_reagent(/datum/reagent/polysomnine/beer2, 50)
 	src.emag.name = "Mickey Finn's Special Brew"
 
 /obj/item/robot_module/clerical/general

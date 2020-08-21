@@ -43,10 +43,10 @@
 	taste_sensitivity = TASTE_SENSITIVE
 	reagent_tag = IS_VAURCA
 	siemens_coefficient = 1 //setting it to 0 would be redundant due to LordLag's snowflake checks, plus batons/tasers use siemens now too.
-	breath_type = "phoron"
+	breath_type = GAS_PHORON
 	breath_vol_mul = 1/6 // 0.5 liters * breath_vol_mul = breath volume
 	breath_eff_mul = 6 // 1/6 * breath_eff_mul = fraction of gas consumed
-	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.
+	poison_type = GAS_NITROGEN //a species that breathes plasma shouldn't be poisoned by it.
 	breathing_sound = null //They don't work that way I guess? I'm a coder not a purple man.
 	mob_size = 13 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
 	natural_climbing = TRUE
@@ -127,7 +127,8 @@
 	allowed_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_PILOTDREAM, RELIGION_NONE, RELIGION_OTHER)
 	default_citizenship = CITIZENSHIP_ZORA
 
-	allowed_accents = list(ACCENT_CETI)
+	default_accent = ACCENT_TTS
+	allowed_accents = list(ACCENT_TTS, ACCENT_ZORA, ACCENT_KLAX, ACCENT_CTHUR)
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()

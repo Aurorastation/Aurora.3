@@ -97,3 +97,10 @@
 #define ATMOSTANK_NITROUSOXIDE  10000 // N2O doesn't have a real useful use, i guess it's on station just to allow refilling of sec's riot control canisters?
 
 #define ADIABATIC_EXPONENT 0.667 //Actually adiabatic exponent - 1.
+
+#define GAS_OXYGEN				"oxygen"
+#define GAS_CO2					"carbon_dioxide"
+#define GAS_N2O					"sleeping_agent"
+#define GAS_NITROGEN			"nitrogen"
+#define GAS_NO2					"nitrodioxide"
+#define GAS_PHORON				"phoron"

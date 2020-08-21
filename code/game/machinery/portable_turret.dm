@@ -63,7 +63,7 @@
 	var/eprojectile = /obj/item/projectile/beam		//holder for lethal (secondary) mode beam
 
 	var/shot_sound = 'sound/weapons/Taser.ogg'		//what sound should play when the turret fires
-	var/eshot_sound	= 'sound/weapons/Laser.ogg'		//what sound should play when the lethal turret fires
+	var/eshot_sound	= 'sound/weapons/laser1.ogg'		//what sound should play when the lethal turret fires
 
 	var/datum/effect_system/sparks/spark_system		//the spark system, used for generating... sparks?
 
@@ -373,7 +373,7 @@
 			if(do_after(user, 5))
 				if(QDELETED(src) || !WT.isOn())
 					return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+				playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 				health += maxhealth / 3
 				health = min(maxhealth, health)
 				return
@@ -496,8 +496,9 @@
 
 	if(!tryToShootAt(targets))
 		if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
-			resetting = TRUE
-			addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
+			if(raised || raising) // we've already reset
+				resetting = TRUE
+				addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
 
 	if(targets.len || secondarytargets.len)
 		if(!fast_processing)
@@ -782,7 +783,7 @@
 				return
 
 			else if(I.iscrowbar() && !anchored)
-				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
+				playsound(loc, I.usesound, 75, 1)
 				to_chat(user, "<span class='notice'>You dismantle the turret construction.</span>")
 				new /obj/item/stack/material/steel( loc, 5)
 				qdel(src)
@@ -824,7 +825,7 @@
 					to_chat(user, "<span class='notice'>You need more fuel to complete this task.</span>")
 					return
 
-				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/Welder2.ogg'), 50, 1)
+				playsound(loc, pick('sound/items/welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
 				if(do_after(user, 20/I.toolspeed))
 					if(!src || !WT.remove_fuel(5, user)) return
 					build_step = 1
@@ -913,7 +914,7 @@
 				if(WT.get_fuel() < 5)
 					to_chat(user, "<span class='notice'>You need more fuel to complete this task.</span>")
 
-				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/Welder2.ogg'), 50, 1)
+				playsound(loc, pick('sound/items/welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
 				if(do_after(user, 30/I.toolspeed))
 					if(!src || !WT.remove_fuel(5, user))
 						return
@@ -953,7 +954,7 @@
 					qdel(src) // qdel
 
 			else if(I.iscrowbar())
-				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
+				playsound(loc, I.usesound, 75, 1)
 				to_chat(user, "<span class='notice'>You pry off the turret's exterior armor.</span>")
 				new /obj/item/stack/material/steel(loc, 2)
 				build_step = 6
@@ -1022,8 +1023,8 @@
 
 	projectile = /obj/item/projectile/ion/stun
 	eprojectile = /obj/item/projectile/ion
-	shot_sound = 'sound/weapons/Laser.ogg'
-	eshot_sound	= 'sound/weapons/Laser.ogg'
+	shot_sound = 'sound/weapons/laser1.ogg'
+	eshot_sound	= 'sound/weapons/laser1.ogg'
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/crossbow
@@ -1034,7 +1035,7 @@
 	sprite_set = "crossbow"
 
 	eprojectile = /obj/item/projectile/energy/bolt/large
-	eshot_sound	= 'sound/weapons/Genhit.ogg'
+	eshot_sound	= 'sound/weapons/genhit.ogg'
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/cannon

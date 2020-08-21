@@ -867,7 +867,7 @@
 		update_icon = 0
 		regenerate_icons()
 	else if( lying != lying_prev )
-		update_icons()
+		update_icon()
 
 	return canmove
 
@@ -1126,7 +1126,7 @@
 
 /mob/living/proc/handle_weakened()
 	if(weakened)
-		weakened = max(weakened-1,0)	//before you get mad Rockdtben: I done this so update_canmove isn't called multiple times
+		weakened = max(weakened-1,0)
 	return weakened
 
 /mob/living/proc/handle_stuttering()
@@ -1171,9 +1171,6 @@
 /mob/proc/Released()
 	//This is called when the mob is let out of a holder
 	//Override for mob-specific functionality
-	return
-
-/mob/proc/updateicon()
 	return
 
 /mob/verb/face_direction()

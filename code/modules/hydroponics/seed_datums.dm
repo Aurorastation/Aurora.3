@@ -889,7 +889,7 @@
 	name = "carrot"
 	seed_name = "carrot"
 	display_name = "carrots"
-	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/imidazoline = list(3,5), /datum/reagent/drink/carrotjuice = list(10,20))
+	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/oculine = list(3,5), /datum/reagent/drink/carrotjuice = list(10,20))
 	kitchen_tag = "carrot"
 
 /datum/seed/carrots/setup_traits()
@@ -1171,7 +1171,7 @@
 	name = "mtear"
 	seed_name = "Messa's tear"
 	display_name = "Messa's tear leaves"
-	chems = list(/datum/reagent/honey = list(1,10), /datum/reagent/kelotane = list(3,5))
+	chems = list(/datum/reagent/nutriment/honey = list(1,10), /datum/reagent/kelotane = list(3,5))
 	kitchen_tag = "mtear"
 
 /datum/seed/mtear/setup_traits()

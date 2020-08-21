@@ -5,6 +5,14 @@
 
 	is_default = TRUE
 
+	job_species_blacklist = list(
+		"Corporate Liaison" = list(
+			"Diona",
+			"Vaurca Worker", 
+			"Vaurca Warrior",
+		)
+	)
+
 /datum/faction/nano_trasen/New()
 	..()
 

@@ -488,7 +488,7 @@
 			if (terminal)
 				to_chat(user, SPAN_WARNING("Disconnect wires first."))
 				return
-			playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+			playsound(loc, W.usesound, 50, 1)
 			to_chat(user, "You are trying to remove the power control board...")
 			if(do_after(user, 50/W.toolspeed))
 				if (has_electronics == HAS_ELECTRONICS_CONNECT)
@@ -653,9 +653,9 @@
 		user.visible_message(SPAN_WARNING("[user.name] welds [src]."), \
 							"You start welding the APC frame...", \
 							"You hear welding.")
-		playsound(loc, 'sound/items/Welder.ogg', 50, 1)
+		playsound(loc, 'sound/items/welder.ogg', 50, 1)
 		if(do_after(user, 50/W.toolspeed))
-			if(!src || !WT.remove_fuel(3, user)) 
+			if(!src || !WT.remove_fuel(3, user))
 				return
 			if (emagged || (stat & BROKEN) || opened == COVER_REMOVED)
 				new /obj/item/stack/material/steel(loc)
@@ -737,9 +737,9 @@
 			if (WT.get_fuel() <1)
 				to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 				return
-			playsound(loc, 'sound/items/Welder.ogg', 50, 1)
+			playsound(loc, 'sound/items/welder.ogg', 50, 1)
 			if(do_after(user, 10/W.toolspeed))
-				if(!src || !WT.remove_fuel(1, user)) 
+				if(!src || !WT.remove_fuel(1, user))
 					return
 				if ((stat & BROKEN))
 					new /obj/item/stack/material/steel(loc)

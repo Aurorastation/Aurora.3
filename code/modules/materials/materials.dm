@@ -97,6 +97,17 @@
 	//What golem species is created with this material
 	var/golem = null
 
+	//automatic-ness for giving drop n' pickup sounds on init.
+	var/drop_sound = 'sound/items/drop/axe.ogg'
+	var/pickup_sound = 'sound/items/pickup/axe.ogg'
+
+	//for use in material weapons. because tiles and stacks sound different. since cardboard baseball bats sound different from wooden ones and et cetera.
+	var/weapon_drop_sound = 'sound/items/drop/metalweapon.ogg'
+	var/weapon_pickup_sound = 'sound/items/pickup/metalweapon.ogg'
+	var/weapon_hitsound = "swing_hit"
+
+	var/shatter_sound = "glass_break" //sound it makes when it breaks.
+
 /material/proc/build_rod_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
 	if(!rod_product)
 		to_chat(user, "<span class='warning'>You cannot make anything out of \the [target_stack]</span>")
@@ -264,6 +275,8 @@
 	hardness = 100
 	stack_origin_tech = list(TECH_MATERIAL = 6)
 	golem = "Diamond Golem"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /material/gold
 	name = MATERIAL_GOLD
@@ -321,6 +334,8 @@
 	sheet_singular_name = "crystal"
 	sheet_plural_name = "crystals"
 	golem = "Phoron Golem"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /material/stone
 	name = MATERIAL_SANDSTONE
@@ -337,6 +352,8 @@
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
 	golem = "Sand Golem"
+	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'
 
 /material/stone/marble
 	name = MATERIAL_MARBLE
@@ -346,6 +363,8 @@
 	integrity = 201 //hack to stop kitchen benches being flippable, todo: refactor into weight system
 	stack_type = /obj/item/stack/material/marble
 	golem = "Marble Golem"
+	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'
 
 /material/steel
 	name = DEFAULT_WALL_MATERIAL
@@ -358,6 +377,7 @@
 	icon_colour = "#666666"
 	golem = "Steel Golem"
 	hitsound = 'sound/weapons/smash.ogg'
+	weapon_hitsound = 'sound/weapons/metalhit.ogg'
 
 /material/diona
 	name = MATERIAL_DIONA
@@ -400,6 +420,7 @@
 	composite_material = list(DEFAULT_WALL_MATERIAL = 3750, "platinum" = 3750) //todo
 	golem = "Plasteel Golem"
 	hitsound = 'sound/weapons/smash.ogg'
+	weapon_hitsound = 'sound/weapons/metalhit.ogg'
 
 /material/plasteel/titanium
 	name = MATERIAL_TITANIUM
@@ -435,6 +456,8 @@
 	wire_product = /obj/item/stack/material/glass/wired
 	rod_product = /obj/item/stack/material/glass/reinforced
 	golem = "Glass Golem"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /material/glass/build_windows(var/mob/living/user, var/obj/item/stack/used_stack)
 
@@ -585,6 +608,8 @@
 	melting_point = T0C+371 //assuming heat resistant plastic
 	stack_origin_tech = list(TECH_MATERIAL = 3)
 	golem = "Plastic Golem"
+	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /material/plastic/holographic
 	name = MATERIAL_PLASTIC_HOLO
@@ -637,6 +662,7 @@
 	sheet_plural_name = "ingots"
 	golem = "Iron Golem"
 	hitsound = 'sound/weapons/smash.ogg'
+	weapon_hitsound = 'sound/weapons/metalhit.ogg'
 
 // Adminspawn only, do not let anyone get this.
 /material/elevatorium
@@ -670,10 +696,17 @@
 	dooropen_noise = 'sound/effects/doorcreaky.ogg'
 	door_icon_base = "wood"
 	destruction_desc = "splinters"
+	shatter_sound = "shatter_wood"
 	sheet_singular_name = "plank"
 	sheet_plural_name = "planks"
 	golem = "Wood Golem"
 	hitsound = 'sound/effects/woodhit.ogg'
+	drop_sound = 'sound/items/drop/wooden.ogg'
+	pickup_sound = 'sound/items/pickup/wooden.ogg'
+	weapon_drop_sound = 'sound/items/drop/woodweapon.ogg'
+	weapon_pickup_sound = 'sound/items/pickup/woodweapon.ogg'
+	weapon_hitsound = 'sound/weapons/woodenhit.ogg'
+	shatter_sound = "wood_break"
 
 /material/wood/log //This is gonna replace wood planks in a  way for NBT, leaving it here for now
 	name = MATERIAL_WOOD_LOG
@@ -739,18 +772,12 @@
 	stack_origin_tech = list(TECH_MATERIAL = 1)
 	door_icon_base = "wood"
 	destruction_desc = "crumples"
+	shatter_sound = "shatter_cardboard"
 	golem = "Cardboard Golem"
-
-/material/cloth
-	name = MATERIAL_CLOTH
-	stack_origin_tech = list(TECH_MATERIAL = 2)
-	door_icon_base = "wood"
-	ignition_point = T0C+232
-	melting_point = T0C+300
-	protectiveness = 1 // 4%
-	flags = MATERIAL_PADDING
-	hardness = 1
-	golem = "Cloth Golem"
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+	weapon_hitsound = 'sound/weapons/cardboardhit.ogg'
+	shatter_sound = "cardboard_break"
 
 /material/cult
 	name = MATERIAL_CULT
@@ -796,6 +823,21 @@
 	melting_point = T0C+300
 	protectiveness = 3 // 13%
 	golem = "Homunculus"
+	drop_sound = 'sound/items/drop/leather.ogg'
+	pickup_sound = 'sound/items/pickup/leather.ogg'
+
+/material/cotton
+	name = MATERIAL_COTTON
+	display_name ="cotton"
+	icon_colour = "#FFFFFF"
+	flags = MATERIAL_PADDING
+	ignition_point = T0C+232
+	melting_point = T0C+300
+	protectiveness = 1 // 4%
+	golem = "Cloth Golem"
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	weapon_hitsound = 'sound/weapons/towelwhip.ogg'
 
 /material/carpet
 	name = MATERIAL_CARPET
@@ -809,93 +851,65 @@
 	sheet_plural_name = "tiles"
 	protectiveness = 1 // 4%
 	golem = "Cloth Golem"
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	weapon_hitsound = 'sound/weapons/towelwhip.ogg'
 
-/material/cotton
-	name = MATERIAL_COTTON
-	display_name ="cotton"
-	icon_colour = "#FFFFFF"
-	flags = MATERIAL_PADDING
+/material/cloth
+	name = MATERIAL_CLOTH
+	stack_origin_tech = list(TECH_MATERIAL = 2)
+	door_icon_base = "wood"
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	flags = MATERIAL_PADDING
+	hardness = 1
 	golem = "Cloth Golem"
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	weapon_hitsound = 'sound/weapons/towelwhip.ogg'
 
-/material/cloth_teal
+/material/cloth/teal
 	name = MATERIAL_CLOTH_TEAL
 	display_name ="teal"
 	use_name = "teal cloth"
 	icon_colour = "#00EAFA"
-	flags = MATERIAL_PADDING
-	ignition_point = T0C+232
-	melting_point = T0C+300
-	protectiveness = 1 // 4%
-	golem = "Cloth Golem"
 
-/material/cloth_black
+/material/cloth/black
 	name = MATERIAL_CLOTH_BLACK
 	display_name = "black"
 	use_name = "black cloth"
 	icon_colour = "#505050"
-	flags = MATERIAL_PADDING
-	ignition_point = T0C+232
-	melting_point = T0C+300
-	protectiveness = 1 // 4%
-	golem = "Cloth Golem"
 
-/material/cloth_green
+/material/cloth/green
 	name = MATERIAL_CLOTH_GREEN
 	display_name = "green"
 	use_name = "green cloth"
 	icon_colour = "#01C608"
-	flags = MATERIAL_PADDING
-	ignition_point = T0C+232
-	melting_point = T0C+300
-	protectiveness = 1 // 4%
-	golem = "Cloth Golem"
 
-/material/cloth_purple
+/material/cloth/purple
 	name = MATERIAL_CLOTH_PURPLE
 	display_name = "purple"
 	use_name = "purple cloth"
 	icon_colour = "#9C56C4"
-	flags = MATERIAL_PADDING
-	ignition_point = T0C+232
-	melting_point = T0C+300
-	protectiveness = 1 // 4%
-	golem = "Cloth Golem"
 
-/material/cloth_blue
+/material/cloth/blue
 	name = MATERIAL_CLOTH_BLUE
 	display_name = "blue"
 	use_name = "blue cloth"
 	icon_colour = "#6B6FE3"
-	flags = MATERIAL_PADDING
-	ignition_point = T0C+232
-	melting_point = T0C+300
-	protectiveness = 1 // 4%
-	golem = "Cloth Golem"
 
-/material/cloth_beige
+/material/cloth/beige
 	name = MATERIAL_CLOTH_BEIGE
 	display_name = "beige"
 	use_name = "beige cloth"
 	icon_colour = "#E8E7C8"
-	flags = MATERIAL_PADDING
-	ignition_point = T0C+232
-	melting_point = T0C+300
-	protectiveness = 1 // 4%
-	golem = "Cloth Golem"
 
-/material/cloth_lime
+/material/cloth/lime
 	name = MATERIAL_CLOTH_LIME
 	display_name = "lime"
 	use_name = "lime cloth"
 	icon_colour = "#62E36C"
-	flags = MATERIAL_PADDING
-	ignition_point = T0C+232
-	melting_point = T0C+300
-	protectiveness = 1 // 4%
-	golem = "Cloth Golem"
 
 /material/hide //TODO make different hides somewhat different among them
 	name = MATERIAL_HIDE
@@ -910,6 +924,8 @@
 	weight = 1
 	protectiveness = 3 // 13%
 	golem = "Homunculus"
+	drop_sound = 'sound/items/drop/leather.ogg'
+	pickup_sound = 'sound/items/pickup/leather.ogg'
 
 /material/hide/corgi
 	name = MATERIAL_HIDE_CORGI

@@ -7,36 +7,36 @@
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	var/translate_binary = FALSE
-	var/translate_hive = FALSE
 	var/translate_hivenet = FALSE
 	var/syndie = FALSE // Signifies that it de-crypts Syndicate transmissions
 	var/list/channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE)
+	var/list/additional_channels = list()
 
 /obj/item/device/encryptionkey/attackby(obj/item/W, mob/user)
 	return
 
 /obj/item/device/encryptionkey/syndicate
 	icon_state = "cypherkey"
-	channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE, CHANNEL_MERCENARY = TRUE)
+	additional_channels = list(CHANNEL_MERCENARY = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 3)
 	desc_antag = "An encryption key that allows you to intercept comms and speak on private non-station channels. Use :t to access the private channel."
 	syndie = TRUE
 
 /obj/item/device/encryptionkey/raider
 	icon_state = "cypherkey"
-	channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE, CHANNEL_RAIDER = TRUE)
+	additional_channels = list(CHANNEL_RAIDER = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 2)
 	syndie = TRUE
 
 /obj/item/device/encryptionkey/burglar
 	icon_state = "cypherkey"
-	channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE, CHANNEL_BURGLAR = TRUE)
+	additional_channels = list(CHANNEL_BURGLAR = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 2)
 	syndie = TRUE
 
 /obj/item/device/encryptionkey/ninja
 	icon_state = "cypherkey"
-	channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE, CHANNEL_NINJA = TRUE)
+	additional_channels = list(CHANNEL_NINJA = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 3)
 	syndie = TRUE
 
@@ -141,13 +141,57 @@
 	name = "\improper ERT radio encryption key"
 	channels = list(CHANNEL_RESPONSE_TEAM = TRUE)
 
-/obj/item/device/encryptionkey/entertainment
-	name = "entertainment radio key"
-	channels = list(CHANNEL_ENTERTAINMENT = TRUE)
-
 /obj/item/device/encryptionkey/rev
 	name = "standard encryption key"
 	desc = "An encryption key for a radio headset. Contains cypherkeys."
-	channels = list(CHANNEL_COMMON = TRUE, CHANNEL_ENTERTAINMENT = TRUE, CHANNEL_RAIDER = TRUE)
+	additional_channels = list(CHANNEL_RAIDER = TRUE)
 	origin_tech = list(TECH_ILLEGAL = 2)
 	desc_antag = "An encryption key that allows you to speak on private non-station channels. Use :x to access the private channel."
+
+/obj/item/device/encryptionkey/eng_spare
+	name = "spare engineering radio encryption key"
+	additional_channels = list(CHANNEL_ENGINEERING = TRUE)
+
+/obj/item/device/encryptionkey/med_spare
+	name = "spare medical radio encryption key"
+	additional_channels = list(CHANNEL_MEDICAL = TRUE)
+
+/obj/item/device/encryptionkey/sec_spare
+	name = "spare security radio encryption key"
+	additional_channels = list(CHANNEL_SECURITY = TRUE)
+
+/obj/item/device/encryptionkey/sci_spare
+	name = "spare science radio encryption key"
+	additional_channels = list(CHANNEL_SCIENCE = TRUE)
+
+
+// Encryption Key Pouch
+/obj/item/storage/box/fancy/keypouch
+	name = "encryption key pouch"
+	desc = "A pouch designed to store three encryption keys."
+	icon = 'icons/obj/radio.dmi'
+	icon_state = "keypouch0"
+	icon_type = "key"
+	storage_type = "pouch"
+	opened = TRUE
+	closable = FALSE
+	center_of_mass = list("x" = 16,"y" = 7)
+	storage_slots = 3
+	can_hold = list(/obj/item/device/encryptionkey)
+	starts_with = null
+
+/obj/item/storage/box/fancy/keypouch/Initialize()
+	. = ..()
+	update_icon()
+
+/obj/item/storage/box/fancy/keypouch/eng
+	starts_with = list(/obj/item/device/encryptionkey/eng_spare = 3)
+
+/obj/item/storage/box/fancy/keypouch/med
+	starts_with = list(/obj/item/device/encryptionkey/med_spare = 3)
+
+/obj/item/storage/box/fancy/keypouch/sec
+	starts_with = list(/obj/item/device/encryptionkey/sec_spare = 3)
+
+/obj/item/storage/box/fancy/keypouch/sci
+	starts_with = list(/obj/item/device/encryptionkey/sci_spare = 3)

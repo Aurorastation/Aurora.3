@@ -12,7 +12,7 @@ var/global/list/psychic_ranks_to_strings = list("Latent", "Operant", "Masterclas
 	var/list/all_psi_complexes =      list()
 	var/list/psi_dampeners =          list()
 	var/list/psi_monitors =           list()
-	var/list/armour_faculty_by_type = list()
+	var/list/armor_faculty_by_type = list()
 	var/list/faculties_by_intent  = list()
 
 /datum/controller/subsystem/processing/psi/New()

@@ -72,7 +72,7 @@
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
 
-	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
 	add_fingerprint(user)
 
 	if(blood_overlay && blood_DNA && (blood_DNA.len >= 1)) //updates blood overlay, if any

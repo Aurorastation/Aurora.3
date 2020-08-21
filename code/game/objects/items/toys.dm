@@ -306,8 +306,8 @@
 	icon_state = "katana"
 	item_state = "katana"
 	drop_sound = 'sound/items/drop/gun.ogg'
-	pickup_sound = 'sound/items/pickup/gun.ogg'
-	hitsound = "swing_hit"
+	pickup_sound = "pickup_sword"
+	equip_sound = "equip_sword"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_BACK
 	force = 5

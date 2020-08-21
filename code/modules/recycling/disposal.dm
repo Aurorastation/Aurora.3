@@ -101,7 +101,7 @@
 				return
 			var/obj/item/weldingtool/W = I
 			if(W.remove_fuel(0,user))
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 				to_chat(user, "You start slicing the floorweld off the disposal unit.")
 
 				if(do_after(user,20/W.toolspeed))
@@ -704,14 +704,9 @@
 	dir = 0				// dir will contain dominant direction for junction pipes
 	var/health = 10 	// health points 0-10
 	layer = 2.3			// slightly lower than wires and other pipes
-	var/base_icon_state	// initial icon state on map
 	var/sortType = ""
 	var/subtype = 0
 	// new pipe, set the icon_state as on map
-
-/obj/structure/disposalpipe/Initialize()
-	. = ..()
-	base_icon_state = icon_state
 
 // pipe is deleted
 // ensure if holder is present, it is expelled
@@ -774,20 +769,6 @@
 // change visibility status and force update of icon
 /obj/structure/disposalpipe/hide(var/intact)
 	invisibility = intact ? 101: 0	// hide if floor is intact
-	updateicon()
-
-// update actual icon_state depending on visibility
-// if invisible, append "f" to icon_state to show faded version
-// this will be revealed if a T-scanner is used
-// if visible, use regular icon_state
-/obj/structure/disposalpipe/proc/updateicon()
-/*		if(invisibility)	//we hide things with alpha now, no need for transparent icons
-		icon_state = "[base_icon_state]f"
-	else
-		icon_state = base_icon_state*/
-	icon_state = base_icon_state
-	return
-
 
 	// expel the held objects into a turf
 	// called when there is a break in the pipe
@@ -908,7 +889,7 @@
 		var/obj/item/weldingtool/W = I
 
 		if(W.remove_fuel(0,user))
-			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+			playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 			// check if anything changed over 3 seconds
 			to_chat(user, "Slicing the disposal pipe...")
 			if (do_after(user, 3/W.toolspeed SECONDS, act_target = src))
@@ -922,7 +903,7 @@
 // called when pipe is cut with welder
 /obj/structure/disposalpipe/proc/welded()
 	var/obj/structure/disposalconstruct/C = new (src.loc)
-	switch(base_icon_state)
+	switch(icon_state)
 		if("pipe-s")
 			C.ptype = 0
 		if("pipe-c")
@@ -1380,7 +1361,7 @@
 		var/obj/item/weldingtool/W = I
 
 		if(W.remove_fuel(0,user))
-			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+			playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 			// check if anything changed over 3 seconds
 			to_chat(user, "Slicing the disposal pipe.")
 			if (do_after(user, 3/W.toolspeed SECONDS, act_target = src))
@@ -1547,7 +1528,7 @@
 	else if(I.iswelder() && mode==1)
 		var/obj/item/weldingtool/W = I
 		if(W.remove_fuel(0,user))
-			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+			playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 			to_chat(user, "You start slicing the floorweld off the disposal outlet.")
 			if(do_after(user,20/W.toolspeed))
 				if(!src || !W.isOn()) return

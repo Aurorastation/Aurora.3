@@ -83,14 +83,14 @@ obj/item/clothing/shoes/sandal/clogs
 	species_restricted = null
 
 /obj/item/clothing/shoes/clown_shoes/handle_movement(var/turf/walking, var/running)
-	if(running)
+	if(!running)
 		if(footstep >= 2)
 			footstep = 0
-			playsound(src, "clownstep", 50, 1) // this will get annoying very fast.
+			playsound(src, "clownstep", 20, 1) // this will get annoying very fast.
 		else
 			footstep++
 	else
-		playsound(src, "clownstep", 20, 1)
+		playsound(src, "clownstep", 50, 1)
 
 /obj/item/clothing/shoes/cult
 	name = "ragged boots"
@@ -231,14 +231,6 @@ obj/item/clothing/shoes/sandal/clogs
 	name = "toe-less winter boots"
 	desc = "A pair of toe-less heavy winter boots made out of animal furs, reaching up to the knee.  Modified for species whose toes have claws."
 	icon_state = "winterboots_toeless"
-
-/obj/item/clothing/shoes/black_boots
-	name = "black boots"
-	desc = "A pair of tough looking black boots."
-	icon_state = "jackboots"
-	item_state = "jackboots"
-	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
-	can_hold_knife = 1
 
 /obj/item/clothing/shoes/caligae
 	name = "caligae"

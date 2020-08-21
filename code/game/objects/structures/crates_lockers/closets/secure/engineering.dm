@@ -37,6 +37,7 @@
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/clothing/accessory/storage/overalls/chief(src)
 	new /obj/item/rfd/piping(src)
+	new /obj/item/storage/box/fancy/keypouch/eng(src)
 
 /obj/structure/closet/secure_closet/engineering_chief2
 	name = "chief engineer's attire"

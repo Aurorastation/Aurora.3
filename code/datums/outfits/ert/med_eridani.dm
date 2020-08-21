@@ -11,7 +11,7 @@
 	belt = /obj/item/storage/belt/medical
 	back = /obj/item/storage/backpack/satchel_med
 	accessory = /obj/item/clothing/accessory/storage/white_vest
-	accessory_contents = list(/obj/item/reagent_containers/hypospray/cmo = 1, /obj/item/storage/pill_bottle/dexalin_plus = 1, /obj/item/storage/pill_bottle/tramadol = 1)
+	accessory_contents = list(/obj/item/reagent_containers/hypospray/cmo = 1, /obj/item/storage/pill_bottle/dexalin_plus = 1, /obj/item/storage/pill_bottle/mortaphenyl = 1)
 	id = /obj/item/card/id/distress/iac
 
 	l_ear = /obj/item/device/radio/headset/distress

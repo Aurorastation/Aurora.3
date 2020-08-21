@@ -75,6 +75,19 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 0
 	verbpath = /mob/proc/changeling_hivedownload
 
+/datum/power/changeling/hivemind_commune
+	name = "Hivemind Commune"
+	desc = "We can speak with the members of our Hivemind, without it being apparent to the people in our view."
+	genomecost = 0
+	verbpath = /mob/proc/changeling_hivemind_commune
+
+/datum/power/changeling/hivemind_eject
+	name = "Hivemind Eject"
+	desc = "We can eject a pesky hivemind from ourselves, if it complains a lot. This won't free up space, but will prevent them from screaming at us."
+	helptext = "Ghosts the chosen hivemind. Use it on salty people spamming you to send them to deadchat."
+	genomecost = 0
+	verbpath = /mob/proc/changeling_eject_hivemind
+
 //Stings and sting accessorries
 //Rest in pieces, unfat sting. - Geeves
 

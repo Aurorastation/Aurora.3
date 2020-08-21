@@ -122,29 +122,30 @@
 	icon_state = "pill11"
 	reagents_to_add = list(/datum/reagent/kelotane = 15)
 
-/obj/item/reagent_containers/pill/paracetamol
-	name = "paracetamol pill"
-	desc = "Tylenol! A painkiller for the ages. Chewables!"
+/obj/item/reagent_containers/pill/perconol
+	name = "perconol pill"
+	desc = "A painkiller for the ages. Chewables!"
 	icon_state = "pill8"
-	reagents_to_add = list(/datum/reagent/paracetamol = 15)
+	reagents_to_add = list(/datum/reagent/perconol = 15)
 
-/obj/item/reagent_containers/pill/tramadol
-	name = "tramadol pill"
-	desc = "A simple painkiller."
+
+/obj/item/reagent_containers/pill/mortaphenyl
+	name = "mortaphenyl pill"
+	desc = "A mortaphenyl pill, it's a potent painkiller."
 	icon_state = "pill8"
-	reagents_to_add = list(/datum/reagent/tramadol = 15)
+	reagents_to_add = list(/datum/reagent/mortaphenyl = 15)
 
-/obj/item/reagent_containers/pill/methylphenidate
-	name = "methylphenidate pill"
+/obj/item/reagent_containers/pill/corophenidate
+	name = "corophenidate pill"
 	desc = "Improves the ability to concentrate."
 	icon_state = "pill8"
-	reagents_to_add = list(/datum/reagent/mental/methylphenidate = 15)
-
-/obj/item/reagent_containers/pill/escitalopram
-	name = "escitalopram pill"
+	reagents_to_add = list(/datum/reagent/mental/corophenidate = 15)
+  
+/obj/item/reagent_containers/pill/minaphobin
+	name = "minaphobin pill"
 	desc = "Mild anti-depressant."
 	icon_state = "pill8"
-	reagents_to_add = list(/datum/reagent/mental/escitalopram = 15)
+	reagents_to_add = list(/datum/reagent/mental/minaphobin = 15)
 
 /obj/item/reagent_containers/pill/inaprovaline
 	name = "inaprovaline pill"
@@ -159,7 +160,7 @@
 	reagents_to_add = list(/datum/reagent/dexalin = 15)
 
 /obj/item/reagent_containers/pill/dexalin_plus
-	name = "dexalin plus pill"
+	name = "dexalin Plus pill"
 	desc = "Used to treat extreme oxygen deprivation."
 	icon_state = "pill8"
 	reagents_to_add = list(/datum/reagent/dexalin/plus = 15)
@@ -216,8 +217,8 @@
 	icon_state = "pill19"
 	reagents_to_add = list(/datum/reagent/rmt = 15)
 
-/obj/item/reagent_containers/pill/antihistamine
-	name = "antihistamine"
-	desc = "Contains diphenhydramine, also known as Benadryl. Helps with sneezing, can cause drowsiness."
+/obj/item/reagent_containers/pill/cetahydramine
+	name = "cetahydramine pill"
+	desc = "Contains modern Cetahydramine, often compared to ancient Benadryl. Helps with sneezing, can cause drowsiness."
 	icon_state = "pill19"
-	reagents_to_add = list(/datum/reagent/antihistamine = 5)
+	reagents_to_add = list(/datum/reagent/cetahydramine = 5)

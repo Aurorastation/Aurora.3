@@ -255,7 +255,7 @@
 	if(.)
 		action.button_icon_state = "digitool"
 		if(action.button)
-			action.button.UpdateIcon()
+			action.button.update_icon()
 
 /obj/item/organ/external/hand/right/autakh/tool/attack_self(var/mob/user)
 	. = ..()
@@ -316,7 +316,7 @@
 	if(.)
 		action.button_icon_state = "drill"
 		if(action.button)
-			action.button.UpdateIcon()
+			action.button.update_icon()
 
 /obj/item/pickaxe/drill/integrated
 	name = "integrated mining drill"
@@ -339,7 +339,7 @@
 	if(.)
 		action.button_icon_state = "health"
 		if(action.button)
-			action.button.UpdateIcon()
+			action.button.update_icon()
 
 /obj/item/organ/external/hand/right/autakh/medical/attack_self(var/mob/user)
 	. = ..()
@@ -380,7 +380,7 @@
 	if(.)
 		action.button_icon_state = "baton"
 		if(action.button)
-			action.button.UpdateIcon()
+			action.button.update_icon()
 
 /obj/item/organ/external/hand/right/autakh/security/attack_self(var/mob/user)
 	. = ..()
