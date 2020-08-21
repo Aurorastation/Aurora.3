@@ -73,7 +73,7 @@
 	if (istype(loc, /turf))
 		loc = loc:loc
 	if (!istype(loc, /area))
-		to_chat(user, text("Turret badly positioned - loc.loc is [].", loc))
+		to_chat(user, "Turret badly positioned - loc.loc is [loc].")
 		return
 	var/area/area = loc
 	var/t = "<TT><B>AI Liquid Dispenser</B> ([area.name])<HR>"
@@ -81,8 +81,8 @@
 	if(src.locked && (!istype(user, /mob/living/silicon)))
 		t += "<I>(Swipe ID card to unlock control panel.)</I><BR>"
 	else
-		t += text("Dispenser [] - <A href='?src=\ref[];toggleOn=1'>[]?</a><br>\n", src.disabled?"deactivated":"activated", src, src.disabled?"Enable":"Disable")
-		t += text("Uses Left: [uses]. <A href='?src=\ref[src];toggleUse=1'>Activate the dispenser?</A><br>\n")
+		t += "Dispenser [src.disabled?"deactivated":"activated"] - <A href='?src=\ref[src];toggleOn=1'>[src.disabled?"Enable":"Disable"]?</a><br>\n"
+		t += "Uses Left: [uses]. <A href='?src=\ref[src];toggleUse=1'>Activate the dispenser?</A><br>\n"
 
 	user << browse(t, "window=computer;size=575x450")
 	onclose(user, "computer")

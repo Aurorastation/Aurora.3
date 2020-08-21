@@ -43,7 +43,7 @@
 	set src in usr
 
 	if (t)
-		src.name = text("data disk- '[]'", t)
+		src.name = text("data disk- '[t]'")
 	else
 		src.name = "data disk"
 	src.add_fingerprint(usr)
@@ -179,17 +179,17 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/proc/dat()
 	var/dat = ("<table><tr><td>")
-	dat += text("Name: []</A><BR>", registered_name)
-	dat += text("Sex: []</A><BR>\n", sex)
-	dat += text("Age: []</A><BR>\n", age)
-	dat += text("Citizenship: []</A><BR>\n", citizenship)
-	dat += text("Religion: []</A><BR>\n", religion)
-	dat += text("Rank: []</A><BR>\n", assignment)
-	dat += text("Fingerprint: []</A><BR>\n", fingerprint_hash)
-	dat += text("Blood Type: []<BR>\n", blood_type)
-	dat += text("DNA Hash: []<BR><BR>\n", dna_hash)
+	dat += text("Name: [registered_name]</A><BR>")
+	dat += text("Sex: [sex]</A><BR>\n")
+	dat += text("Age: [age]</A><BR>\n")
+	dat += text("Citizenship: [citizenship]</A><BR>\n")
+	dat += text("Religion: [religion]</A><BR>\n")
+	dat += text("Rank: [assignment]</A><BR>\n")
+	dat += text("Fingerprint: [fingerprint_hash]</A><BR>\n")
+	dat += text("Blood Type: [blood_type]<BR>\n")
+	dat += text("DNA Hash: [dna_hash]<BR><BR>\n")
 	if(mining_points)
-		dat += text("Ore Redemption Points: []<BR><BR>\n", mining_points)
+		dat += text("Ore Redemption Points: [mining_points]<BR><BR>\n")
 	if(front && side)
 		dat +="<td align = center valign = top>Photo:<br><img src=front.png height=128 width=128 border=4><img src=side.png height=128 width=128 border=4></td>"
 	dat += "</tr></table>"
@@ -215,7 +215,7 @@ var/const/NO_EMAG_ACT = -50
 				return
 
 	for(var/mob/O in viewers(user, null))
-		O.show_message(text("[] shows you: \icon[] []: assignment: []", user, src, src.name, src.assignment), 1)
+		O.show_message(text("[user] shows you: \icon[] []: assignment: []", src, src.name, src.assignment), 1)
 
 	src.add_fingerprint(user)
 	return
@@ -280,7 +280,7 @@ var/const/NO_EMAG_ACT = -50
 	set category = "Object"
 	set src in usr
 
-	to_chat(usr, text("\icon[] []: The current assignment on the card is [].", src, src.name, src.assignment))
+	to_chat(usr, text("\icon[src] []: The current assignment on the card is [].", src.name, src.assignment))
 	to_chat(usr, "The age on the card is [age].")
 	to_chat(usr, "The citizenship on the card is [citizenship].")
 	to_chat(usr, "The religion on the card is [religion].")

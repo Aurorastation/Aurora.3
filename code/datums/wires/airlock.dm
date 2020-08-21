@@ -37,15 +37,15 @@ var/const/AIRLOCK_WIRE_LIGHT = 2048
 	var/haspower = A.arePowerSystemsOn() //If there's no power, then no lights will be on.
 
 	. += ..()
-	. += text("<br>\n[]<br>\n[]<br>\n[]<br>\n[]<br>\n[]<br>\n[]<br>\n[]<br>\n[]",
-	(A.locked ? "The door bolts have fallen!" : "The door bolts look up."),
-	((A.lights && haspower) ? "The door bolt lights are on." : "The door bolt lights are off!"),
-	((haspower) ? "The test light is on." : "The test light is off!"),
-	((A.backup_power_lost_until) ? "The backup power light is off!" : "The backup power light is on."),
-	((A.aiControlDisabled==0 && !A.emagged && haspower)? "The 'AI control allowed' light is on." : "The 'AI control allowed' light is off."),
-	((A.safe==0 && haspower)? "The 'Check Wiring' light is on." : "The 'Check Wiring' light is off."),
-	((A.normalspeed==0 && haspower)? "The 'Check Timing Mechanism' light is on." : "The 'Check Timing Mechanism' light is off."),
-	((A.aiDisabledIdScanner==0 && haspower)? "The IDScan light is on." : "The IDScan light is off."))
+	. += jointext(
+		list("The door bolts [A.locked ? "have fallen!" : "look up."]",
+			"The door bolt lights are [(A.lights && haspower) ? "on" : "off"].",
+			"The test light is [haspower ? "on" : "off"].",
+			"The backup power light is [A.backup_power_lost_until ? "off!" : "on."]",
+			"The 'AI control allowed' light is [(!A.aiControlDisabled && !A.emagged && haspower) ? "on" : "off"].",
+			"The 'Check Wiring' light is [(A.safe==0 && haspower) ? "on" : "off"].",
+			"The 'Check Timing Mechanism' light is [(!A.normalspeed && haspower) ? "on" : "off"].",
+			"The IDScan light is [(!A.aiDisabledIdScanner && haspower) ? "on" : "off"]."), "<br>\n")
 
 /datum/wires/airlock/UpdateCut(var/index, var/mended)
 
