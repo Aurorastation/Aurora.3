@@ -30,7 +30,7 @@
 
 	if(W.iswrench())
 		playsound(src.loc, W.usesound, 50, 1)
-		to_chat(user, "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>")
+		to_chat(user, SPAN_NOTICE("You [anchored ? "unfasten" : "fasten"] [src] to the flooring."))
 		anchored = !anchored
 		if(!anchored)
 			disconnect_from_network()
@@ -76,7 +76,7 @@
 
 	if(W.iswrench())
 		playsound(src.loc, W.usesound, 50, 1)
-		to_chat(user, "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>")
+		to_chat(user, SPAN_NOTICE("You [anchored ? "unfasten" : "fasten"] [src] to the flooring."))
 		anchored = !anchored
 		return
 

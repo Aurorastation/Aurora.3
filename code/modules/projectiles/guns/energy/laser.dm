@@ -169,7 +169,7 @@ obj/item/gun/energy/retro
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 
 /obj/item/gun/energy/laser/shotgun
 	name = "laser shotgun"
@@ -230,7 +230,7 @@ obj/item/gun/energy/retro
 /obj/item/gun/energy/lasertag/special_check(var/mob/living/carbon/human/M)
 	if(ishuman(M))
 		if(!istype(M.wear_suit, required_vest))
-			to_chat(M, "<span class='warning'>You need to be wearing your laser tag vest!</span>")
+			to_chat(M, SPAN_WARNING("You need to be wearing your laser tag vest!"))
 			return 0
 	return ..()
 

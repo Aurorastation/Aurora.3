@@ -10,7 +10,7 @@
 
 /obj/structure/mech_wreckage/Initialize(var/newloc, var/mob/living/heavy_vehicle/exosuit, var/gibbed)
 	if(exosuit)
-		name = "wreckage of \the [exosuit.name]"
+		name = "wreckage of [exosuit]"
 		if(!gibbed)
 			for(var/obj/item/thing in list(exosuit.arms, exosuit.legs, exosuit.head, exosuit.body))
 				if(thing && prob(40))
@@ -44,28 +44,28 @@
 		if(WT.isOn())
 			cutting = TRUE
 		else
-			to_chat(user, "<span class='warning'>Turn the torch on, first.</span>")
+			to_chat(user, SPAN_WARNING("Turn the torch on, first."))
 	else if(istype(W, /obj/item/gun/energy/plasmacutter))
 		cutting = TRUE
 
 	if(cutting)
 		if(!prepared)
 			prepared = 1
-			to_chat(user, "<span class='notice'>You partially dismantle \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You partially dismantle \the [src]."))
 		else
-			to_chat(user, "<span class='warning'>\The [src] has already been weakened.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] has already been weakened."))
 		return 1
 
 	else if(iswrench(W))
 		if(prepared)
-			to_chat(user, "<span class='notice'>You finish dismantling \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You finish dismantling \the [src]."))
 			new /obj/item/stack/material/steel(get_turf(src),rand(5,10))
 			qdel(src)
 		else
-			to_chat(user, "<span class='warning'>It's too solid to dismantle. Try cutting through some of the bigger bits.</span>")
+			to_chat(user, SPAN_WARNING("It's too solid to dismantle. Try cutting through some of the bigger bits."))
 		return 1
 	else if(istype(W) && W.force > 20)
-		visible_message("<span class='danger'>\The [src] has been smashed with \the [W] by \the [user]!</span>")
+		visible_message(SPAN_DANGER("\The [src] has been smashed with \the [W] by \the [user]!"))
 		if(prob(20))
 			new /obj/item/stack/material/steel(get_turf(src),rand(1,3))
 			qdel(src)

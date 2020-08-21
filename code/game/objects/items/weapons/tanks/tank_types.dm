@@ -24,7 +24,7 @@
 
 /obj/item/tank/oxygen/examine(mob/user)
 	if(..(user, 0) && air_contents.gas[GAS_OXYGEN] < 10)
-		to_chat(user, text("<span class='warning'>The meter on \the [src] indicates you are almost out of oxygen!</span>"))
+		to_chat(user, SPAN_WARNING("The meter on \the [src] indicates you are almost out of oxygen!"))
 		//playsound(usr, 'sound/effects/alert.ogg', 50, 1)
 
 
@@ -66,7 +66,7 @@
 
 	examine(mob/user)
 		if(..(user, 0) && air_contents.gas[GAS_OXYGEN] < 1 && loc==user)
-			to_chat(user, "<span class='danger'>The meter on the [src.name] indicates you are almost out of air!</span>")
+			to_chat(user, SPAN_DANGER("The meter on the [src.name] indicates you are almost out of air!"))
 			user << sound('sound/effects/alert.ogg')
 
 /obj/item/tank/air/Initialize()
@@ -127,7 +127,7 @@
 
 /obj/item/tank/emergency_oxygen/examine(mob/user)
 	if(..(user, 0) && air_contents.gas[GAS_OXYGEN] < 0.2 && loc==user)
-		to_chat(user, text("<span class='danger'>The meter on the [src.name] indicates you are almost out of air!</span>"))
+		to_chat(user, SPAN_DANGER("The meter on the [src.name] indicates you are almost out of air!"))
 		user << sound('sound/effects/alert.ogg')
 
 /obj/item/tank/emergency_oxygen/engi
@@ -163,7 +163,7 @@
 
 /obj/item/tank/emergency_nitrogen/examine(mob/user)
 	if(..(user, 0) && air_contents.gas[GAS_NITROGEN] < 0.2 && loc==user)
-		to_chat(user, text("<span class='danger'>The meter on \the [src] indicates you are almost out of air!</span>"))
+		to_chat(user, SPAN_DANGER("The meter on \the [src] indicates you are almost out of air!"))
 		user << sound('sound/effects/alert.ogg')
 
 /*
@@ -182,5 +182,5 @@
 
 /obj/item/tank/nitrogen/examine(mob/user)
 	if(..(user, 0) && air_contents.gas[GAS_NITROGEN] < 10)
-		to_chat(user, text("<span class='danger'>The meter on \the [src] indicates you are almost out of nitrogen!</span>"))
+		to_chat(user, SPAN_DANGER("The meter on \the [src] indicates you are almost out of nitrogen!"))
 		//playsound(user, 'sound/effects/alert.ogg', 50, 1)

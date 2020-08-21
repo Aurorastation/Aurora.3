@@ -24,7 +24,7 @@
 
 	..()
 	if ((H.invisibility == INVISIBILITY_LEVEL_TWO) && M.back && (istype(M.back, /obj/item/rig)))
-		to_chat(H, "<span class='danger'>You are now visible.</span>")
+		to_chat(H, SPAN_DANGER("You are now visible."))
 		H.invisibility = 0
 
 		anim(get_turf(H), H,'icons/mob/mob.dmi',,"uncloak",,H.dir)
@@ -46,7 +46,7 @@
 				if(M.a_intent == I_HURT)//Stungloves. Any contact will stun the alien.
 					if(G.cell.charge >= 2500)
 						G.cell.use(G.cell.charge)	//So it drains the cell.
-						visible_message("<span class='danger'>[src] has been touched with the stun gloves by [M]!</span>")
+						visible_message(SPAN_DANGER("[src] has been touched with the stun gloves by [M]!"))
 						M.attack_log += text("\[[time_stamp()]\] <font color='red'>Stungloved [src.name] ([src.ckey])</font>")
 						src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been stungloved by [M.name] ([M.ckey])</font>")
 
@@ -58,7 +58,7 @@
 
 						if(prob(15))
 							playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
-							M.visible_message("<span class='warning'>The power source on [M]'s stun gloves overloads in a terrific fashion!</span>", "<span class='warning'>Your jury rigged stun gloves malfunction!</span>", "<span class='warning'>You hear a loud sparking.</span>")
+							M.visible_message(SPAN_WARNING("The power source on [M]'s stun gloves overloads in a terrific fashion!"), SPAN_WARNING("Your jury rigged stun gloves malfunction!"), SPAN_WARNING("You hear a loud sparking."))
 
 							if(prob(50))
 								M.apply_damage(rand(1,5), BURN)
@@ -71,8 +71,8 @@
 
 						return 1
 					else
-						to_chat(M, "<span class='warning'>Not enough charge!</span>")
-						visible_message("<span class='danger'>[src] has been touched with the stun gloves by [M]!</span>")
+						to_chat(M, SPAN_WARNING("Not enough charge!"))
+						visible_message(SPAN_DANGER("[src] has been touched with the stun gloves by [M]!"))
 					return
 
 
@@ -81,7 +81,7 @@
 			var/damage = rand(0, 9)
 			if(!damage)
 				playsound(loc, "punchmiss", 25, 1, -1)
-				visible_message("<span class='danger'>[H] has attempted to punch [src]!</span>")
+				visible_message(SPAN_DANGER("[H] has attempted to punch [src]!"))
 				return 0
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
 			var/armor_block = run_armor_check(affecting, "melee")
@@ -91,11 +91,11 @@
 
 			playsound(loc, "punch", 25, 1, -1)
 
-			visible_message("<span class='danger'>[H] has punched [src]!</span>")
+			visible_message(SPAN_DANGER("[H] has punched [src]!"))
 
 			apply_damage(damage, PAIN, affecting, armor_block)
 			if(damage >= 9)
-				visible_message("<span class='danger'>[H] has weakened [src]!</span>")
+				visible_message(SPAN_DANGER("[H] has weakened [src]!"))
 				apply_effect(4, WEAKEN, armor_block)
 
 			return
@@ -110,14 +110,14 @@
 
 				cpr_time = 0
 
-				H.visible_message("<span class='notice'>\The [H] is trying to perform CPR on \the [src].</span>")
+				H.visible_message(SPAN_NOTICE("\The [H] is trying to perform CPR on \the [src]."))
 
 				if(!do_after(H, rand(3, 5), src))
 					cpr_time = 1
 					return
 				cpr_time = 1
 
-				H.visible_message("<span class='notice'>\The [H] performs CPR on \the [src]!</span>")
+				H.visible_message(SPAN_NOTICE("\The [H] performs CPR on \the [src]!"))
 
 				if(is_asystole())
 					if(prob(5 * rand(2, 3)))
@@ -133,19 +133,19 @@
 						resuscitate()
 
 				if(!H.check_has_mouth())
-					to_chat(H, "<span class='warning'>You don't have a mouth, you cannot do mouth-to-mouth resuscitation!</span>")
+					to_chat(H, SPAN_WARNING("You don't have a mouth, you cannot do mouth-to-mouth resuscitation!"))
 					return
 				if(!check_has_mouth())
-					to_chat(H, "<span class='warning'>They don't have a mouth, you cannot do mouth-to-mouth resuscitation!</span>")
+					to_chat(H, SPAN_WARNING("They don't have a mouth, you cannot do mouth-to-mouth resuscitation!"))
 					return
 				if((H.head && (H.head.body_parts_covered & FACE)) || (H.wear_mask && (H.wear_mask.body_parts_covered & FACE)))
-					to_chat(H, "<span class='warning'>You need to remove your mouth covering for mouth-to-mouth resuscitation!</span>")
+					to_chat(H, SPAN_WARNING("You need to remove your mouth covering for mouth-to-mouth resuscitation!"))
 					return 0
 				if((head && (head.body_parts_covered & FACE)) || (wear_mask && (wear_mask.body_parts_covered & FACE)))
-					to_chat(H, "<span class='warning'>You need to remove \the [src]'s mouth covering for mouth-to-mouth resuscitation!</span>")
+					to_chat(H, SPAN_WARNING("You need to remove \the [src]'s mouth covering for mouth-to-mouth resuscitation!"))
 					return 0
 				if (!H.internal_organs_by_name[H.species.breathing_organ])
-					to_chat(H, "<span class='danger'>You need lungs for mouth-to-mouth resuscitation!</span>")
+					to_chat(H, SPAN_DANGER("You need lungs for mouth-to-mouth resuscitation!"))
 					return
 				if(!need_breathe())
 					return
@@ -154,7 +154,7 @@
 					var/datum/gas_mixture/breath = H.get_breath_from_environment()
 					var/fail = L.handle_breath(breath, 1)
 					if(!fail)
-						to_chat(src, "<span class='notice'>You feel a breath of fresh air enter your lungs. It feels good.</span>")
+						to_chat(src, SPAN_NOTICE("You feel a breath of fresh air enter your lungs. It feels good."))
 
 			else if(!(M == src && apply_pressure(M, M.zone_sel.selecting)))
 				help_shake_act(M)
@@ -164,7 +164,7 @@
 			if(M == src || anchored)
 				return 0
 			if(M.is_pacified())
-				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
+				to_chat(M, SPAN_NOTICE("You don't want to risk hurting [src]!"))
 				return 0
 
 			if(attacker_style && attacker_style.grab_act(H, src))
@@ -172,7 +172,7 @@
 
 			for(var/obj/item/grab/G in src.grabbed_by)
 				if(G.assailant == M)
-					to_chat(M, "<span class='notice'>You already grabbed [src].</span>")
+					to_chat(M, SPAN_NOTICE("You already grabbed [src]."))
 					return
 
 			if (!attempt_grab(M))
@@ -183,7 +183,7 @@
 
 			var/obj/item/grab/G = new /obj/item/grab(M, src)
 			if(buckled)
-				to_chat(M, "<span class='notice'>You cannot grab [src], \he [gender_datums[gender].is] buckled in!</span>")
+				to_chat(M, SPAN_NOTICE("You cannot grab [src], \he [gender_datums[gender].is] buckled in!"))
 			if(!G)	//the grab will delete itself in New if affecting is anchored
 				return
 			M.put_in_active_hand(G)
@@ -197,14 +197,14 @@
 				G.icon_state = "grabbed1"
 				G.hud.icon_state = "reinforce1"
 				G.last_action = world.time
-				visible_message("<span class='warning'>[M] gets a strong grip on [src]!</span>")
+				visible_message(SPAN_WARNING("[M] gets a strong grip on [src]!"))
 				return 1
-			visible_message("<span class='warning'>[M] has grabbed [src] passively!</span>")
+			visible_message(SPAN_WARNING("[M] has grabbed [src] passively!"))
 			return 1
 
 		if(I_HURT)
 			if(M.is_pacified())
-				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
+				to_chat(M, SPAN_NOTICE("You don't want to risk hurting [src]!"))
 				return 0
 
 			if(attacker_style && attacker_style.harm_act(H, src))
@@ -221,7 +221,7 @@
 			var/obj/item/organ/external/affecting = get_organ(hit_zone)
 
 			if(!affecting || affecting.is_stump())
-				to_chat(M, "<span class='danger'>They are missing that limb!</span>")
+				to_chat(M, SPAN_DANGER("They are missing that limb!"))
 				return 1
 
 			switch(src.a_intent)
@@ -293,7 +293,7 @@
 			if(!attack_message)
 				attack.show_attack(H, src, hit_zone, rand_damage)
 			else
-				H.visible_message("<span class='danger'>[attack_message]</span>")
+				H.visible_message(SPAN_DANGER("[attack_message]"))
 
 			playsound(loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
 			H.attack_log += text("\[[time_stamp()]\] <font color='red'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [src.name] ([src.ckey])</font>")
@@ -354,15 +354,15 @@
 
 			if(usesStamina)
 				if(M.stamina <= disarm_cost)
-					to_chat(M, "<span class='danger'>You're too tired to disarm someone!</span>")
+					to_chat(M, SPAN_DANGER("You're too tired to disarm someone!"))
 					return FALSE
 			else
 				if(M.nutrition <= disarm_cost)
-					to_chat(M, "<span class='danger'>You don't have enough power to disarm someone!</span>")
+					to_chat(M, SPAN_DANGER("You don't have enough power to disarm someone!"))
 					return FALSE
 
 			if(M.is_pacified())
-				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
+				to_chat(M, SPAN_NOTICE("You don't want to risk hurting [src]!"))
 				return FALSE
 
 			if(attacker_style && attacker_style.disarm_act(H, src))
@@ -399,11 +399,11 @@
 								turfs += T
 							if(turfs.len)
 								var/turf/target = pick(turfs)
-								visible_message("<span class='danger'>[src]'s [W] goes off during the struggle!</span>")
+								visible_message(SPAN_DANGER("[src]'s [W] goes off during the struggle!"))
 								return W.afterattack(target,src)
 						else
 							if(M.Adjacent(src))
-								visible_message("<span class='danger'>[src] retaliates against [M]'s disarm attempt with [W]!</span>")
+								visible_message(SPAN_DANGER("[src] retaliates against [M]'s disarm attempt with [W]!"))
 								return M.attackby(W,src)
 
 			var/randn = rand(1, 100)
@@ -411,7 +411,7 @@
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
 					apply_effect(6, WEAKEN, run_armor_check(affecting, "melee"))
 					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-					visible_message("<span class='danger'>[M] hurls [src] to the floor!</span>")
+					visible_message(SPAN_DANGER("[M] hurls [src] to the floor!"))
 					step_away(src,M,15)
 					sleep(3)
 					step_away(src,M,15)
@@ -422,15 +422,15 @@
 					apply_effect(3, WEAKEN, armor_check)
 					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 					if(armor_check < 100)
-						visible_message("<span class='danger'>[M] has pushed [src]!</span>")
+						visible_message(SPAN_DANGER("[M] has pushed [src]!"))
 					else
-						visible_message("<span class='warning'>[M] attempted to push [src]!</span>")
+						visible_message(SPAN_WARNING("[M] attempted to push [src]!"))
 					return
 
 			if(randn <= 60)
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
 					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-					visible_message("<span class='danger'>[M] shoves, sending [src] flying!</span>")
+					visible_message(SPAN_DANGER("[M] shoves, sending [src] flying!"))
 					step_away(src,M,15)
 					sleep(1)
 					step_away(src,M,15)
@@ -450,12 +450,12 @@
 				//Actually disarm them
 				for(var/obj/item/I in holding)
 					drop_from_inventory(I)
-					visible_message("<span class='danger'>[M] has disarmed [src]!</span>")
+					visible_message(SPAN_DANGER("[M] has disarmed [src]!"))
 					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 					return
 
 			playsound(loc, "punchmiss", 25, 1, -1)
-			visible_message("<span class='danger'>[M] attempted to disarm [src]!</span>")
+			visible_message(SPAN_DANGER("[M] attempted to disarm [src]!"))
 	return
 
 /mob/living/carbon/human/proc/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, inrange, params)
@@ -468,7 +468,7 @@
 
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [src.name] ([src.ckey])</font>")
 	src.attack_log += text("\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>")
-	src.visible_message("<span class='danger'>[user] has [attack_message] [src]!</span>")
+	src.visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"))
 	user.do_attack_animation(src)
 
 	var/dam_zone = pick(organs_by_name)
@@ -500,15 +500,15 @@
 	if(!organ || organ.is_dislocated() || organ.dislocated == -1)
 		return 0
 
-	user.visible_message("<span class='warning'>[user] begins to dislocate [src]'s [organ.joint]!</span>")
+	user.visible_message(SPAN_WARNING("[user] begins to dislocate [src]'s [organ.joint]!"))
 	user.limb_breaking = TRUE
 	if(do_after(user, 100))
 		organ.dislocate(1)
 		admin_attack_log(user, src, "dislocated [organ.joint].", "had his [organ.joint] dislocated.", "dislocated [organ.joint] of")
-		src.visible_message("<span class='danger'>[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
+		src.visible_message(SPAN_DANGER("[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!"))
 		user.limb_breaking = FALSE
 		return 1
-	user.visible_message("<span class='warning'>[user] fails to dislocate [src]'s [organ.joint]!</span>")
+	user.visible_message(SPAN_WARNING("[user] fails to dislocate [src]'s [organ.joint]!"))
 	user.limb_breaking = FALSE
 	return 0
 
@@ -516,21 +516,21 @@
 /mob/living/carbon/human/proc/break_all_grabs(mob/living/carbon/user)
 	var/success = 0
 	if(pulling)
-		visible_message("<span class='danger'>[user] has broken [src]'s grip on [pulling]!</span>")
+		visible_message(SPAN_DANGER("[user] has broken [src]'s grip on [pulling]!"))
 		success = 1
 		stop_pulling()
 
 	if(istype(l_hand, /obj/item/grab))
 		var/obj/item/grab/lgrab = l_hand
 		if(lgrab.affecting)
-			visible_message("<span class='danger'>[user] has broken [src]'s grip on [lgrab.affecting]!</span>")
+			visible_message(SPAN_DANGER("[user] has broken [src]'s grip on [lgrab.affecting]!"))
 			success = 1
 		spawn(1)
 			qdel(lgrab)
 	if(istype(r_hand, /obj/item/grab))
 		var/obj/item/grab/rgrab = r_hand
 		if(rgrab.affecting)
-			visible_message("<span class='danger'>[user] has broken [src]'s grip on [rgrab.affecting]!</span>")
+			visible_message(SPAN_DANGER("[user] has broken [src]'s grip on [rgrab.affecting]!"))
 			success = 1
 		spawn(1)
 			qdel(rgrab)
@@ -548,9 +548,9 @@
 		return 0
 
 	if(user == src)
-		user.visible_message("<span class='notice'>\The [user] starts applying pressure to \his [organ.name]!</span>", "<span class='notice'>You start applying pressure to your [organ.name]!</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] starts applying pressure to \his [organ.name]!"), SPAN_NOTICE("You start applying pressure to your [organ.name]!"))
 	else
-		user.visible_message("<span class='notice'>\The [user] starts applying pressure to [src]'s [organ.name]!</span>", "<span class='notice'>You start applying pressure to [src]'s [organ.name]!</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] starts applying pressure to [src]'s [organ.name]!"), SPAN_NOTICE("You start applying pressure to [src]'s [organ.name]!"))
 	spawn(0)
 		organ.applied_pressure = user
 
@@ -560,9 +560,9 @@
 		organ.applied_pressure = null
 
 		if(user == src)
-			user.visible_message("<span class='notice'>\The [user] stops applying pressure to \his [organ.name]!</span>", "<span class='notice'>You stop applying pressure to your [organ.name]!</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] stops applying pressure to \his [organ.name]!"), SPAN_NOTICE("You stop applying pressure to your [organ.name]!"))
 		else
-			user.visible_message("<span class='notice'>\The [user] stops applying pressure to [src]'s [organ.name]!</span>", "<span class='notice'>You stop applying pressure to [src]'s [organ.name]!</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] stops applying pressure to [src]'s [organ.name]!"), SPAN_NOTICE("You stop applying pressure to [src]'s [organ.name]!"))
 
 	return 1
 

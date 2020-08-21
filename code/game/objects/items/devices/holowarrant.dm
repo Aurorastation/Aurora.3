@@ -21,7 +21,7 @@
 	if(in_range(user, src) || isobserver(user))
 		show_content(user)
 	else
-		to_chat(user, "<span class='notice'>You have to go closer if you want to read it.</span>")
+		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
 
 //hit yourself with it
 /obj/item/device/holowarrant/attack_self(mob/living/user as mob)
@@ -40,8 +40,8 @@
 
 //hit other people with it
 /obj/item/device/holowarrant/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	user.visible_message("<span class='notice'>[user] holds up a warrant projector and shows the contents to [M]. </span>", \
-			"<span class='notice'>You show the warrant to [M]. </span>")
+	user.visible_message(SPAN_NOTICE("[user] holds up a warrant projector and shows the contents to [M]. "), \
+			SPAN_NOTICE("You show the warrant to [M]. "))
 	M.examinate(src)
 
 //sync with database
@@ -49,7 +49,7 @@
 	storedwarrant = list()
 	for(var/datum/record/warrant/W in SSrecords.warrants)
 		storedwarrant += W.name
-	to_chat(user, "<span class='notice'>The device hums faintly as it syncs with the station database</span>")
+	to_chat(user, SPAN_NOTICE("The device hums faintly as it syncs with the station database"))
 
 /obj/item/device/holowarrant/proc/show_content(mob/user, forceshow)
 	if(activetype == "arrest")

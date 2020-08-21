@@ -197,7 +197,7 @@
 /obj/item/organ/examine(mob/user)
 	..(user)
 	if(status & ORGAN_DEAD)
-		to_chat(user, "<span class='notice'>The decay has set in.</span>")
+		to_chat(user, SPAN_NOTICE("The decay has set in."))
 
 /obj/item/organ/proc/handle_germ_effects()
 	//** Handle the effects of infections
@@ -399,7 +399,7 @@
 		return ..()
 
 	if(alert("Do you really want to use this organ as food? It will be useless for anything else afterwards.",,"No.","Yes.") == "No.")
-		to_chat(user, "<span class='notice'>You successfully repress your cannibalistic tendencies.</span>")
+		to_chat(user, SPAN_NOTICE("You successfully repress your cannibalistic tendencies."))
 		return
 
 	user.drop_from_inventory(src)

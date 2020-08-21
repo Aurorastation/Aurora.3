@@ -18,7 +18,7 @@ emp_act
 	if(!is_physically_disabled())
 		if(martial_art && martial_art.deflection_chance)
 			if(prob(martial_art.deflection_chance))
-				src.visible_message("<span class='danger'>\The [src] deflects \the [P]!</span>")
+				src.visible_message(SPAN_DANGER("\The [src] deflects \the [P]!"))
 				playsound(src, "bulletflyby_sound", 75, 1)
 				return 0
 
@@ -190,14 +190,14 @@ emp_act
 				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
 				s.surge_left -= 1
 				if(s.surge_left)
-					visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. There are [s.surge_left] preventions left.</span>")
+					visible_message(SPAN_WARNING("[src] was not affected by EMP pulse."), SPAN_WARNING("Warning: EMP detected, integrated surge prevention module activated. There are [s.surge_left] preventions left."))
 				else
 					s.broken = 1
 					s.icon_state = "surge_ipc_broken"
-					visible_message("<span class='warning'>[src] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended.</span>")
+					visible_message(SPAN_WARNING("[src] was not affected by EMP pulse."), SPAN_WARNING("Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended."))
 				return 1
 			else if(s.surge_left == 0.5)
-				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is damaged and was unable to fully protect from EMP. Half of the damage taken. Replacement recommended.</span>")
+				to_chat(src, SPAN_DANGER("Warning: EMP detected, integrated surge prevention module is damaged and was unable to fully protect from EMP. Half of the damage taken. Replacement recommended."))
 				for(var/obj/O in src)
 					if(!O)	continue
 					O.emp_act(severity * 2) // EMP act takes reverse numbers
@@ -208,7 +208,7 @@ emp_act
 						I.emp_act(severity * 2) // EMP act takes reverse numbers
 				return 1
 			else
-				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
+				to_chat(src, SPAN_DANGER("Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended."))
 	for(var/obj/O in src)
 		if(!O)	continue
 		O.emp_act(severity)
@@ -231,7 +231,7 @@ emp_act
 	if(user == src) // Attacking yourself can't miss
 		target_zone = user.zone_sel.selecting
 	if(!target_zone)
-		visible_message("<span class='danger'>[user] misses [src] with \the [I]!</span>")
+		visible_message(SPAN_DANGER("[user] misses [src] with \the [I]!"))
 		return 0
 
 	//var/obj/item/organ/external/affecting = get_organ(target_zone)
@@ -241,7 +241,7 @@ emp_act
 
 	var/obj/item/organ/external/affecting = get_organ(hit_zone)
 	if (!affecting || affecting.is_stump())
-		to_chat(user, "<span class='danger'>They are missing that limb!</span>")
+		to_chat(user, SPAN_DANGER("They are missing that limb!"))
 		return null
 
 	return hit_zone
@@ -251,7 +251,7 @@ emp_act
 	if(!affecting)
 		return //should be prevented by attacked_with_item() but for sanity.
 
-	visible_message("<span class='danger'>[src] has been [LAZYPICK(I.attack_verb, "attacked")] in the [affecting.name] with [I] by [user]!</span>")
+	visible_message(SPAN_DANGER("[src] has been [LAZYPICK(I.attack_verb, "attacked")] in the [affecting.name] with [I] by [user]!"))
 
 	var/blocked = run_armor_check(hit_zone, "melee", I.armor_penetration, "Your armor has protected your [affecting.name].", "Your armor has softened the blow to your [affecting.name].")
 	standard_weapon_hit_effects(I, user, effective_force, blocked, hit_zone)
@@ -294,7 +294,7 @@ emp_act
 			if(headcheck(hit_zone))
 				//Harder to score a stun but if you do it lasts a bit longer
 				if(prob(effective_force) && head && !istype(head, /obj/item/clothing/head/helmet))
-					visible_message("<span class='danger'>[src] [species.knockout_message]</span>")
+					visible_message(SPAN_DANGER("[src] [species.knockout_message]"))
 					apply_effect(20, PARALYZE, blocked)
 
 		//Apply blood
@@ -331,7 +331,7 @@ emp_act
 	if(!organ || (organ.dislocated == 2) || (organ.dislocated == -1) || blocked >= 100)
 		return 0
 	if(prob(W.force * BLOCKED_MULT(blocked)))
-		visible_message("<span class='danger'>[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
+		visible_message(SPAN_DANGER("[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!"))
 		organ.dislocate(1)
 		return 1
 	return 0
@@ -339,12 +339,12 @@ emp_act
 /mob/living/carbon/human/emag_act(var/remaining_charges, mob/user, var/emag_source)
 	var/obj/item/organ/external/affecting = get_organ(user.zone_sel.selecting)
 	if(!affecting || !(affecting.status & ORGAN_ROBOT))
-		to_chat(user, "<span class='warning'>That limb isn't robotic.</span>")
+		to_chat(user, SPAN_WARNING("That limb isn't robotic."))
 		return -1
 	if(affecting.sabotaged)
-		to_chat(user, "<span class='warning'>[src]'s [affecting.name] is already sabotaged!</span>")
+		to_chat(user, SPAN_WARNING("[src]'s [affecting.name] is already sabotaged!"))
 		return -1
-	to_chat(user, "<span class='notice'>You sneakily slide [emag_source] into the dataport on [src]'s [affecting.name] and short out the safeties.</span>")
+	to_chat(user, SPAN_NOTICE("You sneakily slide [emag_source] into the dataport on [src]'s [affecting.name] and short out the safeties."))
 	affecting.sabotaged = 1
 	return 1
 
@@ -357,7 +357,7 @@ emp_act
 			if(canmove && !restrained())
 				if(isturf(O.loc))
 					put_in_active_hand(O)
-					visible_message("<span class='warning'>[src] catches [O]!</span>")
+					visible_message(SPAN_WARNING("[src] catches [O]!"))
 					throw_mode_off()
 					return
 
@@ -386,7 +386,7 @@ emp_act
 				return
 
 		if(!zone)
-			visible_message("<span class='notice'>\The [O] misses [src] narrowly!</span>")
+			visible_message(SPAN_NOTICE("\The [O] misses [src] narrowly!"))
 			playsound(src, 'sound/effects/throw_miss.ogg', rand(10, 50), 1)
 			return
 
@@ -395,7 +395,7 @@ emp_act
 		var/obj/item/organ/external/affecting = get_organ(zone)
 		var/hit_area = affecting.name
 
-		src.visible_message("<span class='warning'>[src] has been hit in the [hit_area] by [O].</span>", "<span class='warning'><font size='2'>You're hit in the [hit_area] by [O]!</font></span>")
+		src.visible_message(SPAN_WARNING("[src] has been hit in the [hit_area] by [O]."), SPAN_WARNING("<font size='2'>You're hit in the [hit_area] by [O]!</font>"))
 		var/armor = run_armor_check(affecting, "melee", O.armor_penetration, "Your armor has protected your [hit_area].", "Your armor has softened the hit to your [hit_area].") //I guess "melee" is the best fit here
 
 		if(armor < 100)
@@ -439,7 +439,7 @@ emp_act
 		if(O.throw_source && momentum >= THROWNOBJ_KNOCKBACK_SPEED)
 			var/dir = get_dir(O.throw_source, src)
 
-			visible_message("<span class='warning'>[src] staggers under the impact!</span>","<span class='warning'> You stagger under the impact!</span>")
+			visible_message(SPAN_WARNING("[src] staggers under the impact!"),SPAN_WARNING(" You stagger under the impact!"))
 			src.throw_at(get_edge_target_turf(src,dir),1,momentum)
 
 			if(!O || !src) return
@@ -449,7 +449,7 @@ emp_act
 
 				if(T)
 					src.forceMove(T)
-					visible_message("<span class='warning'>[src] is pinned to the wall by [O]!</span>","<span class='warning'>You are pinned to the wall by [O]!</span>")
+					visible_message(SPAN_WARNING("[src] is pinned to the wall by [O]!"),SPAN_WARNING("You are pinned to the wall by [O]!"))
 					src.anchored = 1
 					src.pinned += O
 
@@ -537,12 +537,12 @@ emp_act
 	if(user == src || anchored)
 		return 0
 	if(user.is_pacified())
-		to_chat(user, "<span class='notice'>You don't want to risk hurting [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You don't want to risk hurting [src]!"))
 		return 0
 
 	for(var/obj/item/grab/G in user.grabbed_by)
 		if(G.assailant == user)
-			to_chat(user, "<span class='notice'>You already grabbed [src].</span>")
+			to_chat(user, SPAN_NOTICE("You already grabbed [src]."))
 			return
 
 	if (!attempt_grab(user))
@@ -553,7 +553,7 @@ emp_act
 
 	var/obj/item/grab/G = new /obj/item/grab(user, src)
 	if(buckled)
-		to_chat(user, "<span class='notice'>You cannot grab [src], \he [gender_datums[gender].is] buckled in!</span>")
+		to_chat(user, SPAN_NOTICE("You cannot grab [src], \he [gender_datums[gender].is] buckled in!"))
 	if(!G)	//the grab will delete itself in New if affecting is anchored
 		return
 	user.put_in_active_hand(G)
@@ -567,7 +567,7 @@ emp_act
 		G.icon_state = "grabbed1"
 		G.hud.icon_state = "reinforce1"
 		G.last_action = world.time
-		visible_message("<span class='warning'>[user] gets a strong grip on [src]!</span>")
+		visible_message(SPAN_WARNING("[user] gets a strong grip on [src]!"))
 		return 1
-	visible_message("<span class='warning'>[user] has grabbed [src] passively!</span>")
+	visible_message(SPAN_WARNING("[user] has grabbed [src] passively!"))
 	return 1

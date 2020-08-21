@@ -15,7 +15,7 @@
 	if (!user.can_use_hand())
 		return
 	if(coat)
-		user.visible_message("[user] takes [coat] off \the [src].", "You take [coat] off the \the [src]")
+		user.visible_message("<b>[user]</b> takes [coat] off \the [src].", "You take [coat] off the \the [src]")
 		coat.forceMove(get_turf(user))
 		user.put_in_hands(coat)
 		coat = null
@@ -26,12 +26,12 @@
 	if(is_type_in_list(W, allowed))
 		can_hang = 1
 	if (can_hang && !coat)
-		user.visible_message("[user] hangs [W] on \the [src].", "You hang [W] on the \the [src]")
+		user.visible_message("<b>[user]</b> hangs [W] on \the [src].", "You hang [W] on the \the [src]")
 		coat = W
 		user.drop_from_inventory(coat, src)
 		update_icon()
 	else
-		to_chat(user, "<span class='notice'>You cannot hang [W] on [src]</span>")
+		to_chat(user, SPAN_NOTICE("You cannot hang [W] on [src]"))
 		return ..()
 
 /obj/structure/coatrack/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -40,7 +40,7 @@
 		can_hang = 1
 
 	if (can_hang && !coat)
-		src.visible_message("[mover] lands on \the [src].")
+		src.visible_message("<b>[mover]</b> lands on \the [src].")
 		coat = mover
 		coat.forceMove(src)
 		update_icon()

@@ -49,7 +49,7 @@
 	occupations = list()
 	var/list/all_jobs = current_map.allowed_jobs
 	if(!all_jobs.len)
-		to_world("<span class='warning'>Error setting up jobs, no job datums found!</span>")
+		to_world(SPAN_WARNING("Error setting up jobs, no job datums found!"))
 		return FALSE
 
 	for(var/J in all_jobs)
@@ -101,7 +101,7 @@
 			return FALSE
 
 		if(!(player.client.prefs.GetPlayerAltTitle(job) in player.client.prefs.GetValidTitles(job)))
-			to_chat(player, "<span class='warning'>Your character is too young!</span>")
+			to_chat(player, SPAN_WARNING("Your character is too young!"))
 			return FALSE
 
 		var/position_limit = job.total_positions
@@ -427,7 +427,7 @@
 
 	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cryogenic Storage"]
 	if(spawnpos && istype(spawnpos))
-		to_chat(src, "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in cryo the whole time!</span>")
+		to_chat(src, SPAN_WARNING("You come to the sudden realization that you never left the Aurora at all! You were in cryo the whole time!"))
 		src.forceMove(pick(spawnpos.turfs))
 		global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
 		if(!src.megavend)
@@ -447,7 +447,7 @@
 
 	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cyborg Storage"]
 	if(spawnpos && istype(spawnpos))
-		to_chat(src, "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in robotic storage the whole time!</span>")
+		to_chat(src, SPAN_WARNING("You come to the sudden realization that you never left the Aurora at all! You were in robotic storage the whole time!"))
 		src.forceMove(pick(spawnpos.turfs))
 		global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Robotic Oversight")
 	else
@@ -459,11 +459,11 @@
 /datum/controller/subsystem/jobs/proc/centcomm_despawn_mob(mob/living/H)
 	if(ishuman(H))
 		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "[current_map.dock_name] Cryogenic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s cryostorage, and departs.</span>", "<span class='notice'>You make your way into [current_map.dock_short]'s cryostorage, and depart.</span>", range = 3)
+		H.visible_message(SPAN_NOTICE("[H.name] makes their way to the [current_map.dock_short]'s cryostorage, and departs."), SPAN_NOTICE("You make your way into [current_map.dock_short]'s cryostorage, and depart."), range = 3)
 		DespawnMob(H)
 	else
 		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[current_map.dock_name] Robotic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s robotic storage, and departs.</span>", "<span class='notice'>You make your way into [current_map.dock_short]'s robotic storage, and depart.</span>", range = 3)
+		H.visible_message(SPAN_NOTICE("[H.name] makes their way to the [current_map.dock_short]'s robotic storage, and departs."), SPAN_NOTICE("You make your way into [current_map.dock_short]'s robotic storage, and depart."), range = 3)
 		DespawnMob(H)
 
 /datum/controller/subsystem/jobs/proc/EquipPersonal(mob/living/carbon/human/H, rank, joined_late = FALSE, spawning_at)
@@ -493,7 +493,7 @@
 		return EquipRank(H, rank, 1)
 
 	var/list/spawn_in_storage = list()
-	to_chat(H,"<span class='notice'>You have ten minutes to reach the station before you will be forced there.</span>")
+	to_chat(H,SPAN_NOTICE("You have ten minutes to reach the station before you will be forced there."))
 
 	if(H.needs_wheelchair())
 		H.equip_wheelchair()
@@ -669,7 +669,7 @@
 		// them win or lose based on cryo is silly so we remove the objective.
 		if(O.target == H.mind)
 			if(O.owner && O.owner.current)
-				to_chat(O.owner.current, "<span class='warning'>You get the feeling your target is no longer within your reach...</span>")
+				to_chat(O.owner.current, SPAN_WARNING("You get the feeling your target is no longer within your reach..."))
 			qdel(O)
 
 	//Handle job slot/tater cleanup.
@@ -735,7 +735,7 @@
 				permitted = FALSE
 
 			if(!permitted)
-				to_chat(H, "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [thing]!</span>")
+				to_chat(H, SPAN_WARNING("Your current job or whitelist status does not permit you to spawn with [thing]!"))
 				continue
 
 			if(G.slot && !(G.slot in custom_equip_slots))
@@ -754,7 +754,7 @@
 					Debug("EC/([H]): [thing] failed mask/suit/head check; leftovers=[!!leftovers]")
 				else if (H.equip_to_slot_or_del(CI, G.slot))
 					CI.autodrobe_no_remove = TRUE
-					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
+					to_chat(H, SPAN_NOTICE("Equipping you with [thing]!"))
 					custom_equip_slots += G.slot
 					Debug("EC/([H]): Equipped [CI] successfully.")
 				else if (leftovers)
@@ -787,7 +787,7 @@
 				metadata = list()
 			var/obj/item/CI = G.spawn_item(H, metadata)
 			if (H.equip_to_slot_or_del(CI, G.slot))
-				to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
+				to_chat(H, SPAN_NOTICE("Equipping you with [thing]!"))
 				used_slots += G.slot
 				CI.autodrobe_no_remove = TRUE
 				Debug("ECD/([H]): Equipped [thing] successfully.")
@@ -808,7 +808,7 @@
 		var/obj/item/storage/B = locate() in H
 		if (B)
 			for (var/thing in items)
-				to_chat(H, "<span class='notice'>Placing \the [thing] in your [B.name]!</span>")
+				to_chat(H, SPAN_NOTICE("Placing [thing] in [B]!"))
 				var/datum/gear/G = gear_datums[thing]
 				var/metadata
 				var/list/gear_test = prefs.gear[G.display_name]
@@ -820,7 +820,7 @@
 				Debug("EIS/([H]): placed [thing] in [B].")
 
 		else
-			to_chat(H, "<span class='danger'>Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug.</span>")
+			to_chat(H, SPAN_DANGER("Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug."))
 			Debug("EIS/([H]): unable to equip; no storage.")
 
 	Debug("EIS/([H]): Complete.")

@@ -12,5 +12,5 @@
 	if(!target)
 		return
 
-	to_chat(target, "<span class='danger'>Magical energies surround you, immolating you in a furious fashion!</span>")
+	to_chat(target, SPAN_DANGER("Magical energies surround you, immolating you in a furious fashion!"))
 	target.IgniteMob(15)

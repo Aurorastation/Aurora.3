@@ -87,7 +87,7 @@
 	pilots = null
 
 	QDEL_NULL_LIST(hud_elements)
-	
+
 	if(remote_network)
 		SSvirtualreality.remove_mech(src, remote_network)
 
@@ -122,10 +122,10 @@
 				else
 					to_chat(user, "It is being <b>piloted</b> by <b>[pilot]</b>.")
 	if(hardpoints.len)
-		to_chat(user, "<span class='notice'>It has the following hardpoints:</span>")
+		to_chat(user, SPAN_NOTICE("It has the following hardpoints:"))
 		for(var/hardpoint in hardpoints)
 			var/obj/item/I = hardpoints[hardpoint]
-			to_chat(user, "- <b>[hardpoint]</b>: [istype(I) ? "<span class='notice'><i>[I]</i></span>" : "nothing"].")
+			to_chat(user, "- <b>[hardpoint]</b>: [istype(I) ? SPAN_NOTICE("<i>[I]</i>") : "nothing"].")
 	else
 		to_chat(user, "It has <b>no visible hardpoints</b>.")
 
@@ -235,7 +235,7 @@
 		user.set_machine(src)
 		interact(user)
 	else
-		to_chat(user, "<span class='warning'>The radio is too damaged to function.</span>")
+		to_chat(user, SPAN_WARNING("The radio is too damaged to function."))
 
 /obj/item/device/radio/exosuit/CanUseTopic()
 	. = ..()

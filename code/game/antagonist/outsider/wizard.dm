@@ -133,9 +133,9 @@ Made a proc so this is not repeated 14 (or more) times.*/
 // Humans can wear clothes.
 /mob/living/carbon/human/wearing_wiz_garb()
 	if(!is_wiz_garb(src.wear_suit) && (!src.species.hud || (slot_wear_suit in src.species.hud.equip_slots)))
-		to_chat(src, "<span class='warning'>I don't feel strong enough without my robes.</span>")
+		to_chat(src, SPAN_WARNING("I don't feel strong enough without my robes."))
 		return 0
 	if(!is_wiz_garb(src.head) && (!species.hud || (slot_head in src.species.hud.equip_slots)))
-		to_chat(src, "<span class='warning'>I don't feel strong enough without my headwear.</span>")
+		to_chat(src, SPAN_WARNING("I don't feel strong enough without my headwear."))
 		return 0
 	return 1

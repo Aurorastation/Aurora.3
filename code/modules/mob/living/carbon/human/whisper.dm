@@ -3,7 +3,7 @@
 	var/alt_name = ""
 
 	if(say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
+		to_chat(usr, SPAN_WARNING("Speech is currently admin-disabled."))
 		return
 
 	message = sanitize(message)
@@ -32,7 +32,7 @@
 /mob/living/carbon/human/proc/whisper_say(var/message, var/datum/language/speaking = null, var/alt_name="", var/whisper_text = "whispers")
 
 	if (istype(src.wear_mask, /obj/item/clothing/mask/muzzle))
-		to_chat(src, "<span class='danger'>You're muzzled and cannot speak!</span>")
+		to_chat(src, SPAN_DANGER("You're muzzled and cannot speak!"))
 		return
 
 	var/message_range = 1

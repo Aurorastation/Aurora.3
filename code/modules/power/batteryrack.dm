@@ -67,20 +67,20 @@
 					qdel(src)
 					return 1
 				else
-					to_chat(user, "<span class='warning'>Turn off the [src] before dismantling it.</span>")
+					to_chat(user, SPAN_WARNING("Turn off [src] before dismantling it."))
 			else
-				to_chat(user, "<span class='warning'>Better let [src] discharge before dismantling it.</span>")
+				to_chat(user, SPAN_WARNING("Better let [src] discharge before dismantling it."))
 		else if ((istype(W, /obj/item/stock_parts/capacitor) && (capacitors_amount < 5)) || (istype(W, /obj/item/cell) && (cells_amount < 5)))
 			if (charge < (capacity / 100))
 				if (!output_attempt && !input_attempt)
 					user.drop_from_inventory(W,src)
 					component_parts += W
 					RefreshParts()
-					to_chat(user, "<span class='notice'>You upgrade the [src] with [W.name].</span>")
+					to_chat(user, SPAN_NOTICE("You upgrade [src] with [W.name]."))
 				else
-					to_chat(user, "<span class='warning'>Turn off the [src] before dismantling it.</span>")
+					to_chat(user, SPAN_WARNING("Turn off [src] before dismantling it."))
 			else
-				to_chat(user, "<span class='warning'>Better let [src] discharge before putting your hand inside it.</span>")
+				to_chat(user, SPAN_WARNING("Better let [src] discharge before putting your hand inside it."))
 		else
 			user.set_machine(src)
 			interact(user)

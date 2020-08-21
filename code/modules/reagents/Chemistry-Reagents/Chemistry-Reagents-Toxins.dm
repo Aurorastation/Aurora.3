@@ -362,7 +362,7 @@
 		if(locate(/obj/effect/overlay/wallrot) in W)
 			for(var/obj/effect/overlay/wallrot/E in W)
 				qdel(E)
-			W.visible_message("<span class='notice'>The fungi are completely dissolved by the solution!</span>")
+			W.visible_message(SPAN_NOTICE("The fungi are completely dissolved by the solution!"))
 
 /datum/reagent/toxin/plantbgone/touch_obj(var/obj/O, var/volume)
 	if(istype(O, /obj/structure/alien/weeds))
@@ -443,7 +443,7 @@
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	if(prob(10))
-		to_chat(M, "<span class='danger'>Your insides are burning!</span>")
+		to_chat(M, SPAN_DANGER("Your insides are burning!"))
 		M.add_chemical_effect(CE_TOXIN, rand(100, 300) * removed)
 	else if(prob(40))
 		M.heal_organ_damage(25 * removed, 0)
@@ -530,7 +530,7 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.species.name != "Slime")
-			to_chat(M, "<span class='danger'>Your flesh rapidly mutates!</span>")
+			to_chat(M, SPAN_DANGER("Your flesh rapidly mutates!"))
 			H.set_species("Slime")
 
 /datum/reagent/aslimetoxin
@@ -543,7 +543,7 @@
 /datum/reagent/aslimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) // TODO: check if there's similar code anywhere else
 	if(M.transforming)
 		return
-	to_chat(M, "<span class='danger'>Your flesh rapidly mutates!</span>")
+	to_chat(M, SPAN_DANGER("Your flesh rapidly mutates!"))
 	M.transforming = 1
 	M.canmove = 0
 	M.icon = null
@@ -701,7 +701,7 @@
 			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
 
 
-			
+
 /datum/reagent/toxin/dextrotoxin
 	name = "Dextrotoxin"
 	description = "A complicated to make and highly illegal drug that cause paralysis mostly focused on the limbs."
@@ -720,7 +720,7 @@
 		to_chat(M, SPAN_WARNING("Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
 		M.confused = max(M.confused, 250)
 	M.add_chemical_effect(CE_UNDEXTROUS, 1)
-	if(dose > 0.2)	
+	if(dose > 0.2)
 		M.Weaken(10)
 
 /datum/reagent/toxin/dextrotoxin/Destroy()

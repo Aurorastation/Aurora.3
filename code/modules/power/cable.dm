@@ -1018,7 +1018,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 /obj/structure/noose/attackby(obj/item/I, mob/user, params)
 	if(I.iswirecutter())
-		user.visible_message("[user] cuts the noose.",
+		user.visible_message("<b>[user]</b> cuts the noose.",
 							 SPAN_NOTICE("You cut the noose."))
 		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 		if(buckled_mob)
@@ -1067,10 +1067,10 @@ obj/structure/cable/proc/cableColor(var/colorC)
 	if(buckled_mob && buckled_mob.buckled == src)
 		var/mob/living/M = buckled_mob
 		if(M != user)
-			user.visible_message(SPAN_NOTICE("[user] begins to untie the noose over [M]'s neck..."),\
+			user.visible_message("<b>[user]</b> begins to untie the noose over [M]'s neck...",\
 								 SPAN_NOTICE("You begin to untie the noose over [M]'s neck..."))
 			if(do_mob(user, M, 100))
-				user.visible_message(SPAN_NOTICE("[user] unties the noose over [M]'s neck!"),\
+				user.visible_message("<b>[user]</b> unties the noose over [M]'s neck!",\
 									 SPAN_NOTICE("You untie the noose over [M]'s neck!"))
 			else
 				return

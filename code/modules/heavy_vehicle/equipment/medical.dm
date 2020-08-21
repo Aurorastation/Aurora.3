@@ -41,10 +41,10 @@
 	. = ..()
 	if(.)
 		if(ishuman(target) && !sleeper.occupant)
-			visible_message("<span class='notice'>\The [src] begins loading \the [target] into \the [src].</span>")
+			visible_message(SPAN_NOTICE("\The [src] begins loading \the [target] into \the [src]."))
 			sleeper.go_in(target, user)
 		else
-			to_chat(user, "<span class='warning'>You cannot load that in!</span>")
+			to_chat(user, SPAN_WARNING("You cannot load that in!"))
 
 /obj/item/mecha_equipment/sleeper/get_hardpoint_maptext()
 	if(sleeper && sleeper.occupant)
@@ -75,9 +75,9 @@
 
 		if(beaker)
 			beaker.forceMove(get_turf(src))
-			user.visible_message("<span class='notice'>\The [user] removes \the [beaker] from \the [src].</span>", "<span class='notice'>You remove \the [beaker] from \the [src].</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] removes \the [beaker] from \the [src]."), SPAN_NOTICE("You remove \the [beaker] from \the [src]."))
 		beaker = I
-		user.visible_message("<span class='notice'>\The [user] adds \a [I] to \the [src].</span>", "<span class='notice'>You add \a [I] to \the [src].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] adds \a [I] to \the [src]."), SPAN_NOTICE("You add \a [I] to \the [src]."))
 
 /obj/machinery/sleeper/mounted/go_out()
 
@@ -215,7 +215,7 @@
 
 /obj/item/mecha_equipment/crisis_drone/proc/shut_down()
 	if(enabled)
-		owner.visible_message("<span class='notice'>\The [owner]'s [src] buzzes as its drone returns to port.</span>")
+		owner.visible_message(SPAN_NOTICE("\The [owner]'s [src] buzzes as its drone returns to port."))
 		toggle_drone()
 	if(!isnull(Target))
 		Target = null
@@ -249,11 +249,11 @@
 			enabled = !enabled
 			update_icon()
 			if(enabled)
-				to_chat(pilot,"<span class='notice'>Medical drone activated.</span>")
+				to_chat(pilot,SPAN_NOTICE("Medical drone activated."))
 				icon_state = "med_droid_a"
 				START_PROCESSING(SSprocessing, src)
 			else
-				to_chat(pilot,"<span class='notice'>Medical drone deactivated.</span>")
+				to_chat(pilot,SPAN_NOTICE("Medical drone deactivated."))
 				icon_state = "med_droid"
 				STOP_PROCESSING(SSprocessing, src)
 			owner.update_icon()

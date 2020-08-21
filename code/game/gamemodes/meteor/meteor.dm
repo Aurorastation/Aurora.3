@@ -32,9 +32,9 @@
 			survivors++
 
 	if(survivors)
-		to_world("<span class='notice'><B>The following survived the meteor storm</B></span>:[text]")
+		to_world(SPAN_NOTICE("<B>The following survived the meteor storm</B>") + ":[text]")
 	else
-		to_world("<span class='notice'><B>Nobody survived the meteor storm!</B></span>")
+		to_world(SPAN_NOTICE("<B>Nobody survived the meteor storm!</B>"))
 
 	feedback_set_details("round_end_result","end - evacuation")
 	feedback_set("round_end_result",survivors)

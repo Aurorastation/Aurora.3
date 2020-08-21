@@ -8,7 +8,7 @@
 
 // Positionless remove/Edit are a bit weird,
 // not sure if adding these buttons is quite a good idea.
-// They introduce uncertainty, since, in case of 2 elements, 
+// They introduce uncertainty, since, in case of 2 elements,
 // they will work just with the 1st one
 /datum/integrated_io/list/proc/interact(mob/user)
 	var/list/my_list = data
@@ -21,7 +21,7 @@
 	t += "<a href='?src=\ref[src];swap=1'>Swap</a>  |  "
 	t += "<a href='?src=\ref[src];clear=1'>Clear</a><br>"
 	t += "<hr>"
-	// Iterating by index simplifies editing/deletion in game, 
+	// Iterating by index simplifies editing/deletion in game,
 	// since the href_list["pos"] var is consistent
 	for(var/i = 1, i <= my_list.len; i++)
 		t += "#[i] | [display_data(my_list[i])]  |  "
@@ -47,7 +47,7 @@
 /datum/integrated_io/list/proc/remove_from_list_by_position(mob/user, position)
 	var/list/my_list = data
 	if(!my_list.len)
-		to_chat(user, "<span class='warning'>The list is empty, there's nothing to remove.</span>")
+		to_chat(user, SPAN_WARNING("The list is empty, there's nothing to remove."))
 		return
 	if(!position)
 		return
@@ -60,7 +60,7 @@
 /datum/integrated_io/list/proc/remove_from_list(mob/user, target_entry)
 	var/list/my_list = data
 	if(!my_list.len)
-		to_chat(user, "<span class='warning'>The list is empty, there's nothing to remove.</span>")
+		to_chat(user, SPAN_WARNING("The list is empty, there's nothing to remove."))
 		return
 	if(!target_entry)
 		target_entry = input("Which piece of data do you want to remove?", "Remove") as null|anything in my_list
@@ -70,7 +70,7 @@
 /datum/integrated_io/list/proc/edit_in_list(mob/user, target_entry)
 	var/list/my_list = data
 	if(!my_list.len)
-		to_chat(user, "<span class='warning'>The list is empty, there's nothing to modify.</span>")
+		to_chat(user, SPAN_WARNING("The list is empty, there's nothing to modify."))
 		return
 	if(!target_entry)
 		target_entry = input("Which piece of data do you want to edit?", "Edit") as null|anything in my_list
@@ -83,7 +83,7 @@
 /datum/integrated_io/list/proc/edit_in_list_by_position(mob/user, var/position)
 	var/list/my_list = data
 	if(!my_list.len)
-		to_chat(user, "<span class='warning'>The list is empty, there's nothing to modify.</span>")
+		to_chat(user, SPAN_WARNING("The list is empty, there's nothing to modify."))
 		return
 	if(!position)
 		return
@@ -98,7 +98,7 @@
 /datum/integrated_io/list/proc/swap_inside_list(mob/user, var/first_target, var/second_target)
 	var/list/my_list = data
 	if(my_list.len <= 1)
-		to_chat(user, "<span class='warning'>The list is empty, or too small to do any meaningful swapping.</span>")
+		to_chat(user, SPAN_WARNING("The list is empty, or too small to do any meaningful swapping."))
 		return
 	if(!first_target)
 		first_target = input("Which piece of data do you want to swap? (1)", "Swap") as null|anything in my_list

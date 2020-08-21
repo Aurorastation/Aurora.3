@@ -391,7 +391,7 @@
 
 /obj/item/device/violin/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
 	..()
-	user.visible_message("<span class='danger'>\The [user] shatters \the [src] into pieces!</span>")
+	user.visible_message(SPAN_DANGER("\The [user] shatters \the [src] into pieces!"))
 	playsound(loc, 'sound/effects/kabong.ogg', 50, 1)
 	new /obj/item/material/shard/wood(get_turf(user))
 	qdel(src)

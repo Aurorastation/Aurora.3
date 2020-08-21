@@ -47,8 +47,8 @@
 		return 0
 	A.do_attack_animation(D)
 	var/atk_verb = pick("slices", "pinches", "chops", "bites", "claws")
-	D.visible_message("<span class='danger'>[A] [atk_verb] [D]!</span>", \
-					  "<span class='danger'>[A] [atk_verb] you!</span>")
+	D.visible_message(SPAN_DANGER("[A] [atk_verb] [D]!"), \
+					  SPAN_DANGER("[A] [atk_verb] you!"))
 	D.apply_damage(rand(5,15), BRUTE, damage_flags = DAM_SHARP)
 	playsound(get_turf(D), 'sound/weapons/slash.ogg', 25, 1, -1)
 
@@ -60,7 +60,7 @@
 		var/obj/item/grab/G = A.get_active_hand()
 		if(G && G.affecting == D)
 			G.state = GRAB_AGGRESSIVE
-			D.visible_message("<span class='danger'>[A] gets a strong grip on [D]!</span>")
+			D.visible_message(SPAN_DANGER("[A] gets a strong grip on [D]!"))
 			if(isvaurca(A))
 				A.bugbite()
 				qdel(G)
@@ -74,7 +74,7 @@
 		var/obj/item/grab/G = A.get_active_hand()
 		if(G && G.affecting == D)
 			var/armor_block = D.run_armor_check(null, "melee")
-			A.visible_message("<span class='warning'>[A] crushes [D] with its mandibles!</span>")
+			A.visible_message(SPAN_WARNING("[A] crushes [D] with its mandibles!"))
 			D.apply_damage(30, BRUTE, null, armor_block)
 			D.apply_effect(6, WEAKEN, armor_block)
 			qdel(G)

@@ -140,7 +140,7 @@
 					damagetaken = max(0, damagetaken-1) //An empowered pylon slowly self repairs
 					empowered = max(0, empowered - 0.2)
 					if(prob(10))
-						visible_message(SPAN_WARNING("Cracks in the [src] gradually seal as new crystalline matter grows to fill them."))
+						visible_message(SPAN_WARNING("Cracks in [src] gradually seal as new crystalline matter grows to fill them."))
 
 	if(empowered && prob(4))
 		empowered = max(0, empowered - 1) //Overcharging gradually wears off over time

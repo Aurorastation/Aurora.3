@@ -45,7 +45,7 @@
 /obj/machinery/recharger/attackby(obj/item/G as obj, mob/user as mob)
 	if(portable && G.iswrench())
 		if(charging)
-			to_chat(user, "<span class='alert'>Remove [charging] first!</span>")
+			to_chat(user, SPAN_ALERT("Remove [charging] first!"))
 			return
 		anchored = !anchored
 		to_chat(user, "You have [anchored ? "attached" : "detached"] the recharger.")
@@ -59,7 +59,7 @@
 				charging = null
 				update_icon()
 			else
-				to_chat(user, "<span class='danger'>Your gripper cannot hold \the [charging].</span>")
+				to_chat(user, SPAN_DANGER("Your gripper cannot hold \the [charging]."))
 
 	if(!dropsafety(G))
 		return
@@ -67,14 +67,14 @@
 	if(is_type_in_list(G, allowed_devices))
 		if (G.get_cell() == DEVICE_NO_CELL)
 			if (G.charge_failure_message)
-				to_chat(user, "<span class='warning'>\The [G][G.charge_failure_message]</span>")
+				to_chat(user, SPAN_WARNING("\The [G][G.charge_failure_message]"))
 			return
 		if(charging)
-			to_chat(user, "<span class='warning'>\A [charging] is already charging here.</span>")
+			to_chat(user, SPAN_WARNING("\A [charging] is already charging here."))
 			return
 		// Checks to make sure he's not in space doing it, and that the area got proper power.
 		if(!powered())
-			to_chat(user, "<span class='warning'>\The [name] blinks red as you try to insert the item!</span>")
+			to_chat(user, SPAN_WARNING("\The [name] blinks red as you try to insert the item!"))
 			return
 
 		user.drop_from_inventory(G,src)
@@ -121,7 +121,7 @@
 				else
 					icon_state = icon_state_charging + "80"
 				C.give(active_power_usage*CELLRATE*charging_efficiency)
-				
+
 				update_use_power(2)
 			else
 				icon_state = icon_state_charged

@@ -19,5 +19,5 @@
 	..()
 	for(var/mob/living/target in targets)
 		new /obj/structure/closet/statue(target.loc, target)
-		target.visible_message("<span class='danger'>[target] turns into a statue!</span>", "<span class='danger'>Your body turns into stone and you find yourself paralyzed!</span>")
+		target.visible_message(SPAN_DANGER("[target] turns into a statue!"), SPAN_DANGER("Your body turns into stone and you find yourself paralyzed!"))
 	return

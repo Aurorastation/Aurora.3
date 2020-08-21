@@ -42,7 +42,7 @@
 			if(!user.unEquip(I))
 				return
 			I.forceMove(src)
-			to_chat(user, SPAN_NOTICE("You put the [I] into the [src]"))
+			to_chat(user, SPAN_NOTICE("You put [I] into the [src]"))
 			return
 
 /obj/item/reagent_containers/cooking_container/verb/empty()
@@ -59,7 +59,7 @@
 		return
 
 	if (user.stat || user.restrained())
-		to_chat(user, "<span class='notice'>You are in no fit state to do this.</span>")
+		to_chat(user, SPAN_NOTICE("You are in no fit state to do this."))
 		return
 
 	if (!Adjacent(user))

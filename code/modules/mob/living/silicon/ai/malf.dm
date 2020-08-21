@@ -17,7 +17,7 @@
 	// And greet user with some OOC info.
 	to_chat(user, "You are malfunctioning, you do not have to follow any laws.")
 	to_chat(user, "Use ai-help command to view relevant information about your abilities")
-	to_chat(user, "<span class='danger'><font size=4>Malf AI has been severely buffed. Ensure that you use these new powers responsibly and follow a narrative.</font></span>")
+	to_chat(user, SPAN_DANGER("<font size=4>Malf AI has been severely buffed. Ensure that you use these new powers responsibly and follow a narrative.</font>"))
 
 // Safely remove malfunction status, fixing hacked APCs and resetting variables.
 /mob/living/silicon/ai/proc/stop_malf()
@@ -84,7 +84,7 @@
 		return
 	if(hardware_integrity() < 50)
 		if(!shutup)
-			to_chat(src, "<span class='notice'>Starting APU... <b>FAULT</b>(System Damaged)</span>")
+			to_chat(src, SPAN_NOTICE("Starting APU... <b>FAULT</b>(System Damaged)"))
 		return
 	if(!shutup)
 		to_chat(src, "Starting APU... ONLINE")

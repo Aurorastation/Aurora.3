@@ -49,7 +49,7 @@
 	driver = /datum/game_mode/malfunction/verb/ai_self_destruct
 
 /datum/malf_hardware/core_bomb/get_examine_desc()
-	return "<span class='warning'>It seems to have grey blocks of unknown substance and some circuitry connected to it's core. [owner.bombing_core ? "A red light is blinking on the circuit." : ""]</span>"
+	return SPAN_WARNING("It seems to have grey blocks of unknown substance and some circuitry connected to it's core. [owner.bombing_core ? "A red light is blinking on the circuit." : ""]")
 
 /datum/malf_hardware/strong_turrets
 	name = "Turrets Focus Enhancer"

@@ -30,7 +30,7 @@
 			if(!seed.growth_stages)
 				seed.update_growth_stages()
 			if(!seed.growth_stages)
-				to_world("<span class='danger'>Seed type [seed.get_trait(TRAIT_PLANT_ICON)] cannot find a growth stage value.</span>")
+				to_world(SPAN_DANGER("Seed type [seed.get_trait(TRAIT_PLANT_ICON)] cannot find a growth stage value."))
 				return
 			var/overlay_stage = 1
 			if(age >= seed.get_trait(TRAIT_MATURATION))

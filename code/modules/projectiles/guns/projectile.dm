@@ -83,7 +83,7 @@
 	if(!jam_num && jam_chance && get_ammo())
 		if(prob(jam_chance))
 			playsound(src.loc, 'sound/items/trayhit2.ogg', 50, TRUE)
-			to_chat(user, "<span class='danger'>\The [src] jams!</span>")
+			to_chat(user, SPAN_DANGER("\The [src] jams!"))
 			jam_num = rand(2, 5) // gotta attackself two to five times to unjam
 	return TRUE
 
@@ -123,21 +123,21 @@
 	if(istype(A, /obj/item/ammo_magazine))
 		var/obj/item/ammo_magazine/AM = A
 		if(!(load_method & AM.mag_type) || caliber != AM.caliber || (allowed_magazines && !is_type_in_list(A, allowed_magazines)))
-			to_chat(user,"<span class='warning'>[AM] won't load into [src]!</span>")
+			to_chat(user,SPAN_WARNING("[AM] won't load into [src]!"))
 			return
 		switch(AM.mag_type)
 			if(MAGAZINE)
 				if(ammo_magazine)
-					to_chat(user,"<span class='warning'>[src] already has a magazine loaded.</span>") //already a magazine here
+					to_chat(user,SPAN_WARNING("[src] already has a magazine loaded.")) //already a magazine here
 					return
 				user.remove_from_mob(AM)
 				AM.forceMove(src)
 				ammo_magazine = AM
-				user.visible_message("[user] inserts [AM] into [src].", "<span class='notice'>You insert [AM] into [src].</span>")
+				user.visible_message("<b>[user]</b> inserts [AM] into [src].", SPAN_NOTICE("You insert [AM] into [src]."))
 				playsound(src.loc, AM.insert_sound, 50, FALSE)
 			if(SPEEDLOADER)
 				if(loaded.len >= max_shells)
-					to_chat(user,"<span class='warning'>[src] is full!</span>")
+					to_chat(user,SPAN_WARNING("[src] is full!"))
 					return
 				var/count = 0
 				for(var/obj/item/ammo_casing/C in AM.stored_ammo)
@@ -149,25 +149,25 @@
 						AM.stored_ammo -= C //should probably go inside an ammo_magazine proc, but I guess less proc calls this way...
 						count++
 				if(count)
-					user.visible_message("[user] reloads [src].", "<span class='notice'>You load [count] round\s into [src] using \the [AM].</span>")
+					user.visible_message("<b>[user]</b> reloads [src].", SPAN_NOTICE("You load [count] round\s into [src] using \the [AM]."))
 					playsound(src.loc, AM.insert_sound, 50, FALSE)
 		AM.update_icon()
 	else if(istype(A, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = A
 		if(!(load_method & SINGLE_CASING))
-			to_chat(user,"<span class='warning'>[src] can not be loaded with single casings.</span>")
+			to_chat(user,SPAN_WARNING("[src] can not be loaded with single casings."))
 			return //incompatible
 		if(caliber != C.caliber)
-			to_chat(user,"<span class='warning'>\The [C] does not fit.</span>")
+			to_chat(user,SPAN_WARNING("\The [C] does not fit."))
 			return //incompatible
 		if(loaded.len >= max_shells)
-			to_chat(user,"<span class='warning'>[src] is full.</span>")
+			to_chat(user,SPAN_WARNING("[src] is full."))
 			return
 
 		user.remove_from_mob(C)
 		C.forceMove(src)
 		loaded.Insert(1, C) //add to the head of the list
-		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
+		user.visible_message("<b>[user]</b> inserts \a [C] into [src].", SPAN_NOTICE("You insert \a [C] into [src]."))
 		playsound(src.loc, C.reload_sound, 50, FALSE)
 	update_maptext()
 	update_icon()
@@ -176,7 +176,7 @@
 /obj/item/gun/projectile/proc/unload_ammo(mob/user, var/allow_dump = 1)
 	if(ammo_magazine)
 		user.put_in_hands(ammo_magazine)
-		user.visible_message("[user] removes [ammo_magazine] from [src].", "<span class='notice'>You remove [ammo_magazine] from [src].</span>")
+		user.visible_message("<b>[user]</b> removes [ammo_magazine] from [src].", SPAN_NOTICE("You remove [ammo_magazine] from [src]."))
 		playsound(src.loc, ammo_magazine.eject_sound, 50, FALSE)
 		ammo_magazine.update_icon()
 		ammo_magazine = null
@@ -192,14 +192,14 @@
 					count++
 				loaded.Cut()
 			if(count)
-				user.visible_message("[user] unloads [src].", "<span class='notice'>You unload [count] round\s from [src].</span>")
+				user.visible_message("<b>[user]</b> unloads [src].", SPAN_NOTICE("You unload [count] round\s from [src]."))
 		else if(load_method & SINGLE_CASING)
 			var/obj/item/ammo_casing/C = loaded[loaded.len]
 			loaded.len--
 			user.put_in_hands(C)
-			user.visible_message("[user] removes \a [C] from [src].", "<span class='notice'>You remove \a [C] from [src].</span>")
+			user.visible_message("<b>[user]</b> removes \a [C] from [src].", SPAN_NOTICE("You remove \a [C] from [src]."))
 	else
-		to_chat(user, "<span class='warning'>[src] is empty.</span>")
+		to_chat(user, SPAN_WARNING("[src] is empty."))
 	update_maptext()
 	update_icon()
 
@@ -234,7 +234,7 @@
 		ammo_magazine.forceMove(get_turf(src.loc))
 		user.visible_message(
 			"[ammo_magazine] falls out and clatters on the floor!",
-			"<span class='notice'>[ammo_magazine] falls out and clatters on the floor!</span>"
+			SPAN_NOTICE("[ammo_magazine] falls out and clatters on the floor!")
 			)
 		playsound(user, ammo_magazine.eject_sound, 40, FALSE)
 		ammo_magazine.update_icon()
@@ -246,7 +246,7 @@
 	if(get_dist(src, user) > 1)
 		return
 	if(jam_num)
-		to_chat(user, "<span class='warning'>It looks jammed.</span>")
+		to_chat(user, SPAN_WARNING("It looks jammed."))
 	if(ammo_magazine)
 		to_chat(user, "It has \a [ammo_magazine] loaded.")
 	to_chat(user, "Has [get_ammo()] round\s remaining.")

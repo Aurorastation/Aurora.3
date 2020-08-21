@@ -72,7 +72,7 @@
 		apply_damage(damage = environment.temperature /5 , damagetype = BURN)
 	//A possibility is to hook up interface icons here. But this works pretty well in my experience
 		if(prob(5))
-			visible_message("<span class='danger'>\The [src]'s hull bends and buckles under the intense heat!</span>")
+			visible_message(SPAN_DANGER("\The [src]'s hull bends and buckles under the intense heat!"))
 
 /mob/living/heavy_vehicle/death(var/gibbed)
 	// Salvage moves into the wreck unless we're exploding violently.

@@ -67,7 +67,7 @@
 		src.updateUsrDialog()
 	else if(B.iswrench())
 		anchored = !anchored
-		to_chat(user, "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground")
+		to_chat(user, "You [anchored ? "attach" : "detach"] [src] [anchored ? "to" : "from"] the ground")
 		playsound(src.loc, B.usesound, 75, 1)
 
 
@@ -531,19 +531,19 @@
 		return
 	if(target == user)
 		if(target.h_style == "Floorlength Braid" || target.h_style == "Very Long Hair")
-			user.visible_message("<span class='notice'>[user] looks like they're about to feed their own hair into the [src], but think better of it.</span>", "<span class='notice'>You grasp your hair and are about to feed it into the [src], but stop and come to your sense.</span>")
+			user.visible_message(SPAN_NOTICE("[user] looks like they're about to feed their own hair into [src], but think better of it."), SPAN_NOTICE("You grasp your hair and are about to feed it into [src], but stop and come to your sense."))
 			return
 	src.add_fingerprint(user)
 	var/target_loc = target.loc
 	if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
 		if(target.h_style != "Cut Hair" || target.h_style != "Short Hair" || target.h_style != "Skinhead" || target.h_style != "Buzzcut" || target.h_style != "Crewcut" || target.h_style != "Bald" || target.h_style != "Balding Hair")
-			user.visible_message("<span class='warning'>[user] starts feeding [target]'s hair into the [src]!</span>", "<span class='warning'>You start feeding [target]'s hair into the [src]!</span>")
+			user.visible_message(SPAN_WARNING("[user] starts feeding [target]'s hair into [src]!"), SPAN_WARNING("You start feeding [target]'s hair into [src]!"))
 		if(!do_after(usr, 50))
 			return
 		if(target_loc != target.loc)
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-			user.visible_message("<span class='warning'>[user] feeds the [target]'s hair into the [src] and flicks it on!</span>", "<span class='warning'>You turn the [src] on!</span>")
+			user.visible_message(SPAN_WARNING("[user] feeds [target]'s hair into [src] and flicks it on!"), SPAN_WARNING("You turn [src] on!"))
 			target.apply_damage(30, BRUTE, BP_HEAD)
 			target.apply_damage(25, PAIN)
 			target.say("*scream")
@@ -558,12 +558,12 @@
 		if(target_loc != target.loc)
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-			user.visible_message("<span class='warning'>[user] starts tugging on [target]'s head as the [src] keeps running!</span>", "<span class='warning'>You start tugging on [target]'s head!</span>")
+			user.visible_message(SPAN_WARNING("[user] starts tugging on [target]'s head as [src] keeps running!"), SPAN_WARNING("You start tugging on [target]'s head!"))
 			target.apply_damage(25, BRUTE, BP_HEAD)
 			target.apply_damage(10, PAIN)
 			target.say("*scream")
 			spawn(10)
-			user.visible_message("<span class='warning'>[user] stops the [src] and leaves [target] resting as they are.</span>", "<span class='warning'>You turn the [src] off and let go of [target].</span>")
+			user.visible_message(SPAN_WARNING("[user] stops [src] and leaves [target] resting as they are."), SPAN_WARNING("You turn [src] off and let go of [target]."))
 
 /obj/machinery/reagentgrinder/verb/Eject()
 	set src in oview(1)
@@ -573,7 +573,7 @@
 	if(use_check_and_message(usr))
 		return
 	usr.visible_message(
-	"<span class='notice'>[usr] opens [src] and has removed [english_list(holdingitems)].</span>"
+	SPAN_NOTICE("[usr] opens [src] and has removed [english_list(holdingitems)].")
 		)
 
 	eject()

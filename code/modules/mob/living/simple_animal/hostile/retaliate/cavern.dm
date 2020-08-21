@@ -144,7 +144,7 @@
 			if(!ore_message)
 				ore_message = 1
 		if(ore_message)
-			visible_message("<span class='notice'>\The [src] collects the ore into a metallic hopper.</span>")
+			visible_message(SPAN_NOTICE("\The [src] collects the ore into a metallic hopper."))
 			ore_message = 0
 		for(var/obj/item/ore/O in oview(7,src))
 			target_ore = O
@@ -172,7 +172,7 @@
 	return
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/fall_impact()
-	visible_message("<span class='danger'>\The [src] bounces harmlessly on its inflated wheels.</span>")
+	visible_message(SPAN_DANGER("\The [src] bounces harmlessly on its inflated wheels."))
 	return FALSE
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/get_bullet_impact_effect_type(var/def_zone)

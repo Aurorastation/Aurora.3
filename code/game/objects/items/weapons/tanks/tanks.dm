@@ -70,7 +70,7 @@
 				descriptive = "room temperature"
 			else
 				descriptive = "cold"
-		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] feels [descriptive]."))
 
 /obj/item/tank/attackby(obj/item/W as obj, mob/user as mob)
 	..()
@@ -173,7 +173,7 @@
 			if(location.internal == src)
 				location.internal = null
 				location.internals.icon_state = "internal0"
-				to_chat(usr, "<span class='notice'>You close the tank release valve.</span>")
+				to_chat(usr, SPAN_NOTICE("You close the tank release valve."))
 				if (location.internals)
 					location.internals.icon_state = "internal0"
 			else
@@ -188,11 +188,11 @@
 
 				if(can_open_valve)
 					location.internal = src
-					to_chat(usr, "<span class='notice'>You open \the [src] valve.</span>")
+					to_chat(usr, SPAN_NOTICE("You open \the [src] valve."))
 					if (location.internals)
 						location.internals.icon_state = "internal1"
 				else
-					to_chat(usr, "<span class='warning'>You need something to connect to \the [src].</span>")
+					to_chat(usr, SPAN_WARNING("You need something to connect to \the [src]."))
 
 	src.add_fingerprint(usr)
 	return 1
@@ -277,7 +277,7 @@
 
 	else if(pressure > TANK_RUPTURE_PRESSURE)
 		#ifdef FIREDBG
-		log_debug("<span class='warning'>[x],[y] tank is rupturing: [pressure] kPa, integrity [integrity]</span>")
+		log_debug(SPAN_WARNING("[x],[y] tank is rupturing: [pressure] kPa, integrity [integrity]"))
 		#endif
 
 		if(integrity <= 0)
@@ -292,7 +292,7 @@
 
 	else if(pressure > TANK_LEAK_PRESSURE)
 		#ifdef FIREDBG
-		log_debug("<span class='warning'>[x],[y] tank is leaking: [pressure] kPa, integrity [integrity]</span>")
+		log_debug(SPAN_WARNING("[x],[y] tank is leaking: [pressure] kPa, integrity [integrity]"))
 		#endif
 
 		if(integrity <= 0)

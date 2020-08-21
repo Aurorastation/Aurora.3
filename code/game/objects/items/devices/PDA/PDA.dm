@@ -346,7 +346,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		to_chat(usr, "You can't do that because you are dead!")
 		return
 	toff = !toff
-	to_chat(usr, "<span class='notice'>PDA sender/receiver toggled [(toff ? "Off" : "On")]!</span>")
+	to_chat(usr, SPAN_NOTICE("PDA sender/receiver toggled [(toff ? "Off" : "On")]!"))
 
 
 /obj/item/device/pda/ai/verb/cmd_toggle_pda_silent()
@@ -357,7 +357,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		to_chat(usr, "You can't do that because you are dead!")
 		return
 	message_silent=!message_silent
-	to_chat(usr, "<span class='notice'>PDA ringer toggled [(message_silent ? "Off" : "On")]!</span>")
+	to_chat(usr, SPAN_NOTICE("PDA ringer toggled [(message_silent ? "Off" : "On")]!"))
 
 
 /obj/item/device/pda/ai/verb/cmd_show_message_log()
@@ -845,7 +845,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				if(!isnull(P))
 					if (!P.toff && cartridge.charges > 0)
 						cartridge.charges--
-						U.show_message("<span class='notice'>Virus sent!</span>", 1)
+						U.show_message(SPAN_NOTICE("Virus sent!"), 1)
 						P.honkamt = (rand(15,20))
 				else
 					to_chat(U, "PDA not found.")
@@ -858,7 +858,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				if(!isnull(P))
 					if (!P.toff && cartridge.charges > 0)
 						cartridge.charges--
-						U.show_message("<span class='notice'>Virus sent!</span>", 1)
+						U.show_message(SPAN_NOTICE("Virus sent!"), 1)
 						P.message_silent = 1
 						P.news_silent = 1
 						P.ttone = "silence"
@@ -886,10 +886,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				var/obj/item/device/pda/P = locate(href_list["target"])
 				var/datum/reception/reception = get_reception(src, P, "", do_sleep = 0)
 				if(!(reception.message_server && reception.telecomms_reception & TELECOMMS_RECEPTION_SENDER))
-					U.show_message("<span class='warning'>An error flashes on your [src]: Connection unavailable</span>", 1)
+					U.show_message(SPAN_WARNING("An error flashes on your [src]: Connection unavailable"), 1)
 					return
 				if(reception.telecomms_reception & TELECOMMS_RECEPTION_RECEIVER == 0) // Does our recepient have a broadcaster on their level?
-					U.show_message("<span class='warning'>An error flashes on your [src]: Recipient unavailable</span>", 1)
+					U.show_message(SPAN_WARNING("An error flashes on your [src]: Recipient unavailable"), 1)
 					return
 				if(!isnull(P))
 					if (!P.toff && cartridge.charges > 0)
@@ -907,15 +907,15 @@ var/global/list/obj/item/device/pda/PDAs = list()
 								difficulty += 3
 
 						if(prob(difficulty))
-							U.show_message("<span class='warning'>An error flashes on your [src].</span>", 1)
+							U.show_message(SPAN_WARNING("An error flashes on your [src]."), 1)
 						else if (prob(difficulty * 7))
-							U.show_message("<span class='warning'>Energy feeds back into your [src]!</span>", 1)
+							U.show_message(SPAN_WARNING("Energy feeds back into your [src]!"), 1)
 							ui.close()
 							detonate_act(src)
 							log_admin("[key_name(U)] just attempted to blow up [P] with the Detomatix cartridge but failed, blowing themselves up",ckey=key_name(U),ckey_target=key_name(P))
 							message_admins("[key_name_admin(U)] just attempted to blow up [P] with the Detomatix cartridge but failed.", 1)
 						else
-							U.show_message("<span class='notice'>Success!</span>", 1)
+							U.show_message(SPAN_NOTICE("Success!"), 1)
 							log_admin("[key_name(U)] just attempted to blow up [P] with the Detomatix cartridge and succeeded",ckey=key_name(U),ckey_target=key_name(P))
 							message_admins("[key_name_admin(U)] just attempted to blow up [P] with the Detomatix cartridge and succeeded.", 1)
 							detonate_act(P)
@@ -1020,7 +1020,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		message += "\The [P] melts in a puddle of plastic."
 
 	if(M && isliving(M))
-		to_chat(M, "<span class='warning'>[message]</span>")
+		to_chat(M, SPAN_WARNING("[message]"))
 
 	qdel(P)
 
@@ -1063,7 +1063,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		if (ismob(loc))
 			var/mob/M = loc
 			M.put_in_hands(id)
-			to_chat(usr, "<span class='notice'>You remove the ID from the [name].</span>")
+			to_chat(usr, SPAN_NOTICE("You remove the ID from the [name]."))
 			playsound(loc, 'sound/machines/id_swipe.ogg', 50, 1)
 		else
 			id.forceMove(get_turf(src))
@@ -1073,40 +1073,40 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if (!istype(user))
 		return
 	if (!has_inserted_item)
-		to_chat(user, "<span class='notice'>[src] does not have a pen slot.</span>")
+		to_chat(user, SPAN_NOTICE("[src] does not have a pen slot."))
 		return
 
 	switch (use_check(user, USE_DISALLOW_SILICONS, show_messages = FALSE))
 		if (USE_FAIL_NON_ADJACENT)
-			to_chat(user, "<span class='notice'>You are too far away from [src].</span>")
+			to_chat(user, SPAN_NOTICE("You are too far away from [src]."))
 
 		if (USE_FAIL_NON_ADV_TOOL_USR)
 			if (!inserted_item)
-				to_chat(user, "<span class='notice'>[src] does not have a pen in it.</span>")
+				to_chat(user, SPAN_NOTICE("[src] does not have a pen in it."))
 			else
-				to_chat(user, "<span class='notice'>You are unable to figure out the mechanism holding \the [inserted_item] in-place.</span>")
+				to_chat(user, SPAN_NOTICE("You are unable to figure out the mechanism holding \the [inserted_item] in-place."))
 
 		if (USE_FAIL_IS_SILICON)
 			if (inserted_item)
-				to_chat(user, "<span class='notice'>You do not have hands, how do you propose to remove \the [inserted_item]?</span>")
+				to_chat(user, SPAN_NOTICE("You do not have hands, how do you propose to remove \the [inserted_item]?"))
 			else
-				to_chat(user, "<span class='notice'>You do not have hands.</span>")
+				to_chat(user, SPAN_NOTICE("You do not have hands."))
 
 		if (USE_FAIL_DEAD,USE_FAIL_INCAPACITATED)
-			to_chat(user, "<span class='notice'>You cannot do this in your current state.</span>")
+			to_chat(user, SPAN_NOTICE("You cannot do this in your current state."))
 
 		if (USE_SUCCESS)
 			if (!inserted_item)
-				to_chat(user, "<span class='notice'>[src] does not have a pen in it.</span>")
+				to_chat(user, SPAN_NOTICE("[src] does not have a pen in it."))
 				return
 
 			if (loc == user && !user.get_active_hand())
-				to_chat(user, "<span class='notice'>You remove \the [inserted_item] from [src].</span>")
+				to_chat(user, SPAN_NOTICE("You remove \the [inserted_item] from [src]."))
 				playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 				user.put_in_hands(inserted_item)
 				inserted_item = null
 			else
-				to_chat(user, "<span class='notice'>You remove \the [inserted_item] from [src], dropping it on the ground. Whoops.</span>")
+				to_chat(user, SPAN_NOTICE("You remove \the [inserted_item] from [src], dropping it on the ground. Whoops."))
 				playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 				inserted_item.forceMove(get_turf(src))
 				inserted_item = null
@@ -1167,7 +1167,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		P.new_message_from_pda(src, t)
 		SSnanoui.update_user_uis(U, src) // Update the sending user's PDA UI so that they can see the new message
 	else
-		to_chat(U, "<span class='notice'>ERROR: Messaging server is not responding.</span>")
+		to_chat(U, SPAN_NOTICE("ERROR: Messaging server is not responding."))
 
 /obj/item/device/pda/proc/new_info(var/beep_silent, var/message_tone, var/reception_message)
 	if (!beep_silent)
@@ -1251,7 +1251,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
 		return
 	if(wear_over_suit == -1)
-		to_chat(usr, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
+		to_chat(usr, SPAN_NOTICE("\The [src] cannot be worn above your suit!"))
 		return
 	wear_over_suit = !wear_over_suit
 	mob_icon_update()
@@ -1266,11 +1266,11 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	switch (use_check(usr, USE_FORCE_SRC_IN_USER))
 		if (USE_ALLOW_DEAD,USE_ALLOW_INCAPACITATED)
-			to_chat(usr, "<span class='notice'>You cannot do this in your current state.</span>")
+			to_chat(usr, SPAN_NOTICE("You cannot do this in your current state."))
 		if (USE_SUCCESS)
 			mode = 0
 			SSnanoui.update_uis(src)
-			to_chat(usr, "<span class='notice'>You press the reset button on \the [src].</span>")
+			to_chat(usr, SPAN_NOTICE("You press the reset button on \the [src]."))
 
 /obj/item/device/pda/verb/verb_remove_id()
 	set category = "Object"
@@ -1282,13 +1282,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	switch (use_check(usr, USE_DISALLOW_SILICONS))
 		if (USE_FAIL_DEAD,USE_FAIL_INCAPACITATED)
-			to_chat(usr, "<span class='notice'>You cannot do this in your current state.</span>")
+			to_chat(usr, SPAN_NOTICE("You cannot do this in your current state."))
 
 		if (USE_SUCCESS)
 			if(id)
 				remove_id()
 			else
-				to_chat(usr, "<span class='notice'>This PDA does not have an ID in it.</span>")
+				to_chat(usr, SPAN_NOTICE("This PDA does not have an ID in it."))
 
 /obj/item/device/pda/verb/verb_remove_pen()
 	set category = "Object"
@@ -1307,10 +1307,10 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 	switch (use_check(usr, USE_DISALLOW_SILICONS))
 		if (USE_FAIL_DEAD,USE_FAIL_INCAPACITATED)
-			to_chat(usr, "<span class='notice'>You cannot do this in your current state.</span>")
+			to_chat(usr, SPAN_NOTICE("You cannot do this in your current state."))
 		if (USE_SUCCESS)
 			if (!cartridge)
-				to_chat(usr, "<span class='notice'>There is no cartridge in the [name].</span>")
+				to_chat(usr, SPAN_NOTICE("There is no cartridge in the [name]."))
 			else
 				var/turf/T = get_turf(src)
 				cartridge.forceMove(T)
@@ -1322,7 +1322,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				scanmode = 0
 				if (cartridge.radio)
 					cartridge.radio.hostpda = null
-				to_chat(usr, "<span class='notice'>You remove \the [cartridge] from the [name].</span>")
+				to_chat(usr, SPAN_NOTICE("You remove \the [cartridge] from the [name]."))
 				cartridge = null
 
 /obj/item/device/pda/proc/id_check(mob/user as mob, choice as num)//To check for IDs; 1 for in-pda use, 2 for out of pda use.
@@ -1352,7 +1352,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(istype(C, /obj/item/cartridge) && !cartridge)
 		cartridge = C
 		user.drop_from_inventory(cartridge,src)
-		to_chat(user, "<span class='notice'>You insert [cartridge] into [src].</span>")
+		to_chat(user, SPAN_NOTICE("You insert [cartridge] into [src]."))
 		SSnanoui.update_uis(src) // update all UIs attached to src
 		if(cartridge.radio)
 			cartridge.radio.hostpda = src
@@ -1360,7 +1360,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	else if(istype(C, /obj/item/card/id))
 		var/obj/item/card/id/idcard = C
 		if(!idcard.registered_name)
-			to_chat(user, "<span class='notice'>\The [src] rejects the ID.</span>")
+			to_chat(user, SPAN_NOTICE("\The [src] rejects the ID."))
 			return
 		if(!owner)
 			update_userinfo(idcard, user)
@@ -1368,7 +1368,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			//Basic safety check. If either both objects are held by user or PDA is on ground and card is in hand.
 			if(((src in user.contents) && (C in user.contents)) || (istype(loc, /turf) && in_range(src, user) && (C in user.contents)) )
 				if(id_check(user, 2))
-					to_chat(user, "<span class='notice'>You put the ID into \the [src]'s slot.</span>")
+					to_chat(user, SPAN_NOTICE("You put the ID into \the [src]'s slot."))
 					playsound(loc, 'sound/machines/id_swipe.ogg', 50, 1)
 					updateSelfDialog()//Update self dialog on success.
 			return	//Return in case of failed check or when successful.
@@ -1377,15 +1377,15 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		user.drop_from_inventory(C,src)
 		pai = C
 		pai.update_location()//This notifies the pAI that they've been slotted into a PDA
-		to_chat(user, "<span class='notice'>You slot \the [C] into [src].</span>")
+		to_chat(user, SPAN_NOTICE("You slot \the [C] into [src]."))
 		SSnanoui.update_uis(src) // update all UIs attached to src
 	else if(is_type_in_list(C, contained_item)) //Checks if there is a pen
 		if(inserted_item)
-			to_chat(user, "<span class='notice'>There is already \a [inserted_item] in \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("There is already \a [inserted_item] in \the [src]."))
 		else
 			user.drop_from_inventory(C,src)
 			inserted_item = C
-			to_chat(user, "<span class='notice'>You slide \the [C] into \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You slide \the [C] into \the [src]."))
 			playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
 	return
 
@@ -1395,7 +1395,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	ownrank = idcard.rank
 	name = "PDA-[owner] ([ownjob])"
 	if(user)
-		to_chat(user, "<span class='notice'>Card scanned.</span>")
+		to_chat(user, SPAN_NOTICE("Card scanned."))
 	try_sort_pda_list()
 
 /obj/item/device/pda/attack(mob/living/C, mob/living/user)
@@ -1412,13 +1412,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			if(!isnull(A.reagents))
 				if(A.reagents.reagent_list.len > 0)
 					var/reagents_length = A.reagents.reagent_list.len
-					to_chat(user, "<span class='notice'>[reagents_length] chemical agent[reagents_length > 1 ? "s" : ""] found.</span>")
+					to_chat(user, SPAN_NOTICE("[reagents_length] chemical agent[reagents_length > 1 ? "s" : ""] found."))
 					for (var/re in A.reagents.reagent_list)
-						to_chat(user, "<span class='notice'>    [re]</span>")
+						to_chat(user, SPAN_NOTICE("    [re]"))
 				else
-					to_chat(user, "<span class='notice'>No active chemical agents found in [A].</span>")
+					to_chat(user, SPAN_NOTICE("No active chemical agents found in [A]."))
 			else
-				to_chat(user, "<span class='notice'>No significant chemical agents found in [A].</span>")
+				to_chat(user, SPAN_NOTICE("No significant chemical agents found in [A]."))
 
 		if(5)
 			analyze_gases(A, user)
@@ -1470,7 +1470,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		// feature to the PDA, which would better convey the availability of the feature, but this will work for now.
 
 		// Inform the user
-		to_chat(user, "<span class='notice'>Paper scanned and OCRed to notekeeper.</span>") //concept of scanning paper copyright brainoblivion 2009
+		to_chat(user, SPAN_NOTICE("Paper scanned and OCRed to notekeeper.")) //concept of scanning paper copyright brainoblivion 2009
 
 
 

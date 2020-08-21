@@ -53,13 +53,7 @@
 			to_chat(user, SPAN_NOTICE("Localized Damage:"))
 			if(length(damaged) > 0)
 				for(var/datum/robot_component/org in damaged)
-					user.show_message(text("<span class='notice'>\t []: [][] - [] - [] - []</span>",	\
-					capitalize(org.name),					\
-					(org.installed == -1)	?	"<font color='red'><b>DESTROYED</b></font> "							:"",\
-					(org.electronics_damage > 0)	?	"<font color='#FFA500'>[org.electronics_damage]</font>"	:0,	\
-					(org.brute_damage > 0)	?	"<font color='red'>[org.brute_damage]</font>"							:0,		\
-					(org.toggled)	?	"Toggled ON"	:	"<font color='red'>Toggled OFF</font>",\
-					(org.powered)	?	"Power ON"		:	"<font color='red'>Power OFF</font>"),1)
+					user.show_message(SPAN_NOTICE("\t [capitalize(org.name)]: [(org.installed == -1) ? "<font color='red'><b>DESTROYED</b></font> ":""][(org.electronics_damage > 0)?"<font color='#FFA500'>[org.electronics_damage]</font>":0] - [(org.brute_damage > 0)?"<font color='red'>[org.brute_damage]</font>":0] - [(org.toggled)?"Toggled ON":"<font color='red'>Toggled OFF</font>"] - [(org.powered)?"Power ON":"<font color='red'>Power OFF</font>"]"), 1)
 			else
 				to_chat(user, SPAN_NOTICE("Components are OK."))
 			if(H.emagged && prob(5))

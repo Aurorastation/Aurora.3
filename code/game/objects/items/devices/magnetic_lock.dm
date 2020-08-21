@@ -81,14 +81,14 @@
 	..(user)
 
 	if (status == STATUS_BROKEN)
-		to_chat(user, "<span class='danger'>It looks broken!</span>")
+		to_chat(user, SPAN_DANGER("It looks broken!"))
 	else
 		if (powercell)
 			var/power = round(powercell.charge / powercell.maxcharge * 100)
-			to_chat(user, "<span class='notice'>The powercell is at [power]% charge.</span>")
+			to_chat(user, SPAN_NOTICE("The powercell is at [power]% charge."))
 		else
 			var/int_power = round(internal_cell.charge / internal_cell.maxcharge * 100)
-			to_chat(user, "<span class='warning'>It has no powercell to power it! Internal cell is at [int_power]% charge.</span>")
+			to_chat(user, SPAN_WARNING("It has no powercell to power it! Internal cell is at [int_power]% charge."))
 
 /obj/item/device/magnetic_lock/attack_hand(var/mob/user)
 	add_fingerprint(user)
@@ -105,7 +105,7 @@
 			detach()
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>\The [src] is locked in place!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is locked in place!"))
 	else
 		..()
 
@@ -115,7 +115,7 @@
 
 /obj/item/device/magnetic_lock/attackby(var/obj/item/I, var/mob/user)
 	if (status == STATUS_BROKEN)
-		to_chat(user, "<span class='danger'>[src] is broken beyond repair!</span>")
+		to_chat(user, SPAN_DANGER("[src] is broken beyond repair!"))
 		return
 
 	if (istype(I, /obj/item/card/id))
@@ -126,25 +126,25 @@
 				var/msg = "[I] through \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
 				var/pos_adj = "[user.name] swipes \his "
 				var/fp_adj = "You swipe your "
-				user.visible_message("<span class='warning'>[addtext(pos_adj, msg)]</span>", "<span class='notice'>[addtext(fp_adj, msg)]</span>")
+				user.visible_message(SPAN_WARNING("[addtext(pos_adj, msg)]"), SPAN_NOTICE("[addtext(fp_adj, msg)]"))
 				update_icon()
 			else
 				playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
 				to_chat(user, SPAN_WARNING("\The [src] buzzes as you swipe your [I]."))
 				return
 		else
-			to_chat(user, "<span class='danger'>You cannot swipe your [I] through [src] with it partially dismantled!</span>")
+			to_chat(user, SPAN_DANGER("You cannot swipe your [I] through [src] with it partially dismantled!"))
 		return
 
 	if (istype(I, /obj/item) && user.a_intent == "harm")
 		if (I.force >= 18)
-			user.visible_message("<span class='danger'>[user] bashes [src] with [I]!</span>", "<span class='danger'>You strike [src] with [I], damaging it!</span>")
+			user.visible_message(SPAN_DANGER("[user] bashes [src] with [I]!"), SPAN_DANGER("You strike [src] with [I], damaging it!"))
 			takedamage(I.force)
 			playsound(loc, "sound/weapons/genhit[rand(1,3)].ogg", I.force*3, 1)
 			addtimer(CALLBACK(GLOBAL_PROC, /proc/playsound, loc, "sound/effects/sparks[rand(1,4)].ogg", 30, 1), 3, TIMER_CLIENT_TIME)
 			return
 		else
-			user.visible_message("<span class='danger'>[user] hits [src] with [I] but fails to damage it.</span>", "<span class='warning'>You hit [src] with [I], [I.force >= 10 ? "and it almost makes a dent!" : "but it appears to have no visible effect."]</span>")
+			user.visible_message(SPAN_DANGER("[user] hits [src] with [I] but fails to damage it."), "<span class='warning'>You hit [src] with [I], [I.force >= 10 ? "and it almost makes a dent!" : "but it appears to have no visible effect."]</span>")
 			playsound(loc, "sound/weapons/genhit.ogg", I.force*2.5, 1)
 			return
 
@@ -155,7 +155,7 @@
 			if (istype(I, /obj/item/card/emag))
 				var/obj/item/card/emag/emagcard = I
 				emagcard.uses--
-				visible_message("<span class='danger'>[src] sparks and falls off the door!</span>", "<span class='danger'>You emag [src], frying its circuitry[status == STATUS_ACTIVE ? " and making it drop onto the floor" : ""]!</span>")
+				visible_message(SPAN_DANGER("[src] sparks and falls off the door!"), SPAN_DANGER("You emag [src], frying its circuitry[status == STATUS_ACTIVE ? " and making it drop onto the floor" : ""]!"))
 
 				status = STATUS_BROKEN
 				if (target)
@@ -166,7 +166,7 @@
 			if (I.iswelder())
 				var/obj/item/weldingtool/WT = I
 				if (WT.remove_fuel(2, user))
-					user.visible_message(SPAN_NOTICE("[user] starts welding the metal shell of [src]."), SPAN_NOTICE("You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
+					user.visible_message("<b>[user]</b> starts welding the metal shell of [src].", SPAN_NOTICE("You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
 					playsound(loc, 'sound/items/welder.ogg', 50, 1)
 					add_overlay("overlay_welding")
 					if (do_after(user, 25/I.toolspeed))
@@ -213,7 +213,7 @@
 
 			if (istype(I, /obj/item/cell))
 				if (!powercell)
-					to_chat(user, SPAN_NOTICE("You place the [I] inside \the [src]."))
+					to_chat(user, SPAN_NOTICE("You place [I] inside \the [src]."))
 					user.drop_from_inventory(I,src)
 					powercell = I
 					setconstructionstate(1)
@@ -221,7 +221,7 @@
 
 		if (3)
 			if (I.iswirecutter())
-				to_chat(user, SPAN_NOTICE("You cut the wires connecting the [src]'s magnets to their internal powersupply, [target ? "making the device fall off [target] and rendering it unusable." : "rendering the device unusable."]"))
+				to_chat(user, SPAN_NOTICE("You cut the wires connecting [src]'s magnets to their internal powersupply, [target ? "making the device fall off [target] and rendering it unusable." : "rendering the device unusable."]"))
 				playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
 				setconstructionstate(4)
 				return
@@ -234,7 +234,7 @@
 
 		if (4)
 			if (I.iswirecutter())
-				to_chat(user, SPAN_NOTICE("You repair the wires connecting the [src]'s magnets to their internal powersupply"))
+				to_chat(user, SPAN_NOTICE("You repair the wires connecting [src]'s magnets to their internal powersupply"))
 				setconstructionstate(3)
 				return
 
@@ -298,14 +298,14 @@
 /obj/item/device/magnetic_lock/proc/attachto(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
 	if (!check_target(newtarget, user)) return
 
-	user.visible_message("<span class='notice'>[user] starts mounting [src] onto [newtarget].</span>", "<span class='notice'>You begin mounting [src] onto [newtarget].</span>")
+	user.visible_message(SPAN_NOTICE("[user] starts mounting [src] onto [newtarget]."), SPAN_NOTICE("You begin mounting [src] onto [newtarget]."))
 
 	if (do_after(user, 35))
 
 		if (!check_target(newtarget, user)) return
 
 		if(!internal_cell.charge)
-			to_chat(user, "<span class='warning'>\The [src] looks dead and out of power.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] looks dead and out of power."))
 			return
 
 		var/direction = get_dir(user, newtarget)
@@ -314,7 +314,7 @@
 			if (check_neighbor_density(get_turf(newtarget.loc), direction))
 				direction = turn(direction, 90)
 				if (check_neighbor_density(get_turf(newtarget.loc), direction))
-					to_chat(user, "<span class='warning'>There is something in the way of \the [newtarget]!</span>")
+					to_chat(user, SPAN_WARNING("There is something in the way of \the [newtarget]!"))
 					return
 
 		if (locate(/obj/machinery/door/airlock) in oview(1, newtarget))
@@ -339,7 +339,7 @@
 		set_dir(reverse_direction(direction))
 		status = STATUS_ACTIVE
 		attach(newtarget)
-		user.visible_message("<span class='notice'>[user] attached [src] onto [newtarget] and flicks it on. The magnetic lock now seals [newtarget].</span>", "<span class='notice'>You attached [src] onto [newtarget] and switched on the magnetic lock.</span>")
+		user.visible_message(SPAN_NOTICE("[user] attached [src] onto [newtarget] and flicks it on. The magnetic lock now seals [newtarget]."), SPAN_NOTICE("You attached [src] onto [newtarget] and switched on the magnetic lock."))
 		return
 
 
@@ -446,7 +446,7 @@
 		health = 0
 
 	if (health <= 0)
-		visible_message("<span class='danger'>[src] sparks[target ? " and falls off of \the [target]!" : "!"] It is now completely unusable!</span>")
+		visible_message(SPAN_DANGER("[src] sparks[target ? " and falls off of \the [target]!" : "!"] It is now completely unusable!"))
 		detach(0)
 		status = STATUS_BROKEN
 		update_icon()
@@ -500,7 +500,7 @@
 			var/msg = "buttons on \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
 			var/pos_adj = "[usr.name] presses "
 			var/fp_adj = "You press "
-			usr.visible_message("<span class='warning'>[addtext(pos_adj, msg)]</span>", "<span class='notice'>[addtext(fp_adj, msg)]</span>")
+			usr.visible_message(SPAN_WARNING("[addtext(pos_adj, msg)]"), SPAN_NOTICE("[addtext(fp_adj, msg)]"))
 			update_icon()
 			ui.close()
 		else

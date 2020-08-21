@@ -77,13 +77,13 @@
 		if(M == user)
 			M.visible_message(\
 				"<b>[M.name]</b> buckles themselves to [src].",\
-				"<span class='notice'>You buckle yourself to [src].</span>",\
-				"<span class='notice'>You hear metal clanking.</span>")
+				SPAN_NOTICE("You buckle yourself to [src]."),\
+				SPAN_NOTICE("You hear metal clanking."))
 		else
 			M.visible_message(\
-				"<span class='danger'>[M.name] is buckled to [src] by [user.name]!</span>",\
-				"<span class='danger'>You are buckled to [src] by [user.name]!</span>",\
-				"<span class='notice'>You hear metal clanking.</span>")
+				SPAN_DANGER("[M.name] is buckled to [src] by [user.name]!"),\
+				SPAN_DANGER("You are buckled to [src] by [user.name]!"),\
+				SPAN_NOTICE("You hear metal clanking."))
 
 /obj/proc/user_unbuckle_mob(mob/user)
 	var/mob/living/M = unbuckle_mob()
@@ -91,13 +91,13 @@
 		if(M != user)
 			M.visible_message(\
 				"<b>[user.name]</b> unbuckles [M.name].", \
-				"<span class='notice'>You were unbuckled from [src] by [user.name].</span>",\
-				"<span class='notice'>You hear metal clanking.</span>")
+				SPAN_NOTICE("You were unbuckled from [src] by [user.name]."),\
+				SPAN_NOTICE("You hear metal clanking."))
 		else
 			M.visible_message(\
 				"<b>[M.name]</b> unbuckles themselves.",\
-				"<span class='notice'>You unbuckle yourself from [src].</span>",\
-				"<span class='notice'>You hear metal clanking.</span>")
+				SPAN_NOTICE("You unbuckle yourself from [src]."),\
+				SPAN_NOTICE("You hear metal clanking."))
 		add_fingerprint(user)
 	return M
 

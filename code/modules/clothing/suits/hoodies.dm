@@ -31,8 +31,8 @@
 		icon_state = lasticonstate
 		item_state = lasticonstate
 		suittoggled = FALSE
-	
-	
+
+
 	// Hood got nuked. Probably because of RIGs or the like.
 	if (!hood)
 		MakeHood()
@@ -63,10 +63,10 @@
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = src.loc
 			if(H.wear_suit != src)
-				to_chat(H, "<span class='warning'>You must be wearing [src] to put up the hood!</span>")
+				to_chat(H, SPAN_WARNING("You must be wearing [src] to put up the hood!"))
 				return
 			if(H.head)
-				to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
+				to_chat(H, SPAN_WARNING("You're already wearing something on your head!"))
 				return
 			else
 				lasticonstate = icon_state
@@ -134,7 +134,7 @@
 	name = "IAC winter coat"
 	icon_state = "coatIAC"
 	item_state = "coatIAC"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)	
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/science
 	name = "science winter coat"
@@ -239,10 +239,10 @@
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = src.loc
 			if(H.wear_suit != src)
-				to_chat(H, "<span class='warning'>You must be wearing [src] to put up the hood!</span>")
+				to_chat(H, SPAN_WARNING("You must be wearing [src] to put up the hood!"))
 				return
 			if(H.head)
-				to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
+				to_chat(H, SPAN_WARNING("You're already wearing something on your head!"))
 				return
 			else
 				lasticonstate = icon_state
@@ -275,7 +275,7 @@
 	icon_open = "hoodie_crop_open"
 	icon_closed = "hoodie_crop"
 	item_state = "hoodie_crop"
-	
+
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
 	icon_state = "hoodie_sleeveless"
 	icon_open = "hoodie_sleeveless_open"

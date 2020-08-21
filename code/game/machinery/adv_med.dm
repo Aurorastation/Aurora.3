@@ -620,29 +620,29 @@
 /obj/machinery/body_scanconsole/proc/format_occupant_data(var/list/occ)
 	var/dat = "<font color='blue'><b>Scan performed at [occ["stationtime"]]</b></font><br>"
 	dat += "<font color='blue'><b>Occupant Statistics:</b></font><br>"
-	dat += text("Brain Activity: []<br>", occ["brain_activity"])
+	dat += "Brain Activity: [occ["brain_activity"]]<br>"
 	if (occ["virus_present"])
 		dat += "<font color='red'>Viral pathogen detected in blood stream.</font><br>"
-	dat += text("Blood Pressure: []<br>", occ["blood_pressure"])
-	dat += text("Blood Oxygenation: []%<br>", occ["blood_oxygenation"])
-	dat += text("Physical Trauma: []<br>", occ["bruteloss"])
-	dat += text("Oxygen Deprivation: []<br>", occ["oxyloss"])
-	dat += text("Systemic Organ Failure: []<br>", occ["toxloss"])
-	dat += text("Burn Severity: []<br><br>", occ["fireloss"])
-
-	dat += text("[]\tRadiation Level %: []</font><br>", ("<font color='[occ["rads"] < 10  ? "blue" : "red"]'>"), occ["rads"])
-	dat += text("Genetic Tissue Damage: []<br>", occ["cloneloss"])
-	dat += text("Paralysis Summary %: [] ([] seconds left!)<br>", occ["paralysis"], round(occ["paralysis"] / 4))
+	dat += "Blood Pressure: [occ["blood_pressure"]]<br>"
+	dat += "Blood Oxygenation: [occ["blood_oxygenation"]]%<br>"
+	dat += "Physical Trauma: [occ["bruteloss"]]<br>"
+	dat += "Oxygen Deprivation: [occ["oxyloss"]]<br>"
+	dat += "Systemic Organ Failure: [occ["toxloss"]]<br>"
+	dat += "Burn Severity: [occ["fireloss"]]<br><br>"
+	var/rad_color = "<font color='[occ["rads"] < 10  ? "blue" : "red"]'>"
+	dat += "[rad_color]\tRadiation Level %: [occ["rads"]]</font><br>"
+	dat += "Genetic Tissue Damage: [occ["cloneloss"]]<br>"
+	dat += text("Paralysis Summary %: [occ["paralysis"]] ([round(occ["paralysis"] / 4)] seconds left!)<br>")
 	dat += text("Body Temperature: [occ["bodytemp"]-T0C]&deg;C ([occ["bodytemp"]*1.8-459.67]&deg;F)<br><HR>")
 
 	if(occ["borer_present"])
 		dat += "Large growth detected in frontal lobe, possibly cancerous. Surgical removal is recommended.<br>"
 
-	dat += text("Inaprovaline: [] units<BR>", occ["inaprovaline_amount"])
-	dat += text("Soporific: [] units<BR>", occ["stoxin_amount"])
-	dat += text("[]\tDermaline: [] units</FONT><BR>", ("<font color='[occ["dermaline_amount"] < 30  ? "black" : "red"]'>"), occ["dermaline_amount"])
-	dat += text("[]\tBicaridine: [] units</font><BR>", ("<font color='[occ["bicaridine_amount"] < 30  ? "black" : "red"]'>"), occ["bicaridine_amount"])
-	dat += text("[]\tDexalin: [] units</font><BR>", ("<font color='[occ["dexalin_amount"] < 30  ? "black" : "red"]'>"), occ["dexalin_amount"])
+	dat += text("Inaprovaline: [occ["inaprovaline_amount"]] units<BR>")
+	dat += text("Soporific: [occ["stoxin_amount"]] units<BR>")
+	dat += text("[("<font color='[occ["dermaline_amount"] < 30  ? "black" : "red"]'>")]\tDermaline: [occ["dermaline_amount"]] units</FONT><BR>")
+	dat += text("[("<font color='[occ["bicaridine_amount"] < 30  ? "black" : "red"]'>")]\tBicaridine: [occ["bicaridine_amount"]] units</font><BR>")
+	dat += text("[("<font color='[occ["dexalin_amount"] < 30  ? "black" : "red"]'>")]\tDexalin: [occ["dexalin_amount"]] units</font><BR>")
 
 	dat += "<HR><table border='1'>"
 	dat += "<tr>"

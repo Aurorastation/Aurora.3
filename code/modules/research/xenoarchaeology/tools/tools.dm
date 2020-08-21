@@ -12,7 +12,7 @@
 
 /obj/item/device/gps/attack_self(var/mob/user as mob)
 	var/turf/T = get_turf(src)
-	to_chat(user, "<span class='notice'>\icon[src] [src] flashes <i>[T.x].[rand(0,9)]:[T.y].[rand(0,9)]:[T.z].[rand(0,9)]</i>.</span>")
+	to_chat(user, SPAN_NOTICE("\icon[src] [src] flashes <i>[T.x].[rand(0,9)]:[T.y].[rand(0,9)]:[T.z].[rand(0,9)]</i>."))
 
 /obj/item/device/measuring_tape
 	name = "measuring tape"

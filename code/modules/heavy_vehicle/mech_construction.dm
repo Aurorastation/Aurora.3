@@ -65,12 +65,12 @@
 	if(user)
 		var/delay = 30
 		if(delay > 0)
-			user.visible_message("<span class='notice'>\The [user] begins trying to install \the [system] into \the [src].</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] begins trying to install \the [system] into \the [src]."))
 			if(!do_after(user, delay, src) || user.get_active_hand() != system)
 				return FALSE
 
 			if(user.unEquip(system))
-				to_chat(user, "<span class='notice'>You install \the [system] in \the [src]'s [system_hardpoint].</span>")
+				to_chat(user, SPAN_NOTICE("You install \the [system] in \the [src]'s [system_hardpoint]."))
 				playsound(user.loc, 'sound/items/screwdriver.ogg', 100, 1)
 			else return FALSE
 	var/obj/item/mecha_equipment/ME = system
@@ -114,7 +114,7 @@
 	if(user)
 		var/delay = 30
 		if(delay > 0)
-			user.visible_message("<span class='notice'>\The [user] begins trying to remove \the [system] from \the [src].</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] begins trying to remove \the [system] from \the [src]."))
 			if(!do_after(user, delay, src) || hardpoints[system_hardpoint] != system)
 				return FALSE
 
@@ -146,7 +146,7 @@
 	if(user)
 		system.forceMove(get_turf(user))
 		user.put_in_hands(system)
-		to_chat(user, "<span class='notice'>You remove \the [system] in \the [src]'s [system_hardpoint].</span>")
+		to_chat(user, SPAN_NOTICE("You remove \the [system] in \the [src]'s [system_hardpoint]."))
 		playsound(user.loc, 'sound/items/screwdriver.ogg', 100, 1)
 
 	return 1

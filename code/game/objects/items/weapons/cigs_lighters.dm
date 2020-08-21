@@ -278,8 +278,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		else
 			text = genericmes
 		text = replacetext(text, "USER", "\the [user]")
-		text = replacetext(text, "NAME", "\the [name]")
-		text = replacetext(text, "FLAME", "\the [W.name]")
+		text = replacetext(text, "NAME", "\the [src]")
+		text = replacetext(text, "FLAME", "\the [W]")
 		light(text)
 
 /obj/item/clothing/mask/smokable/isFlameSource()
@@ -326,7 +326,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			return 1
 		if(last_drag <= world.time - 30) //Spam limiter. Only for messages/sound.
 			last_drag = world.time
-			H.visible_message("<span class='notice'>[H.name] takes a drag of their [name].</span>")
+			H.visible_message(SPAN_NOTICE("[H.name] takes a drag of their [name]."))
 			playsound(H, 'sound/items/cigs_lighters/inhale.ogg', 50, 0, -1)
 			reagents.trans_to_mob(H, (rand(10,20)/10), CHEM_BREATHE) //Smokes it faster. Slightly random amount.
 			return 1
@@ -569,7 +569,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/pipe/attack_self(mob/user as mob)
 	if(lit == TRUE)
-		user.visible_message(SPAN_NOTICE("[user] puts out [src]."), SPAN_NOTICE("You put out [src]."))
+		user.visible_message("<b>[user]</b> puts out [src].", SPAN_NOTICE("You put out [src]."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		lit = 0
 		icon_state = icon_off
@@ -577,7 +577,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		STOP_PROCESSING(SSprocessing, src)
 	else if (burn_rate)
 		var/turf/location = get_turf(user)
-		user.visible_message(SPAN_NOTICE("[user] empties out [src]."), SPAN_NOTICE("You empty out [src]."))
+		user.visible_message("<b>[user]</b> empties out [src].", SPAN_NOTICE("You empty out [src]."))
 		new /obj/effect/decal/cleanable/ash(location)
 		burn_rate = 0
 		reagents.clear_reagents()
@@ -607,15 +607,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	else if(istype(W, /obj/item/flame/lighter))
 		var/obj/item/flame/lighter/L = W
 		if(L.lit)
-			light(SPAN_NOTICE("[user] manages to light their [name] with [W]."))
+			light("<b>[user]</b> manages to light their [name] with [W].")
 
 	else if(istype(W, /obj/item/flame/match))
 		var/obj/item/flame/match/M = W
 		if(M.lit)
-			light(SPAN_NOTICE("[user] lights their [name] with their [W]."))
+			light("<b>[user]</b> lights their [name] with their [W].")
 
 	else if(istype(W, /obj/item/device/assembly/igniter))
-		light(SPAN_NOTICE("[user] fiddles with [W], and manages to light their [name] with the power of science."))
+		light("<b>[user]</b> fiddles with [W], and manages to light their [name] with the power of science.")
 
 	user.update_inv_wear_mask(0)
 	user.update_inv_l_hand(0)
@@ -812,9 +812,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			cig.attackby(src, user)
 		else
 			if(istype(src, /obj/item/flame/lighter/zippo))
-				cig.light(SPAN_NOTICE("[user] whips the [name] out and holds it for [M]."))
+				cig.light("<b>[user]</b> whips the [name] out and holds it for [M].")
 			else
-				cig.light(SPAN_NOTICE("[user] holds the [name] out for [M], and lights the [cig.name]."))
+				cig.light("<b>[user]</b> holds the [name] out for [M], and lights the [cig.name].")
 	else
 		..()
 

@@ -249,7 +249,7 @@ RFD Construction-Class
 	playsound(get_turf(src), 'sound/items/rfd_start.ogg', 50, FALSE)
 
 	working = TRUE
-	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [A]."), SPAN_NOTICE("You start [deconstruct ? "deconstructing" : "constructing"] \a [build_type]..."))
+	user.visible_message("<b>[user]</b> holds \the [src] towards \the [A].", SPAN_NOTICE("You start [deconstruct ? "deconstructing" : "constructing"] \a [build_type]..."))
 	var/obj/effect/constructing_effect/rfd_effect = new(get_turf(A), src.build_delay, src.mode)
 
 	if((build_delay && !do_after(user, build_delay)) || (!useResource(build_cost, user)))
@@ -616,7 +616,7 @@ RFD Piping-Class
 	playsound(get_turf(src), 'sound/items/rfd_start.ogg', 50, FALSE)
 
 	working = TRUE
-	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [T]."), SPAN_NOTICE("You start laying down your pipe..."))
+	user.visible_message("<b>[user]</b> holds \the [src] towards \the [T].", SPAN_NOTICE("You start laying down your pipe..."))
 
 	if((build_delay && !do_after(user, build_delay)) || (!useResource(build_cost, user)))
 		playsound(get_turf(src), 'sound/items/rfd_interrupt.ogg', 50, FALSE)

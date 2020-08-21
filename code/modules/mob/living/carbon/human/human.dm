@@ -1392,10 +1392,10 @@
 		return
 
 	if(!self)
-		usr.visible_message(SPAN_NOTICE("[usr] kneels down, puts \his hand on [src]'s wrist and begins counting their pulse."),\
+		usr.visible_message("<b>[usr]</b> kneels down, puts \his hand on [src]'s wrist and begins counting their pulse.",\
 		"You begin counting [src]'s pulse")
 	else
-		usr.visible_message(SPAN_NOTICE("[usr] begins counting their pulse."),\
+		usr.visible_message("<b>[usr]</b> begins counting their pulse.",\
 		"You begin counting your pulse.")
 
 	if(pulse())
@@ -1771,11 +1771,11 @@
 		return
 	var/datum/category_item/underwear/UWI = all_underwear[UWC.name]
 	if(!UWI || UWI.name == "None")
-		to_chat(src, "<span class='notice'>You do not have [UWC.gender==PLURAL ? "[UWC.display_name]" : "any [UWC.display_name]"].</span>")
+		to_chat(src, SPAN_NOTICE("You do not have [UWC.gender==PLURAL ? "[UWC.display_name]" : "any [UWC.display_name]"]."))
 		return
 	hide_underwear[UWC.name] = !hide_underwear[UWC.name]
 	update_underwear(1)
-	to_chat(src, "<span class='notice'>You [hide_underwear[UWC.name] ? "take off" : "put on"] your [UWC.display_name].</span>")
+	to_chat(src, SPAN_NOTICE("You [hide_underwear[UWC.name] ? "take off" : "put on"] your [UWC.display_name]."))
 
 /mob/living/carbon/human/verb/pull_punches()
 	set name = "Pull Punches"

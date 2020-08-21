@@ -115,7 +115,7 @@
 	else if (O && O.owner && prob(1))
 		if(world.time > last_itch + 30 SECONDS)
 			last_itch = world.time
-			to_chat(O.owner, "<span class='notice'>Your [O.name] itches.</span>")
+			to_chat(O.owner, SPAN_NOTICE("Your [O.name] itches."))
 
 /obj/effect/spider/spiderling
 	name = "spiderling"

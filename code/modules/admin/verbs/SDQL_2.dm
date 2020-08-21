@@ -3,7 +3,7 @@
 /client/proc/SDQL2_query(query_text as message)
 	set category = "Admin"
 	if(!check_rights(R_DEBUG))  //Shouldn't happen... but just to be safe.
-		message_admins("<span class='danger'>ERROR: Non-admin [usr.key] attempted to execute a SDQL query!</span>")
+		message_admins(SPAN_DANGER("ERROR: Non-admin [usr.key] attempted to execute a SDQL query!"))
 		log_admin("Non-admin [usr.key] attempted to execute a SDQL query!",level=2,ckey=key_name(usr))
 
 	if(!query_text || length(query_text) < 1)
@@ -256,7 +256,7 @@
 				if("or", "||")
 					result = (result || val)
 				else
-					to_chat(usr, "<span class='warning'>SDQL2: Unknown op [op]</span>")
+					to_chat(usr, SPAN_WARNING("SDQL2: Unknown op [op]"))
 					result = null
 		else
 			result = val

@@ -121,7 +121,7 @@
 	..()
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		to_chat(H, "<span class='danger'>An uncontrollable rage overtakes your thoughts!</span>")
+		to_chat(H, SPAN_DANGER("An uncontrollable rage overtakes your thoughts!"))
 		H.add_client_color(/datum/client_color/berserk)
 
 		last_shock_stage = H.shock_stage
@@ -148,7 +148,7 @@
 	..()
 	if(ishuman(target))
 		var/mob/living/carbon/human/H = target
-		to_chat(H, "<span class='danger'>Your rage fades away, your thoughts are clear once more!</span>")
+		to_chat(H, SPAN_DANGER("Your rage fades away, your thoughts are clear once more!"))
 		H.remove_client_color(/datum/client_color/berserk)
 
 		H.shock_stage = last_shock_stage

@@ -75,7 +75,7 @@
 						SSfeedback.IncrementSimpleStat("swirlies")
 					swirlie = null
 				else
-					user.visible_message(SPAN_DANGER("[user] slams [GM.name] into the [src]!"), SPAN_NOTICE("You slam [GM.name] into the [src]!"))
+					user.visible_message(SPAN_DANGER("[user] slams [GM.name] into [src]!"), SPAN_NOTICE("You slam [GM.name] into [src]!"))
 					GM.adjustBruteLoss(8)
 			else
 				to_chat(user, SPAN_NOTICE("You need a tighter grip."))
@@ -118,7 +118,7 @@
 				if(!GM.loc == get_turf(src))
 					to_chat(user, SPAN_NOTICE("[GM.name] needs to be on the urinal."))
 					return
-				user.visible_message(SPAN_DANGER("[user] slams [GM.name] into the [src]!"), SPAN_NOTICE("You slam [GM.name] into the [src]!"))
+				user.visible_message(SPAN_DANGER("[user] slams [GM.name] into [src]!"), SPAN_NOTICE("You slam [GM.name] into [src]!"))
 				var/blocked = GM.run_armor_check("melee")
 				GM.apply_damage(8, def_zone = BP_HEAD, blocked = blocked, used_weapon = "blunt force")
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN * 1.5)
@@ -183,7 +183,7 @@
 		playsound(src.loc, I.usesound, 50, 1)
 		if(do_after(user, 50/I.toolspeed))
 			watertemp = newtemp
-			user.visible_message(SPAN_NOTICE("[user] adjusts the shower with \the [I]."), SPAN_NOTICE("You adjust the shower with \the [I]."))
+			user.visible_message("<b>[user]</b> adjusts the shower with \the [I].", SPAN_NOTICE("You adjust the shower with \the [I]."))
 			add_fingerprint(user)
 
 /obj/machinery/shower/update_icon()	//this is terribly unreadable, but basically it makes the shower mist up
@@ -443,7 +443,7 @@
 
 	user.clean_blood()
 	user.visible_message( \
-		SPAN_NOTICE("[user] washes their hands using \the [src]."), \
+		"<b>[user]</b> washes their hands using \the [src].", \
 		SPAN_NOTICE("You wash your hands using \the [src]."))
 
 /obj/structure/sink/attackby(obj/item/O as obj, mob/user as mob)
@@ -494,7 +494,7 @@
 
 				var/trans = min(S.volume - S.reagents.total_volume, S.amount_per_transfer_from_this)
 				S.reagents.add_reagent(/datum/reagent/water, trans)
-				user.visible_message(SPAN_NOTICE("[usr] uses \the [S] to draw water from \the [src]."),
+				user.visible_message("<b>[usr]</b> uses \the [S] to draw water from \the [src].",
 									 SPAN_NOTICE("You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 			if(1) // inject
 				if(!S.reagents.total_volume)
@@ -503,7 +503,7 @@
 
 				var/trans = min(S.amount_per_transfer_from_this, S.reagents.total_volume)
 				S.reagents.remove_any(trans)
-				user.visible_message(SPAN_NOTICE("[usr] empties \the [S] into \the [src]."),
+				user.visible_message("<b>[usr]</b> empties \the [S] into \the [src].",
 									 SPAN_NOTICE("You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 		return
 
@@ -552,7 +552,7 @@
 
 	O.clean_blood()
 	user.visible_message( \
-		SPAN_NOTICE("[user] washes \a [I] using \the [src]."), \
+		"<b>[user]</b> washes \a [I] using \the [src].", \
 		SPAN_NOTICE("You wash \a [I] using \the [src]."))
 
 /obj/structure/sink/kitchen

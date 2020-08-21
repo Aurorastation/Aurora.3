@@ -33,7 +33,7 @@
 	R.color = "#A10808"
 
 	var/area/A = get_area(R)
-	log_and_message_admins("created \an [rune] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].", user)
+	log_and_message_admins("created \an [rune] rune at [A] - [user.loc.x]-[user.loc.y]-[user.loc.z].", user)
 
 	for(var/obj/O in range(1,user))
 		O.cultify()

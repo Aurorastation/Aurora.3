@@ -67,7 +67,7 @@
 			else
 				step_away(M, owner)
 				to_chat(user, SPAN_NOTICE("You push [target] out of the way."))
-				owner.visible_message(SPAN_NOTICE("[owner] pushes [target] out of the way."))
+				owner.visible_message("<b>[owner]</b> pushes [target] out of the way.")
 
 /obj/item/mecha_equipment/clamp/attack_self(var/mob/user)
 	. = ..()
@@ -184,7 +184,7 @@
 	. = ..()
 	if(.)
 		mode = mode == CATAPULT_SINGLE ? CATAPULT_AREA : CATAPULT_SINGLE
-		to_chat(user, "<span class='notice'>You set \the [src] to [mode == CATAPULT_SINGLE ? "single" : "multi"]-target mode.</span>")
+		to_chat(user, SPAN_NOTICE("You set \the [src] to [mode == CATAPULT_SINGLE ? "single" : "multi"]-target mode."))
 		update_icon()
 
 /obj/item/mecha_equipment/catapult/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
@@ -196,10 +196,10 @@
 				if(!locked)
 					var/atom/movable/AM = target
 					if(!istype(AM) || AM.anchored || !AM.simulated)
-						to_chat(user, "<span class='notice'>Unable to lock on [target].</span>")
+						to_chat(user, SPAN_NOTICE("Unable to lock on [target]."))
 						return
 					locked = AM
-					to_chat(user, "<span class='notice'>Locked on [AM].</span>")
+					to_chat(user, SPAN_NOTICE("Locked on [AM]."))
 					return
 				else if(target != locked)
 					if(locked in view(owner))
@@ -213,7 +213,7 @@
 
 					else
 						locked = null
-						to_chat(user, "<span class='notice'>Lock on [locked] disengaged.</span>")
+						to_chat(user, SPAN_NOTICE("Lock on [locked] disengaged."))
 			if(CATAPULT_AREA)
 
 				var/list/atoms = list()
@@ -280,7 +280,7 @@
 	. = ..()
 	if(.)
 		if(drill_head)
-			owner.visible_message("<span class='warning'>[owner] revs the [drill_head], menacingly.</span>")
+			owner.visible_message(SPAN_WARNING("[owner] revs the [drill_head], menacingly."))
 			playsound(get_turf(src), 'sound/mecha/mechdrill.ogg', 50, 1)
 
 /obj/item/mecha_equipment/drill/get_hardpoint_maptext()
@@ -298,21 +298,21 @@
 		if(istype(target,/obj/item/material/drill_head))
 			var/obj/item/material/drill_head/DH = target
 			if(drill_head)
-				owner.visible_message("<span class='notice'>\The [owner] detaches the [drill_head] mounted on the [src].</span>")
+				owner.visible_message(SPAN_NOTICE("\The [owner] detaches the [drill_head] mounted on [src]."))
 				drill_head.forceMove(owner.loc)
 			DH.forceMove(src)
 			drill_head = DH
-			owner.visible_message("<span class='notice'>\The [owner] mounts the [drill_head] on the [src].</span>")
+			owner.visible_message(SPAN_NOTICE("\The [owner] mounts the [drill_head] on [src]."))
 			return
 
 		if(drill_head == null)
-			to_chat(user, "<span class='warning'>Your drill doesn't have a head!</span>")
+			to_chat(user, SPAN_WARNING("Your drill doesn't have a head!"))
 			return
 
 		var/obj/item/cell/C = owner.get_cell()
 		if(istype(C))
 			C.use(active_power_use * CELLRATE)
-		owner.visible_message("<span class='danger'>\The [owner] starts to drill \the [target]</span>", "<span class='warning'>You hear a large drill.</span>")
+		owner.visible_message(SPAN_DANGER("\The [owner] starts to drill \the [target]"), SPAN_WARNING("You hear a large drill."))
 
 		var/T = target.loc
 
@@ -328,7 +328,7 @@
 				if(istype(target, /turf/simulated/wall))
 					var/turf/simulated/wall/W = target
 					if(max(W.material.hardness, W.reinf_material ? W.reinf_material.hardness : 0) > drill_head.material.hardness)
-						to_chat(user, "<span class='warning'>\The [target] is too hard to drill through with this drill head.</span>")
+						to_chat(user, SPAN_WARNING("\The [target] is too hard to drill through with this drill head."))
 					target.ex_act(2)
 					drill_head.durability -= 1
 					log_and_message_admins("used [src] on the wall [W].", user, owner.loc)

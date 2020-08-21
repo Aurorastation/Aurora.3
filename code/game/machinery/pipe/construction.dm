@@ -449,7 +449,7 @@ Buildable meters
 						else
 							pipe_type = PIPE_SUPPLY_STRAIGHT
 				else
-					to_chat(user, "<span class='warning'>You can not change this pipe!</span>")
+					to_chat(user, SPAN_WARNING("You can not change this pipe!"))
 					return
 
 			else if(pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SIMPLE_BENT, PIPE_SCRUBBERS_STRAIGHT, PIPE_SCRUBBERS_BENT, PIPE_SUPPLY_BENT, PIPE_SUPPLY_STRAIGHT))
@@ -483,7 +483,7 @@ Buildable meters
 
 	for(var/obj/machinery/atmospherics/M in src.loc)
 		if((M.initialize_directions & pipe_dir) && M.check_connect_types_construction(M,src))	// matches at least one direction on either type of pipe & same connection type
-			to_chat(user, "<span class='warning'>There is already a pipe of the same type at this location.</span>")
+			to_chat(user, SPAN_WARNING("There is already a pipe of the same type at this location."))
 			return 1
 	// no conflicts found
 
@@ -1177,7 +1177,7 @@ Buildable meters
 	playsound(src.loc, W.usesound, 50, 1)
 	user.visible_message( \
 		"[user] fastens the [src].", \
-		"<span class='notice'>You have fastened the [src].</span>", \
+		SPAN_NOTICE("You have fastened the [src]."), \
 		"You hear ratchet.")
 	qdel(src)	// remove the pipe item
 
@@ -1202,11 +1202,11 @@ Buildable meters
 	if (!W.iswrench())
 		return ..()
 	if(!locate(/obj/machinery/atmospherics/pipe, src.loc))
-		to_chat(user, "<span class='warning'>You need to fasten it to a pipe</span>")
+		to_chat(user, SPAN_WARNING("You need to fasten it to a pipe"))
 		return 1
 	new/obj/machinery/meter( src.loc )
 	playsound(src.loc, W.usesound, 50, 1)
-	to_chat(user, "<span class='notice'>You have fastened the meter to the pipe</span>")
+	to_chat(user, SPAN_NOTICE("You have fastened the meter to the pipe"))
 	qdel(src)
 //not sure why these are necessary
 #undef PIPE_SIMPLE_STRAIGHT

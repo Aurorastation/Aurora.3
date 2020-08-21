@@ -258,7 +258,7 @@ Class Procs:
 		return 1
 	if ( ! (istype(usr, /mob/living/carbon/human) || \
 			istype(usr, /mob/living/silicon)))
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return 1
 /*
 	//distance checks are made by atom/proc/DblClick
@@ -268,10 +268,10 @@ Class Procs:
 	if (ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.getBrainLoss() >= 60)
-			visible_message("<span class='warning'>[H] stares cluelessly at [src] and drools.</span>")
+			visible_message(SPAN_WARNING("[H] stares cluelessly at [src] and drools."))
 			return 1
 		else if(prob(H.getBrainLoss()))
-			to_chat(user, "<span class='warning'>You momentarily forget how to use [src].</span>")
+			to_chat(user, SPAN_WARNING("You momentarily forget how to use [src]."))
 			return 1
 
 	src.add_fingerprint(user)
@@ -338,7 +338,7 @@ Class Procs:
 		return 0
 	playsound(src.loc,  S.usesound, 50, 1)
 	panel_open = !panel_open
-	to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance hatch of [src]."))
 	update_icon()
 	return 1
 
@@ -366,7 +366,7 @@ Class Procs:
 						component_parts -= G
 						component_parts += B
 						B.forceMove(src)
-						to_chat(user, "<span class='notice'>[G.name] replaced with [B.name].</span>")
+						to_chat(user, SPAN_NOTICE("[G.name] replaced with [B.name]."))
 						break
 		for(var/obj/item/stock_parts/A in component_parts)
 			for(var/D in CB.req_components)
@@ -382,15 +382,15 @@ Class Procs:
 						component_parts -= A
 						component_parts += B
 						B.forceMove(src)
-						to_chat(user, "<span class='notice'>[A.name] replaced with [B.name].</span>")
+						to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
 						parts_replaced = TRUE
 						break
 		RefreshParts()
 		update_icon()
 	else
-		to_chat(user, "<span class='notice'>Following parts detected in the machine:</span>")
+		to_chat(user, SPAN_NOTICE("Following parts detected in the machine:"))
 		for(var/obj/item/C in component_parts)
-			to_chat(user, "<span class='notice'>    [C.name]</span>")
+			to_chat(user, SPAN_NOTICE("    [C.name]"))
 	if(parts_replaced) //only play sound when RPED actually replaces parts
 		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
 	return 1
@@ -415,7 +415,7 @@ Class Procs:
 	if (play_sound)
 		playsound(src.loc, print_sfx, 50, 1)
 
-	visible_message("<span class='notice'>[src] rattles to life and spits out a paper titled [paper].</span>")
+	visible_message(SPAN_NOTICE("[src] rattles to life and spits out a paper titled [paper]."))
 
 	addtimer(CALLBACK(src, .proc/print_move_paper, paper), print_delay)
 

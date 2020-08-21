@@ -95,16 +95,16 @@
 		updateDialog()
 	else if(I.isscrewdriver())
 		if(locked)
-			to_chat(user, "<span class='notice'>The maintenance hatch cannot be opened or closed while the controls are locked.</span>")
+			to_chat(user, SPAN_NOTICE("The maintenance hatch cannot be opened or closed while the controls are locked."))
 			return
 
 		open = !open
 		if(open)
-			src.visible_message("[user] opens the maintenance hatch of [src]", "<span class='notice'>You open [src]'s maintenance hatch.</span>")
+			src.visible_message("<b>[user]</b> opens the maintenance hatch of [src]", SPAN_NOTICE("You open [src]'s maintenance hatch."))
 			on = 0
 			icon_state="mulebot-hatch"
 		else
-			src.visible_message("[user] closes the maintenance hatch of [src]", "<span class='notice'>You close [src]'s maintenance hatch.</span>")
+			src.visible_message("<b>[user]</b> closes the maintenance hatch of [src]", SPAN_NOTICE("You close [src]'s maintenance hatch."))
 			icon_state = "mulebot0"
 
 		updateDialog()
@@ -113,15 +113,15 @@
 			src.health = min(maxhealth, src.health+25)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			user.visible_message(
-				"<span class='notice'>\The [user] repairs \the [src]!</span>",
-				"<span class='notice'>You repair \the [src]!</span>"
+				SPAN_NOTICE("\The [user] repairs \the [src]!"),
+				SPAN_NOTICE("You repair \the [src]!")
 			)
 		else
-			to_chat(user, "<span class='notice'>[src] does not need a repair!</span>")
+			to_chat(user, SPAN_NOTICE("[src] does not need a repair!"))
 	else if(load && ismob(load))  // chance to knock off rider
 		if(prob(1+I.force * 2))
 			unload(0)
-			user.visible_message("<span class='warning'>[user] knocks [load] off [src] with \the [I]!</span>", "<span class='warning'>You knock [load] off [src] with \the [I]!</span>")
+			user.visible_message(SPAN_WARNING("[user] knocks [load] off [src] with \the [I]!"), SPAN_WARNING("You knock [load] off [src] with \the [I]!"))
 		else
 			to_chat(user, "You hit [src] with \the [I] but to no effect.")
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -131,7 +131,7 @@
 
 /obj/machinery/bot/mulebot/emag_act(var/remaining_charges, var/user)
 	locked = !locked
-	to_chat(user, "<span class='notice'>You [locked ? "lock" : "unlock"] the mulebot's controls!</span>")
+	to_chat(user, SPAN_NOTICE("You [locked ? "lock" : "unlock"] the mulebot's controls!"))
 	flick("mulebot-emagged", src)
 	playsound(src.loc, 'sound/effects/sparks1.ogg', 100, 0)
 	return 1
@@ -150,7 +150,7 @@
 	if(prob(50) && !isnull(load))
 		unload(0)
 	if(prob(25))
-		src.visible_message("<span class='warning'>Something shorts out inside [src]!</span>")
+		src.visible_message(SPAN_WARNING("Something shorts out inside [src]!"))
 		wires.RandomCut()
 	..()
 
@@ -246,18 +246,18 @@
 					locked = !locked
 					updateDialog()
 				else
-					to_chat(usr, "<span class='warning'>Access denied.</span>")
+					to_chat(usr, SPAN_WARNING("Access denied."))
 					return
 			if("power")
 				if (src.on)
 					turn_off()
 				else if (cell && !open)
 					if (!turn_on())
-						to_chat(usr, "<span class='warning'>You can't switch on [src].</span>")
+						to_chat(usr, SPAN_WARNING("You can't switch on [src]."))
 						return
 				else
 					return
-				visible_message("[usr] switches [on ? "on" : "off"] [src].")
+				visible_message("<b>[usr]</b> switches [on ? "on" : "off"] [src].")
 				updateDialog()
 
 
@@ -268,7 +268,7 @@
 					cell.add_fingerprint(usr)
 					cell = null
 
-					usr.visible_message("<span class='notice'>[usr] removes the power cell from [src].</span>", "<span class='notice'>You remove the power cell from [src].</span>")
+					usr.visible_message(SPAN_NOTICE("[usr] removes the power cell from [src]."), SPAN_NOTICE("You remove the power cell from [src]."))
 					updateDialog()
 
 			if("cellinsert")
@@ -279,7 +279,7 @@
 						cell = C
 						C.add_fingerprint(usr)
 
-						usr.visible_message("<span class='notice'>[usr] inserts a power cell into [src].</span>", "<span class='notice'>You insert the power cell into [src].</span>")
+						usr.visible_message(SPAN_NOTICE("[usr] inserts a power cell into [src]."), SPAN_NOTICE("You insert the power cell into [src]."))
 						updateDialog()
 
 
@@ -380,7 +380,7 @@
 // called to load a crate
 /obj/machinery/bot/mulebot/proc/load(var/atom/movable/C)
 	if(wires.LoadCheck() && !istype(C,/obj/structure/closet/crate))
-		src.visible_message("[src] makes a sighing buzz.", "You hear an electronic buzzing sound.")
+		src.visible_message("<b>[src]</b> makes a sighing buzz.", "You hear an electronic buzzing sound.")
 		playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 		return		// if not emagged, only allow crates to be loaded
 
@@ -559,25 +559,25 @@
 						blockcount++
 						mode = 4
 						if(blockcount == 3)
-							src.visible_message("[src] makes an annoyed buzzing sound", "You hear an electronic buzzing sound.")
+							src.visible_message("<b>[src]</b> makes an annoyed buzzing sound", "You hear an electronic buzzing sound.")
 							playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 0)
 
 						if(blockcount > 5)	// attempt 5 times before recomputing
 							// find new path excluding blocked turf
-							src.visible_message("[src] makes a sighing buzz.", "You hear an electronic buzzing sound.")
+							src.visible_message("<b>[src]</b> makes a sighing buzz.", "You hear an electronic buzzing sound.")
 							playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 
 							spawn(2)
 								calc_path(next)
 								if(path.len > 0)
-									src.visible_message("[src] makes a delighted ping!", "You hear a ping.")
+									src.visible_message("<b>[src]</b> makes a delighted ping!", "You hear a ping.")
 									playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 								mode = 4
 							mode =6
 							return
 						return
 				else
-					src.visible_message("[src] makes an annoyed buzzing sound", "You hear an electronic buzzing sound.")
+					src.visible_message("<b>[src]</b> makes an annoyed buzzing sound", "You hear an electronic buzzing sound.")
 					playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 0)
 					mode = 5
 					return
@@ -594,11 +594,11 @@
 				if(path.len > 0)
 					blockcount = 0
 					mode = 4
-					src.visible_message("[src] makes a delighted ping!", "You hear a ping.")
+					src.visible_message("<b>[src]</b> makes a delighted ping!", "You hear a ping.")
 					playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 
 				else
-					src.visible_message("[src] makes a sighing buzz.", "You hear an electronic buzzing sound.")
+					src.visible_message("<b>[src]</b> makes a sighing buzz.", "You hear an electronic buzzing sound.")
 					playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 
 					mode = 7
@@ -641,7 +641,7 @@
 // called when bot reaches current target
 /obj/machinery/bot/mulebot/proc/at_target()
 	if(!reached_target)
-		src.visible_message("[src] makes a chiming sound!", "You hear a chime.")
+		src.visible_message("<b>[src]</b> makes a chiming sound!", "You hear a chime.")
 		playsound(src.loc, 'sound/machines/chime.ogg', 50, 0)
 		reached_target = 1
 
@@ -679,9 +679,9 @@
 		var/mob/M = obs
 		if(ismob(M))
 			if(istype(M,/mob/living/silicon/robot))
-				src.visible_message("<span class='warning'>[src] bumps into [M]!</span>")
+				src.visible_message(SPAN_WARNING("[src] bumps into [M]!"))
 			else
-				src.visible_message("<span class='warning'>[src] knocks over [M]!</span>")
+				src.visible_message(SPAN_WARNING("[src] knocks over [M]!"))
 				M.stop_pulling()
 				M.Stun(8)
 				M.Weaken(5)
@@ -691,7 +691,7 @@
 // called from mob/living/carbon/human/Crossed()
 // when mulebot is in the same loc
 /obj/machinery/bot/mulebot/proc/RunOver(var/mob/living/carbon/human/H)
-	src.visible_message("<span class='warning'>[src] drives over [H]!</span>")
+	src.visible_message(SPAN_WARNING("[src] drives over [H]!"))
 	playsound(src.loc, 'sound/effects/splat.ogg', 50, 1)
 
 	var/damage = rand(5,15)
@@ -840,7 +840,7 @@
 
 
 /obj/machinery/bot/mulebot/explode()
-	visible_message("<span class='danger'>[src] blows apart!</span>")
+	visible_message(SPAN_DANGER("[src] blows apart!"))
 	var/turf/Tsec = get_turf(src)
 
 	new /obj/item/device/assembly/prox_sensor(Tsec)

@@ -31,7 +31,7 @@
 			S.active = 0															// -- Polymorph
 			S.icon_state = "shield0"
 
-	to_chat(M, "<span class='danger'>BANG</span>")
+	to_chat(M, SPAN_DANGER("BANG"))
 	playsound(src.loc, 'sound/weapons/flashbang.ogg', 50, 1, 3, 0.5, 1)
 
 //Checking for protections
@@ -85,19 +85,19 @@
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/internal/eyes/E = H.get_eyes(no_synthetic = TRUE)
 		if (E && E.damage >= E.min_bruised_damage)
-			to_chat(M, "<span class='danger'>Your eyes start to burn badly!</span>")
+			to_chat(M, SPAN_DANGER("Your eyes start to burn badly!"))
 			if(!banglet && !(istype(src , /obj/item/grenade/flashbang/clusterbang)))
 				if (E.damage >= E.min_broken_damage)
-					to_chat(M, "<span class='danger'>You can't see anything!</span>")
+					to_chat(M, SPAN_DANGER("You can't see anything!"))
 	if (M.ear_damage >= 15)
-		to_chat(M, "<span class='danger'>Your ears start to ring badly!</span>")
+		to_chat(M, SPAN_DANGER("Your ears start to ring badly!"))
 		if(!banglet && !(istype(src , /obj/item/grenade/flashbang/clusterbang)))
 			if (prob(M.ear_damage - 10 + 5))
-				to_chat(M, "<span class='danger'>You can't hear anything!</span>")
+				to_chat(M, SPAN_DANGER("You can't hear anything!"))
 				M.sdisabilities |= DEAF
 	else
 		if (M.ear_damage >= 5)
-			to_chat(M, "<span class='danger'>Your ears start to ring!</span>")
+			to_chat(M, SPAN_DANGER("Your ears start to ring!"))
 	M.update_icon()
 
 /obj/item/grenade/flashbang/clusterbang//Created by Polymorph, fixed by Sieve

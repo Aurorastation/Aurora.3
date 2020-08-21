@@ -49,4 +49,4 @@
 						nearest_artifact_id = T.artifact_find.artifact_id
 			else
 				SSxenoarch.artifact_spawning_turfs.Remove(T)
-	cur_turf.visible_message("<span class='info'>[src] clicks.</span>")
+	cur_turf.visible_message(SPAN_INFO("[src] clicks."))

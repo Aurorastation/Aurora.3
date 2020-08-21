@@ -177,29 +177,29 @@
 		if (WT.remove_fuel(0, user))
 			playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 			if(istext(glass))
-				user.visible_message("[user] welds the [glass] plating off the airlock assembly.", "You start to weld the [glass] plating off the airlock assembly.")
+				user.visible_message("<b>[user]</b> welds the [glass] plating off the airlock assembly.", "You start to weld the [glass] plating off the airlock assembly.")
 				if(do_after(user, 40/W.toolspeed))
 					if(!src || !WT.isOn()) return
-					to_chat(user, "<span class='notice'>You welded the [glass] plating off!</span>")
+					to_chat(user, SPAN_NOTICE("You welded the [glass] plating off!"))
 					var/M = text2path("/obj/item/stack/material/[glass]")
 					new M(src.loc, 2)
 					glass = 0
 			else if(glass == 1)
-				user.visible_message("[user] welds the glass panel out of the airlock assembly.", "You start to weld the glass panel out of the airlock assembly.")
+				user.visible_message("<b>[user]</b> welds the glass panel out of the airlock assembly.", "You start to weld the glass panel out of the airlock assembly.")
 				if(do_after(user, 40/W.toolspeed))
 					if(!src || !WT.isOn()) return
-					to_chat(user, "<span class='notice'>You welded the glass panel out!</span>")
+					to_chat(user, SPAN_NOTICE("You welded the glass panel out!"))
 					new /obj/item/stack/material/glass/reinforced(src.loc)
 					glass = 0
 			else if(!anchored)
-				user.visible_message("[user] dissassembles the airlock assembly.", "You start to dissassemble the airlock assembly.")
+				user.visible_message("<b>[user]</b> dissassembles the airlock assembly.", "You start to dissassemble the airlock assembly.")
 				if(do_after(user, 40/W.toolspeed))
 					if(!src || !WT.isOn()) return
-					to_chat(user, "<span class='notice'>You dissasembled the airlock assembly!</span>")
+					to_chat(user, SPAN_NOTICE("You dissasembled the airlock assembly!"))
 					new /obj/item/stack/material/steel(src.loc, 4)
 					qdel (src)
 		else
-			to_chat(user, "<span class='notice'>You need more welding fuel.</span>")
+			to_chat(user, SPAN_NOTICE("You need more welding fuel."))
 			return
 
 	else if(W.iswrench() && state == 0)
@@ -213,27 +213,27 @@
 
 		if(do_after(user, 40/W.toolspeed))
 			if(!src) return
-			to_chat(user, "<span class='notice'>You [anchored? "un" : ""]secured the airlock assembly!</span>")
+			to_chat(user, SPAN_NOTICE("You [anchored? "un" : ""]secured the airlock assembly!"))
 			anchored = !anchored
 
 	else if(W.iscoil() && state == 0 && anchored)
 		var/obj/item/stack/cable_coil/C = W
 		if (C.get_amount() < 1)
-			to_chat(user, "<span class='warning'>You need one length of coil to wire the airlock assembly.</span>")
+			to_chat(user, SPAN_WARNING("You need one length of coil to wire the airlock assembly."))
 			return
-		user.visible_message("[user] wires the airlock assembly.", "You start to wire the airlock assembly.")
+		user.visible_message("<b>[user]</b> wires the airlock assembly.", "You start to wire the airlock assembly.")
 		if(do_after(user, 40) && state == 0 && anchored)
 			if (C.use(1))
 				src.state = 1
-				to_chat(user, "<span class='notice'>You wire the airlock.</span>")
+				to_chat(user, SPAN_NOTICE("You wire the airlock."))
 
 	else if(W.iswirecutter() && state == 1 )
 		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
-		user.visible_message("[user] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
+		user.visible_message("<b>[user]</b> cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
 
 		if(do_after(user, 40/W.toolspeed))
 			if(!src) return
-			to_chat(user, "<span class='notice'>You cut the airlock wires.!</span>")
+			to_chat(user, SPAN_NOTICE("You cut the airlock wires.!"))
 			new/obj/item/stack/cable_coil(src.loc, 1)
 			src.state = 0
 
@@ -241,13 +241,13 @@
 		var/obj/item/airlock_electronics/EL = W
 		if(!EL.is_installed)
 			playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
-			user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
+			user.visible_message("<b>[user]</b> installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
 			EL.is_installed = 1
 			if(do_after(user, 40/W.toolspeed))
 				EL.is_installed = 0
 				if(!src) return
 				user.drop_from_inventory(EL,src)
-				to_chat(user, "<span class='notice'>You installed the airlock electronics!</span>")
+				to_chat(user, SPAN_NOTICE("You installed the airlock electronics!"))
 				src.state = 2
 				src.name = "Near finished Airlock Assembly"
 				src.electronics = EL
@@ -257,7 +257,7 @@
 	else if(W.iscrowbar() && state == 2 )
 		//This should never happen, but just in case I guess
 		if (!electronics)
-			to_chat(user, "<span class='notice'>There was nothing to remove.</span>")
+			to_chat(user, SPAN_NOTICE("There was nothing to remove."))
 			src.state = 1
 			return
 
@@ -266,7 +266,7 @@
 
 		if(do_after(user, 40/W.toolspeed))
 			if(!src) return
-			to_chat(user, "<span class='notice'>You removed the airlock electronics!</span>")
+			to_chat(user, SPAN_NOTICE("You removed the airlock electronics!"))
 			src.state = 1
 			src.name = "Wired Airlock Assembly"
 			electronics.forceMove(src.loc)
@@ -279,10 +279,10 @@
 			if (S.get_amount() >= 1)
 				if(material_name == "rglass")
 					playsound(src.loc, "crowbar", 100, 1)
-					user.visible_message("[user] adds [S.name] to the airlock assembly.", "You start to install [S.name] into the airlock assembly.")
+					user.visible_message("<b>[user]</b> adds [S.name] to the airlock assembly.", "You start to install [S.name] into the airlock assembly.")
 					if(do_after(user, 40) && !glass)
 						if (S.use(1))
-							to_chat(user, "<span class='notice'>You installed reinforced glass windows into the airlock assembly.</span>")
+							to_chat(user, SPAN_NOTICE("You installed reinforced glass windows into the airlock assembly."))
 							glass = 1
 				else if(material_name)
 					// Ugly hack, will suffice for now. Need to fix it upstream as well, may rewrite mineral walls. ~Z
@@ -291,19 +291,19 @@
 						return
 					if(S.get_amount() >= 2)
 						playsound(src.loc, "crowbar", 100, 1)
-						user.visible_message("[user] adds [S.name] to the airlock assembly.", "You start to install [S.name] into the airlock assembly.")
+						user.visible_message("<b>[user]</b> adds [S.name] to the airlock assembly.", "You start to install [S.name] into the airlock assembly.")
 						if(do_after(user, 40) && !glass)
 							if (S.use(2))
-								to_chat(user, "<span class='notice'>You installed [SSmaterials.material_display_name(material_name)] plating into the airlock assembly.</span>")
+								to_chat(user, SPAN_NOTICE("You installed [SSmaterials.material_display_name(material_name)] plating into the airlock assembly."))
 								glass = material_name
 
 	else if(W.isscrewdriver() && state == 2 )
 		playsound(src.loc, W.usesound, 100, 1)
-		to_chat(user, "<span class='notice'>Now finishing the airlock.</span>")
+		to_chat(user, SPAN_NOTICE("Now finishing the airlock."))
 
 		if(do_after(user, 40/W.toolspeed))
 			if(!src) return
-			to_chat(user, "<span class='notice'>You finish the airlock!</span>")
+			to_chat(user, SPAN_NOTICE("You finish the airlock!"))
 			var/path
 			if(istext(glass))
 				path = text2path("/obj/machinery/door/airlock/[glass]")
@@ -317,23 +317,23 @@
 	else if(istype(W, /obj/item/material/twohanded/chainsaw))
 		var/obj/item/material/twohanded/chainsaw/ChainSawVar = W
 		if(!ChainSawVar.wielded)
-			to_chat(user, "<span class='notice'>Cutting the airlock requires the strength of two hands.</span>")
+			to_chat(user, SPAN_NOTICE("Cutting the airlock requires the strength of two hands."))
 		else if(ChainSawVar.cutting)
-			to_chat(user, "<span class='notice'>You are already cutting an airlock open.</span>")
+			to_chat(user, SPAN_NOTICE("You are already cutting an airlock open."))
 		else if(!ChainSawVar.powered)
-			to_chat(user, "<span class='notice'>The [W] needs to be on in order to open this door.</span>")
+			to_chat(user, SPAN_NOTICE("The [W] needs to be on in order to open this door."))
 		else
 			ChainSawVar.cutting = 1
 			user.visible_message(\
-				"<span class='danger'>[user.name] starts cutting the rest of the airlock with the [W]!</span>",\
-				"<span class='warning'>You start cutting the rest of the airlock...</span>",\
-				"<span class='notice'>You hear a loud buzzing sound and metal grinding on metal...</span>"\
+				SPAN_DANGER("[user.name] starts cutting the rest of the airlock with [W]!"),\
+				SPAN_WARNING("You start cutting the rest of the airlock..."),\
+				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
 			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, W)))
 				user.visible_message(\
-					"<span class='warning'>[user.name] finishes cutting the airlock with the [W].</span>",\
-					"<span class='warning'>You finish cutting the airlock.</span>",\
-					"<span class='notice'>You hear a metal clank and some sparks.</span>"\
+					SPAN_WARNING("[user.name] finishes cutting the airlock with [W]."),\
+					SPAN_WARNING("You finish cutting the airlock."),\
+					SPAN_NOTICE("You hear a metal clank and some sparks.")\
 				)
 				new /obj/item/stack/material/steel(src.loc, 2)
 				ChainSawVar.cutting = 0

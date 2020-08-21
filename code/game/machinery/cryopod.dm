@@ -399,7 +399,7 @@ var/global/list/frozen_crew = list()
 			// Book keeping!
 			var/turf/location = get_turf(src)
 			log_admin("[key_name_admin(M)] has entered a stasis pod. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)",ckey=key_name(M))
-			message_admins("<span class='notice'>[key_name_admin(M)] has entered a stasis pod.</span>")
+			message_admins(SPAN_NOTICE("[key_name_admin(M)] has entered a stasis pod."))
 
 			//Despawning occurs when process() is called with an occupant without a client.
 			src.add_fingerprint(M)
@@ -513,7 +513,7 @@ var/global/list/frozen_crew = list()
 			to_chat(usr, SPAN_WARNING("You cannot do this while a slime is latched onto you!"))
 			return
 
-	usr.visible_message(SPAN_NOTICE("[usr] starts climbing into [src]."), SPAN_NOTICE("You start climbing into [src]."), range = 3)
+	usr.visible_message("<b>[usr]</b> starts climbing into [src].", SPAN_NOTICE("You start climbing into [src]."), range = 3)
 
 	if(do_after(usr, 20))
 		if(!usr || !usr.client)

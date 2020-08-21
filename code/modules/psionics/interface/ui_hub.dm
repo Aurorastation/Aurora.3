@@ -40,7 +40,7 @@
 		return
 
 	if(owner.psi.suppressed && owner.psi.stun)
-		to_chat(owner, "<span class='warning'>You are dazed and reeling, and cannot muster enough focus to do that!</span>")
+		to_chat(owner, SPAN_WARNING("You are dazed and reeling, and cannot muster enough focus to do that!"))
 		return
 
 	owner.psi.suppressed = !owner.psi.suppressed

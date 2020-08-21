@@ -104,7 +104,7 @@
 	S.layer = initial(S.layer)
 	var/turf/target_turf = get_turf(S)
 	if(target_turf)
-		S.visible_message("<span class='danger'>\The [S] lands on the [target_turf]!</span>")
+		S.visible_message(SPAN_DANGER("\The [S] lands on the [target_turf]!"))
 		for(var/mob/living/M in target_turf)
 			M.apply_damage(50, BRUTE)
 			M.apply_effect(6, STUN, blocked)

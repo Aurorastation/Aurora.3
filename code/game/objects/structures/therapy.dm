@@ -52,7 +52,7 @@
 		on = 1
 		shock()
 		icon_state = "echair1"
-	to_chat(usr, "<span class='notice'>You switch [on ? "on" : "off"] [src].</span>")
+	to_chat(usr, SPAN_NOTICE("You switch [on ? "on" : "off"] [src]."))
 
 /obj/structure/bed/chair/e_chair/proc/shock()
 	if(!on)
@@ -64,11 +64,11 @@
 	spark(src, 12, alldirs)
 	if(buckled_mob && istype(C))
 		if(electrocute_mob(buckled_mob, C, src, 1.25, BP_HEAD))
-			to_chat(buckled_mob, "<span class='danger'>You feel a deep shock course through your body!</span>")
+			to_chat(buckled_mob, SPAN_DANGER("You feel a deep shock course through your body!"))
 			sleep(1)
 			if(electrocute_mob(buckled_mob, C, src, 1.25, BP_HEAD))
 				buckled_mob.Stun(PN.get_electrocute_damage()*10)
-	visible_message("<span class='danger'>The electric chair goes off!</span>", "<span class='danger'>You hear an electrical discharge!</span>")
+	visible_message(SPAN_DANGER("The electric chair goes off!"), SPAN_DANGER("You hear an electrical discharge!"))
 
 	return
 
@@ -116,9 +116,9 @@
 	set src in usr
 
 	if(closed)
-		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] in their hand with a look of derision in their eyes, not noticing it's closed."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message ("<b>[usr]</b> taps their foot on the floor, arrogantly pointing at [src] in their hand with a look of derision in their eyes, not noticing it's closed.", SPAN_NOTICE("You point down at [src], an arrogant look about your eyes."))
 	else
-		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] in their hand with a look of derision in their eyes."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message ("<b>[usr]</b> taps their foot on the floor, arrogantly pointing at [src] in their hand with a look of derision in their eyes.", SPAN_NOTICE("You point down at [src], an arrogant look about your eyes."))
 
 /obj/item/mesmetron
 	name = "mesmetron pocketwatch"
@@ -201,7 +201,7 @@
 
 		var/thrall_response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 		if(thrall_response == "Yes")
-			to_chat(H, "<span class='notice'><i>... [text] ...</i></span>")
+			to_chat(H, SPAN_NOTICE("<i>... [text] ...</i>"))
 			H.cure_all_traumas(cure_type = CURE_HYPNOSIS)
 		else
 			thrall = null
@@ -216,7 +216,7 @@
 	if(!istype(H))
 		return
 
-	user.visible_message("<span class='warning'>[user] begins to mesmerizingly wave [src] like a pendulum before [H]'s very eyes!</span>")
+	user.visible_message(SPAN_WARNING("[user] begins to mesmerizingly wave [src] like a pendulum before [H]'s very eyes!"))
 
 	if(!do_mob(user, H, 10 SECONDS))
 		return
@@ -227,7 +227,7 @@
 	var/response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 
 	if(response == "Yes")
-		H.visible_message("<span class='warning'>[H] falls into a deep slumber!</span>", "<span class ='danger'>You fall into a deep slumber!</span>")
+		H.visible_message(SPAN_WARNING("[H] falls into a deep slumber!"), "<span class ='danger'>You fall into a deep slumber!</span>")
 
 		H.sleeping = max(H.sleeping, 40)
 		H.drowsyness = max(H.drowsyness, 60)
@@ -256,12 +256,12 @@
 	if(W.iswrench())
 		playsound(src.loc, W.usesound, 50, 1)
 		if(anchored)
-			to_chat(user, "<span class='notice'>You unanchor \the [src] and it destabilizes.</span>")
+			to_chat(user, SPAN_NOTICE("You unanchor \the [src] and it destabilizes."))
 			STOP_PROCESSING(SSfast_process, src)
 			icon_state = "metronome0"
 			anchored = 0
 		else
-			to_chat(user, "<span class='notice'>You anchor \the [src] and it restabilizes.</span>")
+			to_chat(user, SPAN_NOTICE("You anchor \the [src] and it restabilizes."))
 			START_PROCESSING(SSfast_process, src)
 			icon_state = "metronome1"
 			anchored = 1
@@ -285,7 +285,7 @@
 			ticktock = "Tock"
 		else
 			ticktock = "Tick"
-		to_chat(H, "<span class='notice'><i>[ticktock]. . .</i></span>")
+		to_chat(H, SPAN_NOTICE("<i>[ticktock]. . .</i>"))
 		sound_to(H, 'sound/effects/singlebeat.ogg')
 		if(prob(1))
 			H.cure_all_traumas(cure_type = CURE_SOLITUDE)
@@ -353,16 +353,16 @@
 	if (usr.stat != 0 || locked)
 		return
 	if (occupant.resolve())
-		to_chat(usr, "<span class='warning'>The pod is already occupied!</span>")
+		to_chat(usr, SPAN_WARNING("The pod is already occupied!"))
 		return
 	if (usr.abiotic())
-		to_chat(usr, "<span class='warning'>The subject cannot have abiotic items on.</span>")
+		to_chat(usr, SPAN_WARNING("The subject cannot have abiotic items on."))
 		return
 	if(locked)
-		to_chat(usr, "<span class='warning'>The pod is currently locked!</span>")
+		to_chat(usr, SPAN_WARNING("The pod is currently locked!"))
 		return
 	if(!ishuman(usr))
-		to_chat(usr, "<span class='warning'>The subject does not fit!</span>")
+		to_chat(usr, SPAN_WARNING("The subject does not fit!"))
 		return
 	usr.pulling = null
 	usr.client.perspective = EYE_PERSPECTIVE
@@ -383,7 +383,7 @@
 	var/mob/living/carbon/human/H = occupant.resolve()
 
 	if(locked)
-		to_chat(H, "<span class='notice'>You push against the pod door and attempt to escape. This process will take roughly two minutes.</span>")
+		to_chat(H, SPAN_NOTICE("You push against the pod door and attempt to escape. This process will take roughly two minutes."))
 		if(!do_after(H, 1200))
 			return
 
@@ -401,18 +401,18 @@
 	if (!istype(G) || !ishuman(G.affecting))
 		return
 	if (occupant)
-		to_chat(user, "<span class='warning'>The pod is already occupied!</span>")
+		to_chat(user, SPAN_WARNING("The pod is already occupied!"))
 		return
 	if (G.affecting.abiotic())
-		to_chat(user, "<span class='warning'>Subject cannot have abiotic items on.</span>")
+		to_chat(user, SPAN_WARNING("Subject cannot have abiotic items on."))
 		return
 	if(locked)
-		to_chat(user, "<span class='warning'>The pod is locked.</span>")
+		to_chat(user, SPAN_WARNING("The pod is locked."))
 		return
 
 
 	var/mob/living/L = G.affecting
-	user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
+	user.visible_message(SPAN_NOTICE("[user] starts putting [L] into [src]."), SPAN_NOTICE("You start putting [L] into [src]."), range = 3)
 
 	if (do_mob(user, L, 30, needhand = 0))
 		var/bucklestatus = L.bucklecheck(user)
@@ -440,13 +440,13 @@
 	if(!istype(user) || !istype(H))
 		return
 	if (occupant)
-		to_chat(user, "<span class='notice'><B>The pod is already occupied!</B></span>")
+		to_chat(user, SPAN_NOTICE("<B>The pod is already occupied!</B>"))
 		return
 	if (H.abiotic())
-		to_chat(user, "<span class='notice'><B>Subject cannot have abiotic items on.</B></span>")
+		to_chat(user, SPAN_NOTICE("<B>Subject cannot have abiotic items on.</B>"))
 		return
 	if(locked)
-		to_chat(user, "<span class='warning'>The pod is locked.</span>")
+		to_chat(user, SPAN_WARNING("The pod is locked."))
 		return
 
 	var/bucklestatus = H.bucklecheck(user)
@@ -455,9 +455,9 @@
 		return
 
 	if(H == user)
-		user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
+		user.visible_message(SPAN_NOTICE("[user] starts climbing into [src]."), SPAN_NOTICE("You start climbing into [src]."), range = 3)
 	else
-		user.visible_message("<span class='notice'>[user] starts putting [H] into [src].</span>", "<span class='notice'>You start putting [H] into [src].</span>", range = 3)
+		user.visible_message(SPAN_NOTICE("[user] starts putting [H] into [src]."), SPAN_NOTICE("You start putting [H] into [src]."), range = 3)
 
 	if (do_mob(user, H, 30, needhand = 0))
 		if (bucklestatus == 2)
@@ -550,15 +550,15 @@
 
 /obj/machinery/chakraconsole/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
-		to_chat(user, "<span class='warning'>You short out [src]'s safety measurements.</span>")
-		visible_message("[src] hums oddly...")
+		to_chat(user, SPAN_WARNING("You short out [src]'s safety measurements."))
+		visible_message("<b>[src]</b> hums oddly...")
 		emagged = 1
 		return 1
 
 /obj/machinery/chakraconsole/proc/button_prompt(user as mob)
 	var/mob/living/carbon/human/H = connected && connected.occupant ? connected.occupant.resolve() : null
 	if(!H)
-		to_chat(user, "<span class='notice'>The pod is currently unoccupied.</span>")
+		to_chat(user, SPAN_NOTICE("The pod is currently unoccupied."))
 	else
 		var/list/choices1 = list("Therapy Pod", "Toggle Locking Mechanism", "Initiate Neural Scan", "Initiate Crystal Therapy", "Recycle Crystal", "Cancel")
 		if(emagged)
@@ -568,55 +568,55 @@
 		switch(response1)
 			if("Toggle Locking Mechanism")
 				connected.locked = !connected.locked
-				visible_message("<span class='warning'>[connected]'s locking mechanism clicks.</span>", "<span class='warning'>You hear a click.</span>")
+				visible_message(SPAN_WARNING("[connected]'s locking mechanism clicks."), SPAN_WARNING("You hear a click."))
 				return
 			if("Initiate Neural Scan")
-				visible_message("<span class='warning'>[connected] begins humming with an electrical tone.</span>", "<span class='warning'>You hear an electrical humming.</span>")
+				visible_message(SPAN_WARNING("[connected] begins humming with an electrical tone."), SPAN_WARNING("You hear an electrical humming."))
 				if(H && connected.occupant.resolve() == H)
 					var/obj/item/organ/internal/brain/sponge = H.internal_organs_by_name[BP_BRAIN]
 					var/braindamage = H.getBrainLoss()
 					if(sponge && istype(sponge))
 						if(!sponge.lobotomized)
-							to_chat(user, "<span class='notice'>Scans indicate [braindamage] distinct abnormalities present in subject.</span>")
+							to_chat(user, SPAN_NOTICE("Scans indicate [braindamage] distinct abnormalities present in subject."))
 							return
 						else
-							to_chat(user, "<span class='notice'>Scans indicate [braindamage+rand(-20,20)] distinct abnormalities present in subject.</span>")
+							to_chat(user, SPAN_NOTICE("Scans indicate [braindamage+rand(-20,20)] distinct abnormalities present in subject."))
 							return
 
-				to_chat(user, "<span class='warning'>Scans indicate total brain failure in subject.</span>")
+				to_chat(user, SPAN_WARNING("Scans indicate total brain failure in subject."))
 				return
 			if("Initiate Crystal Therapy")
 				if(!crystal)
 					neural_check(user, H)
 					return
-				to_chat(user, "<span class='danger'>Error: Crystal depleted. Terminating operation..</span>")
+				to_chat(user, SPAN_DANGER("Error: Crystal depleted. Terminating operation.."))
 				playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-				visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
+				visible_message(SPAN_WARNING("[connected] buzzes harshly."), SPAN_WARNING("You hear a sharp buzz."))
 			if("%eRr:# C:\\NT>quaid.exe")
 				if(!crystal)
 					total_recall(user, H)
 					return
-				to_chat(user, "<span class='danger'>Error: Crystal depleted. Terminating operation..</span>")
+				to_chat(user, SPAN_DANGER("Error: Crystal depleted. Terminating operation.."))
 				playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-				visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
+				visible_message(SPAN_WARNING("[connected] buzzes harshly."), SPAN_WARNING("You hear a sharp buzz."))
 			if("Recycle Crystal")
 				if(crystal)
-					to_chat(user, "<span class='warning'>Eliminating depleted crystal.</span>")
+					to_chat(user, SPAN_WARNING("Eliminating depleted crystal."))
 					playsound(src.loc, 'sound/machines/juicer.ogg', 50, 1)
 					sleep(100)
 					crystal = 0
-					visible_message("<span class='notice'>[connected] pings cheerfully.</span>", "<span class='notice'>You hear a ping.</span>")
+					visible_message(SPAN_NOTICE("[connected] pings cheerfully."), SPAN_NOTICE("You hear a ping."))
 					playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
 					return
-				to_chat(user, "<span class='danger'>Error: Crystal depletion not detected. Terminating operation..</span>")
+				to_chat(user, SPAN_DANGER("Error: Crystal depletion not detected. Terminating operation.."))
 				playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-				visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
+				visible_message(SPAN_WARNING("[connected] buzzes harshly."), SPAN_WARNING("You hear a sharp buzz."))
 
 /obj/machinery/chakraconsole/proc/neural_check(var/mob/user, var/mob/living/carbon/human/H)
 	var/response = input(user,"Input number of rotations","Therapy Pod","0")
 	var/alert = text2num(sanitize(response))
 	if(!alert)
-		to_chat(user, "<span class='warning'>Error. Invalid input.</span>")
+		to_chat(user, SPAN_WARNING("Error. Invalid input."))
 		return
 
 	for(var/i=0;i<alert;i++)
@@ -624,17 +624,17 @@
 		var/electroshock_trauma = 0
 		if(!H || H != connected.occupant.resolve())
 			if(get_dist(user,src) <= 1)
-				to_chat(user, "<span class='danger'>Error: Subject not recognized. Terminating operation.</span>")
+				to_chat(user, SPAN_DANGER("Error: Subject not recognized. Terminating operation."))
 			playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-			visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
+			visible_message(SPAN_WARNING("[connected] buzzes harshly."), SPAN_WARNING("You hear a sharp buzz."))
 			break
 
 		var/obj/item/organ/internal/brain/sponge = H.internal_organs_by_name[BP_BRAIN]
 		if (!istype(sponge) || !sponge.traumas.len)
 			if(get_dist(user,src) <= 1)
-				to_chat(user, "<span class='danger'>Error: Subject not recognized. Terminating operation.</span>")
+				to_chat(user, SPAN_DANGER("Error: Subject not recognized. Terminating operation."))
 			playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-			visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
+			visible_message(SPAN_WARNING("[connected] buzzes harshly."), SPAN_WARNING("You hear a sharp buzz."))
 			break
 
 		for(var/X in sponge.traumas)
@@ -646,14 +646,14 @@
 					break
 
 		if(electroshock_trauma)
-			visible_message("<span class='notice'>[connected] pings cheerfully.</span>", "<span class='notice'>You hear a ping.</span>")
+			visible_message(SPAN_NOTICE("[connected] pings cheerfully."), SPAN_NOTICE("You hear a ping."))
 			playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
 
 		else
 			if(get_dist(user,src) <= 1)
-				to_chat(user, "<span class='danger'>Error: Brain abnormality not recognized. Subject contamination detected.</span>")
+				to_chat(user, SPAN_DANGER("Error: Brain abnormality not recognized. Subject contamination detected."))
 			playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-			visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
+			visible_message(SPAN_WARNING("[connected] buzzes harshly."), SPAN_WARNING("You hear a sharp buzz."))
 			H.apply_radiation(max(1,i))
 
 /obj/machinery/chakraconsole/proc/total_recall(var/mob/user, var/mob/living/carbon/human/H)
@@ -666,12 +666,12 @@
 			var/list/choices2 = list("5 minutes", "15 minutes", "30 minutes", "2 hours", "6 months", "Cancel")
 			var/response2 = input(user,"Input timeframe.","Memory Wipe") as null|anything in choices2
 			if(response2 != "Cancel")
-				to_chat(user, "<span class='notice'>Initiating memory wipe. Process will take approximately two minutes.</span>")
-				to_chat(H, "<span class='danger'>You feel a sharp pain in your brain as the therapy pod begins to hum menacingly!!</span>")
+				to_chat(user, SPAN_NOTICE("Initiating memory wipe. Process will take approximately two minutes."))
+				to_chat(H, SPAN_DANGER("You feel a sharp pain in your brain as the therapy pod begins to hum menacingly!!"))
 				sleep(1200-rand(0,150))
 				if(H && H == connected.occupant.resolve())
 					var/timespan = response2
-					to_chat(H, "<span class='danger'>You feel a part of your past self, a portion of your memories, a piece of your very being slip away...</span>")
+					to_chat(H, SPAN_DANGER("You feel a part of your past self, a portion of your memories, a piece of your very being slip away..."))
 					to_chat(H, "<b>Your memory of the past [timespan] has been wiped. Your ability to recall these past [timespan] has been removed from your brain, and you remember nothing that ever ocurred within those [timespan].</b>")
 					crystal = 1
 					return
@@ -681,15 +681,15 @@
 			var/new_memory = input(user,"Input New Memory","quaid.exe")
 			var/memory_implant = sanitize(new_memory)
 			if(memory_implant)
-				to_chat(user, "<span class='notice'>Initiating memory implantation. Process will take approximately two minutes. Subject's memory of this process will also be wiped.</span>")
-				to_chat(H, "<span class='danger'>You feel a sharp pain in your brain as the therapy pod begins to hum menacingly!</span>")
+				to_chat(user, SPAN_NOTICE("Initiating memory implantation. Process will take approximately two minutes. Subject's memory of this process will also be wiped."))
+				to_chat(H, SPAN_DANGER("You feel a sharp pain in your brain as the therapy pod begins to hum menacingly!"))
 				sleep(1200-rand(0,150))
 				if(H && H == connected.occupant.resolve())
-					to_chat(H, "<span class='danger'>You blink, and somehow between the timespan of your eyes closing and your eyes opening your perception of the world has changed in some imperceptible way...</span>")
+					to_chat(H, SPAN_DANGER("You blink, and somehow between the timespan of your eyes closing and your eyes opening your perception of the world has changed in some imperceptible way..."))
 					to_chat(H, "<b>A new memory has been implanted in your mind as follows: [memory_implant] - you have no reason to suspect the memory to be fabricated, as your memory of the past two minutes has also been altered.</b>")
 					crystal = 1
 					return
 	if(get_dist(user,src) <= 1)
-		to_chat(user, "<span class='danger'>Error: Operation failed. Terminating operation.</span>")
+		to_chat(user, SPAN_DANGER("Error: Operation failed. Terminating operation."))
 	playsound(src, 'sound/machines/buzz-two.ogg', 50, 1)
-	visible_message("<span class='warning'>[connected] buzzes harshly.</span>", "<span class='warning'>You hear a sharp buzz.</span>")
+	visible_message(SPAN_WARNING("[connected] buzzes harshly."), SPAN_WARNING("You hear a sharp buzz."))

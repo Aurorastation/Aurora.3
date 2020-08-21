@@ -12,11 +12,11 @@
 	set category = "Special Verbs"
 
 	if (!check_rights(R_ADMIN|R_CCIAA|R_FUN))
-		to_chat(usr, "<span class='warning'>You do not have enough powers to do this.</span>")
+		to_chat(usr, SPAN_WARNING("You do not have enough powers to do this."))
 		return
 
 	if (!department)
-		to_chat(usr, "<span class='warning'>No target department specified!</span>")
+		to_chat(usr, SPAN_WARNING("No target department specified!"))
 		return
 
 	var/obj/machinery/photocopier/faxmachine/fax = null
@@ -27,18 +27,18 @@
 			break
 
 	if (!fax)
-		to_chat(usr, "<span class='warning'>Couldn't find a fax machine to send this to!</span>")
+		to_chat(usr, SPAN_WARNING("Couldn't find a fax machine to send this to!"))
 		return
 
 	//todo: sanitize
 	var/input = input(usr, "Please enter a message to reply to via secure connection. NOTE: BBCode does not work, but HTML tags do! Use <br> for line breaks.", "Outgoing message from Centcomm", "") as message|null
 	if (!input)
-		to_chat(usr, "<span class='warning'>Cancelled.</span>")
+		to_chat(usr, SPAN_WARNING("Cancelled."))
 		return
 
 	var/customname = input(usr, "Pick a title for the report", "Title") as text|null
 	if (!customname)
-		to_chat(usr, "<span class='warning'>Cancelled.</span>")
+		to_chat(usr, SPAN_WARNING("Cancelled."))
 		return
 	var/announce = alert(usr, "Do you wish to announce the fax being sent?", "Announce Fax", "Yes", "No")
 	if(announce == "Yes")
@@ -62,12 +62,12 @@
 	if(fax.receivefax(P))
 		if(announce == 1)
 			command_announcement.Announce("A fax has been sent to the [department] fax machine.", "Fax Sent")
-		to_chat(usr, "<span class='notice'>Message transmitted successfully.</span>")
+		to_chat(usr, SPAN_NOTICE("Message transmitted successfully."))
 		log_and_message_admins("sent a fax message to the [department] fax machine. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[fax.x];Y=[fax.y];Z=[fax.z]'>JMP</a>)")
 
 		sent_faxes += P
 	else
-		to_chat(usr, "<span class='warning'>Message reply failed.</span>")
+		to_chat(usr, SPAN_WARNING("Message reply failed."))
 		qdel(P)
 	return
 
@@ -77,7 +77,7 @@
 	set category = "Special Verbs"
 
 	if (!check_rights(R_ADMIN|R_CCIAA|R_FUN))
-		to_chat(usr, "<span class='warning'>You do not have enough powers to do this.</span>")
+		to_chat(usr, SPAN_WARNING("You do not have enough powers to do this."))
 		return
 
 	var/data = "<center><a href='?_src_=holder;CentcommFaxReply=1'>Send New Fax</a></center>"

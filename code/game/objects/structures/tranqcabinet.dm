@@ -20,7 +20,7 @@
 			user.remove_from_mob(O)
 			contents += O
 			has_tranq = O
-			to_chat(user, "<span class='notice'>You place [O] in [src].</span>")
+			to_chat(user, SPAN_NOTICE("You place [O] in [src]."))
 		else
 			opened = !opened
 	else
@@ -35,7 +35,7 @@
 		return
 	if(has_tranq)
 		user.put_in_hands(has_tranq)
-		to_chat(user, "<span class='notice'>You take [has_tranq] from [src].</span>")
+		to_chat(user, SPAN_NOTICE("You take [has_tranq] from [src]."))
 		has_tranq = null
 		opened = 1
 	else
@@ -45,7 +45,7 @@
 /obj/structure/tranqcabinet/do_simple_ranged_interaction(var/mob/user)
 	if(has_tranq)
 		has_tranq.forceMove(loc)
-		to_chat(user, "<span class='notice'>You telekinetically remove [has_tranq] from [src].</span>")
+		to_chat(user, SPAN_NOTICE("You telekinetically remove [has_tranq] from [src]."))
 		has_tranq = null
 		opened = 1
 	else

@@ -73,7 +73,7 @@
 	if(health < maxhealth) // Mend the damage
 		health = min(health + amount * 3, maxhealth)
 		if(health == maxhealth)
-			visible_message("[src] looks fully repaired." )
+			visible_message("<b>[src]</b> looks fully repaired." )
 	else // Reinforce
 		silicate = min(silicate + amount, 100)
 		updateSilicate()
@@ -193,8 +193,8 @@
 							"You hear a banging sound.")
 	else
 		playsound(src.loc, 'sound/effects/glass_knock.ogg', 60, 1)
-		user.visible_message("<b>[user]</b> knocks on \the [src.name].",
-							"You knock on \the [src.name].",
+		user.visible_message("<b>[user]</b> knocks on [src].",
+							"You knock on [src].",
 							"You hear a knocking sound.")
 	return
 
@@ -249,7 +249,7 @@
 		if(!glasstype)
 			to_chat(user, SPAN_NOTICE("You're not sure how to dismantle \the [src] properly."))
 		else
-			visible_message(SPAN_NOTICE("[user] dismantles \the [src]."))
+			visible_message("<b>[user]</b> dismantles \the [src].")
 			if(dir == SOUTHWEST)
 				var/obj/item/stack/material/mats = new glasstype(loc)
 				mats.amount = is_fulltile() ? 4 : 2

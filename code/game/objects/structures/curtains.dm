@@ -18,7 +18,7 @@
 
 /obj/structure/curtain/bullet_act(obj/item/projectile/P, def_zone)
 	if(!P.nodamage)
-		visible_message("<span class='warning'>[P] tears [src] down!</span>")
+		visible_message(SPAN_WARNING("[P] tears [src] down!"))
 		qdel(src)
 	else
 		..(P, def_zone)
@@ -37,13 +37,13 @@
 	if(W.iswirecutter() || W.sharp && !W.noslice)
 		if(manipulating)	return
 		manipulating = TRUE
-		visible_message(SPAN_NOTICE("[user] begins cutting down \the [src]."),
+		visible_message("<b>[user]</b> begins cutting down \the [src].",
 					SPAN_NOTICE("You begin cutting down \the [src]."))
 		if(!do_after(user, 30/W.toolspeed))
 			manipulating = FALSE
 			return
 		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
-		visible_message(SPAN_NOTICE("[user] cuts down \the [src]."),
+		visible_message("<b>[user]</b> cuts down \the [src].",
 					SPAN_NOTICE("You cut down \the [src]."))
 		if(istype(src, /obj/structure/curtain/open/medical))
 			new /obj/item/stack/material/plastic(src.loc)

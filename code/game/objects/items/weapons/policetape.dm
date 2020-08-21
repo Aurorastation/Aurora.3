@@ -58,7 +58,7 @@ var/list/tape_roll_applications = list()
 /obj/item/taperoll/attack_self(mob/user as mob)
 	if(icon_state == "[icon_base]_start")
 		start = get_turf(src)
-		to_chat(usr, SPAN_NOTICE("You place the first end of the [src]."))
+		to_chat(usr, SPAN_NOTICE("You place the first end of [src]."))
 		icon_state = "[icon_base]_stop"
 	else
 		icon_state = "[icon_base]_start"
@@ -106,7 +106,7 @@ var/list/tape_roll_applications = list()
 				var/obj/item/tape/P = new tape_type(cur)
 				P.icon_state = "[P.icon_base]_[dir]"
 			cur = get_step_towards(cur,end)
-		to_chat(usr, SPAN_NOTICE("You finish placing the [src]."))	//Git Test)
+		to_chat(usr, SPAN_NOTICE("You finish placing [src]."))	//Git Test)
 
 /obj/item/taperoll/afterattack(var/atom/A, mob/user as mob, proximity)
 	if(!proximity)
@@ -118,7 +118,7 @@ var/list/tape_roll_applications = list()
 		P.forceMove(locate(T.x,T.y,T.z))
 		P.icon_state = "[src.icon_base]_door"
 		P.layer = 3.2
-		to_chat(user, SPAN_NOTICE("You finish placing the [src]."))
+		to_chat(user, SPAN_NOTICE("You finish placing [src]."))
 
 	if (istype(A, /turf/simulated/floor) ||istype(A, /turf/unsimulated/floor))
 		var/turf/F = A
@@ -128,7 +128,7 @@ var/list/tape_roll_applications = list()
 			tape_roll_applications[F] = 0
 
 		if(tape_roll_applications[F] & direction) // hazard_overlay in F.overlays wouldn't work.
-			user.visible_message("[user] uses the adhesive of \the [src] to remove area markings from \the [F].", "You use the adhesive of \the [src] to remove area markings from \the [F].")
+			user.visible_message("<b>[user]</b> uses the adhesive of \the [src] to remove area markings from \the [F].", "You use the adhesive of \the [src] to remove area markings from \the [F].")
 			F.cut_overlay(hazard_overlay, TRUE)
 			tape_roll_applications[F] &= ~direction
 		else
@@ -148,7 +148,7 @@ var/list/tape_roll_applications = list()
 		var/mob/M = mover
 		add_fingerprint(M)
 		if (!allowed(M))	//only select few learn art of not crumpling the tape
-			to_chat(M, "<span class='warning'>You are not supposed to go past [src]...</span>")
+			to_chat(M, SPAN_WARNING("You are not supposed to go past [src]..."))
 			crumple()
 	return ..(mover)
 
@@ -157,7 +157,7 @@ var/list/tape_roll_applications = list()
 
 /obj/item/tape/attack_hand(mob/user as mob)
 	if (user.a_intent == I_HELP && src.allowed(user))
-		user.show_viewers(SPAN_NOTICE("[user] lifts [src], allowing passage."))
+		user.show_viewers("<b>[user]</b> lifts [src], allowing passage.")
 		crumple()
 		lifted = 1
 		spawn(200)
@@ -169,9 +169,9 @@ var/list/tape_roll_applications = list()
 
 /obj/item/tape/proc/breaktape(obj/item/W as obj, mob/user as mob)
 	if(user.a_intent == I_HELP && ((!can_puncture(W) && src.allowed(user))))
-		to_chat(user, "You can't break the [src] with that!")
+		to_chat(user, "You can't break [src] with that!")
 		return
-	user.show_viewers(SPAN_NOTICE("[user] breaks the [src]!"))
+	user.show_viewers("<b>[user]</b> breaks [src]!")
 
 	var/dir[2]
 	var/icon_dir = src.icon_state

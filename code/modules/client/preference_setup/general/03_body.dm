@@ -574,7 +574,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				limb = BP_HEAD
 				carries_organs = 1
 			else
-				to_chat(user, "<span class='notice'>Cancelled.</span>")
+				to_chat(user, SPAN_NOTICE("Cancelled."))
 				return TOPIC_NOACTION
 
 		var/list/available_states = list("Normal","Amputated","Prosthesis")

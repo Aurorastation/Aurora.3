@@ -7,13 +7,13 @@
 	var/list/items_contained = list()
 	activators = list("eject contents" = IC_PINTYPE_PULSE_IN)
 	outputs = list("has item" = IC_PINTYPE_BOOLEAN)
-	power_draw_per_use = 1 
+	power_draw_per_use = 1
 	w_class = ITEMSIZE_NORMAL
 	size = 5
 	complexity = 1
 
 //call this function from components that want to get items from this component
-//set remove to FALSE if you dont want the item removed from the component and just want a reference to it 
+//set remove to FALSE if you dont want the item removed from the component and just want a reference to it
 //(e.g. for beakers)
 /obj/item/integrated_circuit/insert_slot/proc/get_item(var/remove = FALSE)
 	if(items_contained.len > 0)
@@ -29,7 +29,7 @@
 /obj/item/integrated_circuit/insert_slot/do_work()
 	for(var/obj/item/O in items_contained)
 		O.forceMove(get_turf(src))
-		visible_message("<span class='notice'>\The [src] drops [O] on the ground.</span>")
+		visible_message(SPAN_NOTICE("\The [src] drops [O] on the ground."))
 		items_contained -= O
 	set_pin_data(IC_OUTPUT, 1, FALSE)
 	push_data()
@@ -38,11 +38,11 @@
 /obj/item/integrated_circuit/insert_slot/proc/insert(var/obj/item/O, var/mob/user)
 	if(is_type_in_list(O, allowed_types))
 		if(items_contained.len >= capacity)
-			to_chat(user, "<span class='warning'>\The [src] is too full to add [O].</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is too full to add [O]."))
 			return FALSE
 		items_contained += O
 		user.drop_from_inventory(O,src)
-		to_chat(user, "<span class='notice'>You add [O] to \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You add [O] to \the [src]."))
 		set_pin_data(IC_OUTPUT, 1, TRUE)
 		return TRUE
 

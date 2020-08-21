@@ -38,7 +38,7 @@
 		update_icon()
 	name = "sawn-off bolt action rifle"
 	desc = "A shortened bolt action rifle, not really acurate. Uses 7.62mm rounds."
-	to_chat(user, "<span class='warning'>You shorten the barrel and stock of the rifle!</span>")
+	to_chat(user, SPAN_WARNING("You shorten the barrel and stock of the rifle!"))
 
 /obj/item/gun/projectile/shotgun/pump/rifle/obrez
 	name = "sawn-off bolt action rifle"
@@ -72,7 +72,7 @@
 
 /obj/item/gun/projectile/contender/special_check(mob/user)
 	if(retracted_bolt)
-		to_chat(user, "<span class='warning'>You can't fire \the [src] while the bolt is open!</span>")
+		to_chat(user, SPAN_WARNING("You can't fire \the [src] while the bolt is open!"))
 		return 0
 	return ..()
 
@@ -84,7 +84,7 @@
 		loaded -= C
 
 	if(!retracted_bolt)
-		to_chat(user, "<span class='notice'>You cycle back the bolt on \the [src], ejecting the casing and allowing you to reload.</span>")
+		to_chat(user, SPAN_NOTICE("You cycle back the bolt on \the [src], ejecting the casing and allowing you to reload."))
 		playsound(user, 'sound/weapons/riflebolt.ogg', 60, 1)
 		icon_state = icon_retracted
 		item_state = icon_retracted
@@ -94,10 +94,10 @@
 		return 1
 
 	else if(retracted_bolt && loaded.len)
-		to_chat(user, "<span class='notice'>You cycle the loaded round into the chamber, allowing you to fire.</span>")
+		to_chat(user, SPAN_NOTICE("You cycle the loaded round into the chamber, allowing you to fire."))
 
 	else
-		to_chat(user, "<span class='notice'>You cycle the bolt back into position, leaving the gun empty.</span>")
+		to_chat(user, SPAN_NOTICE("You cycle the bolt back into position, leaving the gun empty."))
 
 	icon_state = initial(icon_state)
 	item_state = initial(item_state)
@@ -109,13 +109,13 @@
 
 /obj/item/gun/projectile/contender/load_ammo(var/obj/item/A, mob/user)
 	if(!retracted_bolt)
-		to_chat(user, "<span class='notice'>You can't load \the [src] without cycling the bolt.</span>")
+		to_chat(user, SPAN_NOTICE("You can't load \the [src] without cycling the bolt."))
 		return
 	..()
 
 /obj/item/gun/projectile/contender/unload_ammo(mob/user, var/allow_dump=1)
 	if(!retracted_bolt)
-		to_chat(user, "<span class='notice'>You can't unload \the [src] without cycling the bolt.</span>")
+		to_chat(user, SPAN_NOTICE("You can't unload \the [src] without cycling the bolt."))
 		return
 	..()
 
@@ -155,15 +155,15 @@
 				else
 					add_overlay("springfield-clip-full")
 			else
-				to_chat(user, "<span class='warning'>There is no ammo in \the [has_clip.name]!</span>")
+				to_chat(user, SPAN_WARNING("There is no ammo in [has_clip]!"))
 		else if(!open_bolt)
-			to_chat(user, "<span class='warning'>The bolt on \the [src.name] is closed!</span>")
+			to_chat(user, SPAN_WARNING("The bolt on [src] is closed!"))
 		else
-			to_chat(user, "<span class='warning'>There is no clip in \the [src.name]!</span>")
+			to_chat(user, SPAN_WARNING("There is no clip in [src]!"))
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/pump(mob/M as mob)
 	if(!wielded)
-		to_chat(M, "<span class='warning'>You cannot work \the [src]'s bolt without gripping it with both hands!</span>")
+		to_chat(M, SPAN_WARNING("You cannot work \the [src]'s bolt without gripping it with both hands!"))
 		return
 	if(!open_bolt)
 		open_bolt = 1
@@ -194,12 +194,12 @@
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/attackby(var/obj/item/A as obj, mob/user as mob)
 	if(istype(A, /obj/item/ammo_magazine/boltaction/vintage))
 		if(!open_bolt)
-			to_chat(user, "<span class='notice'>You need to open the bolt of \the [src] first.</span>")
+			to_chat(user, SPAN_NOTICE("You need to open the bolt of \the [src] first."))
 			return
 		if(!has_clip)
 			user.drop_from_inventory(A,src)
 			has_clip = A
-			to_chat(user, "<span class='notice'>You load the clip into \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You load the clip into \the [src]."))
 			if(!has_clip.stored_ammo.len)
 				add_overlay("springfield-clip-empty")
 			else if(has_clip.stored_ammo.len <= 3)
@@ -207,20 +207,20 @@
 			else
 				add_overlay("springfield-clip-full")
 		else
-			to_chat(user, "<span class='notice'>There's already a clip in \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("There's already a clip in \the [src]."))
 
 	else
 		..()
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/load_ammo(var/obj/item/A, mob/user)
 	if(!open_bolt)
-		to_chat(user, "<span class='warning'>The bolt is closed on \the [src]!</span>")
+		to_chat(user, SPAN_WARNING("The bolt is closed on \the [src]!"))
 		return
 	..()
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 	if(open_bolt)
-		to_chat(user, "<span class='warning'>The bolt is open on \the [src]!</span>")
+		to_chat(user, SPAN_WARNING("The bolt is open on \the [src]!"))
 		return
 	..()
 

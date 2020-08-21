@@ -20,15 +20,15 @@
 
 	opened = !opened
 	if(opened)
-		to_chat(usr, "<span class='notice'>The access panel is now open.</span>")
+		to_chat(usr, SPAN_NOTICE("The access panel is now open."))
 	else
-		to_chat(usr, "<span class='notice'>The access panel is now closed.</span>")
+		to_chat(usr, SPAN_NOTICE("The access panel is now closed."))
 	return
 
 
 /obj/machinery/computer/aiupload/attackby(obj/item/O as obj, mob/user as mob)
 	if(isNotStationLevel(src.z))
-		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
+		to_chat(user, SPAN_DANGER("Unable to establish a connection:"))
 		return
 	if(istype(O, /obj/item/aiModule))
 		var/obj/item/aiModule/M = O
@@ -69,7 +69,7 @@
 
 /obj/machinery/computer/borgupload/attackby(obj/item/aiModule/module as obj, mob/user as mob)
 	if(isNotStationLevel(src.z))
-		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
+		to_chat(user, SPAN_DANGER("Unable to establish a connection:"))
 		return
 	if(istype(module, /obj/item/aiModule))
 		module.install(src)

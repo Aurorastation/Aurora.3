@@ -157,7 +157,7 @@
 	else if(istype(target, /obj/item/storage) && !istype(target, /obj/item/storage/pill_bottle) && !istype(target, /obj/item/storage/secure))
 		for(var/obj/item/C in target.contents)
 			if(grip_item(C, user, 0))
-				to_chat(user, SPAN_NOTICE("You grab \the [C] from inside \the [target.name]."))
+				to_chat(user, SPAN_NOTICE("You grab \the [C] from inside [target]."))
 				return
 		to_chat(user, SPAN_NOTICE("There is nothing inside the box that your gripper can collect."))
 		return

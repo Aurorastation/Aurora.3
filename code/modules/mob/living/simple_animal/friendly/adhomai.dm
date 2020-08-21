@@ -39,7 +39,7 @@
 	if(!.)
 		return
 	if(!stat && prob(3) && eggsleft > 0)
-		visible_message("[src] lays an egg.")
+		visible_message("<b>[src]</b> lays an egg.")
 		eggsleft--
 		new /obj/item/reagent_containers/food/snacks/egg(get_turf(src))
 

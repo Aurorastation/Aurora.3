@@ -101,7 +101,7 @@
 	if(src.ckey || src.client)
 		to_chat(possessor, SPAN_WARNING("\The [src] already has a player."))
 		return FALSE
-	message_admins("<span class='adminnotice'>[key_name_admin(possessor)] has taken control of \the [src].</span>")
+	message_admins(span("adminnotice", "[key_name_admin(possessor)] has taken control of \the [src]."))
 	log_admin("[key_name(possessor)] took control of \the [src].",ckey=key_name(possessor))
 	transfer_personality(possessor.client)
 	qdel(possessor)
@@ -469,9 +469,9 @@
 	var/turf/T = get_turf(src)
 	if (!T || AreConnectedZLevels(my_home_z, T.z))
 		return FALSE
-	
+
 	if(!self_destructing)
-		to_chat(src, SPAN_DANGER("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))		
+		to_chat(src, SPAN_DANGER("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
 		start_self_destruct(TRUE)
 	return TRUE
 

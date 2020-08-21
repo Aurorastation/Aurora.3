@@ -18,7 +18,7 @@
 		return ..()
 	imp.forceMove(get_turf(src))
 	user.put_in_hands(imp)
-	to_chat(user, "<span class='notice'>You remove \the [imp] from \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You remove \the [imp] from \the [src]."))
 	name = "implanter"
 	imp = null
 	update()
@@ -35,7 +35,7 @@
 	if (!istype(M, /mob/living/carbon))
 		return
 	if (user && src.imp)
-		M.visible_message("<span class='warning'>[user] is attemping to implant [M].</span>")
+		M.visible_message(SPAN_WARNING("[user] is attemping to implant [M]."))
 
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 		user.do_attack_animation(M)
@@ -43,9 +43,9 @@
 		var/turf/T1 = get_turf(M)
 		if (T1 && ((M == user) || do_after(user, 50)))
 			if(user && M && (get_turf(M) == T1) && src && src.imp)
-				M.visible_message("<span class='warning'>[M] has been implanted by [user].</span>")
+				M.visible_message(SPAN_WARNING("[M] has been implanted by [user]."))
 
-				admin_attack_log(user, M, "Implanted using \the [src.name] ([src.imp.name])", "Implanted with \the [src.name] ([src.imp.name])", "used an implanter, [src.name] ([src.imp.name]), on")
+				admin_attack_log(user, M, "Implanted using [src] ([src.imp.name])", "Implanted with [src] ([src.imp.name])", "used an implanter, [src.name] ([src.imp.name]), on")
 
 				if(src.imp.implanted(M, user))
 					src.imp.forceMove(M)
@@ -128,7 +128,7 @@
 	if(istype(A,/obj/item) && imp)
 		var/obj/item/implant/compressed/c = imp
 		if (c.scanned)
-			to_chat(user, "<span class='warning'>Something is already scanned inside the implant!</span>")
+			to_chat(user, SPAN_WARNING("Something is already scanned inside the implant!"))
 			return
 		c.scanned = A
 		if(istype(A.loc,/mob/living/carbon/human))

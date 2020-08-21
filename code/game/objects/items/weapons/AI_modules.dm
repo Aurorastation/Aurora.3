@@ -371,7 +371,7 @@ AI MODULES
 	log_law_changes(target, sender)
 
 	lawchanges.Add("The law is '[newFreeFormLaw]'")
-	to_chat(target, "<span class='danger'>BZZZZT</span>")
+	to_chat(target, SPAN_DANGER("BZZZZT"))
 	var/law = "[newFreeFormLaw]"
 	target.add_ion_law(law)
 	target.show_laws()

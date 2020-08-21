@@ -79,7 +79,7 @@
 		if(L.reagents)
 			L.reagents.add_reagent(/datum/reagent/toxin, poison_per_bite)
 			if(prob(poison_per_bite) && (!issilicon(L) && !isipc(L)))
-				to_chat(L, "<span class='warning'>You feel a tiny prick.</span>")
+				to_chat(L, SPAN_WARNING("You feel a tiny prick."))
 				L.reagents.add_reagent(poison_type, 5)
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/AttackingTarget()
@@ -91,7 +91,7 @@
 			if(!(O.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT)) && (O.limb_flags & ORGAN_CAN_AMPUTATE))
 				var/eggs = new /obj/effect/spider/eggcluster(O, src)
 				O.implants += eggs
-				to_chat(H, "<span class='warning'>The [src] injects something into your [O.name]!</span>")
+				to_chat(H, SPAN_WARNING("The [src] injects something into your [O.name]!"))
 
 /mob/living/simple_animal/hostile/giant_spider/think()
 	..()
@@ -130,7 +130,7 @@
 				var/obj/effect/spider/stickyweb/W = locate() in get_turf(src)
 				if(!W)
 					busy = SPINNING_WEB
-					src.visible_message("<span class='notice'>\The [src] begins to secrete a sticky substance.</span>")
+					src.visible_message(SPAN_NOTICE("\The [src] begins to secrete a sticky substance."))
 					stop_automated_movement = 1
 					addtimer(CALLBACK(src, .proc/finalize_web), 40, TIMER_UNIQUE)
 				else
@@ -138,7 +138,7 @@
 					var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 					if(!E && fed > 0)
 						busy = LAYING_EGGS
-						src.visible_message("<span class='notice'>\The [src] begins to lay a cluster of eggs.</span>")
+						src.visible_message(SPAN_NOTICE("\The [src] begins to lay a cluster of eggs."))
 						stop_automated_movement = 1
 						addtimer(CALLBACK(src, .proc/finalize_eggs), 50, TIMER_UNIQUE)
 					else
@@ -158,7 +158,7 @@
 			else if(busy == MOVING_TO_TARGET && cocoon_target)
 				if(get_dist(src, cocoon_target) <= 1)
 					busy = SPINNING_COCOON
-					src.visible_message("<span class='notice'>\The [src] begins to secrete a sticky substance around \the [cocoon_target].</span>")
+					src.visible_message(SPAN_NOTICE("\The [src] begins to secrete a sticky substance around \the [cocoon_target]."))
 					stop_automated_movement = 1
 					walk(src,0)
 					addtimer(CALLBACK(src, .proc/finalize_cocoon), 50, TIMER_UNIQUE)
@@ -203,7 +203,7 @@
 						continue
 					large_cocoon = 1
 					fed++
-					src.visible_message("<span class='warning'>\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out.</span>")
+					src.visible_message(SPAN_WARNING("\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out."))
 					playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 					M.forceMove(C)
 					C.pixel_x = M.pixel_x

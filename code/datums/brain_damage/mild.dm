@@ -122,17 +122,17 @@
 			if(1)
 				if(ishuman(owner))
 					var/mob/living/carbon/human/H = owner
-					to_chat(owner, "<span class='notice'>Your stomach writhes with pain.</span>")
+					to_chat(owner, SPAN_NOTICE("Your stomach writhes with pain."))
 					H.vomit()
 			if(2,3)
-				to_chat(owner, "<span class='notice'>You feel light-headed.</span>")
+				to_chat(owner, SPAN_NOTICE("You feel light-headed."))
 				owner.dizziness = max(owner.slurring, 10)
 			if(4,5)
-				to_chat(owner, "<span class='notice'>it becomes hard to see for some reason.</span>")
+				to_chat(owner, SPAN_NOTICE("it becomes hard to see for some reason."))
 				owner.confused = max(owner.slurring, 10)
 				owner.apply_effect(10,EYE_BLUR)
 			if(6 to 9)
-				to_chat(owner, "<span class='notice'>Your tongue feels thick in your mouth.</span>")
+				to_chat(owner, SPAN_NOTICE("Your tongue feels thick in your mouth."))
 				owner.slurring = max(owner.slurring, 30)
 
 	..()
@@ -156,7 +156,7 @@
 	if(owner.m_intent == "run")
 		fall_chance += 15
 	if(prob(fall_chance) && !owner.lying && !owner.buckled)
-		to_chat(owner, "<span class='warning'>Your leg gives out!</span>")
+		to_chat(owner, SPAN_WARNING("Your leg gives out!"))
 		owner.Weaken(5)
 
 	else if(owner.get_active_hand())
@@ -164,10 +164,10 @@
 		var/obj/item/I = owner.get_active_hand()
 		drop_chance += I.w_class
 		if(prob(drop_chance) && owner.drop_from_inventory(I))
-			to_chat(owner, "<span class='warning'>You drop [I]!</span>")
+			to_chat(owner, SPAN_WARNING("You drop [I]!"))
 
 	else if(prob(3))
-		to_chat(owner, "<span class='warning'>You feel a sudden weakness in your muscles!</span>")
+		to_chat(owner, SPAN_WARNING("You feel a sudden weakness in your muscles!"))
 		owner.adjustHalLoss(25)
 	..()
 
@@ -184,14 +184,14 @@
 		switch(rand(1,5))
 			if(1)
 				if(owner.canmove)
-					to_chat(owner, "<span class='warning'>Your leg spasms!</span>")
+					to_chat(owner, SPAN_WARNING("Your leg spasms!"))
 					step(owner, pick(cardinal))
 			if(2)
 				if(owner.incapacitated())
 					return
 				var/obj/item/I = owner.get_active_hand()
 				if(I)
-					to_chat(owner, "<span class='warning'>Your fingers spasm!</span>")
+					to_chat(owner, SPAN_WARNING("Your fingers spasm!"))
 					I.attack_self(owner)
 			if(3)
 				var/prev_intent = owner.a_intent
@@ -209,13 +209,13 @@
 						if(isliving(M))
 							targets += M
 				if(LAZYLEN(targets))
-					to_chat(owner, "<span class='warning'>Your arm spasms!</span>")
+					to_chat(owner, SPAN_WARNING("Your arm spasms!"))
 					owner.ClickOn(pick(targets))
 				owner.set_intent(prev_intent)
 			if(4)
 				var/prev_intent = owner.a_intent
 				owner.set_intent(I_HURT)
-				to_chat(owner, "<span class='warning'>Your arm spasms!</span>")
+				to_chat(owner, SPAN_WARNING("Your arm spasms!"))
 				owner.ClickOn(owner)
 				owner.set_intent(prev_intent)
 			if(5)
@@ -226,7 +226,7 @@
 				for(var/turf/T in oview(owner, 3))
 					targets += T
 				if(LAZYLEN(targets) && I)
-					to_chat(owner, "<span class='warning'>Your arm spasms!</span>")
+					to_chat(owner, SPAN_WARNING("Your arm spasms!"))
 					owner.throw_item(pick(targets))
 	..()
 

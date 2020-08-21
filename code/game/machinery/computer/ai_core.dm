@@ -18,7 +18,7 @@
 			if(P.iswrench())
 				playsound(loc, P.usesound, 50, 1)
 				if(do_after(user, 20/P.toolspeed))
-					to_chat(user, "<span class='notice'>You wrench the frame into place.</span>")
+					to_chat(user, SPAN_NOTICE("You wrench the frame into place."))
 					anchored = 1
 					state = 1
 			if(P.iswelder())
@@ -29,30 +29,30 @@
 				playsound(loc, 'sound/items/welder.ogg', 50, 1)
 				if(do_after(user, 20/P.toolspeed))
 					if(!src || !WT.remove_fuel(0, user)) return
-					to_chat(user, "<span class='notice'>You deconstruct the frame.</span>")
+					to_chat(user, SPAN_NOTICE("You deconstruct the frame."))
 					new /obj/item/stack/material/plasteel( loc, 4)
 					qdel(src)
 		if(1)
 			if(P.iswrench())
 				playsound(loc, P.usesound, 50, 1)
 				if(do_after(user, 20/P.toolspeed))
-					to_chat(user, "<span class='notice'>You unfasten the frame.</span>")
+					to_chat(user, SPAN_NOTICE("You unfasten the frame."))
 					anchored = 0
 					state = 0
 			if(istype(P, /obj/item/circuitboard/aicore) && !circuit)
 				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
-				to_chat(user, "<span class='notice'>You place the circuit board inside the frame.</span>")
+				to_chat(user, SPAN_NOTICE("You place the circuit board inside the frame."))
 				icon_state = "1"
 				circuit = P
 				user.drop_from_inventory(P,src)
 			if(P.isscrewdriver() && circuit)
 				playsound(loc, P.usesound, 50, 1)
-				to_chat(user, "<span class='notice'>You screw the circuit board into place.</span>")
+				to_chat(user, SPAN_NOTICE("You screw the circuit board into place."))
 				state = 2
 				icon_state = "2"
 			if(P.iscrowbar() && circuit)
 				playsound(loc, P.usesound, 50, 1)
-				to_chat(user, "<span class='notice'>You remove the circuit board.</span>")
+				to_chat(user, SPAN_NOTICE("You remove the circuit board."))
 				state = 1
 				icon_state = "0"
 				circuit.forceMove(loc)
@@ -60,21 +60,21 @@
 		if(2)
 			if(P.isscrewdriver() && circuit)
 				playsound(loc,  P.usesound, 50, 1)
-				to_chat(user, "<span class='notice'>You unfasten the circuit board.</span>")
+				to_chat(user, SPAN_NOTICE("You unfasten the circuit board."))
 				state = 1
 				icon_state = "1"
 			if(P.iscoil())
 				var/obj/item/stack/cable_coil/C = P
 				if (C.get_amount() < 5)
-					to_chat(user, "<span class='warning'>You need five coils of wire to add them to the frame.</span>")
+					to_chat(user, SPAN_WARNING("You need five coils of wire to add them to the frame."))
 					return
-				to_chat(user, "<span class='notice'>You start to add cables to the frame.</span>")
+				to_chat(user, SPAN_NOTICE("You start to add cables to the frame."))
 				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
 				if (do_after(user, 20) && state == 2)
 					if (C.use(5))
 						state = 3
 						icon_state = "3"
-						to_chat(user, "<span class='notice'>You add cables to the frame.</span>")
+						to_chat(user, SPAN_NOTICE("You add cables to the frame."))
 				return
 		if(3)
 			if(P.iswirecutter())
@@ -82,7 +82,7 @@
 					to_chat(user, "Get that brain out of there first")
 				else
 					playsound(loc, 'sound/items/wirecutter.ogg', 50, 1)
-					to_chat(user, "<span class='notice'>You remove the cables.</span>")
+					to_chat(user, SPAN_NOTICE("You remove the cables."))
 					state = 2
 					icon_state = "2"
 					var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( loc )
@@ -91,13 +91,13 @@
 			if(istype(P, /obj/item/stack/material) && P.get_material_name() == "rglass")
 				var/obj/item/stack/RG = P
 				if (RG.get_amount() < 2)
-					to_chat(user, "<span class='warning'>You need two sheets of glass to put in the glass panel.</span>")
+					to_chat(user, SPAN_WARNING("You need two sheets of glass to put in the glass panel."))
 					return
-				to_chat(user, "<span class='notice'>You start to put in the glass panel.</span>")
+				to_chat(user, SPAN_NOTICE("You start to put in the glass panel."))
 				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
 				if (do_after(user, 20) && state == 3)
 					if(RG.use(2))
-						to_chat(user, "<span class='notice'>You put in the glass panel.</span>")
+						to_chat(user, SPAN_NOTICE("You put in the glass panel."))
 						state = 4
 						icon_state = "4"
 
@@ -126,14 +126,14 @@
 			if(istype(P, /obj/item/device/mmi))
 				var/obj/item/device/mmi/M = P
 				if(!M.brainmob)
-					to_chat(user, "<span class='warning'>Sticking an empty [P] into the frame would sort of defeat the purpose.</span>")
+					to_chat(user, SPAN_WARNING("Sticking an empty [P] into the frame would sort of defeat the purpose."))
 					return
 				if(M.brainmob.stat == 2)
-					to_chat(user, "<span class='warning'>Sticking a dead [P] into the frame would sort of defeat the purpose.</span>")
+					to_chat(user, SPAN_WARNING("Sticking a dead [P] into the frame would sort of defeat the purpose."))
 					return
 
 				if(jobban_isbanned(M.brainmob, "AI"))
-					to_chat(user, "<span class='warning'>This [P] does not seem to fit.</span>")
+					to_chat(user, SPAN_WARNING("This [P] does not seem to fit."))
 					return
 
 				if(M.brainmob.mind)
@@ -146,7 +146,7 @@
 
 			if(P.iscrowbar() && brain)
 				playsound(loc, P.usesound, 50, 1)
-				to_chat(user, "<span class='notice'>You remove the brain.</span>")
+				to_chat(user, SPAN_NOTICE("You remove the brain."))
 				brain.forceMove(loc)
 				brain = null
 				icon_state = "3"
@@ -154,7 +154,7 @@
 		if(4)
 			if(P.iscrowbar())
 				playsound(loc, P.usesound, 50, 1)
-				to_chat(user, "<span class='notice'>You remove the glass panel.</span>")
+				to_chat(user, SPAN_NOTICE("You remove the glass panel."))
 				state = 3
 				if (brain)
 					icon_state = "3b"
@@ -165,7 +165,7 @@
 
 			if(P.isscrewdriver())
 				playsound(loc,  P.usesound, 50, 1)
-				to_chat(user, "<span class='notice'>You connect the monitor.</span>")
+				to_chat(user, SPAN_NOTICE("You connect the monitor."))
 				if(!brain)
 					var/open_for_latejoin = alert(user, "Would you like this core to be open for latejoining AIs?", "Latejoin", "Yes", "Yes", "No") == "Yes"
 					var/obj/structure/AIcore/deactivated/D = new(loc)
@@ -228,19 +228,19 @@
 		return
 	else if(W.iswrench())
 		if(anchored)
-			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] starts to unbolt \the [src] from the plating..."))
 			if(!do_after(user,40/W.toolspeed))
-				user.visible_message("<span class='notice'>\The [user] decides not to unbolt \the [src].</span>")
+				user.visible_message(SPAN_NOTICE("\The [user] decides not to unbolt \the [src]."))
 				return
-			user.visible_message("<span class='notice'>\The [user] finishes unfastening \the [src]!</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] finishes unfastening \the [src]!"))
 			anchored = 0
 			return
 		else
-			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the plating...</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] starts to bolt \the [src] to the plating..."))
 			if(!do_after(user,40/W.toolspeed))
-				user.visible_message("<span class='notice'>\The [user] decides not to bolt \the [src].</span>")
+				user.visible_message(SPAN_NOTICE("\The [user] decides not to bolt \the [src]."))
 				return
-			user.visible_message("<span class='notice'>\The [user] finishes fastening down \the [src]!</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] finishes fastening down \the [src]!"))
 			anchored = 1
 			return
 	else

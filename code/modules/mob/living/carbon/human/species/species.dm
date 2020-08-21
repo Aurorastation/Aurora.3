@@ -291,10 +291,10 @@
 	switch(msg_type)
 		if("cold")
 			if(!covered)
-				to_chat(H, "<span class='danger'>[pick(cold_discomfort_strings)]</span>")
+				to_chat(H, SPAN_DANGER("[pick(cold_discomfort_strings)]"))
 		if("heat")
 			if(covered)
-				to_chat(H, "<span class='danger'>[pick(heat_discomfort_strings)]</span>")
+				to_chat(H, SPAN_DANGER("[pick(heat_discomfort_strings)]"))
 
 /datum/species/proc/sanitize_name(var/name)
 	return sanitizeName(name)
@@ -381,12 +381,12 @@
 	if(H.on_fire)
 		target.fire_stacks += 1
 		target.IgniteMob()
-		H.visible_message("<span class='danger'>[H] taps [target], setting [t_him] ablaze!</span>", \
-						"<span class='warning'>You tap [target], setting [t_him] ablaze!</span>")
+		H.visible_message(SPAN_DANGER("[H] taps [target], setting [t_him] ablaze!"), \
+						SPAN_WARNING("You tap [target], setting [t_him] ablaze!"))
 		msg_admin_attack("[key_name(H)] spread fire to [target.name] ([target.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(target))
 	else
-		H.visible_message("<span class='notice'>[H] taps [target] to get [t_his] attention!</span>", \
-						"<span class='notice'>You tap [target] to get [t_his] attention!</span>")
+		H.visible_message(SPAN_NOTICE("[H] taps [target] to get [t_his] attention!"), \
+						SPAN_NOTICE("You tap [target] to get [t_his] attention!"))
 
 /datum/species/proc/remove_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)

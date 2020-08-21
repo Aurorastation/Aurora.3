@@ -125,12 +125,12 @@
 	if (stat & POWEROFF)//Its turned off
 		stat &= ~POWEROFF
 		use_power = 1
-		user.visible_message("[user] turns [src] on.", "You turn on [src].")
+		user.visible_message("<b>[user]</b> turns [src] on.", "You turn on [src].")
 
 	else //Its on, turn it off
 		stat |= POWEROFF
 		use_power = 0
-		user.visible_message("[user] turns [src] off.", "You turn off [src].")
+		user.visible_message("<b>[user]</b> turns [src] off.", "You turn off [src].")
 
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
 	update_icon()
@@ -163,10 +163,10 @@
 			return
 		if(choice == "Default")
 			selected_option = null
-			to_chat(usr, "<span class='notice'>You decide not to make anything specific with \the [src].</span>")
+			to_chat(usr, SPAN_NOTICE("You decide not to make anything specific with \the [src]."))
 		else
 			selected_option = choice
-			to_chat(usr, "<span class='notice'>You prepare \the [src] to make \a [selected_option] with the next thing you put in. Try putting several ingredients in a container!</span>")
+			to_chat(usr, SPAN_NOTICE("You prepare \the [src] to make \a [selected_option] with the next thing you put in. Try putting several ingredients in a container!"))
 
 //Handles all validity checking and error messages for inserting things
 /obj/machinery/appliance/proc/can_insert(var/obj/item/I, var/mob/user)
@@ -178,18 +178,18 @@
 	if(istype(G))
 
 		if(!can_cook_mobs)
-			to_chat(user, "<span class='warning'>That's not going to fit.</span>")
+			to_chat(user, SPAN_WARNING("That's not going to fit."))
 			return 0
 
 		if(!isliving(G.affecting))
-			to_chat(user, "<span class='warning'>You can't cook that.</span>")
+			to_chat(user, SPAN_WARNING("You can't cook that."))
 			return 0
 
 		return 2
 
 
 	if (!has_space(I))
-		to_chat(user, "<span class='warning'>There's no room in [src] for that!</span>")
+		to_chat(user, SPAN_WARNING("There's no room in [src] for that!"))
 		return 0
 
 
@@ -199,18 +199,18 @@
 	// We're trying to cook something else. Check if it's valid.
 	var/obj/item/reagent_containers/food/snacks/check = I
 	if(istype(check) && islist(check.cooked) && (cook_type in check.cooked))
-		to_chat(user, "<span class='warning'>\The [check] has already been [cook_type].</span>")
+		to_chat(user, SPAN_WARNING("\The [check] has already been [cook_type]."))
 		return 0
 	else if(istype(check, /obj/item/reagent_containers/glass))
-		to_chat(user, "<span class='warning'>That would probably break [src].</span>")
+		to_chat(user, SPAN_WARNING("That would probably break [src]."))
 		return 0
 	else if(istype(check, /obj/item/disk/nuclear))
-		to_chat(user, "<span class='warning'>You can't cook that.</span>")
+		to_chat(user, SPAN_WARNING("You can't cook that."))
 		return 0
 	else if(I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/storage/part_replacer))
 		return 0
 	else if(!istype(check) && !istype(check, /obj/item/holder))
-		to_chat(user, "<span class='warning'>That's not edible.</span>")
+		to_chat(user, SPAN_WARNING("That's not edible."))
 		return 0
 
 	return 1
@@ -225,7 +225,7 @@
 
 /obj/machinery/appliance/attackby(var/obj/item/I, var/mob/user)
 	if(!cook_type || (stat & (BROKEN)))
-		to_chat(user, "<span class='warning'>\The [src] is not working.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is not working."))
 		return
 
 	var/result = can_insert(I, user)
@@ -368,7 +368,7 @@
 
 /obj/machinery/appliance/proc/finish_cooking(var/datum/cooking_item/CI)
 
-	src.visible_message("<span class='notice'>\The [src] pings!</span>")
+	src.visible_message(SPAN_NOTICE("\The [src] pings!"))
 	if(cooked_sound)
 		playsound(get_turf(src), cooked_sound, 50, 1)
 	//Check recipes first, a valid recipe overrides other options
@@ -520,7 +520,7 @@
 	new /obj/item/reagent_containers/food/snacks/badrecipe(CI.container)
 
 	// Produce nasty smoke.
-	visible_message("<span class='danger'>\The [src] vomits a gout of rancid smoke!</span>")
+	visible_message(SPAN_DANGER("\The [src] vomits a gout of rancid smoke!"))
 	var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad
 	smoke.attach(src)
 	smoke.set_up(10, 0, get_turf(src), 300)

@@ -18,7 +18,7 @@
 					var/amountToRemove = min((maxWaterLevel - waterlevel), RC.reagents.total_volume)
 					RC.reagents.remove_reagent(/datum/reagent/water, amountToRemove, 1)
 					waterlevel += amountToRemove
-					user.visible_message("[user] pours [amountToRemove]u of water into the soil."," You pour [amountToRemove]u of water into the soil.")
+					user.visible_message("<b>[user]</b> pours [amountToRemove]u of water into the soil."," You pour [amountToRemove]u of water into the soil.")
 				else
 					to_chat(user, "The soil is saturated with water already.")
 				return 1
@@ -28,7 +28,7 @@
 	if(istype(O,/obj/item/shovel))
 		if(do_after(user, 50/O.toolspeed))
 			new /obj/item/stack/material/sandstone{amount = 3}(loc)
-			to_chat(user, "<span class='notice'>You remove the soil from the bed and dismantle the sandstone base.</span>")
+			to_chat(user, SPAN_NOTICE("You remove the soil from the bed and dismantle the sandstone base."))
 			playsound(src, 'sound/effects/stonedoor_openclose.ogg', 40, 1)
 			qdel(src)
 	else

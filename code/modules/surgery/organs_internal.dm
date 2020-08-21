@@ -53,7 +53,7 @@
 
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I))
-			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
+			user.visible_message("<b>[user]</b> starts treating damage to [target]'s [I.name] with [tool_name].", \
 			"You start treating damage to [target]'s [I.name] with [tool_name]." )
 
 	target.custom_pain("The pain in your [affected.name] is living hell!", 75)
@@ -267,7 +267,7 @@
 	return ..()
 
 /decl/surgery_step/internal/remove_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("[user] starts removing [target]'s [target.op_stage.current_organ] with \the [tool].", \
+	user.visible_message("<b>[user]</b> starts removing [target]'s [target.op_stage.current_organ] with \the [tool].", \
 		"You start removing [target]'s [target.op_stage.current_organ] with \the [tool].")
 	target.custom_pain("Someone's ripping out your [target.op_stage.current_organ]!", 75)
 	..()
@@ -366,7 +366,7 @@
 		if(O && affected.limb_name == O.parent_organ)
 			organ_compatible = TRUE
 		else
-			to_chat(user, SPAN_WARNING("\The [O.organ_tag] [o_do] normally go in \the [affected.name]."))
+			to_chat(user, SPAN_WARNING("\The [O.organ_tag] [o_do] normally go in [affected]."))
 			return SURGERY_FAILURE
 	else
 		to_chat(user, SPAN_WARNING("You're pretty sure [target.species.name_plural] don't normally have [o_a][O.organ_tag]."))
@@ -376,7 +376,7 @@
 
 /decl/surgery_step/internal/replace_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts transplanting \the [tool] into [target]'s [affected.name].", \
+	user.visible_message("<b>[user]</b> starts transplanting \the [tool] into [target]'s [affected.name].", \
 		"You start transplanting \the [tool] into [target]'s [affected.name].")
 	target.custom_pain("Someone's rooting around in your [affected.name]!", 75)
 	..()
@@ -431,7 +431,7 @@
 	return TRUE
 
 /decl/surgery_step/internal/attach_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("[user] begins reattaching [target]'s [target.op_stage.current_organ] with \the [tool].", \
+	user.visible_message("<b>[user]</b> begins reattaching [target]'s [target.op_stage.current_organ] with \the [tool].", \
 		"You start reattaching [target]'s [target.op_stage.current_organ] with \the [tool].")
 	target.custom_pain("Someone's digging needles into your [target.op_stage.current_organ]!", 75)
 	..()
@@ -482,7 +482,7 @@
 
 /decl/surgery_step/internal/lobotomize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/internal/brain/B = target.op_stage.current_organ
-	user.visible_message("[user] begins to modify [target]'s [B] to remove their memory recall with \the [tool].", \
+	user.visible_message("<b>[user]</b> begins to modify [target]'s [B] to remove their memory recall with \the [tool].", \
 		"You start to modify [target]'s [B] to remove their memory recall with \the [tool].")
 	target.custom_pain("Someone's scraping away at your [B]!", 75)
 	..()

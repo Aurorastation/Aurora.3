@@ -29,7 +29,7 @@
 
 /decl/surgery_step/fix_vein/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts patching the damaged vein in [target]'s [affected.name] with \the [tool]." , \
+	user.visible_message("<b>[user]</b> starts patching the damaged vein in [target]'s [affected.name] with \the [tool]." , \
 		"You start patching the damaged [affected.artery_name] in [target]'s [affected.name] with \the [tool].")
 	target.custom_pain("The pain in your [affected.name] is unbearable!", 100)
 	..()
@@ -90,7 +90,7 @@
 		if((I.status & ORGAN_DEAD) && !BP_IS_ROBOTIC(I))
 			organ = I
 			break
-	user.visible_message("[user] starts cutting away necrotic tissue from [target]'s [organ.name] with \the [tool]." , \
+	user.visible_message("<b>[user]</b> starts cutting away necrotic tissue from [target]'s [organ.name] with \the [tool]." , \
 	"You start cutting away necrotic tissue from [target]'s [organ.name] with \the [tool].[organ.max_damage > 15 ? " Some of it has to be cut away permanently." : ""]")
 	target.custom_pain("The pain in your [affected.name] is unbearable!", 75)
 	..()
@@ -148,7 +148,7 @@
 
 /decl/surgery_step/treat_necrosis/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts applying medication to the affected tissue in [target]'s [affected.name] with \the [tool]." , \
+	user.visible_message("<b>[user]</b> starts applying medication to the affected tissue in [target]'s [affected.name] with \the [tool]." , \
 	"You start applying medication to the affected tissue in [target]'s [affected.name] with \the [tool].")
 	target.custom_pain("Something in your [affected.name] is causing you a lot of pain!", 75)
 	..()
@@ -166,7 +166,7 @@
 			affected.status &= ~ORGAN_DEAD
 			affected.owner.update_body(1)
 
-		user.visible_message(SPAN_NOTICE("[user] applies [trans] units of the solution to affected tissue in [target]'s [affected.name]"), \
+		user.visible_message("<b>[user]</b> applies [trans] units of the solution to affected tissue in [target]'s [affected.name]", \
 			SPAN_NOTICE("You apply [trans] units of the solution to affected tissue in [target]'s [affected.name] with \the [tool]."))
 
 /decl/surgery_step/treat_necrosis/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -204,7 +204,7 @@
 
 /decl/surgery_step/fix_tendon/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts reattaching the damaged [affected.tendon_name] in [target]'s [affected.name] with \the [tool]." , \
+	user.visible_message("<b>[user]</b> starts reattaching the damaged [affected.tendon_name] in [target]'s [affected.name] with \the [tool]." , \
 		"You start reattaching the damaged [affected.tendon_name] in [target]'s [affected.name] with \the [tool].")
 	target.custom_pain("The pain in your [affected.name] is unbearable!", 100)
 	..()
@@ -249,7 +249,7 @@
 	return (target_zone == BP_CHEST) && istype(target.back, /obj/item/rig) && !(target.back.canremove)
 
 /decl/surgery_step/hardsuit/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("[user] starts cutting through the support systems of [target]'s [target.back] with \the [tool]." , \
+	user.visible_message("<b>[user]</b> starts cutting through the support systems of [target]'s [target.back] with \the [tool]." , \
 		"You start cutting through the support systems of [target]'s [target.back] with \the [tool].")
 	..()
 

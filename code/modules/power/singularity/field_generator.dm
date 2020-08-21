@@ -77,7 +77,7 @@ field_generator power level display
 				to_chat(user, "You are unable to turn off the [src.name] once it is online.")
 				return 1
 			else
-				user.visible_message("[user.name] turns on the [src.name]", \
+				user.visible_message("<b>[user.name]</b> turns on the [src.name]", \
 					"You turn on the [src.name].", \
 					"You hear heavy droning")
 				turn_on()
@@ -98,31 +98,31 @@ field_generator power level display
 			if(0)
 				state = 1
 				playsound(src.loc, W.usesound, 75, 1)
-				user.visible_message("[user.name] secures [src.name] to the floor.", \
+				user.visible_message("<b>[user.name]</b> secures [src.name] to the floor.", \
 					"You secure the external reinforcing bolts to the floor.", \
 					"You hear ratchet")
 				src.anchored = 1
 			if(1)
 				state = 0
 				playsound(src.loc, W.usesound, 75, 1)
-				user.visible_message("[user.name] unsecures [src.name] reinforcing bolts from the floor.", \
+				user.visible_message("<b>[user.name]</b> unsecures [src.name] reinforcing bolts from the floor.", \
 					"You undo the external reinforcing bolts.", \
 					"You hear ratchet")
 				src.anchored = 0
 			if(2)
-				to_chat(user, "<span class='warning'>The [src.name] needs to be unwelded from the floor.</span>")
+				to_chat(user, SPAN_WARNING("The [src.name] needs to be unwelded from the floor."))
 				return
 	else if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
 		switch(state)
 			if(0)
-				to_chat(user, "<span class='warning'>The [src.name] needs to be wrenched to the floor.</span>")
+				to_chat(user, SPAN_WARNING("The [src.name] needs to be wrenched to the floor."))
 				return
 			if(1)
 				if (WT.remove_fuel(0,user))
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
-					user.visible_message("[user.name] starts to weld the [src.name] to the floor.", \
-						"You start to weld the [src] to the floor.", \
+					user.visible_message("<b>[user.name]</b> starts to weld the [src.name] to the floor.", \
+						"You start to weld [src] to the floor.", \
 						"You hear welding")
 					if (do_after(user,20/W.toolspeed, act_target = src))
 						if(!src || !WT.isOn()) return
@@ -133,13 +133,13 @@ field_generator power level display
 			if(2)
 				if (WT.remove_fuel(0,user))
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
-					user.visible_message("[user.name] starts to cut the [src.name] free from the floor.", \
-						"You start to cut the [src] free from the floor.", \
+					user.visible_message("<b>[user.name]</b> starts to cut the [src.name] free from the floor.", \
+						"You start to cut [src] free from the floor.", \
 						"You hear welding")
 					if (do_after(user,20/W.toolspeed, act_target = src))
 						if(!src || !WT.isOn()) return
 						state = 1
-						to_chat(user, "You cut the [src] free from the floor.")
+						to_chat(user, "You cut [src] free from the floor.")
 				else
 					return
 	else

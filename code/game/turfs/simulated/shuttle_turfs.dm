@@ -21,7 +21,7 @@
 /turf/simulated/wall/shuttle/attackby(obj/item/W as obj, mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if (!user)
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
 	if(!istype(user.loc, /turf))
@@ -31,13 +31,13 @@
 		if(W.iswelder() )
 			var/obj/item/weldingtool/WT = W
 			if( WT.remove_fuel(0,user) )
-				to_chat(user, "<span class='notice'>You burn away the fungi with \the [WT].</span>")
+				to_chat(user, SPAN_NOTICE("You burn away the fungi with \the [WT]."))
 				playsound(src, 'sound/items/welder.ogg', 10, 1)
 				for(var/obj/effect/overlay/wallrot/WR in src)
 					qdel(WR)
 				return
 		else if(!is_sharp(W) && W.force >= 10 || W.force >= 20)
-			to_chat(user, "<span class='notice'>\The [src] crumbles away under the force of your [W.name].</span>")
+			to_chat(user, SPAN_NOTICE("\The [src] crumbles away under the force of your [W.name]."))
 			src.dismantle_wall(1)
 			return
 
@@ -56,7 +56,7 @@
 			var/obj/item/melee/energy/blade/EB = W
 
 			spark(EB, 5)
-			to_chat(user, "<span class='notice'>You slash \the [src] with \the [EB]; the thermite ignites!</span>")
+			to_chat(user, SPAN_NOTICE("You slash \the [src] with \the [EB]; the thermite ignites!"))
 			playsound(src, "sparks", 50, 1)
 			playsound(src, 'sound/weapons/blade.ogg', 50, 1)
 

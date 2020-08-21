@@ -60,7 +60,7 @@
 	has_suit.add_overlay(get_inv_overlay())
 
 	if(user)
-		to_chat(user, "<span class='notice'>You attach \the [src] to \the [has_suit].</span>")
+		to_chat(user, SPAN_NOTICE("You attach \the [src] to \the [has_suit]."))
 		src.add_fingerprint(user)
 
 /obj/item/clothing/accessory/proc/on_removed(var/mob/user)
@@ -181,7 +181,7 @@
 		if(user.a_intent == I_HELP)
 			var/obj/item/organ/organ = M.get_organ(user.zone_sel.selecting)
 			if(organ)
-				user.visible_message(SPAN_NOTICE("[user] places [src] against [M]'s [organ.name] and listens attentively."),
+				user.visible_message("<b>[user]</b> places [src] against [M]'s [organ.name] and listens attentively.",
 									 "You place [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>.")
 				return
 	return ..(M,user)
@@ -414,7 +414,7 @@
 
 	if(allow_tail_hiding)
 		flags_inv ^= HIDETAIL
-		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail.</span>")
+		to_chat(usr, SPAN_NOTICE("[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail."))
 
 /obj/item/clothing/accessory/poncho/big
 	name = "large poncho"
@@ -468,7 +468,7 @@
 	name = "IAC poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is white with a blue tint, standard IAC colors."
 	icon_state = "IACponcho"
-	item_state = "IACponcho"	
+	item_state = "IACponcho"
 
 /obj/item/clothing/accessory/poncho/roles/engineering
 	name = "engineering poncho"
@@ -705,7 +705,7 @@
 	badge_string = null
 	slot_flags = SLOT_TIE
 	w_class = 1
-	
+
 /obj/item/clothing/accessory/bracelet
 	name = "bracelet"
 	desc = "A simple bracelet with a clasp."
@@ -714,7 +714,7 @@
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 	flippable = 1
-	
+
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"
 	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing."

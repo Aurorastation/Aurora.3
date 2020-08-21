@@ -95,11 +95,11 @@
 	if (!W.iswrench())
 		return ..()
 	playsound(src.loc, W.usesound, 50, 1)
-	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
+	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
 	if (do_after(user, 40/W.toolspeed))
 		user.visible_message( \
-			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
-			"<span class='notice'>You have unfastened \the [src].</span>", \
+			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
+			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear ratchet.")
 		new /obj/item/pipe_meter(src.loc)
 		qdel(src)

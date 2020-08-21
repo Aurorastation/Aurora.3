@@ -103,7 +103,7 @@
 			verbtouse = pick("smacked","slapped")
 			soundname = "punch"
 			if(targetIsHuman)
-				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name]...</span>", "<span class='[class]'>You flip the [name], preparing a disarm...</span>")
+				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name]...</span>", "<span class='[class]'>You flip [name], preparing a disarm...</span>")
 				if (do_mob(user,target,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
 						var/chancemod = (100 - armorpercent)*0.05*damageamount // Lower chance if lower damage + high armor. Base chance is 50% at 10 damage.
@@ -233,7 +233,7 @@
 
 /obj/item/cane/concealed/attack_self(var/mob/user)
 	if(concealed_blade)
-		user.visible_message("<span class='warning'>[user] has unsheathed \a [concealed_blade] from \his [src]!</span>", "You unsheathe \the [concealed_blade] from \the [src].")
+		user.visible_message(SPAN_WARNING("[user] has unsheathed \a [concealed_blade] from \his [src]!"), "You unsheathe \the [concealed_blade] from \the [src].")
 		// Calling drop/put in hands to properly call item drop/pickup procs
 		playsound(user.loc, 'sound/weapons/holster/sheathout.ogg', 50, 1)
 		user.drop_from_inventory(src)
@@ -248,7 +248,7 @@
 
 /obj/item/cane/concealed/attackby(var/obj/item/canesword/W, var/mob/user)
 	if(!src.concealed_blade && istype(W))
-		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into \his [src]!</span>", "You sheathe \the [W] into \the [src].")
+		user.visible_message(SPAN_WARNING("[user] has sheathed \a [W] into \his [src]!"), "You sheathe \the [W] into \the [src].")
 		playsound(user.loc, 'sound/weapons/holster/sheathin.ogg', 50, 1)
 		user.drop_from_inventory(W)
 		W.forceMove(src)
@@ -422,7 +422,7 @@
 		if (C.bugged && C.status)
 			cameras.Add(C)
 	if (length(cameras) == 0)
-		to_chat(usr, "<span class='warning'>No bugged functioning cameras found.</span>")
+		to_chat(usr, SPAN_WARNING("No bugged functioning cameras found."))
 		return
 
 	var/list/friendly_cameras = new/list()

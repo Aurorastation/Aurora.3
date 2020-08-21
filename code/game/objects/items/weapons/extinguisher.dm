@@ -24,15 +24,15 @@
 	if(istype(O,/obj/item/extinguisher))
 		var/obj/item/extinguisher/E = O
 		if(src.is_open_container())
-			to_chat(user,"<span class='notice'>\The [src] needs to be secured first!</span>")
+			to_chat(user,SPAN_NOTICE("\The [src] needs to be secured first!"))
 		else if(src.reagents.total_volume <= 0)
-			to_chat(user,"<span class='notice'>\The [src] is empty!</span>")
+			to_chat(user,SPAN_NOTICE("\The [src] is empty!"))
 		else if(E.reagents.total_volume < E.reagents.maximum_volume)
 			src.reagents.trans_to(E, src.reagents.total_volume)
-			user.visible_message("<span class='notice'>[user] fills \the [E] with the [src].</span>", "<span class='notice'>You fill \the [E] with the [src].</span>")
+			user.visible_message(SPAN_NOTICE("[user] fills \the [E] with [src]."), SPAN_NOTICE("You fill \the [E] with [src]."))
 			playsound(E.loc, 'sound/items/stimpack.ogg', 50, 1)
 		else
-			to_chat(user,"<span class='notice'>\The [E] is full!</span>")
+			to_chat(user,SPAN_NOTICE("\The [E] is full!"))
 		return
 
 	. = ..()
@@ -40,17 +40,17 @@
 /obj/item/reagent_containers/extinguisher_refill/attack_self(mob/user as mob) //Copied from inhalers.
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
-			to_chat(user,"<span class='notice'>With a quick twist of the cartridge's lid, you secure the reagents inside \the [src].</span>")
+			to_chat(user,SPAN_NOTICE("With a quick twist of the cartridge's lid, you secure the reagents inside \the [src]."))
 			flags &= ~OPENCONTAINER
 		else
-			to_chat(user,"<span class='notice'>You can't secure the cartridge without putting reagents in!</span>")
+			to_chat(user,SPAN_NOTICE("You can't secure the cartridge without putting reagents in!"))
 	else
-		to_chat(user,"<span class='notice'>\The reagents inside [src] are already secured!</span>")
+		to_chat(user,SPAN_NOTICE("\The reagents inside [src] are already secured!"))
 	return
 
 /obj/item/reagent_containers/extinguisher_refill/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver() && !is_open_container())
-		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the extinguisher refill cartridge's lid.</span>") // it locks shut after being secured
+		to_chat(user,SPAN_NOTICE("Using \the [W], you unsecure the extinguisher refill cartridge's lid.")) // it locks shut after being secured
 		flags |= OPENCONTAINER
 		return
 	. = ..()
@@ -61,14 +61,14 @@
 
 	if(is_open_container())
 		if(reagents && reagents.reagent_list.len)
-			to_chat(user,"<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.</span>")
+			to_chat(user,SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix."))
 		else
-			to_chat(user,"<span class='notice'>It is empty.</span>")
+			to_chat(user,SPAN_NOTICE("It is empty."))
 	else
 		if(reagents && reagents.reagent_list.len)
-			to_chat(user,"<span class='notice'>The reagents are secured in the aerosol mix.</span>")
+			to_chat(user,SPAN_NOTICE("The reagents are secured in the aerosol mix."))
 		else
-			to_chat(user,"<span class='notice'>The cartridge seems spent.</span>")
+			to_chat(user,SPAN_NOTICE("The cartridge seems spent."))
 
 /obj/item/reagent_containers/extinguisher_refill/filled
 	name = "extinguisher refiller (monoammonium phosphate)"
@@ -145,15 +145,15 @@
 	if(istype(O,/obj/item/reagent_containers/extinguisher_refill))
 		var/obj/item/reagent_containers/extinguisher_refill/ER = O
 		if(ER.is_open_container())
-			to_chat(user,"<span class='notice'>\The [ER] needs to be secured first!</span>")
+			to_chat(user,SPAN_NOTICE("\The [ER] needs to be secured first!"))
 		else if(ER.reagents.total_volume <= 0)
-			to_chat(user,"<span class='notice'>\The [ER] is empty!</span>")
+			to_chat(user,SPAN_NOTICE("\The [ER] is empty!"))
 		else if (src.reagents.total_volume < src.reagents.maximum_volume)
 			ER.reagents.trans_to(src, ER.reagents.total_volume)
-			user.visible_message("<span class='notice'>[user] fills \the [src] with the [ER].</span>", "<span class='notice'>You fill \the [src] with the [ER].</span>")
+			user.visible_message(SPAN_NOTICE("[user] fills \the [src] with the [ER]."), SPAN_NOTICE("You fill \the [src] with the [ER]."))
 			playsound(ER.loc, 'sound/items/stimpack.ogg', 50, 1)
 		else
-			to_chat(user,"<span class='notice'>\The [src] is full!</span>")
+			to_chat(user,SPAN_NOTICE("\The [src] is full!"))
 		return
 
 	. = ..()
@@ -180,7 +180,7 @@
 
 	if (!safety)
 		if (src.reagents.total_volume < 1)
-			to_chat(usr, "<span class='notice'>\The [src] is empty.</span>")
+			to_chat(usr, SPAN_NOTICE("\The [src] is empty."))
 			return
 
 		if (world.time < src.last_use + 20)

@@ -60,7 +60,7 @@
 		var/list/options = list("[holder_atom] seems to be listening intently to [source]...",\
 			"[holder_atom] seems to be focusing on [source]...",\
 			"[holder_atom] seems to turn it's attention to [source]...")
-		holder_atom.loc.visible_message("<span class='notice'>\icon[holder_atom] [pick(options)]</span>")
+		holder_atom.loc.visible_message(SPAN_NOTICE("\icon[holder_atom] [pick(options)]"))
 
 	if(prob(20))
 		spawn(2)

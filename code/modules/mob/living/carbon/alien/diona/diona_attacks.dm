@@ -2,7 +2,7 @@
 	if(istype(M) && M.a_intent == I_HELP && !stat)
 		if(M.is_diona() && do_merge(M))
 			return
-		M.visible_message(SPAN_NOTICE("[M] pets \the [src]."))
+		M.visible_message("<b>[M]</b> pets \the [src].")
 		return
 	else if (stat == DEAD)
 		get_scooped(M) // GET SCOOPED - geeves

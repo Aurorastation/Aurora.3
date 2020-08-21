@@ -26,7 +26,7 @@
 		/datum/reagent/dylovene,
 		/datum/reagent/dexalin
 		)
-    
+
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/filtering = 0
 	var/allow_occupant_types = list(/mob/living/carbon/human)
@@ -155,7 +155,7 @@
 		return 1
 
 	if(usr == occupant)
-		to_chat(usr, "<span class='warning'>You can't reach the controls from the inside.</span>")
+		to_chat(usr, SPAN_WARNING("You can't reach the controls from the inside."))
 		return
 
 	add_fingerprint(usr)
@@ -187,9 +187,9 @@
 		if(!beaker)
 			beaker = I
 			user.drop_from_inventory(I,src)
-			user.visible_message("<span class='notice'>\The [user] adds \a [I] to \the [src].</span>", "<span class='notice'>You add \a [I] to \the [src].</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] adds \a [I] to \the [src]."), SPAN_NOTICE("You add \a [I] to \the [src]."))
 		else
-			to_chat(user, "<span class='warning'>\The [src] has a beaker already.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] has a beaker already."))
 		return
 	else if(istype(I, /obj/item/grab))
 
@@ -197,15 +197,15 @@
 		var/mob/living/L = G.affecting
 
 		if(!istype(L))
-			to_chat(user, "<span class='warning'>\The machine won't accept that.</span>")
+			to_chat(user, SPAN_WARNING("\The machine won't accept that."))
 			return
 
 		if(display_loading_message)
-			user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
+			user.visible_message(SPAN_NOTICE("[user] starts putting [G.affecting] into [src]."), SPAN_NOTICE("You start putting [G.affecting] into [src]."), range = 3)
 
 		if (do_mob(user, G.affecting, 20, needhand = 0))
 			if(occupant)
-				to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
+				to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
 				return
 			var/bucklestatus = L.bucklecheck(user)
 
@@ -262,7 +262,7 @@
 	if(!occupant || !beaker)
 		pump = 0
 		return
-	to_chat(occupant, "<span class='warning'>You feel a tube jammed down your throat.</span>")
+	to_chat(occupant, SPAN_WARNING("You feel a tube jammed down your throat."))
 	pump = !pump
 
 /obj/machinery/sleeper/proc/go_in(var/mob/M, var/mob/user)
@@ -271,7 +271,7 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 	if(occupant)
-		to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
 		return
 
 	if(display_loading_message)
@@ -282,7 +282,7 @@
 
 	if(do_after(user, 20))
 		if(occupant)
-			to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
 			return
 		M.stop_pulling()
 		if(M.client)

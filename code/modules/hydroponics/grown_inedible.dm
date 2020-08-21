@@ -49,7 +49,7 @@
 /obj/item/corncob/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 	if(istype(W, /obj/item/surgery/circular_saw) || istype(W, /obj/item/material/hatchet) || istype(W, /obj/item/material/kitchen/utensil/knife) || istype(W, /obj/item/material/knife) || istype(W, /obj/item/material/knife/ritual))
-		to_chat(user, "<span class='notice'>You use [W] to fashion a pipe out of the corn cob!</span>")
+		to_chat(user, SPAN_NOTICE("You use [W] to fashion a pipe out of the corn cob!"))
 		new /obj/item/clothing/mask/smokable/pipe/cobpipe (user.loc)
 		qdel(src)
 		return

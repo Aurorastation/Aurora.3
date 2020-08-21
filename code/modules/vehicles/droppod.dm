@@ -51,9 +51,9 @@
 	if(I.iswelder() && status == USED && !humanload && !passenger)
 		var/obj/item/weldingtool/W = I
 		if(W.welding)
-			src.visible_message(SPAN_NOTICE("[user] starts cutting \the [src] apart."))
+			visible_message("<b>[user]</b> starts cutting \the [src] apart.", SPAN_NOTICE("You start cutting [src] apart."))
 			if(do_after(user, 200))
-				src.visible_message(SPAN_DANGER("\The [src] is cut apart by [user]!"))
+				visible_message(SPAN_DANGER("[user] cuts apart [src]!"))
 				playsound(src, 'sound/items/welder.ogg', 100, 1)
 				new /obj/item/stack/material/titanium(src.loc, 10)
 				new /obj/item/stack/material/plasteel(src.loc, 10)

@@ -279,23 +279,23 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if(href_list["linkpda"])
 		var/obj/item/device/pda/pda = usr.get_active_hand()
 		if (!pda || !istype(pda))
-			to_chat(usr, "<span class='warning'>You need to be holding a PDA to link it.</span>")
+			to_chat(usr, SPAN_WARNING("You need to be holding a PDA to link it."))
 		else if (pda in alert_pdas)
-			to_chat(usr, "<span class='notice'>\The [pda] appears to be already linked.</span>")
+			to_chat(usr, SPAN_NOTICE("\The [pda] appears to be already linked."))
 			//Update the name real quick.
 			alert_pdas[pda] = pda.name
 		else
 			LAZYADD(pda.linked_consoles, src)
 			alert_pdas += pda
 			alert_pdas[pda] = pda.name
-			to_chat(usr, "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>")
+			to_chat(usr, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine."))
 
 	// Unlink a PDA.
 	if(href_list["unlink"])
 		var/obj/item/device/pda/pda = locate(href_list["unlink"])
 		if (pda && istype(pda))
 			if (pda in alert_pdas)
-				to_chat(usr, "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>")
+				to_chat(usr, SPAN_NOTICE("You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes."))
 				alert_pdas -= pda
 
 	// Sort the forms.
@@ -360,7 +360,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	// Toggle the paper bin lid.
 	if(href_list["setLid"])
 		lid = !lid
-		to_chat(usr, "<span class='notice'>You [lid ? "open" : "close"] the lid.</span>")
+		to_chat(usr, SPAN_NOTICE("You [lid ? "open" : "close"] the lid."))
 
 	updateUsrDialog()
 	return
@@ -380,7 +380,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				announcement.announcer = ID.assignment ? "[ID.assignment] [ID.registered_name]" : ID.registered_name
 			else
 				reset_message()
-				to_chat(user, "<span class='warning'>You are not authorized to send announcements.</span>")
+				to_chat(user, SPAN_WARNING("You are not authorized to send announcements."))
 			updateUsrDialog()
 	else if (istype(O, /obj/item/stamp))
 		if(inoperable(MAINT)) return
@@ -397,7 +397,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			for (var/mob/U in hearers(4, src.loc))
 				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
 		else
-			to_chat(user, "<span class='notice'>I should open the lid to add more paper, or try faxing one paper at a time.</span>")
+			to_chat(user, SPAN_NOTICE("I should open the lid to add more paper, or try faxing one paper at a time."))
 	else if (istype(O, /obj/item/paper))
 		if(lid)					//Stocking them papers
 			var/obj/item/paper/C = O

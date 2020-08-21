@@ -32,7 +32,7 @@
 
 	//snap pop
 	playsound(src, 'sound/effects/snap.ogg', 50, 1)
-	src.visible_message("<span class='warning'>\The [src] explodes in a bright flash!</span>")
+	src.visible_message(SPAN_WARNING("\The [src] explodes in a bright flash!"))
 
 	new /obj/effect/decal/cleanable/ash(src.loc) //always use src.loc so that ash doesn't end up inside windows
 	single_spark(T)
@@ -220,7 +220,7 @@
 			var/atom/movable/x = new /mob/living/simple_animal/bee/beegun //hackmaster pro, butt fuck it
 			x.forceMove(T)
 	else
-		src.visible_message("<span class='danger'>[src] splat sickly against [T]!</span>")
+		src.visible_message(SPAN_DANGER("[src] splat sickly against [T]!"))
 	..()
 
 /obj/item/projectile/energy/blaster

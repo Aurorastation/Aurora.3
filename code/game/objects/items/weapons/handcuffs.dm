@@ -180,7 +180,7 @@
 			qdel(src)
 			update_icon(user)
 	else if(I.iswirecutter())
-		user.visible_message("[user] cuts the [src].", SPAN_NOTICE("You cut the [src]."))
+		user.visible_message("<b>[user]</b> cuts [src].", SPAN_NOTICE("You cut [src]."))
 		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 		new/obj/item/stack/cable_coil(get_turf(src), 15, color)
 		qdel(src)

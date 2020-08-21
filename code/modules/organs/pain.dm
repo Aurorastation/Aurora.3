@@ -30,18 +30,18 @@ mob/var/next_pain_time = 0
 		last_pain_message = message
 		if(power >= 110)
 			flash_strong_pain()
-			to_chat(src, "<span class='danger'><font size=3>[message]</font></span>")
+			to_chat(src, SPAN_DANGER("<font size=3>[message]</font>"))
 		else if(power >= 70)
 			flash_pain()
-			to_chat(src, "<span class='danger'><font size=3>[message]</font></span>")
+			to_chat(src, SPAN_DANGER("<font size=3>[message]</font>"))
 		else if(power >= 40)
 			flash_pain()
-			to_chat(src, "<span class='danger'><font size=2>[message]</font></span>")
+			to_chat(src, SPAN_DANGER("<font size=2>[message]</font>"))
 		else if(power >= 10)
 			flash_weak_pain()
-			to_chat(src, "<span class='danger'>[message]</span>")
+			to_chat(src, SPAN_DANGER("[message]"))
 		else
-			to_chat(src, "<span class='warning'>[message]</span>")
+			to_chat(src, SPAN_WARNING("[message]"))
 
 		var/force_emote = species.get_pain_emote(src, power)
 		if(force_emote && prob(power))
@@ -64,7 +64,7 @@ mob/var/next_pain_time = 0
 	var/maxdam = 0
 	var/obj/item/organ/external/damaged_organ = null
 	for(var/obj/item/organ/external/E in organs)
-		if(E.status & (ORGAN_DEAD|ORGAN_ROBOT)) 
+		if(E.status & (ORGAN_DEAD|ORGAN_ROBOT))
 			continue
 		var/dam = E.get_damage()
 		// make the choice of the organ depend on damage,

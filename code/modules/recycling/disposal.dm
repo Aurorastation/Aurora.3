@@ -131,7 +131,7 @@
 
 	if(istype(I, /obj/item/storage/bag/trash))
 		var/obj/item/storage/bag/trash/T = I
-		to_chat(user, "<span class='notice'>You empty the bag.</span>")
+		to_chat(user, SPAN_NOTICE("You empty the bag."))
 		for(var/obj/item/O in T.contents)
 			T.remove_from_storage(O,src)
 		T.update_icon()
@@ -147,9 +147,9 @@
 				L.forceMove(src)
 
 			if (count)
-				to_chat(user, "<span class='notice'>You empty [count] broken bulbs into the disposal.</span>")
+				to_chat(user, SPAN_NOTICE("You empty [count] broken bulbs into the disposal."))
 			else
-				to_chat(user, "<span class='notice'>There are no broken bulbs to empty out.</span>")
+				to_chat(user, SPAN_NOTICE("There are no broken bulbs to empty out."))
 			update()
 			return
 
@@ -168,7 +168,7 @@
 					GM.client.eye = src
 				GM.forceMove(src)
 				for (var/mob/C in viewers(src))
-					C.show_message("<span class='warning'>[GM.name] has been placed in the [src] by [user].</span>", 3)
+					C.show_message(SPAN_WARNING("[GM.name] has been placed in [src] by [user]."), 3)
 				qdel(G)
 				usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Has placed [GM.name] ([GM.ckey]) in disposals.</font>")
 				GM.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>")
@@ -182,11 +182,11 @@
 
 	user.drop_from_inventory(I,src)
 
-	to_chat(user, "You place \the [I] into the [src].")
+	to_chat(user, "You place \the [I] into [src].")
 	for(var/mob/M in viewers(src))
 		if(M == user)
 			continue
-		M.show_message("[user.name] places \the [I] into the [src].", 3)
+		M.show_message("[user.name] places \the [I] into [src].", 3)
 
 	update()
 
@@ -221,11 +221,11 @@
 		return
 	if(target == user && !user.stat && !user.weakened && !user.stunned && !user.paralysis)	// if drop self, then climbed in
 											// must be awake, not stunned or whatever
-		msg = "[user.name] climbs into the [src]."
-		to_chat(user, "You climb into the [src].")
+		msg = "[user.name] climbs into [src]."
+		to_chat(user, "You climb into [src].")
 	else if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-		msg = "[user.name] stuffs [target.name] into the [src]!"
-		to_chat(user, "You stuff [target.name] into the [src]!")
+		msg = "[user.name] stuffs [target.name] into [src]!"
+		to_chat(user, "You stuff [target.name] into [src]!")
 
 		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has placed [target.name] ([target.ckey]) in disposals.</font>")
 		target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [user.name] ([user.ckey])</font>")
@@ -278,7 +278,7 @@
 		return
 
 	if(user && user.loc == src)
-		to_chat(usr, "<span class='warning'>You cannot reach the controls from inside.</span>")
+		to_chat(usr, SPAN_WARNING("You cannot reach the controls from inside."))
 		return
 
 	// Clumsy folks can only flush it.
@@ -327,11 +327,11 @@
 
 /obj/machinery/disposal/Topic(href, href_list)
 	if(usr.loc == src)
-		to_chat(usr, "<span class='warning'>You cannot reach the controls from inside.</span>")
+		to_chat(usr, SPAN_WARNING("You cannot reach the controls from inside."))
 		return
 
 	if(mode==-1 && !href_list["eject"]) // only allow ejecting if mode is -1
-		to_chat(usr, "<span class='warning'>The disposal units power is disabled.</span>")
+		to_chat(usr, SPAN_WARNING("The disposal units power is disabled."))
 		return
 	if(..())
 		return
@@ -1168,7 +1168,7 @@
 		if(O.currTag)// Tag set
 			sort_tag = O.currTag
 			playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-			to_chat(user, "<span class='notice'>Changed tag to '[sort_tag]'.</span>")
+			to_chat(user, SPAN_NOTICE("Changed tag to '[sort_tag]'."))
 			updatename()
 			updatedesc()
 
@@ -1239,7 +1239,7 @@
 		if(O.currTag)// Tag set
 			sortType = O.currTag
 			playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-			to_chat(user, "<span class='notice'>Changed filter to '[sortType]'.</span>")
+			to_chat(user, SPAN_NOTICE("Changed filter to '[sortType]'."))
 			updatename()
 			updatedesc()
 

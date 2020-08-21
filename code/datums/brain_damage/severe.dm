@@ -86,10 +86,10 @@
 		if(owner.drowsyness >= 66)
 			owner.drowsyness = 0
 	if(prob(sleep_chance))
-		to_chat(owner, "<span class='warning'>You fall asleep.</span>")
+		to_chat(owner, SPAN_WARNING("You fall asleep."))
 		owner.Sleeping(60)
 	else if(prob(sleep_chance * 2))
-		to_chat(owner, "<span class='warning'>You feel tired...</span>")
+		to_chat(owner, SPAN_WARNING("You feel tired..."))
 		owner.drowsyness += 10
 
 /datum/brain_trauma/severe/monophobia
@@ -104,9 +104,9 @@
 /datum/brain_trauma/severe/monophobia/on_gain()
 	..()
 	if(check_alone())
-		to_chat(owner, "<span class='warning'>You feel really lonely...</span>")
+		to_chat(owner, SPAN_WARNING("You feel really lonely..."))
 	else
-		to_chat(owner, "<span class='notice'>You feel safe, as long as you have people around you.</span>")
+		to_chat(owner, SPAN_NOTICE("You feel safe, as long as you have people around you."))
 
 /datum/brain_trauma/severe/monophobia/on_life()
 	..()
@@ -135,18 +135,18 @@
 	switch(rand(1,6))
 		if(1)
 			if(!high_stress)
-				to_chat(owner, "<span class='warning'>You feel sick...</span>")
+				to_chat(owner, SPAN_WARNING("You feel sick..."))
 			else
-				to_chat(owner, "<span class='warning'>You feel really sick at the thought of being alone!</span>")
+				to_chat(owner, SPAN_WARNING("You feel really sick at the thought of being alone!"))
 			addtimer(CALLBACK(owner, /mob/living/carbon/human.proc/vomit, high_stress), 50) //blood vomit if high stress
 		if(2)
 			if(!high_stress)
-				to_chat(owner, "<span class='warning'>You can't stop shaking...</span>")
+				to_chat(owner, SPAN_WARNING("You can't stop shaking..."))
 				owner.dizziness += 20
 				owner.confused += 20
 				owner.Jitter(20)
 			else
-				to_chat(owner, "<span class='warning'>You feel weak and scared! If only you weren't alone...</span>")
+				to_chat(owner, SPAN_WARNING("You feel weak and scared! If only you weren't alone..."))
 				owner.dizziness += 20
 				owner.confused += 20
 				owner.Jitter(20)
@@ -154,23 +154,23 @@
 
 		if(3, 4)
 			if(!high_stress)
-				to_chat(owner, "<span class='warning'>You feel really lonely...</span>")
+				to_chat(owner, SPAN_WARNING("You feel really lonely..."))
 			else
-				to_chat(owner, "<span class='warning'>You're going mad with loneliness!</span>")
+				to_chat(owner, SPAN_WARNING("You're going mad with loneliness!"))
 				owner.hallucination += 20
 
 		if(5)
 			if(!high_stress)
-				to_chat(owner, "<span class='warning'>Your heart skips a beat.</span>")
+				to_chat(owner, SPAN_WARNING("Your heart skips a beat."))
 				owner.adjustOxyLoss(8)
 			else
 				if(prob(15) && ishuman(owner))
 					var/mob/living/carbon/human/H = owner
 					var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
 					heart.take_damage(heart.min_bruised_damage)
-					to_chat(H, "<span class='danger'>You feel a stabbing pain in your heart!</span>")
+					to_chat(H, SPAN_DANGER("You feel a stabbing pain in your heart!"))
 				else
-					to_chat(owner, "<span class='danger'>You feel your heart lurching in your chest...</span>")
+					to_chat(owner, SPAN_DANGER("You feel your heart lurching in your chest..."))
 					owner.adjustOxyLoss(8)
 
 /datum/brain_trauma/severe/discoordination

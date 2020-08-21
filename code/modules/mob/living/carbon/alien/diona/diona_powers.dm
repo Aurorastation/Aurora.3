@@ -238,7 +238,7 @@
 				newDNA = md5("\ref[D]")
 
 			D.adjustBruteLoss(4)
-			src.visible_message(SPAN_NOTICE("[src] sucks some blood from [D.name].") , SPAN_NOTICE("You extract a delicious mouthful of blood from [D.name]!"))
+			src.visible_message("<b>[src]</b> sucks some blood from [D.name]." , SPAN_NOTICE("You extract a delicious mouthful of blood from [D.name]!"))
 
 			if(newDNA in sampled_DNA)
 				to_chat(src, SPAN_DANGER("You have already sampled the DNA of this creature before, you can learn nothing new. Move onto something else."))
@@ -277,7 +277,7 @@
 	for(var/i in language_progress)
 		if(language_progress[i] >= LANGUAGE_POINTS_TO_LEARN)
 			add_language(i)
-			to_chat(src, SPAN_NOTICE("<font size=3>You have mastered the [i] language!</font>"))
+			to_chat(src, SPAN_NOTICE("<font size=3>You have mastered th [i] language!</font>"))
 			language_progress.Remove(i)
 
 /mob/living/carbon/alien/diona/proc/transferMind(var/atom/A)
@@ -336,11 +336,11 @@
 
 	if(stat == DEAD)
 		return
-	
+
 	if(!consume_nutrition_from_air && (nutrition / max_nutrition > 0.25))
 		to_chat(src, SPAN_WARNING("You still have plenty of nutrition left. Consuming air is the last resort."))
 		return
-	
+
 	consume_nutrition_from_air = !consume_nutrition_from_air
 	to_chat(src, SPAN_NOTICE("You [consume_nutrition_from_air ? "started" : "stopped"] consuming air for nutrition."))
 
@@ -379,7 +379,7 @@
 	else
 		to_chat(src, SPAN_NOTICE("We do not have the nymphs nor the biomass to do this!"))
 		return
-	
+
 	var/list/diona_structures = list(
 			"Wall" = /turf/simulated/wall/diona,
 			"Floor" = /turf/simulated/floor/diona,
@@ -395,7 +395,7 @@
 
 	if(use_check_and_message(src))
 		return
-	
+
 	if(chosen_structure)
 		to_chat(src, SPAN_NOTICE("We are now creating a [lowertext(chosen_structure)] using our [build_method]..."))
 
@@ -420,15 +420,15 @@
 			T.ChangeTurf(structure_path)
 		else
 			new structure_path(T)
-			
+
 /mob/living/carbon/alien/diona/proc/remove_hat()
 	set category = "Abilities"
 	set name = "Remove Hat"
 	set desc = " Remove your hat."
-	
+
 	if(hat)
 		src.drop_from_inventory(hat)
 		hat = null
-		visible_message("<span class='warning'>[src] removes their hat!</span>")
+		visible_message(SPAN_WARNING("[src] removes their hat!"))
 	else
 		to_chat(src, SPAN_WARNING("You have no hat!"))

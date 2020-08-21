@@ -113,14 +113,14 @@
 			return
 		var/mob/living/carbon/human/H = user
 		if (H.shoes != src)
-			to_chat(user, "You will have to put on the [src] before you can do that.")
+			to_chat(user, "You will have to put on [src] before you can do that.")
 			return
 
 		item_flags |= NOSLIP
 		magpulse = 1
 		canremove = 0	//kinda hard to take off magclaws when you are gripping them tightly.
 		to_chat(user, "You dig your claws deeply into the flooring, bracing yourself.")
-		to_chat(user, "It would be hard to take off the [src] without relaxing your grip first.")
+		to_chat(user, "It would be hard to take off [src] without relaxing your grip first.")
 	user.update_action_buttons()
 
 //In case they somehow come off while enabled.

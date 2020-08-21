@@ -57,12 +57,12 @@
 			return
 
 	if(reagents.total_volume < amount_per_transfer_from_this)
-		to_chat(user, "<span class='notice'>\The [src] is empty!</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is empty!"))
 		return
 
 	if(safety)
 		playsound(src.loc, 'sound/weapons/safety_click.ogg', 25, 1)
-		to_chat(user, "<span class='notice'>The safety is on!</span>")
+		to_chat(user, SPAN_NOTICE("The safety is on!"))
 		return
 
 	Spray_at(A, user, proximity)
@@ -84,7 +84,7 @@
 	if(istype(A, /obj) && A.loc == user)
 		return
 	if (A.density && proximity)
-		A.visible_message("[user] sprays [A] with [src].")
+		A.visible_message("<b>[user]</b> sprays [A] with [src].")
 		reagents.splash(A, amount_per_transfer_from_this)
 	else
 		var/obj/effect/effect/water/chempuff/D = new/obj/effect/effect/water/chempuff(get_turf(src))
@@ -108,7 +108,7 @@
 		return
 	amount_per_transfer_from_this = next_in_list(amount_per_transfer_from_this, possible_transfer_amounts)
 	spray_size = next_in_list(spray_size, spray_sizes)
-	to_chat(user, "<span class='notice'>You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this] units per spray.</span>")
+	to_chat(user, SPAN_NOTICE("You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this] units per spray."))
 
 /obj/item/reagent_containers/spray/examine(mob/user)
 	if(..(user, 0) && loc == user)
@@ -124,7 +124,7 @@
 	if (alert(usr, "Are you sure you want to empty that?", "Empty Bottle:", "Yes", "No") != "Yes")
 		return
 	if(isturf(usr.loc))
-		to_chat(usr, "<span class='notice'>You empty \the [src] onto the floor.</span>")
+		to_chat(usr, SPAN_NOTICE("You empty \the [src] onto the floor."))
 		reagents.splash(usr.loc, reagents.total_volume)
 
 //space cleaner

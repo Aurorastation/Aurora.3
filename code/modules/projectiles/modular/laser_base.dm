@@ -21,11 +21,11 @@
 /obj/item/laser_components/attackby(var/obj/item/D as obj, var/mob/user as mob)
 	if(!istype(D,repair_item))
 		return ..()
-	to_chat(user, "<span class='warning'>You begin repairing \the [src].</span>")
+	to_chat(user, SPAN_WARNING("You begin repairing \the [src]."))
 	if(do_after(user,20) && repair_module(D))
-		to_chat(user, "<span class='notice'>You repair \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You repair \the [src]."))
 	else
-		to_chat(user, "<span class='warning'>You fail to repair \the [src].</span>")
+		to_chat(user, SPAN_WARNING("You fail to repair \the [src]."))
 
 /obj/item/laser_components/proc/repair_module(var/obj/item/D)
 	return 1
@@ -48,7 +48,7 @@
 	. = ..(user, 1)
 	if(.)
 		if(malus > base_malus)
-			to_chat(user, "<span class='warning'>\The [src] appears damaged.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] appears damaged."))
 
 /obj/item/laser_components/modifier/degrade(var/increment = 1)
 	if(increment)
@@ -89,7 +89,7 @@
 	. = ..(user, 1)
 	if(.)
 		if(condition > 0)
-			to_chat(user, "<span class='warning'>\The [src] appears damaged.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] appears damaged."))
 
 /obj/item/laser_components/capacitor/proc/small_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	return
@@ -123,7 +123,7 @@
 	. = ..(user, 1)
 	if(.)
 		if(condition > 0)
-			to_chat(user, "<span class='warning'>\The [src] appears damaged.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] appears damaged."))
 
 /obj/item/laser_components/modulator
 	name = "laser modulator"
@@ -198,7 +198,7 @@
 
 	else
 		return ..()
-	to_chat(user, "<span class='notice'>You insert \the [A] into the assembly.</span>")
+	to_chat(user, SPAN_NOTICE("You insert \the [A] into the assembly."))
 	update_icon()
 	if(check_completion())
 		success = 2 // meaning complete

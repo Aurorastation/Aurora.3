@@ -86,13 +86,13 @@ for reference:
 			return //hitting things with the wrong type of stack usually doesn't produce messages, and probably doesn't need to.
 		if (health < maxhealth)
 			if (D.get_amount() < 1)
-				to_chat(user, "<span class='warning'>You need one sheet of [material.display_name] to repair \the [src].</span>")
+				to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
 				return
-			visible_message("<span class='notice'>[user] begins to repair \the [src].</span>")
+			visible_message(SPAN_NOTICE("[user] begins to repair \the [src]."))
 			if(do_after(user,20) && health < maxhealth)
 				if (D.use(1))
 					health = maxhealth
-					visible_message("<span class='notice'>[user] repairs \the [src].</span>")
+					visible_message(SPAN_NOTICE("[user] repairs \the [src]."))
 				return
 		return
 	else
@@ -106,7 +106,7 @@ for reference:
 		animate_shake()
 		playsound(src.loc, material.hitsound, 100, 1)
 		if (src.health <= 0)
-			visible_message("<span class='danger'>The barricade is smashed apart!</span>")
+			visible_message(SPAN_DANGER("The barricade is smashed apart!"))
 			dismantle()
 			qdel(src)
 			return
@@ -120,13 +120,13 @@ for reference:
 /obj/structure/barricade/ex_act(severity)
 	switch(severity)
 		if(1.0)
-			visible_message("<span class='danger'>\The [src] is blown apart!</span>")
+			visible_message(SPAN_DANGER("\The [src] is blown apart!"))
 			qdel(src)
 			return
 		if(2.0)
 			src.health -= 25
 			if (src.health <= 0)
-				visible_message("<span class='danger'>\The [src] is blown apart!</span>")
+				visible_message(SPAN_DANGER("\The [src] is blown apart!"))
 				dismantle()
 			return
 
@@ -180,7 +180,7 @@ for reference:
 						return
 				else
 					spark(src, 2, src)
-					visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
+					visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 					return
 			return
 		else if (W.iswrench())
@@ -189,13 +189,13 @@ for reference:
 				src.health = src.maxhealth
 				src.emagged = 0
 				src.req_access = list(access_security)
-				visible_message("<span class='warning'>[user] repairs \the [src]!</span>")
+				visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
 				return
 			else if (src.emagged > 0)
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				src.emagged = 0
 				src.req_access = list(access_security)
-				visible_message("<span class='warning'>[user] repairs \the [src]!</span>")
+				visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
 				return
 			return
 		else
@@ -237,7 +237,7 @@ for reference:
 			return 0
 
 	proc/explode()
-		visible_message("<span class='danger'>[src] blows apart!</span>")
+		visible_message(SPAN_DANGER("[src] blows apart!"))
 
 	/*	var/obj/item/stack/rods/ =*/
 		new /obj/item/stack/rods(get_turf(src))
@@ -254,13 +254,13 @@ for reference:
 		src.req_one_access.Cut()
 		to_chat(user, "You break the ID authentication lock on \the [src].")
 		spark(src, 2, alldirs)
-		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
+		visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 		return 1
 	else if (src.emagged == 1)
 		src.emagged = 2
 		to_chat(user, "You short out the anchoring mechanism on \the [src].")
 		spark(src, 2, alldirs)
-		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
+		visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 		return 1
 
 /obj/machinery/deployable/barrier/legion
@@ -287,7 +287,7 @@ for reference:
 /obj/item/deployable_kit/proc/assemble_kit(mob/user)
 	playsound(src.loc, 'sound/items/screwdriver.ogg', 25, 1)
 	var/atom/A = new kit_product(user.loc)
-	user.visible_message(SPAN_NOTICE("[user] assembles \a [A]."), SPAN_NOTICE("You assemble \a [A]."))
+	user.visible_message("<b>[user]</b> assembles \a [A].", SPAN_NOTICE("You assemble \a [A]."))
 	A.add_fingerprint(user)
 
 /obj/item/deployable_kit/legion_barrier

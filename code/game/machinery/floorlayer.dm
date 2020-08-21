@@ -31,7 +31,7 @@
 
 /obj/machinery/floorlayer/attack_hand(mob/user as mob)
 	on=!on
-	user.visible_message("<span class='notice'>[user] has [!on?"de":""]activated \the [src].</span>", "<span class='notice'>You [!on?"de":""]activate \the [src].</span>")
+	user.visible_message(SPAN_NOTICE("[user] has [!on?"de":""]activated \the [src]."), SPAN_NOTICE("You [!on?"de":""]activate \the [src]."))
 	return
 
 /obj/machinery/floorlayer/attackby(var/obj/item/W as obj, var/mob/user as mob)
@@ -40,22 +40,22 @@
 		var/m = input("Choose work mode", "Mode") as null|anything in mode
 		mode[m] = !mode[m]
 		var/O = mode[m]
-		user.visible_message("<span class='notice'>[usr] has set \the [src] [m] mode [!O?"off":"on"].</span>", "<span class='notice'>You set \the [src] [m] mode [!O?"off":"on"].</span>")
+		user.visible_message(SPAN_NOTICE("[usr] has set \the [src] [m] mode [!O?"off":"on"]."), SPAN_NOTICE("You set \the [src] [m] mode [!O?"off":"on"]."))
 		return
 
 	if(istype(W, /obj/item/stack/tile))
-		to_chat(user, "<span class='notice'>\The [W] successfully loaded.</span>")
+		to_chat(user, SPAN_NOTICE("\The [W] successfully loaded."))
 		user.drop_item(T)
 		TakeTile(T)
 		return
 
 	if(W.iscrowbar())
 		if(!length(contents))
-			to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
+			to_chat(user, SPAN_NOTICE("\The [src] is empty."))
 		else
 			var/obj/item/stack/tile/E = input("Choose remove tile type.", "Tiles") as null|anything in contents
 			if(E)
-				to_chat(user,  "<span class='notice'>You remove the [E] from /the [src].</span>")
+				to_chat(user,  SPAN_NOTICE("You remove [E] from \the [src]."))
 				E.forceMove(src.loc)
 				T = null
 		return
@@ -73,7 +73,7 @@
 	var/number = 0
 	if (T)
 		number = T.get_amount()
-	to_chat(user, "<span class='notice'>\The [src] has [number] tile\s, dismantle is [dismantle?"on":"off"], laying is [laying?"on":"off"], collect is [collect?"on":"off"].</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] has [number] tile\s, dismantle is [dismantle?"on":"off"], laying is [laying?"on":"off"], collect is [collect?"on":"off"]."))
 
 /obj/machinery/floorlayer/proc/reset()
 	on=0

@@ -50,7 +50,7 @@
 		if (istype(W,/obj/item/clothing/mask/smokable/cigarette))
 			var/obj/item/clothing/mask/smokable/cigarette/cig = W
 			if (cig.lit == TRUE)
-				src.visible_message("[user] crushes [cig] in \the [src], putting it out.")
+				src.visible_message("<b>[user]</b> crushes [cig] in \the [src], putting it out.")
 				playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 				STOP_PROCESSING(SSprocessing, cig)
 				var/obj/item/butt = new cig.type_butt(src)
@@ -62,7 +62,7 @@
 			else if (cig.lit == FALSE)
 				to_chat(user, "You place [cig] in [src] without even smoking it. Why would you do that?")
 
-		src.visible_message("[user] places [W] in [src].")
+		src.visible_message("<b>[user]</b> places [W] in [src].")
 		user.update_inv_l_hand()
 		user.update_inv_r_hand()
 		add_fingerprint(user)
@@ -78,7 +78,7 @@
 	if (health > 0)
 		health = max(0,health - 3)
 		if (contents.len)
-			src.visible_message("<span class='danger'>\The [src] slams into [hit_atom], spilling its contents!</span>")
+			src.visible_message(SPAN_DANGER("\The [src] slams into [hit_atom], spilling its contents!"))
 		for (var/obj/item/clothing/mask/smokable/cigarette/O in contents)
 			O.forceMove(src.loc)
 		if (health < 1)

@@ -57,7 +57,7 @@ BLIND     // can't see anything
 			user.update_inv_glasses()
 			flash_protection = FLASH_PROTECTION_NONE
 			tint = TINT_NONE
-			to_chat(usr, "You deactivate the optical matrix on the [src].")
+			to_chat(usr, "You deactivate the optical matrix on [src].")
 			if(activated_color)
 				set_light(0)
 		else
@@ -69,7 +69,7 @@ BLIND     // can't see anything
 				sound_to(usr, activation_sound)
 			flash_protection = initial(flash_protection)
 			tint = initial(tint)
-			to_chat(usr, "You activate the optical matrix on the [src].")
+			to_chat(usr, "You activate the optical matrix on [src].")
 			if(activated_color)
 				set_light(2, 0.4, activated_color)
 	user.update_action_buttons()
@@ -554,7 +554,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/thermal/emp_act(severity)
 	if(istype(src.loc, /mob/living/carbon/human))
 		var/mob/living/carbon/human/M = src.loc
-		to_chat(M, "<span class='danger'>\The [src] overloads and blinds you!</span>")
+		to_chat(M, SPAN_DANGER("\The [src] overloads and blinds you!"))
 		if(M.glasses == src)
 			M.eye_blind = 3
 			M.eye_blurry = 5

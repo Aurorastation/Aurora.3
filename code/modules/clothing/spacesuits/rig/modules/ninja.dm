@@ -47,7 +47,7 @@
 
 	anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity", null, 20, null)
 
-	H.visible_message(SPAN_NOTICE("[H] vanishes into thin air!"), SPAN_NOTICE("You vanish into thin air!"))
+	H.visible_message("<b>[H]</b> vanishes into thin air!", SPAN_NOTICE("You vanish into thin air!"))
 
 /obj/item/rig_module/stealth_field/deactivate()
 	if(!..())
@@ -61,7 +61,7 @@
 	anim(get_turf(H), H, 'icons/mob/mob.dmi', ,"uncloak", , H.dir)
 	anim(get_turf(H), H, 'icons/effects/effects.dmi', "electricity", null, 20, null)
 
-	H.visible_message(SPAN_NOTICE("[H] appears from thin air!"), SPAN_NOTICE("You appear from thin air!"))
+	H.visible_message("<b>[H]</b> appears from thin air!", SPAN_NOTICE("You appear from thin air!"))
 	playsound(get_turf(H), 'sound/effects/stealthoff.ogg', 10, 1)
 
 /obj/item/rig_module/teleporter

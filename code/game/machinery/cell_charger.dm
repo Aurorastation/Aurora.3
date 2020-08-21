@@ -46,24 +46,24 @@
 
 	if(istype(W, /obj/item/cell) && anchored)
 		if(charging)
-			to_chat(user, "<span class='warning'>There is already a cell in the charger.</span>")
+			to_chat(user, SPAN_WARNING("There is already a cell in the charger."))
 			return
 		else
 			var/area/a = loc.loc // Gets our locations location, like a dream within a dream
 			if(!isarea(a))
 				return
 			if(a.power_equip == 0) // There's no APC in this area, don't try to cheat power!
-				to_chat(user, "<span class='warning'>The [name] blinks red as you try to insert the cell!</span>")
+				to_chat(user, SPAN_WARNING("The [name] blinks red as you try to insert the cell!"))
 				return
 
 			user.drop_from_inventory(W,src)
 			charging = W
-			user.visible_message("[user] inserts a cell into the charger.", "You insert a cell into the charger.")
+			user.visible_message("<b>[user]</b> inserts a cell into the charger.", "You insert a cell into the charger.")
 			chargelevel = -1
 		update_icon()
 	else if(W.iswrench())
 		if(charging)
-			to_chat(user, "<span class='warning'>Remove the cell first!</span>")
+			to_chat(user, SPAN_WARNING("Remove the cell first!"))
 			return
 
 		anchored = !anchored
@@ -77,7 +77,7 @@
 		charging.update_icon()
 
 		src.charging = null
-		user.visible_message("[user] removes the cell from the charger.", "You remove the cell from the charger.")
+		user.visible_message("<b>[user]</b> removes the cell from the charger.", "You remove the cell from the charger.")
 		chargelevel = -1
 		update_icon()
 
@@ -89,7 +89,7 @@
 		charging.update_icon()
 		charging = null
 		update_icon()
-		user.visible_message("[user] removes the cell from the charger.", "You remove the cell from the charger.")
+		user.visible_message("<b>[user]</b> removes the cell from the charger.", "You remove the cell from the charger.")
 
 
 /obj/machinery/cell_charger/emp_act(severity)

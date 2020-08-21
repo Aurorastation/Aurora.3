@@ -23,7 +23,7 @@
 	if(!owner.canClick())
 		return
 	owner.setClickCooldown(5) // Spam prevention, essentially.
-	owner.visible_message("<span class='danger'>\The [owner] pulls the trigger reflexively!</span>")
+	owner.visible_message(SPAN_DANGER("\The [owner] pulls the trigger reflexively!"))
 	if(istype(G))
 		G.Fire(aiming_at, owner)
 	cancel_aiming()//if you can't remove it, nerf it

@@ -273,7 +273,7 @@
 		return 0
 
 	if (C.volume < req)
-		to_chat(user, SPAN_WARNING("There's not enough [C.name] to coat the [src]!"))
+		to_chat(user, SPAN_WARNING("There's not enough [C.name] to coat [src]!"))
 		return 0
 
 	var/id = C.type
@@ -308,7 +308,7 @@
 	add_overlay(J)
 
 	if (user)
-		user.visible_message(SPAN_NOTICE("[user] dips \the [src] into \the [coating.name]"), SPAN_NOTICE("You dip \the [src] into \the [coating.name]"))
+		user.visible_message("<b>[user]</b> dips \the [src] into [coating]", SPAN_NOTICE("You dip \the [src] into [coating]"))
 
 	return 1
 
@@ -937,7 +937,7 @@
 		to_chat(user, SPAN_NOTICE("The heating chemicals have already been spent."))
 		return
 	has_been_heated = TRUE
-	user.visible_message(SPAN_NOTICE("[user] crushes \the [src] package."), "You crush \the [src] package and feel it rapidly heat up.")
+	user.visible_message("<b>[user]</b> crushes \the [src] package.", "You crush \the [src] package and feel it rapidly heat up.")
 	name = "cooked Sin-pocket"
 	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume."
 	reagents.add_reagent(/datum/reagent/drink/doctorsdelight, 5)

@@ -106,7 +106,7 @@
 			return
 
 		wearer = user
-		to_chat(wearer, "<span class='Notice'>You struggle into the [src]. It feels hot, heavy and uncomfortable</span>")
+		to_chat(wearer, SPAN_NOTICE("You struggle into [src]. It feels hot, heavy and uncomfortable"))
 		START_PROCESSING(SSprocessing, src)
 	else
 		wearer = null

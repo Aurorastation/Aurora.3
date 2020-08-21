@@ -60,25 +60,25 @@ BREATH ANALYZER
 /proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE)
 	if(!just_scan)
 		if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
-			user.visible_message("<b>[user]</b> runs the scanner over the floor.", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
-			to_chat(user, "<span class='notice'><b>Scan results for the floor:</b></span>")
+			user.visible_message("<b>[user]</b> runs the scanner over the floor.", SPAN_NOTICE("You run the scanner over the floor."), SPAN_NOTICE("You hear metal repeatedly clunking against the floor."))
+			to_chat(user, SPAN_NOTICE("<b>Scan results for the floor:</b>"))
 			to_chat(user, "Overall Status: Healthy</span>")
 			return
 
 		if(!usr.IsAdvancedToolUser())
-			to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+			to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
 			return
 
-		user.visible_message("<b>[user]</b> runs a scanner over [M].","<span class='notice'>You run the scanner over [M].</span>")
+		user.visible_message("<b>[user]</b> runs a scanner over [M].",SPAN_NOTICE("You run the scanner over [M]."))
 
 	if(!istype(M, /mob/living/carbon/human))
-		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")
+		to_chat(user, SPAN_WARNING("This scanner is designed for humanoid patients only."))
 		return
 
 	var/mob/living/carbon/human/H = M
 
 	if(H.isSynthetic() && !H.isFBP())
-		to_chat(user, "<span class='warning'>This scanner is designed for organic humanoid patients only.</span>")
+		to_chat(user, SPAN_WARNING("This scanner is designed for organic humanoid patients only."))
 		return
 
 	. = list()
@@ -325,7 +325,7 @@ BREATH ANALYZER
 	if (user.stat)
 		return
 	if (!usr.IsAdvancedToolUser())
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
 	analyze_gases(src, user)
@@ -365,14 +365,14 @@ BREATH ANALYZER
 	if (user.stat)
 		return
 	if (!user.IsAdvancedToolUser())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 	if(reagents.total_volume)
 		var/list/blood_traces = list()
 		for(var/datum/reagent/R in reagents.reagent_list)
 			if(R.type != /datum/reagent/blood)
 				reagents.clear_reagents()
-				to_chat(user, "<span class='warning'>The sample was contaminated! Please insert another sample</span>")
+				to_chat(user, SPAN_WARNING("The sample was contaminated! Please insert another sample"))
 				return
 			else
 				blood_traces = params2list(R.data["trace_chem"])
@@ -416,7 +416,7 @@ BREATH ANALYZER
 	if (user.stat)
 		return
 	if (!user.IsAdvancedToolUser())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 	if(!istype(O))
 		return
@@ -428,11 +428,11 @@ BREATH ANALYZER
 			for (var/datum/reagent/R in O.reagents.reagent_list)
 				dat += "\n \t <span class='notice'>[R][details ? ": [R.volume / one_percent]%" : ""]"
 		if(dat)
-			to_chat(user, "<span class='notice'>Chemicals found: [dat]</span>")
+			to_chat(user, SPAN_NOTICE("Chemicals found: [dat]"))
 		else
-			to_chat(user, "<span class='notice'>No active chemical agents found in [O].</span>")
+			to_chat(user, SPAN_NOTICE("No active chemical agents found in [O]."))
 	else
-		to_chat(user, "<span class='notice'>No significant chemical agents found in [O].</span>")
+		to_chat(user, SPAN_NOTICE("No significant chemical agents found in [O]."))
 
 	return
 
@@ -521,17 +521,17 @@ BREATH ANALYZER
 /obj/item/device/breath_analyzer/attack(mob/living/carbon/human/H, mob/living/user as mob)
 
 	if (!istype(H))
-		to_chat(user,"<span class='warning'>You can't find a way to use \the [src] on [H]!</span>")
+		to_chat(user,SPAN_WARNING("You can't find a way to use \the [src] on [H]!"))
 		return
 
 	if ( ((user.is_clumsy()) || (DUMB in user.mutations)) && prob(20))
-		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
+		to_chat(user,SPAN_DANGER("Your hand slips from clumsiness!"))
 		eyestab(H,user)
-		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
+		to_chat(user,SPAN_DANGER("Alert: No breathing detected."))
 		return
 
 	if (!user.IsAdvancedToolUser())
-		to_chat(user,"<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user,SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
 	if(user == H && !H.can_eat(src))
@@ -542,22 +542,22 @@ BREATH ANALYZER
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(H)
 
-	user.visible_message("<span class='notice'>[user] is trying to take a breath sample from [H].</span>","<span class='notice'>You gently insert \the [src] into [H]'s mouth.</span>")
+	user.visible_message(SPAN_NOTICE("[user] is trying to take a breath sample from [H]."),SPAN_NOTICE("You gently insert \the [src] into [H]'s mouth."))
 
 	if (!LAZYLEN(src.other_DNA))
 		LAZYADD(src.other_DNA, H.dna.unique_enzymes)
 		src.other_DNA_type = "saliva"
 
 	if (!do_after(user, 2 SECONDS, act_target = H))
-		to_chat(user,"<span class='notice'>You and the target need to be standing still in order to take a breath sample.</span>")
+		to_chat(user,SPAN_NOTICE("You and the target need to be standing still in order to take a breath sample."))
 		return
 
-	user.visible_message("<span class='notice'>[user] takes a breath sample from [H].</span>","<span class='notice'>\The [src] clicks as it finishes reading [H]'s breath sample.</span>")
+	user.visible_message(SPAN_NOTICE("[user] takes a breath sample from [H]."),SPAN_NOTICE("\The [src] clicks as it finishes reading [H]'s breath sample."))
 
 	to_chat(user,"<b>Breath Sample Results:</b>")
 
 	if(H.stat == DEAD || H.losebreath || !H.breathing)
-		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
+		to_chat(user,SPAN_DANGER("Alert: No breathing detected."))
 		return
 
 	switch(H.getOxyLoss())
@@ -577,7 +577,7 @@ BREATH ANALYZER
 		else
 			to_chat(user,"Subject lung health nominal.")
 	else
-		to_chat(user,"<span class='warning'>Subject lung health unknown.</span>")
+		to_chat(user,SPAN_WARNING("Subject lung health unknown."))
 
 	var/additional_string = "<font color='green'>\[NORMAL\]</font>"
 	var/bac = H.get_blood_alcohol()
@@ -598,7 +598,7 @@ BREATH ANALYZER
 		var/unknown = 0
 		for(var/datum/reagent/R in H.breathing.reagent_list)
 			if(R.scannable)
-				to_chat(user,"<span class='notice'>[R.name] found in subject's respitory system.</span>")
+				to_chat(user,SPAN_NOTICE("[R.name] found in subject's respitory system."))
 			else
 				++unknown
 		if(unknown)

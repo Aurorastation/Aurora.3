@@ -78,15 +78,15 @@
 	fire(FALSE, TRUE)
 	if (starlight_enabled)
 		var/t = REALTIMEOFDAY
-		admin_notice("<span class='danger'>[src] setup completed in [(t - timeofday)/10] seconds!</span>", R_DEBUG)
+		admin_notice(SPAN_DANGER("[src] setup completed in [(t - timeofday)/10] seconds!"), R_DEBUG)
 
 		SSlighting.fire(FALSE, TRUE)
-		admin_notice("<span class='danger'>Secondary [SSlighting] flush completed in [(REALTIMEOFDAY - t)/10] seconds!</span>", R_DEBUG)
+		admin_notice(SPAN_DANGER("Secondary [SSlighting] flush completed in [(REALTIMEOFDAY - t)/10] seconds!"), R_DEBUG)
 
 		t = REALTIMEOFDAY
 
 		fire(FALSE, TRUE)	// Fire /again/ to flush updates caused by the above.
-		admin_notice("<span class='danger'>Secondary [src] flush completed in [(REALTIMEOFDAY - t)/10] seconds!</span>", R_DEBUG)
+		admin_notice(SPAN_DANGER("Secondary [src] flush completed in [(REALTIMEOFDAY - t)/10] seconds!"), R_DEBUG)
 
 	..()
 

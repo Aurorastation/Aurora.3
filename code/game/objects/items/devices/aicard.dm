@@ -84,7 +84,7 @@
 	if (href_list["wipe"])
 		var/confirm = alert("Are you sure you want to wipe this card's memory? This cannot be undone once started.", "Confirm Wipe", "Yes", "No")
 		if(confirm == "Yes" && (CanUseTopic(usr, state) == STATUS_INTERACTIVE))
-			admin_attack_log(usr, carded_ai, "Wiped using \the [src.name]", "Was wiped with \the [src.name]", "used \the [src.name] to wipe")
+			admin_attack_log(usr, carded_ai, "Wiped using [src]", "Was wiped with [src]", "used [src] to wipe")
 			flush = 1
 			to_chat(carded_ai, "Your core files are being wiped!")
 			while (carded_ai && carded_ai.stat != DEAD)
@@ -94,12 +94,12 @@
 			flush = 0
 	if (!isnull(href_list["radio"]))
 		carded_ai.ai_radio.disabledAi = text2num(href_list["radio"])
-		to_chat(carded_ai, "<span class='warning'>Your Subspace Transceiver has been [carded_ai.ai_radio.disabledAi ? "disabled" : "enabled"]!</span>")
-		to_chat(usr, "<span class='notice'>You [carded_ai.ai_radio.disabledAi ? "disable" : "enable"] the AI's Subspace Transceiver.</span>")
+		to_chat(carded_ai, SPAN_WARNING("Your Subspace Transceiver has been [carded_ai.ai_radio.disabledAi ? "disabled" : "enabled"]!"))
+		to_chat(usr, SPAN_NOTICE("You [carded_ai.ai_radio.disabledAi ? "disable" : "enable"] the AI's Subspace Transceiver."))
 	if (!isnull(href_list["wireless"]))
 		carded_ai.control_disabled = text2num(href_list["wireless"])
-		to_chat(carded_ai, "<span class='warning'>Your wireless interface has been [carded_ai.control_disabled ? "disabled" : "enabled"]!</span>")
-		to_chat(usr, "<span class='notice'>You [carded_ai.control_disabled ? "disable" : "enable"] the AI's wireless interface.</span>")
+		to_chat(carded_ai, SPAN_WARNING("Your wireless interface has been [carded_ai.control_disabled ? "disabled" : "enabled"]!"))
+		to_chat(usr, SPAN_NOTICE("You [carded_ai.control_disabled ? "disable" : "enable"] the AI's wireless interface."))
 		update_icon()
 	return 1
 

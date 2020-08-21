@@ -25,12 +25,12 @@
 	textg = num2hex(255 - g)
 	textb = num2hex(255 - b)
 	if (length(textr) < 2)
-		textr = text("0[]", textr)
+		textr = "0[textr]"
 	if (length(textg) < 2)
-		textr = text("0[]", textg)
+		textr = "0[textg]"
 	if (length(textb) < 2)
-		textr = text("0[]", textb)
-	return text("#[][][]", textr, textg, textb)
+		textr = "0[textb]"
+	return "#[textr][textg][textb]"
 
 //Returns the middle-most value
 /proc/dd_range(var/low, var/high, var/num)
@@ -1149,32 +1149,32 @@ var/list/wall_items = typecacheof(list(
 
 	if (NOT_FLAG(USE_ALLOW_NON_ADJACENT) && !Adjacent(user))
 		if (show_messages)
-			to_chat(user, "<span class='notice'>You're too far away from [src] to do that.</span>")
+			to_chat(user, SPAN_NOTICE("You're too far away from [src] to do that."))
 		return USE_FAIL_NON_ADJACENT
 
 	if (NOT_FLAG(USE_ALLOW_DEAD) && user.stat == DEAD)
 		if (show_messages)
-			to_chat(user, "<span class='notice'>How do you expect to do that when you're dead?</span>")
+			to_chat(user, SPAN_NOTICE("How do you expect to do that when you're dead?"))
 		return USE_FAIL_DEAD
 
 	if (NOT_FLAG(USE_ALLOW_INCAPACITATED) && (user.incapacitated()))
 		if (show_messages)
-			to_chat(user, "<span class='notice'>You cannot do that in your current state.</span>")
+			to_chat(user, SPAN_NOTICE("You cannot do that in your current state."))
 		return USE_FAIL_INCAPACITATED
 
 	if (NOT_FLAG(USE_ALLOW_NON_ADV_TOOL_USR) && !user.IsAdvancedToolUser())
 		if (show_messages)
-			to_chat(user, "<span class='notice'>You don't know how to operate [src].</span>")
+			to_chat(user, SPAN_NOTICE("You don't know how to operate [src]."))
 		return USE_FAIL_NON_ADV_TOOL_USR
 
 	if (HAS_FLAG(USE_DISALLOW_SILICONS) && issilicon(user))
 		if (show_messages)
-			to_chat(user, "<span class='notice'>How do you propose doing that without hands?</span>")
+			to_chat(user, SPAN_NOTICE("How do you propose doing that without hands?"))
 		return USE_FAIL_IS_SILICON
 
 	if (HAS_FLAG(USE_FORCE_SRC_IN_USER) && !(src in user))
 		if (show_messages)
-			to_chat(user, "<span class='notice'>You need to be holding [src] to do that.</span>")
+			to_chat(user, SPAN_NOTICE("You need to be holding [src] to do that."))
 		return USE_FAIL_NOT_IN_USER
 
 /atom/proc/use_check_and_message(mob/user, use_flags = 0)

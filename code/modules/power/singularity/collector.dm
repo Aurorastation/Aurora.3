@@ -44,12 +44,12 @@ var/global/list/rad_collectors = list()
 	if(anchored)
 		if(!src.locked)
 			toggle_power()
-			user.visible_message("[user.name] turns the [src.name] [active? "on":"off"].", \
+			user.visible_message("<b>[user.name]</b> turns the [src.name] [active? "on":"off"].", \
 			"You turn the [src.name] [active? "on":"off"].")
 			investigate_log("turned [active?"<font color='green'>on</font>":"<font color='red'>off</font>"] by [user.key]. [P?"Fuel: [round(P.air_contents.gas[GAS_PHORON]/0.29)]%":"<font color='red'>It is empty</font>"].","singulo")
 			return
 		else
-			to_chat(user, "<span class='warning'>The controls are locked!</span>")
+			to_chat(user, SPAN_WARNING("The controls are locked!"))
 			return
 	..()
 
@@ -57,10 +57,10 @@ var/global/list/rad_collectors = list()
 /obj/machinery/power/rad_collector/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/tank/phoron))
 		if(!src.anchored)
-			to_chat(user, "<span class='warning'>The [src] needs to be secured to the floor first.</span>")
+			to_chat(user, SPAN_WARNING("The [src] needs to be secured to the floor first."))
 			return 1
 		if(src.P)
-			to_chat(user, "<span class='warning'>There's already a phoron tank loaded.</span>")
+			to_chat(user, SPAN_WARNING("There's already a phoron tank loaded."))
 			return 1
 		user.drop_from_inventory(W,src)
 		src.P = W
@@ -72,7 +72,7 @@ var/global/list/rad_collectors = list()
 			return 1
 	else if(W.iswrench())
 		if(P)
-			to_chat(user, "<span class='notice'>Remove the phoron tank first.</span>")
+			to_chat(user, SPAN_NOTICE("Remove the phoron tank first."))
 			return 1
 		playsound(src.loc, W.usesound, 75, 1)
 		src.anchored = !src.anchored
@@ -91,9 +91,9 @@ var/global/list/rad_collectors = list()
 				to_chat(user, "The controls are now [src.locked ? "locked." : "unlocked."]")
 			else
 				src.locked = 0 //just in case it somehow gets locked
-				to_chat(user, "<span class='warning'>The controls can only be locked when the [src] is active.</span>")
+				to_chat(user, SPAN_WARNING("The controls can only be locked when [src] is active."))
 		else
-			to_chat(user, "<span class='warning'>Access denied!</span>")
+			to_chat(user, SPAN_WARNING("Access denied!"))
 		return 1
 	return ..()
 

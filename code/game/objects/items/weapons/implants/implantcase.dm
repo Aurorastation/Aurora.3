@@ -35,11 +35,11 @@
 		if(!src.imp)	return
 		if(!src.imp.allow_reagents)	return
 		if(src.imp.reagents.total_volume >= src.imp.reagents.maximum_volume)
-			to_chat(user, "<span class='warning'>\The [src] is full.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is full."))
 		else
 			var/trans = I.reagents.trans_to_obj(src.imp, 5)
 			if (trans > 0)
-				to_chat(user, "<span class='notice'>You inject [trans] units of the solution. The syringe now contains [I.reagents.total_volume] units.</span>")
+				to_chat(user, SPAN_NOTICE("You inject [trans] units of the solution. The syringe now contains [I.reagents.total_volume] units."))
 	else if (istype(I, /obj/item/implanter))
 		var/obj/item/implanter/M = I
 		if (M.imp)

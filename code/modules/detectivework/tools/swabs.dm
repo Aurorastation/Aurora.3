@@ -23,25 +23,25 @@
 	var/sample_type
 
 	if(H.wear_mask)
-		to_chat(user, "<span class='warning'>\The [H] is wearing a mask.</span>")
+		to_chat(user, SPAN_WARNING("\The [H] is wearing a mask."))
 		return
 
 	if(!H.dna || !H.dna.unique_enzymes)
-		to_chat(user, "<span class='warning'>They don't seem to have DNA!</span>")
+		to_chat(user, SPAN_WARNING("They don't seem to have DNA!"))
 		return
 
 	if(user != H && H.a_intent != "help" && !H.lying)
-		user.visible_message("<span class='danger'>\The [user] tries to take a swab sample from \the [H], but they move away.</span>")
+		user.visible_message(SPAN_DANGER("\The [user] tries to take a swab sample from \the [H], but they move away."))
 		return
 
 	if(target_zone == BP_MOUTH)
 		if(!H.organs_by_name[BP_HEAD])
-			to_chat(user, "<span class='warning'>They don't have a head.</span>")
+			to_chat(user, SPAN_WARNING("They don't have a head."))
 			return
 		if(!H.check_has_mouth())
-			to_chat(user, "<span class='warning'>They don't have a mouth.</span>")
+			to_chat(user, SPAN_WARNING("They don't have a mouth."))
 			return
-		user.visible_message("[user] swabs \the [H]'s mouth for a saliva sample.")
+		user.visible_message("<b>[user]</b> swabs \the [H]'s mouth for a saliva sample.")
 		dna = list(H.dna.unique_enzymes)
 		sample_type = "DNA"
 
@@ -55,9 +55,9 @@
 			if(istype(O) && !O.is_stump())
 				has_hand = 1
 		if(!has_hand)
-			to_chat(user, "<span class='warning'>They don't have any hands.</span>")
+			to_chat(user, SPAN_WARNING("They don't have any hands."))
 			return
-		user.visible_message("[user] swabs [H]'s palm for a sample.")
+		user.visible_message("<b>[user]</b> swabs [H]'s palm for a sample.")
 		sample_type = "GSR"
 		gsr = H.gunshot_residue
 	else
@@ -74,7 +74,7 @@
 		return
 
 	if(is_used())
-		to_chat(user, "<span class='warning'>This swab has already been used.</span>")
+		to_chat(user, SPAN_WARNING("This swab has already been used."))
 		return
 
 	add_fingerprint(user)
@@ -89,7 +89,7 @@
 
 	var/choice
 	if(!choices.len)
-		to_chat(user, "<span class='warning'>There is no evidence on \the [A].</span>")
+		to_chat(user, SPAN_WARNING("There is no evidence on \the [A]."))
 		return
 	else if(choices.len == 1)
 		choice = choices[1]
@@ -109,7 +109,7 @@
 		if ("Gunshot Residue")
 			var/obj/item/clothing/B = A
 			if(!istype(B) || !B.gunshot_residue)
-				to_chat(user, "<span class='warning'>There is no residue on \the [A].</span>")
+				to_chat(user, SPAN_WARNING("There is no residue on \the [A]."))
 				return
 			gsr = B.gunshot_residue
 			sample_type = "residue"

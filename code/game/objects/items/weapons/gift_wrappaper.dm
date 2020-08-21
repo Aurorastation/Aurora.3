@@ -33,7 +33,7 @@
 		user.put_in_active_hand(gift)
 		src.gift.add_fingerprint(user)
 	else
-		to_chat(user, "<span class='warning'>The gift was empty!</span>")
+		to_chat(user, SPAN_WARNING("The gift was empty!"))
 	qdel(src)
 	return
 
@@ -44,16 +44,16 @@
 /obj/effect/spresent/relaymove(mob/user as mob)
 	if (user.stat)
 		return
-	to_chat(user, "<span class='warning'>You can't move.</span>")
+	to_chat(user, SPAN_WARNING("You can't move."))
 
 /obj/effect/spresent/attackby(obj/item/W as obj, mob/user as mob)
 	..()
 
 	if (!W.iswirecutter())
-		to_chat(user, "<span class='warning'>I need wirecutters for that.</span>")
+		to_chat(user, SPAN_WARNING("I need wirecutters for that."))
 		return
 
-	to_chat(user, "<span class='notice'>You cut open the present.</span>")
+	to_chat(user, SPAN_NOTICE("You cut open the present."))
 
 	for(var/mob/M in src) //Should only be one but whatever.
 		M.forceMove(src.loc)
@@ -142,7 +142,7 @@
 		"Lord-Regent Not'zar","Jesus Christ","Santa Claus","Mrs. Claus","Sandy Claws","Buddha","Gary","Jesus Christ!","the True Queen of Biesel, God-Lady Seon-rin von Illdenberg, First of Her Name",
 		"Admiral Frost","Pirate King Frost", "The Secret NanoTrasen Cabal of Duty Officers", "The Society for the Preservation of Rats", "Officer Beepsky","Lieutenant Columbo","Crew of the NSS Upsilon","Runtime",
 		"Bones","Chauncey","Ian","Pun Pun","Nup Nup","Waldo","Odlaw","Crew of the NSS Exodus", "Custodial Staff of the NTCC Odin","ERT Phoenix","grey slime (357)","Bob the Blob","People for the Ethical Treatment of Bluespace Bears",
-		"Mr. Clown and Mrs. Mime from New Puerto Rico","the Grinch","the Krampus","Satan","Mega-Satan","<span class='danger'>\[BENEFACTOR REDACTED]\</span>","Bluespace Cat","Union of Bluespace Technicians Tau Ceti","the New Kingdom of Adhomai",
+		"Mr. Clown and Mrs. Mime from New Puerto Rico","the Grinch","the Krampus","Satan","Mega-Satan",SPAN_DANGER("\[BENEFACTOR REDACTED\]"),"Bluespace Cat","Union of Bluespace Technicians Tau Ceti","the New Kingdom of Adhomai",
 		"Ginny", "Boleslaw Keesler", "The Queen in Blue", "Cuban Pete", "Ceres' Lance", "the real Odin Killer (Still out here, guys!)", "the K'lax Hive", "the C'thur Hive")
 	var/pick_emotion = pick("love","platonic admiration","approval","love (not in a sexual way or anything, though)","apathy", "schadenfreude","love","God's blessing","Santa's blessing","Non-demoninational deity's blessing","love","compassion","appreciation",
 		"respect","begrudging respect","love", "seasonal obligation")

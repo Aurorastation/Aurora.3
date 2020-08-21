@@ -14,7 +14,7 @@
 	if(!padding_material && istype(W, /obj/item/assembly/shock_kit))
 		var/obj/item/assembly/shock_kit/SK = W
 		if(!SK.status)
-			to_chat(user, "<span class='notice'>\The [SK] is not ready to be attached!</span>")
+			to_chat(user, SPAN_NOTICE("\The [SK] is not ready to be attached!"))
 			return
 		var/obj/structure/bed/chair/e_chair/E = new (src.loc, material.name)
 		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
@@ -156,7 +156,7 @@
 			victim.apply_effect(6, WEAKEN, blocked)
 			victim.apply_effect(6, STUTTER, blocked)
 			victim.apply_damage(10, BRUTE, def_zone, blocked)
-		occupant.visible_message("<span class='danger'>[occupant] crashed into \the [A]!</span>")
+		occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
 /obj/structure/bed/chair/office/light
 	icon_state = "officechair_white"

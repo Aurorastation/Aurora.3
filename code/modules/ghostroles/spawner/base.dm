@@ -2,7 +2,7 @@
 	var/short_name = null
 	var/name = null
 	var/desc = null
-	var/show_on_job_select = TRUE // Determines if the ghost spawner role is considered unique or not. 
+	var/show_on_job_select = TRUE // Determines if the ghost spawner role is considered unique or not.
 	var/welcome_message = null
 	var/list/tags = list() //Tags associated with that spawner
 
@@ -168,7 +168,7 @@
 	if (T)
 		S = new spawn_mob(T)
 	else
-		to_chat(user, "<span class='warning'>Unable to find any spawn point. </span>")
+		to_chat(user, SPAN_WARNING("Unable to find any spawn point. "))
 
 	if(S)
 		announce_ghost_joinleave(user, 0, "They are now a [name].")

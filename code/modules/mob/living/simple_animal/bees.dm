@@ -45,13 +45,13 @@
 		strength -= 1
 		if (strength <= 0)
 			if (prob(35))//probability to reduce spam
-				src.visible_message("<span class='warning'>The bee swarm completely dissipates.</span>")
+				src.visible_message(SPAN_WARNING("The bee swarm completely dissipates."))
 			qdel(src)
 			return
 		else
 			health = maxHealth
 			if (prob(35))//probability to reduce spam
-				src.visible_message("<span class='warning'>The bee swarm starts to thin out a little.</span>")
+				src.visible_message(SPAN_WARNING("The bee swarm starts to thin out a little."))
 
 		update_icon()
 	else
@@ -94,7 +94,7 @@
 		if( prob(sting_prob*prob_mult) && (M.stat == CONSCIOUS || (M.stat == UNCONSCIOUS && prob(25*prob_mult))) ) // Try to sting! If you're not moving, think about stinging.
 			M.apply_damage(min(strength*0.85,2)+mut, BURN, damage_flags = DAM_SHARP) // Stinging. The more mutated I am, the harder I sting.
 			M.apply_damage(max(strength*0.2,(round(feral/10,1)*(max((round(strength/20,1)),1)))+toxic), TOX) // Bee venom based on how angry I am and how many there are of me!
-			to_chat(M, "<span class='warning'>You have been stung!</span>")
+			to_chat(M, SPAN_WARNING("You have been stung!"))
 			M.flash_pain()
 
 
@@ -124,7 +124,7 @@
 
 	//make some noise
 	if(prob(3))
-		src.visible_message("<span class='notice'>[pick("Buzzzz.","Hmmmmm.","Bzzz.")]</span>")
+		src.visible_message(SPAN_NOTICE("[pick("Buzzzz.","Hmmmmm.","Bzzz.")]"))
 		playsound(src.loc, pick('sound/effects/Buzz1.ogg','sound/effects/Buzz2.ogg'), 15, 1,-4)
 
 	if (feral && isturf(loc))
@@ -139,7 +139,7 @@
 
 		if(range_in_typecache(src, 2, calmers))
 			if(feral > 0)
-				src.visible_message("<span class='notice'>The bees calm down!</span>")
+				src.visible_message(SPAN_NOTICE("The bees calm down!"))
 			feral = -15
 			target_mob = null
 			target_turf = null
@@ -197,7 +197,7 @@
 		if (!(DirBlocked(get_step(src, get_dir(src,target_turf)),get_dir(src,target_turf)))) // Check for windows and doors!
 			Move(get_step(src, get_dir(src,target_turf)))
 			if (prob(10))
-				src.visible_message("<span class='notice'>The bees swarm after [target_mob]!</span>")
+				src.visible_message(SPAN_NOTICE("The bees swarm after [target_mob]!"))
 		if(src.loc == target_turf)
 			target_turf = null
 			wander = 1

@@ -101,7 +101,7 @@
 	if(use_check_and_message(usr))
 		return
 	if(has_down_and_sleeves == FALSE)
-		to_chat(usr, SPAN_NOTICE("You cannot roll down the [src]!"))
+		to_chat(usr, SPAN_NOTICE("You cannot roll down [src]!"))
 		return
 
 	if((rolled_sleeves == TRUE) && !(rolled_down))

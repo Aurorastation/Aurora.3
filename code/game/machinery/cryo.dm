@@ -184,7 +184,7 @@
 /obj/machinery/atmospherics/unary/cryo_cell/attackby(var/obj/item/G as obj, var/mob/user as mob)
 	if(istype(G, /obj/item/reagent_containers/glass))
 		if(beaker)
-			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
+			to_chat(user, SPAN_WARNING("A beaker is already loaded into the machine."))
 			return
 
 		beaker =  G
@@ -197,7 +197,7 @@
 		if (!istype(L))
 			return
 
-		user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
+		user.visible_message(SPAN_NOTICE("[user] starts putting [L] into [src]."), SPAN_NOTICE("You start putting [L] into [src]."), range = 3)
 
 		if(do_mob(user, L, 30, needhand = 0))
 			var/bucklestatus = L.bucklecheck(user)
@@ -211,7 +211,7 @@
 					to_chat(user, SPAN_WARNING("[L] will not fit into the cryo because they have a slime latched onto their head."))
 					return
 			if(put_mob(L))
-				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", range = 3)
+				user.visible_message(SPAN_NOTICE("[user] puts [L] into [src]."), SPAN_NOTICE("You put [L] into [src]."), range = 3)
 				qdel(G)
 	return
 
@@ -232,18 +232,18 @@
 		return
 
 	if(L == user)
-		user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
+		user.visible_message(SPAN_NOTICE("[user] starts climbing into [src]."), SPAN_NOTICE("You start climbing into [src]."), range = 3)
 	else
-		user.visible_message("<span class='notice'>[user] starts putting [L] into the cryopod.</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
+		user.visible_message(SPAN_NOTICE("[user] starts putting [L] into the cryopod."), SPAN_NOTICE("You start putting [L] into [src]."), range = 3)
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
 			var/obj/structure/LB = L.buckled
 			LB.user_unbuckle_mob(user)
 		if(put_mob(L))
 			if(L == user)
-				user.visible_message("<span class='notice'>[user] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>", range = 3)
+				user.visible_message(SPAN_NOTICE("[user] climbs into [src]."), SPAN_NOTICE("You climb into [src]."), range = 3)
 			else
-				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", range = 3)
+				user.visible_message(SPAN_NOTICE("[user] puts [L] into [src]."), SPAN_NOTICE("You put [L] into [src]."), range = 3)
 				if(user.pulling == L)
 					user.pulling = null
 
@@ -338,19 +338,19 @@
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/M as mob)
 	if (stat & (NOPOWER|BROKEN))
-		to_chat(usr, "<span class='warning'>The cryo cell is not functioning.</span>")
+		to_chat(usr, SPAN_WARNING("The cryo cell is not functioning."))
 		return
 	if (!istype(M))
-		to_chat(usr, "<span class='danger'>The cryo cell cannot handle such a lifeform!</span>")
+		to_chat(usr, SPAN_DANGER("The cryo cell cannot handle such a lifeform!"))
 		return
 	if (occupant)
-		to_chat(usr, "<span class='danger'>The cryo cell is already occupied!</span>")
+		to_chat(usr, SPAN_DANGER("The cryo cell is already occupied!"))
 		return
 	if (M.abiotic())
-		to_chat(usr, "<span class='warning'>Subject may not have abiotic items on.</span>")
+		to_chat(usr, SPAN_WARNING("Subject may not have abiotic items on."))
 		return
 	if(!node)
-		to_chat(usr, "<span class='warning'>The cell is not correctly connected to its pipe network!</span>")
+		to_chat(usr, SPAN_WARNING("The cell is not correctly connected to its pipe network!"))
 		return
 	if (M.client)
 		M.client.perspective = EYE_PERSPECTIVE
@@ -359,7 +359,7 @@
 	M.forceMove(src)
 	M.ExtinguishMob()
 	if(M.health > -100 && (M.health < 0 || M.sleeping))
-		to_chat(M, "<span class='notice'><b>You feel a cold liquid surround you. Your skin starts to freeze up.</b></span>")
+		to_chat(M, SPAN_NOTICE("<b>You feel a cold liquid surround you. Your skin starts to freeze up.</b>"))
 	occupant = M
 	current_heat_capacity = HEAT_CAPACITY_HUMAN
 	update_use_power(2)
@@ -375,7 +375,7 @@
 	if(usr == occupant)//If the user is inside the tube...
 		if (usr.stat == 2)//and he's not dead....
 			return
-		to_chat(usr, "<span class='notice'>Release sequence activated. This will take two minutes.</span>")
+		to_chat(usr, SPAN_NOTICE("Release sequence activated. This will take two minutes."))
 		sleep(1200)
 		if(!src || !usr || !occupant || (occupant != usr)) //Check if someone's released/replaced/bombed him already
 			return
@@ -397,7 +397,7 @@
 			return
 	if (usr.stat != 0)
 		return
-	usr.visible_message("<span class='notice'>[usr] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>", range = 3)
+	usr.visible_message(SPAN_NOTICE("[usr] climbs into [src]."), SPAN_NOTICE("You climb into [src]."), range = 3)
 	put_mob(usr)
 	return
 

@@ -153,9 +153,9 @@
 		if(SHIP_STATUS_LANDED)
 			var/obj/effect/overmap/visitable/location = loc
 			if(istype(loc, /obj/effect/overmap/visitable/sector))
-				return "Landed on \the [location.name]. Use secondary thrust to get clear before activating primary engines."
+				return "Landed on [location]. Use secondary thrust to get clear before activating primary engines."
 			if(istype(loc, /obj/effect/overmap/visitable/ship))
-				return "Docked with \the [location.name]. Use secondary thrust to get clear before activating primary engines."
+				return "Docked with [location]. Use secondary thrust to get clear before activating primary engines."
 			return "Docked with an unknown object."
 		if(SHIP_STATUS_TRANSIT)
 			return "Maneuvering under secondary thrust."

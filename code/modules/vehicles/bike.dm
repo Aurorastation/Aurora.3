@@ -63,7 +63,7 @@
 		if(isturf(loc))
 			var/turf/T = loc
 			if (T.is_hole)
-				to_chat(usr, "<span class='warning'>You don't think kickstands work here.</span>")
+				to_chat(usr, SPAN_WARNING("You don't think kickstands work here."))
 				return
 		usr.visible_message("\The [usr] puts down \the [src]'s kickstand.", "You put down \the [src]'s kickstand.", "You hear a thunk.")
 		playsound(src, 'sound/misc/bike_stand_down.ogg', 50, 1)
@@ -87,7 +87,7 @@
 
 /obj/vehicle/bike/MouseDrop_T(var/atom/movable/C, mob/user as mob)
 	if(!load(C))
-		to_chat(user, "<span class='warning'>You were unable to load \the [C] onto \the [src].</span>")
+		to_chat(user, SPAN_WARNING("You were unable to load \the [C] onto \the [src]."))
 		return
 
 /obj/vehicle/bike/attack_hand(var/mob/user as mob)
@@ -204,7 +204,7 @@
 			if(ishuman(AM))
 				var/mob/living/carbon/human/H = AM
 				buckled_mob.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
-				buckled_mob.attack_log += text("\[[time_stamp()]\] <font color='red'>rammed[buckled_mob.name] ([buckled_mob.ckey]) rammed [H.name] ([H.ckey]) with the [src].</font>")
+				buckled_mob.attack_log += text("\[[time_stamp()]\] <font color='red'>rammed[buckled_mob.name] ([buckled_mob.ckey]) rammed [H.name] ([H.ckey]) with [src].</font>")
 				msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"))
 				playsound(src, 'sound/weapons/punch4.ogg', 50, 1)
@@ -265,7 +265,7 @@
 		return
 	if(buckled_mob.a_intent == I_HURT)
 		buckled_mob.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
-		buckled_mob.attack_log += text("\[[time_stamp()]\] <font color='red'>rammed[buckled_mob.name] ([buckled_mob.ckey]) rammed [H.name] ([H.ckey]) with the [src].</font>")
+		buckled_mob.attack_log += text("\[[time_stamp()]\] <font color='red'>rammed[buckled_mob.name] ([buckled_mob.ckey]) rammed [H.name] ([H.ckey]) with [src].</font>")
 		msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 		src.visible_message(SPAN_DANGER("\The [src] runs over \the [H]!"))
 		H.apply_damage(30, BRUTE)

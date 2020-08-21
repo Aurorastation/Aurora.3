@@ -23,20 +23,20 @@
 	attackby(obj/item/W as obj, mob/user as mob)
 		if (istype(W, /obj/item/card/id))
 			if(src.broken)
-				to_chat(user, "<span class='warning'>It appears to be broken.</span>")
+				to_chat(user, SPAN_WARNING("It appears to be broken."))
 				return
 			if(src.allowed(user))
 				src.locked = !( src.locked )
 				if(src.locked)
 					src.icon_state = src.icon_locked
-					to_chat(user, "<span class='notice'>You lock \the [src]!</span>")
+					to_chat(user, SPAN_NOTICE("You lock \the [src]!"))
 					return
 				else
 					src.icon_state = src.icon_closed
-					to_chat(user, "<span class='notice'>You unlock \the [src]!</span>")
+					to_chat(user, SPAN_NOTICE("You unlock \the [src]!"))
 					return
 			else
-				to_chat(user, "<span class='warning'>Access Denied</span>")
+				to_chat(user, SPAN_WARNING("Access Denied"))
 		else if(istype(W, /obj/item/melee/energy/blade))
 			if(emag_act(INFINITY, user, W, "The locker has been sliced open by [user] with an energy blade!", "You hear metal being sliced and sparks flying."))
 				var/obj/item/melee/energy/blade/blade = W
@@ -46,13 +46,13 @@
 		if(!locked)
 			..()
 		else
-			to_chat(user, "<span class='warning'>It's locked!</span>")
+			to_chat(user, SPAN_WARNING("It's locked!"))
 		return
 
 
 	show_to(mob/user as mob)
 		if(locked)
-			to_chat(user, "<span class='warning'>It's locked!</span>")
+			to_chat(user, SPAN_WARNING("It's locked!"))
 		else
 			..()
 		return

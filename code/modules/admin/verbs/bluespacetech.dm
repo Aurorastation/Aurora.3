@@ -296,10 +296,10 @@
 
 	if (fall_override)
 		fall_override = FALSE
-		to_chat(usr, "<span class='notice'>You will now fall normally.</span>")
+		to_chat(usr, SPAN_NOTICE("You will now fall normally."))
 	else
 		fall_override = TRUE
-		to_chat(usr, "<span class='notice'>You will no longer fall.</span>")
+		to_chat(usr, SPAN_NOTICE("You will no longer fall."))
 
 /mob/living/carbon/human/bst/verb/bstwalk()
 	set name = "Ruin Everything"
@@ -367,7 +367,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -386,7 +386,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -412,7 +412,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -429,7 +429,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -461,7 +461,7 @@
 			vision_flags = 0
 			see_invisible = -1
 
-	to_chat(usr, "<span class='notice'>\The [src]'s vision mode is now <b>[mode]</b>.</span>")
+	to_chat(usr, SPAN_NOTICE("\The [src]'s vision mode is now <b>[mode]</b>."))
 
 /*	New()
 		..()
@@ -473,7 +473,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -490,7 +490,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -509,7 +509,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -523,7 +523,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through [src]. It's like it doesn't exist."))
 		return
 	else
 		..()

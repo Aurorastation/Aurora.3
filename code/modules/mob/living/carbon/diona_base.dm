@@ -299,19 +299,19 @@ var/list/diona_banned_languages = list(
 
 		if (path)
 			if (DS.stored_energy <= 0)
-				to_chat(src, "<span class='danger'>You try to regrow a lost limb, but you lack the energy. Find more light!</span>")
+				to_chat(src, SPAN_DANGER("You try to regrow a lost limb, but you lack the energy. Find more light!"))
 				return
 			if (nutrition <= 0)
-				to_chat(src, "<span class='danger'>You try to regrow a lost limb, but you lack the biomass. Find some food!</span>")
+				to_chat(src, SPAN_DANGER("You try to regrow a lost limb, but you lack the biomass. Find some food!"))
 				return
 			DS.regen_limb_progress = 0
 			diona_regen_progress(DS)
 
-			visible_message("<span class='warning'>[src] begins to shift and quiver.</span>",
-				"<span class='warning'>You begin to shift and quiver, feeling a stirring within your trunk</span>")
+			visible_message(SPAN_WARNING("[src] begins to shift and quiver."),
+				SPAN_WARNING("You begin to shift and quiver, feeling a stirring within your trunk"))
 
 			DS.regening_organ = TRUE
-			to_chat(src, "<span class='notice'>You are trying to regrow a lost limb, this is a long and complicated process!</span>")
+			to_chat(src, SPAN_NOTICE("You are trying to regrow a lost limb, this is a long and complicated process!"))
 
 			var/list/special_case = list(
 										/obj/item/organ/external/arm/diona = /obj/item/organ/external/hand/diona,
@@ -346,11 +346,11 @@ var/list/diona_banned_languages = list(
 
 		if (path)
 			if (DS.stored_energy < REGROW_ENERGY_REQ)
-				to_chat(src, "<span class='danger'>You try to regrow a lost organ, but you lack the energy. Find more light!</span>")
+				to_chat(src, SPAN_DANGER("You try to regrow a lost organ, but you lack the energy. Find more light!"))
 				return
 
 			if (nutrition < REGROW_FOOD_REQ)
-				to_chat(src, "<span class='danger'>You try to regrow a lost organ, but you lack the biomass. Find some food!</span>")
+				to_chat(src, SPAN_DANGER("You try to regrow a lost organ, but you lack the biomass. Find some food!"))
 				return
 
 			DS.stored_energy -= REGROW_ENERGY_REQ
@@ -358,7 +358,7 @@ var/list/diona_banned_languages = list(
 			var/obj/item/organ/O = new path(src)
 			internal_organs_by_name[O.organ_tag] = O
 			internal_organs.Add(O)
-			to_chat(src, "<span class='danger'>You feel a shifting sensation inside you as your nymphs move apart to make space, forming a new [O.name].</span>")
+			to_chat(src, SPAN_DANGER("You feel a shifting sensation inside you as your nymphs move apart to make space, forming a new [O.name]."))
 			regenerate_icons()
 			DS.LMS = max(2, DS.LMS) //Prevents a message about darkness in light areas
 			update_dionastats() //Re-find the organs in case they were lost or regained
@@ -375,7 +375,7 @@ var/list/diona_banned_languages = list(
 
 			DS.stored_energy -= REGROW_ENERGY_REQ
 			adjustNutritionLoss(REGROW_FOOD_REQ)
-			to_chat(src, "<span class='danger'>You feel a stirring inside you as a new nymph is born within your trunk!</span>")
+			to_chat(src, SPAN_DANGER("You feel a stirring inside you as a new nymph is born within your trunk!"))
 
 	updatehealth()
 
@@ -414,8 +414,8 @@ var/list/diona_banned_languages = list(
 	if(E_old)
 		qdel(E_old)
 
-	visible_message("<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from [src]'s trunk, forming a new [E]</span>",
-		"<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from your trunk, forming a new [E]</span>")
+	visible_message(SPAN_DANGER("With a shower of sticky sap, a new mass of tendrils bursts forth from [src]'s trunk, forming a new [E]"),
+		SPAN_DANGER("With a shower of sticky sap, a new mass of tendrils bursts forth from your trunk, forming a new [E]"))
 	var/datum/reagents/vessel = get_vessel(0)
 	var/datum/reagent/B = vessel.get_master_reagent()
 	B.touch_turf(get_turf(src))
@@ -444,7 +444,7 @@ var/list/diona_banned_languages = list(
 	if (DS.LMS == 1) //If we're full
 		if (DS.EP <= 0.8 && DS.last_lightlevel <= 0) //But at <=80% energy
 			DS.LMS = 2
-			to_chat(src, "<span class='warning'>The darkness makes you uncomfortable...</span>")
+			to_chat(src, SPAN_WARNING("The darkness makes you uncomfortable..."))
 
 	else if (DS.LMS == 2)
 		if (DS.EP >= 0.99)
@@ -452,7 +452,7 @@ var/list/diona_banned_languages = list(
 			to_chat(src, SPAN_NOTICE("You bask in the light."))
 		else if (DS.EP <= 0.4 && DS.last_lightlevel <= 0)
 			DS.LMS = 3
-			to_chat(src, "<span class='warning'>You feel lethargic as your energy drains away. Find some light!</span>")
+			to_chat(src, SPAN_WARNING("You feel lethargic as your energy drains away. Find some light!"))
 
 	else if (DS.LMS == 3)
 		if (DS.EP >= 0.5)
@@ -460,7 +460,7 @@ var/list/diona_banned_languages = list(
 			to_chat(src, "You feel a little more energised as you return to the light. Stay here for a while.")
 		else if (DS.EP <= 0.0 && DS.last_lightlevel <= 0)
 			DS.LMS = 4
-			to_chat(src, "<span class='danger'>You feel sensory distress as your tendrils start to wither in the darkness. You will die soon without light.</span>")
+			to_chat(src, SPAN_DANGER("You feel sensory distress as your tendrils start to wither in the darkness. You will die soon without light."))
 	//From here down, we immediately return to state 3 if we get any light
 	else
 		if (DS.EP > 0.0) //If there's any light at all, we can be saved
@@ -470,12 +470,12 @@ var/list/diona_banned_languages = list(
 			var/HP = 1 //HP  = health-percentage
 			if (DS.LMS == 4)
 				if (HP < 0.6)
-					to_chat(src, "<span class='danger'>The darkness burns. Your nymphs decay and wilt. You are in mortal danger!</span>")
+					to_chat(src, SPAN_DANGER("The darkness burns. Your nymphs decay and wilt. You are in mortal danger!"))
 					DS.LMS = 5
 
 			else if (DS.LMS == 5)
 				if (paralysis > 0)
-					to_chat(src, "<span class='danger'>Your body has reached critical integrity, it can no longer move. The end comes soon.</span>")
+					to_chat(src, SPAN_DANGER("Your body has reached critical integrity, it can no longer move. The end comes soon."))
 					DS.LMS = 6
 			else if (DS.LMS == 6)
 				return
@@ -525,7 +525,7 @@ var/list/diona_banned_languages = list(
 	for (var/datum/language/L in languages)
 		if (!(L in host.languages))
 			host.add_language(L.name)
-			to_chat(host, "<span class='notice'><font size=3>[src] has passed on its knowledge of the [L.name] language to you!</font></span>")
+			to_chat(host, SPAN_NOTICE("<font size=3>[src] has passed on its knowledge of the [L.name] language to you!</font>"))
 
 	languages = host.languages.Copy()
 
@@ -551,7 +551,7 @@ var/list/diona_banned_languages = list(
 		if (prob(chance))
 			add_language(L.name)
 		else
-			to_chat(src, "<span class='danger'>You have forgotten the [L.name] language!</span>")
+			to_chat(src, SPAN_DANGER("You have forgotten the [L.name] language!"))
 
 /mob/living/carbon/alien/diona/proc/switch_to_gestalt()
 	set name = "Switch to Gestalt"

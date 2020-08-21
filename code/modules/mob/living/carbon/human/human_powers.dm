@@ -26,7 +26,7 @@
 		if(selected_string && h_style != selected_string)
 			h_style = selected_string
 			regenerate_icons()
-			visible_message("<span class='notice'>[src] pauses a moment to style their hair.</span>")
+			visible_message(SPAN_NOTICE("[src] pauses a moment to style their hair."))
 		else
 			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
 
@@ -47,7 +47,7 @@ mob/living/carbon/human/proc/change_monitor()
 		if(selected_string && f_style != selected_string)
 			f_style = selected_string
 			regenerate_icons()
-			visible_message("<span class='notice'>[src]'s screen switches to a different display.</span>")
+			visible_message(SPAN_NOTICE("[src]'s screen switches to a different display."))
 		else
 			to_chat(src, "<span class ='notice'>You're already using that screen.</span>")
 
@@ -97,7 +97,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	for(var/mob/O in viewers(src, null))
 		if ((O.client && !( O.blinded )))
-			O.show_message(text("<span class='danger'>[] [failed ? "tried to tackle" : "has tackled"] down []!</span>", src, T), 1)
+			O.show_message(SPAN_DANGER("[src] [failed ? "tried to tackle" : "has tackled"] down [T]!"), 1)
 
 /mob/living/carbon/human/proc/leap(mob/living/T as mob in oview(4))
 	set category = "Abilities"
@@ -108,15 +108,15 @@ mob/living/carbon/human/proc/change_monitor()
 
 /mob/living/carbon/human/proc/do_leap(mob/living/T, max_range = 4, restrict_special = TRUE)
 	if(restrict_special && last_special > world.time)
-		to_chat(src, "<span class='notice'>You're too tired to leap!</span>")
+		to_chat(src, SPAN_NOTICE("You're too tired to leap!"))
 		return FALSE
 
 	if (status_flags & LEAPING)
-		to_chat(src, "<span class='warning'>You're already leaping!</span>")
+		to_chat(src, SPAN_WARNING("You're already leaping!"))
 		return FALSE
 
 	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
-		to_chat(src, "<span class='warning'>You cannot leap in your current state.</span>")
+		to_chat(src, SPAN_WARNING("You cannot leap in your current state."))
 		return FALSE
 
 	if (!T || issilicon(T)) // Silicon targets require us to rebuild the list.
@@ -132,7 +132,7 @@ mob/living/carbon/human/proc/change_monitor()
 		return FALSE
 
 	if(get_dist(get_turf(T), get_turf(src)) > max_range)
-		to_chat(src, "<span class='warning'>[T] is too far away!</span>")
+		to_chat(src, SPAN_WARNING("[T] is too far away!"))
 		return FALSE
 
 	if (restrict_special)
@@ -140,7 +140,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	status_flags |= LEAPING
 
-	visible_message("<span class='danger'>[src] leaps at [T]!</span>", "<span class='danger'>You leap at [T]!</span>")
+	visible_message(SPAN_DANGER("[src] leaps at [T]!"), SPAN_DANGER("You leap at [T]!"))
 	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src, do_throw_animation = FALSE)
 
 	// Only Vox get to shriek. Seriously.
@@ -153,7 +153,7 @@ mob/living/carbon/human/proc/change_monitor()
 		status_flags &= ~LEAPING
 
 	if(!src.Adjacent(T))
-		to_chat(src, "<span class='warning'>You miss!</span>")
+		to_chat(src, SPAN_WARNING("You miss!"))
 		return FALSE
 
 	T.Weaken(3)
@@ -161,12 +161,12 @@ mob/living/carbon/human/proc/change_monitor()
 	var/use_hand = "left"
 	if(l_hand)
 		if(r_hand)
-			to_chat(src, "<span class='danger'>You need to have one hand free to grab someone.</span>")
+			to_chat(src, SPAN_DANGER("You need to have one hand free to grab someone."))
 			return TRUE
 		else
 			use_hand = "right"
 
-	visible_message("<span class='warning'><b>[src]</b> seizes [T] aggressively!</span>", "<span class='warning'>You aggressively seize [T]!</span>")
+	visible_message(SPAN_WARNING("<b>[src]</b> seizes [T] aggressively!"), SPAN_WARNING("You aggressively seize [T]!"))
 
 	var/obj/item/grab/G = new(src,T)
 	if(use_hand == "left")
@@ -189,21 +189,21 @@ mob/living/carbon/human/proc/change_monitor()
 		return
 
 	if(stat || paralysis || stunned || weakened || lying)
-		to_chat(src, "<span class='warning'>You cannot do that in your current state.</span>")
+		to_chat(src, SPAN_WARNING("You cannot do that in your current state."))
 		return
 
 	var/obj/item/grab/G = locate() in src
 	if(!G || !istype(G))
-		to_chat(src, "<span class='warning'>You are not grabbing anyone.</span>")
+		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
 		return
 
 	if(G.state < GRAB_AGGRESSIVE)
-		to_chat(src, "<span class='warning'>You must have an aggressive grab to gut your prey!</span>")
+		to_chat(src, SPAN_WARNING("You must have an aggressive grab to gut your prey!"))
 		return
 
 	last_special = world.time + 50
 
-	visible_message("<span class='warning'><b>[src]</b> rips viciously at \the [G.affecting]'s body with its claws!</span>")
+	visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s body with its claws!"))
 
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
@@ -236,24 +236,24 @@ mob/living/carbon/human/proc/change_monitor()
 	var/obj/item/organ/external/rhand = src.get_organ(BP_R_HAND)
 	var/obj/item/organ/external/lhand = src.get_organ(BP_L_HAND)
 	if((!rhand || !rhand.is_usable()) && (!lhand || !lhand.is_usable()))
-		to_chat(src,"<span class='warning'>You can't communicate without the ability to use your hands!</span>")
+		to_chat(src,SPAN_WARNING("You can't communicate without the ability to use your hands!"))
 		return
 	if((lhand.is_stump()) && (rhand.is_stump()))
-		to_chat(src,"<span class='warning'>You can't communicate without functioning hands!</span>")
+		to_chat(src,SPAN_WARNING("You can't communicate without functioning hands!"))
 		return
 	if(src.r_hand != null && src.l_hand != null)
-		to_chat(src,"<span class='warning'>You can't communicate while your hands are full!</span>")
+		to_chat(src,SPAN_WARNING("You can't communicate while your hands are full!"))
 		return
 	if(stat || paralysis || stunned || weakened ||  restrained())
-		to_chat(src,"<span class='warning'>You can't communicate while unable to move your hands to your head!</span>")
+		to_chat(src,SPAN_WARNING("You can't communicate while unable to move your hands to your head!"))
 		return
 	if(last_special > world.time)
-		to_chat(src,"<span class='notice'>Your mind requires rest!</span>")
+		to_chat(src,SPAN_NOTICE("Your mind requires rest!"))
 		return
 
 	last_special = world.time + 100
 
-	visible_message("<span class='notice'>[src] touches their fingers to their temple.</span>")
+	visible_message(SPAN_NOTICE("[src] touches their fingers to their temple."))
 
 	var/list/targets = list()
 	for(var/mob/living/M in view(client.view, client.eye))
@@ -274,23 +274,23 @@ mob/living/carbon/human/proc/change_monitor()
 		return
 
 	if(target.stat == DEAD)
-		to_chat(src,"<span class='cult'>Not even a [src.species.name] can speak to the dead.</span>")
+		to_chat(src,SPAN_CULT("Not even a [src.species.name] can speak to the dead."))
 		return
 
 	if (target.isSynthetic())
-		to_chat(src,"<span class='warning'>This can only be used on living organisms.</span>")
+		to_chat(src,SPAN_WARNING("This can only be used on living organisms."))
 		return
 
 	if (target.is_diona())
-		to_chat(src,"<span class='alium'>The creature's mind is incompatible, formless.</span>")
+		to_chat(src,SPAN_ALIEN("The creature's mind is incompatible, formless."))
 		return
 
 	if (isvaurca(target))
-		to_chat (src, "<span class='cult'>You feel your thoughts pass right through a mind empty of psychic energy.</span>")
+		to_chat (src, SPAN_CULT("You feel your thoughts pass right through a mind empty of psychic energy."))
 		return
 
 	if(!(target in view(client.view, client.eye)))
-		to_chat(src,"<span class='warning'>[target] is too far for your mind to grasp!</span>")
+		to_chat(src,SPAN_WARNING("[target] is too far for your mind to grasp!"))
 		return
 
 	log_say("[key_name(src)] communed to [key_name(target)]: [text]",ckey=key_name(src))
@@ -307,17 +307,17 @@ mob/living/carbon/human/proc/change_monitor()
 	else if(prob(25) && (target.mind && target.mind.assigned_role=="Chaplain"))
 		to_chat(H,"<span class='changeling'>You sense [src]'s thoughts enter your mind, whispering quietly:</span> [text]")
 	else
-		to_chat(H,"<span class='alium'>You feel pressure behind your eyes as alien thoughts enter your mind:</span> [text]")
+		to_chat(H,"<span class='alien'>You feel pressure behind your eyes as alien thoughts enter your mind:</span> [text]")
 		if(istype(H))
 			if (target.can_commune())
 				return
 			if(prob(10) && !(H.species.flags & NO_BLOOD))
-				to_chat(H,"<span class='warning'>Your nose begins to bleed...</span>")
+				to_chat(H,SPAN_WARNING("Your nose begins to bleed..."))
 				H.drip(3)
 			else if(prob(25) && (H.can_feel_pain()))
-				to_chat(H,"<span class='warning'>Your head hurts...</span>")
+				to_chat(H,SPAN_WARNING("Your head hurts..."))
 			else if(prob(50))
-				to_chat(H,"<span class='warning'>Your mind buzzes...</span>")
+				to_chat(H,SPAN_WARNING("Your mind buzzes..."))
 
 /mob/living/carbon/human/proc/psychic_whisper(mob/M as mob in oview())
 	set name = "Psychic Whisper"
@@ -327,8 +327,8 @@ mob/living/carbon/human/proc/change_monitor()
 	var/msg = sanitize(input("Message:", "Psychic Whisper") as text|null)
 	if(msg)
 		log_say("PsychicWhisper: [key_name(src)]->[M.key] : [msg]",ckey=key_name(src))
-		to_chat(M, "<span class ='alium'>You hear a strange, alien voice in your head... \italic [msg]</span>")
-		to_chat(src, "<span class ='alium'>You said: \"[msg]\" to [M]</span>")
+		to_chat(M, "<span class ='alien'>You hear a strange, alien voice in your head... \italic [msg]</span>")
+		to_chat(src, "<span class ='alien'>You said: \"[msg]\" to [M]</span>")
 	return
 
 /mob/living/carbon/human/proc/bugbite()
@@ -388,7 +388,7 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "Detonate all explosive flechettes in a range of seven meters."
 
 	if(stat || paralysis || stunned || weakened || lying)
-		to_chat(src, "<span class='warning'>You cannot do that in your current state.</span>")
+		to_chat(src, SPAN_WARNING("You cannot do that in your current state."))
 		return
 
 	for(var/mob/living/M in range(7, src))
@@ -414,7 +414,7 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "State your laws aloud."
 
 	if(stat)
-		to_chat(src, "<span class='warning'>You cannot do that in your current state.</span>")
+		to_chat(src, SPAN_WARNING("You cannot do that in your current state."))
 		return
 
 	if(last_special > world.time)
@@ -433,11 +433,11 @@ mob/living/carbon/human/proc/change_monitor()
 
 	var/obj/item/grab/G = locate() in src
 	if(!G || !istype(G))
-		to_chat(src, "<span class='warning'>You are not grabbing anyone.</span>")
+		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
 		return
 
 	if(G.state < GRAB_AGGRESSIVE)
-		to_chat(src, "<span class='warning'>You must have an aggressive grab to do this!</span>")
+		to_chat(src, SPAN_WARNING("You must have an aggressive grab to do this!"))
 		return
 
 	return G
@@ -448,47 +448,47 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "While grabbing someone aggressively, bite their head off."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='warning'>Your mandibles still ache!</span>")
+		to_chat(src, SPAN_WARNING("Your mandibles still ache!"))
 		return
 
 	if(stat || paralysis || stunned || weakened || lying)
-		to_chat(src, "<span class='warning'>You cannot do that in your current state.</span>")
+		to_chat(src, SPAN_WARNING("You cannot do that in your current state."))
 		return
 
 
 	var/obj/item/grab/G = src.get_active_hand()
 	if(!istype(G))
-		to_chat(src, "<span class='warning'>We must be grabbing a creature in our active hand to devour their head.</span>")
+		to_chat(src, SPAN_WARNING("We must be grabbing a creature in our active hand to devour their head."))
 		return
 
 	if(G.state != GRAB_KILL)
-		to_chat(src, "<span class='warning'>We must have a tighter grip to devour their head.</span>")
+		to_chat(src, SPAN_WARNING("We must have a tighter grip to devour their head."))
 		return
 
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
 
 		if(!H.species.has_limbs[BP_HEAD])
-			to_chat(src, "<span class='warning'>\The [H] does not have a head!</span>")
+			to_chat(src, SPAN_WARNING("\The [H] does not have a head!"))
 			return
 
 		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 		if(!istype(affecting) || affecting.is_stump())
-			to_chat(src, "<span class='warning'>\The [H] does not have a head!</span>")
+			to_chat(src, SPAN_WARNING("\The [H] does not have a head!"))
 			return
 
-		visible_message("<span class='danger'>\The [src] pulls \the [H] close, sticking \the [H]'s head into its maw!</span>")
+		visible_message(SPAN_DANGER("\The [src] pulls \the [H] close, sticking \the [H]'s head into its maw!"))
 		sleep(10)
 		if(!src.Adjacent(G.affecting))
 			return
-		visible_message("<span class='danger'>\The [src] closes their jaws around \the [H]'s head!</span>")
+		visible_message(SPAN_DANGER("\The [src] closes their jaws around \the [H]'s head!"))
 		playsound(H.loc, 'sound/effects/blobattack.ogg', 50, 1)
 		affecting.droplimb(0, DROPLIMB_BLUNT)
 
 	else
 		var/mob/living/M = G.affecting
 		if(istype(M))
-			visible_message("<span class='danger'>\The [src] rips viciously at \the [M]'s body with its claws!</span>")
+			visible_message(SPAN_DANGER("\The [src] rips viciously at \the [M]'s body with its claws!"))
 			playsound(M.loc, 'sound/effects/blobattack.ogg', 50, 1)
 			M.gib()
 
@@ -500,12 +500,12 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "When all else has failed, bite the bullet."
 
 	if(stat || paralysis || stunned || weakened || lying)
-		to_chat(src, "<span class='warning'>You cannot do that in your current state.</span>")
+		to_chat(src, SPAN_WARNING("You cannot do that in your current state."))
 		return
 
 	src.visible_message(
-	"<span class='danger'>\The [src] begins to beep ominously!</span>",
-	"<span class='danger'>WARNING: SELF-DESTRUCT ENGAGED. Unit termination finalized in three seconds!</span>"
+	SPAN_DANGER("\The [src] begins to beep ominously!"),
+	SPAN_DANGER("WARNING: SELF-DESTRUCT ENGAGED. Unit termination finalized in three seconds!")
 	)
 	sleep(10)
 	playsound(src, 'sound/items/countdown.ogg', 125, 1)
@@ -523,7 +523,7 @@ mob/living/carbon/human/proc/change_monitor()
 	var/text = null
 
 	if(!(all_languages[LANGUAGE_VAURCA] in src.languages))
-		to_chat(src, "<span class='danger'>Your mind is dark, the unity of the hive is torn from you!</span>")
+		to_chat(src, SPAN_DANGER("Your mind is dark, the unity of the hive is torn from you!"))
 		return
 
 	targets += getmobs()
@@ -540,25 +540,25 @@ mob/living/carbon/human/proc/change_monitor()
 	var/mob/M = targets[target]
 
 	if(istype(M, /mob/abstract/observer) || M.stat == DEAD)
-		to_chat(src, "<span class='danger'>[M]'s hivenet implant is inactive!</span>")
+		to_chat(src, SPAN_DANGER("[M]'s hivenet implant is inactive!"))
 		return
 
 	if(!(all_languages[LANGUAGE_VAURCA] in M.languages))
-		to_chat(src, "<span class='danger'>[M]'s hivenet implant is inactive!</span>")
+		to_chat(src, SPAN_DANGER("[M]'s hivenet implant is inactive!"))
 		return
 
 	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]",ckey=key_name(src))
 
 	if(istype(M, /mob/living/carbon/human) && isvaurca(M))
-		to_chat(M, "<span class='danger'>You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:</span>")
-		to_chat(M, "<span class='notice'> [text]</span>")
+		to_chat(M, SPAN_DANGER("You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:"))
+		to_chat(M, SPAN_NOTICE(" [text]"))
 	else
-		to_chat(M, "<span class='danger'>Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]</span>")
+		to_chat(M, SPAN_DANGER("Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]"))
 		if(istype(M,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = M
 			if(H.species.name == src.species.name)
 				return
-			to_chat(H, "<span class='danger'>Your nose begins to bleed...</span>")
+			to_chat(H, SPAN_DANGER("Your nose begins to bleed..."))
 			H.drip(1)
 
 /mob/living/carbon/human/proc/quillboar(mob/target as mob in oview())
@@ -567,7 +567,7 @@ mob/living/carbon/human/proc/change_monitor()
 	set category = "Abilities"
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='danger'>Your spine still aches!</span>")
+		to_chat(src, SPAN_DANGER("Your spine still aches!"))
 		return
 
 	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
@@ -576,7 +576,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	last_special = world.time + 30
 
-	visible_message("<span class='warning'><b>[src]</b> launches a spine-quill at [target]!</span>")
+	visible_message(SPAN_WARNING("<b>[src]</b> launches a spine-quill at [target]!"))
 
 	src.apply_damage(10,BRUTE)
 	playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
@@ -591,12 +591,12 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "Shatter all lights around yourself."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='danger'>You're still regaining your strength!</span>")
+		to_chat(src, SPAN_DANGER("You're still regaining your strength!"))
 		return
 
 	last_special = world.time + 50
 
-	visible_message("<span class='danger'>\The [src] shrieks!</span>")
+	visible_message(SPAN_DANGER("\The [src] shrieks!"))
 	playsound(src.loc, 'sound/species/shadow/grue_screech.ogg', 100, 1)
 
 	for(var/obj/machinery/light/L in range(7))
@@ -608,7 +608,7 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "Create a field of darkness around yourself."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='danger'>You're still regaining your strength!</span>")
+		to_chat(src, SPAN_DANGER("You're still regaining your strength!"))
 		return
 
 	last_special = world.time + 100
@@ -625,12 +625,12 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "Toggle between seeing shadows or not."
 
 	if (!stop_sight_update)
-		to_chat(src, "<span class='notice'>Your eyes shift around, allowing you to see in the dark.</span>")
+		to_chat(src, SPAN_NOTICE("Your eyes shift around, allowing you to see in the dark."))
 		src.stop_sight_update = 1
 		src.see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	else
-		to_chat(src, "<span class='notice'>You return your vision to normal.</span>")
+		to_chat(src, SPAN_NOTICE("You return your vision to normal."))
 		src.stop_sight_update = 0
 
 /mob/living/carbon/human/proc/shadow_step(var/turf/T in turfs)
@@ -639,28 +639,28 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "Travel from place to place using the shadows."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='danger'>You're still regaining your strength!</span>")
+		to_chat(src, SPAN_DANGER("You're still regaining your strength!"))
 		return
 
 	if (!T || T.density || T.contains_dense_objects())
-		to_chat(src, "<span class='warning'>You cannot do that.</span>")
+		to_chat(src, SPAN_WARNING("You cannot do that."))
 		return
 
 	if(!isturf(loc))
-		to_chat(src, "<span class='warning'>You cannot teleport out of your current location.</span>")
+		to_chat(src, SPAN_WARNING("You cannot teleport out of your current location."))
 		return
 
 	if (T.z != src.z || get_dist(T, get_turf(src)) > world.view)
-		to_chat(src, "<span class='warning'>Your powers are not capable of taking you that far.</span>")
+		to_chat(src, SPAN_WARNING("Your powers are not capable of taking you that far."))
 		return
 
 	if (T.get_lumcount() > 0.1)
-		to_chat(src, "<span class='warning'>The destination is too bright.</span>")
+		to_chat(src, SPAN_WARNING("The destination is too bright."))
 		return
 
 	last_special = world.time + 200
 
-	visible_message("<span class='danger'>\The [src] vanishes into the shadows!</span>")
+	visible_message(SPAN_DANGER("\The [src] vanishes into the shadows!"))
 
 	anim(get_turf(loc), loc,'icons/mob/mob.dmi',,"shadow", null ,loc.dir)
 
@@ -678,20 +678,20 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "Charge forward, trampling anything in your path until you hit something more stubborn than you are."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='danger'>You are too tired to charge!</span>")
+		to_chat(src, SPAN_DANGER("You are too tired to charge!"))
 		return
 
 	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
-		to_chat(src, "<span class='danger'>You cannot charge in your current state!</span>")
+		to_chat(src, SPAN_DANGER("You cannot charge in your current state!"))
 		return
 
 	last_special = world.time + 100
 
-	src.visible_message("<span class='warning'>\The [src] takes a step backwards and rears up.</span>",
-			"<span class='notice'>You take a step backwards and then...</span>")
+	src.visible_message(SPAN_WARNING("\The [src] takes a step backwards and rears up."),
+			SPAN_NOTICE("You take a step backwards and then..."))
 	if(do_after(src,5))
 		playsound(loc, 'sound/species/shadow/grue_screech.ogg', 100, 1)
-		src.visible_message("<span class='danger'>\The [src] charges!</span>")
+		src.visible_message(SPAN_DANGER("\The [src] charges!"))
 		trampling()
 
 
@@ -737,7 +737,7 @@ mob/living/carbon/human/proc/change_monitor()
 		step(src, dir)
 		playsound(src,'sound/mecha/mechstep.ogg',25,1)
 		if (brokesomething)
-			src.visible_message("<span class='danger'>[src.name] breaks through!</span>")
+			src.visible_message(SPAN_DANGER("[src.name] breaks through!"))
 		addtimer(CALLBACK(src, .proc/trampling), 1)
 
 	else
@@ -760,7 +760,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	sleep(1)
 	if (A && !(A.gcDestroyed) && A.type == oldtype)
-		src.visible_message("<span class='danger'>[src.name] plows into \the [aname]!</span>")
+		src.visible_message(SPAN_DANGER("[src.name] plows into \the [aname]!"))
 		return 0
 
 	return 1
@@ -771,18 +771,18 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "Emit a powerful screech which stuns hearers in a two-tile radius."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='danger'>You are too tired to screech!</span>")
+		to_chat(src, SPAN_DANGER("You are too tired to screech!"))
 		return
 
 	if(stat || paralysis || stunned || weakened)
-		to_chat(src, "<span class='danger'>You cannot screech in your current state!</span>")
+		to_chat(src, SPAN_DANGER("You cannot screech in your current state!"))
 		return
 
 	last_special = world.time + 100
 
-	visible_message("<span class='danger'>[src.name] lets out an ear piercing shriek!</span>",
-			"<span class='danger'>You let out an ear-shattering shriek!</span>",
-			"<span class='danger'>You hear a painfully loud shriek!</span>")
+	visible_message(SPAN_DANGER("[src.name] lets out an ear piercing shriek!"),
+			SPAN_DANGER("You let out an ear-shattering shriek!"),
+			SPAN_DANGER("You hear a painfully loud shriek!"))
 
 	playsound(loc, 'sound/voice/shriek1.ogg', 100, 1)
 
@@ -795,7 +795,7 @@ mob/living/carbon/human/proc/change_monitor()
 		if (istype(T) && (T:l_ear || T:r_ear) && istype((T:l_ear || T:r_ear), /obj/item/clothing/ears/earmuffs))
 			continue
 
-		to_chat(T, "<span class='danger'>You hear an ear piercing shriek and feel your senses go dull!</span>")
+		to_chat(T, SPAN_DANGER("You hear an ear piercing shriek and feel your senses go dull!"))
 		T.Weaken(5)
 		T.ear_deaf = 20
 		T.stuttering = 20
@@ -818,18 +818,18 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "Spew a cone of ignited napalm in front of you"
 
 	if(last_special > world.time)
-		to_chat(src,"<span class='notice'>You are too tired to spray napalm!</span>")
+		to_chat(src,SPAN_NOTICE("You are too tired to spray napalm!"))
 		return
 
 	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled)
-		to_chat(src,"<span class='notice'>You cannot spray napalm in your current state.</span>")
+		to_chat(src,SPAN_NOTICE("You cannot spray napalm in your current state."))
 		return
 
 	last_special = world.time + 100
 	playsound(loc, 'sound/species/shadow/grue_screech.ogg', 100, 1)
-	visible_message("<span class='danger'>\The [src] unleashes a torrent of raging flame!</span>",
-			"<span class='danger'>You unleash a gust of fire!</span>",
-			"<span class='danger'>You hear the roar of an inferno!</span>")
+	visible_message(SPAN_DANGER("\The [src] unleashes a torrent of raging flame!"),
+			SPAN_DANGER("You unleash a gust of fire!"),
+			SPAN_DANGER("You hear the roar of an inferno!"))
 
 	var/turf/T  = get_step(get_step(src, dir), dir)
 	var/turf/T1 = get_step(T, dir)
@@ -864,10 +864,10 @@ mob/living/carbon/human/proc/change_monitor()
 		return
 
 	if(stat || paralysis || stunned || weakened || lying)
-		to_chat(src,"<span class='warning'>You cannot do that in your current state!</span>")
+		to_chat(src,SPAN_WARNING("You cannot do that in your current state!"))
 		return
 
-	visible_message("<span class='danger'>\The [src] crackles with energy!</span>")
+	visible_message(SPAN_DANGER("\The [src] crackles with energy!"))
 
 	playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
 
@@ -884,14 +884,14 @@ mob/living/carbon/human/proc/change_monitor()
 		return
 
 	if(stat || paralysis || stunned || weakened || lying)
-		to_chat(src,"<span class='warning'>You cannot do that in your current state!</span>")
+		to_chat(src,SPAN_WARNING("You cannot do that in your current state!"))
 		return
 
 	var/obj/item/stack/material/O = src.get_active_hand()
 
 	if(istype(O, /obj/item/stack/material))
 		if(O.material.golem == src.species.name)
-			to_chat(src,"<span class='danger'>You incorporate \the [O] into your mass, repairing damage to your structure.</span>")
+			to_chat(src,SPAN_DANGER("You incorporate \the [O] into your mass, repairing damage to your structure."))
 			adjustBruteLoss(-10*O.amount)
 			adjustFireLoss(-10*O.amount)
 			if(!(species.flags & NO_BLOOD))
@@ -908,7 +908,7 @@ mob/living/carbon/human/proc/change_monitor()
 		return
 
 	if(stat || paralysis || stunned || weakened || lying)
-		to_chat(src,"<span class='warning'>You cannot do that in your current state!</span>")
+		to_chat(src,SPAN_WARNING("You cannot do that in your current state!"))
 		return
 
 	var/obj/item/organ/internal/brain/golem/O = src.get_active_hand()
@@ -916,20 +916,20 @@ mob/living/carbon/human/proc/change_monitor()
 	if(istype(O))
 
 		if(O.health <= 0)
-			to_chat(src,"<span class='warning'>The spark of life already left \the [O]!</span>")
+			to_chat(src,SPAN_WARNING("The spark of life already left \the [O]!"))
 			return
 
 		if(!O.brainmob)
-			to_chat(src,"<span class='warning'>\The [O] remains silent.</span>")
+			to_chat(src,SPAN_WARNING("\The [O] remains silent."))
 			return
 
 		if(!O.dna)
-			to_chat(src,"<span class='warning'>\The [O] is blank, you can not bring it back to life.</span>")
+			to_chat(src,SPAN_WARNING("\The [O] is blank, you can not bring it back to life."))
 
 		var/mob/living/carbon/human/G = new(src.loc)
 		G.key = O.brainmob.key
 		INVOKE_ASYNC(G, /mob/living/carbon/human.proc/set_species, O.dna.species)
-		to_chat(src,"<span class='notice'>You blow life back in \the [O], returning its past owner to life!</span>")
+		to_chat(src,SPAN_NOTICE("You blow life back in \the [O], returning its past owner to life!"))
 		qdel(O)
 		last_special = world.time + 200
 
@@ -942,29 +942,29 @@ mob/living/carbon/human/proc/change_monitor()
 		return
 
 	if(stat || paralysis || stunned || weakened || lying || restrained())
-		to_chat(src,"<span class='warning'>You can not do that in your current state!</span>")
+		to_chat(src,SPAN_WARNING("You can not do that in your current state!"))
 		return
 
 	var/obj/item/organ/external/E = get_organ(zone_sel.selecting)
 
 	if(!E)
-		to_chat(src,"<span class='warning'>You are missing that limb.</span>")
+		to_chat(src,SPAN_WARNING("You are missing that limb."))
 		return
 
 	if(!E.robotic)
-		to_chat(src,"<span class='warning'>You can only detach robotic limbs.</span>")
+		to_chat(src,SPAN_WARNING("You can only detach robotic limbs."))
 		return
 
 	if(E.robotize_type != PROSTHETIC_AUTAKH)
-		to_chat(src,"<span class='warning'>Your body fails to interface with this alien technology.</span>")
+		to_chat(src,SPAN_WARNING("Your body fails to interface with this alien technology."))
 		return
 
 	if(E.is_stump() || (E.status & ORGAN_DESTROYED) || E.is_broken())
-		to_chat(src,"<span class='warning'>The limb is too damaged to be removed manually!</span>")
+		to_chat(src,SPAN_WARNING("The limb is too damaged to be removed manually!"))
 		return
 
 	if(E.vital && !E.sabotaged)
-		to_chat(src,"<span class='warning'>Your safety system stops you from removing \the [E].</span>")
+		to_chat(src,SPAN_WARNING("Your safety system stops you from removing \the [E]."))
 		return
 
 	last_special = world.time + 20
@@ -976,8 +976,8 @@ mob/living/carbon/human/proc/change_monitor()
 	updatehealth()
 	UpdateDamageIcon()
 
-	visible_message("<span class='notice'>\The [src] detaches \his [E]!</span>",
-			"<span class='notice'>You detach your [E]!</span>")
+	visible_message(SPAN_NOTICE("\The [src] detaches \his [E]!"),
+			SPAN_NOTICE("You detach your [E]!"))
 
 /mob/living/carbon/human/proc/attach_limb()
 	set category = "Abilities"
@@ -988,7 +988,7 @@ mob/living/carbon/human/proc/change_monitor()
 		return
 
 	if(stat || paralysis || stunned || weakened || lying || restrained())
-		to_chat(src,"<span class='warning'>You can not do that in your current state!</span>")
+		to_chat(src,SPAN_WARNING("You can not do that in your current state!"))
 		return
 
 	var/obj/item/organ/external/O = src.get_active_hand()
@@ -996,19 +996,19 @@ mob/living/carbon/human/proc/change_monitor()
 	if(istype(O))
 
 		if(!O.robotic)
-			to_chat(src,"<span class='warning'>You are unable to interface with organic matter.</span>")
+			to_chat(src,SPAN_WARNING("You are unable to interface with organic matter."))
 			return
 
 		if(O.robotize_type != PROSTHETIC_AUTAKH)
-			to_chat(src,"<span class='warning'>Your body fails to interface with this alien technology.</span>")
+			to_chat(src,SPAN_WARNING("Your body fails to interface with this alien technology."))
 			return
 
 		if(organs_by_name[O.limb_name])
-			to_chat(src,"<span class='warning'>You already have a limb of this type.</span>")
+			to_chat(src,SPAN_WARNING("You already have a limb of this type."))
 			return
 
 		if(!organs_by_name[O.parent_organ])
-			to_chat(src,"<span class='warning'>You are unable to find a place to attach \the [O] to your body.</span>")
+			to_chat(src,SPAN_WARNING("You are unable to find a place to attach \the [O] to your body."))
 			return
 
 		last_special = world.time + 20
@@ -1023,8 +1023,8 @@ mob/living/carbon/human/proc/change_monitor()
 		updatehealth()
 		UpdateDamageIcon()
 
-		visible_message("<span class='notice'>\The [src] attaches \the [O] to \his body!</span>",
-				"<span class='notice'>You attach \the [O] to your body!</span>")
+		visible_message(SPAN_NOTICE("\The [src] attaches \the [O] to \his body!"),
+				SPAN_NOTICE("You attach \the [O] to your body!"))
 
 /mob/living/carbon/human/proc/self_diagnostics()
 	set name = "Self-Diagnostics"
@@ -1033,7 +1033,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	if(stat == DEAD) return
 
-	to_chat(src, "<span class='notice'>Performing self-diagnostic, please wait...</span>")
+	to_chat(src, SPAN_NOTICE("Performing self-diagnostic, please wait..."))
 	if (do_after(src, 10))
 		var/output = "<span class='notice'>Self-Diagnostic Results:\n</span>"
 
@@ -1084,15 +1084,15 @@ mob/living/carbon/human/proc/change_monitor()
 	set category = "Abilities"
 
 	if(incapacitated())
-		to_chat(src, "<span class='warning'>You need to recover before you can use this ability.</span>")
+		to_chat(src, SPAN_WARNING("You need to recover before you can use this ability."))
 		return
 	if(last_special > world.time)
-		to_chat(src,"<span class='notice'>Your mind requires rest!</span>")
+		to_chat(src,SPAN_NOTICE("Your mind requires rest!"))
 		return
 
 	last_special = world.time + 25
 
-	to_chat(src, "<span class='notice'>You take a moment to tune into the local Nlom...</span>")
+	to_chat(src, SPAN_NOTICE("You take a moment to tune into the local Nlom..."))
 	var/list/dirs = list()
 	for(var/mob/living/L in range(20))
 		var/turf/T = get_turf(L)
@@ -1191,7 +1191,7 @@ mob/living/carbon/human/proc/change_monitor()
 	set desc = "While grabbing someone in a neck grab, crush them with your arms."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='warning'>Your arms are still recovering!</span>")
+		to_chat(src, SPAN_WARNING("Your arms are still recovering!"))
 		return
 
 	if(use_check_and_message(usr))
@@ -1199,11 +1199,11 @@ mob/living/carbon/human/proc/change_monitor()
 
 	var/obj/item/grab/G = src.get_active_hand()
 	if(!istype(G))
-		to_chat(src, "<span class='warning'>You are not grabbing anyone.</span>")
+		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
 		return
 
 	if(G.state < GRAB_NECK)
-		to_chat(src, "<span class='warning'>You must have a stronger grab to crush your prey!</span>")
+		to_chat(src, SPAN_WARNING("You must have a stronger grab to crush your prey!"))
 		return
 
 	if(ishuman(G.affecting))
@@ -1212,18 +1212,18 @@ mob/living/carbon/human/proc/change_monitor()
 		var/obj/item/organ/external/affected = H.get_organ(hit_zone)
 
 		if(!affected || affected.is_stump())
-			to_chat(H, "<span class='danger'>They are missing that limb!</span>")
+			to_chat(H, SPAN_DANGER("They are missing that limb!"))
 			return
 
 		H.apply_damage(40, BRUTE, hit_zone)
-		visible_message("<span class='warning'><b>[src]</b> viciously crushes [affected] of [G.affecting] with its metallic arms!</span>")
+		visible_message(SPAN_WARNING("<b>[src]</b> viciously crushes [affected] of [G.affecting] with its metallic arms!"))
 		msg_admin_attack("[key_name_admin(src)] crushed [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M))
 			return
 		M.apply_damage(40,BRUTE)
-		visible_message("<span class='warning'><b>[src]</b> viciously crushes [G.affecting]'s flesh with its metallic arms!</span>")
+		visible_message(SPAN_WARNING("<b>[src]</b> viciously crushes [G.affecting]'s flesh with its metallic arms!"))
 		msg_admin_attack("[key_name_admin(src)] crushed [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 	playsound(src.loc, 'sound/weapons/heavysmash.ogg', 50, 1)
 	last_special = world.time + 100

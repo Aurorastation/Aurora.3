@@ -122,24 +122,24 @@
 		if (((stat & NOPOWER) || 	(stat & BROKEN)) && !( src.operating ))
 			force_toggle()
 		else
-			to_chat(usr, "<span class='notice'>[src]'s motors resist your effort.</span>")
+			to_chat(usr, SPAN_NOTICE("[src]'s motors resist your effort."))
 		return
 	if(istype(C, /obj/item/stack/material) && C.get_material_name() == "plasteel")
 		var/amt = Ceiling((maxhealth - health)/150)
 		if(!amt)
-			to_chat(usr, "<span class='notice'>\The [src] is already fully repaired.</span>")
+			to_chat(usr, SPAN_NOTICE("\The [src] is already fully repaired."))
 			return
 		var/obj/item/stack/P = C
 		if(P.amount < amt)
-			to_chat(usr, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
+			to_chat(usr, SPAN_WARNING("You don't have enough sheets to repair this! You need at least [amt] sheets."))
 			return
-		to_chat(usr, "<span class='notice'>You begin repairing [src]...</span>")
+		to_chat(usr, SPAN_NOTICE("You begin repairing [src]..."))
 		if(do_after(usr, 30))
 			if(P.use(amt))
-				to_chat(usr, "<span class='notice'>You have repaired \The [src]</span>")
+				to_chat(usr, SPAN_NOTICE("You have repaired \The [src]"))
 				src.repair()
 			else
-				to_chat(usr, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
+				to_chat(usr, SPAN_WARNING("You don't have enough sheets to repair this! You need at least [amt] sheets."))
 
 
 

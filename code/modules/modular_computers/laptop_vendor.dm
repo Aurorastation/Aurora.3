@@ -232,7 +232,7 @@
 	if(anchored)
 		ui_interact(user)
 	else
-		to_chat(user, SPAN_NOTICE("[src] needs to be anchored to the floor to function!"))
+		to_chat(user, "<b>[src]</b> needs to be anchored to the floor to function!")
 
 /obj/machinery/lapvend/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(stat & (BROKEN | NOPOWER | MAINT))
@@ -313,9 +313,9 @@
 	if (istype(ID_container, /obj/item/spacecash))
 		S = ID_container
 	if(I==ID_container || ID_container == null)
-		visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>")
+		visible_message(SPAN_INFO("\The [usr] swipes \the [I] through \the [src]."))
 	else
-		visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>")
+		visible_message(SPAN_INFO("\The [usr] swipes \the [ID_container] through \the [src]."))
 	if(I)
 		var/datum/money_account/customer_account = SSeconomy.get_account(I.associated_account_number)
 		if (!customer_account || customer_account.suspended)

@@ -468,7 +468,7 @@
 	t = replacetext(t, "\[center\]", "<center>")
 	t = replacetext(t, "\[/center\]", "</center>")
 	t = replacetext(t, "\[br\]", "<BR>")
-	t = replacetext(t, "\[field\]", "<span class=\"paper_field\"></span>")
+	t = replacetext(t, "\[field\]", "<span class='paper_field'></span>")
 	t = replacetext(t, "\[h1\]", "<H1>")
 	t = replacetext(t, "\[/h1\]", "</H1>")
 	t = replacetext(t, "\[h2\]", "<H2>")
@@ -546,34 +546,34 @@
 	switch(macro)
 		//prefixes/agnostic
 		if("the")
-			rest = text("\the []", rest)
+			rest = "\the [rest]"
 		if("a")
-			rest = text("\a []", rest)
+			rest = "\a [rest]"
 		if("an")
-			rest = text("\an []", rest)
+			rest = "\an [rest]"
 		if("proper")
-			rest = text("\proper []", rest)
+			rest = "\proper [rest]"
 		if("improper")
-			rest = text("\improper []", rest)
+			rest = "\improper [rest]"
 		if("roman")
-			rest = text("\roman []", rest)
+			rest = "\roman [rest]"
 		//postfixes
 		if("th")
-			base = text("[]\th", rest)
+			base = "[rest]\th"
 		if("s")
-			base = text("[]\s", rest)
+			base = "[rest]\s"
 		if("he")
-			base = text("[]\he", rest)
+			base = "[rest]\he"
 		if("she")
-			base = text("[]\she", rest)
+			base = "[rest]\she"
 		if("his")
-			base = text("[]\his", rest)
+			base = "[rest]\his"
 		if("himself")
-			base = text("[]\himself", rest)
+			base = "[rest]\himself"
 		if("herself")
-			base = text("[]\herself", rest)
+			base = "[rest]\herself"
 		if("hers")
-			base = text("[]\hers", rest)
+			base = "[rest]\hers"
 
 	. = base
 	if(rest)

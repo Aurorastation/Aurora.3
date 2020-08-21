@@ -186,7 +186,7 @@
 						reagents.handle_reactions()
 					to_chat(user, SPAN_NOTICE("You take a blood sample from [target]."))
 					for(var/mob/O in viewers(4, user))
-						O.show_message(SPAN_NOTICE("[user] takes a blood sample from [target]."), 1)
+						O.show_message("<b>[user]</b> takes a blood sample from [target].", 1)
 
 			else //if not mob
 				if(!target.reagents.total_volume)
@@ -340,7 +340,7 @@
 
 		if (target != user && H.getarmor(target_zone, "melee") > 5 && prob(50))
 			for(var/mob/O in viewers(world.view, user))
-				O.show_message(text(SPAN_DANGER("[user] tries to stab [target] in \the [hit_area] with [src.name], but the attack is deflected by armor!")), 1)
+				O.show_message(SPAN_DANGER("[user] tries to stab [target] in \the [hit_area] with [src.name], but the attack is deflected by armor!"), 1)
 			user.remove_from_mob(src)
 			qdel(src)
 

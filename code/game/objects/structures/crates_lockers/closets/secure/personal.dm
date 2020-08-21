@@ -58,12 +58,12 @@
 			user.drop_item()
 	else if(W.GetID())
 		if(user.loc == src)
-			to_chat(user, "<span class='notice'>You can't reach the lock from inside.</span>")
+			to_chat(user, SPAN_NOTICE("You can't reach the lock from inside."))
 			return
 		var/obj/item/card/id/I = W.GetID()
 
 		if(broken)
-			to_chat(user, "<span class='warning'>It appears to be broken.</span>")
+			to_chat(user, SPAN_WARNING("It appears to be broken."))
 			return
 		if(!I || !I.registered_name)	return
 		if(allowed(user) || !registered_name || (istype(I) && (registered_name == I.registered_name)))
@@ -76,7 +76,7 @@
 				registered_name = I.registered_name
 				desc = "Owned by [I.registered_name]."
 		else
-			to_chat(user, "<span class='warning'>Access Denied</span>")
+			to_chat(user, SPAN_WARNING("Access Denied"))
 	else if(istype(W, /obj/item/melee/energy/blade))
 		var/obj/item/melee/energy/blade/blade = W
 		if(emag_act(INFINITY, user, "The locker has been sliced open by [user] with \an [blade]!", "You hear metal being sliced and sparks flying."))
@@ -84,7 +84,7 @@
 			playsound(loc, 'sound/weapons/blade.ogg', 50, 1)
 			playsound(loc, "sparks", 50, 1)
 	else
-		to_chat(user, "<span class='warning'>Access Denied</span>")
+		to_chat(user, SPAN_WARNING("Access Denied"))
 	return
 
 /obj/structure/closet/secure_closet/personal/emag_act(var/remaining_charges, var/mob/user, var/visual_feedback, var/audible_feedback)
@@ -94,7 +94,7 @@
 		desc = "It appears to be broken."
 		icon_state = icon_broken
 		if(visual_feedback)
-			visible_message("<span class='warning'>[visual_feedback]</span>", "<span class='warning'>[audible_feedback]</span>")
+			visible_message(SPAN_WARNING("[visual_feedback]"), SPAN_WARNING("[audible_feedback]"))
 		return 1
 
 /obj/structure/closet/secure_closet/personal/verb/reset()
@@ -106,9 +106,9 @@
 	if(ishuman(usr))
 		add_fingerprint(usr)
 		if (locked || !registered_name)
-			to_chat(usr, "<span class='warning'>You need to unlock it first.</span>")
+			to_chat(usr, SPAN_WARNING("You need to unlock it first."))
 		else if (broken)
-			to_chat(usr, "<span class='warning'>It appears to be broken.</span>")
+			to_chat(usr, SPAN_WARNING("It appears to be broken."))
 		else
 			if (opened)
 				if(!close())

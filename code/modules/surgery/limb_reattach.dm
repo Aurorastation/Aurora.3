@@ -70,7 +70,7 @@
 
 /decl/surgery_step/limb/connect/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/E = target.get_organ(target_zone)
-	user.visible_message("[user] starts connecting tendons and muscles in [target]'s [E.amputation_point] with [tool].", \
+	user.visible_message("<b>[user]</b> starts connecting tendons and muscles in [target]'s [E.amputation_point] with [tool].", \
 		"You start connecting tendons and muscle in [target]'s [E.amputation_point].")
 
 /decl/surgery_step/limb/connect/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

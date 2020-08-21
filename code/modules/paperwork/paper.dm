@@ -176,7 +176,7 @@
 /obj/item/paper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(target_zone == BP_EYES)
 		user.visible_message(SPAN_NOTICE("You show the paper to [M]."), \
-			SPAN_NOTICE("[user] holds up a paper and shows it to [M]."))
+			"<b>[user]</b> holds up a paper and shows it to [M].")
 		M.examinate(src)
 
 	else if(target_zone == BP_MOUTH) // lipstick wiping
@@ -190,7 +190,7 @@
 				user.visible_message(SPAN_WARNING("[user] begins to wipe [H]'s lipstick off with \the [src]."), \
 								 	 SPAN_NOTICE("You begin to wipe off [H]'s lipstick."))
 				if(do_after(user, 10) && do_after(H, 10, 0))	//user needs to keep their active hand, H does not.
-					user.visible_message(SPAN_NOTICE("[user] wipes [H]'s lipstick off with \the [src]."), \
+					user.visible_message("<b>[user]</b> wipes [H]'s lipstick off with \the [src].", \
 										 SPAN_NOTICE("You wipe off [H]'s lipstick."))
 					H.lip_style = null
 					H.update_body()
@@ -316,7 +316,7 @@
 	if(!use_check_and_message(user))
 		if(istype(P, /obj/item/flame/lighter/zippo))
 			class = "rose"
-			
+
 		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)

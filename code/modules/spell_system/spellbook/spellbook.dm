@@ -51,7 +51,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			var/obj/item/organ/external/LA = H.get_organ(BP_L_ARM)
 			var/obj/item/organ/external/RA = H.get_organ(BP_R_ARM)
 			var/active_hand = H.hand
-			to_chat(user, "<span class='warning'>You feel unimaginable agony as your eyes pour over millenia of forbidden knowledge!</span>")
+			to_chat(user, SPAN_WARNING("You feel unimaginable agony as your eyes pour over millenia of forbidden knowledge!"))
 			user.show_message("<b>[user]</b> screams in horror!",2)
 			H.ChangeToHusk()
 			H.adjust_fire_stacks(0, H.fire_stacks)
@@ -150,7 +150,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	if(href_list["path"])
 		var/path = text2path(href_list["path"])
 		if(uses < spellbook.spells[path])
-			to_chat(usr, "<span class='notice'>You do not have enough spell slots to purchase this.</span>")
+			to_chat(usr, SPAN_NOTICE("You do not have enough spell slots to purchase this."))
 			return
 		uses -= spellbook.spells[path]
 		send_feedback(path) //feedback stuff
@@ -198,7 +198,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			temp = "All spells have been removed. You may now memorize a new set of spells."
 			feedback_add_details("wizard_spell_learned","UM") //please do not change the abbreviation to keep data processing consistent. Add a unique id to any new spells
 		else
-			to_chat(usr, "<span class='warning'>You must be in the wizard academy to re-memorize your spells.</span>")
+			to_chat(usr, SPAN_WARNING("You must be in the wizard academy to re-memorize your spells."))
 
 	src.interact(usr)
 

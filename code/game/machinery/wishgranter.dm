@@ -44,20 +44,20 @@
 				to_chat(user, "The Wish Granter punishes you for your selfishness, claiming your soul and warping your body to match the darkness in your heart.")
 				if (!(HULK in user.mutations))
 					user.mutations.Add(HULK)
-					to_chat(user, "<span class='notice'>Your muscles hurt.</span>")
+					to_chat(user, SPAN_NOTICE("Your muscles hurt."))
 				if (!(LASER_EYES in user.mutations))
 					user.mutations.Add(LASER_EYES)
-					to_chat(user, "<span class='notice'>You feel pressure building behind your eyes.</span>")
+					to_chat(user, SPAN_NOTICE("You feel pressure building behind your eyes."))
 				if (!(COLD_RESISTANCE in user.mutations))
 					user.mutations.Add(COLD_RESISTANCE)
-					to_chat(user, "<span class='notice'>Your body feels warm.</span>")
+					to_chat(user, SPAN_NOTICE("Your body feels warm."))
 				if(!(HEAL in user.mutations))
 					user.mutations.Add(HEAL)
 				if (!(XRAY in user.mutations))
 					user.mutations.Add(XRAY)
 					user.sight |= (SEE_MOBS|SEE_OBJS|SEE_TURFS)
 					user.see_invisible = SEE_INVISIBLE_LEVEL_TWO
-					to_chat(user, "<span class='notice'>The walls suddenly disappear.</span>")
+					to_chat(user, SPAN_NOTICE("The walls suddenly disappear."))
 					user.set_species("Shadow")
 					user.mind.special_role = "Avatar of the Wish Granter"
 			if("I want to be rich")
@@ -81,7 +81,7 @@
 				user.emote("screams!")
 				playsound(user, 'sound/hallucinations/wail.ogg', 40, 1)
 				sleep(30)
-				to_chat(user, "<span class='warning'>Your mind is assaulted by endless horrors, your only desire is to end it, you must fulfill the Wish Granter's desires!</span>")
+				to_chat(user, SPAN_WARNING("Your mind is assaulted by endless horrors, your only desire is to end it, you must fulfill the Wish Granter's desires!"))
 				var/datum/objective/nuclear/nuclear = new
 				nuclear.owner = user.mind
 				user.mind.objectives += nuclear
@@ -90,7 +90,7 @@
 					to_chat(user, "<B>Objective #[obj_count]</B>: [OBJ.explanation_text]")
 					obj_count++
 				for(var/obj/machinery/nuclearbomb/station/N in SSmachinery.all_machines)
-					to_chat(user, "<span class='warning'>[N.r_code]...!</span>")
+					to_chat(user, SPAN_WARNING("[N.r_code]...!"))
 					user.mind.store_memory("<B>Nuclear Bomb Code</B>: [N.r_code]", 0, 0)
 			if("I want peace")
 				to_chat(user, "<B>Your wish is granted...</B>")
@@ -109,9 +109,9 @@
 
 	var/mob/living/carbon/C = usr
 	if(!C.stat)
-		to_chat(C, "<span class='notice'>You're not dead yet!</span>")
+		to_chat(C, SPAN_NOTICE("You're not dead yet!"))
 		return
-	to_chat(C, "<span class='notice'>Death is not your end!</span>")
+	to_chat(C, SPAN_NOTICE("Death is not your end!"))
 	C.verbs -= /mob/living/carbon/proc/immortality
 
 	spawn(rand(400,800))
@@ -121,8 +121,8 @@
 		C.stat = CONSCIOUS
 		C.revive()
 		C.reagents.clear_reagents()
-		to_chat(C, "<span class='notice'>You have regenerated.</span>")
-		C.visible_message("<span class='warning'>[usr] appears to wake from the dead, having healed all wounds.</span>")
+		to_chat(C, SPAN_NOTICE("You have regenerated."))
+		C.visible_message(SPAN_WARNING("[usr] appears to wake from the dead, having healed all wounds."))
 		C.update_canmove()
 		C.verbs += /mob/living/carbon/proc/immortality
 	return 1

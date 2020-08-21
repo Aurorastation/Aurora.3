@@ -151,7 +151,7 @@
 		alert("Invalid mob")
 	feedback_add_details("admin_verb","GFA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(src)] has granted [M.key] full access.",admin_key=key_name(usr),ckey=key_name(M))
-	message_admins("<span class='notice'>[key_name_admin(usr)] has granted [M.key] full access.</span>", 1)
+	message_admins(SPAN_NOTICE("[key_name_admin(usr)] has granted [M.key] full access."), 1)
 
 /client/proc/cmd_assume_direct_control(var/mob/M in mob_list)
 	set category = "Admin"
@@ -165,7 +165,7 @@
 		else
 			var/mob/abstract/observer/ghost = new/mob/abstract/observer(M,1)
 			ghost.ckey = M.ckey
-	message_admins("<span class='notice'>[key_name_admin(usr)] assumed direct control of [M].</span>", 1)
+	message_admins(SPAN_NOTICE("[key_name_admin(usr)] assumed direct control of [M]."), 1)
 	log_admin("[key_name(usr)] assumed direct control of [M].",admin_key=key_name(usr))
 	var/mob/adminmob = src.mob
 	M.ckey = src.ckey
@@ -361,7 +361,7 @@
 	M.regenerate_icons()
 
 	log_admin("[key_name(usr)] changed the equipment of [key_name(M)] to [chosen_outfit].",admin_key=key_name(usr),ckey=key_name(M))
-	message_admins("<span class='notice'>[key_name_admin(usr)] changed the equipment of [key_name_admin(M)] to [chosen_outfit].</span>", 1)
+	message_admins(SPAN_NOTICE("[key_name_admin(usr)] changed the equipment of [key_name_admin(M)] to [chosen_outfit]."), 1)
 	return
 
 /client/proc/startSinglo()

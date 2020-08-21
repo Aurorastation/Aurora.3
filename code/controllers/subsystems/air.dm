@@ -147,7 +147,7 @@ Class Procs:
 Total Simulated Turfs: [simulated_turf_count]
 Total Zones: [zones.len]
 Total Edges: [edges.len]
-Total Active Edges: [active_edges.len ? "<span class='danger'>[active_edges.len]</span>" : "None"]
+Total Active Edges: [active_edges.len ? SPAN_DANGER("[active_edges.len]") : "None"]
 Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_count]
 </span>"}, R_DEBUG)
 

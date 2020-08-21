@@ -50,19 +50,19 @@
 /obj/machinery/computer/telescience/attackby(obj/item/W, mob/user, params)
 	if(istype(W, /obj/item/bluespace_crystal))
 		if(crystals.len >= max_crystals)
-			to_chat(user, "<span class='warning'>There are not enough crystal slots.</span>")
+			to_chat(user, SPAN_WARNING("There are not enough crystal slots."))
 			return
 		user.drop_item(src)
 		crystals += W
 		W.forceMove(null)
-		user.visible_message("[user] inserts [W] into \the [src]'s crystal slot.", "<span class='notice'>You insert [W] into \the [src]'s crystal slot.</span>")
+		user.visible_message("<b>[user]</b> inserts [W] into \the [src]'s crystal slot.", SPAN_NOTICE("You insert [W] into \the [src]'s crystal slot."))
 		updateDialog()
 	else if(istype(W, /obj/item/device/gps))
 		if(!inserted_gps)
 			inserted_gps = W
 			user.unEquip(W)
 			W.forceMove(src)
-			user.visible_message("[user] inserts [W] into \the [src]'s GPS device slot.", "<span class='notice'>You insert [W] into \the [src]'s GPS device slot.</span>")
+			user.visible_message("<b>[user]</b> inserts [W] into \the [src]'s GPS device slot.", SPAN_NOTICE("You insert [W] into \the [src]'s GPS device slot."))
 	else if(W.ismultitool())
 		var/obj/item/device/multitool/M = W
 		if(M.buffer && istype(M.buffer, /obj/machinery/telepad))
@@ -139,7 +139,7 @@
 
 /obj/machinery/computer/telescience/proc/telefail()
 	sparks()
-	visible_message("<span class='warning'>The telepad weakly fizzles.</span>")
+	visible_message(SPAN_WARNING("The telepad weakly fizzles."))
 	return
 
 /obj/machinery/computer/telescience/proc/doteleport(mob/user)

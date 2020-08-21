@@ -100,14 +100,14 @@ log transactions
 
 	//display a message to the user
 	var/response = pick("Initiating withdraw. Have a nice day!", "CRITICAL ERROR: Activating cash chamber panic siphon.","PIN Code accepted! Emptying account balance.", "Jackpot!")
-	to_chat(user, "<span class='warning'>\icon[src] The [src] beeps: \"[response]\"</span>")
+	to_chat(user, SPAN_WARNING("\icon[src] The [src] beeps: \"[response]\""))
 	return 1
 
 /obj/machinery/atm/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/card))
 		if(emagged)
 			//prevent inserting id into an emagged ATM
-			to_chat(user, "<span class='warning'>\icon[src] CARD READER ERROR. This system has been compromised!</span>")
+			to_chat(user, SPAN_WARNING("\icon[src] CARD READER ERROR. This system has been compromised!"))
 			return
 		else if(istype(I,/obj/item/card/emag))
 			I.resolve_attackby(src, user)
@@ -140,7 +140,7 @@ log transactions
 			SSeconomy.add_transaction_log(authenticated_account,T)
 
 
-			to_chat(user, "<span class='info'>You insert [I] into [src].</span>")
+			to_chat(user, SPAN_INFO("You insert [I] into [src]."))
 			src.attack_hand(user)
 			qdel(I)
 	else
@@ -148,7 +148,7 @@ log transactions
 
 /obj/machinery/atm/attack_hand(mob/user as mob)
 	if(istype(user, /mob/living/silicon))
-		to_chat(user, "<span class='warning'>\icon[src] Artificial unit recognized. Artificial units do not currently receive monetary compensation, as per system banking regulation #1005.</span>")
+		to_chat(user, SPAN_WARNING("\icon[src] Artificial unit recognized. Artificial units do not currently receive monetary compensation, as per system banking regulation #1005."))
 		return
 	if(get_dist(src,user) <= 1)
 
@@ -294,7 +294,7 @@ log transactions
 				var/tried_pin = text2num(href_list["account_pin"])
 				var/datum/money_account/potential_account = SSeconomy.get_account(tried_account_num)
 				if (!potential_account)
-					to_chat(usr, "<span class='warning'>\icon[src] Account number not found.</span>")
+					to_chat(usr, SPAN_WARNING("\icon[src] Account number not found."))
 					number_incorrect_tries++
 					handle_lockdown()
 					return
@@ -308,10 +308,10 @@ log transactions
 						if (held_card)
 							if (text2num(href_list["account_num"]) != held_card.associated_account_number)
 							else authenticated_account = SSeconomy.attempt_account_access(tried_account_num, tried_pin, potential_account.security_level)
-						else to_chat(usr, "<span class='warning'>Account card not found.</span>")
+						else to_chat(usr, SPAN_WARNING("Account card not found."))
 				if (!authenticated_account)
 					number_incorrect_tries++
-					to_chat(usr, "<span class='warning'>\icon[src] Incorrect pin/account combination entered, [(max_pin_attempts+1) - number_incorrect_tries] attempts remaining.</span>")
+					to_chat(usr, SPAN_WARNING("\icon[src] Incorrect pin/account combination entered, [(max_pin_attempts+1) - number_incorrect_tries] attempts remaining."))
 					handle_lockdown(tried_account_num)
 				else
 					SSeconomy.bank_log_access(authenticated_account, machine_id)
@@ -319,7 +319,7 @@ log transactions
 					playsound(src, 'sound/machines/twobeep.ogg', 50, 1)
 					ticks_left_timeout = 120
 					view_screen = NO_SCREEN
-					to_chat(usr, "<span class='notice'> \icon[src] Access granted. Welcome user '[authenticated_account.owner_name].'</span>")
+					to_chat(usr, SPAN_NOTICE(" \icon[src] Access granted. Welcome user '[authenticated_account.owner_name].'"))
 				previous_account_number = tried_account_num
 
 			if("e_withdrawal")
@@ -452,7 +452,7 @@ log transactions
 				if(!held_card)
 					//this might happen if the user had the browser window open when somebody emagged it
 					if(emagged)
-						to_chat(usr, "<span class='warning'>\icon[src] The ATM card reader rejected your ID because this machine has been sabotaged!</span>")
+						to_chat(usr, SPAN_WARNING("\icon[src] The ATM card reader rejected your ID because this machine has been sabotaged!"))
 					else
 						var/obj/item/I = usr.get_active_hand()
 						if (istype(I, /obj/item/card/id))
@@ -480,7 +480,7 @@ log transactions
 			if(I)
 				authenticated_account = SSeconomy.attempt_account_access(I.associated_account_number)
 				if(authenticated_account)
-					to_chat(human_user, "<span class='notice'>\icon[src] Access granted. Welcome user '[authenticated_account.owner_name].'</span>")
+					to_chat(human_user, SPAN_NOTICE("\icon[src] Access granted. Welcome user '[authenticated_account.owner_name].'"))
 
 					//create a transaction log entry
 					var/datum/transaction/T = new()

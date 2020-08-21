@@ -192,7 +192,7 @@
 
 /obj/structure/closet/proc/toggle(mob/user as mob)
 	if(!(opened ? close() : open()))
-		to_chat(user, "<span class='notice'>It won't budge!</span>")
+		to_chat(user, SPAN_NOTICE("It won't budge!"))
 		return
 	update_icon()
 	return 1
@@ -266,21 +266,21 @@
 			var/obj/item/weldingtool/WT = W
 			if(WT.isOn())
 				user.visible_message(
-					"<span class='warning'>[user] begins cutting [src] apart.</span>",
-					"<span class='notice'>You begin cutting [src] apart.</span>",
+					SPAN_WARNING("[user] begins cutting [src] apart."),
+					SPAN_NOTICE("You begin cutting [src] apart."),
 					"You hear a welding torch on metal."
 				)
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
 				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open)))
 					return
 				if(!WT.remove_fuel(0,user))
-					to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")
+					to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 					return
 				else
 					new /obj/item/stack/material/steel(loc)
 					user.visible_message(
-						"<span class='notice'>[src] has been cut apart by [user] with [WT].</span>",
-						"<span class='notice'>You cut apart [src] with [WT].</span>"
+						SPAN_NOTICE("[src] has been cut apart by [user] with [WT]."),
+						SPAN_NOTICE("You cut apart [src] with [WT].")
 					)
 					if(linked_teleporter)
 						linked_teleporter.forceMove(get_turf(src))
@@ -293,9 +293,9 @@
 			for(var/obj/item/I in LB.contents)
 				LB.remove_from_storage(I, T)
 			user.visible_message(
-				"<span class='notice'>[user] empties \the [LB] into \the [src].</span>",
-				"<span class='notice'>You empty \the [LB] into \the [src].</span>",
-				"<span class='notice'>You hear rustling of clothes.</span>"
+				SPAN_NOTICE("[user] empties \the [LB] into \the [src]."),
+				SPAN_NOTICE("You empty \the [LB] into \the [src]."),
+				SPAN_NOTICE("You hear rustling of clothes.")
 			)
 			return
 		if(!dropsafety(W))
@@ -310,21 +310,21 @@
 		var/obj/item/weldingtool/WT = W
 		if(WT.isOn())
 			user.visible_message(
-				"<span class='warning'>[user] begins welding [src] [welded ? "open" : "shut"].</span>",
-				"<span class='notice'>You begin welding [src] [welded ? "open" : "shut"].</span>",
+				SPAN_WARNING("[user] begins welding [src] [welded ? "open" : "shut"]."),
+				SPAN_NOTICE("You begin welding [src] [welded ? "open" : "shut"]."),
 				"You hear a welding torch on metal."
 			)
 			playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
 			if (!do_after(user, 2/W.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
 				return
 			if(!WT.remove_fuel(0,user))
-				to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")
+				to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 				return
 			welded = !welded
 			update_icon()
 			user.visible_message(
-				"<span class='warning'>[src] has been [welded ? "welded shut" : "unwelded"] by [user].</span>",
-				"<span class='notice'>You weld [src] [!welded ? "open" : "shut"].</span>"
+				SPAN_WARNING("[src] has been [welded ? "welded shut" : "unwelded"] by [user]."),
+				SPAN_NOTICE("You weld [src] [!welded ? "open" : "shut"].")
 			)
 		else
 			attack_hand(user)
@@ -357,7 +357,7 @@
 		return
 	step_towards(O, loc)
 	if(user != O)
-		user.show_viewers("<span class='danger'>[user] stuffs [O] into [src]!</span>")
+		user.show_viewers(SPAN_DANGER("[user] stuffs [O] into [src]!"))
 	add_fingerprint(user)
 	return
 
@@ -370,7 +370,7 @@
 		return
 
 	if(!open())
-		to_chat(user, "<span class='notice'>It won't budge!</span>")
+		to_chat(user, SPAN_NOTICE("It won't budge!"))
 
 /obj/structure/closet/attack_hand(mob/user as mob)
 	add_fingerprint(user)
@@ -388,7 +388,7 @@
 		add_fingerprint(usr)
 		toggle(usr)
 	else
-		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
+		to_chat(usr, SPAN_WARNING("This mob type can't use this verb."))
 
 /obj/structure/closet/update_icon()//Putting the welded stuff in update_icon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
 	cut_overlays()
@@ -409,7 +409,7 @@
 	if(!damage || !wallbreaker)
 		return
 	user.do_attack_animation(src)
-	visible_message("<span class='danger'>[user] [attack_message] the [src]!</span>")
+	visible_message(SPAN_DANGER("[user] [attack_message] [src]!"))
 	dump_contents()
 	QDEL_IN(src, 1)
 	return 1
@@ -438,8 +438,8 @@
 	//okay, so the closet is either welded or locked... resist!!!
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
-	to_chat(escapee, "<span class='warning'>You lean on the back of \the [src] and start pushing the door open. (this will take about [breakout_time] minutes)</span>")
-	visible_message("<span class='danger'>\The [src] begins to shake violently!</span>")
+	to_chat(escapee, SPAN_WARNING("You lean on the back of \the [src] and start pushing the door open. (this will take about [breakout_time] minutes)"))
+	visible_message(SPAN_DANGER("\The [src] begins to shake violently!"))
 
 	var/time = 6 * breakout_time * 2
 
@@ -473,8 +473,8 @@
 
 	//Well then break it!
 	breakout = 0
-	to_chat(escapee, "<span class='warning'>You successfully break out!</span>")
-	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]!</span>")
+	to_chat(escapee, SPAN_WARNING("You successfully break out!"))
+	visible_message(SPAN_DANGER("\the [escapee] successfully broke out of \the [src]!"))
 	playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 	break_open()
 	animate_shake()

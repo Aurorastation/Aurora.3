@@ -137,7 +137,7 @@ var/global/Holiday = null
 
 	Holiday_Game_Start()
 
-	message_admins("<span class='notice'>ADMIN: Event: [key_name(src)] force-set Holiday to \"[Holiday]\"</span>")
+	message_admins(SPAN_NOTICE("ADMIN: Event: [key_name(src)] force-set Holiday to \"[Holiday]\""))
 	log_admin("[key_name(src)] force-set Holiday to \"[Holiday]\"",admin_key=key_name(src))
 
 

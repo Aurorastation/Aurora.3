@@ -217,7 +217,7 @@
 		if(src == M && istype(src, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = src
 			src.visible_message(
-				SPAN_NOTICE("[src] examines [src.gender==MALE?"himself":"herself"]."), \
+				"<b>[src]</b> examines [src.gender==MALE?"himself":"herself"].", \
 				SPAN_NOTICE("You check yourself for injuries.") \
 				)
 
@@ -281,17 +281,17 @@
 				if(H.bg)
 					to_chat(H, SPAN_WARNING("You sense some disturbance to your physical body, like someone is trying to wake you up."))
 				else if(!vr_mob)
-					M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [t_him] up!"), \
+					M.visible_message("<b>[M]</b> shakes [src] trying to wake [t_him] up!", \
 										SPAN_NOTICE("You shake [src], but they do not respond... Maybe they have S.S.D?"))
 			else if(lying)
 				if(src.sleeping)
 					src.sleeping = max(0,src.sleeping-5)
-					M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [t_him] up!"), \
+					M.visible_message("<b>[M]</b> shakes [src] trying to wake [t_him] up!", \
 										SPAN_NOTICE("You shake [src] trying to wake [t_him] up!"))
 				else
 					M.help_up_offer = !M.help_up_offer
 					if(M.help_up_offer)
-						M.visible_message(SPAN_NOTICE("[M] holds a hand out to [src]."), \
+						M.visible_message("<b>[M]</b> holds a hand out to [src].", \
 											SPAN_NOTICE("You hold a hand out to [src]."))
 					else
 						M.visible_message(SPAN_WARNING("[M] retracts their hand from [src]'s direction."), \
@@ -300,7 +300,7 @@
 				var/mob/living/carbon/human/tapper = M
 				if(M.resting)
 					if(src.help_up_offer)
-						M.visible_message(SPAN_NOTICE("[M] grabs onto [src]'s hand and is hoisted up."), \
+						M.visible_message("<b>[M]</b> grabs onto [src]'s hand and is hoisted up.", \
 											SPAN_NOTICE("You grab onto [src]'s hand and are hoisted up."))
 						if(do_after(M, 0.5 SECONDS))
 							M.resting = 0

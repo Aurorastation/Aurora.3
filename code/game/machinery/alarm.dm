@@ -591,7 +591,7 @@
 		return STATUS_CLOSE
 
 	if(aidisabled && isAI(user))
-		to_chat(user, "<span class='warning'>AI control for \the [src] interface has been disabled.</span>")
+		to_chat(user, SPAN_WARNING("AI control for \the [src] interface has been disabled."))
 		return STATUS_CLOSE
 
 	. = shorted ? STATUS_DISABLED : STATUS_INTERACTIVE
@@ -756,12 +756,12 @@
 		if(2)
 			if(W.isscrewdriver())  // Opening that Air Alarm up.
 				wiresexposed = !wiresexposed
-				to_chat(user, "<span class='notice'>You [wiresexposed ? "open" : "close"] the maintenance panel.</span>")
+				to_chat(user, SPAN_NOTICE("You [wiresexposed ? "open" : "close"] the maintenance panel."))
 				update_icon()
 				return
 
 			if (wiresexposed && W.iswirecutter())
-				user.visible_message("<span class='warning'>[user] has cut the wires inside \the [src]!</span>", "You cut the wires inside \the [src].")
+				user.visible_message(SPAN_WARNING("[user] has cut the wires inside \the [src]!"), "You cut the wires inside \the [src].")
 				playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
 				buildstage = 1
@@ -770,28 +770,28 @@
 
 			if (istype(W, /obj/item/card/id) || istype(W, /obj/item/device/pda))// trying to unlock the interface with an ID card
 				if(stat & (NOPOWER|BROKEN))
-					to_chat(user, "<span class='notice'>Nothing happens.</span>")
+					to_chat(user, SPAN_NOTICE("Nothing happens."))
 					return
 				else
 					if(allowed(usr) && !wires.IsIndexCut(AALARM_WIRE_IDSCAN))
 						locked = !locked
-						to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the Air Alarm interface.</span>")
+						to_chat(user, SPAN_NOTICE("You [ locked ? "lock" : "unlock"] the Air Alarm interface."))
 					else
-						to_chat(user, "<span class='warning'>Access denied.</span>")
+						to_chat(user, SPAN_WARNING("Access denied."))
 			return
 
 		if(1)
 			if(W.iscoil())
 				var/obj/item/stack/cable_coil/C = W
 				if (C.use(5))
-					to_chat(user, "<span class='notice'>You wire \the [src].</span>")
+					to_chat(user, SPAN_NOTICE("You wire \the [src]."))
 					buildstage = 2
 					update_icon()
 					first_run()
 					set_frequency(frequency)
 					return
 				else
-					to_chat(user, "<span class='warning'>You need 5 pieces of cable to do wire \the [src].</span>")
+					to_chat(user, SPAN_WARNING("You need 5 pieces of cable to do wire \the [src]."))
 					return
 
 			else if(W.iscrowbar())

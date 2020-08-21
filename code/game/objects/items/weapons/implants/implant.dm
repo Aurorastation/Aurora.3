@@ -40,7 +40,7 @@
 	return 0
 
 /obj/item/implant/proc/meltdown()	//breaks it down, making implant unrecongizible
-	to_chat(imp_in, "<span class='warning'>You feel something melting inside [part ? "your [part.name]" : "you"]!</span>")
+	to_chat(imp_in, SPAN_WARNING("You feel something melting inside [part ? "your [part.name]" : "you"]!"))
 	if (part)
 		part.take_damage(burn = 15, used_weapon = "Electronics meltdown")
 	else
@@ -472,11 +472,11 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	var/mob/living/carbon/human/H = M
 	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
 	if(antag_data && (antag_data.flags & ANTAG_IMPLANT_IMMUNE))
-		H.visible_message("[H] seems to resist the implant!", "You feel the tendrils of the Sol Alliance try to invade your mind!")
+		H.visible_message("<b>[H]</b> seems to resist the implant!", "You feel the tendrils of the Sol Alliance try to invade your mind!")
 		return 0
 	else
 		clear_antag_roles(H.mind, 1)
-		to_chat(H, "<span class='notice'>You feel a surge of loyalty towards Admiral Michael Frost.</span>")
+		to_chat(H, SPAN_NOTICE("You feel a surge of loyalty towards Admiral Michael Frost."))
 	return 1
 
 /obj/item/implant/adrenalin
@@ -502,7 +502,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 		return 0
 	if (emote == "pale")
 		src.uses--
-		to_chat(source, "<span class='notice'>You feel a sudden surge of energy!</span>")
+		to_chat(source, SPAN_NOTICE("You feel a sudden surge of energy!"))
 		source.SetStunned(0)
 		source.SetWeakened(0)
 		source.SetParalysis(0)
@@ -611,7 +611,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 		return 0
 
 	if (emote == src.activation_emote)
-		to_chat(source, "The air glows as \the [src.scanned.name] uncompresses.")
+		to_chat(source, "The air glows as [src.scanned] uncompresses.")
 		activate()
 
 /obj/item/implant/compressed/activate()
@@ -660,7 +660,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 
 	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
 	if(antag_data?.flags & ANTAG_IMPLANT_IMMUNE)
-		H.visible_message("[H] seems to resist the implant!", "You feel rage overtake your body, but you manage to fend it off by sheer will!")
+		H.visible_message("<b>[H]</b> seems to resist the implant!", "You feel rage overtake your body, but you manage to fend it off by sheer will!")
 		log_and_message_admins("[key_name(H)] was implanted by an aggression implant, but was not effected.", H)
 	else if(antag_data?.id == MODE_LOYALIST)
 		clear_antag_roles(H.mind, 1)

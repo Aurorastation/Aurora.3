@@ -44,13 +44,13 @@
 /obj/machinery/apiary/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if(istype(O, /obj/item/queen_bee))
 		if(health > 0)
-			to_chat(user, "<span class='warning'>There is already a queen in there.</span>")
+			to_chat(user, SPAN_WARNING("There is already a queen in there."))
 		else
 			health = 10
 			nutrilevel += 10
 			user.drop_from_inventory(O,get_turf(src))
 			qdel(O)
-			to_chat(user, "<span class='notice'>You carefully insert the queen into [src], she gets busy making a hive.</span>")
+			to_chat(user, SPAN_NOTICE("You carefully insert the queen into [src], she gets busy making a hive."))
 			bees_in_hive = 0
 	else if(istype(O, /obj/item/beezeez))
 		beezeez += 100
@@ -58,43 +58,43 @@
 		user.drop_from_inventory(O,get_turf(src))
 		qdel(O)
 		if(health > 0)
-			to_chat(user, "<span class='notice'>You insert [O] into [src]. A relaxed humming appears to pick up.</span>")
+			to_chat(user, SPAN_NOTICE("You insert [O] into [src]. A relaxed humming appears to pick up."))
 		else
-			to_chat(user, "<span class='notice'>You insert [O] into [src]. Now it just needs some bees.</span>")
+			to_chat(user, SPAN_NOTICE("You insert [O] into [src]. Now it just needs some bees."))
 		qdel(O)
 	else if(istype(O, /obj/item/material/minihoe))
 		if(health > 0)
-			to_chat(user, "<span class='danger'>You begin to dislodge the apiary from the tray, the bees don't like that.</span>")
+			to_chat(user, SPAN_DANGER("You begin to dislodge the apiary from the tray, the bees don't like that."))
 			angry_swarm(user)
 		else
-			to_chat(user, "<span class='notice'>You begin to dislodge the dead apiary from the tray.</span>")
+			to_chat(user, SPAN_NOTICE("You begin to dislodge the dead apiary from the tray."))
 		if(do_after(user, 50/O.toolspeed))
 			new hydrotray_type(src.loc)
 			new /obj/item/apiary(src.loc)
-			to_chat(user, "<span class='warning'>You dislodge the apiary from the tray.</span>")
+			to_chat(user, SPAN_WARNING("You dislodge the apiary from the tray."))
 			qdel(src)
 	else if(istype(O, /obj/item/bee_net))
 		var/obj/item/bee_net/N = O
 		if(N.caught_bees > 0)
-			to_chat(user, "<span class='notice'>You empty the bees into the apiary.</span>")
+			to_chat(user, SPAN_NOTICE("You empty the bees into the apiary."))
 			bees_in_hive += N.caught_bees
 			N.caught_bees = 0
 		else
-			to_chat(user, "<span class='notice'>There are no more bees in the net.</span>")
+			to_chat(user, SPAN_NOTICE("There are no more bees in the net."))
 	else if(istype(O, /obj/item/reagent_containers/glass))
 		var/obj/item/reagent_containers/glass/G = O
 		if(harvestable_honey > 0)
 			if(health > 0)
-				to_chat(user, "<span class='warning'>You begin to harvest the honey. The bees don't seem to like it.</span>")
+				to_chat(user, SPAN_WARNING("You begin to harvest the honey. The bees don't seem to like it."))
 				angry_swarm(user)
 			else
-				to_chat(user, "<span class='notice'>You begin to harvest the honey.</span>")
+				to_chat(user, SPAN_NOTICE("You begin to harvest the honey."))
 			if(do_after(user,50/O.toolspeed))
 				G.reagents.add_reagent(/datum/reagent/nutriment/honey,harvestable_honey)
 				harvestable_honey = 0
-				to_chat(user, "<span class='notice'>You successfully harvest the honey.</span>")
+				to_chat(user, SPAN_NOTICE("You successfully harvest the honey."))
 		else
-			to_chat(user, "<span class='notice'>There is no honey left to harvest.</span>")
+			to_chat(user, SPAN_NOTICE("There is no honey left to harvest."))
 	else
 		angry_swarm(user)
 		..()
@@ -235,5 +235,5 @@
 		if(toxic > 0)
 			H.reagents.add_reagent(/datum/reagent/toxin, toxic)
 
-	to_chat(usr, "<span class='notice'>You harvest the honeycomb from the hive. There is a wild buzzing!</span>")
+	to_chat(usr, SPAN_NOTICE("You harvest the honeycomb from the hive. There is a wild buzzing!"))
 	angry_swarm(usr)

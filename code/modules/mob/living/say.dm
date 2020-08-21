@@ -122,9 +122,9 @@ proc/get_radio_key_from_channel(var/channel)
 		verb = pick("slobbers","slurs")
 		speech_problem_flag = 1
 		if(prob(50))
-			to_chat(src, "<span class='danger'>You struggle to speak with your dislocated jaw!</span>")
+			to_chat(src, SPAN_DANGER("You struggle to speak with your dislocated jaw!"))
 		if(prob(10))
-			to_chat(src, "<span class='danger'>You feel a sharp pain from your jaw as you speak!</span>")
+			to_chat(src, SPAN_DANGER("You feel a sharp pain from your jaw as you speak!"))
 			src.Weaken(3)
 	returns[1] = message
 	returns[2] = verb
@@ -201,7 +201,7 @@ proc/get_radio_key_from_channel(var/channel)
 	verb = say_quote(message, speaking)
 
 	if(is_muzzled())
-		to_chat(src, "<span class='danger'>You're muzzled and cannot speak!</span>")
+		to_chat(src, SPAN_DANGER("You're muzzled and cannot speak!"))
 		return
 
 	message = trim_left(message)

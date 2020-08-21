@@ -69,7 +69,7 @@
 	if (istype(O, /obj/structure/mopbucket) && !mybucket)
 		O.forceMove(src)
 		mybucket = O
-		to_chat(user, "You mount the [O] on the janicart.")
+		to_chat(user, "You mount [O] on the janicart.")
 		update_icon()
 	else
 		..()
@@ -86,9 +86,9 @@
 			mymop = I
 			update_icon()
 			updateUsrDialog()
-			to_chat(usr, "<span class='notice'>You put [I] into [src].</span>")
+			to_chat(usr, SPAN_NOTICE("You put [I] into [src]."))
 		else
-			to_chat(usr, "<span class='notice'>The cart already has a mop attached</span>")
+			to_chat(usr, SPAN_NOTICE("The cart already has a mop attached"))
 		return
 	else if(istype(I, /obj/item/reagent_containers) && mybucket)
 		var/obj/item/reagent_containers/C = I
@@ -104,17 +104,17 @@
 		if (mybucket)
 			if(I.reagents.total_volume < I.reagents.maximum_volume)
 				if(mybucket.reagents.total_volume < 1)
-					to_chat(user, "<span class='notice'>[mybucket] is empty!</span>")
+					to_chat(user, SPAN_NOTICE("[mybucket] is empty!"))
 					update_icon()
 				else
 					mybucket.reagents.trans_to_obj(I, 5)	//
-					to_chat(user, "<span class='notice'>You wet [I] in [mybucket].</span>")
+					to_chat(user, SPAN_NOTICE("You wet [I] in [mybucket]."))
 					playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 					update_icon()
 			else
-				to_chat(user, "<span class='notice'>[I] can't absorb anymore liquid!</span>")
+				to_chat(user, SPAN_NOTICE("[I] can't absorb anymore liquid!"))
 		else
-			to_chat(user, "<span class='notice'>There is no bucket mounted here to dip [I] into!</span>")
+			to_chat(user, SPAN_NOTICE("There is no bucket mounted here to dip [I] into!"))
 		return 1
 
 	else if(istype(I, /obj/item/reagent_containers/spray) && !myspray)
@@ -122,7 +122,7 @@
 		myspray = I
 		update_icon()
 		updateUsrDialog()
-		to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
+		to_chat(user, SPAN_NOTICE("You put [I] into [src]."))
 		return 1
 
 	else if(istype(I, /obj/item/device/lightreplacer) && !myreplacer)
@@ -130,7 +130,7 @@
 		myreplacer = I
 		update_icon()
 		updateUsrDialog()
-		to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
+		to_chat(user, SPAN_NOTICE("You put [I] into [src]."))
 		return 1
 
 	else if(istype(I, /obj/item/storage/bag/trash) && !mybag)
@@ -139,7 +139,7 @@
 		I.forceMove(src)
 		update_icon()
 		updateUsrDialog()
-		to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
+		to_chat(user, SPAN_NOTICE("You put [I] into [src]."))
 		return 1
 
 	else if(istype(I, /obj/item/clothing/suit/caution))
@@ -148,9 +148,9 @@
 			signs++
 			update_icon()
 			updateUsrDialog()
-			to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
+			to_chat(user, SPAN_NOTICE("You put [I] into [src]."))
 		else
-			to_chat(user, "<span class='notice'>[src] can't hold any more signs.</span>")
+			to_chat(user, SPAN_NOTICE("[src] can't hold any more signs."))
 		return 1
 
 	else if(mybag)
@@ -170,7 +170,7 @@
 
 		if(user)
 			playsound(src.loc, I.usesound, 50, 1)
-			user.visible_message("[user] starts taking apart the [src]", "You start disasembling the [src]")
+			user.visible_message("<b>[user]</b> starts taking apart [src]", "You start disasembling [src]")
 			if (!do_after(user, 30, needhand = 0))
 				return
 
@@ -257,29 +257,29 @@
 			if("garbage")
 				if(mybag)
 					user.put_in_hands(mybag)
-					to_chat(user, "<span class='notice'>You take [mybag] from [src].</span>")
+					to_chat(user, SPAN_NOTICE("You take [mybag] from [src]."))
 					mybag = null
 			if("mop")
 				if(mymop)
 					user.put_in_hands(mymop)
-					to_chat(user, "<span class='notice'>You take [mymop] from [src].</span>")
+					to_chat(user, SPAN_NOTICE("You take [mymop] from [src]."))
 					mymop = null
 			if("spray")
 				if(myspray)
 					user.put_in_hands(myspray)
-					to_chat(user, "<span class='notice'>You take [myspray] from [src].</span>")
+					to_chat(user, SPAN_NOTICE("You take [myspray] from [src]."))
 					myspray = null
 			if("replacer")
 				if(myreplacer)
 					user.put_in_hands(myreplacer)
-					to_chat(user, "<span class='notice'>You take [myreplacer] from [src].</span>")
+					to_chat(user, SPAN_NOTICE("You take [myreplacer] from [src]."))
 					myreplacer = null
 			if("sign")
 				if(signs)
 					var/obj/item/clothing/suit/caution/Sign = locate() in src
 					if(Sign)
 						user.put_in_hands(Sign)
-						to_chat(user, "<span class='notice'>You take \a [Sign] from [src].</span>")
+						to_chat(user, SPAN_NOTICE("You take \a [Sign] from [src]."))
 						signs--
 					else
 						warning("[src] signs ([signs]) didn't match contents")
@@ -287,7 +287,7 @@
 			if("bucket")
 				if(mybucket)
 					mybucket.forceMove(get_turf(user))
-					to_chat(user, "<span class='notice'>You unmount [mybucket] from [src].</span>")
+					to_chat(user, SPAN_NOTICE("You unmount [mybucket] from [src]."))
 					mybucket.update_icon()
 					mybucket = null
 
@@ -327,7 +327,7 @@
 		if(user==pulling)
 			pulling = null
 			user.pulledby = null
-			to_chat(user, "<span class='warning'>You lost your grip!</span>")
+			to_chat(user, SPAN_WARNING("You lost your grip!"))
 		return
 	if(user.pulling && (user == pulling))
 		pulling = null
@@ -339,7 +339,7 @@
 		if(user==pulling)
 			return
 	if(pulling && (get_dir(src.loc, pulling.loc) == direction))
-		to_chat(user, "<span class='warning'>You cannot go there.</span>")
+		to_chat(user, SPAN_WARNING("You cannot go there."))
 		return
 
 	driving = 1
@@ -365,7 +365,7 @@
 	. = ..()
 	if (pulling && (get_dist(src, pulling) > 1))
 		pulling.pulledby = null
-		to_chat(pulling, "<span class='warning'>You lost your grip!</span>")
+		to_chat(pulling, SPAN_WARNING("You lost your grip!"))
 		pulling = null
 
 /obj/structure/janitorialcart/CtrlClick(var/mob/user)

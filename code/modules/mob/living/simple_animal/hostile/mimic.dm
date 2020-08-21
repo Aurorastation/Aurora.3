@@ -120,7 +120,7 @@
 	if(istype(L))
 		if(prob(15))
 			L.Weaken(2)
-			L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
+			L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"))
 
 //
 // Copy Mimic
@@ -191,4 +191,4 @@ var/global/list/protected_objects = list(/obj/structure/table, /obj/structure/ca
 		if(istype(L))
 			if(prob(15))
 				L.Weaken(1)
-				L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
+				L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"))

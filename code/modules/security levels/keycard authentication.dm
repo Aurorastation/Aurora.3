@@ -144,7 +144,7 @@
 			feedback_inc("alert_keycard_auth_red",1)
 		if("Distress Beacon")
 			if(is_ert_blocked())
-				to_chat(usr, "<span class='warning'>The distress beacon is disabled!</span>")
+				to_chat(usr, SPAN_WARNING("The distress beacon is disabled!"))
 				return
 			SSresponseteam.trigger_armed_response_team()
 			feedback_inc("alert_keycard_auth_ert",1)

@@ -30,15 +30,15 @@
 	if(!..(user, 2))
 		return
 	if(reagents && reagents.reagent_list.len)
-		to_chat(user, "<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of liquid.</span>")
+		to_chat(user, SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of liquid."))
 		for(var/datum/reagent/T in reagents.reagent_list)
 			if(T.reagent_state == SOLID)
-				to_chat(user, "<span class='notice'>You see something solid in the beaker.</span>")
+				to_chat(user, SPAN_NOTICE("You see something solid in the beaker."))
 				break // to stop multiple messages of this
 	else
-		to_chat(user, "<span class='notice'>It is empty.</span>")
+		to_chat(user, SPAN_NOTICE("It is empty."))
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>Airtight lid seals it completely.</span>")
+		to_chat(user, SPAN_NOTICE("Airtight lid seals it completely."))
 
 /obj/item/reagent_containers/glass/attack_self()
 	..()
@@ -73,9 +73,9 @@
 	if(W.ispen() || istype(W, /obj/item/device/flashlight/pen))
 		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
 		if(length(tmp_label) > 15)
-			to_chat(user, "<span class='notice'>The label can be at most 15 characters long.</span>")
+			to_chat(user, SPAN_NOTICE("The label can be at most 15 characters long."))
 		else
-			to_chat(user, "<span class='notice'>You set the label to \"[tmp_label]\".</span>")
+			to_chat(user, SPAN_NOTICE("You set the label to \"[tmp_label]\"."))
 			label_text = tmp_label
 			update_name_label()
 		return
@@ -111,7 +111,7 @@
 	desc += " Can hold up to [volume] units."
 
 /obj/item/reagent_containers/glass/beaker/self_feed_message(var/mob/user)
-	to_chat(user, "<span class='notice'>You drink from \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You drink from \the [src]."))
 
 /obj/item/reagent_containers/glass/beaker/on_reagent_change()
 	update_icon()
@@ -248,16 +248,16 @@
 		qdel(src)
 		return
 	else if(D.iswirecutter())
-		to_chat(user, "<span class='notice'>You cut a big hole in \the [src] with \the [D].</span>")
+		to_chat(user, SPAN_NOTICE("You cut a big hole in \the [src] with \the [D]."))
 		user.put_in_hands(new helmet_type)
 		qdel(src)
 		return
 	else if(istype(D, /obj/item/mop))
 		if(reagents.total_volume < 1)
-			to_chat(user, "<span class='warning'>\The [src] is empty!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is empty!"))
 		else
 			reagents.trans_to_obj(D, 5)
-			to_chat(user, "<span class='notice'>You wet \the [D] in \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You wet \the [D] in \the [src]."))
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		return
 	else
@@ -274,7 +274,7 @@
 	update_icon()
 
 /obj/item/reagent_containers/glass/bucket/self_feed_message(var/mob/user)
-	to_chat(user, "<span class='notice'>You drink heavily from \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You drink heavily from \the [src]."))
 
 
 /obj/item/reagent_containers/glass/bucket/wood

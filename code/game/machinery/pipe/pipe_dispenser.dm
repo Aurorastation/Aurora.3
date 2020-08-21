@@ -104,18 +104,18 @@
 	if(!istype(W, /obj/item/forensics))
 		src.add_fingerprint(usr)
 	if (istype(W, /obj/item/pipe) || istype(W, /obj/item/pipe_meter))
-		to_chat(usr, "<span class='notice'>You put [W] back to [src].</span>")
+		to_chat(usr, SPAN_NOTICE("You put [W] back to [src]."))
 		user.drop_from_inventory(W,get_turf(src))
 		qdel(W)
 		return
 	else if (W.iswrench())
 		if (unwrenched==0)
 			playsound(src.loc, W.usesound, 50, 1)
-			to_chat(user, "<span class='notice'>You begin to unfasten \the [src] from the floor...</span>")
+			to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src] from the floor..."))
 			if (do_after(user, 40/W.toolspeed))
 				user.visible_message( \
-					"<span class='notice'>[user] unfastens \the [src].</span>", \
-					"<span class='notice'>You have unfastened \the [src]. Now it can be pulled somewhere else.</span>", \
+					SPAN_NOTICE("[user] unfastens \the [src]."), \
+					SPAN_NOTICE("You have unfastened \the [src]. Now it can be pulled somewhere else."), \
 					"You hear ratchet.")
 				src.anchored = 0
 				src.stat |= MAINT
@@ -124,11 +124,11 @@
 					usr << browse(null, "window=pipedispenser")
 		else /*if (unwrenched==1)*/
 			playsound(src.loc, W.usesound, 50, 1)
-			to_chat(user, "<span class='notice'>You begin to fasten \the [src] to the floor...</span>")
+			to_chat(user, SPAN_NOTICE("You begin to fasten \the [src] to the floor..."))
 			if (do_after(user, 20/W.toolspeed))
 				user.visible_message( \
-					"<span class='notice'>[user] fastens \the [src].</span>", \
-					"<span class='notice'>You have fastened \the [src]. Now it can dispense pipes.</span>", \
+					SPAN_NOTICE("[user] fastens \the [src]."), \
+					SPAN_NOTICE("You have fastened \the [src]. Now it can dispense pipes."), \
 					"You hear ratchet.")
 				src.anchored = 1
 				src.stat &= ~MAINT

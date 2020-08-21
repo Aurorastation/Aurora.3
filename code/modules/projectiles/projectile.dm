@@ -181,15 +181,15 @@
 
 	if(result == PROJECTILE_FORCE_MISS && (can_miss == 0)) //if you're shooting at point blank you can't miss.
 		if(!silenced)
-			target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
+			target_mob.visible_message(SPAN_NOTICE("\The [src] misses [target_mob] narrowly!"))
 			playsound(target_mob, "bulletflyby", rand(10, 50), 1)
 		return FALSE
 
 	//hit messages
 	if(silenced)
-		to_chat(target_mob, "<span class='danger'>You've been hit in the [parse_zone(def_zone)] by \a [src]!</span>")
+		to_chat(target_mob, SPAN_DANGER("You've been hit in the [parse_zone(def_zone)] by \a [src]!"))
 	else
-		target_mob.visible_message("<span class='danger'>\The [target_mob] is hit by \a [src] in the [parse_zone(def_zone)]!</span>", "<span class='danger'><font size=2>You are hit by \a [src] in the [parse_zone(def_zone)]!</font></span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
+		target_mob.visible_message(SPAN_DANGER("\The [target_mob] is hit by \a [src] in the [parse_zone(def_zone)]!"), SPAN_DANGER("<font size=2>You are hit by \a [src] in the [parse_zone(def_zone)]!</font>"))//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
 
 	//admin logs
 	if(!no_attack_log)
@@ -233,7 +233,7 @@
 			//if they have a neck grab on someone, that person gets hit instead
 			var/obj/item/grab/G = locate() in M
 			if(G && G.state >= GRAB_NECK)
-				visible_message("<span class='danger'>\The [M] uses [G.affecting] as a shield!</span>")
+				visible_message(SPAN_DANGER("\The [M] uses [G.affecting] as a shield!"))
 				if(Collide(G.affecting))
 					return //If Collide() returns 0 (keep going) then we continue on to attack M.
 

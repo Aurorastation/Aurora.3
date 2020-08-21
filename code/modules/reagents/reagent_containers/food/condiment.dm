@@ -24,17 +24,17 @@
 /obj/item/reagent_containers/food/condiment/proc/shake(var/mob/user)
 	if(world.time >= next_shake)
 		if(reagents.total_volume > 0)
-			user.visible_message(pick(SPAN_NOTICE("[user] shakes \the [src]."), SPAN_NOTICE("[user] gives \the [src] a good shake.")), SPAN_NOTICE("You give \the [src] a good shake."))
+			user.visible_message(pick("<b>[user]</b> shakes \the [src].", "<b>[user]</b> gives \the [src] a good shake."), SPAN_NOTICE("You give \the [src] a good shake."))
 			playsound(get_turf(src),'sound/items/condiment_shaking.ogg', rand(10,50), 1)
 		else
-			user.visible_message(pick(SPAN_NOTICE("[user] shakes \the [src], but it makes no noise."), SPAN_NOTICE("[user] gives \the [src] a good shake, but it makes no noise.")), SPAN_NOTICE("You give \the [src] a good shake, but it makes no noise."))
+			user.visible_message(pick("<b>[user]</b> shakes \the [src], but it makes no noise.", "<b>[user]</b> gives \the [src] a good shake, but it makes no noise."), SPAN_NOTICE("You give \the [src] a good shake, but it makes no noise."))
 		next_shake = world.time + 30
 
 /obj/item/reagent_containers/food/condiment/feed_sound(var/mob/user)
 	playsound(user.loc, 'sound/items/drink.ogg', rand(10, 50), 1)
 
 /obj/item/reagent_containers/food/condiment/self_feed_message(var/mob/user)
-	to_chat(user, "<span class='notice'>You swallow some of contents of \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You swallow some of contents of \the [src]."))
 
 /obj/item/reagent_containers/food/condiment/on_reagent_change(var/force = FALSE)
 	if(fixed_state && !force)

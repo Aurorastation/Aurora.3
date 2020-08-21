@@ -76,7 +76,7 @@
 	timer -= 2
 
 	if (timer == 10)
-		visible_message("<span class='notice'>\The [src]'s surface begins cracking and dissolving!</span>")
+		visible_message(SPAN_NOTICE("\The [src]'s surface begins cracking and dissolving!"))
 
 	if (timer <= 0)
 		dump_contents()
@@ -137,7 +137,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	health -= I.force
 	user.do_attack_animation(src)
-	visible_message("<span class='danger'>[user] strikes [src] with [I].</span>")
+	visible_message(SPAN_DANGER("[user] strikes [src] with [I]."))
 	check_health()
 
 /obj/structure/closet/statue/MouseDrop_T()
@@ -160,5 +160,5 @@
 		user.frozen = FALSE
 		user.dust()
 	dump_contents()
-	visible_message("<span class='warning'>[src] shatters!.</span>")
+	visible_message(SPAN_WARNING("[src] shatters!."))
 	qdel(src)

@@ -56,7 +56,7 @@
 /obj/item/tank/jetpack/examine(mob/user)
 	. = ..()
 	if(air_contents.total_moles < 5)
-		to_chat(user, "<span class='danger'>The meter on \the [src] indicates you are almost out of gas!</span>")
+		to_chat(user, SPAN_DANGER("The meter on \the [src] indicates you are almost out of gas!"))
 
 /obj/item/tank/jetpack/verb/toggle_rockets()
 	set name = "Toggle Jetpack Stabilization"
@@ -107,7 +107,7 @@
 	if (src.air_contents.total_moles < 3 && !warned)
 		warned = 1
 		playsound(user, 'sound/effects/alert.ogg', 50, 1)
-		to_chat(user, "<span class='danger'>The meter on \the [src] indicates you are almost out of gas and beeps loudly!</span>")
+		to_chat(user, SPAN_DANGER("The meter on \the [src] indicates you are almost out of gas and beeps loudly!"))
 		addtimer(CALLBACK(src, .proc/reset_warning), 600)
 
 	var/datum/gas_mixture/G = src.air_contents.remove(num)

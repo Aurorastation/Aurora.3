@@ -92,4 +92,4 @@
 								"Your legs feel harder to move.",
 								"You begin to have trouble standing upright.")
 
-		to_chat(H, "<span class='warning'>[pain_message]</span>")
+		to_chat(H, SPAN_WARNING("[pain_message]"))

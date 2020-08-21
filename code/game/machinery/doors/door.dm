@@ -53,11 +53,11 @@
 
 /obj/machinery/door/attack_generic(var/mob/user, var/damage)
 	if(damage >= 10)
-		visible_message("<span class='danger'>\The [user] smashes into the [src]!</span>")
+		visible_message(SPAN_DANGER("\The [user] smashes into the [src]!"))
 		playsound(src.loc, hitsound, 60, 1)
 		take_damage(damage)
 	else
-		visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly.</span>")
+		visible_message(SPAN_NOTICE("\The [user] bonks \the [src] harmlessly."))
 		playsound(src.loc, hitsound_light, 8, 1, -1)
 	user.do_attack_animation(src)
 
@@ -234,7 +234,7 @@
 	if (damage > 90)
 		destroy_hits--
 		if (destroy_hits <= 0)
-			visible_message("<span class='danger'>\The [src.name] disintegrates!</span>")
+			visible_message(SPAN_DANGER("\The [src.name] disintegrates!"))
 			switch (Proj.damage_type)
 				if(BRUTE)
 					new /obj/item/stack/material/steel(src.loc, 2)
@@ -251,7 +251,7 @@
 /obj/machinery/door/hitby(AM as mob|obj, var/speed=5)
 
 	..()
-	visible_message("<span class='danger'>[src.name] was hit by [AM].</span>")
+	visible_message(SPAN_DANGER("[src.name] was hit by [AM]."))
 	var/tforce = 0
 	if(ismob(AM))
 		tforce = 15 * (speed/5)
@@ -291,13 +291,13 @@
 
 	if(istype(I, /obj/item/stack/material) && I.get_material_name() == src.get_material_name())
 		if(stat & BROKEN)
-			to_chat(user, "<span class='notice'>It looks like \the [src] is pretty busted. It's going to need more than just patching up now.</span>")
+			to_chat(user, SPAN_NOTICE("It looks like \the [src] is pretty busted. It's going to need more than just patching up now."))
 			return
 		if(health >= maxhealth)
-			to_chat(user, "<span class='notice'>Nothing to fix!</span>")
+			to_chat(user, SPAN_NOTICE("Nothing to fix!"))
 			return
 		if(!density)
-			to_chat(user, "<span class='warning'>\The [src] must be closed before you can repair it.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] must be closed before you can repair it."))
 			return
 
 		//figure out how much metal we need
@@ -309,7 +309,7 @@
 		if (repairing)
 			transfer = stack.transfer_to(repairing, amount_needed - repairing.amount)
 			if (!transfer)
-				to_chat(user, "<span class='warning'>You must weld or remove \the [repairing] from \the [src] before you can add anything else.</span>")
+				to_chat(user, SPAN_WARNING("You must weld or remove \the [repairing] from \the [src] before you can add anything else."))
 		else
 			repairing = stack.split(amount_needed)
 			if (repairing)
@@ -317,21 +317,21 @@
 				transfer = repairing.amount
 
 		if (transfer)
-			to_chat(user, "<span class='notice'>You fit [transfer] [stack.singular_name]\s to damaged and broken parts on \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You fit [transfer] [stack.singular_name]\s to damaged and broken parts on \the [src]."))
 
 		return
 
 	if(repairing && I.iswelder())
 		if(!density)
-			to_chat(user, "<span class='warning'>\The [src] must be closed before you can repair it.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] must be closed before you can repair it."))
 			return
 
 		var/obj/item/weldingtool/welder = I
 		if(welder.remove_fuel(0,user))
-			to_chat(user, "<span class='notice'>You start to fix dents and weld \the [repairing] into place.</span>")
+			to_chat(user, SPAN_NOTICE("You start to fix dents and weld \the [repairing] into place."))
 			playsound(src, 'sound/items/welder.ogg', 100, 1)
 			if(do_after(user, 5 * repairing.amount) && welder && welder.isOn())
-				to_chat(user, "<span class='notice'>You finish repairing the damage to \the [src].</span>")
+				to_chat(user, SPAN_NOTICE("You finish repairing the damage to \the [src]."))
 				health = between(health, health + repairing.amount*DOOR_REPAIR_AMOUNT, maxhealth)
 				update_icon()
 				qdel(repairing)
@@ -339,7 +339,7 @@
 		return
 
 	if(repairing && I.iscrowbar())
-		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
+		to_chat(user, SPAN_NOTICE("You remove \the [repairing]."))
 		playsound(src.loc, I.usesound, 100, 1)
 		repairing.forceMove(user.loc)
 		repairing = null
@@ -352,9 +352,9 @@
 		if(W.damtype == BRUTE || W.damtype == BURN)
 			user.do_attack_animation(src)
 			if(W.force < min_force)
-				user.visible_message("<span class='danger'>\The [user] hits \the [src] with \the [W] with no visible effect.</span>")
+				user.visible_message(SPAN_DANGER("\The [user] hits \the [src] with \the [W] with no visible effect."))
 			else
-				user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [W]!</span>")
+				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [W]!"))
 				playsound(src.loc, hitsound, 100, 1)
 				take_damage(W.force)
 		return

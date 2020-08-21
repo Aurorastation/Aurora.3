@@ -30,7 +30,7 @@
 	return ..() && target_zone == BP_MOUTH && target.op_stage.face == FACE_CUT_OPEN
 
 /decl/surgery_step/generic/prepare_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("[user] starts to retract [target]'s face with \the [tool].", \
+	user.visible_message("<b>[user]</b> starts to retract [target]'s face with \the [tool].", \
 		"You start to retract [target]'s face with \the [tool].")
 	..()
 
@@ -152,7 +152,7 @@
 	return ..() && target.op_stage.face == FACE_NORMAL && target.get_species() == "Shell Frame"
 
 /decl/surgery_step/robotics/face/synthskinopen/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("[user] starts to cut open [target]'s synthskin face and neck with \the [tool].", \
+	user.visible_message("<b>[user]</b> starts to cut open [target]'s synthskin face and neck with \the [tool].", \
 		"You start to cut open [target]'s synthskin face and neck with \the [tool].")
 	..()
 
@@ -180,7 +180,7 @@
 	return ..() && target_zone == BP_MOUTH && target.op_stage.face == FACE_CUT_OPEN
 
 /decl/surgery_step/robotics/face/prepare_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("[user] starts to retract [target]'s synthskin face with \the [tool].", \
+	user.visible_message("<b>[user]</b> starts to retract [target]'s synthskin face with \the [tool].", \
 		"You start to retract [target]'s face with \the [tool].")
 	..()
 
@@ -260,7 +260,7 @@
 
 /decl/surgery_step/robotics/face/seal_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_NOTICE("[user] seals the incision on [target]'s synthskin face and neck with \the [tool]."), \
+	user.visible_message("<b>[user]</b> seals the incision on [target]'s synthskin face and neck with \the [tool].", \
 		SPAN_NOTICE("You seal the incision on [target]'s synthskin face and neck with \the [tool]."))
 	affected.open = ORGAN_CLOSED
 	if(target.op_stage.face == FACE_ALTERED)

@@ -25,7 +25,7 @@ world/IsBanned(key, address, computer_id, type, real_bans_only = FALSE)
 	//Guest Checking
 	if(!(config.guests_allowed || config.external_auth) && IsGuestKey(key))
 		log_access("Failed Login: [key] - Guests not allowed",ckey=key_name(key))
-		message_admins("<span class='notice'>Failed Login: [key] - Guests not allowed</span>")
+		message_admins(SPAN_NOTICE("Failed Login: [key] - Guests not allowed"))
 		return list("reason"="guest", "desc"="\nReason: Guests not allowed. Please sign in with a byond account.")
 
 	if(config.ban_legacy_system)
@@ -33,7 +33,7 @@ world/IsBanned(key, address, computer_id, type, real_bans_only = FALSE)
 		. = CheckBan(ckey, computer_id, address)
 		if(.)
 			log_access("Failed Login: [key] [computer_id] [address] - Banned [.["reason"]]",ckey=key_name(key))
-			message_admins("<span class='notice'>Failed Login: [key] id:[computer_id] ip:[address] - Banned [.["reason"]]</span>")
+			message_admins(SPAN_NOTICE("Failed Login: [key] id:[computer_id] ip:[address] - Banned [.["reason"]]"))
 			return .
 
 		return ..()	//default pager ban stuff
@@ -197,7 +197,7 @@ world/IsBanned(key, address, computer_id, type, real_bans_only = FALSE)
 		if (admin)
 			log_admin("The admin [key] has been allowed to bypass a matching host/sticky ban on [bannedckey]")
 			if (message)
-				message_admins("<span class='adminnotice'>The admin [key] has been allowed to bypass a matching host/sticky ban on [bannedckey]</span>")
+				message_admins(span("adminnotice", "The admin [key] has been allowed to bypass a matching host/sticky ban on [bannedckey]"))
 			return null
 
 		if (C) //user is already connected!.

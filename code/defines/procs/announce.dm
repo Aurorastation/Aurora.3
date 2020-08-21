@@ -55,9 +55,9 @@
 			var/turf/T = get_turf(M)
 			if(T && isContactLevel(T.z))
 				to_chat(M, "<h2 class='alert'>[message_title]</h2>")
-				to_chat(M, "<span class='alert'>[message]</span>")
+				to_chat(M, SPAN_ALERT("[message]"))
 				if (announcer)
-					to_chat(M, "<span class='alert'> -[html_encode(announcer)]</span>")
+					to_chat(M, SPAN_ALERT(" -[html_encode(announcer)]"))
 				if(message_sound && !isdeaf(M) && (M.client.prefs.asfx_togs & ASFX_VOX))
 					sound_to(M, message_sound)
 

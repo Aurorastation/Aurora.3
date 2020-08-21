@@ -124,7 +124,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 				msg = "The [BadBoy.name] subsystem seems to be destabilizing the MC and will be offlined."
 				BadBoy.flags |= SS_NO_FIRE
 		if(msg)
-			admin_notice("<span class='danger'>[msg]</span>", R_DEBUG | R_DEV)
+			admin_notice(SPAN_DANGER("[msg]"), R_DEBUG | R_DEV)
 			log_mc(msg)
 
 	if (istype(Master.subsystems))
@@ -133,7 +133,7 @@ var/CURRENT_TICKLIMIT = TICK_LIMIT_RUNNING
 		subsystems = Master.subsystems
 		StartProcessing(10)
 	else
-		to_chat(world, "<span class='danger'><big>The Master Controller is having some issues, we will need to re-initialize EVERYTHING</big></span>")
+		to_chat(world, SPAN_DANGER("<big>The Master Controller is having some issues, we will need to re-initialize EVERYTHING</big>"))
 		Initialize(20, TRUE)
 
 // Please don't stuff random bullshit here,

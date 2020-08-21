@@ -38,7 +38,7 @@
 		return
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
-	user.visible_message("[user] begins to cut through [target]'s [affected.encased] with \the [tool].", \
+	user.visible_message("<b>[user]</b> begins to cut through [target]'s [affected.encased] with \the [tool].", \
 		"You begin to cut through [target]'s [affected.encased] with \the [tool].")
 	target.custom_pain("Something hurts horribly in your [affected.name]!", 75)
 	..()

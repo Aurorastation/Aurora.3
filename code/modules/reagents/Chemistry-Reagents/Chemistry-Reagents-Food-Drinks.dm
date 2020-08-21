@@ -600,7 +600,7 @@
 		M.apply_effect(agony_amount, PAIN, 0)
 		if(prob(5))
 			M.visible_message("<b>[M]</b> [pick("dry heaves!","coughs!","splutters!")]")
-			to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
+			to_chat(M, SPAN_DANGER("You feel like your insides are burning!"))
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(0, 15) + slime_temp_adj
 	holder.remove_reagent(/datum/reagent/frostoil, 5)
@@ -683,11 +683,11 @@
 		if(!H.can_feel_pain())
 			return
 	if(dose == metabolism)
-		to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
+		to_chat(M, SPAN_DANGER("You feel like your insides are burning!"))
 	else
 		M.apply_effect(4, PAIN, 0)
 		if(prob(5))
-			M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>", "<span class='danger'>You feel like your insides are burning!</span>")
+			M.visible_message(SPAN_WARNING("[M] [pick("dry heaves!","coughs!","splutters!")]"), SPAN_DANGER("You feel like your insides are burning!"))
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(15, 30)
 	holder.remove_reagent(/datum/reagent/frostoil, 5)
@@ -1060,7 +1060,7 @@
 /datum/reagent/drink/tea/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		if(last_taste_time + 800 < world.time) // Not to spam message
-			to_chat(M, "<span class='danger'>Your body withers as you feel slight pain throughout.</span>")
+			to_chat(M, SPAN_DANGER("Your body withers as you feel slight pain throughout."))
 			last_taste_time = world.time
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)
@@ -2033,7 +2033,7 @@
 /datum/reagent/drink/toothpaste/teathpaste/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		if(last_taste_time + 800 < world.time) // Not to spam message
-			to_chat(M, "<span class='danger'>Your body withers as you feel slight pain throughout.</span>")
+			to_chat(M, SPAN_DANGER("Your body withers as you feel slight pain throughout."))
 			last_taste_time = world.time
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)
@@ -3631,7 +3631,7 @@
 			M.apply_effect(agony_amount, PAIN, 0)
 			if(prob(5))
 				M.visible_message("<b>[M]</b> [pick("dry heaves!","coughs!","splutters!")]")
-				to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
+				to_chat(M, SPAN_DANGER("You feel like your insides are burning!"))
 		if(istype(M, /mob/living/carbon/slime))
 			M.bodytemperature += rand(0, 15) + slime_temp_adj
 		holder.remove_reagent(/datum/reagent/frostoil, 2)
@@ -4171,7 +4171,7 @@
 /datum/reagent/alcohol/butanol/trizkizki_tea/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(alien == IS_DIONA)
 		if(last_taste_time + 800 < world.time) // Not to spam message
-			to_chat(M, "<span class='danger'>Your body withers as you feel slight pain throughout.</span>")
+			to_chat(M, SPAN_DANGER("Your body withers as you feel slight pain throughout."))
 			last_taste_time = world.time
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)

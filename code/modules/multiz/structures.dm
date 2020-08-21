@@ -61,7 +61,7 @@
 		G = M.r_hand
 
 	if(!M.Move(get_turf(src)))
-		to_chat(M, "<span class='notice'>You fail to reach \the [src].</span>")
+		to_chat(M, SPAN_NOTICE("You fail to reach \the [src]."))
 		return
 
 	if (istype(G))
@@ -69,11 +69,11 @@
 
 	var/direction = target_ladder == target_up ? "up" : "down"
 
-	M.visible_message("<span class='notice'>\The [M] begins climbing [direction] \the [src]!</span>",
+	M.visible_message(SPAN_NOTICE("\The [M] begins climbing [direction] \the [src]!"),
 	"You begin climbing [direction] \the [src]!",
 	"You hear the grunting and clanging of a metal ladder being used.")
 
-	target_ladder.audible_message("<span class='notice'>You hear something coming [direction] \the [src]</span>")
+	target_ladder.audible_message(SPAN_NOTICE("You hear something coming [direction] \the [src]"))
 
 	if(do_after(M, istype(G) ? (climb_time*2) : climb_time))
 		climbLadder(M, target_ladder)
@@ -85,7 +85,7 @@
 
 /obj/structure/ladder/proc/getTargetLadder(var/mob/M)
 	if((!target_up && !target_down) || (target_up && !istype(target_up.loc, /turf) || (target_down && !istype(target_down.loc,/turf))))
-		to_chat(M, "<span class='notice'>\The [src] is incomplete and can't be climbed.</span>")
+		to_chat(M, SPAN_NOTICE("\The [src] is incomplete and can't be climbed."))
 		return
 	if(target_down && target_up)
 		var/direction = alert(M,"Do you want to go up or down?", "Ladder", "Up", "Down", "Cancel")
@@ -106,23 +106,23 @@
 
 /mob/proc/may_climb_ladders(var/ladder)
 	if(!Adjacent(ladder))
-		to_chat(src, "<span class='warning'>You need to be next to \the [ladder] to start climbing.</span>")
+		to_chat(src, SPAN_WARNING("You need to be next to \the [ladder] to start climbing."))
 		return FALSE
 	if(incapacitated())
-		to_chat(src, "<span class='warning'>You are physically unable to climb \the [ladder].</span>")
+		to_chat(src, SPAN_WARNING("You are physically unable to climb \the [ladder]."))
 		return FALSE
 	return TRUE
 
 /mob/living/silicon/may_climb_ladders(ladder)
-	to_chat(src, "<span class='warning'>You're too heavy to climb [ladder]!</span>")
+	to_chat(src, SPAN_WARNING("You're too heavy to climb [ladder]!"))
 	return FALSE
 
 /mob/living/silicon/robot/drone/may_climb_ladders(ladder)
 	if(!Adjacent(ladder))
-		to_chat(src, "<span class='warning'>You need to be next to \the [ladder] to start climbing.</span>")
+		to_chat(src, SPAN_WARNING("You need to be next to \the [ladder] to start climbing."))
 		return FALSE
 	if(incapacitated())
-		to_chat(src, "<span class='warning'>You are physically unable to climb \the [ladder].</span>")
+		to_chat(src, SPAN_WARNING("You are physically unable to climb \the [ladder]."))
 		return FALSE
 	return TRUE
 
@@ -136,15 +136,15 @@
 	if(istype(target_ladder, target_down))
 		direction = DOWN
 	if(!LAD.CanZPass(M, direction))
-		to_chat(M, "<span class='notice'>\The [LAD] is blocking \the [src].</span>")
+		to_chat(M, SPAN_NOTICE("\The [LAD] is blocking \the [src]."))
 		return FALSE
 	if(!T.CanZPass(M, direction))
-		to_chat(M, "<span class='notice'>\The [T] is blocking \the [src].</span>")
+		to_chat(M, SPAN_NOTICE("\The [T] is blocking \the [src]."))
 		return FALSE
 	for(var/atom/A in T)
 		if(!isliving(A))
 			if(!A.CanPass(M, M.loc, 1.5, 0))
-				to_chat(M, "<span class='notice'>\The [A] is blocking \the [src].</span>")
+				to_chat(M, SPAN_NOTICE("\The [A] is blocking \the [src]."))
 				return FALSE
 	playsound(src, pick(climbsounds), 50)
 	playsound(target_ladder, pick(climbsounds), 50)
@@ -232,9 +232,9 @@
 	L.Weaken(2)
 	if (L.lying)
 		L.visible_message(
-			"<span class='alert'>\The [L] steps off of [src] and faceplants onto [L.loc].</span>",
-			"<span class='danger'>You step off [src] and faceplant onto [L.loc].</span>",
-			"<span class='alert'>You hear a thump.</span>"
+			SPAN_ALERT("\The [L] steps off of [src] and faceplants onto [L.loc]."),
+			SPAN_DANGER("You step off [src] and faceplant onto [L.loc]."),
+			SPAN_ALERT("You hear a thump.")
 		)
 
 // type paths to make mapping easier.

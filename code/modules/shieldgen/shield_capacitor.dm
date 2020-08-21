@@ -135,7 +135,7 @@
 		return
 	if( href_list["toggle"] )
 		if(!active && !anchored)
-			to_chat(usr, "<span class='warning'>The [src] needs to be firmly secured to the floor first.</span>")
+			to_chat(usr, SPAN_WARNING("The [src] needs to be firmly secured to the floor first."))
 			return
 		active = !active
 	if( href_list["charge_rate"] )

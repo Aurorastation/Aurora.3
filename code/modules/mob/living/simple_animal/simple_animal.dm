@@ -160,11 +160,11 @@
 	..()
 
 	if (stat == DEAD)
-		to_chat(user, "<span class='danger'>It looks dead.</span>")
+		to_chat(user, SPAN_DANGER("It looks dead."))
 	if (health < maxHealth * 0.5)
-		to_chat(user, "<span class='danger'>It looks badly wounded.</span>")
+		to_chat(user, SPAN_DANGER("It looks badly wounded."))
 	else if (health < maxHealth)
-		to_chat(user, "<span class='warning'>It looks wounded.</span>")
+		to_chat(user, SPAN_WARNING("It looks wounded."))
 
 
 /mob/living/simple_animal/Life()

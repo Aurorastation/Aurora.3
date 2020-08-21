@@ -64,8 +64,8 @@
 		free_backseat = stranger_backseat
 
 	log_game("[current_backseat]/([current_backseat.ckey]) assumed control of [owner]/([owner.ckey] due to [src]. (Original owner: [current_controller == OWNER ? owner.ckey : current_backseat.ckey])")
-	to_chat(owner, "<span class='danger'>You feel your control being taken away... your other personality is in charge now!</span>")
-	to_chat(current_backseat, "<span class='danger'>You manage to take control of your body!</span>")
+	to_chat(owner, SPAN_DANGER("You feel your control being taken away... your other personality is in charge now!"))
+	to_chat(current_backseat, SPAN_DANGER("You manage to take control of your body!"))
 
 	//Body to backseat
 
@@ -137,10 +137,10 @@
 
 /mob/living/mental/split_personality/LateLogin()
 	..()
-	to_chat(src, "<span class='notice'>As a split personality, you cannot do anything but observe. However, you will eventually gain control of your body, switching places with the current personality.</span>")
+	to_chat(src, SPAN_NOTICE("As a split personality, you cannot do anything but observe. However, you will eventually gain control of your body, switching places with the current personality."))
 
 /mob/living/mental/split_personality/say(message)
-	to_chat(src, "<span class='warning'>You cannot speak, your other self is controlling your body!</span>")
+	to_chat(src, SPAN_WARNING("You cannot speak, your other self is controlling your body!"))
 	return FALSE
 
 /mob/living/mental/split_personality/emote(message)
@@ -194,7 +194,7 @@
 	if(owner.disabilities & DEAF || owner == speaker)
 		return message
 	if(findtext(message, codeword))
-		message = replacetext(message, codeword, "<span class='warning'>[codeword]</span>")
+		message = replacetext(message, codeword, SPAN_WARNING("[codeword]"))
 		addtimer(CALLBACK(src, /datum/brain_trauma/severe/split_personality.proc/switch_personalities), 10)
 	return message
 
@@ -211,10 +211,10 @@
 
 /mob/living/mental/split_personality/traitor/LateLogin()
 	..()
-	to_chat(src, "<span class='notice'>As a brainwashed personality, you cannot do anything yet but observe. However, you may gain control of your body if you hear the special codeword, switching places with the current personality.</span>")
-	to_chat(src, "<span class='notice'>Your activation codeword is: <b>[codeword]</b></span>")
+	to_chat(src, SPAN_NOTICE("As a brainwashed personality, you cannot do anything yet but observe. However, you may gain control of your body if you hear the special codeword, switching places with the current personality."))
+	to_chat(src, SPAN_NOTICE("Your activation codeword is: <b>[codeword]</b>"))
 	if(objective)
-		to_chat(src, "<span class='notice'>Your master left you an objective: <b>[objective]</b>. Follow it at all costs when in control.</span>")
+		to_chat(src, SPAN_NOTICE("Your master left you an objective: <b>[objective]</b>. Follow it at all costs when in control."))
 
 #undef OWNER
 #undef STRANGER

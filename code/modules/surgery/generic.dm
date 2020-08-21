@@ -41,7 +41,7 @@
 
 /decl/surgery_step/generic/cut_with_laser/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts the bloodless incision on [target]'s [affected.name] with \the [tool].", \
+	user.visible_message("<b>[user]</b> starts the bloodless incision on [target]'s [affected.name] with \the [tool].", \
 		"You start the bloodless incision on [target]'s [affected.name] with \the [tool].")
 	target.custom_pain("You feel a horrible, searing pain in your [affected.name]!", 75)
 	..()
@@ -84,7 +84,7 @@
 
 /decl/surgery_step/generic/incision_manager/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts to construct a prepared incision on and within [target]'s [affected.name] with \the [tool].", \
+	user.visible_message("<b>[user]</b> starts to construct a prepared incision on and within [target]'s [affected.name] with \the [tool].", \
 		"You start to construct a prepared incision on and within [target]'s [affected.name] with \the [tool].")
 	target.custom_pain("You feel a horrible, searing pain in your [affected.name] as it is pushed apart!", 75)
 	..()
@@ -175,7 +175,7 @@
 
 /decl/surgery_step/generic/cut_open_vaurca/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts drilling into [target]'s [affected.name] carapace with \the [tool].", \
+	user.visible_message("<b>[user]</b> starts drilling into [target]'s [affected.name] carapace with \the [tool].", \
 		"You start drilling into [target]'s [affected.name] carapace with \the [tool].")
 	target.custom_pain("You feel a horrible pain as if from a jackhammer in your [affected.name]!", 75)
 	..()

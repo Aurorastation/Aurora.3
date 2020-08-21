@@ -346,12 +346,12 @@
 
 
 	if(stat & NOPOWER)
-		to_chat(user, "<span class='notice'>\The [src] is unpowered and useless.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is unpowered and useless."))
 		return
 
 	if(accept_check(O))
 		if(contents.len >= max_n_of_items)
-			to_chat(user, "<span class='notice'>\The [src] is full.</span>")
+			to_chat(user, SPAN_NOTICE("\The [src] is full."))
 			return 1
 		else
 			user.remove_from_mob(O)
@@ -360,7 +360,7 @@
 				item_quants[O.name]++
 			else
 				item_quants[O.name] = 1
-			user.visible_message("<b>[user]</b> adds \a [O] to \the [src].", "<span class='notice'>You add \the [O] to \the [src].</span>")
+			user.visible_message("<b>[user]</b> adds \a [O] to \the [src].", SPAN_NOTICE("You add \the [O] to \the [src]."))
 
 			SSvueui.check_uis_for_change(src)
 			return
@@ -371,7 +371,7 @@
 		for(var/obj/G in P.contents)
 			if(accept_check(G))
 				if(contents.len >= max_n_of_items)
-					to_chat(user, "<span class='notice'>\The [src] is full.</span>")
+					to_chat(user, SPAN_NOTICE("\The [src] is full."))
 					return 1
 				else
 					P.remove_from_storage(G,src)
@@ -382,14 +382,14 @@
 					plants_loaded++
 		if(plants_loaded)
 
-			user.visible_message("<span class='notice'>[user] loads \the [src] with \the [P].</span>", "<span class='notice'>You load \the [src] with \the [P].</span>")
+			user.visible_message(SPAN_NOTICE("[user] loads \the [src] with \the [P]."), SPAN_NOTICE("You load \the [src] with \the [P]."))
 			if(P.contents.len > 0)
-				to_chat(user, "<span class='notice'>Some items are refused.</span>")
+				to_chat(user, SPAN_NOTICE("Some items are refused."))
 
 		SSvueui.check_uis_for_change(src)
 
 	else
-		to_chat(user, "<span class='notice'>\The [src] smartly refuses [O].</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] smartly refuses [O]."))
 		return 1
 
 /obj/machinery/smartfridge/secure/emag_act(var/remaining_charges, var/mob/user)
@@ -497,7 +497,7 @@
 		return 0
 	spawn(0)
 		throw_item.throw_at(target,16,3,src)
-	src.visible_message("<span class='warning'>[src] launches [throw_item.name] at [target.name]!</span>")
+	src.visible_message(SPAN_WARNING("[src] launches [throw_item.name] at [target.name]!"))
 	return 1
 
 /************************
@@ -508,6 +508,6 @@
 	if(stat & (NOPOWER|BROKEN)) return 0
 	if(usr.contents.Find(src) || (in_range(src, usr) && istype(loc, /turf)))
 		if(!allowed(usr) && !emagged && locked != -1 && href_list["vendItem"])
-			to_chat(usr, "<span class='warning'>Access denied.</span>")
+			to_chat(usr, SPAN_WARNING("Access denied."))
 			return 0
 	return ..()

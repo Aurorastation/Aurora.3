@@ -395,15 +395,15 @@
 		return
 	if(istype(O, /obj/structure/reagent_dispensers/fueltank) && O.Adjacent(user) && !welding)
 		O.reagents.trans_to_obj(src, max_fuel)
-		to_chat(user, "<span class='notice'>You refuel your welder.</span>")
+		to_chat(user, SPAN_NOTICE("You refuel your welder."))
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if(istype(O, /obj/structure/reagent_dispensers/fueltank) && O.Adjacent(user) && welding)
 		var/obj/structure/reagent_dispensers/fueltank/tank = O
 		if(tank.armed)
-			to_chat(user, "<span class='warning'>You are already heating \the [O]!</span>")
+			to_chat(user, SPAN_WARNING("You are already heating \the [O]!"))
 			return
-		user.visible_message("<span class='warning'>[user] begins heating \the [O]...</span>", "<span class='warning'>You start to heat \the [O]!</span>")
+		user.visible_message(SPAN_WARNING("[user] begins heating \the [O]..."), SPAN_WARNING("You start to heat \the [O]!"))
 		switch(alert("Are you sure you want to do this? It is quite dangerous and could get you in trouble.", "Heat up fuel tank", "No", "Yes"))
 			if("Yes")
 				log_and_message_admins("is attempting to welderbomb", user)
@@ -411,7 +411,7 @@
 				tank.armed = 1
 				if(do_after(user, 100))
 					if(tank.defuse)
-						user.visible_message("[user] melts some of the framework on the [O]!", "You melt some of the framework!")
+						user.visible_message("<b>[user]</b> melts some of the framework on [O]!", "You melt some of the framework!")
 						tank.defuse = 0
 						tank.armed = 0
 						return
@@ -480,9 +480,9 @@
 	if(set_welding && !welding)
 		if (get_fuel() > 0)
 			if(M)
-				to_chat(M, "<span class='notice'>You switch the [src] on.</span>")
+				to_chat(M, SPAN_NOTICE("You switch [src] on."))
 			else if(T)
-				T.visible_message("<span class='danger'>\The [src] turns on.</span>")
+				T.visible_message(SPAN_DANGER("\The [src] turns on."))
 			playsound(loc, 'sound/items/welder_activate.ogg', 50, 1)
 			force = 15
 			damtype = BURN
@@ -492,14 +492,14 @@
 			set_processing(TRUE)
 		else
 			if(M)
-				to_chat(M, "<span class='notice'>You need more welding fuel to complete this task.</span>")
+				to_chat(M, SPAN_NOTICE("You need more welding fuel to complete this task."))
 			return
 	//Otherwise
 	else if(!set_welding && welding)
 		if(M)
-			to_chat(M, "<span class='notice'>You switch \the [src] off.</span>")
+			to_chat(M, SPAN_NOTICE("You switch \the [src] off."))
 		else if(T)
-			T.visible_message("<span class='warning'>\The [src] turns off.</span>")
+			T.visible_message(SPAN_WARNING("\The [src] turns off."))
 		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, 1)
 		force = 3
 		damtype = BRUTE
@@ -532,20 +532,20 @@
 		switch(safety)
 			if(FLASH_PROTECTION_MODERATE)
 				damage_to_take = E.max_damage / 6
-				to_chat(user, "<span class='warning'>Your eyes sting a little.</span>")
+				to_chat(user, SPAN_WARNING("Your eyes sting a little."))
 				E.take_damage(damage_to_take)
 			if(FLASH_PROTECTION_NONE)
 				damage_to_take = E.max_damage / 5
-				to_chat(user, "<span class='warning'>Your eyes burn!</span>")
+				to_chat(user, SPAN_WARNING("Your eyes burn!"))
 				E.take_damage(damage_to_take)
 			if(FLASH_PROTECTION_REDUCED)
 				damage_to_take = E.max_damage / 3
-				to_chat(user, "<span class='danger'><font size=4>Your eyes are burning!</font></span>")
+				to_chat(user, SPAN_DANGER("<font size=4>Your eyes are burning!</font>"))
 				user.eye_blurry += rand(12, 20)
 				E.take_damage(damage_to_take)
 		if(safety < FLASH_PROTECTION_MAJOR)
 			if(E.is_bruised())
-				to_chat(user, "<span class='danger'>You can't see anymore!</span>")
+				to_chat(user, SPAN_DANGER("You can't see anymore!"))
 				user.disabilities |= NEARSIGHTED
 				addtimer(CALLBACK(user, /mob/.proc/reset_nearsighted), 100)
 

@@ -278,7 +278,7 @@
 		user.drop_from_inventory(W,src)
 		coin = W
 		categories |= CAT_COIN
-		to_chat(user, "<span class='notice'>You insert \the [W] into \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You insert \the [W] into \the [src]."))
 		SSnanoui.update_uis(src)
 		return
 	else if(W.iswrench())
@@ -293,7 +293,7 @@
 
 		if(do_after(user, 20/W.toolspeed))
 			if(!src) return
-			to_chat(user, "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>")
+			to_chat(user, SPAN_NOTICE("You [anchored? "un" : ""]secured \the [src]!"))
 			anchored = !anchored
 		return
 
@@ -303,25 +303,25 @@
 			if(VR.charges)
 				if(VR.vend_id == vend_id)
 					VR.restock_inventory(src)
-					to_chat(user, "<span class='notice'>You restock \the [src] with \the [VR]!</span>")
+					to_chat(user, SPAN_NOTICE("You restock \the [src] with \the [VR]!"))
 					if(!VR.charges)
-						to_chat(user, "<span class='warning'>\The [VR] is depleted!</span>")
+						to_chat(user, SPAN_WARNING("\The [VR] is depleted!"))
 				else
-					to_chat(user, "<span class='warning'>\The [VR] is not stocked for this type of vendor!</span>")
+					to_chat(user, SPAN_WARNING("\The [VR] is not stocked for this type of vendor!"))
 			else
-				to_chat(user, "<span class='warning'>\The [VR] is depleted!</span>")
+				to_chat(user, SPAN_WARNING("\The [VR] is depleted!"))
 			return
 		else
-			to_chat(user, "<span class='warning'>You must open \the [src]'s maintenance panel first!</span>")
+			to_chat(user, SPAN_WARNING("You must open \the [src]'s maintenance panel first!"))
 			return
 
 	else if(!is_borg_item(W))
 		if(!restock_items)
-			to_chat(user, "<span class='warning'>\the [src] can not be restocked manually!</span>")
+			to_chat(user, SPAN_WARNING("\the [src] can not be restocked manually!"))
 			return
 		for(var/path in restock_blocked_items)
 			if(istype(W,path))
-				to_chat(user, "<span class='warning'>\the [src] does not accept this item!</span>")
+				to_chat(user, SPAN_WARNING("\the [src] does not accept this item!"))
 				return
 
 		for(var/datum/data/vending_product/R in product_records)
@@ -349,7 +349,7 @@
 	if(istype(cashmoney, /obj/item/spacecash/bundle))
 		// Bundles can just have money subtracted, and will work
 
-		visible_message("<span class='info'>\The [usr] inserts some cash into \the [src].</span>")
+		visible_message(SPAN_INFO("\The [usr] inserts some cash into \the [src]."))
 		var/obj/item/spacecash/bundle/cashmoney_bundle = cashmoney
 		cashmoney_bundle.worth -= currently_vending.price
 
@@ -364,7 +364,7 @@
 		// This is really dirty, but there's no superclass for all bills, so we
 		// just assume that all spacecash that's not something else is a bill
 
-		visible_message("<span class='info'>\The [usr] inserts a bill into \the [src].</span>")
+		visible_message(SPAN_INFO("\The [usr] inserts a bill into \the [src]."))
 		var/left = cashmoney.worth - currently_vending.price
 		usr.drop_from_inventory(cashmoney,get_turf(src))
 		qdel(cashmoney)
@@ -383,7 +383,7 @@
  * successful, 0 if failed.
  */
 /obj/machinery/vending/proc/pay_with_ewallet(var/obj/item/spacecash/ewallet/wallet)
-	visible_message("<span class='info'>\The [usr] swipes \the [wallet] through \the [src].</span>")
+	visible_message(SPAN_INFO("\The [usr] swipes \the [wallet] through \the [src]."))
 	playsound(src.loc, 'sound/machines/id_swipe.ogg', 50, 1)
 	if(currently_vending.price > wallet.worth)
 		src.status_message = "Insufficient funds on chargecard."
@@ -402,9 +402,9 @@
  */
 /obj/machinery/vending/proc/pay_with_card(var/obj/item/card/id/I, var/obj/item/ID_container)
 	if(I==ID_container || ID_container == null)
-		visible_message("<span class='info'>\The [usr] swipes \the [I] through \the [src].</span>")
+		visible_message(SPAN_INFO("\The [usr] swipes \the [I] through \the [src]."))
 	else
-		visible_message("<span class='info'>\The [usr] swipes \the [ID_container] through \the [src].</span>")
+		visible_message(SPAN_INFO("\The [usr] swipes \the [ID_container] through \the [src]."))
 	playsound(src.loc, 'sound/machines/id_swipe.ogg', 50, 1)
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 	var/datum/money_account/customer_account = SSeconomy.get_account(I.associated_account_number)
@@ -557,14 +557,14 @@
 			return
 
 		usr.put_in_hands(coin)
-		to_chat(usr, "<span class='notice'>You remove the [coin] from the [src]</span>")
+		to_chat(usr, SPAN_NOTICE("You remove the [coin] from the [src]"))
 		coin = null
 		categories &= ~CAT_COIN
 
 	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))))
 		if (href_list["vendItem"] && vend_ready && !currently_vending)
 			if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
-				to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course
+				to_chat(usr, SPAN_WARNING("Access denied."))	//Unless emagged of course
 				if(exclusive_screen)
 					cut_overlays()
 					addtimer(CALLBACK(src, .proc/add_screen_overlay), deny_time ? deny_time : 15)
@@ -585,7 +585,7 @@
 			if(R.price <= 0)
 				src.vend(R, usr)
 			else if(istype(usr,/mob/living/silicon)) //If the item is not free, provide feedback if a synth is trying to buy something.
-				to_chat(usr, "<span class='danger'>Artificial unit recognized.  Artificial units cannot complete this transaction.  Purchase canceled.</span>")
+				to_chat(usr, SPAN_DANGER("Artificial unit recognized.  Artificial units cannot complete this transaction.  Purchase canceled."))
 				return
 			else
 				src.currently_vending = R
@@ -610,7 +610,7 @@
 		return
 
 	if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
-		to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course)
+		to_chat(usr, SPAN_WARNING("Access denied."))	//Unless emagged of course)
 		if(exclusive_screen)
 			cut_overlays()
 			addtimer(CALLBACK(src, .proc/add_screen_overlay), deny_time ? deny_time : 15)
@@ -626,22 +626,22 @@
 
 	if (R.category & CAT_COIN)
 		if(!coin)
-			to_chat(user, "<span class='notice'>You need to insert a coin to get this item.</span>")
+			to_chat(user, SPAN_NOTICE("You need to insert a coin to get this item."))
 			return
 		if(coin.string_attached)
 			if(prob(50))
-				to_chat(user, "<span class='notice'>You successfully pull the coin out before \the [src] could swallow it.</span>")
-				src.visible_message("<span class='notice'>The [src] putters to life, coughing out its 'premium' item after a moment.</span>")
+				to_chat(user, SPAN_NOTICE("You successfully pull the coin out before \the [src] could swallow it."))
+				src.visible_message(SPAN_NOTICE("The [src] putters to life, coughing out its 'premium' item after a moment."))
 				playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
 			else
-				to_chat(user, "<span class='notice'>You weren't able to pull the coin out fast enough, the machine ate it, string and all.</span>")
-				src.visible_message("<span class='notice'>The [src] putters to life, coughing out its 'premium' item after a moment.</span>")
+				to_chat(user, SPAN_NOTICE("You weren't able to pull the coin out fast enough, the machine ate it, string and all."))
+				src.visible_message(SPAN_NOTICE("The [src] putters to life, coughing out its 'premium' item after a moment."))
 				playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
 				qdel(coin)
 				coin = null
 				categories &= ~CAT_COIN
 		else
-			src.visible_message("<span class='notice'>The [src] putters to life, coughing out its 'premium' item after a moment.</span>")
+			src.visible_message(SPAN_NOTICE("The [src] putters to life, coughing out its 'premium' item after a moment."))
 			playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
 			qdel(coin)
 			coin = null
@@ -680,7 +680,7 @@
 					use_power(RC.reagents.set_temperature(heating_temperature))
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
-	to_chat(user, "<span class='notice'>You insert \the [R.product_name] in the product receptor.</span>")
+	to_chat(user, SPAN_NOTICE("You insert \the [R.product_name] in the product receptor."))
 	R.amount++
 
 	SSnanoui.update_uis(src)
@@ -770,5 +770,5 @@
 		return 0
 	spawn(0)
 		throw_item.throw_at(target, 16, 3, src)
-	src.visible_message("<span class='warning'>[src] launches [throw_item.name] at [target.name]!</span>")
+	src.visible_message(SPAN_WARNING("[src] launches [throw_item.name] at [target.name]!"))
 	return 1

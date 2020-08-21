@@ -18,7 +18,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/input/button/ask_for_input(mob/user) //Bit misleading name for this specific use.
-	to_chat(user, "<span class='notice'>You press the button labeled '[src.name]'.</span>")
+	to_chat(user, SPAN_NOTICE("You press the button labeled '[src.name]'."))
 	activate_pin(1)
 
 /obj/item/integrated_circuit/input/toggle_button
@@ -36,7 +36,7 @@
 	set_pin_data(IC_OUTPUT, 1, !get_pin_data(IC_OUTPUT, 1))
 	push_data()
 	activate_pin(1)
-	to_chat(user, "<span class='notice'>You toggle the button labeled '[src.name]' [get_pin_data(IC_OUTPUT, 1) ? "on" : "off"].</span>")
+	to_chat(user, SPAN_NOTICE("You toggle the button labeled '[src.name]' [get_pin_data(IC_OUTPUT, 1) ? "on" : "off"]."))
 
 /obj/item/integrated_circuit/input/numberpad
 	name = "number pad"
@@ -508,7 +508,7 @@
 	set_pin_data(IC_OUTPUT, 1, A)
 	push_data()
 	activate_pin(1)
-	user.visible_message(SPAN_NOTICE("[user] waves [assembly] around [A]."), SPAN_NOTICE("You scan [A] with [assembly]."))
+	user.visible_message("<b>[user]</b> waves [assembly] around [A].", SPAN_NOTICE("You scan [A] with [assembly]."))
 	return TRUE
 
 /obj/item/integrated_circuit/input/atmo_scanner
@@ -919,7 +919,7 @@
 			return FALSE
 	set_pin_data(IC_OUTPUT, 1, A)
 	push_data()
-	user.visible_message(SPAN_NOTICE("[user] points [assembly] at [A]."), SPAN_NOTICE("You scan [A] with [assembly]."))
+	user.visible_message("<b>[user]</b> points [assembly] at [A].", SPAN_NOTICE("You scan [A] with [assembly]."))
 	activate_pin(1)
 	return TRUE
 
@@ -946,7 +946,7 @@
 		user.drop_from_inventory(A)
 	set_pin_data(IC_OUTPUT, 1, A)
 	push_data()
-	to_chat(user, "<span class='notice'>You let [assembly] scan [A].</span>")
+	to_chat(user, SPAN_NOTICE("You let [assembly] scan [A]."))
 	activate_pin(1)
 	return TRUE
 

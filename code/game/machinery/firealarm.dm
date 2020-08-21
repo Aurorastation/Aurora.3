@@ -109,11 +109,11 @@
 				if (W.ismultitool())
 					src.detecting = !( src.detecting )
 					if (src.detecting)
-						user.visible_message("<span class='notice'>\The [user] has reconnected [src]'s detecting unit!</span>", "<span class='notice'>You have reconnected [src]'s detecting unit.</span>")
+						user.visible_message(SPAN_NOTICE("\The [user] has reconnected [src]'s detecting unit!"), SPAN_NOTICE("You have reconnected [src]'s detecting unit."))
 					else
-						user.visible_message("<span class='notice'>\The [user] has disconnected [src]'s detecting unit!</span>", "<span class='notice'>You have disconnected [src]'s detecting unit.</span>")
+						user.visible_message(SPAN_NOTICE("\The [user] has disconnected [src]'s detecting unit!"), SPAN_NOTICE("You have disconnected [src]'s detecting unit."))
 				else if (W.iswirecutter())
-					user.visible_message("<span class='notice'>\The [user] has cut the wires inside \the [src]!</span>", "<span class='notice'>You have cut the wires inside \the [src].</span>")
+					user.visible_message(SPAN_NOTICE("\The [user] has cut the wires inside \the [src]!"), SPAN_NOTICE("You have cut the wires inside \the [src]."))
 					new/obj/item/stack/cable_coil(get_turf(src), 5)
 					playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 					buildstage = 1
@@ -122,11 +122,11 @@
 				if(W.iscoil())
 					var/obj/item/stack/cable_coil/C = W
 					if (C.use(5))
-						to_chat(user, "<span class='notice'>You wire \the [src].</span>")
+						to_chat(user, SPAN_NOTICE("You wire \the [src]."))
 						buildstage = 2
 						return
 					else
-						to_chat(user, "<span class='warning'>You need 5 pieces of cable to wire \the [src].</span>")
+						to_chat(user, SPAN_WARNING("You need 5 pieces of cable to wire \the [src]."))
 						return
 				else if(W.iscrowbar())
 					to_chat(user, "You pry out the circuit!")

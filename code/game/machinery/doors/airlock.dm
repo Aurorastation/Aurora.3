@@ -1170,13 +1170,13 @@ About the new airlock wires panel:
 		else if(!arePowerSystemsOn())
 			ChainSawVar.cutting = 1
 			user.visible_message(\
-				SPAN_DANGER("[user.name] starts cutting the control pannel of the airlock with the [C]!"),\
+				SPAN_DANGER("[user.name] starts cutting the control pannel of the airlock with [C]!"),\
 				SPAN_WARNING("You start cutting the airlock control panel..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
 			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
 				user.visible_message(\
-					SPAN_WARNING("[user.name] finishes cutting the control pannel of the airlock with the [C]."),\
+					SPAN_WARNING("[user.name] finishes cutting the control pannel of the airlock with [C]."),\
 					SPAN_WARNING("You finish cutting the airlock control panel."),\
 					SPAN_NOTICE("You hear a metal clank and some sparks.")\
 				)
@@ -1188,13 +1188,13 @@ About the new airlock wires panel:
 		else if(locked)
 			ChainSawVar.cutting = 1
 			user.visible_message(\
-				SPAN_DANGER("[user.name] starts cutting below the airlock with the [C]!"),\
+				SPAN_DANGER("[user.name] starts cutting below the airlock with [C]!"),\
 				SPAN_WARNING("You start cutting below the airlock..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)
 			if(do_after(user, ChainSawVar.opendelay SECONDS, act_target = user, extra_checks  = CALLBACK(src, .proc/CanChainsaw, C)))
 				user.visible_message(\
-					SPAN_WARNING("[user.name] finishes cutting below the airlock with the [C]."),\
+					SPAN_WARNING("[user.name] finishes cutting below the airlock with [C]."),\
 					SPAN_NOTICE("You finish cutting below the airlock."),\
 					SPAN_NOTICE("You hear a metal clank and some sparks.")\
 				)
@@ -1204,7 +1204,7 @@ About the new airlock wires panel:
 		else
 			ChainSawVar.cutting = 1
 			user.visible_message(\
-				SPAN_DANGER("[user.name] starts cutting between the airlock with the [C]!"),\
+				SPAN_DANGER("[user.name] starts cutting between the airlock with [C]!"),\
 				SPAN_WARNING("You start cutting between the airlock..."),\
 				SPAN_NOTICE("You hear a loud buzzing sound and metal grinding on metal...")\
 			)

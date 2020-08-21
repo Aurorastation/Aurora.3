@@ -221,7 +221,7 @@
 		var/obj/item/reagent_containers/glass/paint/P = O
 		hat_color = P.paint_type
 		name = "[hat_color] fedora"
-		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
+		user.visible_message(SPAN_WARNING("[user] soaks \the [src] into [P]!"))
 		icon_state = "hat_detective_[hat_color]"
 		item_state = "hat_detective_[hat_color]"
 	..()

@@ -75,7 +75,7 @@
 						if(health > maxHealth)
 							health = maxHealth
 			continue
-		L.visible_message("<span class='danger'>The blob absorbs \the [L]!</span>", "<span class='danger'>The blob absorbs you!</span>")
+		L.visible_message(SPAN_DANGER("The blob absorbs \the [L]!"), SPAN_DANGER("The blob absorbs you!"))
 		playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
 		L.take_organ_damage(rand(5, 10))
 		if(health < maxHealth)
@@ -91,12 +91,12 @@
 				if(L.stat == DEAD)
 					continue
 				if(prob(40))
-					L.visible_message("<span class='danger'>The blob sucks \the [L] into itself!</span>", "<span class='danger'>The blob sucks you in!</span>")
+					L.visible_message(SPAN_DANGER("The blob sucks \the [L] into itself!"), SPAN_DANGER("The blob sucks you in!"))
 					playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
 					L.take_organ_damage(rand(5, 10))
 					L.forceMove(src.loc)
 				else
-					L.visible_message("<span class='danger'>The blob glomps \the [L]!</span>", "<span class='danger'>The blob glomps you!</span>")
+					L.visible_message(SPAN_DANGER("The blob glomps \the [L]!"), SPAN_DANGER("The blob glomps you!"))
 					playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
 					L.take_organ_damage(rand(5, 20))
 					if(health < maxHealth)
@@ -107,7 +107,7 @@
 
 	for(var/obj/fire/F in range(src,"3x3")) //very snowflake, but much better than actually coding complex thermodynamics for these fuckers
 		if(prob(50))
-			src.visible_message("<span class='danger'>The blob melts away under the heat of the flames!</span>")
+			src.visible_message(SPAN_DANGER("The blob melts away under the heat of the flames!"))
 		F = locate() in get_turf(src)
 		if(F)
 			src.take_damage(rand(5, 20) / fire_resist)
@@ -181,12 +181,12 @@
 		if(L.stat == DEAD)
 			continue
 		if(prob(30))
-			L.visible_message("<span class='danger'>The blob sucks \the [L] into itself!</span>", "<span class='danger'>The blob sucks you in!</span>")
+			L.visible_message(SPAN_DANGER("The blob sucks \the [L] into itself!"), SPAN_DANGER("The blob sucks you in!"))
 			playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
 			L.take_organ_damage(rand(5, 10))
 			L.forceMove(src.loc)
 		else
-			L.visible_message("<span class='danger'>The blob pulverizes \the [L]!</span>", "<span class='danger'>The blob pulverizes you!</span>")
+			L.visible_message(SPAN_DANGER("The blob pulverizes \the [L]!"), SPAN_DANGER("The blob pulverizes you!"))
 			playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
 			L.take_organ_damage(rand(30, 40))
 			if(health < maxHealth)
@@ -238,7 +238,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	playsound(loc, 'sound/effects/attackblob.ogg', 50, 1)
-	visible_message("<span class='danger'>\The [src] has been attacked with \the [W][(user ? " by [user]." : ".")]</span>")
+	visible_message(SPAN_DANGER("\The [src] has been attacked with \the [W][(user ? " by [user]." : ".")]"))
 	var/damage = 0
 	switch(W.damtype)
 		if("fire")
@@ -247,7 +247,7 @@
 				playsound(loc, 'sound/items/welder.ogg', 100, 1)
 		if("brute")
 			if(prob(30) && !issilicon(user))
-				visible_message("<span class='danger'>\The [W] gets caught in the gelatinous folds of \the [src]</span>")
+				visible_message(SPAN_DANGER("\The [W] gets caught in the gelatinous folds of \the [src]"))
 				user.drop_from_inventory(W,get_turf(src))
 				return
 			damage = (W.force / brute_resist)

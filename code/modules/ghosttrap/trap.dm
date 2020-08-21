@@ -109,7 +109,7 @@ var/list/ghost_traps
 	to_chat(target, "<b>Remember, the purpose of your existence is to serve the crew and the station. Above all else, do no harm.</b>")
 	to_chat(target, "<b>Use say [target.get_language_prefix()]b to speak to other artificial intelligences.</b>")
 	var/turf/T = get_turf(target)
-	T.visible_message("<span class='notice'>\The [target] chimes quietly.</span>")
+	T.visible_message(SPAN_NOTICE("\The [target] chimes quietly."))
 	var/obj/item/device/mmi/digital/posibrain/P = target.loc
 	if(!istype(P)) //wat
 		return
@@ -138,7 +138,7 @@ var/list/ghost_traps
 	ghost_trap_role = "Plant"
 
 /datum/ghosttrap/plant/welcome_candidate(var/mob/target)
-	to_chat(target, "<span class='alium'><B>You awaken slowly, stirring into sluggish motion as the air caresses you.</B></span>")
+	to_chat(target, SPAN_ALIEN("<B>You awaken slowly, stirring into sluggish motion as the air caresses you.</B>"))
 	// This is a hack, replace with some kind of species blurb proc.
 	if(istype(target,/mob/living/carbon/alien/diona))
 		to_chat(target, "<B>You are \a [target], one of a race of drifting interstellar plantlike creatures that sometimes share their seeds with human traders.</B>")
@@ -228,7 +228,7 @@ datum/ghosttrap/drone/transfer_personality(var/mob/candidate, var/mob/living/sil
 	list_as_special_role = FALSE
 
 /datum/ghosttrap/syndicateborg/welcome_candidate(var/mob/target)
-	to_chat(target, "<span class='notice'><B>You are a syndicate cyborg, bound to help and follow the orders of the mercenaries that are deploying you. Remember to speak to the other mercenaries to know more about their plans</B></span>")
+	to_chat(target, SPAN_NOTICE("<B>You are a syndicate cyborg, bound to help and follow the orders of the mercenaries that are deploying you. Remember to speak to the other mercenaries to know more about their plans</B>"))
 	mercs.add_antagonist_mind(target.mind,1)
 
 /**************

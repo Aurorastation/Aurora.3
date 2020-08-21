@@ -18,6 +18,6 @@
 	if(price)
 		to_chat(user, "<span class='notice'>Scanned [O], value: <b>[price]</b> credits[O.contents.len ? " (contents included)" : ""].</span>")
 	else
-		to_chat(user, "<span class='warning'>Scanned [O], no export value.</span>")
+		to_chat(user, SPAN_WARNING("Scanned [O], no export value."))
 	if(SScargo.bounty_ship_item_and_contents(O, dry_run=TRUE))
-		to_chat(user, "<span class='notice'>Scanned item is eligible for one or more bounties.</span>")
+		to_chat(user, SPAN_NOTICE("Scanned item is eligible for one or more bounties."))

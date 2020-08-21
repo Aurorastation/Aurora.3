@@ -68,7 +68,7 @@
 		if(istype(tow,/obj/vehicle/train/cargo/trolley/pussywagon))
 			var/obj/vehicle/train/cargo/trolley/pussywagon/PW = tow
 			if(!PW.bucket)
-				to_chat(usr, "<span class='warning'>You must insert a reagent container first!</span>")
+				to_chat(usr, SPAN_WARNING("You must insert a reagent container first!"))
 				return
 			PW.mop_toggle()
 
@@ -138,14 +138,14 @@
 		if(!bucket)
 			user.drop_from_inventory(W,src)
 			bucket = W
-			to_chat(user, "<span class='notice'>You replace \the [src]'s reagent reservoir.</span>")
+			to_chat(user, SPAN_NOTICE("You replace \the [src]'s reagent reservoir."))
 			return
 
 	if(W.iswrench() && open)
 		if(bucket)
 			bucket.forceMove(user.loc)
 			bucket = null
-			to_chat(user, "<span class='notice'>You remove \the [src]'s reagent reservoir.</span>")
+			to_chat(user, SPAN_NOTICE("You remove \the [src]'s reagent reservoir."))
 			return
 
 	if(W.iscrowbar() && !open)
@@ -154,7 +154,7 @@
 				I.forceMove(user.loc)
 				hoovered -= I
 			vacuum_capacity = 125
-			to_chat(user, "<span class='notice'>You empty \the [src]'s vacuum cleaner.</span>")
+			to_chat(user, SPAN_NOTICE("You empty \the [src]'s vacuum cleaner."))
 			return
 	..()
 

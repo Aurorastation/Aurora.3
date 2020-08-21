@@ -83,7 +83,7 @@
 
 /decl/surgery_step/robotics/open_hatch/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_NOTICE("[user] opens the maintenance hatch on [target]'s [affected.name] with \the [tool]."), \
+	user.visible_message("<b>[user]</b> opens the maintenance hatch on [target]'s [affected.name] with \the [tool].", \
 		SPAN_NOTICE("You open the maintenance hatch on [target]'s [affected.name] with \the [tool]."))
 	affected.open = ORGAN_ENCASED_RETRACTED
 

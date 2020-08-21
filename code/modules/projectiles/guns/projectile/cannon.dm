@@ -32,7 +32,7 @@
 
 /obj/item/gun/projectile/cannon/special_check(mob/user)
 	if(!wielded)
-		to_chat(user, "<span class='warning'>You can't fire without stabilizing \the [src]!</span>")
+		to_chat(user, SPAN_WARNING("You can't fire without stabilizing \the [src]!"))
 		return 0
 	return ..()
 
@@ -76,6 +76,6 @@
 
 /obj/item/gun/projectile/nuke/special_check(mob/user)
 	if(!wielded)
-		to_chat(user, "<span class='warning'>You can't fire without stabilizing \the [src]!</span>")
+		to_chat(user, SPAN_WARNING("You can't fire without stabilizing \the [src]!"))
 		return 0
 	return ..()

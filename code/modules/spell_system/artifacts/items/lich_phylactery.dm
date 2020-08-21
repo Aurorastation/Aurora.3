@@ -18,7 +18,7 @@
 	reagents.add_reagent(/datum/reagent/toxin/undead, 120)
 
 /obj/item/phylactery/Destroy()
-	to_chat(lich, "<span class='danger'>Your phylactery was destroyed, your soul is cast into the abyss as your immortality vanishes away!</span>")
+	to_chat(lich, SPAN_DANGER("Your phylactery was destroyed, your soul is cast into the abyss as your immortality vanishes away!"))
 	world_phylactery -= src
 	lich = null
 	return ..()
@@ -41,6 +41,6 @@
 /obj/item/phylactery/pickup(mob/living/user as mob)
 	..()
 	if(!user.is_wizard() && src.lich)
-		to_chat(user, "<span class='warning'>As you pick up \the [src], you feel a wave of dread wash over you.</span>")
+		to_chat(user, SPAN_WARNING("As you pick up \the [src], you feel a wave of dread wash over you."))
 		for(var/obj/machinery/light/P in view(7, user))
 			P.flicker(1)

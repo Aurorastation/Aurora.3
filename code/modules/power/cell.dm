@@ -114,7 +114,7 @@
 
 			new /obj/item/device/radiojammer/improvised(assembly, src, user)
 		else
-			to_chat(user, "<span class='notice'>You'd need both devices to be signallers for this to work.</span>")
+			to_chat(user, SPAN_NOTICE("You'd need both devices to be signallers for this to work."))
 
 /obj/item/cell/proc/explode()
 	var/turf/T = get_turf(src.loc)

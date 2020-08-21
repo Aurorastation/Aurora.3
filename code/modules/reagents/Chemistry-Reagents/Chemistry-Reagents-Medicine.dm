@@ -465,7 +465,7 @@
 /datum/reagent/hyronalin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.is_diona())
 		if(last_taste_time + 950 < world.time) // Not to spam message
-			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
+			to_chat(M, SPAN_DANGER("Your body withers as you feel a searing pain throughout."))
 			last_taste_time = world.time
 		metabolism = REM * 0.22
 		M.adjustToxLoss(45 * removed) // Tested numbers myself
@@ -487,7 +487,7 @@
 /datum/reagent/arithrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(M.is_diona())
 		if(last_taste_time + 450 < world.time) // Not to spam message
-			to_chat(M, "<span class='danger'>Your body withers as you feel a searing pain throughout.</span>")
+			to_chat(M, SPAN_DANGER("Your body withers as you feel a searing pain throughout."))
 			last_taste_time = world.time
 		metabolism = REM * 0.195
 		M.adjustToxLoss(115 * removed) // Tested numbers myself
@@ -689,7 +689,7 @@
 					break
 			if(!suppress_withdrawl)
 				if (H.shock_stage < 20 && worstmessage.len)
-					to_chat(H,"<span class='danger'>[pick(worstmessage)]</span>")
+					to_chat(H,SPAN_DANGER("[pick(worstmessage)]"))
 				messagedelay = initial(messagedelay) * 0.25
 				for(var/k in withdrawal_traumas)
 					var/datum/brain_trauma/BT = k
@@ -698,11 +698,11 @@
 						B.gain_trauma(BT,FALSE)
 		else if(hastrauma || volume < max_dose*0.5) //If your current dose is not high enough, then alert the player.
 			if (H.shock_stage < 10 && badmessage.len)
-				to_chat(H,"<span class='warning'>[pick(badmessage)]</span>")
+				to_chat(H,SPAN_WARNING("[pick(badmessage)]"))
 			messagedelay = initial(messagedelay) * 0.5
 		else
 			if (H.shock_stage < 5 && goodmessage.len)
-				to_chat(H,"<span class='good'>[pick(goodmessage)]</span>")
+				to_chat(H,SPAN_GOOD("[pick(goodmessage)]"))
 			messagedelay = initial(messagedelay)
 
 	data = world.time + (messagedelay SECONDS)
@@ -1353,7 +1353,7 @@
 	if(ishuman(M))
 		if(M && M.stat == DEAD)
 			M.adjustOxyLoss(-rand(15,20))
-			M.visible_message("<span class='danger'>\The [M] shudders violently!</span>")
+			M.visible_message(SPAN_DANGER("\The [M] shudders violently!"))
 			M.stat = 0
 
 /datum/reagent/pacifier

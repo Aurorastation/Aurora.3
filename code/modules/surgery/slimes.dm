@@ -24,11 +24,11 @@
 	return ..() && istype(target) && target.core_removal_stage == ORGAN_CLOSED
 
 /decl/surgery_step/slime/cut_flesh/begin_step(mob/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	user.visible_message("[user] starts cutting through [target]'s flesh with \the [tool].", \
+	user.visible_message("<b>[user]</b> starts cutting through [target]'s flesh with \the [tool].", \
 		"You start cutting through [target]'s flesh with \the [tool].")
 
 /decl/surgery_step/slime/cut_flesh/end_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_NOTICE("[user] cuts through [target]'s flesh with \the [tool]."),	\
+	user.visible_message("<b>[user]</b> cuts through [target]'s flesh with \the [tool].",	\
 		SPAN_NOTICE("You cut through [target]'s flesh with \the [tool], revealing its silky innards."))
 	target.core_removal_stage = ORGAN_OPEN_INCISION
 
@@ -51,17 +51,17 @@
 	return ..() && istype(target) && target.core_removal_stage == ORGAN_OPEN_INCISION
 
 /decl/surgery_step/slime/cut_innards/begin_step(mob/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	user.visible_message("[user] starts cutting [target]'s silky innards apart with \the [tool].", \
-		"You start cutting [target]'s silky innards apart with \the [tool].")
+	user.visible_message("<b>[user]</b> starts cutting [target]'s silky innards apart with [tool].", \
+		"You start cutting [target]'s silky innards apart with [tool].")
 
 /decl/surgery_step/slime/cut_innards/end_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_NOTICE("[user] cuts [target]'s innards apart with \the [tool], exposing the cores."),	\
-		SPAN_NOTICE("You cut [target]'s innards apart with \the [tool], exposing the cores."))
+	user.visible_message("<b>[user]</b> cuts [target]'s innards apart with [tool], exposing the cores.",	\
+		SPAN_NOTICE("You cut [target]'s innards apart with [tool], exposing the cores."))
 	target.core_removal_stage = ORGAN_OPEN_RETRACTED
 
 /decl/surgery_step/slime/cut_innards/fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, tearing [target]'s innards with \the [tool]!"), \
-		SPAN_WARNING("Your hand slips, tearing [target]'s innards with \the [tool]!"))
+	user.visible_message(SPAN_WARNING("[user]'s hand slips, tearing [target]'s innards with [tool]!"), \
+		SPAN_WARNING("Your hand slips, tearing [target]'s innards with [tool]!"))
 
 /decl/surgery_step/slime/saw_core
 	name = "Detach core"
@@ -77,13 +77,13 @@
 	return ..() && (istype(target) && target.core_removal_stage == ORGAN_OPEN_RETRACTED && target.cores > 0) //This is being passed a human as target, unsure why.
 
 /decl/surgery_step/slime/saw_core/begin_step(mob/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	user.visible_message("[user] starts cutting out one of [target]'s cores with \the [tool].", \
-		"You start cutting out one of [target]'s cores with \the [tool].")
+	user.visible_message("<b>[user]</b> starts cutting out one of [target]'s cores with [tool].", \
+		"You start cutting out one of [target]'s cores with [tool].")
 
 /decl/surgery_step/slime/saw_core/end_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	target.cores--
-	user.visible_message(SPAN_NOTICE("[user] cuts out one of [target]'s cores with \the [tool]."),,	\
-		SPAN_NOTICE("You cut out one of [target]'s cores with \the [tool]. [target.cores] cores left."))
+	user.visible_message("<b>[user]</b> cuts out one of [target]'s cores with [tool].",,	\
+		SPAN_NOTICE("You cut out one of [target]'s cores with [tool]. [target.cores] cores left."))
 
 	if(target.cores >= 0)
 		new target.coretype(target.loc)

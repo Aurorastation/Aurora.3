@@ -120,8 +120,8 @@
 			to_chat(target, "Unlock signal received..")
 			target.SetLockdown(0)
 			if(target.lock_charge)
-				to_chat(user, "<span class='notice'>Unlock Failed, lockdown wire cut.</span>")
-				to_chat(target, "<span class='notice'>Unlock Failed, lockdown wire cut.</span>")
+				to_chat(user, SPAN_NOTICE("Unlock Failed, lockdown wire cut."))
+				to_chat(target, SPAN_NOTICE("Unlock Failed, lockdown wire cut."))
 			else
 				to_chat(user, "Cyborg unlocked.")
 				to_chat(target, "You have been unlocked.")
@@ -154,7 +154,7 @@
 	if(hacked_num >= config.hacked_drones_limit)
 		to_chat(user, SPAN_WARNING("ERROR: maximum active hacked drones limit reached. Report: [hacked_num] drones hacked out of [config.hacked_drones_limit] maximum possible."))
 		return
-		
+
 	if(!ability_prechecks(user, price) || !ability_pay(user, price))
 		return
 	var/mob/living/silicon/robot/drone/D = pick(drone_list)
@@ -177,7 +177,7 @@
 
 	var/list/L = get_unlinked_cyborgs(user)
 	if(!L.len)
-		to_chat(user, "<span class='notice'>ERROR: No unlinked cyborgs detected!</span>")
+		to_chat(user, SPAN_NOTICE("ERROR: No unlinked cyborgs detected!"))
 
 
 	if(target && !istype(target))
@@ -243,7 +243,7 @@
 
 	var/list/L = get_other_ais(user)
 	if(!L.len)
-		to_chat(user, "<span class='notice'>ERROR: No other AIs detected!</span>")
+		to_chat(user, SPAN_NOTICE("ERROR: No other AIs detected!"))
 
 	if(target && !istype(target))
 		to_chat(user, "This is not an AI.")

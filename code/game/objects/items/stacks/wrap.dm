@@ -72,7 +72,7 @@
 			msg_admin_attack("[key_name_admin(user)] used [src] to wrap [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
 
 		else
-			to_chat(user, "<span class='warning'>You need more paper.</span>")
+			to_chat(user, SPAN_WARNING("You need more paper."))
 	else
 		to_chat(user, "They are moving around too much. A straightjacket would help.")
 
@@ -134,7 +134,7 @@
 			src.add_fingerprint(usr)
 			src.amount -= 1
 			user.visible_message("\The [user] wraps \a [target] with \a [src].",\
-			"<span class='notice'>You wrap \the [target], leaving [amount] units of paper on \the [src].</span>",\
+			SPAN_NOTICE("You wrap \the [target], leaving [amount] units of paper on \the [src]."),\
 			"You hear someone taping paper around a small object.")
 			playsound(loc, 'sound/items/package_wrap.ogg', 50, 1)
 	else if (istype(target, /obj/structure/closet/crate))
@@ -147,11 +147,11 @@
 			O.forceMove(P)
 			src.amount -= 3
 			user.visible_message("\The [user] wraps \a [target] with \a [src].",\
-			"<span class='notice'>You wrap \the [target], leaving [amount] units of paper on \the [src].</span>",\
+			SPAN_NOTICE("You wrap \the [target], leaving [amount] units of paper on \the [src]."),\
 			"You hear someone taping paper around a large object.")
 			playsound(loc, 'sound/items/package_wrap.ogg', 50, 1)
 		else if(src.amount < 3)
-			to_chat(user, "<span class='warning'>You need more paper.</span>")
+			to_chat(user, SPAN_WARNING("You need more paper."))
 	else if (istype (target, /obj/structure/closet))
 		var/obj/structure/closet/O = target
 		if (src.amount > 3 && !O.opened)
@@ -162,13 +162,13 @@
 			O.forceMove(P)
 			src.amount -= 3
 			user.visible_message("\The [user] wraps \a [target] with \a [src].",\
-			"<span class='notice'>You wrap \the [target], leaving [amount] units of paper on \the [src].</span>",\
+			SPAN_NOTICE("You wrap \the [target], leaving [amount] units of paper on \the [src]."),\
 			"You hear someone taping paper around a large object.")
 			playsound(loc, 'sound/items/package_wrap.ogg', 50, 1)
 		else if(src.amount < 3)
-			to_chat(user, "<span class='warning'>You need more paper.</span>")
+			to_chat(user, SPAN_WARNING("You need more paper."))
 	else
-		to_chat(user, "<span class='notice'>The object you are trying to wrap is unsuitable for the sorting machinery!</span>")
+		to_chat(user, SPAN_NOTICE("The object you are trying to wrap is unsuitable for the sorting machinery!"))
 	if (src.amount <= 0)
 		new /obj/item/c_tube( src.loc )
 		qdel(src)
@@ -177,7 +177,7 @@
 
 /obj/item/stack/packageWrap/examine(mob/user)
 	if(..(user, 0))
-		to_chat(user, "<span class='notice'>There are [amount] units of package wrap left!</span>")
+		to_chat(user, SPAN_NOTICE("There are [amount] units of package wrap left!"))
 
 	return
 

@@ -72,7 +72,7 @@
 
 			user.do_attack_animation(src)
 			if ((health-damage) <= 0)
-				L.visible_message("<span class='danger'>[L] tears open the [src], spilling its contents everywhere!</span>", "<span class='danger'>You tear open the [src], spilling its contents everywhere!</span>")
+				L.visible_message(SPAN_DANGER("[L] tears open [src], spilling its contents everywhere!"), SPAN_DANGER("You tear open [src], spilling its contents everywhere!"))
 				spill()
 			else
 				animate_shake()

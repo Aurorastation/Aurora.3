@@ -40,7 +40,7 @@
 /obj/item/anodevice/attackby(var/obj/I as obj, var/mob/user as mob)
 	if(istype(I, /obj/item/anobattery))
 		if(!inserted_battery)
-			to_chat(user, "<span class='notice'>You insert the battery.</span>")
+			to_chat(user, SPAN_NOTICE("You insert the battery."))
 			user.drop_from_inventory(I,src)
 			inserted_battery = I
 			UpdateSprite()
@@ -130,13 +130,13 @@
 
 			//work out if we need to shutdown
 			if(inserted_battery.stored_charge <= 0)
-				src.loc.visible_message("<span class='notice'>\icon[src] [src] buzzes.</span>", "<span class='notice'>\icon[src] You hear something buzz.</span>")
+				src.loc.visible_message(SPAN_NOTICE("\icon[src] [src] buzzes."), SPAN_NOTICE("\icon[src] You hear something buzz."))
 				shutdown_emission()
 			else if(world.time > time_end)
-				src.loc.visible_message("<span class='notice'>\icon[src] [src] chimes.</span>", "<span class='notice'>\icon[src] You hear something chime.</span>")
+				src.loc.visible_message(SPAN_NOTICE("\icon[src] [src] chimes."), SPAN_NOTICE("\icon[src] You hear something chime."))
 				shutdown_emission()
 		else
-			src.visible_message("<span class='notice'>\icon[src] [src] buzzes.</span>", "<span class='notice'>\icon[src] You hear something buzz.</span>")
+			src.visible_message(SPAN_NOTICE("\icon[src] [src] buzzes."), SPAN_NOTICE("\icon[src] You hear something buzz."))
 			shutdown_emission()
 		last_process = world.time
 
@@ -163,7 +163,7 @@
 	if(href_list["startup"])
 		if(inserted_battery && inserted_battery.battery_effect && (inserted_battery.stored_charge > 0) )
 			activated = 1
-			src.visible_message("<span class='notice'>\icon[src] [src] whirrs.</span>", "\icon[src]<span class='notice'>You hear something whirr.</span>")
+			src.visible_message(SPAN_NOTICE("\icon[src] [src] whirrs."), "\icon[src]<span class='notice'>You hear something whirr.</span>")
 			if(!inserted_battery.battery_effect.activated)
 				inserted_battery.battery_effect.ToggleActivate(1)
 			time_end = world.time + duration
@@ -200,9 +200,9 @@
 	if(activated && inserted_battery.battery_effect.effect == EFFECT_TOUCH && !isnull(inserted_battery))
 		inserted_battery.battery_effect.DoEffectTouch(M)
 		inserted_battery.use_power(energy_consumed_on_touch)
-		user.visible_message("<span class='notice'>[user] taps [M] with [src], and it shudders on contact.</span>")
+		user.visible_message(SPAN_NOTICE("[user] taps [M] with [src], and it shudders on contact."))
 	else
-		user.visible_message("<span class='notice'>[user] taps [M] with [src], but nothing happens.</span>")
+		user.visible_message(SPAN_NOTICE("[user] taps [M] with [src], but nothing happens."))
 
 	//admin logging
 	user.lastattacked = M

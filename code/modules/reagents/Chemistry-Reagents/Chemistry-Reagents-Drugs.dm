@@ -245,7 +245,7 @@
 	if(prob(15))
 		M.emote(pick("twitch", "blink_r", "shiver"))
 	if(prob(5)) // average of 6 brute every 20 seconds.
-		M.visible_message("[M] shudders violently.", "You shudder uncontrollably, it hurts.")
+		M.visible_message("<b>[M]</b> shudders violently.", "You shudder uncontrollably, it hurts.")
 		M.take_organ_damage(6 * removed, 0)
 	M.add_chemical_effect(CE_SPEEDBOOST, 1)
 	if (!modifier)

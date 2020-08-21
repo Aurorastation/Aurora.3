@@ -42,7 +42,7 @@
 
 /datum/admins/proc/access_control_topic(control)
 	if (!control)
-		to_chat(usr, "<span class='warning'>No control option sent. Cancelling.</span>")
+		to_chat(usr, SPAN_WARNING("No control option sent. Cancelling."))
 		return
 
 	if (!check_rights(R_SERVER))
@@ -53,7 +53,7 @@
 		if ("intel_bad")
 			var/num = input("Please set the new threshold for warning based on IPintel (0 to disable).", "New Threshold", config.ipintel_rating_kick) as num
 			if (num < 0 || num > 1)
-				to_chat(usr, "<span class='warning'>Invalid number. Cancelling.</span>")
+				to_chat(usr, SPAN_WARNING("Invalid number. Cancelling."))
 				return
 
 			config.ipintel_rating_bad = num
@@ -64,7 +64,7 @@
 		if ("intel_kick")
 			var/num = input("Please set the new threshold for kicking based on IPintel (0 to disable).", "New Threshold", config.ipintel_rating_kick) as num
 			if (num < 0 || num > 1)
-				to_chat(usr, "<span class='warning'>Invalid number. Cancelling.</span>")
+				to_chat(usr, SPAN_WARNING("Invalid number. Cancelling."))
 				return
 
 			config.ipintel_rating_kick = num
@@ -78,7 +78,7 @@
 		if ("new_accounts")
 			var/num = input("Please set the new threshold for denying access based on BYOND account age. (-1 to disable.)", "New Threshold", config.access_deny_new_accounts) as num
 			if (num < 0 && num != -1)
-				to_chat(usr, "<span class='warning'>Invalid number. Cancelling.</span>")
+				to_chat(usr, SPAN_WARNING("Invalid number. Cancelling."))
 				return
 
 			config.access_deny_new_accounts = num
@@ -109,6 +109,6 @@
 		if ("guest")
 			config.guests_allowed = !config.guests_allowed
 		else
-			to_chat(usr, "<span class='danger'>Unknown control message sent. Cancelling.</span>")
+			to_chat(usr, SPAN_DANGER("Unknown control message sent. Cancelling."))
 
 	owner.configure_access_control()

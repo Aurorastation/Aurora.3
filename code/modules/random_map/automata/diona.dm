@@ -48,15 +48,15 @@
 	if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
 		if (!WT.welding)
-			to_chat(user, "<span class='danger'>\The [WT] must be turned on!</span>")
+			to_chat(user, SPAN_DANGER("\The [WT] must be turned on!"))
 			return
 		else if (WT.remove_fuel(0,user))
-			to_chat(user, "<span class='notice'>You begin slicing through the skin of \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You begin slicing through the skin of \the [src]."))
 			if(do_after(user, 20/W.toolspeed, act_target = src))
 				if(QDELETED(src) || !WT.isOn())
 					return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
-				user.visible_message("<span class='notice'>\ [user] slices through the skin of \the [src], revealing a confused diona nymph.</span>")
+				user.visible_message(SPAN_NOTICE("\ [user] slices through the skin of \the [src], revealing a confused diona nymph."))
 			else
 				return
 		spawn_diona_nymph(src.loc)

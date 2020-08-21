@@ -51,7 +51,7 @@
 	if(enemies.len && prob(10))
 		enemies = list()
 		LoseTarget()
-		src.visible_message("<span class='notice'>[src] calms down.</span>")
+		src.visible_message(SPAN_NOTICE("[src] calms down."))
 
 	if(!pulledby)
 		var/obj/effect/plant/food = locate(/obj/effect/plant) in oview(5,loc)
@@ -62,7 +62,7 @@
 /mob/living/simple_animal/hostile/retaliate/goat/Retaliate()
 	..()
 	if(stat == CONSCIOUS)
-		visible_message("<span class='warning'>[src] gets an evil-looking gleam in their eye.</span>")
+		visible_message(SPAN_WARNING("[src] gets an evil-looking gleam in their eye."))
 
 /mob/living/simple_animal/hostile/retaliate/goat/Move()
 	..()
@@ -102,7 +102,7 @@
 
 /mob/living/simple_animal/cow/attack_hand(mob/living/carbon/M as mob)
 	if(!stat && M.a_intent == I_DISARM && icon_state != icon_dead)
-		M.visible_message("<span class='warning'>[M] tips over [src].</span>","<span class='notice'>You tip over [src].</span>")
+		M.visible_message(SPAN_WARNING("[M] tips over [src]."),SPAN_NOTICE("You tip over [src]."))
 		Weaken(30)
 		icon_state = icon_dead
 		spawn(rand(20,50))
@@ -260,7 +260,7 @@
 	if(isturf(loc))
 		amount_grown += rand(1,2)
 		if(amount_grown >= 100)
-			visible_message("[src] hatches with a quiet cracking sound.")
+			visible_message("<b>[src]</b> hatches with a quiet cracking sound.")
 			new /mob/living/simple_animal/chick(get_turf(src))
 			STOP_PROCESSING(SSprocessing, src)
 			qdel(src)

@@ -85,24 +85,24 @@ var/bomb_set
 					var/obj/item/weldingtool/WT = O
 					if(!WT.isOn()) return
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
-						to_chat(user, "<span class='warning'>You need more fuel to complete this task.</span>")
+						to_chat(user, SPAN_WARNING("You need more fuel to complete this task."))
 						return
 
-					user.visible_message("[user] starts cutting loose the anchoring bolt covers on [src].", "You start cutting loose the anchoring bolt covers with [O]...")
+					user.visible_message("<b>[user]</b> starts cutting loose the anchoring bolt covers on [src].", "You start cutting loose the anchoring bolt covers with [O]...")
 
 					if(do_after(user,40/O.toolspeed))
 						if(!src || !user || !WT.remove_fuel(5, user)) return
-						user.visible_message("[user] cuts through the bolt covers on [src].", "You cut through the bolt cover.")
+						user.visible_message("<b>[user]</b> cuts through the bolt covers on [src].", "You cut through the bolt cover.")
 						removal_stage = 1
 				return
 
 			if(1)
 				if(O.iscrowbar())
-					user.visible_message("[user] starts forcing open the bolt covers on [src].", "You start forcing open the anchoring bolt covers with [O]...")
+					user.visible_message("<b>[user]</b> starts forcing open the bolt covers on [src].", "You start forcing open the anchoring bolt covers with [O]...")
 
 					if(do_after(user,15/O.toolspeed))
 						if(!src || !user) return
-						user.visible_message("[user] forces open the bolt covers on [src].", "You force open the bolt covers.")
+						user.visible_message("<b>[user]</b> forces open the bolt covers on [src].", "You force open the bolt covers.")
 						removal_stage = 2
 				return
 
@@ -112,36 +112,36 @@ var/bomb_set
 					var/obj/item/weldingtool/WT = O
 					if(!WT.isOn()) return
 					if (WT.get_fuel() < 5) // uses up 5 fuel.
-						to_chat(user, "<span class='warning'>You need more fuel to complete this task.</span>")
+						to_chat(user, SPAN_WARNING("You need more fuel to complete this task."))
 						return
 
-					user.visible_message("[user] starts cutting apart the anchoring system sealant on [src].", "You start cutting apart the anchoring system's sealant with [O]...")
+					user.visible_message("<b>[user]</b> starts cutting apart the anchoring system sealant on [src].", "You start cutting apart the anchoring system's sealant with [O]...")
 
 					if(do_after(user,40/O.toolspeed))
 						if(!src || !user || !WT.remove_fuel(5, user)) return
-						user.visible_message("[user] cuts apart the anchoring system sealant on [src].", "You cut apart the anchoring system's sealant.")
+						user.visible_message("<b>[user]</b> cuts apart the anchoring system sealant on [src].", "You cut apart the anchoring system's sealant.")
 						removal_stage = 3
 				return
 
 			if(3)
 				if(O.iswrench())
 
-					user.visible_message("[user] begins unwrenching the anchoring bolts on [src].", "You begin unwrenching the anchoring bolts...")
+					user.visible_message("<b>[user]</b> begins unwrenching the anchoring bolts on [src].", "You begin unwrenching the anchoring bolts...")
 
 					if(do_after(user,50/O.toolspeed))
 						if(!src || !user) return
-						user.visible_message("[user] unwrenches the anchoring bolts on [src].", "You unwrench the anchoring bolts.")
+						user.visible_message("<b>[user]</b> unwrenches the anchoring bolts on [src].", "You unwrench the anchoring bolts.")
 						removal_stage = 4
 				return
 
 			if(4)
 				if(O.iscrowbar())
 
-					user.visible_message("[user] begins lifting [src] off of the anchors.", "You begin lifting the device off the anchors...")
+					user.visible_message("<b>[user]</b> begins lifting [src] off of the anchors.", "You begin lifting the device off the anchors...")
 
 					if(do_after(user,80/O.toolspeed))
 						if(!src || !user) return
-						user.visible_message("[user] crowbars [src] off of the anchors. It can now be moved.", "You jam the crowbar under the nuclear device and lift it off its anchors. You can now move it!")
+						user.visible_message("<b>[user]</b> crowbars [src] off of the anchors. It can now be moved.", "You jam the crowbar under the nuclear device and lift it off its anchors. You can now move it!")
 						anchored = 0
 						removal_stage = 5
 				return
@@ -159,9 +159,9 @@ var/bomb_set
 	else if (deployable)
 		if(removal_stage < 5)
 			src.anchored = 1
-			visible_message("<span class='warning'>With a steely snap, bolts slide out of [src] and anchor it to the flooring!</span>")
+			visible_message(SPAN_WARNING("With a steely snap, bolts slide out of [src] and anchor it to the flooring!"))
 		else
-			visible_message("<span class='warning'>\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut.</span>")
+			visible_message(SPAN_WARNING("\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut."))
 		extended = 1
 		if(!src.lighthack)
 			flick("lock", src)
@@ -210,10 +210,10 @@ var/bomb_set
 		return
 
 	if (src.deployable)
-		to_chat(usr, "<span class='warning'>You close several panels to make [src] undeployable.</span>")
+		to_chat(usr, SPAN_WARNING("You close several panels to make [src] undeployable."))
 		src.deployable = 0
 	else
-		to_chat(usr, "<span class='warning'>You adjust some panels to make [src] deployable.</span>")
+		to_chat(usr, SPAN_WARNING("You adjust some panels to make [src] deployable."))
 		src.deployable = 1
 	return
 
@@ -270,15 +270,15 @@ var/bomb_set
 					SSnanoui.update_uis(src)
 					return
 				if (!anchored)
-					to_chat(usr, "<span class='warning'>\The [src] needs to be anchored.</span>")
+					to_chat(usr, SPAN_WARNING("\The [src] needs to be anchored."))
 					SSnanoui.update_uis(src)
 					return
 				if (safety)
-					to_chat(usr, "<span class='warning'>The safety is still on.</span>")
+					to_chat(usr, SPAN_WARNING("The safety is still on."))
 					SSnanoui.update_uis(src)
 					return
 				if (wires.IsIndexCut(NUCLEARBOMB_WIRE_TIMING))
-					to_chat(usr, "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>")
+					to_chat(usr, SPAN_WARNING("Nothing happens, something might be wrong with the wiring."))
 					SSnanoui.update_uis(src)
 					return
 
@@ -295,7 +295,7 @@ var/bomb_set
 					alerted = 1
 			if (href_list["safety"])
 				if (wires.IsIndexCut(NUCLEARBOMB_WIRE_SAFETY))
-					to_chat(usr, "<span class='warning'>Nothing happens, something might be wrong with the wiring.</span>")
+					to_chat(usr, SPAN_WARNING("Nothing happens, something might be wrong with the wiring."))
 					SSnanoui.update_uis(src)
 					return
 				safety = !safety
@@ -305,19 +305,19 @@ var/bomb_set
 			if (href_list["anchor"])
 				if(removal_stage == 5)
 					anchored = 0
-					visible_message("<span class='warning'>\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut.</span>")
+					visible_message(SPAN_WARNING("\The [src] makes a highly unpleasant crunching noise. It looks like the anchoring bolts have been cut."))
 					SSnanoui.update_uis(src)
 					return
 
 				if(!isinspace())
 					anchored = !anchored
 					if(anchored)
-						visible_message("<span class='warning'>With a steely snap, bolts slide out of [src] and anchor it to the flooring.</span>")
+						visible_message(SPAN_WARNING("With a steely snap, bolts slide out of [src] and anchor it to the flooring."))
 					else
 						secure_device()
-						visible_message("<span class='warning'>The anchoring bolts slide back into the depths of [src].</span>")
+						visible_message(SPAN_WARNING("The anchoring bolts slide back into the depths of [src]."))
 				else
-					to_chat(usr, "<span class='warning'>There is nothing to anchor to!</span>")
+					to_chat(usr, SPAN_WARNING("There is nothing to anchor to!"))
 
 	SSnanoui.update_uis(src)
 

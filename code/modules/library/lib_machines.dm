@@ -149,8 +149,8 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 				dat += "<A href='?src=\ref[src];switchscreen=7'>7. Access the Forbidden Lore Vault</A><BR>"
 			if(src.arcanecheckout)
 				new /obj/item/book/tome(src.loc)
-				to_chat(user, "<span class='warning'>Your sanity barely endures the seconds spent in the vault's browsing window. The only thing to remind you of this when you stop browsing is a dusty old tome sitting on the desk. You don't really remember printing it.</span>")
-				user.visible_message("<span class='notice'>\The [user] stares at the blank screen for a few moments, \his expression frozen in fear. When \he finally awakens from it, \he looks a lot older.</span>", range = 2)
+				to_chat(user, SPAN_WARNING("Your sanity barely endures the seconds spent in the vault's browsing window. The only thing to remind you of this when you stop browsing is a dusty old tome sitting on the desk. You don't really remember printing it."))
+				user.visible_message(SPAN_NOTICE("\The [user] stares at the blank screen for a few moments, \his expression frozen in fear. When \he finally awakens from it, \he looks a lot older."), range = 2)
 				src.arcanecheckout = 0
 		if(1)
 			// Inventory
@@ -462,11 +462,11 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 /obj/machinery/bookbinder/attackby(var/obj/O as obj, var/mob/user as mob)
 	if(istype(O, /obj/item/paper))
 		user.drop_from_inventory(O,src)
-		user.visible_message("[user] loads some paper into [src].", "You load some paper into [src].")
-		src.visible_message("[src] begins to hum as it warms up its printing drums.")
+		user.visible_message("<b>[user]</b> loads some paper into [src].", "You load some paper into [src].")
+		src.visible_message("<b>[src]</b> begins to hum as it warms up its printing drums.")
 		playsound(src.loc, 'sound/bureaucracy/binder.ogg', 75, 1)
 		sleep(rand(200,400))
-		src.visible_message("[src] whirs as it prints and binds a new book.")
+		src.visible_message("<b>[src]</b> whirs as it prints and binds a new book.")
 		playsound(src.loc, 'sound/bureaucracy/print.ogg', 75, 1)
 		var/obj/item/book/b = new(src.loc)
 		b.dat = O:info

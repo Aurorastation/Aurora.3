@@ -98,13 +98,13 @@
 			var/area/A = get_area(scribe)
 			if(use_check_and_message(scribe))
 				return
-			
+
 			//prevents using multiple dialogs to layer runes.
 			if(locate(/obj/effect/rune) in get_turf(scribe)) //This is check is done twice. once when choosing to scribe a rune, once here
 				to_chat(scribe, SPAN_WARNING("There is already a rune in this location."))
 				return
 
-			log_and_message_admins("created \an [chosen_rune] at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].") //only message if it's actually made
+			log_and_message_admins("created \an [chosen_rune] at [A] - [user.loc.x]-[user.loc.y]-[user.loc.z].") //only message if it's actually made
 
 			var/obj/effect/rune/R = new(get_turf(scribe), SScult.runes_by_name[chosen_rune])
 			to_chat(scribe, SPAN_CULT("You finish drawing the Geometer's markings."))

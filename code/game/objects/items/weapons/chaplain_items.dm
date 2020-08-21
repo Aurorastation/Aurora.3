@@ -81,7 +81,7 @@
 
 	if((user.is_clumsy()) && prob(50))
 		to_chat(user, SPAN_DANGER("The [src] slips out of your hand and you hit yourself!"))
-		visible_message(SPAN_DANGER("[user] fumbles with the [src] and hits themselves in the process!"))
+		visible_message(SPAN_DANGER("[user] fumbles with [src] and hits themselves in the process!"))
 		user.take_organ_damage(10)
 		user.Paralyse(20)
 		return
@@ -90,7 +90,7 @@
 		var/mob/living/K = M
 		if(cult && (K.mind in cult.current_antagonists) && prob(75))
 			if(do_after(user, 15))
-				K.visible_message(SPAN_DANGER("[user] waves \the [src] over \the [K]'s head, [K] looks captivated by it."), SPAN_WARNING("[user] waves the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>"))
+				K.visible_message(SPAN_DANGER("[user] waves \the [src] over \the [K]'s head, [K] looks captivated by it."), SPAN_WARNING("[user] waves [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>"))
 				var/choice = alert(K,"Do you want to give up your goal?","Become cleansed","Resist","Give in")
 				switch(choice)
 					if("Resist")
@@ -166,7 +166,7 @@
 		if(contents.len)
 			to_chat(user, SPAN_WARNING("\The [src] is already full!"))
 			return
-		user.visible_message("[user] scoops \the [A] into \the [src], securing the lid.", "You scoop \the [A] into \the [src], securing the lid.")
+		user.visible_message("<b>[user]</b> scoops \the [A] into \the [src], securing the lid.", "You scoop \the [A] into \the [src], securing the lid.")
 		desc = "A vase used to store the ashes of the deceased. It contains some ashes."
 		A.forceMove(src)
 
@@ -177,5 +177,5 @@
 	else
 		for(var/obj/effect/decal/cleanable/ash/A in contents)
 			A.dropInto(loc)
-			user.visible_message("[user] pours \the [A] out from \the [src].", "You pour \the [A] out from \the [src].")
+			user.visible_message("<b>[user]</b> pours \the [A] out from \the [src].", "You pour \the [A] out from \the [src].")
 			desc = "A vase used to store the ashes of the deceased."

@@ -66,7 +66,7 @@
 		. = 1 //already friends, but show success anyways
 
 	else
-		to_chat(usr, "<span class='notice'>[src] ignores you.</span>")
+		to_chat(usr, SPAN_NOTICE("[src] ignores you."))
 
 	return
 
@@ -92,7 +92,7 @@
 			return 1
 
 	else
-		to_chat(usr, "<span class='notice'>[src] already has a name!</span>")
+		to_chat(usr, SPAN_NOTICE("[src] already has a name!"))
 		return
 
 /mob/living/simple_animal/hostile/commanded/dog/amaskan

@@ -54,7 +54,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	if(!is_open_container())
 		if(user.a_intent == I_HURT && !shaken)
 			shaken = 1
-			user.visible_message("[user] shakes \the [src]!", "You shake \the [src]!")
+			user.visible_message("<b>[user]</b> shakes \the [src]!", "You shake \the [src]!")
 			playsound(loc,'sound/items/soda_shaking.ogg', rand(10,50), 1)
 			return
 		if(shaken)
@@ -70,7 +70,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	flags |= OPENCONTAINER
 
 /obj/item/reagent_containers/food/drinks/proc/boom(mob/user as mob)
-	user.visible_message("<span class='danger'>\The [src] explodes all over [user] as they open it!</span>","<span class='danger'>\The [src] explodes all over you as you open it!</span>","You can hear a soda can explode.")
+	user.visible_message(SPAN_DANGER("\The [src] explodes all over [user] as they open it!"),SPAN_DANGER("\The [src] explodes all over you as you open it!"),"You can hear a soda can explode.")
 	playsound(loc,'sound/items/soda_burst.ogg', rand(20,50), 1)
 	reagents.clear_reagents()
 	flags |= OPENCONTAINER
@@ -83,19 +83,19 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 
 /obj/item/reagent_containers/food/drinks/standard_feed_mob(var/mob/user, var/mob/target)
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You need to open \the [src]!"))
 		return 1
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target)
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You need to open \the [src]!"))
 		return 1
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/standard_pour_into(var/mob/user, var/atom/target)
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You need to open \the [src]!"))
 		return 1
 	return ..()
 
@@ -103,15 +103,15 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	if(!..(user, 1))
 		return
 	if(!reagents || reagents.total_volume == 0)
-		to_chat(user, "<span class='notice'>\The [src] is empty!</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is empty!"))
 	else if (reagents.total_volume <= volume * 0.25)
-		to_chat(user, "<span class='notice'>\The [src] is almost empty!</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is almost empty!"))
 	else if (reagents.total_volume <= volume * 0.66)
-		to_chat(user, "<span class='notice'>\The [src] is half full!</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is half full!"))
 	else if (reagents.total_volume <= volume * 0.90)
-		to_chat(user, "<span class='notice'>\The [src] is almost full!</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is almost full!"))
 	else
-		to_chat(user, "<span class='notice'>\The [src] is full!</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is full!"))
 
 
 ////////////////////////////////////////////////////////////////////////////////

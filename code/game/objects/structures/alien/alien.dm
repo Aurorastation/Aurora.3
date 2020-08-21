@@ -33,7 +33,7 @@
 
 /obj/structure/alien/hitby(AM as mob|obj)
 	..()
-	visible_message("<span class='danger'>\The [src] was hit by \the [AM].</span>")
+	visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
 	var/tforce = 0
 	if(ismob(AM))
 		tforce = 10

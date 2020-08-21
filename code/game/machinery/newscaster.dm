@@ -755,7 +755,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 						O.show_message("[user.name] forcefully slams the [src.name] with the [I.name]!" )
 					playsound(src.loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		else
-			to_chat(user, "<span class='notice'>This does nothing.</span>")
+			to_chat(user, SPAN_NOTICE("This does nothing."))
 	src.update_icon()
 
 /obj/machinery/newscaster/attack_ai(mob/user as mob)

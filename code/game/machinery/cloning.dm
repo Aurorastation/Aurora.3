@@ -221,25 +221,25 @@
 			return
 	if(istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
 		if(!check_access(W))
-			to_chat(user, "<span class='warning'>Access Denied.</span>")
+			to_chat(user, SPAN_WARNING("Access Denied."))
 			return
 		if((!locked) || (isnull(occupant)))
 			return
 		if((occupant.health < -20) && (occupant.stat != 2))
-			to_chat(user, "<span class='warning'>Access Refused.</span>")
+			to_chat(user, SPAN_WARNING("Access Refused."))
 			return
 		else
 			locked = 0
 			to_chat(user, "System unlocked.")
 	else if(istype(W, /obj/item/reagent_containers/food/snacks/meat))
-		to_chat(user, "<span class='notice'>\The [src] processes \the [W].</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] processes \the [W]."))
 		biomass += 50
 		user.drop_from_inventory(W,src)
 		qdel(W)
 		return
 	else if(W.iswrench())
 		if(locked && (anchored || occupant))
-			to_chat(user, "<span class='warning'>Can not do that while [src] is in use.</span>")
+			to_chat(user, SPAN_WARNING("Can not do that while [src] is in use."))
 		else
 			if(anchored)
 				anchored = 0
@@ -249,9 +249,9 @@
 				anchored = 1
 			playsound(loc, W.usesound, 100, 1)
 			if(anchored)
-				user.visible_message("[user] secures [src] to the floor.", "You secure [src] to the floor.")
+				user.visible_message("<b>[user]</b> secures [src] to the floor.", "You secure [src] to the floor.")
 			else
-				user.visible_message("[user] unsecures [src] from the floor.", "You unsecure [src] from the floor.")
+				user.visible_message("<b>[user]</b> unsecures [src] from the floor.", "You unsecure [src] from the floor.")
 	else
 		..()
 

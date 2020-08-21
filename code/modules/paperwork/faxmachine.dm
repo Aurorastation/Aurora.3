@@ -74,7 +74,7 @@ var/list/admin_departments
 	if(href_list["send"])
 		if (get_remaining_cooldown() > 0)
 			// Rate-limit sending faxes
-			to_chat(usr, "<span class='warning'>The fax machine isn't ready, yet!</span>")
+			to_chat(usr, SPAN_WARNING("The fax machine isn't ready, yet!"))
 			SSvueui.check_uis_for_change(src)
 			return
 
@@ -96,9 +96,9 @@ var/list/admin_departments
 			copyitem.forceMove(loc)
 			if (get_dist(usr, src) < 2)
 				usr.put_in_hands(copyitem)
-				to_chat(usr, "<span class='notice'>You take \the [copyitem] out of \the [src].</span>")
+				to_chat(usr, SPAN_NOTICE("You take \the [copyitem] out of \the [src]."))
 			else
-				to_chat(usr, "<span class='notice'>You eject \the [copyitem] from \the [src].</span>")
+				to_chat(usr, SPAN_NOTICE("You eject \the [copyitem] from \the [src]."))
 			copyitem = null
 			SSvueui.check_uis_for_change(src)
 
@@ -122,23 +122,23 @@ var/list/admin_departments
 	if(href_list["linkpda"])
 		var/obj/item/device/pda/pda = usr.get_active_hand()
 		if (!pda || !istype(pda))
-			to_chat(usr, "<span class='warning'>You need to be holding a PDA to link it.</span>")
+			to_chat(usr, SPAN_WARNING("You need to be holding a PDA to link it."))
 		else if (pda in alert_pdas)
-			to_chat(usr, "<span class='notice'>\The [pda] appears to be already linked.</span>")
+			to_chat(usr, SPAN_NOTICE("\The [pda] appears to be already linked."))
 			//Update the name real quick.
 			alert_pdas[pda] = pda.name
 			SSvueui.check_uis_for_change(src)
 		else
 			alert_pdas += pda
 			alert_pdas[pda] = pda.name
-			to_chat(usr, "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>")
+			to_chat(usr, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine."))
 			SSvueui.check_uis_for_change(src)
 
 	if(href_list["unlink"])
 		var/obj/item/device/pda/pda = locate(href_list["unlink"])
 		if (pda && istype(pda))
 			if (pda in alert_pdas)
-				to_chat(usr, "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>")
+				to_chat(usr, SPAN_NOTICE("You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes."))
 				alert_pdas -= pda
 				SSvueui.check_uis_for_change(src)
 
@@ -199,9 +199,9 @@ var/list/admin_departments
 	if (display_message)
 		// Normal fax
 		if (success)
-			visible_message("[src] beeps, \"Message transmitted successfully.\"")
+			visible_message("<b>[src]</b> beeps, \"Message transmitted successfully.\"")
 		else
-			visible_message("[src] beeps, \"Error transmitting message.\"")
+			visible_message("<b>[src]</b> beeps, \"Error transmitting message.\"")
 	return success
 
 /obj/machinery/photocopier/faxmachine/proc/receivefax(var/obj/item/incoming)
@@ -240,10 +240,10 @@ var/list/admin_departments
 		if(!success)// Stop on first error
 			break
 	if (success)
-		visible_message("[src] beeps, \"Messages transmitted successfully.\"")
+		visible_message("<b>[src]</b> beeps, \"Messages transmitted successfully.\"")
 		set_cooldown(broadcastfax_cooldown)
 	else
-		visible_message("[src] beeps, \"Error transmitting messages.\"")
+		visible_message("<b>[src]</b> beeps, \"Error transmitting messages.\"")
 		set_cooldown(normalfax_cooldown)
 
 /obj/machinery/photocopier/faxmachine/proc/send_admin_fax(var/mob/sender, var/destination)
@@ -260,7 +260,7 @@ var/list/admin_departments
 	else if (istype(copyitem, /obj/item/paper_bundle))
 		rcvdcopy = bundlecopy(copyitem, 0)
 	else
-		visible_message("[src] beeps, \"Error transmitting message.\"")
+		visible_message("<b>[src]</b> beeps, \"Error transmitting message.\"")
 		return
 
 	rcvdcopy.forceMove(null)  //hopefully this shouldn't cause trouble
@@ -274,7 +274,7 @@ var/list/admin_departments
 
 	set_cooldown(adminfax_cooldown)
 	spawn(50)
-		visible_message("[src] beeps, \"Message transmitted successfully.\"")
+		visible_message("<b>[src]</b> beeps, \"Message transmitted successfully.\"")
 
 
 /obj/machinery/photocopier/faxmachine/proc/message_admins(var/mob/sender, var/faxname, var/obj/item/sent, var/reply_type, font_colour="#006100")

@@ -71,7 +71,7 @@
 			SPAN_NOTICE("You set the bone in [target]'s [affected.name] in place with \the [tool]."))
 		affected.stage = BONE_SET
 	else
-		user.visible_message(SPAN_NOTICE("[user] sets the bone in [target]'s [affected.name] [SPAN_WARNING("in the WRONG place with \the [tool].")]"), \
+		user.visible_message("<b>[user]</b> sets the bone in [target]'s [affected.name] [SPAN_WARNING("in the WRONG place with \the [tool].")]", \
 			SPAN_NOTICE("You set the bone in [target]'s [affected.name] [SPAN_WARNING("in the WRONG place with \the [tool].")]"))
 		affected.fracture()
 
@@ -136,7 +136,7 @@
 
 /decl/surgery_step/finish_bone/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts to finish mending the damaged bones in [target]'s [affected.name] with \the [tool].", \
+	user.visible_message("<b>[user]</b> starts to finish mending the damaged bones in [target]'s [affected.name] with \the [tool].", \
 		"You start to finish mending the damaged bones in [target]'s [affected.name] with \the [tool].")
 	..()
 

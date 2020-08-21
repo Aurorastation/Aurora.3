@@ -31,7 +31,7 @@
 
 	ticks++
 	if(ticks >= target_strength)
-		target.visible_message("<span class='alium'>\The [target] collapses under its own weight into a puddle of goop and undigested debris!</span>")
+		target.visible_message(span("alium", "\The [target] collapses under its own weight into a puddle of goop and undigested debris!"))
 		if(istype(target, /turf/simulated/wall)) // I hate turf code.
 			var/turf/simulated/wall/W = target
 			W.dismantle_wall(1)
@@ -45,11 +45,11 @@
 
 	switch(target_strength - ticks)
 		if(6)
-			visible_message("<span class='alium'>\The [src.target] is holding up against the acid!</span>")
+			visible_message(span("alium", "\The [src.target] is holding up against the acid!"))
 		if(4)
-			visible_message("<span class='alium'>\The [src.target]\s structure is being melted by the acid!</span>")
+			visible_message(span("alium", "\The [src.target]\s structure is being melted by the acid!"))
 		if(2)
-			visible_message("<span class='alium'>\The [src.target] is struggling to withstand the acid!</span>")
+			visible_message(span("alium", "\The [src.target] is struggling to withstand the acid!"))
 		if(0 to 1)
-			visible_message("<span class='alium'>\The [src.target] begins to crumble under the acid!</span>")
+			visible_message(span("alium", "\The [src.target] begins to crumble under the acid!"))
 	addtimer(CALLBACK(src, .proc/tick), rand(150, 200))

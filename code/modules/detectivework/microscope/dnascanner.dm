@@ -18,11 +18,11 @@
 /obj/machinery/dnaforensics/attackby(var/obj/item/W, mob/user as mob)
 
 	if(bloodsamp)
-		to_chat(user, "<span class='warning'>There is already a sample in the machine.</span>")
+		to_chat(user, SPAN_WARNING("There is already a sample in the machine."))
 		return
 
 	if(closed)
-		to_chat(user, "<span class='warning'>Open the cover before inserting the sample.</span>")
+		to_chat(user, SPAN_WARNING("Open the cover before inserting the sample."))
 		return
 
 	var/obj/item/forensics/swab/swab = W
@@ -30,9 +30,9 @@
 		user.unEquip(W)
 		src.bloodsamp = swab
 		swab.forceMove(src)
-		to_chat(user, "<span class='notice'>You insert \the [W] into \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You insert \the [W] into \the [src]."))
 	else
-		to_chat(user, "<span class='warning'>\The [src] only accepts used swabs.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] only accepts used swabs."))
 		return
 
 /obj/machinery/dnaforensics/ui_interact(mob/user, ui_key = "main",var/datum/nanoui/ui = null)
@@ -67,12 +67,12 @@
 				if(closed == 1)
 					scanner_progress = 0
 					scanning = 1
-					to_chat(usr, "<span class='notice'>Scan initiated.</span>")
+					to_chat(usr, SPAN_NOTICE("Scan initiated."))
 					update_icon()
 				else
-					to_chat(usr, "<span class='notice'>Please close sample lid before initiating scan.</span>")
+					to_chat(usr, SPAN_NOTICE("Please close sample lid before initiating scan."))
 			else
-				to_chat(usr, "<span class='warning'>Insert an item to scan.</span>")
+				to_chat(usr, SPAN_WARNING("Insert an item to scan."))
 
 	if(href_list["ejectItem"])
 		if(bloodsamp)
@@ -99,7 +99,7 @@
 	last_process_worldtime = world.time
 
 /obj/machinery/dnaforensics/proc/complete_scan()
-	visible_message("<span class='notice'>\icon[src] makes an insistent chime.</span>", range = 2)
+	visible_message(SPAN_NOTICE("\icon[src] makes an insistent chime."), range = 2)
 	update_icon()
 	if(bloodsamp)
 		var/obj/item/paper/P = new()
@@ -138,7 +138,7 @@
 		return
 
 	if(scanning)
-		to_chat(usr, "<span class='warning'>You can't do that while [src] is scanning!</span>")
+		to_chat(usr, SPAN_WARNING("You can't do that while [src] is scanning!"))
 		return
 
 	closed = !closed

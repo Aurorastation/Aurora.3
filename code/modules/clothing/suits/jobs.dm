@@ -177,7 +177,7 @@ obj/item/clothing/suit/apron/overalls/blue
 		var/obj/item/reagent_containers/glass/paint/P = O
 		suit_color = P.paint_type
 		name = "[suit_color] trenchcoat" // Added name change, why was it never here?!
-		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
+		user.visible_message(SPAN_WARNING("[user] soaks \the [src] into [P]!"))
 		icon_state = "suit_detective_[suit_color]"
 		item_state = "suit_detective_[suit_color]"
 		icon_open = "suit_detective_[suit_color]_open"

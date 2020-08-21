@@ -194,7 +194,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 
 	if(!(src in user.spell_list) && holder == user)
 		error("[user] utilized the spell '[src]' without having it.")
-		to_chat(user, "<span class='warning'>You shouldn't have this spell! Something's wrong.</span>")
+		to_chat(user, SPAN_WARNING("You shouldn't have this spell! Something's wrong."))
 		return 0
 
 	if(silenced > 0)
@@ -202,7 +202,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 
 	var/turf/user_turf = get_turf(user)
 	if(!user_turf)
-		to_chat(user, "<span class='warning'>You cannot cast spells in null space!</span>")
+		to_chat(user, SPAN_WARNING("You cannot cast spells in null space!"))
 
 	if(spell_flags & Z2NOCAST && isAdminLevel(user_turf.z)) //Certain spells are not allowed on the centcomm zlevel
 		return 0
@@ -215,7 +215,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 	if(istype(user, /mob/living/simple_animal) && holder == user)
 		var/mob/living/simple_animal/SA = user
 		if(SA.purge)
-			to_chat(SA, "<span class='warning'>The nullrod's power interferes with your own!</span>")
+			to_chat(SA, SPAN_WARNING("The nullrod's power interferes with your own!"))
 			return 0
 
 	if(!src.check_charge(skipcharge, user)) //sees if we can cast based on charges alone
@@ -247,7 +247,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 					return 0
 			if(Sp_CHARGES)
 				if(!charge_counter)
-					to_chat(user, "<span class='notice'>[name] has no charges left.</span>")
+					to_chat(user, SPAN_NOTICE("[name] has no charges left."))
 					return 0
 	return 1
 

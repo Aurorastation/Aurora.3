@@ -23,7 +23,7 @@
 	var/material = "unknown"
 
 /obj/item/device/depth_scanner/proc/scan_atom(var/mob/user, var/atom/A)
-	user.visible_message("<span class='notice'>[user] scans [A], the air around them humming gently.</span>")
+	user.visible_message(SPAN_NOTICE("[user] scans [A], the air around them humming gently."))
 	if(istype(A,/turf/simulated/mineral))
 		var/turf/simulated/mineral/M = A
 		if((M.finds && M.finds.len) || M.artifact_find)
@@ -45,7 +45,7 @@
 			positive_locations.Add(D)
 
 			for(var/mob/L in range(src, 1))
-				to_chat(L, "<span class='notice'>\icon[src] [src] pings.</span>")
+				to_chat(L, SPAN_NOTICE("\icon[src] [src] pings."))
 
 	else if(istype(A,/obj/structure/boulder))
 		var/obj/structure/boulder/B = A
@@ -64,7 +64,7 @@
 			positive_locations.Add(D)
 
 			for(var/mob/L in range(src, 1))
-				to_chat(L, "<span class='notice'>\icon[src] [src] pings [pick("madly","wildly","excitedly","crazily")]!</span>")
+				to_chat(L, SPAN_NOTICE("\icon[src] [src] pings [pick("madly","wildly","excitedly","crazily")]!"))
 
 /obj/item/device/depth_scanner/attack_self(var/mob/user as mob)
 	return src.interact(user)

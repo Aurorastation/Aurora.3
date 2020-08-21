@@ -302,7 +302,7 @@
 /obj/machinery/seed_storage/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if (istype(O, /obj/item/seeds))
 		add(O)
-		user.visible_message("[user] puts \the [O.name] into \the [src].", "You put \the [O] into \the [src].")
+		user.visible_message("<b>[user]</b> puts [O] into \the [src].", "You put \the [O] into \the [src].")
 		return
 	else if (istype(O, /obj/item/storage/bag/plants))
 		var/obj/item/storage/P = O
@@ -311,9 +311,9 @@
 			++loaded
 			add(G)
 		if (loaded)
-			user.visible_message("[user] puts the seeds from \the [O.name] into \the [src].", "You put the seeds from \the [O.name] into \the [src].")
+			user.visible_message("<b>[user]</b> puts the seeds from [O] into \the [src].", "You put the seeds from [O] into \the [src].")
 		else
-			to_chat(user, "<span class='notice'>There are no seeds in \the [O.name].</span>")
+			to_chat(user, SPAN_NOTICE("There are no seeds in [O]."))
 		return
 	else if(O.iswrench())
 		playsound(loc, O.usesound, 50, 1)

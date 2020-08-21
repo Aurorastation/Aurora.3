@@ -84,7 +84,7 @@
 		"is pulled into an invisible vortex, vanishing from sight")
 	var/slip_out_message = pick("silently fades in", "leaps out of thin air","appears", "walks out of an invisible doorway",\
 		"slides out of a fold in spacetime")
-	to_chat(user, "<span class='notice'>You try to align with the bluespace stream...</span>")
+	to_chat(user, SPAN_NOTICE("You try to align with the bluespace stream..."))
 	if(do_after(user, 20))
 		new /obj/effect/overlay/temp/bluespace_fissure(get_turf(src))
 		new /obj/effect/overlay/temp/bluespace_fissure(get_turf(linked_to))
@@ -109,10 +109,10 @@
 			beloved = L
 			break
 	if(beloved)
-		to_chat(owner, "<span class='notice'>You can't help but love [beloved]. You can't bear to be apart from them, and would do anything they say.</span>")
+		to_chat(owner, SPAN_NOTICE("You can't help but love [beloved]. You can't bear to be apart from them, and would do anything they say."))
 
 	else
-		to_chat(owner, "<span class='notice'>You feel a brief burst of passion, but it quickly fades.</span>")
+		to_chat(owner, SPAN_NOTICE("You feel a brief burst of passion, but it quickly fades."))
 		qdel()
 
 /datum/brain_trauma/special/love/on_life()
@@ -125,7 +125,7 @@
 		stress = max(0, stress - 4)
 		if(prob(5) && stress > 0)
 			var/mushy = pick("You feel so good when [beloved] is with you.","You can't believe you ever lived without [beloved].","You'd do anything for [beloved].","[beloved] makes everything better.","You can never let [beloved] leave again.")
-			to_chat(owner, "<span class='notice'>[mushy]</span>")
+			to_chat(owner, SPAN_NOTICE("[mushy]"))
 
 /datum/brain_trauma/special/love/proc/check_alone()
 	if(owner.disabilities & BLIND)
@@ -145,18 +145,18 @@
 	switch(rand(1,6))
 		if(1)
 			if(!high_stress)
-				to_chat(owner, "<span class='warning'>You feel sick...</span>")
+				to_chat(owner, SPAN_WARNING("You feel sick..."))
 			else
-				to_chat(owner, "<span class='warning'>You feel really sick at the thought of being seperated from [beloved]!</span>")
+				to_chat(owner, SPAN_WARNING("You feel really sick at the thought of being seperated from [beloved]!"))
 			addtimer(CALLBACK(owner, /mob/living/carbon/human.proc/vomit, high_stress), 50) //blood vomit if high stress
 		if(2)
 			if(!high_stress)
-				to_chat(owner, "<span class='warning'>You can't stop shaking...</span>")
+				to_chat(owner, SPAN_WARNING("You can't stop shaking..."))
 				owner.dizziness += 20
 				owner.confused += 20
 				owner.Jitter(20)
 			else
-				to_chat(owner, "<span class='warning'>You feel weak and scared! If only [beloved] was here!</span>")
+				to_chat(owner, SPAN_WARNING("You feel weak and scared! If only [beloved] was here!"))
 				owner.dizziness += 20
 				owner.confused += 20
 				owner.Jitter(20)
@@ -164,21 +164,21 @@
 
 		if(3, 4)
 			if(!high_stress)
-				to_chat(owner, "<span class='warning'>You feel really lonely without [beloved]...</span>")
+				to_chat(owner, SPAN_WARNING("You feel really lonely without [beloved]..."))
 			else
-				to_chat(owner, "<span class='warning'>You're going mad with loneliness! You need [beloved]!</span>")
+				to_chat(owner, SPAN_WARNING("You're going mad with loneliness! You need [beloved]!"))
 				owner.hallucination += 20
 
 		if(5)
 			if(!high_stress)
-				to_chat(owner, "<span class='warning'>Your heart skips a beat. Oh, [beloved]!</span>")
+				to_chat(owner, SPAN_WARNING("Your heart skips a beat. Oh, [beloved]!"))
 				owner.adjustOxyLoss(8)
 			else
 				if(prob(15) && ishuman(owner))
 					var/mob/living/carbon/human/H = owner
 					var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]
 					heart.take_damage(heart.min_bruised_damage)
-					to_chat(H, "<span class='danger'>You feel a stabbing pain in your heart!</span>")
+					to_chat(H, SPAN_DANGER("You feel a stabbing pain in your heart!"))
 				else
-					to_chat(owner, "<span class='danger'>You feel your heart lurching in your chest... Oh, [beloved]!</span>")
+					to_chat(owner, SPAN_DANGER("You feel your heart lurching in your chest... Oh, [beloved]!"))
 					owner.adjustOxyLoss(8)

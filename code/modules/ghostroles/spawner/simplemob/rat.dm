@@ -10,7 +10,7 @@
 
 	//Vars regarding the mob to use
 	spawn_mob = /mob/living/simple_animal/rat //The mob that should be spawned
-	
+
 
 //This proc selects the spawnpoint to use.
 /datum/ghostspawner/simplemob/rat/select_spawnpoint()
@@ -31,7 +31,7 @@
 	if (T)
 		S = new spawn_mob(T)
 	else
-		to_chat(user, "<span class='warning'>Unable to find any safe, unwelded vents to spawn rats at. The station must be quite a mess!  Trying again might work, if you think there's still a safe place. </span>")
+		to_chat(user, SPAN_WARNING("Unable to find any safe, unwelded vents to spawn rats at. The station must be quite a mess!  Trying again might work, if you think there's still a safe place. "))
 
 	if(S)
 		if(config.uneducated_rats)

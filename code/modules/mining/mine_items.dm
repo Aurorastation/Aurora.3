@@ -1148,7 +1148,7 @@ var/list/total_extraction_beacons = list()
 
 	if (C.iswrench())
 		playsound(src.loc, C.usesound, 100, 1)
-		to_chat(user, "<span class='notice'>You [anchored ? "un" : ""]anchor the [name].</span>")
+		to_chat(user, SPAN_NOTICE("You [anchored ? "un" : ""]anchor the [name]."))
 		anchored = !anchored
 
 	if(istype(C, /obj/item/autochisel))

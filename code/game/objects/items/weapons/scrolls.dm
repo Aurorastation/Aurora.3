@@ -24,7 +24,7 @@
 				to_chat(user, SPAN_NOTICE("You can't make any sense of the arcane glyphs. . . maybe you should try again."))
 			else
 				to_chat(user, SPAN_ALERT("As you stumble over the arcane glyphs, you feel a twisting sensation in [O]!"))
-				user.visible_message("<span class='danger'>A flash of smoke pours out of [user]'s orifices!</span>")
+				user.visible_message(SPAN_DANGER("A flash of smoke pours out of [user]'s orifices!"))
 				playsound(user, 'sound/magic/lightningshock.ogg', 40, 1)
 				var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
 				smoke.set_up(5, 0, user.loc)

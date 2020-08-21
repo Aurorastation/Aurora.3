@@ -34,7 +34,7 @@
 	attack_damage = Clamp(attack_damage, 1, 5)
 
 	if(target == user)
-		user.visible_message("<span class='danger'>[user] [pick(attack_verb)] \himself in the [affecting.name]!</span>")
+		user.visible_message(SPAN_DANGER("[user] [pick(attack_verb)] \himself in the [affecting.name]!"))
 		return 0
 
 	switch(zone)
@@ -42,20 +42,20 @@
 			// ----- HEAD ----- //
 			switch(attack_damage)
 				if(1 to 2)
-					user.visible_message("<span class='danger'>[user] scratched [target] across \his cheek!</span>")
+					user.visible_message(SPAN_DANGER("[user] scratched [target] across \his cheek!"))
 				if(3 to 4)
-					user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [target]'s [pick(BP_HEAD, "neck")]!</span>") //'with spread claws' sounds a little bit odd, just enough that conciseness is better here I think
+					user.visible_message(SPAN_DANGER("[user] [pick(attack_verb)] [target]'s [pick(BP_HEAD, "neck")]!")) //'with spread claws' sounds a little bit odd, just enough that conciseness is better here I think
 				if(5)
 					user.visible_message(pick(
-						"<span class='danger'>[user] rakes \his [pick(attack_noun)] across [target]'s face!</span>",
-						"<span class='danger'>[user] tears \his [pick(attack_noun)] into [target]'s face!</span>",
+						SPAN_DANGER("[user] rakes \his [pick(attack_noun)] across [target]'s face!"),
+						SPAN_DANGER("[user] tears \his [pick(attack_noun)] into [target]'s face!"),
 						))
 		else
 			// ----- BODY ----- //
 			switch(attack_damage)
-				if(1 to 2)	user.visible_message("<span class='danger'>[user] scratched [target]'s [affecting.name]!</span>")
-				if(3 to 4)	user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [pick("", "", "the side of")] [target]'s [affecting.name]!</span>")
-				if(5)		user.visible_message("<span class='danger'>[user] tears \his [pick(attack_noun)] [pick("deep into", "into", "across")] [target]'s [affecting.name]!</span>")
+				if(1 to 2)	user.visible_message(SPAN_DANGER("[user] scratched [target]'s [affecting.name]!"))
+				if(3 to 4)	user.visible_message(SPAN_DANGER("[user] [pick(attack_verb)] [pick("", "", "the side of")] [target]'s [affecting.name]!"))
+				if(5)		user.visible_message(SPAN_DANGER("[user] tears \his [pick(attack_noun)] [pick("deep into", "into", "across")] [target]'s [affecting.name]!"))
 
 /datum/unarmed_attack/claws/strong
 	attack_verb = list("slashed")
@@ -88,7 +88,7 @@
 
 /datum/unarmed_attack/stomp/weak/show_attack(var/mob/living/carbon/human/user, var/mob/living/carbon/human/target, var/zone, var/attack_damage)
 	var/obj/item/organ/external/affecting = target.get_organ(zone)
-	user.visible_message("<span class='warning'>[user] jumped up and down on \the [target]'s [affecting.name]!</span>")
+	user.visible_message(SPAN_WARNING("[user] jumped up and down on \the [target]'s [affecting.name]!"))
 	playsound(user.loc, attack_sound, 25, 1, -1)
 
 /datum/unarmed_attack/punch/ipc
@@ -127,7 +127,7 @@
 	..()
 	if(prob(25) && target.mob_size <= 30)
 		playsound(user, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
-		user.visible_message("<span class='danger'>[user] shoves hard, sending [target] flying!</span>")
+		user.visible_message(SPAN_DANGER("[user] shoves hard, sending [target] flying!"))
 		var/T = get_turf(user)
 		spark(T, 3, alldirs)
 		step_away(target,user,15)
@@ -158,10 +158,10 @@
 		if(L == target)
 			continue
 		L.apply_damage(rand(5,20), BRUTE, zone, armor)
-		to_chat(L, "<span class='danger'>\The [user] [pick(attack_verb)] you with its [attack_noun]!</span>")
+		to_chat(L, SPAN_DANGER("\The [user] [pick(attack_verb)] you with its [attack_noun]!"))
 		hit_mobs++
 	if(hit_mobs)
-		to_chat(user, "<span class='danger'>You used \the [attack_noun] to attack [hit_mobs] other target\s!</span>")
+		to_chat(user, SPAN_DANGER("You used \the [attack_noun] to attack [hit_mobs] other target\s!"))
 
 
 /datum/unarmed_attack/bite/mandibles
@@ -181,7 +181,7 @@
 	if(target && target.stat == DEAD)
 		return
 	if(target.internal_organs_by_name["zombie"])
-		to_chat(user, "<span class='danger'>You feel that \the [target] has been already infected!</span>")
+		to_chat(user, SPAN_DANGER("You feel that \the [target] has been already infected!"))
 
 	var/infection_chance = 80
 	infection_chance -= target.run_armor_check(zone,"melee")

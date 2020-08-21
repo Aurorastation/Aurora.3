@@ -47,7 +47,7 @@
 		return
 	if(O.isscrewdriver() && emag)
 		//Stops people from just unscrewing the monitor and putting it back to get the console working again.
-		to_chat(user, "<span class='warning'>It is too hot to mess with!</span>")
+		to_chat(user, SPAN_WARNING("It is too hot to mess with!"))
 		return
 
 	..()
@@ -70,7 +70,7 @@
 			update_icon()
 			return 1
 		else
-			to_chat(user, "<span class='notice'>A no server error appears on the screen.</span>")
+			to_chat(user, SPAN_NOTICE("A no server error appears on the screen."))
 
 /obj/machinery/computer/message_monitor/update_icon()
 	if(emag || hacking)
@@ -271,10 +271,10 @@
 
 /obj/machinery/computer/message_monitor/proc/BruteForce(mob/user as mob)
 	if(isnull(linkedServer))
-		to_chat(user, "<span class='warning'>Could not complete brute-force: Linked Server Disconnected!</span>")
+		to_chat(user, SPAN_WARNING("Could not complete brute-force: Linked Server Disconnected!"))
 	else
 		var/currentKey = src.linkedServer.decryptkey
-		to_chat(user, "<span class='warning'>Brute-force completed! The key is '[currentKey]'.</span>")
+		to_chat(user, SPAN_WARNING("Brute-force completed! The key is '[currentKey]'."))
 	src.hacking = 0
 	update_icon()
 	src.screen = 0 // Return the screen back to normal
@@ -320,7 +320,7 @@
 				message = "<span class='alert'>NOTICE: Server selected.</span>"
 			else if(message_servers && message_servers.len > 0)
 				linkedServer = message_servers[1]
-				message =  "<span class='notice'>NOTICE: Only Single Server Detected - Server selected.</span>"
+				message =  SPAN_NOTICE("NOTICE: Only Single Server Detected - Server selected.")
 			else
 				message = noserver
 

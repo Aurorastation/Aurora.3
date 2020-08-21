@@ -77,14 +77,14 @@ default behaviour is:
 			for(var/mob/living/M in range(tmob, 1))
 				if(tmob.pinned.len || ((M.pulling == tmob && ( tmob.restrained() && !( M.restrained() ) && M.stat == 0)) || locate(/obj/item/grab, tmob.grabbed_by.len)) )
 					if (last_push_notif + 0.5 SECONDS <= world.time)
-						to_chat(src, "<span class='warning'>[tmob] is restrained, you cannot push past</span>")
+						to_chat(src, SPAN_WARNING("[tmob] is restrained, you cannot push past"))
 						last_push_notif = world.time
 
 					now_pushing = FALSE
 					return
 				if( tmob.pulling == M && ( M.restrained() && !( tmob.restrained() ) && tmob.stat == 0) )
 					if (last_push_notif + 0.5 SECONDS <= world.time)
-						to_chat(src, "<span class='warning'>[tmob] is restraining [M], you cannot push past</span>")
+						to_chat(src, SPAN_WARNING("[tmob] is restraining [M], you cannot push past"))
 						last_push_notif = world.time
 
 					now_pushing = FALSE
@@ -117,7 +117,7 @@ default behaviour is:
 
 			if(istype(tmob, /mob/living/carbon/human) && (FAT in tmob.mutations))
 				if(prob(40) && !(FAT in src.mutations))
-					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
+					to_chat(src, SPAN_DANGER("You fail to push [tmob]'s fat ass out of the way."))
 					now_pushing = FALSE
 					return
 
@@ -197,9 +197,9 @@ default behaviour is:
 	set hidden = 1
 	if (health < maxHealth / 3)
 		adjustBrainLoss(health + maxHealth * 2) // Deal 2x health in BrainLoss damage, as before but variable.
-		to_chat(src, "<span class='notice'>You have given up life and succumbed to death.</span>")
+		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
 	else
-		to_chat(src, "<span class='warning'>You are not injured enough to succumb to death!</span>")
+		to_chat(src, SPAN_WARNING("You are not injured enough to succumb to death!"))
 
 
 /mob/living/proc/updatehealth()
@@ -597,7 +597,7 @@ default behaviour is:
 							var/obj/item/grab/G = pick(M.grabbed_by)
 							if (istype(G, /obj/item/grab))
 								for(var/mob/O in viewers(M, null))
-									O.show_message(text("<span class='warning'>[] has been pulled from []'s grip by []</span>", G.affecting, G.assailant, src), 1)
+									O.show_message(SPAN_WARNING("[G.affecting] has been pulled from [G.assailant]'s grip by [src]"), 1)
 								//G = null
 								qdel(G)
 						else
@@ -619,11 +619,11 @@ default behaviour is:
 								//pull damage with injured people
 									if(prob(25))
 										M.adjustBruteLoss(1)
-										visible_message("<span class='danger'>\The [M]'s [M.isSynthetic() ? "state worsens": "wounds open more"] from being dragged!</span>")
+										visible_message(SPAN_DANGER("\The [M]'s [M.isSynthetic() ? "state worsens": "wounds open more"] from being dragged!"))
 								if(M.pull_damage())
 									if(prob(25))
 										M.adjustBruteLoss(2)
-										visible_message("<span class='danger'>\The [M]'s [M.isSynthetic() ? "state" : "wounds"] worsen terribly from being dragged!</span>")
+										visible_message(SPAN_DANGER("\The [M]'s [M.isSynthetic() ? "state" : "wounds"] worsen terribly from being dragged!"))
 										var/turf/location = M.loc
 										if (istype(location, /turf/simulated))
 											location.add_blood(M)
@@ -688,8 +688,8 @@ default behaviour is:
 
 	if(istype(M))
 		M.drop_from_inventory(H)
-		to_chat(M, "<span class='warning'>\The [H] wriggles out of your grip!</span>")
-		to_chat(src, "<span class='warning'>You wriggle out of \the [M]'s grip!</span>")
+		to_chat(M, SPAN_WARNING("\The [H] wriggles out of your grip!"))
+		to_chat(src, SPAN_WARNING("You wriggle out of \the [M]'s grip!"))
 
 		// Update whether or not this mob needs to pass emotes to contents.
 		for(var/atom/A in M.contents)
@@ -701,10 +701,10 @@ default behaviour is:
 		var/obj/item/clothing/accessory/holster/holster = H.loc
 		if(holster.holstered == H)
 			holster.clear_holster()
-		to_chat(src, "<span class='warning'>You extricate yourself from \the [holster].</span>")
+		to_chat(src, SPAN_WARNING("You extricate yourself from \the [holster]."))
 		H.forceMove(get_turf(H))
 	else if(istype(H.loc,/obj/item))
-		to_chat(src, "<span class='warning'>You struggle free of \the [H.loc].</span>")
+		to_chat(src, SPAN_WARNING("You struggle free of \the [H.loc]."))
 		H.forceMove(get_turf(H))
 
 /mob/living/proc/escape_buckle()
@@ -718,7 +718,7 @@ default behaviour is:
 		return
 	last_resist = world.time
 	if(stunned > 10)
-		to_chat(src, "<span class='notice'>You can't move...</span>")
+		to_chat(src, SPAN_NOTICE("You can't move..."))
 		return
 	var/resisting = 0
 	for(var/obj/O in requests)
@@ -764,7 +764,7 @@ default behaviour is:
 	set category = "IC"
 
 	resting = !resting
-	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>")
+	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]"))
 
 /mob/living/proc/cannot_use_vents()
 	return "You can't fit into that vent."
@@ -804,7 +804,7 @@ default behaviour is:
 					inertia_dir = 1
 				else if(y >= world.maxy -TRANSITIONEDGE)
 					inertia_dir = 2
-				to_chat(src, "<span class='warning'>Something you are carrying is preventing you from leaving.</span>")
+				to_chat(src, SPAN_WARNING("Something you are carrying is preventing you from leaving."))
 				return
 
 	..()
@@ -828,10 +828,10 @@ default behaviour is:
 	if(!..())
 		return 0
 	if(!possession_candidate)
-		to_chat(possessor, "<span class='warning'>That animal cannot be possessed.</span>")
+		to_chat(possessor, SPAN_WARNING("That animal cannot be possessed."))
 		return 0
 	if(jobban_isbanned(possessor, "Animal"))
-		to_chat(possessor, "<span class='warning'>You are banned from animal roles.</span>")
+		to_chat(possessor, SPAN_WARNING("You are banned from animal roles."))
 		return 0
 	if(!possessor.MayRespawn(1,ANIMAL))
 		return 0
@@ -843,25 +843,25 @@ default behaviour is:
 		return 0
 
 	if(src.ckey || src.client)
-		to_chat(possessor, "<span class='warning'>\The [src] already has a player.</span>")
+		to_chat(possessor, SPAN_WARNING("\The [src] already has a player."))
 		return 0
 
-	message_admins("<span class='adminnotice'>[key_name_admin(possessor)] has taken control of \the [src].</span>")
+	message_admins(span("adminnotice", "[key_name_admin(possessor)] has taken control of \the [src]."))
 	log_admin("[key_name(possessor)] took control of \the [src].",admin_key=key_name(possessor))
 	src.ckey = possessor.ckey
 	qdel(possessor)
 
 	if(round_is_spooky(6)) // Six or more active cultists.
-		to_chat(src, "<span class='notice'>You reach out with tendrils of ectoplasm and invade the mind of \the [src]...</span>")
+		to_chat(src, SPAN_NOTICE("You reach out with tendrils of ectoplasm and invade the mind of \the [src]..."))
 		to_chat(src, "<b>You have assumed direct control of \the [src].</b>")
-		to_chat(src, "<span class='notice'>Due to the spookiness of the round, you have taken control of the poor animal as an invading, possessing spirit - roleplay accordingly.</span>")
+		to_chat(src, SPAN_NOTICE("Due to the spookiness of the round, you have taken control of the poor animal as an invading, possessing spirit - roleplay accordingly."))
 		src.universal_speak = 1
 		src.universal_understand = 1
 		//src.cultify() // Maybe another time.
 		return
 
 	to_chat(src, "<b>You are now \the [src]!</b>")
-	to_chat(src, "<span class='notice'>Remember to stay in character for a mob of this type!</span>")
+	to_chat(src, SPAN_NOTICE("Remember to stay in character for a mob of this type!"))
 	return 1
 
 /mob/living/Destroy()
@@ -919,7 +919,7 @@ default behaviour is:
 
 /mob/living/proc/seizure()
 	if(!paralysis && stat == CONSCIOUS)
-		visible_message("<span class='danger'>\The [src] starts having a seizure!</span>")
+		visible_message(SPAN_DANGER("\The [src] starts having a seizure!"))
 		Paralyse(rand(8,16))
 		make_jittery(rand(150,200))
 		adjustHalLoss(rand(50,60))

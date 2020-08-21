@@ -26,7 +26,7 @@
 		net.layer = M.layer+1
 		M.captured = 1
 		net.affecting = M
-		T.visible_message("[M] was caught in an energy net!")
+		T.visible_message("<b>[M]</b> was caught in an energy net!")
 		qdel(src)
 
 	// If we miss or hit an obstacle, we still want to delete the net.
@@ -100,7 +100,7 @@
 	playsound(affecting.loc, 'sound/effects/sparks4.ogg', 50, 1)
 	anim(affecting.loc,affecting,'icons/mob/mob.dmi',,"phaseout",,affecting.dir)
 
-	affecting.visible_message("[affecting] vanishes in a flare of light!")
+	affecting.visible_message("<b>[affecting]</b> vanishes in a flare of light!")
 
 	if(holdingfacility.len)
 		affecting.forceMove(pick(holdingfacility))
@@ -138,7 +138,7 @@
 	else
 		health -= rand(5,8)
 
-	to_chat(H, "<span class='danger'>You claw at the energy net.</span>")
+	to_chat(H, SPAN_DANGER("You claw at the energy net."))
 
 	healthcheck()
 	return

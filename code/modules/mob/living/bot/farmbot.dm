@@ -195,7 +195,7 @@
 			if(FARMBOT_COLLECT)
 				action = "collect"
 				update_icon()
-				visible_message(SPAN_NOTICE("[src] starts [T.dead? "removing the plant from" : "harvesting"] \the [A]."))
+				visible_message("<b>[src]</b> starts [T.dead? "removing the plant from" : "harvesting"] \the [A].")
 				attacking = TRUE
 				if(do_after(src, 30))
 					visible_message(SPAN_NOTICE("[src] [T.dead? "removes the plant from" : "harvests"] \the [A]."))
@@ -203,38 +203,38 @@
 			if(FARMBOT_WATER)
 				action = "water"
 				update_icon()
-				visible_message(SPAN_NOTICE("[src] starts watering \the [A]."))
+				visible_message("<b>[src]</b> starts watering \the [A].")
 				attacking = TRUE
 				if(do_after(src, 30))
 					playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
-					visible_message(SPAN_NOTICE("[src] waters \the [A]."))
+					visible_message("<b>[src]</b> waters \the [A].")
 					tank.reagents.trans_to(T, 100 - T.waterlevel)
 			if(FARMBOT_UPROOT)
 				action = "hoe"
 				update_icon()
-				visible_message(SPAN_NOTICE("[src] starts uprooting the weeds in \the [A]."))
+				visible_message("<b>[src]</b> starts uprooting the weeds in \the [A].")
 				attacking = TRUE
 				if(do_after(src, 30))
-					visible_message(SPAN_NOTICE("[src] uproots the weeds in \the [A]."))
+					visible_message("<b>[src]</b> uproots the weeds in \the [A].")
 					T.weedlevel = 0
 					T.update_icon()
 			if(FARMBOT_PESTKILL)
 				action = "hoe"
 				update_icon()
-				visible_message(SPAN_NOTICE("[src] starts eliminating the pests in \the [A]."))
+				visible_message("<b>[src]</b> starts eliminating the pests in \the [A].")
 				attacking = TRUE
 				if(do_after(src, 30))
-					visible_message(SPAN_NOTICE("[src] eliminates the pests in \the [A]."))
+					visible_message("<b>[src]</b> eliminates the pests in \the [A].")
 					T.pestlevel = 0
 					T.reagents.add_reagent(/datum/reagent/nutriment, 0.5)
 					T.update_icon()
 			if(FARMBOT_NUTRIMENT)
 				action = "fertile"
 				update_icon()
-				visible_message(SPAN_NOTICE("[src] starts fertilizing \the [A]."))
+				visible_message("<b>[src]</b> starts fertilizing \the [A].")
 				attacking = TRUE
 				if(do_after(src, 30))
-					visible_message(SPAN_NOTICE("[src] waters \the [A]."))
+					visible_message("<b>[src]</b> waters \the [A].")
 					T.reagents.add_reagent(/datum/reagent/ammonia, 10)
 		attacking = FALSE
 		action = ""
@@ -245,7 +245,7 @@
 			return
 		action = "water"
 		update_icon()
-		visible_message(SPAN_NOTICE("[src] starts refilling its tank from \the [A]."))
+		visible_message("<b>[src]</b> starts refilling its tank from \the [A].")
 		attacking = TRUE
 		while(do_after(src, 10) && tank.reagents.total_volume < tank.reagents.maximum_volume)
 			tank.reagents.add_reagent(/datum/reagent/water, 10)
@@ -254,7 +254,7 @@
 		attacking = FALSE
 		action = ""
 		update_icon()
-		visible_message(SPAN_NOTICE("[src] finishes refilling its tank."))
+		visible_message("<b>[src]</b> finishes refilling its tank.")
 	else if(emagged && ishuman(A))
 		var/action = pick("weed", "water")
 		attacking = TRUE

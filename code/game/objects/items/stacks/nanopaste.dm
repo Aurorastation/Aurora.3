@@ -36,10 +36,10 @@
 				R.adjustFireLoss(-15)
 				R.updatehealth()
 				use(1)
-				user.visible_message("<span class='notice'>\The [user] applied some [src] at [R]'s damaged areas.</span>",\
-					"<span class='notice'>You apply some [src] at [R]'s damaged areas.</span>")
+				user.visible_message(SPAN_NOTICE("\The [user] applied some [src] at [R]'s damaged areas."),\
+					SPAN_NOTICE("You apply some [src] at [R]'s damaged areas."))
 		else
-			to_chat(user, "<span class='notice'>All [R]'s systems are nominal.</span>")
+			to_chat(user, SPAN_NOTICE("All [R]'s systems are nominal."))
 
 	if (istype(M,/mob/living/carbon/human))		//Repairing robolimbs
 		var/mob/living/carbon/human/H = M
@@ -51,27 +51,28 @@
 
 				if(S.limb_name == BP_HEAD)
 					if(H.head && istype(H.head,/obj/item/clothing/head/helmet/space))
-						to_chat(user, "<span class='warning'>You can't apply [src] through [H.head]!</span>")
+						to_chat(user, SPAN_WARNING("You can't apply [src] through [H.head]!"))
 						return
 				else
 					if(H.wear_suit && istype(H.wear_suit,/obj/item/clothing/suit/space))
-						to_chat(user, "<span class='warning'>You can't apply [src] through [H.wear_suit]!</span>")
+						to_chat(user, SPAN_WARNING("You can't apply [src] through [H.wear_suit]!"))
 						return
 
 				if(do_mob(user, M, 7))
 					S.heal_damage(15, 15, robo_repair = 1)
 					H.updatehealth()
 					use(1)
-					user.visible_message("<span class='notice'>\The [user] applies some nanite paste at[user != M ? " \the [M]'s" : " \the [user]"] [S.name] with \the [src].</span>",\
-					"<span class='notice'>You apply some nanite paste at [user == M ? "your" : "[M]'s"] [S.name].</span>")
+					var/message1 = "\The [user] applies some nanite paste at[user != M ? " \the [M]'s" : " \the [user]"] [S.name] with \the [src]."
+					var/message2 = "You apply some nanite paste at [user == M ? "your" : "[M]'s"] [S.name]."
+					user.visible_message(SPAN_NOTICE(message1), SPAN_NOTICE(message2)) // todo: change when byond preprocessor is fixed
 			else
-				to_chat(user, "<span class='notice'>Nothing to fix here.</span>")
+				to_chat(user, SPAN_NOTICE("Nothing to fix here."))
 		else
 			if (can_operate(H))
 				if (do_surgery(H,user,src))
 					return
 			else
-				to_chat(user, "<span class='notice'>Nothing to fix in here.</span>")
+				to_chat(user, SPAN_NOTICE("Nothing to fix in here."))
 
 
 /obj/item/stack/nanopaste/surge
@@ -89,15 +90,15 @@
 		return 0
 
 	if(used)
-		to_chat(user, "<span class='warning'>[src] has depleted it's nanites.</span>")
+		to_chat(user, SPAN_WARNING("[src] has depleted it's nanites."))
 		return 0
 
 	if (isipc(M))
 		var/obj/item/organ/internal/surge/s = M.internal_organs_by_name["surge"]
 		if(isnull(s))
 			user.visible_message(
-			"<span class='notice'>[user] is trying to apply [src] to [(M == user) ? ("itself") : (M)]!</span>",
-			"<span class='notice'>You start applying [src] to [(M == user) ? ("yourself") : (M)]!</span>"
+			SPAN_NOTICE("[user] is trying to apply [src] to [(M == user) ? ("itself") : (M)]!"),
+			SPAN_NOTICE("You start applying [src] to [(M == user) ? ("yourself") : (M)]!")
 			)
 
 			if (!do_mob(user, M, 2))
@@ -107,18 +108,18 @@
 			M.internal_organs += s
 			M.internal_organs_by_name["surge"] = s
 			user.visible_message(
-			"<span class='notice'>[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!</span>",
-			"<span class='notice'>You apply [src] to [(M == user) ? ("youself") : (M)].</span>"
+			SPAN_NOTICE("[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!"),
+			SPAN_NOTICE("You apply [src] to [(M == user) ? ("youself") : (M)].")
 			)
-			to_chat(M, "<span class='notice'>You can feel nanites inside you creating something new. An internal OS voice states \"Warning: surge prevention module has been installed, it has [s.surge_left] preventions left!\"</span>")
+			to_chat(M, SPAN_NOTICE("You can feel nanites inside you creating something new. An internal OS voice states \"Warning: surge prevention module has been installed, it has [s.surge_left] preventions left!\""))
 			amount = 0
 			used = TRUE
 			return 1
 		else
 			if(!s.surge_left)
 				user.visible_message(
-				"<span class='notice'>[user] is trying to apply [src] to [(M == user) ? ("itself") : (M)]!</span>",
-				"<span class='notice'>You start applying [src] to [(M == user) ? ("yourself") : (M)]!</span>"
+				SPAN_NOTICE("[user] is trying to apply [src] to [(M == user) ? ("itself") : (M)]!"),
+				SPAN_NOTICE("You start applying [src] to [(M == user) ? ("yourself") : (M)]!")
 				)
 
 				if (!do_mob(user, M, 2))
@@ -129,16 +130,16 @@
 				s.icon_state = "surge_ipc"
 
 				user.visible_message(
-				"<span class='notice'>[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!</span>",
-				"<span class='notice'>You apply [src] to [(M == user) ? ("yourself") : (M)].</span>"
+				SPAN_NOTICE("[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!"),
+				SPAN_NOTICE("You apply [src] to [(M == user) ? ("yourself") : (M)].")
 				)
-				to_chat(M,  "<span class='notice'>You can feel nanites inside you regenerating your surge prevention module. An internal OS voice states \"Warning: surge prevention module repaired, it has [s.surge_left] preventions left!\"</span>")
+				to_chat(M,  SPAN_NOTICE("You can feel nanites inside you regenerating your surge prevention module. An internal OS voice states \"Warning: surge prevention module repaired, it has [s.surge_left] preventions left!\""))
 				amount = 0
 				used = TRUE
 				return 1
 
-			to_chat(user, "<span class='warning'>[(M == user) ? ("You already have") : ("[M] already has")] fully functional surge prevention module installed.</span>")
+			to_chat(user, SPAN_WARNING("[(M == user) ? ("You already have") : ("[M] already has")] fully functional surge prevention module installed."))
 			return 0
 	else
-		to_chat(user, "<span class='warning'>[src]'s nanites refuse to work on [(M == user) ? ("you") : (M)].</span>")
+		to_chat(user, SPAN_WARNING("[src]'s nanites refuse to work on [(M == user) ? ("you") : (M)]."))
 		return 0

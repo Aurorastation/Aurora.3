@@ -49,7 +49,7 @@
 	src.density = 0
 	playsound(src, "glass_break", 70, 1)
 	if(display_message)
-		visible_message("[src] shatters!")
+		visible_message("<b>[src]</b> shatters!")
 	qdel(src)
 
 /obj/machinery/door/window/Destroy()
@@ -157,7 +157,7 @@
 		if(H.species.can_shred(H))
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
-			user.visible_message("<span class='danger'>[user] smashes against [src].</span>", "<span class='danger'>You smash against [src]!</span>")
+			user.visible_message(SPAN_DANGER("[user] smashes against [src]."), SPAN_DANGER("You smash against [src]!"))
 			take_damage(25)
 			return
 	return src.attackby(user, user)
@@ -182,15 +182,15 @@
 			spark(src.loc, 5)
 			playsound(src.loc, "sparks", 50, 1)
 			playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
-			visible_message("<span class='warning'>The glass door was sliced open by [user]!</span>")
+			visible_message(SPAN_WARNING("The glass door was sliced open by [user]!"))
 		return 1
 
 	//If it's emagged, crowbar can pry electronics out.
 	if (src.operating == -1 && I.iscrowbar())
 		playsound(src.loc, I.usesound, 100, 1)
-		user.visible_message("[user] removes the electronics from the windoor.", "You start to remove electronics from the windoor.")
+		user.visible_message("<b>[user]</b> removes the electronics from the windoor.", "You start to remove electronics from the windoor.")
 		if (do_after(user,60/I.toolspeed))
-			to_chat(user, "<span class='notice'>You removed the windoor electronics!</span>")
+			to_chat(user, SPAN_NOTICE("You removed the windoor electronics!"))
 
 			var/obj/structure/windoor_assembly/wa = new/obj/structure/windoor_assembly(src.loc)
 			if (istype(src, /obj/machinery/door/window/brigdoor))
@@ -227,7 +227,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		var/aforce = I.force
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
-		visible_message("<span class='danger'>[src] was hit by [I].</span>")
+		visible_message(SPAN_DANGER("[src] was hit by [I]."))
 		if(I.damtype == BRUTE || I.damtype == BURN)
 			take_damage(aforce)
 		return

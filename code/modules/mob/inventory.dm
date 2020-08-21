@@ -29,7 +29,7 @@
 			qdel(W)
 		else
 			if(!disable_warning)
-				to_chat(src, "<span class='warning'>You are unable to equip [W].</span>")  //Only print if del_on_fail is false
+				to_chat(src, SPAN_WARNING("You are unable to equip [W]."))  //Only print if del_on_fail is false
 		return 0
 
 	equip_to_slot(W, slot, redraw_mob) //This proc should not ever fail.
@@ -357,7 +357,7 @@ var/list/slot_equipment_priority = list( \
 			if(start_T && end_T)
 				var/mob/M = item
 				if(is_pacified())
-					to_chat(src, "<span class='notice'>You gently let go of [M].</span>")
+					to_chat(src, SPAN_NOTICE("You gently let go of [M]."))
 					src.remove_from_mob(item)
 					item.loc = src.loc
 					return
@@ -379,12 +379,12 @@ var/list/slot_equipment_priority = list( \
 	item.loc = src.loc
 
 	if(is_pacified())
-		to_chat(src, "<span class='notice'>You set [item] down gently on the ground.</span>")
+		to_chat(src, SPAN_NOTICE("You set [item] down gently on the ground."))
 		return
 
 	//actually throw it!
 	if(item)
-		src.visible_message("<span class='warning'>[src] throws \a [item].</span>")
+		src.visible_message(SPAN_WARNING("[src] throws \a [item]."))
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)
 		if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity() == 0))

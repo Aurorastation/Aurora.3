@@ -478,12 +478,12 @@
 		count++
 
 	if (count == 0)
-		to_chat(usr, "<span class='warning'>Database update failed due to a warning id not being present in the database.</span>")
+		to_chat(usr, SPAN_WARNING("Database update failed due to a warning id not being present in the database."))
 		error("Database update failed due to a warning id not being present in the database.")
 		return
 
 	if (count > 1)
-		to_chat(usr, "<span class='warning'>Database update failed due to multiple warnings having the same ID. Contact the database admin.</span>")
+		to_chat(usr, SPAN_WARNING("Database update failed due to multiple warnings having the same ID. Contact the database admin."))
 		error("Database update failed due to multiple warnings having the same ID. Contact the database admin.")
 		return
 
@@ -493,7 +493,7 @@
 				var/DBQuery/deleteQuery = dbcon.NewQuery("UPDATE ss13_warnings SET visible = 0 WHERE id = :warning_id:")
 				deleteQuery.Execute(query_details)
 
-				message_admins("<span class='notice'>[key_name_admin(usr)] deleted one of [ckey]'s warnings.</span>")
+				message_admins(SPAN_NOTICE("[key_name_admin(usr)] deleted one of [ckey]'s warnings."))
 				log_admin("[key_name(usr)] deleted one of [ckey]'s warnings.", admin_key=key_name(usr), ckey=ckey)
 			else
 				to_chat(usr, "Cancelled")
@@ -509,7 +509,7 @@
 			var/DBQuery/reason_query = dbcon.NewQuery("UPDATE ss13_warnings SET reason = :new_reason:, edited = 1, lasteditor = :a_ckey:, lasteditdate = NOW() WHERE id = :warning_id:")
 			reason_query.Execute(query_details)
 
-			message_admins("<span class='notice'>[key_name_admin(usr)] edited one of [ckey]'s warning reasons.</span>")
+			message_admins(SPAN_NOTICE("[key_name_admin(usr)] edited one of [ckey]'s warning reasons."))
 			log_admin("[key_name(usr)] edited one of [ckey]'s warning reasons.", admin_key=key_name(usr), ckey=ckey)
 
 		if("editNotes")
@@ -522,5 +522,5 @@
 			var/DBQuery/notes_query = dbcon.NewQuery("UPDATE ss13_warnings SET notes = :new_notes:, edited = 1, lasteditor = :a_ckey:, lasteditdate = NOW() WHERE id = :warning_id:")
 			notes_query.Execute(query_details)
 
-			message_admins("<span class='notice'>[key_name_admin(usr)] edited one of [ckey]'s warning notes.</span>")
+			message_admins(SPAN_NOTICE("[key_name_admin(usr)] edited one of [ckey]'s warning notes."))
 			log_admin("[key_name(usr)] edited one of [ckey]'s warning notes.", admin_key=key_name(usr), ckey=ckey)

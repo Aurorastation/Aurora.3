@@ -55,9 +55,9 @@
 
 /mob/abstract/mental/friend/LateLogin()
 	..()
-	to_chat(src, "<span class='notice'><b>You are the imaginary friend of [owner]!</b></span>")
-	to_chat(src, "<span class='notice'>You are absolutely loyal to your friend, no matter what.</span>")
-	to_chat(src, "<span class='notice'>You cannot directly influence the world around you, but you can see what [owner] cannot.</span>")
+	to_chat(src, SPAN_NOTICE("<b>You are the imaginary friend of [owner]!</b>"))
+	to_chat(src, SPAN_NOTICE("You are absolutely loyal to your friend, no matter what."))
+	to_chat(src, SPAN_NOTICE("You cannot directly influence the world around you, but you can see what [owner] cannot."))
 
 /mob/abstract/mental/friend/Initialize(mapload, _trauma)
 	. = ..()

@@ -150,7 +150,7 @@
 		safety_disabled = 1
 		req_one_access = list()
 		update_projections()
-		to_chat(user, "<span class='notice'>You vastly increase projector power and override the safety and security protocols.</span>")
+		to_chat(user, SPAN_NOTICE("You vastly increase projector power and override the safety and security protocols."))
 		to_chat(user, "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [current_map.company_name] maintenance and do not use the simulator.")
 		log_game("[key_name(usr)] emagged the Holodeck Control Computer",ckey=key_name(usr))
 		src.updateUsrDialog()
@@ -369,10 +369,10 @@
 /obj/machinery/computer/HolodeckControl/proc/togglelock(var/mob/user)
 	if(allowed(user))
 		locked = !locked
-		visible_message("<span class='notice'>\The [src] emits a series of beeps to announce it has been [locked ? null : "un"]locked.</span>", range = 3)
+		visible_message(SPAN_NOTICE("\The [src] emits a series of beeps to announce it has been [locked ? null : "un"]locked."), range = 3)
 		return FALSE
 	else
-		to_chat(user, "<span class='warning'>Access denied.</span>")
+		to_chat(user, SPAN_WARNING("Access denied."))
 		return TRUE
 
 /obj/machinery/computer/HolodeckControl/Exodus

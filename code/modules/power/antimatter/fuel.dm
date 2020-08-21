@@ -71,7 +71,7 @@
 
 /obj/item/fuel/examine()
 	..()
-	to_chat(user, "<span class='info'>A magnetic storage ring containing [fuel]kg of [content ? content : "nothing"].</span>")
+	to_chat(user, SPAN_INFO("A magnetic storage ring containing [fuel]kg of [content ? content : "nothing"]."))
 
 /obj/item/fuel/proc/injest(mob/M as mob)
 	switch(content)
@@ -79,7 +79,7 @@
 			to_chat(mob, SPAN_NOTICE("That was not a very bright idea."))
 			M.gib()
 		if("Hydrogen")
-			to_chat(M, "<span class='notice'>You feel very light, as if you might just float away...</span>")
+			to_chat(M, SPAN_NOTICE("You feel very light, as if you might just float away..."))
 	qdel(src)
 	return
 
@@ -99,5 +99,5 @@
 			return
 	else
 		for(var/mob/O in viewers(M, null))
-			O.show_message(text("<span class='warning'>\The [M] eats the [content ? content : "empty canister"]!</span>"), 1)
+			O.show_message(text(SPAN_WARNING("\The [M] eats the [content ? content : "empty canister"]!")), 1)
 		src.injest(M)

@@ -58,7 +58,7 @@
 			if(C.data == "Clown Land")
 				//whoops
 				for(var/mob/O in hearers(src, null))
-					O.show_message("<span class='warning'>Incoming bluespace portal detected, unable to lock in.</span>", 2)
+					O.show_message(SPAN_WARNING("Incoming bluespace portal detected, unable to lock in."), 2)
 
 				for(var/obj/machinery/teleport/hub/H in range(1))
 					var/amount = rand(2,5)
@@ -67,7 +67,7 @@
 				//
 			else
 				for(var/mob/O in hearers(src, null))
-					O.show_message("<span class='notice'>Locked In</span>", 2)
+					O.show_message(SPAN_NOTICE("Locked In"), 2)
 				src.locked = L
 				one_time_use = 1
 
@@ -128,7 +128,7 @@
 
 	src.locked = L[desc]
 	for(var/mob/O in hearers(src, null))
-		O.show_message("<span class='notice'>Locked In</span>", 2)
+		O.show_message(SPAN_NOTICE("Locked In"), 2)
 	src.add_fingerprint(usr)
 	return
 
@@ -194,7 +194,7 @@
 		return
 	if (!com.locked)
 		for(var/mob/O in hearers(src, null))
-			O.show_message("<span class='warning'>Failure: Cannot authenticate locked on coordinates. Please reinstate coordinate matrix.</span>")
+			O.show_message(SPAN_WARNING("Failure: Cannot authenticate locked on coordinates. Please reinstate coordinate matrix."))
 		return
 	if (istype(M, /atom/movable))
 		if(prob(5) && !accurate) //oh dear a problem, put em in deep space
@@ -210,7 +210,7 @@
 		accurate = 1
 		addtimer(CALLBACK(src, .proc/reset_teleport), 5 MINUTES)
 		for(var/mob/B in hearers(src, null))
-			B.show_message("<span class='notice'>Test fire completed.</span>")
+			B.show_message(SPAN_NOTICE("Test fire completed."))
 	return
 
 /obj/machinery/teleport/hub/proc/reset_teleport()
@@ -254,7 +254,7 @@
 		update_use_power(2)
 		com.update_use_power(2)
 		for(var/mob/O in hearers(src, null))
-			O.show_message("<span class='notice'>Teleporter engaged!</span>", 2)
+			O.show_message(SPAN_NOTICE("Teleporter engaged!"), 2)
 	src.add_fingerprint(usr)
 	src.engaged = 1
 	return
@@ -269,7 +269,7 @@
 		com.update_use_power(1)
 		update_use_power(1)
 		for(var/mob/O in hearers(src, null))
-			O.show_message("<span class='notice'>Teleporter disengaged!</span>", 2)
+			O.show_message(SPAN_NOTICE("Teleporter disengaged!"), 2)
 	src.add_fingerprint(usr)
 	src.engaged = 0
 	return
@@ -285,7 +285,7 @@
 	if (com && !active)
 		active = 1
 		for(var/mob/O in hearers(src, null))
-			O.show_message("<span class='notice'>Test firing!</span>", 2)
+			O.show_message(SPAN_NOTICE("Test firing!"), 2)
 		com.teleport()
 		use_power(5000)
 

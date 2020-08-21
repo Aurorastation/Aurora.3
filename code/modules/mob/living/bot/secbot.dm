@@ -99,7 +99,7 @@
 
 /mob/living/bot/secbot/attack_hand(var/mob/user)
 	if (!has_ui_access(user))
-		to_chat(user, "<span class='warning'>The unit's interface refuses to unlock!</span>")
+		to_chat(user, SPAN_WARNING("The unit's interface refuses to unlock!"))
 		return
 	user.set_machine(src)
 	var/dat
@@ -126,7 +126,7 @@
 	add_fingerprint(usr)
 
 	if (!has_ui_access(usr))
-		to_chat(usr, "<span class='warning'>Insufficient permissions.</span>")
+		to_chat(usr, SPAN_WARNING("Insufficient permissions."))
 		return
 
 	if(href_list["power"])
@@ -293,10 +293,10 @@
 			is_attacking = 1
 			update_icon()
 			addtimer(CALLBACK(src, .proc/stop_attacking_cb), 2)
-			visible_message("<span class='warning'>[C] was prodded by [src] with a stun baton!</span>")
+			visible_message(SPAN_WARNING("[C] was prodded by [src] with a stun baton!"))
 		else
 			playsound(loc, 'sound/weapons/handcuffs.ogg', 30, 1, -2)
-			visible_message("<span class='warning'>[src] is trying to put handcuffs on [C]!</span>")
+			visible_message(SPAN_WARNING("[src] is trying to put handcuffs on [C]!"))
 			if(do_mob(src, C, 60))
 				if(!C.handcuffed)
 					C.handcuffed = new /obj/item/handcuffs(C)
@@ -311,14 +311,14 @@
 		is_attacking = 1
 		update_icon()
 		addtimer(CALLBACK(src, .proc/stop_attacking_cb), 2)
-		visible_message("<span class='warning'>[M] was beaten by [src] with a stun baton!</span>")
+		visible_message(SPAN_WARNING("[M] was beaten by [src] with a stun baton!"))
 
 /mob/living/bot/secbot/proc/stop_attacking_cb()
 	is_attacking = FALSE
 	update_icon()
 
 /mob/living/bot/secbot/explode()
-	visible_message("<span class='warning'>[src] blows apart!</span>")
+	visible_message(SPAN_WARNING("[src] blows apart!"))
 	var/turf/Tsec = get_turf(src)
 
 	var/obj/item/secbot_assembly/Sa = new /obj/item/secbot_assembly(Tsec)

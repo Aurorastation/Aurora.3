@@ -37,7 +37,7 @@
 
 /mob/living/silicon/robot/syndicate/death()
 	..()
-	src.visible_message("<span class='danger'>\The [src] starts beeping ominously!</span>")
+	src.visible_message(SPAN_DANGER("\The [src] starts beeping ominously!"))
 	playsound(src, 'sound/effects/screech.ogg', 100, 1, 1)
 	explosion(get_turf(src), 1, 2, 3, 5)
 	qdel(src)

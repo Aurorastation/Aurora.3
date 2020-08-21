@@ -62,7 +62,7 @@
 		wet()
 	else if (istype(target, /obj/structure/mopbucket) || istype(target, /obj/item/reagent_containers/glass) || istype(target, /obj/structure/reagent_dispensers/watertank))
 		if (target.reagents && target.reagents.total_volume)
-			to_chat(user, SPAN_NOTICE("You wet \the [src] in the [target]."))
+			to_chat(user, SPAN_NOTICE("You wet \the [src] in [target]."))
 			wet()
 		else
 			to_chat(user, "\The [target] is empty!")
@@ -77,7 +77,7 @@
 		if (do_after(user, 25, needhand = 0))
 			target.clean_blood()
 			if(clean_msg)
-				to_chat(user, SPAN_NOTICE("You scrub \the [target.name] out."))
+				to_chat(user, SPAN_NOTICE("You scrub [target] out."))
 			if(istype(target, /turf) || istype(target, /obj/effect/decal/cleanable) || istype(target, /obj/effect/overlay))
 				var/turf/T = get_turf(target)
 				if(T)

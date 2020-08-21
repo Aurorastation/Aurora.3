@@ -275,7 +275,7 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	if(!W.iswrench() && !istype(W, /obj/item/tank) && !istype(W, /obj/item/device/analyzer) && !istype(W, /obj/item/device/pda))
-		visible_message("<span class='warning'>\The [user] hits \the [src] with \a [W]!</span>")
+		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \a [W]!"))
 		src.health -= W.force
 		if(!istype(W, /obj/item/forensics))
 			src.add_fingerprint(user)

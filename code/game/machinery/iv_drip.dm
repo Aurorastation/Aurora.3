@@ -47,7 +47,7 @@
 		return
 
 	if(in_range(src, usr) && ishuman(over_object) && get_dist(over_object, src) <= 1)
-		visible_message("[usr] attaches \the [src] to \the [over_object].")
+		visible_message("<b>[usr]</b> attaches \the [src] to \the [over_object].")
 		src.attached = over_object
 		src.update_icon()
 
@@ -78,7 +78,7 @@
 
 		if(!(get_dist(src, src.attached) <= 1 && isturf(src.attached.loc)))
 			var/obj/item/organ/external/affecting = src.attached.get_organ(pick(BP_R_ARM, BP_L_ARM))
-			src.attached.visible_message("<span class='warning'>The needle is ripped out of [src.attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>", "<span class='danger'>The needle <B>painfully</B> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>")
+			src.attached.visible_message(SPAN_WARNING("The needle is ripped out of [src.attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."), "<span class='danger'>The needle <B>painfully</B> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>")
 			affecting.take_damage(brute = 5, damage_flags = DAM_SHARP)
 			src.attached = null
 			src.update_icon()
@@ -112,7 +112,7 @@
 			amount = min(amount, 4)
 			// If the beaker is full, ping
 			if(amount == 0)
-				if(prob(5)) 
+				if(prob(5))
 					visible_message("\The [src] pings.")
 				return
 
@@ -147,7 +147,7 @@
 	set src in view(1)
 
 	if(!istype(usr, /mob/living))
-		to_chat(usr, "<span class='warning'>You can't do that.</span>")
+		to_chat(usr, SPAN_WARNING("You can't do that."))
 		return
 
 	if(usr.stat)
@@ -161,17 +161,17 @@
 	if (!(user in view(2)) && user!=src.loc) return
 
 	to_chat(user, "The IV drip is [mode ? "injecting" : "taking blood"].")
-	to_chat(user, "<span class='notice'>The transfer rate is set to [src.transfer_amount] u/sec</span>")
+	to_chat(user, SPAN_NOTICE("The transfer rate is set to [src.transfer_amount] u/sec"))
 
 	if(beaker)
 		if(beaker.reagents && beaker.reagents.reagent_list.len)
-			to_chat(usr, "<span class='notice'>Attached is \a [beaker] with [beaker.reagents.total_volume] units of liquid.</span>")
+			to_chat(usr, SPAN_NOTICE("Attached is \a [beaker] with [beaker.reagents.total_volume] units of liquid."))
 		else
-			to_chat(usr, "<span class='notice'>Attached is an empty [beaker].</span>")
+			to_chat(usr, SPAN_NOTICE("Attached is an empty [beaker]."))
 	else
-		to_chat(usr, "<span class='notice'>No chemicals are attached.</span>")
+		to_chat(usr, SPAN_NOTICE("No chemicals are attached."))
 
-	to_chat(usr, "<span class='notice'>[attached ? attached : "No one"] is attached.</span>")
+	to_chat(usr, SPAN_NOTICE("[attached ? attached : "No one"] is attached."))
 
 // Let's doctors set the rate of transfer. Useful if you want to set the rate at the rate of metabolisation.
 // No longer have to take someone to dialysis because they have leftover sleeptox after surgery.
@@ -187,13 +187,13 @@
 	set_rate:
 		var/amount = input("Set transfer rate as u/sec (between 4 and 0.001)") as num
 		if ((0.001 > amount || amount > 4) && amount != 0)
-			to_chat(usr, "<span class='warning'>Entered value must be between 0.001 and 4.</span>")
+			to_chat(usr, SPAN_WARNING("Entered value must be between 0.001 and 4."))
 			goto set_rate
 		if (transfer_amount == 0)
 			transfer_amount = REM
 			return
 		transfer_amount = amount
-		to_chat(usr, "<span class='notice'>Transfer rate set to [src.transfer_amount] u/sec</span>")
+		to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.transfer_amount] u/sec"))
 
 /obj/machinery/iv_drip/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(height && istype(mover) && mover.checkpass(PASSTABLE)) //allow bullets, beams, thrown objects, rats, drones, and the like through.

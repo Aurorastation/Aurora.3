@@ -42,18 +42,18 @@
 		return
 
 	if(istype(I, /obj/item/evidencebag))
-		to_chat(user, "<span class='notice'>You find putting an evidence bag in another evidence bag to be slightly absurd.</span>")
+		to_chat(user, SPAN_NOTICE("You find putting an evidence bag in another evidence bag to be slightly absurd."))
 		return
 
 	if(I.w_class > 3)
-		to_chat(user, "<span class='notice'>[I] won't fit in [src].</span>")
+		to_chat(user, SPAN_NOTICE("[I] won't fit in [src]."))
 		return
 
 	if(contents.len)
-		to_chat(user, "<span class='notice'>[src] already has something inside it.</span>")
+		to_chat(user, SPAN_NOTICE("[src] already has something inside it."))
 		return
 
-	user.visible_message("[user] puts [I] into [src]", "You put [I] inside [src].",\
+	user.visible_message("<b>[user]</b> puts [I] into [src]", "You put [I] inside [src].",\
 	"You hear a rustle as someone puts something into a plastic bag.")
 
 	icon_state = "evidence"
@@ -74,7 +74,7 @@
 /obj/item/evidencebag/attack_self(mob/user as mob)
 	if(contents.len)
 		var/obj/item/I = contents[1]
-		user.visible_message("[user] takes [I] out of [src]", "You take [I] out of [src].",\
+		user.visible_message("<b>[user]</b> takes [I] out of [src]", "You take [I] out of [src].",\
 		"You hear someone rustle around in a plastic bag, and remove something.")
 		cut_overlays()	//remove the overlays
 

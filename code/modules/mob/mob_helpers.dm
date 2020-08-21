@@ -491,7 +491,7 @@ proc/is_blind(A)
 	for(var/mob/M in targets)
 		var/turf/targetturf = get_turf(M)
 		if(targetturf && (targetturf.z == sourceturf.z))
-			M.show_message("<span class='info'>\icon[icon] [message]</span>", 1)
+			M.show_message(SPAN_INFO("\icon[icon] [message]"), 1)
 
 /proc/mobs_in_area(var/area/A)
 	var/list/mobs = new
@@ -689,9 +689,9 @@ proc/is_blind(A)
 		return
 	if(!lastpuke)
 		lastpuke = 1
-		to_chat(src, "<span class='warning'>You feel nauseous...</span>")
+		to_chat(src, SPAN_WARNING("You feel nauseous..."))
 		spawn(150)	//15 seconds until second warning
-			to_chat(src, "<span class='warning'>You feel like you are about to throw up!</span>")
+			to_chat(src, SPAN_WARNING("You feel like you are about to throw up!"))
 			spawn(100)	//and you have 10 more for mad dash to the bucket
 				empty_stomach()
 				spawn(350)	//wait 35 seconds before next volley
@@ -895,9 +895,9 @@ proc/is_blind(A)
 			preposition = "inside"
 
 	if (justmoved)
-		reportto.contained_visible_message(H,  "<span class='notice'>[H] [action3] [reportto] [preposition] their [newlocation]</span>", "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>", "", 1)
+		reportto.contained_visible_message(H,  SPAN_NOTICE("[H] [action3] [reportto] [preposition] their [newlocation]"), SPAN_NOTICE("You are [action] [preposition] [H]'s [newlocation]"), "", 1)
 	else
-		to_chat(reportto, "<span class='notice'>You are [action] [preposition] [H]'s [newlocation]</span>")
+		to_chat(reportto, SPAN_NOTICE("You are [action] [preposition] [H]'s [newlocation]"))
 
 /atom/proc/get_holding_mob()
 	//This function will return the mob which is holding this holder, or null if it's not held

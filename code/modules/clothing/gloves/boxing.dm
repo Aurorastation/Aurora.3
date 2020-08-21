@@ -7,7 +7,7 @@
 
 /obj/item/clothing/gloves/boxing/attackby(obj/item/W, mob/user)
 	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
-		to_chat(user, "<span class='notice'>That won't work.</span>")	//Nope)
+		to_chat(user, SPAN_NOTICE("That won't work."))	//Nope)
 		return
 	..()
 

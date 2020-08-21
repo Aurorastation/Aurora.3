@@ -190,9 +190,9 @@
 /obj/item/device/assembly/signaler/proc/deadman_trigger(var/mob/user)
 	if(deadman) //If its not activated, there is no point in triggering it
 		if(user)
-			src.visible_message("<span class='warning'>[user] releases [src]'s deadman switch!</span>")
+			src.visible_message(SPAN_WARNING("[user] releases [src]'s deadman switch!"))
 		else
-			src.visible_message("<span class='warning'>[src]'s deadman switch is released!</span>")
+			src.visible_message(SPAN_WARNING("[src]'s deadman switch is released!"))
 		signal()
 		deadman = 0
 		STOP_PROCESSING(SSprocessing, src)
@@ -211,14 +211,14 @@
 	deadman = 1
 	START_PROCESSING(SSprocessing, src)
 	log_and_message_admins("is threatening to trigger a signaler deadman's switch")
-	user.visible_message("<span class='warning'>[user] presses and holds [src]'s deadman switch...</span>")
-	to_chat(user,"<span class='warning'>Your are now holding [src]'s deadman switch. Dropping, putting the device away, or being hit will activate the signaller.</span>")
-	to_chat(user,"<span class='critical'>To deactivate it, make sure to press the verb again.</span>")
+	user.visible_message(SPAN_WARNING("[user] presses and holds [src]'s deadman switch..."))
+	to_chat(user,SPAN_WARNING("Your are now holding [src]'s deadman switch. Dropping, putting the device away, or being hit will activate the signaller."))
+	to_chat(user,span("critical", "To deactivate it, make sure to press the verb again."))
 
 /obj/item/device/assembly/signaler/proc/deadman_deactivate(var/mob/user)
 	deadman = 0
 	STOP_PROCESSING(SSprocessing, src)
-	user.visible_message("<span class='warning'>[user] secures [user]'s deadman switch...</span>")
+	user.visible_message(SPAN_WARNING("[user] secures [user]'s deadman switch..."))
 
 /obj/item/device/assembly/signaler/Destroy()
 	if(SSradio)

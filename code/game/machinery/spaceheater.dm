@@ -71,7 +71,7 @@
 				cell = I
 				I.add_fingerprint(user)
 
-				visible_message(SPAN_NOTICE("[user] inserts a power cell into [src]."),
+				visible_message("<b>[user]</b> inserts a power cell into [src].",
 					SPAN_NOTICE("You insert the power cell into [src]."))
 				power_change()
 		else
@@ -151,7 +151,7 @@
 
 			if("off")
 				on = !on
-				usr.visible_message(SPAN_NOTICE("[usr] switches off the [src]."),
+				usr.visible_message("<b>[usr]</b> switches off the [src].",
 					SPAN_NOTICE("You switch off the [src]."))
 				update_icon()
 

@@ -30,7 +30,7 @@
 	return ..() && target_zone == BP_MOUTH && target.op_stage.face == FACE_NORMAL
 
 /decl/surgery_step/generic/cut_face/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("[user] starts to cut open [target]'s face and neck with \the [tool].", \
+	user.visible_message("<b>[user]</b> starts to cut open [target]'s face and neck with \the [tool].", \
 		"You start to cut open [target]'s face and neck with \the [tool].")
 	..()
 
@@ -69,7 +69,7 @@
 	return ..() && target.op_stage.face == FACE_NORMAL && target.get_species() == "Shell Frame"
 
 /decl/surgery_step/robotics/face/synthskin/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("[user] starts to cut open [target]'s synthskin face and neck with \the [tool].", \
+	user.visible_message("<b>[user]</b> starts to cut open [target]'s synthskin face and neck with \the [tool].", \
 		"You start to cut open [target]'s synthskin face and neck with \the [tool].")
 	..()
 

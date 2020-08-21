@@ -39,9 +39,9 @@
 		var/area/A = get_area(F)
 		if(A)
 			say_dead_direct("A skeleton has been created in [A.name]! Spawn in as it by using the ghost spawner menu in the ghost tab.")
-		target.visible_message("<span class='cult'>\The [target] explodes in a shower of gore, a skeleton emerges from the remains!</span>")
+		target.visible_message(SPAN_CULT("\The [target] explodes in a shower of gore, a skeleton emerges from the remains!"))
 		target.gib()
-		
+
 		F.master = user
 		F.faction = user.faction
 

@@ -26,19 +26,19 @@ var/list/floor_light_cache = list()
 /obj/machinery/floor_light/attackby(var/obj/item/W, var/mob/user)
 	if(W.isscrewdriver())
 		anchored = !anchored
-		visible_message("<span class='notice'>\The [user] has [anchored ? "attached" : "detached"] \the [src].</span>")
+		visible_message(SPAN_NOTICE("\The [user] has [anchored ? "attached" : "detached"] \the [src]."))
 		playsound(src.loc, 'sound/items/screwdriver.ogg', 100, 1)
 	else if(W.iswelder() && (damaged || (stat & BROKEN)))
 		var/obj/item/weldingtool/WT = W
 		if(!WT.remove_fuel(0, user))
-			to_chat(user, "<span class='warning'>\The [src] must be on to complete this task.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] must be on to complete this task."))
 			return
 		playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
 		if(!do_after(user, 20/W.toolspeed))
 			return
 		if(!src || !WT.isOn())
 			return
-		visible_message("<span class='notice'>\The [user] has repaired \the [src].</span>")
+		visible_message(SPAN_NOTICE("\The [user] has repaired \the [src]."))
 		update_icon()
 		stat &= ~BROKEN
 		damaged = null
@@ -47,10 +47,10 @@ var/list/floor_light_cache = list()
 		attack_hand(user)
 	else if(W.iscrowbar())
 		if(anchored)
-			to_chat(user, "<span class='warning'>\The [src] must be unfastened from the [loc] first!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] must be unfastened from the [loc] first!"))
 			return
 		else
-			to_chat(user, "<span class='notice'>You lever off the [name].</span>")
+			to_chat(user, SPAN_NOTICE("You lever off the [name]."))
 			playsound(src.loc, 'sound/items/crowbar_tile.ogg', 100, TRUE)
 			if(stat & BROKEN)
 				qdel(src)
@@ -64,12 +64,12 @@ var/list/floor_light_cache = list()
 
 	if(user.a_intent == I_HURT && !issmall(user))
 		if(!isnull(damaged) && !(stat & BROKEN))
-			visible_message("<span class='danger'>\The [user] smashes \the [src]!</span>")
+			visible_message(SPAN_DANGER("\The [user] smashes \the [src]!"))
 			playsound(src, "glass_break", 70, 1)
 			update_icon()
 			stat |= BROKEN
 		else
-			visible_message("<span class='danger'>\The [user] attacks \the [src]!</span>")
+			visible_message(SPAN_DANGER("\The [user] attacks \the [src]!"))
 			playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
 			if(isnull(damaged)) damaged = 0
 		update_brightness()
@@ -77,20 +77,20 @@ var/list/floor_light_cache = list()
 	else
 
 		if(!anchored)
-			to_chat(user, "<span class='warning'>\The [src] must be screwed down first.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] must be screwed down first."))
 			return
 
 		if(stat & BROKEN)
-			to_chat(user, "<span class='warning'>\The [src] is too damaged to be functional.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is too damaged to be functional."))
 			return
 
 		if(stat & NOPOWER)
-			to_chat(user, "<span class='warning'>\The [src] is unpowered.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is unpowered."))
 			return
 
 		on = !on
 		if(on) use_power = 2
-		visible_message("<span class='notice'>\The [user] turns \the [src] [on ? "on" : "off"].</span>")
+		visible_message(SPAN_NOTICE("\The [user] turns \the [src] [on ? "on" : "off"]."))
 		update_brightness()
 		return
 

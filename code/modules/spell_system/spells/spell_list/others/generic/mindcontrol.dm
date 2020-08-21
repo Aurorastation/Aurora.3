@@ -25,40 +25,40 @@
 		var/mob/living/carbon/human/H = target
 
 		if(H.stat == DEAD || (H.status_flags & FAKEDEATH))
-			to_chat(user, "<span class='warning'>\The [H] is dead!</span>")
+			to_chat(user, SPAN_WARNING("\The [H] is dead!"))
 			return FALSE
 
 		if(is_special_character(H))
-			to_chat(user, "<span class='warning'>\The [H]'s mind is too strong to be affected by this spell!</span>")
+			to_chat(user, SPAN_WARNING("\The [H]'s mind is too strong to be affected by this spell!"))
 			return FALSE
 
 		if(!H.mind || !H.key)
-			to_chat(user, "<span class='warning'>\The [H] is mindless!</span>")
+			to_chat(user, SPAN_WARNING("\The [H] is mindless!"))
 			return FALSE
 
 		var/obj/item/organ/internal/brain/F = H.internal_organs_by_name[BP_BRAIN]
 
 		if(isnull(F))
-			to_chat(user, "<span class='warning'>\The [H] is brainless!</span>")
+			to_chat(user, SPAN_WARNING("\The [H] is brainless!"))
 			return FALSE
 
 		for (var/obj/item/implant/mindshield/I in H)
 			if (I.implanted)
-				to_chat(src, "<span class='warning'>[H]'s mind is shielded against your powers!</span>")
+				to_chat(src, SPAN_WARNING("[H]'s mind is shielded against your powers!"))
 				return FALSE
 
-		user.visible_message("<span class='danger'>\The [user] seizes the head of \the [H] in both hands...</span>")
-		to_chat(user, "<span class='warning'>You invade the mind of \the [H]!</span>")
-		to_chat(H, "<span class='danger'>Your mind is invaded by the presence of \the [user]! You feel painful tendrils burrowing their way into your head!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] seizes the head of \the [H] in both hands..."))
+		to_chat(user, SPAN_WARNING("You invade the mind of \the [H]!"))
+		to_chat(H, SPAN_DANGER("Your mind is invaded by the presence of \the [user]! You feel painful tendrils burrowing their way into your head!"))
 
 		if (!do_mob(user, H, 80))
-			to_chat(user, "<span class='warning'>Your concentration is broken!</span>")
+			to_chat(user, SPAN_WARNING("Your concentration is broken!"))
 			return FALSE
 
 		if(wizards.add_antagonist_mind(target.mind,1,"Wizard Slave","<b>You are a slave to \the [user], obey them at all costs!</b>"))
-			to_chat(user, "<span class='danger'>You sear through \the [H]'s mind, reshaping as you see fit and leaving them subservient to your will!</span>")
+			to_chat(user, SPAN_DANGER("You sear through \the [H]'s mind, reshaping as you see fit and leaving them subservient to your will!"))
 			H.mind.assigned_role = "Wizard Slave"
-			to_chat(H, "<span class='danger'>Your defenses have eroded away and \the [user] has made you their mindslave.</span>")
+			to_chat(H, SPAN_DANGER("Your defenses have eroded away and \the [user] has made you their mindslave."))
 			H.faction = "Space Wizard"
 			wizards.add_antagonist_mind(H.mind,1)
 

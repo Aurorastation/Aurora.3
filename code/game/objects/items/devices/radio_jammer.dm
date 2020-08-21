@@ -41,9 +41,9 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 
 /obj/item/device/radiojammer/proc/toggle()
 	if (active)
-		to_chat(usr, "<span class='notice'>You deactivate \the [src].</span>")
+		to_chat(usr, SPAN_NOTICE("You deactivate \the [src]."))
 	else
-		to_chat(usr, "<span class='notice'>You activate \the [src].</span>")
+		to_chat(usr, SPAN_NOTICE("You activate \the [src]."))
 	set_active(!active)
 
 
@@ -104,7 +104,7 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 
 /obj/item/device/radiojammer/improvised/attackby(obj/item/W as obj, mob/user as mob)
 	if (W.isscrewdriver())
-		to_chat(user, "<span class='notice'>You disassemble the improvised signal jammer.</span>")
+		to_chat(user, SPAN_NOTICE("You disassemble the improvised signal jammer."))
 		user.put_in_hands(assembly_holder)
 		user.put_in_hands(cell)
 		qdel(src)

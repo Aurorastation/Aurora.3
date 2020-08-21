@@ -47,7 +47,7 @@
 			continue
 		H.drop_from_inventory(W,gearbox)
 
-	to_chat(H,"<span class='notice'>You feel a pleasant breeze as the autolocker whisks away all of your clothes, packing them neatly in a box.</span>")
+	to_chat(H,SPAN_NOTICE("You feel a pleasant breeze as the autolocker whisks away all of your clothes, packing them neatly in a box."))
 
 	SSjobs.EquipRank(H, H.job, 1, 1) //Equip 'em
 	H.megavend = 1
@@ -57,7 +57,7 @@
 		var/obj/item/storage/backpack/B = H.back
 		if(!B.insert_into_storage(gearbox))
 			H.put_in_any_hand_if_possible(gearbox)
-	else		
+	else
 		H.put_in_any_hand_if_possible(gearbox)
 
 	return

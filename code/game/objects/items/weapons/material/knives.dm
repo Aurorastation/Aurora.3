@@ -43,11 +43,11 @@
 		return
 
 	if(!H.get_visible_implants(1))
-		to_chat(usr, "<span class='warning'>There's nothing large enough to remove!</span>")
+		to_chat(usr, SPAN_WARNING("There's nothing large enough to remove!"))
 		return
 
 	for(var/obj/item/material/shard/S in H.contents)
-		visible_message("<span class='notice'>[usr] starts carefully digging out some of the shrapnel in [H == usr ? "themselves" : H]...</span>")
+		visible_message(SPAN_NOTICE("[usr] starts carefully digging out some of the shrapnel in [H == usr ? "themselves" : H]..."))
 		H.custom_pain("<font size=3><span class='danger'>It burns!</span></font>", 50)
 		if(do_mob(usr, H, 100))
 			H.remove_implant(S, FALSE)
@@ -145,10 +145,10 @@
 /obj/item/material/knife/butterfly/attack_self(mob/user)
 	active = !active
 	if(active)
-		to_chat(user, "<span class='notice'>You flip out \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You flip out \the [src]."))
 		playsound(user, 'sound/weapons/blade_open.ogg', 15, 1)
 	else
-		to_chat(user, "<span class='notice'>\The [src] can now be concealed.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] can now be concealed."))
 		playsound(user, 'sound/weapons/blade_close.ogg', 15, 1)
 	update_force()
 	add_fingerprint(user)

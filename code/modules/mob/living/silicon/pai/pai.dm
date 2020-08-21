@@ -215,8 +215,8 @@
 
 	if (!greeted)
 		// Basic intro text.
-		to_chat(src, "<span class='danger'><font size=3>You are a Personal AI!</font></span>")
-		to_chat(src, "<span class='notice'>You are a small artificial intelligence contained inside a portable tablet, and you are bound to a master. Your primary directive is to serve them and follow their instructions, follow this prime directive above all others. Check your Software interface to spend ram on programs that can help, and unfold your chassis to take a holographic form and move around the world.</span>")
+		to_chat(src, SPAN_DANGER("<font size=3>You are a Personal AI!</font>"))
+		to_chat(src, SPAN_NOTICE("You are a small artificial intelligence contained inside a portable tablet, and you are bound to a master. Your primary directive is to serve them and follow their instructions, follow this prime directive above all others. Check your Software interface to spend ram on programs that can help, and unfold your chassis to take a holographic form and move around the world."))
 		greeted = 1
 
 // this function shows the information about being silenced as a pAI in the Status panel
@@ -252,7 +252,7 @@
 	if(prob(20))
 		var/turf/T = get_turf_or_move(src.loc)
 		for (var/mob/M in viewers(T))
-			M.show_message("<span class='warning'>A shower of sparks spray from [src]'s inner workings.</span>", 3, "<span class='warning'>You hear and smell the ozone hiss of electrical sparks being expelled violently.</span>", 2)
+			M.show_message(SPAN_WARNING("A shower of sparks spray from [src]'s inner workings."), 3, SPAN_WARNING("You hear and smell the ozone hiss of electrical sparks being expelled violently."), 2)
 		return src.death(0)
 
 	switch(pick(1,2,3))
@@ -436,24 +436,24 @@
 	else
 		resting = !resting
 		icon_state = resting ? "[chassis]_rest" : "[chassis]"
-		to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>")
+		to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]"))
 
 	canmove = !resting
 
 //Overriding this will stop a number of headaches down the track.
 /mob/living/silicon/pai/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.force)
-		visible_message("<span class='danger'>[user.name] attacks [src] with [W]!</span>")
+		visible_message(SPAN_DANGER("[user.name] attacks [src] with [W]!"))
 		src.adjustBruteLoss(W.force)
 		src.updatehealth()
 	else
-		visible_message("<span class='warning'>[user.name] bonks [src] harmlessly with [W].</span>")
+		visible_message(SPAN_WARNING("[user.name] bonks [src] harmlessly with [W]."))
 
 	return
 
 /mob/living/silicon/pai/AltClick(mob/user as mob)
 	if(!user || user.stat || user.lying || user.restrained() || !Adjacent(user))	return
-	visible_message("<span class='danger'>[user.name] boops [src] on the head.</span>")
+	visible_message(SPAN_DANGER("[user.name] boops [src] on the head."))
 	close_up()
 
 //I'm not sure how much of this is necessary, but I would rather avoid issues.
@@ -517,12 +517,12 @@
 	if(istype(AM,/obj/item))
 		var/obj/item/O = AM
 		if(O.w_class > can_pull_size)
-			to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
+			to_chat(src, SPAN_WARNING("You are too small to pull that."))
 			return
 		else
 			..()
 	else
-		to_chat(src, "<span class='warning'>You are too small to pull that.</span>")
+		to_chat(src, SPAN_WARNING("You are too small to pull that."))
 		return
 
 

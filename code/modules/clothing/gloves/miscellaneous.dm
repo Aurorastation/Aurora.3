@@ -181,11 +181,11 @@
 	set src in usr
 
 	if(wired && !clipped)
-		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message ("<b>[usr]</b> taps their foot on the floor, arrogantly pointing at [src] on their wrist with a look of derision in their eyes.", SPAN_NOTICE("You point down at [src], an arrogant look about your eyes."))
 	else if(wired && clipped)
-		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's open."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message ("<b>[usr]</b> taps their foot on the floor, arrogantly pointing at [src] on their wrist with a look of derision in their eyes, not noticing it's open.", SPAN_NOTICE("You point down at [src], an arrogant look about your eyes."))
 	else
-		usr.visible_message (SPAN_NOTICE("[usr] taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken."), SPAN_NOTICE("You point down at the [src], an arrogant look about your eyes."))
+		usr.visible_message ("<b>[usr]</b> taps their foot on the floor, arrogantly pointing at [src] on their wrist with a look of derision in their eyes, not noticing it's broken.", SPAN_NOTICE("You point down at [src], an arrogant look about your eyes."))
 
 /obj/item/clothing/gloves/watch/verb/swapwrists()
 	set category = "Object"
@@ -206,11 +206,11 @@
 /obj/item/clothing/gloves/watch/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
 		if (clipped) //Using clipped because adding a new var for something is dumb
-			user.visible_message(SPAN_NOTICE("[user] screws the cover of the [src] closed."), SPAN_NOTICE("You screw the cover of the [src] closed."))
+			user.visible_message("<b>[user]</b> screws the cover of [src] closed.", SPAN_NOTICE("You screw the cover of [src] closed."))
 			clipped = 0
 			return
 //		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
-		user.visible_message(SPAN_NOTICE("[user] unscrews the cover of the [src]."), SPAN_NOTICE("You unscrew the cover of the [src]."))
+		user.visible_message("<b>[user]</b> unscrews the cover of [src].", SPAN_NOTICE("You unscrew the cover of [src]."))
 		clipped = 1
 		return
 	if(wired)
@@ -226,12 +226,12 @@
 			return
 
 		if(C.amount < 2)
-			to_chat(user, SPAN_NOTICE("There is not enough wire to cover the [src]."))
+			to_chat(user, SPAN_NOTICE("There is not enough wire to cover [src]."))
 			return
 
 		C.use(2)
 		wired = 1
-		to_chat(user, SPAN_NOTICE("You repair some wires in the [src]."))
+		to_chat(user, SPAN_NOTICE("You repair some wires in [src]."))
 		return
 
 /obj/item/clothing/gloves/watch/emp_act(severity)
@@ -360,7 +360,7 @@
 
 	if(prob(50) && (user.a_intent == I_HURT))
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
-		user.visible_message("<span class='danger'>\The [user] slams \the [L] away with \the [src]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] slams \the [L] away with \the [src]!"))
 		var/T = get_turf(user)
 		spark(T, 3, alldirs)
 		L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)

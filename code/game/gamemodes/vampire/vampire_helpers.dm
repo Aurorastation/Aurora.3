@@ -35,7 +35,7 @@
 
 	if (!(vampire.status & VAMP_FULLPOWER) && vampire.blood_total >= 650)
 		vampire.status |= VAMP_FULLPOWER
-		to_chat(src, "<span class='notice'>You've gained full power. Some abilities now have bonus functionality, or work faster.</span>")
+		to_chat(src, SPAN_NOTICE("You've gained full power. Some abilities now have bonus functionality, or work faster."))
 
 // Runs the checks for whether or not we can use a power.
 /mob/proc/vampire_power(var/required_blood = 0, var/max_stat = 0, var/ignore_holder = 0, var/disrupt_healing = 1, var/required_vampire_blood = 0)
@@ -49,13 +49,13 @@
 		log_debug("[src] has a vampire power but is not a vampire.")
 		return
 	if (vampire.holder && !ignore_holder)
-		to_chat(src, "<span class='warning'>You cannot use this power while walking through the Veil.</span>")
+		to_chat(src, SPAN_WARNING("You cannot use this power while walking through the Veil."))
 		return
 	if (stat > max_stat)
-		to_chat(src, "<span class='warning'>You are incapacitated.</span>")
+		to_chat(src, SPAN_WARNING("You are incapacitated."))
 		return
 	if (required_blood > vampire.blood_usable)
-		to_chat(src, "<span class='warning'>You do not have enough usable blood. [required_blood] needed.</span>")
+		to_chat(src, SPAN_WARNING("You do not have enough usable blood. [required_blood] needed."))
 		return
 
 	if ((vampire.status & VAMP_HEALING) && disrupt_healing)
@@ -75,26 +75,26 @@
 	if (T.mind)
 		if (T.mind.assigned_role == "Chaplain")
 			if (notify)
-				to_chat(src, "<span class='warning'>Your connection with the Veil is not strong enough to affect a man as devout as them.</span>")
+				to_chat(src, SPAN_WARNING("Your connection with the Veil is not strong enough to affect a man as devout as them."))
 			return FALSE
 		else if (T.mind.vampire && (!(T.mind.vampire.status & VAMP_ISTHRALL) || ((T.mind.vampire.status & VAMP_ISTHRALL) && !ignore_thrall)))
 			if (notify)
-				to_chat(src, "<span class='warning'>You lack the power required to affect another creature of the Veil.</span>")
+				to_chat(src, SPAN_WARNING("You lack the power required to affect another creature of the Veil."))
 			return FALSE
 
 	if (isipc(T))
 		if (notify)
-			to_chat(src, "<span class='warning'>You lack the power interact with mechanical constructs.</span>")
+			to_chat(src, SPAN_WARNING("You lack the power interact with mechanical constructs."))
 		return FALSE
 	if(is_special_character(T) && (!(T.mind.vampire.status & VAMP_ISTHRALL)))
 		if (notify)
-			to_chat(src, "<span class='warning'>\The [T]'s mind is too strong to be affected by our powers!</span>")
+			to_chat(src, SPAN_WARNING("\The [T]'s mind is too strong to be affected by our powers!"))
 		return FALSE
 	if (account_loyalty_implant)
 		for (var/obj/item/implant/mindshield/I in T)
 			if (I.implanted)
 				if (notify)
-					to_chat(src, "<span class='warning'>You feel that [T]'s mind is protected from our powers.</span>")
+					to_chat(src, SPAN_WARNING("You feel that [T]'s mind is protected from our powers."))
 				return FALSE
 
 	return TRUE
@@ -179,7 +179,7 @@
 
 	if (prob(probablity))
 		vampire.status |= VAMP_FRENZIED
-		visible_message("<span class='danger'>A dark aura manifests itself around [src.name], their eyes turning red and their composure changing to be more beast-like.</span>", "<span class='danger'>You can resist no longer. The power of the Veil takes control over your mind: you are unable to speak or think. In people, you see nothing but prey to be feasted upon. You are reduced to an animal.</span>")
+		visible_message(SPAN_DANGER("A dark aura manifests itself around [src.name], their eyes turning red and their composure changing to be more beast-like."), SPAN_DANGER("You can resist no longer. The power of the Veil takes control over your mind: you are unable to speak or think. In people, you see nothing but prey to be feasted upon. You are reduced to an animal."))
 
 		mutations.Add(HULK)
 		update_mutations()
@@ -202,7 +202,7 @@
 
 		sight &= ~SEE_MOBS
 
-		visible_message("<span class='danger'>[src.name]'s eyes no longer glow with violent rage, their form reverting to resemble that of a normal person's.</span>", "<span class='danger'>The beast within you retreats. You gain control over your body once more.</span>")
+		visible_message(SPAN_DANGER("[src.name]'s eyes no longer glow with violent rage, their form reverting to resemble that of a normal person's."), SPAN_DANGER("The beast within you retreats. You gain control over your body once more."))
 
 		verbs -= /mob/living/carbon/human/proc/grapple
 		regenerate_icons()

@@ -79,7 +79,7 @@
 
 	if(href_list["discord_msg"])
 		if(!holder && received_discord_pm < world.time - 6000) //Worse they can do is spam IRC for 10 minutes
-			to_chat(usr, "<span class='warning'>You are no longer able to use this, it's been more then 10 minutes since an admin on Discord has responded to you</span>")
+			to_chat(usr, SPAN_WARNING("You are no longer able to use this, it's been more then 10 minutes since an admin on Discord has responded to you"))
 			return
 		if(mute_discord)
 			to_chat(usr, "<span class='warning'You cannot use this as your client has been muted from sending messages to the admins on Discord</span>")
@@ -119,7 +119,7 @@
 
 		establish_db_connection(dbcon)
 		if (!dbcon.IsConnected())
-			to_chat(src, "<span class='warning'>Action failed! Database link could not be established!</span>")
+			to_chat(src, SPAN_WARNING("Action failed! Database link could not be established!"))
 			return
 
 
@@ -127,11 +127,11 @@
 		check_query.Execute(list("id" = request_id))
 
 		if (!check_query.NextRow())
-			to_chat(src, "<span class='warning'>No request found!</span>")
+			to_chat(src, SPAN_WARNING("No request found!"))
 			return
 
 		if (ckey(check_query.item[1]) != ckey || check_query.item[2] != "new")
-			to_chat(src, "<span class='warning'>Request authentication failed!</span>")
+			to_chat(src, SPAN_WARNING("Request authentication failed!"))
 			return
 
 		var/query_contents = ""
@@ -151,7 +151,7 @@
 
 				feedback_message = "<font color='red'><b>Link request rejected!</b></font>"
 			else
-				to_chat(src, "<span class='warning'>Invalid command sent.</span>")
+				to_chat(src, SPAN_WARNING("Invalid command sent."))
 				return
 
 		var/DBQuery/update_query = dbcon.NewQuery(query_contents)
@@ -190,7 +190,7 @@
 			// Forum link from various panels.
 			if ("github")
 				if (!config.githuburl)
-					to_chat(src, "<span class='danger'>Github URL not set in the config. Unable to open the site.</span>")
+					to_chat(src, SPAN_DANGER("Github URL not set in the config. Unable to open the site."))
 				else if (alert("This will open the Github page in your browser. Are you sure?",, "Yes", "No") == "Yes")
 					if (href_list["pr"])
 						var/pr_link = "[config.githuburl]pull/[href_list["pr"]]"
@@ -259,7 +259,7 @@
 
 		if (spam_alert > 3 && !(prefs.muted & mute_type))
 			cmd_admin_mute(src.mob, mute_type, 1)
-			to_chat(src, "<span class='danger'>You have tripped the macro-trigger. An auto-mute was applied.</span>")
+			to_chat(src, SPAN_DANGER("You have tripped the macro-trigger. An auto-mute was applied."))
 			log_debug("SPAM_PROTECT: [src] tripped macro-trigger, now muted.")
 			return TRUE
 
@@ -277,13 +277,13 @@
 		log_debug("SPAM_PROTECT: [src] tripped duplicate message filter. Last message count: [last_message_count]. Message: [message]")
 
 		if(last_message_count >= SPAM_TRIGGER_AUTOMUTE)
-			to_chat(src, "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>")
+			to_chat(src, SPAN_DANGER("You have exceeded the spam filter limit for identical messages. An auto-mute was applied."))
 			cmd_admin_mute(mob, mute_type, 1)
 			log_debug("SPAM_PROTECT: [src] tripped duplicate message filter, now muted.")
 			last_message_count = 0
 			return TRUE
 		else if(last_message_count >= SPAM_TRIGGER_WARNING)
-			to_chat(src, "<span class='danger'>You are nearing the spam filter limit for identical messages.</span>")
+			to_chat(src, SPAN_DANGER("You are nearing the spam filter limit for identical messages."))
 			log_debug("SPAM_PROTECT: [src] tripped duplicate message filter, now warned.")
 			return FALSE
 	else
@@ -295,7 +295,7 @@
 	. = FALSE
 
 	if (prefs.muted & mute_type)
-		to_chat(src, "<span class='warning'>You are muted and cannot send messages.</span>")
+		to_chat(src, SPAN_WARNING("You are muted and cannot send messages."))
 		. = TRUE
 	else if (config.automute_on && !holder && length(message))
 		. = . || automute_by_time(mute_type)
@@ -342,7 +342,7 @@
 	if (LAZYLEN(config.client_blacklist_version))
 		var/client_version = "[byond_version].[byond_build]"
 		if (client_version in config.client_blacklist_version)
-			to_chat(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
+			to_chat(src, SPAN_DANGER("<b>Your version of BYOND is explicitly blacklisted from joining this server!</b>"))
 			to_chat(src, "Your current version: [client_version].")
 			to_chat(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
 			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
@@ -384,7 +384,7 @@
 		server_greeting.display_to_client(src)
 
 /client/proc/InitClient()
-	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
+	to_chat(src, SPAN_ALERT("If the title screen is black, resources are still downloading. Please be patient until the title screen appears."))
 
 	//Admin Authorisation
 	holder = admin_datums[ckey]
@@ -395,7 +395,7 @@
 	log_client_to_db()
 
 	if (byond_version < config.client_error_version)
-		to_chat(src, "<span class='danger'><b>Your version of BYOND is too old!</b></span>")
+		to_chat(src, SPAN_DANGER("<b>Your version of BYOND is too old!</b>"))
 		to_chat(src, config.client_error_message)
 		to_chat(src, "Your version: [byond_version].")
 		to_chat(src, "Required version: [config.client_error_version] or later.")
@@ -412,7 +412,7 @@
 		if (config.access_deny_new_players && player_age == -1)
 			log_access("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.", ckey = ckey)
 			message_admins("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.")
-			to_chat(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from never before seen players.</span>")
+			to_chat(src, SPAN_DANGER("Apologies, but the server is currently not accepting connections from never before seen players."))
 			del(src)
 			return 0
 
@@ -420,7 +420,7 @@
 		if (config.access_deny_new_accounts != -1 && account_age != -1 && account_age <= config.access_deny_new_accounts)
 			log_access("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.", ckey = ckey)
 			message_admins("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.")
-			to_chat(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from BYOND accounts this young.</span>")
+			to_chat(src, SPAN_DANGER("Apologies, but the server is currently not accepting connections from BYOND accounts this young."))
 			del(src)
 			return 0
 
@@ -703,7 +703,7 @@
 			if (!holder)
 				message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
 				log_admin("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
-				to_chat(src, "<span class='danger'>Usage of proxies is not permitted by the rules. You are being kicked because of this.</span>")
+				to_chat(src, SPAN_DANGER("Usage of proxies is not permitted by the rules. You are being kicked because of this."))
 				del(src)
 			else
 				message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a Proxy/VPN.")

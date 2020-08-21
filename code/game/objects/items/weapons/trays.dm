@@ -43,7 +43,7 @@
 
 	//Note: Added a robot check to all stun/weaken procs, beccause weakening a robot causes its active modules to bug out
 	if((user.is_clumsy()) && prob(50))              //What if he's a clown?
-		to_chat(M, SPAN_WARNING("You accidentally slam yourself with the [src]!"))
+		to_chat(M, SPAN_WARNING("You accidentally slam yourself with [src]!"))
 		if(!issilicon(M))
 			M.Weaken(1)
 		user.take_organ_damage(2)
@@ -107,7 +107,7 @@
 			return
 
 	else if (!issilicon(M))//No eye or head protection, tough luck!
-		to_chat(M, "<span class='danger'>You get slammed in the face with the tray!</span>")
+		to_chat(M, SPAN_DANGER("You get slammed in the face with the tray!"))
 		if(prob(33))
 			src.add_blood(M)
 			var/turf/location = H.loc
@@ -253,7 +253,7 @@
 			carrying -= I
 		cut_overlays()
 		current_weight = 0
-		usr.visible_message(SPAN_NOTICE("[usr] unloads \the [src]."), SPAN_NOTICE("You unload \the [src]."))
+		usr.visible_message("<b>[usr]</b> unloads \the [src].", SPAN_NOTICE("You unload \the [src]."))
 
 /obj/item/tray/proc/unload_at_loc(var/turf/dropspot = null, var/mob/user)
 	if(!isturf(loc) && !dropspot)//check that we're not being held by a mob

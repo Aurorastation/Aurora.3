@@ -181,10 +181,10 @@
 		if (user.hand)
 			temp = H.organs_by_name[BP_L_HAND]
 		if(temp && !temp.is_usable())
-			to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
+			to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 			return
 		if(!temp)
-			to_chat(user, "<span class='notice'>You try to use your hand, but realize it is no longer attached!</span>")
+			to_chat(user, SPAN_NOTICE("You try to use your hand, but realize it is no longer attached!"))
 			return
 	var/obj/item/storage/S
 	var/storage_depth_matters = TRUE
@@ -247,16 +247,16 @@
 							continue
 
 						success = TRUE
-						S.handle_item_insertion_deferred(I, user)	//The 1 stops the "You put the [src] into [S]" insertion message from being displayed.
+						S.handle_item_insertion_deferred(I, user)	//The 1 stops the You put [src] into [S]" insertion message from being displayed.
 						CHECK_TICK	// Because people insist on picking up huge-ass piles of stuff.
 
 					S.handle_storage_deferred(user)
 					if(success && !failure)
-						to_chat(user, "<span class='notice'>You put everything in [S].</span>")
+						to_chat(user, SPAN_NOTICE("You put everything in [S]."))
 					else if(success)
-						to_chat(user, "<span class='notice'>You put some things in [S].</span>")
+						to_chat(user, SPAN_NOTICE("You put some things in [S]."))
 					else
-						to_chat(user, "<span class='notice'>You fail to pick anything up with \the [S].</span>")
+						to_chat(user, SPAN_NOTICE("You fail to pick anything up with \the [S]."))
 
 			else if(S.can_be_inserted(src))
 				S.handle_item_insertion(src)
@@ -411,7 +411,7 @@ var/list/global/slot_flags_enumeration = list(
 		if(slot_l_store, slot_r_store)
 			if(!H.w_uniform && (slot_w_uniform in mob_equip))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
+					to_chat(H, SPAN_WARNING("You need a jumpsuit before you can attach this [name]."))
 				return 0
 			if(slot_flags & SLOT_DENYPOCKET)
 				return 0
@@ -422,11 +422,11 @@ var/list/global/slot_flags_enumeration = list(
 				return TRUE
 			if(!H.wear_suit && (slot_wear_suit in mob_equip))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>You need a suit before you can attach this [name].</span>")
+					to_chat(H, SPAN_WARNING("You need a suit before you can attach this [name]."))
 				return 0
 			if(!H.wear_suit.allowed)
 				if(!disable_warning)
-					to_chat(usr, "<span class='warning'>You somehow have a suit with no defined allowed items for suit storage, stop that.</span>")
+					to_chat(usr, SPAN_WARNING("You somehow have a suit with no defined allowed items for suit storage, stop that."))
 				return 0
 			if( !(istype(src, /obj/item/device/pda) || src.ispen() || is_type_in_list(src, H.wear_suit.allowed)) )
 				return 0
@@ -455,12 +455,12 @@ var/list/global/slot_flags_enumeration = list(
 		if(slot_tie)
 			if(!H.w_uniform && (slot_w_uniform in mob_equip))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
+					to_chat(H, SPAN_WARNING("You need a jumpsuit before you can attach this [name]."))
 				return 0
 			var/obj/item/clothing/under/uniform = H.w_uniform
 			if(LAZYLEN(uniform.accessories) && !uniform.can_attach_accessory(src))
 				if (!disable_warning)
-					to_chat(H, "<span class='warning'>You already have an accessory of this type attached to your [uniform].</span>")
+					to_chat(H, SPAN_WARNING("You already have an accessory of this type attached to your [uniform]."))
 				return 0
 	return 1
 
@@ -491,22 +491,22 @@ var/list/global/slot_flags_enumeration = list(
 	if(!usr.canmove || usr.stat || usr.restrained() || !Adjacent(usr))
 		return
 	if((!istype(usr, /mob/living/carbon)) || (istype(usr, /mob/living/carbon/brain)))//Is humanoid, and is not a brain
-		to_chat(usr, "<span class='warning'>You can't pick things up!</span>")
+		to_chat(usr, SPAN_WARNING("You can't pick things up!"))
 		return
 	if( usr.stat || usr.restrained() )//Is not asleep/dead and is not restrained
-		to_chat(usr, "<span class='warning'>You can't pick things up!</span>")
+		to_chat(usr, SPAN_WARNING("You can't pick things up!"))
 		return
 	if(I.anchored) //Object isn't anchored
-		to_chat(usr, "<span class='warning'>You can't pick that up!</span>")
+		to_chat(usr, SPAN_WARNING("You can't pick that up!"))
 		return
 	if(!usr.hand && usr.r_hand) //Right hand is not full
-		to_chat(usr, "<span class='warning'>Your right hand is full.</span>")
+		to_chat(usr, SPAN_WARNING("Your right hand is full."))
 		return
 	if(usr.hand && usr.l_hand) //Left hand is not full
-		to_chat(usr, "<span class='warning'>Your left hand is full.</span>")
+		to_chat(usr, SPAN_WARNING("Your left hand is full."))
 		return
 	if(!istype(I.loc, /turf)) //Object is on a turf
-		to_chat(usr, "<span class='warning'>You can't pick that up!</span>")
+		to_chat(usr, SPAN_WARNING("You can't pick that up!"))
 		return
 	//All checks are done, time to pick it up!
 	usr.UnarmedAttack(I)
@@ -543,11 +543,11 @@ var/list/global/slot_flags_enumeration = list(
 		for(var/obj/item/protection in list(H.head, H.wear_mask, H.glasses))
 			if(protection && (protection.body_parts_covered & EYES))
 				// you can't stab someone in the eyes wearing a mask!
-				to_chat(user, "<span class='warning'>You're going to need to remove the eye covering first.</span>")
+				to_chat(user, SPAN_WARNING("You're going to need to remove the eye covering first."))
 				return
 
 	if(!M.has_eyes())
-		to_chat(user, "<span class='warning'>You cannot locate any eyes on [M]!</span>")
+		to_chat(user, SPAN_WARNING("You cannot locate any eyes on [M]!"))
 		return
 
 	admin_attack_log(user, M, "attacked [key_name(M)] with [src]", "was attacked by [key_name(user)] using \a [src]", "used \a [src] to eyestab")
@@ -559,7 +559,7 @@ var/list/global/slot_flags_enumeration = list(
 	//if((CLUMSY in user.mutations) && prob(50))
 	//	M = user
 		/*
-		to_chat(M, "<span class='warning'>You stab yourself in the eye.</span>")
+		to_chat(M, SPAN_WARNING("You stab yourself in the eye."))
 		M.sdisabilities |= BLIND
 		M.weakened += 4
 		M.adjustBruteLoss(10)
@@ -570,30 +570,30 @@ var/list/global/slot_flags_enumeration = list(
 
 		if(H != user)
 			M.visible_message(
-				"<span class='danger'>[user] stabs [M] in the [eyes.singular_name] with [src]!</span>",
-				"<span class='danger'>[user] stabs you in the [eyes.singular_name] with [src]!</span>"
+				SPAN_DANGER("[user] stabs [M] in the [eyes.singular_name] with [src]!"),
+				SPAN_DANGER("[user] stabs you in the [eyes.singular_name] with [src]!")
 			)
 		else
 			user.visible_message( \
-				"<span class='danger'>[user] stabs themself in the [eyes.singular_name] with [src]!</span>", \
-				"<span class='danger'>You stab yourself in the [eyes.singular_name] with [src]!</span>" \
+				SPAN_DANGER("[user] stabs themself in the [eyes.singular_name] with [src]!"), \
+				SPAN_DANGER("You stab yourself in the [eyes.singular_name] with [src]!") \
 			)
 
 		eyes.damage += rand(3,4)
 		if(eyes.damage >= eyes.min_bruised_damage)
 			if(M.stat != 2)
 				if(eyes.robotic <= 1) //robot eyes bleeding might be a bit silly
-					to_chat(M, "<span class='danger'>Your eyes start to bleed profusely!</span>")
+					to_chat(M, SPAN_DANGER("Your eyes start to bleed profusely!"))
 			if(prob(50))
 				if(M.stat != 2)
-					to_chat(M, "<span class='warning'>You drop what you're holding and clutch at your eyes!</span>")
+					to_chat(M, SPAN_WARNING("You drop what you're holding and clutch at your eyes!"))
 					M.drop_item()
 				M.eye_blurry += 10
 				M.Paralyse(1)
 				M.Weaken(4)
 			if (eyes.damage >= eyes.min_broken_damage)
 				if(M.stat != 2)
-					to_chat(M, "<span class='warning'>You go blind!</span>")
+					to_chat(M, SPAN_WARNING("You go blind!"))
 		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 		if(affecting.take_damage(7))
 			M:UpdateDamageIcon()
@@ -725,7 +725,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				M.client.pixel_x = -viewoffset
 				M.client.pixel_y = 0
 
-		M.visible_message("<b>[M]</b> peers through \the [zoomdevicename ? "[zoomdevicename] of \the [src.name]" : "[src.name]"].")
+		M.visible_message("<b>[M]</b> peers through \the [zoomdevicename ? "[zoomdevicename] of [src]" : "[src.name]"].")
 
 	else
 		M.client.view = world.view
@@ -737,7 +737,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		M.client.pixel_y = 0
 
 		if(!cannotzoom)
-			M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from \the [src.name]" : "<b>[M]</b> lowers \the [src.name]"].")
+			M.visible_message("[zoomdevicename ? "<b>[M]</b> looks up from [src]" : "<b>[M]</b> lowers [src]"].")
 
 /obj/item/proc/pwr_drain()
 	return 0 // Process Kill
@@ -805,7 +805,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			hit_mobs++
 
 	if(hit_mobs)
-		to_chat(user, "<span class='danger'>You used \the [src] to attack [hit_mobs] other target\s!</span>")
+		to_chat(user, SPAN_DANGER("You used \the [src] to attack [hit_mobs] other target\s!"))
 	cleaving = FALSE
 
 // Used for non-adjacent melee attacks with specific weapons capable of reaching more than one tile.

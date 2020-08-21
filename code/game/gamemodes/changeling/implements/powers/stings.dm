@@ -17,7 +17,7 @@
 	if(!changeling_power(required_chems))
 		return
 	if(T.isSynthetic())
-		to_chat(src, "<span class='warning'>[T] is not compatible with our biology.</span>")
+		to_chat(src, SPAN_WARNING("[T] is not compatible with our biology."))
 		return
 
 	changeling.chem_charges -= required_chems
@@ -26,16 +26,16 @@
 	ADD_VERB_IN(src, 10, verb_path)
 
 	if(stealthy)
-		to_chat(src, "<span class='notice'>We stealthily sting [T].</span>")
-		to_chat(T, "<span class='warning'>You feel a tiny prick.</span>")
+		to_chat(src, SPAN_NOTICE("We stealthily sting [T]."))
+		to_chat(T, SPAN_WARNING("You feel a tiny prick."))
 	else
-		src.visible_message(pick("<span class='danger'>[src]'s eyes balloon and burst out in a welter of blood, burrowing into [T]!</span>",
-								"<span class='danger'>[src]'s arm rapidly shifts into a giant scorpion-stinger and stabs into [T]!</span>",
-								"<span class='danger'>[src]'s throat lengthens and twists before vomiting a chunky red spew all over [T]!</span>",
-								"<span class='danger'>[src]'s tongue stretches an impossible length and stabs into [T]!</span>",
-								"<span class='danger'>[src] sneezes a cloud of shrieking spiders at [T]!</span>",
-								"<span class='danger'>[src] erupts a grotesque tail and impales [T]!</span>",
-								"<span class='danger'>[src]'s chin skin bulges and tears, launching a bone-dart at [T]!</span>"))
+		src.visible_message(pick(SPAN_DANGER("[src]'s eyes balloon and burst out in a welter of blood, burrowing into [T]!"),
+								SPAN_DANGER("[src]'s arm rapidly shifts into a giant scorpion-stinger and stabs into [T]!"),
+								SPAN_DANGER("[src]'s throat lengthens and twists before vomiting a chunky red spew all over [T]!"),
+								SPAN_DANGER("[src]'s tongue stretches an impossible length and stabs into [T]!"),
+								SPAN_DANGER("[src] sneezes a cloud of shrieking spiders at [T]!"),
+								SPAN_DANGER("[src] erupts a grotesque tail and impales [T]!"),
+								SPAN_DANGER("[src]'s chin skin bulges and tears, launching a bone-dart at [T]!")))
 
 	if(!T.mind || !T.mind.changeling)
 		return T	//T will be affected by the sting
@@ -76,7 +76,7 @@
 	var/mob/living/carbon/T = changeling_sting(20, /mob/proc/changeling_blind_sting, stealthy = FALSE)
 	if(!T)
 		return FALSE
-	to_chat(T, "<span class='danger'>Your vision suddenly goes black!</span>")
+	to_chat(T, SPAN_DANGER("Your vision suddenly goes black!"))
 	T.disabilities |= NEARSIGHTED
 	spawn(300)
 		T.disabilities &= ~NEARSIGHTED
@@ -93,7 +93,7 @@
 	var/mob/living/carbon/T = changeling_sting(5, /mob/proc/changeling_deaf_sting, stealthy = FALSE)
 	if(!T)
 		return FALSE
-	to_chat(T, "<span class='danger'>Your ears pop and begin ringing loudly!</span>")
+	to_chat(T, SPAN_DANGER("Your ears pop and begin ringing loudly!"))
 	T.sdisabilities |= DEAF
 	spawn(300)
 		T.sdisabilities &= ~DEAF
@@ -108,7 +108,7 @@
 	var/mob/living/carbon/T = changeling_sting(30, /mob/proc/changeling_paralysis_sting, stealthy = FALSE)
 	if(!T)
 		return FALSE
-	to_chat(T, "<span class='danger'>Your muscles begin to painfully tighten.</span>")
+	to_chat(T, SPAN_DANGER("Your muscles begin to painfully tighten."))
 	T.Weaken(20)
 	feedback_add_details("changeling_powers", "PS")
 	return TRUE
@@ -138,13 +138,13 @@
 	if(!T)
 		return FALSE
 	if((HUSK in T.mutations) || (!ishuman(T) && !issmall(T)))
-		to_chat(src, "<span class='warning'>Our sting appears ineffective against its DNA.</span>")
+		to_chat(src, SPAN_WARNING("Our sting appears ineffective against its DNA."))
 		return FALSE
 	if(islesserform(T))
-		to_chat(src, "<span class='warning'>Our sting appears ineffective against this creature.</span>")
+		to_chat(src, SPAN_WARNING("Our sting appears ineffective against this creature."))
 		return FALSE
 	if(T.stat != DEAD)
-		to_chat(src, "<span class='warning'>Our sting can only be used against dead targets.</span>")
+		to_chat(src, SPAN_WARNING("Our sting can only be used against dead targets."))
 		return FALSE
 
 	T.handle_changeling_transform(chosen_dna)
@@ -160,7 +160,7 @@
 	var/mob/living/carbon/T = changeling_sting(40, /mob/proc/changeling_death_sting, stealthy = FALSE)
 	if(!T)
 		return FALSE
-	to_chat(T, "<span class='danger'>You feel a small prick and your chest becomes tight.</span>")
+	to_chat(T, SPAN_DANGER("You feel a small prick and your chest becomes tight."))
 	T.silent = 10
 	T.Paralyse(10)
 	T.make_jittery(1000)
@@ -200,7 +200,7 @@
 	if(!changeling)
 		return FALSE
 	changeling.chem_charges -= 10
-	to_chat(src, "<span class='notice'>Your throat adjusts to launch the sting.</span>")
+	to_chat(src, SPAN_NOTICE("Your throat adjusts to launch the sting."))
 	changeling.sting_range = 2
 	src.verbs -= /mob/proc/changeling_boost_range
 	ADD_VERB_IN(src, 5, /mob/proc/changeling_boost_range)

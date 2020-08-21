@@ -35,11 +35,11 @@
 			ping( "\The [src] pings, \"Successfully imported incident report!\"" )
 			menu_screen = "incident_report"
 		else
-			to_chat(user, "<span class='alert'>Could not import incident report.</span>")
+			to_chat(user, SPAN_ALERT("Could not import incident report."))
 
 		qdel( O )
 	else if( istype( O, /obj/item/paper ) && menu_screen == "import_incident" )
-		to_chat(user, "<span class='alert'>This console only accepts authentic incident reports. Copies are invalid.</span>")
+		to_chat(user, SPAN_ALERT("This console only accepts authentic incident reports. Copies are invalid."))
 
 	..()
 
@@ -385,7 +385,7 @@
 
 /obj/machinery/computer/sentencing/proc/render_guilty( var/mob/living/user )
 	if( !incident )
-		to_chat(user, "<span class='alert'>There is no active case!</span>")
+		to_chat(user, SPAN_ALERT("There is no active case!"))
 		return
 
 	if( !istype( user ))
@@ -394,7 +394,7 @@
 	var/error = print_incident_report()
 
 	if( error )
-		to_chat(user, "<span class='alert'>[error]</span>")
+		to_chat(user, SPAN_ALERT("[error]"))
 		return
 
 	print_incident_overview(incident.renderGuilty(user, 0))
@@ -409,7 +409,7 @@
 
 /obj/machinery/computer/sentencing/proc/render_guilty_fine( var/mob/living/user )
 	if(!incident)
-		to_chat(user, "<span class='alert'>There is no active case!</span>")
+		to_chat(user, SPAN_ALERT("There is no active case!"))
 		return
 
 	if(!istype(user))
@@ -509,9 +509,9 @@
 				return
 			var/number = input( usr, "Enter a number between [incident.getMinBrigSentence()] and [incident.getMaxBrigSentence()] minutes", "Brig Sentence", 0) as num
 			if( number < incident.getMinBrigSentence() )
-				to_chat(usr, "<span class='alert'>The entered sentence was less than the minimum sentence!</span>")
+				to_chat(usr, SPAN_ALERT("The entered sentence was less than the minimum sentence!"))
 			else if( number > incident.getMaxBrigSentence() )
-				to_chat(usr, "<span class='alert'>The entered sentence was greater than the maximum sentence!</span>")
+				to_chat(usr, SPAN_ALERT("The entered sentence was greater than the maximum sentence!"))
 			else
 				incident.brig_sentence = number
 
@@ -520,9 +520,9 @@
 				return
 			var/number = input( usr, "Enter a number between [incident.getMinFine()] and [incident.getMaxFine()] credits", "Fine", 0) as num
 			if( number < incident.getMinFine() )
-				to_chat(usr, "<span class='alert'>The entered sentence was less than the minimum sentence!</span>")
+				to_chat(usr, SPAN_ALERT("The entered sentence was less than the minimum sentence!"))
 			else if( number > incident.getMaxFine() )
-				to_chat(usr, "<span class='alert'>The entered sentence was greater than the maximum sentence!</span>")
+				to_chat(usr, SPAN_ALERT("The entered sentence was greater than the maximum sentence!"))
 			else
 				incident.fine = number
 
@@ -530,7 +530,7 @@
 			var/error = print_incident_report( 0 )
 
 			if( error )
-				to_chat(usr, "<span class='alert'>[error]</span>")
+				to_chat(usr, SPAN_ALERT("[error]"))
 			else
 				incident = null
 				menu_screen = "main_menu"
@@ -544,7 +544,7 @@
 					if( !error )
 						ping( "\The [src] pings, \"[title] [C.mob] verified.\"" )
 					else
-						to_chat(usr, "<span class='alert'>\The [src] buzzes, \"[error]\"</span>")
+						to_chat(usr, SPAN_ALERT("\The [src] buzzes, \"[error]\""))
 			else
 				ping( "\The [src] pings, \"[title] cleared.\"" )
 				incident.arbiters[title] = null

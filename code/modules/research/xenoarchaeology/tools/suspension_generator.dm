@@ -32,14 +32,14 @@
 				M.weakened = max(M.weakened, 3)
 				cell.charge -= power_use
 				if(prob(5))
-					to_chat(M, "<span class='notice'>[pick("You feel tingly.","You feel like floating.","It is hard to speak.","You can barely move.")]</span>")
+					to_chat(M, SPAN_NOTICE("[pick("You feel tingly.","You feel like floating.","It is hard to speak.","You can barely move.")]"))
 
 		if(field_type == "iron")
 			for(var/mob/living/silicon/M in T)
 				M.weakened = max(M.weakened, 3)
 				cell.charge -= power_use
 				if(prob(5))
-					to_chat(M, "<span class='notice'>[pick("You feel tingly.","You feel like floating.","It is hard to speak.","You can barely move.")]</span>")
+					to_chat(M, SPAN_NOTICE("[pick("You feel tingly.","You feel like floating.","It is hard to speak.","You can barely move.")]"))
 
 		for(var/obj/item/I in T)
 			if(!suspension_field.contents.len)
@@ -51,7 +51,7 @@
 			M.weakened = max(M.weakened, 3)
 			cell.charge -= power_use
 			if(prob(5))
-				to_chat(M, "<span class='notice'>[pick("You feel tingly.","You feel like floating.","It is hard to speak.","You can barely move.")]</span>")
+				to_chat(M, SPAN_NOTICE("[pick("You feel tingly.","You feel like floating.","It is hard to speak.","You can barely move.")]"))
 
 		if(cell.charge <= 0)
 			deactivate()
@@ -121,7 +121,7 @@
 				if(anchored)
 					activate()
 				else
-					to_chat(usr, "<span class='warning'>You are unable to activate [src] until it is properly secured on the ground.</span>")
+					to_chat(usr, SPAN_WARNING("You are unable to activate [src] until it is properly secured on the ground."))
 		else
 			deactivate()
 	if(href_list["select_field"])
@@ -132,9 +132,9 @@
 			usr.drop_from_inventory(I,src)
 			auth_card = I
 			if(attempt_unlock(I, usr))
-				to_chat(usr, "<span class='info'>You insert [I], the console flashes \'<i>Access granted.</i>\'</span>")
+				to_chat(usr, SPAN_INFO("You insert [I], the console flashes \'<i>Access granted.</i>\'"))
 			else
-				to_chat(usr, "<span class='warning'>You insert [I], the console flashes \'<i>Access denied.</i>\'</span>")
+				to_chat(usr, SPAN_WARNING("You insert [I], the console flashes \'<i>Access denied.</i>\'"))
 	else if(href_list["ejectcard"])
 		if(auth_card)
 			if(ishuman(usr))
@@ -163,7 +163,7 @@
 
 		icon_state = "suspension0"
 		cell = null
-		to_chat(user, "<span class='info'>You remove the power cell</span>")
+		to_chat(user, SPAN_INFO("You remove the power cell"))
 
 /obj/machinery/suspension_gen/attackby(obj/item/W as obj, mob/user as mob)
 	if (W.isscrewdriver())
@@ -172,7 +172,7 @@
 				screwed = 0
 			else
 				screwed = 1
-			to_chat(user, "<span class='info'>You [screwed ? "screw" : "unscrew"] the battery panel.</span>")
+			to_chat(user, SPAN_INFO("You [screwed ? "screw" : "unscrew"] the battery panel."))
 	else if (W.iscrowbar())
 		if(!locked)
 			if(!screwed)
@@ -181,45 +181,45 @@
 						open = 0
 					else
 						open = 1
-					to_chat(user, "<span class='info'>You crowbar the battery panel [open ? "open" : "in place"].</span>")
+					to_chat(user, SPAN_INFO("You crowbar the battery panel [open ? "open" : "in place"]."))
 					icon_state = "suspension[open ? (cell ? "1" : "0") : "2"]"
 				else
-					to_chat(user, "<span class='warning'>[src]'s safety locks are engaged, shut it down first.</span>")
+					to_chat(user, SPAN_WARNING("[src]'s safety locks are engaged, shut it down first."))
 			else
-				to_chat(user, "<span class='warning'>Unscrew [src]'s battery panel first.</span>")
+				to_chat(user, SPAN_WARNING("Unscrew [src]'s battery panel first."))
 		else
-			to_chat(user, "<span class='warning'>[src]'s security locks are engaged.</span>")
+			to_chat(user, SPAN_WARNING("[src]'s security locks are engaged."))
 	else if (W.iswrench())
 		if(!suspension_field)
 			if(anchored)
 				anchored = 0
 			else
 				anchored = 1
-			to_chat(user, "<span class='info'>You wrench the stabilising legs [anchored ? "into place" : "up against the body"].</span>")
+			to_chat(user, SPAN_INFO("You wrench the stabilising legs [anchored ? "into place" : "up against the body"]."))
 			if(anchored)
 				desc = "It is resting securely on four stubby legs."
 			else
 				desc = "It has stubby legs bolted up against it's body for stabilising."
 		else
-			to_chat(user, "<span class='warning'>You are unable to secure [src] while it is active!</span>")
+			to_chat(user, SPAN_WARNING("You are unable to secure [src] while it is active!"))
 	else if (istype(W, /obj/item/cell))
 		if(open)
 			if(cell)
-				to_chat(user, "<span class='warning'>There is a power cell already installed.</span>")
+				to_chat(user, SPAN_WARNING("There is a power cell already installed."))
 			else
 				user.drop_from_inventory(W,src)
 				cell = W
-				to_chat(user, "<span class='info'>You insert the power cell.</span>")
+				to_chat(user, SPAN_INFO("You insert the power cell."))
 				icon_state = "suspension1"
 	else if(istype(W, /obj/item/card))
 		var/obj/item/card/I = W
 		if(!auth_card)
 			if(attempt_unlock(I, user))
-				to_chat(user, "<span class='info'>You swipe [I], the console flashes \'<i>Access granted.</i>\'</span>")
+				to_chat(user, SPAN_INFO("You swipe [I], the console flashes \'<i>Access granted.</i>\'"))
 			else
-				to_chat(user, "<span class='warning'>You swipe [I], console flashes \'<i>Access denied.</i>\'</span>")
+				to_chat(user, SPAN_WARNING("You swipe [I], console flashes \'<i>Access denied.</i>\'"))
 		else
-			to_chat(user, "<span class='warning'>Remove [auth_card] first.</span>")
+			to_chat(user, SPAN_WARNING("Remove [auth_card] first."))
 
 /obj/machinery/suspension_gen/proc/attempt_unlock(var/obj/item/card/C, var/mob/user)
 	if(!open)
@@ -246,7 +246,7 @@
 			success = 1
 			for(var/mob/living/carbon/C in T)
 				C.weakened += 5
-				C.visible_message("<span class='notice'>\icon[C] [C] begins to float in the air!","You feel tingly and light, but it is difficult to move.</span>")
+				C.visible_message(SPAN_NOTICE("\icon[C] [C] begins to float in the air!"),"You feel tingly and light, but it is difficult to move.")
 		if("nitrogen")
 			success = 1
 			//
@@ -269,19 +269,19 @@
 			success = 1
 			for(var/mob/living/silicon/R in T)
 				R.weakened += 5
-				R.visible_message("<span class='notice'>\icon[R] [R] begins to float in the air!","You feel tingly and light, but it is difficult to move.</span>")
+				R.visible_message(SPAN_NOTICE("\icon[R] [R] begins to float in the air!"),"You feel tingly and light, but it is difficult to move.")
 			//
 	//in case we have a bad field type
 	if(!success)
 		return
 
 	for(var/mob/living/simple_animal/C in T)
-		C.visible_message("<span class='notice'>\icon[C] [C] begins to float in the air!","You feel tingly and light, but it is difficult to move.</span>")
+		C.visible_message(SPAN_NOTICE("\icon[C] [C] begins to float in the air!"),"You feel tingly and light, but it is difficult to move.")
 		C.weakened += 5
 
 	suspension_field = new(T)
 	suspension_field.field_type = field_type
-	src.visible_message("<span class='notice'>\icon[src] [src] activates with a low hum.</span>")
+	src.visible_message(SPAN_NOTICE("\icon[src] [src] activates with a low hum."))
 	icon_state = "suspension3"
 
 	for(var/obj/item/I in T)
@@ -291,7 +291,7 @@
 	if(collected)
 		suspension_field.icon_state = "energynet"
 		suspension_field.add_overlay("shield2")
-		src.visible_message("<span class='notice'>\icon[suspension_field] [suspension_field] gently absconds [collected > 1 ? "something" : "several things"].</span>")
+		src.visible_message(SPAN_NOTICE("\icon[suspension_field] [suspension_field] gently absconds [collected > 1 ? "something" : "several things"]."))
 	else
 		if(istype(T,/turf/simulated/mineral) || istype(T,/turf/simulated/wall))
 			suspension_field.icon_state = "shieldsparkles"
@@ -303,10 +303,10 @@
 	var/turf/T = get_turf(suspension_field)
 
 	for(var/mob/M in T)
-		to_chat(M, "<span class='info'>You no longer feel like floating.</span>")
+		to_chat(M, SPAN_INFO("You no longer feel like floating."))
 		M.weakened = min(M.weakened, 3)
 
-	src.visible_message("<span class='notice'>\icon[src] [src] deactivates with a gentle shudder.</span>")
+	src.visible_message(SPAN_NOTICE("\icon[src] [src] deactivates with a gentle shudder."))
 	qdel(suspension_field)
 	suspension_field = null
 	icon_state = "suspension2"

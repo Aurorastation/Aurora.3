@@ -23,7 +23,7 @@
 		return..()
 
 	if(M.has_brain_worms()) //Borer stuff - RR
-		to_chat(user, "<span class='warning'>This being is corrupted by an alien intelligence and cannot be soul trapped.</span>")
+		to_chat(user, SPAN_WARNING("This being is corrupted by an alien intelligence and cannot be soul trapped."))
 		return..()
 
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their soul captured with [src.name] by [user.name] ([user.ckey])</font>")
@@ -47,7 +47,7 @@
 		dat += "<A href='byond://?src=\ref[src];choice=Summon'>Summon Shade</A><br>"
 		dat += "<i>This will summon the spirit of [A.name] in a pure energy form. Be cautious, for they will be weak without a protective construct to house them.</i><hr>"
 	dat += "<a href='byond://?src=\ref[src];choice=Close'>Close</a>"
-	
+
 	var/datum/browser/soulstone_win = new(user, "soulstone", capitalize_first_letters(name))
 	soulstone_win.set_content(dat)
 	soulstone_win.add_stylesheet("cult", 'html/browser/cult.css')

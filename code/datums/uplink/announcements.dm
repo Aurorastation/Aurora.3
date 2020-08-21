@@ -49,7 +49,7 @@
 		random_record = new(user)
 
 	var/datum/record/general/record = random_record.Copy()
-	
+
 	if(I)
 		record.age = I.age
 		record.rank = I.assignment
@@ -95,7 +95,7 @@
 			cooldown = 0
 		return 1
 	else
-		to_chat(loc, "<span class='danger'>This service is on cooldown! Try again in a bit!</span>")
+		to_chat(loc, SPAN_DANGER("This service is on cooldown! Try again in a bit!"))
 		return 0
 
 /datum/uplink_item/abstract/announcements/fake_radiation
@@ -113,5 +113,5 @@
 			cooldown = 0
 		return 1
 	else
-		to_chat(loc, "<span class='danger'>This service is on cooldown! Try again in a bit!</span>")
+		to_chat(loc, SPAN_DANGER("This service is on cooldown! Try again in a bit!"))
 		return 0

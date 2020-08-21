@@ -53,15 +53,15 @@
 				if(inside)
 					inside.forceMove(get_turf(src))
 					for(var/mob/M in viewers(world.view, user))
-						M.show_message("<span class='info'>[src] burns away revealing [inside].</span>",1)
+						M.show_message(SPAN_INFO("[src] burns away revealing [inside]."),1)
 				else
 					for(var/mob/M in viewers(world.view, user))
-						M.show_message("<span class='info'>[src] burns away into nothing.</span>",1)
+						M.show_message(SPAN_INFO("[src] burns away into nothing."),1)
 				qdel(src)
 				w.remove_fuel(4)
 			else
 				for(var/mob/M in viewers(world.view, user))
-					M.show_message("<span class='info'>A few sparks fly off [src], but nothing else happens.</span>",1)
+					M.show_message(SPAN_INFO("A few sparks fly off [src], but nothing else happens."),1)
 				w.remove_fuel(1)
 			return
 
@@ -72,7 +72,7 @@
 
 	..()
 	if(prob(33))
-		src.visible_message("<span class='warning'>[src] crumbles away, leaving some dust and gravel behind.</span>")
+		src.visible_message(SPAN_WARNING("[src] crumbles away, leaving some dust and gravel behind."))
 		qdel(src)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

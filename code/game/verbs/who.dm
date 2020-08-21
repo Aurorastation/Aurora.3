@@ -168,7 +168,7 @@
 				num_cciaa_online++
 
 	if(discord_bot && discord_bot.active)
-		to_chat(src, "<span class='info'>Adminhelps are also sent to Discord. If no admins are available in game try anyway and an admin on Discord may see it and respond.</span>")
+		to_chat(src, SPAN_INFO("Adminhelps are also sent to Discord. If no admins are available in game try anyway and an admin on Discord may see it and respond."))
 	msg = "<b>Current Admins ([num_admins_online]):</b><br>" + msg
 
 	if(config.show_mods)

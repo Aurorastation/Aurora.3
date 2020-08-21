@@ -34,7 +34,7 @@
 /obj/item/computer_hardware/nano_printer/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/paper))
 		if(stored_paper >= max_paper)
-			to_chat(user, SPAN_WARNING("You try to add \the [W] to the [src], but its paper bin is full."))
+			to_chat(user, SPAN_WARNING("You try to add \the [W] to [src], but its paper bin is full."))
 			return
 		to_chat(user, SPAN_NOTICE("You insert \the [W] into [src]."))
 		qdel(W)

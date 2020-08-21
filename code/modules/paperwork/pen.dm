@@ -113,12 +113,12 @@ Pen exclusive commands
 	else
 		icon_state = "pen_[colour]"
 
-	to_chat(user, "<span class='notice'>Changed color to '[colour].'</span>")
+	to_chat(user, SPAN_NOTICE("Changed color to '[colour].'"))
 
 /obj/item/pen/attack(mob/M as mob, mob/user as mob, var/target_zone)
 	if(!ismob(M))
 		return
-	to_chat(user, "<span class='warning'>You stab [M] with \the [src].</span>")
+	to_chat(user, SPAN_WARNING("You stab [M] with \the [src]."))
 //	to_chat(M, "\red You feel a tiny prick!" //That's a whole lot of meta!)
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been stabbed with [name]  by [user.name] ([user.ckey])</font>")
 	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [name] to stab [M.name] ([M.ckey])</font>")
@@ -284,7 +284,7 @@ Pen exclusive commands
 				colour = COLOR_WHITE
 			else
 				colour = COLOR_BLACK
-		to_chat(usr, "<span class='info'>You select the [lowertext(selected_type)] ink container.</span>")
+		to_chat(usr, SPAN_INFO("You select the [lowertext(selected_type)] ink container."))
 
 
 /*

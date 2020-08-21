@@ -47,13 +47,13 @@
 			user.drop_item()
 			W.forceMove(src)
 			diode = W
-			to_chat(user, "<span class='notice'>You install a [diode.name] in [src].</span>")
+			to_chat(user, SPAN_NOTICE("You install a [diode.name] in [src]."))
 		else
-			to_chat(user, "<span class='notice'>[src] already has a laser diode.</span>")
+			to_chat(user, SPAN_NOTICE("[src] already has a laser diode."))
 
 	else if(W.isscrewdriver())
 		if(diode)
-			to_chat(user, "<span class='notice'>You remove the [diode.name] from the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You remove the [diode.name] from [src]."))
 			diode.forceMove(get_turf(user))
 			diode = null
 			return
@@ -69,10 +69,10 @@
 	if( !(user in (viewers(7,target))) )
 		return
 	if (!diode)
-		to_chat(user, "<span class='notice'>You point [src] at [target], but nothing happens!</span>")
+		to_chat(user, SPAN_NOTICE("You point [src] at [target], but nothing happens!"))
 		return
 	if (!user.IsAdvancedToolUser())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
 	add_fingerprint(user)
@@ -101,7 +101,7 @@
 				C.eye_blind = 3
 			else
 				outmsg = "<span class='notice'>You fail to blind [C] with [src]</span>"
-	
+
 	//laser pointer image
 	icon_state = "pointer_[pointer_icon_state]"
 	var/list/showto = list()
@@ -115,7 +115,7 @@
 	if(outmsg)
 		to_chat(user, outmsg)
 	else
-		to_chat(user, "<span class='notice'>You point [src] at [target].</span>")
+		to_chat(user, SPAN_NOTICE("You point [src] at [target]."))
 
 
 	flick_overlay(I, showto, 10)

@@ -35,4 +35,4 @@
 	if(istype(L))
 		if(prob(25))
 			L.Weaken(3)
-			L.visible_message("<span class='danger'>\The [src] knocks down \the [L]!</span>")
+			L.visible_message(SPAN_DANGER("\The [src] knocks down \the [L]!"))

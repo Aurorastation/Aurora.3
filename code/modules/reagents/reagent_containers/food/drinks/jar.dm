@@ -15,10 +15,10 @@
 
 /obj/item/reagent_containers/glass/beaker/jar/attack_self(var/mob/user)
 	if(reagents.total_volume > 0)
-		to_chat(user, "<span class='warning'>You need to empty \the [src] first!</span>")
+		to_chat(user, SPAN_WARNING("You need to empty \the [src] first!"))
 		return
 	else
-		to_chat(user, "<span class='notice'>You put the lid on \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You put the lid on \the [src]."))
 		user.put_in_hands(new /obj/item/glass_jar) //found in glassjar.dm
 		qdel(src)
 	return

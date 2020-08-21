@@ -85,4 +85,4 @@
 	if(..()) // If the above code succeeds, do this below.
 		if(prob(2))
 			spark(src, 3)
-			visible_message("<span class='warning'>\The [assembly] makes some sparks!</span>")
+			visible_message(SPAN_WARNING("\The [assembly] makes some sparks!"))

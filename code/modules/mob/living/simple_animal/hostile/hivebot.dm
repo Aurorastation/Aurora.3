@@ -600,7 +600,7 @@
 				if(I.matter)
 					busy = 1
 					update_icon()
-					src.visible_message(SPAN_NOTICE("[src] begins to harvest \the [I]."))
+					src.visible_message("<b>[src]</b> begins to harvest \the [I].")
 					if(do_after(src, 32))
 						src.visible_message(SPAN_WARNING("[src] harvests \the [I]."))
 						qdel(I)
@@ -610,7 +610,7 @@
 
 				if(istype(O, /obj/item/storage))
 					var/obj/item/storage/S = O
-					src.visible_message(SPAN_NOTICE("[src] begins to rip apart \the [S]."))
+					src.visible_message("<b>[src]</b> begins to rip apart \the [S].")
 					busy = 2
 					update_icon()
 					if(do_after(src, 32))
@@ -623,7 +623,7 @@
 
 		if(istype(O, /obj/structure/table))
 			var/obj/structure/table/TB = O
-			src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [TB]."))
+			src.visible_message("<b>[src]</b> starts to dismantle \the [TB].")
 			busy = 2
 			update_icon()
 			if(do_after(src, 48))
@@ -636,7 +636,7 @@
 		if(istype(O, /obj/structure/bed))
 			var/obj/structure/bed/B = O
 			if(B.can_dismantle)
-				src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [B]."))
+				src.visible_message("<b>[src]</b> starts to dismantle \the [B].")
 				busy = 2
 				update_icon()
 				if(do_after(src, 48))
@@ -649,7 +649,7 @@
 
 		if(istype(O, /obj/item/stool))
 			var/obj/item/stool/S = O
-			src.visible_message(SPAN_NOTICE("[src] starts to dismantle \the [S]."))
+			src.visible_message("<b>[src]</b> starts to dismantle \the [S].")
 			busy = 2
 			update_icon()
 			if(do_after(src, 32))
@@ -660,7 +660,7 @@
 			return
 
 		if(istype(O, /obj/effect/decal/cleanable/blood/gibs/robot))
-			src.visible_message(SPAN_NOTICE("[src] starts to recycle \the [O]."))
+			src.visible_message("<b>[src]</b> starts to recycle \the [O].")
 			busy = 1
 			update_icon()
 			if(do_after(src, 48))
@@ -674,7 +674,7 @@
 			var/turf/simulated/floor/T = src.loc
 			if(T.is_plating())
 				var/obj/structure/cable/C = O
-				src.visible_message(SPAN_NOTICE("[src] starts ripping up \the [C]."))
+				src.visible_message("<b>[src]</b> starts ripping up \the [C].")
 				busy = 2
 				update_icon()
 				if(do_after(src, 32))
@@ -690,7 +690,7 @@
 	if(istype(src.loc, /turf/simulated/floor))
 		var/turf/simulated/floor/T = src.loc
 		if(!T.is_plating())
-			src.visible_message(SPAN_NOTICE("[src] starts ripping up \the [T]."))
+			src.visible_message("<b>[src]</b> starts ripping up \the [T].")
 			busy = 2
 			update_icon()
 			if(do_after(src, 32))
@@ -744,7 +744,7 @@
 	for(var/obj/O in T)
 		if(istype(O, /obj/structure/girder))
 			var/obj/structure/girder/G = O
-			src.visible_message(SPAN_NOTICE("[src] starts to tear \the [O] apart."))
+			src.visible_message("<b>[src]</b> starts to tear \the [O] apart.")
 			busy = 1
 			if(do_after(src, 32))
 				src.do_attack_animation(G)
@@ -756,7 +756,7 @@
 		if((istype(O, /obj/machinery/door/firedoor) && O.density) || (istype(O, /obj/machinery/door/airlock) && O.density) || istype(O, /obj/machinery/door/blast) && O.density)
 			var/obj/machinery/door/D = O
 			if(D.stat & BROKEN)
-				src.visible_message(SPAN_NOTICE("[src] starts to tear \the [D] open."))
+				src.visible_message("<b>[src]</b> starts to tear \the [D] open.")
 				busy = 1
 				if(do_after(src, 48))
 					src.visible_message(SPAN_WARNING("[src] tears \the [D] apart!"))
@@ -799,7 +799,7 @@
 
 		if(istype(O, /obj/structure/reagent_dispensers))
 			var/obj/structure/reagent_dispensers/RD = O
-			src.visible_message(SPAN_NOTICE("[src] starts taking apart \the [RD]."))
+			src.visible_message("<b>[src]</b> starts taking apart \the [RD].")
 			busy = 1
 			if(do_after(src, 48))
 				src.do_attack_animation(RD)

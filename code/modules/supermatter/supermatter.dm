@@ -213,7 +213,7 @@
 		soundloop.volume = min(100, (round(power/7)+1))
 	else
 		soundloop.volume = 0
-	
+
 	if(damage > explosion_point)
 		if(!exploded)
 			if(!istype(L, /turf/space))
@@ -309,7 +309,7 @@
 		if(l.is_diona())
 			l.adjustToxLoss(-rads)
 			if(last_message_time + 800 < world.time) // Not to spam message
-				to_chat(l, "<span class='notice'>You can feel an extreme level of energy which flows throught your body and makes you regenerate very fast.</span>")
+				to_chat(l, SPAN_NOTICE("You can feel an extreme level of energy which flows throught your body and makes you regenerate very fast."))
 	last_message_time = world.time
 
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
@@ -343,9 +343,9 @@
 	ui_interact(user)
 
 /obj/machinery/power/supermatter/attack_hand(mob/user as mob)
-	user.visible_message("<span class=\"warning\">\The [user] reaches out and touches \the [src], inducing a resonance... \his body starts to glow and bursts into flames before flashing into ash.</span>",\
-		"<span class=\"danger\">You reach out and touch \the [src]. Everything starts burning and all you can hear is ringing. Your last thought is \"That was not a wise decision.\"</span>",\
-		"<span class=\"warning\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>")
+	user.visible_message(SPAN_WARNING("\The [user] reaches out and touches \the [src], inducing a resonance... \his body starts to glow and bursts into flames before flashing into ash."),\
+		SPAN_DANGER("You reach out and touch \the [src]. Everything starts burning and all you can hear is ringing. Your last thought is \"That was not a wise decision.\""),\
+		SPAN_WARNING("You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat."))
 
 	Consume(user)
 
@@ -385,9 +385,9 @@
 */
 
 /obj/machinery/power/supermatter/attackby(obj/item/W as obj, mob/living/user as mob)
-	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
+	user.visible_message(SPAN_WARNING("\The [user] touches \a [W] to \the [src] as a silence fills the room..."),\
 		"<span class=\"danger\">You touch \the [W] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [W] flashes into dust as you flinch away from \the [src].</span>",\
-		"<span class=\"warning\">Everything suddenly goes silent.</span>")
+		SPAN_WARNING("Everything suddenly goes silent."))
 
 	user.drop_from_inventory(W)
 	Consume(W)
@@ -403,12 +403,12 @@
 	if(isprojectile(AM))
 		return
 	if(istype(AM, /mob/living))
-		AM.visible_message("<span class=\"warning\">\The [AM] slams into \the [src] inducing a resonance... \his body starts to glow and catch flame before flashing into ash.</span>",\
-		"<span class=\"danger\">You slam into \the [src] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>",\
-		"<span class=\"warning\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>")
+		AM.visible_message(SPAN_WARNING("\The [AM] slams into \the [src] inducing a resonance... \his body starts to glow and catch flame before flashing into ash."),\
+		SPAN_DANGER("You slam into \the [src] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\""),\
+		SPAN_WARNING("You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat."))
 	else if(!grav_pulling) //To prevent spam, detonating supermatter does not indicate non-mobs being destroyed
-		AM.visible_message("<span class=\"warning\">\The [AM] smacks into \the [src] and rapidly flashes to ash.</span>",\
-		"<span class=\"warning\">You hear a loud crack as you are washed with a wave of heat.</span>")
+		AM.visible_message(SPAN_WARNING("\The [AM] smacks into \the [src] and rapidly flashes to ash."),\
+		SPAN_WARNING("You hear a loud crack as you are washed with a wave of heat."))
 
 	Consume(AM)
 
@@ -430,10 +430,10 @@
 		//Some poor sod got eaten, go ahead and irradiate people nearby.
 	for(var/mob/living/l in range(10))
 		if(l in view())
-			l.show_message("<span class=\"warning\">As \the [src] slowly stops resonating, you find your skin covered in new radiation burns.</span>", 1,\
-				"<span class=\"warning\">The unearthly ringing subsides and you notice you have new radiation burns.</span>", 2)
+			l.show_message(SPAN_WARNING("As \the [src] slowly stops resonating, you find your skin covered in new radiation burns."), 1,\
+				SPAN_WARNING("The unearthly ringing subsides and you notice you have new radiation burns."), 2)
 		else
-			l.show_message("<span class=\"warning\">You hear an uneartly ringing and notice your skin is covered in fresh radiation burns.</span>", 2)
+			l.show_message(SPAN_WARNING("You hear an uneartly ringing and notice your skin is covered in fresh radiation burns."), 2)
 		var/rads = 500 * sqrt( 1 / (get_dist(l, src) + 1) )
 		l.apply_effect(rads, IRRADIATE, blocked = l.getarmor(null, "rad"))
 

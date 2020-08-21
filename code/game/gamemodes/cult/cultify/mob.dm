@@ -12,7 +12,7 @@
 		icon_state = "ghost-narsie"
 		overlays = 0
 		invisibility = 0
-		to_chat(src, "<span class='danger'>Even as a non-corporal being, you can feel Nar-Sie's presence altering you. You are now visible to everyone.</span>")
+		to_chat(src, SPAN_DANGER("Even as a non-corporal being, you can feel Nar-Sie's presence altering you. You are now visible to everyone."))
 
 /mob/living/cultify()
 	if(iscultist(src) && client)
@@ -26,7 +26,7 @@
 		G.icon_state = "ghost-narsie"
 		G.overlays = 0
 		G.invisibility = 0
-		to_chat(G, "<span class='danger'>You feel relieved as what's left of your soul finally escapes its prison of flesh.</span>")
+		to_chat(G, SPAN_DANGER("You feel relieved as what's left of your soul finally escapes its prison of flesh."))
 
 		cult.harvested += G.mind
 	else

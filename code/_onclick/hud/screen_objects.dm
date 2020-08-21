@@ -311,16 +311,16 @@
 			if (!T)
 				to_chat(usr, SPAN_NOTICE("There is nothing above you!"))
 			else if (T.is_hole)
-				to_chat(usr, "<span class='notice'>There's no roof above your head! You can see up!</span>")
+				to_chat(usr, SPAN_NOTICE("There's no roof above your head! You can see up!"))
 			else
-				to_chat(usr, "<span class='notice'>You see a ceiling staring back at you.</span>")
+				to_chat(usr, SPAN_NOTICE("You see a ceiling staring back at you."))
 
 		if("module")
 			if(isrobot(usr))
 				var/mob/living/silicon/robot/R = usr
 				if(modifiers["shift"])
 					if(R.module)
-						to_chat(R, SPAN_NOTICE("You currently have the [R.module.name] active."))
+						to_chat(R, SPAN_NOTICE("You currently have [R.module.name] active."))
 					else
 						to_chat(R, SPAN_WARNING("You don't have a module active currently."))
 					return
@@ -433,7 +433,7 @@
 			return
 
 		if(C.legcuffed)
-			to_chat(C, "<span class='notice'>You are legcuffed! You cannot run until you get [C.legcuffed] removed!</span>")
+			to_chat(C, SPAN_NOTICE("You are legcuffed! You cannot run until you get [C.legcuffed] removed!"))
 			C.m_intent = "walk"	//Just incase
 			C.hud_used.move_intent.icon_state = "walking"
 			return 1

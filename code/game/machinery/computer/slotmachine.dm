@@ -84,7 +84,7 @@
 /obj/machinery/computer/slot_machine/attackby(obj/item/I, mob/living/user, params)
 	if(istype(I, /obj/item/coin))
 		var/obj/item/coin/C = I
-		to_chat(user, "<span class='notice'>You insert a \the [C] into \the [src]'s slot!</span>")
+		to_chat(user, SPAN_NOTICE("You insert a \the [C] into \the [src]'s slot!"))
 		var/value = get_value(C)
 		balance += value
 		qdel(C)
@@ -158,7 +158,7 @@
 	var/the_name
 	if(user)
 		the_name = user.real_name
-		visible_message("<span class='notice'>[user] pulls the lever and the slot machine starts spinning!</span>")
+		visible_message(SPAN_NOTICE("[user] pulls the lever and the slot machine starts spinning!"))
 	else
 		the_name = "Exaybachay"
 
@@ -190,14 +190,14 @@
 
 /obj/machinery/computer/slot_machine/proc/can_spin(mob/user)
 	if(stat & NOPOWER)
-		to_chat(user, "<span class='warning'>The slot machine has no power!</span>")
+		to_chat(user, SPAN_WARNING("The slot machine has no power!"))
 	if(stat & BROKEN)
-		to_chat(user, "<span class='warning'>The slot machine is broken!</span>")
+		to_chat(user, SPAN_WARNING("The slot machine is broken!"))
 	if(working)
-		to_chat(user, "<span class='warning'>You need to wait until the machine stops spinning before you can play again!</span>")
+		to_chat(user, SPAN_WARNING("You need to wait until the machine stops spinning before you can play again!"))
 		return FALSE
 	if(balance < SPIN_PRICE)
-		to_chat(user, "<span class='warning'>Insufficient money to play!</span>")
+		to_chat(user, SPAN_WARNING("Insufficient money to play!"))
 		return FALSE
 	return TRUE
 
@@ -237,12 +237,12 @@
 		give_money(SMALL_PRIZE)
 
 	else if(linelength == 3)
-		to_chat(user, "<span class='notice'>You win three free games!</span>")
+		to_chat(user, SPAN_NOTICE("You win three free games!"))
 		balance += SPIN_PRICE * 4
 		money = max(money - SPIN_PRICE * 4, money)
 
 	else
-		to_chat(user, "<span class='warning'>No luck!</span>")
+		to_chat(user, SPAN_WARNING("No luck!"))
 
 /obj/machinery/computer/slot_machine/proc/get_lines()
 	var/amountthesame

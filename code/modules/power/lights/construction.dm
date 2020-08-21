@@ -147,7 +147,7 @@
 			return
 
 		playsound(get_turf(src), W.usesound, 50, TRUE)
-		visible_message(SPAN_NOTICE("\The [user] removes \the [cell] from the [src]."), SPAN_NOTICE("You remove \the [cell] from \the [src]."))
+		visible_message(SPAN_NOTICE("\The [user] removes \the [cell] from [src]."), SPAN_NOTICE("You remove \the [cell] from \the [src]."))
 		cell.forceMove(get_turf(src))
 		user.put_in_hands(cell)
 		cell = null

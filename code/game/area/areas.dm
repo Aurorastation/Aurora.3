@@ -385,7 +385,7 @@ var/list/mob/living/forced_ambiance_list = new
 		else
 			H.AdjustStunned(1)
 			H.AdjustWeakened(1)
-		to_chat(mob, "<span class='notice'>The sudden appearance of gravity makes you fall to the floor!</span>")
+		to_chat(mob, SPAN_NOTICE("The sudden appearance of gravity makes you fall to the floor!"))
 
 /area/proc/prison_break()
 	for(var/obj/machinery/power/apc/temp_apc in src)

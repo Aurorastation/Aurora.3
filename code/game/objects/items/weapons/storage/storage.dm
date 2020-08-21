@@ -310,7 +310,7 @@
 		return 0 //Means the item is already in the storage item
 	if(storage_slots != null && contents.len >= storage_slots)
 		if(!stop_messages || is_type_in_list(W, pickup_blacklist)) // the is_type_in_list is a bit risky, but you tend to not want to pick up things in your blacklist anyway
-			to_chat(usr, "<span class='notice'>[src] is full, make some space.</span>")
+			to_chat(usr, SPAN_NOTICE("[src] is full, make some space."))
 		return 0 //Storage item is full
 
 	if(W.anchored)
@@ -319,22 +319,22 @@
 	if(LAZYLEN(can_hold))
 		if(!is_type_in_list(W, can_hold))
 			if(!stop_messages && ! istype(W, /obj/item/hand_labeler))
-				to_chat(usr, "<span class='notice'>[src] cannot hold \the [W].</span>")
+				to_chat(usr, SPAN_NOTICE("[src] cannot hold \the [W]."))
 			return 0
 		var/max_instances = can_hold[W.type]
 		if(max_instances && instances_of_type_in_list(W, contents, TRUE) >= max_instances)
 			if(!stop_messages && !istype(W, /obj/item/hand_labeler))
-				to_chat(usr, "<span class='notice'>[src] has no more space specifically for \the [W].</span>")
+				to_chat(usr, SPAN_NOTICE("[src] has no more space specifically for \the [W]."))
 			return 0
 
 	if(LAZYLEN(cant_hold) && is_type_in_list(W, cant_hold))
 		if(!stop_messages)
-			to_chat(usr, "<span class='notice'>[src] cannot hold [W].</span>")
+			to_chat(usr, SPAN_NOTICE("[src] cannot hold [W]."))
 		return 0
 
 	if (max_w_class != null && W.w_class > max_w_class)
 		if(!stop_messages)
-			to_chat(usr, "<span class='notice'>[W] is too long for this [src].</span>")
+			to_chat(usr, SPAN_NOTICE("[W] is too long for this [src]."))
 		return 0
 
 	var/total_storage_space = W.get_storage_cost()
@@ -343,12 +343,12 @@
 
 	if(total_storage_space > max_storage_space)
 		if(!stop_messages)
-			to_chat(usr, "<span class='notice'>[src] is too full, make some space.</span>")
+			to_chat(usr, SPAN_NOTICE("[src] is too full, make some space."))
 		return 0
 
 	if(W.w_class >= src.w_class && (istype(W, /obj/item/storage)))
 		if(!stop_messages)
-			to_chat(usr, "<span class='notice'>[src] cannot hold [W] as it's a storage item of the same size.</span>")
+			to_chat(usr, SPAN_NOTICE("[src] cannot hold [W] as it's a storage item of the same size."))
 		return 0 //To prevent the stacking of same sized storage items.
 
 	return 1
@@ -372,11 +372,11 @@
 		if(!prevent_warning)
 			for(var/mob/M in viewers(user, null))
 				if (M == usr)
-					to_chat(usr, "<span class='notice'>You put \the [W] into [src].</span>")
+					to_chat(usr, SPAN_NOTICE("You put \the [W] into [src]."))
 				else if (M in range(1)) //If someone is standing close enough, they can tell what it is...
-					M.show_message("<span class='notice'>\The [user] puts [W] into [src].</span>")
+					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
 				else if (W && W.w_class >= 3) //Otherwise they can only see large or normal items from a distance...
-					M.show_message("<span class='notice'>\The [user] puts [W] into [src].</span>")
+					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
 
 		orient2hud(user)
 		if(user.s_active)
@@ -505,7 +505,7 @@
 					remove_from_storage(L, T)
 					qdel(L)
 		if(amt_inserted)
-			to_chat(user, "You inserted [amt_inserted] light\s into \the [LP.name]. You have [LP.uses] light\s remaining.")
+			to_chat(user, "You inserted [amt_inserted] light\s into [LP]. You have [LP.uses] light\s remaining.")
 			return
 
 	if(!can_be_inserted(W))
@@ -515,7 +515,7 @@
 		var/obj/item/tray/T = W
 		if(T.current_weight > 0)
 			T.spill(user)
-			to_chat(user, "<span class='warning'>Trying to place a loaded tray into [src] was a bad idea.</span>")
+			to_chat(user, SPAN_WARNING("Trying to place a loaded tray into [src] was a bad idea."))
 			return
 
 	W.add_fingerprint(user)

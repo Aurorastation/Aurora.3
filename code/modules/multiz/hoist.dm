@@ -194,7 +194,7 @@
 		return
 
 	if (!hoistee)
-		user.visible_message(SPAN_NOTICE("[user] begins to [movtext] the clamp."), SPAN_NOTICE("You begin to [movtext] the clamp."), SPAN_NOTICE("You hear the sound of a crank."))
+		user.visible_message("<b>[user]</b> begins to [movtext] the clamp.", SPAN_NOTICE("You begin to [movtext] the clamp."), SPAN_NOTICE("You hear the sound of a crank."))
 		move_dir(movedir, 0)
 		return
 
@@ -208,7 +208,7 @@
 		var/obj/O = hoistee
 		size = O.w_class
 
-	user.visible_message(SPAN_NOTICE("[user] begins to [movtext] \the [hoistee]!"), SPAN_NOTICE("You begin to [movtext] \the [hoistee]!"), SPAN_NOTICE("You hear the sound of a crank."))
+	user.visible_message("<b>[user]</b> begins to [movtext] \the [hoistee]!", SPAN_NOTICE("You begin to [movtext] \the [hoistee]!"), SPAN_NOTICE("You hear the sound of a crank."))
 	if (do_after(user, (1 SECONDS) * size / 4, act_target = src))
 		move_dir(movedir, 1)
 

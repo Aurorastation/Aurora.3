@@ -13,5 +13,5 @@
 		return
 
 	if(target.on_fire && target.fire_stacks > 0)
-		to_chat(target, "<span class='notice'>Magical energies surround you, putting out all your flames.</span>")
+		to_chat(target, SPAN_NOTICE("Magical energies surround you, putting out all your flames."))
 		target.ExtinguishMobCompletely()

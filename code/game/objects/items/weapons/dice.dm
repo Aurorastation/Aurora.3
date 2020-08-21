@@ -34,7 +34,7 @@
 	else if(sides == 20 && result == 1)
 		comment = "Ouch, bad luck."
 	update_icon(result)
-	src.visible_message("<span class='notice'>\The [name] lands on [result * side_mult]. [comment]</span>")
+	src.visible_message(SPAN_NOTICE("\The [name] lands on [result * side_mult]. [comment]"))
 
 /obj/item/dice/d4
 	name = "d4"

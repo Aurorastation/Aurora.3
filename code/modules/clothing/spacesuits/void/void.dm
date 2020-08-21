@@ -87,7 +87,7 @@
 		part_list += "\a [I]"
 	to_chat(user, "\The [src] has [english_list(part_list)] installed.")
 	if(tank && in_range(src,user))
-		to_chat(user, "<span class='notice'>The wrist-mounted pressure gauge reads [max(round(tank.air_contents.return_pressure()),0)] kPa remaining in \the [tank].</span>")
+		to_chat(user, SPAN_NOTICE("The wrist-mounted pressure gauge reads [max(round(tank.air_contents.return_pressure()),0)] kPa remaining in \the [tank]."))
 
 /obj/item/clothing/suit/space/void/refit_for_species(var/target_species)
 	..()
@@ -173,18 +173,18 @@
 	if(H.wear_suit != src) return
 
 	if(H.head == helmet)
-		to_chat(H, "<span class='notice'>You retract your suit helmet.</span>")
+		to_chat(H, SPAN_NOTICE("You retract your suit helmet."))
 		playsound(loc, helmet_retract_sound, 30)
 		helmet.canremove = 1
 		H.drop_from_inventory(helmet,src)
 	else
 		if(H.head)
-			to_chat(H, "<span class='danger'>You cannot deploy your helmet while wearing \the [H.head].</span>")
+			to_chat(H, SPAN_DANGER("You cannot deploy your helmet while wearing \the [H.head]."))
 			return
 		if(H.equip_to_slot_if_possible(helmet, slot_head))
 			helmet.pickup(H)
 			helmet.canremove = 0
-			to_chat(H, "<span class='info'>You deploy your suit helmet, sealing you off from the world.</span>")
+			to_chat(H, SPAN_INFO("You deploy your suit helmet, sealing you off from the world."))
 	helmet.update_light(H)
 
 /obj/item/clothing/suit/space/void/verb/eject_tank()
@@ -201,7 +201,7 @@
 		to_chat(usr, "There is no tank inserted.")
 		return
 
-	to_chat(user, "<span class='info'>You press the emergency release, ejecting \the [tank] from your suit.</span>")
+	to_chat(user, SPAN_INFO("You press the emergency release, ejecting \the [tank] from your suit."))
 	tank.canremove = 1
 	playsound(src, 'sound/effects/air_seal.ogg', 50, 1)
 
@@ -222,7 +222,7 @@
 		return ..()
 
 	if(user.get_inventory_slot(src) == slot_wear_suit)
-		to_chat(user, "<span class='warning'>You cannot modify \the [src] while it is being worn.</span>")
+		to_chat(user, SPAN_WARNING("You cannot modify \the [src] while it is being worn."))
 		return
 
 	if(W.isscrewdriver())
