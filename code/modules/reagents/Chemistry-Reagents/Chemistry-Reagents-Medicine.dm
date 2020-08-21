@@ -137,7 +137,7 @@
 
 /datum/reagent/tricordrazine
 	name = "Tricordrazine"
-	description = "Tricordrazine is an old, though still useful, medication largely set aside following bicaridine and kelotane’s development. The drug increases the rate at which tissues regenerate, though far slower than modern medications."
+	description = "Tricordrazine is an old, though still useful, medication largely set aside following bicaridine and kelotane's development. The drug increases the rate at which tissues regenerate, though far slower than modern medications."
 	reagent_state = LIQUID
 	color = "#8040FF"
 	scannable = 1
@@ -607,7 +607,7 @@
 
 /datum/reagent/leporazine
 	name = "Leporazine"
-	description = "Leporazine is a complex medication which improves thermal homeostasis, stabilising and regulating the body’s core temperature. Leporazine often results in hyperventilation which should be monitored."
+	description = "Leporazine is a complex medication which improves thermal homeostasis, stabilising and regulating the body's core temperature. Leporazine often results in hyperventilation which should be monitored."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
@@ -1075,7 +1075,7 @@
 
 /datum/reagent/cataleptinol
 	name = "Cataleptinol"
-	description = "Cataleptinol is a highly advanced, expensive medication capable of regenerating the most damaged of brain tissues. Cataleptinol is used in the treatment of dumbness, cerebral blindness, cerebral paralysis and aphasia. The drug is more effective when the patient’s core temperature is below 170K."
+	description = "Cataleptinol is a highly advanced, expensive medication capable of regenerating the most damaged of brain tissues. Cataleptinol is used in the treatment of dumbness, cerebral blindness, cerebral paralysis and aphasia. The drug is more effective when the patient's core temperature is below 170K."
 	reagent_state = LIQUID
 	color = "#FFFF00"
 	metabolism = REM * 2 //0.4

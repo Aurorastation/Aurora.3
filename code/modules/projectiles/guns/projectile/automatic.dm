@@ -337,7 +337,7 @@
 
 	desc_fluff = "People's Republic military hardware is the most advanced among the Tajaran nations. Laser weapons, alongside simple ballistic guns, are used by high ranking soldiers or \
 	special operatives. The majority of military is still equipped with simple bolt action rifles, that are being slowly replaced by the Tsarrayut'yan rifle; a select-fire, crew-served \
-	automatic rifle. Regardless of advances in the small arms field, artillery is the Republic army’s main weapon and pride."
+	automatic rifle. Regardless of advances in the small arms field, artillery is the Republican army's main weapon and pride."
 
 	load_method = SINGLE_CASING|SPEEDLOADER
 
