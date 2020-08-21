@@ -1,8 +1,0 @@
-author: Burrito Justice and Nienna
-
-delete-after: True
-
-changes:
-  - rscadd: "Added body markings for the G1, G2, Bishop, Zeng-Hu, and Xion IPC frames to be colored and customized."
-  - tweak: "The G2 sprite has been updated to give it a fresher look, courtesy of Nienna."
-  - tweak: "Changed how species are checked in the code. It now requires the full type path of the species datum, instead of the bodytype."
