@@ -755,7 +755,7 @@
 				else if (G.slot == slot_back)
 					qdel(H.get_equipped_item(slot_back)) // Deletes starting backpack if you have a custom one
 					H.equip_to_slot_or_del(CI, G.slot)
-					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
+					to_chat(H, SPAN_NOTICE("Equipping you with [thing]!"))
 					custom_equip_slots += G.slot
 					Debug("EC/([H]): Equipped [CI] successfully.")
 				else if (H.equip_to_slot_or_del(CI, G.slot))
@@ -769,7 +769,8 @@
 			else if(G.slot == slot_back)
 				// Explains that only one custom bag is allowed
 				// Subject to change, felt for balancing though, spawning with infinite bags was a bit...
-				to_chat(H, "<span class='warning'>You cannot have more than one custom bag.</span>")
+				to_chat(H, SPAN_WARNING("You cannot have more than one custom bag."))
+				Debug("EC/([H]): More than one bag; Not equipping [thing]")
 			else if (storage)
 				storage += thing
 				Debug("EC/([H]): Unable to equip [thing]; sending to storage.")

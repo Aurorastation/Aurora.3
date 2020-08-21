@@ -4,7 +4,6 @@
 	path = /obj/item/storage/backpack/satchel
 	slot = slot_back
 	sort_category = "Bags"
-	// cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/backpack/bag
@@ -13,7 +12,6 @@
 	path = /obj/item/storage/backpack
 	slot = slot_back
 	sort_category = "Bags"
-	// cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/backpack/bag/New()
@@ -32,7 +30,6 @@
 	slot = slot_back
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Psychiatrist", "Emergency Medical Technician", "Medical Resident")
 	sort_category = "Bags"
-	// cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/backpack/medic/New()
@@ -51,7 +48,6 @@
 	slot = slot_back
 	allowed_roles = list("Head of Security", "Warden", "Detective", "Forensic Technician", "Security Officer", "Security Cadet")
 	sort_category = "Bags"
-	// cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/backpack/security/New()
@@ -70,7 +66,6 @@
 	slot = slot_back
 	allowed_roles = list("Captain")
 	sort_category = "Bags"
-	// cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/backpack/captain/New()
@@ -89,7 +84,6 @@
 	slot = slot_back
 	allowed_roles = list("Chief Engineer", "Station Engineer", "Atmospheric Technician", "Engineering Apprentice", "Shaft Miner")
 	sort_category = "Bags"
-	// cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/backpack/industrial/New()
@@ -108,7 +102,6 @@
 	slot = slot_back
 	allowed_roles = list("Research Director", "Scientist", "Xenobiologist", "Roboticist", "Lab Assistant")
 	sort_category = "Bags"
-	// cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/backpack/toxins/New()
@@ -127,7 +120,6 @@
 	slot = slot_back
 	allowed_roles = list("Gardener")
 	sort_category = "Bags"
-	// cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/backpack/hydroponics/New()
@@ -146,7 +138,6 @@
 	slot = slot_back
 	allowed_roles = list("Pharmacist")
 	sort_category = "Bags"
-	// cost = 2
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/backpack/pharmacy/New()
