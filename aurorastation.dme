@@ -1338,6 +1338,7 @@
 #include "code\modules\client\preference_setup\loadout\loadout.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_accessories.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_augments.dm"
+#include "code\modules\client\preference_setup\loadout\loadout_backpack.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_computer.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_cosmetics.dm"
 #include "code\modules\client\preference_setup\loadout\loadout_ears.dm"

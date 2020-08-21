@@ -752,6 +752,12 @@
 					if (leftovers)
 						leftovers += thing
 					Debug("EC/([H]): [thing] failed mask/suit/head check; leftovers=[!!leftovers]")
+				else if (G.slot == slot_back)
+					qdel(H.get_equipped_item(slot_back)) // Deletes starting backpack if you have a custom one
+					H.equip_to_slot_or_del(CI, G.slot)
+					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
+					custom_equip_slots += G.slot
+					Debug("EC/([H]): Equipped [CI] successfully.")
 				else if (H.equip_to_slot_or_del(CI, G.slot))
 					CI.autodrobe_no_remove = TRUE
 					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
@@ -760,6 +766,10 @@
 				else if (leftovers)
 					leftovers += thing
 					Debug("EC/([H]): Unable to equip [thing]; sending to overflow.")
+			else if(G.slot == slot_back)
+				// Explains that only one custom bag is allowed
+				// Subject to change, felt for balancing though, spawning with infinite bags was a bit...
+				to_chat(H, "<span class='warning'>You cannot have more than one custom bag.</span>")
 			else if (storage)
 				storage += thing
 				Debug("EC/([H]): Unable to equip [thing]; sending to storage.")

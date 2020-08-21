@@ -189,6 +189,11 @@
 	icon_state = "wizardpack"
 	empty_delay = 0.8 SECOND
 
+/obj/item/storage/backpack/col
+	name = "backpack"
+	desc = "You wear this on your back and put items into it."
+	icon_state = "backpack-col"
+
 /*
  * Satchel Types
  */
@@ -296,6 +301,11 @@
 	desc = "This stylish satchel will put a spell on anyone with some fashion sense to spare."
 	icon_state = "satchel-wizard"
 	empty_delay = 0.8 SECOND
+
+/obj/item/storage/backpack/satchel_col
+	name = "satchel"
+	desc = "A trendy looking satchel."
+	icon_state = "satchel-col"
 
 //ERT backpacks.
 /obj/item/storage/backpack/ert
@@ -429,6 +439,11 @@
 	slowdown = 0
 	empty_delay = 0.8 SECOND
 
+/obj/item/storage/backpack/duffel/col
+	name = "duffel bag"
+	desc = "A spacious duffel bag."
+	icon_state = "duffel-col"
+
 /*
  * Messenger Bags
  */
@@ -494,6 +509,11 @@
 	name = "wizardly messenger bag"
 	desc = "A wizardly backpack worn over one shoulder. This one is in blue and purple colors."
 	icon_state = "courierbagwizard"
+
+/obj/item/storage/backpack/messenger/col
+	name = "messenger bag"
+	desc = "A sturdy backpack worn over one shoulder."
+	icon_state = "courierbagcol"
 
 /obj/item/storage/backpack/legion
 	name = "military rucksack"
