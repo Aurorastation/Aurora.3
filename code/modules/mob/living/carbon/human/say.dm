@@ -296,7 +296,7 @@
 				if(prob(50))
 					emote("gasp")
 				else
-					emote("chokes!")
+					emote("choke")
 
 
 			message = "[prefix][jointext(words," ")]"
