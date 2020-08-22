@@ -12,15 +12,8 @@
 
 /area/shuttle/arrival
 	name = "Arrival Shuttle"
-<<<<<<< HEAD
-	ambience = AMBIENCE_ARRIVALS
-	flags = RAD_SHIELDED | SPAWN_ROOF
-
-/area/shuttle/arrival/centcom
-	icon_state = "shuttle2"
-=======
->>>>>>> master
 	base_turf = /turf/unsimulated/floor/plating
+	ambience = AMBIENCE_ARRIVALS
 
 /area/shuttle/arrival/Entered(atom/movable/Obj, atom/oldLoc)
 	. = ..()

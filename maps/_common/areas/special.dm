@@ -19,6 +19,7 @@
 
 /area/centcom/spawning
 	name = "Centcom Preparatory Wing"
+	ambience = AMBIENCE_ARRIVALS
 
 /area/centcom/evac
 	name = "Centcom Emergency Shuttle"
