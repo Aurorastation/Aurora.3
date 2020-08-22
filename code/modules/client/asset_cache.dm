@@ -41,6 +41,8 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 	if(client.cache.Find(asset_name) || client.sending.Find(asset_name))
 		return 0
 
+	log_debug("Sending [asset_name] asset to client: [client.key].")
+
 	client << browse_rsc(SSassets.cache[asset_name], asset_name)
 	if(!verify || !winexists(client, "asset_cache_browser")) // Can't access the asset cache browser, rip.
 		if (client)
@@ -69,6 +71,8 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		client.cache |= asset_name
 		client.completed_asset_jobs -= job
 
+	log_debug("Sent [asset_name] asset to client: [client.key].")
+
 	return 1
 
 //This proc blocks(sleeps) unless verify is set to false
@@ -90,6 +94,7 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		return 0
 	if (unreceived.len >= ASSET_CACHE_TELL_CLIENT_AMOUNT)
 		to_chat(client, "Sending Resources...")
+	log_debug("Sending [asset_name] asset to client: [client.key].")
 	for(var/asset in unreceived)
 		if (asset in SSassets.cache)
 			client << browse_rsc(SSassets.cache[asset], asset)
@@ -119,6 +124,8 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		client.sending -= unreceived
 		client.cache |= unreceived
 		client.completed_asset_jobs -= job
+
+	log_debug("Sent [asset_name] asset to client: [client.key].")
 
 	return 1
 

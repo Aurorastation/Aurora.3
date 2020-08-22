@@ -295,9 +295,9 @@ var/datum/controller/subsystem/vote/SSvote
 					if("crew_transfer")
 						sound_to(C, sound('sound/effects/vote.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
 					if("gamemode")
-						sound_to(C, sound('sound/ambience/alarm4.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
+						sound_to(C, sound('sound/ambience/vote_alarm.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
 					if("custom")
-						sound_to(C, sound('sound/ambience/alarm4.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
+						sound_to(C, sound('sound/ambience/vote_alarm.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
 		if(mode == "gamemode" && round_progressing)
 			round_progressing = 0
 			to_world("<span class='warning'><b>Round start has been delayed.</b></span>")
