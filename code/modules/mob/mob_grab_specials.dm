@@ -87,7 +87,7 @@
 		return
 	if(target.lying)
 		return
-	attacker.visible_message("<span class='danger'>[attacker] thrusts \his head into [target]'s skull!</span>")
+	attacker.visible_message("<span class='danger'>[attacker] thrusts [attacker.get_pronoun("his")] head into [target]'s skull!</span>")
 
 	var/damage = 20
 	if(attacker.mob_size >= 10)

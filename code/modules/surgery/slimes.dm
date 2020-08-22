@@ -92,5 +92,5 @@
 
 
 /decl/surgery_step/slime/saw_core/fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, causing \him to miss the core!"), \
+	user.visible_message(SPAN_WARNING("[user]'s hand slips, causing [user.get_pronoun("him")] to miss the core!"), \
 		SPAN_WARNING("Your hand slips, causing you to miss the core!"))

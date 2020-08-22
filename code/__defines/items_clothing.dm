@@ -47,24 +47,18 @@
 #define PASSMOB			0x10
 
 // Bitmasks for the flags_inv variable. These determine when a piece of clothing hides another, i.e. a helmet hiding glasses.
-// WARNING: The following flags apply only to the external suit!
 #define HIDEGLOVES      0x1
 #define HIDESUITSTORAGE 0x2
 #define HIDEJUMPSUIT    0x4
 #define HIDESHOES       0x8
 #define HIDETAIL        0x10
-
-// WARNING: The following flags apply only to the helmets and masks!
-#define HIDEMASK 0x1
-#define HIDEEARS 0x2 // Headsets and such.
-#define HIDEEYES 0x4 // Glasses.
-#define HIDEFACE 0x8 // Dictates whether we appear as "Unknown".
-
-#define BLOCKHEADHAIR   0x20    // Hides the user's hair overlay. Leaves facial hair.
-#define BLOCKHAIR       0x40    // Hides the user's hair, facial and otherwise.
-
-//This flag applies to gloves, uniforms, shoes, masks, ear items, glasses
-#define ALWAYSDRAW	0x80//If set, this item is always rendered even if its slot is hidden by other clothing
+#define HIDEMASK        0x20
+#define HIDEEARS		0x40 // Headsets and such.
+#define HIDEEYES		0x80 // Glasses.
+#define HIDEFACE		0x100// Dictates whether we appear as "Unknown".
+#define BLOCKHEADHAIR   0x200// Hides the user's hair overlay. Leaves facial hair.
+#define BLOCKHAIR       0x400// Hides the user's hair, facial and otherwise.
+#define ALWAYSDRAW		0x800//If set, this item is always rendered even if its slot is hidden by other clothing
 //Note that the item may still not be visible if its sprite is actually covered up.
 
 // Slots.
