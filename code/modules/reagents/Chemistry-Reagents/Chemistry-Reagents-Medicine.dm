@@ -1188,15 +1188,14 @@
 	reagent_state = SOLID
 
 /datum/reagent/pneumalin/affect_breathe(var/mob/living/carbon/human/H, var/alien, var/removed)
-	if(istype(H))
-		H.adjustOxyLoss(removed) //Every unit heals 1 oxy damage
-		H.add_chemical_effect(CE_PNEUMOTOXIC, -removed * 1.5)
-		H.add_chemical_effect(CE_PULSE, -1)
+	H.adjustOxyLoss(removed) //Every unit heals 1 oxy damage
+	H.add_chemical_effect(CE_PNEUMOTOXIC, -removed * 1.5)
+	H.add_chemical_effect(CE_PULSE, -1)
 
-		var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
-		if(istype(L) && !BP_IS_ROBOTIC(L))
-			L.rescued = FALSE
-			L.damage = max(L.damage - (removed * 1.5), 0)
+	var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
+	if(istype(L) && !BP_IS_ROBOTIC(L))
+		L.rescued = FALSE
+		L.damage = max(L.damage - (removed * 1.5), 0)
 
 	. = ..()
 
@@ -1282,11 +1281,10 @@
 	taste_description = "bitterness"
 
 /datum/reagent/adipemcina/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
-	if(istype(M))
-		M.add_chemical_effect(CE_CARDIOTOXIC, -removed*2)
-		var/obj/item/organ/internal/lungs/L = M.internal_organs_by_name[BP_HEART]
-		if(istype(L) && !BP_IS_ROBOTIC(L))
-			L.damage = max(L.damage - (removed * 2), 0)
+	M.add_chemical_effect(CE_CARDIOTOXIC, -removed*2)
+	var/obj/item/organ/internal/lungs/L = M.internal_organs_by_name[BP_HEART]
+	if(istype(L) && !BP_IS_ROBOTIC(L))
+		L.damage = max(L.damage - (removed * 2), 0)
 	..()
 
 /datum/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)
