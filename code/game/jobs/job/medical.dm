@@ -244,15 +244,15 @@
 	outfit = /datum/outfit/job/med_tech
 	alt_outfits = list("Paramedic" = /datum/outfit/job/med_tech/paramed)
 
-	blacklisted_species = list("Diona")
+	blacklisted_species = list("Diona", "Hephaestus G2 Industrial Frame")
 
 /datum/outfit/job/med_tech
 	name = "Emergency Medical Technician"
 	base_name = "Emergency Medical Technician"
 	jobtype = /datum/job/med_tech
 
-	uniform = /obj/item/clothing/under/rank/medical/black
-	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket
+	uniform = /obj/item/clothing/under/rank/medical/emt
+	suit = /obj/item/clothing/suit/storage/toggle/emt_jacket
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/headset_med
 	l_hand = /obj/item/storage/firstaid/adv
