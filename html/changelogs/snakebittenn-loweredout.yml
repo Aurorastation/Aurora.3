@@ -43,3 +43,4 @@ changes:
   - rscdel: "Removes red/purple berets from the loadout."
   - rscdel: "Removes kimono from the loadout."
   - rscdel: "Removes armor values from winter coats."
+  - rscdel: "Removes mailman hat from the loadout."

@@ -123,7 +123,6 @@
 	poncho["poncho, cargo"] = /obj/item/clothing/accessory/poncho/roles/cargo
 	gear_tweaks += new/datum/gear_tweak/path(poncho)
 
-
 /datum/gear/suit/suitjacket
 	display_name = "suit jacket"
 	path = /obj/item/clothing/suit/storage/toggle/suitjacket
@@ -147,6 +146,12 @@
 	coat["trenchcoat, dark brown"] = /obj/item/clothing/suit/storage/toggle/trench/alt
 	coat["trenchcoat, grey alternate"] = /obj/item/clothing/suit/storage/toggle/trench/grey_alt
 	gear_tweaks += new/datum/gear_tweak/path(coat)
+
+/datum/gear/suit/trenchcoat_colorable
+	display_name = "colorable trenchcoat"
+	description = "A sleek canvas trenchcoat in 167,777,216 designer colors."
+	path = /obj/item/clothing/suit/storage/toggle/trench/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/det_trenchcoat
 	display_name = "detective trenchcoat selection"
@@ -181,7 +186,7 @@
 	wintercoat["winter coat, atmospherics"] = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos
 	wintercoat["winter coat, hydroponics"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
 	wintercoat["winter coat, cargo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
-	wintercoat["winter coat, mining"] = /obj/item/clothing/suit/storage/hooded/wintercoat/mining
+	wintercoat["winter coat, mining"] = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
 	gear_tweaks += new/datum/gear_tweak/path(wintercoat)
 
 /datum/gear/suit/ian
