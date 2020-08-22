@@ -121,10 +121,6 @@
 	name = "Medical Sub-level Maintenance"
 	icon_state = "maint_engineering"
 
-/area/maintenance/medsublevel_port
-	name = "Old Quarantine"
-	icon_state = "maint_medbay"
-
 /area/maintenance/scisublevel
 	name = "Research Sub-level Maintenance"
 	icon_state = "maint_engineering"
@@ -160,10 +156,6 @@
 
 /area/maintenance/medbay_interstitial
 	name = "Medbay Interstitial Maintenance"
-	icon_state = "maint_medbay"
-
-/area/maintenance/medbay_virology
-	name = "Old Virology Lab"
 	icon_state = "maint_medbay"
 
 /area/maintenance/research_port

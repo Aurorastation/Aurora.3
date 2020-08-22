@@ -4,6 +4,7 @@
 /turf/simulated/wall/shuttle
 	icon = 'icons/turf/smooth/shuttle_wall.dmi'
 	icon_state = "map-shuttle"
+	roof_flags = ROOF_CLEANUP
 	permit_ao = 0
 	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
 	use_standard_smoothing = 1
@@ -160,20 +161,13 @@
 	smooth = null
 	canSmoothWith = null
 
-/obj/structure/shuttle_part //For placing them over space, if the sprite doesn't cover the whole turf.
+/obj/structure/shuttle_part //For placing them over space, if sprite covers not whole tile.
 	name = "shuttle part"
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "door0"
 	anchored = TRUE
 	density = TRUE
 	var/outside_part = TRUE
-	atmos_canpass = CANPASS_DENSITY
-
-/obj/structure/shuttle_part/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(density)
-		return 0
-	else
-		return ..()
 
 /obj/structure/window/shuttle/unique
 	name = "shuttle window"
@@ -185,7 +179,6 @@
 	smooth = null
 	canSmoothWith = null
 	can_be_unanchored = FALSE
-	var/outside_window = FALSE
 
 //merchant shuttle
 
@@ -228,20 +221,6 @@
 /obj/structure/window/shuttle/unique/ccia
 	icon = 'icons/turf/shuttles_unique/ccia_shuttle.dmi'
 	icon_state = "6,2"
-
-//burglar shuttle
-
-/turf/simulated/wall/shuttle/unique/burglar
-	icon = 'icons/turf/shuttles_unique/ccia_shuttle_gray.dmi'
-	icon_state = "8,4"
-
-/obj/structure/shuttle_part/burglar
-	icon = 'icons/turf/shuttles_unique/ccia_shuttle_gray.dmi'
-	icon_state = "2,0"
-
-/obj/structure/window/shuttle/unique/burglar
-	icon = 'icons/turf/shuttles_unique/ccia_shuttle_gray.dmi'
-	icon_state = "1,3"
 
 //ert shuttle
 
@@ -341,20 +320,6 @@
 	icon = 'icons/turf/shuttles_unique/merc_shuttle.dmi'
 	icon_state = "6,2"
 
-//mercenary shuttle - small
-
-/turf/simulated/wall/shuttle/unique/mercenary/small
-	icon = 'icons/turf/shuttles_unique/merc_shuttle_small.dmi'
-	icon_state = "1,2"
-
-/obj/structure/shuttle_part/mercenary/small
-	icon = 'icons/turf/shuttles_unique/merc_shuttle_small.dmi'
-	icon_state = "1,0"
-
-/obj/structure/window/shuttle/unique/mercenary/small
-	icon = 'icons/turf/shuttles_unique/merc_shuttle_small.dmi'
-	icon_state = "4,13"
-
 //arrivals shuttle
 
 /turf/simulated/wall/shuttle/unique/arrivals
@@ -404,6 +369,7 @@
 	name = "shuttle floor"
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "floor"
+	roof_flags = ROOF_CLEANUP
 	permit_ao = 0
 	initial_flooring = /decl/flooring/shuttle
 	footstep_sound = "plating"

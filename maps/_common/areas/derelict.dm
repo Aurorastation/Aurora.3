@@ -106,6 +106,13 @@
 
 /area/shuttle/constructionsite
 	name = "Construction Site Shuttle"
+	icon_state = "yellow"
+
+/area/shuttle/constructionsite/station
+	name = "Construction Site Shuttle"
+
+/area/shuttle/constructionsite/site
+	name = "Construction Site Shuttle"
 
 /area/constructionsite
 	name = "Construction Site"

@@ -82,7 +82,7 @@
 	shattered = 1
 
 /obj/structure/mirror/raider/attack_hand(var/mob/living/carbon/human/user)
-	if(istype(get_area(src),/area/antag))
+	if(istype(get_area(src),/area/syndicate_mothership))
 		if(istype(user) && user.mind && user.mind.special_role == "Raider" && user.species.name != "Vox")
 			var/choice = input("Do you wish to become a true Vox of the Shoal? This is not reversible.") as null|anything in list("No","Yes")
 			if(choice && choice == "Yes")

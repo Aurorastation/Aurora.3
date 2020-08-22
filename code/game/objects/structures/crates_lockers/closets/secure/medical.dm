@@ -86,7 +86,6 @@
 	new /obj/item/clothing/glasses/hud/health/aviator(src)
 	new /obj/item/clothing/glasses/eyepatch/hud/medical(src)
 	new /obj/item/clothing/suit/storage/medical_chest_rig(src)
-	new /obj/item/clothing/suit/storage/medical_chest_rig/emt(src)
 
 
 /obj/structure/closet/secure_closet/CMO

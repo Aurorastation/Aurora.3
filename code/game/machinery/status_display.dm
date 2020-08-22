@@ -10,10 +10,9 @@
 // Alert status
 // And arbitrary messages set by comms computer
 /obj/machinery/status_display
-	name = "status display"
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
-	layer = OBJ_LAYER
+	name = "status display"
 	anchored = 1
 	density = 0
 	use_power = 1

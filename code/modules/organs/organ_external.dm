@@ -198,10 +198,8 @@
 	return
 
 /obj/item/organ/external/Initialize(mapload)
-	if(robotize_type)
+	if (robotize_type)
 		robotize(robotize_type)
-		drop_sound = 'sound/items/drop/prosthetic.ogg'
-		pickup_sound = 'sound/items/pickup/prosthetic.ogg'
 
 	. = ..(mapload, FALSE)
 	if(isnull(pain_disability_threshold))
@@ -325,10 +323,7 @@
 	var/laser = (damage_flags & DAM_LASER)
 	var/sharp = (damage_flags & DAM_SHARP)
 
-	if(laser)
-		return FALSE
-
-	if(BP_IS_ROBOTIC(src))
+	if(laser || BP_IS_ROBOTIC(src))
 		damage_amt += burn
 		cur_damage += burn_dam
 
@@ -338,6 +333,8 @@
 	var/organ_damage_threshold = 10
 	if(sharp)
 		organ_damage_threshold *= 0.5
+	if(laser)
+		organ_damage_threshold *= 2
 
 	if(!(cur_damage + damage_amt >= max_damage) && !(damage_amt >= organ_damage_threshold))
 		return FALSE
@@ -361,7 +358,7 @@
 	organ_hit_chance = min(organ_hit_chance, 100)
 	if(prob(organ_hit_chance))
 		var/obj/item/organ/internal/victim = pickweight(victims)
-		damage_amt = max(damage_amt*victim.damage_reduction, 0)
+		damage_amt -= max(damage_amt*victim.damage_reduction, 0)
 		victim.take_internal_damage(damage_amt)
 		return TRUE
 

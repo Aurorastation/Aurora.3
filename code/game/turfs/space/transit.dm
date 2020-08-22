@@ -9,7 +9,6 @@
 	light_color = COLOR_CYAN_BLUE
 	light_power = 6
 	light_range = 8
-	dynamic_lighting = TRUE
 
 /turf/space/transit/Initialize()
 	. = ..()

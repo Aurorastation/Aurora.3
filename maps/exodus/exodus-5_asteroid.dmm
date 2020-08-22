@@ -439,11 +439,11 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "bf" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "bg" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -456,7 +456,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "bh" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -466,8 +466,8 @@
 /obj/item/stack/nanopaste,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled{
-	dir = 5;
-	icon_state = "vault"
+	icon_state = "vault";
+	dir = 5
 	},
 /area/outpost/research/analysis)
 "bi" = (
@@ -652,10 +652,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "bD" = (
 /turf/simulated/floor,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "bE" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -665,12 +665,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "bF" = (
 /obj/machinery/radiocarbon_spectrometer,
 /turf/simulated/floor/tiled{
-	dir = 5;
-	icon_state = "vault"
+	icon_state = "vault";
+	dir = 5
 	},
 /area/outpost/research/analysis)
 "bG" = (
@@ -871,14 +871,14 @@
 	icon_state = "small"
 	},
 /turf/simulated/floor/airless,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "cb" = (
 /obj/item/stack/rods,
 /obj/structure/door_assembly/door_assembly_ext{
 	name = "Broken External Airlock"
 	},
 /turf/simulated/floor,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "cc" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -886,7 +886,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "cd" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -896,7 +896,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "ce" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
@@ -963,8 +963,8 @@
 /area/outpost/research/chemistry)
 "cl" = (
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -1009,13 +1009,18 @@
 /area/outpost/research/kitchen)
 "cp" = (
 /turf/simulated/wall/shuttle,
-/area/mine/unexplored)
+/area/shuttle/alien/mine)
 "cq" = (
 /obj/item/stack/rods,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned0"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
+"cr" = (
+/turf/simulated/floor/tiled/airless{
+	icon_state = "steel_burned0"
+	},
+/area/outpost/abandoned)
 "cs" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1251,18 +1256,18 @@
 	dir = 8
 	},
 /turf/simulated/wall/shuttle,
-/area/mine/unexplored)
+/area/shuttle/alien/mine)
 "cN" = (
 /turf/simulated/floor/shuttle{
 	icon_state = "floor2"
 	},
-/area/mine/unexplored)
+/area/shuttle/alien/mine)
 "cO" = (
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor2"
 	},
-/area/mine/unexplored)
+/area/shuttle/alien/mine)
 "cP" = (
 /obj/item/material/shard{
 	icon_state = "medium"
@@ -1270,12 +1275,12 @@
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_broken0"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "cQ" = (
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_broken0"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "cR" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -1286,7 +1291,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "cS" = (
 /turf/unsimulated/mask,
 /area/mine/explored)
@@ -1470,7 +1475,10 @@
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned0"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
+"dm" = (
+/turf/simulated/wall,
+/area/outpost/abandoned)
 "dn" = (
 /obj/effect/shuttle_landmark/research_exodus/dock,
 /turf/template_noop,
@@ -1747,7 +1755,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "dJ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -2066,7 +2074,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "ek" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -2256,7 +2264,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "eI" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -2266,7 +2274,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "eJ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -2279,13 +2287,13 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "eK" = (
 /obj/effect/decal/remains/xeno,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned0"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "eL" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin{
@@ -2424,12 +2432,12 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "fb" = (
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "fc" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -2438,13 +2446,13 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "fd" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned0"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "fe" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -2459,10 +2467,10 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "ff" = (
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "fg" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -25
@@ -2643,7 +2651,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "fB" = (
 /obj/item/material/shard{
 	icon_state = "small"
@@ -2652,17 +2660,17 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "fC" = (
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_broken1"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "fD" = (
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_broken2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "fE" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -2675,7 +2683,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "fF" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
@@ -2960,23 +2968,23 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "gi" = (
 /obj/effect/gibspawner/robot,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_broken0"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "gj" = (
 /obj/effect/gibspawner/human,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_broken1"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "gk" = (
 /obj/effect/decal/remains/xeno,
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "gl" = (
 /turf/unsimulated/mask,
 /area/template_noop)
@@ -3273,13 +3281,13 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "gP" = (
 /obj/item/material/shard,
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "gQ" = (
 /obj/structure/lattice,
 /obj/item/material/shard{
@@ -3288,17 +3296,17 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "gR" = (
 /obj/structure/lattice,
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "gS" = (
 /obj/machinery/door/airlock,
 /turf/simulated/floor,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "gT" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -3440,8 +3448,8 @@
 	pixel_y = -12
 	},
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/eva)
@@ -3620,7 +3628,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "hA" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -3630,24 +3638,24 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "hB" = (
 /obj/effect/decal/remains/xeno,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_broken2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "hC" = (
 /turf/simulated/floor/airless,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "hD" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/airless,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "hE" = (
 /obj/structure/table/rack,
 /turf/simulated/floor/airless,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "hF" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
@@ -4245,13 +4253,13 @@
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned0"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "iq" = (
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned0"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "ir" = (
 /turf/simulated/wall,
 /area/mine/unexplored)
@@ -4584,13 +4592,13 @@
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_broken0"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "iZ" = (
 /obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/airless,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "ja" = (
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
@@ -4830,19 +4838,19 @@
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned1"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "jC" = (
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned1"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "jD" = (
 /obj/structure/table/standard,
 /obj/item/paper/crumpled,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned1"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "jE" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -4852,7 +4860,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "jF" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -4862,7 +4870,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "jG" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -4872,7 +4880,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "jH" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -4885,7 +4893,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "jI" = (
 /turf/simulated/wall,
 /area/outpost/research/eva)
@@ -5090,8 +5098,8 @@
 "kb" = (
 /obj/machinery/portable_atmospherics/canister/phoron,
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/isolation_monitoring)
@@ -5196,11 +5204,11 @@
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_broken2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "kp" = (
 /obj/effect/decal/remains/xeno,
 /turf/simulated/floor,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "kq" = (
 /obj/structure/ore_box,
 /turf/unsimulated/floor/asteroid/ash,
@@ -5394,8 +5402,8 @@
 /area/outpost/research/isolation_monitoring)
 "kP" = (
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
@@ -5422,19 +5430,19 @@
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned1"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "kV" = (
 /obj/machinery/door/airlock,
 /turf/simulated/floor/airless{
 	icon_state = "floorscorched1"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "kW" = (
 /obj/effect/gibspawner/human,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned1"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "kX" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'VACUUM'";
@@ -5663,13 +5671,13 @@
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_broken2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "ly" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned1"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "lz" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -5680,7 +5688,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "lA" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -5691,7 +5699,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "lB" = (
 /obj/structure/ore_box,
 /obj/machinery/light_construct/small{
@@ -5906,7 +5914,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "lZ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -5919,13 +5927,13 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "ma" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned0"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "mb" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -5941,7 +5949,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "mc" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled,
@@ -6032,8 +6040,8 @@
 	icon_state = "freezer"
 	},
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/isolation_monitoring)
@@ -6110,17 +6118,17 @@
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned1"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "mw" = (
 /obj/structure/table,
 /turf/simulated/floor/airless,
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "mx" = (
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_broken2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "my" = (
 /turf/unsimulated/floor/asteroid/ash,
 /area/mine/unexplored)
@@ -6357,7 +6365,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "mV" = (
 /obj/structure/table/steel,
 /turf/unsimulated/floor/asteroid/ash,
@@ -6402,12 +6410,12 @@
 	dir = 8
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	id_tag = "research_airlock";
-	pixel_x = -25;
 	tag_airpump = "research_pump";
-	tag_chamber_sensor = "research_sensor";
 	tag_exterior_door = "research_outer";
-	tag_interior_door = "research_inner"
+	id_tag = "research_airlock";
+	tag_interior_door = "research_inner";
+	pixel_x = -25;
+	tag_chamber_sensor = "research_sensor"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -6592,7 +6600,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "nw" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -6678,12 +6686,12 @@
 /area/outpost/research/eva)
 "nF" = (
 /obj/machinery/power/smes/buildable/outpost_substation{
-	RCon_tag = "Outpost - Research";
 	charge = 500000;
 	input_attempt = 1;
 	input_level = 150000;
 	output_attempt = 1;
-	output_level = 150000
+	output_level = 150000;
+	RCon_tag = "Outpost - Research"
 	},
 /obj/structure/cable/blue,
 /turf/simulated/floor,
@@ -6971,7 +6979,7 @@
 	dir = 5;
 	icon_state = "asteroidfloor"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "om" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -6985,15 +6993,15 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "on" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /turf/template_noop,
 /area/mine/explored)
@@ -7122,8 +7130,8 @@
 	dir = 4
 	},
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /obj/structure/cable{
 	d2 = 8;
@@ -7225,7 +7233,7 @@
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned0"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "oM" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7252,13 +7260,13 @@
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "oO" = (
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/airless{
 	icon_state = "steel_burned0"
 	},
-/area/mine/unexplored)
+/area/outpost/abandoned)
 "oP" = (
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/mechanical,
@@ -8795,8 +8803,8 @@
 /area/outpost/engineering/meeting)
 "rx" = (
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /obj/machinery/power/terminal,
 /turf/simulated/floor/tiled,
@@ -8808,8 +8816,8 @@
 	icon_state = "0-8"
 	},
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /obj/structure/cable{
 	d2 = 2;
@@ -8845,7 +8853,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/smes/buildable{
-	RCon_tag = "Outpost - Main";
 	charge = 1.5e+007;
 	cur_coils = 3;
 	input_attempt = 1;
@@ -8853,7 +8860,8 @@
 	input_level_max = 750000;
 	output_attempt = 1;
 	output_level = 750000;
-	output_level_max = 750000
+	output_level_max = 750000;
+	RCon_tag = "Outpost - Main"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/power)
@@ -9065,12 +9073,12 @@
 /area/outpost/engineering/meeting)
 "rY" = (
 /obj/machinery/power/smes/buildable/outpost_substation{
-	RCon_tag = "Outpost - Engineering";
 	charge = 500000;
 	input_attempt = 1;
 	input_level = 150000;
 	output_attempt = 1;
-	output_level = 150000
+	output_level = 150000;
+	RCon_tag = "Outpost - Engineering"
 	},
 /obj/structure/cable/blue{
 	d2 = 2;
@@ -11567,8 +11575,8 @@
 /obj/structure/lattice,
 /obj/structure/window/reinforced,
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /turf/template_noop,
 /area/mine/explored)
@@ -12806,12 +12814,12 @@
 /area/outpost/mining_west)
 "yM" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	id_tag = "mining_west_outpost_airlock";
-	pixel_y = -25;
 	tag_airpump = "mining_west_outpost_pump";
-	tag_chamber_sensor = "mining_west_outpost_sensor";
 	tag_exterior_door = "mining_west_outpost_outer";
-	tag_interior_door = "mining_west_outpost_inner"
+	id_tag = "mining_west_outpost_airlock";
+	tag_interior_door = "mining_west_outpost_inner";
+	pixel_y = -25;
+	tag_chamber_sensor = "mining_west_outpost_sensor"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -13074,8 +13082,8 @@
 	pixel_x = -23
 	},
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /obj/machinery/camera/network/mining{
 	c_tag = "Mining Outpost EVA";
@@ -13791,8 +13799,8 @@
 /area/outpost/mining_west)
 "AE" = (
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -14160,12 +14168,12 @@
 /area/outpost/mining_main/eva)
 "Bb" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	id_tag = "mining_east_airlock";
-	pixel_y = -25;
 	tag_airpump = "mining_east_pump";
-	tag_chamber_sensor = "mining_east_sensor";
 	tag_exterior_door = "mining_east_outer";
-	tag_interior_door = "mining_east_inner"
+	id_tag = "mining_east_airlock";
+	tag_interior_door = "mining_east_inner";
+	pixel_y = -25;
+	tag_chamber_sensor = "mining_east_sensor"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -14538,8 +14546,8 @@
 /area/outpost/mining_main/east_hall)
 "BM" = (
 /obj/structure/disposalpipe/junction{
-	dir = 4;
-	icon_state = "pipe-j2"
+	icon_state = "pipe-j2";
+	dir = 4
 	},
 /turf/simulated/wall,
 /area/outpost/mining_main/refinery)
@@ -14684,12 +14692,12 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/smes/buildable/outpost_substation{
-	RCon_tag = "Outpost - Mining";
 	charge = 500000;
 	input_attempt = 1;
 	input_level = 150000;
 	output_attempt = 1;
-	output_level = 150000
+	output_level = 150000;
+	RCon_tag = "Outpost - Mining"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/maintenance)
@@ -14784,13 +14792,13 @@
 	pixel_y = -5
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	tag_airpump = "mining_west_pump";
+	tag_exterior_door = "mining_west_outer";
 	id_tag = "mining_west_airlock";
+	tag_interior_door = "mining_west_inner";
 	pixel_x = 25;
 	pixel_y = 5;
-	tag_airpump = "mining_west_pump";
-	tag_chamber_sensor = "mining_west_sensor";
-	tag_exterior_door = "mining_west_outer";
-	tag_interior_door = "mining_west_inner"
+	tag_chamber_sensor = "mining_west_sensor"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -14860,8 +14868,8 @@
 /area/outpost/mining_main/refinery)
 "Cp" = (
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -14921,8 +14929,8 @@
 	dir = 8
 	},
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -15191,8 +15199,8 @@
 	dir = 5
 	},
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/maintenance)
@@ -15712,8 +15720,8 @@
 "DR" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -33369,12 +33377,12 @@ aa
 aa
 aa
 ae
-ir
-ir
-ir
-ir
-ir
-ir
+dm
+dm
+dm
+dm
+dm
+dm
 ab
 ab
 ab
@@ -33626,12 +33634,12 @@ aa
 aa
 aa
 ae
-ir
+dm
 jB
 jB
 kU
 kU
-ir
+dm
 ab
 ab
 ab
@@ -33883,12 +33891,12 @@ aa
 aa
 aa
 ae
-ir
+dm
 jC
 fD
 fC
 lx
-ir
+dm
 ab
 ab
 ab
@@ -34140,12 +34148,12 @@ aa
 aa
 ae
 ab
-ir
+dm
 jC
 fC
 cQ
 jC
-ir
+dm
 ab
 ab
 ab
@@ -34397,12 +34405,12 @@ aa
 ae
 ae
 ab
-ir
+dm
 jD
 fD
 jC
 ly
-ir
+dm
 ab
 ab
 ab
@@ -34653,18 +34661,18 @@ aa
 aa
 ae
 hz
-ir
-ir
-ir
+dm
+dm
+dm
 ko
 kV
-ir
-ir
-ir
-ir
-ir
-ir
-ir
+dm
+dm
+dm
+dm
+dm
+dm
+dm
 ab
 ab
 ab
@@ -34916,12 +34924,12 @@ hz
 bD
 cQ
 cQ
-oS
+cr
 fD
-oS
+cr
 fD
-oS
-ir
+cr
+dm
 ab
 ab
 ab
@@ -35166,19 +35174,19 @@ aa
 ae
 fA
 gP
-oS
+cr
 cQ
 fD
 jE
 jC
 fD
-ir
-ir
-ir
-ir
-ir
-oS
-ir
+dm
+dm
+dm
+dm
+dm
+cr
+dm
 ab
 ab
 ab
@@ -35430,12 +35438,12 @@ hA
 fD
 jC
 lz
-oS
-oS
-oS
-ir
+cr
+cr
+cr
+dm
 fD
-ir
+dm
 ab
 ab
 ab
@@ -35683,16 +35691,16 @@ gQ
 gR
 fb
 fC
-ir
+dm
 jC
 fC
 lA
 fC
 fD
 fD
-ir
-oS
-ir
+dm
+cr
+dm
 ab
 ab
 ab
@@ -35943,13 +35951,13 @@ fC
 gS
 cQ
 kW
-ir
+dm
 jC
 mv
 jC
-ir
-oS
-ir
+dm
+cr
+dm
 ab
 ab
 ab
@@ -36197,16 +36205,16 @@ fb
 cQ
 cQ
 fD
-ir
+dm
 jC
 cQ
 jC
 jC
 cQ
 jC
-ir
-oS
-ir
+dm
+cr
+dm
 ab
 ab
 ab
@@ -36449,7 +36457,7 @@ ae
 eH
 fc
 fD
-oS
+cr
 fD
 hB
 fD
@@ -36457,13 +36465,13 @@ iZ
 jF
 fC
 cQ
-ir
+dm
 fD
 fD
 jC
-ir
-oS
-ir
+dm
+cr
+dm
 ab
 ab
 ab
@@ -36709,18 +36717,18 @@ fD
 gi
 fC
 fD
-oS
+cr
 hD
 jG
 kp
-oS
+cr
 lz
 fD
 jC
 fC
-ir
-oS
-ir
+dm
+cr
+dm
 ab
 ab
 ab
@@ -36964,7 +36972,7 @@ eJ
 fd
 cQ
 fD
-oS
+cr
 hC
 hD
 hD
@@ -36975,9 +36983,9 @@ lA
 fD
 cQ
 jC
-ir
+dm
 fC
-ir
+dm
 ab
 ab
 ab
@@ -37217,24 +37225,24 @@ cO
 cp
 dI
 ej
-ir
+dm
 fe
 fE
-ir
+dm
 gS
-ir
+dm
 fe
 fE
-ir
-oS
-oS
-ir
+dm
+cr
+cr
+dm
 cQ
-ir
-ir
-ir
-oS
-ir
+dm
+dm
+dm
+cr
+dm
 my
 my
 ab
@@ -37474,24 +37482,24 @@ cP
 dl
 cq
 cQ
-oS
+cr
 cQ
 bD
 fC
-oS
+cr
 bD
 fC
 bD
-oS
+cr
 cQ
-oS
-oS
-oS
-oS
+cr
+cr
+cr
+cr
 fC
-oS
-oS
-ir
+cr
+cr
+dm
 my
 my
 my
@@ -37726,29 +37734,29 @@ aa
 bg
 bE
 cc
-oS
+cr
 cQ
-oS
+cr
 cQ
-oS
+cr
 eK
 bD
-oS
+cr
 gj
-oS
+cr
 eK
 fC
 bD
 bD
-oS
+cr
 cQ
 bD
 fC
 cQ
-ir
-ir
-ir
-ir
+dm
+dm
+dm
+dm
 my
 my
 my
@@ -37985,30 +37993,30 @@ ae
 cd
 bE
 cR
-ir
-ir
-ir
-ir
-ir
+dm
+dm
+dm
+dm
+dm
 ff
-ir
-ir
-ir
-ir
-ir
+dm
+dm
+dm
+dm
+dm
 hC
-ir
-ir
-ir
-ir
-ir
-ir
+dm
+dm
+dm
+dm
+dm
+dm
 fd
 hD
-ir
-ir
-ir
-ir
+dm
+dm
+dm
+dm
 my
 ab
 ab
@@ -38245,11 +38253,11 @@ ae
 ab
 ab
 ab
-ir
+dm
 ff
 ff
 ff
-ir
+dm
 hD
 hD
 hD
@@ -38260,11 +38268,11 @@ eK
 lY
 mw
 hD
-oS
-oS
+cr
+cr
 mb
-oS
-oS
+cr
+cr
 oN
 oS
 ab
@@ -38502,25 +38510,25 @@ ae
 ab
 ab
 ab
-ir
+dm
 ff
 ff
 gk
-ir
+dm
 fD
 fC
 cQ
 cQ
 hC
-oS
+cr
 hC
 lZ
-oS
+cr
 fD
-oS
+cr
 hC
 ol
-oS
+cr
 oL
 oO
 oS
@@ -38759,26 +38767,26 @@ ab
 ab
 ab
 ab
-ir
-ir
-ir
-ir
-ir
-oS
+dm
+dm
+dm
+dm
+dm
+cr
 cQ
-oS
+cr
 fD
 fC
 fD
 hC
 ma
-oS
-oS
+cr
+cr
 fD
-oS
+cr
 om
-oS
-oS
+cr
+cr
 mb
 oS
 ab
@@ -39020,23 +39028,23 @@ ab
 ab
 ab
 ab
-ir
+dm
 hE
 iq
 iq
 fC
 fD
-oS
+cr
 hC
 mb
 mx
 iq
 iq
 hE
-ir
-ir
-ir
-ir
+dm
+dm
+dm
+dm
 my
 ab
 ab
@@ -39277,20 +39285,20 @@ ab
 ab
 ab
 ab
-ir
-ir
-ir
-ir
-ir
-ir
-ir
-ir
-ir
-ir
+dm
+dm
+dm
+dm
+dm
+dm
+dm
+dm
+dm
+dm
 mU
 nv
-ir
-ir
+dm
+dm
 my
 my
 my

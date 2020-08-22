@@ -172,8 +172,7 @@
 	name = "exterior access button";
 	pixel_x = -25;
 	pixel_y = -25;
-	req_access = null;
-	req_one_access = list(10,11,13)
+	req_access = list(11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -203,8 +202,7 @@
 	id_tag = "solar_tool_outer";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = null;
-	req_one_access = list(10,11,13)
+	req_access = list(11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -256,7 +254,7 @@
 /area/maintenance/foresolar)
 "az" = (
 /obj/effect/shuttle_landmark/arrival/dock,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "aA" = (
 /obj/structure/grille,
@@ -286,8 +284,7 @@
 	id_tag = "solar_tool_inner";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = null;
-	req_one_access = list(10,11,13)
+	req_access = list(11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -340,8 +337,7 @@
 	name = "interior access button";
 	pixel_x = 25;
 	pixel_y = 25;
-	req_access = null;
-	req_one_access = list(10,11,13)
+	req_access = list(11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -462,8 +458,7 @@
 "aQ" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Gamma Solar Array";
-	req_access = null;
-	req_one_access = list(10,11,13)
+	req_access = list(11)
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -901,7 +896,7 @@
 /area/tcommsat/computer)
 "bH" = (
 /obj/effect/shuttle_landmark/merc/dock,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "bI" = (
 /obj/machinery/power/port_gen/pacman,
@@ -1041,9 +1036,8 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
 "bU" = (
-/obj/effect/shuttle_landmark/merc_elite/green,
-/turf/unsimulated/chasm_mask,
-/area/mine/explored)
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/escape/station)
 "bV" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -1064,11 +1058,15 @@
 /area/turret_protected/tcomsat)
 "bY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
+/obj/machinery/light/small,
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/store)
+/area/maintenance/solarmaint)
 "bZ" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1118,28 +1116,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
-"cd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor/plating,
-/area/maintenance/cargo/surface)
 "ce" = (
-/obj/effect/shuttle_landmark/admin/green,
-/turf/unsimulated/chasm_mask,
-/area/mine/explored)
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/emergency)
 "cf" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
@@ -1220,8 +1202,8 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
 "co" = (
-/obj/effect/shuttle_landmark/legion/green,
-/turf/unsimulated/chasm_mask,
+/obj/effect/shuttle_landmark/legion/dock,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "cp" = (
 /obj/machinery/atmospherics/binary/pump/on{
@@ -1358,7 +1340,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1337;
+	frequency = 1331;
 	master_tag = "distress_shuttle_dock";
 	name = "interior access button";
 	pixel_x = -28;
@@ -1606,9 +1588,17 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
 "de" = (
-/obj/effect/shuttle_landmark/burglar/surface,
-/turf/unsimulated/chasm_mask,
-/area/mine/explored)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	dir = 5;
+	icon_state = "vault"
+	},
+/area/turret_protected/tcomsat)
 "df" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable/blue{
@@ -1774,6 +1764,20 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
+"dt" = (
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 8;
+	name = "Distro to Canisters";
+	target_pressure = 150
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/store)
 "du" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -1999,6 +2003,10 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/dock)
+"dN" = (
+/obj/effect/shuttle_landmark/admin/dock,
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine/explored)
 "dO" = (
 /obj/structure/bed/chair,
 /obj/structure/window/reinforced{
@@ -2159,7 +2167,7 @@
 /area/tcommsat/computer)
 "ec" = (
 /obj/effect/shuttle_landmark/ccia/dock,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "ed" = (
 /obj/structure/cable/green{
@@ -2444,7 +2452,7 @@
 /area/hallway/secondary/entry/port)
 "eC" = (
 /obj/effect/shuttle_landmark/merchant/dock,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "eD" = (
 /obj/structure/grille,
@@ -3146,18 +3154,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
-"fV" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/emergency)
 "fW" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -3514,14 +3510,14 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "gF" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "7,2";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "gG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -3581,8 +3577,7 @@
 	name = "exterior access button";
 	pixel_x = 25;
 	pixel_y = -25;
-	req_access = null;
-	req_one_access = list(10,11,13)
+	req_access = list(11,13)
 	},
 /turf/simulated/floor/airless,
 /area/solar/port)
@@ -3593,8 +3588,7 @@
 	id_tag = "brig_solar_outer";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = null;
-	req_one_access = list(10,11,13)
+	req_access = list(11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -3640,8 +3634,7 @@
 	id_tag = "brig_solar_inner";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = null;
-	req_one_access = list(10,11,13)
+	req_access = list(11,13)
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -3662,7 +3655,7 @@
 	name = "interior access button";
 	pixel_x = -25;
 	pixel_y = -25;
-	req_access = list(10,11,13)
+	req_access = list(11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -3709,8 +3702,7 @@
 "gT" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Beta Solar Array";
-	req_access = null;
-	req_one_access = list(10,11,13)
+	req_access = list(11)
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -3876,7 +3868,10 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled{
+	dir = 5;
+	icon_state = "vault"
+	},
 /area/turret_protected/tcomsat)
 "hj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3951,6 +3946,27 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
+"hq" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Auxiliary Dock"
+	},
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1399;
+	master_tag = "admin_shuttle_dock_airlock";
+	name = "interior access button";
+	pixel_x = -8;
+	pixel_y = 26;
+	req_one_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "hr" = (
 /obj/machinery/light{
 	dir = 4;
@@ -4540,11 +4556,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
 "iC" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
 	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "iD" = (
@@ -5349,18 +5363,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
-"jW" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced,
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/emergency)
 "jX" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -5370,15 +5372,8 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/status_display{
-	layer = 3.5
-	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
-"jY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/plating,
-/area/maintenance/store)
 "jZ" = (
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -5389,7 +5384,7 @@
 /area/tcommsat/chamber)
 "ka" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
+	frequency = 1331;
 	icon_state = "door_locked";
 	id_tag = "nuke_shuttle_dock_outer";
 	locked = 1;
@@ -5398,7 +5393,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 1337;
+	frequency = 1331;
 	master_tag = "nuke_shuttle_dock_airlock";
 	name = "exterior access button";
 	pixel_x = -5;
@@ -5415,9 +5410,10 @@
 /area/hallway/secondary/entry/port)
 "kc" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1337;
+	frequency = 1331;
 	id_tag = "nuke_shuttle_dock_airlock";
 	pixel_y = 30;
+	req_access = null;
 	req_one_access = list(13);
 	tag_airpump = "nuke_shuttle_dock_pump";
 	tag_chamber_sensor = "nuke_shuttle_dock_sensor";
@@ -5425,21 +5421,21 @@
 	tag_interior_door = "nuke_shuttle_dock_inner"
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1337;
+	frequency = 1331;
 	id_tag = "nuke_shuttle_dock_sensor";
 	master_tag = "nuke_shuttle_dock_airlock";
 	pixel_y = -25
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1337;
+	frequency = 1331;
 	id_tag = "nuke_shuttle_dock_pump"
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
 "kd" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
+	frequency = 1331;
 	icon_state = "door_locked";
 	id_tag = "nuke_shuttle_dock_inner";
 	locked = 1;
@@ -5457,7 +5453,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1337;
+	frequency = 1331;
 	master_tag = "nuke_shuttle_dock_airlock";
 	name = "interior access button";
 	pixel_x = -28;
@@ -5697,6 +5693,20 @@
 	},
 /turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
+"kA" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1399;
+	icon_state = "door_locked";
+	id_tag = "admin_shuttle_dock_inner";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "kB" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
@@ -5711,7 +5721,7 @@
 	name = "Cockpit Access"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "kD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/chair/office/dark,
@@ -5723,7 +5733,7 @@
 	icon_state = "2,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "kF" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -5739,7 +5749,7 @@
 /area/bridge/levela/research_dock)
 "kG" = (
 /obj/effect/shuttle_landmark/ert/dock,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "kH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5747,9 +5757,6 @@
 	},
 /obj/machinery/light{
 	icon_state = "tube1"
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -5785,17 +5792,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
-"kL" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/emergency)
 "kM" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -5975,9 +5971,6 @@
 /area/store)
 "le" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "lf" = (
@@ -6243,6 +6236,7 @@
 /turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
 "lD" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/machinery/power/apc{
 	dir = 4;
 	name = "east bump";
@@ -6267,6 +6261,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/store)
+"lF" = (
+/obj/effect/shuttle_landmark/distress/dock,
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine/explored)
 "lG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -6512,6 +6510,23 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
+"mb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/firedoor,
+/obj/structure/lattice/catwalk/indoor{
+	layer = 2.6
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Roof Solar Access";
+	req_access = list(12)
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/solarmaint)
 "mc" = (
 /obj/structure/closet/cabinet{
 	layer = 2.9
@@ -6551,13 +6566,20 @@
 /area/mine/explored)
 "mf" = (
 /obj/effect/shuttle_landmark/emergency/dock,
-/turf/unsimulated/chasm_mask,
-/area/mine/explored)
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/escape/station)
 "mg" = (
-/obj/structure/closet,
-/obj/random/loot,
-/turf/simulated/floor/plating,
-/area/maintenance/cargo/surface)
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/emergency)
 "mh" = (
 /turf/simulated/wall/r_wall,
 /area/security/bridge_surface_checkpoint)
@@ -6570,15 +6592,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
-	},
-/obj/structure/cable{
-	d2 = 2;
-	icon_state = "0-2"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/store)
@@ -6707,7 +6720,7 @@
 	},
 /obj/effect/shuttle_landmark/escape_pod/start/pod1,
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod/pod1)
+/area/shuttle/escape_pod1/station)
 "mu" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -6724,7 +6737,7 @@
 	},
 /obj/effect/shuttle_landmark/escape_pod/start/pod2,
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod/pod2)
+/area/shuttle/escape_pod2/station)
 "mv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb2{
@@ -6749,7 +6762,7 @@
 	},
 /obj/effect/shuttle_landmark/escape_pod/start/pod3,
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod/pod3)
+/area/shuttle/escape_pod3/station)
 "mx" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector,
@@ -6763,7 +6776,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/maintenance/store)
+/area/maintenance/solarmaint)
 "my" = (
 /obj/machinery/space_heater,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -7002,15 +7015,17 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/maintenance/store)
+/area/maintenance/solarmaint)
 "mY" = (
+/obj/machinery/embedded_controller/radio/docking_port_multi{
+	child_names_txt = "Airlock Fore;Airlock Aft";
+	child_tags_txt = "green_dock_fore_airlock;green_dock_aft_airlock";
+	frequency = 1332;
+	id_tag = "legion_shuttle_dock";
+	name = "Emergency Dock Controller";
+	pixel_y = 28
+	},
 /obj/structure/bed/chair,
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/item/device/radio/intercom{
-	pixel_y = 24
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "mZ" = (
@@ -7019,27 +7034,13 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "na" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
 /obj/structure/closet/crate/trashcart,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /turf/simulated/floor/plating,
 /area/store)
-"nb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "nc" = (
 /obj/effect/floor_decal/corner/lime/full,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7157,20 +7158,25 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "nm" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/store)
 "nn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/lime{
-	dir = 9
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -7193,11 +7199,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator/surface)
-"np" = (
-/obj/structure/grille/broken,
-/obj/item/stack/rods,
-/turf/simulated/floor/airless,
-/area/mine/explored)
 "nq" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -7269,9 +7270,8 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
 "nx" = (
-/obj/effect/shuttle_landmark/merc_elite/merchant,
-/turf/unsimulated/chasm_mask,
-/area/mine/explored)
+/turf/unsimulated/floor/asteroid/ash,
+/area/shuttle/syndicate_elite/station)
 "ny" = (
 /obj/item/cell,
 /turf/simulated/floor/tiled,
@@ -7364,22 +7364,6 @@
 	},
 /turf/simulated/floor/tiled/old,
 /area/store)
-"nG" = (
-/obj/effect/floor_decal/corner/lime/full,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/obj/structure/closet/emcloset,
-/obj/machinery/camera/network/civilian_surface{
-	c_tag = "Surface Emergency Services Dock - Port";
-	dir = 4;
-	network = list("Civilian Surface","Emergency Dock")
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "nH" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -7402,21 +7386,48 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
+"nL" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1399;
+	master_tag = "admin_shuttle_dock_airlock";
+	name = "exterior access button";
+	pixel_x = 25;
+	pixel_y = 5;
+	req_access = list(10,13)
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1399;
+	icon_state = "door_locked";
+	id_tag = "admin_shuttle_dock_outer";
+	locked = 1;
+	name = "Docking Port Airlock";
+	req_access = list(13)
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "nM" = (
-/obj/random/junk,
-/turf/unsimulated/chasm_mask,
-/area/mine/explored)
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/store)
 "nN" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -7575,11 +7586,11 @@
 "ob" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1337;
+	frequency = 1332;
 	id_tag = "green_dock_fore_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	frequency = 1337;
+	frequency = 1332;
 	id_tag = "green_dock_fore_airlock";
 	master_tag = "legion_shuttle_dock";
 	pixel_x = 28;
@@ -7595,12 +7606,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
-"oc" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/bridge/levela)
 "od" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -7999,9 +8004,6 @@
 "oU" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/random/junk,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/store)
 "oV" = (
@@ -8026,9 +8028,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "oY" = (
@@ -8049,7 +8048,7 @@
 	icon_state = "0,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "pa" = (
 /turf/simulated/floor/tiled,
 /area/security/vacantoffice)
@@ -8350,8 +8349,7 @@
 "pv" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Alpha Solar Array";
-	req_access = null;
-	req_one_access = list(10,11,13)
+	req_access = list(11)
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -8610,7 +8608,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,1"
 	},
-/area/shuttle/escape_pod/pod2)
+/area/shuttle/escape_pod2/station)
 "pX" = (
 /obj/structure/table/wood,
 /obj/item/storage/box/fancy/cigarettes{
@@ -8648,17 +8646,8 @@
 /turf/simulated/wall/r_wall,
 /area/security/vacantoffice)
 "qb" = (
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/emergency)
+/turf/simulated/wall,
+/area/mine/unexplored)
 "qc" = (
 /obj/machinery/power/solar_control{
 	id = "roofsolars";
@@ -8678,8 +8667,7 @@
 	name = "interior access button";
 	pixel_x = -25;
 	pixel_y = -25;
-	req_access = null;
-	req_one_access = list(10,11,13)
+	req_access = list(11,13)
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 8
@@ -8733,7 +8721,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,2"
 	},
-/area/shuttle/escape_pod/pod2)
+/area/shuttle/escape_pod2/station)
 "qj" = (
 /obj/structure/bed/chair,
 /turf/simulated/floor/tiled,
@@ -8757,18 +8745,6 @@
 "qm" = (
 /turf/simulated/open,
 /area/turbolift/main_arrivals)
-"qn" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1399;
-	icon_state = "door_locked";
-	id_tag = "admin_shuttle_dock_inner";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "qo" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -8799,8 +8775,7 @@
 	id_tag = "solar_aft_inner";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = null;
-	req_one_access = list(10,11,13)
+	req_access = list(11,13)
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/structure/cable/yellow{
@@ -8976,8 +8951,7 @@
 	id_tag = "solar_aft_outer";
 	locked = 1;
 	name = "Engineering External Access";
-	req_access = null;
-	req_one_access = list(10,11,13)
+	req_access = list(11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -8986,6 +8960,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/starboardsolar)
+"qI" = (
+/turf/simulated/wall/r_wall,
+/area/mine/explored)
 "qJ" = (
 /obj/structure/cable/green{
 	d2 = 4;
@@ -9073,8 +9050,8 @@
 	name = "exterior access button";
 	pixel_x = -25;
 	pixel_y = 25;
-	req_access = null;
-	req_one_access = list(10,11,13)
+	req_access = list(11,13);
+	req_one_access = null
 	},
 /turf/simulated/floor/airless,
 /area/solar/starboard)
@@ -9420,84 +9397,25 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,2"
 	},
-/area/shuttle/escape_pod/pod3)
+/area/shuttle/escape_pod3/station)
 "rx" = (
 /obj/structure/shuttle_part/escape_pod{
 	icon_state = "0,3"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/escape_pod/pod1)
+/area/shuttle/escape_pod1/station)
 "ry" = (
 /obj/structure/window/shuttle/unique/escape_pod{
 	icon_state = "1,3"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod/pod1)
-"rz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/plating,
-/area/maintenance/store)
-"rA" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1399;
-	id_tag = "green_dock_north_pump"
-	},
-/obj/machinery/airlock_sensor{
-	frequency = 1399;
-	id_tag = "green_dock_north_sensor";
-	pixel_x = -28
-	},
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/emergency)
+/area/shuttle/escape_pod1/station)
 "rB" = (
 /obj/effect/landmark/map_data{
 	height = 5
 	},
 /turf/unsimulated/chasm_mask,
 /area/mine/explored)
-"rC" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1399;
-	icon_state = "door_locked";
-	id_tag = "green_dock_north_outer";
-	locked = 1;
-	name = "Emergency Services Dock";
-	req_access = list(13)
-	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1399;
-	master_tag = "green_dock_north";
-	name = "exterior access button";
-	pixel_x = -27;
-	pixel_y = 7;
-	req_access = list(13)
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/emergency)
-"rD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "rE" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -9550,11 +9468,16 @@
 	icon_state = "0,6";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
-"rM" = (
-/obj/effect/shuttle_landmark/admin/command,
-/turf/unsimulated/chasm_mask,
-/area/mine/explored)
+/area/shuttle/research/station)
+"rL" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "rN" = (
 /obj/structure/table/standard,
 /obj/random/tech_supply,
@@ -9640,7 +9563,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod/pod1)
+/area/shuttle/escape_pod1/station)
 "rX" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -9658,7 +9581,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod/pod2)
+/area/shuttle/escape_pod2/station)
 "rY" = (
 /obj/structure/bed/chair{
 	dir = 1
@@ -9676,14 +9599,28 @@
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod/pod3)
+/area/shuttle/escape_pod3/station)
+"rZ" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "sa" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "3,5";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "sb" = (
 /obj/structure/table/standard,
 /obj/random/tech_supply,
@@ -9824,7 +9761,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,0"
 	},
-/area/shuttle/escape_pod/pod1)
+/area/shuttle/escape_pod1/station)
 "sp" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -9835,12 +9772,12 @@
 	req_access = list(13)
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod/pod1)
+/area/shuttle/escape_pod1/station)
 "sq" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,0"
 	},
-/area/shuttle/escape_pod/pod2)
+/area/shuttle/escape_pod2/station)
 "sr" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -9851,12 +9788,12 @@
 	req_access = list(13)
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod/pod2)
+/area/shuttle/escape_pod2/station)
 "ss" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,0"
 	},
-/area/shuttle/escape_pod/pod3)
+/area/shuttle/escape_pod3/station)
 "st" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -9867,7 +9804,7 @@
 	req_access = list(13)
 	},
 /turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape_pod/pod3)
+/area/shuttle/escape_pod3/station)
 "su" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -9987,7 +9924,7 @@
 	icon_state = "10,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "sH" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -10007,16 +9944,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/machinery/embedded_controller/radio/docking_port_multi{
-	child_names_txt = "Airlock Fore;Airlock Aft";
-	child_tags_txt = "green_dock_fore_airlock;green_dock_aft_airlock";
-	frequency = 1337;
-	id_tag = "legion_shuttle_dock";
-	name = "Emergency Dock Controller";
-	pixel_y = 28
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -10042,8 +9971,11 @@
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "sP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
@@ -10053,15 +9985,14 @@
 	frequency = 1380;
 	master_tag = "ert_shuttle_dock_airlock";
 	name = "interior access button";
-	pixel_x = 2;
 	pixel_y = 25;
 	req_access = list(13)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
@@ -10280,24 +10211,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
-"tm" = (
-/obj/effect/floor_decal/corner/paleblue/full{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1399;
-	master_tag = "admin_shuttle_dock_airlock";
-	name = "interior access button";
-	pixel_x = -27;
-	pixel_y = 22;
-	req_one_access = list(13)
-	},
-/turf/simulated/floor/tiled,
-/area/bridge/levela)
 "tn" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -10309,6 +10222,19 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
+/area/bridge/levela)
+"to" = (
+/obj/machinery/status_display{
+	layer = 4;
+	pixel_x = -32
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/bridge/levela)
 "tp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -10457,34 +10383,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hydroponics/garden)
-"tH" = (
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
-"tI" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1399;
-	layer = 3.5;
-	master_tag = "admin_shuttle_dock_airlock";
-	name = "exterior access button";
-	pixel_x = 21;
-	pixel_y = 10;
-	req_access = list(10,13)
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1399;
-	icon_state = "door_locked";
-	id_tag = "admin_shuttle_dock_outer";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "tJ" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -10516,9 +10414,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -10601,7 +10496,7 @@
 /obj/machinery/light/small,
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "tV" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth{
 	frequency = 1380;
@@ -10645,9 +10540,15 @@
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "ub" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/floor_decal/corner/paleblue/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/bridge/levela)
+"uc" = (
 /obj/effect/floor_decal/corner/paleblue{
-	dir = 9
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
@@ -10702,11 +10603,21 @@
 	pixel_y = 30
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "uh" = (
-/obj/effect/shuttle_landmark/merc_elite/yellow,
-/turf/unsimulated/chasm_mask,
-/area/mine/explored)
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/emergency)
 "ui" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -10864,7 +10775,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,0"
 	},
-/area/shuttle/escape_pod/pod2)
+/area/shuttle/escape_pod2/station)
 "uB" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -10919,9 +10830,6 @@
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
-	},
-/obj/machinery/newscaster{
-	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
@@ -10999,16 +10907,26 @@
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/wood,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "uO" = (
 /turf/simulated/wall,
 /area/hallway/secondary/entry/locker)
 "uP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/item/tape/engineering{
+	icon_state = "engineering_door";
+	layer = 4
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "escape_pod_4_berth_hatch";
+	locked = 1;
+	name = "Under Construction";
+	req_access = list(13);
+	welded = 1
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/store)
+/area/hallway/secondary/entry/emergency)
 "uQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -11039,7 +10957,7 @@
 	icon_state = "4,12";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "uT" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -11076,20 +10994,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hydroponics/garden)
-"uX" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "green_dock_west_inner";
-	locked = 1;
-	name = "Emergency Services Dock";
-	req_access = list(13)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/emergency)
 "uY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -11106,7 +11010,7 @@
 	id_tag = "science_shuttle_in"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "va" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/tape_roll,
@@ -11335,11 +11239,14 @@
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "vu" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
+	},
+/obj/machinery/light{
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -11441,7 +11348,7 @@
 	icon_state = "5,15"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "vG" = (
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal,
@@ -11460,7 +11367,7 @@
 	icon_state = "11,1";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "vK" = (
 /obj/machinery/light{
 	dir = 4
@@ -11481,14 +11388,14 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,0"
 	},
-/area/shuttle/escape_pod/pod3)
+/area/shuttle/escape_pod3/station)
 "vN" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "0,4";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "vO" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -11649,13 +11556,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
-"we" = (
-/obj/effect/landmark{
-	name = "carpspawn"
-	},
-/turf/unsimulated/floor/asteroid/ash,
-/area/mine/explored)
+/area/shuttle/research/station)
 "wf" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -11766,7 +11667,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "wl" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -11795,7 +11696,7 @@
 	tag_interior_door = "science_shuttle_in"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "wm" = (
 /obj/machinery/light{
 	dir = 8
@@ -11810,7 +11711,7 @@
 	icon_state = "5,13"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "wq" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -11895,7 +11796,7 @@
 	icon_state = "2,3"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/escape_pod/pod3)
+/area/shuttle/escape_pod3/station)
 "wy" = (
 /turf/simulated/floor/wood,
 /area/hydroponics/garden)
@@ -12002,7 +11903,7 @@
 	icon_state = "9,9";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "wM" = (
 /obj/structure/closet/crate/internals{
 	name = "emergency equipment"
@@ -12023,14 +11924,14 @@
 /obj/item/device/flashlight/flare/glowstick/red,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "wN" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1337;
+	frequency = 1380;
 	master_tag = "command_surface_airlock";
 	name = "interior access button";
 	pixel_x = -25;
@@ -12051,23 +11952,16 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
 "wP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 24;
-	pixel_y = -3
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -12087,7 +11981,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "wT" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -12109,16 +12003,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
-"wV" = (
-/turf/simulated/floor/plating,
-/area/maintenance/store)
 "wW" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "0,3";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "wX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/powered/scrubber,
@@ -12134,7 +12025,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "wZ" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -12149,6 +12040,15 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
+/area/bridge/levela)
+"xa" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/plating,
 /area/bridge/levela)
 "xb" = (
 /obj/effect/floor_decal/corner/paleblue/full,
@@ -12183,20 +12083,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
-"xd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "xe" = (
 /obj/machinery/camera/network/command{
 	c_tag = "Bridge - Surface Docks";
@@ -12249,45 +12135,38 @@
 	pixel_y = -25;
 	req_access = list(13)
 	},
-/obj/machinery/light/small{
+/obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 10
+/obj/machinery/light/small{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "xk" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
-	name = "KEEP CLEAR: DOCKING AREA"
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine/unexplored)
 "xl" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "9,8";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "xm" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "11,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "xo" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /obj/effect/decal/cleanable/generic,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
@@ -12296,7 +12175,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,1"
 	},
-/area/shuttle/escape_pod/pod2)
+/area/shuttle/escape_pod2/station)
 "xq" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/ywflowers,
@@ -12487,10 +12366,12 @@
 "xH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/corner/lime{
-	dir = 9
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "xI" = (
@@ -12578,15 +12459,15 @@
 	},
 /area/crew_quarters/fitness/pool)
 "xR" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "xS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -12623,25 +12504,26 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "xX" = (
+/turf/space,
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "8,11";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "xY" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "xZ" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,1"
 	},
-/area/shuttle/escape_pod/pod1)
+/area/shuttle/escape_pod1/station)
 "ya" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -12655,12 +12537,13 @@
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "yb" = (
+/turf/space,
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "4,11";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "yc" = (
 /obj/structure/sign/double/map/right{
 	pixel_y = 30
@@ -12835,15 +12718,21 @@
 	},
 /turf/simulated/floor/wood,
 /area/store)
+"yt" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/hallway/secondary/entry/emergency)
 "yu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -32
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -13083,7 +12972,7 @@
 /obj/item/gun/energy/laser/shotgun/research,
 /obj/item/gun/energy/laser/shotgun/research,
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "yL" = (
 /obj/item/modular_computer/console/preset/security,
 /turf/simulated/floor/wood,
@@ -13094,11 +12983,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/security/bridge_surface_checkpoint)
-"yN" = (
-/obj/effect/shuttle_landmark/burglar/blue,
-/obj/effect/shuttle_landmark/distress/blue,
-/turf/unsimulated/chasm_mask,
-/area/mine/explored)
 "yO" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -13111,14 +12995,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/bridge/levela)
-"yP" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/store)
 "yQ" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
@@ -13165,11 +13041,8 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/item/device/radio/intercom{
-	pixel_x = -32
-	},
 /turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
+/area/hallway/secondary/entry/locker)
 "yT" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -13177,7 +13050,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "yU" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
@@ -13305,12 +13178,6 @@
 /area/crew_quarters/fitness)
 "zf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "zg" = (
@@ -13416,24 +13283,21 @@
 	icon_state = "4,13";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "zq" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "zr" = (
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "zs" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 4
+	},
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Red Dock Command";
 	dir = 8
@@ -13722,7 +13586,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "zS" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -13736,9 +13600,6 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "zT" = (
@@ -13917,12 +13778,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "Ae" = (
-/obj/effect/floor_decal/corner/lime/full{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
 /obj/structure/bed/chair{
 	dir = 4
 	},
@@ -13955,9 +13810,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -14090,9 +13942,6 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "Aq" = (
@@ -14102,15 +13951,16 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
 "Ar" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "As" = (
@@ -14190,7 +14040,7 @@
 /area/hallway/secondary/entry/central)
 "AB" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
+	frequency = 1332;
 	icon_state = "door_locked";
 	id_tag = "green_dock_fore_exterior";
 	locked = 1;
@@ -14199,7 +14049,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 1337;
+	frequency = 1332;
 	master_tag = "green_dock_fore_airlock";
 	name = "exterior access button";
 	pixel_x = -27;
@@ -14237,7 +14087,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "AF" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/item/device/radio/intercom{
@@ -14250,7 +14100,7 @@
 	icon_state = "0,3"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/escape_pod/pod3)
+/area/shuttle/escape_pod3/station)
 "AI" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/corner/white/diagonal{
@@ -14299,21 +14149,9 @@
 	},
 /area/crew_quarters/fitness/pool)
 "AL" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1399;
-	master_tag = "green_dock_north";
-	name = "interior access button";
-	pixel_x = 25;
-	pixel_y = 26;
-	req_access = list(13)
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -8;
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -14340,11 +14178,6 @@
 	dir = 2;
 	id = "commissary_entry";
 	name = "Shutter"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/store)
@@ -14377,6 +14210,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
 "AS" = (
@@ -14450,7 +14284,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/item/stool/padded,
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "AZ" = (
 /turf/simulated/wall,
 /area/storage/tools)
@@ -14467,7 +14301,7 @@
 	icon_state = "9,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Bc" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -14745,7 +14579,7 @@
 	icon_state = "4,5";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "BD" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -14763,13 +14597,15 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "BF" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
 /obj/machinery/alarm{
 	pixel_y = 28
 	},
 /obj/structure/flora/pottedplant/random,
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "BG" = (
@@ -14787,7 +14623,7 @@
 	icon_state = "9,10";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "BI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -14812,24 +14648,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research)
-"BK" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/alarm{
-	pixel_y = 28
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/store)
+/area/shuttle/research/station)
 "BL" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -15000,24 +14819,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
-"Ca" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
-	icon_state = "space";
-	layer = 4;
-	name = "EXTERNAL AIRLOCK"
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "Cb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sink{
@@ -15064,11 +14865,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
 "Cg" = (
+/obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/store)
@@ -15079,7 +14881,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Ci" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/mime,
@@ -15176,14 +14978,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/lime/full{
-	dir = 1
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -15434,17 +15228,6 @@
 /obj/random/random_flag,
 /turf/simulated/floor/wood,
 /area/store)
-"CS" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1399;
-	icon_state = "door_locked";
-	id_tag = "admin_shuttle_dock_inner";
-	locked = 1;
-	name = "Docking Port Airlock";
-	req_access = list(13)
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "CT" = (
 /obj/machinery/firealarm/south,
 /obj/machinery/light{
@@ -15459,7 +15242,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,2"
 	},
-/area/shuttle/escape_pod/pod1)
+/area/shuttle/escape_pod1/station)
 "CW" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -15551,7 +15334,7 @@
 	icon_state = "9,4";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "De" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -15570,16 +15353,12 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Dg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
-	},
+/obj/structure/closet,
+/obj/random/loot,
 /turf/simulated/floor/plating,
-/area/maintenance/store)
+/area/maintenance/solarmaint)
 "Dh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/light{
@@ -15590,9 +15369,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -15631,7 +15407,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,2"
 	},
-/area/shuttle/escape_pod/pod2)
+/area/shuttle/escape_pod2/station)
 "Dl" = (
 /obj/machinery/atm{
 	pixel_y = 27
@@ -15642,7 +15418,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,1"
 	},
-/area/shuttle/escape_pod/pod3)
+/area/shuttle/escape_pod3/station)
 "Dn" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -15668,12 +15444,14 @@
 	icon_state = "2-4"
 	},
 /obj/structure/cable{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/store)
@@ -15696,12 +15474,13 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "Dp" = (
+/turf/space,
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "12,5";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Dq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -15734,7 +15513,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Du" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -15822,18 +15601,13 @@
 "DA" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "DB" = (
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 8
-	},
-/obj/machinery/atmospherics/binary/pump/on{
-	dir = 8;
-	name = "Distro to Canisters";
-	target_pressure = 150
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/store)
+/area/maintenance/solarmaint)
 "DC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
@@ -15893,14 +15667,14 @@
 	icon_state = "12,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "DJ" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "3,1";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "DK" = (
 /obj/structure/shuttle_part/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -15908,7 +15682,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "DL" = (
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Corridor Camera 9";
@@ -15927,7 +15701,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "DN" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -15942,14 +15716,14 @@
 	icon_state = "11,5";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "DP" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "12,6";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "DQ" = (
 /obj/structure/shuttle_part/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -15957,7 +15731,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "DR" = (
 /obj/machinery/light{
 	dir = 8;
@@ -15995,7 +15769,7 @@
 /area/hallway/secondary/entry/aft)
 "DV" = (
 /turf/simulated/open/airless,
-/area/mine/explored)
+/area/mine/unexplored)
 "DW" = (
 /turf/simulated/wall,
 /area/quartermaster/loading)
@@ -16040,7 +15814,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Eb" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -16258,21 +16032,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
-"Eu" = (
-/obj/machinery/power/apc{
-	dir = 1;
-	name = "north bump";
-	pixel_y = 24
-	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "Ev" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/grey{
@@ -16659,7 +16418,7 @@
 /area/hallway/secondary/entry/aft)
 "Fj" = (
 /obj/machinery/airlock_sensor{
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "merchant_shuttle_dock_sensor";
 	pixel_y = -27
 	},
@@ -16670,7 +16429,7 @@
 /area/hallway/secondary/entry/aft)
 "Fk" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
+	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "merchant_shuttle_dock_outer";
 	locked = 1;
@@ -16678,7 +16437,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 1337;
+	frequency = 1380;
 	master_tag = "merchant_shuttle_dock";
 	name = "exterior access button";
 	pixel_y = 32;
@@ -16932,7 +16691,7 @@
 /area/hallway/secondary/entry/aft)
 "FE" = (
 /obj/effect/shuttle_landmark/merc/surface,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "FF" = (
 /obj/machinery/door/airlock/external{
@@ -17350,7 +17109,7 @@
 	icon_state = "7,15"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Gp" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 4
@@ -18233,7 +17992,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "HS" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -18261,7 +18020,7 @@
 	icon_state = "4,2";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "HV" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Cargo Bay Warehouse Maintenance";
@@ -18283,10 +18042,10 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/structure/cable{
-	d1 = 2;
+/obj/structure/cable/green{
+	d1 = 1;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/store)
@@ -18350,10 +18109,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
-"Ie" = (
-/obj/item/stack/rods,
-/turf/simulated/floor/airless,
-/area/mine/explored)
 "If" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 9
@@ -18388,14 +18143,14 @@
 	icon_state = "3,4";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Ik" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "9,5";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Il" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -18451,19 +18206,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
-"Iq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/emergency)
 "Ir" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -18517,7 +18259,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Ix" = (
 /obj/machinery/light{
 	dir = 8;
@@ -18533,7 +18275,7 @@
 "Iy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
+	frequency = 1332;
 	icon_state = "door_locked";
 	id_tag = "green_dock_aft_interior";
 	locked = 1;
@@ -18572,9 +18314,6 @@
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -28
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -18676,26 +18415,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
-"IM" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
-	icon_state = "space";
-	layer = 4;
-	name = "EXTERNAL AIRLOCK"
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "IN" = (
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
@@ -18758,7 +18477,7 @@
 	icon_state = "6,2";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "IU" = (
 /obj/effect/decal/warning_stripes,
 /obj/structure/ladder{
@@ -18782,14 +18501,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
-"IW" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/locker)
 "IX" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -18866,7 +18577,7 @@
 /area/maintenance/portsolar)
 "Jc" = (
 /obj/effect/shuttle_landmark/skipjack/surface,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "Je" = (
 /obj/effect/floor_decal/corner/red,
@@ -19032,16 +18743,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
-"Jw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/obj/machinery/firealarm/south,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "Jx" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -19076,13 +18777,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
-"JB" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled,
-/area/bridge/levela)
 "JC" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -19135,7 +18829,7 @@
 	icon_state = "1,3"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod/pod2)
+/area/shuttle/escape_pod2/station)
 "JJ" = (
 /obj/item/device/radio/intercom{
 	dir = 4;
@@ -19144,7 +18838,7 @@
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "JK" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -19430,19 +19124,10 @@
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "Ko" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/emergency)
+/area/mine/explored)
 "Kp" = (
 /obj/machinery/door/airlock/glass{
 	name = "Conference Room Antechamber"
@@ -19589,12 +19274,13 @@
 /turf/simulated/floor/carpet,
 /area/sconference_room)
 "KH" = (
+/turf/space,
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "0,2";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "KI" = (
 /obj/structure/table/wood,
 /obj/item/folder/blue,
@@ -19688,7 +19374,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "KU" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -19757,6 +19443,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/sconference_room)
+"KZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/lattice/catwalk/indoor{
+	layer = 2.6
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Roof Solar Access";
+	req_access = list(12)
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/solarmaint)
 "La" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 1;
@@ -19893,8 +19596,10 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/lime{
-	dir = 9
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -19976,7 +19681,7 @@
 "Lo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
+	frequency = 1332;
 	icon_state = "door_locked";
 	id_tag = "green_dock_fore_interior";
 	locked = 1;
@@ -19985,7 +19690,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1337;
+	frequency = 1332;
 	master_tag = "green_dock_fore_airlock";
 	name = "interior access button";
 	pixel_x = 26;
@@ -20028,9 +19733,6 @@
 	dir = 4
 	},
 /obj/machinery/hologram/holopad,
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "Lt" = (
@@ -20061,11 +19763,9 @@
 /turf/simulated/floor/tiled,
 /area/storage/tools)
 "Lv" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -20115,7 +19815,7 @@
 /area/tcommsat/entrance)
 "LA" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
+	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "merchant_shuttle_dock_inner";
 	locked = 1;
@@ -20123,7 +19823,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1337;
+	frequency = 1380;
 	master_tag = "merchant_shuttle_dock";
 	name = "interior access button";
 	pixel_y = 32;
@@ -20170,13 +19870,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/pool)
-"LE" = (
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "LF" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 1337;
+	frequency = 1331;
 	master_tag = "distress_shuttle_dock";
 	name = "exterior access button";
 	pixel_x = -5;
@@ -20184,7 +19881,7 @@
 	req_one_access = list(13)
 	},
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
+	frequency = 1331;
 	icon_state = "door_locked";
 	id_tag = "distress_shuttle_dock_outer";
 	locked = 1;
@@ -20219,7 +19916,7 @@
 	icon_state = "9,1";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "LJ" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -20273,15 +19970,15 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "LP" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "merchant_shuttle_dock_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "merchant_shuttle_dock";
 	pixel_y = 29;
 	req_access = list(13);
@@ -20338,20 +20035,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/hallway/secondary/entry/dock)
-"LU" = (
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/emergency)
 "LV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -20419,21 +20102,7 @@
 	name = "Storage"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
-"Ma" = (
-/obj/machinery/status_display{
-	layer = 4;
-	pixel_x = -32
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
-/area/bridge/levela)
+/area/shuttle/research/station)
 "Mb" = (
 /obj/structure/mirror{
 	pixel_x = 28
@@ -20486,10 +20155,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "Mg" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
+/obj/item/device/radio/intercom{
+	pixel_y = 27
 	},
-/obj/structure/bed/chair,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "Mh" = (
@@ -20515,7 +20183,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Mk" = (
 /obj/structure/closet/toolcloset,
 /obj/random/tech_supply,
@@ -20530,23 +20198,11 @@
 	},
 /turf/simulated/floor/airless,
 /area/solar/starboard)
-"Mm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/obj/machinery/light{
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "Mn" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Mo" = (
 /obj/structure/cryofeed,
 /obj/structure/window/reinforced{
@@ -20670,6 +20326,26 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
+"MD" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
+	icon_state = "space";
+	layer = 4;
+	name = "EXTERNAL AIRLOCK"
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "ME" = (
 /obj/machinery/light{
 	dir = 1;
@@ -20753,7 +20429,7 @@
 	icon_state = "6,9";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "MN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -20832,7 +20508,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "MV" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
@@ -20855,14 +20531,12 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/store)
 "MX" = (
-/obj/structure/shuttle_part/research{
+/turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "0,1";
-	name = "survey shuttle";
-	opacity = 1
+	name = "survey shuttle"
 	},
-/turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "MY" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/lino/grey,
@@ -20926,7 +20600,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Nf" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -20942,22 +20616,24 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
 "Ng" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/lime/full{
-	dir = 4
-	},
 /obj/structure/cable{
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -20967,7 +20643,7 @@
 	icon_state = "4,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Ni" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -20982,13 +20658,15 @@
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
 "Nj" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
 	},
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/turf/simulated/floor/plating,
+/obj/machinery/alarm{
+	pixel_y = 28
+	},
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "Nk" = (
 /obj/effect/decal/cleanable/dirt,
@@ -21010,7 +20688,7 @@
 	icon_state = "2,3"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/escape_pod/pod1)
+/area/shuttle/escape_pod1/station)
 "Nn" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -21038,11 +20716,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "Nq" = (
 /obj/structure/window/reinforced,
@@ -21071,15 +20745,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
-"Nt" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "Nu" = (
 /obj/machinery/firealarm/north,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -21106,15 +20771,6 @@
 /obj/structure/sign/electricshock,
 /turf/simulated/wall/r_wall,
 /area/tcommsat/entrance)
-"Ny" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "Nz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
@@ -21140,7 +20796,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/closet/walllocker/emerglocker/north,
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "ND" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/plating,
@@ -21169,8 +20825,10 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/lime{
-	dir = 9
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -21212,14 +20870,12 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "NJ" = (
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 4
+/obj/structure/sign/electricshock{
+	pixel_x = 32
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
-/area/maintenance/store)
+/area/maintenance/solarmaint)
 "NK" = (
 /obj/random/junk,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -21250,10 +20906,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "NN" = (
-/obj/structure/table/rack,
-/obj/random/loot,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
-/area/maintenance/cargo/surface)
+/area/maintenance/store)
 "NO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -21266,6 +20926,21 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
+"NP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light/small/emergency,
+/turf/simulated/floor/plating,
+/area/maintenance/store)
 "NQ" = (
 /obj/random/junk,
 /turf/simulated/floor/plating,
@@ -21342,17 +21017,21 @@
 /turf/simulated/floor/plating,
 /area/maintenance/store)
 "Oc" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "escape_pod_4_berth_hatch";
+	locked = 1;
+	name = "Under Construction";
+	req_access = list(13);
+	welded = 1
 	},
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/item/tape/engineering{
+	icon_state = "engineering_door";
+	layer = 4
 	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
-/area/bridge/levela)
+/area/hallway/secondary/entry/emergency)
 "Od" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -21370,7 +21049,7 @@
 "Og" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
+	frequency = 1332;
 	icon_state = "door_locked";
 	id_tag = "green_dock_aft_interior";
 	locked = 1;
@@ -21379,7 +21058,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_interior";
-	frequency = 1337;
+	frequency = 1332;
 	master_tag = "green_dock_aft_airlock";
 	name = "interior access button";
 	pixel_x = 26;
@@ -21388,10 +21067,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
-"Oh" = (
-/obj/effect/shuttle_landmark/distress/green,
-/turf/unsimulated/chasm_mask,
-/area/mine/explored)
 "Oi" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 8;
@@ -21431,6 +21106,12 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "Om" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/green{
 	d1 = 4;
@@ -21442,18 +21123,16 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "On" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -21462,11 +21141,6 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /turf/simulated/floor/plating,
 /area/maintenance/store)
 "Oo" = (
@@ -21503,7 +21177,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Ot" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -21543,14 +21217,14 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "0,2"
 	},
-/area/shuttle/escape_pod/pod1)
+/area/shuttle/escape_pod1/station)
 "Ow" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "8,2";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Ox" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -21621,41 +21295,22 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,2"
 	},
-/area/shuttle/escape_pod/pod3)
+/area/shuttle/escape_pod3/station)
 "OD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 9
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "OE" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
-	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1337;
-	master_tag = "green_dock_west";
-	name = "interior access button";
-	pixel_x = -27;
-	pixel_y = -25;
-	req_access = list(13)
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -21664,32 +21319,18 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
-"OG" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "OH" = (
 /obj/structure/closet/secure_closet/personal,
+/obj/machinery/newscaster{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
-"OI" = (
-/obj/structure/closet,
-/obj/random/loot,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/store)
 "OJ" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "OK" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -21711,7 +21352,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "OM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -21736,7 +21377,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "OP" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 8
@@ -21781,14 +21422,13 @@
 "OT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/store)
-"OU" = (
-/obj/effect/landmark{
-	name = "carpspawn"
-	},
-/turf/simulated/open/airless,
-/area/mine/explored)
 "OV" = (
 /obj/structure/shuttle_part/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -21796,7 +21436,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "OW" = (
 /turf/simulated/floor/tiled/dark,
 /area/bridge/levela/research_dock)
@@ -21824,36 +21464,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
-"OZ" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/locker)
 "Pa" = (
 /obj/machinery/suit_storage_unit/standard_unit,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Pb" = (
 /obj/machinery/door/airlock/science{
 	name = "Compilation Office"
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Pc" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -21867,7 +21488,7 @@
 	icon_state = "7,13"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Pe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
@@ -21881,21 +21502,19 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "Pg" = (
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "bridge blast";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
+	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "command_surface_outer";
 	locked = 1;
 	name = "Command Docking Exterior Access";
-	req_access = list(13)
-	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1337;
-	master_tag = "command_surface_airlock";
-	name = "exterior access button";
-	pixel_x = -7;
-	pixel_y = 25;
 	req_access = list(13)
 	},
 /turf/simulated/floor/plating,
@@ -21940,14 +21559,14 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Pm" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "9,3";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Pn" = (
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
@@ -21993,12 +21612,13 @@
 	},
 /area/mine/explored)
 "Ps" = (
-/obj/effect/decal/cleanable/generic,
+/obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/plating,
 /area/store)
 "Pt" = (
@@ -22007,7 +21627,7 @@
 	icon_state = "3,2";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Pu" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -22040,7 +21660,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Px" = (
 /turf/simulated/wall,
 /area/maintenance/cargo/surface)
@@ -22052,11 +21672,11 @@
 /turf/simulated/floor/plating,
 /area/storage/primary)
 "Pz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -22086,7 +21706,7 @@
 	icon_state = "5,14"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "PD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -22111,7 +21731,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "PG" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/camera/network/telecom{
@@ -22138,18 +21758,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomfoyer)
-"PH" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "PI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -22199,18 +21807,18 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "PM" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1337;
+	frequency = 1332;
 	id_tag = "green_dock_aft_pump"
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1337;
+	frequency = 1332;
 	id_tag = "green_dock_aft_sensor";
 	pixel_x = -28
 	},
-/obj/machinery/light/small/emergency{
+/obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -22222,7 +21830,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "PO" = (
 /obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/plating,
@@ -22251,13 +21859,13 @@
 	},
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "PS" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
-/obj/machinery/light{
-	icon_state = "tube1"
+/obj/machinery/newscaster{
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -22288,7 +21896,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "PX" = (
 /obj/machinery/door/airlock/glass{
 	name = "Auxillary Tool Storage"
@@ -22302,17 +21910,19 @@
 /turf/simulated/floor/tiled,
 /area/storage/tools)
 "PY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
-/area/maintenance/store)
+/area/maintenance/solarmaint)
 "PZ" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/rd,
 /turf/simulated/floor/carpet,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Qa" = (
 /obj/structure/table/standard{
 	name = "plastic table frame"
@@ -22347,7 +21957,7 @@
 	icon_state = "4,10";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Qe" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -22356,7 +21966,7 @@
 /area/crew_quarters/fitness)
 "Qf" = (
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Qg" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -22398,7 +22008,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Qk" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/fancy/crayons/chalkbox,
@@ -22439,7 +22049,7 @@
 	icon_state = "5,10";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Qo" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -22516,7 +22126,7 @@
 	icon_state = "6,16"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Qx" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
@@ -22538,15 +22148,15 @@
 "Qy" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	frequency = 1337;
+	frequency = 1332;
 	id_tag = "green_dock_fore_pump"
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1337;
+	frequency = 1332;
 	id_tag = "green_dock_fore_sensor";
 	pixel_x = -28
 	},
-/obj/machinery/light/small/emergency{
+/obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -22584,19 +22194,12 @@
 	icon_state = "1,3"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/escape_pod/pod3)
+/area/shuttle/escape_pod3/station)
 "QF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "QG" = (
 /obj/structure/cable/green{
@@ -22611,9 +22214,6 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "QH" = (
@@ -22637,8 +22237,9 @@
 	dir = 8;
 	icon_state = "tube1"
 	},
-/obj/effect/floor_decal/corner/lime/full,
-/obj/structure/closet/emcloset,
+/obj/structure/bed/chair{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "QJ" = (
@@ -22715,14 +22316,15 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
 "QR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/store)
+/area/maintenance/solarmaint)
 "QS" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -22758,29 +22360,15 @@
 	},
 /area/crew_quarters/fitness/pool)
 "QW" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1337;
-	id_tag = "green_dock_west";
-	pixel_y = 29;
-	req_access = list(13);
-	tag_airpump = "green_dock_west_pump";
-	tag_chamber_sensor = "green_dock_west_sensor";
-	tag_exterior_door = "green_dock_west_outer";
-	tag_interior_door = "green_dock_west_inner"
+/obj/structure/bed/chair{
+	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/camera/network/civilian_surface{
+	c_tag = "Surface Emergency Services Dock - Port";
 	dir = 4;
-	frequency = 1337;
-	id_tag = "green_dock_west_pump"
+	network = list("Civilian Surface","Emergency Dock")
 	},
-/obj/machinery/airlock_sensor{
-	frequency = 1337;
-	id_tag = "green_dock_west_sensor";
-	pixel_x = -1;
-	pixel_y = -25
-	},
-/obj/machinery/light/small/emergency,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "QX" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -22797,14 +22385,14 @@
 	icon_state = "6,10";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Ra" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "3,3";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Rb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -22839,6 +22427,31 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
+"Rf" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1399;
+	id_tag = "admin_shuttle_dock_pump"
+	},
+/obj/machinery/light/small,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1399;
+	id_tag = "admin_shuttle_dock_airlock";
+	pixel_y = -30;
+	req_one_access = list(13);
+	tag_airpump = "admin_shuttle_dock_pump";
+	tag_chamber_sensor = "admin_shuttle_dock_sensor";
+	tag_exterior_door = "admin_shuttle_dock_outer";
+	tag_interior_door = "admin_shuttle_dock_inner"
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1399;
+	id_tag = "admin_shuttle_dock_sensor";
+	pixel_x = -8;
+	pixel_y = -30
+	},
+/turf/simulated/floor/plating,
+/area/bridge/levela)
 "Rg" = (
 /obj/machinery/porta_turret{
 	dir = 6
@@ -22873,7 +22486,7 @@
 	icon_state = "1,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Rl" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced{
@@ -22894,20 +22507,9 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/lino/grey,
 /area/store)
-"Rm" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1399;
-	icon_state = "door_locked";
-	id_tag = "green_dock_north_outer";
-	locked = 1;
-	name = "Emergency Services Dock";
-	req_access = list(13)
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/emergency)
 "Rn" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "command_surface_airlock";
 	pixel_y = 30;
 	req_one_access = list(13);
@@ -22945,7 +22547,7 @@
 "Rr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
+	frequency = 1332;
 	icon_state = "door_locked";
 	id_tag = "green_dock_fore_interior";
 	locked = 1;
@@ -22962,7 +22564,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Rt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -22996,7 +22598,7 @@
 	icon_state = "2,3"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/escape_pod/pod2)
+/area/shuttle/escape_pod2/station)
 "Rw" = (
 /obj/machinery/computer/telecomms/traffic,
 /obj/machinery/alarm{
@@ -23005,16 +22607,16 @@
 /turf/simulated/floor/tiled,
 /area/tcommsat/computer)
 "Rx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "Ry" = (
@@ -23032,13 +22634,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
 "Rz" = (
-/obj/machinery/door/airlock/maintenance{
-	req_access = list(12)
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/plating,
-/area/maintenance/store)
+/turf/simulated/wall,
+/area/maintenance/solarmaint)
 "RA" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced,
@@ -23081,7 +22678,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "RE" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -23101,17 +22698,6 @@
 /obj/random/soap,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
-"RG" = (
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28
-	},
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled,
-/area/bridge/levela)
 "RH" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -23130,7 +22716,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "RJ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -23178,13 +22764,7 @@
 	icon_state = "6,3";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
-"RO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/store)
+/area/shuttle/research/station)
 "RP" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 6
@@ -23226,7 +22806,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,1"
 	},
-/area/shuttle/escape_pod/pod1)
+/area/shuttle/escape_pod1/station)
 "RT" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -23243,14 +22823,15 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "RV" = (
+/turf/space,
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "1,1";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "RW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -23264,11 +22845,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
 "RX" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -23317,28 +22895,10 @@
 "Sc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
+	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/store)
-"Sd" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1399;
-	id_tag = "green_dock_north_pump"
-	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1399;
-	id_tag = "green_dock_north";
-	pixel_x = 25;
-	pixel_y = 3;
-	req_access = list(13);
-	tag_airpump = "green_dock_north_pump";
-	tag_chamber_sensor = "green_dock_north_sensor";
-	tag_exterior_door = "green_dock_north_outer";
-	tag_interior_door = "green_dock_north_inner"
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/emergency)
+/area/maintenance/solarmaint)
 "Se" = (
 /obj/item/stool/padded,
 /obj/effect/floor_decal/corner/white/diagonal{
@@ -23355,23 +22915,17 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/meter,
 /turf/simulated/floor/plating,
-/area/maintenance/store)
+/area/maintenance/solarmaint)
 "Sg" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -23380,11 +22934,13 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
 "Si" = (
@@ -23401,9 +22957,6 @@
 /obj/item/device/radio/intercom{
 	dir = 1;
 	pixel_y = -26
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -23463,20 +23016,6 @@
 /obj/structure/grille,
 /turf/simulated/floor/airless,
 /area/solar/port)
-"Sr" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/status_display{
-	layer = 3.5
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/exit)
 "Ss" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -23503,41 +23042,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tcommsat/entrance)
-"Sv" = (
-/obj/effect/shuttle_landmark/merc_elite/command,
-/turf/unsimulated/chasm_mask,
-/area/mine/explored)
 "Sw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
-"Sx" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
-	name = "KEEP CLEAR: DOCKING AREA"
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "Sy" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "7,5";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Sz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -23566,7 +23083,7 @@
 	icon_state = "8,12";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "SC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -23606,19 +23123,17 @@
 /turf/simulated/floor/grass/alt,
 /area/hallway/secondary/entry/fore)
 "SF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -23648,7 +23163,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/maintenance/store)
+/area/maintenance/solarmaint)
 "SI" = (
 /obj/machinery/door/firedoor,
 /obj/structure/sign/directions/evac{
@@ -23696,24 +23211,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
-"SO" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/emergency)
 "SP" = (
 /obj/structure/sign/directions/evac{
 	dir = 8;
@@ -23809,7 +23306,7 @@
 	icon_state = "9,2";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "SX" = (
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
@@ -23823,7 +23320,7 @@
 /area/hallway/secondary/entry/locker)
 "SY" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
+	frequency = 1332;
 	icon_state = "door_locked";
 	id_tag = "green_dock_aft_exterior";
 	locked = 1;
@@ -23836,12 +23333,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "Ta" = (
@@ -23894,7 +23386,7 @@
 	icon_state = "3,8";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Td" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
@@ -23936,16 +23428,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
-"Tg" = (
-/obj/effect/floor_decal/corner/paleblue/full{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled,
-/area/bridge/levela)
 "Th" = (
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -24005,9 +23487,6 @@
 /obj/structure/sign/electricshock,
 /turf/simulated/wall/r_wall,
 /area/tcommsat/entrance)
-"Tm" = (
-/turf/unsimulated/chasm_mask,
-/area/mine/unexplored)
 "Tn" = (
 /obj/machinery/alarm{
 	dir = 1;
@@ -24018,27 +23497,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
-"To" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
-"Tp" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/bridge/levela)
 "Tq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -24046,9 +23504,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/store)
@@ -24080,7 +23535,7 @@
 	icon_state = "3,10";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Tw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -24112,8 +23567,13 @@
 	},
 /area/crew_quarters/fitness/pool)
 "Ty" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/old,
 /area/store)
 "TA" = (
@@ -24141,14 +23601,12 @@
 	},
 /area/crew_quarters/fitness/pool)
 "TD" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/machinery/hologram/holopad,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -24181,14 +23639,16 @@
 "TH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface Emergency Services Dock - Starboard";
 	dir = 4;
 	network = list("Civilian Surface","Emergency Dock");
 	pixel_y = 8
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -24219,17 +23679,6 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/quartermaster/qm)
-"TL" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "command_surface_outer";
-	locked = 1;
-	name = "Command Docking Exterior Access";
-	req_access = list(13)
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/bridge_elevator/surface)
 "TM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -24277,7 +23726,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "TR" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -24328,10 +23777,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
-"TW" = (
-/obj/effect/shuttle_landmark/legion/merchant,
-/turf/unsimulated/chasm_mask,
-/area/mine/explored)
 "TX" = (
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
@@ -24364,22 +23809,17 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
 "Uc" = (
-/obj/machinery/camera/network/command{
-	c_tag = "Bridge - Auxiliary Dock";
-	dir = 4;
-	pixel_y = 11
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
-/obj/machinery/airlock_sensor{
-	frequency = 1399;
-	id_tag = "admin_shuttle_dock_sensor";
-	pixel_x = -27;
-	pixel_y = 7
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
 	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/emergency)
 "Ud" = (
 /obj/random/loot,
-/obj/structure/closet,
+/obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/maintenance/store)
 "Ue" = (
@@ -24395,7 +23835,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Uh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table,
@@ -24458,25 +23898,6 @@
 /obj/item/trash/candy,
 /turf/simulated/floor/plating,
 /area/store)
-"Um" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/old,
-/area/store)
-"Un" = (
-/obj/effect/floor_decal/corner/lime/full{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "Uo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -24509,7 +23930,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Ur" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -24519,6 +23940,15 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-8"
+	},
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/structure/cable{
+	d2 = 8;
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/store)
@@ -24534,7 +23964,7 @@
 	icon_state = "7,14"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Uu" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -24542,12 +23972,12 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "Uv" = (
-/obj/machinery/door/airlock/external{
-	icon_state = "door_locked";
-	locked = 1
+/obj/structure/closet/secure_closet/personal,
+/obj/item/device/radio/intercom{
+	pixel_x = -32
 	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
+/turf/simulated/floor/tiled,
+/area/hallway/secondary/entry/locker)
 "Uw" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
@@ -24571,7 +24001,7 @@
 	icon_state = "3,9";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Uy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -24644,7 +24074,7 @@
 	pixel_x = 30
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "UG" = (
 /obj/structure/closet,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -24657,16 +24087,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
 /area/sconference_room)
-"UI" = (
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "UK" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -24695,6 +24115,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
 "UN" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	name = "Commissary Maintenance";
@@ -24721,7 +24146,7 @@
 	icon_state = "5,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "UQ" = (
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
@@ -24773,7 +24198,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/lime,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "UV" = (
@@ -24802,7 +24226,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "UZ" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
@@ -24819,11 +24243,17 @@
 	},
 /area/crew_quarters/fitness/pool)
 "Va" = (
+/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
+/obj/structure/cable{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
-/area/maintenance/store)
+/area/maintenance/solarmaint)
 "Vb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -24882,18 +24312,9 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Vh" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "Vj" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -24932,7 +24353,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Vn" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -24949,7 +24370,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,0"
 	},
-/area/shuttle/escape_pod/pod1)
+/area/shuttle/escape_pod1/station)
 "Vp" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/grass/alt,
@@ -24972,7 +24393,7 @@
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Vs" = (
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
@@ -25016,7 +24437,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Vx" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -25032,9 +24453,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/store)
 "Vy" = (
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/maintenance/store)
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
 "Vz" = (
 /turf/simulated/open,
 /area/hallway/secondary/entry/stairs)
@@ -25101,29 +24526,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela/research_dock)
-"VD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "VE" = (
 /obj/structure/shuttle_part/escape_pod{
 	icon_state = "0,3"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/escape_pod/pod2)
+/area/shuttle/escape_pod2/station)
 "VF" = (
 /obj/effect/floor_decal/plaque,
 /turf/simulated/floor/tiled,
@@ -25156,7 +24564,7 @@
 	icon_state = "6,4";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "VK" = (
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -25185,18 +24593,6 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/bridge/levela/research_dock)
-"VM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external{
-	frequency = 1399;
-	icon_state = "door_locked";
-	id_tag = "green_dock_north_inner";
-	locked = 1;
-	name = "Emergency Services Dock";
-	req_access = list(13)
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/emergency)
 "VN" = (
 /obj/structure/flora/ausbushes/leafybush,
 /turf/simulated/floor/grass/alt,
@@ -25247,7 +24643,7 @@
 /turf/simulated/wall/shuttle/unique/escape_pod{
 	icon_state = "2,1"
 	},
-/area/shuttle/escape_pod/pod3)
+/area/shuttle/escape_pod3/station)
 "VR" = (
 /obj/structure/shuttle_part/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -25255,7 +24651,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "VS" = (
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -25309,14 +24705,14 @@
 "VW" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "command_surface_pump"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bridge_elevator/surface)
 "VX" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
+	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "command_surface_inner";
 	locked = 1;
@@ -25370,7 +24766,7 @@
 /area/storage/tools)
 "Wb" = (
 /obj/machinery/airlock_sensor{
-	frequency = 1337;
+	frequency = 1380;
 	id_tag = "command_surface_sensor";
 	pixel_y = -25
 	},
@@ -25425,19 +24821,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/departure_lounge)
-"Wh" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
-	},
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "Wi" = (
 /turf/simulated/wall/r_wall,
 /area/storage/shields)
@@ -25467,11 +24850,11 @@
 /area/hallway/secondary/entry/port)
 "Wm" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1337;
+	frequency = 1332;
 	id_tag = "green_dock_aft_pump"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	frequency = 1337;
+	frequency = 1332;
 	id_tag = "green_dock_aft_airlock";
 	master_tag = "legion_shuttle_dock";
 	pixel_x = 28;
@@ -25596,7 +24979,7 @@
 	icon_state = "5,2";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Wx" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
@@ -25629,11 +25012,16 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
 "WB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old,
 /area/store)
 "WC" = (
@@ -25668,18 +25056,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/shields)
-"WE" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled,
-/area/bridge/levela)
 "WF" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "3,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "WG" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -25728,14 +25111,14 @@
 	icon_state = "10,1";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "WO" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "2,1";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "WP" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -25763,7 +25146,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "WR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/filingcabinet/chestdrawer{
@@ -25810,22 +25193,22 @@
 /turf/simulated/floor/tiled,
 /area/storage/tools)
 "WU" = (
-/obj/structure/shuttle_part/research{
+/turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "12,1";
-	name = "survey shuttle";
-	opacity = 1
+	name = "survey shuttle"
 	},
-/turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "WV" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "WW" = (
@@ -25871,26 +25254,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
-"Xc" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1337;
-	icon_state = "door_locked";
-	id_tag = "green_dock_west_outer";
-	locked = 1;
-	name = "Emergency Services Dock";
-	req_access = list(13)
-	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1337;
-	master_tag = "green_dock_west";
-	name = "exterior access button";
-	pixel_x = -7;
-	pixel_y = -25;
-	req_access = list(13)
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry/emergency)
 "Xd" = (
 /obj/structure/shuttle_part/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -25898,7 +25261,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Xe" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -25915,7 +25278,7 @@
 /area/hallway/secondary/entry/aft)
 "Xf" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
+	frequency = 1332;
 	icon_state = "door_locked";
 	id_tag = "green_dock_fore_exterior";
 	locked = 1;
@@ -25926,7 +25289,7 @@
 /area/hallway/secondary/entry/emergency)
 "Xg" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
+	frequency = 1332;
 	icon_state = "door_locked";
 	id_tag = "green_dock_aft_exterior";
 	locked = 1;
@@ -25935,7 +25298,7 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
-	frequency = 1337;
+	frequency = 1332;
 	master_tag = "green_dock_aft_airlock";
 	name = "exterior access button";
 	pixel_x = -27;
@@ -25944,6 +25307,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
+"Xh" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/obj/effect/shuttle_landmark/burglar/surface,
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine/explored)
 "Xi" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -26007,7 +25377,7 @@
 	icon_state = "6,7";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Xp" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 5
@@ -26127,9 +25497,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
 "XB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/floor_decal/industrial/warning{
+/obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/store)
@@ -26165,6 +25539,10 @@
 /obj/machinery/cell_charger,
 /turf/simulated/floor/tiled,
 /area/storage/tools)
+"XG" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/plating,
+/area/maintenance/solarmaint)
 "XH" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -26192,12 +25570,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/explored)
-"XK" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "XL" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -26320,7 +25692,7 @@
 	icon_state = "6,5";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "XV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -26387,26 +25759,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
-"Yc" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1399;
-	id_tag = "admin_shuttle_dock_airlock";
-	pixel_x = 27;
-	req_one_access = list(13);
-	tag_airpump = "admin_shuttle_dock_pump";
-	tag_chamber_sensor = "admin_shuttle_dock_sensor";
-	tag_exterior_door = "admin_shuttle_dock_outer";
-	tag_interior_door = "admin_shuttle_dock_inner"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1399;
-	id_tag = "admin_shuttle_dock_pump"
-	},
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "Yd" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -26440,12 +25792,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
 "Yg" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 9
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "command_surface_airlock";
+	name = "exterior access button";
+	pixel_x = 23;
+	pixel_y = 25;
+	req_access = list(13)
 	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/bridge/levela)
+/turf/unsimulated/floor/asteroid/ash,
+/area/mine/explored)
 "Yh" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -26516,7 +25873,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Yo" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -26565,9 +25922,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "Yt" = (
@@ -26577,7 +25931,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Yu" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access = list(12)
@@ -26716,7 +26070,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
+	frequency = 1331;
 	icon_state = "door_locked";
 	id_tag = "distress_shuttle_dock_inner";
 	locked = 1;
@@ -26754,13 +26108,10 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "YK" = (
 /obj/structure/bed/chair,
 /obj/machinery/firealarm/north,
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "YL" = (
@@ -26773,7 +26124,7 @@
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/carpet,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "YN" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -26815,23 +26166,7 @@
 	name = "Private Quarters"
 	},
 /turf/simulated/floor/wood,
-/area/shuttle/research)
-"YS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/alarm{
-	dir = 8;
-	pixel_x = 28
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/store)
+/area/shuttle/research/station)
 "YT" = (
 /obj/machinery/light_switch{
 	pixel_y = -26
@@ -26861,6 +26196,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"YW" = (
+/turf/unsimulated/chasm_mask,
+/area/mine/unexplored)
 "YX" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -26881,10 +26219,11 @@
 /area/store)
 "YZ" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1337;
+	frequency = 1331;
 	id_tag = "distress_shuttle_dock";
 	pixel_x = -1;
 	pixel_y = 29;
+	req_access = null;
 	req_one_access = list(13);
 	tag_airpump = "distress_shuttle_dock_pump";
 	tag_chamber_sensor = "distress_shuttle_dock_sensor";
@@ -26893,11 +26232,11 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
-	frequency = 1337;
+	frequency = 1331;
 	id_tag = "distress_shuttle_dock_pump"
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1337;
+	frequency = 1331;
 	id_tag = "distress_shuttle_dock_sensor";
 	master_tag = "nuke_shuttle_dock_airlock";
 	pixel_y = -25
@@ -26934,7 +26273,7 @@
 /area/hallway/secondary/entry/aft)
 "Zc" = (
 /obj/machinery/door/airlock/external{
-	frequency = 1337;
+	frequency = 1380;
 	icon_state = "door_locked";
 	id_tag = "command_surface_inner";
 	locked = 1;
@@ -26949,13 +26288,6 @@
 "Zd" = (
 /turf/simulated/wall/r_wall,
 /area/bridge/levela/research_dock)
-"Ze" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/emergency)
 "Zf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -26979,14 +26311,16 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomfoyer)
 "Zh" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
@@ -27012,8 +26346,14 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Zl" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -27107,7 +26447,7 @@
 	name = "survey shuttle"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "Zy" = (
 /obj/structure/weightlifter,
 /obj/machinery/alarm{
@@ -27140,12 +26480,6 @@
 	network = list("Civilian Surface","Emergency Dock")
 	},
 /obj/structure/bed/chair,
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/machinery/newscaster{
-	pixel_y = 30
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "ZB" = (
@@ -27171,7 +26505,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "ZE" = (
 /obj/structure/ladder{
 	pixel_y = 16
@@ -27188,7 +26522,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/research)
+/area/shuttle/research/station)
 "ZG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -27292,7 +26626,7 @@
 	icon_state = "8,13";
 	name = "survey shuttle"
 	},
-/area/shuttle/research)
+/area/shuttle/research/station)
 "ZP" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -27330,21 +26664,6 @@
 /obj/item/haircomb,
 /turf/simulated/floor/plating,
 /area/store)
-"ZT" = (
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/store)
 "ZU" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -41713,7 +41032,7 @@ bZ
 bZ
 bZ
 gj
-hj
+de
 hV
 bZ
 bZ
@@ -42974,8 +42293,8 @@ IO
 aj
 ap
 ar
-aw
-np
+IO
+SK
 ag
 ag
 ag
@@ -43231,9 +42550,9 @@ IO
 aj
 ap
 ar
-aa
-aa
-aa
+IO
+SK
+ag
 ag
 ag
 ag
@@ -43485,12 +42804,12 @@ IO
 IO
 IO
 IO
-aw
-aw
-aa
-nM
-aa
-aa
+IO
+IO
+IO
+IO
+SK
+ag
 ag
 ag
 ag
@@ -43742,16 +43061,16 @@ SK
 SK
 SK
 SK
-Ie
+SK
+SK
+SK
+SK
+ac
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+ag
+ag
+ag
 ag
 ag
 ag
@@ -44010,8 +43329,8 @@ aa
 aa
 aa
 aa
-Tm
-Tm
+ag
+ag
 ag
 ag
 ag
@@ -44988,8 +44307,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+aw
+aw
 aa
 aa
 aa
@@ -45241,6 +44560,31 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -45269,38 +44613,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -45496,6 +44815,33 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -45515,52 +44861,25 @@ aa
 aa
 aa
 aa
+UA
+ag
+ag
+YW
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bU
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aw
 aw
 aw
@@ -45753,6 +45072,33 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -45770,54 +45116,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-Oh
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+UA
+UA
+ag
+ag
+ag
+YW
+YW
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aw
 aw
 aw
@@ -46010,6 +45329,33 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -46027,54 +45373,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+UA
+UA
+ag
+ag
+ag
+ag
+YW
+xk
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -46267,6 +45586,33 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -46283,53 +45629,26 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+UA
+UA
+ag
+ag
+ag
+ag
+ag
+YW
+xk
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -46524,6 +45843,33 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -46540,53 +45886,26 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+UA
+UA
+ag
+ag
 qb
-Xc
+qb
+nJ
 Sh
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+yt
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 ag
 ag
@@ -46626,28 +45945,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -46781,6 +46100,33 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -46797,53 +46143,26 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+nJ
+nJ
+nJ
+nJ
+nJ
 Nj
 QW
-Nj
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Ae
+Yb
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 ag
 ag
 ag
@@ -46883,28 +46202,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -47038,6 +46357,33 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -47054,53 +46400,26 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Ko
+Ko
+Ko
+Ko
 nJ
 Vh
-uX
-fV
-nJ
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Vh
+Vh
+NB
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 ag
 ag
 ag
@@ -47140,28 +46459,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -47295,17 +46614,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 bH
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -47322,42 +46657,26 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-nJ
-Un
+Ko
+Ko
+Ko
+Ko
+Oc
+Vh
 OE
-nG
+Vh
 nJ
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 nJ
 nJ
 nJ
@@ -47397,28 +46716,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -47552,35 +46871,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -47598,21 +46915,23 @@ aa
 aa
 aa
 Ko
-kL
-jW
+Ko
+Ko
+Ko
+nJ
 Lv
 QF
-Ze
+Vh
 ZW
 Bc
 Vn
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 XZ
 Bc
 OR
@@ -47654,28 +46973,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -47809,6 +47128,33 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -47825,51 +47171,24 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ce
-aa
-aa
-aa
-rC
-rA
-VM
+nJ
+nJ
+nJ
+nJ
+nJ
 WV
 xR
 iC
 Rr
 Qy
 AB
-aa
-aa
-aa
+aw
+aw
+aw
 co
-aa
-aa
-aa
+aw
+aw
+aw
 Xg
 PM
 Iy
@@ -47911,28 +47230,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -48066,6 +47385,33 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -48082,51 +47428,24 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-Rm
-Sd
-VM
+Ko
+Ko
+Ko
+Ko
+nJ
 AL
-xR
-iC
+TD
+ce
 Lo
 ob
 Xf
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 SY
 Wm
 Og
@@ -48154,6 +47473,7 @@ aw
 aw
 Pr
 aa
+qI
 aa
 aa
 aa
@@ -48167,29 +47487,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -48323,40 +47642,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-uh
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -48368,26 +47680,33 @@ aa
 aa
 aa
 aa
-LU
-kL
-jW
-Lv
-QF
-Ze
+aa
+aa
+aa
+aa
+aa
+Ko
+Vy
+Ko
+Ko
+uP
+Vh
+mg
+RX
 My
 Bc
 Vn
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 XZ
 Bc
 OR
-Lv
+Vh
 yu
 nJ
 ag
@@ -48421,32 +47740,32 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -48573,6 +47892,40 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aa
+aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -48589,62 +47942,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Ko
+Ko
+Ko
+Ko
 nJ
-Wh
+Lv
 TD
 RX
 nJ
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 nJ
-Nt
+OE
 kH
 nJ
 ag
@@ -48678,32 +47997,32 @@ aw
 aw
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -48830,14 +48149,40 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 bJ
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -48854,54 +48199,28 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-bJ
-aa
-aa
-aa
-aa
-aa
-aa
-Im
+nJ
+nJ
+nJ
+nJ
+nJ
 Mg
+TD
+RX
+Im
+aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aa
+Im
 QF
-XK
-Im
-aa
-aa
-aa
-aa
-aa
-bJ
-aa
-aa
-aa
-aa
-aa
-Im
-nb
 Sj
 nJ
 ag
@@ -48937,30 +48256,30 @@ aw
 aw
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -49087,6 +48406,40 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aa
+aa
+aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -49103,63 +48456,29 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+Ko
+Ko
+Ko
+Ko
+nJ
+Vh
+uh
+Uc
 Yb
-Mg
-QF
-XK
-Yb
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 Yb
 Ls
-Ny
+RX
 nJ
 ag
 ag
@@ -49184,40 +48503,40 @@ AX
 aw
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
 aw
 aw
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -49344,22 +48663,22 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
 fz
 go
 ez
-aa
-aa
-aa
+aw
+aw
+aw
 jB
 ka
 kJ
@@ -49367,6 +48686,17 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -49383,44 +48713,33 @@ aa
 aa
 aa
 aa
+Ko
+Ko
+Ko
+Ko
+uP
+Vh
+Ak
+RX
+NB
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 NB
-Mg
-Iq
-XK
-NB
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-NB
-nb
-Ny
-zj
-zj
-zj
-zj
+QF
+RX
+nJ
+ag
+ag
+ag
 aw
 Uy
 aw
@@ -49451,30 +48770,30 @@ aa
 aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -49601,11 +48920,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -49614,9 +48933,9 @@ aa
 fA
 gp
 fA
-aa
-aa
-aa
+aw
+aw
+aw
 fA
 kb
 kK
@@ -49651,23 +48970,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-UA
+Ko
+Ko
+Ko
+Ko
 nJ
-Eu
-VD
+Lv
+Ak
 PS
 nJ
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -49675,9 +48994,9 @@ nJ
 sJ
 vu
 Rz
-jY
-RO
-ZT
+Rz
+Rz
+Rz
 aw
 Uy
 aw
@@ -49708,30 +49027,30 @@ aa
 aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -49858,11 +49177,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -49889,6 +49208,7 @@ aa
 aa
 aa
 aa
+bJ
 aa
 aa
 aa
@@ -49907,34 +49227,33 @@ aa
 aa
 aa
 aa
-aa
-UA
-UA
-UA
-UA
+nJ
+nJ
+nJ
+nJ
 nJ
 ZA
-SO
-XK
+Ak
+RX
 TU
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
 Im
-To
+oX
 SZ
-zj
-OI
+Rz
+Rz
 Dg
-zj
+Rz
 If
 Du
 YC
@@ -49965,30 +49284,30 @@ aa
 aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -50115,11 +49434,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+lF
+aw
+aw
 aa
 aa
 aa
@@ -50162,17 +49481,17 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
 UA
-UA
-UA
-UA
-UA
-UA
-UA
+ag
+ag
+ag
 nJ
 mY
-SO
-XK
+Ak
+RX
 NW
 aa
 aa
@@ -50187,11 +49506,11 @@ aa
 aa
 Yb
 oX
-Mm
-zj
+RX
+Rz
 mX
 PY
-zj
+Rz
 QS
 vP
 QS
@@ -50222,30 +49541,30 @@ aa
 aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -50372,11 +49691,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -50417,11 +49736,11 @@ aa
 aa
 aa
 aa
-aa
-UA
-UA
-UA
-UA
+ag
+ag
+ag
+ag
+ag
 sU
 sU
 sU
@@ -50444,11 +49763,11 @@ XZ
 Bc
 BG
 oX
-Jw
-zj
+RX
+Rz
 SH
 Sf
-zj
+Rz
 MW
 SC
 Lw
@@ -50479,30 +49798,30 @@ aa
 aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -50628,12 +49947,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -50659,7 +49978,7 @@ aa
 aa
 aa
 aa
-bJ
+aa
 aa
 aa
 aa
@@ -50674,11 +49993,11 @@ aa
 aa
 aa
 ag
-UA
-UA
-UA
-UA
-UA
+ag
+ag
+ag
+ag
+ag
 sU
 Op
 TG
@@ -50702,10 +50021,10 @@ nn
 NG
 Zh
 nK
-zj
+Rz
 mx
 Sc
-zj
+Rz
 Uk
 Zf
 QJ
@@ -50736,30 +50055,30 @@ aa
 aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 Jc
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -50885,12 +50204,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-yN
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -50948,21 +50267,21 @@ Om
 UU
 Ah
 Dh
-rD
-rD
+UU
+UU
 nl
-rD
-rD
+UU
+UU
 Dh
 Ys
-rD
+UU
 tL
-rD
+UU
 Ng
-zj
+mb
 QR
 bY
-zj
+Rz
 QS
 Lc
 QS
@@ -50993,30 +50312,30 @@ aa
 aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -51142,12 +50461,12 @@ aa
 bJ
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -51202,7 +50521,7 @@ nJ
 nJ
 zr
 zS
-UI
+zr
 nJ
 tu
 tu
@@ -51215,11 +50534,11 @@ tu
 tu
 tu
 Nl
-xd
-zj
+Ak
+Rz
 DB
 Va
-jY
+KZ
 XB
 Dn
 Tq
@@ -51250,30 +50569,30 @@ aa
 aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -51399,12 +50718,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -51455,7 +50774,7 @@ sU
 sU
 Zq
 OH
-OH
+Uv
 nJ
 zq
 zT
@@ -51473,11 +50792,11 @@ Zv
 tu
 zj
 On
-zj
+Rz
 NJ
-wV
-wV
-wV
+XG
+Rz
+dt
 zA
 NQ
 DW
@@ -51507,30 +50826,30 @@ aa
 aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -51656,9 +50975,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+aw
+aw
+aw
 YH
 LF
 FL
@@ -51714,7 +51033,7 @@ wu
 wu
 wu
 nJ
-tH
+zr
 QG
 Ap
 nJ
@@ -51729,12 +51048,12 @@ Oo
 UQ
 tu
 oU
-zA
-Vy
-uP
-wV
-wV
-wV
+NP
+Rz
+Rz
+Rz
+Rz
+NN
 zA
 Ud
 DW
@@ -51764,30 +51083,30 @@ aa
 aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -51913,9 +51232,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+aw
+aw
+aw
 eD
 LS
 eD
@@ -51971,9 +51290,9 @@ wu
 wu
 wu
 yS
-LE
-Ak
-LE
+wu
+Nf
+Aq
 tu
 Ds
 Oo
@@ -51988,10 +51307,10 @@ UN
 OT
 HW
 lH
-Sz
 mi
-YS
-rz
+mi
+mi
+Sz
 Ur
 Ud
 DW
@@ -52021,30 +51340,30 @@ aa
 aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -52160,19 +51479,19 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
 eD
 YZ
 RZ
@@ -52229,13 +51548,13 @@ xr
 xr
 xr
 wu
-Nf
-Aq
+zt
+wu
 tu
 Oo
 Bw
 mv
-Oo
+nM
 Oo
 Oo
 Oo
@@ -52278,30 +51597,30 @@ aa
 aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -52417,15 +51736,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 bp
@@ -52486,12 +51805,12 @@ xs
 Ro
 yU
 zu
-OZ
-IW
+zt
+wu
 AO
 na
-yP
-Um
+Bw
+Mw
 Cg
 ZM
 zD
@@ -52530,35 +51849,35 @@ ag
 ag
 ag
 ag
-aa
-aa
-aa
 aw
 aw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -52674,15 +51993,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 bp
@@ -52748,7 +52067,7 @@ wu
 tu
 Yy
 Mw
-Oo
+Bw
 Ps
 Rl
 kD
@@ -52787,35 +52106,35 @@ ag
 ag
 ag
 ag
-aa
-aa
 aw
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -52931,14 +52250,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aW
 bd
 bi
@@ -53018,7 +52337,7 @@ Ob
 zj
 ag
 ag
-aa
+YW
 DV
 DV
 ag
@@ -53039,40 +52358,40 @@ Ek
 NT
 Ih
 DW
-UA
+aw
 ag
 ag
 ag
 ag
-aa
-aa
 aw
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -53188,14 +52507,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aX
 be
 bj
@@ -53273,10 +52592,10 @@ tu
 tu
 Ob
 YO
-aa
-aa
+YW
+YW
 DV
-OU
+DV
 DV
 ag
 DW
@@ -53296,40 +52615,40 @@ Px
 HV
 Px
 DW
-UA
-UA
-UA
-aa
-aa
-aa
 aw
 aw
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -53445,14 +52764,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aY
 bd
 bk
@@ -53530,8 +52849,8 @@ PB
 tu
 Ob
 Xr
-aa
-aa
+YW
+YW
 DV
 DV
 DV
@@ -53552,41 +52871,41 @@ DW
 PO
 QD
 Px
-UA
-UA
-UA
-aa
-aa
-aa
 aw
 aw
 aw
 aw
-UA
-UA
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -53702,15 +53021,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 bl
 bt
@@ -53787,11 +53106,11 @@ HX
 WZ
 vo
 md
-aa
-aa
-aa
-aa
-aa
+YW
+YW
+YW
+YW
+YW
 ag
 DW
 Eo
@@ -53809,41 +53128,41 @@ DW
 HQ
 QD
 Xj
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+Xh
 aw
 aw
 aw
 aw
 aw
-UA
-UA
-UA
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -53959,15 +53278,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
 az
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
 aa
 bl
 bt
@@ -54046,9 +53365,9 @@ Ob
 zj
 ag
 ag
-aa
-aa
-aa
+YW
+YW
+YW
 ag
 DW
 Ep
@@ -54071,36 +53390,36 @@ aw
 aw
 aw
 aw
-we
 aw
 aw
 aw
-UA
-UA
+aw
+aw
+aw
+aw
+aw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -54216,15 +53535,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 bl
 bt
@@ -54299,7 +53618,7 @@ AZ
 AZ
 AZ
 AZ
-BK
+Ob
 zj
 zj
 LL
@@ -54323,41 +53642,41 @@ Gk
 Gk
 Iz
 Xm
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -54473,14 +53792,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aZ
 bd
 bm
@@ -54580,6 +53899,13 @@ HI
 Gk
 QD
 Xm
+aw
+aw
+aw
+aw
+ag
+ag
+ag
 aa
 aa
 aa
@@ -54587,34 +53913,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -54730,14 +54049,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 ba
 bf
 bn
@@ -54837,19 +54156,12 @@ HJ
 Gk
 Ia
 Xm
-aa
-aa
-aa
-aa
-aa
-aa
-de
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+ag
+ag
 aa
 aa
 aa
@@ -54858,20 +54170,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -54987,14 +54306,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 bb
 bd
 bo
@@ -55094,6 +54413,12 @@ HK
 Gk
 QD
 Xn
+aw
+aw
+aw
+aw
+ag
+ag
 aa
 aa
 aa
@@ -55102,33 +54427,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -55244,15 +54563,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 bp
@@ -55351,13 +54670,13 @@ HL
 Gk
 QD
 Px
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+ag
+ag
+ag
+ag
+ag
+ag
 aa
 aa
 aa
@@ -55501,15 +54820,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 bp
@@ -55614,9 +54933,9 @@ Px
 Px
 Px
 Px
-Px
-Px
-UA
+ag
+aa
+aa
 aa
 aa
 aa
@@ -55759,13 +55078,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -55870,10 +55189,10 @@ wb
 wO
 wb
 xS
-TX
-mg
 Px
-UA
+ag
+aa
+aa
 aa
 aa
 aa
@@ -56017,11 +55336,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -56127,10 +55446,10 @@ Re
 Re
 Re
 AR
-TX
-NN
 Px
-UA
+ag
+aa
+aa
 aa
 aa
 aa
@@ -56385,9 +55704,9 @@ uk
 wb
 dP
 Px
-Px
-Px
-UA
+ag
+aa
+aa
 aa
 aa
 aa
@@ -56640,10 +55959,10 @@ Px
 Px
 Px
 Px
-cd
+AV
 Px
 ag
-UA
+aa
 aa
 aa
 aa
@@ -57157,7 +56476,7 @@ Px
 AV
 Px
 ag
-Tm
+ag
 aa
 aa
 aa
@@ -57414,8 +56733,8 @@ Px
 AV
 Px
 ag
-Tm
-Tm
+ag
+ag
 aa
 aa
 aa
@@ -57671,9 +56990,9 @@ Px
 AV
 Px
 ag
-Tm
-Tm
-Tm
+ag
+ag
+ag
 aa
 aa
 aa
@@ -58081,19 +57400,19 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 eK
 fc
 hE
 is
 is
 is
-Sr
+is
 fW
 ie
 kv
@@ -58101,13 +57420,13 @@ ie
 hB
 is
 XY
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -58338,33 +57657,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 eK
 fh
 eK
-aa
-aa
-aa
+aw
+aw
+aw
 aa
 eK
 gu
 gz
 hs
 eK
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -58595,33 +57914,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 eZ
 fN
 hF
-aa
-aa
-aa
+aw
+aw
+aw
 aa
 hy
 gy
 gy
 hz
 hy
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+bU
+bU
+bU
+aw
+aw
 aa
 aa
 aa
@@ -58673,18 +57992,18 @@ JZ
 KR
 JH
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -58852,33 +58171,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+aw
+aw
 aa
 aa
 aa
@@ -58929,19 +58248,19 @@ KE
 Km
 JZ
 KV
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -59109,33 +58428,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+aw
+aw
 aa
 aa
 aa
@@ -59186,19 +58505,19 @@ KF
 KO
 JZ
 KW
+aw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -59366,33 +58685,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
 mf
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+aw
+aw
 aa
 aa
 aa
@@ -59443,19 +58762,19 @@ KG
 KO
 JZ
 KW
+aw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-nx
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -59623,44 +58942,44 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+aw
+aw
+aw
 aa
 aa
 aa
 aa
 ag
 ag
-ag
-aa
-aa
-aa
+xk
+aw
+aw
+aw
 aw
 aw
 aw
@@ -59700,19 +59019,19 @@ KG
 KO
 JZ
 KW
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -59880,44 +59199,44 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 ag
 ag
-ag
-aa
-aa
-aa
+xk
+aw
+aw
+aw
 aw
 aw
 aw
@@ -59957,19 +59276,19 @@ KI
 KO
 JZ
 KW
+aw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -60137,44 +59456,44 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+aw
+aw
+aw
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
 aw
 aw
 aw
@@ -60214,19 +59533,19 @@ Sk
 Km
 JZ
 KY
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -60394,45 +59713,45 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aw
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+aw
+aw
+aw
+aw
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
 aw
 aw
 aw
@@ -60472,18 +59791,18 @@ JZ
 KS
 JH
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -60651,45 +59970,45 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aw
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+aw
+aw
+aw
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
 aw
 aw
 aw
@@ -60728,19 +60047,19 @@ KP
 KU
 JH
 JH
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -60908,45 +60227,45 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 aw
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+aw
+aw
+aw
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
 aw
 aw
 aw
@@ -60978,26 +60297,26 @@ Pi
 Pi
 ag
 ag
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-TW
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -61165,44 +60484,44 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+aw
+aw
+aw
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
+nx
 aw
 aw
 aw
@@ -61238,23 +60557,23 @@ aa
 aa
 aa
 aa
+aw
+aw
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -61422,45 +60741,45 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aw
 aw
 aw
@@ -61501,17 +60820,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -61679,45 +60998,45 @@ aa
 aa
 aa
 aa
+aw
+aw
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+aw
+aw
+aw
+aw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aw
 aw
 aw
@@ -61758,17 +61077,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -61936,45 +61255,45 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+aw
+aw
+aw
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aw
 aw
 aw
@@ -62015,17 +61334,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 eC
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -62193,33 +61512,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+bU
+aw
+aw
+bU
+bU
+bU
+aw
+aw
 aa
 aa
 aa
@@ -62272,17 +61591,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -62450,33 +61769,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -62529,17 +61848,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -62707,33 +62026,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -62786,17 +62105,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -62964,33 +62283,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -63043,17 +62362,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -63300,17 +62619,17 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -63558,15 +62877,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -63815,15 +63134,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -64073,13 +63392,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -64330,13 +63649,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -64587,13 +63906,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -64844,13 +64163,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -65592,7 +64911,7 @@ aa
 aa
 aa
 aa
-aa
+qI
 aa
 aa
 aa
@@ -67679,29 +66998,29 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -67934,31 +67253,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -68189,33 +67508,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -68419,6 +67738,7 @@ aa
 aa
 aa
 aa
+qI
 aa
 aa
 aa
@@ -68445,34 +67765,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -68703,33 +68022,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -68934,7 +68253,6 @@ aw
 aw
 aw
 aa
-Sv
 aa
 aa
 aa
@@ -68961,32 +68279,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -69217,33 +68536,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -69474,33 +68793,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -69704,60 +69023,60 @@ aa
 aa
 aa
 aw
+Yg
+aw
+aw
+aw
+aw
+aw
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aw
 aw
 aw
 aw
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
 FE
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -69962,7 +69281,7 @@ aa
 aa
 AP
 Pg
-TL
+Pg
 AP
 aa
 aw
@@ -69988,33 +69307,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -70245,33 +69564,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -70502,33 +69821,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -70759,33 +70078,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -71016,33 +70335,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -71273,33 +70592,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -71532,31 +70851,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -71788,32 +71107,32 @@ aa
 aw
 aw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -72044,10 +71363,10 @@ aw
 aw
 aw
 aw
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -76898,10 +76217,10 @@ tZ
 uH
 Oz
 Ck
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -77142,11 +76461,11 @@ aa
 aa
 aa
 aa
-IM
-yR
-yR
-Oc
-rV
+aa
+aa
+aa
+aa
+rJ
 rV
 rV
 rV
@@ -77155,11 +76474,11 @@ vw
 Yw
 vw
 rV
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -77395,19 +76714,19 @@ aa
 aa
 aa
 aa
-rM
 aa
 aa
 aa
-Tj
-Uc
-CS
-tm
-Tp
-oc
-Yg
-RG
-Ma
+aa
+aa
+aa
+aa
+aa
+ag
+ag
+rV
+rV
+rV
 ub
 uJ
 vx
@@ -77415,8 +76734,8 @@ rV
 rV
 rV
 ag
-aa
-aa
+aw
+aw
 aa
 aa
 aa
@@ -77656,27 +76975,27 @@ aa
 aa
 aa
 aa
-tI
-Yc
-qn
-Tg
-JB
-JB
-WE
+aa
+aa
+aa
+ag
+ag
+ag
+rV
 sP
-tS
-tS
+to
+uc
 Pk
 vy
 wm
 xe
 rV
 ag
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -77913,13 +77232,13 @@ aa
 aa
 aa
 aa
-Sx
-yR
-yR
-Oc
+aa
+aa
+aa
+aa
+aa
+ag
 rV
-rV
-PH
 sQ
 tp
 ud
@@ -77930,11 +77249,11 @@ xf
 rV
 ag
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -78176,7 +77495,7 @@ aa
 aa
 aa
 aa
-wf
+su
 sR
 tq
 ue
@@ -78187,11 +77506,11 @@ xg
 yf
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -78432,8 +77751,8 @@ aa
 aa
 aa
 aa
-aa
-OG
+rZ
+sv
 sS
 yg
 uf
@@ -78444,11 +77763,11 @@ xh
 yg
 yO
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -78690,7 +78009,7 @@ aa
 aa
 aa
 aa
-xk
+sw
 sT
 sw
 aa
@@ -78701,11 +78020,11 @@ xi
 wf
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -78947,9 +78266,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+aw
+aw
+aw
 aa
 rV
 aa
@@ -78958,11 +78277,11 @@ xi
 wf
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -79203,11 +78522,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 rV
 aa
 wf
@@ -79215,11 +78534,11 @@ xi
 yl
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -79460,11 +78779,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 rV
 aa
 wf
@@ -79472,11 +78791,11 @@ xg
 yi
 yR
 uf
-aa
-aa
+aw
+aw
 ec
-aa
-aa
+aw
+aw
 aa
 aa
 aa
@@ -79717,11 +79036,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 uK
 aa
 wf
@@ -79729,11 +79048,11 @@ xj
 yj
 yQ
 zo
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -79974,23 +79293,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 uL
 aa
 wf
-Uv
+xg
 yk
 yR
 uf
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -80231,23 +79550,23 @@ aa
 aa
 aa
 aa
-aa
-aa
+aw
+aw
 kG
-aa
-aa
+aw
+aw
 uM
 aa
 wf
-sN
+xi
 wf
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -80488,23 +79807,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 rV
 aa
 wf
-sN
+xi
 wf
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -80745,23 +80064,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 rJ
 aa
-uL
-sN
-uL
+wf
+xi
+wf
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -81002,16 +80321,16 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-Ca
-Uv
-xk
+wf
+xi
+wf
 aa
 aa
 aa
@@ -81259,16 +80578,16 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wf
+xh
+wf
 aa
 aa
 aa
@@ -81516,16 +80835,16 @@ aa
 aa
 aa
 aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wf
+xi
+wf
 aa
 aa
 aa
@@ -81771,18 +81090,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+wf
+xi
+wf
 aa
 aa
 aa
@@ -82028,18 +81347,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+wf
+xi
+wf
 aa
 aa
 aa
@@ -82285,18 +81604,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+wf
+xi
+wf
 aa
 aa
 aa
@@ -82542,18 +81861,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+wf
+xi
+wf
 aa
 aa
 aa
@@ -82799,18 +82118,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+wf
+xh
+wf
 aa
 aa
 aa
@@ -83056,18 +82375,18 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+wf
+xi
+wf
 aa
 aa
 aa
@@ -83304,27 +82623,27 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+wf
+xi
+wf
 aa
 aa
 aa
@@ -83555,33 +82874,33 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+wf
+xi
+wf
 aa
 aa
 aa
@@ -83811,34 +83130,34 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+wf
+xi
+wf
 aa
 aa
 aa
@@ -84067,35 +83386,35 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+wf
+hq
+wf
 aa
 aa
 aa
@@ -84324,35 +83643,35 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+MD
+rL
+kA
+wf
 aa
 aa
 aa
@@ -84581,35 +83900,35 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+Tj
+sN
+Rf
+yl
 aa
 aa
 aa
@@ -84838,35 +84157,35 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+dN
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+nL
+sN
+sN
+wf
 aa
 aa
 aa
@@ -85095,35 +84414,35 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+rZ
+yR
+yR
+xa
 aa
 aa
 aa
@@ -85352,31 +84671,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -85609,31 +84928,31 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -85867,30 +85186,30 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -86125,29 +85444,29 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -86388,23 +85707,23 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa

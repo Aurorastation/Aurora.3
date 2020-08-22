@@ -249,8 +249,8 @@
 			if(diff==FORWARD)
 				user.visible_message("[user] secures external armor layer.", "You secure external reinforced armor layer.")
 			else
-				user.visible_message("[user] pries the external armor layer from [holder].", "You pry the external armor layer from [holder].")
-				var/obj/item/stack/material/steel/MS = new /obj/item/stack/material/steel(get_turf(holder))
+				user.visible_message("[user] pries external armor layer from [holder].", "You prie external armor layer from [holder].")
+				var/obj/item/stack/material/plasteel/MS = new /obj/item/stack/material/plasteel(get_turf(holder))
 				MS.amount = 5
 				r.icon_state = r.icon_base + "3"
 		if(1)
@@ -398,7 +398,7 @@
 			if(diff==FORWARD)
 				user.visible_message("[user] secures internal armor layer.", "You secure internal armor layer.")
 			else
-				user.visible_message("[user] pries the internal armor layer from [holder].", "You pry the internal armor layer from [holder].")
+				user.visible_message("[user] pries internal armor layer from [holder].", "You prie internal armor layer from [holder].")
 				var/obj/item/stack/material/steel/MS = new /obj/item/stack/material/steel(get_turf(holder))
 				MS.amount = 5
 				r.icon_state = r.icon_base + "4"
@@ -417,7 +417,7 @@
 			if(diff==FORWARD)
 				user.visible_message("[user] secures external armor layer.", "You secure external reinforced armor layer.")
 			else
-				user.visible_message("[user] pries the external armor layer from [holder].", "You pry the external armor layer from [holder].")
+				user.visible_message("[user] pries external armor layer from [holder].", "You prie external armor layer from [holder].")
 				var/obj/item/stack/material/plasteel/MS = new /obj/item/stack/material/plasteel(get_turf(holder))
 				MS.amount = 5
 				r.icon_state = r.icon_base + "4"

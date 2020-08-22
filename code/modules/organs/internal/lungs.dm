@@ -9,11 +9,11 @@
 	parent_organ = BP_CHEST
 	robotic_name = "gas exchange system"
 	robotic_sprite = "lungs-prosthetic"
-	min_bruised_damage = 30
+	min_bruised_damage = 25
 	min_broken_damage = 45
 	toxin_type = CE_PNEUMOTOXIC
 
-	max_damage = 80
+	max_damage = 70
 	relative_size = 60
 
 	var/breathing = 0

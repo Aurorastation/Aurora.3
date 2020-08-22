@@ -496,9 +496,8 @@
 
 	if(!tryToShootAt(targets))
 		if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
-			if(raised || raising) // we've already reset
-				resetting = TRUE
-				addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
+			resetting = TRUE
+			addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
 
 	if(targets.len || secondarytargets.len)
 		if(!fast_processing)

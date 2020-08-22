@@ -290,11 +290,6 @@
 	flags_inv = HIDEEARS|HIDEEYES|BLOCKHEADHAIR
 	armor = list(melee = 50, bullet = 30, laser = 30, energy = 15, bomb = 40, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
-	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
-		"Unathi" = 'icons/mob/species/unathi/helmet.dmi',
-		"Machine" = 'icons/mob/species/machine/helmet.dmi'
-		)
 
 	action_button_name = "Toggle Helmet Light"
 	light_overlay = "helmet_light_dual"

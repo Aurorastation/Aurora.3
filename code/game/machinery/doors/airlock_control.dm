@@ -154,10 +154,9 @@
 	return ..()
 
 /obj/machinery/airlock_sensor
-	name = "airlock sensor"
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "airlock_sensor_off"
-	layer = OBJ_LAYER
+	name = "airlock sensor"
 
 	anchored = 1
 	power_channel = ENVIRON
@@ -234,10 +233,9 @@
 	command = "cycle_exterior"
 
 /obj/machinery/access_button
-	name = "access button"
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "access_button_standby"
-	layer = OBJ_LAYER
+	name = "access button"
 
 	anchored = 1
 	power_channel = ENVIRON

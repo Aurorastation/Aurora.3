@@ -10,7 +10,6 @@
 /area/tcommsat/entrance
 	name = "Telecoms Entrance"
 	icon_state = "tcomsatentrance"
-	lightswitch = TRUE
 
 /area/tcommsat/chamber
 	name = "Telecoms Central Compartment"

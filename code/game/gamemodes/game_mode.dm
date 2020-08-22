@@ -239,7 +239,7 @@ var/global/list/additional_antag_types = list()
 
 		for(var/datum/antagonist/antag in antag_templates)
 			antag.candidates = list_keys(valid_templates_per_candidate) & antag.candidates // orders antag.candidates by valid_templates_per_candidate
-
+		
 		var/datum/antagonist/last_template = antag_templates[antag_templates.len]
 		last_template.candidates = shuffle(last_template.candidates)
 
@@ -366,9 +366,10 @@ var/global/list/additional_antag_types = list()
 	var/escaped_on_pod_1 = 0
 	var/escaped_on_pod_2 = 0
 	var/escaped_on_pod_3 = 0
+	var/escaped_on_pod_5 = 0
 	var/escaped_on_shuttle = 0
 
-	var/list/area/escape_locations = list(/area/shuttle/escape, /area/shuttle/escape_pod/pod1, /area/shuttle/escape_pod/pod2, /area/shuttle/escape_pod/pod3)
+	var/list/area/escape_locations = list(/area/shuttle/escape/centcom, /area/shuttle/escape_pod1/centcom, /area/shuttle/escape_pod2/centcom, /area/shuttle/escape_pod3/centcom, /area/shuttle/escape_pod5/centcom)
 
 	for(var/mob/M in player_list)
 		if(M.client)
@@ -387,17 +388,17 @@ var/global/list/additional_antag_types = list()
 				if(M.loc && M.loc.loc && (M.loc.loc.type in escape_locations))
 					escaped_total++
 
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape)
+				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape/centcom)
 					escaped_on_shuttle++
 
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod/pod1)
+				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod1/centcom)
 					escaped_on_pod_1++
-
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod/pod2)
+				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod2/centcom)
 					escaped_on_pod_2++
-
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod/pod3)
+				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod3/centcom)
 					escaped_on_pod_3++
+				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod5/centcom)
+					escaped_on_pod_5++
 
 			if(isobserver(M))
 				ghosts++
@@ -438,6 +439,8 @@ var/global/list/additional_antag_types = list()
 		feedback_set("escaped_on_pod_2",escaped_on_pod_2)
 	if(escaped_on_pod_3 > 0)
 		feedback_set("escaped_on_pod_3",escaped_on_pod_3)
+	if(escaped_on_pod_5 > 0)
+		feedback_set("escaped_on_pod_5",escaped_on_pod_5)
 
 	return 0
 

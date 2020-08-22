@@ -14,7 +14,7 @@
 	var/category = /datum/shuttle
 	var/multiz = 0	//how many multiz levels, starts at 0
 
-	var/ceiling_type = /turf/simulated/floor/airless/ceiling
+	var/ceiling_type = /turf/simulated/shuttle_roof
 
 	var/sound_takeoff = 'sound/effects/shuttle_takeoff.ogg'
 	var/sound_landing = 'sound/effects/shuttle_landing.ogg'
@@ -226,10 +226,6 @@
 		for(var/obj/structure/shuttle_part/part in sub_area)
 			var/turf/target_turf = get_turf(part)
 			if(part.outside_part)
-				target_turf.ChangeTurf(destination.base_turf)
-		for(var/obj/structure/window/shuttle/unique/SW in sub_area)
-			if(SW.outside_window)
-				var/turf/target_turf = get_turf(SW)
 				target_turf.ChangeTurf(destination.base_turf)
 
 	// Remove all powernets that were affected, and rebuild them.

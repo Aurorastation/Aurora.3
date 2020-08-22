@@ -17,7 +17,7 @@
 #define EXODUS_ESCAPE_POD(NUMBER) \
 /datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod##NUMBER { \
 	name = "Escape Pod " + #NUMBER; \
-	shuttle_area = /area/shuttle/escape_pod/pod##NUMBER; \
+	shuttle_area = /area/shuttle/escape_pod##NUMBER/station; \
 	location = 0; \
 	dock_target = "escape_pod_" + #NUMBER; \
 	arming_controller = "escape_pod_"+ #NUMBER +"_berth"; \
@@ -39,6 +39,7 @@
 EXODUS_ESCAPE_POD(1)
 EXODUS_ESCAPE_POD(2)
 EXODUS_ESCAPE_POD(3)
+EXODUS_ESCAPE_POD(5)
 
 //-// Transfer Shuttle //-//
 
@@ -47,7 +48,7 @@ EXODUS_ESCAPE_POD(3)
 	location = 1
 	move_time = 20
 	warmup_time = 10
-	shuttle_area = /area/shuttle/escape
+	shuttle_area = /area/shuttle/escape/centcom
 	dock_target = "escape_shuttle"
 	waypoint_station = "nav_emergency_dock"
 	landmark_transition = "nav_emergency_interim"
@@ -91,18 +92,14 @@ EXODUS_ESCAPE_POD(3)
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 // Admin Shuttle
-
-/datum/shuttle/autodock/multi/admin
+/datum/shuttle/autodock/ferry/admin
 	name = "Crescent Shuttle"
-	current_location = "nav_admin_start"
+	location = 1
 	warmup_time = 10
-	shuttle_area = /area/shuttle/administration
+	shuttle_area = /area/shuttle/administration/centcom
 	dock_target = "admin_shuttle"
-	destination_tags = list(
-		"nav_admin_start",
-		"nav_admin_command",
-		"nav_admin_green"
-		)
+	waypoint_station = "nav_admin_dock"
+	waypoint_offsite = "nav_admin_start"
 
 /obj/effect/shuttle_landmark/admin/start
 	name = "Crescent Shuttle Base"
@@ -110,16 +107,10 @@ EXODUS_ESCAPE_POD(3)
 	docking_controller = "admin_shuttle_bay"
 	base_turf = /turf/unsimulated/floor/plating
 
-/obj/effect/shuttle_landmark/admin/command
-	name = "Command Surface Dock"
-	landmark_tag = "nav_admin_command"
+/obj/effect/shuttle_landmark/admin/dock
+	name = "Crescent Shuttle Dock"
+	landmark_tag = "nav_admin_dock"
 	docking_controller = "admin_shuttle_dock_airlock"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
-
-/obj/effect/shuttle_landmark/admin/green
-	name = "Emergency Services Dock"
-	landmark_tag = "nav_admin_green"
-	docking_controller = "green_dock_north"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 // CCIA Shuttle
@@ -127,7 +118,7 @@ EXODUS_ESCAPE_POD(3)
 	name = "Agent Shuttle"
 	location = 1
 	warmup_time = 10
-	shuttle_area = /area/shuttle/transport1
+	shuttle_area = /area/shuttle/transport1/centcom
 	dock_target = "centcom_shuttle"
 	waypoint_station = "nav_ccia_dock"
 	waypoint_offsite = "nav_ccia_start"
@@ -150,7 +141,7 @@ EXODUS_ESCAPE_POD(3)
 	name = "Engineering Shuttle"
 	location = 0
 	warmup_time = 10
-	shuttle_area = /area/shuttle/constructionsite
+	shuttle_area = /area/shuttle/constructionsite/station
 	dock_target = "engineering_shuttle"
 	waypoint_station = "nav_engi_start"
 	waypoint_offsite = "nav_engi_dock"
@@ -171,7 +162,7 @@ EXODUS_ESCAPE_POD(3)
 	name = "Mining Shuttle"
 	location = 0
 	warmup_time = 10
-	shuttle_area = /area/shuttle/mining
+	shuttle_area = /area/shuttle/mining/station
 	dock_target = "mining_shuttle"
 	waypoint_station = "nav_mining_start"
 	waypoint_offsite = "nav_mining_dock"
@@ -192,7 +183,7 @@ EXODUS_ESCAPE_POD(3)
 	name = "Research Shuttle"
 	location = 0
 	warmup_time = 10
-	shuttle_area = /area/shuttle/research
+	shuttle_area = /area/shuttle/research/station
 	dock_target = "research_shuttle"
 	waypoint_station = "nav_research_start"
 	waypoint_offsite = "nav_research_dock"
@@ -213,7 +204,7 @@ EXODUS_ESCAPE_POD(3)
 	name = "Phoenix Shuttle"
 	location = 1
 	warmup_time = 10
-	shuttle_area = /area/shuttle/specops
+	shuttle_area = /area/shuttle/specops/centcom
 	dock_target = "specops_shuttle_port"
 	waypoint_station = "nav_ert_dock"
 	waypoint_offsite = "nav_ert_start"
@@ -238,7 +229,7 @@ EXODUS_ESCAPE_POD(3)
 	landmark_transition = "nav_skipjack_interim"
 	warmup_time = 10
 	move_time = 75
-	shuttle_area = /area/shuttle/skipjack
+	shuttle_area = /area/skipjack_station/start
 	destination_tags = list(
 		"nav_skipjack_start",
 		"nav_skipjack_northeast_solars",
@@ -294,7 +285,7 @@ EXODUS_ESCAPE_POD(3)
 	dock_target = "merc_shuttle"
 	warmup_time = 10
 	move_time = 75
-	shuttle_area = /area/shuttle/mercenary
+	shuttle_area = /area/syndicate_station/start
 	destination_tags = list(
 		"nav_merc_dock",
 		"nav_merc_start",
@@ -373,7 +364,7 @@ EXODUS_ESCAPE_POD(3)
 	name = "Legion Shuttle"
 	location = 1
 	warmup_time = 10
-	shuttle_area = /area/shuttle/legion
+	shuttle_area = /area/shuttle/legion/centcom
 	dock_target = "Legion Shuttle"
 	waypoint_station = "nav_legion_dock"
 	waypoint_offsite = "nav_legion_start"
@@ -394,7 +385,7 @@ EXODUS_ESCAPE_POD(3)
 	name = "Merchant Shuttle"
 	location = 1
 	warmup_time = 10
-	shuttle_area = /area/shuttle/merchant
+	shuttle_area = /area/shuttle/merchant/start
 	dock_target = "merchant_shuttle"
 	waypoint_station = "nav_merchant_dock"
 	waypoint_offsite = "nav_merchant_start"

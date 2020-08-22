@@ -184,15 +184,11 @@
 	desc = "A warning sign which reads 'HYDROPONICS'."
 	icon_state = "hydro1"
 
+
 /obj/structure/sign/patients_only
 	name = "\improper PATIENTS ONLY"
 	desc = "A big blue sign that reads 'PATIENTS ONLY'. Underneath you can read: 'Authorized personnel only. Tresspassers will be prosecuted by the security department.'"
 	icon_state = "patients_only"
-
-/obj/structure/sign/staff_only
-	name = "\improper STAFF ONLY"
-	desc = "A big blue sign that reads 'STAFF ONLY'"
-	icon_state = "staff_only"
 
 //Location and direction signs
 /obj/structure/sign/directions

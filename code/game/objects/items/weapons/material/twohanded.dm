@@ -569,49 +569,6 @@
 	name = "pitchfork"
 	desc = "An old farming tool, not something you would find at hydroponics."
 
-/obj/item/material/twohanded/pike/flag
-	icon_state = "flag_biesel0"
-	base_icon = "flag_biesel"
-	name = "republic of biesel flag"
-	desc = "For the republic!"
-	default_material = "bronze"
-	can_embed = 1
-	use_material_name = FALSE
-	unbreakable = TRUE
-	drop_sound = 'sound/items/drop/metalweapon.ogg'
-	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
-	action_button_name = "Plant Flag"
-	var/planted = FALSE
-
-/obj/item/material/twohanded/pike/flag/verb/plant()
-	set name = "Plant Flag"
-	set category = "Object"
-
-	if(ishuman(usr))
-		var/mob/living/user = usr
-		user.drop_from_inventory(src)
-		icon_state = "[base_icon]_planted"
-		anchored = TRUE
-		planted = TRUE
-		pixel_x = 16
-		pixel_y = 4
-		user.visible_message(SPAN_DANGER("[user] plants [src] proudly into the ground!"), SPAN_DANGER("You plant [src] proudly into the ground!"))
-
-/obj/item/material/twohanded/pike/flag/attack_hand(var/mob/user)
-	if(planted)
-		icon_state = initial(icon_state)
-		planted = FALSE
-		anchored = FALSE
-		pixel_x = initial(pixel_x)
-		pixel_y = initial(pixel_y)
-		user.visible_message(SPAN_NOTICE("[user] grabs [src]."), SPAN_NOTICE("You grab [src] from where it stands."))
-		..()
-	else
-		..()
-
-/obj/item/material/twohanded/pike/flag/ui_action_click()
-	plant()
-
 /obj/item/material/twohanded/zweihander
 	icon_state = "zweihander0"
 	base_icon = "zweihander"

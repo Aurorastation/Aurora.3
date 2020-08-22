@@ -111,7 +111,7 @@ datum/unit_test/zas_area_test/supply_centcomm
 
 datum/unit_test/zas_area_test/emergency_shuttle
 	name = "ZAS: Emergency Shuttle"
-	area_path = /area/shuttle/escape
+	area_path = /area/shuttle/escape/centcom
 
 datum/unit_test/zas_area_test/ai_chamber
 	name = "ZAS: AI Chamber"

@@ -104,8 +104,7 @@
 		/obj/item/melee/energy/sword,
 		/obj/item/handcuffs,
 		/obj/item/material/twohanded/fireaxe,
-		/obj/item/rfd/construction,
-		/obj/item/material/twohanded/pike/flag
+		/obj/item/rfd/construction
 	)
 
 	species_restricted = list("Human","Tajara","Unathi", "Skrell", "Machine", "Vaurca")

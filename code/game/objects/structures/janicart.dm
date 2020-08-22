@@ -24,21 +24,6 @@
 	var/driving
 	var/mob/living/pulling
 
-/obj/structure/janitorialcart/full/Initialize()
-	..()
-	mybag = new /obj/item/storage/bag/trash(src)
-	mymop = new /obj/item/mop(src)
-	myspray = new /obj/item/reagent_containers/spray/cleaner(src)
-	myreplacer = new /obj/item/device/lightreplacer(src)
-
-	mybucket = new /obj/structure/mopbucket(src)
-	mybucket.reagents.add_reagent(/datum/reagent/water, mybucket.bucketsize)
-
-	for(signs, signs < 4, signs++)
-		new /obj/item/clothing/suit/caution(src)
-
-	update_icon()
-
 /obj/structure/janitorialcart/New()
 	..()
 	janitorial_supplies |= src
