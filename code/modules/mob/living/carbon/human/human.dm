@@ -1221,7 +1221,7 @@
 /mob/living/carbon/human/get_gender()
 	var/skipitems = get_covered_clothes()
 	var/skipbody = get_covered_body_parts()
-	. = gender
+	. = ..()
 	if((skipbody & FACE || (skipitems & (HIDEMASK|HIDEFACE))) && (skipbody & (UPPER_TORSO | LOWER_TORSO) || (skipitems & HIDEJUMPSUIT))) //big suits/masks/helmets make it hard to tell their gender
 		. = PLURAL
 
