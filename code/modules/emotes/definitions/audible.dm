@@ -32,7 +32,7 @@
 
 /decl/emote/audible/choke
 	key ="choke"
-	emote_message_3p = "USER chokes."
+	emote_message_3p = "USER chokes!"
 	conscious = 0
 
 /decl/emote/audible/gnarl

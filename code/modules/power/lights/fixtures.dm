@@ -74,7 +74,7 @@
 /obj/machinery/light/small/emergency
 	brightness_range = 6
 	brightness_power = 1
-	brightness_color = "#FA8282"//"#FF0000"
+	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
 
 /obj/machinery/light/small/red
 	brightness_range = 2.5

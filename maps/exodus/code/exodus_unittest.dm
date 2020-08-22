@@ -1,21 +1,17 @@
 /datum/map/exodus
 	ut_environ_exempt_areas = list(/area/space
-		,/area/syndicate_station
-		,/area/skipjack_station
 		,/area/solar
 		,/area/shuttle
 		,/area/holodeck
 		,/area/supply/station
-		,/area/wizard_station
 		,/area/tdome
 		,/area/centcom
-		,/area/syndicate_mothership
+		,/area/antag
 		,/area/beach
 		,/area/prison
 		,/area/supply/dock
 		,/area/turbolift
 		,/area/mine
-		,/area/merchant_ship
 	)
 	ut_apc_exempt_areas = list(/area/construction
 		,/area/medical/genetics

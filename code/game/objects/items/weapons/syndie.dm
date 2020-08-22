@@ -124,6 +124,9 @@
 	if(T.density || T.contains_dense_objects())
 		to_chat(user, SPAN_WARNING("You cannot teleport to a location with solid objects!"))
 		return
+	if(isAdminLevel(T.z))
+		to_chat(user, SPAN_WARNING("You cannot use the device on this Z-level."))
+		return
 
 	user.visible_message("<b>[user]</b> blinks into nothingness!", SPAN_NOTICE("You jump into the nothing."))
 	user.forceMove(T)
