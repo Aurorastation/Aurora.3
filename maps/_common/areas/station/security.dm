@@ -51,6 +51,7 @@
 /area/security/warden
 	name = "Security - Warden's Office"
 	icon_state = "Warden"
+	sound_env = SMALL_SOFTFLOOR
 
 /area/security/armory
 	name = "Security - Armory"
@@ -65,6 +66,7 @@
 /area/security/detectives_office
 	name = "Security - Detective's Office"
 	icon_state = "detective"
+	sound_env = SMALL_SOFTFLOOR
 
 /area/security/investigations
 	name = "Security - Investigations Division"
@@ -147,4 +149,3 @@
 
 /area/security/vacantoffice2
 	name = "Security - Meeting Room"
-	icon_state = "security"

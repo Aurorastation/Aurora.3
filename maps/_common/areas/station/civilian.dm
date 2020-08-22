@@ -159,6 +159,7 @@
 	name = "Representative Office"
 	icon_state = "law"
 	station_area = 1
+	sound_env = MEDIUM_SOFTFLOOR
 
 /area/quartermaster
 	name = "Quartermasters"
@@ -169,6 +170,7 @@
 /area/quartermaster/office
 	name = "Cargo Office"
 	icon_state = "quartoffice"
+	sound_env = MEDIUM_SOFTFLOOR
 
 /area/quartermaster/lobby
 	name = "Cargo Lobby"
@@ -194,6 +196,7 @@
 /area/quartermaster/qm
 	name = "Cargo - Quartermaster's Office"
 	icon_state = "quart"
+	sound_env = SMALL_SOFTFLOOR
 
 /area/quartermaster/miningdock
 	name = "Cargo Mining Dock"
