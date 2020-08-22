@@ -622,22 +622,34 @@
 	if(hanging)
 		gas_transfer_coefficient = down_gas_transfer_coefficient
 		body_parts_covered = down_body_parts_covered
-		icon_state = "[icon_state]down"
+		adjust_sprites()
 		item_flags = down_item_flags
 		flags_inv = down_flags_inv
 		if(self)
-			user.visible_message("<b>[user]</b> pulls \the [src] down to hang around their neck.", SPAN_NOTICE("You pull \the [src] down to hang around your neck."))
+			lower_message(user)
 	else
 		gas_transfer_coefficient = initial(gas_transfer_coefficient)
 		body_parts_covered = initial(body_parts_covered)
-		icon_state = initial(icon_state)
-		item_state = initial(icon_state)
+		adjust_sprites()
 		item_flags = initial(item_flags)
 		flags_inv = initial(flags_inv)
 		if(self)
-			user.visible_message("<b>[user]</b> pulls \the [src] up to cover their face.", SPAN_NOTICE("You pull \the [src] up to cover your face."))
+			raise_message(user)
 	usr.update_action_buttons()
 	update_clothing_icon()
+
+/obj/item/clothing/mask/proc/adjust_sprites()
+	if(hanging)
+		icon_state = "[icon_state]down"
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(icon_state)
+
+/obj/item/clothing/mask/proc/lower_message(mob/user)
+	user.visible_message("<b>[user]</b> pulls \the [src] down to hang around their neck.", SPAN_NOTICE("You pull \the [src] down to hang around your neck."))
+
+/obj/item/clothing/mask/proc/raise_message(mob/user)
+	user.visible_message("<b>[user]</b> pulls \the [src] up to cover their face.", SPAN_NOTICE("You pull \the [src] up to cover your face."))
 
 /obj/item/clothing/mask/attack_self(mob/user)
 	if(adjustable)
@@ -999,10 +1011,16 @@
 	rolled_down = !rolled_down
 	if(rolled_down)
 		body_parts_covered &= LOWER_TORSO|LEGS|FEET
-		item_state_slots[slot_w_uniform_str] = "[worn_state]_d"
+		if(contained_sprite)
+			item_state = "[initial(item_state)]_d"
+		else
+			item_state_slots[slot_w_uniform_str] = "[worn_state]_d"
 	else
 		body_parts_covered = initial(body_parts_covered)
-		item_state_slots[slot_w_uniform_str] = "[worn_state]"
+		if(contained_sprite)
+			item_state = initial(item_state)
+		else
+			item_state_slots[slot_w_uniform_str] = "[worn_state]"
 	update_clothing_icon()
 
 /obj/item/clothing/under/verb/rollsleeves()
@@ -1023,11 +1041,17 @@
 	rolled_sleeves = !rolled_sleeves
 	if(rolled_sleeves)
 		body_parts_covered &= ~(ARMS|HANDS)
-		item_state_slots[slot_w_uniform_str] = "[worn_state]_r"
+		if(contained_sprite)
+			item_state = "[initial(item_state)]_r"
+		else
+			item_state_slots[slot_w_uniform_str] = "[worn_state]_r"
 		to_chat(usr, "<span class='notice'>You roll up your [src]'s sleeves.</span>")
 	else
 		body_parts_covered = initial(body_parts_covered)
-		item_state_slots[slot_w_uniform_str] = "[worn_state]"
+		if(contained_sprite)
+			item_state = initial(item_state)
+		else
+			item_state_slots[slot_w_uniform_str] = "[worn_state]"
 		to_chat(usr, "<span class='notice'>You roll down your [src]'s sleeves.</span>")
 	update_clothing_icon()
 

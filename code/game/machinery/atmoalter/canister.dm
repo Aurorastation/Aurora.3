@@ -139,6 +139,7 @@ update_flag
 
 	if (src.destroyed)
 		cut_overlays()
+		set_light(FALSE)
 		src.icon_state = text("[]-1", src.canister_color)
 		return
 
@@ -201,7 +202,7 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/machinery_process()
 	if (destroyed)
-		return
+		return PROCESS_KILL
 
 	..()
 

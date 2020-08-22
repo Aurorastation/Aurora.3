@@ -68,6 +68,17 @@
 		"Corporate Liaison" = /datum/outfit/job/representative/zeng_hu
 	)
 
+	job_species_blacklist = list(
+		"Corporate Liaison" = list(
+			"Unathi",
+			"Tajara",
+			"M'sai Tajara",
+			"Zhan-Khazan Tajara",
+			"Vaurca Worker", 
+			"Vaurca Warrior"
+		)
+	)
+
 /datum/outfit/job/doctor/zeng_hu
 	name = "Physician - Zeng-Hu"
 	uniform = /obj/item/clothing/under/rank/zeng

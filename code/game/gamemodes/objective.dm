@@ -236,7 +236,7 @@ datum/objective/hijack
 			return 0
 		if(issilicon(owner.current))
 			return 0
-		var/area/shuttle = locate(/area/shuttle/escape/centcom)
+		var/area/shuttle = locate(/area/shuttle/escape)
 		var/list/protected_mobs = list(/mob/living/silicon/ai, /mob/living/silicon/pai)
 		for(var/mob/living/player in player_list)
 			if(player.type in protected_mobs)	continue
@@ -258,7 +258,7 @@ datum/objective/block
 			return 0
 		if(!owner.current)
 			return 0
-		var/area/shuttle = locate(/area/shuttle/escape/centcom)
+		var/area/shuttle = locate(/area/shuttle/escape)
 		var/protected_mobs[] = list(/mob/living/silicon/ai, /mob/living/silicon/pai, /mob/living/silicon/robot)
 		for(var/mob/living/player in player_list)
 			if(player.type in protected_mobs)	continue
@@ -281,10 +281,10 @@ datum/objective/silence
 			if(player.mind)
 				if(player.stat != DEAD)
 					var/turf/T = get_turf(player)
-					if(!T)	continue
-					switch(T.loc.type)
-						if(/area/shuttle/escape/centcom, /area/shuttle/escape_pod1/centcom, /area/shuttle/escape_pod2/centcom, /area/shuttle/escape_pod3/centcom, /area/shuttle/escape_pod5/centcom)
-							return 0
+					if(!T)
+						continue
+					if(istype(T.loc.type, /area/shuttle/escape) || istype(T.loc.type, /area/shuttle/escape_pod))
+						return 0
 		return 1
 
 
@@ -306,20 +306,12 @@ datum/objective/escape
 			return 0
 
 		var/area/check_area = location.loc
-		if(istype(check_area, /area/shuttle/escape/centcom))
+		if(istype(check_area, /area/shuttle/escape))
 			return 1
-		if(istype(check_area, /area/shuttle/escape_pod1/centcom))
-			return 1
-		if(istype(check_area, /area/shuttle/escape_pod2/centcom))
-			return 1
-		if(istype(check_area, /area/shuttle/escape_pod3/centcom))
-			return 1
-		if(istype(check_area, /area/shuttle/escape_pod5/centcom))
+		if(istype(check_area, /area/shuttle/escape_pod))
 			return 1
 		else
 			return 0
-
-
 
 datum/objective/survive
 	explanation_text = "Stay alive until the end."
@@ -527,15 +519,9 @@ datum/objective/steal
 					var/turf/T = get_turf(ai)
 					if(istype(T))
 						var/area/check_area = get_area(ai)
-						if(istype(check_area, /area/shuttle/escape/centcom))
+						if(istype(check_area, /area/shuttle/escape))
 							return 1
-						if(istype(check_area, /area/shuttle/escape_pod1/centcom))
-							return 1
-						if(istype(check_area, /area/shuttle/escape_pod2/centcom))
-							return 1
-						if(istype(check_area, /area/shuttle/escape_pod3/centcom))
-							return 1
-						if(istype(check_area, /area/shuttle/escape_pod5/centcom))
+						if(istype(check_area, /area/shuttle/escape_pod))
 							return 1
 			else
 
@@ -543,8 +529,6 @@ datum/objective/steal
 					if(istype(I, steal_target))
 						return 1
 		return 0
-
-
 
 datum/objective/download
 	proc/gen_amount_goal()
@@ -668,7 +652,7 @@ datum/objective/heist/kidnap
 			//if (!target.current.restrained())
 			//	return 0 // They're loose. Close but no cigar.
 
-			var/area/skipjack_station/start/A = locate()
+			var/area/shuttle/skipjack/A = locate()
 			for(var/mob/living/carbon/human/M in A)
 				if(target.current == M)
 					return 1 //They're restrained on the shuttle. Success.
@@ -719,7 +703,7 @@ datum/objective/heist/loot
 
 		var/total_amount = 0
 
-		for(var/obj/O in locate(/area/skipjack_station/start))
+		for(var/obj/O in locate(/area/shuttle/skipjack))
 			if(istype(O,target)) total_amount++
 			for(var/obj/I in O.contents)
 				if(istype(I,target)) total_amount++
@@ -768,7 +752,7 @@ datum/objective/heist/salvage
 
 		var/total_amount = 0
 
-		for(var/obj/item/O in locate(/area/skipjack_station/start))
+		for(var/obj/item/O in locate(/area/shuttle/skipjack))
 
 			var/obj/item/stack/material/S
 			if(istype(O,/obj/item/stack/material))
