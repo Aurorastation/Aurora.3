@@ -50,6 +50,18 @@
 		"Corporate Liaison" = /datum/outfit/job/representative/eridani
 	)
 
+	job_species_blacklist = list(
+		"Corporate Liaison" = list(
+			"Tajara",
+			"M'sai Tajara",
+			"Zhan-Khazan Tajara",
+			"Diona",
+			"Vaurca Worker", 
+			"Vaurca Warrior",
+			"Unathi"
+		)
+	)
+
 /datum/outfit/job/officer/eridani
 	name = "Security Officer - Eridani"
 	uniform = /obj/item/clothing/under/rank/security/eridani

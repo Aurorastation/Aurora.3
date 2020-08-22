@@ -120,11 +120,6 @@
 	icon_state = "medresearch"
 	ambience = AMBIENCE_ENGINEERING
 
-/area/medical/abandoned
-	name = "Abandoned Sector"
-	icon_state = "green"
-	ambience = AMBIENCE_MAINTENANCE
-
 /area/medical/morgue
 	name = "Medical - Long-term Morgue"
 	icon_state = "morgue"

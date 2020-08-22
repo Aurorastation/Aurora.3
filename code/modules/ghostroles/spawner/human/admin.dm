@@ -117,6 +117,15 @@
 	mob_name_prefix = "Spec. "
 	mob_name_pick_message = "Pick a callsign or last-name."
 
+/datum/ghostspawner/human/admin/checkpointsec/prepatory
+	short_name = "checkpointsec_prepatory"
+	name = "Aurora Prepatory Wing Security"
+	desc = "Act as an Odin security officer, guide lost newcomers onto the arrivals shuttle if the need arises."
+	enabled = TRUE
+	spawnpoints = list("OdinPrepatory")
+	req_perms = R_CCIAA
+	max_count = 3
+
 /datum/ghostspawner/human/admin/tcflsentinel
 	short_name = "tcflsentinel"
 	name = "TCFL Sentinel"

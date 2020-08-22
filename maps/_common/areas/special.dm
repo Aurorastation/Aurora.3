@@ -70,29 +70,49 @@
 	name = "Distress Team Preparation"
 	ambience = AMBIENCE_HIGHSEC
 
-//SYNDICATES
-
-/area/syndicate_mothership
-	name = "Mercenary Base"
-	icon_state = "syndie-ship"
+/area/merchant_station
+	name = "Merchant Station"
+	icon_state = "merchant"
 	requires_power = 0
-	dynamic_lighting = 0
-	ambience = AMBIENCE_HIGHSEC
+	dynamic_lighting = 1
 	no_light_control = 1
 	centcomm_area = 1
+	ambience = AMBIENCE_HIGHSEC
 
-/area/syndicate_mothership/control
-	name = "Mercenary Control Room"
-	icon_state = "syndie-control"
+/area/merchant_station/warehouse
+	name = "Merchant Warehouse"
+	icon_state = "merchant_ware"
 
-/area/syndicate_mothership/elite_squad
-	name = "Elite Mercenary Squad"
-	icon_state = "syndie-elite"
+// Antagonist Bases
 
-/area/syndicate_mothership/raider_base
-	name = "Pirate Hideout"
-	icon_state = "syndie-control"
-	dynamic_lighting = 1
+/area/antag
+	name = "Unknown Blacksite"
+	icon_state = "dark"
+	requires_power = FALSE
+	no_light_control = TRUE
+	centcomm_area = TRUE
+
+/area/antag/mercenary
+	name = "Mercenary Barracks"
+	icon_state = "merc"
+
+/area/antag/raider
+	name = "Raider Hideout"
+	icon_state = "raider"
+
+/area/antag/ninja
+	name = "Ninja Preparation"
+	icon_state = "ninja"
+
+/area/antag/burglar
+	name = "Burglar Hideout"
+	icon_state = "burglar"
+
+/area/antag/wizard
+	name = "Wizard Mind Palace"
+	icon_state = "wizard"
+	dynamic_lighting = FALSE
+
 
 //THUNDERDOME
 
@@ -121,79 +141,7 @@
 	name = "Thunderdome (Observer.)"
 	icon_state = "purple"
 
-//ACTORS GUILD
-/area/acting
-	name = "Centcom Acting Guild"
-	icon_state = "red"
-	dynamic_lighting = 0
-	requires_power = 0
-	no_light_control = 1
-	centcomm_area = 1
-
-/area/acting/backstage
-	name = "Backstage"
-
-/area/acting/stage
-	name = "Stage"
-	dynamic_lighting = 1
-	icon_state = "yellow"
-
-//ENEMY
-
-//names are used
-/area/syndicate_station
-	name = "Independent Station"
-	icon_state = "yellow"
-	requires_power = 0
-	flags = RAD_SHIELDED | SPAWN_ROOF
-	ambience = AMBIENCE_HIGHSEC
-	no_light_control = 1
-
-/area/syndicate_station/start
-	name = "Mercenary Shuttle"
-	icon_state = "yellow"
-	centcomm_area = 1
-	base_turf = /turf/space
-
-/area/syndicate_station/surface
-	name = "Surface of the Station"
-	icon_state = "southwest"
-	station_area = 1
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
-/area/syndicate_station/above
-	name = "Above the Station"
-	icon_state = "northwest"
-
-/area/syndicate_station/under
-	name = "Under the Station"
-	icon_state = "northeast"
-
-/area/syndicate_station/caverns
-	name = "Caverns"
-	icon_state = "southeast"
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
-/area/syndicate_station/arrivals_dock
-	name = "Docked with Station"
-	icon_state = "shuttle"
-	station_area = 1
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
-/area/syndicate_station/transit
-	name = "Bluespace"
-	icon_state = "shuttle"
-	base_turf = /turf/space/transit
-	centcomm_area = 1
-
-/area/wizard_station
-	name = "Wizard's Den"
-	icon_state = "yellow"
-	requires_power = 0
-	dynamic_lighting = 0
-	ambience = AMBIENCE_OTHERWORLDLY
-	no_light_control = 1
-	centcomm_area = 1
+// Kataphract Station
 
 /area/kataphract_chapter
 	name = "Kataphract Chapter"
@@ -265,106 +213,6 @@
 	name = "Kataphract Chapter - Hull"
 	icon_state = "blue"
 
-/area/burglar_base
-	name = "Burglar Base"
-	icon_state = "yellow"
-	requires_power = FALSE
-	no_light_control = TRUE
-
-/area/burglar_base/pod
-	name = "Burglar Pod"
-	base_turf = /turf/space
-	flags = SPAWN_ROOF
-
-/area/skipjack_station
-	name = "Skipjack"
-	icon_state = "yellow"
-	requires_power = 0
-	no_light_control = 1
-	base_turf = /turf/space
-	ambience = AMBIENCE_HIGHSEC
-	flags = SPAWN_ROOF
-
-/area/skipjack_station/start
-	name = "Skipjack"
-	icon_state = "yellow"
-	centcomm_area = 1
-
-/area/skipjack_station/transit
-	name = "Bluespace"
-	icon_state = "shuttle"
-	base_turf = /turf/space/transit
-	centcomm_area = 1
-
-/area/skipjack_station/surface
-	name = "Surface of the Station"
-	icon_state = "southwest"
-	station_area = 1
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
-/area/skipjack_station/above
-	name = "Above the Station"
-	icon_state = "northwest"
-
-/area/skipjack_station/under
-	name = "Under the Station"
-	icon_state = "northeast"
-
-/area/skipjack_station/cavern
-	name = "Caverns"
-	icon_state = "southeast"
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
-//DJSTATION
-
-/area/djstation
-	name = "Listening Post"
-	icon_state = "LP"
-	ambience = AMBIENCE_TECH_RUINS
-	no_light_control = 1
-
-/area/djstation/solars
-	name = "Listening Post Solars"
-	icon_state = "LPS"
-
-//merchant station and shuttle
-
-/area/merchant_station
-	name = "Merchant Station"
-	icon_state = "merchant"
-	requires_power = 0
-	dynamic_lighting = 1
-	no_light_control = 1
-	centcomm_area = 1
-
-/area/merchant_station/warehouse
-	name = "Merchant Warehouse"
-	icon_state = "merchant_ware"
-
-/area/merchant_station/transit
-	name = "Bluespace"
-	icon_state = "shuttle"
-	centcomm_area = 1
-
-/area/merchant_ship
-	name = "Merchant Ship"
-	icon_state = "yellow"
-	requires_power = 0
-	flags = RAD_SHIELDED | SPAWN_ROOF
-	no_light_control = 1
-
-/area/merchant_ship/start
-	name = "Merchant Ship Docked"
-	icon_state = "yellow"
-	centcomm_area = 1
-	base_turf = /turf/space
-
-/area/merchant_ship/docked
-	name = "Docked with station"
-	icon_state = "southwest"
-	station_area = 1
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
 /area/beach
 	name = "Keelin's private beach"
 	icon_state = "yellow"
@@ -373,7 +221,7 @@
 	requires_power = 0
 	no_light_control = 1
 
-//dungeon areas
+//Dungeons
 
 /area/dungeon/crashed_ship
 	name = "Derelict Ship"
@@ -409,4 +257,14 @@
 /area/dungeon/crashed_satellite
 	name = "Communications Satellite"
 	icon_state = "tcomsatcham"
+	no_light_control = 1
+
+//Misc
+
+/area/beach
+	name = "Keelin's private beach"
+	icon_state = "yellow"
+	luminosity = 1
+	dynamic_lighting = 0
+	requires_power = 0
 	no_light_control = 1
