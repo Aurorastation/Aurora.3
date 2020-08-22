@@ -271,10 +271,19 @@ var/list/drillhit_sound = list(
 	'sound/weapons/saw/drillhit2.ogg'
 )
 // drop/equip/pickup sounds if there are multiple.
-var/list/wield_generic_sound = list(
-	'sound/items/wield/wield_generic1.ogg',
-	'sound/items/wield/wield_generic2.ogg',
-	'sound/items/wield/wield_generic3.ogg'
+var/list/generic_drop_sound = list(
+	'sound/items/drop/generic1.ogg',
+	'sound/items/drop/generic2.ogg',
+)
+var/list/generic_pickup_sound = list(
+	'sound/items/pickup/generic1.ogg',
+	'sound/items/pickup/generic2.ogg',
+	'sound/items/pickup/generic3.ogg',
+)
+var/list/generic_wield_sound = list(
+	'sound/items/wield/generic1.ogg',
+	'sound/items/wield/generic2.ogg',
+	'sound/items/wield/generic3.ogg'
 )
 var/list/sword_pickup_sound = list(
 	'sound/items/pickup/sword1.ogg',
@@ -519,7 +528,9 @@ var/list/gauss_fire_sound = list(
 			if ("crowbar") soundin = pick(crowbar_sound)
 			if ("casing_drop") soundin = pick(casing_drop_sound)
 			if ("drillhit") soundin = pick(drillhit_sound)
-			if ("wield_generic") soundin = pick(wield_generic_sound)
+			if ("generic_drop") soundin = pick(generic_drop_sound)
+			if ("generic_pickup") soundin = pick(generic_pickup_sound)
+			if ("generic_wield") soundin = pick(generic_wield_sound)
 			if ("equip_sword") soundin = pick(sword_equip_sound)
 			if ("pickup_sword") soundin = pick(sword_pickup_sound)
 			if ("gauss_fire") soundin = pick(gauss_fire_sound)
