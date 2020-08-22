@@ -25,7 +25,7 @@
 /obj/vehicle/train/cargo/trolley
 	name = "cargo train trolley"
 	icon = 'icons/obj/vehicles.dmi'
-	icon_state = "mule"
+	icon_state = "cargo_trailer"
 	anchored = 0
 	passenger_allowed = 0
 	locked = 0
@@ -134,6 +134,8 @@
 		else
 			verbs += /obj/vehicle/train/cargo/engine/verb/start_engine
 
+	update_icon()
+
 /obj/vehicle/train/cargo/engine/turn_off()
 	..()
 
@@ -144,6 +146,8 @@
 		verbs += /obj/vehicle/train/cargo/engine/verb/start_engine
 	else
 		verbs += /obj/vehicle/train/cargo/engine/verb/stop_engine
+	update_icon()
+
 
 /obj/vehicle/train/cargo/RunOver(var/mob/living/carbon/human/H)
 	var/list/parts = list(BP_HEAD, BP_CHEST, BP_L_LEG, BP_R_LEG, BP_L_ARM, BP_R_ARM)
@@ -219,6 +223,16 @@
 			to_chat(usr, "[src] is out of power.")
 		else
 			to_chat(usr, "[src]'s engine won't start.")
+
+/obj/vehicle/train/cargo/engine/update_icon()
+	cut_overlay()
+	if (open)
+		icon_state = initial(icon_state) + "_open"
+	else
+		icon_state = initial(icon_state)
+
+	if (on)
+		add_overlay(initial(icon_state) + "_light")
 
 /obj/vehicle/train/cargo/engine/verb/stop_engine()
 	set name = "Stop engine"
@@ -374,7 +388,10 @@
 /obj/vehicle/train/cargo/trolley/update_icon()
 	. = ..()
 	cut_overlays()
+	if (open)
+		icon_state = initial(icon_state) + "_open"
+
 	if (lead || tow)
-		add_overlay("mule-light-linked")
+		add_overlay("cargo_trailer_light_linked")
 	else
-		add_overlay("mule-light-" + (open ? "paused" : "active"))
+		add_overlay("cargo_trailer_light-" + (open ? "paused" : "active"))

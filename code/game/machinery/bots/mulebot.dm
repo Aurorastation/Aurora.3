@@ -869,7 +869,9 @@
 
 	cut_overlays()
 	if (open)
-		icon_state = initial(icon_state) + "-open"
+		icon_state = initial(icon_state) + "_open"
+	else
+		icon_state = initial(icon_state)
 	
 	if (emagged)
 		add_overlay("mule_fast-light-emagged")

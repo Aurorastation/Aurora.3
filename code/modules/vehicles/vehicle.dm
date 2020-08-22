@@ -83,6 +83,8 @@
 			open = !open
 			update_icon()
 			to_chat(user, "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>")
+			update_icon()
+
 	else if(W.iscrowbar() && cell && open)
 		remove_cell(user)
 
