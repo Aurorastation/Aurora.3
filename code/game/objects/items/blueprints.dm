@@ -85,8 +85,7 @@ move an amendment</a> to the drawing.</p>
 		/area/shuttle,
 		/area/centcom,
 		/area/tdome,
-		/area/syndicate_station,
-		/area/wizard_station
+		/area/antag
 	)
 	for (var/type in SPECIALS)
 		if ( istype(A,type) )

@@ -1,10 +1,11 @@
 #define LISTENER_MODULAR_COMPUTER "modular_computers"
 
 /obj/item/modular_computer/process()
-	handle_power() // Handles all computer power interaction
 	if(!enabled) // The computer is turned off
 		last_power_usage = 0
 		return FALSE
+
+	handle_power() // Handles all computer power interaction
 
 	if(damage > broken_damage)
 		shutdown_computer()
