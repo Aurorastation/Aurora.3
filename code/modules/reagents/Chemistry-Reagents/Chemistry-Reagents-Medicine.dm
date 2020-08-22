@@ -1194,9 +1194,9 @@
 		H.add_chemical_effect(CE_PULSE, -1)
 
 		var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
-		if(istype(L))
+		if(istype(L) && !BP_IS_ROBOTIC(L))
 			L.rescued = FALSE
-			L.damage = max(I.damage - (removed * 1.5), 0)
+			L.damage = max(L.damage - (removed * 1.5), 0)
 
 	. = ..()
 
@@ -1272,7 +1272,7 @@
 /datum/reagent/azoth/overdose(var/mob/living/carbon/M, var/alien)
 	M.adjustBruteLoss(5)
 
-/datum/reagent/adipemcina //Based on quinapril
+/datum/reagent/adipemcina
 	name = "Adipemcina"
 	description = "Adipemcina is a complex, organ-regenerative medication that increases the rate at which cells differentiate into myocardial cells. Adipemcina overdoses result in severe liver damage and vomiting."
 	reagent_state = LIQUID
@@ -1284,9 +1284,9 @@
 /datum/reagent/adipemcina/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 	if(istype(M))
 		M.add_chemical_effect(CE_CARDIOTOXIC, -removed*2)
-		var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
-		if(istype(L))
-			L.damage = max(I.damage - (removed * 2), 0)
+		var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_HEART]
+		if(istype(L) && !BP_IS_ROBOTIC(L))
+			L.damage = max(L.damage - (removed * 2), 0)
 	..()
 
 /datum/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)
