@@ -8,7 +8,7 @@
 #define AUDITORIUM 6
 #define CONCERT_HALL 7
 #define CAVE 8
-#define ARENA 9
+#define ARENA 9 // used for thunderdome and arena.
 #define HANGAR 10
 #define CARPETED_HALLWAY 11
 #define HALLWAY 12
@@ -26,16 +26,16 @@
 #define DIZZY 24
 
 
-#define STANDARD_STATION STONEROOM
-#define LARGE_ENCLOSED HANGAR
-#define SMALL_ENCLOSED BATHROOM
-#define TUNNEL_ENCLOSED CAVE
-#define LARGE_SOFTFLOOR CARPETED_HALLWAY
-#define MEDIUM_SOFTFLOOR LIVINGROOM
-#define SMALL_SOFTFLOOR ROOM
-#define ASTEROID CAVE
-#define SPACE UNDERWATER
-#define PSYCHOTIC PARKING_LOT
+#define STANDARD_STATION STONEROOM // default
+#define LARGE_ENCLOSED HANGAR // used for hangars, chapel
+#define SMALL_ENCLOSED BATHROOM // used for bathrooms, mostly.
+#define TUNNEL_ENCLOSED CAVE // maint tunnels and crawlspaces
+#define LARGE_SOFTFLOOR CARPETED_HALLWAY // used for library and theater
+#define MEDIUM_SOFTFLOOR LIVINGROOM // used for larger offices, usually with wooden floors
+#define SMALL_SOFTFLOOR ROOM // used for offices, dormitories and other small miscallaneous rooms
+#define ASTEROID CAVE // well, the asteroid
+#define SPACE UNDERWATER // space
+#define PSYCHOTIC PARKING_LOT // not actually used in areas, used in drug hallucinations.
 
 #define EQUIP_SOUND_VOLUME 30
 #define PICKUP_SOUND_VOLUME 15
