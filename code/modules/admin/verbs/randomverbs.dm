@@ -319,7 +319,7 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 	G.has_enabled_antagHUD = 2
 	G.can_reenter_corpse = 1
 
-	G:show_message(text(SPAN_NOTICE("<B>You may now respawn.  You should roleplay as if you learned nothing about the round during your time with the dead.</B>")), 1)
+	to_chat(G, SPAN_NOTICE("<B>You may now respawn. You should roleplay as if you learned nothing about the round during your time with the dead.</B>"))
 	log_admin("[key_name(usr)] allowed [key_name(G)] to bypass the 30 minute respawn limit",admin_key=key_name(usr),ckey=key_name(G))
 	message_admins("Admin [key_name_admin(usr)] allowed [key_name_admin(G)] to bypass the 30 minute respawn limit", 1)
 

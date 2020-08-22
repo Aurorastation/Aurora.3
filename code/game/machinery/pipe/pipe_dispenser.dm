@@ -114,7 +114,7 @@
 			to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src] from the floor..."))
 			if (do_after(user, 40/W.toolspeed))
 				user.visible_message( \
-					SPAN_NOTICE("[user] unfastens \the [src]."), \
+					"<b>[user]</b> unfastens \the [src].", \
 					SPAN_NOTICE("You have unfastened \the [src]. Now it can be pulled somewhere else."), \
 					"You hear ratchet.")
 				src.anchored = 0
@@ -127,7 +127,7 @@
 			to_chat(user, SPAN_NOTICE("You begin to fasten \the [src] to the floor..."))
 			if (do_after(user, 20/W.toolspeed))
 				user.visible_message( \
-					SPAN_NOTICE("[user] fastens \the [src]."), \
+					"<b>[user]</b> fastens \the [src].", \
 					SPAN_NOTICE("You have fastened \the [src]. Now it can dispense pipes."), \
 					"You hear ratchet.")
 				src.anchored = 1

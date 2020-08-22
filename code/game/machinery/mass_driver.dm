@@ -85,7 +85,7 @@
 		R.power = 2.0
 		var/obj/item/mass_driver_button/B = new /obj/item/mass_driver_button(user.loc)
 		B.id = master_id
-		user.visible_message(SPAN_NOTICE("[user] assembles \a [R]."), SPAN_NOTICE("You assemble \a [R]."))
+		user.visible_message("<b>[user]</b> assembles \a [R].", SPAN_NOTICE("You assemble \a [R]."))
 		R.add_fingerprint(user)
 		qdel(src)
 

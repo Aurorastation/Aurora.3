@@ -147,7 +147,7 @@
 	if(href_list["select"])
 		dispense_flavour = text2num(href_list["select"])
 		flavour_name = get_flavour_name(dispense_flavour)
-		src.visible_message(SPAN_NOTICE("[usr] sets [src] to dispense [flavour_name] flavoured icecream."))
+		src.visible_message("<b>[usr]</b> sets [src] to dispense [flavour_name] flavoured icecream.")
 
 	if(href_list["cone"])
 		var/dispense_cone = text2num(href_list["cone"])

@@ -315,9 +315,9 @@ var/list/global/organ_rel_size = list(
 		if (char == "<") //let's try to not break tags
 			intag = !intag
 		if (intag || char == " " || prob(pr))
-			t = text("[][]", t, char)
+			t = "[t][char]"
 		else
-			t = text("[]*", t)
+			t = "[t]*"
 		if (char == ">")
 			intag = !intag
 		p++

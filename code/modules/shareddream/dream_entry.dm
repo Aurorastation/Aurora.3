@@ -39,7 +39,7 @@ var/list/dream_entries = list()
 				return_text = "You are ripped from the Srom as you return to the captivity of your own mind."
 
 			return_mob.ckey = old_bg.ckey
-			old_bg.show_message(SPAN_NOTICE("[bg] fades as their connection is severed."))
+			old_bg.show_message("<b>[bg]</b> fades as their connection is severed.")
 			animate(old_bg, alpha=0, time = 200)
 			QDEL_IN(old_bg, 20)
 			to_chat(return_mob, SPAN_WARNING("[return_text]"))

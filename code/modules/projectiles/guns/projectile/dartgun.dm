@@ -99,7 +99,7 @@
 /obj/item/gun/projectile/dartgun/examine(mob/user)
 	..()
 	if (beakers.len)
-		to_chat(user, SPAN_NOTICE("[src] contains:"))
+		to_chat(user, "<b>[src]</b> contains:")
 		for(var/obj/item/reagent_containers/glass/beaker/B in beakers)
 			if(B.reagents && B.reagents.reagent_list.len)
 				for(var/datum/reagent/R in B.reagents.reagent_list)
@@ -140,9 +140,9 @@
 				for(var/datum/reagent/R in B.reagents.reagent_list)
 					dat += "<br>    [R.volume] units of [R.name], "
 				if (check_beaker_mixing(B))
-					dat += text("<A href='?src=\ref[src];stop_mix=[i]'><font color='green'>Mixing</font></A> ")
+					dat += "<A href='?src=\ref[src];stop_mix=[i]'><font color='green'>Mixing</font></A> "
 				else
-					dat += text("<A href='?src=\ref[src];mix=[i]'><font color='red'>Not mixing</font></A> ")
+					dat += "<A href='?src=\ref[src];mix=[i]'><font color='red'>Not mixing</font></A> "
 			else
 				dat += "nothing."
 			dat += " \[<A href='?src=\ref[src];eject=[i]'>Eject</A>\]<br>"

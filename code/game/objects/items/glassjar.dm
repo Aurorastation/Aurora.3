@@ -27,14 +27,14 @@
 			to_chat(user, "[A] doesn't fit into \the [src].")
 			return
 		var/mob/L = A
-		user.visible_message(SPAN_NOTICE("[user] scoops [L] into \the [src]."), SPAN_NOTICE("You scoop [L] into \the [src]."))
+		user.visible_message("<b>[user]</b> scoops [L] into \the [src].", SPAN_NOTICE("You scoop [L] into \the [src]."))
 		L.forceMove(src)
 		contains = 2
 		update_icon()
 		return
 	else if(istype(A, /obj/effect/spider/spiderling))
 		var/obj/effect/spider/spiderling/S = A
-		user.visible_message(SPAN_NOTICE("[user] scoops [S] into \the [src]."), SPAN_NOTICE("You scoop [S] into \the [src]."))
+		user.visible_message("<b>[user]</b> scoops [S] into \the [src].", SPAN_NOTICE("You scoop [S] into \the [src]."))
 		S.forceMove(src)
 		STOP_PROCESSING(SSprocessing, S)	// No growing inside jars
 		contains = 3
@@ -53,14 +53,14 @@
 		if(2)
 			for(var/mob/M in src)
 				M.forceMove(user.loc)
-				user.visible_message(SPAN_NOTICE("[user] releases [M] from \the [src]."), SPAN_NOTICE("You release [M] from \the [src]."))
+				user.visible_message("<b>[user]</b> releases [M] from \the [src].", SPAN_NOTICE("You release [M] from \the [src]."))
 			contains = 0
 			update_icon()
 			return
 		if(3)
 			for(var/obj/effect/spider/spiderling/S in src)
 				S.forceMove(user.loc)
-				user.visible_message(SPAN_NOTICE("[user] releases [S] from \the [src]."), SPAN_NOTICE("You release [S] from \the [src]."))
+				user.visible_message("<b>[user]</b> releases [S] from \the [src].", SPAN_NOTICE("You release [S] from \the [src]."))
 				START_PROCESSING(SSprocessing, S) // They can grow after being let out though
 			contains = 0
 			update_icon()
@@ -79,7 +79,7 @@
 		if(contains != 1)
 			return
 		var/obj/item/spacecash/S = W
-		user.visible_message(SPAN_NOTICE("[user] puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [src]."))
+		user.visible_message("<b>[user]</b> puts [S.worth] [S.worth > 1 ? "credits" : "credit"] into \the [src].")
 		user.drop_from_inventory(S,src)
 		update_icon()
 

@@ -640,7 +640,7 @@
 		else if(W.iscrowbar())	// crowbar means open or close the cover
 			if(opened)
 				if(cell)
-					user.visible_message(SPAN_NOTICE("\The [user] begins clasping shut \the [src]'s maintenance hatch."), SPAN_NOTICE("You begin closing up \the [src]'s maintenance hatch."))
+					user.visible_message("<b>\The [user]</b> begins clasping shut \the [src]'s maintenance hatch.", SPAN_NOTICE("You begin closing up \the [src]'s maintenance hatch."))
 					if(do_after(user, 50 / W.toolspeed, act_target = src))
 						if(!Adjacent(user))
 							to_chat(user, SPAN_WARNING("You are too far from \the [src] to close its hatch."))
@@ -653,7 +653,7 @@
 					if(!mmi)
 						to_chat(user, SPAN_WARNING("\The [src] has no brain to remove.")) // me irl - geeves
 						return
-					user.visible_message(SPAN_NOTICE("\The [user] begins ripping \the [mmi] from \the [src]."), SPAN_NOTICE("You jam the crowbar into the robot and begin levering out \the [mmi]."))
+					user.visible_message("<b>\The [user]</b> begins ripping \the [mmi] from \the [src].", SPAN_NOTICE("You jam the crowbar into the robot and begin levering out \the [mmi]."))
 					if(do_after(user, 50 / W.toolspeed, act_target = src))
 						to_chat(user, SPAN_NOTICE("You damage some parts of the chassis, but eventually manage to rip out \the [mmi]!"))
 						new /obj/item/robot_parts/robot_suit/equipped(get_turf(src))
@@ -687,7 +687,7 @@
 				if(locked)
 					to_chat(user, SPAN_WARNING("The cover is locked and cannot be opened."))
 				else
-					user.visible_message(SPAN_NOTICE("\The [user] begins prying open \the [src]'s maintenance hatch."), SPAN_NOTICE("You start opening \the [src]'s maintenance hatch."))
+					user.visible_message("<b>\The [user]</b> begins prying open \the [src]'s maintenance hatch.", SPAN_NOTICE("You start opening \the [src]'s maintenance hatch."))
 					if(do_after(user, 50 / W.toolspeed, act_target = src))
 						if(!Adjacent(user))
 							to_chat(user, SPAN_NOTICE("You are too far from \the [src] to open its hatch."))
@@ -737,7 +737,7 @@
 				return
 		else if(W.isscrewdriver() && opened && !cell)	// haxing
 			wires_exposed = !wires_exposed
-			user.visible_message(SPAN_NOTICE("\The [user] [wires_exposed ? "exposes" : "covers"] \the [src]'s wires."), SPAN_NOTICE("You [wires_exposed ? "expose" : "cover"] \the [src]'s wires."))
+			user.visible_message("<b>\The [user]</b> [wires_exposed ? "exposes" : "covers"] \the [src]'s wires.", SPAN_NOTICE("You [wires_exposed ? "expose" : "cover"] \the [src]'s wires."))
 			handle_panel_overlay()
 		else if(W.isscrewdriver() && opened && cell)	// radio
 			if(radio)

@@ -232,10 +232,7 @@
 	..()
 	if(auto_eject && ammo_magazine && ammo_magazine.stored_ammo && !ammo_magazine.stored_ammo.len)
 		ammo_magazine.forceMove(get_turf(src.loc))
-		user.visible_message(
-			"[ammo_magazine] falls out and clatters on the floor!",
-			SPAN_NOTICE("[ammo_magazine] falls out and clatters on the floor!")
-			)
+		ammo_magazine.visible_message("<b>[ammo_magazine]</b> falls out and clatters on the floor!")
 		playsound(user, ammo_magazine.eject_sound, 40, FALSE)
 		ammo_magazine.update_icon()
 		ammo_magazine = null

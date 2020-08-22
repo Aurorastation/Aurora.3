@@ -49,13 +49,13 @@
 /obj/item/trap/user_unbuckle_mob(mob/user)
 	if(buckled_mob && can_use(user))
 		user.visible_message(
-			SPAN_NOTICE("\The [user] begins freeing \the [buckled_mob] from \the [src]..."),
+			"<b>\The [user]</b> begins freeing \the [buckled_mob] from \the [src]...",
 			SPAN_NOTICE("You carefully begin to free \the [buckled_mob] from \the [src]..."),
 			SPAN_NOTICE("You hear metal creaking.")
 			)
 		if(do_after(user, time_to_escape))
 			user.visible_message(
-				SPAN_NOTICE("\The [user] frees \the [buckled_mob] from \the [src]."),
+				"<b>\The [user]</b> frees \the [buckled_mob] from \the [src].",
 				SPAN_NOTICE("You free \the [buckled_mob] from \the [src].")
 				)
 			unbuckle_mob()
@@ -64,7 +64,7 @@
 /obj/item/trap/attack_hand(mob/user)
 	if(buckled_mob && can_use(user))
 		user.visible_message(
-			SPAN_NOTICE("\The [user] begins freeing \the [buckled_mob] from \the [src]..."),
+			"<b>\The [user]</b> begins freeing \the [buckled_mob] from \the [src]...",
 			SPAN_NOTICE("You carefully begin to free \the [buckled_mob] from \the [src]...")
 			)
 		if(do_after(user, time_to_escape))
@@ -76,13 +76,13 @@
 			anchored = FALSE
 	else if(deployed && can_use(user))
 		user.visible_message(
-			SPAN_NOTICE("\The [user] starts to disarm \the [src]..."),
+			"<b>\The [user]</b> starts to disarm \the [src]...",
 			SPAN_NOTICE("You begin disarming \the [src]..."),
 			SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring.")
 			)
 		if(do_after(user, 6 SECONDS))
 			user.visible_message(
-				SPAN_NOTICE("\The [user] disarms \the [src]!"),
+				"<b>\The [user]</b> disarms \the [src]!",
 				SPAN_NOTICE("You disarm \the [src]!")
 				)
 			deployed = FALSE
@@ -356,7 +356,7 @@
 	if(!target)
 		target = src.loc
 	if(user)
-		visible_message(SPAN_NOTICE("[user] opens \the [src]."))
+		visible_message("<b>[user]</b> opens \the [src].")
 
 	var/datum/L = captured ? captured.resolve() : null
 	if (!L)
@@ -385,7 +385,7 @@
 			to_chat(user, SPAN_NOTICE("You need a better grip on \the [M]!"))
 			return
 
-		user.visible_message(SPAN_NOTICE("[user] starts putting [M] into \the [src]."), SPAN_NOTICE("You start putting [M] into \the [src]."))
+		user.visible_message("<b>[user]</b> starts putting [M] into \the [src].", SPAN_NOTICE("You start putting [M] into \the [src]."))
 
 		if (!is_type_in_list(M, allowed_mobs))
 			to_chat(user, SPAN_WARNING("[M] won't fit in there!"))
@@ -406,7 +406,7 @@
 
 		if (do_after(user, 30/W.toolspeed, act_target = src))
 			if(WT.remove_fuel(2, user))
-				user.visible_message(SPAN_NOTICE("[user] slices \the [src] open!"),
+				user.visible_message("<b>[user]</b> slices \the [src] open!",
 									SPAN_NOTICE("You slice \the [src] open!"))
 				new /obj/item/stack/rods(src.loc, resources["rods"])
 				if(resources.len == 2)
@@ -459,17 +459,17 @@
 /obj/item/trap/animal/proc/pass_without_trace(mob/user, pct = 100)
 	if(!is_type_in_list(user, allowed_mobs))
 		user.forceMove(loc)
-		user.visible_message(SPAN_NOTICE("[user] passes over \the [src] without triggering it."),
+		user.visible_message("<b>[user]</b> passes over \the [src] without triggering it.",
 						SPAN_NOTICE("You pass over \the [src] without triggering it.")
 		)
 	else
-		user.visible_message(SPAN_NOTICE("[user] attempts to pass through \the [src] without triggering it."),
+		user.visible_message("<b>[user]</b> attempts to pass through \the [src] without triggering it.",
 							SPAN_NOTICE("You attempt to pass through \the [src] without triggering it. ")
 		)
 		if(do_after(user, 2 SECONDS, act_target = src))
 			if(prob(pct))
 				user.forceMove(loc)
-				user.visible_message(SPAN_NOTICE("[user] passes through \the [src] without triggering it."),
+				user.visible_message("<b>[user]</b> passes through \the [src] without triggering it.",
 								SPAN_NOTICE("You pass through \the [src] without triggering it.")
 				)
 			else
@@ -590,7 +590,7 @@
 			to_chat(user, SPAN_WARNING("You can't do that while \the [src] is deployed! Undeploy it first."))
 			return
 
-		user.visible_message(SPAN_NOTICE("[user] begins [anchored ? "un" : "" ]securing \the [src]!"),
+		user.visible_message("<b>[user]</b> begins [anchored ? "un" : "" ]securing \the [src]!",
 							  SPAN_NOTICE("You beign [anchored ? "un" : "" ]securing \the [src]!"))
 		playsound(src.loc, W.usesound, 50, 1)
 

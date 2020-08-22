@@ -382,7 +382,7 @@
 					plants_loaded++
 		if(plants_loaded)
 
-			user.visible_message(SPAN_NOTICE("[user] loads \the [src] with \the [P]."), SPAN_NOTICE("You load \the [src] with \the [P]."))
+			user.visible_message("<b>[user]</b> loads \the [src] with \the [P].", SPAN_NOTICE("You load \the [src] with \the [P]."))
 			if(P.contents.len > 0)
 				to_chat(user, SPAN_NOTICE("Some items are refused."))
 

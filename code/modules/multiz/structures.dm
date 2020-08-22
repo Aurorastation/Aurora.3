@@ -69,7 +69,7 @@
 
 	var/direction = target_ladder == target_up ? "up" : "down"
 
-	M.visible_message(SPAN_NOTICE("\The [M] begins climbing [direction] \the [src]!"),
+	M.visible_message("<b>\The [M]</b> begins climbing [direction] \the [src]!",
 	"You begin climbing [direction] \the [src]!",
 	"You hear the grunting and clanging of a metal ladder being used.")
 

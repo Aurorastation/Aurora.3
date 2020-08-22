@@ -72,7 +72,7 @@
 				visible_message(SPAN_DANGER("\The [user] forces \the [src] closed!"))
 				close(1)
 		else
-			visible_message(SPAN_NOTICE("\The [user] strains fruitlessly to force \the [src] [density ? "open" : "closed"]."))
+			visible_message("<b>\The [user]</b> strains fruitlessly to force \the [src] [density ? "open" : "closed"].")
 		return
 	..()
 

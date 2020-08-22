@@ -212,7 +212,7 @@
 		if(!shut_up)
 			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software error detected. Rectifying.\"."))
 			if(do_after(user, 100 / W.toolspeed, act_target = src))
-				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied.\"."))
+				to_chat(user, "<b>\The [W]</b> reads, \"Solution found. Fix applied.\".")
 				shut_up = TRUE
 		if(shoot_inventory)
 			if(wires.IsIndexCut(VENDING_WIRE_THROW))
@@ -220,10 +220,10 @@
 				return
 			to_chat(user, SPAN_WARNING("\The [W] reads, \"Software error detected. Rectifying.\"."))
 			if(do_after(user, 100 / W.toolspeed, act_target = src))
-				to_chat(user, SPAN_NOTICE("\The [W] reads, \"Solution found. Fix applied. Have a NanoTrasen day!\"."))
+				to_chat(user, "<b>\The [W]</b> reads, \"Solution found. Fix applied. Have a NanoTrasen day!\".")
 				shoot_inventory = FALSE
 		else
-			to_chat(user, SPAN_NOTICE("\The [W] reads, \"All systems nominal.\"."))
+			to_chat(user, "<b>\The [W]</b> reads, \"All systems nominal.\".")
 
 	var/obj/item/card/id/I = W.GetID()
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")

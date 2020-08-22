@@ -21,7 +21,7 @@
 			if(!chosen_obj)
 				return
 			if(user.put_in_active_hand(chosen_obj))
-				owner.visible_message(SPAN_NOTICE("\The [user] carefully grabs \the [chosen_obj] from \the [src]."))
+				owner.visible_message("<b>\The [user]</b> carefully grabs \the [chosen_obj] from \the [src].")
 				carrying -= chosen_obj
 	. = ..()
 

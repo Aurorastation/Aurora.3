@@ -189,7 +189,7 @@
 
 		beaker =  G
 		user.drop_from_inventory(G,src)
-		user.visible_message("[user] adds \a [G] to \the [src]!", "You add \a [G] to \the [src]!")
+		user.visible_message("<b>[user]</b> adds \a [G] to \the [src]!", "You add \a [G] to \the [src]!")
 	else if(istype(G, /obj/item/grab))
 		var/obj/item/grab/grab = G
 		var/mob/living/L = grab.affecting
@@ -197,7 +197,7 @@
 		if (!istype(L))
 			return
 
-		user.visible_message(SPAN_NOTICE("[user] starts putting [L] into [src]."), SPAN_NOTICE("You start putting [L] into [src]."), range = 3)
+		user.visible_message("<b>[user]</b> starts putting [L] into [src].", SPAN_NOTICE("You start putting [L] into [src]."), range = 3)
 
 		if(do_mob(user, L, 30, needhand = 0))
 			var/bucklestatus = L.bucklecheck(user)
@@ -211,7 +211,7 @@
 					to_chat(user, SPAN_WARNING("[L] will not fit into the cryo because they have a slime latched onto their head."))
 					return
 			if(put_mob(L))
-				user.visible_message(SPAN_NOTICE("[user] puts [L] into [src]."), SPAN_NOTICE("You put [L] into [src]."), range = 3)
+				user.visible_message("<b>[user]</b> puts [L] into [src].", SPAN_NOTICE("You put [L] into [src]."), range = 3)
 				qdel(G)
 	return
 
@@ -232,18 +232,18 @@
 		return
 
 	if(L == user)
-		user.visible_message(SPAN_NOTICE("[user] starts climbing into [src]."), SPAN_NOTICE("You start climbing into [src]."), range = 3)
+		user.visible_message("<b>[user]</b> starts climbing into [src].", SPAN_NOTICE("You start climbing into [src]."), range = 3)
 	else
-		user.visible_message(SPAN_NOTICE("[user] starts putting [L] into the cryopod."), SPAN_NOTICE("You start putting [L] into [src]."), range = 3)
+		user.visible_message("<b>[user]</b> starts putting <b>[L]</b> into the cryopod.", SPAN_NOTICE("You start putting [L] into [src]."), range = 3)
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
 			var/obj/structure/LB = L.buckled
 			LB.user_unbuckle_mob(user)
 		if(put_mob(L))
 			if(L == user)
-				user.visible_message(SPAN_NOTICE("[user] climbs into [src]."), SPAN_NOTICE("You climb into [src]."), range = 3)
+				user.visible_message("<b>[user]</b> climbs into [src].", SPAN_NOTICE("You climb into [src]."), range = 3)
 			else
-				user.visible_message(SPAN_NOTICE("[user] puts [L] into [src]."), SPAN_NOTICE("You put [L] into [src]."), range = 3)
+				user.visible_message("<b>[user]</b> puts <b>[L]</b> into [src].", SPAN_NOTICE("You put [L] into [src]."), range = 3)
 				if(user.pulling == L)
 					user.pulling = null
 
@@ -397,7 +397,7 @@
 			return
 	if (usr.stat != 0)
 		return
-	usr.visible_message(SPAN_NOTICE("[usr] climbs into [src]."), SPAN_NOTICE("You climb into [src]."), range = 3)
+	usr.visible_message("<b>[usr]</b> climbs into [src].", SPAN_NOTICE("You climb into [src]."), range = 3)
 	put_mob(usr)
 	return
 

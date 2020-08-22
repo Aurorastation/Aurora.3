@@ -180,34 +180,34 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 			if(O.iswrench())
 				playsound(get_turf(src), O.usesound, 75, TRUE)
 				anchored = TRUE
-				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
+				user.visible_message("<b>\The [user]</b> secures \the [src] to the floor.", \
 					SPAN_NOTICE("You secure the external bolts."))
 				temp_state++
 		if(1)
 			if(O.iswrench())
 				playsound(get_turf(src), O.usesound, 75, TRUE)
 				anchored = FALSE
-				user.visible_message(SPAN_NOTICE("\The [user] detaches \the [src] from the floor."), \
+				user.visible_message("<b>\The [user]</b> detaches \the [src] from the floor.", \
 					SPAN_NOTICE("You remove the external bolts."))
 				temp_state--
 			else if(O.iscoil())
 				var/obj/item/stack/cable_coil/C = O
 				if(C.use(1))
-					user.visible_message(SPAN_NOTICE("\The [user] adds wires to \the [src]."), \
+					user.visible_message("<b>\The [user]</b> adds wires to \the [src].", \
 						SPAN_NOTICE("You add some wires."))
 					temp_state++
 		if(2)
 			if(O.iswirecutter())//TODO:Shock user if its on?
-				user.visible_message(SPAN_NOTICE("\The [user] removes some wires from \the [src]."), \
+				user.visible_message("<b>\The [user]</b> removes some wires from \the [src].", \
 					SPAN_NOTICE("You remove some wires."))
 				temp_state--
 			else if(O.isscrewdriver())
-				user.visible_message(SPAN_NOTICE("\The [user] closes \the [src]'s access panel."), \
+				user.visible_message("<b>\The [user]</b> closes \the [src]'s access panel.", \
 					SPAN_NOTICE("You close the access panel."))
 				temp_state++
 		if(3)
 			if(O.isscrewdriver())
-				user.visible_message(SPAN_NOTICE("\The [user] opens \the [src]'s access panel."), \
+				user.visible_message("<b>\The [user]</b> opens \the [src]'s access panel.", \
 					SPAN_NOTICE("You open the access panel."))
 				temp_state--
 	if(temp_state == construction_state)//Nothing changed
@@ -290,34 +290,34 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 			if(O.iswrench())
 				playsound(get_turf(src), O.usesound, 75, TRUE)
 				anchored = TRUE
-				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
+				user.visible_message("<b>\The [user]</b> secures \the [src] to the floor.", \
 					SPAN_NOTICE("You secure the external bolts."))
 				temp_state++
 		if(1)
 			if(O.iswrench())
 				playsound(get_turf(src), O.usesound, 75, TRUE)
 				anchored = FALSE
-				user.visible_message(SPAN_NOTICE("\The [user] detaches \the [src] from the floor."), \
+				user.visible_message("<b>\The [user]</b> detaches \the [src] from the floor.", \
 					SPAN_NOTICE("You remove the external bolts."))
 				temp_state--
 			else if(O.iscoil())
 				var/obj/item/stack/cable_coil/C = O
 				if(C.use(1))
-					user.visible_message(SPAN_NOTICE("\The [user] removes some wires from \the [src]."), \
+					user.visible_message("<b>\The [user]</b> removes some wires from \the [src].", \
 						SPAN_NOTICE("You remove some wires."))
 					temp_state++
 		if(2)
 			if(O.iswirecutter())//TODO:Shock user if its on?
-				user.visible_message(SPAN_NOTICE("\The [user] removes some wires from \the [src]."), \
+				user.visible_message("<b>\The [user]</b> removes some wires from \the [src].", \
 					SPAN_NOTICE("You remove some wires."))
 				temp_state--
 			else if(O.isscrewdriver())
-				user.visible_message(SPAN_NOTICE("\The [user] closes \the [src]'s access panel."), \
+				user.visible_message("<b>\The [user]</b> closes \the [src]'s access panel.", \
 					SPAN_NOTICE("You close the access panel."))
 				temp_state++
 		if(3)
 			if(O.isscrewdriver())
-				user.visible_message(SPAN_NOTICE("\The [user] opens \the [src]'s access panel."), \
+				user.visible_message("<b>\The [user]</b> opens \the [src]'s access panel.", \
 					SPAN_NOTICE("You open the access panel."))
 				temp_state--
 				active = FALSE

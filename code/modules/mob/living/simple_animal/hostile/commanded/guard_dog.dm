@@ -66,7 +66,7 @@
 		. = 1 //already friends, but show success anyways
 
 	else
-		to_chat(usr, SPAN_NOTICE("[src] ignores you."))
+		to_chat(usr, "<b>[src]</b> ignores you.")
 
 	return
 

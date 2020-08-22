@@ -44,7 +44,7 @@
 		return
 
 	if(istype(W, /obj/item/stack/tile))
-		to_chat(user, SPAN_NOTICE("\The [W] successfully loaded."))
+		to_chat(user, SPAN_NOTICE("You load [W] into [src]."))
 		user.drop_item(T)
 		TakeTile(T)
 		return

@@ -75,9 +75,9 @@
 
 		if(beaker)
 			beaker.forceMove(get_turf(src))
-			user.visible_message(SPAN_NOTICE("\The [user] removes \the [beaker] from \the [src]."), SPAN_NOTICE("You remove \the [beaker] from \the [src]."))
+			user.visible_message("<b>\The [user]</b> removes \the [beaker] from \the [src].", SPAN_NOTICE("You remove \the [beaker] from \the [src]."))
 		beaker = I
-		user.visible_message(SPAN_NOTICE("\The [user] adds \a [I] to \the [src]."), SPAN_NOTICE("You add \a [I] to \the [src]."))
+		user.visible_message("<b>\The [user]</b> adds \a [I] to \the [src].", SPAN_NOTICE("You add \a [I] to \the [src]."))
 
 /obj/machinery/sleeper/mounted/go_out()
 

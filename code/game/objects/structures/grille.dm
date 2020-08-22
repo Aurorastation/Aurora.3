@@ -122,7 +122,7 @@
 			destroyed = 0
 			icon_state = "grille"
 			ROD.use(1)
-			user.visible_message(SPAN_NOTICE("[user] repairs the grille."), \
+			user.visible_message("<b>[user]</b> repairs the grille.", \
 								 SPAN_NOTICE("You have repaired the grille."))
 			return
 

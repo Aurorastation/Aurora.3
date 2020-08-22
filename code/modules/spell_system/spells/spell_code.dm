@@ -103,7 +103,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 		take_charge(user, skipcharge)
 
 		before_cast(targets) //applies any overlays and effects
-		user.attack_log += text("\[[time_stamp()]\] <font color='red'>[user.real_name] ([user.ckey]) cast the spell [name].</font>")
+		user.attack_log += "\[[time_stamp()]\] <font color='red'>[user.real_name] ([user.ckey]) cast the spell [name].</font>"
 		if(prob(critfailchance))
 			critfail(targets, user)
 		else
@@ -172,7 +172,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 	for(var/atom/target in targets)
 		var/location = get_turf(target)
 		if(istype(target,/mob/living) && message)
-			to_chat(target, text("[message]"))
+			to_chat(target, "[message]")
 		if(sparks_spread)
 			spark(location, sparks_amt)
 		if(smoke_spread)

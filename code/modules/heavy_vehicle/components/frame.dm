@@ -86,7 +86,7 @@
 	// Removing components.
 	if(thing.iscrowbar())
 		if(is_reinforced == FRAME_REINFORCED)
-			user.visible_message(SPAN_NOTICE("\The [user] crowbars \the reinforcement off \the [src]."))
+			user.visible_message("<b>\The [user]</b> crowbars \the reinforcement off \the [src].")
 			is_reinforced = 0
 			return
 

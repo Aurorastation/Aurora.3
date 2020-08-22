@@ -528,7 +528,7 @@
 	mouthshoot = TRUE
 	M.visible_message(SPAN_WARNING("\The [user] sticks their gun in their mouth, ready to pull the trigger..."))
 	if(!do_after(user, 40))
-		M.visible_message(SPAN_NOTICE("\The [user] decided life was worth living"))
+		M.visible_message("<b>\The [user]</b> decided life was worth living")
 		mouthshoot = FALSE
 		return
 	var/obj/item/projectile/in_chamber = consume_next_projectile()
@@ -898,7 +898,7 @@
 		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"))
 		if(do_after(user,45 SECONDS,act_target = src))
 			if(pin.durable || prob(50))
-				visible_message(SPAN_NOTICE("\The [user] pops \the [pin] out of \the [src]!"))
+				visible_message("<b>\The [user]</b> pops \the [pin] out of \the [src]!")
 				pin.forceMove(get_turf(src))
 				user.put_in_hands(pin)
 				pin = null//clear it out.

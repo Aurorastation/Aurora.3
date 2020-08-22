@@ -511,11 +511,11 @@
 			if(tank_air.return_pressure() <= 1)
 				STOP_PROCESSING(SSfast_process, src)
 				use_internal_tank = !use_internal_tank
-				visible_message(SPAN_WARNING("You hear last bits of air coming out from [src]'s hole.Maybe the tank run out of air?"))
+				visible_message(SPAN_WARNING("<b>[src]</b> deflates as the last of the air rushes out."))
 				playsound(loc, "sound/effects/wind/wind_2_1.ogg", 100, 1)
 				return
 			inside_air = get_turf_air()
-			visible_message(SPAN_WARNING("You hear air howling from [src]'s hole. Maybe it is good to shut off valve on the internals tank?"))
+			audible_message(SPAN_WARNING("Air whistles from a hole in [src]."))
 			playsound(loc, "sound/effects/wind/wind_2_2.ogg", 100, 1)
 
 			var/transfer_moles = inside_air.volume/(inside_air.temperature * R_IDEAL_GAS_EQUATION)

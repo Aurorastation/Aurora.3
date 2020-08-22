@@ -68,7 +68,7 @@
 	stabilization_on = !stabilization_on
 	to_chat(user, SPAN_NOTICE("You toggle \the [src]'s stabilization [stabilization_on ? "on" : "off"]."))
 	for(var/M in message_mobs)
-		to_chat(M, SPAN_NOTICE("[user] toggles \the [src]'s stabilization [stabilization_on ? "on" : "off"]."))
+		to_chat(M, "<b>[user]</b> toggles \the [src]'s stabilization [stabilization_on ? "on" : "off"].")
 
 /obj/item/tank/jetpack/verb/toggle()
 	set name = "Toggle Jetpack"
@@ -91,7 +91,7 @@
 
 	to_chat(user, SPAN_NOTICE("You toggle \the [src]'s thrusters [on ? "on" : "off"]."))
 	for(var/M in message_mobs)
-		to_chat(M, SPAN_NOTICE("[user] toggles \the [src]'s thrusters [on ? "on" : "off"]."))
+		to_chat(M, "<b>[user]</b> toggles \the [src]'s thrusters [on ? "on" : "off"].")
 
 /obj/item/tank/jetpack/proc/allow_thrust(num, mob/living/user as mob)
 	if(!(src.on))

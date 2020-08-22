@@ -77,7 +77,7 @@
 			if(getBruteLoss())
 				adjustBruteLoss(-5)
 				adjustFireLoss(-5)
-				user.visible_message(SPAN_NOTICE("\The [user] mends some of \the [src]'s wounds."))
+				user.visible_message("<b>\The [user]</b> mends some of \the [src]'s wounds.")
 			else
 				if (health < maxHealth)
 					to_chat(user, SPAN_NOTICE("Healing \the [src] any further is beyond your abilities."))

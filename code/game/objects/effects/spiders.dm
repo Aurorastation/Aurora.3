@@ -194,7 +194,7 @@
 							return
 
 						if(prob(50))
-							visible_message(SPAN_NOTICE("You hear something squeezing through the ventilation ducts."), range = 2)
+							audible_message(SPAN_NOTICE("You hear something squeezing through the ventilation ducts."), range = 2)
 						sleep(travel_time)
 
 						if(!exit_vent || exit_vent.welded)

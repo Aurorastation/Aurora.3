@@ -175,7 +175,7 @@
 				if(user)
 					to_chat(user, SPAN_WARNING("You cannot eject your currently stored AI. Purge it manually."))
 				return FALSE
-			message_user(user, SPAN_NOTICE("You purge the remaining scraps of data from your previous AI, freeing it for use."), SPAN_NOTICE("\The [user] purges \the [integrated_ai]."))
+			message_user(user, SPAN_NOTICE("You purge the remaining scraps of data from your previous AI, freeing it for use."), "<b>\The [user]</b> purges \the [integrated_ai].")
 			if(integrated_ai)
 				integrated_ai.ghostize()
 				QDEL_NULL(integrated_ai)
@@ -413,7 +413,7 @@
 	if(target.drain_power(1) <= 0)
 		return FALSE
 
-	message_user(user, SPAN_NOTICE("You begin draining power from \the [target]!"), SPAN_NOTICE("[user] begins draining power from \the [target]!"))
+	message_user(user, SPAN_NOTICE("You begin draining power from \the [target]!"), "<b>[user]</b> begins draining power from \the [target]!")
 	interfaced_with = target
 	drain_loc = interfaced_with.loc
 

@@ -181,14 +181,14 @@
 			if(EMITTER_LOOSE)
 				state = EMITTER_BOLTED
 				playsound(get_turf(src), W.usesound, 75, TRUE)
-				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
+				user.visible_message("<b>\The [user]</b> secures \the [src] to the floor.", \
 					SPAN_NOTICE("You secure \the [src]'s external reinforcing bolts to the floor."), \
 					SPAN_WARNING("You hear a ratcheting noise."))
 				anchored = TRUE
 			if(EMITTER_BOLTED)
 				state = EMITTER_LOOSE
 				playsound(get_turf(src), W.usesound, 75, TRUE)
-				user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src]'s reinforcing bolts from the floor."), \
+				user.visible_message("<b>\The [user]</b> unsecures \the [src]'s reinforcing bolts from the floor.", \
 					SPAN_NOTICE("You undo \the [src]'s external reinforcing bolts."), \
 					SPAN_WARNING("You hear a ratcheting noise."))
 				anchored = FALSE
@@ -207,7 +207,7 @@
 			if(EMITTER_BOLTED)
 				if(WT.remove_fuel(0, user))
 					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
-					user.visible_message(SPAN_NOTICE("\The [user] starts to weld \the [src] to the floor."), \
+					user.visible_message("<b>\The [user]</b> starts to weld \the [src] to the floor.", \
 						SPAN_NOTICE("You start to weld \the [src] to the floor."), \
 						SPAN_WARNING("You hear the sound of metal being welded."))
 					if(do_after(user, 20 / W.toolspeed, act_target = src))
@@ -221,7 +221,7 @@
 			if(EMITTER_WELDED)
 				if(WT.remove_fuel(0, user))
 					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
-					user.visible_message(SPAN_NOTICE("\The [user] starts to cut \the [src] free from the floor."), \
+					user.visible_message("<b>\The [user]</b> starts to cut \the [src] free from the floor.", \
 						SPAN_NOTICE("You start to cut \the [src] free from the floor."), \
 						SPAN_WARNING("You hear the sound of metal being welded."))
 					if(do_after(user, 20 / W.toolspeed, act_target = src))

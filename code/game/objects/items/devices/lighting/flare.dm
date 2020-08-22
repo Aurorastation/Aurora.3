@@ -52,7 +52,7 @@
 	// All good, turn it on.
 	if(.)
 		if(!overrides_activation_message)
-			user.visible_message(SPAN_NOTICE("\The [user] activates the flare."), SPAN_NOTICE("You pull the cord on the flare, activating it!"))
+			user.visible_message("<b>\The [user]</b> activates the flare.", SPAN_NOTICE("You pull the cord on the flare, activating it!"))
 		src.force = on_damage
 		src.damtype = "fire"
 		START_PROCESSING(SSprocessing, src)

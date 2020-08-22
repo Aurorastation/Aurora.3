@@ -155,7 +155,7 @@
 
 /obj/vehicle/train/cargo/trolley/RunOver(var/mob/living/carbon/human/H)
 	..()
-	attack_log += text("\[[time_stamp()]\] <font color='red'>ran over [H.name] ([H.ckey])</font>")
+	attack_log += "\[[time_stamp()]\] <font color='red'>ran over [H.name] ([H.ckey])</font>"
 
 /obj/vehicle/train/cargo/engine/RunOver(var/mob/living/carbon/human/H)
 	..()
@@ -164,10 +164,10 @@
 		var/mob/living/carbon/human/D = load
 		to_chat(D, SPAN_DANGER("You ran over [H]!"))
 		visible_message(SPAN_DANGER("\The [src] ran over [H]!"))
-		attack_log += text("\[[time_stamp()]\] <font color='red'>ran over [H.name] ([H.ckey]), driven by [D.name] ([D.ckey])</font>")
+		attack_log += "\[[time_stamp()]\] <font color='red'>ran over [H.name] ([H.ckey]), driven by [D.name] ([D.ckey])</font>"
 		msg_admin_attack("[D.name] ([D.ckey]) ran over [H.name] ([H.ckey]). (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(H))
 	else
-		attack_log += text("\[[time_stamp()]\] <font color='red'>ran over [H.name] ([H.ckey])</font>")
+		attack_log += "\[[time_stamp()]\] <font color='red'>ran over [H.name] ([H.ckey])</font>"
 
 
 //-------------------------------------------

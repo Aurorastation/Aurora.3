@@ -31,7 +31,7 @@
 			var/obj/item/gift/G = new /obj/item/gift(src.loc)
 			G.size = W.w_class
 			G.w_class = G.size + 1
-			G.icon_state = text("gift[]", G.size)
+			G.icon_state = "gift[G.size]"
 			G.gift = W
 			W.forceMove(G)
 			G.add_fingerprint(user)

@@ -130,7 +130,7 @@
 					if(points >= 0)
 						inserted_id.mining_points += points
 						if(points != 0)
-							ping("\The [src] pings, \"Point transfer complete! Transaction total: [points] points!\"")
+							ping("Point transfer complete! Transaction total: [points] points!")
 						points = 0
 					else
 						to_chat(usr, SPAN_WARNING("[station_name()]'s mining division is currently indebted to NanoTrasen. Transaction incomplete until debt is cleared."))

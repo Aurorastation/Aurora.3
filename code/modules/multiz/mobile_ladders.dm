@@ -83,7 +83,7 @@
 	if(use_check_and_message(user))
 		return
 
-	user.visible_message(SPAN_NOTICE("\The [user] starts folding up \the [src]."),
+	user.visible_message("<b>\The [user]</b> starts folding up \the [src].",
 		SPAN_NOTICE("You start folding up \the [src]."))
 
 	if(!do_after(user, 30, act_target = src))
@@ -97,7 +97,7 @@
 	transfer_fingerprints_to(R)
 	user.put_in_hands(R)
 
-	user.visible_message(SPAN_NOTICE("\The [user] folds \the [src] up into \the [R]!"),
+	user.visible_message("<b>\The [user]</b> folds \the [src] up into \the [R]!",
 		SPAN_NOTICE("You fold \the [src] up into \the [R]!"))
 
 	if(target_down)

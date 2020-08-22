@@ -98,7 +98,7 @@
 	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
 	if (do_after(user, 40/W.toolspeed))
 		user.visible_message( \
-			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
+			"<b>\The [user]</b> unfastens \the [src].", \
 			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear ratchet.")
 		new /obj/item/pipe_meter(src.loc)

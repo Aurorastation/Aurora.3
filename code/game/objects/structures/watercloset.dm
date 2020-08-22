@@ -63,7 +63,7 @@
 
 			if(G.state>1)
 				if(!GM.loc == get_turf(src))
-					to_chat(user, SPAN_NOTICE("[GM.name] needs to be on the toilet."))
+					to_chat(user, "<b>[GM.name]</b> needs to be on the toilet.")
 					return
 				if(open && !swirlie)
 					user.visible_message(SPAN_DANGER("[user] starts to give [GM.name] a swirlie!"), SPAN_NOTICE("You start to give [GM.name] a swirlie!"))
@@ -116,7 +116,7 @@
 			var/mob/living/GM = G.affecting
 			if(G.state>1)
 				if(!GM.loc == get_turf(src))
-					to_chat(user, SPAN_NOTICE("[GM.name] needs to be on the urinal."))
+					to_chat(user, "<b>[GM.name]</b> needs to be on the urinal.")
 					return
 				user.visible_message(SPAN_DANGER("[user] slams [GM.name] into [src]!"), SPAN_NOTICE("You slam [GM.name] into [src]!"))
 				var/blocked = GM.run_armor_check("melee")

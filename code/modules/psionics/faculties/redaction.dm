@@ -33,7 +33,7 @@
 		return FALSE
 	. = ..()
 	if(.)
-		user.visible_message(SPAN_NOTICE("\The [user] rests a hand on \the [target]."))
+		user.visible_message("<b>\The [user]</b> rests a hand on \the [target].")
 		health_scan_mob(target, user, TRUE)
 		return TRUE
 
@@ -180,7 +180,7 @@
 				to_chat(G, FONT_LARGE(SPAN_NOTICE("<b>Your body has been revived, <b>Re-Enter Corpse</b> to return to it.</b>")))
 				break
 		to_chat(target, FONT_LARGE(SPAN_NOTICE("<b>Life floods back into your body!</b>")))
-		target.visible_message(SPAN_NOTICE("\The [target] shudders violently!"))
+		target.visible_message("<b>\The [target]</b> shudders violently!")
 		target.adjustOxyLoss(-rand(15,20))
 		target.basic_revival()
 		return TRUE

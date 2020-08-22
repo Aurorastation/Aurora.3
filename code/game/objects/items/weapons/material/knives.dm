@@ -47,7 +47,7 @@
 		return
 
 	for(var/obj/item/material/shard/S in H.contents)
-		visible_message(SPAN_NOTICE("[usr] starts carefully digging out some of the shrapnel in [H == usr ? "themselves" : H]..."))
+		visible_message("<b>[usr]</b> starts carefully digging out some of the shrapnel in [H == usr ? "themselves" : H]...")
 		H.custom_pain("<font size=3><span class='danger'>It burns!</span></font>", 50)
 		if(do_mob(usr, H, 100))
 			H.remove_implant(S, FALSE)

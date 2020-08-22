@@ -176,7 +176,7 @@
 		to_chat(usr, SPAN_WARNING("You have to cut the limb open first!"))
 		return
 	for(var/mob/O in viewers(M))
-		O.show_message(SPAN_NOTICE("\The [user] scans the wounds on [M.name]'s [S.name] with \the [src]"), 1)
+		O.show_message("<b>\The [user]</b> scans the wounds on [M.name]'s [S.name] with \the [src]", 1)
 
 	src.add_data(S)
 

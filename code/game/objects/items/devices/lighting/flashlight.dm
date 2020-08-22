@@ -94,30 +94,30 @@
 			if(!vision)
 				to_chat(user, SPAN_WARNING("You can't find any [H.species.vision_organ ? H.species.vision_organ : "eyes"] on [H]!"))
 
-			user.visible_message(SPAN_NOTICE("\The [user] directs [src] to [M]'s eyes."), SPAN_NOTICE("You direct [src] to [M]'s eyes."))
+			user.visible_message("<b>\The [user]</b> directs [src] to [M]'s eyes.", SPAN_NOTICE("You direct [src] to [M]'s eyes."))
 
 			if (H != user)	//can't look into your own eyes buster
 				if(M.stat == DEAD || M.blinded)	//mob is dead or fully blind
 					to_chat(user, SPAN_WARNING("\The [M]'s pupils do not react to the light!"))
 					return
 				if(XRAY in M.mutations)
-					to_chat(user, SPAN_NOTICE("\The [M]'s pupils give an eerie glow!"))
+					to_chat(user, "<b>\The [M]</b>'s pupils give an eerie glow!")
 				if(vision.damage)
 					to_chat(user, SPAN_WARNING("There's visible damage to [M]'s [vision.name]!"))
 				else if(M.eye_blurry)
-					to_chat(user, SPAN_NOTICE("\The [M]'s pupils react slower than normally."))
+					to_chat(user, "<b>\The [M]</b>'s pupils react slower than normally.")
 				if(M.getBrainLoss() > 15)
-					to_chat(user, SPAN_NOTICE("There's visible lag between left and right pupils' reactions."))
+					to_chat(user, SPAN_NOTICE("There's visible lag between the left and right pupils' reactions."))
 
 				var/list/pinpoint = list(/datum/reagent/oxycomorphine=1,/datum/reagent/mortaphenyl=5)
 				var/list/dilating = list(/datum/reagent/space_drugs=5,/datum/reagent/mindbreaker=1)
 				var/datum/reagents/ingested = H.get_ingested_reagents()
 				if(H.reagents.has_any_reagent(pinpoint) || ingested.has_any_reagent(pinpoint))
-					to_chat(user, SPAN_NOTICE("\The [M]'s pupils are already pinpoint and cannot narrow any more."))
+					to_chat(user, "<b>\The [M]</b>'s pupils are already pinpoint and cannot narrow any more.")
 				else if(H.shock_stage >= 30 || H.reagents.has_any_reagent(dilating) || ingested.has_any_reagent(dilating) || H.breathing.has_any_reagent(dilating))
-					to_chat(user, SPAN_NOTICE("\The [M]'s pupils narrow slightly, but are still very dilated."))
+					to_chat(user, "<b>\The [M]</b>'s pupils narrow slightly, but are still very dilated.")
 				else
-					to_chat(user, SPAN_NOTICE("\The [M]'s pupils narrow."))
+					to_chat(user, "<b>\The [M]</b>'s pupils narrow.")
 
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) //can be used offensively
 			flick("flash", M.flash)

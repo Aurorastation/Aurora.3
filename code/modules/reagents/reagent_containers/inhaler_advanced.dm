@@ -138,14 +138,14 @@
 	user.do_attack_animation(M)
 
 	if(user == M)
-		user.visible_message(SPAN_NOTICE("[user] sticks \the [src] in their mouth and presses the injection button."),SPAN_NOTICE("You stick \the [src] in your mouth and press the injection button."))
+		user.visible_message("<b>[user]</b> sticks \the [src] in their mouth and presses the injection button.",SPAN_NOTICE("You stick \the [src] in your mouth and press the injection button."))
 	else
 		user.visible_message(SPAN_WARNING("[user] attempts to administer \the [src] to [M]..."),SPAN_NOTICE("You attempt to administer \the [src] to [M]..."))
 		if (!do_after(user, 1 SECONDS, act_target = M))
 			to_chat(user,SPAN_NOTICE("You and \the [M] need to be standing still in order to inject \the [src]."))
 			return
 
-		user.visible_message(SPAN_NOTICE("[user] sticks \the [src] in [M]'s mouth and presses the injection button."),SPAN_NOTICE("You stick \the [src] in [M]'s mouth and press the injection button."))
+		user.visible_message("<b>[user]</b> sticks \the [src] in [M]'s mouth and presses the injection button.",SPAN_NOTICE("You stick \the [src] in [M]'s mouth and press the injection button."))
 
 	if(M.reagents)
 		var/contained = stored_cartridge.reagentlist()

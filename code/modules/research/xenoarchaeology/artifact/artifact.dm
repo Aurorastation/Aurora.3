@@ -61,7 +61,7 @@
 
 	if (istype(W, /obj/item/device/measuring_tape))
 		var/obj/item/device/measuring_tape/P = W
-		user.visible_message(SPAN_NOTICE("[user] extends [P] towards [src]."),SPAN_NOTICE("You extend [P] towards [src]."))
+		user.visible_message("<b>[user]</b> extends [P] towards [src].",SPAN_NOTICE("You extend [P] towards [src]."))
 		if(do_after(user,40))
 			to_chat(user, SPAN_NOTICE("\icon[P] [src] has been excavated to a depth of [2*src.excavation_level]cm."))
 		return

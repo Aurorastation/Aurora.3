@@ -215,7 +215,7 @@
 			return
 		user.unEquip(W)
 		wear_hat(W)
-		user.visible_message(SPAN_NOTICE("\The [user] puts \the [W] on \the [src]."))
+		user.visible_message("<b>\The [user]</b> puts \the [W] on \the [src].")
 		return
 	else if(istype(W, /obj/item/borg/upgrade/))
 		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [W]."))
@@ -231,7 +231,7 @@
 			if(!allowed(usr))
 				to_chat(user, SPAN_WARNING("Access denied."))
 				return
-			user.visible_message(SPAN_NOTICE("\The [user] swipes \his ID card through \the [src], attempting to reboot it."), SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
+			user.visible_message("<b>\The [user]</b> swipes \his ID card through \the [src], attempting to reboot it.", SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
 			request_player()
 			return
 		else

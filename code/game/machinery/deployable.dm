@@ -88,11 +88,11 @@ for reference:
 			if (D.get_amount() < 1)
 				to_chat(user, SPAN_WARNING("You need one sheet of [material.display_name] to repair \the [src]."))
 				return
-			visible_message(SPAN_NOTICE("[user] begins to repair \the [src]."))
+			visible_message("<b>[user]</b> begins to repair \the [src].")
 			if(do_after(user,20) && health < maxhealth)
 				if (D.use(1))
 					health = maxhealth
-					visible_message(SPAN_NOTICE("[user] repairs \the [src]."))
+					visible_message("<b>[user]</b> repairs \the [src].")
 				return
 		return
 	else

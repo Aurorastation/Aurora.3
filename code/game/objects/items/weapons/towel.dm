@@ -22,9 +22,9 @@
 			playsound(M, 'sound/weapons/towelwhip.ogg', 25, 1)
 			M.ExtinguishMob(-1)
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] starts drying \the [M] off with \the [src]..."))
+			user.visible_message("<b>\The [user]</b> starts drying \the [M] off with \the [src]...")
 			if(do_mob(user, M, 3 SECONDS))
-				user.visible_message(SPAN_NOTICE("\The [user] dries \the [M] off with \the [src]."))
+				user.visible_message("<b>\The [user]</b> dries \the [M] off with \the [src].")
 				playsound(M, 'sound/weapons/towelwipe.ogg', 25, 1)
 				M.adjust_fire_stacks(-Clamp(M.fire_stacks,-1.5,1.5))
 		return

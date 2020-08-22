@@ -358,7 +358,7 @@
 				welded = !welded
 				update_icon()
 				playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
-				user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
+				user.visible_message("<b>\The [user]</b> [welded ? "welds \the [src] shut" : "unwelds \the [src]"].", \
 									 SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
 									 "You hear welding.")
 			else
@@ -403,7 +403,7 @@
 	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
 	if (do_after(user, 40/W.toolspeed))
 		user.visible_message( \
-			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
+			"<b>\The [user]</b> unfastens \the [src].", \
 			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear a ratchet.")
 		new /obj/item/pipe(loc, make_from=src)

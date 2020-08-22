@@ -187,7 +187,7 @@
 		if(!beaker)
 			beaker = I
 			user.drop_from_inventory(I,src)
-			user.visible_message(SPAN_NOTICE("\The [user] adds \a [I] to \the [src]."), SPAN_NOTICE("You add \a [I] to \the [src]."))
+			user.visible_message("<b>\The [user]</b> adds \a [I] to \the [src].", SPAN_NOTICE("You add \a [I] to \the [src]."))
 		else
 			to_chat(user, SPAN_WARNING("\The [src] has a beaker already."))
 		return
@@ -201,7 +201,7 @@
 			return
 
 		if(display_loading_message)
-			user.visible_message(SPAN_NOTICE("[user] starts putting [G.affecting] into [src]."), SPAN_NOTICE("You start putting [G.affecting] into [src]."), range = 3)
+			user.visible_message("<b>[user]</b> starts putting [G.affecting] into [src].", SPAN_NOTICE("You start putting [G.affecting] into [src]."), range = 3)
 
 		if (do_mob(user, G.affecting, 20, needhand = 0))
 			if(occupant)

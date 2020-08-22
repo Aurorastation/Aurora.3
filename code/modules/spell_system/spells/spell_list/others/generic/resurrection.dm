@@ -38,7 +38,7 @@
 			to_chat(user, SPAN_WARNING("\The [target]'s soul is too far away from your grasp."))
 			return 0
 
-		user.visible_message(SPAN_NOTICE("\The [user] waves their hands over \the [target]'s body..."))
+		user.visible_message("<b>\The [user]</b> waves their hands over \the [target]'s body...")
 
 		if(!do_after(user, 30, target, 0, 1))
 			to_chat(user, SPAN_WARNING("Your concentration is broken!"))
@@ -50,7 +50,7 @@
 				break
 
 		to_chat(target, SPAN_WARNING("Eternal rest is stolen from you, you are cast back into the world of the living!"))
-		target.visible_message(SPAN_NOTICE("\The [target] shudders violently!"))
+		target.visible_message("<b>\The [target]</b> shudders violently!")
 
 		if(target.status_flags & FAKEDEATH)
 			target.changeling_revive()

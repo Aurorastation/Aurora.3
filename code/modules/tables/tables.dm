@@ -111,7 +111,7 @@
 		return 1
 
 	if(carpeted && W.iscrowbar())
-		user.visible_message(SPAN_NOTICE("\The [user] removes the carpet from \the [src]."),
+		user.visible_message("<b>\The [user]</b> removes the carpet from \the [src].",
 		                              SPAN_NOTICE("You remove the carpet from \the [src]."))
 		new /obj/item/stack/tile/carpet(loc)
 		carpeted = 0
@@ -121,7 +121,7 @@
 	if(!carpeted && material && istype(W, /obj/item/stack/tile/carpet))
 		var/obj/item/stack/tile/carpet/C = W
 		if(C.use(1))
-			user.visible_message(SPAN_NOTICE("\The [user] adds \the [C] to \the [src]."),
+			user.visible_message("<b>\The [user]</b> adds \the [C] to \the [src].",
 			                              SPAN_NOTICE("You add \the [C] to \the [src]."))
 			carpeted = 1
 			queue_icon_update()
@@ -151,7 +151,7 @@
 			playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
 			if(!do_after(user, 20/W.toolspeed) || !F.remove_fuel(1, user))
 				return
-			user.visible_message(SPAN_NOTICE("\The [user] repairs some damage to \the [src]."),
+			user.visible_message("<b>\The [user]</b> repairs some damage to \the [src].",
 			                              SPAN_NOTICE("You repair some damage to \the [src]."))
 			health = max(health+(maxhealth/5), maxhealth) // 20% repair per application
 			return 1
@@ -227,7 +227,7 @@
 	if(!do_after(user, 20) || !S.use(1))
 		manipulating = 0
 		return null
-	user.visible_message(SPAN_NOTICE("\The [user] [verb]es \the [src] with [M.display_name]."), SPAN_NOTICE("You finish [verb]ing \the [src]."))
+	user.visible_message("<b>\The [user]</b> [verb]es \the [src] with [M.display_name].", SPAN_NOTICE("You finish [verb]ing \the [src]."))
 	manipulating = 0
 	return M
 
@@ -239,14 +239,14 @@
 
 	if(manipulating) return M
 	manipulating = 1
-	user.visible_message(SPAN_NOTICE("\The [user] begins removing the [type_holding] holding \the [src]'s [M.display_name] [what] in place."),
+	user.visible_message("<b>\The [user]</b> begins removing the [type_holding] holding \the [src]'s [M.display_name] [what] in place.",
 	                              SPAN_NOTICE("You begin removing the [type_holding] holding \the [src]'s [M.display_name] [what] in place."))
 	if(sound)
 		playsound(src.loc, sound, 50, 1)
 	if(!do_after(user, 40))
 		manipulating = 0
 		return M
-	user.visible_message(SPAN_NOTICE("\The [user] removes the [M.display_name] [what] from \the [src]."),
+	user.visible_message("<b>\The [user]</b> removes the [M.display_name] [what] from \the [src].",
 	                              SPAN_NOTICE("You remove the [M.display_name] [what] from \the [src]."))
 	new M.stack_type(src.loc)
 	manipulating = 0
@@ -261,13 +261,13 @@
 /obj/structure/table/proc/dismantle(obj/item/wrench/W, mob/user)
 	if(manipulating) return
 	manipulating = 1
-	user.visible_message(SPAN_NOTICE("\The [user] begins dismantling \the [src]."),
+	user.visible_message("<b>\The [user]</b> begins dismantling \the [src].",
 	                              SPAN_NOTICE("You begin dismantling \the [src]."))
 	playsound(src, W.usesound, 100, 1)
 	if(!do_after(user, 20/W.toolspeed))
 		manipulating = 0
 		return
-	user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."),
+	user.visible_message("<b>\The [user]</b> dismantles \the [src].",
 	                              SPAN_NOTICE("You dismantle \the [src]."))
 	new /obj/item/stack/material/steel(src.loc)
 	qdel(src)

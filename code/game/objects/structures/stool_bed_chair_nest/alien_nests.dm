@@ -16,8 +16,8 @@
 		if(buckled_mob.buckled == src)
 			if(buckled_mob != user)
 				buckled_mob.visible_message(\
-					SPAN_NOTICE("[user.name] pulls [buckled_mob.name] free from the sticky nest!"),\
-					SPAN_NOTICE("[user.name] pulls you free from the gelatinous resin."),\
+					"<b>[user.name]</b> pulls [buckled_mob.name] free from the sticky nest!",\
+					"<b>[user.name]</b> pulls you free from the gelatinous resin.",\
 					SPAN_NOTICE("You hear squelching..."))
 				buckled_mob.pixel_y = 0
 				buckled_mob.old_y = 0

@@ -35,7 +35,7 @@
 	if(power_supply.charge < power_supply.maxcharge)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.visible_message(
-				SPAN_NOTICE("\The [user] begins to crank \the [src]!"),
+				"<b>\The [user]</b> begins to crank \the [src]!",
 				SPAN_NOTICE("You begin to rotate \the [src]'s crank!")
 				)
 		playsound(user.loc, 'sound/items/crank.ogg', 60, 1)

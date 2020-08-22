@@ -50,8 +50,7 @@
 
 	if(href_list["send"])
 		host.sradio.send_signal("ACTIVATE")
-		for(var/mob/O in hearers(1, host.loc))
-			O.show_message(text("\icon[] *beep* *beep*", host), 3, "*beep* *beep*", 2)
+		host.audible_message("\icon[host] *beep* *beep*", hearing_distance = 1)
 		return 1
 
 	else if(href_list["freq"])

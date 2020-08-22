@@ -49,7 +49,7 @@
 	if(!covered)
 		//Spam Check
 		if((last_toggle_time + timeout) > world.time)
-			user.visible_message(SPAN_NOTICE("\The [user] presses the button, but nothing happens."),SPAN_NOTICE("You press the button, but it is not responding."),"You hear something being pressed.")
+			user.visible_message("<b>\The [user]</b> presses the button, but nothing happens.",SPAN_NOTICE("You press the button, but it is not responding."),"You hear something being pressed.")
 			return ..()
 		last_toggle_time = world.time
 		if(!active)
@@ -86,12 +86,12 @@
 
 //Activate the button - Needs to return 1 for the activation to be successful
 /obj/machinery/case_button/proc/activate(mob/user)
-	user.visible_message(SPAN_NOTICE("\The [user] presses the button."),SPAN_NOTICE("You press the button."),"You hear something being pressed.")
+	user.visible_message("<b>\The [user]</b> presses the button.",SPAN_NOTICE("You press the button."),"You hear something being pressed.")
 	return 1
 
 //Deactivate Button - Needs ro return 1 for the activation to be successful
 /obj/machinery/case_button/proc/deactivate(mob/user)
-	user.visible_message(SPAN_NOTICE("\The [user] resets the button."),SPAN_NOTICE("You reset the button."),"You hear something being pressed.")
+	user.visible_message("<b>\The [user]</b> resets the button.",SPAN_NOTICE("You reset the button."),"You hear something being pressed.")
 	return 1
 
 

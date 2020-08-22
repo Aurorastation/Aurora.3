@@ -36,7 +36,7 @@
 				R.adjustFireLoss(-15)
 				R.updatehealth()
 				use(1)
-				user.visible_message(SPAN_NOTICE("\The [user] applied some [src] at [R]'s damaged areas."),\
+				user.visible_message("<b>\The [user]</b> applied some [src] at [R]'s damaged areas.",\
 					SPAN_NOTICE("You apply some [src] at [R]'s damaged areas."))
 		else
 			to_chat(user, SPAN_NOTICE("All [R]'s systems are nominal."))
@@ -108,8 +108,8 @@
 			M.internal_organs += s
 			M.internal_organs_by_name["surge"] = s
 			user.visible_message(
-			SPAN_NOTICE("[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!"),
-			SPAN_NOTICE("You apply [src] to [(M == user) ? ("youself") : (M)].")
+			"<b>[user]</b> applies some nanite paste to [(M == user) ? ("itself") : (M)]!",
+			SPAN_NOTICE("You apply [src] to [(M == user) ? ("yourself") : (M)].")
 			)
 			to_chat(M, SPAN_NOTICE("You can feel nanites inside you creating something new. An internal OS voice states \"Warning: surge prevention module has been installed, it has [s.surge_left] preventions left!\""))
 			amount = 0
@@ -130,7 +130,7 @@
 				s.icon_state = "surge_ipc"
 
 				user.visible_message(
-				SPAN_NOTICE("[user] applies some nanite paste to [(M == user) ? ("itself") : (M)]!"),
+				"<b>[user]</b> applies some nanite paste to [(M == user) ? ("itself") : (M)]!",
 				SPAN_NOTICE("You apply [src] to [(M == user) ? ("yourself") : (M)].")
 				)
 				to_chat(M,  SPAN_NOTICE("You can feel nanites inside you regenerating your surge prevention module. An internal OS voice states \"Warning: surge prevention module repaired, it has [s.surge_left] preventions left!\""))

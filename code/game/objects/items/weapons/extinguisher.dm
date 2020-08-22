@@ -29,7 +29,7 @@
 			to_chat(user,SPAN_NOTICE("\The [src] is empty!"))
 		else if(E.reagents.total_volume < E.reagents.maximum_volume)
 			src.reagents.trans_to(E, src.reagents.total_volume)
-			user.visible_message(SPAN_NOTICE("[user] fills \the [E] with [src]."), SPAN_NOTICE("You fill \the [E] with [src]."))
+			user.visible_message("<b>[user]</b> fills \the [E] with [src].", SPAN_NOTICE("You fill \the [E] with [src]."))
 			playsound(E.loc, 'sound/items/stimpack.ogg', 50, 1)
 		else
 			to_chat(user,SPAN_NOTICE("\The [E] is full!"))
@@ -150,7 +150,7 @@
 			to_chat(user,SPAN_NOTICE("\The [ER] is empty!"))
 		else if (src.reagents.total_volume < src.reagents.maximum_volume)
 			ER.reagents.trans_to(src, ER.reagents.total_volume)
-			user.visible_message(SPAN_NOTICE("[user] fills \the [src] with the [ER]."), SPAN_NOTICE("You fill \the [src] with the [ER]."))
+			user.visible_message("<b>[user]</b> fills \the [src] with the [ER].", SPAN_NOTICE("You fill \the [src] with the [ER]."))
 			playsound(ER.loc, 'sound/items/stimpack.ogg', 50, 1)
 		else
 			to_chat(user,SPAN_NOTICE("\The [src] is full!"))

@@ -108,23 +108,23 @@
 	if(broken > 0)
 		if(broken == 2 && O.isscrewdriver()) // If it's broken and they're using a screwdriver
 			user.visible_message( \
-				SPAN_NOTICE("\The [user] starts to fix part of the microwave."), \
+				"<b>\The [user]</b> starts to fix part of the microwave.", \
 				SPAN_NOTICE("You start to fix part of the microwave.") \
 			)
 			if (do_after(user,20/O.toolspeed))
 				user.visible_message( \
-					SPAN_NOTICE("\The [user] fixes part of the microwave."), \
+					"<b>\The [user]</b> fixes part of the microwave.", \
 					SPAN_NOTICE("You have fixed part of the microwave.") \
 				)
 				broken = 1 // Fix it a bit
 		else if(broken == 1 && O.iswrench()) // If it's broken and they're doing the wrench
 			user.visible_message( \
-				SPAN_NOTICE("\The [user] starts to fix part of the microwave."), \
+				"<b>\The [user]</b> starts to fix part of the microwave.", \
 				SPAN_NOTICE("You start to fix part of the microwave.") \
 			)
 			if (do_after(user,20/O.toolspeed))
 				user.visible_message( \
-					SPAN_NOTICE("\The [user] fixes the microwave."), \
+					"<b>\The [user]</b> fixes the microwave.", \
 					SPAN_NOTICE("You have fixed the microwave.") \
 				)
 				icon_state = "mw"
@@ -137,7 +137,7 @@
 	else if(dirty >= 100) // The microwave is all dirty so can't be used!
 		if(istype(O, /obj/item/reagent_containers/spray/cleaner) || istype(O, /obj/item/soap) || istype(O, /obj/item/reagent_containers/glass/rag)) // If they're trying to clean it then let them
 			user.visible_message( \
-				SPAN_NOTICE("\The [user] starts to clean the microwave."), \
+				"<b>\The [user]</b> starts to clean the microwave.", \
 				SPAN_NOTICE("You start to clean the microwave.") \
 			)
 			if (do_after(user,20/O.toolspeed))
@@ -172,12 +172,12 @@
 			return
 		else
 			user.visible_message( \
-				SPAN_NOTICE("\The [user] begins [src.anchored ? "unsecuring" : "securing"] the microwave."), \
+				"<b>\The [user]</b> begins [src.anchored ? "unsecuring" : "securing"] the microwave.", \
 				SPAN_NOTICE("You attempt to [src.anchored ? "unsecure" : "secure"] the microwave.")
 				)
 			if (do_after(user,20/O.toolspeed))
 				user.visible_message( \
-				SPAN_NOTICE("\The [user] [src.anchored ? "unsecures" : "secures"] the microwave."), \
+				"<b>\The [user]</b> [src.anchored ? "unsecures" : "secures"] the microwave.", \
 				SPAN_NOTICE("You [src.anchored ? "unsecure" : "secure"] the microwave.")
 				)
 				src.anchored = !src.anchored

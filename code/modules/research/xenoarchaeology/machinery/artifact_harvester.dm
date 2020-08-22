@@ -133,15 +133,14 @@
 				articount++
 
 			if(articount <= 0)
-				var/message = "<b>[src]</b> states, \"Cannot harvest. No noteworthy energy signature isolated.\""
-				src.visible_message(message)
+				src.visible_message("<b>[src]</b> states, \"Cannot harvest. No noteworthy energy signature isolated.\"")
 
 			else if(analysed && analysed.being_used)
 				src.visible_message("<b>[src]</b> states, \"Cannot harvest. Source already being harvested.\"")
 
 			else
 				if(articount > 1)
-					state("Cannot harvest. Too many artifacts on the pad.")
+					src.visible_message("<b>[src]</b> states, \"Cannot harvest. Too many artifacts on the pad.\"")
 				else if(analysed)
 					cur_artifact = analysed
 

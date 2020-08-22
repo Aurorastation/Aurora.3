@@ -119,7 +119,7 @@ LINEN BINS
 			user.do_attack_animation(src)
 		playsound(get_turf(loc), "rustle", 15, 1, -5)
 		var/folds = fold
-		user.visible_message(SPAN_NOTICE("\The [user] [folds ? "unfolds" : "folds"] \the [src]."),
+		user.visible_message("<b>\The [user]</b> [folds ? "unfolds" : "folds"] \the [src].",
 				SPAN_NOTICE("You [fold ? "unfold" : "fold"] \the [src]."))
 		if(!fold)
 			fold = TRUE
@@ -153,7 +153,7 @@ LINEN BINS
 			user.do_attack_animation(src)
 		playsound(get_turf(loc), "rustle", 15, 1, -5)
 		var/rolls = roll
-		user.visible_message(SPAN_NOTICE("\The [user] [rolls ? "unrolls" : "rolls"] \the [src]."),
+		user.visible_message("<b>\The [user]</b> [rolls ? "unrolls" : "rolls"] \the [src].",
 							SPAN_NOTICE("You [roll ? "unroll" : "roll"] \the [src]."))
 		if(!roll)
 			roll = TRUE
@@ -178,7 +178,7 @@ LINEN BINS
 
 /obj/item/bedsheet/attackby(obj/item/I, mob/user)
 	if(I.isscrewdriver())
-		user.visible_message(SPAN_NOTICE("\The [user] begins poking eyeholes in \the [src] with \the [I]."),
+		user.visible_message("<b>\The [user]</b> begins poking eyeholes in \the [src] with \the [I].",
 						SPAN_NOTICE("You begin poking eyeholes in \the [src] with \the [I]."))
 		if(do_after(user, 50/I.toolspeed))
 			to_chat(user, SPAN_NOTICE("You poke eyeholes in \the [src]!"))
@@ -186,7 +186,7 @@ LINEN BINS
 			qdel(src)
 		return
 	else if(is_sharp(I))
-		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up [src] with [I]."),
+		user.visible_message("<b>\The [user]</b> begins cutting up [src] with [I].",
 							SPAN_NOTICE("You begin cutting up [src] with [I]."))
 		if(do_after(user, 50/I.toolspeed))
 			to_chat(user, SPAN_NOTICE("You cut [src] into pieces!"))
@@ -427,7 +427,7 @@ LINEN BINS
 
 		if(hidden)
 			hidden.forceMove(user.loc)
-			to_chat(user, SPAN_NOTICE("[hidden] falls out of [B]!"))
+			to_chat(user, "<b>[hidden]</b> falls out of [B]!")
 			hidden = null
 
 

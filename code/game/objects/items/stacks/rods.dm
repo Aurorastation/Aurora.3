@@ -87,7 +87,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 		var/obj/item/stack/medical/splint/makeshift/new_splint = new(user.loc)
 		new_splint.add_fingerprint(user)
 
-		user.visible_message(SPAN_NOTICE("\The [user] constructs \a [new_splint] out of a [singular_name]."), \
+		user.visible_message("<b>\The [user]</b> constructs \a [new_splint] out of a [singular_name].", \
 				SPAN_NOTICE("You use make \a [new_splint] out of a [singular_name]."))
 		use(1)
 		return

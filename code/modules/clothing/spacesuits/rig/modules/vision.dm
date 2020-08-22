@@ -93,7 +93,7 @@
 		/datum/rig_vision/sechud,
 		/datum/rig_vision/medhud
 		)
-	
+
 	category = MODULE_SPECIAL
 
 /obj/item/rig_module/vision/meson
@@ -113,7 +113,7 @@
 		/datum/rig_vision/meson,
 		/datum/rig_vision/material
 		)
-	
+
 /obj/item/rig_module/vision/thermal
 	name = "hardsuit thermal scanner"
 	desc = "A layered, translucent visor system for a hardsuit."
@@ -197,7 +197,7 @@
 			vision_index = 1
 		vision = vision_modes[vision_index]
 
-		message_user(user, SPAN_NOTICE("You cycle \the [src] to <b>[vision.mode]</b> mode."), SPAN_NOTICE("\The [user] cycles \the [src] to <b>[vision.mode]</b> mode."))
+		message_user(user, SPAN_NOTICE("You cycle \the [src] to <b>[vision.mode]</b> mode."), "<b>\The [user]</b> cycles \the [src] to <b>[vision.mode]</b> mode.")
 	else
 		to_chat(user, SPAN_WARNING("\The [src] only has one mode."))
 	return TRUE

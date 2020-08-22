@@ -98,6 +98,5 @@
 			O.process()
 			return
 	else
-		for(var/mob/O in viewers(M, null))
-			O.show_message(text(SPAN_WARNING("\The [M] eats the [content ? content : "empty canister"]!")), 1)
+		M.visible_message(SPAN_WARNING("<b>[M]</b> eats [content ? content : "empty canister"]."))
 		src.injest(M)

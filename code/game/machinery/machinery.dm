@@ -285,28 +285,33 @@ Class Procs:
 	gl_uid++
 
 /obj/machinery/proc/state(var/msg)
-	for(var/mob/O in hearers(src, null))
-		O.show_message("\icon[src] <span class = 'notice'>[msg]</span>", 2)
+	audible_message("\icon[src] [msg]")
 
 /obj/machinery/proc/ping(text=null)
 	if (!text)
-		text = "\The [src] pings."
+		text = "<b>\The [src]</b> pings."
+	else
+		text = "<b>\The [src]</b> pings, \"[text]\""
 
-	state(text, "blue")
+	state(text)
 	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 
 /obj/machinery/proc/pingx3(text=null)
 	if (!text)
-		text = "\The [src] pings."
+		text = "<b>\The [src]</b> pings."
+	else
+		text = "<b>\The [src]</b> pings, \"[text]\""
 
-	state(text, "blue")
+	state(text)
 	playsound(src.loc, 'sound/machines/pingx3.ogg', 50, 0)
 
 /obj/machinery/proc/buzz(text=null)
 	if (!text)
-		text = "\The [src] buzzes."
+		text = "<b>\The [src]</b> buzzes."
+	else
+		text = "<b>\The [src]</b> buzzes, \"[text]\""
 
-	state(text, "blue")
+	state(text)
 	playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0) //TODO: Check if that one is the correct sound
 
 /obj/machinery/proc/shock(mob/user, prb)
@@ -415,7 +420,7 @@ Class Procs:
 	if (play_sound)
 		playsound(src.loc, print_sfx, 50, 1)
 
-	visible_message(SPAN_NOTICE("[src] rattles to life and spits out a paper titled [paper]."))
+	visible_message("<b>[src]</b> rattles to life and spits out a paper titled [paper].")
 
 	addtimer(CALLBACK(src, .proc/print_move_paper, paper), print_delay)
 

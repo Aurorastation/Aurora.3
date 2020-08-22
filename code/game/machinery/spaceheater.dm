@@ -96,7 +96,7 @@
 	src.add_fingerprint(user)
 	if(panel_open)
 		if(cell)
-			user.visible_message(SPAN_NOTICE("\The [user] removes \the [cell] from \the [src]."),
+			user.visible_message("<b>\The [user]</b> removes \the [cell] from \the [src].",
 				SPAN_NOTICE("You remove \the [cell] from \the [src]."))
 			cell.update_icon()
 			user.put_in_hands(cell)

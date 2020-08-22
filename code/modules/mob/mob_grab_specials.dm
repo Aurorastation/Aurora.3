@@ -7,7 +7,7 @@
 		to_chat(user, SPAN_NOTICE("[H] is missing that bodypart."))
 		return
 
-	user.visible_message(SPAN_NOTICE("[user] starts inspecting [affecting]'s [E.name] carefully."))
+	user.visible_message("<b>[user]</b> starts inspecting [affecting]'s [E.name] carefully.")
 	if(!do_mob(user,H, 10))
 		to_chat(user, SPAN_NOTICE("You must stand still to inspect [E] for wounds."))
 	else if(E.wounds.len)

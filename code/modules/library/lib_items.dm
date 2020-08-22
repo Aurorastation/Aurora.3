@@ -214,7 +214,7 @@
 /obj/item/book/attack_self(var/mob/user as mob)
 	if(carved)
 		if(store)
-			to_chat(user, SPAN_NOTICE("[store] falls out of [title]!"))
+			to_chat(user, "<b>[store]</b> falls out of [title]!")
 			store.forceMove(get_turf(src.loc))
 			store = null
 			return
@@ -317,8 +317,8 @@
 
 /obj/item/book/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(target_zone == BP_EYES)
-		user.visible_message(SPAN_NOTICE("You open up the book and show it to [M]. "), \
-			SPAN_NOTICE(" [user] opens up a book and shows it to [M]. "))
+		user.visible_message("<b>[user]</b> opens up a book and shows it to [M].",
+			SPAN_NOTICE("You open up the book and show it to [M]."))
 		M << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //to prevent spam
 

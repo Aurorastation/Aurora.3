@@ -346,7 +346,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = 3
 
 /obj/item/fluff/zhilin_book/attack_self(mob/user as mob)
-	user.visible_message(SPAN_NOTICE("[user] starts flipping through \the [src]."),
+	user.visible_message("<b>[user]</b> starts flipping through \the [src].",
 						SPAN_NOTICE("You start looking through \the [src], it appears to be filled with translations of Tau-Ceti basic for tajaran users."),
 						SPAN_NOTICE("You hear pages being flipped."))
 	playsound(src.loc, "pageturn", 50, 1)
@@ -2147,7 +2147,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/cress_book/attack_self(mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.visible_message(SPAN_NOTICE("[user] begins searching through \the [src] pages."))
+	user.visible_message("<b>[user]</b> begins searching through \the [src] pages.")
 	if(do_after(user, 25))
 		to_chat(user, SPAN_NOTICE("You read on the pages of \the [src]: [pick(lyrics)]"))
 

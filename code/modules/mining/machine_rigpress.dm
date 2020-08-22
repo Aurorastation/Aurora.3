@@ -53,7 +53,7 @@
 			use_power(500)
 			qdel(W)
 			spawn(300)
-				ping("\The [src] pings, \"Module successfuly produced!\"")
+				ping("Module successfuly produced!")
 
 				new outcome_path(get_turf(src))
 

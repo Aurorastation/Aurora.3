@@ -552,7 +552,7 @@ BREATH ANALYZER
 		to_chat(user,SPAN_NOTICE("You and the target need to be standing still in order to take a breath sample."))
 		return
 
-	user.visible_message(SPAN_NOTICE("[user] takes a breath sample from [H]."),SPAN_NOTICE("\The [src] clicks as it finishes reading [H]'s breath sample."))
+	user.visible_message("<b>[user]</b> takes a breath sample from [H].",SPAN_NOTICE("\The [src] clicks as it finishes reading [H]'s breath sample."))
 
 	to_chat(user,"<b>Breath Sample Results:</b>")
 

@@ -65,11 +65,11 @@
 			to_chat(user, SPAN_WARNING("There is nobody on \the [src]. It would be pointless to turn the suppressor on."))
 
 		suppressing = !suppressing
-		user.visible_message(SPAN_NOTICE("\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."))
+		user.visible_message("<b>\The [user]</b> switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor.")
 		playsound(loc, "switchsounds", 50, 1)
 
 /obj/machinery/optable/CanPass(atom/movable/mover, turf/target, height = 0, air_group = 0)
-	if(air_group || (height == 0)) 
+	if(air_group || (height == 0))
 		return FALSE
 
 	return istype(mover) && mover.checkpass(PASSTABLE)
@@ -128,9 +128,9 @@
 			return
 
 		if(L == user)
-			user.visible_message(SPAN_NOTICE("\The [user] starts climbing onto \the [src]."), SPAN_NOTICE("You start climbing onto \the [src]."), range = 3)
+			user.visible_message("<b>\The [user]</b> starts climbing onto \the [src].", SPAN_NOTICE("You start climbing onto \the [src]."), range = 3)
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] starts putting [L] onto \the [src]."), SPAN_NOTICE("You start putting \the [L] onto \the [src]."), range = 3)
+			user.visible_message("<b>\The [user]</b> starts putting [L] onto \the [src].", SPAN_NOTICE("You start putting \the [L] onto \the [src]."), range = 3)
 		if(do_mob(user, L, 10, needhand = FALSE))
 			if(bucklestatus == 2)
 				var/obj/structure/LB = L.buckled
@@ -163,9 +163,9 @@
 			return
 
 		if(L == user)
-			user.visible_message(SPAN_NOTICE("\The [user] starts climbing onto \the [src]."), SPAN_NOTICE("You start climbing onto \the [src]."), range = 3)
+			user.visible_message("<b>\The [user]</b> starts climbing onto \the [src].", SPAN_NOTICE("You start climbing onto \the [src]."), range = 3)
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [L] onto \the [src]."), SPAN_NOTICE("You start putting \the [L] onto \the [src]."), range = 3)
+			user.visible_message("<b>\The [user]</b> starts putting \the [L] onto \the [src].", SPAN_NOTICE("You start putting \the [L] onto \the [src]."), range = 3)
 		if(do_mob(user, L, 10, needhand = FALSE))
 			if(bucklestatus == 2)
 				var/obj/structure/LB = L.buckled

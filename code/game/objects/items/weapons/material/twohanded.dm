@@ -496,7 +496,7 @@
 		to_chat(user, SPAN_NOTICE("You need to hold this with two hands to turn this on."))
 	else if(reagents.get_reagent_amount(/datum/reagent/fuel) <= 0)
 		user.visible_message(\
-			SPAN_NOTICE("[user] pulls the cord on [src], but nothing happens."),\
+			"<b>[user]</b> pulls the cord on [src], but nothing happens.",\
 			SPAN_NOTICE("You pull the cord on [src], but nothing happens."),\
 			SPAN_NOTICE("You hear a cord being pulled.")\
 		)
@@ -504,7 +504,7 @@
 		var/max = rand(3,6)
 		for(var/i in 1 to max)
 			user.visible_message(\
-				SPAN_NOTICE("[user] pulls the cord on [src]..."),\
+				"<b>[user]</b> pulls the cord on [src]...",\
 				SPAN_NOTICE("You pull the cord on [src]..."),\
 				SPAN_NOTICE("You hear a cord being pulled and an engine sputtering...")\
 			)

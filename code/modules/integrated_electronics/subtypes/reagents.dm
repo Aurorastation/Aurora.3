@@ -160,7 +160,7 @@
 					on_reagent_change()
 					reagents.handle_reactions()
 					B = null
-				visible_message( SPAN_NOTICE("[assembly] takes a blood sample from [target]."))
+				visible_message( "<b>[assembly]</b> takes a blood sample from [target].")
 			else
 				activate_pin(3)
 				return

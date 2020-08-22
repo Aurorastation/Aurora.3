@@ -326,7 +326,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			return 1
 		if(last_drag <= world.time - 30) //Spam limiter. Only for messages/sound.
 			last_drag = world.time
-			H.visible_message(SPAN_NOTICE("[H.name] takes a drag of their [name]."))
+			H.visible_message("<b>[H]</b> takes a drag of their [name].")
 			playsound(H, 'sound/items/cigs_lighters/inhale.ogg', 50, 0, -1)
 			reagents.trans_to_mob(H, (rand(10,20)/10), CHEM_BREATHE) //Smokes it faster. Slightly random amount.
 			return 1
@@ -788,9 +788,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			if(last_close <= world.time - 20) //Spam limiter.
 				last_close = world.time
 				if(istype(src, /obj/item/flame/lighter/zippo))
-					user.visible_message(SPAN_NOTICE("You hear a quiet click, as <b>[user]</b> shuts off \the [src] without even looking at what they're doing."), range = 3)
+					visible_message("<b>[user]</b> shuts off \the [src] without even looking at what they're doing.", "You hear a quiet click.", range = 3)
 				else
-					user.visible_message(SPAN_NOTICE("<b>[user]</b> quietly shuts off \the [src]."), range = 3)
+					user.visible_message("<b>[user]</b> quietly shuts off \the [src].", range = 3)
 
 			set_light(0)
 			STOP_PROCESSING(SSprocessing, src)

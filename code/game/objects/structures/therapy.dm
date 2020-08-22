@@ -412,7 +412,7 @@
 
 
 	var/mob/living/L = G.affecting
-	user.visible_message(SPAN_NOTICE("[user] starts putting [L] into [src]."), SPAN_NOTICE("You start putting [L] into [src]."), range = 3)
+	user.visible_message("<b>[user]</b> starts putting [L] into [src].", SPAN_NOTICE("You start putting [L] into [src]."), range = 3)
 
 	if (do_mob(user, L, 30, needhand = 0))
 		var/bucklestatus = L.bucklecheck(user)
@@ -455,9 +455,9 @@
 		return
 
 	if(H == user)
-		user.visible_message(SPAN_NOTICE("[user] starts climbing into [src]."), SPAN_NOTICE("You start climbing into [src]."), range = 3)
+		user.visible_message("<b>[user]</b> starts climbing into [src].", SPAN_NOTICE("You start climbing into [src]."), range = 3)
 	else
-		user.visible_message(SPAN_NOTICE("[user] starts putting [H] into [src]."), SPAN_NOTICE("You start putting [H] into [src]."), range = 3)
+		user.visible_message("<b>[user]</b> starts putting [H] into [src].", SPAN_NOTICE("You start putting [H] into [src]."), range = 3)
 
 	if (do_mob(user, H, 30, needhand = 0))
 		if (bucklestatus == 2)
@@ -605,7 +605,7 @@
 					playsound(src.loc, 'sound/machines/juicer.ogg', 50, 1)
 					sleep(100)
 					crystal = 0
-					visible_message(SPAN_NOTICE("[connected] pings cheerfully."), SPAN_NOTICE("You hear a ping."))
+					visible_message("<b>[connected]</b> pings cheerfully.", SPAN_NOTICE("You hear a ping."))
 					playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
 					return
 				to_chat(user, SPAN_DANGER("Error: Crystal depletion not detected. Terminating operation.."))
@@ -646,7 +646,7 @@
 					break
 
 		if(electroshock_trauma)
-			visible_message(SPAN_NOTICE("[connected] pings cheerfully."), SPAN_NOTICE("You hear a ping."))
+			visible_message("<b>[connected]</b> pings cheerfully.", SPAN_NOTICE("You hear a ping."))
 			playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
 
 		else

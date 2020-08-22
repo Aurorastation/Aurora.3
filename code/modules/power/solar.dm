@@ -61,14 +61,14 @@
 
 	if(W.iscrowbar())
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-		user.visible_message(SPAN_NOTICE("[user] begins to take the glass off the solar panel."))
+		user.visible_message("<b>[user]</b> begins to take the glass off the solar panel.")
 		if(do_after(user, 50/W.toolspeed))
 			var/obj/item/solar_assembly/S = locate() in src
 			if(S)
 				S.forceMove(src.loc)
 				S.give_glass()
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-			user.visible_message(SPAN_NOTICE("[user] takes the glass off the solar panel."))
+			user.visible_message("<b>[user]</b> takes the glass off the solar panel.")
 			qdel(src)
 		return
 	else if (W)
@@ -226,13 +226,13 @@
 	if(!anchored && isturf(loc))
 		if(W.iswrench())
 			anchored = 1
-			user.visible_message(SPAN_NOTICE("[user] wrenches the solar assembly into place."))
+			user.visible_message("<b>[user]</b> wrenches the solar assembly into place.")
 			playsound(src.loc, W.usesound, 75, 1)
 			return 1
 	else
 		if(W.iswrench())
 			anchored = 0
-			user.visible_message(SPAN_NOTICE("[user] unwrenches the solar assembly from it's place."))
+			user.visible_message("<b>[user]</b> unwrenches the solar assembly from it's place.")
 			playsound(src.loc, W.usesound, 75, 1)
 			return 1
 
@@ -241,7 +241,7 @@
 			if(S.use(2))
 				glass_type = W.type
 				playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-				user.visible_message(SPAN_NOTICE("[user] places the glass on the solar assembly."))
+				user.visible_message("<b>[user]</b> places the glass on the solar assembly.")
 				if(tracker)
 					new /obj/machinery/power/tracker(get_turf(src), src)
 				else
@@ -256,13 +256,13 @@
 			tracker = 1
 			user.drop_from_inventory(W,get_turf(src))
 			qdel(W)
-			user.visible_message(SPAN_NOTICE("[user] inserts the electronics into the solar assembly."))
+			user.visible_message("<b>[user]</b> inserts the electronics into the solar assembly.")
 			return 1
 	else
 		if(W.iscrowbar())
 			new /obj/item/tracker_electronics(src.loc)
 			tracker = 0
-			user.visible_message(SPAN_NOTICE("[user] takes out the electronics from the solar assembly."))
+			user.visible_message("<b>[user]</b> takes out the electronics from the solar assembly.")
 			return 1
 	..()
 

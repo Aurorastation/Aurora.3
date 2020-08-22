@@ -69,8 +69,8 @@
 	if(istype(O, /obj/item/newspaper))
 		if(!stat)
 			visible_message(
-				SPAN_NOTICE("[user] baps [src] on the nose with the rolled up [O.name]."),
-				SPAN_ALERT("[user] baps you on the nose with the rolled up [O.name]!")
+				"<b>[user]</b> baps [src] on the nose with the rolled up [O.name].",
+				SPAN_ALERT("<b>[user]</b> baps you on the nose with the rolled up [O.name]!")
 			)
 			scan_interval = max_scan_interval
 			movement_target = null

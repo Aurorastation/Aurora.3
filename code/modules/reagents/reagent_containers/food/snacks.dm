@@ -55,13 +55,13 @@
 		if (amount_eaten)
 			bitecount++
 			if (amount_eaten >= m_bitesize)
-				user.visible_message(SPAN_NOTICE("\The [user] feeds \the [target] \the [src]."))
+				user.visible_message("<b>\The [user]</b> feeds \the [target] \the [src].")
 				if (!istype(target.loc, /turf))//held mobs don't see visible messages
-					to_chat(target, SPAN_NOTICE("\The [user] feeds you \the [src]."))
+					to_chat(target, "<b>\The [user]</b> feeds you \the [src].")
 			else
-				user.visible_message(SPAN_NOTICE("\The [user] feeds \the [target] a tiny bit of \the [src]. <b>It looks full.</b>"))
+				user.visible_message("<b>\The [user]</b> feeds \the [target] a tiny bit of \the [src]. <b>It looks full.</b>")
 				if (!istype(target.loc, /turf))
-					to_chat(target, SPAN_NOTICE("\The [user] feeds you a tiny bit of \the [src]. <b>You feel pretty full!</b>"))
+					to_chat(target, "<b>\The [user]</b> feeds you a tiny bit of \the [src]. <b>You feel pretty full!</b>")
 			return 1
 	else
 		var/fullness = 0
@@ -109,8 +109,8 @@
 			other_feed_message_finish(user,target)
 
 			var/contained = reagentlist()
-			target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>")
-			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Fed [name] to [key_name(target)] Reagents: [contained]</font>")
+			target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has been fed [name] by [key_name(user)] Reagents: [contained]</font>"
+			user.attack_log += "\[[time_stamp()]\] <font color='red'>Fed [name] to [key_name(target)] Reagents: [contained]</font>"
 			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] with [name] Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 			reagents.trans_to_mob(target, min(reagents.total_volume,bitesize), CHEM_INGEST)
 
@@ -144,14 +144,14 @@
 		if(selection == "Name")
 			var/input_clean_name = sanitize(input(user,"What is the name of this food?", "Set Food Name") as text|null, MAX_LNAME_LEN)
 			if(input_clean_name)
-				user.visible_message(SPAN_NOTICE("\The [user] labels \the [name] as \"[input_clean_name]\"."))
+				user.visible_message("<b>\The [user]</b> labels \the [name] as \"[input_clean_name]\".")
 				name = input_clean_name
 			else
 				name = initial(name)
 		else if(selection == "Description")
 			var/input_clean_desc = sanitize(input(user,"What is the description of this food?", "Set Food Description") as text|null, MAX_MESSAGE_LEN)
 			if(input_clean_desc)
-				user.visible_message(SPAN_NOTICE("\The [user] adds a note to \the [name]."))
+				user.visible_message("<b>\The [user]</b> adds a note to \the [name].")
 				desc = input_clean_desc
 			else
 				desc = initial(desc)
@@ -218,10 +218,10 @@
 
 			var/slices_lost = 0
 			if(W.w_class > 3)
-				user.visible_message(SPAN_NOTICE("\The [user] crudely slices \the [src] with [W]!"), SPAN_NOTICE("You crudely slice \the [src] with your [W]!"))
+				user.visible_message("<b>\The [user]</b> crudely slices \the [src] with [W]!", SPAN_NOTICE("You crudely slice \the [src] with your [W]!"))
 				slices_lost = rand(1,min(1,round(slices_num/2)))
 			else
-				user.visible_message(SPAN_NOTICE("\The [user] slices \the [src]!"), SPAN_NOTICE("You slice \the [src]!"))
+				user.visible_message("<b>\The [user]</b> slices \the [src]!", SPAN_NOTICE("You slice \the [src]!"))
 
 			var/reagents_per_slice = reagents.total_volume/slices_num
 			for(var/i=1 to (slices_num-slices_lost))

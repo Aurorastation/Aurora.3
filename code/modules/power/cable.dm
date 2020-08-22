@@ -541,7 +541,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 														SPAN_DANGER("<font size=2>The wound on your [affecting.name] is torn open!</font>"))
 								M.apply_damage(rand(1,10), BRUTE)
 								break
-							user.visible_message(SPAN_NOTICE("\The [user] barely manages to stitch \a [W.desc] on [M]'s [affecting.name]."), \
+							user.visible_message("<b>\The [user]</b> barely manages to stitch \a [W.desc] on [M]'s [affecting.name].", \
 														SPAN_NOTICE("You barely manage to stitch \a [W.desc] on [M]'s [affecting.name].") )
 							W.bandage("cable-stitched")
 							use(10)
@@ -586,7 +586,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 
 /obj/item/stack/cable_coil/proc/repair_organ(var/mob/living/user, var/mob/living/carbon/human/target, var/obj/item/organ/external/affecting)
 	if(!affecting.burn_dam)
-		user.visible_message(SPAN_NOTICE("\The [user] finishes mending the burnt wiring in [target]'s [affecting]."))
+		user.visible_message("<b>\The [user]</b> finishes mending the burnt wiring in [target]'s [affecting].")
 		return
 
 	if(do_mob(user, target, 30))
@@ -597,7 +597,7 @@ obj/structure/cable/proc/cableColor(var/colorC)
 				"splices some cables"
 			)
 			affecting.heal_damage(burn = 15, robo_repair = TRUE)
-			user.visible_message(SPAN_NOTICE("\The [user] [pick(repair_messages)] in [target]'s [affecting.name] with \the [src]."))
+			user.visible_message("<b>\The [user]</b> [pick(repair_messages)] in [target]'s [affecting.name] with \the [src].")
 			playsound(target, 'sound/items/wirecutter.ogg', 15)
 			repair_organ(user, target, affecting)
 		else

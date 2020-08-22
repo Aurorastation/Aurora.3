@@ -135,7 +135,7 @@
 	if (rig)
 		user.visible_message("<b>[user]</b> begins to detach [rig] from \the [src].", "You begin to detach [rig] from \the [src]")
 		if(do_after(user, 20))
-			user.visible_message(SPAN_NOTICE("[user] detaches [rig] from \the [src]."), SPAN_NOTICE("You detach [rig] from \the [src]"))
+			user.visible_message("<b>[user]</b> detaches [rig] from \the [src].", SPAN_NOTICE("You detach [rig] from \the [src]"))
 			rig.forceMove(get_turf(user))
 			rig = null
 			overlays = new/list()
@@ -155,7 +155,7 @@
 			return ..()
 		user.visible_message("<b>[user]</b> begins rigging [W] to \the [src].", "You begin rigging [W] to \the [src]")
 		if(do_after(user, 20))
-			user.visible_message(SPAN_NOTICE("[user] rigs [W] to \the [src]."), SPAN_NOTICE("You rig [W] to \the [src]"))
+			user.visible_message("<b>[user]</b> rigs [W] to \the [src].", SPAN_NOTICE("You rig [W] to \the [src]"))
 
 			var/obj/item/device/assembly_holder/H = W
 			if (istype(H.a_left,/obj/item/device/assembly/igniter) || istype(H.a_right,/obj/item/device/assembly/igniter))

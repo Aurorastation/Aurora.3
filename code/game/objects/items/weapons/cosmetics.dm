@@ -86,7 +86,7 @@
 	color = get_random_colour(lower = 150)
 
 /obj/item/haircomb/attack_self(mob/user)
-	user.visible_message(SPAN_NOTICE("[user] uses [src] to comb their hair with incredible style and sophistication. What a [user.gender == FEMALE ? "lady" : "guy"]."))
+	user.visible_message("<b>[user]</b> uses [src] to comb their hair with incredible style and sophistication. What a [user.gender == FEMALE ? "lady" : "guy"].")
 
 /obj/item/razor
 	name = "electric razor"

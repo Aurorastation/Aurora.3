@@ -219,7 +219,7 @@
 			close()
 
 	else if (src.density)
-		flick(text("[]deny", src.base_state), src)
+		flick("[src.base_state]deny", src)
 
 	return
 
@@ -336,7 +336,7 @@
 		return
 	else if (istype(W, /obj/item) && get_dist(src,user)<2)
 		user.drop_from_inventory(W,get_turf(src))
-		visible_message(SPAN_NOTICE("[user] dunks [W] into [src]!"), range = 3)
+		visible_message("<b>[user]</b> dunks [W] into [src]!", range = 3)
 		return
 
 /obj/structure/holohoop/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)

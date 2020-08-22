@@ -385,7 +385,7 @@
 						SPAN_WARNING("You tap [target], setting [t_him] ablaze!"))
 		msg_admin_attack("[key_name(H)] spread fire to [target.name] ([target.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(target))
 	else
-		H.visible_message(SPAN_NOTICE("[H] taps [target] to get [t_his] attention!"), \
+		H.visible_message("<b>[H]</b> taps [target] to get [t_his] attention!", \
 						SPAN_NOTICE("You tap [target] to get [t_his] attention!"))
 
 /datum/species/proc/remove_inherent_verbs(var/mob/living/carbon/human/H)

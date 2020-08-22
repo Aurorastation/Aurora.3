@@ -51,7 +51,7 @@
 	if(enemies.len && prob(10))
 		enemies = list()
 		LoseTarget()
-		src.visible_message(SPAN_NOTICE("[src] calms down."))
+		src.visible_message("<b>[src]</b> calms down.")
 
 	if(!pulledby)
 		var/obj/effect/plant/food = locate(/obj/effect/plant) in oview(5,loc)
@@ -227,7 +227,7 @@
 		if(G.seed && G.seed.kitchen_tag == "wheat")
 			if(!stat && eggsleft < 8)
 				user.visible_message(
-					SPAN_NOTICE("\The [user] feeds \the [O] to \the [name]! It clucks happily."),
+					"<b>\The [user]</b> feeds \the [O] to \the [name]! It clucks happily.",
 					SPAN_NOTICE("You feed \the [O] to \the [name]! It clucks happily."),
 					"You hear a cluck.")
 				user.drop_from_inventory(O,get_turf(src))

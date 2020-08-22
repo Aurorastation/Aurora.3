@@ -26,7 +26,7 @@
 		if(selected_string && h_style != selected_string)
 			h_style = selected_string
 			regenerate_icons()
-			visible_message(SPAN_NOTICE("[src] pauses a moment to style their hair."))
+			visible_message("<b>[src]</b> pauses a moment to style their hair.")
 		else
 			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
 
@@ -253,7 +253,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	last_special = world.time + 100
 
-	visible_message(SPAN_NOTICE("[src] touches their fingers to their temple."))
+	visible_message("<b>[src]</b> touches their fingers to their temple.")
 
 	var/list/targets = list()
 	for(var/mob/living/M in view(client.view, client.eye))

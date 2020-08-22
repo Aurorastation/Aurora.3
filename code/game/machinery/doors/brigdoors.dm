@@ -77,7 +77,7 @@
 		if(world.timeofday > src.releasetime)
 			if(src.timer_end(broadcast = TRUE))// open doors, reset timer, clear status screen
 				var/message = "Criminal sentence complete. The criminal is free to go."
-				ping( "\The [src] pings, \"[message]\"" )
+				ping("[message]")
 
 		updateUsrDialog()
 		update_icon()
@@ -273,44 +273,44 @@
 	if( istype( O, /obj/item/paper/incident ))
 		if( !incident )
 			if( import( O, user ))
-				ping( "\The [src] pings, \"Successfully imported incident report!\"" )
+				ping("Successfully imported incident report!")
 				user.drop_from_inventory(O,get_turf(src))
 				qdel(O)
 				src.updateUsrDialog()
 		else
-			to_chat(user,  SPAN_ALERT("\The [src] buzzes, \"There's already an active sentence!\""))
+			to_chat(user,  SPAN_ALERT("<b>\The [src]</b> buzzes, \"There's already an active sentence!\""))
 		return
 	else if( istype( O, /obj/item/paper ))
-		to_chat(user,  SPAN_ALERT("\The [src] buzzes, \"This console only accepts authentic incident reports. Copies are invalid.\""))
+		to_chat(user,  SPAN_ALERT("<b>\The [src]</b> buzzes, \"This console only accepts authentic incident reports. Copies are invalid.\""))
 		return
 
 	..()
 
 /obj/machinery/door_timer/proc/import( var/obj/item/paper/incident/I, var/user )
 	if( !istype( I ))
-		to_chat(user,  SPAN_ALERT("\The [src] buzzes, \"Could not import the incident report.\""))
+		to_chat(user,  SPAN_ALERT("<b>\The [src]</b> buzzes, \"Could not import the incident report.\""))
 		return 0
 
 	if( !istype( I.incident ))
-		to_chat(user,  SPAN_ALERT("\The [src] buzzes, \"Report has no incident encoded!\""))
+		to_chat(user,  SPAN_ALERT("<b>\The [src]</b> buzzes, \"Report has no incident encoded!\""))
 		return 0
 
 	if( !I.sentence )
-		to_chat(user,  SPAN_ALERT("\The [src] buzzes, \"Report does not contain a guilty sentence!\""))
+		to_chat(user,  SPAN_ALERT("<b>\The [src]</b> buzzes, \"Report does not contain a guilty sentence!\""))
 		return 0
 
 	var/datum/crime_incident/crime = I.incident
 
 	if( !istype( crime.criminal ))
-		to_chat(user,  SPAN_ALERT("\The [src] buzzes, \"Report has no criminal encoded!\""))
+		to_chat(user,  SPAN_ALERT("<b>\The [src]</b> buzzes, \"Report has no criminal encoded!\""))
 		return 0
 
 	if( !crime.brig_sentence )
-		to_chat(user,  SPAN_ALERT("\The [src] buzzes, \"Report had no brig sentence.\""))
+		to_chat(user,  SPAN_ALERT("<b>\The [src]</b> buzzes, \"Report had no brig sentence.\""))
 		return 0
 
 	if( crime.brig_sentence >= PERMABRIG_SENTENCE )
-		to_chat(user,  SPAN_ALERT("\The [src] buzzes, \"The criminal has a HUT sentence and needs to be detained until transfer.\""))
+		to_chat(user,  SPAN_ALERT("<b>\The [src]</b> buzzes, \"The criminal has a HUT sentence and needs to be detained until transfer.\""))
 		return 0
 
 	var/addtime = timetoset

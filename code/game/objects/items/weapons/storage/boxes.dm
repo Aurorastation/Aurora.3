@@ -113,7 +113,7 @@
 			user.put_in_hands(foldable) //try to put it inhands if possible
 		if(ispath(src.trash))
 			if(contents.len &&  user.a_intent == I_HURT)  // only crumple with things inside on harmintent.
-				user.visible_message(SPAN_DANGER("You crush \the [src], spilling its contents everywhere!"), SPAN_DANGER("[user] crushes \the [src], spilling its contents everywhere!"))
+				user.visible_message(SPAN_DANGER("[user] crushes [src], spilling its contents everywhere!"), SPAN_DANGER("You crush [src], spilling its contents everywhere!"))
 				spill()
 			else
 				to_chat(user, SPAN_NOTICE("You crumple up \the [src].")) //make trash

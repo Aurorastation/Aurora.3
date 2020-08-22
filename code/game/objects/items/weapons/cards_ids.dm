@@ -214,8 +214,7 @@ var/const/NO_EMAG_ACT = -50
 				to_chat(user, SPAN_NOTICE("Biometric Imprinting successful!"))
 				return
 
-	for(var/mob/O in viewers(user, null))
-		O.show_message(text("[user] shows you: \icon[] []: assignment: []", src, src.name, src.assignment), 1)
+	user.visible_message("<b>[user]</b> shows you: \icon[src] [src.name]: assignment: [src.assignment]", SPAN_NOTICE("You hold up your \icon[src] [src.name]."))
 
 	src.add_fingerprint(user)
 	return
@@ -280,7 +279,7 @@ var/const/NO_EMAG_ACT = -50
 	set category = "Object"
 	set src in usr
 
-	to_chat(usr, text("\icon[src] []: The current assignment on the card is [].", src.name, src.assignment))
+	to_chat(usr, "\icon[src] [src.name]: The current assignment on the card is [src.assignment].")
 	to_chat(usr, "The age on the card is [age].")
 	to_chat(usr, "The citizenship on the card is [citizenship].")
 	to_chat(usr, "The religion on the card is [religion].")

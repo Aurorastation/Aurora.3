@@ -21,7 +21,7 @@
 	name_unlabel = ""
 	src.verbs -= .proc/remove_label
 
-	H.visible_message(SPAN_NOTICE("\The [H] removes the label from \the [src]."),
+	H.visible_message("<b>\The [H]</b> removes the label from \the [src].",
 		SPAN_NOTICE("You remove the label from \the [src]."))
 
 	return TRUE
@@ -66,7 +66,7 @@
 		to_chat(user, SPAN_NOTICE("The label refuses to stick to [A.name]."))
 		return
 	if(isobserver(A))
-		to_chat(user, SPAN_NOTICE("[src] passes through [A.name]."))
+		to_chat(user, "<b>[src]</b> passes through [A.name].")
 		return
 	if(istype(A, /obj/item/reagent_containers/glass))
 		to_chat(user, SPAN_NOTICE("The label can't stick to the [A.name]. (Try using a pen!)"))

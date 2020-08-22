@@ -44,7 +44,7 @@
 			to_chat(user, SPAN_WARNING("That limb is prosthetic."))
 			return 0
 
-		user.visible_message(SPAN_NOTICE("\The [user] rests a hand on \the [target]'s [E.name]."))
+		user.visible_message("<b>\The [user]</b> rests a hand on \the [target]'s [E.name].")
 		to_chat(target, SPAN_NOTICE("A healing warmth suffuses you."))
 
 		for(var/datum/wound/W in E.wounds)

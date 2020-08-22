@@ -164,7 +164,7 @@
 
 /obj/item/wirecutters/attack(mob/living/carbon/C, mob/user, var/target_zone)
 	if(user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/handcuffs/cable)))
-		user.visible_message(SPAN_NOTICE("\The [user] cuts \the [C]'s restraints with \the [src]!"),\
+		user.visible_message("<b>\The [user]</b> cuts \the [C]'s restraints with \the [src]!",\
 		SPAN_NOTICE("You cut \the [C]'s restraints with \the [src]!"),\
 		SPAN_NOTICE("You hear cable being cut."))
 		C.handcuffed = null
@@ -292,7 +292,7 @@
 
 /obj/item/weldingtool/examine(mob/user)
 	if(..(user, 0))
-		to_chat(user, text("\icon[] [] contains []/[] units of fuel!", src, src.name, get_fuel(),src.max_fuel ))
+		to_chat(user, "\icon[src] [src.name] contains [get_fuel()]/[src.max_fuel] units of fuel!")
 
 /obj/item/weldingtool/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())
@@ -375,7 +375,7 @@
 
 /obj/item/weldingtool/proc/repair_organ(var/mob/living/user, var/mob/living/carbon/human/target, var/obj/item/organ/external/affecting)
 	if(!affecting.brute_dam)
-		user.visible_message(SPAN_NOTICE("\The [user] finishes repairing the physical damage on \the [target]'s [affecting.name]."))
+		user.visible_message("<b>\The [user]</b> finishes repairing the physical damage on \the [target]'s [affecting.name].")
 		return
 
 	if(do_mob(user, target, 30))

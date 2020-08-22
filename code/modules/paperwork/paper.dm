@@ -144,7 +144,7 @@
 		if (icon_state == "paper_plane")
 			user.show_message(SPAN_ALERT("The paper is already folded into a plane."))
 			return
-		user.visible_message(SPAN_NOTICE("\The [user] carefully folds \the [src] into a plane."),
+		user.visible_message("<b>\The [user]</b> carefully folds \the [src] into a plane.",
 			SPAN_NOTICE("You carefully fold \the [src] into a plane."), "\The [user] folds \the [src] into a plane.")
 		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = "paper_plane"
@@ -154,7 +154,7 @@
 		return
 
 	if (user.a_intent == I_HELP && old_name && icon_state == "paper_plane")
-		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
+		user.visible_message("<b>\The [user]</b> unfolds \the [src].", SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
 		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = initial(icon_state)
 		throw_range = initial(throw_range)
@@ -175,8 +175,8 @@
 
 /obj/item/paper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(target_zone == BP_EYES)
-		user.visible_message(SPAN_NOTICE("You show the paper to [M]."), \
-			"<b>[user]</b> holds up a paper and shows it to [M].")
+		user.visible_message("<b>[user]</b> holds up a paper and shows it to [M].",
+		SPAN_NOTICE("You show the paper to [M]."))
 		M.examinate(src)
 
 	else if(target_zone == BP_MOUTH) // lipstick wiping

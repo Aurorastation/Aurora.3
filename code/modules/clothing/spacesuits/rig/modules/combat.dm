@@ -362,7 +362,7 @@
 				to_chat(user, SPAN_WARNING("[H]'s hands are full."))
 		else
 			var/obj/item/new_weapon = new fabrication_type(H)
-			message_user(user, SPAN_NOTICE("You quickly fabricate \a [new_weapon]."), SPAN_NOTICE("\The [user] fabricates \a [new_weapon]."))
+			message_user(user, SPAN_NOTICE("You quickly fabricate \a [new_weapon]."), "<b>\The [user]</b> fabricates \a [new_weapon].")
 			H.put_in_hands(new_weapon)
 
 	return TRUE

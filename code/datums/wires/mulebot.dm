@@ -36,7 +36,7 @@ var/const/WIRE_BEACON_RX = 256	// beacon ping recv
 		if(WIRE_MOTOR1, WIRE_MOTOR2)
 			holder.visible_message(SPAN_NOTICE("\icon[holder] The drive motor whines briefly."))
 		else
-			holder.visible_message(SPAN_NOTICE("\icon[holder] You hear a radio crackle."))
+			holder.audible_message(SPAN_NOTICE("\icon[holder] You hear a radio crackle."))
 
 // HELPER PROCS
 

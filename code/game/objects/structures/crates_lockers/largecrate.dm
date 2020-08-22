@@ -15,7 +15,7 @@
 		var/turf/T = get_turf(src)
 		for(var/atom/movable/AM in contents)
 			if(AM.simulated) AM.forceMove(T)
-		user.visible_message(SPAN_NOTICE("[user] pries \the [src] open."), \
+		user.visible_message("<b>[user]</b> pries \the [src] open.", \
 							 SPAN_NOTICE("You pry open \the [src]."), \
 							 SPAN_NOTICE("You hear splitting wood."))
 		for(var/obj/vehicle/V in T.contents)

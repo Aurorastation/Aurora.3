@@ -118,7 +118,7 @@
 		if(health < maxHealth)
 			if(open)
 				health = min(maxHealth, health + 10)
-				user.visible_message(SPAN_NOTICE("\The [user] repairs [src]."), SPAN_NOTICE("You repair [src]."))
+				user.visible_message("<b>\The [user]</b> repairs [src].", SPAN_NOTICE("You repair [src]."))
 			else
 				to_chat(user, SPAN_WARNING("You are unable to repair [src] with the maintenance panel closed."))
 		else
@@ -132,7 +132,7 @@
 			old_name = initial(name)
 		name = old_name
 		user.put_in_hands(pAI)
-		user.visible_message(SPAN_NOTICE("\The [user] pries \the [pAI.pai] out of \the [src]."), SPAN_NOTICE("You pry \the [pAI.pai] out of \the [src]."))
+		user.visible_message("<b>\The [user]</b> pries \the [pAI.pai] out of \the [src].", SPAN_NOTICE("You pry \the [pAI.pai] out of \the [src]."))
 		pAI = null
 	else if(istype(O, /obj/item/device/paicard))
 		if(!can_take_pai)
@@ -146,7 +146,7 @@
 		P.pai.close_up()
 		user.drop_from_inventory(P, src)
 		pAI = P
-		user.visible_message(SPAN_NOTICE("\The [user] places \the [pAI.pai] into \the [src]."), SPAN_NOTICE("You place \the [O] into \the [src]."))
+		user.visible_message("<b>\The [user]</b> places \the [pAI.pai] into \the [src].", SPAN_NOTICE("You place \the [O] into \the [src]."))
 		old_name = src.name
 		name = pAI.pai.name
 	else

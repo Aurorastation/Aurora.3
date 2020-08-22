@@ -76,7 +76,7 @@
 			return
 
 	if (M.can_inject(user, 1))
-		user.visible_message(SPAN_NOTICE("[user] injects [M] with their hypospray!"), SPAN_NOTICE("You inject [M] with your hypospray!"), SPAN_NOTICE("You hear a hissing noise."))
+		user.visible_message("<b>[user]</b> injects [M] with their hypospray!", SPAN_NOTICE("You inject [M] with your hypospray!"), SPAN_NOTICE("You hear a hissing noise."))
 		to_chat(M,SPAN_NOTICE("You feel a tiny prick!"))
 
 		if(M.reagents)

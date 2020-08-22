@@ -117,10 +117,10 @@
 			user.visible_message(span("disarm", "[user] blinds [M] with the flash!"))
 		else
 
-			user.visible_message(SPAN_NOTICE("[user] overloads [M]'s sensors with the flash!"))
+			user.visible_message("<b>[user]</b> overloads [M]'s sensors with the flash!")
 	else
 
-		user.visible_message(SPAN_NOTICE("[user] fails to blind [M] with the flash!"))
+		user.visible_message("<b>[user]</b> fails to blind [M] with the flash!")
 
 	return
 

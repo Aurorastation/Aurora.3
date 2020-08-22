@@ -80,7 +80,7 @@
 
 	if (user && anything_moved)
 		user.visible_message(
-		SPAN_NOTICE("[user] kicks everything off [src]."),
+		"<b>[user]</b> kicks everything off [src].",
 		SPAN_NOTICE("You kick everything off [src].")
 		)
 

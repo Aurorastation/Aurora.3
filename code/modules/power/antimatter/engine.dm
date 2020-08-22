@@ -185,7 +185,7 @@
 
 			if(energy > convert2energy(8e-12))	//FAR TOO MUCH ENERGY STILL
 				for(var/mob/M in hearers(src, null))
-					M.show_message(text("<span class='warning'><big>BANG!</big></span>"))
+					M.show_message("<span class='warning'><big>BANG!</big></span>")
 				new /obj/effect/bhole(src.loc)
 
 		else	//this amount of energy is okay so it does the proper output thing

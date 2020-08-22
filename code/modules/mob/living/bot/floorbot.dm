@@ -229,7 +229,7 @@
 			return
 		repairing = 1
 		update_icon()
-		visible_message(SPAN_NOTICE("[src] begins to repair the hole."))
+		visible_message("<b>[src]</b> begins to repair the hole.")
 		if(do_after(src, 50))
 			if(A && (locate(/obj/structure/lattice, A) && building == 1 || !locate(/obj/structure/lattice, A) && building == 2)) // Make sure that it still needs repairs
 				var/obj/item/I
@@ -246,7 +246,7 @@
 		if(!F.flooring && amount)
 			repairing = 1
 			update_icon()
-			visible_message(SPAN_NOTICE("[src] begins to improve the floor."))
+			visible_message("<b>[src]</b> begins to improve the floor.")
 			if(do_after(src, 50))
 				if(!F.flooring)
 					F.set_flooring(decls_repository.get_decl(floor_build_type))
@@ -256,7 +256,7 @@
 			update_icon()
 	else if(istype(A, /obj/item/stack/tile/floor) && amount < maxAmount)
 		var/obj/item/stack/tile/floor/T = A
-		visible_message(SPAN_NOTICE("[src] begins to collect tiles."))
+		visible_message("<b>[src]</b> begins to collect tiles.")
 		repairing = 1
 		update_icon()
 		if(do_after(src, 20))
@@ -270,7 +270,7 @@
 	else if(istype(A, /obj/item/stack/material) && amount + 4 <= maxAmount)
 		var/obj/item/stack/material/M = A
 		if(M.get_material_name() == DEFAULT_WALL_MATERIAL)
-			visible_message(SPAN_NOTICE("[src] begins to make tiles."))
+			visible_message("<b>[src]</b> begins to make tiles.")
 			repairing = 1
 			update_icon()
 			if(do_after(50))

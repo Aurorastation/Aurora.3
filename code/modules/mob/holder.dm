@@ -149,7 +149,7 @@ var/list/holder_mob_icon_cache = list()
 			var/mob/living/carbon/human/H = M
 			switch(H.a_intent)
 				if(I_HELP)
-					H.visible_message(SPAN_NOTICE("[H] pets [contained]."))
+					H.visible_message("<b>[H]</b> pets [contained].")
 
 				if(I_HURT)
 					contained.adjustBruteLoss(3)
@@ -222,11 +222,11 @@ var/list/holder_mob_icon_cache = list()
 
 		if (success)
 			if (user == src)
-				to_chat(grabber, SPAN_NOTICE("[src.name] climbs up onto you."))
+				to_chat(grabber, "<b>[src.name]</b> climbs up onto you.")
 				to_chat(src, SPAN_NOTICE("You climb up onto [grabber]."))
 			else
 				to_chat(grabber, SPAN_NOTICE("You scoop up [src]."))
-				to_chat(src, SPAN_NOTICE("[grabber] scoops you up."))
+				to_chat(src, "<b>[grabber]</b> scoops you up.")
 
 			H.sync(src)
 		else

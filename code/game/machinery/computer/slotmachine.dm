@@ -158,7 +158,7 @@
 	var/the_name
 	if(user)
 		the_name = user.real_name
-		visible_message(SPAN_NOTICE("[user] pulls the lever and the slot machine starts spinning!"))
+		visible_message("<b>[user]</b> pulls the lever and the slot machine starts spinning!")
 	else
 		the_name = "Exaybachay"
 

@@ -16,7 +16,7 @@
 	anchored = TRUE
 
 /obj/effect/decal/cleanable/ash/attack_hand(mob/user)
-	to_chat(user, SPAN_NOTICE("[src] sifts through your fingers."))
+	to_chat(user, "<b>[src]</b> sifts through your fingers.")
 	var/turf/simulated/floor/F = get_turf(src)
 	if (istype(F))
 		F.dirt += 4

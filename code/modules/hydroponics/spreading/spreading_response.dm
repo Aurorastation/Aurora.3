@@ -42,12 +42,12 @@
 			if(buckled_mob.buckled == src)
 				if(buckled_mob != user)
 					buckled_mob.visible_message(\
-						SPAN_NOTICE("[user.name] frees [buckled_mob.name] from \the [src]."),\
-						SPAN_NOTICE("[user.name] frees you from \the [src]."),\
+						"<b>[user]</b> frees [buckled_mob] from \the [src].",\
+						"<b>[user]</b> frees you from \the [src].",\
 						SPAN_WARNING("You hear shredding and ripping."))
 				else
 					buckled_mob.visible_message(\
-						SPAN_NOTICE("[buckled_mob.name] struggles free of \the [src]."),\
+						"<b>[buckled_mob]</b> struggles free of \the [src].",\
 						SPAN_NOTICE("You untangle \the [src] from around yourself."),\
 						SPAN_WARNING("You hear shredding and ripping."))
 			unbuckle()

@@ -720,7 +720,7 @@
 		I.canremove = 0
 		I.desc += " It appears to glisten with some gluey substance."
 		remove_self(10*I.w_class)
-		I.visible_message(SPAN_NOTICE("[I] begins to glisten with some gluey substance."))
+		I.visible_message("<b>[I]</b> begins to glisten with some gluey substance.")
 
 /datum/reagent/usolve
 	name = "Universal Solvent"

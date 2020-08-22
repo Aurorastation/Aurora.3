@@ -47,7 +47,7 @@
 				to_chat(user, SPAN_WARNING("You aren't sure where this brain came from, but you're pretty sure it's a useless brain."))
 				return
 
-			user.visible_message(SPAN_NOTICE("[user] sticks \a [B] into \the [src]."))
+			user.visible_message("<b>[user]</b> sticks \a [B] into \the [src].")
 
 			brainmob = B.brainmob
 			B.brainmob = null

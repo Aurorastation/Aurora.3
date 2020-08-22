@@ -231,7 +231,7 @@ Thus, the two variables affect pump operation are set in New():
 	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
 	if (do_after(user, istype(W, /obj/item/pipewrench) ? 80/W.toolspeed : 40/W.toolspeed, act_target = src))
 		user.visible_message( \
-			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
+			"<b>\The [user]</b> unfastens \the [src].", \
 			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear a ratchet.")
 		new /obj/item/pipe(loc, make_from=src)

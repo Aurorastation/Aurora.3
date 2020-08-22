@@ -531,7 +531,7 @@
 		return
 	if(target == user)
 		if(target.h_style == "Floorlength Braid" || target.h_style == "Very Long Hair")
-			user.visible_message(SPAN_NOTICE("[user] looks like they're about to feed their own hair into [src], but think better of it."), SPAN_NOTICE("You grasp your hair and are about to feed it into [src], but stop and come to your sense."))
+			user.visible_message("<b>[user]</b> looks like they're about to feed their own hair into [src], but think better of it.", SPAN_NOTICE("You grasp your hair and are about to feed it into [src], but stop and come to your sense."))
 			return
 	src.add_fingerprint(user)
 	var/target_loc = target.loc
@@ -548,8 +548,8 @@
 			target.apply_damage(25, PAIN)
 			target.say("*scream")
 
-			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</font>")
-			target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their hair fed into [src] by [user.name] ([user.ckey])</font>")
+			user.attack_log += "\[[time_stamp()]\] <font color='red'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</font>"
+			target.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their hair fed into [src] by [user.name] ([user.ckey])</font>"
 			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] in a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 		else
 			return
@@ -573,8 +573,9 @@
 	if(use_check_and_message(usr))
 		return
 	usr.visible_message(
-	SPAN_NOTICE("[usr] opens [src] and has removed [english_list(holdingitems)].")
-		)
+		"<b>[usr]</b> opens [src] and removes [english_list(holdingitems)].",
+		SPAN_NOTICE("You open [src] and remove [english_list(holdingitems)].")
+	)
 
 	eject()
 	detach()

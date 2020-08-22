@@ -284,7 +284,7 @@
 		owner.last_special = world.time + 100
 		var/obj/item/M = new augment_type(owner)
 		owner.put_in_active_hand(M)
-		owner.visible_message(SPAN_NOTICE("\The [M] slides out of \the [owner]'s [src]."),SPAN_NOTICE("You deploy \the [M]!"))
+		owner.visible_message("<b>\The [M]</b> slides out of \the [owner]'s [src].",SPAN_NOTICE("You deploy \the [M]!"))
 
 /obj/item/combitool/robotic
 	name = "robotic combitool"

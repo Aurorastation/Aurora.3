@@ -162,7 +162,7 @@
 		user.drop_from_inventory(C,src)
 		C.add_fingerprint(user)
 		cell = C
-		user.visible_message(SPAN_NOTICE("[user] opens the panel on [src] and inserts [C]."), SPAN_NOTICE("You open the panel on [src] and insert [C]."))
+		user.visible_message("<b>[user]</b> opens the panel on [src] and inserts [C].", SPAN_NOTICE("You open the panel on [src] and insert [C]."))
 		power_change()
 		return
 
@@ -171,7 +171,7 @@
 			to_chat(user, SPAN_WARNING("There is no power cell installed."))
 			return
 
-		user.visible_message(SPAN_NOTICE("[user] opens the panel on [src] and removes [cell]."), SPAN_NOTICE("You open the panel on [src] and remove [cell]."))
+		user.visible_message("<b>[user]</b> opens the panel on [src] and removes [cell].", SPAN_NOTICE("You open the panel on [src] and remove [cell]."))
 		cell.add_fingerprint(user)
 		cell.forceMove(src.loc)
 		cell = null

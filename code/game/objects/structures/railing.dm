@@ -220,11 +220,11 @@
 	if(W.iswrench())
 		if(!anchored)
 			playsound(get_turf(src), W.usesound, 50, TRUE)
-			user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start dismantling \the [src]..."))
+			user.visible_message("<b>\The [user]</b> starts dismantling \the [src]...", SPAN_NOTICE("You start dismantling \the [src]..."))
 			if(do_after(user, 20, src))
 				if(anchored)
 					return
-				user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You dismantle \the [src]."))
+				user.visible_message("<b>\The [user]</b> dismantles \the [src].", SPAN_NOTICE("You dismantle \the [src]."))
 				material.place_sheet(get_turf(src), 2)
 				qdel(src)
 			return
@@ -232,10 +232,10 @@
 		else
 			playsound(get_turf(src), W.usesound, 50, TRUE)
 			if(density)
-				user.visible_message(SPAN_NOTICE("\The [user] wrenches \the [src] open."), SPAN_NOTICE("You wrench \the [src] open."))
+				user.visible_message("<b>\The [user]</b> wrenches \the [src] open.", SPAN_NOTICE("You wrench \the [src] open."))
 				density = FALSE
 			else
-				user.visible_message(SPAN_NOTICE("\The [user] wrenches \the [src] closed."), SPAN_NOTICE("You wrench \the [src] closed."))
+				user.visible_message("<b>\The [user]</b> wrenches \the [src] closed.", SPAN_NOTICE("You wrench \the [src] closed."))
 				density = TRUE
 			update_icon()
 			return
@@ -250,7 +250,7 @@
 			if(do_after(user, 20, src))
 				if(health >= maxhealth)
 					return
-				user.visible_message(SPAN_NOTICE("\The [user] repairs some damage to \the [src]."), SPAN_NOTICE("You repair some damage to \the [src]."))
+				user.visible_message("<b>\The [user]</b> repairs some damage to \the [src].", SPAN_NOTICE("You repair some damage to \the [src]."))
 				health = min(health + (maxhealth / 5), maxhealth)
 			return
 
@@ -259,10 +259,10 @@
 		if(!density)
 			to_chat(user, SPAN_NOTICE("You need to wrench \the [src] from back into place first."))
 			return
-		user.visible_message(anchored ? SPAN_NOTICE("\The [user] begins unscrewing \the [src].") : SPAN_NOTICE("\The [user] begins fastening \the [src].") )
+		user.visible_message("<b>\The [user]</b> begins [anchored ? "unscrewing" : "fastening"] \the [src].")
 		playsound(get_turf(src), W.usesound, 75, TRUE)
 		if(do_after(user, 10, src) && density)
-			to_chat(user, (anchored ? SPAN_NOTICE("You have unfastened \the [src] from the floor.") : SPAN_NOTICE("You have fastened \the [src] to the floor.")))
+			to_chat(user, SPAN_NOTICE("You have [anchored ? "un" : ""]fastened \the [src] [anchored ? "from" : "to"] the floor."))
 			anchored = !anchored
 			update_icon()
 		return

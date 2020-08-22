@@ -107,7 +107,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.check_has_mouth())
-			user.visible_message(SPAN_NOTICE("[user] takes a bite of their crayon and swallows it."), SPAN_NOTICE("You take a bite of your crayon and swallow it."))
+			user.visible_message("<b>[user]</b> takes a bite of their crayon and swallows it.", SPAN_NOTICE("You take a bite of your crayon and swallow it."))
 			user.adjustNutritionLoss(-1)
 			reagents.trans_to_mob(user, 2, CHEM_INGEST)
 			if(reagents.total_volume <= 0)

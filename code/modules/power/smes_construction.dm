@@ -229,7 +229,7 @@
 			charge = 0
 			apcs_overload(1, 10, 20)
 			energy_fail(10)
-			src.ping("Caution. Output regulators malfunction. Uncontrolled discharge detected.")
+			src.buzz("Caution. Output regulators malfunction. Uncontrolled discharge detected.")
 
 		if (61 to INFINITY)
 			// Massive overcharge
@@ -245,13 +245,13 @@
 			charge = 0
 			apcs_overload(5, 25, 100)
 			energy_fail(30)
-			src.ping("Caution. Output regulators malfunction. Significant uncontrolled discharge detected.")
+			src.buzz("Caution. Output regulators malfunction. Significant uncontrolled discharge detected.")
 
 			if (prob(50))
 				// Added admin-notifications so they can stop it when griffed.
 				log_game("SMES explosion imminent.")
 				message_admins("SMES explosion imminent.")
-				src.ping("DANGER! Magnetic containment field unstable! Containment field failure imminent!")
+				src.buzz("DANGER! Magnetic containment field unstable! Containment field failure imminent!")
 				failing = 1
 				// 30 - 60 seconds and then BAM!
 				spawn(rand(300,600))
@@ -259,7 +259,7 @@
 						update_icon()
 						src.ping("Magnetic containment stabilised.")
 						return
-					src.ping("DANGER! Magnetic containment field failure in 3 ... 2 ... 1 ...")
+					src.buzz("DANGER! Magnetic containment field failure in 3... 2... 1...")
 					explosion(src.loc,1,2,4,8)
 					// Not sure if this is necessary, but just in case the SMES *somehow* survived..
 					qdel(src)

@@ -76,10 +76,10 @@
 			var/obj/item/psychic_power/telekinesis/tk = new(user)
 			if(tk.set_focus(target))
 				tk.sparkle()
-				user.visible_message(SPAN_NOTICE("\The [user] reaches out."))
+				user.visible_message("<b>\The [user]</b> reaches out.")
 				return tk
 		else if(istype(target, /obj/structure))
-			user.visible_message(SPAN_NOTICE("\The [user] makes a strange gesture."))
+			user.visible_message("<b>\The [user]</b> makes a strange gesture.")
 			var/obj/O = target
 			O.attack_hand(user)
 			return TRUE

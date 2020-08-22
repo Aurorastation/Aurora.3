@@ -23,7 +23,7 @@
 	var/material = "unknown"
 
 /obj/item/device/depth_scanner/proc/scan_atom(var/mob/user, var/atom/A)
-	user.visible_message(SPAN_NOTICE("[user] scans [A], the air around them humming gently."))
+	user.visible_message("<b>[user]</b> scans [A], the air around them humming gently.")
 	if(istype(A,/turf/simulated/mineral))
 		var/turf/simulated/mineral/M = A
 		if((M.finds && M.finds.len) || M.artifact_find)

@@ -347,7 +347,7 @@
 	else if(status == LIGHT_EMPTY)
 		if(W.isscrewdriver()) //If it's a screwdriver open it.
 			playsound(get_turf(src), W.usesound, 75, 1)
-			user.visible_message(SPAN_NOTICE("\The [user] opens \the [src]'s casing."), SPAN_NOTICE("You open \the [src]'s casing."), SPAN_NOTICE("You hear a noise."))
+			user.visible_message("<b>\The [user]</b> opens \the [src]'s casing.", SPAN_NOTICE("You open \the [src]'s casing."), SPAN_NOTICE("You hear a noise."))
 			var/obj/machinery/light_construct/newlight = null
 			switch(fitting)
 				if("tube")

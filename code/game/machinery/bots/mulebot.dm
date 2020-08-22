@@ -113,7 +113,7 @@
 			src.health = min(maxhealth, src.health+25)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			user.visible_message(
-				SPAN_NOTICE("\The [user] repairs \the [src]!"),
+				"<b>\The [user]</b> repairs \the [src]!",
 				SPAN_NOTICE("You repair \the [src]!")
 			)
 		else
@@ -268,7 +268,7 @@
 					cell.add_fingerprint(usr)
 					cell = null
 
-					usr.visible_message(SPAN_NOTICE("[usr] removes the power cell from [src]."), SPAN_NOTICE("You remove the power cell from [src]."))
+					usr.visible_message("<b>[usr]</b> removes the power cell from [src].", SPAN_NOTICE("You remove the power cell from [src]."))
 					updateDialog()
 
 			if("cellinsert")
@@ -279,7 +279,7 @@
 						cell = C
 						C.add_fingerprint(usr)
 
-						usr.visible_message(SPAN_NOTICE("[usr] inserts a power cell into [src]."), SPAN_NOTICE("You insert the power cell into [src]."))
+						usr.visible_message("<b>[usr]</b> inserts a power cell into [src].", SPAN_NOTICE("You insert the power cell into [src]."))
 						updateDialog()
 
 

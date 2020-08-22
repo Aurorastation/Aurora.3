@@ -287,7 +287,7 @@
 
 	var/turf/belowturf = GetBelow(A)
 	if(belowturf)
-		belowturf.visible_message(SPAN_DANGER("You hear something crash into the ceiling above!"))
+		belowturf.audible_message(SPAN_DANGER("You hear something crash into the ceiling above!"))
 	status = USED
 
 /obj/vehicle/droppod/proc/applyfalldamage(var/turf/A)

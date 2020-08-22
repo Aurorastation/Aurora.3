@@ -326,9 +326,9 @@
 		return
 
 	if(contents.len <= 0)
-		visible_message(SPAN_WARNING("You hear a hollow crackle coming from \the [src]."), range = 3)
+		audible_message(SPAN_WARNING("You hear a hollow crackle coming from \the [src]."), range = 3)
 	else
-		visible_message(SPAN_WARNING("You hear a roar as \the [src] activates."))
+		audible_message(SPAN_WARNING("You hear a roar as \the [src] activates."))
 		cremating = TRUE
 		locked = TRUE
 		update_icon()

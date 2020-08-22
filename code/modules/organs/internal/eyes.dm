@@ -34,7 +34,7 @@
 		var/b_eyes = hex2num(copytext(new_eyes, 6, 8))
 		if(do_after(owner, 5) && owner.change_eye_color(r_eyes, g_eyes, b_eyes))
 			owner.update_eyes()
-			owner.visible_message(SPAN_NOTICE("[owner] shifts, their eye color changing."), SPAN_NOTICE("You shift, your eye color changing."))
+			owner.visible_message("<b>[owner]</b> shifts, their eye color changing.", SPAN_NOTICE("You shift, your eye color changing."))
 
 /obj/item/organ/internal/eyes/take_damage(amount, var/silent=0)
 	var/oldbroken = is_broken()

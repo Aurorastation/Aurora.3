@@ -26,7 +26,7 @@
 	user.drop_from_inventory(holstered,src)
 	holstered.add_fingerprint(user)
 	w_class = max(w_class, holstered.w_class)
-	user.visible_message(SPAN_NOTICE("[user] holsters \the [holstered]."), SPAN_NOTICE("You holster \the [holstered]."))
+	user.visible_message("<b>[user]</b> holsters \the [holstered].", SPAN_NOTICE("You holster \the [holstered]."))
 	name = "occupied [initial(name)]"
 
 /obj/item/clothing/accessory/holster/proc/clear_holster()
@@ -49,7 +49,7 @@
 				)
 		else
 			user.visible_message(
-				SPAN_NOTICE("[user] draws \the [holstered], pointing it at the ground."),
+				"<b>[user]</b> draws \the [holstered], pointing it at the ground.",
 				SPAN_NOTICE("You draw \the [holstered], pointing it at the ground.")
 				)
 

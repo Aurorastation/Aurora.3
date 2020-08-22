@@ -61,14 +61,14 @@
 
 	if(W.iscrowbar())
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-		user.visible_message(SPAN_NOTICE("[user] begins to take the glass off the solar tracker."))
+		user.visible_message("<b>[user]</b> begins to take the glass off the solar tracker.")
 		if(do_after(user, 50/W.toolspeed))
 			var/obj/item/solar_assembly/S = locate() in src
 			if(S)
 				S.forceMove(src.loc)
 				S.give_glass()
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-			user.visible_message(SPAN_NOTICE("[user] takes the glass off the tracker."))
+			user.visible_message("<b>[user]</b> takes the glass off the tracker.")
 			qdel(src)
 		return
 	..()

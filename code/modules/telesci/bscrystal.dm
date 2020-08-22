@@ -30,7 +30,7 @@
 
 /obj/item/bluespace_crystal/throw_impact(atom/hit_atom)
 	if(!..()) // not caught in mid-air
-		visible_message(SPAN_NOTICE("[src] fizzles and disappears upon impact!"))
+		visible_message("<b>[src]</b> fizzles and disappears upon impact!")
 		var/turf/T = get_turf(hit_atom)
 		single_spark(T)
 		playsound(src.loc, "sparks", 50, 1)

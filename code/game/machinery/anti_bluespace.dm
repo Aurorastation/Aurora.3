@@ -59,7 +59,7 @@
 	if(user.a_intent == I_HURT)
 		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [W]!"))
 	else
-		visible_message(SPAN_NOTICE("\The [user] [pick("touches","pokes","prods")] \the [src] with \the [W]."))
+		visible_message("<b>\The [user]</b> [pick("touches","pokes","prods")] \the [src] with \the [W].")
 		if(prob(66))
 			return
 

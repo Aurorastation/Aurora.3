@@ -43,7 +43,7 @@
 		if(prints_prosthetics)
 			O.robotic = 2
 		else if(loaded_dna)
-			visible_message("<span class='notice'>The printer injects the stored DNA into the biomass.</span>.")
+			visible_message("<b>\The [src]</b> injects the stored DNA into the biomass.")
 			O.transplant_data = list()
 			var/datum/weakref/W = loaded_dna["donor"]
 			var/mob/living/carbon/C = W.resolve()
@@ -52,10 +52,10 @@
 				O.transplant_data["blood_type"] = loaded_dna["blood_type"]
 				O.transplant_data["blood_DNA"] =  loaded_dna["blood_DNA"]
 
-		visible_message(SPAN_INFO("The bioprinter spits out a new organ."))
+		visible_message("<b>\The [src]</b> spits out a new organ.")
 
 	else
-		to_chat(user, SPAN_WARNING("There is not enough matter in the printer."))
+		to_chat(user, SPAN_WARNING("There is not enough matter in [src]."))
 
 /obj/machinery/bioprinter/attackby(obj/item/W, mob/user)
 
@@ -68,19 +68,17 @@
 			to_chat(user, SPAN_INFO("You inject the blood sample into the bioprinter."))
 		return
 	// Meat for biomass.
+	var/consumed
 	if(!prints_prosthetics && istype(W, /obj/item/reagent_containers/food/snacks/meat))
 		stored_matter += 50
-		user.drop_from_inventory(W,src)
-		to_chat(user, SPAN_INFO("\The [src] processes \the [W]. Levels of stored biomass now: [stored_matter]"))
-		qdel(W)
-		return
+		consumed = TRUE
 	// Steel for matter.
 	if(prints_prosthetics && istype(W, /obj/item/stack/material) && W.get_material_name() == DEFAULT_WALL_MATERIAL)
 		var/obj/item/stack/S = W
 		stored_matter += S.amount * 10
+	if(consumed)
 		user.drop_from_inventory(W,src)
-		to_chat(user, SPAN_INFO("\The [src] processes \the [W]. Levels of stored matter now: [stored_matter]"))
+		user.visible_message("<b>\The [src]</b> processes [W].", "<b>\The [src]</b> processes [W]. Levels of stored [prints_prosthetics ? "biomass" : "matter"] now: [stored_matter]")
 		qdel(W)
-		return
 
 	return..()

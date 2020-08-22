@@ -130,7 +130,7 @@
 /obj/machinery/replicator/attackby(obj/item/W as obj, mob/living/user as mob)
 	user.drop_from_inventory(W,src)
 	stored_materials.Add(W)
-	src.visible_message(SPAN_NOTICE("[user] inserts [W] into [src]."))
+	src.visible_message("<b>[user]</b> inserts [W] into [src].")
 
 /obj/machinery/replicator/Topic(href, href_list)
 

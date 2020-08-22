@@ -221,7 +221,7 @@ Frequency:
 	var/obj/structure/closet/target_closet = linked_teleporter.attached_closet
 	user.forceMove(target_closet)
 	if(target_closet.opened)
-		user.visible_message(SPAN_NOTICE("\The [user] steps out of the back of \the [target_closet]."), SPAN_NOTICE("You teleport into the linked closet, stepping out of it."))
+		user.visible_message("<b>\The [user]</b> steps out of the back of \the [target_closet].", SPAN_NOTICE("You teleport into the linked closet, stepping out of it."))
 	else
 		target_closet.visible_message(SPAN_WARNING("\The [target_closet] rattles."))
 		to_chat(user, SPAN_NOTICE("You teleport into the target closet, bumping into the closed door."))

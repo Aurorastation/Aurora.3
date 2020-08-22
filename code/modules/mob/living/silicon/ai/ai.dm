@@ -493,7 +493,7 @@ var/list/ai_verbs_default = list(
 	if (href_list["mach_close"])
 		if (href_list["mach_close"] == "aialerts")
 			view_alerts = 0
-		var/t1 = text("window=[]", href_list["mach_close"])
+		var/t1 = "window=[href_list["mach_close"]]"
 		unset_machine()
 		src << browse(null, t1)
 	if (href_list["switchcamera"])
@@ -738,22 +738,14 @@ var/list/ai_verbs_default = list(
 		card.grab_ai(src, user)
 
 	else if(W.iswrench())
-		if(anchored)
-			user.visible_message(SPAN_NOTICE("\The [user] starts to unbolt \the [src] from the plating..."))
-			if(!do_after(user,40/W.toolspeed))
-				user.visible_message(SPAN_NOTICE("\The [user] decides not to unbolt \the [src]."))
-				return
-			user.visible_message(SPAN_NOTICE("\The [user] finishes unfastening \the [src]!"))
-			anchored = 0
+		var/un = anchored ? "un" : null
+		user.visible_message("<b>\The [user]</b> starts to [un]bolt \the [src] from [get_turf(src)]...", SPAN_NOTICE("You start to [un]bolt [src] from [get_turf(src)]..."))
+		if(!do_after(user,40/W.toolspeed))
+			user.visible_message("<b>\The [user]</b> decides not to [un]bolt \the [src].", SPAN_NOTICE("You decide not to [un]bolt [src]."))
 			return
-		else
-			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the plating.</span>..")
-			if(!do_after(user,40/W.toolspeed))
-				user.visible_message(SPAN_NOTICE("\The [user] decides not to bolt \the [src]."))
-				return
-			user.visible_message(SPAN_NOTICE("\The [user] finishes fastening down \the [src]!"))
-			anchored = 1
-			return
+		user.visible_message("<b>\The [user]</b> finishes [un]fastening \the [src]!", SPAN_NOTICE("You finish [un]fastening [src]!"))
+		anchored = !anchored
+		return
 	else
 		return ..()
 

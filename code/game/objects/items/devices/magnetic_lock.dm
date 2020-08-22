@@ -298,7 +298,7 @@
 /obj/item/device/magnetic_lock/proc/attachto(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
 	if (!check_target(newtarget, user)) return
 
-	user.visible_message(SPAN_NOTICE("[user] starts mounting [src] onto [newtarget]."), SPAN_NOTICE("You begin mounting [src] onto [newtarget]."))
+	user.visible_message("<b>[user]</b> starts mounting [src] onto [newtarget].", SPAN_NOTICE("You begin mounting [src] onto [newtarget]."))
 
 	if (do_after(user, 35))
 

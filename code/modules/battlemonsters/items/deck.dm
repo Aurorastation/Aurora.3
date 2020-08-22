@@ -32,12 +32,12 @@
 
 	if(icon_state == "stack") //Deck form
 		user.visible_message(\
-			SPAN_NOTICE("\The [user] draws a card from their [src]."),\
+			"<b>\The [user]</b> draws a card from their [src].",\
 			SPAN_NOTICE("You draw a card from their [src].")\
 		)
 	else
 		user.visible_message(\
-			SPAN_NOTICE("\The [user] takes a card from their hand."),\
+			"<b>\The [user]</b> takes a card from their hand.",\
 			SPAN_NOTICE("You take a card from your hand.")\
 		)
 
@@ -73,7 +73,7 @@
 		stored_card_names += added_deck.stored_card_names
 
 		user.visible_message(\
-			SPAN_NOTICE("\The [user] combines two decks together."),\
+			"<b>\The [user]</b> combines two decks together.",\
 			SPAN_NOTICE("You combine two decks together.")\
 		)
 

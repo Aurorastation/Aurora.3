@@ -32,7 +32,7 @@
 		usr.drop_from_inventory(O,src)
 
 		if( import( O ))
-			ping( "\The [src] pings, \"Successfully imported incident report!\"" )
+			ping("Successfully imported incident report!")
 			menu_screen = "incident_report"
 		else
 			to_chat(user, SPAN_ALERT("Could not import incident report."))
@@ -377,7 +377,7 @@
 
 /obj/machinery/computer/sentencing/proc/render_innocent( var/mob/user )
 	var/obj/item/card/id/card = incident.card.resolve()
-	ping( "\The [src] pings, \"[card] has been found innocent of the accused crimes!\"" )
+	ping("[card] has been found innocent of the accused crimes!")
 
 	qdel( incident )
 	incident = null
@@ -400,9 +400,9 @@
 	print_incident_overview(incident.renderGuilty(user, 0))
 	var/obj/item/card/id/card = incident.card.resolve()
 	if( incident.brig_sentence < PERMABRIG_SENTENCE)
-		ping( "\The [src] pings, \"[card.registered_name] has been found guilty of their crimes!\"" )
+		ping("[card.registered_name] has been found guilty of their crimes!")
 	else
-		pingx3( "\The [src] pings, \"[card.registered_name] has been found guilty of their crimes and earned a HuT Sentence\"" )
+		pingx3("[card.registered_name] has been found guilty of their crimes and earned a Hold until Transfer Sentence.")
 
 	incident = null
 	menu_screen = "main_menu"
@@ -416,39 +416,39 @@
 		return
 
 	if(incident.fine <= 0)
-		buzz("\The [src] buzzes, \"No fine has been entered!\"")
+		buzz("No fine has been entered!")
 		return
 
 	//Lets check if there is a felony amongst the crimes
 	for(var/datum/law/L in incident.charges)
 		if(L.felony)
-			buzz("\The [src] buzzes, \"The crimes are too severe to apply a fine!\"")
+			buzz("The crimes are too severe to apply a fine!")
 		if(!L.can_fine())
-			buzz("\The [src] buzzes, \"It is not possible to fine for [L.name]\"")
+			buzz("It is not possible to fine for [L.name]")
 			return
 
 	//Try to resole the security account first
 	var/datum/money_account/security_account = SSeconomy.get_department_account("Security")
 	if(!security_account)
-		buzz("\The [src] buzzes, \"Could not get security account!\"")
+		buzz("Could not get security account!")
 		return
 
 	var/obj/item/card/id/card = incident.card.resolve()
 	//Let´s get the account of the suspect and verify they have enough money
 	var/datum/money_account/suspect_account = SSeconomy.get_account(card.associated_account_number)
 	if(!suspect_account)
-		buzz("\The [src] buzzes, \"Could not get suspect account!\"")
+		buzz("Could not get suspect account!")
 		return
 
 	if(suspect_account.money < incident.fine)
-		buzz("\The [src] buzzes, \"There is not enough money in the account to pay the fine!\"")
+		buzz("There is not enough money in the account to pay the fine!")
 		return
 
 	SSeconomy.charge_to_account(suspect_account.account_number,security_account.owner_name,"Incident: [incident.UID]","Sentencing Console",-incident.fine)
 	SSeconomy.charge_to_account(security_account.account_number,suspect_account.owner_name,"Incident: [incident.UID]Fine","Sentencing Console",incident.fine)
 	print_incident_overview(incident.renderGuilty(user,1))
 
-	ping("\The [src] pings, \"[card.registered_name] has been fined for their crimes!\"")
+	ping("[card.registered_name] has been fined for their crimes!")
 
 	incident = null
 	menu_screen = "main_menu"
@@ -499,9 +499,9 @@
 				if( incident && C.mob )
 					incident.criminal = C.mob
 					incident.card = WEAKREF(C)
-					ping( "\The [src] pings, \"Convict [C] verified.\"" )
+					ping("Convict [C] verified.")
 			else if( incident.criminal )
-				ping( "\The [src] pings, \"Convict cleared.\"" )
+				ping("Convict cleared.")
 				incident.criminal = null
 				incident.card = null
 		if( "change_brig" )
@@ -542,11 +542,11 @@
 				if( incident && C.mob )
 					var/error = incident.addArbiter( C, title )
 					if( !error )
-						ping( "\The [src] pings, \"[title] [C.mob] verified.\"" )
+						ping("[title] [C.mob] verified.")
 					else
-						to_chat(usr, SPAN_ALERT("\The [src] buzzes, \"[error]\""))
+						to_chat(usr, SPAN_ALERT("<b>\The [src]</b> buzzes, \"[error]\""))
 			else
-				ping( "\The [src] pings, \"[title] cleared.\"" )
+				ping("[title] cleared.")
 				incident.arbiters[title] = null
 
 		if( "add_evidence" )
@@ -559,11 +559,11 @@
 		if( "add_charge" )
 			incident.charges += locate( href_list["law"] )
 			incident.refreshSentences()
-			ping( "\The [src] pings, \"Successfully added charge\"" )
+			ping("Successfully added charge")
 		if( "remove_charge" )
 			incident.charges -= locate( href_list["law"] )
 			incident.refreshSentences()
-			ping( "\The [src] pings, \"Successfully removed charge\"" )
+			ping("Successfully removed charge")
 		if( "remove_witness" )
 			var/list/L = incident.arbiters["Witness"]
 			L -= locate( href_list["choice"] )

@@ -376,7 +376,7 @@ var/global/list/frozen_crew = list()
 			willing = TRUE
 
 		if(willing)
-			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [G.affecting] into \the [src]."), SPAN_NOTICE("You start putting [G.affecting] into [src]."), range = 3)
+			user.visible_message("<b>\The [user]</b> starts putting \the [G.affecting] into \the [src].", SPAN_NOTICE("You start putting [G.affecting] into [src]."), range = 3)
 
 			if(do_after(user, 20))
 				if(!M || !G || !G.affecting)
@@ -439,9 +439,9 @@ var/global/list/frozen_crew = list()
 
 	if(willing)
 		if(L == user)
-			user.visible_message(SPAN_NOTICE("\The [user] starts climbing into \the [src]."), SPAN_NOTICE("You start climbing into \the [src]."), range = 3)
+			user.visible_message("<b>\The [user]</b> starts climbing into \the [src].", SPAN_NOTICE("You start climbing into \the [src]."), range = 3)
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] starts putting \the [L] into \the [src]."), SPAN_NOTICE("You start putting \the [L] into \the [src]."), range = 3)
+			user.visible_message("<b>\The [user]</b> starts putting \the [L] into \the [src].", SPAN_NOTICE("You start putting \the [L] into \the [src]."), range = 3)
 
 		if(do_after(user, 20))
 			if(!L)

@@ -304,7 +304,7 @@
 			fabricated_tablet.battery_module.charge_to_full()
 		fabricated_tablet.forceMove(src.loc)
 		fabricated_tablet = null
-	ping(message)
+	ping("message")
 	state = 3
 
 // Simplified payment processing, returns 1 on success.

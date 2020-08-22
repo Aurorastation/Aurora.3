@@ -374,9 +374,9 @@
 				if (M == usr)
 					to_chat(usr, SPAN_NOTICE("You put \the [W] into [src]."))
 				else if (M in range(1)) //If someone is standing close enough, they can tell what it is...
-					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
+					M.show_message("<b>\The [user]</b> puts [W] into [src].")
 				else if (W && W.w_class >= 3) //Otherwise they can only see large or normal items from a distance...
-					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
+					M.show_message("<b>\The [user]</b> puts [W] into [src].")
 
 		orient2hud(user)
 		if(user.s_active)

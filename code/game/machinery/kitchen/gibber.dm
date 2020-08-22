@@ -173,10 +173,10 @@
 	if(src.operating)
 		return
 	if(!src.occupant)
-		visible_message(SPAN_DANGER("You hear a loud metallic grinding sound."))
+		audible_message(SPAN_DANGER("You hear a loud metallic grinding sound."))
 		return
 	use_power(1000)
-	visible_message(SPAN_DANGER("You hear a loud [occupant.isSynthetic() ? "metallic" : "squelchy"] grinding sound."))
+	audible_message(SPAN_DANGER("You hear a loud [occupant.isSynthetic() ? "metallic" : "squelchy"] grinding sound."))
 	src.operating = 1
 	update_icon()
 

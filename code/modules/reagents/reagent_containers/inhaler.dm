@@ -44,7 +44,7 @@
 			var/trans = reagents.trans_to_mob(H, amount_per_transfer_from_this, CHEM_TOUCH)
 			admin_inject_log(user, H, src, contained, reagents.get_temperature(), trans)
 			playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
-			user.visible_message(SPAN_NOTICE("[user] accidentally sticks [src] in [H]'s eyes!"),SPAN_NOTICE("You accidentally stick [src] in [H]'s eyes!"))
+			user.visible_message("<b>[user]</b> accidentally sticks [src] in [H]'s eyes!",SPAN_NOTICE("You accidentally stick [src] in [H]'s eyes!"))
 			to_chat(user,SPAN_NOTICE("[trans] units injected. [reagents.total_volume] units remaining in \the [src]."))
 			used = TRUE
 			update_icon()
@@ -65,14 +65,14 @@
 	user.do_attack_animation(H)
 
 	if(user == H)
-		user.visible_message(SPAN_NOTICE("\The [user] injects themselves with \the [src]"),SPAN_NOTICE("You stick the \the [src] in your mouth and press the injection button."))
+		user.visible_message("<b>\The [user]</b> injects themselves with \the [src]",SPAN_NOTICE("You stick the \the [src] in your mouth and press the injection button."))
 	else
 		user.visible_message(SPAN_WARNING("\The [user] attempts to administer \the [src] to \the [H]..."),SPAN_NOTICE("You attempt to administer \the [src] to \the [H]..."))
 		if (!do_after(user, 1 SECONDS, act_target = H))
 			to_chat(user,SPAN_NOTICE("You and the target need to be standing still in order to inject \the [src]."))
 			return
 
-		user.visible_message(SPAN_NOTICE("\The [user] injects \the [H] with \a [src]."),SPAN_NOTICE("You stick \the [src] in \the [H]'s mouth and press the injection button."))
+		user.visible_message("<b>\The [user]</b> injects \the [H] with \a [src].",SPAN_NOTICE("You stick \the [src] in \the [H]'s mouth and press the injection button."))
 
 	if(H.reagents)
 		var/contained = reagentlist()
@@ -80,7 +80,7 @@
 		var/trans = reagents.trans_to_mob(H, amount_per_transfer_from_this, CHEM_BREATHE, bypass_checks = TRUE)
 		admin_inject_log(user, H, src, contained, temp, trans)
 		playsound(src.loc, 'sound/items/stimpack.ogg', 50, 1)
-		to_chat(user,SPAN_NOTICE("[trans] units injected. [reagents.total_volume] units remaining in \the [src]."))
+		to_chat(user,"<b>[trans]</b> units injected. [reagents.total_volume] units remaining in \the [src].")
 		used = TRUE
 
 	update_icon()

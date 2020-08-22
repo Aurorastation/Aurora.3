@@ -368,7 +368,7 @@
 	if(!damage)
 		return
 	visible_message(SPAN_DANGER("[user] [attack_message] [src]!"))
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [src.name]</font>")
+	user.attack_log += "\[[time_stamp()]\] <font color='red'>attacked [src.name]</font>"
 	user.do_attack_animation(src)
 	src.health -= damage
 	if(prob(10))
