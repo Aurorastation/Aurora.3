@@ -94,7 +94,7 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		return 0
 	if (unreceived.len >= ASSET_CACHE_TELL_CLIENT_AMOUNT)
 		to_chat(client, "Sending Resources...")
-	log_debug("Sending [asset_name] asset to client: [client.key].")
+	log_debug("Sending [english_list(asset_list)] asset to client: [client.key].")
 	for(var/asset in unreceived)
 		if (asset in SSassets.cache)
 			client << browse_rsc(SSassets.cache[asset], asset)
@@ -125,7 +125,7 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		client.cache |= unreceived
 		client.completed_asset_jobs -= job
 
-	log_debug("Sent [asset_name] asset to client: [client.key].")
+	log_debug("Sent [english_list(asset_list)] asset to client: [client.key].")
 
 	return 1
 
