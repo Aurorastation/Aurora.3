@@ -281,10 +281,20 @@
 /datum/category_item/player_setup_item/occupation/proc/sanitize_faction()
 	if (!SSjobs.name_factions[pref.faction])
 		pref.faction = SSjobs.default_faction.name
-
-		to_client_chat("<span class='danger'>Your faction selection has been reset to [pref.faction].</span>")
-		to_client_chat("<span class='danger'>Your jobs have been reset due to this!</span>")
+		to_client_chat(SPAN_DANGER("Your faction selection has been reset to [pref.faction]."))
+		to_client_chat(SPAN_DANGER("Your jobs have been reset due to this!"))
 		ResetJobs()
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	var/datum/faction/faction = SSjobs.name_factions[pref.faction]
+	for(var/datum/job/job in faction.get_occupations())
+		for(var/department = 1 to NUM_JOB_DEPTS)
+			if(pref.GetJobDepartment(job, department) & job.flag)
+				if(pref.species in job.blacklisted_species)
+					to_client_chat(SPAN_DANGER("Your faction selection does not permit this species-occupation combination, [pref.species] as [job.title]."))
+					to_client_chat(SPAN_DANGER("Your jobs have been reset due to this!"))
+					ResetJobs()
+					return TOPIC_REFRESH_UPDATE_PREVIEW
 
 /datum/category_item/player_setup_item/occupation/proc/SetPlayerAltTitle(datum/job/job, new_title)
 	// remove existing entry

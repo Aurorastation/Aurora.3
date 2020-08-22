@@ -120,7 +120,7 @@ var/list/forum_groupids_to_ranks = list()
 			load_admins()
 			return
 
-		var/DBQuery/query = dbcon.NewQuery("SELECT ckey, rank, flags FROM ss13_admins;")
+		var/DBQuery/query = dbcon.NewQuery("SELECT ckey, `rank`, flags FROM ss13_admins;")
 		query.Execute()
 		while(query.NextRow())
 			var/ckey = query.item[1]

@@ -15,7 +15,7 @@
 	idle_power_usage = 20
 	layer = 2.9
 	clicksound = "button"
-	
+
 	var/beaker = null
 	var/obj/item/storage/pill_bottle/loaded_pill_bottle = null
 	var/mode = TRUE
@@ -55,7 +55,8 @@
 		icon_state = "mixer1"
 
 	else if(istype(B, /obj/item/storage/pill_bottle))
-
+		if(condi)
+			return
 		if(src.loaded_pill_bottle)
 			to_chat(user, "A pill bottle is already loaded into the machine.")
 			return
@@ -232,7 +233,7 @@
 		dat = "Please insert beaker.<BR>"
 		if(src.loaded_pill_bottle)
 			dat += "<A href='?src=\ref[src];ejectp=1'>Eject Pill Bottle \[[loaded_pill_bottle.contents.len]/[loaded_pill_bottle.max_storage_space]\]</A><BR><BR>"
-		else
+		else if(!condi)
 			dat += "No pill bottle inserted.<BR><BR>"
 		dat += "<A href='?src=\ref[src];close=1'>Close</A>"
 	else
@@ -240,7 +241,7 @@
 		dat += "<A href='?src=\ref[src];eject=1'>Eject beaker and Clear Buffer</A><BR>"
 		if(src.loaded_pill_bottle)
 			dat += "<A href='?src=\ref[src];ejectp=1'>Eject Pill Bottle \[[loaded_pill_bottle.contents.len]/[loaded_pill_bottle.max_storage_space]\]</A><BR><BR>"
-		else
+		else if(!condi)
 			dat += "No pill bottle inserted.<BR><BR>"
 		if(!R.total_volume)
 			dat += "Beaker is empty."
@@ -283,7 +284,7 @@
 /obj/machinery/chem_master/condimaster
 	name = "CondiMaster 3000"
 	condi = 1
-	
+
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 /obj/machinery/reagentgrinder

@@ -19,6 +19,7 @@
 
 /area/centcom/spawning
 	name = "Centcom Preparatory Wing"
+	ambience = AMBIENCE_ARRIVALS
 
 /area/centcom/evac
 	name = "Centcom Emergency Shuttle"
@@ -43,9 +44,13 @@
 
 /area/centcom/creed
 	name = "Creed's Office"
+	sound_env = SMALL_SOFTFLOOR
 
 /area/centcom/holding
 	name = "Holding Facility"
+
+/area/centcom/checkpoint
+	ambience = AMBIENCE_ARRIVALS
 
 /area/centcom/checkpoint/fore
 	name = "Fore Checkpoint"
@@ -60,32 +65,57 @@
 /area/centcom/legion/hangar5
 	name = "BLV The Tower - Hangar 5"
 	icon_state = "blvhangar5"
+	ambience = AMBIENCE_HANGAR
+	sound_env = HANGAR
 
 /area/centcom/distress_prep
 	name = "Distress Team Preparation"
+	ambience = AMBIENCE_HIGHSEC
 
-//SYNDICATES
-
-/area/syndicate_mothership
-	name = "Mercenary Base"
-	icon_state = "syndie-ship"
+/area/merchant_station
+	name = "Merchant Station"
+	icon_state = "merchant"
 	requires_power = 0
-	dynamic_lighting = 0
+	dynamic_lighting = 1
 	no_light_control = 1
 	centcomm_area = 1
+	ambience = AMBIENCE_HIGHSEC
 
-/area/syndicate_mothership/control
-	name = "Mercenary Control Room"
-	icon_state = "syndie-control"
+/area/merchant_station/warehouse
+	name = "Merchant Warehouse"
+	icon_state = "merchant_ware"
+	sound_env = LARGE_ENCLOSED
 
-/area/syndicate_mothership/elite_squad
-	name = "Elite Mercenary Squad"
-	icon_state = "syndie-elite"
+// Antagonist Bases
 
-/area/syndicate_mothership/raider_base
-	name = "Pirate Hideout"
-	icon_state = "syndie-control"
-	dynamic_lighting = 1
+/area/antag
+	name = "Unknown Blacksite"
+	icon_state = "dark"
+	requires_power = FALSE
+	no_light_control = TRUE
+	centcomm_area = TRUE
+
+/area/antag/mercenary
+	name = "Mercenary Barracks"
+	icon_state = "merc"
+
+/area/antag/raider
+	name = "Raider Hideout"
+	icon_state = "raider"
+
+/area/antag/ninja
+	name = "Ninja Preparation"
+	icon_state = "ninja"
+
+/area/antag/burglar
+	name = "Burglar Hideout"
+	icon_state = "burglar"
+
+/area/antag/wizard
+	name = "Wizard Mind Palace"
+	icon_state = "wizard"
+	dynamic_lighting = FALSE
+
 
 //THUNDERDOME
 
@@ -114,77 +144,7 @@
 	name = "Thunderdome (Observer.)"
 	icon_state = "purple"
 
-//ACTORS GUILD
-/area/acting
-	name = "Centcom Acting Guild"
-	icon_state = "red"
-	dynamic_lighting = 0
-	requires_power = 0
-	no_light_control = 1
-	centcomm_area = 1
-
-/area/acting/backstage
-	name = "Backstage"
-
-/area/acting/stage
-	name = "Stage"
-	dynamic_lighting = 1
-	icon_state = "yellow"
-
-//ENEMY
-
-//names are used
-/area/syndicate_station
-	name = "Independent Station"
-	icon_state = "yellow"
-	requires_power = 0
-	flags = RAD_SHIELDED | SPAWN_ROOF
-	no_light_control = 1
-
-/area/syndicate_station/start
-	name = "Mercenary Shuttle"
-	icon_state = "yellow"
-	centcomm_area = 1
-	base_turf = /turf/space
-
-/area/syndicate_station/surface
-	name = "Surface of the Station"
-	icon_state = "southwest"
-	station_area = 1
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
-/area/syndicate_station/above
-	name = "Above the Station"
-	icon_state = "northwest"
-
-/area/syndicate_station/under
-	name = "Under the Station"
-	icon_state = "northeast"
-
-/area/syndicate_station/caverns
-	name = "Caverns"
-	icon_state = "southeast"
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
-/area/syndicate_station/arrivals_dock
-	name = "Docked with Station"
-	icon_state = "shuttle"
-	station_area = 1
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
-/area/syndicate_station/transit
-	name = "Bluespace"
-	icon_state = "shuttle"
-	base_turf = /turf/space/transit
-	centcomm_area = 1
-
-/area/wizard_station
-	name = "Wizard's Den"
-	icon_state = "yellow"
-	requires_power = 0
-	dynamic_lighting = 0
-	no_light_control = 1
-	centcomm_area = 1
+// Kataphract Station
 
 /area/kataphract_chapter
 	name = "Kataphract Chapter"
@@ -197,10 +157,12 @@
 /area/kataphract_chapter/bridge
 	name = "Kataphract Chapter - Bridge"
 	icon_state = "bridge"
+	ambience = AMBIENCE_HIGHSEC
 
 /area/kataphract_chapter/sparring_chamber
 	name = "Kataphract Chapter - Sparring Chamber"
 	icon_state = "security"
+	sound_env = ARENA
 
 /area/kataphract_chapter/commissary
 	name = "Kataphract Chapter - Commissary"
@@ -211,16 +173,19 @@
 	icon_state = "yellow"
 
 /area/kataphract_chapter/dorms
-	name = "Kataphract Chapter - Dorms"
+	name = "Kataphract Chapter - Dormitory"
 	icon_state = "Sleep"
+	sound_env = SMALL_SOFTFLOOR
 
 /area/kataphract_chapter/toilets
 	name = "Kataphract Chapter - Toilets"
 	icon_state = "toilet"
+	sound_env = SMALL_ENCLOSED
 
 /area/kataphract_chapter/office
 	name = "Kataphract Chapter - Knight's Office"
 	icon_state = "law"
+	sound_env = SMALL_SOFTFLOOR
 
 /area/kataphract_chapter/cafeteria
 	name = "Kataphract Chapter - Cafeteria"
@@ -229,14 +194,17 @@
 /area/kataphract_chapter/engineering
 	name = "Kataphract Chapter - Engineering"
 	icon_state = "engineering_workshop"
+	ambience = AMBIENCE_ENGINEERING
 
 /area/kataphract_chapter/port_solars
 	name = "Kataphract Chapter - Port Solars"
 	icon_state = "panelsA"
+	ambience = AMBIENCE_SPACE
 
 /area/kataphract_chapter/starboard_solars
 	name = "Kataphract Chapter - Starboard Solars"
 	icon_state = "panelsA"
+	ambience = AMBIENCE_SPACE
 
 /area/kataphract_chapter/trading_area
 	name = "Kataphract Chapter - Trading Area"
@@ -245,113 +213,17 @@
 /area/kataphract_chapter/warehouse
 	name = "Kataphract Chapter - Warehouse"
 	icon_state = "quartstorage"
+	sound_env = LARGE_ENCLOSED
 
 /area/kataphract_chapter/hangar
 	name = "Kataphract Chapter - Hangar"
 	icon_state = "green"
+	ambience = AMBIENCE_HANGAR
+	sound_env = HANGAR
 
 /area/kataphract_chapter/hull
 	name = "Kataphract Chapter - Hull"
 	icon_state = "blue"
-
-/area/burglar_base
-	name = "Burglar Base"
-	icon_state = "yellow"
-	requires_power = FALSE
-	no_light_control = TRUE
-
-/area/burglar_base/pod
-	name = "Burglar Pod"
-	base_turf = /turf/space
-	flags = SPAWN_ROOF
-
-/area/skipjack_station
-	name = "Skipjack"
-	icon_state = "yellow"
-	requires_power = 0
-	no_light_control = 1
-	base_turf = /turf/space
-	flags = SPAWN_ROOF
-
-/area/skipjack_station/start
-	name = "Skipjack"
-	icon_state = "yellow"
-	centcomm_area = 1
-
-/area/skipjack_station/transit
-	name = "Bluespace"
-	icon_state = "shuttle"
-	base_turf = /turf/space/transit
-	centcomm_area = 1
-
-/area/skipjack_station/surface
-	name = "Surface of the Station"
-	icon_state = "southwest"
-	station_area = 1
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
-/area/skipjack_station/above
-	name = "Above the Station"
-	icon_state = "northwest"
-
-/area/skipjack_station/under
-	name = "Under the Station"
-	icon_state = "northeast"
-
-/area/skipjack_station/cavern
-	name = "Caverns"
-	icon_state = "southeast"
-	base_turf = /turf/unsimulated/floor/asteroid/ash
-
-//DJSTATION
-
-/area/djstation
-	name = "Listening Post"
-	icon_state = "LP"
-	no_light_control = 1
-
-/area/djstation/solars
-	name = "Listening Post Solars"
-	icon_state = "LPS"
-
-
-//merchant station and shuttle
-
-/area/merchant_station
-	name = "Merchant Station"
-	icon_state = "merchant"
-	requires_power = 0
-	dynamic_lighting = 1
-	no_light_control = 1
-	centcomm_area = 1
-
-/area/merchant_station/warehouse
-	name = "Merchant Warehouse"
-	icon_state = "merchant_ware"
-
-/area/merchant_station/transit
-	name = "Bluespace"
-	icon_state = "shuttle"
-	centcomm_area = 1
-
-/area/merchant_ship
-	name = "Merchant Ship"
-	icon_state = "yellow"
-	requires_power = 0
-	flags = RAD_SHIELDED | SPAWN_ROOF
-	no_light_control = 1
-
-/area/merchant_ship/start
-	name = "Merchant Ship Docked"
-	icon_state = "yellow"
-	centcomm_area = 1
-	base_turf = /turf/space
-
-/area/merchant_ship/docked
-	name = "Docked with station"
-	icon_state = "southwest"
-	station_area = 1
-	base_turf = /turf/unsimulated/floor/asteroid/ash
 
 /area/beach
 	name = "Keelin's private beach"
@@ -361,7 +233,7 @@
 	requires_power = 0
 	no_light_control = 1
 
-//dungeon areas
+//Dungeons
 
 /area/dungeon/crashed_ship
 	name = "Derelict Ship"
@@ -397,4 +269,14 @@
 /area/dungeon/crashed_satellite
 	name = "Communications Satellite"
 	icon_state = "tcomsatcham"
+	no_light_control = 1
+
+//Misc
+
+/area/beach
+	name = "Keelin's private beach"
+	icon_state = "yellow"
+	luminosity = 1
+	dynamic_lighting = 0
+	requires_power = 0
 	no_light_control = 1
