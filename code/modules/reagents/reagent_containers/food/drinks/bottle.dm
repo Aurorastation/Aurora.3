@@ -196,7 +196,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/gin
 	name = "Alderamin gin"
-	desc = "A bottle of average quality gin, produced on Nanotrasen Space Station Cepheus."
+	desc = "A bottle of average quality gin, produced on NanoTrasen Space Station Cepheus."
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "ginbottle"
 	center_of_mass = list("x"=16, "y"=4)
