@@ -165,7 +165,7 @@
 	if(vision_cone_overlay)
 		client.screen -= vision_cone_overlay
 
-/mob/living/set_dir()
+/mob/living/set_dir(var/new_dir, ignore_facing_dir = FALSE)
 	. = ..()
 	if(.)
 		update_vision_cone()

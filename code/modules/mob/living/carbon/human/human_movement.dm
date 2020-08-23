@@ -133,7 +133,7 @@
 		return 1
 	return 0
 
-/mob/living/carbon/human/set_dir(var/new_dir)
+/mob/living/carbon/human/set_dir(var/new_dir, ignore_facing_dir = FALSE)
 	. = ..()
 	if(. && species.tail)
 		update_tail_showing(1)

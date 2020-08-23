@@ -8,3 +8,4 @@ changes:
   - tweak: "Diona do not have vision cones."
   - admin: "Bluespace Technicians do not have vision cones, and have a verb to toggle it."
   - tweak: "You now walk slower if you are moving in the direction opposite to your facing direction."
+  - tweak: "The Face Direction verb now only prevents you from changing direction with the movement keys, clicking will allow you to change your facing direction in this mode."
