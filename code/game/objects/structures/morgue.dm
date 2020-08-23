@@ -326,7 +326,7 @@
 		return
 
 	if(contents.len <= 0)
-		audible_message(SPAN_WARNING("You hear a hollow crackle coming from \the [src]."), range = 3)
+		audible_message(SPAN_WARNING("You hear a hollow crackle coming from \the [src]."), hearing_distance = 3)
 	else
 		audible_message(SPAN_WARNING("You hear a roar as \the [src] activates."))
 		cremating = TRUE
