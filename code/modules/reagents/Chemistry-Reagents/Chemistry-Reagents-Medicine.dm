@@ -1282,9 +1282,9 @@
 
 /datum/reagent/adipemcina/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_CARDIOTOXIC, -removed*2)
-	var/obj/item/organ/internal/lungs/L = M.internal_organs_by_name[BP_HEART]
-	if(istype(L) && !BP_IS_ROBOTIC(L))
-		L.damage = max(L.damage - (removed * 2), 0)
+	var/obj/item/organ/internal/heart/H = M.internal_organs_by_name[BP_HEART]
+	if(istype(H) && !BP_IS_ROBOTIC(H))
+		H.damage = max(H.damage - (removed * 2), 0)
 	..()
 
 /datum/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)
