@@ -156,8 +156,6 @@
 	if (is_noisy && !stat && !lying)
 		if ((x == last_x && y == last_y) || !footsound)
 			return
-		if(shoes && (shoes.item_flags & SILENT))
-			return // quiet shoes
 		last_x = x
 		last_y = y
 		if (m_intent == "run")

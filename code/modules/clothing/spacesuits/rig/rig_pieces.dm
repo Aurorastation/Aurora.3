@@ -39,7 +39,6 @@
 
 /obj/item/clothing/shoes/magboots/rig
 	name = "boots"
-	item_flags = SILENT
 	body_parts_covered = FEET
 	cold_protection = FEET
 	heat_protection = FEET
@@ -53,17 +52,6 @@
 		"Machine" = 'icons/mob/species/machine/shoes.dmi',
 		"Vox" = 'icons/mob/species/vox/shoes.dmi'
 	)
-	var/footstep = 1	//used for footsteps.
-
-/obj/item/clothing/shoes/magboots/rig/handle_movement(var/turf/walking, var/running)
-	if(!running)
-		if(footstep >= 2)
-			footstep = 0
-			playsound(src, 'sound/machines/rig/rigstep.ogg', 20, TRUE)
-		else
-			footstep++
-	else
-		playsound(src, 'sound/machines/rig/rigstep.ogg', 50, TRUE)
 
 /obj/item/clothing/suit/space/rig
 	name = "chestpiece"
