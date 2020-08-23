@@ -28,7 +28,7 @@
 			regenerate_icons()
 			visible_message("<b>[src]</b> pauses a moment to style their hair.")
 		else
-			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
+			to_chat(src, SPAN_NOTICE("You're already using that style."))
 
 mob/living/carbon/human/proc/change_monitor()
 	set name = "Change IPC Screen"
@@ -49,7 +49,7 @@ mob/living/carbon/human/proc/change_monitor()
 			regenerate_icons()
 			visible_message(SPAN_NOTICE("[src]'s screen switches to a different display."))
 		else
-			to_chat(src, "<span class ='notice'>You're already using that screen.</span>")
+			to_chat(src, SPAN_NOTICE("You're already using that screen."))
 
 /mob/living/carbon/human/proc/tackle()
 	set category = "Abilities"

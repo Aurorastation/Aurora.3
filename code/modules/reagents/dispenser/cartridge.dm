@@ -69,10 +69,10 @@
 /obj/item/reagent_containers/chem_disp_cartridge/attack_self()
 	..()
 	if (is_open_container())
-		to_chat(usr, "<span class = 'notice'>You put the cap on \the [src].</span>")
+		to_chat(usr, SPAN_NOTICE("You put the cap on \the [src]."))
 		flags ^= OPENCONTAINER
 	else
-		to_chat(usr, "<span class = 'notice'>You take the cap off \the [src].</span>")
+		to_chat(usr, SPAN_NOTICE("You take the cap off \the [src]."))
 		flags |= OPENCONTAINER
 
 /obj/item/reagent_containers/chem_disp_cartridge/afterattack(obj/target, mob/user , flag)

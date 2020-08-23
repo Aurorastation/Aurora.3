@@ -76,7 +76,7 @@
 		if(card.evidence && card.evidence.len)
 			info += "Surface analysis has determined unique fingerprint strings:<br><br>"
 			for(var/prints in card.evidence)
-				info += "<span class='notice'>Fingerprint string: </span>"
+				info += SPAN_NOTICE("Fingerprint string: ")
 				if(!is_complete_print(prints))
 					info += "INCOMPLETE PRINT"
 				else

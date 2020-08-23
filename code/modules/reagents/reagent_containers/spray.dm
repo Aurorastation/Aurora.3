@@ -32,7 +32,7 @@
 	if(!usr || usr.stat || usr.lying || usr.restrained() || !Adjacent(usr))	return
 	safety = !safety
 	playsound(src.loc, 'sound/weapons/safety_click.ogg', 50, 1)
-	to_chat(usr, "<span class = 'notice'>You twist the locking cap on the end of the nozzle. \The [src] is now [safety ? "locked" : "unlocked"].</span>")
+	to_chat(usr, SPAN_NOTICE("You twist the locking cap on the end of the nozzle. \The [src] is now [safety ? "locked" : "unlocked"]."))
 
 
 /obj/item/reagent_containers/spray/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
@@ -170,7 +170,7 @@
 
 /obj/item/reagent_containers/spray/pepper/attack_self(var/mob/user)
 	safety = !safety
-	to_chat(user, "<span class = 'notice'>You switch the safety [safety ? "on" : "off"].</span>")
+	to_chat(user, SPAN_NOTICE("You switch the safety [safety ? "on" : "off"]."))
 	playsound(src.loc, 'sound/weapons/safety_click.ogg', 50, 1)
 
 /obj/item/reagent_containers/spray/waterflower

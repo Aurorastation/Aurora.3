@@ -30,22 +30,22 @@
 	if(proximity_flag)
 		if(istype(target, /obj/item/gun))
 			if(!on)
-				to_chat(user, "<span class ='notice'>\The [src.name] is not turned on.</span>")
+				to_chat(user, SPAN_NOTICE("\The [src.name] is not turned on."))
 				..()
 				return
 			var/obj/item/gun/G = target
 			if(G.pin)
-				to_chat(user, "<span class ='notice'>You begin removing [G.name]'s [G.pin.name] using [src], it will take 15 seconds.</span>")
+				to_chat(user, SPAN_NOTICE("You begin removing [G.name]'s [G.pin.name] using [src], it will take 15 seconds."))
 
 				if(!do_after(user, 15 SECONDS, act_target = target))
 					return
 
-				to_chat(user, "<span class ='notice'>You remove [G.name]'s [G.pin.name].</span>")
+				to_chat(user, SPAN_NOTICE("You remove [G.name]'s [G.pin.name]."))
 				G.pin.forceMove(get_turf(G))
 				G.pin.gun = null
 				G.pin = null
 
 			else
-				to_chat(user, "<span class ='notice'>\The [G.name] doesn't have a firing pin installed.</span>")
+				to_chat(user, SPAN_NOTICE("\The [G.name] doesn't have a firing pin installed."))
 		else
 			..()

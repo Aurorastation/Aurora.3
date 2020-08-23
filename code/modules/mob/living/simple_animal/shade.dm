@@ -236,7 +236,7 @@
 		to_chat(src, SPAN_WARNING("You cannot affect the world outside your host!"))
 		return
 
-	visible_message("<span class ='notice'>\The [src] pulses.</span>")
+	visible_message(SPAN_NOTICE("\The [src] pulses."))
 	for(var/obj/machinery/light/L in view(5, src))
 		L.flicker()
 
@@ -267,7 +267,7 @@
 		return
 
 	do_teleport(choice, get_turf(src))
-	visible_message("<span class ='notice'>\The [src] pulses.</span>")
+	visible_message(SPAN_NOTICE("\The [src] pulses."))
 
 	message_countdown = max(0, message_countdown - 20)
 

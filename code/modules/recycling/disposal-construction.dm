@@ -263,10 +263,10 @@
 			var/obj/item/weldingtool/W = I
 			if(W.remove_fuel(0,user))
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
-				to_chat(user, "Welding the [nicetype] in place.")
+				user.visible_message("<b>[src]</b> begins to weld the [nicetype] in place...", SPAN_NOTICE("You being to weld the [nicetype] in place..."))
 				if(do_after(user, 20/W.toolspeed))
 					if(!src || !W.isOn()) return
-					to_chat(user, "The [nicetype] has been welded in place!")
+					user.visible_message("<b>[src]</b> welds the [nicetype] in place!", SPAN_NOTICE("You weld the [nicetype] in place!"))
 					update() // TODO: Make this neat
 					if(ispipe) // Pipe
 

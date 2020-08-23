@@ -92,12 +92,9 @@
 		return ..()
 
 /obj/item/device/spy_monitor/proc/pair(var/obj/item/device/spy_bug/SB, var/mob/living/user)
-	if(SB.camera in cameras)
-		to_chat(user, SPAN_NOTICE("\The [SB] has been unpaired from \the [src]."))
-		cameras -= SB.camera
-	else
-		to_chat(user, SPAN_NOTICE("\The [SB] has been paired with \the [src]."))
-		cameras += SB.camera
+	var/paired = SB.camera in cameras
+	to_chat(user, SPAN_NOTICE("You [paired ? "un" : ""]pair [SB] [paired ? "from" : "to"] [src]."))
+	cameras ^= SB.camera
 
 /obj/item/device/spy_monitor/proc/view_cameras(mob/user)
 	if(!can_use_cam(user))

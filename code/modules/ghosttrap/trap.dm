@@ -385,7 +385,7 @@ datum/ghosttrap/pai/transfer_personality(var/mob/candidate, var/mob/living/silic
 	list_as_special_role = FALSE
 
 /datum/ghosttrap/traitor/welcome_candidate(var/mob/target)
-	to_chat(target, "<span class ='notice'> Check your notes for your PDA code!</span>")
+	to_chat(target, SPAN_NOTICE(" Check your notes for your PDA code!"))
 	return 1
 
 /datum/ghosttrap/vampire

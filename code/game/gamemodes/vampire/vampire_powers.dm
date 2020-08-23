@@ -125,11 +125,11 @@
 			vampire.frenzy--
 
 		if (blood_total != vampire.blood_total)
-			var/update_msg = "<span class='notice'>You have accumulated [vampire.blood_total] [vampire.blood_total > 1 ? "units" : "unit"] of blood</span>"
+			var/update_msg = "<span class='notice'>You have accumulated [vampire.blood_total] unit\s of blood</span>"
 			if (blood_usable != vampire.blood_usable)
-				update_msg += "<span class='notice'> and have [vampire.blood_usable] left to use.</span>"
+				update_msg += SPAN_NOTICE(" and have [vampire.blood_usable] left to use.")
 			else
-				update_msg += "<span class='notice'>.</span>"
+				update_msg += SPAN_NOTICE(".")
 
 			to_chat(src, update_msg)
 		check_vampire_upgrade()

@@ -445,7 +445,7 @@
 	if ( (src.OCCUPANT) || (src.HELMET) || (src.SUIT) )
 		to_chat(usr, "<font color='red'>It's too cluttered inside for you to fit in!</font>")
 		return
-	usr.visible_message("<b>[usr]</b> starts squeezing into [src]!", "<span class='notice'>You start squeezing into [src]!</span>", range = 3)
+	usr.visible_message("<b>[usr]</b> starts squeezing into [src]!", SPAN_NOTICE("You start squeezing into [src]!"), range = 3)
 	if(do_after(usr, 10))
 		usr.stop_pulling()
 		usr.client.perspective = EYE_PERSPECTIVE
@@ -486,7 +486,7 @@
 		if ( (src.OCCUPANT) || (src.HELMET) || (src.SUIT) ) //Unit needs to be absolutely empty
 			to_chat(user, "<font color='red'>The unit's storage area is too cluttered.</font>")
 			return
-		user.visible_message("<b>[user]</b> starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
+		user.visible_message("<b>[user]</b> starts putting [G.affecting] into [src].", SPAN_NOTICE("You start putting [G.affecting] into [src].", range = 3)
 		if(do_after(user, 20))
 			if(!G || !G.affecting) return //derpcheck
 			var/mob/M = G.affecting

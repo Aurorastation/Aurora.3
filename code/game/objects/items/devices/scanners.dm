@@ -253,7 +253,7 @@ BREATH ANALYZER
 				unknown++
 		if(reagentdata.len)
 			print_reagent_default_message = FALSE
-			dat += "<span class='notice'>Beneficial reagents detected in subject's blood:</span>"
+			dat += SPAN_NOTICE("Beneficial reagents detected in subject's blood:")
 			for(var/d in reagentdata)
 				dat += reagentdata[d]
 		if(unknown)
@@ -266,7 +266,7 @@ BREATH ANALYZER
 		for(var/datum/reagent/R in ingested.reagent_list)
 			if(R.scannable)
 				print_reagent_default_message = FALSE
-				dat += "<span class='notice'>[R.name] found in subject's stomach.</span>"
+				dat += SPAN_NOTICE("[R.name] found in subject's stomach.")
 			else
 				++unknown
 		if(unknown)

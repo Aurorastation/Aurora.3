@@ -55,13 +55,13 @@ Contains:
 				return 1
 
 			user.visible_message( \
-					"<span class = 'notice'> [user] starts applying \the [src] to [M].</span>", \
-					"<span class = 'notice'> You start applying \the [src] to [M].</span>" \
+					SPAN_NOTICE(" [user] starts applying \the [src] to [M]."), \
+					SPAN_NOTICE(" You start applying \the [src] to [M].") \
 				)
 			if (do_mob(user, M, 30))
 				user.visible_message( \
-					"<span class = 'notice'> [M] has been applied with [src] by [user].</span>", \
-					"<span class = 'notice'> You apply \the [src] to [M].</span>" \
+					SPAN_NOTICE(" [M] has been applied with [src] by [user]."), \
+					SPAN_NOTICE(" You apply \the [src] to [M].") \
 				)
 				use(1)
 			return 1
@@ -78,14 +78,14 @@ Contains:
 			return 1
 
 		user.visible_message( \
-				"<span class = 'notice'> [user] starts applying \the [src] to [M].</span>", \
-				"<span class = 'notice'> You start applying \the [src] to [M].</span>" \
+				SPAN_NOTICE(" [user] starts applying \the [src] to [M]."), \
+				SPAN_NOTICE(" You start applying \the [src] to [M].") \
 			)
 		if (do_mob(user, M, 30))
 			M.heal_organ_damage((src.heal_brute/2), (src.heal_burn/2))
 			user.visible_message( \
-				"<span class = 'notice'> [M] has been applied with [src] by [user].</span>", \
-				"<span class = 'notice'> You apply \the [src] to [M].</span>" \
+				SPAN_NOTICE(" [M] has been applied with [src] by [user]."), \
+				SPAN_NOTICE(" You apply \the [src] to [M].") \
 			)
 			use(1)
 
