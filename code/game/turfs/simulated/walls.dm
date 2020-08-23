@@ -66,7 +66,7 @@
 /turf/simulated/wall/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(!opacity && istype(mover) && mover.checkpass(PASSGLASS))
 		return TRUE
-	..()
+	return ..()
 
 /turf/simulated/wall/bullet_act(var/obj/item/projectile/Proj)
 	if(istype(Proj,/obj/item/projectile/beam))

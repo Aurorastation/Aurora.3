@@ -1471,7 +1471,8 @@
 		/obj/item/gun/projectile/shotgun/doublebarrel/pellet = 1,
 		/obj/item/gun/projectile/shotgun/pump/rifle = 1,
 		/obj/item/gun/projectile/tanto = 1,
-		/obj/item/gun/projectile/gauss = 1
+		/obj/item/gun/projectile/gauss = 1,
+		/obj/item/gun/projectile/revolver/knife = 1
 		)
 
 	var/list/Rare = list(
@@ -1493,7 +1494,9 @@
 		/obj/item/gun/projectile/shotgun/doublebarrel/sawn = 1,
 		/obj/item/gun/projectile/shotgun/foldable = 1,
 		/obj/item/gun/projectile/shotgun/pump/combat = 1,
-		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1
+		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1,
+		/obj/item/gun/projectile/automatic/rifle/adhomian = 1,
+		/obj/item/gun/projectile/musket = 0.5
 		)
 
 	var/list/Epic = list(
@@ -1535,6 +1538,10 @@
 		var/obj/item/ammo_magazine/am = spawned.magazine_type
 		new am(spawned.loc)
 		new am(spawned.loc)
+
+	if(istype(spawned, /obj/item/gun/projectile/musket))
+		new /obj/item/reagent_containers/powder_horn(spawned.loc)
+
 	else if(istype(spawned, /obj/item/gun/projectile/shotgun) && spawned.caliber == "shotgun")
 		if(istype(spawned.loc, /obj/item/storage/box))
 			spawned.loc.icon_state = "largebox"

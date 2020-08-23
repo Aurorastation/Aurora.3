@@ -3,6 +3,7 @@
 /area/derelict
 	name = "Derelict Station"
 	icon_state = "storage"
+	ambience = AMBIENCE_RUINS
 	no_light_control = 1
 	base_turf = /turf/space
 	requires_power = FALSE

@@ -381,6 +381,20 @@
 	. = 1
 	return 1
 
+//For any objects that may require additional handling when swabbed, e.g. a beaker may need to provide information about its contents, not just itself
+//Children must return additional_evidence list
+/atom/proc/get_additional_forensics_swab_info()
+	SHOULD_CALL_PARENT(TRUE)
+	var/list/additional_evidence = list(
+		"type" = "",
+		"dna" = list(),
+		"gsr" = "",
+		"sample_type" = "",
+		"sample_message" = ""
+	)
+
+	return additional_evidence
+
 /atom/proc/add_vomit_floor(var/mob/living/carbon/M, var/toxvomit = 0, var/datum/reagents/inject_reagents)
 	if(istype(src, /turf/simulated))
 		var/obj/effect/decal/cleanable/vomit/this = new /obj/effect/decal/cleanable/vomit(src)

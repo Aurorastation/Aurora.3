@@ -29,6 +29,8 @@
 		var/datum/job/role = SSjobs.type_occupations[path]
 		if(LAZYACCESS(job_species_blacklist, role.title))
 			role.blacklisted_species = job_species_blacklist[role.title]
+		else
+			role.blacklisted_species = initial(role.blacklisted_species)
 		. += role
 
 /datum/faction/proc/get_selection_error(datum/preferences/prefs)
