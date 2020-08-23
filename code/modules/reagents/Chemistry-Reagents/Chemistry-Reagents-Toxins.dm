@@ -479,7 +479,7 @@
 
 /datum/reagent/polysomnine
 	name = "Polysomnine"
-	description = "Polysomnine is a complex drug which rapidly induces sedation in preparation for surgery. Polysomnine’s sedative effect is fast acting, and sedated individuals wake up with zero amnesia regarding the events leading up to their sedation, however the only downside is how hard the drug is on the liver."
+	description = "Polysomnine is a complex drug which rapidly induces sedation in preparation for surgery. Polysomnine's sedative effect is fast acting, and sedated individuals wake up with zero amnesia regarding the events leading up to their sedation, however the only downside is how hard the drug is on the liver."
 	reagent_state = SOLID
 	color = "#000067"
 	metabolism = REM * 0.5
@@ -521,7 +521,7 @@
 
 /datum/reagent/slimetoxin
 	name = "Mutation Toxin"
-	description = "A transformative toxin isolated from jelly extract from green slimes. Use of the chemical has profound effects on the body’s cells, converting animal cells into unique slime cells. These slime cells begin to replace the normal cells of the body, resulting in the development of ‘slime people’, though eventually these degenerate into grey slimes."
+	description = "A transformative toxin isolated from jelly extract from green slimes. Use of the chemical has profound effects on the body's cells, converting animal cells into unique slime cells. These slime cells begin to replace the normal cells of the body, resulting in the development of ‘slime people', though eventually these degenerate into grey slimes."
 	reagent_state = LIQUID
 	color = "#13BC5E"
 	taste_description = "sludge"

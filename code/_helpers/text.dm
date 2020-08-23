@@ -62,6 +62,7 @@
 #define SYMBOLS_DETECTED 2
 #define NUMBERS_DETECTED 3
 #define LETTERS_DETECTED 4
+#define SYMBOLS_DETECTED_NEW_WORD 5 // symbols that we will interpret as the start of a new word
 
 /**
   * Filters out undesirable characters from names.
@@ -96,7 +97,7 @@
 
 			// a  .. z
 			if(97 to 122)   //Lowercase Letters
-				if(last_char_group == NO_CHARS_DETECTED || last_char_group == SPACES_DETECTED || last_char_group == SYMBOLS_DETECTED) //start of a word
+				if(last_char_group == NO_CHARS_DETECTED || last_char_group == SPACES_DETECTED || last_char_group == SYMBOLS_DETECTED_NEW_WORD) //start of a word
 					char = uppertext(char)
 				number_of_alphanumeric++
 				last_char_group = LETTERS_DETECTED
@@ -108,17 +109,17 @@
 				number_of_alphanumeric++
 				last_char_group = NUMBERS_DETECTED
 
-			// '  -  .
-			if(39,45,46)   //Common name punctuation
+			// '  -
+			if(39,45)   //Common name punctuation
 				if(last_char_group == NO_CHARS_DETECTED)
 					continue
 				last_char_group = SYMBOLS_DETECTED
 
-			// ~   |   @  :  #  $  %  &  *  +
-			if(126,124,64,58,35,36,37,38,42,43)			//Other symbols that we'll allow (mainly for AI)
+			// ~   |   @  :  #  $  %  &  *  + .
+			if(126,124,64,58,35,36,37,38,42,43,46)			//Other symbols that we'll allow (mainly for AI)
 				if(last_char_group == NO_CHARS_DETECTED || !allow_numbers) //suppress at start of string
 					continue
-				last_char_group = SYMBOLS_DETECTED
+				last_char_group = SYMBOLS_DETECTED_NEW_WORD
 
 			//Space
 			if(32)
@@ -153,6 +154,7 @@
 #undef SYMBOLS_DETECTED
 #undef NUMBERS_DETECTED
 #undef LETTERS_DETECTED
+#undef SYMBOLS_DETECTED_NEW_WORD
 
 //Returns null if there is any bad text in the string
 /proc/reject_bad_text(text, max_length=512)
