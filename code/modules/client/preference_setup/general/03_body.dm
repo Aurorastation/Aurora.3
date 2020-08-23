@@ -351,7 +351,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			mob_species = all_species[pref.species]
 
 			pref.gender = sanitize_gender(pref.gender, pref.species)
-			var/bodytype = mob_species.get_bodytype()
+			//var/bodytype = mob_species.get_bodytype()
 
 			//grab one of the valid hair styles for the newly chosen species
 			var/list/valid_hairstyles = list()
@@ -363,7 +363,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					continue
 				if(pref.gender == FEMALE && S.gender == MALE)
 					continue
-				if(!(bodytype in S.species_allowed))
+				if(!(mob_species.type in S.species_allowed))
 					continue
 				valid_hairstyles[hairstyle] = hair_styles_list[hairstyle]
 
@@ -380,7 +380,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					continue
 				if(pref.gender == FEMALE && S.gender == MALE)
 					continue
-				if(!(bodytype in S.species_allowed))
+				if(!(mob_species.type in S.species_allowed))
 					continue
 
 				valid_facialhairstyles[facialhairstyle] = facial_hair_styles_list[facialhairstyle]
@@ -416,11 +416,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["hair_style"])
 		if(mob_species.bald)
 			return
-		var/bodytype = mob_species.get_bodytype()
+		//var/bodytype = mob_species.get_bodytype()
 		var/list/valid_hairstyles = list()
 		for(var/hairstyle in hair_styles_list)
 			var/datum/sprite_accessory/S = hair_styles_list[hairstyle]
-			if(!(bodytype in S.species_allowed))
+			if(!(mob_species.type in S.species_allowed))
 				continue
 
 			valid_hairstyles[hairstyle] = hair_styles_list[hairstyle]
@@ -481,14 +481,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		if(mob_species.bald)
 			return
 		var/list/valid_facialhairstyles = list()
-		var/bodytype = mob_species.get_bodytype()
+		//var/bodytype = mob_species.get_bodytype()
 		for(var/facialhairstyle in facial_hair_styles_list)
 			var/datum/sprite_accessory/S = facial_hair_styles_list[facialhairstyle]
 			if(pref.gender == MALE && S.gender == FEMALE)
 				continue
 			if(pref.gender == FEMALE && S.gender == MALE)
 				continue
-			if(!(bodytype in S.species_allowed))
+			if(!(mob_species.type in S.species_allowed))
 				continue
 
 			valid_facialhairstyles[facialhairstyle] = facial_hair_styles_list[facialhairstyle]
@@ -501,12 +501,12 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["marking_style"])
 		var/list/usable_markings = pref.body_markings ^ body_marking_styles_list
 		var/datum/species/species = global.all_species[pref.species]
-		var/btype = species.get_bodytype()
+		//var/btype = species.get_bodytype()
 		for(var/M in usable_markings)
 			var/datum/sprite_accessory/S = usable_markings[M]
 			if(!S.species_allowed.len)
 				continue
-			else if(!(btype in S.species_allowed))
+			else if(!(species.type in S.species_allowed))
 				usable_markings -= M
 
 		if (!usable_markings.len)

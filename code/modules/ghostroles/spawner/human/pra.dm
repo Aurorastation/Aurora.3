@@ -41,7 +41,7 @@
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut
 	shoes = /obj/item/clothing/shoes/jackboots/toeless
 	belt = /obj/item/storage/belt/military
-	back = /obj/item/gun/projectile/shotgun/pump/rifle
+	back = /obj/item/gun/projectile/automatic/rifle/adhomian
 	id = /obj/item/card/id/syndicate
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	belt_contents = list(

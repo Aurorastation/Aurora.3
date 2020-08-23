@@ -4,8 +4,8 @@
 	program_icon_state = "generic"
 	extended_desc = "Useful program to view chemical reactions and how to make them."
 	size = 14
-	required_access_run = access_medical
-	required_access_download = access_medical
+	required_access_run = list(access_medical, access_research)
+	required_access_download = list(access_medical, access_research)
 	available_on_ntnet = TRUE
 
 /datum/computer_file/program/chemistry_codex/ui_interact(mob/user)

@@ -4364,7 +4364,7 @@
 	desc = "A piece of salted fatshouter's meat stored inside a metal can."
 	icon_state = "canned"
 	bitesize = 2
-	trash = /obj/item/trash/can
+	trash = /obj/item/trash/can/adhomian_can
 	desc_fluff = "While the People's republic territory includes several different regional cultures, it is possible to find common culinary traditions among its population. \
 	Salt-cured Fatshouters's meat also has been introduced widely, facilitated by the recent advances in the livestock husbandry techniques."
 	reagents_to_add = list(/datum/reagent/nutriment/protein = 5, /datum/reagent/sodiumchloride = 2)

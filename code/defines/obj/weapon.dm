@@ -273,6 +273,14 @@
 	icon_state = "crutch"
 	item_state = "crutch"
 
+/obj/item/cane/shillelagh
+	name = "adhomian shillelagh"
+	desc = "A sturdy walking stick made from adhomian wood."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "shillelagh"
+	item_state = "shillelagh"
+	contained_sprite = TRUE
+
 /obj/item/disk
 	name = "disk"
 	icon = 'icons/obj/items.dmi'

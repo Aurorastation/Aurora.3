@@ -59,7 +59,7 @@
 	icon_state = "praberet"
 	item_state = "praberet"
 
-/obj/item/clothing/head/tajaran/pra_beret
+/obj/item/clothing/head/tajaran/nka_cap
 	name = "service cap"
 	desc = "A simple service cap worn by soldiers of the Adhomai Imperial Army."
 	icon_state = "nkahat"

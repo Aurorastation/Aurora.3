@@ -162,8 +162,8 @@
 /obj/item/clothing/suit/storage/tajaran/pra_jacket
 	name = "republican service jacket"
 	desc = "An olive military jacket worn by the forces of the Grand People's Army."
-	icon_state = "taj_commoncloak"
-	item_state = "taj_commoncloak"
+	icon_state = "greenservice"
+	item_state = "greenservice"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	armor = list(melee = 30, bullet = 20, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
 	siemens_coefficient = 0.50

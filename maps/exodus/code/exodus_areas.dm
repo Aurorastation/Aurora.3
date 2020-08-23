@@ -9,4 +9,4 @@
 /area/AIsattele
 	name = "AI Satellite Teleporter Room"
 	icon_state = "teleporter"
-	ambience = list('sound/ambience/ambimalf.ogg')
+	ambience = AMBIENCE_AI

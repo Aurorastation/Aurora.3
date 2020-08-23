@@ -53,9 +53,9 @@
 	///Sound used when equipping the item into a valid slot
 	var/equip_sound = null
 	///Sound uses when picking the item up (into your hands)
-	var/pickup_sound = 'sound/items/pickup/device.ogg'
+	var/pickup_sound = "generic_pickup"
 	///Sound uses when dropping the item, or when its thrown.
-	var/drop_sound = 'sound/items/drop/device.ogg' // drop sound - this is the default
+	var/drop_sound = "generic_drop" // drop sound - this is the default
 
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
@@ -111,6 +111,8 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi',
 		)
+	pickup_sound = 'sound/items/pickup/device.ogg'
+	drop_sound = 'sound/items/drop/device.ogg'
 
 /atom/proc/get_cell()
 	return DEVICE_NO_CELL
