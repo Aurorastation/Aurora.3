@@ -425,6 +425,9 @@
 /mob/living/silicon/robot/drone/remove_robot_verbs()
 	src.verbs -= silicon_subsystems
 
+/mob/living/silicon/robot/drone/self_destruct()
+	gib()
+	
 /mob/living/silicon/robot/drone/examine(mob/user)
 	..()
 	var/msg
