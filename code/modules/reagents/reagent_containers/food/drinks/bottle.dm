@@ -234,7 +234,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/vodka
 	name = "Martian 50% Premium"
-	desc = "Only potatoes grown in real imported Martian soil may be used for this premium vodka. Made by Silverport, drank by Zavodskoi."
+	desc = "Only potatoes grown in real imported Martian soil may be used for this premium vodka. Made by Silverport, drunk by Zavodskoi."
 	desc_fluff = DRINK_FLUFF_SILVERPORT
 	icon_state = "vodkabottle"
 	center_of_mass = list("x"=17, "y"=4)
