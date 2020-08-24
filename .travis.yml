@@ -6,10 +6,11 @@ env:
   global:
     BYOND_MAJOR="513"
     BYOND_MINOR="1517"
-    MACRO_COUNT=77
+    MACRO_COUNT=0
+    TO_WORLD_COUNT=223
     FLYWAY_BUILD="5.2.4"
     NODE_VERSION=10
-    RUST_G_VERSION="0.4.1"
+    RUST_G_VERSION="0.4.2a"
     PATH=/opt/python/3.7.1/bin:$PATH
     SPACEMAN_DMM_VERSION="suite-1.4"
   matrix:
@@ -86,7 +87,8 @@ jobs:
         - (cd vueui && (npm run lint | tee lint.log))
         - grep "No lint errors found!" vueui/lint.log
         - (cd vueui && npm run build)
-        - (num=`grep -E '\\\\(red|blue|green|black|b|i[^mc])' **/*.dm | wc -l`; echo "$num escapes (expecting ${MACRO_COUNT} or less)"; [ $num -le ${MACRO_COUNT} ])
+        - (num=`grep -E '\\\\(red|blue|green|black|b|i[^mc])' **/*.dm | wc -l`; echo "$num escapes (expecting ${MACRO_COUNT} or less)"; [ $num -eq ${MACRO_COUNT} ])
+        - (num=`grep -r --include \*.dm -oh to_world\( . | wc -w`; echo "$num to_worlds (expecting ${TO_WORLD_COUNT})"; [ $num -eq ${TO_WORLD_COUNT} ])
         - awk -f tools/indentation.awk **/*.dm
         - md5sum -c - <<< "60a49502d9f6dfdcc255deb98c901b72 *html/changelogs/example.yml"
         - python3 tools/TagMatcher/tag-matcher.py ../..

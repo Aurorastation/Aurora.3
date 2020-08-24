@@ -35,7 +35,7 @@ calculate text size per text.
 		for(var/datum/reagent/R in reagent_list)
 			if(!R.taste_mult)
 				continue
-			if(istype(R, /datum/reagent/nutriment))
+			if(R.type == /datum/reagent/nutriment)
 				var/list/taste_data = R.get_data()
 				for(var/taste in taste_data)
 					if(taste in tastes)

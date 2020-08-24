@@ -74,7 +74,7 @@
 		desc = SSplants.product_descs["[seed.uid]"]
 	else
 		var/list/descriptors = list()
-		if(reagents.has_reagent(/datum/reagent/sugar) || reagents.has_reagent(/datum/reagent/nutriment/cherryjelly) || reagents.has_reagent(/datum/reagent/honey) || reagents.has_reagent(/datum/reagent/drink/berryjuice))
+		if(reagents.has_reagent(/datum/reagent/sugar) || reagents.has_reagent(/datum/reagent/nutriment/cherryjelly) || reagents.has_reagent(/datum/reagent/nutriment/honey) || reagents.has_reagent(/datum/reagent/drink/berryjuice))
 			descriptors |= "sweet"
 		if(reagents.has_reagent(/datum/reagent/dylovene))
 			descriptors |= "astringent"

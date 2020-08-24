@@ -356,7 +356,6 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/engineering/construction/Initialize()
 	. = ..()
-	src.modules += new /obj/item/borg/sight/meson(src)
 	src.modules += new /obj/item/powerdrill(src)
 	src.modules += new /obj/item/rfd/construction/borg(src)
 	src.modules += new /obj/item/rfd/piping/borg(src)
@@ -415,7 +414,6 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/engineering/general/Initialize()
 	. = ..()
-	src.modules += new /obj/item/borg/sight/meson(src)
 	src.modules += new /obj/item/powerdrill(src)
 	src.modules += new /obj/item/weldingtool/largetank(src)
 	src.modules += new /obj/item/screwdriver/robotic(src)
@@ -674,7 +672,6 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/miner/Initialize()
 	. = ..()
-	src.modules += new /obj/item/borg/sight/material(src)
 	src.modules += new /obj/item/storage/bag/ore(src)
 	src.modules += new /obj/item/pickaxe/borgdrill(src)
 	src.modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
@@ -947,7 +944,6 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/mining_drone/proc/set_up_default(var/mob/living/silicon/robot/R, var/drill = TRUE)
 	modules += new /obj/item/device/flash(src)
-	modules += new /obj/item/borg/sight/material(src)
 	if(drill)
 		modules += new /obj/item/pickaxe/drill(src)
 	modules += new /obj/item/storage/bag/ore/drone(src)

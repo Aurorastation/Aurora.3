@@ -14,8 +14,8 @@ STOCK_ITEM_UNCOMMON(plasteel, 3)
 STOCK_ITEM_UNCOMMON(silver, 2)
 	new /obj/item/stack/material/silver(L, rand(5,30))
 
-STOCK_ITEM_UNCOMMON(phoronsheets, 2)
-	new /obj/item/stack/material/phoron(L, rand(5,50))
+STOCK_ITEM_UNCOMMON(phoronsheets, 1.5)
+	new /obj/item/stack/material/phoron(L, rand(5,40))
 
 STOCK_ITEM_UNCOMMON(phoronglass, 2)
 	new /obj/item/stack/material/glass/phoronglass(L, 50)

@@ -369,7 +369,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "ghoz_eyes"
 	contained_sprite = TRUE
 	action_button_name = "Toggle Eyelids"
-	species_restricted = list("Vaurca") //i think this would make sense since those are some kind of vaurca build prothestic
+	species_restricted = list(BODYTYPE_VAURCA) //i think this would make sense since those are some kind of vaurca build prothestic
 
 
 /obj/item/clothing/head/det/fluff/leo_hat //Tagged brown hat - Leo Wyatt - keinto
@@ -956,7 +956,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "aegis_uniform"
 	item_state = "aegis_uniform"
 	contained_sprite = TRUE
-	species_restricted = list("Heavy Machine")
+	species_restricted = list(BODYTYPE_IPC_INDUSTRIAL)
 
 
 /obj/item/fluff/daliyah_visa //NanoTrasen Exchange Visa - Daliyah Veridan - xanderdox

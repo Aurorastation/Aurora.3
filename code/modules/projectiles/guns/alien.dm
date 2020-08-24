@@ -48,7 +48,7 @@
 /obj/item/gun/launcher/spikethrower/special_check(user)
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
-		if(H.species && H.species.name != "Vox" && H.species.name != "Vox Armalis")
+		if(H.species && H.species.name != SPECIES_VOX && H.species.name != SPECIES_VOX_ARMALIS)
 			to_chat(user, "<span class='warning'>\The [src] does not respond to you!</span>")
 			return 0
 	return ..()
@@ -82,14 +82,14 @@
 	var/mode = 1
 
 	sprite_sheets = list(
-		"Vox Armalis" = 'icons/mob/species/armalis/held.dmi'
+		BODYTYPE_VOX_ARMALIS = 'icons/mob/species/armalis/held.dmi'
 		)
 
 /obj/item/gun/energy/noisecannon/attack_hand(mob/user as mob)
 	if(loc != user)
 		var/mob/living/carbon/human/H = user
 		if(istype(H))
-			if(H.species.name == "Vox Armalis")
+			if(H.species.name == SPECIES_VOX_ARMALIS)
 				..()
 				return
 		to_chat(user, "<span class='warning'>\The [src] is far too large for you to pick up.</span>")
@@ -105,7 +105,7 @@
 	icon_state = "particle"
 	damage = 60
 	damage_type = BRUTE
-	check_armour = "bullet"
+	check_armor = "bullet"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 
 	embed = 0

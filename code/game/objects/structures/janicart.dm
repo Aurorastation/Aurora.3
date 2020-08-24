@@ -24,6 +24,21 @@
 	var/driving
 	var/mob/living/pulling
 
+/obj/structure/janitorialcart/full/Initialize()
+	..()
+	mybag = new /obj/item/storage/bag/trash(src)
+	mymop = new /obj/item/mop(src)
+	myspray = new /obj/item/reagent_containers/spray/cleaner(src)
+	myreplacer = new /obj/item/device/lightreplacer(src)
+
+	mybucket = new /obj/structure/mopbucket(src)
+	mybucket.reagents.add_reagent(/datum/reagent/water, mybucket.bucketsize)
+
+	for(signs, signs < 4, signs++)
+		new /obj/item/clothing/suit/caution(src)
+
+	update_icon()
+
 /obj/structure/janitorialcart/New()
 	..()
 	janitorial_supplies |= src
@@ -144,17 +159,17 @@
 		//This prevents dumb stuff like splashing the cart with the contents of a container, after putting said container into trash
 
 	else if (!has_items && (I.iswrench() || I.iswelder() || istype(I, /obj/item/gun/energy/plasmacutter)))
-		take_apart(user)
+		take_apart(user, I)
 		return
 	..()
 
-/obj/structure/janitorialcart/proc/take_apart(var/mob/user = null)
+/obj/structure/janitorialcart/proc/take_apart(var/mob/user = null, var/obj/I)
 	if(has_items)
 		spill()
 
 	if(user)
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-		user.visible_message("[user] starts taking apart the [src]", "You start disasembling the [src]")
+		playsound(src.loc, I.usesound, 50, 1)
+		user.visible_message("<b>[user]</b> starts taking apart the [src]...", SPAN_NOTICE("You start disassembling the [src]..."))
 		if (!do_after(user, 30, needhand = 0))
 			return
 

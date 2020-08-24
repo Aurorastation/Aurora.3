@@ -362,12 +362,6 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = SINGLE_CASING|SPEEDLOADER
 
-/obj/item/gun/projectile/leyon/load_ammo(var/obj/item/A, mob/user)
-	user.visible_message("[user] begins reloading \the [src].", "You begin reloading \the [src].")
-	if(!do_after(user, 20, act_target = src))
-		return
-	return ..()
-
 /obj/item/gun/projectile/leyon/update_icon()
 	..()
 	if(loaded.len)

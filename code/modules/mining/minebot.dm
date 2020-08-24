@@ -105,13 +105,15 @@
 /mob/living/silicon/robot/drone/mining/process_level_restrictions()
 	//Abort if they should not get blown
 	if(lock_charge || scrambled_codes || emagged)
-		return
-	//Check if they are not on a station level -> abort
+		return FALSE
+	//Check if they are not on a station level -> else abort
 	var/turf/T = get_turf(src)
 	if (!T || isStationLevel(T.z))
-		return
-	to_chat(src, SPAN_DANGER("WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated."))
-	gib()
+		return FALSE
+	if(!self_destructing)
+		to_chat(src, SPAN_DANGER("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
+		start_self_destruct(TRUE)
+	return TRUE
 
 /**********************Minebot Upgrades**********************/
 

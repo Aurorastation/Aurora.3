@@ -86,6 +86,7 @@
 	new /obj/item/clothing/glasses/hud/health/aviator(src)
 	new /obj/item/clothing/glasses/eyepatch/hud/medical(src)
 	new /obj/item/clothing/suit/storage/medical_chest_rig(src)
+	new /obj/item/clothing/suit/storage/medical_chest_rig/emt(src)
 
 
 /obj/structure/closet/secure_closet/CMO
@@ -117,6 +118,7 @@
 	new /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt(src)
 	new /obj/item/storage/box/inhalers(src)
 	new /obj/item/clothing/glasses/hud/health/aviator(src)
+	new /obj/item/storage/box/fancy/keypouch/med(src)
 
 /obj/structure/closet/secure_closet/CMO2
 	name = "chief medical officer's attire"
