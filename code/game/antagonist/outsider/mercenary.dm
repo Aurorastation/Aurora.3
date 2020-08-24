@@ -43,7 +43,7 @@ var/datum/antagonist/mercenary/mercs
 		if(I.loc != player)
 			qdel(I)
 
-	player.preEquipOutfit(/datum/outfit/admin/syndicate/mercenary, FALSE)
+	player.preEquipOutfit(/datum/outfit/admin/syndicate/mercenary, FALSE, TRUE)
 	player.equipOutfit(/datum/outfit/admin/syndicate/mercenary, FALSE)
 	player.force_update_limbs()
 	player.update_eyes()

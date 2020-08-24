@@ -2,15 +2,17 @@ var/global/list/uplink_locations = list("PDA", "Headset", "None")
 
 /datum/category_item/player_setup_item/antagonism/basic
 	name = "Setup"
-	sort_order = 2
+	sort_order = 3
 
 /datum/category_item/player_setup_item/antagonism/basic/load_character(var/savefile/S)
 	S["uplinklocation"] >> pref.uplinklocation
 	S["exploit_record"] >> pref.exploit_record
+	S["backbag"]       >> pref.backbag
 
 /datum/category_item/player_setup_item/antagonism/basic/save_character(var/savefile/S)
 	S["uplinklocation"] << pref.uplinklocation
 	S["exploit_record"] << pref.exploit_record
+	S["backbag"]       << pref.backbag
 
 /datum/category_item/player_setup_item/antagonism/basic/gather_load_query()
 	return list(
@@ -22,7 +24,8 @@ var/global/list/uplink_locations = list("PDA", "Headset", "None")
 		),
 		"ss13_characters" = list(
 			"vars" = list(
-				"uplink_location" = "uplinklocation"
+				"uplink_location" = "uplinklocation",
+				"backbag"
 			),
 			"args" = list("id")
 		)
@@ -42,6 +45,7 @@ var/global/list/uplink_locations = list("PDA", "Headset", "None")
 		),
 		"ss13_characters" = list(
 			"uplink_location",
+			"backbag",
 			"id" = 1,
 			"ckey" = 1
 		)
@@ -52,11 +56,16 @@ var/global/list/uplink_locations = list("PDA", "Headset", "None")
 
 /datum/category_item/player_setup_item/antagonism/basic/sanitize_character()
 	pref.uplinklocation	= sanitize_inlist(pref.uplinklocation, uplink_locations, initial(pref.uplinklocation))
+	pref.backbag = text2num(pref.backbag)
+	pref.backbag_style = text2num(pref.backbag_style)
+	pref.backbag	= sanitize_integer(pref.backbag, 1, backbaglist.len, initial(pref.backbag))
+	pref.backbag_style = sanitize_integer(pref.backbag_style, 1, backbagstyles.len, initial(pref.backbag_style))
 
 /datum/category_item/player_setup_item/antagonism/basic/content(var/mob/user)
 	var/list/dat = list(
 		"<b>Antag Setup:</b><br>",
 		"Uplink Type: <a href='?src=\ref[src];antagtask=1'>[pref.uplinklocation]</a><br>",
+		"Backpack Type: <a href='?src=\ref[src];change_backpack=1'><b>[backbaglist[pref.backbag]]</b></a><br>",
 		"Exploitable information:<br>"
 	)
 	if(jobban_isbanned(user, "Records"))
@@ -71,10 +80,16 @@ var/global/list/uplink_locations = list("PDA", "Headset", "None")
 		pref.uplinklocation = next_in_list(pref.uplinklocation, uplink_locations)
 		return TOPIC_REFRESH
 
-	if(href_list["exploitable_record"])
+	else if(href_list["exploitable_record"])
 		var/exploitmsg = sanitize(input(user,"Set exploitable information about you here.","Exploitable Information", html_decode(pref.exploit_record)) as message|null, MAX_PAPER_MESSAGE_LEN, extra = 0)
 		if(!isnull(exploitmsg) && !jobban_isbanned(user, "Records") && CanUseTopic(user))
 			pref.exploit_record = exploitmsg
 			return TOPIC_REFRESH
+
+	else if(href_list["change_backpack"])
+		var/new_backbag = input(user, "Choose your character's bag type:", "Character Preference", backbaglist[pref.backbag]) as null|anything in backbaglist
+		if(!isnull(new_backbag) && CanUseTopic(user))
+			pref.backbag = backbaglist.Find(new_backbag)
+			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	return ..()

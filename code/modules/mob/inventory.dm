@@ -423,7 +423,7 @@ var/list/slot_equipment_priority = list( \
 
 	return O.equip(src, visualsOnly)
 
-/mob/living/carbon/human/proc/preEquipOutfit(outfit, visualsOnly = FALSE)
+/mob/living/carbon/human/proc/preEquipOutfit(outfit, visualsOnly = FALSE, merc = FALSE)
 	var/datum/outfit/O = null
 
 	if(ispath(outfit))
@@ -435,4 +435,4 @@ var/list/slot_equipment_priority = list( \
 	if(!O)
 		return FALSE
 
-	return O.pre_equip(src, visualsOnly)
+	return O.pre_equip(src, visualsOnly, merc)

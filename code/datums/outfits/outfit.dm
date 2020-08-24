@@ -40,25 +40,26 @@
 	var/list/belt_contents = list() //In the list(path=count,otherpath=count) format
 	var/list/implants = null //A list of implants that should be implanted
 
-/datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE, merc = FALSE)
 	//to be overriden for customization depending on client prefs,species etc
-	if(allow_backbag_choice)
-		var/use_job_specific = H.backbag_style == 1
+	if(merc)
 		switch(H.backbag)
 			if (1)
 				back = null
 			if (2)
-				back = use_job_specific ? backpack : /obj/item/storage/backpack
+				back = /obj/item/storage/backpack/syndie
 			if (3)
-				back = use_job_specific ? satchel : /obj/item/storage/backpack/satchel_norm
+				back = /obj/item/storage/backpack/satchel_syndie
 			if (4)
-				back = use_job_specific ? satchel_alt : /obj/item/storage/backpack/satchel
+				back = /obj/item/storage/backpack/satchel
 			if (5)
-				back = use_job_specific ? dufflebag : /obj/item/storage/backpack/duffel
+				back = /obj/item/storage/backpack/duffel/syndie
 			if (6)
-				back = use_job_specific ? messengerbag : /obj/item/storage/backpack/messenger
+				back = /obj/item/storage/backpack/messenger/syndie
 			else
 				back = backpack //Department backpack
+	else
+		back = backpack //Department backpack
 	if(back)
 		equip_item(H, back, slot_back)
 
