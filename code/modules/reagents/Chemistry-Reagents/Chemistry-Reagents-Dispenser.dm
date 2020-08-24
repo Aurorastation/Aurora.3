@@ -312,7 +312,7 @@
 
 /datum/reagent/mercury
 	name = "Mercury"
-	description = "A toxic chemical element, one of only two elements that is liquid at human room temperature and pressure."
+	description = "A poisonous chemical element, one of two that is a liquid at human room temperature and pressure."
 	reagent_state = LIQUID
 	color = "#484848"
 	ingest_met = REM*0.1
