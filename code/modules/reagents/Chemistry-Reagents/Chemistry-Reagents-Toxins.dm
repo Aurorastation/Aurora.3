@@ -529,9 +529,9 @@
 /datum/reagent/slimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(H.species.name != "Slime")
+		if(H.species.name != SPECIES_SLIMEPERSON)
 			to_chat(M, "<span class='danger'>Your flesh rapidly mutates!</span>")
-			H.set_species("Slime")
+			H.set_species(SPECIES_SLIMEPERSON)
 
 /datum/reagent/aslimetoxin
 	name = "Advanced Mutation Toxin"

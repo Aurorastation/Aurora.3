@@ -11,7 +11,7 @@
 	uses_species_whitelist = FALSE
 
 	outfit = /datum/outfit/admin/pra_cosmonaut
-	possible_species = list("Tajara", "M'sai Tajara", "Zhan-Khazan Tajara")
+	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Kosmostrelki"
@@ -32,8 +32,8 @@
 	special_role = "Party Commissar"
 
 	outfit = /datum/outfit/admin/pra_cosmonaut/commissar
-	possible_species = list("Tajara", "M'sai Tajara")
-	req_species_whitelist = "Tajara"
+	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
+	req_species_whitelist = SPECIES_TAJARA
 
 /datum/outfit/admin/pra_cosmonaut
 	name = "Kosmostrelki"

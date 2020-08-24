@@ -55,6 +55,7 @@
 #include "code\__defines\rust_g.dm"
 #include "code\__defines\shuttle.dm"
 #include "code\__defines\spaceman_dmm.dm"
+#include "code\__defines\species.dm"
 #include "code\__defines\species_languages.dm"
 #include "code\__defines\subsystem-defines.dm"
 #include "code\__defines\subsystem-priority.dm"

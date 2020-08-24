@@ -96,7 +96,7 @@
 	emp_protection = 40
 	slowdown = 0
 
-	species_restricted = list("Human","Tajara","Unathi", "Skrell", "Machine", "Vaurca")
+	species_restricted = list(BODYTYPE_HUMAN,BODYTYPE_TAJARA,BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_IPC, BODYTYPE_VAURCA)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/light/ninja
 	chest_type = /obj/item/clothing/suit/space/rig/light/ninja
@@ -188,7 +188,7 @@
 		/obj/item/rig_module/chem_dispenser/offworlder
 		)
 
-	species_restricted = list("Human")
+	species_restricted = list(BODYTYPE_HUMAN)
 
 	siemens_coefficient = 0.9
 

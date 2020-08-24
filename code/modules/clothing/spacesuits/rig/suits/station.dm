@@ -282,4 +282,4 @@
 	req_access = list()
 	req_one_access = list()
 
-	species_restricted = list("Human")
+	species_restricted = list(BODYTYPE_HUMAN)

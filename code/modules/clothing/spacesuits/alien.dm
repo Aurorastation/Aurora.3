@@ -8,10 +8,10 @@
 	siemens_coefficient = 0.35
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
-	species_restricted = list("Vox", "Vox Armalis")
+	species_restricted = list(BODYTYPE_VOX, BODYTYPE_VOX_ARMALIS)
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/suit.dmi',
-		"Vox Armalis" = 'icons/mob/species/armalis/suit.dmi'
+		BODYTYPE_VOX = 'icons/mob/species/vox/suit.dmi',
+		BODYTYPE_VOX_ARMALIS = 'icons/mob/species/armalis/suit.dmi'
 		)
 
 /obj/item/clothing/head/helmet/space/vox
@@ -19,10 +19,10 @@
 	siemens_coefficient = 0.35
 	item_flags = STOPPRESSUREDAMAGE
 	flags_inv = null
-	species_restricted = list("Vox","Vox Armalis")
+	species_restricted = list(BODYTYPE_VOX,BODYTYPE_VOX_ARMALIS)
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi',
-		"Vox Armalis" = 'icons/mob/species/armalis/head.dmi'
+		BODYTYPE_VOX = 'icons/mob/species/vox/head.dmi',
+		BODYTYPE_VOX_ARMALIS = 'icons/mob/species/armalis/head.dmi'
 		)
 
 /obj/item/clothing/head/helmet/space/vox/pressure
@@ -80,10 +80,10 @@
 	item_state = "gloves-vox"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
-	species_restricted = list("Vox","Vox Armalis")
+	species_restricted = list(BODYTYPE_VOX,BODYTYPE_VOX_ARMALIS)
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/gloves.dmi',
-		"Vox Armalis" = 'icons/mob/species/armalis/gloves.dmi'
+		BODYTYPE_VOX = 'icons/mob/species/vox/gloves.dmi',
+		BODYTYPE_VOX_ARMALIS = 'icons/mob/species/armalis/gloves.dmi'
 		)
 
 /obj/item/clothing/shoes/magboots/vox
@@ -93,10 +93,10 @@
 	item_state = "boots-vox"
 	icon_state = "boots-vox"
 
-	species_restricted = list("Vox","Vox Armalis")
+	species_restricted = list(BODYTYPE_VOX,BODYTYPE_VOX_ARMALIS)
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/shoes.dmi',
-		"Vox Armalis" = 'icons/mob/species/armalis/feet.dmi'
+		BODYTYPE_VOX = 'icons/mob/species/vox/shoes.dmi',
+		BODYTYPE_VOX_ARMALIS = 'icons/mob/species/armalis/feet.dmi'
 		)
 
 	action_button_name = "Toggle the magclaws"
