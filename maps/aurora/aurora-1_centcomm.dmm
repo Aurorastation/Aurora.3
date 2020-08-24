@@ -4117,8 +4117,7 @@
 /area/centcom/living)
 "atp" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Interview Room";
-	opacity = 1
+	name = "Interview Room"
 	},
 /turf/unsimulated/floor{
 	icon_state = "carpet"
@@ -4179,8 +4178,7 @@
 /area/centcom/living)
 "atz" = (
 /obj/machinery/door/airlock/centcom{
-	name = "NMSS Odin CCIA Administration";
-	opacity = 1
+	name = "NMSS Odin CCIA Administration"
 	},
 /turf/unsimulated/floor{
 	icon_state = "floor"
@@ -4461,8 +4459,7 @@
 /area/shuttle/administration)
 "aur" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Morale Department";
-	opacity = 1
+	name = "Morale Department"
 	},
 /turf/unsimulated/floor,
 /area/centcom/living)
@@ -5026,8 +5023,7 @@
 /area/centcom/living)
 "avQ" = (
 /obj/machinery/door/airlock/centcom{
-	name = "NMSS Odin Sub-Deck";
-	opacity = 1
+	name = "NMSS Odin Sub-Deck"
 	},
 /turf/unsimulated/floor{
 	icon_state = "bluefull"
@@ -5129,7 +5125,6 @@
 "awg" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Teleporter Bay";
-	opacity = 1;
 	req_access = list(107)
 	},
 /turf/unsimulated/floor{
@@ -5655,7 +5650,6 @@
 "axt" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Creed's Office";
-	opacity = 1;
 	req_access = list(108,109)
 	},
 /obj/machinery/door/blast/odin{
@@ -5695,7 +5689,6 @@
 "axy" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Janitorial Closet";
-	opacity = 1;
 	req_access = list(107)
 	},
 /turf/unsimulated/floor{
@@ -6357,7 +6350,6 @@
 "ayN" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Special Operations";
-	opacity = 1;
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
@@ -6640,8 +6632,7 @@
 /area/centcom/control)
 "azx" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Bluespace Artillery Deck";
-	opacity = 1
+	name = "Bluespace Artillery Deck"
 	},
 /obj/machinery/door/blast/odin{
 	dir = 4;
@@ -6705,7 +6696,6 @@
 "azC" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Armory Special Operations";
-	opacity = 1;
 	req_access = list(103)
 	},
 /obj/machinery/door/blast/odin/shuttle/ert,
@@ -6717,7 +6707,6 @@
 "azD" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Engineering Special Operations";
-	opacity = 1;
 	req_access = list(103)
 	},
 /obj/machinery/door/blast/odin/shuttle/ert,
@@ -6729,7 +6718,6 @@
 "azE" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Special Operations";
-	opacity = 1;
 	req_access = list(103)
 	},
 /obj/machinery/door/blast/odin{
@@ -6750,7 +6738,6 @@
 "azG" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Special Operations";
-	opacity = 1;
 	req_access = list(103)
 	},
 /turf/unsimulated/floor{
@@ -6760,7 +6747,6 @@
 "azH" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Special Operations";
-	opacity = 1;
 	req_access = list(103)
 	},
 /obj/machinery/door/blast/odin{
@@ -6775,7 +6761,6 @@
 "azI" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Bridge";
-	opacity = 1;
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
@@ -6784,8 +6769,7 @@
 /area/centcom/control)
 "azK" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Bluespace Artillery Deck";
-	opacity = 1
+	name = "Bluespace Artillery Deck"
 	},
 /obj/machinery/door/blast/odin{
 	dir = 4;
@@ -6831,7 +6815,6 @@
 "azR" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Special Operations Command";
-	opacity = 1;
 	req_access = list(103)
 	},
 /obj/machinery/door/blast/odin/shuttle/ert,
@@ -7085,7 +7068,6 @@
 "aAt" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Medical Special Operations";
-	opacity = 1;
 	req_access = list(103)
 	},
 /obj/machinery/door/blast/odin/shuttle/ert,
@@ -7941,7 +7923,6 @@
 "aBZ" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Holding Cell";
-	opacity = 1;
 	req_access = list(101)
 	},
 /obj/machinery/door/blast/odin{
@@ -8080,7 +8061,6 @@
 "aCr" = (
 /obj/machinery/door/airlock/centcom{
 	name = "General Access";
-	opacity = 1;
 	req_access = list(101)
 	},
 /obj/machinery/door/blast/odin{
@@ -8329,7 +8309,6 @@
 "aDd" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Arrivals Processing";
-	opacity = 1;
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
@@ -9002,7 +8981,6 @@
 	id_tag = "CentComArrivalsAftDrAft";
 	locked = 1;
 	name = "Aft Checkpoint";
-	opacity = 1;
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
@@ -12081,9 +12059,7 @@
 /area/centcom/spawning)
 "aNw" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/obj/machinery/status_display/arrivals_display{
-	layer = 3
-	},
+/obj/machinery/status_display/arrivals_display,
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},
@@ -12790,7 +12766,6 @@
 /area/shuttle/mercenary)
 "aQa" = (
 /turf/unsimulated/wall/fakeairlock{
-	desc = "It opens and closes.";
 	icon_state = "door_locked";
 	name = "Communications Array"
 	},
@@ -13157,7 +13132,6 @@
 "aSr" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Thunderdome";
-	opacity = 1;
 	req_access = list(101)
 	},
 /obj/machinery/door/blast/regular{
@@ -13274,7 +13248,6 @@
 "aSX" = (
 /obj/machinery/door/airlock/centcom{
 	name = "General Access";
-	opacity = 1;
 	req_access = list(101)
 	},
 /obj/machinery/door/blast/regular{
@@ -13288,7 +13261,6 @@
 "aSZ" = (
 /obj/machinery/door/airlock/centcom{
 	name = "General Access";
-	opacity = 1;
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
@@ -13833,7 +13805,6 @@
 "aUR" = (
 /obj/machinery/door/airlock/centcom{
 	name = "General Access";
-	opacity = 1;
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
@@ -14142,7 +14113,6 @@
 	id_tag = "CentComArrivalsForeDrAft";
 	locked = 1;
 	name = "Fore Checkpoint";
-	opacity = 1;
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
@@ -14288,7 +14258,6 @@
 "aWx" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Aft Checkpoint";
-	opacity = 1;
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
@@ -14307,7 +14276,6 @@
 	id_tag = "CentComArrivalsAftDrFore";
 	locked = 1;
 	name = "Aft Checkpoint";
-	opacity = 1;
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
@@ -14379,8 +14347,7 @@
 /area/shuttle/mercenary)
 "aWM" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Bedroom";
-	opacity = 1
+	name = "Bedroom"
 	},
 /turf/unsimulated/floor{
 	icon_state = "wood_light"
@@ -14797,7 +14764,6 @@
 "aYx" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Administration Shuttle";
-	opacity = 1;
 	req_access = list(108,109)
 	},
 /obj/machinery/door/blast/odin{
@@ -16047,8 +16013,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
-	icon_state = "map"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/legion)
@@ -16592,8 +16557,7 @@
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
@@ -17410,8 +17374,7 @@
 /area/shuttle/mercenary)
 "dvq" = (
 /obj/structure/railing/mapped{
-	dir = 4;
-	icon_state = "railing0-1"
+	dir = 4
 	},
 /obj/structure/railing/mapped,
 /obj/structure/table/reinforced/steel,
@@ -17493,8 +17456,7 @@
 "dyS" = (
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -17789,7 +17751,6 @@
 "dKp" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Laundry";
-	opacity = 1;
 	req_access = list(103,111)
 	},
 /turf/unsimulated/floor,
@@ -17942,10 +17903,8 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "dQN" = (
-/obj/effect/landmark{
-	name = "Nuclear-Bomb"
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/landmark/merc_equipment,
 /turf/simulated/floor/reinforced,
 /area/shuttle/mercenary)
 "dRq" = (
@@ -18385,8 +18344,7 @@
 /area/shuttle/administration)
 "efQ" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Washroom";
-	opacity = 1
+	name = "Washroom"
 	},
 /turf/unsimulated/floor{
 	dir = 8;
@@ -18997,8 +18955,7 @@
 	layer = 2.99
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
-	dir = 8;
-	icon_state = "wide_corner_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -19192,7 +19149,6 @@
 "eZg" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Dormitory";
-	opacity = 1;
 	req_access = list(112)
 	},
 /turf/unsimulated/floor{
@@ -20277,8 +20233,7 @@
 /area/centcom/legion)
 "fYO" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/structure/bed/roller,
 /turf/simulated/floor/tiled/dark,
@@ -21277,7 +21232,6 @@
 "gLr" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Laundry";
-	opacity = 1;
 	req_access = list(103,111)
 	},
 /turf/unsimulated/floor{
@@ -21302,7 +21256,6 @@
 "gLW" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Security Checkpoint";
-	opacity = 1;
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
@@ -22823,8 +22776,7 @@
 "ieD" = (
 /obj/machinery/optable,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
-	dir = 8;
-	icon_state = "wide_corner_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -22955,8 +22907,7 @@
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/item/reagent_containers/hypospray,
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/structure/sign/flag/biesel/left{
 	pixel_y = 32
@@ -23139,8 +23090,7 @@
 /area/merchant_station)
 "ipu" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
-	dir = 8;
-	icon_state = "wide_corner_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -23200,9 +23150,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape)
 "ish" = (
-/obj/machinery/status_display/arrivals_display{
-	layer = 3
-	},
+/obj/machinery/status_display/arrivals_display,
 /turf/simulated/wall/shuttle/unique/arrivals{
 	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
 	icon_state = "4,6";
@@ -24193,8 +24141,7 @@
 	},
 /obj/item/storage/firstaid/regular,
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -24344,8 +24291,7 @@
 /area/centcom/legion)
 "jlx" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -24771,7 +24717,6 @@
 "jJe" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Superheavy Support Garage";
-	opacity = 1;
 	req_access = list(103,111)
 	},
 /obj/machinery/door/blast/odin{
@@ -25564,7 +25509,6 @@
 	icon_state = "door_locked";
 	locked = 1;
 	name = "Clandestine Operations";
-	opacity = 1;
 	req_access = list(150)
 	},
 /turf/unsimulated/floor,
@@ -26081,12 +26025,10 @@
 /area/antag/mercenary)
 "kWd" = (
 /obj/item/device/radio/intercom{
-	desc = "Talk through this.";
 	dir = 4;
 	frequency = 1213;
 	name = "Intercom";
 	pixel_x = -24;
-	pixel_y = 0;
 	subspace_transmission = 1;
 	syndie = 1
 	},
@@ -26465,8 +26407,7 @@
 /area/merchant_station/warehouse)
 "loR" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
-	dir = 8;
-	icon_state = "wide_corner_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -26754,17 +26695,14 @@
 	check_records = 0;
 	check_wildlife = 0;
 	name = "merchant turret control panel";
-	pixel_x = 0;
 	pixel_y = 28;
 	req_access = list(110)
 	},
 /obj/structure/disposalpipe/trunk{
-	dir = 4;
-	icon_state = "pipe-t"
+	dir = 4
 	},
 /obj/machinery/disposal/small{
 	dir = 8;
-	icon_state = "disposal_small";
 	pixel_x = 12;
 	pixel_y = -2
 	},
@@ -27117,7 +27055,6 @@
 	},
 /obj/structure/bed/chair/comfy/brown,
 /obj/machinery/button/remote/blast_door{
-	dir = 2;
 	id = "merchant_bridge";
 	name = "privacy shutters";
 	pixel_x = -10;
@@ -27239,8 +27176,7 @@
 	},
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -27587,8 +27523,7 @@
 /area/shuttle/escape)
 "miZ" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
-	dir = 8;
-	icon_state = "wide_corner_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -27865,8 +27800,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -27877,8 +27811,7 @@
 "mvu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped{
-	dir = 1;
-	icon_state = "railing0-1"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/legion)
@@ -28240,7 +28173,6 @@
 "mOD" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Holding Cells";
-	opacity = 1;
 	req_access = list(111)
 	},
 /turf/unsimulated/floor,
@@ -28269,9 +28201,7 @@
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_1";
 	layer = 3.02;
-	name = "turret";
-	pixel_x = 0;
-	pixel_y = 0
+	name = "turret"
 	},
 /obj/machinery/light{
 	dir = 8;
@@ -28346,8 +28276,7 @@
 /area/merchant_station/warehouse)
 "mSt" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/adv{
@@ -28587,8 +28516,7 @@
 /area/antag/mercenary)
 "nfv" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -28680,8 +28608,7 @@
 /obj/item/clothing/glasses/hud/health,
 /obj/item/reagent_containers/hypospray/combat,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
-	dir = 8;
-	icon_state = "wide_corner_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -29006,8 +28933,7 @@
 /area/centcom/legion/hangar5)
 "nsM" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
-	dir = 8;
-	icon_state = "wide_corner_diagonal"
+	dir = 8
 	},
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray,
@@ -29121,8 +29047,7 @@
 /area/centcom/ferry)
 "nyT" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/structure/bed/chair/shuttle,
 /obj/machinery/light{
@@ -29244,8 +29169,7 @@
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -29288,8 +29212,7 @@
 /area/antag/raider)
 "nEs" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/table/standard,
@@ -29377,12 +29300,10 @@
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
-	desc = "Talk through this.";
 	dir = 4;
 	frequency = 1213;
 	name = "Intercom";
 	pixel_x = -24;
-	pixel_y = 0;
 	subspace_transmission = 1;
 	syndie = 1
 	},
@@ -29451,8 +29372,7 @@
 /area/shuttle/administration)
 "nMl" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/machinery/bodyscanner{
 	dir = 8
@@ -29737,7 +29657,6 @@
 "nVn" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Holding Cells";
-	opacity = 1;
 	req_access = list(150)
 	},
 /turf/unsimulated/floor,
@@ -29902,7 +29821,6 @@
 "odu" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Special Operations";
-	opacity = 1;
 	req_access = list(103)
 	},
 /obj/machinery/door/blast/odin{
@@ -30325,8 +30243,7 @@
 /area/antag/raider)
 "oDD" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
@@ -31069,8 +30986,7 @@
 /area/shuttle/mercenary)
 "poM" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
-	dir = 8;
-	icon_state = "wide_corner_diagonal"
+	dir = 8
 	},
 /obj/machinery/iv_drip,
 /turf/simulated/floor/tiled/dark,
@@ -31142,8 +31058,7 @@
 	pixel_y = -1
 	},
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -31156,8 +31071,7 @@
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled/dark,
@@ -31618,8 +31532,7 @@
 /area/antag/mercenary)
 "pNC" = (
 /obj/structure/railing/mapped{
-	dir = 4;
-	icon_state = "railing0-1"
+	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/paleblue{
@@ -31700,8 +31613,7 @@
 /area/shuttle/merchant)
 "pRl" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/structure/bed/chair/shuttle,
 /obj/structure/sign/nosmoking_1{
@@ -31855,9 +31767,7 @@
 	},
 /area/template_noop)
 "pYL" = (
-/obj/machinery/status_display/arrivals_display{
-	layer = 3
-	},
+/obj/machinery/status_display/arrivals_display,
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/spawning)
 "pZw" = (
@@ -31915,8 +31825,7 @@
 	name = "Emergency Room"
 	},
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -31958,8 +31867,7 @@
 /area/shuttle/transport1)
 "qfS" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
@@ -32206,8 +32114,7 @@
 /area/centcom/ferry)
 "qsn" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
-	dir = 8;
-	icon_state = "wide_corner_diagonal"
+	dir = 8
 	},
 /obj/machinery/light{
 	dir = 8;
@@ -32299,20 +32206,17 @@
 /area/centcom/distress_prep)
 "qxy" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/sleeper{
 	dir = 8
 	},
 /obj/item/device/radio/intercom{
-	desc = "Talk through this.";
 	dir = 8;
 	frequency = 1213;
 	name = "Intercom";
 	pixel_x = 20;
-	pixel_y = 0;
 	subspace_transmission = 1;
 	syndie = 1
 	},
@@ -32516,9 +32420,7 @@
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_1";
 	layer = 3.02;
-	name = "turret";
-	pixel_x = 0;
-	pixel_y = 0
+	name = "turret"
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -32570,8 +32472,7 @@
 /area/shuttle/syndicate_elite)
 "qKJ" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
-	dir = 8;
-	icon_state = "wide_corner_diagonal"
+	dir = 8
 	},
 /obj/machinery/optable,
 /turf/simulated/floor/tiled/dark,
@@ -32673,8 +32574,7 @@
 /area/antag/raider)
 "qPF" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
-	dir = 8;
-	icon_state = "wide_corner_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -32788,7 +32688,6 @@
 	icon_state = "door_locked";
 	locked = 1;
 	name = "Abandoned Wing";
-	opacity = 1;
 	req_access = list(150)
 	},
 /turf/unsimulated/floor,
@@ -33132,7 +33031,6 @@
 "rkk" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Washroom";
-	opacity = 1;
 	req_access = list(112)
 	},
 /turf/unsimulated/floor{
@@ -33367,8 +33265,7 @@
 /area/centcom/checkpoint/aft)
 "rwj" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -33482,8 +33379,7 @@
 /area/antag/burglar)
 "rCd" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled/dark,
@@ -33806,7 +33702,6 @@
 "rSt" = (
 /obj/structure/bed/chair/shuttle{
 	can_dismantle = 1;
-	dir = 2;
 	name = "worn chair"
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -34147,8 +34042,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -34216,12 +34110,10 @@
 /area/centcom/legion)
 "smT" = (
 /obj/structure/railing/mapped{
-	dir = 4;
-	icon_state = "railing0-1"
+	dir = 4
 	},
 /obj/structure/railing/mapped{
-	dir = 1;
-	icon_state = "railing0-1"
+	dir = 1
 	},
 /obj/structure/table/reinforced/steel,
 /obj/machinery/light{
@@ -34417,8 +34309,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -34724,7 +34615,6 @@
 "sOx" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Checkpoint Equipment Room";
-	opacity = 1;
 	req_access = list(103,111)
 	},
 /turf/unsimulated/floor,
@@ -34852,8 +34742,7 @@
 "sVI" = (
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/tiled/dark,
@@ -34972,8 +34861,7 @@
 "sZK" = (
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
@@ -35079,8 +34967,7 @@
 /area/antag/mercenary)
 "tbX" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
@@ -35122,7 +35009,6 @@
 "tcP" = (
 /obj/structure/bed/chair/shuttle{
 	can_dismantle = 1;
-	dir = 2;
 	name = "worn chair"
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -35280,9 +35166,7 @@
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_1";
 	layer = 3.02;
-	name = "turret";
-	pixel_x = 0;
-	pixel_y = 0
+	name = "turret"
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -35298,8 +35182,7 @@
 /obj/item/clothing/glasses/hud/health,
 /obj/item/reagent_containers/spray/cleaner,
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/structure/sign/flag/biesel/right{
 	pixel_y = 32
@@ -35447,8 +35330,7 @@
 "tqV" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped{
-	dir = 1;
-	icon_state = "railing0-1"
+	dir = 1
 	},
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -24;
@@ -35773,7 +35655,6 @@
 /obj/machinery/door/airlock/centcom{
 	id_tag = "tcfllegate";
 	name = "Legate Chambers";
-	opacity = 1;
 	req_access = list(108,111)
 	},
 /turf/unsimulated/floor{
@@ -36195,8 +36076,7 @@
 "uds" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6;
-	icon_state = "intact"
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mercenary)
@@ -36249,8 +36129,7 @@
 	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -36646,8 +36525,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -36809,7 +36687,6 @@
 "uIG" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Fore Checkpoint";
-	opacity = 1;
 	req_access = list(101)
 	},
 /turf/unsimulated/floor{
@@ -36851,9 +36728,7 @@
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_1";
 	layer = 3.02;
-	name = "turret";
-	pixel_x = 0;
-	pixel_y = 0
+	name = "turret"
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
@@ -36929,8 +36804,7 @@
 /area/shuttle/legion)
 "uNr" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/item/bodybag,
 /obj/item/bodybag,
@@ -37513,8 +37387,7 @@
 /area/shuttle/mercenary)
 "vjJ" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal{
 	dir = 8
@@ -37725,8 +37598,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
@@ -38085,8 +37957,7 @@
 /area/shuttle/arrival)
 "vNq" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
-	dir = 8;
-	icon_state = "wide_corner_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -38471,7 +38342,6 @@
 "wba" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Checkpoint";
-	opacity = 1;
 	req_access = list(111)
 	},
 /turf/unsimulated/floor{
@@ -38915,7 +38785,6 @@
 "wrd" = (
 /obj/machinery/door/airlock/centcom{
 	name = "The Big Empty";
-	opacity = 1;
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
@@ -39229,8 +39098,7 @@
 /area/antag/mercenary)
 "wDr" = (
 /obj/structure/railing/mapped{
-	dir = 4;
-	icon_state = "railing0-1"
+	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/firstaid/o2{
@@ -39596,9 +39464,7 @@
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_1";
 	layer = 3.02;
-	name = "turret";
-	pixel_x = 0;
-	pixel_y = 0
+	name = "turret"
 	},
 /obj/machinery/light{
 	dir = 1;
@@ -39904,10 +39770,8 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/button/remote/blast_door{
-	dir = 2;
 	id = "smindicate2";
 	name = "internal blast door";
-	pixel_x = 0;
 	pixel_y = 23;
 	req_access = list(150)
 	},
@@ -39983,8 +39847,7 @@
 /obj/item/bodybag,
 /obj/item/bodybag,
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -39992,8 +39855,7 @@
 /area/centcom/legion)
 "xmD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1;
-	icon_state = "map"
+	dir = 1
 	},
 /obj/machinery/airlock_sensor{
 	frequency = 1337;
@@ -40121,10 +39983,8 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/button/remote/blast_door{
-	dir = 2;
 	id = "smindicate";
 	name = "external blast door";
-	pixel_x = 0;
 	pixel_y = 23;
 	req_access = list(150)
 	},
@@ -40269,12 +40129,10 @@
 	pixel_y = -12
 	},
 /obj/item/device/radio/intercom{
-	desc = "Talk through this.";
 	dir = 4;
 	frequency = 1213;
 	name = "Intercom";
 	pixel_x = -24;
-	pixel_y = 0;
 	subspace_transmission = 1;
 	syndie = 1
 	},
@@ -40446,8 +40304,7 @@
 /area/shuttle/escape)
 "xGD" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain,
 /obj/structure/bed/roller,
@@ -40577,8 +40434,7 @@
 /area/shuttle/specops)
 "xRj" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/body_scanconsole{
@@ -40685,8 +40541,7 @@
 	icon_state = "tube1"
 	},
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
@@ -40748,8 +40603,7 @@
 /area/shuttle/mercenary)
 "xXQ" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
-	dir = 8;
-	icon_state = "corner_white_diagonal"
+	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled/dark,
