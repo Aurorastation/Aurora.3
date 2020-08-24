@@ -300,7 +300,7 @@ var/global/dmm_suite/preloader/_preloader = new
 		if(use_preloader && instance)
 			_preloader.load(instance)
 
-	//then instance the /turf and, if multiple tiles are presents, simulates the DMM underlays piling effect
+	//then instance the /turf
 
 	var/first_turf_index = 1
 	while(!ispath(members[first_turf_index], /turf)) //find first /turf object in members
@@ -314,12 +314,9 @@ var/global/dmm_suite/preloader/_preloader = new
 		T = instance_atom(members[first_turf_index],members_attributes[first_turf_index],crds,no_changeturf)
 
 	if(T)
-		//if others /turf are presents, simulates the underlays piling effect
 		index = first_turf_index + 1
 		while(index <= members.len - 1) // Last item is an /area
-			var/underlay = T.appearance
-			T = instance_atom(members[index],members_attributes[index],crds,no_changeturf)//instance new turf
-			T.underlays += underlay
+			crash_with("Tried to load additional turf at [model_key].")
 			index++
 
 	//finally instance all remainings objects/mobs

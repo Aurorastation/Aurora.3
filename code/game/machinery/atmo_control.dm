@@ -44,18 +44,18 @@
 			var/total_moles = air_sample.total_moles
 			if(total_moles > 0)
 				if(output&4)
-					signal.data["oxygen"] = round(100*air_sample.gas["oxygen"]/total_moles,0.1)
+					signal.data[GAS_OXYGEN] = round(100*air_sample.gas[GAS_OXYGEN]/total_moles,0.1)
 				if(output&8)
-					signal.data["phoron"] = round(100*air_sample.gas["phoron"]/total_moles,0.1)
+					signal.data[GAS_PHORON] = round(100*air_sample.gas[GAS_PHORON]/total_moles,0.1)
 				if(output&16)
-					signal.data["nitrogen"] = round(100*air_sample.gas["nitrogen"]/total_moles,0.1)
+					signal.data[GAS_NITROGEN] = round(100*air_sample.gas[GAS_NITROGEN]/total_moles,0.1)
 				if(output&32)
-					signal.data["carbon_dioxide"] = round(100*air_sample.gas["carbon_dioxide"]/total_moles,0.1)
+					signal.data[GAS_CO2] = round(100*air_sample.gas[GAS_CO2]/total_moles,0.1)
 			else
-				signal.data["oxygen"] = 0
-				signal.data["phoron"] = 0
-				signal.data["nitrogen"] = 0
-				signal.data["carbon_dioxide"] = 0
+				signal.data[GAS_OXYGEN] = 0
+				signal.data[GAS_PHORON] = 0
+				signal.data[GAS_NITROGEN] = 0
+				signal.data[GAS_CO2] = 0
 		signal.data["sigtype"]="status"
 		radio_connection.post_signal(src, signal, filter = RADIO_ATMOSIA)
 
@@ -101,7 +101,7 @@ obj/machinery/computer/general_air_control/Destroy()
 		var/list/sdata = sensor_information[id_tag]
 		LAZYINITLIST(data["sensors"][id_tag])
 		VUEUI_SET_CHECK(data["sensors"][id_tag]["name"], long_name, ., data)
-		for(var/datapoint in list("pressure", "temperature", "oxygen", "nitrogen", "carbon_dioxide", "phoron"))
+		for(var/datapoint in list("pressure", "temperature", GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_PHORON))
 			VUEUI_SET_CHECK(data["sensors"][id_tag][datapoint], sdata[datapoint], ., data)
 
 /obj/machinery/computer/general_air_control/attack_hand(mob/user)

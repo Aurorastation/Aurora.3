@@ -169,9 +169,6 @@ var/list/asset_datums = list()
 		"search.js" = 'html/search.js',
 		"panels.css" = 'html/panels.css',
 		"loading.gif" = 'html/images/loading.gif',
-		"bootstrap.min.css" = 'html/bootstrap/css/bootstrap.min.css',
-		"bootstrap.min.js" = 'html/bootstrap/js/bootstrap.min.js',
-		"jquery-2.0.0.min.js" = 'html/jquery/jquery-2.0.0.min.js',
 		"ie-truth.min.js" = 'html/iestats/ie-truth.min.js',
 		"conninfo.min.js" = 'html/iestats/conninfo.min.js',
 		"copyright_infrigement.png" = 'html/copyright_infrigement.png'
@@ -191,7 +188,16 @@ var/list/asset_datums = list()
 		"eridanilogo.png" = 'html/images/eridanilogo.png',
 		"zavodlogo.png" = 'html/images/zavodlogo.png',
 		"hplogo.png" = 'html/images/hplogo.png',
-		"belogo.png" = 'html/images/belogo.png'
+		"beflag.png" = 'html/images/beflag.png',
+		"elyraflag.png" = 'html/images/elyraflag.png',
+		"solflag.png" = 'html/images/solflag.png',
+		"cocflag.png" = 'html/images/cocflag.png',
+		"domflag.png" = 'html/images/domflag.png',
+		"jargonflag.png" = 'html/images/jargonflag.png',
+		"praflag.png" = 'html/images/praflag.png',
+		"dpraflag.png" = 'html/images/dpraflag.png',
+		"nkaflag.png" = 'html/images/nkaflag.png',
+		"izweskiflag.png" = 'html/images/izweskiflag.png'
 	)
 
 /datum/asset/simple/changelog

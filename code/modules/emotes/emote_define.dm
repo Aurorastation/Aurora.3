@@ -31,7 +31,6 @@
 	return emote_message_3p
 
 /decl/emote/proc/do_emote(var/atom/user, var/extra_params)
-
 	if(ismob(user) && check_restraints)
 		var/mob/M = user
 		if(M.restrained())
@@ -83,6 +82,9 @@
 	if (!use_range)
 		use_range = world.view
 
+	if(!target_check(user, target))
+		return
+
 	if(ismob(user))
 		var/mob/M = user
 		if(message_type == AUDIBLE_MESSAGE)
@@ -96,6 +98,9 @@
 	return
 
 /decl/emote/proc/check_user(var/atom/user)
+	return TRUE
+
+/decl/emote/proc/target_check(var/atom/user, var/atom/target)
 	return TRUE
 
 /decl/emote/proc/can_target()

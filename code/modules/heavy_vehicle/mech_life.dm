@@ -129,13 +129,6 @@
 	qdel(src)
 	return
 
-/mob/living/heavy_vehicle/handle_status_effects()
-	..()
-	if(hallucination > 0)
-		hallucination--
-	else if(hallucination < 0)
-		hallucination = 0
-
 /mob/living/heavy_vehicle/handle_vision()
 	if(head)
 		sight = head.get_sight()

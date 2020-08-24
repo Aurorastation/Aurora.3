@@ -5,7 +5,7 @@
 	contained_sprite = TRUE
 	w_class = 1
 	slot_flags = SLOT_HEAD | SLOT_EARS
-	species_restricted = list("Skrell")
+	species_restricted = list(SPECIES_SKRELL)
 
 /obj/item/clothing/ears/skrell/chain
 	name = "gold headtail chains"

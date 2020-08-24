@@ -1,5 +1,6 @@
 /mob/living/bot
 	name = "Bot"
+	accent = ACCENT_TTS
 	health = 20
 	maxHealth = 20
 	icon = 'icons/obj/aibots.dmi'
@@ -28,6 +29,8 @@
 /mob/living/bot/Initialize()
 	. = ..()
 	update_icon()
+	add_language(LANGUAGE_TCB)
+	set_default_language(LANGUAGE_TCB)
 
 	botcard = new /obj/item/card/id(src)
 	botcard.access = botcard_access.Copy()

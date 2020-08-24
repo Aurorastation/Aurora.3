@@ -30,6 +30,7 @@
 		return
 	anchored = !anchored
 	screen_on = anchored
+	SSvueui.close_uis(active_program)
 	update_icon()
 
 /obj/item/modular_computer/laptop/update_icon()

@@ -15,7 +15,7 @@
 		else
 			construct_class = alert(C, "Please choose which type of construct you wish to become.", "Construct Selection", "Juggernaut", "Wraith", "Artificer")
 
-		var/list/static/construct_types = list("Juggernaut" = /mob/living/simple_animal/construct/armoured,
+		var/list/static/construct_types = list("Juggernaut" = /mob/living/simple_animal/construct/armored,
 											   "Wraith"     = /mob/living/simple_animal/construct/wraith,
 											   "Artificer"  = /mob/living/simple_animal/construct/builder,
 											   "Harvester"  = /mob/living/simple_animal/construct/harvester)

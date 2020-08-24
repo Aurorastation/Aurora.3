@@ -49,7 +49,7 @@
 	name = "sealed exosuit chassis"
 	hatch_descriptor = "canopy"
 	pilot_coverage = 100
-	exosuit_desc_string = "an armoured chassis"
+	exosuit_desc_string = "an armored chassis"
 	icon_state = "combat_body"
 	power_use = 2500
 	transparent_cabin =  TRUE

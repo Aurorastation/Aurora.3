@@ -255,7 +255,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 10,
 		/obj/item/reagent_containers/food/drinks/cans/root_beer = 10,
 		/obj/item/reagent_containers/food/drinks/cans/starkist = 10,
-		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 10,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 10,
 		/obj/item/reagent_containers/food/drinks/cans/dyn = 10,
 		/obj/item/reagent_containers/food/drinks/cans/space_up = 10,
 		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 10,
@@ -278,7 +278,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 16,
 		/obj/item/reagent_containers/food/drinks/cans/root_beer = 13,
 		/obj/item/reagent_containers/food/drinks/cans/starkist = 15,
-		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 12,
+		/obj/item/reagent_containers/food/drinks/waterbottle = 12,
 		/obj/item/reagent_containers/food/drinks/cans/dyn = 18,
 		/obj/item/reagent_containers/food/drinks/cans/space_up = 15,
 		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 13,
@@ -833,9 +833,9 @@
 	req_access = list(access_engine)
 	vend_id = "tools"
 	products = list(
-		/obj/item/clothing/glasses/meson = 2,
 		/obj/item/device/multitool = 4,
 		/obj/item/powerdrill = 2,
+		/obj/item/clothing/glasses/safety/goggles = 4,
 		/obj/item/airlock_electronics = 10,
 		/obj/item/module/power_control = 10,
 		/obj/item/airalarm_electronics = 10,
@@ -920,7 +920,7 @@
 		/obj/item/clothing/shoes/orange = 4,
 		/obj/item/clothing/head/hardhat = 4,
 		/obj/item/storage/belt/utility = 4,
-		/obj/item/clothing/glasses/meson = 4,
+		/obj/item/clothing/glasses/safety/goggles = 4,
 		/obj/item/clothing/gloves/yellow = 4,
 		/obj/item/screwdriver = 12,
 		/obj/item/crowbar = 12,

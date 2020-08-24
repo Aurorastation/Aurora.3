@@ -3,8 +3,9 @@
 /obj/item/clothing/suit/storage/hooded
 	var/obj/item/clothing/head/winterhood/hood
 	var/hoodtype = null
-	var/suittoggled = 0
+	var/suittoggled = FALSE
 	var/hooded = 0
+	var/lasticonstate
 
 /obj/item/clothing/suit/storage/hooded/Initialize()
 	. = ..()
@@ -24,10 +25,14 @@
 	..()
 
 /obj/item/clothing/suit/storage/hooded/proc/RemoveHood()
-	icon_state = initial(icon_state)
-	item_state = initial(item_state)
-	suittoggled = 0
-
+	if(!lasticonstate)
+		suittoggled = FALSE
+	else
+		icon_state = lasticonstate
+		item_state = lasticonstate
+		suittoggled = FALSE
+	
+	
 	// Hood got nuked. Probably because of RIGs or the like.
 	if (!hood)
 		MakeHood()
@@ -64,8 +69,9 @@
 				to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
 				return
 			else
+				lasticonstate = icon_state
 				H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
-				suittoggled = 1
+				suittoggled = TRUE
 				icon_state = "[initial(icon_state)]_t"
 				item_state = "[initial(item_state)]_t"
 				H.update_inv_wear_suit()
@@ -239,12 +245,13 @@
 				to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
 				return
 			else
+				lasticonstate = icon_state
 				H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
-				suittoggled = 1
+				suittoggled = TRUE
 				icon_open = "[initial(icon_open)]_t" // this is where the change is.
 				icon_closed = "[initial(icon_closed)]_t"
-				icon_state = "[initial(icon_state)]_t"
-				item_state = "[initial(item_state)]_t"
+				icon_state = "[icon_state]_t"
+				item_state = "[item_state]_t"
 				H.update_inv_wear_suit()
 	else
 		RemoveHood()
@@ -256,3 +263,21 @@
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/grey //legacy item. for raiders, shuttle spawn
 	color = "#777777"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/short
+	icon_state = "hoodie_short"
+	icon_open = "hoodie_short_open"
+	icon_closed = "hoodie_short"
+	item_state = "hoodie_short"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/crop
+	icon_state = "hoodie_crop"
+	icon_open = "hoodie_crop_open"
+	icon_closed = "hoodie_crop"
+	item_state = "hoodie_crop"
+	
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
+	icon_state = "hoodie_sleeveless"
+	icon_open = "hoodie_sleeveless_open"
+	icon_closed = "hoodie_sleeveless"
+	item_state = "hoodie_sleeveless"

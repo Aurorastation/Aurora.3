@@ -245,10 +245,6 @@
 // Law settings
 #define PERMABRIG_SENTENCE 90 // Measured in minutes
 
-#define LAYER_TABLE	2.8
-#define LAYER_UNDER_TABLE	2.79
-#define LAYER_ABOVE_TABLE	2.81
-
 // Stoplag.
 #define TICK_CHECK (world.tick_usage > CURRENT_TICKLIMIT)
 #define CHECK_TICK if (TICK_CHECK) stoplag()
@@ -339,11 +335,6 @@
 
 #define isContactLevel(Z) ((Z) in current_map.contact_levels)
 #define isNotContactLevel(Z) !isContactLevel(Z)
-
-//Affects the chance that armour will block an attack. Should be between 0 and 1.
-//If set to 0, then armor will always prevent the same amount of damage, always, with no randomness whatsoever.
-//Of course, this will affect code that checks for blocked < 100, as blocked will be less likely to actually be 100.
-#define ARMOR_BLOCK_CHANCE_MULT 1.0
 
 //Cargo Container Types
 #define CARGO_CONTAINER_CRATE "crate"

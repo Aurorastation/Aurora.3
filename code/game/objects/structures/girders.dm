@@ -150,7 +150,7 @@
 			return
 
 	else if(W.iswirecutter() && state == 1)
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
 		to_chat(user, "<span class='notice'>Now removing support struts...</span>")
 		if(do_after(user,40/W.toolspeed))
 			if(!src) return
@@ -159,7 +159,7 @@
 			reset_girder()
 
 	else if(W.iscrowbar() && state == 0 && anchored)
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+		playsound(src.loc, W.usesound, 100, 1)
 		to_chat(user, "<span class='notice'>Now dislodging the girder...</span>")
 		if(do_after(user, 40/W.toolspeed))
 			if(!src) return
@@ -224,8 +224,10 @@
 		wall_fake = 1
 
 	var/turf/Tsrc = get_turf(src)
+	var/original_type = Tsrc.type
 	Tsrc.ChangeTurf(/turf/simulated/wall)
-	var/turf/simulated/wall/T = get_turf(src)
+	var/turf/simulated/wall/T = Tsrc
+	T.under_turf = original_type
 	T.set_material(M, reinf_material)
 	if(wall_fake)
 		T.can_open = 1

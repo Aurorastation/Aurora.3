@@ -321,7 +321,7 @@
 	if(ispath(MP, /mob/living/simple_animal/space_worm))
 		return 0 //Unfinished. Very buggy, they seem to just spawn additional space worms everywhere and eating your own tail results in new worms spawning.
 
-	if(ispath(MP, /mob/living/simple_animal/construct/armoured))
+	if(ispath(MP, /mob/living/simple_animal/construct/armored))
 		return 0 //Verbs do not appear for players. These constructs should really have their own class simple_animal/construct/subtype
 
 	if(ispath(MP, /mob/living/simple_animal/construct/wraith))

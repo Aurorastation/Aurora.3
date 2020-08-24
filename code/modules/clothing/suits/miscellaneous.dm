@@ -9,7 +9,7 @@
  * Lasertag
  */
 /obj/item/clothing/suit/bluetag
-	name = "blue laser tag armour"
+	name = "blue laser tag armor"
 	desc = "Blue Pride, Station Wide."
 	icon_state = "bluetag"
 	item_state = "bluetag"
@@ -19,7 +19,7 @@
 	siemens_coefficient = 1.0
 
 /obj/item/clothing/suit/redtag
-	name = "red laser tag armour"
+	name = "red laser tag armor"
 	desc = "Reputed to go faster."
 	icon_state = "redtag"
 	item_state = "redtag"
@@ -434,6 +434,14 @@
 	item_state = "trenchcoat_grey"
 	icon_open = "trenchcoat_grey_open"
 	icon_closed = "trenchcoat_grey"
+
+/obj/item/clothing/suit/storage/toggle/trench/colorable
+	name = "trenchcoat"
+	desc = "A sleek canvas trenchcoat"
+	icon_state = "trench_colorable"
+	item_state = "trench_colorable"
+	icon_open = "trench_colorable_open"
+	icon_closed = "trench_colorable"
 
 /obj/item/clothing/suit/storage/toggle/track
 	name = "track jacket"

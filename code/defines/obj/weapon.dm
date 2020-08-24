@@ -156,11 +156,11 @@
 	if(!target_zone || get_dist(user,target) > 1) //Dodged
 		endmessage1st = "Your [name] was dodged by [target]"
 		endmessage3rd = "[target] dodged the [name]"
-		soundname = "sound/weapons/punchmiss.ogg"
+		soundname = "punchmiss"
 	else if(wasblocked) // Blocked by Shield
 		endmessage1st = "Your [name] was blocked by [target]"
 		endmessage3rd = "[target] blocks the [name]"
-		soundname = "sound/weapons/punchmiss.ogg"
+		soundname = "punchmiss"
 	else
 
 		washit = 1
@@ -272,6 +272,14 @@
 	desc = "A long stick with a crosspiece at the top, used to help with walking."
 	icon_state = "crutch"
 	item_state = "crutch"
+
+/obj/item/cane/shillelagh
+	name = "adhomian shillelagh"
+	desc = "A sturdy walking stick made from adhomian wood."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "shillelagh"
+	item_state = "shillelagh"
+	contained_sprite = TRUE
 
 /obj/item/disk
 	name = "disk"
@@ -407,7 +415,6 @@
 	icon_state = "power_mod"
 	desc = "Charging circuits for power cells."
 
-
 /obj/item/device/camera_bug
 	name = "camera bug"
 	icon = 'icons/obj/device.dmi'
@@ -441,19 +448,6 @@
 	if (usr.stat == 2) return
 
 	usr.client.eye = target
-
-/*
-/obj/item/cigarpacket
-	name = "Pete's Cuban Cigars"
-	desc = "The most robust cigars on the planet."
-	icon = 'icons/obj/cigarettes.dmi'
-	icon_state = "cigarpacket"
-	item_state = "cigarpacket"
-	w_class = 1
-	throwforce = 2
-	var/cigarcount = 6
-	flags = ONBELT
-	*/
 
 /obj/item/pai_cable
 	desc = "A flexible coated cable with a universal jack on one end."

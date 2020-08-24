@@ -141,7 +141,7 @@
 		// We're all done. Finalize the mech and pass the frame to the new system.
 		var/mob/living/heavy_vehicle/M = new(get_turf(src), src)
 		visible_message("\The [user] finishes off \the [M].")
-		playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+		playsound(user.loc, 'sound/items/screwdriver.ogg', 100, 1)
 
 		arms = null
 		legs = null
@@ -182,7 +182,7 @@
 			return
 
 		visible_message("\The [user] [(is_wired == FRAME_WIRED_ADJUSTED) ? "snips some of" : "neatens"] the wiring in \the [src].")
-		playsound(user.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(user.loc, thing.usesound, 100, 1)
 		is_wired = (is_wired == FRAME_WIRED_ADJUSTED) ? FRAME_WIRED : FRAME_WIRED_ADJUSTED
 	// Installing metal.
 	else if(istype(thing, /obj/item/stack/material))
@@ -209,7 +209,7 @@
 			to_chat(user, "<span class='warning'>\The [src]'s internal reinforcement has been welded in.</span>")
 			return
 		visible_message("\The [user] [(is_reinforced == 2) ? "unsecures" : "secures"] the metal reinforcement in \the [src].")
-		playsound(user.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		playsound(user.loc, thing.usesound, 100, 1)
 		is_reinforced = (is_reinforced == FRAME_REINFORCED_SECURE) ? FRAME_REINFORCED : FRAME_REINFORCED_SECURE
 	// Welding metal.
 	else if(thing.iswelder())
@@ -226,7 +226,7 @@
 		if(WT.remove_fuel(1, user))
 			visible_message("\The [user] [(is_reinforced == 3) ? "unwelds the reinforcement from" : "welds the reinforcement into"] \the [src].")
 			is_reinforced = (is_reinforced == FRAME_REINFORCED_WELDED) ? FRAME_REINFORCED_SECURE : FRAME_REINFORCED_WELDED
-			playsound(user.loc, 'sound/items/Welder.ogg', 50, 1)
+			playsound(user.loc, thing.usesound, 50, 1)
 		else
 			to_chat(user, "<span class='warning'>Not enough fuel!</span>")
 			return

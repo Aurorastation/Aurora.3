@@ -274,7 +274,7 @@
 
 	var/orig_amount = src.get_amount()
 	if (transfer && src.use(transfer))
-		var/obj/item/stack/newstack = new src.type(loc, transfer)
+		var/obj/item/stack/newstack = new src.stacktype(loc, transfer)
 		newstack.color = color
 		if (prob(transfer/orig_amount * 100))
 			transfer_fingerprints_to(newstack)
