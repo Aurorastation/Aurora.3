@@ -3,6 +3,7 @@
 	description = "It's a very fancy satchel made with fine leather."
 	path = /obj/item/storage/backpack/satchel
 	slot = slot_back
+	cost = 0
 	sort_category = "Bags"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
@@ -11,6 +12,7 @@
 	description = "A selection of bags."
 	path = /obj/item/storage/backpack
 	slot = slot_back
+	cost = 0
 	sort_category = "Bags"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -28,6 +30,7 @@
 	description = "A selection of medical bags."
 	path = /obj/item/storage/backpack/medic
 	slot = slot_back
+	cost = 0
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Psychiatrist", "Emergency Medical Technician", "Medical Resident")
 	sort_category = "Bags"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
@@ -46,6 +49,7 @@
 	description = "A selection of security bags."
 	path = /obj/item/storage/backpack/security
 	slot = slot_back
+	cost = 0
 	allowed_roles = list("Head of Security", "Warden", "Detective", "Forensic Technician", "Security Officer", "Security Cadet")
 	sort_category = "Bags"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
@@ -64,6 +68,7 @@
 	description = "A selection of captain bags."
 	path = /obj/item/storage/backpack/captain
 	slot = slot_back
+	cost = 0
 	allowed_roles = list("Captain")
 	sort_category = "Bags"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
@@ -82,6 +87,7 @@
 	description = "A selection of engineering bags."
 	path = /obj/item/storage/backpack/industrial
 	slot = slot_back
+	cost = 0
 	allowed_roles = list("Chief Engineer", "Station Engineer", "Atmospheric Technician", "Engineering Apprentice", "Shaft Miner")
 	sort_category = "Bags"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
@@ -100,6 +106,7 @@
 	description = "A selection of science bags."
 	path = /obj/item/storage/backpack/toxins
 	slot = slot_back
+	cost = 0
 	allowed_roles = list("Research Director", "Scientist", "Xenobiologist", "Roboticist", "Lab Assistant")
 	sort_category = "Bags"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
@@ -118,6 +125,7 @@
 	description = "A selection of hydroponics bags."
 	path = /obj/item/storage/backpack/hydroponics
 	slot = slot_back
+	cost = 0
 	allowed_roles = list("Gardener")
 	sort_category = "Bags"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
@@ -136,6 +144,7 @@
 	description = "A selection of pharmacy bags."
 	path = /obj/item/storage/backpack/pharmacy
 	slot = slot_back
+	cost = 0
 	allowed_roles = list("Pharmacist")
 	sort_category = "Bags"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

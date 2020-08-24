@@ -9,23 +9,18 @@
 /datum/category_item/player_setup_item/general/equipment/load_character(var/savefile/S)
 	S["all_underwear"] >> pref.all_underwear
 	S["all_underwear_metadata"] >> pref.all_underwear_metadata
-	S["backbag"]       >> pref.backbag
-	S["backbag_style"] >> pref.backbag_style
 
 /datum/category_item/player_setup_item/general/equipment/save_character(var/savefile/S)
 	S["all_underwear"] << pref.all_underwear
 	S["all_underwear_metadata"] << pref.all_underwear_metadata
-	S["backbag"]       << pref.backbag
-	S["backbag_style"] << pref.backbag_style
+
 
 /datum/category_item/player_setup_item/general/equipment/gather_load_query()
 	return list(
 		"ss13_characters" = list(
 			"vars" = list(
 				"all_underwear",
-				"all_underwear_metadata",
-				"backbag",
-				"backbag_style"
+				"all_underwear_metadata"
 			),
 			"args" = list("id")
 		)
@@ -39,8 +34,6 @@
 		"ss13_characters" = list(
 			"all_underwear",
 			"all_underwear_metadata",
-			"backbag",
-			"backbag_style",
 			"id" = 1,
 			"ckey" = 1
 		)
@@ -50,16 +43,12 @@
 	return list(
 		"all_underwear" = json_encode(pref.all_underwear),
 		"all_underwear_metadata" = json_encode(pref.all_underwear_metadata),
-		"backbag" = pref.backbag,
-		"backbag_style" = pref.backbag_style,
 		"id" = pref.current_character,
 		"ckey" = PREF_CLIENT_CKEY
 	)
 
 /datum/category_item/player_setup_item/general/equipment/sanitize_character(var/sql_load = 0)
 	if (sql_load)
-		pref.backbag = text2num(pref.backbag)
-		pref.backbag_style = text2num(pref.backbag_style)
 		if(istext(pref.all_underwear))
 			var/before = pref.all_underwear
 			try
@@ -100,9 +89,6 @@
 		if(!(underwear_metadata in pref.all_underwear))
 			pref.all_underwear_metadata -= underwear_metadata
 
-	pref.backbag	= sanitize_integer(pref.backbag, 1, backbaglist.len, initial(pref.backbag))
-	pref.backbag_style = sanitize_integer(pref.backbag_style, 1, backbagstyles.len, initial(pref.backbag_style))
-
 /datum/category_item/player_setup_item/general/equipment/content(var/mob/user)
 	. = list()
 	. += "<b>Equipment:</b><br>"
@@ -110,15 +96,13 @@
 		var/item_name = pref.all_underwear[UWC.name] ? pref.all_underwear[UWC.name] : "None"
 		. += "[UWC.name]: <a href='?src=\ref[src];change_underwear=[UWC.name]'><b>[item_name]</b></a>"
 
+
 		var/datum/category_item/underwear/UWI = UWC.items_by_name[item_name]
 		if(UWI)
 			for(var/datum/gear_tweak/gt in UWI.tweaks)
 				. += " <a href='?src=\ref[src];underwear=[UWC.name];tweak=\ref[gt]'>[gt.get_contents(get_metadata(UWC.name, gt))]</a>"
 
 		. += "<br>"
-
-	. += "Backpack Type: <a href='?src=\ref[src];change_backpack=1'><b>[backbaglist[pref.backbag]]</b></a><br>"
-	. += "Backpack Style: <a href='?src=\ref[src];change_backpack_style=1'><b>[backbagstyles[pref.backbag_style]]</b></a><br>"
 
 	return jointext(., null)
 
@@ -139,19 +123,8 @@
 	metadata["[gt]"] = new_metadata
 
 /datum/category_item/player_setup_item/general/equipment/OnTopic(var/href,var/list/href_list, var/mob/user)
-	if(href_list["change_backpack"])
-		var/new_backbag = input(user, "Choose your character's bag type:", "Character Preference", backbaglist[pref.backbag]) as null|anything in backbaglist
-		if(!isnull(new_backbag) && CanUseTopic(user))
-			pref.backbag = backbaglist.Find(new_backbag)
-			return TOPIC_REFRESH_UPDATE_PREVIEW
 
-	else if(href_list["change_backpack_style"])
-		var/new_backbag = input(user, "Choose your character's style of bag:", "Character Preference", backbagstyles[pref.backbag_style]) as null|anything in backbagstyles
-		if(!isnull(new_backbag) && CanUseTopic(user))
-			pref.backbag_style = backbagstyles.Find(new_backbag)
-			return TOPIC_REFRESH_UPDATE_PREVIEW
-
-	else if(href_list["change_underwear"])
+	if(href_list["change_underwear"])
 		var/datum/category_group/underwear/UWC = global_underwear.categories_by_name[href_list["change_underwear"]]
 		if(!UWC)
 			return TOPIC_NOACTION
