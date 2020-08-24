@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Remote virtual reality centres should no longer work while on unpowered areas."
