@@ -190,6 +190,12 @@
 	emote_message_3p = "USER slaps USER_SELF across the face!"
 	emote_sound = 'sound/effects/snap.ogg'
 
+/decl/emote/audible/slap/target_check(var/atom/user, var/atom/target)
+	if(!ismob(target))
+		return FALSE
+	if(!target.Adjacent(user))
+		return FALSE
+
 /decl/emote/audible/snap
 	key = "snap"
 	emote_message_3p = "USER snaps USER_THEIR fingers."
