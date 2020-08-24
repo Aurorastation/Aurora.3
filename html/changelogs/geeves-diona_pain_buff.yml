@@ -4,6 +4,6 @@ delete-after: True
 
 changes: 
   - tweak: "Diona take less pain damage from lack of light."
-  - tweak: "Diona now take 50% the usual damage, down from 70%."
+  - tweak: "Diona now take 50% the usual pain damage, down from 70%."
   - tweak: "General pain messages now have a 5 second delay between them to prevent spam."
   - tweak: "Diona can now feel which organ of theirs are damaged, instead of pointing to the parent organ."
