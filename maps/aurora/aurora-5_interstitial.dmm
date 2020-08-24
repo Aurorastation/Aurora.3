@@ -10350,7 +10350,6 @@
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
 /obj/item/clothing/head/hardhat/red,
-/obj/item/clothing/glasses/meson,
 /obj/machinery/alarm{
 	pixel_y = 28
 	},

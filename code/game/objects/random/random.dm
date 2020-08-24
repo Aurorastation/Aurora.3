@@ -736,9 +736,6 @@
 		/obj/item/bodybag = 0.7,
 		/obj/item/clothing/accessory/storage/knifeharness = 0.3,
 		/obj/item/clothing/accessory/storage/webbing = 0.6,
-		/obj/item/clothing/glasses/material = 0.8,
-		/obj/item/clothing/glasses/meson = 0.5,
-		/obj/item/clothing/glasses/meson/prescription = 0.25,
 		/obj/item/clothing/glasses/sunglasses = 0.75,
 		/obj/item/clothing/glasses/welding = 0.75,
 		/obj/item/clothing/head/bearpelt = 0.4,
@@ -932,8 +929,7 @@
 		/obj/item/storage/backpack/chameleon = 1,
 		/obj/item/storage/backpack/ = 10,
 
-		/obj/item/clothing/glasses/chameleon = 1,
-		/obj/item/clothing/glasses/meson = 1
+		/obj/item/clothing/glasses/chameleon = 1
 
 	)
 

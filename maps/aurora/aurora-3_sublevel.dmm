@@ -10723,7 +10723,6 @@
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
 /obj/item/clothing/head/hardhat/red,
-/obj/item/clothing/glasses/meson,
 /turf/simulated/floor/tiled,
 /area/bridge/aibunker)
 "atG" = (

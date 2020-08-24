@@ -2679,7 +2679,6 @@
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
 /obj/item/clothing/head/hardhat/red,
-/obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
 "aeW" = (
@@ -8681,7 +8680,6 @@
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
 /obj/item/clothing/head/hardhat/red,
-/obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "aqm" = (
@@ -13193,8 +13191,6 @@
 /area/engineering/locker_room)
 "axI" = (
 /obj/structure/closet/radiation,
-/obj/item/clothing/glasses/meson,
-/obj/item/clothing/glasses/meson,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
@@ -19222,8 +19218,6 @@
 /area/engineering/engine_airlock)
 "aHx" = (
 /obj/structure/closet/radiation,
-/obj/item/clothing/glasses/meson,
-/obj/item/clothing/glasses/meson,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
@@ -26116,10 +26110,6 @@
 	pixel_x = 2;
 	pixel_y = 2
 	},
-/obj/item/clothing/glasses/meson{
-	pixel_x = -2;
-	pixel_y = -2
-	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/chief)
 "aTm" = (
@@ -26838,7 +26828,6 @@
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
 /obj/item/clothing/head/hardhat/red,
-/obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
 "aUt" = (
@@ -32474,7 +32463,6 @@
 	pixel_y = -1
 	},
 /obj/item/device/multitool,
-/obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
 /area/storage/tech)
 "beC" = (
@@ -33167,7 +33155,6 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialt,
 /obj/item/device/t_scanner,
-/obj/item/clothing/glasses/meson,
 /obj/item/device/multitool,
 /turf/simulated/floor/plating,
 /area/storage/tech)
@@ -49287,7 +49274,6 @@
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
 /obj/item/clothing/head/hardhat/red,
-/obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bMx" = (
@@ -49909,7 +49895,6 @@
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
 /obj/item/clothing/head/hardhat/red,
-/obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "bNR" = (
