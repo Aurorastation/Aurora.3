@@ -46,7 +46,7 @@ var opts = {
 
 	//Ping display
 	'lastPang': 0, //Timestamp of the last response from the server.
-	'pangLimit': 35000,
+	'pangLimit': 70000,
 	'pingTime': 0, //Timestamp of when ping sent
 	'pongTime': 0, //Timestamp of when ping received
 	'noResponse': false, //Tracks the state of the previous ping request
