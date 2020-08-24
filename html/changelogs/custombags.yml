@@ -4,5 +4,7 @@ delete-after: True
 
 changes: 
   - rscadd: "Added a Bags section to loadout preferences to cater to all your custom item needs."
+  - rscadd: "Added a Backpack option to Antag preferences, so Mercenaries can still have different bags"
   - rscdel: "Removes bags from the Eqipment preferences of the character setup screen.
             If you don't want your job backpack, make sure to select one from the loadout."
+  
