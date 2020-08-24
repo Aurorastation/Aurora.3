@@ -306,23 +306,23 @@ em						{font-style: normal;	font-weight: bold;}
 
 /* Radio: Misc */
 .deadsay				{color: #9269c7;}
-.radio					{color: #008000;}
+.radio					{color: #00a700;}
 .deptradio				{color: #ff00ff;}	/* when all other department colors fail */
 .newscaster				{color: #b43c3c;}
 
 /* Radio Channels */
-.comradio				{color: #5e8adb;}
-.syndradio				{color: #6D3F40;}
-.centradio				{color: #5C5C8A;}
-.airadio				{color: #FF00FF;}
-.entradio				{color: #bd893c;}
+.comradio				{color: #5b8deb;}
+.syndradio				{color: #ac6667;}
+.centradio				{color: #7272a7;}
+.airadio				{color: #ec00ec;}
+.entradio				{color: #d19a46;}
 
-.secradio				{color: #A30000;}
-.engradio				{color: #A66300;}
-.medradio				{color: #0a5c47;}
-.sciradio				{color: #993399;}
-.supradio				{color: #5F4519;}
-.srvradio				{color: #6eaa2c;}
+.secradio				{color: #e21111;}
+.engradio				{color: #cc7b01;}
+.medradio				{color: #0f7e62;}
+.sciradio				{color: #c03bc0;}
+.supradio				{color: #c09141;}
+.srvradio				{color: #7fc732;}
 
 /* Miscellaneous */
 .name					{font-weight: bold;}
@@ -348,21 +348,21 @@ h1.alert, h2.alert		{color: #a4bad6;}
 .cult					{color: #aa1c1c;}
 
 /* Languages */
-.alien					{color: #543354;}
-.tajaran				{color: #803B56;}
-.tajaran_signlang		{color: #941C1C;}
+.alien					{color: #ad67ad;}
+.tajaran				{color: #b15377;}
+.tajaran_signlang		{color: #cc2c2c;}
 .skrell					{color: #00CED1;}
-.vaurca					{color: #9e9e39;}
-.soghun					{color: #228B22;}
-.solcom					{color: #22228B;}
-.soghun_alt				{color: #156e15;}
-.changeling				{color: #800080;}
-.vox					{color: #AA00AA;}
+.vaurca					{color: #b9b943;}
+.soghun					{color: #2cad2c;}
+.solcom					{color: #5f5fd4;}
+.soghun_alt				{color: #1d9b1d;}
+.changeling				{color: #ad14ad;}
+.vox					{color: #bb19bb;}
 .rough					{font-family: "Trebuchet MS", cursive, sans-serif;}
 .say_quote				{font-family: Georgia, Verdana, sans-serif;}
-.yassa					{color: #400987;}
-.delvahhi				{color: #5E2612; font-weight: bold;}
-.siiktau				{color: #A52A2A;}
+.yassa					{color: #6323b6;}
+.delvahhi				{color: #914123; font-weight: bold;}
+.siiktau				{color: #be3434;}
 
 .interface				{color: #750e75;}
 
