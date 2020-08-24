@@ -195,6 +195,7 @@
 		return FALSE
 	if(!target.Adjacent(user))
 		return FALSE
+	return TRUE
 
 /decl/emote/audible/snap
 	key = "snap"
