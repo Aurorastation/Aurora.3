@@ -27,7 +27,7 @@
 	icon_state = "skirt_long"
 	item_state = "skirt_long"
 	worn_state = "skirt_long"
-	
+
 /obj/item/clothing/under/skirt/high
 	name = "high skirt"
 	desc = "A modest skirt going up to the waist."
@@ -67,6 +67,14 @@
 	icon_state = "skirt_pleated"
 	item_state = "skirt_pleated"
 	worn_state = "skirt_pleated"
+
+/obj/item/clothing/under/skirt/skater
+	name = "skater skirt"
+	desc = "A plush skater skirt."
+	desc_fluff = "Be it ice skating, skateboarding or rollerskating : You should probably wear shorts under these."
+	icon_state = "skirt_skater"
+	item_state = "skirt_skater"
+	worn_state = "skirt_skater"
 
 /obj/item/clothing/under/skirt/offworlder
 	name = "\improper CR skirt"

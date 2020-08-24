@@ -64,18 +64,9 @@
 	gear_tweaks += new/datum/gear_tweak/path(hazard)
 
 /datum/gear/suit/hoodie
-	display_name = "hoodie selection"
+	display_name = "hoodie"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/suit/hoodie/New()
-	..()
-	var/l_hoodie = list()
-	l_hoodie["hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie
-	l_hoodie["short-sleeved hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/short
-	l_hoodie["crop top hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/crop
-	l_hoodie["sleeveless hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
-	gear_tweaks += new/datum/gear_tweak/path(l_hoodie)
 
 /datum/gear/suit/labcoat
 	display_name = "labcoat"

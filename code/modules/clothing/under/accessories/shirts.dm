@@ -53,13 +53,6 @@
 	desc_fluff = "Does not come with accompanying dog-sized version."
 	icon_state = "sweaterargyletubeneck"
 	item_state = "sweaterargyletubeneck"
-	
-/obj/item/clothing/accessory/sweaterkeyhole
-	name = "keyhole sweater"
-	desc = "A sweater, a piece of warm clothing, that has had a hole cut in it. Why would anyone make this?"
-	desc_fluff = "This style of sweater originates from the aerostats of Venus, and has become widespread throughout the human space of Orion Spur due to its appearance. It's not the most professional take on the sweater ever, but it's certainly eye-catching."
-	icon_state = "sweaterkeyhole"
-	item_state = "sweaterkeyhole"
 
 /obj/item/clothing/accessory/dressshirt
 	name = "dress shirt"
@@ -72,6 +65,12 @@
 	desc = "A casual dress shirt. This one has its sleeves rolled up."
 	icon_state = "dressshirt_r"
 	item_state = "dressshirt_r"
+
+/obj/item/clothing/accessory/blouse
+	name = "blouse"
+	desc = "A loose fitting garment."
+	icon_state = "blouse"
+	item_state = "blouse"
 
 //Legacy
 /obj/item/clothing/accessory/wcoat

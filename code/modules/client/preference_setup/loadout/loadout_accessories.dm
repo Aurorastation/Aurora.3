@@ -152,7 +152,6 @@
 	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweaterargyleturtleneck
 	sweater["tubeneck sweater"] = /obj/item/clothing/accessory/sweatertubeneck
 	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweaterargyletubeneck
-	sweater["keyhole sweater"] = /obj/item/clothing/accessory/sweaterkeyhole
 	gear_tweaks += new/datum/gear_tweak/path(sweater)
 
 /datum/gear/accessory/dressshirt
@@ -168,6 +167,11 @@
 /datum/gear/accessory/longsleeve
 	display_name = "long-sleeved shirt"
 	path = /obj/item/clothing/accessory/longsleeve
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/blouse
+	display_name = "blouse"
+	path = /obj/item/clothing/accessory/blouse
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/longsleeve_s
