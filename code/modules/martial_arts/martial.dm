@@ -161,7 +161,7 @@
 		if(!A)
 			break
 		A.set_dir(i)
-		playsound(A.loc, 'sound/weapons/punch1.ogg', 15, 1, -1)
+		playsound(A.loc, "punch", 15, 1, -1)
 
 /obj/item/martial_manual
 	name = "SolCom manual"
