@@ -76,6 +76,14 @@
 	item_state = "skirt_skater"
 	worn_state = "skirt_skater"
 
+/obj/item/clothing/under/skirt/tube
+	name = "tube skirt"
+	desc = "A long tube skirt."
+	desc_fluff = "A pencil skirt. But longer."
+	icon_state = "skirt_tube"
+	item_state = "skirt_tube"
+	worn_state = "skirt_tube"
+
 /obj/item/clothing/under/skirt/offworlder
 	name = "\improper CR skirt"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear. This variant seems to have a poofy skirt and longer sleeves than normal."

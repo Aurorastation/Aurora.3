@@ -58,6 +58,7 @@
 	skirts["pleated skirt"] = /obj/item/clothing/under/skirt/pleated
 	skirts["high skirt"] = /obj/item/clothing/under/skirt/high
 	skirts["skater skirt"] = /obj/item/clothing/under/skirt/skater
+	skirts["tube skirt"] = /obj/item/clothing/under/skirt/tube
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
 
 /datum/gear/uniform/suit

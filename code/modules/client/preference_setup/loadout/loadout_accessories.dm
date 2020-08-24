@@ -164,6 +164,16 @@
 	path = /obj/item/clothing/accessory/dressshirt_r
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/dressshirt_crop
+	display_name = "cropped dress shirt"
+	path = /obj/item/clothing/accessory/dressshirt_crop
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/dressshirt_crop_r
+	display_name = "cropped dress shirt, rolled up"
+	path = /obj/item/clothing/accessory/dressshirt_crop_r
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/longsleeve
 	display_name = "long-sleeved shirt"
 	path = /obj/item/clothing/accessory/longsleeve
@@ -188,6 +198,11 @@
 /datum/gear/accessory/tshirt
 	display_name = "t-shirt"
 	path = /obj/item/clothing/accessory/tshirt
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/tshirt
+	display_name = "cropped t-shirt"
+	path = /obj/item/clothing/accessory/tshirt_crop
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/silversun
