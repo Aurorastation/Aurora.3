@@ -47,7 +47,7 @@
 	M.adjustNutritionLoss(5*removed)
 	
 	var/mob/living/carbon/human/H = M 
-	if(dose == overdose * 1.5) //Bicaridine treats arterial bleeding when dose is greater than 30u and when the drug is overdosing (chemical volume in blood greater than 20).
+	if(dose > 30) //Bicaridine treats arterial bleeding when dose is greater than 30u and when the drug is overdosing (chemical volume in blood greater than 20).
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & ORGAN_ARTERY_CUT && prob(2))
 				E.status &= ~ORGAN_ARTERY_CUT
