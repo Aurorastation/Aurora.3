@@ -18,7 +18,6 @@
 	var/max_dose = 0
 	var/overdose = 0 // Volume of a chemical required in the blood to meet overdose criteria.
 	var/od_minimum_dose = 5 // Metabolised dose of a chemical required to meet overdose criteria. 
-	var/is_overdosed = FALSE
 	var/scannable = 0 // Shows up on health analyzers.
 	var/affects_dead = 0
 	var/glass_icon_state = null
@@ -85,7 +84,6 @@
 	max_dose = max(volume, max_dose)
 
 	if(overdose && (volume > overdose) && (dose > od_minimum_dose) && (location != CHEM_TOUCH)) //OD based on volume in blood, but waits for a small amount of the drug to metabolise before kicking in.
-		is_overdosed = TRUE
 		overdose(M, alien, removed, dose/overdose) //Actual overdose threshold now = overdose + od_minimum_dose. ie. Synaptizine; 5u OD threshold + 1 unit min. metab'd dose = 6u actual OD threshold.
 
 	if(dose == 0)

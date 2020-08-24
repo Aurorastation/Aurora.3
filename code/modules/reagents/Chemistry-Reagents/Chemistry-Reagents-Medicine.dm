@@ -370,7 +370,7 @@
 
 /datum/reagent/synaptizine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.drowsyness = max(M.drowsyness - 5, 0)
-	if(!is_overdosed) // Will prevent synaptizine interrupting a seizure caused by its own overdose.
+	if(!(volume > 10)) // Will prevent synaptizine interrupting a seizure caused by its own overdose.
 		M.AdjustParalysis(-1) 
 	M.AdjustStunned(-1)
 	M.AdjustWeakened(-1)
@@ -416,7 +416,7 @@
 		M.add_chemical_effect(CE_PAINKILLER, 10)
 		M.dizziness = max(125, M.dizziness)
 		M.make_dizzy(5)
-		if(!is_overdosed)
+		if(!(volume > 10))
 			var/obj/item/organ/internal/brain/B = M.internal_organs_by_name[BP_BRAIN]
 			if(B && M.species && M.species.has_organ[BP_BRAIN] && !isipc(M))
 				if(prob(dose/5) && !B.has_trauma_type(BRAIN_TRAUMA_MILD))
@@ -775,7 +775,7 @@
 	taste_description = "bitterness"
 
 /datum/reagent/leporazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
-	if(!is_overdosed)
+	if(!(volume > 20))
 		if(M.bodytemperature > 310)
 			M.bodytemperature = max(310, M.bodytemperature - (40 * TEMPERATURE_DAMAGE_COEFFICIENT))
 		else if(M.bodytemperature < 311)
@@ -1353,6 +1353,7 @@
 	reagent_state = SOLID
 
 /datum/reagent/fluvectionem/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	var/is_overdosed = overdose && (volume > overdose) && (dose > od_minimum_dose)
 	if(is_overdosed)
 		removed *= 2
 
