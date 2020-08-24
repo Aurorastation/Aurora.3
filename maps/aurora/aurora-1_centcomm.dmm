@@ -16057,6 +16057,9 @@
 	icon_state = "toolcloset"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/pickaxe/jackhammer,
+/obj/item/pickaxe/jackhammer,
+/obj/item/pickaxe/jackhammer,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "chj" = (
@@ -16435,9 +16438,6 @@
 /area/shuttle/administration)
 "cCo" = (
 /obj/structure/table/rack,
-/obj/item/pickaxe/jackhammer,
-/obj/item/pickaxe/jackhammer,
-/obj/item/pickaxe/jackhammer,
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
 /obj/structure/lattice/catwalk/indoor/grate,

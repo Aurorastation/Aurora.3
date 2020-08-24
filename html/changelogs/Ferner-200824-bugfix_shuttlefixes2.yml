@@ -1,0 +1,7 @@
+author: Ferner
+delete-after: True
+changes: 
+  - bugfix: "Fixed players sometimes spawning with ashy feet."
+  - bugfix: "Fixed a few lighting issues and things related to shuttles."
+  - bugfix: "Landing back on the asteroid after falling into space now makes you take fall damage again, watch your step out there."
+
