@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscdel: "Removed mesons and material scanners from the station."
-  - tweak: "Safety goggles now protects from supermatter hallucinations."
