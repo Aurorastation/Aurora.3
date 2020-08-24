@@ -1,15 +1,15 @@
 /datum/species/bug
-	name = "Vaurca Worker"
+	name = SPECIES_VAURCA_WORKER
 	short_name = "vau"
 	name_plural = "Type A"
-	bodytype = "Vaurca"
+	bodytype = BODYTYPE_VAURCA
 	age_min = 1
 	age_max = 20
 	default_genders = list(NEUTER)
 	economic_modifier = 2
 	language = LANGUAGE_VAURCA
-	primitive_form = "V'krexi"
-	greater_form = "Vaurca Warrior"
+	primitive_form = SPECIES_MONKEY_VAURCA
+	greater_form = SPECIES_VAURCA_WARRIOR
 	icobase = 'icons/mob/human_races/vaurca/r_vaurca.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurca.dmi'
 	preview_icon = 'icons/mob/human_races/vaurca/vaurca_preview.dmi'

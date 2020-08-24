@@ -55,7 +55,7 @@
 		/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod3,
 		/datum/shuttle/autodock/ferry/emergency/exodus,
 		/datum/shuttle/autodock/ferry/supply/exodus,
-		/datum/shuttle/autodock/ferry/admin,
+		/datum/shuttle/autodock/multi/admin,
 		/datum/shuttle/autodock/ferry/autoreturn/ccia,
 		/datum/shuttle/autodock/ferry/engi,
 		/datum/shuttle/autodock/ferry/mining,

@@ -123,7 +123,6 @@
 			var/brain_regen_amount = owner.chem_effects[CE_BRAIN_REGEN]	/ 10
 			//Effects of bloodloss
 			switch(blood_volume)
-
 				if(BLOOD_VOLUME_SAFE to INFINITY)
 					if(can_heal && owner.chem_effects[CE_BRAIN_REGEN])
 						damage = max(damage - brain_regen_amount, 0)
@@ -133,20 +132,20 @@
 					if(prob(1))
 						to_chat(owner, "<span class='warning'>You feel [pick("dizzy","woozy","faint")]...</span>")
 					damprob = owner.chem_effects[CE_STABLE] ? 30 : 60
-					if(!past_damage_threshold(4) && prob(damprob))
+					if(!past_damage_threshold(2) && prob(damprob))
 						take_internal_damage(1)
 				if(BLOOD_VOLUME_BAD to BLOOD_VOLUME_OKAY)
 					owner.eye_blurry = max(owner.eye_blurry,6)
 					damprob = owner.chem_effects[CE_STABLE] ? 40 : 80
-					if(!past_damage_threshold(6) && prob(damprob))
-						take_internal_damage(2)
+					if(!past_damage_threshold(4) && prob(damprob))
+						take_internal_damage(1)
 					if(!owner.paralysis && prob(10))
 						owner.Paralyse(rand(1,3))
 						to_chat(owner, "<span class='warning'>You feel extremely [pick("dizzy","woozy","faint")]...</span>")
 				if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_BAD)
 					owner.eye_blurry = max(owner.eye_blurry,6)
 					damprob = owner.chem_effects[CE_STABLE] ? 60 : 100
-					if(!past_damage_threshold(8) && prob(damprob))
+					if(!past_damage_threshold(6) && prob(damprob))
 						take_internal_damage(1)
 					if(!owner.paralysis && prob(15))
 						owner.Paralyse(rand(3, 5))

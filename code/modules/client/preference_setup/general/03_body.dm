@@ -281,7 +281,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		out += "\[...\]<br><br>"
 	else
 		out += "<br><br>"
-	
+
 	out += "</td></tr></table><b>Hair</b><br>"
 	if(has_flag(mob_species, HAS_HAIR_COLOR))
 		out += "<a href='?src=\ref[src];hair_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_hair, pref.g_hair, pref.b_hair))] "
@@ -304,7 +304,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			out += "<br><b>Body Color</b><br>"
 			out += "<a href='?src=\ref[src];skin_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_skin, pref.g_skin, pref.b_skin))] <br>"
 
-	
+
 
 	out += "<br><a href='?src=\ref[src];marking_style=1'>Body Markings +</a><br>"
 	for(var/M in pref.body_markings)
@@ -351,7 +351,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			mob_species = all_species[pref.species]
 
 			pref.gender = sanitize_gender(pref.gender, pref.species)
-			var/bodytype = mob_species.get_bodytype()
+			//var/bodytype = mob_species.get_bodytype()
 
 			//grab one of the valid hair styles for the newly chosen species
 			var/list/valid_hairstyles = list()
@@ -363,7 +363,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					continue
 				if(pref.gender == FEMALE && S.gender == MALE)
 					continue
-				if(!(bodytype in S.species_allowed))
+				if(!(mob_species.type in S.species_allowed))
 					continue
 				valid_hairstyles[hairstyle] = hair_styles_list[hairstyle]
 
@@ -380,7 +380,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					continue
 				if(pref.gender == FEMALE && S.gender == MALE)
 					continue
-				if(!(bodytype in S.species_allowed))
+				if(!(mob_species.type in S.species_allowed))
 					continue
 
 				valid_facialhairstyles[facialhairstyle] = facial_hair_styles_list[facialhairstyle]
@@ -416,11 +416,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["hair_style"])
 		if(mob_species.bald)
 			return
-		var/bodytype = mob_species.get_bodytype()
+		//var/bodytype = mob_species.get_bodytype()
 		var/list/valid_hairstyles = list()
 		for(var/hairstyle in hair_styles_list)
 			var/datum/sprite_accessory/S = hair_styles_list[hairstyle]
-			if(!(bodytype in S.species_allowed))
+			if(!(mob_species.type in S.species_allowed))
 				continue
 
 			valid_hairstyles[hairstyle] = hair_styles_list[hairstyle]
@@ -481,14 +481,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		if(mob_species.bald)
 			return
 		var/list/valid_facialhairstyles = list()
-		var/bodytype = mob_species.get_bodytype()
+		//var/bodytype = mob_species.get_bodytype()
 		for(var/facialhairstyle in facial_hair_styles_list)
 			var/datum/sprite_accessory/S = facial_hair_styles_list[facialhairstyle]
 			if(pref.gender == MALE && S.gender == FEMALE)
 				continue
 			if(pref.gender == FEMALE && S.gender == MALE)
 				continue
-			if(!(bodytype in S.species_allowed))
+			if(!(mob_species.type in S.species_allowed))
 				continue
 
 			valid_facialhairstyles[facialhairstyle] = facial_hair_styles_list[facialhairstyle]
@@ -501,12 +501,12 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["marking_style"])
 		var/list/usable_markings = pref.body_markings ^ body_marking_styles_list
 		var/datum/species/species = global.all_species[pref.species]
-		var/btype = species.get_bodytype()
+		//var/btype = species.get_bodytype()
 		for(var/M in usable_markings)
 			var/datum/sprite_accessory/S = usable_markings[M]
 			if(!S.species_allowed.len)
 				continue
-			else if(!(btype in S.species_allowed))
+			else if(!(species.type in S.species_allowed))
 				usable_markings -= M
 
 		if (!usable_markings.len)
@@ -599,7 +599,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					pref.rlimb_data[second_limb] = null
 
 			if("Prosthesis")
-				var/tmp_species = pref.species ? pref.species : "Human"
+				var/tmp_species = pref.species ? pref.species : SPECIES_HUMAN
 				var/list/usable_manufacturers = list()
 				for(var/company in chargen_robolimbs)
 					var/datum/robolimb/M = chargen_robolimbs[company]
@@ -676,7 +676,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 /datum/category_item/player_setup_item/general/body/proc/SetSpecies(mob/user)
 	if(!pref.species_preview || !(pref.species_preview in all_species))
-		pref.species_preview = "Human"
+		pref.species_preview = SPECIES_HUMAN
 	var/datum/species/current_species = all_species[pref.species_preview]
 	var/list/dat = list(
 		"<center><h2>[current_species.name] \[<a href='?src=\ref[src];show_species=1'>change</a>\]</h2></center><hr/>",

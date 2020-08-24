@@ -17,13 +17,6 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GOLD = 2000, MATERIAL_SILVER = 3000, MATERIAL_GLASS = 2000)
 	build_path = /obj/item/rig_module/power_sink
 
-/datum/design/hardsuitmodules/meson_module
-	name = "Hardsuit Meson Scanner"
-	desc = "A layered, translucent visor system for a hardsuit."
-	req_tech = list(TECH_MAGNET = 4, TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
-	build_path = /obj/item/rig_module/vision/meson
-
 /datum/design/hardsuitmodules/sechud_module
 	name = "Hardsuit Security HUD"
 	desc = "A simple tactical information system for a hardsuit."

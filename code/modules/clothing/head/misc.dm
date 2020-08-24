@@ -625,8 +625,8 @@
 	item_state = "shroud"
 	icon_state = "shroud"
 	contained_sprite = FALSE
-	species_restricted = list("Vaurca Breeder")
-	sprite_sheets = list("Vaurca Breeder" = 'icons/mob/species/breeder/head.dmi')
+	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/head.dmi')
 
 /obj/item/clothing/head/navy
 	name = "sol navy utility cover"

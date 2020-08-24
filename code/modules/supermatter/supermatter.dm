@@ -213,7 +213,7 @@
 		soundloop.volume = min(100, (round(power/7)+1))
 	else
 		soundloop.volume = 0
-	
+
 	if(damage > explosion_point)
 		if(!exploded)
 			if(!istype(L, /turf/space))
@@ -291,7 +291,7 @@
 		env.merge(removed)
 
 	for(var/mob/living/carbon/human/l in view(src, min(7, round(sqrt(power/6))))) // If they can see it without mesons on.  Bad on them.
-		if(!istype(l.glasses, /obj/item/clothing/glasses/meson) && !l.is_diona() && !l.isSynthetic())
+		if(!istype(l.glasses, /obj/item/clothing/glasses/safety) && !l.is_diona() && !l.isSynthetic())
 			l.hallucination = max(0, min(200, l.hallucination + power * config_hallucination_power * sqrt( 1 / max(1,get_dist(l, src)) ) ) )
 			if(prob(15))
 				l.cure_all_traumas(cure_type = CURE_HYPNOSIS)
@@ -314,7 +314,7 @@
 
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
 
-	animate(filters[filters.len], size=max(0, power+1), offset=++filter_offset, time=1 SECONDS, easing=ELASTIC_EASING|EASE_IN|EASE_OUT)
+	animate(filters[1], size=max(0, power+1), offset=++filter_offset, time=1 SECONDS, easing=ELASTIC_EASING|EASE_IN|EASE_OUT)
 	return 1
 
 

@@ -76,15 +76,16 @@
 		/datum/shuttle/autodock/ferry/arrival/aurora,
 		/datum/shuttle/autodock/ferry/supply/aurora,
 		/datum/shuttle/autodock/ferry/merchant_aurora,
-		/datum/shuttle/autodock/ferry/admin,
+		/datum/shuttle/autodock/multi/admin,
 		/datum/shuttle/autodock/ferry/autoreturn/ccia,
 		/datum/shuttle/autodock/ferry/specops/ert_aurora,
 		/datum/shuttle/autodock/multi/antag/skipjack_aurora,
 		/datum/shuttle/autodock/multi/antag/burglar_aurora,
 		/datum/shuttle/autodock/multi/antag/merc_aurora,
-		/datum/shuttle/autodock/ferry/legion,
+		/datum/shuttle/autodock/multi/legion,
 		/datum/shuttle/autodock/ferry/research_aurora,
-		/datum/shuttle/autodock/ferry/distress
+		/datum/shuttle/autodock/multi/distress,
+		/datum/shuttle/autodock/multi/merc_aurora_elite
 	)
 
 /datum/map/aurora/generate_asteroid()

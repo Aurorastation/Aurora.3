@@ -226,7 +226,7 @@
 
 				if(ishuman(L)) //Ignore slime(wo)men
 					var/mob/living/carbon/human/H = L
-					if(H.species.name == "Slime")
+					if(H.species.name == SPECIES_SLIMEPERSON)
 						continue
 
 				if(!L.canmove) // Only one slime can latch on at a time.

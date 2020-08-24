@@ -1672,7 +1672,7 @@
 	center_of_mass = list("x"=16, "y"=14)
 
 	var/wrapped = 0
-	var/monkey_type = "Monkey"
+	var/monkey_type = SPECIES_MONKEY
 
 	reagents_to_add = list(/datum/reagent/nutriment/protein = 10)
 
@@ -1717,35 +1717,35 @@
 
 /obj/item/reagent_containers/food/snacks/monkeycube/farwacube
 	name = "farwa cube"
-	monkey_type = "Farwa"
+	monkey_type = SPECIES_MONKEY_TAJARA
 
 /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/farwacube
 	name = "farwa cube"
-	monkey_type = "Farwa"
+	monkey_type = SPECIES_MONKEY_TAJARA
 
 /obj/item/reagent_containers/food/snacks/monkeycube/stokcube
 	name = "stok cube"
-	monkey_type = "Stok"
+	monkey_type = SPECIES_MONKEY_UNATHI
 
 /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/stokcube
 	name = "stok cube"
-	monkey_type = "Stok"
+	monkey_type = SPECIES_MONKEY_UNATHI
 
 /obj/item/reagent_containers/food/snacks/monkeycube/neaeracube
 	name = "neaera cube"
-	monkey_type = "Neaera"
+	monkey_type = SPECIES_MONKEY_SKRELL
 
 /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube
 	name = "neaera cube"
-	monkey_type = "Neaera"
+	monkey_type = SPECIES_MONKEY_SKRELL
 
 /obj/item/reagent_containers/food/snacks/monkeycube/vkrexicube
 	name = "v'krexi cube"
-	monkey_type = "V'krexi"
+	monkey_type = SPECIES_MONKEY_VAURCA
 
 /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube
 	name = "v'krexi cube"
-	monkey_type = "V'krexi"
+	monkey_type = SPECIES_MONKEY_VAURCA
 
 /obj/item/reagent_containers/food/snacks/burger/spell
 	name = "spell burger"
@@ -4364,7 +4364,7 @@
 	desc = "A piece of salted fatshouter's meat stored inside a metal can."
 	icon_state = "canned"
 	bitesize = 2
-	trash = /obj/item/trash/can
+	trash = /obj/item/trash/can/adhomian_can
 	desc_fluff = "While the People's republic territory includes several different regional cultures, it is possible to find common culinary traditions among its population. \
 	Salt-cured Fatshouters's meat also has been introduced widely, facilitated by the recent advances in the livestock husbandry techniques."
 	reagents_to_add = list(/datum/reagent/nutriment/protein = 5, /datum/reagent/sodiumchloride = 2)

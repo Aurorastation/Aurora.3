@@ -353,7 +353,7 @@
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
 
-		if(H.isSynthetic() && H == user && !(H.get_species() == "Military Frame"))
+		if(H.isSynthetic() && H == user && !(H.get_species() == SPECIES_IPC_TERMINATOR))
 			to_chat(user, SPAN_WARNING("You can't repair damage to your own body - it's against OH&S."))
 			return
 

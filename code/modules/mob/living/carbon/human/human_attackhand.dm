@@ -410,7 +410,7 @@
 			if(randn <= 25)
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
 					apply_effect(6, WEAKEN, run_armor_check(affecting, "melee"))
-					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+					playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 					visible_message("<span class='danger'>[M] hurls [src] to the floor!</span>")
 					step_away(src,M,15)
 					sleep(3)
@@ -420,16 +420,17 @@
 				else
 					var/armor_check = run_armor_check(affecting, "melee")
 					apply_effect(3, WEAKEN, armor_check)
-					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 					if(armor_check < 100)
 						visible_message("<span class='danger'>[M] has pushed [src]!</span>")
+						playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 					else
 						visible_message("<span class='warning'>[M] attempted to push [src]!</span>")
+						playsound(loc, 'sound/weapons/push.ogg', 50, 1, -1)
 					return
 
 			if(randn <= 60)
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
-					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+					playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 					visible_message("<span class='danger'>[M] shoves, sending [src] flying!</span>")
 					step_away(src,M,15)
 					sleep(1)
