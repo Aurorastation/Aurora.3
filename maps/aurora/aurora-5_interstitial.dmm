@@ -12312,6 +12312,7 @@
 	tag = "icon-warning_dust (SOUTHWEST)"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -12428,16 +12429,6 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
-"UQ" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 9
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "UR" = (
 /obj/structure/sign/nosmoking_2{
 	pixel_y = 32
@@ -12652,16 +12643,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
-"Wr" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 5
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "Wu" = (
 /obj/structure/track{
 	icon_state = "track3"
@@ -43708,7 +43689,7 @@ xy
 Iv
 Iv
 UK
-UQ
+md
 Ny
 UA
 ab
@@ -44222,7 +44203,7 @@ xy
 Iv
 Iv
 UK
-Wr
+me
 wc
 ab
 ab
@@ -46523,8 +46504,8 @@ YS
 Sk
 YS
 YS
-aa
-aa
+mo
+mo
 UK
 vd
 nm
@@ -46779,9 +46760,9 @@ mo
 YS
 Ei
 YS
-aa
-aa
-aa
+mo
+mo
+mo
 UK
 nr
 CN
@@ -47036,9 +47017,9 @@ mo
 YS
 Ei
 YS
-aa
-aa
-aa
+mo
+mo
+mo
 UK
 FF
 qT
@@ -47293,9 +47274,9 @@ aa
 YS
 Ei
 YS
-aa
-aa
-aa
+mo
+mo
+mo
 UK
 YX
 oX
@@ -47550,9 +47531,9 @@ aa
 YS
 Ei
 YS
-aa
-aa
-aa
+mo
+mo
+mo
 UK
 PB
 Tu
@@ -47807,9 +47788,9 @@ aa
 YS
 Ei
 YS
-aa
-aa
-aa
+mo
+mo
+mo
 UK
 UK
 UK
@@ -48064,10 +48045,10 @@ aa
 YS
 Ei
 YS
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
 mo
 mo
 mo
@@ -48321,7 +48302,7 @@ aa
 YS
 Ei
 YS
-aa
+mo
 aa
 aa
 aa
@@ -48329,10 +48310,10 @@ aa
 aa
 aa
 mo
-aa
-aa
-aa
-aa
+mo
+mo
+mo
+mo
 mo
 ab
 ab

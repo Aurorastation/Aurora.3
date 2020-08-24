@@ -256,7 +256,7 @@
 /area/maintenance/foresolar)
 "az" = (
 /obj/effect/shuttle_landmark/arrival/dock,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "aA" = (
 /obj/structure/grille,
@@ -900,7 +900,7 @@
 /area/tcommsat/computer)
 "bH" = (
 /obj/effect/shuttle_landmark/merc/dock,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "bI" = (
 /obj/machinery/power/port_gen/pacman,
@@ -1041,7 +1041,7 @@
 /area/hallway/secondary/entry/dock)
 "bU" = (
 /obj/effect/shuttle_landmark/merc_elite/green,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "bV" = (
 /obj/structure/window/reinforced{
@@ -1137,7 +1137,7 @@
 /area/maintenance/cargo/surface)
 "ce" = (
 /obj/effect/shuttle_landmark/admin/green,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "cf" = (
 /obj/structure/table/standard,
@@ -1606,7 +1606,7 @@
 /area/turret_protected/tcomsat)
 "de" = (
 /obj/effect/shuttle_landmark/burglar/surface,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "df" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -2158,7 +2158,7 @@
 /area/tcommsat/computer)
 "ec" = (
 /obj/effect/shuttle_landmark/ccia/dock,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "ed" = (
 /obj/structure/cable/green{
@@ -2429,6 +2429,14 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
+"eA" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
 "eB" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -2443,7 +2451,7 @@
 /area/hallway/secondary/entry/port)
 "eC" = (
 /obj/effect/shuttle_landmark/merchant/dock,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "eD" = (
 /obj/structure/grille,
@@ -5738,7 +5746,7 @@
 /area/bridge/levela/research_dock)
 "kG" = (
 /obj/effect/shuttle_landmark/ert/dock,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "kH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -6546,11 +6554,11 @@
 /area/maintenance/store)
 "me" = (
 /obj/effect/shuttle_landmark/supply/dock,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/airless/ceiling,
 /area/mine/explored)
 "mf" = (
 /obj/effect/shuttle_landmark/emergency/dock,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "mg" = (
 /obj/structure/closet,
@@ -7269,7 +7277,7 @@
 /area/hallway/secondary/entry/fore)
 "nx" = (
 /obj/effect/shuttle_landmark/merc_elite/merchant,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "ny" = (
 /obj/item/cell,
@@ -7412,6 +7420,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
+"nL" = (
+/turf/simulated/floor/airless/ceiling,
+/area/mine/explored)
 "nM" = (
 /obj/random/junk,
 /turf/unsimulated/chasm_mask,
@@ -9552,7 +9563,7 @@
 /area/shuttle/research)
 "rM" = (
 /obj/effect/shuttle_landmark/admin/command,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "rN" = (
 /obj/structure/table/standard,
@@ -10704,7 +10715,7 @@
 /area/shuttle/research)
 "uh" = (
 /obj/effect/shuttle_landmark/merc_elite/yellow,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "ui" = (
 /obj/machinery/door/firedoor,
@@ -13096,7 +13107,7 @@
 "yN" = (
 /obj/effect/shuttle_landmark/burglar/blue,
 /obj/effect/shuttle_landmark/distress/blue,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "yO" = (
 /obj/structure/window/reinforced{
@@ -13512,9 +13523,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/store)
 "zB" = (
-/obj/effect/floor_decal/industrial/warning/dust/corner{
-	dir = 4
-	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -18424,7 +18432,7 @@
 /area/hallway/secondary/entry/emergency)
 "In" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -18865,7 +18873,7 @@
 /area/maintenance/portsolar)
 "Jc" = (
 /obj/effect/shuttle_landmark/skipjack/surface,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "Je" = (
 /obj/effect/floor_decal/corner/red,
@@ -21389,7 +21397,7 @@
 /area/hallway/secondary/entry/emergency)
 "Oh" = (
 /obj/effect/shuttle_landmark/distress/green,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "Oi" = (
 /obj/machinery/atmospherics/binary/pump/on{
@@ -23503,7 +23511,7 @@
 /area/tcommsat/entrance)
 "Sv" = (
 /obj/effect/shuttle_landmark/merc_elite/command,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "Sw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -24328,7 +24336,7 @@
 /area/crew_quarters/fitness)
 "TW" = (
 /obj/effect/shuttle_landmark/legion/merchant,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "TX" = (
 /turf/simulated/floor/plating,
@@ -47635,8 +47643,8 @@ ZZ
 ZZ
 ZZ
 ZZ
-zB
-aa
+ZZ
+In
 aa
 aa
 aa
@@ -47881,19 +47889,19 @@ aw
 Uy
 aw
 Yx
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-Xp
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
 zB
+Pr
 aa
 aa
 aa
@@ -48138,18 +48146,18 @@ aw
 Uy
 aw
 Yx
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
 Pr
 aa
 aa
@@ -48395,18 +48403,18 @@ aw
 Uy
 aw
 Yx
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
 Pr
 aa
 aa
@@ -48652,18 +48660,18 @@ aw
 Uy
 aw
 Yx
-aw
-aw
-aw
-aw
-aw
+nL
+nL
+nL
+nL
+nL
 me
-aw
-aw
-aw
-aw
-aw
-aw
+nL
+nL
+nL
+nL
+nL
+nL
 Pr
 aw
 aw
@@ -48909,18 +48917,18 @@ aw
 Uy
 aw
 Yx
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
 Pr
 aw
 aw
@@ -49166,18 +49174,18 @@ Is
 Uy
 aw
 Yx
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
 AX
 aw
 aw
@@ -49423,19 +49431,19 @@ aw
 Uy
 aw
 Yx
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-If
-In
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+zB
+Pr
 aa
 aa
 aa
@@ -49691,8 +49699,8 @@ Gz
 EN
 Zi
 Zi
-In
-aa
+Zi
+eA
 aa
 ag
 ag
@@ -49961,8 +49969,8 @@ ag
 ag
 aa
 aa
-aw
-aw
+aa
+aa
 aa
 aa
 aa
@@ -50218,18 +50226,18 @@ ag
 ag
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
 aa
 aa
 aa
@@ -50475,18 +50483,18 @@ ag
 ag
 aa
 aa
+aa
+aa
+aa
+aa
+aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -50732,18 +50740,18 @@ ag
 ag
 aa
 aa
+aa
+aa
+aa
+aa
+aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
 Jc
-aa
+aw
 aa
 aa
 aa
@@ -50989,18 +50997,18 @@ ag
 ag
 aa
 aa
+aa
+aa
+aa
+aa
+aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -51246,18 +51254,18 @@ ag
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -51503,17 +51511,17 @@ ag
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -51761,16 +51769,16 @@ aa
 aa
 aa
 aw
+aa
+aa
+aa
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -52018,16 +52026,16 @@ aa
 aa
 aa
 aw
+aa
+aa
+aa
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -52275,16 +52283,16 @@ aa
 aa
 aa
 aw
+aa
+aa
+aa
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -52532,16 +52540,16 @@ aa
 aa
 aa
 aw
+aa
+aa
+aa
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -52789,16 +52797,16 @@ aa
 aa
 aw
 aw
+aa
+aa
+aa
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -53047,15 +53055,15 @@ aa
 aw
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -53304,15 +53312,15 @@ aw
 aw
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -53562,14 +53570,14 @@ aw
 aw
 UA
 UA
+aw
+aw
+aw
+aw
+aw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
 aa
 aa
 aa
@@ -53819,11 +53827,11 @@ aw
 UA
 UA
 UA
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -54075,12 +54083,12 @@ aw
 aw
 UA
 UA
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -54327,15 +54335,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -54586,13 +54594,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -68931,7 +68939,7 @@ aw
 aw
 aw
 aw
-aa
+aw
 Sv
 aa
 aa
