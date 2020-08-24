@@ -294,7 +294,7 @@
 					if(H.last_special + 50 > world.time)
 						return
 					H.last_special = world.time
-				to_chat(usr, SPAN_NOTICE("You take look around to see if there are any holes in the roof around."))
+				to_chat(usr, SPAN_NOTICE("You check for any holes in the roof."))
 				for(var/turf/T in view(usr.client.view + 3, usr)) // slightly extra to account for moving while looking for openness
 					if(T.density)
 						continue

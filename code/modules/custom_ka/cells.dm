@@ -219,7 +219,7 @@
 		the_sheet.amount -= amount_to_take
 		stored_charge += amount_to_take*charge_per_sheet
 
-		user.visible_message("<b>\The [user]</b> inserts a sheet [I] into \the [src].", \
+		user.visible_message("<b>[user]</b> inserts a sheet [I] into \the [src].", \
 			SPAN_NOTICE("You insert a sheet of [I]s into \the [src]."), \
 			SPAN_NOTICE("You hear mechanical whirring."))
 

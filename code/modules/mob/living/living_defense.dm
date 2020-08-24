@@ -199,7 +199,7 @@
 			miss_chance = max(15*(distance-2), 0)
 
 		if (prob(miss_chance))
-			visible_message("<b>\The [O]</b> misses [src] narrowly!")
+			visible_message("<b>[O]</b> misses [src] narrowly!")
 			playsound(src, 'sound/effects/throw_miss.ogg', 50, 1)
 			return
 

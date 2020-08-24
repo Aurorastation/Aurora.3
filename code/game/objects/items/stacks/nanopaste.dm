@@ -36,7 +36,7 @@
 				R.adjustFireLoss(-15)
 				R.updatehealth()
 				use(1)
-				user.visible_message("<b>\The [user]</b> applied some [src] at [R]'s damaged areas.",\
+				user.visible_message("<b>[user]</b> applied some [src] at [R]'s damaged areas.",\
 					SPAN_NOTICE("You apply some [src] at [R]'s damaged areas."))
 		else
 			to_chat(user, SPAN_NOTICE("All [R]'s systems are nominal."))

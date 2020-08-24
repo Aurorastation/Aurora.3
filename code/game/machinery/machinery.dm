@@ -289,27 +289,27 @@ Class Procs:
 
 /obj/machinery/proc/ping(text=null)
 	if (!text)
-		text = "<b>\The [src]</b> pings."
+		text = "<b>[src]</b> pings."
 	else
-		text = "<b>\The [src]</b> pings, \"[text]\""
+		text = "<b>[src]</b> pings, \"[text]\""
 
 	state(text)
 	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 
 /obj/machinery/proc/pingx3(text=null)
 	if (!text)
-		text = "<b>\The [src]</b> pings."
+		text = "<b>[src]</b> pings."
 	else
-		text = "<b>\The [src]</b> pings, \"[text]\""
+		text = "<b>[src]</b> pings, \"[text]\""
 
 	state(text)
 	playsound(src.loc, 'sound/machines/pingx3.ogg', 50, 0)
 
 /obj/machinery/proc/buzz(text=null)
 	if (!text)
-		text = "<b>\The [src]</b> buzzes."
+		text = "<b>[src]</b> buzzes."
 	else
-		text = "<b>\The [src]</b> buzzes, \"[text]\""
+		text = "<b>[src]</b> buzzes, \"[text]\""
 
 	state(text)
 	playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0) //TODO: Check if that one is the correct sound

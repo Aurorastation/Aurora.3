@@ -32,7 +32,7 @@ var/mob/living/next_point_time = 0
 		var/pointglow = filter(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00")
 		LAZYADD(A.filters, pointglow)
 		addtimer(CALLBACK(src, .proc/remove_filter, A, pointglow), 20)
-	visible_message("<b>\The [src]</b> points to \the [A].")
+	visible_message("<b>[src]</b> points to \the [A].")
 	return TRUE
 
 /mob/living/proc/remove_filter(var/atom/A, var/filter_to_remove)

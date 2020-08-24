@@ -197,7 +197,7 @@
 			vision_index = 1
 		vision = vision_modes[vision_index]
 
-		message_user(user, SPAN_NOTICE("You cycle \the [src] to <b>[vision.mode]</b> mode."), "<b>\The [user]</b> cycles \the [src] to <b>[vision.mode]</b> mode.")
+		message_user(user, SPAN_NOTICE("You cycle \the [src] to <b>[vision.mode]</b> mode."), "<b>[user]</b> cycles \the [src] to <b>[vision.mode]</b> mode.")
 	else
 		to_chat(user, SPAN_WARNING("\The [src] only has one mode."))
 	return TRUE

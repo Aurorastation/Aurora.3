@@ -239,9 +239,9 @@
 			to_chat(user, SPAN_WARNING("\The [src] already has a linked teleporter!"))
 			return
 		var/obj/item/closet_teleporter/CT = W
-		user.visible_message("<b>\The [user]</b> starts attaching \the [CT] to \the [src]...", SPAN_NOTICE("You begin attaching \the [CT] to \the [src]..."), range = 3)
+		user.visible_message("<b>[user]</b> starts attaching \the [CT] to \the [src]...", SPAN_NOTICE("You begin attaching \the [CT] to \the [src]..."), range = 3)
 		if(do_after(user, 30, TRUE, src))
-			user.visible_message("<b>\The [user]</b> attaches \the [CT] to \the [src].", SPAN_NOTICE("You attach \the [CT] to \the [src]."), range = 3)
+			user.visible_message("<b>[user]</b> attaches \the [CT] to \the [src].", SPAN_NOTICE("You attach \the [CT] to \the [src]."), range = 3)
 			linked_teleporter = CT
 			CT.attached_closet = src
 			user.drop_from_inventory(CT, src)
@@ -250,9 +250,9 @@
 		if(!linked_teleporter)
 			to_chat(user, SPAN_WARNING("There is nothing to remove with a screwdriver here."))
 			return
-		user.visible_message("<b>\The [user]</b> starts detaching \the [linked_teleporter] from \the [src]...", SPAN_NOTICE("You begin detaching \the [linked_teleporter] from \the [src]..."), range = 3)
+		user.visible_message("<b>[user]</b> starts detaching \the [linked_teleporter] from \the [src]...", SPAN_NOTICE("You begin detaching \the [linked_teleporter] from \the [src]..."), range = 3)
 		if(do_after(user, 30, TRUE, src))
-			user.visible_message("<b>\The [user]</b> detaches \the [linked_teleporter] from \the [src].", SPAN_NOTICE("You detach \the [linked_teleporter] from \the [src]."), range = 3)
+			user.visible_message("<b>[user]</b> detaches \the [linked_teleporter] from \the [src].", SPAN_NOTICE("You detach \the [linked_teleporter] from \the [src]."), range = 3)
 			linked_teleporter.attached_closet = null
 			user.put_in_hands(linked_teleporter)
 			linked_teleporter = null

@@ -116,7 +116,7 @@
 				user.visible_message( \
 					"<b>[user]</b> unfastens \the [src].", \
 					SPAN_NOTICE("You have unfastened \the [src]. Now it can be pulled somewhere else."), \
-					"You hear ratchet.")
+					"You hear a ratcheting noise.")
 				src.anchored = 0
 				src.stat |= MAINT
 				src.unwrenched = 1
@@ -129,7 +129,7 @@
 				user.visible_message( \
 					"<b>[user]</b> fastens \the [src].", \
 					SPAN_NOTICE("You have fastened \the [src]. Now it can dispense pipes."), \
-					"You hear ratchet.")
+					"You hear a ratcheting noise.")
 				src.anchored = 1
 				src.stat &= ~MAINT
 				src.unwrenched = 0

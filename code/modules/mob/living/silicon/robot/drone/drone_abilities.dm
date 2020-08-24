@@ -16,7 +16,7 @@
 	//Auto flush if we use this verb inside a disposal chute.
 	var/obj/machinery/disposal/D = src.loc
 	if(istype(D))
-		to_chat(src, "<b>\The [D]</b> acknowledges your signal.")
+		to_chat(src, "<b>[D]</b> acknowledges your signal.")
 		D.flush_count = D.flush_every_ticks
 
 /mob/living/silicon/robot/drone/MouseDrop(atom/over_object)

@@ -60,13 +60,13 @@
 			playsound(src.loc, W.usesound, 75, 1)
 			user.visible_message("<b>[user.name]</b> secures [src] to the floor.", \
 				"You secure the external reinforcing bolts to the floor.", \
-				"You hear a ratchet")
+				"You hear a ratcheting noise.")
 			src.anchored = 1
 		else
 			playsound(src.loc, W.usesound, 75, 1)
 			user.visible_message("<b>[user.name]</b> unsecures [src] from the floor.", \
 				"You unsecure the external reinforcing bolts from the floor.", \
-				"You hear a ratchet")
+				"You hear a ratcheting noise.")
 			src.anchored = 0
 
 /obj/item/mass_driver_diy

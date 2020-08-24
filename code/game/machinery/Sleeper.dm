@@ -187,7 +187,7 @@
 		if(!beaker)
 			beaker = I
 			user.drop_from_inventory(I,src)
-			user.visible_message("<b>\The [user]</b> adds \a [I] to \the [src].", SPAN_NOTICE("You add \a [I] to \the [src]."))
+			user.visible_message("<b>[user]</b> adds \a [I] to \the [src].", SPAN_NOTICE("You add \a [I] to \the [src]."))
 		else
 			to_chat(user, SPAN_WARNING("\The [src] has a beaker already."))
 		return

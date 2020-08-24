@@ -73,9 +73,9 @@
 		to_chat(user, SPAN_NOTICE("You begin to [anchored ? "un" : ""]fasten \the [src]."))
 		if (do_after(user, 20))
 			user.visible_message(
-				"<b>\The [user]</b> [anchored ? "un" : ""]fastens \the [src].",
+				"<b>[user]</b> [anchored ? "un" : ""]fastens \the [src].",
 				SPAN_NOTICE("You have [anchored ? "un" : ""]fastened \the [src]."),
-				"You hear a ratchet.")
+				"You hear a ratcheting noise.")
 			anchored = !anchored
 		else
 			to_chat(user, SPAN_NOTICE("You decide not to [anchored ? "un" : ""]fasten \the [src]."))

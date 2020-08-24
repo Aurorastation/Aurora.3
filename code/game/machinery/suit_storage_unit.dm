@@ -486,7 +486,7 @@
 		if ( (src.OCCUPANT) || (src.HELMET) || (src.SUIT) ) //Unit needs to be absolutely empty
 			to_chat(user, "<font color='red'>The unit's storage area is too cluttered.</font>")
 			return
-		user.visible_message("<b>[user]</b> starts putting [G.affecting] into [src].", SPAN_NOTICE("You start putting [G.affecting] into [src].", range = 3)
+		user.visible_message("<b>[user]</b> starts putting [G.affecting] into [src].", SPAN_NOTICE("You start putting [G.affecting] into [src]."), range = 3)
 		if(do_after(user, 20))
 			if(!G || !G.affecting) return //derpcheck
 			var/mob/M = G.affecting

@@ -379,11 +379,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 		if(I_HELP)
 			if (health > 0)
-				M.visible_message("<b>\The [M]</b> [response_help] \the [src].")
+				M.visible_message("<b>[M]</b> [response_help] \the [src].")
 				poke()
 
 		if(I_DISARM)
-			M.visible_message("<b>\The [M]</b> [response_disarm] \the [src]")
+			M.visible_message("<b>[M]</b> [response_disarm] \the [src]")
 			M.do_attack_animation(src)
 			poke(1)
 			//TODO: Push the mob away or something
@@ -416,7 +416,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 /mob/living/simple_animal/proc/unarmed_harm_attack(var/mob/living/carbon/human/user)
 	apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [user.name]")
-	user.visible_message(SPAN_WARNING("<b>\The [user]</b> [response_harm] \the [src]!"), SPAN_WARNING("You [response_harm] \the [src]!"))
+	user.visible_message(SPAN_WARNING("<b>[user]</b> [response_harm] \the [src]!"), SPAN_WARNING("You [response_harm] \the [src]!"))
 	user.do_attack_animation(src)
 	poke(TRUE)
 
@@ -433,7 +433,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 			if(G.reagents.total_volume >= G.volume)
 				to_chat(user, SPAN_WARNING("The [O] is full."))
 				return
-			user.visible_message("<b>\The [user]</b> milks \the [src] using \the [O].")
+			user.visible_message("<b>[user]</b> milks \the [src] using \the [O].")
 			udder.trans_type_to(G, milk_type, rand(5, 10))
 			return
 
@@ -454,12 +454,12 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(istype(O, brush) && canbrush) //Brushing animals
-		visible_message("<b>\The [user]</b> gently brushes \the [src] with \the [O].")
+		visible_message("<b>[user]</b> gently brushes \the [src] with \the [O].")
 		if(prob(15) && !istype(src, /mob/living/simple_animal/hostile)) //Aggressive animals don't purr before biting your face off.
 			visible_message("<b>[capitalize_first_letters(src.name)]</b> [speak_emote.len ? pick(speak_emote) : "rumbles"].") //purring
 		return
 	if(!O.force)
-		visible_message("<b>\The [user]</b> gently taps \the [src] with \the [O].")
+		visible_message("<b>[user]</b> gently taps \the [src] with \the [O].")
 		poke()
 		return FALSE
 
@@ -623,11 +623,11 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 					new path(get_turf(src))
 
 		if(issmall(src))
-			user.visible_message("<b>\The [user]</b> chops up \the [src]!")
+			user.visible_message("<b>[user]</b> chops up \the [src]!")
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 			qdel(src)
 		else
-			user.visible_message("<b>\The [user]</b> butchers \the [src] messily!")
+			user.visible_message("<b>[user]</b> butchers \the [src] messily!")
 			gib()
 
 //For picking up small animals

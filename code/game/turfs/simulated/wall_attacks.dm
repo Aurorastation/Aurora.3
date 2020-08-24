@@ -47,7 +47,7 @@
 			dismantle_wall()
 			return TRUE
 
-	user.visible_message("<b>\The [user]</b> starts feeling around and pushing on \the [src]...", SPAN_NOTICE("You start feeling around and pushing on \the [src]..."))
+	user.visible_message("<b>[user]</b> starts feeling around and pushing on \the [src]...", SPAN_NOTICE("You start feeling around and pushing on \the [src]..."))
 	if(!do_after(user, 30, TRUE, src))
 		return
 

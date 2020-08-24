@@ -109,7 +109,7 @@
 	H.cards += P
 	cards -= P
 	H.update_icon()
-	user.visible_message("<b>\The [user]</b> draws a card.", SPAN_NOTICE("You draw the [P.name]."))
+	user.visible_message("<b>[user]</b> draws a card.", SPAN_NOTICE("You draw the [P.name]."))
 
 /obj/item/deck/verb/deal_card()
 	set category = "Object"
@@ -142,15 +142,15 @@
 	H.concealed = 1
 	H.update_icon()
 	if(user==target)
-		user.visible_message("<b>\The [user]</b> deals a card to \himself.")
+		user.visible_message("<b>[user]</b> deals a card to \himself.")
 	else
-		user.visible_message("<b>\The [user]</b> deals a card to \the [target].")
+		user.visible_message("<b>[user]</b> deals a card to \the [target].")
 	H.throw_at(get_step(target,target.dir),10,1,H)
 
 /obj/item/hand/attackby(obj/O as obj, mob/user as mob)
 	if(istype(O,/obj/item/hand))
 		var/obj/item/hand/H = O
-		user.visible_message("<b>\The [user]</b> adds \the [H] to their hand.", SPAN_NOTICE("You add \the [H] to your hand."))
+		user.visible_message("<b>[user]</b> adds \the [H] to their hand.", SPAN_NOTICE("You add \the [H] to your hand."))
 		for(var/datum/playingcard/P in cards)
 			H.cards += P
 		H.concealed = src.concealed
@@ -168,7 +168,7 @@
 		cards -= P
 	cards = newcards
 	playsound(src.loc, 'sound/items/cardshuffle.ogg', 100, 1, -4)
-	user.visible_message("<b>\The [user]</b> shuffles [src].")
+	user.visible_message("<b>[user]</b> shuffles [src].")
 
 /obj/item/deck/MouseDrop(atom/over)
 	if(!usr || !over) return
@@ -194,7 +194,7 @@
 
 
 /obj/item/pack/attack_self(var/mob/user as mob)
-	user.visible_message("<b>\The [user]</b> rips open \the [src]!")
+	user.visible_message("<b>[user]</b> rips open \the [src]!")
 	var/obj/item/hand/H = new()
 
 	H.cards += cards
@@ -252,7 +252,7 @@
 	H.update_icon()
 	src.update_icon()
 	if(deploy_in_front)
-		user.visible_message("<b>\The [user]</b> plays \the [discarding].")
+		user.visible_message("<b>[user]</b> plays \the [discarding].")
 		H.forceMove(get_step(usr, usr.dir))
 	else
 		to_chat(user, SPAN_NOTICE("You draw \the [discarding]."))

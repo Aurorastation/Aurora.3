@@ -57,7 +57,7 @@
 	. = ..()
 
 	if(.)
-		user.visible_message("<b>\The [user]</b> cracks and shakes \the [src].", SPAN_NOTICE("You crack and shake \the [src], turning it on!"))
+		user.visible_message("<b>[user]</b> cracks and shakes \the [src].", SPAN_NOTICE("You crack and shake \the [src], turning it on!"))
 
 /obj/item/device/flashlight/flare/glowstick/red
 	name = "red glowstick"

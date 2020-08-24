@@ -421,7 +421,7 @@
 				user.visible_message( \
 					"[user] loosens \the [src]'s casters.", \
 					SPAN_NOTICE("You have loosened \the [src]. Now it can be pulled somewhere else."), \
-					"You hear ratchet.")
+					"You hear a ratcheting noise.")
 				src.anchored = 0
 		else
 			playsound(src.loc, O.usesound, 50, 1)
@@ -430,7 +430,7 @@
 				user.visible_message( \
 					"[user] tightens \the [src]'s casters.", \
 					"<span class='notice'>You have tightened \the [src]'s casters. Now it can be played again</span>.", \
-					"You hear ratchet.")
+					"You hear a ratcheting noise.")
 				src.anchored = 1
 	else
 		..()

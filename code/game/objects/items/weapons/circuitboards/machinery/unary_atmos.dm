@@ -11,7 +11,7 @@
 	if(I.isscrewdriver())
 		machine_dir = turn(machine_dir, 90)
 		init_dirs = machine_dir
-		user.visible_message("<b>\The [user]</b> adjusts the jumper on [src]'s port configuration pins.", SPAN_NOTICE("You adjust the jumper on the port configuration pins. Now set to [dir2text(machine_dir)]."))
+		user.visible_message("<b>[user]</b> adjusts the jumper on [src]'s port configuration pins.", SPAN_NOTICE("You adjust the jumper on the port configuration pins. Now set to [dir2text(machine_dir)]."))
 	return
 
 /obj/item/circuitboard/unary_atmos/examine()

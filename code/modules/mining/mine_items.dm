@@ -695,7 +695,7 @@
 	origin_tech = list(TECH_BLUESPACE = 2, TECH_PHORON = 4, TECH_ENGINEERING = 4)
 
 /obj/item/device/wormhole_jaunter/attack_self(mob/user)
-	user.visible_message("<b>\The [user]</b> activates \the [src]!")
+	user.visible_message("<b>[user]</b> activates \the [src]!")
 	feedback_add_details("jaunter", "U") // user activated
 	activate(user)
 
@@ -798,7 +798,7 @@
 				M.revive()
 				M.icon_state = M.icon_living
 				loaded = FALSE
-				user.visible_message("<b>\The [user]</b> revives \the [M] by injecting it with \the [src].")
+				user.visible_message("<b>[user]</b> revives \the [M] by injecting it with \the [src].")
 				feedback_add_details("lazarus_injector", "[M.type]")
 				playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
 				return
@@ -1162,7 +1162,7 @@ var/list/total_extraction_beacons = list()
 				T = input(user,"Who do you wish to sculpt?") as null|anything in choices
 				if(!T)
 					to_chat(user, SPAN_NOTICE("You decide against sculpting for now."))
-				user.visible_message("<b>\The [user]</b> begins sculpting.",
+				user.visible_message("<b>[user]</b> begins sculpting.",
 					SPAN_NOTICE("You begin sculpting."))
 
 			var/sculpting_coefficient = get_dist(user,T)
@@ -1173,7 +1173,7 @@ var/list/total_extraction_beacons = list()
 				to_chat(user, SPAN_WARNING("You hardly remember what \the [T] really looks like! Bah!"))
 				T = null
 
-			user.visible_message("<b>\The [user]</b> carves away at the sculpting block!",
+			user.visible_message("<b>[user]</b> carves away at the sculpting block!",
 				SPAN_NOTICE("You continue sculpting."))
 
 			if(prob(25))
@@ -1195,7 +1195,7 @@ var/list/total_extraction_beacons = list()
 					return
 				else
 					sculpted = TRUE
-					user.visible_message("<b>\The [user]</b> finishes sculpting their magnum opus!",
+					user.visible_message("<b>[user]</b> finishes sculpting their magnum opus!",
 						SPAN_NOTICE("You finish sculpting a masterpiece."))
 					src.appearance = T
 					src.color = list(

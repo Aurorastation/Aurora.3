@@ -21,7 +21,7 @@
 	name_unlabel = ""
 	src.verbs -= .proc/remove_label
 
-	H.visible_message("<b>\The [H]</b> removes the label from \the [src].",
+	H.visible_message("<b>[H]</b> removes the label from \the [src].",
 		SPAN_NOTICE("You remove the label from \the [src]."))
 
 	return TRUE

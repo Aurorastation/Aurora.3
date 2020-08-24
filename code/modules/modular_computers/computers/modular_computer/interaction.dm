@@ -186,7 +186,7 @@
 		playsound(get_turf(src), W.usesound, 100, TRUE)
 		if (do_after(user, 20/W.toolspeed))
 			new /obj/item/stack/material/steel(get_turf(src), steel_sheet_cost)
-			user.visible_message("<b>\The [user]</b> disassembles \the [src].", SPAN_NOTICE("You disassemble \the [src]."), SPAN_NOTICE("You hear a ratcheting noise."))
+			user.visible_message("<b>[user]</b> disassembles \the [src].", SPAN_NOTICE("You disassemble \the [src]."), SPAN_NOTICE("You hear a ratcheting noise."))
 			qdel(src)
 		return
 	if(W.iswelder())

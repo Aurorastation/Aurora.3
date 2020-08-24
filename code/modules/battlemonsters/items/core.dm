@@ -50,7 +50,7 @@
 		else
 			set_dir(turn(user.dir,90))
 			user.visible_message(\
-				"<b>\The [user]</b> adjusts the orientation of \the [src] horizontally.",\
+				"<b>[user]</b> adjusts the orientation of \the [src] horizontally.",\
 				SPAN_NOTICE("You adjust the orientation of \the [src] horizontally.")\
 			)
 	else
@@ -60,7 +60,7 @@
 		else
 			set_dir(user.dir)
 			user.visible_message(\
-				"<b>\The [user]</b> adjusts the orientation of \the [src] vertically.",\
+				"<b>[user]</b> adjusts the orientation of \the [src] vertically.",\
 				SPAN_NOTICE("You adjust the orientation of \the [src] vertically.")\
 			)
 

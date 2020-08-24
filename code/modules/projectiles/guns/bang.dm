@@ -42,7 +42,7 @@
 /obj/item/gun/bang/attack_hand(mob/user as mob)
 	if(user.get_inactive_hand() == src && fired_gun)
 		src.cut_overlay(bang_flag)
-		user.visible_message("<b>\The [user]</b> pushes the flag back into the barrel of [src].", SPAN_NOTICE("You push the flag back into the barrel of [src]."))
+		user.visible_message("<b>[user]</b> pushes the flag back into the barrel of [src].", SPAN_NOTICE("You push the flag back into the barrel of [src]."))
 		playsound(src.loc, 'sound/weapons/TargetOff.ogg', 50,1)
 		fired_gun = 0
 	else

@@ -544,7 +544,7 @@
 					if( !error )
 						ping("[title] [C.mob] verified.")
 					else
-						to_chat(usr, SPAN_ALERT("<b>\The [src]</b> buzzes, \"[error]\""))
+						to_chat(usr, SPAN_ALERT("<b>[src]</b> buzzes, \"[error]\""))
 			else
 				ping("[title] cleared.")
 				incident.arbiters[title] = null

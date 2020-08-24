@@ -194,7 +194,7 @@
 			if(attempt_load_item(I, usr, 0))
 				addedSomething++
 		if(addedSomething)
-			user.visible_message("<b>\The [user]</b> loads [addedSomething > 1 ? "some things" : "an item"] onto their service tray.")
+			user.visible_message("<b>[user]</b> loads [addedSomething > 1 ? "some things" : "an item"] onto their service tray.")
 		else
 			to_chat(user, SPAN_WARNING("The tray is full or there's nothing to load here."))
 			return TRUE
@@ -269,7 +269,7 @@
 
 		cut_overlays()
 		current_weight = 0
-		user.visible_message("<b>\The [user]</b> unloads \the [src].", SPAN_NOTICE("You unload \the [src]."))
+		user.visible_message("<b>[user]</b> unloads \the [src].", SPAN_NOTICE("You unload \the [src]."))
 
 
 /obj/item/tray/proc/spill(var/mob/user = null, var/turf/dropspot = null)

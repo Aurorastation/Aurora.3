@@ -113,7 +113,7 @@
 			src.health = min(maxhealth, src.health+25)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			user.visible_message(
-				"<b>\The [user]</b> repairs \the [src]!",
+				"<b>[user]</b> repairs \the [src]!",
 				SPAN_NOTICE("You repair \the [src]!")
 			)
 		else

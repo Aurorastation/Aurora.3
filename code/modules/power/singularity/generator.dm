@@ -23,10 +23,10 @@
 		if(anchored)
 			user.visible_message("<b>[user.name]</b> secures [src.name] to the floor.", \
 				"You secure the [src.name] to the floor.", \
-				"You hear a ratchet")
+				"You hear a ratcheting noise.")
 		else
 			user.visible_message("<b>[user.name]</b> unsecures [src.name] from the floor.", \
 				"You unsecure the [src.name] from the floor.", \
-				"You hear a ratchet")
+				"You hear a ratcheting noise.")
 		return
 	return ..()

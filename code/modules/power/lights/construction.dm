@@ -52,7 +52,7 @@
 				if (!do_after(usr, 30, act_target = src))
 					return
 				new /obj/item/stack/material/steel(get_turf(src), sheets_refunded)
-				user.visible_message("<b>\The [user]</b> takes \the [src] apart.", SPAN_WARNING("You take \the [src] apart."))
+				user.visible_message("<b>[user]</b> takes \the [src] apart.", SPAN_WARNING("You take \the [src] apart."))
 				playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 75, TRUE)
 				if(cell)
 					cell.forceMove(get_turf(src))
@@ -75,7 +75,7 @@
 			if("bulb")
 				icon_state = "bulb-construct-stage1"
 		new /obj/item/stack/cable_coil(get_turf(src), 1, "red")
-		user.visible_message("<b>\The [user]</b> removes the wiring from \the [src].", SPAN_NOTICE("You remove the wiring from [src]."), SPAN_WARNING("You hear something being cut."))
+		user.visible_message("<b>[user]</b> removes the wiring from \the [src].", SPAN_NOTICE("You remove the wiring from [src]."), SPAN_WARNING("You hear something being cut."))
 		playsound(get_turf(src), 'sound/items/wirecutter.ogg', 100, TRUE)
 		return
 
@@ -90,7 +90,7 @@
 				if("bulb")
 					icon_state = "bulb-construct-stage2"
 			stage = 2
-			user.visible_message("<b>\The [user]</b> adds wires to \the [src].", SPAN_NOTICE("You add wires to \the [src]."))
+			user.visible_message("<b>[user]</b> adds wires to \the [src].", SPAN_NOTICE("You add wires to \the [src]."))
 		return
 
 	if(W.isscrewdriver())
@@ -101,7 +101,7 @@
 				if("bulb")
 					icon_state = "bulb_empty"
 			stage = 3
-			user.visible_message("<b>\The [user]</b> closes \the [src]'s casing.", SPAN_NOTICE("You close \the [src]'s casing."), SPAN_WARNING("You hear something being screwed in."))
+			user.visible_message("<b>[user]</b> closes \the [src]'s casing.", SPAN_NOTICE("You close \the [src]'s casing."), SPAN_WARNING("You hear something being screwed in."))
 			playsound(get_turf(src), W.usesound, 75, TRUE)
 
 			switch(fixture_type)
@@ -127,12 +127,12 @@
 		if(!user.unEquip(W))
 			return
 		if(cell)
-			user.visible_message("<b>\The [user]</b> swaps \the [W] out for \the [src]'s cell.", SPAN_NOTICE("You swap out \the [src]'s cell out for \the [W]."))
+			user.visible_message("<b>[user]</b> swaps \the [W] out for \the [src]'s cell.", SPAN_NOTICE("You swap out \the [src]'s cell out for \the [W]."))
 			user.drop_from_inventory(W, src)
 			cell.forceMove(get_turf(src))
 			user.put_in_hands(cell)
 		else
-			user.visible_message("<b>\The [user]</b> installs \the [W] into \the [src].", SPAN_NOTICE("You hook up \the [W] to \the [src]'s cell terminals."))
+			user.visible_message("<b>[user]</b> installs \the [W] into \the [src].", SPAN_NOTICE("You hook up \the [W] to \the [src]'s cell terminals."))
 			user.drop_from_inventory(W, src)
 		cell = W
 		playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
@@ -147,7 +147,7 @@
 			return
 
 		playsound(get_turf(src), W.usesound, 50, TRUE)
-		visible_message("<b>\The [user]</b> removes \the [cell] from [src].", SPAN_NOTICE("You remove \the [cell] from \the [src]."))
+		visible_message("<b>[user]</b> removes \the [cell] from [src].", SPAN_NOTICE("You remove \the [cell] from \the [src]."))
 		cell.forceMove(get_turf(src))
 		user.put_in_hands(cell)
 		cell = null

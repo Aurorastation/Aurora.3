@@ -26,5 +26,5 @@
 /obj/item/material/lock_construct/proc/create_lock(var/atom/target, var/mob/user)
 	. = new /datum/lock(target,lock_data)
 	user.drop_from_inventory(src,user)
-	user.visible_message("<b>\The [user]</b> attaches \the [src] to \the [target].")
+	user.visible_message("<b>[user]</b> attaches \the [src] to \the [target].")
 	qdel(src)

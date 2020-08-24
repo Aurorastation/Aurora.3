@@ -307,7 +307,7 @@
 
 /obj/item/stack/material/cloth/attackby(obj/item/I, mob/user)
 	if(is_sharp(I))
-		user.visible_message("<b>\The [user]</b> begins cutting up [src] with [I].", SPAN_NOTICE("You begin cutting up [src] with [I]."))
+		user.visible_message("<b>[user]</b> begins cutting up [src] with [I].", SPAN_NOTICE("You begin cutting up [src] with [I]."))
 		if(do_after(user, 20)) // takes less time than bedsheets, a second per rag produced on average
 			to_chat(user, SPAN_NOTICE("You cut [src] into pieces!"))
 			for(var/i in 1 to rand(1,3)) // average of 2 per

@@ -696,13 +696,13 @@
 
 /obj/item/toy/plushie/attack_self(mob/user as mob)
 	if(user.a_intent == I_HELP)
-		user.visible_message("<b>\The [user]</b> hugs [src]!",SPAN_NOTICE("You hug [src]!"))
+		user.visible_message("<b>[user]</b> hugs [src]!",SPAN_NOTICE("You hug [src]!"))
 	else if (user.a_intent == I_HURT)
-		user.visible_message(SPAN_WARNING("<b>\The [user]</b> punches [src]!"),SPAN_WARNING("You punch [src]!"))
+		user.visible_message(SPAN_WARNING("<b>[user]</b> punches [src]!"),SPAN_WARNING("You punch [src]!"))
 	else if (user.a_intent == I_GRAB)
-		user.visible_message(SPAN_WARNING("<b>\The [user]</b> attempts to strangle [src]!"),SPAN_WARNING("You attempt to strangle [src]!"))
+		user.visible_message(SPAN_WARNING("<b>[user]</b> attempts to strangle [src]!"),SPAN_WARNING("You attempt to strangle [src]!"))
 	else
-		user.visible_message("<b>\The [user]</b> pokes the [src].",SPAN_NOTICE("You poke [src]."))
+		user.visible_message("<b>[user]</b> pokes the [src].",SPAN_NOTICE("You poke [src]."))
 		playsound(src, 'sound/items/drop/plushie.ogg', 25, 0)
 		visible_message("<b>[src]</b> says, \"[phrase]\"")
 

@@ -23,7 +23,7 @@
 		if(!H.honey)
 			to_chat(user, SPAN_NOTICE("\The [H] is empty, put it into a beehive."))
 			return
-		user.visible_message("<b>\The [user]</b> loads \the [H] into \the [src] and turns it on.", SPAN_NOTICE("You load \the [H] into \the [src] and turn it on."))
+		user.visible_message("<b>[user]</b> loads \the [H] into \the [src] and turns it on.", SPAN_NOTICE("You load \the [H] into \the [src] and turn it on."))
 		user.drop_from_inventory(H, src)
 		contained_frame = H
 		icon_state = "centrifuge_moving"
@@ -36,7 +36,7 @@
 		var/transferred = min(G.reagents.maximum_volume - G.reagents.total_volume, honey)
 		G.reagents.add_reagent(/datum/reagent/nutriment/honey, transferred)
 		honey -= transferred
-		user.visible_message("<b>\The [user]</b> collects honey from \the [src] into \the [G].", SPAN_NOTICE("You collect [transferred] units of honey from \the [src] into \the [G]."))
+		user.visible_message("<b>[user]</b> collects honey from \the [src] into \the [G].", SPAN_NOTICE("You collect [transferred] units of honey from \the [src] into \the [G]."))
 		return
 	else
 		..()

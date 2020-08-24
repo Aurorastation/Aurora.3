@@ -374,9 +374,9 @@
 				if (M == usr)
 					to_chat(usr, SPAN_NOTICE("You put \the [W] into [src]."))
 				else if (M in range(1)) //If someone is standing close enough, they can tell what it is...
-					M.show_message("<b>\The [user]</b> puts [W] into [src].")
+					M.show_message("<b>[user]</b> puts [W] into [src].")
 				else if (W && W.w_class >= 3) //Otherwise they can only see large or normal items from a distance...
-					M.show_message("<b>\The [user]</b> puts [W] into [src].")
+					M.show_message("<b>[user]</b> puts [W] into [src].")
 
 		orient2hud(user)
 		if(user.s_active)
@@ -579,7 +579,7 @@
 		CHECK_TICK
 
 	post_remove_from_storage_deferred(loc, usr)
-	usr.visible_message("<b>\The [usr]</b> empties the contents of \the [src].", , SPAN_NOTICE("You empty the contents of \the [src]."))
+	usr.visible_message("<b>[usr]</b> empties the contents of \the [src].", , SPAN_NOTICE("You empty the contents of \the [src]."))
 
 // Override this to fill the storage object with stuff.
 /obj/item/storage/proc/fill()

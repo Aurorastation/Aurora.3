@@ -122,7 +122,7 @@
 		return
 
 	var/mob/living/M = G.affecting
-	user.visible_message("<b>\The [user]</b> starts putting \the [M] into \the [src].", SPAN_NOTICE("You start putting \the [M] into \the [src]."), range = 3)
+	user.visible_message("<b>[user]</b> starts putting \the [M] into \the [src].", SPAN_NOTICE("You start putting \the [M] into \the [src]."), range = 3)
 
 	if (do_mob(user, G.affecting, 30, needhand = 0))
 		var/bucklestatus = M.bucklecheck(user)

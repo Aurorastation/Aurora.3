@@ -57,7 +57,7 @@
 		playsound(src.loc, hitsound, 60, 1)
 		take_damage(damage)
 	else
-		visible_message("<b>\The [user]</b> bonks \the [src] harmlessly.")
+		visible_message("<b>[user]</b> bonks \the [src] harmlessly.")
 		playsound(src.loc, hitsound_light, 8, 1, -1)
 	user.do_attack_animation(src)
 

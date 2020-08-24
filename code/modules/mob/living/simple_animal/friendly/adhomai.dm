@@ -21,7 +21,7 @@
 		if(G.seed && G.seed.kitchen_tag == "nfrihi")
 			if(!stat && eggsleft < 8)
 				user.visible_message(
-					"<b>\The [user]</b> feeds \the [O] to \the [name]! It whistles happily.",
+					"<b>[user]</b> feeds \the [O] to \the [name]! It whistles happily.",
 					SPAN_NOTICE("You feed \the [O] to \the [name]! It whistles happily."),
 					"You hear a cluck.")
 				user.drop_from_inventory(O,get_turf(src))

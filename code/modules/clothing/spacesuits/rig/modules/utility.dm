@@ -395,23 +395,23 @@
 		if("Enable")
 			active = TRUE
 			voice_holder.active = TRUE
-			message_user(user, SPAN_NOTICE("You enable the speech synthesiser."), "<b>\The [user]</b> enables the speech synthesiser.")
+			message_user(user, SPAN_NOTICE("You enable the speech synthesiser."), "<b>[user]</b> enables the speech synthesiser.")
 		if("Disable")
 			active = FALSE
 			voice_holder.active = FALSE
-			message_user(user, SPAN_NOTICE("You disable the speech synthesiser."), "<b>\The [user]</b> disables the speech synthesiser.")
+			message_user(user, SPAN_NOTICE("You disable the speech synthesiser."), "<b>[user]</b> disables the speech synthesiser.")
 		if("Set Name")
 			var/raw_choice = sanitize(input(user, "Please enter a new name.") as text|null, MAX_NAME_LEN)
 			if(!raw_choice)
 				return FALSE
 			voice_holder.voice = raw_choice
-			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic <b>[voice_holder.voice]</b>."), "<b>\The [user]</b> sets the speech synthesizer to mimic <b>[voice_holder.voice]</b>.")
+			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic <b>[voice_holder.voice]</b>."), "<b>[user]</b> sets the speech synthesizer to mimic <b>[voice_holder.voice]</b>.")
 		if("Set Accent")
 			var/raw_choice = input(user, "Please choose an accent to mimick.") as null|anything in SSrecords.accents
 			if(!raw_choice)
 				return FALSE
 			voice_holder.current_accent = raw_choice
-			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic the [raw_choice] accent."), "<b>\The [user]</b> sets the speech synthesizer the [raw_choice] accent.")
+			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic the [raw_choice] accent."), "<b>[user]</b> sets the speech synthesizer the [raw_choice] accent.")
 	return TRUE
 
 /obj/item/rig_module/maneuvering_jets
@@ -553,10 +553,10 @@
 	if(!target)
 		if(device == iastamp)
 			device = deniedstamp
-			message_user(user, SPAN_NOTICE("You set \the [src] to the denied stamp."), "<b>\The [user]</b> set \the [src] to the denied stamp.")
+			message_user(user, SPAN_NOTICE("You set \the [src] to the denied stamp."), "<b>[user]</b> set \the [src] to the denied stamp.")
 		else if(device == deniedstamp)
 			device = iastamp
-			message_user(user, SPAN_NOTICE("You set \the [src] to the internal affairs stamp."), "<b>\The [user]</b> set \the [src] to the internal affairs stamp.")
+			message_user(user, SPAN_NOTICE("You set \the [src] to the internal affairs stamp."), "<b>[user]</b> set \the [src] to the internal affairs stamp.")
 		return TRUE
 
 /obj/item/rig_module/device/decompiler
@@ -700,7 +700,7 @@
 			to_chat(user, SPAN_WARNING("There is no valid ledge to scale ahead of you!"))
 			return
 
-		H.visible_message("<b>\The [H]</b> leaps up, out of view!", SPAN_NOTICE("You leap up!"))
+		H.visible_message("<b>[H]</b> leaps up, out of view!", SPAN_NOTICE("You leap up!"))
 
 		// This setting is necessary even for combat type, to stop you from moving onto
 		// the turf, falling back down, and then getting forcemoved to the final destination.
@@ -711,7 +711,7 @@
 		// Combat type actuators are better, they allow you to jump instantly onto
 		// a ledge. Regular actuators make you have to climb the rest of the way.
 		if (!combatType)
-			H.visible_message("<b>\The [H]</b> starts pulling \himself up onto the [valid_climbable].", SPAN_NOTICE("You start pulling yourself up onto \the [valid_climbable]."))
+			H.visible_message("<b>[H]</b> starts pulling \himself up onto the [valid_climbable].", SPAN_NOTICE("You start pulling yourself up onto \the [valid_climbable]."))
 			if (!do_after(H, 4 SECONDS, use_user_turf = TRUE))
 				H.visible_message(SPAN_WARNING("\The [H] is interrupted and falls!"), SPAN_DANGER("You are interrupted and fall back down!"))
 
@@ -723,7 +723,7 @@
 
 				return TRUE
 
-			H.visible_message("<b>\The [H]</b> finishes climbing onto \the [valid_climbable].", SPAN_NOTICE("You finish climbing onto \the [valid_climbable]."))
+			H.visible_message("<b>[H]</b> finishes climbing onto \the [valid_climbable].", SPAN_NOTICE("You finish climbing onto \the [valid_climbable]."))
 		else
 			H.visible_message(SPAN_WARNING("\The [H] lands on \the [valid_climbable] with a heavy slam!"), SPAN_WARNING("You land on \the [valid_climbable] with a heavy thud!"))
 

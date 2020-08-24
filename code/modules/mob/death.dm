@@ -56,7 +56,7 @@
 	facing_dir = null
 
 	if(!gibbed && deathmessage != "no message") // This is gross, but reliable. Only brains use it.
-		src.visible_message("<b>\The [src.name]</b> [deathmessage]", range = messagerange)
+		src.visible_message("<b>[src.name]</b> [deathmessage]", range = messagerange)
 
 	// If we have a remotely controlled mob, we come back to our body to die properly
 	if(vr_mob)

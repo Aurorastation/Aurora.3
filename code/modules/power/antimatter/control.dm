@@ -151,7 +151,7 @@
 			playsound(get_turf(src), W.usesound, 75, 1)
 			user.visible_message("<b>[user.name]</b> secures the [src.name] to the floor.", \
 				"You secure the anchor bolts to the floor.", \
-				"You hear a ratchet")
+				"You hear a ratcheting noise.")
 			src.anchored = 1
 			update_shield_icons = 2
 			check_shield_icons()
@@ -160,7 +160,7 @@
 			playsound(get_turf(src), W.usesound, 75, 1)
 			user.visible_message("<b>[user.name]</b> unsecures the [src.name].", \
 				"You remove the anchor bolts.", \
-				"You hear a ratchet")
+				"You hear a ratcheting noise.")
 			src.anchored = 0
 			disconnect_from_network()
 		else

@@ -739,11 +739,11 @@ var/list/ai_verbs_default = list(
 
 	else if(W.iswrench())
 		var/un = anchored ? "un" : null
-		user.visible_message("<b>\The [user]</b> starts to [un]bolt \the [src] from [get_turf(src)]...", SPAN_NOTICE("You start to [un]bolt [src] from [get_turf(src)]..."))
+		user.visible_message("<b>[user]</b> starts to [un]bolt \the [src] from [get_turf(src)]...", SPAN_NOTICE("You start to [un]bolt [src] from [get_turf(src)]..."))
 		if(!do_after(user,40/W.toolspeed))
-			user.visible_message("<b>\The [user]</b> decides not to [un]bolt \the [src].", SPAN_NOTICE("You decide not to [un]bolt [src]."))
+			user.visible_message("<b>[user]</b> decides not to [un]bolt \the [src].", SPAN_NOTICE("You decide not to [un]bolt [src]."))
 			return
-		user.visible_message("<b>\The [user]</b> finishes [un]fastening \the [src]!", SPAN_NOTICE("You finish [un]fastening [src]!"))
+		user.visible_message("<b>[user]</b> finishes [un]fastening \the [src]!", SPAN_NOTICE("You finish [un]fastening [src]!"))
 		anchored = !anchored
 		return
 	else

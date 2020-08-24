@@ -18,5 +18,5 @@
 	deploy_paper(get_turf(src))
 
 /obj/item/form_printer/proc/deploy_paper(var/turf/T, var/mob/user)
-	T.visible_message("<b>\The [user]</b> dispenses a sheet of crisp white paper.")
+	T.visible_message("<b>[user]</b> dispenses a sheet of crisp white paper.")
 	new /obj/item/paper(T)

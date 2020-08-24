@@ -51,7 +51,7 @@
 	else
 		return
 
-	user.visible_message("<b>\The [user]</b> starts shaking \the [src].", SPAN_NOTICE("You start shaking \the [src]."), "You hear shaking and sloshing.")
+	user.visible_message("<b>[user]</b> starts shaking \the [src].", SPAN_NOTICE("You start shaking \the [src]."), "You hear shaking and sloshing.")
 
 	shaking = TRUE
 

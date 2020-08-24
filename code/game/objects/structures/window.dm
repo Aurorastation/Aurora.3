@@ -204,7 +204,7 @@
 		visible_message(SPAN_DANGER("[user] smashes into [src]!"))
 		take_damage(damage)
 	else
-		visible_message("<b>\The [user]</b> bonks \the [src] harmlessly.")
+		visible_message("<b>[user]</b> bonks \the [src] harmlessly.")
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 10, 1, -2)
 	user.do_attack_animation(src)
 	return 1

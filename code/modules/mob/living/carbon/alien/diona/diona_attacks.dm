@@ -34,7 +34,7 @@
 			return
 		user.unEquip(W)
 		wear_hat(W)
-		user.visible_message("<b>\The [user]</b> puts \the [W] on \the [src].")
+		user.visible_message("<b>[user]</b> puts \the [W] on \the [src].")
 		return
 	else if(istype(W, /obj/item/reagent_containers) || istype(W, /obj/item/stack/medical) || istype(W,/obj/item/gripper/))
 		..(W, user)

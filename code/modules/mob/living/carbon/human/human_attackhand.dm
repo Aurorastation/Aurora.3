@@ -117,7 +117,7 @@
 					return
 				cpr_time = 1
 
-				H.visible_message("<b>\The [H]</b> performs CPR on \the [src]!")
+				H.visible_message("<b>[H]</b> performs CPR on \the [src]!")
 
 				if(is_asystole())
 					if(prob(5 * rand(2, 3)))
@@ -548,9 +548,9 @@
 		return 0
 
 	if(user == src)
-		user.visible_message("<b>\The [user]</b> starts applying pressure to \his [organ.name]!", SPAN_NOTICE("You start applying pressure to your [organ.name]!"))
+		user.visible_message("<b>[user]</b> starts applying pressure to \his [organ.name]!", SPAN_NOTICE("You start applying pressure to your [organ.name]!"))
 	else
-		user.visible_message("<b>\The [user]</b> starts applying pressure to [src]'s [organ.name]!", SPAN_NOTICE("You start applying pressure to [src]'s [organ.name]!"))
+		user.visible_message("<b>[user]</b> starts applying pressure to [src]'s [organ.name]!", SPAN_NOTICE("You start applying pressure to [src]'s [organ.name]!"))
 	spawn(0)
 		organ.applied_pressure = user
 
@@ -560,9 +560,9 @@
 		organ.applied_pressure = null
 
 		if(user == src)
-			user.visible_message("<b>\The [user]</b> stops applying pressure to \his [organ.name]!", SPAN_NOTICE("You stop applying pressure to your [organ.name]!"))
+			user.visible_message("<b>[user]</b> stops applying pressure to \his [organ.name]!", SPAN_NOTICE("You stop applying pressure to your [organ.name]!"))
 		else
-			user.visible_message("<b>\The [user]</b> stops applying pressure to [src]'s [organ.name]!", SPAN_NOTICE("You stop applying pressure to [src]'s [organ.name]!"))
+			user.visible_message("<b>[user]</b> stops applying pressure to [src]'s [organ.name]!", SPAN_NOTICE("You stop applying pressure to [src]'s [organ.name]!"))
 
 	return 1
 

@@ -433,7 +433,7 @@
 		if(playemote)
 			if(reflex)
 				user.visible_message(
-					SPAN_DANGER("<b>\The [user] fires \the [src][pointblank ? " point blank at [target]" : ""] by reflex!</b>"),
+					SPAN_DANGER("<b>[user] fires \the [src][pointblank ? " point blank at [target]" : ""] by reflex!</b>"),
 					SPAN_DANGER("You fire \the [src][pointblank ? " point blank at [target]" : ""] by reflex!"),
 					"You hear a [fire_sound_text]!"
 				)
@@ -528,7 +528,7 @@
 	mouthshoot = TRUE
 	M.visible_message(SPAN_WARNING("\The [user] sticks their gun in their mouth, ready to pull the trigger..."))
 	if(!do_after(user, 40))
-		M.visible_message("<b>\The [user]</b> decided life was worth living")
+		M.visible_message("<b>[user]</b> decided life was worth living")
 		mouthshoot = FALSE
 		return
 	var/obj/item/projectile/in_chamber = consume_next_projectile()
@@ -898,7 +898,7 @@
 		visible_message(SPAN_WARNING("\The [user] begins to try and pry out \the [src]'s firing pin!"))
 		if(do_after(user,45 SECONDS,act_target = src))
 			if(pin.durable || prob(50))
-				visible_message("<b>\The [user]</b> pops \the [pin] out of \the [src]!")
+				visible_message("<b>[user]</b> pops \the [pin] out of \the [src]!")
 				pin.forceMove(get_turf(src))
 				user.put_in_hands(pin)
 				pin = null//clear it out.

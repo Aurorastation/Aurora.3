@@ -49,13 +49,13 @@
 /obj/item/trap/user_unbuckle_mob(mob/user)
 	if(buckled_mob && can_use(user))
 		user.visible_message(
-			"<b>\The [user]</b> begins freeing \the [buckled_mob] from \the [src]...",
+			"<b>[user]</b> begins freeing \the [buckled_mob] from \the [src]...",
 			SPAN_NOTICE("You carefully begin to free \the [buckled_mob] from \the [src]..."),
 			SPAN_NOTICE("You hear metal creaking.")
 			)
 		if(do_after(user, time_to_escape))
 			user.visible_message(
-				"<b>\The [user]</b> frees \the [buckled_mob] from \the [src].",
+				"<b>[user]</b> frees \the [buckled_mob] from \the [src].",
 				SPAN_NOTICE("You free \the [buckled_mob] from \the [src].")
 				)
 			unbuckle_mob()
@@ -64,7 +64,7 @@
 /obj/item/trap/attack_hand(mob/user)
 	if(buckled_mob && can_use(user))
 		user.visible_message(
-			"<b>\The [user]</b> begins freeing \the [buckled_mob] from \the [src]...",
+			"<b>[user]</b> begins freeing \the [buckled_mob] from \the [src]...",
 			SPAN_NOTICE("You carefully begin to free \the [buckled_mob] from \the [src]...")
 			)
 		if(do_after(user, time_to_escape))
@@ -76,13 +76,13 @@
 			anchored = FALSE
 	else if(deployed && can_use(user))
 		user.visible_message(
-			"<b>\The [user]</b> starts to disarm \the [src]...",
+			"<b>[user]</b> starts to disarm \the [src]...",
 			SPAN_NOTICE("You begin disarming \the [src]..."),
 			SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring.")
 			)
 		if(do_after(user, 6 SECONDS))
 			user.visible_message(
-				"<b>\The [user]</b> disarms \the [src]!",
+				"<b>[user]</b> disarms \the [src]!",
 				SPAN_NOTICE("You disarm \the [src]!")
 				)
 			deployed = FALSE

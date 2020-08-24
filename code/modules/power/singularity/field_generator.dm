@@ -100,14 +100,14 @@ field_generator power level display
 				playsound(src.loc, W.usesound, 75, 1)
 				user.visible_message("<b>[user.name]</b> secures [src.name] to the floor.", \
 					"You secure the external reinforcing bolts to the floor.", \
-					"You hear ratchet")
+					"You hear a ratcheting noise.")
 				src.anchored = 1
 			if(1)
 				state = 0
 				playsound(src.loc, W.usesound, 75, 1)
 				user.visible_message("<b>[user.name]</b> unsecures [src.name] reinforcing bolts from the floor.", \
 					"You undo the external reinforcing bolts.", \
-					"You hear ratchet")
+					"You hear a ratcheting noise.")
 				src.anchored = 0
 			if(2)
 				to_chat(user, SPAN_WARNING("The [src.name] needs to be unwelded from the floor."))

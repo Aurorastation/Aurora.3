@@ -366,7 +366,7 @@
 				if(!maintenance_protocols)
 					to_chat(user, SPAN_WARNING("You are unable to apply this upgrade while \the [src]'s maintenance protocols are not active."))
 					return
-				user.visible_message("<b>\The [user]</b> begins installing \the [thing] into \the [src]...", SPAN_NOTICE("You begin installing the [thing] into \the [src]..."))
+				user.visible_message("<b>[user]</b> begins installing \the [thing] into \the [src]...", SPAN_NOTICE("You begin installing the [thing] into \the [src]..."))
 				if(do_after(user, 30, TRUE, src))
 					if(length(pilots))
 						to_chat(user, SPAN_WARNING("You can't apply this upgrade while \the [src] has occupants!"))
@@ -375,7 +375,7 @@
 						to_chat(user, SPAN_WARNING("You are unable to apply this upgrade while \the [src]'s maintenance protocols are not active."))
 						return
 					var/obj/item/remote_mecha/RM = thing
-					user.visible_message("<b>\The [user]</b> installs \the [thing] into \the [src].", SPAN_NOTICE("You install the [thing] into \the [src]."))
+					user.visible_message("<b>[user]</b> installs \the [thing] into \the [src].", SPAN_NOTICE("You install the [thing] into \the [src]."))
 					remote_network = RM.mech_remote_network
 					does_hardpoint_lock = RM.hardpoint_lock
 					dummy_type = RM.dummy_path
@@ -405,7 +405,7 @@
 				if(!maintenance_protocols)
 					to_chat(user, SPAN_WARNING("The securing bolts are not visible while maintenance protocols are disabled."))
 					return
-				user.visible_message("<b>\The [user]</b> starts dismantling \the [src]...", SPAN_NOTICE("You start disassembling \the [src]..."))
+				user.visible_message("<b>[user]</b> starts dismantling \the [src]...", SPAN_NOTICE("You start disassembling \the [src]..."))
 				if(do_after(user, 30, TRUE, src))
 					if(length(pilots))
 						to_chat(user, SPAN_WARNING("You can't disassemble \the [src] while it has a pilot!"))
@@ -413,7 +413,7 @@
 					if(!maintenance_protocols)
 						to_chat(user, SPAN_WARNING("The securing bolts are not visible while maintenance protocols are disabled."))
 						return
-					user.visible_message("<b>\The [user]</b> dismantles \the [src].", SPAN_NOTICE("You disassemble \the [src]."))
+					user.visible_message("<b>[user]</b> dismantles \the [src].", SPAN_NOTICE("You disassemble \the [src]."))
 					dismantle()
 					return
 			else if(thing.iswelder())
@@ -452,7 +452,7 @@
 				user.put_in_hands(body.cell)
 				to_chat(user, SPAN_NOTICE("You remove \the [body.cell] from \the [src]."))
 				playsound(user.loc, thing.usesound, 50, 1)
-				visible_message("<b>\The [user]</b> pries out \the [body.cell] using the \the [thing].")
+				visible_message("<b>[user]</b> pries out \the [body.cell] using the \the [thing].")
 				body.cell = null
 				return
 			else if(istype(thing, /obj/item/cell))
@@ -468,7 +468,7 @@
 					body.cell = thing
 					to_chat(user, SPAN_NOTICE("You install \the [body.cell] into \the [src]."))
 					playsound(user.loc, 'sound/items/screwdriver.ogg', 50, 1)
-					visible_message("<b>\The [user]</b> installs \the [body.cell] into \the [src].")
+					visible_message("<b>[user]</b> installs \the [body.cell] into \the [src].")
 				return
 			else if(istype(thing, /obj/item/device/robotanalyzer))
 				to_chat(user, SPAN_NOTICE("Diagnostic Report for \the [src]:"))

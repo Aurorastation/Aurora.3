@@ -386,7 +386,7 @@ emp_act
 				return
 
 		if(!zone)
-			visible_message("<b>\The [O]</b> misses [src] narrowly!")
+			visible_message("<b>[O]</b> misses [src] narrowly!")
 			playsound(src, 'sound/effects/throw_miss.ogg', rand(10, 50), 1)
 			return
 

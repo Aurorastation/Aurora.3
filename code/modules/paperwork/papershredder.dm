@@ -27,7 +27,7 @@
 		user.visible_message(
 			SPAN_NOTICE(anchored ? "\The [user] fastens \the [src] to \the [loc]." : "\The unfastens \the [src] from \the [loc]."),
 			SPAN_NOTICE(anchored ? "You fasten \the [src] to \the [loc]." : "You unfasten \the [src] from \the [loc]."),
-			"You hear a ratchet."
+			"You hear a ratcheting noise."
 		)
 		return
 

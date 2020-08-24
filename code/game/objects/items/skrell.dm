@@ -27,7 +27,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(isskrell(H))
-			H.visible_message("<b>\The [H]</b> holds the brassy instrument up to \his eye and peers at something unseen.",
+			H.visible_message("<b>[H]</b> holds the brassy instrument up to \his eye and peers at something unseen.",
 							SPAN_NOTICE("You see the starry edge of srom floating on the void of space."))
 			if(projection_ready)
 				new/obj/effect/temp_visual/constellation (get_turf(user))

@@ -109,7 +109,7 @@ var/list/ghost_traps
 	to_chat(target, "<b>Remember, the purpose of your existence is to serve the crew and the station. Above all else, do no harm.</b>")
 	to_chat(target, "<b>Use say [target.get_language_prefix()]b to speak to other artificial intelligences.</b>")
 	var/turf/T = get_turf(target)
-	T.visible_message("<b>\The [target]</b> chimes quietly.")
+	T.visible_message("<b>[target]</b> chimes quietly.")
 	var/obj/item/device/mmi/digital/posibrain/P = target.loc
 	if(!istype(P)) //wat
 		return

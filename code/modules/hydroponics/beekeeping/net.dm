@@ -59,7 +59,7 @@
 
 	switch(success)
 		if(1)
-			user.visible_message("<b>\The [user]</b> scoops up some bees.", SPAN_NOTICE("You scoop up [target.strength] of the docile bees."))
+			user.visible_message("<b>[user]</b> scoops up some bees.", SPAN_NOTICE("You scoop up [target.strength] of the docile bees."))
 			caught_bees += target.strength
 			target.strength = 0
 			qdel(target)
@@ -93,7 +93,7 @@
 		caught_bees -= delta
 		if(caught_bees <= 0)
 			feralbees = 0
-		user.visible_message("<b>\The [user]</b> deposits [delta] bees into the hive.", SPAN_NOTICE("You deposit [delta] bees into the hive."))
+		user.visible_message("<b>[user]</b> deposits [delta] bees into the hive.", SPAN_NOTICE("You deposit [delta] bees into the hive."))
 		newhome.update_icon()
 	else
 		to_chat(user, SPAN_WARNING("You'll have to open the lid before you can place bees inside."))

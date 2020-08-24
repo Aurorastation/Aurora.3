@@ -78,7 +78,7 @@ var/global/list/rad_collectors = list()
 		src.anchored = !src.anchored
 		user.visible_message("[user.name] [anchored? "secures":"unsecures"] the [src.name].", \
 			"You [anchored? "secure":"undo"] the external bolts.", \
-			"You hear a ratchet")
+			"You hear a ratcheting noise.")
 		if(anchored)
 			connect_to_network()
 		else

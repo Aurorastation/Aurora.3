@@ -1178,7 +1178,7 @@ Buildable meters
 	user.visible_message( \
 		"[user] fastens the [src].", \
 		SPAN_NOTICE("You have fastened the [src]."), \
-		"You hear ratchet.")
+		"You hear a ratcheting noise.")
 	qdel(src)	// remove the pipe item
 
 	return

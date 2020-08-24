@@ -43,7 +43,7 @@
 		if(prints_prosthetics)
 			O.robotic = 2
 		else if(loaded_dna)
-			visible_message("<b>\The [src]</b> injects the stored DNA into the biomass.")
+			visible_message("<b>[src]</b> injects the stored DNA into the biomass.")
 			O.transplant_data = list()
 			var/datum/weakref/W = loaded_dna["donor"]
 			var/mob/living/carbon/C = W.resolve()
@@ -52,7 +52,7 @@
 				O.transplant_data["blood_type"] = loaded_dna["blood_type"]
 				O.transplant_data["blood_DNA"] =  loaded_dna["blood_DNA"]
 
-		visible_message("<b>\The [src]</b> spits out a new organ.")
+		visible_message("<b>[src]</b> spits out a new organ.")
 
 	else
 		to_chat(user, SPAN_WARNING("There is not enough matter in [src]."))
@@ -78,7 +78,7 @@
 		stored_matter += S.amount * 10
 	if(consumed)
 		user.drop_from_inventory(W,src)
-		user.visible_message("<b>\The [src]</b> processes [W].", "<b>\The [src]</b> processes [W]. Levels of stored [prints_prosthetics ? "biomass" : "matter"] now: [stored_matter]")
+		user.visible_message("<b>[src]</b> processes [W].", "<b>[src]</b> processes [W]. Levels of stored [prints_prosthetics ? "biomass" : "matter"] now: [stored_matter]")
 		qdel(W)
 
 	return..()

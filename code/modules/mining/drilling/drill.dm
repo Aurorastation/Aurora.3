@@ -248,13 +248,13 @@
 		if(!attached_satchel)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a satchel attached to it!"))
 			return
-		user.visible_message("<b>\The [user]</b> starts detaching \the [attached_satchel].", SPAN_NOTICE("You start detaching \the [attached_satchel]."))
+		user.visible_message("<b>[user]</b> starts detaching \the [attached_satchel].", SPAN_NOTICE("You start detaching \the [attached_satchel]."))
 		if(do_after(user, 30, TRUE, src))
 			if(!attached_satchel)
 				return
 			attached_satchel.forceMove(get_turf(user))
 			user.put_in_hands(attached_satchel)
-			user.visible_message("<b>\The [user]</b> detaches \the [attached_satchel].", SPAN_NOTICE("You detach \the [attached_satchel]."))
+			user.visible_message("<b>[user]</b> detaches \the [attached_satchel].", SPAN_NOTICE("You detach \the [attached_satchel]."))
 			attached_satchel = null
 		return
 
@@ -302,7 +302,7 @@
 				cell = O
 				component_parts += O
 				O.add_fingerprint(user)
-				visible_message("<b>\The [user]</b> inserts a power cell into \the [src].",
+				visible_message("<b>[user]</b> inserts a power cell into \the [src].",
 					SPAN_NOTICE("You insert the power cell into \the [src]."))
 				power_change()
 		else

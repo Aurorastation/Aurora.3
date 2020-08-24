@@ -98,6 +98,6 @@
 			return
 		I.forceMove(src)
 		loaded_item = I
-		visible_message("<b>\The [user]</b> scoops \the [I] into \the [src].")
+		visible_message("<b>[user]</b> scoops \the [I] into \the [src].")
 		flick("portable_analyzer_load", src)
 		icon_state = "portable_analyzer_full"

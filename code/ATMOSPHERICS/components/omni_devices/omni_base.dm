@@ -98,9 +98,9 @@
 	playsound(src.loc, W.usesound, 50, 1)
 	if(do_after(user, 40/W.toolspeed, act_target = src))
 		user.visible_message( \
-			"<b>\The [user]</b> unfastens \the [src].", \
+			"<b>[user]</b> unfastens \the [src].", \
 			SPAN_NOTICE("You have unfastened \the [src]."), \
-			"You hear a ratchet.")
+			"You hear a ratcheting noise.")
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
 

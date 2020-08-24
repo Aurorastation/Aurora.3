@@ -24,7 +24,7 @@ var/const/TAG_WIRE_HACK = 8
 				S.visible_message(SPAN_WARNING("\The [S] whines loudly."), range = 3)
 			else
 				S.powered = TRUE
-				S.visible_message("<b>\The [S]</b> hums soothingly.", range = 3)
+				S.visible_message("<b>[S]</b> hums soothingly.", range = 3)
 
 		if(TAG_WIRE_HACK)
 			if(!mended)
@@ -32,7 +32,7 @@ var/const/TAG_WIRE_HACK = 8
 				S.visible_message(SPAN_WARNING("\The [S] starts beeping incessantly."), range = 3)
 			else
 				S.hacked = FALSE
-				S.visible_message("<b>\The [S]</b> hums soothingly.", range = 3)
+				S.visible_message("<b>[S]</b> hums soothingly.", range = 3)
 
 
 /datum/wires/tag_scanner/UpdatePulsed(var/index)

@@ -27,7 +27,7 @@
 /obj/item/battle_monsters/card/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	if(istype(A,/obj/structure/table) || istype(A,/obj/structure/dueling_table))
 		user.visible_message(\
-			"<b>\The [user]</b> plays \the [src]!",\
+			"<b>[user]</b> plays \the [src]!",\
 			SPAN_NOTICE("You play \the [src]!")\
 		)
 	..(A, user, click_parameters)
@@ -51,7 +51,7 @@
 		new_deck.pixel_y = pixel_y
 		new_deck.layer = max(layer,new_deck.layer)
 		user.visible_message(\
-			"<b>\The [user]</b> combines \the [src] and the [adding_card] to form a deck.",\
+			"<b>[user]</b> combines \the [src] and the [adding_card] to form a deck.",\
 			SPAN_NOTICE("You combine \the [src] and the [adding_card] to form a deck.")\
 		)
 
@@ -69,12 +69,12 @@
 	else
 		if(!facedown)
 			user.visible_message(\
-				"<b>\The [user]</b> flip the card face up and reveals \the [name].",\
+				"<b>[user]</b> flip the card face up and reveals \the [name].",\
 				SPAN_NOTICE("You flip the card face up and reveal \the [name].")\
 			)
 		else
 			user.visible_message(\
-				"<b>\The [user]</b> flips \the [name] face down.",\
+				"<b>[user]</b> flips \the [name] face down.",\
 				SPAN_NOTICE("You flip \the [name] face down.")\
 			)
 

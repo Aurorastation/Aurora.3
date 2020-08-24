@@ -92,7 +92,7 @@
 		return ..()
 
 /obj/item/device/spy_monitor/proc/pair(var/obj/item/device/spy_bug/SB, var/mob/living/user)
-	var/paired = SB.camera in cameras
+	var/paired = (SB.camera in cameras)
 	to_chat(user, SPAN_NOTICE("You [paired ? "un" : ""]pair [SB] [paired ? "from" : "to"] [src]."))
 	cameras ^= SB.camera
 

@@ -170,12 +170,12 @@
 		to_chat(user, SPAN_WARNING("There's no space in \the [src] for you!"))
 		return
 
-	user.visible_message("<b>\The [M]</b> starts climbing into \the [src]...", SPAN_NOTICE("You start climbing into \the [src]..."), range = 3)
+	user.visible_message("<b>[M]</b> starts climbing into \the [src]...", SPAN_NOTICE("You start climbing into \the [src]..."), range = 3)
 	if(do_after(user, 20, TRUE, src))
 		if(M.client)
 			M.client.perspective = EYE_PERSPECTIVE
 			M.client.eye = src
-		user.visible_message("<b>\The [user]</b> climbs into \the [src].", SPAN_NOTICE("You climb into \the [src]."), range = 3)
+		user.visible_message("<b>[user]</b> climbs into \the [src].", SPAN_NOTICE("You climb into \the [src]."), range = 3)
 		M.forceMove(src)
 		occupant = M
 
@@ -228,7 +228,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
 			return
 
-		user.visible_message("<b>\The [user]</b> starts putting \the [G.affecting] into \the [src]...", SPAN_NOTICE("You start putting \the [G.affecting] into \the [src]..."), range = 3)
+		user.visible_message("<b>[user]</b> starts putting \the [G.affecting] into \the [src]...", SPAN_NOTICE("You start putting \the [G.affecting] into \the [src]..."), range = 3)
 		if(do_after(user, 20, TRUE, src))
 			if(!G || !G.affecting)
 				return
@@ -236,7 +236,7 @@
 			if(M.client)
 				M.client.perspective = EYE_PERSPECTIVE
 				M.client.eye = src
-			user.visible_message("<b>\The [user]</b> puts \the [G.affecting] into \the [src].", SPAN_NOTICE("You put \the [G.affecting] into \the [src]."), range = 3)
+			user.visible_message("<b>[user]</b> puts \the [G.affecting] into \the [src].", SPAN_NOTICE("You put \the [G.affecting] into \the [src]."), range = 3)
 			M.forceMove(src)
 			occupant = M
 

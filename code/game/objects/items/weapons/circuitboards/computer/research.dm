@@ -8,7 +8,7 @@
 
 /obj/item/circuitboard/rdconsole/attackby(obj/item/I as obj, mob/user as mob)
 	if(I.isscrewdriver())
-		user.visible_message("<b>\The [user]</b> adjusts the jumper on \the [src]'s access protocol pins.", SPAN_NOTICE("You adjust the jumper on the access protocol pins."))
+		user.visible_message("<b>[user]</b> adjusts the jumper on \the [src]'s access protocol pins.", SPAN_NOTICE("You adjust the jumper on the access protocol pins."))
 		if(src.build_path == /obj/machinery/computer/rdconsole/core)
 			src.name = T_BOARD("RD Console - Robotics")
 			src.build_path = /obj/machinery/computer/rdconsole/robotics
