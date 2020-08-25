@@ -257,9 +257,9 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/bitters
 	name = "Nojosuru Aromatic Bitters"
-	desc = "Only the finest and highest quality herbs find their way into our cocktail bitters, both human <i>and</i> Skrellian."
+	desc = "Only the finest and highest quality herbs find their way into our cocktail bitters, both human <i>and</i> skrellian."
 	desc_fluff = "This drink is made by Nojosuru Foods, a subsidiary of Zeng-Hu Pharmaceuticals, founded on Earth in 2252. \
-				  They are known for their surprisingly affordable and incredibly quality foods, as well as growing many crops used in pharmaceuticals and luxury items."
+				  They are known for their surprisingly affordable and incredible quality foods, as well as growing many crops used in pharmaceuticals and luxury items."
 	icon_state = "bitters"
 	center_of_mass = list("x"=16, "y"=9)
 
