@@ -81,7 +81,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	internal = P
 	// Set colour, default is grey, no biggie
 	var/list/hive = splittext(name, " ")
-	world << hive[length(hive)]
 	switch(hive[length(hive)])
 		if("K'lax")
 			change_skin_color(33, 63, 33)
