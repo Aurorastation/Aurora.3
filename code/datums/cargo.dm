@@ -265,6 +265,8 @@
 				return /obj/structure/largecrate
 		if(CARGO_CONTAINER_FREEZER)
 			return /obj/structure/closet/crate/freezer
+		if(CARGO_CONTAINER_BODYBAG)
+			return /obj/structure/closet/body_bag
 		else
 			log_debug("Cargo: Tried to get container type for invalid container [container_type]")
 			return /obj/structure/largecrate
