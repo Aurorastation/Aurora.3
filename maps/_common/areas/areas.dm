@@ -18,6 +18,9 @@ Generally you don't want to put your areas in here; if the area is only used in 
 
 /*-----------------------------------------------------------------------------*/
 
+/area
+	ambience = AMBIENCE_GENERIC
+
 /////////
 //SPACE//
 /////////
@@ -31,7 +34,7 @@ Generally you don't want to put your areas in here; if the area is only used in 
 	power_light = 0
 	power_equip = 0
 	power_environ = 0
-	ambience = list('sound/ambience/ambispace.ogg','sound/music/title2.ogg','sound/music/space.ogg','sound/music/main.ogg','sound/music/traitor.ogg')
+	ambience = AMBIENCE_SPACE
 	no_light_control = 1
 	base_turf = /turf/space
 

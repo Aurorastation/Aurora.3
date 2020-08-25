@@ -124,7 +124,7 @@
 				locked = !locked
 				playsound(src, 'sound/machines/ping.ogg', 30, 1)
 				var/msg = "[I] through \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
-				var/pos_adj = "[user.name] swipes \his "
+				var/pos_adj = "[user.name] swipes [user.get_pronoun("his")] "
 				var/fp_adj = "You swipe your "
 				user.visible_message("<span class='warning'>[addtext(pos_adj, msg)]</span>", "<span class='notice'>[addtext(fp_adj, msg)]</span>")
 				update_icon()

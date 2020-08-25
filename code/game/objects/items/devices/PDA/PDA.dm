@@ -1113,7 +1113,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/proc/create_message(var/mob/living/U = usr, var/obj/item/device/pda/P, var/tap = 1)
 	if(tap)
-		U.visible_message("<b>\The [U]</b> taps on \his PDA's screen.")
+		U.visible_message("<b>\The [U]</b> taps on [U.get_pronoun("his")] PDA's screen.")
 	var/t = input(U, "Please enter message", P.name, null) as text|null
 	t = sanitize(t)
 	//t = readd_quotes(t)

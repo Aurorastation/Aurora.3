@@ -819,3 +819,11 @@
 			var/obj/item/organ/L = H.internal_organs_by_name[BP_LUNGS]
 			if(istype(L) && !L.robotic)
 				L.take_damage(0.5*removed)
+
+/datum/reagent/gunpowder
+	name = "Gunpowder"
+	description = "A primitive explosive chemical."
+	reagent_state = SOLID
+	color = "#464650"
+	taste_description = "salt"
+	fallback_specific_heat = 1

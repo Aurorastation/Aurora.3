@@ -13,7 +13,7 @@
 	var/datum/outfit/outfit = null //Outfit to equip
 	var/list/species_outfits = list() //Outfit overwrite for the species
 	var/uses_species_whitelist = TRUE //Do you need the whitelist to play the species?
-	var/possible_species = list("Human")
+	var/possible_species = list(SPECIES_HUMAN)
 	var/allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	var/list/extra_languages = list() //Which languages are added to this mob
 

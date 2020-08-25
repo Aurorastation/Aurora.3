@@ -13,6 +13,7 @@
 /area/shuttle/arrival
 	name = "Arrival Shuttle"
 	base_turf = /turf/unsimulated/floor/plating
+	ambience = AMBIENCE_ARRIVALS
 
 /area/shuttle/arrival/Entered(atom/movable/Obj, atom/oldLoc)
 	. = ..()
@@ -57,6 +58,7 @@
 /area/shuttle/specops
 	name = "Special Ops Shuttle"
 	base_turf = /turf/unsimulated/floor/plating
+	ambience = AMBIENCE_HIGHSEC
 
 /area/shuttle/burglar
 	name = "Unidentified Transport"

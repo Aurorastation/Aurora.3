@@ -241,7 +241,7 @@ var/global/list/frozen_crew = list()
 /obj/machinery/cryopod/examine(mob/user)
 	..(user)
 	if(occupant)
-		to_chat(user, SPAN_NOTICE("<b>[occupant]</b> [gender_datums[occupant.gender].is] inside \the [src]."))
+		to_chat(user, SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [src]."))
 
 /obj/machinery/cryopod/can_hold_dropped_items()
 	return FALSE
