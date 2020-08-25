@@ -94,15 +94,15 @@
 			H.adjustToxLoss(-2 * removed)
 			return
 
-		if(alien == IS_VAURCA && H.species.has_organ["filtration bit"])
+		if(alien == IS_VAURCA && H.species.has_organ[BP_NEURAL_SOCKET])
 			metabolism = REM * 20 //vaurcae metabolise phoron faster than other species - good for them if their filter isn't broken.
-			var/obj/item/organ/vaurca/filtrationbit/F = H.internal_organs_by_name["filtration bit"]
+			var/obj/item/organ/vaurca/filtrationbit/F = H.internal_organs_by_name[BP_NEURAL_SOCKET]
 			if(isnull(F))
 				..()
 			else if(F.is_broken())
 				..()
-			else if(H.species.has_organ["phoron reserve tank"])
-				var/obj/item/organ/vaurca/preserve/P = H.internal_organs_by_name["phoron reserve tank"]
+			else if(H.species.has_organ[BP_PHORON_RESERVE])
+				var/obj/item/organ/vaurca/preserve/P = H.internal_organs_by_name[BP_PHORON_RESERVE]
 				if(isnull(P))
 					return
 				else if(P.is_broken())

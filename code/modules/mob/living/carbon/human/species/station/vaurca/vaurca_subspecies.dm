@@ -145,7 +145,7 @@
 		)
 
 	has_organ = list(
-		"neural socket"       = /obj/item/organ/vaurca/neuralsocket,
+		BP_NEURAL_SOCKET       = /obj/item/organ/vaurca/neuralsocket,
 		BP_LUNGS              = /obj/item/organ/internal/lungs/vaurca,
 		BP_HEART              = /obj/item/organ/internal/heart/vaurca,
 		"phoron reservoir"    = /obj/item/organ/vaurca/reservoir,
@@ -154,7 +154,7 @@
 		BP_STOMACH            = /obj/item/organ/internal/stomach,
 		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
 		BP_EYES               = /obj/item/organ/internal/eyes/vaurca,
-		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit
+		BP_NEURAL_SOCKET      = /obj/item/organ/vaurca/filtrationbit
 	)
 
 	default_h_style = "Bald"

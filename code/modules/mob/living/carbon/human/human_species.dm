@@ -70,6 +70,26 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	. = ..(mapload, SPECIES_VAURCA_WORKER)
 	src.gender = NEUTER
 
+/mob/living/carbon/human/type_a_cargo/Initialize(mapload)
+	h_style = "Classic Antennae"
+	. = ..(mapload, SPECIES_VAURCA_WORKER)
+	src.gender = NEUTER
+	// Equip mask to allow the drone to breathe
+	equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(src), slot_wear_mask)
+	// Set internals
+	var/obj/item/organ/vaurca/preserve/P = internal_organs_by_name[BP_PHORON_RESERVE]
+	internal = P
+	// Set colour, default is grey, no biggie
+	var/list/hive = splittext(name, " ")
+	world << hive[length(hive)]
+	switch(hive[length(hive)])
+		if("K'lax")
+			change_skin_color(33, 63, 33)
+		if("C'thur")
+			change_skin_color(10, 35, 55)
+		if("Zo'ra")
+			change_skin_color(111, 21, 21)
+
 /mob/living/carbon/human/type_b/Initialize(mapload)
 	h_style = "Classic Antennae"
 	. = ..(mapload, SPECIES_VAURCA_WARRIOR)

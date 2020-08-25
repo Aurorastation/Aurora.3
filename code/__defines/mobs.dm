@@ -101,6 +101,11 @@
 #define BP_STOMACH  "stomach"
 #define BP_APPENDIX "appendix"
 
+//Vaurca organs
+#define BP_NEURAL_SOCKET "neural socket"
+#define BP_PHORON_RESERVE "phoron reserve tank"
+#define BP_FILTRATION_BIT "filtration bit"
+
 //Aut'akh organs
 #define BP_ANCHOR   "anchor"
 #define BP_HAEMO    "haemodynamic"

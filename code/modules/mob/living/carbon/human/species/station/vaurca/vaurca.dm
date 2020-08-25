@@ -93,11 +93,11 @@
 	stamina_recovery = 2	//slow recovery
 
 	has_organ = list(
-		"neural socket"        = /obj/item/organ/vaurca/neuralsocket,
+		BP_NEURAL_SOCKET        = /obj/item/organ/vaurca/neuralsocket,
 		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
-		"filtration bit"       = /obj/item/organ/vaurca/filtrationbit,
+		BP_NEURAL_SOCKET       = /obj/item/organ/vaurca/filtrationbit,
 		BP_HEART               = /obj/item/organ/internal/heart/vaurca,
-		"phoron reserve tank"  = /obj/item/organ/vaurca/preserve,
+		BP_PHORON_RESERVE  = /obj/item/organ/vaurca/preserve,
 		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
 		BP_STOMACH             = /obj/item/organ/internal/stomach,

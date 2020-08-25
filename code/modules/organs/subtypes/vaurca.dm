@@ -63,15 +63,15 @@
 	robotic = 1
 
 /obj/item/organ/vaurca/filtrationbit
-	name = "filtration bit"
-	organ_tag = "filtration bit"
+	name = BP_NEURAL_SOCKET
+	organ_tag = BP_NEURAL_SOCKET
 	parent_organ = BP_HEAD
 	icon_state = "filter"
 	robotic = 2
 
 /obj/item/organ/vaurca/neuralsocket
-	name = "neural socket"
-	organ_tag = "neural socket"
+	name = BP_NEURAL_SOCKET
+	organ_tag = BP_NEURAL_SOCKET
 	icon_state = "neural_socket"
 	parent_organ = BP_HEAD
 	robotic = 2
@@ -100,8 +100,8 @@ obj/item/organ/vaurca/neuralsocket/process()
 	..()
 
 /obj/item/organ/vaurca/preserve
-	name = "phoron reserve tank"
-	organ_tag = "phoron reserve tank"
+	name = BP_PHORON_RESERVE
+	organ_tag = BP_PHORON_RESERVE
 	parent_organ = BP_CHEST
 	icon_state = "breathing_app"
 	robotic = 1
