@@ -40,3 +40,4 @@ delete-after: True
 changes:
   - bugfix: "Fixes gender not updating correctly on change."
   - bugfix: "Fixes pronouns not showing up."
+  - bugfix: "Makes it so exposing either your chest or lower body un-conceals pronouns, as opposed to needing both."
