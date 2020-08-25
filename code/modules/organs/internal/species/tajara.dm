@@ -60,7 +60,6 @@
 	owner.stop_sight_update = TRUE
 	owner.see_invisible = SEE_INVISIBLE_NOLIGHTING
 	owner.add_client_color(/datum/client_color/monochrome)
-	glowy_eyes = TRUE
 	owner.regenerate_icons()
 
 /obj/item/organ/internal/eyes/night/proc/disable_night_vision()
@@ -71,5 +70,4 @@
 	night_vision = FALSE
 	owner.stop_sight_update = FALSE
 	owner.remove_client_color(/datum/client_color/monochrome)
-	glowy_eyes = FALSE
 	owner.regenerate_icons()
