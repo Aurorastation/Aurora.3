@@ -1,6 +1,0 @@
-author: Doxxmedearly
-
-delete-after: True
-
-changes: 
-  - tweak: "Non-traitor AI and stationbounds can no longer disable airlock safeties. They can re-enable them if they are off and the wire isn't cut."
