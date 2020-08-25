@@ -1222,7 +1222,7 @@
 	var/skipitems = get_covered_clothes()
 	var/skipbody = get_covered_body_parts()
 	. = ..()
-	if((skipbody & FACE || (skipitems & (HIDEMASK|HIDEFACE))) && (skipbody & (UPPER_TORSO | LOWER_TORSO) || (skipitems & HIDEJUMPSUIT))) //big suits/masks/helmets make it hard to tell their gender
+	if((skipbody & FACE || (skipitems & (HIDEMASK|HIDEFACE))) && ((skipbody & (UPPER_TORSO) && (skipbody & LOWER_TORSO)) || (skipitems & HIDEJUMPSUIT))) //big suits/masks/helmets make it hard to tell their gender
 		. = PLURAL
 
 /mob/living/carbon/human/proc/increase_germ_level(n)

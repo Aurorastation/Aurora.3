@@ -73,7 +73,6 @@ var/list/datum/gender/gender_datums = list()
 /atom/proc/get_gender() // This is on /atom/ for compatibility reasons, e.g. for emotes to not have to typecheck.
 	return gender
 
-/atom/proc/get_pronoun(var/type)
+/atom/proc/get_pronoun(var/wordtype)
 	var/gender_to_use = get_gender()
-	if (type in gender_datums[gender_to_use])
-		return gender_datums[gender_to_use][type]
+	return gender_datums[gender_to_use][wordtype]
