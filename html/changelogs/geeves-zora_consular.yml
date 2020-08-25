@@ -1,0 +1,7 @@
+author: ChangeMe
+
+delete-after: True
+
+changes: 
+  - bugfix: "Zo'rane vaurca can be Zo'ra Consular Officer Breeders again."
+  - tweak: "Zo'ra Consulars now get filter ports instead of odd looking breath masks."
