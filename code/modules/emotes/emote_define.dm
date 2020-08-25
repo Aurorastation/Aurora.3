@@ -52,7 +52,7 @@
 			use_1p = get_emote_message_1p(user, target, extra_params)
 			use_1p = replacetext(use_1p, "TARGET_THEM", target.get_pronoun("him"))
 			use_1p = replacetext(use_1p, "TARGET_THEIR", target.get_pronoun("his"))
-			use_1p = replacetext(use_1p, "TARGET_SELF", target.get_pronoun("self"))
+			use_1p = replacetext(use_1p, "TARGET_SELF", target.get_pronoun("himself"))
 			use_1p = replacetext(use_1p, "TARGET", "<b>\the [target]</b>")
 		else
 			use_1p = get_emote_message_1p(user, null, extra_params)
@@ -63,13 +63,13 @@
 			use_3p = get_emote_message_3p(user, target, extra_params)
 			use_3p = replacetext(use_3p, "TARGET_THEM", target.get_pronoun("him"))
 			use_3p = replacetext(use_3p, "TARGET_THEIR", target.get_pronoun("his"))
-			use_3p = replacetext(use_3p, "TARGET_SELF", target.get_pronoun("self"))
+			use_3p = replacetext(use_3p, "TARGET_SELF", target.get_pronoun("himself"))
 			use_3p = replacetext(use_3p, "TARGET", "<b>\the [target]</b>")
 		else
 			use_3p = get_emote_message_3p(user, null, extra_params)
 		use_3p = replacetext(use_3p, "USER_THEM", user.get_pronoun("him"))
 		use_3p = replacetext(use_3p, "USER_THEIR", user.get_pronoun("his"))
-		use_3p = replacetext(use_3p, "USER_SELF", user.get_pronoun("self"))
+		use_3p = replacetext(use_3p, "USER_SELF", user.get_pronoun("himself"))
 		use_3p = replacetext(use_3p, "USER", "<b>\the [user]</b>")
 		use_3p = capitalize(use_3p)
 
