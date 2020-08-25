@@ -341,7 +341,7 @@ var/datum/controller/subsystem/timer/SStimer
 		count++
 
 		if (count > 1000)
-			crash_with("Timer New crash: [count] in one tick.")
+			crash_with("Timer New crash: [count] in one tick. [name]")
 
 	if (flags & TIMER_CLIENT_TIME)
 		timeToRun = REALTIMEOFDAY + wait
@@ -381,7 +381,7 @@ var/datum/controller/subsystem/timer/SStimer
 		count++
 
 		if (count > 1000)
-			crash_with("Timer Destroy crash: [count] in one tick.")
+			crash_with("Timer Destroy crash: [count] in one tick. [name]")
 
 	if (flags & TIMER_UNIQUE && hash)
 		SStimer.hashes -= hash
