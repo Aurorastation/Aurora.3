@@ -12,7 +12,7 @@
 	var/material/material
 	var/build_amt // used by some structures to determine into how many pieces they should disassemble into or be made with
 
-	var/slowdown = 5 //amount that pulling mobs have their movement delayed by
+	var/slowdown = 0 //amount that pulling mobs have their movement delayed by
 
 /obj/structure/Destroy()
 	if(parts)

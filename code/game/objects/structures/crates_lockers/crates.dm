@@ -13,6 +13,8 @@
 	var/tablestatus = 0
 	pass_flags = PASSTABLE
 
+	slowdown = 0
+
 
 /obj/structure/closet/crate/can_open()
 	if (tablestatus != -1)//Can't be opened while under a table

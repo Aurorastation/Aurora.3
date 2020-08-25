@@ -30,6 +30,8 @@
 	var/makes_rolling_sound = TRUE
 	var/buckle_sound = 'sound/effects/buckle.ogg'
 
+	slowdown = 5
+
 /obj/structure/bed/Initialize(mapload, var/new_material, var/new_padding_material)
 	. = ..()
 	color = null
