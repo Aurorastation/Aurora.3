@@ -8,6 +8,7 @@
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "orebox0"
 	density = TRUE
+	build_amt = 10
 	var/last_update = 0
 	var/obj/item/warp_core/warp_core // to set up the bluespace network
 	var/list/stored_ore = list()

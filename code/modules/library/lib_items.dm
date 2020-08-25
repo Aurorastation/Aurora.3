@@ -18,6 +18,7 @@
 	anchored = 1
 	density = 1
 	opacity = 1
+	build_amt = 5
 
 /obj/structure/bookcase/Initialize()
 	. = ..()

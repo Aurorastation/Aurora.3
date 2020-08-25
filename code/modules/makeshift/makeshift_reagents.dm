@@ -123,7 +123,7 @@
 	I.reagents.trans_to_holder(reagents, I.reagents.total_volume, rand(4, 8)/10) // 40% to 80% from chopping, since it's not very efficient
 	qdel(I)
 
-/obj/structure/chemkit/proc/dismantle()
+/obj/structure/chemkit/dismantle()
 	new /obj/structure/table(loc)
 	new /obj/item/reagent_containers/glass/beaker/bowl(loc)
 	if(analyzer)
@@ -184,7 +184,7 @@
 	var/transfer_out = FALSE
 	var/obj/item/weldingtool/welder
 
-/obj/structure/distillery/proc/dismantle()
+/obj/structure/distillery/dismantle()
 	var/obj/structure/reagent_dispensers/keg/keg = new (loc)
 	if (src.reagents && src.reagents.total_volume)
 		src.reagents.trans_to_holder(keg.reagents, src.reagents.total_volume)

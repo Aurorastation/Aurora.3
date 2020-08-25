@@ -232,6 +232,11 @@
 // Debris product. Used ALL THE TIME.
 /material/proc/place_sheet(var/turf/target)
 	if(stack_type)
+		for(var/obj/item/stack/S in target)
+			if(S.type == stack_type && S.amount < S.max_amount)
+				S.amount++
+				S.update_icon()
+				return S
 		return new stack_type(target)
 
 // As above.
@@ -817,8 +822,11 @@
 /material/leather
 	name = MATERIAL_LEATHER
 	icon_colour = "#5C4831"
+	stack_type = /obj/item/stack/material/leather
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	flags = MATERIAL_PADDING
+	hardness = 1
+	weight = 1
 	ignition_point = T0C+300
 	melting_point = T0C+300
 	protectiveness = 3 // 13%
@@ -834,6 +842,8 @@
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	hardness = 1
+	weight = 1
 	golem = SPECIES_GOLEM_CLOTH
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
@@ -843,6 +853,9 @@
 	name = MATERIAL_CARPET
 	display_name = "comfy"
 	use_name = "red upholstery"
+	stack_type = /obj/item/stack/tile/carpet
+	hardness = 1
+	weight = 1
 	icon_colour = "#DA020A"
 	flags = MATERIAL_PADDING
 	ignition_point = T0C+232
@@ -864,6 +877,7 @@
 	protectiveness = 1 // 4%
 	flags = MATERIAL_PADDING
 	hardness = 1
+	weight = 1
 	golem = SPECIES_GOLEM_CLOTH
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'

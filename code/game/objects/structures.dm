@@ -8,7 +8,9 @@
 	var/parts
 	var/list/climbers
 	var/list/footstep_sound	//footstep sounds when stepped on
+
 	var/material/material
+	var/build_amt // used by some structures to determine into how many pieces they should disassemble into or be made with
 
 /obj/structure/Destroy()
 	if(parts)
@@ -45,6 +47,11 @@
 				return
 		if(3.0)
 			return
+
+/obj/structure/proc/dismantle()
+	for(var/i = 1 to build_amt)
+		material.place_sheet(loc)
+	qdel(src)
 
 /obj/structure/Initialize(mapload)
 	. = ..()

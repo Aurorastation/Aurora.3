@@ -6,9 +6,9 @@
 	name = "computer frame"
 	icon = 'icons/obj/computer.dmi'
 	icon_state = "0"
+	build_amt = 5
 	var/state = 0
 	var/obj/item/circuitboard/circuit = null
-//	weight = 1.0E8
 
 /obj/structure/computerframe/attackby(obj/item/P as obj, mob/user as mob)
 	switch(state)

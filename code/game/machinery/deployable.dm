@@ -60,6 +60,8 @@ for reference:
 	desc = "This space is blocked off by a barricade."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "barricade"
+
+	build_amt = 5
 	anchored = 1.0
 	density = 1.0
 	var/health = 100
@@ -111,11 +113,6 @@ for reference:
 			qdel(src)
 			return
 		..()
-
-/obj/structure/barricade/proc/dismantle()
-	material.place_dismantled_product(get_turf(src))
-	qdel(src)
-	return
 
 /obj/structure/barricade/ex_act(severity)
 	switch(severity)
