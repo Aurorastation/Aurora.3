@@ -37,14 +37,14 @@
 
 /obj/item/organ/internal/kidneys/vaurca/robo
 	icon_state = "kidney_vaurca"
-	organ_tag = "mechanical kidneys"
+	organ_tag = BP_VAURCA_KIDNEYS
 	robotic = 2
 	robotic_name = null
 	robotic_sprite = null
 
 /obj/item/organ/internal/liver/vaurca/robo
 	icon_state = "liver_vaurca"
-	organ_tag = "mechanical liver"
+	organ_tag = BP_VAURCA_LIVER
 	robotic = 2
 	robotic_name = null
 	robotic_sprite = null
@@ -56,8 +56,8 @@
 	icon_state = "brain_vaurca"
 
 /obj/item/organ/vaurca/reservoir
-	name = "phoron reservoir"
-	organ_tag = "phoron reservoir"
+	name = BP_PHORON_RESERVOIR
+	organ_tag = BP_PHORON_RESERVOIR
 	parent_organ = BP_CHEST
 	icon_state = "phoron_reservoir"
 	robotic = 1

@@ -105,6 +105,9 @@
 #define BP_NEURAL_SOCKET "neural socket"
 #define BP_PHORON_RESERVE "phoron reserve tank"
 #define BP_FILTRATION_BIT "filtration bit"
+#define BP_PHORON_RESERVOIR "phoron reservoir"
+#define BP_VAURCA_LIVER "mechanical liver"
+#define BP_VAURCA_KIDNEYS "mechanical kidneys"
 
 //Aut'akh organs
 #define BP_ANCHOR   "anchor"
