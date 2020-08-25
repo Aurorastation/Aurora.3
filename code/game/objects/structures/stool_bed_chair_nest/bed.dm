@@ -213,6 +213,7 @@
 	var/obj/item/reagent_containers/beaker
 	var/iv_attached = 0
 	var/iv_stand = TRUE
+	slowdown = 0
 
 /obj/structure/bed/roller/update_icon()
 	overlays.Cut()
