@@ -125,6 +125,7 @@
 /datum/gear/head/pin
 	display_name = "pin selection"
 	path = /obj/item/clothing/head/pin
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/pin/New()
 	..()
