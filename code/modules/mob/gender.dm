@@ -19,7 +19,7 @@ var/list/datum/gender/gender_datums = list()
 	var/has  = "have"
 	var/is   = "are"
 	var/does = "do"
-	var/self = "themselves"
+	var/himself = "themselves"
 	var/end = ""
 
 /datum/gender/male
@@ -35,7 +35,7 @@ var/list/datum/gender/gender_datums = list()
 	has  = "has"
 	is   = "is"
 	does = "does"
-	self = "himself"
+	himself = "himself"
 	end = "s"
 
 /datum/gender/female
@@ -51,7 +51,7 @@ var/list/datum/gender/gender_datums = list()
 	has  = "has"
 	is   = "is"
 	does = "does"
-	self = "herself"
+	himself = "herself"
 	end = "s"
 
 /datum/gender/neuter
@@ -67,13 +67,12 @@ var/list/datum/gender/gender_datums = list()
 	has  = "has"
 	is   = "is"
 	does = "does"
-	self = "itself"
+	himself = "itself"
 	end = "s"
 
 /atom/proc/get_gender() // This is on /atom/ for compatibility reasons, e.g. for emotes to not have to typecheck.
 	return gender
 
-/atom/proc/get_pronoun(var/type)
+/atom/proc/get_pronoun(var/wordtype)
 	var/gender_to_use = get_gender()
-	if (type in gender_datums[gender_to_use])
-		return gender_datums[gender_to_use][type]
+	return gender_datums[gender_to_use][wordtype]
