@@ -183,7 +183,7 @@
 
 			var/obj/item/grab/G = new /obj/item/grab(M, src)
 			if(buckled)
-				to_chat(M, "<span class='notice'>You cannot grab [src], \he [gender_datums[gender].is] buckled in!</span>")
+				to_chat(M, "<span class='notice'>You cannot grab [src], [src.get_pronoun("he")] [get_pronoun("is")] buckled in!</span>")
 			if(!G)	//the grab will delete itself in New if affecting is anchored
 				return
 			M.put_in_active_hand(G)
@@ -276,7 +276,7 @@
 					if(!src.lying)
 						attack_message = "[H] attempted to strike [src], but missed!"
 					else
-						attack_message = "[H] attempted to strike [src], but \he rolled out of the way!"
+						attack_message = "[H] attempted to strike [src], but [src.get_pronoun("he")] rolled out of the way!"
 						src.set_dir(pick(cardinal))
 					miss_type = 1
 
@@ -549,7 +549,7 @@
 		return 0
 
 	if(user == src)
-		user.visible_message("<span class='notice'>\The [user] starts applying pressure to \his [organ.name]!</span>", "<span class='notice'>You start applying pressure to your [organ.name]!</span>")
+		user.visible_message("<span class='notice'>\The [user] starts applying pressure to [user.get_pronoun("his")] [organ.name]!</span>", "<span class='notice'>You start applying pressure to your [organ.name]!</span>")
 	else
 		user.visible_message("<span class='notice'>\The [user] starts applying pressure to [src]'s [organ.name]!</span>", "<span class='notice'>You start applying pressure to [src]'s [organ.name]!</span>")
 	spawn(0)
@@ -561,7 +561,7 @@
 		organ.applied_pressure = null
 
 		if(user == src)
-			user.visible_message("<span class='notice'>\The [user] stops applying pressure to \his [organ.name]!</span>", "<span class='notice'>You stop applying pressure to your [organ.name]!</span>")
+			user.visible_message("<span class='notice'>\The [user] stops applying pressure to [user.get_pronoun("his")] [organ.name]!</span>", "<span class='notice'>You stop applying pressure to your [organ.name]!</span>")
 		else
 			user.visible_message("<span class='notice'>\The [user] stops applying pressure to [src]'s [organ.name]!</span>", "<span class='notice'>You stop applying pressure to [src]'s [organ.name]!</span>")
 

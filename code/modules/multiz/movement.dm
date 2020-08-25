@@ -484,7 +484,7 @@
 	if (istype(rig))
 		for (var/obj/item/rig_module/actuators/A in rig.installed_modules)
 			if (A.active && rig.check_power_cost(src, 10, A, 0))
-				visible_message(SPAN_NOTICE("\The [src] lands flawlessly with \his [rig]."),
+				visible_message(SPAN_NOTICE("\The [src] lands flawlessly with [src.get_pronoun("his")] [rig]."),
 					SPAN_NOTICE("You hear an electric <i>*whirr*</i> right after the slam!"))
 				return FALSE
 
@@ -725,7 +725,7 @@
 	else
 		L.apply_damage(damage, BRUTE)
 
-	L.visible_message(SPAN_DANGER("\The [L] had \the [src] fall onto \him!"),
+	L.visible_message(SPAN_DANGER("\The [L] had \the [src] fall onto [src.get_pronoun("him")]!"),
 		SPAN_DANGER("You had \the [src] fall onto you and strike you!"))
 
 	admin_attack_log((ismob(src) ? src : null), L, "fell onto", "was fallen on by", "fell ontop of")

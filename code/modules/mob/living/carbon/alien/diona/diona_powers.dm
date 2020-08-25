@@ -95,7 +95,7 @@
 			to_chat(src, SPAN_WARNING("[D] has refused to join you!"))
 			return
 		else if(!Adjacent(D) || !isturf(D.loc))
-			to_chat(src, SPAN_WARNING("\The [D] must remain close to the collective if \he wishes to be part of us."))
+			to_chat(src, SPAN_WARNING("\The [D] must remain close to the collective if [D.get_pronoun("he")] wishes to be part of us."))
 			return
 
 	src.visible_message(SPAN_WARNING("[src] starts absorbing [D] into its body."), SPAN_WARNING("You start absorbing [D]. This will take 15 seconds and both of you must remain still."), SPAN_WARNING("You hear a strange, alien, sucking noise."))
@@ -104,7 +104,7 @@
 	D.face_atom(get_turf(src))
 	if(do_mob(src, D, 150, needhand = FALSE))
 		if(!Adjacent(D) || !isturf(D.loc)) //The loc check prevents us from absorbing the same nymph multiple times at once
-			to_chat(src, SPAN_WARNING("\The [D] must remain close to the collective if \he wishes to be part of us."))
+			to_chat(src, SPAN_WARNING("\The [D] must remain close to the collective if [D.get_pronoun("he")] wishes to be part of us."))
 			return
 
 		if(D.stat == DEAD)
@@ -336,11 +336,11 @@
 
 	if(stat == DEAD)
 		return
-	
+
 	if(!consume_nutrition_from_air && (nutrition / max_nutrition > 0.25))
 		to_chat(src, SPAN_WARNING("You still have plenty of nutrition left. Consuming air is the last resort."))
 		return
-	
+
 	consume_nutrition_from_air = !consume_nutrition_from_air
 	to_chat(src, SPAN_NOTICE("You [consume_nutrition_from_air ? "started" : "stopped"] consuming air for nutrition."))
 
@@ -379,7 +379,7 @@
 	else
 		to_chat(src, SPAN_NOTICE("We do not have the nymphs nor the biomass to do this!"))
 		return
-	
+
 	var/list/diona_structures = list(
 			"Wall" = /turf/simulated/wall/diona,
 			"Floor" = /turf/simulated/floor/diona,
@@ -395,7 +395,7 @@
 
 	if(use_check_and_message(src))
 		return
-	
+
 	if(chosen_structure)
 		to_chat(src, SPAN_NOTICE("We are now creating a [lowertext(chosen_structure)] using our [build_method]..."))
 
@@ -420,12 +420,12 @@
 			T.ChangeTurf(structure_path)
 		else
 			new structure_path(T)
-			
+
 /mob/living/carbon/alien/diona/proc/remove_hat()
 	set category = "Abilities"
 	set name = "Remove Hat"
 	set desc = " Remove your hat."
-	
+
 	if(hat)
 		src.drop_from_inventory(hat)
 		hat = null

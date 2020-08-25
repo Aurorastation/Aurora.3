@@ -1040,7 +1040,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if (use_check_and_message(usr)) return
 
 	if(!lit)
-		usr.visible_message("<span class='notice'>With a snap of \the [usr]'s fingers, a small lighter flame sparks from \his index fingers!</span>")
+		usr.visible_message("<span class='notice'>With a snap of \the [usr]'s fingers, a small lighter flame sparks from [usr.get_pronoun("his")] index fingers!</span>")
 		lit = TRUE
 		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 75, 1)
 		update_icon()
@@ -1048,7 +1048,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	else
-		usr.visible_message("<span class='notice'>With the flick of \the [usr] wrists and the pinch of \his fingers, the glove's flames are extinguished.</span>")
+		usr.visible_message("<span class='notice'>With the flick of \the [usr]'s wrists and the pinch of [usr.get_pronoun("his")] fingers, the glove's flames are extinguished.</span>")
 		lit = FALSE
 		playsound(src.loc, 'sound/items/cigs_lighters/zippo_off.ogg', 75, 1)
 		update_icon()

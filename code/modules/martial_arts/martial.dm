@@ -69,7 +69,7 @@
 			if(!D.lying)
 				attack_message = "[A] attempted to strike [D], but missed!"
 			else
-				attack_message = "[A] attempted to strike [D], but \he rolled out of the way!"
+				attack_message = "[A] attempted to strike [D], but [D.get_pronoun("he")] rolled out of the way!"
 				D.set_dir(pick(cardinal))
 			miss_type = 1
 

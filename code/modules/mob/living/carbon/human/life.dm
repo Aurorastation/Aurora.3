@@ -1045,7 +1045,7 @@
 
 	if(shock_stage >= 30)
 		if(shock_stage == 30)
-			visible_message("<b>[src]</b> is having trouble keeping \his eyes open.")
+			visible_message("<b>[src]</b> is having trouble keeping [get_pronoun("his")] eyes open.")
 		if(prob(30))
 			eye_blurry = max(2, eye_blurry)
 			stuttering = max(stuttering, 5)
