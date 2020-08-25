@@ -209,7 +209,8 @@
 		/obj/item/reagent_containers/food/snacks/nathisnack = 2,
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 4,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 5,
-		/obj/item/reagent_containers/food/snacks/tuna = 2
+		/obj/item/reagent_containers/food/snacks/tuna = 2,
+		/obj/item/reagent_containers/food/snacks/diona_bites = 3
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/snacks/syndicake = 6,
@@ -237,7 +238,8 @@
 		/obj/item/reagent_containers/food/snacks/nathisnack = 24,
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 60,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 40,
-		/obj/item/reagent_containers/food/snacks/tuna = 23
+		/obj/item/reagent_containers/food/snacks/tuna = 23,
+		/obj/item/reagent_containers/food/snacks/diona_bites = 40
 	)
 	light_color = COLOR_BABY_BLUE
 
