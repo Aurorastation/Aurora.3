@@ -104,7 +104,7 @@
 	set category = "Object"
 	set src in usr
 
-	var/n_name = sanitizeSafe(input(usr, "What would you like to rename the stamp to?", "Stamp Name", null) as text, MAX_NAME_LEN)
+	var/n_name = sanitizeSafe(input(usr, "Which faction or rank would you like your stamp to represent?", "Stamp Designation", null) as text, MAX_NAME_LEN)
 	if(loc == usr && n_name)
 		//Attempts to keep the custom stamp name consistent
 		n_name = replacetext(n_name," rubber stamp","")
