@@ -34,7 +34,7 @@
 	attack_damage = Clamp(attack_damage, 1, 5)
 
 	if(target == user)
-		user.visible_message("<span class='danger'>[user] [pick(attack_verb)] \himself in the [affecting.name]!</span>")
+		user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [user.get_pronoun("himself")] in the [affecting.name]!</span>")
 		return 0
 
 	switch(zone)
@@ -42,20 +42,20 @@
 			// ----- HEAD ----- //
 			switch(attack_damage)
 				if(1 to 2)
-					user.visible_message("<span class='danger'>[user] scratched [target] across \his cheek!</span>")
+					user.visible_message("<span class='danger'>[user] scratched [target] across [target.get_pronoun("his")] cheek!</span>")
 				if(3 to 4)
 					user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [target]'s [pick(BP_HEAD, "neck")]!</span>") //'with spread claws' sounds a little bit odd, just enough that conciseness is better here I think
 				if(5)
 					user.visible_message(pick(
-						"<span class='danger'>[user] rakes \his [pick(attack_noun)] across [target]'s face!</span>",
-						"<span class='danger'>[user] tears \his [pick(attack_noun)] into [target]'s face!</span>",
+						"<span class='danger'>[user] rakes [user.get_pronoun("his")] [pick(attack_noun)] across [target]'s face!</span>",
+						"<span class='danger'>[user] tears [user.get_pronoun("his")] [pick(attack_noun)] into [target]'s face!</span>",
 						))
 		else
 			// ----- BODY ----- //
 			switch(attack_damage)
 				if(1 to 2)	user.visible_message("<span class='danger'>[user] scratched [target]'s [affecting.name]!</span>")
 				if(3 to 4)	user.visible_message("<span class='danger'>[user] [pick(attack_verb)] [pick("", "", "the side of")] [target]'s [affecting.name]!</span>")
-				if(5)		user.visible_message("<span class='danger'>[user] tears \his [pick(attack_noun)] [pick("deep into", "into", "across")] [target]'s [affecting.name]!</span>")
+				if(5)		user.visible_message("<span class='danger'>[user] tears [user.get_pronoun("his")] [pick(attack_noun)] [pick("deep into", "into", "across")] [target]'s [affecting.name]!</span>")
 
 /datum/unarmed_attack/claws/strong
 	attack_verb = list("slashed")
@@ -126,7 +126,7 @@
 /datum/unarmed_attack/terminator/apply_effects(var/mob/living/carbon/human/user,var/mob/living/carbon/human/target,var/armor,var/attack_damage,var/zone)
 	..()
 	if(prob(25) && target.mob_size <= 30)
-		playsound(user, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+		playsound(user, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>[user] shoves hard, sending [target] flying!</span>")
 		var/T = get_turf(user)
 		spark(T, 3, alldirs)

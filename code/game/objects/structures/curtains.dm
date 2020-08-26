@@ -9,6 +9,7 @@
 	opacity = 1
 	density = 0
 	anchored = TRUE //curtains start secured in place
+	build_amt = 2
 	var/manipulating = FALSE //prevents queuing up multiple deconstructs and returning a bunch of cloth
 
 /obj/structure/curtain/open
@@ -45,11 +46,7 @@
 		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 		visible_message(SPAN_NOTICE("[user] cuts down \the [src]."),
 					SPAN_NOTICE("You cut down \the [src]."))
-		if(istype(src, /obj/structure/curtain/open/medical))
-			new /obj/item/stack/material/plastic(src.loc)
-		else
-			new /obj/item/stack/material/cloth(src.loc, (W.iswirecutter() ? 2 : 1)) //wirecutters return full. Sharp items return half.
-		qdel(src)
+		dismantle()
 
 	if(W.isscrewdriver()) //You can anchor/unanchor curtains
 		anchored = !anchored

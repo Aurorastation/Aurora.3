@@ -1,8 +1,8 @@
 /datum/species/unathi
-	name = "Unathi"
+	name = SPECIES_UNATHI
 	short_name = "una"
 	name_plural = "Unathi"
-	bodytype = "Unathi"
+	bodytype = BODYTYPE_UNATHI
 	icobase = 'icons/mob/human_races/unathi/r_lizard.dmi'
 	deform = 'icons/mob/human_races/unathi/r_def_lizard.dmi'
 	preview_icon = 'icons/mob/human_races/unathi/unathi_preview.dmi'
@@ -14,7 +14,7 @@
 		/datum/unarmed_attack/claws,
 		/datum/unarmed_attack/bite/sharp
 	)
-	primitive_form = "Stok"
+	primitive_form = SPECIES_MONKEY_UNATHI
 	darksight = 3
 	gluttonous = GLUT_MESSY
 	stomach_capacity = 7
@@ -102,7 +102,7 @@
 	allowed_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_AUTAKH, RELIGION_MOROZ, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM)
 	default_citizenship = CITIZENSHIP_IZWESKI
 
-	zombie_type = "Unathi Zombie"
+	zombie_type = SPECIES_ZOMBIE_UNATHI
 
 	default_accent = ACCENT_HEGEMON_PEASANT
 	allowed_accents = list(ACCENT_HEGEMON_NOBLE, ACCENT_HEGEMON_PEASANT, ACCENT_TRAD_NOBLE, ACCENT_TRAD_PEASANT, ACCENT_WASTELAND, ACCENT_DOMINIA)

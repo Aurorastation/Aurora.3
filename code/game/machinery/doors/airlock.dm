@@ -994,7 +994,10 @@ About the new airlock wires panel:
 			else if(!activate && !density)
 				close()
 		if("safeties")
-			set_safeties(!activate, 1)
+			if(safe && issilicon(usr) && !player_is_antag(usr.mind))
+				to_chat(usr, SPAN_WARNING("Your programming prevents you from disabling the door safeties."))
+			else
+				set_safeties(!activate, 1)
 		if("timing")
 			// Door speed control
 			if(src.isWireCut(AIRLOCK_WIRE_SPEED))

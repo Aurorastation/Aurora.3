@@ -21,6 +21,10 @@
 	name = "Centcom Preparatory Wing"
 	ambience = AMBIENCE_ARRIVALS
 
+/area/centcom/start
+	name = "New Player Spawn"
+	dynamic_lighting = 0
+
 /area/centcom/evac
 	name = "Centcom Emergency Shuttle"
 
@@ -270,6 +274,11 @@
 	name = "Communications Satellite"
 	icon_state = "tcomsatcham"
 	no_light_control = 1
+
+/area/dungeon/skrell_ship
+    name = "Crashed Skrell Ship"
+    icon_state = "purple"
+    flags = RAD_SHIELDED | SPAWN_ROOF
 
 //Misc
 

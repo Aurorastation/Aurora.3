@@ -166,8 +166,10 @@
 /obj/structure/closet/radiation/fill()
 	new /obj/item/clothing/suit/radiation(src)
 	new /obj/item/clothing/head/radiation(src)
+	new /obj/item/clothing/glasses/safety/goggles(src)
 	new /obj/item/clothing/suit/radiation(src)
 	new /obj/item/clothing/head/radiation(src)
+	new /obj/item/clothing/glasses/safety/goggles(src)
 
 /*
  * Bombsuit closet

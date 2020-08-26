@@ -508,7 +508,8 @@
 
 /obj/random/vendor
 	name = "random vendor"
-	var/depleted = 0
+	var/depleted = FALSE
+	var/scan_id = TRUE // Should the spawned vendor check IDs
 	problist = list(
 		/obj/machinery/vending/boozeomat = 1,
 		/obj/machinery/vending/coffee = 1,
@@ -556,6 +557,8 @@
 
 			// Clamp to an integer so we don't get 0.78 of a screwdriver.
 			V.products[content] = round(V.products[content])
+
+	V.scan_id &= scan_id
 
 /obj/random/pda_cart/item_to_spawn()
 	var/list/options = typesof(/obj/item/cartridge)
@@ -736,9 +739,6 @@
 		/obj/item/bodybag = 0.7,
 		/obj/item/clothing/accessory/storage/knifeharness = 0.3,
 		/obj/item/clothing/accessory/storage/webbing = 0.6,
-		/obj/item/clothing/glasses/material = 0.8,
-		/obj/item/clothing/glasses/meson = 0.5,
-		/obj/item/clothing/glasses/meson/prescription = 0.25,
 		/obj/item/clothing/glasses/sunglasses = 0.75,
 		/obj/item/clothing/glasses/welding = 0.75,
 		/obj/item/clothing/head/bearpelt = 0.4,
@@ -932,8 +932,7 @@
 		/obj/item/storage/backpack/chameleon = 1,
 		/obj/item/storage/backpack/ = 10,
 
-		/obj/item/clothing/glasses/chameleon = 1,
-		/obj/item/clothing/glasses/meson = 1
+		/obj/item/clothing/glasses/chameleon = 1
 
 	)
 

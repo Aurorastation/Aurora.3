@@ -39,5 +39,5 @@
 	icon_state = "gillcover"
 	item_state = "gillcover"
 	contained_sprite = TRUE
-	species_restricted = list("Skrell")
+	species_restricted = list(BODYTYPE_SKRELL)
 	adjustable = FALSE

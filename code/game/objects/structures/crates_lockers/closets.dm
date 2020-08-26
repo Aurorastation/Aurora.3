@@ -6,6 +6,7 @@
 	density = 1
 	w_class = 5
 	layer = OBJ_LAYER - 0.01
+	build_amt = 2
 	var/icon_closed = "closed"
 	var/icon_opened = "open"
 	var/welded_overlay_state = "welded"
@@ -277,7 +278,6 @@
 					to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")
 					return
 				else
-					new /obj/item/stack/material/steel(loc)
 					user.visible_message(
 						"<span class='notice'>[src] has been cut apart by [user] with [WT].</span>",
 						"<span class='notice'>You cut apart [src] with [WT].</span>"
@@ -285,7 +285,7 @@
 					if(linked_teleporter)
 						linked_teleporter.forceMove(get_turf(src))
 						linked_teleporter = null
-					qdel(src)
+					dismantle()
 					return
 		if(istype(W, /obj/item/storage/laundry_basket) && W.contents.len)
 			var/obj/item/storage/laundry_basket/LB = W

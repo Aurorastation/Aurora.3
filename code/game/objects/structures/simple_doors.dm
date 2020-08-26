@@ -6,6 +6,7 @@
 	icon = 'icons/obj/doors/material_doors.dmi'
 	icon_state = "metal"
 
+	build_amt = 10
 	var/state = 0 //closed, 1 == open
 	var/isSwitchingStates = 0
 	var/oreAmount = 7
@@ -190,19 +191,15 @@
 
 /obj/structure/simple_door/proc/CheckHealth()
 	if(health <= 0)
-		Dismantle(1)
-
-/obj/structure/simple_door/proc/Dismantle(devastated = 0)
-	material.place_dismantled_product(get_turf(src))
-	qdel(src)
+		dismantle()
 
 /obj/structure/simple_door/ex_act(severity = 1)
 	switch(severity)
 		if(1)
-			Dismantle(1)
+			dismantle()
 		if(2)
 			if(prob(20))
-				Dismantle(1)
+				dismantle()
 			else
 				health--
 				CheckHealth()
