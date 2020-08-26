@@ -992,7 +992,7 @@ obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
 		if (!alert)
 			alert = 1
 			update_icon()
-			addtimer(CALLBACK(src, .proc/clearAlert), 300)
+			addtimer(CALLBACK(src, .proc/clearAlert), 300, TIMER_UNIQUE)
 
 		playsound(src.loc, 'sound/machines/twobeep.ogg', 75, 1)
 	else
