@@ -3,6 +3,7 @@
 	desc = "Tajaran eyes adapted to low light conditions of Adhomai."
 	icon_state = "tajaran_eyes"
 	action_button_name = "Activate Low Light Vision"
+	relative_size = 8
 	var/night_vision = FALSE
 
 /obj/item/organ/internal/eyes/night/Destroy()
@@ -83,7 +84,7 @@
 
 /obj/item/organ/internal/lungs/tajara
 	name = "insulated lungs"
-	desc = "Tajaran lungs adapted to handle the cold air of Adhomai."
+	desc = "Tajaran lungs adapted to withstand the cold air of Adhomai."
 	icon_state = "tajaran_lungs"
 
 /obj/item/organ/internal/liver/tajara
