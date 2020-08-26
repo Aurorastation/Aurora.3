@@ -284,6 +284,7 @@
 					else
 						LAZYINITLIST(piece.armor)
 						piece.armor["bio"] = LAZYACCESS(src.armor, "bio") || 0
+					playsound(src, "[!seal_target ? 'sound/machines/BoltsDown.ogg' : 'sound/machines/BoltsUp.ogg']", 10, FALSE)
 
 				else
 					failed_to_seal = 1
@@ -667,6 +668,7 @@
 				if(istype(holder))
 					if(use_obj && check_slot == use_obj)
 						to_chat(wearer, "<font color='blue'><b>Your [use_obj.name] [use_obj.gender == PLURAL ? "retract" : "retracts"] swiftly.</b></font>")
+						playsound(src, 'sound/machines/BoltsUp.ogg', 10, FALSE)
 						use_obj.canremove = 1
 						holder.drop_from_inventory(use_obj,get_turf(src)) //TODO: TEST THIS CODE!
 						use_obj.dropped()
@@ -684,6 +686,7 @@
 					return
 			else
 				to_chat(wearer, "<span class='notice'>Your [use_obj.name] [use_obj.gender == PLURAL ? "deploy" : "deploys"] swiftly.</span>")
+				playsound(src, 'sound/machines/BoltsDown.ogg', 10, FALSE)
 
 	if(piece == "helmet" && helmet)
 		helmet.update_light(wearer)
