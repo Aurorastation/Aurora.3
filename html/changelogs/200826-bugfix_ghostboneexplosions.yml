@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - bugfix: "Fixed ghostspawners sometimes spawning humans with broken bones."
