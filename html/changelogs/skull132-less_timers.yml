@@ -1,0 +1,6 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - bugfix: "Newscasters should no longer attempt to kill the server with timers."
+  - tweak: "Remote control of vents and scrubbers may be a bit less responsive."

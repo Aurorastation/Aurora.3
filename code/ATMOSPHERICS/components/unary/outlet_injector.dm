@@ -23,6 +23,8 @@
 	var/id = null
 	var/datum/radio_frequency/radio_connection
 
+	var/broadcast_status_next_process = FALSE
+
 	level = 1
 
 /obj/machinery/atmospherics/unary/outlet_injector/Initialize()
@@ -55,9 +57,13 @@
 	last_power_draw = 0
 	last_flow_rate = 0
 
+	if (broadcast_status_next_process)
+		broadcast_status()
+		broadcast_status_next_process = FALSE
+
 	if((stat & (NOPOWER|BROKEN)) || !use_power)
 		return
-	
+
 	var/power_draw = -1
 	var/datum/gas_mixture/environment = loc.return_air()
 	
@@ -143,10 +149,10 @@
 		volume_rate = between(0, number, air_contents.volume)
 
 	if(signal.data["status"])
-		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+		broadcast_status_next_process = TRUE
 		return //do not update_icon
 
-	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+	broadcast_status_next_process = TRUE
 	update_icon()
 
 /obj/machinery/atmospherics/unary/outlet_injector/hide(var/i)
