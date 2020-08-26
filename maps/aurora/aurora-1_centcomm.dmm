@@ -29363,7 +29363,9 @@
 /turf/simulated/floor/carpet/blue,
 /area/shuttle/merchant)
 "nEc" = (
-/obj/random/vendor,
+/obj/random/vendor{
+	scan_id = 0
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "steel_dirty"

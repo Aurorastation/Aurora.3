@@ -71,7 +71,7 @@
 	var/age = input(user, "Enter your characters age:","Num") as num
 
 	//Spawn in the mob
-	var/mob/living/carbon/human/M = new spawn_mob(null)
+	var/mob/living/carbon/human/M = new spawn_mob(newplayer_start)
 
 	var/datum/species/S = all_species[picked_species]
 	M.change_gender(pick(S.default_genders))
