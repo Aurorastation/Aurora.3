@@ -123,5 +123,5 @@
 	id = /obj/item/card/id/zeng_hu
 
 	backpack_contents = list(
-		/obj/item/stamp/zenghu = 1
+		/obj/item/stamp/zeng_hu = 1
 	)

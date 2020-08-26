@@ -67,7 +67,7 @@
 	name = "zavodskoi interstellar rubber stamp"
 	icon_state = "stamp-zavod"
 
-/obj/item/stamp/zenghu
+/obj/item/stamp/zeng_hu
 	name = "zeng-hu pharmaceuticals rubber stamp"
 	icon_state = "stamp-zenghu"
 
@@ -94,7 +94,7 @@
 
 	if(user && (src in user.contents))
 		var/obj/item/stamp/chosen_stamp = stamp_selection[capitalize(input_stamp)]
-	
+
 		if(chosen_stamp)
 			name = chosen_stamp.name
 			icon_state = chosen_stamp.icon_state
