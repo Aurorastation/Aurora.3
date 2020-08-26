@@ -111,3 +111,7 @@
 
 /datum/client_color/oversaturated/New()
 	client_color = color_saturation(40)
+
+/datum/client_color/color_tint/green
+	client_color = list(0, 0.3, 0, 0, 0.3, 0, 0, 0.3, 0)
+	priority = 100

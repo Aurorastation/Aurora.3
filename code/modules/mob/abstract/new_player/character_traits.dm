@@ -49,6 +49,13 @@
 /datum/character_disabilities/total_colorblind/apply_self(var/mob/living/carbon/human/H)
 	H.add_client_color(/datum/client_color/monochrome)
 
+/datum/character_disabilities/color_tint
+	name = "Color Tint (Green)"
+	desc = "You have a permanent green color tint over your vision."
+
+/datum/character_disabilities/color_tint/apply_self(var/mob/living/carbon/human/H)
+	H.add_client_color(/datum/client_color/color_tint/green)
+
 /datum/character_disabilities/mute
 	name = "Muteness"
 	desc = "You are unable to form coherent speech."
