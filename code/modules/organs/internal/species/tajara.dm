@@ -64,7 +64,6 @@
 	owner.stop_sight_update = TRUE
 	owner.see_invisible = SEE_INVISIBLE_NOLIGHTING
 	owner.add_client_color(/datum/client_color/monochrome)
-	owner.regenerate_icons()
 
 /obj/item/organ/internal/eyes/night/proc/disable_night_vision()
 	if(!owner)
@@ -74,7 +73,6 @@
 	night_vision = FALSE
 	owner.stop_sight_update = FALSE
 	owner.remove_client_color(/datum/client_color/monochrome)
-	owner.regenerate_icons()
 
 /obj/item/organ/internal/stomach/tajara
 	name = "reinforced stomach"
