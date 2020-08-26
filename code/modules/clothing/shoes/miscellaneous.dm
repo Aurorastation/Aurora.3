@@ -83,14 +83,14 @@ obj/item/clothing/shoes/sandal/clogs
 	species_restricted = null
 
 /obj/item/clothing/shoes/clown_shoes/handle_movement(var/turf/walking, var/running)
-	if(!running)
+	if(running)
 		if(footstep >= 2)
 			footstep = 0
-			playsound(src, "clownstep", 20, 1) // this will get annoying very fast.
+			playsound(src, "clownstep", 50, 1) // this will get annoying very fast.
 		else
 			footstep++
 	else
-		playsound(src, "clownstep", 50, 1)
+		playsound(src, "clownstep", 20, 1)
 
 /obj/item/clothing/shoes/cult
 	name = "ragged boots"
