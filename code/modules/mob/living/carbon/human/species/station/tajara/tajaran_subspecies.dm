@@ -33,6 +33,14 @@
 	allowed_accents = list(ACCENT_REPUBICLANSIIK, ACCENT_NAZIRASIIK, ACCENT_CREVAN, ACCENT_DASNRRASIIK, ACCENT_HIGHHARRSIIK, ACCENT_LOWHARRSIIK, ACCENT_AMOHDASIIK,
 							 ACCENT_RURALDELVAHHI, ACCENT_NOMADDELVAHHI)
 
+	stomach_capacity = 7
+
+	max_nutrition_factor = 1.3
+	max_hydration_factor = 1.3
+
+	nutrition_loss_factor = 0.7
+	hydration_loss_factor = 0.7
+
 /datum/species/tajaran/m_sai
 	name = SPECIES_TAJARA_MSAI
 	name_plural = "M'sai Tajaran"
@@ -60,3 +68,9 @@
 
 	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_SIGN_TAJARA)
 	allowed_accents = list(ACCENT_REPUBICLANSIIK, ACCENT_NAZIRASIIK, ACCENT_CREVAN, ACCENT_DASNRRASIIK, ACCENT_HIGHHARRSIIK, ACCENT_LOWHARRSIIK, ACCENT_AMOHDASIIK)
+
+	max_nutrition_factor = 1.2
+	max_hydration_factor = 1.2
+
+	nutrition_loss_factor = 0.9
+	hydration_loss_factor = 0.9
