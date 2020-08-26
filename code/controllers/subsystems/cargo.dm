@@ -726,9 +726,10 @@ var/datum/controller/subsystem/cargo/SScargo
 
 	// Loop through all the orders and dump them all
 	var/DBQuery/dump_query = dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog` (`game_id`, `order_id`, `status`, `price`, `ordered_by_id`, `ordered_by`, `authorized_by_id`, `authorized_by`, `received_by_id`, `received_by`, `paid_by_id`, `paid_by`, `time_submitted`, `time_approved`, `time_shipped`, `time_delivered`, `time_paid`, `reason`) \
-	VALUES (':game_id:', ':order_id:', ':status:', ':price:', ':ordered_by_id:', ':ordered_by:', ':authorized_by_id:', ':authorized_by:', ':received_by_id:', ':received_by:', ':paid_by_id:', ':paid_by:', ':time_submitted:', ':time_approved:', ':time_shipped:', ':time_delivered:', ':time_paid:', ':reason:');")
+	VALUES (:game_id:, :order_id:, :status:, :price:, :ordered_by_id:, :ordered_by:, :authorized_by_id:, :authorized_by:, :received_by_id:, :received_by:, :paid_by_id:, :paid_by:, :time_submitted:, :time_approved:, :time_shipped:, :time_delivered:, :time_paid:, :reason:)")
 	var/DBQuery/dump_item_query = dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog_items` (`cargo_orderlog_id`, `cargo_item_id`, `amount`) \
-	VALUES (':cargo_orderlog_id:', ':cargo_item_id:', ':amount:');")
+	VALUES (:cargo_orderlog_id:, :cargo_item_id:, :amount:)")
+	var/DBQuery/log_id = dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
 	for(var/datum/cargo_order/co in all_orders)
 		//Iterate over the items in the order and build the a list with the item count
 		var/list/itemcount = list()
@@ -738,7 +739,7 @@ var/datum/controller/subsystem/cargo/SScargo
 			else
 				itemcount["[coi.ci.id]"] = 1
 
-		dump_query.Execute(list(
+		if(!dump_query.Execute(list(
 			"game_id"=game_id,
 			"order_id"=co.order_id,
 			"status"=co.status,
@@ -757,14 +758,14 @@ var/datum/controller/subsystem/cargo/SScargo
 			"time_delivered"=co.time_delivered,
 			"time_paid"=co.time_paid,
 			"reason"=co.reason
-			))
+			)))
+			log_debug("SScargo: SQL ERROR - Cound not write order to database")
+			continue
 
 		//Run the query to get the inserted id
-		var/DBQuery/log_id = dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
 		log_id.Execute()
 
 		var/db_log_id = null
-		//Save the inserted it to the antagonist datum
 		if (log_id.NextRow())
 			db_log_id = text2num(log_id.item[1])
 
@@ -775,6 +776,7 @@ var/datum/controller/subsystem/cargo/SScargo
 					"cargo_item_id"=item_id,
 					"amount"=itemcount[item_id]
 				))
+		CHECK_TICK
 
 
 /hook/roundend/proc/dump_cargoorders()
