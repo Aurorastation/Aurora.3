@@ -671,7 +671,6 @@
 
 /datum/reagent/toxin/spectrocybin/overdose(var/mob/living/carbon/M)
 	M.see_invisible = SEE_INVISIBLE_CULT
-	M.bodytemperature = max(M.bodytemperature - 2 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
 	M.make_jittery(5)
 	if(dose < 5)
 		if(prob(5))
