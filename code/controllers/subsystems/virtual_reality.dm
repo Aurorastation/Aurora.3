@@ -7,11 +7,11 @@
 
 	// MECHA
 	var/list/mechnetworks = list(REMOTE_GENERIC_MECH, REMOTE_AI_MECH, REMOTE_PRISON_MECH) // A list of all the networks a mech can possibly connect to
-	var/list/mechs = list() // A list of lists, containing the mechs and their networks
+	var/list/list/mechs = list() // A list of lists, containing the mechs and their networks
 
 	// IPC BODIES
 	var/list/robotnetworks = list(REMOTE_GENERIC_ROBOT, REMOTE_BUNKER_ROBOT, REMOTE_PRISON_ROBOT, REMOTE_WARDEN_ROBOT)
-	var/list/robots = list()
+	var/list/list/robots = list()
 
 /datum/controller/subsystem/virtualreality/New()
 	NEW_SS_GLOBAL(SSvirtualreality)
