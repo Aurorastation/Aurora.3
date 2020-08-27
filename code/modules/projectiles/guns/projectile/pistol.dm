@@ -348,14 +348,14 @@
 	. = ..()
 
 /obj/item/gun/projectile/leyon
-	name = "holdout .35 pistol"
-	desc = "The Leyon LCC Everyman is a small pistol that holds five shots and is loaded with a stripper clip, popular for self-defense on Mars. Uses .35 \"Light\" rounds."
+	name = "holdout .40 pistol"
+	desc = "The Leyon LCC Everyman is a small pistol that holds five shots and is loaded with a stripper clip, popular for self-defense on Mars. Uses .40 \"Standard\" rounds."
 	icon = 'icons/obj/guns/leyon.dmi'
 	icon_state = "leyon"
 	item_state = "leyon"
-	caliber = "9mm"
+	caliber = ".45"
 	w_class = 2
-	ammo_type = /obj/item/ammo_casing/c10mm
+	ammo_type = /obj/item/ammo_casing/c45
 	magazine_type = /obj/item/ammo_magazine/mc10mm/leyon
 	max_shells = 5
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)

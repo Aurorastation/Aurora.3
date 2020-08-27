@@ -81,12 +81,12 @@
 	ammo_type = /obj/item/ammo_casing/c45/flash
 
 /obj/item/ammo_magazine/mc10mm
-	name = "magazine (10mm)"
+	name = "large magazine (.40)"
 	icon_state = "5.56"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c10mm
+	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 475) //metal costs are very roughly based around 1 .45 casing = 75 metal
-	caliber = "10mm"
+	caliber = ".45"
 	max_ammo = 12
 	multiple_sprites = 1
 
@@ -94,11 +94,11 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/mc10mm/rubber
-	name = "magazine (10mm rubber)"
-	ammo_type = /obj/item/ammo_casing/c10mm/rubber
+	name = "large magazine (.40 rubber)"
+	ammo_type = /obj/item/ammo_casing/c45/rubber
 
 /obj/item/ammo_magazine/mc10mm/leyon
-	name = "ammo clip (10mm)"
+	name = "ammo clip (.40)"
 	icon_state = "10mmclip"
 	mag_type = SPEEDLOADER
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
@@ -169,13 +169,13 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/a10mm
-	name = "magazine (10mm)"
+	name = "smg magazine (.40)"
 	icon_state = "12mm"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
-	caliber = "10mm"
+	caliber = ".45"
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
-	ammo_type = /obj/item/ammo_casing/c10mm
+	ammo_type = /obj/item/ammo_casing/c45
 	max_ammo = 20
 	multiple_sprites = 1
 
