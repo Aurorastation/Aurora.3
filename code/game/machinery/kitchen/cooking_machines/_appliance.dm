@@ -68,7 +68,7 @@
 			string += "-\a [CI.container.label(null, CI.combine_target)], [report_progress(CI)]</br>"
 		to_chat(usr, string)
 	else
-		to_chat(usr, span("notice","It is empty."))
+		to_chat(usr, SPAN_NOTICE("It is empty."))
 
 /obj/machinery/appliance/proc/report_progress(var/datum/cooking_item/CI)
 	if (!CI || !CI.max_cookwork)
@@ -81,17 +81,17 @@
 	if (progress < 0.25)
 		return "It's barely started cooking."
 	if (progress < 0.75)
-		return span("notice","It's cooking away nicely.")
+		return SPAN_NOTICE("It's cooking away nicely.")
 	if (progress < 1)
-		return span("notice", "<b>It's almost ready!</b>")
+		return SPAN_NOTICE("<b>It's almost ready!</b>")
 
 	var/half_overcook = (CI.overcook_mult - 1)*0.5
 	if (progress < 1+half_overcook)
-		return span("soghun","<b>It is done !</b>")
+		return SPAN_SOGHUN("<b>It is done !</b>")
 	if (progress < CI.overcook_mult)
-		return span("warning","It looks overcooked, get it out!")
+		return SPAN_WARNING("It looks overcooked, get it out!")
 	else
-		return span("danger","It is burning!!")
+		return SPAN_DANGER("It is burning!!")
 
 /obj/machinery/appliance/update_icon()
 	if (!stat && cooking_objs.len)
@@ -534,19 +534,23 @@
 			..()
 
 /obj/machinery/appliance/proc/removal_menu(var/mob/user)
-	if (can_remove_items(user))
+	if(can_remove_items(user))
+		var/list/choices = list()
 		var/list/menuoptions = list()
-		for (var/a in cooking_objs)
+		for(var/a in cooking_objs)
 			var/datum/cooking_item/CI = a
-			if (CI.container)
-				menuoptions[CI.container.label(menuoptions.len)] = CI
+			if(CI.container)
+				var/current_iteration_len = menuoptions.len + 1
+				menuoptions[CI.container.label(current_iteration_len)] = CI
+				choices[CI.container.label(current_iteration_len)] = image(CI.container.icon, icon_state = CI.container.icon_state)
 
-		var/selection = input(user, "Which item would you like to remove?", "Remove ingredients") as null|anything in menuoptions
-		if (selection)
+		var/selection = RADIAL_INPUT(user, choices)
+		if(selection)
 			var/datum/cooking_item/CI = menuoptions[selection]
-			eject(CI, user)
-			update_icon()
-		return TRUE
+			if(Adjacent(user))
+				eject(CI, user)
+				update_icon()
+				return TRUE
 	return FALSE
 
 /obj/machinery/appliance/proc/can_remove_items(var/mob/user)

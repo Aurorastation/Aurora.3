@@ -25,7 +25,7 @@
 	if(!floortype && initial_flooring)
 		floortype = initial_flooring
 	if(floortype)
-		set_flooring(get_flooring_data(floortype), mapload)
+		set_flooring(decls_repository.get_decl(floortype), mapload)
 
 /turf/simulated/floor/proc/set_flooring(decl/flooring/newflooring, mapload)
 	if (!mapload)

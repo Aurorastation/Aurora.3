@@ -21,16 +21,16 @@
 	item_state = "lb_suit"
 	worn_state = "qm"
 
-/obj/item/clothing/under/rank/cargotech
+/obj/item/clothing/under/rank/cargo
 	name = "cargo technician's jumpsuit"
 	desc = "The future of cargo tech apparel: long, stuffy slacks. We never said it was a bright future."
-	icon_state = "cargotech"
+	icon_state = "cargo"
 	item_state = "lb_suit"
 	worn_state = "cargo"
 
-/obj/item/clothing/under/rank/cargotech/alt
+/obj/item/clothing/under/rank/cargo/alt
 	desc = "Shooooorts! They're comfy and easy to wear!"
-	icon_state = "cargotech_alt"
+	icon_state = "cargo_alt"
 	worn_state = "cargo_alt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
@@ -102,12 +102,6 @@
 	item_state = "lawyer_black"
 	worn_state = "lawyer_black"
 
-/obj/item/clothing/under/lawyer/female
-	name = "black lawyer suit"
-	icon_state = "black_suit_fem"
-	item_state = "lawyer_black"
-	worn_state = "black_suit_fem"
-
 /obj/item/clothing/under/lawyer/red
 	name = "red Lawyer suit"
 	icon_state = "lawyer_red"
@@ -120,25 +114,11 @@
 	item_state = "lawyer_blue"
 	worn_state = "lawyer_blue"
 
-/obj/item/clothing/under/lawyer/bluesuit
-	name = "blue suit"
-	desc = "A classy suit and tie"
-	icon_state = "bluesuit"
-	item_state = "ba_suit"
-	worn_state = "bluesuit"
-
-/obj/item/clothing/under/lawyer/purpsuit
+/obj/item/clothing/under/lawyer/purple
 	name = "purple suit"
-	icon_state = "lawyer_purp"
+	icon_state = "lawyer_purple"
 	item_state = "ba_suit"
-	worn_state = "lawyer_purp"
-
-/obj/item/clothing/under/lawyer/oldman
-	name = "old man's suit"
-	desc = "A classic suit for the older gentleman with built in back support."
-	icon_state = "oldman"
-	item_state = "johnny"
-	worn_state = "oldman"
+	worn_state = "lawyer_purple"
 
 /obj/item/clothing/under/librarian
 	name = "sensible suit"

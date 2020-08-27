@@ -71,6 +71,7 @@
 	mod_limit_increase = 100
 	origin_tech = list()
 	can_disassemble_cell = FALSE
+	cyborg_maptext_override = TRUE
 
 	installed_cell = /obj/item/custom_ka_upgrade/cells/cyborg
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel02

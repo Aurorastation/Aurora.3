@@ -26,8 +26,10 @@ STOCK_ITEM_RARE(posibrain, 3)
 
 STOCK_ITEM_RARE(bsbeaker, 3)
 	new /obj/item/reagent_containers/glass/beaker/bluespace(L)
-	if (prob(50))
+	if(prob(50))
 		new /obj/item/reagent_containers/glass/beaker/bluespace(L)
+	else if(prob(40))
+		new /obj/item/reagent_containers/glass/beaker/noreact(L)
 
 STOCK_ITEM_RARE(energyshield, 2)
 	new /obj/item/shield/energy(L)
@@ -89,7 +91,7 @@ STOCK_ITEM_RARE(exogear, 1.5)
 		/obj/item/mecha_equipment/sleeper = 0.9
 	)
 
-	for (var/i in 1 to rand(2,5))
+	for(var/i in 1 to rand(1,3))
 		var/type = pickweight(equips)
 		new type(L)
 
@@ -99,16 +101,57 @@ STOCK_ITEM_RARE(teleporter, 1)
 STOCK_ITEM_RARE(voice, 1.5)
 	new /obj/item/clothing/mask/gas/voice(L)
 
-STOCK_ITEM_RARE(xenohide, 0.5)
-	new /obj/item/stack/material/animalhide/xeno(L, rand(2,15))
-
-STOCK_ITEM_RARE(humanhide, 0.5)
-	new /obj/item/stack/material/animalhide/human(L, rand(2,15))
-
-STOCK_ITEM_RARE(contraband, 0.8)
-	new /obj/random/contraband(L)
-
 STOCK_ITEM_RARE(prebuilt_ka, 0.5)
 	new /obj/random/prebuilt_ka(L)
+
+STOCK_ITEM_RARE(ipctags, 0.5)
+	if(prob(50))
+		new /obj/item/ipc_tag_scanner(L)
+	else
+		new /obj/item/implanter/ipc_tag(L)
+
+STOCK_ITEM_RARE(rfd, 0.5)
+	var/obj/item/rfd/rfd_spawn = pick(/obj/item/rfd/construction, /obj/item/rfd/mining, /obj/item/rfd/piping)
+	new rfd_spawn(L)
+
+STOCK_ITEM_RARE(xbow, 0.5)
+	if(prob(95))
+		new /obj/item/toy/crossbow(L)
+	else
+		new /obj/item/gun/energy/crossbow(L)
+
+STOCK_ITEM_RARE(watertank, 1)
+	if(prob(25))
+		new /obj/item/watertank/janitor(L)
+	else
+		new /obj/item/watertank(L)
+
+STOCK_ITEM_RARE(bmonster, 0.5)
+	var/obj/item/battle_monsters/wrapped/W = pick(subtypesof(/obj/item/battle_monsters/wrapped))
+	new W(L)
+	if(prob(15))
+		W = pick(subtypesof(/obj/item/battle_monsters/wrapped))
+		new W(L)
+
+STOCK_ITEM_RARE(rare_clothing, 1)
+	var/list/clothing_picks = list(
+		/obj/item/clothing/under/elyra_holo,
+		/obj/item/clothing/suit/acapjacket,
+		/obj/item/clothing/head/acapcap,
+		/obj/item/clothing/suit/storage/toggle/himeo,
+		/obj/item/clothing/suit/storage/vysoka_f,
+		/obj/item/clothing/suit/storage/vysoka_m,
+		/obj/item/clothing/under/rank/iacjumpsuit,
+		/obj/item/clothing/under/rank/fatigues/marine,
+		/obj/item/clothing/under/rank/dress/subofficer,
+		/obj/item/clothing/under/dominia/lyodsuit/hoodie,
+		/obj/item/clothing/under/rank/head_of_security/corp,
+		/obj/item/clothing/shoes/sandal/clogs,
+		/obj/item/clothing/under/lance,
+		/obj/item/clothing/under/dress/lance_dress/male,
+		/obj/item/clothing/under/kilt)
+	for(var/i in 1 to rand(1, 2))
+		var/obj/item/clothing/C = pick(clothing_picks)
+		new C(L)
 
 STOCK_ITEM_RARE(nothing, 0)

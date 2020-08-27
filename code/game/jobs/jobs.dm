@@ -1,4 +1,4 @@
-
+var/const/NUM_JOB_DEPTS     = 3 //ENGSEC, MEDSCI and CIVILIAN
 var/const/ENGSEC			=(1<<0)
 
 var/const/CAPTAIN			=(1<<0)
@@ -28,7 +28,7 @@ var/const/VIROLOGIST		=(1<<6)
 var/const/PSYCHIATRIST		=(1<<7)
 var/const/ROBOTICIST		=(1<<8)
 var/const/XENOBIOLOGIST		=(1<<9)
-var/const/PARAMEDIC			=(1<<10)
+var/const/MED_TECH			=(1<<10)
 var/const/INTERN_MED		=(1<<11)
 var/const/INTERN_SCI		=(1<<12)
 
@@ -79,7 +79,7 @@ var/list/medical_positions = list(
 	"Surgeon",
 	"Psychiatrist",
 	"Pharmacist",
-	"Paramedic",
+	"Emergency Medical Technician",
 	"Medical Resident"
 )
 

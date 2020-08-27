@@ -89,97 +89,6 @@
 	else
 		alert("Invalid mob")
 
-/*
-/client/proc/cmd_admin_monkeyize(var/mob/M in mob_list)
-	set category = "Fun"
-	set name = "Make Monkey"
-
-	if(!ROUND_IS_STARTED)
-		alert("Wait until the game starts")
-		return
-	if(istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/target = M
-		log_admin("[key_name(src)] is attempting to monkeyize [M.key].")
-		spawn(10)
-			target.monkeyize()
-	else
-		alert("Invalid mob")
-
-/client/proc/cmd_admin_changelinginize(var/mob/M in mob_list)
-	set category = "Fun"
-	set name = "Make Changeling"
-
-	if(!ROUND_IS_STARTED)
-		alert("Wait until the game starts")
-		return
-	if(istype(M, /mob/living/carbon/human))
-		log_admin("[key_name(src)] has made [M.key] a changeling.")
-		spawn(10)
-			M.absorbed_dna[M.real_name] = M.dna.Clone()
-			M.make_changeling()
-			if(M.mind)
-				M.mind.special_role = "Changeling"
-	else
-		alert("Invalid mob")
-*/
-/*
-/client/proc/cmd_admin_abominize(var/mob/M in mob_list)
-	set category = null
-	set name = "Make Abomination"
-
-	to_chat(usr, "Ruby Mode disabled. Command aborted.")
-	return
-	if(!ROUND_IS_STARTED)
-		alert("Wait until the game starts.")
-		return
-	if(istype(M, /mob/living/carbon/human))
-		log_admin("[key_name(src)] has made [M.key] an abomination.")
-
-	//	spawn(10)
-	//		M.make_abomination()
-
-*/
-/*
-/client/proc/make_cultist(var/mob/M in mob_list) // -- TLE, modified by Urist
-	set category = "Fun"
-	set name = "Make Cultist"
-	set desc = "Makes target a cultist"
-	if(!cultwords["travel"])
-		runerandom()
-	if(M)
-		if(M.mind in SSticker.mode.cult)
-			return
-		else
-			if(alert("Spawn that person a tome?",,"Yes","No")=="Yes")
-				to_chat(M, "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie. A tome, a message from your new master, appears on the ground.")
-				new /obj/item/book/tome(M.loc)
-			else
-				to_chat(M, "\red You catch a glimpse of the Realm of Nar-Sie, The Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of Nar-Sie.")
-			var/glimpse=pick("1","2","3","4","5","6","7","8")
-			switch(glimpse)
-				if("1")
-					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["travel"]] is travel...")
-				if("2")
-					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["blood"]] is blood...")
-				if("3")
-					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["join"]] is join...")
-				if("4")
-					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["hell"]] is Hell...")
-				if("5")
-					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["destroy"]] is destroy...")
-				if("6")
-					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["technology"]] is technology...")
-				if("7")
-					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["self"]] is self...")
-				if("8")
-					to_chat(M, "\red You remembered one thing from the glimpse... [cultwords["see"]] is see...")
-
-			if(M.mind)
-				M.mind.special_role = "Cultist"
-				SSticker.mode.cult += M.mind
-			to_chat(src, "Made [M] a cultist.")
-*/
-
 //TODO: merge the vievars version into this or something maybe mayhaps
 /client/proc/cmd_debug_del_all()
 	set category = "Debug"
@@ -418,8 +327,8 @@
 			outfit_catagories["Ceres Lance"] = typesof(/datum/outfit/admin/lance)
 			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/tcfl)
 			outfit_catagories["Killers"] = typesof(/datum/outfit/admin/killer)
-			outfit_catagories["Pirates"] = typesof(/datum/outfit/admin/pirate)
-			outfit_catagories["Soviets"] = typesof(/datum/outfit/admin/soviet_soldier)
+			outfit_catagories["Job"] = subtypesof(/datum/outfit/job)
+			outfit_catagories["Megacorps"] = subtypesof(/datum/outfit/admin/megacorp)
 			outfit_catagories["Miscellaneous"] = typesof(/datum/outfit/admin/random)
 			outfit_catagories["Miscellaneous"] += /datum/outfit/admin/random_employee
 
@@ -494,7 +403,7 @@
 		if(Rad.anchored)
 			if(!Rad.P)
 				var/obj/item/tank/phoron/Phoron = new/obj/item/tank/phoron(Rad)
-				Phoron.air_contents.gas["phoron"] = 70
+				Phoron.air_contents.gas[GAS_PHORON] = 70
 				Rad.drainratio = 0
 				Rad.P = Phoron
 				Phoron.forceMove(Rad)

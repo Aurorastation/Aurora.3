@@ -3,12 +3,12 @@
 #define REGULATE_OUTPUT	2	//shuts off when output side is above the target pressure
 
 /obj/machinery/atmospherics/binary/passive_gate
+	name = "pressure regulator"
+	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. Does not require power."
+	desc_info = "This is a one-way regulator, allowing gas to flow only at a specific pressure and flow rate.  If the light is green, it is flowing."
 	icon = 'icons/atmos/passive_gate.dmi'
 	icon_state = "map"
 	level = 1
-
-	name = "pressure regulator"
-	desc = "A one-way air valve that can be used to regulate input or output pressure, and flow rate. Does not require power."
 
 	use_power = 0
 	interact_offline = 1
@@ -23,6 +23,8 @@
 	var/frequency = 0
 	var/id = null
 	var/datum/radio_frequency/radio_connection
+
+	var/broadcast_status_next_process = FALSE
 
 /obj/machinery/atmospherics/binary/passive_gate/Initialize()
 	. = ..()
@@ -46,6 +48,10 @@
 
 /obj/machinery/atmospherics/binary/passive_gate/machinery_process()
 	..()
+
+	if (broadcast_status_next_process)
+		broadcast_status()
+		broadcast_status_next_process = FALSE
 
 	last_flow_rate = 0
 
@@ -152,10 +158,10 @@
 		regulate_mode = text2num(signal.data["set_flow_rate"])
 
 	if("status" in signal.data)
-		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+		broadcast_status_next_process = TRUE
 		return //do not update_icon
 
-	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+	broadcast_status_next_process = TRUE
 	update_icon()
 	return
 

@@ -1,5 +1,6 @@
 /obj/machinery/r_n_d/server
-	name = "R&D Server"
+	name = "R&D server"
+	desc = "A server which houses a back-up of all station research. It can be used to restore lost data, or to act as another point of retrieval."
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "server"
 	var/datum/research/files
@@ -62,7 +63,8 @@
 	if(health <= 0)
 		griefProtection() //I dont like putting this in process() but it's the best I can do without re-writing a chunk of rd servers.
 		files.known_designs = list()
-		for(var/datum/tech/T in files.known_tech)
+		for(var/id in files.known_tech)
+			var/datum/tech/T = files.known_tech[id]
 			if(prob(1))
 				T.level--
 		files.RefreshResearch()
@@ -83,10 +85,9 @@
 //Backup files to centcomm to help admins recover data after greifer attacks
 /obj/machinery/r_n_d/server/proc/griefProtection()
 	for(var/obj/machinery/r_n_d/server/centcom/C in SSmachinery.all_machines)
-		for(var/datum/tech/T in files.known_tech)
+		for(var/id in files.known_tech)
+			var/datum/tech/T = files.known_tech[id]
 			C.files.AddTech2Known(T)
-		for(var/datum/design/D in files.known_designs)
-			C.files.AddDesign2Known(D)
 		C.files.RefreshResearch()
 
 /obj/machinery/r_n_d/server/proc/produce_heat()
@@ -121,7 +122,7 @@
 		return
 
 /obj/machinery/r_n_d/server/centcom
-	name = "Central R&D Database"
+	name = "central R&D database"
 	server_id = -1
 
 /obj/machinery/r_n_d/server/centcom/setup()
@@ -168,7 +169,8 @@
 			id_with_download += text2num(N)
 
 /obj/machinery/computer/rdservercontrol
-	name = "R&D Server Controller"
+	name = "R&D server controller"
+	desc = "A console use to operate a RnD server, such as locking it, wiping it, or downloading its stored research."
 
 	icon_screen = "rdcomp"
 	light_color = "#a97faa"
@@ -240,11 +242,8 @@
 	else if(href_list["reset_design"])
 		var/choice = alert("Design Data Deletion", "Are you sure you want to delete this design? If you still have the prerequisites for the design, it'll reset to its base reliability. Data lost cannot be recovered.", "Continue", "Cancel")
 		if(choice == "Continue")
-			for(var/datum/design/D in temp_server.files.known_designs)
-				if("[D.type]" == href_list["reset_design"])
-					temp_server.files.known_designs -= D
-					break
-		temp_server.files.RefreshResearch()
+			temp_server.files.known_designs -= href_list["reset_design"]
+			temp_server.files.RefreshResearch()
 
 	updateUsrDialog()
 	return
@@ -291,13 +290,15 @@
 		if(2) //Data Management menu
 			dat += "[temp_server.name] Data ManagementP<BR><BR>"
 			dat += "Known Technologies<BR>"
-			for(var/datum/tech/T in temp_server.files.known_tech)
+			for(var/path in temp_server.files.known_tech)
+				var/datum/tech/T = temp_server.files.known_tech[path]
 				dat += "* [T.name] "
-				dat += "<A href='?src=\ref[src];reset_tech=[T.id]'>(Reset)</A><BR>" //FYI, these are all strings.
+				dat += "<A href='?src=\ref[src];reset_tech=[T.id]'>(Reset)</A><BR>"
 			dat += "Known Designs<BR>"
-			for(var/datum/design/D in temp_server.files.known_designs)
+			for(var/path in temp_server.files.known_designs)
+				var/datum/design/D = temp_server.files.known_designs[path]
 				dat += "* [D.name] "
-				dat += "<A href='?src=\ref[src];reset_design=[D.type]'>(Delete)</A><BR>"
+				dat += "<A href='?src=\ref[src];reset_design=[path]'>(Delete)</A><BR>"
 			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
 
 		if(3) //Server Data Transfer
@@ -319,13 +320,13 @@
 		return 1
 
 /obj/machinery/r_n_d/server/advanced/robotics
-	name = "Robotics R&D Server"
+	name = "robotics R&D server"
 	id_with_upload_string = "1;2"
 	id_with_download_string = "1;2"
 	server_id = 2
 
 /obj/machinery/r_n_d/server/advanced/core
-	name = "Core R&D Server"
+	name = "core R&D server"
 	id_with_upload_string = "1"
 	id_with_download_string = "1"
 	server_id = 1

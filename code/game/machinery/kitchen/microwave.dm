@@ -156,7 +156,7 @@
 		if (!O.reagents)
 			return 1
 		for (var/datum/reagent/R in O.reagents.reagent_list)
-			if (!(R.id in acceptable_reagents))
+			if (!(R.type in acceptable_reagents))
 				to_chat(user, "<span class='warning'>Your [O] contains components unsuitable for cookery.</span>")
 				return 1
 		return // Note to the future: reagents are added after this in the container's afterattack().
@@ -276,7 +276,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 /obj/machinery/microwave/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "cooking-microwave", 300, 300, capitalize(name))
+		ui = new(user, src, "machinery-cooking-microwave", 300, 300, capitalize(name))
 	ui.open()
 
 /***********************************
@@ -373,7 +373,7 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	playsound(src, 'sound/machines/click.ogg', 20, 1)
 
 	if(failed)
-		visible_message(span("warning", "\The [src] begins to leak an acrid smoke..."))
+		visible_message(SPAN_WARNING("\The [src] begins to leak an acrid smoke..."))
 
 /obj/machinery/microwave/proc/has_extra_item()
 	for (var/obj/O in contents)
@@ -411,13 +411,13 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	if(cook_dirty || cook_break)
 		flags = null //So you can't add condiments
 	if(cook_dirty)
-		visible_message(span("warning", "The insides of the microwave get covered in muck!"))
+		visible_message(SPAN_WARNING("The insides of the microwave get covered in muck!"))
 		dirty = 100 // Make it dirty so it can't be used util cleaned
 		icon_state = "mwbloody" // Make it look dirty too
 	else if(cook_break)
 		spark(src, 2, alldirs)
 		icon_state = "mwb" // Make it look all busted up and shit
-		visible_message(span("warning", "The microwave sprays out a shower of sparks - it's broken!")) //Let them know they're stupid
+		visible_message(SPAN_WARNING("The microwave sprays out a shower of sparks - it's broken!")) //Let them know they're stupid
 		broken = 2 // Make it broken so it can't be used util
 	else
 		icon_state = "mw"
@@ -437,14 +437,14 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 	for (var/obj/O in contents-ffuu)
 		amount++
 		if (O.reagents)
-			var/id = O.reagents.get_master_reagent_id()
+			var/id = O.reagents.get_master_reagent_type()
 			if (id)
 				amount+=O.reagents.get_reagent_amount(id)
 		qdel(O)
 	reagents.clear_reagents()
 	SSvueui.check_uis_for_change(src)
-	ffuu.reagents.add_reagent("carbon", amount)
-	ffuu.reagents.add_reagent("toxin", amount/10)
+	ffuu.reagents.add_reagent(/datum/reagent/carbon, amount)
+	ffuu.reagents.add_reagent(/datum/reagent/toxin, amount/10)
 
 	if(!abort)
 		visible_message("<span class='danger'>\The [src] belches out foul-smelling smoke!</span>")
@@ -501,14 +501,14 @@ VUEUI_MONITOR_VARS(/obj/machinery/microwave, microwavemonitor)
 		var/free_space = RC.reagents.get_free_space()
 		if(free_space > R.volume)
 			to_chat(user, "<span class='notice'>You empty [R.volume] units of [R.name] into your [RC.name].</span>")
-			RC.reagents.add_reagent(R.id, R.volume)
-			reagents.remove_reagent(R.id, R.volume)
+			RC.reagents.add_reagent(R.type, R.volume)
+			reagents.remove_reagent(R.type, R.volume)
 		else if(free_space <= 0)
 			to_chat(user, "<span class='warning'>[RC.name] is full!</span>")
 		else
 			to_chat(user, "<span class='notice'>You empty [free_space] units of [R.name] into your [RC.name].</span>")
-			RC.reagents.add_reagent(R.id, free_space)
-			reagents.remove_reagent(R.id, free_space)
+			RC.reagents.add_reagent(R.type, free_space)
+			reagents.remove_reagent(R.type, free_space)
 		SSvueui.check_uis_for_change(src)
 	else
 		to_chat(user, "<span class='warning'>You need to be holding a valid container to empty [R.name]!</span>")

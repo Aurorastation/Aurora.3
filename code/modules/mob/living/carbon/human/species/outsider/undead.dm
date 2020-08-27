@@ -1,26 +1,24 @@
 /mob/living/carbon/human/skeleton/Initialize(mapload)
-	. = ..(mapload, "Skeleton")
+	. = ..(mapload, SPECIES_SKELETON)
 
 /mob/living/carbon/human/skeleton
 	var/master
 
 /mob/living/carbon/human/skeleton/proc/spawn_skeleton(var/mob/user)
 	src.ckey = user.ckey
-	src.real_name = "[pick(wizard_first)] [pick(wizard_second)]"
-	src.name = src.real_name
 	if(master)
 		to_chat(src, "<B>You are a skeleton minion to [master], they are your master. Obey and protect your master at all costs, you have no free will.</B>")
 	SSghostroles.remove_spawn_atom("skeleton", src)
 
 /datum/species/skeleton //SPOOKY
-	name = "Skeleton"
+	name = SPECIES_SKELETON
 	name_plural = "skeletons"
-	bodytype = "Skeleton"
+	bodytype = BODYTYPE_SKELETON
 	icobase = 'icons/mob/human_races/r_skeleton.dmi'
 	deform = 'icons/mob/human_races/r_skeleton.dmi'
 	eyes = "blank_eyes"
 
-	total_health = 70 //gotta get headshots to kill them, so they're frail
+	total_health = 100 //skeletons are frail
 
 	default_language = LANGUAGE_TCB
 	language = LANGUAGE_CULT
@@ -99,12 +97,12 @@
 	return FALSE
 
 /mob/living/carbon/human/apparition/Initialize(mapload)
-	. = ..(mapload, "Apparition")
+	. = ..(mapload, SPECIES_CULTGHOST)
 
 /datum/species/apparition
-	name = "Apparition"
+	name = SPECIES_CULTGHOST
 	name_plural = "apparitions"
-	bodytype = "Apparition"
+	bodytype = BODYTYPE_CULTGHOST
 	icobase = 'icons/mob/human_races/r_manifested.dmi'
 	deform = 'icons/mob/human_races/r_manifested.dmi'
 
@@ -154,12 +152,12 @@
 
 
 /mob/living/carbon/human/zombie/Initialize(mapload)
-	. = ..(mapload, "Zombie")
+	. = ..(mapload, SPECIES_ZOMBIE)
 
 /datum/species/zombie
-	name = "Zombie"
+	name = SPECIES_ZOMBIE
 	name_plural = "Zombies"
-	bodytype = "Human"
+	bodytype = BODYTYPE_HUMAN
 	icobase = 'icons/mob/human_races/zombie/r_zombie.dmi'
 	deform = 'icons/mob/human_races/zombie/r_zombie.dmi'
 
@@ -223,9 +221,9 @@
 	return ..()
 
 /datum/species/zombie/tajara
-	name = "Tajara Zombie"
+	name = SPECIES_ZOMBIE_TAJARA
 	name_plural = "Tajara Zombies"
-	bodytype = "Tajara"
+	bodytype = BODYTYPE_TAJARA
 	icobase = 'icons/mob/human_races/zombie/r_zombie_tajara.dmi'
 	deform = 'icons/mob/human_races/zombie/r_zombie_tajara.dmi'
 	tail = "tajtail"
@@ -246,9 +244,9 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 /datum/species/zombie/unathi
-	name = "Unathi Zombie"
+	name = SPECIES_ZOMBIE_UNATHI
 	name_plural = "Unathi Zombies"
-	bodytype = "Unathi"
+	bodytype = BODYTYPE_UNATHI
 	icobase = 'icons/mob/human_races/zombie/r_zombie_unathi.dmi'
 	deform = 'icons/mob/human_races/zombie/r_zombie_unathi.dmi'
 	tail = "sogtail"
@@ -271,9 +269,9 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 /datum/species/zombie/skrell
-	name = "Skrell Zombie"
+	name = SPECIES_ZOMBIE_SKRELL
 	name_plural = "Skrell Zombies"
-	bodytype = "Skrell"
+	bodytype = BODYTYPE_SKRELL
 	icobase = 'icons/mob/human_races/zombie/r_zombie_skrell.dmi'
 	deform = 'icons/mob/human_races/zombie/r_zombie_skrell.dmi'
 

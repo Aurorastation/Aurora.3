@@ -55,7 +55,7 @@
 			if(do_after(user, 20/W.toolspeed, act_target = src))
 				if(QDELETED(src) || !WT.isOn())
 					return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+				playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 				user.visible_message("<span class='notice'>\ [user] slices through the skin of \the [src], revealing a confused diona nymph.</span>")
 			else
 				return
@@ -71,7 +71,7 @@
 
 /obj/structure/diona/bulb/unpowered/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/cell))
-		to_chat(user, span("notice", "You jack the power cell into the glow bulb."))
+		to_chat(user, SPAN_NOTICE("You jack the power cell into the glow bulb."))
 		new /obj/structure/diona/bulb(get_turf(src))
 		qdel(W)
 		qdel(src)

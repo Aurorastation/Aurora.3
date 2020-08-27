@@ -172,7 +172,7 @@
 
 /obj/proc/tesla_act(var/power, var/melt = FALSE)
 	if(melt)
-		visible_message(span("danger", "\The [src] melts down until ashes are left!"))
+		visible_message(SPAN_DANGER("\The [src] melts down until ashes are left!"))
 		new /obj/effect/decal/cleanable/ash(loc)
 		qdel(src)
 		return
@@ -249,3 +249,7 @@
 	. = ..()
 	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
 		to_chat(user, SPAN_SUBTLE("Can be rotated with alt-click."))
+
+// whether mobs can unequip and drop items into us or not
+/obj/proc/can_hold_dropped_items()
+	return TRUE

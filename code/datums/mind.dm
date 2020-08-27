@@ -137,7 +137,9 @@
 			output += "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
 			obj_count++
 
-	recipient << browse(output,"window=memory")
+	var/datum/browser/memory_win = new(recipient, "memory")
+	memory_win.set_content(output)
+	memory_win.open()
 
 /datum/mind/proc/edit_memory()
 	if(!ROUND_IS_STARTED)
@@ -382,7 +384,7 @@
 				if (istype(R))
 					R.emagged = 0
 					if (R.activated(R.module.emag))
-						R.module_active = null
+						R.set_module_active(null)
 					if(R.module_state_1 == R.module.emag)
 						R.module_state_1 = null
 						R.contents -= R.module.emag
@@ -401,7 +403,7 @@
 						R.emagged = 0
 						if (R.module)
 							if (R.activated(R.module.emag))
-								R.module_active = null
+								R.set_module_active(null)
 							if(R.module_state_1 == R.module.emag)
 								R.module_state_1 = null
 								R.contents -= R.module.emag
@@ -572,7 +574,7 @@
 	mind.assigned_role = "Wraith"
 	mind.special_role = "Cultist"
 
-/mob/living/simple_animal/construct/armoured/mind_initialize()
+/mob/living/simple_animal/construct/armored/mind_initialize()
 	..()
 	mind.assigned_role = "Juggernaut"
 	mind.special_role = "Cultist"

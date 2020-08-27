@@ -150,7 +150,6 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	severity = EVENT_LEVEL_MODERATE
 	available_events = list(
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Nothing",							/datum/event/nothing,						200),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Appendicitis", 					/datum/event/spontaneous_appendicitis, 		0,		list(ASSIGNMENT_MEDICAL = 25)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Carp School",						/datum/event/carp_migration,				50, 	list(ASSIGNMENT_SECURITY = 25)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Communication Blackout",			/datum/event/communications_blackout,		60),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Electrical Storm",					/datum/event/electrical_storm, 				50,		list(ASSIGNMENT_ENGINEER = 5, ASSIGNMENT_JANITOR = 20)),
@@ -159,14 +158,12 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Ion Storm",						/datum/event/ionstorm, 						0,		list(ASSIGNMENT_AI = 45, ASSIGNMENT_CYBORG = 25, ASSIGNMENT_ENGINEER = 6, ASSIGNMENT_SCIENTIST = 6)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Meteor Shower",					/datum/event/meteor_shower,					40,		list(ASSIGNMENT_ENGINEER = 13)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Prison Break",						/datum/event/prison_break,					0,		list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_CYBORG = 20),1),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Virology",		/datum/event/prison_break/virology,			0,		list(ASSIGNMENT_MEDICAL = 15, ASSIGNMENT_CYBORG = 20),1),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Xenobiology",	/datum/event/prison_break/xenobiology,		0,		list(ASSIGNMENT_SCIENTIST = 15, ASSIGNMENT_CYBORG = 20),1),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Bridge",		/datum/event/prison_break/bridge,			0,		list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_CYBORG = 20),1),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Radiation Storm",					/datum/event/radiation_storm, 				100),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Random Antagonist",				/datum/event/random_antag,		 			0,		list(ASSIGNMENT_ANY = 1, ASSIGNMENT_SECURITY = 1),0,10,125, list("Extended")),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Rogue Drones",						/datum/event/rogue_drone, 					50,		list(ASSIGNMENT_SECURITY = 25)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Spider Infestation",		/datum/event/spider_infestation/moderate,	50,		list(ASSIGNMENT_SECURITY = 25)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Viral Infection",					/datum/event/viral_infection, 				0,		list(ASSIGNMENT_MEDICAL = 12), 1),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Moderate Vermin Infestation",		/datum/event/infestation/moderate, 			30,		list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 15))
 	)
 
@@ -178,7 +175,6 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Carp Migration",				/datum/event/carp_migration,		50,	list(ASSIGNMENT_SECURITY =  10), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Meteor Wave",					/datum/event/meteor_wave,			40,	list(ASSIGNMENT_ENGINEER =  10),1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines",					/datum/event/spacevine, 			75,	list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Viral Infection",				/datum/event/viral_infection,		20,	list(ASSIGNMENT_MEDICAL =  15), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation",			/datum/event/spider_infestation,	25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), 1),
 		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Major Vermin Infestation",	/datum/event/infestation/major, 	15,	list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 10))
 	)

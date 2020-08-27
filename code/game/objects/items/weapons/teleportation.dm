@@ -2,6 +2,7 @@
  * Contains:
  *		Locator
  *		Hand-tele
+ *		Closet Teleporter
  */
 
 /*
@@ -9,13 +10,13 @@
  */
 /obj/item/locator
 	name = "locator"
-	desc = "Used to track those with locater implants."
+	desc = "A device that can be used to track those with locator implants."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "locator"
 	var/temp = null
 	var/frequency = 1451
 	var/broadcasting = null
-	var/listening = 1.0
+	var/listening = TRUE
 	flags = CONDUCT
 	w_class = 2.0
 	item_state = "electronic"
@@ -190,3 +191,46 @@ Frequency:
 	P.creator = src
 	src.add_fingerprint(user)
 	return
+
+/obj/item/closet_teleporter
+	name = "closet teleporter"
+	desc = "A device that allows a user to connect two closets into a bluespace network."
+	desc_antag = "Click a closet with this to install. Step into the closet and close the door to teleport to the linked closet. It has a one minute cooldown after a batch teleport."
+	icon = 'icons/obj/modular_components.dmi'
+	icon_state = "cpu_normal_photonic"
+	flags = CONDUCT
+	w_class = ITEMSIZE_SMALL
+	origin_tech = list(TECH_MAGNET = 2, TECH_BLUESPACE = 3)
+	matter = list(DEFAULT_WALL_MATERIAL = 400)
+	var/obj/structure/closet/attached_closet
+	var/obj/item/closet_teleporter/linked_teleporter
+	var/last_use = 0
+
+/obj/item/closet_teleporter/proc/do_teleport(var/mob/user)
+	if(!attached_closet)
+		to_chat(user, SPAN_WARNING("\The [src] doesn't have an attached closet!"))
+		return
+	if(!linked_teleporter)
+		to_chat(user, SPAN_WARNING("\The [src] doesn't have a linked teleporter!"))
+		return
+	if(!linked_teleporter.attached_closet)
+		to_chat(user, SPAN_WARNING("The linked teleporter doesn't have an attached closet!"))
+		return
+	if(last_use + 600 > world.time)
+		return
+	var/obj/structure/closet/target_closet = linked_teleporter.attached_closet
+	user.forceMove(target_closet)
+	if(target_closet.opened)
+		user.visible_message(SPAN_NOTICE("\The [user] steps out of the back of \the [target_closet]."), SPAN_NOTICE("You teleport into the linked closet, stepping out of it."))
+	else
+		target_closet.visible_message(SPAN_WARNING("\The [target_closet] rattles."))
+		to_chat(user, SPAN_NOTICE("You teleport into the target closet, bumping into the closed door."))
+		target_closet.animate_shake()
+		playsound(get_turf(src), 'sound/effects/grillehit.ogg', 100, TRUE)
+
+/obj/item/closet_teleporter/Destroy()
+	attached_closet = null
+	if(linked_teleporter?.linked_teleporter == src)
+		linked_teleporter.linked_teleporter = null
+	linked_teleporter = null
+	return ..()

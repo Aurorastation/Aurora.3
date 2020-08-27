@@ -97,7 +97,7 @@ Class Procs:
 
 	// Make sure we don't rebuild mid-tick.
 	if (state != SS_IDLE)
-		admin_notice(span("danger", "ZAS Rebuild initiated. Waiting for current air tick to complete before continuing."), R_DEBUG)
+		admin_notice(SPAN_DANGER("ZAS Rebuild initiated. Waiting for current air tick to complete before continuing."), R_DEBUG)
 		UNTIL(state == SS_IDLE)
 
 	while (zones.len)
@@ -134,7 +134,7 @@ Class Procs:
 /datum/controller/subsystem/air/Initialize(timeofday, simulate = TRUE)
 
 	var/starttime = REALTIMEOFDAY
-	admin_notice(span("danger", "Processing Geometry..."), R_DEBUG)
+	admin_notice(SPAN_DANGER("Processing Geometry..."), R_DEBUG)
 
 	var/simulated_turf_count = 0
 	for(var/turf/simulated/S in turfs)
@@ -151,15 +151,15 @@ Total Active Edges: [active_edges.len ? "<span class='danger'>[active_edges.len]
 Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_count]
 </span>"}, R_DEBUG)
 
-	admin_notice(span("danger", "Geometry processing completed in [(REALTIMEOFDAY - starttime)/10] seconds!"), R_DEBUG)
+	admin_notice(SPAN_DANGER("Geometry processing completed in [(REALTIMEOFDAY - starttime)/10] seconds!"), R_DEBUG)
 
 	if (simulate)
-		admin_notice(span("danger", "Settling air..."), R_DEBUG)
+		admin_notice(SPAN_DANGER("Settling air..."), R_DEBUG)
 
 		starttime = REALTIMEOFDAY
 		fire(FALSE, TRUE)
 
-		admin_notice(span("danger", "Air settling completed in [(REALTIMEOFDAY - starttime)/10] seconds!"), R_DEBUG)
+		admin_notice(SPAN_DANGER("Air settling completed in [(REALTIMEOFDAY - starttime)/10] seconds!"), R_DEBUG)
 
 	..(timeofday)
 

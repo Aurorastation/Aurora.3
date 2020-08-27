@@ -96,7 +96,7 @@
 					degree = " a lot"
 				if(damage < 5)
 					degree = " a bit"
-				owner.custom_pain("Something inside your [parent.name] hurts[degree]!", amount)
+				owner.custom_pain("Something inside your [parent.name] hurts[degree]!", amount, affecting = parent)
 
 /obj/item/organ/internal/proc/get_visible_state()
 	if(damage > max_damage)

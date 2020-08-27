@@ -131,7 +131,7 @@
 	base_icon_state = "laser"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 2)
 	var/obj/item/projectile/beam/projectile = /obj/item/projectile/beam
-	var/firing_sound = 'sound/weapons/Laser.ogg'
+	var/firing_sound = 'sound/weapons/laser1.ogg'
 
 /obj/item/laser_components/modulator/degrade()
 	return
@@ -165,7 +165,7 @@
 	if(!istype(A))
 		return ..()
 	if(!ready_to_craft)
-		to_chat(user, span("warning", "You cannot assemble this in your hands. You need to craft it in special eqiupment!"))
+		to_chat(user, SPAN_WARNING("You cannot modify \the [src] by hand, you need to use a weapons analyzer."))
 		return
 
 	if(ismodifier(A) && gun_mods.len < modifier_cap)
@@ -173,7 +173,7 @@
 		for(var/v in gun_mods)
 			var/obj/item/laser_components/modifier/M = v
 			if(M.type == m.type)
-				to_chat(user, span("warning", "\The [name] already has [m]."))
+				to_chat(user, SPAN_WARNING("\The [name] already has [m]."))
 				return FALSE
 		gun_mods += A
 		user.drop_from_inventory(A,src)

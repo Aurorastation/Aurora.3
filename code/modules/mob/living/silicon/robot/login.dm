@@ -9,3 +9,4 @@
 	// Forces synths to select an icon relevant to their module
 	if(module && !icon_selected)
 		choose_icon()
+	set_intent(a_intent) // to set the eye colour

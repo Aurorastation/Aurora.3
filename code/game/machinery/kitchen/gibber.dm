@@ -191,6 +191,11 @@
 			slab_count = critter.meat_amount
 		if(critter.meat_type)
 			slab_type = critter.meat_type
+
+	else if(istype(src.occupant,/mob/living/carbon/alien))
+		var/mob/living/carbon/alien/C = occupant
+		slab_type = C.meat_type
+
 	else if(istype(src.occupant,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = occupant
 		slab_type = H.species.meat_type
@@ -203,7 +208,7 @@
 	for(var/i=1 to slab_count)
 		var/obj/item/reagent_containers/food/snacks/meat/new_meat = new slab_type(src, rand(3,8))
 		if(istype(new_meat))
-			new_meat.reagents.add_reagent("nutriment",slab_nutrition)
+			new_meat.reagents.add_reagent(/datum/reagent/nutriment,slab_nutrition)
 			if(src.occupant.reagents)
 				src.occupant.reagents.trans_to_obj(new_meat, round(occupant.reagents.total_volume/slab_count,1))
 
@@ -228,6 +233,6 @@
 				qdel(thing)
 				continue
 			thing.forceMove(get_turf(thing)) // Drop it onto the turf for throwing.
-			thing.throw_at(get_edge_target_turf(src,gib_throw_dir),rand(0,3),emagged ? 100 : 50) // Being pelted with bits of meat and bone would hurt.
+			thing.throw_at(get_edge_target_turf(src,gib_throw_dir),rand(1,3),emagged ? 50 : 10) // Being pelted with bits of meat and bone would hurt.
 
 		update_icon()

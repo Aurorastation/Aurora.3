@@ -97,11 +97,12 @@
 	desc = "This is a random bomb supply."
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "signaller"
-	spawnlist = list(
-		/obj/item/device/assembly/igniter,
-		/obj/item/device/assembly/prox_sensor,
-		/obj/item/device/assembly/signaler,
-		/obj/item/device/multitool
+	problist = list(
+		/obj/item/device/assembly/igniter = 2,
+		/obj/item/device/assembly/prox_sensor = 2,
+		/obj/item/device/assembly/signaler = 2,
+		/obj/item/device/multitool = 1,
+		/obj/item/device/transfer_valve = 0.5
 	)
 
 /obj/random/toolbox
@@ -151,10 +152,9 @@
 		/obj/item/bodybag/cryobag = 1,
 		/obj/item/storage/pill_bottle/kelotane = 2,
 		/obj/item/storage/pill_bottle/antitox = 2,
-		/obj/item/storage/pill_bottle/tramadol = 2,
+		/obj/item/storage/pill_bottle/mortaphenyl = 2,
 		/obj/item/reagent_containers/syringe/dylovene = 2,
-		/obj/item/reagent_containers/syringe/antiviral = 1,
-		/obj/item/reagent_containers/syringe/norepinephrine = 2,
+		/obj/item/reagent_containers/syringe/inaprovaline = 2,
 		/obj/item/stack/nanopaste = 1
 	)
 
@@ -178,7 +178,7 @@
 	icon_state = "purplecomb"
 //	spawn_nothing_percentage = 50
 	problist = list(
-		/obj/item/storage/pill_bottle/tramadol = 3,
+		/obj/item/storage/pill_bottle/mortaphenyl = 3,
 		/obj/item/storage/pill_bottle/happy = 2,
 		/obj/item/storage/pill_bottle/zoom = 2,
 		/obj/item/reagent_containers/glass/beaker/vial/random/toxin = 1,
@@ -204,6 +204,24 @@
 		/obj/item/clothing/mask/gas/voice = 1,
 		/obj/item/clothing/gloves/brassknuckles = 2,
 		/obj/item/reagent_containers/inhaler/space_drugs = 2
+	)
+
+/obj/random/smokable
+	name = "random smokable"
+	desc = "This is a random smoking item."
+	icon = 'icons/obj/cigs_lighters.dmi'
+	icon_state = "cigpacket"
+	problist = list(
+		/obj/item/storage/box/fancy/cigarettes = 30,
+		/obj/item/storage/box/fancy/cigarettes/blank = 5,
+		/obj/item/storage/box/fancy/cigarettes/acmeco = 2,
+		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 10,
+		/obj/item/storage/box/fancy/cigarettes/cigar = 9,
+		/obj/item/storage/box/fancy/cigarettes/nicotine = 10,
+		/obj/item/storage/box/fancy/cigarettes/rugged = 10,
+		/obj/item/storage/box/fancy/cigarettes/pra = 5,
+		/obj/item/storage/box/fancy/cigarettes/dpra = 2,
+		/obj/item/storage/box/fancy/cigarettes/nka = 2
 	)
 
 /obj/random/energy
@@ -490,7 +508,8 @@
 
 /obj/random/vendor
 	name = "random vendor"
-	var/depleted = 0
+	var/depleted = FALSE
+	var/scan_id = TRUE // Should the spawned vendor check IDs
 	problist = list(
 		/obj/machinery/vending/boozeomat = 1,
 		/obj/machinery/vending/coffee = 1,
@@ -539,6 +558,8 @@
 			// Clamp to an integer so we don't get 0.78 of a screwdriver.
 			V.products[content] = round(V.products[content])
 
+	V.scan_id &= scan_id
+
 /obj/random/pda_cart/item_to_spawn()
 	var/list/options = typesof(/obj/item/cartridge)
 	var/type = pick(options)
@@ -571,7 +592,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/gin,
 		/obj/item/reagent_containers/food/drinks/bottle/whiskey,
 		/obj/item/reagent_containers/food/drinks/bottle/vodka,
-		/obj/item/reagent_containers/food/drinks/bottle/tequilla,
+		/obj/item/reagent_containers/food/drinks/bottle/tequila,
 		/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing,
 		/obj/item/reagent_containers/food/drinks/bottle/rum,
 		/obj/item/reagent_containers/food/drinks/bottle/champagne,
@@ -686,7 +707,6 @@
 	icon_state = "black"
 	spawnlist = list(
 		/obj/item/clothing/under/color/black,
-		/obj/item/clothing/under/color/blackf,
 		/obj/item/clothing/under/color/blue,
 		/obj/item/clothing/under/color/green,
 		/obj/item/clothing/under/color/grey,
@@ -719,9 +739,6 @@
 		/obj/item/bodybag = 0.7,
 		/obj/item/clothing/accessory/storage/knifeharness = 0.3,
 		/obj/item/clothing/accessory/storage/webbing = 0.6,
-		/obj/item/clothing/glasses/material = 0.8,
-		/obj/item/clothing/glasses/meson = 0.5,
-		/obj/item/clothing/glasses/meson/prescription = 0.25,
 		/obj/item/clothing/glasses/sunglasses = 0.75,
 		/obj/item/clothing/glasses/welding = 0.75,
 		/obj/item/clothing/head/bearpelt = 0.4,
@@ -729,7 +746,6 @@
 		/obj/item/clothing/head/cueball = 0.25,
 		/obj/item/clothing/head/hardhat = 1.2,
 		/obj/item/clothing/head/helmet/augment = 0.1,
-		/obj/item/clothing/head/kitty = 0.2,
 		/obj/item/clothing/head/pirate = 0.2,
 		/obj/item/clothing/head/plaguedoctorhat = 0.3,
 		/obj/item/clothing/head/pumpkin/lantern = 0.4,
@@ -772,17 +788,10 @@
 		/obj/item/clothing/suit/storage/toggle/leather_jacket/nanotrasen = 0.7,
 		/obj/item/clothing/suit/storage/vest = 0.2,
 		/obj/item/clothing/suit/syndicatefake = 0.6,
-		/obj/item/clothing/under/assistantformal = 0.75,
-		/obj/item/clothing/under/captain_fly = 0.5,
 		/obj/item/clothing/under/mime = 0.1,
 		/obj/item/clothing/under/overalls = 1,
 		/obj/item/clothing/under/rainbow = 0.9,
 		/obj/item/clothing/under/rank/clown = 0.1,
-		/obj/item/clothing/under/rank/dispatch = 0.8,
-		/obj/item/clothing/under/rank/mailman = 0.6,
-		/obj/item/clothing/under/rank/vice = 0.8,
-		/obj/item/clothing/under/redcoat = 0.5,
-		/obj/item/clothing/under/serviceoveralls = 0.75,
 		/obj/item/clothing/under/syndicate/tacticool = 0.4,
 		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
 		/obj/item/device/firing_pin = 0.3,
@@ -857,11 +866,11 @@
 		/obj/item/storage/box/pineapple = 0.1,
 		/obj/item/storage/box/smokebombs = 0.1,
 		/obj/item/storage/box/syringes = 0.3,
-		/obj/item/storage/fancy/cigarettes = 1.2,
-		/obj/item/storage/fancy/cigarettes/acmeco = 0.3,
-		/obj/item/storage/fancy/cigarettes/blank = 1,
-		/obj/item/storage/fancy/cigarettes/dromedaryco = 0.8,
-		/obj/item/storage/fancy/crayons = 0.5,
+		/obj/item/storage/box/fancy/cigarettes = 1.2,
+		/obj/item/storage/box/fancy/cigarettes/acmeco = 0.3,
+		/obj/item/storage/box/fancy/cigarettes/blank = 1,
+		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 0.8,
+		/obj/item/storage/box/fancy/crayons = 0.5,
 		/obj/item/storage/wallet/random/ = 0.1,
 		/obj/item/trap/animal = 0.8,
 		/obj/random/arcade = 0.25,
@@ -872,7 +881,6 @@
 		/obj/random/coin = 1.2,
 		/obj/random/colored_jumpsuit = 0.7,
 		/obj/random/contraband = 0.9,
-		/obj/random/document = 0.5,
 		/obj/random/firstaid = 0.4,
 		/obj/random/gloves = 2,
 		/obj/random/glowstick = 0.4,
@@ -924,8 +932,7 @@
 		/obj/item/storage/backpack/chameleon = 1,
 		/obj/item/storage/backpack/ = 10,
 
-		/obj/item/clothing/glasses/chameleon = 1,
-		/obj/item/clothing/glasses/meson = 1
+		/obj/item/clothing/glasses/chameleon = 1
 
 	)
 
@@ -1049,7 +1056,6 @@
 		/obj/item/ammo_casing/c9mm/rubber = 0.5,
 		/obj/item/ammo_casing/c45/flash = 0.5,
 		/obj/item/ammo_casing/shotgun/beanbag = 0.5,
-		/obj/random/document/junk = 0.5,
 		/obj/item/flame/lighter/random = 0.25,
 		/obj/item/lipstick/random = 0.25,
 		/obj/item/reagent_containers/glass/beaker/vial/random = 0.1,
@@ -1105,7 +1111,7 @@
 		/obj/item/toy/sword								= 22,
 		/obj/item/gun/projectile/revolver/capgun	= 11,
 		/obj/item/toy/crossbow							= 11,
-		/obj/item/storage/fancy/crayons			= 11,
+		/obj/item/storage/box/fancy/crayons			= 11,
 		/obj/item/toy/spinningtoy						= 11,
 		/obj/item/toy/prize/ripley						= 1,
 		/obj/item/toy/prize/fireripley					= 1,
@@ -1464,7 +1470,8 @@
 		/obj/item/gun/projectile/shotgun/doublebarrel/pellet = 1,
 		/obj/item/gun/projectile/shotgun/pump/rifle = 1,
 		/obj/item/gun/projectile/tanto = 1,
-		/obj/item/gun/projectile/gauss = 1
+		/obj/item/gun/projectile/gauss = 1,
+		/obj/item/gun/projectile/revolver/knife = 1
 		)
 
 	var/list/Rare = list(
@@ -1486,7 +1493,9 @@
 		/obj/item/gun/projectile/shotgun/doublebarrel/sawn = 1,
 		/obj/item/gun/projectile/shotgun/foldable = 1,
 		/obj/item/gun/projectile/shotgun/pump/combat = 1,
-		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1
+		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1,
+		/obj/item/gun/projectile/automatic/rifle/adhomian = 1,
+		/obj/item/gun/projectile/musket = 0.5
 		)
 
 	var/list/Epic = list(
@@ -1535,8 +1544,14 @@
 		for(var/i = 0; i < 8; i++)
 			new spawned.ammo_type(b)
 	else if(spawned.ammo_type)
+		var/list/provided_ammo = list()
 		for(var/i = 0; i < (spawned.max_shells * 2); i++)
-			new spawned.ammo_type(spawned.loc)
+			provided_ammo += new spawned.ammo_type(spawned.loc)
+		if(provided_ammo.len)
+			new /obj/item/ammo_pile(spawned.loc, provided_ammo)
+
+	if(istype(spawned, /obj/item/gun/projectile/musket))
+		new /obj/item/reagent_containers/powder_horn(spawned.loc)
 
 /obj/random/weapon_and_ammo/spawn_item()
 	var/obj/item/W = pick_gun()

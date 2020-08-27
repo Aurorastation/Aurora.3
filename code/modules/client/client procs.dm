@@ -233,7 +233,7 @@
 	if (href_list["view_jobban"])
 		var/reason = jobban_isbanned(ckey, href_list["view_jobban"])
 		if (!reason)
-			to_chat(src, span("notice", "You do not appear jobbanned from this job. If you are still stopped from entering the role however, please adminhelp."))
+			to_chat(src, SPAN_NOTICE("You do not appear jobbanned from this job. If you are still stopped from entering the role however, please adminhelp."))
 			return
 
 		var/data = "<center>Jobbanned from: <b>[href_list["view_jobban"]]</b><br>"

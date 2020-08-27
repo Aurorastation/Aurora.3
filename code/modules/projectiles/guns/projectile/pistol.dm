@@ -120,8 +120,8 @@
 	sel_mode = 1
 
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay=0,    move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=null,    burst_accuracy=list(1,0,0),       dispersion=list(0, 10))
+		list(mode_name="semiauto", burst=1, fire_delay=0),
+		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10))
 		)
 
 
@@ -361,12 +361,6 @@
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = SINGLE_CASING|SPEEDLOADER
-
-/obj/item/gun/projectile/leyon/load_ammo(var/obj/item/A, mob/user)
-	user.visible_message("[user] begins reloading \the [src].", "You begin reloading \the [src].")
-	if(!do_after(user, 20, act_target = src))
-		return
-	return ..()
 
 /obj/item/gun/projectile/leyon/update_icon()
 	..()

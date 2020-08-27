@@ -20,7 +20,7 @@
 /obj/item/device/light_meter/attack_self(mob/user as mob)
 	var/turf/T = get_turf(user.loc)
 	if (!T)
-		to_chat(user, span("alert", "Unable to read light levels."))
+		to_chat(user, SPAN_ALERT("Unable to read light levels."))
 		return
 
 	var/visible_reading = T.get_lumcount(low, high)
@@ -30,7 +30,7 @@
 	reading += "Visible light: <b>[visible_reading]</b> lx<br>"
 	reading += "Ultraviolet light: <b>[uv_reading]</b> lx ([uv_reading * 5.5 - 1.5] adlx)"
 
-	to_chat(usr, span("notice", reading))
+	to_chat(usr, SPAN_NOTICE(reading))
 
 /obj/item/device/light_meter/verb/set_low_bound()
 	set category = "Object"

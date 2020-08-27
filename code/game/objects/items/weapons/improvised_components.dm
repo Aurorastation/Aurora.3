@@ -118,8 +118,8 @@
 /obj/item/material/woodenshield
 	name = "shield donut"
 	desc = "A wooden disc. Unusable as a shield without metal. Don't eat this."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "buckler2"
+	icon = 'icons/obj/square_shield.dmi'
+	icon_state = "shield_fitting_inner"
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
 	default_material = "wood"
@@ -130,7 +130,7 @@
 	if(istype(I, /obj/item/material/shieldbits))
 		var/obj/item/material/woodenshield/donut = I
 		finished = new /obj/item/shield/buckler(get_turf(user), donut.material.name)
-		to_chat(user, "<span class='notice'>You attach \the [I] to \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You attach \the [I] to \the [src]."))
 	if(finished)
 		user.drop_from_inventory(src)
 		user.drop_from_inventory(I)
@@ -142,8 +142,8 @@
 /obj/item/material/shieldbits
 	name = "shield fittings"
 	desc = "A metal ring and boss, fitting for a buckler."
-	icon = 'icons/obj/weapons.dmi'
-	icon_state = "buckler1"
+	icon = 'icons/obj/square_shield.dmi'
+	icon_state = "shield_fitting_outer"
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
 	default_material = "steel"

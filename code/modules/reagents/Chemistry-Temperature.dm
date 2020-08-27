@@ -120,13 +120,13 @@
 
 		var/current_temperature = current.get_temperature()
 
-		if(current.id in required_temperatures_min) //The current temperature must be greater than this temperature
-			var/required_temperature = required_temperatures_min[current.id]
+		if(current.type in required_temperatures_min) //The current temperature must be greater than this temperature
+			var/required_temperature = required_temperatures_min[current.type]
 			if(current_temperature < required_temperature) //Current temperature is less than the required temperature,
 				return FALSE
 
-		if(current.id in required_temperatures_max) //The current temperature must be less than this temperature.
-			var/required_temperature = required_temperatures_max[current.id]
+		if(current.type in required_temperatures_max) //The current temperature must be less than this temperature.
+			var/required_temperature = required_temperatures_max[current.type]
 			if(current_temperature > required_temperature) //Current temperature is greater than the required temperature.
 				return FALSE
 

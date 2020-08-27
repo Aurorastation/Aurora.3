@@ -21,12 +21,11 @@
 	var/injection_amount = 15 //How much reagent do we inject at a time?
 	var/heal_threshold = 10 //Start healing when they have this much damage in a category
 	var/use_beaker = 0 //Use reagents in beaker instead of default treatment agents.
-	var/treatment_brute = "tricordrazine"
-	var/treatment_oxy = "tricordrazine"
-	var/treatment_fire = "tricordrazine"
-	var/treatment_tox = "tricordrazine"
-	var/treatment_virus = "deltamivir"
-	var/treatment_emag = "toxin"
+	var/treatment_brute = /datum/reagent/tricordrazine
+	var/treatment_oxy = /datum/reagent/tricordrazine
+	var/treatment_fire = /datum/reagent/tricordrazine
+	var/treatment_tox = /datum/reagent/tricordrazine
+	var/treatment_emag = /datum/reagent/toxin
 	var/declare_treatment = 0 //When attempting to treat a patient, should it notify everyone wearing medhuds?
 
 
@@ -106,7 +105,7 @@
 		var/area/location = get_area(src)
 		broadcast_medical_hud_message("[src] is treating <b>[H]</b> in <b>[location]</b>", src)
 	currently_healing = 1
-	update_icons()
+	update_icon()
 	if(do_mob(src, H, 30))
 		if(t == 1)
 			reagent_glass.reagents.trans_to_mob(H, injection_amount, CHEM_BLOOD)
@@ -114,9 +113,9 @@
 			H.reagents.add_reagent(t, injection_amount)
 		visible_message("<span class='warning'>[src] injects [H] with the syringe!</span>")
 	currently_healing = 0
-	update_icons()
+	update_icon()
 
-/mob/living/bot/medbot/update_icons()
+/mob/living/bot/medbot/update_icon()
 	cut_overlays()
 	if(skin)
 		add_overlay("medskin_[skin]")
@@ -244,7 +243,7 @@
 		currently_healing = 0
 		emagged = 1
 		on = 1
-		update_icons()
+		update_icon()
 		. = 1
 	ignored |= user
 
@@ -305,10 +304,6 @@
 
 	if((H.getToxLoss() >= heal_threshold) && (!H.reagents.has_reagent(treatment_tox)))
 		return treatment_tox
-
-	for(var/datum/disease2/disease/D in H.virus2)
-		if (!H.reagents.has_reagent(treatment_virus))
-			return treatment_virus // STOP DISEASE FOREVER
 
 /* Construction */
 

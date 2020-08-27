@@ -134,7 +134,6 @@ var/datum/controller/subsystem/atlas/SSatlas
 
 /datum/controller/subsystem/atlas/proc/load_map_meta()
 	// This needs to be done after current_map is set, but before mapload.
-	lobby_image = new /obj/effect/lobby_image
 
 	admin_departments = list(
 		"[current_map.boss_name]",

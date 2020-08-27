@@ -47,6 +47,15 @@
 	path = /obj/structure/closet/crate/secure/gear_loadout/sol_single
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
 
+/datum/uplink_item/item/gear_loadout/dominia
+	name = "Empire of Dominia Assets (Group)"
+	path = /obj/structure/closet/crate/secure/gear_loadout/dominia
+
+/datum/uplink_item/item/gear_loadout/dominia_single
+	name = "Empire of Dominia Assets (Single)"
+	path = /obj/structure/closet/crate/secure/gear_loadout/dominia/single
+	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
+
 /datum/uplink_item/item/gear_loadout/cowboys
 	name = "Frontier Cowboys (Group)"
 	path = /obj/structure/closet/crate/secure/gear_loadout/ram_ranch

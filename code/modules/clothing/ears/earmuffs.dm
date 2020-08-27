@@ -14,6 +14,9 @@
 	item_state = "headphones"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
+/obj/item/clothing/ears/earmuffs/headphones/attack_self(mob/user)
+	togglemusic()
+
 /obj/item/clothing/ears/earmuffs/headphones/verb/togglemusic()
 	set name = "Toggle Headphone Music"
 	set category = "Object"

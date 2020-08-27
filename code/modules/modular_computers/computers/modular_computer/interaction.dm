@@ -30,6 +30,16 @@
 
 	proc_eject_ai(usr)
 
+/obj/item/modular_computer/verb/eject_personal_ai()
+	set name = "Eject Personal AI"
+	set category = "Object"
+	set src in view(1)
+
+	if(use_check_and_message(usr))
+		return
+
+	proc_eject_personal_ai(usr)
+
 /obj/item/modular_computer/proc/proc_eject_id(mob/user)
 	if(!user)
 		user = usr
@@ -85,6 +95,17 @@
 		ai_slot.stored_card.forceMove(get_turf(src))
 	ai_slot.stored_card = null
 	ai_slot.update_power_usage()
+	update_uis()
+
+/obj/item/modular_computer/proc/proc_eject_personal_ai(mob/user)
+	if(!personal_ai)
+		to_chat(user, SPAN_WARNING("There is no personal AI connected to \the [src]."))
+		return
+
+	personal_ai.pai.verbs -= /mob/living/silicon/pai/proc/personal_computer_interact
+	personal_ai.pai.parent_computer = null
+	to_chat(personal_ai.pai, SPAN_NOTICE("You lose access to \the [src]'s computronics."))
+	uninstall_component(user, personal_ai, put_in_hands = TRUE)
 	update_uis()
 
 /obj/item/modular_computer/attack_ghost(var/mob/abstract/observer/user)
@@ -154,6 +175,8 @@
 			try_install_component(user, C)
 		else
 			to_chat(user, SPAN_WARNING("This component is too large for \the [src]."))
+	if(istype(W, /obj/item/device/paicard))
+		try_install_component(user, W)
 	if(W.iswrench())
 		var/list/components = get_all_components()
 		if(components.len)
@@ -177,7 +200,7 @@
 			return
 
 		to_chat(user, SPAN_NOTICE("You begin repairing the damage to \the [src]..."))
-		playsound(get_turf(src), 'sound/items/Welder.ogg', 100, 1)
+		playsound(get_turf(src), 'sound/items/welder.ogg', 100, 1)
 		if(WT.remove_fuel(round(damage / 75)) && do_after(user, damage / 10))
 			damage = 0
 			to_chat(user, SPAN_NOTICE("You fully repair \the [src]."))

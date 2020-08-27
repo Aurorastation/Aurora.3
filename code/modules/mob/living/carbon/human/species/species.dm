@@ -67,6 +67,7 @@
 		/datum/unarmed_attack/bite
 		)
 	var/list/unarmed_attacks = null          // For empty hand harm-intent attack
+	var/pain_mod =      1                    // Pain multiplier
 	var/brute_mod =     1                    // Physical damage multiplier.
 	var/burn_mod =      1                    // Burn damage multiplier.
 	var/oxy_mod =       1                    // Oxyloss modifier
@@ -99,13 +100,24 @@
 	var/knockout_message = "has been knocked unconscious!"
 	var/halloss_message = "slumps to the ground, too weak to continue fighting."
 	var/halloss_message_self = "You're in too much pain to keep going..."
+	var/list/pain_messages = list("It hurts so much", "You really need some painkillers", "Dear god, the pain") // passive message displayed to user when injured
+	var/list/pain_item_drop_cry = list("screams in pain and ", "lets out a sharp cry and ", "cries out and ")
+
+	// External Organ Pain Damage
+	var/organ_low_pain_message = "<b>Your %PARTNAME% hurts.</b>"
+	var/organ_med_pain_message = "<b><font size=3>Your %PARTNAME% hurts badly!</font></b>"
+	var/organ_high_pain_message = "<b><font size=3>Your %PARTNAME% is screaming out in pain!</font></b>"
+
+	var/organ_low_burn_message = "<span class='danger'>Your %PARTNAME% burns.</span>"
+	var/organ_med_burn_message = "<span class='danger'><font size=3>Your %PARTNAME% burns horribly!</font></span>"
+	var/organ_high_burn_message = "<span class='danger'><font size=4>Your %PARTNAME% feels like it's on fire!</font></span>"
 
 	// Environment tolerance/life processes vars.
 	var/reagent_tag                                   //Used for metabolizing reagents.
 	var/breath_pressure = 16                          // Minimum partial pressure safe for breathing, kPa
-	var/breath_type = "oxygen"                        // Non-oxygen gas breathed, if any.
-	var/poison_type = "phoron"                        // Poisonous air.
-	var/exhale_type = "carbon_dioxide"                // Exhaled gas type.
+	var/breath_type = GAS_OXYGEN                        // Non-oxygen gas breathed, if any.
+	var/poison_type = GAS_PHORON                        // Poisonous air.
+	var/exhale_type = GAS_CO2                // Exhaled gas type.
 	var/breath_vol_mul = 1 							  // The fraction of air used, relative to the default carbon breath volume (1/2 L)
 	var/breath_eff_mul = 1 								  // The efficiency of breathing, relative to the default carbon breath efficiency (1/6)
 	var/cold_level_1 = 260                            // Cold damage level 1 below this point.
@@ -136,6 +148,13 @@
 		"You shiver suddenly.",
 		"Your chilly flesh stands out in goosebumps."
 		)
+
+	// Order matters, higher pain level should be higher up
+	var/list/pain_emotes_with_pain_level = list(
+		list(/decl/emote/audible/scream, /decl/emote/audible/whimper, /decl/emote/audible/moan, /decl/emote/audible/cry) = 70,
+		list(/decl/emote/audible/grunt, /decl/emote/audible/groan, /decl/emote/audible/moan) = 40,
+		list(/decl/emote/audible/grunt, /decl/emote/audible/groan) = 10,
+	)
 
 	// HUD data vars.
 	var/datum/hud_data/hud
@@ -217,6 +236,9 @@
 	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
 	var/list/allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_MOROZ, RELIGION_TRINARY, RELIGION_SCARAB)
 	var/default_citizenship = CITIZENSHIP_BIESEL
+	var/list/allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_LUNA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI,
+									ACCENT_ERIDANIDREG, ACCENT_VYSOKA, ACCENT_HIMEO, ACCENT_PHONG, ACCENT_SILVERSUN, ACCENT_DOMINIA, ACCENT_KONYAN)
+	var/default_accent = ACCENT_CETI
 	var/zombie_type	//What zombie species they become
 	var/list/character_color_presets
 	var/bodyfall_sound = "bodyfall" //default, can be used for species specific falling sounds
@@ -330,9 +352,9 @@
 	if(H.isSynthetic())
 		for(var/obj/item/organ/external/E in H.organs)
 			if(E.status & ORGAN_CUT_AWAY || E.is_stump()) continue
-			E.robotize()
+			E.robotize(E.robotize_type)
 		for(var/obj/item/organ/I in H.internal_organs)
-			I.robotize()
+			I.robotize(I.robotize_type)
 
 	if(isvaurca(H))
 		for (var/obj/item/organ/external/E in H.organs)
@@ -459,8 +481,10 @@
 
 	if(!H.druggy)
 		H.see_in_dark = (H.sight == (SEE_TURFS|SEE_MOBS|SEE_OBJS)) ? 8 : min(darksight + H.equipment_darkness_modifier, 8)
-		if(H.seer && locate(/obj/effect/rune/see_invisible) in get_turf(H))
-			H.see_invisible = SEE_INVISIBLE_CULT
+		if(H.seer)
+			var/obj/effect/rune/R = locate(/obj/effect/rune) in get_turf(H)
+			if(R && R.type == /datum/rune/see_invisible)
+				H.see_invisible = SEE_INVISIBLE_CULT
 		if(H.see_invisible != SEE_INVISIBLE_CULT && H.equipment_see_invis)
 			H.see_invisible = min(H.see_invisible, H.equipment_see_invis)
 
@@ -478,8 +502,15 @@
 			H.client.screen += global_hud.darkMask
 		else if((!H.equipment_prescription && (H.disabilities & NEARSIGHTED)) || H.equipment_tint_total == TINT_MODERATE)
 			H.client.screen += global_hud.vimpaired
-	if(H.eye_blurry)	H.client.screen += global_hud.blurry
-	if(H.druggy)		H.client.screen += global_hud.druggy
+	if(H.eye_blurry)
+		H.client.screen += global_hud.blurry
+
+	if(H.druggy)
+		H.client.screen += global_hud.druggy
+	if(H.druggy > 5)
+		H.add_client_color(/datum/client_color/oversaturated)
+	else
+		H.remove_client_color(/datum/client_color/oversaturated)
 
 	for(var/overlay in H.equipment_overlays)
 		H.client.screen |= overlay
@@ -494,6 +525,11 @@
 	if (H.stamina == -1)
 		log_debug("Error: Species with special sprint mechanics has not overridden cost function.")
 		return 0
+
+	var/obj/item/organ/internal/augment/calf_override/C = H.internal_organs_by_name[BP_AUG_CALF_OVERRIDE]
+	if(C && !C.is_broken())
+		cost = 0
+		C.do_run_act()
 
 	var/remainder = 0
 	if (H.stamina > cost)
@@ -526,7 +562,7 @@
 	if ((H.get_shock() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
-		to_chat(H, span("danger", "You're too exhausted to run anymore!"))
+		to_chat(H, SPAN_DANGER("You're too exhausted to run anymore!"))
 		H.flash_pain()
 		return 0
 
@@ -578,10 +614,23 @@
 	return FALSE
 
 /datum/species/proc/get_digestion_product()
-	return "nutriment"
+	return /datum/reagent/nutriment
 
 /datum/species/proc/can_commune()
 	return FALSE
 
+/datum/species/proc/has_psi_potential()
+	return TRUE
+
 /datum/species/proc/handle_despawn()
 	return
+
+/datum/species/proc/get_pain_emote(var/mob/living/carbon/human/H, var/pain_power)
+	if(flags & NO_PAIN)
+		return
+	for(var/pain_emotes in pain_emotes_with_pain_level)
+		var/pain_level = pain_emotes_with_pain_level[pain_emotes]
+		if(pain_power >= pain_level)
+			// This assumes that if a pain-level has been defined it also has a list of emotes to go with it
+			var/decl/emote/E = decls_repository.get_decl(pick(pain_emotes))
+			return E.key

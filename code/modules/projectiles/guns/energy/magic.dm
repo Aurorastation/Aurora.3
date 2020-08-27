@@ -52,7 +52,7 @@ obj/item/gun/energy/staff/special_check(var/mob/living/user)
 			new_mob = new /mob/living/simple_animal/parrot(H.loc)
 			new_mob.universal_speak = 1
 			new_mob.key = H.key
-			new_mob.a_intent = "harm"
+			new_mob.set_intent(I_HURT)
 			qdel(H)
 			sleep(20)
 			new_mob.say("Poly wanna cracker!")
@@ -281,7 +281,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/O = H.internal_organs_by_name[pick(H.species.vision_organ || BP_EYES,"appendix",BP_KIDNEYS,BP_LIVER, BP_HEART, BP_LUNGS, BP_BRAIN)]
+			var/obj/item/organ/O = H.internal_organs_by_name[pick(H.species.vision_organ || BP_EYES, BP_APPENDIX, BP_KIDNEYS, BP_LIVER, BP_HEART, BP_LUNGS, BP_BRAIN)]
 			if(O == null)
 				to_chat(user, "<span class='notice'>You can't make any sense of the arcane glyphs... maybe you should try again.</span>")
 			else

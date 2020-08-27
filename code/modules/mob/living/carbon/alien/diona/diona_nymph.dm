@@ -9,7 +9,7 @@
 	density = 0
 	mouth_size = 2 //how large of a creature it can swallow at once, and how big of a bite it can take out of larger things
 	eat_types = 0 //This is a bitfield which must be initialised in New(). The valid values for it are in devour.dm
-	composition_reagent = "nutriment" //Dionae are plants, so eating them doesn't give animal protein
+	composition_reagent = /datum/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
 	name = "diona nymph"
 	voice_name = "diona nymph"
 	adult_form = /mob/living/carbon/human
@@ -22,8 +22,8 @@
 	holder_type = /obj/item/holder/diona
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/dionanymph
 	meat_amount = 2
-	maxHealth = 33.3
-	health = 33.3
+	maxHealth = 50
+	health = 50
 	pass_flags = PASSTABLE
 
 	// Decorative head flower.
@@ -95,7 +95,7 @@
 		flower_color = get_random_colour(1)
 	. = ..(mapload)
 	//species = all_species[]
-	set_species("Diona")
+	set_species(SPECIES_DIONA)
 	setup_dionastats()
 	eat_types |= TYPE_ORGANIC
 	nutrition = 0 //We dont start with biomass
@@ -111,27 +111,27 @@
 	var/light = get_lightlevel_diona(DS)
 
 	if (light <= -0.75)
-		to_chat(usr, span("danger", "It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!"))
+		to_chat(usr, SPAN_DANGER("It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!"))
 	else if (light <= 0)
-		to_chat(usr, span("danger", "This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!"))
+		to_chat(usr, SPAN_DANGER("This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!"))
 	else if (light > 0 && light < 1.5)
-		to_chat(usr, span("warning", "The light here can sustain us, barely. It feels cold and distant."))
+		to_chat(usr, SPAN_WARNING("The light here can sustain us, barely. It feels cold and distant."))
 	else if (light <= 3)
-		to_chat(usr, span("notice", "This light is comfortable and warm, Quite adequate for our needs."))
+		to_chat(usr, SPAN_NOTICE("This light is comfortable and warm, Quite adequate for our needs."))
 	else
-		to_chat(usr, span("notice", "This warm radiance is bliss. Here we are safe and energised! Stay a while..."))
+		to_chat(usr, SPAN_NOTICE("This warm radiance is bliss. Here we are safe and energised! Stay a while..."))
 
 /mob/living/carbon/alien/diona/start_pulling(var/atom/movable/AM)
 	//TODO: Collapse these checks into one proc (see pai and drone)
 	if(istype(AM,/obj/item))
 		var/obj/item/O = AM
 		if(O.w_class > 2)
-			to_chat(src, span("warning", "You are too small to pull that."))
+			to_chat(src, SPAN_WARNING("You are too small to pull that."))
 			return
 		else
 			..()
 	else
-		to_chat(src, span("warning", "You are too small to pull that."))
+		to_chat(src, SPAN_WARNING("You are too small to pull that."))
 		return
 
 /mob/living/carbon/alien/diona/put_in_hands(var/obj/item/W) // No hands.
@@ -142,7 +142,7 @@
 /mob/living/carbon/alien/diona/proc/set_species(var/new_species)
 	if(!dna)
 		if(!new_species)
-			new_species = "Human"
+			new_species = SPECIES_HUMAN
 	else
 		if(!new_species)
 			new_species = dna.species
@@ -151,7 +151,7 @@
 
 	// No more invisible screaming wheelchairs because of set_species() typos.
 	if(!all_species[new_species])
-		new_species = "Human"
+		new_species = SPECIES_HUMAN
 
 	if(species)
 		if(species.name == new_species)
@@ -194,23 +194,20 @@
 	vessel = new/datum/reagents(600)
 	vessel.my_atom = src
 
-	vessel.add_reagent("blood", 560)
+	vessel.add_reagent(/datum/reagent/blood, 560)
 	fixblood()
 
 /mob/living/carbon/alien/diona/proc/fixblood()
 	for(var/datum/reagent/blood/B in vessel.reagent_list)
-		if(B.id == "blood")
+		if(B.type == /datum/reagent/blood)
 			B.data = list(
 				"donor" = WEAKREF(src),
-				"viruses" = null,
 				"species" = species.name,
 				"blood_DNA" = name,
 				"blood_colour" = species.blood_color,
 				"blood_type" = null,
 				"resistances" = null,
-				"trace_chem" = null,
-				"virus2" = null,
-				"antibodies" = list()
+				"trace_chem" = null
 			)
 			B.color = B.data["blood_colour"]
 
@@ -247,6 +244,7 @@
 		verbs -= /mob/living/carbon/alien/diona/proc/merge
 		verbs -= /mob/living/carbon/proc/absorb_nymph
 		verbs -= /mob/living/carbon/alien/diona/proc/sample
+		verbs -= /mob/living/carbon/alien/diona/proc/remove_hat
 		verbs |= /mob/living/carbon/alien/diona/proc/split
 	else
 		verbs |= /mob/living/carbon/alien/diona/proc/merge
@@ -255,6 +253,7 @@
 		verbs |= /mob/living/proc/ventcrawl
 		verbs |= /mob/living/proc/hide
 		verbs |= /mob/living/carbon/alien/diona/proc/sample
+		verbs |= /mob/living/carbon/alien/diona/proc/remove_hat
 		verbs -= /mob/living/carbon/alien/diona/proc/split // we want to remove this one
 
 	verbs -= /mob/living/carbon/alien/verb/evolve //We don't want the old alien evolve verb
@@ -300,9 +299,7 @@
 					sleeping = max(sleeping-1, 0)
 			blinded = TRUE
 			stat = UNCONSCIOUS
-		else if(resting)
-			// insert dial up tone
-		else
+		else if(!resting)
 			stat = CONSCIOUS
 
 		// Eyes and blindness.
@@ -323,7 +320,7 @@
 			ear_deaf = max(ear_deaf-1, 0)
 			ear_damage = max(ear_damage-0.05, 0)
 
-		update_icons()
+		update_icon()
 
 	return TRUE
 
@@ -337,7 +334,7 @@
 		return
 	hat = new_hat
 	new_hat.forceMove(src)
-	update_icons()
+	update_icon()
 
 /mob/living/carbon/alien/diona/MiddleClickOn(var/atom/A)
 	if(istype(A, /mob/living/carbon/alien/diona))
@@ -358,11 +355,11 @@
 			if(meat.name == "meat")
 				meat.name = "[src.name] [meat.name]"
 		if(issmall(src))
-			user.visible_message(span("warning", "[user] chops up \the [src]!"))
+			user.visible_message(SPAN_WARNING("[user] chops up \the [src]!"))
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 			qdel(src)
 		else
-			user.visible_message(span("warning", "[user] butchers \the [src] messily!"))
+			user.visible_message(SPAN_WARNING("[user] butchers \the [src] messily!"))
 			gib()
 
 

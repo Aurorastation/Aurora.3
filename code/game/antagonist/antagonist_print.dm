@@ -6,6 +6,7 @@
 	var/text = "<br><br><font size = 2><b>The [current_antagonists.len == 1 ? "[role_text] was" : "[role_text_plural] were"]:</b></font>"
 	for(var/datum/mind/P in current_antagonists)
 		text += print_player_full(P)
+		text += print_special_role_report(P)
 		text += get_special_objective_text(P)
 		if(P.ambitions)
 			text += "<br><font color='purple'><b>Their goals for today were:</b></font>"
@@ -46,6 +47,17 @@
 			text += "<font color='green'><B>Success!</B></font>"
 		else
 			text += "<font color='red'>Fail.</font>"
+	return text
+
+/datum/antagonist/proc/print_special_role_report(var/datum/mind/ply)
+	var/text = ""
+	if(length(ply.learned_spells))
+		text += "<br><br><b>[ply.name]'s spells were:</b><br>"
+		for(var/s in ply.learned_spells)
+			var/spell/spell = s
+			text += "<b>[spell.name]</b> - "
+			text += "Speed: [spell.spell_levels["speed"]] Power: [spell.spell_levels["power"]]"
+			text += "<br>"
 	return text
 
 /datum/antagonist/proc/print_player_lite(var/datum/mind/ply)

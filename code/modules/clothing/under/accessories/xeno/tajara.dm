@@ -97,10 +97,43 @@
 	They follow Hadiism as their main ideology, with the objective of securing the tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
 	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
 	seem as nothing but a honor and does not grant any status or position that a regular Party member would have."
-	w_class = 1
+	w_class = ITEMSIZE_TINY
+	flippable = TRUE
+	v_flippable = FALSE
 
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
+
+/obj/item/clothing/accessory/dpra_badge
+	name = "almariist pin"
+	desc = "A pin worn by supporters of the Democratic People's Republic of Adhomai and the ideals of almariism."
+	icon_state = "dpra-badge"
+	overlay_state = "dpra-badge"
+	desc_fluff = "The government of the DPRA seeks to dismantle the ethnic caste system present in Tajaran society. Instead of creating policies and using the force of the state \
+	to do so, they believe that this goal can be reached by giving the necessary opportunities and freedom from external influences to the Tajara species. Local autonomy and regional \
+	cultures are protected by the authorities. Traditional Zhan communities, rock nomads and Amohdan lodges are allowed to thrive in the territories of the Democratic People's Republic. \
+	This ideology is known as Al'mariism, as it seeks to preserve the initial ideals of the first revolution."
+	slot_flags = SLOT_TIE
+	w_class = ITEMSIZE_TINY
+	flippable = TRUE
+
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
+
+/obj/item/clothing/accessory/nka_badge
+	name = "royalist badge"
+	desc = "A badge worn by the supporters of the New Kingdom of Adhomai and its royalist ideals."
+	icon_state = "nka-badge"
+	overlay_state = "nka-badge"
+	desc_fluff = "The New Kingdom of Adhomai culture is characterized as traditional; instead of trying to change the Tajaran caste system, those divisions are seen as a natural \
+	part of the Adhomian way of life. While the government makes no effort in enforcing this separation, there is a great societal expectation that each Tajara will attempt to stay in \
+	their customary roles related to their ethnicity."
+	slot_flags = SLOT_TIE
+	w_class = ITEMSIZE_TINY
+	flippable = TRUE
+
+	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
 
 /obj/item/clothing/accessory/hadii_pin
 	name = "hadiist party pin"
@@ -112,12 +145,13 @@
 	They follow Hadiism as their main ideology, with the objective of securing the Tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
 	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
 	seen as nothing but a honor and does not grant any status or position that a regular Party member would have."
-	flippable = 1
+	flippable = TRUE
+
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
 /obj/item/clothing/accessory/dpra_pin
-	name = "almariist pin"
+	name = "almariist representative pin"
 	desc = "A small, black flag pin worn by government officials of the Democratic People's Republic of Adhomai."
 	icon_state = "pin-ala"
 	item_state = "pin-ala"
@@ -126,7 +160,8 @@
 	to do so, they believe that this goal can be reached by giving the necessary opportunities and freedom from external influences to the Tajara species. Local autonomy and regional \
 	cultures are protected by the authorities. Traditional Zhan communities, rock nomads and Amohdan lodges are allowed to thrive in the territories of the Democratic People's Republic. \
 	This ideology is known as Al'mariism, as it seeks to preserve the initial ideals of the first revolution."
-	flippable = 1
+	flippable = TRUE
+
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
@@ -139,6 +174,59 @@
 	desc_fluff = "The New Kingdom of Adhomai culture is characterized as traditional; instead of trying to change the Tajaran caste system, those divisions are seen as a natural \
 	part of the Adhomian way of life. While the government makes no effort in enforcing this separation, there is a great societal expectation that each Tajara will attempt to stay in \
 	their customary roles related to their ethnicity."
-	flippable = 1
+
+	flippable = TRUE
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
+
+/obj/item/clothing/accessory/badge/pra_passport
+	name = "people's republic of adhomai passport"
+	desc = "A passport issued to the citizens of the People's Republic of Adhomai."
+	icon_state = "pra-passport"
+	overlay_state = "pra-passport"
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+	badge_string = "People's Republic of Adhomai Citizen"
+
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
+
+/obj/item/clothing/accessory/badge/dpra_passport
+	name = "democratic people's republic of adhomai passport"
+	desc = "A passport issued to the citizens of the Democratic People's Republic of Adhomai."
+	icon_state = "dpra-passport"
+	overlay_state = "dpra-passport"
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+	badge_string = "Democratic People's Republic of Adhomai Citizen"
+
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
+
+/obj/item/clothing/accessory/badge/nka_passport
+	name = "new kingdom of adhomai passport"
+	desc = "A passport issued to the citizens of the New Kingdom of Adhomai."
+	icon_state = "nka-passport"
+	overlay_state = "nka-passport"
+	slot_flags = null
+	w_class = ITEMSIZE_TINY
+	flippable = FALSE
+	v_flippable = FALSE
+
+	badge_string = "New Kingdom of Adhomai Citizen"
+
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
+
+/obj/item/clothing/accessory/tajaran/srendarr
+	name = "holy sun rosette"
+	desc = "A simple rosette accessory depicting the Tajaran god S'rendarr."
+	icon_state = "rosette"
+	item_state = "rosette"
+	flippable = FALSE

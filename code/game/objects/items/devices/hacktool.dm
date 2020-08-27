@@ -32,7 +32,7 @@
 /obj/item/device/multitool/hacktool/attackby(var/obj/item/W, var/mob/user)
 	if(W.isscrewdriver())
 		in_hack_mode = !in_hack_mode
-		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		playsound(src.loc, 'sound/items/screwdriver.ogg', 50, 1)
 	else
 		..()
 
@@ -54,11 +54,16 @@
 		to_chat(user, "<span class='warning'>You are already hacking!</span>")
 		return 0
 	if(target in current_hacks)
-		to_chat(user, span("warning", "You are already hacking this door!"))
+		to_chat(user, SPAN_WARNING("You are already hacking this door!"))
 		return 0
 	if(!is_type_in_list(target, supported_types))
 		to_chat(user, "\icon[src] <span class='warning'>Unable to hack this target!</span>")
 		return 0
+	if(istype(target, /obj/machinery/door/airlock))
+		var/obj/machinery/door/airlock/door = target
+		if(door.hackProof)
+			to_chat(user, SPAN_WARNING("Hacking [target] is beyond the capabilities of this device!"))
+			return 0
 	var/found = known_targets.Find(target)
 	if(found)
 		known_targets.Swap(1, found)	// Move the last hacked item first

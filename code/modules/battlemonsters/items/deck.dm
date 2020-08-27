@@ -32,13 +32,13 @@
 
 	if(icon_state == "stack") //Deck form
 		user.visible_message(\
-			span("notice","\The [user] draws a card from their [src]."),\
-			span("notice","You draw a card from their [src].")\
+			SPAN_NOTICE("\The [user] draws a card from their [src]."),\
+			SPAN_NOTICE("You draw a card from their [src].")\
 		)
 	else
 		user.visible_message(\
-			span("notice","\The [user] takes a card from their hand."),\
-			span("notice","You take a card from your hand.")\
+			SPAN_NOTICE("\The [user] takes a card from their hand."),\
+			SPAN_NOTICE("You take a card from your hand.")\
 		)
 
 	take_specific_card(user,get_top_card())
@@ -52,7 +52,7 @@
 		else if(!user.get_inactive_hand())
 			user.put_in_inactive_hand(new_card)
 		else
-			to_chat(user,span("notice","Your hands are full!"))
+			to_chat(user, SPAN_NOTICE("Your hands are full!"))
 			return
 
 		new_card.pickup(user)
@@ -73,8 +73,8 @@
 		stored_card_names += added_deck.stored_card_names
 
 		user.visible_message(\
-			span("notice","\The [user] combines two decks together."),\
-			span("notice","You combine two decks together.")\
+			SPAN_NOTICE("\The [user] combines two decks together."),\
+			SPAN_NOTICE("You combine two decks together.")\
 		)
 
 		qdel(C)
@@ -100,14 +100,14 @@
 
 	if(icon_state == "hand")
 		usr.visible_message(\
-			span("notice","\The [usr] turns their hand into a stack of cards."),\
-			span("notice","You turn your hand into a stack of cards.")\
+			SPAN_NOTICE("\The [usr] turns their hand into a stack of cards."),\
+			SPAN_NOTICE("You turn your hand into a stack of cards.")\
 		)
 		icon_state = "stack"
 	else
 		usr.visible_message(\
-			span("notice","\The [usr] turns their stack of cards into a hand."),\
-			span("notice","You turn your stack of cards into a hand.")\
+			SPAN_NOTICE("\The [usr] turns their stack of cards into a hand."),\
+			SPAN_NOTICE("You turn your stack of cards into a hand.")\
 		)
 		icon_state = "hand"
 
@@ -122,8 +122,8 @@
 		return
 
 	usr.visible_message(\
-		span("notice","\The [usr] shuffles \the [src]."),\
-		span("notice","You shuffle \the [src].")\
+		SPAN_NOTICE("\The [usr] shuffles \the [src]."),\
+		SPAN_NOTICE("You shuffle \the [src].")\
 	)
 
 	playsound(src.loc, 'sound/items/cardshuffle.ogg', 100, 1, -4)
@@ -144,18 +144,18 @@
 /obj/item/battle_monsters/deck/attack_self(mob/user)
 
 	if(user != src.loc) //Idk how this is possible but you never know.
-		to_chat(user,span("notice","You'll have to pick up \the [src] to examine the cards!"))
+		to_chat(user, SPAN_NOTICE("You'll have to pick up \the [src] to examine the cards!"))
 		return
 
 	if(icon_state != "hand")
 		user.visible_message(\
-			span("notice","\The [usr] begins searching through \the [src]..."),\
-			span("notice","You begin searching through your deck...")\
+			SPAN_NOTICE("\The [usr] begins searching through \the [src]..."),\
+			SPAN_NOTICE("You begin searching through your deck...")\
 		)
 		if(!do_after(user, 5 + stored_card_names.len, act_target = src))
 			user.visible_message(\
-				span("notice","\The [usr] stops and thinks better of it."),\
-				span("notice","You stop and think better of it.")\
+				SPAN_NOTICE("\The [usr] stops and thinks better of it."),\
+				SPAN_NOTICE("You stop and think better of it.")\
 			)
 			return
 

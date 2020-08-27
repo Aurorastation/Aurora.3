@@ -366,59 +366,58 @@
 
 	if(prob(5))
 		consume_gasses = list()
-		var/gas = pick("oxygen","nitrogen","phoron","carbon_dioxide")
+		var/gas = pick(GAS_OXYGEN,GAS_NITROGEN,GAS_PHORON,GAS_CO2)
 		consume_gasses[gas] = rand(3,9)
 
 	if(prob(5))
 		exude_gasses = list()
-		var/gas = pick("oxygen","nitrogen","phoron","carbon_dioxide")
+		var/gas = pick(GAS_OXYGEN,GAS_NITROGEN,GAS_PHORON,GAS_CO2)
 		exude_gasses[gas] = rand(3,9)
 
 	chems = list()
 	if(prob(80))
-		chems["nutriment"] = list(rand(1,10),rand(10,20))
+		chems[/datum/reagent/nutriment] = list(rand(1,10),rand(10,20))
 
 	var/additional_chems = rand(0,5)
 
 	if(additional_chems)
 		var/list/possible_chems = list(
-			"woodpulp",
-			"bicaridine",
-			"hyperzine",
-			"cryoxadone",
-			"blood",
-			"water",
-			"potassium",
-			"plasticide",
-			"mutationtoxin",
-			"amutationtoxin",
-			"norepinephrine",
-			"space_drugs",
-			"paroxetine",
-			"mercury",
-			"sugar",
-			"radium",
-			"ryetalyn",
-			"alkysine",
-			"thermite",
-			"tramadol",
-			"cryptobiolin",
-			"dermaline",
-			"dexalin",
-			"phoron",
-			"synaptizine",
-			"impedrezene",
-			"hyronalin",
-			"peridaxon",
-			"toxin",
-			"rezadone",
-			"ethylredoxrazine",
-			"slimejelly",
-			"cyanide",
-			"mindbreaker",
-			"stoxin",
-			"acetone",
-			"hydrazine"
+			/datum/reagent/acetone,
+			/datum/reagent/alkysine,
+			/datum/reagent/aslimetoxin,
+			/datum/reagent/bicaridine,
+			/datum/reagent/blood,
+			/datum/reagent/cryoxadone,
+			/datum/reagent/cryptobiolin,
+			/datum/reagent/toxin/cyanide,
+			/datum/reagent/dermaline,
+			/datum/reagent/dexalin,
+			/datum/reagent/ethylredoxrazine,
+			/datum/reagent/hydrazine,
+			/datum/reagent/hyperzine,
+			/datum/reagent/hyronalin,
+			/datum/reagent/impedrezene,
+			/datum/reagent/mercury,
+			/datum/reagent/mindbreaker,
+			/datum/reagent/slimetoxin,
+			/datum/reagent/inaprovaline,
+			/datum/reagent/peridaxon,
+			/datum/reagent/toxin/phoron,
+			/datum/reagent/toxin/plasticide,
+			/datum/reagent/potassium,
+			/datum/reagent/radium,
+			/datum/reagent/rezadone,
+			/datum/reagent/ryetalyn,
+			/datum/reagent/slimejelly,
+			/datum/reagent/space_drugs,
+			/datum/reagent/soporific,
+			/datum/reagent/sugar,
+			/datum/reagent/synaptizine,
+			/datum/reagent/thermite,
+			/datum/reagent/toxin,
+			/datum/reagent/mortaphenyl,
+			/datum/reagent/water,
+			/datum/reagent/woodpulp,
 			)
 
 		for(var/x=1;x<=additional_chems;x++)

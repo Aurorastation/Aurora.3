@@ -17,6 +17,12 @@
 	return STATUS_UPDATE									// Ghosts can view updates
 
 /mob/living/silicon/pai/default_can_use_topic(var/src_object)
+	if(src_object == parent_computer)
+		if(!parent_computer.pAI_lock)
+			return STATUS_INTERACTIVE
+		else
+			to_chat(src, SPAN_WARNING("Error. pAI Access Lock systems still engaged."))
+			return ..()
 	if((src_object == src || src_object == radio) && !stat)
 		return STATUS_INTERACTIVE
 	else

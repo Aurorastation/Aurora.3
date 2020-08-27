@@ -231,6 +231,9 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 	var/list/obj/item/device/radio/radios = list()
 
+	// --- Gets the accent icon, if there is any ---
+	var/accent_icon = M.get_accent_icon(speaking)
+
 	// --- Broadcast only to intercom devices ---
 
 	if(data == 1)
@@ -346,7 +349,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		var/part_b_extra = ""
 		if(data == 3) // intercepted radio message
 			part_b_extra = " <i>(Intercepted)</i>"
-		var/part_a = "<span class='[frequency_span_class(display_freq)]'><b>\[[freq_text]\][part_b_extra]</b> <span class='name'>" // goes in the actual output
+		var/part_a = "<span class='[frequency_span_class(display_freq)]'>[accent_icon ? accent_icon + " " : ""]<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>" // goes in the actual output
 
 		// --- Some more pre-message formatting ---
 		var/part_b = "</span> <span class='message'>" // Tweaked for security headsets -- TLE
@@ -390,6 +393,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_raider += blackbox_msg
 				if(NINJ_FREQ)
 					SSfeedback.msg_ninja += blackbox_msg
+				if(BURG_FREQ)
+					SSfeedback.msg_burglar += blackbox_msg
 				if(SUP_FREQ)
 					SSfeedback.msg_cargo += blackbox_msg
 				if(SRV_FREQ)
@@ -578,6 +583,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 					SSfeedback.msg_raider += blackbox_msg
 				if(NINJ_FREQ)
 					SSfeedback.msg_ninja += blackbox_msg
+				if(BURG_FREQ)
+					SSfeedback.msg_burglar += blackbox_msg
 				if(SUP_FREQ)
 					SSfeedback.msg_cargo += blackbox_msg
 				if(SRV_FREQ)

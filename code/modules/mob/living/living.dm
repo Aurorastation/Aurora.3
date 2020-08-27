@@ -9,17 +9,34 @@
 	return
 
 //mob verbs are faster than object verbs. See above.
+var/mob/living/next_point_time = 0
 /mob/living/pointed(atom/A as mob|obj|turf in view())
+	if(!isturf(src.loc) || !(A in range(world.view, get_turf(src))))
+		return FALSE
 	if(src.stat || !src.canmove || src.restrained())
-		return 0
+		return FALSE
 	if(src.status_flags & FAKEDEATH)
-		return 0
-	if(!..())
-		return 0
+		return FALSE
+	if(next_point_time >= world.time)
+		return FALSE
 
-	src.visible_message("<b>[src]</b> points to [A].")
-	return 1
+	next_point_time = world.time + 25
+	face_atom(A)
+	if(isturf(A))
+		if(pointing_effect)
+			clear_point()
+		pointing_effect = new /obj/effect/decal/point(A)
+		pointing_effect.invisibility = invisibility
+		addtimer(CALLBACK(src, .proc/clear_point), 20)
+	else
+		var/pointglow = filter(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00")
+		LAZYADD(A.filters, pointglow)
+		addtimer(CALLBACK(src, .proc/remove_filter, A, pointglow), 20)
+	visible_message("<b>\The [src]</b> points to \the [A].")
+	return TRUE
 
+/mob/living/proc/remove_filter(var/atom/A, var/filter_to_remove)
+	LAZYREMOVE(A.filters, filter_to_remove)
 
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
@@ -612,9 +629,9 @@ default behaviour is:
 											location.add_blood(M)
 											if(ishuman(M))
 												var/mob/living/carbon/human/H = M
-												var/total_blood = round(H.vessel.get_reagent_amount("blood"))
+												var/total_blood = round(H.vessel.get_reagent_amount(/datum/reagent/blood))
 												if(total_blood > 0)
-													H.vessel.remove_reagent("blood", 1)
+													H.vessel.remove_reagent(/datum/reagent/blood, 1)
 
 
 						step(pulling, get_dir(pulling.loc, T))
@@ -719,27 +736,27 @@ default behaviour is:
 					resist_chance = 30 * resist_power
 				else
 					resist_chance = 70 * resist_power //only a bit difficult to break out of a passive grab
-				resist_msg = span("warning", "[src] pulls away from [G.assailant]'s grip!")
+				resist_msg = SPAN_WARNING("[src] pulls away from [G.assailant]'s grip!")
 			if(GRAB_AGGRESSIVE)
 				if(incapacitated(INCAPACITATION_DISABLED) || src.lying)
 					resist_chance = 15 * resist_power
 				else
 					resist_chance = 50 * resist_power
-				resist_msg = span("warning", "[src] has broken free of [G.assailant]'s grip!")
+				resist_msg = SPAN_WARNING("[src] has broken free of [G.assailant]'s grip!")
 			if(GRAB_NECK)
 				//If the you move when grabbing someone then it's easier for them to break free. Same if the affected mob is immune to stun.
 				if(world.time - G.assailant.l_move_time < 30 || !stunned || !src.lying || incapacitated(INCAPACITATION_DISABLED))
 					resist_chance = 15 * resist_power
 				else
 					resist_chance = 3 * resist_power
-				resist_msg = span("danger", "[src] has broken free of [G.assailant]'s headlock!")
+				resist_msg = SPAN_DANGER("[src] has broken free of [G.assailant]'s headlock!")
 
 		if(prob(resist_chance))
 			visible_message(resist_msg)
 			qdel(G)
 
 	if(resisting)
-		visible_message(span("warning", "[src] resists!"))
+		visible_message(SPAN_WARNING("[src] resists!"))
 		setClickCooldown(25)
 
 /mob/living/verb/lay_down()
@@ -880,9 +897,9 @@ default behaviour is:
 	if (!composition_reagent)//if no reagent has been set, then we'll set one
 		var/type = find_type(src)
 		if (type & TYPE_SYNTHETIC)
-			src.composition_reagent = "iron"
+			src.composition_reagent = /datum/reagent/iron
 		else
-			src.composition_reagent = "protein"
+			src.composition_reagent = /datum/reagent/nutriment/protein
 
 	//if the mob is a simple animal with a defined meat quantity
 	if (istype(src, /mob/living/simple_animal))
@@ -907,7 +924,10 @@ default behaviour is:
 		make_jittery(rand(150,200))
 		adjustHalLoss(rand(50,60))
 
-/mob/living/update_icons()
+/mob/living/proc/InStasis()
+	return FALSE
+
+/mob/living/update_icon()
 	for(var/aura in auras)
 		var/obj/aura/A = aura
 		var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
@@ -915,16 +935,29 @@ default behaviour is:
 
 /mob/living/proc/add_aura(var/obj/aura/aura)
 	LAZYDISTINCTADD(auras, aura)
-	update_icons()
+	update_icon()
 	return TRUE
 
 /mob/living/proc/remove_aura(var/obj/aura/aura)
 	LAZYREMOVE(auras, aura)
-	update_icons()
+	update_icon()
 	return TRUE
+
+/mob/living/proc/apply_radiation_effects()
+	var/area/A = get_area(src)
+	if(!A)
+		return FALSE
+	if(isNotStationLevel(A.z))
+		return FALSE
+	if(A.flags & RAD_SHIELDED)
+		return FALSE
+	. = TRUE
 
 /mob/living/Destroy()
 	if(auras)
 		for(var/a in auras)
 			remove_aura(a)
 	return ..()
+
+/mob/living/proc/needs_wheelchair()
+	return FALSE

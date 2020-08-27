@@ -74,8 +74,9 @@
 #define ASFX_DROPSOUND	16
 #define ASFX_ARCADE		32
 #define ASFX_RADIO		64
+#define ASFX_INSTRUMENT 128
 
-#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX|ASFX_DROPSOUND|ASFX_ARCADE|ASFX_RADIO)
+#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX|ASFX_DROPSOUND|ASFX_ARCADE|ASFX_RADIO|ASFX_INSTRUMENT)
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
 #define      HEALTH_HUD 1 // A simple line reading the pulse.
@@ -149,7 +150,7 @@
 #define WALL_CAN_OPEN 1
 #define WALL_OPENING 2
 
-#define MIN_DAMAGE_TO_HIT 15 //Minimum damage needed to dent walls and girders by hitting them with a weapon. 
+#define MIN_DAMAGE_TO_HIT 15 //Minimum damage needed to dent walls and girders by hitting them with a weapon.
 
 #define DEFAULT_TABLE_MATERIAL "plastic"
 #define DEFAULT_WALL_MATERIAL "steel"
@@ -225,7 +226,7 @@
 //Cargo random stock vars
 //These are used in randomstock.dm
 //And also for generating random loot crates in crates.dm
-#define TOTAL_STOCK 	100//The total number of items we'll spawn in cargo stock
+#define TOTAL_STOCK 	200//The total number of items we'll spawn in cargo stock
 
 #define STOCK_UNCOMMON_PROB	23
 //The probability, as a percentage for each item, that we'll choose from the uncommon spawns list
@@ -243,10 +244,6 @@
 
 // Law settings
 #define PERMABRIG_SENTENCE 90 // Measured in minutes
-
-#define LAYER_TABLE	2.8
-#define LAYER_UNDER_TABLE	2.79
-#define LAYER_ABOVE_TABLE	2.81
 
 // Stoplag.
 #define TICK_CHECK (world.tick_usage > CURRENT_TICKLIMIT)
@@ -338,11 +335,6 @@
 
 #define isContactLevel(Z) ((Z) in current_map.contact_levels)
 #define isNotContactLevel(Z) !isContactLevel(Z)
-
-//Affects the chance that armour will block an attack. Should be between 0 and 1.
-//If set to 0, then armor will always prevent the same amount of damage, always, with no randomness whatsoever.
-//Of course, this will affect code that checks for blocked < 100, as blocked will be less likely to actually be 100.
-#define ARMOR_BLOCK_CHANCE_MULT 1.0
 
 //Cargo Container Types
 #define CARGO_CONTAINER_CRATE "crate"

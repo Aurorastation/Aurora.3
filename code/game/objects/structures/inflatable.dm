@@ -1,6 +1,7 @@
 /obj/item/inflatable
 	name = "inflatable"
-	w_class = 2
+	desc_info = "Inflate by using it in your hand.  The inflatable barrier will inflate on your tile.  To deflate it, use the 'deflate' verb."
+	w_class = ITEMSIZE_SMALL
 	icon = 'icons/obj/inflatable.dmi'
 	var/deploy_path = null
 
@@ -13,7 +14,6 @@
 	src.transfer_fingerprints_to(R)
 	R.add_fingerprint(user)
 	qdel(src)
-
 
 /obj/item/inflatable/wall
 	name = "inflatable wall"
@@ -30,6 +30,7 @@
 /obj/structure/inflatable
 	name = "inflatable"
 	desc = "An inflated membrane. Do not puncture."
+	desc_info = "To remove these safely, use the 'deflate' verb.  Hitting these with any objects will probably puncture and break it forever."
 	density = 1
 	anchored = 1
 	opacity = 0
@@ -145,9 +146,11 @@
 
 /obj/structure/inflatable/door //Based on mineral door code
 	name = "inflatable door"
-	density = 1
-	anchored = 1
-	opacity = 0
+	desc_info = "Click the door to open or close it.  It only stops air while closed.<br>\
+	To remove these safely, use the 'deflate' verb.  Hitting these with any objects will probably puncture and break it forever."
+	density = TRUE
+	anchored = TRUE
+	opacity = FALSE
 
 	icon_state = "door_closed"
 	undeploy_path = /obj/item/inflatable/door

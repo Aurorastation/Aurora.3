@@ -3,7 +3,7 @@
 	icon_state = "spark"
 	damage = 0
 	damage_type = BURN
-	check_armour = "energy"
+	check_armor = "energy"
 
 //releases a burst of light on impact or after travelling a distance
 /obj/item/projectile/energy/flash
@@ -16,15 +16,19 @@
 	var/brightness = 7
 	var/light_duration = 5
 
-/obj/item/projectile/energy/flash/on_impact(var/atom/A)
-	var/turf/T = flash_range? src.loc : get_turf(A)
-	if(!istype(T)) return
+/obj/item/projectile/energy/flash/on_impact(var/atom/A, affected_limb)
+	var/turf/T = flash_range ? src.loc : get_turf(A)
+	if(!istype(T))
+		return
 
 	//blind adjacent people
-	for (var/mob/living/carbon/M in viewers(T, flash_range))
+	for(var/mob/living/carbon/M in viewers(T, flash_range))
 		if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
 			M.confused = rand(5,15)
 			flick("e_flash", M.flash)
+		else if(affected_limb && M == A)
+			M.confused = rand(2, 7)
+			flick("flash", M.flash)
 
 	//snap pop
 	playsound(src, 'sound/effects/snap.ogg', 50, 1)
@@ -104,7 +108,7 @@
 	name = "distortion"
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "bfg"
-	check_armour = "bomb"
+	check_armor = "bomb"
 	damage = 60
 	damage_type = BRUTE
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
@@ -201,7 +205,7 @@
 	name = "bees"
 	icon = 'icons/obj/apiary_bees_etc.dmi'
 	icon_state = "beegun"
-	check_armour = "bio"
+	check_armor = "bio"
 	damage = 5
 	damage_type = BRUTE
 	pass_flags = PASSTABLE | PASSGRILLE
@@ -223,7 +227,7 @@
 	name = "blaster bolt"
 	icon_state = "heavybolt"
 	damage = 30
-	check_armour = "laser"
+	check_armor = "laser"
 	damage_type = BURN
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	muzzle_type = /obj/effect/projectile/muzzle/bolt

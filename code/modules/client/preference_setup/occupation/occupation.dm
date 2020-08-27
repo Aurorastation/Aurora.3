@@ -192,6 +192,8 @@
 			if(S.name in job.blacklisted_species)
 				dat += "<del>[dispRank]</del></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
 				continue
+		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
+			dispRank = "<span style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];' width='60%' align='center'>&nbsp<a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></span>"
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
 			dat += "<font color=orange>[dispRank]</font></td><td></td></tr>"
 			continue
@@ -209,8 +211,6 @@
 				dat += " <font color=green>\[Yes]</font>"
 			else
 				dat += " <font color=red>\[No]</font>"
-			if(job.alt_titles) //Blatantly cloned from a few lines down.
-				dat += "</a></td></tr><tr style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
 			dat += "</a></td></tr>"
 			continue
 
@@ -222,8 +222,6 @@
 			dat += " <font color=orange>\[Low]</font>"
 		else
 			dat += " <font color=red>\[NEVER]</font>"
-		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
-			dat += "</a></td></tr><tr style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
 		dat += "</a></td></tr>"
 
 	dat += "</td'></tr></table>"
@@ -263,11 +261,11 @@
 		var/choice = input("Choose an title for [job.title].", "Choose Title", pref.GetPlayerAltTitle(job)) as anything in choices|null
 		if(choice && CanUseTopic(user))
 			SetPlayerAltTitle(job, choice)
-			return TOPIC_REFRESH
+			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["set_job"])
 		if(SetJob(user, href_list["set_job"]))
-			return TOPIC_REFRESH
+			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["faction_preview"])
 		show_faction_menu(user, html_decode(href_list["faction_preview"]))
@@ -276,17 +274,27 @@
 	else if(href_list["faction_select"])
 		validate_and_set_faction(html_decode(href_list["faction_select"]))
 		show_faction_menu(user, html_decode(href_list["faction_select"]))
-		return TOPIC_REFRESH
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	return ..()
 
 /datum/category_item/player_setup_item/occupation/proc/sanitize_faction()
 	if (!SSjobs.name_factions[pref.faction])
 		pref.faction = SSjobs.default_faction.name
-
-		to_client_chat("<span class='danger'>Your faction selection has been reset to [pref.faction].</span>")
-		to_client_chat("<span class='danger'>Your jobs have been reset due to this!</span>")
+		to_client_chat(SPAN_DANGER("Your faction selection has been reset to [pref.faction]."))
+		to_client_chat(SPAN_DANGER("Your jobs have been reset due to this!"))
 		ResetJobs()
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	var/datum/faction/faction = SSjobs.name_factions[pref.faction]
+	for(var/datum/job/job in faction.get_occupations())
+		for(var/department = 1 to NUM_JOB_DEPTS)
+			if(pref.GetJobDepartment(job, department) & job.flag)
+				if(pref.species in job.blacklisted_species)
+					to_client_chat(SPAN_DANGER("Your faction selection does not permit this species-occupation combination, [pref.species] as [job.title]."))
+					to_client_chat(SPAN_DANGER("Your jobs have been reset due to this!"))
+					ResetJobs()
+					return TOPIC_REFRESH_UPDATE_PREVIEW
 
 /datum/category_item/player_setup_item/occupation/proc/SetPlayerAltTitle(datum/job/job, new_title)
 	// remove existing entry

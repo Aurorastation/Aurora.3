@@ -29,7 +29,6 @@
 	new /obj/item/clothing/under/sl_suit(src)
 	new /obj/item/clothing/under/rank/bartender(src)
 	new /obj/item/clothing/under/rank/bartender(src)
-	new /obj/item/clothing/under/dress/dress_saloon(src)
 	new /obj/item/clothing/accessory/wcoat(src)
 	new /obj/item/clothing/accessory/wcoat(src)
 	new /obj/item/clothing/shoes/black(src)
@@ -102,12 +101,10 @@
 	icon_closed = "blue"
 
 /obj/structure/closet/lawcloset/fill()
-	new /obj/item/clothing/under/lawyer/female(src)
 	new /obj/item/clothing/under/lawyer/black(src)
 	new /obj/item/clothing/under/lawyer/red(src)
-	new /obj/item/clothing/under/lawyer/bluesuit(src)
 	new /obj/item/clothing/suit/storage/toggle/lawyer/bluejacket(src)
-	new /obj/item/clothing/under/lawyer/purpsuit(src)
+	new /obj/item/clothing/under/lawyer/purple(src)
 	new /obj/item/clothing/suit/storage/lawyer/purpjacket(src)
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/shoes/black(src)

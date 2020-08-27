@@ -66,7 +66,7 @@
 			if(O.reagents.total_volume < 1)
 				to_chat(user, "The [O] is empty.")
 			else if(O.reagents.total_volume >= 1)
-				if(O.reagents.has_reagent("pacid", 1))
+				if(O.reagents.has_reagent(/datum/reagent/acid/polyacid, 1))
 					to_chat(user, "The acid chews through the balloon!")
 					O.reagents.splash(user, reagents.total_volume)
 					qdel(src)
@@ -306,8 +306,8 @@
 	icon_state = "katana"
 	item_state = "katana"
 	drop_sound = 'sound/items/drop/gun.ogg'
-	pickup_sound = 'sound/items/pickup/gun.ogg'
-	hitsound = "swing_hit"
+	pickup_sound = "pickup_sword"
+	equip_sound = "equip_sword"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_BACK
 	force = 5
@@ -327,25 +327,38 @@
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
 
-	throw_impact(atom/hit_atom)
-		..()
-		spark(src, 3, alldirs)
-		new /obj/effect/decal/cleanable/ash(src.loc)
-		src.visible_message("<span class='warning'>The [src.name] explodes!</span>","<span class='warning'>You hear a snap!</span>")
-		playsound(src, 'sound/effects/snap.ogg', 50, 1)
-		qdel(src)
+/obj/item/toy/snappop/attack_self(mob/user)
+	user.drop_from_inventory(src)
+	user.visible_message(SPAN_WARNING("\The [user] throws \the [src] at their feet!"), SPAN_NOTICE("You throw \the [src] at your feet."))
+	do_pop()
+
+/obj/item/toy/snappop/throw_impact(atom/hit_atom)
+	..()
+	do_pop()
 
 /obj/item/toy/snappop/Crossed(H as mob|obj)
 	if((ishuman(H))) //i guess carp and shit shouldn't set them off
 		var/mob/living/carbon/M = H
 		if(M.m_intent == "run")
-			to_chat(M, "<span class='warning'>You step on the snap pop!</span>")
+			to_chat(M, SPAN_WARNING("You step on the snap pop!"))
+			do_pop()
 
-			spark(src, 2)
-			new /obj/effect/decal/cleanable/ash(src.loc)
-			src.visible_message("<span class='warning'>The [src.name] explodes!</span>","<span class='warning'>You hear a snap!</span>")
-			playsound(src, 'sound/effects/snap.ogg', 50, 1)
-			qdel(src)
+/obj/item/toy/snappop/proc/do_pop()
+	spark(src, 3, alldirs)
+	new /obj/effect/decal/cleanable/ash(get_turf(src))
+	visible_message(SPAN_WARNING("\The [src] explodes!"), SPAN_WARNING("You hear a snap!"))
+	playsound(get_turf(src), 'sound/effects/snap.ogg', 50, TRUE)
+	qdel(src)
+
+/obj/item/toy/snappop/syndi
+	desc_antag = "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
+
+/obj/item/toy/snappop/syndi/do_pop()
+	var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread
+	smoke.set_up(2, 0, get_turf(src))
+	smoke.attach(get_turf(src))
+	smoke.start()
+	..()
 
 /*
  * Water flower
@@ -794,11 +807,12 @@
 /obj/item/toy/cultsword
 	name = "foam sword"
 	desc = "An arcane weapon wielded by the followers of the hit Saturday morning cartoon \"King Nursee and the Acolytes of Heroism\"."
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/obj/sword.dmi'
 	icon_state = "cultblade"
 	item_state = "cultblade"
 	w_class = ITEMSIZE_LARGE
 	attack_verb = list("attacked", "slashed", "stabbed", "poked")
+	contained_sprite = TRUE
 
 /* NYET.
 /obj/item/toddler

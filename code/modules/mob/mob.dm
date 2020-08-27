@@ -89,7 +89,7 @@
 			else
 				msg = alt
 				type = alt_type
-		if (type & 2 && (sdisabilities & DEAF || ear_deaf))//Hearing related
+		if (type & 2 && isdeaf(src))//Hearing related
 			if (!( alt ))
 				return
 			else
@@ -729,9 +729,6 @@
 /mob/proc/is_ready()
 	return client && !!mind
 
-/mob/proc/get_gender()
-	return gender
-
 /mob/proc/see(message)
 	if(!is_active())
 		return 0
@@ -867,7 +864,7 @@
 		update_icon = 0
 		regenerate_icons()
 	else if( lying != lying_prev )
-		update_icons()
+		update_icon()
 
 	return canmove
 
@@ -987,12 +984,22 @@
 /mob/proc/get_species(var/reference = 0)
 	return ""
 
+/mob/proc/get_pressure_weakness()
+	return 1
+
 /mob/proc/flash_weak_pain()
 	flick("weak_pain", pain)
 
 /mob/living/carbon/human/flash_weak_pain()
 	if(can_feel_pain())
 		flick("weak_pain", pain)
+
+/mob/living/proc/flash_strong_pain()
+	return
+
+/mob/living/carbon/human/flash_strong_pain()
+	if(can_feel_pain())
+		flick("strong_pain", pain)
 
 /mob/proc/Jitter(amount)
 	jitteriness = max(jitteriness,amount,0)
@@ -1116,7 +1123,7 @@
 
 /mob/living/proc/handle_weakened()
 	if(weakened)
-		weakened = max(weakened-1,0)	//before you get mad Rockdtben: I done this so update_canmove isn't called multiple times
+		weakened = max(weakened-1,0)
 	return weakened
 
 /mob/living/proc/handle_stuttering()
@@ -1161,9 +1168,6 @@
 /mob/proc/Released()
 	//This is called when the mob is let out of a holder
 	//Override for mob-specific functionality
-	return
-
-/mob/proc/updateicon()
 	return
 
 /mob/verb/face_direction()

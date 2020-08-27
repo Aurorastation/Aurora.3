@@ -11,18 +11,21 @@
 
 	var/leaves_residue = 1
 	var/caliber = ""					//Which kind of guns it can be loaded into
+	var/max_stack = 5					// how many of us can fit in a pile
 	var/projectile_type					//The bullet type to create when New() is called
 	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
 	var/spent_icon = "s-casing-spent"
 
-	drop_sound = 'sound/items/drop/ring.ogg'
+	drop_sound = "casing_drop"
 	pickup_sound = 'sound/items/pickup/ring.ogg'
+	var/reload_sound = 'sound/weapons/reload_bullet.ogg' //sound that plays when inserted into gun.
 
 /obj/item/ammo_casing/Initialize()
 	. = ..()
 	if(ispath(projectile_type))
 		BB = new projectile_type(src)
 	randpixel_xy()
+	transform = turn(transform,rand(0,360))
 
 //removes the projectile from the ammo casing
 /obj/item/ammo_casing/proc/expend()
@@ -47,7 +50,22 @@
 		else
 			to_chat(user, "<span class='notice'>You inscribe \"[label_text]\" into \the [initial(BB.name)].</span>")
 			BB.name = "[initial(BB.name)] (\"[label_text]\")"
-
+	else if(istype(W, /obj/item/ammo_casing))
+		if(W.type != src.type)
+			to_chat(user, SPAN_WARNING("Ammo of different types cannot stack!"))
+			return
+		if(max_stack == 1)
+			to_chat(user, SPAN_WARNING("\The [src] cannot be stacked!"))
+			return
+		if(!src.BB)
+			to_chat(user, SPAN_WARNING("That round is spent!"))
+			return
+		var/obj/item/ammo_casing/B = W
+		if(!B.BB)
+			to_chat(user, SPAN_WARNING("Your round is spent!"))
+			return
+		var/obj/item/ammo_pile/pile = new /obj/item/ammo_pile(get_turf(user), list(src, W))
+		user.put_in_hands(pile)
 	..()
 
 /obj/item/ammo_casing/update_icon()
@@ -92,6 +110,9 @@
 	var/list/icon_keys = list()		//keys
 	var/list/ammo_states = list()	//values
 
+	var/insert_sound = 'sound/weapons/magazine_insert.ogg' //sound it plays when it gets inserted into a gun.
+	var/eject_sound = 'sound/weapons/magazine_eject.ogg'
+
 /obj/item/ammo_magazine/Initialize()
 	. = ..()
 	if(multiple_sprites)
@@ -126,7 +147,7 @@
 	to_chat(user, "<span class='notice'>You empty [src].</span>")
 	for(var/obj/item/ammo_casing/C in stored_ammo)
 		C.forceMove(user.loc)
-		playsound(C, "sound/weapons/casingdrop[rand(1,5)].ogg", 50, 1)
+		playsound(C, "casing_drop", 50, FALSE)
 		C.set_dir(pick(alldirs))
 	stored_ammo.Cut()
 	update_icon()

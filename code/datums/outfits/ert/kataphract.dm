@@ -61,7 +61,8 @@
 /datum/outfit/admin/ert/kataphract/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ["phoron reserve tank"])
 		var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name["phoron reserve tank"]
-		H.internals = preserve
+		H.internal = preserve
+		H.internals.icon_state = "internal1"
 
 	var/uniform_colour = pick("#42b360", "#b68029", "#5574c2")
 	if(H?.w_uniform)
@@ -70,6 +71,11 @@
 		H.shoes.color = uniform_colour
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)
+
+	var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
+	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
+	A.replaced(H, affected)
+	H.update_body()
 
 /datum/outfit/admin/ert/kataphract/specialist
 	name = "Kataphract-Hopeful Spec."

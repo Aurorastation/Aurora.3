@@ -22,54 +22,6 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	. = ..()
 	dead_mob_list -= src
 
-/mob/abstract/new_player/verb/new_player_panel()
-	set src = usr
-	new_player_panel_proc()
-
-/mob/abstract/new_player/proc/new_player_panel_proc()
-	var/output = "<div align='center'><B>Welcome to the [station_name()]!</B><br>"
-	var/character_name = client.prefs.real_name
-	if(character_name)
-		output += "<i>You will board as <b>[character_name]</b>.</i><br>"
-	if(current_map.description)
-		output += "<i>[current_map.description]</i><hr>"
-
-	output += "<a href='byond://?src=\ref[src];show_preferences=1'>Setup Character</A> "
-
-	if(ROUND_IS_STARTED)
-		output += "<a href='byond://?src=\ref[src];late_join=1'>Join the Game!</A> "
-		output += "<a href='byond://?src=\ref[src];manifest=1'>View the Crew Manifest</A> "
-	else
-		if(ready)
-			output += "<a href='byond://?src=\ref[src];ready=0'>Un-Ready</a> "
-		else
-			output += "<a href='byond://?src=\ref[src];ready=1'>Ready Up</a> "
-
-	output += "<a href='byond://?src=\ref[src];observe=1'>Observe</A> "
-
-	if(!IsGuestKey(src.key))
-		establish_db_connection(dbcon)
-
-		if(dbcon.IsConnected())
-			var/isadmin = 0
-			if(src.client && src.client.holder)
-				isadmin = 1
-			var/DBQuery/query = dbcon.NewQuery("SELECT id FROM ss13_poll_question WHERE [(isadmin ? "" : "adminonly = false AND")] Now() BETWEEN starttime AND endtime AND id NOT IN (SELECT pollid FROM ss13_poll_vote WHERE ckey = \"[ckey]\") AND id NOT IN (SELECT pollid FROM ss13_poll_textreply WHERE ckey = \"[ckey]\")")
-			query.Execute()
-			var/newpoll = 0
-			while(query.NextRow())
-				newpoll = 1
-				break
-
-			if(newpoll)
-				output += "<b><a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A> (NEW!)</b>"
-			else
-				output += "<a href='byond://?src=\ref[src];showpoll=1'>Show Player Polls</A>"
-
-	output += "</div>"
-	send_theme_resources(src)
-	src << browse(enable_ui_theme(src, output),"window=playersetup;size=400x280;can_close=0")
-
 /mob/abstract/new_player/Stat()
 	..()
 
@@ -118,52 +70,9 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		else
 			ready = 0
 
-	if(href_list["refresh"])
-		src << browse(null, "window=playersetup") //closes the player setup window)
-		new_player_panel_proc()
-
 	if(href_list["observe"])
-		if (!SSATOMS_IS_PROBABLY_DONE)
-			// Don't allow players to observe until initialization is more or less complete.
-			// Letting them join too early breaks things, they can wait.
-			alert(src, "Please wait, the map is not initialized yet.")
-			return 0
-
-		if(alert(src,"Are you sure you wish to observe? You will have to wait [config.respawn_delay] minutes before being able to respawn!","Player Setup","Yes","No") == "Yes")
-			if(!client)	return 1
-			var/mob/abstract/observer/observer = new /mob/abstract/observer(src)
-			spawning = 1
-			src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // MAD JAMS cant last forever yo)
-
-
-			observer.started_as_observer = 1
-			close_spawn_windows()
-			var/obj/O = locate("landmark*Observer-Start")
-			if(istype(O))
-				to_chat(src, "<span class='notice'>Now teleporting.</span>")
-				observer.forceMove(O.loc)
-			else
-				to_chat(src, "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to the station map.</span>")
-			observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
-
-			announce_ghost_joinleave(src)
-			var/mob/living/carbon/human/dummy/mannequin = SSmob.get_mannequin(client.ckey)
-			client.prefs.dress_preview_mob(mannequin)
-			observer.appearance = mannequin
-			observer.alpha = 127
-			observer.layer = initial(observer.layer)
-			observer.invisibility = initial(observer.invisibility)
-			observer.desc = initial(observer.desc)
-
-			observer.real_name = client.prefs.real_name
-			observer.name = observer.real_name
-			if(!client.holder && !config.antag_hud_allowed)           // For new ghosts we remove the verb from even showing up if it's not allowed.
-				observer.verbs -= /mob/abstract/observer/verb/toggle_antagHUD        // Poor guys, don't know what they are missing!
-			observer.ckey = ckey
-			observer.initialise_postkey()
-			qdel(src)
-
-			return 1
+		new_player_observe()
+		return TRUE
 
 	if(href_list["late_join"])
 
@@ -225,11 +134,8 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(!ready && href_list["preference"])
 		if(client)
 			client.prefs.process_link(src, href_list)
-	else if(!href_list["late_join"])
-		new_player_panel()
 
 	if(href_list["showpoll"])
-
 		handle_player_polling()
 		return
 
@@ -529,7 +435,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		chosen_species = all_species[client.prefs.species]
 
 	if(!chosen_species)
-		return "Human"
+		return SPECIES_HUMAN
 
 	if(is_species_whitelisted(chosen_species) || has_admin_rights())
 		if (reference)
@@ -537,7 +443,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		else
 			return chosen_species.name
 
-	return "Human"
+	return SPECIES_HUMAN
 
 /mob/abstract/new_player/get_gender()
 	if(!client || !client.prefs)

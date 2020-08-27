@@ -33,7 +33,7 @@
         </tr>
       </table>
     </template>
-    <h2>Avaivable programs</h2>
+    <h2>Available Programs</h2>
     <vui-input-search
       style="float: right;"
       :input="unrestrictedPrograms"
@@ -75,7 +75,7 @@ export default {
   },
   computed: {
     unrestrictedPrograms() {
-      var entries = Object.entries(this.s.avaivable)
+      var entries = Object.entries(this.s.available)
         .filter(
           ([key, value]) =>
             !(key in this.s.installed) && !value.rest && !(key in this.s.queue)
@@ -92,7 +92,7 @@ export default {
     },
     queue() {
       return Object.entries(this.s.queue).map(([name, progress]) => {
-        let fp = this.s.avaivable[name]
+        let fp = this.s.available[name]
         fp.progress = progress
         fp.filename = name
         return fp

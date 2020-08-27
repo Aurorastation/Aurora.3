@@ -29,6 +29,10 @@
 	uses--
 
 	var/mob/living/silicon/robot/syndicate/F = new /mob/living/silicon/robot/syndicate(get_turf(user))
+	if(user?.mind.special_role)
+		var/datum/antagonist/user_antag = all_antag_types[lowertext(user.mind.special_role)]
+		if(user_antag)
+			F.assigned_antagonist = user_antag
 	F.faction = user.faction
 	F.say("Initiating boot-up sequence!")
 	spark(F, 4, alldirs)

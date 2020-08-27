@@ -54,6 +54,7 @@
 	var/hardpoints_locked
 	var/maintenance_protocols
 	var/lockdown
+	var/entry_speed = 30
 
 	// Material
 	var/material/material
@@ -66,11 +67,12 @@
 	var/use_air      = FALSE
 
 	// Interface stuff.
+	var/next_mecha_move = 0
 	var/list/hud_elements = list()
 	var/list/hardpoint_hud_elements = list()
-	var/obj/screen/movable/mecha/health/hud_health
-	var/obj/screen/movable/mecha/toggle/hatch_open/hud_open
-	var/obj/screen/movable/mecha/power/hud_power
+	var/obj/screen/mecha/health/hud_health
+	var/obj/screen/mecha/toggle/hatch_open/hud_open
+	var/obj/screen/mecha/power/hud_power
 
 /mob/living/heavy_vehicle/Destroy()
 

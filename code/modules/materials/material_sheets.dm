@@ -1,8 +1,9 @@
 // Stacked resources. They use a material datum for a lot of inherited values.
 /obj/item/stack/material
-	force = 5.0
+	desc_info = "Use in your hand to bring up the recipe menu.  If you have enough sheets, click on something on the list to build it."
+	force = 5
 	throwforce = 5
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	throw_speed = 3
 	throw_range = 3
 	max_amount = 50
@@ -11,8 +12,7 @@
 	var/material/material
 	var/perunit
 	var/apply_colour //temp pending icon rewrite
-	drop_sound = 'sound/items/drop/axe.ogg'
-	pickup_sound = 'sound/items/pickup/axe.ogg'
+	var/use_material_sound = TRUE
 
 /obj/item/stack/material/Initialize()
 	. = ..()
@@ -33,6 +33,10 @@
 
 	if(apply_colour)
 		color = material.icon_colour
+
+	if(use_material_sound)	// SEE MATERIALS.DM
+		drop_sound = material.drop_sound
+		pickup_sound = material.pickup_sound
 
 	if(material.conductive)
 		flags |= CONDUCT
@@ -99,8 +103,6 @@
 	icon_state = "sheet-sandstone"
 	default_type = MATERIAL_SANDSTONE
 	icon_has_variants = TRUE
-	drop_sound = 'sound/items/drop/boots.ogg'
-	pickup_sound = 'sound/items/pickup/boots.ogg'
 
 /obj/item/stack/material/sandstone/full/Initialize()
 	. = ..()
@@ -111,8 +113,6 @@
 	name = "marble brick"
 	icon_state = "sheet-marble"
 	default_type = MATERIAL_MARBLE
-	drop_sound = 'sound/items/drop/boots.ogg'
-	pickup_sound = 'sound/items/pickup/boots.ogg'
 
 /obj/item/stack/material/marble/full/Initialize()
 	. = ..()
@@ -123,8 +123,6 @@
 	name = "diamond"
 	icon_state = "sheet-diamond"
 	default_type = MATERIAL_DIAMOND
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/stack/material/diamond/full/Initialize()
 	. = ..()
@@ -146,8 +144,6 @@
 	icon_state = "sheet-phoron"
 	default_type = MATERIAL_PHORON
 	icon_has_variants = TRUE
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/stack/material/phoron/full/Initialize()
 	. = ..()
@@ -160,8 +156,6 @@
 	item_state = "sheet-plastic"
 	default_type = MATERIAL_PLASTIC
 	icon_has_variants = TRUE
-	drop_sound = 'sound/items/drop/card.ogg'
-	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /obj/item/stack/material/plastic/full/Initialize()
 	. = ..()
@@ -273,8 +267,6 @@
 	name = "wooden plank"
 	icon_state = "sheet-wood"
 	default_type = MATERIAL_WOOD
-	drop_sound = 'sound/items/drop/wooden.ogg'
-	pickup_sound = 'sound/items/pickup/wooden.ogg'
 
 /obj/item/stack/material/wood/full/Initialize()
 	. = ..()
@@ -307,8 +299,6 @@
 	icon_state = "sheet-cloth"
 	default_type = MATERIAL_CLOTH
 	icon_has_variants = TRUE
-	drop_sound = 'sound/items/drop/cloth.ogg'
-	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 /obj/item/stack/material/cloth/full/Initialize()
 	. = ..()
@@ -330,8 +320,6 @@
 	name = "cardboard"
 	icon_state = "sheet-card"
 	default_type = MATERIAL_CARDBOARD
-	drop_sound = 'sound/items/drop/cardboardbox.ogg'
-	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 
 /obj/item/stack/material/cardboard/full/Initialize()
 	. = ..()
@@ -344,8 +332,6 @@
 	icon_state = "sheet-leather"
 	default_type = MATERIAL_LEATHER
 	icon_has_variants = TRUE
-	drop_sound = 'sound/items/drop/leather.ogg'
-	pickup_sound = 'sound/items/pickup/leather.ogg'
 
 /obj/item/stack/material/leather/full/Initialize()
 	. = ..()
@@ -357,8 +343,6 @@
 	icon_state = "sheet-glass"
 	default_type = MATERIAL_GLASS
 	icon_has_variants = TRUE
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/stack/material/glass/full/Initialize()
 	. = ..()

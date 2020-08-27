@@ -50,28 +50,28 @@
 		VUEUI_SET_CHECK(data["installed"][I.filename]["name"], I.filedesc, ., data)
 		VUEUI_SET_CHECK(data["installed"][I.filename]["size"], I.size, ., data)
 
-	// Now lets send all avaivable programs with there status.
+	// Now lets send all available programs with their status.
 	// Statuses (rest): 0 - ALL OK, 1 - can't download due to access, 2 - unsuported hardware, 3 - sindies only
-	LAZYINITLIST(data["avaivable"])
+	LAZYINITLIST(data["available"])
 	for(var/datum/computer_file/program/P in ntnet_global.available_software)
-		LAZYINITLIST(data["avaivable"][P.filename])
-		VUEUI_SET_CHECK(data["avaivable"][P.filename]["name"], P.filedesc, ., data)
-		VUEUI_SET_CHECK(data["avaivable"][P.filename]["desc"], P.extended_desc, ., data)
-		VUEUI_SET_CHECK(data["avaivable"][P.filename]["size"], P.size, ., data)
+		LAZYINITLIST(data["available"][P.filename])
+		VUEUI_SET_CHECK(data["available"][P.filename]["name"], P.filedesc, ., data)
+		VUEUI_SET_CHECK(data["available"][P.filename]["desc"], P.extended_desc, ., data)
+		VUEUI_SET_CHECK(data["available"][P.filename]["size"], P.size, ., data)
 		if(computer_emagged)
 			if(!P.is_supported_by_hardware(computer.hardware_flag))
-				VUEUI_SET_CHECK(data["avaivable"][P.filename]["rest"], 2, ., data)
+				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 2, ., data)
 			else
-				VUEUI_SET_CHECK(data["avaivable"][P.filename]["rest"], 0, ., data)
+				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 0, ., data)
 		else
 			if(!P.available_on_ntnet)
-				VUEUI_SET_CHECK(data["avaivable"][P.filename]["rest"], 3, ., data)
+				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 3, ., data)
 			else if(!P.can_download(user) && P.requires_access_to_download)
-				VUEUI_SET_CHECK(data["avaivable"][P.filename]["rest"], 1, ., data)
+				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 1, ., data)
 			else if(!P.is_supported_by_hardware(computer.hardware_flag))
-				VUEUI_SET_CHECK(data["avaivable"][P.filename]["rest"], 2, ., data)
+				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 2, ., data)
 			else
-				VUEUI_SET_CHECK(data["avaivable"][P.filename]["rest"], 0, ., data)
+				VUEUI_SET_CHECK(data["available"][P.filename]["rest"], 0, ., data)
 
 	VUEUI_SET_CHECK(data["disk_size"], hard_drive.max_capacity, ., data)
 	VUEUI_SET_CHECK(data["disk_used"], hard_drive.used_capacity, ., data)

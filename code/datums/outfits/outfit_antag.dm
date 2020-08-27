@@ -170,11 +170,7 @@
 	allow_backbag_choice = FALSE
 
 	uniform = list(
-		/obj/item/clothing/under/soviet,
-		/obj/item/clothing/under/pirate,
-		/obj/item/clothing/under/redcoat,
 		/obj/item/clothing/under/serviceoveralls,
-		/obj/item/clothing/under/captain_fly,
 		/obj/item/clothing/under/det,
 		/obj/item/clothing/under/brown,
 		/obj/item/clothing/under/syndicate/tracksuit
@@ -236,6 +232,96 @@
 		W.handle_item_insertion(id)
 		spawn_money(rand(50,150)*10,W)
 
+/datum/outfit/admin/syndicate/raider/burglar
+	name = "Burglar"
+
+	uniform = list(
+		/obj/item/clothing/under/suit_jacket/really_black,
+		/obj/item/clothing/under/suit_jacket/charcoal,
+		/obj/item/clothing/under/suit_jacket/navy,
+		/obj/item/clothing/under/suit_jacket/burgundy
+		)
+
+	suit = /obj/item/clothing/suit/armor/bulletproof
+
+	shoes = list(
+		/obj/item/clothing/shoes/laceup/all_species,
+		/obj/item/clothing/shoes/laceup/brown/all_species
+	)
+
+	glasses = list(
+		/obj/item/clothing/glasses/sunglasses,
+		/obj/item/clothing/glasses/sunglasses/aviator
+	)
+
+	head = null
+
+	gloves = list(
+		/obj/item/clothing/gloves/watch,
+		/obj/item/clothing/gloves/watch/silver,
+		/obj/item/clothing/gloves/watch/gold,
+		/obj/item/clothing/gloves/watch/spy
+	)
+
+	l_ear = /obj/item/device/radio/headset/burglar
+	l_pocket = /obj/item/syndie/teleporter
+	r_pocket = /obj/item/device/special_uplink/burglar
+	id = /obj/item/storage/wallet
+
+	r_hand = /obj/item/storage/briefcase/black
+
+	backpack_contents = list()
+
+/datum/outfit/admin/syndicate/raider/burglar/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(visualsOnly)
+		return
+
+	var/static/list/burglar_guns = list(
+		/obj/item/gun/energy/rifle/icelance,
+		/obj/item/gun/energy/retro,
+		/obj/item/gun/projectile/silenced,
+		/obj/item/gun/projectile/colt,
+		/obj/item/gun/projectile/revolver/deckard,
+		/obj/item/gun/projectile/revolver/lemat
+		)
+
+	var/new_gun = pick(burglar_guns)
+	var/turf/T = get_turf(H)
+
+	var/obj/item/primary = new new_gun(T)
+	var/obj/item/clothing/accessory/holster/armpit/holster
+
+	if(primary.slot_flags & SLOT_HOLSTER)
+		holster = new /obj/item/clothing/accessory/holster/armpit(T)
+		holster.holstered = primary
+		primary.forceMove(holster)
+	else if(!H.belt && (primary.slot_flags & SLOT_BELT))
+		H.equip_to_slot_or_del(primary, slot_belt)
+	else if(!H.back && (primary.slot_flags & SLOT_BACK))
+		H.equip_to_slot_or_del(primary, slot_back)
+	else
+		H.put_in_any_hand_if_possible(primary)
+
+	if(istype(primary, /obj/item/gun/projectile))
+		var/obj/item/gun/projectile/bullet_thrower = primary
+		var/obj/item/storage/briefcase/B = locate() in H
+		if(bullet_thrower.magazine_type)
+			new bullet_thrower.magazine_type(B)
+			if(prob(20)) //don't want to give them too much
+				new bullet_thrower.magazine_type(B)
+		else if(bullet_thrower.ammo_type)
+			for(var/i in 1 to rand(3, 5) + rand(0, 2))
+				new bullet_thrower.ammo_type(B)
+		H.put_in_hands(B)
+
+	if(holster)
+		var/obj/item/clothing/under/uniform = H.w_uniform
+		if(istype(uniform) && uniform.can_attach_accessory(holster))
+			uniform.attackby(holster, H)
+		else
+			H.put_in_any_hand_if_possible(holster)
+
 // Non-syndicate antag outfits
 
 /datum/outfit/admin/highlander
@@ -262,18 +348,13 @@
 
 /datum/outfit/admin/wizard
 	name = "Space Wizard"
-	allow_backbag_choice = TRUE
+	allow_backbag_choice = FALSE
 
-	uniform = /obj/item/clothing/under/lightpurple
-	back = null
-	backpack = /obj/item/storage/backpack/wizard
-	satchel = /obj/item/storage/backpack/satchel_wizard
-	satchel_alt = /obj/item/storage/backpack/satchel
-	dufflebag = /obj/item/storage/backpack/duffel/wizard
-	messengerbag = /obj/item/storage/backpack/messenger/wizard
-	suit = /obj/item/clothing/suit/wizrobe
-	head = /obj/item/clothing/head/wizard
-	shoes = /obj/item/clothing/shoes/sandal
+	uniform = /obj/item/clothing/under/chameleon/wizard
+	back = /obj/item/storage/backpack/chameleon/wizard
+	suit = /obj/item/clothing/suit/chameleon/wizard
+	head = /obj/item/clothing/head/chameleon/wizard
+	shoes = /obj/item/clothing/shoes/chameleon/wizard
 	l_ear = /obj/item/device/radio/headset
 	r_pocket = /obj/item/teleportation_scroll
 	l_hand = /obj/item/spellbook

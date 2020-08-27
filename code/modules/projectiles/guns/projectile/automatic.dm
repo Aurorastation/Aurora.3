@@ -17,9 +17,9 @@
 	sel_mode = 1
 
 	firemodes = list(
-		list(mode_name="semiauto",       can_autofire=0, burst=1, fire_delay=null, move_delay=null,     burst_accuracy=null,            dispersion=null),
-		list(mode_name="3-round bursts", can_autofire=0, burst=3, fire_delay=null, move_delay=null,    burst_accuracy=list(1,0,0),      dispersion=list(0, 10, 15)),
-		list(mode_name="short bursts",   can_autofire=0, burst=5, fire_delay=null, move_delay=null,    burst_accuracy=list(1,0,,-1,-1), dispersion=list(5, 10, 15, 20)),
+		list(mode_name="semiauto",       can_autofire=0, burst=1),
+		list(mode_name="3-round bursts", can_autofire=0, burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10, 15)),
+		list(mode_name="short bursts",   can_autofire=0, burst=5, burst_accuracy=list(1,0,,-1,-1), dispersion=list(5, 10, 15, 20)),
 		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
 		)
 
@@ -118,9 +118,9 @@
 	is_wieldable = TRUE
 
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay=10,   move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=null,    burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)),
-		list(mode_name="short bursts",   burst=5, fire_delay=null, move_delay=null,    burst_accuracy=list(1,0,0,-1,-1), dispersion=list(5, 5, 15)),
+		list(mode_name="semiauto",       burst=1, fire_delay=10),
+		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(1,0,0),       dispersion=list(0, 5, 10)),
+		list(mode_name="short bursts",   burst=5, burst_accuracy=list(1,0,0,-1,-1), dispersion=list(5, 5, 15)),
 		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
@@ -202,9 +202,9 @@
 
 	burst_delay = 4
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1,    fire_delay=10,   move_delay=null, use_launcher=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3,    fire_delay=null, move_delay=null,    use_launcher=null, burst_accuracy=list(2,1,1), dispersion=list(0, 7.5)),
-		list(mode_name="fire grenades",  burst=null, fire_delay=null, move_delay=null, use_launcher=1,    burst_accuracy=null, dispersion=null)
+		list(mode_name="semiauto", burst=1, fire_delay=10),
+		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(2,1,1), dispersion=list(0, 7.5)),
+		list(mode_name="fire grenades", use_launcher=1)
 		)
 
 	var/use_launcher = 0
@@ -256,7 +256,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw
 	name = "light machine gun"
-	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. Has 'Aussec Armoury- 2431' engraved on the receiver"
+	desc = "A rather traditionally made L6 SAW with a pleasantly lacquered wooden pistol grip. Has 'Aussec Armory- 2431' engraved on the receiver"
 	icon = 'icons/obj/guns/l6.dmi'
 	icon_state = "l6closed100"
 	item_state = "l6closedmag"
@@ -274,9 +274,9 @@
 	magazine_type = /obj/item/ammo_magazine/a762
 
 	firemodes = list(
-		list(mode_name="short bursts",	burst=5, move_delay=null, burst_accuracy = list(1,0,0,-1,-1),          dispersion = list(3, 6, 9)),
-		list(mode_name="long bursts",	burst=8, move_delay=null, burst_accuracy = list(1,0,0,-1,-1,-1,-2,-2), dispersion = list(8)),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
+		list(mode_name="short bursts",	burst=5, burst_accuracy = list(1,0,0,-1,-1), dispersion = list(3, 6, 9)),
+		list(mode_name="long bursts",	burst=8, burst_accuracy = list(1,0,0,-1,-1,-1,-2,-2), dispersion = list(8)),
+		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=1, one_hand_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
 		)
 
 	var/cover_open = 0
@@ -327,6 +327,42 @@
 		return
 	..()
 
+/obj/item/gun/projectile/automatic/rifle/adhomian
+	name = "adhomian automatic rifle"
+	desc = "The Tsarrayut'yan rifle is a select-fire, crew-served automatic rifle producted by the People's Republic of Adhomai."
+	icon = 'icons/obj/guns/tsarrayut.dmi'
+	icon_state = "tsarrayut"
+	item_state = "tsarrayut"
+	contained_sprite = TRUE
+
+	desc_fluff = "People's Republic military hardware is the most advanced among the Tajaran nations. Laser weapons, alongside simple ballistic guns, are used by high ranking soldiers or \
+	special operatives. The majority of military is still equipped with simple bolt action rifles, that are being slowly replaced by the Tsarrayut'yan rifle; a select-fire, crew-served \
+	automatic rifle. Regardless of advances in the small arms field, artillery is the Republican army's main weapon and pride."
+
+	load_method = SINGLE_CASING|SPEEDLOADER
+
+	ammo_type = /obj/item/ammo_casing/a762
+	allowed_magazines = null
+	magazine_type = null
+	max_shells = 25
+
+	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
+
+	is_wieldable = TRUE
+
+	can_bayonet = TRUE
+	knife_x_offset = 23
+	knife_y_offset = 14
+
+/obj/item/gun/projectile/automatic/rifle/adhomian/update_icon()
+	..()
+	if(wielded)
+		item_state = "tsarrayut-wielded"
+	else
+		item_state = "tsarrayut"
+	update_held_icon()
+
 /obj/item/gun/projectile/automatic/tommygun
 	name = "vintage submachine gun"
 	desc = "A classic submachine gun. Uses .45 rounds."
@@ -342,7 +378,7 @@
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/submachinemag
 	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag, /obj/item/ammo_magazine/submachinedrum)
-	fire_sound = 'sound/weapons/tommygun_shoot.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_tommygun.ogg'
 
 /obj/item/gun/projectile/automatic/tommygun/update_icon()
 	..()
@@ -359,7 +395,7 @@
 	caliber = "trod"
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 7)
 	slot_flags = SLOT_BELT|SLOT_BACK
-	fire_sound = 'sound/effects/Explosion2.ogg'
+	fire_sound = 'sound/weapons/railgun.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/trodpack
 	allowed_magazines = list(/obj/item/ammo_magazine/trodpack)
@@ -367,8 +403,8 @@
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 	firemodes = list(
-		list(mode_name="single coil", burst = 1, fire_delay = null,  move_delay = null, burst_accuracy = null, dispersion = null),
-		list(mode_name="dual coil",	  burst = 2, move_delay = 1, accuracy = list(-2,-3), dispersion = list(20))
+		list(mode_name="single coil", burst = 1),
+		list(mode_name="dual coil", burst = 2, move_delay = 1, accuracy = list(-2,-3), dispersion = list(20))
 		)
 
 
@@ -392,9 +428,9 @@
 	is_wieldable = TRUE
 
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, move_delay=null,    burst_accuracy=list(2,1,1),       dispersion=list(0, 10, 15)),
-		list(mode_name="short bursts",   burst=5, move_delay=null,    burst_accuracy=list(2,1,1,0,0), dispersion=list(5, 10, 15))
+		list(mode_name="semiauto", burst=1),
+		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(2,1,1), dispersion=list(0, 10, 15)),
+		list(mode_name="short bursts", burst=5, burst_accuracy=list(2,1,1,0,0), dispersion=list(5, 10, 15))
 		)
 
 
@@ -443,8 +479,8 @@
 	accuracy_wielded = 0
 
 	firemodes = list(
-		list(mode_name="semiauto",       burst=1, fire_delay= 10,  move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, fire_delay=null, move_delay=null,    burst_accuracy=list(0,-1,-1),       dispersion=list(0, 10, 15))
+		list(mode_name="semiauto", burst=1, fire_delay= 10),
+		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(0,-1,-1), dispersion=list(0, 10, 15))
 		)
 
 /obj/item/gun/projectile/automatic/rifle/shotgun/update_icon()

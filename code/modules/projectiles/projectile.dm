@@ -13,6 +13,7 @@
 	var/projectile_type = /obj/item/projectile
 
 	var/def_zone = ""	//Aiming at
+	var/hit_zone		// The place that actually got hit
 	var/mob/firer = null//Who shot it
 	var/silenced = FALSE	//Attack message
 
@@ -31,7 +32,7 @@
 	var/damage_type = BRUTE		//BRUTE, BURN, TOX, OXY, CLONE, PAIN are the only things that should be in here
 	var/damage_flags = DAM_BULLET
 	var/nodamage = FALSE		//Determines if the projectile will skip any damage inflictions
-	var/check_armour = "bullet" //Defines what armor to use when it hits things.  Must be set to bullet, laser, energy,or bomb	//Cael - bio and rad are also valid
+	var/check_armor = "bullet" //Defines what armor to use when it hits things.  Must be set to bullet, laser, energy,or bomb	//Cael - bio and rad are also valid
 	var/list/impact_sounds	//for different categories, IMPACT_MEAT etc
 
 	var/stun = 0
@@ -120,11 +121,11 @@
 		new hit_effect(target.loc)
 
 	L.apply_effects(stun, weaken, paralyze, 0, stutter, eyeblur, drowsy, agony, incinerate, blocked)
-	L.apply_effect(irradiate, IRRADIATE, L.getarmor(null, "rad")) //radiation protection is handled separately from other armour types.
+	L.apply_effect(irradiate, IRRADIATE, L.getarmor(null, "rad")) //radiation protection is handled separately from other armor types.
 	return 1
 
 //called when the projectile stops flying because it collided with something
-/obj/item/projectile/proc/on_impact(var/atom/A)
+/obj/item/projectile/proc/on_impact(var/atom/A, var/affected_limb)
 	return
 
 //Checks if the projectile is eligible for embedding. Not that it necessarily will.
@@ -169,7 +170,7 @@
 
 	//roll to-hit
 	miss_modifier = max(15*(distance-1) - round(25*accuracy) + miss_modifier, 0)
-	var/hit_zone = get_zone_with_miss_chance(def_zone, target_mob, miss_modifier, ranged_attack=(distance > 1 || original != target_mob)) //if the projectile hits a target we weren't originally aiming at then retain the chance to miss
+	hit_zone = get_zone_with_miss_chance(def_zone, target_mob, miss_modifier, ranged_attack=(distance > 1 || original != target_mob)) //if the projectile hits a target we weren't originally aiming at then retain the chance to miss
 
 	var/result = PROJECTILE_FORCE_MISS
 	if(hit_zone)
@@ -181,6 +182,7 @@
 	if(result == PROJECTILE_FORCE_MISS && (can_miss == 0)) //if you're shooting at point blank you can't miss.
 		if(!silenced)
 			target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
+			playsound(target_mob, "bulletflyby", rand(10, 50), 1)
 		return FALSE
 
 	//hit messages
@@ -266,7 +268,7 @@
 		return FALSE
 
 	//stop flying
-	on_impact(A)
+	on_impact(A, hit_zone)
 
 	qdel(src)
 	return TRUE
@@ -284,7 +286,7 @@
 	//If no angle needs to resolve it from xo/yo!
 	if(direct_target)
 		direct_target.bullet_act(src, def_zone)
-		on_impact(direct_target)
+		on_impact(direct_target, def_zone)
 		qdel(src)
 		return
 	if(isnum(angle))

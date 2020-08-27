@@ -14,3 +14,4 @@
 #define CHANNEL_RAIDER "Raider"
 #define CHANNEL_MERCENARY "Mercenary"
 #define CHANNEL_NINJA "Ninja"
+#define CHANNEL_BURGLAR "Burglar"

@@ -147,7 +147,7 @@
 	New()
 		..()
 		radio = new(src)//Spawns a radio inside the MMI.
-		radio.broadcasting = 1//So it's broadcasting from the start.
+		radio.broadcasting = TRUE//So it's broadcasting from the start.
 
 	verb//Allows the brain to toggle the radio functions.
 		Toggle_Broadcasting()

@@ -8,7 +8,7 @@ var/list/holder_mob_icon_cache = list()
 	randpixel = 0
 	center_of_mass = null
 	slot_flags = 0
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/head.dmi')
+	sprite_sheets = list(BODYTYPE_VOX = 'icons/mob/species/vox/head.dmi')
 	origin_tech = null
 	drop_sound = null
 	var/mob/living/contained = null
@@ -423,15 +423,15 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "babycarp"
 	item_state = "babycarp"
 	slot_flags = SLOT_HEAD
-	flags_inv = HIDEEARS|BLOCKHEADHAIR // carp wings blocks stuff - geeves
+	flags_inv = HIDEEARS
 	w_class = 1
 
-/obj/item/holder/carp/baby/verb/toggle_block_hair(mob/user)
+/obj/item/holder/carp/baby/verb/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
 	set category = "Object"
 
 	flags_inv ^= BLOCKHEADHAIR
-	to_chat(user, span("notice", "[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
+	to_chat(usr, SPAN_NOTICE("\The [src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
 
 /obj/item/holder/borer
 	name = "cortical borer"

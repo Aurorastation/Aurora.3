@@ -52,6 +52,13 @@ var/obj/screen/robot_inventory
 	src.adding += using
 	action_intent = using
 
+// Up Hint
+	mymob.up_hint = new /obj/screen()
+	mymob.up_hint.icon = 'icons/mob/screen/robot.dmi'
+	mymob.up_hint.icon_state = "uphint0"
+	mymob.up_hint.name = "up hint"
+	mymob.up_hint.screen_loc = ui_up_hint
+
 //Cell
 	r.cells = new /obj/screen()
 	r.cells.icon = 'icons/mob/screen/robot.dmi'
@@ -72,6 +79,9 @@ var/obj/screen/robot_inventory
 	mymob.hands.icon_state = "nomod"
 	mymob.hands.name = "module"
 	mymob.hands.screen_loc = ui_borg_module
+
+	if(r.module)
+		mymob.hands.icon_state = lowertext(r.mod_type)
 
 //Module Panel
 	using = new /obj/screen()
@@ -144,6 +154,7 @@ var/obj/screen/robot_inventory
 		mymob.hands,
 		mymob.healths,
 		r.cells,
+		mymob.up_hint,
 		mymob.pullin,
 		mymob.blind,
 		mymob.flash,

@@ -57,11 +57,11 @@
 
 /obj/item/device/personal_shield/update_icon()
 	if(uses && shield)
-		icon_state = "[icon_state]_on"
-		item_state = "[icon_state]_on"
+		icon_state = "[initial(icon_state)]_on"
+		item_state = "[initial(item_state)]_on"
 	else
-		icon_state = "[icon_state]"
-		item_state = "[icon_state]"
+		icon_state = "[initial(icon_state)]"
+		item_state = "[initial(item_state)]"
 
 /obj/item/device/personal_shield/Destroy()
 	dissipate()

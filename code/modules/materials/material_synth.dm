@@ -29,10 +29,14 @@
 	default_type = MATERIAL_WOOD
 
 /obj/item/stack/material/cyborg/glass
+	desc_info = "Use in your hand to build a window.  Can be upgraded to reinforced glass by adding metal rods, which are made from metal sheets.<br>\
+	As a synthetic, you can acquire more sheets of glass by recharging."
 	icon_state = "sheet-glass"
 	default_type = MATERIAL_GLASS
 
 /obj/item/stack/material/cyborg/glass/reinforced
+	desc_info = "Use in your hand to build a window. Reinforced glass is much stronger against damage.<br>\
+	As a synthetic, you can gain more reinforced glass by recharging."
 	icon_state = "sheet-rglass"
 	default_type = MATERIAL_GLASS_REINFORCED
 	charge_costs = list(500, 1000)

@@ -4,7 +4,7 @@
 	icon = 'icons/obj/guns/icelance.dmi'
 	icon_state = "icelance"
 	item_state = "icelance"
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	max_shots = 3
 	accuracy = -1
 	accuracy_wielded = 2
@@ -44,6 +44,7 @@
 		if(do_after(user,20))
 			to_chat(user, "<span class='notice'>You finish charging \the [src].</span>")
 			power_supply.give(charge_cost)
+			update_maptext()
 			update_icon()
 			is_charging = FALSE
 		else

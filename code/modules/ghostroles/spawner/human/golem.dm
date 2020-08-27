@@ -15,7 +15,7 @@
 //The proc to actually spawn in the user
 /datum/ghostspawner/human/golem/spawn_mob(mob/user)
 	if(!length(spawn_atoms))
-		to_chat(user, span("danger", "There are no available golem runes to spawn at!"))
+		to_chat(user, SPAN_DANGER("There are no available golem runes to spawn at!"))
 		return FALSE
 
 	var/obj/effect/golemrune/rune = pick(spawn_atoms)

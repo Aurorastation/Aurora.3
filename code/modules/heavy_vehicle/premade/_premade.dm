@@ -80,6 +80,8 @@
 	name = "mismatched exosuit"
 	desc = "It seems to have been roughly thrown together and then spraypainted a single colour."
 
+	h_head = /obj/item/mecha_equipment/light
+
 /mob/living/heavy_vehicle/premade/random/Initialize(mapload, var/obj/structure/heavy_vehicle_frame/source_frame, var/super_random = FALSE, var/using_boring_colours = FALSE)
 	var/list/use_colours
 	if(using_boring_colours)
@@ -174,25 +176,37 @@
 		)
 	var/mech_colour = super_random ? FALSE : pick(use_colours)
 	if(!arms)
-		var/armstype = pick(typesof(/obj/item/mech_component/manipulators)-/obj/item/mech_component/manipulators)
+		var/armstype = pick(subtypesof(/obj/item/mech_component/manipulators))
 		arms = new armstype(src)
 		arms.color = mech_colour ? mech_colour : pick(use_colours)
 	if(!legs)
-		var/legstype = pick(typesof(/obj/item/mech_component/propulsion)-/obj/item/mech_component/propulsion)
+		var/legstype = pick(subtypesof(/obj/item/mech_component/propulsion))
 		legs = new legstype(src)
 		legs.color = mech_colour ? mech_colour : pick(use_colours)
 	if(!head)
-		var/headtype = pick(typesof(/obj/item/mech_component/sensors)-/obj/item/mech_component/sensors)
+		var/headtype = pick(subtypesof(/obj/item/mech_component/sensors))
 		head = new headtype(src)
 		head.color = mech_colour ? mech_colour : pick(use_colours)
 	if(!body)
-		var/bodytype = pick(typesof(/obj/item/mech_component/chassis)-/obj/item/mech_component/chassis)
+		var/bodytype = pick(subtypesof(/obj/item/mech_component/chassis))
 		body = new bodytype(src)
 		body.color = mech_colour ? mech_colour : pick(use_colours)
 	update_icon()
 	. = ..()
 
-/mob/living/heavy_vehicle/premade/random/normal
+/mob/living/heavy_vehicle/premade/random/spawn_mech_equipment()
+	if(prob(25))
+		if(MECH_SOFTWARE_UTILITY in head.software.installed_software)
+			h_l_hand = /obj/item/mecha_equipment/clamp
+			if(prob(20))
+				h_back = /obj/item/mecha_equipment/autolathe
+		if(MECH_SOFTWARE_MEDICAL in head.software.installed_software)
+			h_l_shoulder = /obj/item/mecha_equipment/crisis_drone
+		if(MECH_SOFTWARE_ENGINEERING in head.software.installed_software)
+			h_r_hand = /obj/item/mecha_equipment/mounted_system/rfd
+		if(MECH_SOFTWARE_WEAPONS in head.software.installed_software)
+			h_back = /obj/item/mecha_equipment/shield
+	..()
 
 /mob/living/heavy_vehicle/premade/random/boring/Initialize(mapload, var/obj/structure/heavy_vehicle_frame/source_frame)
 	..(mapload, source_frame, using_boring_colours = TRUE)

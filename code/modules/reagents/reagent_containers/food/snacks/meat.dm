@@ -8,12 +8,8 @@
 	cooked_icon = "meatstake"
 	slice_path = /obj/item/reagent_containers/food/snacks/rawcutlet
 	slices_num = 3
-
-/obj/item/reagent_containers/food/snacks/meat/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 6)
-	reagents.add_reagent("triglyceride", 2)
-	src.bitesize = 1.5
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 6, /datum/reagent/nutriment/triglyceride = 2)
+	bitesize = 1.5
 
 /obj/item/reagent_containers/food/snacks/meat/cook()
 
@@ -34,11 +30,8 @@
 
 /obj/item/reagent_containers/food/snacks/meat/bug
 	filling_color = "#E6E600"
-/obj/item/reagent_containers/food/snacks/meat/bug/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 6)
-	reagents.add_reagent("phoron", 27)
-	src.bitesize = 1.5
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 6, /datum/reagent/nutriment/triglyceride = 2, /datum/reagent/toxin/phoron = 27)
+	bitesize = 1.5
 
 /obj/item/reagent_containers/food/snacks/meat/monkey
 	//same as plain meat
@@ -52,32 +45,20 @@
 	icon_state = "chickenbreast"
 	cooked_icon = "chickenbreast_cooked"
 	filling_color = "#BBBBAA"
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 6) //Chicken is low fat. Less total calories than other meats
 
 /obj/item/reagent_containers/food/snacks/meat/biogenerated
 	name = "bio meat"
 	desc = "Did this come from the Biogenerator, or is it a biohazard? Perhaps it is both."
 	icon_state = "plantmeat"
 	filling_color = "#A8AA00"
-
-/obj/item/reagent_containers/food/snacks/meat/biogenerated/Initialize()
-	. = ..()
-	reagents.clear_reagents()
-	reagents.add_reagent("nutriment",6)
-
-/obj/item/reagent_containers/food/snacks/meat/chicken/Initialize()
-	. = ..()
-	reagents.remove_reagent("triglyceride", INFINITY)
-	//Chicken is low fat. Less total calories than other meats
+	reagents_to_add = list(/datum/reagent/nutriment = 6)
 
 /obj/item/reagent_containers/food/snacks/meat/undead
 	name = "rotten meat"
 	desc = "A slab of rotten meat."
 	icon_state = "shadowmeat"
-
-/obj/item/reagent_containers/food/snacks/meat/undead/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 6)
-	reagents.add_reagent("undead_ichor", 5)
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 6, /datum/reagent/toxin/undead = 5)
 
 /obj/item/reagent_containers/food/snacks/meat/adhomai
 	name = "adhomian meat"
@@ -93,18 +74,11 @@
 	name = "rat meat"
 	icon_state = "chickenbreast"
 	desc = "You have reached the epitome of poorness: eating the station's vermin."
-
-
-/obj/item/reagent_containers/food/snacks/meat/rat/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 5)
-	src.bitesize = 1.5
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 5, /datum/reagent/nutriment/triglyceride = 2)
+	bitesize = 1.5
 
 /obj/item/reagent_containers/food/snacks/meat/dionanymph
 	name = "diona nymph meat"
 	desc = "A slab of weird green meat."
 	icon_state = "plantmeat"
-
-/obj/item/reagent_containers/food/snacks/meat/dionanymph/Initialize()
-	. = ..()
-	reagents.add_reagent("protein", 6)
+	reagents_to_add = list(/datum/reagent/diona_powder = 10)

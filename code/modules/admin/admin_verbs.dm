@@ -80,6 +80,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/toggle_antagHUD_restrictions,
 	/client/proc/allow_character_respawn,    // Allows a ghost to respawn ,
 	/client/proc/allow_stationbound_reset,
+	/client/proc/end_round,
 	/client/proc/event_manager_panel,
 	/client/proc/empty_ai_core_toggle_latejoin,
 	/client/proc/aooc,
@@ -147,7 +148,6 @@ var/list/admin_verbs_spawn = list(
 	/datum/admins/proc/spawn_plant,
 	/datum/admins/proc/spawn_atom,		// allows us to spawn instances,
 	/client/proc/respawn_character,
-	/client/proc/virus2_editor,
 	/client/proc/spawn_chemdisp_cartridge
 	)
 var/list/admin_verbs_server = list(
@@ -177,7 +177,8 @@ var/list/admin_verbs_server = list(
 	/client/proc/restart_controller,
 	/client/proc/cmd_ss_panic,
 	/client/proc/configure_access_control,
-	/datum/admins/proc/togglehubvisibility //toggles visibility on the BYOND Hub
+	/datum/admins/proc/togglehubvisibility, //toggles visibility on the BYOND Hub
+	/client/proc/dump_memory_usage
 	)
 var/list/admin_verbs_debug = list(
 	/client/proc/getruntimelog,                     // allows us to access runtime logs to somebody,
@@ -195,7 +196,6 @@ var/list/admin_verbs_debug = list(
 	/client/proc/cmd_debug_tog_aliens,
 	/client/proc/air_report,
 	/client/proc/reload_admins,
-	/client/proc/reload_mentors,
 	/client/proc/print_random_map,
 	/client/proc/create_random_map,
 	/client/proc/apply_random_map,
@@ -274,7 +274,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/toggle_antagHUD_restrictions,
 	/client/proc/event_manager_panel,
 	/client/proc/admin_edit_motd,
-	/client/proc/virus2_editor,
 	/client/proc/empty_ai_core_toggle_latejoin,
 	/client/proc/empty_ai_core_toggle_latejoin,
 	/client/proc/cmd_admin_change_custom_event,
@@ -313,6 +312,7 @@ var/list/admin_verbs_hideable = list(
 	/datum/admins/proc/toggleaban,
 	/client/proc/create_poll,
 	/client/proc/allow_stationbound_reset,
+	/client/proc/end_round,
 	/client/proc/toggle_log_hrefs,
 	/datum/admins/proc/immreboot,
 	/client/proc/cmd_dev_bst,
@@ -373,7 +373,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cmd_debug_tog_aliens,
 	/client/proc/air_report,
 	/client/proc/reload_admins,
-	/client/proc/reload_mentors,
 	/client/proc/restart_controller,
 	/client/proc/print_random_map,
 	/client/proc/create_random_map,
@@ -426,6 +425,7 @@ var/list/admin_verbs_mod = list(
 	/datum/admins/proc/paralyze_mob,
 	/client/proc/toggleattacklogs,
 	/client/proc/cmd_admin_check_contents,
+	/client/proc/print_logout_report,
 	/client/proc/check_ai_laws,			/*shows AI and borg laws*/
 	/client/proc/aooc,
 	/client/proc/toggle_aooc
@@ -606,8 +606,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Player Panel"
 	set category = "Admin"
 	if(holder)
-		if(!global_player_panel)
-			global_player_panel = new()
+		var/static/datum/vueui_module/player_panel/global_player_panel = new()
 		global_player_panel.ui_interact(usr)
 	feedback_add_details("admin_verb","PPM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
@@ -761,53 +760,6 @@ var/list/admin_verbs_cciaa = list(
 
 	log_and_message_admins("<span class='notice'>gave [key_name(C)] [result].</span>")
 	feedback_add_details("admin_verb","BT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/client/proc/give_disease(mob/T as mob in mob_list) // -- Giacom
-	set category = "Fun"
-	set name = "Give Disease (old)"
-	set desc = "Gives a (tg-style) Disease to a mob."
-	var/list/disease_names = list()
-	for(var/v in diseases)
-	//	"/datum/disease/" 15 symbols ~Intercross
-		disease_names.Add(copytext("[v]", 16, 0))
-	var/datum/disease/D = input("Choose the disease to give to that guy", "ACHOO") as null|anything in disease_names
-	if(!D) return
-	var/path = text2path("/datum/disease/[D]")
-	T.contract_disease(new path, 1)
-	feedback_add_details("admin_verb","GD") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	log_admin("[key_name(usr)] gave [key_name(T)] the disease [D].",admin_key=key_name(usr),ckey=key_name(T))
-	message_admins("<span class='notice'>[key_name_admin(usr)] gave [key_name(T)] the disease [D].</span>", 1)
-
-/client/proc/give_disease2(mob/T as mob in mob_list) // -- Giacom
-	set category = "Fun"
-	set name = "Give Disease"
-	set desc = "Gives a Disease to a mob."
-
-	var/datum/disease2/disease/D = new /datum/disease2/disease()
-
-	var/severity = 1
-	var/greater = input("Is this a lesser, greater, or badmin disease?", "Give Disease") in list("Lesser", "Greater", "Badmin")
-	switch(greater)
-		if ("Lesser") severity = 1
-		if ("Greater") severity = 2
-		if ("Badmin") severity = 99
-
-	D.makerandom(severity)
-	D.infectionchance = input("How virulent is this disease? (1-100)", "Give Disease", D.infectionchance) as num
-
-	if(istype(T,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = T
-		if (H.species)
-			D.affected_species = list(H.species.get_bodytype())
-			if(H.species.primitive_form)
-				D.affected_species |= H.species.primitive_form
-			if(H.species.greater_form)
-				D.affected_species |= H.species.greater_form
-	infect_virus2(T,D,1)
-
-	feedback_add_details("admin_verb","GD2") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	log_admin("[key_name(usr)] gave [key_name(T)] a [greater] disease2 with infection chance [D.infectionchance].",admin_key=key_name(usr),ckey=key_name(T))
-	message_admins("<span class='notice'>[key_name_admin(usr)] gave [key_name(T)] a [greater] disease2 with infection chance [D.infectionchance].</span>", 1)
 
 /client/proc/make_sound(var/obj/O in range(world.view)) // -- TLE
 	set category = "Special Verbs"
@@ -977,10 +929,10 @@ var/list/admin_verbs_cciaa = list(
 
 	switch(alert("Do you wish for [H] to be allowed to select non-whitelisted races?","Alter Mob Appearance","Yes","No","Cancel"))
 		if("Yes")
-			log_and_message_admins("has allowed [H] to change \his appearance, without whitelisting of races.")
+			log_and_message_admins("has allowed [H] to change [H.get_pronoun("his")] appearance, without whitelisting of races.")
 			H.change_appearance(APPEARANCE_ALL, H.loc, check_species_whitelist = 0)
 		if("No")
-			log_and_message_admins("has allowed [H] to change \his appearance, with whitelisting of races.")
+			log_and_message_admins("has allowed [H] to change [H.get_pronoun("his")] appearance, with whitelisting of races.")
 			H.change_appearance(APPEARANCE_ALL, H.loc, check_species_whitelist = 1)
 	feedback_add_details("admin_verb","CMAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -1214,6 +1166,20 @@ var/list/admin_verbs_cciaa = list(
 	log_and_message_admins("admin-wiped [key_name_admin(target)]'s core.")
 	target.do_wipe_core()
 
+/client/proc/end_round()
+	set name = "End Round"
+	set desc = "This button will end the round."
+	set category = "Server"
+
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(alert(usr, "Are you sure you want to end the round?", "Confirm Round End", "No", "Yes") != "Yes")
+		return
+
+	log_and_message_admins("has ended the round with the End Round button.")
+	SSticker.game_tick(TRUE)
+
 /client/proc/restart_sql()
 	set category = "Debug"
 	set name = "Reconnect SQL"
@@ -1245,14 +1211,14 @@ var/list/admin_verbs_cciaa = list(
 		if (isnull(P) || !ismob(P))
 			var/msg = "P_LIST DEBUG: Found null entry in player_list!"
 			log_debug(msg)
-			message_admins(span("danger", msg))
+			message_admins(SPAN_DANGER(msg))
 			player_list -= P
 		else
 			var/mob/M = P
 			if (!M.client)
 				var/msg = "P_LIST DEBUG: Found a mob without a client in player_list! [M.name]"
 				log_debug(msg)
-				message_admins(span("danger", msg))
+				message_admins(SPAN_DANGER(msg))
 				player_list -= M
 
 /client/proc/reset_openturf()
@@ -1332,3 +1298,29 @@ var/list/admin_verbs_cciaa = list(
 
 	to_chat(usr, "The sunlight system is disabled.")
 #endif
+
+/client/proc/dump_memory_usage()
+	set name = "Dump Server Memory Usage"
+	set category = "Server"
+
+	if (!check_rights(R_SERVER))
+		return
+
+	if (alert(usr, "This will momentarily block the server. Proceed?", "Alert", "Yes", "No") != "Yes")
+		return
+
+	var/fname = "[game_id]-[time2text(world.timeofday, "MM-DD-hhmm")].json"
+
+	to_world(SPAN_DANGER("The server will momentarily freeze in 2 seconds!"))
+	log_and_message_admins("has initiated a memory dump into \"[fname]\".", usr)
+
+	sleep(20)
+
+	if (!dump_memory_profile("data/logs/memory/[fname]"))
+		to_chat(usr, SPAN_WARNING("Dumping memory failed at dll call."))
+		return
+
+	if (!fexists("data/logs/memory/[fname]"))
+		to_chat(usr, SPAN_WARNING("File creation failed. Please check to see if the data/logs/memory folder actually exists."))
+	else
+		to_chat(usr, SPAN_NOTICE("Memory dump completed."))

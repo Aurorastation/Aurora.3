@@ -269,7 +269,7 @@
 	flags = OPENCONTAINER | NOREACT
 	complexity = 8
 	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_MATERIALS = 3, TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
+	origin_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
 
 /obj/item/integrated_circuit/reagent/storage/big
 	name = "big reagent storage"
@@ -297,7 +297,7 @@
 /obj/item/integrated_circuit/reagent/storage/scan/do_work()
 	var/list/cont = list()
 	for(var/datum/reagent/RE in reagents.reagent_list)
-		cont += RE.id
+		cont += RE.name
 	set_pin_data(IC_OUTPUT, 3, cont)
 	set_pin_data(IC_OUTPUT, 4, reagents.generate_taste_message(src))
 	push_data()
@@ -352,10 +352,10 @@
 			return
 		for(var/datum/reagent/G in source.reagents.reagent_list)
 			if (!direc)
-				if(G.id in demand)
-					source.reagents.trans_id_to(target, G.id, transfer_amount)
+				if(lowertext(G.name) in demand)
+					source.reagents.trans_type_to(target, G.type, transfer_amount)
 			else
-				if(!(G.id in demand))
-					source.reagents.trans_id_to(target, G.id, transfer_amount)
+				if(!(lowertext(G.name) in demand))
+					source.reagents.trans_type_to(target, G.type, transfer_amount)
 		activate_pin(2)
 		push_data()

@@ -118,7 +118,7 @@
 		/obj/item/reagent_containers/personal_inhaler_cartridge,
 		/obj/item/personal_inhaler,
 		/obj/item/flame/lighter/zippo,
-		/obj/item/storage/fancy/cigarettes,
+		/obj/item/storage/box/fancy/cigarettes,
 		/obj/item/storage/pill_bottle,
 		/obj/item/stack/medical,
 		/obj/item/device/flashlight/pen,
@@ -130,7 +130,6 @@
 		/obj/item/crowbar,
 		/obj/item/device/flashlight,
 		/obj/item/extinguisher/mini,
-		/obj/item/device/antibody_scanner,
 		/obj/item/device/radio
 		)
 
@@ -153,14 +152,13 @@
 		/obj/item/clothing/glasses,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_magazine,
-		/obj/item/reagent_containers/food/snacks/donut/,
+		/obj/item/reagent_containers/food/snacks/donut, // kek
 		/obj/item/melee/baton,
 		/obj/item/gun/energy/taser,
 		/obj/item/flame/lighter,
 		/obj/item/clothing/glasses/hud/security,
 		/obj/item/device/flashlight/maglight,
 		/obj/item/device/flashlight/flare,
-		/obj/item/device/flashlight/flare/glowstick,
 		/obj/item/device/pda,
 		/obj/item/device/radio/headset,
 		/obj/item/device/hailer,
@@ -329,7 +327,7 @@
 		/obj/item/shovel,
 		/obj/item/stack/material/animalhide,
 		/obj/item/flame/lighter,
-		/obj/item/storage/fancy/cigarettes,
+		/obj/item/storage/box/fancy/cigarettes,
 		/obj/item/reagent_containers/food/drinks/bottle,
 		/obj/item/stack/medical,
 		/obj/item/reagent_containers/hypospray,
@@ -343,7 +341,8 @@
 		/obj/item/warp_core,
 		/obj/item/extraction_pack,
 		/obj/item/rfd/mining,
-		/obj/item/gun/custom_ka
+		/obj/item/gun/custom_ka,
+		/obj/item/device/orbital_dropper
 		)
 
 /obj/item/storage/belt/hydro

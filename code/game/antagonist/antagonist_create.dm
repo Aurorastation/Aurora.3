@@ -18,6 +18,7 @@
 	greet(target)
 	if(!gag_announcement)
 		announce_antagonist_spawn()
+	LAZYDISTINCTADD(SSticker.mode.antag_templates, src)
 
 /datum/antagonist/proc/create_default(var/mob/source)
 	var/mob/living/M
@@ -47,6 +48,8 @@
 	switch(freq)
 		if(NINJ_FREQ)
 			R = new/obj/item/device/radio/headset/ninja(player)
+		if(BURG_FREQ)
+			R = new /obj/item/device/radio/headset/burglar(player)
 		if(SYND_FREQ)
 			R = new/obj/item/device/radio/headset/syndicate(player)
 		if(RAID_FREQ)
@@ -115,6 +118,12 @@
 
 /datum/antagonist/proc/set_antag_name(var/mob/living/player)
 	// Choose a name, if any.
+	if(ishuman(player))
+		var/mob/living/carbon/human/H = player
+		var/datum/language/L = H.default_language
+		H.real_name = L.get_random_name()
+		H.name = H.real_name
+		H.dna.real_name = H.real_name
 	var/newname = sanitize(input(player, "You are a [role_text]. Would you like to change your name to something else?", "Name change") as null|text, MAX_NAME_LEN)
 	if (newname)
 		player.real_name = newname

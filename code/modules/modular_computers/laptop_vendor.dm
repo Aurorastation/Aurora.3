@@ -232,7 +232,7 @@
 	if(anchored)
 		ui_interact(user)
 	else
-		to_chat(user, span("notice","[src] needs to be anchored to the floor to function!"))
+		to_chat(user, SPAN_NOTICE("[src] needs to be anchored to the floor to function!"))
 
 /obj/machinery/lapvend/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(stat & (BROKEN | NOPOWER | MAINT))
@@ -267,13 +267,15 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		playsound(src.loc, W.usesound, 100, 1)
 		if(anchored)
-			user.visible_message("[user] begins unsecuring \the [src] from the floor.", "You start unsecuring \the [src] from the floor.")
+			user.visible_message("<b>[user]</b> begins unsecuring \the [src] from the floor.", \
+								SPAN_NOTICE("You start unsecuring \the [src] from the floor."))
 		else
-			user.visible_message("[user] begins securing \the [src] to the floor.", "You start securing \the [src] to the floor.")
+			user.visible_message("<b>[user]</b> begins securing \the [src] to the floor.", \
+								SPAN_NOTICE("You start securing \the [src] to the floor."))
 		if(do_after(user, 20/W.toolspeed))
 			if(!src)
 				return
-			to_chat(user, span("notice", "You [anchored ? "un" : ""]secured \the [src]!"))
+			to_chat(user, SPAN_NOTICE("You [anchored ? "un" : ""]secured \the [src]!"))
 			anchored = !anchored
 		return
 	else if(state == 2) // awaiting payment state

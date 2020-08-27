@@ -1,6 +1,6 @@
 
 /obj/item/anobattery
-	name = "Anomaly power battery"
+	name = "anomaly power battery"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "anobattery0"
 	var/datum/artifact_effect/battery_effect
@@ -20,7 +20,7 @@
 	stored_charge = max(0, stored_charge - amount)
 
 /obj/item/anodevice
-	name = "Anomaly power utilizer"
+	name = "anomaly power utilizer"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "anodev"
 	var/activated = 0

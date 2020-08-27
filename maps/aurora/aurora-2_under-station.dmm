@@ -316,6 +316,10 @@
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/engineering/cooling)
+"Q" = (
+/obj/effect/shuttle_landmark/burglar/under,
+/turf/template_noop,
+/area/template_noop)
 
 (1,1,1) = {"
 a
@@ -9175,7 +9179,7 @@ a
 a
 a
 a
-a
+Q
 a
 a
 a

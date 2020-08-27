@@ -8,7 +8,7 @@ var/datum/antagonist/raider/raiders
 	antag_indicator = "mutineer"
 	landmark_id = "voxstart"
 	welcome_text = "Use :H to talk on your encrypted channel."
-	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER
+	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER | ANTAG_NO_FLAVORTEXT
 	antaghud_indicator = "hudmutineer"
 	required_age = 10
 
@@ -163,7 +163,7 @@ var/datum/antagonist/raider/raiders
 		return 0
 
 	for(var/datum/mind/player in current_antagonists)
-		if(!player.current || get_area(player.current) != locate(/area/skipjack_station/start))
+		if(!player.current || get_area(player.current) != locate(/area/antag/raider))
 			return 0
 	return 1
 
@@ -179,7 +179,7 @@ var/datum/antagonist/raider/raiders
 		if(I.loc != player)
 			qdel(I)
 
-	if(player.species && player.species.get_bodytype() == "Vox")
+	if(player.species && player.species.get_bodytype() == BODYTYPE_VOX)
 		equip_vox(player)
 	else
 		player.preEquipOutfit(/datum/outfit/admin/syndicate/raider, FALSE)
@@ -269,9 +269,6 @@ var/datum/antagonist/raider/raiders
 
 /datum/antagonist/raider/proc/equip_vox(var/mob/living/carbon/human/player)
 
-	var/uniform_type = pick(list(/obj/item/clothing/under/vox/vox_robes,/obj/item/clothing/under/vox/vox_casual))
-
-	player.equip_to_slot_or_del(new uniform_type(player), slot_w_uniform)
 	player.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/vox(player), slot_shoes) // REPLACE THESE WITH CODED VOX ALTERNATIVES.
 	player.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow/vox(player), slot_gloves) // AS ABOVE.
 	player.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/swat/vox(player), slot_wear_mask)
@@ -285,3 +282,6 @@ var/datum/antagonist/raider/raiders
 		player.internals.icon_state = "internal1"
 
 	return 1
+
+/datum/antagonist/raider/get_antag_radio()
+	return "Raider"

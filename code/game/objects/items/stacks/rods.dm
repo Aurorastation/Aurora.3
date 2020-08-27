@@ -17,10 +17,12 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 /obj/item/stack/rods
 	name = "metal rod"
 	desc = "Some rods. Can be used for building, or something."
+	desc_info = "Made from metal sheets.  You can build a grille by using it in your hand. \
+	Clicking on a floor without any tiles will reinforce the floor.  You can make reinforced glass by combining rods and normal glass sheets."
 	singular_name = "metal rod"
 	icon_state = "rods"
 	flags = CONDUCT
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	force = 9.0
 	throwforce = 15.0
 	throw_speed = 5

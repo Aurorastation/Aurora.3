@@ -75,18 +75,18 @@
 			var/datum/gas_mixture/water_breath = new()
 			var/datum/gas_mixture/above_air = return_air()
 			var/amount = 300
-			water_breath.adjust_gas("oxygen", amount) // Assuming water breathes just extract the oxygen directly from the water.
+			water_breath.adjust_gas(GAS_OXYGEN, amount) // Assuming water breathes just extract the oxygen directly from the water.
 			water_breath.temperature = above_air.temperature
 			return water_breath
 		else
-			var/gasid = "carbon_dioxide"
+			var/gasid = GAS_CO2
 			if(ishuman(L))
 				var/mob/living/carbon/human/H = L
 				if(H.species && H.species.exhale_type)
 					gasid = H.species.exhale_type
 			var/datum/gas_mixture/water_breath = new()
 			var/datum/gas_mixture/above_air = return_air()
-			water_breath.adjust_gas(gasid, BREATH_MOLES) // They have no oxygen, but non-zero moles and temp
+			water_breath.adjust_gas(gasid, ONE_ATMOSPHERE) // this will cause them to suffocate, but not pop their lung
 			water_breath.temperature = above_air.temperature
 			return water_breath
 	return return_air() // Otherwise their head is above the water, so get the air from the atmosphere instead.
@@ -94,7 +94,7 @@
 /turf/simulated/floor/beach/water/Entered(atom/movable/AM, atom/oldloc)
 	if(!SSATOMS_IS_PROBABLY_DONE)
 		return
-	reagents.add_reagent("water", 2)
+	reagents.add_reagent(/datum/reagent/water, 2)
 	clean(src)
 	START_PROCESSING(SSprocessing, src)
 	if(istype(AM, /obj))
@@ -110,7 +110,7 @@
 /turf/simulated/floor/beach/water/Exited(atom/movable/AM, atom/newloc)
 	if(!SSATOMS_IS_PROBABLY_DONE)
 		return
-	reagents.add_reagent("water", 2)
+	reagents.add_reagent(/datum/reagent/water, 2)
 	clean(src)
 	if(istype(AM, /obj) && numobjects)
 		numobjects -= 1
@@ -123,7 +123,7 @@
 	..()
 
 /turf/simulated/floor/beach/water/process()
-	reagents.add_reagent("water", 2)
+	reagents.add_reagent(/datum/reagent/water, 2)
 	clean(src)
 	for(var/mob/living/L in src)
 		wash(L)
@@ -143,7 +143,7 @@
 
 	var/obj/effect/effect/water/W = new(O)
 	W.create_reagents(100)
-	W.reagents.add_reagent("water", 100)
+	W.reagents.add_reagent(/datum/reagent/water, 100)
 	W.set_up(O, 100)
 
 	if(iscarbon(O))

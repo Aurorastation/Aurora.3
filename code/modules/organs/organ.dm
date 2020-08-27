@@ -93,7 +93,7 @@
 		max_damage = min_broken_damage * 2
 	if(istype(holder))
 		src.owner = holder
-		species = all_species["Human"]
+		species = all_species[SPECIES_HUMAN]
 		if(holder.dna)
 			dna = holder.dna.Clone()
 			species = all_species[dna.species]
@@ -171,7 +171,7 @@
 
 		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in reagents.reagent_list
 		if(B && !(status & ORGAN_ROBOT) && prob(40))
-			reagents.remove_reagent("blood",0.1)
+			reagents.remove_reagent(/datum/reagent/blood,0.1)
 			if (isturf(loc))
 				blood_splatter(src,B,1)
 		if(config.organs_decay) damage += rand(1,3)
@@ -216,7 +216,7 @@
 			germ_level++
 
 	if(germ_level >= INFECTION_LEVEL_ONE)
-		owner.add_chemical_effect(CE_FEVER, germ_level/INFECTION_LEVEL_ONE) //10u of paracetamol minimum for a level 3 infection
+		owner.add_chemical_effect(CE_FEVER, germ_level/INFECTION_LEVEL_ONE) //10u of Perconol minimum for a level 3 infection
 
 	if (germ_level >= INFECTION_LEVEL_TWO)
 		var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
@@ -246,7 +246,7 @@
 						germ_level += rand(2,3)
 					if(501 to INFINITY)
 						germ_level += rand(3,5)
-						owner.reagents.add_reagent("toxin", rand(1,2))
+						owner.reagents.add_reagent(/datum/reagent/toxin, rand(1,2))
 
 /obj/item/organ/proc/receive_chem(chemical as obj)
 	return 0
@@ -269,7 +269,7 @@
 	if(!owner)
 		return
 
-	var/antibiotics = owner.reagents?.get_reagent_amount("thetamycin")
+	var/antibiotics = owner.reagents?.get_reagent_amount(/datum/reagent/thetamycin)
 
 	if (!germ_level || antibiotics < 5)
 		return

@@ -30,7 +30,7 @@
 	world.log <<  "## ERROR: [msg][log_end]"
 
 /proc/shutdown_logging()
-	call(RUST_G, "log_close_all")()
+	dll_call(RUST_G, "log_close_all")
 
 #define WARNING(MSG) warning("[MSG] in [__FILE__] at line [__LINE__] src: [src] usr: [usr].")
 //print a warning message to world.log

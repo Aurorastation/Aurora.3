@@ -335,7 +335,7 @@ proc/get_ghosts(var/notify = 0,var/what = 2, var/client/C = null)
 
 	R.uneq_all()
 	R.mod_type = initial(R.mod_type)
-	R.hands.icon_state = initial(R.hands.icon_state)
+	R.hands.icon_state = "nomod"
 
 	R.module.Reset(R)
 	QDEL_NULL(R.module)
@@ -572,13 +572,17 @@ Traitors and the like can also be revived with the previous role mostly intact.
 /client/proc/cmd_admin_create_centcom_report()
 	set category = "Special Verbs"
 	set name = "Create Command Report"
+
 	if(!holder)
 		to_chat(src, "Only administrators may use this command.")
 		return
+
 	var/reporttitle
 	var/reportbody
 	var/reporter = null
-	var/reporttype = input(usr, "Choose whether to use a template or custom report.", "Create Command Report") in list("Template", "Custom", "Cancel")
+	var/reporttype = input(usr, "Choose whether to use a template or custom report.", "Create Command Report") as null|anything in list("Template", "Custom")
+	if(!reporttype)
+		return
 	switch(reporttype)
 		if("Template")
 			establish_db_connection(dbcon)
@@ -600,7 +604,9 @@ Traitors and the like can also be revived with the previous role mostly intact.
 				to_chat(src, "<span class='notice'>There are no templates in the database.</span>")
 				return
 
-			reporttitle = input(usr, "Please select a command report template.", "Create Command Report") in template_names
+			reporttitle = input(usr, "Please select a command report template.", "Create Command Report") as null|anything in template_names
+			if(!reporttitle)
+				return
 			reportbody = templates[reporttitle]
 
 		if("Custom")
@@ -610,8 +616,6 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			reportbody = sanitize(input(usr, "Please enter anything you want. Anything. Serious.", "Body", "") as message|null, extra = 0)
 			if(!reportbody)
 				return
-		else
-			return
 
 	if (reporttype == "Template")
 		reporter = sanitizeSafe(input(usr, "Please enter your CCIA name. (blank for CCIAAMS)", "Name") as text|null)

@@ -22,15 +22,13 @@ BREATH ANALYZER
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
 	var/mode = 1
 
-/obj/item/device/healthanalyzer/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user)
 	health_scan_mob(M, user, mode)
-	src.add_fingerprint(user)
-	return
+	add_fingerprint(user)
 
 /obj/item/device/healthanalyzer/attack_self(mob/user)
 	health_scan_mob(user, user, mode)
-	src.add_fingerprint(user)
-	return
+	add_fingerprint(user)
 
 /proc/get_wound_severity(var/damage_ratio) //Used for ratios.
 	var/degree = "none"
@@ -62,7 +60,7 @@ BREATH ANALYZER
 /proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE)
 	if(!just_scan)
 		if (((user.is_clumsy()) || (DUMB in user.mutations)) && prob(50))
-			user.visible_message("<span class='notice'>\The [user] runs the scanner over the floor.</span>", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
+			user.visible_message("<b>[user]</b> runs the scanner over the floor.", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
 			to_chat(user, "<span class='notice'><b>Scan results for the floor:</b></span>")
 			to_chat(user, "Overall Status: Healthy</span>")
 			return
@@ -71,7 +69,7 @@ BREATH ANALYZER
 			to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
 			return
 
-		user.visible_message("<span class='notice'>[user] runs the scanner over [M].</span>","<span class='notice'>You run the scanner over [M].</span>")
+		user.visible_message("<b>[user]</b> runs a scanner over [M].","<span class='notice'>You run the scanner over [M].</span>")
 
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")
@@ -115,7 +113,7 @@ BREATH ANALYZER
 			pulse_result = 0
 		else
 			pulse_result = H.get_pulse(GETPULSE_TOOL)
-		pulse_result = "<span class='scan_green'>[pulse_result]bpm</span>"
+		pulse_result = "<span class='scan_green'>[pulse_result]</span>"
 		if(H.pulse() == PULSE_NONE)
 			pulse_result = "<span class='scan_danger'>[pulse_result]</span>"
 		else if(H.pulse() < PULSE_NORM)
@@ -123,11 +121,8 @@ BREATH ANALYZER
 		else if(H.pulse() > PULSE_NORM)
 			pulse_result = "<span class='scan_warning'>[pulse_result]</span>"
 	else
-		if(H.isFBP())
-			pulse_result = "[rand(70, 85)]bpm"
-		else
-			pulse_result = "<span class='scan_danger'>ERROR - Nonstandard biology</span>"
-	dat += "Pulse rate: [pulse_result]."
+		pulse_result = "<span class='scan_danger'>0</span>"
+	dat += "Pulse rate: [pulse_result]bpm."
 
 	// Blood pressure. Based on the idea of a normal blood pressure being 120 over 80.
 	if(H.should_have_organ(BP_HEART))
@@ -154,10 +149,7 @@ BREATH ANALYZER
 				blood_pressure_string = "<span class='scan_danger'>[H.get_blood_pressure()]</span>"
 		dat += "[b]Blood pressure:[endb] [blood_pressure_string] ([oxygenation_string])"
 	else
-		if(H.isFBP())
-			dat += "[b]Blood pressure:[endb] [rand(118, 125)]/[rand(77, 85)] (100%)"
-		else
-			dat += "[b]Blood pressure:[endb] N/A"
+		dat += "[b]Blood pressure:[endb] N/A"
 
 	// Body temperature.
 	var/temperature_string
@@ -256,7 +248,7 @@ BREATH ANALYZER
 			var/datum/reagent/R = A
 			if(R.scannable)
 				print_reagent_default_message = FALSE
-				reagentdata["[R.id]"] = "<span class='notice'>    [round(H.reagents.get_reagent_amount(R.id), 1)]u [R.name]</span>"
+				reagentdata["[R.type]"] = "<span class='notice'>    [round(H.reagents.get_reagent_amount(R.type), 1)]u [R.name]</span>"
 			else
 				unknown++
 		if(reagentdata.len)
@@ -283,12 +275,6 @@ BREATH ANALYZER
 
 	if(print_reagent_default_message)
 		dat += "No results."
-
-	if(H.virus2.len)
-		for (var/ID in H.virus2)
-			var/datum/record/virus/V = SSrecords.find_record("id", "[ID]", RECORD_VIRUS)
-			if(istype(V))
-				dat += "<span class='warning'>Warning: Pathogen [V.name] detected in subject's blood. Known antigen : [V.antigen]</span>"
 
 	. += dat
 
@@ -384,7 +370,7 @@ BREATH ANALYZER
 	if(reagents.total_volume)
 		var/list/blood_traces = list()
 		for(var/datum/reagent/R in reagents.reagent_list)
-			if(R.id != "blood")
+			if(R.type != /datum/reagent/blood)
 				reagents.clear_reagents()
 				to_chat(user, "<span class='warning'>The sample was contaminated! Please insert another sample</span>")
 				return
@@ -470,27 +456,27 @@ BREATH ANALYZER
 
 /obj/item/device/slime_scanner/attack(mob/living/M, mob/living/user)
 	if(!isslime(M))
-		to_chat(user, span("warning", "This device can only scan slimes!"))
+		to_chat(user, SPAN_WARNING("This device can only scan slimes!"))
 		return
 	var/mob/living/carbon/slime/T = M
-	to_chat(user, span("notice", "**************************"))
-	to_chat(user, span("notice", "Slime scan results:"))
-	to_chat(user, span("notice", capitalize_first_letters("[T.colour] [T.is_adult ? "adult" : "baby"] slime")))
-	to_chat(user, span("notice", "Health: [T.health]"))
-	to_chat(user, span("notice", "Nutrition: [T.nutrition]/[T.get_max_nutrition()]"))
+	to_chat(user, SPAN_NOTICE("**************************"))
+	to_chat(user, SPAN_NOTICE("Slime scan results:"))
+	to_chat(user, SPAN_NOTICE(capitalize_first_letters("[T.colour] [T.is_adult ? "adult" : "baby"] slime")))
+	to_chat(user, SPAN_NOTICE("Health: [T.health]"))
+	to_chat(user, SPAN_NOTICE("Nutrition: [T.nutrition]/[T.get_max_nutrition()]"))
 	if(T.nutrition < T.get_starve_nutrition())
-		to_chat(user, span("alert", "Warning: slime is starving!"))
+		to_chat(user, SPAN_ALERT("Warning: slime is starving!"))
 	else if (T.nutrition < T.get_hunger_nutrition())
-		to_chat(user, span("warning", "Warning: slime is hungry!"))
-	to_chat(user, span("notice", "Electric charge strength: [T.powerlevel]"))
-	to_chat(user, span("notice", "Growth progress: [T.amount_grown]/10"))
+		to_chat(user, SPAN_WARNING("Warning: slime is hungry!"))
+	to_chat(user, SPAN_NOTICE("Electric charge strength: [T.powerlevel]"))
+	to_chat(user, SPAN_NOTICE("Growth progress: [T.amount_grown]/10"))
 	if(T.cores > 1)
-		to_chat(user, span("warning", "Anomalous number of slime cores detected."))
+		to_chat(user, SPAN_WARNING("Anomalous number of slime cores detected."))
 	else if(!T.cores)
-		to_chat(user, span("warning", "No slime cores detected."))
-	to_chat(user, span("notice", "Genetic Information:"))
+		to_chat(user, SPAN_WARNING("No slime cores detected."))
+	to_chat(user, SPAN_NOTICE("Genetic Information:"))
 	if(T.slime_mutation[4] == T.colour)
-		to_chat(user, span("warning", "This slime cannot evolve any further."))
+		to_chat(user, SPAN_WARNING("This slime cannot evolve any further."))
 	else
 		var/list/poss_mutations = uniquelist(T.slime_mutation)
 		var/mutation_message = capitalize(english_list(poss_mutations))

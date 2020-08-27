@@ -9,6 +9,8 @@
 
 	. = params2list(params)
 
+#ifdef TESTING
 	testing("X: [.["icon-x"]], Y: [.["icon-y"]]")
+#endif
 	return list("icon-x" = Clamp(text2num(.["icon-x"]), 0, lim_x),
                 "icon-y" = Clamp(text2num(.["icon-y"]), 0, lim_y))

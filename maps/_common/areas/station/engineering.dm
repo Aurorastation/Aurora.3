@@ -4,12 +4,7 @@
 /area/engineering
 	name = "Engineering"
 	icon_state = "engineering"
-	ambience = list(
-		'sound/ambience/ambisin1.ogg',
-		'sound/ambience/ambisin2.ogg',
-		'sound/ambience/ambisin3.ogg',
-		'sound/ambience/ambisin4.ogg'
-	)
+	ambience = AMBIENCE_ENGINEERING
 	station_area = 1
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
@@ -18,7 +13,7 @@
 	icon_state = "atmos"
 	sound_env = LARGE_ENCLOSED
 	no_light_control = 1
-	ambience = list('sound/ambience/ambiatm1.ogg')
+	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS)
 
 /area/engineering/atmos/monitoring
 	name = "Engineering - Atmospherics Monitoring Room"
@@ -39,12 +34,14 @@
 	name = "Engineering - Main Lvl. SMES Room"
 	icon_state = "engine_smes"
 	sound_env = SMALL_ENCLOSED
+	ambience = AMBIENCE_SINGULARITY
 
 /area/engineering/engine_room
 	name = "Engineering - Engine Room"
 	icon_state = "engine"
 	sound_env = LARGE_ENCLOSED
 	no_light_control = 1
+	ambience = AMBIENCE_SINGULARITY
 
 /area/engineering/engine_airlock
 	name = "Engineering - Engine Room Airlock"

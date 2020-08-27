@@ -20,6 +20,7 @@
 	health = 700
 	melee_damage_lower = 25
 	melee_damage_upper = 30
+	resist_mod = 15 // LOL good luck pal
 	heat_damage_per_tick = 20
 	cold_damage_per_tick = 20
 	faction = "spiders"
@@ -37,7 +38,6 @@
 	environment_smash = 2
 
 	pixel_x = -16
-	pixel_y = -16
 
 	attack_emote = "skitters toward"
 	emote_sounds = list('sound/effects/creatures/spider_critter.ogg')
@@ -105,6 +105,7 @@
 	if(target_turf)
 		S.visible_message("<span class='danger'>\The [S] lands on the [target_turf]!</span>")
 		for(var/mob/living/M in target_turf)
-			M.apply_damage(50, BRUTE)
-			M.apply_effect(6, STUN, blocked)
+			if(M != src)
+				M.apply_damage(50, BRUTE)
+				M.apply_effect(6, STUN, blocked)
 	return TRUE

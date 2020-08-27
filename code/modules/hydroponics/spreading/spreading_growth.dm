@@ -17,7 +17,7 @@
 		if((locate(/obj/effect/plant) in floor.contents) || (locate(/obj/effect/dead_plant) in floor.contents) )
 			continue
 		if(floor.density)
-			if(seed && seed.chems["pacid"])
+			if(seed && seed.chems[/datum/reagent/acid/polyacid])
 				addtimer(CALLBACK(floor, /atom/.proc/ex_act, 3), rand(5, 25))
 			continue
 		if(!Adjacent(floor) || !floor.Enter(src))
@@ -39,7 +39,7 @@
 		return 0
 
 	for(var/obj/effect/effect/smoke/chem/smoke in view(1, src))
-		if(smoke.reagents.has_reagent("plantbgone"))
+		if(smoke.reagents.has_reagent(/datum/reagent/toxin/plantbgone))
 			die_off()
 			return
 

@@ -139,13 +139,13 @@
 	return
 
 
-/obj/item/implantcase/dexplosive
+/obj/item/implantcase/explosive/deadman
 	name = "glass case - 'explosive'"
 	desc = "A case containing an explosive."
 	icon_state = "implantcase-r"
 
-/obj/item/implantcase/dexplosive/New()
-	src.imp = new /obj/item/implant/dexplosive( src )
+/obj/item/implantcase/explosive/deadman/New()
+	src.imp = new /obj/item/implant/explosive/deadman( src )
 	..()
 	return
 

@@ -53,8 +53,8 @@
 			var/path = pick(list(
 				/obj/item/clothing/mask/smokable/pipe,
 				/obj/item/clothing/mask/smokable/pipe/cobpipe,
-				/obj/item/storage/fancy/cigar,
-				/obj/item/storage/fancy/cigarettes
+				/obj/item/storage/box/fancy/cigarettes/cigar,
+				/obj/item/storage/box/fancy/cigarettes
 			))
 			H.equip_or_collect(new path(), slot_wear_mask)
 
@@ -76,7 +76,6 @@
 		if(prob(20)) //Equip some gloves
 			var/datum/gear/G = gear_datums["gloves selection"]
 			H.equip_or_collect(G.spawn_random(), slot_gloves)
-
 
 /datum/outfit/admin/random/visitor
 	name = "Random Visitor"

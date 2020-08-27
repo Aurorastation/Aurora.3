@@ -6,16 +6,19 @@
 		/mob/living/silicon/proc/subsystem_alarm_monitor,
 		/mob/living/silicon/proc/subsystem_law_manager,
 		/mob/living/silicon/ai/proc/subsystem_ntnet_monitor,
-		/mob/living/silicon/proc/computer_interact
+		/mob/living/silicon/proc/computer_interact,
+		/mob/living/silicon/proc/silicon_mimic_accent
 	)
 
 /mob/living/silicon/robot/syndicate
 	register_alarms = 0
-	silicon_subsystems = list(/mob/living/silicon/proc/subsystem_law_manager)
+	silicon_subsystems = list(
+		/mob/living/silicon/proc/subsystem_law_manager,
+		/mob/living/silicon/proc/silicon_mimic_accent
+	)
 
 /mob/living/silicon/ai/Destroy()
 	QDEL_NULL(ntnet_monitor)
-
 	return ..()
 
 /mob/living/silicon/proc/init_subsystems()
@@ -51,6 +54,12 @@
 	set category = "Subsystems"
 
 	computer.attack_self(src)
+
+/mob/living/silicon/pai/proc/personal_computer_interact()
+	set name = "Access Local Computer"
+	set category = "Subsystems"
+
+	parent_computer.attack_self(src)
 
 /********************
 *	Alarm Monitor	*

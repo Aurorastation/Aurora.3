@@ -53,7 +53,7 @@
 			if (prob(35))//probability to reduce spam
 				src.visible_message("<span class='warning'>The bee swarm starts to thin out a little.</span>")
 
-		update_icons()
+		update_icon()
 	else
 		..()
 
@@ -64,7 +64,7 @@
 	if(strength <= 0)
 		death()
 	else
-		update_icons()
+		update_icon()
 
 	..()
 
@@ -116,8 +116,8 @@
 			var/mob/living/simple_animal/bee/B = new(get_turf(src))
 			B.strength = rand(1,5)
 			src.strength -= B.strength
-			update_icons()
-			B.update_icons()
+			update_icon()
+			B.update_icon()
 			if(src.parent)
 				B.parent = src.parent
 				src.parent.owned_bee_swarms.Add(B)
@@ -152,8 +152,8 @@
 		if(feral > 0)
 			src.strength += B.strength
 			B.strength = 0
-			B.update_icons()
-			update_icons()
+			B.update_icon()
+			update_icon()
 
 		else if(prob(10))
 			//make the other swarm of bees stronger, then move away
@@ -162,8 +162,8 @@
 				B.strength = min(5, total_bees)
 				src.strength = total_bees - B.strength
 
-				update_icons()
-				B.update_icons()
+				update_icon()
+				B.update_icon()
 				if(src.strength <= 0)
 					qdel(src)
 					return
@@ -219,7 +219,7 @@
 	animate(src, pixel_x = rand(-12, 12), pixel_y = rand(-12, 12), time = 0.5)
 
 
-/mob/living/simple_animal/bee/update_icons()
+/mob/living/simple_animal/bee/update_icon()
 	if(strength <= 5)
 		icon_state = "bees[round(strength,1)]"
 	else
@@ -260,7 +260,7 @@
 /mob/living/simple_animal/bee/standalone/Initialize(mapload, var/obj/machinery/beehive/new_parent)
 	. = ..()
 	strength = rand(4,8)
-	update_icons()
+	update_icon()
 
 /mob/living/simple_animal/bee/beegun
 	maxHealth = 30

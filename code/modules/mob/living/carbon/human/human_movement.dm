@@ -4,11 +4,15 @@
 	if(species.slowdown)
 		tally = species.slowdown
 
-	if (istype(loc, /turf/space)) return -1 // It's hard to be slowed down in space by... anything
-
-	if (isopenturf(loc)) //open space checks
+	if(ishuman(pulling))
+		var/mob/living/carbon/human/H = pulling
+		if(H.species.slowdown> species.slowdown)
+			tally = H.species.slowdown
+		tally += H.ClothesSlowdown()
+    
+	if (istype(loc, /turf/space) || isopenturf(loc))
 		if(!(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc) || locate(/obj/structure/ladder, loc)))
-			return -1
+			return 0
 
 	if(embedded_flag)
 		handle_embedded_objects() //Moving with objects stuck in you can cause bad times.
@@ -19,8 +23,7 @@
 	if(can_feel_pain())
 		if(get_shock() >= 10) tally += (get_shock() / 10) //pain shouldn't slow you down if you can't even feel it
 
-	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head))
-		tally += I.slowdown
+	tally += ClothesSlowdown()
 
 	if(species)
 		tally += species.get_species_tally(src)
@@ -147,7 +150,8 @@
 
 	if (client)
 		var/turf/B = GetAbove(T)
-		up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
+		if(up_hint)
+			up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
 
 	if (is_noisy && !stat && !lying)
 		if ((x == last_x && y == last_y) || !footsound)
@@ -168,3 +172,7 @@
 
 /mob/living/carbon/human/mob_negates_gravity()
 	return (shoes && shoes.negates_gravity())
+
+/mob/living/carbon/human/proc/ClothesSlowdown()
+	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head, wear_mask, shoes, l_ear, r_ear, glasses, belt))
+		. += I.slowdown

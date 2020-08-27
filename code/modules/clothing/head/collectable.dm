@@ -9,7 +9,7 @@
 	desc = "an ultra rare hat. It commands a certain respect."
 	icon_state = "petehat"
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi'
+		BODYTYPE_VOX = 'icons/mob/species/vox/head.dmi'
 		)
 
 /obj/item/clothing/head/collectable/slime
@@ -93,12 +93,6 @@
 	name = "collectable pirate hat"
 	desc = "You'd make a great Dread Syndie Roberts!"
 	icon_state = "pirate"
-
-/obj/item/clothing/head/collectable/kitty
-	name = "collectable kitty ears"
-	desc = "The fur feels.....a bit too realistic."
-	icon_state = "kitty"
-	body_parts_covered = 0
 
 /obj/item/clothing/head/collectable/rabbitears
 	name = "collectable rabbit ears"

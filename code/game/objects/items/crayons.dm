@@ -3,42 +3,42 @@
 	colour = "#DA0000"
 	shadeColour = "#810C0C"
 	colourName = "red"
-	dust = "crayon_dust_red"
+	reagents_to_add = list(/datum/reagent/crayon_dust/red = 10)
 
 /obj/item/pen/crayon/orange
 	icon_state = "crayonorange"
 	colour = "#FF9300"
 	shadeColour = "#A55403"
 	colourName = "orange"
-	dust = "crayon_dust_orange"
+	reagents_to_add = list(/datum/reagent/crayon_dust/orange = 10)
 
 /obj/item/pen/crayon/yellow
 	icon_state = "crayonyellow"
 	colour = "#FFF200"
 	shadeColour = "#886422"
 	colourName = "yellow"
-	dust = "crayon_dust_yellow"
+	reagents_to_add = list(/datum/reagent/crayon_dust/yellow = 10)
 
 /obj/item/pen/crayon/green
 	icon_state = "crayongreen"
 	colour = "#A8E61D"
 	shadeColour = "#61840F"
 	colourName = "green"
-	dust = "crayon_dust_green"
+	reagents_to_add = list(/datum/reagent/crayon_dust/green = 10)
 
 /obj/item/pen/crayon/blue
 	icon_state = "crayonblue"
 	colour = "#00B7EF"
 	shadeColour = "#0082A8"
 	colourName = "blue"
-	dust = "crayon_dust_blue"
+	reagents_to_add = list(/datum/reagent/crayon_dust/blue = 10)
 
 /obj/item/pen/crayon/purple
 	icon_state = "crayonpurple"
 	colour = "#DA00FF"
 	shadeColour = "#810CFF"
 	colourName = "purple"
-	dust = "crayon_dust_purple"
+	reagents_to_add = list(/datum/reagent/crayon_dust/purple = 10)
 
 /obj/item/pen/crayon/mime
 	icon_state = "crayonmime"
@@ -46,8 +46,7 @@
 	colour = "#FFFFFF"
 	shadeColour = "#000000"
 	colourName = "mime"
-	dust = "crayon_dust_grey"
-	chem_volume = 15
+	reagents_to_add = list(/datum/reagent/crayon_dust/grey = 15)
 
 /obj/item/pen/crayon/mime/attack_self(mob/living/user as mob) //inversion
 	if(colour != "#FFFFFF" && shadeColour != "#000000")
@@ -65,8 +64,7 @@
 	colour = "#FFF000"
 	shadeColour = "#000FFF"
 	colourName = "rainbow"
-	dust = "crayon_dust_brown"
-	chem_volume = 20
+	reagents_to_add = list(/datum/reagent/crayon_dust/brown = 20)
 
 /obj/item/pen/crayon/rainbow/attack_self(mob/living/user as mob)
 	colour = input(user, "Please select the main colour.", "Crayon colour") as color
@@ -97,9 +95,10 @@
 			new /obj/effect/decal/cleanable/crayon(target,colour,shadeColour,drawtype)
 			to_chat(user, "You finish drawing.")
 			target.add_fingerprint(user)		// Adds their fingerprints to the floor the crayon is drawn on.
-			if(reagents)
-				reagents.remove_reagent(dust,0.5) //using crayons reduces crayon dust in it.
-				if(reagents.total_volume <= 0)
+			if(reagents && LAZYLEN(reagents_to_add))
+				for(var/datum/reagent/R in reagents_to_add)
+					reagents.remove_reagent(R,0.5/LAZYLEN(reagents_to_add)) //using crayons reduces crayon dust in it.
+				if(!reagents.has_all_reagents(reagents_to_add))
 					to_chat(user, "<span class='warning'>You used up your crayon!</span>")
 					qdel(src)
 	return

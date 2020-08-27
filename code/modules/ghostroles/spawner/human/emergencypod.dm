@@ -10,8 +10,7 @@
 
 	//Vars related to human mobs
 	outfit = /datum/outfit/admin/random/visitor
-	possible_species = list("Human","Skrell","Tajara","Unathi")
-	possible_genders = list(MALE,FEMALE)
+	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_TAJARA,SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Pod Survivor"
@@ -26,33 +25,32 @@
 	. = ..()
 	var/t = pick(list("star", "priest", "rep", "smuggler", "hunter", "occultist", "pmc"))
 	if(t == "star")
-		welcome_message = "You are a stranded starlet!<br>You were relaxing comfortably in your cryo pod as tragedy struck - the pilot of your luxury yacht fell asleep under some mysterious circumstances. You were unceremoniously stuffed into an escape pod, and left to wander in space. What a despicable, low-quality plot to get rid of you. Should've chosen murder instead - you certainly know you'll convince someone nice to lend you a shuttle."
+		welcome_message = "You are a stranded star!<br>You were relaxing comfortably in your cryo pod as tragedy struck - the pilot of your luxury yacht fell asleep under some mysterious circumstances. You were unceremoniously stuffed into an escape pod, and left to wander in space. What a despicable, low-quality plot to get rid of you. Should've chosen murder instead - you certainly know you'll convince someone nice to lend you a shuttle."
 		outfit = /datum/outfit/admin/pod/star
-		possible_genders = list(FEMALE)
-		possible_species = list("Human","Skrell")
+		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL)
 	else if(t == "priest")
 		welcome_message = "You are a stranded Trinary Perfection priest!<br>You were traveling around space on your small shuttle, preaching peacefully of the future divinity of the synthetics, and the grand purpose of mankind as the ones to help them achieve that goal. Unfortunately, Dominians don't seem to be as peaceful in disagreeing with your views - and had to evacuate your shot-down ship. Have your prayers to the Divines helped you now?"
 		outfit = /datum/outfit/admin/pod/priest
-		possible_species = list("Human")
+		possible_species = list(SPECIES_HUMAN)
 	else if(t == "rep")
 		welcome_message = "You are a stranded Idris Incorporated representative!<br>You were traveling back from your business in Sol to the Mendell City HQ. Unfortunately, after a very unusual set of circumstances, the engine broke down just almost as you got back. You're stranded somewhere nearby - perhaps your excellent customer service and negotiation skills might get you a ride back to Mendell?"
 		outfit = /datum/outfit/admin/pod/rep
-		possible_species = list("Human")
+		possible_species = list(SPECIES_HUMAN)
 	else if(t == "hunter")
 		welcome_message = "You are a stranded space fauna hunter!<br>Your ship has been attacked by a wild megacarp - a rare, almost mythical animal... with very expensive trophies. In this encounter, you lost. But the hunt lives on! You just need to find a new spacefaring vessel!"
 		outfit = /datum/outfit/admin/pod/hunter
-		possible_species = list("Human") // no ayyliums because the frontier rig only fits humans. i wish i could put unathi in here tho
+		possible_species = list(SPECIES_HUMAN) // no ayyliums because the frontier rig only fits humans. i wish i could put unathi in here tho
 	else if(t == "occultist")
 		welcome_message = "You are a stranded occultist!<br>This unfortunate turn of events was in the cards. Nonetheless, you managed to save your most prized possessions - your magical deck of cards and your ominous, definitely magical robes. The cards have also told you that your bad luck will surely be followed by good fortune."
 		outfit = /datum/outfit/admin/pod/occultist
 	else if(t == "pmc")
 		welcome_message = "You are a stranded Eridani paramilitary sergeant!<br>You aren't getting paid enough for this shit. Where's the pickup shuttle?"
 		outfit = /datum/outfit/admin/pod/pmc
-		possible_species = list("Human") // no cycler in the pod, spawns in a voidsuit
+		possible_species = list(SPECIES_HUMAN) // no cycler in the pod, spawns in a voidsuit
 	else
 		welcome_message = "You are a stranded drugs smuggler!<br>You shouldn't have had the fucking Tajara pilot your ship. <i>Of course</i> we crashed into a rock. Good thing you've got some of the stuff with you while evacuating - maybe you'll crash somewhere you could sell it for a ticket back?"
 		outfit = /datum/outfit/admin/pod/smuggler
-		possible_species = list("Human","Skrell","Unathi")
+		possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI)
 
 /datum/ghostspawner/human/rescuepodsurv/select_spawnpoint(var/use=TRUE)
 	//Randomly select a Turf on the asteroid.
@@ -95,8 +93,8 @@
 /datum/outfit/admin/pod/star
 	name = "RescuePod - Star"
 
-	uniform = "dress selection"
-	shoes = "flats selection"
+	uniform = "suit selection"
+	shoes = "oxford shoe selection"
 
 	backpack_contents = list(
 		/obj/item/lipstick/random = 2,

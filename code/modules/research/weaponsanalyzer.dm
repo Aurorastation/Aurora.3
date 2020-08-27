@@ -1,9 +1,10 @@
 /obj/machinery/weapons_analyzer
-	name = "Weapons Analyzer"
+	name = "weapons analyzer"
+	desc = "A research device which can be used to put together modular energy weapons, or to gain knowledge about the effectiveness of various objects as weaponry."
 	icon = 'icons/obj/machines/research.dmi'
 	icon_state = "weapon_analyzer"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 60
 	active_power_usage = 2000
@@ -22,7 +23,7 @@
 	var/name_of_thing = ""
 	if(item)
 		name_of_thing = item.name
-	to_chat(user, span("notice", "It has [name_of_thing ? "[name_of_thing]" : "nothing"] attached."))
+	to_chat(user, SPAN_NOTICE("It has [name_of_thing ? "[name_of_thing]" : "nothing"] attached."))
 
 /obj/machinery/weapons_analyzer/attackby(var/obj/item/I, var/mob/user as mob)
 	if(!I || !user || !ishuman(user))
@@ -31,19 +32,13 @@
 	var/mob/living/carbon/human/H = user
 
 	if(istype(I, /obj/item/gun))
-
-		if(!check_gun(user))
-			return
-
+		check_swap(user, I)
 		item = I
-
 		H.drop_from_inventory(I)
 		I.forceMove(src)
 		update_icon()
 	else if(istype(I, /obj/item/device/laser_assembly))
-		if(!check_gun(user))
-			return
-
+		check_swap(user, I)
 		var/obj/item/device/laser_assembly/A = I
 		A.ready_to_craft = TRUE
 		item = A
@@ -52,11 +47,8 @@
 		A.analyzer = WEAKREF(src)
 		update_icon()
 	else if(istype(I, /obj/item/laser_components) && istype(item, /obj/item/device/laser_assembly))
-		if(!item)
-			to_chat(user, span("warning", "\The [src] does not have any assembly installed!"))
-			return
 		if(process)
-			to_chat(user, span("warning", "\The [src] is busy installing component!"))
+			to_chat(user, SPAN_WARNING("\The [src] is busy installing a component already."))
 			return
 		var/obj/item/device/laser_assembly/A = item
 		var/success = A.attackby(I, user)
@@ -72,12 +64,13 @@
 		process = TRUE
 		update_icon()
 	else if(I)
+		check_swap(user, I)
 		item = I
 		H.drop_from_inventory(I)
 		I.forceMove(src)
 		update_icon()
 
-/obj/machinery/weapons_analyzer/attack_hand(mob/user as mob)
+/obj/machinery/weapons_analyzer/attack_hand(mob/user)
 	user.set_machine(src)
 	ui_interact(user)
 
@@ -85,11 +78,17 @@
 	process = FALSE
 	update_icon()
 
-/obj/machinery/weapons_analyzer/proc/check_gun(var/mob/user)
+/obj/machinery/weapons_analyzer/proc/check_swap(var/mob/user, var/obj/I)
 	if(item)
-		to_chat(user, span("warning", "\The [src] already has \the [item] mounted. Remove it first."))
-		return FALSE
-	return TRUE
+		to_chat(user, SPAN_NOTICE("You swap \the [item] out for \the [I]."))
+		if(istype(item, /obj/item/device/laser_assembly))
+			var/obj/item/device/laser_assembly/A = item
+			A.ready_to_craft = FALSE
+			A.analyzer = null
+		item.forceMove(get_turf(src))
+		user.put_in_hands(item)
+		item = null
+		update_icon()
 
 /obj/machinery/weapons_analyzer/verb/eject()
 	set name = "Eject Inserted Item"
@@ -113,7 +112,7 @@
 		update_icon()
 
 	else
-		to_chat(usr, span("warning", "There is nothing in \the [src]."))
+		to_chat(usr, SPAN_WARNING("There is nothing in \the [src]."))
 
 /obj/machinery/weapons_analyzer/update_icon()
 	icon_state = initial(icon_state)
@@ -184,7 +183,7 @@
 			data["recharge_time"] = initial(E.recharge_time)
 			data["damage"] = initial(P.damage)
 			data["damage_type"] = initial(P.damage_type)
-			data["check_armor"] = initial(P.check_armour)
+			data["check_armor"] = initial(P.check_armor)
 			data["stun"] = initial(P.stun) ? "stuns" : "does not stun"
 			data["shrapnel_type"] = initial(P.shrapnel_type) ? initial(P.shrapnel_type) : "none"
 			data["armor_penetration"] = initial(P.armor_penetration)
@@ -206,7 +205,7 @@
 				var/obj/item/projectile/P_second = E.secondary_projectile_type
 				data["secondary_damage"] = initial(P_second.damage)
 				data["secondary_damage_type"] = initial(P_second.damage_type)
-				data["secondary_check_armor"] = initial(P_second.check_armour)
+				data["secondary_check_armor"] = initial(P_second.check_armor)
 				data["secondary_stun"] = initial(P_second.stun) ? "stuns" : "does not stun"
 				data["secondary_shrapnel_type"] = initial(P_second.shrapnel_type) ? initial(P_second.shrapnel_type) : "none"
 				data["secondary_armor_penetration"] = initial(P_second.armor_penetration)
@@ -218,7 +217,7 @@
 			data["max_shots"] = P_gun.max_shells
 			data["damage"] = initial(P.damage)
 			data["damage_type"] = initial(P.damage_type)
-			data["check_armor"] = initial(P.check_armour)
+			data["check_armor"] = initial(P.check_armor)
 			data["stun"] = initial(P.stun) ? "stuns" : "does not stun"
 			data["shrapnel_type"] = initial(P.shrapnel_type) ? initial(P.shrapnel_type) : "none"
 		data["burst"] = gun.burst
