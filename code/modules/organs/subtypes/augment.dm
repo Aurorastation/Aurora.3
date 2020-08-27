@@ -237,11 +237,15 @@
 		if("Security")
 			req_access = list(access_security)
 			if(allowed(owner))
+				owner.med_eyes = 0
+				owner.sec_eyes = 1
 				process_sec_hud(owner, 1)
 
 		if("Medical")
 			req_access = list(access_medical)
 			if(allowed(owner))
+				owner.med_eyes = 1
+				owner.sec_eyes = 0
 				process_med_hud(owner, 1)
 
 /obj/item/organ/internal/augment/eye_sensors/emp_act(severity)

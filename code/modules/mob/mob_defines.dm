@@ -162,6 +162,9 @@
 	var/const/deafness = 2//Carbon
 	var/const/muteness = 4//Carbon
 
+	var/med_eyes = 0 //determines if the mob has medical integrated sensors
+	var/sec_eyes = 0 //determines if the mob has security integrated sensors
+
 	var/can_pull_size = 10              // Maximum w_class the mob can pull.
 	var/can_pull_mobs = MOB_PULL_LARGER // Whether or not the mob can pull other mobs.
 
