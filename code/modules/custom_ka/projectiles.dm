@@ -4,7 +4,7 @@
 	icon_state = null
 	damage = 0 //Base damage handled elsewhere.
 	damage_type = BRUTE
-	check_armour = "bomb"
+	check_armor = "bomb"
 	range = 5
 	var/pressure_decrease = 0.25
 	var/base_damage = 0

@@ -28,7 +28,10 @@
 		/decl/emote/human/fastsway,
 		/decl/emote/human/swag,
 		/decl/emote/human/stopsway,
-		/decl/emote/audible/lizard_bellow
+		/decl/emote/audible/lizard_bellow,
+		/decl/emote/audible/hiss,
+		/decl/emote/audible/hiss/long,
+		/decl/emote/audible/hiss/short
 		)
 	pain_emotes_with_pain_level = list(
 		list(/decl/emote/audible/roar, /decl/emote/audible/whimper, /decl/emote/audible/moan) = 70,

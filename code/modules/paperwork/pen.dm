@@ -142,7 +142,7 @@ Pen exclusive commands
 
 /obj/item/pen/fountain/attack_self(var/mob/user)
 	playsound(loc, 'sound/items/penclick.ogg', 50, 1)
-	to_chat(user, span("notice", "You snap the nib into position to write [cursive ? "normally" : "in cursive"]."))
+	to_chat(user, SPAN_NOTICE("You snap the nib into position to write [cursive ? "normally" : "in cursive"]."))
 	cursive = !cursive
 
 /*
@@ -202,7 +202,7 @@ Pen exclusive commands
 /obj/item/pen/reagent/sleepy
 	desc = "It's a black ink pen with a sharp point and a carefully engraved \"Waffle Co.\""
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/datum/reagent/chloralhydrate = 22)
+	reagents_to_add = list(/datum/reagent/polysomnine = 22)
 
 
 /*

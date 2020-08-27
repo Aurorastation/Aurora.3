@@ -1,6 +1,6 @@
 /obj/machinery/appliance/cooker/oven
 	name = "oven"
-	desc = "Cookies are ready, dear."
+	desc = "A large kitchen appliance that can be used to prepare food via electric convection cooking."
 	icon = 'icons/obj/cooking_machines.dmi'
 	icon_state = "ovenopen"
 	cook_type = "baked"

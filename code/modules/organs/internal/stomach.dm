@@ -21,7 +21,7 @@
 	. = ..()
 
 /obj/item/organ/internal/stomach/Initialize()
-	..()
+	. = ..()
 	ingested = new /datum/reagents/metabolism(240, owner, CHEM_INGEST)
 	if(!ingested.my_atom)
 		ingested.my_atom = src
@@ -42,7 +42,7 @@
 	. = ..()
 	if(.)
 		action.button_icon_state = "puke"
-		if(action.button) action.button.UpdateIcon()
+		if(action.button) action.button.update_icon()
 
 /obj/item/organ/internal/stomach/attack_self(mob/user)
 	. = ..()
@@ -75,7 +75,7 @@
 		var/mob/living/L = food
 		if((species.gluttonous & GLUT_TINY) && (L.mob_size <= MOB_TINY) && !ishuman(food)) // Anything MOB_TINY or smaller
 			return DEVOUR_SLOW
-		else if((species.gluttonous & (GLUT_SMALLER|GLUT_MESSY)) && owner.mob_size > L.mob_size) // Anything we're larger than
+		else if((species.gluttonous & GLUT_MESSY) || ((species.gluttonous & GLUT_SMALLER) && owner.mob_size > L.mob_size)) //Whether you can eat things smaller, or bigger than you.
 			return DEVOUR_SLOW
 		else if(species.gluttonous & GLUT_ANYTHING) // Eat anything ever
 			return DEVOUR_FAST
@@ -98,9 +98,9 @@
 /obj/item/organ/internal/stomach/proc/metabolize()
 	if(is_usable())
 		ingested.metabolize()
-	
+
 #define STOMACH_VOLUME 65
-	
+
 /obj/item/organ/internal/stomach/process()
 	..()
 	if(owner)

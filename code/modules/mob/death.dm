@@ -100,7 +100,7 @@
 	living_mob_list -= src
 	dead_mob_list |= src
 
-	updateicon()
+	update_icon()
 
 	if(SSticker.mode)
 		SSticker.mode.check_win()

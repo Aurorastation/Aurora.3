@@ -348,18 +348,13 @@
 
 /datum/outfit/admin/wizard
 	name = "Space Wizard"
-	allow_backbag_choice = TRUE
+	allow_backbag_choice = FALSE
 
-	uniform = /obj/item/clothing/under/lightpurple
-	back = null
-	backpack = /obj/item/storage/backpack/wizard
-	satchel = /obj/item/storage/backpack/satchel_wizard
-	satchel_alt = /obj/item/storage/backpack/satchel
-	dufflebag = /obj/item/storage/backpack/duffel/wizard
-	messengerbag = /obj/item/storage/backpack/messenger/wizard
-	suit = /obj/item/clothing/suit/wizrobe
-	head = /obj/item/clothing/head/wizard
-	shoes = /obj/item/clothing/shoes/sandal
+	uniform = /obj/item/clothing/under/chameleon/wizard
+	back = /obj/item/storage/backpack/chameleon/wizard
+	suit = /obj/item/clothing/suit/chameleon/wizard
+	head = /obj/item/clothing/head/chameleon/wizard
+	shoes = /obj/item/clothing/shoes/chameleon/wizard
 	l_ear = /obj/item/device/radio/headset
 	r_pocket = /obj/item/teleportation_scroll
 	l_hand = /obj/item/spellbook

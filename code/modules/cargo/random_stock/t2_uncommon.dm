@@ -14,8 +14,8 @@ STOCK_ITEM_UNCOMMON(plasteel, 3)
 STOCK_ITEM_UNCOMMON(silver, 2)
 	new /obj/item/stack/material/silver(L, rand(5,30))
 
-STOCK_ITEM_UNCOMMON(phoronsheets, 2)
-	new /obj/item/stack/material/phoron(L, rand(5,50))
+STOCK_ITEM_UNCOMMON(phoronsheets, 1.5)
+	new /obj/item/stack/material/phoron(L, rand(5,40))
 
 STOCK_ITEM_UNCOMMON(phoronglass, 2)
 	new /obj/item/stack/material/glass/phoronglass(L, 50)
@@ -86,7 +86,7 @@ STOCK_ITEM_UNCOMMON(mediumcell, 3)
 
 STOCK_ITEM_UNCOMMON(chempack, 5)
 	var/list/chems = SSchemistry.chemical_reagents.Copy()
-	var/list/exclusion = list(/datum/reagent/drink, /datum/reagent, /datum/reagent/adminordrazine, /datum/reagent/chloralhydrate/beer2, /datum/reagent/azoth, /datum/reagent/elixir,\
+	var/list/exclusion = list(/datum/reagent/drink, /datum/reagent, /datum/reagent/adminordrazine, /datum/reagent/polysomnine/beer2, /datum/reagent/azoth, /datum/reagent/elixir,\
 		/datum/reagent/liquid_fire, /datum/reagent/philosopher_stone, /datum/reagent/toxin/undead, /datum/reagent/love_potion, /datum/reagent/shapesand, /datum/reagent/usolve,\
 		/datum/reagent/sglue, /datum/reagent/black_matter, /datum/reagent/bottle_lightning, /datum/reagent/toxin/trioxin, /datum/reagent/toxin/phoron_salt, /datum/reagent/toxin/nanites, /datum/reagent/nitroglycerin)
 	chems -= exclusion
@@ -170,9 +170,6 @@ STOCK_ITEM_UNCOMMON(MMI, 1.5)
 
 STOCK_ITEM_UNCOMMON(voidsuit, 2)
 	new /obj/random/voidsuit(L,1)
-
-STOCK_ITEM_UNCOMMON(nightvision, 2)
-	new /obj/item/clothing/glasses/night(L)
 
 STOCK_ITEM_UNCOMMON(violin, 2)
 	new /obj/item/device/violin(L)
@@ -274,8 +271,11 @@ STOCK_ITEM_UNCOMMON(manual, 2)
 	var/type = pick(booklist)
 	new type(L)
 
-STOCK_ITEM_UNCOMMON(jammer, 2)
-	new /obj/item/device/radiojammer(L)
+STOCK_ITEM_UNCOMMON(spystuff, 1)
+	if(prob(40))
+		new /obj/item/device/radiojammer(L)
+	else
+		new /obj/item/clothing/glasses/night(L)
 
 STOCK_ITEM_UNCOMMON(seeds, 1)
 	for(var/i in 1 to rand(1, 3))
@@ -330,7 +330,7 @@ STOCK_ITEM_UNCOMMON(randomhide, 0.5)
 	var/obj/item/stack/material/animalhide/spawn_hide = pick(typesof(/obj/item/stack/material/animalhide))
 	new spawn_hide(L, rand(5, 50))
 
-STOCK_ITEM_UNCOMMON(hoodie, 0.5)
+STOCK_ITEM_UNCOMMON(hoodie, 1)
 	new /obj/random/hoodie(L)
 
 STOCK_ITEM_UNCOMMON(bang, 0.5)
@@ -377,7 +377,21 @@ STOCK_ITEM_UNCOMMON(pops, 0.5)
 		new /obj/item/storage/box/snappops/syndi(L)
 
 STOCK_ITEM_UNCOMMON(collectable_headwear, 0.5)
-	var/type = pick(subtypesof(/obj/item/clothing/head/collectable/))
+	var/type = pick(subtypesof(/obj/item/clothing/head/collectable))
+	new type(L)
+
+STOCK_ITEM_UNCOMMON(pickaxes, 1)
+	var/list/pickaxe_type = list(
+		/obj/item/pickaxe = 10,
+		/obj/item/pickaxe/hammer = 1,
+		/obj/item/pickaxe/silver = 2,
+		/obj/item/pickaxe/drill = 5,
+		/obj/item/pickaxe/gold = 0.5,
+		/obj/item/pickaxe/diamond = 0.25,
+		/obj/item/pickaxe/brush = 1,
+		/obj/item/pickaxe/hand = 2
+		)
+	var/type = pickweight(pickaxe_type)
 	new type(L)
 
 STOCK_ITEM_UNCOMMON(alt_glasses, 1)

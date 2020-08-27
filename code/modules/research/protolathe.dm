@@ -1,5 +1,6 @@
 /obj/machinery/r_n_d/protolathe
 	name = "protolathe"
+	desc = "An upgraded variant of a common Autolathe, this can only be operated via a nearby RnD console, but can manufacture cutting edge technology, provided it has the design and the correct materials."
 	icon_state = "protolathe"
 	flags = OPENCONTAINER
 
@@ -160,11 +161,9 @@
 
 /obj/machinery/r_n_d/protolathe/proc/addToQueue(var/datum/design/D)
 	queue += D
-	return
 
 /obj/machinery/r_n_d/protolathe/proc/removeFromQueue(var/index)
 	queue.Cut(index, index + 1)
-	return
 
 /obj/machinery/r_n_d/protolathe/proc/canBuild(var/datum/design/D)
 	for(var/M in D.materials)

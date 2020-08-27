@@ -334,3 +334,7 @@
 /decl/emote/visible/tilt
 	key = "tilt"
 	emote_message_3p = "USER tilts USER_THEIR head."
+
+/decl/emote/visible/flail
+	key = "flail"
+	emote_message_3p = "USER flails violently!"

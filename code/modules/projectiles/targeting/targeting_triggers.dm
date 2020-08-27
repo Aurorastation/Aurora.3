@@ -15,7 +15,7 @@
 			G.toggle_safety()
 		else
 			G.handle_click_empty(owner)
-			to_chat(owner, span("warning", "Your [G]'s safety prevents firing."))
+			to_chat(owner, SPAN_WARNING("Your [G]'s safety prevents firing."))
 	if(!owner || !aiming_with || !aiming_at || !locked)
 		return
 	if(perm && (target_permissions & perm))

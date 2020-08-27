@@ -448,6 +448,8 @@
 // Hand slots are special to handle the handcuffs overlay
 /obj/screen/inventory/hand
 	var/image/handcuff_overlay
+	var/image/disabled_hand_overlay
+	var/image/removed_hand_overlay
 
 /obj/screen/inventory/hand/update_icon()
 	..()
@@ -456,8 +458,23 @@
 	if(!handcuff_overlay)
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_hud_handcuffs" : "r_hand_hud_handcuffs"
 		handcuff_overlay = image("icon"='icons/mob/screen_gen.dmi', "icon_state" = state)
-	overlays.Cut()
-	if(hud.mymob && iscarbon(hud.mymob))
-		var/mob/living/carbon/C = hud.mymob
-		if(C.handcuffed)
-			overlays |= handcuff_overlay
+	if(!disabled_hand_overlay)
+		var/state = (hud.l_hand_hud_object == src) ? "l_hand_disabled" : "r_hand_disabled"
+		disabled_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
+	if(!removed_hand_overlay)
+		var/state = (hud.l_hand_hud_object == src) ? "l_hand_removed" : "r_hand_removed"
+		removed_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
+	cut_overlays()
+	if(hud.mymob && ishuman(hud.mymob))
+		var/mob/living/carbon/human/H = hud.mymob
+		var/obj/item/organ/external/O
+		if(hud.l_hand_hud_object == src)
+			O = H.organs_by_name[BP_L_HAND]
+		else
+			O = H.organs_by_name[BP_R_HAND]
+		if(!O || O.is_stump())
+			add_overlay(removed_hand_overlay)
+		else if(O && (!O.is_usable() || O.is_malfunctioning()))
+			add_overlay(disabled_hand_overlay)
+		if(H.handcuffed)
+			add_overlay(handcuff_overlay)

@@ -2,7 +2,7 @@
 	spellbook_type = /datum/spellbook/druid
 
 /datum/spellbook/druid
-	name = "\improper druid's leaflet"
+	name = "druid's leaflet"
 	feedback = "DL"
 	desc = "It smells like an air freshener."
 	book_desc = "Summons, nature, and a bit o' healin."

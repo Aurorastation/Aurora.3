@@ -91,13 +91,14 @@
 #define COLOR_OIL              "#030303"
 #define COLOR_ASH              "#615C5B"
 #define COLOR_SNOW             "#9CADAD"
+#define COLOR_LING_HIVEMIND    "#94582e"
 
 
 // Blood colors
 #define COLOR_HUMAN_BLOOD      "#A10808"
 #define COLOR_DIONA_BLOOD      "#97DD7C"
 #define COLOR_IPC_BLOOD        "#1F181F"
-#define COLOR_SKRELL_BLOOD     "#1D2CBF"
+#define COLOR_SKRELL_BLOOD     "#0081CD"
 #define COLOR_VAURCA_BLOOD     "#E6E600"
 
 

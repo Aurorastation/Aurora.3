@@ -109,7 +109,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 
 	if(hitstaken > 0) //Cosmetic damage overlay
 		add_overlay(screen_overlays["crack[hitstaken]"])
-	
+
 	icon_state = initial(icon_state)
 	return
 
@@ -749,7 +749,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] smashes the [src.name]!" )
 					src.isbroken=1
-					playsound(src.loc, "shatter", 100, 1)
+					playsound(src.loc, "glass_break", 100, 1)
 				else
 					for (var/mob/O in hearers(5, src.loc))
 						O.show_message("[user.name] forcefully slams the [src.name] with the [I.name]!" )
@@ -983,25 +983,24 @@ obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
 	src.paper_remaining--
 	return
 
-//Removed for now so these aren't even checked every tick. Left this here in-case Agouri needs it later.
-///obj/machinery/newscaster/process()       //Was thinking of doing the icon update through process, but multiple iterations per second does not
-//	return                                  //bode well with a newscaster network of 10+ machines. Let's just return it, as it's added in the machines list.
-
-/obj/machinery/newscaster/proc/newsAlert(var/news_call)   //This isn't Agouri's work, for it is ugly and vile.
-	var/turf/T = get_turf(src)                      //Who the fuck uses spawn(600) anyway, jesus christ
+/obj/machinery/newscaster/proc/newsAlert(var/news_call)
+	var/turf/T = get_turf(src)
 	if(news_call)
 		for(var/mob/O in hearers(world.view-1, T))
 			O.show_message("<span class='newscaster'><EM>[src.name]</EM> beeps, \"[news_call]\"</span>",2)
-		src.alert = 1
-		src.update_icon()
-		addtimer(CALLBACK(src, .proc/clearAlert), 300)
+		
+		if (!alert)
+			alert = 1
+			update_icon()
+			addtimer(CALLBACK(src, .proc/clearAlert), 300, TIMER_UNIQUE)
+
 		playsound(src.loc, 'sound/machines/twobeep.ogg', 75, 1)
 	else
 		for(var/mob/O in hearers(world.view-1, T))
 			O.show_message("<span class='newscaster'><EM>[src.name]</EM> beeps, \"Attention! Wanted issue distributed!\"</span>",2)
-		playsound(src.loc, 'sound/machines/warning-buzzer.ogg', 75, 1)
+		playsound(loc, 'sound/machines/warning-buzzer.ogg', 75, 1)
 	return
 
 /obj/machinery/newscaster/proc/clearAlert()
-	src.alert = 0
-	src.update_icon()
+	alert = 0
+	update_icon()

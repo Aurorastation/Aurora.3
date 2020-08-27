@@ -48,7 +48,7 @@
 		playsound(loc, 'sound/effects/toothbrush.ogg', 15, 1)
 		if(do_after(user, 30))
 			user.visible_message(
-			"<span class='notice'>\The [user] brushes [user.get_pronoun(1)] teeth with \the [src]</span>",
+			"<span class='notice'>\The [user] brushes [user.get_pronoun("his")] teeth with \the [src]</span>",
 			"<span class='notice'>You brush your teeth with \the [src].</span>")
 			reagents.trans_to_mob(user, amount_per_transfer_from_this, CHEM_BREATHE)
 			update_icon()

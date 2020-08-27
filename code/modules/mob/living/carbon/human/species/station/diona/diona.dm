@@ -1,9 +1,9 @@
 /datum/species/diona
-	name = "Diona"
+	name = SPECIES_DIONA
 	short_name = "dio"
 	name_plural = "Dionaea"
-	bodytype = "Diona"
-	total_health = 140
+	bodytype = BODYTYPE_DIONA
+	total_health = 240
 	age_min = 1
 	age_max = 1000
 	default_genders = list(NEUTER)
@@ -150,7 +150,7 @@
 		H.updatehealth()
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
-		to_chat(H, span("danger", "We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
+		to_chat(H, SPAN_DANGER("We have expended our energy reserves, and cannot continue to move at such a pace. We must find light!"))
 		return 0
 
 /datum/species/diona/can_understand(var/mob/other)

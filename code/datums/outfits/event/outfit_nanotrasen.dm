@@ -92,7 +92,7 @@
 	head = /obj/item/clothing/head/beret/centcom/commander
 
 	backpack_contents = list(
-		/obj/item/storage/fancy/cigarettes/cigar = 1,
+		/obj/item/storage/box/fancy/cigarettes/cigar = 1,
 		/obj/item/flame/lighter/zippo = 1,
 		/obj/item/clothing/accessory/medal/gold/heroism = 1
 	)

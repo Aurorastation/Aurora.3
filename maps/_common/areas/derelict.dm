@@ -3,6 +3,7 @@
 /area/derelict
 	name = "Derelict Station"
 	icon_state = "storage"
+	ambience = AMBIENCE_RUINS
 	no_light_control = 1
 	base_turf = /turf/space
 	requires_power = FALSE
@@ -104,13 +105,6 @@
 //HALF-BUILT STATION (REPLACES DERELICT IN BAYCODE, ABOVE IS LEFT FOR DOWNSTREAM)
 
 /area/shuttle/constructionsite
-	name = "Construction Site Shuttle"
-	icon_state = "yellow"
-
-/area/shuttle/constructionsite/station
-	name = "Construction Site Shuttle"
-
-/area/shuttle/constructionsite/site
 	name = "Construction Site Shuttle"
 
 /area/constructionsite

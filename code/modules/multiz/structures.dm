@@ -188,12 +188,14 @@
 		if(!istype(above))
 			above.ChangeToOpenturf()
 
-/obj/structure/stairs/CheckExit(atom/movable/mover as mob|obj, turf/target as turf)
+/obj/structure/stairs/CheckExit(atom/movable/mover, turf/target)
 	if(get_dir(loc, target) == dir && upperStep(mover.loc))
 		return FALSE
 
-	if (mover.loc == loc && get_dir(mover, target) != reverse_dir[dir])
-		addtimer(CALLBACK(src, .proc/mob_fall, mover), 0)
+	var/obj/structure/stairs/staircase = locate() in target
+	var/target_dir = get_dir(mover, target)
+	if(!staircase && (target_dir != dir && target_dir != reverse_dir[dir]))
+		INVOKE_ASYNC(src, .proc/mob_fall, mover)
 
 	return ..()
 
@@ -224,7 +226,7 @@
 	return !density
 
 /obj/structure/stairs/proc/mob_fall(mob/living/L)
-	if (isopenturf(L.loc) || L.loc == loc || !ishuman(L))
+	if(isopenturf(L.loc) || get_turf(L) == get_turf(src) || !ishuman(L))
 		return
 
 	L.Weaken(2)
@@ -234,8 +236,6 @@
 			"<span class='danger'>You step off [src] and faceplant onto [L.loc].</span>",
 			"<span class='alert'>You hear a thump.</span>"
 		)
-		var/snd = pick('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg')
-		playsound(L.loc, snd, 75, 1)
 
 // type paths to make mapping easier.
 /obj/structure/stairs/north

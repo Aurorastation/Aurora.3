@@ -236,7 +236,7 @@
 		short_name = short_input
 		return 1
 
-/mob/living/bot/secbot/ed209/update_icons()
+/mob/living/bot/secbot/ed209/update_icon()
 	if(on && is_attacking)
 		icon_state = "ed209-c"
 	else
@@ -278,7 +278,7 @@
 	if(emagged)
 		projectile = /obj/item/projectile/beam
 
-	playsound(loc, emagged ? 'sound/weapons/Laser.ogg' : 'sound/weapons/Taser.ogg', 50, 1)
+	playsound(loc, emagged ? 'sound/weapons/laser1.ogg' : 'sound/weapons/Taser.ogg', 50, 1)
 	var/obj/item/projectile/P = new projectile(loc)
 	var/def_zone = get_exposed_defense_zone(A)
 	P.launch_projectile(A, def_zone)

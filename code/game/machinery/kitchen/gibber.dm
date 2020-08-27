@@ -191,6 +191,11 @@
 			slab_count = critter.meat_amount
 		if(critter.meat_type)
 			slab_type = critter.meat_type
+
+	else if(istype(src.occupant,/mob/living/carbon/alien))
+		var/mob/living/carbon/alien/C = occupant
+		slab_type = C.meat_type
+
 	else if(istype(src.occupant,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = occupant
 		slab_type = H.species.meat_type
@@ -228,6 +233,6 @@
 				qdel(thing)
 				continue
 			thing.forceMove(get_turf(thing)) // Drop it onto the turf for throwing.
-			thing.throw_at(get_edge_target_turf(src,gib_throw_dir),rand(0,3),emagged ? 100 : 50) // Being pelted with bits of meat and bone would hurt.
+			thing.throw_at(get_edge_target_turf(src,gib_throw_dir),rand(1,3),emagged ? 50 : 10) // Being pelted with bits of meat and bone would hurt.
 
 		update_icon()

@@ -1,4 +1,3 @@
-
 /obj/machinery/mech_recharger
 	name = "exosuit dock"
 	desc = "A exosuit recharger, built into the floor."
@@ -82,6 +81,13 @@
 	var/obj/item/cell/cell = charging.get_cell()
 	if(cell && remaining_energy > 0)
 		cell.give(remaining_energy * CELLRATE)
+
+/obj/machinery/mech_recharger/power_change()
+	..()
+	if(!(stat & NOPOWER) && !(stat & BROKEN) && !charging)
+		var/mob/living/heavy_vehicle/HV = locate() in get_turf(src)
+		if(HV)
+			start_charging(HV)
 
 // An ugly proc, but apparently mechs don't have maxhealth var of any kind.
 /obj/machinery/mech_recharger/proc/fully_repaired()

@@ -50,7 +50,6 @@
 	glasses = new /obj/item/clothing/glasses/hud/health
 
 /obj/item/rig_module/vision
-
 	name = "hardsuit visor"
 	desc = "A layered, translucent visor system for a hardsuit."
 	icon_state = "optics"
@@ -58,10 +57,11 @@
 	interface_name = "optical scanners"
 	interface_desc = "An integrated multi-mode vision system."
 
-	usable = 1
-	toggleable = 1
-	disruptive = 0
-	confined_use = 1
+	engage_on_activate = FALSE
+	usable = TRUE
+	toggleable = TRUE
+	disruptive = FALSE
+	confined_use = TRUE
 
 	engage_string = "Cycle Visor Mode"
 	activate_string = "Enable Visor"
@@ -79,30 +79,29 @@
 	category = MODULE_GENERAL
 
 /obj/item/rig_module/vision/multi
-
 	name = "hardsuit optical package"
 	desc = "A complete visor system of optical scanners and vision modes."
 	icon_state = "fulloptics"
 
-
 	interface_name = "multi optical visor"
 	interface_desc = "An integrated multi-mode vision system."
 
-	vision_modes = list(/datum/rig_vision/meson,
-						/datum/rig_vision/nvg,
-						/datum/rig_vision/thermal,
-						/datum/rig_vision/sechud,
-						/datum/rig_vision/medhud)
+	vision_modes = list(
+		/datum/rig_vision/meson,
+		/datum/rig_vision/nvg,
+		/datum/rig_vision/thermal,
+		/datum/rig_vision/sechud,
+		/datum/rig_vision/medhud
+		)
 	
 	category = MODULE_SPECIAL
 
 /obj/item/rig_module/vision/meson
-
 	name = "hardsuit meson/material scanner"
 	desc = "A layered, translucent visor system for a hardsuit."
 	icon_state = "meson"
 
-	usable = 0
+	usable = FALSE
 
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
 	construction_time = 300
@@ -110,16 +109,17 @@
 	interface_name = "meson/material scanner"
 	interface_desc = "An integrated meson/material scanner."
 
-	vision_modes = list(/datum/rig_vision/meson,
-						/datum/rig_vision/material)
+	vision_modes = list(
+		/datum/rig_vision/meson,
+		/datum/rig_vision/material
+		)
 	
 /obj/item/rig_module/vision/thermal
-
 	name = "hardsuit thermal scanner"
 	desc = "A layered, translucent visor system for a hardsuit."
 	icon_state = "thermal"
 
-	usable = 0
+	usable = FALSE
 
 	interface_name = "thermal scanner"
 	interface_desc = "An integrated thermal scanner."
@@ -129,12 +129,11 @@
 	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/vision/nvg
-
 	name = "hardsuit night vision interface"
 	desc = "A multi input night vision system for a hardsuit."
 	icon_state = "night"
 
-	usable = 0
+	usable = FALSE
 
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000, MATERIAL_URANIUM = 5000)
 	construction_time = 300
@@ -147,12 +146,11 @@
 	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/vision/sechud
-
 	name = "hardsuit security hud"
 	desc = "A simple tactical information system for a hardsuit."
 	icon_state = "securityhud"
 
-	usable = 0
+	usable = FALSE
 
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
 	construction_time = 300
@@ -165,12 +163,11 @@
 	category = MODULE_LIGHT_COMBAT
 
 /obj/item/rig_module/vision/medhud
-
 	name = "hardsuit medical hud"
 	desc = "A simple medical status indicator for a hardsuit."
 	icon_state = "healthhud"
 
-	usable = 0
+	usable = FALSE
 
 	construction_cost = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
 	construction_time = 300
@@ -187,17 +184,12 @@
 	..()
 	holder.visor = src
 
-/obj/item/rig_module/vision/engage()
-
-	var/starting_up = !active
-
+/obj/item/rig_module/vision/engage(atom/target, mob/user)
 	if(!..() || !vision_modes)
-		return 0
-
-	// Don't cycle if this engage() is being called by activate().
-	if(starting_up)
-		to_chat(holder.wearer, "<font color='blue'>You activate your visual sensors.</font>")
-		return 1
+		return FALSE
+	if(!active)
+		to_chat(user, SPAN_WARNING("\The [src] isn't activated!"))
+		return FALSE
 
 	if(vision_modes.len > 1)
 		vision_index++
@@ -205,10 +197,10 @@
 			vision_index = 1
 		vision = vision_modes[vision_index]
 
-		to_chat(holder.wearer, "<font color='blue'>You cycle your sensors to <b>[vision.mode]</b> mode.</font>")
+		message_user(user, SPAN_NOTICE("You cycle \the [src] to <b>[vision.mode]</b> mode."), SPAN_NOTICE("\The [user] cycles \the [src] to <b>[vision.mode]</b> mode."))
 	else
-		to_chat(holder.wearer, "<font color='blue'>Your sensors only have one mode.</font>")
-	return 1
+		to_chat(user, SPAN_WARNING("\The [src] only has one mode."))
+	return TRUE
 
 /obj/item/rig_module/vision/New()
 	..()

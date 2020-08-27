@@ -139,9 +139,17 @@
 
 /obj/item/trash/can
 	name = "used can"
-	icon_state = "can-used"
+	icon_state = "cola"
 	drop_sound = 'sound/items/drop/soda.ogg'
 	pickup_sound = 'sound/items/pickup/soda.ogg'
+	randpixel = 4
+
+/obj/item/trash/can/Initialize()
+	. = ..()
+	randpixel_xy()
+
+/obj/item/trash/can/adhomian_can
+	icon_state = "can-used"
 
 /obj/item/trash/tuna
 	name = "\improper Tuna Snax"
@@ -163,6 +171,14 @@
 /obj/item/trash/cookiesnack
 	name = "\improper Carps Ahoy! miniature cookies"
 	icon_state = "cookiesnack"
+
+/obj/item/trash/admints
+	name = "\improper Ad-mints"
+	icon_state = "admint_pack"
+
+/obj/item/trash/gum
+	name = "\improper Chewy Fruit flavored gum"
+	icon_state = "gum_pack"
 
 /obj/item/trash/stew
 	name = "empty pot"
@@ -188,3 +204,7 @@
 	icon_state = "candy_bowl"
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
+/obj/item/trash/diona_bites
+	name = "dionae bites"
+	icon_state = "dionaebitesempty"

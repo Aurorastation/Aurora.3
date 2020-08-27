@@ -413,6 +413,11 @@ var/const/access_journalist = 70//journalist's office access
 	desc = "Journalist Office"
 	region = ACCESS_REGION_GENERAL
 
+var/const/access_it = 71 // allows some unique interactions with devices
+/datum/access/tech_support
+	id = access_it
+	desc = "Tech Support"
+
 /******************
 * Central Command *
 ******************/

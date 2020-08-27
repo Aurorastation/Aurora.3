@@ -1,25 +1,25 @@
 /decl/xgm_gas/oxygen
-	id = "oxygen"
-	name = "Oxygen"
+	id = GAS_OXYGEN
+	name = GAS_OXYGEN
 	specific_heat = 20	// J/(mol*K)
 	molar_mass = 0.032	// kg/mol
 
 	flags = XGM_GAS_OXIDIZER
 
 /decl/xgm_gas/nitrogen
-	id = "nitrogen"
-	name = "Nitrogen"
+	id = GAS_NITROGEN
+	name = GAS_NITROGEN
 	specific_heat = 20	// J/(mol*K)
 	molar_mass = 0.028	// kg/mol
 
 /decl/xgm_gas/carbon_dioxide
-	id = "carbon_dioxide"
+	id = GAS_CO2
 	name = "Carbon Dioxide"
 	specific_heat = 30	// J/(mol*K)
 	molar_mass = 0.044	// kg/mol
 
 /decl/xgm_gas/phoron
-	id = "phoron"
+	id = GAS_PHORON
 	name = "Phoron"
 
 	//Note that this has a significant impact on TTV yield.
@@ -36,7 +36,7 @@
 	flags = XGM_GAS_FUEL | XGM_GAS_CONTAMINANT
 
 /decl/xgm_gas/sleeping_agent
-	id = "sleeping_agent"
+	id = GAS_N2O
 	name = "Sleeping Agent"
 	specific_heat = 40	// J/(mol*K)
 	molar_mass = 0.044	// kg/mol. N2O

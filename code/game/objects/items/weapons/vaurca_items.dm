@@ -17,7 +17,7 @@
 	desc = "A basic screw on filter attached beneath the mouthparts of the common Vaurca."
 	name = "filter port"
 	icon_state = "filterport"
-	species_restricted = list("Vaurca", "Vaurca Breeder")
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BREEDER)
 	item_state = 0
 
 /obj/item/clothing/head/shaper
@@ -27,7 +27,7 @@
 	icon_state = "shaper_helmet"
 	item_state = "shaper_helmet"
 	contained_sprite = TRUE
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/head/expression
@@ -223,7 +223,7 @@
 	desc = "A lightweight Zo'rane designed Vaurcae softsuit, for extremely extended EVA operations."
 	slowdown = 0
 
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 
 	boots = /obj/item/clothing/shoes/magboots/vox/vaurca
 	helmet = /obj/item/clothing/head/helmet/space/void/vaurca
@@ -236,7 +236,7 @@
 	icon_state = "helm_void"
 	item_state = "helm_void"
 
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
@@ -250,9 +250,9 @@
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 
-	species_restricted = list("Vaurca","Vaurca Warform")
+	species_restricted = list(BODYTYPE_VAURCA,BODYTYPE_VAURCA_WARFORM)
 	sprite_sheets = list(
-		"Vaurca Warform" = 'icons/mob/species/warriorform/shoes.dmi'
+		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/shoes.dmi'
 		)
 
 	action_button_name = "Toggle the magclaws"
@@ -266,7 +266,7 @@
 	desc = "Armor designed for K'laxan scouts, made of lightweight sturdy material that does not restrict movement."
 	slowdown = -1
 
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(melee = 50, bullet = 20, laser = 50, energy = 30, bomb = 45, bio = 100, rad = 10)
 
 /obj/item/clothing/head/helmet/space/void/scout
@@ -277,7 +277,7 @@
 	icon_state = "helm_scout"
 	item_state = "helm_scout"
 
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(melee = 40, bullet = 20, laser = 40, energy = 30, bomb = 45, bio = 100, rad = 10)
 
 	light_overlay = "helmet_light_dual_green"
@@ -291,7 +291,7 @@
 	item_state = "commando"
 	desc = "A design perfected by the Zo'ra, this helmet is commonly used  by frontline warriors of a hive. Ablative design deflects lasers away from the body while providing moderate physical protection."
 
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(melee = 40, bullet = 40, laser = 60, energy = 50, bomb = 45, bio = 100, rad = 10)
 
 /obj/item/clothing/head/helmet/space/void/commando
@@ -302,7 +302,7 @@
 	icon_state = "helm_commando"
 	item_state = "helm_commando"
 
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 	armor = list(melee = 30, bullet = 30, laser = 60, energy = 50, bomb = 45, bio = 100, rad = 10)
 
 	light_overlay = "helmet_light_dual_green"
@@ -316,7 +316,7 @@
 	body_parts_covered = FACE|EYES
 	gas_filter_strength = 3
 	w_class = 2.0
-	filtered_gases = list("nitrogen", "sleeping_agent")
+	filtered_gases = list(GAS_NITROGEN, GAS_N2O)
 	armor = list(melee = 25, bullet = 10, laser = 25, energy = 25, bomb = 0, bio = 50, rad = 15)
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "m_metalg"
@@ -385,7 +385,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "gaussrifle"
 	item_state = "gaussrifle"
-	fire_sound = 'sound/effects/Explosion2.ogg'
+	fire_sound = "gauss_fire"
 	fire_sound_text = "a subdued boom"
 	fire_delay = 12
 	slot_flags = SLOT_BACK
@@ -420,7 +420,7 @@
 	pump(user)
 
 /obj/item/gun/launcher/crossbow/vaurca/proc/pump(mob/M as mob)
-	playsound(M, 'sound/weapons/shotgunpump.ogg', 60, 1)
+	playsound(M, 'sound/weapons/shotgun_pump.ogg', 60, 1)
 
 	if(bolt)
 		if(tension < max_tension)

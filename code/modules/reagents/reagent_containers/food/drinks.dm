@@ -36,6 +36,9 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 /obj/item/reagent_containers/food/drinks/on_reagent_change()
 	update_icon()
 
+/obj/item/reagent_containers/food/drinks/on_rag_wipe(var/obj/item/reagent_containers/glass/rag/R)
+	clean_blood()
+
 /obj/item/reagent_containers/food/drinks/update_icon()
 	if(!reagents.total_volume)
 		if(drink_flags & UNIQUE_EMPTY_ICON)
@@ -65,8 +68,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 		open(user)
 
 /obj/item/reagent_containers/food/drinks/proc/open(mob/user as mob)
-	playsound(loc,'sound/effects/canopen.ogg', rand(10,50), 1)
-	user.visible_message("<b>[user]</b> opens \the [src].", SPAN_NOTICE("You open \the [src] with an audible pop!"), "You can hear a pop,")
+	playsound(loc,'sound/items/soda_open.ogg', rand(10,50), 1)
+	user.visible_message("<b>[user]</b> opens \the [src].", SPAN_NOTICE("You open \the [src] with an audible pop!"), "You can hear a pop.")
 	flags |= OPENCONTAINER
 
 /obj/item/reagent_containers/food/drinks/proc/boom(mob/user as mob)
@@ -276,6 +279,34 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	else
 		is_liquid = TRUE
 
+/obj/item/reagent_containers/food/drinks/waterbottle
+	name = "bottled water"
+	desc = "Introduced to the vending machines by Skrellian request, this water comes straight from the Martian poles."
+	icon_state = "waterbottle"
+	flags = 0 //starts closed
+	center_of_mass = list("x"=16, "y"=8)
+	drop_sound = 'sound/items/drop/disk.ogg'
+	pickup_sound = 'sound/items/pickup/disk.ogg'
+
+	reagents_to_add = list(/datum/reagent/water = 30)
+
+//heehoo bottle flipping
+/obj/item/reagent_containers/food/drinks/waterbottle/throw_impact()
+	. = ..()
+	if(!QDELETED(src))
+		if(prob(10)) // landed upright in some way
+			if(prob(10)) // landed upright on ITS CAP (1% chance)
+				src.visible_message(SPAN_NOTICE("\The [src] lands upright on its cap!"))
+				animate(src, transform = matrix(prob(50)? 180 : -180, MATRIX_ROTATE), time = 3, loop = 0)
+			else
+				src.visible_message(SPAN_NOTICE("\The [src] lands upright!"))
+		else // landed on it's side
+			animate(src, transform = matrix(prob(50)? 90 : -90, MATRIX_ROTATE), time = 3, loop = 0)
+
+/obj/item/reagent_containers/food/drinks/waterbottle/pickup()
+	. = ..()
+	animate(src, transform = null, time = 1, loop = 0)
+
 /obj/item/reagent_containers/food/drinks/sillycup
 	name = "paper cup"
 	desc = "A paper water cup."
@@ -297,8 +328,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc = "A plastic medicine cup. Like a shot glass for medicine."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "medcup"
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
+	drop_sound = 'sound/items/drop/drinkglass.ogg'
+	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
 	possible_transfer_amounts = null
 	volume = 15
 

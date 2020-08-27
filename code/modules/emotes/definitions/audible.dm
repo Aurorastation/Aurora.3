@@ -32,7 +32,7 @@
 
 /decl/emote/audible/choke
 	key ="choke"
-	emote_message_3p = "USER chokes."
+	emote_message_3p = "USER chokes!"
 	conscious = 0
 
 /decl/emote/audible/gnarl
@@ -190,6 +190,13 @@
 	emote_message_3p = "USER slaps USER_SELF across the face!"
 	emote_sound = 'sound/effects/snap.ogg'
 
+/decl/emote/audible/slap/target_check(var/atom/user, var/atom/target)
+	if(!ismob(target))
+		return FALSE
+	if(!target.Adjacent(user))
+		return FALSE
+	return TRUE
+
 /decl/emote/audible/snap
 	key = "snap"
 	emote_message_3p = "USER snaps USER_THEIR fingers."
@@ -212,10 +219,18 @@
 	emote_message_3p = "USER wheezes."
 
 /decl/emote/audible/hiss
-	key ="hiss_"
+	key = "hiss"
 	emote_message_3p_target = "USER hisses softly at TARGET."
 	emote_message_3p = "USER hisses softly."
-	
+
+/decl/emote/audible/hiss/long
+	key = "hiss2"
+	emote_sound = 'sound/voice/LizardHiss.ogg'
+
+/decl/emote/audible/hiss/short
+	key = "hiss3"
+	emote_sound = 'sound/voice/LizardHissShort.ogg'
+
 /decl/emote/audible/lizard_bellow
 	key = "bellow"
 	emote_message_3p_target = "USER bellows deeply at TARGET!"

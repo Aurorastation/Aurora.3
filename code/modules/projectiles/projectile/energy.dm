@@ -3,7 +3,7 @@
 	icon_state = "spark"
 	damage = 0
 	damage_type = BURN
-	check_armour = "energy"
+	check_armor = "energy"
 
 //releases a burst of light on impact or after travelling a distance
 /obj/item/projectile/energy/flash
@@ -108,7 +108,7 @@
 	name = "distortion"
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "bfg"
-	check_armour = "bomb"
+	check_armor = "bomb"
 	damage = 60
 	damage_type = BRUTE
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
@@ -205,7 +205,7 @@
 	name = "bees"
 	icon = 'icons/obj/apiary_bees_etc.dmi'
 	icon_state = "beegun"
-	check_armour = "bio"
+	check_armor = "bio"
 	damage = 5
 	damage_type = BRUTE
 	pass_flags = PASSTABLE | PASSGRILLE
@@ -227,7 +227,7 @@
 	name = "blaster bolt"
 	icon_state = "heavybolt"
 	damage = 30
-	check_armour = "laser"
+	check_armor = "laser"
 	damage_type = BURN
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	muzzle_type = /obj/effect/projectile/muzzle/bolt

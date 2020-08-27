@@ -71,7 +71,7 @@
 			/obj/item/personal_inhaler/combat = 1,
 			/obj/item/reagent_containers/personal_inhaler_cartridge/large = 2,
 			/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
-			/obj/item/reagent_containers/glass/bottle/norepinephrine = 1,
+			/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
 			/obj/item/reagent_containers/glass/bottle/thetamycin = 1
 			)
 	accessory_contents = list(/obj/item/gun/energy/pulse/pistol = 1)

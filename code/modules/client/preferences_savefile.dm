@@ -68,6 +68,7 @@
 		current_character = slot
 
 	player_setup.load_character(S)
+	clear_character_previews() // Recalculate them on next show
 
 	if (!config.sql_saves)
 		loaded_character = S

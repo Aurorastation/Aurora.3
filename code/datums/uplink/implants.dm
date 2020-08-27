@@ -20,6 +20,12 @@
 	desc = "A box containing an explosive implant and implanter. Use the implant in-hand to set the explosion size and trigger phrase."
 	path = /obj/item/storage/box/syndie_kit/imp_explosive
 
+/datum/uplink_item/item/implants/imp_deadman
+	name = "Deadman Implant (DANGER!)"
+	item_cost = 8
+	desc = "A box containing an explosive implant and implanter. The implant monitors vitals and will detonate when the subject dies."
+	path = /obj/item/storage/box/syndie_kit/imp_deadman
+
 /datum/uplink_item/item/implants/imp_uplink
 	name = "Uplink Implant"
 	path = /obj/item/storage/box/syndie_kit/imp_uplink

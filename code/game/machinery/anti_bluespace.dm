@@ -50,16 +50,16 @@
 	if(stat & BROKEN)
 		return
 	playsound(src.loc, 'sound/effects/grillehit.ogg', 100, 1)
-	visible_message(span("warning","\The [src] breaks!"))
+	visible_message(SPAN_WARNING("\The [src] breaks!"))
 	stat |= BROKEN
 	anchored = 0
 	update_icon()
 
 /obj/machinery/anti_bluespace/attackby(obj/item/W as obj, mob/user as mob)
 	if(user.a_intent == I_HURT)
-		visible_message(span("warning","\The [user] hits \the [src] with \the [W]!"))
+		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [W]!"))
 	else
-		visible_message(span("notice","\The [user] [pick("touches","pokes","prods")] \the [src] with \the [W]."))
+		visible_message(SPAN_NOTICE("\The [user] [pick("touches","pokes","prods")] \the [src] with \the [W]."))
 		if(prob(66))
 			return
 
@@ -101,7 +101,7 @@
 			temp_apc.flicker_all()
 
 	playsound(src.loc, 'sound/magic/lightning_chargeup.ogg', 100, 1, extrarange = 20)
-	visible_message(span("danger","\The [src] goes haywire!"))
+	visible_message(SPAN_DANGER("\The [src] goes haywire!"))
 	do_break()
 	addtimer(CALLBACK(src, .proc/haywire_teleport), 10 SECONDS)
 
@@ -118,7 +118,7 @@
 			continue
 		var/area/A = random_station_area()
 		var/turf/target = A.random_space()
-		to_chat(AM,span("warning","Bluespace energy teleports you somewhere else!"))
+		to_chat(AM, SPAN_WARNING("Bluespace energy teleports you somewhere else!"))
 		do_teleport(AM, target)
 		AM.visible_message("\The [AM] phases in!")
 

@@ -6,6 +6,7 @@
 	// Speaking
 	gender = NEUTER
 	voice_name = "Synthesized Voice"
+	accent = ACCENT_TTS
 	var/list/speech_synthesizer_langs = list() //which languages can be vocalized by the speech synthesizer
 	var/speak_statement = "states"
 	var/speak_exclamation = "declares"
@@ -42,7 +43,8 @@
 	var/list/silicon_subsystems = list(
 		/mob/living/silicon/proc/subsystem_alarm_monitor,
 		/mob/living/silicon/proc/subsystem_law_manager,
-		/mob/living/silicon/proc/computer_interact
+		/mob/living/silicon/proc/computer_interact,
+		/mob/living/silicon/proc/silicon_mimic_accent
 	)
 
 	// Utility
@@ -70,6 +72,8 @@
 
 /mob/living/silicon/Destroy()
 	silicon_mob_list -= src
+	QDEL_NULL(computer)
+	QDEL_NULL(rcon)
 	QDEL_NULL(alarm_monitor)
 	QDEL_NULL(law_manager)
 	QDEL_NULL(computer)
@@ -190,7 +194,7 @@
 //can't inject synths
 /mob/living/silicon/can_inject(mob/user, error_msg)
 	if(error_msg)
-		to_chat(user, span("alert", "The armoured plating is too tough."))
+		to_chat(user, SPAN_ALERT("The armored plating is too tough."))
 	return FALSE
 
 //Silicon mob language procs

@@ -5,7 +5,7 @@
 	damage_type = BRUTE
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
 	nodamage = FALSE
-	check_armour = "bullet"
+	check_armor = "bullet"
 	embed = TRUE
 	sharp = TRUE
 	shrapnel_type = /obj/item/material/shard/shrapnel
@@ -136,7 +136,7 @@
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
-	check_armour = "melee"
+	check_armor = "melee"
 	damage = 5
 	agony = 40
 	embed = 0
@@ -149,7 +149,7 @@
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
-	check_armour = "melee"
+	check_armor = "melee"
 	damage = 10
 	agony = 60
 	embed = 0
@@ -157,7 +157,7 @@
 
 /obj/item/projectile/bullet/shotgun/incendiary
 	name = "incendiary"
-	check_armour = "melee"
+	check_armor = "melee"
 	damage = 5
 	agony = 0
 	embed = 0
@@ -324,7 +324,7 @@
 	icon_state = "flechette_bullet"
 	damage = 40
 	damage_type = BRUTE
-	check_armour = "bullet"
+	check_armor = "bullet"
 	embed = 1
 	sharp = 1
 	penetrating = 1

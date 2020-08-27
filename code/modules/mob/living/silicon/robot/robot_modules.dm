@@ -51,8 +51,9 @@ var/global/list/robot_modules = list(
 	var/list/original_languages = list()
 	var/list/added_networks = list()
 
-/obj/item/robot_module/New(var/mob/living/silicon/robot/R)
-	..()
+/obj/item/robot_module/Initialize(mapload, var/mob/living/silicon/robot/R)
+	. = ..()
+
 	R.module = src
 
 	src.modules += new /obj/item/inductive_charger(src)
@@ -190,17 +191,17 @@ var/global/list/robot_modules = list(
 			"Treadhead" = "treadheadmedi",
 			"Arachnotronic" = "arachnotronicmedi",
 			"Toileto-tron" = "toiletbotmedi",
+			"Zeng-hu Droid" = "droidrecolormedi",
 			"HD-MAD" = "mcspizzytronmedi",
 			"SD-MAD" = "floatspizzytronmedi",
-			"Industrial" = "heavymedi",
-			"Heph-Droid" = "droidrecolormedi",
-			"TC-Drone" = "dronerecolormedi",
+			"Heph Droid" = "heavymedi",
+			"Venus Drone" = "dronerecolormedi",
 			"Unbranded-MAD" = "offfloatspizzytronmedi",
 			"Unbranded-Android" = "droid",
 			)
 
-/obj/item/robot_module/medical/general/New()
-	..()
+/obj/item/robot_module/medical/general/Initialize()
+	. = ..()
 	src.modules += new /obj/item/borg/sight/hud/med(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
 	src.modules += new /obj/item/reagent_containers/borghypo/medical(src)
@@ -265,19 +266,19 @@ var/global/list/robot_modules = list(
 			"Treadhead" = "treadheadmedi",
 			"Arachnotronic" = "arachnotronicmedi",
 			"Toileto-tron" = "toiletbotmedi",
+			"Zeng-hu Droid" = "droidrecolormedi",
 			"HD-MAD" = "mcspizzytronmedi",
 			"SD-MAD" = "floatspizzytronmedi",
-			"Industrial" = "heavymedi",
-			"Heph-Droid" = "droidrecolormedi",
-			"TC-Drone" = "dronerecolormedi",
+			"Heph Droid" = "heavymedi",
+			"Venus Drone" = "dronerecolormedi",
 			"Unbranded-MAD" = "offfloatspizzytronmedi",
 			"Unbranded-Android" = "droid",
 			)
 
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
-/obj/item/robot_module/medical/rescue/New()
-	..()
+/obj/item/robot_module/medical/rescue/Initialize()
+	. = ..()
 	src.modules += new /obj/item/borg/sight/hud/med(src)
 	src.modules += new /obj/item/device/healthanalyzer(src)
 	src.modules += new /obj/item/device/reagent_scanner/adv(src)
@@ -339,11 +340,11 @@ var/global/list/robot_modules = list(
 			"Treadhead" = "treadheadengi",
 			"Arachnotronic" = "arachnotronicengi",
 			"Toileto-tron" = "toiletbotengi",
+			"Zeng-hu Droid" = "droidrecolorengi",
 			"HD-MAD" = "mcspizzytronengi",
 			"SD-MAD" = "floatspizzytronengi",
-			"Industrial" = "heavyengi",
-			"Heph-Droid" = "droidrecolorengi",
-			"TC-Drone" = "dronerecolorengi",
+			"Heph Droid" = "heavyengi",
+			"Venus Drone" = "dronerecolorengi",
 			"Unbranded-MAD" = "offfloatspizzytronengi",
 			"Unbranded-Android" = "droid",
 			)
@@ -353,9 +354,8 @@ var/global/list/robot_modules = list(
 	name = "construction robot module"
 	no_slip = TRUE
 
-/obj/item/robot_module/engineering/construction/New()
-	..()
-	src.modules += new /obj/item/borg/sight/meson(src)
+/obj/item/robot_module/engineering/construction/Initialize()
+	. = ..()
 	src.modules += new /obj/item/powerdrill(src)
 	src.modules += new /obj/item/rfd/construction/borg(src)
 	src.modules += new /obj/item/rfd/piping/borg(src)
@@ -392,9 +392,9 @@ var/global/list/robot_modules = list(
 	M.synths = list(metal)
 	src.modules += M
 
-	var/obj/item/stack/rods/cyborg/R = new /obj/item/stack/rods/cyborg(src)
-	R.synths = list(metal)
-	src.modules += R
+	var/obj/item/stack/rods/cyborg/rods = new /obj/item/stack/rods/cyborg(src)
+	rods.synths = list(metal)
+	src.modules += rods
 
 	var/obj/item/stack/material/cyborg/plasteel/S = new /obj/item/stack/material/cyborg/plasteel(src)
 	S.synths = list(plasteel)
@@ -412,9 +412,8 @@ var/global/list/robot_modules = list(
 	C.synths = list(wire)
 	src.modules += C
 
-/obj/item/robot_module/engineering/general/New()
-	..()
-	src.modules += new /obj/item/borg/sight/meson(src)
+/obj/item/robot_module/engineering/general/Initialize()
+	. = ..()
 	src.modules += new /obj/item/powerdrill(src)
 	src.modules += new /obj/item/weldingtool/largetank(src)
 	src.modules += new /obj/item/screwdriver/robotic(src)
@@ -464,9 +463,9 @@ var/global/list/robot_modules = list(
 	G.synths = list(glass)
 	src.modules += G
 
-	var/obj/item/stack/rods/cyborg/R = new /obj/item/stack/rods/cyborg(src)
-	R.synths = list(metal)
-	src.modules += R
+	var/obj/item/stack/rods/cyborg/rods = new /obj/item/stack/rods/cyborg(src)
+	rods.synths = list(metal)
+	src.modules += rods
 
 	var/obj/item/stack/cable_coil/cyborg/C = new /obj/item/stack/cable_coil/cyborg(src)
 	C.synths = list(wire)
@@ -519,19 +518,19 @@ var/global/list/robot_modules = list(
 			"Treadhead" = "treadheadjani",
 			"Arachnotronic" = "arachnotronicjani",
 			"Toileto-tron" = "toiletbotjani",
+			"Zeng-hu Droid" = "droidrecolorjani",
 			"HD-MAD" = "mcspizzytronjani",
 			"SD-MAD" = "floatspizzytronjani",
-			"Industrial" = "heavyjani",
-			"Heph-Droid" = "droidrecolorjani",
-			"TC-Drone" = "dronerecolorjani",
+			"Heph Droid" = "heavyjani",
+			"Venus Drone" = "dronerecolorjani",
 			"Unbranded-MAD" = "offfloatspizzytronjani",
 			"Unbranded-Android" = "droid",
 			)
 	var/mopping = FALSE
 
-/obj/item/robot_module/janitor/New()
-	..()
-	src.modules += new /obj/item/soap/nanotrasen(src)
+/obj/item/robot_module/janitor/Initialize()
+	. = ..()
+	src.modules += new /obj/item/soap/drone(src)
 	src.modules += new /obj/item/storage/bag/trash(src)
 	src.modules += new /obj/item/mop(src)
 	src.modules += new /obj/item/device/lightreplacer/advanced(src)
@@ -583,17 +582,17 @@ var/global/list/robot_modules = list(
 			"Treadhead" = "treadheadserv",
 			"Arachnotronic" = "arachnotronicserv",
 			"Toileto-tron" = "toiletbotserv",
+			"Zeng-hu Droid" = "droidrecolorserv",
 			"HD-MAD" = "mcspizzytronserv",
 			"SD-MAD" = "floatspizzytronserv",
-			"Industrial" = "heavyserv",
-			"Heph-Droid" = "droidrecolorserv",
-			"TC-Drone" = "dronerecolorserv",
+			"Heph Droid" = "heavyserv",
+			"Venus Drone" = "dronerecolorserv",
 			"Unbranded-MAD" = "offfloatspizzytronserv",
 			"Unbranded-Android" = "droid",
-			  	)
+			)
 
-/obj/item/robot_module/clerical/butler/New()
-	..()
+/obj/item/robot_module/clerical/butler/Initialize()
+	. = ..()
 	src.modules += new /obj/item/gripper/service(src)
 	src.modules += new /obj/item/reagent_containers/glass/bucket(src)
 	src.modules += new /obj/item/material/minihoe(src)
@@ -603,7 +602,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/robot_harvester(src)
 	src.modules += new /obj/item/material/kitchen/rollingpin(src)
 	src.modules += new /obj/item/material/knife(src)
-	src.modules += new /obj/item/soap(src) // a cheap bar of soap
+	src.modules += new /obj/item/soap/drone(src)
 	src.modules += new /obj/item/reagent_containers/glass/rag(src) // a rag for.. yeah.. the primary tool of bartender
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
 	src.modules += new /obj/item/inflatable_dispenser(src) // To enable 'borgs to protect Crew from danger in direct hazards.
@@ -626,17 +625,17 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/reagent_containers/borghypo/service(src)
 	src.emag = new /obj/item/reagent_containers/food/drinks/bottle/small/beer(src)
 
-	var/datum/reagents/R = new /datum/reagents(50)
-	src.emag.reagents = R
-	R.my_atom = src.emag
-	R.add_reagent(/datum/reagent/chloralhydrate/beer2, 50)
+	var/datum/reagents/RG = new /datum/reagents(50)
+	src.emag.reagents = RG
+	RG.my_atom = src.emag
+	RG.add_reagent(/datum/reagent/polysomnine/beer2, 50)
 	src.emag.name = "Mickey Finn's Special Brew"
 
 /obj/item/robot_module/clerical/general
 	name = "clerical robot module"
 
-/obj/item/robot_module/clerical/general/New()
-	..()
+/obj/item/robot_module/clerical/general/Initialize()
+	. = ..()
 	src.modules += new /obj/item/pen/robopen(src)
 	src.modules += new /obj/item/form_printer(src)
 	src.modules += new /obj/item/gripper/paperwork(src)
@@ -661,19 +660,18 @@ var/global/list/robot_modules = list(
 			"Treadhead" = "treadheadmine",
 			"Arachnotronic" = "arachnotronicmine",
 			"Toileto-tron" = "toiletbotmine",
+			"Zeng-hu Droid" = "droidrecolormine",
 			"HD-MAD" = "mcspizzytronmine",
 			"SD-MAD" = "floatspizzytronmine",
-			"Industrial" = "heavymine",
-			"Heph-Droid" = "droidrecolormine",
-			"TC-Drone" = "dronerecolormine",
+			"Heph Droid" = "heavymine",
+			"Venus Drone" = "dronerecolormine",
 			"Unbranded-MAD" = "offfloatspizzytronmine",
 			"Unbranded-Android" = "droid",
 			)
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
-/obj/item/robot_module/miner/New()
-	..()
-	src.modules += new /obj/item/borg/sight/material(src)
+/obj/item/robot_module/miner/Initialize()
+	. = ..()
 	src.modules += new /obj/item/storage/bag/ore(src)
 	src.modules += new /obj/item/pickaxe/borgdrill(src)
 	src.modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
@@ -696,9 +694,9 @@ var/global/list/robot_modules = list(
 	var/datum/matter_synth/metal = new /datum/matter_synth/metal(80000)
 	synths += metal
 
-	var/obj/item/stack/rods/cyborg/R = new /obj/item/stack/rods/cyborg(src)
-	R.synths = list(metal)
-	src.modules += R
+	var/obj/item/stack/rods/cyborg/rods = new /obj/item/stack/rods/cyborg(src)
+	rods.synths = list(metal)
+	src.modules += rods
 
 	var/obj/item/stack/flag/purple/borg/F = new /obj/item/stack/flag/purple/borg(src)
 	F.synths = list(metal)
@@ -717,17 +715,17 @@ var/global/list/robot_modules = list(
 			"Treadhead" = "treadheadsci",
 			"Arachnotronic" = "arachnotronicsci",
 			"Toileto-tron" = "toiletbotsci",
+			"Zeng-hu Droid" = "droidrecolorsci",
 			"HD-MAD" = "mcspizzytronsci",
 			"SD-MAD" = "floatspizzytronsci",
-			"Industrial" = "heavysci",
-			"Heph-Droid" = "droidrecolorsci",
-			"TC-Drone" = "dronerecolorsci",
+			"Heph Droid" = "heavysci",
+			"Venus Drone" = "dronerecolorsci",
 			"Unbranded-MAD" = "offfloatspizzytronsci",
 			"Unbranded-Android" = "droid",
 			)
 
-/obj/item/robot_module/research/New()
-	..()
+/obj/item/robot_module/research/Initialize()
+	. = ..()
 	src.modules += new /obj/item/portable_destructive_analyzer(src)
 	src.modules += new /obj/item/gripper/research(src)
 	src.modules += new /obj/item/gripper/no_use/loader(src)
@@ -792,13 +790,13 @@ var/global/list/robot_modules = list(
 					"Bloodhound" = "syndie_bloodhound",
 					"Treadhound" = "syndie_treadhound",
 					"HD-MAD" = "mcspizzytronsyndi",
-					"Industrial" = "heavysyndi",
+					"Heph Droid" = "heavysyndi",
 					"Arachnotronic" = "arachnotronicsyndi",
 					"Toileto-tron" = "syndi-medi",
 					)
 
-/obj/item/robot_module/syndicate/New(var/mob/living/silicon/robot/R)
-	..()
+/obj/item/robot_module/syndicate/Initialize(mapload, mob/living/silicon/robot/R)
+	. = ..()
 
 	R.faction = "syndicate" // prevents viscerators from attacking us
 
@@ -831,8 +829,8 @@ var/global/list/robot_modules = list(
 	can_be_pushed = FALSE
 	supported_upgrades = list(/obj/item/robot_parts/robot_component/jetpack)
 
-/obj/item/robot_module/combat/New()
-	..()
+/obj/item/robot_module/combat/Initialize()
+	. = ..()
 	src.modules += new /obj/item/borg/sight/hud/sec(src)
 	src.modules += new /obj/item/gun/energy/laser/mounted(src)
 	src.modules += new /obj/item/melee/hammer/powered(src)
@@ -850,8 +848,8 @@ var/global/list/robot_modules = list(
 	no_slip = TRUE
 	networks = list(NETWORK_ENGINEERING)
 
-/obj/item/robot_module/drone/New(var/mob/living/silicon/robot/robot)
-	..()
+/obj/item/robot_module/drone/Initialize(mapload, mob/living/silicon/robot/robot)
+	. = ..()
 	src.modules += new /obj/item/weldingtool(src)
 	src.modules += new /obj/item/screwdriver/robotic(src)
 	src.modules += new /obj/item/wrench/robotic(src)
@@ -860,7 +858,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/device/multitool/robotic(src)
 	src.modules += new /obj/item/device/lightreplacer(src)
 	src.modules += new /obj/item/gripper(src)
-	src.modules += new /obj/item/soap(src)
+	src.modules += new /obj/item/soap/drone(src)
 	src.modules += new /obj/item/gripper/no_use/loader(src)
 	src.modules += new /obj/item/extinguisher(src)
 	src.modules += new /obj/item/rfd/piping/borg(src)
@@ -929,8 +927,8 @@ var/global/list/robot_modules = list(
 	channels = list(CHANNEL_ENGINEERING = TRUE)
 	languages = list()
 
-/obj/item/robot_module/drone/construction/New()
-	..()
+/obj/item/robot_module/drone/construction/Initialize()
+	. = ..()
 	src.modules += new /obj/item/rfd/construction/borg(src)
 
 /obj/item/robot_module/drone/respawn_consumable(var/mob/living/silicon/robot/R, var/amount)
@@ -946,7 +944,6 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/mining_drone/proc/set_up_default(var/mob/living/silicon/robot/R, var/drill = TRUE)
 	modules += new /obj/item/device/flash(src)
-	modules += new /obj/item/borg/sight/material(src)
 	if(drill)
 		modules += new /obj/item/pickaxe/drill(src)
 	modules += new /obj/item/storage/bag/ore/drone(src)
@@ -967,22 +964,22 @@ var/global/list/robot_modules = list(
 	emag = new /obj/item/gun/energy/plasmacutter/mounted(src)
 	emag.name = "Mounted Plasma Cutter"
 
-/obj/item/robot_module/mining_drone/basic/New(mob/living/silicon/robot/robot)
-	..()
+/obj/item/robot_module/mining_drone/basic/Initialize(mapload, mob/living/silicon/robot/robot)
+	. = ..()
 	set_up_default(src)
 
-/obj/item/robot_module/mining_drone/drill/New(mob/living/silicon/robot/robot)
-	..()
+/obj/item/robot_module/mining_drone/drill/Initialize(mapload, mob/living/silicon/robot/robot)
+	. = ..()
 	set_up_default(src, FALSE)
 	modules += new /obj/item/pickaxe/jackhammer(src)
 
-/obj/item/robot_module/mining_drone/ka/New(mob/living/silicon/robot/robot)
-	..()
+/obj/item/robot_module/mining_drone/ka/Initialize(mapload, mob/living/silicon/robot/robot)
+	. = ..()
 	set_up_default(src)
 	modules += new /obj/item/gun/custom_ka/cyborg(src)
 
-/obj/item/robot_module/mining_drone/drillandka/New(mob/living/silicon/robot/robot)
-	..()
+/obj/item/robot_module/mining_drone/drillandka/Initialize(mapload, mob/living/silicon/robot/robot)
+	. = ..()
 	set_up_default(src, FALSE)
 	modules += new /obj/item/pickaxe/jackhammer(src)
 	modules += new /obj/item/gun/custom_ka/cyborg(src)
@@ -1024,8 +1021,8 @@ var/global/list/robot_modules = list(
 	sprites = list("Roller" = "droid-combat") //TMP // temp my left nut // temp my right nut
 	can_be_pushed = FALSE
 
-/obj/item/robot_module/bluespace/New(var/mob/living/silicon/robot/R)
-	..()
+/obj/item/robot_module/bluespace/Initialize(mapload, mob/living/silicon/robot/R)
+	. = ..()
 	src.modules += new /obj/item/device/flash(src)
 	src.modules += new /obj/item/borg/sight/meson(src)
 	src.modules += new /obj/item/borg/sight/hud/med(src)

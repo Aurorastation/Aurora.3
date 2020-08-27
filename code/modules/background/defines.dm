@@ -17,6 +17,7 @@
 #define CITIZENSHIP_ZORA "Zo'ra Hive"
 
 #define CITIZENSHIP_NONE "None"
+#define CITIZENSHIP_GOLDEN "Golden Deep"
 
 //religion defines
 #define RELIGION_NONE "None"
@@ -83,7 +84,14 @@
 #define ACCENT_HEGEMON_PEASANT "Peasant Hegemonic"
 #define ACCENT_TRAD_NOBLE "Noble Traditional"
 #define ACCENT_TRAD_PEASANT "Peasant Traditional"
+#define ACCENT_WASTELAND "Deep Wastelander"
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
 
 #define ACCENT_DIONA "Diona"
+
+#define ACCENT_TTS "Text-to-Speech"
+
+#define ACCENT_ZORA "Zo'rane"
+#define ACCENT_KLAX "K'laxane"
+#define ACCENT_CTHUR "C'thuric"

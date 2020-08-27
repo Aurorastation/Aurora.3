@@ -258,7 +258,7 @@
 	if(percentage > 95)
 		descriptor = "shows no wear"
 
-	to_chat(user, span("notice", "It [descriptor]."))
+	to_chat(user, SPAN_NOTICE("It [descriptor]."))
 
 /obj/item/mecha_equipment/drill
 	name = "drill"
@@ -437,9 +437,9 @@
 
 /obj/item/mecha_equipment/sleeper/passenger_compartment/attack_self(var/mob/user)
 	if(!sleeper.occupant)
-		to_chat(user, span("warning", "There's no one to eject!"))
+		to_chat(user, SPAN_WARNING("There's no one to eject!"))
 	else
-		visible_message(span("notice", "\The [src] ejects [sleeper.occupant.name]."))
+		visible_message(SPAN_NOTICE("\The [src] ejects [sleeper.occupant.name]."))
 		sleeper.go_out()
 		icon_state = "mecha_passenger_open"
 		update_icon()

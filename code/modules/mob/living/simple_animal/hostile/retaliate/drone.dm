@@ -95,7 +95,7 @@
 
 	//repair a bit of damage
 	if(prob(1))
-		src.visible_message(span("alert", "\The [src] shudders and shakes as some of its damaged systems come back online."))
+		src.visible_message(SPAN_ALERT("\The [src] shudders and shakes as some of its damaged systems come back online."))
 		spark(src, 3, alldirs)
 		health += rand(25,100)
 
@@ -106,10 +106,10 @@
 	//sometimes our targetting sensors malfunction, and we attack anyone nearby
 	if(prob(disabled ? 0 : 1))
 		if(hostile_drone)
-			src.visible_message(span("notice", "\The [src] retracts several targetting vanes, and dulls its running lights."))
+			src.visible_message(SPAN_NOTICE("\The [src] retracts several targetting vanes, and dulls its running lights."))
 			hostile_drone = 0
 		else
-			src.visible_message(span("alert", "\The [src] suddenly lights up, and additional targetting vanes slide into place."))
+			src.visible_message(SPAN_ALERT("\The [src] suddenly lights up, and additional targetting vanes slide into place."))
 			hostile_drone = 1
 
 	if(health / maxHealth > 0.9)
@@ -130,17 +130,17 @@
 		exploding = 0
 		if(!disabled)
 			if(prob(50))
-				src.visible_message(span("notice", "\The [src] suddenly shuts down!"))
+				src.visible_message(SPAN_NOTICE("\The [src] suddenly shuts down!"))
 			else
-				src.visible_message(span("notice", "\The [src] suddenly lies still and quiet."))
+				src.visible_message(SPAN_NOTICE("\The [src] suddenly lies still and quiet."))
 			disabled = rand(150, 600)
 			walk(src,0)
 
 	if(exploding && prob(20))
 		if(prob(50))
-			src.visible_message(span("alert", "\The [src] begins to spark and shake violenty!"))
+			src.visible_message(SPAN_ALERT("\The [src] begins to spark and shake violenty!"))
 		else
-			src.visible_message(span("alert", "\The [src] sparks and shakes like it's about to explode!"))
+			src.visible_message(SPAN_ALERT("\The [src] sparks and shakes like it's about to explode!"))
 
 		spark(src, 3, alldirs)
 

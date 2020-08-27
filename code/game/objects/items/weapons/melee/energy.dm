@@ -47,7 +47,7 @@
 /obj/item/melee/energy/attack_self(mob/living/user as mob)
 	if (active)
 		if ((user.is_clumsy()) && prob(50))
-			user.visible_message("<span class='danger'>\The [user] accidentally cuts \himself with \the [src].</span>",\
+			user.visible_message("<span class='danger'>\The [user] accidentally cuts [user.get_pronoun("himself")] with \the [src].</span>",\
 			"<span class='danger'>You accidentally cut yourself with \the [src].</span>")
 			user.take_organ_damage(5,5)
 		deactivate(user)
@@ -62,7 +62,7 @@
 	add_fingerprint(user)
 	return
 
-/obj/item/melee/energy/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/melee/energy/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 
@@ -286,12 +286,12 @@
 /obj/item/melee/energy/sword/hegemony/activate(mob/living/user)
 	..()
 	icon_state = "kataphract-esword1"
-	to_chat(user, span("notice", "\The [src] is now energised."))
+	to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 
 /obj/item/melee/energy/sword/hegemony/deactivate(mob/living/user)
 	..()
 	icon_state = initial(icon_state)
-	to_chat(user, span("notice", "\The [src] is de-energised."))
+	to_chat(user, SPAN_NOTICE("\The [src] is de-energised."))
 
 /obj/item/melee/energy/sword/knife
 	name = "energy utility knife"
@@ -324,7 +324,8 @@
 	active_w_class = 3
 	w_class = 3
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = 'sound/items/pickup/sword.ogg'
+	pickup_sound = "pickup_sword"
+	equip_sound = "equip_sword"
 
 /obj/item/melee/energy/sword/powersword/activate(mob/living/user)
 	..()
@@ -339,7 +340,7 @@
 /obj/item/melee/energy/sword/powersword/attack_self(mob/living/user as mob)
 	..()
 	if(prob(30))
-		user.visible_message("<span class='danger'>\The [user] accidentally cuts \himself with \the [src].</span>",\
+		user.visible_message("<span class='danger'>\The [user] accidentally cuts [user.get_pronoun("himself")] with \the [src].</span>",\
 		"<span class='danger'>You accidentally cut yourself with \the [src].</span>")
 		user.take_organ_damage(5,5)
 /*

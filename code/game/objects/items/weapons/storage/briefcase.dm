@@ -18,6 +18,9 @@
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
+/obj/item/storage/briefcase/real
+	desc = "A leather briefcase, made of real leather. Looks fancy, owner must be real proud."
+
 /obj/item/storage/briefcase/black
 	name = "black briefcase"
 	icon_state = "briefcase_black"

@@ -25,8 +25,8 @@
 		playsound(loc, W.usesound, 50, 1)
 		anchored = !anchored
 		user.visible_message(
-			span("notice", anchored ? "\The [user] fastens \the [src] to \the [loc]." : "\The unfastens \the [src] from \the [loc]."),
-			span("notice", anchored ? "You fasten \the [src] to \the [loc]." : "You unfasten \the [src] from \the [loc]."),
+			SPAN_NOTICE(anchored ? "\The [user] fastens \the [src] to \the [loc]." : "\The unfastens \the [src] from \the [loc]."),
+			SPAN_NOTICE(anchored ? "You fasten \the [src] to \the [loc]." : "You unfasten \the [src] from \the [loc]."),
 			"You hear a ratchet."
 		)
 		return
@@ -38,10 +38,10 @@
 				paper_result = shred_amounts[shred_type]
 		if(paper_result)
 			if (!anchored)
-				to_chat(user, span("warning", "\The [src] must be anchored to the ground to operate!"))
+				to_chat(user, SPAN_WARNING("\The [src] must be anchored to the ground to operate!"))
 				return
 			if(paperamount == max_paper)
-				to_chat(user, span("warning", "\The [src] is full; please empty it before you continue."))
+				to_chat(user, SPAN_WARNING("\The [src] is full; please empty it before you continue."))
 				return
 			if (paper_result > 0)
 				paperamount += paper_result
@@ -55,9 +55,9 @@
 				flick("papershredder_on", src)
 			qdel(W)
 			playsound(src.loc, 'sound/bureaucracy/papershred.ogg', 75, 1)
-			to_chat(user, span("notice", "You shred the paper."))
+			to_chat(user, SPAN_NOTICE("You shred the paper."))
 			if(paperamount > max_paper)
-				to_chat(user, span("danger", "\The [src] was too full, and shredded paper goes everywhere!"))
+				to_chat(user, SPAN_DANGER("\The [src] was too full, and shredded paper goes everywhere!"))
 				for(var/i=(paperamount-max_paper);i>0;i--)
 					var/obj/item/shreddedp/SP = get_shredded_paper()
 					SP.forceMove(get_turf(src))
@@ -76,7 +76,7 @@
 		return
 
 	if(!paperamount)
-		to_chat(usr, span("notice", "\The [src] is empty."))
+		to_chat(usr, SPAN_NOTICE("\The [src] is empty."))
 		return
 
 	empty_bin(usr)
@@ -88,7 +88,7 @@
 		empty_into = null
 
 	if(empty_into && empty_into.contents.len >= empty_into.storage_slots)
-		to_chat(user,  span("notice", "\The [empty_into] is full."))
+		to_chat(user,  SPAN_NOTICE("\The [empty_into] is full."))
 		return
 
 	while(paperamount)
@@ -100,12 +100,12 @@
 				break
 	if(empty_into)
 		if(paperamount)
-			to_chat(user,  span("notice", "You fill \the [empty_into] with as much shredded paper as it will carry."))
+			to_chat(user,  SPAN_NOTICE("You fill \the [empty_into] with as much shredded paper as it will carry."))
 		else
-			to_chat(user,  span("notice", "You empty \the [src] into \the [empty_into]."))
+			to_chat(user,  SPAN_NOTICE("You empty \the [src] into \the [empty_into]."))
 
 	else
-		to_chat(user,  span("notice", "You empty \the [src]."))
+		to_chat(user,  SPAN_NOTICE("You empty \the [src]."))
 	update_icon()
 
 /obj/machinery/papershredder/proc/get_shredded_paper()
@@ -169,7 +169,7 @@
 				qdel(src)
 
 			else
-				to_chat(user, span("warning", "You must hold \the [P] steady to burn \the [src]."))
+				to_chat(user, SPAN_WARNING("You must hold \the [P] steady to burn \the [src]."))
 
 /obj/item/shreddedp
 	name = "shredded paper"

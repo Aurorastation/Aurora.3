@@ -369,7 +369,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "ghoz_eyes"
 	contained_sprite = TRUE
 	action_button_name = "Toggle Eyelids"
-	species_restricted = list("Vaurca") //i think this would make sense since those are some kind of vaurca build prothestic
+	species_restricted = list(BODYTYPE_VAURCA) //i think this would make sense since those are some kind of vaurca build prothestic
 
 
 /obj/item/clothing/head/det/fluff/leo_hat //Tagged brown hat - Leo Wyatt - keinto
@@ -956,7 +956,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "aegis_uniform"
 	item_state = "aegis_uniform"
 	contained_sprite = TRUE
-	species_restricted = list("Heavy Machine")
+	species_restricted = list(BODYTYPE_IPC_INDUSTRIAL)
 
 
 /obj/item/fluff/daliyah_visa //NanoTrasen Exchange Visa - Daliyah Veridan - xanderdox
@@ -1040,7 +1040,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if (use_check_and_message(usr)) return
 
 	if(!lit)
-		usr.visible_message("<span class='notice'>With a snap of \the [usr]'s fingers, a small lighter flame sparks from \his index fingers!</span>")
+		usr.visible_message("<span class='notice'>With a snap of \the [usr]'s fingers, a small lighter flame sparks from [usr.get_pronoun("his")] index fingers!</span>")
 		lit = TRUE
 		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 75, 1)
 		update_icon()
@@ -1048,7 +1048,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	else
-		usr.visible_message("<span class='notice'>With the flick of \the [usr] wrists and the pinch of \his fingers, the glove's flames are extinguished.</span>")
+		usr.visible_message("<span class='notice'>With the flick of \the [usr]'s wrists and the pinch of [usr.get_pronoun("his")] fingers, the glove's flames are extinguished.</span>")
 		lit = FALSE
 		playsound(src.loc, 'sound/items/cigs_lighters/zippo_off.ogg', 75, 1)
 		update_icon()
@@ -1925,7 +1925,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		has_bedroll = TRUE
 		return
 
-/obj/structure/closet/fluff/muhawir_tent/verb/dismantle()
+/obj/structure/closet/fluff/muhawir_tent/verb/dismantle_tent()
 	set name = "Dismantle Tent"
 	set category = "Object"
 	set src in view(1)
@@ -2015,7 +2015,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		item_state = initial(item_state)
 
 
-/obj/item/storage/fancy/fluff/sentiment_bouquet //Bouquet of Chrysanthemums - IRU-Sentiment - niennab
+/obj/item/storage/box/fancy/fluff/sentiment_bouquet //Bouquet of Chrysanthemums - IRU-Sentiment - niennab
 	name = "bouquet of chrysanthemums"
 	desc = "A bouquet of white artificial chrysanthemum flowers wrapped in a sheet of newsprint."
 	icon = 'icons/obj/custom_items/sentiment_bouquet.dmi'
@@ -2027,13 +2027,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
-	use_sound = 'sound/items/drop/wrapper.ogg'
+	use_sound = 'sound/items/storage/wrapper.ogg'
 
-/obj/item/storage/fancy/fluff/sentiment_bouquet/fill()
+/obj/item/storage/box/fancy/fluff/sentiment_bouquet/fill()
 	. = ..()
 	update_icon()
 
-/obj/item/storage/fancy/fluff/sentiment_bouquet/update_icon()
+/obj/item/storage/box/fancy/fluff/sentiment_bouquet/update_icon()
 	icon_state = "[initial(icon_state)]_[contents.len]"
 	if(contents.len)
 		item_state = initial(item_state)

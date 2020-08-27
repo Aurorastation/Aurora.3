@@ -194,7 +194,7 @@
 		return
 
 	if (reason)
-		to_chat(user, span("notice", reason))
+		to_chat(user, SPAN_NOTICE(reason))
 
 	user << browse(null, "window=greeting")
 

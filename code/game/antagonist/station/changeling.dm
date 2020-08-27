@@ -8,13 +8,13 @@
 
 	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
 	restricted_species = list(
-		"Baseline Frame",
-		"Shell Frame",
-		"Hephaestus G1 Industrial Frame",
-		"Hephaestus G2 Industrial Frame",
-		"Xion Industrial Frame",
-		"Zeng-Hu Mobility Frame",
-		"Bishop Accessory Frame"
+		SPECIES_IPC,
+		SPECIES_IPC_SHELL,
+		SPECIES_IPC_G1,
+		SPECIES_IPC_G2,
+		SPECIES_IPC_XION,
+		SPECIES_IPC_ZENGHU,
+		SPECIES_IPC_BISHOP
 	)
 	required_age = 10
 
@@ -87,3 +87,10 @@
 						return 0
 					return 1
  	return 0
+
+/datum/antagonist/changeling/remove_antagonist(var/datum/mind/player, var/show_message = TRUE, var/implanted)
+	. = ..()
+	if(.)
+		player.current.verbs -= /datum/changeling/proc/EvolutionMenu
+		for(var/datum/power/changeling/P in powerinstances)
+			player.current.verbs -= P.verbpath

@@ -51,7 +51,7 @@
 #define CE_BERSERK      "berserk"
 #define CE_CLUMSY       "clumsy"		// Peridaxon side effects, etc
 #define CE_DROPITEM     "dropitem"		// keloderm side effect
-#define CE_EMETIC       "emetic"		// thetamycin side effect, ipecac
+#define CE_EMETIC       "emetic"		// thetamycin side effect, verunol
 #define CE_FEVER        "fever"			// causes fever
 #define CE_NOCOUGH      "nocough"		// suppresses coughing
 #define CE_NOFEVER      "nofever"		// suppresses fever
@@ -63,15 +63,16 @@
 #define CE_PACIFIED     "pacified"
 #define CE_PAINKILLER   "painkiller"
 #define CE_PULSE        "xcardic"		// increases or decreases heartrate
-#define CE_UNDEXTROUS "undextrous" // arms no work right
+#define CE_UNDEXTROUS   "undextrous"    // arms no work right
 #define CE_HALLUCINATE  "hallucinogen"	//Makes hallucinations stronger or weaker
+#define CE_CRYO 	    "cryogenic"     // Prevents damage from being frozen
 
 // Apply healing effects
 #define CE_ANTIBIOTIC   "antibiotic"	// Thetamycin
 #define CE_ANTITOXIN    "antitoxin"		// Dylovene and stuff
 #define CE_BLOODRESTORE "bloodrestore"	// Iron/nutriment
 #define CE_BRAIN_REGEN  "brainfix"		// Alkysine
-#define CE_OXYGENATED   "oxygen"		// Dexalin
+#define CE_OXYGENATED   "oxygenated"	// Dexalin
 
 // Deal damage
 #define CE_BREATHLOSS   "breathloss"
@@ -94,9 +95,9 @@
 #define INTOX_DEATH      0.45
 
 //How many units of intoxication to remove per second
-#define INTOX_FILTER_HEALTHY 0.35
-#define INTOX_FILTER_BRUISED 0.2
-#define INTOX_FILTER_DAMAGED 0.10
+#define INTOX_FILTER_HEALTHY 0.15
+#define INTOX_FILTER_BRUISED 0.10
+#define INTOX_FILTER_DAMAGED 0.05
 
 #define	BASE_DIZZY 50 //Base dizziness from getting drunk.
 #define DIZZY_ADD_SCALE 15 //Amount added for every 0.01 percent over the JUDGEIMP limit

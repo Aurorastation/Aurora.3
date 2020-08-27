@@ -30,15 +30,15 @@
 		var/obj/item/weldingtool/WT = W
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
 			light()
-			to_chat(user, span("notice", "\The [user] casually lights \the [name] with [W]."))
+			to_chat(user, SPAN_NOTICE("\The [user] casually lights \the [name] with [W]."))
 	else if(W.isFlameSource())
 		light()
-		to_chat(user, span("notice", "\The [user] lights \the [name]."))
+		to_chat(user, SPAN_NOTICE("\The [user] lights \the [name]."))
 	else if(istype(W, /obj/item/flame/candle))
 		var/obj/item/flame/candle/C = W
 		if(C.lit)
 			light()
-			to_chat(user, span("notice", "\The [user] lights \the [name]."))
+			to_chat(user, SPAN_NOTICE("\The [user] lights \the [name]."))
 
 /obj/item/flame/candle/proc/light()
 	if(!src.lit)
@@ -58,7 +58,7 @@
 		new /obj/item/trash/candle(src.loc)
 		if(istype(src.loc, /mob))
 			src.dropped()
-		to_chat(user, span("notice", "The candle burns out."))
+		to_chat(user, SPAN_NOTICE("The candle burns out."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
@@ -70,7 +70,7 @@
 /obj/item/flame/candle/attack_self(mob/user as mob)
 	if(lit)
 		lit = 0
-		to_chat(user, span("notice", "You snuff out the flame."))
+		to_chat(user, SPAN_NOTICE("You snuff out the flame."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		update_icon()
 		set_light(0)

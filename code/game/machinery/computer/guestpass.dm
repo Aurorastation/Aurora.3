@@ -55,9 +55,10 @@
 	icon_state = "guestw"
 
 	light_color = LIGHT_COLOR_BLUE
+	icon_state = "altcomputerw"
 	icon_screen = "guest"
 	icon_scanline = "altcomputerw-scanline"
-	density = 0
+	density = FALSE
 
 	var/obj/item/card/id/giver
 	var/list/accesses = list()

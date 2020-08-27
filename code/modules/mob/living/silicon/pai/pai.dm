@@ -119,17 +119,17 @@
 
 	switch(M.a_intent)
 		if(I_HELP)
-			M.visible_message(span("notice","[M] [response_help] \the [src]"))
+			M.visible_message(SPAN_NOTICE("[M] [response_help] \the [src]"))
 			computer.toggle_service("flashlight", src)
 
 		if(I_DISARM)
-			M.visible_message(span("notice","[M] [response_disarm] \the [src]"))
+			M.visible_message(SPAN_NOTICE("[M] [response_disarm] \the [src]"))
 			M.do_attack_animation(src)
 			close_up()
 
 		if(I_HURT)
 			apply_damage(harm_intent_damage, BRUTE, used_weapon = "Attack by [M.name]")
-			M.visible_message(span("danger","[M] [response_harm] \the [src]"))
+			M.visible_message(SPAN_DANGER("[M] [response_harm] \the [src]"))
 			M.do_attack_animation(src)
 			updatehealth()
 
@@ -180,6 +180,7 @@
 	verbs += /mob/living/silicon/pai/proc/choose_chassis
 	verbs += /mob/living/silicon/pai/proc/choose_verbs
 	verbs += /mob/living/silicon/proc/computer_interact
+	verbs += /mob/living/silicon/proc/silicon_mimic_accent
 
 	//PDA
 	pda = new(src)
@@ -290,33 +291,6 @@
 	src.reset_view(null)
 	src.unset_machine()
 	src.cameraFollow = null
-
-//Addition by Mord_Sith to define AI's network change ability
-/*
-/mob/living/silicon/pai/proc/pai_network_change()
-	set category = "pAI Commands"
-	set name = "Change Camera Network"
-	src.reset_view(null)
-	src.unset_machine()
-	src.cameraFollow = null
-	var/cameralist[0]
-
-	if(usr.stat == 2)
-		to_chat(usr, "You can't change your camera network because you are dead!")
-		return
-
-	for (var/obj/machinery/camera/C in Cameras)
-		if(!C.status)
-			continue
-		else
-			if(C.network != "CREED" && C.network != "thunder" && C.network != "RD" && C.network != "phoron" && C.network != "Prison") COMPILE ERROR! This will have to be updated as camera.network is no longer a string, but a list instead
-				cameralist[C.network] = C.network
-
-	src.network = input(usr, "Which network would you like to view?") as null|anything in cameralist
-	to_chat(src, "\blue Switched to [src.network] camera network.")
-//End of code by Mord_Sith
-*/
-
 
 /*
 // Debug command - Maybe should be added to admin verbs later

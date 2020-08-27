@@ -69,7 +69,7 @@
 			if(!D.lying)
 				attack_message = "[A] attempted to strike [D], but missed!"
 			else
-				attack_message = "[A] attempted to strike [D], but \he rolled out of the way!"
+				attack_message = "[A] attempted to strike [D], but [D.get_pronoun("he")] rolled out of the way!"
 				D.set_dir(pick(cardinal))
 			miss_type = 1
 
@@ -128,11 +128,11 @@
 				var/obj/item/clothing/gloves/force/X = A.gloves
 				real_damage *= X.amplification
 
-	var/armour = D.run_armor_check(hit_zone, "melee")
+	var/armor = D.run_armor_check(hit_zone, "melee")
 
-	attack.apply_effects(A, D, armour, rand_damage, hit_zone)
+	attack.apply_effects(A, D, armor, rand_damage, hit_zone)
 
-	D.apply_damage(real_damage, hit_dam_type, hit_zone, armour, damage_flags = damage_flags)
+	D.apply_damage(real_damage, hit_dam_type, hit_zone, armor, damage_flags = damage_flags)
 
 	return 1
 
@@ -161,7 +161,7 @@
 		if(!A)
 			break
 		A.set_dir(i)
-		playsound(A.loc, 'sound/weapons/punch1.ogg', 15, 1, -1)
+		playsound(A.loc, "punch", 15, 1, -1)
 
 /obj/item/martial_manual
 	name = "SolCom manual"

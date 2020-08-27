@@ -133,23 +133,57 @@
 		. = TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		var/obj/item/computer_hardware/hard_drive/portable/RHDD = computer.portable_drive
-		if(!HDD || !RHDD || computer.enrolled != 2)
+		if(!HDD || !RHDD)
 			return TRUE
 		var/datum/computer_file/F = HDD.find_file_by_name(href_list["PRG_copytousb"])
 		if(!F || !istype(F))
 			return TRUE
-		var/datum/computer_file/C = F.clone(0)
+		var/is_usr_tech_support = FALSE
+		if(ishuman(usr))
+			var/mob/living/carbon/human/H = usr
+			var/obj/item/card/id/ID = H.GetIdCard()
+			if(access_it in ID.access)
+				is_usr_tech_support = TRUE
+		if(!is_usr_tech_support && computer.enrolled != 2 && istype(F, /datum/computer_file/program))
+			to_chat(usr, SPAN_WARNING("Work devices can't export programs to portable drives! Contact Tech Support to get them to load it."))
+			return TRUE
+		if(!RHDD.can_store_file(F.size))
+			to_chat(usr, SPAN_WARNING("\The [RHDD] doesn't have enough space to import the file."))
+			return
+		var/datum/computer_file/C = F.clone(0, "Compless")
+		for(var/datum/computer_file/installed_file in RHDD.stored_files)
+			if(C.filename == installed_file.filename)
+				to_chat(usr, SPAN_WARNING("A file with the same name is already installed on \the [computer]."))
+				qdel(C)
+				return
 		RHDD.store_file(C)
 	if(href_list["PRG_copyfromusb"])
 		. = TRUE
 		var/obj/item/computer_hardware/hard_drive/HDD = computer.hard_drive
 		var/obj/item/computer_hardware/hard_drive/portable/RHDD = computer.portable_drive
-		if(!HDD || !RHDD || computer.enrolled != 2)
+		if(!HDD || !RHDD)
 			return TRUE
 		var/datum/computer_file/F = RHDD.find_file_by_name(href_list["PRG_copyfromusb"])
 		if(!F || !istype(F))
 			return TRUE
-		var/datum/computer_file/C = F.clone(0)
+		var/is_usr_tech_support = FALSE
+		if(ishuman(usr))
+			var/mob/living/carbon/human/H = usr
+			var/obj/item/card/id/ID = H.GetIdCard()
+			if(access_it in ID.access)
+				is_usr_tech_support = TRUE
+		if(!is_usr_tech_support && computer.enrolled != 2 && istype(F, /datum/computer_file/program))
+			to_chat(usr, SPAN_WARNING("Work devices can't import programs from portable drives! Contact Tech Support to get them to load it."))
+			return TRUE
+		if(!HDD.can_store_file(F.size))
+			to_chat(usr, SPAN_WARNING("\The [computer]'s hard drive doesn't have enough space to import the file."))
+			return
+		var/datum/computer_file/C = F.clone(0, computer)
+		for(var/datum/computer_file/installed_file in HDD.stored_files)
+			if(C.filename == installed_file.filename)
+				to_chat(usr, SPAN_WARNING("A file with the same name is already installed on \the [computer]."))
+				qdel(C)
+				return
 		HDD.store_file(C)
 	if(href_list["PRG_encrypt"])
 		. = TRUE

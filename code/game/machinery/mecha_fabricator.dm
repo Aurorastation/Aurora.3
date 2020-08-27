@@ -124,7 +124,8 @@
 		return
 
 	if(href_list["build"])
-		add_to_queue(text2num(href_list["build"]))
+		var/path = text2path(href_list["build"])
+		add_to_queue(path)
 
 	if(href_list["remove"])
 		remove_from_queue(text2num(href_list["remove"]))
@@ -223,7 +224,7 @@
 		if(target_loc != target.loc)
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-			user.visible_message(span("warning", "[user] feeds the [target]'s hair into the [src] and flicks it on!"), span("alert", "You turn the [src] on!"))
+			user.visible_message(SPAN_WARNING("[user] feeds the [target]'s hair into the [src] and flicks it on!"), SPAN_ALERT("You turn the [src] on!"))
 			do_hair_pull(target)
 			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</font>")
 			target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their hair fed into [src] by [user.name] ([user.ckey])</font>")
@@ -235,10 +236,10 @@
 		if(target_loc != target.loc)
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-			user.visible_message(span("alert", "[user] starts tugging on [target]'s head as the [src] keeps running!"), span("alert", "You start tugging on [target]'s head!"))
+			user.visible_message(SPAN_ALERT("[user] starts tugging on [target]'s head as the [src] keeps running!"), SPAN_ALERT("You start tugging on [target]'s head!"))
 			do_hair_pull(target)
 			spawn(10)
-			user.visible_message(span("alert", "[user] stops the [src] and leaves [target] resting as they are."), span("alert", "You turn the [src] off and let go of [target]."))
+			user.visible_message(SPAN_ALERT("[user] stops the [src] and leaves [target] resting as they are."), SPAN_ALERT("You turn the [src] off and let go of [target]."))
 
 /obj/machinery/mecha_part_fabricator/emag_act(var/remaining_charges, var/mob/user)
 	switch(emagged)
@@ -268,8 +269,10 @@
 	else
 		busy = 0
 
-/obj/machinery/mecha_part_fabricator/proc/add_to_queue(var/index)
-	var/datum/design/D = files.known_designs[index]
+/obj/machinery/mecha_part_fabricator/proc/add_to_queue(var/path)
+	var/datum/design/D = files.known_designs[path]
+	if(!D)
+		return
 	queue += D
 	update_busy()
 
@@ -315,11 +318,11 @@
 
 /obj/machinery/mecha_part_fabricator/proc/get_build_options()
 	. = list()
-	for(var/i = 1 to files.known_designs.len)
-		var/datum/design/D = files.known_designs[i]
+	for(var/path in files.known_designs)
+		var/datum/design/D = files.known_designs[path]
 		if(!D.build_path || !(D.build_type & MECHFAB) || !D.category)
 			continue
-		. += list(list("name" = D.name, "id" = i, "category" = D.category, "resourses" = get_design_resourses(D), "time" = get_design_time(D)))
+		. += list(list("name" = D.name, "id" = D.type, "category" = D.category, "resourses" = get_design_resourses(D), "time" = get_design_time(D)))
 
 /obj/machinery/mecha_part_fabricator/proc/get_design_resourses(var/datum/design/D)
 	var/list/F = list()
@@ -332,7 +335,8 @@
 
 /obj/machinery/mecha_part_fabricator/proc/update_categories()
 	categories = list()
-	for(var/datum/design/D in files.known_designs)
+	for(var/path in files.known_designs)
+		var/datum/design/D = files.known_designs[path]
 		if(!D.build_path || !(D.build_type & MECHFAB) || !D.category)
 			continue
 		categories |= D.category
@@ -383,10 +387,9 @@
 	for(var/obj/machinery/computer/rdconsole/RDC in get_area(src))
 		if(!RDC.sync)
 			continue
-		for(var/datum/tech/T in RDC.files.known_tech)
+		for(var/id in RDC.files.known_tech)
+			var/datum/tech/T = RDC.files.known_tech[id]
 			files.AddTech2Known(T)
-		for(var/datum/design/D in RDC.files.known_designs)
-			files.AddDesign2Known(D)
 		files.RefreshResearch()
 		sync_message = "Sync complete."
 	update_categories()

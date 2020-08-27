@@ -14,7 +14,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 //For anything that can light stuff on fire
 /obj/item/flame
-	var/lit = 0
+	var/lit = FALSE
 
 /obj/item/flame/isFlameSource()
 	return lit
@@ -23,8 +23,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //MATCHES//
 ///////////
 /obj/item/flame/match
-	name = "match"
-	desc = "A simple match stick, used for lighting fine smokables."
+	name = "safety match"
+	desc = "A simple safety match. Used for lighting fine smokables, among other things."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "match_unlit"
 	item_state = "match_unlit"
@@ -32,14 +32,41 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
-	var/burnt = 0
 	var/smoketime = 5
-	w_class = 1.0
+	var/type_burnt = /obj/item/trash/match
+	w_class = ITEMSIZE_TINY
 	origin_tech = list(TECH_MATERIAL = 1)
-	slot_flags = SLOT_EARS
+	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("burnt", "singed")
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
+
+/obj/item/trash/match
+	name = "burnt match"
+	desc = "A match. This one has seen better days."
+	icon = 'icons/obj/cigs_lighters.dmi'
+	icon_state = "match_burnt"
+	item_state = "match_burnt"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
+		)
+	randpixel = 10
+	slot_flags = SLOT_EARS | SLOT_MASK
+	attack_verb = list("flicked")
+	drop_sound = 'sound/items/cigs_lighters/cig_snuff.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
+
+/obj/item/trash/match/Initialize()
+	. = ..()
+	randpixel_xy()
+	transform = turn(transform,rand(0,360))
+
+/obj/item/trash/match/attack_self(mob/user)
+	var/turf/location = get_turf(src)
+	new /obj/effect/decal/cleanable/ash(location)
+	user.visible_message("<b>[user]</b> crushes \the [src] into a fine ash.", range = 3)
+	qdel(src)
 
 /obj/item/flame/match/process()
 	if(isliving(loc))
@@ -47,33 +74,70 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		M.IgniteMob()
 	var/turf/location = get_turf(src)
 	smoketime--
-	if(smoketime < 1)
-		burn_out()
+	if(smoketime < 1 || istype(loc, /obj/item/storage)) // Shouldn't be lit in a bag.
+		die()
 		return
 	if(location)
 		location.hotspot_expose(700, 5)
 		return
 
-/obj/item/flame/match/dropped(mob/user as mob)
-	//If dropped, put ourselves out
-	//not before lighting up the turf we land on, though.
+/obj/item/flame/match/attack_self(mob/user as mob)
 	if(lit)
-		spawn(0)
-			var/turf/location = src.loc
-			if(istype(location))
-				location.hotspot_expose(700, 5)
-			burn_out()
+		user.visible_message("<b>[user]</b> waves out \the [src], extinguishing it.", range = 3)
+		die(TRUE)
 	return ..()
 
-/obj/item/flame/match/proc/burn_out()
-	lit = 0
-	burnt = 1
-	damtype = "brute"
-	icon_state = "match_burnt"
-	item_state = "match_burnt"
-	name = "burnt match"
-	desc = "A match. This one has seen better days."
-	STOP_PROCESSING(SSprocessing, src)
+/obj/item/flame/match/attackby(obj/item/W as obj, mob/user as mob)
+	..()
+	if(W.isFlameSource() && !src.lit)
+		playsound(src, 'sound/items/cigs_lighters/cig_light.ogg', 75, 1, -1)
+		user.visible_message("In a feat of redundancy, <b>[user]</b> lights \the [src] using \the [W].", range = 3)
+		light()
+
+/obj/item/flame/match/dropped(mob/user as mob)
+	if(lit)
+		spawn(0)
+			var/turf/location = src.loc	// Light up the turf we land on.
+			if(istype(location))
+				location.hotspot_expose(700, 5)
+			die(TRUE) // Put ourselves out.
+	return ..()
+
+/obj/item/flame/match/proc/light()
+	lit = TRUE
+	damtype = "burn"
+	icon_state = "match_lit"
+	item_state = "match_lit"
+	if(ismob(loc))
+		var/mob/living/M = loc
+		M.update_inv_wear_mask(0)
+		M.update_inv_l_hand(0)
+		M.update_inv_r_hand(1)
+	set_light(2, 0.25, "#E38F46")
+	START_PROCESSING(SSprocessing, src)
+
+/obj/item/flame/match/proc/die(var/nomessage = FALSE)
+	var/turf/T = get_turf(src)
+	playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
+	if(type_burnt)
+		var/obj/item/burnt = new type_burnt(T)
+		transfer_fingerprints_to(burnt)
+		if(ismob(loc))
+			var/mob/living/M = loc
+			if(!nomessage)
+				to_chat(M, span("notice", "Your [name] goes out."))
+			if(M.wear_mask)
+				M.remove_from_mob(src) //un-equip it so the overlays can update
+				M.update_inv_wear_mask(0)
+				M.equip_to_slot_if_possible(burnt, slot_wear_mask)
+			else
+				M.remove_from_mob(src) // if it dies in your hand.
+				M.update_inv_l_hand(0)
+				M.update_inv_r_hand(1)
+				M.put_in_hands(burnt)
+		set_light(0)
+		STOP_PROCESSING(SSprocessing, src)
+		qdel(src)
 
 //////////////////
 //FINE SMOKABLES//
@@ -98,7 +162,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/weldermes = "USER lights NAME with FLAME"
 	var/ignitermes = "USER lights NAME with FLAME"
 	var/initial_volume = 0
-	var/burn_rate = 0
+	var/burn_rate = 0 // Do not make lower than MINIMUM_CHEMICAL_VOLUME 0.01
 	var/last_drag = 0 //Spam limiter for audio/message when taking a drag of cigarette.
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
@@ -109,8 +173,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
 
 /obj/item/clothing/mask/smokable/process()
-
-	if(reagents && reagents.total_volume && burn_rate)
+	if(reagents && reagents.total_volume && burn_rate && !istype(loc, /obj/item/storage))
 		if(!initial_volume)
 			initial_volume = reagents.total_volume
 		var/mob/living/carbon/human/C = loc
@@ -131,7 +194,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/proc/light(var/flavor_text = "[usr] lights the [name].")
 	if(!src.lit)
-		src.lit = 1
+		src.lit = TRUE
 		playsound(src, 'sound/items/cigs_lighters/cig_light.ogg', 75, 1, -1)
 		src.reagents.set_temperature(T0C + 45)
 		damtype = "fire"
@@ -161,36 +224,41 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		set_light(2, 0.25, "#E38F46")
 		START_PROCESSING(SSprocessing, src)
 
-/obj/item/clothing/mask/smokable/proc/die(var/nomessage = 0)
+/obj/item/clothing/mask/smokable/proc/die(var/no_message = 0)
 	var/turf/T = get_turf(src)
 	set_light(0)
 	playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
-	if (type_butt)
-		var/obj/item/butt = new type_butt(T)
+	if(type_butt)
+		var/obj/item/butt = new type_butt(src.loc)
 		transfer_fingerprints_to(butt)
 		if(ismob(loc))
 			var/mob/living/M = loc
-			if (!nomessage)
-				to_chat(M, span("notice", "Your [name] goes out."))
-			M.remove_from_mob(src) //un-equip it so the overlays can update
-			M.update_inv_wear_mask(0)
-			M.update_inv_l_hand(0)
-			M.update_inv_r_hand(1)
+			if(!no_message)
+				to_chat(M, SPAN_NOTICE("Your [name] goes out."))
+			if(M.wear_mask)
+				M.remove_from_mob(src) //un-equip it so the overlays can update
+				M.update_inv_wear_mask(0)
+				M.equip_to_slot_if_possible(butt, slot_wear_mask)
+			else
+				M.remove_from_mob(src) // if it dies in your hand.
+				M.update_inv_l_hand(0)
+				M.update_inv_r_hand(1)
+				M.put_in_hands(butt)
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
 	else
 		new /obj/effect/decal/cleanable/ash(T)
 		if(ismob(loc))
 			var/mob/living/M = loc
-			if (!nomessage)
-				to_chat(M, span("notice", "Your [name] goes out, and you empty the ash."))
+			if(!no_message)
+				to_chat(M, SPAN_NOTICE("Your [name] goes out, and you empty the ash."))
 				playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
-			lit = 0
-			icon_state = icon_off
-			item_state = icon_off
 			M.update_inv_wear_mask(0)
 			M.update_inv_l_hand(0)
 			M.update_inv_r_hand(1)
+		lit = FALSE
+		icon_state = icon_off
+		item_state = icon_off
 		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/clothing/mask/smokable/attackby(obj/item/W as obj, mob/user as mob)
@@ -223,14 +291,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "cigoff"
 	throw_speed = 0.5
 	item_state = "cigoff"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("burnt", "singed")
 	icon_on = "cigon"  //Note - these are in masks.dmi not in cigarette.dmi
 	icon_off = "cigoff"
 	type_butt = /obj/item/trash/cigbutt
 	chem_volume = 30
-	burn_rate = 0.006 //Lasts ~166 seconds)
+	burn_rate = 0.012 //Lasts ~83 seconds)
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to light their NAME with FLAME.</span>"
 	zippomes = "<span class='notice'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
@@ -242,22 +310,19 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	reagents.add_reagent(/datum/reagent/toxin/tobacco,10)
 	reagents.add_reagent(/datum/reagent/mental/nicotine,5) // 2/3 ratio, Adds 0.03 units per second
 
-
 /obj/item/clothing/mask/smokable/cigarette/attackby(obj/item/W as obj, mob/user as mob)
 	..()
-
 	if(istype(W, /obj/item/melee/energy/sword))
 		var/obj/item/melee/energy/sword/S = W
 		if(S.active)
-			light(span("warning", "[user] swings their [W], barely missing themselves. They light their [name] in the process."))
-
+			light(SPAN_WARNING("[user] swings their [W], barely missing themselves. They light their [name] in the process."))
 	return
 
 /obj/item/clothing/mask/smokable/cigarette/attack(mob/living/carbon/human/H, mob/user, def_zone)
 	if(lit && H == user && istype(H))
 		var/obj/item/blocked = H.check_mouth_coverage()
 		if(blocked)
-			to_chat(H, span("warning", "\The [blocked] is in the way!"))
+			to_chat(H, SPAN_WARNING("\The [blocked] is in the way!"))
 			return 1
 		if(last_drag <= world.time - 30) //Spam limiter. Only for messages/sound.
 			last_drag = world.time
@@ -274,24 +339,24 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(istype(glass)) //you can dip cigarettes into beakers
 		var/transfered = glass.reagents.trans_to_obj(src, chem_volume)
 		if(transfered)	//if reagents were transfered, show the message
-			to_chat(user, span("warning", "You dip \the [src] into \the [glass]."))
+			to_chat(user, SPAN_WARNING("You dip \the [src] into \the [glass]."))
 			playsound(src.loc, 'sound/effects/footstep/water1.ogg', 50, 1)
 		else			//if not, either the beaker was empty, or the cigarette was full
 			if(!glass.reagents.total_volume)
-				to_chat(user, span("notice", "[glass] is empty."))
+				to_chat(user, SPAN_NOTICE("[glass] is empty."))
 			else
-				to_chat(user, span("notice", "[src] is full."))
+				to_chat(user, SPAN_NOTICE("[src] is full."))
 
 /obj/item/clothing/mask/smokable/cigarette/attack_self(mob/user as mob)
-	if(lit == 1)
-		user.visible_message(span("notice", "[user] calmly drops and treads on the lit [src], putting it out instantly."))
+	if(lit == TRUE)
+		user.visible_message(SPAN_NOTICE("[user] calmly drops and treads on the lit [src], putting it out instantly."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
-		die(1)
+		die(TRUE)
 	return ..()
 
 
 /obj/item/clothing/mask/smokable/cigarette/vanilla
-	burn_rate = 0.003 //300 seconds
+	burn_rate = 0.015
 
 /obj/item/clothing/mask/smokable/cigarette/vanilla/Initialize()
 	. = ..()
@@ -310,7 +375,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	reagents.add_reagent(/datum/reagent/serotrotium,3)
 
 /obj/item/clothing/mask/smokable/cigarette/blank
-	burn_rate = 0.003 //300 seconds
+	burn_rate = 0.015
 	chem_volume = 15
 
 /obj/item/clothing/mask/smokable/cigarette/blank/Initialize()
@@ -363,7 +428,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "cigaroff"
 	type_butt = /obj/item/trash/cigbutt/cigarbutt
 	throw_speed = 0.5
-	burn_rate = 0.003 //Lasts ~300 seconds
+	burn_rate = 0.015
 	chem_volume = 60
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to offend their NAME by lighting it with FLAME.</span>"
@@ -417,10 +482,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon = 'icons/obj/clothing/masks.dmi'
 	icon_state = "cigbutt"
 	randpixel = 10
-	w_class = 1
-	slot_flags = SLOT_EARS
+	w_class = ITEMSIZE_TINY
+	slot_flags = SLOT_EARS | SLOT_MASK
 	throwforce = 1
 	drop_sound = 'sound/items/cigs_lighters/cig_snuff.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
 
 /obj/item/trash/cigbutt/Initialize()
 	. = ..()
@@ -470,8 +536,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "pipeoff"
 	icon_on = "pipeon"  //Note - these are in masks.dmi
 	icon_off = "pipeoff"
-	burn_rate = 0.003
-	w_class = 1
+	burn_rate = 0.015
+	w_class = ITEMSIZE_TINY
 	chem_volume = 30
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to light their NAME with FLAME.</span>"
@@ -488,7 +554,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 /obj/item/clothing/mask/smokable/pipe/light(var/flavor_text = "[usr] lights the [name].")
 	if(!src.lit && burn_rate)
-		src.lit = 1
+		src.lit = TRUE
 		damtype = "fire"
 		icon_state = icon_on
 		item_state = icon_on
@@ -502,8 +568,8 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			M.update_inv_r_hand(1)
 
 /obj/item/clothing/mask/smokable/pipe/attack_self(mob/user as mob)
-	if(lit == 1)
-		user.visible_message(span("notice", "[user] puts out [src]."), span("notice", "You put out [src]."))
+	if(lit == TRUE)
+		user.visible_message(SPAN_NOTICE("[user] puts out [src]."), SPAN_NOTICE("You put out [src]."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		lit = 0
 		icon_state = icon_off
@@ -511,7 +577,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		STOP_PROCESSING(SSprocessing, src)
 	else if (burn_rate)
 		var/turf/location = get_turf(user)
-		user.visible_message(span("notice", "[user] empties out [src]."), span("notice", "You empty out [src]."))
+		user.visible_message(SPAN_NOTICE("[user] empties out [src]."), SPAN_NOTICE("You empty out [src]."))
 		new /obj/effect/decal/cleanable/ash(location)
 		burn_rate = 0
 		reagents.clear_reagents()
@@ -526,10 +592,10 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if (istype(W, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/grown/G = W
 		if (!G.dry)
-			to_chat(user, span("notice", "[G] must be dried before you stuff it into [src]."))
+			to_chat(user, SPAN_NOTICE("[G] must be dried before you stuff it into [src]."))
 			return
 		if (burn_rate)
-			to_chat(user, span("notice", "[src] is already packed."))
+			to_chat(user, SPAN_NOTICE("[src] is already packed."))
 			return
 		if(G.reagents)
 			initial_volume = G.reagents.total_volume
@@ -541,15 +607,15 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	else if(istype(W, /obj/item/flame/lighter))
 		var/obj/item/flame/lighter/L = W
 		if(L.lit)
-			light(span("notice", "[user] manages to light their [name] with [W]."))
+			light(SPAN_NOTICE("[user] manages to light their [name] with [W]."))
 
 	else if(istype(W, /obj/item/flame/match))
 		var/obj/item/flame/match/M = W
 		if(M.lit)
-			light(span("notice", "[user] lights their [name] with their [W]."))
+			light(SPAN_NOTICE("[user] lights their [name] with their [W]."))
 
 	else if(istype(W, /obj/item/device/assembly/igniter))
-		light(span("notice", "[user] fiddles with [W], and manages to light their [name] with the power of science."))
+		light(SPAN_NOTICE("[user] fiddles with [W], and manages to light their [name] with the power of science."))
 
 	user.update_inv_wear_mask(0)
 	user.update_inv_l_hand(0)
@@ -577,7 +643,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	throwforce = 4
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -591,6 +657,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/deactivation_sound = 'sound/items/cigs_lighters/cheap_off.ogg'
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
+	var/last_open = 0 //prevent message spamming.
+	var/last_close = 0
+	var/flame_light_range = 1
+	var/flame_light_power = 2
+	var/flame_light_color = LIGHT_COLOR_LAVA
 
 /obj/item/flame/lighter/zippo
 	name = "\improper Zippo lighter"
@@ -601,6 +672,69 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
+/obj/item/flame/lighter/zippo/dominia
+	name = "\improper Dominian Zippo lighter"
+	desc = "A zippo lighter with a depiction of the Imperial standard of Dominia."
+	desc_fluff = "While never officially endorsed by the Emperor, lighters featuring a stylized Imperial standard are a common sight throughout the Empire. Due to the simplicity with which the standard can be recreated, these lighters are found even in the poorer frontier regions in the Empire and are commonly seen as a sign of patriotism."
+	icon_state = "dominiazippo"
+	item_state = "dominiazippo"
+
+/obj/item/flame/lighter/zippo/sol
+	name = "\improper Solarian Zippo lighter"
+	desc = "A zippo lighter with a depiction of the flag of the Sol Alliance."
+	desc_fluff = "Zippo lighters with the flag of the Sol Alliance continue a long-standing tradition of Earth. While originally proclaiming patriotism to the nation, in the face of movements for more colonial self-determination, these lighters now push forward a message of unity."
+	icon_state = "solzippo"
+	item_state = "solzippo"
+
+/obj/item/flame/lighter/zippo/tcfl
+	name = "\improper Bieselite Zippo lighter"
+	desc = "A zippo lighter with a depiction of the Bieselite flag."
+	desc_fluff = "In their rush to expand the Tau Ceti Foreign Legion, the Republic of Biesel manufactured thousands of Biesel-patterned zippo lighters to compliment the jackets and berets that were so often touted by recruiters. In the wake of Frost's Invasion, the popularity of such lighters has only increased and they serve as a small show of patriotism. A small NanoTrasen logo is stenciled on the base."
+	icon_state = "tcflzippo"
+	item_state = "tcflzippo"
+
+/obj/item/flame/lighter/zippo/royal
+	name = "royal Zippo lighter"
+	desc = "A gold-plated zippo with a two-piece cover. A small chemical resevoir in the lighter allows for purple flames that burn with greater intensity."
+	icon_state = "royalzippo"
+	item_state = "royalzippo"
+	flame_light_color = LIGHT_COLOR_VIOLET
+
+/obj/item/flame/lighter/zippo/black
+	name = "black Zippo lighter"
+	desc = "A black zippo lighter with a rounded cover. This one seems to burn lower and slower, producing a faint glow."
+	icon_state = "blackzippo"
+	item_state = "blackzippo"
+
+/obj/item/flame/lighter/zippo/black/cross
+	name = "black Zippo lighter"
+	desc = "A black zippo lighter with a rounded cover. This one seems to burn lower and slower, producing a faint glow. This one has a cross painted on it."
+	icon_state = "blackcrosszippo"
+	item_state = "blackzippo"
+
+/obj/item/flame/lighter/zippo/himeo
+	name = "\improper Himean Zippo lighter"
+	desc = "A zippo with the symbol of the United Syndicates of Himeo on it. This seems to be a model of exceptional make and excessive fuel consumption and temperature."
+	desc_fluff = "Lighters of all kinds are a common sight in the United Syndicates of Himeo, where light sources are required for daily life in its dark tunnels, and its lighters are prized throughout the Coalition for their quality. The common emblem of the planet - a white circle surrounded by red triangles - is often featured on lighters originating from the planet."
+	icon_state = "himeozippo"
+	item_state = "himeozippo"
+	flame_light_range = 2
+
+/obj/item/flame/lighter/zippo/coalition
+	name = "\improper Coalition Zippo lighter"
+	desc = "A zippo lighter with a depiction of the Coalition of Colonies flag. This lighter utilizes advanced fuel from Xanu Prime which burns hotter, causing a blue flame."
+	desc_fluff = "As there are hundreds of cultures in the Coalition of Colonies, so too are there hundreds of local variations of zippo lighters. The most prized zippos tend to be those from the industrial colony of Himeo, where a strong work ethic and technological advancements combine to produce high-quality lighters that ignite through the harshest of conditions. Most exported Himean lighters have their logos scratched off, rebranded, and given a fresh coat of paint, much to the chagrin of their manufacturers."
+	icon_state = "coalitionzippo"
+	item_state = "coalitionzippo"
+	flame_light_color = LIGHT_COLOR_BLUE
+
+/obj/item/flame/lighter/zippo/gold
+	name = "golden Zippo lighter"
+	desc = "A golden zippo lighter. Badasses and chainsmokers might settle for a zippo, no sir - you can do better with this solid, 24-karat golden piece!"
+	icon_state = "goldzippo"
+	item_state = "goldzippo"
+	flame_light_color = LIGHT_COLOR_BLUE
 
 /obj/item/flame/lighter/random/Initialize()
 	. = ..()
@@ -625,32 +759,38 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			lit = TRUE
 			update_icon()
 			playsound(src.loc, pick(activation_sound), 75, 1)
-			if(istype(src, /obj/item/flame/lighter/zippo) )
-				user.visible_message(span("notice", "Without even breaking stride, [user] flips open and lights [src] in one smooth movement."))
-			else
+			if(istype(src, /obj/item/flame/lighter/zippo))
+				if(last_open <= world.time - 20) //Spam limiter.
+					last_open = world.time
+					user.visible_message(SPAN_NOTICE("Without even breaking stride, <b>[user]</b> flips open and lights \the [src] in one smooth movement."), range = 3)
+			else // cheap lighter.
 				if(prob(95))
-					user.visible_message(span("notice", "After a few attempts, [user] manages to light the [src]."))
+					if(last_open <= world.time - 20) //Spam limiter.
+						last_open = world.time
+						user.visible_message(SPAN_NOTICE("After a few attempts, <b>[user]</b> manages to light \the [src]."), range = 3)
 				else
-
-					to_chat(user, span("warning", "You burn yourself while lighting the lighter."))
+					to_chat(user, SPAN_DANGER("You burn yourself while lighting the lighter.")) // shouldn't be a problem - you got hurt, after all.
 					if(user.IgniteMob())
-						user.visible_message(span("danger","\The [user] accidentally sets themselves on fire!"))
-					if (user.l_hand == src)
-						user.apply_damage(2,BURN,BP_L_HAND)
+						user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally sets themselves on fire!"))
+					if(user.l_hand == src)
+						user.apply_damage(2, BURN,BP_L_HAND)
 					else
-						user.apply_damage(2,BURN,BP_R_HAND)
-					user.visible_message(span("notice", "After a few attempts, [user] manages to light the [src], they however burn their finger in the process."))
-
-			set_light(2, 1, l_color = LIGHT_COLOR_LAVA)
+						user.apply_damage(2, BURN,BP_R_HAND)
+					if(last_open <= world.time - 20) //Spam limiter.
+						last_open = world.time
+						user.visible_message(SPAN_DANGER("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)
+			set_light(flame_light_power, flame_light_range, l_color = flame_light_color)
 			START_PROCESSING(SSprocessing, src)
 		else
 			lit = FALSE
 			update_icon()
 			playsound(src.loc, deactivation_sound, 75, 1)
-			if(istype(src, /obj/item/flame/lighter/zippo) )
-				user.visible_message(span("notice", "You hear a quiet click, as [user] shuts off [src] without even looking at what they're doing."))
-			else
-				user.visible_message(span("notice", "[user] quietly shuts off the [src]."))
+			if(last_close <= world.time - 20) //Spam limiter.
+				last_close = world.time
+				if(istype(src, /obj/item/flame/lighter/zippo))
+					user.visible_message(SPAN_NOTICE("You hear a quiet click, as <b>[user]</b> shuts off \the [src] without even looking at what they're doing."), range = 3)
+				else
+					user.visible_message(SPAN_NOTICE("<b>[user]</b> quietly shuts off \the [src]."), range = 3)
 
 			set_light(0)
 			STOP_PROCESSING(SSprocessing, src)
@@ -664,7 +804,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		return
 
 	if(lit && M.IgniteMob())
-		M.visible_message(span("danger","\The [user] ignites \the [M] with \the [src]!"))
+		M.visible_message(SPAN_DANGER("\The [user] ignites \the [M] with \the [src]!"))
 
 	if(istype(M.wear_mask, /obj/item/clothing/mask/smokable/cigarette) && user.zone_sel.selecting == BP_MOUTH && lit)
 		var/obj/item/clothing/mask/smokable/cigarette/cig = M.wear_mask
@@ -672,16 +812,16 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			cig.attackby(src, user)
 		else
 			if(istype(src, /obj/item/flame/lighter/zippo))
-				cig.light(span("notice", "[user] whips the [name] out and holds it for [M]."))
+				cig.light(SPAN_NOTICE("[user] whips the [name] out and holds it for [M]."))
 			else
-				cig.light(span("notice", "[user] holds the [name] out for [M], and lights the [cig.name]."))
+				cig.light(SPAN_NOTICE("[user] holds the [name] out for [M], and lights the [cig.name]."))
 	else
 		..()
 
 /obj/item/flame/lighter/throw_impact(mob/living/carbon/M as mob)
 	. = ..()
 	if(istype(M) && lit && M.IgniteMob())
-		M.visible_message(span("danger","\The [M] is ignited by \the [src]!"))
+		M.visible_message(SPAN_DANGER("\The [M] is ignited by \the [src]!"))
 
 /obj/item/flame/lighter/process()
 	var/turf/location = get_turf(src)
@@ -691,7 +831,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(lit && prob(10) && isliving(src.loc))
 		var/mob/living/M = src.loc
 		if(M.IgniteMob())
-			M.visible_message(span("danger","\The [M] is ignited by \the [src]!"))
+			M.visible_message(SPAN_DANGER("\The [M] is ignited by \the [src]!"))
 
 	if (istype(loc, /obj/item/storage))//A lighter shouldn't stay lit inside a closed container
 		lit = 0
@@ -738,7 +878,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A thin piece of paper used to make smokables."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpaper_generic"
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 
 /obj/item/paper/cig/attackby(obj/item/P as obj, mob/user as mob)
 	if(istype(P, /obj/item/flame) || P.iswelder())
@@ -757,7 +897,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "cigarette filter"
 	desc = "A small nub like filter for cigarettes."
 	icon_state = "cigfilter"
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 
 /obj/item/paper/cig/filter/attackby(obj/item/P as obj, mob/user as mob)
 	if(istype(P, /obj/item/flame) || P.iswelder())
@@ -770,13 +910,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		..()
 		return
 	if (user.a_intent == I_GRAB && icon_state != "scrap" && !istype(src, /obj/item/paper/carbon))
-		user.show_message(span("alert", "The cigarette paper is too small to fold into a plane."))
+		user.show_message(SPAN_ALERT("The cigarette paper is too small to fold into a plane."))
 		return
 
 //tobacco sold seperately if you're too snobby to grow it yourself.
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco
 	plantname = "tobacco"
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco/Initialize()
 	. = ..()
@@ -796,13 +936,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/clothing/mask/smokable/cigarette/rolled/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/paper/cig/filter))
 		if(filter)
-			to_chat(user, span("warning", "[src] already has a filter!"))
+			to_chat(user, SPAN_WARNING("[src] already has a filter!"))
 			return
 		if(lit)
-			to_chat(user, span("warning", "[src] is lit already!"))
+			to_chat(user, SPAN_WARNING("[src] is lit already!"))
 			return
 		if(user.unEquip(I))
-			to_chat(user, span("notice", "You stick [I] into \the [src]"))
+			to_chat(user, SPAN_NOTICE("You stick [I] into \the [src]"))
 			playsound(src, 'sound/items/drop/gloves.ogg', 25, 1)
 			filter = 1
 			name = "filtered [name]"
@@ -814,13 +954,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/I, mob/user)
 	if(is_type_in_list(I, list(/obj/item/paper/cig/, /obj/item/paper/, /obj/item/teleportation_scroll)))
 		if(!dry)
-			to_chat(user, span("warning", "You need to dry [src] first!"))
+			to_chat(user, SPAN_WARNING("You need to dry [src] first!"))
 			return
 		if(user.unEquip(I))
 			var/obj/item/clothing/mask/smokable/cigarette/rolled/R = new(get_turf(src))
 			R.chem_volume = reagents.total_volume
 			reagents.trans_to_holder(R.reagents, R.chem_volume)
-			to_chat(user, span("notice", "You roll \the [src] into \the [I]"))
+			to_chat(user, SPAN_NOTICE("You roll \the [src] into \the [I]"))
 			playsound(src, 'sound/bureaucracy/paperfold.ogg', 25, 1)
 			user.put_in_active_hand(R)
 			qdel(I)

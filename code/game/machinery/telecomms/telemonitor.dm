@@ -1,6 +1,3 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:32
-
-
 /*
 	Telecomms monitor tracks the overall trafficing of a telecommunications network
 	and displays a heirarchy of linked machines.
@@ -9,6 +6,7 @@
 
 /obj/machinery/computer/telecomms/monitor
 	name = "Telecommunications Monitor"
+	desc = "A monitor that tracks the overall traffic of a telecommunicaations network, and displays a hierarchy of linked machines."
 	icon_screen = "comm_monitor"
 
 	var/screen = 0				// the screen number:

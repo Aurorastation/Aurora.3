@@ -12,6 +12,7 @@
 
 	amt_dam_brute = -35
 	amt_dam_fire  = -35
+	amt_organ = -5
 
 	message = "Your body feels like a furnace."
 
@@ -20,5 +21,6 @@
 		return 0
 	amt_dam_tox = -20
 	amt_dam_oxy = -20
+	amt_organ = -5
 
 	return "[src] now heals oxygen loss and toxic damage."

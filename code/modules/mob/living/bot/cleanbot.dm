@@ -211,7 +211,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 
 	cleaning = TRUE
 	D.being_cleaned = TRUE
-	update_icons()
+	update_icon()
 	var/clean_time = istype(D, /obj/effect/decal/cleanable/dirt) ? 10 : 50
 	INVOKE_ASYNC(src, .proc/do_clean, D, clean_time)
 
@@ -228,7 +228,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 			target = null
 		qdel(D)
 	cleaning = FALSE
-	update_icons()
+	update_icon()
 
 /mob/living/bot/cleanbot/explode()
 	on = FALSE // the first thing i do when i explode is turn off, tbh - geeves
@@ -242,7 +242,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 	qdel(src)
 	return
 
-/mob/living/bot/cleanbot/update_icons()
+/mob/living/bot/cleanbot/update_icon()
 	if(cleaning)
 		icon_state = "cleanbot-c"
 	else
