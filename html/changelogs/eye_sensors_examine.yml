@@ -3,5 +3,5 @@ author: Sparky_Hotdog
 delete-after: True
 
 changes: 
-  - tweak: "Integrated Eye Sensors now display records on examining, just like their physical HUD counterparts."
+  - bugfix: "All medical and security HUDs now display records on examining."
 
