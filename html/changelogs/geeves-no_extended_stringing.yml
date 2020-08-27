@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - rscadd: "The gamemode of the last round can no longer be voted for. Voting for secret unaffected."
+  - backend: "The ability to prevent gamemodes from being voted if the previous round was that gamemode has been implemented."
