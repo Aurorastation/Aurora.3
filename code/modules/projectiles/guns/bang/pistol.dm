@@ -30,7 +30,7 @@
 
 /obj/item/gun/bang/x9
 	name = "automatic .40 pistol"
-	desc = "The x9 tactical pistol is a lightweight fast firing handgun. Uses .40\ "Standard\" rounds."
+	desc = "The x9 tactical pistol is a lightweight fast firing handgun. Uses .40 \"Standard\" rounds."
 	icon = 'icons/obj/guns/x9.dmi'
 	icon_state = "x9tactical"
 	item_state = "x9"
