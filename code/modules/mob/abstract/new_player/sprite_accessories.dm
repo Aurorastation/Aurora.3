@@ -2167,7 +2167,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon = 'icons/mob/human_face/tajara_hair.dmi'
 		name = "Tajaran Ears"
 		icon_state = "ears_plain"
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/zombie/tajara)
 
 		taj_ears_bangs
 			name = "Tajara Bangs"
@@ -2252,6 +2252,98 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_victory
 			name = "Tajara Victory Curls"
 			icon_state = "hair_victory"
+			chatname = "curls"
+
+//msai hair, longer ears
+	msai_ears
+		icon = 'icons/mob/human_face/msai_hair.dmi'
+		name = "M'sai Ears"
+		icon_state = "msai_plain"
+		species_allowed = list(/datum/species/tajaran/m_sai)
+
+		taj_ears_bangs
+			name = "M'sai Bangs"
+			icon_state = "msai_bangs"
+			chatname = "bangs"
+
+		taj_ears_bob
+			name = "M'sai Bob"
+			icon_state = "msai_bob"
+			chatname = "groomed short mane"
+
+		taj_ears_braid
+			name = "M'sai Braid"
+			icon_state = "msai_braid"
+			chatname = "braid"
+
+		taj_ears_clean
+			name = "M'sai Clean"
+			icon_state = "msai_clean"
+			chatname = "short mane"
+
+		taj_ears_curls
+			name = "M'sai Curly"
+			icon_state = "msai_curly"
+			chatname = "curly mane"
+
+		taj_ears_fingercurl
+			name = "M'sai Finger Curls"
+			icon_state = "msai_fingerwave"
+			chatname = "curls"
+
+		taj_ears_pompadour
+			name = "M'sai Greaser"
+			icon_state = "msai_greaser"
+			chatname = "pompadour"
+
+		taj_ears_housewife
+			name = "M'sai Housewife"
+			icon_state = "msai_housewife"
+			chatname = "long mane"
+
+		taj_ears_long
+			name = "M'sai Long"
+			icon_state = "msai_long"
+			chatname = "long mane"
+
+		taj_ears_messy
+			name = "M'sai Messy"
+			icon_state = "msai_messy"
+			chatname = "messy mane"
+
+		taj_ears_mohawk
+			name = "M'sai Mohawk"
+			icon_state = "msai_mohawk"
+			chatname = "mohawk"
+
+		taj_ears_plait
+			name = "M'sai Plait"
+			icon_state = "msai_plait"
+			chatname = "braid"
+
+		taj_ears_rattail
+			name = "M'sai Rat Tail"
+			icon_state = "msai_rattail"
+			chatname = "thin ponytail"
+
+		taj_ears_shaggy
+			name = "M'sai Shaggy"
+			icon_state = "msai_shaggy"
+			chatname = "messy mane"
+
+		taj_ears_straight
+			name = "M'sai Straight"
+			icon_state = "msai_straight"
+			chatname = "short mane"
+
+		taj_ears_spiky
+			name = "M'sai Spiky"
+			icon_state = "msai_spiky"
+			chatname = "spiky mane"
+
+		taj_ears_victory
+			name = "M'sai Victory Curls"
+			icon_state = "msai_victory"
 			chatname = "curls"
 
 //vox hair
