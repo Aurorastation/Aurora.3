@@ -14,6 +14,10 @@
 	var/last_agitation = 0
 	var/active = FALSE
 
+	var/last_turf_check = 0
+	var/turf_check_rate = 3 MINUTES
+	var/list/agitation_turfs = list()
+
 	component_types = list(
 		/obj/item/stack/cable_coil{amount = 5},
 		/obj/item/stock_parts/capacitor,
@@ -28,11 +32,28 @@
 
 /obj/machinery/power/crystal_agitator/attack_hand(mob/user)
 	toggle_active()
-	visible_message(SPAN_NOTICE("\The [user] turns \the [src] [active ? "on" : "off"]."), SPAN_NOTICE("You turn \the [src] [active ? "on" : "off"]."))
+	visible_message("<b>[user]</b> turns \the [src] [active ? "on" : "off"].", SPAN_NOTICE("You turn \the [src] [active ? "on" : "off"]."))
 
 /obj/machinery/power/crystal_agitator/proc/toggle_active()
 	active = !active
 	icon_state = "[initial(icon_state)][active ? "-active": ""]"
+	if(active)
+		check_turfs()
+
+/obj/machinery/power/crystal_agitator/proc/check_turfs()
+	var/turf/our_turf = get_turf(src)
+	var/list/grow_turfs = list()
+	for(var/thing in RANGE_TURFS(agitation_range, our_turf))
+		var/turf/T = thing
+		if(our_turf == T)
+			continue
+		if(!istype(T, /turf/unsimulated/floor/asteroid))
+			continue
+		if(locate(/obj/structure/reagent_crystal/dense) in T)
+			continue
+		grow_turfs += T
+	agitation_turfs = grow_turfs
+	last_turf_check = world.time + turf_check_rate
 
 /obj/machinery/power/crystal_agitator/machinery_process()
 	if(!active)
@@ -41,31 +62,28 @@
 		return
 	if(last_agitation + agitation_rate > world.time)
 		return
+	if(!length(agitation_turfs))
+		toggle_active()
+		return
 	
 	var/actual_load = draw_power(active_power_usage)
 	if(actual_load < active_power_usage)
-		if(active)
-			toggle_active()
+		toggle_active()
 		return
 
-	var/list/turf/grow_turfs = list()
-	for(var/turf/T in range(agitation_range, get_turf(src)))
-		if(get_turf(src) == T)
-			continue
-		if(!istype(T, /turf/unsimulated/floor/asteroid))
-			continue
-		if(locate(/obj/structure/reagent_crystal/dense) in T)
-			continue
-		grow_turfs += T
+	// recheck the agitation turfs every few minutes to make sure we're not getting stuck
+	if(last_turf_check < world.time)
+		check_turfs()
 
-	var/turf/selected_turf = pick(grow_turfs)
-	if(!selected_turf || !istype(selected_turf))
-		return
+	var/turf/selected_turf = pick(agitation_turfs)
 	var/obj/structure/reagent_crystal/P = locate() in selected_turf
 	if(P)
 		P.become_dense()
 		return
-	new /obj/structure/reagent_crystal(selected_turf)
+	if(prob(1) && prob(1))
+		new /mob/living/simple_animal/hostile/phoron_worm/small(selected_turf)
+	else
+		new /obj/structure/reagent_crystal(selected_turf, null, src)
 	last_agitation = world.time
 
 /obj/machinery/power/crystal_agitator/RefreshParts()

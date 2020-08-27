@@ -6,24 +6,26 @@
 	anchored = TRUE
 	density = FALSE
 	layer = ABOVE_CABLE_LAYER
-	var/reagent_id
+	var/datum/reagent/reagent_id
 	var/state = 0
 	var/health = 100
 	var/mine_rate = 1 // how fast you can mine it
 
-/obj/structure/reagent_crystal/Initialize(mapload, reagent_i)
+	var/obj/machinery/power/crystal_agitator/creator // used to re-add dense turfs to agitation list when destroyed
+
+/obj/structure/reagent_crystal/Initialize(mapload, var/reagent_i = null, var/our_creator = null)
 	. = ..()
 	if(!reagent_i)
 		var/list/chems = list(/datum/reagent/acetone, /datum/reagent/aluminum, /datum/reagent/ammonia, /datum/reagent/carbon, /datum/reagent/copper, /datum/reagent/iron, /datum/reagent/lithium, /datum/reagent/mercury, /datum/reagent/potassium, /datum/reagent/radium, /datum/reagent/sodium)
-		reagent_id = pick(chems)
+		reagent_i = pick(chems)
 	reagent_id = reagent_i
-	var/datum/reagent/R = new reagent_id
-	name = replacetext(name, "chemical", lowertext(R.name))
-	desc = replacetext(desc, "chemical", lowertext(R.name))
-	qdel(R)
+	name = replacetext(name, "chemical", lowertext(initial(reagent_id.name)))
+	desc = replacetext(desc, "chemical", lowertext(initial(reagent_id.name)))
 	var/mutable_appearance/crystal_overlay = mutable_appearance(icon, "[initial(icon_state)]-overlay")
-	crystal_overlay.color = R.color
+	crystal_overlay.color = initial(reagent_id.color)
 	add_overlay(crystal_overlay)
+	if(our_creator)
+		creator = our_creator
 
 /obj/structure/reagent_crystal/examine(mob/user)
 	. = ..()
@@ -127,8 +129,10 @@
 
 /obj/structure/reagent_crystal/proc/become_dense()
 	var/health_mod = health / initial(health)
-	var/obj/structure/reagent_crystal/dense/P = new /obj/structure/reagent_crystal/dense(get_turf(src), reagent_id)
+	var/obj/structure/reagent_crystal/dense/P = new /obj/structure/reagent_crystal/dense(get_turf(src), reagent_id, creator)
 	P.health *= health_mod
+	if(creator)
+		creator.agitation_turfs -= get_turf(src)
 	qdel(src)
 
 /obj/structure/reagent_crystal/dense
@@ -139,9 +143,11 @@
 	mine_rate = 2
 
 /obj/structure/reagent_crystal/dense/harvest()
-	new /obj/item/reagent_crystal(get_turf(src), reagent_id, 5)
-	new /obj/item/reagent_crystal(get_turf(src), reagent_id, 5)
-	new /obj/item/reagent_crystal(get_turf(src), reagent_id, 5)
+	var/turf/our_turf = get_turf(src)
+	for(var/i = 0 to 2)
+		new /obj/item/reagent_crystal(our_turf, reagent_id, 5)
+	if(creator)
+		creator.agitation_turfs += our_turf
 	qdel(src)
 
 /obj/item/reagent_crystal
@@ -154,12 +160,11 @@
 	. = ..()
 	create_reagents(5)
 	reagents.add_reagent(reagent_i, amount)
-	var/datum/reagent/R = reagent_i
+	var/datum/reagent/R = new reagent_i
 	name = "[lowertext(R.name)] crystal"
 	desc = "A [lowertext(R.name)] crystal. It looks rough, unprocessed."
 	desc_info = "This crystal can be grinded to obtain the chemical material locked within."
 	color = reagents.get_color()
-	qdel(R)
 
 /obj/item/storage/bag/crystal
 	name = "crystal satchel"

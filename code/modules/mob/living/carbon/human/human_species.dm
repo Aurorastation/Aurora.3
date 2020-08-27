@@ -201,7 +201,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	if(mind)
 		mind.name = real_name
 	status_flags |= NO_ANTAG
-	disabilities |= PACIFIST
 
 	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_penal(src), slot_l_ear)
 

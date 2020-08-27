@@ -7808,9 +7808,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/cable/yellow{
-	d1 = 0;
 	d2 = 8;
-	dir = 2;
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled,
@@ -17351,6 +17349,9 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aEx" = (
+/obj/structure/bed/chair/remote/robot/warden{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aEy" = (
@@ -60059,9 +60060,7 @@
 	dir = 1
 	},
 /obj/structure/cable/yellow{
-	d1 = 0;
 	d2 = 8;
-	dir = 2;
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled,
