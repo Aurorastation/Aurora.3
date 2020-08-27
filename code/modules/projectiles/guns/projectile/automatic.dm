@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/automatic
 	name = "prototype SMG"
-	desc = "A protoype lightweight, fast firing gun. Uses .35\ "Light\" rounds."
+	desc = "A protoype lightweight, fast firing gun. Uses .35 \"Light\" rounds."
 	icon = 'icons/obj/guns/saber.dmi'
 	icon_state = "saber"	//ugly //yup
 	item_state = "saber"
