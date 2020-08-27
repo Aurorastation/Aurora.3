@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/shotgun/pump/rifle
 	name = "bolt action rifle"
-	desc = "A cheap ballistic rifle often found in the hands of crooks and frontiersmen. Uses 7.62mm rounds."
+	desc = "A cheap ballistic rifle often found in the hands of crooks and frontiersmen. Uses .315 \"Rifle\" rounds."
 	icon = 'icons/obj/guns/moistnugget.dmi'
 	icon_state = "moistnugget"
 	item_state = "moistnugget"
@@ -55,7 +55,7 @@
 
 /obj/item/gun/projectile/contender
 	name = "pocket rifle"
-	desc = "A perfect, pristine replica of an ancient one-shot hand-cannon. This one has been modified to work almost like a bolt-action. Uses 5.56mm rounds."
+	desc = "A perfect, pristine replica of an ancient one-shot hand-cannon. This one has been modified to work almost like a bolt-action. Uses .250 \"Intermediate\" rounds."
 	icon = 'icons/obj/guns/pockrifle.dmi'
 	icon_state = "pockrifle"
 	item_state = "pockrifle"

@@ -128,7 +128,7 @@
 	damage = 25
 
 /obj/item/projectile/bullet/pistol/strong
-	damage = 60
+	damage = 45
 
 /obj/item/projectile/bullet/pistol/revolver
 	damage = 45
@@ -185,13 +185,13 @@
 	penetrating = 1
 
 /obj/item/projectile/bullet/rifle/a762
-	damage = 25
+	damage = 35
 
 /obj/item/projectile/bullet/rifle/a556
 	damage = 30
 
 /obj/item/projectile/bullet/rifle/a556/ap
-	damage = 25
+	damage = 30
 	armor_penetration = 25
 
 /obj/item/projectile/bullet/rifle/a145

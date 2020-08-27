@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/heavysniper
 	name = "anti-materiel rifle"
-	desc = "A portable anti-armor rifle fitted with a scope, the PTR-7 is capable of punching through windows and non-reinforced walls with ease. Fires armor piercing 14.5mm shells."
+	desc = "A portable anti-armor rifle fitted with a scope, the PTR-7 is capable of punching through windows and non-reinforced walls with ease. Fires armor piercing .57 caliber shells."
 	desc_info = "This is a ballistic weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
 	then click where you want to fire.  The gun's chamber can be opened or closed by using it in your hand.  To reload, open the chamber, add a new bullet \
 	then close it.  To use the scope, use the appropriate verb in the object tab."
@@ -180,7 +180,7 @@
 
 /obj/item/gun/projectile/dragunov
 	name = "antique sniper rifle"
-	desc = "An old semi-automatic marksman rifle. Uses 7.62mm rounds."
+	desc = "An old semi-automatic marksman rifle. Uses .315 \"Rifle\" rounds."
 	icon = 'icons/obj/guns/dragunov.dmi'
 	icon_state = "dragunov"
 	item_state = "dragunov"
@@ -237,7 +237,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/w556
 	name = "scout rifle"
-	desc = "A lightweight Neyland 556mi 'Ranger' used within the Sol Navy and Nanotrasen Emergency Response Teams. Equipped with a scope and designed for medium to long range combat, with moderate stopping power. Chambered in 5.56 rounds."
+	desc = "A lightweight Neyland 'Ranger' used within the Sol Navy and Nanotrasen Emergency Response Teams. Equipped with a scope and designed for medium to long range combat, with moderate stopping power. Chambered in .250 \"Intermediate\" rounds."
 	icon = 'icons/obj/guns/w556.dmi'
 	icon_state = "w556rifle"
 	item_state = "w556rifle"

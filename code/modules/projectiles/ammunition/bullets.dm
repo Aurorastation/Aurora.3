@@ -44,23 +44,23 @@
 	projectile_type = /obj/item/projectile/bullet/trod
 
 /obj/item/ammo_casing/c9mm
-	desc = "A 9mm bullet casing."
+	desc = "A .35 \"Light\" bullet casing."
 	caliber = "9mm"
 	projectile_type = /obj/item/projectile/bullet/pistol
 	max_stack = 15
 
 /obj/item/ammo_casing/c9mm/flash
-	desc = "A 9mm flash shell casing."
+	desc = "A .35 \"Light\" flash shell casing."
 	projectile_type = /obj/item/projectile/energy/flash
 
 /obj/item/ammo_casing/c9mm/rubber
-	desc = "A 9mm rubber bullet casing."
+	desc = "A .35 \"Light\" rubber bullet casing."
 	projectile_type = /obj/item/projectile/bullet/pistol/rubber
 	icon_state = "r-casing"
 	spent_icon = "r-casing-spent"
 
 /obj/item/ammo_casing/c9mm/practice
-	desc = "A 9mm practice bullet casing."
+	desc = "A .35 \"Light\" practice bullet casing."
 	projectile_type = /obj/item/projectile/bullet/pistol/practice
 
 /obj/item/ammo_casing/c10mm
@@ -74,23 +74,23 @@
 	projectile_type = /obj/item/projectile/bullet/pistol/rubber
 
 /obj/item/ammo_casing/c45
-	desc = "A .45 bullet casing."
+	desc = "A .40 \"Standard\" bullet casing."
 	caliber = ".45"
 	projectile_type = /obj/item/projectile/bullet/pistol/medium
 	max_stack = 10
 
 /obj/item/ammo_casing/c45/practice
-	desc = "A .45 practice bullet casing."
+	desc = "A .40 \"Standard\" practice bullet casing."
 	projectile_type = /obj/item/projectile/bullet/pistol/practice
 
 /obj/item/ammo_casing/c45/rubber
-	desc = "A .45 rubber bullet casing."
+	desc = "A .40 \"Standard\" rubber bullet casing."
 	projectile_type = /obj/item/projectile/bullet/pistol/rubber
 	icon_state = "r-casing"
 	spent_icon = "r-casing-spent"
 
 /obj/item/ammo_casing/c45/flash
-	desc = "A .45 flash shell casing."
+	desc = "A .40 \"Standard\" flash shell casing."
 	projectile_type = /obj/item/projectile/energy/flash
 
 /obj/item/ammo_casing/a12mm
@@ -193,7 +193,7 @@
 	max_stack = 6
 
 /obj/item/ammo_casing/a762
-	desc = "A 7.62mm bullet casing."
+	desc = "A .315 \"Rifle\" bullet casing."
 	caliber = "a762"
 	projectile_type = /obj/item/projectile/bullet/rifle/a762
 	icon_state = "rifle-casing"
@@ -206,7 +206,7 @@
 
 /obj/item/ammo_casing/a145
 	name = "shell casing"
-	desc = "A 14.5mm shell."
+	desc = "A .57 calibre shell."
 	caliber = "14.5mm"
 	projectile_type = /obj/item/projectile/bullet/rifle/a145
 	matter = list(DEFAULT_WALL_MATERIAL = 1250)
@@ -215,7 +215,7 @@
 	max_stack = 2
 
 /obj/item/ammo_casing/a556
-	desc = "A 5.56mm bullet casing."
+	desc = "A .250 \"Intermediate\" bullet casing."
 	caliber = "a556"
 	projectile_type = /obj/item/projectile/bullet/rifle/a556
 	icon_state = "rifle-casing"
@@ -223,11 +223,11 @@
 	max_stack = 7
 
 /obj/item/ammo_casing/a556/ap
-	desc = "A 5.56mm armor piercing round."
+	desc = "A .250 \"Intermediate\" armor piercing round."
 	projectile_type = /obj/item/projectile/bullet/rifle/a556/ap
 
 /obj/item/ammo_casing/a556/practice
-	desc = "A 5.56mm practice bullet casing."
+	desc = "A .250 \"Intermediate\" practice bullet casing."
 	projectile_type = /obj/item/projectile/bullet/rifle/a556/practice
 
 /obj/item/ammo_casing/rocket

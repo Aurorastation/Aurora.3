@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/colt
-	name = "vintage .45 pistol"
-	desc = "A cheap Martian knock-off of a Colt M1911. Uses .45 rounds."
+	name = "vintage .40 pistol"
+	desc = "A cheap Martian knock-off of a truly ancient gun. Uses .40 \"Standard\" rounds."
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	icon = 'icons/obj/guns/colt.dmi'
@@ -41,9 +41,9 @@
 		return 1
 
 /obj/item/gun/projectile/sec
-	name = ".45 pistol"
-	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. Uses .45 rounds."
-	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. It uses .45 rounds."
+	name = ".40 pistol"
+	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. Uses .40 \"Standard\" rounds."
+	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. It uses .40 \"Standard\" rounds."
 	icon = 'icons/obj/guns/secgun.dmi'
 	icon_state = "secgun"
 	item_state = "secgun"
@@ -66,13 +66,13 @@
 	magazine_type = /obj/item/ammo_magazine/c45m
 
 /obj/item/gun/projectile/sec/flash
-	name = ".45 signal pistol"
+	name = ".40 signal pistol"
 	magazine_type = /obj/item/ammo_magazine/c45m/flash
 
 /obj/item/gun/projectile/sec/wood
-	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a wooden grip. Uses .45 rounds."
-	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. This one has a faux wooden grip. It uses .45 rounds."
-	name = "custom .45 Pistol"
+	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a wooden grip. Uses .40 \"Standard\" rounds."
+	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. This one has a faux wooden grip. It uses .40 \"Standard\" rounds."
+	name = "custom .40 Pistol"
 	icon = 'icons/obj/guns/secgun_wood.dmi'
 	icon_state = "secgunwood"
 	item_state = "secgunwood"
@@ -85,8 +85,8 @@
 		icon_state = "secgunwood-e"
 
 /obj/item/gun/projectile/automatic/x9
-	name = "automatic .45 pistol"
-	desc = "The x9 tactical pistol is a lightweight fast firing handgun. Uses .45 rounds."
+	name = "automatic .40 pistol"
+	desc = "The x9 tactical pistol is a lightweight fast firing handgun. Uses .40 \"Standard\" rounds."
 	icon = 'icons/obj/guns/x9.dmi'
 	icon_state = "x9tactical"
 	item_state = "x9"
@@ -105,14 +105,14 @@
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 /obj/item/gun/projectile/tanto
-	desc = "A Zavodskoi Interstellar Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
-	name = "10mm auto-pistol"
+	desc = "A Zavodskoi Interstellar Tanto .40, designed to compete with the NT Mk58. Uses .40 \"Standard\" rounds."
+	name = "cheap .40 pistol"
 	icon = 'icons/obj/guns/c05r.dmi'
 	icon_state = "c05r"
 	item_state = "c05r"
 	magazine_type = /obj/item/ammo_magazine/mc10mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc10mm)
-	caliber = "10mm"
+	caliber = ".45"
 	accuracy = 1
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
@@ -134,7 +134,7 @@
 
 /obj/item/gun/projectile/silenced
 	name = "silenced pistol"
-	desc = "A small, quiet, easily concealable gun. Uses .45 rounds."
+	desc = "A small, quiet, easily concealable gun. Uses .40 \"Standard\" rounds."
 	icon = 'icons/obj/guns/silenced_pistol.dmi'
 	icon_state = "silenced_pistol"
 	item_state = "silenced_pistol"
@@ -217,8 +217,8 @@
 		icon_state = "gyropistol"
 
 /obj/item/gun/projectile/pistol
-	name = "9mm pistol"
-	desc = "A compact 9mm handgun, extremely popular all throughout human space."
+	name = ".35 pistol"
+	desc = "A compact .35 \"Light\" handgun, extremely popular all throughout human space."
 	desc_fluff = "The Zavodskoi Interstellar Moonlight 9mm can be found in the hands of just about anyone imaginable - special operatives, common criminals, police officers, the average Joe - on account of the time-tested design, low price point, reliability, and ease of concealment. Having a threaded barrel helps, too, and it isn't uncommon to see the Moonlight as a prop in spy films, suppressed."
 	icon = 'icons/obj/guns/pistol.dmi'
 	icon_state = "pistol"
@@ -235,12 +235,12 @@
 	var/can_silence = TRUE
 
 /obj/item/gun/projectile/pistol/flash
-	name = "9mm signal pistol"
+	name = ".35 signal pistol"
 	magazine_type = /obj/item/ammo_magazine/mc9mm/flash
 
 /obj/item/gun/projectile/pistol/detective
-	desc = "A compact NanoTrasen designed sidearm, popular with law enforcement personnel for concealed carry purposes. It has a faux wooden grip. Uses 9mm rounds."
-	desc_fluff = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by Nanotrasen. Unlike the related Mk58, the Blackjack is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk21 is compact and chambered in 9mm caliber. With all the bells and whistles of a modern, quality police pistol, the Blackjack's main drawback is the notoriously nippy recoil - 9mm in such a small package can be unpleasant for the average shooter."
+	desc = "A compact NanoTrasen designed sidearm, popular with law enforcement personnel for concealed carry purposes. It has a faux wooden grip. Uses .35 \"Light\" rounds."
+	desc_fluff = "The NT Mk21 Blackjack is a ballistic sidearm developed and produced by Nanotrasen. Unlike the related Mk58, the Blackjack is a rather high quality piece - typically issued to higher ranking law enforcement personnel, the Mk21 is compact and chambered in .35 caliber. With all the bells and whistles of a modern, quality police pistol, the Blackjack's main drawback is the notoriously nippy recoil - .35 \"Light\" in such a small package can be unpleasant for the average shooter."
 	name = "compact 9mm pistol"
 	magazine_type = /obj/item/ammo_magazine/mc9mm/flash
 	icon = 'icons/obj/guns/detgun.dmi'
@@ -348,12 +348,12 @@
 	. = ..()
 
 /obj/item/gun/projectile/leyon
-	name = "10mm pistol"
-	desc = "The Leyon LCC Everyman is a small pistol that holds five shots and is loaded with a stripper clip, popular for self-defense on Mars. Uses 10mm rounds."
+	name = "holdout .35 pistol"
+	desc = "The Leyon LCC Everyman is a small pistol that holds five shots and is loaded with a stripper clip, popular for self-defense on Mars. Uses .35 \"Light\" rounds."
 	icon = 'icons/obj/guns/leyon.dmi'
 	icon_state = "leyon"
 	item_state = "leyon"
-	caliber = "10mm"
+	caliber = "9mm"
 	w_class = 2
 	ammo_type = /obj/item/ammo_casing/c10mm
 	magazine_type = /obj/item/ammo_magazine/mc10mm/leyon
@@ -371,7 +371,7 @@
 
 /obj/item/gun/projectile/pistol/sol
 	name = "service pistol"
-	desc = "A very old service pistol. Branded at the grip with the old emblem of the Sol Alliance, hand-made by Zavodskoi Instellar."
+	desc = "A very old service pistol. Branded at the grip with the old emblem of the Sol Alliance, manufactured by Zavodskoi Instellar."
 	icon = 'icons/obj/guns/m8.dmi'
 	icon_state = "m8"
 	item_state = "m8"

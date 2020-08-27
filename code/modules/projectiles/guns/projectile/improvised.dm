@@ -137,7 +137,7 @@
 
 /obj/item/gun/projectile/improvised_handgun
 	name = "improvised handgun"
-	desc = "A common sight in an amateur's workshop, a simple yet effective assembly made to chamber and fire .45 Rounds."
+	desc = "A common sight in an amateur's workshop, a simple yet effective assembly made to chamber and fire .40 \"Standard\" Rounds."
 	max_shells = 7
 	recoil = 2
 	accuracy = -1
@@ -207,7 +207,7 @@
 
 /obj/item/gun/projectile/automatic/improvised
 	name = "improvised machine pistol"
-	desc = "An improvised automatic handgun. Uses .45 rounds."
+	desc = "An improvised automatic handgun. Uses .40 \"Standard\" rounds."
 	icon = 'icons/obj/guns/ismg.dmi'
 	icon_state = "ismg"
 	item_state = "ismg"

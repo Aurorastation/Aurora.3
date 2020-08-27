@@ -1,6 +1,6 @@
 /obj/item/gun/bang/colt
-	name = "vintage .45 pistol"
-	desc = "A cheap Martian knock-off of a Colt M1911. Uses .45 rounds."
+	name = "vintage .40 pistol"
+	desc = "A cheap Martian knock-off of a Colt M1911. Uses .40 \"Standard\" rounds."
 	icon = 'icons/obj/guns/colt.dmi'
 	icon_state = "colt"
 	item_state = "colt"
@@ -8,9 +8,9 @@
 	pixel_offset_y = 18
 
 /obj/item/gun/bang/sec
-	name = ".45 pistol"
-	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. Uses .45 rounds."
-	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. It uses .45 rounds."
+	name = ".40 pistol"
+	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. Uses .40 \"Standard\" rounds."
+	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. Uses .40 \"Standard\" rounds."
 	icon = 'icons/obj/guns/secgun.dmi'
 	icon_state = "secgun"
 	item_state = "secgun"
@@ -18,19 +18,19 @@
 	pixel_offset_y = 14
 
 /obj/item/gun/bang/sec/flash
-	name = ".45 signal pistol"
+	name = ".40 signal pistol"
 
 /obj/item/gun/bang/sec/wood
-	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a wooden grip. Uses .45 rounds."
-	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. This one has a wooden grip. It uses .45 rounds."
-	name = "custom .45 Pistol"
+	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a wooden grip. Uses .40 rounds."
+	desc_fluff = "The NT Mk58 is a ballistic sidearm developed and produced by Nanotrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of Nanotrasen security forces. This one has a wooden grip. Uses .40 \"Standard\" rounds."
+	name = "custom .40 Pistol"
 	icon = 'icons/obj/guns/secgun_wood.dmi'
 	icon_state = "secgunwood"
 	item_state = "secgunwood"
 
 /obj/item/gun/bang/x9
-	name = "automatic .45 pistol"
-	desc = "The x9 tactical pistol is a lightweight fast firing handgun. Uses .45 rounds."
+	name = "automatic .40 pistol"
+	desc = "The x9 tactical pistol is a lightweight fast firing handgun. Uses .40\ "Standard\" rounds."
 	icon = 'icons/obj/guns/x9.dmi'
 	icon_state = "x9tactical"
 	item_state = "x9"
@@ -38,8 +38,8 @@
 	pixel_offset_y = 13
 
 /obj/item/gun/bang/tanto
-	desc = "A Zavodskoi Interstellar Tanto .40, designed to compete with the NT Mk58. Uses 10mm rounds."
-	name = "10mm pistol"
+	desc = "A Zavodskoi Interstellar Tanto .40, designed to compete with the NT Mk58. Uses .40 \"Standard\" rounds."
+	name = "cheap .40 pistol"
 	icon = 'icons/obj/guns/c05r.dmi'
 	icon_state = "c05r"
 	item_state = "c05r"
@@ -48,7 +48,7 @@
 
 /obj/item/gun/bang/silenced
 	name = "silenced pistol"
-	desc = "A small, quiet, easily concealable gun. Uses .45 rounds."
+	desc = "A small, quiet, easily concealable gun. Uses .40 \"Standard\" rounds."
 	icon = 'icons/obj/guns/silenced_pistol.dmi'
 	icon_state = "silenced_pistol"
 	item_state = "silenced_pistol"
@@ -65,7 +65,7 @@ obj/item/gun/bang/deagle
 	pixel_offset_y = 16
 
 /obj/item/gun/bang/pistol
-	name = "9mm pistol"
+	name = ".35 pistol"
 	desc = "500 years since its creation and the Stechkin automatic pistol is still a common sight throughout the Frontier."
 	icon = 'icons/obj/guns/pistol.dmi'
 	icon_state = "pistol"

@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/automatic
 	name = "prototype SMG"
-	desc = "A protoype lightweight, fast firing gun. Uses 9mm rounds."
+	desc = "A protoype lightweight, fast firing gun. Uses .35\ "Light\" rounds."
 	icon = 'icons/obj/guns/saber.dmi'
 	icon_state = "saber"	//ugly //yup
 	item_state = "saber"
@@ -26,8 +26,8 @@
 //Submachine guns and personal defence weapons, go.
 
 /obj/item/gun/projectile/automatic/mini_uzi
-	name = ".45 machine pistol"
-	desc = "A lightweight, fast firing gun. For when you want someone dead. Uses .45 rounds."
+	name = ".40 machine pistol"
+	desc = "A lightweight, fast firing gun. For when you want someone dead. Uses .40 \"Standard\" rounds."
 	icon = 'icons/obj/guns/mini-uzi.dmi'
 	icon_state = "mini-uzi"
 	item_state = "mini-uzi"
@@ -46,7 +46,7 @@
 
 /obj/item/gun/projectile/automatic/c20r
 	name = "submachine gun"
-	desc = "The C-20r is a lightweight and rapid firing SMG, for when you REALLY need someone dead. Uses 10mm rounds. Has a 'Scarborough Arms - Per falcis, per pravitas' buttstamp."
+	desc = "The C-20r is a lightweight and rapid firing SMG, for when you REALLY need someone dead. Uses .40 \"Standard\" rounds. Has a 'Scarborough Arms - Per falcis, per pravitas' buttstamp."
 	icon = 'icons/obj/guns/c20r.dmi'
 	icon_state = "c20r"
 	item_state = "c20r"
@@ -72,7 +72,7 @@
 
 /obj/item/gun/projectile/automatic/wt550
 	name = "machine pistol"
-	desc = "The NI 550 Saber is a cheap self-defense weapon, mass-produced by Zavodskoi Interstellar for paramilitary and private use. Uses 9mm rounds."
+	desc = "The NI 550 Saber is a cheap self-defense weapon, mass-produced by Zavodskoi Interstellar for paramilitary and private use. Uses .35 \"Light\" rounds."
 	icon = 'icons/obj/guns/wt550.dmi'
 	icon_state = "wt550"
 	item_state = "wt550"
@@ -134,8 +134,8 @@
 
 /obj/item/gun/projectile/automatic/rifle/sts35
 	name = "assault rifle"
-	desc = "A durable, rugged looking automatic weapon of a make popular on the frontier worlds. Uses 7.62mm rounds. It is unmarked."
-	desc_fluff = "The STS35 is a durable, reliable and cheap to buy fully automatic assault rifle with many licensed manufacturers across the galaxy. It comes in different versions and calibres, this one uses 7.62 rounds. The manufacturer markings have been filed off."
+	desc = "A durable, rugged looking automatic weapon of a make popular on the frontier worlds. Uses .315 \"Rifle\" rounds. It is unmarked."
+	desc_fluff = "The STS35 is a durable, reliable and cheap to buy fully automatic battle rifle with many licensed manufacturers across the galaxy. It comes in different versions and calibres, this one uses .315 \"Rifle\" rounds. The manufacturer markings have been filed off."
 	can_bayonet = TRUE
 	knife_x_offset = 23
 	knife_y_offset = 13
@@ -151,7 +151,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/sol
 	name = "battle rifle"
-	desc = "A powerful battle rifle, the M469 is a highly accurate skirmishing firearm of Zavodskoi Instellar make which is chambered in 7.62."
+	desc = "A powerful battle rifle, the M469 is a highly accurate and highly outdated skirmishing firearm of Zavodskoi Instellar make which is chambered in .315 \"Rifle\" calibre."
 	icon = 'icons/obj/guns/battlerifle.dmi'
 	icon_state = "battlerifle"
 	item_state = "battlerifle"
@@ -179,7 +179,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/z8
 	name = "bullpup assault carbine"
-	desc = "The Z8 Bulldog bullpup carbine, made by the now defunct Zendai Foundries. Uses armor piercing 5.56mm rounds. Makes you feel like a space marine when you hold it."
+	desc = "The Z8 Bulldog bullpup carbine, made by the now defunct Zendai Foundries. Uses .250 \"Intermediate\" rounds. Makes you feel like a space marine when you hold it."
 	icon = 'icons/obj/guns/carbine.dmi'
 	icon_state = "carbine"
 	item_state = "carbine"
@@ -365,7 +365,7 @@
 
 /obj/item/gun/projectile/automatic/tommygun
 	name = "vintage submachine gun"
-	desc = "A classic submachine gun. Uses .45 rounds."
+	desc = "A classic submachine gun, copied by the Tajara. Uses .40 \"Standard\" rounds."
 	icon = 'icons/obj/guns/tommygun.dmi'
 	icon_state = "tommygun"
 	item_state = "tommygun"

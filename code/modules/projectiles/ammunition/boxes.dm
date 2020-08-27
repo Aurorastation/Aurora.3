@@ -35,7 +35,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_URANIUM = 600)
 
 /obj/item/ammo_magazine/c45
-	name = "ammunition Box (.45)"
+	name = "ammunition Box (.40)"
 	icon_state = "9mm"
 	origin_tech = list(TECH_COMBAT = 2)
 	caliber = ".45"
@@ -44,7 +44,7 @@
 	max_ammo = 30
 
 /obj/item/ammo_magazine/c45x
-	name = "magazine (.45)"
+	name = "magazine (.40)"
 	icon_state = "45x"
 	origin_tech = list(TECH_COMBAT = 3)
 	mag_type = MAGAZINE
@@ -55,13 +55,13 @@
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/c45m
-	name = "magazine (.45)"
+	name = "magazine (.40)"
 	icon_state = "45"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 525) //metal costs are very roughly based around 1 .45 casing = 75 metal
 	caliber = ".45"
-	max_ammo = 7
+	max_ammo = 10
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/c45m/empty
@@ -107,14 +107,14 @@
 	insert_sound = 'sound/weapons/clip_insert.ogg'
 
 /obj/item/ammo_magazine/mc9mm
-	name = "magazine (9mm)"
+	name = "magazine (.35)"
 	icon_state = "9x19p"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
 	caliber = "9mm"
 	ammo_type = /obj/item/ammo_casing/c9mm
-	max_ammo = 10
+	max_ammo = 12
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/mc9mm/empty
@@ -124,7 +124,7 @@
 	ammo_type = /obj/item/ammo_casing/c9mm/flash
 
 /obj/item/ammo_magazine/c9mm
-	name = "ammunition box (9mm)"
+	name = "ammunition box (.35)"
 	icon_state = "9mm"
 	origin_tech = list(TECH_COMBAT = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
@@ -136,7 +136,7 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/mc9mmt
-	name = "top mounted magazine (9mm)"
+	name = "top mounted magazine (.35)"
 	icon_state = "9mmt"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c9mm
@@ -157,7 +157,7 @@
 	ammo_type = /obj/item/ammo_casing/c9mm/practice
 
 /obj/item/ammo_magazine/c45
-	name = "ammunition box (.45)"
+	name = "ammunition box (.40)"
 	icon_state = "9mm"
 	origin_tech = list(TECH_COMBAT = 2)
 	caliber = ".45"
@@ -183,14 +183,14 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/a556
-	name = "magazine (5.56mm)"
+	name = "magazine (.250)"
 	icon_state = "5.56"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = "a556"
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	ammo_type = /obj/item/ammo_casing/a556
-	max_ammo = 10
+	max_ammo = 30
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/a556/empty
@@ -245,7 +245,7 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/a762
-	name = "magazine box (7.62mm)"
+	name = "magazine box (.315)"
 	icon_state = "a762"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
@@ -259,7 +259,7 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/c762
-	name = "magazine (7.62mm)"
+	name = "magazine (.315)"
 	icon_state = "c762"
 	mag_type = MAGAZINE
 	caliber = "a762"
@@ -273,7 +273,7 @@
 	multiple_sprites = 0
 
 /obj/item/ammo_magazine/boltaction
-	name = "ammo clip (7.62mm)"
+	name = "ammo clip (.315)"
 	icon_state = "762"
 	ammo_type = /obj/item/ammo_casing/a762
 	caliber = "a762"
@@ -288,7 +288,7 @@
 	caliber = "vintage"
 
 /obj/item/ammo_magazine/c45uzi
-	name = "stick magazine (.45)"
+	name = "stick magazine (.40)"
 	icon_state = "uzi45"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
@@ -301,7 +301,7 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/submachinemag
-	name = "magazine (.45)"
+	name = "magazine (.40)"
 	icon_state = "tommy-mag"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
@@ -313,7 +313,7 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/submachinedrum
-	name = "drum magazine (.45)"
+	name = "drum magazine (.40)"
 	icon_state = "tommy-drum"
 	w_class = 3 // Bulky ammo doesn't fit in your pockets!
 	mag_type = MAGAZINE
@@ -335,7 +335,7 @@
 //dragunov magazine
 
 /obj/item/ammo_magazine/d762
-	name = "magazine (7.62mm)"
+	name = "magazine (.315)"
 	icon_state = "SVD"
 	mag_type = MAGAZINE
 	caliber = "a762"
@@ -404,7 +404,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2880, MATERIAL_GLASS = 5760)
 
 /obj/item/ammo_magazine/minigun
-	name = "minigun magazine box (7.62mm)"
+	name = "minigun magazine box (.315)"
 	icon_state = "a762"
 	mag_type = MAGAZINE
 	caliber = "a762"
