@@ -105,7 +105,7 @@
 		var/area/location = get_area(src)
 		broadcast_medical_hud_message("[src] is treating <b>[H]</b> in <b>[location]</b>", src)
 	currently_healing = 1
-	update_icons()
+	update_icon()
 	if(do_mob(src, H, 30))
 		if(t == 1)
 			reagent_glass.reagents.trans_to_mob(H, injection_amount, CHEM_BLOOD)
@@ -113,9 +113,9 @@
 			H.reagents.add_reagent(t, injection_amount)
 		visible_message("<span class='warning'>[src] injects [H] with the syringe!</span>")
 	currently_healing = 0
-	update_icons()
+	update_icon()
 
-/mob/living/bot/medbot/update_icons()
+/mob/living/bot/medbot/update_icon()
 	cut_overlays()
 	if(skin)
 		add_overlay("medskin_[skin]")
@@ -243,7 +243,7 @@
 		currently_healing = 0
 		emagged = 1
 		on = 1
-		update_icons()
+		update_icon()
 		. = 1
 	ignored |= user
 

@@ -23,19 +23,26 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/human/burger
 
-/datum/recipe/plainburger
+/datum/recipe/mouseburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/meat //do not place this recipe before /datum/recipe/humanburger
+		/obj/item/reagent_containers/food/snacks/meat/rat
 	)
-	result = /obj/item/reagent_containers/food/snacks/burger/monkey
+	result = /obj/item/reagent_containers/food/snacks/burger/mouse
 
 /datum/recipe/syntiburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
 		/obj/item/reagent_containers/food/snacks/meat/syntiflesh
 	)
-	result = /obj/item/reagent_containers/food/snacks/burger/monkey
+	result = /obj/item/reagent_containers/food/snacks/burger
+
+/datum/recipe/plainburger
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/meat //do not place this recipe before /datum/recipe/humanburger or /datum/recipe/mouseburger
+	)
+	result = /obj/item/reagent_containers/food/snacks/burger
 
 /datum/recipe/brainburger
 	items = list(
@@ -61,7 +68,7 @@
 /datum/recipe/fishburger
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/carpmeat
+		/obj/item/reagent_containers/food/snacks/fish
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger/fish
 
@@ -92,13 +99,6 @@
 		/obj/item/clothing/head/beret
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger/mime
-
-/datum/recipe/mouseburger
-	items = list(
-		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/meat/rat
-	)
-	result = /obj/item/reagent_containers/food/snacks/burger/mouse
 
 /datum/recipe/hotdog
 	items = list(
@@ -302,14 +302,14 @@
 
 /datum/recipe/spellburger
 	items = list(
-		/obj/item/reagent_containers/food/snacks/burger/monkey,
+		/obj/item/reagent_containers/food/snacks/burger,
 		/obj/item/clothing/head/wizard
 	)
 	result = /obj/item/reagent_containers/food/snacks/burger/spell
 
 /datum/recipe/bigbiteburger
 	items = list(
-		/obj/item/reagent_containers/food/snacks/burger/monkey,
+		/obj/item/reagent_containers/food/snacks/burger,
 		/obj/item/reagent_containers/food/snacks/meat,
 		/obj/item/reagent_containers/food/snacks/meat,
 		/obj/item/reagent_containers/food/snacks/meat
@@ -317,13 +317,6 @@
 	reagents = list(/datum/reagent/nutriment/protein/egg = 3)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/burger/bigbite
-
-/datum/recipe/fishandchips
-	items = list(
-		/obj/item/reagent_containers/food/snacks/fries,
-		/obj/item/reagent_containers/food/snacks/carpmeat
-	)
-	result = /obj/item/reagent_containers/food/snacks/fishandchips
 
 /datum/recipe/sandwich
 	items = list(
@@ -529,14 +522,6 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sausage
 	result_quantity = 2
-
-/datum/recipe/fishfingers
-	reagents = list(/datum/reagent/nutriment/flour = 10,/datum/reagent/nutriment/protein/egg = 3)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/carpmeat
-	)
-	result = /obj/item/reagent_containers/food/snacks/fishfingers
-	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/mysterysoup
 	reagents = list(/datum/reagent/water = 10, /datum/reagent/nutriment/protein/egg = 3)
@@ -809,7 +794,7 @@
 	result = /obj/item/reagent_containers/food/snacks/poachedegg
 
 /datum/recipe/honeytoast
-	reagents = list(/datum/reagent/honey = 5)
+	reagents = list(/datum/reagent/nutriment/honey = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice
 	)
@@ -830,10 +815,9 @@
 /datum/recipe/sashimi
 	reagents = list(/datum/reagent/nutriment/soysauce = 5)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/carpmeat
+		/obj/item/reagent_containers/food/snacks/fish
 	)
 	result = /obj/item/reagent_containers/food/snacks/sashimi
-
 
 /datum/recipe/nugget
 	reagents = list(/datum/reagent/nutriment/flour = 5)
@@ -1019,12 +1003,12 @@
 
 /datum/recipe/grilled_carp
 	items = list(
-		/obj/item/reagent_containers/food/snacks/carpmeat,
-		/obj/item/reagent_containers/food/snacks/carpmeat,
-		/obj/item/reagent_containers/food/snacks/carpmeat,
-		/obj/item/reagent_containers/food/snacks/carpmeat,
-		/obj/item/reagent_containers/food/snacks/carpmeat,
-		/obj/item/reagent_containers/food/snacks/carpmeat
+		/obj/item/reagent_containers/food/snacks/fish,
+		/obj/item/reagent_containers/food/snacks/fish,
+		/obj/item/reagent_containers/food/snacks/fish,
+		/obj/item/reagent_containers/food/snacks/fish,
+		/obj/item/reagent_containers/food/snacks/fish,
+		/obj/item/reagent_containers/food/snacks/fish
 	)
 	reagents = list(/datum/reagent/spacespice = 1)
 	fruit = list("cabbage" = 1, "lime" = 1)
@@ -1032,7 +1016,7 @@
 
 /datum/recipe/sushi_roll
 	items = list(
-		/obj/item/reagent_containers/food/snacks/carpmeat,
+		/obj/item/reagent_containers/food/snacks/fish,
 		/obj/item/reagent_containers/food/snacks/boiledrice
 	)
 	fruit = list("cabbage" = 1)
@@ -1083,7 +1067,7 @@
 /datum/recipe/fish_taco
 	fruit = list("chili" = 1, "lemon" = 1)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/carpmeat,
+		/obj/item/reagent_containers/food/snacks/fish,
 		/obj/item/reagent_containers/food/snacks/tortilla
 	)
 	result = /obj/item/reagent_containers/food/snacks/fish_taco
@@ -1192,4 +1176,22 @@
 		/obj/item/reagent_containers/food/snacks/spreads/lard
 	)
 	result = /obj/item/reagent_containers/food/snacks/lardwich
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/dionae_soup
+	reagents = list(/datum/reagent/water = 10)
+	fruit = list("cabbage" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/dionanymph
+	)
+	result = /obj/item/reagent_containers/food/snacks/soup/diona
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/datum/recipe/dionae_stew
+	reagents = list(/datum/reagent/water = 10)
+	fruit = list("potato" = 1, "carrot" = 1, "mushroom" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/dionanymph
+	)
+	result = /obj/item/reagent_containers/food/snacks/stew/diona
 	reagent_mix = RECIPE_REAGENT_REPLACE

@@ -22,6 +22,15 @@ var/list/datum/power/changeling/powerinstances = list()
 	genomecost = 0
 	verbpath = /mob/proc/changeling_absorb_dna
 
+// Accent Mimicry
+
+/datum/power/changeling/mimic_accent
+	name = "Mimic Accent"
+	desc = "Allows us to shape our vocal glands to adopt a specific accent."
+	helptext = "Allows you to pick any accent from the list of all accents. Be mindful that you need to match the correct accent to pretend to be your victim."
+	genomecost = 0
+	verbpath = /mob/proc/changeling_mimic_accent
+
 //Transformation
 
 /datum/power/changeling/transform
@@ -65,6 +74,19 @@ var/list/datum/power/changeling/powerinstances = list()
 	helptext = "Allows you to absorb a single DNA and use it. Does not count towards your absorb objective."
 	genomecost = 0
 	verbpath = /mob/proc/changeling_hivedownload
+
+/datum/power/changeling/hivemind_commune
+	name = "Hivemind Commune"
+	desc = "We can speak with the members of our Hivemind, without it being apparent to the people in our view."
+	genomecost = 0
+	verbpath = /mob/proc/changeling_hivemind_commune
+
+/datum/power/changeling/hivemind_eject
+	name = "Hivemind Eject"
+	desc = "We can eject a pesky hivemind from ourselves, if it complains a lot. This won't free up space, but will prevent them from screaming at us."
+	helptext = "Ghosts the chosen hivemind. Use it on salty people spamming you to send them to deadchat."
+	genomecost = 0
+	verbpath = /mob/proc/changeling_eject_hivemind
 
 //Stings and sting accessorries
 //Rest in pieces, unfat sting. - Geeves

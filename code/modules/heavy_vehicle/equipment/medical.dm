@@ -121,9 +121,6 @@
 	var/mob/living/carbon/Target = null
 	var/datum/beam/MyBeam = null
 
-/obj/item/mecha_equipment/crisis_drone/Initialize()
-	..()
-
 /obj/item/mecha_equipment/crisis_drone/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	. = ..()
@@ -274,5 +271,4 @@
 
 /obj/item/device/healthanalyzer/mech/attack(mob/living/M, var/mob/living/heavy_vehicle/user)
 	for(var/mob/pilot in user.pilots)
-		health_scan_mob(M, pilot, FALSE)
-		return
+		health_scan_mob(M, pilot, TRUE, TRUE)

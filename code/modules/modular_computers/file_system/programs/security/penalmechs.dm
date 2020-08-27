@@ -110,7 +110,7 @@
 	if(href_list["terminate"])
 		var/mob/living/M = locate(href_list["terminate"]) in mob_list
 		if(M?.old_mob && M.vr_mob)
-			to_chat(M, span("warning", "Your connection to remote-controlled [M] is forcibly severed!"))
+			to_chat(M, SPAN_WARNING("Your connection to remote-controlled [M] is forcibly severed!"))
 			M.body_return()
 			return TRUE
 
@@ -119,8 +119,8 @@
 		if(ismob(M))
 			var/message = sanitize(input("Message to [M.old_mob]", "Set Message") as text|null)
 
-			to_chat(usr, span("notice", "Sending message to [M.old_mob]: [message]"))
-			to_chat(M, span("warning", "Remote Penal Monitoring: [message]"))
+			to_chat(usr, SPAN_NOTICE("Sending message to [M.old_mob]: [message]"))
+			to_chat(M, SPAN_WARNING("Remote Penal Monitoring: [message]"))
 			return TRUE
 
 

@@ -103,7 +103,7 @@
 	pref.backbag	= sanitize_integer(pref.backbag, 1, backbaglist.len, initial(pref.backbag))
 	pref.backbag_style = sanitize_integer(pref.backbag_style, 1, backbagstyles.len, initial(pref.backbag_style))
 
-/datum/category_item/player_setup_item/general/equipment/content()
+/datum/category_item/player_setup_item/general/equipment/content(var/mob/user)
 	. = list()
 	. += "<b>Equipment:</b><br>"
 	for(var/datum/category_group/underwear/UWC in global_underwear.categories)
@@ -143,13 +143,13 @@
 		var/new_backbag = input(user, "Choose your character's bag type:", "Character Preference", backbaglist[pref.backbag]) as null|anything in backbaglist
 		if(!isnull(new_backbag) && CanUseTopic(user))
 			pref.backbag = backbaglist.Find(new_backbag)
-			return TOPIC_REFRESH
+			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_backpack_style"])
 		var/new_backbag = input(user, "Choose your character's style of bag:", "Character Preference", backbagstyles[pref.backbag_style]) as null|anything in backbagstyles
 		if(!isnull(new_backbag) && CanUseTopic(user))
 			pref.backbag_style = backbagstyles.Find(new_backbag)
-			return TOPIC_REFRESH
+			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["change_underwear"])
 		var/datum/category_group/underwear/UWC = global_underwear.categories_by_name[href_list["change_underwear"]]
@@ -158,7 +158,7 @@
 		var/datum/category_item/underwear/selected_underwear = input(user, "Choose underwear:", "Character Preference", pref.all_underwear[UWC.name]) as null|anything in UWC.items
 		if(selected_underwear && CanUseTopic(user))
 			pref.all_underwear[UWC.name] = selected_underwear.name
-		return TOPIC_REFRESH
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 	else if(href_list["underwear"] && href_list["tweak"])
 		var/underwear = href_list["underwear"]
 		if(!(underwear in pref.all_underwear))
@@ -169,7 +169,7 @@
 		var/new_metadata = gt.get_metadata(usr, get_metadata(underwear, gt))
 		if(new_metadata)
 			set_metadata(underwear, gt, new_metadata)
-			return TOPIC_REFRESH
+			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	return ..()
 

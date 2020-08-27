@@ -2,6 +2,7 @@
 
 /obj/machinery/mineral/stacking_unit_console
 	name = "stacking machine console"
+	desc = "This console allows you to set the max stack size for the stacking machine, as well as letting you eject stacks manually."
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "production_console"
 	density = FALSE
@@ -11,11 +12,15 @@
 	idle_power_usage = 15
 	active_power_usage = 50
 
-/obj/machinery/mineral/processing_unit_console/Initialize(mapload, d, populate_components)
-	. = ..()
+/obj/machinery/mineral/stacking_unit_console/Initialize(mapload, d, populate_components)
+	..()
 	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
 	add_overlay(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/mineral/stacking_unit_console/LateInitialize()
+	setup_machine(null)
 
 /obj/machinery/mineral/stacking_unit_console/proc/setup_machine(mob/user)
 	if(!machine)
@@ -27,7 +32,7 @@
 				best_distance = get_dist_euclidian(checked_machine,src)
 		if(machine)
 			machine.console = src
-		else
+		else if(user)
 			to_chat(user, SPAN_WARNING("ERROR: Linked machine not found!"))
 
 	return machine
@@ -88,6 +93,7 @@
 
 /obj/machinery/mineral/stacking_machine
 	name = "stacking machine"
+	desc = "A machine which takes loose stacks of finished sheets and packs them together into one easily transportable sheet."
 	icon = 'icons/obj/machines/mining_machines.dmi'
 	icon_state = "stacker"
 	density = TRUE
@@ -121,8 +127,11 @@
 			break
 
 /obj/machinery/mineral/stacking_machine/machinery_process()
-	..()
 	if(!console)
+		return
+	if(stat & BROKEN)
+		return
+	if(stat & NOPOWER)
 		return
 
 	if(output && input)

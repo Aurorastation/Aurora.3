@@ -2,7 +2,7 @@
 	var/short_name = null
 	var/name = null
 	var/desc = null
-	var/show_on_job_select = TRUE
+	var/show_on_job_select = TRUE // Determines if the ghost spawner role is considered unique or not. 
 	var/welcome_message = null
 	var/list/tags = list() //Tags associated with that spawner
 
@@ -126,7 +126,7 @@
 	if(max_count && count >= max_count)
 		disable()
 	if(welcome_message)
-		to_chat(user, span("notice", welcome_message))
+		to_chat(user, SPAN_NOTICE(welcome_message))
 	return TRUE
 
 //Proc to check if a specific user can edit this spawner (open/close/...)

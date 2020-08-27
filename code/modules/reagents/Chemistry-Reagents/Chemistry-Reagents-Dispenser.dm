@@ -139,7 +139,7 @@
 
 /datum/reagent/alcohol/affect_blood(mob/living/carbon/M, alien, removed)
 	if(prob(10*(strength/100)))
-		to_chat(M, span("danger","Your insides are burning!")) // it would be quite painful to inject alcohol or otherwise get it in your bloodstream directly, without metabolising any
+		to_chat(M, SPAN_DANGER("Your insides are burning!")) // it would be quite painful to inject alcohol or otherwise get it in your bloodstream directly, without metabolising any
 	M.adjustToxLoss(removed * blood_to_ingest_scale * (strength/100) )
 	affect_ingest(M,alien,removed * blood_to_ingest_scale)
 	return
@@ -147,7 +147,7 @@
 /datum/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed)
 
 	if(alien != IS_DIONA)
-		M.intoxication += (strength / 100) * removed * 3.15
+		M.intoxication += (strength / 100) * removed * 3.5
 
 		if (druggy != 0)
 			M.druggy = max(M.druggy, druggy)
@@ -516,7 +516,7 @@
 	glass_desc = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
 
 	fallback_specific_heat = 0.332
-	condiment_name = "sugar"
+	condiment_name = "sugar sack"
 	condiment_desc = "Tasty space sugar!"
 	condiment_icon_state = "sugar"
 

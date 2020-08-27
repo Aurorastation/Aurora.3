@@ -1,5 +1,5 @@
 /datum/species/human/offworlder
-	name = "Off-Worlder Human"
+	name = SPECIES_HUMAN_OFFWORLD
 	name_plural = "Off-Worlder Humans"
 	blurb = "The Offworlders are humans that have adapted to zero-G conditions through a lifetime of conditioning, exposure, and physical modification. \
 	They thrive in thinner atmosphere and weightlessness, more often than not utilizing advanced life support and body-bracing equipment to sustain themselves in normal Human environments."

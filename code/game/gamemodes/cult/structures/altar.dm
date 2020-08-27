@@ -15,19 +15,19 @@
 			to_chat(H, SPAN_CULT("You begin your prayer to Nar'Sie, your wounds slowly closing up..."))
 			for(var/obj/item/organ/external/O in H.organs)
 				if(O.status & ORGAN_ARTERY_CUT)
-					to_chat(H, span("warning", "Severed artery found in [O.name], repairing..."))
+					to_chat(H, SPAN_WARNING("Severed artery found in [O.name], repairing..."))
 					if(do_after(user, 20))
 						O.status &= ~ORGAN_ARTERY_CUT
 				if(O.status & ORGAN_TENDON_CUT)
-					to_chat(H, span("warning", "Severed tendon found in [O.name], repairing..."))
+					to_chat(H, SPAN_WARNING("Severed tendon found in [O.name], repairing..."))
 					if(do_after(user, 20))
 						O.status &= ~ORGAN_TENDON_CUT
 				if(O.status & ORGAN_BROKEN)
-					to_chat(H, span("warning", "Broken bone found in [O.name], repairing..."))
+					to_chat(H, SPAN_WARNING("Broken bone found in [O.name], repairing..."))
 					if(do_after(user, 20))
 						O.status &= ~ORGAN_BROKEN
 				O.update_damages()
 		else
-			to_chat(user, span("warning", "This altar isn't ready to be prayed at yet."))
+			to_chat(user, SPAN_WARNING("This altar isn't ready to be prayed at yet."))
 	else
-		to_chat(user, span("warning", "The altar lightly zaps you."))
+		to_chat(user, SPAN_WARNING("The altar lightly zaps you."))

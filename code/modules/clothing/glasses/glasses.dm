@@ -31,10 +31,10 @@ BLIND     // can't see anything
 	var/obj/item/clothing/glasses/hud/hud = null	// Hud glasses, if any
 	var/activated_color = null
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/eyes.dmi',
-		"Vaurca Warform" = 'icons/mob/species/warriorform/eyes.dmi'
+		BODYTYPE_VOX = 'icons/mob/species/vox/eyes.dmi',
+		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/eyes.dmi'
 		)
-	species_restricted = list("exclude","Vaurca Breeder")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER)
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
@@ -212,13 +212,13 @@ BLIND     // can't see anything
 		flags_inv |= HIDEEYES
 		body_parts_covered |= EYES
 		icon_state = initial(item_state)
-		to_chat(usr, span("notice", "You flip \the [src] down to protect your eyes."))
+		to_chat(usr, SPAN_NOTICE("You flip \the [src] down to protect your eyes."))
 	else
 		src.up = !src.up
 		flags_inv &= ~HIDEEYES
 		body_parts_covered &= ~EYES
 		icon_state = "[initial(icon_state)]_up"
-		to_chat(usr, span("notice", "You push \the [src] up out of your face."))
+		to_chat(usr, SPAN_NOTICE("You push \the [src] up out of your face."))
 	update_clothing_icon()
 	update_icon()
 	usr.update_action_buttons()
@@ -296,17 +296,19 @@ BLIND     // can't see anything
 	if(istype(W, /obj/item/clothing/glasses/hud/health))
 		user.drop_item(W)
 		qdel(W)
-		to_chat(user, span("notice", "You attach a set of medical HUDs to your glasses."))
+		to_chat(user, SPAN_NOTICE("You attach a set of medical HUDs to your glasses."))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/clothing/glasses/hud/health/prescription/P = new /obj/item/clothing/glasses/hud/health/prescription(user.loc)
+		P.glasses_type = src.type
 		user.put_in_hands(P)
 		qdel(src)
 	if(istype(W, /obj/item/clothing/glasses/hud/security))
 		user.drop_item(W)
 		qdel(W)
-		to_chat(user, span("notice", "You attach a set of security HUDs to your glasses."))
+		to_chat(user, SPAN_NOTICE("You attach a set of security HUDs to your glasses."))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/clothing/glasses/hud/security/prescription/P = new /obj/item/clothing/glasses/hud/security/prescription(user.loc)
+		P.glasses_type = src.type
 		user.put_in_hands(P)
 		qdel(src)
 
@@ -314,6 +316,14 @@ BLIND     // can't see anything
 	name = "scanning goggles"
 	desc = "A very oddly shaped pair of goggles with bits of wire poking out the sides. A soft humming sound emanates from it."
 	icon_state = "scanning"
+
+/obj/item/clothing/glasses/regular/scanners/glasses_examine_atom(var/atom/A, var/user)
+	if(isobj(A))
+		var/obj/O = A
+		if(length(O.origin_tech))
+			to_chat(user, FONT_SMALL("\The [O] grants these tech levels when deconstructed:"))
+			for(var/tech in O.origin_tech)
+				to_chat(user, FONT_SMALL("[capitalize_first_letters(tech)]: [O.origin_tech[tech]]"))
 
 /obj/item/clothing/glasses/regular/hipster
 	name = "prescription glasses"
@@ -686,7 +696,7 @@ BLIND     // can't see anything
 	eye_color = COLOR_LIME
 
 /obj/item/clothing/glasses/eyepatch/hud/meson/Initialize()
-	..()
+	. = ..()
 	overlay = global_hud.meson
 
 /obj/item/clothing/glasses/eyepatch/hud/material

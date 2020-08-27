@@ -64,7 +64,7 @@
 	if (pref.used_skillpoints < 0)
 		pref.used_skillpoints = 0
 
-/datum/category_item/player_setup_item/skills/content()
+/datum/category_item/player_setup_item/skills/content(var/mob/user)
 	var/list/dat = list(
 		"<b>Select your Skills</b><br>",
 		"Current skill level: <b>[pref.GetSkillClass(pref.used_skillpoints)]</b> ([pref.used_skillpoints])<br>",

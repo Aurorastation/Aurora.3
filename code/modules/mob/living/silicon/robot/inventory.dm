@@ -6,6 +6,18 @@
 	// TODO: see if refactoring this to return the gripped object (should one exist) works - would make a lot of edge cases a lot simpler
 	return module_active
 
+/mob/living/silicon/robot/proc/return_wirecutter()
+	for(var/obj/I in list(module_state_1, module_state_2, module_state_3))
+		if(I.iswirecutter())
+			return I
+	return
+
+/mob/living/silicon/robot/proc/return_multitool()
+	for(var/obj/I in list(module_state_1, module_state_2, module_state_3))
+		if(I.ismultitool())
+			return I
+	return
+
 /*-------TODOOOOOOOOOO--------*/
 
 //Verbs used by hotkeys.
@@ -56,11 +68,11 @@
 		store_module(module_state_3)
 		module_state_3 = null
 		inv3.icon_state = "inv3"
-	updateicon()
+	update_icon()
 	hud_used.update_robot_modules_display()
 
 /mob/living/silicon/robot/proc/activated(obj/item/O)
-	updateicon()
+	update_icon()
 
 	if(module_state_1 == O)
 		return 1

@@ -736,27 +736,27 @@ default behaviour is:
 					resist_chance = 30 * resist_power
 				else
 					resist_chance = 70 * resist_power //only a bit difficult to break out of a passive grab
-				resist_msg = span("warning", "[src] pulls away from [G.assailant]'s grip!")
+				resist_msg = SPAN_WARNING("[src] pulls away from [G.assailant]'s grip!")
 			if(GRAB_AGGRESSIVE)
 				if(incapacitated(INCAPACITATION_DISABLED) || src.lying)
 					resist_chance = 15 * resist_power
 				else
 					resist_chance = 50 * resist_power
-				resist_msg = span("warning", "[src] has broken free of [G.assailant]'s grip!")
+				resist_msg = SPAN_WARNING("[src] has broken free of [G.assailant]'s grip!")
 			if(GRAB_NECK)
 				//If the you move when grabbing someone then it's easier for them to break free. Same if the affected mob is immune to stun.
 				if(world.time - G.assailant.l_move_time < 30 || !stunned || !src.lying || incapacitated(INCAPACITATION_DISABLED))
 					resist_chance = 15 * resist_power
 				else
 					resist_chance = 3 * resist_power
-				resist_msg = span("danger", "[src] has broken free of [G.assailant]'s headlock!")
+				resist_msg = SPAN_DANGER("[src] has broken free of [G.assailant]'s headlock!")
 
 		if(prob(resist_chance))
 			visible_message(resist_msg)
 			qdel(G)
 
 	if(resisting)
-		visible_message(span("warning", "[src] resists!"))
+		visible_message(SPAN_WARNING("[src] resists!"))
 		setClickCooldown(25)
 
 /mob/living/verb/lay_down()
@@ -924,7 +924,10 @@ default behaviour is:
 		make_jittery(rand(150,200))
 		adjustHalLoss(rand(50,60))
 
-/mob/living/update_icons()
+/mob/living/proc/InStasis()
+	return FALSE
+
+/mob/living/update_icon()
 	for(var/aura in auras)
 		var/obj/aura/A = aura
 		var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
@@ -932,12 +935,12 @@ default behaviour is:
 
 /mob/living/proc/add_aura(var/obj/aura/aura)
 	LAZYDISTINCTADD(auras, aura)
-	update_icons()
+	update_icon()
 	return TRUE
 
 /mob/living/proc/remove_aura(var/obj/aura/aura)
 	LAZYREMOVE(auras, aura)
-	update_icons()
+	update_icon()
 	return TRUE
 
 /mob/living/proc/apply_radiation_effects()

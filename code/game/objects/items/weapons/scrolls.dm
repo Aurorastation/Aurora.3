@@ -21,9 +21,9 @@
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/O = H.internal_organs_by_name[pick(BP_EYES, BP_APPENDIX, BP_KIDNEYS, BP_LIVER, BP_HEART, BP_LUNGS, BP_BRAIN)]
 			if(O == null)
-				to_chat(user, span("notice", "You can't make any sense of the arcane glyphs. . . maybe you should try again."))
+				to_chat(user, SPAN_NOTICE("You can't make any sense of the arcane glyphs. . . maybe you should try again."))
 			else
-				to_chat(user, span("alert", "As you stumble over the arcane glyphs, you feel a twisting sensation in [O]!"))
+				to_chat(user, SPAN_ALERT("As you stumble over the arcane glyphs, you feel a twisting sensation in [O]!"))
 				user.visible_message("<span class='danger'>A flash of smoke pours out of [user]'s orifices!</span>")
 				playsound(user, 'sound/magic/lightningshock.ogg', 40, 1)
 				var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()

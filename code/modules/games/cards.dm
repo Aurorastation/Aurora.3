@@ -142,7 +142,7 @@
 	H.concealed = 1
 	H.update_icon()
 	if(user==target)
-		user.visible_message("<b>\The [user]</b> deals a card to \himself.")
+		user.visible_message("<b>\The [user]</b> deals a card to [user.get_pronoun("himself")].")
 	else
 		user.visible_message("<b>\The [user]</b> deals a card to \the [target].")
 	H.throw_at(get_step(target,target.dir),10,1,H)

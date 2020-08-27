@@ -2,7 +2,7 @@
 "a" = (
 /mob/living/heavy_vehicle/premade/heavy,
 /turf/simulated/floor/reinforced/airless,
-/area/security/armoury)
+/area/security/armory)
 
 (1,1,1) = {"
 a

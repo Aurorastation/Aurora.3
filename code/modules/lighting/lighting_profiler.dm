@@ -37,5 +37,5 @@
 	var/err = lprof_q.ErrorMsg()
 	if (err)
 		log_debug("lprof_write: SQL Error: [err]")
-		message_admins(span("danger", "SQL Error during lighting profiling; disabling!"))
+		message_admins(SPAN_DANGER("SQL Error during lighting profiling; disabling!"))
 		lighting_profiling = FALSE

@@ -152,9 +152,9 @@
 		/obj/item/bodybag/cryobag = 1,
 		/obj/item/storage/pill_bottle/kelotane = 2,
 		/obj/item/storage/pill_bottle/antitox = 2,
-		/obj/item/storage/pill_bottle/tramadol = 2,
+		/obj/item/storage/pill_bottle/mortaphenyl = 2,
 		/obj/item/reagent_containers/syringe/dylovene = 2,
-		/obj/item/reagent_containers/syringe/norepinephrine = 2,
+		/obj/item/reagent_containers/syringe/inaprovaline = 2,
 		/obj/item/stack/nanopaste = 1
 	)
 
@@ -178,7 +178,7 @@
 	icon_state = "purplecomb"
 //	spawn_nothing_percentage = 50
 	problist = list(
-		/obj/item/storage/pill_bottle/tramadol = 3,
+		/obj/item/storage/pill_bottle/mortaphenyl = 3,
 		/obj/item/storage/pill_bottle/happy = 2,
 		/obj/item/storage/pill_bottle/zoom = 2,
 		/obj/item/reagent_containers/glass/beaker/vial/random/toxin = 1,
@@ -212,16 +212,16 @@
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpacket"
 	problist = list(
-		/obj/item/storage/fancy/cigarettes = 30,
-		/obj/item/storage/fancy/cigarettes/blank = 5,
-		/obj/item/storage/fancy/cigarettes/acmeco = 2,
-		/obj/item/storage/fancy/cigarettes/dromedaryco = 10,
-		/obj/item/storage/fancy/cigarettes/cigar = 9,
-		/obj/item/storage/fancy/cigarettes/nicotine = 10,
-		/obj/item/storage/fancy/cigarettes/rugged = 10,
-		/obj/item/storage/fancy/cigarettes/pra = 5,
-		/obj/item/storage/fancy/cigarettes/dpra = 2,
-		/obj/item/storage/fancy/cigarettes/nka = 2
+		/obj/item/storage/box/fancy/cigarettes = 30,
+		/obj/item/storage/box/fancy/cigarettes/blank = 5,
+		/obj/item/storage/box/fancy/cigarettes/acmeco = 2,
+		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 10,
+		/obj/item/storage/box/fancy/cigarettes/cigar = 9,
+		/obj/item/storage/box/fancy/cigarettes/nicotine = 10,
+		/obj/item/storage/box/fancy/cigarettes/rugged = 10,
+		/obj/item/storage/box/fancy/cigarettes/pra = 5,
+		/obj/item/storage/box/fancy/cigarettes/dpra = 2,
+		/obj/item/storage/box/fancy/cigarettes/nka = 2
 	)
 
 /obj/random/energy
@@ -508,7 +508,8 @@
 
 /obj/random/vendor
 	name = "random vendor"
-	var/depleted = 0
+	var/depleted = FALSE
+	var/scan_id = TRUE // Should the spawned vendor check IDs
 	problist = list(
 		/obj/machinery/vending/boozeomat = 1,
 		/obj/machinery/vending/coffee = 1,
@@ -556,6 +557,8 @@
 
 			// Clamp to an integer so we don't get 0.78 of a screwdriver.
 			V.products[content] = round(V.products[content])
+
+	V.scan_id &= scan_id
 
 /obj/random/pda_cart/item_to_spawn()
 	var/list/options = typesof(/obj/item/cartridge)
@@ -736,9 +739,6 @@
 		/obj/item/bodybag = 0.7,
 		/obj/item/clothing/accessory/storage/knifeharness = 0.3,
 		/obj/item/clothing/accessory/storage/webbing = 0.6,
-		/obj/item/clothing/glasses/material = 0.8,
-		/obj/item/clothing/glasses/meson = 0.5,
-		/obj/item/clothing/glasses/meson/prescription = 0.25,
 		/obj/item/clothing/glasses/sunglasses = 0.75,
 		/obj/item/clothing/glasses/welding = 0.75,
 		/obj/item/clothing/head/bearpelt = 0.4,
@@ -866,11 +866,11 @@
 		/obj/item/storage/box/pineapple = 0.1,
 		/obj/item/storage/box/smokebombs = 0.1,
 		/obj/item/storage/box/syringes = 0.3,
-		/obj/item/storage/fancy/cigarettes = 1.2,
-		/obj/item/storage/fancy/cigarettes/acmeco = 0.3,
-		/obj/item/storage/fancy/cigarettes/blank = 1,
-		/obj/item/storage/fancy/cigarettes/dromedaryco = 0.8,
-		/obj/item/storage/fancy/crayons = 0.5,
+		/obj/item/storage/box/fancy/cigarettes = 1.2,
+		/obj/item/storage/box/fancy/cigarettes/acmeco = 0.3,
+		/obj/item/storage/box/fancy/cigarettes/blank = 1,
+		/obj/item/storage/box/fancy/cigarettes/dromedaryco = 0.8,
+		/obj/item/storage/box/fancy/crayons = 0.5,
 		/obj/item/storage/wallet/random/ = 0.1,
 		/obj/item/trap/animal = 0.8,
 		/obj/random/arcade = 0.25,
@@ -881,7 +881,6 @@
 		/obj/random/coin = 1.2,
 		/obj/random/colored_jumpsuit = 0.7,
 		/obj/random/contraband = 0.9,
-		/obj/random/document = 0.5,
 		/obj/random/firstaid = 0.4,
 		/obj/random/gloves = 2,
 		/obj/random/glowstick = 0.4,
@@ -933,8 +932,7 @@
 		/obj/item/storage/backpack/chameleon = 1,
 		/obj/item/storage/backpack/ = 10,
 
-		/obj/item/clothing/glasses/chameleon = 1,
-		/obj/item/clothing/glasses/meson = 1
+		/obj/item/clothing/glasses/chameleon = 1
 
 	)
 
@@ -1058,7 +1056,6 @@
 		/obj/item/ammo_casing/c9mm/rubber = 0.5,
 		/obj/item/ammo_casing/c45/flash = 0.5,
 		/obj/item/ammo_casing/shotgun/beanbag = 0.5,
-		/obj/random/document/junk = 0.5,
 		/obj/item/flame/lighter/random = 0.25,
 		/obj/item/lipstick/random = 0.25,
 		/obj/item/reagent_containers/glass/beaker/vial/random = 0.1,
@@ -1114,7 +1111,7 @@
 		/obj/item/toy/sword								= 22,
 		/obj/item/gun/projectile/revolver/capgun	= 11,
 		/obj/item/toy/crossbow							= 11,
-		/obj/item/storage/fancy/crayons			= 11,
+		/obj/item/storage/box/fancy/crayons			= 11,
 		/obj/item/toy/spinningtoy						= 11,
 		/obj/item/toy/prize/ripley						= 1,
 		/obj/item/toy/prize/fireripley					= 1,
@@ -1473,7 +1470,8 @@
 		/obj/item/gun/projectile/shotgun/doublebarrel/pellet = 1,
 		/obj/item/gun/projectile/shotgun/pump/rifle = 1,
 		/obj/item/gun/projectile/tanto = 1,
-		/obj/item/gun/projectile/gauss = 1
+		/obj/item/gun/projectile/gauss = 1,
+		/obj/item/gun/projectile/revolver/knife = 1
 		)
 
 	var/list/Rare = list(
@@ -1495,7 +1493,9 @@
 		/obj/item/gun/projectile/shotgun/doublebarrel/sawn = 1,
 		/obj/item/gun/projectile/shotgun/foldable = 1,
 		/obj/item/gun/projectile/shotgun/pump/combat = 1,
-		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1
+		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1,
+		/obj/item/gun/projectile/automatic/rifle/adhomian = 1,
+		/obj/item/gun/projectile/musket = 0.5
 		)
 
 	var/list/Epic = list(
@@ -1544,8 +1544,14 @@
 		for(var/i = 0; i < 8; i++)
 			new spawned.ammo_type(b)
 	else if(spawned.ammo_type)
+		var/list/provided_ammo = list()
 		for(var/i = 0; i < (spawned.max_shells * 2); i++)
-			new spawned.ammo_type(spawned.loc)
+			provided_ammo += new spawned.ammo_type(spawned.loc)
+		if(provided_ammo.len)
+			new /obj/item/ammo_pile(spawned.loc, provided_ammo)
+
+	if(istype(spawned, /obj/item/gun/projectile/musket))
+		new /obj/item/reagent_containers/powder_horn(spawned.loc)
 
 /obj/random/weapon_and_ammo/spawn_item()
 	var/obj/item/W = pick_gun()

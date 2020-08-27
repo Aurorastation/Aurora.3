@@ -46,7 +46,7 @@
 
 	destroyed_event.unregister(module_to_forget, src, .proc/forget_module)
 
-	var/obj/screen/movable/mecha/hardpoint/H = hardpoint_hud_elements[target]
+	var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[target]
 	H.holding = null
 
 	hud_elements -= module_to_forget
@@ -71,7 +71,7 @@
 
 			if(user.unEquip(system))
 				to_chat(user, "<span class='notice'>You install \the [system] in \the [src]'s [system_hardpoint].</span>")
-				playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+				playsound(user.loc, 'sound/items/screwdriver.ogg', 100, 1)
 			else return FALSE
 	var/obj/item/mecha_equipment/ME = system
 	if(istype(ME))
@@ -94,7 +94,7 @@
 	system.forceMove(src)
 	hardpoints[system_hardpoint] = system
 
-	var/obj/screen/movable/mecha/hardpoint/H = hardpoint_hud_elements[system_hardpoint]
+	var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[system_hardpoint]
 	H.holding = system
 
 	system.screen_loc = H.screen_loc
@@ -131,7 +131,7 @@
 	system.layer = initial(system.layer)
 	destroyed_event.unregister(system, src, .proc/forget_module)
 
-	var/obj/screen/movable/mecha/hardpoint/H = hardpoint_hud_elements[system_hardpoint]
+	var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[system_hardpoint]
 	H.holding = null
 
 	for(var/thing in pilots)
@@ -147,6 +147,6 @@
 		system.forceMove(get_turf(user))
 		user.put_in_hands(system)
 		to_chat(user, "<span class='notice'>You remove \the [system] in \the [src]'s [system_hardpoint].</span>")
-		playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+		playsound(user.loc, 'sound/items/screwdriver.ogg', 100, 1)
 
 	return 1

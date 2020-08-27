@@ -119,7 +119,7 @@
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
 	if(!pref.species || !(pref.species in playable_species))
-		pref.species = "Human"
+		pref.species = SPECIES_HUMAN
 
 	pref.age                = sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
 	pref.gender             = sanitize_gender(pref.gender, pref.species)
@@ -129,7 +129,7 @@
 	pref.spawnpoint         = sanitize_inlist(pref.spawnpoint, SSatlas.spawn_locations, initial(pref.spawnpoint))
 	pref.machine_tag_status = text2num(pref.machine_tag_status) // SQL queries return as text, so make this a num
 
-/datum/category_item/player_setup_item/general/basic/content()
+/datum/category_item/player_setup_item/general/basic/content(var/mob/user)
 	var/list/dat = list("<b>Name:</b> ")
 	if (pref.can_edit_name)
 		dat += "<a href='?src=\ref[src];rename=1'><b>[pref.real_name]</b></a><br>"
@@ -168,7 +168,10 @@
 			alert(user, "You can no longer edit the name of your character.<br><br>If there is a legitimate need, please contact an administrator regarding the matter.")
 			return TOPIC_NOACTION
 
+		var/current_character = pref.current_character
 		var/raw_name = input(user, "Choose your character's name:", "Character Name")  as text|null
+		if(current_character != pref.current_character) //Without this, you can switch slots while the input menu is up to change your character's name past the grace period
+			return
 		if (!isnull(raw_name) && CanUseTopic(user))
 			var/new_name = sanitize_name(raw_name, pref.species)
 			if(new_name)
@@ -196,8 +199,7 @@
 
 		var/datum/category_item/player_setup_item/general/equipment/equipment_item = category.items[4]
 		equipment_item.sanitize_character()	// sanitize equipment
-		pref.update_preview_icon()
-		return TOPIC_REFRESH
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["age"])
 		var/new_age = input(user, "Choose your character's age:\n([pref.getMinAge()]-[pref.getMaxAge()])", "Character Preference", pref.age) as num|null

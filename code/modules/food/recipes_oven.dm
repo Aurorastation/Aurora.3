@@ -12,13 +12,13 @@
 	fruit = list("apple" = 1)
 	reagents = list(/datum/reagent/acid/polyacid = 5) //It dissolves the carapace. Still poisonous, though.
 	items = list(/obj/item/reagent_containers/food/snacks/meat/dionanymph)
-	result = /obj/item/reagent_containers/food/snacks/dionaroast
+	result = /obj/item/reagent_containers/food/snacks/sliceable/dionaroast
 	reagent_mix = RECIPE_REAGENT_REPLACE //No eating polyacid
 
 
 /datum/recipe/ribplate //Putting this here for not seeing a roast section.
 	appliance = OVEN
-	reagents = list(/datum/reagent/honey = 5, /datum/reagent/spacespice = 2, /datum/reagent/blackpepper = 1)
+	reagents = list(/datum/reagent/nutriment/honey = 5, /datum/reagent/spacespice = 2, /datum/reagent/blackpepper = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/ribplate
@@ -523,7 +523,7 @@
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough
 	)
-	reagents = list(/datum/reagent/honey = 5)
+	reagents = list(/datum/reagent/nutriment/honey = 5)
 	result = /obj/item/reagent_containers/food/snacks/honeybun
 
 /datum/recipe/enchiladas_new

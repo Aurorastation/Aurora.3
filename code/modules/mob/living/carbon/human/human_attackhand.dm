@@ -80,7 +80,7 @@
 			H.do_attack_animation(src)
 			var/damage = rand(0, 9)
 			if(!damage)
-				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+				playsound(loc, "punchmiss", 25, 1, -1)
 				visible_message("<span class='danger'>[H] has attempted to punch [src]!</span>")
 				return 0
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
@@ -183,7 +183,7 @@
 
 			var/obj/item/grab/G = new /obj/item/grab(M, src)
 			if(buckled)
-				to_chat(M, "<span class='notice'>You cannot grab [src], \he [gender_datums[gender].is] buckled in!</span>")
+				to_chat(M, "<span class='notice'>You cannot grab [src], [src.get_pronoun("he")] [get_pronoun("is")] buckled in!</span>")
 			if(!G)	//the grab will delete itself in New if affecting is anchored
 				return
 			M.put_in_active_hand(G)
@@ -276,7 +276,7 @@
 					if(!src.lying)
 						attack_message = "[H] attempted to strike [src], but missed!"
 					else
-						attack_message = "[H] attempted to strike [src], but \he rolled out of the way!"
+						attack_message = "[H] attempted to strike [src], but [src.get_pronoun("he")] rolled out of the way!"
 						src.set_dir(pick(cardinal))
 					miss_type = 1
 
@@ -329,16 +329,16 @@
 						var/obj/item/clothing/gloves/force/X = H.gloves
 						real_damage *= X.amplification
 
-			var/armour = run_armor_check(hit_zone, "melee")
+			var/armor = run_armor_check(hit_zone, "melee")
 			// Apply additional unarmed effects.
-			attack.apply_effects(H, src, armour, rand_damage, hit_zone)
+			attack.apply_effects(H, src, armor, rand_damage, hit_zone)
 
 			// Finally, apply damage to target
-			apply_damage(real_damage, hit_dam_type, hit_zone, armour, damage_flags = damage_flags)
+			apply_damage(real_damage, hit_dam_type, hit_zone, armor, damage_flags = damage_flags)
 
 
 			if(M.resting && src.help_up_offer)
-				M.visible_message(span("warning", "[M] slaps away [src]'s hand!"))
+				M.visible_message(SPAN_WARNING("[M] slaps away [src]'s hand!"))
 				src.help_up_offer = 0
 
 		if(I_DISARM)
@@ -410,7 +410,7 @@
 			if(randn <= 25)
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
 					apply_effect(6, WEAKEN, run_armor_check(affecting, "melee"))
-					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+					playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 					visible_message("<span class='danger'>[M] hurls [src] to the floor!</span>")
 					step_away(src,M,15)
 					sleep(3)
@@ -420,16 +420,17 @@
 				else
 					var/armor_check = run_armor_check(affecting, "melee")
 					apply_effect(3, WEAKEN, armor_check)
-					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 					if(armor_check < 100)
 						visible_message("<span class='danger'>[M] has pushed [src]!</span>")
+						playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 					else
 						visible_message("<span class='warning'>[M] attempted to push [src]!</span>")
+						playsound(loc, 'sound/weapons/push.ogg', 50, 1, -1)
 					return
 
 			if(randn <= 60)
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
-					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+					playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 					visible_message("<span class='danger'>[M] shoves, sending [src] flying!</span>")
 					step_away(src,M,15)
 					sleep(1)
@@ -454,7 +455,7 @@
 					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 					return
 
-			playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+			playsound(loc, "punchmiss", 25, 1, -1)
 			visible_message("<span class='danger'>[M] attempted to disarm [src]!</span>")
 	return
 
@@ -548,7 +549,7 @@
 		return 0
 
 	if(user == src)
-		user.visible_message("<span class='notice'>\The [user] starts applying pressure to \his [organ.name]!</span>", "<span class='notice'>You start applying pressure to your [organ.name]!</span>")
+		user.visible_message("<span class='notice'>\The [user] starts applying pressure to [user.get_pronoun("his")] [organ.name]!</span>", "<span class='notice'>You start applying pressure to your [organ.name]!</span>")
 	else
 		user.visible_message("<span class='notice'>\The [user] starts applying pressure to [src]'s [organ.name]!</span>", "<span class='notice'>You start applying pressure to [src]'s [organ.name]!</span>")
 	spawn(0)
@@ -560,7 +561,7 @@
 		organ.applied_pressure = null
 
 		if(user == src)
-			user.visible_message("<span class='notice'>\The [user] stops applying pressure to \his [organ.name]!</span>", "<span class='notice'>You stop applying pressure to your [organ.name]!</span>")
+			user.visible_message("<span class='notice'>\The [user] stops applying pressure to [user.get_pronoun("his")] [organ.name]!</span>", "<span class='notice'>You stop applying pressure to your [organ.name]!</span>")
 		else
 			user.visible_message("<span class='notice'>\The [user] stops applying pressure to [src]'s [organ.name]!</span>", "<span class='notice'>You stop applying pressure to [src]'s [organ.name]!</span>")
 

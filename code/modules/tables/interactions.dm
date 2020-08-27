@@ -63,7 +63,7 @@
 		var/mob/living/carbon/human/H = am
 		if(H.a_intent != I_HELP || H.m_intent == "run")
 			throw_things(H)
-		else if(H.is_diona() || H.species.get_bodytype() == "Heavy Machine")
+		else if(H.is_diona() || H.species.get_bodytype() == BODYTYPE_IPC_INDUSTRIAL)
 			throw_things(H)
 	else if((isliving(am) && !issmall(am)) || isslime(am))
 		throw_things(am)
@@ -119,7 +119,7 @@
 			var/mob/living/carbon/human/H = user
 			if(H.a_intent != I_HELP || H.m_intent == "run")
 				throw_things(H)
-			else if(H.is_diona() || H.species.get_bodytype() == "Heavy Machine")
+			else if(H.is_diona() || H.species.get_bodytype() == BODYTYPE_IPC_INDUSTRIAL)
 				throw_things(H)
 		else if(!issmall(user) || isslime(user))
 			throw_things(user)
@@ -221,6 +221,7 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 /obj/structure/table/proc/auto_align(obj/item/W, click_parameters)
 	if(!W.center_of_mass)
 		W.randpixel_xy()
+		W.layer = initial(W.layer) + ((32 - W.pixel_y) / 1000)
 		return
 
 	if(!click_parameters)
@@ -236,6 +237,7 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 
 		W.pixel_x = (CELLSIZE * (0.5 + cell_x)) - W.center_of_mass["x"]
 		W.pixel_y = (CELLSIZE * (0.5 + cell_y)) - W.center_of_mass["y"]
+		W.layer = initial(W.layer) + ((32 - W.pixel_y) / 1000)
 
 #undef CELLS
 #undef CELLSIZE

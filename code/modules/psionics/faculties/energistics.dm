@@ -2,7 +2,7 @@
 	id = PSI_ENERGISTICS
 	name = "Energistics"
 	associated_intent = I_HURT
-	armour_types = list("bomb", "laser", "energy")
+	armor_types = list("bomb", "laser", "energy")
 
 /datum/psionic_power/energistics
 	faculty = PSI_ENERGISTICS
@@ -106,7 +106,7 @@
 	if(.)
 		if(istype(target,/obj/item/clothing/mask/smokable/cigarette))
 			var/obj/item/clothing/mask/smokable/cigarette/S = target
-			S.light(SPAN_NOTICE("\The [user] snaps \his fingers and \the [S] lights up."))
+			S.light(SPAN_NOTICE("\The [user] snaps [user.get_pronoun("his")] fingers and \the [S] lights up."))
 			playsound(S.loc, "sparks", 50, 1)
 		else
 			var/datum/effect_system/sparks/spark_system

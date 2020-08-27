@@ -131,7 +131,7 @@
 	owner.Trigger()
 	return 1
 
-/obj/screen/movable/action_button/proc/UpdateIcon()
+/obj/screen/movable/action_button/update_icon()
 	if(!owner)
 		return
 	icon = owner.button_icon
@@ -168,7 +168,7 @@
 		name = "Show Buttons"
 	else
 		name = "Hide Buttons"
-	UpdateIcon()
+	update_icon()
 	usr.update_action_buttons()
 
 
@@ -177,10 +177,10 @@
 		icon_state = "bg_alien"
 	else
 		icon_state = "bg_default"
-	UpdateIcon()
+	update_icon()
 	return
 
-/obj/screen/movable/action_button/hide_toggle/UpdateIcon()
+/obj/screen/movable/action_button/hide_toggle/update_icon()
 	cut_overlays()
 	add_overlay(hidden ? "show" : "hide")
 

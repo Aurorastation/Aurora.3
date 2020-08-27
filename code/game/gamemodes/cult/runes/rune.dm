@@ -12,7 +12,7 @@
 	if(!R)
 		return INITIALIZE_HINT_QDEL
 	icon_state = "[rand(1, 6)]"
-	filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = "#FF0000") 
+	filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = "#FF0000")
 	rune = new R(src, src)
 	SScult.add_rune(rune)
 
@@ -34,7 +34,7 @@
 		rune.do_tome_action(user, I)
 		return
 	else if(istype(I, /obj/item/nullrod))
-		to_chat(user, span("notice", "You disrupt the vile magic with the deadening field of \the [I]!"))
+		to_chat(user, SPAN_NOTICE("You disrupt the vile magic with the deadening field of \the [I]!"))
 		qdel(src)
 		return
 	return

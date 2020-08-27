@@ -18,12 +18,11 @@
 		slot_l_hand_str = "backpack",
 		slot_r_hand_str = "backpack"
 		)
-
 	w_class = 4
 	slot_flags = SLOT_BACK
 	max_w_class = 3
 	max_storage_space = 28
-	var/species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+	var/species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 	allow_quick_empty = TRUE
@@ -55,11 +54,6 @@
 				to_chat(H, "<span class='danger'>Your species cannot wear [src].</span>")
 				return 0
 	return 1
-
-/obj/item/storage/backpack/equipped(var/mob/user, var/slot)
-	if (slot == slot_back && src.use_sound)
-		playsound(src.loc, src.use_sound, 50, 1, -5)
-	..(user, slot)
 
 /*
 /obj/item/storage/backpack/dropped(mob/user as mob)
@@ -181,7 +175,7 @@
 	desc = "It's a Vaurca cloak, with paltry storage options."
 	icon_state = "cape"
 	max_storage_space = 12
-	sprite_sheets = list("Vaurca" = 'icons/mob/species/vaurca/back.dmi')
+	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi')
 
 /obj/item/storage/backpack/syndie
 	name = "syndicate rucksack"
@@ -517,5 +511,5 @@
 	slot_flags = SLOT_BACK
 	max_storage_space = 12
 	canremove = 0
-	species_restricted = list("Vaurca Breeder")
-	sprite_sheets = list("Vaurca Breeder" = 'icons/mob/species/breeder/back.dmi')
+	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/back.dmi')

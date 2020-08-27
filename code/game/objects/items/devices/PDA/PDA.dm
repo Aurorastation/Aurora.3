@@ -571,17 +571,17 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			var/total_moles = environment.total_moles
 
 			if (total_moles)
-				var/o2_level = environment.gas["oxygen"]/total_moles
-				var/n2_level = environment.gas["nitrogen"]/total_moles
-				var/co2_level = environment.gas["carbon_dioxide"]/total_moles
-				var/phoron_level = environment.gas["phoron"]/total_moles
+				var/o2_level = environment.gas[GAS_OXYGEN]/total_moles
+				var/n2_level = environment.gas[GAS_NITROGEN]/total_moles
+				var/co2_level = environment.gas[GAS_CO2]/total_moles
+				var/phoron_level = environment.gas[GAS_PHORON]/total_moles
 				var/unknown_level =  1-(o2_level+n2_level+co2_level+phoron_level)
 				data["aircontents"] = list(\
 					"pressure" = "[round(pressure,0.1)]",\
-					"nitrogen" = "[round(n2_level*100,0.1)]",\
-					"oxygen" = "[round(o2_level*100,0.1)]",\
-					"carbon_dioxide" = "[round(co2_level*100,0.1)]",\
-					"phoron" = "[round(phoron_level*100,0.01)]",\
+					GAS_NITROGEN = "[round(n2_level*100,0.1)]",\
+					GAS_OXYGEN = "[round(o2_level*100,0.1)]",\
+					GAS_CO2 = "[round(co2_level*100,0.1)]",\
+					GAS_PHORON = "[round(phoron_level*100,0.01)]",\
 					"other" = "[round(unknown_level, 0.01)]",\
 					"temp" = "[round(environment.temperature-T0C,0.1)]",\
 					"reading" = 1\
@@ -1113,7 +1113,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/proc/create_message(var/mob/living/U = usr, var/obj/item/device/pda/P, var/tap = 1)
 	if(tap)
-		U.visible_message("<b>\The [U]</b> taps on \his PDA's screen.")
+		U.visible_message("<b>\The [U]</b> taps on [U.get_pronoun("his")] PDA's screen.")
 	var/t = input(U, "Please enter message", P.name, null) as text|null
 	t = sanitize(t)
 	//t = readd_quotes(t)
@@ -1182,7 +1182,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	else
 		L = get(src, /mob/living/silicon)
 
-	if(L)
+	if(L && L.stat == CONSCIOUS)
 		if(reception_message)
 			to_chat(L, reception_message)
 		SSnanoui.update_user_uis(L, src) // Update the receiving user's PDA UI so that they can see the new message
@@ -1399,7 +1399,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	try_sort_pda_list()
 
 /obj/item/device/pda/attack(mob/living/C, mob/living/user)
-	health_scan_mob(C, user, TRUE)
+	if(scanmode == 1)
+		health_scan_mob(C, user, TRUE)
 
 /obj/item/device/pda/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
 	if(!proximity) return

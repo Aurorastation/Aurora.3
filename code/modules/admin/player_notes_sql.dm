@@ -5,7 +5,7 @@
 	if(!player_ckey || !note)
 		return
 
-	var/list/query_details = list("ckey" = player_ckey, "address" = player_address ? player_address : null, "computer_id" = player_computerid ? player_computerid : null, "a_ckey" = null, "note" = note)
+	var/list/query_details = list("game_id" = game_id, "ckey" = player_ckey, "address" = player_address ? player_address : null, "computer_id" = player_computerid ? player_computerid : null, "a_ckey" = null, "note" = note)
 
 	if (!user)
 		query_details["a_ckey"] = "Adminbot"
@@ -26,7 +26,7 @@
 			if (!query_details["computer_id"])
 				query_details["computer_id"] = init_query.item[2]
 
-	var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO ss13_notes (id, adddate, ckey, ip, computerid, a_ckey, content) VALUES (null, Now(), :ckey:, :address:, :computer_id:, :a_ckey:, :note:)")
+	var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO ss13_notes (id, adddate, game_id, ckey, ip, computerid, a_ckey, content) VALUES (null, Now(), :game_id:, :ckey:, :address:, :computer_id:, :a_ckey:, :note:)")
 	insert_query.Execute(query_details)
 
 	message_admins("<span class='notice'>[key_name_admin(user)] has edited [player_ckey]'s notes.</span>")
@@ -221,81 +221,3 @@
 		content += notes
 		content += "```"
 		return content
-
-/*/proc/notes_transfer()
-	msg_scopes("Locating master list.")
-	var/savefile/note_list = new("data/player_notes.sav")
-	var/list/note_keys
-	note_list >> note_keys
-
-	msg_scopes("Establishing DB connection!")
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
-		msg_scopes("No DB connection!")
-		return
-
-	for(var/t in note_keys)
-		var/IP = null
-		var/CID = null
-		var/DBQuery/query = dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = '[t]'")
-		query.Execute()
-		if(query.NextRow())
-			IP = query.item[1]
-			CID = query.item[2]
-
-		var/savefile/info = new("data/player_saves/[copytext(t, 1, 2)]/[t]/info.sav")
-		var/list/infos
-		info >> infos
-
-		for(var/datum/player_info/I in infos)
-			var/a_ckey = sanitizeSQL(I.author)
-			var/timeY = copytext(I.timestamp, findtext(I.timestamp, "of") + 3)
-			var/timeM
-			var/timeD = copytext(I.timestamp, findtext(I.timestamp, " ", 6) + 1, findtext(I.timestamp, " ", 6) + 3)
-			if(findtext(timeD, "s") || findtext(timeD, "n") || findtext(timeD, "r") || findtext(timeD, "t"))
-				timeD = "0[copytext(timeD, 1, 2)]"
-
-//			msg_scopes("Timestamp: [I.timestamp].")
-			var/temp = copytext(I.timestamp, 6, findtext(I.timestamp, " ", 6))
-//			msg_scopes("The day? [timeD].")
-//			msg_scopes("The month? [temp].")
-//			msg_scopes("The year? [timeY].")
-			switch(temp)
-				if("January")
-					timeM = "01"
-				if("February")
-					timeM = "02"
-				if("March")
-					timeM = "03"
-				if("April")
-					timeM = "04"
-				if("May")
-					timeM = "05"
-				if("June")
-					timeM = "06"
-				if("July")
-					timeM = "07"
-				if("August")
-					timeM = "08"
-				if("September")
-					timeM = "09"
-				if("October")
-					timeM = "10"
-				if("November")
-					timeM = "11"
-				if("December")
-					timeM = "12"
-
-			var/DTG = "[timeY]-[timeM]-[timeD] 00:00:00"
-//			msg_scopes("Full DTG: [DTG]")
-			var/insertionstuff
-			if(IP && CID)
-				insertionstuff = "INSERT INTO ss13_notes (id, adddate, ckey, ip, computerid, a_ckey, content) VALUES (null, '[DTG]', '[t]', '[IP]', '[CID]', '[a_ckey]', '[I.content]')"
-			else
-				insertionstuff = "INSERT INTO ss13_notes (id, adddate, ckey, ip, computerid, a_ckey, content) VALUES (null, '[DTG]', '[t]', null, null, '[a_ckey]', '[I.content]')"
-			var/DBQuery/insertquery = dbcon.NewQuery(insertionstuff)
-			insertquery.Execute()
-			if(insertquery.ErrorMsg())
-				msg_scopes(insertquery.ErrorMsg())
-			else
-				msg_scopes("Transfer successful.")*/

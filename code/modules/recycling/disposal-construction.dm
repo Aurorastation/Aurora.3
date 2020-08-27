@@ -262,7 +262,7 @@
 		if(anchored)
 			var/obj/item/weldingtool/W = I
 			if(W.remove_fuel(0,user))
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 				to_chat(user, "Welding the [nicetype] in place.")
 				if(do_after(user, 20/W.toolspeed))
 					if(!src || !W.isOn()) return
@@ -273,10 +273,10 @@
 						var/pipetype = dpipetype()
 						var/obj/structure/disposalpipe/P = new pipetype(src.loc)
 						src.transfer_fingerprints_to(P)
-						P.base_icon_state = base_state
+						P.icon_state = base_state
 						P.set_dir(dir)
 						P.dpdir = dpdir
-						P.updateicon()
+						P.update_icon()
 
 						//Needs some special treatment ;)
 						if(ptype==9 || ptype==10)
