@@ -6,7 +6,6 @@
 	icon_state = "slime_extractor"
 	density = TRUE
 	anchored = TRUE
-	use_power = TRUE
 	var/slime_limit = 2 // how many slimes we can process at a time
 	var/extraction_speed = 150
 	idle_power_usage = 15
@@ -67,16 +66,13 @@
 	if(!Adjacent(user))
 		to_chat(user, SPAN_WARNING("You can't reach \the [src]!"))
 		return
-	if(istype(dropping, /mob/living/carbon/slime))
+	if(isslime(dropping))
 		var/mob/living/carbon/slime/slimey = dropping
 		if(length(extract_slimes) >= slime_limit)
 			to_chat(user, SPAN_WARNING("\The [src] is fully loaded!"))
 			return
 		user.visible_message(SPAN_NOTICE("\The [user] starts loading \the [slimey] into \the [src]..."), SPAN_NOTICE("You start loading \the [slimey] into \the [src]..."))
 		if(do_after(user, 20))
-			if(!Adjacent(user))
-				to_chat(user, SPAN_WARNING("You can't reach \the [src]!"))
-				return
 			user.visible_message(SPAN_NOTICE("\The user loads \the [slimey] into \the [src]."), SPAN_NOTICE("You load \the [slimey] into \the [src]."))
 			slimey.forceMove(src)
 			extract_slimes[slimey] = slimey
@@ -84,13 +80,7 @@
 			update_icon()
 
 /obj/machinery/slime_extractor/proc/extraction_process(var/slime)
-	if(!length(extract_slimes))
-		update_icon()
-		return
 	var/mob/living/carbon/slime/extracted_slime = extract_slimes[slime]
-	if(!extracted_slime)
-		update_icon()
-		return
 	for(var/i = 1 to extracted_slime.cores + 1)
 		var/obj/extract = new extracted_slime.coretype(get_turf(src))
 		var/obj/item/storage/bag/slimes/slime_bag = locate() in range(1, get_turf(src))
