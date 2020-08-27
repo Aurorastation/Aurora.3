@@ -30,21 +30,6 @@
 	random_count = 1
 	wanted_types = list(/obj/item/reagent_containers/glass/beaker/noreact)
 
-/datum/bounty/item/science/advanced_egun
-	name = "Advanced Energy Gun"
-	description = "With the price of rechargers on the rise, upper management is interested in purchasing guns that are self-powered. If you ship one, they'll pay."
-	reward_low = 6000
-	reward_high = 7200
-	wanted_types = list(/obj/item/gun/energy/gun/nuclear)
-
-/datum/bounty/item/science/posibrain
-	name = "Posibrain"
-	description = "Due to a sudden spike in accidents management has decided to replace some of the staff with borgs. Ship us 2 posibrains."
-	reward_low = 8000
-	reward_high = 8500
-	required_count = 2
-	wanted_types = list(/obj/item/device/mmi/digital/posibrain)
-
 /datum/bounty/item/science/borgbody
 	name = "Robot Endoskeleton"
 	description = "The %DOCKSHORT has decided to rely more on cyborgs for dangerous tasks. Ship us a fully assembled robot endoskeletons without a mmi/posibrain inside of it."

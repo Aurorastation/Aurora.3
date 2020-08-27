@@ -184,11 +184,15 @@
 	desc = "A warning sign which reads 'HYDROPONICS'."
 	icon_state = "hydro1"
 
-
 /obj/structure/sign/patients_only
 	name = "\improper PATIENTS ONLY"
 	desc = "A big blue sign that reads 'PATIENTS ONLY'. Underneath you can read: 'Authorized personnel only. Tresspassers will be prosecuted by the security department.'"
 	icon_state = "patients_only"
+
+/obj/structure/sign/staff_only
+	name = "\improper STAFF ONLY"
+	desc = "A big blue sign that reads 'STAFF ONLY'"
+	icon_state = "staff_only"
 
 //Location and direction signs
 /obj/structure/sign/directions
@@ -701,10 +705,10 @@
 		desc = "You can't make out anything from the flag's original print. It's ruined."
 		add_fingerprint(user)
 
-/obj/structure/sign/flag/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/sign/flag/attackby(obj/item/W, mob/user)
 	..()
 
-	if(istype(W, /obj/item/flame/lighter))
+	if(W.isFlameSource())
 
 		visible_message(SPAN_WARNING("\The [user] starts to burn \the [src] down!"))
 

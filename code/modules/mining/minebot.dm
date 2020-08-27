@@ -42,7 +42,7 @@
 
 	verbs -= /mob/living/silicon/robot/verb/Namepick
 	verbs -= /mob/living/silicon/robot/drone/verb/set_mail_tag
-	updateicon()
+	update_icon()
 	density = FALSE
 
 /mob/living/silicon/robot/drone/mining/updatename()
@@ -97,7 +97,7 @@
 			to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
 			return
 
-		user.visible_message(SPAN_WARNING("\The [user] swipes \his ID card through \the [src], attempting to reboot it."), SPAN_WARNING("You swipe your ID card through \the [src], attempting to reboot it."))
+		user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src], attempting to reboot it."), SPAN_WARNING("You swipe your ID card through \the [src], attempting to reboot it."))
 		request_player()
 		return
 	..()
@@ -105,13 +105,15 @@
 /mob/living/silicon/robot/drone/mining/process_level_restrictions()
 	//Abort if they should not get blown
 	if(lock_charge || scrambled_codes || emagged)
-		return
-	//Check if they are not on a station level -> abort
+		return FALSE
+	//Check if they are not on a station level -> else abort
 	var/turf/T = get_turf(src)
 	if (!T || isStationLevel(T.z))
-		return
-	to_chat(src, SPAN_DANGER("WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated."))
-	gib()
+		return FALSE
+	if(!self_destructing)
+		to_chat(src, SPAN_DANGER("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
+		start_self_destruct(TRUE)
+	return TRUE
 
 /**********************Minebot Upgrades**********************/
 

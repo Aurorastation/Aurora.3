@@ -31,12 +31,12 @@
 	new /obj/item/storage/toolbox/mechanical(src)
 	new /obj/item/clothing/suit/storage/hazardvest(src)
 	new /obj/item/clothing/mask/gas(src)
-	new /obj/item/clothing/glasses/meson/aviator(src)
 	new /obj/item/device/multitool(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/clothing/accessory/storage/overalls/chief(src)
 	new /obj/item/rfd/piping(src)
+	new /obj/item/storage/box/fancy/keypouch/eng(src)
 
 /obj/structure/closet/secure_closet/engineering_chief2
 	name = "chief engineer's attire"
@@ -129,8 +129,6 @@
 	new /obj/item/device/radio/headset/headset_eng/alt(src)
 	new /obj/item/clothing/suit/storage/hazardvest(src)
 	new /obj/item/clothing/mask/gas(src)
-	new /obj/item/clothing/glasses/meson(src)
-	new /obj/item/clothing/glasses/meson/aviator(src)
 	new /obj/item/cartridge/engineering(src)
 	new /obj/item/taperoll/engineering(src)
 	new /obj/item/clothing/accessory/storage/overalls/engineer(src)

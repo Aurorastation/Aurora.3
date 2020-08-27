@@ -95,7 +95,7 @@
 		flower_color = get_random_colour(1)
 	. = ..(mapload)
 	//species = all_species[]
-	set_species("Diona")
+	set_species(SPECIES_DIONA)
 	setup_dionastats()
 	eat_types |= TYPE_ORGANIC
 	nutrition = 0 //We dont start with biomass
@@ -142,7 +142,7 @@
 /mob/living/carbon/alien/diona/proc/set_species(var/new_species)
 	if(!dna)
 		if(!new_species)
-			new_species = "Human"
+			new_species = SPECIES_HUMAN
 	else
 		if(!new_species)
 			new_species = dna.species
@@ -151,7 +151,7 @@
 
 	// No more invisible screaming wheelchairs because of set_species() typos.
 	if(!all_species[new_species])
-		new_species = "Human"
+		new_species = SPECIES_HUMAN
 
 	if(species)
 		if(species.name == new_species)
@@ -320,7 +320,7 @@
 			ear_deaf = max(ear_deaf-1, 0)
 			ear_damage = max(ear_damage-0.05, 0)
 
-		update_icons()
+		update_icon()
 
 	return TRUE
 
@@ -334,7 +334,7 @@
 		return
 	hat = new_hat
 	new_hat.forceMove(src)
-	update_icons()
+	update_icon()
 
 /mob/living/carbon/alien/diona/MiddleClickOn(var/atom/A)
 	if(istype(A, /mob/living/carbon/alien/diona))

@@ -605,7 +605,7 @@
 									"[src]'s veins turn black as their damaged flesh regenerates before your eyes!",
 									"[src]'s skin begins to split open. It turns to ash and falls away, revealing the wound to be fully healed.",
 									"Whispering arcane things, [src]'s damaged flesh appears to regenerate.",
-									"Thick globs of blood cover a wound on [src]'s body, eventually melding to be one with \his flesh.",
+									"Thick globs of blood cover a wound on [src]'s body, eventually melding to be one with [get_pronoun("his")] flesh.",
 									"[src]'s body crackles, skin and bone shifting back into place.")
 		var/list/emotes_self = list("Your skin appears to liquefy for a moment, sealing up your wounds.",
 									"Your veins turn black as their damaged flesh regenerates before your eyes!",
@@ -832,7 +832,7 @@
 	vampire.use_blood(50)
 
 	T.reagents.add_reagent(/datum/reagent/rezadone, 3)
-	T.reagents.add_reagent(/datum/reagent/oxycodone, 0.15) //enough to get back onto their feet
+	T.reagents.add_reagent(/datum/reagent/oxycomorphine, 0.15) //enough to get back onto their feet
 
 // Convert a human into a vampire.
 /mob/living/carbon/human/proc/vampire_embrace()
@@ -890,7 +890,7 @@
 			qdel(draining_vamp)
 			draining_vamp = null
 		else
-			to_chat(src, "<span class='warning'>You feel corruption running in [T]'s blood. Much like yourself, \he[T] is already a spawn of the Veil, and cannot be Embraced.</span>")
+			to_chat(src, "<span class='warning'>You feel corruption running in [T]'s blood. Much like yourself, [T.get_pronoun("he")] is already a spawn of the Veil, and cannot be Embraced.</span>")
 			return
 
 	vampire.status |= VAMP_DRAINING

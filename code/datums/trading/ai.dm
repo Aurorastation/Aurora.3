@@ -182,7 +182,7 @@ They sell generic supplies and ask for generic supplies.
 		/obj/item/storage/box/beakers                            = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/stoxin         = TRADER_THIS_TYPE,
-		/obj/item/reagent_containers/glass/bottle/chloralhydrate = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/glass/bottle/polysomnine = TRADER_THIS_TYPE,
 		/obj/item/reagent_containers/glass/bottle/antitoxin      = TRADER_THIS_TYPE,
 		/obj/item/device/handheld_medical                        = TRADER_THIS_TYPE,
 		/obj/item/stack/medical/advanced/bruise_pack/spaceklot   = TRADER_THIS_TYPE

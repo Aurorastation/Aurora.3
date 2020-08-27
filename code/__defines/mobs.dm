@@ -314,6 +314,10 @@
 #define TASTE_DULL 0.5 //anything below 30%
 #define TASTE_NUMB 0.1 //anything below 150%
 
+//ear healing limit - past this ear_damage your ear will not recover its hearing over time
+#define HEARING_DAMAGE_LIMIT 100
+#define HEARING_DAMAGE_SLOW_HEAL 25
+
 //Used by emotes
 #define VISIBLE_MESSAGE 1
 #define AUDIBLE_MESSAGE 2
@@ -352,6 +356,10 @@
 #define SURGERY_SUCCESS 2 // Proceed with surgery
 #define SURGERY_FAIL 1 // Autofail surgery
 #define SURGERY_IGNORE 0 // Ignore surgery completely and just attack
+
+#define STASIS_MISC     "misc"
+#define STASIS_CRYOBAG  "cryobag"
+#define STASIS_COLD     "cold"
 
 #define AURA_CANCEL 1
 #define AURA_FALSE  2

@@ -8,7 +8,7 @@
 	icon_opened = "crateopen"
 	icon_closed = "crate"
 	climbable = 1
-//	mouse_drag_pointer = MOUSE_ACTIVE_POINTER	//???
+	build_amt = 10
 	var/rigged = 0
 	var/tablestatus = 0
 	pass_flags = PASSTABLE
@@ -110,7 +110,7 @@
 	else if(W.iswirecutter())
 		if(rigged)
 			to_chat(user, "<span class='notice'>You cut away the wiring.</span>")
-			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
+			playsound(loc, 'sound/items/wirecutter.ogg', 100, 1)
 			rigged = 0
 			return
 	else return attack_hand(user)
@@ -493,7 +493,7 @@
 /obj/structure/closet/crate/freezer/rations/fill()
 	for(var/i=1,i<=6,i++)
 		new /obj/item/reagent_containers/food/snacks/liquidfood(src)
-		new /obj/item/reagent_containers/food/drinks/cans/waterbottle(src)
+		new /obj/item/reagent_containers/food/drinks/waterbottle(src)
 
 /obj/structure/closet/crate/bin
 	name = "large bin"
@@ -690,7 +690,10 @@
 		"critter" = "critteropen",
 		"largemetal" = "largemetalopen",
 		"medicalcrate" = "medicalcrateopen",
-		"tcflcrate" = "tcflcrateopen"
+		"tcflcrate" = "tcflcrateopen",
+		"necrocrate" = "necrocrateopen",
+		"zenghucrate" = "zenghucrateopen",
+		"hephcrate" = "hephcrateopen"
 	)
 
 

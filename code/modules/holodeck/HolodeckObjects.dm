@@ -183,7 +183,7 @@
 	return
 
 /obj/structure/window/reinforced/holowindow/shatter(var/display_message = 1)
-	playsound(src, "shatter", 70, 1)
+	playsound(src, "glass_break", 70, 1)
 	if(display_message)
 		visible_message("[src] fades away as it shatters!")
 	qdel(src)
@@ -225,7 +225,7 @@
 
 /obj/machinery/door/window/holowindoor/shatter(var/display_message = 1)
 	src.density = 0
-	playsound(src, "shatter", 70, 1)
+	playsound(src, "glass_break", 70, 1)
 	if(display_message)
 		visible_message("[src] fades away as it shatters!")
 	qdel(src)
@@ -243,6 +243,7 @@
 	no_attack_log = 1
 
 /obj/item/holo/esword
+	name = "energy sword"
 	desc = "May the force be within you. Sorta."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sword0"
@@ -252,16 +253,18 @@
 	throwforce = 0
 	w_class = 2.0
 	flags = NOBLOODY
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_energy.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_energy.dmi'
+		)
 	var/active = 0
 	var/item_color
 
 /obj/item/holo/esword/green
-	New()
-		item_color = "green"
+	item_color = "green"
 
 /obj/item/holo/esword/red
-	New()
-		item_color = "red"
+	item_color = "red"
 
 /obj/item/holo/esword/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
@@ -273,7 +276,8 @@
 	return 0
 
 /obj/item/holo/esword/New()
-	item_color = pick("red","blue","green","purple")
+	if(!item_color)
+		item_color = pick("red","blue","green","purple")
 
 /obj/item/holo/esword/attack_self(mob/living/user as mob)
 	active = !active

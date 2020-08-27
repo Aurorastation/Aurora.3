@@ -14,7 +14,7 @@
 	if(!istype(H) || !Adjacent(H))
 		return ..()
 	if(H.a_intent == I_HELP)
-		if(H.species && H.species.name == "Diona" && do_merge(H))
+		if(H.species && H.species.name == SPECIES_DIONA && do_merge(H))
 			return
 		get_scooped(H) // GET SCOOPED - geeves
 		return
@@ -23,7 +23,7 @@
 		H.put_in_hands(hat)
 		H.visible_message(SPAN_WARNING("\The [H] removes \the [src]'s [hat]."))
 		hat = null
-		update_icons()
+		update_icon()
 	else
 		return ..()
 

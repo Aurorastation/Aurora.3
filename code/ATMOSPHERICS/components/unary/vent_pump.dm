@@ -49,6 +49,8 @@
 	var/radio_filter_out
 	var/radio_filter_in
 
+	var/broadcast_status_next_process = FALSE
+
 /obj/machinery/atmospherics/unary/vent_pump/on
 	use_power = 1
 	icon_state = "map_vent_out"
@@ -165,6 +167,10 @@
 
 /obj/machinery/atmospherics/unary/vent_pump/machinery_process()
 	..()
+
+	if (broadcast_status_next_process)
+		broadcast_status()
+		broadcast_status_next_process = FALSE
 
 	if (hibernate > world.time)
 		return 1
@@ -336,14 +342,11 @@
 		return
 
 	if(signal.data["status"] != null)
-		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+		broadcast_status_next_process = TRUE
 		return //do not update_icon
 
-		//log_debug("DEBUG \[[world.timeofday]\]: vent_pump/receive_signal: unknown command \"[signal.data["command"]]\"\n[signal.debug_print()]")
-	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
-
+	broadcast_status_next_process = TRUE
 	update_icon()
-	return
 
 /obj/machinery/atmospherics/unary/vent_pump/attackby(obj/item/W, mob/user)
 	if(W.iswelder())
@@ -353,11 +356,11 @@
 		else if (WT.remove_fuel(0,user))
 			to_chat(user, SPAN_NOTICE("Now welding the vent."))
 			if(do_after(user, 30/W.toolspeed))
-				if(!src || !WT.isOn()) 
+				if(!src || !WT.isOn())
 					return
 				welded = !welded
 				update_icon()
-				playsound(src, 'sound/items/Welder2.ogg', 50, 1)
+				playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
 				user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
 									 SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
 									 "You hear welding.")

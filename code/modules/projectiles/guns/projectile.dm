@@ -82,7 +82,7 @@
 		return FALSE
 	if(!jam_num && jam_chance && get_ammo())
 		if(prob(jam_chance))
-			playsound(src.loc, 'sound/items/trayhit2.ogg', 50, 1)
+			playsound(src.loc, 'sound/items/trayhit2.ogg', 50, TRUE)
 			to_chat(user, "<span class='danger'>\The [src] jams!</span>")
 			jam_num = rand(2, 5) // gotta attackself two to five times to unjam
 	return TRUE
@@ -106,7 +106,7 @@
 		if(EJECT_CASINGS) //eject casing onto ground.
 			chambered.forceMove(get_turf(src))
 			chambered.throw_at(get_ranged_target_turf(get_turf(src),turn(loc.dir,270),1), rand(0,1), 5)
-			playsound(chambered, "sound/weapons/casingdrop[rand(1,5)].ogg", 50, 1)
+			playsound(chambered, "casing_drop", 50, FALSE)
 		if(CYCLE_CASINGS) //cycle the casing back to the end.
 			if(ammo_magazine)
 				ammo_magazine.stored_ammo += chambered
@@ -134,7 +134,7 @@
 				AM.forceMove(src)
 				ammo_magazine = AM
 				user.visible_message("[user] inserts [AM] into [src].", "<span class='notice'>You insert [AM] into [src].</span>")
-				playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
+				playsound(src.loc, AM.insert_sound, 50, FALSE)
 			if(SPEEDLOADER)
 				if(loaded.len >= max_shells)
 					to_chat(user,"<span class='warning'>[src] is full!</span>")
@@ -149,8 +149,8 @@
 						AM.stored_ammo -= C //should probably go inside an ammo_magazine proc, but I guess less proc calls this way...
 						count++
 				if(count)
-					user.visible_message("[user] reloads [src].", "<span class='notice'>You load [count] round\s into [src].</span>")
-					playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+					user.visible_message("[user] reloads [src].", "<span class='notice'>You load [count] round\s into [src] using \the [AM].</span>")
+					playsound(src.loc, AM.insert_sound, 50, FALSE)
 		AM.update_icon()
 	else if(istype(A, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = A
@@ -168,8 +168,7 @@
 		C.forceMove(src)
 		loaded.Insert(1, C) //add to the head of the list
 		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
-		playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
-
+		playsound(src.loc, C.reload_sound, 50, FALSE)
 	update_maptext()
 	update_icon()
 
@@ -178,7 +177,7 @@
 	if(ammo_magazine)
 		user.put_in_hands(ammo_magazine)
 		user.visible_message("[user] removes [ammo_magazine] from [src].", "<span class='notice'>You remove [ammo_magazine] from [src].</span>")
-		playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+		playsound(src.loc, ammo_magazine.eject_sound, 50, FALSE)
 		ammo_magazine.update_icon()
 		ammo_magazine = null
 	else if(loaded.len)
@@ -189,7 +188,7 @@
 			if(T)
 				for(var/obj/item/ammo_casing/C in loaded)
 					C.forceMove(T)
-					playsound(C, "sound/weapons/casingdrop[rand(1,5)].ogg", 50, 1)
+					playsound(C, "casing_drop", 50, FALSE)
 					count++
 				loaded.Cut()
 			if(count)
@@ -210,11 +209,11 @@
 
 /obj/item/gun/projectile/attack_self(mob/user)
 	if(jam_num)
-		playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+		playsound(src.loc, 'sound/weapons/click.ogg', 50, TRUE)
 		jam_num--
 		if(!jam_num)
 			visible_message(SPAN_DANGER("\The [user] unjams \the [src]!"))
-			playsound(src.loc, 'sound/items/glowstick.ogg', 100, 1)
+			playsound(src.loc, 'sound/weapons/unjam.ogg', 100, TRUE)
 			unjam_cooldown = world.time
 	else if(unjam_cooldown + 2 SECONDS > world.time)
 		return
@@ -237,8 +236,7 @@
 			"[ammo_magazine] falls out and clatters on the floor!",
 			"<span class='notice'>[ammo_magazine] falls out and clatters on the floor!</span>"
 			)
-		if(auto_eject_sound)
-			playsound(user, auto_eject_sound, 40, 1)
+		playsound(user, ammo_magazine.eject_sound, 40, FALSE)
 		ammo_magazine.update_icon()
 		ammo_magazine = null
 		update_icon() //make sure to do this after unsetting ammo_magazine

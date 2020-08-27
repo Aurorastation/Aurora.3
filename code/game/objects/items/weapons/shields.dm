@@ -31,7 +31,6 @@
 
 /obj/item/shield
 	name = "shield"
-	hitsound = "swing_hit"
 	icon = 'icons/obj/weapons.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_shield.dmi',
@@ -79,7 +78,7 @@
 
 /obj/item/shield/riot/handle_shield(mob/user)
 	. = ..()
-	if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+	if(.) playsound(user.loc, 'sound/weapons/genhit.ogg', 50, 1)
 
 /obj/item/shield/riot/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/item/projectile))
@@ -118,7 +117,7 @@
 
 /obj/item/shield/buckler/handle_shield(mob/user)
 	. = ..()
-	if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+	if(.) playsound(user.loc, 'sound/weapons/genhit.ogg', 50, 1)
 
 /obj/item/shield/buckler/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
 	if(istype(damage_source, /obj/item/projectile))
@@ -268,6 +267,18 @@
 	else
 		set_light(0)
 
+/obj/item/shield/energy/dominia
+	name = "dominian energy barrier"
+	desc = "A hardlight energy shield meant to provide excellent protection in melee engagements."
+	icon_state = "dominian-eshield0"
+
+/obj/item/shield/energy/dominia/update_icon()
+	icon_state = "dominian-eshield[active]"
+	if(active)
+		set_light(1.5, 1.5, "#ff5132")
+	else
+		set_light(0)
+
 // tact
 /obj/item/shield/riot/tact
 	name = "tactical shield"
@@ -296,11 +307,11 @@
 	. = ..()
 
 	if(.)
-		if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+		if(.) playsound(user.loc, 'sound/weapons/genhit.ogg', 50, 1)
 
 /obj/item/shield/riot/tact/attack_self(mob/living/user)
 	active = !active
-	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
+	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
 
 	if(active)
 		icon_state = "[initial(icon_state)]_[active]"

@@ -1,5 +1,5 @@
-/mob/var/lastattacker = null
-/mob/var/lastattacked = null
+/mob/var/mob/lastattacker = null
+/mob/var/mob/lastattacked = null
 /mob/var/attack_log = list()
 
 proc/log_and_message_admins(var/message as text, var/mob/user = usr, var/turf/location)

@@ -169,6 +169,9 @@
 					if(do_mob(assailant, affecting, 150))
 						A.visible_message(SPAN_WARNING("[A] falls unconscious..."), FONT_LARGE(SPAN_DANGER("The world goes dark as you fall unconscious...")))
 						A.Paralyse(20)
+		else if(istype(affecting, /mob/living/simple_animal))
+			if(affecting.stat != DEAD)
+				affecting.health -= 1
 
 	adjust_position()
 
@@ -276,7 +279,7 @@
 		if(isslime(affecting))
 			to_chat(assailant, SPAN_NOTICE("You try to squeeze [affecting], but your hands sink right through!"))
 			return
-		assailant.visible_message(SPAN_WARNING("[assailant] reinforces \his grip on [affecting]'s neck'!"))
+		assailant.visible_message(SPAN_WARNING("[assailant] reinforces [assailant.get_pronoun("his")] grip on [affecting]'s neck'!"))
 		state = GRAB_NECK
 		icon_state = "grabbed+1"
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their neck grabbed by [assailant.name] ([assailant.ckey])</font>"

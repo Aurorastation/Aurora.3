@@ -1,13 +1,13 @@
 /datum/species/human
-	name = "Human"
+	name = SPECIES_HUMAN
 	hide_name = TRUE
 	short_name = "hum"
 	name_plural = "Humans"
-	bodytype = "Human"
+	bodytype = BODYTYPE_HUMAN
 	age_max = 125
 	economic_modifier = 12
 
-	primitive_form = "Monkey"
+	primitive_form = SPECIES_MONKEY
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
@@ -39,7 +39,7 @@
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/tie_hair)
 
-	zombie_type = "Zombie"
+	zombie_type = SPECIES_ZOMBIE
 	base_color = "#25032"
 	character_color_presets = list("Dark" = "#000000", "Warm" = "#250302", "Cold" = "#1e1e29")
 
@@ -71,16 +71,15 @@
 			if(dam > maxdam && (maxdam == 0 || prob(50)) )
 				damaged_organ = E
 				maxdam = dam
-		var/datum/gender/T = gender_datums[H.get_gender()]
 		if(damaged_organ)
 			if(damaged_organ.status & ORGAN_BLEEDING)
-				H.custom_emote("clutches [T.his] [damaged_organ.name], trying to stop the blood.")
+				H.custom_emote("clutches [H.get_pronoun("his")] [damaged_organ.name], trying to stop the blood.")
 			else if(damaged_organ.status & ORGAN_BROKEN)
-				H.custom_emote("holds [T.his] [damaged_organ.name] carefully.")
+				H.custom_emote("holds [H.get_pronoun("his")] [damaged_organ.name] carefully.")
 			else if(damaged_organ.burn_dam > damaged_organ.brute_dam && damaged_organ.organ_tag != BP_HEAD)
-				H.custom_emote("blows on [T.his] [damaged_organ.name] carefully.")
+				H.custom_emote("blows on [H.get_pronoun("his")] [damaged_organ.name] carefully.")
 			else
-				H.custom_emote("rubs [T.his] [damaged_organ.name] carefully.")
+				H.custom_emote("rubs [H.get_pronoun("his")] [damaged_organ.name] carefully.")
 
 		for(var/obj/item/organ/I in H.internal_organs)
 			if((I.status & ORGAN_DEAD) || BP_IS_ROBOTIC(I))
@@ -88,4 +87,4 @@
 			if(I.damage > 2)
 				if(prob(2))
 					var/obj/item/organ/external/parent = H.get_organ(I.parent_organ)
-					H.custom_emote("clutches [T.his] [parent.name]!")
+					H.custom_emote("clutches [H.get_pronoun("his")] [parent.name]!")

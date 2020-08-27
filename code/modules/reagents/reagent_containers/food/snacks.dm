@@ -7,8 +7,6 @@
 	center_of_mass = list("x"=16, "y"=16)
 	w_class = 2
 	is_liquid = FALSE
-	var/bitesize = 1
-	var/bitecount = 0
 	var/slice_path
 	var/slices_num
 	var/dried_type = null
@@ -28,14 +26,6 @@
 
 /obj/item/reagent_containers/food/snacks/standard_splash_mob(var/mob/user, var/mob/target)
 	return 1 //Returning 1 will cancel everything else in a long line of things it should do.
-
-/obj/item/reagent_containers/food/snacks/on_consume(mob/user, mob/target)
-	if(!reagents.total_volume && !trash)
-		target.visible_message("<b>[target]</b> finishes [is_liquid ? "drinking" : "eating"] \a [src].",
-					 SPAN_NOTICE("You finish [is_liquid ? "drinking" : "eating"] \a [src]."))
-		qdel(src)
-	else
-		..()
 
 /obj/item/reagent_containers/food/snacks/attack_self(mob/user as mob)
 	return
@@ -183,7 +173,7 @@
 				if(!U.reagents)
 					U.create_reagents(5)
 
-				if (U.reagents.total_volume > 0)
+				if(U.reagents.total_volume > 0)
 					to_chat(user, SPAN_WARNING("You already have \the [src] on \the [U]."))
 					return
 
@@ -202,11 +192,7 @@
 				reagents.trans_to_obj(U, min(reagents.total_volume,5))
 				if(is_liquid)
 					U.is_liquid = TRUE
-				if (reagents.total_volume <= 0)
-					if(trash)
-						var/obj/item/TrashItem = new trash(user)
-						user.put_in_hands(TrashItem)
-					qdel(src)
+				on_consume(user, user)
 				return
 
 	if(is_sliceable())
@@ -464,7 +450,7 @@
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/candy/koko
-	name = "\improper koko bar"
+	name = "koko bar"
 	desc = "A sweet and gritty candy bar cultivated exclusively on the Compact ruled world of Ha'zana. A good pick-me-up for Unathi, but has no effect on other species."
 	icon_state = "kokobar"
 	trash = /obj/item/trash/kokobar
@@ -514,7 +500,7 @@
 	bitesize = 1
 
 /obj/item/storage/box/fancy/cookiesnack
-	name = "Carps Ahoy! miniature cookies"
+	name = "\improper Carps Ahoy! miniature cookies"
 	desc = "A packet of Cap'n Carpie's miniature cookies! Now 100% carpotoxin free!"
 	icon = 'icons/obj/food.dmi'
 	icon_state = "cookiesnack"
@@ -825,14 +811,6 @@
 	reagent_data = list(/datum/reagent/nutriment = list("dryness" = 2, "bread" = 2))
 	bitesize = 1
 
-/obj/item/reagent_containers/food/snacks/carpmeat
-	name = "carp fillet"
-	desc = "A fillet of spess carp meat."
-	icon_state = "fishfillet"
-	filling_color = "#FFDEFE"
-	bitesize = 6
-	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 3, /datum/reagent/toxin/carpotoxin = 3)
-
 /obj/item/reagent_containers/food/snacks/dwellermeat
 	name = "worm fillet"
 	desc = "A fillet of electrifying cavern meat."
@@ -847,7 +825,7 @@
 	icon_state = "fishfingers"
 	filling_color = "#FFDEFE"
 	bitesize = 3
-	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 4, /datum/reagent/toxin/carpotoxin = 3)
+	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 7)
 
 /obj/item/reagent_containers/food/snacks/hugemushroomslice
 	name = "huge mushroom slice"
@@ -1020,13 +998,13 @@
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/burger/fish
-	name = "fillet -o- carp sandwich"
-	desc = "Almost like a carp is yelling somewhere... Give me back that fillet -o- carp, give me that carp."
+	name = "fillet -o- fish sandwich"
+	desc = "Almost like a fish is yelling somewhere... Give me back that fillet -o- fish, give me that fish."
 	icon_state = "fishburger"
 	filling_color = "#FFDEFE"
 	center_of_mass = list("x"=16, "y"=10)
 	bitesize = 3
-	reagents_to_add = list(/datum/reagent/nutriment = 3, /datum/reagent/nutriment/protein/seafood = 6, /datum/reagent/toxin/carpotoxin = 3)
+	reagents_to_add = list(/datum/reagent/nutriment = 3, /datum/reagent/nutriment/protein/seafood = 6)
 
 /obj/item/reagent_containers/food/snacks/burger/tofu
 	name = "tofu burger"
@@ -1291,14 +1269,14 @@
 	reagents_to_add = list(/datum/reagent/nutriment/protein/tofu = 8)
 
 /obj/item/reagent_containers/food/snacks/cubancarp
-	name = "cuban carp"
+	name = "cuban fish sandwich"
 	desc = "A sandwich that burns your tongue and then leaves it numb!"
 	icon_state = "cubancarp"
 	trash = /obj/item/trash/plate
 	filling_color = "#E9ADFF"
 	center_of_mass = list("x"=12, "y"=5)
 	bitesize = 3
-	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 3, /datum/reagent/nutriment = 3, /datum/reagent/toxin/carpotoxin = 3, /datum/reagent/capsaicin = 3)
+	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 3, /datum/reagent/nutriment = 3, /datum/reagent/capsaicin = 3)
 
 /obj/item/reagent_containers/food/snacks/chickenkatsu
 	name = "chicken katsu"
@@ -1642,7 +1620,7 @@
 		if(10)
 			reagents.add_reagent(/datum/reagent/nutriment, 6)
 			reagents.add_reagent(/datum/reagent/drink/tomatojuice, 5)
-			reagents.add_reagent(/datum/reagent/imidazoline, 5)
+			reagents.add_reagent(/datum/reagent/oculine, 5)
 
 /obj/item/reagent_containers/food/snacks/soup/wish
 	name = "wish soup"
@@ -1694,7 +1672,7 @@
 	center_of_mass = list("x"=16, "y"=14)
 
 	var/wrapped = 0
-	var/monkey_type = "Monkey"
+	var/monkey_type = SPECIES_MONKEY
 
 	reagents_to_add = list(/datum/reagent/nutriment/protein = 10)
 
@@ -1739,35 +1717,35 @@
 
 /obj/item/reagent_containers/food/snacks/monkeycube/farwacube
 	name = "farwa cube"
-	monkey_type = "Farwa"
+	monkey_type = SPECIES_MONKEY_TAJARA
 
 /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/farwacube
 	name = "farwa cube"
-	monkey_type = "Farwa"
+	monkey_type = SPECIES_MONKEY_TAJARA
 
 /obj/item/reagent_containers/food/snacks/monkeycube/stokcube
 	name = "stok cube"
-	monkey_type = "Stok"
+	monkey_type = SPECIES_MONKEY_UNATHI
 
 /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/stokcube
 	name = "stok cube"
-	monkey_type = "Stok"
+	monkey_type = SPECIES_MONKEY_UNATHI
 
 /obj/item/reagent_containers/food/snacks/monkeycube/neaeracube
 	name = "neaera cube"
-	monkey_type = "Neaera"
+	monkey_type = SPECIES_MONKEY_SKRELL
 
 /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/neaeracube
 	name = "neaera cube"
-	monkey_type = "Neaera"
+	monkey_type = SPECIES_MONKEY_SKRELL
 
 /obj/item/reagent_containers/food/snacks/monkeycube/vkrexicube
 	name = "v'krexi cube"
-	monkey_type = "V'krexi"
+	monkey_type = SPECIES_MONKEY_VAURCA
 
 /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/vkrexicube
 	name = "v'krexi cube"
-	monkey_type = "V'krexi"
+	monkey_type = SPECIES_MONKEY_VAURCA
 
 /obj/item/reagent_containers/food/snacks/burger/spell
 	name = "spell burger"
@@ -1825,7 +1803,7 @@
 	icon_state = "fishandchips"
 	filling_color = "#E3D796"
 	center_of_mass = list("x"=16, "y"=16)
-	reagents_to_add = list(/datum/reagent/nutriment = 3, /datum/reagent/nutriment/protein/seafood = 3, /datum/reagent/toxin/carpotoxin = 3)
+	reagents_to_add = list(/datum/reagent/nutriment = 3, /datum/reagent/nutriment/protein/seafood = 7)
 	reagent_data = list(/datum/reagent/nutriment = list("salt" = 1, "chips" = 3))
 	bitesize = 3
 
@@ -1899,7 +1877,7 @@
 	pickup_sound = 'sound/items/pickup/shovel.ogg'
 	filling_color = "#9E673A"
 	center_of_mass = list("x"=16, "y"=5)
-	reagents_to_add = list(/datum/reagent/nutriment = 6, /datum/reagent/nutriment/protein = 4, /datum/reagent/drink/tomatojuice = 5, /datum/reagent/imidazoline = 5, /datum/reagent/water = 5)
+	reagents_to_add = list(/datum/reagent/nutriment = 6, /datum/reagent/nutriment/protein = 4, /datum/reagent/drink/tomatojuice = 5, /datum/reagent/oculine = 5, /datum/reagent/water = 5)
 	reagent_data = list(/datum/reagent/nutriment = list("potato" = 2, "carrot" = 2, "eggplant" = 2, "mushroom" = 2))
 	bitesize = 10
 	is_liquid = TRUE
@@ -2032,7 +2010,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#FAA005"
 	center_of_mass = list("x"=16, "y"=11)
-	reagents_to_add = list(/datum/reagent/nutriment = 3, /datum/reagent/imidazoline = 3)
+	reagents_to_add = list(/datum/reagent/nutriment = 3, /datum/reagent/oculine = 3)
 	reagent_data = list(/datum/reagent/nutriment = list("carrot" = 3, "salt" = 1))
 	bitesize = 2
 
@@ -2288,7 +2266,7 @@
 	reagent_data = list(/datum/reagent/nutriment = list("mushroom" = 2, "potato" = 2, "carrot" = 2))
 	bitesize = 6
 
-	reagents_to_add = list(/datum/reagent/nutriment/protein = 4, /datum/reagent/hyperzine = 5, /datum/reagent/drink/tomatojuice = 5, /datum/reagent/imidazoline = 5, /datum/reagent/water = 5)
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 4, /datum/reagent/hyperzine = 5, /datum/reagent/drink/tomatojuice = 5, /datum/reagent/oculine = 5, /datum/reagent/water = 5)
 
 /obj/item/reagent_containers/food/snacks/bibimbap
 	name = "bibimbap bowl"
@@ -2297,7 +2275,7 @@
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#4f2100"
 	center_of_mass = list("x"=15, "y"=9)
-	reagents_to_add = list(/datum/reagent/nutriment = 6, /datum/reagent/nutriment/protein = 6, /datum/reagent/imidazoline = 3, /datum/reagent/spacespice = 2, /datum/reagent/nutriment/protein/egg = 3)
+	reagents_to_add = list(/datum/reagent/nutriment = 6, /datum/reagent/nutriment/protein = 6, /datum/reagent/oculine = 3, /datum/reagent/spacespice = 2, /datum/reagent/nutriment/protein/egg = 3)
 	reagent_data = list(/datum/reagent/nutriment = list("rice" = 2, "mushroom" = 2, "carrot" = 2))
 	bitesize = 4
 
@@ -2309,7 +2287,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#FCEE81"
 	center_of_mass = list("x"=16, "y"=10)
-	reagents_to_add = list(/datum/reagent/nutriment = 8, /datum/reagent/nutriment/protein = 2, /datum/reagent/drink/carrotjuice = 3, /datum/reagent/imidazoline = 1)
+	reagents_to_add = list(/datum/reagent/nutriment = 8, /datum/reagent/nutriment/protein = 2, /datum/reagent/drink/carrotjuice = 3, /datum/reagent/oculine = 1)
 	reagent_data = list(/datum/reagent/nutriment = list("rice" = 2, "mushroom" = 2, "cabbage" = 2))
 	bitesize = 2
 
@@ -2321,7 +2299,7 @@
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#FFFBDB"
 	center_of_mass = list("x"=17, "y"=11)
-	reagents_to_add = list(/datum/reagent/nutriment = 8, /datum/reagent/nutriment/rice = 5, /datum/reagent/drink/carrotjuice = 3, /datum/reagent/imidazoline = 1)
+	reagents_to_add = list(/datum/reagent/nutriment = 8, /datum/reagent/nutriment/rice = 5, /datum/reagent/drink/carrotjuice = 3, /datum/reagent/oculine = 1)
 	reagent_data = list(/datum/reagent/nutriment = list("soy" = 2,))
 	bitesize = 2
 
@@ -2409,7 +2387,7 @@
 	trash = /obj/item/trash/snacktray
 	filling_color = "#edd7d7"
 	center_of_mass = list("x"=15, "y"=9)
-	reagents_to_add = list(/datum/reagent/nutriment = 13, /datum/reagent/spacespice = 4, /datum/reagent/drink/carrotjuice = 3, /datum/reagent/imidazoline = 1)
+	reagents_to_add = list(/datum/reagent/nutriment = 13, /datum/reagent/spacespice = 4, /datum/reagent/drink/carrotjuice = 3, /datum/reagent/oculine = 1)
 	reagent_data = list(/datum/reagent/nutriment = list("buns" = 2, "cabbage" = 4))
 	bitesize = 3
 
@@ -2444,7 +2422,7 @@
 	trash = /obj/item/trash/plate
 	filling_color = "#EDE5AD"
 	center_of_mass = list("x"=16, "y"=9)
-	reagents_to_add = list(/datum/reagent/nutriment = 1, /datum/reagent/honey = 2)
+	reagents_to_add = list(/datum/reagent/nutriment = 1, /datum/reagent/nutriment/honey = 2)
 	reagent_data = list(/datum/reagent/nutriment = list("bread" = 3))
 	bitesize = 4
 
@@ -2467,7 +2445,7 @@
 	filling_color = "#7A3D11"
 	center_of_mass = list("x"=16, "y"=13)
 	bitesize = 4
-	reagents_to_add = list(/datum/reagent/nutriment/protein = 6, /datum/reagent/nutriment/triglyceride = 2, /datum/reagent/blackpepper = 1, /datum/reagent/honey = 5)
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 6, /datum/reagent/nutriment/triglyceride = 2, /datum/reagent/blackpepper = 1, /datum/reagent/nutriment/honey = 5)
 
 /////////////////////////////////////////////////Sliceable////////////////////////////////////////
 // All the food items that can be sliced into smaller bits like Meatbread and Cheesewheels
@@ -2589,7 +2567,7 @@
 	slices_num = 5
 	filling_color = "#FFD675"
 	center_of_mass = list("x"=16, "y"=10)
-	reagents_to_add = list(/datum/reagent/nutriment = 25, /datum/reagent/imidazoline = 10)
+	reagents_to_add = list(/datum/reagent/nutriment = 25, /datum/reagent/oculine = 10)
 	reagent_data = list(/datum/reagent/nutriment = list("cake" = 10, "sweetness" = 10, "carrot" = 15))
 	bitesize = 2
 
@@ -2603,7 +2581,7 @@
 	center_of_mass = list("x"=16, "y"=14)
 
 /obj/item/reagent_containers/food/snacks/cakeslice/carrot/filled
-	reagents_to_add = list(/datum/reagent/nutriment = 5, /datum/reagent/imidazoline = 1)
+	reagents_to_add = list(/datum/reagent/nutriment = 5, /datum/reagent/oculine = 1)
 	reagent_data = list(/datum/reagent/nutriment = list("cake" = 5, "sweetness" = 5, "carrot" = 5))
 	bitesize = 2
 
@@ -3134,7 +3112,7 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/vegetablepizzaslice
 	slices_num = 6
 	center_of_mass = list("x"=16, "y"=11)
-	reagents_to_add = list(/datum/reagent/nutriment = 25, /datum/reagent/drink/tomatojuice = 6, /datum/reagent/imidazoline = 12)
+	reagents_to_add = list(/datum/reagent/nutriment = 25, /datum/reagent/drink/tomatojuice = 6, /datum/reagent/oculine = 12)
 	reagent_data = list(/datum/reagent/nutriment = list("pizza crust" = 10, "eggplant" = 5, "carrot" = 5, "corn" = 5))
 	bitesize = 2
 
@@ -3147,7 +3125,7 @@
 	center_of_mass = list("x"=18, "y"=13)
 
 /obj/item/reagent_containers/food/snacks/vegetablepizzaslice/filled
-	reagents_to_add = list(/datum/reagent/nutriment = 4, /datum/reagent/drink/tomatojuice = 2, /datum/reagent/imidazoline = 2)
+	reagents_to_add = list(/datum/reagent/nutriment = 4, /datum/reagent/drink/tomatojuice = 2, /datum/reagent/oculine = 2)
 	reagent_data = list(/datum/reagent/nutriment = list("pizza crust" = 5, "eggplant" = 5, "carrot" = 5, "corn" = 5))
 
 /obj/item/reagent_containers/food/snacks/sliceable/pizza/crunch
@@ -3708,7 +3686,7 @@
 	icon_state = "koisjelly"
 	filling_color = "#E6E600"
 	bitesize = 5
-	reagents_to_add = list(/datum/reagent/kois = 25, /datum/reagent/imidazoline = 20, /datum/reagent/toxin/phoron = 25)
+	reagents_to_add = list(/datum/reagent/kois = 25, /datum/reagent/oculine = 20, /datum/reagent/toxin/phoron = 25)
 
 //unathi snacks - sprites by Araskael
 
@@ -3781,15 +3759,15 @@
 	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/sashimi
-	name = "carp sashimi"
-	desc = "A traditional human dish, recreated using space carp."
+	name = "sashimi"
+	desc = "A traditional human dish."
 	icon_state = "sashimi"
 	trash = /obj/item/trash/grease
 	drop_sound = 'sound/items/trayhit1.ogg'
 	filling_color = "#FFDEFE"
 	center_of_mass = list("x"=17, "y"=13)
 	bitesize = 4
-	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 3, /datum/reagent/toxin/carpotoxin = 3)
+	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 3)
 
 /obj/item/reagent_containers/food/snacks/nugget
 	name = "chicken nugget"
@@ -3816,7 +3794,7 @@
 	name = "honey bun"
 	desc = "A sticky pastry bun glazed with honey."
 	icon_state = "honeybun"
-	reagents_to_add = list(/datum/reagent/nutriment = 3, /datum/reagent/honey = 3)
+	reagents_to_add = list(/datum/reagent/nutriment = 3, /datum/reagent/nutriment/honey = 3)
 	reagent_data = list(/datum/reagent/nutriment = list("pastry" = 1))
 	bitesize = 3
 
@@ -4158,7 +4136,7 @@
 
 /obj/item/reagent_containers/food/snacks/sliceable/grilled_carp
 	name = "korlaaskak"
-	desc = "A well-dressed carp, seared to perfection and adorned with herbs and spices. Can be sliced into proper serving sizes."
+	desc = "A well-dressed fish, seared to perfection and adorned with herbs and spices. Can be sliced into proper serving sizes."
 	icon_state = "grilled_carp"
 	slice_path = /obj/item/reagent_containers/food/snacks/grilled_carp_slice
 	slices_num = 6
@@ -4168,13 +4146,13 @@
 
 /obj/item/reagent_containers/food/snacks/grilled_carp_slice
 	name = "korlaaskak slice"
-	desc = "A well-dressed fillet of carp, seared to perfection and adorned with herbs and spices."
+	desc = "A well-dressed fillet of fish, seared to perfection and adorned with herbs and spices."
 	icon_state = "grilled_carp_slice"
 	trash = /obj/item/trash/plate
 
 /obj/item/reagent_containers/food/snacks/sliceable/sushi_roll
-	name = "ouerean carp log"
-	desc = "A giant carp roll wrapped in special grass that combines unathi and human cooking techniques. Can be sliced into proper serving sizes."
+	name = "ouerean fish log"
+	desc = "A giant fish roll wrapped in special grass that combines unathi and human cooking techniques. Can be sliced into proper serving sizes."
 	icon_state = "sushi_roll"
 	slice_path = /obj/item/reagent_containers/food/snacks/sushi_serve
 	slices_num = 3
@@ -4182,8 +4160,8 @@
 	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 6)
 
 /obj/item/reagent_containers/food/snacks/sushi_serve
-	name = "ouerean carp cake"
-	desc = "A serving of carp roll wrapped in special grass that combines unathi and human cooking techniques."
+	name = "ouerean fish cake"
+	desc = "A serving of fish roll wrapped in special grass that combines unathi and human cooking techniques."
 	icon_state = "sushi_serve"
 
 /obj/item/reagent_containers/food/snacks/spreads
@@ -4270,7 +4248,7 @@
 	reagent_data = list(/datum/reagent/nutriment = list("flatbread" = 3))
 
 /obj/item/reagent_containers/food/snacks/fish_taco
-	name = "carp taco"
+	name = "fish taco"
 	desc = "A questionably cooked fish taco decorated with herbs, spices, and special sauce."
 	icon_state = "fish_taco"
 	reagents_to_add = list(/datum/reagent/nutriment = 3, /datum/reagent/nutriment/protein/seafood = 3)
@@ -4386,7 +4364,7 @@
 	desc = "A piece of salted fatshouter's meat stored inside a metal can."
 	icon_state = "canned"
 	bitesize = 2
-	trash = /obj/item/trash/can
+	trash = /obj/item/trash/can/adhomian_can
 	desc_fluff = "While the People's republic territory includes several different regional cultures, it is possible to find common culinary traditions among its population. \
 	Salt-cured Fatshouters's meat also has been introduced widely, facilitated by the recent advances in the livestock husbandry techniques."
 	reagents_to_add = list(/datum/reagent/nutriment/protein = 5, /datum/reagent/sodiumchloride = 2)
