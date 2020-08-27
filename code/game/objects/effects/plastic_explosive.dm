@@ -31,9 +31,8 @@
 		"NORTHWEST" = list(-32, 32)
 	)
 	var/list/pixel_shifts = dir_to_pixel[dir_text]
-	if(islist(pixel_shifts))
-		pixel_x = pixel_shifts[1]
-		pixel_y = pixel_shifts[2]
+	pixel_x = pixel_shifts[1]
+	pixel_y = pixel_shifts[2]
 
 /obj/effect/plastic_explosive/examine(mob/user)
 	. = ..()
