@@ -253,7 +253,7 @@
 			if (prob(50))
 				Paralyse(10)
 
-	// factor in armour
+	// factor in armor
 	var/protection = BLOCKED_MULT(getarmor(null, "bomb"))
 	b_loss *= protection
 	f_loss *= protection
@@ -933,7 +933,7 @@
 
 /mob/living/carbon/human/proc/play_xylophone()
 	if(!src.xylophone)
-		visible_message(SPAN_WARNING("\The [src] begins playing \his ribcage like a xylophone. It's quite spooky."), SPAN_NOTICE("You begin to play a spooky refrain on your ribcage."), SPAN_WARNING("You hear a spooky xylophone melody."))
+		visible_message(SPAN_WARNING("\The [src] begins playing [get_pronoun("his")] ribcage like a xylophone. It's quite spooky."), SPAN_NOTICE("You begin to play a spooky refrain on your ribcage."), SPAN_WARNING("You hear a spooky xylophone melody."))
 		var/song = pick('sound/effects/xylophone1.ogg','sound/effects/xylophone2.ogg','sound/effects/xylophone3.ogg')
 		playsound(loc, song, 50, 1, -1)
 		xylophone = 1
@@ -1134,7 +1134,7 @@
 	regenerate_icons()
 	check_dna()
 
-	visible_message(SPAN_NOTICE("\The [src] morphs and changes [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] appearance!"), SPAN_NOTICE("You change your appearance!"), SPAN_WARNING("Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!"))
+	visible_message(SPAN_NOTICE("\The [src] morphs and changes [get_pronoun("his")] appearance!"), SPAN_NOTICE("You change your appearance!"), SPAN_WARNING("Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!"))
 
 /mob/living/carbon/human/proc/remotesay()
 	set name = "Project mind"
@@ -1218,10 +1218,12 @@
 	else
 		to_chat(src, SPAN_WARNING("You are not injured enough to succumb to death!"))
 
-/mob/living/carbon/human/proc/get_visible_gender()
-	if(wear_suit && wear_suit.flags_inv & HIDEJUMPSUIT && ((head && head.flags_inv & HIDEMASK) || wear_mask))
-		return NEUTER
-	return gender
+/mob/living/carbon/human/get_gender()
+	var/skipitems = get_covered_clothes()
+	var/skipbody = get_covered_body_parts()
+	. = ..()
+	if((skipbody & FACE || (skipitems & (HIDEMASK|HIDEFACE))) && ((skipbody & UPPER_TORSO && skipbody & LOWER_TORSO) || (skipitems & HIDEJUMPSUIT))) //big suits/masks/helmets make it hard to tell their gender
+		. = PLURAL
 
 /mob/living/carbon/human/proc/increase_germ_level(n)
 	if(gloves)
@@ -1392,7 +1394,7 @@
 		return
 
 	if(!self)
-		usr.visible_message(SPAN_NOTICE("[usr] kneels down, puts \his hand on [src]'s wrist and begins counting their pulse."),\
+		usr.visible_message(SPAN_NOTICE("[usr] kneels down, puts [usr.get_pronoun("his")] hand on [src]'s wrist and begins counting their pulse."),\
 		"You begin counting [src]'s pulse")
 	else
 		usr.visible_message(SPAN_NOTICE("[usr] begins counting their pulse."),\
@@ -1416,7 +1418,7 @@
 	cached_bodytype = null
 	if(!dna)
 		if(!new_species)
-			new_species = "Human"
+			new_species = SPECIES_HUMAN
 	else
 		if(!new_species)
 			new_species = dna.species
@@ -1425,7 +1427,7 @@
 
 	// No more invisible screaming wheelchairs because of set_species() typos.
 	if(!all_species[new_species])
-		new_species = "Human"
+		new_species = SPECIES_HUMAN
 
 	if(species)
 
@@ -1956,7 +1958,7 @@
 		if(!nervous_system_failure())
 			visible_message("<b>[src]</b> jerks and gasps for breath!")
 		else
-			visible_message("<b>[src]</b> twitches a bit as \his heart restarts!")
+			visible_message("<b>[src]</b> twitches a bit as [get_pronoun("his")] heart restarts!")
 		shock_stage = min(shock_stage, 100) // 120 is the point at which the heart stops.
 		if(getOxyLoss() >= 75)
 			setOxyLoss(75)

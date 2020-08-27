@@ -6,7 +6,7 @@
 	// Speaking
 	gender = NEUTER
 	voice_name = "Synthesized Voice"
-	accent = ACCENT_SILICON
+	accent = ACCENT_TTS
 	var/list/speech_synthesizer_langs = list() //which languages can be vocalized by the speech synthesizer
 	var/speak_statement = "states"
 	var/speak_exclamation = "declares"
@@ -194,7 +194,7 @@
 //can't inject synths
 /mob/living/silicon/can_inject(mob/user, error_msg)
 	if(error_msg)
-		to_chat(user, SPAN_ALERT("The armoured plating is too tough."))
+		to_chat(user, SPAN_ALERT("The armored plating is too tough."))
 	return FALSE
 
 //Silicon mob language procs

@@ -163,7 +163,7 @@ var/datum/antagonist/raider/raiders
 		return 0
 
 	for(var/datum/mind/player in current_antagonists)
-		if(!player.current || get_area(player.current) != locate(/area/skipjack_station/start))
+		if(!player.current || get_area(player.current) != locate(/area/antag/raider))
 			return 0
 	return 1
 
@@ -179,7 +179,7 @@ var/datum/antagonist/raider/raiders
 		if(I.loc != player)
 			qdel(I)
 
-	if(player.species && player.species.get_bodytype() == "Vox")
+	if(player.species && player.species.get_bodytype() == BODYTYPE_VOX)
 		equip_vox(player)
 	else
 		player.preEquipOutfit(/datum/outfit/admin/syndicate/raider, FALSE)

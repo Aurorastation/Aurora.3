@@ -729,9 +729,6 @@
 /mob/proc/is_ready()
 	return client && !!mind
 
-/mob/proc/get_gender()
-	return gender
-
 /mob/proc/see(message)
 	if(!is_active())
 		return 0
@@ -1126,7 +1123,7 @@
 
 /mob/living/proc/handle_weakened()
 	if(weakened)
-		weakened = max(weakened-1,0)	//before you get mad Rockdtben: I done this so update_canmove isn't called multiple times
+		weakened = max(weakened-1,0)
 	return weakened
 
 /mob/living/proc/handle_stuttering()

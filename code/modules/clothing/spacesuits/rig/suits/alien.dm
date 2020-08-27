@@ -11,7 +11,7 @@
 	vision_restriction = TINT_HEAVY
 	offline_vision_restriction = TINT_BLIND
 
-	species_restricted = list("Unathi")
+	species_restricted = list(BODYTYPE_UNATHI)
 
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
 
@@ -30,6 +30,16 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
+/obj/item/rig/unathi/fancy/ninja
+
+	initial_modules = list(
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/device/door_hack
+		)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_MEDICAL | MODULE_UTILITY
 
 /obj/item/rig/vaurca
 	name = "combat exoskeleton control module"
@@ -42,7 +52,7 @@
 	slowdown = 2
 	offline_slowdown = 3
 
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/vaurca
 	air_type =   /obj/item/tank/phoron
@@ -85,7 +95,7 @@
 	offline_slowdown = 3
 	siemens_coefficient = 0
 
-	species_restricted = list("Tajara")
+	species_restricted = list(BODYTYPE_TAJARA)
 
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
 

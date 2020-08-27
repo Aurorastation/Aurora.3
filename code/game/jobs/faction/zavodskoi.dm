@@ -9,9 +9,6 @@
 	Dominia, and are at the forefront of weapons development technology.
 	</p>
 
-	<p><font size='5' color='red'><b> DO NOT PLAY AN IPC AS A ZAVODSKOI LIAISON, THIS IS UNINTENDED. JOINING AS ONE WILL RESULT IN AN IPC/HEAD WHITELIST STRIP.</b></font>
-	</p>
-
 	<p>Some character examples are:
 	<ul>
 	<li><b>Surgical Specialist</b>: Unit to unit Zavodskoi ships the most firearms and weapons compared
@@ -50,6 +47,22 @@
 		/datum/species/unathi,
 		/datum/species/diona,
 		/datum/species/machine
+	)
+
+	job_species_blacklist = list(
+		"Corporate Liaison" = list(
+			SPECIES_IPC,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_SHELL,
+			SPECIES_UNATHI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN
+		)
 	)
 
 	titles_to_loadout = list(

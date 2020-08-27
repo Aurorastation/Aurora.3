@@ -80,6 +80,8 @@
 
 	var/t1 = "<html><head><title>Constructions from [capitalize_first_letters(src.name)]</title></head><body><tt>Amount Left: [src.get_amount()]<br>"
 
+	if(sublist)
+		t1 += "<a href='?src=\ref[src];go_back=1'>Back</a><br>"
 	if(locate(/datum/stack_recipe_list) in recipes_sublist)
 		t1 += "<h2>Recipe Categories</h2>"
 	for(var/datum/stack_recipe_list/srl in recipes_sublist)
@@ -173,6 +175,10 @@
 /obj/item/stack/Topic(href, href_list)
 	..()
 	if((usr.restrained() || usr.stat || usr.get_active_hand() != src))
+		return
+
+	if(href_list["go_back"])
+		list_recipes(usr, recipes)
 		return
 
 	if(href_list["sublist"] && !href_list["make"])
@@ -274,7 +280,7 @@
 
 	var/orig_amount = src.get_amount()
 	if (transfer && src.use(transfer))
-		var/obj/item/stack/newstack = new src.type(loc, transfer)
+		var/obj/item/stack/newstack = new src.stacktype(loc, transfer)
 		newstack.color = color
 		if (prob(transfer/orig_amount * 100))
 			transfer_fingerprints_to(newstack)
@@ -368,7 +374,11 @@
 /datum/stack_recipe/New(title, result_type, req_amount = 1, res_amount = 1, max_res_amount = 1, time = 0, one_per_turf = 0, on_floor = 0, supplied_material = null)
 	src.title = title
 	src.result_type = result_type
-	src.req_amount = req_amount
+	if(ispath(result_type, /obj/structure))
+		var/obj/structure/S = result_type
+		src.req_amount = initial(S.build_amt) ? initial(S.build_amt) : req_amount
+	else
+		src.req_amount = req_amount
 	src.res_amount = res_amount
 	src.max_res_amount = max_res_amount
 	src.time = time

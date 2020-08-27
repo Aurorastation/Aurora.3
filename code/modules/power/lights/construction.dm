@@ -76,7 +76,7 @@
 				icon_state = "bulb-construct-stage1"
 		new /obj/item/stack/cable_coil(get_turf(src), 1, "red")
 		user.visible_message(SPAN_NOTICE("\The [user] removes the wiring from \the [src]."), SPAN_NOTICE("You remove the wiring from [src]."), SPAN_WARNING("You hear something being cut."))
-		playsound(get_turf(src), 'sound/items/Wirecutter.ogg', 100, TRUE)
+		playsound(get_turf(src), 'sound/items/wirecutter.ogg', 100, TRUE)
 		return
 
 	if(W.iscoil())
@@ -146,7 +146,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] does not have a power cell installed."))
 			return
 
-		playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, TRUE)
+		playsound(get_turf(src), W.usesound, 50, TRUE)
 		visible_message(SPAN_NOTICE("\The [user] removes \the [cell] from the [src]."), SPAN_NOTICE("You remove \the [cell] from \the [src]."))
 		cell.forceMove(get_turf(src))
 		user.put_in_hands(cell)

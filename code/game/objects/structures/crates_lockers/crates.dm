@@ -8,7 +8,7 @@
 	icon_opened = "crateopen"
 	icon_closed = "crate"
 	climbable = 1
-//	mouse_drag_pointer = MOUSE_ACTIVE_POINTER	//???
+	build_amt = 10
 	var/rigged = 0
 	var/tablestatus = 0
 	pass_flags = PASSTABLE
@@ -110,7 +110,7 @@
 	else if(W.iswirecutter())
 		if(rigged)
 			to_chat(user, "<span class='notice'>You cut away the wiring.</span>")
-			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
+			playsound(loc, 'sound/items/wirecutter.ogg', 100, 1)
 			rigged = 0
 			return
 	else return attack_hand(user)
@@ -690,7 +690,10 @@
 		"critter" = "critteropen",
 		"largemetal" = "largemetalopen",
 		"medicalcrate" = "medicalcrateopen",
-		"tcflcrate" = "tcflcrateopen"
+		"tcflcrate" = "tcflcrateopen",
+		"necrocrate" = "necrocrateopen",
+		"zenghucrate" = "zenghucrateopen",
+		"hephcrate" = "hephcrateopen"
 	)
 
 

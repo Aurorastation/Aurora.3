@@ -57,17 +57,16 @@
 
 /mob/living/simple_animal/hostile/commanded/bear/proc/command_dance()
 	visible_message("\The [src] starts to dance!.")
-	var/datum/gender/G = gender_datums[gender]
 	for(var/i in 1 to 10)
 		if(stance != COMMANDED_MISC || incapacitated()) //something has stopped this ride.
 			return
 		var/message = pick(
-						"moves [G.his] head back and forth!",
-						"bobs [G.his] booty!",
-						"shakes [G.his] paws in the air!",
-						"wiggles [G.his] ears!",
-						"taps [G.his] foot!",
-						"shrugs [G.his] shoulders!",
+						"moves [get_pronoun("his")] head back and forth!",
+						"bobs [get_pronoun("his")] booty!",
+						"shakes [get_pronoun("his")] paws in the air!",
+						"wiggles [get_pronoun("his")] ears!",
+						"taps [get_pronoun("his")] foot!",
+						"shrugs [get_pronoun("his")] shoulders!",
 						"dances like you've never seen!")
 		if(dir != WEST)
 			set_dir(WEST)
@@ -77,4 +76,4 @@
 		sleep(30)
 	stance = COMMANDED_STOP
 	set_dir(SOUTH)
-	visible_message("\The [src] bows, finished with [G.his] dance.")
+	visible_message("\The [src] bows, finished with [get_pronoun("his")] dance.")

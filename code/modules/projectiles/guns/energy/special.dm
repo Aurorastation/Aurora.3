@@ -6,7 +6,7 @@
 	item_state = "ionriflestun100" // so the human update icon uses the icon_state instead.
 	modifystate = "ionriflestun"
 	projectile_type = /obj/item/projectile/ion/stun
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
 	w_class = 4
 	accuracy = 1
@@ -16,14 +16,14 @@
 	charge_cost = 300
 	max_shots = 10
 	secondary_projectile_type = /obj/item/projectile/ion
-	secondary_fire_sound = 'sound/weapons/Laser.ogg'
+	secondary_fire_sound = 'sound/weapons/laser1.ogg'
 	can_turret = 1
 	can_switch_modes = 1
 	turret_sprite_set = "ion"
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/ion/stun, modifystate="ionriflestun", fire_sound='sound/weapons/Laser.ogg', charge_cost = 300),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/ion, modifystate="ionriflekill", fire_sound='sound/weapons/Laser.ogg', charge_cost = 450)
+		list(mode_name="stun", projectile_type=/obj/item/projectile/ion/stun, modifystate="ionriflestun", fire_sound='sound/weapons/laser1.ogg', charge_cost = 300),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/ion, modifystate="ionriflekill", fire_sound='sound/weapons/laser1.ogg', charge_cost = 450)
 		)
 
 /obj/item/gun/energy/rifle/ionrifle/emp_act(severity)
@@ -133,7 +133,7 @@
 	item_state = "xray"
 	has_item_ratio = FALSE
 	projectile_type = /obj/item/projectile/beam/mindflayer
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	can_turret = 1
 	turret_sprite_set = "xray"
 
@@ -263,7 +263,7 @@
 	icon_state = "gatling"
 	item_state = "gatling"
 	has_item_ratio = FALSE
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 5, TECH_MATERIAL = 6)
 	charge_meter = 0
 	slot_flags = SLOT_BACK
@@ -318,7 +318,7 @@
 	item_state = "blaster"
 	has_item_ratio = FALSE
 	origin_tech = list(TECH_COMBAT = 2, TECH_PHORON = 4)
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
 	w_class = 3
 	accuracy = 1

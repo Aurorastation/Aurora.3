@@ -36,6 +36,9 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 /obj/item/reagent_containers/food/drinks/on_reagent_change()
 	update_icon()
 
+/obj/item/reagent_containers/food/drinks/on_rag_wipe(var/obj/item/reagent_containers/glass/rag/R)
+	clean_blood()
+
 /obj/item/reagent_containers/food/drinks/update_icon()
 	if(!reagents.total_volume)
 		if(drink_flags & UNIQUE_EMPTY_ICON)
@@ -291,11 +294,12 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 /obj/item/reagent_containers/food/drinks/waterbottle/throw_impact()
 	. = ..()
 	if(!QDELETED(src))
-		if(prob(10)) // landed upright
-			src.visible_message(SPAN_NOTICE("\The [src] lands upright!"))
-		if(prob(1)) // landed upright on ITS CAP
-			src.visible_message(SPAN_NOTICE("\The [src] lands upright on its cap!"))
-			animate(src, transform = matrix(prob(50)? 180 : -180, MATRIX_ROTATE), time = 3, loop = 0)
+		if(prob(10)) // landed upright in some way
+			if(prob(10)) // landed upright on ITS CAP (1% chance)
+				src.visible_message(SPAN_NOTICE("\The [src] lands upright on its cap!"))
+				animate(src, transform = matrix(prob(50)? 180 : -180, MATRIX_ROTATE), time = 3, loop = 0)
+			else
+				src.visible_message(SPAN_NOTICE("\The [src] lands upright!"))
 		else // landed on it's side
 			animate(src, transform = matrix(prob(50)? 90 : -90, MATRIX_ROTATE), time = 3, loop = 0)
 
@@ -324,8 +328,8 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	desc = "A plastic medicine cup. Like a shot glass for medicine."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "medcup"
-	drop_sound = 'sound/items/drop/glass.ogg'
-	pickup_sound = 'sound/items/pickup/glass.ogg'
+	drop_sound = 'sound/items/drop/drinkglass.ogg'
+	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
 	possible_transfer_amounts = null
 	volume = 15
 

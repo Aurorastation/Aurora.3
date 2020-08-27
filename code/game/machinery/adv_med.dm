@@ -26,17 +26,17 @@
 	var/locked
 	var/obj/machinery/body_scanconsole/connected
 	var/list/allowed_species = list(
-		"Human",
-		"Off-Worlder Human",
-		"Skrell",
-		"Unathi",
-		"Tajara",
-		"M'sai Tajara",
-		"Zhan-Khazan Tajara",
-		"Vaurca Worker",
-		"Vaurca Warrior",
-		"Diona",
-		"Monkey"
+		SPECIES_HUMAN,
+		SPECIES_HUMAN_OFFWORLD,
+		SPECIES_SKRELL,
+		SPECIES_UNATHI,
+		SPECIES_TAJARA,
+		SPECIES_TAJARA_MSAI,
+		SPECIES_TAJARA_ZHAN,
+		SPECIES_VAURCA_WORKER,
+		SPECIES_VAURCA_WARRIOR,
+		SPECIES_DIONA,
+		SPECIES_MONKEY
 	)
 
 /obj/machinery/bodyscanner/Initialize()
@@ -512,11 +512,14 @@
 		data["name"] = O.name
 		var/list/wounds = list()
 		data["damage"] = get_internal_damage(O)
-		if(istype(O, /obj/item/organ/internal/lungs) && H.is_lung_ruptured())
-			if(O.is_broken())
+		if(istype(O, /obj/item/organ/internal/lungs))
+			var/obj/item/organ/internal/lungs/L = O
+			if(L.is_broken())
 				wounds += get_broken_lung_desc()
-			else
+			else if(L.is_bruised())
 				wounds += get_collapsed_lung_desc()
+			if(L.rescued)
+				wounds += "Has a small puncture wound."
 
 		if(O.status & ORGAN_DEAD)
 			wounds += "Necrotic and decaying."

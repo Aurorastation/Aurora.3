@@ -6,7 +6,7 @@
 	desc = "A highly trained Eridani contractor doctor medical doctor. Can do most medical procedures even under severe stress."
 	welcome_message = "You are part of the Eridani Medical Contractor Team, a highly trained team of medical profissional."
 	outfit = /datum/outfit/admin/ert/med_eridani
-	possible_species = list("Human", "Off-Worlder Human", "Tajara", "M'sai Tajara", "Zhan-Khazan Tajara", "Skrell", "Diona", "Unathi", "Vaurca Warrior", "Vaurca Worker", "Baseline Frame", "Hephaestus G1 Industrial Frame", "Hephaestus G2 Industrial Frame", "Xion Industrial Frame", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame", "Shell Frame")
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_DIONA, SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 
 /datum/ghostspawner/human/ert/med_eridani/bodyguard
 	name = "Eridani Medical Contractor Bodyguard"
@@ -15,6 +15,8 @@
 	max_count = 2
 	desc = "A highly trained bodyguard. Sticks close to the medics while they work."
 	outfit = /datum/outfit/admin/ert/med_eridani/bodyguard
+	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
+
 
 /datum/ghostspawner/human/ert/med_eridani/paramedic
 	name = "Eridani Medical Contractor Paramedic"

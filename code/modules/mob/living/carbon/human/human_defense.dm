@@ -19,6 +19,7 @@ emp_act
 		if(martial_art && martial_art.deflection_chance)
 			if(prob(martial_art.deflection_chance))
 				src.visible_message("<span class='danger'>\The [src] deflects \the [P]!</span>")
+				playsound(src, "bulletflyby_sound", 75, 1)
 				return 0
 
 	def_zone = check_zone(def_zone)
@@ -127,7 +128,7 @@ emp_act
 			results.Add(C)
 	return results
 
-//this proc returns the armour value for a particular external organ.
+//this proc returns the armor value for a particular external organ.
 /mob/living/carbon/human/proc/getarmor_organ(var/obj/item/organ/external/def_zone, var/type)
 	if(!type || !def_zone) return 0
 	var/protection = 0
@@ -386,6 +387,7 @@ emp_act
 
 		if(!zone)
 			visible_message("<span class='notice'>\The [O] misses [src] narrowly!</span>")
+			playsound(src, 'sound/effects/throw_miss.ogg', rand(10, 50), 1)
 			return
 
 		O.throwing = 0		//it hit, so stop moving
@@ -551,7 +553,7 @@ emp_act
 
 	var/obj/item/grab/G = new /obj/item/grab(user, src)
 	if(buckled)
-		to_chat(user, "<span class='notice'>You cannot grab [src], \he [gender_datums[gender].is] buckled in!</span>")
+		to_chat(user, "<span class='notice'>You cannot grab [src], [get_pronoun("he")] [get_pronoun("is")] buckled in!</span>")
 	if(!G)	//the grab will delete itself in New if affecting is anchored
 		return
 	user.put_in_active_hand(G)

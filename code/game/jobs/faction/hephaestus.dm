@@ -68,6 +68,13 @@
 		"Corporate Liaison" = /datum/outfit/job/representative/hephaestus
 	)
 
+	job_species_blacklist = list(
+		"Corporate Liaison" = list(
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR
+		)
+	)
+
 /datum/outfit/job/engineer/hephaestus
 	name = "Station Engineer - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus

@@ -110,6 +110,8 @@
 	// Alerts
 	var/view_alerts = FALSE
 
+	var/self_destructing = FALSE
+
 	// Killswitch
 	var/killswitch = FALSE
 	var/killswitch_time = 60
@@ -507,12 +509,12 @@
 	set name = "Toggle Mop"
 	set desc = "Toggle the integrated mop."
 	set src in usr
-	
+
 	mopping = !mopping
 	if (mopping)
 		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system rumbles to life."), SPAN_NOTICE("You enable your integrated mopping system."))
 		playsound(usr, 'sound/machines/hydraulic_long.ogg', 100, 1)
-	else 
+	else
 		usr.visible_message(SPAN_NOTICE("[usr]'s integrated mopping system putters before turning off."), SPAN_NOTICE("You disable your integrated mopping system."))
 
 /mob/living/silicon/robot/proc/update_robot_light()
@@ -999,23 +1001,37 @@
 							cleaned_human.clean_blood(1)
 							to_chat(cleaned_human, SPAN_WARNING("\The [src] runs its bottom mounted bristles all over you!"))
 
-/mob/living/silicon/robot/proc/self_destruct(var/anti_theft = FALSE)
+/mob/living/silicon/robot/proc/start_self_destruct(var/anti_theft = FALSE)
+	if(self_destructing)
+		return
+	self_destructing = TRUE
 	if(anti_theft)
-		say("WARNING! Removal from NanoTrasen property detected. Anti-Theft mode activated. Unit [src] will self-destruct in five seconds.")
-		to_chat(src, SPAN_WARNING("All databases containing information related to NanoTrasen have been wiped!"))
+		to_chat(src, SPAN_WARNING("Initiating wipe of all databases containing information related to [current_map.company_name]!"))
 	else
 		say("WARNING! Self-destruct initiated. Unit [src] will self destruct in five seconds.")
-	lock_charge = TRUE
-	update_canmove()
-	sleep(20)
-	playsound(get_turf(src), 'sound/items/countdown.ogg', 125, TRUE)
-	sleep(20)
-	playsound(get_turf(src), 'sound/effects/alert.ogg', 125, TRUE)
-	sleep(10)
+
+	addtimer(CALLBACK(src, .proc/self_destruct_warning, 1), 2 SECONDS, TIMER_UNIQUE)
+
+/mob/living/silicon/robot/proc/self_destruct_warning(var/warning_level)
+	if(!process_level_restrictions()) // Robot has returned to a turf where it is safe
+		to_chat(src, SPAN_NOTICE("Unit [src] has returned to [current_map.company_name] property, self-destruct aborted!"))
+		say("Unit [src] self-destruct aborted.")
+		self_destructing = FALSE
+		return
+	switch(warning_level)
+		if(1)
+			playsound(get_turf(src), 'sound/items/countdown.ogg', 125, TRUE)
+			addtimer(CALLBACK(src, .proc/self_destruct_warning, 2), 2 SECONDS, TIMER_UNIQUE)
+		if(2)
+			playsound(get_turf(src), 'sound/effects/alert.ogg', 125, TRUE)
+			addtimer(CALLBACK(src, .proc/self_destruct_warning, 3), 1 SECONDS, TIMER_UNIQUE)
+		if(3)
+			self_destruct()
+
+/mob/living/silicon/robot/proc/self_destruct()
 	density = FALSE
 	fragem(src, 50, 100, 2, 1, 5, 1, 0)
 	gib()
-	return
 
 /mob/living/silicon/robot/update_canmove() // to fix lockdown issues w/ chairs
 	. = ..()
