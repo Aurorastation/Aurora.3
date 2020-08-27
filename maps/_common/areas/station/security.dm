@@ -55,14 +55,16 @@
 /area/security/warden
 	name = "Security - Warden's Office"
 	icon_state = "Warden"
+	sound_env = SMALL_SOFTFLOOR
 
 /area/security/warden/remote
 	name = "\improper Security - Remote Warden's Office"
 	icon_state = "Warden"
 
-/area/security/armoury
+/area/security/armory
 	name = "Security - Armory"
 	icon_state = "Warden"
+	ambience = AMBIENCE_HIGHSEC
 
 /area/security/forensics_office
 	name = "Security - Forensic Office"
@@ -72,6 +74,7 @@
 /area/security/detectives_office
 	name = "Security - Detective's Office"
 	icon_state = "detective"
+	sound_env = SMALL_SOFTFLOOR
 
 /area/security/investigations
 	name = "Security - Investigations Division"
@@ -89,6 +92,7 @@
 /area/security/tactical
 	name = "Security - Tactical Equipment"
 	icon_state = "Tactical"
+	ambience = AMBIENCE_HIGHSEC
 
 /area/security/security_office
 	name = "Security - Security Office"
@@ -114,6 +118,7 @@
 /area/security/nuke_storage
 	name = "Vault"
 	icon_state = "nuke_storage"
+	ambience = AMBIENCE_HIGHSEC
 	holomap_color = null
 	flags = HIDE_FROM_HOLOMAP
 
@@ -124,6 +129,7 @@
 /area/security/checkpoint2
 	name = "Security - Arrivals Checkpoint"
 	icon_state = "security"
+	ambience = AMBIENCE_ARRIVALS
 
 /area/security/bridge_surface_checkpoint
 	name = "Bridge Security Checkpoint"
@@ -151,8 +157,8 @@
 
 /area/security/vacantoffice2
 	name = "Security - Meeting Room"
-	icon_state = "security"
 
 /area/security/penal_colony
 	name = "\improper Security - Penal Mining Colony"
+	icon_state = "security"
 	icon_state = "security"

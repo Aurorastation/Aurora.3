@@ -357,6 +357,10 @@
 #define SURGERY_FAIL 1 // Autofail surgery
 #define SURGERY_IGNORE 0 // Ignore surgery completely and just attack
 
+#define STASIS_MISC     "misc"
+#define STASIS_CRYOBAG  "cryobag"
+#define STASIS_COLD     "cold"
+
 #define AURA_CANCEL 1
 #define AURA_FALSE  2
 #define AURA_TYPE_BULLET "Bullet"

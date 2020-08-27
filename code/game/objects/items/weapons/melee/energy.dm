@@ -47,7 +47,7 @@
 /obj/item/melee/energy/attack_self(mob/living/user as mob)
 	if (active)
 		if ((user.is_clumsy()) && prob(50))
-			user.visible_message("<span class='danger'>\The [user] accidentally cuts \himself with \the [src].</span>",\
+			user.visible_message("<span class='danger'>\The [user] accidentally cuts [user.get_pronoun("himself")] with \the [src].</span>",\
 			"<span class='danger'>You accidentally cut yourself with \the [src].</span>")
 			user.take_organ_damage(5,5)
 		deactivate(user)
@@ -324,7 +324,8 @@
 	active_w_class = 3
 	w_class = 3
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = 'sound/items/pickup/sword.ogg'
+	pickup_sound = "pickup_sword"
+	equip_sound = "equip_sword"
 
 /obj/item/melee/energy/sword/powersword/activate(mob/living/user)
 	..()
@@ -339,7 +340,7 @@
 /obj/item/melee/energy/sword/powersword/attack_self(mob/living/user as mob)
 	..()
 	if(prob(30))
-		user.visible_message("<span class='danger'>\The [user] accidentally cuts \himself with \the [src].</span>",\
+		user.visible_message("<span class='danger'>\The [user] accidentally cuts [user.get_pronoun("himself")] with \the [src].</span>",\
 		"<span class='danger'>You accidentally cut yourself with \the [src].</span>")
 		user.take_organ_damage(5,5)
 /*

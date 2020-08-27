@@ -99,7 +99,7 @@
 	. = ..()
 	if(!air)
 		make_air()
-	air.adjust_gas("sleeping_agent", ATMOSTANK_NITROUSOXIDE)
+	air.adjust_gas(GAS_N2O, ATMOSTANK_NITROUSOXIDE)
 
 /turf/simulated/floor/cult
 	name = "engraved floor"
@@ -115,6 +115,10 @@
 	name = "dark floor"
 	icon_state = "dark"
 	initial_flooring = /decl/flooring/tiling/dark
+
+/turf/simulated/floor/tiled/dark/airless
+	oxygen = 0
+	nitrogen = 0
 
 /turf/simulated/floor/tiled/red
 	name = "red floor"

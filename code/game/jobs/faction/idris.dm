@@ -63,6 +63,17 @@
 		"Corporate Liaison" = /datum/outfit/job/representative/idris
 	)
 
+	job_species_blacklist = list(
+		"Corporate Liaison" = list(
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR
+		)
+	)
+
 /datum/outfit/job/officer/idris
 	name = "Security Officer - Idris"
 	uniform = /obj/item/clothing/under/rank/security/idris

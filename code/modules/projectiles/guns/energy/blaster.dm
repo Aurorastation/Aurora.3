@@ -5,7 +5,7 @@
 	icon_state = "blaster_pistol"
 	item_state = "blaster_pistol"
 	has_item_ratio = FALSE
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = 2
 	force = 5

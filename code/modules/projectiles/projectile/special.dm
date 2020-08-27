@@ -4,7 +4,7 @@
 	damage = 0
 	damage_type = BURN
 	nodamage = 1
-	check_armour = "energy"
+	check_armor = "energy"
 	var/pulse_range = 1
 
 /obj/item/projectile/ion/on_impact(var/atom/A)
@@ -69,7 +69,7 @@
 	name ="explosive bolt"
 	icon_state= "bolter"
 	damage = 50
-	check_armour = "bullet"
+	check_armor = "bullet"
 	sharp = 1
 	edge = 1
 
@@ -96,7 +96,7 @@
 	damage = 0
 	damage_type = BURN
 	nodamage = 1
-	check_armour = "energy"
+	check_armor = "energy"
 	//var/temperature = 300
 
 
@@ -113,7 +113,7 @@
 	damage = 0
 	damage_type = BRUTE
 	nodamage = 1
-	check_armour = "bullet"
+	check_armor = "bullet"
 
 /obj/item/projectile/meteor/Collide(atom/A)
 	if(A == firer)
@@ -142,7 +142,7 @@
 	damage = 0
 	damage_type = TOX
 	nodamage = 1
-	check_armour = "energy"
+	check_armor = "energy"
 
 /obj/item/projectile/energy/floramut/on_hit(var/atom/target, var/blocked = 0)
 	var/mob/living/M = target
@@ -153,7 +153,7 @@
 				H.apply_effect((rand(30,80)),IRRADIATE,blocked = H.getarmor(null, "rad"))
 				M.Weaken(5)
 				for (var/mob/V in viewers(src))
-					V.show_message("<span class='warning'>[M] writhes in pain as \his vacuoles boil.</span>", 3, "<span class='warning'>You hear the crunching of leaves.</span>", 2)
+					V.show_message("<span class='warning'>[M] writhes in pain as [M.get_pronoun("his")] vacuoles boil.</span>", 3, "<span class='warning'>You hear the crunching of leaves.</span>", 2)
 			if(prob(35))
 			//	for (var/mob/V in viewers(src)) //Public messages commented out to prevent possible metaish genetics experimentation and stuff. - Cheridan
 			//		V.show_message("\red [M] is mutated by the radiation beam.", 3, "\red You hear the snapping of twigs.", 2)
@@ -181,7 +181,7 @@
 	damage = 0
 	damage_type = TOX
 	nodamage = 1
-	check_armour = "energy"
+	check_armor = "energy"
 
 /obj/item/projectile/energy/florayield/on_hit(var/atom/target, var/blocked = 0)
 	var/mob/M = target
@@ -208,7 +208,7 @@
 	name ="tungsten rod"
 	icon_state= "gauss"
 	damage = 75
-	check_armour = "bomb"
+	check_armor = "bomb"
 	sharp = 1
 	edge = 1
 
@@ -244,7 +244,7 @@
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "spell"
 	damage = 0
-	check_armour = "energy"
+	check_armor = "energy"
 	embed = 0
 	damage_type = PAIN
 
@@ -280,7 +280,7 @@
 	icon_state = "plasma_bolt"
 	damage = 25
 	damage_type = BRUTE
-	check_armour = "energy"
+	check_armor = "energy"
 	incinerate = 10
 	armor_penetration = 20
 	penetrating = 1

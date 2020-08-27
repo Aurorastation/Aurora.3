@@ -10,6 +10,9 @@
 	fire_sound_text = "laser blast"
 	update_icon_on_init = TRUE
 
+	safetyon_sound = 'sound/weapons/laser_safetyon.ogg'
+	safetyoff_sound = 'sound/weapons/laser_safetyoff.ogg'
+
 	var/has_icon_ratio = TRUE // Does this gun use the ratio system to modify its icon_state?
 	var/has_item_ratio = TRUE // Does this gun use the ratio system to paint its item_states?
 

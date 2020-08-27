@@ -104,6 +104,8 @@
 	var/wielded = 0
 	var/needspin = TRUE
 	var/is_wieldable = FALSE
+	var/wield_sound = "wield_generic"
+	var/unwield_sound = null
 
 	//aiming system stuff
 	var/multi_aim = 0 //Used to determine if you can target multiple people.
@@ -113,6 +115,10 @@
 	var/safety_state = TRUE
 	var/has_safety = TRUE
 	var/image/safety_overlay
+
+	// sounds n shit
+	var/safetyon_sound = 'sound/weapons/blade_open.ogg'
+	var/safetyoff_sound = 'sound/weapons/blade_close.ogg'
 
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
@@ -192,7 +198,7 @@
 			if(process_projectile(P, user, user, pick(BP_L_FOOT, BP_R_FOOT)))
 				handle_post_fire(user, user)
 				user.visible_message(
-					SPAN_DANGER("\The [user] shoots \himself in the foot with \the [src]!"),
+					SPAN_DANGER("\The [user] shoots [user.get_pronoun("himself")] in the foot with \the [src]!"),
 					SPAN_DANGER("You shoot yourself in the foot with \the [src]!")
 					)
 				M.drop_item()
@@ -320,7 +326,8 @@
 		if(pointblank)
 			process_point_blank(projectile, user, target)
 
-		if(process_projectile(projectile, user, target, user.zone_sel.selecting, clickparams))
+		var/selected_zone = user.zone_sel ? user.zone_sel.selecting : BP_CHEST
+		if(process_projectile(projectile, user, target, selected_zone, clickparams))
 			var/show_emote = TRUE
 			if(i > 1 && burst_delay < 3 && burst < 5)
 				show_emote = FALSE
@@ -626,10 +633,12 @@
 
 	return new_mode
 
-/obj/item/gun/attack_self(mob/user)
+/obj/item/gun/attack_self(mob/user, var/list/message_mobs)
 	var/datum/firemode/new_mode = switch_firemodes(user)
 	if(new_mode)
 		to_chat(user, SPAN_NOTICE("\The [src] is now set to [new_mode.name]."))
+	for(var/M in message_mobs)
+		to_chat(M, SPAN_NOTICE("[user] has set \the [src] to [new_mode.name]."))
 
 // Safety Procs
 
@@ -638,7 +647,10 @@
 	update_icon()
 	if(user)
 		to_chat(user, SPAN_NOTICE("You switch the safety [safety_state ? "on" : "off"] on \the [src]."))
-		playsound(src, 'sound/weapons/safety_click.ogg', 30, 1)
+		if(!safety_state)
+			playsound(src, safetyon_sound, 30, 1)
+		else
+			playsound(src, safetyoff_sound, 30, 1)
 
 /obj/item/gun/verb/toggle_safety_verb()
 	set src in usr
@@ -708,6 +720,8 @@
 		recoil = initial(recoil)
 	if(accuracy_wielded)
 		accuracy = initial(accuracy)
+	if(unwield_sound)
+		playsound(src.loc, unwield_sound, 50, 1)
 
 	update_icon()
 	update_held_icon()
@@ -720,6 +734,8 @@
 		recoil = recoil_wielded
 	if(accuracy_wielded)
 		accuracy = accuracy_wielded
+	if(wield_sound)
+		playsound(src.loc, wield_sound, 50, 1)
 
 	update_icon()
 	update_held_icon()
@@ -767,6 +783,9 @@
 	icon_state = "offhand"
 	item_state = "nothing"
 	name = "offhand"
+	drop_sound = null
+	pickup_sound = null
+	equip_sound = null
 
 /obj/item/offhand/proc/unwield()
 	if(ismob(loc))

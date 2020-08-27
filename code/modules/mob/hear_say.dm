@@ -41,14 +41,11 @@
 				else
 					message = stars(message)
 
-	var/accent_icon
-
+	var/accent_icon = speaker.get_accent_icon(language)
 	var/speaker_name = speaker.name
 	if(ishuman(speaker))
 		var/mob/living/carbon/human/H = speaker
 		speaker_name = H.GetVoice()
-
-		accent_icon = H.get_accent_icon(language)
 
 	if(italics)
 		message = "<i>[message]</i>"
@@ -68,7 +65,7 @@
 			if(speaker == src)
 				to_chat(src, "<span class='warning'>You cannot hear yourself speak!</span>")
 			else
-				to_chat(src, "<span class='name'>[speaker_name]</span>[alt_name] talks but you cannot hear \him.")
+				to_chat(src, "<span class='name'>[speaker_name]</span>[alt_name] talks but you cannot hear them.")
 	else
 		if(language)
 			on_hear_say("[track][accent_icon ? accent_icon + " " : ""]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [language.format_message(message, verb)]</span>")

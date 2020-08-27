@@ -924,6 +924,9 @@ default behaviour is:
 		make_jittery(rand(150,200))
 		adjustHalLoss(rand(50,60))
 
+/mob/living/proc/InStasis()
+	return FALSE
+
 /mob/living/update_icon()
 	for(var/aura in auras)
 		var/obj/aura/A = aura

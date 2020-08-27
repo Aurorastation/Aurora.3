@@ -4,40 +4,40 @@
 /obj/item/gun/projectile/automatic/mini_uzi,
 /obj/item/gun/projectile/silenced,
 /turf/simulated/floor/reinforced/airless,
-/area/security/armoury)
+/area/security/armory)
 "b" = (
 /turf/simulated/floor/reinforced/airless,
-/area/security/armoury)
+/area/security/armory)
 "c" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/rifle/icelance,
 /obj/item/gun/projectile/shotgun/pump/combat,
 /turf/simulated/floor/reinforced/airless,
-/area/security/armoury)
+/area/security/armory)
 "d" = (
 /obj/structure/table/rack,
 /obj/item/gun/projectile/dragunov,
 /obj/item/gun/energy/rifle/icelance,
 /turf/simulated/floor/reinforced/airless,
-/area/security/armoury)
+/area/security/armory)
 "e" = (
 /obj/structure/table/rack,
 /obj/item/gun/projectile/tanto,
 /obj/item/gun/projectile/automatic/mini_uzi,
 /turf/simulated/floor/reinforced/airless,
-/area/security/armoury)
+/area/security/armory)
 "f" = (
 /obj/structure/table/rack,
 /obj/item/gun/projectile/shotgun/pump/combat,
 /obj/item/gun/projectile/tanto,
 /turf/simulated/floor/reinforced/airless,
-/area/security/armoury)
+/area/security/armory)
 "g" = (
 /obj/structure/table/rack,
 /obj/item/gun/projectile/automatic/rifle/sts35,
 /obj/item/gun/projectile/silenced,
 /turf/simulated/floor/reinforced/airless,
-/area/security/armoury)
+/area/security/armory)
 
 (1,1,1) = {"
 a

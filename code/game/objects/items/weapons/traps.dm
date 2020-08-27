@@ -99,7 +99,7 @@
 		target_zone = pick(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
 
 	if(!ignore_armor)
-		//armour
+		//armor
 		var/blocked = L.run_armor_check(target_zone, "melee")
 		if(blocked >= 100)
 			return

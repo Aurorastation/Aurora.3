@@ -50,7 +50,7 @@
 
 /datum/design/rig/hacker
 	name = "Cybersuit Control Module Assembly"
-	desc = "An assembly for an advanced powered armour suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
+	desc = "An assembly for an advanced powered armor suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
 	build_path = /obj/item/rig_assembly/combat/illegal/hacker
 	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 2, TECH_POWER = 3, TECH_COMBAT = 3, TECH_ILLEGAL = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 25000, MATERIAL_GLASS = 12500, MATERIAL_GOLD = 2500, MATERIAL_SILVER = 3500, MATERIAL_URANIUM = 5550)
