@@ -3,5 +3,5 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - rscadd: "Implements Crystal Agitators, machines that agitate asteroid turf to form chemical crystals. Check the communal out, and be careful."
+  - rscadd: "Implements Crystal Agitators, machines that agitate asteroid turf to form chemical crystals. Check the communal out."
   - tweak: "You can now dump the contents of a storage item into a disposal bin, by clicking on it on any intent other than harm. Doing so on harm will place the storage item in too."
