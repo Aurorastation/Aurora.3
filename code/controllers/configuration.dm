@@ -35,7 +35,7 @@ var/list/gamemode_cache = list()
 	var/transfer_timeout = 72000		// timeout before a transfer vote can be called (deciseconds, 120 minute default)
 	var/vote_no_default = 0				// vote does not default to nochange/norestart (tbi)
 	var/vote_no_dead = 0				// dead people can't vote (tbi)
-	var/vote_allow_last_gamemode = FALSE// prevent the last gamemode from being voted again
+	var/vote_allow_last_gamemode = TRUE // allows the last gamemode to be voted in the next round
 //	var/enable_authentication = 0		// goon authentication
 	var/del_new_on_log = 1				// del's new players if they log before they spawn in
 	var/feature_object_spell_system = 0 //spawns a spellbook which gives object-type spells instead of verb-type spells for the wizard
@@ -479,8 +479,8 @@ var/list/gamemode_cache = list()
 				if ("vote_autogamemode_timeleft")
 					config.vote_autogamemode_timeleft = text2num(value)
 
-				if ("vote_allow_last_gamemode")
-					config.vote_allow_last_gamemode = TRUE
+				if ("vote_disallow_last_gamemode")
+					config.vote_allow_last_gamemode = FALSE
 
 				if ("transfer_timeout")
 					config.transfer_timeout = text2num(value)
