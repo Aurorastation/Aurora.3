@@ -6,7 +6,7 @@
 	anchored = 1
 	icon_state = "wreck"
 	icon = 'icons/mecha/mech_part_items.dmi'
-	var/prepared
+	var/prepared = FALSE
 
 /obj/structure/mech_wreckage/Initialize(var/newloc, var/mob/living/heavy_vehicle/exosuit, var/gibbed)
 	if(exosuit)
@@ -37,14 +37,14 @@
 	return ..()
 
 /obj/structure/mech_wreckage/attackby(var/obj/item/W, var/mob/user)
-
 	var/cutting
-	if(iswelder(W))
+	if(W.iswelder())
 		var/obj/item/weldingtool/WT = W
 		if(WT.isOn())
 			cutting = TRUE
 		else
 			to_chat(user, "<span class='warning'>Turn the torch on, first.</span>")
+			return
 	else if(istype(W, /obj/item/gun/energy/plasmacutter))
 		cutting = TRUE
 
