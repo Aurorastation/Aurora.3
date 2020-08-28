@@ -101,8 +101,12 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/computer/shuttle_control/Topic(user, href_list)
+/obj/machinery/computer/shuttle_control/Topic(href_list, href_list)
 	..()
+
+	var/mob/user = usr
+	if(!istype(user))
+		return
 
 	handle_topic_href(SSshuttle.shuttles[shuttle_tag], href_list, user)
 

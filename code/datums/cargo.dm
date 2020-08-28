@@ -395,7 +395,13 @@
 	return order_data.Join("")
 
 //Marks a order as submitted
-/datum/cargo_order/proc/set_submitted(var/oid)
+/datum/cargo_order/proc/set_submitted(var/user_name, var/user_id, var/order_reason)
+	if(user_id <= 0)
+		user_id = null
+
+	ordered_by = user_name
+	ordered_by_id = user_id
+	reason = order_reason
 	status = "submitted"
 	time_submitted = worldtime2text()
 	order_id = SScargo.get_next_order_id()
@@ -403,11 +409,13 @@
 	return 1
 
 //Marks a order as approved - Returns a status message
-/datum/cargo_order/proc/set_approved(var/approved_by)
+/datum/cargo_order/proc/set_approved(var/user_name, var/user_id)
+	if(user_id <= 0)
+		user_id = null
 	if(status == "submitted")
 		status = "approved"
 		time_approved = worldtime2text()
-		authorized_by = approved_by
+		authorized_by = user_name
 		return "The order has been approved"
 	else
 		return "The order could not be approved - Invalid Status"
@@ -427,21 +435,27 @@
 	time_shipped = worldtime2text()
 
 //Marks a order as delivered - Returns a status message
-/datum/cargo_order/proc/set_delivered(var/customer_name, var/paid=0)
+/datum/cargo_order/proc/set_delivered(var/user_name, var/user_id, var/paid=0)
+	if(user_id <= 0)
+		user_id = null
 	if(status == "shipped")
 		status = "delivered"
 		time_delivered = worldtime2text()
-		received_by = customer_name
+		received_by = user_name
+		received_by_id = user_id
 		if(paid)
-			set_paid(customer_name)
+			set_paid(user_name, user_id)
 		return "The order has been delivered"
 	else
 		return "The order could not be delivered - Invalid Status"
 
 //Mark a order as paid
-/datum/cargo_order/proc/set_paid(var/customer_name)
+/datum/cargo_order/proc/set_paid(var/user_name, var/user_id)
+	if(user_id <= 0)
+		user_id = null
 	time_paid = worldtime2text()
-	paid_by = customer_name
+	paid_by = user_name
+	paid_by_id = user_id
 	return "The order has been paid for"
 
 /*
