@@ -15,7 +15,7 @@
 
 	var/visible = 1
 	var/p_open = 0
-	var/operating = 0
+	var/operating = FALSE
 	var/autoclose = 0
 	var/glass = 0
 	var/normalspeed = 1
@@ -377,9 +377,10 @@
 /obj/machinery/door/emag_act(var/remaining_charges)
 	if(density && operable())
 		do_animate("spark")
+		emagged = 1
 		sleep(6)
-		open()
-		operating = -1
+		stat |= BROKEN
+		open(1)
 		return 1
 
 /obj/machinery/door/proc/take_damage(var/damage)
@@ -490,7 +491,7 @@
 /obj/machinery/door/proc/open(var/forced = 0)
 	if(!can_open(forced))
 		return
-	operating = 1
+	operating = TRUE
 
 	do_animate("opening")
 	icon_state = "door0"
@@ -503,7 +504,7 @@
 	explosion_resistance = 0
 	update_icon()
 	set_opacity(0)
-	operating = 0
+	operating = FALSE
 
 	if(autoclose)
 		close_door_in(next_close_time())
@@ -523,7 +524,7 @@
 			for (var/atom/movable/M in get_turf(src))
 				if (M.density && M != src)
 					addtimer(CALLBACK(src, .proc/autoclose), 60)
-	operating = 1
+	operating = TRUE
 
 	do_animate("closing")
 	sleep(3)
@@ -535,7 +536,7 @@
 	update_icon()
 	if(visible && !glass)
 		set_opacity(1)	//caaaaarn!
-	operating = 0
+	operating = FALSE
 
 	//I shall not add a check every x ticks if a door has closed over some fire.
 	var/obj/fire/fire = locate() in loc
