@@ -230,7 +230,6 @@
 #include "code\controllers\subsystems\zcopy.dm"
 #include "code\controllers\subsystems\initialization\atlas.dm"
 #include "code\controllers\subsystems\initialization\atoms.dm"
-#include "code\controllers\subsystems\initialization\cuisine.dm"
 #include "code\controllers\subsystems\initialization\holomap.dm"
 #include "code\controllers\subsystems\initialization\map_finalization.dm"
 #include "code\controllers\subsystems\initialization\misc_early.dm"

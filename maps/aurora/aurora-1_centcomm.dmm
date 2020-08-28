@@ -11376,7 +11376,6 @@
 /area/tdome/tdomeobserve)
 "aTD" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -18392,7 +18391,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/snack,
 /turf/unsimulated/floor{
 	icon_state = "bar"
 	},
@@ -26151,23 +26150,23 @@
 	},
 /area/shuttle/mercenary)
 "mfL" = (
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
 /obj/structure/table/standard,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -29752,9 +29751,6 @@
 /area/shuttle/skipjack)
 "paU" = (
 /obj/structure/table/reinforced,
-/obj/machinery/microwave{
-	pixel_y = 4
-	},
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},

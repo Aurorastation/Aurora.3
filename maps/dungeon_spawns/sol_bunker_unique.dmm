@@ -24,17 +24,13 @@
 /obj/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
-"ag" = (
-/obj/structure/table/standard,
-/obj/machinery/microwave,
-/turf/simulated/floor/tiled,
-/area/dungeon/sol_outpost)
 "ah" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
 	brightness_color = "#FA8282";
 	dir = 1
 	},
+/obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "ai" = (
@@ -44,7 +40,7 @@
 /area/dungeon/sol_outpost)
 "aj" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/snack,
 /turf/simulated/floor/tiled,
 /area/dungeon/sol_outpost)
 "ak" = (
@@ -1714,7 +1710,7 @@ aa
 (15,1,1) = {"
 dc
 ac
-ag
+ae
 aq
 at
 ar
