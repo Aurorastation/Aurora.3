@@ -1,6 +1,0 @@
-author: mikomyazaki
-
-delete-after: True
-
-changes: 
-  - tweak: "Pulling structures, e.g. chairs, lockers will now cause some slowdown. To prevent people circumventing the slowdown from pulling a slow mob by putting them inside something first. Roller beds & Wheelchairs are exempt from this."
