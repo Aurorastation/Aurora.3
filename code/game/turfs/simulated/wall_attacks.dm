@@ -215,7 +215,7 @@
 		else if(istype(W,/obj/item/melee/chainsword))
 			var/obj/item/melee/chainsword/WT = W
 			if(WT.active)
-				dismantle_sound = 'sound/weapons/chainsawhit.ogg'
+				dismantle_sound = 'sound/weapons/saw/chainsawhit.ogg'
 				dismantle_verb = "slicing"
 				cut_delay *= 0.8
 			else

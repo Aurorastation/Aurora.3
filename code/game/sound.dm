@@ -227,11 +227,11 @@
 /proc/get_rand_frequency()
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
 
-/proc/get_sfx(soundin)
+/proc/get_sfx(var/sound_category)
 	var/decl/sound_category/SC = decls_repository.get_decl(sound_category)
 	if(!istype(SC))
 		CRASH("Non-decl path in get_sfx: [sound_category]")
-	return soundin
+	return SC.get_sound()
 
 /decl/sound_category
 	var/list/sounds = list()
@@ -543,9 +543,9 @@
 
 /decl/sound_category/wield_generic_sound
 	sounds = list(
-		'sound/items/wield/wield_generic1.ogg',
-		'sound/items/wield/wield_generic2.ogg',
-		'sound/items/wield/wield_generic3.ogg'
+		'sound/items/wield/generic1.ogg',
+		'sound/items/wield/generic2.ogg',
+		'sound/items/wield/generic3.ogg'
 	)
 
 /decl/sound_category/sword_pickup_sound

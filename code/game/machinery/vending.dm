@@ -105,7 +105,7 @@
 	var/cooling_temperature = T0C + 5 //Best temp for soda.
 	var/heating_temperature = T0C + 57 //Best temp for coffee.
 
-	var/vending_sound = 'machines/vending/vending_drop.ogg'
+	var/vending_sound = 'sound/machines/vending/vending_drop.ogg'
 
 	var/global/list/screen_overlays
 	var/exclusive_screen = TRUE // Are we not allowed to show the deny and screen states at the same time?
