@@ -44,7 +44,6 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	brute_mod = 2
 	burn_mod = 4
-	virus_immune = 1
 	grab_mod = 2
 	resist_mod = 2
 

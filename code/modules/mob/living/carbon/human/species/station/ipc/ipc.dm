@@ -76,7 +76,6 @@
 
 	blood_color = COLOR_IPC_BLOOD
 	flesh_color = "#575757"
-	virus_immune = 1
 	reagent_tag = IS_MACHINE
 
 	has_organ = list(
