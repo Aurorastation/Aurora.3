@@ -24,7 +24,7 @@
 	user.visible_message("<span class='cult'>\The [user]'s skin sloughs off bone, their blood boils and guts turn to dust!</span>")
 	gibs(user.loc)
 	user.add_spell(new /spell/targeted/dark_resurrection)
-	user.set_species("Skeleton")
+	user.set_species(SPECIES_SKELETON)
 	user.unEquip(user.wear_suit)
 	user.unEquip(user.head)
 	user.equip_to_slot_or_del(new /obj/item/clothing/suit/wizrobe/black(user), slot_wear_suit)

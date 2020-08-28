@@ -1730,8 +1730,6 @@
 	req_access = list(150)
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/reagent_containers/cooking_container/plate/bowl,
-/obj/item/reagent_containers/cooking_container/plate,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -1754,11 +1752,11 @@
 	opacity = 0
 	},
 /obj/structure/table/reinforced,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/storage/box/snack{
-	pixel_x = -1;
-	pixel_y = 8
+/obj/item/storage/box/donkpockets{
+	pixel_x = 3;
+	pixel_y = 3
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -2520,15 +2518,17 @@
 	icon_state = "floor4"
 	},
 /area/derelict)
-"Cf" = (
-/obj/machinery/media/jukebox,
+"nD" = (
+/obj/structure/table/reinforced,
+/obj/machinery/microwave{
+	pixel_x = -1;
+	pixel_y = 8
+	},
 /turf/simulated/floor/lino,
 /area/derelict)
-"NB" = (
+"NT" = (
+/obj/machinery/media/jukebox,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
-	dir = 1
-	},
 /turf/simulated/floor/lino,
 /area/derelict)
 
@@ -6607,8 +6607,8 @@ bl
 bl
 bl
 ab
-ab
-NB
+nD
+bl
 bl
 bl
 ab
@@ -6682,8 +6682,8 @@ bl
 bl
 bl
 ab
-Cf
-bl
+ab
+bn
 bl
 bl
 ab
@@ -6757,7 +6757,7 @@ ab
 dw
 dw
 ab
-bl
+NT
 bl
 bl
 ab

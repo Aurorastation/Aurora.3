@@ -14,7 +14,7 @@
 	mob_name_pick_message = "Pick an Unathi last name."
 
 	outfit = /datum/outfit/admin/kataphract
-	possible_species = list("Unathi")
+	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Kataphract-Hopeful"
@@ -29,12 +29,12 @@
 	desc = "Display honour in everything you do. Be an excellent person. Learn how to be a proper Kataphract by your fellow Unathi."
 	max_count = 1
 	uses_species_whitelist = TRUE
-	req_species_whitelist = "Vaurca"
+	req_species_whitelist = SPECIES_VAURCA_WARRIOR
 
 	spawnpoints = list("kataphract_klax")
 
 	outfit = /datum/outfit/admin/kataphract/klax
-	possible_species = list("Vaurca Warrior")
+	possible_species = list(SPECIES_VAURCA_WARRIOR)
 	extra_languages = list(LANGUAGE_VAURCA)
 
 /datum/ghostspawner/human/kataphract/knight
@@ -43,7 +43,7 @@
 	desc = "Display honour in everything you do. Be an excellent person. Be a co-leader of the Kataphract Chapter, along with the other knight."
 	max_count = 2
 	uses_species_whitelist = TRUE
-	req_species_whitelist = "Unathi"
+	req_species_whitelist = SPECIES_UNATHI
 
 	mob_name_prefix = "Saa "
 

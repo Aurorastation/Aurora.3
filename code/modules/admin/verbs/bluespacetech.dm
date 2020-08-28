@@ -143,19 +143,19 @@
 	return 1
 
 /mob/living/carbon/human/bst/proc/suicide()
-	if(key && species.name != "Human")
+	if(key && species.name != SPECIES_HUMAN)
 		switch(species.name)
-			if("Tajara")
+			if(SPECIES_TAJARA)
 				bsc()
-			if("Baseline Frame")
+			if(SPECIES_IPC)
 				bsb()
-			if("Diona")
+			if(SPECIES_DIONA)
 				bsd()
-			if("Unathi")
+			if(SPECIES_UNATHI)
 				bsu()
-			if("Skrell")
+			if(SPECIES_SKRELL)
 				bss()
-			if("Vaurca Worker")
+			if(SPECIES_VAURCA_WORKER)
 				bsv()
 		return
 
@@ -175,7 +175,7 @@
 			ghost.voice_name = "[ghost.key] BSTech"
 
 /mob/living/carbon/human/bst/proc/bsc() //because we all have our unrealistic snowflakes right?
-	if(set_species("Tajara"))
+	if(set_species(SPECIES_TAJARA))
 		h_style = "Tajaran Ears"
 		name = "Bluespace Cat"
 		voice_name = "Bluespace Cat"
@@ -195,7 +195,7 @@
 		suicide()
 
 /mob/living/carbon/human/bst/proc/bsb()
-	if(set_species("Baseline Frame"))
+	if(set_species(SPECIES_IPC))
 		h_style = "blue IPC screen"
 		name = "Bluespace Bot"
 		voice_name = "Bluespace Bot"
@@ -214,7 +214,7 @@
 		suicide()
 
 /mob/living/carbon/human/bst/proc/bsd()
-	if(set_species("Diona"))
+	if(set_species(SPECIES_DIONA))
 		name = "Bluespace Tree"
 		voice_name = "Bluespace Tree"
 		real_name = "Bluespace Tree"
@@ -232,7 +232,7 @@
 		suicide()
 
 /mob/living/carbon/human/bst/proc/bsu()
-	if(set_species("Unathi"))
+	if(set_species(SPECIES_UNATHI))
 		h_style = "Unathi Horns"
 		name = "Bluespace Lizard"
 		voice_name = "Bluespace Lizard"
@@ -251,7 +251,7 @@
 		suicide()
 
 /mob/living/carbon/human/bst/proc/bss()
-	if(set_species("Skrell"))
+	if(set_species(SPECIES_SKRELL))
 		h_style = "Skrell Average Tentacles"
 		name = "Bluespace Squid"
 		voice_name = "Bluespace Squid"
@@ -271,7 +271,7 @@
 		suicide()
 
 /mob/living/carbon/human/bst/proc/bsv()
-	if(set_species("Vaurca Worker"))
+	if(set_species(SPECIES_VAURCA_WORKER))
 		h_style = "Bald"
 		name = "Bluespace Bug"
 		voice_name = "Bluespace Bug"

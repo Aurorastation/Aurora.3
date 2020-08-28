@@ -73,7 +73,7 @@
 
 /datum/accent/gibson
 	name = ACCENT_GIBSON
-	description = "The New Gibsoner accent is very close to the accent of Tau Ceti proper, due to the nature of the planet’s colonization. However, New Gibsoners are known for talking \
+	description = "The New Gibsoner accent is very close to the accent of Tau Ceti proper, due to the nature of the planet's colonization. However, New Gibsoners are known for talking \
 	with a faster and more clipped accent than those from Biesel and, at times, sound as if they are tripping over their words due to the rapid pace at which they speak."
 	tag_icon = "gibson"
 

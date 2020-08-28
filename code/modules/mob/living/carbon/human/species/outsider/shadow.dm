@@ -1,8 +1,8 @@
 /mob/living/carbon/human/shadow/Initialize(mapload)
-	. = ..(mapload, "Shadow")
+	. = ..(mapload, SPECIES_SHADOW)
 
 /datum/species/shadow
-	name = "Shadow"
+	name = SPECIES_SHADOW
 	name_plural = "shadows"
 
 	blurb = "Have you ever been alone at night \

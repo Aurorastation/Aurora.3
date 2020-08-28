@@ -82,11 +82,11 @@
 	shattered = 1
 
 /obj/structure/mirror/raider/attack_hand(var/mob/living/carbon/human/user)
-	if(istype(get_area(src),/area/syndicate_mothership))
-		if(istype(user) && user.mind && user.mind.special_role == "Raider" && user.species.name != "Vox")
+	if(istype(get_area(src),/area/antag))
+		if(istype(user) && user.mind && user.mind.special_role == "Raider" && user.species.name != SPECIES_VOX)
 			var/choice = input("Do you wish to become a true Vox of the Shoal? This is not reversible.") as null|anything in list("No","Yes")
 			if(choice && choice == "Yes")
-				var/mob/living/carbon/human/vox/vox = new(get_turf(src),"Vox")
+				var/mob/living/carbon/human/vox/vox = new(get_turf(src),SPECIES_VOX)
 				vox.gender = user.gender
 				raiders.equip(vox)
 				if(user.mind)
@@ -140,10 +140,10 @@
 
 /obj/structure/mirror/merchant/attack_hand(var/mob/living/carbon/human/user)
 	if(istype(get_area(src),/area/merchant_station))
-		if(istype(user) && user.mind && (user.mind.assigned_role == "Merchant" || user.mind.assigned_role == "Merchants Assistant")  && user.species.name != "Vox")
+		if(istype(user) && user.mind && (user.mind.assigned_role == "Merchant" || user.mind.assigned_role == "Merchants Assistant")  && user.species.name != SPECIES_VOX)
 			var/choice = input("Do you wish to become a Vox? This is not reversible.") as null|anything in list("No","Yes")
 			if(choice == "Yes")
-				user.set_species("Vox")
+				user.set_species(SPECIES_VOX)
 				user.species.before_equip(user)
 
 				var/newname = sanitizeSafe(input(user,"Enter a name, or leave blank for the default name.", "Name change","") as text, MAX_NAME_LEN)

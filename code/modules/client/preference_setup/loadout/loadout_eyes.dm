@@ -41,21 +41,6 @@
 	display_name = "science Goggles"
 	path = /obj/item/clothing/glasses/science
 
-/datum/gear/eyes/materialaviators
-	display_name = "aviators, material"
-	path = /obj/item/clothing/glasses/material/aviator
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice","Shaft Miner")
-
-/datum/gear/eyes/mesonaviators
-	display_name = "aviators, meson"
-	path = /obj/item/clothing/glasses/meson/aviator
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist", "Shaft Miner")
-
-/datum/gear/eyes/mesonprescription
-	display_name = "meson goggles, prescription"
-	path = /obj/item/clothing/glasses/meson/prescription
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist", "Shaft Miner")
-
 /datum/gear/eyes/security
 	display_name = "security HUD"
 	path = /obj/item/clothing/glasses/hud/security
@@ -113,18 +98,6 @@
 	display_name = "HUDpatch, Medical"
 	path = /obj/item/clothing/glasses/eyepatch/hud/medical
 	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Emergency Medical Technician", "Psychiatrist", "Medical Resident")
-	cost = 2
-
-/datum/gear/eyes/mespatch
-	display_name = "HUDpatch, Mesons"
-	path = /obj/item/clothing/glasses/eyepatch/hud/meson
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist", "Shaft Miner")
-	cost = 2
-
-/datum/gear/eyes/matpatch
-	display_name = "HUDpatch, Material"
-	path = /obj/item/clothing/glasses/eyepatch/hud/material
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Shaft Miner")
 	cost = 2
 
 /datum/gear/eyes/scipatch

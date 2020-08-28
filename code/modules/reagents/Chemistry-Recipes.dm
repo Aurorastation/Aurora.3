@@ -3585,6 +3585,13 @@
 	result_amount = 1
 	required_reagents = list(/datum/reagent/potassium = 1, /datum/reagent/inaprovaline = 1)
 
+/datum/chemical_reaction/gunpowder
+	name = "Gunpowder"
+	id = "gunpowder"
+	result = /datum/reagent/gunpowder
+	result_amount = 1
+	required_reagents = list(/datum/reagent/sulfur = 1, /datum/reagent/carbon = 1, /datum/reagent/potassium = 1)
+
 //Coffee expansion
 //=======================
 /datum/chemical_reaction/caramelisation

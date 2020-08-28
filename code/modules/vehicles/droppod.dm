@@ -9,6 +9,7 @@
 	icon_state = "droppod"
 	dir = SOUTH
 	layer = MOB_LAYER - 0.1
+	light_range = 0
 
 	load_item_visible = 0
 	health = 500 // pretty strong because it can't move or be shot out of
@@ -30,7 +31,14 @@
 	desc = "A big metal pod painted in the colors of the Tau Ceti Foreign Legion."
 	icon_state = "legion_pod"
 
-/obj/vehicle/droppod/MouseDrop(atom/over_object)
+/obj/vehicle/droppod/syndie
+	desc = "A high-tech titanium pod, capable of transporting its passenger right into the action at considerable ranges. The metal foam dispensers lining the top prevent most hull breaches on station ingress."
+	icon_state = "syndie_pod"
+
+/obj/vehicle/droppod/MouseDrop()
+	return
+
+/obj/vehicle/droppod/MouseDrop_T()
 	return
 
 /obj/vehicle/droppod/emag_act()
@@ -148,6 +156,7 @@
 			unload(user)
 	else if ((!humanload || !passenger) && status != USED)
 		load(user)
+		launchinterface()
 
 /obj/vehicle/droppod/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
@@ -174,26 +183,28 @@
 		switch(target)
 			if("arrivals")
 				var/arrivals_destination_list = list(
-					/area/hallway/secondary/entry/fore = 2,
-					/area/hallway/secondary/entry/port = 2,
-					/area/security/vacantoffice = 1,
-					/area/hallway/secondary/entry/departure_lounge = 1
+					/area/hallway/secondary/entry/fore = 35,
+					/area/hallway/secondary/entry/port = 35,
+					/area/security/vacantoffice = 15,
+					/area/hallway/secondary/entry/departure_lounge = 15
 					)
 				A = pickweight(arrivals_destination_list)
 			if("cargo")
 				var/cargo_destination_list = list(
-					/area/quartermaster/loading = 4,
-					/area/quartermaster/qm = 1,
-					/area/storage/tools = 1,
-					/area/sconference_room = 2
+					/area/quartermaster/loading = 50,
+					/area/quartermaster/qm = 20,
+					/area/maintenance/store = 10,
+					/area/store = 5,
+					/area/hallway/secondary/entry/aft = 10,
+					/area/sconference_room = 5
 					)
 				A = pickweight(cargo_destination_list)
 			if("commandescape")
 				var/commandescape_destination_list = list(
-					/area/bridge/levela = 2,
-					/area/bridge/levela/research_dock = 2,
-					/area/security/bridge_surface_checkpoint = 1,
-					/area/maintenance/bridge_elevator/surface = 1
+					/area/bridge/levela = 35,
+					/area/bridge/levela/research_dock = 35,
+					/area/security/bridge_surface_checkpoint = 15,
+					/area/maintenance/bridge_elevator/surface = 15
 					)
 				A = pickweight(commandescape_destination_list)
 		if(A)
@@ -220,7 +231,7 @@
 		var/obstacle_found = FALSE
 		if(!iswall(T))
 			for(var/obj/O in T)
-				if(istype(O, /obj/structure/grille) || istype(O, /obj/machinery/door/airlock/external)) //This is to help prevent the pod from landing right on an exterior window or airlock.
+				if(istype(O, /obj/structure/grille) || istype(O, /obj/machinery/door/airlock/external) || istype(O, /obj/machinery/embedded_controller)) //This is to help prevent the pod from landing right on an exterior window or airlock.
 					obstacle_found = TRUE
 					break
 			if(!obstacle_found)
@@ -271,12 +282,12 @@
 		var/mob/M = humanload
 		shake_camera(M, 5, 1)
 	forceMove(A)
+	set_light(5,1,LIGHT_COLOR_EMERGENCY_SOFT)
 	A.visible_message(SPAN_DANGER("\The [src] crashes through the roof!"))
 
 	var/turf/belowturf = GetBelow(A)
 	if(belowturf)
 		belowturf.visible_message(SPAN_DANGER("You hear something crash into the ceiling above!"))
-
 	status = USED
 
 /obj/vehicle/droppod/proc/applyfalldamage(var/turf/A)
@@ -301,4 +312,3 @@
 #undef READY
 #undef USED
 #undef LAUNCHING
-

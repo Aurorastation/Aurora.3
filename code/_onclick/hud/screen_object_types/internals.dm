@@ -77,7 +77,7 @@
 									contents.Add(0)
 
 							// No races breath this, but never know about downstream servers.
-							if ("carbon dioxide")
+							if (GAS_CO2)
 								if(t.air_contents.gas[GAS_CO2] && !t.air_contents.gas[GAS_PHORON])
 									contents.Add(t.air_contents.gas[GAS_CO2])
 								else
@@ -110,7 +110,7 @@
 									contents.Add(0)
 
 							// No races breath this, but never know about downstream servers.
-							if ("carbon dioxide")
+							if (GAS_CO2)
 								if(t.air_contents.gas[GAS_CO2] && !t.air_contents.gas[GAS_PHORON])
 									contents.Add(t.air_contents.gas[GAS_CO2])
 								else

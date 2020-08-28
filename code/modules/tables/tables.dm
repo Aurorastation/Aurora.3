@@ -258,20 +258,19 @@
 /obj/structure/table/proc/remove_material(obj/item/wrench/W, mob/user)
 	material = common_material_remove(user, material, 20, "plating", "bolts", W.usesound)
 
-/obj/structure/table/proc/dismantle(obj/item/wrench/W, mob/user)
-	if(manipulating) return
-	manipulating = 1
-	user.visible_message("<span class='notice'>\The [user] begins dismantling \the [src].</span>",
-	                              "<span class='notice'>You begin dismantling \the [src].</span>")
-	playsound(src, W.usesound, 100, 1)
-	if(!do_after(user, 20/W.toolspeed))
-		manipulating = 0
+/obj/structure/table/dismantle(obj/item/wrench/W, mob/user)
+	if(manipulating)
 		return
-	user.visible_message("<span class='notice'>\The [user] dismantles \the [src].</span>",
-	                              "<span class='notice'>You dismantle \the [src].</span>")
-	new /obj/item/stack/material/steel(src.loc)
-	qdel(src)
-	return
+	manipulating = TRUE
+	user.visible_message("<b>[user]</b> begins dismantling \the [src].",
+						SPAN_NOTICE("You begin dismantling \the [src]."))
+	playsound(src, W.usesound, 100, 1)
+	if(!do_after(user, 20 / W.toolspeed))
+		manipulating = FALSE
+		return
+	user.visible_message("\The [user] dismantles \the [src].",
+						SPAN_NOTICE("You dismantle \the [src]."))
+	..()
 
 // Returns a list of /obj/item/material/shard objects that were created as a result of this table's breakage.
 // Used for !fun! things such as embedding shards in the faces of tableslammed people.
