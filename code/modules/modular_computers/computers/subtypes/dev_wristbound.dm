@@ -34,6 +34,7 @@
 	if(ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_gloves()
+		M.update_inv_wear_id()
 
 /obj/item/modular_computer/CouldUseTopic(var/mob/user)
 	..()
