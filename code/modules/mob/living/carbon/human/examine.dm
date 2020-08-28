@@ -367,8 +367,9 @@
 		var/eye_hud
 		var/obj/item/clothing/glasses/G = H.glasses
 		// Checks for eye sensor HUD
-		for (var/obj/item/organ/internal/augment/eye_sensors/organ in H.internal_organs)
-			eye_hud = organ.selected_hud
+		var/obj/item/organ/internal/augment/eye_sensors/E = locate() in H.internal_organs
+		if(E)
+			eye_hud = E.selected_hud
 		switch(hudtype)
 			if("security")
 				return istype(G, /obj/item/clothing/glasses/hud/security) && G.active || istype(G, /obj/item/clothing/glasses/sunglasses/sechud) && G.active || istype(G, /obj/item/clothing/glasses/eyepatch/hud/security) && G.active || eye_hud == "Security"
