@@ -15,6 +15,7 @@
 	cooking_power = 0
 	flags = null
 	var/temperature = T20C
+	var/starts_with = list()
 
 /obj/machinery/appliance/cooker/examine(var/mob/user)
 	. = ..()
@@ -54,7 +55,12 @@
 	temp_options["OFF"] = image('icons/misc/mark.dmi', "x3")
 	loss = (active_power_usage / resistance)*0.5
 	cooking_objs = list()
-	// sorry, doesn't auto-start with containers!
+	for(var/cctype in starts_with)
+		if(!has_space(I))
+			break
+		var/obj/item/reagent_containers/cooking_container/CC = new cctype(src)
+		var/datum/cooking_item/CI = new /datum/cooking_item/(CC)
+		cooking_objs.Add(CI)
 	cooking = 0
 
 	queue_icon_update()

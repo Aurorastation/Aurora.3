@@ -21,6 +21,12 @@
 
 	stat = POWEROFF	//Starts turned off
 
+	starts_with = list(
+		/obj/item/reagent_containers/cooking_container/skillet,
+		/obj/item/reagent_containers/cooking_container/pot,
+		/obj/item/reagent_containers/cooking_container/saucepan
+	)
+
 /obj/machinery/appliance/cooker/stove/update_icon()
 	. = ..()
 	cut_overlays()

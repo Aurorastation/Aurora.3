@@ -1,5 +1,5 @@
 // Tajaran breads
-/datum/recipe/tajaran_bread
+/decl/recipe/tajaran_bread
 	appliance = OVEN
 	fruit = list("nifberries" = 1)
 	reagents = list(/datum/reagent/spacespice = 1)
@@ -9,7 +9,7 @@
 	result = /obj/item/reagent_containers/food/snacks/tajaran_bread
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
-/datum/recipe/hardbread
+/decl/recipe/hardbread
 	appliance = OVEN
 	reagents = list(/datum/reagent/spacespice = 1)
 	items = list(
@@ -20,7 +20,7 @@
 	result = /obj/item/reagent_containers/food/snacks/hardbread
 
 // Tajaran peasant food
-/datum/recipe/tajaran_stew
+/decl/recipe/tajaran_stew
 	appliance = SAUCEPAN | POT
 	fruit = list("nifberries" = 2, "mushroom" = 1, "mtear" = 1)
 	reagents = list(/datum/reagent/water = 10)
@@ -30,13 +30,13 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/stew/tajaran
 
-/datum/recipe/earthenroot_soup
+/decl/recipe/earthenroot_soup
 	appliance = SAUCEPAN | POT
 	fruit = list("earthenroot" = 2)
 	reagents = list(/datum/reagent/water = 10, /datum/reagent/spacespice = 1, /datum/reagent/sodiumchloride = 1)
 	result = /obj/item/reagent_containers/food/snacks/soup/earthenroot
 
-/datum/recipe/bloodpudding
+/decl/recipe/bloodpudding
 	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/nutriment/flour/nfrihi = 5, /datum/reagent/blood = 10)
 	items = list(
@@ -45,7 +45,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/adhomian_sausage
 
-/datum/recipe/nomadskewer
+/decl/recipe/nomadskewer
 	appliance = MIX
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/adhomai,
@@ -72,7 +72,7 @@
 	return FALSE
 
 // Tajaran Seafood
-/datum/recipe/spicy_clams
+/decl/recipe/spicy_clams
 	fruit = list("chili" = 1, "cabbage" = 1)
 	reagents = list(/datum/reagent/capsaicin = 1, /datum/reagent/spacespice = 1)
 	items = list(
@@ -82,7 +82,7 @@
 	result = /obj/item/reagent_containers/food/snacks/spicy_clams
 
 // Tajaran candy
-/datum/recipe/tajcandy
+/decl/recipe/tajcandy
 	appliance = OVEN
 	fruit = list("sugartree" = 2)
 	reagents = list(/datum/reagent/drink/milk/adhomai = 5, /datum/reagent/nutriment/protein/egg = 3)

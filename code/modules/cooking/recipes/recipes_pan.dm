@@ -1,10 +1,10 @@
-/datum/recipe/popcorn
+/decl/recipe/popcorn
 	appliance = SAUCEPAN
 	fruit = list("corn" = 1)
 	result = /obj/item/reagent_containers/food/snacks/popcorn
 
 // Jellies
-/datum/recipe/amanitajelly
+/decl/recipe/amanitajelly
 	appliance = SAUCEPAN
 	reagents = list(/datum/reagent/water = 5, /datum/reagent/alcohol/ethanol/vodka = 5, /datum/reagent/toxin/amatoxin = 5)
 	result = /obj/item/reagent_containers/food/snacks/amanitajelly
@@ -16,28 +16,28 @@
 
 // Ports from the microwave... yeah
 
-/datum/recipe/mint
+/decl/recipe/mint
 	appliance = SAUCEPAN
 	reagents = list(/datum/reagent/sugar = 5, /datum/reagent/frostoil = 5)
 	result = /obj/item/reagent_containers/food/snacks/mint
 
-/datum/recipe/friedkois
+/decl/recipe/friedkois
 	appliance = SKILLET
 	fruit = list("koisspore" = 1)
 	result = /obj/item/reagent_containers/food/snacks/friedkois
 
-/datum/recipe/koiswaffles
+/decl/recipe/koiswaffles
 	appliance = SKILLET | OVEN
 	items = list(/obj/item/reagent_containers/food/snacks/soup/kois)
 	result = /obj/item/reagent_containers/food/snacks/koiswaffles
 
-/datum/recipe/koisjelly
+/decl/recipe/koisjelly
 	appliance = SAUCEPAN
 	fruit = list("koisspore" = 2)
 	items = list(/obj/item/reagent_containers/food/snacks/soup/kois)
 	result = /obj/item/reagent_containers/food/snacks/koisjelly
 
-/datum/recipe/porkbowl
+/decl/recipe/porkbowl
 	appliance = SAUCEPAN
 	reagents = list(/datum/reagent/water = 5, /datum/reagent/nutriment/rice = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
@@ -46,7 +46,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/porkbowl
 
-/datum/recipe/crab_legs
+/decl/recipe/crab_legs
 	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/water = 10, /datum/reagent/sodiumchloride = 1)
 	items = list(

@@ -32,7 +32,7 @@
 			return TRUE
 		if(istype(target, /obj/item/reagent_containers/food/snacks))
 			var/obj/item/reagent_containers/food/snacks/S = target
-			if(!S.isliquid)
+			if(!S.is_liquid)
 				return TRUE
 		var/trans = target.reagents.trans_to_obj(src, amount_per_transfer_from_this)
 		user.visible_message(

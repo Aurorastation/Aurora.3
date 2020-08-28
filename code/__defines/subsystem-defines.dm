@@ -83,15 +83,6 @@
 // -- SSfalling --
 #define ADD_FALLING_ATOM(atom) if (!atom.multiz_falling) { atom.multiz_falling = 1; SSfalling.falling[atom] = 0; }
 
-// -- SSCuisine --
-#define RECIPE_LIST(T) (SScuisine.recipe_datums["[T]"])
-#define MIX					1 << 0
-#define FRYER				1 << 1
-#define OVEN				1 << 2
-#define SKILLET				1 << 3
-#define SAUCEPAN			1 << 4
-#define POT					1 << 5
-
 // -- SSlistener --
 #define GET_LISTENERS(id) (id ? SSlistener.listeners["[id]"] : null)
 

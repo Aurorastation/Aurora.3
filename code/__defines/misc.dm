@@ -422,3 +422,11 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 
 //Lying animation
 #define ANIM_LYING_TIME 2
+
+// Cooking appliances.
+#define MIX					1 << 0
+#define FRYER				1 << 1
+#define OVEN				1 << 2
+#define SKILLET				1 << 3
+#define SAUCEPAN			1 << 4
+#define POT					1 << 5

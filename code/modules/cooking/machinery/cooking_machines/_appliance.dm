@@ -232,7 +232,7 @@
 	// We can actually start cooking now.
 	user.visible_message("<b>[user]</b> puts [I] into [src].")
 
-	if(selected_option || select_recipe(RECIPE_LIST(CI.container ? CI.container.appliancetype : appliancetype), CI.container ? CI.container : src)) // we have a valid recipe OR we're doing combo cooking
+	if(selected_option || select_recipe(CI.container || src, appliance = CI.container?.appliancetype || appliancetype)) // we have a valid recipe OR we're doing combo cooking
 		// this is to stop reagents from burning when you're heating stuff
 		get_cooking_work(CI)
 		cooking = TRUE
@@ -320,7 +320,7 @@
 	if(cooked_sound)
 		playsound(get_turf(src), cooked_sound, 50, 1)
 	//Check recipes first, a valid recipe overrides other options
-	var/datum/recipe/recipe = null
+	var/decl/recipe/recipe = null
 	var/atom/C = null
 	var/appliance
 	if (CI.container)
@@ -329,7 +329,7 @@
 	else
 		C = src
 		appliance = appliancetype
-	recipe = select_recipe(RECIPE_LIST(appliance), C)
+	recipe = select_recipe(C, appliance = appliance)
 
 	if (recipe)
 		CI.result_type = 4//Recipe type, a specific recipe will transform the ingredients into a new food
@@ -341,7 +341,7 @@
 			AM.forceMove(temp)
 
 		//making multiple copies of a recipe from one container. For example, tons of fries
-		while (select_recipe(RECIPE_LIST(appliance), C) == recipe)
+		while (select_recipe(C, appliance = appliance) == recipe)
 			var/list/TR = list()
 			TR += recipe.make_food(C)
 			for (var/atom/movable/AM in TR) //Move results to buffer

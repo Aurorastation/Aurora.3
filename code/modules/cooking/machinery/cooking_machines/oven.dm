@@ -18,6 +18,14 @@
 	stat = POWEROFF	//Starts turned off
 	var/open = FALSE // Start closed so people don't heat up ovens with the door open
 
+	starts_with = list(
+		/obj/item/reagent_containers/cooking_container/oven,
+		/obj/item/reagent_containers/cooking_container/oven,
+		/obj/item/reagent_containers/cooking_container/oven,
+		/obj/item/reagent_containers/cooking_container/oven,
+		/obj/item/reagent_containers/cooking_container/oven
+	)
+
 	output_options = list(
 		"Pizza" = /obj/item/reagent_containers/food/snacks/variable/pizza,
 		"Bread" = /obj/item/reagent_containers/food/snacks/variable/bread,

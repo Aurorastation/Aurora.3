@@ -1,46 +1,46 @@
-/datum/recipe/onionsoup
+/decl/recipe/onionsoup
 	appliance = SAUCEPAN | POT
 	fruit = list("onion" = 1)
 	reagents = list(/datum/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/onion
 
-/datum/recipe/bluespacetomatosoup
+/decl/recipe/bluespacetomatosoup
 	appliance = SAUCEPAN | POT
 	fruit = list("bluespacetomato" = 2)
 	reagents = list(/datum/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/bluespace
 
-/datum/recipe/meatballsoup
+/decl/recipe/meatballsoup
 	appliance = SAUCEPAN | POT
 	fruit = list("carrot" = 1, "potato" = 1)
 	reagents = list(/datum/reagent/water = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/meatball)
 	result = /obj/item/reagent_containers/food/snacks/soup/meatball
 
-/datum/recipe/vegetablesoup
+/decl/recipe/vegetablesoup
 	appliance = SAUCEPAN | POT
 	fruit = list("carrot" = 1, "potato" = 1, "corn" = 1, "eggplant" = 1)
 	reagents = list(/datum/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/vegetable
 
-/datum/recipe/nettlesoup
+/decl/recipe/nettlesoup
 	appliance = SAUCEPAN | POT
 	fruit = list("nettle" = 1, "potato" = 1, )
 	reagents = list(/datum/reagent/water = 10, /datum/reagent/nutriment/protein/egg = 3)
 	result = /obj/item/reagent_containers/food/snacks/soup/nettle
 
-/datum/recipe/wishsoup
+/decl/recipe/wishsoup
 	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/water = 20)
 	result= /obj/item/reagent_containers/food/snacks/soup/wish
 
-/datum/recipe/tomatosoup
+/decl/recipe/tomatosoup
 	appliance = SAUCEPAN | POT
 	fruit = list("tomato" = 2)
 	reagents = list(/datum/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/tomato
 
-/datum/recipe/milosoup
+/decl/recipe/milosoup
 	appliance = POT
 	reagents = list(/datum/reagent/water = 10)
 	items = list(
@@ -51,18 +51,18 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/soup/milo
 
-/datum/recipe/bloodsoup
+/decl/recipe/bloodsoup
 	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/blood = 30)
 	result = /obj/item/reagent_containers/food/snacks/soup/blood
 
-/datum/recipe/slimesoup
+/decl/recipe/slimesoup
 	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/water = 10, /datum/reagent/slimejelly = 5)
 	items = list()
 	result = /obj/item/reagent_containers/food/snacks/soup/slime
 
-/datum/recipe/mysterysoup
+/decl/recipe/mysterysoup
 	appliance = POT
 	reagents = list(/datum/reagent/water = 10, /datum/reagent/nutriment/protein/egg = 3)
 	items = list(
@@ -73,35 +73,35 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/soup/mystery
 
-/datum/recipe/mushroomsoup
+/decl/recipe/mushroomsoup
 	appliance = SAUCEPAN | POT
 	fruit = list("mushroom" = 1)
 	reagents = list(/datum/reagent/water = 5, /datum/reagent/drink/milk = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/soup/mushroom
 
-/datum/recipe/chawanmushi
+/decl/recipe/chawanmushi
 	appliance = SAUCEPAN
 	fruit = list("mushroom" = 1)
 	reagents = list(/datum/reagent/water = 5, /datum/reagent/nutriment/soysauce = 5, /datum/reagent/nutriment/protein/egg = 6)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/chawanmushi
 
-/datum/recipe/beetsoup
+/decl/recipe/beetsoup
 	appliance = SAUCEPAN | POT
 	fruit = list("whitebeet" = 1, "cabbage" = 1)
 	reagents = list(/datum/reagent/water = 10)
 	result = /obj/item/reagent_containers/food/snacks/soup/beet
 
 // Stews
-/datum/recipe/stew
+/decl/recipe/stew
 	appliance = POT
 	fruit = list("potato" = 1, "tomato" = 1, "carrot" = 1, "eggplant" = 1, "mushroom" = 1)
 	reagents = list(/datum/reagent/water = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/stew
 
-/datum/recipe/bearstew
+/decl/recipe/bearstew
 	appliance = POT
 	fruit = list("potato" = 1, "tomato" = 1, "carrot" = 1, "eggplant" = 1, "mushroom" = 1)
 	reagents = list(/datum/reagent/water = 10)
@@ -110,20 +110,20 @@
 	result = /obj/item/reagent_containers/food/snacks/stew/bear
 
 // Chili
-/datum/recipe/bearchili
+/decl/recipe/bearchili
 	appliance = SAUCEPAN | POT
 	fruit = list("chili" = 1, "tomato" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/bearmeat)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/bearchili
 
-/datum/recipe/hotchili
+/decl/recipe/hotchili
 	appliance = SAUCEPAN | POT
 	fruit = list("chili" = 1, "tomato" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/hotchili
 
-/datum/recipe/coldchili
+/decl/recipe/coldchili
 	appliance = SAUCEPAN | POT
 	fruit = list("icechili" = 1, "tomato" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)

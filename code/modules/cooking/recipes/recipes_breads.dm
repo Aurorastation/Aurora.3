@@ -1,13 +1,13 @@
 // Breads
 //================================
-/datum/recipe/bun
+/decl/recipe/bun
 	appliance = OVEN
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough
 	)
 	result = /obj/item/reagent_containers/food/snacks/bun
 
-/datum/recipe/bread
+/decl/recipe/bread
 	appliance = OVEN
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
@@ -18,7 +18,7 @@
 	reagents = list(/datum/reagent/sodiumchloride = 1)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/bread
 
-/datum/recipe/baguette
+/decl/recipe/baguette
 	appliance = OVEN
 	reagents = list(/datum/reagent/sodiumchloride = 1, /datum/reagent/blackpepper = 1)
 	items = list(
@@ -28,7 +28,7 @@
 	result = /obj/item/reagent_containers/food/snacks/baguette
 
 
-/datum/recipe/tofubread
+/decl/recipe/tofubread
 	appliance = OVEN
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
@@ -44,7 +44,7 @@
 	result = /obj/item/reagent_containers/food/snacks/sliceable/tofubread
 
 
-/datum/recipe/creamcheesebread
+/decl/recipe/creamcheesebread
 	appliance = OVEN
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
@@ -54,14 +54,14 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/creamcheesebread
 
-/datum/recipe/flatbread
+/decl/recipe/flatbread
 	appliance = OVEN
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sliceable/flatdough
 	)
 	result = /obj/item/reagent_containers/food/snacks/flatbread
 
-/datum/recipe/meatbread
+/decl/recipe/meatbread
 	appliance = OVEN
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
@@ -76,7 +76,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/meatbread
 
-/datum/recipe/syntibread
+/decl/recipe/syntibread
 	appliance = OVEN
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
@@ -91,7 +91,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/meatbread
 
-/datum/recipe/xenomeatbread
+/decl/recipe/xenomeatbread
 	appliance = OVEN
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
@@ -106,7 +106,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/xenomeatbread
 
-/datum/recipe/bananabread
+/decl/recipe/bananabread
 	appliance = OVEN
 	fruit = list("banana" = 1)
 	reagents = list(/datum/reagent/drink/milk = 5, /datum/reagent/sugar = 15)
@@ -117,21 +117,21 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/bananabread
 
-/datum/recipe/croissant
+/decl/recipe/croissant
 	appliance = OVEN
 	reagents = list(/datum/reagent/sodiumchloride = 1, /datum/reagent/water = 5, /datum/reagent/drink/milk = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(/obj/item/reagent_containers/food/snacks/dough)
 	result = /obj/item/reagent_containers/food/snacks/croissant
 
-/datum/recipe/poppypretzel
+/decl/recipe/poppypretzel
 	appliance = OVEN
 	fruit = list("poppy" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/dough)
 	result = /obj/item/reagent_containers/food/snacks/poppypretzel
 	result_quantity = 2
 
-/datum/recipe/cracker
+/decl/recipe/cracker
 	appliance = OVEN
 	reagents = list(/datum/reagent/sodiumchloride = 1)
 	items = list(
@@ -141,7 +141,7 @@
 //================================
 // Toasts and Toasted Sandwiches
 //================================
-/datum/recipe/slimetoast
+/decl/recipe/slimetoast
 	appliance = SKILLET
 	reagents = list(/datum/reagent/slimejelly = 5)
 	items = list(
@@ -149,7 +149,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/jelliedtoast/slime
 
-/datum/recipe/jelliedtoast
+/decl/recipe/jelliedtoast
 	appliance = SKILLET
 	reagents = list(/datum/reagent/nutriment/cherryjelly = 5)
 	items = list(
@@ -157,14 +157,14 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/jelliedtoast/cherry
 
-/datum/recipe/toastedsandwich
+/decl/recipe/toastedsandwich
 	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sandwich
 	)
 	result = /obj/item/reagent_containers/food/snacks/toastedsandwich
 
-/datum/recipe/grilledcheese
+/decl/recipe/grilledcheese
 	appliance = SKILLET
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice,

@@ -17,6 +17,10 @@
 	resistance = 10000	// Approx. 4 minutes.
 	max_contents = 2
 	stat = NOPOWER//Starts turned off
+	starts_with = list(
+		/obj/item/reagent_containers/cooking_container/fryer,
+		/obj/item/reagent_containers/cooking_container/fryer
+	)
 
 	var/datum/reagents/oil
 	var/optimal_oil = 9000//90 litres of cooking oil

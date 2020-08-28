@@ -221,7 +221,7 @@
 		return ..()
 	if(!(length(contents) || reagents?.total_volume))
 		return ..()
-	var/datum/recipe/recipe = select_recipe(RECIPE_LIST(appliancetype), src)
+	var/decl/recipe/recipe = select_recipe(src, appliance = appliancetype)
 	if(!recipe)
 		return
 	var/list/results = recipe.make_food(src)
@@ -230,7 +230,7 @@
 		AM.forceMove(temp)
 
 	//making multiple copies of a recipe from one container. For example, tons of fries
-	while (select_recipe(RECIPE_LIST(appliancetype), src) == recipe)
+	while (select_recipe(src, appliance = appliancetype) == recipe)
 		var/list/TR = list()
 		TR += recipe.make_food(src)
 		for (var/atom/movable/AM in TR) //Move results to buffer

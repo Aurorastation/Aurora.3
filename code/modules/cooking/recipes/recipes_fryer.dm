@@ -1,6 +1,6 @@
 //Planty recipes
 //====================
-/datum/recipe/fries
+/decl/recipe/fries
 	appliance = FRYER
 	items = list(
 		/obj/item/reagent_containers/food/snacks/rawsticks
@@ -8,13 +8,13 @@
 	result = /obj/item/reagent_containers/food/snacks/fries
 
 
-/datum/recipe/jpoppers
+/decl/recipe/jpoppers
 	appliance = FRYER
 	fruit = list("chili" = 1)
 	coating = /datum/reagent/nutriment/coating/batter
 	result = /obj/item/reagent_containers/food/snacks/jalapeno_poppers
 
-/datum/recipe/risottoballs
+/decl/recipe/risottoballs
 	appliance = FRYER
 	reagents = list(/datum/reagent/sodiumchloride = 1, /datum/reagent/blackpepper = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/risotto)
@@ -22,7 +22,7 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/risottoballs
 
-/datum/recipe/onionrings
+/decl/recipe/onionrings
 	appliance = FRYER
 	fruit = list("onion" = 1)
 	items = list(
@@ -30,7 +30,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/onionrings
 
-/datum/recipe/friedmushroom
+/decl/recipe/friedmushroom
 	appliance = FRYER
 	fruit = list("plumphelmet" = 1)
 	coating = /datum/reagent/nutriment/coating/beerbatter
@@ -39,7 +39,7 @@
 
 //Meaty Recipes
 //====================
-/datum/recipe/cubancarp
+/decl/recipe/cubancarp
 	appliance = FRYER
 	fruit = list("chili" = 1)
 	items = list(
@@ -48,7 +48,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/cubancarp
 
-/datum/recipe/batteredsausage
+/decl/recipe/batteredsausage
 	appliance = FRYER
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sausage
@@ -57,7 +57,7 @@
 	coating = /datum/reagent/nutriment/coating/batter
 
 
-/datum/recipe/katsu
+/decl/recipe/katsu
 	appliance = FRYER
 	items = list(
 		/obj/item/reagent_containers/food/snacks/meat/chicken
@@ -66,7 +66,7 @@
 	coating = /datum/reagent/nutriment/coating/beerbatter
 
 
-/datum/recipe/pizzacrunch_1
+/decl/recipe/pizzacrunch_1
 	appliance = FRYER
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sliceable/pizza
@@ -75,7 +75,7 @@
 	coating = /datum/reagent/nutriment/coating/batter
 
 //Alternate pizza crunch recipe for combination pizzas made in oven
-/datum/recipe/pizzacrunch_2
+/decl/recipe/pizzacrunch_2
 	appliance = FRYER
 	items = list(
 		/obj/item/reagent_containers/food/snacks/variable/pizza
@@ -85,7 +85,7 @@
 
 //Fishy Recipes
 //==================
-/datum/recipe/fishandchips
+/decl/recipe/fishandchips
 	appliance = FRYER
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fries,
@@ -93,7 +93,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/fishandchips
 
-/datum/recipe/fishfingers
+/decl/recipe/fishfingers
 	appliance = FRYER
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish
@@ -103,7 +103,7 @@
 
 //Sweet Recipes.
 //==================
-/datum/recipe/jellydonut
+/decl/recipe/jellydonut
 	appliance = FRYER
 	reagents = list(/datum/reagent/drink/berryjuice = 10, /datum/reagent/sugar = 10)
 	items = list(
@@ -112,15 +112,15 @@
 	result = /obj/item/reagent_containers/food/snacks/donut/jelly
 	result_quantity = 2
 
-/datum/recipe/jellydonut/slime
+/decl/recipe/jellydonut/slime
 	reagents = list(/datum/reagent/slimejelly = 10, /datum/reagent/sugar = 10)
 	result = /obj/item/reagent_containers/food/snacks/donut/slimejelly
 
-/datum/recipe/jellydonut/cherry
+/decl/recipe/jellydonut/cherry
 	reagents = list(/datum/reagent/nutriment/cherryjelly = 10, /datum/reagent/sugar = 10)
 	result = /obj/item/reagent_containers/food/snacks/donut/cherryjelly
 
-/datum/recipe/donut
+/decl/recipe/donut
 	appliance = FRYER
 	reagents = list(/datum/reagent/sugar = 10)
 	items = list(
@@ -129,19 +129,19 @@
 	result = /obj/item/reagent_containers/food/snacks/donut/normal
 	result_quantity = 2
 
-/datum/recipe/funnelcake
+/decl/recipe/funnelcake
 	appliance = FRYER
 	reagents = list(/datum/reagent/sugar = 5, /datum/reagent/nutriment/coating/batter = 10)
 	result = /obj/item/reagent_containers/food/snacks/funnelcake
 
-/datum/recipe/pisanggoreng
+/decl/recipe/pisanggoreng
 	appliance = FRYER
 	fruit = list("banana" = 2)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/pisanggoreng
 	coating = /datum/reagent/nutriment/coating/batter
 
-/datum/recipe/corn_dog
+/decl/recipe/corn_dog
 	appliance = FRYER
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sausage
@@ -150,7 +150,7 @@
 	coating = /datum/reagent/nutriment/coating/batter
 	result = /obj/item/reagent_containers/food/snacks/corn_dog
 
-/datum/recipe/sweet_and_sour
+/decl/recipe/sweet_and_sour
 	appliance = FRYER
 	items = list(
 		/obj/item/reagent_containers/food/snacks/bacon,
@@ -159,7 +159,7 @@
 	reagents = list(/datum/reagent/nutriment/soysauce = 5, /datum/reagent/nutriment/coating/batter = 10)
 	result = /obj/item/reagent_containers/food/snacks/sweet_and_sour
 
-/datum/recipe/wingfangchu
+/decl/recipe/wingfangchu
 	appliance = FRYER
 	reagents = list(/datum/reagent/nutriment/soysauce = 5)
 	items = list(

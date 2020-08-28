@@ -1,19 +1,19 @@
 //Skrell foods
-/datum/recipe/lortl
+/decl/recipe/lortl
 	appliance = OVEN
 	fruit = list("q'lort slice" = 1)
 	reagents = list(/datum/reagent/sodiumchloride = 1)
 	result = /obj/item/reagent_containers/food/snacks/lortl
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
-/datum/recipe/lortl_dry
+/decl/recipe/lortl_dry
 	appliance = MIX
 	fruit = list("dried q'lort slice" = 1)
 	reagents = list(/datum/reagent/sodiumchloride = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/lortl
 
-/datum/recipe/xuqqil
+/decl/recipe/xuqqil
 	appliance = OVEN
 	fruit = list("plumphelmet" = 1)
 	items = list(
@@ -22,14 +22,14 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/xuqqil
 
-/datum/recipe/zantiri
+/decl/recipe/zantiri
 	appliance = SAUCEPAN | POT
 	fruit = list("guami" = 2, "eki" = 1)
 	reagents = list(/datum/reagent/water = 10)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/soup/zantiri
 
-/datum/recipe/qilvo
+/decl/recipe/qilvo
 	appliance = SAUCEPAN | POT
 	fruit = list("seaweed" = 2)
 	reagents = list(/datum/reagent/water = 10, /datum/reagent/drink/milk/cream = 5)

@@ -1,38 +1,38 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * *
- * /datum/recipe by rastaf0            13 apr 2011 *
+ * /decl/recipe by rastaf0            13 apr 2011 *
  * * * * * * * * * * * * * * * * * * * * * * * * * *
  * This is powerful and flexible recipe system.
  * It exists not only for food.
  * supports both reagents and objects as prerequisites.
- * In order to use this system you have to define a deriative from /datum/recipe
+ * In order to use this system you have to define a deriative from /decl/recipe
  * * reagents are reagents. Acid, milc, booze, etc.
  * * items are objects. Fruits, tools, circuit boards.
  * * result is type to create as new object
  * * time is optional parameter, you shall use in in your machine,
-	 default /datum/recipe/ procs does not rely on this parameter.
+	 default /decl/recipe/ procs does not rely on this parameter.
  *
  *  Functions you need:
- *  /datum/recipe/proc/make(var/obj/container as obj)
+ *  /decl/recipe/proc/make(var/obj/container as obj)
  *    Creates result inside container,
  *    deletes prerequisite reagents,
  *    transfers reagents from prerequisite objects,
  *    deletes all prerequisite objects (even not needed for recipe at the moment).
  *
- *  /proc/select_recipe(list/datum/recipe/available_recipes, obj/obj as obj, exact = 1)
+ *  /proc/select_recipe(obj/obj as obj, exact = 1, appliance)
  *    Wonderful function that select suitable recipe for you.
  *    obj is a machine (or magik hat) with prerequisites,
  *    exact = 0 forces algorithm to ignore superfluous stuff.
  *
  *
  *  Functions you do not need to call directly but could:
- *  /datum/recipe/proc/check_reagents(var/datum/reagents/avail_reagents)
- *  /datum/recipe/proc/check_items(var/obj/container as obj)
+ *  /decl/recipe/proc/check_reagents(var/datum/reagents/avail_reagents)
+ *  /decl/recipe/proc/check_items(var/obj/container as obj)
  *
  * */
 
 
 
-/datum/recipe
+/decl/recipe
 	var/display_name
 	var/list/reagents // example: = list("berryjuice" = 5) // do not list same reagent twice
 	var/list/items    // example: = list(/obj/item/crowbar, /obj/item/welder) // place /foo/bar before /foo
@@ -68,7 +68,7 @@
 	*/
 	//This is a bitfield, more than one type can be used
 
-/datum/recipe/proc/get_appliance_names()
+/decl/recipe/proc/get_appliance_names()
 	var/list/appliance_names
 	if(appliance & MIX)
 		LAZYADD(appliance_names, "a mixing bowl or ")
@@ -84,7 +84,7 @@
 		LAZYADD(appliance_names, "a pot")
 	return english_list(appliance_names, and_text = " or ")
 
-/datum/recipe/proc/check_reagents(var/datum/reagents/avail_reagents)
+/decl/recipe/proc/check_reagents(var/datum/reagents/avail_reagents)
 	if (isemptylist(reagents))
 		return TRUE
 
@@ -104,7 +104,7 @@
 		return FALSE
 	return .
 
-/datum/recipe/proc/check_fruit(var/obj/container)
+/decl/recipe/proc/check_fruit(var/obj/container)
 	if (isemptylist(fruit))
 		return TRUE
 	. = TRUE
@@ -135,7 +135,7 @@
 				break
 	return .
 
-/datum/recipe/proc/check_items(var/obj/container as obj)
+/decl/recipe/proc/check_items(var/obj/container as obj)
 	if (isemptylist(items))
 		return TRUE
 	. = TRUE
@@ -162,7 +162,7 @@
 	return .
 
 //This is called on individual items within the container.
-/datum/recipe/proc/check_coating(var/obj/item/reagent_containers/food/snacks/S)
+/decl/recipe/proc/check_coating(var/obj/item/reagent_containers/food/snacks/S)
 	if(!istype(S))
 		return TRUE//Only snacks can be battered
 
@@ -172,7 +172,7 @@
 	return !coating || (S.coating.type == coating)
 
 //general version
-/datum/recipe/proc/make(var/obj/container as obj)
+/decl/recipe/proc/make(var/obj/container as obj)
 	var/obj/result_obj = new result(container)
 	for (var/obj/O in (container.contents-result_obj))
 		O.reagents.trans_to_obj(result_obj, O.reagents.total_volume)
@@ -183,7 +183,7 @@
 
 // food-related
 //This proc is called under the assumption that the container has already been checked and found to contain the necessary ingredients
-/datum/recipe/proc/make_food(var/obj/container as obj)
+/decl/recipe/proc/make_food(var/obj/container as obj)
 	if(!result)
 		return
 
@@ -291,9 +291,14 @@
 //When exact is false, extraneous ingredients are ignored
 //When exact is true, extraneous ingredients will fail the recipe
 //In both cases, the full complement of required inredients is still needed
-/proc/select_recipe(var/list/datum/recipe/available_recipes, var/obj/obj as obj, var/exact = 0)
-	var/list/datum/recipe/possible_recipes = list()
-	for (var/datum/recipe/recipe in available_recipes)
+/proc/select_recipe(var/obj/obj as obj, var/exact = 0, var/appliance = 0)
+	if(!appliance)
+		return null
+	var/list/decl/recipe/available_recipes = decls_repository.get_decls_of_subtype(/decl/recipe)
+	var/list/decl/recipe/possible_recipes = list()
+	for (var/decl/recipe/recipe in available_recipes)
+		if(!appliance & recipe.appliance)
+			continue
 		if((recipe.check_reagents(obj.reagents) < exact) || (recipe.check_items(obj) < exact) || (recipe.check_fruit(obj) < exact))
 			continue
 		possible_recipes |= recipe
