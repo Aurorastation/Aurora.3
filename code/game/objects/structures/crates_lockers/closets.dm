@@ -28,6 +28,8 @@
 	var/const/default_mob_size = 15
 	var/obj/item/closet_teleporter/linked_teleporter
 
+	slowdown = 5
+
 /obj/structure/closet/LateInitialize()
 	if (opened)	// if closed, any item at the crate's loc is put in the contents
 		return
