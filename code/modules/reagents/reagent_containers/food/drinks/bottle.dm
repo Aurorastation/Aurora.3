@@ -11,7 +11,7 @@
 	volume = 100
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
 	force = 5
-	hitsound = "bottlehit_intact"
+	hitsound = /decl/sound_category/bottle_hit_intact_sound
 	var/smash_duration = 5 //Directly relates to the 'weaken' duration. Lowered by armor (i.e. helmets)
 	matter = list(MATERIAL_GLASS = 800)
 
@@ -178,7 +178,7 @@
 	attack_verb = list("stabbed", "slashed", "attacked")
 	sharp = TRUE
 	edge = FALSE
-	hitsound = "bottlehit_broken"
+	hitsound = /decl/sound_category/bottle_hit_broken
 	var/icon/broken_outline = icon('icons/obj/drinks.dmi', "broken")
 	w_class = 2
 

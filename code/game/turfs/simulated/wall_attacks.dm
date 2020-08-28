@@ -202,20 +202,20 @@
 		else if(istype(W,/obj/item/melee/energy))
 			var/obj/item/melee/energy/WT = W
 			if(WT.active)
-				dismantle_sound = "sparks"
+				dismantle_sound = /decl/sound_category/spark_sound
 				dismantle_verb = "slicing"
 				cut_delay *= 0.5
 			else
 				to_chat(user, SPAN_NOTICE("You need to activate the weapon to do that!"))
 				return
 		else if(istype(W,/obj/item/melee/energy/blade))
-			dismantle_sound = "sparks"
+			dismantle_sound = /decl/sound_category/spark_sound
 			dismantle_verb = "slicing"
 			cut_delay *= 0.5
 		else if(istype(W,/obj/item/melee/chainsword))
 			var/obj/item/melee/chainsword/WT = W
 			if(WT.active)
-				dismantle_sound = "sound/weapons/chainsawhit.ogg"
+				dismantle_sound = 'sound/weapons/chainsawhit.ogg'
 				dismantle_verb = "slicing"
 				cut_delay *= 0.8
 			else
@@ -227,7 +227,7 @@
 			dismantle_sound = P.drill_sound
 			cut_delay -= P.digspeed
 		else if(istype(W,/obj/item/melee/arm_blade/))
-			dismantle_sound = "pickaxe"
+			dismantle_sound = /decl/sound_category/pickaxe_sound
 			dismantle_verb = "slicing and stabbing"
 			cut_delay *= 1.5
 

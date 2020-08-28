@@ -42,274 +42,12 @@
 #define DROP_SOUND_VOLUME 20
 #define THROW_SOUND_VOLUME 90
 
-//footsteps
-var/list/blank_footstep = list('sound/effects/footstep/blank.ogg')
-
-var/list/catwalk_footstep = list(
-		'sound/effects/footstep/catwalk1.ogg',
-		'sound/effects/footstep/catwalk2.ogg',
-		'sound/effects/footstep/catwalk3.ogg',
-		'sound/effects/footstep/catwalk4.ogg',
-		'sound/effects/footstep/catwalk5.ogg'
-)
-var/list/wood_footstep = list(
-		'sound/effects/footstep/wood1.ogg',
-		'sound/effects/footstep/wood2.ogg',
-		'sound/effects/footstep/wood3.ogg',
-		'sound/effects/footstep/wood4.ogg',
-		'sound/effects/footstep/wood5.ogg')
-
-var/list/tiles_footstep = list(
-		'sound/effects/footstep/floor1.ogg',
-		'sound/effects/footstep/floor2.ogg',
-		'sound/effects/footstep/floor3.ogg',
-		'sound/effects/footstep/floor4.ogg',
-		'sound/effects/footstep/floor5.ogg'
-)
-var/list/plating_footstep = list(
-		'sound/effects/footstep/plating1.ogg',
-		'sound/effects/footstep/plating2.ogg',
-		'sound/effects/footstep/plating3.ogg',
-		'sound/effects/footstep/plating4.ogg',
-		'sound/effects/footstep/plating5.ogg'
-)
-var/list/carpet_footstep = list(
-		'sound/effects/footstep/carpet1.ogg',
-		'sound/effects/footstep/carpet2.ogg',
-		'sound/effects/footstep/carpet3.ogg',
-		'sound/effects/footstep/carpet4.ogg',
-		'sound/effects/footstep/carpet5.ogg'
-)
-var/list/asteroid_footstep = list(
-		'sound/effects/footstep/asteroid1.ogg',
-		'sound/effects/footstep/asteroid2.ogg',
-		'sound/effects/footstep/asteroid3.ogg',
-		'sound/effects/footstep/asteroid4.ogg',
-		'sound/effects/footstep/asteroid5.ogg'
-)
-var/list/grass_footstep = list(
-		'sound/effects/footstep/grass1.ogg',
-		'sound/effects/footstep/grass2.ogg',
-		'sound/effects/footstep/grass3.ogg',
-		'sound/effects/footstep/grass4.ogg'
-)
-var/list/water_footstep = list(
-		'sound/effects/footstep/water1.ogg',
-		'sound/effects/footstep/water2.ogg',
-		'sound/effects/footstep/water3.ogg',
-		'sound/effects/footstep/water4.ogg'
-)
-var/list/lava_footstep = list(
-		'sound/effects/footstep/lava1.ogg',
-		'sound/effects/footstep/lava2.ogg',
-		'sound/effects/footstep/lava3.ogg'
-)
-var/list/snow_footstep = list(
-		'sound/effects/footstep/snow1.ogg',
-		'sound/effects/footstep/snow2.ogg',
-		'sound/effects/footstep/snow3.ogg',
-		'sound/effects/footstep/snow4.ogg',
-		'sound/effects/footstep/snow5.ogg'
-)
-var/list/sand_footstep = list(
-		'sound/effects/footstep/sand1.ogg',
-		'sound/effects/footstep/sand2.ogg',
-		'sound/effects/footstep/sand3.ogg',
-		'sound/effects/footstep/sand4.ogg'
-)
-var/list/footstepfx = list(
-	"blank",
-	"catwalk",
-	"wood",
-	"tiles",
-	"plating",
-	"carpet",
-	"asteroid",
-	"grass",
-	"water",
-	"lava",
-	"snow",
-	"sand"
+/decl/sound_category/wood_break
+	sounds = list(
+		'sound/effects/wood_break1.ogg',
+		'sound/effects/wood_break2.ogg',
+		'sound/effects/wood_break3.ogg'
 	)
-
-var/list/glass_break_sound = list(
-	'sound/effects/glass_break1.ogg',
-	'sound/effects/glass_break2.ogg',
-	'sound/effects/glass_break3.ogg'
-)
-var/list/cardboard_break_sound = list(
-	'sound/effects/cardboard_break1.ogg',
-	'sound/effects/cardboard_break2.ogg',
-	'sound/effects/cardboard_break3.ogg',
-)
-var/list/wood_break_sound = list(
-	'sound/effects/wood_break1.ogg',
-	'sound/effects/wood_break2.ogg',
-	'sound/effects/wood_break3.ogg',
-)
-var/list/explosion_sound = list(
-	'sound/effects/Explosion1.ogg',
-	'sound/effects/Explosion2.ogg'
-)
-var/list/spark_sound = list(
-	'sound/effects/sparks1.ogg',
-	'sound/effects/sparks2.ogg',
-	'sound/effects/sparks3.ogg',
-	'sound/effects/sparks4.ogg'
-)
-var/list/rustle_sound = list(
-	'sound/items/storage/rustle1.ogg',
-	'sound/items/storage/rustle2.ogg',
-	'sound/items/storage/rustle3.ogg',
-	'sound/items/storage/rustle4.ogg',
-	'sound/items/storage/rustle5.ogg'
-)
-var/list/punch_sound = list(
-	'sound/weapons/punch1.ogg',
-	'sound/weapons/punch2.ogg',
-	'sound/weapons/punch3.ogg',
-	'sound/weapons/punch4.ogg'
-)
-var/list/punchmiss_sound = list(
-	'sound/weapons/punchmiss1.ogg',
-	'sound/weapons/punchmiss2.ogg'
-)
-var/list/clown_sound = list(
-	'sound/effects/clownstep1.ogg',
-	'sound/effects/clownstep2.ogg'
-)
-var/list/swing_hit_sound = list(
-	'sound/weapons/genhit1.ogg',
-	'sound/weapons/genhit2.ogg',
-	'sound/weapons/genhit3.ogg'
-)
-var/list/hiss_sound = list(
-	'sound/voice/hiss1.ogg',
-	'sound/voice/hiss2.ogg',
-	'sound/voice/hiss3.ogg',
-	'sound/voice/hiss4.ogg'
-)
-var/list/page_sound = list(
-	'sound/effects/pageturn1.ogg',
-	'sound/effects/pageturn2.ogg',
-	'sound/effects/pageturn3.ogg'
-)
-var/list/fracture_sound = list(
-	'sound/effects/bonebreak1.ogg',
-	'sound/effects/bonebreak2.ogg',
-	'sound/effects/bonebreak3.ogg',
-	'sound/effects/bonebreak4.ogg'
-)
-var/list/button_sound = list(
-	'sound/machines/button1.ogg',
-	'sound/machines/button2.ogg',
-	'sound/machines/button3.ogg',
-	'sound/machines/button4.ogg'
-)
-var/list/computerbeep_sound = list(
-	'sound/machines/compbeep1.ogg',
-	'sound/machines/compbeep2.ogg',
-	'sound/machines/compbeep3.ogg',
-	'sound/machines/compbeep4.ogg',
-	'sound/machines/compbeep5.ogg'
-)
-var/list/switch_sound = list(
-	'sound/machines/switch1.ogg',
-	'sound/machines/switch2.ogg',
-	'sound/machines/switch3.ogg',
-	'sound/machines/switch4.ogg'
-)
-var/list/keyboard_sound = list(
-	'sound/machines/keyboard/keyboard1.ogg',
-	'sound/machines/keyboard/keyboard2.ogg',
-	'sound/machines/keyboard/keyboard3.ogg',
-	'sound/machines/keyboard/keyboard4.ogg',
-	'sound/machines/keyboard/keyboard5.ogg'
-)
-var/list/pickaxe_sound = list(
-	'sound/weapons/mine/pickaxe1.ogg',
-	'sound/weapons/mine/pickaxe2.ogg',
-	'sound/weapons/mine/pickaxe3.ogg',
-	'sound/weapons/mine/pickaxe4.ogg'
-)
-var/list/glasscrack_sound = list(
-	'sound/effects/glass_crack1.ogg',
-	'sound/effects/glass_crack2.ogg',
-	'sound/effects/glass_crack3.ogg',
-	'sound/effects/glass_crack4.ogg'
-)
-var/list/bodyfall_sound = list(
-	'sound/effects/bodyfall1.ogg',
-	'sound/effects/bodyfall2.ogg',
-	'sound/effects/bodyfall3.ogg',
-	'sound/effects/bodyfall4.ogg'
-)
-var/list/bodyfall_machine_sound = list(
-	'sound/effects/bodyfall_machine1.ogg',
-	'sound/effects/bodyfall_machine2.ogg'
-)
-var/list/bulletflyby_sound = list(
-	'sound/effects/bulletflyby1.ogg',
-	'sound/effects/bulletflyby2.ogg',
-	'sound/effects/bulletflyby3.ogg'
-)
-var/list/crowbar_sound = list(
-	'sound/items/crowbar1.ogg',
-	'sound/items/crowbar2.ogg',
-	'sound/items/crowbar3.ogg',
-	'sound/items/crowbar4.ogg'
-)
-var/list/casing_drop_sound = list(
-	'sound/items/drop/casing1.ogg',
-	'sound/items/drop/casing2.ogg',
-	'sound/items/drop/casing3.ogg',
-	'sound/items/drop/casing4.ogg',
-	'sound/items/drop/casing5.ogg'
-)
-var/list/drillhit_sound = list(
-	'sound/weapons/saw/drillhit1.ogg',
-	'sound/weapons/saw/drillhit2.ogg'
-)
-var/list/bottlehit_intact_sound = list(
-	'sound/weapons/bottlehit_intact1.ogg',
-	'sound/weapons/bottlehit_intact2.ogg',
-	'sound/weapons/bottlehit_intact3.ogg'
-)
-var/list/bottlehit_broken_sound = list(
-	'sound/weapons/bottlehit_broken1.ogg',
-	'sound/weapons/bottlehit_broken2.ogg',
-	'sound/weapons/bottlehit_broken3.ogg'
-)
-// drop/equip/pickup sounds if there are multiple.
-var/list/generic_drop_sound = list(
-	'sound/items/drop/generic1.ogg',
-	'sound/items/drop/generic2.ogg',
-)
-var/list/generic_pickup_sound = list(
-	'sound/items/pickup/generic1.ogg',
-	'sound/items/pickup/generic2.ogg',
-	'sound/items/pickup/generic3.ogg',
-)
-var/list/generic_wield_sound = list(
-	'sound/items/wield/generic1.ogg',
-	'sound/items/wield/generic2.ogg',
-	'sound/items/wield/generic3.ogg'
-)
-var/list/sword_pickup_sound = list(
-	'sound/items/pickup/sword1.ogg',
-	'sound/items/pickup/sword2.ogg',
-	'sound/items/pickup/sword3.ogg'
-)
-var/list/sword_equip_sound = list(
-	'sound/items/equip/sword1.ogg',
-	'sound/items/equip/sword2.ogg'
-)
-// gunshots, if multiple.
-var/list/gauss_fire_sound = list(
-	'sound/weapons/gaussrifle1.ogg',
-	'sound/weapons/gaussrifle2.ogg'
-)
-//var/list/gun_sound = list('sound/weapons/gunshot/gunshot1.ogg', 'sound/weapons/gunshot/gunshot2.ogg','sound/weapons/gunshot/gunshot3.ogg','sound/weapons/gunshot/gunshot4.ogg')
 
 /proc/playsound(atom/source, soundin, vol, vary, extrarange, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0)
 	if (isarea(source))
@@ -497,56 +235,9 @@ var/list/gauss_fire_sound = list(
 	return rand(32000, 55000) //Frequency stuff only works with 45kbps oggs.
 
 /proc/get_sfx(soundin)
-	if(istext(soundin))
-		switch(soundin)
-			//footsteps
-			if ("blank") soundin = pick(blank_footstep)
-			if ("catwalk") soundin = pick(catwalk_footstep)
-			if ("wood") soundin = pick(wood_footstep)
-			if ("tiles") soundin = pick(tiles_footstep)
-			if ("plating") soundin = pick(plating_footstep)
-			if ("carpet") soundin = pick(carpet_footstep)
-			if ("asteroid") soundin = pick(asteroid_footstep)
-			if ("grass") soundin = pick(grass_footstep)
-			if ("water") soundin = pick(water_footstep)
-			if ("lava") soundin = pick(lava_footstep)
-			if ("snow") soundin = pick(snow_footstep)
-			if ("sand") soundin = pick(sand_footstep)
-			// shatter sfx. mainly for materials
-			if ("glass_break") soundin = pick(glass_break_sound)
-			if ("cardboard_break") soundin = pick(cardboard_break_sound)
-			if ("wood_break") soundin = pick(wood_break_sound)
-			//misc
-			if ("explosion") soundin = pick(explosion_sound)
-			if ("sparks") soundin = pick(spark_sound)
-			if ("rustle") soundin = pick(rustle_sound)
-			if ("punch") soundin = pick(punch_sound)
-			if ("punchmiss") soundin = pick(punchmiss_sound)
-			if ("clownstep") soundin = pick(clown_sound)
-			if ("swing_hit") soundin = pick(swing_hit_sound)
-			if ("hiss") soundin = pick(hiss_sound)
-			if ("pageturn") soundin = pick(page_sound)
-			if ("fracture") soundin = pick(fracture_sound)
-			//if ("gunshot") soundin = pick(gun_sound)
-			if ("button") soundin = pick(button_sound)
-			if ("glasscrack") soundin = pick(glasscrack_sound)
-			if ("switch") soundin = pick(switch_sound)
-			if ("keyboard") soundin = pick(keyboard_sound)
-			if ("pickaxe") soundin = pick(pickaxe_sound)
-			if ("bodyfall") soundin = pick(bodyfall_sound)
-			if ("bodyfall_machine") soundin = pick(bodyfall_machine_sound)
-			if ("bulletflyby") soundin = pick(bulletflyby_sound)
-			if ("crowbar") soundin = pick(crowbar_sound)
-			if ("casing_drop") soundin = pick(casing_drop_sound)
-			if ("drillhit") soundin = pick(drillhit_sound)
-			if ("bottlehit_intact") soundin = pick(bottlehit_intact_sound)
-			if ("bottlehit_broken") soundin = pick(bottlehit_broken_sound)
-			if ("generic_drop") soundin = pick(generic_drop_sound)
-			if ("generic_pickup") soundin = pick(generic_pickup_sound)
-			if ("generic_wield") soundin = pick(generic_wield_sound)
-			if ("equip_sword") soundin = pick(sword_equip_sound)
-			if ("pickup_sword") soundin = pick(sword_pickup_sound)
-			if ("gauss_fire") soundin = pick(gauss_fire_sound)
+	var/decl/sound_category/SC = decls_repository.get_decl(sound_category)
+	if(!istype(SC))
+		CRASH("Non-decl path in get_sfx: [sound_category]")
 	return soundin
 
 /decl/sound_category
@@ -666,7 +357,7 @@ var/list/gauss_fire_sound = list(
 		'sound/effects/cardboard_break3.ogg',
 	)
 
-/decl/sound_category/ood_break_sound
+/decl/sound_category/wood_break_sound
 	sounds = list(
 		'sound/effects/wood_break1.ogg',
 		'sound/effects/wood_break2.ogg',
@@ -839,7 +530,24 @@ var/list/gauss_fire_sound = list(
 		'sound/weapons/saw/drillhit2.ogg'
 	)
 
-// drop/equip/pickup sounds if there are multiple.
+/decl/sound_category/generic_drop_sound
+	sounds = list(
+		'sound/items/drop/generic1.ogg',
+		'sound/items/drop/generic2.ogg',
+	)
+/decl/sound_category/generic_pickup_sound
+	sounds = list(
+		'sound/items/pickup/generic1.ogg',
+		'sound/items/pickup/generic2.ogg',
+		'sound/items/pickup/generic3.ogg',
+	)
+/decl/sound_category/generic_wield_sound
+	sounds = list(
+		'sound/items/wield/generic1.ogg',
+		'sound/items/wield/generic2.ogg',
+		'sound/items/wield/generic3.ogg'
+	)
+
 /decl/sound_category/wield_generic_sound
 	sounds = list(
 		'sound/items/wield/wield_generic1.ogg',
@@ -860,9 +568,21 @@ var/list/gauss_fire_sound = list(
 		'sound/items/equip/sword2.ogg'
 	)
 
-// gunshots, if multiple.
-/decl/sound_category/gauss_fire_sound 
+/decl/sound_category/gauss_fire_sound
 	sounds = list(
 		'sound/weapons/gaussrifle1.ogg',
 		'sound/weapons/gaussrifle2.ogg'
+	)
+
+/decl/sound_category/bottle_hit_intact_sound
+	sounds = list(
+		'sound/weapons/bottlehit_intact1.ogg',
+		'sound/weapons/bottlehit_intact2.ogg',
+		'sound/weapons/bottlehit_intact3.ogg'
+	)
+/decl/sound_category/bottle_hit_broken
+	sounds = list(
+		'sound/weapons/bottlehit_broken1.ogg',
+		'sound/weapons/bottlehit_broken2.ogg',
+		'sound/weapons/bottlehit_broken3.ogg'
 	)
