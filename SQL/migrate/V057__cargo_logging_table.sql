@@ -34,8 +34,8 @@ CREATE TABLE `ss13_cargo_orderlog_items` (
 	PRIMARY KEY (`cargo_orderlog_id`, `cargo_item_id`) USING BTREE,
 	INDEX `index_orderlog_id` (`cargo_orderlog_id`) USING BTREE,
 	INDEX `index_item_id` (`cargo_item_id`) USING BTREE,
-	CONSTRAINT `FK_ss13_cargo_orderlog_items_ss13_cargo_items` FOREIGN KEY (`cargo_item_id`) REFERENCES `aurora_server`.`ss13_cargo_items` (`id`) ON UPDATE CASCADE ON DELETE CASCADE,
-	CONSTRAINT `FK_ss13_cargo_orderlog_items_ss13_cargo_orderlog` FOREIGN KEY (`cargo_orderlog_id`) REFERENCES `aurora_server`.`ss13_cargo_orderlog` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
+	CONSTRAINT `FK_ss13_cargo_orderlog_items_ss13_cargo_items` FOREIGN KEY (`cargo_item_id`) REFERENCES `ss13_cargo_items` (`id`) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT `FK_ss13_cargo_orderlog_items_ss13_cargo_orderlog` FOREIGN KEY (`cargo_orderlog_id`) REFERENCES `ss13_cargo_orderlog` (`id`) ON UPDATE CASCADE ON DELETE CASCADE
 )
 COLLATE='utf8mb4_unicode_ci'
 ENGINE=InnoDB;
