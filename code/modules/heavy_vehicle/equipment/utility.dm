@@ -53,6 +53,9 @@
 						INVOKE_ASYNC(FD, /obj/machinery/door/firedoor/.proc/close)
 			return
 		else if(istype(target, /obj/machinery/door/airlock))
+			if(istype(target, /obj/machinery/door/airlock/centcom))
+				to_chat(user, SPAN_WARNING("You can't force these airlocks!"))
+				return
 			var/obj/machinery/door/airlock/AD = target
 			if(!AD.operating)
 				if(AD.welded || AD.locked)
