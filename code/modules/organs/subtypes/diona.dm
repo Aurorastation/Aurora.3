@@ -4,7 +4,7 @@
 	if(!diona)
 		return 0
 
-	INVOKE_ASYNC(src, create_diona_nymph)
+	INVOKE_ASYNC(src, .proc/create_diona_nymph)
 
 /turf/proc/create_diona_nymph()
 	var/mob/living/carbon/alien/diona/D = new(src)
@@ -24,7 +24,8 @@
 
 /obj/item/organ/external/diona/removed(var/mob/living/user)
 	..()
-	if(spawn_diona_nymph(get_turf(src)))
+	var/turf/T = get_turf(src)
+	if(T.spawn_diona_nymph())
 		qdel(src)
 
 /obj/item/organ/external/chest/diona

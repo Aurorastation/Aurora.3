@@ -1038,10 +1038,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(company)
 		model = company
 		var/datum/robolimb/R = all_robolimbs[company]
-		/*if(species && !(species.name in R.species_can_use && species.get_bodytype() != BODYTYPE_IPC))
-			R = basic_robolimb*/
+
 		if(R)
-			if (!force_skintone)
+			if(!force_skintone)
 				force_icon = R.icon
 			if(R.lifelike)
 				status |= ORGAN_LIFELIKE
