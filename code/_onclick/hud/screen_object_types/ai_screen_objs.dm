@@ -191,7 +191,7 @@
 		if(AI.anchored)
 			AI.remote_control_mech()
 		else
-			to_chat(AI, SPAN_WARNING("You are unable to get a good connection while unanchored to the station systems."))
+			to_chat(AI, SPAN_WARNING("You are unable to get a good connection while unanchored from the station systems."))
 
 /obj/screen/ai/move_up
 	name = "Move Up"
