@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Psychokinetic tools have been given new sprites. Changing what it's emulating has now been given a radial menu."
+  - bugfix: "Psychokinetic tools, psi-blades, and telekinetic grabs now properly delete when dropped or thrown."
+  - tweak: "Psi-tools now do slightly more damage, 5, up from 1."
