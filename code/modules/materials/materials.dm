@@ -711,7 +711,7 @@
 	weapon_drop_sound = 'sound/items/drop/woodweapon.ogg'
 	weapon_pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 	weapon_hitsound = 'sound/weapons/woodenhit.ogg'
-	shatter_sound = /decl/sound_category/wood_break
+	shatter_sound = /decl/sound_category/wood_break_sound
 
 /material/wood/log //This is gonna replace wood planks in a  way for NBT, leaving it here for now
 	name = MATERIAL_WOOD_LOG

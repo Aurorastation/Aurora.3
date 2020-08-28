@@ -42,13 +42,6 @@
 #define DROP_SOUND_VOLUME 20
 #define THROW_SOUND_VOLUME 90
 
-/decl/sound_category/wood_break
-	sounds = list(
-		'sound/effects/wood_break1.ogg',
-		'sound/effects/wood_break2.ogg',
-		'sound/effects/wood_break3.ogg'
-	)
-
 /proc/playsound(atom/source, soundin, vol, vary, extrarange, falloff, is_global, usepressure = 1, environment = -1, required_preferences = 0, required_asfx_toggles = 0)
 	if (isarea(source))
 		crash_with("[source] is an area and is trying to make the sound: [soundin]")
@@ -361,7 +354,7 @@
 	sounds = list(
 		'sound/effects/wood_break1.ogg',
 		'sound/effects/wood_break2.ogg',
-		'sound/effects/wood_break3.ogg',
+		'sound/effects/wood_break3.ogg'
 	)
 
 /decl/sound_category/explosion_sound
