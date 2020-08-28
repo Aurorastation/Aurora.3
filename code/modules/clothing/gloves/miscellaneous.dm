@@ -177,7 +177,7 @@
 
 /obj/item/clothing/gloves/watch/verb/pointatwatch()
 	set category = "Object"
-	set name = "Point at watch"
+	set name = "Point At Watch"
 	set src in usr
 
 	if(wired && !clipped)
@@ -189,7 +189,7 @@
 
 /obj/item/clothing/gloves/watch/verb/swapwrists()
 	set category = "Object"
-	set name = "Flip watch wrist"
+	set name = "Flip Watch Wrist"
 	set src in usr
 
 	if (usr.stat || usr.restrained())

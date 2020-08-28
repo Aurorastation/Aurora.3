@@ -10,7 +10,7 @@
 	var/list/footstep_sound	//footstep sounds when stepped on
 
 	var/material/material
-	var/build_amt // used by some structures to determine into how many pieces they should disassemble into or be made with
+	var/build_amt = 2 // used by some structures to determine into how many pieces they should disassemble into or be made with
 
 /obj/structure/Destroy()
 	if(parts)
@@ -49,8 +49,13 @@
 			return
 
 /obj/structure/proc/dismantle()
+	var/material/dismantle_material
+	if(!get_material())
+		dismantle_material = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL) //if there is no defined material, it will use steel
+	else
+		dismantle_material = get_material()
 	for(var/i = 1 to build_amt)
-		material.place_sheet(loc)
+		dismantle_material.place_sheet(loc)
 	qdel(src)
 
 /obj/structure/Initialize(mapload)
