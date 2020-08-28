@@ -243,8 +243,8 @@ obj/item/clothing/shoes/sandal/clogs
 	body_parts_covered = FEET|LEGS
 	species_restricted = null
 	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/shoes.dmi',
-		"Unathi" = 'icons/mob/species/unathi/shoes.dmi')
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/shoes.dmi',
+		BODYTYPE_UNATHI = 'icons/mob/species/unathi/shoes.dmi')
 
 /obj/item/clothing/shoes/caligae/white
 	name = "white caligae"

@@ -52,7 +52,7 @@
 		D.visible_message("<span class='warning'>[A] kicks [D] in the back!</span>")
 		step_to(D,get_step(D,D.dir),1)
 		D.Weaken(4)
-		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, 1, -1)
+		playsound(get_turf(D), "punch", 50, 1, -1)
 
 		return 1
 	return basic_hit(A,D)
@@ -66,7 +66,7 @@
 		if (!(D.species.flags & NO_BREATHE))
 			D.losebreath += 3
 		D.Stun(2)
-		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, 1, -1)
+		playsound(get_turf(D), "punch", 50, 1, -1)
 
 		return 1
 	return basic_hit(A,D)
@@ -78,7 +78,7 @@
 						  "<span class='danger'>[A] kicks you in the jaw!</span>")
 		D.apply_damage(20, BRUTE, BP_HEAD)
 		D.drop_item()
-		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 50, 1, -1)
+		playsound(get_turf(D), "punch", 50, 1, -1)
 
 		D.Stun(4)
 		return 1
@@ -91,7 +91,7 @@
 		if(D.stat)
 			D.death() //FINISH HIM!
 		D.apply_damage(50, BRUTE, BP_CHEST)
-		playsound(get_turf(D), 'sound/weapons/punch1.ogg', 75, 1, -1)
+		playsound(get_turf(D), "punch", 75, 1, -1)
 		return 1
 	return basic_hit(A,D)
 

@@ -82,24 +82,24 @@
 	desc = "Sterile nitrile gloves. Designed for Unathi use."
 	icon_state = "nitrile"
 	item_state = "nitrile"
-	species_restricted = list("Unathi")
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/latex/nitrile/tajara
 	name = "tajaran nitrile gloves"
 	desc = "Sterile nitrile gloves. Designed for Tajara use."
 	icon_state = "nitrile"
 	item_state = "nitrile"
-	species_restricted = list("Tajara")
+	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/latex/unathi
 	name = "unathi latex gloves"
 	desc = "Sterile latex gloves. Designed for Unathi use."
-	species_restricted = list("Unathi")
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/latex/tajara
 	name = "tajaran latex gloves"
 	desc = "Sterile latex gloves. Designed for Tajara use."
-	species_restricted = list("Tajara")
+	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/botanic_leather
 	desc = "These leather work gloves protect against thorns, barbs, prickles, spikes and other harmful objects of floral origin."
@@ -113,11 +113,11 @@
 
 /obj/item/clothing/gloves/botanic_leather/unathi
 	name = "unathi leather gloves"
-	species_restricted = list("Unathi")
+	species_restricted = list(BODYTYPE_UNATHI)
 
 /obj/item/clothing/gloves/botanic_leather/tajara
 	name = "tajaran leather gloves"
-	species_restricted = list("Tajara")
+	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/watch
 	name = "watch"
@@ -177,7 +177,7 @@
 
 /obj/item/clothing/gloves/watch/verb/pointatwatch()
 	set category = "Object"
-	set name = "Point at watch"
+	set name = "Point At Watch"
 	set src in usr
 
 	if(wired && !clipped)
@@ -189,7 +189,7 @@
 
 /obj/item/clothing/gloves/watch/verb/swapwrists()
 	set category = "Object"
-	set name = "Flip watch wrist"
+	set name = "Flip Watch Wrist"
 	set src in usr
 
 	if (usr.stat || usr.restrained())
@@ -344,7 +344,7 @@
 	force = 5
 	punch_force = 10
 	clipped = 1
-	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	gender = NEUTER
@@ -399,7 +399,7 @@
 	fingerprint_chance = 50
 	siemens_coefficient = 1
 	clipped = 1
-	species_restricted = list("exclude","Golem","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
 	gender = NEUTER

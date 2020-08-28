@@ -479,7 +479,7 @@
 
 /datum/reagent/polysomnine
 	name = "Polysomnine"
-	description = "Polysomnine is a complex drug which rapidly induces sedation in preparation for surgery. Polysomnine’s sedative effect is fast acting, and sedated individuals wake up with zero amnesia regarding the events leading up to their sedation, however the only downside is how hard the drug is on the liver."
+	description = "Polysomnine is a complex drug which rapidly induces sedation in preparation for surgery. Polysomnine's sedative effect is fast acting, and sedated individuals wake up with zero amnesia regarding the events leading up to their sedation, however the only downside is how hard the drug is on the liver."
 	reagent_state = SOLID
 	color = "#000067"
 	metabolism = REM * 0.5
@@ -521,7 +521,7 @@
 
 /datum/reagent/slimetoxin
 	name = "Mutation Toxin"
-	description = "A transformative toxin isolated from jelly extract from green slimes. Use of the chemical has profound effects on the body’s cells, converting animal cells into unique slime cells. These slime cells begin to replace the normal cells of the body, resulting in the development of ‘slime people’, though eventually these degenerate into grey slimes."
+	description = "A transformative toxin isolated from jelly extract from green slimes. Use of the chemical has profound effects on the body's cells, converting animal cells into unique slime cells. These slime cells begin to replace the normal cells of the body, resulting in the development of ‘slime people', though eventually these degenerate into grey slimes."
 	reagent_state = LIQUID
 	color = "#13BC5E"
 	taste_description = "sludge"
@@ -529,9 +529,9 @@
 /datum/reagent/slimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(H.species.name != "Slime")
+		if(H.species.name != SPECIES_SLIMEPERSON)
 			to_chat(M, "<span class='danger'>Your flesh rapidly mutates!</span>")
-			H.set_species("Slime")
+			H.set_species(SPECIES_SLIMEPERSON)
 
 /datum/reagent/aslimetoxin
 	name = "Advanced Mutation Toxin"
@@ -701,7 +701,7 @@
 			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
 
 
-			
+
 /datum/reagent/toxin/dextrotoxin
 	name = "Dextrotoxin"
 	description = "A complicated to make and highly illegal drug that cause paralysis mostly focused on the limbs."
@@ -720,7 +720,7 @@
 		to_chat(M, SPAN_WARNING("Your limbs start to feel numb and weak, and your legs wobble as it becomes hard to stand..."))
 		M.confused = max(M.confused, 250)
 	M.add_chemical_effect(CE_UNDEXTROUS, 1)
-	if(dose > 0.2)	
+	if(dose > 0.2)
 		M.Weaken(10)
 
 /datum/reagent/toxin/dextrotoxin/Destroy()

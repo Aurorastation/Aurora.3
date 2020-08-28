@@ -45,7 +45,7 @@
 			var/g = H.g_skin
 			var/b = H.b_skin
 
-			H.set_species("Vaurca Breeder")
+			H.set_species(SPECIES_VAURCA_BREEDER)
 
 			H.unEquip(H.back)
 			H.unEquip(H.shoes)

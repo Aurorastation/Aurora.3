@@ -168,7 +168,7 @@
 			continue
 		if(check_gender && gender == FEMALE && S.gender == MALE)
 			continue
-		if(!(species.get_bodytype() in S.species_allowed))
+		if(!(species.type in S.species_allowed))
 			continue
 		valid_hairstyles += hairstyle
 
@@ -185,7 +185,7 @@
 			continue
 		if(gender == FEMALE && S.gender == MALE)
 			continue
-		if(!(species.get_bodytype() in S.species_allowed))
+		if(!(species.type in S.species_allowed))
 			continue
 
 		valid_facial_hairstyles += facialhairstyle

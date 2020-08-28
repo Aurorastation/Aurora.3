@@ -34,7 +34,7 @@
 /datum/martial_art/sol_combat/proc/quick_choke(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
 	A.do_attack_animation(D)
 	A.visible_message("<span class='warning'>[A] pounds [D] on the chest!</span>")
-	playsound(get_turf(A), 'sound/weapons/punch1.ogg', 50, 1, -1)
+	playsound(get_turf(A), "punch", 50, 1, -1)
 	if(!(D.species.flags & NO_BREATHE))
 		D.losebreath += 5
 		D.adjustOxyLoss(10)
