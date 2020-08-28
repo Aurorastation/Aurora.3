@@ -416,6 +416,7 @@
 		status = "approved"
 		time_approved = worldtime2text()
 		authorized_by = user_name
+		authorized_by_id = user_id
 		return "The order has been approved"
 	else
 		return "The order could not be approved - Invalid Status"
