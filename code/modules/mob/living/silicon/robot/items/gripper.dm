@@ -233,6 +233,7 @@
 		/obj/item/slimesteroid,
 		/obj/item/slimesteroid2,
 		/obj/item/slimepotion,
+		/obj/item/slimepotion2,
 		/obj/item/remote_mecha
 		)
 

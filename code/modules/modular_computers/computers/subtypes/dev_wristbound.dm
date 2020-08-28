@@ -25,13 +25,15 @@
 	if(usr.stat || usr.restrained())
 		return
 
-	src.flipped = !src.flipped
-	if(src.flipped)
-		src.item_state = "[item_state]_alt"
+	flipped = !flipped
+	if(flipped)
+		overlay_state = "[item_state]_alt"
+		item_state = "[item_state]_alt"
 	else
-		src.item_state = initial(item_state)
-	to_chat(usr, "You change \the [src] to be on your [src.flipped ? "left" : "right"] hand.")
-	if(ismob(src.loc))
+		item_state = initial(item_state)
+		overlay_state = initial(overlay_state)
+	to_chat(usr, SPAN_NOTICE("You change \the [src] to be on your [src.flipped ? "left" : "right"] hand."))
+	if(ismob(loc))
 		var/mob/M = src.loc
 		M.update_inv_gloves()
 		M.update_inv_wear_id()
