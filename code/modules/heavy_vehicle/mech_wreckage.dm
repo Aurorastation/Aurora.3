@@ -56,7 +56,7 @@
 			to_chat(user, "<span class='warning'>\The [src] has already been weakened.</span>")
 		return 1
 
-	else if(iswrench(W))
+	else if(W.iswrench())
 		if(prepared)
 			to_chat(user, "<span class='notice'>You finish dismantling \the [src].</span>")
 			new /obj/item/stack/material/steel(get_turf(src),rand(5,10))
@@ -78,4 +78,4 @@
 			thing.forceMove(get_turf(src))
 		else
 			qdel(thing)
-	..()
+	return ..()

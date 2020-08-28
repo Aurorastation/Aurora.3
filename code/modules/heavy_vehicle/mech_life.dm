@@ -44,7 +44,7 @@
 
 /mob/living/heavy_vehicle/get_cell()
 	RETURN_TYPE(/obj/item/cell)
-	return body.cell
+	return body ? body.cell
 
 /mob/living/heavy_vehicle/proc/calc_power_draw()
 	var/total_draw = 0
