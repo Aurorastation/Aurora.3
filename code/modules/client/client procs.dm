@@ -450,9 +450,6 @@
 
 	fetch_unacked_warning_count()
 
-	//if(get_preference_value(/datum/client_preference/goonchat) == GLOB.PREF_YES) TODOMATT: pref
-	chatOutput.start()
-
 	is_initialized = TRUE
 
 //////////////

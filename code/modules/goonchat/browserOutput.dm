@@ -280,6 +280,7 @@ var/savefile/iconCache = new("data/tmp/iconCache.sav") //Cache of icons for the 
 		send_output(C, url_encode(url_encode(message)), "browseroutput:output")
 
 /proc/to_chat(target, message, handle_whitespace = TRUE, trailing_newline = TRUE)
+	set waitfor = FALSE
 	if(Master.initializing || !SSchat)
 		to_chat_immediate(target, message, handle_whitespace, trailing_newline)
 		return

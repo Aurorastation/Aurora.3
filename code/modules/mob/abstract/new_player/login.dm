@@ -19,6 +19,5 @@
 	sight |= SEE_TURFS
 	player_list |= src
 
-	spawn(40)
-		if(client)
-			client.playtitlemusic()
+	client.chatOutput.start()
+	client.playtitlemusic()
