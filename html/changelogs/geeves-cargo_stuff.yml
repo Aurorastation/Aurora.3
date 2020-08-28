@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Certain cargo items, such as protohumans, now arrive in bodybags instead of crates."
+  - rscadd: "Cargo containers now arrive labeled, which allows you to take the label off. The paper inside the container will still hold the owner's info."
