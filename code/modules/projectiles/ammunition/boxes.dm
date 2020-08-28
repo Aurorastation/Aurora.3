@@ -34,70 +34,70 @@
 	ammo_type = /obj/item/ammo_casing/c38/emp
 	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_URANIUM = 600)
 
-/obj/item/ammo_magazine/c45
+/obj/item/ammo_magazine/c40
 	name = "ammunition Box (.40)"
 	icon_state = "9mm"
 	origin_tech = list(TECH_COMBAT = 2)
 	caliber = ".45"
 	matter = list(DEFAULT_WALL_MATERIAL = 2250)
-	ammo_type = /obj/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/c40
 	max_ammo = 30
 
-/obj/item/ammo_magazine/c45x
+/obj/item/ammo_magazine/c40x
 	name = "magazine (.40)"
 	icon_state = "45x"
 	origin_tech = list(TECH_COMBAT = 3)
 	mag_type = MAGAZINE
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
 	caliber = ".45"
-	ammo_type = /obj/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/c40
 	max_ammo = 16
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/c45m
+/obj/item/ammo_magazine/c40m
 	name = "magazine (.40)"
 	icon_state = "45"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/c40
 	matter = list(DEFAULT_WALL_MATERIAL = 525) //metal costs are very roughly based around 1 .45 casing = 75 metal
 	caliber = ".45"
 	max_ammo = 10
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/c45m/empty
+/obj/item/ammo_magazine/c40m/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/c45m/rubber
-	name = "magazine (.45 rubber)"
+/obj/item/ammo_magazine/c40m/rubber
+	name = "magazine (.40 rubber)"
 	icon_state = "r45"
-	ammo_type = /obj/item/ammo_casing/c45/rubber
+	ammo_type = /obj/item/ammo_casing/c40/rubber
 
-/obj/item/ammo_magazine/c45m/practice
-	name = "magazine (.45 practice)"
-	ammo_type = /obj/item/ammo_casing/c45/practice
+/obj/item/ammo_magazine/c40m/practice
+	name = "magazine (.40 practice)"
+	ammo_type = /obj/item/ammo_casing/c40/practice
 
-/obj/item/ammo_magazine/c45m/flash
-	name = "magazine (.45 flash)"
-	ammo_type = /obj/item/ammo_casing/c45/flash
+/obj/item/ammo_magazine/c40m/flash
+	name = "magazine (.40 flash)"
+	ammo_type = /obj/item/ammo_casing/c40/flash
 
-/obj/item/ammo_magazine/mc10mm
+/obj/item/ammo_magazine/mc40m
 	name = "large magazine (.40)"
 	icon_state = "5.56"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/c40
 	matter = list(DEFAULT_WALL_MATERIAL = 475) //metal costs are very roughly based around 1 .45 casing = 75 metal
 	caliber = ".45"
 	max_ammo = 12
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/mc10mm/empty
+/obj/item/ammo_magazine/mc40m/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/mc10mm/rubber
+/obj/item/ammo_magazine/mc40m/rubber
 	name = "large magazine (.40 rubber)"
 	ammo_type = /obj/item/ammo_casing/c45/rubber
 
-/obj/item/ammo_magazine/mc10mm/leyon
+/obj/item/ammo_magazine/mc40m/leyon
 	name = "ammo clip (.40)"
 	icon_state = "10mmclip"
 	mag_type = SPEEDLOADER
@@ -106,105 +106,105 @@
 	multiple_sprites = 1
 	insert_sound = 'sound/weapons/clip_insert.ogg'
 
-/obj/item/ammo_magazine/mc9mm
+/obj/item/ammo_magazine/mc35m
 	name = "magazine (.35)"
 	icon_state = "9x19p"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
 	caliber = "9mm"
-	ammo_type = /obj/item/ammo_casing/c9mm
+	ammo_type = /obj/item/ammo_casing/c35m
 	max_ammo = 12
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/mc9mm/empty
+/obj/item/ammo_magazine/mc35m/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/mc9mm/flash
-	ammo_type = /obj/item/ammo_casing/c9mm/flash
+/obj/item/ammo_magazine/mc35m/flash
+	ammo_type = /obj/item/ammo_casing/c35m/flash
 
-/obj/item/ammo_magazine/c9mm
+/obj/item/ammo_magazine/c35m
 	name = "ammunition box (.35)"
 	icon_state = "9mm"
 	origin_tech = list(TECH_COMBAT = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	caliber = "9mm"
-	ammo_type = /obj/item/ammo_casing/c9mm
+	ammo_type = /obj/item/ammo_casing/c35m
 	max_ammo = 30
 
-/obj/item/ammo_magazine/c9mm/empty
+/obj/item/ammo_magazine/c35m/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/mc9mmt
+/obj/item/ammo_magazine/c35mt
 	name = "top mounted magazine (.35)"
 	icon_state = "9mmt"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c9mm
+	ammo_type = /obj/item/ammo_casing/c35m
 	matter = list(DEFAULT_WALL_MATERIAL = 1200)
 	caliber = "9mm"
 	max_ammo = 20
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/mc9mmt/empty
+/obj/item/ammo_magazine/c35mt/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/mc9mmt/rubber
-	name = "top mounted magazine (9mm rubber)"
-	ammo_type = /obj/item/ammo_casing/c9mm/rubber
+/obj/item/ammo_magazine/c35mt/rubber
+	name = "top mounted magazine (.35 rubber)"
+	ammo_type = /obj/item/ammo_casing/c35m/rubber
 
-/obj/item/ammo_magazine/mc9mmt/practice
-	name = "top mounted magazine (9mm practice)"
-	ammo_type = /obj/item/ammo_casing/c9mm/practice
+/obj/item/ammo_magazine/c35mt/practice
+	name = "top mounted magazine (.35 practice)"
+	ammo_type = /obj/item/ammo_casing/c35m/practice
 
-/obj/item/ammo_magazine/c45
+/obj/item/ammo_magazine/c40
 	name = "ammunition box (.40)"
 	icon_state = "9mm"
 	origin_tech = list(TECH_COMBAT = 2)
 	caliber = ".45"
 	matter = list(DEFAULT_WALL_MATERIAL = 2250)
-	ammo_type = /obj/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/c40
 	max_ammo = 30
 
-/obj/item/ammo_magazine/c9mm/empty
+/obj/item/ammo_magazine/c35m/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/a10mm
+/obj/item/ammo_magazine/a40m
 	name = "smg magazine (.40)"
 	icon_state = "12mm"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = ".45"
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
-	ammo_type = /obj/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/c40
 	max_ammo = 20
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/a10mm/empty
+/obj/item/ammo_magazine/a40m/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/a556
+/obj/item/ammo_magazine/a250
 	name = "magazine (.250)"
 	icon_state = "5.56"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = "a556"
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
-	ammo_type = /obj/item/ammo_casing/a556
+	ammo_type = /obj/item/ammo_casing/a250
 	max_ammo = 30
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/a556/empty
+/obj/item/ammo_magazine/a250/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/a556/practice
-	name = "magazine (5.56mm practice)"
-	ammo_type = /obj/item/ammo_casing/a556/practice
+/obj/item/ammo_magazine/a250/practice
+	name = "magazine (.250 practice)"
+	ammo_type = /obj/item/ammo_casing/a250/practice
 
-/obj/item/ammo_magazine/a556/ap
-	name = "magazine (5.56mm AP)"
+/obj/item/ammo_magazine/a250/ap
+	name = "magazine (.250m AP)"
 	icon_state = "5.56AP"
 	origin_tech = list(TECH_COMBAT = 3)
-	ammo_type = /obj/item/ammo_casing/a556/ap
+	ammo_type = /obj/item/ammo_casing/a250/ap
 
 /obj/item/ammo_magazine/a50
 	name = "magazine (.50)"
@@ -244,27 +244,27 @@
 /obj/item/ammo_magazine/trodpack/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/a762
+/obj/item/ammo_magazine/a315
 	name = "magazine box (.315)"
 	icon_state = "a762"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
 	caliber = "a762"
 	matter = list(DEFAULT_WALL_MATERIAL = 4500)
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/a315
 	max_ammo = 50
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/a762/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/c762
+/obj/item/ammo_magazine/c315
 	name = "magazine (.315)"
 	icon_state = "c762"
 	mag_type = MAGAZINE
 	caliber = "a762"
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/a315
 	max_ammo = 20
 	multiple_sprites = 1
 
@@ -275,7 +275,7 @@
 /obj/item/ammo_magazine/boltaction
 	name = "ammo clip (.315)"
 	icon_state = "762"
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/a315
 	caliber = "a762"
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	max_ammo = 5
@@ -287,24 +287,24 @@
 	ammo_type = /obj/item/ammo_casing/vintage
 	caliber = "vintage"
 
-/obj/item/ammo_magazine/c45uzi
+/obj/item/ammo_magazine/c40uzi
 	name = "stick magazine (.40)"
 	icon_state = "uzi45"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/c40
 	matter = list(DEFAULT_WALL_MATERIAL = 1200)
 	caliber = ".45"
 	max_ammo = 16
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/c45uzi/empty
+/obj/item/ammo_magazine/c40uzi/empty
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/submachinemag
 	name = "magazine (.40)"
 	icon_state = "tommy-mag"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/c40
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
 	caliber = ".45"
 	max_ammo = 20
@@ -317,7 +317,7 @@
 	icon_state = "tommy-drum"
 	w_class = 3 // Bulky ammo doesn't fit in your pockets!
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/c40
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
 	caliber = ".45"
 	max_ammo = 50
@@ -334,17 +334,17 @@
 
 //dragunov magazine
 
-/obj/item/ammo_magazine/d762
+/obj/item/ammo_magazine/d315
 	name = "magazine (.315)"
 	icon_state = "SVD"
 	mag_type = MAGAZINE
 	caliber = "a762"
 	matter = list(DEFAULT_WALL_MATERIAL = 1200)
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/a315
 	max_ammo = 10
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/d762/empty
+/obj/item/ammo_magazine/d315/empty
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/flechette

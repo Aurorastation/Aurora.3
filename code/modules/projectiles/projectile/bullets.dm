@@ -184,13 +184,13 @@
 	armor_penetration = 20
 	penetrating = 1
 
-/obj/item/projectile/bullet/rifle/a762
+/obj/item/projectile/bullet/rifle/a315
 	damage = 35
 
-/obj/item/projectile/bullet/rifle/a556
+/obj/item/projectile/bullet/rifle/a250
 	damage = 30
 
-/obj/item/projectile/bullet/rifle/a556/ap
+/obj/item/projectile/bullet/rifle/a250/ap
 	damage = 30
 	armor_penetration = 25
 
