@@ -86,32 +86,32 @@ obj/item/check_airflow_movable(n)
 
 */
 
-atom/movable/proc/airflow_hit(atom/A)
+/atom/movable/proc/airflow_hit(atom/A)
 	airflow_speed = 0
 	airflow_dest = null
 
-mob/airflow_hit(atom/A)
+/mob/airflow_hit(atom/A)
 	for(var/mob/M in hearers(src))
 		M.show_message("<span class='danger'>\The [src] slams into \a [A]!</span>",1,"<span class='danger'>You hear a loud slam!</span>",2)
-	playsound(src.loc, "smash.ogg", 25, 1, -1)
+	playsound(src.loc, 'sound/weapons/smash.ogg', 25, 1, -1)
 	var/weak_amt = istype(A,/obj/item) ? A:w_class : rand(1,5) //Heheheh
 	Weaken(weak_amt)
 	. = ..()
 
-obj/airflow_hit(atom/A)
+/obj/airflow_hit(atom/A)
 	for(var/mob/M in hearers(src))
 		M.show_message("<span class='danger'>\The [src] slams into \a [A]!</span>",1,"<span class='danger'>You hear a loud slam!</span>",2)
-	playsound(src.loc, "smash.ogg", 25, 1, -1)
+	playsound(src.loc, 'sound/weapons/smash.ogg', 25, 1, -1)
 	. = ..()
 
-obj/item/airflow_hit(atom/A)
+/obj/item/airflow_hit(atom/A)
 	airflow_speed = 0
 	airflow_dest = null
 
-mob/living/carbon/human/airflow_hit(atom/A)
+/mob/living/carbon/human/airflow_hit(atom/A)
 //	for(var/mob/M in hearers(src))
 //		M.show_message("<span class='danger'>[src] slams into [A]!</span>",1,"<span class='danger'>You hear a loud slam!</span>",2)
-	playsound(src.loc, "punch", 25, 1, -1)
+	playsound(src.loc, /decl/sound_category/punch_sound, 25, 1, -1)
 	if (prob(33))
 		loc:add_blood(src)
 		bloody_body(src)
@@ -133,7 +133,7 @@ mob/living/carbon/human/airflow_hit(atom/A)
 		Stun(round(airflow_speed * vsc.airflow_stun/2))
 	. = ..()
 
-zone/proc/movables(list/origins)
+/zone/proc/movables(list/origins)
 	. = list()
 	if (!origins?.len)
 		return

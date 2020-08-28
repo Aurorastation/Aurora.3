@@ -3,7 +3,7 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "dispenser"
 	var/icon_state_active = "dispenser_active"
-	clicksound = "button"
+	clicksound = /decl/sound_category/button_sound
 
 	var/list/spawn_cartridges = null // Set to a list of types to spawn one of each on New()
 

@@ -351,7 +351,7 @@
 		add_overlay(emag)
 		add_overlay(sparks)
 		CUT_OVERLAY_IN(sparks, 6)
-		playsound(loc, "sparks", 60, 1)
+		playsound(loc, /decl/sound_category/spark_sound, 60, 1)
 		locked = 0
 		broken = 1
 		to_chat(user, "<span class='notice'>You unlock \the [src].</span>")

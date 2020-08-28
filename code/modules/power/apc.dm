@@ -118,7 +118,7 @@
 	use_power = 0
 	req_access = list(access_engine_equip)
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
-	clicksound = "switch"
+	clicksound = /decl/sound_category/switch_sound
 	var/area/area
 	var/areastring = null
 	var/obj/item/cell/cell

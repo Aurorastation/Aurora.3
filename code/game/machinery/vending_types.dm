@@ -114,7 +114,7 @@
 	product_ads = "Drink up!;Booze is good for you!;Alcohol is humanity's best friend.;Quite delighted to serve you!;Care for a nice, cold beer?;Nothing cures you like booze!;Have a sip!;Have a drink!;Have a beer!;Beer is good for you!;Only the finest alcohol!;Best quality booze since 2053!;Award-winning wine!;Maximum alcohol!;Man loves beer.;A toast for progress!"
 	req_access = list(access_bar)
 	random_itemcount = 0
-	vending_sound = "machines/vending/vending_cans.ogg"
+	vending_sound = 'sound/machines/vending/vending_cans.ogg'
 	light_color = COLOR_PALE_BLUE_GRAY
 	exclusive_screen = FALSE
 
@@ -176,7 +176,7 @@
 	premium = list(
 		/obj/item/reagent_containers/food/drinks/teapot/ = 5
 	)
-	vending_sound = "machines/vending/vending_coffee.ogg"
+	vending_sound = 'sound/machines/vending/vending_coffee.ogg'
 	cooling_temperature = T0C + 57 //Optimal coffee temperature
 	heating_temperature = T0C + 100 //ULTRA HOT COFFEE
 	temperature_setting = -1
@@ -289,7 +289,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
-	vending_sound = "machines/vending/vending_cans.ogg"
+	vending_sound = 'sound/machines/vending/vending_cans.ogg'
 	temperature_setting = -1
 	light_color = COLOR_GUNMETAL
 
@@ -792,7 +792,7 @@
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
 	temperature_setting = -1
-	vending_sound = "machines/vending/vending_cans.ogg"
+	vending_sound = 'sound/machines/vending/vending_cans.ogg'
 	light_color = COLOR_RED
 
 /obj/machinery/vending/tool

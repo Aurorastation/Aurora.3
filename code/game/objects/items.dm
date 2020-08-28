@@ -10,7 +10,7 @@
 	var/health
 	var/burn_point
 	var/burning
-	var/hitsound = "swing_hit" //generic hit sound.
+	var/hitsound = /decl/sound_category/swing_hit_sound//generic hit sound.
 	var/storage_cost
 	var/slot_flags = 0		//This is used to determine on which slots an item can fit.
 	var/no_attack_log = 0			//If it's an item we don't want to log attack_logs with, set this to 1
@@ -53,9 +53,9 @@
 	///Sound used when equipping the item into a valid slot
 	var/equip_sound = null
 	///Sound uses when picking the item up (into your hands)
-	var/pickup_sound = "generic_pickup"
+	var/pickup_sound = /decl/sound_category/generic_pickup_sound
 	///Sound uses when dropping the item, or when its thrown.
-	var/drop_sound = "generic_drop" // drop sound - this is the default
+	var/drop_sound = /decl/sound_category/generic_drop_sound // drop sound - this is the default
 
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.

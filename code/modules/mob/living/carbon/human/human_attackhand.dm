@@ -80,7 +80,7 @@
 			H.do_attack_animation(src)
 			var/damage = rand(0, 9)
 			if(!damage)
-				playsound(loc, "punchmiss", 25, 1, -1)
+				playsound(loc, /decl/sound_category/punchmiss_sound, 25, 1, -1)
 				visible_message("<span class='danger'>[H] has attempted to punch [src]!</span>")
 				return 0
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
@@ -89,7 +89,7 @@
 			if(HULK in H.mutations)
 				damage += 5
 
-			playsound(loc, "punch", 25, 1, -1)
+			playsound(loc, /decl/sound_category/punch_sound, 25, 1, -1)
 
 			visible_message("<span class='danger'>[H] has punched [src]!</span>")
 
@@ -455,7 +455,7 @@
 					playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 					return
 
-			playsound(loc, "punchmiss", 25, 1, -1)
+			playsound(loc, /decl/sound_category/punchmiss_sound, 25, 1, -1)
 			visible_message("<span class='danger'>[M] attempted to disarm [src]!</span>")
 	return
 

@@ -47,7 +47,7 @@
 	check_update_ui_need()
 
 	if(working && enabled && world.time > ambience_last_played + 30 SECONDS && prob(3))
-		playsound(get_turf(src), "computerbeep", 30, 1, 10, required_preferences = SOUND_AMBIENCE)
+		playsound(get_turf(src), /decl/sound_category/computerbeep_sound, 30, 1, 10, required_preferences = SOUND_AMBIENCE)
 		ambience_last_played = world.time
 
 /obj/item/modular_computer/proc/get_preset_programs(preset_type)
