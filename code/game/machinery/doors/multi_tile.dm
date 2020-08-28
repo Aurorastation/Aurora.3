@@ -17,14 +17,6 @@
 	glass = 1
 	assembly_type = /obj/structure/door_assembly/multi_tile
 
-/obj/machinery/door/airlock/multi_tile/glass/north
-	dir = NORTH
-
-/obj/machinery/door/airlock/multi_tile/glass/south
-	dir = SOUTH
-
-/obj/machinery/door/airlock/multi_tile/glass/west
-	dir = WEST
 
 /obj/machinery/door/airlock/multi_tile/setup_hatch()
 	if(overlays != null)
