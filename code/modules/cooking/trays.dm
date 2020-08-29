@@ -67,7 +67,7 @@
 	unload_at_loc(user=user)
 
 /obj/item/tray/proc/attempt_load_item(var/obj/item/I, var/mob/user, var/messages = TRUE, var/click_params)
-	if(!I || I in contents)
+	if(!I || (I in contents))
 		return
 	if(I == src || I.anchored || istype(I, /obj/item/projectile))
 		return

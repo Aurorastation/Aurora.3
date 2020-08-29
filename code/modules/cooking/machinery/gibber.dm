@@ -133,7 +133,7 @@
 
 	user.visible_message(SPAN_DANGER("[user] starts to put [victim] into [src]!"))
 	add_fingerprint(user)
-	if(!do_mob(user, 30 SECONDS, act_target = src) || occupant || !victim.Adjacent(src) || !user.Adjacent(src) || !victim.Adjacent(user))
+	if(!do_mob(user, victim, 30 SECONDS) || occupant || !victim.Adjacent(src) || !user.Adjacent(src) || !victim.Adjacent(user))
 		return
 	user.visible_message(SPAN_DANGER("[user] stuffs [victim] into [src]!"))
 	if(victim.client)

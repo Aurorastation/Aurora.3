@@ -338,20 +338,6 @@
 
 		SSvueui.check_uis_for_change(src)
 		return
-		if(contents.len >= max_n_of_items)
-			to_chat(user, "<span class='notice'>\The [src] is full.</span>")
-			return 1
-		else
-			user.remove_from_mob(O)
-			O.forceMove(src)
-			if(item_quants[O.name])
-				item_quants[O.name]++
-			else
-				item_quants[O.name] = 1
-			user.visible_message("<b>[user]</b> adds \a [O] to \the [src].", "<span class='notice'>You add \the [O] to \the [src].</span>")
-
-			SSvueui.check_uis_for_change(src)
-			return
 
 	if(istype(O, /obj/item/storage/bag) || istype(O, /obj/item/storage/box/produce))
 		var/obj/item/storage/P = O
