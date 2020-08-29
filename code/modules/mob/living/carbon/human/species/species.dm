@@ -394,7 +394,9 @@
 
 	if(inherent_spells)
 		for(var/spell_path in inherent_spells)
-			H.remove_spell(spell_path)
+			for(var/spell/spell in H.spell_list)
+				if(istype(spell, spell_path))
+					H.remove_spell(spell)
 	return
 
 /datum/species/proc/add_inherent_verbs(var/mob/living/carbon/human/H)
