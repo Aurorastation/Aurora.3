@@ -3615,10 +3615,10 @@
 	name = "Simple Syrup"
 	id = "simplesyrup"
 	result = /datum/reagent/drink/syrup_simple
-	required_reagents = list(/datum/reagent/sugar = 2, /datum/reagent/water = 1) // rich simple syrup, technically, but still
-	result_amount = 3
-	required_temperatures_min = list(/datum/reagent/drink/syrup_simple = T0C + 30)
-	required_temperatures_max = list(/datum/reagent/drink/syrup_simple = T0C + 82) // Sugar caramelises after this point.
+	required_reagents = list(/datum/reagent/sugar = 2, /datum/reagent/water = 2) // simple syrup, the sugar dissolves and doesn't change the volume too much
+	result_amount = 2
+	required_temperatures_min = list(/datum/reagent/sugar = T0C + 30, /datum/reagent/water = T0C + 30)
+	required_temperatures_max = list(/datum/reagent/sugar = T0C + 82, /datum/reagent/water = T0C + 100) // Sugar caramelises after 82C, water boils at 100C.
 	mix_message = "The sugar dissolves into the solution."
 
 /datum/chemical_reaction/caramelsyrup

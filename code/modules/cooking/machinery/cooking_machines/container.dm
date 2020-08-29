@@ -155,9 +155,11 @@
 	flags = OPENCONTAINER // Will still react
 	appliancetype = SKILLET
 
-/obj/item/reagent_containers/cooking_container/skillet/Initialize(var/mat_key)
-	. = ..()
+/obj/item/reagent_containers/cooking_container/skillet/Initialize(var/mapload, var/mat_key)
+	. = ..(mapload)
 	var/material/material = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
+	if(!material)
+		return
 	if(material.name != MATERIAL_STEEL)
 		color = material.icon_colour
 	name = "[material.display_name] [initial(name)]"
@@ -174,9 +176,11 @@
 	flags = OPENCONTAINER // Will still react
 	appliancetype = SAUCEPAN
 
-/obj/item/reagent_containers/cooking_container/saucepan/Initialize(var/mat_key)
-	. = ..()
+/obj/item/reagent_containers/cooking_container/saucepan/Initialize(var/mapload, var/mat_key)
+	. = ..(mapload)
 	var/material/material = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
+	if(!material)
+		return
 	if(material.name != MATERIAL_STEEL)
 		color = material.icon_colour
 	name = "[material.display_name] [initial(name)]"
@@ -194,10 +198,12 @@
 	appliancetype = POT
 	w_class = ITEMSIZE_LARGE
 
-/obj/item/reagent_containers/cooking_container/pot/Initialize(var/mat_key)
-	. = ..()
+/obj/item/reagent_containers/cooking_container/pot/Initialize(mapload, mat_key)
+	. = ..(mapload)
 	var/material/material = SSmaterials.get_material_by_name(mat_key || MATERIAL_STEEL)
-	if(material.name != MATERIAL_STEEL)
+	if(!material)
+		return
+	if(mat_key && mat_key != MATERIAL_STEEL)
 		color = material.icon_colour
 	name = "[material.display_name] [initial(name)]"
 

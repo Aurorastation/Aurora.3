@@ -64809,6 +64809,11 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/maintenance/research_port)
+"qfF" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/appliance/cooker/stove,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "qgs" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -99565,7 +99570,7 @@ bMi
 bLA
 bNG
 pcB
-bOY
+qfF
 bOR
 xPK
 gpm

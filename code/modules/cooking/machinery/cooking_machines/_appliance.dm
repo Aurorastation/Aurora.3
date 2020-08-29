@@ -231,11 +231,11 @@
 
 	// We can actually start cooking now.
 	user.visible_message("<b>[user]</b> puts [I] into [src].")
-
-	if(selected_option || select_recipe(CI.container || src, appliance = CI.container?.appliancetype || appliancetype)) // we have a valid recipe OR we're doing combo cooking
+	if(selected_option || length(CI.container.contents) || select_recipe(CI.container || src, appliance = CI.container?.appliancetype || appliancetype)) // we're doing combo cooking, we're not just heating reagents, OR we have a valid reagent-only recipe
 		// this is to stop reagents from burning when you're heating stuff
 		get_cooking_work(CI)
 		cooking = TRUE
+
 	return CI
 
 /obj/machinery/appliance/proc/get_cooking_work(var/datum/cooking_item/CI)
@@ -375,6 +375,8 @@
 //Combination cooking involves combining the names and reagents of ingredients into a predefined output object
 //The ingredients represent flavours or fillings. EG: donut pizza, cheese bread
 /obj/machinery/appliance/proc/combination_cook(var/datum/cooking_item/CI)
+	if(!CI.combine_target)
+		return
 	var/cook_path = output_options[CI.combine_target]
 
 	var/list/words = list()

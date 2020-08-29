@@ -294,10 +294,11 @@
 /proc/select_recipe(var/obj/obj as obj, var/exact = 0, var/appliance = 0)
 	if(!appliance)
 		return null
-	var/list/decl/recipe/available_recipes = decls_repository.get_decls_of_subtype(/decl/recipe)
-	var/list/decl/recipe/possible_recipes = list()
-	for (var/decl/recipe/recipe in available_recipes)
-		if(!appliance & recipe.appliance)
+	var/list/available_recipes = decls_repository.get_decls_of_subtype(/decl/recipe)
+	var/list/possible_recipes = list()
+	for (var/R in available_recipes)
+		var/decl/recipe/recipe = decls_repository.get_decl(R)
+		if(!(appliance & recipe.appliance))
 			continue
 		if((recipe.check_reagents(obj.reagents) < exact) || (recipe.check_items(obj) < exact) || (recipe.check_fruit(obj) < exact))
 			continue

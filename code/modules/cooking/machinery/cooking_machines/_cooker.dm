@@ -56,7 +56,7 @@
 	loss = (active_power_usage / resistance)*0.5
 	cooking_objs = list()
 	for(var/cctype in starts_with)
-		if(!has_space(I))
+		if (length(cooking_objs) >= max_contents)
 			break
 		var/obj/item/reagent_containers/cooking_container/CC = new cctype(src)
 		var/datum/cooking_item/CI = new /datum/cooking_item/(CC)
