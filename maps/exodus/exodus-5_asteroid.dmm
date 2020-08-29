@@ -2036,13 +2036,19 @@
 /area/outpost/research/kitchen)
 "eg" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
 /obj/machinery/light,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
 /turf/simulated/floor/wood,
 /area/outpost/research/kitchen)
 "eh" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
 /turf/simulated/floor/wood,
 /area/outpost/research/kitchen)
 "ei" = (
@@ -7407,7 +7413,10 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_north)
 "pe" = (
@@ -7421,9 +7430,6 @@
 "pf" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/cobweb2,
-/obj/machinery/microwave{
-	pixel_y = 6
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
@@ -8628,7 +8634,10 @@
 /area/outpost/engineering/meeting)
 "rc" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
 /turf/simulated/floor/carpet,
 /area/outpost/engineering/meeting)
 "rd" = (
@@ -9407,7 +9416,6 @@
 	dir = 8
 	},
 /obj/structure/table/standard,
-/obj/machinery/microwave,
 /turf/simulated/floor/wood,
 /area/outpost/engineering/meeting)
 "sA" = (
@@ -12150,7 +12158,10 @@
 /area/outpost/mining_west)
 "xw" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_west)
 "xx" = (
@@ -16050,11 +16061,6 @@
 /obj/effect/shuttle_landmark/skipjack/mining_asteroid,
 /turf/template_noop,
 /area/template_noop)
-"Hh" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
-/turf/simulated/floor/wood,
-/area/outpost/research/kitchen)
 "MY" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -16063,26 +16069,16 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/explored)
-"St" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
-/turf/simulated/floor/tiled,
-/area/outpost/mining_west)
 "SL" = (
 /turf/template_noop,
 /area/space)
 "Vn" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
 /obj/effect/floor_decal/corner/red/diagonal,
-/turf/simulated/floor/tiled,
-/area/outpost/mining_main/dorms)
-"VI" = (
-/obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_y = 6
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
 	},
-/obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/dorms)
 
@@ -30655,7 +30651,7 @@ ja
 ja
 xb
 xw
-St
+yc
 yF
 zq
 zO
@@ -48130,7 +48126,7 @@ ab
 ab
 ab
 wx
-VI
+yr
 yr
 Vn
 wx
@@ -61628,7 +61624,7 @@ bB
 bY
 bY
 by
-Hh
+dg
 df
 eh
 eD

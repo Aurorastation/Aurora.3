@@ -2488,19 +2488,11 @@
 /area/antag/mercenary)
 "amK" = (
 /obj/structure/table/reinforced,
-/obj/machinery/microwave{
-	pixel_x = -1;
-	pixel_y = 8
-	},
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
 /area/antag/mercenary)
 "amL" = (
-/obj/machinery/microwave{
-	pixel_x = -1;
-	pixel_y = 2
-	},
 /obj/structure/table/reinforced,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
@@ -2563,10 +2555,7 @@
 /area/antag/mercenary)
 "amS" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
+/obj/item/storage/box/snack,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -2592,15 +2581,12 @@
 	},
 /area/antag/mercenary)
 "amV" = (
-/obj/item/storage/box/donkpockets{
-	pixel_x = 2;
-	pixel_y = 3
-	},
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
 	},
 /obj/structure/table/reinforced,
+/obj/item/storage/box/snack,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
@@ -3706,13 +3692,6 @@
 /area/shuttle/administration)
 "apd" = (
 /obj/machinery/vending/cigarette,
-/turf/simulated/floor/shuttle{
-	icon_state = "floor4"
-	},
-/area/shuttle/administration)
-"ape" = (
-/obj/machinery/microwave,
-/obj/structure/table/reinforced,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
@@ -8517,10 +8496,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "aFV" = (
-/obj/machinery/microwave{
-	pixel_x = -1;
-	pixel_y = 8
-	},
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
@@ -9045,31 +9020,10 @@
 	icon_state = "floor3"
 	},
 /area/shuttle/skipjack)
-"aHH" = (
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/structure/table/standard,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/tdome)
 "aHI" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave,
+/obj/item/storage/box/snack,
+/obj/item/storage/box/snack,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -18936,14 +18890,6 @@
 	},
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape)
-"nOB" = (
-/obj/structure/table/steel,
-/obj/machinery/microwave,
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/centcom/shared_dream)
 "nQT" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
@@ -48265,7 +48211,7 @@ aox
 aTk
 aPx
 aMM
-ape
+apt
 aSA
 apv
 apU
@@ -48881,7 +48827,7 @@ bxw
 aGW
 aGW
 aGW
-aHH
+aGW
 wMr
 dwT
 llK
@@ -52077,7 +52023,7 @@ sBH
 sBH
 sBH
 shc
-nOB
+vOc
 cNv
 dRO
 cjq
