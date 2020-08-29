@@ -360,20 +360,20 @@
 	attacker_candidates -= attacker
 	if(prob(50))
 		to_chat(holder, SPAN_DANGER("[attacker] has hit [holder]!"))
-		sound_to(holder, pick('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg'))
+		sound_to(holder, "punch")
 	else
 		to_chat(holder, SPAN_DANGER("[attacker] attempted to shove [holder]!"))
-		sound_to(holder, 'sound/weapons/thudswoosh.ogg')
+		sound_to(holder, 'sound/weapons/push.ogg')
 
 	//If we are hallucinating particularly hard and there's another person adjacent to us, we imagine they attack us, too.
 	if(holder.hallucination >= 70 && attacker_candidates.len)
 		attacker = pick(attacker_candidates)
 		if(prob(50))
 			to_chat(holder, SPAN_DANGER("[attacker] has hit [holder]!"))
-			sound_to(holder, pick('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg'))
+			sound_to(holder, "punch")
 		else
 			to_chat(holder, SPAN_DANGER("[attacker] attempted to shove [holder]!"))
-			sound_to(holder, 'sound/weapons/thudswoosh.ogg')
+			sound_to(holder, 'sound/weapons/push.ogg')
 
 
 /////////////////////////////////////////////

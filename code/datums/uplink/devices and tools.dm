@@ -195,3 +195,15 @@
 	name = "Holographic Ammo Display"
 	item_cost = 2
 	path = /obj/item/ammo_display
+
+/datum/uplink_item/item/tools/mesons_glasses
+	name = "Mesons Scanners"
+	desc = "These glasses make use of meson-scanning technology to allow the wearer to see through solid walls and floors."
+	item_cost = 2
+	path = /obj/item/clothing/glasses/meson
+
+/datum/uplink_item/item/tools/materials_glasses
+	name = "Optical Material Scanner"
+	desc = "These glasses make use of scanning technology to allow the wearer to see objects through solid walls and floors."
+	item_cost = 2
+	path = /obj/item/clothing/glasses/material

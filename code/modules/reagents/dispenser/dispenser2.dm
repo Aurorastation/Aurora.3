@@ -3,7 +3,7 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "dispenser"
 	var/icon_state_active = "dispenser_active"
-	clicksound = "button"
+	clicksound = /decl/sound_category/button_sound
 
 	var/list/spawn_cartridges = null // Set to a list of types to spawn one of each on New()
 
@@ -22,7 +22,6 @@
 
 /obj/machinery/chemical_dispenser/Initialize()
 	. = ..()
-
 	if(spawn_cartridges)
 		for(var/type in spawn_cartridges)
 			add_cartridge(new type(src))
@@ -166,7 +165,7 @@
 	else if(href_list["ejectBeaker"])
 		if(container)
 			var/obj/item/reagent_containers/B = container
-			B.forceMove(loc)
+			usr.put_in_hands(B)
 			container = null
 			if(icon_state_active)
 				icon_state = initial(icon_state)

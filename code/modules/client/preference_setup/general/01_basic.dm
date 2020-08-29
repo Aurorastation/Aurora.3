@@ -119,7 +119,7 @@
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
 	if(!pref.species || !(pref.species in playable_species))
-		pref.species = "Human"
+		pref.species = SPECIES_HUMAN
 
 	pref.age                = sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
 	pref.gender             = sanitize_gender(pref.gender, pref.species)
@@ -199,7 +199,7 @@
 
 		var/datum/category_item/player_setup_item/general/equipment/equipment_item = category.items[4]
 		equipment_item.sanitize_character()	// sanitize equipment
-		return TOPIC_UPDATE_PREVIEW
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["age"])
 		var/new_age = input(user, "Choose your character's age:\n([pref.getMinAge()]-[pref.getMaxAge()])", "Character Preference", pref.age) as num|null

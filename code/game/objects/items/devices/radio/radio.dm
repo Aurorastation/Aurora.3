@@ -48,7 +48,7 @@ var/global/list/default_medbay_channels = list(
 	matter = list(DEFAULT_WALL_MATERIAL = 75, MATERIAL_GLASS = 25)
 	var/const/FREQ_LISTENING = TRUE
 	var/list/internal_channels
-	var/clicksound = "button" //played sound on usage
+	var/clicksound = /decl/sound_category/button_sound //played sound on usage
 	var/clickvol = 10 //volume
 
 

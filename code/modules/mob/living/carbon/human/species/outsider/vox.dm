@@ -1,5 +1,5 @@
 /datum/species/vox
-	name = "Vox"
+	name = SPECIES_VOX
 	short_name = "vox"
 	name_plural = "Vox"
 	icobase = 'icons/mob/human_races/r_vox.dmi'
@@ -85,7 +85,7 @@
 	H.internals.icon_state = "internal1"
 
 /datum/species/vox/armalis
-	name = "Vox Armalis"
+	name = SPECIES_VOX_ARMALIS
 	name_plural = "Vox"
 	icobase = 'icons/mob/human_races/r_armalis.dmi'
 	deform = 'icons/mob/human_races/r_armalis.dmi'

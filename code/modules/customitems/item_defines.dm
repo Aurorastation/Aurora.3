@@ -349,7 +349,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	user.visible_message("<span class='notice'>[user] starts flipping through \the [src].</span>",
 						"<span class='notice'>You start looking through \the [src], it appears to be filled with translations of Tau-Ceti basic for tajaran users.</span>",
 						"<span class='notice'>You hear pages being flipped.</span>")
-	playsound(src.loc, "pageturn", 50, 1)
+	playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
 
 
 /obj/item/clothing/under/fluff/faysal_uniform //Old Tajaran Nobleman Suit - Faysal Al-Shennawi - alberyk
@@ -369,7 +369,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "ghoz_eyes"
 	contained_sprite = TRUE
 	action_button_name = "Toggle Eyelids"
-	species_restricted = list("Vaurca") //i think this would make sense since those are some kind of vaurca build prothestic
+	species_restricted = list(BODYTYPE_VAURCA) //i think this would make sense since those are some kind of vaurca build prothestic
 
 
 /obj/item/clothing/head/det/fluff/leo_hat //Tagged brown hat - Leo Wyatt - keinto
@@ -956,7 +956,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "aegis_uniform"
 	item_state = "aegis_uniform"
 	contained_sprite = TRUE
-	species_restricted = list("Heavy Machine")
+	species_restricted = list(BODYTYPE_IPC_INDUSTRIAL)
 
 
 /obj/item/fluff/daliyah_visa //NanoTrasen Exchange Visa - Daliyah Veridan - xanderdox
@@ -1040,7 +1040,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if (use_check_and_message(usr)) return
 
 	if(!lit)
-		usr.visible_message("<span class='notice'>With a snap of \the [usr]'s fingers, a small lighter flame sparks from \his index fingers!</span>")
+		usr.visible_message("<span class='notice'>With a snap of \the [usr]'s fingers, a small lighter flame sparks from [usr.get_pronoun("his")] index fingers!</span>")
 		lit = TRUE
 		playsound(src.loc, 'sound/items/cigs_lighters/zippo_on.ogg', 75, 1)
 		update_icon()
@@ -1048,7 +1048,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	else
-		usr.visible_message("<span class='notice'>With the flick of \the [usr] wrists and the pinch of \his fingers, the glove's flames are extinguished.</span>")
+		usr.visible_message("<span class='notice'>With the flick of \the [usr]'s wrists and the pinch of [usr.get_pronoun("his")] fingers, the glove's flames are extinguished.</span>")
 		lit = FALSE
 		playsound(src.loc, 'sound/items/cigs_lighters/zippo_off.ogg', 75, 1)
 		update_icon()
@@ -1925,7 +1925,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		has_bedroll = TRUE
 		return
 
-/obj/structure/closet/fluff/muhawir_tent/verb/dismantle()
+/obj/structure/closet/fluff/muhawir_tent/verb/dismantle_tent()
 	set name = "Dismantle Tent"
 	set category = "Object"
 	set src in view(1)

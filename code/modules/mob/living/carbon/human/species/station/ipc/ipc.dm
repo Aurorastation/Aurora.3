@@ -1,8 +1,8 @@
 /datum/species/machine
-	name = "Baseline Frame"
+	name = SPECIES_IPC
 	short_name = "ipc"
 	name_plural = "Baselines"
-	bodytype = "Machine"
+	bodytype = BODYTYPE_IPC
 	age_min = 1
 	age_max = 30
 	economic_modifier = 3
@@ -114,7 +114,7 @@
 
 	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA, CITIZENSHIP_GOLDEN)
 	default_citizenship = CITIZENSHIP_NONE
-	bodyfall_sound = "bodyfall_machine"
+	bodyfall_sound = /decl/sound_category/bodyfall_machine_sound
 
 	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
 							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_TTS)

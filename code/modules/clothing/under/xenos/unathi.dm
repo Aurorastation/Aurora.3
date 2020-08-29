@@ -118,7 +118,7 @@
 	item_state = "thakh_wrappings"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
-	species_restricted = list("Unathi")
+	species_restricted = list(BODYTYPE_UNATHI)
 	contained_sprite = TRUE
 
 /obj/item/clothing/mask/gas/wrapping
@@ -128,5 +128,5 @@
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "thakh_mask" //special thanks to Araskael
 	item_state = "thakh_mask"
-	species_restricted = list("Unathi")
+	species_restricted = list(BODYTYPE_UNATHI)
 	contained_sprite = TRUE

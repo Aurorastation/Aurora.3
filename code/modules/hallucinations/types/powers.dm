@@ -79,7 +79,7 @@
 	to_chat(usr, SPAN_NOTICE("<b>You dip your mentality into the surface layer of \the [target]'s mind, seeking a prominent thought.</b>"))
 	if(do_after(usr, 30))
 		sleep(rand(50, 120))
-		usr.visible_message("<B>[usr]</B> puts [usr.get_pronoun(1)] hands to [usr.get_pronoun(1)] head and mumbles incoherently as they stare, unblinking, at \the [target].",
+		usr.visible_message("<B>[usr]</B> puts [usr.get_pronoun("his")] hands to [usr.get_pronoun("his")] head and mumbles incoherently as they stare, unblinking, at \the [target].",
 						SPAN_NOTICE("<b>You skim thoughts from the surface of \the [target]'s mind: \"<i>[pick(SShallucinations.hallucinated_phrases)]</i>\"</b>"))
 	else
 		to_chat(usr, SPAN_WARNING("You need to stay still to focus your energy!"))

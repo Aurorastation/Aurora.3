@@ -89,7 +89,7 @@
 	//give them an account in the station database
 	var/species_modifier = (H.species ? H.species.economic_modifier : null)
 	if (!species_modifier)
-		var/datum/species/human_species = global.all_species["Human"]
+		var/datum/species/human_species = global.all_species[SPECIES_HUMAN]
 		species_modifier = human_species.economic_modifier
 
 	var/money_amount = (rand(5,50) + rand(5, 50)) * loyalty * economic_modifier * species_modifier

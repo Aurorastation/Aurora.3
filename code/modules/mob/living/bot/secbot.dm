@@ -307,7 +307,7 @@
 		var/mob/living/simple_animal/S = M
 		S.adjustBruteLoss(15)
 		do_attack_animation(M)
-		playsound(loc, "swing_hit", 50, 1, -1)
+		playsound(loc, /decl/sound_category/swing_hit_sound, 50, 1, -1)
 		is_attacking = 1
 		update_icon()
 		addtimer(CALLBACK(src, .proc/stop_attacking_cb), 2)

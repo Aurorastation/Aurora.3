@@ -31,6 +31,8 @@
 
 	var/welded = 0
 
+	var/broadcast_status_next_process = FALSE
+
 /obj/machinery/atmospherics/unary/vent_scrubber/on
 	use_power = 1
 	icon_state = "map_scrubber_on"
@@ -138,7 +140,11 @@
 
 	if (!node)
 		use_power = 0
-	//broadcast_status()
+
+	if (broadcast_status_next_process)
+		broadcast_status()
+		broadcast_status_next_process = FALSE
+
 	if(!use_power || (stat & (NOPOWER|BROKEN)))
 		return 0
 	if(welded)
@@ -244,11 +250,10 @@
 		return
 
 	if(signal.data["status"] != null)
-		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+		broadcast_status_next_process = TRUE
 		return //do not update_icon
 
-//			log_debug("DEBUG \[[world.timeofday]\]: vent_scrubber/receive_signal: unknown command \"[signal.data["command"]]\"\n[signal.debug_print()]")
-	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+	broadcast_status_next_process = TRUE
 	update_icon()
 	return
 

@@ -340,6 +340,7 @@
 #define CARGO_CONTAINER_CRATE "crate"
 #define CARGO_CONTAINER_FREEZER "freezer"
 #define CARGO_CONTAINER_BOX "box"
+#define CARGO_CONTAINER_BODYBAG "bodybag"
 
 // We should start using these.
 #define ITEMSIZE_TINY   1

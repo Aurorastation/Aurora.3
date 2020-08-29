@@ -976,7 +976,7 @@ mob/living/carbon/human/proc/change_monitor()
 	updatehealth()
 	UpdateDamageIcon()
 
-	visible_message("<span class='notice'>\The [src] detaches \his [E]!</span>",
+	visible_message("<span class='notice'>\The [src] detaches [get_pronoun("his")] [E]!</span>",
 			"<span class='notice'>You detach your [E]!</span>")
 
 /mob/living/carbon/human/proc/attach_limb()
@@ -1023,7 +1023,7 @@ mob/living/carbon/human/proc/change_monitor()
 		updatehealth()
 		UpdateDamageIcon()
 
-		visible_message("<span class='notice'>\The [src] attaches \the [O] to \his body!</span>",
+		visible_message("<span class='notice'>\The [src] attaches \the [O] to [get_pronoun("his")] body!</span>",
 				"<span class='notice'>You attach \the [O] to your body!</span>")
 
 /mob/living/carbon/human/proc/self_diagnostics()

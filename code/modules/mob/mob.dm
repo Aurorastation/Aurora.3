@@ -207,7 +207,13 @@
 	return 0
 
 /mob/proc/movement_delay()
-	return 0
+	. = get_pulling_movement_delay()
+
+/mob/proc/get_pulling_movement_delay()
+	. = 0
+	if(istype(pulling, /obj/structure))
+		var/obj/structure/P = pulling
+		. += P.slowdown
 
 /mob/proc/Life()
 	return
@@ -728,9 +734,6 @@
 
 /mob/proc/is_ready()
 	return client && !!mind
-
-/mob/proc/get_gender()
-	return gender
 
 /mob/proc/see(message)
 	if(!is_active())

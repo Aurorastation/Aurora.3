@@ -95,7 +95,7 @@
 	if(!emagged)
 		emmaged = TRUE
 		spark(src, 3)
-		playsound(src, "sparks", 50, 1)
+		playsound(src, /decl/sound_category/spark_sound, 50, 1)
 		return TRUE
 
 /obj/machinery/computer/slot_machine/ui_interact(mob/living/user)
