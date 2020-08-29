@@ -34,7 +34,7 @@
 
 /decl/recipe
 	var/display_name
-	var/list/reagents // example: = list("berryjuice" = 5) // do not list same reagent twice
+	var/list/reagents // example: = list(/datum/reagent/drink/berryjuice = 5) // do not list same reagent twice
 	var/list/items    // example: = list(/obj/item/crowbar, /obj/item/welder) // place /foo/bar before /foo
 	var/list/fruit    // example: = list("fruit" = 3)
 	var/datum/reagent/coating = null//Required coating on all items in the recipe. The default value of null explitly requires no coating
@@ -71,7 +71,7 @@
 /decl/recipe/proc/get_appliance_names()
 	var/list/appliance_names
 	if(appliance & MIX)
-		LAZYADD(appliance_names, "a mixing bowl or ")
+		LAZYADD(appliance_names, "a mixing bowl or plate")
 	if(appliance & FRYER)
 		LAZYADD(appliance_names, "a fryer")
 	if(appliance & OVEN)

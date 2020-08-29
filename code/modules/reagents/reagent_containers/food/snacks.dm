@@ -908,6 +908,7 @@
 	reagents_to_add = list(/datum/reagent/nutriment/protein = 6, /datum/reagent/nutriment/coating/batter = 1.7, /datum/reagent/nutriment/triglyceride/oil = 1.5)
 
 /obj/item/reagent_containers/food/snacks/sausage/battered/Initialize()
+	. = ..()
 	coating = reagents.get_reagent(/datum/reagent/nutriment/coating/batter)
 
 /obj/item/reagent_containers/food/snacks/jalapeno_poppers
@@ -922,6 +923,7 @@
 	bitesize = 1
 
 /obj/item/reagent_containers/food/snacks/jalapeno_poppers/Initialize()
+	. = ..()
 	coating = reagents.get_reagent(/datum/reagent/nutriment/coating/batter)
 
 /obj/item/reagent_containers/food/snacks/donkpocket
