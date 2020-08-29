@@ -472,7 +472,9 @@
 	src.visible_message("<span class='danger'>[user] has [attack_message] [src]!</span>")
 	user.do_attack_animation(src)
 
-	var/dam_zone = pick(organs_by_name)
+	var/dam_zone = user.zone_sel?.selecting
+	if(!dam_zone)
+		dam_zone = pick(organs)
 	var/obj/item/organ/external/affecting = get_organ(ran_zone(dam_zone))
 	var/armor_block = run_armor_check(affecting, "melee")
 	apply_damage(damage, BRUTE, affecting, armor_block)

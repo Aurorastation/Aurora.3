@@ -37,6 +37,9 @@
 		if(mob_name_suffix)
 			pick_message = "[pick_message] Auto Suffix: \"[mob_name_suffix]\" "
 		mname = sanitizeSafe(input(user, pick_message, "Name for a [species] (without prefix/suffix)"))
+	
+	if(!mname)
+		mname = pick(last_names)
 
 	if(mob_name_prefix)
 		mname = replacetext(mname,mob_name_prefix,"") //Remove the prefix if it exists in the string
