@@ -187,7 +187,7 @@ var/datum/antagonist/raider/raiders
 		player.force_update_limbs()
 		player.update_eyes()
 		player.regenerate_icons()
-		equip_weapons(player)
+		//equip_weapons(player)
 
 	//Try to equip it, del if we fail.
 	var/obj/item/device/contract_uplink/new_uplink = new()
