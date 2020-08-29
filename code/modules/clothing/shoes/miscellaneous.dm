@@ -86,11 +86,11 @@ obj/item/clothing/shoes/sandal/clogs
 	if(running)
 		if(footstep >= 2)
 			footstep = 0
-			playsound(src, "clownstep", 50, 1) // this will get annoying very fast.
+			playsound(src, /decl/sound_category/clown_sound, 50, 1) // this will get annoying very fast.
 		else
 			footstep++
 	else
-		playsound(src, "clownstep", 20, 1)
+		playsound(src, /decl/sound_category/clown_sound, 20, 1)
 
 /obj/item/clothing/shoes/cult
 	name = "ragged boots"
@@ -243,8 +243,8 @@ obj/item/clothing/shoes/sandal/clogs
 	body_parts_covered = FEET|LEGS
 	species_restricted = null
 	sprite_sheets = list(
-		"Tajara" = 'icons/mob/species/tajaran/shoes.dmi',
-		"Unathi" = 'icons/mob/species/unathi/shoes.dmi')
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/shoes.dmi',
+		BODYTYPE_UNATHI = 'icons/mob/species/unathi/shoes.dmi')
 
 /obj/item/clothing/shoes/caligae/white
 	name = "white caligae"

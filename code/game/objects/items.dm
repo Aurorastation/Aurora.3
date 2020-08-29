@@ -10,7 +10,7 @@
 	var/health
 	var/burn_point
 	var/burning
-	var/hitsound = "swing_hit" //generic hit sound.
+	var/hitsound = /decl/sound_category/swing_hit_sound//generic hit sound.
 	var/storage_cost
 	var/slot_flags = 0		//This is used to determine on which slots an item can fit.
 	var/no_attack_log = 0			//If it's an item we don't want to log attack_logs with, set this to 1
@@ -53,9 +53,9 @@
 	///Sound used when equipping the item into a valid slot
 	var/equip_sound = null
 	///Sound uses when picking the item up (into your hands)
-	var/pickup_sound = 'sound/items/pickup/device.ogg'
+	var/pickup_sound = /decl/sound_category/generic_pickup_sound
 	///Sound uses when dropping the item, or when its thrown.
-	var/drop_sound = 'sound/items/drop/device.ogg' // drop sound - this is the default
+	var/drop_sound = /decl/sound_category/generic_drop_sound // drop sound - this is the default
 
 	//Item_state definition moved to /obj
 	//var/item_state = null // Used to specify the item state for the on-mob overlays.
@@ -75,7 +75,7 @@
 	/* Species-specific sprites, concept stolen from Paradise//vg/.
 	ex:
 	sprite_sheets = list(
-		"Tajara" = 'icons/cat/are/bad'
+		BODYTYPE_TAJARA = 'icons/cat/are/bad'
 		)
 	If index term exists and icon_override is not set, this sprite sheet will be used.
 	*/
@@ -111,6 +111,8 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi',
 		)
+	pickup_sound = 'sound/items/pickup/device.ogg'
+	drop_sound = 'sound/items/drop/device.ogg'
 
 /atom/proc/get_cell()
 	return DEVICE_NO_CELL

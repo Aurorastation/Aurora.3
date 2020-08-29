@@ -8,10 +8,12 @@
 	icon_opened = "crateopen"
 	icon_closed = "crate"
 	climbable = 1
-//	mouse_drag_pointer = MOUSE_ACTIVE_POINTER	//???
+	build_amt = 10
 	var/rigged = 0
 	var/tablestatus = 0
 	pass_flags = PASSTABLE
+
+	slowdown = 0
 
 
 /obj/structure/closet/crate/can_open()
@@ -349,7 +351,7 @@
 		add_overlay(emag)
 		add_overlay(sparks)
 		CUT_OVERLAY_IN(sparks, 6)
-		playsound(loc, "sparks", 60, 1)
+		playsound(loc, /decl/sound_category/spark_sound, 60, 1)
 		locked = 0
 		broken = 1
 		to_chat(user, "<span class='notice'>You unlock \the [src].</span>")
@@ -690,7 +692,10 @@
 		"critter" = "critteropen",
 		"largemetal" = "largemetalopen",
 		"medicalcrate" = "medicalcrateopen",
-		"tcflcrate" = "tcflcrateopen"
+		"tcflcrate" = "tcflcrateopen",
+		"necrocrate" = "necrocrateopen",
+		"zenghucrate" = "zenghucrateopen",
+		"hephcrate" = "hephcrateopen"
 	)
 
 

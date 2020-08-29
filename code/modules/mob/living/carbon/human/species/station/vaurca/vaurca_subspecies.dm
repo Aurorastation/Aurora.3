@@ -1,10 +1,10 @@
 /datum/species/bug/type_b
-	name = "Vaurca Warrior"
+	name = SPECIES_VAURCA_WARRIOR
 	short_name = "vaw"
 	name_plural = "Type BA"
 	language = LANGUAGE_VAURCA
-	primitive_form = "Vaurca Worker"
-	greater_form = "Vaurca Breeder"
+	primitive_form = SPECIES_VAURCA_WORKER
+	greater_form = SPECIES_VAURCA_BREEDER
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcab.dmi'
 	slowdown = 0
 
@@ -40,11 +40,11 @@
 		)
 
 /datum/species/bug/type_c
-	name = "Vaurca Breeder"
+	name = SPECIES_VAURCA_BREEDER
 	short_name = "vab"
 	name_plural = "Type CB"
-	bodytype = "Vaurca Breeder"
-	primitive_form = "Vaurca Warrior"
+	bodytype = BODYTYPE_VAURCA_BREEDER
+	primitive_form = SPECIES_VAURCA_WARRIOR
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
@@ -88,11 +88,11 @@
 	return
 
 /datum/species/bug/type_big
-	name = "Vaurca Warform"
+	name = SPECIES_VAURCA_WARFORM
 	short_name = "vam"
 	name_plural = "Type BA"
-	bodytype = "Vaurca Warform"
-	primitive_form = "Vaurca Warrior"
+	bodytype = BODYTYPE_VAURCA_WARFORM
+	primitive_form = SPECIES_VAURCA_WARRIOR
 	icon_template = 'icons/mob/human_races/vaurca/r_vaurcamecha.dmi'
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcamecha.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcamecha.dmi'

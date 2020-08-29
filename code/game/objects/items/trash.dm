@@ -148,6 +148,9 @@
 	. = ..()
 	randpixel_xy()
 
+/obj/item/trash/can/adhomian_can
+	icon_state = "can-used"
+
 /obj/item/trash/tuna
 	name = "\improper Tuna Snax"
 	icon_state = "tuna"

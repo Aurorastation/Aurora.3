@@ -1,30 +1,30 @@
-var/global/list/golem_types = list("Coal Golem",
-								   "Iron Golem",
-								   "Bronze Golem",
-								   "Steel Golem",
-								   "Plasteel Golem",
-								   "Titanium Golem",
-								   "Cloth Golem",
-								   "Cardboard Golem",
-								   "Glass Golem",
-								   "Phoron Golem",
-								   "Metallic Hydrogen Golem",
-								   "Wood Golem",
-								   "Diamond Golem",
-								   "Sand Golem",
-								   "Uranium Golem",
-								   "Homunculus",
-								   "Adamantine Golem")
+var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
+								   SPECIES_GOLEM_IRON,
+								   SPECIES_GOLEM_BRONZE,
+								   SPECIES_GOLEM_STEEL,
+								   SPECIES_GOLEM_PLASTEEL,
+								   SPECIES_GOLEM_TITANIUM,
+								   SPECIES_GOLEM_CLOTH,
+								   SPECIES_GOLEM_CARDBOARD,
+								   SPECIES_GOLEM_GLASS,
+								   SPECIES_GOLEM_PHORON,
+								   SPECIES_GOLEM_HYDROGEN,
+								   SPECIES_GOLEM_WOOD,
+								   SPECIES_GOLEM_DIAMOND,
+								   SPECIES_GOLEM_SAND,
+								   SPECIES_GOLEM_URANIUM,
+								   SPECIES_GOLEM_MEAT,
+								   SPECIES_GOLEM_ADAMANTINE)
 
 /datum/species/golem
-	name = "Coal Golem"
+	name = SPECIES_GOLEM_COAL
 	name_plural = "coal golems"
 
 	icobase = 'icons/mob/human_races/golem/r_coal.dmi'
 	deform = 'icons/mob/human_races/golem/r_coal.dmi'
 	eyes = "blank_eyes"
 
-	bodytype = "Golem"
+	bodytype = BODYTYPE_GOLEM
 
 	language = "Ceti Basic"
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick, /datum/unarmed_attack/punch)
@@ -44,7 +44,6 @@ var/global/list/golem_types = list("Coal Golem",
 
 	brute_mod = 2
 	burn_mod = 4
-	virus_immune = 1
 	grab_mod = 2
 	resist_mod = 2
 
@@ -127,7 +126,7 @@ var/global/list/golem_types = list("Coal Golem",
 	return FALSE
 
 /datum/species/golem/iron
-	name = "Iron Golem"
+	name = SPECIES_GOLEM_IRON
 	name_plural = "iron golems"
 
 	siemens_coefficient = 1.2
@@ -163,7 +162,7 @@ var/global/list/golem_types = list("Coal Golem",
 	..()
 
 /datum/species/golem/bronze
-	name = "Bronze Golem"
+	name = SPECIES_GOLEM_BRONZE
 	name_plural = "bronze golems"
 
 	icobase = 'icons/mob/human_races/golem/r_bronze.dmi'
@@ -191,7 +190,7 @@ var/global/list/golem_types = list("Coal Golem",
 	golem_designation = "Bronze"
 
 /datum/species/golem/steel
-	name = "Steel Golem"
+	name = SPECIES_GOLEM_STEEL
 	name_plural = "steel golems"
 
 	siemens_coefficient = 1.3
@@ -229,7 +228,7 @@ var/global/list/golem_types = list("Coal Golem",
 	..()
 
 /datum/species/golem/plasteel
-	name = "Plasteel Golem"
+	name = SPECIES_GOLEM_PLASTEEL
 	name_plural = "plasteel golems"
 
 	siemens_coefficient = 1.2
@@ -269,7 +268,7 @@ var/global/list/golem_types = list("Coal Golem",
 	..()
 
 /datum/species/golem/titanium
-	name = "Titanium Golem"
+	name = SPECIES_GOLEM_TITANIUM
 	name_plural = "titanium golems"
 
 	siemens_coefficient = 0.5
@@ -310,7 +309,7 @@ var/global/list/golem_types = list("Coal Golem",
 	..()
 
 /datum/species/golem/cloth
-	name = "Cloth Golem"
+	name = SPECIES_GOLEM_CLOTH
 	name_plural = "cloth golems"
 
 	icobase = 'icons/mob/human_races/golem/r_cloth.dmi'
@@ -337,7 +336,7 @@ var/global/list/golem_types = list("Coal Golem",
 	golem_designation = "Cloth"
 
 /datum/species/golem/cardboard
-	name = "Cardboard Golem"
+	name = SPECIES_GOLEM_CARDBOARD
 	name_plural = "cardboard golems"
 
 	icobase = 'icons/mob/human_races/golem/r_cardboard.dmi'
@@ -362,7 +361,7 @@ var/global/list/golem_types = list("Coal Golem",
 	golem_designation = "Cardboard"
 
 /datum/species/golem/glass
-	name = "Glass Golem"
+	name = SPECIES_GOLEM_GLASS
 	name_plural = "glass golems"
 
 	fall_mod = 2
@@ -382,7 +381,7 @@ var/global/list/golem_types = list("Coal Golem",
 	death_message = "shatters into many shards!"
 	death_message_range = 7
 
-	death_sound = "glass_break"
+	death_sound = /decl/sound_category/glass_break_sound
 
 	heat_level_1 = T0C+350
 	heat_level_2 = T0C+550
@@ -424,7 +423,7 @@ var/global/list/golem_types = list("Coal Golem",
 	..()
 
 /datum/species/golem/phoron
-	name = "Phoron Golem"
+	name = SPECIES_GOLEM_PHORON
 	name_plural = "phoron golems"
 
 	brute_mod = 1
@@ -463,7 +462,7 @@ var/global/list/golem_types = list("Coal Golem",
 	..()
 
 /datum/species/golem/silver
-	name = "Silver Golem"
+	name = SPECIES_GOLEM_SILVER
 	name_plural = "silver golems"
 
 	siemens_coefficient = 2.5
@@ -490,7 +489,7 @@ var/global/list/golem_types = list("Coal Golem",
 	..()
 
 /datum/species/golem/gold
-	name = "Gold Golem"
+	name = SPECIES_GOLEM_GOLD
 	name_plural = "gold golems"
 
 	siemens_coefficient = 2
@@ -517,7 +516,7 @@ var/global/list/golem_types = list("Coal Golem",
 	..()
 
 /datum/species/golem/mhydrogen
-	name = "Metallic Hydrogen Golem"
+	name = SPECIES_GOLEM_HYDROGEN
 	name_plural = "metallic hydrogen golems"
 
 	siemens_coefficient = 3
@@ -548,7 +547,7 @@ var/global/list/golem_types = list("Coal Golem",
 	..()
 
 /datum/species/golem/wood
-	name = "Wood Golem"
+	name = SPECIES_GOLEM_WOOD
 	name_plural = "wood golems"
 
 	icobase = 'icons/mob/human_races/golem/r_wood.dmi'
@@ -573,7 +572,7 @@ var/global/list/golem_types = list("Coal Golem",
 	golem_designation = "Wooden"
 
 /datum/species/golem/diamond
-	name = "Diamond Golem"
+	name = SPECIES_GOLEM_DIAMOND
 	name_plural = "diamond golems"
 
 	siemens_coefficient = 0
@@ -619,7 +618,7 @@ var/global/list/golem_types = list("Coal Golem",
 			return -1 // complete projectile permutation
 
 /datum/species/golem/marble
-	name = "Marble Golem"
+	name = SPECIES_GOLEM_MARBLE
 	name_plural = "marble golems"
 
 	siemens_coefficient = 0.3
@@ -649,7 +648,7 @@ var/global/list/golem_types = list("Coal Golem",
 	..()
 
 /datum/species/golem/sand
-	name = "Sand Golem"
+	name = SPECIES_GOLEM_SAND
 	name_plural = "sand golems"
 
 	siemens_coefficient = 0.2
@@ -699,10 +698,10 @@ var/global/list/golem_types = list("Coal Golem",
 
 /datum/species/golem/sand/proc/glassify(var/mob/living/carbon/human/H)
 	H.visible_message("<span class='warning'>\The [H] vitrifies into a glass construct!</span>")
-	H.set_species("Glass Golem")
+	H.set_species(SPECIES_GOLEM_GLASS)
 
 /datum/species/golem/plastic
-	name = "Plastic Golem"
+	name = SPECIES_GOLEM_PLASTIC
 	name_plural = "plastic golems"
 
 	siemens_coefficient = 0.4
@@ -732,7 +731,7 @@ var/global/list/golem_types = list("Coal Golem",
 	..()
 
 /datum/species/golem/uranium
-	name = "Uranium Golem"
+	name = SPECIES_GOLEM_URANIUM
 	name_plural = "uranium golems"
 
 	siemens_coefficient = 1.3
@@ -769,7 +768,7 @@ var/global/list/golem_types = list("Coal Golem",
 			L.apply_effect(150, IRRADIATE, blocked = L.getarmor(null, "rad"))
 
 /datum/species/golem/homunculus
-	name = "Homunculus"
+	name = SPECIES_GOLEM_MEAT
 	name_plural = "homunculus"
 
 	flags = NO_PAIN | NO_SCAN
@@ -835,7 +834,7 @@ var/global/list/golem_types = list("Coal Golem",
 		H.drip(1)
 
 /datum/species/golem/adamantine
-	name = "Adamantine Golem"
+	name = SPECIES_GOLEM_ADAMANTINE
 	name_plural = "adamantine golems"
 
 	icobase = 'icons/mob/human_races/r_golem.dmi'

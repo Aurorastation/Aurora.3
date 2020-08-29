@@ -234,7 +234,7 @@
 
 /obj/item/device/lightreplacer/emag_act(var/remaining_charges, var/mob/user)
 	emagged = !emagged
-	playsound(src.loc, "sparks", 100, 1)
+	playsound(src.loc, /decl/sound_category/spark_sound, 100, 1)
 	update_icon()
 	return 1
 

@@ -68,6 +68,13 @@
 		"Corporate Liaison" = /datum/outfit/job/representative/hephaestus
 	)
 
+	job_species_blacklist = list(
+		"Corporate Liaison" = list(
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR
+		)
+	)
+
 /datum/outfit/job/engineer/hephaestus
 	name = "Station Engineer - Hephaestus"
 	uniform = /obj/item/clothing/under/rank/hephaestus
@@ -105,3 +112,7 @@
 	suit = null
 	implants = null
 	id = /obj/item/card/id/hephaestus
+
+	backpack_contents = list(
+		/obj/item/stamp/hephaestus = 1
+	)

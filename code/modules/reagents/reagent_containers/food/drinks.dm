@@ -36,6 +36,9 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 /obj/item/reagent_containers/food/drinks/on_reagent_change()
 	update_icon()
 
+/obj/item/reagent_containers/food/drinks/on_rag_wipe(var/obj/item/reagent_containers/glass/rag/R)
+	clean_blood()
+
 /obj/item/reagent_containers/food/drinks/update_icon()
 	if(!reagents.total_volume)
 		if(drink_flags & UNIQUE_EMPTY_ICON)

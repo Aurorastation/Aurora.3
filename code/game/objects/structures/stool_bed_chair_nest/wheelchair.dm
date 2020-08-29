@@ -9,6 +9,8 @@
 	var/mob/living/pulling = null
 	var/bloodiness
 
+	slowdown = 0
+
 /obj/structure/bed/chair/wheelchair/update_icon()
 	cut_overlays()
 	add_overlay(image(icon = 'icons/obj/furniture.dmi', icon_state = "w_overlay", layer = FLY_LAYER))
@@ -154,7 +156,7 @@
 		occupant.apply_effect(6, WEAKEN, blocked)
 		occupant.apply_effect(6, STUTTER, blocked)
 		occupant.apply_damage(10, BRUTE, def_zone, blocked)
-		playsound(src.loc, 'sound/weapons/punch1.ogg', 50, 1, -1)
+		playsound(src.loc, "punch", 50, 1, -1)
 		if(istype(A, /mob/living))
 			var/mob/living/victim = A
 			def_zone = ran_zone()
