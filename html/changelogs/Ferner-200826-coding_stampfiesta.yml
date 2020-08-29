@@ -1,6 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - rscadd: "Added some new, faction specific stamps, some corporate liaisons and consular representatives spawn with them."
-  - tweak: "Chameleon stamps now have a rename function, incase you need to fake the authority of a smaller faction that doesn't have an official stamp design(yet)."
-  - bugfix: "Chameleon stamps now exclude fluff/custom item stamps from their selection."
