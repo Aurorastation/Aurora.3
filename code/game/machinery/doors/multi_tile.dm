@@ -38,7 +38,6 @@
 				hatch_image.pixel_x = hatch_offset_y
 				hatch_image.pixel_y = hatch_offset_x
 			if(SOUTH)
-				to_world("south")
 				hatch_image.transform = turn(hatch_image.transform, 90)
 				hatch_image.pixel_x = hatch_offset_y
 				hatch_image.pixel_y = hatch_offset_x
