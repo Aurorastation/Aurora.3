@@ -705,10 +705,10 @@
 		desc = "You can't make out anything from the flag's original print. It's ruined."
 		add_fingerprint(user)
 
-/obj/structure/sign/flag/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/sign/flag/attackby(obj/item/W, mob/user)
 	..()
 
-	if(istype(W, /obj/item/flame/lighter))
+	if(W.isFlameSource())
 
 		visible_message(SPAN_WARNING("\The [user] starts to burn \the [src] down!"))
 
