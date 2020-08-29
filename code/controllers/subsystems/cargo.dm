@@ -296,7 +296,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		return path_error
 
 	//Check if a valid container is specified
-	if(!(ci.container_type == CARGO_CONTAINER_CRATE || ci.container_type == CARGO_CONTAINER_FREEZER || ci.container_type == CARGO_CONTAINER_BOX))
+	if(!(ci.container_type in list(CARGO_CONTAINER_CRATE, CARGO_CONTAINER_FREEZER, CARGO_CONTAINER_BOX, CARGO_CONTAINER_BODYBAG)))
 		log_debug("SScargo: Invalid container type specified for item [name] - [id]: Aborting")
 		qdel(ci)
 		return "Invalid container type specified for item [name] - [id]"
@@ -676,8 +676,9 @@ var/datum/controller/subsystem/cargo/SScargo
 		var/obj/A = new containertype(pickedloc)
 
 		//Label the crate
-		//TODO-CARGO: Look into wrapping it in a the suppliers paper
-		A.name = "[co.order_id] - [co.ordered_by]"
+		A.name_unlabel = A.name
+		A.name = "[A.name] ([co.order_id] - [co.ordered_by])"
+		A.verbs += /atom/proc/remove_label
 
 		//Set the access requirement
 		if(co.required_access.len > 0)

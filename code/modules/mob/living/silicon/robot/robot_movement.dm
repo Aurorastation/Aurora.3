@@ -31,4 +31,14 @@
 			up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
 
 /mob/living/silicon/robot/movement_delay()
-	return speed
+	. = speed
+	. += get_pulling_movement_delay()
+
+/mob/living/silicon/robot/get_pulling_movement_delay()
+	. = ..()
+
+	if(ishuman(pulling))
+		var/mob/living/carbon/human/H = pulling
+		if(H.species.slowdown > speed)
+			. += H.species.slowdown - speed
+		. += H.ClothesSlowdown()

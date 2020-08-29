@@ -156,13 +156,13 @@
 			insert_sheet_at(usr, page+1, in_hand)
 		else if(page != pages.len)
 			page++
-			playsound(src.loc, "pageturn", 50, 1)
+			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
 	if(href_list["prev_page"])
 		if(in_hand && (istype(in_hand, /obj/item/paper) || istype(in_hand, /obj/item/photo)))
 			insert_sheet_at(usr, page, in_hand)
 		else if(page > 1)
 			page--
-			playsound(src.loc, "pageturn", 50, 1)
+			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
 	if(href_list["remove"])
 		var/obj/item/W = pages[page]
 		usr.put_in_hands(W)

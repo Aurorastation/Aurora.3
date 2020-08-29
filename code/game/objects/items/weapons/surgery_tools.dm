@@ -66,7 +66,7 @@
 	desc = "You can drill using this item. You dig?"
 	icon_state = "drill"
 	item_state = "drill"
-	hitsound = "drillhit"
+	hitsound = /decl/sound_category/drillhit_sound
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 10000)
 	flags = CONDUCT
 	force = 15.0
@@ -282,7 +282,7 @@
 /obj/item/storage/box/fancy/tray/attack(mob/living/M as mob, mob/user as mob, var/target_zone)
 	if(..() && contents.len)
 		spill(3, get_turf(M))
-		playsound(M, 'sound/items/trayhit2.ogg', 50, 1)  //sound playin' again
+		playsound(M, /decl/sound_category/tray_hit_sound, 50, 1)  //sound playin' again
 		user.visible_message(SPAN_DANGER("[user] smashes \the [src] into [M], causing it to spill its contents across the area!"))
 
 /obj/item/storage/box/fancy/tray/throw_impact(atom/hit_atom)

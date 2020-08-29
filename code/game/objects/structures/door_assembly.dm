@@ -278,7 +278,7 @@
 		if (S)
 			if (S.get_amount() >= 1)
 				if(material_name == "rglass")
-					playsound(src.loc, "crowbar", 100, 1)
+					playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
 					user.visible_message("[user] adds [S.name] to the airlock assembly.", "You start to install [S.name] into the airlock assembly.")
 					if(do_after(user, 40) && !glass)
 						if (S.use(1))
@@ -290,7 +290,7 @@
 						to_chat(user, "You cannot make an airlock out of that material.")
 						return
 					if(S.get_amount() >= 2)
-						playsound(src.loc, "crowbar", 100, 1)
+						playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
 						user.visible_message("[user] adds [S.name] to the airlock assembly.", "You start to install [S.name] into the airlock assembly.")
 						if(do_after(user, 40) && !glass)
 							if (S.use(2))

@@ -61,4 +61,5 @@ changes:
   - tweak: "Appliances now heat reagents in cooking containers."
   - tweak: "Changes the pumpkin spice latte recipes to use pumpkin spice flavoring syrup."
   - tweak: "Toggle the power of appliances and change their temperature with control-click."
+  - tweak: "Tray sounds now get chosen randomly (except for gun jams)."
   - tweak: "You can now set the temperature of appliances."

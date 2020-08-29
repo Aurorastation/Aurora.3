@@ -105,15 +105,15 @@
 	return 0
 
 /mob/proc/is_diona()
-	//returns which type of diona we are, or zero
-	if (istype(src, /mob/living/carbon/human))
-		var/mob/living/carbon/human/T = src
-		if (istype(T.species, /datum/species/diona) || istype(src, /mob/living/carbon/human/diona))
-			return DIONA_WORKER
+	return FALSE
 
-	if (istype(src, /mob/living/carbon/alien/diona))
-		return DIONA_NYMPH
-	return 0
+/mob/living/carbon/human/is_diona()
+	if(istype(species, /datum/species/diona))
+		return DIONA_WORKER
+	return FALSE
+
+/mob/living/carbon/alien/diona/is_diona()
+	return DIONA_NYMPH
 
 /proc/isskeleton(A)
 	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_SKELETON))

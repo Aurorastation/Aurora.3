@@ -678,6 +678,7 @@ var/global/list/robot_modules = list(
 	src.modules += new /obj/item/gripper/miner(src)
 	src.modules += new /obj/item/rfd/mining(src)
 	src.modules += new /obj/item/mining_scanner(src)
+	src.modules += new /obj/item/ore_radar(src)
 	src.modules += new /obj/item/device/gps/mining(src) // for locating itself in the deep space
 	src.modules += new /obj/item/gun/custom_ka/cyborg(src)
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.

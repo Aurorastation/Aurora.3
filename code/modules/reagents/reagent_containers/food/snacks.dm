@@ -1150,7 +1150,7 @@
 	desc = "Mmm, waffles."
 	icon_state = "waffles"
 	trash = /obj/item/trash/waffles
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 	filling_color = "#E6DEB5"
 	center_of_mass = list("x"=15, "y"=11)
 	reagents_to_add = list(/datum/reagent/nutriment = 8)
@@ -1173,7 +1173,7 @@
 	desc = "Simple pressed soy wafers."
 	icon_state = "soylent_yellow"
 	trash = /obj/item/trash/waffles
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 	filling_color = "#E6FA61"
 	center_of_mass = list("x"=15, "y"=11)
 	reagents_to_add = list(/datum/reagent/nutriment = 10)
@@ -1877,7 +1877,7 @@
 	desc = "Waffles from Roffle. Co."
 	icon_state = "rofflewaffles"
 	trash = /obj/item/trash/waffles
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 	filling_color = "#FF00F7"
 	center_of_mass = list("x"=15, "y"=11)
 	reagents_to_add = list(/datum/reagent/nutriment = 8, /datum/reagent/psilocybin = 8)
@@ -3755,7 +3755,7 @@
 	desc = "Rock-hard 'waffles' composed entirely of microwaved K'ois goop."
 	icon_state = "koiswaffles"
 	trash = /obj/item/trash/waffles
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 	filling_color = "#E6E600"
 	bitesize = 5
 	reagents_to_add = list(/datum/reagent/kois = 25, /datum/reagent/toxin/phoron = 15)
@@ -3822,7 +3822,7 @@
 	desc = "Favorite of cats."
 	icon_state = "lasagna"
 	trash = /obj/item/trash/grease
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 	center_of_mass = list("x"=16, "y"=17)
 
 	reagents_to_add = list(/datum/reagent/nutriment = 12, /datum/reagent/nutriment/protein = 12)

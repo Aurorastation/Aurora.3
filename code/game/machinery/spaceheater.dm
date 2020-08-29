@@ -11,7 +11,7 @@
 	var/heating_power = 42000
 	emagged = FALSE
 	has_special_power_checks = TRUE
-	clicksound = "switch"
+	clicksound = /decl/sound_category/switch_sound
 
 /obj/machinery/space_heater/Initialize()
 	. = ..()
@@ -52,7 +52,7 @@
 		emagged = TRUE
 		to_chat(user, SPAN_WARNING("You disable \the [src]'s temperature safety checks!"))
 		spark(src, 3)
-		playsound(src, "sparks", 100, 1)
+		playsound(src, /decl/sound_category/spark_sound, 100, 1)
 		heating_power = 45000 //Overridden safeties make it stronger, and it needs to work more efficiently to make use of big temp ranges
 		return 1
 	else

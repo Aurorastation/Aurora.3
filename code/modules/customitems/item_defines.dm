@@ -349,7 +349,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	user.visible_message("<span class='notice'>[user] starts flipping through \the [src].</span>",
 						"<span class='notice'>You start looking through \the [src], it appears to be filled with translations of Tau-Ceti basic for tajaran users.</span>",
 						"<span class='notice'>You hear pages being flipped.</span>")
-	playsound(src.loc, "pageturn", 50, 1)
+	playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
 
 
 /obj/item/clothing/under/fluff/faysal_uniform //Old Tajaran Nobleman Suit - Faysal Al-Shennawi - alberyk

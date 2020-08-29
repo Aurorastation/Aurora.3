@@ -17,8 +17,8 @@
 	w_class = 3.0
 	flags = CONDUCT
 	matter = list(DEFAULT_WALL_MATERIAL = 3000)
-	hitsound = "trayhit"
-	drop_sound = "trayhit"
+	hitsound = /decl/sound_category/bottle_hit_broken
+	drop_sound = /decl/sound_category/bottle_hit_broken
 	var/max_carry = 20
 	var/current_weight = 0
 	var/cooldown = 0	//shield bash cooldown. based on world.time
@@ -181,7 +181,7 @@
 		user.visible_message("<b>[user]</b> spills their tray all over the floor.", SPAN_WARNING("You spill the tray!"))
 	else
 		visible_message(SPAN_NOTICE("The tray scatters its contents all over the area."))
-	playsound(dropspot, pick('sound/items/trayhit1.ogg', 'sound/items/trayhit2.ogg'), 50, 1)
+	playsound(dropspot, /decl/sound_category/tray_hit_sound, 50, 1)
 
 /obj/item/tray/throw_impact(atom/hit_atom)
 	spill(null, loc)
