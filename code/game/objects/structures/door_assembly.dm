@@ -145,25 +145,23 @@
 	airlock_type = "/multi_tile/glass"
 	glass = -1 //To prevent bugs in deconstruction process.
 
-	New()
+/obj/structure/door_assembly/multi_tile/Initialize()
+	. = ..()
+	SetBounds()
+	update_state()
+
+/obj/structure/door_assembly/multi_tile/Move()
+	. = ..()
+	SetBounds()
+
+/obj/structure/door_assembly/multi_tile/proc/SetBounds()
+	if(width > 1)
 		if(dir in list(EAST, WEST))
 			bound_width = width * world.icon_size
 			bound_height = world.icon_size
 		else
 			bound_width = world.icon_size
 			bound_height = width * world.icon_size
-		update_state()
-
-	Move()
-		. = ..()
-		if(dir in list(EAST, WEST))
-			bound_width = width * world.icon_size
-			bound_height = world.icon_size
-		else
-			bound_width = world.icon_size
-			bound_height = width * world.icon_size
-
-
 
 /obj/structure/door_assembly/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.ispen())
