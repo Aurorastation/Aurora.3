@@ -26,7 +26,6 @@
 		// reset any rotation and transformation applied
 		switch(dir)
 			if(EAST)
-				to_world("east")
 				hatch_image.transform = turn(hatch_image.transform, 90)
 				hatch_image.pixel_x = hatch_offset_x
 				hatch_image.pixel_y = hatch_offset_y
