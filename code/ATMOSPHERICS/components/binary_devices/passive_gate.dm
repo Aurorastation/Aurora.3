@@ -24,6 +24,8 @@
 	var/id = null
 	var/datum/radio_frequency/radio_connection
 
+	var/broadcast_status_next_process = FALSE
+
 /obj/machinery/atmospherics/binary/passive_gate/Initialize()
 	. = ..()
 	air1.volume = ATMOS_DEFAULT_VOLUME_PUMP * 2.5
@@ -46,6 +48,10 @@
 
 /obj/machinery/atmospherics/binary/passive_gate/machinery_process()
 	..()
+
+	if (broadcast_status_next_process)
+		broadcast_status()
+		broadcast_status_next_process = FALSE
 
 	last_flow_rate = 0
 
@@ -152,10 +158,10 @@
 		regulate_mode = text2num(signal.data["set_flow_rate"])
 
 	if("status" in signal.data)
-		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+		broadcast_status_next_process = TRUE
 		return //do not update_icon
 
-	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+	broadcast_status_next_process = TRUE
 	update_icon()
 	return
 

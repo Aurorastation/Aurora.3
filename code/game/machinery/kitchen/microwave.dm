@@ -10,7 +10,7 @@
 	idle_power_usage = 5
 	active_power_usage = 2000
 	flags = OPENCONTAINER | NOREACT
-	clicksound = "button"
+	clicksound = /decl/sound_category/button_sound
 	clickvol = 30
 
 	var/operating = FALSE // Is it on?

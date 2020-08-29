@@ -1537,10 +1537,6 @@
 		var/obj/item/ammo_magazine/am = spawned.magazine_type
 		new am(spawned.loc)
 		new am(spawned.loc)
-
-	if(istype(spawned, /obj/item/gun/projectile/musket))
-		new /obj/item/reagent_containers/powder_horn(spawned.loc)
-
 	else if(istype(spawned, /obj/item/gun/projectile/shotgun) && spawned.caliber == "shotgun")
 		if(istype(spawned.loc, /obj/item/storage/box))
 			spawned.loc.icon_state = "largebox"
@@ -1548,8 +1544,14 @@
 		for(var/i = 0; i < 8; i++)
 			new spawned.ammo_type(b)
 	else if(spawned.ammo_type)
+		var/list/provided_ammo = list()
 		for(var/i = 0; i < (spawned.max_shells * 2); i++)
-			new spawned.ammo_type(spawned.loc)
+			provided_ammo += new spawned.ammo_type(spawned.loc)
+		if(provided_ammo.len)
+			new /obj/item/ammo_pile(spawned.loc, provided_ammo)
+
+	if(istype(spawned, /obj/item/gun/projectile/musket))
+		new /obj/item/reagent_containers/powder_horn(spawned.loc)
 
 /obj/random/weapon_and_ammo/spawn_item()
 	var/obj/item/W = pick_gun()
