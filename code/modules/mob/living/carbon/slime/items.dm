@@ -270,7 +270,10 @@
 	G.set_species(golem_type)
 	G.name = G.species.get_random_name()
 	G.real_name = G.name
-	to_chat(G, SPAN_NOTICE("You are a golem. Serve your master, and assist them in completing their goals at any cost."))
+	G.accent = G.species.default_accent
+	G.preEquipOutfit(/datum/outfit/admin/golem, FALSE)
+	G.equipOutfit(/datum/outfit/admin/golem, FALSE)
+	to_chat(G, SPAN_NOTICE("You are a golem. Serve your master, provided you have one, and assist them in completing their goals at any cost."))
 	qdel(src)
 
 /obj/effect/golemrune/proc/announce_to_ghosts()

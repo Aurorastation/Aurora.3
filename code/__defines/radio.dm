@@ -9,6 +9,7 @@
 #define AI_FREQ 1343
 #define DTH_FREQ 1341
 #define SYND_FREQ 1213
+#define BLSP_FREQ 1253
 #define NINJ_FREQ 1255
 #define BURG_FREQ 1257
 #define RAID_FREQ 1277
@@ -38,6 +39,7 @@ var/list/radiochannels = list(
 	"Special Ops" 	= DTH_FREQ,
 	"Mercenary" 	= SYND_FREQ,
 	"Ninja"			= NINJ_FREQ,
+	"Bluespace"		= BLSP_FREQ,
 	"Burglar"		= BURG_FREQ,
 	"Raider"		= RAID_FREQ,
 	"Supply" 		= SUP_FREQ,
@@ -63,9 +65,10 @@ var/list/CENT_FREQS_ASSOC = list(
 
 // Antag channels, i.e. Syndicate
 var/list/ANTAG_FREQS = list(
-	SYND_FREQ, 
+	SYND_FREQ,
 	RAID_FREQ,
 	NINJ_FREQ,
+	BLSP_FREQ,
 	BURG_FREQ
 )
 

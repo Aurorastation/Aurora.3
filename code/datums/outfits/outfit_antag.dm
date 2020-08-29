@@ -355,13 +355,23 @@
 	suit = /obj/item/clothing/suit/chameleon/wizard
 	head = /obj/item/clothing/head/chameleon/wizard
 	shoes = /obj/item/clothing/shoes/chameleon/wizard
-	l_ear = /obj/item/device/radio/headset
+	l_ear = /obj/item/device/radio/headset/bluespace
 	r_pocket = /obj/item/teleportation_scroll
 	l_hand = /obj/item/spellbook
+	id = /obj/item/card/id/bluespace
 
 	backpack_contents = list(
 		/obj/item/storage/box = 1
 	)
+
+/datum/outfit/admin/wizard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(visualsOnly)
+		return
+
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.registered_name = H.real_name
 
 /datum/outfit/admin/wizard/apprentice
 	name = "Space Wizard Apprentice"
@@ -381,3 +391,19 @@
 	l_hand = null
 
 	backpack_contents = null
+
+/datum/outfit/admin/golem
+	name = "Bluespace Golem"
+	allow_backbag_choice = FALSE
+
+	l_ear = /obj/item/device/radio/headset/bluespace
+	id = /obj/item/card/id/bluespace
+
+/datum/outfit/admin/golem/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(visualsOnly)
+		return
+
+	var/obj/item/card/id/W = H.wear_id
+	if(W)
+		W.registered_name = H.real_name

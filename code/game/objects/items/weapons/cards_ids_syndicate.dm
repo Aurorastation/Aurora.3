@@ -2,6 +2,8 @@
 	name = "agent card"
 	assignment = "Agent"
 	origin_tech = list(TECH_ILLEGAL = 3)
+	can_copy_access = TRUE
+	access_copy_msg = "The microscanner activates as you pass it over the ID, copying its access."
 	var/charge = 10000
 	var/electronic_warfare = FALSE
 	var/image/obfuscation_image
@@ -36,14 +38,6 @@
 
 /obj/item/card/id/syndicate/prevent_tracking()
 	return electronic_warfare
-
-/obj/item/card/id/syndicate/afterattack(var/obj/item/O as obj, mob/user as mob, proximity)
-	if(!proximity) return
-	if(istype(O, /obj/item/card/id))
-		var/obj/item/card/id/I = O
-		src.access |= I.access
-		if(player_is_antag(user.mind))
-			to_chat(user, "<span class='notice'>The microscanner activates as you pass it over the ID, copying its access.</span>")
 
 /obj/item/card/id/syndicate/attack_self(mob/user as mob)
 	// We use the fact that registered_name is not unset should the owner be vaporized, to ensure the id doesn't magically become unlocked.
