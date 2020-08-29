@@ -9,7 +9,7 @@
 	metabolism = REM * 0.5
 	metabolism_min = REM * 0.125
 	breathe_mul = 0.5
-	scannable = 1
+	scannable = TRUE
 	taste_description = "bitterness"
 
 /datum/reagent/inaprovaline/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -26,7 +26,7 @@
 	description = "Bicaridine is a complex medication which specifically targets damaged tissues and damaged blood vessels by encouraging the rate at which the damaged tissues are regenerated. Overdosing bicaridine allows the drug to take effect on damaged muscular tissues of arteries."
 	reagent_state = LIQUID
 	color ="#BF0000"
-	scannable = 1
+	scannable = TRUE
 	overdose = REAGENTS_OVERDOSE
 	metabolism = REM * 0.5
 	taste_description = "bitterness"
@@ -58,7 +58,7 @@
 	reagent_state = LIQUID
 	color = "#ff5555"
 	overdose = 15
-	scannable = 1
+	scannable = TRUE
 	metabolism = REM * 0.5
 	taste_description = "bitterness"
 	taste_mult = 3
@@ -157,7 +157,7 @@
 	reagent_state = LIQUID
 	color = "#0080FF"
 	overdose = REAGENTS_OVERDOSE
-	scannable = 1
+	scannable = TRUE
 	taste_description = "bitterness"
 	metabolism = REM
 	breathe_met = REM * 0.5
@@ -196,7 +196,7 @@
 	reagent_state = LIQUID
 	color = "#8040FF"
 	overdose = 30
-	scannable = 1
+	scannable = TRUE
 	fallback_specific_heat = 1
 	taste_description = "bitterness"
 	breathe_mul = 0
@@ -217,7 +217,7 @@
 	reagent_state = LIQUID
 	color = "#8080FF"
 	metabolism = REM * 0.5
-	scannable = 1
+	scannable = TRUE
 	taste_description = "sludge"
 
 /datum/reagent/cryoxadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -234,7 +234,7 @@
 	reagent_state = LIQUID
 	color = "#80BFFF"
 	metabolism = REM * 0.5
-	scannable = 1
+	scannable = TRUE
 	taste_description = "slime"
 
 /datum/reagent/clonexadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -254,7 +254,7 @@
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
 	od_minimum_dose = 2
-	scannable = 1
+	scannable = TRUE
 	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
 	ingest_met = REM * 2 // .4 units per tick
 	breathe_met = REM * 4 // .8 units per tick
@@ -276,7 +276,7 @@
 	reagent_state = LIQUID
 	color = "#CB68FC"
 	overdose = 15
-	scannable = 1
+	scannable = TRUE
 	od_minimum_dose = 2
 	metabolism = REM/10 // same as before when in blood, 0.02 units per tick
 	ingest_met = REM * 2 // .4 units per tick
@@ -363,7 +363,7 @@
 	metabolism = REM * 0.05
 	overdose = 10
 	od_minimum_dose = 1
-	scannable = 1
+	scannable = TRUE
 	var/datum/modifier/modifier
 	taste_description = "bitterness"
 	metabolism_min = REM * 0.0125
@@ -404,7 +404,7 @@
 	color = "#FFFF66"
 	metabolism = REM //0.2u/tick
 	overdose = 10
-	scannable = 1
+	scannable = TRUE
 	taste_description = "bitterness"
 	metabolism_min = REM * 0.075
 
@@ -438,7 +438,7 @@
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
-	scannable = 1
+	scannable = TRUE
 	taste_mult = 0.33 //Specifically to cut the dull toxin taste out of foods using carrot
 	taste_description = "dull toxin"
 
@@ -462,7 +462,7 @@
 	reagent_state = LIQUID
 	color = "#561EC3"
 	overdose = 10
-	scannable = 1
+	scannable = TRUE
 	taste_description = "bitterness"
 
 /datum/reagent/peridaxon/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -555,7 +555,7 @@
 	color = "#605048"
 	metabolism = REM * 0.3
 	overdose = REAGENTS_OVERDOSE
-	scannable = 1
+	scannable = TRUE
 	taste_description = "bitterness"
 
 /datum/reagent/ethylredoxrazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -601,7 +601,7 @@
 	color = "#408000"
 	metabolism = REM * 0.25
 	overdose = REAGENTS_OVERDOSE
-	scannable = 1
+	scannable = TRUE
 	taste_description = "bitterness"
 	unaffected_species = IS_MACHINE
 	var/last_taste_time = -10000
@@ -627,7 +627,7 @@
 	color = "#008000"
 	metabolism = REM * 0.25
 	overdose = REAGENTS_OVERDOSE
-	scannable = 1
+	scannable = TRUE
 	taste_description = "bitterness"
 	unaffected_species = IS_MACHINE
 	var/last_taste_time = -10000
@@ -659,7 +659,7 @@
 	breathe_met = REM * 2 // .4 units per tick
 	// touch is slow
 	overdose = REAGENTS_OVERDOSE
-	scannable = 1
+	scannable = TRUE
 	taste_description = "bitter gauze soaked in rubbing alcohol"
 	fallback_specific_heat = 0.605 // assuming it's ethanol-based
 
@@ -688,7 +688,7 @@
 /datum/reagent/coughsyrup
 	name = "Cough Syrup"
 	description = "A complex antitussive medication available OTC which is very effective at suppressing cough reflexes. The medication also acts as a very weak analgesic medication, leading to it being a very cheap recreational drug or precursor to other recreational drugs."
-	scannable = 1
+	scannable = TRUE
 	reagent_state = LIQUID
 	taste_description = "bitterness"
 	color = "#402060"
@@ -717,7 +717,7 @@
 /datum/reagent/cetahydramine
 	name = "Cetahydramine"
 	description = "Cetahydramine is a complex antihistamine medication available OTC which blocks the release of histamine, thus making it effective at suppressing allergies and sneezing. Cetahydramine can cause drowsiness in larger doses, making it an effective sleep aid."
-	scannable = 1
+	scannable = TRUE
 	reagent_state = LIQUID
 	taste_description = "bitterness"
 	metabolism = REM * 0.05 // only performs its effects while in blood
@@ -771,7 +771,7 @@
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
-	scannable = 1
+	scannable = TRUE
 	taste_description = "bitterness"
 
 /datum/reagent/leporazine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -800,7 +800,7 @@
 	metabolism = 0.001 * REM
 	metabolism_min = 0
 	data = 0
-	scannable = 1
+	scannable = TRUE
 	overdose = REAGENTS_OVERDOSE
 	od_minimum_dose = 0.02
 	taste_description = "bugs"
@@ -1207,7 +1207,6 @@
 	metabolism = 0.05 * REM
 	od_minimum_dose = 1
 	data = 0
-	scannable = 0
 	taste_description = "something"
 	goodmessage = list("You feel like you have nothing to hide.","You feel compelled to spill your secrets.","You feel like you can trust those around you.")
 	badmessage = list()
@@ -1298,7 +1297,7 @@
 	color = "#FFFF00"
 	metabolism = REM //0.2u/tick
 	overdose = 15
-	scannable = 1
+	scannable = TRUE
 	taste_description = "bitterness"
 	metabolism_min = REM * 0.25
 	var/list/curable_traumas = list(
@@ -1348,7 +1347,7 @@
 	color = "#222244"
 	metabolism = 0.5 * REM
 	overdose = REAGENTS_OVERDOSE
-	scannable = 1
+	scannable = TRUE
 	taste_description = "thick salt"
 	reagent_state = SOLID
 
@@ -1382,7 +1381,7 @@
 	color = "#550055"
 	metabolism = 2 * REM
 	overdose = 10
-	scannable = 1
+	scannable = TRUE
 	taste_description = "coarse dust"
 	reagent_state = SOLID
 
@@ -1424,7 +1423,7 @@
 	description = "Pneumalin is a powerful, organ-regenerative medication that increases the rate at which lung tissues are regenerated. Pneumalin only works when inhaled, and overdosing can lead to severe bradycardia."
 	color = "#8154b4"
 	overdose = 15
-	scannable = 1
+	scannable = TRUE
 	taste_description = "fine dust"
 	reagent_state = SOLID
 
@@ -1449,7 +1448,7 @@
 	reagent_state = SOLID
 	color = "#669900"
 	overdose = REAGENTS_OVERDOSE
-	scannable = 1
+	scannable = TRUE
 	taste_description = "sickness"
 
 /datum/reagent/rezadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -1469,7 +1468,7 @@
 	reagent_state = LIQUID
 	color = "#280f0b"
 	overdose = REAGENTS_OVERDOSE
-	scannable = 1
+	scannable = TRUE
 	taste_description = "sweet syrup"
 
 /datum/reagent/verunol/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
@@ -1518,7 +1517,7 @@
 	reagent_state = LIQUID
 	color = "#008000"
 	overdose = REAGENTS_OVERDOSE
-	scannable = 1
+	scannable = TRUE
 	taste_description = "bitterness"
 
 /datum/reagent/adipemcina/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
@@ -1568,7 +1567,7 @@
 	fallback_specific_heat = 1
 	reagent_state = LIQUID
 	color = "#c8a5dc"
-	scannable = 1
+	scannable = TRUE
 	overdose = 20
 	metabolism = 0.1
 	value = 2

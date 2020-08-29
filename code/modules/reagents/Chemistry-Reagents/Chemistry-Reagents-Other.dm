@@ -609,7 +609,7 @@
 	description = "This impossible substance slowly converts from a liquid into actual light."
 	reagent_state = LIQUID
 	color = "#ffff40"
-	scannable = 1
+	scannable = TRUE
 	metabolism = REM * 0.25
 	taste_description = "bottled fire"
 	var/datum/modifier/modifier

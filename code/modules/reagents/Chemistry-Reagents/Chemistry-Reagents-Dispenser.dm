@@ -63,7 +63,7 @@
 	taste_description = "sour chalk"
 	taste_mult = 1.5
 	fallback_specific_heat = 0.018
-	scannable = 1
+	scannable = TRUE
 
 /datum/reagent/carbon/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	var/datum/reagents/ingested = M.get_ingested_reagents()
@@ -89,7 +89,7 @@
 	color = "#6E3B08"
 	taste_description = "copper"
 	fallback_specific_heat = 1.148
-	scannable = 1
+	scannable = TRUE
 
 /datum/reagent/copper/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	if (alien & IS_SKRELL)
@@ -287,7 +287,7 @@
 	reagent_state = SOLID
 	color = "#353535"
 	taste_description = "metal"
-	scannable = 1
+	scannable = TRUE
 
 	fallback_specific_heat = 1.181
 
@@ -321,7 +321,7 @@
 	touch_met = REM*0.1
 	touch_mul = 1.25
 	taste_mult = 0 //mercury apparently is tasteless
-	scannable = 1
+	scannable = TRUE
 
 	fallback_specific_heat = 0.631
 
@@ -547,7 +547,7 @@
 	reagent_state = SOLID
 	color = "#BF8C00"
 	taste_description = "rotten eggs"
-	scannable = 1
+	scannable = TRUE
 
 	fallback_specific_heat = 0.503
 
