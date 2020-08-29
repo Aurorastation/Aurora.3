@@ -1,6 +1,7 @@
 /obj/machinery/appliance/cooker/oven
 	name = "oven"
 	desc = "Cookies are ready, dear."
+	desc_info = "Control-click this to change its temperature. Alt-click to open or close the oven door."
 	icon_state = "ovenopen"
 	cook_type = "baked"
 	appliancetype = OVEN

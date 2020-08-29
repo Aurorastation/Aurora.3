@@ -776,6 +776,14 @@
 	bitesize = 1
 	reagents_to_add = list(/datum/reagent/nutriment/protein/egg = 3, /datum/reagent/sodiumchloride = 1, /datum/reagent/blackpepper = 1)
 
+/obj/item/reagent_containers/food/snacks/friedegg/overeasy
+	name = "over-easy fried egg"
+	desc = "A fried egg, with a touch of salt and pepper. The yolk looks a bit runny."
+
+/obj/item/reagent_containers/food/snacks/friedegg/overeasy/Initialize()
+	reagent_data = list(/datum/reagent/nutriment/protein = list(pick("disgustingly runny egg yolk", "slimy egg yolk", "gooey eggs", "near-raw runny eggs") = 3))
+	. = ..()
+
 /obj/item/reagent_containers/food/snacks/boiledegg
 	name = "boiled egg"
 	desc = "Hard to beat, aren't they?"

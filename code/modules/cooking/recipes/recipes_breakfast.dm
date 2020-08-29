@@ -1,3 +1,18 @@
+/decl/recipe/friedegg_easy
+	appliance = SKILLET
+	reagents = list(/datum/reagent/sodiumchloride = 1, /datum/reagent/blackpepper = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/egg
+	)
+	result = /obj/item/reagent_containers/food/snacks/friedegg/overeasy
+
+/decl/recipe/friedegg
+	appliance = SKILLET
+	items = list(
+		/obj/item/reagent_containers/food/snacks/friedegg/overeasy
+	)
+	result = /obj/item/reagent_containers/food/snacks/friedegg
+
 /decl/recipe/poachedegg
 	appliance = SKILLET | SAUCEPAN
 	reagents = list(/datum/reagent/spacespice = 1, /datum/reagent/sodiumchloride = 1, /datum/reagent/blackpepper = 1, /datum/reagent/water = 5)
@@ -33,14 +48,6 @@
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
 	result = /obj/item/reagent_containers/food/snacks/nt_muffin
-
-/decl/recipe/friedegg
-	appliance = SKILLET
-	reagents = list(/datum/reagent/sodiumchloride = 1, /datum/reagent/blackpepper = 1)
-	items = list(
-		/obj/item/reagent_containers/food/snacks/egg
-	)
-	result = /obj/item/reagent_containers/food/snacks/friedegg
 
 /decl/recipe/boiledegg
 	appliance = SAUCEPAN | POT
