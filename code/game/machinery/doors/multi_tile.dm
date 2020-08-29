@@ -23,22 +23,13 @@
 		hatch_image = null
 		hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchstyle, closed_layer+0.1)
 		hatch_image.color = hatch_colour
+		hatch_image.transform = turn(hatch_image.transform, 90)
 		// reset any rotation and transformation applied
 		switch(dir)
-			if(EAST)
-				hatch_image.transform = turn(hatch_image.transform, 90)
+			if(EAST, WEST)
 				hatch_image.pixel_x = hatch_offset_x
 				hatch_image.pixel_y = hatch_offset_y
-			if(WEST)
-				hatch_image.transform = turn(hatch_image.transform, 90)
-				hatch_image.pixel_x = hatch_offset_x
-				hatch_image.pixel_y = hatch_offset_y
-			if(NORTH)
-				hatch_image.transform = turn(hatch_image.transform, 90)
-				hatch_image.pixel_x = hatch_offset_y
-				hatch_image.pixel_y = hatch_offset_x
-			if(SOUTH)
-				hatch_image.transform = turn(hatch_image.transform, 90)
+			if(NORTH, SOUTH)
 				hatch_image.pixel_x = hatch_offset_y
 				hatch_image.pixel_y = hatch_offset_x
 		add_overlay(hatch_image)
