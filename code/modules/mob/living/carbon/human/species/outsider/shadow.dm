@@ -25,7 +25,6 @@
 	has_organ = list()
 	siemens_coefficient = 0
 	rarity_value = 10
-	virus_immune = 1
 
 	breakcuffs = list(MALE,FEMALE,NEUTER)
 

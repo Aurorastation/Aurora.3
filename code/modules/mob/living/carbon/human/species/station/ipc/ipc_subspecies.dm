@@ -233,7 +233,6 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 	vision_flags = DEFAULT_SIGHT | SEE_MOBS
 
-	virus_immune = 1
 	reagent_tag = IS_MACHINE
 
 	inherent_verbs = list(

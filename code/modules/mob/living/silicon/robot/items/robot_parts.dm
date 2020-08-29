@@ -250,6 +250,10 @@
 					to_chat(user, SPAN_WARNING("\The [W] does not seem to fit. (The player lacks the appropriate whitelist.)"))
 					return
 
+				if(!M.can_be_ipc)
+					to_chat(user, SPAN_WARNING("There's no way that would fit in an IPC chassis!"))
+					return
+
 				var/mob/living/carbon/human/new_shell = new(get_turf(src), chest.linked_frame)
 				forceMove(new_shell) //so people won't mess around with the chassis until it is deleted
 				M.brainmob.mind.transfer_to(new_shell)
