@@ -31,8 +31,6 @@
 		icon_state = lasticonstate
 		item_state = lasticonstate
 		suittoggled = FALSE
-	
-	
 	// Hood got nuked. Probably because of RIGs or the like.
 	if (!hood)
 		MakeHood()
@@ -51,7 +49,6 @@
 	RemoveHood()
 
 /obj/item/clothing/suit/storage/hooded/verb/ToggleHood()
-
 	set name = "Toggle Coat Hood"
 	set category = "Object"
 	set src in usr
@@ -69,15 +66,19 @@
 				to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
 				return
 			else
-				lasticonstate = icon_state
-				H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
-				suittoggled = TRUE
-				icon_state = "[initial(icon_state)]_t"
-				item_state = "[initial(item_state)]_t"
+				CreateHood()
 				H.update_inv_wear_suit()
 	else
 		RemoveHood()
 
+/obj/item/clothing/suit/storage/hooded/proc/CreateHood()
+	var/mob/living/carbon/human/H = src.loc
+	lasticonstate = icon_state
+	hood.icon_state = "[initial(icon_state)]_hood"
+	H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
+	suittoggled = TRUE
+	icon_state = "[initial(icon_state)]_t"
+	item_state = "[initial(item_state)]_t"
 
 //hoodies and the like
 
@@ -134,7 +135,7 @@
 	name = "IAC winter coat"
 	icon_state = "coatIAC"
 	item_state = "coatIAC"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)	
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/science
 	name = "science winter coat"
@@ -209,52 +210,29 @@
 	icon_closed = initial(icon_closed)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/verb/Toggle() //copied from storage toggle
-	set name = "Toggle Coat Buttons"
+	set name = "Toggle Hoodie Zipper"
 	set category = "Object"
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0
 	if(icon_state == icon_open)
-		icon_state = icon_closed
-		item_state = icon_closed
+		icon_state = "[initial(icon_state)]_open"
+		item_state = "[initial(icon_state)]_open"
 		to_chat(usr, "You zip \the [src].")
 	else if(icon_state == icon_closed)
-		icon_state = icon_open
-		item_state = icon_open
+		icon_state = "[initial(icon_state)]"
+		item_state = "[initial(icon_state)]"
 		to_chat(usr, "You unzip \the [src].")
 	else
 		to_chat(usr, "You attempt to zip the velcro on your [src], before promptly realising how silly you are.")
 		return
 	update_clothing_icon()
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/ToggleHood()
-	set name ="Toggle Coat Hood"
-	set category = "Object"
-	set src in usr
-
-	if(use_check_and_message(usr))
-		return 0
-
-	if(!suittoggled)
-		if(ishuman(loc))
-			var/mob/living/carbon/human/H = src.loc
-			if(H.wear_suit != src)
-				to_chat(H, "<span class='warning'>You must be wearing [src] to put up the hood!</span>")
-				return
-			if(H.head)
-				to_chat(H, "<span class='warning'>You're already wearing something on your head!</span>")
-				return
-			else
-				lasticonstate = icon_state
-				H.equip_to_slot_if_possible(hood,slot_head,0,0,1)
-				suittoggled = TRUE
-				icon_open = "[initial(icon_open)]_t" // this is where the change is.
-				icon_closed = "[initial(icon_closed)]_t"
-				icon_state = "[icon_state]_t"
-				item_state = "[item_state]_t"
-				H.update_inv_wear_suit()
-	else
-		RemoveHood()
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/CreateHood()
+	.=..()
+	hood.color = src.color
+	icon_state = "[initial(icon_state)]_open_t" // this is where the change is.
+	item_state = "[initial(icon_state)]_open_t"
 
 /obj/item/clothing/head/winterhood/hoodie
 	name = "hood"
@@ -275,7 +253,7 @@
 	icon_open = "hoodie_crop_open"
 	icon_closed = "hoodie_crop"
 	item_state = "hoodie_crop"
-	
+
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
 	icon_state = "hoodie_sleeveless"
 	icon_open = "hoodie_sleeveless_open"
