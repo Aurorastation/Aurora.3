@@ -50240,10 +50240,10 @@
 /area/hallway/primary/aft)
 "bOQ" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/stool/padded,
 /obj/machinery/newscaster{
 	pixel_y = 30
 	},
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "bOR" = (
@@ -50252,11 +50252,11 @@
 /area/crew_quarters/kitchen)
 "bOS" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/stool/padded,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
 	},
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "bOT" = (
@@ -50274,10 +50274,6 @@
 /area/crew_quarters/kitchen)
 "bOV" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/sink/kitchen{
-	layer = 3.3;
-	pixel_y = 26
-	},
 /obj/machinery/light_switch{
 	pixel_x = -22;
 	pixel_y = 24
@@ -50292,14 +50288,23 @@
 "bOY" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = 6
+	},
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = -4
+	},
+/obj/item/material/knife{
+	pixel_x = 6
+	},
+/obj/item/material/knife{
+	pixel_x = -6
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bOZ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/oven,
-/obj/structure/sign/nosmoking_1{
-	pixel_y = 30
-	},
+/obj/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bPa" = (
@@ -50307,30 +50312,40 @@
 /obj/machinery/appliance/cooker/fryer{
 	pixel_y = 2
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 28
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bPb" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/reagent_containers/glass/beaker/large,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
+	},
+/obj/structure/table/stone/marble,
+/obj/machinery/appliance/mixer/cereal{
+	pixel_y = 7
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bPc" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/machinery/appliance/mixer/cereal{
-	pixel_y = 7
+/obj/machinery/requests_console{
+	department = "Kitchen";
+	departmentType = 1;
+	name = "Kitchen Requests Console";
+	pixel_y = 30
 	},
 /obj/machinery/alarm{
-	pixel_y = 28
+	dir = 8;
+	pixel_x = 28
 	},
+/obj/item/nitrilebox,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bPe" = (
@@ -50519,14 +50534,14 @@
 /area/hallway/primary/aft)
 "bPD" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bPF" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
 /obj/machinery/firealarm/east,
-/obj/item/nitrilebox,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bPG" = (
@@ -50633,17 +50648,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/library)
-"bPX" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "bPY" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
@@ -50663,51 +50667,21 @@
 /area/crew_quarters/kitchen)
 "bPZ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
+"bQb" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
-"bQa" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
-"bQb" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -50855,18 +50829,20 @@
 /obj/structure/table/stone/marble,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
-	id = "kitchenshutters01";
-	name = "Kitchen Shutters"
+	id = "kitchenshutters02";
+	name = "SmartHeater Shutter"
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bQy" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/chem_master/condimaster,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
 	},
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/glass/beaker/large,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bQA" = (
@@ -51042,9 +51018,23 @@
 "bQY" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/machinery/reagentgrinder{
-	pixel_y = 7
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 8;
+	pixel_y = 14
 	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 2;
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bQZ" = (
@@ -51082,15 +51072,15 @@
 	dir = 8;
 	network = list("Service")
 	},
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/structure/closet/secure_closet/freezer/kitchen,
 /obj/machinery/ringer{
 	department = "Kitchen";
 	id = "kitchen_ringer";
 	pixel_x = 26;
 	req_access = list(28)
 	},
+/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bRg" = (
@@ -51153,8 +51143,11 @@
 /area/crew_quarters/kitchen)
 "bRw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/storage/box/produce,
+/obj/structure/disposalpipe/sortjunction/flipped{
+	dir = 1;
+	name = "Kitchen";
+	sortType = "Kitchen"
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bRA" = (
@@ -51407,7 +51400,6 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bSo" = (
-/obj/machinery/vending/dinnerware,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -51417,31 +51409,26 @@
 	name = "Station Intercom (General)";
 	pixel_y = -26
 	},
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bSp" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Kitchen - West";
 	dir = 1;
 	network = list("Service")
 	},
-/obj/machinery/requests_console{
-	department = "Kitchen";
-	departmentType = 1;
-	name = "Kitchen Requests Console";
-	pixel_y = -27
-	},
-/obj/item/clothing/head/cakehat,
+/obj/machinery/chem_master/condimaster,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bSq" = (
-/obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/chemical_dispenser/bar_soft/full{
-	pixel_y = 4
-	},
+/obj/structure/table/stone/marble,
+/obj/item/clothing/head/cakehat,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bSr" = (
@@ -51462,16 +51449,14 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -51491,14 +51476,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -51875,12 +51852,6 @@
 "bTp" = (
 /obj/structure/closet/gmcloset,
 /obj/item/flame/lighter/zippo,
-/obj/machinery/requests_console{
-	department = "Bar";
-	departmentType = 1;
-	name = "Bar Requests Console";
-	pixel_y = 32
-	},
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/reagent_containers/toothpaste,
@@ -59401,6 +59372,17 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/lawoffice)
+"cQg" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "cTo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -59546,6 +59528,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
+"dpV" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/machinery/reagentgrinder{
+	pixel_x = 2;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "dqb" = (
 /obj/structure/cable{
 	d2 = 2;
@@ -59749,7 +59740,10 @@
 "dGy" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/material/kitchen/rollingpin,
+/obj/machinery/reagentgrinder{
+	pixel_x = -2;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "dGX" = (
@@ -60238,12 +60232,8 @@
 /area/assembly/robotics/workshop)
 "fdq" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/reagent_containers/cooking_container/plate/bowl,
-/obj/item/reagent_containers/glass/beaker{
-	pixel_x = 2;
-	pixel_y = 12
-	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "fdD" = (
@@ -60627,14 +60617,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/chemistry)
-"fTZ" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment,
-/obj/effect/landmark/start{
-	name = "Chef"
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "fUO" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/black,
 /turf/simulated/floor/plating,
@@ -60781,13 +60763,8 @@
 "gpm" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = 4;
-	pixel_y = 4
+/obj/item/storage/box/produce{
+	pixel_x = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -61553,6 +61530,16 @@
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"hZL" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Chef"
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "iap" = (
 /obj/machinery/alarm{
 	pixel_y = 28
@@ -61708,8 +61695,7 @@
 /area/maintenance/medbay)
 "iBt" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/material/knife,
+/obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "iBL" = (
@@ -61974,6 +61960,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"jzo" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -4;
+	pixel_y = 12
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "jBK" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -62181,18 +62181,6 @@
 /obj/structure/curtain/medical,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
-"keq" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "keE" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
@@ -62598,17 +62586,6 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/research_port)
-"ljr" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "ljA" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -62760,19 +62737,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
-"lGd" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "lIG" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -63042,6 +63006,16 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old,
 /area/maintenance/engineering)
+"mfP" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Chef"
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "mhb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/paper,
@@ -63844,7 +63818,16 @@
 "oaR" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/condiment/enzyme,
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_x = -8;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = 6;
+	pixel_y = 12
+	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "odf" = (
@@ -64100,6 +64083,18 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/airless,
 /area/maintenance/cargo)
+"oAP" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "oDu" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -64122,6 +64117,10 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -64305,9 +64304,6 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/kitchen)
 "pdM" = (
@@ -64366,6 +64362,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"pgL" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/crew_quarters/kitchen)
 "pgM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -66187,11 +66195,32 @@
 /obj/item/material/shard,
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/mine/unexplored)
+"tjs" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "tjF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
+"tov" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/button/remote/blast_door{
+	id = "kitchenshutters02";
+	name = "SmartHeater Shutter Control";
+	pixel_x = -34;
+	pixel_y = -10;
+	req_access = list(28)
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "tow" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
@@ -66725,6 +66754,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"udM" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "uea" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -66840,6 +66876,9 @@
 /area/quartermaster/storage)
 "uuz" = (
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/table/standard{
+	name = "plastic table frame"
+	},
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
 	pixel_x = 3;
 	pixel_y = 10
@@ -66847,9 +66886,6 @@
 /obj/item/reagent_containers/food/condiment/shaker/salt{
 	pixel_x = -4;
 	pixel_y = 10
-	},
-/obj/structure/table/standard{
-	name = "plastic table frame"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
@@ -66998,17 +67034,10 @@
 "uRt" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -67350,24 +67379,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
-"vEy" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/landmark/start{
-	name = "Chef"
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "vGu" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -67556,18 +67567,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
-"vRw" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/sortjunction/flipped{
-	dir = 1;
-	name = "Kitchen";
-	sortType = "Kitchen"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "vRT" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -68158,6 +68157,13 @@
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"xmo" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "xmq" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 5
@@ -68405,33 +68411,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"xPK" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/landmark/start{
-	name = "Chef"
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "xQD" = (
 /obj/structure/door_assembly/door_assembly_research{
 	anchored = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"xRc" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "xTd" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -68447,25 +68432,33 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
-"xTH" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/condiment/sugar{
-	pixel_x = -8;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/food/condiment/shaker/spacespice{
-	pixel_x = 5;
-	pixel_y = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "xVv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"yab" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 8;
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 2;
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "ych" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -97259,7 +97252,7 @@ bGr
 bGr
 bOP
 bOT
-lJh
+bOT
 bOT
 bPA
 bQV
@@ -97773,7 +97766,7 @@ bJT
 bOp
 uuz
 bPB
-bOT
+lJh
 bQV
 mya
 bOR
@@ -98034,7 +98027,7 @@ bOT
 bQV
 mya
 bOR
-bRQ
+hZL
 bSo
 bSM
 bTp
@@ -98802,7 +98795,7 @@ pcB
 bOV
 bOR
 bOR
-bOR
+tov
 bOR
 bOR
 bRQ
@@ -99055,14 +99048,14 @@ bLB
 bJW
 bMO
 bNE
-ndR
+pgL
+bRU
 bOR
-ljr
-bOX
-bOX
-fTZ
-bOX
-xRc
+bOR
+bOR
+bOR
+bOR
+bRQ
 bSr
 bOt
 bTs
@@ -99314,8 +99307,8 @@ bMP
 bNF
 ckY
 bOX
-vRw
-bPX
+bOX
+bOX
 oaR
 bQY
 fdq
@@ -99569,15 +99562,15 @@ bLD
 bMi
 bLA
 bNG
-pcB
-qfF
+ndR
 bOR
-xPK
+bOR
+bOR
 gpm
 dGy
-iBt
-xTH
-oDA
+qfF
+bRb
+tjs
 aNK
 bTu
 bUb
@@ -99828,12 +99821,12 @@ bJe
 bNH
 bGr
 bOZ
-bOR
+udM
 bPZ
-keq
-keq
-keq
-keq
+bOR
+bOR
+bOR
+bOR
 uRt
 aNK
 bTu
@@ -100085,13 +100078,13 @@ bLx
 bNI
 bGr
 bPa
-bOR
-bQa
-bOR
-bRb
+mfP
 bOR
 bOR
-bSs
+bOR
+bOR
+bOR
+uRt
 bhy
 bTu
 bTZ
@@ -100343,11 +100336,11 @@ bNJ
 bGr
 bOY
 bPD
-lGd
-oaR
-bQY
-fdq
-bRw
+bOR
+gpm
+dpV
+qfF
+bOR
 bSt
 bOt
 bTv
@@ -100599,13 +100592,13 @@ bMR
 bNK
 bGr
 bPb
+bPD
 bOR
-vEy
-gpm
-dGy
+jzo
+yab
 iBt
-xTH
-bSs
+bRb
+uRt
 bSN
 bTw
 bUd
@@ -100856,12 +100849,12 @@ bMS
 baD
 bGr
 pzj
-bOR
+xmo
 bQb
-bOR
-bOR
-bOR
-bOR
+cQg
+cQg
+cQg
+cQg
 bSs
 bSO
 bTx
@@ -101114,7 +101107,7 @@ bNM
 bGr
 bPc
 bPF
-bQb
+oAP
 bQy
 bRe
 wil
