@@ -523,7 +523,8 @@
 		if (autoclose)
 			for (var/atom/movable/M in get_turf(src))
 				if (M.density && M != src)
-					addtimer(CALLBACK(src, .proc/autoclose), 60)
+					addtimer(CALLBACK(src, .proc/autoclose), 60, TIMER_UNIQUE)
+					break
 	operating = TRUE
 
 	do_animate("closing")

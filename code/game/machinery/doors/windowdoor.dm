@@ -95,8 +95,6 @@
 		return 0
 	if (!ROUND_IS_STARTED)
 		return 0
-	if(!operating) //in case of emag
-		operating = TRUE
 	flick("[base_state]opening", src)
 	playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
 	icon_state = "[base_state]open"
