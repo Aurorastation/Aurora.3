@@ -154,7 +154,7 @@
 		BP_STOMACH            = /obj/item/organ/internal/stomach,
 		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
 		BP_EYES               = /obj/item/organ/internal/eyes/vaurca,
-		BP_NEURAL_SOCKET      = /obj/item/organ/vaurca/filtrationbit
+		BP_FILTRATION_BIT      = /obj/item/organ/vaurca/filtrationbit
 	)
 
 	default_h_style = "Bald"

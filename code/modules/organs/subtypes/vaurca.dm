@@ -63,8 +63,8 @@
 	robotic = 1
 
 /obj/item/organ/vaurca/filtrationbit
-	name = BP_NEURAL_SOCKET
-	organ_tag = BP_NEURAL_SOCKET
+	name = BP_FILTRATION_BIT
+	organ_tag = BP_FILTRATION_BIT
 	parent_organ = BP_HEAD
 	icon_state = "filter"
 	robotic = 2
