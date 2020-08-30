@@ -614,7 +614,6 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	else
 		..()
 
-
 /obj/item/implant/compressed/get_data()
 	. = {"
 <b>Implant Specifications:</b><BR>
