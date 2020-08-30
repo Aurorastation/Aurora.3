@@ -158,7 +158,7 @@
 /obj/machinery/door/window/attackby(obj/item/I as obj, mob/user as mob)
 
 	//If it's in the process of opening/closing, ignore the click
-	if (operating == TRUE)
+	if (operating)
 		return
 
 	//Emags and ninja swords? You may pass.
