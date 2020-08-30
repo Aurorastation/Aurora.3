@@ -107,10 +107,7 @@
 	if(..())
 		return TRUE
 
-	var/mob/user = usr
-	if(!istype(user))
-		return
-	var/obj/item/card/id/I = user.GetIdCard()
+	var/obj/item/card/id/I = usr.GetIdCard()
 
 	var/datum/shuttle/autodock/ferry/supply/shuttle = SScargo.shuttle
 	var/obj/item/modular_computer/console = program.computer
@@ -154,7 +151,7 @@
 	if(href_list["order_approve"])
 		var/datum/cargo_order/co = SScargo.get_order_by_id(text2num(href_list["order_approve"]))
 		if(co)
-			var/message = co.set_approved(GetNameAndAssignmentFromId(I), user.character_id)
+			var/message = co.set_approved(GetNameAndAssignmentFromId(I), usr.character_id)
 			if(message)
 				status_message = message
 		return TRUE

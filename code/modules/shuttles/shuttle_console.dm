@@ -103,12 +103,7 @@
 
 /obj/machinery/computer/shuttle_control/Topic(href_list, href_list)
 	..()
-
-	var/mob/user = usr
-	if(!istype(user))
-		return
-
-	handle_topic_href(SSshuttle.shuttles[shuttle_tag], href_list, user)
+	handle_topic_href(SSshuttle.shuttles[shuttle_tag], href_list, usr)
 
 /obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user)
 	if(!hacked)

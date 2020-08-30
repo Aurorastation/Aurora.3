@@ -59,10 +59,7 @@
 	if(..())
 		return TRUE
 
-	var/mob/user = usr
-	if(!istype(user))
-		return
-	var/obj/item/card/id/I = user.GetIdCard()
+	var/obj/item/card/id/I = usr.GetIdCard()
 
 	//Check if we want to deliver or pay
 	//If we are at the status shipped, then only the confirm delivery and pay button should be shown (deliver)
@@ -98,16 +95,16 @@
 
 				//Check if we have delivered it aswell or only paid
 				if(order_details["status"] == "shipped")
-					status_message = co.set_delivered(GetNameAndAssignmentFromId(I), user.character_id, 1)
+					status_message = co.set_delivered(GetNameAndAssignmentFromId(I), usr.character_id, 1)
 				else
-					status_message = co.set_paid(GetNameAndAssignmentFromId(I), user.character_id)
+					status_message = co.set_paid(GetNameAndAssignmentFromId(I), usr.character_id)
 				order_details = co.get_list()
 
 			else
 				//If a payment is not needed and we are at the status shipped, then confirm the delivery
 				if(order_details["status"] == "shipped")
 					playsound(program.computer, 'sound/machines/chime.ogg', 50, TRUE)
-					status_message = co.set_delivered(GetNameAndAssignmentFromId(I), user.character_id, 0)
+					status_message = co.set_delivered(GetNameAndAssignmentFromId(I), usr.character_id, 0)
 			order_details = co.get_list()
 		else
 			status_message = "Unable to process - Network Card or Cardreader Missing"
@@ -115,8 +112,8 @@
 
 
 	//But only cargo can switch between the pages
-	if(!istype(I) || !I.registered_name || !(access_cargo in I.access) || issilicon(user))
-		to_chat(user, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
+	if(!istype(I) || !I.registered_name || !(access_cargo in I.access) || issilicon(usr))
+		to_chat(usr, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
 		return
 
 	if(href_list["page"])

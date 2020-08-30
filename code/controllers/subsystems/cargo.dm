@@ -734,7 +734,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		//Iterate over the items in the order and build the a list with the item count
 		var/list/itemcount = list()
 		for(var/datum/cargo_order_item/coi in co.items)
-			if("[coi.ci.id]" in itemcount)
+			if(!isnull(itemcount["[coi.ci.id]"]))
 				itemcount["[coi.ci.id]"] = itemcount["[coi.ci.id]"] + 1
 			else
 				itemcount["[coi.ci.id]"] = 1

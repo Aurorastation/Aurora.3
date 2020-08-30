@@ -84,11 +84,7 @@
 	if(..())
 		return TRUE
 
-	var/mob/user = usr
-	if(!istype(user))
-		return
-
-	var/obj/item/card/id/I = user.GetIdCard()
+	var/obj/item/card/id/I = usr.GetIdCard()
 
 	//Send the order to cargo
 	if(href_list["submit_order"])
@@ -104,7 +100,7 @@
 			status_message = "Unable to submit order. No reason supplied."
 			return TRUE
 
-		co.set_submitted(GetNameAndAssignmentFromId(I), user.character_id, reason)
+		co.set_submitted(GetNameAndAssignmentFromId(I), usr.character_id, reason)
 		status_message = "Order submitted successfully. Order ID: [co.order_id] Tracking code: [co.get_tracking_code()]"
 		//TODO: Print a list with the order data
 		co = null
