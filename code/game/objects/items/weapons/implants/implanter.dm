@@ -131,7 +131,7 @@
 			to_chat(user, SPAN_NOTICE("The implant is loaded into the implanter."))
 			return
 		if (c.scanned)
-			to_chat(user, SPAN_WARNING("Something is already scanned inside the implant!</span>"))
+			to_chat(user, SPAN_WARNING("Something is already scanned inside the implant!"))
 			return
 		c.scanned = A
 		if(istype(A.loc,/mob/living/carbon/human))
