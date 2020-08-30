@@ -740,11 +740,12 @@ var/list/ai_verbs_default = list(
 	else if(W.iswrench())
 		if(anchored)
 			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
-			if(!do_after(user,40/W.toolspeed))
+			if(!do_after(user, 40/W.toolspeed))
 				user.visible_message("<span class='notice'>\The [user] decides not to unbolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'>\The [user] finishes unfastening \the [src]!</span>")
-			anchored = 0
+			anchored = FALSE
+			exit_vr()
 			return
 		else
 			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the plating.</span>..")

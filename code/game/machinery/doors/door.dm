@@ -71,7 +71,20 @@
 		layer = open_layer
 		explosion_resistance = 0
 
+	SetBounds()
+	health = maxhealth
 
+	update_nearby_tiles(need_rebuild=1)
+	if(hashatch && !(width > 1))
+		setup_hatch()
+
+/obj/machinery/door/Move(new_loc, new_dir)
+	. = ..()
+	SetBounds()
+	update_nearby_tiles()
+	update_icon()
+
+/obj/machinery/door/proc/SetBounds()
 	if(width > 1)
 		if(dir in list(EAST, WEST))
 			bound_width = width * world.icon_size
@@ -79,12 +92,6 @@
 		else
 			bound_width = world.icon_size
 			bound_height = width * world.icon_size
-
-	health = maxhealth
-
-	update_nearby_tiles(need_rebuild=1)
-	if (hashatch)
-		setup_hatch()
 
 /obj/machinery/door/proc/setup_hatch()
 	hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchstyle, closed_layer+0.1)
@@ -571,19 +578,6 @@
 	if(invert)
 		return src.density
 	return !src.density
-
-/obj/machinery/door/Move(new_loc, new_dir)
-	//update_nearby_tiles()
-	. = ..()
-	if(width > 1)
-		if(dir in list(EAST, WEST))
-			bound_width = width * world.icon_size
-			bound_height = world.icon_size
-		else
-			bound_width = world.icon_size
-			bound_height = width * world.icon_size
-
-	update_nearby_tiles()
 
 /obj/machinery/door/morgue
 	icon = 'icons/obj/doors/doormorgue.dmi'
