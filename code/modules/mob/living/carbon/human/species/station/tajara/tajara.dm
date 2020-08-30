@@ -87,6 +87,7 @@
 		BP_KIDNEYS =  /obj/item/organ/internal/kidneys/tajara,
 		BP_STOMACH =  /obj/item/organ/internal/stomach/tajara,
 		BP_BRAIN =    /obj/item/organ/internal/brain/tajara,
+		BP_APPENDIX = /obj/item/organ/internal/appendix/tajara,
 		BP_EYES =     /obj/item/organ/internal/eyes/night
 		)
 

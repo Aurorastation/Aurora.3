@@ -21,7 +21,7 @@
 /obj/item/organ/internal/eyes/night/refresh_action_button()
 	. = ..()
 	if(.)
-		action.button_icon_state = "augment"
+		action.button_icon_state = "night_eyes"
 		if(action.button)
 			action.button.update_icon()
 
@@ -99,3 +99,8 @@
 
 /obj/item/organ/internal/brain/tajara
 	icon_state = "tajaran_brain"
+
+/obj/item/organ/internal/appendix/tajara
+	name = "fat reservoir"
+	icon_state = "tajaran_appendix"
+	desc = "A Tajara organ able to store fat and nutrients for further use during the winter."
