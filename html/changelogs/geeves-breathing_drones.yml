@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Blank Vaurca Drones ordered from cargo now start with an active filter port, meaning they won't immediately start suffocating."
+  - bugfix: "Blank Vaurca Drones now start with the correct hive colour."
+  - rscadd: "C'thur is now one of the possible randomly generated hive names."
