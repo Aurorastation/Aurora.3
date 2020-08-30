@@ -127,8 +127,11 @@
 		return
 	if(istype(A,/obj/item) && imp)
 		var/obj/item/implant/compressed/c = imp
+		if(istype(A,/obj/item/implant/compressed))
+			to_chat(user, SPAN_NOTICE("The implant is loaded into the implanter."))
+			return
 		if (c.scanned)
-			to_chat(user, "<span class='warning'>Something is already scanned inside the implant!</span>")
+			to_chat(user, SPAN_WARNING("Something is already scanned inside the implant!</span>"))
 			return
 		c.scanned = A
 		if(istype(A.loc,/mob/living/carbon/human))

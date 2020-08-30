@@ -594,6 +594,27 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	var/activation_emote = "sigh"
 	var/obj/item/scanned = null
 
+/obj/item/implant/compressed/attackby(var/obj/item/T, mob/user)
+	if(T.isscrewdriver())
+		if(!scanned)
+			to_chat(user, SPAN_NOTICE("There is nothing to remove from the implant."))
+		else
+			to_chat(user, SPAN_NOTICE("You remove \the [scanned] from the implant."))
+			user.put_in_hands(scanned)
+			scanned = null
+	if(istype(T, /obj/item/implanter))
+		var/obj/item/implanter/implanter = T
+		if(implanter.imp)
+			to_chat(user, SPAN_NOTICE("\The [implanter] already has an implant loaded."))
+			return
+		user.drop_from_inventory(src)
+		forceMove(implanter)
+		implanter.imp = src
+		implanter.update()
+	else
+		..()
+
+
 /obj/item/implant/compressed/get_data()
 	. = {"
 <b>Implant Specifications:</b><BR>
