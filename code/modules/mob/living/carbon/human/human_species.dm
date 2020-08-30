@@ -65,15 +65,13 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	. = ..(mapload, SPECIES_MONKEY_VAURCA)
 	src.gender = FEMALE
 
-/mob/living/carbon/human/type_a/Initialize(mapload)
+/mob/living/carbon/human/type_a/Initialize(mapload, var/new_species = null)
 	h_style = "Classic Antennae"
 	. = ..(mapload, SPECIES_VAURCA_WORKER)
 	src.gender = NEUTER
 
-/mob/living/carbon/human/type_a_cargo/Initialize(mapload)
-	h_style = "Classic Antennae"
-	. = ..(mapload, SPECIES_VAURCA_WORKER)
-	src.gender = NEUTER
+/mob/living/carbon/human/type_a/cargo/Initialize(mapload)
+	. = ..()
 	// Equip mask to allow the drone to breathe
 	equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(src), slot_wear_mask)
 	// Set internals
