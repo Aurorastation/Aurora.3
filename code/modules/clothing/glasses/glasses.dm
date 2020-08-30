@@ -80,7 +80,7 @@ BLIND     // can't see anything
 	return 0
 
 /obj/item/clothing/glasses/proc/is_med_hud()
-	return
+	return 0
 
 /obj/item/clothing/glasses/meson
 	name = "optical meson scanner"
