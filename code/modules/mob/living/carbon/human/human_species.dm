@@ -65,7 +65,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	. = ..(mapload, SPECIES_MONKEY_VAURCA)
 	src.gender = FEMALE
 
-/mob/living/carbon/human/type_a/Initialize(mapload, var/new_species = null)
+/mob/living/carbon/human/type_a/Initialize(mapload)
 	h_style = "Classic Antennae"
 	. = ..(mapload, SPECIES_VAURCA_WORKER)
 	src.gender = NEUTER
