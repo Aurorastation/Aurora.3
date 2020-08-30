@@ -364,22 +364,22 @@
 /proc/hasHUD(mob/M as mob, hudtype)
 	if(istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
-		var/eye_hud
-		var/hud
 		var/obj/item/clothing/glasses/G = H.glasses
+		var/eye_hud = 0
+		var/hud = 0
 		// Checks for eye sensor HUD
 		var/obj/item/organ/internal/augment/eye_sensors/E = locate() in H.internal_organs
 		if(E)
-			eye_hud = E.selected_hud
+			eye_hud = E.check_hud(hudtype)
 		if(G)
-			hud = G.is_hud()
-		switch(hudtype)
-			if("security")
-				return (hud == "Security") || (eye_hud == "Security")
-			if("medical")
-				return (hud == "Medical") || (eye_hud == "Medical")
-			else
-				return 0
+			switch(hudtype)
+				if("security")
+					hud = G.is_sec_hud()
+				if("medical")
+					hud = G.is_med_hud()
+				else
+					return 0
+		return hud || eye_hud
 	else if(istype(M, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = M
 		switch(hudtype)

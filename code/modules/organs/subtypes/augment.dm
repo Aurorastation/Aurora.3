@@ -251,6 +251,12 @@
 		return
 	E.take_damage(5)
 
+/obj/item/organ/internal/augment/eye_sensors/proc/check_hud(var/hud)
+	if(hud == lowertext(selected_hud))
+		return 1
+	else
+		return 0
+
 /obj/item/organ/internal/augment/cyber_hair
 	name = "synthetic hair extensions"
 	cooldown = 20

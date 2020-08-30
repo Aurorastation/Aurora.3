@@ -76,8 +76,11 @@ BLIND     // can't see anything
 	user.update_inv_l_hand(0)
 	user.update_inv_r_hand(1)
 
-/obj/item/clothing/glasses/proc/is_hud()
-	return "None"
+/obj/item/clothing/glasses/proc/is_sec_hud()
+	return 0
+
+/obj/item/clothing/glasses/proc/is_med_hud()
+	return
 
 /obj/item/clothing/glasses/meson
 	name = "optical meson scanner"
@@ -474,11 +477,11 @@ BLIND     // can't see anything
 	src.hud = new/obj/item/clothing/glasses/hud/security(src)
 	return
 
-/obj/item/clothing/glasses/sunglasses/sechud/is_hud()
+/obj/item/clothing/glasses/sunglasses/sechud/is_sec_hud()
 	if (active)
-		return "Security"
+		return 1
 	else
-		return "None"
+		return 0
 
 /obj/item/clothing/glasses/sunglasses/sechud/tactical
 	name = "tactical HUD"
@@ -690,11 +693,11 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/eyepatch/hud/security/process_hud(var/mob/M)
 	process_sec_hud(M, 1)
 
-/obj/item/clothing/glasses/eyepatch/hud/security/is_hud()
+/obj/item/clothing/glasses/eyepatch/hud/security/is_sec_hud()
 	if (active)
-		return "Security"
+		return 1
 	else
-		return "None"
+		return 0
 
 /obj/item/clothing/glasses/eyepatch/hud/medical
 	name = "MEDpatch"
@@ -705,11 +708,11 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/eyepatch/hud/medical/process_hud(var/mob/M)
 	process_med_hud(M, 1)
 
-/obj/item/clothing/glasses/eyepatch/hud/medical/is_hud()
+/obj/item/clothing/glasses/eyepatch/hud/medical/is_med_hud()
 	if (active)
-		return "Medical"
+		return 1
 	else
-		return "None"
+		return 0
 
 /obj/item/clothing/glasses/eyepatch/hud/meson
 	name = "MESpatch"

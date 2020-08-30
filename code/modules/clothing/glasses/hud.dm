@@ -23,11 +23,11 @@
 /obj/item/clothing/glasses/hud/health/process_hud(var/mob/M)
 	process_med_hud(M, 1)
 
-/obj/item/clothing/glasses/hud/health/is_hud()
+/obj/item/clothing/glasses/hud/health/is_med_hud()
 	if (active)
-		return "Medical"
+		return 1
 	else
-		return "None"
+		return 0
 
 /obj/item/clothing/glasses/hud/health/prescription
 	name = "prescription glasses/HUD assembly"
@@ -55,11 +55,11 @@
 	body_parts_covered = 0
 	var/global/list/jobs[0]
 
-/obj/item/clothing/glasses/hud/security/is_hud()
+/obj/item/clothing/glasses/hud/security/is_sec_hud()
 	if (active)
-		return "Security"
+		return 1
 	else
-		return "None"
+		return 0
 
 /obj/item/clothing/glasses/hud/security/prescription
 	name = "prescription glasses/HUD assembly"
