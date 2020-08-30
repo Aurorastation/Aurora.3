@@ -1,0 +1,11 @@
+author: Hocka
+
+delete-after: True
+
+changes: 
+  - bugfix: "Emagged airlocks can now be closed with a crowbar and repaired like a regular broken airlock."
+  - bugfix: "Emagged windoors no longer spawn two airlock electronics."
+  - bugfix: "Airlock electronics pried out from emagged windoors are now actually broken instead of being fully functional electronics with the broke icon state tacked on."
+  - tweak: "Emagged windoors are now identified by a description text saying it is jammed."
+  - tweak: "Using a crowbar on an emagged airlock now dismantles it, returning five reinforced glass sheets instead of shattering it."
+  - tweak: "Fully shattering a windoor now destroys the airlock electronics inside instead of spitting out a fully intact board."
