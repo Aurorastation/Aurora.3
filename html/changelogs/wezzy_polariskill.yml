@@ -40,5 +40,5 @@ delete-after: True
 changes:
   - imageadd: "Fixes shading and missing inhands for high skirt. Adds skater skirt and tube skirt."
   - rscdel: "Removes some clothing from Polaris."
-  - imageadd: "Beanies and some acessories have been resprited."
+  - imageadd: "Beanies and some accessories have been resprited."
   - rscadd: "Adds cropped shirts and dress shirts, as well as a blouse."
