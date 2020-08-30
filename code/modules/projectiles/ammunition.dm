@@ -16,7 +16,7 @@
 	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
 	var/spent_icon = "s-casing-spent"
 
-	drop_sound = "casing_drop"
+	drop_sound = /decl/sound_category/casing_drop_sound
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 	var/reload_sound = 'sound/weapons/reload_bullet.ogg' //sound that plays when inserted into gun.
 
@@ -147,7 +147,7 @@
 	to_chat(user, "<span class='notice'>You empty [src].</span>")
 	for(var/obj/item/ammo_casing/C in stored_ammo)
 		C.forceMove(user.loc)
-		playsound(C, "casing_drop", 50, FALSE)
+		playsound(C, /decl/sound_category/casing_drop_sound, 50, FALSE)
 		C.set_dir(pick(alldirs))
 	stored_ammo.Cut()
 	update_icon()

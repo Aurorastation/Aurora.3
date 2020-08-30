@@ -233,7 +233,7 @@
 		if(!isturf(picked)) return
 
 		spark(user, 5)
-		playsound(user.loc, "sparks", 50, 1)
+		playsound(user.loc, /decl/sound_category/spark_sound, 50, 1)
 
 		user.forceMove(picked)
 		return PROJECTILE_FORCE_MISS
@@ -525,7 +525,7 @@
 	icon_state = "unathi_armor"
 	item_state = "unathi_armor"
 	contained_sprite = TRUE
-	species_restricted = list("Unathi")
+	species_restricted = list(BODYTYPE_UNATHI)
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 
@@ -544,7 +544,7 @@
 	icon_state = "klax_hopeful"
 	item_state = "klax_hopeful"
 	contained_sprite = TRUE
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 	allowed = list(/obj/item/gun/projectile, /obj/item/gun/energy, /obj/item/gun/launcher, /obj/item/melee, /obj/item/reagent_containers/spray/pepper, /obj/item/ammo_magazine, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/handcuffs, /obj/item/device/flashlight)
 	armor = list(melee = 70, bullet = 40, laser = 55, energy = 15, bomb = 25, bio = 0, rad = 40)
 	siemens_coefficient = 0.35

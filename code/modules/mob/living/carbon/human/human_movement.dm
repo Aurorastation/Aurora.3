@@ -4,11 +4,7 @@
 	if(species.slowdown)
 		tally = species.slowdown
 
-	if(ishuman(pulling))
-		var/mob/living/carbon/human/H = pulling
-		if(H.species.slowdown> species.slowdown)
-			tally = H.species.slowdown
-		tally += H.ClothesSlowdown()
+	tally += get_pulling_movement_delay()
     
 	if (istype(loc, /turf/space) || isopenturf(loc))
 		if(!(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc) || locate(/obj/structure/ladder, loc)))
@@ -156,8 +152,6 @@
 	if (is_noisy && !stat && !lying)
 		if ((x == last_x && y == last_y) || !footsound)
 			return
-		if(shoes && (shoes.item_flags & SILENT))
-			return // quiet shoes
 		last_x = x
 		last_y = y
 		if (m_intent == "run")
@@ -178,3 +172,12 @@
 /mob/living/carbon/human/proc/ClothesSlowdown()
 	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head, wear_mask, shoes, l_ear, r_ear, glasses, belt))
 		. += I.slowdown
+
+/mob/living/carbon/human/get_pulling_movement_delay()
+	. = ..()
+
+	if(ishuman(pulling))
+		var/mob/living/carbon/human/H = pulling
+		if(H.species.slowdown > species.slowdown)
+			. += H.species.slowdown - species.slowdown
+		. += H.ClothesSlowdown()

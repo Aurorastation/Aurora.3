@@ -3,7 +3,7 @@
 	desc = "It's a small container with dice inside."
 	icon = 'icons/obj/dice.dmi'
 	icon_state = "dicebag"
-	use_sound = "rustle"
+	use_sound = /decl/sound_category/rustle_sound
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
 	starts_with = list(
@@ -29,8 +29,8 @@
 	icon_state = "card_holder_empty"
 	can_hold = list(/obj/item/deck, /obj/item/battle_monsters/deck, /obj/item/hand, /obj/item/pack/, /obj/item/card) //sneaky folks can hide ID and other cards
 	storage_slots = 1 //can hold one deck
-	use_sound = "sound/items/drop/shoes.ogg"
-	drop_sound = "sound/items/drop/hat.ogg"
+	use_sound = 'sound/items/drop/shoes.ogg'
+	drop_sound = 'sound/items/drop/hat.ogg'
 
 /obj/item/storage/card/update_icon()
 	if(contents.len)

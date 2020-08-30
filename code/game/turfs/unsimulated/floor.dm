@@ -12,7 +12,7 @@
 	name = "snow"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
-	footstep_sound = "snow"
+	footstep_sound = /decl/sound_category/snow_footstep
 
 /turf/unsimulated/mask
 	name = "mask"

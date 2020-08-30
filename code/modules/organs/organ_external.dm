@@ -1009,7 +1009,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			owner.emote("scream")
 			owner.flash_strong_pain()
 
-	playsound(src.loc, "fracture", 100, 1, -2)
+	playsound(src.loc, /decl/sound_category/fracture_sound, 100, 1, -2)
 	status |= ORGAN_BROKEN
 	broken_description = pick("Broken","Fracture","Hairline fracture")
 	perma_injury = brute_dam
@@ -1038,10 +1038,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(company)
 		model = company
 		var/datum/robolimb/R = all_robolimbs[company]
-		/*if(species && !(species.name in R.species_can_use && species.get_bodytype() != "Machine"))
-			R = basic_robolimb*/
+
 		if(R)
-			if (!force_skintone)
+			if(!force_skintone)
 				force_icon = R.icon
 			if(R.lifelike)
 				status |= ORGAN_LIFELIKE

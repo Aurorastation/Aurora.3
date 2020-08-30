@@ -14,7 +14,7 @@
 	if(!istype(H) || !Adjacent(H))
 		return ..()
 	if(H.a_intent == I_HELP)
-		if(H.species && H.species.name == "Diona" && do_merge(H))
+		if(H.species && H.species.name == SPECIES_DIONA && do_merge(H))
 			return
 		get_scooped(H) // GET SCOOPED - geeves
 		return

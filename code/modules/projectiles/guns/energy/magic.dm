@@ -99,7 +99,7 @@ obj/item/gun/energy/staff/animate/special_check(var/mob/living/user)
 		return 0
 	return 1
 
-obj/item/gun/energy/staff/focus
+/obj/item/gun/energy/staff/focus
 	name = "mental focus"
 	desc = "An artefact that channels the will of the user into destructive bolts of force. If you aren't careful with it, you might poke someone's brain out."
 	icon = 'icons/obj/guns/mental_focus.dmi'
@@ -114,7 +114,7 @@ obj/item/gun/energy/staff/focus/special_check(var/mob/living/user)
 		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>")
 		return 0
 	if(!user.is_wizard())
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/external/LA = H.get_organ(BP_L_ARM)

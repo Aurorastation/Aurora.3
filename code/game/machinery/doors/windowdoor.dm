@@ -47,7 +47,7 @@
 		ae.icon_state = "door_electronics_smoked"
 		operating = 0
 	src.density = 0
-	playsound(src, "glass_break", 70, 1)
+	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message("[src] shatters!")
 	qdel(src)
@@ -180,7 +180,7 @@
 	if (istype(I, /obj/item/melee/energy/blade))
 		if(emag_act(10, user))
 			spark(src.loc, 5)
-			playsound(src.loc, "sparks", 50, 1)
+			playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
 			playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 			visible_message("<span class='warning'>The glass door was sliced open by [user]!</span>")
 		return 1

@@ -60,6 +60,8 @@ for reference:
 	desc = "This space is blocked off by a barricade."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "barricade"
+
+	build_amt = 5
 	anchored = 1.0
 	density = 1.0
 	var/health = 100
@@ -111,11 +113,6 @@ for reference:
 			qdel(src)
 			return
 		..()
-
-/obj/structure/barricade/proc/dismantle()
-	material.place_dismantled_product(get_turf(src))
-	qdel(src)
-	return
 
 /obj/structure/barricade/ex_act(severity)
 	switch(severity)
@@ -350,6 +347,13 @@ for reference:
 	w_class = ITEMSIZE_LARGE
 	kit_product = /obj/structure/bed/chair/remote/mech/portable
 	assembly_time = 20 SECONDS
+
+/obj/item/deployable_kit/remote_mech/attack_self(mob/user)
+	var/area/A = get_area(user)
+	if(!A.powered(EQUIP))
+		to_chat(user, SPAN_WARNING("\The [src] can not be deployed in an unpowered area."))
+		return FALSE
+	..()
 
 /obj/item/deployable_kit/remote_mech/brig
 	name = "brig mech control centre assembly kit"

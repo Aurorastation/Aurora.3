@@ -28,7 +28,7 @@
 	ideal_character_age = 50
 	outfit = /datum/outfit/job/rd
 
-	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Vaurca Worker", "Vaurca Warrior")
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 
 /datum/outfit/job/rd
 	name = "Research Director"

@@ -1,7 +1,7 @@
 /datum/reagent/blood
 	data = list(
 		"donor" = null,
-		"species" = "Human",
+		"species" = SPECIES_HUMAN,
 		"blood_DNA" = null,
 		"blood_type" = null,
 		"blood_colour" = "#A10808",

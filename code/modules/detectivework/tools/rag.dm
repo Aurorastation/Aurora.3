@@ -109,20 +109,19 @@
 	if(!reagents.total_volume)
 		to_chat(user, SPAN_WARNING("\The [initial(name)] is dry!"))
 	else
-		if ( !(last_clean && world.time < last_clean + 120) )
-			user.visible_message("\The <b>[user]</b> starts to wipe down \the [A] with \the [src]!")
+		if (!(last_clean && world.time < last_clean + 120) )
+			user.visible_message("<b>[user]</b> starts to wipe [A] with [src].")
 			clean_msg = TRUE
 			last_clean = world.time
 		else
 			clean_msg = FALSE
 		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
-		reagents.splash(A, 1) //get a small amount of liquid on the thing we're wiping.
 		update_name()
 		update_icon()
 		if(do_after(user,cleantime))
 			if(clean_msg)
-				user.visible_message("\The [user] finishes wiping off \the [A]!")
-			A.clean_blood()
+				user.visible_message("<b>[user]</b> finishes wiping [A].")
+		A.on_rag_wipe(src)
 
 /obj/item/reagent_containers/glass/rag/attack(atom/target as obj|turf|area, mob/user as mob , flag)
 	if(isliving(target))

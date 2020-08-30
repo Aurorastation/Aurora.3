@@ -255,7 +255,7 @@
 					Weaken(3)
 					if(!lying)
 						emote("collapse")
-				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == "Human") //apes go bald
+				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == SPECIES_HUMAN) //apes go bald
 					if((h_style != "Bald" || f_style != "Shaved" ))
 						to_chat(src, "<span class='warning'>Your hair falls out.</span>")
 						h_style = "Bald"
@@ -1045,7 +1045,7 @@
 
 	if(shock_stage >= 30)
 		if(shock_stage == 30)
-			visible_message("<b>[src]</b> is having trouble keeping \his eyes open.")
+			visible_message("<b>[src]</b> is having trouble keeping [get_pronoun("his")] eyes open.")
 		if(prob(30))
 			eye_blurry = max(2, eye_blurry)
 			stuttering = max(stuttering, 5)

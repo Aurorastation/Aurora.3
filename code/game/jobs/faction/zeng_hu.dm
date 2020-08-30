@@ -70,12 +70,12 @@
 
 	job_species_blacklist = list(
 		"Corporate Liaison" = list(
-			"Unathi",
-			"Tajara",
-			"M'sai Tajara",
-			"Zhan-Khazan Tajara",
-			"Vaurca Worker", 
-			"Vaurca Warrior"
+			SPECIES_UNATHI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR
 		)
 	)
 
@@ -121,3 +121,7 @@
 	suit = null
 	implants = null
 	id = /obj/item/card/id/zeng_hu
+
+	backpack_contents = list(
+		/obj/item/stamp/zeng_hu = 1
+	)

@@ -487,7 +487,6 @@
 	SearchVar(lava)
 	SearchVar(snow)
 	SearchVar(sand)
-	SearchVar(footstepfx)
 	SearchVar(FALLOFF_SOUNDS)
 	SearchVar(all_antag_types)
 	SearchVar(all_antag_spawnpoints)
