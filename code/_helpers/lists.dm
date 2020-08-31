@@ -738,4 +738,3 @@
 	. = list()
 	for (var/string in L)
 		. += capitalize(string)
-	return .
