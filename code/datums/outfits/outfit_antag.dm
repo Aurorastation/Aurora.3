@@ -222,7 +222,7 @@
 		/obj/item/clothing/suit/storage/hooded/wintercoat/red,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/miner,
 		/obj/item/clothing/suit/storage/leathercoat,
-		/obj/item/clothing/suit/storage/hazardvest/blue,
+		/obj/item/clothing/suit/storage/vest/csi,
 		/obj/item/clothing/suit/storage/toggle/dominia/bomber,
 		/obj/item/clothing/suit/storage/toggle/dominia/gold,
 		/obj/item/clothing/suit/storage/toggle/flannel,
@@ -241,7 +241,8 @@
 		/obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan,
 		/obj/item/clothing/suit/storage/toggle/tajaran,
 		/obj/item/clothing/suit/storage/toggle/trench,
-		/obj/item/clothing/suit/storage/toggle/trench/grey
+		/obj/item/clothing/suit/storage/toggle/trench/grey,
+		/obj/item/clothing/suit/storage/toggle/trench/colorable/random
 	)
 
 	shoes = list(
@@ -258,12 +259,7 @@
 		/obj/item/clothing/shoes/black,
 		/obj/item/clothing/shoes/brown
 	)
-	//glasses = list( //add to backpack or something
-	//	/obj/item/clothing/glasses/thermal,
-	//	/obj/item/clothing/glasses/eyepatch/hud/thermal,
-	//	/obj/item/clothing/glasses/thermal/plain/monocle,
-	//	/obj/item/clothing/glasses/thermal/aviator
-	//)
+
 	head = list(
 		/obj/item/clothing/head/bearpelt,
 		/obj/item/clothing/head/ushanka,
@@ -271,6 +267,7 @@
 		/obj/item/clothing/head/bandana,
 		/obj/item/clothing/head/hgpiratecap,
 		/obj/item/clothing/head/beanie_loose/random,
+		/obj/item/clothing/head/beaverhat,
 		/obj/item/clothing/head/cowboy,
 		/obj/item/clothing/head/fedora/brown,
 		/obj/item/clothing/head/fedora/grey,
@@ -283,7 +280,6 @@
 		/obj/item/clothing/head/hijab/red,
 		/obj/item/clothing/head/navy/garrison,
 		/obj/item/clothing/head/nonla,
-		/obj/item/clothing/head/helmet,
 		/obj/item/clothing/head/helmet/bucket,
 		/obj/item/clothing/head/helmet/material/makeshift/plasteel,
 		/obj/item/clothing/head/helmet/kettle,
@@ -301,8 +297,13 @@
 	belt = null
 	gloves = null
 	l_ear = /obj/item/device/radio/headset/raider
-	r_pocket = null
-	id = /obj/item/storage/wallet
+	l_pocket = /obj/item/device/contract_uplink
+	r_pocket = list(
+			/obj/item/clothing/glasses/eyepatch/hud/thermal,
+			/obj/item/clothing/glasses/thermal,
+			/obj/item/clothing/glasses/thermal/aviator
+			)
+	id = /obj/item/storage/wallet/random
 
 	accessory = /obj/item/clothing/accessory/storage/webbing
 
@@ -353,11 +354,10 @@
 		H.equip_to_slot_or_del(new fallback_type(H), slot_shoes)
 
 	var/obj/item/storage/wallet/W = H.wear_id
-	var/obj/item/card/id/syndicate/raider/id = new(H)
-	id.name = "[H.real_name]'s Passport"
+	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
+	passport.name = "[H.real_name]'s Passport"
 	if(W)
-		W.handle_item_insertion(id)
-		spawn_money(rand(50,150)*10,W)
+		W.handle_item_insertion(passport)
 
 /datum/outfit/admin/syndicate/raider/burglar
 	name = "Burglar"

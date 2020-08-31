@@ -187,85 +187,10 @@ var/datum/antagonist/raider/raiders
 		player.force_update_limbs()
 		player.update_eyes()
 		player.regenerate_icons()
-		//equip_weapons(player)
-
-	//Try to equip it, del if we fail.
-	var/obj/item/device/contract_uplink/new_uplink = new()
-	if (!player.equip_to_appropriate_slot(new_uplink))
-		qdel(new_uplink)
 
 	give_codewords(player)
 
 	return 1
-
-/datum/antagonist/raider/proc/equip_weapons(var/mob/living/carbon/human/player)
-	var/new_gun = pick(raider_guns)
-	var/new_holster = pick(raider_holster) //raiders don't start with any backpacks, so let's be nice and give them a holster if they can use it.
-	var/turf/T = get_turf(player)
-
-	var/obj/item/primary = new new_gun(T)
-	var/obj/item/clothing/accessory/holster/holster = null
-
-	//Give some of the raiders a pirate gun as a secondary
-	if(prob(60))
-		var/obj/item/secondary = new /obj/item/gun/projectile/pirate(T)
-		if(!(primary.slot_flags & SLOT_HOLSTER))
-			holster = new new_holster(T)
-			holster.holstered = secondary
-			secondary.forceMove(holster)
-		else
-			player.equip_to_slot_or_del(secondary, slot_belt)
-
-	if(primary.slot_flags & SLOT_HOLSTER)
-		holster = new new_holster(T)
-		holster.holstered = primary
-		primary.forceMove(holster)
-	else if(!player.belt && (primary.slot_flags & SLOT_BELT))
-		player.equip_to_slot_or_del(primary, slot_belt)
-	else if(!player.back && (primary.slot_flags & SLOT_BACK))
-		player.equip_to_slot_or_del(primary, slot_back)
-	else
-		player.put_in_any_hand_if_possible(primary)
-
-	//If they got a projectile gun, give them a little bit of spare ammo
-	equip_ammo(player, primary)
-
-	if(holster)
-		var/obj/item/clothing/under/uniform = player.w_uniform
-		if(istype(uniform) && uniform.can_attach_accessory(holster))
-			uniform.attackby(holster, player)
-		else
-			player.put_in_any_hand_if_possible(holster)
-
-/datum/antagonist/raider/proc/equip_ammo(var/mob/living/carbon/human/player, var/obj/item/gun/gun)
-	if(istype(gun, /obj/item/gun/projectile))
-		var/obj/item/gun/projectile/bullet_thrower = gun
-		if(bullet_thrower.magazine_type)
-			player.equip_to_slot_or_del(new bullet_thrower.magazine_type(player), slot_l_store)
-			if(prob(20)) //don't want to give them too much
-				player.equip_to_slot_or_del(new bullet_thrower.magazine_type(player), slot_r_store)
-		else if(bullet_thrower.ammo_type)
-			var/obj/item/storage/box/ammobox = new(get_turf(player.loc))
-			for(var/i in 1 to rand(3,5) + rand(0,2))
-				new bullet_thrower.ammo_type(ammobox)
-			player.put_in_any_hand_if_possible(ammobox)
-		return
-	if(istype(gun, /obj/item/gun/launcher/grenade))
-		var/list/grenades = list(
-			/obj/item/grenade/empgrenade,
-			/obj/item/grenade/smokebomb,
-			/obj/item/grenade/flashbang
-			)
-		var/obj/item/storage/box/ammobox = new(get_turf(player.loc))
-		for(var/i in 1 to 7)
-			var/grenade_type = pick(grenades)
-			new grenade_type(ammobox)
-		player.put_in_any_hand_if_possible(ammobox)
-	if(istype(gun, /obj/item/gun/launcher/harpoon))
-		var/obj/item/storage/backpack/duffel/bag = new(get_turf(player))
-		for(var/i in 1 to 4)
-			new /obj/item/material/harpoon(bag)
-		player.put_in_any_hand_if_possible(bag)
 
 /datum/antagonist/raider/proc/equip_vox(var/mob/living/carbon/human/player)
 

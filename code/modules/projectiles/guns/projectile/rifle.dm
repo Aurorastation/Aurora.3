@@ -240,6 +240,8 @@
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
 
+	slot_flags = SLOT_BACK
+
 	fire_delay = 25
 	accuracy = -1
 
