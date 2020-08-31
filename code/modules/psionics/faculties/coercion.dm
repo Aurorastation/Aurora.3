@@ -38,7 +38,8 @@
 			to_chat(M, SPAN_DANGER("Your senses are blasted into oblivion by a psionic scream!"))
 			M.eye_blind = max(M.eye_blind,3)
 			M.ear_deaf = max(M.ear_deaf,6)
-			M.confused = rand(3,8)
+			if(!M.isSynthetic())
+				M.confused = max(M.confused, rand(3,8))
 		return TRUE
 
 /datum/psionic_power/coercion/mindread
