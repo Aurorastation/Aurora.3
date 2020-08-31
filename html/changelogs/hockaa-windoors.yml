@@ -1,0 +1,6 @@
+author: Hocka
+
+delete-after: True
+
+changes: 
+  - bugfix: "Windoors can no longer be obnoxiously spammed to open them."
