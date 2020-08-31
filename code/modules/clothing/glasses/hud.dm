@@ -24,10 +24,7 @@
 	process_med_hud(M, 1)
 
 /obj/item/clothing/glasses/hud/health/is_med_hud()
-	if (active)
-		return 1
-	else
-		return 0
+	return active
 
 /obj/item/clothing/glasses/hud/health/prescription
 	name = "prescription glasses/HUD assembly"
@@ -56,10 +53,7 @@
 	var/global/list/jobs[0]
 
 /obj/item/clothing/glasses/hud/security/is_sec_hud()
-	if (active)
-		return 1
-	else
-		return 0
+	return active
 
 /obj/item/clothing/glasses/hud/security/prescription
 	name = "prescription glasses/HUD assembly"
