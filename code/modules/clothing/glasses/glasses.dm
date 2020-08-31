@@ -82,6 +82,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/proc/is_med_hud()
 	return FALSE
 
+
 /obj/item/clothing/glasses/meson
 	name = "optical meson scanner"
 	desc = "Used for seeing walls, floors, and stuff through anything."
