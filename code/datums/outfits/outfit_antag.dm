@@ -350,7 +350,12 @@
 		return
 
 	if(!H.shoes)
-		var/fallback_type = pick(/obj/item/clothing/shoes/sandal, /obj/item/clothing/shoes/jackboots/toeless, /obj/item/clothing/shoes/laceup/brown/all_species, /obj/item/clothing/shoes/laceup/all_species)
+		var/fallback_type = pick(
+			/obj/item/clothing/shoes/sandal,
+			/obj/item/clothing/shoes/jackboots/toeless,
+			/obj/item/clothing/shoes/laceup/brown/all_species,
+			/obj/item/clothing/shoes/laceup/all_species
+			)
 		H.equip_to_slot_or_del(new fallback_type(H), slot_shoes)
 
 	var/obj/item/storage/wallet/W = H.wear_id
