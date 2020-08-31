@@ -43,14 +43,14 @@
 	var/not_heard //the message displayed to people who could not hear the whispering
 	if(speaking)
 		if(speaking.whisper_verb)
-			whisper_text = speaking.whisper_verb
+			whisper_text = pick(speaking.whisper_verb)
 			not_heard = "[whisper_text] something"
 		else
 			var/adverb = pick("quietly", "softly")
 			whisper_text = "[speaking.speech_verb] [adverb]"
 			not_heard = "[speaking.speech_verb] something [adverb]"
 	else
-		not_heard = "[whisper_text] something" //TODO get rid of the null language and just prevent speech if language is null
+		not_heard = "[whisper_text] something"
 
 	message = capitalize(trim(message))
 

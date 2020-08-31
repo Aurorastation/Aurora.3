@@ -15,7 +15,7 @@
 
 	var/visible = 1
 	var/p_open = 0
-	var/operating = 0
+	var/operating = FALSE
 	var/autoclose = 0
 	var/glass = 0
 	var/normalspeed = 1
@@ -71,7 +71,20 @@
 		layer = open_layer
 		explosion_resistance = 0
 
+	SetBounds()
+	health = maxhealth
 
+	update_nearby_tiles(need_rebuild=1)
+	if(hashatch && !(width > 1))
+		setup_hatch()
+
+/obj/machinery/door/Move(new_loc, new_dir)
+	. = ..()
+	SetBounds()
+	update_nearby_tiles()
+	update_icon()
+
+/obj/machinery/door/proc/SetBounds()
 	if(width > 1)
 		if(dir in list(EAST, WEST))
 			bound_width = width * world.icon_size
@@ -79,12 +92,6 @@
 		else
 			bound_width = world.icon_size
 			bound_height = width * world.icon_size
-
-	health = maxhealth
-
-	update_nearby_tiles(need_rebuild=1)
-	if (hashatch)
-		setup_hatch()
 
 /obj/machinery/door/proc/setup_hatch()
 	hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchstyle, closed_layer+0.1)
@@ -329,7 +336,7 @@
 		var/obj/item/weldingtool/welder = I
 		if(welder.remove_fuel(0,user))
 			to_chat(user, "<span class='notice'>You start to fix dents and weld \the [repairing] into place.</span>")
-			playsound(src, 'sound/items/Welder.ogg', 100, 1)
+			playsound(src, 'sound/items/welder.ogg', 100, 1)
 			if(do_after(user, 5 * repairing.amount) && welder && welder.isOn())
 				to_chat(user, "<span class='notice'>You finish repairing the damage to \the [src].</span>")
 				health = between(health, health + repairing.amount*DOOR_REPAIR_AMOUNT, maxhealth)
@@ -340,7 +347,7 @@
 
 	if(repairing && I.iscrowbar())
 		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
-		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
+		playsound(src.loc, I.usesound, 100, 1)
 		repairing.forceMove(user.loc)
 		repairing = null
 		return
@@ -377,9 +384,10 @@
 /obj/machinery/door/emag_act(var/remaining_charges)
 	if(density && operable())
 		do_animate("spark")
+		emagged = 1
 		sleep(6)
-		open()
-		operating = -1
+		stat |= BROKEN
+		open(1)
 		return 1
 
 /obj/machinery/door/proc/take_damage(var/damage)
@@ -490,7 +498,7 @@
 /obj/machinery/door/proc/open(var/forced = 0)
 	if(!can_open(forced))
 		return
-	operating = 1
+	operating = TRUE
 
 	do_animate("opening")
 	icon_state = "door0"
@@ -503,7 +511,7 @@
 	explosion_resistance = 0
 	update_icon()
 	set_opacity(0)
-	operating = 0
+	operating = FALSE
 
 	if(autoclose)
 		close_door_in(next_close_time())
@@ -522,8 +530,9 @@
 		if (autoclose)
 			for (var/atom/movable/M in get_turf(src))
 				if (M.density && M != src)
-					addtimer(CALLBACK(src, .proc/autoclose), 60)
-	operating = 1
+					addtimer(CALLBACK(src, .proc/autoclose), 60, TIMER_UNIQUE)
+					break
+	operating = TRUE
 
 	do_animate("closing")
 	sleep(3)
@@ -535,7 +544,7 @@
 	update_icon()
 	if(visible && !glass)
 		set_opacity(1)	//caaaaarn!
-	operating = 0
+	operating = FALSE
 
 	//I shall not add a check every x ticks if a door has closed over some fire.
 	var/obj/fire/fire = locate() in loc
@@ -571,19 +580,6 @@
 	if(invert)
 		return src.density
 	return !src.density
-
-/obj/machinery/door/Move(new_loc, new_dir)
-	//update_nearby_tiles()
-	. = ..()
-	if(width > 1)
-		if(dir in list(EAST, WEST))
-			bound_width = width * world.icon_size
-			bound_height = world.icon_size
-		else
-			bound_width = world.icon_size
-			bound_height = width * world.icon_size
-
-	update_nearby_tiles()
 
 /obj/machinery/door/morgue
 	icon = 'icons/obj/doors/doormorgue.dmi'

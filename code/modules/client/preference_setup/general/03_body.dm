@@ -201,89 +201,87 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	out += "Disabilities: <a href='?src=\ref[src];trait_add=1'>Adjust</a><br>"
 	for(var/M in pref.disabilities)
 		out += "     [M] <a href='?src=\ref[src];trait_remove=[M]'>-</a><br>"
-	if(!(has_flag(mob_species, HAS_FBP)))
-		out += "Limbs: <a href='?src=\ref[src];limbs=1'>Adjust</a><br>"
-		out += "Internal Organs: <a href='?src=\ref[src];organs=1'>Adjust</a><br>"
-		out += "Prosthesis/Amputations: <a href='?src=\ref[src];reset_organs=1'>Reset</a><br>"
+	out += "Limbs: <a href='?src=\ref[src];limbs=1'>Adjust</a><br>"
+	out += "Internal Organs: <a href='?src=\ref[src];organs=1'>Adjust</a><br>"
+	out += "Prosthesis/Amputations: <a href='?src=\ref[src];reset_organs=1'>Reset</a><br>"
 
 	//display limbs below
 	var/ind = 0
-	if(mob_species.name != "Shell Frame")
-		for(var/name in pref.organ_data)
-			var/status = pref.organ_data[name]
-			var/organ_name = null
-			switch(name)
-				if(BP_L_ARM)
-					organ_name = "left arm"
-				if(BP_R_ARM)
-					organ_name = "right arm"
-				if(BP_L_LEG)
-					organ_name = "left leg"
-				if(BP_R_LEG)
-					organ_name = "right leg"
-				if(BP_L_FOOT)
-					organ_name = "left foot"
-				if(BP_R_FOOT)
-					organ_name = "right foot"
-				if(BP_L_HAND)
-					organ_name = "left hand"
-				if(BP_R_HAND)
-					organ_name = "right hand"
-				if(BP_GROIN)
-					organ_name = "lower body"
-				if(BP_CHEST)
-					organ_name = "upper body"
-				if(BP_HEAD)
-					organ_name = "head"
-				if(BP_HEART)
-					organ_name = "heart"
-				if(BP_EYES)
-					organ_name = "eyes"
-				if(BP_LUNGS)
-					organ_name = "lungs"
-				if(BP_LIVER)
-					organ_name = "liver"
-				if(BP_KIDNEYS)
-					organ_name = "kidneys"
+	for(var/name in pref.organ_data)
+		var/status = pref.organ_data[name]
+		var/organ_name = null
+		switch(name)
+			if(BP_L_ARM)
+				organ_name = "left arm"
+			if(BP_R_ARM)
+				organ_name = "right arm"
+			if(BP_L_LEG)
+				organ_name = "left leg"
+			if(BP_R_LEG)
+				organ_name = "right leg"
+			if(BP_L_FOOT)
+				organ_name = "left foot"
+			if(BP_R_FOOT)
+				organ_name = "right foot"
+			if(BP_L_HAND)
+				organ_name = "left hand"
+			if(BP_R_HAND)
+				organ_name = "right hand"
+			if(BP_GROIN)
+				organ_name = "lower body"
+			if(BP_CHEST)
+				organ_name = "upper body"
+			if(BP_HEAD)
+				organ_name = "head"
+			if(BP_HEART)
+				organ_name = "heart"
+			if(BP_EYES)
+				organ_name = "eyes"
+			if(BP_LUNGS)
+				organ_name = "lungs"
+			if(BP_LIVER)
+				organ_name = "liver"
+			if(BP_KIDNEYS)
+				organ_name = "kidneys"
 
-			if(status == "cyborg")
-				++ind
-				if(ind > 1)
-					out += ", "
-				var/datum/robolimb/R
-				if(pref.rlimb_data[name] && all_robolimbs[pref.rlimb_data[name]])
-					R = all_robolimbs[pref.rlimb_data[name]]
+		if(status == "cyborg")
+			++ind
+			if(ind > 1)
+				out += ", "
+			var/datum/robolimb/R
+			if(pref.rlimb_data[name] && all_robolimbs[pref.rlimb_data[name]])
+				R = all_robolimbs[pref.rlimb_data[name]]
+			else
+				R = basic_robolimb
+			out += "\t[R.company] [organ_name] prosthesis"
+		else if(status == "amputated")
+			++ind
+			if(ind > 1)
+				out += ", "
+			out += "\tAmputated [organ_name]"
+		else if(status == "mechanical")
+			++ind
+			if(ind > 1)
+				out += ", "
+			out += "\tMechanical [organ_name]"
+		else if(status == "assisted")
+			++ind
+			if(ind > 1)
+				out += ", "
+			switch(organ_name)
+				if(BP_HEART)
+					out += "\tPacemaker-assisted [organ_name]"
+				if("voicebox") //on adding voiceboxes for speaking skrell/similar replacements
+					out += "\tSurgically altered [organ_name]"
+				if(BP_EYES)
+					out += "\tRetinal overlayed [organ_name]"
 				else
-					R = basic_robolimb
-				out += "\t[R.company] [organ_name] prosthesis"
-			else if(status == "amputated")
-				++ind
-				if(ind > 1)
-					out += ", "
-				out += "\tAmputated [organ_name]"
-			else if(status == "mechanical")
-				++ind
-				if(ind > 1)
-					out += ", "
-				out += "\tMechanical [organ_name]"
-			else if(status == "assisted")
-				++ind
-				if(ind > 1)
-					out += ", "
-				switch(organ_name)
-					if(BP_HEART)
-						out += "\tPacemaker-assisted [organ_name]"
-					if("voicebox") //on adding voiceboxes for speaking skrell/similar replacements
-						out += "\tSurgically altered [organ_name]"
-					if(BP_EYES)
-						out += "\tRetinal overlayed [organ_name]"
-					else
-						out += "\tMechanically assisted [organ_name]"
+					out += "\tMechanically assisted [organ_name]"
 	if(!ind)
 		out += "\[...\]<br><br>"
 	else
 		out += "<br><br>"
-	
+
 	out += "</td></tr></table><b>Hair</b><br>"
 	if(has_flag(mob_species, HAS_HAIR_COLOR))
 		out += "<a href='?src=\ref[src];hair_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_hair, pref.g_hair, pref.b_hair))] "
@@ -306,7 +304,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			out += "<br><b>Body Color</b><br>"
 			out += "<a href='?src=\ref[src];skin_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_skin, pref.g_skin, pref.b_skin))] <br>"
 
-	
+
 
 	out += "<br><a href='?src=\ref[src];marking_style=1'>Body Markings +</a><br>"
 	for(var/M in pref.body_markings)
@@ -353,7 +351,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			mob_species = all_species[pref.species]
 
 			pref.gender = sanitize_gender(pref.gender, pref.species)
-			var/bodytype = mob_species.get_bodytype()
+			//var/bodytype = mob_species.get_bodytype()
 
 			//grab one of the valid hair styles for the newly chosen species
 			var/list/valid_hairstyles = list()
@@ -365,7 +363,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					continue
 				if(pref.gender == FEMALE && S.gender == MALE)
 					continue
-				if(!(bodytype in S.species_allowed))
+				if(!(mob_species.type in S.species_allowed))
 					continue
 				valid_hairstyles[hairstyle] = hair_styles_list[hairstyle]
 
@@ -382,7 +380,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					continue
 				if(pref.gender == FEMALE && S.gender == MALE)
 					continue
-				if(!(bodytype in S.species_allowed))
+				if(!(mob_species.type in S.species_allowed))
 					continue
 
 				valid_facialhairstyles[facialhairstyle] = facial_hair_styles_list[facialhairstyle]
@@ -418,11 +416,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["hair_style"])
 		if(mob_species.bald)
 			return
-		var/bodytype = mob_species.get_bodytype()
+		//var/bodytype = mob_species.get_bodytype()
 		var/list/valid_hairstyles = list()
 		for(var/hairstyle in hair_styles_list)
 			var/datum/sprite_accessory/S = hair_styles_list[hairstyle]
-			if(!(bodytype in S.species_allowed))
+			if(!(mob_species.type in S.species_allowed))
 				continue
 
 			valid_hairstyles[hairstyle] = hair_styles_list[hairstyle]
@@ -483,14 +481,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		if(mob_species.bald)
 			return
 		var/list/valid_facialhairstyles = list()
-		var/bodytype = mob_species.get_bodytype()
+		//var/bodytype = mob_species.get_bodytype()
 		for(var/facialhairstyle in facial_hair_styles_list)
 			var/datum/sprite_accessory/S = facial_hair_styles_list[facialhairstyle]
 			if(pref.gender == MALE && S.gender == FEMALE)
 				continue
 			if(pref.gender == FEMALE && S.gender == MALE)
 				continue
-			if(!(bodytype in S.species_allowed))
+			if(!(mob_species.type in S.species_allowed))
 				continue
 
 			valid_facialhairstyles[facialhairstyle] = facial_hair_styles_list[facialhairstyle]
@@ -503,12 +501,12 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["marking_style"])
 		var/list/usable_markings = pref.body_markings ^ body_marking_styles_list
 		var/datum/species/species = global.all_species[pref.species]
-		var/btype = species.get_bodytype()
+		//var/btype = species.get_bodytype()
 		for(var/M in usable_markings)
 			var/datum/sprite_accessory/S = usable_markings[M]
 			if(!S.species_allowed.len)
 				continue
-			else if(!(btype in S.species_allowed))
+			else if(!(species.type in S.species_allowed))
 				usable_markings -= M
 
 		if (!usable_markings.len)
@@ -601,7 +599,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					pref.rlimb_data[second_limb] = null
 
 			if("Prosthesis")
-				var/tmp_species = pref.species ? pref.species : "Human"
+				var/tmp_species = pref.species ? pref.species : SPECIES_HUMAN
 				var/list/usable_manufacturers = list()
 				for(var/company in chargen_robolimbs)
 					var/datum/robolimb/M = chargen_robolimbs[company]
@@ -678,7 +676,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 /datum/category_item/player_setup_item/general/body/proc/SetSpecies(mob/user)
 	if(!pref.species_preview || !(pref.species_preview in all_species))
-		pref.species_preview = "Human"
+		pref.species_preview = SPECIES_HUMAN
 	var/datum/species/current_species = all_species[pref.species_preview]
 	var/list/dat = list(
 		"<center><h2>[current_species.name] \[<a href='?src=\ref[src];show_species=1'>change</a>\]</h2></center><hr/>",

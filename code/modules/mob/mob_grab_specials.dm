@@ -87,7 +87,7 @@
 		return
 	if(target.lying)
 		return
-	attacker.visible_message("<span class='danger'>[attacker] thrusts \his head into [target]'s skull!</span>")
+	attacker.visible_message("<span class='danger'>[attacker] thrusts [attacker.get_pronoun("his")] head into [target]'s skull!</span>")
 
 	var/damage = 20
 	if(attacker.mob_size >= 10)
@@ -108,7 +108,7 @@
 		target.apply_effect(20, PARALYZE)
 		target.visible_message("<span class='danger'>[target] [target.species.knockout_message]</span>")
 
-	playsound(attacker.loc, "swing_hit", 25, 1, -1)
+	playsound(attacker.loc, /decl/sound_category/swing_hit_sound, 25, 1, -1)
 	attacker.attack_log += text("\[[time_stamp()]\] <font color='red'>Headbutted [target.name] ([target.ckey])</font>")
 	target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Headbutted by [attacker.name] ([attacker.ckey])</font>")
 	msg_admin_attack("[key_name(attacker)] has headbutted [key_name(target)]",ckey=key_name(attacker),ckey_target=key_name(target))
@@ -121,7 +121,7 @@
 		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
 		return
 	if(target.grab_joint(attacker, target_zone))
-		playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
+		playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 		return
 
 /obj/item/grab/proc/pin_down(mob/target, mob/attacker)

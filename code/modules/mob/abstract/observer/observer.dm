@@ -536,11 +536,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 				atmos_suitable = 0
 			else if (Environment.temperature < mintemp)
 				atmos_suitable = 0
-			else if(Environment.gas["oxygen"] < min_oxy)
+			else if(Environment.gas[GAS_OXYGEN] < min_oxy)
 				atmos_suitable = 0
-			else if(Environment.gas["phoron"] > max_phoron)
+			else if(Environment.gas[GAS_PHORON] > max_phoron)
 				atmos_suitable = 0
-			else if(Environment.gas["carbon_dioxide"] > max_co2)
+			else if(Environment.gas[GAS_CO2] > max_co2)
 				atmos_suitable = 0
 			else if(Environment.return_pressure() < min_pressure)
 				atmos_suitable = 0
@@ -708,7 +708,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		toggle_visibility(1)
 	else
 		user.visible_message ( \
-			"<span class='warning'>\The [user] just tried to smash \his book into that ghost!  It's not very effective.</span>", \
+			"<span class='warning'>\The [user] just tried to smash [user.get_pronoun("his")] book into that ghost!  It's not very effective.</span>", \
 			"<span class='warning'>You get the feeling that the ghost can't become any more visible.</span>" \
 		)
 

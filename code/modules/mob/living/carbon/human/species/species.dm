@@ -45,7 +45,6 @@
 	var/icon/icon_template                               // Used for mob icon generation for non-32x32 species.
 	var/mob_size	= MOB_MEDIUM
 	var/show_ssd = "fast asleep"
-	var/virus_immune
 	var/short_sighted
 	var/bald = 0
 	var/light_range
@@ -115,9 +114,9 @@
 	// Environment tolerance/life processes vars.
 	var/reagent_tag                                   //Used for metabolizing reagents.
 	var/breath_pressure = 16                          // Minimum partial pressure safe for breathing, kPa
-	var/breath_type = "oxygen"                        // Non-oxygen gas breathed, if any.
-	var/poison_type = "phoron"                        // Poisonous air.
-	var/exhale_type = "carbon_dioxide"                // Exhaled gas type.
+	var/breath_type = GAS_OXYGEN                        // Non-oxygen gas breathed, if any.
+	var/poison_type = GAS_PHORON                        // Poisonous air.
+	var/exhale_type = GAS_CO2                // Exhaled gas type.
 	var/breath_vol_mul = 1 							  // The fraction of air used, relative to the default carbon breath volume (1/2 L)
 	var/breath_eff_mul = 1 								  // The efficiency of breathing, relative to the default carbon breath efficiency (1/6)
 	var/cold_level_1 = 260                            // Cold damage level 1 below this point.
@@ -241,7 +240,7 @@
 	var/default_accent = ACCENT_CETI
 	var/zombie_type	//What zombie species they become
 	var/list/character_color_presets
-	var/bodyfall_sound = "bodyfall" //default, can be used for species specific falling sounds
+	var/bodyfall_sound = /decl/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -395,7 +394,9 @@
 
 	if(inherent_spells)
 		for(var/spell_path in inherent_spells)
-			H.remove_spell(spell_path)
+			for(var/spell/spell in H.spell_list)
+				if(istype(spell, spell_path))
+					H.remove_spell(spell)
 	return
 
 /datum/species/proc/add_inherent_verbs(var/mob/living/carbon/human/H)
@@ -630,7 +631,7 @@
 		return
 	for(var/pain_emotes in pain_emotes_with_pain_level)
 		var/pain_level = pain_emotes_with_pain_level[pain_emotes]
-		if(pain_level >= pain_power)
+		if(pain_power >= pain_level)
 			// This assumes that if a pain-level has been defined it also has a list of emotes to go with it
 			var/decl/emote/E = decls_repository.get_decl(pick(pain_emotes))
 			return E.key

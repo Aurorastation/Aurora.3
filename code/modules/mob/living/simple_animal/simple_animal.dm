@@ -200,21 +200,21 @@
 			if (abs(Environment.temperature - bodytemperature) > 40)
 				bodytemperature += ((Environment.temperature - bodytemperature) / 5)
 
-			if(min_oxy && Environment.gas["oxygen"] < min_oxy)
+			if(min_oxy && Environment.gas[GAS_OXYGEN] < min_oxy)
 				atmos_suitable = 0
-			else if(max_oxy && Environment.gas["oxygen"] > max_oxy)
+			else if(max_oxy && Environment.gas[GAS_OXYGEN] > max_oxy)
 				atmos_suitable = 0
-			else if(min_tox && Environment.gas["phoron"] < min_tox)
+			else if(min_tox && Environment.gas[GAS_PHORON] < min_tox)
 				atmos_suitable = 0
-			else if(max_tox && Environment.gas["phoron"] > max_tox)
+			else if(max_tox && Environment.gas[GAS_PHORON] > max_tox)
 				atmos_suitable = 0
-			else if(min_n2 && Environment.gas["nitrogen"] < min_n2)
+			else if(min_n2 && Environment.gas[GAS_NITROGEN] < min_n2)
 				atmos_suitable = 0
-			else if(max_n2 && Environment.gas["nitrogen"] > max_n2)
+			else if(max_n2 && Environment.gas[GAS_NITROGEN] > max_n2)
 				atmos_suitable = 0
-			else if(min_co2 && Environment.gas["carbon_dioxide"] < min_co2)
+			else if(min_co2 && Environment.gas[GAS_CO2] < min_co2)
 				atmos_suitable = 0
-			else if(max_co2 && Environment.gas["carbon_dioxide"] > max_co2)
+			else if(max_co2 && Environment.gas[GAS_CO2] > max_co2)
 				atmos_suitable = 0
 
 	//Atmos effect
@@ -694,7 +694,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 //Todo: add snowflakey shit to it.
 /mob/living/simple_animal/electrocute_act(var/shock_damage, var/obj/source, var/base_siemens_coeff = 1.0, var/def_zone = null, var/tesla_shock = 0, var/ground_zero)
 	apply_damage(shock_damage, BURN)
-	playsound(loc, "sparks", 50, 1, -1)
+	playsound(loc, /decl/sound_category/spark_sound, 50, 1, -1)
 	spark(loc, 5, alldirs)
 	visible_message(SPAN_WARNING("\The [src] was shocked by \the [source]!"), SPAN_WARNING("You are shocked by \the [source]!"), SPAN_WARNING("You hear an electrical crack!"))
 

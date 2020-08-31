@@ -1,7 +1,6 @@
 /obj/item/gun/projectile/shotgun
 	name = "strange shotgun"
 	desc = "A strange shotgun that doesn't seem to belong anywhere. You feel like you shouldn't be able to see this and should... submit an issue?"
-
 	var/can_sawoff = FALSE
 	var/sawnoff_workmsg
 	var/sawing_in_progress = FALSE
@@ -57,8 +56,9 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	is_wieldable = TRUE
 	var/recentpump = 0 // to prevent spammage
-	var/pump_snd = 'sound/weapons/shotgunpump.ogg'
 	var/has_wield_state = TRUE
+	var/rack_sound = 'sound/weapons/shotgun_pump.ogg'
+	var/rack_verb = "pump"
 
 /obj/item/gun/projectile/shotgun/pump/consume_next_projectile()
 	if(chambered)
@@ -75,11 +75,12 @@
 		if(!do_after(M, 20, TRUE)) // have to stand still for 2 seconds instead of doing it instantly. bad idea during a shootout
 			return
 
-	playsound(M, pump_snd, 60, 1)
-	to_chat(M, SPAN_NOTICE("You rack \the [src]!"))
+	playsound(M, rack_sound, 60, FALSE)
+	to_chat(M, SPAN_NOTICE("You [rack_verb] \the [src]!"))
 
 	if(chambered)//We have a shell in the chamber
 		chambered.forceMove(get_turf(src)) //Eject casing
+		playsound(src.loc, chambered.drop_sound, DROP_SOUND_VOLUME, FALSE, required_asfx_toggles = ASFX_DROPSOUND)
 		chambered = null
 
 	if(loaded.len)

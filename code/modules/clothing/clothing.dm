@@ -100,12 +100,12 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if("Human", "Skrell", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")	//humanoid bodytypes
+		if(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)	//humanoid bodytypes
 			species_restricted = list(
-				"Human",
-				"Skrell",
-				"Zeng-Hu Mobility Frame",
-				"Bishop Accessory Frame"
+				BODYTYPE_HUMAN,
+				BODYTYPE_SKRELL,
+				BODYTYPE_IPC_ZENGHU,
+				BODYTYPE_IPC_BISHOP
 			) //skrell/humans like to share with IPCs
 		else
 			species_restricted = list(target_species)
@@ -127,8 +127,8 @@
 
 	//Set species_restricted list
 	switch(target_species)
-		if("Skrell", "Human")
-			species_restricted = list("Human", "Skrell", "Machine") // skrell helmets like to share
+		if(BODYTYPE_SKRELL, BODYTYPE_HUMAN)
+			species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC) // skrell helmets like to share
 
 		else
 			species_restricted = list(target_species)
@@ -197,7 +197,7 @@
 			var/obj/item/material/shard/S = material.place_shard(T)
 			M.embed(S)
 
-	playsound(src.loc, "shatter", 70, 1)
+	playsound(src.loc, /decl/sound_category/glass_break_sound, 70, 1)
 	qdel(src)
 
 /obj/item/clothing/suit/armor/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -345,9 +345,9 @@
 	body_parts_covered = HANDS
 	slot_flags = SLOT_GLOVES
 	attack_verb = list("challenged")
-	species_restricted = list("exclude","Unathi","Tajara","Vaurca", "Golem","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VAURCA, BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/gloves.dmi'
+		BODYTYPE_VOX = 'icons/mob/species/vox/gloves.dmi'
 		)
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
@@ -379,7 +379,7 @@
 			update_icon()
 			return
 
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src.loc, 'sound/items/wirecutter.ogg', 100, 1)
 		user.visible_message("<span class='warning'>[user] cuts the fingertips off of \the [src].</span>","<span class='warning'>You cut the fingertips off of \the [src].</span>")
 
 		clipped = 1
@@ -387,9 +387,9 @@
 		name = "modified [name]"
 		desc = "[desc]<br>They have had the fingertips cut off of them."
 		if("exclude" in species_restricted)
-			species_restricted -= "Unathi"
-			species_restricted -= "Tajara"
-			species_restricted -= "Vaurca"
+			species_restricted -= BODYTYPE_UNATHI
+			species_restricted -= BODYTYPE_TAJARA
+			species_restricted -= BODYTYPE_VAURCA
 		return
 
 /obj/item/clothing/gloves/mob_can_equip(mob/user, slot, disable_warning = FALSE)
@@ -447,7 +447,7 @@
 	slot_flags = SLOT_HEAD
 	w_class = 2.0
 	uv_intensity = 50 //Light emitted by this object or creature has limited interaction with diona
-	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
@@ -458,7 +458,7 @@
 	var/on = 0
 
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi'
+		BODYTYPE_VOX = 'icons/mob/species/vox/head.dmi'
 		)
 
 /obj/item/clothing/head/attack_self(mob/user)
@@ -573,11 +573,11 @@
 	pickup_sound = 'sound/items/pickup/hat.ogg'
 	body_parts_covered = FACE|EYES
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/masks.dmi',
-		"Tajara" = 'icons/mob/species/tajaran/mask.dmi',
-		"Unathi" = 'icons/mob/species/unathi/mask.dmi')
+		BODYTYPE_VOX = 'icons/mob/species/vox/masks.dmi',
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/mask.dmi',
+		BODYTYPE_UNATHI = 'icons/mob/species/unathi/mask.dmi')
 
-	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
 	var/voicechange = 0
 	var/list/say_messages
@@ -622,22 +622,34 @@
 	if(hanging)
 		gas_transfer_coefficient = down_gas_transfer_coefficient
 		body_parts_covered = down_body_parts_covered
-		icon_state = "[icon_state]down"
+		adjust_sprites()
 		item_flags = down_item_flags
 		flags_inv = down_flags_inv
 		if(self)
-			user.visible_message("<b>[user]</b> pulls \the [src] down to hang around their neck.", SPAN_NOTICE("You pull \the [src] down to hang around your neck."))
+			lower_message(user)
 	else
 		gas_transfer_coefficient = initial(gas_transfer_coefficient)
 		body_parts_covered = initial(body_parts_covered)
-		icon_state = initial(icon_state)
-		item_state = initial(icon_state)
+		adjust_sprites()
 		item_flags = initial(item_flags)
 		flags_inv = initial(flags_inv)
 		if(self)
-			user.visible_message("<b>[user]</b> pulls \the [src] up to cover their face.", SPAN_NOTICE("You pull \the [src] up to cover your face."))
+			raise_message(user)
 	usr.update_action_buttons()
 	update_clothing_icon()
+
+/obj/item/clothing/mask/proc/adjust_sprites()
+	if(hanging)
+		icon_state = "[icon_state]down"
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(icon_state)
+
+/obj/item/clothing/mask/proc/lower_message(mob/user)
+	user.visible_message("<b>[user]</b> pulls \the [src] down to hang around their neck.", SPAN_NOTICE("You pull \the [src] down to hang around your neck."))
+
+/obj/item/clothing/mask/proc/raise_message(mob/user)
+	user.visible_message("<b>[user]</b> pulls \the [src] up to cover their face.", SPAN_NOTICE("You pull \the [src] up to cover your face."))
 
 /obj/item/clothing/mask/attack_self(mob/user)
 	if(adjustable)
@@ -668,11 +680,11 @@
 	permeability_coefficient = 0.50
 	force = 0
 	var/overshoes = 0
-	species_restricted = list("exclude","Unathi","Tajara","Vox","Vaurca","Vaurca Breeder","Vaurca Warform")
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/shoes.dmi')
+	species_restricted = list("exclude",BODYTYPE_UNATHI,BODYTYPE_TAJARA,BODYTYPE_VOX,BODYTYPE_VAURCA,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
+	sprite_sheets = list(BODYTYPE_VOX = 'icons/mob/species/vox/shoes.dmi')
 	var/silent = 0
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/shoes.dmi'
+		BODYTYPE_VOX = 'icons/mob/species/vox/shoes.dmi'
 		)
 
 /obj/item/clothing/shoes/proc/draw_knife()
@@ -689,7 +701,7 @@
 	if(usr.put_in_hands(holding))
 		usr.visible_message("<span class='danger'>\The [usr] pulls \a [holding] out of their boot!</span>")
 		holding = null
-		playsound(get_turf(src), 'sound/weapons/holster/sheathout.ogg', 25)
+		playsound(get_turf(src), 'sound/weapons/holster/unholster_knife.ogg', 25)
 	else
 		to_chat(usr, "<span class='warning'>Your need an empty, unbroken hand to do that.</span>")
 		holding.forceMove(src)
@@ -765,10 +777,10 @@
 	var/blood_overlay_type = "suit"
 	siemens_coefficient = 0.9
 	w_class = 3
-	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/suit.dmi'
+		BODYTYPE_VOX = 'icons/mob/species/vox/suit.dmi'
 		)
 
 	valid_accessory_slots = list("armband","decor", "over")
@@ -819,9 +831,9 @@
 	var/rolled_down = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	var/rolled_sleeves = -1 //0 = unrolled, 1 = rolled, -1 = cannot be toggled
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/uniform.dmi',
-		"Golem" = 'icons/mob/uniform_fat.dmi')
-	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+		BODYTYPE_VOX = 'icons/mob/species/vox/uniform.dmi',
+		BODYTYPE_GOLEM = 'icons/mob/uniform_fat.dmi')
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
 	//convenience var for defining the icon state for the overlay used when the clothing is worn.
 	//Also used by rolling/unrolling.
@@ -999,10 +1011,16 @@
 	rolled_down = !rolled_down
 	if(rolled_down)
 		body_parts_covered &= LOWER_TORSO|LEGS|FEET
-		item_state_slots[slot_w_uniform_str] = "[worn_state]_d"
+		if(contained_sprite)
+			item_state = "[initial(item_state)]_d"
+		else
+			item_state_slots[slot_w_uniform_str] = "[worn_state]_d"
 	else
 		body_parts_covered = initial(body_parts_covered)
-		item_state_slots[slot_w_uniform_str] = "[worn_state]"
+		if(contained_sprite)
+			item_state = initial(item_state)
+		else
+			item_state_slots[slot_w_uniform_str] = "[worn_state]"
 	update_clothing_icon()
 
 /obj/item/clothing/under/verb/rollsleeves()
@@ -1023,11 +1041,17 @@
 	rolled_sleeves = !rolled_sleeves
 	if(rolled_sleeves)
 		body_parts_covered &= ~(ARMS|HANDS)
-		item_state_slots[slot_w_uniform_str] = "[worn_state]_r"
+		if(contained_sprite)
+			item_state = "[initial(item_state)]_r"
+		else
+			item_state_slots[slot_w_uniform_str] = "[worn_state]_r"
 		to_chat(usr, "<span class='notice'>You roll up your [src]'s sleeves.</span>")
 	else
 		body_parts_covered = initial(body_parts_covered)
-		item_state_slots[slot_w_uniform_str] = "[worn_state]"
+		if(contained_sprite)
+			item_state = initial(item_state)
+		else
+			item_state_slots[slot_w_uniform_str] = "[worn_state]"
 		to_chat(usr, "<span class='notice'>You roll down your [src]'s sleeves.</span>")
 	update_clothing_icon()
 

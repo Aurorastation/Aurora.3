@@ -21,7 +21,7 @@
 		/obj/structure/grille,
 		/turf/unsimulated/mineral/asteroid
 	)
-	footstep_sound = "catwalk"
+	footstep_sound = /decl/sound_category/catwalk_footstep
 
 /obj/structure/lattice/Initialize()
 	. = ..()
@@ -55,7 +55,7 @@
 		var/obj/item/stack/rods/R = C
 		if (R.use(2))
 			to_chat(user, "<span class='notice'>Constructing catwalk ...</span>")
-			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
 			new /obj/structure/lattice/catwalk(src.loc)
 			qdel(src)
 		return
@@ -81,7 +81,7 @@
 		var/obj/item/weldingtool/WT = C
 		if (do_after(user, 5/C.toolspeed, act_target = src) && WT.remove_fuel(1, user))
 			to_chat(user, "<span class='notice'>You slice apart [src].</span>")
-			playsound(src, 'sound/items/Welder.ogg', 50, 1)
+			playsound(src, 'sound/items/welder.ogg', 50, 1)
 			var/obj/item/stack/rods/R = new /obj/item/stack/rods(get_turf(src))
 			R.amount = return_amount
 			R.update_icon()
@@ -145,7 +145,7 @@
 		var/obj/item/weldingtool/WT = C
 		if(do_after(user, 5/C.toolspeed, act_target = src) && WT.remove_fuel(1, user))
 			to_chat(user, SPAN_NOTICE("You slice apart the [src] leaving nothing useful behind."))
-			playsound(src, 'sound/items/Welder.ogg', 50, 1)
+			playsound(src, 'sound/items/welder.ogg', 50, 1)
 			qdel(src)
 	else
 		..()

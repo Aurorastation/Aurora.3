@@ -279,7 +279,7 @@
 		if(isslime(affecting))
 			to_chat(assailant, SPAN_NOTICE("You try to squeeze [affecting], but your hands sink right through!"))
 			return
-		assailant.visible_message(SPAN_WARNING("[assailant] reinforces \his grip on [affecting]'s neck'!"))
+		assailant.visible_message(SPAN_WARNING("[assailant] reinforces [assailant.get_pronoun("his")] grip on [affecting]'s neck'!"))
 		state = GRAB_NECK
 		icon_state = "grabbed+1"
 		affecting.attack_log += "\[[time_stamp()]\] <font color='orange'>Has had their neck grabbed by [assailant.name] ([assailant.ckey])</font>"

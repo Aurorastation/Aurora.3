@@ -141,7 +141,7 @@
 
 		if(COMPONENT_STATE)
 			if(P.iscrowbar())
-				playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, TRUE)
+				playsound(get_turf(src), P.usesound, 50, TRUE)
 				state = CIRCUITBOARD_STATE
 				circuit.forceMove(get_turf(src))
 				circuit = null

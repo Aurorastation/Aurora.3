@@ -137,7 +137,7 @@
 
 /datum/reagent/tricordrazine
 	name = "Tricordrazine"
-	description = "Tricordrazine is an old, though still useful, medication largely set aside following bicaridine and kelotane’s development. The drug increases the rate at which tissues regenerate, though far slower than modern medications."
+	description = "Tricordrazine is an old, though still useful, medication largely set aside following bicaridine and kelotane's development. The drug increases the rate at which tissues regenerate, though far slower than modern medications."
 	reagent_state = LIQUID
 	color = "#8040FF"
 	scannable = 1
@@ -162,6 +162,7 @@
 	taste_description = "sludge"
 
 /datum/reagent/cryoxadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_CRYO, 1)
 	if(M.bodytemperature < 170)
 		M.add_chemical_effect(CE_PULSE, -2)
 		M.adjustCloneLoss(-10 * removed)
@@ -178,6 +179,7 @@
 	taste_description = "slime"
 
 /datum/reagent/clonexadone/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+	M.add_chemical_effect(CE_CRYO, 1)
 	if(M.bodytemperature < 170)
 		M.add_chemical_effect(CE_PULSE, -2)
 		M.adjustCloneLoss(-30 * removed)
@@ -605,7 +607,7 @@
 
 /datum/reagent/leporazine
 	name = "Leporazine"
-	description = "Leporazine is a complex medication which improves thermal homeostasis, stabilising and regulating the body’s core temperature. Leporazine often results in hyperventilation which should be monitored."
+	description = "Leporazine is a complex medication which improves thermal homeostasis, stabilising and regulating the body's core temperature. Leporazine often results in hyperventilation which should be monitored."
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	overdose = REAGENTS_OVERDOSE
@@ -1073,7 +1075,7 @@
 
 /datum/reagent/cataleptinol
 	name = "Cataleptinol"
-	description = "Cataleptinol is a highly advanced, expensive medication capable of regenerating the most damaged of brain tissues. Cataleptinol is used in the treatment of dumbness, cerebral blindness, cerebral paralysis and aphasia. The drug is more effective when the patient’s core temperature is below 170K."
+	description = "Cataleptinol is a highly advanced, expensive medication capable of regenerating the most damaged of brain tissues. Cataleptinol is used in the treatment of dumbness, cerebral blindness, cerebral paralysis and aphasia. The drug is more effective when the patient's core temperature is below 170K."
 	reagent_state = LIQUID
 	color = "#FFFF00"
 	metabolism = REM * 2 //0.4
@@ -1191,7 +1193,9 @@
 	H.add_chemical_effect(CE_PULSE, -1)
 
 	var/obj/item/organ/internal/lungs/L = H.internal_organs_by_name[BP_LUNGS]
-	L.rescued = FALSE
+	if(istype(L) && !BP_IS_ROBOTIC(L))
+		L.rescued = FALSE
+		L.damage = max(L.damage - (removed * 1.5), 0)
 
 	. = ..()
 
@@ -1267,7 +1271,7 @@
 /datum/reagent/azoth/overdose(var/mob/living/carbon/M, var/alien)
 	M.adjustBruteLoss(5)
 
-/datum/reagent/adipemcina //Based on quinapril
+/datum/reagent/adipemcina
 	name = "Adipemcina"
 	description = "Adipemcina is a complex, organ-regenerative medication that increases the rate at which cells differentiate into myocardial cells. Adipemcina overdoses result in severe liver damage and vomiting."
 	reagent_state = LIQUID
@@ -1278,6 +1282,9 @@
 
 /datum/reagent/adipemcina/affect_blood(var/mob/living/carbon/human/M, var/alien, var/removed)
 	M.add_chemical_effect(CE_CARDIOTOXIC, -removed*2)
+	var/obj/item/organ/internal/heart/H = M.internal_organs_by_name[BP_HEART]
+	if(istype(H) && !BP_IS_ROBOTIC(H))
+		H.damage = max(H.damage - (removed * 2), 0)
 	..()
 
 /datum/reagent/adipemcina/overdose(var/mob/living/carbon/human/M, var/alien)

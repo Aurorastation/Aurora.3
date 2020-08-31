@@ -26,7 +26,7 @@
 	if(D.stat || D.weakened)
 		return 0
 	A.visible_message("<span class='warning'>[A] leg sweeps [D]!</span>")
-	playsound(get_turf(A), "swing_hit", 50, 1, -1)
+	playsound(get_turf(A), /decl/sound_category/swing_hit_sound, 50, 1, -1)
 	D.apply_damage(5, BRUTE)
 	D.Weaken(2)
 	return 1
@@ -34,7 +34,7 @@
 /datum/martial_art/sol_combat/proc/quick_choke(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
 	A.do_attack_animation(D)
 	A.visible_message("<span class='warning'>[A] pounds [D] on the chest!</span>")
-	playsound(get_turf(A), 'sound/weapons/punch1.ogg', 50, 1, -1)
+	playsound(get_turf(A), "punch", 50, 1, -1)
 	if(!(D.species.flags & NO_BREATHE))
 		D.losebreath += 5
 		D.adjustOxyLoss(10)
@@ -43,7 +43,7 @@
 /datum/martial_art/sol_combat/proc/neck_chop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
 	A.visible_message("<span class='warning'>[A] karate chops [D]'s neck!</span>")
-	playsound(get_turf(A), "punch", 50, 1, -1)
+	playsound(get_turf(A), /decl/sound_category/punch_sound, 50, 1, -1)
 	D.apply_damage(5, BRUTE)
 	D.silent += 10
 	return 1
@@ -66,9 +66,9 @@ datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/liv
 		picked_hit_type = "stomped on"
 	D.apply_damage(bonus_damage, BRUTE)
 	if(picked_hit_type == "kicked" || picked_hit_type == "stomped")
-		playsound(get_turf(D), "swing_hit", 50, 1, -1)
+		playsound(get_turf(D), /decl/sound_category/swing_hit_sound, 50, 1, -1)
 	else
-		playsound(get_turf(D), "punch", 50, 1, -1)
+		playsound(get_turf(D), /decl/sound_category/punch_sound, 50, 1, -1)
 
 	A.visible_message("<span class='danger'>[A] [picked_hit_type] [D]!</span>")
 	A.attack_log += text("\[[time_stamp()]\] <font color='red'>["[picked_hit_type]"] [D.name] ([D.ckey])</font>")
@@ -96,7 +96,7 @@ datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/liv
 			A.put_in_hands(I)
 	else
 		A.visible_message("<span class='danger'>[A] attempted to disarm [D]!</span>")
-		playsound(D, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+		playsound(D, /decl/sound_category/punchmiss_sound, 25, 1, -1)
 	return 1
 
 /datum/martial_art/sol_combat/proc/sol_combat_help()

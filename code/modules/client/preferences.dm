@@ -62,7 +62,7 @@ datum/preferences
 	var/r_eyes = 0						//Eye color
 	var/g_eyes = 0						//Eye color
 	var/b_eyes = 0						//Eye color
-	var/species = "Human"               //Species datum to use.
+	var/species = SPECIES_HUMAN               //Species datum to use.
 	var/species_preview                 //Used for the species selection window.
 	var/list/alternate_languages = list() //Secondary language(s)
 	var/list/language_prefixes = list() // Language prefix keys
@@ -585,14 +585,14 @@ datum/preferences
 		g_eyes = 0
 		b_eyes = 0
 
-		species = "Human"
+		species = SPECIES_HUMAN
 		home_system = "Unset"
 		citizenship = "None"
 		faction = "None"
 		religion = "None"
 		accent = "None"
 
-		species = "Human"
+		species = SPECIES_HUMAN
 
 		job_civilian_high = 0
 		job_civilian_med = 0

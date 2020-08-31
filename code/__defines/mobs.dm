@@ -101,6 +101,14 @@
 #define BP_STOMACH  "stomach"
 #define BP_APPENDIX "appendix"
 
+//Vaurca organs
+#define BP_NEURAL_SOCKET "neural socket"
+#define BP_PHORON_RESERVE "phoron reserve tank"
+#define BP_FILTRATION_BIT "filtration bit"
+#define BP_PHORON_RESERVOIR "phoron reservoir"
+#define BP_VAURCA_LIVER "mechanical liver"
+#define BP_VAURCA_KIDNEYS "mechanical kidneys"
+
 //Aut'akh organs
 #define BP_ANCHOR   "anchor"
 #define BP_HAEMO    "haemodynamic"
@@ -356,6 +364,10 @@
 #define SURGERY_SUCCESS 2 // Proceed with surgery
 #define SURGERY_FAIL 1 // Autofail surgery
 #define SURGERY_IGNORE 0 // Ignore surgery completely and just attack
+
+#define STASIS_MISC     "misc"
+#define STASIS_CRYOBAG  "cryobag"
+#define STASIS_COLD     "cold"
 
 #define AURA_CANCEL 1
 #define AURA_FALSE  2

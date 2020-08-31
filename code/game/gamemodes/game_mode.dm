@@ -185,6 +185,12 @@ var/global/list/additional_antag_types = list()
 				else
 					potential = antag.candidates
 				if(islist(potential))
+					for(var/potential_antag in potential)
+						var/datum/mind/player = potential_antag
+						if(!(antag.flags & ANTAG_OVERRIDE_JOB) && (player.assigned_role in antag.restricted_jobs))
+							potential -= potential_antag
+							antag.candidates -= player
+							log_debug("GAMEMODE: Player [player.name] ([player.key]) was removed from the potential antags list due to being given the role [player.assigned_role] which is a restricted job!")
 					if(potential.len)
 						log_debug("GAMEMODE: Found [potential.len] potential antagonists for [antag.role_text].")
 						total_enemy_count += potential.len
@@ -239,7 +245,7 @@ var/global/list/additional_antag_types = list()
 
 		for(var/datum/antagonist/antag in antag_templates)
 			antag.candidates = list_keys(valid_templates_per_candidate) & antag.candidates // orders antag.candidates by valid_templates_per_candidate
-		
+
 		var/datum/antagonist/last_template = antag_templates[antag_templates.len]
 		last_template.candidates = shuffle(last_template.candidates)
 
@@ -366,10 +372,9 @@ var/global/list/additional_antag_types = list()
 	var/escaped_on_pod_1 = 0
 	var/escaped_on_pod_2 = 0
 	var/escaped_on_pod_3 = 0
-	var/escaped_on_pod_5 = 0
 	var/escaped_on_shuttle = 0
 
-	var/list/area/escape_locations = list(/area/shuttle/escape/centcom, /area/shuttle/escape_pod1/centcom, /area/shuttle/escape_pod2/centcom, /area/shuttle/escape_pod3/centcom, /area/shuttle/escape_pod5/centcom)
+	var/list/area/escape_locations = list(/area/shuttle/escape, /area/shuttle/escape_pod/pod1, /area/shuttle/escape_pod/pod2, /area/shuttle/escape_pod/pod3)
 
 	for(var/mob/M in player_list)
 		if(M.client)
@@ -388,17 +393,17 @@ var/global/list/additional_antag_types = list()
 				if(M.loc && M.loc.loc && (M.loc.loc.type in escape_locations))
 					escaped_total++
 
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape/centcom)
+				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape)
 					escaped_on_shuttle++
 
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod1/centcom)
+				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod/pod1)
 					escaped_on_pod_1++
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod2/centcom)
+
+				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod/pod2)
 					escaped_on_pod_2++
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod3/centcom)
+
+				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod/pod3)
 					escaped_on_pod_3++
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod5/centcom)
-					escaped_on_pod_5++
 
 			if(isobserver(M))
 				ghosts++
@@ -439,8 +444,6 @@ var/global/list/additional_antag_types = list()
 		feedback_set("escaped_on_pod_2",escaped_on_pod_2)
 	if(escaped_on_pod_3 > 0)
 		feedback_set("escaped_on_pod_3",escaped_on_pod_3)
-	if(escaped_on_pod_5 > 0)
-		feedback_set("escaped_on_pod_5",escaped_on_pod_5)
 
 	return 0
 

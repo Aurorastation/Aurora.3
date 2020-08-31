@@ -468,7 +468,7 @@
 			if(51 to INFINITY)
 				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
 			else
-				playsound(src.loc, "sound/weapons/genhit1.ogg", 75, 1)
+				playsound(src.loc, /decl/sound_category/swing_hit_sound, 75, 1)
 	else
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
@@ -484,7 +484,7 @@
 	if (istype(rig))
 		for (var/obj/item/rig_module/actuators/A in rig.installed_modules)
 			if (A.active && rig.check_power_cost(src, 10, A, 0))
-				visible_message(SPAN_NOTICE("\The [src] lands flawlessly with \his [rig]."),
+				visible_message(SPAN_NOTICE("\The [src] lands flawlessly with [src.get_pronoun("his")] [rig]."),
 					SPAN_NOTICE("You hear an electric <i>*whirr*</i> right after the slam!"))
 				return FALSE
 
@@ -621,11 +621,11 @@
 			if(-INFINITY to 10)
 				playsound(src.loc, "sound/weapons/bladeslice.ogg", 50, 1)
 			if(11 to 50)
-				playsound(src.loc, "sound/weapons/punch[rand(1, 4)].ogg", 75, 1)
+				playsound(src.loc, /decl/sound_category/punch_sound, 75, 1)
 			if(51 to INFINITY)
 				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
 			else
-				playsound(src.loc, "sound/weapons/genhit1.ogg", 75, 1)
+				playsound(src.loc, /decl/sound_category/swing_hit_sound, 75, 1)
 	else
 		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
 
@@ -725,7 +725,7 @@
 	else
 		L.apply_damage(damage, BRUTE)
 
-	L.visible_message(SPAN_DANGER("\The [L] had \the [src] fall onto \him!"),
+	L.visible_message(SPAN_DANGER("\The [L] had \the [src] fall onto [src.get_pronoun("him")]!"),
 		SPAN_DANGER("You had \the [src] fall onto you and strike you!"))
 
 	admin_attack_log((ismob(src) ? src : null), L, "fell onto", "was fallen on by", "fell ontop of")

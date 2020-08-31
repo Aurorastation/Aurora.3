@@ -182,6 +182,7 @@
 	if(result == PROJECTILE_FORCE_MISS && (can_miss == 0)) //if you're shooting at point blank you can't miss.
 		if(!silenced)
 			target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
+			playsound(target_mob, /decl/sound_category/bulletflyby_sound, 50, 1)
 		return FALSE
 
 	//hit messages

@@ -117,7 +117,9 @@
 		/obj/item/gun/projectile/deagle/adhomai               = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/revolver/adhomian            = TRADER_THIS_TYPE,
 		/obj/item/gun/launcher/harpoon                        = TRADER_THIS_TYPE,
-		/obj/item/gun/projectile/shotgun/foldable             = TRADER_THIS_TYPE
+		/obj/item/gun/projectile/shotgun/foldable             = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/automatic/rifle/adhomian     = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/revolver/knife               = TRADER_THIS_TYPE
 	)
 
 

@@ -103,7 +103,7 @@
 			verbtouse = pick("smacked","slapped")
 			soundname = "punch"
 			if(targetIsHuman)
-				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name]...</span>", "<span class='[class]'>You flip the [name], preparing a disarm...</span>")
+				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name]...</span>", "<span class='[class]'>You flip [src], preparing a disarm...</span>")
 				if (do_mob(user,target,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
 						var/chancemod = (100 - armorpercent)*0.05*damageamount // Lower chance if lower damage + high armor. Base chance is 50% at 10 damage.
@@ -119,21 +119,21 @@
 							if (prob(chancemod*0.5) && target.r_hand && target.r_hand != src)
 								shoulddisarm += 2
 				else
-					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name] back to it's original position.</span>", "<span class='[class]'>You flip the [name] back to it's original position.</span>")
+					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name] back to its original position.</span>", "<span class='[class]'>You flip [src] back to its original position.</span>")
 					return 0
 			damageamount *= 0.25
 		if(I_GRAB)
 			verbtouse = pick("hooked")
 			soundname = "punch"
 			if(targetIsHuman)
-				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name]...</span>", "<span class='[class]'>You flip the [name], preparing a grab...</span>")
+				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name]...</span>", "<span class='[class]'>You flip [src], preparing a grab...</span>")
 				if (do_mob(user,target,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
 						user.start_pulling(target)
 					else
 						verbtouse = pick("awkwardly tries to hook","fails to grab")
 				else
-					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name] back to it's original position.</span>", "<span class='[class]'>You flip the [name] back to it's original position.</span>")
+					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name] back to its original position.</span>", "<span class='[class]'>You flip [src] back to its original position.</span>")
 					return 0
 			else
 				soundname = "punch"
@@ -156,11 +156,11 @@
 	if(!target_zone || get_dist(user,target) > 1) //Dodged
 		endmessage1st = "Your [name] was dodged by [target]"
 		endmessage3rd = "[target] dodged the [name]"
-		soundname = "sound/weapons/punchmiss.ogg"
+		soundname = "punchmiss"
 	else if(wasblocked) // Blocked by Shield
 		endmessage1st = "Your [name] was blocked by [target]"
 		endmessage3rd = "[target] blocks the [name]"
-		soundname = "sound/weapons/punchmiss.ogg"
+		soundname = "punchmiss"
 	else
 
 		washit = 1
@@ -170,7 +170,7 @@
 		if(shoulddisarm)
 			if(wasselfattack)
 				selfnoun = "your grip"
-				noun = "[target.get_pronoun(1)] grip"
+				noun = "[target.get_pronoun("his")] grip"
 			else
 				noun = "[target]'s grip"
 				selfnoun = noun
@@ -180,14 +180,14 @@
 			if (O.is_stump())
 				if(wasselfattack)
 					selfnoun = "your missing [O.name]"
-					noun = "[target.get_pronoun(1)] missing [O.name]"
+					noun = "[target.get_pronoun("his")] missing [O.name]"
 				else
 					noun = "[target]'s missing [O.name]"
 					selfnoun = noun
 			else
 				if(wasselfattack)
 					selfnoun = "your [O.name]"
-					noun = "[target.get_pronoun(1)] [O.name]"
+					noun = "[target.get_pronoun("his")] [O.name]"
 				else
 					noun = "[target]'s [O.name]"
 					selfnoun = noun
@@ -233,7 +233,7 @@
 
 /obj/item/cane/concealed/attack_self(var/mob/user)
 	if(concealed_blade)
-		user.visible_message("<span class='warning'>[user] has unsheathed \a [concealed_blade] from \his [src]!</span>", "You unsheathe \the [concealed_blade] from \the [src].")
+		user.visible_message("<span class='warning'>[user] has unsheathed \a [concealed_blade] from [user.get_pronoun("his")] [src]!</span>", "You unsheathe \the [concealed_blade] from \the [src].")
 		// Calling drop/put in hands to properly call item drop/pickup procs
 		playsound(user.loc, 'sound/weapons/holster/sheathout.ogg', 50, 1)
 		user.drop_from_inventory(src)
@@ -248,7 +248,7 @@
 
 /obj/item/cane/concealed/attackby(var/obj/item/canesword/W, var/mob/user)
 	if(!src.concealed_blade && istype(W))
-		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into \his [src]!</span>", "You sheathe \the [W] into \the [src].")
+		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into [user.get_pronoun("his")] [src]!</span>", "You sheathe \the [W] into \the [src].")
 		playsound(user.loc, 'sound/weapons/holster/sheathin.ogg', 50, 1)
 		user.drop_from_inventory(W)
 		W.forceMove(src)
@@ -272,6 +272,14 @@
 	desc = "A long stick with a crosspiece at the top, used to help with walking."
 	icon_state = "crutch"
 	item_state = "crutch"
+
+/obj/item/cane/shillelagh
+	name = "adhomian shillelagh"
+	desc = "A sturdy walking stick made from adhomian wood."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "shillelagh"
+	item_state = "shillelagh"
+	contained_sprite = TRUE
 
 /obj/item/disk
 	name = "disk"
@@ -407,7 +415,6 @@
 	icon_state = "power_mod"
 	desc = "Charging circuits for power cells."
 
-
 /obj/item/device/camera_bug
 	name = "camera bug"
 	icon = 'icons/obj/device.dmi'
@@ -441,19 +448,6 @@
 	if (usr.stat == 2) return
 
 	usr.client.eye = target
-
-/*
-/obj/item/cigarpacket
-	name = "Pete's Cuban Cigars"
-	desc = "The most robust cigars on the planet."
-	icon = 'icons/obj/cigarettes.dmi'
-	icon_state = "cigarpacket"
-	item_state = "cigarpacket"
-	w_class = 1
-	throwforce = 2
-	var/cigarcount = 6
-	flags = ONBELT
-	*/
 
 /obj/item/pai_cable
 	desc = "A flexible coated cable with a universal jack on one end."

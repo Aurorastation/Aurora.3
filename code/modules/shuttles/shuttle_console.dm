@@ -1,8 +1,8 @@
 /obj/machinery/computer/shuttle_control
 	name = "shuttle control console"
 	icon = 'icons/obj/computer.dmi'
-	icon_screen = "explosive"
-	light_color = LIGHT_COLOR_ORANGE
+	icon_screen = "shuttle"
+	light_color = LIGHT_COLOR_CYAN
 
 	var/shuttle_tag      // Used to coordinate data in shuttle controller.
 	var/hacked = FALSE   // Has been emagged, no access restrictions.

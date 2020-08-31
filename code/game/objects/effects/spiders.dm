@@ -28,7 +28,7 @@
 		var/obj/item/weldingtool/WT = W
 		if(WT.remove_fuel(0, user))
 			damage = 15
-			playsound(loc, 'sound/items/Welder.ogg', 100, 1)
+			playsound(loc, 'sound/items/welder.ogg', 100, 1)
 
 	health -= damage
 	healthcheck()
@@ -160,7 +160,7 @@
 
 /obj/effect/spider/spiderling/proc/die()
 	visible_message(SPAN_WARNING("\The [src] dies!"))
-	new /obj/effect/decal/cleanable/spiderling_remains(src.loc)
+	new /obj/effect/decal/cleanable/spiderling_remains(loc)
 	qdel(src)
 
 /obj/effect/spider/spiderling/healthcheck()

@@ -74,6 +74,8 @@
 	var/obj/screen/plane_master/parallax_dustmaster/parallax_dustmaster = null
 	var/obj/screen/plane_master/parallax_spacemaster/parallax_spacemaster = null
 
+	var/list/obj/screen/plane_master/zparallax_master/zparallax_masters = null // Z-Parallax masters; one per plane
+
 	var/authed = TRUE
 
 	var/is_initialized = FALSE // Used to track whether the client has been initialized with InitClient.
