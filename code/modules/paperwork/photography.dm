@@ -280,7 +280,7 @@ var/global/photo_count = 0
 
 /obj/item/generic_photo //this is just meant for the custom loadout, so people can rename and change the desc this to whatever they want
 	name = "photo"
-	desc = "A photo of some mudane situation."
+	desc = "A photo of some mundane situation."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "photo"
 	item_state = "paper"
