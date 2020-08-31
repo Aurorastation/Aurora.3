@@ -291,7 +291,7 @@
 //When exact is false, extraneous ingredients are ignored
 //When exact is true, extraneous ingredients will fail the recipe
 //In both cases, the full complement of required inredients is still needed
-/proc/select_recipe(var/obj/obj as obj, var/exact = 0, var/appliance = 0)
+/proc/select_recipe(var/obj/obj as obj, var/exact = 0, var/appliance = null)
 	if(!appliance)
 		return null
 	var/list/available_recipes = decls_repository.get_decls_of_subtype(/decl/recipe)
@@ -305,6 +305,5 @@
 		possible_recipes |= recipe
 	if (isemptylist(possible_recipes))
 		return null
-	if (length(possible_recipes) > 1)
-		sortTim(possible_recipes, /proc/cmp_recipe_complexity_dsc) // Select the most complex recipe
+	sortTim(possible_recipes, /proc/cmp_recipe_complexity_dsc) // Select the most complex recipe
 	return possible_recipes[1]

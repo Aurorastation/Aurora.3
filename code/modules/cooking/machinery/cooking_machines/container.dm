@@ -49,24 +49,16 @@
 	do_empty(usr)
 
 /obj/item/reagent_containers/cooking_container/proc/do_empty(mob/user)
-	if (!isliving(user))
-		//Here we only check for ghosts. Animals are intentionally allowed to remove things from oven trays so they can eat it
-		return
-
-	if (user.stat || user.restrained())
-		to_chat(user, SPAN_NOTICE("You are in no fit state to do this."))
-		return
-
-	if (!Adjacent(user))
-		to_chat(user, "You can't reach [src] from here.")
+	if (use_check_and_message(user))
 		return
 
 	if (isemptylist(contents))
 		to_chat(user, SPAN_WARNING("There's nothing in [src] you can remove!"))
 		return
 
-	for (var/atom/movable/A in contents)
-		A.forceMove(get_turf(src))
+	for (var/thing in contents)
+		var/atom/movable/AM = thing
+		AM.forceMove(get_turf(src))
 
 	to_chat(user, SPAN_NOTICE("You remove all the solid items from [src]."))
 
@@ -87,9 +79,7 @@
 /obj/item/reagent_containers/cooking_container/proc/clear()
 	for (var/atom/a in contents)
 		qdel(a)
-
-	if (reagents)
-		reagents.clear_reagents()
+	reagents.clear_reagents()
 
 /obj/item/reagent_containers/cooking_container/proc/label(var/number, var/CT = null)
 	//This returns something like "Fryer basket 1 - empty"
@@ -112,7 +102,8 @@
 
 /obj/item/reagent_containers/cooking_container/proc/can_fit(var/obj/item/I)
 	var/total = 0
-	for (var/obj/item/J in contents)
+	for (var/thing in contents)
+		var/obj/item/J = thing
 		total += J.w_class
 
 	if((max_space - total) >= I.w_class)
@@ -124,13 +115,15 @@
 /obj/item/reagent_containers/cooking_container/proc/soak_reagent(var/datum/reagents/holder)
 	var/total = 0
 	var/list/weights = list()
-	for (var/obj/item/I in contents)
+	for (var/thing in contents)
+		var/obj/item/I = thing
 		if (I.reagents && I.reagents.total_volume)
 			total += I.reagents.total_volume
 			weights[I] = I.reagents.total_volume
 
 	if (total > 0)
-		for (var/obj/item/I in contents)
+		for (var/thing in contents)
+			var/obj/item/I = thing
 			if (weights[I])
 				holder.trans_to(I, weights[I] / total)
 
@@ -232,14 +225,16 @@
 		return
 	var/list/results = recipe.make_food(src)
 	var/obj/temp = new /obj(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
-	for (var/atom/movable/AM in results)
+	for (var/thing in results)
+		var/atom/movable/AM = thing
 		AM.forceMove(temp)
 
 	//making multiple copies of a recipe from one container. For example, tons of fries
 	while (select_recipe(src, appliance = appliancetype) == recipe)
 		var/list/TR = list()
 		TR += recipe.make_food(src)
-		for (var/atom/movable/AM in TR) //Move results to buffer
+		for (var/thing in TR) //Move results to buffer
+			var/atom/movable/AM = thing
 			AM.forceMove(temp)
 		results += TR
 
