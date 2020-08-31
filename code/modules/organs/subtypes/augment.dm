@@ -212,8 +212,8 @@
 
 	var/static/list/hud_types = list(
 		"Disabled",
-		"Security",
-		"Medical")
+		SEC_HUDTYPE,
+		MED_HUDTYPE)
 
 	var/selected_hud = "Disabled"
 
@@ -223,7 +223,7 @@
 	if(!.)
 		return FALSE
 
-	var/choice = input("Select the Sensor Type.", "Bionic Eyes Sensors") as null|anything in hud_types
+	var/choice = input("Select the Sensor Type.", "Bionic Eyes Sensors") as null|anything in capitalize_list(hud_types)
 
 	selected_hud = lowertext(choice)
 
