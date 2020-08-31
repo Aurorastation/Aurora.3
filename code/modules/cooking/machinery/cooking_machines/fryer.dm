@@ -132,9 +132,11 @@
 			//If we have more than the maximum allowed then we delete some.
 			//This could only happen if one of the objects spawns with the same type of oil as ours
 			var/portion = 1 - (total_oil / total_our_oil) //find the percentage to remove
-			for (var/obj/item/I in CI.container)
+			for (var/thing in CI.container)
+				var/obj/item/I = thing
 				if (I.reagents && I.reagents.total_volume)
-					for (var/datum/reagent/R in I.reagents.reagent_list)
+					for (var/reagent in I.reagents.reagent_list)
+						var/datum/reagent/R = reagent
 						if (istype(R, /datum/reagent/nutriment/triglyceride/oil) && R.type == our_oil.type)
 							I.reagents.remove_reagent(R.type, R.volume*portion)
 
@@ -177,7 +179,8 @@
 		if(E)
 
 			if(LAZYLEN(E.children))
-				for(var/obj/item/organ/external/child in E.children)
+				for(var/C in E.children)
+					var/obj/item/organ/external/child = C
 					if(nopain && nopain < 2 && !BP_IS_ROBOTIC(child))
 						nopain = 0
 					child.take_damage(0, damage, used_weapon = "hot oil")
@@ -213,7 +216,8 @@
 	//That would really require coding some sort of filter or better replacement mechanism first
 	//So for now, restrict to oil only
 		var/amount = 0
-		for (var/datum/reagent/R in I.reagents.reagent_list)
+		for (var/reagent in I.reagents.reagent_list)
+			var/datum/reagent/R = reagent
 			if (istype(R, /datum/reagent/nutriment/triglyceride/oil))
 				var/delta = oil.get_free_space()
 				delta = min(delta, R.volume)

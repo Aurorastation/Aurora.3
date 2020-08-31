@@ -68,11 +68,13 @@ fundamental differences
 	if (!can_remove_items(user))
 		return FALSE
 	var/list/menuoptions = list()
-	for (var/datum/cooking_item/CI in cooking_objs)
+	for (var/cooking_obj in cooking_objs)
+		var/datum/cooking_item/CI = cooking_obj
 		if (!CI.container?.check_contents())
 			to_chat(user, "There's nothing in [src] to remove!")
 			return
-		for (var/obj/item/I in CI.container)
+		for (var/thing in CI.container)
+			var/obj/item/I = thing
 			menuoptions[I.name] = I
 
 	var/selection = show_radial_menu(user, src, menuoptions, require_near = TRUE, tooltips = TRUE, no_repeat_close = TRUE)
