@@ -65,6 +65,8 @@
 			// In case the stop is called in a situation when we're already falling.
 			// The still want to call fall_impact, due to the fact they've fallen.
 			if (falling[victim])
+				var/turf/Vloc = get_turf(victim)
+				Vloc.on_fall_impact(victim, falling[victim], TRUE)
 				victim.fall_impact(falling[victim], TRUE)
 				victim.fall_collateral(falling[victim], TRUE)
 
@@ -87,6 +89,7 @@
 					falling -= victim
 				else
 					// Falling more than a level, fuck 'em up.
+					below.on_fall_impact(victim, falling[victim], FALSE)
 					victim.fall_impact(falling[victim], FALSE)
 					victim.fall_collateral(falling[victim], FALSE)
 					victim.multiz_falling = 0
@@ -97,6 +100,7 @@
 			else
 				// This is a lookahead. It removes any lag from being moved onto
 				// the destination turf, and calling fall_impact.
+				below.on_fall_impact(victim, falling[victim], FALSE)
 				victim.fall_impact(falling[victim], FALSE)
 				victim.fall_collateral(falling[victim], FALSE)
 				victim.multiz_falling = 0
@@ -107,6 +111,8 @@
 			continue
 
 		// This shouldn't actually happen. But for safety, here it is.
+		var/turf/Vloc = get_turf(victim)
+		Vloc.on_fall_impact(victim, falling[victim], FALSE)
 		victim.fall_impact(falling[victim], FALSE)
 		victim.fall_collateral(falling[victim], FALSE)
 		victim.multiz_falling = 0

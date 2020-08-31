@@ -47,3 +47,5 @@
 
 #define SIMPLE_SIGN(X) ((X) < 0 ? -1 : 1)
 #define SIGN(X)        ((X) ? SIMPLE_SIGN(X) : 0)
+
+#define Z_VELOCITY(LEVELS) (5*((LEVELS)**2))

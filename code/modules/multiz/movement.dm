@@ -1,5 +1,5 @@
 /atom/movable
-	/** Used to check wether or not an atom is being handled by SSfalling. */
+	/** Used to check whether or not an atom is being handled by SSfalling. */
 	var/tmp/multiz_falling = 0
 
 /**
@@ -453,8 +453,7 @@
 	visible_message("\The [src] falls and lands on \the [loc]!",
 		"With a loud thud, you land on \the [loc]!", "You hear a thud!")
 
-	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
+	var/damage = ((60 + Z_VELOCITY(levels_fallen)) + rand(-20,20)) * damage_mod
 
 	apply_damage(damage, BRUTE)
 
@@ -502,8 +501,7 @@
 		aug_mod = suspension.suspension_mod
 		suspension.take_damage(10)
 
-	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = (((40 * species.fall_mod) + z_velocity) + rand(-20,20)) * combat_roll * damage_mod * aug_mod
+	var/damage = (((40 * species.fall_mod) + Z_VELOCITY(levels_fallen)) + rand(-20,20)) * combat_roll * damage_mod * aug_mod
 
 	var/limb_damage = rand(0,damage/2)
 
@@ -651,14 +649,30 @@
 	if (!.)
 		return
 
-	var/z_velocity = 5*(levels_fallen**2)
-	var/damage = ((60 + z_velocity) + rand(-20,20)) * damage_mod
+	var/damage = ((60 + Z_VELOCITY(levels_fallen)) + rand(-20,20)) * damage_mod
 	if(istype(loc, /turf/unsimulated/floor/asteroid))
 		damage /= 2
 
 	health -= (damage * brute_dam_coeff)
 
 	playsound(loc, "sound/effects/clang.ogg", 75, 1)
+
+/**
+ * Invoked when a solid tile has an atom land on it.
+ *
+ * src.loc now contains the final and updated position of the atom.
+ *
+ * @param	other         The atom colliding with src.
+ * @param	distance      The distance fallen by the colliding atom.
+ * @param	stopped_early TRUE if the fall was stopped by can_fall.
+ *						  FALSE if the fall was stopped by the fact that the atom
+ *						  was no longer on an open turf.
+ *
+ * @return	TRUE if the proc ran completely. FALSE otherwise. Used to determine
+ * if child procs should continue running or not, really.
+ */
+/turf/proc/on_fall_impact(atom/movable/other, distance, stopped_early = FALSE)
+	return !stopped_early
 
 /**
  * Used to handle damage dealing for objects post fall. Why is it separated from

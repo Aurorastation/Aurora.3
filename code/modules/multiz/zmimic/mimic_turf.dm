@@ -44,6 +44,17 @@
 	z_flags &= ~ZM_MIMIC_BELOW
 	cleanup_zmimic()
 
+/turf/proc/update_adjacent()
+	if (!(z_flags & ZM_MIMIC_BELOW))
+		return
+	var/radius = Ceiling((z_depth/16)*world.view) // upper bound for how many tiles are visible from the edge of the screen normally
+	var/xstart = max(x-radius, 1)
+	var/ystart = max(y-radius, 1)
+	var/xend = min(x+radius, world.maxx)
+	var/yend = min(y+radius, world.maxy)
+	for(var/turf/T in block(locate(xstart, ystart, z), locate(xend, yend, z)))
+		T.enable_zmimic()
+
 // Sets up Z-mimic for this turf. You shouldn't call this directly 99% of the time.
 /turf/proc/setup_zmimic(mapload)
 	if (shadower)
@@ -54,6 +65,7 @@
 	if (under)
 		below = under
 		below.above = src
+	update_adjacent()
 
 	update_mimic(!mapload)	// Only recursively update if the map isn't loading.
 
