@@ -1570,7 +1570,7 @@
 				/obj/item/grenade/empgrenade,
 				/obj/item/grenade/chem_grenade/incendiary
 				)
-			var/obj/item/storage/bag/plasticbag/bag = new /obj/item/storage/box(spawned.loc)
+			var/obj/item/storage/bag/plasticbag/bag = new /obj/item/storage/bag/plasticbag(spawned.loc)
 			for(var/i in 1 to 7)
 				var/chosen_type = pick(grenade_types)
 				new chosen_type(bag)
