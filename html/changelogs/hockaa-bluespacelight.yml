@@ -1,0 +1,6 @@
+author: ChangeMe
+
+delete-after: True
+
+changes: 
+  - tweak: "Bluespace turfs no longer emit light."
