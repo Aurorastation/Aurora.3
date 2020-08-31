@@ -47,6 +47,8 @@ emp_act
 		var/armor = getarmor_organ(organ, "bullet")
 		if(prob(20 + max(P.damage - armor, -10)))
 			var/obj/item/SP = new P.shrapnel_type()
+			SP.edge = TRUE
+			SP.sharp = TRUE
 			SP.name = (P.name != "shrapnel")? "[P.name] shrapnel" : "shrapnel"
 			SP.desc = "[SP.desc] It looks like it was fired from [P.shot_from]."
 			SP.forceMove(organ)

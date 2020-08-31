@@ -2075,7 +2075,7 @@
 /datum/chemical_reaction/drink/beepsky_smash
 	name = "Beepsky Smash"
 	id = "beepksysmash"
-	result = /datum/reagent/alcohol/ethanol/beepskysmash
+	result = /datum/reagent/alcohol/ethanol/beepsky_smash
 	required_reagents = list(/datum/reagent/drink/limejuice = 1, /datum/reagent/alcohol/ethanol/whiskey = 1, /datum/reagent/iron = 1)
 	result_amount = 2
 

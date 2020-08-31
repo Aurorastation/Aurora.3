@@ -5,9 +5,10 @@
 	icon_state = "posibrain"
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2, TECH_DATA = 4)
-	var/searching = FALSE
 	req_access = list(access_robotics)
 	locked = FALSE
+	can_be_ipc = TRUE
+	var/searching = FALSE
 
 /obj/item/device/mmi/digital/posibrain/Initialize()
 	. = ..()

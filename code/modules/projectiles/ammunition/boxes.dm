@@ -121,6 +121,7 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/mc9mm/flash
+	name = "magazine (9mm flash)"
 	ammo_type = /obj/item/ammo_casing/c9mm/flash
 
 /obj/item/ammo_magazine/c9mm
