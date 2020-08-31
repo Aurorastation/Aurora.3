@@ -33,7 +33,8 @@
 	if (length(cooking_objs))
 		var/string = "Contains...</br>"
 		var/num = 0
-		for (var/datum/cooking_item/CI in cooking_objs)
+		for (var/a in cooking_objs)
+			var/datum/cooking_item/CI = a
 			num++
 			if (CI && CI.container)
 				string += "- [CI.container.label(num)], [report_progress(CI)]</br>"
@@ -80,7 +81,7 @@
 		set_temp = text2num(desired_temp) + T0C
 		to_chat(user, SPAN_NOTICE("You set [src] to [round(set_temp-T0C)]C."))
 		stat &= ~POWEROFF
-	use_power = !(stat & POWEROFF)
+	use_power = !(stat & POWEROFF) && use_power
 	if(wasoff != (stat & POWEROFF))
 		user.visible_message("<b>[user]</b> turns [use_power ? "on" : "off"] [src].", "You turn [use_power ? "on" : "off"] [src].")
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
@@ -106,8 +107,9 @@
 	if(!stat)
 		heat_up()
 		update_cooking_power() // update!
-	for(var/datum/cooking_item/CI in cooking_objs)
-		if(!CI.container.reagents)
+	for(var/cooking_obj in cooking_objs)
+		var/datum/cooking_item/CI = cooking_obj
+		if(!CI.container?.reagents)
 			continue
 		if(CI.container.reagents.get_temperature() >= temperature)
 			temp_change = loss

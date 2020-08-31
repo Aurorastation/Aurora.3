@@ -31,7 +31,7 @@
 		return
 	spill(user, target.loc)
 
-/obj/item/tray/attackby(obj/item/I as obj, mob/user as mob, var/click_params)
+/obj/item/tray/attackby(obj/item/I, mob/user, var/click_params)
 	if (isrobot(I.loc))//safety to stop robots losing their items
 		return
 
@@ -52,7 +52,7 @@
 */
 
 //Clicking a table places the tray on it safely.
-/obj/item/tray/afterattack(atom/target, mob/user as mob, proximity)
+/obj/item/tray/afterattack(atom/target, mob/user, proximity)
 	if (istype(target,/obj/structure/table))
 		safedrop = TRUE
 	if (!proximity)

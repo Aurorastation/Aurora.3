@@ -27,9 +27,8 @@
 		to_chat(user, SPAN_NOTICE("It contains [reagents.total_volume] units of reagents."))
 
 
-/obj/item/reagent_containers/cooking_container/attackby(var/obj/item/I as obj, var/mob/user as mob)
-	for (var/possible_type in insertable)
-		if (istype(I, possible_type))
+/obj/item/reagent_containers/cooking_container/attackby(var/obj/item/I, var/mob/user)
+	if(is_type_in_list(I, insertable))
 			if (!can_fit(I))
 				to_chat(user, SPAN_WARNING("There's no more space in [src] for that!"))
 				return FALSE
@@ -65,17 +64,18 @@
 		to_chat(user, SPAN_WARNING("There's nothing in [src] you can remove!"))
 		return
 
-	for (var/atom/movable/A in contents)
+	for (var/thing in contents)
+		var/atom/movable/A = thing
 		A.forceMove(get_turf(src))
 
 	to_chat(user, SPAN_NOTICE("You remove all the solid items from [src]."))
 
 /obj/item/reagent_containers/cooking_container/proc/check_contents()
-	if (length(contents) == 0)
-		if (!reagents || reagents.total_volume == 0)
+	if (isemptylist(contents))
+		if (!reagents || !reagents.total_volume)
 			return 0.0//Completely empty
 	else if (length(contents) == 1)
-		if (!reagents || reagents.total_volume == 0)
+		if (!reagents || !reagents.total_volume)
 			return 1.0//Contains only a single object which can be extracted alone
 	return 2.0//Contains multiple objects and/or reagents
 
@@ -85,8 +85,7 @@
 //Deletes contents of container.
 //Used when food is burned, before replacing it with a burned mess
 /obj/item/reagent_containers/cooking_container/proc/clear()
-	for (var/atom/a in contents)
-		qdel(a)
+	QDEL_NULL_LIST(contents)
 
 	if (reagents)
 		reagents.clear_reagents()
@@ -232,7 +231,8 @@
 		return
 	var/list/results = recipe.make_food(src)
 	var/obj/temp = new /obj(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
-	for (var/atom/movable/AM in results)
+	for (var/result in results)
+		var/atom/movable/AM = result
 		AM.forceMove(temp)
 
 	//making multiple copies of a recipe from one container. For example, tons of fries
