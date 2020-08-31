@@ -59,7 +59,9 @@
 				user.visible_message("<span class='notice'>\ [user] slices through the skin of \the [src], revealing a confused diona nymph.</span>")
 			else
 				return
-		spawn_diona_nymph(src.loc)
+		if(isturf(loc))
+			var/turf/T = loc
+			T.spawn_diona_nymph()
 		qdel(src)
 
 /obj/structure/diona/bulb/unpowered
@@ -185,7 +187,7 @@
 		if(ARTIFACT_CHAR)
 			new /obj/structure/diona/bulb(T)
 		if(MONSTER_CHAR)
-			spawn_diona_nymph(T)
+			T.spawn_diona_nymph()
 		if(DOOR_CHAR)
 			var/obj/structure/diona/vines/V = new(T)
 			V.growth = 3

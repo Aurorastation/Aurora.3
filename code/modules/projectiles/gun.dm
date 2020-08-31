@@ -104,7 +104,7 @@
 	var/wielded = 0
 	var/needspin = TRUE
 	var/is_wieldable = FALSE
-	var/wield_sound = "wield_generic"
+	var/wield_sound = /decl/sound_category/generic_wield_sound
 	var/unwield_sound = null
 
 	//aiming system stuff

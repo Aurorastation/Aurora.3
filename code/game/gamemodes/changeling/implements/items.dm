@@ -14,9 +14,10 @@
 	throw_range = 0
 	throw_speed = 0
 	can_embed = FALSE
+	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
-	var/mob/living/creator
 	canremove = FALSE
+	var/mob/living/creator
 
 /obj/item/melee/arm_blade/New()
 	..()

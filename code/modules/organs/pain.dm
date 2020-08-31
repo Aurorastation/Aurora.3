@@ -49,7 +49,7 @@ mob/var/next_pain_time = 0
 			if(!(use_emote.message_type == AUDIBLE_MESSAGE && silent))
 				emote(force_emote)
 
-	next_pain_time = world.time + (100-power)
+	next_pain_time = world.time + 5 SECONDS
 
 /mob/living/carbon/human/proc/handle_pain()
 	if(!can_feel_pain())
@@ -94,13 +94,13 @@ mob/var/next_pain_time = 0
 		if(prob(1) && !((I.status & ORGAN_DEAD) || BP_IS_ROBOTIC(I)) && I.damage > 5)
 			var/obj/item/organ/external/parent = get_organ(I.parent_organ)
 			var/pain = 10
-			var/message = "You feel a dull pain in your [parent.name]..."
+			var/message = I.unknown_pain_location ? "You feel a dull pain in your [parent.name]..." : "You feel a dull pain radiating from your [I.name]..."
 			if(I.is_bruised())
 				pain = 25
-				message = "You feel a stinging pain in your [parent.name]."
+				message = I.unknown_pain_location ? "You feel a stinging pain in your [parent.name]." : "You feel a stinging pain radiating from your [I.name]."
 			if(I.is_broken())
 				pain = 50
-				message = "You feel a sharp pain in your [parent.name]!"
+				message = I.unknown_pain_location ? "You feel a sharp pain in your [parent.name]!" : "You feel a sharp pain radiating from your [I.name]!"
 			src.custom_pain(message, pain, affecting = parent)
 
 	if(prob(1))
