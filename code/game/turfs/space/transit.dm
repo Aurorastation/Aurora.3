@@ -7,9 +7,6 @@
 	use_space_appearance = FALSE
 	use_starlight = FALSE
 
-/turf/space/transit/Initialize()
-	. = ..()
-
 /turf/space/transit/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_lighting_update = 0, var/allow = 0, var/keep_air = FALSE)
 	return ..(N, tell_universe, 1, allow, keep_air)
 
