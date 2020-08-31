@@ -3,7 +3,7 @@
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "ore1"
 	randpixel = 8
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throwforce = 10
 	var/datum/geosample/geologic_data
 	var/material

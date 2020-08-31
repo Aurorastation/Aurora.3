@@ -4,7 +4,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "pin_extractor"
 	item_state = "pin_extractor"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 	action_button_name = "Toggle extractor"
 	var/on = 0

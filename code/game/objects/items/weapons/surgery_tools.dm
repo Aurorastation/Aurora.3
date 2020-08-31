@@ -12,7 +12,7 @@
 	name = "surgery tool"
 	desc = "hey, you aren't supposed to have this"
 	icon = 'icons/obj/surgery.dmi'
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	item_icons = list(
@@ -70,7 +70,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 10000)
 	flags = CONDUCT
 	force = 15.0
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("drilled")
 	drop_sound = 'sound/items/drop/accessory.ogg'
@@ -88,7 +88,7 @@
 	force = 10.0
 	sharp = 1
 	edge = 1
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	throwforce = 5.0
 	throw_speed = 3
@@ -139,7 +139,7 @@
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
 	flags = CONDUCT
 	force = 15.0
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	throwforce = 9.0
 	throw_speed = 3
 	throw_range = 5
@@ -191,7 +191,7 @@
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 	force = 2
-	w_class = 5.0
+	w_class = ITEMSIZE_HUGE
 	storage_slots = 10
 	attack_verb = list("slammed")
 	icon_type = "surgery tool"

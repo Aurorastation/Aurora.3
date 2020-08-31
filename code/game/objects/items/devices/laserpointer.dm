@@ -8,7 +8,7 @@
 	item_state = "pen"
 	var/pointer_icon_state
 	slot_flags = SLOT_BELT
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	var/turf/pointer_loc
 	var/obj/item/stock_parts/micro_laser/diode //cant use the laser without it
 
@@ -101,7 +101,7 @@
 				C.eye_blind = 3
 			else
 				outmsg = "<span class='notice'>You fail to blind [C] with [src]</span>"
-	
+
 	//laser pointer image
 	icon_state = "pointer_[pointer_icon_state]"
 	var/list/showto = list()

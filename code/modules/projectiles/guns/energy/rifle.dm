@@ -7,7 +7,7 @@
 	icon_state = "eriflestun100"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BACK
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	max_shots = 20
 	fire_delay = 6

@@ -4,7 +4,7 @@
 	desc = "Place her into an apiary so she can get busy."
 	icon = 'icons/obj/seeds.dmi'
 	icon_state = "vine2"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 
 
@@ -13,7 +13,7 @@
 	icon = 'icons/obj/apiary_bees_etc.dmi'
 	icon_state = "apiary_item"
 	item_state = "giftbag"
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 
 /obj/item/beezeez
 	name = "bottle of BeezEez"

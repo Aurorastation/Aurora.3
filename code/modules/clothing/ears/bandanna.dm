@@ -8,7 +8,7 @@
 	icon = 'icons/obj/clothing/ears.dmi'
 	icon_state = "band_r"
 	item_state = "band_r"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 
 /obj/item/clothing/ears/bandanna/blue

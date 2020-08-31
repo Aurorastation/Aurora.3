@@ -13,7 +13,7 @@
 	possible_transfer_amounts = list(5,10,15,25,30,60)
 	volume = 60
 	accuracy = 0.1
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	flags = OPENCONTAINER
 	var/fragile = TRUE // most glassware is super fragile
 	var/no_shatter = FALSE //does this container shatter?
@@ -239,7 +239,7 @@
 	center_of_mass = list("x" = 16,"y" = 10)
 	accuracy = 1
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	amount_per_transfer_from_this = 20
 	possible_transfer_amounts = list(10,20,30,60,120)
 	volume = 120

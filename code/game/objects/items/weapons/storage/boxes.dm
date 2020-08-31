@@ -598,7 +598,7 @@
 		)
 	icon_state = "portafreezer"
 	item_state = "medicalpack"
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 21
 	use_to_pickup = FALSE // for picking up broken bulbs, not that most people will try
 	chewable = FALSE

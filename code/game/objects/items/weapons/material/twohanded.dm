@@ -17,7 +17,7 @@
  * Twohanded
  */
 /obj/item/material/twohanded
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	var/wielded = 0
 	var/force_wielded = 0
 	var/force_unwielded
@@ -157,7 +157,7 @@
 
 ///////////OFFHAND///////////////
 /obj/item/material/twohanded/offhand
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	icon_state = "offhand"
 	name = "offhand"
 	default_material = "placeholder"
@@ -195,7 +195,7 @@
 	force_divisor = 0.7 // 10/42 with hardness 60 (steel) and 0.25 unwielded divisor
 	sharp = 1
 	edge = 1
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	force_wielded = 30
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
@@ -231,7 +231,7 @@
 	name = "spear"
 	desc = "A haphazardly-constructed yet still deadly weapon of ancient design."
 	force = 10
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	force_divisor = 0.35 // 21 damage for steel (hardness 60)
 	unwielded_force_divisor = 0.2 // 12 damage for steel (hardness 60)
@@ -541,7 +541,7 @@
 	unwielded_force_divisor = 0.2
 	force_divisor = 0.3
 	edge = 1
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	attack_verb = list("attacked", "poked", "jabbed", "gored", "stabbed")
 	default_material = "steel"
@@ -618,7 +618,7 @@
 	name = "zweihander"
 	desc = "A german upgrade to the einhander models of ancient times."
 	force = 20
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	force_wielded = 30
 	unwielded_force_divisor = 1

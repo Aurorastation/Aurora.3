@@ -53,7 +53,7 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 5
@@ -778,7 +778,7 @@
 
 ///////////OFFHAND///////////////
 /obj/item/offhand
-	w_class = 5.0
+	w_class = ITEMSIZE_HUGE
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "offhand"
 	item_state = "nothing"

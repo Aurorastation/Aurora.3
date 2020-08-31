@@ -12,7 +12,7 @@
 	icon_state = null
 	item_state = "pill"
 	possible_transfer_amounts = null
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	volume = 60
 	drop_sound = 'sound/items/drop/food.ogg'
@@ -140,7 +140,7 @@
 	desc = "Improves the ability to concentrate."
 	icon_state = "pill8"
 	reagents_to_add = list(/datum/reagent/mental/corophenidate = 15)
-  
+
 /obj/item/reagent_containers/pill/minaphobin
 	name = "minaphobin pill"
 	desc = "Mild anti-depressant."
