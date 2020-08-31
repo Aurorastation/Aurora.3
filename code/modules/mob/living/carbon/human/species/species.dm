@@ -364,28 +364,15 @@
 			I.status |= ORGAN_ADV_ROBOT
 
 /datum/species/proc/tap(var/mob/living/carbon/human/H,var/mob/living/target)
-	var/t_his = "their"
-	switch(target.gender)
-		if(MALE)
-			t_his = "his"
-		if(FEMALE)
-			t_his = "her"
-	var/t_him = "them"
-	switch(target.gender)
-		if(MALE)
-			t_him = "him"
-		if(FEMALE)
-			t_him = "her"
-
 	if(H.on_fire)
 		target.fire_stacks += 1
 		target.IgniteMob()
-		H.visible_message("<span class='danger'>[H] taps [target], setting [t_him] ablaze!</span>", \
-						"<span class='warning'>You tap [target], setting [t_him] ablaze!</span>")
+		H.visible_message("<span class='danger'>[H] taps [target], setting [target.get_pronoun("his")] ablaze!</span>", \
+						"<span class='warning'>You tap [target], setting [target.get_pronoun("him")] ablaze!</span>")
 		msg_admin_attack("[key_name(H)] spread fire to [target.name] ([target.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(target))
 	else
-		H.visible_message("<span class='notice'>[H] taps [target] to get [t_his] attention!</span>", \
-						"<span class='notice'>You tap [target] to get [t_his] attention!</span>")
+		H.visible_message("<span class='notice'>[H] taps [target] to get [target.get_pronoun("his")] attention!</span>", \
+						"<span class='notice'>You tap [target] to get [target.get_pronoun("his")] attention!</span>")
 
 /datum/species/proc/remove_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)
