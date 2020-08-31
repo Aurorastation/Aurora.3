@@ -75,19 +75,3 @@
 	sechud["HUD, security"] = /obj/item/clothing/glasses/hud/security
 	sechud["HUDpatch, security"] = /obj/item/clothing/glasses/eyepatch/hud/security
 	gear_tweaks += new/datum/gear_tweak/path(sechud)
-
-/datum/gear/eyes/enghuds
-	display_name = "engineering HUD selection"
-	description = "A selection of engineering HUDs."
-	path = /obj/item/clothing/glasses/material/aviator
-	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice", "Research Director","Scientist", "Shaft Miner")
-
-/datum/gear/eyes/enghuds/New()
-	..()
-	var/enghud = list()
-	enghud["aviators, material"] = /obj/item/clothing/glasses/material/aviator
-	enghud["aviators, meson"] = /obj/item/clothing/glasses/meson/aviator
-	enghud["meson goggles, prescription"] = /obj/item/clothing/glasses/meson/prescription
-	enghud["HUDpatch, mesons"] = /obj/item/clothing/glasses/eyepatch/hud/meson
-	enghud["HUDpatch, material"] = /obj/item/clothing/glasses/eyepatch/hud/material
-	gear_tweaks += new/datum/gear_tweak/path(enghud)
