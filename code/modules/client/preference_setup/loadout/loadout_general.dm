@@ -103,6 +103,12 @@
 	banners["banner, Democratic People's Republic of Adhomai"] = /obj/item/flag/dpra
 	banners["banner, New Kingdom of Adhomai"] = /obj/item/flag/nka
 	banners["banner, Republic of Biesel"] = /obj/item/flag/biesel
+	banners["banner, Dominian Diona"] = /obj/item/flag/diona
+	banners["banner, Trinary Perfection"] = /obj/item/flag/trinaryperfection
+	banners["banner, Hephaestus Industries"] = /obj/item/flag/heph
+	banners["banner, Idris Incorporated"] = /obj/item/flag/idris
+	banners["banner, Zenghu Pharmaceuticals"] = /obj/item/flag/zenghu
+	banners["banner, Zavodskoi Interstellar"] = /obj/item/flag/zavodskoi
 	banners["banner, Coalition of Colonies"] = /obj/item/flag/coalition
 	gear_tweaks += new/datum/gear_tweak/path(banners)
 
@@ -127,6 +133,11 @@
 	flags["flag, Democratic People's Republic of Adhomai"] = /obj/item/flag/dpra/l
 	flags["flag, New Kingdom of Adhomai"] = /obj/item/flag/nka/l
 	flags["flag, Republic of Biesel"] = /obj/item/flag/biesel/l
+	flags["flag, Trinary Perfection"] = /obj/item/flag/trinaryperfection/l
+	flags["flag, Hephaestus Industries"] = /obj/item/flag/heph/l
+	flags["flag, Idris Incorporated"] = /obj/item/flag/idris/l
+	flags["flag, Zeng-Hu Pharmaceuticals"] = /obj/item/flag/zenghu/l
+	flags["flag, Zavodskoi Interstellar"] = /obj/item/flag/zavodskoi/l
 	flags["flag, Coalition of Colonies"] = /obj/item/flag/coalition/l
 	gear_tweaks += new/datum/gear_tweak/path(flags)
 
