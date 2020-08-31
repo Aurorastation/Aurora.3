@@ -91,8 +91,6 @@
 		return 1
 
 /obj/machinery/door/window/open()
-	if (emagged == 1) //doors can still open when emag-disabled
-		return FALSE
 	if (!ROUND_IS_STARTED)
 		return FALSE
 	if(can_open())
