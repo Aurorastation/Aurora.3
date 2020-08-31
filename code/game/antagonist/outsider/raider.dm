@@ -21,57 +21,6 @@ var/datum/antagonist/raider/raiders
 
 	id_type = /obj/item/card/id/syndicate
 
-	var/list/raider_guns = list(
-		/obj/item/gun/energy/rifle/laser,
-		/obj/item/gun/energy/rifle/laser/xray,
-		/obj/item/gun/energy/rifle/icelance,
-		/obj/item/gun/energy/retro,
-		/obj/item/gun/energy/xray,
-		/obj/item/gun/energy/mindflayer,
-		/obj/item/gun/energy/toxgun,
-		/obj/item/gun/energy/stunrevolver,
-		/obj/item/gun/energy/rifle/ionrifle,
-		/obj/item/gun/energy/taser,
-		/obj/item/gun/energy/crossbow/largecrossbow,
-		/obj/item/gun/launcher/crossbow,
-		/obj/item/gun/launcher/grenade,
-		/obj/item/gun/launcher/pneumatic,
-		/obj/item/gun/launcher/harpoon,
-		/obj/item/gun/projectile/automatic/mini_uzi,
-		/obj/item/gun/projectile/automatic/c20r,
-		/obj/item/gun/projectile/automatic/wt550,
-		/obj/item/gun/projectile/automatic/rifle/sts35,
-		/obj/item/gun/projectile/automatic/tommygun,
-		/obj/item/gun/projectile/automatic/x9,
-		/obj/item/gun/projectile/silenced,
-		/obj/item/gun/projectile/shotgun/pump,
-		/obj/item/gun/projectile/shotgun/pump/combat,
-		/obj/item/gun/projectile/shotgun/doublebarrel,
-		/obj/item/gun/projectile/shotgun/doublebarrel/pellet,
-		/obj/item/gun/projectile/shotgun/doublebarrel/sawn,
-		/obj/item/gun/projectile/shotgun/pump/rifle,
-		/obj/item/gun/projectile/shotgun/foldable,
-		/obj/item/gun/projectile/colt,
-		/obj/item/gun/projectile/sec,
-		/obj/item/gun/projectile/pistol,
-		/obj/item/gun/projectile/deagle,
-		/obj/item/gun/projectile/revolver,
-		/obj/item/gun/projectile/revolver/deckard,
-		/obj/item/gun/projectile/revolver/derringer,
-		/obj/item/gun/projectile/revolver/lemat,
-		/obj/item/gun/projectile/contender,
-		/obj/item/gun/projectile/pirate,
-		/obj/item/gun/projectile/tanto,
-		/obj/item/gun/projectile/shotgun/pump/rifle/vintage
-		)
-
-
-	var/list/raider_holster = list(
-		/obj/item/clothing/accessory/holster/armpit,
-		/obj/item/clothing/accessory/holster/waist,
-		/obj/item/clothing/accessory/holster/hip
-		)
-
 /datum/antagonist/raider/New()
 	..()
 	raiders = src
