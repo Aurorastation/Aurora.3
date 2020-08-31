@@ -2,7 +2,7 @@
 
 // Tracks precooked food to stop deep fried baked grilled grilled grilled diona nymph cereal.
 /obj/item/reagent_containers/food/snacks
-	var/tmp/list/cooked = list()
+	var/tmp/list/cooked
 
 // Root type for cooking machines. See following files for specific implementations.
 /obj/machinery/appliance
@@ -19,7 +19,7 @@
 	active_power_usage = 1000		// Power used when turned on and actively cooking something
 
 	var/cooking_power = 0			// Effectiveness/speed at cooking
-	var/cooking_coeff = 0			// Optimal power * proximity to optimal temp; used to calc. cooking power.
+	var/cooking_coeff = 0			// Part-based cooking power multiplier
 	var/heating_power = 1000		// Effectiveness at heating up; not used for mixers, should be equal to active_power_usage
 	var/max_contents = 1			// Maximum number of things this appliance can simultaneously cook
 	var/on_icon						// Icon state used when cooking.
@@ -132,7 +132,7 @@
 //Handles all validity checking and error messages for inserting things
 /obj/machinery/appliance/proc/can_insert(var/obj/item/I, var/mob/user)
 	if(issilicon(I.loc) || istype(I.loc, /obj/item/rig_module))
-		return FALSE
+		return CANNOT_INSERT
 
 	// We are trying to cook a grabbed mob.
 	var/obj/item/grab/G = I
@@ -140,37 +140,37 @@
 
 		if(!can_cook_mobs)
 			to_chat(user, SPAN_WARNING("That's not going to fit."))
-			return FALSE
+			return CANNOT_INSERT
 
 		if(!isliving(G.affecting))
 			to_chat(user, SPAN_WARNING("You can't cook that."))
-			return FALSE
+			return CANNOT_INSERT
 
-		return 2
+		return INSERT_GRABBED
 
 	if (!has_space(I))
 		to_chat(user, SPAN_WARNING("There's no room in [src] for that!"))
-		return FALSE
+		return CANNOT_INSERT
 
 	if (istype(I, /obj/item/reagent_containers/cooking_container))
 		var/obj/item/reagent_containers/cooking_container/CC = I
 		if(CC.appliancetype & appliancetype)
-			return TRUE
+			return CAN_INSERT
 
 	// We're trying to cook something else. Check if it's valid.
 	var/obj/item/reagent_containers/food/snacks/check = I
-	if(istype(check) && islist(check.cooked) && (cook_type in check.cooked))
+	if(istype(check) && LAZYISIN(cook_type,check.cooked))
 		to_chat(user, SPAN_WARNING("[check] has already been [cook_type]."))
-		return FALSE
+		return CANNOT_INSERT
 	else if(istype(check, /obj/item/reagent_containers/glass))
 		to_chat(user, SPAN_WARNING("That would probably break [src]."))
-		return FALSE
+		return CANNOT_INSERT
 	else if(I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/storage/part_replacer))
-		return FALSE
+		return CANNOT_INSERT
 	else if(!istype(check) && !istype(check, /obj/item/holder))
 		to_chat(user, SPAN_WARNING("That's not edible."))
-		return FALSE
-	return TRUE
+		return CANNOT_INSERT
+	return CAN_INSERT
 
 
 //This function is overridden by cookers that do stuff with containers
@@ -185,7 +185,7 @@
 		return
 
 	var/result = can_insert(I, user)
-	if(!result)
+	if(result == CANNOT_INSERT)
 		if(default_deconstruction_screwdriver(user, I))
 			return
 		else if(default_part_replacement(user, I))
@@ -194,7 +194,7 @@
 			return
 		return
 
-	if(result == 2)
+	if(result == INSERT_GRABBED)
 		var/obj/item/grab/G = I
 		if (G && istype(G) && G.affecting)
 			cook_mob(G.affecting, user)
@@ -231,7 +231,7 @@
 
 	// We can actually start cooking now.
 	user.visible_message("<b>[user]</b> puts [I] into [src].")
-	if(selected_option || length(CI.container.contents) || select_recipe(CI.container || src, appliance = CI.container?.appliancetype || appliancetype)) // we're doing combo cooking, we're not just heating reagents, OR we have a valid reagent-only recipe
+	if(selected_option || length(CI.container.contents) || select_recipe(CI.container || src, appliance = CI.container.appliancetype)) // we're doing combo cooking, we're not just heating reagents, OR we have a valid reagent-only recipe
 		// this is to stop reagents from burning when you're heating stuff
 		get_cooking_work(CI)
 		cooking = TRUE
@@ -332,7 +332,6 @@
 	recipe = select_recipe(C, appliance = appliance)
 
 	if (recipe)
-		CI.result_type = 4//Recipe type, a specific recipe will transform the ingredients into a new food
 		var/list/results = recipe.make_food(C)
 
 		var/obj/temp = new /obj(src) //To prevent infinite loops, all results will be moved into a temporary location so they're not considered as inputs for other recipes
@@ -352,13 +351,12 @@
 		for (var/r in results)
 			var/obj/item/reagent_containers/food/snacks/R = r
 			R.forceMove(C) //Move everything from the buffer back to the container
-			R.cooked |= cook_type
+			LAZYDISTINCTADD(R.cooked, cook_type)
 
 		QDEL_NULL(temp) //delete buffer object
 		. = TRUE //None of the rest of this function is relevant for recipe cooking
 
 	else if(CI.combine_target)
-		CI.result_type = 3//Combination type. We're making something out of our ingredients
 		. = combination_cook(CI)
 
 
@@ -458,7 +456,7 @@
 	if (!result)
 		return
 
-	result.cooked |= cook_type
+	LAZYDISTINCTADD(result.cooked, cook_type)
 
 	// Set icon and appearance.
 	change_product_appearance(result, CI)
@@ -557,17 +555,14 @@
 	result.w_class = victim.mob_size
 	var/reagent_amount = victim.mob_size ** 2 * 3
 	if(isanimal(victim))
-		var/mob/living/simple_animal/SA = src
+		var/mob/living/simple_animal/SA = victim
+		result.kitchen_tag = SA.kitchen_tag
 		if (SA.meat_amount)
 			reagent_amount = SA.meat_amount*9 // at a rate of 9 protein per meat
 	result.reagents.add_reagent(victim.get_digestion_product(), reagent_amount)
 
 	if (victim.reagents)
 		victim.reagents.trans_to(result, victim.reagents.total_volume)
-
-	if (isanimal(victim))
-		var/mob/living/simple_animal/SA = victim
-		result.kitchen_tag = SA.kitchen_tag
 
 	result.appearance = victim
 
@@ -578,10 +573,8 @@
 
 	// all done, now delete the old objects
 	victim.forceMove(null)
-	qdel(victim)
-	victim = null
-	qdel(H)
-	H = null
+	QDEL_NULL(victim)
+	QDEL_NULL(H)
 
 	return result
 
@@ -589,17 +582,8 @@
 	var/max_cookwork
 	var/cookwork
 	var/overcook_mult = 5
-	var/result_type = 0
 	var/obj/item/reagent_containers/cooking_container/container = null
 	var/combine_target = null
-
-	//Result type is one of the following:
-		//0 unfinished, no result yet
-		//1 Standard modification cooking. eg Fried Donk Pocket, Baked wheat, etc
-		//2 Modification but with a new object that's an inert copy of the old. Generally used for deepfried rats
-		//3 Combination cooking, EG Donut Bread, Donk pocket pizza, etc
-		//4:Specific recipe cooking. EG: Turning raw potato sticks into fries
-
 	var/burned = FALSE
 
 	var/oil = 0
@@ -612,7 +596,6 @@
 /datum/cooking_item/proc/reset()
 	max_cookwork = 0
 	cookwork = 0
-	result_type = 0
 	burned = FALSE
 	max_oil = 0
 	oil = 0
@@ -632,4 +615,4 @@
 
 	active_power_usage = initial(active_power_usage) - scan_rating * 25 // 25W less per tier
 	heating_power = initial(heating_power) + cap_rating * 50 // + 50W per tier
-	cooking_power = cooking_coeff * (1 + (scan_rating + cap_rating) / 20) // +20% per tier
+	cooking_coeff = (1 + (scan_rating + cap_rating) / 20) // +20% per tier

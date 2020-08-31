@@ -129,8 +129,7 @@
 			temp_scale = temperature / optimal_temp
 		//If we're between min and optimal this will yield a value in the range 0.7 to 1
 
-	cooking_coeff = optimal_power * temp_scale
-	RefreshParts() // this is what actually updates the cooking power, for some reason.
+	cooking_power = optimal_power * temp_scale * cooking_coeff
 
 /obj/machinery/appliance/cooker/proc/heat_up()
 	if (temperature < set_temp)

@@ -293,7 +293,7 @@
 //In both cases, the full complement of required inredients is still needed
 /proc/select_recipe(var/obj/obj as obj, var/exact = 0, var/appliance = null)
 	if(!appliance)
-		return null
+		CRASH("Null appliance flag passed to select_recipe!")
 	var/list/available_recipes = decls_repository.get_decls_of_subtype(/decl/recipe)
 	var/list/possible_recipes = list()
 	for (var/R in available_recipes)
