@@ -29,15 +29,15 @@
 
 /obj/item/reagent_containers/cooking_container/attackby(var/obj/item/I, var/mob/user)
 	if(is_type_in_list(I, insertable))
-			if (!can_fit(I))
-				to_chat(user, SPAN_WARNING("There's no more space in [src] for that!"))
-				return FALSE
+		if (!can_fit(I))
+			to_chat(user, SPAN_WARNING("There's no more space in [src] for that!"))
+			return FALSE
 
-			if(!user.unEquip(I))
-				return
-			I.forceMove(src)
-			to_chat(user, SPAN_NOTICE("You put [I] into [src]."))
+		if(!user.unEquip(I))
 			return
+		I.forceMove(src)
+		to_chat(user, SPAN_NOTICE("You put [I] into [src]."))
+		return
 
 /obj/item/reagent_containers/cooking_container/verb/empty()
 	set src in oview(1)
