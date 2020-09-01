@@ -7799,9 +7799,7 @@
 	icon_state = "0-4"
 	},
 /obj/structure/cable/yellow{
-	d1 = 0;
 	d2 = 8;
-	dir = 2;
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled,
@@ -20689,7 +20687,6 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aJO" = (
-/obj/machinery/computer/area_atmos,
 /obj/machinery/light,
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Warden's Office";
@@ -20700,6 +20697,7 @@
 	departmentType = 5;
 	pixel_y = -32
 	},
+/obj/machinery/computer/area_atmos,
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aJP" = (
@@ -51920,6 +51918,12 @@
 "bTp" = (
 /obj/structure/closet/gmcloset,
 /obj/item/flame/lighter/zippo,
+/obj/machinery/requests_console{
+	department = "Bar";
+	departmentType = 1;
+	name = "Bar Requests Console";
+	pixel_y = 32
+	},
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/reagent_containers/toothpaste,
@@ -51931,7 +51935,7 @@
 "bTq" = (
 /obj/structure/table/wood,
 /obj/machinery/chemical_dispenser/coffeemaster/full{
-	pixel_x = 1;
+	pixel_x = 3;
 	pixel_y = 7
 	},
 /obj/machinery/alarm{
@@ -51942,7 +51946,7 @@
 /area/crew_quarters/bar)
 "bTr" = (
 /obj/machinery/chemical_dispenser/bar_soft/full{
-	pixel_y = 7
+	pixel_y = 5
 	},
 /obj/structure/table/wood,
 /obj/machinery/light{
@@ -51954,7 +51958,8 @@
 /obj/structure/table/wood,
 /obj/machinery/chemical_dispenser/bar_alc/full{
 	layer = 3.1;
-	pixel_y = 7
+	pixel_x = -1;
+	pixel_y = 11
 	},
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/lino/grey,
@@ -59940,9 +59945,7 @@
 	dir = 1
 	},
 /obj/structure/cable/yellow{
-	d1 = 0;
 	d2 = 8;
-	dir = 2;
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled,
@@ -66062,6 +66065,30 @@
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"sAg" = (
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/security_starboard)
 "sAE" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable{
@@ -68184,10 +68211,6 @@
 "wDp" = (
 /turf/simulated/wall,
 /area/assembly/robotics_cyborgification)
-"wDH" = (
-/obj/structure/extinguisher_cabinet,
-/turf/simulated/wall,
-/area/hydroponics)
 "wEn" = (
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/decal/cleanable/dirt,
@@ -95014,7 +95037,7 @@ caj
 caD
 cbc
 cbx
-cbZ
+cca
 cca
 ccY
 cbw
@@ -95271,7 +95294,7 @@ cak
 caE
 cbc
 cbx
-cca
+cbZ
 ccz
 ccY
 cbw
@@ -100120,7 +100143,7 @@ bGr
 bJY
 bJR
 bNz
-wDH
+bGr
 bJe
 bNH
 bOt
@@ -100294,7 +100317,7 @@ rKr
 aan
 lMC
 agC
-aaJ
+sAg
 aaU
 abg
 abD
@@ -100813,7 +100836,7 @@ aaV
 abi
 abF
 acm
-acm
+abF
 abF
 abF
 abF
