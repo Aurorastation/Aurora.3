@@ -3672,6 +3672,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/security/forensics_office)
+"hD" = (
+/obj/effect/shuttle_landmark/skipjack/interstitial,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "hF" = (
 /obj/structure/morgue{
 	dir = 2
@@ -6186,6 +6190,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
+"nk" = (
+/obj/structure/table/standard,
+/obj/machinery/reagentgrinder{
+	pixel_y = 7
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay_virology)
 "nm" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -6377,6 +6388,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_cargo)
+"ol" = (
+/turf/simulated/floor/plating,
+/area/maintenance/medbay_virology)
 "on" = (
 /obj/machinery/embedded_controller/radio/airlock/access_controller{
 	id_tag = "virology_airlock_control";
@@ -6951,17 +6965,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
-"rD" = (
-/obj/effect/floor_decal/industrial/warning/dust{
-	dir = 10;
-	tag = "icon-warning_dust (SOUTHWEST)"
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "rH" = (
 /obj/structure/table/standard,
 /obj/machinery/requests_console{
@@ -7215,6 +7218,14 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/airless,
 /area/maintenance/interstitial_construction_site)
+"sR" = (
+/obj/effect/floor_decal/corner/red/full,
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/blood/OMinus{
+	name = "old blood pack"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/medbay_virology)
 "sU" = (
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -7451,13 +7462,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
-"uE" = (
-/obj/effect/floor_decal/industrial/warning/dust,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "uK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -7681,6 +7685,13 @@
 	temperature = 278
 	},
 /area/security/forensics_office)
+"wc" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "wd" = (
 /obj/item/storage/briefcase/inflatable,
 /obj/structure/table/rack{
@@ -8239,6 +8250,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_cargo)
+"zB" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/medbay_virology)
 "zF" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -8337,6 +8361,17 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
+"Au" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay_virology)
 "Av" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -8435,6 +8470,10 @@
 "Bg" = (
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_interstitial)
+"Bj" = (
+/obj/item/stack/material/cardboard,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/medbay_virology)
 "Bl" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled,
@@ -8747,10 +8786,6 @@
 	},
 /turf/simulated/open,
 /area/maintenance/interstitial_cargo)
-"Dh" = (
-/obj/item/stack/material/cardboard,
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/medbay_virology)
 "Dj" = (
 /obj/machinery/camera/network/supply{
 	c_tag = "Cargo - Upper Warehouse";
@@ -8835,10 +8870,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_cargo)
-"DF" = (
-/obj/effect/shuttle_landmark/skipjack/interstitial,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "DJ" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
@@ -9062,13 +9093,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/training)
-"EX" = (
-/obj/effect/floor_decal/corner/red/full{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/medbay_virology)
 "EZ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -9103,6 +9127,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
+"Fg" = (
+/obj/effect/floor_decal/industrial/warning/dust,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "Fj" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_medical{
@@ -9192,6 +9223,17 @@
 /obj/item/stack/material/cardboard,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
+"FI" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/medbay_virology)
 "FJ" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -9201,17 +9243,6 @@
 /obj/effect/landmark/dungeon_spawn,
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
-"FL" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/floor_decal/corner/red/full{
-	dir = 1
-	},
-/obj/machinery/smartfridge/chemistry{
-	name = "\improper Empty Smartfridge"
-	},
-/obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/medbay_virology)
 "FP" = (
 /obj/machinery/light{
 	dir = 8;
@@ -9630,6 +9661,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
+"Iv" = (
+/turf/simulated/open,
+/area/maintenance/medbay_virology)
 "Ix" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10136,13 +10170,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/interstitial_main)
-"JL" = (
-/obj/structure/table/standard,
-/obj/machinery/reagentgrinder{
-	pixel_y = 7
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/medbay_virology)
 "JQ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced{
@@ -11041,14 +11068,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
-"NT" = (
-/obj/effect/floor_decal/corner/red/full,
-/obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/blood/OMinus{
-	name = "old blood pack"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/medbay_virology)
 "Om" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/grille,
@@ -11629,19 +11648,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
-"Rc" = (
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/maintenance/medbay_virology)
 "Rd" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/cable/green{
@@ -11720,6 +11726,13 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
+"RI" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/medbay_virology)
 "RJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -11853,17 +11866,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
-"Se" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/medbay_virology)
 "Si" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -11903,6 +11905,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
+"So" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
+/obj/machinery/smartfridge/chemistry{
+	name = "\improper Empty Smartfridge"
+	},
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/tiled/dark,
+/area/maintenance/medbay_virology)
 "Sr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -12027,6 +12040,14 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_main)
+"SY" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/grille,
+/turf/simulated/floor/plating,
+/area/maintenance/medbay_virology)
 "SZ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/airless,
@@ -12144,9 +12165,6 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/security/forensics_office)
-"TK" = (
-/turf/simulated/floor/plating,
-/area/maintenance/medbay_virology)
 "TL" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -12288,6 +12306,17 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
+"UA" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10;
+	tag = "icon-warning_dust (SOUTHWEST)"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/unexplored)
 "UB" = (
 /obj/machinery/atmospherics/pipe/zpipe/down/scrubbers,
 /obj/machinery/atmospherics/pipe/zpipe/down/supply,
@@ -12433,14 +12462,6 @@
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/decal/cleanable/spiderling_remains,
 /turf/simulated/floor/tiled/white,
-/area/maintenance/medbay_virology)
-"UX" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/grille,
-/turf/simulated/floor/plating,
 /area/maintenance/medbay_virology)
 "Vi" = (
 /obj/structure/grille,
@@ -12622,13 +12643,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
-"Wr" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
-/area/mine/unexplored)
 "Wu" = (
 /obj/structure/track{
 	icon_state = "track3"
@@ -13066,9 +13080,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
-"Zd" = (
-/turf/simulated/open,
-/area/maintenance/medbay_virology)
 "Zk" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 9
@@ -13080,17 +13091,6 @@
 	icon_state = "asteroidplating"
 	},
 /area/mine/unexplored)
-"Zq" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/grille,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/medbay_virology)
 "Zr" = (
 /obj/effect/floor_decal/corner/pink{
 	dir = 10
@@ -43679,19 +43679,19 @@ mo
 mo
 mo
 UK
-Zd
-Zd
+Iv
+Iv
 xy
-Zd
-Zd
-Zd
+Iv
+Iv
+Iv
 xy
-Zd
-Zd
+Iv
+Iv
 UK
 md
 Ny
-rD
+UA
 ab
 ab
 ab
@@ -43948,7 +43948,7 @@ Co
 pp
 RT
 LD
-uE
+Fg
 ab
 ab
 ab
@@ -44193,18 +44193,18 @@ mo
 mo
 mo
 UK
-Zd
-Zd
+Iv
+Iv
 nN
-Zd
-Zd
-Zd
+Iv
+Iv
+Iv
 xy
-Zd
-Zd
+Iv
+Iv
 UK
 me
-Wr
+wc
 ab
 ab
 ab
@@ -44455,10 +44455,10 @@ tR
 Ui
 tz
 nT
-Zd
+Iv
 xy
-Zd
-Zd
+Iv
+Iv
 UK
 mo
 ab
@@ -44712,10 +44712,10 @@ BP
 py
 tM
 AL
-Zd
+Iv
 xy
-Zd
-Zd
+Iv
+Iv
 UK
 mo
 mo
@@ -44969,10 +44969,10 @@ GA
 zW
 zd
 AL
-Zd
+Iv
 xy
-Zd
-Zd
+Iv
+Iv
 UK
 mo
 mo
@@ -45483,10 +45483,10 @@ on
 qU
 zi
 Qp
-Zd
+Iv
 xy
-Zd
-Zd
+Iv
+Iv
 UK
 ab
 ab
@@ -45749,7 +45749,7 @@ ab
 ab
 ab
 ab
-DF
+hD
 ab
 ab
 ab
@@ -47282,12 +47282,12 @@ YX
 oX
 Ur
 vf
-TK
+ol
 qV
 Hc
 pQ
-NT
-Zq
+sR
+FI
 ab
 ab
 ab
@@ -47539,12 +47539,12 @@ PB
 Tu
 JA
 vf
-JL
+nk
 CP
 Fc
 CP
 CP
-UX
+SY
 ab
 ab
 ab
@@ -47797,11 +47797,11 @@ UK
 UK
 UK
 UK
-FL
-Rc
-Dh
-EX
-Se
+So
+zB
+Bj
+RI
+Au
 ab
 ab
 ab

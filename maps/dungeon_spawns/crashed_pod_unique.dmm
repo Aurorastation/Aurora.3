@@ -72,10 +72,6 @@
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
-"r" = (
-/obj/effect/decal/cleanable/blood/drip,
-/turf/simulated/floor/shuttle/dark_blue,
-/area/mine/unexplored)
 "t" = (
 /obj/item/arrow/rod,
 /turf/simulated/floor/shuttle/dark_blue,
@@ -92,6 +88,10 @@
 /obj/structure/bed/chair/shuttle,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/remains/human,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/mine/unexplored)
+"w" = (
+/obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/mine/unexplored)
 "x" = (
@@ -616,7 +616,7 @@ c
 n
 q
 u
-r
+w
 B
 b
 b
@@ -648,10 +648,10 @@ c
 e
 c
 o
-r
+w
 y
 x
-r
+w
 E
 b
 b

@@ -140,10 +140,6 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
-"au" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/airless,
-/area/dungeon/syndie_listening_post)
 "av" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
@@ -254,24 +250,6 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
-"aI" = (
-/obj/structure/table/reinforced,
-/obj/random/contraband,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/airless,
-/area/dungeon/syndie_listening_post)
-"aJ" = (
-/obj/structure/table/reinforced,
-/obj/item/paper/crumpled{
-	pixel_x = 6;
-	pixel_y = -4
-	},
-/obj/item/paper/crumpled{
-	pixel_x = 6;
-	pixel_y = -4
-	},
-/turf/simulated/floor/tiled/dark/airless,
-/area/dungeon/syndie_listening_post)
 "aK" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/sinpockets,
@@ -319,12 +297,6 @@
 	oxygen = 0
 	},
 /area/dungeon/syndie_listening_post)
-"aS" = (
-/turf/simulated/floor/shuttle/dark_red{
-	nitrogen = 0;
-	oxygen = 0
-	},
-/area/dungeon/syndie_listening_post)
 "aT" = (
 /obj/item/bluespace_crystal,
 /obj/effect/decal/cleanable/dirt,
@@ -353,10 +325,6 @@
 /area/dungeon/syndie_listening_post)
 "aW" = (
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/carp{
-	destroy_surroundings = 0;
-	wander = 0
-	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 "aX" = (
@@ -487,6 +455,10 @@
 	oxygen = 0
 	},
 /area/dungeon/syndie_listening_post)
+"bp" = (
+/obj/effect/overlay/burnt_wall/steel,
+/turf/simulated/floor/airless,
+/area/dungeon/syndie_listening_post)
 "bq" = (
 /obj/item/trash/liquidfood,
 /turf/simulated/floor/tiled/dark/airless,
@@ -545,48 +517,76 @@
 /obj/structure/bed,
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
-"dC" = (
-/obj/effect/overlay/burnt_wall/steel,
-/turf/simulated/floor/airless,
+"bA" = (
+/turf/simulated/floor/shuttle/dark_red{
+	nitrogen = 0;
+	oxygen = 0
+	},
 /area/dungeon/syndie_listening_post)
-"lJ" = (
+"bB" = (
+/obj/structure/table/reinforced,
+/obj/item/paper/crumpled{
+	pixel_x = 6;
+	pixel_y = -4
+	},
 /obj/item/paper/crumpled{
 	pixel_x = 6;
 	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
-"An" = (
-/obj/structure/computerframe,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
-"Ey" = (
-/mob/living/simple_animal/hostile/carp{
-	destroy_surroundings = 0;
-	wander = 0
-	},
+"dI" = (
+/obj/structure/table/reinforced,
+/obj/item/folder/red,
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
-"Hh" = (
-/obj/item/trash/liquidfood,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/airless,
-/area/dungeon/syndie_listening_post)
-"Tu" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/item/trash/syndi_cakes,
-/turf/simulated/floor/tiled/dark/airless,
-/area/dungeon/syndie_listening_post)
-"Uj" = (
+"gX" = (
 /mob/living/simple_animal/hostile/carp/shark{
 	destroy_surroundings = 0;
 	wander = 0
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
-"YC" = (
+"hc" = (
+/obj/structure/computerframe,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
+"io" = (
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/carp{
+	destroy_surroundings = 0;
+	wander = 0
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/dungeon/syndie_listening_post)
+"kH" = (
+/mob/living/simple_animal/hostile/carp{
+	destroy_surroundings = 0;
+	wander = 0
+	},
+/turf/simulated/floor/tiled/dark/airless,
+/area/dungeon/syndie_listening_post)
+"lN" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/syndi_cakes,
+/turf/simulated/floor/tiled/dark/airless,
+/area/dungeon/syndie_listening_post)
+"oy" = (
+/obj/item/trash/liquidfood,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/dungeon/syndie_listening_post)
+"Nr" = (
 /obj/structure/table/reinforced,
-/obj/item/folder/red,
+/obj/random/contraband,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/airless,
+/area/dungeon/syndie_listening_post)
+"WB" = (
+/obj/item/paper/crumpled{
+	pixel_x = 6;
+	pixel_y = -4
+	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/dungeon/syndie_listening_post)
 
@@ -883,8 +883,8 @@ ab
 bg
 br
 bh
-aS
-aS
+bA
+bA
 ab
 ab
 ad
@@ -982,7 +982,7 @@ ab
 ab
 ab
 ab
-aS
+bA
 aZ
 br
 aZ
@@ -1017,7 +1017,7 @@ ab
 ab
 ab
 aT
-aS
+bA
 br
 bo
 bt
@@ -1079,16 +1079,16 @@ ad
 ab
 ab
 ai
-au
+aW
 aC
 ab
 aH
 aL
 bq
 al
-au
-Hh
-aI
+aW
+oy
+Nr
 ab
 ab
 ad
@@ -1113,15 +1113,15 @@ ad
 ab
 ab
 aj
-au
+aW
 aD
 ab
 bu
 aM
-Ey
+kH
 bf
 bk
-au
+aW
 bv
 ab
 ab
@@ -1147,14 +1147,14 @@ ad
 ab
 ab
 ak
-au
+aW
 al
 aG
-lJ
-Uj
+WB
+gX
 aV
-au
-au
+aW
+aW
 by
 bw
 ab
@@ -1184,15 +1184,15 @@ aw
 al
 aE
 ab
-aJ
+bB
 aP
-aW
-Tu
+io
+lN
 aV
 al
 al
-dC
-dC
+bp
+bp
 aA
 aA
 aA
@@ -1224,11 +1224,11 @@ aX
 bx
 bl
 bz
-YC
+dI
 ab
 ab
 ad
-An
+hc
 aA
 aa
 aa
