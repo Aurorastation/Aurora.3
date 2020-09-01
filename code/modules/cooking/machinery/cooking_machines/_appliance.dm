@@ -42,7 +42,7 @@
 
 /obj/machinery/appliance/Initialize()
 	. = ..()
-	if(!isemptylist(output_options))
+	if(length(output_options))
 		verbs += /obj/machinery/appliance/proc/choose_output
 	if(powered())
 		stat &= ~NOPOWER
@@ -101,11 +101,11 @@
 		icon_state = off_icon
 
 /obj/machinery/appliance/proc/attempt_toggle_power(mob/user, ranged = FALSE)
-	if (use_check_and_message(user, ranged && USE_ALLOW_NON_ADJACENT))
+	if (use_check_and_message(user, ranged ? USE_ALLOW_NON_ADJACENT : 0))
 		return
 
 	stat ^= POWEROFF // Toggles power
-	use_power = !(stat & POWEROFF) && 2 // If on, use active power, else use no power
+	use_power = (stat & POWEROFF) ? 0 : 2 // If on, use active power, else use no power
 	if(user)
 		user.visible_message("[user] turns [src] [use_power ? "on" : "off"].", "You turn [use_power ? "on" : "off"] [src].")
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
@@ -131,7 +131,7 @@
 
 //Handles all validity checking and error messages for inserting things
 /obj/machinery/appliance/proc/can_insert(var/obj/item/I, var/mob/user)
-	if(issilicon(I.loc) || istype(I.loc, /obj/item/rig_module))
+	if(!dropsafety(I))
 		return CANNOT_INSERT
 
 	// We are trying to cook a grabbed mob.
