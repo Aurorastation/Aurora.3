@@ -88,7 +88,7 @@
 
 	uniform = /obj/item/clothing/under/rank/warden
 	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/headset_sec
+	l_ear = /obj/item/device/radio/headset/headset_warden
 	pda = /obj/item/device/pda/warden
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
 	l_pocket = /obj/item/device/flash

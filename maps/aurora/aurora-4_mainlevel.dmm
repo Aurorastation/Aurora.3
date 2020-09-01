@@ -17286,6 +17286,9 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aEx" = (
+/obj/structure/bed/chair/remote/robot/warden{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aEy" = (
@@ -20630,6 +20633,7 @@
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aJO" = (
+/obj/machinery/computer/area_atmos,
 /obj/machinery/light,
 /obj/machinery/camera/network/security{
 	c_tag = "Security - Warden's Office";
@@ -20640,7 +20644,6 @@
 	departmentType = 5;
 	pixel_y = -32
 	},
-/obj/machinery/computer/area_atmos,
 /turf/simulated/floor/tiled,
 /area/security/warden)
 "aJP" = (
@@ -20712,6 +20715,10 @@
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/item/toy/prize/deathripley{
+	desc = "This is Johnny 5. Is he alive?";
+	name = "Johnny 5"
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -23720,24 +23727,25 @@
 /area/security/prison)
 "aPm" = (
 /obj/structure/window/reinforced,
-/obj/structure/table/standard,
-/obj/item/storage/box/snack{
-	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
-	name = "corporate care package"
+/obj/structure/bed/chair/remote/robot/prison,
+/obj/machinery/door/window/brigdoor/northright{
+	id = "Remote Chair";
+	name = "Remote Chair";
+	req_access = list(2)
 	},
-/turf/simulated/floor/tiled,
-/area/security/prison)
-"aPo" = (
-/obj/structure/window/reinforced,
-/obj/structure/table/standard,
-/obj/item/paper_bin,
-/obj/item/pen,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aPp" = (
 /obj/machinery/newscaster{
 	pixel_x = 27
 	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aPq" = (
@@ -24670,6 +24678,10 @@
 	id = null;
 	use_power = 1
 	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aQT" = (
@@ -24707,18 +24719,18 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aQX" = (
-/obj/item/toy/prize/deathripley{
-	desc = "This is Johnny 5. Is he alive?";
-	name = "Johnny 5"
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/table/standard,
+/obj/item/paper_bin,
+/obj/item/pen,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aQZ" = (
@@ -67336,6 +67348,23 @@
 	},
 /turf/simulated/wall,
 /area/assembly/chargebay)
+"vrI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/window/reinforced,
+/obj/structure/bed/chair/remote/robot/prison,
+/obj/machinery/door/window/brigdoor/northright{
+	id = "Remote Chair";
+	name = "Remote Chair";
+	req_access = list(2)
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/security/prison)
 "vtZ" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -68301,6 +68330,25 @@
 /obj/structure/girder,
 /turf/simulated/floor/plating,
 /area/maintenance/library)
+"xst" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package";
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
+/turf/simulated/floor/tiled,
+/area/security/prison)
 "xuu" = (
 /obj/item/pipe,
 /turf/simulated/floor/reinforced,
@@ -101851,7 +101899,7 @@ aIA
 aJT
 aLG
 aNz
-aLG
+vrI
 aQS
 azK
 aUe
@@ -102621,8 +102669,8 @@ aGA
 aGx
 aJW
 azK
-aGx
-aPo
+azK
+aPm
 aQV
 azK
 aUg
@@ -103135,7 +103183,7 @@ aEC
 aIE
 aJY
 azK
-aEC
+xst
 aPp
 aQX
 azK

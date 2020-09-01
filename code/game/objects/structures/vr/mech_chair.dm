@@ -1,7 +1,7 @@
 /obj/structure/bed/chair/remote/mech
 	name = "mech control centre"
 	desc = "A comfortable chair with full audio-visual transposition centres. This one gives you access to exosuits attached to the remote network."
-	remote_network = "remotemechs"
+	remote_network = REMOTE_GENERIC_MECH
 
 /obj/structure/bed/chair/remote/mech/user_buckle_mob(mob/user)
 	..()
@@ -15,7 +15,7 @@
 /obj/structure/bed/chair/remote/mech/prison
 	name = "brig mech control centre"
 	desc = "A comfortable chair with full audio-visual transposition centres. This one gives you access to exosuits attached to the brig network."
-	remote_network = "prisonmechs"
+	remote_network = REMOTE_PRISON_MECH
 
 /obj/structure/bed/chair/remote/mech/prison/portable
 	portable_type = /obj/item/deployable_kit/remote_mech/brig

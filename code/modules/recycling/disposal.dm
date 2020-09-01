@@ -24,13 +24,20 @@
 	var/flush_every_ticks = 30 //Every 30 ticks it will look whether it is ready to flush
 	var/flush_count = 0 //this var adds 1 once per tick. When it reaches flush_every_ticks it resets and tries to flush.
 	var/last_sound = 0
+	var/uses_air = TRUE
 	active_power_usage = 2200	//the pneumatic pump power. 3 HP ~ 2200W
 	idle_power_usage = 100
+
+/obj/machinery/disposal/airless
+	uses_air = FALSE
 
 /obj/machinery/disposal/small
 	desc = "A compact pneumatic waste disposal unit."
 	icon_state = "disposal_small"
-	density = 0
+	density = FALSE
+
+/obj/machinery/disposal/small/airless
+	uses_air = FALSE
 
 /obj/machinery/disposal/small/Initialize()
 	. = ..()
@@ -38,21 +45,21 @@
 		return
 	else
 		switch(dir)
-			if(1)
+			if(NORTH)
 				pixel_y = -13
 				layer = MOB_LAYER + 0.1
-			if(2)
+			if(SOUTH)
 				pixel_y = 20
 				layer = OBJ_LAYER + 0.3
-			if(4)
+			if(EAST)
 				pixel_x = -12
-			if(8)
+			if(WEST)
 				pixel_x = 11
 
 /obj/machinery/disposal/small/check_mob_size(mob/target)
 	if(target.mob_size > MOB_SMALL)
-		return 0
-	return 1
+		return FALSE
+	return TRUE
 
 // create a new disposal
 // find the attached trunk (if present) and init gas resvr.
@@ -129,12 +136,12 @@
 		to_chat(user, "You can't place that item inside the disposal unit.")
 		return
 
-	if(istype(I, /obj/item/storage/bag/trash))
-		var/obj/item/storage/bag/trash/T = I
-		to_chat(user, "<span class='notice'>You empty the bag.</span>")
-		for(var/obj/item/O in T.contents)
-			T.remove_from_storage(O,src)
-		T.update_icon()
+	if(istype(I, /obj/item/storage) && user.a_intent != I_HURT)
+		var/obj/item/storage/S = I
+		user.visible_message("<b>[user]</b> empties \the [S] into \the [src].", SPAN_NOTICE("You empty \the [S] into \the [src]."), range = 3)
+		for(var/obj/item/O in S.contents)
+			S.remove_from_storage(O, src)
+		S.update_icon()
 		update()
 		return
 
@@ -182,12 +189,7 @@
 
 	user.drop_from_inventory(I,src)
 
-	to_chat(user, "You place \the [I] into the [src].")
-	for(var/mob/M in viewers(src))
-		if(M == user)
-			continue
-		M.show_message("[user.name] places \the [I] into the [src].", 3)
-
+	user.visible_message("<b>[user]</b> places \the [I] into \the [src].", SPAN_NOTICE("You place \the [I] into the [src]."), range = 3)
 	update()
 
 // mouse drop another mob or self
@@ -307,14 +309,19 @@
 
 		dat += "<BR><HR><A href='?src=\ref[src];eject=1'>Eject contents</A><HR>"
 
-	if(mode <= 0)
-		dat += "Pump: <B>Off</B> <A href='?src=\ref[src];pump=1'>On</A><BR>"
-	else if(mode == 1)
-		dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (pressurizing)<BR>"
+	if(uses_air)
+		if(mode <= 0)
+			dat += "Pump: <B>Off</B> <A href='?src=\ref[src];pump=1'>On</A><BR>"
+		else if(mode == 1)
+			dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (pressurizing)<BR>"
+		else
+			dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (idle)<BR>"
 	else
 		dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (idle)<BR>"
 
 	var/per = 100* air_contents.return_pressure() / (SEND_PRESSURE)
+	if(!uses_air)
+		per = 100
 
 	dat += "Pressure: [round(per, 1)]%<BR></body>"
 
@@ -421,12 +428,12 @@
 
 	src.updateDialog()
 
-	if(flush && air_contents.return_pressure() >= SEND_PRESSURE )	// flush can happen even without power
+	if(flush && (air_contents.return_pressure() >= SEND_PRESSURE || !uses_air))	// flush can happen even without power
 		flush()
 
 	if(mode != 1) //if off or ready, no need to charge
 		update_use_power(1)
-	else if(air_contents.return_pressure() >= SEND_PRESSURE)
+	else if((air_contents.return_pressure() >= SEND_PRESSURE || !uses_air))
 		mode = 2 //if full enough, switch to ready mode
 		update()
 	else
