@@ -385,6 +385,8 @@
 	if (byond_version >= 511 && prefs.clientfps)
 		fps = prefs.clientfps
 
+	client.chatOutput.start()
+
 	// Server greeting shenanigans.
 	if (server_greeting.find_outdated_info(src, 1) && !info_sent)
 		server_greeting.display_to_client(src)
