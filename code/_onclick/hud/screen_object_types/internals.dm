@@ -36,8 +36,8 @@
 					breathes = H.species.breath_type
 					nicename = list ("suit", "back", "belt", "right hand", "left hand", "left pocket", "right pocket")
 					tankcheck = list (H.s_store, C.back, H.belt, C.r_hand, C.l_hand, H.l_store, H.r_store)
-					if(H.species.has_organ["phoron reserve tank"])
-						var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name["phoron reserve tank"]
+					if(H.species.has_organ[BP_PHORON_RESERVE])
+						var/obj/item/organ/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 						if(preserve && preserve.air_contents)
 							from = "in"
 							nicename |= "sternum"

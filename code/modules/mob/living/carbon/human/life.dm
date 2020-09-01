@@ -610,6 +610,17 @@
 			if(prob(nausea))
 				delayed_vomit()
 
+		if(CE_ITCH in chem_effects)
+			var/itching = chem_effects[CE_ITCH]
+			if(CE_NOITCH in chem_effects)
+				itching -= chem_effects[CE_NOITCH]
+			if(itching < 5)
+				if(prob(5))
+					to_chat(src, SPAN_WARNING(pick("You have an annoying itch.", "You have a slight itch.")))
+			if(itching >= 5)
+				if(prob(2))
+					to_chat(src, SPAN_WARNING(pick("The itch is becoming progressively worse.", "You need to scratch that itch!", "The itch isn't going!")))
+
 		if(CE_FEVER in chem_effects)
 			var/normal_temp = species?.body_temperature || (T0C+37)
 			var/fever = chem_effects[CE_FEVER]
@@ -629,7 +640,7 @@
 
 		var/total_phoronloss = 0
 		for(var/obj/item/I in src)
-			if(I.contaminated && !(isvaurca(src) && src.species.has_organ["filtration bit"]))
+			if(I.contaminated && !(isvaurca(src) && src.species.has_organ[BP_FILTRATION_BIT]))
 				total_phoronloss += vsc.plc.CONTAMINATION_LOSS
 		if(!(status_flags & GODMODE)) adjustToxLoss(total_phoronloss)
 

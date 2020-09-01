@@ -49,6 +49,7 @@
 	name = "butcher's cleaver"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "butch"
+	item_state = "butch"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_kitchen.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_kitchen.dmi',

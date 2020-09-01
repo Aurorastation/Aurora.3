@@ -76,7 +76,6 @@
 
 	blood_color = COLOR_IPC_BLOOD
 	flesh_color = "#575757"
-	virus_immune = 1
 	reagent_tag = IS_MACHINE
 
 	has_organ = list(
@@ -117,7 +116,7 @@
 	bodyfall_sound = /decl/sound_category/bodyfall_machine_sound
 
 	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
-							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_TTS)
+							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH)
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15

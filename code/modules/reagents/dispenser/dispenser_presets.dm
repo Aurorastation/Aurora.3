@@ -34,6 +34,8 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/sterilizine,
 			/obj/item/reagent_containers/chem_disp_cartridge/leporazine,
 			/obj/item/reagent_containers/chem_disp_cartridge/kelotane,
+			/obj/item/reagent_containers/chem_disp_cartridge/butazoline,
+			/obj/item/reagent_containers/chem_disp_cartridge/saline,
 			/obj/item/reagent_containers/chem_disp_cartridge/dermaline,
 			/obj/item/reagent_containers/chem_disp_cartridge/dexalin,
 			/obj/item/reagent_containers/chem_disp_cartridge/dexalin_p,
