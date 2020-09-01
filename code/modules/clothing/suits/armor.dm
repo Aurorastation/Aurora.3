@@ -105,8 +105,6 @@
 	desc = "A trenchcoat lined with a protective alloy and some slick leather."
 	icon_state = "jensencoat"
 	item_state = "jensencoat"
-	icon_open = "jensencoat_open"
-	icon_closed = "jensencoat"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	allowed = list(/obj/item/gun/energy, /obj/item/reagent_containers/spray/pepper, /obj/item/gun/projectile, /obj/item/ammo_magazine, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/handcuffs, /obj/item/device/flashlight)
@@ -413,8 +411,6 @@
 	desc = "A sturdy high-visibility vest intended for in training security personnel."
 	icon_state = "hazard_cadet"
 	item_state = "hazard_cadet"
-	icon_open = "hazard_cadet_open"
-	icon_closed = "hazard_cadet"
 	allowed = list(/obj/item/gun,/obj/item/reagent_containers/spray/pepper,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/flashlight)
 	armor = list(melee = 10, bullet = 0, laser = 10, energy = 10, bomb = 10, bio = 0, rad = 0)
 	siemens_coefficient = 0.5

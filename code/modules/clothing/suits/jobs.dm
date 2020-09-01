@@ -138,8 +138,6 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "detective"
 	item_state = "detective"
 	blood_overlay_type = "coat"
-	icon_open = "detective_open"
-	icon_closed = "detective"
 	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
 	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
@@ -149,16 +147,12 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/toggle/det_trench/black
 	name = "black trenchcoat"
 	icon_state = "detective2"
-	icon_open = "detective2_open"
-	icon_closed = "detective2"
 
 /obj/item/clothing/suit/storage/toggle/det_trench/technicolor
 	name = "black trenchcoat"
 	desc = "A 23rd-century multi-purpose trenchcoat. It's fibres are hyper-absorbent."
 	icon_state = "suit_detective_black"
 	item_state = "suit_detective_black"
-	icon_open = "suit_detective_black_open"
-	icon_closed = "suit_detective_black"
 	var/suit_color
 
 /obj/item/clothing/suit/storage/toggle/det_trench/technicolor/Initialize()
@@ -168,8 +162,6 @@ obj/item/clothing/suit/apron/overalls/blue
 		name = "[color] trenchcoat"
 		icon_state = "suit_detective_[color]"
 		item_state = "suit_detective_[color]"
-		icon_open = "suit_detective_[color]_open"
-		icon_closed = "suit_detective_[color]"
 	. = ..()
 
 /obj/item/clothing/suit/storage/toggle/det_trench/technicolor/attackby(obj/item/O as obj, mob/user as mob)
@@ -180,8 +172,6 @@ obj/item/clothing/suit/apron/overalls/blue
 		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
 		icon_state = "suit_detective_[suit_color]"
 		item_state = "suit_detective_[suit_color]"
-		icon_open = "suit_detective_[suit_color]_open"
-		icon_closed = "suit_detective_[suit_color]"
 	. = ..()
 
 //Forensics
@@ -209,8 +199,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	desc = "A high-visibility vest used in work zones."
 	icon_state = "hazard"
 	item_state = "hazard"
-	var/icon_open = "hazard_open"
-	var/icon_closed = "hazard"
+	var/toggle_sound = 'sound/items/zip.ogg'
 	blood_overlay_type = "armor"
 	allowed = list (/obj/item/device/analyzer, /obj/item/device/flashlight, /obj/item/device/multitool, /obj/item/device/pipe_painter, /obj/item/device/radio, /obj/item/device/t_scanner, \
 	/obj/item/crowbar, /obj/item/screwdriver, /obj/item/weldingtool, /obj/item/wirecutters, /obj/item/wrench, /obj/item/tank/emergency_oxygen, \
@@ -222,18 +211,12 @@ obj/item/clothing/suit/apron/overalls/blue
 	set category = "Object"
 	set src in usr
 	if(use_check_and_message(usr))
-		return FALSE
-	if(icon_state == icon_open)
-		item_state = icon_closed
-		icon_state = icon_closed
-		to_chat(usr, SPAN_NOTICE("You zip up the hazard vest."))
-	else if(icon_state == icon_closed)
-		item_state = icon_open
-		icon_state = icon_open
-		to_chat(usr, SPAN_NOTICE("You unzip the hazard vest."))
-	else
-		to_chat(usr, SPAN_NOTICE("You attempt to zip up your [src], before promptly realising how silly you are."))
-		return
+		return 0
+	opened = !opened
+	to_chat(usr, "You [opened ? "unzip" : "zip"] \the [src].")
+	playsound(src, 'sound/items/zip.ogg', EQUIP_SOUND_VOLUME, TRUE)
+	icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
+	item_state = icon_state
 	update_clothing_icon()
 
 /obj/item/clothing/suit/storage/hazardvest/blue
