@@ -37216,7 +37216,7 @@
 	desc = "A polaroid camera. This one has 'Kismet' scribled into the casing."
 	},
 /obj/item/device/camera{
-	desc = "A polaroid camera. This one has 'Kismet' scribled into the casing."
+	desc = "A polaroid camera. This one has 'Petr' scribled into the casing."
 	},
 /obj/item/device/flashlight/lamp{
 	pixel_x = 3;
