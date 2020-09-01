@@ -327,12 +327,19 @@
 	required_reagents = list(/datum/reagent/dexalin = 1, /datum/reagent/carbon = 1, /datum/reagent/iron = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/butazoline
+	name = "Butazoline"
+	id = "butazoline"
+	result = /datum/reagent/butazoline
+	required_reagents = list(/datum/reagent/bicaridine = 1, /datum/reagent/aluminum = 1, /datum/reagent/acid/hydrochloric = 1)
+	result_amount = 3
+
 /datum/chemical_reaction/bicaridine
 	name = "Bicaridine"
 	id = "bicaridine"
 	result = /datum/reagent/bicaridine
 	required_reagents = list(/datum/reagent/inaprovaline = 1, /datum/reagent/carbon = 1)
-	inhibitors = list(/datum/reagent/sugar = 1) // Messes with inaprovaline
+	inhibitors = list(/datum/reagent/sugar = 1) //Messes with inaprovaline
 	result_amount = 2
 
 /datum/chemical_reaction/hyperzine
@@ -619,10 +626,11 @@
 	result_amount = 2
 
 /datum/chemical_reaction/saline
-	name = "Saline"
+	name = "Saline Plus"
 	id = "saline"
 	result = /datum/reagent/saline
 	required_reagents = list(/datum/reagent/sugar = 0.4, /datum/reagent/water = 1, /datum/reagent/sodiumchloride = 0.9)
+	catalysts = list(/datum/reagent/toxin/phoron = 5)
 	result_amount = 1
 
 /datum/chemical_reaction/cataleptinol
@@ -1660,6 +1668,7 @@
 	result = null
 	required_reagents = list(/datum/reagent/drink/milk/soymilk = 10)
 	catalysts = list(/datum/reagent/enzyme = 5)
+	inhibitors = list(/datum/reagent/sodiumchloride = 1) // To prevent conflict with Soy Sauce recipe.
 	result_amount = 1
 
 /datum/chemical_reaction/tofu/on_reaction(var/datum/reagents/holder, var/created_volume)
@@ -1705,7 +1714,8 @@
 	name = "Soy Sauce"
 	id = "soysauce"
 	result = /datum/reagent/nutriment/soysauce
-	required_reagents = list(/datum/reagent/drink/milk/soymilk = 4, /datum/reagent/acid = 1)
+	required_reagents = list(/datum/reagent/drink/milk/soymilk = 4, /datum/reagent/sodiumchloride = 1)
+	catalysts = list(/datum/reagent/enzyme = 5)
 	result_amount = 5
 
 /datum/chemical_reaction/ketchup

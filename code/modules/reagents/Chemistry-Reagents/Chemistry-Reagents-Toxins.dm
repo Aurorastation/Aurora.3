@@ -149,6 +149,7 @@
 	name = "Cardox"
 	description = "Cardox is a mildly toxic, expensive, NanoTrasen designed cleaner intended to eliminate liquid phoron stains from suits."
 	reagent_state = LIQUID
+	scannable = TRUE
 	color = "#EEEEEE"
 	metabolism = 0.3 // 100 seconds for 30 units to metabolise.
 	taste_description = "cherry"
@@ -212,7 +213,8 @@
 	reagent_state = SOLID
 	color = "#FFFFFF"
 	strength = 0
-	overdose = REAGENTS_OVERDOSE
+	overdose = 5
+	od_minimum_dose = 20
 	taste_description = "salt"
 
 /datum/reagent/toxin/potassium_chloride/overdose(var/mob/living/carbon/M, var/alien)
@@ -233,7 +235,8 @@
 	reagent_state = SOLID
 	color = "#FFFFFF"
 	strength = 10
-	overdose = 20
+	overdose = 5
+	od_minimum_dose = 20
 	taste_description = "salt"
 
 /datum/reagent/toxin/potassium_chlorophoride/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
@@ -362,7 +365,7 @@
 		if(locate(/obj/effect/overlay/wallrot) in W)
 			for(var/obj/effect/overlay/wallrot/E in W)
 				qdel(E)
-			W.visible_message("<span class='notice'>The fungi are completely dissolved by the solution!</span>")
+			W.visible_message(SPAN_NOTICE("The fungi are completely dissolved by the solution!"))
 
 /datum/reagent/toxin/plantbgone/touch_obj(var/obj/O, var/volume)
 	if(istype(O, /obj/structure/alien/weeds))
@@ -399,7 +402,7 @@
 		M.losebreath++
 
 /datum/reagent/mutagen
-	name = "Unstable mutagen"
+	name = "Unstable Mutagen"
 	description = "Might cause unpredictable mutations. Keep away from children."
 	reagent_state = LIQUID
 	color = "#13BC5E"
@@ -443,7 +446,7 @@
 	if(istype(H) && (H.species.flags & NO_BLOOD))
 		return
 	if(prob(10))
-		to_chat(M, "<span class='danger'>Your insides are burning!</span>")
+		to_chat(M, SPAN_DANGER("Your insides are burning!"))
 		M.add_chemical_effect(CE_TOXIN, rand(100, 300) * removed)
 	else if(prob(40))
 		M.heal_organ_damage(25 * removed, 0)
@@ -452,6 +455,7 @@
 	name = "Soporific"
 	description = "Soporific is highly diluted polysomnine which results in slower and more gradual sedation. This makes the drug ideal at treating insomnia and anxiety disorders, however is generally not reliable for sedation in preparation for surgery except in high doses."
 	reagent_state = LIQUID
+	scannable = TRUE
 	color = "#009CA8"
 	metabolism = REM * 0.5
 	overdose = REAGENTS_OVERDOSE
@@ -481,9 +485,10 @@
 	name = "Polysomnine"
 	description = "Polysomnine is a complex drug which rapidly induces sedation in preparation for surgery. Polysomnine's sedative effect is fast acting, and sedated individuals wake up with zero amnesia regarding the events leading up to their sedation, however the only downside is how hard the drug is on the liver."
 	reagent_state = SOLID
+	scannable = TRUE
 	color = "#000067"
 	metabolism = REM * 0.5
-	overdose = REAGENTS_OVERDOSE * 0.5
+	overdose = 15
 	taste_description = "bitterness"
 	breathe_met = REM * 0.5 * 0.5
 
@@ -530,7 +535,7 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.species.name != SPECIES_SLIMEPERSON)
-			to_chat(M, "<span class='danger'>Your flesh rapidly mutates!</span>")
+			to_chat(M, SPAN_DANGER("Your flesh rapidly mutates!"))
 			H.set_species(SPECIES_SLIMEPERSON)
 
 /datum/reagent/aslimetoxin
@@ -543,7 +548,7 @@
 /datum/reagent/aslimetoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed) // TODO: check if there's similar code anywhere else
 	if(M.transforming)
 		return
-	to_chat(M, "<span class='danger'>Your flesh rapidly mutates!</span>")
+	to_chat(M, SPAN_DANGER("Your flesh rapidly mutates!"))
 	M.transforming = 1
 	M.canmove = 0
 	M.icon = null
@@ -633,7 +638,7 @@
 	M.add_chemical_effect(CE_BERSERK, 1)
 	if(M.a_intent != I_HURT)
 		M.a_intent_change(I_HURT)
-	if(prob(20))
+	if(prob(10))
 		M.add_chemical_effect(CE_NEUROTOXIC, 5*removed)
 
 /datum/reagent/toxin/berserk/Destroy()
@@ -646,15 +651,45 @@
 	reagent_state = LIQUID
 	color = "#800080"
 	strength = 5
+	overdose = 5  //5 units per ghostmushroom.
+	od_minimum_dose = 1
 	taste_description = "acid"
-	metabolism = REM
+	metabolism = REM * 0.5
 	unaffected_species = IS_DIONA | IS_MACHINE
+	var/datum/modifier/modifier
 
 /datum/reagent/toxin/spectrocybin/affect_blood(var/mob/living/carbon/M, var/removed)
 	..()
-	M.hallucination = max(M.hallucination, 50)
-	if(prob(10))
-		M.see_invisible = SEE_INVISIBLE_CULT
+	if(!(volume > 5))	
+		M.hallucination = max(M.hallucination, 20)
+		if(prob(20))
+			M.see_invisible = SEE_INVISIBLE_CULT
+		if(dose < 5)
+			if(prob(10))
+				M.emote("shiver")
+				to_chat(M, SPAN_GOOD(pick("You hear the clinking of dinner plates and laughter.", "You hear a distant voice of someone you know talking to you.", "Fond memories of a departed loved one flocks to your mind.", "You feel the reassuring presence of a departed loved one.", "You feel a hand squeezing yours.")))
+
+/datum/reagent/toxin/spectrocybin/overdose(var/mob/living/carbon/M)
+	M.see_invisible = SEE_INVISIBLE_CULT
+	M.make_jittery(5)
+	if(dose < 5)
+		if(prob(5))
+			M.visible_message("<b>[M]</b> trembles uncontrollably.", "<span class='warning'>You tremble uncontrollably.</span>")
+			to_chat(M, SPAN_CULT(pick("You feel fingers tracing up your back.", "You hear the distant wailing and sobbing of a departed loved one.", "You feel like you are being closely watched.", "You hear the hysterical laughter of a departed loved one.", "You no longer feel the reassuring presence of a departed loved one.", "You feel a hand taking hold of yours, digging its nails into you as it clings on.")))
+	else
+		if(!modifier)
+			modifier = M.add_modifier(/datum/modifier/berserk, MODIFIER_REAGENT, src, _strength = 1, override = MODIFIER_OVERRIDE_STRENGTHEN)
+		M.hallucination = 0 //Brings down hallucination quickly to prevent message spam from being switched between harm and help by hallucinoatory pacification and berserk.
+		M.add_chemical_effect(CE_BERSERK, 1)
+		if(M.a_intent != I_HURT)
+			M.a_intent_change(I_HURT)
+		if(prob(10))
+			M.emote(pick("shiver", "twitch"))
+			to_chat(M, SPAN_CULT(pick("You feel a cold and threatening air wrapping around you.", "Whispering shadows, ceaseless in their demands, twist your thoughts...", "The whispering, anything to make them stop!", "Your head spins amid the cacophony of screaming, wailing and maniacal laughter of distant loved ones.", "You feel vestiges of decaying souls cling to you, trying to re-enter the world of the living.")))
+
+/datum/reagent/toxin/spectrocybin/Destroy()
+	QDEL_NULL(modifier)
+	return ..()
 
 /datum/reagent/toxin/trioxin
 	name = "Trioxin"
