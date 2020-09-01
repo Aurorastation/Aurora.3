@@ -386,6 +386,7 @@
 			/datum/reagent/alkysine,
 			/datum/reagent/aslimetoxin,
 			/datum/reagent/bicaridine,
+			/datum/reagent/butazoline,
 			/datum/reagent/blood,
 			/datum/reagent/cryoxadone,
 			/datum/reagent/cryptobiolin,

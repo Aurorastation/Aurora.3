@@ -18,7 +18,7 @@
 	//Healing vars
 	var/obj/item/reagent_containers/glass/reagent_glass = null //Can be set to draw from this for reagents.
 	var/currently_healing = 0
-	var/injection_amount = 15 //How much reagent do we inject at a time?
+	var/injection_amount = 10 //How much reagent do we inject at a time?
 	var/heal_threshold = 10 //Start healing when they have this much damage in a category
 	var/use_beaker = 0 //Use reagents in beaker instead of default treatment agents.
 	var/treatment_brute = /datum/reagent/tricordrazine

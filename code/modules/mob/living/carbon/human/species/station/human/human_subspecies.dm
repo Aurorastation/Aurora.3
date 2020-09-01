@@ -21,7 +21,7 @@
 	hazard_low_pressure = 10
 
 	examine_color = "#C2AE95"
-	allowed_accents = list(ACCENT_SCARAB, ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI, ACCENT_HIMEO, ACCENT_ERIDANIDREG, ACCENT_DOMINIA)
+	allowed_accents = list(ACCENT_SCARAB, ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI, ACCENT_HIMEO, ACCENT_ERIDANIDREG, ACCENT_DOMINIA, ACCENT_DEEPFRONTIER)
 
 /datum/species/human/offworlder/equip_later_gear(var/mob/living/carbon/human/H)
 	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack))

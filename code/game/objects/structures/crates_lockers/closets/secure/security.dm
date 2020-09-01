@@ -219,8 +219,8 @@
 	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
 	new /obj/item/cartridge/security(src)
-	new /obj/item/device/radio/headset/headset_sec(src)
-	new /obj/item/device/radio/headset/headset_sec/alt(src)
+	new /obj/item/device/radio/headset/headset_warden(src)
+	new /obj/item/device/radio/headset/headset_warden/alt(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	new /obj/item/taperoll/police(src)
