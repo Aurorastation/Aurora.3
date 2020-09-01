@@ -13452,22 +13452,6 @@
 	},
 /area/tdome/tdomeobserve)
 "aTC" = (
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -13475,7 +13459,22 @@
 /area/tdome)
 "aTD" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -30900,9 +30899,6 @@
 /area/shuttle/administration)
 "paU" = (
 /obj/structure/table/reinforced,
-/obj/machinery/microwave{
-	pixel_y = 4
-	},
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
@@ -72010,7 +72006,7 @@ aSp
 aTe
 aTe
 aTe
-aTC
+aTe
 aSp
 aTQ
 aTV
@@ -72524,7 +72520,7 @@ aSZ
 aTe
 aTe
 aTe
-aTD
+aTC
 aSp
 aTQ
 aTV
