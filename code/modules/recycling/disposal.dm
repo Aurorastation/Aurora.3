@@ -34,7 +34,10 @@
 /obj/machinery/disposal/small
 	desc = "A compact pneumatic waste disposal unit."
 	icon_state = "disposal_small"
-	density = 0
+	density = FALSE
+
+/obj/machinery/disposal/small/airless
+	uses_air = FALSE
 
 /obj/machinery/disposal/small/Initialize()
 	. = ..()
@@ -42,21 +45,21 @@
 		return
 	else
 		switch(dir)
-			if(1)
+			if(NORTH)
 				pixel_y = -13
 				layer = MOB_LAYER + 0.1
-			if(2)
+			if(SOUTH)
 				pixel_y = 20
 				layer = OBJ_LAYER + 0.3
-			if(4)
+			if(EAST)
 				pixel_x = -12
-			if(8)
+			if(WEST)
 				pixel_x = 11
 
 /obj/machinery/disposal/small/check_mob_size(mob/target)
 	if(target.mob_size > MOB_SMALL)
-		return 0
-	return 1
+		return FALSE
+	return TRUE
 
 // create a new disposal
 // find the attached trunk (if present) and init gas resvr.

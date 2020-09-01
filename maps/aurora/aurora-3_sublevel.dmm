@@ -30958,17 +30958,14 @@
 	},
 /area/maintenance/medsublevel_port)
 "mpe" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 6
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/machinery/disposal/airless{
-	name = "ore disposal chute"
+/obj/machinery/disposal/small/airless{
+	name = "crystal chute"
 	},
 /turf/simulated/floor/tiled/airless,
 /area/security/penal_colony)
@@ -36102,17 +36099,14 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
 "wWw" = (
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 9
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
-/obj/machinery/disposal/airless{
-	name = "ore disposal chute"
+/obj/machinery/disposal/small/airless{
+	name = "crystal chute"
 	},
 /turf/simulated/floor/tiled/airless,
 /area/security/penal_colony)
@@ -68268,7 +68262,7 @@ jDG
 hiP
 gkA
 lCe
-vGh
+tUv
 vGh
 vGh
 vGh
@@ -69296,7 +69290,7 @@ jDG
 hiP
 gkA
 lCe
-vGh
+tUv
 vGh
 vGh
 vGh
