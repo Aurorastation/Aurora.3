@@ -89,10 +89,9 @@
 
 		if(use_check_and_message(scribe))
 			return
-
-		scribe.visible_message(SPAN_CULT("[scribe] slices open their palm with a ceremonial knife, drawing arcane symbols with their blood..."))
-		playsound(scribe, 'sound/weapons/bladeslice.ogg', 50, FALSE)
-		scribe.drip(4)
+		to_chat(scribe, SPAN_CULT("You feel the energy of His presence wash over you as you close your eyes and worshipfully pierce your finger on the spike in the tome's ink vial. It draws and empowers your blood with dark energy, and when it finishes you wipe off your finger on the inside of the tome."))
+		scribe.visible_message(SPAN_WARNING("[scribe] closes their eyes and fiddles with their book for a bit, then takes out a quill and ink vial, using them to draw strange symbols in a red ink..."))
+		playsound(scribe, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 50, FALSE)
 
 		if(do_after(scribe, 50))
 			var/area/A = get_area(scribe)
@@ -107,13 +106,13 @@
 			log_and_message_admins("created \an [chosen_rune] at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].") //only message if it's actually made
 
 			var/obj/effect/rune/R = new(get_turf(scribe), SScult.runes_by_name[chosen_rune])
-			to_chat(scribe, SPAN_CULT("You finish drawing the Geometer's markings."))
+			to_chat(scribe, SPAN_CULT("You finish drawing the Geometer's markings with a mental prayer and return the quill and vial to their compartment in the tome."))
 			R.blood_DNA = list()
 			R.blood_DNA[scribe.dna.unique_enzymes] = scribe.dna.b_type
 			R.color = scribe.species.blood_color
 			R.filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = scribe.species.blood_color)
 	else
-		to_chat(user, SPAN_CULT("The book seems full of illegible scribbles."))
+		to_chat(user, SPAN_CULT("The book seems full of illegible scribbles.  Dark lines of something like dried blood are smudged across the inside of the cover, and hidden in the back is a compartment for an ink vial and a feather quill."))
 
 /obj/item/book/tome/examine(mob/user)
 	..(user)
