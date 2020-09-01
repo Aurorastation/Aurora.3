@@ -397,13 +397,3 @@
 	allow_backbag_choice = FALSE
 
 	l_ear = /obj/item/device/radio/headset/bluespace
-	id = /obj/item/card/id/bluespace
-
-/datum/outfit/admin/golem/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	if(visualsOnly)
-		return
-
-	var/obj/item/card/id/W = H.wear_id
-	if(W)
-		W.registered_name = H.real_name
