@@ -2485,7 +2485,7 @@
 	glass_desc = "Heavy, hot and strong. Just like the Iron fist of the LAW."
 	glass_center_of_mass = list("x"=18, "y"=10)
 
-/datum/reagent/alcohol/ethanol/beepskysmash/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/alcohol/ethanol/beepsky_smash/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
 		M.Stun(2)

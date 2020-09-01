@@ -56,7 +56,7 @@
 
 /datum/reagent/carbon
 	name = "Carbon"
-	description = "A chemical element, the builing block of life."
+	description = "A chemical element, the building block of life."
 	reagent_state = SOLID
 	color = "#1C1300"
 	ingest_met = REM * 5
