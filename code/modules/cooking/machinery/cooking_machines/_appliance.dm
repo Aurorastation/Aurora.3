@@ -158,7 +158,7 @@
 			return CAN_INSERT
 
 	// We're trying to cook something else. Check if it's valid.
-	var/obj/item/reagent_containers/food/snacks/check = I
+	var/obj/item/check = I
 	if(istype(check) && LAZYISIN(cook_type,check.cooked))
 		to_chat(user, SPAN_WARNING("[check] has already been [cook_type]."))
 		return CANNOT_INSERT
@@ -167,7 +167,7 @@
 		return CANNOT_INSERT
 	else if(I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/storage/part_replacer))
 		return CANNOT_INSERT
-	else if(!istype(check) && !istype(check, /obj/item/holder))
+	else if(!istype(check,/obj/item/reagent_containers/food/snacks) && !istype(check, /obj/item/holder))
 		to_chat(user, SPAN_WARNING("That's not edible."))
 		return CANNOT_INSERT
 	return CAN_INSERT
