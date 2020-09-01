@@ -376,6 +376,16 @@
 #define AURA_TYPE_THROWN "Thrown"
 #define AURA_TYPE_LIFE   "Life"
 
+// Remote Control defines
+#define REMOTE_GENERIC_MECH "remotemechs"
+#define REMOTE_AI_MECH "aimechs"
+#define REMOTE_PRISON_MECH "prisonmechs"
+
+#define REMOTE_GENERIC_ROBOT "remoterobots"
+#define REMOTE_BUNKER_ROBOT "bunkerrobots"
+#define REMOTE_PRISON_ROBOT "prisonrobots"
+#define REMOTE_WARDEN_ROBOT "wardenrobots"
+
 // Robot Overlay Defines
 #define ROBOT_PANEL_EXPOSED  "exposed"
 #define ROBOT_PANEL_CELL     "cell"
