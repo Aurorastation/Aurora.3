@@ -183,7 +183,7 @@
 
 
 /datum/reagent/nutriment/coating/batter
-	name = "batter mix"
+	name = "Batter Mix"
 	cooked_name = "batter"
 	color = "#f5f4e9"
 	reagent_state = LIQUID
@@ -193,7 +193,7 @@
 	taste_description = "batter"
 
 /datum/reagent/nutriment/coating/beerbatter
-	name = "beer batter mix"
+	name = "Beer Batter Mix"
 	cooked_name = "beer batter"
 	color = "#f5f4e9"
 	reagent_state = LIQUID
@@ -208,7 +208,7 @@
 
 //==============================
 /datum/reagent/nutriment/protein // Bad for Skrell!
-	name = "animal protein"
+	name = "Animal Protein"
 	color = "#440000"
 	blood_factor = 3
 	taste_description = "meat"
@@ -220,17 +220,17 @@
 	..()
 
 /datum/reagent/nutriment/protein/tofu //Good for Skrell!
-	name = "tofu protein"
+	name = "Tofu Protein"
 	color = "#fdffa8"
 	taste_description = "tofu"
 
 /datum/reagent/nutriment/protein/seafood // Good for Skrell!
-	name = "seafood protein"
+	name = "Seafood Protein"
 	color = "#f5f4e9"
 	taste_description = "fish"
 
 /datum/reagent/nutriment/protein/egg // Also bad for skrell.
-	name = "egg yolk"
+	name = "Egg Yolk"
 	color = "#FFFFAA"
 	taste_description = "egg"
 
@@ -241,14 +241,14 @@
 	..()
 
 /datum/reagent/nutriment/protein/cheese // Also bad for skrell.
-	name = "cheese"
+	name = "Cheese"
 	color = "#EDB91F"
 	taste_description = "cheese"
 
 //Fats
 //=========================
 /datum/reagent/nutriment/triglyceride
-	name = "triglyceride"
+	name = "Triglyceride"
 	description = "More commonly known as fat, the third macronutrient, with over double the energy content of carbs and protein"
 
 	reagent_state = SOLID
@@ -365,7 +365,7 @@
 	germ_adjust = 5
 
 /datum/reagent/nutriment/flour
-	name = "flour"
+	name = "Flour"
 	description = "This is what you rub all over yourself to pretend to be a ghost."
 	reagent_state = SOLID
 	nutriment_factor = 1
@@ -393,7 +393,7 @@
 	taste_mult = 1.3
 
 /datum/reagent/nutriment/soysauce
-	name = "Soysauce"
+	name = "Soy Sauce"
 	description = "A salty sauce made from the soy plant."
 	reagent_state = LIQUID
 	nutriment_factor = 2
@@ -477,6 +477,12 @@
 /datum/reagent/lipozine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustNutritionLoss(10*removed)
 	M.overeatduration = 0
+
+/datum/reagent/lipozine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustNutritionLoss(10*removed)
+	if(prob(2))
+		to_chat(M, SPAN_DANGER("You feel yourself wasting away."))
+		M.adjustHalLoss(10)
 
 /datum/reagent/nutriment/barbecue
 	name = "Barbecue Sauce"
@@ -832,7 +838,7 @@
 	glass_desc = "A glass of sweet-sour lime juice"
 
 /datum/reagent/drink/orangejuice
-	name = "Orange juice"
+	name = "Orange Juice"
 	description = "Both delicious AND rich in Vitamin C, what more do you need?"
 	color = "#E78108"
 	taste_description = "oranges"
@@ -1461,7 +1467,7 @@
 	glass_center_of_mass = list("x"=15, "y"=9)
 
 /datum/reagent/drink/coffee/freddo_espresso
-	name = "Freddo espresso"
+	name = "Freddo Espresso"
 	description = "Espresso with ice cubes poured over ice."
 	color = "#664300" // rgb: 102, 67, 0
 	taste_description = "cold and bitter coffee"
@@ -2006,7 +2012,7 @@
 	glass_center_of_mass = list("x"=7, "y"=8)
 
 /datum/reagent/drink/toothpaste/kois_odyne
-	name = "Kois Odyne"
+	name = "K'ois Odyne"
 	description = "A favourite among the younger vaurca, born from an accident involving nanopaste and the repair of internal augments."
 	strength = 60
 	taste_description = "chalk"

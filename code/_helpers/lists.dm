@@ -733,3 +733,8 @@
 	. = list()
 	for(var/e in L)
 		. += L[e]
+
+/proc/capitalize_list(var/list/L)
+	. = list()
+	for (var/string in L)
+		. += capitalize(string)

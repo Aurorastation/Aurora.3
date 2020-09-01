@@ -1,3 +1,6 @@
+#define SEC_HUDTYPE "security"
+#define MED_HUDTYPE "medical"
+
 /mob/living/carbon/human/proc/get_covered_body_parts()
 	var/skipbody = 0
 	for(var/obj/item/clothing/C in list(wear_suit, head, wear_mask, w_uniform, gloves, shoes))
@@ -311,7 +314,7 @@
 	if(digitalcamo)
 		msg += "[get_pronoun("He")] [get_pronoun("is")] a little difficult to identify.\n"
 
-	if(hasHUD(user,"security"))
+	if(hasHUD(user,SEC_HUDTYPE))
 		var/perpname = "wot"
 		var/criminal = "None"
 
@@ -332,7 +335,7 @@
 			msg += "<span class = 'deptradio'>Criminal status:</span> <a href='?src=\ref[src];criminal=1'>\[[criminal]\]</a>\n"
 			msg += "<span class = 'deptradio'>Security records:</span> <a href='?src=\ref[src];secrecord=`'>\[View\]</a>  <a href='?src=\ref[src];secrecordadd=`'>\[Add comment\]</a>\n"
 
-	if(hasHUD(user,"medical"))
+	if(hasHUD(user,MED_HUDTYPE))
 		var/perpname = "wot"
 		var/medical = "None"
 
@@ -361,22 +364,29 @@
 	to_chat(user, msg.Join())
 
 //Helper procedure. Called by /mob/living/carbon/human/examine() and /mob/living/carbon/human/Topic() to determine HUD access to security and medical records.
-/proc/hasHUD(mob/M as mob, hudtype)
-	if(istype(M, /mob/living/carbon/human))
+/proc/hasHUD(mob/M, hudtype)
+	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		switch(hudtype)
-			if("security")
-				return istype(H.glasses, /obj/item/clothing/glasses/hud/security) || istype(H.glasses, /obj/item/clothing/glasses/sunglasses/sechud)
-			if("medical")
-				return istype(H.glasses, /obj/item/clothing/glasses/hud/health)
-			else
-				return 0
+		var/obj/item/clothing/glasses/G = H.glasses
+		var/eye_hud = 0
+		var/hud = 0
+		// Checks for eye sensor HUD
+		var/obj/item/organ/internal/augment/eye_sensors/E = locate() in H.internal_organs
+		if(E)
+			eye_hud = E.check_hud(hudtype)
+		if(G)
+			switch(hudtype)
+				if(SEC_HUDTYPE)
+					hud = G.is_sec_hud()
+				if(MED_HUDTYPE)
+					hud = G.is_med_hud()
+		return hud || eye_hud
 	else if(istype(M, /mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = M
 		switch(hudtype)
-			if("security")
+			if(SEC_HUDTYPE)
 				return istype(R.module_state_1, /obj/item/borg/sight/hud/sec) || istype(R.module_state_2, /obj/item/borg/sight/hud/sec) || istype(R.module_state_3, /obj/item/borg/sight/hud/sec)
-			if("medical")
+			if(MED_HUDTYPE)
 				return istype(R.module_state_1, /obj/item/borg/sight/hud/med) || istype(R.module_state_2, /obj/item/borg/sight/hud/med) || istype(R.module_state_3, /obj/item/borg/sight/hud/med)
 			else
 				return 0
