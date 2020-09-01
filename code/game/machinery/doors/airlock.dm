@@ -943,7 +943,7 @@ About the new airlock wires panel:
 					src.unlock(TRUE) //force it
 
 /obj/machinery/door/airlock/CanUseTopic(var/mob/user)
-	if(operating < 0) //emagged
+	if(emagged == 1)
 		to_chat(user, SPAN_WARNING("Unable to interface: Internal error."))
 		return STATUS_CLOSE
 	if(issilicon(user) && !src.canAIControl())
@@ -1049,9 +1049,9 @@ About the new airlock wires panel:
 	da.state = 1
 	da.created_name = src.name
 	da.update_state()
-	if(operating == -1 || (stat & BROKEN))
+	if((stat & BROKEN))
 		new /obj/item/circuitboard/broken(src.loc)
-		operating = 0
+		operating = FALSE
 	else
 		if (!electronics) create_electronics()
 		electronics.forceMove(src.loc)

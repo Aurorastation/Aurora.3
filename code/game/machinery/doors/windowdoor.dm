@@ -28,32 +28,18 @@
 		base_state = icon_state
 
 /obj/machinery/door/window/proc/shatter(var/display_message = 1)
-	new /obj/item/material/shard(src.loc)
+	new /obj/item/circuitboard/broken(loc)
+	new /obj/item/material/shard(loc)
 	var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(loc)
 	CC.amount = 2
-	var/obj/item/airlock_electronics/ae
-	if(!electronics)
-		ae = new/obj/item/airlock_electronics(loc)
-		if(LAZYLEN(req_access))
-			ae.conf_access = src.req_access
-		else if (LAZYLEN(req_one_access))
-			ae.conf_access = src.req_one_access
-			ae.one_access = 1
-	else
-		ae = electronics
-		electronics = null
-		ae.forceMove(src.loc)
-	if(operating == -1)
-		ae.icon_state = "door_electronics_smoked"
-		operating = 0
-	src.density = 0
+	src.density = FALSE
 	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message("[src] shatters!")
 	qdel(src)
 
 /obj/machinery/door/window/Destroy()
-	density = 0
+	density = FALSE
 	update_nearby_tiles()
 	return ..()
 
@@ -105,40 +91,36 @@
 		return 1
 
 /obj/machinery/door/window/open()
-	if (src.operating == 1) //doors can still open when emag-disabled
-		return 0
 	if (!ROUND_IS_STARTED)
-		return 0
-	if(!src.operating) //in case of emag
-		src.operating = 1
-	flick("[base_state]opening", src)
-	playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
-	icon_state = "[base_state]open"
-	sleep(10)
+		return FALSE
+	if(can_open())
+		operating = TRUE
+		flick("[base_state]opening", src)
+		playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
+		icon_state = "[base_state]open"
+		sleep(10)
 
-	explosion_resistance = 0
-	src.density = 0
-	update_nearby_tiles()
-
-	if(operating == 1) //emag again
-		src.operating = 0
-	return 1
+		explosion_resistance = 0
+		src.density = FALSE
+		update_nearby_tiles()
+		operating = FALSE
+		return 1
 
 /obj/machinery/door/window/close()
-	if (src.operating)
-		return 0
-	src.operating = 1
+	if (operating || emagged == 1)
+		return FALSE
+	operating = TRUE
 	flick("[base_state]closing", src)
 	playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
 	src.icon_state = src.base_state
 
-	src.density = 1
+	src.density = TRUE
 	explosion_resistance = initial(explosion_resistance)
 	update_nearby_tiles()
 
 	sleep(10)
 
-	src.operating = 0
+	operating = FALSE
 	return 1
 
 /obj/machinery/door/window/take_damage(var/damage)
@@ -164,16 +146,17 @@
 
 /obj/machinery/door/window/emag_act(var/remaining_charges, var/mob/user)
 	if (density && operable())
-		operating = -1
+		emagged = 1
 		flick("[src.base_state]spark", src)
 		sleep(6)
 		open()
+		desc = "A strong door. It keeps trying to close, but is jammed."
 		return 1
 
 /obj/machinery/door/window/attackby(obj/item/I as obj, mob/user as mob)
 
 	//If it's in the process of opening/closing, ignore the click
-	if (src.operating == 1)
+	if (operating)
 		return
 
 	//Emags and ninja swords? You may pass.
@@ -186,40 +169,17 @@
 		return 1
 
 	//If it's emagged, crowbar can pry electronics out.
-	if (src.operating == -1 && I.iscrowbar())
+	if (emagged == 1 && I.iscrowbar())
 		playsound(src.loc, I.usesound, 100, 1)
-		user.visible_message("[user] removes the electronics from the windoor.", "You start to remove electronics from the windoor.")
+		user.visible_message("[user] dismantles the windoor.", "You start to dismantle the windoor.")
 		if (do_after(user,60/I.toolspeed))
-			to_chat(user, "<span class='notice'>You removed the windoor electronics!</span>")
-
-			var/obj/structure/windoor_assembly/wa = new/obj/structure/windoor_assembly(src.loc)
-			if (istype(src, /obj/machinery/door/window/brigdoor))
-				wa.secure = "secure_"
-				wa.name = "Secure Wired Windoor Assembly"
-			else
-				wa.name = "Wired Windoor Assembly"
-			if (src.base_state == "right" || src.base_state == "rightsecure")
-				wa.facing = "r"
-			wa.set_dir(src.dir)
-			wa.state = "02"
-			wa.update_icon()
-
-			var/obj/item/airlock_electronics/ae
-			if(!electronics)
-				ae = new/obj/item/airlock_electronics( src.loc )
-				if(LAZYLEN(req_access))
-					ae.conf_access = src.req_access
-				else if (LAZYLEN(req_one_access))
-					ae.conf_access = src.req_one_access
-					ae.one_access = 1
-			else
-				ae = electronics
-				electronics = null
-				ae.forceMove(src.loc)
-			ae.icon_state = "door_electronics_smoked"
-
-			operating = 0
-			shatter(src)
+			to_chat(user, SPAN_NOTICE("You dismantled the windoor!"))
+			new /obj/item/circuitboard/broken(loc)
+			var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(loc)
+			CC.amount = 2
+			var/obj/item/stack/material/glass/reinforced/rglass = new /obj/item/stack/material/glass/reinforced(loc)
+			rglass.amount = 5
+			qdel(src)
 			return
 
 	//If it's a weapon, smash windoor. Unless it's an id card, agent card, ect.. then ignore it (Cards really shouldnt damage a door anyway)

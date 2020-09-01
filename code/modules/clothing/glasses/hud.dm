@@ -23,6 +23,9 @@
 /obj/item/clothing/glasses/hud/health/process_hud(var/mob/M)
 	process_med_hud(M, 1)
 
+/obj/item/clothing/glasses/hud/health/is_med_hud()
+	return active
+
 /obj/item/clothing/glasses/hud/health/prescription
 	name = "prescription glasses/HUD assembly"
 	desc = "A medical HUD clipped onto the side of prescription glasses."
@@ -48,6 +51,9 @@
 	item_state = "securityhud"
 	body_parts_covered = 0
 	var/global/list/jobs[0]
+
+/obj/item/clothing/glasses/hud/security/is_sec_hud()
+	return active
 
 /obj/item/clothing/glasses/hud/security/prescription
 	name = "prescription glasses/HUD assembly"

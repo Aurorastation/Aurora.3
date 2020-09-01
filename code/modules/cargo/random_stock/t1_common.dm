@@ -321,6 +321,7 @@ STOCK_ITEM_COMMON(glasses, 1.2)
 STOCK_ITEM_COMMON(pills, 1.2)
 	var/list/options = pick( \
 		/obj/item/storage/pill_bottle/bicaridine, \
+		/obj/item/storage/pill_bottle/butazoline, \
 		/obj/item/storage/pill_bottle/dexalin_plus, \
 		/obj/item/storage/pill_bottle/dermaline, \
 		/obj/item/storage/pill_bottle/dylovene, \

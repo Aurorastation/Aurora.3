@@ -255,6 +255,7 @@
 	C.lying = FALSE
 	C.reagents.add_reagent(/datum/reagent/hyperzine, 0.10) //Certainly this can't be abused. - Geeves
 	C.reagents.add_reagent(/datum/reagent/oxycomorphine, 0.10)
+	C.reagents.add_reagent(/datum/reagent/synaptizine, 0.5) //To counter oxycomorphine's side-effects.
 	C.update_canmove()
 
 	src.verbs -= /mob/proc/changeling_unstun

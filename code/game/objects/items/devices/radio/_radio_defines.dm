@@ -8,6 +8,7 @@
 #define CHANNEL_SUPPLY "Supply"
 #define CHANNEL_SERVICE "Service"
 #define CHANNEL_AI_PRIVATE "AI Private"
+#define CHANNEL_PENAL "Penal"
 
 #define CHANNEL_RESPONSE_TEAM "Response Team"
 
