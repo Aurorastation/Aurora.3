@@ -216,7 +216,7 @@
 		CI = new /datum/cooking_item/(CC)
 		I.forceMove(src)
 		cooking_objs.Add(CI)
-		if (CC.check_contents() == 0)//If we're just putting an empty container in, then dont start any processing.
+		if (CC.check_contents() == CONTAINER_EMPTY)//If we're just putting an empty container in, then dont start any processing.
 			user.visible_message("<b>[user]</b> puts [I] into [src].")
 			return
 	else
@@ -515,16 +515,16 @@
 	var/obj/item/thing
 	var/delete = TRUE
 	var/status = CI.container.check_contents()
-	if (status == 1)//If theres only one object in a container then we extract that
+	if (status == CONTAINER_SINGLE)//If theres only one object in a container then we extract that
 		thing = locate(/obj/item) in CI.container
 		delete = FALSE
 	else//If the container is empty OR contains more than one thing, then we must extract the container
 		thing = CI.container
+		cooking_objs -= CI
 	if (!user || !user.put_in_hands(thing))
 		thing.forceMove(get_turf(src))
 
 	if (delete)
-		cooking_objs -= CI
 		qdel(CI)
 	else
 		CI.reset()//reset instead of deleting if the container is left inside

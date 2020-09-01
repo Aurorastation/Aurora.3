@@ -70,7 +70,7 @@ fundamental differences
 	var/list/menuoptions = list()
 	for (var/cooking_obj in cooking_objs)
 		var/datum/cooking_item/CI = cooking_obj
-		if (!CI.container?.check_contents())
+		if (CI.container?.check_contents() == CONTAINER_EMPTY)
 			to_chat(user, "There's nothing in [src] to remove!")
 			return
 		for (var/thing in CI.container)

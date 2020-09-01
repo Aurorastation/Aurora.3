@@ -154,7 +154,7 @@
 	else
 		//Any food items directly added need an empty container. A slot without a container cant hold food
 		for (var/datum/cooking_item/CI in cooking_objs)
-			if (CI.container.check_contents() == 0)
+			if (CI.container.check_contents() == CONTAINER_EMPTY)
 				return CI
 
 	return FALSE

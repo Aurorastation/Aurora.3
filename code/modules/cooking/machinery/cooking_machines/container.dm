@@ -63,12 +63,12 @@
 
 /obj/item/reagent_containers/cooking_container/proc/check_contents()
 	if (isemptylist(contents))
-		if (!reagents || !reagents.total_volume)
-			return 0.0//Completely empty
+		if (!reagents?.total_volume)
+			return CONTAINER_EMPTY
 	else if (length(contents) == 1)
-		if (!reagents || !reagents.total_volume)
-			return 1.0//Contains only a single object which can be extracted alone
-	return 2.0//Contains multiple objects and/or reagents
+		if (!reagents?.total_volume)
+			return CONTAINER_SINGLE
+	return CONTAINER_MANY
 
 /obj/item/reagent_containers/cooking_container/AltClick(var/mob/user)
 	do_empty(user)

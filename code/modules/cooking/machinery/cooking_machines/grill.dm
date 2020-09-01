@@ -34,8 +34,8 @@
 		return FALSE
 	var/list/menuoptions = list()
 	for (var/datum/cooking_item/CI in cooking_objs)
-		if (!CI.container?.check_contents())
-			to_chat(user, "There's nothing in [src] to remove!")
+		if (CI.container?.check_contents() == CONTAINER_EMPTY)
+			to_chat(user, SPAN_WARNING("There's nothing in [src] to remove!"))
 			return
 		for (var/obj/item/I in CI.container)
 			menuoptions[I.name] = I
