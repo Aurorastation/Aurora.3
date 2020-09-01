@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Mech clamps can now be used to force open airlocks and firedoors. Welding and bolting affects how long it will take and how loud the action will be."
