@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Shaft miners now start with a mining coin that can be redeemed at a mining vendor to get enhanced equipment, such as a starter hand-held mining drill or an upgraded power converter, instead of spawning with a non-functional upgrade in a toolbox."
