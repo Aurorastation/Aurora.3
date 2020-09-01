@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes: 
+  - bugfix: "Fixed the burglar shuttle getting stuck when docking at blue dock."
