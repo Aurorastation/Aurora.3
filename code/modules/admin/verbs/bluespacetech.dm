@@ -361,7 +361,7 @@
 /obj/item/storage/backpack/holding/bst
 	canremove = 0
 	storage_slots = 56
-	max_w_class = ITEMSIZE_LARGE00
+	max_w_class = ITEMSIZE_LARGE
 
 /obj/item/device/radio/headset/ert/bst/attack_hand()
 	if(!usr)
