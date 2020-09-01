@@ -1,0 +1,7 @@
+author: Sparky_Hotdog
+
+delete-after: True
+
+changes: 
+  - bugfix: "All medical and security HUDs now display records on examining."
+
