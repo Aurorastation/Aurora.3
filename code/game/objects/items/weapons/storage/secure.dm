@@ -181,8 +181,8 @@
 	icon_locking = "safeb"
 	icon_sparking = "safespark"
 	force = 8.0
-	w_class = 8.0
-	max_w_class = 8
+	w_class = ITEMSIZE_IMMENSE
+	max_w_class = ITEMSIZE_IMMENSE
 	anchored = 1.0
 	density = 0
 	cant_hold = list(/obj/item/storage/secure/briefcase)

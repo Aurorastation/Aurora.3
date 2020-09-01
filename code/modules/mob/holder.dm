@@ -367,7 +367,7 @@ var/list/holder_mob_icon_cache = list()
 	desc = "It's a really big maintenance robot."
 	icon_state = "constructiondrone"
 	item_state = "constructiondrone"
-	w_class = 6 //You're not fitting this thing in a backpack
+	w_class = ITEMSIZE_IMMENSE //You're not fitting this thing in a backpack
 
 /obj/item/holder/drone/mining
 	name = "mining drone"
