@@ -41,8 +41,7 @@
 				else
 					message = stars(message)
 
-	var/icon/pre_icon = speaker.get_accent_icon(language)
-	var/accent_icon = icon2html(pre_icon, src, realsize=TRUE, class="text_tag")
+	var/accent_icon = speaker.get_accent_icon(language, src)
 	var/speaker_name = speaker.name
 	if(ishuman(speaker))
 		var/mob/living/carbon/human/H = speaker

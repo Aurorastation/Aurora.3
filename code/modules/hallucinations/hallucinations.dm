@@ -61,7 +61,7 @@
 				to_chat(M, "<B>[holder]</B> [chosen_emote]")
 
 //For adding accent tags when you imagine people talking to you
-/datum/hallucination/proc/get_hallucinated_accent(var/mob/living/talker)
+/datum/hallucination/proc/get_hallucinated_accent(var/mob/living/talker, var/mob/hearer)
 	var/hal_accent
 	if(ishuman(talker))
 		var/mob/living/carbon/human/T = talker
@@ -71,4 +71,5 @@
 	var/datum/accent/a = SSrecords.accents[hal_accent]
 
 	var/final_icon = a.tag_icon
-	return icon('./icons/accent_tags.dmi', final_icon)
+	var/icon/accent_icon = icon('./icons/accent_tags.dmi', final_icon)
+	return icon2html(accent_icon, hearer, realsize=TRUE, class = "text_tag")
