@@ -82,8 +82,8 @@
 		return
 	var/radio_exclaim = pick("Oh SHIT!", "Oh fuck.", "Uhhh!", "That's not good!", "FUCK.", "Engineering?", "It's under control!", "We're fucked!", "Ohhhh boy.", "What?!", "Um, <b>what?!</b>")
 	var/mob/living/caller = pick(people)
-	var/caller_accent = get_hallucinated_accent(caller)
-	caller_accent = icon2html(caller_accent, holder, realsize=TRUE, class = "text_tag")
+	var/icon/accent_icon = get_hallucinated_accent(caller)
+	var/caller_accent = icon2html(accent_icon, holder, realsize=TRUE, class = "text_tag")
 
 	to_chat(holder, "[caller_accent] <span class='radio'><b>[pick(people)]</b> says, \"[radio_exclaim]\"</span>")
 
@@ -420,8 +420,8 @@
 
 	var/mob/living/talker = pick(candidates)	//Who is talking to us?
 	var/message		//What will they say?
-	var/accent_tag = get_hallucinated_accent(talker) //Can't forget the accent
-	accent_tag = icon2html(accent_tag, holder, realsize=TRUE, class = "text_tag")
+	var/icon/accent_icon = get_hallucinated_accent(talker) //Can't forget the accent
+	var/accent_tag = icon2html(accent_icon, holder, realsize=TRUE, class = "text_tag")
 
 	//Name selection. This gives us variety. Sometimes it will be your last name, sometimes your first.
 	var/list/names = list()
@@ -480,8 +480,8 @@
 			whisper_candidates += M
 	if(whisper_candidates.len)
 		var/mob/living/whisperer = pick(whisper_candidates)
-		var/whisper_accent = get_hallucinated_accent(whisperer)
-		icon2html(whisper_accent, holder, realsize=TRUE, class = "text_tag")
+		var/icon/accent_icon = get_hallucinated_accent(whisperer)
+		var/whisper_accent = icon2html(accent_icon, holder, realsize=TRUE, class = "text_tag")
 		if(prob(70))
 			to_chat(holder, "[whisper_accent] <B>[whisperer]</B> whispers, <I>\"[pick(SShallucinations.hallucinated_phrases)]\"</I>")
 		else

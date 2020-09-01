@@ -41,8 +41,8 @@
 				else
 					message = stars(message)
 
-	var/accent_icon = speaker.get_accent_icon(language)
-	accent_icon = icon2html(accent_icon, src, realsize=TRUE, class="text_tag")
+	var/icon/pre_icon = speaker.get_accent_icon(language)
+	var/accent_icon = icon2html(pre_icon, src, realsize=TRUE, class="text_tag")
 	var/speaker_name = speaker.name
 	if(ishuman(speaker))
 		var/mob/living/carbon/human/H = speaker
@@ -211,7 +211,8 @@
 /mob/proc/on_hear_radio(part_a, speaker_name, track, part_b, formatted, accent_icon)
 	var/accent_tag
 	if(accent_icon)
-		accent_tag = icon2html(icon('./icons/accent_tags.dmi', accent_icon), src, realsize=TRUE, class="text_tag")
+		var/icon/pre_icon = icon('./icons/accent_tags.dmi', accent_icon)
+		accent_tag = icon2html(pre_icon, src, realsize=TRUE, class="text_tag")
 	to_chat(src, "[part_a][speaker_name][part_b][formatted]")
 	if(vr_mob)
 		to_chat(vr_mob, "[part_a][accent_tag][speaker_name][part_b][formatted]")
