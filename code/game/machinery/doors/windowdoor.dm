@@ -32,14 +32,14 @@
 	new /obj/item/material/shard(loc)
 	var/obj/item/stack/cable_coil/CC = new /obj/item/stack/cable_coil(loc)
 	CC.amount = 2
-	src.density = 0
+	src.density = FALSE
 	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message("[src] shatters!")
 	qdel(src)
 
 /obj/machinery/door/window/Destroy()
-	density = 0
+	density = FALSE
 	update_nearby_tiles()
 	return ..()
 
@@ -91,32 +91,30 @@
 		return 1
 
 /obj/machinery/door/window/open()
-	if (operating == TRUE) //doors can still open when emag-disabled
-		return 0
 	if (!ROUND_IS_STARTED)
-		return 0
-	flick("[base_state]opening", src)
-	playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
-	icon_state = "[base_state]open"
-	sleep(10)
+		return FALSE
+	if(can_open())
+		operating = TRUE
+		flick("[base_state]opening", src)
+		playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
+		icon_state = "[base_state]open"
+		sleep(10)
 
-	explosion_resistance = 0
-	src.density = 0
-	update_nearby_tiles()
-
-	if(operating == TRUE) //emag again
+		explosion_resistance = 0
+		src.density = FALSE
+		update_nearby_tiles()
 		operating = FALSE
-	return 1
+		return 1
 
 /obj/machinery/door/window/close()
-	if (src.operating || emagged == 1)
+	if (operating || emagged == 1)
 		return FALSE
 	operating = TRUE
 	flick("[base_state]closing", src)
 	playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
 	src.icon_state = src.base_state
 
-	src.density = 1
+	src.density = TRUE
 	explosion_resistance = initial(explosion_resistance)
 	update_nearby_tiles()
 
