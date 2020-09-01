@@ -97,6 +97,8 @@
 	hyronalin	spawn_reagent = /datum/reagent/hyronalin
 	oculine	spawn_reagent = /datum/reagent/oculine
 	kelotane	spawn_reagent = /datum/reagent/kelotane
+	butazoline spawn_reagent = /datum/reagent/butazoline
+	saline spawn_reagent = /datum/reagent/saline
 	leporazine	spawn_reagent = /datum/reagent/leporazine
 	inaprov		spawn_reagent = /datum/reagent/inaprovaline
 	oxycomorphine	spawn_reagent = /datum/reagent/oxycomorphine

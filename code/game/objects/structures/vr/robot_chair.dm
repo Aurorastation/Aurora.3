@@ -1,7 +1,7 @@
 /obj/structure/bed/chair/remote/robot
 	name = "robot control centre"
 	desc = "A comfortable chair with full audio-visual transposition centres. This one gives you access to robots attached to the remote network."
-	remote_network = "remoterobots"
+	remote_network = REMOTE_GENERIC_ROBOT
 
 /obj/structure/bed/chair/remote/robot/user_buckle_mob(mob/user)
 	..()
@@ -12,4 +12,14 @@
 /obj/structure/bed/chair/remote/robot/bunker
 	name = "bunker robot control centre"
 	desc = "A comfortable chair with full audio-visual transposition centres. This one gives you access to robots attached to the bunker network."
-	remote_network = "bunkerrobots"
+	remote_network = REMOTE_BUNKER_ROBOT
+
+/obj/structure/bed/chair/remote/robot/prison
+	name = "penal robot control centre"
+	desc = "A comfortable chair with full audio-visual transposition centres. This one gives you access to robots attached to the penal network."
+	remote_network = REMOTE_PRISON_ROBOT
+
+/obj/structure/bed/chair/remote/robot/warden
+	name = "warden robot control centre"
+	desc = "A comfortable chair with full audio-visual transposition centres. This one gives you access to robots attached to the warden's network."
+	remote_network = REMOTE_WARDEN_ROBOT

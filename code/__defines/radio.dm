@@ -16,6 +16,7 @@
 
 // department channels
 var/const/PUB_FREQ = 1459
+var/const/PEN_FREQ = 1451
 var/const/SEC_FREQ = 1359
 var/const/ENG_FREQ = 1357
 var/const/MED_FREQ = 1355
@@ -34,6 +35,7 @@ var/list/radiochannels = list(
 	"Medical"		= MED_FREQ,
 	"Engineering"	= ENG_FREQ,
 	"Security" 		= SEC_FREQ,
+	"Penal"			= PEN_FREQ,
 	"Response Team" = ERT_FREQ,
 	"Special Ops" 	= DTH_FREQ,
 	"Mercenary" 	= SYND_FREQ,

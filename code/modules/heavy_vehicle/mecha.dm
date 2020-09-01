@@ -254,7 +254,7 @@
 	remote = TRUE
 	name = name + " \"[pick("Jaeger", "Reaver", "Templar", "Juggernaut", "Basilisk")]-[rand(0, 999)]\""
 	if(!remote_network)
-		remote_network = "remotemechs"
+		remote_network = REMOTE_GENERIC_MECH
 	SSvirtualreality.add_mech(src, remote_network)
 
 	if(hatch_closed)

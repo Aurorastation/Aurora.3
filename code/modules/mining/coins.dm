@@ -65,6 +65,12 @@
 	icon_state = "coin_battlemonsters_heads"
 	cmineral = "battlemonsters"
 
+/obj/item/coin/mining
+	name = "mining coin"
+	desc = "A flat disc or piece of metal with an official stamp. This coin can be used at a mining vendor to gain access to additional equipment."
+	icon_state = "coin_mining_heads"
+	cmineral = "mining"
+
 /obj/item/coin/attackby(obj/item/W, mob/user)
 	if(W.iscoil())
 		var/obj/item/stack/cable_coil/CC = W
