@@ -101,10 +101,9 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/computer/shuttle_control/Topic(user, href_list)
+/obj/machinery/computer/shuttle_control/Topic(href_list, href_list)
 	..()
-
-	handle_topic_href(SSshuttle.shuttles[shuttle_tag], href_list, user)
+	handle_topic_href(SSshuttle.shuttles[shuttle_tag], href_list, usr)
 
 /obj/machinery/computer/shuttle_control/emag_act(var/remaining_charges, var/mob/user)
 	if(!hacked)

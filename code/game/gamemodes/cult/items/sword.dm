@@ -14,8 +14,8 @@
 	sharp = TRUE
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = "pickup_sword"
-	equip_sound = "equip_sword"
+	pickup_sound = /decl/sound_category/sword_pickup_sound
+	equip_sound = /decl/sound_category/sword_equip_sound
 	var/does_cult_check = TRUE
 
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")

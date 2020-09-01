@@ -160,7 +160,7 @@
 
 /obj/effect/spider/spiderling/proc/die()
 	visible_message(SPAN_WARNING("\The [src] dies!"))
-	new /obj/effect/decal/cleanable/spiderling_remains(src.loc)
+	new /obj/effect/decal/cleanable/spiderling_remains(loc)
 	qdel(src)
 
 /obj/effect/spider/spiderling/healthcheck()

@@ -331,7 +331,7 @@
 	punch_force = 5
 	clipped = 1
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = "pickup_sword"
+	pickup_sound = /decl/sound_category/sword_pickup_sound
 
 /obj/item/clothing/gloves/powerfist
 	name = "power fist"

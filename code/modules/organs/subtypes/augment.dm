@@ -208,11 +208,12 @@
 	activable = TRUE
 	organ_tag = BP_AUG_EYE_SENSORS
 	action_button_name = "Toggle Eye Sensors"
+	var/active_hud = "disabled"
 
 	var/static/list/hud_types = list(
 		"Disabled",
-		"Security",
-		"Medical")
+		SEC_HUDTYPE,
+		MED_HUDTYPE)
 
 	var/selected_hud = "Disabled"
 
@@ -222,9 +223,9 @@
 	if(!.)
 		return FALSE
 
-	var/choice = input("Select the Sensor Type.", "Bionic Eyes Sensors") as null|anything in hud_types
+	var/choice = input("Select the Sensor Type.", "Bionic Eyes Sensors") as null|anything in capitalize_list(hud_types)
 
-	selected_hud = choice
+	selected_hud = lowertext(choice)
 
 /obj/item/organ/internal/augment/eye_sensors/process()
 	..()
@@ -234,15 +235,24 @@
 
 	switch(selected_hud)
 
-		if("Security")
+		if(SEC_HUDTYPE)
 			req_access = list(access_security)
 			if(allowed(owner))
+				active_hud = "security"
 				process_sec_hud(owner, 1)
+			else
+				active_hud = "disabled"
 
-		if("Medical")
+		if(MED_HUDTYPE)
 			req_access = list(access_medical)
 			if(allowed(owner))
+				active_hud = "medical"
 				process_med_hud(owner, 1)
+			else
+				active_hud = "disabled"
+
+		else
+			active_hud = "disabled"
 
 /obj/item/organ/internal/augment/eye_sensors/emp_act(severity)
 	..()
@@ -250,6 +260,9 @@
 	if(!E)
 		return
 	E.take_damage(5)
+
+/obj/item/organ/internal/augment/eye_sensors/proc/check_hud(var/hud)
+	return (hud == active_hud)
 
 /obj/item/organ/internal/augment/cyber_hair
 	name = "synthetic hair extensions"

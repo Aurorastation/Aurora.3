@@ -22,7 +22,7 @@
 /obj/machinery/door/airlock/proc/execute_current_command()
 	set waitfor = FALSE
 	if(operating)
-		if (operating != -1)	// -1 is emagged.
+		if (emagged == 1)
 			// Come back and try again later.
 			queue_command()
 		return //emagged or busy doing something else
