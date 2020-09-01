@@ -38,7 +38,6 @@
 
 	eyes = "vox_eyes_s"
 	gluttonous = 2
-	virus_immune = 1
 
 	breath_type = GAS_NITROGEN
 	poison_type = GAS_OXYGEN

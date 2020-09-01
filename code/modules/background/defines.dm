@@ -68,6 +68,9 @@
 #define ACCENT_VENUSJIN "Venusian Jintarian"
 #define ACCENT_DOMINIA "Dominian"
 #define ACCENT_JUPITER "Jovian"
+#define ACCENT_EUROPA "Europan"
+#define ACCENT_EARTH "Earther"
+#define ACCENT_DEEPFRONTIER "Deep Frontier"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"

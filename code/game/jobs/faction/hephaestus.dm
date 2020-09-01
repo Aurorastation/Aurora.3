@@ -112,3 +112,7 @@
 	suit = null
 	implants = null
 	id = /obj/item/card/id/hephaestus
+
+	backpack_contents = list(
+		/obj/item/stamp/hephaestus = 1
+	)
