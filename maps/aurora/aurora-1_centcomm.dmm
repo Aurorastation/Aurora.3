@@ -18391,7 +18391,10 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/item/storage/box/snack,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
 /turf/unsimulated/floor{
 	icon_state = "bar"
 	},
@@ -72006,7 +72009,7 @@ aSp
 aTe
 aTe
 aTe
-mfL
+aTe
 aSp
 aTQ
 aTV
@@ -72263,7 +72266,7 @@ aSp
 aTe
 aTe
 aTe
-aTD
+mfL
 aSp
 aTQ
 aTV
