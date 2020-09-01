@@ -196,6 +196,42 @@
 /obj/machinery/door/airlock/centcom/emp_act()
 	return
 
+/obj/machinery/door/airlock/glass_centcom
+	name = "Airlock"
+	icon = 'icons/obj/doors/Dooreleglass.dmi'
+	opacity = FALSE
+	glass = 1
+	hatch_colour = "#606061"
+	hashatch = FALSE
+	hackProof = TRUE
+
+obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
+	if (operating)
+		return
+
+	if (allowed(user) && operable())
+		if (density)
+			open()
+		else
+			close()
+	else
+		do_animate("deny")
+
+/obj/machinery/door/airlock/glass_centcom/attack_ai(mob/user)
+	return attackby(null, user)
+
+/obj/machinery/door/airlock/glass_centcom/take_damage()
+	return	// No.
+
+/obj/machinery/door/airlock/glass_centcom/emag_act()
+	return NO_EMAG_ACT
+
+/obj/machinery/door/airlock/glass_centcom/ex_act()
+	return
+
+/obj/machinery/door/airlock/glass_centcom/emp_act()
+	return
+
 /obj/machinery/door/airlock/vault
 	name = "Vault"
 	icon = 'icons/obj/doors/vault.dmi'
@@ -867,7 +903,7 @@ About the new airlock wires panel:
 		cutting = TRUE
 	else if(istype(tool,/obj/item/melee/energy/blade) || istype(tool,/obj/item/melee/energy/sword))
 		cut_verb = "slicing"
-		cut_sound = /decl/sound_category/spark_sound
+		cut_sound = "sparks"
 		cut_delay *= 1
 		cutting = TRUE
 	else if(istype(tool,/obj/item/surgery/circular_saw))
@@ -928,7 +964,7 @@ About the new airlock wires panel:
 					src.unlock(TRUE) //force it
 
 /obj/machinery/door/airlock/CanUseTopic(var/mob/user)
-	if(emagged == 1)
+	if(operating < 0) //emagged
 		to_chat(user, SPAN_WARNING("Unable to interface: Internal error."))
 		return STATUS_CLOSE
 	if(issilicon(user) && !src.canAIControl())
@@ -994,10 +1030,7 @@ About the new airlock wires panel:
 			else if(!activate && !density)
 				close()
 		if("safeties")
-			if(safe && issilicon(usr) && !player_is_antag(usr.mind))
-				to_chat(usr, SPAN_WARNING("Your programming prevents you from disabling the door safeties."))
-			else
-				set_safeties(!activate, 1)
+			set_safeties(!activate, 1)
 		if("timing")
 			// Door speed control
 			if(src.isWireCut(AIRLOCK_WIRE_SPEED))
@@ -1034,9 +1067,9 @@ About the new airlock wires panel:
 	da.state = 1
 	da.created_name = src.name
 	da.update_state()
-	if((stat & BROKEN))
+	if(operating == -1 || (stat & BROKEN))
 		new /obj/item/circuitboard/broken(src.loc)
-		operating = FALSE
+		operating = 0
 	else
 		if (!electronics) create_electronics()
 		electronics.forceMove(src.loc)

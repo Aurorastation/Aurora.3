@@ -16726,7 +16726,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "Fo" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -17511,7 +17511,7 @@
 /area/quartermaster/loading)
 "GE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,

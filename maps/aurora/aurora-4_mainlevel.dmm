@@ -25934,7 +25934,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -32
@@ -25955,7 +25955,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/primary/starboard)
 "aSP" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -27886,7 +27886,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "aWg" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -28767,7 +28767,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -30930,7 +30930,7 @@
 /area/hallway/primary/central_one)
 "bbH" = (
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -31946,7 +31946,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -34176,7 +34176,7 @@
 /area/hallway/primary/central_one)
 "bht" = (
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -36145,7 +36145,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bkI" = (
@@ -39391,7 +39391,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -39849,7 +39849,7 @@
 	},
 /obj/effect/floor_decal/corner/beige/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -39863,7 +39863,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -41926,7 +41926,7 @@
 /area/medical/gen_treatment)
 "bwk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -42873,7 +42873,7 @@
 /area/medical/medbay)
 "bxJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - General Treatment 2";
 	dir = 8
@@ -44754,7 +44754,7 @@
 	pixel_y = -26;
 	req_access = list(5)
 	},
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /obj/machinery/camera/network/medbay{
@@ -53740,13 +53740,13 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/lobby)
 "bXw" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bXx" = (
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bXy" = (
@@ -54597,7 +54597,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bZF" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -57469,7 +57469,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "ceW" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /obj/machinery/mineral/stacking_unit_console{
@@ -57636,7 +57636,7 @@
 	pixel_y = -32
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /obj/structure/closet/crate,
@@ -58295,7 +58295,7 @@
 /area/outpost/mining_main/refinery)
 "cgO" = (
 /obj/machinery/mineral/input,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -60506,7 +60506,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
 "fBZ" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -65736,7 +65736,7 @@
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "saq" = (
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28
@@ -67103,7 +67103,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "uAB" = (
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old,
 /area/maintenance/cargo)
