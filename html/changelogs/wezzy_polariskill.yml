@@ -39,6 +39,8 @@ delete-after: True
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
   - imageadd: "Fixes shading and missing inhands for high skirt. Adds skater skirt and tube skirt."
-  - rscdel: "Removes some clothing from Polaris."
+  - rscdel: "Some clothes have been replaced. Namely, the green dress, pink dress, dark red dress, crop dress, crop top and blue dress."
+  - rscdel: "Accessories replaced are the red ribbon, pink pins, and white ribbon. Check your loadout to re-make them."
   - imageadd: "Beanies and some accessories have been resprited."
   - rscadd: "Adds cropped shirts and dress shirts, as well as a blouse."
+  - rscadd: "Magnet pins are now colorable."
