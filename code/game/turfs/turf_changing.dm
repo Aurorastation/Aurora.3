@@ -23,6 +23,10 @@
 // Helper to change this turf into an appropriate openturf type, generally you should use this instead of ChangeTurf(/turf/simulated/open).
 /turf/proc/ChangeToOpenturf()
 	. = ChangeTurf(/turf/space)
+	for(var/atom/movable/AM in contents) // things fall when we break
+		if(!AM.simulated)
+			continue
+		ADD_FALLING_ATOM(AM)
 
 //Creates a new turf.
 // N is the type of the turf.

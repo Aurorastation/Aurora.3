@@ -65,7 +65,6 @@
 	if (under)
 		below = under
 		below.above = src
-	update_adjacent()
 
 	update_mimic(!mapload)	// Only recursively update if the map isn't loading.
 

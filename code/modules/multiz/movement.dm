@@ -672,6 +672,9 @@
  * if child procs should continue running or not, really.
  */
 /turf/proc/on_fall_impact(atom/movable/other, distance, stopped_early = FALSE)
+	if(below && other.can_fall(src, below))
+		ADD_FALLING_ATOM(other)
+		return TRUE
 	return !stopped_early
 
 /**
