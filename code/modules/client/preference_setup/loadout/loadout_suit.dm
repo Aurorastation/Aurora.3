@@ -65,7 +65,6 @@
 
 /datum/gear/suit/hoodie
 	display_name = "hoodie selection"
-	display_name = "hoodie"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 

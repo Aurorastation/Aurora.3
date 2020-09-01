@@ -220,6 +220,7 @@
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/grey //legacy item. for raiders, shuttle spawn
 	color = "#777777"
+	
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/short
 	icon_state = "hoodie_short"
