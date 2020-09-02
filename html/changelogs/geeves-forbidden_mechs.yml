@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Cargo mechs can no longer spawn with cult mech pieces."
