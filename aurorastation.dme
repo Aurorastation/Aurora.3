@@ -897,7 +897,6 @@
 #include "code\game\objects\items\weapons\landmines.dm"
 #include "code\game\objects\items\weapons\manuals.dm"
 #include "code\game\objects\items\weapons\mop.dm"
-#include "code\game\objects\items\weapons\paint.dm"
 #include "code\game\objects\items\weapons\paiwire.dm"
 #include "code\game\objects\items\weapons\policetape.dm"
 #include "code\game\objects\items\weapons\power_cells.dm"

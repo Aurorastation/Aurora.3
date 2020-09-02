@@ -43,10 +43,10 @@
 	set name = "Toggle Coat Buttons"
 	set category = "Object"
 	set src in usr
-	if(!usr.canmove || usr.stat || usr.restrained())
-		return 0
+
 	if(use_check_and_message(usr))
 		return 0
+
 	opened = !opened
 	to_chat(usr, "You [opened ? "unbutton" : "button up"] \the [src].")
 	playsound(src, /decl/sound_category/rustle_sound, EQUIP_SOUND_VOLUME, TRUE)
@@ -56,8 +56,9 @@
 
 /obj/item/clothing/suit/storage/toggle/Initialize()
 	. = ..()
-	if(opened) // for stuff that's supposed to start opened.
+	if(opened) // for stuff that's supposed to spawn opened, like labcoats.
 		icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
+		item_state = icon_state
 
 /obj/item/clothing/suit/storage/vest/merc/Initialize()
 	. = ..()

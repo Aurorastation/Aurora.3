@@ -313,8 +313,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/ryan_jacket.dmi'
 	icon_state = "ryan_jacket"
 	item_state = "ryan_jacket"
-	icon_open = "ryan_jacket_open"
-	icon_closed = "ryan_jacket"
 	contained_sprite = TRUE
 
 
@@ -386,8 +384,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/leo_coat.dmi'
 	icon_state = "leo_coat"
 	item_state = "leo_coat"
-	icon_open = "leo_coat"
-	icon_closed = "leo_coat"
 	contained_sprite = TRUE
 
 
@@ -782,8 +778,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/nelson_jacket.dmi'
 	icon_state = "nelson_jacket"
 	item_state = "nelson_jacket"
-	icon_open = "nelson_jacket_open"
-	icon_closed = "nelson_jacket"
 	contained_sprite = TRUE
 
 
@@ -899,8 +893,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/volvalaad_items.dmi'
 	icon_state = "volvalaad_jacket"
 	item_state = "volvalaad_jacket"
-	icon_open = "volvalaad_jacket_open"
-	icon_closed = "volvalaad_jacket"
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/fluff/volvalaad_coat //Dominian Noble Coat - Richard Volvalaad - t1gws
@@ -909,8 +901,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/volvalaad_items.dmi'
 	icon_state = "volvalaad_coat"
 	item_state = "volvalaad_coat"
-	icon_open = "volvalaad_coat_open"
-	icon_closed = "volvalaad_coat"
 	contained_sprite = TRUE
 
 
@@ -1269,8 +1259,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/talon_coat.dmi'
 	icon_state = "talon_coat"
 	item_state = "talon_coat"
-	icon_open = "talon_coat_open"
-	icon_closed = "talon_coat"
 	contained_sprite = TRUE
 
 
@@ -1431,8 +1419,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
 	icon_state = "mira_robes"
 	item_state = "mira_robes"
-	icon_open = "mira_robes_open"
-	icon_closed = "mira_robes"
 	contained_sprite = TRUE
 
 /obj/item/clothing/shoes/fluff/mira_boots //Mira Boots - Mira Akhandi - drwago
@@ -1775,8 +1761,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/likho_labcoat.dmi'
 	icon_state = "likho_labcoat"
 	item_state = "likho_labcoat"
-	icon_open = "likho_labcoat_open"
-	icon_closed = "likho_labcoat"
 	contained_sprite = TRUE
 
 
@@ -1786,8 +1770,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/ramit_jacket.dmi'
 	icon_state = "ramit_jacket"
 	item_state = "ramit_jacket"
-	icon_open = "ramit_jacket_open"
-	icon_closed = "ramit_jacket"
 	contained_sprite = TRUE
 
 
@@ -1806,8 +1788,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/takahashi_uniform.dmi'
 	icon_state = "takahashi_coat"
 	item_state = "takahashi_coat"
-	icon_open = "takahashi_coat_open"
-	icon_closed = "takahashi_coat"
 	contained_sprite = TRUE
 
 
@@ -2198,8 +2178,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/mekesatis_holocoat.dmi'
 	icon_state = "mekesatis_labcoat"
 	item_state = "mekesatis_labcoat"
-	icon_open = "mekesatis_labcoat_open"
-	icon_closed = "mekesatis_labcoat"
 	contained_sprite = TRUE
 	var/changed = FALSE
 	var/changing = FALSE
@@ -2226,50 +2204,23 @@ All custom items with worn sprites must follow the contained sprite system: http
 	set category = "Object"
 	set src in usr
 
-	if (use_check_and_message(usr))
-		return
-
-	if(changing)
+	if(use_check_and_message(usr) || changing)
 		return
 
 	if(!changed)
-		usr.visible_message("<span class='notice'>With a subtle gesture, the labcoat flickers activate!</span>")
-		icon_state = "mekesatis_holocoat_t"
-		item_state = "mekesatis_holocoat_t"
-		icon_open = "mekesatis_holocoat_t_open"
-		icon_closed = "mekesatis_holocoat_t"
-		flick("mekesatis_holocoat_t", src)
+		usr.visible_message("<span class='notice'>With a subtle gesture, [changed ? "the holocoat fades to a normal labcoat." : "the labcoat flickers in activity!"]</span>")
+		icon_state = "mekesatis_[changed ? "labcoat" : "holocoat"]_t[opened ? "_open" : ""]"
+		item_state = icon_state
 
-	else
-		usr.visible_message("<span class='notice'>With a subtle gesture, the holocoat fades to a normal labcoat.</span>")
-		icon_state = "mekesatis_labcoat_r"
-		item_state = "mekesatis_labcoat_r"
-		icon_open = "mekesatis_labcoat_r_open"
-		icon_closed = "mekesatis_labcoat_r"
-
-	update_icon()
 	usr.update_inv_wear_suit()
 	changing = TRUE
 	addtimer(CALLBACK(src, .proc/finish_toggle, usr), 10 SECONDS)
 
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/proc/finish_toggle(mob/user)
-	if(!changed)
-		icon_state = "mekesatis_holocoat"
-		item_state = "mekesatis_holocoat"
-		icon_open = "mekesatis_holocoat_open"
-		icon_closed = "mekesatis_holocoat"
-
-	else
-		icon_state = "mekesatis_labcoat"
-		item_state = "mekesatis_labcoat"
-		icon_open = "mekesatis_labcoat_open"
-		icon_closed = "mekesatis_labcoat"
-
-	update_icon()
+	icon_state = "mekesatis_[changed ? "labcoat" : "holocoat"][opened ? "_open" : ""]"
 	user.update_inv_wear_suit()
 	changed = !changed
 	changing = FALSE
-
 
 /obj/item/device/megaphone/fluff/akinyi_mic //Resonance Microphone - Akinyi Idowu - kyres1
 	name = "resonance microphone"

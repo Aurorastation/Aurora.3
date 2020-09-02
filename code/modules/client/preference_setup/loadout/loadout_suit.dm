@@ -163,7 +163,6 @@
 	var/coat = list()
 	coat["brown trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench
 	coat["black trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/black
-	coat["technicolor trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/technicolor
 	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 
