@@ -53,5 +53,5 @@
 	if (coat)
 		if(istype(coat, /obj/item/clothing/suit/storage/toggle))
 			var/obj/item/clothing/suit/storage/toggle/T = coat
-			T.icon_state = T.initial(icon_state)
+			T.icon_state = initial(T.icon_state)
 		add_overlay("coat_[coat.icon_state]")
