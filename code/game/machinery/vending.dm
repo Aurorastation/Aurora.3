@@ -657,7 +657,7 @@
 	use_power(vend_power_usage)	//actuators and stuff
 	if (src.icon_vend) //Show the vending animation if needed
 		flick(src.icon_vend,src)
-	playsound(src.loc, "sound/[vending_sound]", 100, 1)
+	playsound(src.loc, vending_sound, 100, 1)
 	addtimer(CALLBACK(src, .proc/vend_product, R, user), vend_delay)
 
 /obj/machinery/vending/proc/vend_product(var/datum/data/vending_product/R, mob/user)

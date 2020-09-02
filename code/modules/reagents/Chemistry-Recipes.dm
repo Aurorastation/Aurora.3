@@ -1771,7 +1771,7 @@
 	id = "dough"
 	result = null
 	required_reagents = list(/datum/reagent/nutriment/protein/egg = 3, /datum/reagent/nutriment/flour = 10)
-	inhibitors = list(/datum/reagent/water = 1, /datum/reagent/alcohol/ethanol/beer = 1) //To prevent it messing with batter recipes
+	inhibitors = list(/datum/reagent/water = 1, /datum/reagent/alcohol/ethanol/beer = 1, /datum/reagent/sugar = 1) //To prevent it messing with batter and pie recipes
 	result_amount = 1
 
 /datum/chemical_reaction/dough/on_reaction(var/datum/reagents/holder, var/created_volume)
@@ -2374,7 +2374,7 @@
 	name = "Mocacchino"
 	id = "mocacchino"
 	result = /datum/reagent/drink/coffee/mocacchino
-	required_reagents = list(/datum/reagent/drink/coffee/flat_white = 1, /datum/reagent/nutriment/coco = 1)
+	required_reagents = list(/datum/reagent/drink/coffee/flat_white = 1, /datum/reagent/drink/syrup_chocolate = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/drink/acidspit
@@ -3052,15 +3052,36 @@
 	name = "Pumpkin Spice Frappe"
 	id = "psfrappe"
 	result = /datum/reagent/drink/coffee/icecoffee/psfrappe
-	required_reagents = list(/datum/reagent/drink/coffee/icecoffee = 6, /datum/reagent/spacespice/pumpkinspice = 2, /datum/reagent/drink/milk/cream = 2)
+	required_reagents = list(/datum/reagent/drink/coffee/icecoffee = 6, /datum/reagent/drink/syrup_pumpkin = 2, /datum/reagent/drink/milk/cream = 2)
 	result_amount = 10
 
 /datum/chemical_reaction/drink/pslatte
 	name = "Pumpkin Spice Latte"
 	id = "pslatte"
-	result = /datum/reagent/drink/coffee/pslatte
-	required_reagents = list(/datum/reagent/drink/coffee = 6, /datum/reagent/spacespice/pumpkinspice = 2, /datum/reagent/drink/milk/cream = 2)
+	result = /datum/reagent/drink/coffee/latte/pumpkinspice
+	required_reagents = list(/datum/reagent/drink/coffee = 6, /datum/reagent/drink/syrup_pumpkin = 2, /datum/reagent/drink/milk/cream = 2)
 	result_amount = 10
+
+/datum/chemical_reaction/drink/caramel_latte
+	name = "Caramel latte"
+	id = "caramellatte"
+	result = /datum/reagent/drink/coffee/latte/caramel
+	required_reagents = list(/datum/reagent/drink/coffee/latte = 4, /datum/reagent/drink/syrup_caramel = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/drink/mocha_latte
+	name = "Mocha latte"
+	id = "mochalatte"
+	result = /datum/reagent/drink/coffee/latte/mocha
+	required_reagents = list(/datum/reagent/drink/coffee/latte = 4, /datum/reagent/drink/syrup_chocolate = 1)
+	result_amount = 5
+
+/datum/chemical_reaction/drink/vanilla_latte
+	name = "Vanilla latte"
+	id = "vanillalatte"
+	result = /datum/reagent/drink/coffee/latte/vanilla
+	required_reagents = list(/datum/reagent/drink/coffee/latte = 4, /datum/reagent/drink/syrup_vanilla = 1)
+	result_amount = 5
 
 //Skrell drinks. Bring forth the culture.
 //===========================================
@@ -3580,3 +3601,56 @@
 	result = /datum/reagent/gunpowder
 	result_amount = 1
 	required_reagents = list(/datum/reagent/sulfur = 1, /datum/reagent/carbon = 1, /datum/reagent/potassium = 1)
+
+//Coffee expansion
+//=======================
+/datum/chemical_reaction/caramelisation
+	name = "Caramelised Sugar"
+	result = /datum/reagent/nutriment/caramel
+	required_reagents = list(/datum/reagent/sugar = 1)
+	result_amount = 1
+	required_temperatures_min = list(/datum/reagent/sugar = T0C + 82) // no maximum! i mean technically it should burn at some point but ehh
+	mix_message = "The sugar melts into a sticky, brown liquid."
+
+/datum/chemical_reaction/caramelsauce
+	name = "Caramel Sauce"
+	id = "caramelsauce"
+	result = /datum/reagent/drink/caramel
+	required_reagents = list(/datum/reagent/nutriment/caramel = 2, /datum/reagent/drink/milk/cream = 1, /datum/reagent/drink/syrup_simple = 2)
+	result_amount = 5
+	mix_message = "The solution thickens into a glossy, brown sauce."
+	required_temperatures_max = list(/datum/reagent/nutriment/caramel = T0C + 82) // You don't want the syrup to crystallise/caramelise; that'd just make more caramel...
+
+/datum/chemical_reaction/simplesyrup
+	name = "Simple Syrup"
+	id = "simplesyrup"
+	result = /datum/reagent/drink/syrup_simple
+	required_reagents = list(/datum/reagent/sugar = 2, /datum/reagent/water = 2) // simple syrup, the sugar dissolves and doesn't change the volume too much
+	result_amount = 2
+	required_temperatures_min = list(/datum/reagent/sugar = T0C + 30, /datum/reagent/water = T0C + 30)
+	required_temperatures_max = list(/datum/reagent/sugar = T0C + 82, /datum/reagent/water = T0C + 100) // Sugar caramelises after 82C, water boils at 100C.
+	mix_message = "The sugar dissolves into the solution."
+
+/datum/chemical_reaction/caramelsyrup
+	name = "Caramel Syrup"
+	id = "caramelsyrup"
+	result = /datum/reagent/drink/syrup_caramel
+	required_reagents = list(/datum/reagent/nutriment/caramel = 2, /datum/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+	mix_message = "The solution takes on a light brown hue and the aroma of caramel."
+
+/datum/chemical_reaction/chocosyrup
+	name = "Chocolate Syrup"
+	id = "chocolatesyrup"
+	result = /datum/reagent/drink/syrup_chocolate
+	required_reagents = list(/datum/reagent/nutriment/coco = 2, /datum/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+	mix_message = "The solution takes on a brown hue and the aroma of chocolate."
+
+/datum/chemical_reaction/pumpkinsyrup
+	name = "Pumpkin Spice Syrup"
+	id = "pumpkinsyrup"
+	result = /datum/reagent/drink/syrup_pumpkin
+	required_reagents = list(/datum/reagent/spacespice/pumpkinspice = 2, /datum/reagent/drink/syrup_simple = 3)
+	result_amount = 5
+	mix_message = "The solution takes on an orange hue and the aroma of pumpkin spice."

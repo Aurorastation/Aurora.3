@@ -256,6 +256,22 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
+"aaz" = (
+/obj/structure/closet/secure_closet{
+	req_access = list(150)
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1337;
+	id_tag = "burglar_shuttle";
+	name = "airlock controller";
+	pixel_x = 23;
+	pixel_y = -8;
+	tag_door = "burglar_shuttle_hatch"
+	},
+/obj/item/storage/secure/briefcase,
+/obj/item/storage/briefcase/aluminium,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/burglar)
 "aaA" = (
 /obj/item/stool/padded,
 /turf/unsimulated/floor{
@@ -279,6 +295,43 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/merchant_station)
+"aaD" = (
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "burglar_blast";
+	name = "blast door"
+	},
+/obj/machinery/door/airlock/hatch{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "burglar_shuttle_hatch";
+	locked = 1;
+	req_access = list(150)
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "burglar_blast";
+	layer = 3;
+	name = "blast door";
+	pixel_y = -21;
+	req_access = list(150)
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/burglar)
+"aaE" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1337;
+	id_tag = "burglar_hideout";
+	name = "hangar controller";
+	pixel_x = -1;
+	pixel_y = 26;
+	tag_door = "burglar_hideout_hatch"
+	},
+/turf/unsimulated/floor{
+	dir = 4;
+	icon_state = "ramptop"
+	},
+/area/antag/burglar)
 "aaM" = (
 /turf/template_noop,
 /area/template_noop)
@@ -13452,22 +13505,6 @@
 	},
 /area/tdome/tdomeobserve)
 "aTC" = (
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -13475,7 +13512,22 @@
 /area/tdome)
 "aTD" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -18431,29 +18483,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/distress_prep)
-"egD" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	id = "burglar_blast";
-	name = "blast door"
-	},
-/obj/machinery/door/airlock/hatch{
-	frequency = 1331;
-	icon_state = "door_locked";
-	id_tag = "burglar_shuttle_hatch";
-	locked = 1;
-	req_access = list(150)
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "burglar_blast";
-	layer = 3;
-	name = "blast door";
-	pixel_y = -21;
-	req_access = list(150)
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/burglar)
 "eit" = (
 /obj/structure/bed/chair/office/bridge/pilot,
 /obj/structure/extinguisher_cabinet{
@@ -28039,20 +28068,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
-"mzx" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1331;
-	id_tag = "burglar_hideout";
-	name = "hangar controller";
-	pixel_x = -1;
-	pixel_y = 26;
-	tag_door = "burglar_hideout_hatch"
-	},
-/turf/unsimulated/floor{
-	dir = 4;
-	icon_state = "ramptop"
-	},
-/area/antag/burglar)
 "mAd" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1337;
@@ -28938,22 +28953,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
-"nlb" = (
-/obj/structure/closet/secure_closet{
-	req_access = list(150)
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1331;
-	id_tag = "burglar_shuttle";
-	name = "airlock controller";
-	pixel_x = 23;
-	pixel_y = -8;
-	tag_door = "burglar_shuttle_hatch"
-	},
-/obj/item/storage/secure/briefcase,
-/obj/item/storage/briefcase/aluminium,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/burglar)
 "nlp" = (
 /obj/machinery/computer/shuttle_control{
 	req_access = list(38);
@@ -30900,9 +30899,6 @@
 /area/shuttle/administration)
 "paU" = (
 /obj/structure/table/reinforced,
-/obj/machinery/microwave{
-	pixel_y = 4
-	},
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
@@ -37216,7 +37212,7 @@
 	desc = "A polaroid camera. This one has 'Kismet' scribled into the casing."
 	},
 /obj/item/device/camera{
-	desc = "A polaroid camera. This one has 'Kismet' scribled into the casing."
+	desc = "A polaroid camera. This one has 'Petr' scribled into the casing."
 	},
 /obj/item/device/flashlight/lamp{
 	pixel_x = 3;
@@ -56572,7 +56568,7 @@ xVl
 xVl
 xVl
 xVl
-mzx
+aaE
 xVl
 dPn
 fkb
@@ -57852,7 +57848,7 @@ rZt
 huB
 twH
 wCa
-nlb
+aaz
 fAY
 teP
 qlg
@@ -58110,7 +58106,7 @@ lPX
 rtH
 jbu
 wLg
-egD
+aaD
 xUR
 kBQ
 ucV
@@ -72010,7 +72006,7 @@ aSp
 aTe
 aTe
 aTe
-aTC
+aTe
 aSp
 aTQ
 aTV
@@ -72524,7 +72520,7 @@ aSZ
 aTe
 aTe
 aTe
-aTD
+aTC
 aSp
 aTQ
 aTV

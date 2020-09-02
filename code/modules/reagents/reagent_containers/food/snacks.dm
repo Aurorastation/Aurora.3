@@ -13,7 +13,7 @@
 	var/dry = 0
 	var/datum/reagent/nutriment/coating/coating = null
 	var/icon/flat_icon = null //Used to cache a flat icon generated from dipping in batter. This is used again to make the cooked-batter-overlay
-	var/do_coating_prefix = 1
+	var/do_coating_prefix = TRUE
 	//If 0, we wont do "battered thing" or similar prefixes. Mainly for recipes that include batter but have a special name
 
 	var/cooked_icon = null
@@ -24,8 +24,20 @@
 	//Placeholder for effect that trigger on eating that aren't tied to reagents.
 	var/flavor = null // set_flavor()
 
+/obj/item/reagent_containers/food/snacks/proc/on_dry(var/newloc)
+	if(dried_type == type)
+		name = "dried [name]"
+		color = "#AAAAAA"
+		dry = TRUE
+		if(newloc)
+			forceMove(newloc)
+		return TRUE
+	new dried_type(newloc || src.loc)
+	qdel(src)
+	return TRUE
+
 /obj/item/reagent_containers/food/snacks/standard_splash_mob(var/mob/user, var/mob/target)
-	return 1 //Returning 1 will cancel everything else in a long line of things it should do.
+	return TRUE //Returning TRUE will cancel everything else in a long line of things it should do.
 
 /obj/item/reagent_containers/food/snacks/attack_self(mob/user as mob)
 	return
@@ -124,7 +136,11 @@
 	if(!..(user, 1))
 		return
 	if(name != initial(name))
-		to_chat(user, SPAN_NOTICE("You know the item as [initial(name)], however a little piece of propped up paper indicates it's \a [name]."))
+		if(istype(src, /obj/item/reagent_containers/food/snacks/grown))
+			var/obj/item/reagent_containers/food/snacks/grown/G = src
+			to_chat(user, SPAN_NOTICE("You know the item as [G.seed.seed_name], but a little piece of propped-up paper indicates it's \a [name]."))
+		else
+			to_chat(user, SPAN_NOTICE("You know the item as [initial(name)], but a little piece of propped-up paper indicates it's \a [name]."))
 	if (coating)
 		to_chat(user, SPAN_NOTICE("It's coated in [coating.name]!"))
 	if (bitecount==0)
@@ -144,14 +160,14 @@
 		if(selection == "Name")
 			var/input_clean_name = sanitize(input(user,"What is the name of this food?", "Set Food Name") as text|null, MAX_LNAME_LEN)
 			if(input_clean_name)
-				user.visible_message(SPAN_NOTICE("\The [user] labels \the [name] as \"[input_clean_name]\"."))
+				user.visible_message(SPAN_NOTICE("\The [user] labels [src] as \"[input_clean_name]\"."))
 				name = input_clean_name
 			else
 				name = initial(name)
 		else if(selection == "Description")
 			var/input_clean_desc = sanitize(input(user,"What is the description of this food?", "Set Food Description") as text|null, MAX_MESSAGE_LEN)
 			if(input_clean_desc)
-				user.visible_message(SPAN_NOTICE("\The [user] adds a note to \the [name]."))
+				user.visible_message(SPAN_NOTICE("\The [user] adds a note to [src]."))
 				desc = input_clean_desc
 			else
 				desc = initial(desc)
@@ -699,10 +715,10 @@
 	reagents_to_add = list(/datum/reagent/nutriment/protein/egg = 3)
 
 /obj/item/reagent_containers/food/snacks/egg/afterattack(obj/O as obj, mob/user as mob, proximity)
-	if(istype(O,/obj/machinery/microwave))
-		return ..()
 	if(!(proximity && O.is_open_container()))
 		return ..()
+	if(istype(O, /obj/item/reagent_containers/cooking_container) && user.a_intent == I_HELP)
+		return ..() // don't crack it into a container on help intent
 	to_chat(user, "You crack \the [src] into \the [O].")
 	reagents.trans_to(O, reagents.total_volume)
 	qdel(src)
@@ -759,6 +775,14 @@
 	filling_color = "#FFDF78"
 	bitesize = 1
 	reagents_to_add = list(/datum/reagent/nutriment/protein/egg = 3, /datum/reagent/sodiumchloride = 1, /datum/reagent/blackpepper = 1)
+
+/obj/item/reagent_containers/food/snacks/friedegg/overeasy
+	name = "over-easy fried egg"
+	desc = "A fried egg, with a touch of salt and pepper. The yolk looks a bit runny."
+
+/obj/item/reagent_containers/food/snacks/friedegg/overeasy/Initialize()
+	reagent_data = list(/datum/reagent/nutriment/protein = list(pick("disgustingly runny egg yolk", "slimy egg yolk", "gooey eggs", "near-raw runny eggs") = 3))
+	. = ..()
 
 /obj/item/reagent_containers/food/snacks/boiledegg
 	name = "boiled egg"
@@ -892,6 +916,7 @@
 	reagents_to_add = list(/datum/reagent/nutriment/protein = 6, /datum/reagent/nutriment/coating/batter = 1.7, /datum/reagent/nutriment/triglyceride/oil = 1.5)
 
 /obj/item/reagent_containers/food/snacks/sausage/battered/Initialize()
+	. = ..()
 	coating = reagents.get_reagent(/datum/reagent/nutriment/coating/batter)
 
 /obj/item/reagent_containers/food/snacks/jalapeno_poppers
@@ -906,6 +931,7 @@
 	bitesize = 1
 
 /obj/item/reagent_containers/food/snacks/jalapeno_poppers/Initialize()
+	. = ..()
 	coating = reagents.get_reagent(/datum/reagent/nutriment/coating/batter)
 
 /obj/item/reagent_containers/food/snacks/donkpocket
@@ -1134,7 +1160,7 @@
 	desc = "Mmm, waffles."
 	icon_state = "waffles"
 	trash = /obj/item/trash/waffles
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 	filling_color = "#E6DEB5"
 	center_of_mass = list("x"=15, "y"=11)
 	reagents_to_add = list(/datum/reagent/nutriment = 8)
@@ -1157,7 +1183,7 @@
 	desc = "Simple pressed soy wafers."
 	icon_state = "soylent_yellow"
 	trash = /obj/item/trash/waffles
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 	filling_color = "#E6FA61"
 	center_of_mass = list("x"=15, "y"=11)
 	reagents_to_add = list(/datum/reagent/nutriment = 10)
@@ -1861,7 +1887,7 @@
 	desc = "Waffles from Roffle. Co."
 	icon_state = "rofflewaffles"
 	trash = /obj/item/trash/waffles
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 	filling_color = "#FF00F7"
 	center_of_mass = list("x"=15, "y"=11)
 	reagents_to_add = list(/datum/reagent/nutriment = 8, /datum/reagent/psilocybin = 8)
@@ -2139,7 +2165,7 @@
 	. = ..()
 	if(prob(10))
 		name = "exceptional plump helmet biscuit"
-		desc = "Microwave is taken by a fey mood! It has cooked an exceptional plump helmet biscuit!"
+		desc = "The chef is taken by a fey mood! It has cooked an exceptional plump helmet biscuit!"
 		reagents.add_reagent(/datum/reagent/nutriment, 8)
 		reagents.add_reagent(/datum/reagent/tricordrazine, 5)
 
@@ -2320,7 +2346,7 @@
 	icon_state = "chilicheesefries"
 	trash = /obj/item/trash/plate
 	filling_color = "#EDDD00"
-	center_of_mass = list("x"=16, "y"=11)
+	center_of_mass = list("x"=18, "y"=14)
 	reagents_to_add = list(/datum/reagent/nutriment = 8, /datum/reagent/nutriment/protein = 2, /datum/reagent/capsaicin = 2)
 	reagent_data = list(/datum/reagent/nutriment = list("fresh fries" = 4, "cheese" = 2, "chilli peppers" = 2))
 	bitesize = 4
@@ -2773,6 +2799,7 @@
 	name = "cheese wedge"
 	desc = "A wedge of delicious Cheddar. The cheese wheel it was cut from can't have gone far."
 	icon_state = "cheesewedge"
+	ingredient_name = "cheese"
 	filling_color = "#FFF700"
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=10)
@@ -3592,7 +3619,7 @@
 
 /obj/item/reagent_containers/food/snacks/skrellsnacks
 	name = "\improper SkrellSnax"
-	desc = "Cured fungus shipped all the way from Jargon 4, almost like jerky! Almost."
+	desc = "Cured eki shipped all the way from Jargon 4, almost like jerky! Almost."
 	icon_state = "skrellsnacks"
 	trash = /obj/item/trash/skrellsnacks
 	filling_color = "#A66829"
@@ -3600,6 +3627,69 @@
 	reagents_to_add = list(/datum/reagent/nutriment/synthetic = 10)
 	reagent_data = list(/datum/reagent/nutriment/synthetic = list("alien fungus" = 10))
 	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/squidmeat
+	name = "squid meat"
+	desc = "Soylent squid is (not) people!"
+	icon_state = "squidmeat"
+	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 3)
+
+/obj/item/reagent_containers/food/snacks/squidmeat/attackby(var/obj/item/W, var/mob/user)
+	if(is_sharp(W) && (locate(/obj/structure/table) in loc))
+		var/transfer_amt = Floor(reagents.total_volume/3)
+		for(var/i = 1 to 3)
+			var/obj/item/reagent_containers/food/snacks/sashimi/sashimi = new(get_turf(src), "squid")
+			reagents.trans_to(sashimi, transfer_amt)
+
+/obj/item/reagent_containers/food/snacks/lortl
+	name = "lortl"
+	desc = "Dehydrated and salted q'lort slices, a very common Skrellian snack."
+	icon = 'icons/obj/hydroponics_misc.dmi'
+	filling_color = "#B7D6BF"
+	bitesize = 2
+	reagents_to_add = list(/datum/reagent/nutriment = 2, /datum/reagent/sodiumchloride = 2)
+	reagent_data = list(/datum/reagent/nutriment = list("dried fruit" = 2))
+
+/obj/item/reagent_containers/food/snacks/lortl/Initialize()
+	. = ..()
+	if(!fruit_icon_cache["rind-#B1E4BE"])
+		var/image/I = image(icon,"fruit_rind")
+		I.color = "#B1E4BE"
+		fruit_icon_cache["rind-#B1E4BE"] = I
+	add_overlay(fruit_icon_cache["rind-#B1E4BE"])
+	if(!fruit_icon_cache["slice-#B1E4BE"])
+		var/image/I = image(icon,"fruit_slice")
+		I.color = "#9FE4B0"
+		fruit_icon_cache["slice-#B1E4BE"] = I
+	add_overlay(fruit_icon_cache["slice-#B1E4BE"])
+
+/obj/item/reagent_containers/food/snacks/soup/qilvo
+	name = "qilvo"
+	desc = "Qilvo is a hot chowder made with algaes, sea grass, and mollusc meat. A beloved dish on Aliose."
+	icon_state = "qilvo"
+	filling_color = "#CFBA76"
+	bitesize = 4
+	reagents_to_add = list(/datum/reagent/nutriment = 5, /datum/reagent/nutriment/protein/seafood = 3, /datum/reagent/water = 5, /datum/reagent/drink/milk/cream = 3)
+	reagent_data = list(/datum/reagent/nutriment = list("cream" = 3, "seaweed" = 2))
+
+/obj/item/reagent_containers/food/snacks/soup/zantiri
+	name = "zantiri"
+	desc = "A soupy mush comprised of guami and eki, two plants native to Qerrbalak. In a bowl, it looks not unlike staring into a starry sky."
+	icon_state = "zantiri"
+	filling_color = "#141452"
+	bitesize = 5
+	reagents_to_add = list(/datum/reagent/nutriment = 8, /datum/reagent/water = 6)
+	reagent_data = list(/datum/reagent/nutriment = list("inky mush" = 5, "crunchy lichen" = 3))
+
+/obj/item/reagent_containers/food/snacks/xuqqil
+	name = "xuq'qil"
+	desc = "A large mushroom cap stuffed with cheese and crab meat."
+	icon_state = "xuqqil"
+	filling_color = "#833D67"
+	center_of_mass = list("x"=16, "y"=13)
+	reagents_to_add = list(/datum/reagent/nutriment = 4, /datum/reagent/nutriment/protein/cheese = 3, /datum/reagent/nutriment/protein/seafood = 3)
+	reagent_data = list(/datum/reagent/nutriment = list("mushroom" = 4))
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/friedkois
 	name = "fried k'ois"
@@ -3675,7 +3765,7 @@
 	desc = "Rock-hard 'waffles' composed entirely of microwaved K'ois goop."
 	icon_state = "koiswaffles"
 	trash = /obj/item/trash/waffles
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 	filling_color = "#E6E600"
 	bitesize = 5
 	reagents_to_add = list(/datum/reagent/kois = 25, /datum/reagent/toxin/phoron = 15)
@@ -3742,7 +3832,7 @@
 	desc = "Favorite of cats."
 	icon_state = "lasagna"
 	trash = /obj/item/trash/grease
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 	center_of_mass = list("x"=16, "y"=17)
 
 	reagents_to_add = list(/datum/reagent/nutriment = 12, /datum/reagent/nutriment/protein = 12)
@@ -3757,17 +3847,6 @@
 	reagents_to_add = list(/datum/reagent/nutriment = 5, /datum/reagent/nutriment/protein = 4)
 	reagent_data = list(/datum/reagent/nutriment = list("dough" = 4, "cabbage" = 2))
 	bitesize = 3
-
-/obj/item/reagent_containers/food/snacks/sashimi
-	name = "sashimi"
-	desc = "A traditional human dish."
-	icon_state = "sashimi"
-	trash = /obj/item/trash/grease
-	drop_sound = 'sound/items/trayhit1.ogg'
-	filling_color = "#FFDEFE"
-	center_of_mass = list("x"=17, "y"=13)
-	bitesize = 4
-	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 3)
 
 /obj/item/reagent_containers/food/snacks/nugget
 	name = "chicken nugget"
@@ -4067,14 +4146,6 @@
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=16)
 
-/obj/item/reagent_containers/food/snacks/bacon/microwave
-	name = "microwaved bacon"
-	desc = "A tasty meat slice. You don't see any pigs on this station, do you?"
-	icon = 'icons/obj/food_ingredients.dmi'
-	icon_state = "bacon"
-	bitesize = 2
-	center_of_mass = list("x"=16, "y"=16)
-
 /obj/item/reagent_containers/food/snacks/bacon/oven
 	name = "oven-cooked bacon"
 	desc = "A tasty meat slice. You don't see any pigs on this station, do you?"
@@ -4083,6 +4154,13 @@
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=16)
 	reagents_to_add = list(/datum/reagent/nutriment/protein = 0.33, /datum/reagent/nutriment/triglyceride = 1)
+
+/obj/item/reagent_containers/food/snacks/bacon/pan
+	name = "pan-cooked bacon"
+	desc = "A tasty meat slice. You don't see any pigs on this station, do you?"
+	icon = 'icons/obj/food_ingredients.dmi'
+	icon_state = "bacon"
+	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/chilied_eggs
 	name = "chilied eggs"
@@ -4179,7 +4257,7 @@
 	icon_state = "marge"
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=16)
-	reagents_to_add = list(/datum/reagent/nutriment = 0, /datum/reagent/nutriment/triglyceride = 20, /datum/reagent/sodiumchloride = 1)
+	reagents_to_add = list(/datum/reagent/nutriment/triglyceride = 20, /datum/reagent/sodiumchloride = 1)
 	reagent_data = list(/datum/reagent/nutriment = list("butter" = 1))
 
 /obj/item/reagent_containers/food/snacks/bacon_stick
@@ -4221,7 +4299,7 @@
 	name = "chocolate truffle"
 	desc = "Rich bite-sized chocolate."
 	icon_state = "truffle"
-	reagents_to_add = list(/datum/reagent/nutriment = 0, /datum/reagent/nutriment/coco = 6)
+	reagents_to_add = list(/datum/reagent/nutriment/coco = 6)
 	bitesize = 4
 
 /obj/item/reagent_containers/food/snacks/truffle/random
@@ -4317,7 +4395,7 @@
 	icon_state = "clam"
 	bitesize = 2
 	desc_fluff = "Fishing and shellfish has a part in the diet of the population at the coastal areas, even if the ice can be an obstacle to most experienced fisherman. \
-	Spicy Ras'val clams, named after the sea, are a famous treat, being appreciated in other system besides S'rand'marr."
+	Spicy Ras'val clams, named after the sea, are a famous treat, being appreciated in other systems besides S'rand'marr."
 	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 2)
 
 /obj/item/reagent_containers/food/snacks/spicy_clams
@@ -4368,6 +4446,41 @@
 	desc_fluff = "While the People's republic territory includes several different regional cultures, it is possible to find common culinary traditions among its population. \
 	Salt-cured Fatshouters's meat also has been introduced widely, facilitated by the recent advances in the livestock husbandry techniques."
 	reagents_to_add = list(/datum/reagent/nutriment/protein = 5, /datum/reagent/sodiumchloride = 2)
+
+/obj/item/reagent_containers/food/snacks/nomadskewer
+	name = "nomad skewer"
+	icon_state = "kabob"
+	desc = "Fatshouter meat on a stick, served with flora native to Adhomai."
+	trash = /obj/item/stack/rods
+	filling_color = "#FFFEE0"
+	center_of_mass = list("x"=17, "y"=15)
+	bitesize = 2
+	reagent_data = list(/datum/reagent/nutriment = list("oily berries" = 8))
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 4, /datum/reagent/nutriment = 8, /datum/reagent/nutriment/triglyceride/oil = 3, /datum/reagent/sugar = 3, /datum/reagent/drink/earthenrootjuice = 6)
+
+/obj/item/reagent_containers/food/snacks/adhomian_sausage
+	name = "fatshouters bloodpudding"
+	desc = "A mixture of fatshouters meat, offal, blood and blizzard ears flour."
+	icon_state = "adhomian_sausage"
+	filling_color = "#DB0000"
+	bitesize = 2
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 12)
+
+/obj/item/reagent_containers/food/snacks/hmatrrameat
+	name = "Hma'trra fillet"
+	desc = "A fillet of glacier worm meat."
+	icon_state = "fishfillet"
+	filling_color = "#FFDEFE"
+	bitesize = 6
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 6)
+
+/obj/item/reagent_containers/food/snacks/fermented_worm
+	name = "fermented hma'trra"
+	desc = "A larged piece of fermented glacier worm meat."
+	icon_state = "fermented_worm"
+	filling_color = "#DB0000"
+	bitesize = 4
+	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 20, /datum/reagent/ammonia = 10)
 
 /obj/item/reagent_containers/food/snacks/onionrings
 	name = "onion rings"
