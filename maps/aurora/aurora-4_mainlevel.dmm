@@ -21702,10 +21702,16 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/flora/pottedplant{
-	desc = "A tag with the name 'Harvey, Ph.D.' has been taped to the rim of this strange fern's plant pot.";
-	icon_state = "plant-35";
-	name = "Harvey"
+/mob/living/simple_animal/hostile/commanded/baby_harvester,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/rdoffice)
@@ -67560,6 +67566,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"vyK" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/flora/pottedplant{
+	desc = "A tag with the name 'Harvey, Ph.D.' has been taped to the rim of this strange fern's plant pot.";
+	icon_state = "plant-35";
+	name = "Harvey"
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/rdoffice)
 "vyU" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/window/northleft{
@@ -90111,7 +90126,7 @@ bwW
 byA
 bzI
 bAH
-bAG
+vyK
 bCv
 bvS
 akh
