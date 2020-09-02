@@ -57,6 +57,7 @@ changes:
   - rscadd: "You can smack people with (empty) frying pans on harm intent."
   - rscdel: "Microwaves have been removed."
   - rscdel: "Oil no longer uses a data-based temperature system; instead it works like any other reagent."
+  - rscdel: "Sandwiches can no longer contain glass shards, in preparation for an upcoming rework/expansion."
   - tweak: "A lot of recipes have changed."
   - tweak: "Appliances can now hold multiple types of cooking containers; this is currently only used by the stove."
   - tweak: "Appliances now heat reagents in cooking containers."
