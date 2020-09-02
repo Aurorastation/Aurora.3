@@ -37,16 +37,20 @@
 /mob/living/heavy_vehicle/premade/proc/add_parts()
 	if(!head && e_head)
 		head = new e_head(src)
-		head.color = e_color
+		if(e_color)
+			head.color = e_color
 	if(!body && e_body)
 		body = new e_body(src)
-		body.color = e_color
+		if(e_color)
+			body.color = e_color
 	if(!arms && e_arms)
 		arms = new e_arms(src)
-		arms.color = e_color
+		if(e_color)
+			arms.color = e_color
 	if(!legs && e_arms)
 		legs = new e_legs(src)
-		legs.color = e_color
+		if(e_color)
+			legs.color = e_color
 
 /mob/living/heavy_vehicle/premade/proc/do_decals()
 	if(arms)

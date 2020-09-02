@@ -18,11 +18,6 @@
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
-/obj/item/clothing/head/pin/pink
-	icon_state = "pinkpin"
-	item_state = "pinkpin"
-	name = "pink hair pin"
-
 /obj/item/clothing/head/pin/clover
 	icon_state = "cloverpin"
 	item_state = "cloverpin"
@@ -91,15 +86,11 @@
 	desc = "A ribbon tied into a bow with a clip on the back to attach to hair."
 	item_state_slots = list(slot_r_hand_str = "pill", slot_l_hand_str = "pill")
 
-/obj/item/clothing/head/pin/bow/big
-	icon_state = "whiteribbon"
-	item_state = "whiteribbon"
-	name = "ribbon"
-
-/obj/item/clothing/head/pin/bow/big/red
-	icon_state = "redribbon"
-	item_state = "redribbon"
-	name = "red ribbon"
+/obj/item/clothing/head/pin/bow/hairband
+	icon_state = "hairribbon"
+	item_state = "hairribbon"
+	name = "hair ribbon"
+	desc = "A glorified length of ribbon acting as a hairband."
 
 /obj/item/clothing/head/powdered_wig
 	name = "powdered wig"
@@ -443,13 +434,6 @@
 	desc = "A head-hugging brimless winter cap. This one is tight."
 	icon_state = "beanie"
 	item_state = "beanie"
-
-/obj/item/clothing/head/beanie_loose
-	name = "loose beanie"
-	desc = "A head-hugging brimless winter cap. This one is loose."
-	icon_state = "beanie_hang"
-	item_state = "beanie"
-
 //Flower crowns
 
 /obj/item/clothing/head/sunflower_crown
