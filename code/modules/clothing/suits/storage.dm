@@ -47,6 +47,9 @@
 	if(use_check_and_message(usr))
 		return 0
 
+	toggle_open()
+
+/obj/item/clothing/suit/storage/toggle/proc/toggle_open()
 	opened = !opened
 	to_chat(usr, "You [opened ? "unbutton" : "button up"] \the [src].")
 	playsound(src, /decl/sound_category/rustle_sound, EQUIP_SOUND_VOLUME, TRUE)

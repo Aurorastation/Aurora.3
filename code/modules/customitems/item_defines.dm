@@ -2199,27 +2199,42 @@ All custom items with worn sprites must follow the contained sprite system: http
 		graduation.</font> - <font face='Times New Roman'>Teremun A. M.</font></i></small>"))
 		return
 
+/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/toggle_open()
+	if(!changing)
+		opened = !opened
+		to_chat(usr, "You [opened ? "unbutton" : "button up"] \the [src].")
+		playsound(src, /decl/sound_category/rustle_sound, EQUIP_SOUND_VOLUME, TRUE)
+		icon_state = "mekesatis_[changed ? "holocoat" : "labcoat"][opened ? "_open" : ""]"
+		item_state = icon_state
+		update_clothing_icon()
+
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/verb/activate_holocoat()
 	set name = "Toggle Holocoat"
 	set category = "Object"
 	set src in usr
 
-	if(use_check_and_message(usr) || changing)
+	if(use_check_and_message(usr))
 		return
 
-	if(!changed)
-		usr.visible_message("<span class='notice'>With a subtle gesture, [changed ? "the holocoat fades to a normal labcoat." : "the labcoat flickers in activity!"]</span>")
-		icon_state = "mekesatis_[changed ? "labcoat" : "holocoat"]_t[opened ? "_open" : ""]"
-		item_state = icon_state
+	if(changing)
+		return
 
+	usr.visible_message("<span class='notice'>With a subtle gesture, [changed ? "the holocoat fades to a normal labcoat." : "the labcoat flickers in activity!"]</span>")
+	icon_state = "mekesatis_[changed ? "labcoat_r" : "holocoat_t"][opened ? "_open" : ""]"
+	item_state = icon_state
+	flick("mekesatis_[changed ? "labcoat_r" : "holocoat_t"][opened ? "_open" : ""]", src)
+
+	update_icon()
 	usr.update_inv_wear_suit()
 	changing = TRUE
 	addtimer(CALLBACK(src, .proc/finish_toggle, usr), 10 SECONDS)
 
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/proc/finish_toggle(mob/user)
-	icon_state = "mekesatis_[changed ? "labcoat" : "holocoat"][opened ? "_open" : ""]"
-	user.update_inv_wear_suit()
 	changed = !changed
+	icon_state = "mekesatis_[changed ? "holocoat" : "labcoat"][opened ? "_open" : ""]"
+	item_state = icon_state
+	update_icon()
+	user.update_inv_wear_suit()
 	changing = FALSE
 
 /obj/item/device/megaphone/fluff/akinyi_mic //Resonance Microphone - Akinyi Idowu - kyres1
