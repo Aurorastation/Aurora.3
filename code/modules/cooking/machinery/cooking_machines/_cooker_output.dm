@@ -20,6 +20,7 @@
 		reagents.maximum_volume = size*8 + 10
 	else
 		create_reagents(size*8 + 10)
+	update_icon()
 
 /obj/item/reagent_containers/food/snacks/variable/update_icon()
 	if (reagents && reagents.total_volume)
@@ -139,7 +140,6 @@
 	desc = "All your friends will be jelly."
 	icon_state = "jellycustom"
 	size = 8
-
 
 /obj/item/reagent_containers/food/snacks/variable/cereal
 	name = "cereal"

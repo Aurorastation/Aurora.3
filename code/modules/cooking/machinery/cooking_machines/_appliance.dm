@@ -504,7 +504,11 @@
 		if (CI.container)
 			var/current_iteration_len = length(menuoptions) + 1
 			menuoptions[CI.container.label(current_iteration_len)] = CI
-			choices[CI.container.label(current_iteration_len)] = image(CI.container.icon, icon_state = CI.container.icon_state)
+			var/obj/item/icon_to_use = CI.container
+			if(CI.container.contents.len == 1)
+				var/obj/item/I = locate() in CI.container.contents
+				icon_to_use = I
+			choices[CI.container.label(current_iteration_len)] = icon_to_use
 
 	var/selection = show_radial_menu(user, src, choices, require_near = TRUE, tooltips = TRUE, no_repeat_close = TRUE)
 	if (selection)
@@ -564,12 +568,21 @@
 		result.kitchen_tag = SA.kitchen_tag
 		if (SA.meat_amount)
 			reagent_amount = SA.meat_amount*9 // at a rate of 9 protein per meat
-	result.reagents.add_reagent(victim.get_digestion_product(), reagent_amount)
+	var/datum/reagent/digest_product = victim.get_digestion_product()
+	var/list/data
+	var/meat_name = result.kitchen_tag || victim.name
+	if(ishuman(victim))
+		var/mob/living/carbon/human/CH = victim
+		meat_name = CH.species?.name || meat_name
+	if(istype(digest_product, /datum/reagent/nutriment/protein))
+		data = list("[meat_name] meat" = reagent_amount)
+	result.reagents.add_reagent(victim.get_digestion_product(), reagent_amount, data)
 
 	if (victim.reagents)
 		victim.reagents.trans_to(result, victim.reagents.total_volume)
 
 	result.appearance = victim
+	result.size = result.reagents.total_volume // so taking a bite doesn't suddenly make it HUGE
 
 	var/matrix/M = matrix()
 	M.Turn(45)
