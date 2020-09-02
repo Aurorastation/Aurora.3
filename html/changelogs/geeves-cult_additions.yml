@@ -1,7 +1,0 @@
-author: Code by Geeves, Sprites by Kyres
-
-delete-after: True
-
-changes: 
-  - tweak: "Reduced the damage cult swords do, 25 down from 30."
-  - backend: "Added some adminspawn cult things."
