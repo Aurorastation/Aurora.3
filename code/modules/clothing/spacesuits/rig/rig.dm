@@ -356,7 +356,7 @@
 				electrified = 0
 			if(!offline)
 				if(istype(wearer))
-					playsound(src, 'sound/items/rig/rig_shutdown.ogg', 20, FALSE)
+					playsound(src, 'sound/machines/rig/rig_shutdown.ogg', 20, FALSE)
 					if(!canremove)
 						if (offline_slowdown < 3)
 							to_chat(wearer, "<span class='danger'>Your suit beeps stridently, and suddenly goes dead.</span>")
