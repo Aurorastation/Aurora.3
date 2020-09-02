@@ -531,7 +531,7 @@
 
 	glass_icon_state = "iceglass"
 	glass_name = "glass of sugar"
-	glass_desc = "The organic compound commonly known as table sugar and sometimes called saccharose. This white, odorless, crystalline powder has a pleasing, sweet taste."
+	glass_desc = "You can feel your blood sugar rising just looking at this."
 
 	fallback_specific_heat = 0.332
 	condiment_name = "sugar sack"

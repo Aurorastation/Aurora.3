@@ -1,0 +1,68 @@
+################################
+# Example Changelog File
+#
+# Note: This file, and files beginning with ".", and files that don't end in ".yml" will not be read. If you change this file, you will look really dumb.
+#
+# Your changelog will be merged with a master changelog. (New stuff added only, and only on the date entry for the day it was merged.)
+# When it is, any changes listed below will disappear.
+#
+# Valid Prefixes:
+#   bugfix
+#   wip (For works in progress)
+#   tweak
+#   soundadd
+#   sounddel
+#   rscadd (general adding of nice things)
+#   rscdel (general deleting of nice things)
+#   imageadd
+#   imagedel
+#   maptweak
+#   spellcheck (typo fixes)
+#   experiment
+#   balance
+#   admin
+#   backend
+#   security
+#   refactor
+#################################
+
+# Your name.
+author: MoondancerPony
+
+# Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes:
+  - experiment: "Overhauls cooking!"
+  - tweak: "Recipes can now call for sliced, dried, or sliced and dried fruit."
+  - bugfix: "Fixes the issue with plants showing up as labelled with a piece of paper."
+  - bugfix: "Fixes a logic error with condiment bottles."
+  - imageadd: "Adds new sprites for Adhomian plants."
+  - refactor: "Recipes are now spread out across more files."
+  - refactor: "Seed datums are now spread out across more files and categorised."
+  - rscadd: "Adds a new appliance to the kitchen, the stove."
+  - rscadd: "Adds bowls and plates, which can be used to create mixing-based recipes, similar to the microwave. Drag it to yourself to finalise a recipe."
+  - rscadd: "Adds new flavoring syrups, as well as simple syrup."
+  - rscadd: "Adds several new Adhomian foods: Nomad skewers, fatshouter blood pudding, and fermented hma'trra."
+  - rscadd: "Adds several new foods from the Jargon Federation: lortl, xuq'qil, zantiri, and qilvo."
+  - rscadd: "Adds several new kinds of flavored latte."
+  - rscadd: "Adds several new plants from the Jargon Federation: q'lort, guami, eki, and ylpha."
+  - rscadd: "Adds three new cooking containers to the kitchen: skillets, saucepans, and pots. All three can be put on the stove."
+  - rscadd: "Ports sushi from Baystation."
+  - rscadd: "You can smack people with (empty) frying pans on harm intent."
+  - rscdel: "Microwaves have been removed."
+  - rscdel: "Oil no longer uses a data-based temperature system; instead it works like any other reagent."
+  - rscdel: "Sandwiches can no longer contain glass shards, in preparation for an upcoming rework/expansion."
+  - tweak: "A lot of recipes have changed."
+  - tweak: "Appliances can now hold multiple types of cooking containers; this is currently only used by the stove."
+  - tweak: "Appliances now heat reagents in cooking containers."
+  - tweak: "Changes the pumpkin spice latte recipes to use pumpkin spice flavoring syrup."
+  - tweak: "Preheating appliances takes much less time."
+  - tweak: "Toggle the power of appliances and change their temperature with control-click."
+  - tweak: "Tray sounds now get chosen randomly (except for gun jams)."
+  - tweak: "You can now set the temperature of appliances."

@@ -759,8 +759,13 @@
 		/obj/item/material/kitchen/rollingpin = 2,
 		/obj/item/reagent_containers/cooking_container/oven = 5,
 		/obj/item/reagent_containers/cooking_container/fryer = 4,
+		/obj/item/reagent_containers/cooking_container/skillet = 4,
+		/obj/item/reagent_containers/cooking_container/saucepan = 4,
+		/obj/item/reagent_containers/cooking_container/pot = 4,
+		/obj/item/reagent_containers/cooking_container/plate = 3,
+		/obj/item/reagent_containers/cooking_container/plate/bowl = 2,
+		/obj/item/reagent_containers/ladle = 4,
 		/obj/item/storage/toolbox/lunchbox/nt = 6,
-		/obj/item/reagent_containers/glass/beaker/bowl = 4,
 		/obj/item/reagent_containers/glass/rag = 8,
 	)
 	contraband = list(
