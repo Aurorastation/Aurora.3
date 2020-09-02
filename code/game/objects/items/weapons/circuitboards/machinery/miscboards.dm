@@ -95,18 +95,6 @@
 							/obj/item/stock_parts/matter_bin = 1,
 							/obj/item/stock_parts/micro_laser = 2)
 
-/obj/item/circuitboard/microwave
-	name = T_BOARD("microwave")
-	desc = "The circuitboard for a microwave."
-	build_path = /obj/machinery/microwave
-	contain_parts = 0
-	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	board_type = "machine"
-	req_components = list(
-							"/obj/item/stock_parts/capacitor" = 3,
-							"/obj/item/stock_parts/micro_laser" = 1,
-							"/obj/item/stock_parts/matter_bin" = 2)
-
 /obj/item/circuitboard/oven
 	name = T_BOARD("oven")
 	desc = "The circuitboard for an oven."
@@ -122,6 +110,17 @@
 	name = T_BOARD("deep fryer")
 	desc = "The circuitboard for a deep fryer."
 	build_path = /obj/machinery/appliance/cooker/fryer
+	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/stock_parts/capacitor" = 3,
+							"/obj/item/stock_parts/scanning_module" = 1,
+							"/obj/item/stock_parts/matter_bin" = 2)
+
+/obj/item/circuitboard/stove
+	name = T_BOARD("stove")
+	desc = "The circuitboard for a stove."
+	build_path = /obj/machinery/appliance/cooker/stove
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	board_type = "machine"
 	req_components = list(

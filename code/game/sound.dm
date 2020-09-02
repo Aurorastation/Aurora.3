@@ -579,3 +579,8 @@
 		'sound/weapons/bottlehit_broken2.ogg',
 		'sound/weapons/bottlehit_broken3.ogg'
 	)
+/decl/sound_category/tray_hit_sound
+	sounds = list(
+		'sound/items/trayhit1.ogg',
+		'sound/items/trayhit2.ogg'
+	)

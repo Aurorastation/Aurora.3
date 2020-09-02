@@ -41,7 +41,7 @@
 /datum/gear/smoking/cigarettes/New()
 	..()
 	var/cigarettes = list()
-	cigarettes["Lucky Strike cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/rugged
+	cigarettes["Laissez-Faires cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/rugged
 	cigarettes["Trans-Stellar Duty Free cigarette packet"] = /obj/item/storage/box/fancy/cigarettes
 	cigarettes["DromedaryCo cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dromedaryco
 	cigarettes["Nico-Tine cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/nicotine

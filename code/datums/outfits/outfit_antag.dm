@@ -392,8 +392,39 @@
 
 	backpack_contents = null
 
+/datum/outfit/admin/syndicate/cultist
+	name = "Cultist"
+	allow_backbag_choice = FALSE
+
+	head = /obj/item/clothing/head/culthood/alt
+	uniform = /obj/item/clothing/under/serviceoveralls
+	suit = /obj/item/clothing/suit/cultrobes/alt
+	back = /obj/item/storage/backpack/cultpack
+	belt = /obj/item/book/tome
+	gloves = null
+	shoes = /obj/item/clothing/shoes/cult
+	l_ear = null
+	id = null
+	r_pocket = null
+	backpack_contents = null
+
+	r_hand = /obj/item/melee/cultblade
+
+/datum/outfit/admin/syndicate/cultist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	return
+
+/datum/outfit/admin/syndicate/cultist/super
+	name = "Super Cultist"
+
+	head = /obj/item/clothing/head/helmet/space/cult
+	suit = /obj/item/clothing/suit/space/cult
+
+	suit_store = /obj/item/gun/energy/rifle/cult
+	suit_store = /obj/item/gun/energy/rifle/cult
+
 /datum/outfit/admin/golem
 	name = "Bluespace Golem"
 	allow_backbag_choice = FALSE
 
+	l_ear = /obj/item/device/radio/headset/bluespace
 	l_ear = /obj/item/device/radio/headset/bluespace
