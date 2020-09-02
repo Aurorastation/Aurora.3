@@ -189,8 +189,9 @@
 		eye.forceMove(src)
 
 /obj/item/clothing/mask/offworlder
-	name = "pioneer's scarf"
-	desc = "Usually a treasured item, these spider-silk scarves are seen passed down by generations of expeditionaries."
+	name = "scarab scarf"
+	desc = "Usually a treasured item, these spider-silk scarves are seen passed down by generations of Scarabs."
+	desc_fluff = "Scarves like these are passed down from family members as a coming of age ritual, typically given to children to mark them as worthy of setting off on their own."
 	icon_state = "pioneer_scarf"
 	item_flags = FLEXIBLEMATERIAL
 	item_state = "pioneer_scarf"
