@@ -152,7 +152,6 @@
 	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweaterargyleturtleneck
 	sweater["tubeneck sweater"] = /obj/item/clothing/accessory/sweatertubeneck
 	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweaterargyletubeneck
-	sweater["keyhole sweater"] = /obj/item/clothing/accessory/sweaterkeyhole
 	gear_tweaks += new/datum/gear_tweak/path(sweater)
 
 /datum/gear/accessory/dressshirt
@@ -165,9 +164,24 @@
 	path = /obj/item/clothing/accessory/dressshirt_r
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/dressshirt_crop
+	display_name = "cropped dress shirt"
+	path = /obj/item/clothing/accessory/dressshirt_crop
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/dressshirt_crop_r
+	display_name = "cropped dress shirt, rolled up"
+	path = /obj/item/clothing/accessory/dressshirt_crop_r
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/longsleeve
 	display_name = "long-sleeved shirt"
 	path = /obj/item/clothing/accessory/longsleeve
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/blouse
+	display_name = "blouse"
+	path = /obj/item/clothing/accessory/blouse
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/longsleeve_s
@@ -184,6 +198,11 @@
 /datum/gear/accessory/tshirt
 	display_name = "t-shirt"
 	path = /obj/item/clothing/accessory/tshirt
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/tshirt
+	display_name = "cropped t-shirt"
+	path = /obj/item/clothing/accessory/tshirt_crop
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/silversun
