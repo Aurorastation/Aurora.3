@@ -167,12 +167,12 @@
 	if(istype(check) && LAZYISIN(cook_type,check.cooked))
 		to_chat(user, SPAN_WARNING("[check] has already been [cook_type]."))
 		return CANNOT_INSERT
-	else if(istype(check, /obj/item/reagent_containers/glass))
-		to_chat(user, SPAN_WARNING("That would probably break [src]."))
+	else if(istype(I, /obj/item/reagent_containers/glass))
+		to_chat(user, SPAN_WARNING("That would probably break [I]."))
 		return CANNOT_INSERT
 	else if(I.iscrowbar() || I.isscrewdriver() || istype(I, /obj/item/storage/part_replacer))
 		return CANNOT_INSERT
-	else if(!istype(check) && !istype(check, /obj/item/holder))
+	else if(!istype(check) && !istype(I, /obj/item/holder))
 		to_chat(user, SPAN_WARNING("That's not edible."))
 		return CANNOT_INSERT
 	return CAN_INSERT
