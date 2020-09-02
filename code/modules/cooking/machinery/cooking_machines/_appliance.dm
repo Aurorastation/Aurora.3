@@ -18,6 +18,11 @@
 	idle_power_usage = 5			// Power used when turned on, but not processing anything
 	active_power_usage = 1000		// Power used when turned on and actively cooking something
 
+	component_types = list(
+							/obj/item/stock_parts/capacitor = 3,
+							/obj/item/stock_parts/scanning_module = 1,
+							/obj/item/stock_parts/matter_bin = 2)
+
 	var/cooking_power = 0			// Effectiveness/speed at cooking
 	var/cooking_coeff = 0			// Part-based cooking power multiplier
 	var/heating_power = 1000		// Effectiveness at heating up; not used for mixers, should be equal to active_power_usage

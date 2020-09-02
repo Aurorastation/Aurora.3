@@ -45,17 +45,13 @@
 
 /obj/machinery/appliance/cooker/fryer/heat_up()
 	if (..())
-		//Set temperature of oil reagent
-		var/datum/reagent/nutriment/triglyceride/oil/OL = oil.get_master_reagent()
-		if (OL && istype(OL))
-			OL.data["temperature"] = temperature
+		//Set temperature of oil
+		oil.set_temperature(temperature)
 
 /obj/machinery/appliance/cooker/fryer/machinery_process()
 	. = ..()
-	//Set temperature of oil reagent
-	var/datum/reagent/nutriment/triglyceride/oil/OL = oil.get_master_reagent()
-	if (OL && istype(OL))
-		OL.data["temperature"] = temperature
+	//Set temperature of oil
+	oil.set_temperature(temperature)
 
 /obj/machinery/appliance/cooker/fryer/update_cooking_power()
 	..()//In addition to parent temperature calculation
@@ -73,9 +69,7 @@
 			//We're above optimal, efficiency goes down as we pass too much over it
 			oil_efficiency = 1 - (oil_efficiency - 1)
 
-
 	cooking_power *= oil_efficiency
-
 
 /obj/machinery/appliance/cooker/fryer/update_icon()
 	if (cooking)
@@ -86,7 +80,6 @@
 		fry_loop.stop(src)
 	..()
 
-
 //Fryer gradually infuses any cooked food with oil. Moar calories
 //This causes a slow drop in oil levels, encouraging refill after extended use
 /obj/machinery/appliance/cooker/fryer/do_cooking_tick(var/datum/cooking_item/CI)
@@ -95,7 +88,6 @@
 		oil.trans_to_holder(buffer, min(0.5, CI.max_oil - CI.oil))
 		CI.oil += buffer.total_volume
 		CI.container.soak_reagent(buffer)
-
 
 //To solve any odd logic problems with results having oil as part of their compiletime ingredients.
 //Upon finishing a recipe the fryer will analyse any oils in the result, and replace them with our oil
@@ -118,7 +110,6 @@
 					else
 						total_our_oil += R.volume
 
-
 	if (total_removed > 0 || total_oil != CI.max_oil)
 		total_oil = min(total_oil, CI.max_oil)
 
@@ -128,7 +119,6 @@
 			oil.trans_to_holder(buffer, total_oil - total_our_oil)
 			CI.container.soak_reagent(buffer)
 		else if (total_our_oil > total_oil)
-
 			//If we have more than the maximum allowed then we delete some.
 			//This could only happen if one of the objects spawns with the same type of oil as ours
 			var/portion = 1 - (total_oil / total_our_oil) //find the percentage to remove
@@ -139,8 +129,7 @@
 						var/datum/reagent/R = reagent
 						if (istype(R, /datum/reagent/nutriment/triglyceride/oil) && R.type == our_oil.type)
 							I.reagents.remove_reagent(R.type, R.volume*portion)
-
-
+					I.reagents.set_temperature(T0C + 40 + rand(-5, 5)) // warm, but not hot; avoiding aftereffects of the hot oil
 
 /obj/machinery/appliance/cooker/fryer/cook_mob(var/mob/living/victim, var/mob/user)
 
@@ -189,7 +178,6 @@
 			E.take_damage(0, damage, used_weapon = "hot oil")
 		else
 			victim.apply_damage(damage, BURN, user.zone_sel.selecting)
-
 
 		if(!nopain)
 			var/arrows_var1 = E ? E.name : "flesh"

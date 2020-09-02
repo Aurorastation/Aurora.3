@@ -264,9 +264,9 @@
 	..()
 
 /datum/reagent/nutriment/triglyceride/oil
-	//Having this base class incase we want to add more variants of oil
+	//Having this base class in case we want to add more variants of oil
 	name = "Oil"
-	description = "Oils are liquid fats"
+	description = "Oils are liquid fats."
 	reagent_state = LIQUID
 	color = "#c79705"
 	touch_met = 1.5
@@ -277,45 +277,8 @@
 /datum/reagent/nutriment/triglyceride/oil/touch_turf(var/turf/simulated/T)
 	if(!istype(T))
 		return
-
-	/*
-	//Why should oil put out fires? Pondering removing this
-
-	var/hotspot = (locate(/obj/fire) in T)
-	if(hotspot && !istype(T, /turf/space))
-		var/datum/gas_mixture/lowertemp = T.remove_air(T:air:total_moles)
-		lowertemp.temperature = max(min(lowertemp.temperature-2000, lowertemp.temperature / 2), 0)
-		lowertemp.react()
-		T.assume_air(lowertemp)
-		qdel(hotspot)
-	*/
-
 	if(volume >= 3)
 		T.wet_floor(WET_TYPE_LUBE,volume)
-
-/datum/reagent/nutriment/triglyceride/oil/initialize_data(var/newdata) // Called when the reagent is created.
-	..()
-	if (!data)
-		data = list("temperature" = T20C)
-
-//Handles setting the temperature when oils are mixed
-/datum/reagent/nutriment/triglyceride/oil/mix_data(var/newdata, var/newamount)
-
-	if (!data)
-		data = list()
-
-	var/ouramount = volume - newamount
-	if (ouramount <= 0 || !data["temperature"] || !volume)
-		//If we get here, then this reagent has just been created, just copy the temperature exactly
-		data["temperature"] = newdata["temperature"]
-
-	else
-		//Our temperature is set to the mean of the two mixtures, taking volume into account
-		var/total = (data["temperature"] * ouramount) + (newdata["temperature"] * newamount)
-		data["temperature"] = total / volume
-
-	return ..()
-
 
 //Calculates a scaling factor for scalding damage, based on the temperature of the oil and creature's heat resistance
 /datum/reagent/nutriment/triglyceride/oil/proc/heatdamage(var/mob/living/carbon/M)
@@ -325,7 +288,7 @@
 		threshold = S.heat_level_1
 
 	//If temperature is too low to burn, return a factor of 0. no damage
-	if (data["temperature"] < threshold)
+	if (get_temperature() < threshold)
 		return 0
 
 	//Step = degrees above heat level 1 for 1.0 multiplier
@@ -333,7 +296,7 @@
 	if (S && istype(S))
 		step = (S.heat_level_2 - S.heat_level_1)*1.5
 
-	. = data["temperature"] - threshold
+	. = get_temperature() - threshold
 	. /= step
 	. = min(., 2.5)//Cap multiplier at 2.5
 
@@ -341,8 +304,8 @@
 	var/dfactor = heatdamage(M)
 	if (dfactor)
 		M.take_organ_damage(0, removed * 1.5 * dfactor)
-		data["temperature"] -= (6 * removed) / (1 + volume*0.1)//Cools off as it burns you
-		if (lastburnmessage+100 < world.time	)
+		set_temperature(get_temperature() - (6 * removed) / (1 + volume*0.1))//Cools off as it burns you
+		if (lastburnmessage+100 < world.time)
 			to_chat(M, SPAN_DANGER("Searing hot oil burns you, wash it off quick!"))
 			lastburnmessage = world.time
 
