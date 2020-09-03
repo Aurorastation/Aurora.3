@@ -171,6 +171,8 @@
 	description = "A selection of shirts."
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/shirt/New()
+	..()
 	var/shirt = list()
 	shirt["dress shirt"] = /obj/item/clothing/accessory/dressshirt
 	shirt["dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt_r
