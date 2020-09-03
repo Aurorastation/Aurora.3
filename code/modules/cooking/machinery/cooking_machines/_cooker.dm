@@ -100,11 +100,9 @@
 	overlays += light
 
 /obj/machinery/appliance/cooker/machinery_process()
-	var/temp_change = heating_power
 	var/datum/gas_mixture/loc_air = loc.return_air()
-	if ((temperature >= set_temp) && (stat || use_power == 1))
+	if (stat || (use_power != 2)) // if we're not actively heating
 		temperature -= min(loss, temperature - loc_air.temperature)
-		temp_change = active_power_usage
 	if(!stat)
 		heat_up()
 		update_cooking_power() // update!
@@ -112,9 +110,7 @@
 		var/datum/cooking_item/CI = cooking_obj
 		if(!CI.container?.reagents)
 			continue
-		if(CI.container.reagents.get_temperature() >= temperature)
-			temp_change = loss
-		CI.container.reagents.add_thermal_energy(temp_change)
+		CI.container.reagents.set_temperature(min(temperature, CI.container.reagents.get_temperature() + 10*SIGN(temperature - CI.container.reagents.get_temperature()))) // max of 5C per second
 	return ..()
 
 /obj/machinery/appliance/cooker/power_change()

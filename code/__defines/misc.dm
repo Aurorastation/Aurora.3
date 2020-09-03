@@ -441,3 +441,7 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 #define CONTAINER_EMPTY		0
 #define CONTAINER_SINGLE	1
 #define CONTAINER_MANY		2
+// check_items/check_reagents/check_fruits return values
+#define COOK_CHECK_FAIL		-1
+#define COOK_CHECK_EXTRA	0
+#define COOK_CHECK_EXACT	1

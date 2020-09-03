@@ -3852,13 +3852,13 @@
 	name = "chicken nugget"
 	icon_state = "nugget_lump"
 	bitesize = 3
+	reagents_to_add = list(/datum/reagent/nutriment/protein = 4)
 
 /obj/item/reagent_containers/food/snacks/nugget/Initialize()
 	. = ..()
 	var/shape = pick("lump", "star", "lizard", "corgi")
 	desc = "A chicken nugget vaguely shaped like a [shape]."
 	icon_state = "nugget_[shape]"
-	reagents_to_add = list(/datum/reagent/nutriment/protein = 4)
 
 /obj/item/reagent_containers/food/snacks/icecreamsandwich
 	name = "ice cream sandwich"

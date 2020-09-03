@@ -211,7 +211,8 @@
 	desc = "A plate. You plate foods on this plate."
 	icon_state = "plate"
 	appliancetype = MIX
-	volume = 5 // for things like jelly sandwiches etc
+	flags = OPENCONTAINER // Will still react
+	volume = 15 // for things like jelly sandwiches etc
 
 /obj/item/reagent_containers/cooking_container/plate/MouseDrop(var/obj/over_obj)
 	if(over_obj != usr || use_check(usr))
