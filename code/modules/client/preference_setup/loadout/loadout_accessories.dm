@@ -19,6 +19,17 @@
 	path = /obj/item/clothing/accessory/wcoat_rec
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/chaps
+	display_name = "chaps selection"
+	path = /obj/item/clothing/accessory/chaps
+
+/datum/gear/accessory/chaps/New()
+	..()
+	var/chaps = list()
+	chaps["chaps, brown"] = /obj/item/clothing/accessory/chaps
+	chaps["chaps, black"] = /obj/item/clothing/accessory/chaps/black
+	gear_tweaks += new/datum/gear_tweak/path(chaps)
+
 /datum/gear/accessory/armband
 	display_name = "armband selection"
 	path = /obj/item/clothing/accessory/armband
@@ -154,56 +165,23 @@
 	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweaterargyletubeneck
 	gear_tweaks += new/datum/gear_tweak/path(sweater)
 
-/datum/gear/accessory/dressshirt
-	display_name = "dress shirt"
+/datum/gear/accessory/shirt
+	display_name = "shirt selection"
 	path = /obj/item/clothing/accessory/dressshirt
+	description = "A selection of shirts."
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/accessory/dressshirt_r
-	display_name = "dress shirt, rolled up"
-	path = /obj/item/clothing/accessory/dressshirt_r
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/accessory/dressshirt_crop
-	display_name = "cropped dress shirt"
-	path = /obj/item/clothing/accessory/dressshirt_crop
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/accessory/dressshirt_crop_r
-	display_name = "cropped dress shirt, rolled up"
-	path = /obj/item/clothing/accessory/dressshirt_crop_r
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/accessory/longsleeve
-	display_name = "long-sleeved shirt"
-	path = /obj/item/clothing/accessory/longsleeve
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/accessory/blouse
-	display_name = "blouse"
-	path = /obj/item/clothing/accessory/blouse
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/accessory/longsleeve_s
-	display_name = "long-sleeved shirt, striped"
-	path = /obj/item/clothing/accessory/longsleeve_s
-
-/datum/gear/accessory/longsleeve_s/New()
-	..()
-	var/lshirt = list()
-	lshirt["black-striped"] = /obj/item/clothing/accessory/longsleeve_s
-	lshirt["blue-striped"] = /obj/item/clothing/accessory/longsleeve_sb
-	gear_tweaks += new/datum/gear_tweak/path(lshirt)
-
-/datum/gear/accessory/tshirt
-	display_name = "t-shirt"
-	path = /obj/item/clothing/accessory/tshirt
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/accessory/tshirt
-	display_name = "cropped t-shirt"
-	path = /obj/item/clothing/accessory/tshirt_crop
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+var/shirt = list()
+	shirt["dress shirt"] = /obj/item/clothing/accessory/dressshirt
+	shirt["dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt_r
+	shirt["dress shirt, cropped"] = /obj/item/clothing/accessory/dressshirt_crop
+	shirt["cropped dress shirt, rolled up"] = /obj/item/clothing/accessory/dressshirt_crop_r
+	shirt["long-sleeved shirt"] = /obj/item/clothing/accessory/longsleeve
+	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/accessory/longsleeve_s
+	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_sb
+	shirt["t-shirt"] = /obj/item/clothing/accessory/tshirt
+	shirt["t-shirt, cropped"] = /obj/item/clothing/accessory/tshirt_crop
+	gear_tweaks += new/datum/gear_tweak/path(shirt)
 
 /datum/gear/accessory/silversun
 	display_name = "silversun floral shirt selection"
@@ -229,14 +207,6 @@
 	scarfs["plain scarf"] = /obj/item/clothing/accessory/scarf
 	scarfs["zebra scarf"] = /obj/item/clothing/accessory/scarf/zebra
 	gear_tweaks += new/datum/gear_tweak/path(scarfs)
-
-/datum/gear/accessory/chaps
-	display_name = "chaps, brown"
-	path = /obj/item/clothing/accessory/chaps
-
-/datum/gear/accessory/chaps/black
-	display_name = "chaps, black"
-	path = /obj/item/clothing/accessory/chaps/black
 
 /datum/gear/accessory/dogtags
 	display_name = "dogtags"
@@ -269,17 +239,17 @@
 	path = /obj/item/clothing/accessory/badge/dia
 	allowed_roles = list("Detective")
 
-/datum/gear/accessory/idbadge
-	display_name = "badge, identification"
+/datum/gear/accessory/badge
+	display_name = "badge selection"
 	path = /obj/item/clothing/accessory/badge/idbadge
 
-/datum/gear/accessory/nt_idbadge
-	display_name = "badge, NanoTrasen ID"
-	path = /obj/item/clothing/accessory/badge/idbadge/nt
-
-/datum/gear/accessory/electronic_idbadge
-	display_name = "badge, electronic"
-	path = /obj/item/clothing/accessory/badge/idbadge/intel
+/datum/gear/accessory/badge/New()
+	..()
+	var/badge = list()
+	badge["badge, identification"] = /obj/item/clothing/accessory/badge/idbadge
+	badge["badge, NanoTrasen ID"] = /obj/item/clothing/accessory/badge/idbadge/nt
+	badge["badge, electronic"] = /obj/item/clothing/accessory/badge/idbadge/intel
+	gear_tweaks += new/datum/gear_tweak/path(badge)
 
 /datum/gear/accessory/namepin
 	display_name = "pin tag (colourable)"
