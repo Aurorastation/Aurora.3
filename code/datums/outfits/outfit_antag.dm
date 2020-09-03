@@ -266,7 +266,7 @@
 		/obj/item/clothing/head/pirate,
 		/obj/item/clothing/head/bandana,
 		/obj/item/clothing/head/hgpiratecap,
-		/obj/item/clothing/head/beanie_loose/random,
+		/obj/item/clothing/head/beanie/random,
 		/obj/item/clothing/head/beaverhat,
 		/obj/item/clothing/head/cowboy,
 		/obj/item/clothing/head/fedora/brown,
@@ -310,7 +310,7 @@
 	backpack_contents = list()
 
 /datum/outfit/admin/syndicate/raider/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	
+
 	new /obj/random/backpack(H.loc)
 	var/obj/item/storage/backpack/bag
 	for(var/obj/item/storage/backpack/b in H.loc)
@@ -508,3 +508,32 @@
 	l_hand = null
 
 	backpack_contents = null
+
+/datum/outfit/admin/syndicate/cultist
+	name = "Cultist"
+	allow_backbag_choice = FALSE
+
+	head = /obj/item/clothing/head/culthood/alt
+	uniform = /obj/item/clothing/under/serviceoveralls
+	suit = /obj/item/clothing/suit/cultrobes/alt
+	back = /obj/item/storage/backpack/cultpack
+	belt = /obj/item/book/tome
+	gloves = null
+	shoes = /obj/item/clothing/shoes/cult
+	l_ear = null
+	id = null
+	r_pocket = null
+	backpack_contents = null
+
+	r_hand = /obj/item/melee/cultblade
+
+/datum/outfit/admin/syndicate/cultist/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	return
+
+/datum/outfit/admin/syndicate/cultist/super
+	name = "Super Cultist"
+
+	head = /obj/item/clothing/head/helmet/space/cult
+	suit = /obj/item/clothing/suit/space/cult
+
+	suit_store = /obj/item/gun/energy/rifle/cult
