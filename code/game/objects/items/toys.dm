@@ -302,6 +302,7 @@
 /obj/item/toy/katana
 	name = "replica katana"
 	desc = "A cheap plastic katana that luckily isn't sharp enough to accidentally cut your floor length braid. Woefully underpowered in D20."
+	contained_sprite = TRUE
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "katana"
 	item_state = "katana"
