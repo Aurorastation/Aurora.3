@@ -7,7 +7,7 @@
 
 /datum/gear/eyes/glasses
 	display_name = "glasses selection"
-	description = "A selection of eyewear, tinted and tintedn't
+	description = "A selection of eyewear, tinted and tintedn't"
 	path = /obj/item/clothing/glasses/regular
 
 /datum/gear/eyes/glasses/New()
