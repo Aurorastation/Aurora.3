@@ -222,6 +222,10 @@
 	color = "#777777"
 	
 
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random/Initialize()
+	. = ..()
+	color = get_random_colour(lower = 150)
+
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/short
 	icon_state = "hoodie_short"
 	item_state = "hoodie_short"

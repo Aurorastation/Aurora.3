@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes: 
+  - rscadd: "Greatly expanded the raider starting clothing/gun variety. They'll now have a chance of getting almost any gun in the game, but don't expect auto-revolvers or nuke launchers every single time."

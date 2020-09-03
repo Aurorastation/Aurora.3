@@ -412,6 +412,10 @@
 	icon_state = "headbando"
 	item_state = "headbando"
 
+/obj/item/clothing/head/headbando/random/Initialize()
+	. = ..()
+	color = get_random_colour(lower = 150)
+
 /obj/item/clothing/head/fedora/brown
 	name = "fedora"
 	desc = "A brown fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
@@ -434,6 +438,11 @@
 	desc = "A head-hugging brimless winter cap. This one is tight."
 	icon_state = "beanie"
 	item_state = "beanie"
+
+/obj/item/clothing/head/beanie/random/Initialize()
+	. = ..()
+	color = get_random_colour(lower = 150)
+
 //Flower crowns
 
 /obj/item/clothing/head/sunflower_crown
