@@ -127,9 +127,6 @@
 	dress["cheongsam, blue"] = /obj/item/clothing/under/cheongsam/blue
 	dress["cheongsam, green"] = /obj/item/clothing/under/cheongsam/green
 	dress["cheongsam, purple"] = /obj/item/clothing/under/cheongsam/purple
-	dress["dress, blue"] = /obj/item/clothing/under/dress/bluedress
-	dress["dress, dark red"] = /obj/item/clothing/under/dress/darkreddress
-	dress["dress, crop"] = /obj/item/clothing/under/cropdress
 	gear_tweaks += new/datum/gear_tweak/path(dress)
 
 /datum/gear/uniform/uniform_captain
