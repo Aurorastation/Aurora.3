@@ -44,7 +44,6 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 
 	brute_mod = 2
 	burn_mod = 4
-	virus_immune = 1
 	grab_mod = 2
 	resist_mod = 2
 
@@ -378,7 +377,7 @@ var/global/list/golem_types = list(SPECIES_GOLEM_COAL,
 	death_message = "shatters into many shards!"
 	death_message_range = 7
 
-	death_sound = "glass_break"
+	death_sound = /decl/sound_category/glass_break_sound
 
 	heat_level_1 = T0C+350
 	heat_level_2 = T0C+550

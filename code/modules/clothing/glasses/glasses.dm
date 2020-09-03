@@ -76,6 +76,13 @@ BLIND     // can't see anything
 	user.update_inv_l_hand(0)
 	user.update_inv_r_hand(1)
 
+/obj/item/clothing/glasses/proc/is_sec_hud()
+	return FALSE
+
+/obj/item/clothing/glasses/proc/is_med_hud()
+	return FALSE
+
+
 /obj/item/clothing/glasses/meson
 	name = "optical meson scanner"
 	desc = "Used for seeing walls, floors, and stuff through anything."
@@ -454,6 +461,9 @@ BLIND     // can't see anything
 	src.hud = new/obj/item/clothing/glasses/hud/security(src)
 	return
 
+/obj/item/clothing/glasses/sunglasses/sechud/is_sec_hud()
+	return active
+
 /obj/item/clothing/glasses/sunglasses/sechud/tactical
 	name = "tactical HUD"
 	desc = "Flash-resistant goggles with inbuilt combat and security information."
@@ -497,10 +507,12 @@ BLIND     // can't see anything
 		on = !on
 		if(on)
 			flash_protection = FLASH_PROTECTION_NONE
+			active = 1
 			src.hud = hud_holder
 			to_chat(user, "You switch \the [src] to HUD mode.")
 		else
 			flash_protection = initial(flash_protection)
+			active = 0
 			src.hud = null
 			to_chat(user, "You switch \the [src] to flash protection mode.")
 		update_icon()
@@ -662,6 +674,9 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/eyepatch/hud/security/process_hud(var/mob/M)
 	process_sec_hud(M, 1)
 
+/obj/item/clothing/glasses/eyepatch/hud/security/is_sec_hud()
+	return active
+
 /obj/item/clothing/glasses/eyepatch/hud/medical
 	name = "MEDpatch"
 	desc = "A Medical-type heads-up display that connects directly to the optic nerve of the user, giving you information about a patient your department will likely ignore."
@@ -670,6 +685,9 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/eyepatch/hud/medical/process_hud(var/mob/M)
 	process_med_hud(M, 1)
+
+/obj/item/clothing/glasses/eyepatch/hud/medical/is_med_hud()
+	return active
 
 /obj/item/clothing/glasses/eyepatch/hud/meson
 	name = "MESpatch"

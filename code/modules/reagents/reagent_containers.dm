@@ -56,6 +56,8 @@
 /obj/item/reagent_containers/attack(mob/M as mob, mob/user as mob, def_zone)
 	if(can_operate(M) && do_surgery(M, user, src))
 		return
+	if(reagents && !reagents.total_volume && user.a_intent == I_HURT)
+		return ..()
 
 /obj/item/reagent_containers/afterattack(var/atom/target, var/mob/user, var/proximity, var/params)
 	if(!proximity || !is_open_container())
@@ -76,7 +78,7 @@
 		var/obj/O = target
 		if(!(O.flags & NOBLUDGEON) && reagents)
 			reagents.apply_force(O.force)
-		return ..()
+	return ..()
 
 /obj/item/reagent_containers/proc/get_temperature()
 	if(reagents)
@@ -243,6 +245,8 @@
 		return 0
 
 	if(!reagents || !reagents.total_volume)
+		if(force) // bash people!
+			return 0
 		to_chat(user, "<span class='notice'>[src] is empty.</span>")
 		return 1
 

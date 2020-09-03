@@ -57,7 +57,7 @@
 
 			spark(EB, 5)
 			to_chat(user, "<span class='notice'>You slash \the [src] with \the [EB]; the thermite ignites!</span>")
-			playsound(src, "sparks", 50, 1)
+			playsound(src, /decl/sound_category/spark_sound, 50, 1)
 			playsound(src, 'sound/weapons/blade.ogg', 50, 1)
 
 			thermitemelt(user)
@@ -406,7 +406,7 @@
 	icon_state = "floor"
 	permit_ao = 0
 	initial_flooring = /decl/flooring/shuttle
-	footstep_sound = "plating"
+	footstep_sound = /decl/sound_category/plating_footstep
 
 /turf/simulated/floor/shuttle/yellow
 	icon_state = "floor2"
@@ -447,7 +447,7 @@
 /turf/simulated/floor/shuttle/skrell
 	icon_state = "skrell_purple"
 	initial_flooring = /decl/flooring/shuttle/skrell
-	footstep_sound = "sandstep"
+	footstep_sound = /decl/sound_category/sand_footstep
 
 /turf/simulated/floor/shuttle/skrell/blue
 	icon_state = "skrell_blue"

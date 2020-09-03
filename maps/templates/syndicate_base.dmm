@@ -1515,19 +1515,6 @@
 	icon_state = "white"
 	},
 /area/derelict)
-"eb" = (
-/obj/structure/table/reinforced,
-/obj/machinery/microwave{
-	pixel_x = -1;
-	pixel_y = 8
-	},
-/turf/simulated/floor/lino,
-/area/derelict)
-"ec" = (
-/obj/machinery/media/jukebox,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/lino,
-/area/derelict)
 "ed" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -2530,6 +2517,19 @@
 /turf/simulated/floor/shuttle{
 	icon_state = "floor4"
 	},
+/area/derelict)
+"nD" = (
+/obj/structure/table/reinforced,
+/obj/machinery/microwave{
+	pixel_x = -1;
+	pixel_y = 8
+	},
+/turf/simulated/floor/lino,
+/area/derelict)
+"NT" = (
+/obj/machinery/media/jukebox,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/lino,
 /area/derelict)
 
 (1,1,1) = {"
@@ -6607,7 +6607,7 @@ bl
 bl
 bl
 ab
-eb
+nD
 bl
 bl
 bl
@@ -6757,7 +6757,7 @@ ab
 dw
 dw
 ab
-ec
+NT
 bl
 bl
 ab

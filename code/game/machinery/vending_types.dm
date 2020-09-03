@@ -114,7 +114,7 @@
 	product_ads = "Drink up!;Booze is good for you!;Alcohol is humanity's best friend.;Quite delighted to serve you!;Care for a nice, cold beer?;Nothing cures you like booze!;Have a sip!;Have a drink!;Have a beer!;Beer is good for you!;Only the finest alcohol!;Best quality booze since 2053!;Award-winning wine!;Maximum alcohol!;Man loves beer.;A toast for progress!"
 	req_access = list(access_bar)
 	random_itemcount = 0
-	vending_sound = "machines/vending/vending_cans.ogg"
+	vending_sound = 'sound/machines/vending/vending_cans.ogg'
 	light_color = COLOR_PALE_BLUE_GRAY
 	exclusive_screen = FALSE
 
@@ -176,7 +176,7 @@
 	premium = list(
 		/obj/item/reagent_containers/food/drinks/teapot/ = 5
 	)
-	vending_sound = "machines/vending/vending_coffee.ogg"
+	vending_sound = 'sound/machines/vending/vending_coffee.ogg'
 	cooling_temperature = T0C + 57 //Optimal coffee temperature
 	heating_temperature = T0C + 100 //ULTRA HOT COFFEE
 	temperature_setting = -1
@@ -209,7 +209,8 @@
 		/obj/item/reagent_containers/food/snacks/nathisnack = 2,
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 4,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 5,
-		/obj/item/reagent_containers/food/snacks/tuna = 2
+		/obj/item/reagent_containers/food/snacks/tuna = 2,
+		/obj/item/reagent_containers/food/snacks/diona_bites = 3
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/snacks/syndicake = 6,
@@ -237,7 +238,8 @@
 		/obj/item/reagent_containers/food/snacks/nathisnack = 24,
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 60,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 40,
-		/obj/item/reagent_containers/food/snacks/tuna = 23
+		/obj/item/reagent_containers/food/snacks/tuna = 23,
+		/obj/item/reagent_containers/food/snacks/diona_bites = 40
 	)
 	light_color = COLOR_BABY_BLUE
 
@@ -287,7 +289,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 5
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
-	vending_sound = "machines/vending/vending_cans.ogg"
+	vending_sound = 'sound/machines/vending/vending_cans.ogg'
 	temperature_setting = -1
 	light_color = COLOR_GUNMETAL
 
@@ -757,8 +759,13 @@
 		/obj/item/material/kitchen/rollingpin = 2,
 		/obj/item/reagent_containers/cooking_container/oven = 5,
 		/obj/item/reagent_containers/cooking_container/fryer = 4,
+		/obj/item/reagent_containers/cooking_container/skillet = 4,
+		/obj/item/reagent_containers/cooking_container/saucepan = 4,
+		/obj/item/reagent_containers/cooking_container/pot = 4,
+		/obj/item/reagent_containers/cooking_container/plate = 3,
+		/obj/item/reagent_containers/cooking_container/plate/bowl = 2,
+		/obj/item/reagent_containers/ladle = 4,
 		/obj/item/storage/toolbox/lunchbox/nt = 6,
-		/obj/item/reagent_containers/glass/beaker/bowl = 4,
 		/obj/item/reagent_containers/glass/rag = 8,
 	)
 	contraband = list(
@@ -790,7 +797,7 @@
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
 	temperature_setting = -1
-	vending_sound = "machines/vending/vending_cans.ogg"
+	vending_sound = 'sound/machines/vending/vending_cans.ogg'
 	light_color = COLOR_RED
 
 /obj/machinery/vending/tool

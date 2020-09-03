@@ -73,7 +73,7 @@
 	if(reagents.total_volume)
 		reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
 	audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"), SPAN_WARNING("\The [src] breaks."))
-	playsound(src, "glass_break", 70, 1)
+	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	new /obj/item/material/shard(loc, "glass")
 	qdel(src)
 
@@ -172,20 +172,6 @@
 	possible_transfer_amounts = list(5,10,15,25,30,60,120)
 	flags = OPENCONTAINER
 	fragile = 6 // a bit sturdier
-
-/obj/item/reagent_containers/glass/beaker/bowl
-	name = "mixing bowl"
-	desc = "A large mixing bowl."
-	icon = 'icons/obj/kitchen.dmi'
-	icon_state = "mixingbowl"
-	center_of_mass = list("x" = 17,"y" = 7)
-	matter = list(DEFAULT_WALL_MATERIAL = 300)
-	volume = 180
-	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = list(5,10,15,25,30,60,180)
-	flags = OPENCONTAINER
-	unacidable = 0
-	no_shatter = TRUE
 
 /obj/item/reagent_containers/glass/beaker/noreact
 	name = "cryostasis beaker"

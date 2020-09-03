@@ -15,7 +15,7 @@
 	desc = "A camera film cartridge. Insert it into a camera to reload it."
 	icon_state = "film"
 	item_state = "electropack"
-	w_class = 1.0
+	w_class = ITEMSIZE_SMALL
 
 
 /********
@@ -28,7 +28,7 @@ var/global/photo_count = 0
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "photo"
 	item_state = "paper"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	var/id
 	var/icon/img	//Big photo image
 	var/scribble	//Scribble on the back.
@@ -96,7 +96,7 @@ var/global/photo_count = 0
 		var/mob/M = usr
 		if(!( istype(over_object, /obj/screen) ))
 			return ..()
-		playsound(loc, "rustle", 50, 1, -5)
+		playsound(loc, /decl/sound_category/rustle_sound, 50, 1, -5)
 		if((!( M.restrained() ) && !( M.stat ) && M.back == src))
 			switch(over_object.name)
 				if(BP_R_HAND)
@@ -123,7 +123,7 @@ var/global/photo_count = 0
 	desc = "A polaroid camera."
 	icon_state = "camera"
 	item_state = "electropack"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
@@ -277,3 +277,13 @@ var/global/photo_count = 0
 		p.id = id
 
 	return p
+
+/obj/item/generic_photo //this is just meant for the custom loadout, so people can rename and change the desc this to whatever they want
+	name = "photo"
+	desc = "A photo of some mundane situation."
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "photo"
+	item_state = "paper"
+	w_class = ITEMSIZE_SMALL
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
