@@ -83,9 +83,6 @@
 // -- SSfalling --
 #define ADD_FALLING_ATOM(atom) if (!atom.multiz_falling) { atom.multiz_falling = 1; SSfalling.falling[atom] = 0; }
 
-// -- SSmachinery --
-#define RECIPE_LIST(T) (SSmachinery.recipe_datums["[T]"])
-
 // -- SSlistener --
 #define GET_LISTENERS(id) (id ? SSlistener.listeners["[id]"] : null)
 

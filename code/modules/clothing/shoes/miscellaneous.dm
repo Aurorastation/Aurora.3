@@ -83,33 +83,14 @@ obj/item/clothing/shoes/sandal/clogs
 	species_restricted = null
 
 /obj/item/clothing/shoes/clown_shoes/handle_movement(var/turf/walking, var/running)
-	if(running)
+	if(!running)
 		if(footstep >= 2)
 			footstep = 0
-			playsound(src, /decl/sound_category/clown_sound, 50, 1) // this will get annoying very fast.
+			playsound(src, /decl/sound_category/clown_sound, 20, 1)
 		else
 			footstep++
 	else
-		playsound(src, /decl/sound_category/clown_sound, 20, 1)
-
-/obj/item/clothing/shoes/cult
-	name = "ragged boots"
-	desc = "A ragged, dusty pair of boots."
-	icon_state = "cult"
-	item_state = "cult"
-	force = 5
-	silent = 1
-	siemens_coefficient = 0.35 //antags don't get exceptions, it's just heavy armor by magical standards
-	armor = list(melee = 50, bullet = 30, laser = 50,energy = 20, bomb = 25, bio = 10, rad = 0)
-
-	cold_protection = FEET
-	min_cold_protection_temperature = SHOE_MIN_COLD_PROTECTION_TEMPERATURE
-	heat_protection = FEET
-	max_heat_protection_temperature = SHOE_MAX_HEAT_PROTECTION_TEMPERATURE
-	species_restricted = null
-
-/obj/item/clothing/shoes/cult/cultify()
-	return
+		playsound(src, /decl/sound_category/clown_sound, 50, 1) // Running is louder.
 
 /obj/item/clothing/shoes/cyborg
 	name = "cyborg boots"

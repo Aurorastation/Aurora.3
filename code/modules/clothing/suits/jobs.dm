@@ -26,6 +26,10 @@ obj/item/clothing/suit/apron/colored
 	icon_state = "overalls"
 	item_state = "overalls"
 
+/obj/item/clothing/suit/apron/overalls/random/Initialize()
+	. = ..()
+	color = get_random_colour(lower = 150)
+	
 obj/item/clothing/suit/apron/overalls/blue
 	color = "#3429d1"
 

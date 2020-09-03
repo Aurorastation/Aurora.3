@@ -168,13 +168,21 @@
 	update_icon()
 	return
 
+/obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone
+	name = "sideeffects-be-gone! autoinjector"
+	desc = "A special cocktail designed to counter the side-effects of various drugs. Has 2 uses."
+	volume = 30
+	amount_per_transfer_from_this = 15
+
+	reagents_to_add = list(/datum/reagent/synaptizine = 5, /datum/reagent/cetahydramine = 10, /datum/reagent/oculine = 5, /datum/reagent/ethylredoxrazine = 10)
+
 /obj/item/reagent_containers/hypospray/autoinjector/stimpack
 	name = "stimpack"
 	desc = "A simple chemical cocktail of hyperzine and mortaphenyl designed to boost efficiency by 6,000% (estimated). Hoo-rah!"
 	volume = 20
 	amount_per_transfer_from_this = 20
 
-	reagents_to_add = list(/datum/reagent/hyperzine = 12, /datum/reagent/mortaphenyl = 8)
+	reagents_to_add = list(/datum/reagent/hyperzine = 12, /datum/reagent/mortaphenyl = 6, /datum/reagent/synaptizine = 2)
 
 /obj/item/reagent_containers/hypospray/autoinjector/survival
 	name = "survival autoinjector"
@@ -182,7 +190,7 @@
 	volume = 35
 	amount_per_transfer_from_this = 35
 
-	reagents_to_add = list(/datum/reagent/tricordrazine = 15, /datum/reagent/inaprovaline = 5, /datum/reagent/dexalin/plus = 5, /datum/reagent/oxycomorphine = 5, /datum/reagent/mental/corophenidate = 5)
+	reagents_to_add = list(/datum/reagent/tricordrazine = 15, /datum/reagent/inaprovaline = 5, /datum/reagent/dexalin/plus = 5, /datum/reagent/oxycomorphine = 3, /datum/reagent/synaptizine = 2, /datum/reagent/mental/corophenidate = 5)
 
 /obj/item/reagent_containers/hypospray/combat
 	name = "combat hypospray"

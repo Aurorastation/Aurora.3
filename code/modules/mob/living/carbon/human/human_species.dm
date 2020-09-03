@@ -161,7 +161,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		mind.name = real_name
 	status_flags |= NO_ANTAG
 
-	remote_network = "remoterobots"
+	remote_network = REMOTE_GENERIC_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
 
 /mob/living/carbon/human/industrial_xion_remote/Stat()
@@ -200,7 +200,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
 	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_com(src), slot_l_ear)
 
-	remote_network = "bunkerrobots"
+	remote_network = REMOTE_BUNKER_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
 
 /mob/living/carbon/human/industrial_xion_remote_bunker/Stat()
@@ -208,6 +208,55 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 	if(client?.statpanel == "Status")
 		stat("Battery Charge: ", "[nutrition]/[max_nutrition]")
+
+/mob/living/carbon/human/industrial_xion_remote_penal/Initialize(mapload)
+	. = ..(mapload, "Remote Xion Industrial Frame")
+
+	real_name = "Remote Robot [pick("Jim", "Slart", "Whacker")]-[rand(0, 999)]"
+	name = real_name
+	dna.real_name = real_name
+	if(mind)
+		mind.name = real_name
+	status_flags |= NO_ANTAG
+
+	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_penal(src), slot_l_ear)
+
+	remote_network = REMOTE_PRISON_ROBOT
+	SSvirtualreality.add_robot(src, remote_network)
+
+/mob/living/carbon/human/industrial_xion_remote_penal/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat(null, "Battery Charge: [nutrition]/[max_nutrition]")
+
+/mob/living/carbon/human/industrial_xion_remote_warden/Initialize(mapload)
+	. = ..(mapload, "Remote Xion Industrial Frame")
+
+	real_name = "Remote Robot Overseer-[rand(0, 999)]"
+	name = real_name
+	dna.real_name = real_name
+	if(mind)
+		mind.name = real_name
+	status_flags |= NO_ANTAG
+
+	var/obj/item/card/id/ID = new /obj/item/card/id(get_turf(src))
+	ID.assignment = "Overseer"
+	src.set_id_info(ID)
+	ID.access = list(access_armory)
+	equip_to_slot_or_del(ID, slot_wear_id)
+	equip_to_slot_or_del(new /obj/item/clothing/under/rank/warden(src), slot_w_uniform)
+	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
+	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_warden(src), slot_l_ear)
+
+	remote_network = REMOTE_WARDEN_ROBOT
+	SSvirtualreality.add_robot(src, remote_network)
+
+/mob/living/carbon/human/industrial_xion_remote_warden/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat(null, "Battery Charge: [nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/industrial_zenghu/Initialize(mapload)
 	. = ..(mapload, SPECIES_IPC_ZENGHU)
@@ -246,7 +295,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		mind.name = real_name
 	status_flags |= NO_ANTAG
 
-	remote_network = "remoterobots"
+	remote_network = REMOTE_GENERIC_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
 
 /mob/living/carbon/human/unbranded_frame_remote/Stat()
@@ -269,7 +318,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
 	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_com(src), slot_l_ear)
 
-	remote_network = "bunkerrobots"
+	remote_network = REMOTE_BUNKER_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
 
 /mob/living/carbon/human/unbranded_frame_remote_bunker/Stat()

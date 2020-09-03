@@ -11,6 +11,7 @@
 
 /datum/uplink_item/item/implants/imp_compress
 	name = "Compressed Matter Implant"
+	desc = "A box containing a single implanter and matter cartridge. To remove an unintended target, use the implanter in-hand then open the cartridge with a screwdriver."
 	item_cost = 8
 	path = /obj/item/storage/box/syndie_kit/imp_compress
 
