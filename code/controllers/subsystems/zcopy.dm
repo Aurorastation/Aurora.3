@@ -153,9 +153,6 @@
 			T.z_eventually_space = TRUE
 			t_target = PLANE_SPACE_BACKGROUND
 
-		// Handle Z-parallax.
-		INVOKE_ASYNC(T, /turf/.proc/update_adjacent)
-
 		if (T.below.z_flags & ZM_FIX_BIGTURF)
 			T.z_flags |= ZM_FIX_BIGTURF	// this flag is infectious
 

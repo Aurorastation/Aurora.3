@@ -65,7 +65,6 @@
 	if (under)
 		below = under
 		below.above = src
-
 	update_mimic(!mapload)	// Only recursively update if the map isn't loading.
 
 // Cleans up Z-mimic objects for this turf. You shouldn't call this directly 99% of the time.
