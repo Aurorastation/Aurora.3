@@ -164,4 +164,4 @@
 
 /obj/item/syndie/teleporter/pickup()
 	..()
-	addtimer(CALLBACK(src, .proc/check_maptext), 1)
+	addtimer(CALLBACK(src, .proc/check_maptext), 1) // invoke async does not work here
