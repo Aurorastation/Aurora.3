@@ -363,3 +363,7 @@
 	coat["feminine chokha"] = /obj/item/clothing/suit/storage/vysoka_f
 	coat["masculine chokha"] = /obj/item/clothing/suit/storage/vysoka_m
 	gear_tweaks += new/datum/gear_tweak/path(coat)
+
+/datum/gear/suit/europa
+	display_name = "europan coat"
+	path = /obj/item/clothing/suit/storage/europa_coat

@@ -1360,6 +1360,7 @@
 #include "code\modules\clothing\ears\skrell.dm"
 #include "code\modules\clothing\factions\dominia.dm"
 #include "code\modules\clothing\factions\elyra.dm"
+#include "code\modules\clothing\factions\europa.dm"
 #include "code\modules\clothing\factions\himeo.dm"
 #include "code\modules\clothing\factions\konyang.dm"
 #include "code\modules\clothing\factions\vysoka.dm"
