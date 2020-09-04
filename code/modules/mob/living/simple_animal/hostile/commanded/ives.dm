@@ -46,6 +46,13 @@
 /mob/living/simple_animal/hostile/commanded/baby_harvester/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 
+/mob/living/simple_animal/hostile/death()
+	..(null, "blows apart!")
+	var/T = get_turf(src)
+	new /obj/effect/gibspawner/robot(T)
+	spark(T, 1, alldirs)
+	qdel(src)
+
 /mob/living/simple_animal/hostile/commanded/baby_harvester/verb/befriend()
 	set name = "Befriend Ives"
 	set category = "IC"
