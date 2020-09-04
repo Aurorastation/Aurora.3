@@ -294,3 +294,4 @@
 /datum/gear/accessory/whalebone
 	display_name = "europan bone charm"
 	path = /obj/item/clothing/accessory/whalebone
+	flags = GEAR_HAS_DESC_SELECTION

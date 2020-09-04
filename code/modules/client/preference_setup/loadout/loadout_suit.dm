@@ -367,3 +367,4 @@
 /datum/gear/suit/europa
 	display_name = "europan coat"
 	path = /obj/item/clothing/suit/storage/europa_coat
+	flags = GEAR_HAS_DESC_SELECTION

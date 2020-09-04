@@ -1,7 +1,7 @@
 /obj/item/clothing/suit/storage/toggle/europa_coat
-	name = "Europan submariners’ coat"
+	name = "Europan submariners' coat"
 	desc = "A leather jacket with a synthetic fur collar. It looks comfortable, if a bit warm for the station."
-	desc_fluff = "Waterproof leather costs such as this one are commonly worn by Europan submarine crews due to their ability to keep you warm while keeping you dry. The synthetic fur on this one’s collar seems to have been imported from Callisto."
+	desc_fluff = "Waterproof leather coats such as this one are commonly worn by Europan submarine crews due to their ability to keep you warm while keeping you dry. The synthetic fur on this one's collar seems to have been imported from Callisto."
 	icon = 'icons/clothing/suits/coats/europa_coat.dmi'
 	icon_state = "europa_coat"
 	item_state = "europa_coat"
