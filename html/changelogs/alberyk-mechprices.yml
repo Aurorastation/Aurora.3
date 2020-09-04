@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Increased the material price for the combat and heavy exosuit parts."
+  - tweak: "Heavy exosuit parts now require more research levels to unlock."
