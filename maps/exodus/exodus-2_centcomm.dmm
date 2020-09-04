@@ -13948,7 +13948,7 @@
 	},
 /area/centcom/creed)
 "aUp" = (
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /obj/machinery/door/airlock/hatch{
 	name = "Warehouse";
 	req_access = list(110)
@@ -16552,7 +16552,7 @@
 	},
 /area/tdome/tdomeadmin)
 "ccP" = (
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /obj/machinery/door/blast/odin{
 	id = "tcfl"
 	},
@@ -17136,7 +17136,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/legion)
 "fcK" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
