@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed the Chemistry Codex' access problem. People with access to medical OR research should now be able to download/access it."
