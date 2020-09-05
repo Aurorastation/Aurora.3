@@ -35,7 +35,8 @@
 		/obj/item/stamp,
 		/obj/item/device/paicard,
 		/obj/item/device/encryptionkey,
-		/obj/item/fluff)
+		/obj/item/fluff,
+		/obj/item/generic_photo)
 	slot_flags = SLOT_ID
 
 	var/obj/item/card/id/front_id = null

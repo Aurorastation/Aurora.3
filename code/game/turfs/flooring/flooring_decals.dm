@@ -417,6 +417,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow
 	color = "#CFCF55"
 
+/obj/effect/floor_decal/industrial/hatch/grey
+	color = "#808080"
+
 /obj/effect/floor_decal/industrial/hatch/red
 	color = "#990C0C"
 
@@ -443,6 +446,12 @@
 /obj/effect/floor_decal/industrial/loading
 	name = "loading area"
 	icon_state = "loadingarea"
+
+/obj/effect/floor_decal/industrial/loading/yellow
+	color = "#CFCF55"
+
+/obj/effect/floor_decal/industrial/loading/grey
+	color = "#808080"
 
 /obj/effect/floor_decal/plaque
 	name = "plaque"

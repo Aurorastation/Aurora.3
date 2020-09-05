@@ -378,6 +378,10 @@
 	icon_state = "trench_colorable"
 	item_state = "trench_colorable"
 
+/obj/item/clothing/suit/storage/toggle/trench/colorable/random/Initialize()
+	. = ..()
+	color = get_random_colour(lower = 150)
+
 /obj/item/clothing/suit/storage/toggle/track
 	name = "track jacket"
 	desc = "a track jacket, for the athletic."
