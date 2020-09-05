@@ -215,11 +215,6 @@
 			if ("webint")
 				src.open_webint()
 
-			// Forward appropriate topics to the server greeting datum.
-			if ("greeting")
-				if (server_greeting)
-					server_greeting.handle_call(href_list, src)
-
 			// Handle the updating of MotD and Memo tabs upon click.
 			if ("updateHashes")
 				var/save = 0
@@ -386,10 +381,6 @@
 		fps = prefs.clientfps
 
 	chatOutput.start()
-
-	// Server greeting shenanigans.
-	if (server_greeting.find_outdated_info(src, 1) && !info_sent)
-		server_greeting.display_to_client(src)
 
 /client/proc/InitClient()
 	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
@@ -693,15 +684,6 @@
 
 	send_link(src, linkURL)
 	return
-
-/client/verb/show_greeting()
-	set name = "Open Greeting"
-	set category = "OOC"
-
-	// Update the information just in case.
-	server_greeting.find_outdated_info(src, 1)
-
-	server_greeting.display_to_client(src)
 
 /client/proc/check_ip_intel()
 	set waitfor = 0 //we sleep when getting the intel, no need to hold up the client connection while we sleep
