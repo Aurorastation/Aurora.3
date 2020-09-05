@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes: 
+  - bugfix: "Fixed the large Coalition of Colonies flag not displaying its rightmost part."
