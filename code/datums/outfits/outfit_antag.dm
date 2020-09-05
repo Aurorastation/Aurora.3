@@ -587,7 +587,7 @@
 			head = /obj/item/clothing/head/wizard/brawler
 			suit = /obj/item/clothing/suit/wizrobe/brawler
 			shoes = /obj/item/clothing/shoes/caligae
-			spells = list(/spell/targeted/equip_item/party_hardy, /spell/targeted/equip_item/shield, /spell/targeted/torment)
+			spells = list(/spell/targeted/projectile/dumbfire/passage, /spell/targeted/equip_item/shield, /spell/targeted/torment)
 		if("Shimmer")
 			head = /obj/item/clothing/head/wizard/shimmer
 			suit = /obj/item/clothing/suit/wizrobe/shimmer
