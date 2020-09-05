@@ -114,11 +114,3 @@
 	icon_locked = "medalbox+l"
 	icon_closed = "medalbox"
 	icon_broken = "medalbox+b"
-	starts_with = list(
-		/obj/item/clothing/accessory/medal/conduct = 3,
-		/obj/item/clothing/accessory/medal/bronze_heart = 2,
-		/obj/item/clothing/accessory/medal/nobel_science = 2,
-		/obj/item/clothing/accessory/medal/iron/merit = 2,
-		/obj/item/clothing/accessory/medal/silver/valor = 1,
-		/obj/item/clothing/accessory/medal/silver/security = 2
-	)
