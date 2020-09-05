@@ -196,6 +196,42 @@
 /obj/machinery/door/airlock/centcom/emp_act()
 	return
 
+/obj/machinery/door/airlock/glass_centcom
+	name = "Airlock"
+	icon = 'icons/obj/doors/Dooreleglass.dmi'
+	opacity = FALSE
+	glass = 1
+	hatch_colour = "#606061"
+	hashatch = FALSE
+	hackProof = TRUE
+
+obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
+	if (operating)
+		return
+
+	if (allowed(user) && operable())
+		if (density)
+			open()
+		else
+			close()
+	else
+		do_animate("deny")
+
+/obj/machinery/door/airlock/glass_centcom/attack_ai(mob/user)
+	return attackby(null, user)
+
+/obj/machinery/door/airlock/glass_centcom/take_damage()
+	return	// No.
+
+/obj/machinery/door/airlock/glass_centcom/emag_act()
+	return NO_EMAG_ACT
+
+/obj/machinery/door/airlock/glass_centcom/ex_act()
+	return
+
+/obj/machinery/door/airlock/glass_centcom/emp_act()
+	return
+
 /obj/machinery/door/airlock/vault
 	name = "Vault"
 	icon = 'icons/obj/doors/vault.dmi'

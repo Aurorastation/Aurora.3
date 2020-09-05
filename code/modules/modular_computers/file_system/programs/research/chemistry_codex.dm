@@ -4,6 +4,7 @@
 	program_icon_state = "generic"
 	extended_desc = "Useful program to view chemical reactions and how to make them."
 	size = 14
+	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 	required_access_run = list(access_medical, access_research)
 	required_access_download = list(access_medical, access_research)
 	available_on_ntnet = TRUE
