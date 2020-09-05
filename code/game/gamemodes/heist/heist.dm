@@ -15,6 +15,4 @@
 	config_tag = "magistake"
 	extended_round_description = "The galaxy is a place full of dangers, even the inner colonies are not free of such scourges. \
 	Some say that the best raiders have a touch of magic to their art of plunder, but that's just hearsay."
-	required_players = 1
-	required_enemies = 1
 	antag_tags = list(MODE_RAIDER_MAGES)
