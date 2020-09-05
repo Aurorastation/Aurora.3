@@ -420,6 +420,12 @@
 	storage_slots = null
 	max_storage_space = 8
 
+/obj/item/storage/belt/fannypack/component
+	name = "component pouch"
+	desc = "A dorky fannypack for keeping small items in. Also stores magickal components!"
+	starts_with = list(/obj/item/toy/snappop/syndi = 3, /obj/item/reagent_containers/glass/beaker/vial/random/toxin = 2, /obj/item/storage/pill_bottle/dice = 1)
+	max_storage_space = 14
+
 /obj/item/storage/belt/fannypack/black
  	name = "black fannypack"
  	icon_state = "fannypack_black"
