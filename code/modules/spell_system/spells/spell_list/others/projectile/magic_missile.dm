@@ -24,7 +24,7 @@
 
 	amt_dam_fire = 10
 
-/spell/targeted/projectile/magic_missile/choose_prox_targets()
+/spell/targeted/projectile/magic_missile/choose_prox_targets(mob/user = usr, var/atom/movable/spell_holder)
 	var/list/targets = ..()
 	for(var/mob/living/target in targets)
 		if(target.is_wizard())
