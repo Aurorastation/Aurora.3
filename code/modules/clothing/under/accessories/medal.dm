@@ -53,7 +53,7 @@
 
 /obj/item/clothing/accessory/medal/iron/sol
 	name = "\improper ASSN medal of effort"
-	desc = "An iron medal awarded for distinguished effort conducted by an individual in the name of the Alliance of Sovereign Solarion Nations."
+	desc = "An iron medal awarded for distinguished effort conducted by an individual in the name of the Alliance of Sovereign Solarian Nations."
 	icon_state = "iron_sol"
 
 /obj/item/clothing/accessory/medal/silver
