@@ -39,6 +39,7 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 			return 0
 
 	if(client.cache.Find(asset_name) || client.sending.Find(asset_name))
+		log_debug("Asset [asset_name] found in client: [client.key].")
 		return 0
 
 	log_debug("Sending [asset_name] asset to client: [client.key].")
@@ -47,6 +48,7 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 	if(!verify || !winexists(client, "asset_cache_browser")) // Can't access the asset cache browser, rip.
 		if (client)
 			client.cache += asset_name
+		log_debug("Asset [asset_name] returning because of verify being [verify], [client.key].")
 		return 1
 	if (!client)
 		return 0
