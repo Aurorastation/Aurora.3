@@ -908,26 +908,41 @@ There are several things that need to be remembered:
 	if (QDELING(src))
 		return
 
-	if (istype(wear_suit, /obj/item))
+	overlays_raw[SUIT_LAYER] = null
+	if(wear_suit)
 		wear_suit.screen_loc = ui_oclothing
 
-		var/image/standing
+		//determine icon state to use
+		var/t_state = wear_suit.item_state || wear_suit.icon_state
 
+		var/image/result_layer
 		if(wear_suit.contained_sprite)
 			wear_suit.auto_adapt_species(src)
-			var/state = "[UNDERSCORE_OR_NULL(wear_suit.icon_species_tag)][wear_suit.item_state][WORN_SUIT]"
+			t_state = "[UNDERSCORE_OR_NULL(wear_suit.icon_species_tag)][wear_suit.item_state][WORN_SUIT]"
 
-			standing = image(wear_suit.icon_override || wear_suit.icon, state)
-
-		else if(wear_suit.icon_override)
-			standing = image(wear_suit.icon_override, wear_suit.icon_state)
-		else if(wear_suit.sprite_sheets && wear_suit.sprite_sheets[GET_BODY_TYPE])
-			standing = image(wear_suit.sprite_sheets[GET_BODY_TYPE], wear_suit.icon_state)
+			result_layer = image(wear_suit.icon_override || wear_suit.icon, t_state)
 		else
-			standing = image('icons/mob/suit.dmi', wear_suit.icon_state)
+			if(wear_suit.item_state_slots && wear_suit.item_state_slots[slot_wear_suit_str])
+				t_state = wear_suit.item_state_slots[slot_wear_suit_str]
 
-		if (wear_suit.color)
-			standing.color = wear_suit.color
+			//determine icon to use
+			var/icon/t_icon
+			if(wear_suit.item_icons && (slot_wear_suit_str in wear_suit.item_icons))
+				t_icon = wear_suit.item_icons[slot_wear_suit_str]
+			else if(wear_suit.icon_override)
+				t_state += "_su"
+				t_icon = wear_suit.icon_override
+			else
+				t_icon = INV_SUIT_DEF_ICON
+
+			result_layer = image(t_icon, t_state)
+
+			if(wear_suit.color)
+				result_layer.color = wear_suit.color
+
+			var/image/worn_overlays = wear_suit.worn_overlays(t_icon)
+			if(worn_overlays)
+				result_layer.overlays.Add(worn_overlays)
 
 		var/list/ovr
 
@@ -935,23 +950,19 @@ There are several things that need to be remembered:
 			var/obj/item/clothing/suit/S = wear_suit
 			var/image/bloodsies = image(species.blood_mask, "[S.blood_overlay_type]blood")
 			bloodsies.color = wear_suit.blood_color
-			ovr = list(standing, bloodsies)
+			ovr = list(result_layer, bloodsies)
 
 		// Accessories - copied from uniform, BOILERPLATE because fuck this system.
 		var/obj/item/clothing/suit/suit = wear_suit
 		if(istype(suit) && LAZYLEN(suit.accessories))
 			if (!ovr)
-				ovr = list(standing)
+				ovr = list(result_layer)
 
 			for(var/obj/item/clothing/accessory/A in suit.accessories)
 				ovr += A.get_mob_overlay()
 
-		overlays_raw[SUIT_LAYER] = ovr || standing
+		overlays_raw[SUIT_LAYER] = result_layer || ovr
 		update_tail_showing(0)
-	else
-		overlays_raw[SUIT_LAYER] = null
-		update_tail_showing(0)
-		update_inv_shoes(0)
 
 	update_collar(0)
 	update_inv_w_uniform(0)

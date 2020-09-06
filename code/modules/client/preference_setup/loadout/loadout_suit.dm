@@ -362,3 +362,8 @@
 	coat["feminine chokha"] = /obj/item/clothing/suit/storage/vysoka_f
 	coat["masculine chokha"] = /obj/item/clothing/suit/storage/vysoka_m
 	gear_tweaks += new/datum/gear_tweak/path(coat)
+
+/datum/gear/suit/submariner
+	display_name = "submariner jacket"
+	path = /obj/item/clothing/suit/storage/toggle/overlay/submariner
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

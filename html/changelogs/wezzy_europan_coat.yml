@@ -38,6 +38,5 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Refactors how button toggling on coats work."
-  - bugfix: "You can now unbutton/button your coats while buckled to a chair."
-  - tweak: "Labcoat open/close item states have been aligned."
+  - rscadd: "Adds a recolorable submariner's coat to the loadout. Europan lore!"
+  - rscadd: "Adds a new subtype to toggleable storage suits - the overlay. Allows for both a constant and a variable color in a colorable coat."
