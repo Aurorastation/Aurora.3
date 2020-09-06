@@ -41,3 +41,4 @@ changes:
   - rscadd: "Refactors how button toggling on coats work."
   - bugfix: "You can now unbutton/button your coats while buckled to a chair."
   - tweak: "Labcoat open/close item states have been aligned."
+  - bugfix: "Detective technicolor trenchcoat has been removed for being criminally unused and outclassed by other trenchcoats."
