@@ -334,6 +334,29 @@
 	icon_state = "ramptop"
 	},
 /area/antag/burglar)
+"aaF" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/steel,
+/obj/item/rig/hazard/equipped/pirate{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/rig/eva/equipped/pirate{
+	pixel_x = -13;
+	pixel_y = 7
+	},
+/obj/item/rig/industrial/equipped{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/skipjack)
 "aaM" = (
 /turf/template_noop,
 /area/template_noop)
@@ -9945,29 +9968,6 @@
 /obj/item/device/multitool,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/shuttle/skipjack)
-"aHj" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table/steel,
-/obj/item/rig/eva/equipped{
-	pixel_x = -13;
-	pixel_y = 7
-	},
-/obj/item/rig/hazard/equipped/pirate{
-	pixel_x = 2;
-	pixel_y = 2
-	},
-/obj/item/rig/industrial/equipped{
-	pixel_x = -8;
-	pixel_y = -2
-	},
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
 "aHk" = (
@@ -61016,7 +61016,7 @@ aov
 apy
 azs
 aGm
-aHj
+aaF
 aFR
 aJL
 aFR
