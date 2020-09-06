@@ -43,3 +43,4 @@ changes:
   - tweak: "Labcoat open/close item states have been aligned."
   - rscdel: "Detective technicolor trenchcoat has been removed for being criminally unused and outclassed by other trenchcoats."
   - rscdel: "Hastur hood has been removed."
+  - rscdel: "Paint buckets have been removed for being practically unused."
