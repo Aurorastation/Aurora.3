@@ -229,6 +229,11 @@
 	suit["elyran holographic suit, masculine"] = /obj/item/clothing/under/elyra_holo/masc
 	gear_tweaks += new/datum/gear_tweak/path(suit)
 
+/datum/gear/uniform/miscellaneous/kimono
+	display_name = "kimono"
+	path = /obj/item/clothing/under/kimono
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/uniform/officer
 	display_name = "uniforms, (Security Officer)"
 	description = "A selection of officer uniforms."
