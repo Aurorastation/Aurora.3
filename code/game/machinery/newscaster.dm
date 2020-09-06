@@ -811,7 +811,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	desc = "An issue of The Griffon, the newspaper circulating aboard most stations."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "newspaper"
-	w_class = 2	//Let's make it fit in trashbags!
+	w_class = ITEMSIZE_SMALL	//Let's make it fit in trashbags!
 	attack_verb = list("bapped")
 	var/screen = 0
 	var/pages = 0
@@ -988,7 +988,7 @@ obj/item/newspaper/attackby(obj/item/W as obj, mob/user as mob)
 	if(news_call)
 		for(var/mob/O in hearers(world.view-1, T))
 			O.show_message("<span class='newscaster'><EM>[src.name]</EM> beeps, \"[news_call]\"</span>",2)
-		
+
 		if (!alert)
 			alert = 1
 			update_icon()

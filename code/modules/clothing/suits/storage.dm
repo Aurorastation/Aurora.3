@@ -5,7 +5,7 @@
 	. = ..()
 	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 2	//two slots
-	pockets.max_w_class = 2		//fit only pocket sized items
+	pockets.max_w_class = ITEMSIZE_SMALL		//fit only pocket sized items
 	pockets.max_storage_space = 4
 
 /obj/item/clothing/suit/storage/Destroy()
@@ -65,14 +65,14 @@
 	. = ..()
 	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 4
-	pockets.max_w_class = 2
+	pockets.max_w_class = ITEMSIZE_SMALL
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/storage/vest/hos/Initialize()
 	. = ..()
 	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 4
-	pockets.max_w_class = 2
+	pockets.max_w_class = ITEMSIZE_SMALL
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/storage/vest

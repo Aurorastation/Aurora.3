@@ -578,7 +578,7 @@
 	. = ..()
 	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 4
-	pockets.max_w_class = 2
+	pockets.max_w_class = ITEMSIZE_SMALL
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/armor/vest/idris
@@ -637,7 +637,7 @@
 	desc = "A suit that protects against some damage."
 	icon_state = "centcom"
 	item_state = "centcom"
-	w_class = 4//bulky item
+	w_class = ITEMSIZE_LARGE//bulky item
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	allowed = list(/obj/item/gun/energy,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/emergency_oxygen)
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
@@ -650,7 +650,7 @@
 	desc = "A heavily armored suit that protects against moderate damage."
 	icon_state = "heavy"
 	item_state = "swat_suit"
-	w_class = 4//bulky item
+	w_class = ITEMSIZE_LARGE//bulky item
 	gas_transfer_coefficient = 0.90
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	slowdown = 3

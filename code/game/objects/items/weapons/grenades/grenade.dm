@@ -1,7 +1,7 @@
 /obj/item/grenade
 	name = "grenade"
 	desc = "A hand held grenade, with an adjustable timer."
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	icon = 'icons/obj/grenade.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_grenade.dmi',

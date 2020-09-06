@@ -105,7 +105,7 @@ obj/item/clothing/shoes/sandal/clogs
 	item_state = "slippers"
 	force = 0
 	species_restricted = null
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	silent = 1
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
@@ -116,7 +116,7 @@ obj/item/clothing/shoes/sandal/clogs
 	icon_state = "slippers_worn"
 	item_state = "slippers_worn"
 	force = 0
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	silent = 1
 
 /obj/item/clothing/shoes/laceup
@@ -154,7 +154,7 @@ obj/item/clothing/shoes/sandal/clogs
 	desc = "A roll of treated cloth used for wrapping clawed feet."
 	icon_state = "clothwrap"
 	item_state = "white"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	species_restricted = null
 	silent = 1
 	drop_sound = 'sound/items/drop/cloth.ogg'

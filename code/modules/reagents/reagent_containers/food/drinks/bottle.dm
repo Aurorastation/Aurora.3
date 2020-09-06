@@ -180,7 +180,7 @@
 	edge = FALSE
 	hitsound = /decl/sound_category/bottle_hit_broken
 	var/icon/broken_outline = icon('icons/obj/drinks.dmi', "broken")
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 #define DRINK_FLUFF_GETMORE  "This drink is made by Getmore Corporation, a subsidiary of NanoTrasen. It mostly specializes in fast food and consumer food products, \
 							   but also makes average quality alcohol. Many can find Getmore products in grocery stores, vending machines, \
@@ -218,7 +218,7 @@
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "whiskeybottle"
 	center_of_mass = list("x"=16, "y"=4)
-	
+
 /obj/item/reagent_containers/food/drinks/bottle/whiskey/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/alcohol/ethanol/whiskey, 100)
