@@ -224,6 +224,7 @@
 
 	if(!seal_target && !suit_is_deployed())
 		wearer.visible_message("<span class='danger'>[wearer]'s suit flashes an error light.</span>","<span class='danger'>Your suit flashes an error light. It can't function properly without being fully deployed.</span>")
+		playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 		failed_to_seal = 1
 
 	var/is_in_cycler = istype(initiator.loc, /obj/machinery/suit_cycler)
@@ -234,6 +235,7 @@
 			wearer.visible_message("<font color='blue'>[wearer]'s suit emits a quiet hum as it begins to adjust its seals.</font>","<font color='blue'>With a quiet hum, the suit begins running checks and adjusting components.</font>")
 			if(seal_delay && !do_after(wearer, seal_delay, act_target = src))
 				if(wearer) to_chat(wearer, "<span class='warning'>You must remain still while the suit is adjusting the components.</span>")
+				playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 				failed_to_seal = 1
 
 		if(!wearer)
@@ -251,6 +253,7 @@
 
 				if(!istype(wearer) || !istype(piece) || !istype(compare_piece) || !msg_type)
 					if(wearer) to_chat(wearer, "<span class='warning'>You must remain still while the suit is adjusting the components.</span>")
+					playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 					failed_to_seal = 1
 					break
 
@@ -284,6 +287,7 @@
 					else
 						LAZYINITLIST(piece.armor)
 						piece.armor["bio"] = LAZYACCESS(src.armor, "bio") || 0
+					playsound(src, "[!seal_target ? 'sound/machines/rig/rig_deploy.ogg' : 'sound/machines/rig/rig_retract.ogg']", 20, FALSE)
 
 				else
 					failed_to_seal = 1
@@ -306,9 +310,9 @@
 	// Success!
 	canremove = seal_target
 	to_chat(wearer, "<font color='blue'><b>Your entire suit [canremove ? "loosens as the components relax" : "tightens around you as the components lock into place"].</b></font>")
+	playsound(src, 'sound/items/rped.ogg', 20, FALSE)
 	if (has_sealed_state)
 		icon_state = canremove ? initial(icon_state) : "[initial(icon_state)]_sealed"
-
 	if(dnaLock && !offline)
 		if(dnaLock != wearer.dna)
 			visible_message("\icon[src.icon] <b>[src]</b> announces, <span class='notice'>\"DNA mismatch. Unauthorized access detected.\"</span>")
@@ -352,6 +356,7 @@
 				electrified = 0
 			if(!offline)
 				if(istype(wearer))
+					playsound(src, 'sound/machines/rig/rig_shutdown.ogg', 20, FALSE)
 					if(!canremove)
 						if (offline_slowdown < 3)
 							to_chat(wearer, "<span class='danger'>Your suit beeps stridently, and suddenly goes dead.</span>")
@@ -422,6 +427,7 @@
 
 	if(fail_msg)
 		to_chat(user, "[fail_msg]")
+		playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 		return 0
 
 	// This is largely for cancelling stealth and whatever.
@@ -667,6 +673,7 @@
 				if(istype(holder))
 					if(use_obj && check_slot == use_obj)
 						to_chat(wearer, "<font color='blue'><b>Your [use_obj.name] [use_obj.gender == PLURAL ? "retract" : "retracts"] swiftly.</b></font>")
+						playsound(src, 'sound/machines/rig/rig_retract.ogg', 20, FALSE)
 						use_obj.canremove = 1
 						holder.drop_from_inventory(use_obj,get_turf(src)) //TODO: TEST THIS CODE!
 						use_obj.dropped()
@@ -681,9 +688,11 @@
 				use_obj.forceMove(src)
 				if(check_slot)
 					to_chat(initiator, "<span class='danger'>You are unable to deploy \the [piece] as \the [check_slot] [check_slot.gender == PLURAL ? "are" : "is"] in the way.</span>")
+					playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 					return
 			else
 				to_chat(wearer, "<span class='notice'>Your [use_obj.name] [use_obj.gender == PLURAL ? "deploy" : "deploys"] swiftly.</span>")
+				playsound(src, 'sound/machines/rig/rig_deploy.ogg', 20, FALSE)
 
 	if(piece == "helmet" && helmet)
 		helmet.update_light(wearer)

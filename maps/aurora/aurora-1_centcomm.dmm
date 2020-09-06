@@ -34,8 +34,10 @@
 	layer = 2.4;
 	name = "conveyor"
 	},
-/obj/structure/closet/crate/loot,
-/obj/random/backpack,
+/obj/structure/closet/crate/loot{
+	desc = "The old dusty labels on this crate indicate that it was supposed to be shipped long ago.";
+	name = "forgotten shipment"
+	},
 /turf/unsimulated/floor/plating,
 /area/antag/raider)
 "aad" = (
@@ -256,6 +258,22 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/specops)
+"aaz" = (
+/obj/structure/closet/secure_closet{
+	req_access = list(150)
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1337;
+	id_tag = "burglar_shuttle";
+	name = "airlock controller";
+	pixel_x = 23;
+	pixel_y = -8;
+	tag_door = "burglar_shuttle_hatch"
+	},
+/obj/item/storage/secure/briefcase,
+/obj/item/storage/briefcase/aluminium,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/burglar)
 "aaA" = (
 /obj/item/stool/padded,
 /turf/unsimulated/floor{
@@ -279,6 +297,43 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/merchant_station)
+"aaD" = (
+/obj/machinery/door/blast/regular/open{
+	dir = 2;
+	id = "burglar_blast";
+	name = "blast door"
+	},
+/obj/machinery/door/airlock/hatch{
+	frequency = 1337;
+	icon_state = "door_locked";
+	id_tag = "burglar_shuttle_hatch";
+	locked = 1;
+	req_access = list(150)
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "burglar_blast";
+	layer = 3;
+	name = "blast door";
+	pixel_y = -21;
+	req_access = list(150)
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/burglar)
+"aaE" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1337;
+	id_tag = "burglar_hideout";
+	name = "hangar controller";
+	pixel_x = -1;
+	pixel_y = 26;
+	tag_door = "burglar_hideout_hatch"
+	},
+/turf/unsimulated/floor{
+	dir = 4;
+	icon_state = "ramptop"
+	},
+/area/antag/burglar)
 "aaM" = (
 /turf/template_noop,
 /area/template_noop)
@@ -2822,6 +2877,7 @@
 /obj/structure/table/steel,
 /obj/item/clothing/head/pirate,
 /obj/item/clothing/suit/pirate,
+/obj/item/clothing/glasses/thermal/plain/monocle,
 /turf/simulated/floor/carpet/art,
 /area/shuttle/skipjack)
 "amx" = (
@@ -2870,9 +2926,8 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/storage/box/fancy/cigarettes,
-/obj/item/flame/lighter/zippo,
 /obj/structure/table/steel,
+/obj/random/melee,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
 "amU" = (
@@ -3015,8 +3070,10 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/glasses/thermal/plain/monocle,
 /obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/flask/barflask{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
 "anM" = (
@@ -10185,6 +10242,8 @@
 /obj/item/tank/oxygen,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
@@ -12207,14 +12266,14 @@
 /obj/structure/sign/directions/dock{
 	pixel_x = -32
 	},
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNK" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNM" = (
@@ -12290,7 +12349,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNZ" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /obj/structure/sign/directions/dock{
@@ -12362,7 +12421,7 @@
 	},
 /area/centcom/holding)
 "aOk" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/unsimulated/floor,
@@ -12374,7 +12433,6 @@
 	},
 /area/centcom/spawning)
 "aOo" = (
-/obj/item/gun/energy/rifle/ionrifle,
 /obj/item/material/harpoon,
 /obj/item/tank/oxygen,
 /obj/item/clothing/shoes/magboots,
@@ -12387,6 +12445,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
 /obj/item/clothing/suit/space/void/merc,
+/obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/merc,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
@@ -12403,6 +12462,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/steel,
 /obj/item/clothing/suit/space/void/engineering,
+/obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
@@ -13452,22 +13512,6 @@
 	},
 /area/tdome/tdomeobserve)
 "aTC" = (
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -13475,7 +13519,22 @@
 /area/tdome)
 "aTD" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -14014,7 +14073,6 @@
 /area/antag/ninja)
 "aVj" = (
 /obj/structure/table/rack,
-/obj/random/energy_antag,
 /obj/random/melee,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -14751,6 +14809,15 @@
 	icon_state = "wood"
 	},
 /area/centcom/living)
+"aYm" = (
+/obj/structure/closet/crate/loot{
+	desc = "The old dusty labels on this crate indicate that it was supposed to be shipped long ago.";
+	name = "forgotten shipment"
+	},
+/turf/unsimulated/floor{
+	icon_state = "steel_dirty"
+	},
+/area/antag/raider)
 "aYo" = (
 /obj/structure/banner,
 /turf/unsimulated/floor{
@@ -15846,6 +15913,8 @@
 /obj/structure/table/steel,
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/item/flame/lighter/zippo,
+/obj/item/storage/box/fancy/cigarettes,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/skipjack)
 "bWj" = (
@@ -17616,7 +17685,7 @@
 	layer = 2.8;
 	name = "Pod D"
 	},
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -18374,9 +18443,11 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/legion)
 "edH" = (
-/obj/structure/closet/crate/loot,
-/obj/random/backpack,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot{
+	desc = "The old dusty labels on this crate indicate that it was supposed to be shipped long ago.";
+	name = "forgotten shipment"
+	},
 /turf/unsimulated/floor{
 	icon_state = "tiles"
 	},
@@ -18431,29 +18502,6 @@
 	icon_state = "wood"
 	},
 /area/centcom/distress_prep)
-"egD" = (
-/obj/machinery/door/blast/regular/open{
-	dir = 2;
-	id = "burglar_blast";
-	name = "blast door"
-	},
-/obj/machinery/door/airlock/hatch{
-	frequency = 1331;
-	icon_state = "door_locked";
-	id_tag = "burglar_shuttle_hatch";
-	locked = 1;
-	req_access = list(150)
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 1;
-	id = "burglar_blast";
-	layer = 3;
-	name = "blast door";
-	pixel_y = -21;
-	req_access = list(150)
-	},
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/burglar)
 "eit" = (
 /obj/structure/bed/chair/office/bridge/pilot,
 /obj/structure/extinguisher_cabinet{
@@ -19458,7 +19506,7 @@
 	},
 /area/shuttle/mercenary)
 "fkb" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/machinery/door/blast/odin/open{
@@ -21028,7 +21076,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/spawning)
 "gyC" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/machinery/door/blast/odin/open{
@@ -23256,6 +23304,16 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape)
+"ise" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/loot{
+	desc = "The old dusty labels on this crate indicate that it was supposed to be shipped long ago.";
+	name = "forgotten shipment"
+	},
+/turf/unsimulated/floor{
+	icon_state = "tiles"
+	},
+/area/antag/raider)
 "ish" = (
 /obj/machinery/status_display/arrivals_display{
 	layer = 3
@@ -25973,9 +26031,11 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/structure/closet/crate/loot,
-/obj/random/backpack,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot{
+	desc = "The old dusty labels on this crate indicate that it was supposed to be shipped long ago.";
+	name = "forgotten shipment"
+	},
 /turf/unsimulated/floor{
 	icon_state = "tiles"
 	},
@@ -26176,7 +26236,7 @@
 	layer = 2.8;
 	name = "Pod C"
 	},
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -26423,7 +26483,7 @@
 	},
 /area/shuttle/escape)
 "liJ" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -27280,8 +27340,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/structure/closet/crate/loot,
-/obj/random/backpack,
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "hideout_shipping"
@@ -27360,7 +27418,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/arrival)
 "mai" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -27432,7 +27490,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/syndicate_elite)
 "maF" = (
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
 "maM" = (
@@ -27818,7 +27876,7 @@
 	layer = 2.8;
 	name = "Pod A"
 	},
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -28039,20 +28097,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
-"mzx" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1331;
-	id_tag = "burglar_hideout";
-	name = "hangar controller";
-	pixel_x = -1;
-	pixel_y = 26;
-	tag_door = "burglar_hideout_hatch"
-	},
-/turf/unsimulated/floor{
-	dir = 4;
-	icon_state = "ramptop"
-	},
-/area/antag/burglar)
 "mAd" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1337;
@@ -28938,22 +28982,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
-"nlb" = (
-/obj/structure/closet/secure_closet{
-	req_access = list(150)
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1331;
-	id_tag = "burglar_shuttle";
-	name = "airlock controller";
-	pixel_x = 23;
-	pixel_y = -8;
-	tag_door = "burglar_shuttle_hatch"
-	},
-/obj/item/storage/secure/briefcase,
-/obj/item/storage/briefcase/aluminium,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/burglar)
 "nlp" = (
 /obj/machinery/computer/shuttle_control{
 	req_access = list(38);
@@ -29439,6 +29467,12 @@
 /obj/structure/sign/electricshock,
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/legion)
+"nIj" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/unsimulated/floor{
+	icon_state = "tiles"
+	},
+/area/antag/raider)
 "nJM" = (
 /obj/structure/shuttle_part/distress{
 	icon_state = "10,0";
@@ -30223,7 +30257,7 @@
 	},
 /area/shuttle/merchant)
 "oqQ" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/machinery/door/blast/odin/open{
@@ -30900,9 +30934,6 @@
 /area/shuttle/administration)
 "paU" = (
 /obj/structure/table/reinforced,
-/obj/machinery/microwave{
-	pixel_y = 4
-	},
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
@@ -31126,7 +31157,7 @@
 	layer = 2.8;
 	name = "Pod B"
 	},
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -31273,7 +31304,7 @@
 	},
 /area/shuttle/merchant)
 "pyg" = (
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "pyn" = (
@@ -32148,7 +32179,7 @@
 	},
 /area/antag/raider)
 "qkR" = (
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "qlg" = (
@@ -33460,7 +33491,7 @@
 	},
 /area/antag/raider)
 "rwe" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /obj/structure/sign/directions/dock{
@@ -34168,6 +34199,17 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/legion)
+"sdF" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/loot{
+	desc = "The old dusty labels on this crate indicate that it was supposed to be shipped long ago.";
+	name = "forgotten shipment"
+	},
+/turf/unsimulated/floor{
+	dir = 4;
+	icon_state = "brown"
+	},
+/area/antag/raider)
 "sdS" = (
 /obj/structure/bed,
 /obj/item/toy/figure/syndie,
@@ -35218,7 +35260,7 @@
 /turf/unsimulated/floor/plating,
 /area/antag/raider)
 "tcg" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/machinery/door/blast/odin/open{
@@ -36025,7 +36067,7 @@
 	},
 /area/centcom/legion)
 "tPw" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -37216,7 +37258,7 @@
 	desc = "A polaroid camera. This one has 'Kismet' scribled into the casing."
 	},
 /obj/item/device/camera{
-	desc = "A polaroid camera. This one has 'Kismet' scribled into the casing."
+	desc = "A polaroid camera. This one has 'Petr' scribled into the casing."
 	},
 /obj/item/device/flashlight/lamp{
 	pixel_x = 3;
@@ -37488,8 +37530,6 @@
 /area/centcom/legion)
 "vdU" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/loot,
-/obj/random/backpack,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/unsimulated/floor{
 	icon_state = "steel_dirty"
@@ -38109,14 +38149,16 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/obj/structure/closet/crate/loot,
-/obj/random/backpack,
 /obj/effect/decal/fake_object{
 	dir = 4;
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	layer = 2.4;
 	name = "conveyor"
+	},
+/obj/structure/closet/crate/loot{
+	desc = "The old dusty labels on this crate indicate that it was supposed to be shipped long ago.";
+	name = "forgotten shipment"
 	},
 /turf/unsimulated/floor/plating,
 /area/antag/raider)
@@ -40357,6 +40399,17 @@
 	icon_state = "floor"
 	},
 /area/centcom/legion)
+"xvu" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot{
+	desc = "The old dusty labels on this crate indicate that it was supposed to be shipped long ago.";
+	name = "forgotten shipment"
+	},
+/turf/unsimulated/floor{
+	icon_state = "steel_dirty"
+	},
+/area/antag/raider)
 "xvz" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -56572,7 +56625,7 @@ xVl
 xVl
 xVl
 xVl
-mzx
+aaE
 xVl
 dPn
 fkb
@@ -57852,7 +57905,7 @@ rZt
 huB
 twH
 wCa
-nlb
+aaz
 fAY
 teP
 qlg
@@ -58110,7 +58163,7 @@ lPX
 rtH
 jbu
 wLg
-egD
+aaD
 xUR
 kBQ
 ucV
@@ -63770,7 +63823,7 @@ ahV
 aiQ
 lxL
 iYt
-iYt
+sdF
 aiQ
 fHj
 ajW
@@ -64292,7 +64345,7 @@ ajW
 ajW
 scd
 rvL
-rvL
+aYm
 aiY
 aaM
 aaM
@@ -64539,7 +64592,7 @@ aaM
 ahV
 ahV
 bPL
-qnN
+ise
 qnN
 qnN
 tvo
@@ -64803,10 +64856,10 @@ aiQ
 yfl
 scd
 ajW
-edH
+nIj
 scd
 fHj
-vdU
+xvu
 aiY
 aaM
 aaM
@@ -72010,7 +72063,7 @@ aSp
 aTe
 aTe
 aTe
-aTC
+aTe
 aSp
 aTQ
 aTV
@@ -72524,7 +72577,7 @@ aSZ
 aTe
 aTe
 aTe
-aTD
+aTC
 aSp
 aTQ
 aTV

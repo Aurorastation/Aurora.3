@@ -6,14 +6,6 @@
 	plane = 0
 	use_space_appearance = FALSE
 	use_starlight = FALSE
-	light_color = COLOR_CYAN_BLUE
-	light_power = 6
-	light_range = 8
-	dynamic_lighting = TRUE
-
-/turf/space/transit/Initialize()
-	. = ..()
-	update_light()
 
 /turf/space/transit/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_lighting_update = 0, var/allow = 0, var/keep_air = FALSE)
 	return ..(N, tell_universe, 1, allow, keep_air)

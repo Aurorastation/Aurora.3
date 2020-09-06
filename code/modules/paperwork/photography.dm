@@ -277,3 +277,13 @@ var/global/photo_count = 0
 		p.id = id
 
 	return p
+
+/obj/item/generic_photo //this is just meant for the custom loadout, so people can rename and change the desc this to whatever they want
+	name = "photo"
+	desc = "A photo of some mundane situation."
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "photo"
+	item_state = "paper"
+	w_class = ITEMSIZE_SMALL
+	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'

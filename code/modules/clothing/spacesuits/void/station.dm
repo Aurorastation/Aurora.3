@@ -9,6 +9,7 @@
 		slot_r_hand_str = "eng_helm"
 		)
 	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 80)
+	light_overlay = "helmet_light_dual_low"
 	brightness_on = 6
 
 /obj/item/clothing/suit/space/void/engineering
@@ -34,7 +35,7 @@
 		slot_r_hand_str = "mining_helm"
 		)
 	armor = list(melee = 50, bullet = 5, laser = 20,energy = 5, bomb = 55, bio = 100, rad = 20)
-	light_overlay = "helmet_light_dual"
+	light_overlay = "merc_voidsuit_lights"
 	brightness_on = 6
 
 /obj/item/clothing/suit/space/void/mining
@@ -59,6 +60,8 @@
 		slot_r_hand_str = "medical_helm"
 		)
 	armor = list(melee = 30, bullet = 5, laser = 20,energy = 5, bomb = 25, bio = 100, rad = 50)
+	light_overlay = "helmet_light_dual_low"
+	brightness_on = 6
 
 /obj/item/clothing/suit/space/void/medical
 	icon_state = "rig-medical"
@@ -82,7 +85,8 @@
 		slot_r_hand_str = "sec_helm"
 		)
 	armor = list(melee = 60, bullet = 10, laser = 30, energy = 5, bomb = 45, bio = 100, rad = 10)
-	light_overlay = "helmet_light_dual"
+	light_overlay = "helmet_light_dual_low"
+	brightness_on = 6
 
 /obj/item/clothing/suit/space/void/security
 	icon_state = "rig-sec"
@@ -107,7 +111,8 @@
 		)
 	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 50)
 	max_heat_protection_temperature = FIRE_HELMET_MAX_HEAT_PROTECTION_TEMPERATURE + 10000 // It is a suit designed for fire, enclosed
-	light_overlay = "helmet_light_dual"
+	light_overlay = "helmet_light_dual_low"
+	brightness_on = 6
 
 /obj/item/clothing/suit/space/void/atmos
 	desc = "A special suit that protects against hazardous, low pressure environments. Has improved thermal protection and minor radiation shielding."

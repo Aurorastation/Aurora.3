@@ -1610,6 +1610,30 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"adb" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "ExamR2"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "ExamR2"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "ExamR2"
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/medical/exam_room2)
 "adc" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/paleblue/full{
@@ -3193,6 +3217,9 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/security/brig)
+"afO" = (
+/turf/simulated/wall,
+/area/medical/exam_room)
 "afP" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Equipment Storage";
@@ -15865,6 +15892,26 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
+"aCf" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	id = "ExamR2"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "ExamR2"
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/medical/exam_room2)
 "aCg" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -19340,6 +19387,30 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
+"aHF" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	id = "ExamR2"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "ExamR2"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "ExamR2"
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/medical/exam_room2)
 "aHG" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_engineering{
@@ -19354,6 +19425,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/storage_eva)
+"aHH" = (
+/obj/structure/table/standard,
+/obj/item/modular_computer/laptop/preset/medical,
+/turf/simulated/floor/carpet/blue,
+/area/medical/exam_room)
 "aHI" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -19434,10 +19510,6 @@
 /area/rnd/research)
 "aHQ" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -2;
-	pixel_y = 5
-	},
 /turf/simulated/floor/tiled,
 /area/engineering/foyer)
 "aHR" = (
@@ -20830,6 +20902,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
+"aJZ" = (
+/obj/structure/table/standard,
+/obj/item/device/radio{
+	anchored = 1;
+	canhear_range = 1;
+	frequency = 1487;
+	icon_state = "red_phone";
+	name = "Examination Room Emergency Phone";
+	pixel_x = 5;
+	pixel_y = -4
+	},
+/obj/item/paper_scanner,
+/turf/simulated/floor/carpet/blue,
+/area/medical/exam_room2)
 "aKa" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_security{
@@ -23808,12 +23894,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
+"aPn" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room)
+"aPo" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room)
 "aPp" = (
 /obj/machinery/newscaster{
 	pixel_x = 27
 	},
 /obj/structure/table/standard,
-/obj/machinery/microwave,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "aPq" = (
@@ -24801,6 +24895,24 @@
 /obj/item/pen,
 /turf/simulated/floor/tiled,
 /area/security/prison)
+"aQY" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 4;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/obj/machinery/door/airlock/medical{
+	id_tag = "EXdoor2";
+	name = "Examination Room 2";
+	req_one_access = list(5)
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room2)
 "aQZ" = (
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized{
@@ -25934,7 +26046,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -32
@@ -25955,7 +26067,7 @@
 /turf/simulated/floor/plating,
 /area/hallway/primary/starboard)
 "aSP" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -27886,7 +27998,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/janitor)
 "aWg" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -28767,7 +28879,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -28842,6 +28954,38 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
+"aXW" = (
+/obj/structure/bed/chair/office/light{
+	dir = 4
+	},
+/obj/machinery/button/remote/airlock{
+	id = "EXdoor2";
+	name = "Office Door Control";
+	pixel_x = 36;
+	pixel_y = -14;
+	req_access = list(5)
+	},
+/obj/machinery/button/windowtint{
+	id = "ExamR2";
+	pixel_x = 28;
+	pixel_y = -14;
+	req_access = list(5)
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Examination Room 2";
+	dir = 4
+	},
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/carpet/blue,
+/area/medical/exam_room2)
 "aXX" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -29077,6 +29221,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"aYl" = (
+/obj/structure/table/standard,
+/obj/item/folder/white,
+/obj/item/pen,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/carpet/blue,
+/area/medical/exam_room2)
 "aYm" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -30930,7 +31085,7 @@
 /area/hallway/primary/central_one)
 "bbH" = (
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -31544,6 +31699,14 @@
 "bcN" = (
 /turf/simulated/floor/tiled,
 /area/janitor)
+"bcO" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room2)
 "bcP" = (
 /obj/item/reagent_containers/glass/bucket,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -31848,6 +32011,34 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
+"bdv" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "ExamR2"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "ExamR2"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "ExamR2"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "ExamR2"
+	},
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 4;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/turf/simulated/floor/plating,
+/area/medical/exam_room2)
 "bdw" = (
 /obj/structure/closet/wardrobe/pharmacy_white,
 /obj/machinery/firealarm/east,
@@ -31946,7 +32137,7 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -31996,84 +32187,45 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bdH" = (
-/turf/simulated/wall,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
-"bdI" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "ExamR2"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "ExamR2"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "ExamR2"
-	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
-"bdJ" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	id = "ExamR2"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "ExamR2"
-	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/plating,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
-"bdK" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	id = "ExamR2"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "ExamR2"
-	},
-/obj/structure/window/reinforced/polarized{
+/obj/machinery/alarm{
 	dir = 4;
-	id = "ExamR2"
+	pixel_x = -28
 	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
+/obj/machinery/light{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
+/turf/simulated/floor/carpet/blue,
+/area/medical/exam_room2)
+"bdI" = (
+/obj/structure/table/standard,
+/obj/item/paper_bin{
+	pixel_x = -1;
+	pixel_y = 7
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet/blue,
+/area/medical/exam_room2)
+"bdJ" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room2)
+"bdK" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/firealarm/east,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room2)
 "bdL" = (
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 8
@@ -32816,61 +32968,79 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bff" = (
-/obj/structure/table/standard,
-/obj/item/modular_computer/laptop/preset/medical,
-/turf/simulated/floor/carpet/blue,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
-"bfg" = (
-/obj/structure/table/standard,
-/obj/item/device/radio{
-	anchored = 1;
-	canhear_range = 1;
-	frequency = 1487;
-	icon_state = "red_phone";
-	name = "Examination Room Emergency Phone";
-	pixel_x = 5;
-	pixel_y = -4
-	},
-/obj/item/paper_scanner,
-/turf/simulated/floor/carpet/blue,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
-"bfh" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
-"bfi" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
-"bfj" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	density = 0;
+	dir = 2;
+	icon_state = "shutter0";
+	id = "LCKDshutters";
+	name = "MedBay Lockdown Shutters";
+	opacity = 0
+	},
+/obj/structure/window/reinforced/polarized{
 	dir = 4;
+	id = "ExamR1"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "ExamR1"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "ExamR1"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "ExamR1"
+	},
+/turf/simulated/floor/plating,
+/area/medical/exam_room)
+"bfg" = (
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/door/blast/shutters{
+	density = 0;
+	dir = 2;
 	icon_state = "shutter0";
 	id = "LCKDshutters";
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
 /obj/machinery/door/airlock/medical{
-	id_tag = "EXdoor2";
-	name = "Examination Room 2";
+	id_tag = "EXdoor1";
+	name = "Examination Room 1";
 	req_one_access = list(5)
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
+/area/medical/exam_room)
+"bfh" = (
+/turf/simulated/wall,
+/area/medical/exam_room2)
+"bfi" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room2)
+"bfj" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room2)
 "bfk" = (
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/starboard)
@@ -33537,6 +33707,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
+"bgo" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/bed,
+/obj/item/bedsheet/medical,
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room2)
 "bgp" = (
 /obj/effect/floor_decal/corner/pink{
 	dir = 9
@@ -33564,6 +33740,15 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
+"bgr" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/flora/pottedplant/random,
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -28
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room)
 "bgs" = (
 /obj/effect/floor_decal/corner/pink{
 	dir = 6
@@ -33576,63 +33761,24 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bgt" = (
-/obj/structure/bed/chair/office/light{
-	dir = 4
-	},
-/obj/machinery/button/remote/airlock{
-	id = "EXdoor2";
-	name = "Office Door Control";
-	pixel_x = 36;
-	pixel_y = -14;
-	req_access = list(5)
-	},
-/obj/machinery/button/windowtint{
-	id = "ExamR2";
-	pixel_x = 28;
-	pixel_y = -14;
-	req_access = list(5)
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Examination Room 2";
-	dir = 4
-	},
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/carpet/blue,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
-"bgu" = (
-/obj/structure/table/standard,
-/obj/item/folder/white,
-/obj/item/pen,
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/carpet/blue,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
-"bgv" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/chair{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
-"bgw" = (
+/area/medical/exam_room2)
+"bgu" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/flora/pottedplant/random,
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room)
+"bgv" = (
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced/polarized{
@@ -33650,18 +33796,25 @@
 	dir = 4;
 	id = "ExamR2"
 	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 4;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
+/obj/structure/sign/examroom,
 /turf/simulated/floor/plating,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
+/area/medical/exam_room2)
+"bgw" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/door/airlock/medical{
+	name = "Examination Room 2";
+	req_one_access = list(5)
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room2)
 "bgx" = (
 /obj/effect/floor_decal/corner/lime/full,
 /turf/simulated/floor/tiled/white,
@@ -33744,7 +33897,10 @@
 "bgE" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bgF" = (
@@ -33962,6 +34118,26 @@
 	},
 /turf/simulated/floor/carpet/blue,
 /area/crew_quarters/heads/cryo)
+"bgZ" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "ExamR2"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "ExamR2"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "ExamR2"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "ExamR2"
+	},
+/turf/simulated/floor/plating,
+/area/medical/exam_room2)
 "bha" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/button/remote/airlock{
@@ -34062,6 +34238,11 @@
 /obj/item/circuitboard/arcade/orion_trail,
 /turf/simulated/floor/plating,
 /area/storage/tech)
+"bhj" = (
+/obj/machinery/hologram/holopad,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room)
 "bhk" = (
 /obj/structure/table/rack{
 	dir = 8;
@@ -34158,6 +34339,16 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/assembly/robotics_cyborgification)
+"bhq" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/firealarm/east,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room)
 "bhr" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -32
@@ -34176,7 +34367,7 @@
 /area/hallway/primary/central_one)
 "bht" = (
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -34221,6 +34412,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/medical/pharmacy)
+"bhx" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "ExamR1"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "ExamR1"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "ExamR1"
+	},
+/turf/simulated/floor/plating,
+/area/medical/exam_room)
 "bhy" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
@@ -34437,69 +34645,35 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bhO" = (
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28
-	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/blue,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room)
 "bhP" = (
-/obj/structure/table/standard,
-/obj/item/paper_bin{
-	pixel_x = -1;
-	pixel_y = 7
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room2)
+"bhQ" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/requests_console{
+	department = "Medical Bay";
+	pixel_x = 32
 	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/carpet/blue,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
-"bhQ" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/hologram/holopad,
+/obj/structure/bed,
+/obj/item/bedsheet/medical,
 /turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
+/area/medical/exam_room)
 "bhR" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/firealarm/east,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
-"bhS" = (
-/turf/simulated/wall,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bhT" = (
-/obj/structure/grille,
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
+/obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
 	dir = 4;
 	id = "ExamR1"
@@ -34508,44 +34682,36 @@
 	dir = 8;
 	id = "ExamR1"
 	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "ExamR1"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "ExamR1"
-	},
 /turf/simulated/floor/plating,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bhU" = (
-/obj/machinery/door/firedoor,
+/area/medical/exam_room)
+"bhS" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "MedBay Lockdown Shutters";
-	opacity = 0
-	},
-/obj/machinery/door/airlock/medical{
-	id_tag = "EXdoor1";
-	name = "Examination Room 1";
-	req_one_access = list(5)
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
+/area/medical/exam_room)
+"bhT" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/bed/chair,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room)
+"bhU" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room)
 "bhV" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -2;
-	pixel_y = 5
-	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/medbreak)
 "bhW" = (
@@ -35206,13 +35372,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
-"bjd" = (
+"bjc" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+/obj/item/device/radio/intercom{
+	dir = 8;
+	name = "Station Intercom (General)";
+	pixel_x = 24
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -35220,62 +35391,90 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
+/area/medical/exam_room)
+"bjd" = (
+/obj/item/device/radio{
+	anchored = 1;
+	canhear_range = 1;
+	frequency = 1487;
+	icon_state = "red_phone";
+	name = "Examination Room Emergency Phone";
+	pixel_x = 5;
+	pixel_y = -4
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Examination Office 1";
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/item/paper_scanner,
+/turf/simulated/floor/carpet/blue,
+/area/medical/exam_room)
 "bje" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
+/obj/item/folder/white,
+/obj/item/pen,
+/obj/structure/table/standard,
+/turf/simulated/floor/carpet/blue,
+/area/medical/exam_room)
 "bjf" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed,
-/obj/item/bedsheet/medical,
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
+/obj/item/paper_bin{
+	pixel_x = -1;
+	pixel_y = 7
+	},
+/obj/structure/table/standard,
+/turf/simulated/floor/carpet/blue,
+/area/medical/exam_room)
 "bjg" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/flora/pottedplant/random,
-/obj/machinery/alarm{
-	dir = 4;
-	pixel_x = -28
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
 	},
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bjh" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bji" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/flora/pottedplant/random,
-/obj/machinery/power/apc{
-	dir = 4;
-	name = "east bump";
-	pixel_x = 24
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
 /obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
+/area/medical/exam_room)
+"bjh" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/door/airlock/medical{
+	name = "Examination Room 1";
+	req_one_access = list(5)
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room)
+"bji" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "ExamR1"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 4;
+	id = "ExamR1"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "ExamR1"
+	},
+/turf/simulated/floor/plating,
+/area/medical/exam_room)
 "bjj" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/alarm{
@@ -35391,6 +35590,30 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
+"bjt" = (
+/obj/structure/table/standard,
+/obj/item/modular_computer/laptop/preset/medical,
+/turf/simulated/floor/carpet/blue,
+/area/medical/exam_room2)
+"bju" = (
+/obj/structure/bed/chair/office/light{
+	dir = 1
+	},
+/obj/machinery/button/windowtint{
+	id = "ExamR1";
+	pixel_x = -14;
+	pixel_y = 28;
+	req_access = list(5)
+	},
+/obj/machinery/button/remote/airlock{
+	id = "EXdoor1";
+	name = "Office Door Control";
+	pixel_x = -14;
+	pixel_y = 36;
+	req_access = list(5)
+	},
+/turf/simulated/floor/carpet/blue,
+/area/medical/exam_room)
 "bjv" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -35535,6 +35758,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/janitor)
+"bjK" = (
+/turf/simulated/floor/carpet/blue,
+/area/medical/exam_room)
+"bjL" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light_switch{
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/exam_room)
 "bjM" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -35565,6 +35798,22 @@
 "bjO" = (
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
+"bjP" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "ExamR1"
+	},
+/obj/structure/window/reinforced/polarized{
+	id = "ExamR1"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "ExamR1"
+	},
+/turf/simulated/floor/plating,
+/area/medical/exam_room)
 "bjQ" = (
 /obj/structure/table/steel,
 /obj/item/crowbar,
@@ -35599,6 +35848,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/assembly/chargebay)
+"bjU" = (
+/obj/machinery/door/firedoor,
+/obj/structure/grille,
+/obj/structure/window/reinforced/polarized{
+	id = "ExamR1"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "ExamR1"
+	},
+/turf/simulated/floor/plating,
+/area/medical/exam_room)
 "bjV" = (
 /obj/structure/bed/chair/office/dark{
 	dir = 4
@@ -35832,64 +36093,48 @@
 /turf/simulated/floor/plating,
 /area/medical/icu)
 "bkm" = (
-/obj/structure/grille,
 /obj/machinery/door/firedoor,
+/obj/structure/grille,
 /obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "ExamR2"
+	dir = 4;
+	id = "ExamR1"
 	},
 /obj/structure/window/reinforced/polarized{
-	id = "ExamR2"
+	id = "ExamR1"
 	},
 /obj/structure/window/reinforced/polarized{
 	dir = 1;
-	id = "ExamR2"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "ExamR2"
+	id = "ExamR1"
 	},
 /turf/simulated/floor/plating,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
+/area/medical/exam_room)
 "bkn" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/door/airlock/medical{
-	name = "Examination Room 2";
-	req_one_access = list(5)
+/obj/machinery/light_switch{
+	pixel_x = -22
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
+/area/medical/exam_room2)
+"bko" = (
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_y = 7
+	},
+/obj/structure/table/wood,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/lino/grey,
+/area/crew_quarters/bar)
 "bkp" = (
-/obj/machinery/hologram/holopad,
-/obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bkq" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/firealarm/east,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/structure/table/wood,
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	layer = 3.1;
+	pixel_x = -1;
+	pixel_y = 7
 	},
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/lino/grey,
+/area/crew_quarters/bar)
 "bkr" = (
 /turf/simulated/wall,
 /area/medical/medbay2)
@@ -36145,7 +36390,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics)
 "bkI" = (
@@ -36432,58 +36677,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
-"blq" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "ExamR1"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "ExamR1"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "ExamR1"
-	},
-/turf/simulated/floor/plating,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"blr" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bls" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"blt" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/requests_console{
-	department = "Medical Bay";
-	pixel_x = 32
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/bed,
-/obj/item/bedsheet/medical,
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
 "blu" = (
 /obj/machinery/firealarm/north,
 /obj/machinery/photocopier,
@@ -37160,74 +37353,6 @@
 "bmO" = (
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
-"bmP" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "ExamR1"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "ExamR1"
-	},
-/turf/simulated/floor/plating,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bmQ" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bmR" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/bed/chair,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bmS" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bmT" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/device/radio/intercom{
-	dir = 8;
-	name = "Station Intercom (General)";
-	pixel_x = 24
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
 "bmU" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -37979,83 +38104,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
-"boq" = (
-/obj/item/device/radio{
-	anchored = 1;
-	canhear_range = 1;
-	frequency = 1487;
-	icon_state = "red_phone";
-	name = "Examination Room Emergency Phone";
-	pixel_x = 5;
-	pixel_y = -4
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Examination Office 1";
-	dir = 4
-	},
-/obj/structure/table/standard,
-/obj/item/paper_scanner,
-/turf/simulated/floor/carpet/blue,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bor" = (
-/obj/item/folder/white,
-/obj/item/pen,
-/obj/structure/table/standard,
-/turf/simulated/floor/carpet/blue,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bos" = (
-/obj/item/paper_bin{
-	pixel_x = -1;
-	pixel_y = 7
-	},
-/obj/structure/table/standard,
-/turf/simulated/floor/carpet/blue,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bot" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bou" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/door/airlock/medical{
-	name = "Examination Room 1";
-	req_one_access = list(5)
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
 "bov" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -38821,66 +38869,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
-"bpG" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	id = "ExamR1"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "ExamR1"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "ExamR1"
-	},
-/turf/simulated/floor/plating,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bpH" = (
-/obj/structure/table/standard,
-/obj/item/modular_computer/laptop/preset/medical,
-/turf/simulated/floor/carpet/blue,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bpI" = (
-/obj/structure/bed/chair/office/light{
-	dir = 1
-	},
-/obj/machinery/button/windowtint{
-	id = "ExamR1";
-	pixel_x = -14;
-	pixel_y = 28;
-	req_access = list(5)
-	},
-/obj/machinery/button/remote/airlock{
-	id = "EXdoor1";
-	name = "Office Door Control";
-	pixel_x = -14;
-	pixel_y = 36;
-	req_access = list(5)
-	},
-/turf/simulated/floor/carpet/blue,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bpJ" = (
-/turf/simulated/floor/carpet/blue,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bpK" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/light_switch{
-	pixel_x = 24
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
 "bpL" = (
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - Starboard 1";
@@ -39391,7 +39379,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -39436,56 +39424,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
-"bqP" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "ExamR1"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "ExamR1"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "ExamR1"
-	},
-/turf/simulated/floor/plating,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bqQ" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	id = "ExamR1"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "ExamR1"
-	},
-/turf/simulated/floor/plating,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
-"bqR" = (
-/obj/machinery/door/firedoor,
-/obj/structure/grille,
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "ExamR1"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "ExamR1"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "ExamR1"
-	},
-/turf/simulated/floor/plating,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 1"
-	})
 "bqS" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled/ramp/bottom,
@@ -39849,7 +39787,7 @@
 	},
 /obj/effect/floor_decal/corner/beige/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -39863,7 +39801,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -41926,7 +41864,7 @@
 /area/medical/gen_treatment)
 "bwk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -42873,7 +42811,7 @@
 /area/medical/medbay)
 "bxJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - General Treatment 2";
 	dir = 8
@@ -44754,7 +44692,7 @@
 	pixel_y = -26;
 	req_access = list(5)
 	},
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /obj/machinery/camera/network/medbay{
@@ -50312,10 +50250,10 @@
 /area/hallway/primary/aft)
 "bOQ" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/stool/padded,
 /obj/machinery/newscaster{
 	pixel_y = 30
 	},
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "bOR" = (
@@ -50324,11 +50262,11 @@
 /area/crew_quarters/kitchen)
 "bOS" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/stool/padded,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube1"
 	},
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
 "bOT" = (
@@ -50346,13 +50284,13 @@
 /area/crew_quarters/kitchen)
 "bOV" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/sink/kitchen{
-	layer = 3.3;
-	pixel_y = 26
-	},
 /obj/machinery/light_switch{
 	pixel_x = -22;
 	pixel_y = 24
+	},
+/obj/structure/sink/kitchen{
+	layer = 3.3;
+	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -50361,39 +50299,39 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"bOY" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/machinery/microwave{
-	pixel_y = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "bOZ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/oven,
-/obj/structure/sign/nosmoking_1{
-	pixel_y = 30
+/obj/structure/table/stone/marble,
+/obj/item/toy/figure/chef{
+	pixel_x = 8;
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bPa" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/appliance/cooker/fryer{
-	pixel_y = 2
+/obj/structure/table/stone/marble,
+/obj/machinery/requests_console{
+	department = "Kitchen";
+	departmentType = 1;
+	name = "Kitchen Requests Console";
+	pixel_y = 30
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 28
+/obj/item/stack/material/cardboard{
+	amount = 10;
+	pixel_x = 1;
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bPb" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/glass/beaker/large,
-/obj/machinery/light{
-	dir = 1;
-	icon_state = "tube1"
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_y = 3
+	},
+/obj/structure/noticeboard{
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -50401,10 +50339,12 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/machinery/appliance/mixer/cereal{
-	pixel_y = 7
+	pixel_x = -1;
+	pixel_y = 12
 	},
 /obj/machinery/alarm{
-	pixel_y = 28
+	dir = 8;
+	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -50594,14 +50534,15 @@
 /area/hallway/primary/aft)
 "bPD" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bPF" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
 /obj/machinery/firealarm/east,
-/obj/item/nitrilebox,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bPG" = (
@@ -50708,81 +50649,41 @@
 	},
 /turf/simulated/floor/carpet,
 /area/library)
-"bPX" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "bPY" = (
-/obj/structure/grille,
 /obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/machinery/door/window/westleft{
+	closed_layer = 2.9;
+	layer = 2.9;
+	name = "Display Window";
+	open_layer = 2.9;
+	req_access = list(28)
 	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "kitchenshutters01";
 	name = "Kitchen Shutters"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"bPZ" = (
+"bQa" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment{
-	dir = 2;
-	icon_state = "pipe-c"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
+"bQb" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
-"bQa" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
-"bQb" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -50930,17 +50831,28 @@
 /obj/structure/table/stone/marble,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
-	id = "kitchenshutters01";
-	name = "Kitchen Shutters"
+	id = "kitchenshutters03";
+	name = "SmartHeater Shutter"
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bQy" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/chem_master/condimaster,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
+	},
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/soymilk,
+/obj/item/reagent_containers/food/drinks/milk,
+/obj/item/reagent_containers/food/drinks/milk,
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 24;
+	pixel_y = -1
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -51114,14 +51026,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"bQY" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/machinery/reagentgrinder{
-	pixel_y = 7
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "bQZ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -51143,29 +51047,28 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
-"bRb" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/landmark/start{
-	name = "Chef"
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "bRe" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Kitchen - East";
 	dir = 8;
-	network = list("Service")
+	network = list("Service");
+	pixel_y = -14
 	},
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/structure/closet/secure_closet/freezer/kitchen,
 /obj/machinery/ringer{
 	department = "Kitchen";
 	id = "kitchen_ringer";
 	pixel_x = 26;
 	req_access = list(28)
 	},
+/obj/structure/table/stone/marble,
+/obj/item/nitrilebox{
+	pixel_x = 4;
+	pixel_y = 13
+	},
+/obj/item/device/destTagger,
+/obj/item/stack/packageWrap,
+/obj/item/hand_labeler,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bRg" = (
@@ -51234,7 +51137,22 @@
 "bRw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/storage/box/produce,
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 3;
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bRA" = (
@@ -51465,7 +51383,6 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bSn" = (
-/obj/machinery/disposal,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/button/remote/blast_door{
 	id = "kitchenshutters01";
@@ -51477,53 +51394,55 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/obj/machinery/ringer{
-	department = "Kitchen";
-	id = "kitchen_ringer";
-	pixel_x = 5;
-	pixel_y = -29;
+/obj/machinery/disposal,
+/obj/machinery/button/remote/blast_door{
+	id = "kitchenshutters03";
+	name = "SmartHeater Shutter Control";
+	pixel_x = 8;
+	pixel_y = -26;
 	req_access = list(28)
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bSo" = (
-/obj/machinery/vending/dinnerware{
-	products = list(/obj/item/tray = 24, /obj/item/material/kitchen/utensil/fork = 24, /obj/item/material/kitchen/utensil/knife = 24, /obj/item/material/kitchen/utensil/spoon = 24, /obj/item/material/knife = 2, /obj/item/material/hatchet/butch = 2, /obj/item/reagent_containers/food/drinks/drinkingglass = 24, /obj/item/clothing/suit/chef/classic = 2, /obj/item/material/kitchen/rollingpin = 2, /obj/item/reagent_containers/cooking_container/oven = 5, /obj/item/reagent_containers/cooking_container/fryer = 4, /obj/item/storage/toolbox/lunchbox/nt = 6, /obj/item/reagent_containers/glass/beaker/bowl = 4, /obj/item/reagent_containers/glass/rag = 8)
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
 	icon_state = "tube1"
 	},
+/obj/structure/table/stone/marble,
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
 	pixel_y = -26
 	},
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bSp" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Kitchen - West";
 	dir = 1;
 	network = list("Service")
 	},
+/obj/structure/table/stone/marble,
 /obj/machinery/requests_console{
 	department = "Kitchen";
 	departmentType = 1;
 	name = "Kitchen Requests Console";
-	pixel_y = -27
+	pixel_y = -30
 	},
-/obj/item/clothing/head/cakehat,
+/obj/item/reagent_containers/glass/rag{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bSq" = (
-/obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/chemical_dispenser/bar_soft/full{
-	pixel_y = 4
-	},
+/obj/structure/table/stone/marble,
+/obj/item/clothing/head/cakehat,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bSr" = (
@@ -51533,27 +51452,12 @@
 	name = "adjusted light fixture";
 	pixel_x = 16
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/firealarm/south,
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
-"bSs" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -51562,7 +51466,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "kitchenshutters02";
 	name = "Kitchen Shutters Control";
-	pixel_y = -32;
+	pixel_y = -25;
 	req_access = list(28)
 	},
 /obj/machinery/light{
@@ -51573,14 +51477,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -51981,26 +51877,6 @@
 	dir = 4;
 	pixel_x = -28
 	},
-/turf/simulated/floor/lino/grey,
-/area/crew_quarters/bar)
-"bTr" = (
-/obj/machinery/chemical_dispenser/bar_soft/full{
-	pixel_y = 5
-	},
-/obj/structure/table/wood,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/lino/grey,
-/area/crew_quarters/bar)
-"bTs" = (
-/obj/structure/table/wood,
-/obj/machinery/chemical_dispenser/bar_alc/full{
-	layer = 3.1;
-	pixel_x = -1;
-	pixel_y = 11
-	},
-/obj/machinery/firealarm/north,
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "bTt" = (
@@ -53740,13 +53616,13 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/lobby)
 "bXw" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bXx" = (
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "bXy" = (
@@ -54597,7 +54473,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/lobby)
 "bZF" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -55837,10 +55713,12 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/break_room)
 "cbZ" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
-/turf/simulated/floor/carpet,
-/area/quartermaster/break_room)
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "cca" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet,
@@ -56642,9 +56520,6 @@
 /area/quartermaster/break_room)
 "cdJ" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_y = 6
-	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled,
 /area/quartermaster/break_room)
@@ -57469,7 +57344,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "ceW" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /obj/machinery/mineral/stacking_unit_console{
@@ -57636,7 +57511,7 @@
 	pixel_y = -32
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /obj/structure/closet/crate,
@@ -58295,7 +58170,7 @@
 /area/outpost/mining_main/refinery)
 "cgO" = (
 /obj/machinery/mineral/input,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -59393,12 +59268,41 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
+"cER" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = 6;
+	pixel_y = 17
+	},
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/cooking_container/plate/bowl,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "cGg" = (
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"cHF" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/appliance/cooker/fryer,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "cJo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/costume/imperium_monk,
@@ -59514,6 +59418,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
+"dcu" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "dde" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -59565,6 +59479,7 @@
 "dgV" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/bed/chair,
+/obj/random/loot,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/bar)
 "dhL" = (
@@ -59814,9 +59729,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "dGy" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/material/kitchen/rollingpin,
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "dGX" = (
@@ -60012,7 +59926,6 @@
 /obj/item/trash/cigbutt,
 /obj/structure/table/steel,
 /obj/item/material/ashtray,
-/obj/random/loot,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/bar)
 "erq" = (
@@ -60303,11 +60216,8 @@
 /area/assembly/robotics/workshop)
 "fdq" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/reagent_containers/glass/beaker/bowl,
-/obj/item/reagent_containers/glass/beaker{
-	pixel_x = 2;
-	pixel_y = 12
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -60506,7 +60416,7 @@
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
 "fBZ" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -60691,9 +60601,13 @@
 /area/rnd/chemistry)
 "fTZ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment,
-/obj/effect/landmark/start{
-	name = "Chef"
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/machinery/disposal/small{
+	dir = 8;
+	pixel_x = 12;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -60826,6 +60740,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old,
 /area/maintenance/bar)
+"gjz" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/disposalpipe/sortjunction/flipped{
+	dir = 1;
+	name = "Kitchen";
+	sortType = "Kitchen"
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "gjM" = (
 /obj/structure/bed/chair/wood,
 /turf/simulated/floor/wood,
@@ -60850,19 +60773,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"gpm" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "grF" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating,
@@ -60903,6 +60813,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge)
+"gxS" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/flora/pottedplant/random,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "gxX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -61725,6 +61652,25 @@
 	icon_state = "asteroidplating"
 	},
 /area/maintenance/cargo)
+"ikm" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/material/knife{
+	layer = 2.99;
+	pixel_x = -9;
+	pixel_y = -14
+	},
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = -11
+	},
+/obj/item/reagent_containers/food/snacks/mint{
+	pixel_x = 3;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "ikR" = (
 /obj/random/gloves,
 /turf/simulated/floor/plating,
@@ -61813,8 +61759,9 @@
 /area/maintenance/medbay)
 "iBt" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/material/knife,
+/obj/effect/landmark/start{
+	name = "Chef"
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "iBL" = (
@@ -62144,13 +62091,6 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/machinery/microwave{
-	broken = 2;
-	desc = "It's practically falling apart.";
-	icon_state = "mwb";
-	name = "Shoddy Microwave";
-	pixel_y = 2
-	},
 /obj/machinery/door/blast/shutters{
 	dir = 4;
 	id = "messhallshutters";
@@ -62306,14 +62246,7 @@
 /area/maintenance/medbay)
 "keq" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "keE" = (
@@ -62722,16 +62655,10 @@
 /turf/simulated/floor/tiled/white,
 /area/maintenance/research_port)
 "ljr" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
-	},
+/obj/effect/floor_decal/corner/red/diagonal,
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
+/area/hallway/primary/aft)
 "ljA" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -62762,29 +62689,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/research)
-"lnS" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "ExamR2"
-	},
-/obj/structure/window/reinforced/polarized{
-	id = "ExamR2"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "ExamR2"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 4;
-	id = "ExamR2"
-	},
-/obj/structure/sign/examroom,
-/turf/simulated/floor/plating,
-/area/medical/exam_room{
-	name = "\improper Medical - Exam Room 2"
-	})
 "lpw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment{
@@ -62885,8 +62789,7 @@
 /area/assembly/chargebay)
 "lGd" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -62894,6 +62797,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "lIG" = (
@@ -62911,10 +62815,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/medical)
 "lJh" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
-/area/hallway/primary/aft)
+/area/crew_quarters/kitchen)
 "lJu" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -63965,7 +63869,19 @@
 "oaR" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/condiment/enzyme,
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = 6;
+	pixel_y = 17
+	},
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/cooking_container/plate/bowl,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "odf" = (
@@ -64070,10 +63986,15 @@
 /area/maintenance/medbay)
 "onC" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/machinery/microwave{
-	pixel_x = -2;
-	pixel_y = 4
+/obj/machinery/chem_master/condimaster{
+	pixel_y = 1
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -64259,13 +64180,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"oDA" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "oEG" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4
@@ -64731,7 +64645,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/machinery/appliance/mixer/candy{
-	pixel_y = 12
+	pixel_y = 13
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -65736,7 +65650,7 @@
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "saq" = (
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28
@@ -65938,11 +65852,16 @@
 	icon_state = "4-8"
 	},
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package";
+	pixel_x = 4;
+	pixel_y = 4
 	},
-/obj/item/storage/box/donkpockets,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "sny" = (
@@ -66138,23 +66057,25 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "sQo" = (
-/obj/structure/grille,
 /obj/machinery/door/firedoor,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
 /obj/structure/window/reinforced{
 	dir = 1
+	},
+/obj/machinery/door/window/westright{
+	closed_layer = 2.9;
+	layer = 2.9;
+	name = "Display Window";
+	open_layer = 2.9;
+	req_access = list(28)
 	},
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "kitchenshutters01";
 	name = "Kitchen Shutters"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "sQW" = (
 /obj/machinery/power/apc{
@@ -66669,7 +66590,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/flour,
 /obj/structure/table,
-/obj/item/reagent_containers/glass/beaker/bowl,
+/obj/item/reagent_containers/cooking_container/plate/bowl,
 /obj/machinery/light_construct{
 	dir = 8
 	},
@@ -66923,9 +66844,11 @@
 /area/maintenance/security_starboard)
 "uea" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
+/obj/machinery/vending/dinnerware,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "ueV" = (
@@ -67040,6 +66963,9 @@
 /area/quartermaster/storage)
 "uuz" = (
 /obj/effect/floor_decal/corner/red/diagonal,
+/obj/structure/table/standard{
+	name = "plastic table frame"
+	},
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
 	pixel_x = 3;
 	pixel_y = 10
@@ -67047,9 +66973,6 @@
 /obj/item/reagent_containers/food/condiment/shaker/salt{
 	pixel_x = -4;
 	pixel_y = 10
-	},
-/obj/structure/table/standard{
-	name = "plastic table frame"
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/primary/aft)
@@ -67103,7 +67026,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "uAB" = (
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/old,
 /area/maintenance/cargo)
@@ -67198,17 +67121,10 @@
 "uRt" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -67577,19 +67493,20 @@
 /area/maintenance/cargo)
 "vEy" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/structure/table/stone/marble,
+/obj/machinery/reagentgrinder{
+	pixel_x = 6;
+	pixel_y = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/item/material/knife{
+	layer = 2.99;
+	pixel_x = -9;
+	pixel_y = -14
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/landmark/start{
-	name = "Chef"
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = -11
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -67790,13 +67707,9 @@
 /area/maintenance/medbay)
 "vRw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/sortjunction/flipped{
-	dir = 1;
-	name = "Kitchen";
-	sortType = "Kitchen"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -67827,6 +67740,14 @@
 "vVT" = (
 /turf/simulated/wall,
 /area/assembly/robotics/workshop)
+"vWF" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
+/turf/simulated/floor/carpet,
+/area/quartermaster/break_room)
 "vYh" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
@@ -67889,13 +67810,9 @@
 /area/rnd/lab)
 "wil" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/milk,
-/obj/item/reagent_containers/food/drinks/soymilk,
-/obj/item/reagent_containers/food/drinks/soymilk,
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "wje" = (
@@ -68044,6 +67961,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/assembly/robotics_cyborgification)
+"wtZ" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/disposalpipe/junction{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/kitchen)
 "wvm" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -68710,19 +68634,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"xPK" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/landmark/start{
-	name = "Chef"
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/kitchen)
 "xQD" = (
 /obj/structure/door_assembly/door_assembly_research{
 	anchored = 1
@@ -68731,9 +68642,12 @@
 /area/maintenance/research_port)
 "xRc" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -68754,15 +68668,7 @@
 /area/maintenance/cargo)
 "xTH" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/condiment/sugar{
-	pixel_x = -8;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/food/condiment/shaker/spacespice{
-	pixel_x = 5;
-	pixel_y = 4
-	},
+/obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "xVv" = (
@@ -68828,15 +68734,13 @@
 /obj/item/device/nanoquikpay{
 	pixel_y = 8
 	},
-/obj/item/device/destTagger,
-/obj/item/stack/packageWrap,
-/obj/item/hand_labeler,
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/stack/material/cardboard{
-	amount = 10
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
@@ -95037,7 +94941,7 @@ caj
 caD
 cbc
 cbx
-cbZ
+cca
 cca
 ccY
 cbw
@@ -95294,7 +95198,7 @@ cak
 caE
 cbc
 cbx
-cca
+vWF
 ccz
 ccY
 cbw
@@ -97579,7 +97483,7 @@ bGr
 bGr
 bOP
 bOT
-lJh
+bOT
 bOT
 bPA
 bQV
@@ -98093,7 +97997,7 @@ bJT
 bOp
 uuz
 bPB
-bOT
+ljr
 bQV
 mya
 bOR
@@ -98861,7 +98765,7 @@ bLz
 bMh
 bMM
 baj
-bGr
+bOt
 bOU
 sQo
 bPY
@@ -99120,15 +99024,15 @@ bMN
 bJV
 pcB
 bOV
-bOR
-bOR
-bOR
-bOR
-bOR
-bRQ
+bRP
+bOX
+bOX
+wtZ
+bOX
+gjz
 uea
 bSO
-bTr
+bko
 bUa
 bUG
 bJd
@@ -99377,15 +99281,15 @@ bMO
 bNE
 ndR
 bOR
-ljr
-bOX
-bOX
+bRQ
+bOR
+lJh
 fTZ
-bOX
-xRc
+bOR
+bOR
 bSr
 bOt
-bTs
+bkp
 bTZ
 bTu
 bMj
@@ -99635,12 +99539,12 @@ bNF
 ckY
 bOX
 vRw
-bPX
-oaR
-bQY
-fdq
 bRw
-oDA
+bOR
+keq
+bOR
+bRw
+uRt
 bOt
 bTt
 bTZ
@@ -99889,15 +99793,15 @@ bLD
 bMi
 bLA
 bNG
-pcB
-bOY
+bOt
+keq
 bOR
-xPK
-gpm
+xTH
+iBt
 dGy
 iBt
 xTH
-oDA
+dcu
 aNK
 bTu
 bUb
@@ -100146,13 +100050,13 @@ bNz
 bGr
 bJe
 bNH
-bGr
+bOt
 bOZ
+cbZ
+keq
 bOR
-bPZ
 keq
-keq
-keq
+bOR
 keq
 uRt
 aNK
@@ -100403,15 +100307,15 @@ bLE
 bMk
 bLx
 bNI
-bGr
+bOt
 bPa
-bOR
+bPD
 bQa
 bOR
-bRb
+keq
 bOR
-bOR
-bSs
+bQa
+uRt
 bhy
 bTu
 bTZ
@@ -100660,14 +100564,14 @@ bLF
 ays
 rWM
 bNJ
-bGr
+bOt
 onC
 bPD
-lGd
-oaR
-bQY
-fdq
-bRw
+bOR
+bOR
+bOR
+bOR
+bOR
 bSt
 bOt
 bTv
@@ -100917,15 +100821,15 @@ bLG
 bMm
 bMR
 bNK
-bGr
+bOt
 bPb
-bOR
+bPD
 vEy
-gpm
-dGy
-iBt
-xTH
-bSs
+oaR
+bOR
+cHF
+ikm
+cER
 bSN
 bTw
 bUd
@@ -101174,15 +101078,15 @@ bLH
 bMn
 bMS
 baD
-bGr
+bOt
 pzj
-bOR
+fdq
 bQb
-bOR
-bOR
-bOR
-bOR
-bSs
+xRc
+xRc
+xRc
+xRc
+gxS
 bSO
 bTx
 bUe
@@ -101431,10 +101335,10 @@ bLE
 bMo
 bMT
 bNM
-bGr
+bOt
 bPc
 bPF
-bQb
+lGd
 bQy
 bRe
 wil
@@ -104223,12 +104127,12 @@ aLP
 aZF
 avd
 avd
+bfh
+bjt
+aXW
 bdH
-bff
-bgt
-bhO
-bfi
-lnS
+bkn
+bgv
 bln
 wee
 bon
@@ -104480,12 +104384,12 @@ aLP
 aZF
 baO
 bcd
+adb
+aJZ
+aYl
 bdI
-bfg
-bgu
-bhP
-bjd
-bkn
+bfi
+bgw
 blo
 bmN
 boo
@@ -104737,12 +104641,12 @@ aLP
 aZJ
 baP
 bce
+aCf
+bhP
+bcO
 bdJ
-bfh
-bgv
-bhQ
-bje
-bkm
+bfj
+bgZ
 blp
 bmO
 bmO
@@ -104994,17 +104898,17 @@ aLP
 aZF
 baQ
 bcf
+aHF
+bgt
+bgt
 bdK
-bfi
-bfi
+bgo
+bfh
+bhx
 bhR
-bjf
-bhS
-blq
-bmP
-bmP
-bpG
-bhS
+bhR
+bji
+afO
 brT
 bmK
 buk
@@ -105251,17 +105155,17 @@ aYq
 aZK
 avd
 avd
-bdH
-bfj
-bgw
+bfh
+aQY
+bdv
+bfh
+bfh
+bfh
+bhO
 bhS
-bhS
-bhS
-blr
-bmQ
-boq
-bpH
-bqP
+bjd
+aHH
+bjP
 bmO
 btk
 bul
@@ -105511,14 +105415,14 @@ bcg
 bdL
 bfk
 bgx
+bff
+bgr
+aPo
+aPo
 bhT
-bjg
-bjh
-bjh
-bmR
-bor
-bpI
-bqQ
+bje
+bju
+bjU
 brU
 btl
 aVi
@@ -105768,14 +105672,14 @@ bch
 bdM
 bfl
 bfl
+bfg
+aPo
+bhj
+aPn
 bhU
-bjh
-bkp
-bls
-bmS
-bos
-bpJ
-bqQ
+bjf
+bjK
+bjU
 bmO
 bmK
 bun
@@ -106025,14 +105929,14 @@ bcg
 bdN
 bfk
 bgy
-bhT
-bji
-bkq
-blt
-bmT
-bot
-bpK
-bqR
+bff
+bgu
+bhq
+bhQ
+bjc
+bjg
+bjL
+bkm
 bmO
 bmK
 buo
@@ -106282,14 +106186,14 @@ bci
 bdO
 bdO
 bgz
-bhS
-bhS
-bhS
-bhS
-bhS
-bou
-bhS
-bhS
+afO
+afO
+afO
+afO
+afO
+bjh
+afO
+afO
 brV
 wnj
 bup
