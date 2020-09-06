@@ -8,6 +8,7 @@ Note: Must be placed within 3 tiles of the R&D Console
 
 /obj/machinery/r_n_d/destructive_analyzer
 	name = "destructive analyzer"
+	desc = "A cutting-edge research device that allows scientists to discover and further knowledge in fields that were used in the manufacture of certain objects."
 	icon_state = "d_analyzer"
 	var/obj/item/loaded_item = null
 	var/decon_mod = 0
@@ -77,5 +78,8 @@ Note: Must be placed within 3 tiles of the R&D Console
 		spawn(10)
 			update_icon()
 			busy = 0
+		if(linked_console.screen == 2.1)
+			linked_console.screen = 2.2
+			linked_console.updateUsrDialog()
 		return 1
 	return

@@ -21,3 +21,24 @@
 
 	if(cell_use_power(actuatorComponent.active_usage))
 		return ..()
+
+/mob/living/silicon/robot/Move()
+	. = ..()
+	
+	if(client)
+		var/turf/B = GetAbove(get_turf(src))
+		if(up_hint)
+			up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
+
+/mob/living/silicon/robot/movement_delay()
+	. = speed
+	. += get_pulling_movement_delay()
+
+/mob/living/silicon/robot/get_pulling_movement_delay()
+	. = ..()
+
+	if(ishuman(pulling))
+		var/mob/living/carbon/human/H = pulling
+		if(H.species.slowdown > speed)
+			. += H.species.slowdown - speed
+		. += H.ClothesSlowdown()

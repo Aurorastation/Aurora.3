@@ -8,7 +8,7 @@ var/list/holder_mob_icon_cache = list()
 	randpixel = 0
 	center_of_mass = null
 	slot_flags = 0
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/head.dmi')
+	sprite_sheets = list(BODYTYPE_VOX = 'icons/mob/species/vox/head.dmi')
 	origin_tech = null
 	drop_sound = null
 	var/mob/living/contained = null
@@ -28,8 +28,7 @@ var/list/holder_mob_icon_cache = list()
 		/obj/item/storage,
 		/obj/item/reagent_containers,
 		/obj/structure/closet/crate,
-		/obj/machinery/appliance,
-		/obj/machinery/microwave
+		/obj/machinery/appliance
 	))
 
 /obj/item/holder/Initialize()
@@ -202,24 +201,15 @@ var/list/holder_mob_icon_cache = list()
 
 	src.verbs += /mob/living/proc/get_holder_location//This has to be before we move the mob into the holder
 
-
 	spawn(2)
 		var/obj/item/holder/H = new holder_type(loc)
-
 		src.forceMove(H)
-
-
 		H.contained = src
-
-
 
 		if (src.stat == DEAD)
 			H.held_death()//We've scooped up an animal that's already dead. use the proper dead icons
 		else
 			H.isalive = 1//We note that the mob is alive when picked up. If it dies later, we can know that its death happened while held, and play its deathmessage for it
-
-
-
 
 		var/success = 0
 		if (src == user)
@@ -238,14 +228,18 @@ var/list/holder_mob_icon_cache = list()
 				to_chat(src, "<span class='notice'>[grabber] scoops you up.</span>")
 
 			H.sync(src)
-
 		else
 			to_chat(user, "Failed, try again!")
 			//If the scooping up failed something must have gone wrong
 			H.release_mob()
 
+		post_scoop()
+
 		return success
 
+// Override to add stuff that should happen when scooping
+/mob/living/proc/post_scoop()
+	return
 
 /mob/living/proc/get_holder_location()
 	set category = "Abilities"
@@ -428,15 +422,15 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "babycarp"
 	item_state = "babycarp"
 	slot_flags = SLOT_HEAD
-	flags_inv = HIDEEARS|BLOCKHEADHAIR // carp wings blocks stuff - geeves
+	flags_inv = HIDEEARS
 	w_class = 1
 
-/obj/item/holder/carp/baby/verb/toggle_block_hair(mob/user)
+/obj/item/holder/carp/baby/verb/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
 	set category = "Object"
 
 	flags_inv ^= BLOCKHEADHAIR
-	to_chat(user, span("notice", "[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
+	to_chat(usr, SPAN_NOTICE("\The [src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair."))
 
 /obj/item/holder/borer
 	name = "cortical borer"
@@ -601,6 +595,7 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/pai/rabbit
 	icon_state = "rabbit_rest"
 	item_state = "rabbit"
+
 /obj/item/holder/pai/custom
 	var/customsprite = 1
 

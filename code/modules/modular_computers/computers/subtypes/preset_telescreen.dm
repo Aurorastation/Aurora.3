@@ -7,8 +7,8 @@
 
 /obj/item/modular_computer/telescreen/preset/generic
 	_app_preset_type = /datum/modular_computer_app_presets/wall_generic
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/telescreen/preset/trashcompactor
 	_app_preset_type = /datum/modular_computer_app_presets/trashcompactor
-	enrolled = TRUE
+	enrolled = 1

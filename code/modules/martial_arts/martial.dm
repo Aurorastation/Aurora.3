@@ -34,7 +34,7 @@
 		streak = copytext(streak,2)
 	return
 
-/datum/martial_art/proc/basic_hit(var/mob/living/carbon/human/A,var/mob/living/carbon/human/D)	//copy pasta of the regular unarmed attack, but can be replaced by something else
+/datum/martial_art/proc/basic_hit(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)	//copy pasta of the regular unarmed attack, but can be replaced by something else
 	var/rand_damage = rand(1, 5)
 	var/block = 0
 	var/accurate = 0
@@ -69,7 +69,7 @@
 			if(!D.lying)
 				attack_message = "[A] attempted to strike [D], but missed!"
 			else
-				attack_message = "[A] attempted to strike [D], but \he rolled out of the way!"
+				attack_message = "[A] attempted to strike [D], but [D.get_pronoun("he")] rolled out of the way!"
 				D.set_dir(pick(cardinal))
 			miss_type = 1
 
@@ -98,8 +98,7 @@
 
 	var/real_damage = rand_damage
 	var/hit_dam_type = attack.damage_type
-	var/is_sharp = 0
-	var/is_edge = 0
+	var/damage_flags = attack.damage_flags()
 
 	real_damage += attack.get_unarmed_damage(A)
 	real_damage *= D.damage_multiplier
@@ -120,26 +119,20 @@
 				hit_dam_type = PAIN
 
 			if(G.sharp)
-				is_sharp = 1
+				damage_flags |= DAM_SHARP
 
 			if(G.edge)
-				is_edge = 1
+				damage_flags |= DAM_EDGE
 
 			if(istype(A.gloves,/obj/item/clothing/gloves/force))
 				var/obj/item/clothing/gloves/force/X = A.gloves
 				real_damage *= X.amplification
 
-	if(attack.sharp)
-		is_sharp = 1
+	var/armor = D.run_armor_check(hit_zone, "melee")
 
-	if(attack.edge)
-		is_edge = 1
+	attack.apply_effects(A, D, armor, rand_damage, hit_zone)
 
-	var/armour = D.run_armor_check(hit_zone, "melee")
-
-	attack.apply_effects(A, D, armour, rand_damage, hit_zone)
-
-	D.apply_damage(real_damage, hit_dam_type, hit_zone, armour, sharp=is_sharp, edge=is_edge)
+	D.apply_damage(real_damage, hit_dam_type, hit_zone, armor, damage_flags = damage_flags)
 
 	return 1
 
@@ -168,7 +161,7 @@
 		if(!A)
 			break
 		A.set_dir(i)
-		playsound(A.loc, 'sound/weapons/punch1.ogg', 15, 1, -1)
+		playsound(A.loc, "punch", 15, 1, -1)
 
 /obj/item/martial_manual
 	name = "SolCom manual"

@@ -134,7 +134,6 @@
 
 /obj/effect/landmark/mobcorpse/pirate
 	name = "Pirate"
-	corpseuniform = /obj/item/clothing/under/pirate
 	corpseshoes = /obj/item/clothing/shoes/jackboots
 	corpseglasses = /obj/item/clothing/glasses/eyepatch
 	corpsehelmet = /obj/item/clothing/head/bandana
@@ -150,7 +149,6 @@
 
 /obj/effect/landmark/mobcorpse/russian
 	name = "Russian"
-	corpseuniform = /obj/item/clothing/under/soviet
 	corpseshoes = /obj/item/clothing/shoes/jackboots
 	corpsehelmet = /obj/item/clothing/head/bearpelt
 

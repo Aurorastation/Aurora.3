@@ -30,7 +30,7 @@
 		return //how did they get here?
 
 	if(!ROUND_IS_STARTED)
-		to_chat(src, span("alert", "The game hasn't started yet!"))
+		to_chat(src, SPAN_ALERT("The game hasn't started yet!"))
 		return
 
 	bst_cooldown = TRUE
@@ -60,7 +60,7 @@
 	bst.equip_to_slot_or_del(new /obj/item/clothing/shoes/black/bst(bst), slot_shoes)
 	bst.equip_to_slot_or_del(new /obj/item/clothing/head/beret(bst), slot_head)
 	bst.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/bst(bst), slot_glasses)
-	bst.equip_to_slot_or_del(new /obj/item/storage/belt/utility/full(bst), slot_belt)
+	bst.equip_to_slot_or_del(new /obj/item/storage/belt/utility/very_full(bst), slot_belt)
 	bst.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat/bst(bst), slot_gloves)
 	if(bst.backbag == 1)
 		bst.equip_to_slot_or_del(new /obj/item/storage/box/ids(bst), slot_r_hand)
@@ -68,7 +68,8 @@
 		bst.equip_to_slot_or_del(new /obj/item/storage/box/ids(bst.back), slot_in_backpack)
 		bst.equip_to_slot_or_del(new /obj/item/device/t_scanner(bst.back), slot_in_backpack)
 		bst.equip_to_slot_or_del(new /obj/item/device/pda/captain/bst(bst.back), slot_in_backpack)
-		bst.equip_to_slot_or_del(new /obj/item/device/multitool(bst.back), slot_in_backpack)
+		bst.equip_to_slot_or_del(new /obj/item/device/healthanalyzer(bst.back), slot_in_backpack)
+		bst.equip_to_slot_or_del(new /obj/item/research(bst.back), slot_in_backpack)
 
 		var/obj/item/storage/box/pills = new /obj/item/storage/box(null, TRUE)
 		pills.name = "adminordrazine"
@@ -134,7 +135,7 @@
 	var/fall_override = TRUE
 
 /mob/living/carbon/human/bst/can_inject(var/mob/user, var/error_msg, var/target_zone)
-	to_chat(user, span("alert", "The [src] disarms you before you can inject them."))
+	to_chat(user, SPAN_ALERT("The [src] disarms you before you can inject them."))
 	user.drop_item()
 	return 0
 
@@ -142,19 +143,19 @@
 	return 1
 
 /mob/living/carbon/human/bst/proc/suicide()
-	if(key && species.name != "Human")
+	if(key && species.name != SPECIES_HUMAN)
 		switch(species.name)
-			if("Tajara")
+			if(SPECIES_TAJARA)
 				bsc()
-			if("Baseline Frame")
+			if(SPECIES_IPC)
 				bsb()
-			if("Diona")
+			if(SPECIES_DIONA)
 				bsd()
-			if("Unathi")
+			if(SPECIES_UNATHI)
 				bsu()
-			if("Skrell")
+			if(SPECIES_SKRELL)
 				bss()
-			if("Vaurca Worker")
+			if(SPECIES_VAURCA_WORKER)
 				bsv()
 		return
 
@@ -174,7 +175,7 @@
 			ghost.voice_name = "[ghost.key] BSTech"
 
 /mob/living/carbon/human/bst/proc/bsc() //because we all have our unrealistic snowflakes right?
-	if(set_species("Tajara"))
+	if(set_species(SPECIES_TAJARA))
 		h_style = "Tajaran Ears"
 		name = "Bluespace Cat"
 		voice_name = "Bluespace Cat"
@@ -194,7 +195,7 @@
 		suicide()
 
 /mob/living/carbon/human/bst/proc/bsb()
-	if(set_species("Baseline Frame"))
+	if(set_species(SPECIES_IPC))
 		h_style = "blue IPC screen"
 		name = "Bluespace Bot"
 		voice_name = "Bluespace Bot"
@@ -213,7 +214,7 @@
 		suicide()
 
 /mob/living/carbon/human/bst/proc/bsd()
-	if(set_species("Diona"))
+	if(set_species(SPECIES_DIONA))
 		name = "Bluespace Tree"
 		voice_name = "Bluespace Tree"
 		real_name = "Bluespace Tree"
@@ -231,7 +232,7 @@
 		suicide()
 
 /mob/living/carbon/human/bst/proc/bsu()
-	if(set_species("Unathi"))
+	if(set_species(SPECIES_UNATHI))
 		h_style = "Unathi Horns"
 		name = "Bluespace Lizard"
 		voice_name = "Bluespace Lizard"
@@ -250,7 +251,7 @@
 		suicide()
 
 /mob/living/carbon/human/bst/proc/bss()
-	if(set_species("Skrell"))
+	if(set_species(SPECIES_SKRELL))
 		h_style = "Skrell Average Tentacles"
 		name = "Bluespace Squid"
 		voice_name = "Bluespace Squid"
@@ -270,7 +271,7 @@
 		suicide()
 
 /mob/living/carbon/human/bst/proc/bsv()
-	if(set_species("Vaurca Worker"))
+	if(set_species(SPECIES_VAURCA_WORKER))
 		h_style = "Bald"
 		name = "Bluespace Bug"
 		voice_name = "Bluespace Bug"
@@ -308,10 +309,10 @@
 
 	if(!src.incorporeal_move)
 		src.incorporeal_move = 2
-		to_chat(src, span("notice", "You will now phase through solid matter."))
+		to_chat(src, SPAN_NOTICE("You will now phase through solid matter."))
 	else
 		src.incorporeal_move = 0
-		to_chat(src, span("notice", "You will no-longer phase through solid matter."))
+		to_chat(src, SPAN_NOTICE("You will no-longer phase through solid matter."))
 	return
 
 /mob/living/carbon/human/bst/verb/bstrecover()
@@ -351,7 +352,7 @@
 	set category = "BST"
 
 	status_flags ^= GODMODE
-	to_chat(src, span("notice", "God mode is now [status_flags & GODMODE ? "enabled" : "disabled"]"))
+	to_chat(src, SPAN_NOTICE("God mode is now [status_flags & GODMODE ? "enabled" : "disabled"]"))
 
 //Equipment. All should have canremove set to 0
 //All items with a /bst need the attack_hand() proc overrided to stop people getting overpowered items.
@@ -366,7 +367,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -376,7 +377,7 @@
 	name = "bluespace technician's headset"
 	desc = "A Bluespace Technician's headset. The letters 'BST' are stamped on the side."
 	translate_binary = 1
-	translate_hive = 1
+	translate_hivenet = 1
 	canremove = 0
 	keyslot1 = new /obj/item/device/encryptionkey/binary
 	keyslot2 = new /obj/item/device/encryptionkey/ert
@@ -385,7 +386,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -394,7 +395,6 @@
 /obj/item/device/radio/headset/ert/bst/recalculateChannels(var/setDescription = 0)
 	..(setDescription)
 	translate_binary = 1
-	translate_hive = 1
 	translate_hivenet = 1
 
 //Clothes
@@ -412,7 +412,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -429,7 +429,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -473,7 +473,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -490,7 +490,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -509,7 +509,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()
@@ -523,7 +523,7 @@
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, span("alert", "Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
 		return
 	else
 		..()

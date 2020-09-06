@@ -14,7 +14,7 @@
 	var/category = /datum/shuttle
 	var/multiz = 0	//how many multiz levels, starts at 0
 
-	var/ceiling_type = /turf/simulated/shuttle_roof
+	var/ceiling_type = /turf/simulated/floor/airless/ceiling
 
 	var/sound_takeoff = 'sound/effects/shuttle_takeoff.ogg'
 	var/sound_landing = 'sound/effects/shuttle_landing.ogg'
@@ -25,6 +25,11 @@
 	                                 //Useful for shuttles that are initialed by map_template loading, or shuttles that are created in-game or not used.
 	var/logging_home_tag   //Whether in-game logs will be generated whenever the shuttle leaves/returns to the landmark with this landmark_tag.
 	var/logging_access     //Controls who has write access to log-related stuff; should correlate with pilot access.
+
+	var/mothershuttle //tag of mothershuttle
+	var/motherdock    //tag of mothershuttle landmark, defaults to starting location
+
+	var/squishes = TRUE //decides whether or not things get squished when it moves.
 
 /datum/shuttle/New(_name, var/obj/effect/shuttle_landmark/initial_location)
 	..()
@@ -169,7 +174,7 @@
 
 	for(var/turf/src_turf in turf_translation)
 		var/turf/dst_turf = turf_translation[src_turf]
-		if(src_turf.is_solid_structure()) //in case someone put a hole in the shuttle and you were lucky enough to be under it
+		if(squishes && src_turf.is_solid_structure()) //in case someone put a hole in the shuttle and you were lucky enough to be under it
 			for(var/atom/movable/AM in dst_turf)
 				if(!AM.simulated)
 					continue
@@ -209,11 +214,25 @@
 	if(HasAbove(current_location.z))
 		for(var/area/A in shuttle_area)
 			for(var/turf/TD in A.contents)
+				TD.update_above()
+				TD.update_icon()
 				var/turf/TA = GetAbove(TD)
 				if(istype(TA, get_base_turf_by_area(TA)) || istype(TA, /turf/simulated/open))
 					if(get_area(TA) in shuttle_area)
 						continue
 					TA.ChangeTurf(ceiling_type, TRUE, TRUE, TRUE)
+
+	for(var/area/sub_area in shuttle_area)
+		for(var/obj/structure/shuttle_part/part in sub_area)
+			var/turf/target_turf = get_turf(part)
+			if(part.outside_part)
+				target_turf.ChangeTurf(destination.base_turf)
+		for(var/obj/structure/window/shuttle/unique/SW in sub_area)
+			if(SW.outside_window)
+				var/turf/target_turf = get_turf(SW)
+				target_turf.ChangeTurf(destination.base_turf)
+		for(var/obj/effect/energy_field/ef in sub_area)
+			qdel(ef)
 
 	// Remove all powernets that were affected, and rebuild them.
 	var/list/cables = list()
@@ -226,9 +245,30 @@
 			NewPN.add_cable(C)
 			propagate_network(C,C.powernet)
 
+	if(mothershuttle)
+		var/datum/shuttle/mothership = SSshuttle.shuttles[mothershuttle]
+		if(mothership)
+			if(current_location.landmark_tag == motherdock)
+				mothership.shuttle_area |= shuttle_area
+			else
+				mothership.shuttle_area -= shuttle_area
+
 //returns 1 if the shuttle has a valid arrive time
 /datum/shuttle/proc/has_arrive_time()
 	return (moving_status == SHUTTLE_INTRANSIT)
+
+/datum/shuttle/proc/find_children()
+	. = list()
+	for(var/shuttle_name in SSshuttle.shuttles)
+		var/datum/shuttle/shuttle = SSshuttle.shuttles[shuttle_name]
+		if(shuttle.mothershuttle == name)
+			. += shuttle
+
+//Returns those areas that are not actually child shuttles.
+/datum/shuttle/proc/find_childfree_areas()
+	. = shuttle_area.Copy()
+	for(var/datum/shuttle/child in find_children())
+		. -= child.shuttle_area
 
 /datum/shuttle/autodock/proc/get_location_name()
 	if(moving_status == SHUTTLE_INTRANSIT)

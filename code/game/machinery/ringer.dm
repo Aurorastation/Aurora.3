@@ -2,7 +2,7 @@
 	name = "ringer terminal"
 	desc = "A ringer terminal, PDAs can be linked to it."
 	icon = 'icons/obj/terminals.dmi'
-	icon_state = "bell_standby"
+	icon_state = "bell"
 	anchored = TRUE
 
 	req_access = list() //what access it needs to link your pda
@@ -13,11 +13,14 @@
 	var/on = TRUE
 	var/department = "Somewhere" //whatever department/desk you put this thing
 	var/pinged = FALSE //for cooldown
+	var/global/list/screen_overlays
 
 /obj/machinery/ringer/Initialize()
 	. = ..()
-	if (id)
+	if(id)
 		ringers = new(id, src)
+	generate_overlays()
+	update_icon()
 
 /obj/machinery/ringer/power_change()
 	..()
@@ -27,18 +30,32 @@
 	QDEL_NULL(ringers)
 	return ..()
 
-/obj/machinery/ringer/update_icon()
-	if(stat & NOPOWER)
-		icon_state = "bell_off"
+/obj/machinery/ringer/proc/generate_overlays(var/force = 0)
+	if(LAZYLEN(screen_overlays) && !force)
 		return
-	if (rings_pdas || rings_pdas.len)
-		icon_state = "bell_active"
+	LAZYINITLIST(screen_overlays)
+	screen_overlays["bell-active"] = make_screen_overlay(icon, "bell-active")
+	screen_overlays["bell-alert"] = make_screen_overlay(icon, "bell-alert")
+	screen_overlays["bell-scanline"] = make_screen_overlay(icon, "bell-scanline")
+	screen_overlays["bell-standby"] = make_screen_overlay(icon, "bell-standby")
+
+/obj/machinery/ringer/update_icon()
+	cut_overlays()
+	if(!on || stat & NOPOWER)
+		icon_state = initial(icon_state)
+		set_light(FALSE)
+		return
+	if(rings_pdas || rings_pdas.len)
+		add_overlay(screen_overlays["bell-active"])
+		set_light(1.4, 1, COLOR_CYAN)
 	if(pinged)
-		icon_state = "bell_alert"
-	if(!on)
-		icon_state = "bell_off"
+		add_overlay(screen_overlays["bell-alert"])
+		set_light(1.4, 1, COLOR_CYAN)
+	if(on)
+		add_overlay(screen_overlays["bell-scanline"])
 	else
-		icon_state = "bell_standby"
+		add_overlay(screen_overlays["bell-standby"])
+		set_light(1.4, 1, COLOR_CYAN)
 
 /obj/machinery/ringer/attackby(obj/item/C as obj, mob/living/user as mob)
 	if(stat & (BROKEN|NOPOWER) || !istype(user,/mob/living))
@@ -86,6 +103,7 @@
 		return
 
 	pinged = TRUE
+	update_icon()
 
 	playsound(src.loc, 'sound/machines/ringer.ogg', 50, 1)
 

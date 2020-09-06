@@ -30,6 +30,7 @@
 	throw_range = 20
 	force = 0
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /*
  * Balloons
@@ -40,6 +41,7 @@
 	icon_state = "waterballoon-e"
 	item_state = "balloon-empty"
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 /obj/item/toy/balloon/New()
 	var/datum/reagents/R = new/datum/reagents(10)
@@ -64,7 +66,7 @@
 			if(O.reagents.total_volume < 1)
 				to_chat(user, "The [O] is empty.")
 			else if(O.reagents.total_volume >= 1)
-				if(O.reagents.has_reagent("pacid", 1))
+				if(O.reagents.has_reagent(/datum/reagent/acid/polyacid, 1))
 					to_chat(user, "The acid chews through the balloon!")
 					O.reagents.splash(user, reagents.total_volume)
 					qdel(src)
@@ -99,6 +101,7 @@
 	icon_state = "syndballoon"
 	item_state = "syndballoon"
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 	w_class = ITEMSIZE_LARGE
 
 /obj/item/toy/nanotrasenballoon
@@ -108,6 +111,7 @@
 	item_state = "ntballoon"
 	w_class = ITEMSIZE_LARGE
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 /*
  * Fake telebeacon
@@ -139,6 +143,7 @@
 	icon_state = "crossbow"
 	item_state = "crossbow"
 	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
 	attack_verb = list("attacked", "struck", "hit")
@@ -236,6 +241,7 @@
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	drop_sound = 'sound/items/drop/food.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
 
 /obj/effect/foam_dart_dummy
 	name = ""
@@ -255,7 +261,12 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sword0"
 	item_state = "sword0"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_energy.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_energy.dmi',
+		)
 	drop_sound = 'sound/items/drop/gun.ogg'
+	pickup_sound = 'sound/items/pickup/gun.ogg'
 	var/active = 0.0
 	var/colorvar = "blue"
 	w_class = ITEMSIZE_SMALL
@@ -295,7 +306,8 @@
 	icon_state = "katana"
 	item_state = "katana"
 	drop_sound = 'sound/items/drop/gun.ogg'
-	hitsound = "swing_hit"
+	pickup_sound = /decl/sound_category/sword_pickup_sound
+	equip_sound = /decl/sound_category/sword_equip_sound
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_BACK
 	force = 5
@@ -313,26 +325,40 @@
 	icon_state = "snappop"
 	w_class = ITEMSIZE_TINY
 	drop_sound = 'sound/items/drop/food.ogg'
+	pickup_sound = 'sound/items/pickup/food.ogg'
 
-	throw_impact(atom/hit_atom)
-		..()
-		spark(src, 3, alldirs)
-		new /obj/effect/decal/cleanable/ash(src.loc)
-		src.visible_message("<span class='warning'>The [src.name] explodes!</span>","<span class='warning'>You hear a snap!</span>")
-		playsound(src, 'sound/effects/snap.ogg', 50, 1)
-		qdel(src)
+/obj/item/toy/snappop/attack_self(mob/user)
+	user.drop_from_inventory(src)
+	user.visible_message(SPAN_WARNING("\The [user] throws \the [src] at their feet!"), SPAN_NOTICE("You throw \the [src] at your feet."))
+	do_pop()
+
+/obj/item/toy/snappop/throw_impact(atom/hit_atom)
+	..()
+	do_pop()
 
 /obj/item/toy/snappop/Crossed(H as mob|obj)
 	if((ishuman(H))) //i guess carp and shit shouldn't set them off
 		var/mob/living/carbon/M = H
 		if(M.m_intent == "run")
-			to_chat(M, "<span class='warning'>You step on the snap pop!</span>")
+			to_chat(M, SPAN_WARNING("You step on the snap pop!"))
+			do_pop()
 
-			spark(src, 2)
-			new /obj/effect/decal/cleanable/ash(src.loc)
-			src.visible_message("<span class='warning'>The [src.name] explodes!</span>","<span class='warning'>You hear a snap!</span>")
-			playsound(src, 'sound/effects/snap.ogg', 50, 1)
-			qdel(src)
+/obj/item/toy/snappop/proc/do_pop()
+	spark(src, 3, alldirs)
+	new /obj/effect/decal/cleanable/ash(get_turf(src))
+	visible_message(SPAN_WARNING("\The [src] explodes!"), SPAN_WARNING("You hear a snap!"))
+	playsound(get_turf(src), 'sound/effects/snap.ogg', 50, TRUE)
+	qdel(src)
+
+/obj/item/toy/snappop/syndi
+	desc_antag = "These snap pops have an extra compound added that will deploy a tiny smokescreen when snapped."
+
+/obj/item/toy/snappop/syndi/do_pop()
+	var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread
+	smoke.set_up(2, 0, get_turf(src))
+	smoke.attach(get_turf(src))
+	smoke.start()
+	..()
 
 /*
  * Water flower
@@ -349,6 +375,7 @@
 	desc = "A genuine Admiral Krush Bosun's Whistle, for the aspiring ship's captain! Suitable for ages 8 and up, do not swallow."
 	icon_state = "bosunwhistle"
 	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 	var/cooldown = 0
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
@@ -439,6 +466,7 @@
 	icon_state = "glitched"
 	w_class = ITEMSIZE_TINY
 	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
 /obj/item/toy/figure/cmo
 	name = "chief medical officer action figure"
@@ -663,6 +691,7 @@
 	desc = "A very generic small plushie. It seems to not want to exist."
 	icon_state = "nymphplushie"
 	drop_sound = 'sound/items/drop/plushie.ogg'
+	pickup_sound = 'sound/items/pickup/plushie.ogg'
 	var/phrase = "Hewwo!"
 
 /obj/item/toy/plushie/attack_self(mob/user as mob)
@@ -778,11 +807,12 @@
 /obj/item/toy/cultsword
 	name = "foam sword"
 	desc = "An arcane weapon wielded by the followers of the hit Saturday morning cartoon \"King Nursee and the Acolytes of Heroism\"."
-	icon = 'icons/obj/weapons.dmi'
+	icon = 'icons/obj/sword.dmi'
 	icon_state = "cultblade"
 	item_state = "cultblade"
 	w_class = ITEMSIZE_LARGE
 	attack_verb = list("attacked", "slashed", "stabbed", "poked")
+	contained_sprite = TRUE
 
 /* NYET.
 /obj/item/toddler
@@ -804,6 +834,7 @@
 	icon = 'icons/obj/clothing/belts.dmi'
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 
 /obj/item/toy/xmastree
@@ -813,4 +844,5 @@
 	w_class = ITEMSIZE_TINY
 	force = 1
 	throwforce = 1
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'

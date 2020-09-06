@@ -38,35 +38,38 @@
 	if(user.get_active_hand() == src)
 		newtime = Clamp(newtime, 10, 60000)
 		timer = newtime
-		to_chat(user, "Timer set for [timer] seconds.")
+		to_chat(user, SPAN_NOTICE("Timer set for [timer] seconds."))
 
 /obj/item/plastique/afterattack(atom/movable/target, mob/user, flag)
 	if (!flag)
 		return
-	if (ismob(target) || istype(target, /turf/unsimulated) || isopenturf(target) || istype(target, /obj/item/storage/) || istype(target, /obj/item/clothing/accessory/storage/) || istype(target, /obj/item/clothing/under))
+	if(ismob(target) || istype(target, /turf/unsimulated) || isopenturf(target) || istype(target, /obj/item/storage/) || istype(target, /obj/item/clothing/accessory/storage/) || istype(target, /obj/item/clothing/under))
 		return
-	to_chat(user, "Planting explosives...")
+	if(deploy_check(user))
+		return
+	to_chat(user, SPAN_NOTICE("Planting explosives..."))
 	user.do_attack_animation(target)
 
-	if(do_after(user, 50) && in_range(user, target))
-		user.drop_item() //TODO: Look into this
-		src.target = target
-		loc = null
+	if(do_after(user, 50, TRUE, target))
+		deploy_c4(target, user)
 
-		if (ismob(target))
-			add_logs(user, target, "planted [name] on")
-			user.visible_message("<span class='danger'>[user.name] finished planting an explosive on [target.name]!</span>")
-			message_admins("[key_name(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) planted [src.name] on [key_name(target)](<A HREF='?_src_=holder;adminmoreinfo=\ref[target]'>?</A>) with [timer] second fuse",0,1)
-			log_game("[key_name(user)] planted [src.name] on [key_name(target)] with [timer] second fuse",ckey=key_name(user))
+/obj/item/plastique/proc/deploy_check(var/mob/user)
+	return FALSE
 
-		else
-			message_admins("[key_name(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) planted [src.name] on [target.name] at ([target.x],[target.y],[target.z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[target.x];Y=[target.y];Z=[target.z]'>JMP</a>) with [timer] second fuse",0,1)
-			log_game("[key_name(user)] planted [src.name] on [target.name] at ([target.x],[target.y],[target.z]) with [timer] second fuse",ckey=key_name(user))
+/obj/item/plastique/proc/deploy_c4(var/atom/movable/target, mob/user)
+	user.drop_item() //TODO: Look into this
+	src.target = target
+	loc = null
 
-		target.add_overlay(image_overlay, TRUE)
-		to_chat(user, "Bomb has been planted. Timer counting down from [timer].")
+	if(ismob(target))
+		add_logs(user, target, "planted [name] on")
+		user.visible_message("<span class='danger'>[user.name] finished planting an explosive on [target.name]!</span>")
+	log_and_message_admins("planted [src.name] on [target.name] with [src.timer] second fuse", user, get_turf(target))
 
-		addtimer(CALLBACK(src, .proc/explode, get_turf(target)), timer * 10)
+	target.add_overlay(image_overlay, TRUE)
+	to_chat(user, "Bomb has been planted. Timer counting down from [timer].")
+
+	addtimer(CALLBACK(src, .proc/explode, get_turf(target)), timer * 10)
 
 /obj/item/plastique/proc/explode(turf/location)
 	if(!target)
@@ -90,3 +93,49 @@
 
 /obj/item/plastique/attack(mob/M as mob, mob/user as mob, def_zone)
 	return
+
+/obj/item/plastique/cyborg
+	name = "plastic explosives dispenser"
+	desc = "A stationbound-mounted C4 dispenser, how thrilling!"
+	desc_antag = "When used, this dispenser will deploy C4 on a target, upon which it will enter a charging state. After two minutes, it will restock a new C4 bundle."
+	var/can_deploy = TRUE
+	var/recharge_time = 5 MINUTES
+	maptext_x = 3
+	maptext_y = 2
+
+/obj/item/plastique/cyborg/Initialize()
+	. = ..()
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>"
+
+/obj/item/plastique/cyborg/attackby()
+	return
+
+/obj/item/plastique/cyborg/deploy_check(mob/user)
+	if(!can_deploy)
+		to_chat(user, SPAN_WARNING("\The [src] hasn't recharged yet!"))
+		return TRUE
+	..()
+
+/obj/item/plastique/cyborg/deploy_c4(atom/movable/target, mob/user)
+	var/obj/item/plastique/C4 = new /obj/item/plastique(target)
+	C4.timer = src.timer
+	C4.target = target
+	C4.loc = null
+
+	log_and_message_admins("planted [C4.name] on [target.name] with [C4.timer] second fuse", user, get_turf(target))
+
+	C4.target.add_overlay(image_overlay, TRUE)
+	to_chat(user, SPAN_NOTICE("Bomb has been planted. Timer counting down from [C4.timer]."))
+
+	addtimer(CALLBACK(C4, .proc/explode, get_turf(target)), timer * 10)
+	addtimer(CALLBACK(src, .proc/recharge), recharge_time)
+	can_deploy = FALSE
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 6px;\">Charge</span>"
+
+/obj/item/plastique/cyborg/proc/recharge()
+	if(isrobot(loc))
+		var/mob/living/silicon/robot/R = loc
+		if(R?.cell)
+			R.cell.use(1000)
+	can_deploy = TRUE
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>"

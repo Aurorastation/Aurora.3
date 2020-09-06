@@ -9,16 +9,15 @@ var/datum/antagonist/thrall/thralls = null
 	restricted_jobs = list("AI", "Cyborg", "Chaplain")
 	protected_jobs = list()
 	restricted_species = list(
-		"Baseline Frame",
-		"Shell Frame",
-		"Hephaestus G1 Industrial Frame",
-		"Hephaestus G2 Industrial Frame",
-		"Xion Industrial Frame",
-		"Zeng-Hu Mobility Frame",
-		"Bishop Accessory Frame"
+		SPECIES_IPC,
+		SPECIES_IPC_SHELL,
+		SPECIES_IPC_G1,
+		SPECIES_IPC_G2,
+		SPECIES_IPC_XION,
+		SPECIES_IPC_ZENGHU,
+		SPECIES_IPC_BISHOP
 	)
 	welcome_text = "You are a vampire or psionic operant's thrall: a pawn to be commanded by them at will."
-	flags = 0
 	antaghud_indicator = "hudthrall"
 
 /datum/antagonist/thrall/New()

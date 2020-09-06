@@ -2,7 +2,8 @@
 	name = "chemical dispenser"
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "dispenser"
-	clicksound = "button"
+	var/icon_state_active = "dispenser_active"
+	clicksound = /decl/sound_category/button_sound
 
 	var/list/spawn_cartridges = null // Set to a list of types to spawn one of each on New()
 
@@ -21,7 +22,6 @@
 
 /obj/machinery/chemical_dispenser/Initialize()
 	. = ..()
-
 	if(spawn_cartridges)
 		for(var/type in spawn_cartridges)
 			add_cartridge(new type(src))
@@ -109,6 +109,8 @@
 		user.drop_from_inventory(RC,src)
 		to_chat(user, "<span class='notice'>You set \the [RC] on \the [src].</span>")
 		SSnanoui.update_uis(src) // update all UIs attached to src
+		if(icon_state_active)
+			icon_state = icon_state_active
 
 	else
 		return ..()
@@ -163,8 +165,10 @@
 	else if(href_list["ejectBeaker"])
 		if(container)
 			var/obj/item/reagent_containers/B = container
-			B.forceMove(loc)
+			usr.put_in_hands(B)
 			container = null
+			if(icon_state_active)
+				icon_state = initial(icon_state)
 
 	add_fingerprint(usr)
 	return 1 // update UIs attached to this object

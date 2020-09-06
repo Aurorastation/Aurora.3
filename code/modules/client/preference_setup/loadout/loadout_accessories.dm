@@ -4,6 +4,11 @@
 	slot = slot_tie
 	sort_category = "Accessories"
 
+/datum/gear/accessory/bracelet
+	display_name = "bracelet (colourable)"
+	path = /obj/item/clothing/accessory/bracelet
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/suspenders
 	display_name = "suspenders"
 	path = /obj/item/clothing/accessory/suspenders
@@ -90,7 +95,7 @@
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Emergency Medical Technician", "Medical Resident")
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
@@ -110,7 +115,7 @@
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
 	path = /obj/item/clothing/accessory/storage/pouches/white
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Emergency Medical Technician", "Medical Resident")
 
 /datum/gear/accessory/pouches
 	display_name = "drop pouches, simple"
@@ -131,9 +136,23 @@
 	cost = 2
 
 /datum/gear/accessory/sweater
-	display_name = "sweater"
+	display_name = "sweater selection"
 	path = /obj/item/clothing/accessory/sweater
+	description = "A selection of sweaters and sweater vests."
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/sweater/New()
+	..()
+	var/sweater = list()
+	sweater["sweater"] = /obj/item/clothing/accessory/sweater
+	sweater["argyle sweater"] = /obj/item/clothing/accessory/sweaterargyle
+	sweater["sweater vest"] = /obj/item/clothing/accessory/sweatervest
+	sweater["argyle sweater vest"] = /obj/item/clothing/accessory/sweatervestargyle
+	sweater["turtleneck sweater"] = /obj/item/clothing/accessory/sweaterturtleneck
+	sweater["argyle turtleneck sweater"] = /obj/item/clothing/accessory/sweaterargyleturtleneck
+	sweater["tubeneck sweater"] = /obj/item/clothing/accessory/sweatertubeneck
+	sweater["argyle tubeneck sweater"] = /obj/item/clothing/accessory/sweaterargyletubeneck
+	gear_tweaks += new/datum/gear_tweak/path(sweater)
 
 /datum/gear/accessory/dressshirt
 	display_name = "dress shirt"
@@ -145,9 +164,24 @@
 	path = /obj/item/clothing/accessory/dressshirt_r
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/dressshirt_crop
+	display_name = "cropped dress shirt"
+	path = /obj/item/clothing/accessory/dressshirt_crop
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/dressshirt_crop_r
+	display_name = "cropped dress shirt, rolled up"
+	path = /obj/item/clothing/accessory/dressshirt_crop_r
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/longsleeve
 	display_name = "long-sleeved shirt"
 	path = /obj/item/clothing/accessory/longsleeve
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/blouse
+	display_name = "blouse"
+	path = /obj/item/clothing/accessory/blouse
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/longsleeve_s
@@ -166,9 +200,15 @@
 	path = /obj/item/clothing/accessory/tshirt
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/accessory/tshirt
+	display_name = "cropped t-shirt"
+	path = /obj/item/clothing/accessory/tshirt_crop
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/silversun
 	display_name = "silversun floral shirt selection"
 	path = /obj/item/clothing/accessory/silversun
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/silversun/New()
 	..()
@@ -240,6 +280,11 @@
 /datum/gear/accessory/electronic_idbadge
 	display_name = "badge, electronic"
 	path = /obj/item/clothing/accessory/badge/idbadge/intel
+
+/datum/gear/accessory/namepin
+	display_name = "pin tag (colourable)"
+	path = /obj/item/clothing/accessory/badge/namepin
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/sleeve_patch
 	display_name = "shoulder sleeve patch"

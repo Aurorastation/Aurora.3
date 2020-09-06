@@ -30,12 +30,11 @@ calculate text size per text.
 
 	var/list/out = list()
 	var/list/tastes = list() //descriptor = strength
-	var/lukewarm = 0 // should we allow it to be lukewarm or not
 	if(minimum_percent <= 100)
 		for(var/datum/reagent/R in reagent_list)
 			if(!R.taste_mult)
 				continue
-			if(R.id == "nutriment" || R.id == "synnutriment") //this is ugly but apparently only nutriment (not subtypes) has taste data TODO figure out why
+			if(R.type == /datum/reagent/nutriment)
 				var/list/taste_data = R.get_data()
 				for(var/taste in taste_data)
 					if(taste in tastes)
@@ -44,13 +43,11 @@ calculate text size per text.
 						tastes[taste] = taste_data[taste]
 			else
 				var/taste_desc = R.taste_description
-				var/taste_amount = get_reagent_amount(R.id) * R.taste_mult
+				var/taste_amount = get_reagent_amount(R.type) * R.taste_mult
 				if(R.taste_description in tastes)
 					tastes[taste_desc] += taste_amount
 				else
 					tastes[taste_desc] = taste_amount
-				if(R.default_temperature >= (T0C + 15) && R.default_temperature <= (T0C + 25))
-					lukewarm = 1
 
 		//deal with percentages
 		var/total_taste = 0
@@ -82,9 +79,6 @@ calculate text size per text.
 			temp_text = "cold"
 		if(T0C to T0C + 15)
 			temp_text = "cool"
-		if(T0C + 15 to T0C + 25)
-			if(lukewarm)
-				temp_text = "lukewarm"
 		if(T0C + 25 to T0C + 40)
 			temp_text = "warm"
 		if(T0C + 40 to T0C + 100)
@@ -99,4 +93,4 @@ calculate text size per text.
 	return "[temp_text][temp_text ? " " : ""][english_list(out, "something indescribable")]."
 
 /mob/living/carbon/proc/get_fullness()
-	return nutrition + (reagents.get_reagent_amount("nutriment") * 25)
+	return nutrition + (reagents.get_reagent_amount(/datum/reagent/nutriment) * 25)

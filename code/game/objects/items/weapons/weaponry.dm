@@ -163,6 +163,8 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = /decl/sound_category/sword_pickup_sound
+	equip_sound = /decl/sound_category/sword_equip_sound
 
 /obj/item/sord
 	name = "\improper SORD"
@@ -180,6 +182,7 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /obj/item/banhammer
 	desc = "banhammer"

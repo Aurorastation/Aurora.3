@@ -1,5 +1,5 @@
 /mob/living/carbon/human/proc/handle_strip(var/slot_to_strip, var/mob/living/user)
-	if(!slot_to_strip || !istype(user) || ispAI(user) || (isanimal(user) && !istype(user, /mob/living/simple_animal/hostile) ) )
+	if(!slot_to_strip || !istype(user) || ispAI(user) || (isanimal(user) && !istype(user, /mob/living/simple_animal/hostile) ) || isrobot(user) )
 		return FALSE
 
 	if(user.incapacitated() || !user.Adjacent(src))
@@ -11,17 +11,17 @@
 	switch(slot_to_strip)
 		// Handle things that are part of this interface but not removing/replacing a given item.
 		if("mask")
-			visible_message(span("warning", "\The [user] is trying to adjust \the [src]'s mask!"))
+			visible_message(SPAN_WARNING("\The [user] is trying to adjust \the [src]'s mask!"))
 			if(do_after(user,HUMAN_STRIP_DELAY, act_target = src))
 				var/obj/item/clothing/mask/M = wear_mask
 				M.adjust_mask(user, FALSE)
 			return TRUE
 		if("tank")
-			visible_message(span("warning", "\The [user] is taking a look at \the [src]'s air tank."))
+			visible_message(SPAN_WARNING("\The [user] is taking a look at \the [src]'s air tank."))
 			if(do_after(user,HUMAN_STRIP_DELAY, act_target = src))
 				var/obj/item/tank/T = internal
-				to_chat(user, span("notice", "\The [T] has [T.air_contents.return_pressure()] kPA left."))
-				to_chat(user, span("notice", "The [T] is set to release [T.distribute_pressure] kPA."))
+				to_chat(user, SPAN_NOTICE("\The [T] has [T.air_contents.return_pressure()] kPA left."))
+				to_chat(user, SPAN_NOTICE("The [T] is set to release [T.distribute_pressure] kPA."))
 			return TRUE
 		if("pockets")
 			visible_message("<span class='danger'>\The [user] is trying to empty \the [src]'s pockets!</span>")
@@ -69,7 +69,7 @@
 	var/stripping
 	var/obj/item/held = user.get_active_hand()
 
-	if(!istype(held) || is_robot_module(held))
+	if(!istype(held) || is_robot_module(held) || istype(held, /obj/item/grab))
 		if(!istype(target_slot))  // They aren't holding anything valid and there's nothing to remove, why are we even here?
 			return 0
 		if(!target_slot.canremove)

@@ -2,7 +2,7 @@
 	id = PSI_PSYCHOKINESIS
 	name = "Psychokinesis"
 	associated_intent = I_GRAB
-	armour_types = list("melee", "bullet")
+	armor_types = list("melee", "bullet")
 
 /datum/psionic_power/psychokinesis
 	faculty = PSI_PSYCHOKINESIS
@@ -69,17 +69,17 @@
 
 		var/distance = get_dist(user, target)
 		if(distance > user.psi.get_rank(PSI_PSYCHOKINESIS))
-			to_chat(user, "<span class='warning'>Your telekinetic power won't reach that far.</span>")
+			to_chat(user, SPAN_WARNING("Your telekinetic power won't reach that far."))
 			return FALSE
 
 		if(istype(target, /mob) || istype(target, /obj))
 			var/obj/item/psychic_power/telekinesis/tk = new(user)
 			if(tk.set_focus(target))
 				tk.sparkle()
-				user.visible_message("<span class='notice'>\The [user] reaches out.</span>")
+				user.visible_message(SPAN_NOTICE("\The [user] reaches out."))
 				return tk
 		else if(istype(target, /obj/structure))
-			user.visible_message("<span class='notice'>\The [user] makes a strange gesture.</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] makes a strange gesture."))
 			var/obj/O = target
 			O.attack_hand(user)
 			return TRUE

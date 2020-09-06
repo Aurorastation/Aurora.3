@@ -8,7 +8,8 @@
 	slot_flags = SLOT_EARS
 	var/colour = "red"
 	var/open = 0
-	drop_sound = 'sound/items/drop/glass.ogg'
+	drop_sound = 'sound/items/drop/screwdriver.ogg'
+	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 
 /obj/item/lipstick/purple
 	name = "purple lipstick"
@@ -101,7 +102,7 @@
 		H.f_style = H.species.default_f_style
 
 	H.update_hair()
-	playsound(H, 'sound/items/welder2.ogg', 20, 1)
+	playsound(H, 'sound/items/welder_pry.ogg', 20, 1)
 
 
 /obj/item/razor/attack(mob/M, mob/user, var/target_zone)
@@ -129,10 +130,10 @@
 			return FALSE
 
 		if(H == user) //shaving yourself
-			user.visible_message("\The [user] starts to shave \his head with \the [src].", \
+			user.visible_message("\The [user] starts to shave [user.get_pronoun("his")] head with \the [src].", \
 									 "<span class='notice'>You start to shave your head with \the [src].</span>")
 			if(do_mob(user, user, 20))
-				user.visible_message("\The [user] shaves \his head with \the [src].", \
+				user.visible_message("\The [user] shaves [user.get_pronoun("his")] head with \the [src].", \
 										 "<span class='notice'>You finish shaving with \the [src].</span>")
 				shave(H, target_zone)
 
@@ -163,10 +164,10 @@
 			return	FALSE
 
 		if(H == user) //shaving yourself
-			user.visible_message("<span class='warning'>\The [user] starts to shave \his facial hair with \the [src].</span>", \
+			user.visible_message("<span class='warning'>\The [user] starts to shave [user.get_pronoun("his")] facial hair with \the [src].</span>", \
 									 "<span class='notice'>You take a moment to shave your facial hair with \the [src].</span>")
 			if(do_mob(user, user, 20))
-				user.visible_message("<span class='warning'>\The [user] shaves \his facial hair clean with \the [src].</span>", \
+				user.visible_message("<span class='warning'>\The [user] shaves [user.get_pronoun("his")] facial hair clean with \the [src].</span>", \
 										 "<span class='notice'>You finish shaving with \the [src].</span>")
 				shave(H, target_zone)
 

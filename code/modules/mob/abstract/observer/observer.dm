@@ -163,11 +163,11 @@ Works together with spawning an observer, noted above.
 	//Check if they are a staff member
 	if(check_rights(R_MOD|R_ADMIN|R_DEV, show_msg=FALSE, user=src))
 		return FALSE
-	
+
 	//Check if the z level is in the restricted list
 	if (!(check in current_map.restricted_levels))
 		return FALSE
-	
+
 	return TRUE
 
 /mob/abstract/observer/proc/teleport_to_spawn(var/message)
@@ -281,11 +281,12 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 	if(mind.current.ajourn && mind.current.stat != DEAD) //check if the corpse is astral-journeying (it's client ghosted using a cultist rune).
 		var/found_rune
-		for(var/obj/effect/rune/ethereal/R in get_turf(mind.current)) //whilst corpse is alive, we can only reenter the body if it's on the rune
-			found_rune = TRUE
-			break
+		for(var/obj/effect/rune/R in get_turf(mind.current)) //whilst corpse is alive, we can only reenter the body if it's on the rune
+			if(R.rune.type == /datum/rune/ethereal)
+				found_rune = TRUE
+				break
 		if(!found_rune)
-			to_chat(usr, span("cult", "The astral cord that ties your body and your spirit has been severed. You are likely to wander the realm beyond until your body is finally dead and thus reunited with you."))
+			to_chat(usr, SPAN_CULT("The astral cord that ties your body and your spirit has been severed. You are likely to wander the realm beyond until your body is finally dead and thus reunited with you."))
 			return
 	stop_following()
 	mind.current.ajourn=0
@@ -396,17 +397,17 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	moved_event.register(following, src, /atom/movable/proc/move_to_destination)
 	destroyed_event.register(following, src, /mob/abstract/observer/proc/stop_following)
 
-	to_chat(src, "<span class='notice'>Now following \the [following].</span>")
+	to_chat(src, SPAN_NOTICE("Now following \the <b>[following]</b>."))
 	move_to_destination(following, following.loc, following.loc)
 	updateghostsight()
 
 /mob/abstract/observer/proc/stop_following()
 	if(following)
-		to_chat(src, "<span class='notice'>No longer following \the [following]</span>")
+		to_chat(src, SPAN_NOTICE("No longer following \the <b>[following]</b>."))
 		moved_event.unregister(following, src)
 		destroyed_event.unregister(following, src)
 		following = null
-	
+
 
 /mob/abstract/observer/move_to_destination(var/atom/movable/am, var/old_loc, var/new_loc)
 	var/turf/T = get_turf(new_loc)
@@ -441,7 +442,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			forceMove(T)
 		else
 			to_chat(src, "This mob is not located in the game world.")
-		
+
 		teleport_if_needed()
 
 /mob/abstract/observer/memory()
@@ -511,6 +512,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 		var/turf/T = get_turf(testvent)
 
+		//Skip areas that contain turrets
+		var/area/A = T.loc
+		if (A && A.turrets.len)
+			continue
 
 
 		//We test the environment of the tile, to see if its habitable for a mouse
@@ -531,11 +536,11 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 				atmos_suitable = 0
 			else if (Environment.temperature < mintemp)
 				atmos_suitable = 0
-			else if(Environment.gas["oxygen"] < min_oxy)
+			else if(Environment.gas[GAS_OXYGEN] < min_oxy)
 				atmos_suitable = 0
-			else if(Environment.gas["phoron"] > max_phoron)
+			else if(Environment.gas[GAS_PHORON] > max_phoron)
 				atmos_suitable = 0
-			else if(Environment.gas["carbon_dioxide"] > max_co2)
+			else if(Environment.gas[GAS_CO2] > max_co2)
 				atmos_suitable = 0
 			else if(Environment.return_pressure() < min_pressure)
 				atmos_suitable = 0
@@ -703,7 +708,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		toggle_visibility(1)
 	else
 		user.visible_message ( \
-			"<span class='warning'>\The [user] just tried to smash \his book into that ghost!  It's not very effective.</span>", \
+			"<span class='warning'>\The [user] just tried to smash [user.get_pronoun("his")] book into that ghost!  It's not very effective.</span>", \
 			"<span class='warning'>You get the feeling that the ghost can't become any more visible.</span>" \
 		)
 
@@ -907,11 +912,11 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 
 /mob/extra_ghost_link(var/atom/ghost)
 	if(client && eyeobj)
-		return "|<a href='byond://?src=\ref[ghost];track=\ref[eyeobj]'>\[E\]</a>"
+		return "|\[<a href='byond://?src=\ref[ghost];track=\ref[eyeobj]'>E</a>\]"
 
 /mob/abstract/observer/extra_ghost_link(var/atom/ghost)
 	if(mind && mind.current)
-		return "|<a href='byond://?src=\ref[ghost];track=\ref[mind.current]'>\[B\]</a>"
+		return "|\[<a href='byond://?src=\ref[ghost];track=\ref[mind.current]'>B</a>\]"
 
 /proc/ghost_follow_link(var/atom/target, var/atom/ghost)
 	if((!target) || (!ghost)) return
@@ -923,7 +928,7 @@ mob/abstract/observer/MayRespawn(var/feedback = 0, var/respawn_type = null)
 /mob/abstract/observer/verb/ghost_spawner()
 	set category = "Ghost"
 	set name = "Ghost Spawner"
-	
+
 	if(!ROUND_IS_STARTED)
 		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
 		return

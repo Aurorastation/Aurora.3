@@ -117,12 +117,13 @@ Implant Specifics:<BR>"}
 		malfunction--
 
 
-/obj/item/implant/dexplosive
-	name = "explosive"
-	desc = "And boom goes the weasel."
+/obj/item/implant/explosive/deadman
+	name = "deadman explosive"
+	desc = "A military grade micro bio-explosive that detonates upon death."
 	icon_state = "implant_evil"
+	uses_codewords = FALSE
 
-/obj/item/implant/dexplosive/get_data()
+/obj/item/implant/explosive/deadman/get_data()
 	. = {"
 <b>Implant Specifications:</b><BR>
 <b>Name:</b> Robust Corp RX-78 Employee Management Implant<BR>
@@ -134,18 +135,57 @@ Implant Specifics:<BR>"}
 <b>Special Features:</b> Explodes<BR>
 <b>Integrity:</b> Implant will occasionally be degraded by the body's immune system and thus will occasionally malfunction."}
 
-/obj/item/implant/dexplosive/trigger(emote, source as mob)
-	if(emote == "deathgasp")
-		src.activate("death")
+/obj/item/implant/explosive/deadman/attack_self(mob/user)
+	return
 
-/obj/item/implant/dexplosive/activate(var/cause)
-	if((!cause) || (!src.imp_in))	return 0
-	explosion(src, -1, 0, 2, 3, 0)//This might be a bit much, dono will have to see.
-	if(src.imp_in)
-		src.imp_in.gib()
+/obj/item/implant/explosive/deadman/hear(var/msg)
+	return
 
-/obj/item/implant/dexplosive/islegal()
-	return 0
+/obj/item/implant/explosive/deadman/process()
+	if(malfunction)
+		STOP_PROCESSING(SSprocessing, src)
+		return
+	if (!implanted)
+		return
+	var/mob/M = imp_in
+
+	if(M.stat == DEAD)
+		activate()
+
+/obj/item/implant/explosive/deadman/activate(var/cause)
+	small_countdown(src)
+	STOP_PROCESSING(SSprocessing, src)
+
+/obj/item/implant/explosive/deadman/small_boom()
+	if(imp_in)
+		explosion(get_turf(src), 0, 0, 2, 4, 5)
+		qdel(src)
+		imp_in.gib()
+
+/obj/item/implant/explosive/deadman/implanted(mob/source)
+	START_PROCESSING(SSprocessing, src)
+	return TRUE
+
+/obj/item/implant/explosive/deadman/emp_act(severity)
+	if(malfunction)
+		return
+	malfunction = MALFUNCTION_TEMPORARY
+	switch (severity)
+		if(3.0)
+			if(prob(1))
+				small_countdown()
+			else if(prob(5))
+				meltdown()
+		if(2.0)
+			if(prob(5))
+				small_countdown()
+			else if (prob(10))
+				meltdown()
+		if(1.0)
+			if(prob(10))
+				small_countdown()
+			else if (prob(30))
+				meltdown()
 
 //BS12 Explosive
 /obj/item/implant/explosive
@@ -154,11 +194,13 @@ Implant Specifics:<BR>"}
 	var/elevel = "Localized Limb"
 	var/phrase
 	var/setup_done = FALSE //Have we set this yet?
+	var/uses_codewords = TRUE
 	icon_state = "implant_evil"
 
 /obj/item/implant/explosive/Initialize()
 	. = ..()
-	phrase = "You are [pick(adjectives)]"
+	if(uses_codewords)
+		phrase = "You are [pick(adjectives)]"
 
 /obj/item/implant/explosive/get_data()
 	. = {"
@@ -173,20 +215,21 @@ Implant Specifics:<BR>"}
 <b>Integrity:</b> Implant will occasionally be degraded by the body's immune system and thus will occasionally malfunction."}
 
 /obj/item/implant/explosive/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/implanter))
-		var/obj/item/implanter/implanter = I
-		if(implanter.imp)
-			to_chat(user, SPAN_NOTICE("\The [implanter] already has an implant loaded."))
-			return // It's full.
-		if(!setup_done)
-			var/choice = alert("\The [src]'s default settings have not been changed. Continue?", "Ready for Implantation?", "Yes", "Cancel")
-			if(choice == "Cancel")
-				return
-		to_chat(user, "<B>You load \the [src] into \the [I]. The current setting is \"[elevel]\" and the current phrase is \"[phrase]\".</B>")
-		user.drop_from_inventory(src)
-		forceMove(implanter)
-		implanter.imp = src
-		implanter.update()
+	if(uses_codewords)
+		if(istype(I, /obj/item/implanter))
+			var/obj/item/implanter/implanter = I
+			if(implanter.imp)
+				to_chat(user, SPAN_NOTICE("\The [implanter] already has an implant loaded."))
+				return // It's full.
+			if(!setup_done)
+				var/choice = alert("\The [src]'s default settings have not been changed. Continue?", "Ready for Implantation?", "Yes", "Cancel")
+				if(choice == "Cancel")
+					return
+			to_chat(user, "<B>You load \the [src] into \the [I]. The current setting is \"[elevel]\" and the current phrase is \"[phrase]\".</B>")
+			user.drop_from_inventory(src)
+			forceMove(implanter)
+			implanter.imp = src
+			implanter.update()
 	else
 		..()
 
@@ -194,7 +237,7 @@ Implant Specifics:<BR>"}
 	hear(msg)
 
 /obj/item/implant/explosive/hear(var/msg)
-	var/list/replacechars = list("'" = "","\"" = "",">" = "","<" = "","(" = "",")" = "")
+	var/list/replacechars = list("\"" = "",">" = "","<" = "","(" = "",")" = "")
 	msg = replace_characters(msg, replacechars)
 	if(findtext(msg,phrase))
 		activate()
@@ -213,7 +256,7 @@ Implant Specifics:<BR>"}
 		var/mob/living/carbon/human/T = imp_in
 		if(elevel == "Localized Limb" && part)
 			small_countdown()
-			return	//to avoid hotspot_expose. 
+			return	//to avoid hotspot_expose.
 		if(elevel == "Destroy Body")
 			explosion(get_turf(T), -1, 0, 1, 6)
 			T.gib()
@@ -223,8 +266,8 @@ Implant Specifics:<BR>"}
 	else if(ismob(imp_in))
 		var/mob/M = imp_in
 		M.gib()
-		
-	var/turf/F = get_turf(imp_in)	
+
+	var/turf/F = get_turf(imp_in)
 	if(F)
 		F.hotspot_expose(3500,125)
 	qdel(src)
@@ -244,7 +287,7 @@ Implant Specifics:<BR>"}
 	if(!imp_in)
 		explosion(get_turf(src), -1, 0, 2, 4)
 	if(ishuman(imp_in) && part)
-		//No tearing off these parts since it's pretty much killing. Mangle them. 
+		//No tearing off these parts since it's pretty much killing. Mangle them.
 		if(part.vital && !istype(part, /obj/item/organ/external/head)) //Head explodes
 			part.createwound(BRUISE, 70)
 			part.add_pain(50)
@@ -277,7 +320,7 @@ Implant Specifics:<BR>"}
 /obj/item/implant/explosive/attack_self(mob/user)
 	elevel = alert("What sort of explosion would you prefer?", "Implant Intent", "Localized Limb", "Destroy Body", "Full Explosion")
 	phrase = input("Choose activation phrase:") as text
-	var/list/replacechars = list("'" = "","\"" = "",">" = "","<" = "","(" = "",")" = "")
+	var/list/replacechars = list("\"" = "",">" = "","<" = "","(" = "",")" = "")
 	phrase = replace_characters(phrase, replacechars)
 	user.mind.store_memory("\The [src] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.", 0, 0)
 	to_chat(user, "\The [src] can be activated by saying something containing the phrase ''[phrase]'', <B>say [phrase]</B> to attempt to activate.")
@@ -505,7 +548,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	switch (cause)
 		if("death")
 			var/obj/item/device/radio/headset/a = new /obj/item/device/radio/headset(null)
-			if(istype(t, /area/syndicate_station) || istype(t, /area/syndicate_mothership) || istype(t, /area/shuttle/syndicate_elite) )
+			if(istype(t, /area/antag) || istype(t, /area/shuttle/mercenary) || istype(t, /area/shuttle/syndicate_elite) )
 				//give the syndies a bit of stealth
 				a.autosay("[mobname] has died in Space!", "[mobname]'s Death Alarm")
 			else
@@ -550,6 +593,26 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	icon_state = "implant_evil"
 	var/activation_emote = "sigh"
 	var/obj/item/scanned = null
+
+/obj/item/implant/compressed/attackby(var/obj/item/T, mob/user)
+	if(T.isscrewdriver())
+		if(!scanned)
+			to_chat(user, SPAN_NOTICE("There is nothing to remove from the implant."))
+		else
+			to_chat(user, SPAN_NOTICE("You remove \the [scanned] from the implant."))
+			user.put_in_hands(scanned)
+			scanned = null
+	if(istype(T, /obj/item/implanter))
+		var/obj/item/implanter/implanter = T
+		if(implanter.imp)
+			to_chat(user, SPAN_NOTICE("\The [implanter] already has an implant loaded."))
+			return
+		user.drop_from_inventory(src)
+		forceMove(implanter)
+		implanter.imp = src
+		implanter.update()
+	else
+		..()
 
 /obj/item/implant/compressed/get_data()
 	. = {"
@@ -612,7 +675,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 
 	for(var/obj/item/implant/mindshield/I in H)
 		if(I.implanted)
-			to_chat(H, span("danger", "Rage surges through your body, but the nanobots from your mind shield implant stop it soon after it starts!"))
+			to_chat(H, SPAN_DANGER("Rage surges through your body, but the nanobots from your mind shield implant stop it soon after it starts!"))
 			return TRUE
 
 	var/datum/antagonist/antag_data = get_antag_data(H.mind.special_role)
@@ -621,10 +684,10 @@ the implant may become unstable and either pre-maturely inject the subject or si
 		log_and_message_admins("[key_name(H)] was implanted by an aggression implant, but was not effected.", H)
 	else if(antag_data?.id == MODE_LOYALIST)
 		clear_antag_roles(H.mind, 1)
-		to_chat(H, span("danger", "You feel a surge of rage override your loyalty!"))
+		to_chat(H, SPAN_DANGER("You feel a surge of rage override your loyalty!"))
 		log_and_message_admins("[key_name(H)] was implanted by an aggression implant, clearing their loyalist status!", H)
 	else
-		to_chat(H, span("danger", "You feel a surge of rage course through your body and very soul!"))
+		to_chat(H, SPAN_DANGER("You feel a surge of rage course through your body and very soul!"))
 		log_and_message_admins("[key_name(H)] was implanted by an aggression implant!", H)
 	return TRUE
 
@@ -642,3 +705,32 @@ the implant may become unstable and either pre-maturely inject the subject or si
 		return
 	spawn(20)
 		malfunction--
+
+/obj/item/implant/anti_augment
+	name = "augmentation disrupter implant"
+	desc = "An implant that emits signals able to disrupt the use of commonly used augments."
+
+/obj/item/implant/anti_augment/get_data()
+	. = {"
+<b>Implant Specifications:</b><BR>
+<b>Name:</b> Augmentation Disrupter Implant<BR>
+<b>Life:</b> Three Months.<BR>
+<b>Important Notes:</b> Emits a signal able to block most augments from functioning..<BR>
+<HR>
+<b>Implant Details:</b><BR>
+<b>Function:</b> Emits a short radio wave that will block most augments.<BR>
+<b>Special Features:</b> Will stop the host from using any augment they might have.<BR>
+<b>Integrity:</b> Implant will last so long as it inside the host."}
+
+/obj/item/implant/anti_augment/emp_act(severity)
+	switch(severity)
+		if(1.0)
+			if (prob(75))
+				qdel(src)
+		if(2.0)
+			if (prob(50))
+				qdel(src)
+		if(3.0)
+			if (prob(25))
+				qdel(src)
+	return

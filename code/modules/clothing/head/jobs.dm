@@ -67,14 +67,14 @@
 	desc = "A beret with the Idris Incorporated insignia emblazoned on it."
 	icon_state = "idrissecberet"
 
-/obj/item/clothing/head/beret/sec/necro
-	name = "necropolis security beret"
-	desc = "A brown beret with the Necropolis Industries insignia emblazoned on it."
+/obj/item/clothing/head/beret/sec/zavodskoi
+	name = "zavodskoi interstellar security beret"
+	desc = "A brown beret with the Zavodskoi Interstellar insignia emblazoned on it."
 	icon_state = "necrosecberet"
 
-/obj/item/clothing/head/beret/sec/necro/alt
-	name = "necropolis security beret"
-	desc = "A black beret with the Necropolis Industries insignia emblazoned on it."
+/obj/item/clothing/head/beret/sec/zavodskoi/alt
+	name = "zavodskoi interstellar security beret"
+	desc = "A black beret with the Zavodskoi Interstellar insignia emblazoned on it."
 	icon_state = "necrosecaltberet"
 
 /obj/item/clothing/head/beret/sec/eri
@@ -115,7 +115,7 @@
 /obj/item/clothing/head/beret/zeng/alt
 	name = "zeng-hu beret"
 	desc = "A white beret with the Zeng-Hu insignia emblazoned on it."
-	icon_state = "zengaltberet"	
+	icon_state = "zengaltberet"
 
 /obj/item/clothing/head/beret/heph
 	name = "hephaestus beret"

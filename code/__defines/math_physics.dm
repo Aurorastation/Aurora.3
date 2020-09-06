@@ -44,3 +44,6 @@
 
 #define round_duration_in_ticks (round_start_time ? world.time - round_start_time : 0)
 #define station_time_in_ticks (roundstart_hour HOURS + round_duration_in_ticks)
+
+#define SIMPLE_SIGN(X) ((X) < 0 ? -1 : 1)
+#define SIGN(X)        ((X) ? SIMPLE_SIGN(X) : 0)

@@ -24,7 +24,7 @@
 		if (issilicon(M) && alert(usr, "Synth detected. Would you like to run rename silicon verb automatically?",, "Yes", "No") == "Yes")
 			var/mob/living/silicon/S = M
 			S.SetName(new_name)
-			to_chat(usr, span("notice", "Silicon properly renamed."))
+			to_chat(usr, SPAN_NOTICE("Silicon properly renamed."))
 
 		href_list["datumrefresh"] = href_list["rename"]
 
@@ -78,28 +78,6 @@
 			return
 
 		src.give_spell(M)
-		href_list["datumrefresh"] = href_list["give_spell"]
-
-	else if(href_list["give_disease"])
-		if(!check_rights(R_ADMIN|R_FUN))	return
-
-		var/mob/M = locate(href_list["give_disease"])
-		if(!istype(M))
-			to_chat(usr, "This can only be used on instances of type /mob")
-			return
-
-		src.give_disease(M)
-		href_list["datumrefresh"] = href_list["give_spell"]
-
-	else if(href_list["give_disease2"])
-		if(!check_rights(R_ADMIN|R_FUN))	return
-
-		var/mob/M = locate(href_list["give_disease2"])
-		if(!istype(M))
-			to_chat(usr, "This can only be used on instances of type /mob")
-			return
-
-		src.give_disease2(M)
 		href_list["datumrefresh"] = href_list["give_spell"]
 
 	else if(href_list["godmode"])
@@ -488,7 +466,7 @@
 			to_chat(usr, "This can only be done on mobs with clients")
 			return
 
-		to_chat(usr, span("alert", "This command is temporarily disabled."))
+		to_chat(usr, SPAN_ALERT("This command is temporarily disabled."))
 		//SSnanoui.send_resources(H.client)
 
 		//to_chat(usr, "Resource files sent")
@@ -523,7 +501,7 @@
 			if("brute")	L.adjustBruteLoss(amount)
 			if("fire")	L.adjustFireLoss(amount)
 			if("toxin")	L.adjustToxLoss(amount)
-			if("oxygen")L.adjustOxyLoss(amount)
+			if("oxygen")   L.adjustOxyLoss(amount)
 			if(BP_BRAIN)	L.adjustBrainLoss(amount)
 			if("clone")	L.adjustCloneLoss(amount)
 			else

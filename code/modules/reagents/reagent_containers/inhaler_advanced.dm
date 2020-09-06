@@ -191,16 +191,16 @@
 	name = "large inhaler cartridge (hyperzine)"
 	Initialize()
 		. =..()
-		reagents.add_reagent("hyperzine", 30)
+		reagents.add_reagent(/datum/reagent/hyperzine, 30)
 		flags ^= OPENCONTAINER
 		update_icon()
 		return
 
-/obj/item/reagent_containers/personal_inhaler_cartridge/large/norepinephrine
-	name = "large inhaler cartridge (norepinephrine)"
+/obj/item/reagent_containers/personal_inhaler_cartridge/large/inaprovaline
+	name = "large inhaler cartridge (inaprovaline)"
 	Initialize()
 		. =..()
-		reagents.add_reagent("norepinephrine", 30)
+		reagents.add_reagent(/datum/reagent/inaprovaline, 30)
 		flags ^= OPENCONTAINER
 		update_icon()
 		return

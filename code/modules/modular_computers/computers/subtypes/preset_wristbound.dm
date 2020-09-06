@@ -6,6 +6,9 @@
 	battery_module = new /obj/item/computer_hardware/battery_module/nano(src)
 	battery_module.charge_to_full()
 
+/obj/item/modular_computer/wristbound/preset/cheap/generic
+	_app_preset_type = /datum/modular_computer_app_presets/civilian
+
 /obj/item/modular_computer/wristbound/preset/advanced/install_default_hardware()
 	..()
 	processor_unit = new /obj/item/computer_hardware/processor_unit/small(src)
@@ -17,37 +20,44 @@
 	battery_module.charge_to_full()
 
 /obj/item/modular_computer/wristbound/preset/advanced/cargo
-	icon_state = "wristbound_supply"
+	icon_state = "wristbound_cargo"
+	item_state = "wristbound_cargo"
 	_app_preset_type = /datum/modular_computer_app_presets/cargo_delivery
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/wristbound/preset/advanced/engineering
 	icon_state = "wristbound_engineering"
+	item_state = "wristbound_engineering"
 	_app_preset_type = /datum/modular_computer_app_presets/engineering
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/wristbound/preset/advanced/medical
 	icon_state = "wristbound_medical"
+	item_state = "wristbound_medical"
 	_app_preset_type = /datum/modular_computer_app_presets/medical
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/wristbound/preset/advanced/security
 	icon_state = "wristbound_security"
+	item_state = "wristbound_security"
 	_app_preset_type = /datum/modular_computer_app_presets/security
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/wristbound/preset/advanced/security/investigations
 	_app_preset_type = /datum/modular_computer_app_presets/security/investigations
+	enrolled = 1
 
 /obj/item/modular_computer/wristbound/preset/advanced/research
 	icon_state = "wristbound_science"
+	item_state = "wristbound_science"
 	_app_preset_type = /datum/modular_computer_app_presets/research
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/wristbound/preset/advanced/command
 	icon_state = "wristbound_command"
+	item_state = "wristbound_command"
 	_app_preset_type = /datum/modular_computer_app_presets/command
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/wristbound/preset/advanced/command/ce
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/ce
@@ -72,4 +82,4 @@
 
 /obj/item/modular_computer/wristbound/preset/advanced/representative
 	_app_preset_type = /datum/modular_computer_app_presets/representative
-	enrolled = TRUE
+	enrolled = 1

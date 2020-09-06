@@ -6,7 +6,7 @@
 	item_state = "ionriflestun100" // so the human update icon uses the icon_state instead.
 	modifystate = "ionriflestun"
 	projectile_type = /obj/item/projectile/ion/stun
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
 	w_class = 4
 	accuracy = 1
@@ -16,14 +16,14 @@
 	charge_cost = 300
 	max_shots = 10
 	secondary_projectile_type = /obj/item/projectile/ion
-	secondary_fire_sound = 'sound/weapons/Laser.ogg'
+	secondary_fire_sound = 'sound/weapons/laser1.ogg'
 	can_turret = 1
 	can_switch_modes = 1
 	turret_sprite_set = "ion"
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/ion/stun, modifystate="ionriflestun", fire_sound='sound/weapons/Laser.ogg', charge_cost = 300),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/ion, modifystate="ionriflekill", fire_sound='sound/weapons/Laser.ogg', charge_cost = 450)
+		list(mode_name="stun", projectile_type=/obj/item/projectile/ion/stun, modifystate="ionriflestun", fire_sound='sound/weapons/laser1.ogg', charge_cost = 300),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/ion, modifystate="ionriflekill", fire_sound='sound/weapons/laser1.ogg', charge_cost = 450)
 		)
 
 /obj/item/gun/energy/rifle/ionrifle/emp_act(severity)
@@ -133,7 +133,7 @@
 	item_state = "xray"
 	has_item_ratio = FALSE
 	projectile_type = /obj/item/projectile/beam/mindflayer
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	can_turret = 1
 	turret_sprite_set = "xray"
 
@@ -221,10 +221,11 @@
 
 /obj/item/gun/energy/net/mounted
 	max_shots = 1
-	self_recharge = 1
-	use_external_power = 1
+	self_recharge = TRUE
+	use_external_power = TRUE
+	has_safety = FALSE
 	recharge_time = 40
-	can_turret = 0
+	can_turret = FALSE
 
 /* Vaurca Weapons */
 
@@ -262,7 +263,7 @@
 	icon_state = "gatling"
 	item_state = "gatling"
 	has_item_ratio = FALSE
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 5, TECH_MATERIAL = 6)
 	charge_meter = 0
 	slot_flags = SLOT_BACK
@@ -317,7 +318,7 @@
 	item_state = "blaster"
 	has_item_ratio = FALSE
 	origin_tech = list(TECH_COMBAT = 2, TECH_PHORON = 4)
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
 	w_class = 3
 	accuracy = 1
@@ -458,7 +459,8 @@
 	firemodes = list(
 		list(mode_name="2 second burst", burst=10, burst_delay = 1, fire_delay = 20),
 		list(mode_name="4 second burst", burst=20, burst_delay = 1, fire_delay = 40),
-		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60)
+		list(mode_name="6 second burst", burst=30, burst_delay = 1, fire_delay = 60),
+		list(mode_name="point-burst auto", can_autofire = TRUE, burst = 1, fire_delay = 1, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
 		)
 
 	action_button_name = "Wield thermal drill"
@@ -466,6 +468,8 @@
 	needspin = FALSE
 
 /obj/item/gun/energy/vaurca/thermaldrill/special_check(var/mob/user)
+	if(can_autofire)
+		return ..()
 	if(is_charging)
 		to_chat(user, "<span class='danger'>\The [src] is already charging!</span>")
 		return 0

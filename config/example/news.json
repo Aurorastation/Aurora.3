@@ -1,0 +1,8 @@
+{
+	"_comment": "Remove all _comment lines if you put this into production!",
+
+	"news_topics": {
+		"_comment": "news_topics is an object of topic IDs (as strings) to arrays of possible article authors.",
+		"1234": ["John Doe", "Jane Doe"]
+	}
+}

@@ -164,12 +164,12 @@
 		"Your head feels like it's going to implode!",
 		"Thousands of ants are tunneling in your head!"
 		)
-	to_chat(src, span("danger", "An indescribable, brain-tearing sound hisses from [source], and you collapse in a seizure!"))
+	to_chat(src, SPAN_DANGER("An indescribable, brain-tearing sound hisses from [source], and you collapse in a seizure!"))
 	seizure()
 	var/new_latencies = rand(2,4)
 	var/list/faculties = list(PSI_COERCION, PSI_REDACTION, PSI_ENERGISTICS, PSI_PSYCHOKINESIS)
 	for(var/i = 1 to new_latencies)
-		custom_pain(span("danger", "<font size = 3>[pick(psi_operancy_messages)]</font>"), 25)
+		custom_pain(SPAN_DANGER("<font size = 3>[pick(psi_operancy_messages)]</font>"), 25)
 		set_psi_rank(pick_n_take(faculties), 1)
 		sleep(30)
 		psi.update()
@@ -190,3 +190,27 @@
 	if(istype(l_ear, /obj/item/device/hearing_aid) || istype(r_ear, /obj/item/device/hearing_aid))
 		return TRUE
 	return FALSE
+
+/mob/living/carbon/human/proc/is_submerged()
+	if(lying && istype(loc, /turf/simulated/floor/beach/water)) // replace this when we port fluids
+		return TRUE
+	return FALSE
+
+/mob/living/carbon/human/proc/getCryogenicFactor(var/bodytemperature)
+	if(isSynthetic())
+		return 0
+	if(!species)
+		return 0
+
+	if(bodytemperature > species.cold_level_1)
+		return 0
+	else if(bodytemperature > species.cold_level_2)
+		. = 5 * (1 - (bodytemperature - species.cold_level_2) / (species.cold_level_1 - species.cold_level_2))
+		. = max(2, .)
+	else if(bodytemperature > species.cold_level_3)
+		. = 20 * (1 - (bodytemperature - species.cold_level_3) / (species.cold_level_2 - species.cold_level_3))
+		. = max(5, .)
+	else
+		. = 80 * (1 - bodytemperature / species.cold_level_3)
+		. = max(20, .)
+	return round(.)

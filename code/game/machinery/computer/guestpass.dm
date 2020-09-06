@@ -52,12 +52,13 @@
 /obj/machinery/computer/guestpass
 	name = "guest pass terminal"
 	desc = "Allows issuing temporary access to an area."
-	icon_state = "guest"
+	icon_state = "guestw"
 
 	light_color = LIGHT_COLOR_BLUE
-	icon_screen = "pass"
-	is_holographic = FALSE
-	density = 0
+	icon_state = "altcomputerw"
+	icon_screen = "guest"
+	icon_scanline = "altcomputerw-scanline"
+	density = FALSE
 
 	var/obj/item/card/id/giver
 	var/list/accesses = list()

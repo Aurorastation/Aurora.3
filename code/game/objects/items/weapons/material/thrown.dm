@@ -3,7 +3,6 @@
 	desc = "A sharp, perfectly weighted piece of metal."
 	icon_state = "star"
 	icon = 'icons/obj/weapons.dmi'
-	hitsound = "swing_hit"
 	force_divisor = 0.1 // 6 with hardness 60 (steel)
 	thrown_force_divisor = 0.75 // 15 with weight 20 (steel)
 	throw_speed = 10

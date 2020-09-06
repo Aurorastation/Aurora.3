@@ -19,7 +19,7 @@
 	icon_state = "hoverlegs"
 	mech_turn_sound = null
 	mech_step_sound = null
-	max_damage = 40
+	max_damage = 80
 	move_delay = 4
 	turn_delay = 2
 	power_use = 3000
@@ -35,7 +35,7 @@
 	hide_pilot = TRUE
 	exosuit_desc_string = "a spherical chassis"
 	icon_state = "pod_body"
-	max_damage = 70
+	max_damage = 150
 	power_use = 5
 	has_hardpoints = list(HARDPOINT_BACK)
 

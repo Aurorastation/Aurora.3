@@ -19,6 +19,11 @@
 
 	///Chemistry.
 	var/datum/reagents/reagents = null
+	var/list/reagents_to_add
+	var/list/reagent_data
+
+	var/list/atom_colours	 //used to store the different colors on an atom
+							//its inherent color, the colored paint applied on it, special color effect etc...
 
 	//var/chem_is_open_container = 0
 	// replaced by OPENCONTAINER flags and atom/proc/is_open_container()
@@ -146,10 +151,18 @@
 
 	to_chat(user, "\icon[src] That's [f_name] [suffix]")
 	to_chat(user, desc)
-	if(description_info || description_fluff)
-		to_chat(user, span("notice", "This item has additional examine info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
-	if(description_antag && player_is_antag(user.mind))
-		to_chat(user, span("notice", "This item has additional antag info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.glasses)
+			H.glasses.glasses_examine_atom(src, H)
+
+	if(description_cult && (user.mind?.special_role == "Cultist" || isobserver(src)))
+		to_chat(user, FONT_SMALL(SPAN_CULT(description_cult)))
+	if(desc_info || desc_fluff)
+		to_chat(user, SPAN_NOTICE("This item has additional examine info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
+	if(desc_antag && player_is_antag(user.mind))
+		to_chat(user, SPAN_NOTICE("This item has additional antag info. <a href=?src=\ref[src];examine=fluff>\[View\]</a>"))
 
 	return distance == -1 || (get_dist(src, user) <= distance)
 
@@ -368,19 +381,33 @@
 	. = 1
 	return 1
 
+//For any objects that may require additional handling when swabbed, e.g. a beaker may need to provide information about its contents, not just itself
+//Children must return additional_evidence list
+/atom/proc/get_additional_forensics_swab_info()
+	SHOULD_CALL_PARENT(TRUE)
+	var/list/additional_evidence = list(
+		"type" = "",
+		"dna" = list(),
+		"gsr" = "",
+		"sample_type" = "",
+		"sample_message" = ""
+	)
+
+	return additional_evidence
+
 /atom/proc/add_vomit_floor(var/mob/living/carbon/M, var/toxvomit = 0, var/datum/reagents/inject_reagents)
 	if(istype(src, /turf/simulated))
 		var/obj/effect/decal/cleanable/vomit/this = new /obj/effect/decal/cleanable/vomit(src)
 		if(istype(inject_reagents) && inject_reagents.total_volume)
 			inject_reagents.trans_to_obj(this, min(15, inject_reagents.total_volume))
-			this.reagents.add_reagent("stomachacid", 5)
+			this.reagents.add_reagent(/datum/reagent/acid/stomach, 5)
 
 		// Make toxins vomit look different
 		if(toxvomit)
 			this.icon_state = "vomittox_[pick(1,4)]"
 
 /mob/living/proc/handle_additional_vomit_reagents(var/obj/effect/decal/cleanable/vomit/vomit)
-	vomit.reagents.add_reagent("stomachacid", 5)
+	vomit.reagents.add_reagent(/datum/reagent/acid/stomach, 5)
 
 /atom/proc/clean_blood()
 	if(!simulated)
@@ -389,7 +416,11 @@
 	src.germ_level = 0
 	if(istype(blood_DNA, /list))
 		blood_DNA = null
-		return 1
+		return TRUE
+
+/atom/proc/on_rag_wipe(var/obj/item/reagent_containers/glass/rag/R)
+	clean_blood()
+	R.reagents.splash(src, 1)
 
 /atom/proc/get_global_map_pos()
 	if(!islist(global_map) || isemptylist(global_map)) return

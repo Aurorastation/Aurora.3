@@ -4,11 +4,11 @@
 	if(species.slowdown)
 		tally = species.slowdown
 
-	if (istype(loc, /turf/space)) return -1 // It's hard to be slowed down in space by... anything
-
-	if (isopenturf(loc)) //open space checks
+	tally += get_pulling_movement_delay()
+    
+	if (istype(loc, /turf/space) || isopenturf(loc))
 		if(!(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc) || locate(/obj/structure/ladder, loc)))
-			return -1
+			return 0
 
 	if(embedded_flag)
 		handle_embedded_objects() //Moving with objects stuck in you can cause bad times.
@@ -19,8 +19,7 @@
 	if(can_feel_pain())
 		if(get_shock() >= 10) tally += (get_shock() / 10) //pain shouldn't slow you down if you can't even feel it
 
-	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head))
-		tally += I.slowdown
+	tally += ClothesSlowdown()
 
 	if(species)
 		tally += species.get_species_tally(src)
@@ -123,8 +122,6 @@
 	return prob_slip
 
 /mob/living/carbon/human/Check_Shoegrip(checkSpecies = TRUE)
-	if(checkSpecies && (species.flags & NO_SLIP))
-		return 1
 	if(shoes && (shoes.item_flags & NOSLIP) && istype(shoes, /obj/item/clothing/shoes/magboots))  //magboots + dense_object = no floating
 		return 1
 	return 0
@@ -149,7 +146,8 @@
 
 	if (client)
 		var/turf/B = GetAbove(T)
-		up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
+		if(up_hint)
+			up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
 
 	if (is_noisy && !stat && !lying)
 		if ((x == last_x && y == last_y) || !footsound)
@@ -170,3 +168,16 @@
 
 /mob/living/carbon/human/mob_negates_gravity()
 	return (shoes && shoes.negates_gravity())
+
+/mob/living/carbon/human/proc/ClothesSlowdown()
+	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head, wear_mask, shoes, l_ear, r_ear, glasses, belt))
+		. += I.slowdown
+
+/mob/living/carbon/human/get_pulling_movement_delay()
+	. = ..()
+
+	if(ishuman(pulling))
+		var/mob/living/carbon/human/H = pulling
+		if(H.species.slowdown > species.slowdown)
+			. += H.species.slowdown - species.slowdown
+		. += H.ClothesSlowdown()

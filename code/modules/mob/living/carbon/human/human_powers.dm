@@ -7,7 +7,7 @@
 	set category = "IC"
 
 	if(!use_check_and_message())
-		to_chat(src, span("warning", "You can't tie your hair when you are incapacitated!"))
+		to_chat(src, SPAN_WARNING("You can't tie your hair when you are incapacitated!"))
 		return
 
 	if(h_style)
@@ -20,7 +20,7 @@
 			var/list/datum/sprite_accessory/hair/valid_hairstyles = list()
 			for(var/hair_string in hair_styles_list)
 				var/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
-				if(test.length >= 2 && (species.bodytype in test.species_allowed))
+				if(test.length >= 2 && (species.type in test.species_allowed))
 					valid_hairstyles.Add(hair_string)
 			selected_string = input("Select a new hairstyle", "Your hairstyle", hair_style) as null|anything in valid_hairstyles
 		if(selected_string && h_style != selected_string)
@@ -41,7 +41,7 @@ mob/living/carbon/human/proc/change_monitor()
 		var/list/datum/sprite_accessory/facial_hair/valid_screenstyles = list()
 		for(var/screen_string in facial_hair_styles_list)
 			var/datum/sprite_accessory/facial_hair/test = facial_hair_styles_list[screen_string]
-			if(species.bodytype in test.species_allowed)
+			if(species.type in test.species_allowed)
 				valid_screenstyles.Add(screen_string)
 		selected_string = input("Select a new screen", "Your monitor display", screen_style) as null|anything in valid_screenstyles
 		if(selected_string && f_style != selected_string)
@@ -203,7 +203,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	last_special = world.time + 50
 
-	visible_message("<span class='warning'><b>\The [src]</b> rips viciously at \the [G.affecting]'s body with its claws!</span>")
+	visible_message("<span class='warning'><b>[src]</b> rips viciously at \the [G.affecting]'s body with its claws!</span>")
 
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
@@ -369,15 +369,15 @@ mob/living/carbon/human/proc/change_monitor()
 			to_chat(H, SPAN_WARNING("They are missing that limb!"))
 			return
 
-		H.apply_damage(25, BRUTE, hit_zone, sharp = TRUE, edge = TRUE)
-		visible_message(SPAN_WARNING("<b>\The [src]</b> rips viciously at \the [G.affecting]'s [affected] with its mandibles!"))
+		H.apply_damage(25, BRUTE, hit_zone, damage_flags = DAM_SHARP|DAM_EDGE)
+		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s [affected] with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M))
 			return
-		M.apply_damage(25, BRUTE, sharp = TRUE, edge = TRUE)
-		visible_message(SPAN_WARNING("<b>\The [src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!"))
+		M.apply_damage(25, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE)
+		visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s flesh with its mandibles!"))
 		msg_admin_attack("[key_name_admin(src)] mandible'd [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 	playsound(get_turf(src), 'sound/weapons/slash.ogg', 50, TRUE)
 	last_special = world.time + 100
@@ -576,7 +576,7 @@ mob/living/carbon/human/proc/change_monitor()
 
 	last_special = world.time + 30
 
-	visible_message("<span class='warning'><b>\The [src]</b> launches a spine-quill at [target]!</span>")
+	visible_message("<span class='warning'><b>[src]</b> launches a spine-quill at [target]!</span>")
 
 	src.apply_damage(10,BRUTE)
 	playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
@@ -850,7 +850,7 @@ mob/living/carbon/human/proc/change_monitor()
 			D.create_reagents(200)
 			if(!src)
 				return
-			D.reagents.add_reagent("greekfire", 200)
+			D.reagents.add_reagent(/datum/reagent/fuel/napalm, 200)
 			D.set_color()
 			D.set_up(my_target, rand(6,8), 1, 50)
 	return
@@ -895,7 +895,7 @@ mob/living/carbon/human/proc/change_monitor()
 			adjustBruteLoss(-10*O.amount)
 			adjustFireLoss(-10*O.amount)
 			if(!(species.flags & NO_BLOOD))
-				vessel.add_reagent("blood",20*O.amount)
+				vessel.add_reagent(/datum/reagent/blood,20*O.amount)
 			qdel(O)
 			last_special = world.time + 50
 
@@ -976,7 +976,7 @@ mob/living/carbon/human/proc/change_monitor()
 	updatehealth()
 	UpdateDamageIcon()
 
-	visible_message("<span class='notice'>\The [src] detaches \his [E]!</span>",
+	visible_message("<span class='notice'>\The [src] detaches [get_pronoun("his")] [E]!</span>",
 			"<span class='notice'>You detach your [E]!</span>")
 
 /mob/living/carbon/human/proc/attach_limb()
@@ -1023,7 +1023,7 @@ mob/living/carbon/human/proc/change_monitor()
 		updatehealth()
 		UpdateDamageIcon()
 
-		visible_message("<span class='notice'>\The [src] attaches \the [O] to \his body!</span>",
+		visible_message("<span class='notice'>\The [src] attaches \the [O] to [get_pronoun("his")] body!</span>",
 				"<span class='notice'>You attach \the [O] to your body!</span>")
 
 /mob/living/carbon/human/proc/self_diagnostics()
@@ -1060,6 +1060,23 @@ mob/living/carbon/human/proc/change_monitor()
 				output += "[IO.name] - <span style='color:green;'>OK</span>\n"
 
 		to_chat(src, output)
+
+/mob/living/carbon/human/proc/check_tag()
+	set name = "Check Tag"
+	set desc = "Run diagnostics on your tag to display its information."
+	set category = "Abilities"
+
+	if(use_check_and_message(usr))
+		return
+
+	var/obj/item/organ/internal/ipc_tag/tag = internal_organs_by_name[BP_IPCTAG]
+	if(isnull(tag) || !tag)
+		to_chat(src, SPAN_WARNING("Error: No Tag Found."))
+		return
+	to_chat(src, SPAN_NOTICE("[capitalize_first_letters(tag.name)]:"))
+	to_chat(src, SPAN_NOTICE("<b>Serial Number:</b> [tag.serial_number]"))
+	to_chat(src, SPAN_NOTICE("<b>Ownership Status:</b> [tag.ownership_info]"))
+	to_chat(src, SPAN_NOTICE("<b>Citizenship Info:</b> [tag.citizenship_info]"))
 
 /mob/living/carbon/human/proc/sonar_ping()
 	set name = "Psychic Ping"
@@ -1112,9 +1129,9 @@ mob/living/carbon/human/proc/change_monitor()
 			feedback += "[dirs[d][dst]] psionic signature\s [dst],"
 		if(feedback.len > 1)
 			feedback[feedback.len - 1] += " and"
-		to_chat(src, span("notice", "You sense " + jointext(feedback, " ") + " towards the [dir2text(text2num(d))]."))
+		to_chat(src, SPAN_NOTICE("You sense " + jointext(feedback, " ") + " towards the [dir2text(text2num(d))]."))
 	if(!length(dirs))
-		to_chat(src, span("notice", "You detect no psionic signatures but your own."))
+		to_chat(src, SPAN_NOTICE("You detect no psionic signatures but your own."))
 
 // flick tongue out to read gasses
 /mob/living/carbon/human/proc/tongue_flick()
@@ -1129,7 +1146,7 @@ mob/living/carbon/human/proc/change_monitor()
 		return
 
 	if(head && (head.body_parts_covered & FACE))
-		to_chat(src, span("notice", "You can't flick your tongue out with something covering your face."))
+		to_chat(src, SPAN_NOTICE("You can't flick your tongue out with something covering your face."))
 		return
 	else
 		custom_emote(1, "flicks their tongue out.")
@@ -1155,17 +1172,17 @@ mob/living/carbon/human/proc/change_monitor()
 				if(80 to INFINITY)
 					composition = "Overwhelming"
 
-			airInfo += span("notice", "[gas_data.name[mix]]: [composition]")
-		airInfo += span("notice", "Temperature: [round(mixture.temperature-T0C)]&deg;C")
+			airInfo += SPAN_NOTICE("[gas_data.name[mix]]: [composition]")
+		airInfo += SPAN_NOTICE("Temperature: [round(mixture.temperature-T0C)]&deg;C")
 	else
-		airInfo += span("notice", "There is no air around to sample!")
+		airInfo += SPAN_NOTICE("There is no air around to sample!")
 
 	last_special = world.time + 20
 
 	if(airInfo?.len)
-		to_chat(src, span("notice", "You sense the following in the air:"))
+		to_chat(src, SPAN_NOTICE("You sense the following in the air:"))
 		for(var/line in airInfo)
-			to_chat(src, span("notice", "[line]"))
+			to_chat(src, SPAN_NOTICE("[line]"))
 		return
 
 /mob/living/carbon/human/proc/crush()
@@ -1199,14 +1216,14 @@ mob/living/carbon/human/proc/change_monitor()
 			return
 
 		H.apply_damage(40, BRUTE, hit_zone)
-		visible_message("<span class='warning'><b>\The [src]</b> viciously crushes [affected] of [G.affecting] with its metallic arms!</span>")
+		visible_message("<span class='warning'><b>[src]</b> viciously crushes [affected] of [G.affecting] with its metallic arms!</span>")
 		msg_admin_attack("[key_name_admin(src)] crushed [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
 	else
 		var/mob/living/M = G.affecting
 		if(!istype(M))
 			return
 		M.apply_damage(40,BRUTE)
-		visible_message("<span class='warning'><b>\The [src]</b> viciously crushes [G.affecting]'s flesh with its metallic arms!</span>")
+		visible_message("<span class='warning'><b>[src]</b> viciously crushes [G.affecting]'s flesh with its metallic arms!</span>")
 		msg_admin_attack("[key_name_admin(src)] crushed [key_name_admin(M)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(M))
 	playsound(src.loc, 'sound/weapons/heavysmash.ogg', 50, 1)
 	last_special = world.time + 100

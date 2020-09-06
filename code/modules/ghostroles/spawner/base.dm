@@ -2,12 +2,13 @@
 	var/short_name = null
 	var/name = null
 	var/desc = null
-	var/show_on_job_select = TRUE
+	var/show_on_job_select = TRUE // Determines if the ghost spawner role is considered unique or not. 
 	var/welcome_message = null
 	var/list/tags = list() //Tags associated with that spawner
 
 	//Vars regarding the spawnpoints and conditions of the spawner
 	var/list/spawnpoints = null //List of the applicable spawnpoints (by name)
+	var/list/spawn_atoms = list() // List of atoms you can spawn at
 	var/landmark_name = null //Alternatively you can specify a landmark name
 	var/max_count = 0 //How often can this spawner be used
 	var/count = 0 //How ofen has this spawner been used
@@ -94,6 +95,11 @@
 
 //This proc selects the spawnpoint to use.
 /datum/ghostspawner/proc/select_spawnpoint(var/use=TRUE)
+	if(length(spawn_atoms))
+		var/chosen_spawn_atom = pick(spawn_atoms)
+		var/turf/T = get_turf(chosen_spawn_atom)
+		if(T)
+			return T
 	if(!isnull(spawnpoints))
 		for(var/spawnpoint in spawnpoints) //Loop through the applicable spawnpoints
 			var/turf/T = SSghostroles.get_spawnpoint(spawnpoint, use) //Gets the first matching spawnpoint or null if none are available
@@ -120,7 +126,7 @@
 	if(max_count && count >= max_count)
 		disable()
 	if(welcome_message)
-		to_chat(user, span("notice", welcome_message))
+		to_chat(user, SPAN_NOTICE(welcome_message))
 	return TRUE
 
 //Proc to check if a specific user can edit this spawner (open/close/...)

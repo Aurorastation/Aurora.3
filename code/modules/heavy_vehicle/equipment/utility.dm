@@ -8,9 +8,10 @@
 	var/carrying_capacity = 5
 	var/list/obj/carrying = list()
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	var/list/afterattack_types = list(/obj/structure/closet, /obj/machinery/door/airlock)
 
 /obj/item/mecha_equipment/clamp/resolve_attackby(atom/A, mob/user, click_params)
-	if(istype(A, /obj/structure/closet) && owner)
+	if(is_type_in_list(A, afterattack_types) && owner)
 		return FALSE
 	return ..()
 
@@ -29,6 +30,60 @@
 	. = ..()
 
 	if(.)
+		if(istype(target, /obj/machinery/door/firedoor))
+			var/obj/machinery/door/firedoor/FD = target
+			if(FD.blocked)
+				FD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [FD]!"))
+				if(do_after(owner, 10 SECONDS) && FD.blocked)
+					playsound(FD, 'sound/effects/meteorimpact.ogg', 100, 1)
+					playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+					FD.blocked = FALSE
+					INVOKE_ASYNC(FD, /obj/machinery/door/firedoor/.proc/open)
+					FD.visible_message(SPAN_WARNING("\The [owner] tears \the [FD] open!"))
+			else
+				FD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [FD]!"))
+				if(do_after(owner, 4 SECONDS) && !FD.blocked)
+					if(FD.density)
+						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] open!"))
+						playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+						INVOKE_ASYNC(FD, /obj/machinery/door/firedoor/.proc/open)
+					else
+						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] closed!"))
+						playsound(FD, 'sound/machines/airlock_close_force.ogg', 100, 1)
+						INVOKE_ASYNC(FD, /obj/machinery/door/firedoor/.proc/close)
+			return
+		else if(istype(target, /obj/machinery/door/airlock))
+			if(istype(target, /obj/machinery/door/airlock/centcom))
+				to_chat(user, SPAN_WARNING("You can't force these airlocks!"))
+				return
+			var/obj/machinery/door/airlock/AD = target
+			if(!AD.operating)
+				if(AD.welded || AD.locked)
+					AD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [AD]!"))
+					var/time_to_open = 15 SECONDS
+					if(AD.welded && AD.locked)
+						time_to_open = 30 SECONDS
+					if(do_after(owner, time_to_open))
+						AD.welded = FALSE
+						AD.locked = FALSE
+						AD.update_icon()
+						playsound(AD, 'sound/effects/meteorimpact.ogg', 100, 1)
+						playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+						AD.visible_message(SPAN_WARNING("\The [owner] tears \the [AD] open!"))
+						INVOKE_ASYNC(AD, /obj/machinery/door/airlock/.proc/open)
+				else
+					AD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [AD]!"))
+					if(do_after(owner, 5 SECONDS) && !(AD.operating || AD.welded || AD.locked))
+						if(AD.density)
+							INVOKE_ASYNC(AD, /obj/machinery/door/airlock/.proc/open)
+							playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] open!"))
+						else
+							INVOKE_ASYNC(AD, /obj/machinery/door/airlock/.proc/close)
+							playsound(AD, 'sound/machines/airlock_close_force.ogg', 100, 1)
+							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] closed!"))
+			return
+	
 		if(length(carrying) >= carrying_capacity)
 			to_chat(user, SPAN_WARNING("\The [src] is fully loaded!"))
 			return
@@ -100,7 +155,7 @@
 
 /obj/item/mecha_equipment/clamp/get_hardpoint_maptext()
 	if(length(carrying) == 1)
-		return carrying[1].name
+		return capitalize_first_letters(carrying[1].name)
 	else if(length(carrying) > 1)
 		return "Multiple Objects"
 	. = ..()
@@ -135,7 +190,6 @@
 	name = "floodlight"
 	desc = "An exosuit-mounted light."
 	icon_state = "mech_floodlight"
-	item_state = "mech_floodlight"
 	restricted_hardpoints = list(HARDPOINT_HEAD)
 	mech_layer = MECH_INTERMEDIATE_LAYER
 
@@ -165,6 +219,7 @@
 	on = FALSE
 	update_icon()
 	. = ..()
+
 #define CATAPULT_SINGLE 1
 #define CATAPULT_AREA   2
 
@@ -258,7 +313,7 @@
 	if(percentage > 95)
 		descriptor = "shows no wear"
 
-	to_chat(user, span("notice", "It [descriptor]."))
+	to_chat(user, SPAN_NOTICE("It [descriptor]."))
 
 /obj/item/mecha_equipment/drill
 	name = "drill"
@@ -280,7 +335,7 @@
 	. = ..()
 	if(.)
 		if(drill_head)
-			owner.visible_message("<span class='warning'>[owner] revs the [drill_head], menancingly.</span>")
+			owner.visible_message("<span class='warning'>[owner] revs the [drill_head], menacingly.</span>")
 			playsound(get_turf(src), 'sound/mecha/mechdrill.ogg', 50, 1)
 
 /obj/item/mecha_equipment/drill/get_hardpoint_maptext()
@@ -437,9 +492,9 @@
 
 /obj/item/mecha_equipment/sleeper/passenger_compartment/attack_self(var/mob/user)
 	if(!sleeper.occupant)
-		to_chat(user, span("warning", "There's no one to eject!"))
+		to_chat(user, SPAN_WARNING("There's no one to eject!"))
 	else
-		visible_message(span("notice", "\The [src] ejects [sleeper.occupant.name]."))
+		visible_message(SPAN_NOTICE("\The [src] ejects [sleeper.occupant.name]."))
 		sleeper.go_out()
 		icon_state = "mecha_passenger_open"
 		update_icon()
@@ -456,7 +511,8 @@
 /obj/item/mecha_equipment/autolathe
 	name = "mounted autolathe"
 	desc = "A large, heavy industrial autolathe. Most of the exterior and interior is stripped, relying primarily on the structure of the exosuit."
-	icon_state = "mech_sleeper"
+	icon_state = "mecha_autolathe"
+	on_mech_icon_state = "mecha_autolathe"
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
@@ -472,16 +528,16 @@
 	lathe = new /obj/machinery/autolathe/mounted(src)
 
 /obj/item/mecha_equipment/autolathe/installed()
-	lathe.print_loc = owner
 	..()
+	lathe.print_loc = owner
 
 /obj/item/mecha_equipment/autolathe/uninstalled()
 	lathe.print_loc = null
 	..()
 
 /obj/item/mecha_equipment/autolathe/Destroy()
-	. = ..()
 	QDEL_NULL(lathe)
+	return ..()
 
 /obj/item/mecha_equipment/autolathe/attack_self(mob/user)
 	. = ..()
@@ -491,9 +547,102 @@
 /obj/item/mecha_equipment/autolathe/afterattack(atom/target, mob/living/user, inrange, params)
 	. = ..()
 	if(istype(target, /obj/item/stack/material/steel) || istype(target, /obj/item/stack/material/glass))
+		owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [target] into \the [src]."))
 		lathe.attackby(target, owner)
 
 /obj/item/mecha_equipment/autolathe/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver() || W.ismultitool() || W.iswirecutter())
+	if(W.isscrewdriver() || W.ismultitool() || W.iswirecutter() || istype(W, /obj/item/storage/part_replacer))
 		lathe.attackby(W, user)
+		update_icon()
 	..()
+
+/obj/item/mecha_equipment/autolathe/update_icon()
+	if(lathe.panel_open)
+		icon_state = "mecha_autolathe-open"
+	else
+		icon_state = initial(icon_state)
+
+/obj/item/mecha_equipment/toolset
+	name = "mounted toolset"
+	desc = "A vast toolset that's built into an exosuit arm mount. When a power drill just isn't enough."
+	icon_state = "mecha_toolset-screwdriverbit"
+	on_mech_icon_state = "mecha_toolset"
+	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
+	restricted_software = list(MECH_SOFTWARE_UTILITY)
+	equipment_delay = 8
+
+	//Drill can have a head
+	var/obj/item/powerdrill/mech/mounted_tool
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+
+/obj/item/mecha_equipment/toolset/Initialize()
+	. = ..()
+	mounted_tool = new/obj/item/powerdrill/mech(src)
+
+/obj/item/mecha_equipment/toolset/attack_self(var/mob/user)
+	. = ..()
+	if(.)
+		if(mounted_tool)
+			var/list/options = list()
+			for(var/tool_name in mounted_tool.tools)
+				var/tool_sprite_name = replacetext(tool_name, "bit", "")
+				var/image/radial_button = image('icons/obj/tools.dmi', tool_sprite_name)
+				options[tool_name] = radial_button
+			var/selected_tool = show_radial_menu(user, owner, options, radius = 42, tooltips = TRUE)
+			if(!selected_tool)
+				return
+			mounted_tool.current_tool = 1
+			for(var/tool in mounted_tool.tools)
+				if(mounted_tool.tools[mounted_tool.current_tool] == selected_tool)
+					break
+				else
+					mounted_tool.current_tool++
+			update_icon()
+
+/obj/item/mecha_equipment/toolset/update_icon()
+	icon_state = "mecha_toolset-[mounted_tool.tools[mounted_tool.current_tool]]"
+
+// to-do fix this thing being out of bounds
+/obj/item/mecha_equipment/toolset/get_hardpoint_maptext()
+	if(mounted_tool)
+		var/tool_name = capitalize(replacetext(mounted_tool.tools[mounted_tool.current_tool], "bit", ""))
+		return "Tool: [tool_name]"
+
+/obj/item/mecha_equipment/toolset/isscrewdriver()
+	return mounted_tool.tools[mounted_tool.current_tool] == "screwdriverbit"
+
+/obj/item/mecha_equipment/toolset/iswrench()
+	return mounted_tool.tools[mounted_tool.current_tool] == "wrenchbit"
+
+/obj/item/mecha_equipment/toolset/iscrowbar()
+	return mounted_tool.tools[mounted_tool.current_tool] == "crowbarbit"
+
+/obj/item/powerdrill/mech
+	name = "mounted toolset"
+	tools = list(
+		"screwdriverbit",
+		"wrenchbit",
+		"crowbarbit"
+		)
+
+/obj/item/mecha_equipment/quick_enter
+	name = "rapid-entry system"
+	desc = "A large back-mounted device with installed hydraulics, capable of quickly lifting the user into their piloting seat."
+	icon_state = "mecha_quickie"
+	restricted_hardpoints = list(HARDPOINT_BACK)
+	w_class = ITEMSIZE_HUGE
+	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
+
+/obj/item/mecha_equipment/quick_enter/installed()
+	..()
+	owner.entry_speed = 5
+
+/obj/item/mecha_equipment/quick_enter/uninstalled()
+	owner.entry_speed = initial(owner.entry_speed)
+	..()
+
+/obj/item/mecha_equipment/quick_enter/afterattack()
+	return
+
+/obj/item/mecha_equipment/quick_enter/attack_self()
+	return

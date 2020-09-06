@@ -3,7 +3,8 @@
 	filedesc = "NTSL2+ Interpreter"
 	extended_desc = "This program is used to run NTSL2+ programs."
 	program_icon_state = "generic"
-	size = 2
+	usage_flags = PROGRAM_ALL
+	size = 8
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
 

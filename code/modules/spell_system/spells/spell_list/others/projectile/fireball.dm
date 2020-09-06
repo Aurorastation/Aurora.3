@@ -19,19 +19,19 @@
 	proj_step_delay = 1
 
 	amt_dam_brute = 20
-	amt_dam_fire = 25
-
-	var/ex_severe = -1
-	var/ex_heavy = 1
-	var/ex_light = 2
-	var/ex_flash = 5
+	amt_dam_fire = 35
 
 	hud_state = "wiz_fireball"
 
 /spell/targeted/projectile/dumbfire/fireball/prox_cast(var/list/targets, spell_holder)
 	for(var/mob/living/M in targets)
 		apply_spell_damage(M)
-	explosion(get_turf(spell_holder), ex_severe, ex_heavy, ex_light, ex_flash)
+		M.IgniteMob(2)
+	var/explosion_ogg = pick('sound/effects/Explosion1.ogg', 'sound/effects/Explosion2.ogg')
+	playsound(get_turf(spell_holder), explosion_ogg, 75, TRUE, 3)
+	var/datum/effect/system/explosion/E = new /datum/effect/system/explosion()
+	E.set_up(get_turf(spell_holder))
+	E.start()
 
 //PROJECTILE
 

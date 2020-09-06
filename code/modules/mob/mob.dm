@@ -89,7 +89,7 @@
 			else
 				msg = alt
 				type = alt_type
-		if (type & 2 && (sdisabilities & DEAF || ear_deaf))//Hearing related
+		if (type & 2 && isdeaf(src))//Hearing related
 			if (!( alt ))
 				return
 			else
@@ -124,12 +124,15 @@
 			continue
 		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
-		if(get_turf(M) in messageturfs)
+		if((get_turf(M) in messageturfs) || (isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
 			messagemobs += M
 
 	for(var/A in messagemobs)
 		var/mob/M = A
-		if(self_message && M==src)
+		if(isobserver(M))
+			M.show_message("[ghost_follow_link(src, M)] [message]", 1)
+			continue
+		if(self_message && M == src)
 			M.show_message(self_message, 1, blind_message, 2)
 		else if(M.see_invisible < invisibility)  // Cannot view the invisible, but you can hear it.
 			if(blind_message)
@@ -204,7 +207,13 @@
 	return 0
 
 /mob/proc/movement_delay()
-	return 0
+	. = get_pulling_movement_delay()
+
+/mob/proc/get_pulling_movement_delay()
+	. = 0
+	if(istype(pulling, /obj/structure))
+		var/obj/structure/P = pulling
+		. += P.slowdown
 
 /mob/proc/Life()
 	return
@@ -257,6 +266,7 @@
 
 /mob/proc/reset_view(atom/A)
 	if (client)
+		A = A ? A : eyeobj
 		if (istype(A, /atom/movable))
 			client.perspective = EYE_PERSPECTIVE
 			client.eye = A
@@ -725,9 +735,6 @@
 /mob/proc/is_ready()
 	return client && !!mind
 
-/mob/proc/get_gender()
-	return gender
-
 /mob/proc/see(message)
 	if(!is_active())
 		return 0
@@ -863,7 +870,7 @@
 		update_icon = 0
 		regenerate_icons()
 	else if( lying != lying_prev )
-		update_icons()
+		update_icon()
 
 	return canmove
 
@@ -983,8 +990,22 @@
 /mob/proc/get_species(var/reference = 0)
 	return ""
 
+/mob/proc/get_pressure_weakness()
+	return 1
+
 /mob/proc/flash_weak_pain()
-	flick("weak_pain",pain)
+	flick("weak_pain", pain)
+
+/mob/living/carbon/human/flash_weak_pain()
+	if(can_feel_pain())
+		flick("weak_pain", pain)
+
+/mob/living/proc/flash_strong_pain()
+	return
+
+/mob/living/carbon/human/flash_strong_pain()
+	if(can_feel_pain())
+		flick("strong_pain", pain)
 
 /mob/proc/Jitter(amount)
 	jitteriness = max(jitteriness,amount,0)
@@ -1108,7 +1129,7 @@
 
 /mob/living/proc/handle_weakened()
 	if(weakened)
-		weakened = max(weakened-1,0)	//before you get mad Rockdtben: I done this so update_canmove isn't called multiple times
+		weakened = max(weakened-1,0)
 	return weakened
 
 /mob/living/proc/handle_stuttering()
@@ -1148,14 +1169,11 @@
 		if(istype(I,/mob/living/simple_animal/borer))
 			return I
 
-	return 0
+	return null
 
 /mob/proc/Released()
 	//This is called when the mob is let out of a holder
 	//Override for mob-specific functionality
-	return
-
-/mob/proc/updateicon()
 	return
 
 /mob/verb/face_direction()

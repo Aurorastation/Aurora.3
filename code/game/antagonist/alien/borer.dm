@@ -4,7 +4,7 @@ var/datum/antagonist/xenos/borer/borers
 	id = MODE_BORER
 	role_text = "Cortical Borer"
 	role_text_plural = "Cortical Borers"
-	mob_path = /mob/living/simple_animal/borer
+	mob_path = /mob/living/simple_animal/borer/roundstart
 	bantype = "Borer"
 	welcome_text = "Use your Infest power to crawl into the ear of a host and fuse with their brain. You can only take control temporarily, and at risk of hurting your host, so be clever and careful; your host is encouraged to help you however they can. Talk to your fellow borers with ,x."
 	antag_indicator = "brainworm"

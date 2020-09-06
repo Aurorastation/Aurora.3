@@ -206,7 +206,7 @@
 				to_chat(user, SPAN_WARNING("\The [src] needs to be wrenched to the floor."))
 			if(EMITTER_BOLTED)
 				if(WT.remove_fuel(0, user))
-					playsound(get_turf(src), 'sound/items/Welder2.ogg', 50, TRUE)
+					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
 					user.visible_message(SPAN_NOTICE("\The [user] starts to weld \the [src] to the floor."), \
 						SPAN_NOTICE("You start to weld \the [src] to the floor."), \
 						SPAN_WARNING("You hear the sound of metal being welded."))
@@ -220,7 +220,7 @@
 					to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 			if(EMITTER_WELDED)
 				if(WT.remove_fuel(0, user))
-					playsound(get_turf(src), 'sound/items/Welder2.ogg', 50, TRUE)
+					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
 					user.visible_message(SPAN_NOTICE("\The [user] starts to cut \the [src] free from the floor."), \
 						SPAN_NOTICE("You start to cut \the [src] free from the floor."), \
 						SPAN_WARNING("You hear the sound of metal being welded."))

@@ -187,6 +187,7 @@ Byond Vue UI framework's management subsystem
 	LAZYINITLIST(open_uis[new_object_key])
 
 	for(var/datum/vueui/ui in open_uis[old_object_key])
+		ui.object.vueui_on_transfer(ui)
 		ui.object = new_object
 		if(new_activeui) {ui.activeui = new_activeui}
 		if(new_title) {ui.title = new_title}

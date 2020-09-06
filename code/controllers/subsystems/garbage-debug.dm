@@ -316,7 +316,6 @@
 	SearchVar(exclude_jobs)
 	SearchVar(visual_nets)
 	SearchVar(cameranet)
-	SearchVar(rune_list)
 	SearchVar(escape_list)
 	SearchVar(endgame_exits)
 	SearchVar(endgame_safespawns)
@@ -488,7 +487,6 @@
 	SearchVar(lava)
 	SearchVar(snow)
 	SearchVar(sand)
-	SearchVar(footstepfx)
 	SearchVar(FALLOFF_SOUNDS)
 	SearchVar(all_antag_types)
 	SearchVar(all_antag_spawnpoints)
@@ -865,6 +863,5 @@
 	SearchVar(mark)
 	SearchVar(contamination_overlay)
 	SearchVar(vsc)
-	SearchVar(global_player_panel)
 
 #endif

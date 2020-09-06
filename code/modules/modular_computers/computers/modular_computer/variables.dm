@@ -17,9 +17,10 @@
 	var/apc_powered = FALSE									// Set automatically. Whether the computer used APC power last tick.
 	var/base_active_power_usage = 50						// Power usage when the computer is open (screen is active) and can be interacted with. Remember hardware can use power too.
 	var/base_idle_power_usage = 5							// Power usage when the computer is idle and screen is off (currently only applies to laptops)
-	var/enrolled = FALSE									// Weather the computer is enrolled in the company device management or not. 0 - unconfigured 1 - enrolled (work device) 2 - unenrolled (private device)
+	var/enrolled = 0										// Weather the computer is enrolled in the company device management or not. 0 - unconfigured 1 - enrolled (work device) 2 - unenrolled (private device)
 	var/_app_preset_type									// Used for specifying the software preset of the console
 	var/ambience_last_played								// Last time sound was played
+	var/pAI_lock = FALSE									// Toggles whether pAI can interact with the modular computer while installed in it
 
 	// Modular computers can run on various devices. Each DEVICE (Laptop, Console, Tablet,..)
 	// must have it's own DMI file. Icon states must be called exactly the same in all files, but may look differently
@@ -41,6 +42,7 @@
 	var/steel_sheet_cost = 5								// Amount of steel sheets refunded when disassembling an empty frame of this computer.
 	var/light_strength = 0									// Intensity of light this computer emits. Comparable to numbers light fixtures use.
 	var/list/idle_threads = list()							// Idle programs on background. They still receive process calls but can't be interacted with.
+	var/list/enabled_services = list()						// Enabled services that run in background and handle things pasively. Supported on all CPUs.
 	var/power_has_failed = FALSE
 	var/is_holographic = FALSE
 
@@ -61,6 +63,7 @@
 	var/obj/item/computer_hardware/hard_drive/portable/portable_drive		// Portable data storage
 	var/obj/item/computer_hardware/ai_slot/ai_slot							// AI slot, an intellicard housing that allows modifications of AIs.
 	var/obj/item/computer_hardware/tesla_link/tesla_link					// Tesla Link, Allows remote charging from nearest APC.
+	var/obj/item/device/paicard/personal_ai									// Personal AI, can control the device via a verb when installed
 
 	var/listener/listener	//Listener needed for things
 

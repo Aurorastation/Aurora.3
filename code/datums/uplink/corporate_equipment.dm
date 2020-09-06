@@ -1,11 +1,11 @@
 /datum/uplink_item/item/corporate_equipment
 	category = /datum/uplink_category/corporate_equipment
 
-/datum/uplink_item/item/corporate_equipment/suit/necropolis
+/datum/uplink_item/item/corporate_equipment/suit/zavodskoi
 	name = "Revenant Combat Suit"
 	item_cost = 14
-	path = /obj/structure/closet/crate/gear_loadout/necropolis
-	desc = "A full spaceworthy kit of a Necropolis Industries Revenant-type combat suit. Heavily resistant against fast projectiles and backpack-portable. Only wearable by Humans and Humanoid IPCs."
+	path = /obj/structure/closet/crate/gear_loadout/zavodskoi
+	desc = "A full spaceworthy kit of a Zavodskoi Interstellar Revenant-type combat suit. Heavily resistant against fast projectiles and backpack-portable. Only wearable by Humans and Humanoid IPCs."
 
 /datum/uplink_item/item/corporate_equipment/suit/zenghu
 	name = "Dragon Biohazard Control Suit"

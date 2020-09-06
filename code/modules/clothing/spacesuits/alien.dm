@@ -1,4 +1,4 @@
-// Vox space gear (vaccuum suit, low pressure armour)
+// Vox space gear (vaccuum suit, low pressure armor)
 // Can't be equipped by any other species due to bone structure and vox cybernetics.
 /obj/item/clothing/suit/space/vox
 	w_class = 3
@@ -8,10 +8,10 @@
 	siemens_coefficient = 0.35
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
-	species_restricted = list("Vox", "Vox Armalis")
+	species_restricted = list(BODYTYPE_VOX, BODYTYPE_VOX_ARMALIS)
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/suit.dmi',
-		"Vox Armalis" = 'icons/mob/species/armalis/suit.dmi'
+		BODYTYPE_VOX = 'icons/mob/species/vox/suit.dmi',
+		BODYTYPE_VOX_ARMALIS = 'icons/mob/species/armalis/suit.dmi'
 		)
 
 /obj/item/clothing/head/helmet/space/vox
@@ -19,10 +19,10 @@
 	siemens_coefficient = 0.35
 	item_flags = STOPPRESSUREDAMAGE
 	flags_inv = null
-	species_restricted = list("Vox","Vox Armalis")
+	species_restricted = list(BODYTYPE_VOX,BODYTYPE_VOX_ARMALIS)
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi',
-		"Vox Armalis" = 'icons/mob/species/armalis/head.dmi'
+		BODYTYPE_VOX = 'icons/mob/species/vox/head.dmi',
+		BODYTYPE_VOX_ARMALIS = 'icons/mob/species/armalis/head.dmi'
 		)
 
 /obj/item/clothing/head/helmet/space/vox/pressure
@@ -35,7 +35,7 @@
 	name = "alien pressure suit"
 	icon_state = "vox-pressure"
 	item_state = "vox-pressure"
-	desc = "A huge, armoured, pressurized suit, designed for distinctly nonhuman proportions."
+	desc = "A huge, armored, pressurized suit, designed for distinctly nonhuman proportions."
 
 /obj/item/clothing/head/helmet/space/vox/carapace
 	name = "alien visor"
@@ -44,10 +44,10 @@
 	desc = "A glowing visor, perhaps stolen from a depressed Cylon."
 
 /obj/item/clothing/suit/space/vox/carapace
-	name = "alien carapace armour"
+	name = "alien carapace armor"
 	icon_state = "vox-carapace"
 	item_state = "vox-carapace"
-	desc = "An armoured, segmented carapace with glowing purple lights. It looks pretty run-down."
+	desc = "An armored, segmented carapace with glowing purple lights. It looks pretty run-down."
 
 /obj/item/clothing/head/helmet/space/vox/stealth
 	name = "alien stealth helmet"
@@ -68,27 +68,10 @@
 	desc = "An alien helmet with enormous goggled lenses."
 
 /obj/item/clothing/suit/space/vox/medic
-	name = "alien armour"
+	name = "alien armor"
 	icon_state = "vox-medic"
 	item_state = "vox-medic"
 	desc = "An almost organic looking nonhuman pressure suit."
-
-/obj/item/clothing/under/vox
-	has_sensor = 0
-	species_restricted = list("Vox")
-
-/obj/item/clothing/under/vox/vox_casual
-	name = "alien clothing"
-	desc = "This doesn't look very comfortable."
-	icon_state = "vox-casual-1"
-	item_state = "vox-casual-1"
-	body_parts_covered = LEGS
-
-/obj/item/clothing/under/vox/vox_robes
-	name = "alien robes"
-	desc = "Weird and flowing!"
-	icon_state = "vox-casual-2"
-	item_state = "vox-casual-2"
 
 /obj/item/clothing/gloves/yellow/vox
 	desc = "These bizarre gauntlets seem to be fitted for... bird claws?"
@@ -97,23 +80,23 @@
 	item_state = "gloves-vox"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
-	species_restricted = list("Vox","Vox Armalis")
+	species_restricted = list(BODYTYPE_VOX,BODYTYPE_VOX_ARMALIS)
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/gloves.dmi',
-		"Vox Armalis" = 'icons/mob/species/armalis/gloves.dmi'
+		BODYTYPE_VOX = 'icons/mob/species/vox/gloves.dmi',
+		BODYTYPE_VOX_ARMALIS = 'icons/mob/species/armalis/gloves.dmi'
 		)
 
 /obj/item/clothing/shoes/magboots/vox
 
-	desc = "A pair of heavy, jagged armoured foot pieces, seemingly suitable for a velociraptor."
+	desc = "A pair of heavy, jagged armored foot pieces, seemingly suitable for a velociraptor."
 	name = "vox magclaws"
 	item_state = "boots-vox"
 	icon_state = "boots-vox"
 
-	species_restricted = list("Vox","Vox Armalis")
+	species_restricted = list(BODYTYPE_VOX,BODYTYPE_VOX_ARMALIS)
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/shoes.dmi',
-		"Vox Armalis" = 'icons/mob/species/armalis/feet.dmi'
+		BODYTYPE_VOX = 'icons/mob/species/vox/shoes.dmi',
+		BODYTYPE_VOX_ARMALIS = 'icons/mob/species/armalis/feet.dmi'
 		)
 
 	action_button_name = "Toggle the magclaws"

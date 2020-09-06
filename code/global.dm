@@ -1,6 +1,6 @@
 //#define TESTING
-#if DM_VERSION < 512
-#error Your version of BYOND is too old to compile the code. At least BYOND 512 is required.
+#if DM_VERSION < 513
+#error Your version of BYOND is too old to compile the code. At least BYOND 513 is required.
 #endif
 
 
@@ -134,8 +134,8 @@ var/static/list/scarySounds = list(
 	'sound/effects/glass_break1.ogg',
 	'sound/effects/glass_break2.ogg',
 	'sound/effects/glass_break3.ogg',
-	'sound/items/Welder.ogg',
-	'sound/items/Welder2.ogg',
+	'sound/items/welder.ogg',
+	'sound/items/welder_pry.ogg',
 	'sound/machines/airlock.ogg',
 	'sound/effects/clownstep1.ogg',
 	'sound/effects/clownstep2.ogg'

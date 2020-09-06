@@ -22,7 +22,7 @@
 	name = "engineering laptop"
 	desc = "A portable computer belonging to the engineering department. It appears to have been used as a door stop at one point or another."
 	_app_preset_type = /datum/modular_computer_app_presets/engineering
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/laptop/preset/engineering/ce
 	name = "chief engineer's laptop"
@@ -34,7 +34,7 @@
 	name = "medical laptop"
 	desc = "A portable computer belonging to the medical department."
 	_app_preset_type = /datum/modular_computer_app_presets/medical
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/laptop/preset/medical/cmo
 	name = "chief medical officer's laptop"
@@ -46,7 +46,7 @@
 	name = "research laptop"
 	desc = "A portable computer belonging to the research department."
 	_app_preset_type = /datum/modular_computer_app_presets/research
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/laptop/preset/research/install_default_hardware()
 	..()
@@ -61,7 +61,7 @@
 /obj/item/modular_computer/laptop/preset/command
 	name = "command laptop"
 	_app_preset_type = /datum/modular_computer_app_presets/command
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/laptop/preset/command/hop
 	name = "head of personnel's laptop"
@@ -86,7 +86,7 @@
 	name = "security laptop"
 	desc = "A portable computer belonging to the security department."
 	_app_preset_type = /datum/modular_computer_app_presets/security
-	enrolled = TRUE
+	enrolled = 1
 
 /obj/item/modular_computer/laptop/preset/security/hos
 	name = "head of security's laptop"
@@ -96,18 +96,18 @@
 // Civilian
 /obj/item/modular_computer/laptop/preset/civilian
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
-	enrolled = TRUE
+	enrolled = 1
 
 // Supply
 /obj/item/modular_computer/laptop/preset/supply
 	name = "supply laptop"
 	desc = "A portable computer belonging to cargo."
 	_app_preset_type = /datum/modular_computer_app_presets/supply
-	enrolled = TRUE
+	enrolled = 1
 
 // Representative
 /obj/item/modular_computer/laptop/preset/representative
 	name = "representative's laptop"
 	desc = "A portable computer belonging to the representative's office."
 	_app_preset_type = /datum/modular_computer_app_presets/representative
-	enrolled = TRUE
+	enrolled = 1

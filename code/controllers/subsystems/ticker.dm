@@ -155,7 +155,7 @@ var/datum/controller/subsystem/ticker/SSticker
 				pregame_timeleft = 1 SECOND
 				to_world("Reattempting gamemode selection.")
 
-/datum/controller/subsystem/ticker/proc/game_tick()
+/datum/controller/subsystem/ticker/proc/game_tick(var/force_end = FALSE)
 	if(current_state != GAME_STATE_PLAYING)
 		return 0
 
@@ -163,7 +163,10 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	var/game_finished = 0
 	var/mode_finished = 0
-	if (config.continous_rounds)
+	if(force_end)
+		game_finished = TRUE
+		mode_finished = TRUE
+	else if(config.continous_rounds)
 		game_finished = (emergency_shuttle.returned() || mode.station_was_nuked)
 		mode_finished = (!post_game && mode.check_finished())
 	else

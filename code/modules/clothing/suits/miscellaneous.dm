@@ -9,7 +9,7 @@
  * Lasertag
  */
 /obj/item/clothing/suit/bluetag
-	name = "blue laser tag armour"
+	name = "blue laser tag armor"
 	desc = "Blue Pride, Station Wide."
 	icon_state = "bluetag"
 	item_state = "bluetag"
@@ -19,7 +19,7 @@
 	siemens_coefficient = 1.0
 
 /obj/item/clothing/suit/redtag
-	name = "red laser tag armour"
+	name = "red laser tag armor"
 	desc = "Reputed to go faster."
 	icon_state = "redtag"
 	item_state = "redtag"
@@ -78,7 +78,7 @@
 	icon_state = "judge"
 	item_state = "judge"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	allowed = list(/obj/item/storage/fancy/cigarettes,/obj/item/spacecash)
+	allowed = list(/obj/item/storage/box/fancy/cigarettes,/obj/item/spacecash)
 	flags_inv = HIDEJUMPSUIT
 
 /obj/item/clothing/suit/wcoat
@@ -314,7 +314,7 @@
 	item_state = "mgreen"
 	icon_open = "mgreen_open"
 	icon_closed = "mgreen"
-	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask)
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
 
 /obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan
 	icon_state = "mtan"
@@ -435,14 +435,17 @@
 	icon_open = "trenchcoat_grey_open"
 	icon_closed = "trenchcoat_grey"
 
-/obj/item/clothing/suit/storage/toggle/greengov
-	name = "green formal jacket"
-	desc = "A sleek proper formal jacket with gold buttons."
-	icon_state = "suitjacket_green_open"
-	item_state = "suitjacket_green"
-	icon_open = "suitjacket_green_open"
-	icon_closed = "suitjacket_green"
-	body_parts_covered = UPPER_TORSO|ARMS
+/obj/item/clothing/suit/storage/toggle/trench/colorable
+	name = "trenchcoat"
+	desc = "A sleek canvas trenchcoat"
+	icon_state = "trench_colorable"
+	item_state = "trench_colorable"
+	icon_open = "trench_colorable_open"
+	icon_closed = "trench_colorable"
+
+/obj/item/clothing/suit/storage/toggle/trench/colorable/random/Initialize()
+	. = ..()
+	color = get_random_colour(lower = 150)
 
 /obj/item/clothing/suit/storage/toggle/track
 	name = "track jacket"
@@ -452,7 +455,7 @@
 	item_state = "trackjacket"
 	icon_open = "trackjacket_open"
 	icon_closed = "trackjacket"
-	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/fancy/cigarettes, /obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask)
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/cigarettes, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
 	contained_sprite = 1
 
 /obj/item/clothing/suit/storage/toggle/track/blue
@@ -498,7 +501,7 @@
 	item_state = "varsity"
 	icon_open = "varsity_open"
 	icon_closed = "varsity"
-	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/matches, /obj/item/reagent_containers/food/drinks/flask)
+	allowed = list (/obj/item/pen, /obj/item/paper, /obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/storage/box/fancy/matches, /obj/item/reagent_containers/food/drinks/flask)
 
 /obj/item/clothing/suit/storage/toggle/varsity/red
 	name = "red varsity jacket"
@@ -618,11 +621,35 @@
 	icon_state = "fib_jacket"
 	item_state = "fib_jacket"
 
-/obj/item/clothing/suit/cardigan
+// Cardigans.
+
+/obj/item/clothing/suit/storage/toggle/cardigan
 	name = "cardigan"
-	desc = "A cozy, warm knit cardigan. Only slightly worse than a blanket."
+	desc = "A cozy, warm knit cardigan."
+	desc_fluff = "Only slightly worse than a blanket."
 	icon_state = "cardigan"
 	item_state = "cardigan"
+	icon_open = "cardigan_open"
+	icon_closed = "cardigan"
+
+/obj/item/clothing/suit/storage/toggle/cardigan/sweater
+	name = "sweater cardigan"
+	desc = "A cozy, warm knit sweater cardigan."
+	desc_fluff = "Half as warm as a sweater, and half as fashionable as a cardigan. Not like it matters for coffee-house dwelling beatniks like yourself."
+	icon_state = "cardigansweater"
+	item_state = "cardigansweater"
+	icon_open = "cardigansweater_open"
+	icon_closed = "cardigansweater"
+
+/obj/item/clothing/suit/storage/toggle/cardigan/argyle
+	name = "argyle cardigan"
+	desc = "A cozy, warm knit argyle cardigan."
+	desc_fluff = "You'll never get dumped if you never get in a relationship in the first place. With this, you'll never have to worry again."
+	icon_state = "cardiganargyle"
+	item_state = "cardiganargyle"
+	icon_open = "cardiganargyle_open"
+	icon_closed = "cardiganargyle"
+
 
 /obj/item/clothing/suit/fake_cultrobes
 	name = "occultist robes"
@@ -635,8 +662,8 @@
 /obj/item/clothing/suit/caution
 	name = "wet floor sign"
 	desc = "Caution! Wet Floor!"
-	description_fluff = "Used by the janitor to passive-aggressively point at when you eventually slip on one of their mopped floors."
-	description_info = "Alt-click, or click in-hand to toggle the caution lights. It looks like you can wear it in your suit slot."
+	desc_fluff = "Used by the janitor to passive-aggressively point at when you eventually slip on one of their mopped floors."
+	desc_info = "Alt-click, or click in-hand to toggle the caution lights. It looks like you can wear it in your suit slot."
 	icon = 'icons/obj/janitor.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
@@ -644,6 +671,7 @@
 		)
 	icon_state = "caution"
 	drop_sound = 'sound/items/drop/shoes.ogg'
+	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	force = 1
 	throwforce = 3
 	throw_speed = 2

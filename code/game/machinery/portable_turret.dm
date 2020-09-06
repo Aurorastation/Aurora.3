@@ -46,7 +46,7 @@
 	var/check_records = 1	//checks if a security record exists at all
 	var/check_weapons = 0	//checks if it can shoot people that have a weapon they aren't authorized to have
 	var/check_access = 1	//if this is active, the turret shoots everything that does not meet the access requirements
-	var/check_anomalies = 1	//checks if it can shoot at unidentified lifeforms (ie xenos)
+	var/check_wildlife = 1	//checks if it can shoot at simple animals or anything that passes issmall
 	var/check_synth	 = 0 	//if active, will shoot at anything not an AI or cyborg
 	var/ailock = 0 			// AI cannot use this
 
@@ -63,7 +63,7 @@
 	var/eprojectile = /obj/item/projectile/beam		//holder for lethal (secondary) mode beam
 
 	var/shot_sound = 'sound/weapons/Taser.ogg'		//what sound should play when the turret fires
-	var/eshot_sound	= 'sound/weapons/Laser.ogg'		//what sound should play when the lethal turret fires
+	var/eshot_sound	= 'sound/weapons/laser1.ogg'		//what sound should play when the lethal turret fires
 
 	var/datum/effect_system/sparks/spark_system		//the spark system, used for generating... sparks?
 
@@ -78,15 +78,15 @@
 	..()
 	var/msg = ""
 	if(!health)
-		msg += span("danger", "\The [src] is destroyed!")
+		msg += SPAN_DANGER("\The [src] is destroyed!")
 	else if(health / maxhealth < 0.35)
-		msg += span("danger", "\The [src] is critically damaged!")
+		msg += SPAN_DANGER("\The [src] is critically damaged!")
 	else if(health / maxhealth < 0.6)
-		msg += span("warning", "\The [src] is badly damaged!")
+		msg += SPAN_WARNING("\The [src] is badly damaged!")
 	else if(health / maxhealth < 1)
-		msg += span("notice", "\The [src] is slightly damaged!")
+		msg += SPAN_NOTICE("\The [src] is slightly damaged!")
 	else
-		msg += span("good", "\The [src] is not damaged!")
+		msg += SPAN_GOOD("\The [src] is not damaged!")
 	to_chat(user, msg)
 
 /obj/machinery/porta_turret/crescent
@@ -97,7 +97,7 @@
 	check_arrest = TRUE
 	check_records = TRUE
 	check_weapons = TRUE
-	check_anomalies = TRUE
+	check_wildlife = TRUE
 	immobile = TRUE
 	no_salvage = TRUE
 	req_one_access = list(access_cent_specops, access_cent_general)
@@ -185,14 +185,15 @@
 
 /obj/machinery/porta_turret/proc/isLocked(mob/user)
 	if(ailock && issilicon(user))
-		to_chat(user, "<span class='notice'>There seems to be a firewall preventing you from accessing this device.</span>")
-		return 1
+		to_chat(user, SPAN_WARNING("There seems to be a firewall preventing you from accessing this device."))
+		return TRUE
 
-	if(locked && !issilicon(user))
-		to_chat(user, "<span class='notice'>Access denied.</span>")
-		return 1
+	if(!issilicon(user))
+		if(locked && !allowed(user))
+			to_chat(user, SPAN_WARNING("Access denied."))
+			return TRUE
 
-	return 0
+	return FALSE
 
 /obj/machinery/porta_turret/attack_ai(mob/user)
 	ui_interact(user)
@@ -213,11 +214,11 @@
 
 	var/usedSettings = list(
 		"check_synth" = "Neutralize All Non-Synthetics",
+		"check_wildlife" = "Neutralize All Wildlife",
 		"check_weapons" = "Check Weapon Authorization",
 		"check_records" = "Check Security Records",
-		"check_arrest" ="Check Arrest Status",
-		"check_access" = "Check Access Authorization",
-		"check_anomalies" = "Check misc. Lifeforms"
+		"check_arrest" = "Check Arrest Status",
+		"check_access" = "Check Access Authorization"
 	)
 	VUEUI_SET_IFNOTSET(data["settings"], list(), ., data)
 	for(var/v in usedSettings)
@@ -279,8 +280,8 @@
 			check_arrest = value
 		else if(href_list["command"] == "check_access")
 			check_access = value
-		else if(href_list["command"] == "check_anomalies")
-			check_anomalies = value
+		else if(href_list["command"] == "check_wildlife")
+			check_wildlife = value
 		SSvueui.check_uis_for_change(src)
 		return 1
 
@@ -372,7 +373,7 @@
 			if(do_after(user, 5))
 				if(QDELETED(src) || !WT.isOn())
 					return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+				playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 				health += maxhealth / 3
 				health = min(maxhealth, health)
 				return
@@ -443,7 +444,7 @@
 		check_records = prob(50)
 		check_weapons = prob(50)
 		check_access = prob(20)	// check_access is a pretty big deal, so it's least likely to get turned on
-		check_anomalies = prob(50)
+		check_wildlife = prob(50)
 		if(prob(5))
 			emagged = TRUE
 
@@ -495,8 +496,9 @@
 
 	if(!tryToShootAt(targets))
 		if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
-			resetting = TRUE
-			addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
+			if(raised || raising) // we've already reset
+				resetting = TRUE
+				addtimer(CALLBACK(src, .proc/reset), 6 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE) // no valid targets, close the cover
 
 	if(targets.len || secondarytargets.len)
 		if(!fast_processing)
@@ -566,10 +568,10 @@
 		return TURRET_NOT_TARGET
 
 	if(isanimal(L) || issmall(L)) // Animals are not so dangerous
-		return check_anomalies ? TURRET_SECONDARY_TARGET : TURRET_NOT_TARGET
+		return check_wildlife ? TURRET_SECONDARY_TARGET : TURRET_NOT_TARGET
 
 	if(isalien(L)) // Xenos are dangerous
-		return check_anomalies ? TURRET_PRIORITY_TARGET	: TURRET_NOT_TARGET
+		return check_wildlife ? TURRET_PRIORITY_TARGET	: TURRET_NOT_TARGET
 
 	if(ishuman(L))	//if the target is a human, analyze threat level
 		if(assess_perp(L) < 4)
@@ -582,7 +584,9 @@
 		var/mob/living/heavy_vehicle/M = L
 		if(!M.pilots?.len)
 			return TURRET_NOT_TARGET
-
+		for(var/mob/pilot in M.pilots)
+			if(allowed(pilot)) // don't shoot if the mech contains at least one person with access
+				return TURRET_NOT_TARGET
 	return TURRET_PRIORITY_TARGET	//if the perp has passed all previous tests, congrats, it is now a "shoot-me!" nominee
 
 /obj/machinery/porta_turret/proc/assess_perp(var/mob/living/carbon/human/H)
@@ -715,7 +719,7 @@
 	var/check_records
 	var/check_arrest
 	var/check_weapons
-	var/check_anomalies
+	var/check_wildlife
 	var/ailock
 
 /obj/machinery/porta_turret/proc/setState(var/datum/turret_checks/TC)
@@ -739,7 +743,7 @@
 	check_records = TC.check_records
 	check_arrest = TC.check_arrest
 	check_weapons = TC.check_weapons
-	check_anomalies = TC.check_anomalies
+	check_wildlife = TC.check_wildlife
 	ailock = TC.ailock
 
 	src.power_change()
@@ -779,7 +783,7 @@
 				return
 
 			else if(I.iscrowbar() && !anchored)
-				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
+				playsound(loc, I.usesound, 75, 1)
 				to_chat(user, "<span class='notice'>You dismantle the turret construction.</span>")
 				new /obj/item/stack/material/steel( loc, 5)
 				qdel(src)
@@ -821,7 +825,7 @@
 					to_chat(user, "<span class='notice'>You need more fuel to complete this task.</span>")
 					return
 
-				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/Welder2.ogg'), 50, 1)
+				playsound(loc, pick('sound/items/welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
 				if(do_after(user, 20/I.toolspeed))
 					if(!src || !WT.remove_fuel(5, user)) return
 					build_step = 1
@@ -910,7 +914,7 @@
 				if(WT.get_fuel() < 5)
 					to_chat(user, "<span class='notice'>You need more fuel to complete this task.</span>")
 
-				playsound(loc, pick('sound/items/Welder.ogg', 'sound/items/Welder2.ogg'), 50, 1)
+				playsound(loc, pick('sound/items/welder.ogg', 'sound/items/welder_pry.ogg'), 50, 1)
 				if(do_after(user, 30/I.toolspeed))
 					if(!src || !WT.remove_fuel(5, user))
 						return
@@ -950,7 +954,7 @@
 					qdel(src) // qdel
 
 			else if(I.iscrowbar())
-				playsound(loc, 'sound/items/Crowbar.ogg', 75, 1)
+				playsound(loc, I.usesound, 75, 1)
 				to_chat(user, "<span class='notice'>You pry off the turret's exterior armor.</span>")
 				new /obj/item/stack/material/steel(loc, 2)
 				build_step = 6
@@ -1019,8 +1023,8 @@
 
 	projectile = /obj/item/projectile/ion/stun
 	eprojectile = /obj/item/projectile/ion
-	shot_sound = 'sound/weapons/Laser.ogg'
-	eshot_sound	= 'sound/weapons/Laser.ogg'
+	shot_sound = 'sound/weapons/laser1.ogg'
+	eshot_sound	= 'sound/weapons/laser1.ogg'
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/crossbow
@@ -1031,7 +1035,7 @@
 	sprite_set = "crossbow"
 
 	eprojectile = /obj/item/projectile/energy/bolt/large
-	eshot_sound	= 'sound/weapons/Genhit.ogg'
+	eshot_sound	= 'sound/weapons/genhit.ogg'
 	req_one_access = list(access_syndicate)
 
 /obj/machinery/porta_turret/cannon

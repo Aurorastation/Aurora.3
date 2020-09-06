@@ -71,6 +71,7 @@
 	mod_limit_increase = 100
 	origin_tech = list()
 	can_disassemble_cell = FALSE
+	cyborg_maptext_override = TRUE
 
 	installed_cell = /obj/item/custom_ka_upgrade/cells/cyborg
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel02
@@ -182,6 +183,10 @@
 	installed_cell = /obj/item/custom_ka_upgrade/cells/cell03
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel03
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/focusing
+
+/obj/item/gun/custom_ka/frame03/prebuilt/shaft_miner
+	name = "class C-M kinetic accelerator"
+	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/damage
 
 /obj/item/gun/custom_ka/frame04/prebuilt
 	name = "class B kinetic accelerator"

@@ -1,5 +1,5 @@
 /datum/species/vox
-	name = "Vox"
+	name = SPECIES_VOX
 	short_name = "vox"
 	name_plural = "Vox"
 	icobase = 'icons/mob/human_races/r_vox.dmi'
@@ -38,10 +38,9 @@
 
 	eyes = "vox_eyes_s"
 	gluttonous = 2
-	virus_immune = 1
 
-	breath_type = "nitrogen"
-	poison_type = "oxygen"
+	breath_type = GAS_NITROGEN
+	poison_type = GAS_OXYGEN
 	siemens_coefficient = 0.2
 
 	flags = NO_SCAN
@@ -85,7 +84,7 @@
 	H.internals.icon_state = "internal1"
 
 /datum/species/vox/armalis
-	name = "Vox Armalis"
+	name = SPECIES_VOX_ARMALIS
 	name_plural = "Vox"
 	icobase = 'icons/mob/human_races/r_armalis.dmi'
 	deform = 'icons/mob/human_races/r_armalis.dmi'
@@ -113,8 +112,8 @@
 	fall_mod = 0.5
 
 	eyes = "blank_eyes"
-	breath_type = "nitrogen"
-	poison_type = "oxygen"
+	breath_type = GAS_NITROGEN
+	poison_type = GAS_OXYGEN
 
 	flags = NO_SCAN | NO_PAIN
 	spawn_flags = IS_RESTRICTED

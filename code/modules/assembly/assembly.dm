@@ -9,6 +9,8 @@
 	throwforce = 2
 	throw_speed = 3
 	throw_range = 10
+	drop_sound = 'sound/items/drop/component.ogg'
+	pickup_sound =  'sound/items/pickup/component.ogg'
 	origin_tech = list(TECH_MAGNET = 1)
 
 	var/secured = 1

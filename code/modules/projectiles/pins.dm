@@ -22,9 +22,8 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	var/pin_replaceable = 0 // Can be replaced by any pin.
 	var/durable = FALSE //is destroyed when it's pried out with a screwdriver, see gun.dm
 	var/obj/item/gun/gun
-	drop_sound = 'sound/items/drop/scrap.ogg'
-
-
+	drop_sound = 'sound/items/drop/component.ogg'
+	pickup_sound = 'sound/items/pickup/component.ogg'
 
 /obj/item/device/firing_pin/Initialize(mapload)
 	.=..()
@@ -214,7 +213,13 @@ Pins Below.
 	req_access = list(access_weapons)
 
 /obj/item/device/firing_pin/access/pin_auth(mob/living/user)
-	if(!allowed(user))
-		return 0
-	else
-		return 1
+	return !allowed(user)
+
+/obj/item/device/firing_pin/away_site
+	name = "away site firing pin"
+	desc = "This access locked firing pin allows weapons to be fired only when the user is not on-station."
+	fail_message = "<span class='warning'>USER ON STATION LEVEL.</span>"
+
+/obj/item/device/firing_pin/away_site/pin_auth(mob/living/user)
+	var/turf/T = get_turf(src)
+	return !isStationLevel(T.z)

@@ -17,6 +17,7 @@
 
 	amt_dam_brute = -15
 	amt_dam_fire = -15
+	amt_organ = -2
 
 	message = "You feel a pleasant rush of heat move through your body."
 
@@ -25,5 +26,6 @@
 		return 0
 	amt_dam_brute -= 5
 	amt_dam_fire -= 5
+	amt_organ -= 2
 
 	return "[src] will now heal more."

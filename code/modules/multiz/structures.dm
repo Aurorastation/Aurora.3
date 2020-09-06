@@ -142,9 +142,10 @@
 		to_chat(M, "<span class='notice'>\The [T] is blocking \the [src].</span>")
 		return FALSE
 	for(var/atom/A in T)
-		if(!A.CanPass(M, M.loc, 1.5, 0))
-			to_chat(M, "<span class='notice'>\The [A] is blocking \the [src].</span>")
-			return FALSE
+		if(!isliving(A))
+			if(!A.CanPass(M, M.loc, 1.5, 0))
+				to_chat(M, "<span class='notice'>\The [A] is blocking \the [src].</span>")
+				return FALSE
 	playsound(src, pick(climbsounds), 50)
 	playsound(target_ladder, pick(climbsounds), 50)
 	var/obj/item/grab/G = M.l_hand
@@ -152,7 +153,7 @@
 		G = M.r_hand
 	if (istype(G))
 		G.affecting.forceMove(T)
-	return M.Move(T)
+	return M.forceMove(T)
 
 /obj/structure/ladder/CanPass(obj/mover, turf/source, height, airflow)
 	return airflow || !density
@@ -187,12 +188,14 @@
 		if(!istype(above))
 			above.ChangeToOpenturf()
 
-/obj/structure/stairs/CheckExit(atom/movable/mover as mob|obj, turf/target as turf)
+/obj/structure/stairs/CheckExit(atom/movable/mover, turf/target)
 	if(get_dir(loc, target) == dir && upperStep(mover.loc))
 		return FALSE
 
-	if (mover.loc == loc && get_dir(mover, target) != reverse_dir[dir])
-		addtimer(CALLBACK(src, .proc/mob_fall, mover), 0)
+	var/obj/structure/stairs/staircase = locate() in target
+	var/target_dir = get_dir(mover, target)
+	if(!staircase && (target_dir != dir && target_dir != reverse_dir[dir]))
+		INVOKE_ASYNC(src, .proc/mob_fall, mover)
 
 	return ..()
 
@@ -223,7 +226,7 @@
 	return !density
 
 /obj/structure/stairs/proc/mob_fall(mob/living/L)
-	if (isopenturf(L.loc) || L.loc == loc || !ishuman(L))
+	if(isopenturf(L.loc) || get_turf(L) == get_turf(src) || !ishuman(L))
 		return
 
 	L.Weaken(2)
@@ -233,8 +236,6 @@
 			"<span class='danger'>You step off [src] and faceplant onto [L.loc].</span>",
 			"<span class='alert'>You hear a thump.</span>"
 		)
-		var/snd = pick('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg')
-		playsound(L.loc, snd, 75, 1)
 
 // type paths to make mapping easier.
 /obj/structure/stairs/north

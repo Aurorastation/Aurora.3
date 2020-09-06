@@ -1,6 +1,6 @@
 /mob/living/simple_animal/hostile/faithless
 	name = "Faithless"
-	desc = "The Wish Granter's faith in humanity, incarnate"
+	desc = "The Wish Granter's faith in humanity, incarnate."
 	icon = 'icons/mob/npc/human.dmi'
 	icon_state = "faithless"
 	icon_living = "faithless"
@@ -42,8 +42,9 @@
 	return 1
 
 /mob/living/simple_animal/hostile/faithless/FindTarget()
+	var/my_target = target_mob
 	. = ..()
-	if(.)
+	if(. && (prob(30) || (. != my_target)))
 		audible_emote("wails at [.]")
 
 /mob/living/simple_animal/hostile/faithless/AttackingTarget()
@@ -52,7 +53,7 @@
 	if(istype(L))
 		if(prob(12))
 			L.Weaken(3)
-			L.visible_message("<span class='danger'>\the [src] knocks down \the [L]!</span>")
+			L.visible_message(SPAN_DANGER("\the [src] knocks down \the [L]!"))
 
 /mob/living/simple_animal/hostile/faithless/cult
 	faction = "cult"
@@ -64,6 +65,9 @@
 /mob/living/simple_animal/hostile/faithless/cult/Life()
 	..()
 	check_horde()
+
+/mob/living/simple_animal/hostile/faithless/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
 
 /mob/living/simple_animal/hostile/faithless/wizard
 	name = "lost soul"

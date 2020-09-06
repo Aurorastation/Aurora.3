@@ -13,17 +13,17 @@
 	var/charge_tick = 0
 	var/recharge_time = 5 //Time it takes for shots to recharge (in seconds)
 
-	var/list/reagent_ids = list("tricordrazine", "norepinephrine", "deltamivir")
+	var/list/reagent_ids = list(/datum/reagent/tricordrazine, /datum/reagent/inaprovaline)
 	var/list/reagent_volumes = list()
 	var/list/reagent_names = list()
 
 	center_of_mass = null
 
 /obj/item/reagent_containers/borghypo/medical
-	reagent_ids = list("bicaridine", "kelotane", "dylovene", "dexalin", "norepinephrine", "tramadol", "deltamivir", "thetamycin")
+	reagent_ids = list(/datum/reagent/bicaridine, /datum/reagent/kelotane, /datum/reagent/dylovene, /datum/reagent/dexalin, /datum/reagent/inaprovaline, /datum/reagent/mortaphenyl, /datum/reagent/thetamycin)
 
 /obj/item/reagent_containers/borghypo/rescue
-	reagent_ids = list("tricordrazine", "norepinephrine", "tramadol", "adrenaline")
+	reagent_ids = list(/datum/reagent/tricordrazine, /datum/reagent/inaprovaline, /datum/reagent/mortaphenyl, /datum/reagent/adrenaline)
 
 /obj/item/reagent_containers/borghypo/Initialize()
 	. = ..()
@@ -103,7 +103,7 @@
 
 /obj/item/reagent_containers/borghypo/Topic(var/href, var/list/href_list)
 	if(href_list["reagent"])
-		var/t = reagent_ids.Find(href_list["reagent"])
+		var/t = reagent_ids.Find(text2path(href_list["reagent"]))
 		if(t)
 			playsound(loc, 'sound/effects/pop.ogg', 50, 0)
 			mode = t
@@ -127,7 +127,7 @@
 	recharge_time = 3
 	volume = 60
 	possible_transfer_amounts = list(5, 10, 20, 30)
-	reagent_ids = list("beer", "kahlua", "whiskey", "wine", "vodka", "gin", "rum", "tequilla", "vermouth", "cognac", "ale", "mead", "water", "sugar", "ice", "tea", "icetea", "cola", "spacemountainwind", "dr_gibb", "space_up", "tonic", "sodawater", "lemon_lime", "orangejuice", "limejuice", "watermelonjuice", "coffee", "espresso")
+	reagent_ids = list(/datum/reagent/alcohol/ethanol/beer, /datum/reagent/alcohol/ethanol/coffee/kahlua, /datum/reagent/alcohol/ethanol/whiskey, /datum/reagent/alcohol/ethanol/wine, /datum/reagent/alcohol/ethanol/vodka, /datum/reagent/alcohol/ethanol/gin, /datum/reagent/alcohol/ethanol/rum, /datum/reagent/alcohol/ethanol/tequila, /datum/reagent/alcohol/ethanol/vermouth, /datum/reagent/alcohol/ethanol/cognac, /datum/reagent/alcohol/ethanol/ale, /datum/reagent/alcohol/ethanol/mead, /datum/reagent/water, /datum/reagent/sugar, /datum/reagent/drink/ice, /datum/reagent/drink/tea, /datum/reagent/drink/icetea, /datum/reagent/drink/space_cola, /datum/reagent/drink/spacemountainwind, /datum/reagent/drink/dr_gibb, /datum/reagent/drink/spaceup, /datum/reagent/drink/tonic, /datum/reagent/drink/sodawater, /datum/reagent/drink/lemon_lime, /datum/reagent/drink/orangejuice, /datum/reagent/drink/limejuice, /datum/reagent/drink/watermelonjuice, /datum/reagent/drink/coffee, /datum/reagent/drink/coffee/espresso)
 
 /obj/item/reagent_containers/borghypo/service/attack(var/mob/M, var/mob/user)
 	return

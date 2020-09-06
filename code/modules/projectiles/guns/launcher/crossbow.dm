@@ -10,8 +10,8 @@
 	w_class = 3.0
 	sharp = 1
 	edge = 0
-	hitsound = "swing_hit"
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = /decl/sound_category/sword_pickup_sound
 
 /obj/item/arrow/proc/removed() //Helper for metal rods falling apart.
 	return
@@ -27,6 +27,7 @@
 	icon_state = "metal-rod"
 	item_state = "bolt"
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = /decl/sound_category/sword_pickup_sound
 
 /obj/item/arrow/quill
 	name = "vox quill"
@@ -36,6 +37,7 @@
 	item_state = "quill"
 	throwforce = 8
 	drop_sound = 'sound/items/drop/knife.ogg'
+	pickup_sound = 'sound/items/pickup/knife.ogg'
 
 /obj/item/arrow/rod
 	name = "metal rod"
@@ -207,8 +209,6 @@
 	icon_state = "crossbowframe0"
 	item_state = "crossbow-solid"
 	icon = 'icons/obj/weapons.dmi'
-	hitsound = "swing_hit"
-
 	var/buildstate = 0
 
 /obj/item/crossbowframe/update_icon()
@@ -239,7 +239,7 @@
 			var/obj/item/weldingtool/T = W
 			if(T.remove_fuel(0,user))
 				if(!src || !T.isOn()) return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 				to_chat(user, "<span class='notice'>You weld the rods into place.</span>")
 			buildstate++
 			update_icon()

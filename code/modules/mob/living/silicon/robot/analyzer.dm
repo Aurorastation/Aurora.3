@@ -9,12 +9,11 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 3
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 5
 	throw_range = 10
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 1, TECH_ENGINEERING = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 200)
-	var/mode = 1
 
 /obj/item/device/robotanalyzer/attack(mob/living/M, mob/living/user)
 	if((user.is_clumsy() || (DUMB in user.mutations)) && prob(50))
@@ -85,8 +84,14 @@
 			to_chat(user, SPAN_NOTICE("Internal prosthetics:"))
 			organ_found = FALSE
 			if(length(H.internal_organs))
+				var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
+				var/show_tag = FALSE
+				if(head?.open == 3) // Hatch open
+					show_tag = TRUE
 				for(var/obj/item/organ/O in H.internal_organs)
 					if(!(O.status & ORGAN_ROBOT))
+						continue
+					if(!show_tag && istype(O, /obj/item/organ/internal/ipc_tag))
 						continue
 					organ_found = TRUE
 					to_chat(user, "[O.name]: <font color='red'>[O.damage]</font>")
@@ -94,4 +99,3 @@
 				to_chat(user, SPAN_NOTICE("No prosthetics located."))
 
 	add_fingerprint(user)
-	return

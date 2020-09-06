@@ -3,7 +3,7 @@
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "bluespace"
 	damage = 40
-	check_armour = "energy"
+	check_armor = "energy"
 	embed = 1
 
 /obj/item/projectile/forcebolt/strong
@@ -17,9 +17,6 @@
 		return 1
 
 /obj/item/projectile/forcebolt/strong/on_hit(var/atom/target, var/blocked = 0)
-
-//	var/throwdir = null
-
 	for(var/mob/M in hearers(2, src))
 		if(M.loc != src.loc)
 			var/throwdir = get_dir(firer,target)

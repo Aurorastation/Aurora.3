@@ -55,23 +55,25 @@
 			if(do_after(user, 20/W.toolspeed, act_target = src))
 				if(QDELETED(src) || !WT.isOn())
 					return
-				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
+				playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 				user.visible_message("<span class='notice'>\ [user] slices through the skin of \the [src], revealing a confused diona nymph.</span>")
 			else
 				return
-		spawn_diona_nymph(src.loc)
+		if(isturf(loc))
+			var/turf/T = loc
+			T.spawn_diona_nymph()
 		qdel(src)
 
 /obj/structure/diona/bulb/unpowered
 	name = "unpowered glow bulb"
 	desc = "A bulb of some sort. Seems like it needs some power."
-	description_info = "This bulb requires a power cell to glow. Click on it with a power cell in hand to plug it in."
+	desc_info = "This bulb requires a power cell to glow. Click on it with a power cell in hand to plug it in."
 	light_power = 0
 	light_range = 0
 
 /obj/structure/diona/bulb/unpowered/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/cell))
-		to_chat(user, span("notice", "You jack the power cell into the glow bulb."))
+		to_chat(user, SPAN_NOTICE("You jack the power cell into the glow bulb."))
 		new /obj/structure/diona/bulb(get_turf(src))
 		qdel(W)
 		qdel(src)
@@ -185,7 +187,7 @@
 		if(ARTIFACT_CHAR)
 			new /obj/structure/diona/bulb(T)
 		if(MONSTER_CHAR)
-			spawn_diona_nymph(T)
+			T.spawn_diona_nymph()
 		if(DOOR_CHAR)
 			var/obj/structure/diona/vines/V = new(T)
 			V.growth = 3

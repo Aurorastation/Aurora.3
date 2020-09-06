@@ -50,6 +50,7 @@ module.exports = {
     config.plugin('extract-css')
       .tap(args => {
         args[0].filename = '[name].css'
+        return args
       })
   }
 }

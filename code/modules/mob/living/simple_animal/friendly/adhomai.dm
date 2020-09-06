@@ -21,8 +21,8 @@
 		if(G.seed && G.seed.kitchen_tag == "nfrihi")
 			if(!stat && eggsleft < 8)
 				user.visible_message(
-					span("notice", "\The [user] feeds \the [O] to \the [name]! It whistles happily."),
-					span("notice", "You feed \the [O] to \the [name]! It whistles happily."),
+					SPAN_NOTICE("\The [user] feeds \the [O] to \the [name]! It whistles happily."),
+					SPAN_NOTICE("You feed \the [O] to \the [name]! It whistles happily."),
 					"You hear a cluck.")
 				user.drop_from_inventory(O,get_turf(src))
 				qdel(O)
@@ -67,7 +67,7 @@
 
 	canbrush = TRUE
 	has_udder = TRUE
-	milk_type = "fatshouter_milk"
+	milk_type = /datum/reagent/drink/milk/adhomai
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 	butchering_products = list(/obj/item/stack/material/animalhide = 5)
@@ -123,7 +123,7 @@
 	health = 50
 
 	has_udder = TRUE
-	milk_type = "milk"
+	milk_type = /datum/reagent/drink/milk
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/chicken
 	butchering_products = list(/obj/item/reagent_containers/food/snacks/spreads/lard = 5)
@@ -147,3 +147,8 @@
 	visible_message(SPAN_WARNING("[src] harmlessly bounces off \the [T]!"))
 	playsound(T, 'sound/effects/bangtaper.ogg', 50, 1, 1)
 	make_noise()
+
+/mob/living/simple_animal/schlorrgo/fall_impact()
+	visible_message(SPAN_NOTICE("\The [src] bounces after landing!"))
+	step(src, pick(alldirs), 1)
+	return FALSE

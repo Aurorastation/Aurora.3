@@ -1,15 +1,11 @@
 /datum/design/item/pda
 	req_tech = list(TECH_ENGINEERING = 2, TECH_POWER = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
-	design_order = 10
-
-/datum/design/item/pda/AssembleDesignName()
-	..()
-	name = "PDA Design ([item_name])"
+	p_category = "PDA Designs"
 
 /datum/design/item/pda/pda
 	name = "PDA"
-	desc = "Cheaper than whiny non-digital assistants."
+	desc = "A baseline, unmodified PDA. To be given to those who lost theirs."
 	req_tech = list(TECH_ENGINEERING = 2, TECH_POWER = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 	build_path = /obj/item/device/pda

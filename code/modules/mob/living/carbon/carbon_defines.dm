@@ -1,9 +1,8 @@
-/mob/living/carbon/
+/mob/living/carbon
 	gender = MALE
+	accent = ACCENT_CETI
 	var/datum/species/species //Contains icon generation and language information, set during New().
 	//stomach contents redefined at mob/living level, removed from here
-	var/list/datum/disease2/disease/virus2 = list()
-	var/list/antibodies = list()
 
 	var/analgesic = 0 // when this is set, the mob isn't affected by shock or pain
 					  // life should decrease this by 1 every tick
@@ -39,3 +38,5 @@
 	var/list/organs_by_name = list() // map organ names to organs
 	var/list/internal_organs_by_name = list() // so internal organs have less ickiness too
 
+	var/list/stasis_sources = list()
+	var/stasis_value

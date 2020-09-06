@@ -21,8 +21,8 @@
 	var/wielded = 0
 	var/force_wielded = 0
 	var/force_unwielded
-	var/wieldsound = null
-	var/unwieldsound = null
+	var/wield_sound = /decl/sound_category/generic_wield_sound
+	var/unwield_sound = null
 	var/base_icon
 	var/base_name
 	var/unwielded_force_divisor = 0.25
@@ -33,19 +33,25 @@
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_twohanded.dmi',
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_twohanded.dmi'
 		)
-	hitsound = "swing_hit"
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = /decl/sound_category/sword_pickup_sound
+	equip_sound = /decl/sound_category/sword_equip_sound
+	hitsound = 'sound/weapons/bladeslice.ogg'
+
+/obj/item/material/twohanded/proc/wield()
+	wielded = 1
+	force = force_wielded
+	update_icon()
+	if(src.wield_sound)
+		playsound(src.loc, wield_sound, 25, 1)
 
 /obj/item/material/twohanded/proc/unwield()
 	wielded = 0
 	force = force_unwielded
 	name = "[base_name]"
 	update_icon()
-
-/obj/item/material/twohanded/proc/wield()
-	wielded = 1
-	force = force_wielded
-	update_icon()
+	if(src.unwield_sound)
+		playsound(src.loc, unwield_sound, 25, 1)
 
 /obj/item/material/twohanded/update_force()
 	base_name = name
@@ -62,7 +68,7 @@
 	..()
 	update_icon()
 
-/obj/item/material/twohanded/mob_can_equip(M as mob, slot)
+/obj/item/material/twohanded/mob_can_equip(M, slot, disable_warning = FALSE)
 	//Cannot equip wielded items.
 	if(wielded)
 		to_chat(M, "<span class='warning'>Unwield the [base_name] first!</span>")
@@ -79,10 +85,10 @@
 	return	unwield()
 
 //Allow a small chance of parrying melee attacks when wielded - maybe generalize this to other weapons someday
-/obj/item/material/twohanded/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/material/twohanded/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(wielded && default_parry_check(user, attacker, damage_source) && prob(parry_chance))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-		playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, 1)
+		playsound(user.loc, /decl/sound_category/punchmiss_sound, 50, 1)
 		return 1
 	return 0
 
@@ -113,8 +119,6 @@
 	if(wielded) //Trying to unwield it
 		unwield()
 		to_chat(user, "<span class='notice'>You are now carrying the [name] with one hand.</span>")
-		if (src.unwieldsound)
-			playsound(src.loc, unwieldsound, 50, 1)
 
 		var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
 		if(O && istype(O))
@@ -126,9 +130,7 @@
 			to_chat(user, "<span class='warning'>You need your other hand to be empty.</span>")
 			return
 		wield()
-		to_chat(user, "<span class='notice'>You grab the [base_name] with both hands.</span>")
-		if (src.wieldsound)
-			playsound(src.loc, wieldsound, 50, 1)
+		to_chat(user, "<span class='notice'>You grip the [base_name] with both hands.</span>")
 
 		var/obj/item/material/twohanded/offhand/O = new /obj/item/material/twohanded/offhand(user) ////Let's reserve his other hand~
 		O.name = "[base_name] - offhand"
@@ -159,6 +161,10 @@
 	icon_state = "offhand"
 	name = "offhand"
 	default_material = "placeholder"
+	drop_sound = null
+	pickup_sound = null
+	equip_sound = null
+	use_material_sound = FALSE
 
 /obj/item/material/twohanded/offhand/unwield()
 	if (ismob(loc))
@@ -195,7 +201,9 @@
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	applies_material_colour = 0
 	can_embed = 0
+	use_material_sound = FALSE
 	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/material/twohanded/fireaxe/afterattack(atom/A, mob/user, proximity)
 	if(!proximity) return
@@ -230,10 +238,11 @@
 	thrown_force_divisor = 1.2 // 24 damage for steel (weight 20)
 	edge = 1
 	sharp = 0
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	mob_throw_hit_sound =  'sound/weapons/pierce.ogg'
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	default_material = "glass"
 	var/obj/item/grenade/explosive = null
+	use_material_sound = FALSE
 
 /obj/item/material/twohanded/spear/Destroy()
 	if(explosive)
@@ -335,19 +344,20 @@
 	edge = 1
 	origin_tech = list(TECH_COMBAT = 5)
 	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
-	hitsound = "sound/weapons/bladeslice.ogg"
 	can_embed = 0
 	applies_material_colour = 0
 	default_material = "steel"
 	parry_chance = 5
-	var/fuel_type = "fuel"
+	var/fuel_type = /datum/reagent/fuel
 	var/opendelay = 30 // How long it takes to perform a door opening action with this chainsaw, in seconds.
 	var/max_fuel = 300 // The maximum amount of fuel the chainsaw stores.
 	var/fuel_cost = 1 // Multiplier for fuel cost.
 
 	var/cutting = 0 //Ignore
 	var/powered = 0 //Ignore
-	drop_sound = 'sound/items/drop/metalshield.ogg'
+	use_material_sound = FALSE
+	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/material/twohanded/chainsaw/Initialize()
 	. = ..()
@@ -371,7 +381,7 @@
 
 /obj/item/material/twohanded/chainsaw/proc/PowerUp()
 	var/turf/T = get_turf(src)
-	T.audible_message(span("notice", "\The [src] rumbles to life."))
+	T.audible_message(SPAN_NOTICE("\The [src] rumbles to life."))
 	playsound(src, "sound/weapons/chainsawstart.ogg", 25, 0, 30)
 	force = 15
 	force_unwielded = 30
@@ -386,7 +396,7 @@
 
 /obj/item/material/twohanded/chainsaw/proc/PowerDown()
 	var/turf/T = get_turf(src)
-	T.audible_message(span("notice", "\The [src] slowly powers down."))
+	T.audible_message(SPAN_NOTICE("\The [src] slowly powers down."))
 	force = initial(force)
 	force_wielded = initial(force_wielded)
 	throwforce = initial(throwforce)
@@ -484,7 +494,7 @@
 		PowerDown(user)
 	else if(!wielded)
 		to_chat(user, "<span class='notice'>You need to hold this with two hands to turn this on.</span>")
-	else if(reagents.get_reagent_amount("fuel") <= 0)
+	else if(reagents.get_reagent_amount(/datum/reagent/fuel) <= 0)
 		user.visible_message(\
 			"<span class='notice'>[user] pulls the cord on the [src], but nothing happens.</span>",\
 			"<span class='notice'>You pull the cord on the [src], but nothing happens.</span>",\
@@ -522,7 +532,6 @@
 
 	AltClick(usr)
 
-
 /obj/item/material/twohanded/pike
 	icon_state = "pike0"
 	base_icon = "pike"
@@ -539,7 +548,9 @@
 	reach = 2
 	applies_material_colour = 0
 	can_embed = 0
+	use_material_sound = FALSE
 	drop_sound = 'sound/items/drop/woodweapon.ogg'
+	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 
 /obj/item/material/twohanded/pike/halberd
 	icon_state = "halberd0"
@@ -558,9 +569,52 @@
 	name = "pitchfork"
 	desc = "An old farming tool, not something you would find at hydroponics."
 
+/obj/item/material/twohanded/pike/flag
+	icon_state = "flag_biesel0"
+	base_icon = "flag_biesel"
+	name = "republic of biesel flag"
+	desc = "For the republic!"
+	default_material = "bronze"
+	can_embed = 1
+	use_material_name = FALSE
+	unbreakable = TRUE
+	drop_sound = 'sound/items/drop/metalweapon.ogg'
+	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
+	action_button_name = "Plant Flag"
+	var/planted = FALSE
+
+/obj/item/material/twohanded/pike/flag/verb/plant()
+	set name = "Plant Flag"
+	set category = "Object"
+
+	if(ishuman(usr))
+		var/mob/living/user = usr
+		user.drop_from_inventory(src)
+		icon_state = "[base_icon]_planted"
+		anchored = TRUE
+		planted = TRUE
+		pixel_x = 16
+		pixel_y = 4
+		user.visible_message(SPAN_DANGER("[user] plants [src] proudly into the ground!"), SPAN_DANGER("You plant [src] proudly into the ground!"))
+
+/obj/item/material/twohanded/pike/flag/attack_hand(var/mob/user)
+	if(planted)
+		icon_state = initial(icon_state)
+		planted = FALSE
+		anchored = FALSE
+		pixel_x = initial(pixel_x)
+		pixel_y = initial(pixel_y)
+		user.visible_message(SPAN_NOTICE("[user] grabs [src]."), SPAN_NOTICE("You grab [src] from where it stands."))
+		..()
+	else
+		..()
+
+/obj/item/material/twohanded/pike/flag/ui_action_click()
+	plant()
+
 /obj/item/material/twohanded/zweihander
 	icon_state = "zweihander0"
-	base_icon = "zweihander0"
+	base_icon = "zweihander"
 	name = "zweihander"
 	desc = "A german upgrade to the einhander models of ancient times."
 	force = 20

@@ -1,8 +1,6 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
-
 /obj/machinery/computer/prisoner
 	name = "prisoner management console"
-
+	desc = "A console that can be used to track tracking implants, and deliver an activation signal to chemical implants."
 	icon_screen = "explosive"
 	light_color = LIGHT_COLOR_ORANGE
 	req_access = list(access_armory)

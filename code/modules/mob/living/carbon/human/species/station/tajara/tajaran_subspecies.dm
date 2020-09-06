@@ -1,5 +1,5 @@
 /datum/species/tajaran/zhan_khazan
-	name = "Zhan-Khazan Tajara"
+	name = SPECIES_TAJARA_ZHAN
 	name_plural = "Zhan-Khazan Tajaran"
 	blurb = "The Zhan-Khazan are a race of Tajara known for their dark fur and large bulky figures. \
 	They were at one point a race of cave-and-mountain dwelling Tajara that traditionally were \
@@ -28,12 +28,13 @@
 	heat_level_2 = 360 //RaceDefault 380 Default 400
 	heat_level_3 = 700 //RaceDefault 800 Default 1000
 
-	primitive_form = "Zhan-Khazan Farwa"
+	primitive_form = SPECIES_MONKEY_TAJARA_ZHAN
 
-	num_alternate_languages = 1 // Only one Extra Language
+	allowed_accents = list(ACCENT_REPUBICLANSIIK, ACCENT_NAZIRASIIK, ACCENT_CREVAN, ACCENT_DASNRRASIIK, ACCENT_HIGHHARRSIIK, ACCENT_LOWHARRSIIK, ACCENT_AMOHDASIIK,
+							 ACCENT_RURALDELVAHHI, ACCENT_NOMADDELVAHHI)
 
 /datum/species/tajaran/m_sai
-	name = "M'sai Tajara"
+	name = SPECIES_TAJARA_MSAI
 	name_plural = "M'sai Tajaran"
 	blurb = "The M'sai are a race of Tajara with slender lithe bodies and \
 	lightly covered fur which blends in with the snowy environments of Adhomai. \
@@ -55,6 +56,9 @@
 	heat_level_2 = 390 //RaceDefault 380 Default 400
 	heat_level_3 = 900 //RaceDefault 800 Default 1000
 
-	primitive_form = "M'sai Farwa"
+	primitive_form = SPECIES_MONKEY_TAJARA_MSAI
+
+	default_h_style = "M'sai Ears"
 
 	secondary_langs = list(LANGUAGE_SIIK_MAAS, LANGUAGE_SIIK_TAJR, LANGUAGE_SIGN_TAJARA)
+	allowed_accents = list(ACCENT_REPUBICLANSIIK, ACCENT_NAZIRASIIK, ACCENT_CREVAN, ACCENT_DASNRRASIIK, ACCENT_HIGHHARRSIIK, ACCENT_LOWHARRSIIK, ACCENT_AMOHDASIIK)

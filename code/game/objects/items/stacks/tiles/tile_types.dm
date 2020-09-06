@@ -19,6 +19,7 @@
 		)
 	randpixel = 7
 	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/stack/tile/New()
 	..()
@@ -39,6 +40,7 @@
 	flags = 0
 	origin_tech = list(TECH_BIO = 1)
 	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
 
 /obj/item/stack/tile/grass_alt
 	name = "grass tile"
@@ -52,6 +54,7 @@
 	flags = 0
 	origin_tech = list(TECH_BIO = 1)
 	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
 
 /*
  * Wood
@@ -67,6 +70,7 @@
 	throw_range = 20
 	flags = 0
 	drop_sound = 'sound/items/drop/wooden.ogg'
+	pickup_sound = 'sound/items/pickup/wooden.ogg'
 
 /*
  * Carpets
@@ -81,7 +85,8 @@
 	throw_speed = 5
 	throw_range = 20
 	flags = 0
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 /obj/item/stack/tile/carpet_blue
 	name = "blue carpet"
@@ -93,7 +98,8 @@
 	throw_speed = 5
 	throw_range = 20
 	flags = 0
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 /obj/item/stack/tile/carpet_rubber
 	name = "rubber carpet"
@@ -105,7 +111,8 @@
 	throw_speed = 5
 	throw_range = 20
 	flags = 0
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 /obj/item/stack/tile/carpet_art
 	name = "adhomian carpet"
@@ -117,7 +124,8 @@
 	throw_speed = 5
 	throw_range = 20
 	flags = 0
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 
 /obj/item/stack/tile/lino
 	name = "old linoleum"
@@ -129,7 +137,8 @@
 	throw_speed = 5
 	throw_range = 20
 	flags = 0
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	matter = list(MATERIAL_PLASTIC = 937.5)
 
 /obj/item/stack/tile/lino_grey
@@ -142,7 +151,8 @@
 	throw_speed = 5
 	throw_range = 20
 	flags = 0
-	drop_sound = 'sound/items/drop/clothing.ogg'
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	matter = list(MATERIAL_PLASTIC = 937.5)
 
 /*

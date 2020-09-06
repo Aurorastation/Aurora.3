@@ -69,7 +69,7 @@
 			H.confused += 10
 			H.stuttering += 5
 			to_chat(H, "<span class='danger'>You suddenly feel as if your head was hit by something!</span>")
-			playsound(get_turf(H), "punch", 50, 1, -1)
+			playsound(get_turf(H), /decl/sound_category/punch_sound, 50, 1, -1)
 
 		cooldown = world.time + cooldown_time
 
@@ -78,7 +78,7 @@
 	if(H && cooldown < world.time)
 		var/target_zone = user.zone_sel.selecting
 
-		if(isflamesource(W))
+		if(W.isFlameSource())
 			fire_act()
 
 		if(istype(W, /obj/item/melee/baton))
@@ -104,7 +104,7 @@
 
 		if(W.edge)
 			to_chat(H, "<span class='warning'>You stab \the [src] with \the [W]!</span>")
-			H.apply_damage(2, BRUTE, target_zone, edge = TRUE)
+			H.apply_damage(2, BRUTE, target_zone, damage_flags = DAM_EDGE)
 			playsound(get_turf(H), 'sound/weapons/bladeslice.ogg', 50, 1, -1)
 			if(H.can_feel_pain())
 				var/obj/item/organ/external/organ = H.get_organ(target_zone)

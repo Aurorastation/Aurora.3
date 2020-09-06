@@ -260,6 +260,23 @@
 			origin_turf.visible_message("<span class='danger'>The [thrown.name] splatters against [target]!</span>")
 		qdel(thrown)
 
+	if(get_trait(TRAIT_TELEPORTING))
+
+		var/outer_teleport_radius = get_trait(TRAIT_POTENCY)/5
+		var/inner_teleport_radius = get_trait(TRAIT_POTENCY)/15
+
+		var/list/turfs = list()
+		if(inner_teleport_radius > 0)
+			for(var/turf/T in orange(target,outer_teleport_radius))
+				if(get_dist(target,T) >= inner_teleport_radius)
+					turfs |= T
+
+		if(turfs.len)
+			var/turf/picked = get_turf(pick(turfs))
+			var/obj/effect/portal/P = new /obj/effect/portal(get_turf(target))
+			P.target = picked
+			P.creator = null
+
 /datum/seed/proc/handle_environment(var/turf/current_turf, var/datum/gas_mixture/environment, var/light_supplied, var/check_only)
 
 	var/health_change = 0
@@ -309,28 +326,6 @@
 	do_sting(target,thrown)
 	do_thorns(target,thrown)
 
-	// Bluespace tomato code copied over from grown.dm.
-	if(get_trait(TRAIT_TELEPORTING))
-
-		//Plant potency determines radius of teleport.
-		var/outer_teleport_radius = get_trait(TRAIT_POTENCY)/5
-		var/inner_teleport_radius = get_trait(TRAIT_POTENCY)/15
-
-		var/list/turfs = list()
-		if(inner_teleport_radius > 0)
-			for(var/turf/T in orange(target,outer_teleport_radius))
-				if(get_dist(target,T) >= inner_teleport_radius)
-					turfs |= T
-
-		if(turfs.len)
-			// Moves the mob, causes sparks.
-			spark(target, 3, alldirs)
-			var/turf/picked = get_turf(pick(turfs))                      // Just in case...
-			new/obj/effect/decal/cleanable/molten_item(get_turf(target)) // Leave a pile of goo behind for dramatic effect...
-			do_teleport(target, picked)                                      // And teleport them to the chosen location.                                      // And teleport them to the chosen location.
-
-			impact = 1
-
 	return impact
 
 //Creates a random seed. MAKE SURE THE LINE HAS DIVERGED BEFORE THIS IS CALLED.
@@ -371,59 +366,59 @@
 
 	if(prob(5))
 		consume_gasses = list()
-		var/gas = pick("oxygen","nitrogen","phoron","carbon_dioxide")
+		var/gas = pick(GAS_OXYGEN,GAS_NITROGEN,GAS_PHORON,GAS_CO2)
 		consume_gasses[gas] = rand(3,9)
 
 	if(prob(5))
 		exude_gasses = list()
-		var/gas = pick("oxygen","nitrogen","phoron","carbon_dioxide")
+		var/gas = pick(GAS_OXYGEN,GAS_NITROGEN,GAS_PHORON,GAS_CO2)
 		exude_gasses[gas] = rand(3,9)
 
 	chems = list()
 	if(prob(80))
-		chems["nutriment"] = list(rand(1,10),rand(10,20))
+		chems[/datum/reagent/nutriment] = list(rand(1,10),rand(10,20))
 
 	var/additional_chems = rand(0,5)
 
 	if(additional_chems)
 		var/list/possible_chems = list(
-			"woodpulp",
-			"bicaridine",
-			"hyperzine",
-			"cryoxadone",
-			"blood",
-			"water",
-			"potassium",
-			"plasticide",
-			"mutationtoxin",
-			"amutationtoxin",
-			"norepinephrine",
-			"space_drugs",
-			"paroxetine",
-			"mercury",
-			"sugar",
-			"radium",
-			"ryetalyn",
-			"alkysine",
-			"thermite",
-			"tramadol",
-			"cryptobiolin",
-			"dermaline",
-			"dexalin",
-			"phoron",
-			"synaptizine",
-			"impedrezene",
-			"hyronalin",
-			"peridaxon",
-			"toxin",
-			"rezadone",
-			"ethylredoxrazine",
-			"slimejelly",
-			"cyanide",
-			"mindbreaker",
-			"stoxin",
-			"acetone",
-			"hydrazine"
+			/datum/reagent/acetone,
+			/datum/reagent/alkysine,
+			/datum/reagent/aslimetoxin,
+			/datum/reagent/bicaridine,
+			/datum/reagent/butazoline,
+			/datum/reagent/blood,
+			/datum/reagent/cryoxadone,
+			/datum/reagent/cryptobiolin,
+			/datum/reagent/toxin/cyanide,
+			/datum/reagent/dermaline,
+			/datum/reagent/dexalin,
+			/datum/reagent/ethylredoxrazine,
+			/datum/reagent/hydrazine,
+			/datum/reagent/hyperzine,
+			/datum/reagent/hyronalin,
+			/datum/reagent/impedrezene,
+			/datum/reagent/mercury,
+			/datum/reagent/mindbreaker,
+			/datum/reagent/slimetoxin,
+			/datum/reagent/inaprovaline,
+			/datum/reagent/peridaxon,
+			/datum/reagent/toxin/phoron,
+			/datum/reagent/toxin/plasticide,
+			/datum/reagent/potassium,
+			/datum/reagent/radium,
+			/datum/reagent/rezadone,
+			/datum/reagent/ryetalyn,
+			/datum/reagent/slimejelly,
+			/datum/reagent/space_drugs,
+			/datum/reagent/soporific,
+			/datum/reagent/sugar,
+			/datum/reagent/synaptizine,
+			/datum/reagent/thermite,
+			/datum/reagent/toxin,
+			/datum/reagent/mortaphenyl,
+			/datum/reagent/water,
+			/datum/reagent/woodpulp,
 			)
 
 		for(var/x=1;x<=additional_chems;x++)

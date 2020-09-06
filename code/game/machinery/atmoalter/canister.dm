@@ -1,6 +1,11 @@
 /obj/machinery/portable_atmospherics/canister
 	name = "canister"
 	desc = "Holds gas. Has a built-in valve to allow for filling portable tanks."
+	desc_info = "The canister can be connected to a connector port with a wrench.  Tanks of gas (the kind you can hold in your hand) \
+	can be filled by the canister, by using the tank on the canister, increasing the release pressure, then opening the valve until it is full, and then close it.  \
+	*DO NOT* remove the tank until the valve is closed.  A gas analyzer can be used to check the contents of the canister."
+
+	desc_antag = "Canisters can be damaged, spilling their contents into the air, or you can just leave the release valve open."
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "yellow"
 	density = 1
@@ -134,6 +139,7 @@ update_flag
 
 	if (src.destroyed)
 		cut_overlays()
+		set_light(FALSE)
 		src.icon_state = text("[]-1", src.canister_color)
 		return
 
@@ -144,19 +150,28 @@ update_flag
 		return
 
 	cut_overlays()
+	set_light(FALSE)
 
 	if(update_flag & 1)
 		add_overlay("can-open")
 	if(update_flag & 2)
 		add_overlay("can-connector")
 	if(update_flag & 4)
-		add_overlay("can-o0")
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o0", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(indicator_overlay)
+		set_light(1.4, 1, COLOR_RED_LIGHT)
 	if(update_flag & 8)
-		add_overlay("can-o1")
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o1", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(indicator_overlay)
+		set_light(1.4, 1, COLOR_RED_LIGHT)
 	else if(update_flag & 16)
-		add_overlay("can-o2")
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o2", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(indicator_overlay)
+		set_light(1.4, 1, COLOR_YELLOW)
 	else if(update_flag & 32)
-		add_overlay("can-o3")
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o3", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(indicator_overlay)
+		set_light(1.4, 1, COLOR_BRIGHT_GREEN)
 	return
 
 /obj/machinery/portable_atmospherics/canister/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
@@ -187,7 +202,7 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/machinery_process()
 	if (destroyed)
-		return
+		return PROCESS_KILL
 
 	..()
 
@@ -355,7 +370,7 @@ update_flag
 				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the [holding]<br>"
 			if(istype(holding, /obj/item/tank))
 				holding.manipulated_by = usr.real_name
-			holding.forceMove(loc)
+			usr.put_in_hands(holding)
 			holding = null
 
 	if (href_list["pressure_adj"])
@@ -390,13 +405,13 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/phoron/Initialize()
 	. = ..()
 
-	src.air_contents.adjust_gas("phoron", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
 	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/oxygen/Initialize()
 	. = ..()
 
-	src.air_contents.adjust_gas("oxygen", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_OXYGEN, MolesForPressure())
 	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled/Initialize()
@@ -407,13 +422,13 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/Initialize()
 	. = ..()
 
-	air_contents.adjust_gas("sleeping_agent", MolesForPressure())
+	air_contents.adjust_gas(GAS_N2O, MolesForPressure())
 	src.update_icon()
 
 //Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/Initialize()
 	. = ..()
-	air_contents.gas["sleeping_agent"] = 9*4000
+	air_contents.gas[GAS_N2O] = 9*4000
 	spawn(10)
 		var/turf/simulated/location = src.loc
 		if (istype(src.loc))
@@ -424,7 +439,7 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/nitrogen/Initialize()
 	. = ..()
-	src.air_contents.adjust_gas("nitrogen", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_NITROGEN, MolesForPressure())
 	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/nitrogen/prechilled/Initialize()
@@ -434,30 +449,30 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide/Initialize()
 	. = ..()
-	src.air_contents.adjust_gas("carbon_dioxide", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_CO2, MolesForPressure())
 	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/air/Initialize()
 	. = ..()
 	var/list/air_mix = StandardAirMix()
-	src.air_contents.adjust_multi("oxygen", air_mix["oxygen"], "nitrogen", air_mix["nitrogen"])
+	src.air_contents.adjust_multi(GAS_OXYGEN, air_mix[GAS_OXYGEN], GAS_NITROGEN, air_mix[GAS_NITROGEN])
 
 	src.update_icon()
 
 // Special types used for engine setup admin verb, they contain double amount of that of normal canister.
 /obj/machinery/portable_atmospherics/canister/nitrogen/engine_setup/Initialize()
 	. = ..()
-	src.air_contents.adjust_gas("nitrogen", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_NITROGEN, MolesForPressure())
 	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide/engine_setup/Initialize()
 	. = ..()
-	src.air_contents.adjust_gas("carbon_dioxide", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_CO2, MolesForPressure())
 	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/phoron/engine_setup/Initialize()
 	. = ..()
-	src.air_contents.adjust_gas("phoron", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
 	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/air/cold/Initialize()

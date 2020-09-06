@@ -106,7 +106,7 @@
 			haspen = W
 			to_chat(user, "<span class='notice'>You slot the pen into \the [src].</span>")
 	else
-		to_chat(user, span("notice", "This clipboard already has a pen!"))
+		to_chat(user, SPAN_NOTICE("This clipboard already has a pen!"))
 
 /obj/item/clipboard/Topic(href, href_list)
 	..()

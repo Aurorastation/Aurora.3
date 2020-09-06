@@ -5,6 +5,7 @@ var/global/ntnrc_uid = 0
 	var/datum/computer_file/program/chatclient/operator // "Administrator" of this channel. Creator starts as channel's operator,
 	var/list/messages = list()
 	var/list/clients = list()
+	var/direct = FALSE
 	var/password
 
 /datum/ntnet_conversation/New(var/name, var/no_operator)
@@ -22,10 +23,8 @@ var/global/ntnrc_uid = 0
 	log_ntirc("[user.client.ckey]/([username]) : [message]", ckey=key_name(user), conversation=title)
 
 	for(var/datum/computer_file/program/chatclient/C in clients)
-		if(C.username == username || !C.computer.screen_on)
-			continue
-		if(C.computer.active_program == C || (C in C.computer.idle_threads))
-			C.computer.output_message(FONT_SMALL("<b>([title]) [username]:</b> [message]"), 0)
+		if(C.program_state > PROGRAM_STATE_KILLED)
+			C.computer.output_message(FONT_SMALL("<b>([get_title(C)]) <i>[username]</i>:</b> [message] (<a href='byond://?src=\ref[C];Reply=1;target=[src.title]'>Reply</a>)"), 0)
 
 	message = "[worldtime2text()] [username]: [message]"
 	messages.Add(message)
@@ -46,16 +45,27 @@ var/global/ntnrc_uid = 0
 /datum/ntnet_conversation/proc/add_client(var/datum/computer_file/program/chatclient/C)
 	if(!istype(C))
 		return
+	if (C in clients)
+		return
 	clients.Add(C)
 	// No operator, so we assume the channel was empty. Assign this user as operator.
 	if(!operator)
 		changeop(C)
-
 	for(var/datum/computer_file/program/chatclient/CC in clients)
-		if(CC == C || !CC.computer.screen_on)
-			continue
-		if(CC.computer.active_program == CC || (CC in CC.computer.idle_threads))
-			CC.computer.output_message(FONT_SMALL("<b>([title]) A new client ([C.username]) has entered the chat.</b>"), 0)
+		if(CC.program_state > PROGRAM_STATE_KILLED && CC != C)
+			if(!direct)
+				CC.computer.output_message(FONT_SMALL("<b>([get_title(CC)]) <i>[C.username]</i> has entered the chat.</b>"), 0)
+
+/datum/ntnet_conversation/proc/begin_direct(var/datum/computer_file/program/chatclient/CA, var/datum/computer_file/program/chatclient/CB)
+	if(!istype(CA) || !istype(CB))
+		return
+	direct = TRUE
+	clients.Add(CA)
+	clients.Add(CB)
+	
+	add_status_message("[CA.username] has opened direct conversation.")
+	if(CB.program_state > PROGRAM_STATE_KILLED)
+		CB.computer.output_message(FONT_SMALL("<b>([get_title(CB)]) <i>[CA.username]</i> has opened direct conversation with you.</b>"), 0)
 
 /datum/ntnet_conversation/proc/remove_client(var/datum/computer_file/program/chatclient/C)
 	if(!istype(C) || !(C in clients))
@@ -70,10 +80,8 @@ var/global/ntnrc_uid = 0
 			changeop(newop)
 
 	for(var/datum/computer_file/program/chatclient/CC in clients)
-		if(CC == C || !CC.computer.screen_on)
-			continue
-		if(CC.computer.active_program == CC || (CC in CC.computer.idle_threads))
-			CC.computer.output_message(FONT_SMALL("<b>([title]) A client ([C.username]) has left the chat.</b>"), 0)
+		if(CC.program_state > PROGRAM_STATE_KILLED && CC != C)
+			CC.computer.output_message(FONT_SMALL("<b>([get_title(CC)]) <i>[C.username]</i> has left the chat.</b>"), 0)
 
 
 /datum/ntnet_conversation/proc/changeop(var/datum/computer_file/program/chatclient/newop)
@@ -85,11 +93,38 @@ var/global/ntnrc_uid = 0
 	if(operator != client)
 		return 0 // Not Authorised
 
-	add_status_message("[client.username] has changed channel title from [title] to [newtitle]")
+	add_status_message("[client.username] has changed channel title from [get_title(client)] to [newtitle]")
+	
+	for(var/datum/computer_file/program/chatclient/C in clients)
+		if(C.program_state > PROGRAM_STATE_KILLED && C != client)
+			C.computer.output_message(FONT_SMALL("([get_title(C)]) <i>[client.username]</i> has changed the channel title to <b>[newtitle]</b>."), 0)
 	title = newtitle
 
-	for(var/datum/computer_file/program/chatclient/C in clients)
-		if(C == client || !C.computer.screen_on)
-			continue
-		if(C.computer.active_program == src || (C in C.computer.idle_threads))
-			C.computer.output_message(FONT_SMALL("([title]) A new client ([C.username]) has entered the chat."), 0)
+/datum/ntnet_conversation/proc/get_title(var/datum/computer_file/program/chatclient/cl = null)
+	if(direct)
+		var/names = list()
+		for(var/datum/computer_file/program/chatclient/C in clients)
+			names += C.username
+		if(cl)
+			names -= cl.username
+		return "\[DM] [english_list(names)]"
+	else
+		return title
+
+/datum/ntnet_conversation/proc/get_dead_title()
+	if(direct)
+		var/names = list()
+		for(var/datum/computer_file/program/chatclient/C in clients)
+			names += C.username
+		return "\[DM] [english_list(names)]"
+	else
+		return title
+
+/datum/ntnet_conversation/proc/can_see(var/datum/computer_file/program/chatclient/cl)
+	if(cl in clients)
+		return TRUE
+	if(cl.netadmin_mode)
+		return TRUE
+	if(!direct)
+		return TRUE
+	return FALSE

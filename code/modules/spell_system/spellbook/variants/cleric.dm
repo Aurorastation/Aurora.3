@@ -2,7 +2,7 @@
 	spellbook_type = /datum/spellbook/cleric
 
 /datum/spellbook/cleric
-	name = "\improper cleric's tome"
+	name = "cleric's tome"
 	feedback = "CR"
 	desc = "For those who do not harm, or at least feel sorry about it."
 	book_desc = "All about healing and control. Mobility and offense comes at a higher price but not impossible."
@@ -24,6 +24,7 @@
 				/spell/aoe_turf/knock =								1,
 				/spell/targeted/equip_item/holy_relic =				1,
 				/spell/aoe_turf/conjure/grove/sanctuary = 			1,
+				/spell/radiant_aura =								1,
 				/spell/targeted/projectile/dumbfire/fireball =		2,
 				/spell/aoe_turf/conjure/forcewall =					1,
 				/spell/targeted/subjugation =						1,
@@ -31,5 +32,14 @@
 				/obj/item/gun/energy/staff/focus =					2,
 				/obj/item/storage/belt/wands/full =					2,
 				/obj/item/poppet =									1,
-				/obj/item/contract/apprentice =						1
+				/obj/item/contract/apprentice =						1,
+				/obj/item/apprentice_pebble =						2
 				)
+
+	apprentice_spells = list(
+		/spell/targeted/heal_target = 1,
+		/spell/targeted/heal_target/area = 1,
+		/spell/targeted/resurrection = 2,
+		/spell/targeted/genetic/blind = 1,
+		/spell/radiant_aura = 1
+	)

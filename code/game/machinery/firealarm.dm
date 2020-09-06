@@ -20,6 +20,13 @@
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone
 	var/seclevel
 
+/obj/machinery/firealarm/examine(mob/user)
+	. = ..()
+	if((stat & (NOPOWER|BROKEN)) || buildstage != 2)
+		return
+
+	to_chat(user, "The current alert level is [get_security_level()].")
+
 /obj/machinery/firealarm/update_icon()
 	cut_overlays()
 
@@ -63,7 +70,7 @@
 					previous_state = icon_state
 					set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = LIGHT_COLOR_ORANGE)
 
-		add_overlay("overlay_[seclevel]")
+		add_overlay(image(icon, "overlay_[seclevel]", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
 
 /obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
 	if(src.detecting)
@@ -108,7 +115,7 @@
 				else if (W.iswirecutter())
 					user.visible_message("<span class='notice'>\The [user] has cut the wires inside \the [src]!</span>", "<span class='notice'>You have cut the wires inside \the [src].</span>")
 					new/obj/item/stack/cable_coil(get_turf(src), 5)
-					playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
+					playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 					buildstage = 1
 					update_icon()
 			if(1)
@@ -123,7 +130,7 @@
 						return
 				else if(W.iscrowbar())
 					to_chat(user, "You pry out the circuit!")
-					playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
+					playsound(src.loc, W.usesound, 50, 1)
 					spawn(20)
 						var/obj/item/firealarm_electronics/circuit = new /obj/item/firealarm_electronics()
 						circuit.forceMove(user.loc)

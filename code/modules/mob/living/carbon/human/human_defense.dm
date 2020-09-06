@@ -19,6 +19,7 @@ emp_act
 		if(martial_art && martial_art.deflection_chance)
 			if(prob(martial_art.deflection_chance))
 				src.visible_message("<span class='danger'>\The [src] deflects \the [P]!</span>")
+				playsound(src, /decl/sound_category/bulletflyby_sound, 75, 1)
 				return 0
 
 	def_zone = check_zone(def_zone)
@@ -46,6 +47,8 @@ emp_act
 		var/armor = getarmor_organ(organ, "bullet")
 		if(prob(20 + max(P.damage - armor, -10)))
 			var/obj/item/SP = new P.shrapnel_type()
+			SP.edge = TRUE
+			SP.sharp = TRUE
 			SP.name = (P.name != "shrapnel")? "[P.name] shrapnel" : "shrapnel"
 			SP.desc = "[SP.desc] It looks like it was fired from [P.shot_from]."
 			SP.forceMove(organ)
@@ -127,7 +130,7 @@ emp_act
 			results.Add(C)
 	return results
 
-//this proc returns the armour value for a particular external organ.
+//this proc returns the armor value for a particular external organ.
 /mob/living/carbon/human/proc/getarmor_organ(var/obj/item/organ/external/def_zone, var/type)
 	if(!type || !def_zone) return 0
 	var/protection = 0
@@ -168,10 +171,17 @@ emp_act
 	return null
 
 /mob/living/carbon/human/proc/check_shields(var/damage = 0, var/atom/damage_source = null, var/mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
-	for(var/obj/item/shield in list(l_hand, r_hand, wear_suit))
-		if(!shield) continue
-		. = shield.handle_shield(src, damage, damage_source, attacker, def_zone, attack_text)
-		if(.) return
+	for(var/obj/item/shield in list(l_hand, r_hand, wear_suit, back))
+		if(!shield)
+			continue
+		if(!shield.can_shield_back())
+			continue
+		var/is_on_back = FALSE
+		if(back && back == shield)
+			is_on_back = TRUE
+		. = shield.handle_shield(src, is_on_back, damage, damage_source, attacker, def_zone, attack_text)
+		if(.)
+			return
 	return 0
 
 /mob/living/carbon/human/emp_act(severity)
@@ -293,7 +303,7 @@ emp_act
 		if(!(I.flags & NOBLOODY))
 			I.add_blood(src)
 
-		if(prob(33))
+		if(prob(effective_force * 2))
 			var/turf/location = loc
 			if(istype(location, /turf/simulated))
 				location.add_blood(src)
@@ -379,6 +389,7 @@ emp_act
 
 		if(!zone)
 			visible_message("<span class='notice'>\The [O] misses [src] narrowly!</span>")
+			playsound(src, 'sound/effects/throw_miss.ogg', rand(10, 50), 1)
 			return
 
 		O.throwing = 0		//it hit, so stop moving
@@ -390,7 +401,8 @@ emp_act
 		var/armor = run_armor_check(affecting, "melee", O.armor_penetration, "Your armor has protected your [hit_area].", "Your armor has softened the hit to your [hit_area].") //I guess "melee" is the best fit here
 
 		if(armor < 100)
-			apply_damage(throw_damage, dtype, zone, armor, is_sharp(O), has_edge(O), O)
+			var/damage_flags = O.damage_flags()
+			apply_damage(throw_damage, dtype, zone, armor, O, damage_flags = damage_flags)
 
 		if(ismob(O.thrower))
 			var/mob/M = O.thrower
@@ -543,7 +555,7 @@ emp_act
 
 	var/obj/item/grab/G = new /obj/item/grab(user, src)
 	if(buckled)
-		to_chat(user, "<span class='notice'>You cannot grab [src], \he [gender_datums[gender].is] buckled in!</span>")
+		to_chat(user, "<span class='notice'>You cannot grab [src], [get_pronoun("he")] [get_pronoun("is")] buckled in!</span>")
 	if(!G)	//the grab will delete itself in New if affecting is anchored
 		return
 	user.put_in_active_hand(G)

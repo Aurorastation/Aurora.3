@@ -1,12 +1,6 @@
 /datum/design/circuit/tcom
 	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4)
-	design_order = 6
-
-/datum/design/circuit/tcom/AssembleDesignName()
-	name = "Telecommunications Machinery Circuit Design ([name])"
-
-/datum/design/circuit/tcom/AssembleDesignDesc()
-	desc = "Allows for the construction of a telecommunications [name] circuit board."
+	p_category = "Telecommunications Machinery Circuit Designs"
 
 /datum/design/circuit/tcom/server
 	name = "Server Mainframe"

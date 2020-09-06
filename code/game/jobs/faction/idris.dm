@@ -1,8 +1,8 @@
 /datum/faction/idris_incorporated
 	name = "Idris Incorporated"
 	description = {"<p>
-	The Orion Spur’s largest interstellar banking conglomerate, Idris Incorporated
-	is operated by the mysterious Idris family. Idris Incorporated’s influence
+	The Orion Spur's largest interstellar banking conglomerate, Idris Incorporated
+	is operated by the mysterious Idris family. Idris Incorporated's influence
 	can be found in nearly every corner of human space with their financing of
 	nearly every type of business and enterprise. Their higher risk ventures have
 	payment enforced by the infamous Idris Reclamation Units, shell IPCs sent to
@@ -32,14 +32,13 @@
 	title_suffix = "Idris"
 
 	allowed_role_types = list(
+		/datum/job/visitor,
 		/datum/job/officer,
 		/datum/job/detective,
 		/datum/job/forensics,
 		/datum/job/bartender,
 		/datum/job/chef,
 		/datum/job/hydro,
-		/datum/job/cargo_tech,
-		/datum/job/qm,
 		/datum/job/representative
 	)
 
@@ -61,9 +60,18 @@
 		"Detective" = /datum/outfit/job/detective/idris,
 		"Gardener" = /datum/outfit/job/hydro/idris,
 		"Hydroponicist" = /datum/outfit/job/hydro/idris,
-		"Cargo Technician" = /datum/outfit/job/cargo_tech/idris,
-		"Quartermaster" = /datum/outfit/job/qm/idris,
 		"Corporate Liaison" = /datum/outfit/job/representative/idris
+	)
+
+	job_species_blacklist = list(
+		"Corporate Liaison" = list(
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR
+		)
 	)
 
 /datum/outfit/job/officer/idris
@@ -96,17 +104,6 @@
 	uniform = /obj/item/clothing/under/rank/idris/service
 	id = /obj/item/card/id/idris
 
-/datum/outfit/job/cargo_tech/idris
-	name = "Cargo Technician - Idris"
-	uniform = /obj/item/clothing/under/rank/idris/service
-	id = /obj/item/card/id/idris
-
-/datum/outfit/job/qm/idris
-	name = "Quartermaster - Idris"
-	uniform = /obj/item/clothing/under/rank/idris/service
-	id = /obj/item/card/id/idris
-
-
 /datum/outfit/job/representative/idris
 	name = "Idris Corporate Liaison"
 	uniform = /obj/item/clothing/under/rank/idris
@@ -114,3 +111,7 @@
 	suit = null
 	implants = null
 	id = /obj/item/card/id/idris
+
+	backpack_contents = list(
+		/obj/item/stamp/idris = 1
+	)

@@ -105,22 +105,22 @@ var/list/mineral_can_smooth_with = list(
 	if(mineral)
 		switch(mined_ore)
 			if(0)
-				to_chat(user, span("info", "It is ripe with [mineral.display_name]."))
+				to_chat(user, SPAN_INFO("It is ripe with [mineral.display_name]."))
 			if(1)
-				to_chat(user, span("info", "Its [mineral.display_name] looks a little depleted."))
+				to_chat(user, SPAN_INFO("Its [mineral.display_name] looks a little depleted."))
 			if(2)
-				to_chat(user, span("info", "Its [mineral.display_name] looks very depleted!"))
+				to_chat(user, SPAN_INFO("Its [mineral.display_name] looks very depleted!"))
 	else
-		to_chat(user, span("info", "It is devoid of any valuable minerals."))
+		to_chat(user, SPAN_INFO("It is devoid of any valuable minerals."))
 	switch(emitter_blasts_taken)
 		if(0)
-			to_chat(user, span("info", "It is in pristine condition."))
+			to_chat(user, SPAN_INFO("It is in pristine condition."))
 		if(1)
-			to_chat(user, span("info", "It appears a little damaged."))
+			to_chat(user, SPAN_INFO("It appears a little damaged."))
 		if(2)
-			to_chat(user, span("info", "It is crumbling!"))
+			to_chat(user, SPAN_INFO("It is crumbling!"))
 		if(3)
-			to_chat(user, span("info", "It looks ready to collapse at any moment!"))
+			to_chat(user, SPAN_INFO("It looks ready to collapse at any moment!"))
 
 /turf/simulated/mineral/ex_act(severity)
 	switch(severity)
@@ -395,8 +395,8 @@ var/list/mineral_can_smooth_with = list(
 	if(prob(25))
 		var/datum/reagents/R = new/datum/reagents(20)
 		R.my_atom = src
-		R.add_reagent("stone_dust",20)
-		var/datum/effect/effect/system/smoke_spread/chem/S = new("stone_dust")
+		R.add_reagent(/datum/reagent/stone_dust,20)
+		var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem(/datum/reagent/stone_dust) // have to explicitly say the type to avoid issues with warnings
 		S.show_log = 0
 		S.set_up(R, 10, 0, src, 40)
 		S.start()
@@ -550,7 +550,7 @@ var/list/mineral_can_smooth_with = list(
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/digging
 	has_resources = 1
-	footstep_sound = "gravelstep"
+	footstep_sound = /decl/sound_category/asteroid_footstep
 
 	roof_type = null
 
@@ -632,7 +632,7 @@ var/list/asteroid_floor_smooth = list(
 		var/obj/item/stack/rods/R = W
 		if(R.use(1))
 			to_chat(user, SPAN_NOTICE("Constructing support lattice..."))
-			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
 			ReplaceWithLattice()
 		return
 
@@ -643,7 +643,7 @@ var/list/asteroid_floor_smooth = list(
 			if(S.get_amount() < 1)
 				return
 			qdel(L)
-			playsound(src, 'sound/weapons/Genhit.ogg', 50, TRUE)
+			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 			S.use(1)
 			ChangeTurf(/turf/simulated/floor/airless)
 			return
@@ -808,7 +808,7 @@ var/list/asteroid_floor_smooth = list(
 			var/area/below_area = get_area(below)	// Let's just assume that the turf is not in nullspace.
 			if(below_area.station_area)
 				if(user)
-					to_chat(user, span("alert", "You strike metal!"))
+					to_chat(user, SPAN_ALERT("You strike metal!"))
 				below.spawn_roof(ROOF_FORCE_SPAWN)
 			else
 				ChangeTurf(/turf/space)

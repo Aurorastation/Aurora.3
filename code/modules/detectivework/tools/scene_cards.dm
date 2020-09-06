@@ -1,4 +1,4 @@
-/obj/item/storage/fancy/csi_markers
+/obj/item/storage/box/fancy/csi_markers
 	name = "crime scene markers box"
 	desc = "A cardboard box for crime scene marker cards."
 	icon = 'icons/obj/forensics.dmi'
@@ -23,6 +23,7 @@
 	icon = 'icons/obj/forensics.dmi'
 	icon_state = "card1"
 	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 	w_class = 1
 	randpixel = 1
 	layer = ABOVE_MOB_LAYER //so you can mark bodies

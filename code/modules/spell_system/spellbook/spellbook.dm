@@ -5,6 +5,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 								/obj/item/gun/energy/staff/focus = 	"MF",
 								/obj/item/monster_manual = 			"MA",
 								/obj/item/contract/apprentice = 		"CP",
+								/obj/item/apprentice_pebble =			"AP",
 								/obj/structure/closet/wizard/souls = 		"SS",
 								/obj/structure/closet/wizard/scrying = 		"SO",
 								/obj/item/teleportation_scroll = 	"TS",
@@ -21,14 +22,15 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	icon_state = "spellbook"
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
+	slot_flags = SLOT_BELT
 	var/uses = 1
 	var/temp = null
 	var/datum/spellbook/spellbook
-	var/spellbook_type = /datum/spellbook/ //for spawning specific spellbooks.
+	var/spellbook_type = /datum/spellbook //for spawning specific spellbooks.
 
-/obj/item/spellbook/New()
-	..()
+/obj/item/spellbook/Initialize()
+	. = ..()
 	set_spellbook(spellbook_type)
 
 /obj/item/spellbook/proc/set_spellbook(var/type)
@@ -76,14 +78,15 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			var/name = "" //name of target
 			var/desc = "" //description of target
 			var/info = "" //additional information
+			dat += "<div class='spell-block'>"
 			if(ispath(spellbook.spells[i],/datum/spellbook))
 				var/datum/spellbook/S = spellbook.spells[i]
-				name = initial(S.name)
+				name = html_decode(capitalize_first_letters(initial(S.name)))
 				desc = initial(S.book_desc)
 				info = "<font color='#ff33cc'>[initial(S.max_uses)] Spell Slots</font>"
 			else if(ispath(spellbook.spells[i],/obj))
 				var/obj/O = spellbook.spells[i]
-				name = "Artefact: [capitalize(initial(O.name))]" //because 99.99% of objects dont have capitals in them and it makes it look weird.
+				name = "Artefact: [capitalize_first_letters(initial(O.name))]" //because 99.99% of objects dont have capitals in them and it makes it look weird.
 				desc = initial(O.desc)
 			else if(ispath(spellbook.spells[i],/spell))
 				var/spell/S = spellbook.spells[i]
@@ -108,9 +111,14 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			if(spellbook.book_flags & CAN_MAKE_CONTRACTS)
 				dat += " <A href='byond://?src=\ref[src];path=[spellbook.spells[i]];contract=1;'>Make Contract</a>"
 			dat += "<br><i>[desc]</i><br>"
+			dat += "</div>"
 		dat += "<center><A href='byond://?src=\ref[src];reset=1'>Re-memorize your spellbook.</a></center>"
 		dat += "<center><A href='byond://?src=\ref[src];lock=1'>[spellbook.book_flags & LOCKED ? "Unlock" : "Lock"] the spellbook.</a></center>"
-	user << browse(dat,"window=spellbook")
+
+	var/datum/browser/spellbook_win = new(user, "spellbook", spellbook.title)
+	spellbook_win.set_content(dat)
+	spellbook_win.add_stylesheet("spellbook", 'html/browser/spellbook.css')
+	spellbook_win.open()
 
 /obj/item/spellbook/Topic(href,href_list)
 	..()
@@ -159,14 +167,31 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 			else
 				if(ispath(path,/spell))
 					temp = src.add_spell(usr,path)
+				else if(ispath(path, /obj/item/contract/apprentice))
+					var/obj/item/contract/apprentice/A = new path(get_turf(usr))
+					A.contract_master = usr
+					A.additional_spells = spellbook.apprentice_spells
+					temp = "You have purchased \a [A]."
+					spellbook.max_uses -= spellbook.spells[path]
+					playsound(get_turf(usr),'sound/effects/phasein.ogg',50,1)
+					usr.put_in_hands(A)
+				else if(ispath(path, /obj/item/apprentice_pebble))
+					var/obj/item/apprentice_pebble/A = new path(get_turf(usr))
+					A.contract.additional_spells = spellbook.apprentice_spells
+					A.contract.contract_master = usr
+					temp = "You have purchased \a [A]."
+					spellbook.max_uses -= spellbook.spells[path]
+					playsound(get_turf(usr),'sound/effects/phasein.ogg',50,1)
+					usr.put_in_hands(A)
 				else
 					var/obj/O = new path(get_turf(usr))
+					usr.put_in_hands(O)
 					temp = "You have purchased \a [O]."
 					spellbook.max_uses -= spellbook.spells[path]
 					//finally give it a bit of an oomf
 					playsound(get_turf(usr),'sound/effects/phasein.ogg',50,1)
 	if(href_list["reset"])
-		var/area/wizard_station/A = locate()
+		var/area/antag/wizard/A = locate()
 		if(usr in A.contents)
 			uses = spellbook.max_uses
 			H.spellremove()
@@ -214,7 +239,7 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 	return "You learn the spell [S]"
 
 /datum/spellbook
-	var/name = "\improper book of tomes"
+	var/name = "book of tomes"
 	var/desc = "The legendary book of spells of the wizard."
 	var/book_desc = "Holds information on the various tomes available to a wizard"
 	var/feedback = "" //doesn't need one.
@@ -228,3 +253,4 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 				/datum/spellbook/druid = 1,
 				/datum/spellbook/necromancer = 1
 				) //spell's path = cost of spell
+	var/list/apprentice_spells = list() // extra spells that apprentices get, based on their master's book

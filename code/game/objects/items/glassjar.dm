@@ -9,6 +9,7 @@
 	var/list/accept_mobs = list(/mob/living/simple_animal/lizard, /mob/living/simple_animal/rat)
 	var/contains = 0 // 0 = nothing, 1 = money, 2 = animal, 3 = spiderling
 	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/glass_jar/New()
 	..()

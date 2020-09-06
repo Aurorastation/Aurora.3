@@ -2,8 +2,8 @@
 /*
 	run_armor_check() args
 	def_zone - What part is getting hit, if null will check entire body
-	attack_flag - The type of armour to be checked
-	armour_pen - reduces the effectiveness of armour
+	attack_flag - The type of armor to be checked
+	armor_pen - reduces the effectiveness of armor
 	absorb_text - shown if the armor check is 100% successful
 	soften_text - shown if the armor check is more than 0% successful and less than 100%
 	Returns
@@ -12,31 +12,23 @@
 #define MOB_FIRE_LIGHT_RANGE  3  //These control the intensity and range of light given off by a mob which is on fire
 #define MOB_FIRE_LIGHT_POWER  2
 
-/mob/living/proc/run_armor_check(var/def_zone = null, var/attack_flag = "melee", var/armour_pen = 0, var/absorb_text = null, var/soften_text = null)
-	if(armour_pen >= 100)
+/mob/living/proc/run_armor_check(var/def_zone = null, var/attack_flag = "melee", var/armor_pen = 0, var/absorb_text = null, var/soften_text = null)
+	if(armor_pen >= 100)
 		return 0 //might as well just skip the processing
 
 	var/armor = getarmor(def_zone, attack_flag)
 
-	if(armour_pen >= armor)
-		return 0 //effective_armor is going to be 0, fullblock is going to be 0, blocked is going to 0, let's save ourselves the trouble
+	if(armor_pen >= armor)
+		return 0 //effective_armor is going to be 0
 
-	var/effective_armor = (armor - armour_pen)/100
-	var/fullblock = (effective_armor*effective_armor) * ARMOR_BLOCK_CHANCE_MULT
+	var/blocked = (armor - armor_pen)
 
-	if(fullblock >= 1 || prob(fullblock*100))
+	if(blocked >= 100)
 		if(absorb_text)
 			show_message("<span class='warning'>[absorb_text]</span>")
 		else
 			show_message("<span class='warning'>Your armor absorbs the blow!</span>")
 		return 100
-
-	//this makes it so that X armour blocks X% damage, when including the chance of hard block.
-	//I double checked and this formula will also ensure that a higher effective_armor
-	//will always result in higher (non-fullblock) damage absorption too, which is also a nice property
-	//In particular, blocked will increase from 0 to 50 as effective_armor increases from 0 to 0.999 (if it is 1 then we never get here because ofc)
-	//and the average damage absorption = (blocked/100)*(1-fullblock) + 1.0*(fullblock) = effective_armor
-	var/blocked = (effective_armor - fullblock)/(1 - fullblock)*100
 
 	if(blocked > 20)
 		//Should we show this every single time?
@@ -68,7 +60,7 @@
 	var/obj/item/cloaking_device/C = locate(/obj/item/cloaking_device) in src
 	if(C && C.active)
 		C.attack_self(src)//Should shut it off
-		update_icons()
+		update_icon()
 		to_chat(src, "<span class='notice'>Your [C.name] was disrupted!</span>")
 		Stun(2)
 
@@ -88,19 +80,41 @@
 		return
 
 	//Armor
-	var/absorb = run_armor_check(def_zone, P.check_armour, P.armor_penetration)
-	var/proj_sharp = is_sharp(P)
-	var/proj_edge = has_edge(P)
+	var/absorb = run_armor_check(def_zone, P.check_armor, P.armor_penetration)
 	var/damaged
-	if ((proj_sharp || proj_edge) && prob(absorb))
-		proj_sharp = 0
-		proj_edge = 0
+	if(prob(absorb))
+		if(P.damage_flags & DAM_SHARP || P.damage_flags & DAM_SHARP || P.damage_flags & DAM_LASER)
+			P.damage_flags &= ~DAM_SHARP
+			P.damage_flags &= ~DAM_EDGE
+			P.damage_flags &= ~DAM_LASER
 
 	if(!P.nodamage)
-		damaged = apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, sharp=proj_sharp, edge=proj_edge, damage_flags = P.damage_flags, used_weapon = "\a [P.name]")
+		damaged = apply_damage(P.damage, P.damage_type, def_zone, absorb, 0, P, damage_flags = P.damage_flags, used_weapon = "\a [P.name]")
 		bullet_impact_visuals(P, def_zone, damaged)
 	P.on_hit(src, absorb, def_zone)
 	return absorb
+
+/mob/living/proc/aura_check(var/type)
+	if(!auras)
+		return TRUE
+	. = TRUE
+	var/list/newargs = args - args[1]
+	for(var/a in auras)
+		var/obj/aura/aura = a
+		var/result = 0
+		switch(type)
+			if(AURA_TYPE_WEAPON)
+				result = aura.attackby(arglist(newargs))
+			if(AURA_TYPE_BULLET)
+				result = aura.bullet_act(arglist(newargs))
+			if(AURA_TYPE_THROWN)
+				result = aura.hitby(arglist(newargs))
+			if(AURA_TYPE_LIFE)
+				result = aura.life_tick()
+		if(result & AURA_FALSE)
+			. = FALSE
+		if(result & AURA_CANCEL)
+			break
 
 //For visuals, blood splatters and so on.
 /mob/living/proc/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
@@ -115,16 +129,16 @@
 /mob/living/proc/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon=null)
 	flash_pain()
 
-	if (stun_amount)
+	if(stun_amount)
 		Stun(stun_amount)
 		Weaken(stun_amount)
-		apply_effect(STUTTER, stun_amount)
-		apply_effect(EYE_BLUR, stun_amount)
+		apply_effect(stun_amount, STUTTER)
+		apply_effect(stun_amount, EYE_BLUR)
 
-	if (agony_amount)
+	if(agony_amount)
 		apply_damage(agony_amount, PAIN, def_zone, 0, used_weapon)
-		apply_effect(STUTTER, agony_amount/10)
-		apply_effect(EYE_BLUR, agony_amount/10)
+		apply_effect(agony_amount / 10, STUTTER)
+		apply_effect(agony_amount / 10, EYE_BLUR)
 
 /mob/living/proc/electrocute_act(var/shock_damage, var/obj/source, var/siemens_coeff = 1.0, var/tesla_shock = 0, var/ground_zero)
 	  return 0 //only carbon liveforms have this proc
@@ -161,18 +175,19 @@
 		effective_force *= 2
 
 	//Apply weapon damage
-	var/weapon_sharp = is_sharp(I)
-	var/weapon_edge = has_edge(I)
-	if(prob(blocked)) //armour provides a chance to turn sharp/edge weapon attacks into blunt ones
-		weapon_sharp = 0
-		weapon_edge = 0
+	var/damage_flags = I.damage_flags()
+	if(prob(blocked)) //armor provides a chance to turn sharp/edge weapon attacks into blunt ones
+		damage_flags &= ~DAM_SHARP
+		damage_flags &= ~DAM_EDGE
 
-	apply_damage(effective_force, I.damtype, hit_zone, blocked, sharp=weapon_sharp, edge=weapon_edge, used_weapon=I)
+	apply_damage(effective_force, I.damtype, hit_zone, blocked, used_weapon=I, damage_flags = damage_flags)
 
 	return 1
 
 //this proc handles being hit by a thrown atom
-/mob/living/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+/mob/living/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+	if(!aura_check(AURA_TYPE_THROWN, AM, speed))
+		return
 	if(istype(AM,/obj/))
 		var/obj/O = AM
 		var/dtype = O.damtype
@@ -185,12 +200,14 @@
 
 		if (prob(miss_chance))
 			visible_message("<span class='notice'>\The [O] misses [src] narrowly!</span>")
+			playsound(src, 'sound/effects/throw_miss.ogg', 50, 1)
 			return
 
 		src.visible_message("<span class='warning'>[src] has been hit by [O].</span>")
 		var/armor = run_armor_check(null, "melee")
 
-		apply_damage(throw_damage, dtype, null, armor, is_sharp(O), has_edge(O), O)
+		var/damage_flags = O.damage_flags()
+		apply_damage(throw_damage, dtype, null, armor, O, damage_flags = damage_flags)
 
 		O.throwing = 0		//it hit, so stop moving
 
@@ -317,7 +334,7 @@
 		return 1
 
 	var/datum/gas_mixture/G = loc.return_air() // Check if we're standing in an oxygenless environment
-	if(G.gas["oxygen"] < 1)
+	if(G.gas[GAS_OXYGEN] < 1)
 		ExtinguishMobCompletely() //If there's no oxygen in the tile we're on, put out the fire
 		return 1
 
@@ -374,7 +391,7 @@
 	if(hud_used.action_buttons_hidden)
 		if(!hud_used.hide_actions_toggle)
 			hud_used.hide_actions_toggle = new(hud_used)
-			hud_used.hide_actions_toggle.UpdateIcon()
+			hud_used.hide_actions_toggle.update_icon()
 
 		if(!hud_used.hide_actions_toggle.moved)
 			hud_used.hide_actions_toggle.screen_loc = hud_used.ButtonNumberToScreenCoords(1)
@@ -393,7 +410,7 @@
 
 		var/obj/screen/movable/action_button/B = A.button
 
-		B.UpdateIcon()
+		B.update_icon()
 
 		B.name = A.UpdateName()
 

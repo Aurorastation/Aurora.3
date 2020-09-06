@@ -58,13 +58,13 @@
 		removed = TRUE
 	else
 		if(slots_left <= 0)
-			to_chat(user, span("warning", "There are no slots left to install brainboards into."))
+			to_chat(user, SPAN_WARNING("There are no slots left to install brainboards into."))
 			return
 		LAZYADD(boosted_faculties, faculty.id)
 	UNSETEMPTY(boosted_faculties)
 
 	slots_left = max_boosted_faculties - LAZYLEN(boosted_faculties)
-	to_chat(user, span("notice", "You [removed ? "remove" : "install"] the [choice] brainboard [removed ? "from" : "in"] \the [src]. There [slots_left!=1 ? "are" : "is"] [slots_left] slot\s left."))
+	to_chat(user, SPAN_NOTICE("You [removed ? "remove" : "install"] the [choice] brainboard [removed ? "from" : "in"] \the [src]. There [slots_left!=1 ? "are" : "is"] [slots_left] slot\s left."))
 
 /obj/item/clothing/head/helmet/space/psi_amp/proc/deintegrate()
 
@@ -84,7 +84,7 @@
 		canremove = TRUE
 		return
 
-	to_chat(H, span("warning", "You feel a strange tugging sensation as \the [src] begins removing the slave-minds from your brain..."))
+	to_chat(H, SPAN_WARNING("You feel a strange tugging sensation as \the [src] begins removing the slave-minds from your brain..."))
 	playsound(H, 'sound/weapons/circsawhit.ogg', 50, 1, -1)
 	operating = TRUE
 
@@ -93,7 +93,7 @@
 	if(H.psi)
 		H.psi.reset()
 
-	to_chat(H, span("notice", "\The [src] chimes quietly as it finishes removing the slave-minds from your brain."))
+	to_chat(H, SPAN_NOTICE("\The [src] chimes quietly as it finishes removing the slave-minds from your brain."))
 
 	canremove = TRUE
 	operating = FALSE
@@ -131,17 +131,17 @@
 		return
 
 	if(LAZYLEN(boosted_faculties) < max_boosted_faculties)
-		to_chat(usr, span("notice", "You still have [max_boosted_faculties - LAZYLEN(boosted_faculties)] facult[LAZYLEN(boosted_faculties) == 1 ? "y" : "ies"] to select. Use \the [src] in-hand to select them."))
+		to_chat(usr, SPAN_NOTICE("You still have [max_boosted_faculties - LAZYLEN(boosted_faculties)] facult[LAZYLEN(boosted_faculties) == 1 ? "y" : "ies"] to select. Use \the [src] in-hand to select them."))
 		return
 
 	var/mob/living/carbon/human/H = loc
 	if(!istype(H) || H.head != src)
-		to_chat(usr, span("warning", "\The [src] must be worn on your head in order to be activated."))
+		to_chat(usr, SPAN_WARNING("\The [src] must be worn on your head in order to be activated."))
 		return
 
 	canremove = FALSE
 	operating = TRUE
-	to_chat(H, span("warning", "You feel a series of sharp pinpricks as \the [src] anaesthetises your scalp before drilling down into your brain."))
+	to_chat(H, SPAN_WARNING("You feel a series of sharp pinpricks as \the [src] anaesthetises your scalp before drilling down into your brain."))
 	playsound(H, 'sound/weapons/circsawhit.ogg', 50, 1, -1)
 
 	sleep(80)
@@ -156,7 +156,7 @@
 		H.psi.stamina = H.psi.max_stamina
 		H.psi.update(force = TRUE)
 
-	to_chat(H, span("notice", "You experience a brief but powerful wave of deja vu as \the [src] finishes modifying your brain."))
+	to_chat(H, SPAN_NOTICE("You experience a brief but powerful wave of deja vu as \the [src] finishes modifying your brain."))
 	verbs |= /obj/item/clothing/head/helmet/space/psi_amp/proc/deintegrate
 	verbs -= /obj/item/clothing/head/helmet/space/psi_amp/proc/integrate
 	operating = FALSE

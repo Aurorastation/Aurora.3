@@ -121,6 +121,9 @@
 	..()
 	stat("Held Item", held_item)
 
+/mob/living/simple_animal/parrot/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+
 /*
  * Inventory
  */
@@ -481,7 +484,7 @@
 				var/mob/living/carbon/human/H = parrot_interest
 				var/obj/item/organ/external/affecting = H.get_organ(ran_zone(pick(parrot_dam_zone)))
 
-				H.apply_damage(damage, BRUTE, affecting, H.run_armor_check(affecting, "melee"), sharp=1)
+				H.apply_damage(damage, BRUTE, affecting, H.run_armor_check(affecting, "melee"), damage_flags = DAM_SHARP)
 				visible_emote(pick("pecks [H]'s [affecting].", "cuts [H]'s [affecting] with its talons."))
 
 			else

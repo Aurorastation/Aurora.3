@@ -14,6 +14,7 @@
 	var/list/pages = list()  // Ordered list of pages as they are to be displayed. Can be different order than src.contents.
 	var/amount = 0 // How many sheet
 	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/paper_bundle/attackby(obj/item/W as obj, mob/user as mob)
 	..()
@@ -28,6 +29,7 @@
 	if(istype(W, /obj/item/paper) || istype(W, /obj/item/photo))
 		insert_sheet_at(user, pages.len+1, W)
 		amount++
+		attack_self(usr) //Update the browsed page.
 
 	// burning
 	else if(istype(W, /obj/item/flame))
@@ -42,6 +44,7 @@
 			amount++
 
 		to_chat(user, "<span class='notice'>You add \the [W.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>")
+		attack_self(usr) //Update the browsed page.
 		qdel(W)
 	else
 		if(istype(W, /obj/item/tape_roll))
@@ -52,7 +55,6 @@
 		P.attackby(W, user)
 
 	update_icon()
-	attack_self(usr) //Update the browsed page.
 	add_fingerprint(usr)
 	return
 
@@ -76,7 +78,7 @@
 		if(istype(P, /obj/item/flame/lighter/zippo))
 			class = "rose>"
 
-		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
+		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like [user.get_pronoun("he")]'s trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 
 		spawn(20)
@@ -154,13 +156,13 @@
 			insert_sheet_at(usr, page+1, in_hand)
 		else if(page != pages.len)
 			page++
-			playsound(src.loc, "pageturn", 50, 1)
+			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
 	if(href_list["prev_page"])
 		if(in_hand && (istype(in_hand, /obj/item/paper) || istype(in_hand, /obj/item/photo)))
 			insert_sheet_at(usr, page, in_hand)
 		else if(page > 1)
 			page--
-			playsound(src.loc, "pageturn", 50, 1)
+			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
 	if(href_list["remove"])
 		var/obj/item/W = pages[page]
 		usr.put_in_hands(W)
@@ -190,7 +192,10 @@
 
 	var/n_name = sanitizeSafe(input(usr, "What would you like to label the bundle?", "Bundle Labelling", null)  as text, MAX_NAME_LEN)
 	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0)
-		name = "[(n_name ? text("[n_name]") : "paper")]"
+		if(n_name)
+			name = "[initial(name)] ([n_name])"
+		else
+			name = initial(name)
 	add_fingerprint(usr)
 	return
 

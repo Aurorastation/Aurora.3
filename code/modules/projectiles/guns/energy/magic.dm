@@ -52,7 +52,7 @@ obj/item/gun/energy/staff/special_check(var/mob/living/user)
 			new_mob = new /mob/living/simple_animal/parrot(H.loc)
 			new_mob.universal_speak = 1
 			new_mob.key = H.key
-			new_mob.a_intent = "harm"
+			new_mob.set_intent(I_HURT)
 			qdel(H)
 			sleep(20)
 			new_mob.say("Poly wanna cracker!")
@@ -99,7 +99,7 @@ obj/item/gun/energy/staff/animate/special_check(var/mob/living/user)
 		return 0
 	return 1
 
-obj/item/gun/energy/staff/focus
+/obj/item/gun/energy/staff/focus
 	name = "mental focus"
 	desc = "An artefact that channels the will of the user into destructive bolts of force. If you aren't careful with it, you might poke someone's brain out."
 	icon = 'icons/obj/guns/mental_focus.dmi'
@@ -114,7 +114,7 @@ obj/item/gun/energy/staff/focus/special_check(var/mob/living/user)
 		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>")
 		return 0
 	if(!user.is_wizard())
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/external/LA = H.get_organ(BP_L_ARM)
@@ -281,7 +281,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	if(!user.is_wizard())
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
-			var/obj/item/organ/O = H.internal_organs_by_name[pick(H.species.vision_organ || BP_EYES,"appendix",BP_KIDNEYS,BP_LIVER, BP_HEART, BP_LUNGS, BP_BRAIN)]
+			var/obj/item/organ/O = H.internal_organs_by_name[pick(H.species.vision_organ || BP_EYES, BP_APPENDIX, BP_KIDNEYS, BP_LIVER, BP_HEART, BP_LUNGS, BP_BRAIN)]
 			if(O == null)
 				to_chat(user, "<span class='notice'>You can't make any sense of the arcane glyphs... maybe you should try again.</span>")
 			else
@@ -317,7 +317,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
 			H.visible_message("<span class='danger'>\The [src] escapes from [H]'s hand, hitting their face and shattering into pieces!</span>")
-			H.apply_damage(35, BRUTE, BP_HEAD, 0, sharp=0, edge=0)
+			H.apply_damage(35, BRUTE, BP_HEAD, 0)
 			H.adjustBrainLoss(50, 55)
 			H.sdisabilities += CLUMSY
 			H.drop_item()

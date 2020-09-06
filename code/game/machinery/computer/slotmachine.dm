@@ -8,7 +8,7 @@
 
 /obj/machinery/computer/slot_machine
 	name = "slot machine"
-	desc = "Gambling for the antisocial."
+	desc = "A large slot machine with various colourful slots on its face and a lever on its side. It takes various material coins."
 	icon = 'icons/obj/machines/slotmachine.dmi'
 	icon_state = "slots1"
 	density = TRUE
@@ -95,7 +95,7 @@
 	if(!emagged)
 		emmaged = TRUE
 		spark(src, 3)
-		playsound(src, "sparks", 50, 1)
+		playsound(src, /decl/sound_category/spark_sound, 50, 1)
 		return TRUE
 
 /obj/machinery/computer/slot_machine/ui_interact(mob/living/user)

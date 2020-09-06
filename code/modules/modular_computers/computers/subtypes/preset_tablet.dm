@@ -20,4 +20,4 @@
 // Cargo Delivery
 /obj/item/modular_computer/tablet/preset/custom_loadout/advanced/cargo_delivery
 	_app_preset_type = /datum/modular_computer_app_presets/cargo_delivery
-	enrolled = TRUE
+	enrolled = 1

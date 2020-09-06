@@ -103,6 +103,8 @@ var/list/global/random_stock_large = list()
 			for (var/obj/structure/closet/crate/C in warehouse)
 				containers |= C
 			for (var/obj/structure/table/B in warehouse)
+				if(B.no_cargo)
+					continue
 				tables |= B
 
 /datum/cargospawner/proc/start()

@@ -1,7 +1,7 @@
 /obj/item/gun/energy/rifle
 	name = "energy rifle"
 	desc = "A Nanotrasen designed energy-based rifle with two settings: Stun and Kill."
-	description_fluff = "The NT ER-2 is an energy rifle developed and produced by Nanotrasen. Widely produced and sold across the galaxy. Designed to both stun and kill with concentrated energy blasts of varying strengths based on the fire mode, focused through a crystal lens. Considered to be a dual-purpose rifle with prolonged combat capability."
+	desc_fluff = "The NT ER-2 is an energy rifle developed and produced by Nanotrasen. Widely produced and sold across the galaxy. Designed to both stun and kill with concentrated energy blasts of varying strengths based on the fire mode, focused through a crystal lens. Considered to be a dual-purpose rifle with prolonged combat capability."
 	icon = 'icons/obj/guns/erifle.dmi'
 	icon_state = "eriflestun100"
 	icon_state = "eriflestun100"
@@ -14,7 +14,7 @@
 	accuracy = -1
 	can_turret = 1
 	secondary_projectile_type = /obj/item/projectile/beam
-	secondary_fire_sound = 'sound/weapons/Laser.ogg'
+	secondary_fire_sound = 'sound/weapons/laser1.ogg'
 	can_switch_modes = 1
 	turret_sprite_set = "carbine"
 	turret_is_lethal = 0
@@ -32,19 +32,19 @@
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="eriflestun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="eriflekill", fire_sound='sound/weapons/Laser.ogg')
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="eriflekill", fire_sound='sound/weapons/laser1.ogg')
 		)
 
 
 /obj/item/gun/energy/rifle/laser
 	name = "laser rifle"
 	desc = "A Nanotrasen designed laser weapon, designed to kill with concentrated energy blasts."
-	description_fluff = "The NT LR-6 is a laser rifle developed and produced by Nanotrasen. Designed to kill with concentrated energy blasts focused through a crystal lens. It is considered to be the template of other standard laser weaponry."
+	desc_fluff = "The NT LR-6 is a laser rifle developed and produced by Nanotrasen. Designed to kill with concentrated energy blasts focused through a crystal lens. It is considered to be the template of other standard laser weaponry."
 	icon = 'icons/obj/guns/laserrifle.dmi'
 	icon_state = "laserrifle"
 	item_state = "laserrifle"
 	has_item_ratio = FALSE // the back and suit slots have ratio sprites but the in-hands dont
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	max_shots = 15
 	fire_delay = 5
 	burst_delay = 5
@@ -70,7 +70,7 @@
 /obj/item/gun/energy/rifle/laser/heavy
 	name = "laser cannon"
 	desc = "A nanotrasen designed laser cannon capable of acting as a powerful support weapon."
-	description_fluff = "The NT LC-4 is a laser cannon developed and produced by Nanotrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
+	desc_fluff = "The NT LC-4 is a laser cannon developed and produced by Nanotrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
 	icon = 'icons/obj/guns/lasercannon.dmi'
 	icon_state = "lasercannon100"
 	item_state = "lasercannon100"
@@ -96,7 +96,7 @@
 /obj/item/gun/energy/rifle/laser/xray
 	name = "xray laser rifle"
 	desc = "A Nanotrasen designed high-power laser rifle capable of expelling concentrated xray blasts."
-	description_fluff = "The NT XR-1 is a laser firearm developed and produced by Nanotrasen. A recent innovation, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover, all the while having a large ammo capacity."
+	desc_fluff = "The NT XR-1 is a laser firearm developed and produced by Nanotrasen. A recent innovation, used for specialist operations, it is presently being produced and sold in limited capacity over the galaxy. Designed for precision strikes, releasing concentrated xray blasts that are capable of hitting targets behind cover, all the while having a large ammo capacity."
 	icon = 'icons/obj/guns/xrifle.dmi'
 	icon_state = "xrifle"
 	item_state = "xrifle"
@@ -116,7 +116,7 @@
 	icon = 'icons/obj/guns/pulse.dmi'
 	icon_state = "pulse"
 	item_state = "pulse"
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	projectile_type = /obj/item/projectile/beam
 	sel_mode = 2
 	origin_tech = list(TECH_COMBAT = 7, TECH_MATERIAL = 6, TECH_MAGNET = 4)
@@ -130,7 +130,7 @@
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/Laser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/laser1.ogg'),
 		list(mode_name="DESTROY", projectile_type=/obj/item/projectile/beam/pulse, fire_sound='sound/weapons/pulse.ogg')
 		)
 

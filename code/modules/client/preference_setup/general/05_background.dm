@@ -8,6 +8,7 @@
 	S["gen_record"]          >> pref.gen_record
 	S["citizenship"]         >> pref.citizenship
 	S["religion"]            >> pref.religion
+	S["accent"]            >> pref.accent
 	S["nanotrasen_relation"] >> pref.nanotrasen_relation
 
 /datum/category_item/player_setup_item/general/background/save_character(var/savefile/S)
@@ -16,6 +17,7 @@
 	S["gen_record"]          << pref.gen_record
 	S["citizenship"]         << pref.citizenship
 	S["religion"]            << pref.religion
+	S["accent"]            << pref.accent
 	S["nanotrasen_relation"] << pref.nanotrasen_relation
 
 /datum/category_item/player_setup_item/general/background/gather_load_query()
@@ -33,7 +35,8 @@
 			"vars" = list(
 				"nt_relation" = "nanotrasen_relation",
 				"citizenship",
-				"religion"
+				"religion",
+				"accent"
 			),
 			"args" = list("id")
 		)
@@ -56,7 +59,9 @@
 		"ss13_characters" = list(
 			"nt_relation",
 			"citizenship",
-			"religion","id" = 1,
+			"religion",
+			"accent",
+			"id" = 1,
 			"ckey" = 1
 		)
 	)
@@ -70,6 +75,7 @@
 		"nt_relation" = pref.nanotrasen_relation,
 		"citizenship" = pref.citizenship,
 		"religion" = pref.religion,
+		"accent" = pref.accent,
 		"id" = pref.current_character,
 		"ckey" = PREF_CLIENT_CKEY
 	)
@@ -87,6 +93,9 @@
 	if(!(pref.religion in S.allowed_religions))
 		pref.religion	= RELIGION_NONE
 
+	if(!(pref.accent in S.allowed_accents))
+		pref.accent	=  S.default_accent
+
 	pref.nanotrasen_relation = sanitize_inlist(pref.nanotrasen_relation, COMPANY_ALIGNMENTS, initial(pref.nanotrasen_relation))
 
 /datum/category_item/player_setup_item/general/background/content(var/mob/user)
@@ -95,6 +104,7 @@
 		"[current_map.company_name] Relation: <a href='?src=\ref[src];nt_relation=1'>[pref.nanotrasen_relation]</a><br/>",
 		"Citizenship: <a href='?src=\ref[src];citizenship=1'>[pref.citizenship]</a><br/>",
 		"Religion: <a href='?src=\ref[src];religion=1'>[pref.religion]</a><br/>",
+		"Accent: <a href='?src=\ref[src];accent=1'>[pref.accent]</a><br/>",
 		"<br/><b>Records</b>:<br/>"
 	)
 
@@ -139,6 +149,18 @@
 
 	else if(href_list["set_religion"])
 		pref.religion = (html_decode(href_list["set_religion"]))
+		sanitize_character()
+		return TOPIC_REFRESH
+
+	else if(href_list["accent"])
+		var/choice = input(user, "Please choose an accent.", "Character Preference", pref.accent) as null|anything in S.allowed_accents
+		if(!choice || !CanUseTopic(user))
+			return TOPIC_NOACTION
+		show_accent_menu(user, choice)
+		return TOPIC_REFRESH
+
+	else if(href_list["set_accent"])
+		pref.accent = (html_decode(href_list["set_accent"]))
 		sanitize_character()
 		return TOPIC_REFRESH
 
@@ -195,3 +217,13 @@
 		dat += "<br>[religion.description]"
 		dat += "<br><center>\[<a href='?src=\ref[src];set_religion=[html_encode(religion.name)]'>Select</a>\]</center>"
 		show_browser(user, dat.Join(), "window=religionpreview;size=400x500")
+
+/datum/category_item/player_setup_item/general/background/proc/show_accent_menu(mob/user, selected_accent)
+	var/datum/accent/accent = SSrecords.accents[selected_accent]
+
+	if(accent)
+
+		var/list/dat = list("<center><b>[accent.name]</center></b>")
+		dat += "<br>[accent.description]"
+		dat += "<br><center>\[<a href='?src=\ref[src];set_accent=[html_encode(accent.name)]'>Select</a>\]</center>"
+		show_browser(user, dat.Join(), "window=accentpreview;size=400x500")

@@ -17,31 +17,31 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 /mob/living/carbon/human/skrell/Initialize(mapload)
 	h_style = "Skrell Average Tentacles"
-	. = ..(mapload, "Skrell")
+	. = ..(mapload, SPECIES_SKRELL)
 
 /mob/living/carbon/human/tajaran/Initialize(mapload)
 	h_style = "Tajaran Ears"
-	. = ..(mapload, "Tajara")
+	. = ..(mapload, SPECIES_TAJARA)
 
 /mob/living/carbon/human/unathi/Initialize(mapload)
 	h_style = "Unathi Horns"
-	. = ..(mapload, "Unathi")
+	. = ..(mapload, SPECIES_UNATHI)
 
 /mob/living/carbon/human/vox/Initialize(mapload)
 	h_style = "Short Vox Quills"
-	. = ..(mapload, "Vox")
+	. = ..(mapload, SPECIES_VOX)
 
 /mob/living/carbon/human/voxarmalis/Initialize(mapload)
 	h_style = "Bald"
-	. = ..(mapload, "Vox Armalis")
+	. = ..(mapload, SPECIES_VOX_ARMALIS)
 
 /mob/living/carbon/human/diona/Initialize(mapload)
-	. = ..(mapload, "Diona")
+	. = ..(mapload, SPECIES_DIONA)
 	src.gender = NEUTER
 
 /mob/living/carbon/human/machine/Initialize(mapload)
 	h_style = "blue IPC screen"
-	. = ..(mapload, "Baseline Frame")
+	. = ..(mapload, SPECIES_IPC)
 
 /mob/living/carbon/human/machine/Stat()
 	..()
@@ -50,40 +50,57 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		stat("Battery Charge: ", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/monkey/Initialize(mapload)
-	. = ..(mapload, "Monkey")
+	. = ..(mapload, SPECIES_MONKEY)
 
 /mob/living/carbon/human/farwa/Initialize(mapload)
-	. = ..(mapload, "Farwa")
+	. = ..(mapload, SPECIES_MONKEY_TAJARA)
 
 /mob/living/carbon/human/neaera/Initialize(mapload)
-	. = ..(mapload, "Neaera")
+	. = ..(mapload, SPECIES_MONKEY_SKRELL)
 
 /mob/living/carbon/human/stok/Initialize(mapload)
-	. = ..(mapload, "Stok")
+	. = ..(mapload, SPECIES_MONKEY_UNATHI)
 
 /mob/living/carbon/human/bug/Initialize(mapload)
-	. = ..(mapload, "V'krexi")
+	. = ..(mapload, SPECIES_MONKEY_VAURCA)
 	src.gender = FEMALE
 
 /mob/living/carbon/human/type_a/Initialize(mapload)
 	h_style = "Classic Antennae"
-	. = ..(mapload, "Vaurca Worker")
+	. = ..(mapload, SPECIES_VAURCA_WORKER)
 	src.gender = NEUTER
+
+/mob/living/carbon/human/type_a/cargo/Initialize(mapload)
+	. = ..()
+	// Equip mask to allow the drone to breathe
+	equip_to_slot_or_del(new /obj/item/clothing/mask/breath/vaurca/filter(src), slot_wear_mask)
+	// Set internals
+	var/obj/item/organ/vaurca/preserve/P = internal_organs_by_name[BP_PHORON_RESERVE]
+	internal = P
+	// Set colour, default is grey, no biggie
+	var/list/hive = splittext(name, " ")
+	switch(hive[length(hive)])
+		if("K'lax")
+			change_skin_color(33, 63, 33)
+		if("C'thur")
+			change_skin_color(10, 35, 55)
+		if("Zo'ra")
+			change_skin_color(111, 21, 21)
 
 /mob/living/carbon/human/type_b/Initialize(mapload)
 	h_style = "Classic Antennae"
-	. = ..(mapload, "Vaurca Warrior")
+	. = ..(mapload, SPECIES_VAURCA_WARRIOR)
 	src.gender = NEUTER
 
 /mob/living/carbon/human/type_c/Initialize(mapload)
-	. = ..(mapload, "Vaurca Breeder")
+	. = ..(mapload, SPECIES_VAURCA_BREEDER)
 	src.gender = FEMALE
 
 /mob/living/carbon/human/type_c
 	layer = 5
 
 /mob/living/carbon/human/type_big/Initialize(mapload)
-	. = ..(mapload, "Vaurca Warform")
+	. = ..(mapload, SPECIES_VAURCA_WARFORM)
 	src.gender = NEUTER
 	src.mutations.Add(HULK)
 
@@ -92,14 +109,14 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 
 /mob/living/carbon/human/msai_tajara/Initialize(mapload)
 	h_style = "Tajaran Ears"
-	. = ..(mapload, "M'sai Tajara")
+	. = ..(mapload, SPECIES_TAJARA_MSAI)
 
 /mob/living/carbon/human/zhankhazan_tajara/Initialize(mapload)
 	h_style = "Tajaran Ears"
-	. = ..(mapload, "Zhan-Khazan Tajara")
+	. = ..(mapload, SPECIES_TAJARA_ZHAN)
 
 /mob/living/carbon/human/industrial/Initialize(mapload)
-	. = ..(mapload, "Hephaestus G1 Industrial Frame")
+	. = ..(mapload, SPECIES_IPC_G1)
 
 /mob/living/carbon/human/industrial/Stat()
 	..()
@@ -108,7 +125,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		stat("Battery Charge: ", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/shell/Initialize(mapload)
-	. = ..(mapload, "Shell Frame")
+	. = ..(mapload, SPECIES_IPC_SHELL)
 
 /mob/living/carbon/human/shell/Stat()
 	..()
@@ -117,7 +134,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		stat("Battery Charge: ", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/industrial_hephaestus/Initialize(mapload)
-	. = ..(mapload, "Hephaestus G2 Industrial Frame")
+	. = ..(mapload, SPECIES_IPC_G2)
 
 /mob/living/carbon/human/industrial_hephaestus/Stat()
 	..()
@@ -126,7 +143,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		stat("Battery Charge: ", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/industrial_xion/Initialize(mapload)
-	. = ..(mapload, "Xion Industrial Frame")
+	. = ..(mapload, SPECIES_IPC_XION)
 
 /mob/living/carbon/human/industrial_xion/Stat()
 	..()
@@ -135,7 +152,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		stat("Battery Charge: ", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/industrial_xion_remote/Initialize(mapload)
-	. = ..(mapload, "Remote Xion Industrial Frame")
+	. = ..(mapload, SPECIES_IPC_XION_REMOTE)
 
 	real_name = "Remote Robot [pick("Delta", "Theta", "Alpha")]-[rand(0, 999)]"
 	name = real_name
@@ -144,7 +161,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		mind.name = real_name
 	status_flags |= NO_ANTAG
 
-	remote_network = "remoterobots"
+	remote_network = REMOTE_GENERIC_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
 
 /mob/living/carbon/human/industrial_xion_remote/Stat()
@@ -154,7 +171,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		stat("Battery Charge: ", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/industrial_xion_remote_mech/Initialize(mapload)
-	. = ..(mapload, "Remote Xion Industrial Frame")
+	. = ..(mapload, SPECIES_IPC_XION_REMOTE)
 
 	real_name = "Remote Pilot [pick("Delta", "Theta", "Alpha")]-[rand(0, 999)]"
 	name = real_name
@@ -170,7 +187,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		stat("Battery Charge: ", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/industrial_xion_remote_bunker/Initialize(mapload)
-	. = ..(mapload, "Remote Xion Industrial Frame")
+	. = ..(mapload, SPECIES_IPC_XION_REMOTE)
 
 	real_name = "Remote Robot [pick("Greaves", "Chamberlain", "Slater")]-[rand(0, 999)]"
 	name = real_name
@@ -179,12 +196,11 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		mind.name = real_name
 	status_flags |= NO_ANTAG
 
-	equip_to_slot_or_del(new /obj/item/clothing/under/assistantformal(src), slot_w_uniform)
 	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(src), slot_wear_suit)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
 	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_com(src), slot_l_ear)
 
-	remote_network = "bunkerrobots"
+	remote_network = REMOTE_BUNKER_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
 
 /mob/living/carbon/human/industrial_xion_remote_bunker/Stat()
@@ -193,8 +209,57 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	if(client?.statpanel == "Status")
 		stat("Battery Charge: ", "[nutrition]/[max_nutrition]")
 
+/mob/living/carbon/human/industrial_xion_remote_penal/Initialize(mapload)
+	. = ..(mapload, "Remote Xion Industrial Frame")
+
+	real_name = "Remote Robot [pick("Jim", "Slart", "Whacker")]-[rand(0, 999)]"
+	name = real_name
+	dna.real_name = real_name
+	if(mind)
+		mind.name = real_name
+	status_flags |= NO_ANTAG
+
+	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_penal(src), slot_l_ear)
+
+	remote_network = REMOTE_PRISON_ROBOT
+	SSvirtualreality.add_robot(src, remote_network)
+
+/mob/living/carbon/human/industrial_xion_remote_penal/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat(null, "Battery Charge: [nutrition]/[max_nutrition]")
+
+/mob/living/carbon/human/industrial_xion_remote_warden/Initialize(mapload)
+	. = ..(mapload, "Remote Xion Industrial Frame")
+
+	real_name = "Remote Robot Overseer-[rand(0, 999)]"
+	name = real_name
+	dna.real_name = real_name
+	if(mind)
+		mind.name = real_name
+	status_flags |= NO_ANTAG
+
+	var/obj/item/card/id/ID = new /obj/item/card/id(get_turf(src))
+	ID.assignment = "Overseer"
+	src.set_id_info(ID)
+	ID.access = list(access_armory)
+	equip_to_slot_or_del(ID, slot_wear_id)
+	equip_to_slot_or_del(new /obj/item/clothing/under/rank/warden(src), slot_w_uniform)
+	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
+	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_warden(src), slot_l_ear)
+
+	remote_network = REMOTE_WARDEN_ROBOT
+	SSvirtualreality.add_robot(src, remote_network)
+
+/mob/living/carbon/human/industrial_xion_remote_warden/Stat()
+	..()
+
+	if(client?.statpanel == "Status")
+		stat(null, "Battery Charge: [nutrition]/[max_nutrition]")
+
 /mob/living/carbon/human/industrial_zenghu/Initialize(mapload)
-	. = ..(mapload, "Zeng-Hu Mobility Frame")
+	. = ..(mapload, SPECIES_IPC_ZENGHU)
 
 /mob/living/carbon/human/industrial_zenghu/Stat()
 	..()
@@ -203,7 +268,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		stat("Battery Charge: ", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/industrial_bishop/Initialize(mapload)
-	. = ..(mapload, "Bishop Accessory Frame")
+	. = ..(mapload, SPECIES_IPC_BISHOP)
 
 /mob/living/carbon/human/industrial_bishop/Stat()
 	..()
@@ -212,7 +277,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		stat("Battery Charge: ", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/unbranded_frame/Initialize(mapload)
-	. = ..(mapload, "Unbranded Frame")
+	. = ..(mapload, SPECIES_IPC_UNBRANDED)
 
 /mob/living/carbon/human/unbranded_frame/Stat()
 	..()
@@ -221,7 +286,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		stat("Battery Charge: ", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/unbranded_frame_remote/Initialize(mapload)
-	. = ..(mapload, "Remote Unbranded Frame")
+	. = ..(mapload, SPECIES_IPC_UNBRANDED_REMOTE)
 
 	real_name = "Remote Robot [pick("Delta", "Theta", "Alpha")]-[rand(0, 999)]"
 	name = real_name
@@ -230,7 +295,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		mind.name = real_name
 	status_flags |= NO_ANTAG
 
-	remote_network = "remoterobots"
+	remote_network = REMOTE_GENERIC_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
 
 /mob/living/carbon/human/unbranded_frame_remote/Stat()
@@ -240,7 +305,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		stat("Battery Charge: ", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/unbranded_frame_remote_bunker/Initialize(mapload)
-	. = ..(mapload, "Remote Unbranded Frame")
+	. = ..(mapload, SPECIES_IPC_UNBRANDED_REMOTE)
 
 	real_name = "Remote Robot [pick("Greaves", "Chamberlain", "Slater")]-[rand(0, 999)]"
 	name = real_name
@@ -249,12 +314,11 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		mind.name = real_name
 	status_flags |= NO_ANTAG
 
-	equip_to_slot_or_del(new /obj/item/clothing/under/assistantformal(src), slot_w_uniform)
 	equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(src), slot_wear_suit)
 	equip_to_slot_or_del(new /obj/item/clothing/shoes/jackboots(src), slot_shoes)
 	equip_to_slot_or_del(new /obj/item/device/radio/headset/headset_com(src), slot_l_ear)
 
-	remote_network = "bunkerrobots"
+	remote_network = REMOTE_BUNKER_ROBOT
 	SSvirtualreality.add_robot(src, remote_network)
 
 /mob/living/carbon/human/unbranded_frame_remote_bunker/Stat()
@@ -264,7 +328,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 		stat("Battery Charge: ", "[nutrition]/[max_nutrition]")
 
 /mob/living/carbon/human/terminator/Initialize(mapload)
-	. = ..(mapload, "Military Frame")
+	. = ..(mapload, SPECIES_IPC_TERMINATOR)
 	add_language(LANGUAGE_SOL_COMMON, 1)
 	add_language(LANGUAGE_UNATHI, 1)
 	add_language(LANGUAGE_SIIK_MAAS, 1)
@@ -301,55 +365,52 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	mob_size = 30
 
 /mob/living/carbon/human/golem/Initialize(mapload)
-	. = ..(mapload, "Coal Golem")
+	. = ..(mapload, SPECIES_GOLEM_COAL)
 
 /mob/living/carbon/human/iron_golem/Initialize(mapload)
-	. = ..(mapload, "Iron Golem")
+	. = ..(mapload, SPECIES_GOLEM_IRON)
 
 /mob/living/carbon/human/bronze_golem/Initialize(mapload)
-	. = ..(mapload, "Bronze Golem")
+	. = ..(mapload, SPECIES_GOLEM_BRONZE)
 
 /mob/living/carbon/human/steel_golem/Initialize(mapload)
-	. = ..(mapload, "Steel Golem")
+	. = ..(mapload, SPECIES_GOLEM_STEEL)
 
 /mob/living/carbon/human/plasteel_golem/Initialize(mapload)
-	. = ..(mapload, "Plasteel Golem")
+	. = ..(mapload, SPECIES_GOLEM_PLASTEEL)
 
 /mob/living/carbon/human/titanium_golem/Initialize(mapload)
-	. = ..(mapload, "Titanium Golem")
+	. = ..(mapload, SPECIES_GOLEM_TITANIUM)
 
 /mob/living/carbon/human/cloth_golem/Initialize(mapload)
-	. = ..(mapload, "Cloth Golem")
+	. = ..(mapload, SPECIES_GOLEM_CLOTH)
 
 /mob/living/carbon/human/cardboard_golem/Initialize(mapload)
-	. = ..(mapload, "Cardboard Golem")
+	. = ..(mapload, SPECIES_GOLEM_CARDBOARD)
 
 /mob/living/carbon/human/glass_golem/Initialize(mapload)
-	. = ..(mapload, "Glass Golem")
+	. = ..(mapload, SPECIES_GOLEM_GLASS)
 
 /mob/living/carbon/human/phoron_golem/Initialize(mapload)
-	. = ..(mapload, "Phoron Golem")
+	. = ..(mapload, SPECIES_GOLEM_PHORON)
 
 /mob/living/carbon/human/mhydrogen_golem/Initialize(mapload)
-	. = ..(mapload, "Metallic Hydrogen Golem")
+	. = ..(mapload, SPECIES_GOLEM_HYDROGEN)
 
 /mob/living/carbon/human/wood_golem/Initialize(mapload)
-	. = ..(mapload, "Wood Golem")
+	. = ..(mapload, SPECIES_GOLEM_WOOD)
 
 /mob/living/carbon/human/diamond_golem/Initialize(mapload)
-	. = ..(mapload, "Diamond Golem")
+	. = ..(mapload, SPECIES_GOLEM_DIAMOND)
 
 /mob/living/carbon/human/sand_golem/Initialize(mapload)
-	. = ..(mapload, "Sand Golem")
+	. = ..(mapload, SPECIES_GOLEM_SAND)
 
 /mob/living/carbon/human/uranium_golem/Initialize(mapload)
-	. = ..(mapload, "Uranium Golem")
+	. = ..(mapload, SPECIES_GOLEM_URANIUM)
 
 /mob/living/carbon/human/homunculus/Initialize(mapload)
-	. = ..(mapload, "Homunculus")
+	. = ..(mapload, SPECIES_GOLEM_MEAT)
 
 /mob/living/carbon/human/adamantine_golem/Initialize(mapload)
-	. = ..(mapload, "Adamantine Golem")
-
-/mob/living/carbon/human/autakh/Initialize(mapload)
-	. = ..(mapload, "Aut'akh Unathi")
+	. = ..(mapload, SPECIES_GOLEM_ADAMANTINE)

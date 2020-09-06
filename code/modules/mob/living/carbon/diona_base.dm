@@ -54,13 +54,13 @@ var/list/diona_banned_languages = list(
 	sprint_speed_factor = initial(sprint_speed_factor)
 	sprint_cost_factor = Clamp(initial(sprint_cost_factor) - light_amount * DIONA_LIGHT_COEFICIENT, 0, initial(sprint_cost_factor))
 	if (total_radiation)
-		move_delay_mod = max(move_delay_mod * total_radiation * 3, -7)
-		sprint_speed_factor = 0.75
+		move_delay_mod = max(move_delay_mod * total_radiation * 3, -4.5)
+		sprint_speed_factor = 0.65
 		sprint_cost_factor = 0
 
 /mob/living/carbon/alien/diona/death()
 	if(client && gestalt && switch_to_gestalt())
-		to_chat(gestalt, span("warning", "You feel tremendous pain as you lose connection to your detached nymph, there is no way to bring it back anymore."))
+		to_chat(gestalt, SPAN_WARNING("You feel tremendous pain as you lose connection to your detached nymph, there is no way to bring it back anymore."))
 	..()
 
 /mob/living/carbon/proc/diona_handle_radiation(var/datum/dionastats/DS)
@@ -92,7 +92,7 @@ var/list/diona_banned_languages = list(
 			return 0
 
 	if (consume_nutrition_from_air && (nutrition / max_nutrition > 0.25))
-		to_chat(src, span("notice", "You feel like you have replanished enough of nutrition to stay alive. Consuming more makes you feel gross."))
+		to_chat(src, SPAN_NOTICE("You feel like you have replanished enough of nutrition to stay alive. Consuming more makes you feel gross."))
 		consume_nutrition_from_air = !consume_nutrition_from_air
 		return
 
@@ -108,14 +108,9 @@ var/list/diona_banned_languages = list(
 
 //This proc handles when diona take damage from being in darkness
 /mob/living/carbon/proc/diona_darkness_damage(var/severity, var/datum/dionastats/DS)
-	adjustBruteLoss(severity*DS.trauma_factor)
-	adjustHalLoss(severity*DS.pain_factor, 1)
+	adjustBruteLoss(severity * DS.trauma_factor)
+	adjustHalLoss((severity * species.pain_mod) * DS.pain_factor) // pain mod here is to give a bit of padding to the amount of pain diona get, to make it less overbearing
 	DS.stored_energy = 0 //We reset the energy back to zero after calculating the damage. dont want it to go negative
-
-	//If the diona in question is a gestalt, then all the nymphs inside it will suffer damage too
-	if (DS.dionatype == DIONA_WORKER)
-		for(var/mob/living/carbon/alien/diona/D in src)
-			D.adjustBruteLoss(severity*DS.trauma_factor*0.5)
 
 /mob/living/carbon/proc/diona_handle_temperature(var/datum/dionastats/DS)
 	if (bodytemperature < TEMP_REGEN_STOP)
@@ -281,19 +276,6 @@ var/list/diona_banned_languages = list(
 				O.damage += value/-3
 				DS.stored_energy -= value
 
-
-			//We only regenerate nymphs if the gestalt has plenty of energy to spare.
-			//Survival of the collective is prioritised over individual members
-				//And healing nymphs can suck up a lot of energy, which the gestalt may need
-			if (DS.stored_energy > (0.75 * DS.max_energy))
-				for (var/mob/living/carbon/alien/diona/D in bad_internal_organs)
-					if (!D.stat != DEAD)
-						D.diona_handle_regeneration(DS)
-						//IF a nymph inside the gestalt is damaged, we trigger its own regeneration function
-						//but we pass in the gestalt's Dionastats, so its energy/rads will be used to heal them
-
-
-
 	//Last up, growing brand new limbs and organs to replace those lost or removed.
 	if ((life_tick % (LIFETICK_INTERVAL_LESS*8) == 0) || bypass )
 		//We will only replace ONE organ or limb each time this procs
@@ -386,15 +368,6 @@ var/list/diona_banned_languages = list(
 		if (DS.stored_energy < REGROW_ENERGY_REQ || nutrition < REGROW_FOOD_REQ)
 			return
 
-		for (var/mob/living/carbon/alien/diona/D in bad_internal_organs)
-			if (D.stat == DEAD || D.health <= 0)
-				D.health = 1
-				D.stat = CONSCIOUS
-				to_chat(src, "<span class='danger'>You feel a stirring within you as [D.name] returns to life!</span>")
-				updatehealth()
-				return
-				//Only one per proc
-
 		//If we have less than six nymphs, we add one each proc
 		if (topup_nymphs())
 			if (DS.stored_energy < REGROW_ENERGY_REQ)
@@ -476,7 +449,7 @@ var/list/diona_banned_languages = list(
 	else if (DS.LMS == 2)
 		if (DS.EP >= 0.99)
 			DS.LMS = 1
-			to_chat(src, span("notice", "You bask in the light."))
+			to_chat(src, SPAN_NOTICE("You bask in the light."))
 		else if (DS.EP <= 0.4 && DS.last_lightlevel <= 0)
 			DS.LMS = 3
 			to_chat(src, "<span class='warning'>You feel lethargic as your energy drains away. Find some light!</span>")
@@ -535,15 +508,13 @@ var/list/diona_banned_languages = list(
 		return health+(maxHealth*0.5)
 
 /mob/living/carbon/proc/get_dionastats()
-	if (istype(src, /mob/living/carbon/alien/diona))
-		var/mob/living/carbon/alien/diona/T = src
-		return T.DS
+	return
 
-	if (istype(src, /mob/living/carbon/human))
-		var/mob/living/carbon/human/T = src
-		if (istype(T.species, /datum/species/diona))
-			return T.DS
-	return null
+/mob/living/carbon/alien/diona/get_dionastats()
+	return DS
+
+/mob/living/carbon/human/get_dionastats()
+	return DS
 
 //Called on a nymph when it merges with a gestalt
 //The nymph and gestalt get the combined total of both of their languages
@@ -586,9 +557,9 @@ var/list/diona_banned_languages = list(
 	set category = "Abilities"
 
 	if(!gestalt)
-		to_chat(src, span("warning", "You have no Gestalt!"))
+		to_chat(src, SPAN_WARNING("You have no Gestalt!"))
 	else if(gestalt.stat == DEAD)
-		to_chat(src, span("danger", "Your Gestlat is not responding! Something could have happened to it!"))
+		to_chat(src, SPAN_DANGER("Your Gestlat is not responding! Something could have happened to it!"))
 	else
 		gestalt.key = key
 		return TRUE
@@ -614,7 +585,7 @@ var/list/diona_banned_languages = list(
 				C.DS.regen_limb_progress = 0
 			else
 				C.diona_handle_regeneration(C.DS, TRUE)
-			to_chat(C, span("notice", "Your lost nymph merged back."))
+			to_chat(C, SPAN_NOTICE("Your lost nymph merged back."))
 			C.add_nymph()
 			verbs -= /mob/living/carbon/alien/diona/proc/switch_to_gestalt
 			C.verbs -= /mob/living/carbon/human/proc/switch_to_nymph

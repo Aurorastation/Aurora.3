@@ -4,7 +4,6 @@
 /turf/simulated/wall/shuttle
 	icon = 'icons/turf/smooth/shuttle_wall.dmi'
 	icon_state = "map-shuttle"
-	roof_flags = ROOF_CLEANUP
 	permit_ao = 0
 	smooth = SMOOTH_MORE|SMOOTH_DIAGONAL
 	use_standard_smoothing = 1
@@ -33,7 +32,7 @@
 			var/obj/item/weldingtool/WT = W
 			if( WT.remove_fuel(0,user) )
 				to_chat(user, "<span class='notice'>You burn away the fungi with \the [WT].</span>")
-				playsound(src, 'sound/items/Welder.ogg', 10, 1)
+				playsound(src, 'sound/items/welder.ogg', 10, 1)
 				for(var/obj/effect/overlay/wallrot/WR in src)
 					qdel(WR)
 				return
@@ -58,7 +57,7 @@
 
 			spark(EB, 5)
 			to_chat(user, "<span class='notice'>You slash \the [src] with \the [EB]; the thermite ignites!</span>")
-			playsound(src, "sparks", 50, 1)
+			playsound(src, /decl/sound_category/spark_sound, 50, 1)
 			playsound(src, 'sound/weapons/blade.ogg', 50, 1)
 
 			thermitemelt(user)
@@ -147,9 +146,256 @@
 /turf/simulated/wall/shuttle/skrell/corner
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "skrell_diagonal"
-	use_set_icon_state = 1
+	use_set_icon_state = TRUE
 	smooth = null
 	canSmoothWith = null
+
+//--Unique Shuttles--//
+
+/turf/simulated/wall/shuttle/unique
+	name = "shuttle hull"
+	icon = 'icons/turf/shuttle.dmi'
+	icon_state = "floor5"
+	use_set_icon_state = TRUE
+	smooth = null
+	canSmoothWith = null
+
+/obj/structure/shuttle_part //For placing them over space, if the sprite doesn't cover the whole turf.
+	name = "shuttle part"
+	icon = 'icons/turf/shuttle.dmi'
+	icon_state = "door0"
+	anchored = TRUE
+	density = TRUE
+	var/outside_part = TRUE
+	atmos_canpass = CANPASS_DENSITY
+
+/obj/structure/shuttle_part/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+	if(density)
+		return 0
+	else
+		return ..()
+
+/obj/structure/window/shuttle/unique
+	name = "shuttle window"
+	desc = "It looks extremely strong. Might take many good hits to crack it."
+	icon = 'icons/turf/shuttle.dmi'
+	icon_state = "wall2"
+	health = 500
+	maxhealth = 500
+	smooth = null
+	canSmoothWith = null
+	can_be_unanchored = FALSE
+	var/outside_window = FALSE
+
+//merchant shuttle
+
+/turf/simulated/wall/shuttle/unique/merchant
+	icon = 'icons/turf/shuttles_unique/merchant_shuttle.dmi'
+	icon_state = "5,4"
+
+/obj/structure/shuttle_part/merchant
+	icon = 'icons/turf/shuttles_unique/merchant_shuttle.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/merchant
+	icon = 'icons/turf/shuttles_unique/merchant_shuttle.dmi'
+	icon_state = "6,2"
+
+//cargo shuttle
+
+/turf/simulated/wall/shuttle/unique/cargo
+	icon = 'icons/turf/shuttles_unique/cargo_shuttle.dmi'
+	icon_state = "5,4"
+
+/obj/structure/shuttle_part/cargo
+	icon = 'icons/turf/shuttles_unique/cargo_shuttle.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/cargo
+	icon = 'icons/turf/shuttles_unique/cargo_shuttle.dmi'
+	icon_state = "6,2"
+
+//ccia shuttle
+
+/turf/simulated/wall/shuttle/unique/ccia
+	icon = 'icons/turf/shuttles_unique/ccia_shuttle.dmi'
+	icon_state = "5,4"
+
+/obj/structure/shuttle_part/ccia
+	icon = 'icons/turf/shuttles_unique/ccia_shuttle.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/ccia
+	icon = 'icons/turf/shuttles_unique/ccia_shuttle.dmi'
+	icon_state = "6,2"
+
+//burglar shuttle
+
+/turf/simulated/wall/shuttle/unique/burglar
+	icon = 'icons/turf/shuttles_unique/ccia_shuttle_gray.dmi'
+	icon_state = "8,4"
+
+/obj/structure/shuttle_part/burglar
+	icon = 'icons/turf/shuttles_unique/ccia_shuttle_gray.dmi'
+	icon_state = "2,0"
+
+/obj/structure/window/shuttle/unique/burglar
+	icon = 'icons/turf/shuttles_unique/ccia_shuttle_gray.dmi'
+	icon_state = "1,3"
+
+//ert shuttle
+
+/turf/simulated/wall/shuttle/unique/ert
+	icon = 'icons/turf/shuttles_unique/ert_shuttle.dmi'
+	icon_state = "5,4"
+
+/obj/structure/shuttle_part/ert
+	icon = 'icons/turf/shuttles_unique/ert_shuttle.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/ert
+	icon = 'icons/turf/shuttles_unique/ert_shuttle.dmi'
+	icon_state = "6,2"
+
+//escape pod
+
+/turf/simulated/wall/shuttle/unique/escape_pod
+	icon = 'icons/turf/shuttles_unique/escape_pod.dmi'
+	icon_state = "5,4"
+
+/obj/structure/shuttle_part/escape_pod
+	icon = 'icons/turf/shuttles_unique/escape_pod.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/escape_pod
+	icon = 'icons/turf/shuttles_unique/escape_pod.dmi'
+	icon_state = "6,2"
+
+//hapt shuttle
+
+/turf/simulated/wall/shuttle/unique/hapt
+	icon = 'icons/turf/shuttles_unique/escape_pod.dmi'
+	icon_state = "5,4"
+
+/obj/structure/shuttle_part/hapt
+	icon = 'icons/turf/shuttles_unique/hapt_shuttle.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/hapt
+	icon = 'icons/turf/shuttles_unique/hapt_shuttle.dmi'
+	icon_state = "6,2"
+
+//raider shuttle
+
+/turf/simulated/wall/shuttle/unique/raider
+	icon = 'icons/turf/shuttles_unique/raider_shuttle.dmi'
+	icon_state = "5,4"
+
+/obj/structure/shuttle_part/raider
+	icon = 'icons/turf/shuttles_unique/raider_shuttle.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/raider
+	icon = 'icons/turf/shuttles_unique/raider_shuttle.dmi'
+	icon_state = "6,2"
+
+//tcfl shuttle
+
+/turf/simulated/wall/shuttle/unique/tcfl
+	icon = 'icons/turf/shuttles_unique/tcfl_shuttle.dmi'
+	icon_state = "5,4"
+
+/obj/structure/shuttle_part/tcfl
+	icon = 'icons/turf/shuttles_unique/tcfl_shuttle.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/tcfl
+	icon = 'icons/turf/shuttles_unique/tcfl_shuttle.dmi'
+	icon_state = "6,2"
+
+//transfer shuttle
+
+/turf/simulated/wall/shuttle/unique/transfer
+	icon = 'icons/turf/shuttles_unique/transfer_shuttle.dmi'
+	icon_state = "5,4"
+
+/obj/structure/shuttle_part/transfer
+	icon = 'icons/turf/shuttles_unique/transfer_shuttle.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/transfer
+	icon = 'icons/turf/shuttles_unique/transfer_shuttle.dmi'
+	icon_state = "6,2"
+
+//mercenary shuttle
+
+/turf/simulated/wall/shuttle/unique/mercenary
+	icon = 'icons/turf/shuttles_unique/merc_shuttle.dmi'
+	icon_state = "5,4"
+
+/obj/structure/shuttle_part/mercenary
+	icon = 'icons/turf/shuttles_unique/merc_shuttle.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/mercenary
+	icon = 'icons/turf/shuttles_unique/merc_shuttle.dmi'
+	icon_state = "6,2"
+
+//mercenary shuttle - small
+
+/turf/simulated/wall/shuttle/unique/mercenary/small
+	icon = 'icons/turf/shuttles_unique/merc_shuttle_small.dmi'
+	icon_state = "1,2"
+
+/obj/structure/shuttle_part/mercenary/small
+	icon = 'icons/turf/shuttles_unique/merc_shuttle_small.dmi'
+	icon_state = "1,0"
+
+/obj/structure/window/shuttle/unique/mercenary/small
+	icon = 'icons/turf/shuttles_unique/merc_shuttle_small.dmi'
+	icon_state = "4,13"
+
+//arrivals shuttle
+
+/turf/simulated/wall/shuttle/unique/arrivals
+	icon = 'icons/turf/shuttles_unique/arrivals_shuttle.dmi'
+	icon_state = "5,4"
+
+/obj/structure/shuttle_part/arrivals
+	icon = 'icons/turf/shuttles_unique/arrivals_shuttle.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/arrivals
+	icon = 'icons/turf/shuttles_unique/arrivals_shuttle.dmi'
+	icon_state = "6,2"
+
+//arrivals shuttle
+
+/turf/simulated/wall/shuttle/unique/research
+	icon = 'icons/turf/shuttles_unique/aurora_research_shuttle.dmi'
+	icon_state = "5,4"
+
+/obj/structure/shuttle_part/research
+	icon = 'icons/turf/shuttles_unique/aurora_research_shuttle.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/research
+	icon = 'icons/turf/shuttles_unique/aurora_research_shuttle.dmi'
+	icon_state = "6,2"
+
+//distress team shuttle
+
+/turf/simulated/wall/shuttle/unique/distress
+	icon = 'icons/turf/shuttles_unique/distress_shuttle.dmi'
+	icon_state = "5,4"
+
+/obj/structure/shuttle_part/distress
+	icon = 'icons/turf/shuttles_unique/distress_shuttle.dmi'
+	icon_state = "4,1"
+
+/obj/structure/window/shuttle/unique/distress
+	icon = 'icons/turf/shuttles_unique/distress_shuttle.dmi'
+	icon_state = "6,2"
 
 
 //--Floors--//
@@ -158,10 +404,9 @@
 	name = "shuttle floor"
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "floor"
-	roof_flags = ROOF_CLEANUP
 	permit_ao = 0
 	initial_flooring = /decl/flooring/shuttle
-	footstep_sound = "plating"
+	footstep_sound = /decl/sound_category/plating_footstep
 
 /turf/simulated/floor/shuttle/yellow
 	icon_state = "floor2"
@@ -202,7 +447,7 @@
 /turf/simulated/floor/shuttle/skrell
 	icon_state = "skrell_purple"
 	initial_flooring = /decl/flooring/shuttle/skrell
-	footstep_sound = "sandstep"
+	footstep_sound = /decl/sound_category/sand_footstep
 
 /turf/simulated/floor/shuttle/skrell/blue
 	icon_state = "skrell_blue"

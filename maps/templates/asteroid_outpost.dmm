@@ -504,8 +504,7 @@
 /area/derelict/ship)
 "bQ" = (
 /obj/machinery/light{
-	dir = 4;
-	status = 0
+	dir = 4
 	},
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -646,8 +645,7 @@
 /area/derelict/ship)
 "co" = (
 /obj/machinery/light{
-	dir = 4;
-	status = 0
+	dir = 4
 	},
 /obj/structure/bookcase/manuals/xenoarchaeology,
 /turf/simulated/floor/lino,

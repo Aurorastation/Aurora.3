@@ -1,8 +1,8 @@
 /datum/species/tajaran
-	name = "Tajara"
+	name = SPECIES_TAJARA
 	short_name = "taj"
 	name_plural = "Tajara"
-	bodytype = "Tajara"
+	bodytype = BODYTYPE_TAJARA
 	icobase = 'icons/mob/human_races/tajara/r_tajaran.dmi'
 	deform = 'icons/mob/human_races/tajara/r_def_tajaran.dmi'
 	preview_icon = 'icons/mob/human_races/tajara/tajaran_preview.dmi'
@@ -49,7 +49,7 @@
 	heat_level_2 = 380 //Default 400
 	heat_level_3 = 800 //Default 1000
 
-	primitive_form = "Farwa"
+	primitive_form = SPECIES_MONKEY_TAJARA
 
 	spawn_flags = CAN_JOIN | IS_WHITELISTED
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
@@ -75,7 +75,10 @@
 	default_citizenship = CITIZENSHIP_PRA
 	allowed_religions = list(RELIGION_TWINSUNS, RELIGION_MATAKE, RELIGION_RASKARA, RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_MOROZ)
 
-	zombie_type = "Tajara Zombie"
+	default_accent = ACCENT_REPUBICLANSIIK
+	allowed_accents = list(ACCENT_REPUBICLANSIIK, ACCENT_NAZIRASIIK, ACCENT_CREVAN, ACCENT_DASNRRASIIK, ACCENT_HIGHHARRSIIK, ACCENT_LOWHARRSIIK, ACCENT_AMOHDASIIK, ACCENT_OLDYASSA)
+
+	zombie_type = SPECIES_ZOMBIE_TAJARA
 
 /datum/species/tajaran/after_equip(var/mob/living/carbon/human/H)
 	. = ..()

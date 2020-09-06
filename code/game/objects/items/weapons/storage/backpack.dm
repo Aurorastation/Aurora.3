@@ -6,6 +6,7 @@
 /obj/item/storage/backpack
 	name = "backpack"
 	desc = "You wear this on your back and put items into it."
+	description_cult = "This can be reforged to become a cult backpack. Any stored items will be transferred."
 	item_icons = list(//ITEM_ICONS ARE DEPRECATED. USE CONTAINED SPRITES IN FUTURE
 		slot_l_hand_str = 'icons/mob/items/storage/lefthand_backpacks.dmi',
 		slot_r_hand_str = 'icons/mob/items/storage/righthand_backpacks.dmi'
@@ -17,17 +18,17 @@
 		slot_l_hand_str = "backpack",
 		slot_r_hand_str = "backpack"
 		)
-
 	w_class = 4
 	slot_flags = SLOT_BACK
 	max_w_class = 3
 	max_storage_space = 28
-	var/species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+	var/species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/backpack.ogg'
+	pickup_sound = 'sound/items/pickup/backpack.ogg'
 	allow_quick_empty = TRUE
 	empty_delay = 0.5 SECOND
 
-/obj/item/storage/backpack/mob_can_equip(M as mob, slot)
+/obj/item/storage/backpack/mob_can_equip(M as mob, slot, disable_warning = FALSE)
 
 	//if we can't equip the item anyway, don't bother with species_restricted (cuts down on spam)
 	if (!..())
@@ -53,11 +54,6 @@
 				to_chat(H, "<span class='danger'>Your species cannot wear [src].</span>")
 				return 0
 	return 1
-
-/obj/item/storage/backpack/equipped(var/mob/user, var/slot)
-	if (slot == slot_back && src.use_sound)
-		playsound(src.loc, src.use_sound, 50, 1, -5)
-	..(user, slot)
 
 /*
 /obj/item/storage/backpack/dropped(mob/user as mob)
@@ -110,6 +106,7 @@
 /obj/item/storage/backpack/cultpack
 	name = "trophy rack"
 	desc = "It's useful for both carrying extra gear and proudly declaring your insanity."
+	description_cult = null
 	icon_state = "cultpack"
 
 /obj/item/storage/backpack/cultpack/adorned
@@ -178,7 +175,7 @@
 	desc = "It's a Vaurca cloak, with paltry storage options."
 	icon_state = "cape"
 	max_storage_space = 12
-	sprite_sheets = list("Vaurca" = 'icons/mob/species/vaurca/back.dmi')
+	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi')
 
 /obj/item/storage/backpack/syndie
 	name = "syndicate rucksack"
@@ -514,5 +511,5 @@
 	slot_flags = SLOT_BACK
 	max_storage_space = 12
 	canremove = 0
-	species_restricted = list("Vaurca Breeder")
-	sprite_sheets = list("Vaurca Breeder" = 'icons/mob/species/breeder/back.dmi')
+	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/back.dmi')

@@ -18,7 +18,7 @@
 	icon = 'icons/turf/flooring/carpet.dmi'
 	icon_state = "carpet"
 	initial_flooring = /decl/flooring/carpet
-	footstep_sound = "carpet"
+	footstep_sound = /decl/sound_category/carpet_footstep
 
 /turf/simulated/floor/holofloor/tiled
 	name = "floor"
@@ -60,7 +60,7 @@
 	icon = 'icons/turf/flooring/grass.dmi'
 	icon_state = "grass0"
 	initial_flooring = /decl/flooring/grass
-	footstep_sound = "grassstep"
+	footstep_sound = /decl/sound_category/grass_footstep
 
 /turf/simulated/floor/holofloor/snow
 	name = "snow"
@@ -69,14 +69,14 @@
 	base_icon = 'icons/turf/floors.dmi'
 	icon_state = "snow"
 	base_icon_state = "snow"
-	footstep_sound = "gravelstep"
+	footstep_sound = /decl/sound_category/snow_footstep
 
 /turf/simulated/floor/holofloor/reinforced
 	icon = 'icons/turf/flooring/tiles.dmi'
 	initial_flooring = /decl/flooring/reinforced
 	name = "reinforced holofloor"
 	icon_state = "reinforced"
-	footstep_sound = "concretestep"
+	footstep_sound = /decl/sound_category/tiles_footstep
 
 /turf/simulated/floor/holofloor/space
 	icon = 'icons/turf/space.dmi'
@@ -103,7 +103,7 @@
 	base_icon_state = "sand"
 	base_icon = 'icons/misc/beach.dmi'
 	initial_flooring = null
-	footstep_sound = "sand"
+	footstep_sound = /decl/sound_category/sand_footstep
 
 /turf/simulated/floor/holofloor/beach/sand
 	name = "sand"
@@ -113,13 +113,13 @@
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
 	base_icon_state = "sandwater"
-	footstep_sound = "water"
+	footstep_sound = /decl/sound_category/water_footstep
 
 /turf/simulated/floor/holofloor/beach/water
 	name = "water"
 	icon_state = "seashallow"
 	base_icon_state = "seashallow"
-	footstep_sound = "water"
+	footstep_sound = /decl/sound_category/water_footstep
 
 /turf/simulated/floor/holofloor/desert
 	name = "desert sand"
@@ -131,7 +131,7 @@
 	icon = 'icons/turf/flooring/asteroid.dmi'
 	base_icon = 'icons/turf/flooring/asteroid.dmi'
 	initial_flooring = null
-	footstep_sound = "sand"
+	footstep_sound = /decl/sound_category/sand_footstep
 
 /turf/simulated/floor/holofloor/desert/Initialize()
 	. = ..()
@@ -183,7 +183,7 @@
 	return
 
 /obj/structure/window/reinforced/holowindow/shatter(var/display_message = 1)
-	playsound(src, "shatter", 70, 1)
+	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message("[src] fades away as it shatters!")
 	qdel(src)
@@ -225,7 +225,7 @@
 
 /obj/machinery/door/window/holowindoor/shatter(var/display_message = 1)
 	src.density = 0
-	playsound(src, "shatter", 70, 1)
+	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
 	if(display_message)
 		visible_message("[src] fades away as it shatters!")
 	qdel(src)
@@ -243,6 +243,7 @@
 	no_attack_log = 1
 
 /obj/item/holo/esword
+	name = "energy sword"
 	desc = "May the force be within you. Sorta."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sword0"
@@ -252,18 +253,20 @@
 	throwforce = 0
 	w_class = 2.0
 	flags = NOBLOODY
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_energy.dmi',
+		slot_r_hand_str = 'icons/mob/items/weapons/righthand_energy.dmi'
+		)
 	var/active = 0
 	var/item_color
 
 /obj/item/holo/esword/green
-	New()
-		item_color = "green"
+	item_color = "green"
 
 /obj/item/holo/esword/red
-	New()
-		item_color = "red"
+	item_color = "red"
 
-/obj/item/holo/esword/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/holo/esword/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 
@@ -273,7 +276,8 @@
 	return 0
 
 /obj/item/holo/esword/New()
-	item_color = pick("red","blue","green","purple")
+	if(!item_color)
+		item_color = pick("red","blue","green","purple")
 
 /obj/item/holo/esword/attack_self(mob/living/user as mob)
 	active = !active
@@ -308,6 +312,7 @@
 	desc = "Here's your chance, do your dance at the Space Jam."
 	w_class = 4 //Stops people from hiding it in their bags/pockets
 	drop_sound = 'sound/items/drop/basketball.ogg'
+	pickup_sound = 'sound/items/pickup/basketball.ogg'
 
 /obj/structure/holohoop
 	name = "basketball hoop"

@@ -22,14 +22,11 @@
 		/obj/machinery/dna_scannernew,
 		/obj/item/grenade/chem_grenade,
 		/mob/living/bot/medbot,
-		/obj/machinery/computer/pandemic,
 		/obj/item/storage/secure/safe,
 		/obj/machinery/iv_drip,
-		/obj/machinery/disease2/incubator,
 		/obj/machinery/disposal,
 		/mob/living/simple_animal/cow,
 		/mob/living/simple_animal/hostile/retaliate/goat,
-		/obj/machinery/computer/centrifuge,
 		/obj/machinery/sleeper,
 		/obj/machinery/smartfridge,
 		/obj/machinery/biogenerator,
@@ -59,6 +56,8 @@
 /obj/item/reagent_containers/attack(mob/M as mob, mob/user as mob, def_zone)
 	if(can_operate(M) && do_surgery(M, user, src))
 		return
+	if(reagents && !reagents.total_volume && user.a_intent == I_HURT)
+		return ..()
 
 /obj/item/reagent_containers/afterattack(var/atom/target, var/mob/user, var/proximity, var/params)
 	if(!proximity || !is_open_container())
@@ -79,7 +78,7 @@
 		var/obj/O = target
 		if(!(O.flags & NOBLUDGEON) && reagents)
 			reagents.apply_force(O.force)
-		return ..()
+	return ..()
 
 /obj/item/reagent_containers/proc/get_temperature()
 	if(reagents)
@@ -152,7 +151,7 @@
 	return 1
 
 /obj/item/reagent_containers/proc/self_feed_message(var/mob/user)
-	user.visible_message("<span class='notice'>\The [user] drinks from \the [src]</span>","<span class='notice'>You drink from \the [src]</span>")
+	user.visible_message("<b>[user]</b> drinks from \the [src].</span>","<span class='notice'>You drink from \the [src].")
 
 /obj/item/reagent_containers/proc/other_feed_message_start(var/mob/user, var/mob/target)
 	user.visible_message("<span class='warning'>[user] is trying to feed [target] \the [src]!</span>")
@@ -246,6 +245,8 @@
 		return 0
 
 	if(!reagents || !reagents.total_volume)
+		if(force) // bash people!
+			return 0
 		to_chat(user, "<span class='notice'>[src] is empty.</span>")
 		return 1
 

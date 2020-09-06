@@ -69,7 +69,7 @@
 		to_chat(user, "<span class='notice'>[src] passes through [A.name].</span>")
 		return
 	if(istype(A, /obj/item/reagent_containers/glass))
-		to_chat(user, "<span class='notice'>The label can't stick to the [A.name].  (Try using a pen)</span>")
+		to_chat(user, "<span class='notice'>The label can't stick to the [A.name]. (Try using a pen!)</span>")
 		return
 	if(istype(A, /obj/machinery/portable_atmospherics/hydroponics))
 		var/obj/machinery/portable_atmospherics/hydroponics/tray = A
@@ -80,8 +80,8 @@
 		spawn(1)
 			tray.update_icon()
 
-	user.visible_message("<span class='notice'>[user] labels [A] as [label].</span>", \
-						 "<span class='notice'>You label [A] as [label].</span>")
+	user.visible_message("<b>[user]</b> labels [A] as <i>[label]</i>.", \
+						 "<span class='notice'>You label [A] as <i>[label]</i>.</span>")
 
 	// Prevent label stacking from making name unrecoverable.
 	if (!A.name_unlabel)

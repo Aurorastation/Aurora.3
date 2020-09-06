@@ -159,7 +159,7 @@
 	name = "Cargo Technician"
 	jobtype = /datum/job/cargo_tech
 
-	uniform = /obj/item/clothing/under/rank/cargotech
+	uniform = /obj/item/clothing/under/rank/cargo
 	pda = /obj/item/device/pda/cargo
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/brown
@@ -196,7 +196,7 @@
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_mining
 
-	l_hand = /obj/item/storage/toolbox/ka
+	l_hand = /obj/item/coin/mining
 
 	backpack_contents = list(
 		/obj/item/storage/bag/ore = 1
@@ -296,6 +296,7 @@
 	minimal_access = list(access_library)
 	alt_titles = list("Curator", "Tech Support")
 	alt_outfits = list("Curator" = /datum/outfit/job/librarian/curator, "Tech Support" = /datum/outfit/job/librarian/tech_support)
+	title_accesses = list("Tech Support" = access_it)
 	outfit = /datum/outfit/job/librarian
 
 /datum/outfit/job/librarian

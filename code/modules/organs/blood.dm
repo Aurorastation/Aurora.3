@@ -14,24 +14,21 @@
 	if(species && species.flags & NO_BLOOD) //We want the var for safety but we can do without the actual blood.
 		return
 
-	vessel.add_reagent("blood", species.blood_volume)
+	vessel.add_reagent(/datum/reagent/blood, species.blood_volume)
 	fixblood()
 
 //Resets blood data
 /mob/living/carbon/human/proc/fixblood()
 	for(var/datum/reagent/blood/B in vessel.reagent_list)
-		if(B.id == "blood")
+		if(B.type == /datum/reagent/blood)
 			B.data = list(
 				"donor" = WEAKREF(src),
-				"viruses" = null,
 				"species" = species.bodytype,
 				"blood_DNA" = dna.unique_enzymes,
 				"blood_colour" = species.blood_color,
 				"blood_type" = dna.b_type,
 				"resistances" = null,
-				"trace_chem" = null,
-				"virus2" = null,
-				"antibodies" = list()
+				"trace_chem" = null
 			)
 			B.color = B.data["blood_colour"]
 
@@ -44,7 +41,7 @@
 	if(!amt)
 		return
 
-	vessel.remove_reagent("blood",amt)
+	vessel.remove_reagent(/datum/reagent/blood,amt)
 	blood_splatter(tar, src, spray_dir = spraydir)
 
 #define BLOOD_SPRAY_DISTANCE 2
@@ -71,7 +68,7 @@
 						H.bloody_body(src)
 						H.bloody_hands(src)
 						var/blinding = FALSE
-						if(ran_zone("head", 75))
+						if(ran_zone(BP_HEAD, 75))
 							blinding = TRUE
 							for(var/obj/item/I in list(H.head, H.glasses, H.wear_mask))
 								if(I && (I.body_parts_covered & EYES))
@@ -85,15 +82,18 @@
 							to_chat(H, "<span class='danger'>You are hit by a spray of blood!</span>")
 						hit_mob = TRUE
 
-				if(hit_mob || !A.CanPass(src, sprayloc))
-					break
+				if(!(A.CanPass(src, sprayloc)) || hit_mob)
+					continue
+
 			drip(amt, sprayloc, spraydir)
 			bled += amt
+			if(hit_mob)
+				break
 	return bled
 #undef BLOOD_SPRAY_DISTANCE
 
 /mob/living/carbon/human/proc/get_blood_volume()
-	return round((vessel.get_reagent_amount("blood")/species.blood_volume)*100)
+	return round((vessel.get_reagent_amount(/datum/reagent/blood)/species.blood_volume)*100)
 
 /mob/living/carbon/human/proc/get_blood_circulation()
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
@@ -157,10 +157,6 @@
 
 	//set reagent data
 	B.data["donor"] = WEAKREF(src)
-	if (!B.data["virus2"])
-		B.data["virus2"] = list()
-	B.data["virus2"] |= virus_copylist(src.virus2)
-	B.data["antibodies"] = src.antibodies
 	B.data["blood_DNA"] = copytext(src.dna.unique_enzymes,1,0)
 	if(src.resistances && src.resistances.len)
 		if(B.data["resistances"])
@@ -178,8 +174,8 @@
 
 	var/list/temp_chem = list()
 	for(var/datum/reagent/R in src.reagents.reagent_list)
-		temp_chem += R.id
-		temp_chem[R.id] = R.volume
+		temp_chem += R.type
+		temp_chem[R.type] = R.volume
 	B.data["trace_chem"] = list2params(temp_chem)
 	return B
 
@@ -189,22 +185,16 @@
 	if(species && species.flags & NO_BLOOD)
 		return null
 
-	if(vessel.get_reagent_amount("blood") < amount)
+	if(vessel.get_reagent_amount(/datum/reagent/blood) < amount)
 		return null
 
 	. = ..()
-	vessel.remove_reagent("blood",amount) // Removes blood if human
+	vessel.remove_reagent(/datum/reagent/blood,amount) // Removes blood if human
 
 //Transfers blood from container ot vessels
 /mob/living/carbon/proc/inject_blood(var/datum/reagent/blood/injected, var/amount)
 	if (!injected || !istype(injected))
 		return
-	var/list/sniffles = virus_copylist(injected.data["virus2"])
-	for(var/ID in sniffles)
-		var/datum/disease2/disease/sniffle = sniffles[ID]
-		infect_virus2(src,sniffle,1)
-	if (injected.data["antibodies"] && prob(5))
-		antibodies |= injected.data["antibodies"]
 	var/list/chems = list()
 	chems = params2list(injected.data["trace_chem"])
 	for(var/C in chems)
@@ -215,7 +205,7 @@
 /mob/living/carbon/human/inject_blood(var/datum/reagent/blood/injected, var/amount)
 	// In case of mobs without blood, put it in their chem storage.
 	if(species.flags & NO_BLOOD)
-		reagents.add_reagent("blood", amount, injected.data)
+		reagents.add_reagent(/datum/reagent/blood, amount, injected.data)
 		reagents.update_total()
 		return
 
@@ -224,10 +214,10 @@
 	if (!injected || !our)
 		return
 	if(blood_incompatible(injected.data["blood_type"],our.data["blood_type"],injected.data["species"],our.data["species"]) && !(mind && mind.vampire))
-		reagents.add_reagent("toxin",amount * 0.5)
+		reagents.add_reagent(/datum/reagent/toxin,amount * 0.5)
 		reagents.update_total()
 	else
-		vessel.add_reagent("blood", amount, injected.data)
+		vessel.add_reagent(/datum/reagent/blood, amount, injected.data)
 		vessel.update_total()
 	..()
 
@@ -320,10 +310,6 @@ proc/blood_splatter(var/target, var/datum/reagent/blood/source, var/large, var/s
 			B.blood_DNA[source.data["blood_DNA"]] = source.data["blood_type"]
 		else
 			B.blood_DNA[source.data["blood_DNA"]] = "O+"
-
-	// Update virus information.
-	if(source.data["virus2"])
-		B.virus2 = virus_copylist(source.data["virus2"])
 
 	B.fluorescent  = 0
 	B.invisibility = 0

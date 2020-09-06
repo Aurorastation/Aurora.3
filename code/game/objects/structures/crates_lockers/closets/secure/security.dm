@@ -32,6 +32,8 @@
 	new /obj/item/gun/energy/pistol(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/melee/telebaton(src)
+	// acting captain briefcase
+	new /obj/item/storage/briefcase/nt/acap(src)
 
 /obj/structure/closet/secure_closet/captains2
 	name = "captain's attire"
@@ -98,11 +100,8 @@
 	..()
 	new /obj/item/clothing/under/rank/head_of_personnel(src)
 	new /obj/item/clothing/under/dress/dress_hop(src)
-	new /obj/item/clothing/under/dress/dress_hr(src)
-	new /obj/item/clothing/under/lawyer/female(src)
 	new /obj/item/clothing/under/lawyer/black(src)
 	new /obj/item/clothing/under/lawyer/red(src)
-	new /obj/item/clothing/under/lawyer/oldman(src)
 	new /obj/item/clothing/under/rank/head_of_personnel_whimsy(src)
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/shoes/black(src)
@@ -129,14 +128,13 @@
 	new /obj/item/storage/backpack/satchel_sec(src)
 	new /obj/item/clothing/under/rank/head_of_security(src)
 	new /obj/item/clothing/under/rank/head_of_security/corp(src)
-	new /obj/item/clothing/suit/storage/toggle/armor/hos/jensen(src)
+	new /obj/item/clothing/suit/storage/toggle/armor/hos(src)
 	new /obj/item/clothing/suit/armor/hos(src)
 	new /obj/item/clothing/suit/storage/vest/hos(src)
 	new /obj/item/clothing/head/helmet/hos/cap(src)
 	new /obj/item/clothing/head/helmet/hos(src)
 	new /obj/item/clothing/head/beret/sec/hos(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
-	new /obj/item/clothing/shoes/black_boots(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
 	new /obj/item/cartridge/hos(src)
@@ -156,6 +154,7 @@
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/storage/belt/security(src)
+	new /obj/item/storage/box/fancy/keypouch/sec(src)
 
 /obj/structure/closet/secure_closet/hos2
 	name = "head of security's attire"
@@ -217,12 +216,11 @@
 	new /obj/item/clothing/head/helmet/warden/commissar(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/accessory/badge/warden(src)
-	new /obj/item/clothing/shoes/black_boots(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
 	new /obj/item/cartridge/security(src)
-	new /obj/item/device/radio/headset/headset_sec(src)
-	new /obj/item/device/radio/headset/headset_sec/alt(src)
+	new /obj/item/device/radio/headset/headset_warden(src)
+	new /obj/item/device/radio/headset/headset_warden/alt(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	new /obj/item/taperoll/police(src)
@@ -264,7 +262,7 @@
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/hailer(src)
 	new /obj/item/device/holowarrant(src)
-	new /obj/item/device/flashlight/flare(src)
+	new /obj/item/device/flashlight/flare/glowstick/red(src)
 	//Belts
 	if (prob(50))
 		new /obj/item/clothing/accessory/storage/black_vest(src)
@@ -307,7 +305,7 @@
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/hailer(src)
 	new /obj/item/device/holowarrant(src)
-	new /obj/item/device/flashlight/flare(src)
+	new /obj/item/device/flashlight/flare/glowstick/red(src)
 	new /obj/item/handcuffs(src)
 	//Belts
 	if (prob(50))

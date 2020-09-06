@@ -193,8 +193,6 @@
 
 /datum/preferences/proc/dress_preview_mob(var/mob/living/carbon/human/mannequin)
 	copy_to(mannequin)
-	if(!dress_mob)
-		return
 
 	// Determine what job is marked as 'High' priority, and dress them up as such.
 	var/datum/job/previewJob
@@ -230,7 +228,7 @@
 			SSatoms.ForceInitializeContents(mannequin)
 			mannequin.regenerate_icons()
 		else
-			mannequin.update_icons()
+			mannequin.update_icon()
 
 /datum/preferences/proc/update_preview_icon()
 	var/mob/living/carbon/human/dummy/mannequin/mannequin = SSmob.get_mannequin(client.ckey)
@@ -239,24 +237,4 @@
 	if(gender)
 		mannequin.change_gender(gender)
 	dress_preview_mob(mannequin)
-
-	preview_icon = icon('icons/effects/effects.dmi', "nothing")
-	preview_icon.Scale(48+32, 16+32)
-
-	mannequin.dir = NORTH
-	mannequin.update_tail_showing(1)
-	var/icon/stamp = getFlatIcon(mannequin)
-	preview_icon.Blend(stamp, ICON_OVERLAY, 25, 17)
-
-	mannequin.dir = WEST
-	mannequin.update_tail_showing(1)
-	stamp = getFlatIcon(mannequin)
-	preview_icon.Blend(stamp, ICON_OVERLAY, 1, 9)
-
-
-	mannequin.dir = SOUTH
-	mannequin.update_tail_showing(1)
-	stamp = getFlatIcon(mannequin)
-	preview_icon.Blend(stamp, ICON_OVERLAY, 49, 1)
-
-	preview_icon.Scale(preview_icon.Width() * 2, preview_icon.Height() * 2) // Scaling here to prevent blurring in the browser.
+	update_character_previews(new /mutable_appearance(mannequin))

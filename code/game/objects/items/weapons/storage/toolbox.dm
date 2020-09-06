@@ -20,8 +20,10 @@
 	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("robusted")
 	use_sound = 'sound/items/storage/toolbox.ogg'
+	drop_sound = 'sound/items/drop/toolbox.ogg'
+	pickup_sound = 'sound/items/pickup/toolbox.ogg'
+
 	var/stunhit = 0
-	drop_sound = 'sound/items/drop/metalboots.ogg'
 
 /obj/item/storage/toolbox/Initialize()
 	. = ..()
@@ -42,7 +44,7 @@
 	if(prob(50))
 		new /obj/item/device/flashlight(src)
 	else
-		new /obj/item/device/flashlight/flare(src)
+		new /obj/item/device/flashlight/flare/glowstick/red(src)
 
 /obj/item/storage/toolbox/mechanical
 	name = "mechanical toolbox"
@@ -139,9 +141,9 @@
 	if (..())
 		if (contents.len)
 			spill(3, get_turf(M))
-			playsound(M, 'sound/items/trayhit2.ogg', 100, 1)  //sound playin' again
+			playsound(M, /decl/sound_category/tray_hit_sound, 100, 1)  //sound playin' again
 			update_force()
-			user.visible_message(span("danger", "[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
+			user.visible_message(SPAN_DANGER("[user] smashes the [src] into [M], causing it to break open and strew its contents across the area"))
 
 
 /obj/item/storage/toolbox/lunchbox

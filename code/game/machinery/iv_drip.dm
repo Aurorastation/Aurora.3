@@ -79,7 +79,7 @@
 		if(!(get_dist(src, src.attached) <= 1 && isturf(src.attached.loc)))
 			var/obj/item/organ/external/affecting = src.attached.get_organ(pick(BP_R_ARM, BP_L_ARM))
 			src.attached.visible_message("<span class='warning'>The needle is ripped out of [src.attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>", "<span class='danger'>The needle <B>painfully</B> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"].</span>")
-			affecting.take_damage(brute = 5, sharp = 1)
+			affecting.take_damage(brute = 5, damage_flags = DAM_SHARP)
 			src.attached = null
 			src.update_icon()
 			return

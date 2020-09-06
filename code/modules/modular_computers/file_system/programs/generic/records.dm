@@ -11,6 +11,7 @@
 	requires_ntnet = TRUE
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
+	usage_flags = PROGRAM_ALL_REGULAR | PROGRAM_STATIONBOUND
 
 	var/records_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_VIRUS | RECORD_WARRANT | RECORD_LOCKED
 	var/edit_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_VIRUS | RECORD_WARRANT | RECORD_LOCKED
@@ -76,6 +77,12 @@
 	edit_type = RECORD_GENERAL
 	program_icon_state = "employment_record"
 	color = LIGHT_COLOR_BLUE
+
+/datum/computer_file/program/records/pai
+	available_on_ntnet = 1
+	extended_desc = "This program is used to view crew records."
+	usage_flags = PROGRAM_SILICON_PAI
+	edit_type = 0
 
 /datum/computer_file/program/records/New()
 	. = ..()

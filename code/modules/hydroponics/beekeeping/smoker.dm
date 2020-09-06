@@ -3,7 +3,7 @@
 /obj/item/bee_smoker
 	name = "bee smoker"
 	desc = "An archaic contraption that slowly burns welding fuel to create thick clouds of smoke, and directs it with attached bellows, used to control angry bees and calm them before harvesting honey."
-	description_antag = "This device can be used to blind people in short range."
+	desc_antag = "This device can be used to blind people in short range."
 	icon = 'icons/obj/beekeeping.dmi'
 	icon_state ="beesmoker"
 	item_state = "beesmoker"
@@ -51,11 +51,11 @@
 	smoke_at(A)
 
 /obj/item/bee_smoker/proc/get_fuel()
-	return reagents.get_reagent_amount("fuel")
+	return reagents.get_reagent_amount(/datum/reagent/fuel)
 
 /obj/item/bee_smoker/proc/remove_fuel(var/amount = 1, var/mob/M = null)
 	if(get_fuel() >= amount)
-		reagents.remove_reagent("fuel", amount)
+		reagents.remove_reagent(/datum/reagent/fuel, amount)
 		return TRUE
 	else
 		if(M)

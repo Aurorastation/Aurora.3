@@ -5,6 +5,7 @@
 	flags = SS_NO_FIRE
 	var/list/datum/feed_channel/network_channels = list()
 	var/datum/feed_message/wanted_issue
+	var/list/forum_topics
 
 /datum/controller/subsystem/news/Recover()
 	src.network_channels = SSnews.network_channels
@@ -17,37 +18,97 @@
 	CreateFeedChannel("Station Announcements", "Automatic Announcement System", 1, 1, "New Station Announcement Available")
 	CreateFeedChannel("Tau Ceti Daily", "CentComm Minister of Information", 1, 1)
 	CreateFeedChannel("The Gibson Gazette", "Editor Carl Ritz", 1, 1)
-	if(config.sql_enabled)
-		load_from_sql()
+
+	if (config.news_use_forum_api)
+		load_forum_news_config()
+
+		INVOKE_ASYNC(src, .proc/load_from_forums)
+
 	..()
 
-/datum/controller/subsystem/news/proc/load_from_sql()
-	if(!establish_db_connection(dbcon))
-		log_debug("SSnews: SQL ERROR - Failed to connect.")
+/datum/controller/subsystem/news/proc/load_from_forums()
+	if (!config.forum_api_path || !global.forum_api_key)
+		log_debug("SSnews: Unable to load from forums, API path or key not set up.")
 		return
-	var/DBQuery/channel_query = dbcon.NewQuery("SELECT id, name, author, locked, is_admin_channel, announcement FROM ss13_news_channels WHERE deleted_at IS NULL ORDER BY name ASC")
-	channel_query.Execute()
-	while(channel_query.NextRow())
-		CHECK_TICK
-		var/datum/feed_channel/channel = null
-		try
-			channel = CreateFeedChannel(
-				channel_query.item[2],
-				channel_query.item[3],
-				text2num(channel_query.item[4]),
-				text2num(channel_query.item[5]),
-				channel_query.item[6])
-		catch(var/exception/ec)
-			log_debug("SSnews: Error when loading channel: [ec]")
+
+	if (!length(forum_topics))
+		return
+
+	for (var/topic_id in forum_topics)
+		var/datum/http_request/forum_api/initial = new("forums/topics")
+		initial.prepare_get("[topic_id]")
+		initial.begin_async()
+		UNTIL(initial.is_complete())
+
+		var/datum/http_response/initial_response = initial.into_response()
+		if (initial_response.errored)
+			testing("Errored: [initial_response.error]")
+			log_debug("SSnews: errored: [initial_response.error]")
 			continue
-		var/DBQuery/news_query = dbcon.NewQuery("SELECT body, author, is_admin_message, message_type, ic_timestamp, url FROM ss13_news_stories WHERE deleted_at IS NULL AND channel_id = :channel_id: AND publish_at < NOW() AND (publish_until > NOW() OR publish_until IS NULL) AND approved_at IS NOT NULL ORDER BY publish_at DESC")
-		news_query.Execute(list("channel_id" = channel_query.item[1]))
-		while(news_query.NextRow())
-			CHECK_TICK
-			try
-				SubmitArticle(news_query.item[1], news_query.item[2], channel, null, text2num(news_query.item[3]), news_query.item[4], news_query.item[5])
-			catch(var/exception/en)
-				log_debug("SSnews: Error when loading news: [en]")
+
+
+		var/list/forum_topic = initial_response.body
+		var/datum/feed_channel/channel = CreateFeedChannel(
+			forum_topic["title"], "System", TRUE, TRUE, FALSE
+		)
+
+		var/datum/http_request/forum_api/posts = new("forums/topics")
+		posts.prepare_get("[topic_id]/posts", list("sortDir" = "desc", "hidden" = 0, "page" = 1, "perPage" = 20))
+		posts.begin_async()
+		UNTIL(posts.is_complete())
+
+		var/datum/http_response/posts_response = posts.into_response()
+		if (posts_response.errored)
+			log_debug("SSnews: errored getting posts from [topic_id]: [posts_response.error]")
+			continue
+
+		var/list/forum_posts = posts_response.body
+
+		var/news_count = 1
+		var/archive_limit = 10
+		var/total_vol_count = forum_posts["totalResults"]
+		var/count_pulled = length(forum_posts["results"])
+
+		if (total_vol_count < 20)
+			archive_limit = total_vol_count - archive_limit
+
+		for (var/i = count_pulled; i > 0; i--)
+			var/list/post = forum_posts["results"][i]
+
+			if (news_count > archive_limit)
+				SubmitArticle(
+					post["content"], GetForumAuthor(topic_id, post["id"]), channel,
+					null, FALSE, "Story", GetForumTimestamp(post["date"])
+				)
+
+			var/datum/computer_file/data/news_article/news = new()
+			news.filename = "[channel.channel_name] vol. [total_vol_count - count_pulled + news_count]"
+			news.stored_data = post["content"]
+			ntnet_global.available_news.Add(news)
+
+			if (news_count > archive_limit)
+				news.archived = 1
+			else
+				news.archived = 0
+
+			news_count++
+
+/datum/controller/subsystem/news/proc/load_forum_news_config()
+	var/json = file2text("config/news.json")
+
+	if (!length(json))
+		return
+
+	try
+		var/list/data = json_decode(json)
+		if (!data["news_topics"] || !length(data["news_topics"]))
+			return
+
+		forum_topics = data["news_topics"]
+		forum_topics -= "_comment"
+
+	catch(var/exception/e)
+		log_debug("SSnews: error loading news.json. [e]")
 
 /datum/controller/subsystem/news/proc/GetFeedChannel(var/channel_name)
 	if(network_channels[channel_name])
@@ -71,7 +132,7 @@
 	if(!channel)
 		log_debug("SSnews: Attempted to submit a article from [author] without a proper channel",SEVERITY_ERROR)
 		return
-	
+
 	var/datum/feed_message/newMsg = new /datum/feed_message
 	newMsg.author = author
 	newMsg.body = msg
@@ -106,10 +167,32 @@
 		if (P.toff)
 			continue
 		receiving_pdas += P
-		
+
 	for(var/obj/item/device/pda/PDA in receiving_pdas)
 		PDA.new_news(annoncement)
 
+/datum/controller/subsystem/news/proc/GetForumAuthor(topic_id, post_id)
+	topic_id = "[topic_id]"
+	post_id = text2num(post_id)
+
+	if (!forum_topics[topic_id])
+		return prob(50) ? "John Doe" : "Jane Doe"
+
+	var/list/authors = forum_topics[topic_id]
+	var/idx = post_id % authors.len
+	return authors[idx + 1]
+
+/datum/controller/subsystem/news/proc/GetForumTimestamp(timestamp)
+	// Input format is: 2020-05-10T16:34:50Z
+
+	timestamp = replacetextEx(timestamp, "T", " ")
+	timestamp = replacetextEx(timestamp, "Z", "")
+
+	var/year = text2num(copytext(timestamp, 1, 5))
+	var/new_year = year + 442
+	timestamp = replacetext(timestamp, "[year]", "[new_year]")
+
+	return timestamp
 
 /datum/feed_message
 	var/author =""

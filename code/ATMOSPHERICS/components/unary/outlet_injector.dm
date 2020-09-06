@@ -3,12 +3,13 @@
 //When it receives the "inject" signal, it will try to pump it's entire contents into the environment regardless of pressure, using power.
 
 /obj/machinery/atmospherics/unary/outlet_injector
+	name = "air injector"
+	desc = "Passively injects air into its surroundings. Has a valve attached to it that can control flow rate."
+	desc_info = "Outputs the pipe's gas into the atmosphere, similar to an airvent.  It can be controlled by a nearby atmospherics computer. \
+	A green light on it means it is on."
 	icon = 'icons/atmos/injector.dmi'
 	icon_state = "map_injector"
 	layer = 3
-
-	name = "air injector"
-	desc = "Passively injects air into its surroundings. Has a valve attached to it that can control flow rate."
 
 	use_power = 0
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
@@ -21,6 +22,8 @@
 	var/frequency = 0
 	var/id = null
 	var/datum/radio_frequency/radio_connection
+
+	var/broadcast_status_next_process = FALSE
 
 	level = 1
 
@@ -54,9 +57,13 @@
 	last_power_draw = 0
 	last_flow_rate = 0
 
+	if (broadcast_status_next_process)
+		broadcast_status()
+		broadcast_status_next_process = FALSE
+
 	if((stat & (NOPOWER|BROKEN)) || !use_power)
 		return
-	
+
 	var/power_draw = -1
 	var/datum/gas_mixture/environment = loc.return_air()
 	
@@ -142,10 +149,10 @@
 		volume_rate = between(0, number, air_contents.volume)
 
 	if(signal.data["status"])
-		addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+		broadcast_status_next_process = TRUE
 		return //do not update_icon
 
-	addtimer(CALLBACK(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+	broadcast_status_next_process = TRUE
 	update_icon()
 
 /obj/machinery/atmospherics/unary/outlet_injector/hide(var/i)

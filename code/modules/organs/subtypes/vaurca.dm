@@ -37,14 +37,14 @@
 
 /obj/item/organ/internal/kidneys/vaurca/robo
 	icon_state = "kidney_vaurca"
-	organ_tag = "mechanical kidneys"
+	organ_tag = BP_VAURCA_KIDNEYS
 	robotic = 2
 	robotic_name = null
 	robotic_sprite = null
 
 /obj/item/organ/internal/liver/vaurca/robo
 	icon_state = "liver_vaurca"
-	organ_tag = "mechanical liver"
+	organ_tag = BP_VAURCA_LIVER
 	robotic = 2
 	robotic_name = null
 	robotic_sprite = null
@@ -56,22 +56,22 @@
 	icon_state = "brain_vaurca"
 
 /obj/item/organ/vaurca/reservoir
-	name = "phoron reservoir"
-	organ_tag = "phoron reservoir"
+	name = BP_PHORON_RESERVOIR
+	organ_tag = BP_PHORON_RESERVOIR
 	parent_organ = BP_CHEST
 	icon_state = "phoron_reservoir"
 	robotic = 1
 
 /obj/item/organ/vaurca/filtrationbit
-	name = "filtration bit"
-	organ_tag = "filtration bit"
+	name = BP_FILTRATION_BIT
+	organ_tag = BP_FILTRATION_BIT
 	parent_organ = BP_HEAD
 	icon_state = "filter"
 	robotic = 2
 
 /obj/item/organ/vaurca/neuralsocket
-	name = "neural socket"
-	organ_tag = "neural socket"
+	name = BP_NEURAL_SOCKET
+	organ_tag = BP_NEURAL_SOCKET
 	icon_state = "neural_socket"
 	parent_organ = BP_HEAD
 	robotic = 2
@@ -100,8 +100,8 @@ obj/item/organ/vaurca/neuralsocket/process()
 	..()
 
 /obj/item/organ/vaurca/preserve
-	name = "phoron reserve tank"
-	organ_tag = "phoron reserve tank"
+	name = BP_PHORON_RESERVE
+	organ_tag = BP_PHORON_RESERVE
 	parent_organ = BP_CHEST
 	icon_state = "breathing_app"
 	robotic = 1
@@ -114,7 +114,7 @@ obj/item/organ/vaurca/neuralsocket/process()
 	. = ..()
 
 	air_contents = new /datum/gas_mixture()
-	air_contents.adjust_gas("phoron", (ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
+	air_contents.adjust_gas(GAS_PHORON, (ONE_ATMOSPHERE)*volume/(R_IDEAL_GAS_EQUATION*T20C))
 	air_contents.volume = volume //liters
 	air_contents.temperature = T20C
 	distribute_pressure = ((pick(2.4,2.8,3.2,3.6)*ONE_ATMOSPHERE)*O2STANDARD)

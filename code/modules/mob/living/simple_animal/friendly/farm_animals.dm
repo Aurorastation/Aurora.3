@@ -227,8 +227,8 @@
 		if(G.seed && G.seed.kitchen_tag == "wheat")
 			if(!stat && eggsleft < 8)
 				user.visible_message(
-					span("notice", "\The [user] feeds \the [O] to \the [name]! It clucks happily."),
-					span("notice", "You feed \the [O] to \the [name]! It clucks happily."),
+					SPAN_NOTICE("\The [user] feeds \the [O] to \the [name]! It clucks happily."),
+					SPAN_NOTICE("You feed \the [O] to \the [name]! It clucks happily."),
 					"You hear a cluck.")
 				user.drop_from_inventory(O,get_turf(src))
 				qdel(O)

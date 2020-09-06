@@ -15,14 +15,17 @@
 	is_hole = TRUE
 
 	permit_ao = FALSE
+	var/use_space_appearance = TRUE
+	var/use_starlight = TRUE
 
 /turf/space/dynamic //For use in edge cases where you want the turf to not be completely lit, like in places where you have placed lattice.
 	dynamic_lighting = 1
 
 // Copypaste of parent for performance.
 /turf/space/Initialize()
-	appearance = SSicon_cache.space_cache["[((x + y) ^ ~(x * y) + z) % 25]"]
-	if (config.starlight)
+	if(use_space_appearance)
+		appearance = SSicon_cache.space_cache["[((x + y) ^ ~(x * y) + z) % 25]"]
+	if(config.starlight && use_starlight)
 		update_starlight()
 
 	if (initialized)
@@ -80,7 +83,7 @@
 		var/obj/item/stack/rods/R = C
 		if (R.use(1))
 			to_chat(user, "<span class='notice'>Constructing support lattice ...</span>")
-			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
 			ReplaceWithLattice()
 		return
 
@@ -91,7 +94,7 @@
 			if (S.get_amount() < 1)
 				return
 			qdel(L)
-			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
 			S.use(1)
 			ChangeTurf(/turf/simulated/floor/airless, keep_air = TRUE)
 			return

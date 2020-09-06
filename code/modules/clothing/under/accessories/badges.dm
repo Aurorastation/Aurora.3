@@ -17,6 +17,7 @@
 	var/v_flippable = 1
 
 	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
 
 /obj/item/clothing/accessory/badge/press
 	name = "corporate press pass"
@@ -28,6 +29,7 @@
 	w_class = 1
 
 	drop_sound = 'sound/items/drop/rubber.ogg'
+	pickup_sound = 'sound/items/pickup/rubber.ogg'
 
 /obj/item/clothing/accessory/badge/press/independent
 	name = "press pass"
@@ -117,6 +119,7 @@
 	slot_flags = SLOT_MASK | SLOT_TIE
 
 	drop_sound = 'sound/items/drop/ring.ogg'
+	pickup_sound = 'sound/items/pickup/ring.ogg'
 
 /obj/item/clothing/accessory/badge/holo/attack_self(mob/user as mob)
 	if(!stored_name)
@@ -176,6 +179,7 @@
 	badge_string = "Priority ASSN Visa Applicant"
 
 	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /obj/item/clothing/accessory/badge/tcfl_papers
 	name = "\improper TCFL enlistment"
@@ -186,6 +190,7 @@
 	badge_string = "Tau Ceti Foreign Legion Recruit"
 
 	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /obj/item/clothing/accessory/badge/sheriff
 	name = "sheriff badge"

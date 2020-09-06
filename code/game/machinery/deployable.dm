@@ -60,6 +60,8 @@ for reference:
 	desc = "This space is blocked off by a barricade."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "barricade"
+
+	build_amt = 5
 	anchored = 1.0
 	density = 1.0
 	var/health = 100
@@ -111,11 +113,6 @@ for reference:
 			qdel(src)
 			return
 		..()
-
-/obj/structure/barricade/proc/dismantle()
-	material.place_dismantled_product(get_turf(src))
-	qdel(src)
-	return
 
 /obj/structure/barricade/ex_act(severity)
 	switch(severity)
@@ -279,15 +276,15 @@ for reference:
 	var/assembly_time = 8 SECONDS
 
 /obj/item/deployable_kit/attack_self(mob/user)
-	to_chat(user, span("notice","You start assembling \the [src]..."))
+	to_chat(user, SPAN_NOTICE("You start assembling \the [src]..."))
 	if(do_after(user, assembly_time))
 		assemble_kit(user)
 		qdel(src)
 
 /obj/item/deployable_kit/proc/assemble_kit(mob/user)
-	playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)
+	playsound(src.loc, 'sound/items/screwdriver.ogg', 25, 1)
 	var/atom/A = new kit_product(user.loc)
-	user.visible_message(span("notice","[user] assembles \a [A]."),span("notice","You assemble \a [A]."))
+	user.visible_message(SPAN_NOTICE("[user] assembles \a [A]."), SPAN_NOTICE("You assemble \a [A]."))
 	A.add_fingerprint(user)
 
 /obj/item/deployable_kit/legion_barrier
@@ -327,6 +324,7 @@ for reference:
 	icon_state = "blaster_turret_kit"
 	item_state = "table_parts"
 	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 	w_class = 4
 	kit_product = /obj/machinery/porta_turret/legion
 	assembly_time = 15 SECONDS
@@ -340,3 +338,24 @@ for reference:
 	w_class = 3
 	kit_product = /obj/machinery/iv_drip
 	assembly_time = 4 SECONDS
+
+/obj/item/deployable_kit/remote_mech
+	name = "mech control centre assembly kit"
+	desc = "A quick assembly kit to put together a mech control centre."
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "barrier_kit"
+	w_class = ITEMSIZE_LARGE
+	kit_product = /obj/structure/bed/chair/remote/mech/portable
+	assembly_time = 20 SECONDS
+
+/obj/item/deployable_kit/remote_mech/attack_self(mob/user)
+	var/area/A = get_area(user)
+	if(!A.powered(EQUIP))
+		to_chat(user, SPAN_WARNING("\The [src] can not be deployed in an unpowered area."))
+		return FALSE
+	..()
+
+/obj/item/deployable_kit/remote_mech/brig
+	name = "brig mech control centre assembly kit"
+	desc = "A quick assembly kit to put together a brig mech control centre."
+	kit_product = /obj/structure/bed/chair/remote/mech/prison/portable

@@ -107,7 +107,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
 
 /obj/item/clothing/suit/storage/toggle/labcoat/biochemist
-	name = "biochemist labcoat"
+	name = "protective labcoat"
 	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Has a red stripe on the shoulder."
 	icon_state = "labcoat_vir_open"
 	icon_open = "labcoat_vir_open"
@@ -159,11 +159,11 @@
 	icon_state = "labcoat_zeng_open"
 	icon_open = "labcoat_zeng_open"
 	icon_closed = "labcoat_zeng"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)	
+	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
 
-/obj/item/clothing/suit/storage/toggle/labcoat/necro
-	name = "necropolis labcoat"
-	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Comes in Necropolis colours."
+/obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
+	name = "Zavodskoi Interstellar labcoat"
+	desc = "A suit that protects against minor chemical spills. Offers slightly more protection against biohazards than the standard model. Comes in Zavodskoi Interstellar colours."
 	icon_state = "labcoat_necro_open"
 	icon_open = "labcoat_necro_open"
 	icon_closed = "labcoat_necro"
@@ -176,4 +176,3 @@
 	icon_open = "labcoat_heph_open"
 	icon_closed = "labcoat_heph"
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 60, rad = 0)
-	

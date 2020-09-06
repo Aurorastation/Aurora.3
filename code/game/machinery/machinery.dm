@@ -347,7 +347,7 @@ Class Procs:
 		return 0
 	if(!LAZYLEN(component_parts))
 		return 0
-
+	var/parts_replaced = FALSE
 	if(panel_open)
 		var/obj/item/circuitboard/CB = locate(/obj/item/circuitboard) in component_parts
 		var/P
@@ -383,6 +383,7 @@ Class Procs:
 						component_parts += B
 						B.forceMove(src)
 						to_chat(user, "<span class='notice'>[A.name] replaced with [B.name].</span>")
+						parts_replaced = TRUE
 						break
 		RefreshParts()
 		update_icon()
@@ -390,10 +391,12 @@ Class Procs:
 		to_chat(user, "<span class='notice'>Following parts detected in the machine:</span>")
 		for(var/obj/item/C in component_parts)
 			to_chat(user, "<span class='notice'>    [C.name]</span>")
+	if(parts_replaced) //only play sound when RPED actually replaces parts
+		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
 	return 1
 
 /obj/machinery/proc/dismantle()
-	playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
+	playsound(loc, /decl/sound_category/crowbar_sound, 50, 1)
 	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(loc)
 	M.set_dir(src.dir)
 	M.state = 3
@@ -423,7 +426,10 @@ Class Procs:
 	printing = FALSE
 
 /obj/machinery/proc/do_hair_pull(mob/living/carbon/human/H)
-	if(!ishuman(H))
+	if(stat & (NOPOWER|BROKEN))
+		return
+
+	if(!istype(H))
 		return
 
 	//for whatever reason, skrell's tentacles have a really long length
@@ -434,16 +440,16 @@ Class Procs:
 
 	var/datum/sprite_accessory/hair/hair_style = hair_styles_list[H.h_style]
 	for(var/obj/item/protection in list(H.head))
-		if(protection && (protection.flags_inv & BLOCKHAIR))
+		if(protection && (protection.flags_inv & BLOCKHAIR|BLOCKHEADHAIR))
 			return
 
-	if(hair_style.length >= 4)
-		if(prob(25))
-			H.apply_damage(30, BRUTE, BP_HEAD)
-			H.visible_message("<span class='danger'>[H]'s hair catches in \the [src]!</span>", "<span class='danger'>Your hair gets caught in \the [src]!</span>")
-			if(H.can_feel_pain())
-				H.emote("scream")
-				H.apply_damage(45, PAIN)
+	if(hair_style.length >= 4 && prob(25))
+		H.apply_damage(30, BRUTE, BP_HEAD)
+		H.visible_message(SPAN_DANGER("\The [H]'s hair catches in \the [src]!"),
+					SPAN_DANGER("Your hair gets caught in \the [src]!"))
+		if(H.can_feel_pain())
+			H.emote("scream")
+			H.apply_damage(45, PAIN)
 
 /obj/machinery/proc/do_signaler() // override this to customize effects
 	return

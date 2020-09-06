@@ -49,7 +49,7 @@
 	name = "Heavy Armor Kit"
 	item_cost = 4
 	path = /obj/item/storage/box/syndie_kit/armor
-	desc = "A heavy armour set consisting of a vest and a helmet. Not EVA capable."
+	desc = "A heavy armor set consisting of a full kit. Not EVA capable."
 
 /datum/uplink_item/item/tools/encryptionkey_radio
 	name = "Encrypted Radio Channel Key"
@@ -67,6 +67,12 @@
 	name = "Cryptographic Sequencer"
 	item_cost = 6
 	path = /obj/item/card/emag
+
+/datum/uplink_item/item/tools/personal_shield
+	name = "Personal Shield"
+	desc = "A personal shield that, when kept in your hand and activated, will protect its user from five projectile shots."
+	item_cost = 6
+	path = /obj/item/device/personal_shield
 
 /datum/uplink_item/item/tools/hacking_tool
 	name = "Door Hacking Tool"
@@ -184,3 +190,20 @@
 	item_cost = 6
 	path = /obj/item/device/radio/electropack
 	desc = "A backpack wired with electrodes. Sync up with a signaller, attach to an unwilling host and pulse the signal to shock them."
+
+/datum/uplink_item/item/tools/ammo_display
+	name = "Holographic Ammo Display"
+	item_cost = 2
+	path = /obj/item/ammo_display
+
+/datum/uplink_item/item/tools/mesons_glasses
+	name = "Mesons Scanners"
+	desc = "These glasses make use of meson-scanning technology to allow the wearer to see through solid walls and floors."
+	item_cost = 2
+	path = /obj/item/clothing/glasses/meson
+
+/datum/uplink_item/item/tools/materials_glasses
+	name = "Optical Material Scanner"
+	desc = "These glasses make use of scanning technology to allow the wearer to see objects through solid walls and floors."
+	item_cost = 2
+	path = /obj/item/clothing/glasses/material

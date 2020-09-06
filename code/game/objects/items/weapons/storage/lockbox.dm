@@ -42,7 +42,7 @@
 				var/obj/item/melee/energy/blade/blade = W
 				blade.spark_system.queue()
 				playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
-				playsound(src.loc, "sparks", 50, 1)
+				playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
 		if(!locked)
 			..()
 		else
@@ -81,6 +81,14 @@
 	starts_with = list(
 		/obj/item/implantcase/loyalty = 3,
 		/obj/item/implanter/loyalty = 1
+	)
+
+/obj/item/storage/lockbox/anti_augment
+	name = "lockbox of augmentation disrupter implants"
+	req_access = list(access_security)
+	starts_with = list(
+		/obj/item/implantcase/anti_augment = 3,
+		/obj/item/implanter/anti_augment = 1
 	)
 
 /obj/item/storage/lockbox/clusterbang

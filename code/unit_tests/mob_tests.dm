@@ -480,7 +480,7 @@ datum/unit_test/mob_damage/diona/clone
 datum/unit_test/mob_damage/diona/halloss
 	name = "MOB: Diona Halloss Damage Check"
 	damagetype = PAIN
-	expected_vulnerability = IMMUNE
+	expected_vulnerability = ARMORED
 
 // =================================================================
 // SPECIAL WHITTLE SNOWFLAKES aka IPC

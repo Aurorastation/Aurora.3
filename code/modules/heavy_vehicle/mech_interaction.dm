@@ -47,7 +47,7 @@
 				selected_system.attack_self(user)
 				setClickCooldown(5)
 			return
-	
+
 	if(modifiers["ctrl"])
 		if(selected_system)
 			if(selected_system == A)
@@ -79,7 +79,7 @@
 		to_chat(user, "<span class='warning'>Error: Power levels insufficient.</span>")
 
 	if(user != src)
-		a_intent = user.a_intent
+		set_intent(user.a_intent)
 		if(user.zone_sel)
 			zone_sel.set_selected_zone(user.zone_sel.selecting)
 		else
@@ -164,6 +164,20 @@
 		return A.attack_generic(src, arms.melee_damage, "attacked")
 	return
 
+/mob/living/heavy_vehicle/setClickCooldown(var/timeout)
+	next_move = max(world.time + timeout, next_move)
+	for(var/hardpoint in hardpoint_hud_elements)
+		var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
+		if(H)
+			H.color = "#FF0000"
+	addtimer(CALLBACK(src, .proc/reset_hardpoint_color), timeout)
+
+/mob/living/heavy_vehicle/proc/reset_hardpoint_color()
+	for(var/hardpoint in hardpoint_hud_elements)
+		var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
+		if(H)
+			H.color = null
+
 /mob/living/heavy_vehicle/proc/set_hardpoint(var/hardpoint_tag)
 	clear_selected_hardpoint()
 	if(hardpoints[hardpoint_tag])
@@ -179,7 +193,7 @@
 		for(var/hardpoint in hardpoints)
 			if(hardpoint != selected_hardpoint)
 				continue
-			var/obj/screen/movable/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
+			var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
 			if(istype(H))
 				H.icon_state = "hardpoint"
 				break
@@ -202,7 +216,7 @@
 		return
 	if(!instant)
 		to_chat(user, "<span class='notice'>You start climbing into \the [src]...</span>")
-		if(!do_after(user, 30))
+		if(!do_after(user, entry_speed))
 			return
 	if(!user || user.incapacitated())
 		return
@@ -258,15 +272,14 @@
 		user.client.screen -= hud_elements
 		user.client.eye = user
 	if(user in pilots)
-		a_intent = I_HURT
+		set_intent(I_HURT)
 		LAZYREMOVE(pilots, user)
 		UNSETEMPTY(pilots)
 		update_pilot_overlay()
 	return
 
 /mob/living/heavy_vehicle/relaymove(var/mob/living/user, var/direction)
-
-	if(world.time < next_move)
+	if(world.time < next_mecha_move)
 		return 0
 
 	if(!user || incapacitated() || user.incapacitated() || lockdown)
@@ -274,15 +287,15 @@
 
 	if(!legs)
 		to_chat(user, "<span class='warning'>\The [src] has no means of propulsion!</span>")
-		next_move = world.time + 3 // Just to stop them from getting spammed with messages.
+		next_mecha_move = world.time + 3 // Just to stop them from getting spammed with messages.
 		return
 
 	if(!legs.motivator || legs.total_damage > 45)
 		to_chat(user, "<span class='warning'>Your motivators are damaged! You can't move!</span>")
-		next_move = world.time + 15
+		next_mecha_move = world.time + 15
 		return
 
-	next_move = world.time + legs.move_delay
+	next_mecha_move = world.time + legs.move_delay
 
 	if(maintenance_protocols)
 		to_chat(user, "<span class='warning'>Maintenance protocols are in effect.</span>")
@@ -305,8 +318,16 @@
 		get_cell()?.use(legs.power_use * CELLRATE)
 		if(legs && legs.mech_turn_sound)
 			playsound(src.loc,legs.mech_turn_sound,40,1)
-		next_move = world.time + legs.turn_delay
+		next_mecha_move = world.time + legs.turn_delay
 		set_dir(direction)
+		if(istype(hardpoints[HARDPOINT_BACK], /obj/item/mecha_equipment/shield))
+			var/obj/item/mecha_equipment/shield/S = hardpoints[HARDPOINT_BACK]
+			if(S.aura)
+				S.aura.dir = direction
+				if(S.aura.dir == NORTH)
+					S.aura.layer = MECH_UNDER_LAYER
+				else
+					S.aura.layer = ABOVE_MOB_LAYER
 		update_icon()
 
 /mob/living/heavy_vehicle/Move()
@@ -338,7 +359,29 @@
 
 	else
 		if(user.a_intent != I_HURT)
-			if(thing.ismultitool())
+			if(istype(thing, /obj/item/remote_mecha))
+				if(length(pilots))
+					to_chat(user, SPAN_WARNING("You can't apply this upgrade while \the [src] has occupants!"))
+					return
+				if(!maintenance_protocols)
+					to_chat(user, SPAN_WARNING("You are unable to apply this upgrade while \the [src]'s maintenance protocols are not active."))
+					return
+				user.visible_message(SPAN_NOTICE("\The [user] begins installing \the [thing] into \the [src]..."), SPAN_NOTICE("You begin installing the [thing] into \the [src]..."))
+				if(do_after(user, 30, TRUE, src))
+					if(length(pilots))
+						to_chat(user, SPAN_WARNING("You can't apply this upgrade while \the [src] has occupants!"))
+						return
+					if(!maintenance_protocols)
+						to_chat(user, SPAN_WARNING("You are unable to apply this upgrade while \the [src]'s maintenance protocols are not active."))
+						return
+					var/obj/item/remote_mecha/RM = thing
+					user.visible_message(SPAN_NOTICE("\The [user] installs \the [thing] into \the [src]."), SPAN_NOTICE("You install the [thing] into \the [src]."))
+					remote_network = RM.mech_remote_network
+					does_hardpoint_lock = RM.hardpoint_lock
+					dummy_type = RM.dummy_path
+					become_remote()
+					qdel(thing)
+			else if(thing.ismultitool())
 				if(hardpoints_locked)
 					to_chat(user, "<span class='warning'>Hardpoint system access is disabled.</span>")
 					return
@@ -356,12 +399,23 @@
 				return
 
 			else if(thing.iswrench())
-				if(!maintenance_protocols)
-					to_chat(user, "<span class='warning'>The securing bolts are not visible while maintenance protocols are disabled.</span>")
+				if(length(pilots))
+					to_chat(user, SPAN_WARNING("You can't disassemble \the [src] while it has a pilot!"))
 					return
-				to_chat(user, "<span class='notice'>You dismantle \the [src].</span>")
-				dismantle()
-				return
+				if(!maintenance_protocols)
+					to_chat(user, SPAN_WARNING("The securing bolts are not visible while maintenance protocols are disabled."))
+					return
+				user.visible_message(SPAN_NOTICE("\The [user] starts dismantling \the [src]..."), SPAN_NOTICE("You start disassembling \the [src]..."))
+				if(do_after(user, 30, TRUE, src))
+					if(length(pilots))
+						to_chat(user, SPAN_WARNING("You can't disassemble \the [src] while it has a pilot!"))
+						return
+					if(!maintenance_protocols)
+						to_chat(user, SPAN_WARNING("The securing bolts are not visible while maintenance protocols are disabled."))
+						return
+					user.visible_message(SPAN_NOTICE("\The [user] dismantles \the [src]."), SPAN_NOTICE("You disassemble \the [src]."))
+					dismantle()
+					return
 			else if(thing.iswelder())
 				if(!getBruteLoss())
 					return
@@ -397,7 +451,7 @@
 
 				user.put_in_hands(body.cell)
 				to_chat(user, "<span class='notice'>You remove \the [body.cell] from \the [src].</span>")
-				playsound(user.loc, 'sound/items/Crowbar.ogg', 50, 1)
+				playsound(user.loc, thing.usesound, 50, 1)
 				visible_message("<span class='notice'>\The [user] pries out \the [body.cell] using the \the [thing].</span>")
 				body.cell = null
 				return
@@ -413,8 +467,14 @@
 					thing.forceMove(body)
 					body.cell = thing
 					to_chat(user, "<span class='notice'>You install \the [body.cell] into \the [src].</span>")
-					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+					playsound(user.loc, 'sound/items/screwdriver.ogg', 50, 1)
 					visible_message("<span class='notice'>\The [user] installs \the [body.cell] into \the [src].</span>")
+				return
+			else if(istype(thing, /obj/item/device/robotanalyzer))
+				to_chat(user, SPAN_NOTICE("Diagnostic Report for \the [src]:"))
+				for(var/obj/item/mech_component/limb in list (head, body, arms, legs))
+					if(limb)
+						limb.return_diagnostics(user)
 				return
 
 	return ..()

@@ -26,6 +26,10 @@ obj/item/clothing/suit/apron/colored
 	icon_state = "overalls"
 	item_state = "overalls"
 
+/obj/item/clothing/suit/apron/overalls/random/Initialize()
+	. = ..()
+	color = get_random_colour(lower = 150)
+	
 obj/item/clothing/suit/apron/overalls/blue
 	color = "#3429d1"
 
@@ -62,7 +66,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	item_state = "chaplain_hoodie"
 	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
+	sprite_sheets = list(BODYTYPE_VOX = 'icons/mob/species/vox/suit.dmi')
 
 //Chaplain
 /obj/item/clothing/suit/nun
@@ -73,7 +77,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	flags_inv = HIDESHOES|HIDEJUMPSUIT
 	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/storage/bible,/obj/item/nullrod,/obj/item/reagent_containers/food/drinks/bottle/holywater)
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
+	sprite_sheets = list(BODYTYPE_VOX = 'icons/mob/species/vox/suit.dmi')
 
 //Chef
 /obj/item/clothing/suit/chef
@@ -128,7 +132,7 @@ obj/item/clothing/suit/apron/overalls/blue
 	blood_overlay_type = "coat"
 	contained_sprite = TRUE
 	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
+	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
 	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0.7
 
@@ -141,9 +145,9 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_open = "detective_open"
 	icon_closed = "detective"
 	body_parts_covered = UPPER_TORSO|ARMS
-	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
+	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder)
 	armor = list(melee = 50, bullet = 10, laser = 25, energy = 10, bomb = 0, bio = 0, rad = 0)
-	sprite_sheets = list("Vox" = 'icons/mob/species/vox/suit.dmi')
+	sprite_sheets = list(BODYTYPE_VOX = 'icons/mob/species/vox/suit.dmi')
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/suit/storage/toggle/det_trench/black
@@ -226,13 +230,13 @@ obj/item/clothing/suit/apron/overalls/blue
 	if(icon_state == icon_open)
 		item_state = icon_closed
 		icon_state = icon_closed
-		to_chat(usr, span("notice", "You zip up the hazard vest."))
+		to_chat(usr, SPAN_NOTICE("You zip up the hazard vest."))
 	else if(icon_state == icon_closed)
 		item_state = icon_open
 		icon_state = icon_open
-		to_chat(usr, span("notice", "You unzip the hazard vest."))
+		to_chat(usr, SPAN_NOTICE("You unzip the hazard vest."))
 	else
-		to_chat(usr, span("notice", "You attempt to zip up your [src], before promptly realising how silly you are."))
+		to_chat(usr, SPAN_NOTICE("You attempt to zip up your [src], before promptly realising how silly you are."))
 		return
 	update_clothing_icon()
 
@@ -306,6 +310,14 @@ obj/item/clothing/suit/apron/overalls/blue
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
 
+/obj/item/clothing/suit/storage/toggle/suitjacket/blazer
+	name = "blazer"
+	desc = "A charming jacket."
+	desc_fluff = "for when you want to play ball sports like an aristocrat."
+	icon_state = "blazer_open"
+	item_state = "blazer_open"
+	icon_open = "blazer_open"
+	icon_closed = "blazer"
 
 //Medical
 /obj/item/clothing/suit/storage/toggle/fr_jacket
@@ -338,6 +350,14 @@ obj/item/clothing/suit/apron/overalls/blue
 	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood)
 	body_parts_covered = UPPER_TORSO
 
+/obj/item/clothing/suit/storage/medical_chest_rig/emt
+	name = "first responder vest"
+	desc = "A dark green vest adorned with high-visibility stripes. Has pouches to carry equipment with."
+	icon = 'icons/clothing/kit/emt.dmi'
+	contained_sprite = TRUE
+	icon_state = "emtvest"
+	item_state = "emtvest"
+
 //Mime
 /obj/item/clothing/suit/suspenders
 	name = "suspenders"
@@ -346,3 +366,13 @@ obj/item/clothing/suit/apron/overalls/blue
 	icon_state = "suspenders"
 	blood_overlay_type = "armor" //it's the less thing that I can put here
 	body_parts_covered = 0
+
+/obj/item/clothing/suit/storage/toggle/emt_jacket
+	name = "first responder jacket"
+	desc = "A dark green first responder jacket."
+	icon = 'icons/clothing/kit/emt.dmi'
+	contained_sprite = TRUE
+	icon_state = "emtjacket"
+	item_state = "emtjacket"
+	icon_open = "emtjacket-open"
+	icon_closed = "emtjacket"

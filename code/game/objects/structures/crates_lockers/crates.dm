@@ -8,10 +8,12 @@
 	icon_opened = "crateopen"
 	icon_closed = "crate"
 	climbable = 1
-//	mouse_drag_pointer = MOUSE_ACTIVE_POINTER	//???
+	build_amt = 10
 	var/rigged = 0
 	var/tablestatus = 0
 	pass_flags = PASSTABLE
+
+	slowdown = 0
 
 
 /obj/structure/closet/crate/can_open()
@@ -51,9 +53,9 @@
 	for (var/mob/M in src)
 		M.forceMove(get_turf(src))
 		if (M.stat == CONSCIOUS)
-			M.visible_message(span("danger","\The [M.name] bursts out of the [src]!"), span("danger","You burst out of the [src]!"))
+			M.visible_message(SPAN_DANGER("\The [M.name] bursts out of the [src]!"), SPAN_DANGER("You burst out of the [src]!"))
 		else
-			M.visible_message(span("danger","\The [M.name] tumbles out of the [src]!"))
+			M.visible_message(SPAN_DANGER("\The [M.name] tumbles out of the [src]!"))
 
 	icon_state = icon_opened
 	opened = 1
@@ -110,7 +112,7 @@
 	else if(W.iswirecutter())
 		if(rigged)
 			to_chat(user, "<span class='notice'>You cut away the wiring.</span>")
-			playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
+			playsound(loc, 'sound/items/wirecutter.ogg', 100, 1)
 			rigged = 0
 			return
 	else return attack_hand(user)
@@ -172,7 +174,7 @@
 
 /obj/structure/closet/crate/toggle(var/mob/user)
 	if (!opened && tablestatus == -1)
-		to_chat(user, span("warning", "You can't open that while it's under the table"))
+		to_chat(user, SPAN_WARNING("You can't open that while it's under the table"))
 		return 0
 	else
 		return ..()
@@ -210,18 +212,18 @@
 
 	//User must be in reach of the crate
 	if (!user.Adjacent(src))
-		to_chat(user, span("warning", "You need to be closer to the crate!"))
+		to_chat(user, SPAN_WARNING("You need to be closer to the crate!"))
 		return
 
 	//One of us has to be near the table
 	if (!user.Adjacent(table) && !Adjacent(table))
-		to_chat(user, span("warning", "Take the crate closer to the table!"))
+		to_chat(user, SPAN_WARNING("Take the crate closer to the table!"))
 		return
 
 
 	for (var/obj/structure/closet/crate/C in get_turf(table))
 		if (C.tablestatus != -1)
-			to_chat(user, span("warning", "There's already a crate on this table!"))
+			to_chat(user, SPAN_WARNING("There's already a crate on this table!"))
 			return
 
 	//Crates are heavy, hauling them onto tables is hard.
@@ -349,7 +351,7 @@
 		add_overlay(emag)
 		add_overlay(sparks)
 		CUT_OVERLAY_IN(sparks, 6)
-		playsound(loc, "sparks", 60, 1)
+		playsound(loc, /decl/sound_category/spark_sound, 60, 1)
 		locked = 0
 		broken = 1
 		to_chat(user, "<span class='notice'>You unlock \the [src].</span>")
@@ -493,7 +495,7 @@
 /obj/structure/closet/crate/freezer/rations/fill()
 	for(var/i=1,i<=6,i++)
 		new /obj/item/reagent_containers/food/snacks/liquidfood(src)
-		new /obj/item/reagent_containers/food/drinks/cans/waterbottle(src)
+		new /obj/item/reagent_containers/food/drinks/waterbottle(src)
 
 /obj/structure/closet/crate/bin
 	name = "large bin"
@@ -690,7 +692,10 @@
 		"critter" = "critteropen",
 		"largemetal" = "largemetalopen",
 		"medicalcrate" = "medicalcrateopen",
-		"tcflcrate" = "tcflcrateopen"
+		"tcflcrate" = "tcflcrateopen",
+		"necrocrate" = "necrocrateopen",
+		"zenghucrate" = "zenghucrateopen",
+		"hephcrate" = "hephcrateopen"
 	)
 
 

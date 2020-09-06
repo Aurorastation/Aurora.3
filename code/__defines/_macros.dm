@@ -10,9 +10,11 @@
 #define SPAN_BAD(X) "<span class='bad'>[X]</span>"
 #define SPAN_ALIEN(X) "<span class='alium'>[X]</span>"
 #define SPAN_ALERT(X) "<span class='alert'>[X]</span>"
+#define SPAN_INFO(X) "<span class='info'>[X]</span>"
 #define SPAN_ITALIC(X) "<span class='italic'>[X]</span>"
 #define SPAN_BOLD(X) "<span class='bold'>[X]</span>"
 #define SPAN_SUBTLE(X) "<span class='subtle'>[X]</span>"
+#define SPAN_SOGHUN(X) "<span class='soghun'>[X]</span>"
 
 #define FONT_SMALL(X) "<font size='1'>[X]</font>"
 #define FONT_NORMAL(X) "<font size='2'>[X]</font>"
@@ -48,6 +50,8 @@
 #define isnewplayer(A) istype(A, /mob/abstract/new_player)
 
 #define isobj(A) istype(A, /obj)
+
+#define isspace(A) istype(A, /area/space)
 
 #define isobserver(A) istype(A, /mob/abstract/observer)
 
@@ -88,4 +92,5 @@
 
 #define isopenturf(target) istype(target, /turf/simulated/open)
 #define isweakref(target) istype(target, /datum/weakref)
+#define isopenspace(A) istype(A, /turf/simulated/open)
 #define isdatum(target) istype(target, /datum)

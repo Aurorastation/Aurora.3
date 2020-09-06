@@ -12,14 +12,14 @@
 /obj/machinery/mining/drill
 	name = "mining drill head"
 	desc = "A large industrial drill. Its bore does not penetrate deep enough to access the sublevels."
-	description_info = "You can upgrade this machine with better matter bins, capacitors, micro lasers, and power cells. You can also attach a mining satchel that has a warp pack and a linked ore box to it, to bluespace teleport any mined ore directly into the linked ore box."
+	desc_info = "You can upgrade this machine with better matter bins, capacitors, micro lasers, and power cells. You can also attach a mining satchel that has a warp pack and a linked ore box to it, to bluespace teleport any mined ore directly into the linked ore box."
 	icon_state = "mining_drill"
 	var/braces_needed = 2
 	var/list/supports = list()
 	var/supported = FALSE
 	var/active = FALSE
 	var/current_error
-	
+
 	var/list/resource_field = list()
 
 	var/ore_types = list(
@@ -98,6 +98,10 @@
 					attached_satchel.insert_into_storage(ore)
 	else if(istype(get_turf(src), /turf/simulated/floor))
 		var/turf/simulated/floor/T = get_turf(src)
+		var/turf/below_turf = GetBelow(T)
+		if(!istype(below_turf.loc, /area/mine) && !istype(below_turf.loc, /area/template_noop))
+			system_error("Potential station breach below.")
+			return
 		T.ex_act(2.0)
 
 	//Dig out the tasty ores.
@@ -187,15 +191,39 @@
 	return src.attack_hand(user)
 
 /obj/machinery/mining/drill/attackby(obj/item/O, mob/user)
+	if(istype(O, /obj/item/mecha_equipment/drill_mover)) // the drill mover afterattack handles it
+		return
 	if(!active)
 		if(default_deconstruction_screwdriver(user, O))
 			return
-		if (!panel_open)
-			if(default_deconstruction_crowbar(user, O))
+		if(default_part_replacement(user, O))
+			return
+
+	if(istype(O, /obj/item/mining_scanner))
+		if(!length(resource_field))
+			to_chat(user, SPAN_WARNING("\The [src] has no resource field to draw data from!"))
+			return
+		to_chat(user, SPAN_NOTICE("You start drawing the data from \the [src]..."))
+		if(do_after(user, 50, TRUE))
+			if(!length(resource_field))
+				to_chat(user, SPAN_WARNING("\The [src] has no resource field to draw data from!"))
 				return
-			if(default_part_replacement(user, O))
-				return
-	if(active) 
+			var/list/ore_data = list()
+			for(var/ore_type in ore_types)
+				ore_data[ore_type] = 0
+			for(var/field in resource_field)
+				var/turf/T = field
+				if(!T.resources)
+					continue
+				for(var/ore in ore_types)
+					if(T.resources[ore])
+						ore_data[ore] += T.resources[ore]
+			to_chat(user, SPAN_NOTICE("\The [src] has found this ore in the vicinity, and is able to gather it:"))
+			for(var/entry in ore_data)
+				to_chat(user, SPAN_NOTICE(" | <b>[entry]</b> - <b>[ore_data[entry]]</b>"))
+		return
+
+	if(active)
 		return ..()
 
 	if(istype(O, /obj/item/storage/bag/ore))
@@ -231,16 +259,37 @@
 		return
 
 	if(O.iscrowbar())
-		if (panel_open)
+		if(panel_open)
 			if(cell)
-				to_chat(user, SPAN_NOTICE("You wrench out \the [cell]."))
+				to_chat(user, SPAN_NOTICE("You shimmy out \the [cell]."))
 				cell.forceMove(get_turf(user))
 				component_parts -= cell
+				user.put_in_hands(cell)
 				cell = null
 				return
 			else
 				to_chat(user, SPAN_WARNING("There's no cell to remove!"))
 				return
+		else
+			to_chat(user, SPAN_WARNING("The hatch must be open to take out a power cell."))
+			return
+
+	if(istype(O, /obj/item/gripper/miner)) // the gripper will always be empty, because it passes its wrapped object's attack if it has one
+		var/obj/item/gripper/miner/M = O
+		if(panel_open)
+			if(cell)
+				to_chat(user, SPAN_NOTICE("You use your gripper to squeeze the cell out of its case."))
+				cell.forceMove(get_turf(user))
+				component_parts -= cell
+				M.grip_item(cell, user, FALSE)
+				cell = null
+				return
+			else
+				to_chat(user, SPAN_WARNING("There's no cell to remove!"))
+				return
+		else
+			to_chat(user, SPAN_WARNING("The hatch must be open to take out a power cell."))
+			return
 
 	if(istype(O, /obj/item/cell))
 		if(panel_open)
@@ -253,11 +302,11 @@
 				cell = O
 				component_parts += O
 				O.add_fingerprint(user)
-				visible_message(span("notice", "\The [user] inserts a power cell into \the [src]."),
-					span("notice", "You insert the power cell into \the [src]."))
+				visible_message("<b>\The [user]</b> inserts a power cell into \the [src].",
+					SPAN_NOTICE("You insert the power cell into \the [src]."))
 				power_change()
 		else
-			to_chat(user, span("notice", "The hatch must be open to insert a power cell."))
+			to_chat(user, SPAN_WARNING("The hatch must be open to insert a power cell."))
 			return
 	else
 		..()
@@ -351,15 +400,13 @@
 /obj/machinery/mining/drill/proc/check_supports()
 	supported = FALSE
 
-	if((!supports || !supports.len) && initial(anchored) == 0)
-		icon_state = "mining_drill"
-		anchored = FALSE
-		active = FALSE
-	else
-		anchored = TRUE
-
 	if(supports && length(supports) >= braces_needed)
 		supported = TRUE
+		anchored = TRUE
+	else
+		icon_state = "mining_drill"
+		active = FALSE
+		anchored = FALSE
 
 	update_icon()
 
@@ -443,12 +490,12 @@
 				connected.system_error("Unexpected user interface error.")
 				return
 			else
-				H.apply_damage(25, BRUTE, sharp = TRUE, edge = TRUE)
+				H.apply_damage(25, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE)
 				connected.system_error("Unexpected user interface error.")
 				return
 		else
 			var/mob/living/M = user
-			M.apply_damage(25, BRUTE, sharp = TRUE, edge = TRUE)
+			M.apply_damage(25, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE)
 
 	if(default_deconstruction_screwdriver(user, W))
 		return
@@ -480,23 +527,22 @@
 		playsound(get_turf(src), W.usesound, 100, 1)
 		to_chat(user, SPAN_NOTICE("You [anchored ? "un" : ""]anchor the brace."))
 
-		for(var/angle in cardinal) // make it face any drill in cardinal direction from it
-			if(locate(/obj/machinery/mining/drill) in get_step(src, angle))
-				src.dir = angle
-				break
-
 		anchored = !anchored
 		if(anchored)
 			connect()
 		else
 			disconnect()
 
-/obj/machinery/mining/brace/proc/connect()
-	var/turf/T = get_step(get_turf(src), src.dir)
+/obj/machinery/mining/brace/Destroy()
+	disconnect()
+	return ..()
 
-	for(var/thing in T.contents)
-		if(istype(thing, /obj/machinery/mining/drill))
-			connected = thing
+/obj/machinery/mining/brace/proc/connect()
+	for(var/angle in cardinal) // make it face any drill in cardinal direction from it
+		var/obj/machinery/mining/drill/D = locate() in get_step(src, angle)
+		if(D)
+			src.dir = angle
+			connected = D
 			break
 
 	if(!connected)

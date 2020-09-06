@@ -23,19 +23,19 @@
 									"The more carnivorous and knowledge hungry cousin of the space carp. Keep away from books."
 									)
 
-/obj/item/monster_manual/attack_self(mob/living/user as mob)
+/obj/item/monster_manual/attack_self(mob/living/user)
 	if(!user)
 		return
 	if(!user.is_wizard())
-		to_chat(user, "<span class='warning'>When you try to open the book, horrors pours out from among the pages!</span>")
-		new /mob/living/simple_animal/hostile/creature(user.loc)
+		to_chat(user, SPAN_WARNING("When you try to open the book, horrors pours out from among the pages!"))
+		new /mob/living/simple_animal/hostile/creature(get_turf(user))
 		playsound(user, 'sound/magic/Summon_Karp.ogg', 100, 1)
 		return
 	else
 		user.set_machine(src)
 		interact(user)
 
-/obj/item/monster_manual/interact(mob/user as mob)
+/obj/item/monster_manual/interact(mob/user)
 	var/dat
 	if(temp)
 		dat = "[temp]<br><a href='byond://?src=\ref[src];temp=1'>Return</a>"
@@ -56,12 +56,11 @@
 	if(href_list["temp"])
 		temp = null
 	if(href_list["path"])
-		if(uses == 0)
-			to_chat(usr, "This book is out of uses.")
+		if(uses <= 0)
+			to_chat(usr, SPAN_WARNING("This book is out of uses."))
 			return
 
-		var/datum/ghosttrap/ghost = get_ghost_trap("wizard familiar")
-		var path = text2path(href_list["path"])
+		var/path = text2path(href_list["path"])
 		if(!ispath(path))
 			to_chat(usr, "Invalid mob path in [src]. Contact a coder.")
 			return
@@ -70,22 +69,16 @@
 			return
 
 		var/mob/living/simple_animal/F = new path(get_turf(src))
+		F.wizard_master = usr
+		F.faction = usr.faction
 		temp = "You have attempted summoning \the [F]"
-		ghost.request_player(F,"A wizard is requesting a familiar.", 60 SECONDS)
+		SSghostroles.add_spawn_atom("wizard_familiar", F)
+		var/area/A = get_area(src)
+		if(A)
+			say_dead_direct("A wizard familiar has been summoned in [A.name]! Spawn in as it by using the ghost spawner menu in the ghost tab.")
 		uses--
-		spawn(600)
-			if(F)
-				if(!F.ckey || !F.client)
-					F.visible_message("With no soul to keep \the [F] linked to this plane, it fades away.")
-					qdel(F)
-					uses++
-				else
-					F.faction = usr.faction
-					F.add_spell(new /spell/contract/return_master(usr), "const_spell_ready")
-					to_chat(F, "<B>You are [F], a familiar to [usr]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>")
 
 		if(Adjacent(usr))
 			src.interact(usr)
-
 		else
 			usr << browse(null,"window=monstermanual")

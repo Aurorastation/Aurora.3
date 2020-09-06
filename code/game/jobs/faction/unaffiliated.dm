@@ -10,6 +10,7 @@
 	</p>"}
 
 	allowed_role_types = list(
+		/datum/job/visitor,
 		/datum/job/journalist,
 		/datum/job/merchant,
 		/datum/job/representative

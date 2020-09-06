@@ -47,10 +47,16 @@
 	var/datum/computer_file/data/autorun = hard_drive.find_file_by_name("autorun")
 	VUEUI_SET_CHECK_IFNOTSET(data["programs"], list(), ., data)
 	for(var/datum/computer_file/program/P in hard_drive.stored_files)
+		if(P.program_hidden())
+			continue
 		VUEUI_SET_CHECK_IFNOTSET(data["programs"][P.filename], list(), ., data)
 		VUEUI_SET_CHECK(data["programs"][P.filename]["desc"], P.filedesc, ., data)
 		VUEUI_SET_CHECK(data["programs"][P.filename]["autorun"], (istype(autorun) && (autorun.stored_data == P.filename)), ., data)
 		VUEUI_SET_CHECK(data["programs"][P.filename]["running"], (P in idle_threads), ., data)
+		VUEUI_SET_CHECK(data["programs"][P.filename]["type"], P.program_type, ., data)
+		VUEUI_SET_CHECK_IFNOTSET(data["programs"][P.filename]["service"], list(), ., data)
+		VUEUI_SET_CHECK(data["programs"][P.filename]["service"]["enabled"], (P in enabled_services), ., data)
+		VUEUI_SET_CHECK(data["programs"][P.filename]["service"]["online"], (P.service_state == PROGRAM_STATE_ACTIVE), ., data)
 
 // Handles user's GUI input
 /obj/item/modular_computer/Topic(href, href_list)
@@ -90,8 +96,8 @@
 		update_uis()
 		to_chat(user, SPAN_NOTICE("Program [P.filename].[P.filetype] with PID [rand(100,999)] has been killed."))
 
-	if(href_list["PC_runprogram"])
-		. = run_program(href_list["PC_runprogram"])
+	if(href_list["PC_runprogram"] )
+		. = run_program(href_list["PC_runprogram"], usr)
 		ui_interact(usr)
 
 	if(href_list["PC_setautorun"])
@@ -106,6 +112,10 @@
 			autorun.stored_data = null
 		else
 			autorun.stored_data = href_list["PC_setautorun"]
+	
+	if( href_list["PC_toggleservice"] )
+		toggle_service(href_list["PC_toggleservice"], usr)
+		return 1
 
 	if(.)
 		update_uis()

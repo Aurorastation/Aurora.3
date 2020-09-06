@@ -35,3 +35,18 @@
 		stat = CONSCIOUS
 	else
 		health = 100 - getBruteLoss() - getFireLoss()
+
+/mob/living/silicon/pai/Stat()
+	..()
+
+	if(istype(card.loc, /mob/living/bot))
+		var/mob/living/bot/B = card.loc
+		stat(null, "Piloting: [B.name]")
+		stat(null, "Bot Status: [B.on ? "Active" : "Inactive"]")
+		stat(null, "Maintenance Hatch: [B.open ? "Open" : "Closed"]")
+		stat(null, "Maintenance Lock: [B.locked ? "Locked" : "Unlocked"]")
+		if(B.emagged)
+			stat(null, "Bot M#$FUN90: MALFUNC--")
+	if(istype(card.loc, /mob/living/bot/floorbot))
+		var/mob/living/bot/floorbot/F = card.loc
+		stat(null, "Metal Count: [F.amount]/[F.maxAmount]")

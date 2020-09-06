@@ -130,7 +130,7 @@
 
 /obj/item/watertank/janitor/Initialize()
 	. = ..()
-	reagents.add_reagent("cleaner", 500)
+	reagents.add_reagent(/datum/reagent/spacecleaner, 500)
 
 /obj/item/reagent_containers/spray/chemsprayer/mister/janitor
 	name = "janitor spray nozzle"

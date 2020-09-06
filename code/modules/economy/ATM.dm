@@ -36,6 +36,7 @@ log transactions
 /obj/machinery/atm/Initialize()
 	. = ..()
 	machine_id = "Idris SelfServ #[SSeconomy.num_financial_terminals++]"
+	update_icon()
 
 /obj/machinery/atm/Destroy()
 	authenticated_account = null
@@ -45,9 +46,28 @@ log transactions
 
 	return ..()
 
+/obj/machinery/atm/power_change()
+	..()
+	update_icon()
+
+/obj/machinery/atm/update_icon()
+	cut_overlays()
+	if(stat & NOPOWER)
+		set_light(FALSE)
+		return
+
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "atm-active", EFFECTS_ABOVE_LIGHTING_LAYER)
+	add_overlay(screen_overlay)
+	set_light(1.4, 1, COLOR_CYAN)
+
+	if(held_card)
+		var/mutable_appearance/card_overlay = mutable_appearance(icon, "atm-cardin", EFFECTS_ABOVE_LIGHTING_LAYER)
+		add_overlay(card_overlay)
 
 /obj/machinery/atm/machinery_process()
 	if(stat & NOPOWER)
+		cut_overlays()
+		set_light(FALSE)
 		return
 
 	if(ticks_left_timeout > 0)
@@ -99,6 +119,7 @@ log transactions
 			held_card = idcard
 			if(authenticated_account && held_card.associated_account_number != authenticated_account.account_number)
 				authenticated_account = null
+			update_icon()
 	else if(authenticated_account)
 		if(istype(I,/obj/item/spacecash))
 			//consume the money
@@ -437,6 +458,7 @@ log transactions
 						if (istype(I, /obj/item/card/id))
 							usr.drop_from_inventory(I,src)
 							held_card = I
+							update_icon()
 				else
 					release_held_id(usr)
 			if("logout")
@@ -505,6 +527,7 @@ log transactions
 	if(!human_user.get_active_hand())
 		human_user.put_in_hands(held_card)
 	held_card = null
+	update_icon()
 
 
 /obj/machinery/atm/proc/spawn_ewallet(var/sum, loc, mob/living/carbon/human/human_user as mob)
