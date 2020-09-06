@@ -193,7 +193,7 @@ obj/item/clothing/suit/apron/overalls/blue
 		return 0
 
 	opened = !opened
-	to_chat(usr, "You [opened ? "unzip" : "zip"] \the [src].")
+	to_chat(usr, SPAN_NOTICE("You [opened ? "unzip" : "zip"] \the [src]."))
 	playsound(src, 'sound/items/zip.ogg', EQUIP_SOUND_VOLUME, TRUE)
 	icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
 	item_state = icon_state
