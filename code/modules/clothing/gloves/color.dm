@@ -167,7 +167,7 @@
 	icon_state = "fingerlessgloves"
 	item_state = "fingerlessgloves"
 	fingerprint_chance = 100
-	clipped = 1
+	clipped = TRUE
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
 /obj/item/clothing/gloves/fingerless/colour
