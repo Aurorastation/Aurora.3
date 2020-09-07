@@ -15,11 +15,10 @@
 	accuracy = 0.1
 	w_class = ITEMSIZE_SMALL
 	flags = OPENCONTAINER
-	var/fragile = TRUE // most glassware is super fragile
-	var/no_shatter = FALSE //does this container shatter?
 	unacidable = 1 //glass doesn't dissolve in acid
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
+	no_shatter = FALSE
 	var/label_text = ""
 
 /obj/item/reagent_containers/glass/Initialize()
@@ -64,19 +63,6 @@
 /obj/item/reagent_containers/glass/AltClick(var/mob/user)
 	set_APTFT()
 
-/obj/item/reagent_containers/glass/throw_impact(atom/hit_atom, var/speed)
-	. = ..()
-	if(speed > fragile && !no_shatter)
-		shatter()
-
-/obj/item/reagent_containers/glass/proc/shatter(var/mob/user)
-	if(reagents.total_volume)
-		reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
-	audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"), SPAN_WARNING("\The [src] breaks."))
-	playsound(src, /decl/sound_category/glass_break_sound, 70, 1)
-	new /obj/item/material/shard(loc, "glass")
-	qdel(src)
-
 /obj/item/reagent_containers/glass/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/storage/part_replacer))
 		if(!reagents || !reagents.total_volume)
@@ -115,7 +101,7 @@
 	matter = list(MATERIAL_GLASS = 500)
 	drop_sound = 'sound/items/drop/drinkglass.ogg'
 	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
-	fragile = 4
+	fragile = 1
 
 /obj/item/reagent_containers/glass/beaker/Initialize()
 	. = ..()

@@ -8,6 +8,10 @@
 	var/possible_transfer_amounts = list(5,10,15,25,30)
 	var/volume = 30
 	var/accuracy = 1
+	var/fragile = 2        // most glassware is super fragile. Not a boolean.
+	var/no_shatter = TRUE //does this container shatter?
+	var/shatter_sound = /decl/sound_category/glass_break_sound
+	var/material/shatter_material = /material/glass
 	var/can_be_placed_into = list(
 		/obj/machinery/chem_master,
 		/obj/machinery/chem_heater,
@@ -49,11 +53,25 @@
 	if(!possible_transfer_amounts)
 		src.verbs -= /obj/item/reagent_containers/verb/set_APTFT
 	create_reagents(volume)
+	shatter_material = new
 
-/obj/item/reagent_containers/attack_self(mob/user as mob)
+/obj/item/reagent_containers/attack_self(mob/user)
 	return
 
-/obj/item/reagent_containers/attack(mob/M as mob, mob/user as mob, def_zone)
+/obj/item/reagent_containers/throw_impact(atom/hit_atom, var/speed)
+	. = ..()
+	if((speed >= fragile) && !no_shatter)
+		shatter()
+
+/obj/item/reagent_containers/proc/shatter(var/mob/user)
+	if(reagents.total_volume)
+		reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
+	audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"), SPAN_WARNING("\The [src] breaks."))
+	playsound(src, shatter_sound, 70, 1)
+	shatter_material.place_shard(loc)
+	qdel(src)
+
+/obj/item/reagent_containers/attack(mob/M, mob/user, def_zone)
 	if(can_operate(M) && do_surgery(M, user, src))
 		return
 	if(reagents && !reagents.total_volume && user.a_intent == I_HURT)
