@@ -56,6 +56,9 @@
 	var/noair_directions = 0
 	var/diffarea_directions = 0
 
+	var/open_sound = 'sound/machines/firedooropening.ogg'
+	var/close_sound = 'sound/machines/firedoorclosing.ogg'
+
 /obj/machinery/door/firedoor/Initialize(var/mapload)
 	. = ..()
 	for(var/obj/machinery/door/firedoor/F in loc)
@@ -431,8 +434,10 @@
 	switch(animation)
 		if("opening")
 			flick("door_opening", src)
+			playsound(src, open_sound, 37, 1)
 		if("closing")
 			flick("door_closing", src)
+			playsound(src, close_sound, 37, 1)
 
 /obj/machinery/door/firedoor/update_icon()
 	cut_overlays()
@@ -526,3 +531,6 @@
 	dir = EAST
 
 	enable_smart_generation = FALSE
+
+	open_sound = 'sound/machines/firewideopening.ogg'
+	close_sound = 'sound/machines/firewideclosing.ogg'

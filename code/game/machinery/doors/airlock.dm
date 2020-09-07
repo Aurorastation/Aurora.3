@@ -45,8 +45,8 @@
 	var/obj/item/device/magnetic_lock/bracer = null
 	var/panel_visible_while_open = FALSE
 
-	var/open_sound_powered = 'sound/machines/airlock.ogg'
-	var/close_sound_powered = 'sound/machines/airlockclose.ogg'
+	var/open_sound_powered = 'sound/machines/airlock/covert1o.ogg'
+	var/close_sound_powered = 'sound/machines/airlock/covert1c.ogg'
 	var/open_sound_unpowered = 'sound/machines/airlock_open_force.ogg'
 	var/close_sound_unpowered = 'sound/machines/airlock_close_force.ogg'
 
@@ -82,43 +82,55 @@
 	return SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
 
 /obj/machinery/door/airlock/command
-	name = "Airlock"
+	name = "Command Airlock"
 	icon = 'icons/obj/doors/Doorcom.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
 	hatch_colour = "#446892"
+	open_sound_powered = 'sound/machines/airlock/cmd3o.ogg'
+	close_sound_powered = 'sound/machines/airlock/cmd3c.ogg'
 
 /obj/machinery/door/airlock/sac
-	name = "Airlock"
+	name = "External Airlock"
 	icon = 'icons/obj/doors/DoorSAC.dmi'
 	assembly_type = null
 	aiControlDisabled = 1
 	hackProof = TRUE
 	electrified_until = -1
-	open_sound_powered = 'sound/machines/airlock_open_force.ogg'
+	open_sound_powered = 'sound/machines/airlock/space1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/space1c.ogg'
 
 /obj/machinery/door/airlock/security
-	name = "Airlock"
+	name = "Security Airlock"
 	icon = 'icons/obj/doors/Doorsec.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_sec
 	hatch_colour = "#677c97"
+	open_sound_powered = 'sound/machines/airlock/sec1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/sec1c.ogg'
+
 
 /obj/machinery/door/airlock/engineering
-	name = "Airlock"
+	name = "Engineering Airlock"
 	icon = 'icons/obj/doors/Dooreng.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_eng
 	hatch_colour = "#caa638"
+	open_sound_powered = 'sound/machines/airlock/eng1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/eng1c.ogg'
 
 /obj/machinery/door/airlock/medical
-	name = "Airlock"
+	name = "Medical Airlock"
 	icon = 'icons/obj/doors/Doormed.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_med
 	hatch_colour = "#d2d2d2"
+	open_sound_powered = 'sound/machines/airlock/med1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/med1c.ogg'
 
 /obj/machinery/door/airlock/maintenance
 	name = "Maintenance Access"
 	icon = 'icons/obj/doors/Doormaint.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_mai
 	hatch_colour = "#7d7d7d"
+	open_sound_powered = 'sound/machines/airlock/door2o.ogg'
+	close_sound_powered = 'sound/machines/airlock/door2c.ogg'
 
 /obj/machinery/door/airlock/external
 	name = "External Airlock"
@@ -126,12 +138,16 @@
 	assembly_type = /obj/structure/door_assembly/door_assembly_ext
 	hashatch = FALSE
 	insecure = 0
+	open_sound_powered = 'sound/machines/airlock/space1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/space1c.ogg'
 
 /obj/machinery/door/airlock/science
 	name = "Airlock"
 	icon = 'icons/obj/doors/Doorsci.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_science
 	hatch_colour = "#d2d2d2"
+	open_sound_powered = 'sound/machines/airlock/sci1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/sci1c.ogg'
 
 /obj/machinery/door/airlock/glass_science
 	name = "Glass Airlocks"
@@ -140,19 +156,21 @@
 	assembly_type = /obj/structure/door_assembly/door_assembly_science
 	glass = 1
 	hatch_colour = "#d2d2d2"
+	open_sound_powered = 'sound/machines/airlock/sci1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/sci1c.ogg'
 
 /obj/machinery/door/airlock/glass
 	name = "Glass Airlock"
 	icon = 'icons/obj/doors/Doorglass.dmi'
 	hitsound = 'sound/effects/glass_hit.ogg'
-	open_sound_powered = 'sound/machines/windowdoor.ogg'
-	close_sound_powered = 'sound/machines/windowdoor.ogg'
 	maxhealth = 300
 	explosion_resistance = 5
 	opacity = FALSE
 	glass = 1
 	panel_visible_while_open = TRUE
 	hatch_colour = "#eaeaea"
+	open_sound_powered = 'sound/machines/airlock/hall1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/hall1c.ogg'
 
 /obj/machinery/door/airlock/vaurca
 	name = "Alien Biomass Airlock"
@@ -160,14 +178,18 @@
 	opacity = TRUE
 	hatch_colour = "#606061"
 	hashatch = FALSE
+	open_sound_powered = 'sound/machines/airlock/scp1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/scp1c.ogg'
 
 /obj/machinery/door/airlock/centcom
-	name = "Airlock"
+	name = "Centcom Airlock"
 	icon = 'icons/obj/doors/Doorele.dmi'
 	opacity = TRUE
 	hatch_colour = "#606061"
 	hashatch = FALSE
 	hackProof = TRUE
+	open_sound_powered = 'sound/machines/airlock/vault1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/vault1c.ogg'
 
 /obj/machinery/door/airlock/centcom/attackby(obj/item/I, mob/user)
 	if (operating)
@@ -204,6 +226,8 @@
 	hatch_colour = "#606061"
 	hashatch = FALSE
 	hackProof = TRUE
+	open_sound_powered = 'sound/machines/airlock/vault1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/vault1c.ogg'
 
 obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	if (operating)
@@ -243,6 +267,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	maxhealth = 800
 	panel_visible_while_open = TRUE
 	insecure = 0
+	open_sound_powered = 'sound/machines/airlock/vault1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/vault1c.ogg'
 
 /obj/machinery/door/airlock/vault/bolted
 	icon_state = "door_locked"
@@ -276,6 +302,9 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	hatch_colour = "#5b5b5b"
 	var/hatch_colour_bolted = "#695a5a"
 	insecure = 0
+	open_sound_powered = 'sound/machines/airlock/hatchopen.ogg'
+	close_sound_powered = 'sound/machines/airlock/hatchclose.ogg'
+	open_sound_unpowered = 'sound/machines/airlock/hatchforced.ogg'
 
 /obj/machinery/door/airlock/hatch/update_icon()//Special hatch colour setting for this one snowflakey door that changes color when bolted
 	if (hashatch)
@@ -292,9 +321,12 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	opacity = TRUE
 	assembly_type = /obj/structure/door_assembly/door_assembly_mhatch
 	hatch_colour = "#7d7d7d"
+	open_sound_powered = 'sound/machines/airlock/hatchopen.ogg'
+	close_sound_powered = 'sound/machines/airlock/hatchclose.ogg'
+	open_sound_unpowered = 'sound/machines/airlock/hatchforced.ogg'
 
 /obj/machinery/door/airlock/glass_command
-	name = "Glass Airlock"
+	name = "Glass Command Airlock"
 	icon = 'icons/obj/doors/Doorcomglass.dmi'
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
@@ -303,9 +335,11 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
 	glass = 1
 	hatch_colour = "#3e638c"
+	open_sound_powered = 'sound/machines/airlock/vault1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/vault1c.ogg'
 
 /obj/machinery/door/airlock/glass_engineering
-	name = "Glass Airlock"
+	name = "Glass Engineering Airlock"
 	icon = 'icons/obj/doors/Doorengglass.dmi'
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
@@ -314,9 +348,11 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_eng
 	glass = 1
 	hatch_colour = "#caa638"
+	open_sound_powered = 'sound/machines/airlock/eng1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/eng1c.ogg'
 
 /obj/machinery/door/airlock/glass_security
-	name = "Glass Airlock"
+	name = "Glass Security Airlock"
 	icon = 'icons/obj/doors/Doorsecglass.dmi'
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
@@ -325,9 +361,11 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_sec
 	glass = 1
 	hatch_colour = "#677c97"
+	open_sound_powered = 'sound/machines/airlock/sec1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/sec1c.ogg'
 
 /obj/machinery/door/airlock/glass_medical
-	name = "Glass Airlock"
+	name = "Glass Medical Airlock"
 	icon = 'icons/obj/doors/Doormedglass.dmi'
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
@@ -336,27 +374,35 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_med
 	glass = 1
 	hatch_colour = "#d2d2d2"
+	open_sound_powered = 'sound/machines/airlock/med1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/med1c.ogg'
 
 /obj/machinery/door/airlock/mining
 	name = "Mining Airlock"
 	icon = 'icons/obj/doors/Doormining.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_min
 	hatch_colour = "#c29142"
+	open_sound_powered = 'sound/machines/airlock/cgo1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/cgo1c.ogg'
 
 /obj/machinery/door/airlock/atmos
 	name = "Atmospherics Airlock"
 	icon = 'icons/obj/doors/Dooratmo.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_atmo
 	hatch_colour = "#caa638"
+	open_sound_powered = 'sound/machines/airlock/eng1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/eng1c.ogg'
 
 /obj/machinery/door/airlock/research
-	name = "Airlock"
+	name = "Research Airlock"
 	icon = 'icons/obj/doors/Doorresearch.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_research
 	hatch_colour = "#d2d2d2"
+	open_sound_powered = 'sound/machines/airlock/sci1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/sci1c.ogg'
 
 /obj/machinery/door/airlock/glass_research
-	name = "Glass Airlock"
+	name = "Glass Research Airlock"
 	icon = 'icons/obj/doors/Doorresearchglass.dmi'
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
@@ -366,9 +412,11 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	glass = 1
 	heat_proof = 1
 	hatch_colour = "#d2d2d2"
+	open_sound_powered = 'sound/machines/airlock/sci1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/sci1c.ogg'
 
 /obj/machinery/door/airlock/glass_mining
-	name = "Glass Airlock"
+	name = "Glass Mining Airlock"
 	icon = 'icons/obj/doors/Doorminingglass.dmi'
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
@@ -377,9 +425,11 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_min
 	glass = 1
 	hatch_colour = "#c29142"
+	open_sound_powered = 'sound/machines/airlock/cgo1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/cgo1c.ogg'
 
 /obj/machinery/door/airlock/glass_atmos
-	name = "Glass Airlock"
+	name = "Glass Atmospherics Airlock"
 	icon = 'icons/obj/doors/Dooratmoglass.dmi'
 	hitsound = 'sound/effects/glass_hit.ogg'
 	maxhealth = 300
@@ -388,6 +438,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_atmo
 	glass = 1
 	hatch_colour = "#caa638"
+	open_sound_powered = 'sound/machines/airlock/eng1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/eng1c.ogg'
 
 /obj/machinery/door/airlock/gold
 	name = "Gold Airlock"
@@ -428,18 +480,27 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	hatch_colour = "#5a5a66"
 	maxhealth = 600
 	insecure = 0
+	open_sound_powered = 'sound/machines/airlock/secure1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/secure1c.ogg'
 
 /obj/machinery/door/airlock/skrell
-	name = "airlock"
+	name = "Skrellian Airlock"
 	icon = 'icons/obj/doors/purple_skrell_door.dmi'
 	explosion_resistance = 20
 	secured_wires = TRUE
 	maxhealth = 600
 	insecure = 0
 	hashatch = FALSE
+	open_sound_powered = 'sound/machines/airlock/scp1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/scp1c.ogg'
 
 /obj/machinery/door/airlock/skrell/grey
 	icon = 'icons/obj/doors/grey_skrell_door.dmi'
+
+/obj/machinery/door/airlock/shuttle
+	name = "airlock"
+	open_sound_powered = 'sound/machines/airlock/shuttle1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/shuttle1c.ogg'
 
 //---Uranium doors
 /obj/machinery/door/airlock/uranium
