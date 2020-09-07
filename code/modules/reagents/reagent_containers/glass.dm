@@ -77,9 +77,6 @@
 			update_name_label()
 		return
 	. = ..() // in the case of nitroglycerin, explode BEFORE it shatters
-	if(!(W.flags & NOBLUDGEON) && fragile && (W.force > fragile) && !no_shatter)
-		shatter()
-		return
 
 /obj/item/reagent_containers/glass/proc/update_name_label()
 	if(label_text == "")

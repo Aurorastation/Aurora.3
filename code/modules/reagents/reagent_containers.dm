@@ -63,13 +63,22 @@
 	if((speed >= fragile) && !no_shatter)
 		shatter()
 
-/obj/item/reagent_containers/proc/shatter(var/mob/user)
+/obj/item/reagent_containers/proc/shatter(var/obj/item/W, var/mob/user)
 	if(reagents.total_volume)
 		reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
 	audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"), SPAN_WARNING("\The [src] breaks."))
 	playsound(src, shatter_sound, 70, 1)
 	shatter_material.place_shard(loc)
 	qdel(src)
+
+/obj/item/reagent_containers/attackby(var/obj/item/W, var/mob/user)
+	if(!(W.flags & NOBLUDGEON) && (user.a_intent == I_HURT) && (W.force > fragile) && !no_shatter)
+		if(do_after(user, 10))
+			if(!QDELETED(src))
+				visible_message(SPAN_WARNING("[user] smashes [src] with \a [W]!"))
+				user.do_attack_animation(src)
+				shatter(W, user)
+	..()
 
 /obj/item/reagent_containers/attack(mob/M, mob/user, def_zone)
 	if(can_operate(M) && do_surgery(M, user, src))

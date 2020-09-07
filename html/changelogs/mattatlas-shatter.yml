@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - bugfix: "Drinking glasses, wine bottles and such now shatter when thrown."
   - bugfix: "Beakers now properly shatter when thrown as well."
+  - bugfix: "Reagent containers should break properly when hit. Be careful when pouring drinks, don't use harm intent."
