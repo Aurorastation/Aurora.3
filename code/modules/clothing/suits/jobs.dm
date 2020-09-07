@@ -126,7 +126,6 @@ obj/item/clothing/suit/apron/overalls/blue
 /obj/item/clothing/suit/storage/det_jacket
 	name = "detective's jacket"
 	desc = "Stylish yet comfortable professional jacket manufactured by CL corporation for NT detectives. Unique fiber structure will offer moderate protection from various hazards investigators may encounter in the line of duty."
-	icon = 'icons/obj/clothing/detective.dmi'
 	icon_state = "det"
 	item_state = "det"
 	blood_overlay_type = "coat"
