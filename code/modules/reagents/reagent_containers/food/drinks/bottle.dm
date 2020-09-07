@@ -398,7 +398,7 @@
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	reagents_to_add = list(/datum/reagent/drink/space_cola = 100)
-	shatter_material = /material/plastic
+	shatter_material = MATERIAL_PLASTIC
 	shatter = FALSE
 
 /obj/item/reagent_containers/food/drinks/bottle/space_up
@@ -410,7 +410,7 @@
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	reagents_to_add = list(/datum/reagent/drink/spaceup = 100)
-	shatter_material = /material/plastic
+	shatter_material = MATERIAL_PLASTIC
 	shatter = FALSE
 
 /obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind
@@ -422,7 +422,7 @@
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	reagents_to_add = list(/datum/reagent/drink/spacemountainwind = 100)
-	shatter_material = /material/plastic
+	shatter_material = MATERIAL_PLASTIC
 	shatter = FALSE
 
 /obj/item/reagent_containers/food/drinks/bottle/pwine
