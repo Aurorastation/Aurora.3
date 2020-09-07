@@ -57,7 +57,7 @@
 		H.emote("scream")
 
 	if(!H.restrained() && H.lying && H.shock_stage >= 60 && prob(3))
-		H.custom_emote("thrashes in agony")
+		H.custom_emote(VISIBLE_MESSAGE, "thrashes in agony")
 
 	if(!H.restrained() && H.shock_stage < 40 && prob(3))
 		var/maxdam = 0
@@ -73,13 +73,13 @@
 				maxdam = dam
 		if(damaged_organ)
 			if(damaged_organ.status & ORGAN_BLEEDING)
-				H.custom_emote("clutches [H.get_pronoun("his")] [damaged_organ.name], trying to stop the blood.")
+				H.custom_emote(VISIBLE_MESSAGE, "clutches [H.get_pronoun("his")] [damaged_organ.name], trying to stop the blood.")
 			else if(damaged_organ.status & ORGAN_BROKEN)
-				H.custom_emote("holds [H.get_pronoun("his")] [damaged_organ.name] carefully.")
+				H.custom_emote(VISIBLE_MESSAGE, "holds [H.get_pronoun("his")] [damaged_organ.name] carefully.")
 			else if(damaged_organ.burn_dam > damaged_organ.brute_dam && damaged_organ.organ_tag != BP_HEAD)
-				H.custom_emote("blows on [H.get_pronoun("his")] [damaged_organ.name] carefully.")
+				H.custom_emote(VISIBLE_MESSAGE, "blows on [H.get_pronoun("his")] [damaged_organ.name] carefully.")
 			else
-				H.custom_emote("rubs [H.get_pronoun("his")] [damaged_organ.name] carefully.")
+				H.custom_emote(VISIBLE_MESSAGE, "rubs [H.get_pronoun("his")] [damaged_organ.name] carefully.")
 
 		for(var/obj/item/organ/I in H.internal_organs)
 			if((I.status & ORGAN_DEAD) || BP_IS_ROBOTIC(I))
@@ -87,4 +87,4 @@
 			if(I.damage > 2)
 				if(prob(2))
 					var/obj/item/organ/external/parent = H.get_organ(I.parent_organ)
-					H.custom_emote("clutches [H.get_pronoun("his")] [parent.name]!")
+					H.custom_emote(VISIBLE_MESSAGE, "clutches [H.get_pronoun("his")] [parent.name]!")
