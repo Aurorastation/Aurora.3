@@ -9,9 +9,9 @@
 	var/volume = 30
 	var/accuracy = 1
 	var/fragile = 2        // most glassware is super fragile. Not a boolean.
-	var/no_shatter = TRUE //does this container shatter?
+	var/shatter = FALSE //does this container shatter?
 	var/shatter_sound = /decl/sound_category/glass_break_sound
-	var/material/shatter_material = /material/glass
+	var/material/shatter_material = MATERIAL_GLASS //slight typecasting abuse here, gets converted to a material in initializee
 	var/can_be_placed_into = list(
 		/obj/machinery/chem_master,
 		/obj/machinery/chem_heater,
@@ -53,14 +53,14 @@
 	if(!possible_transfer_amounts)
 		src.verbs -= /obj/item/reagent_containers/verb/set_APTFT
 	create_reagents(volume)
-	shatter_material = new
+	shatter_material = SSmaterials.get_material_by_name(shatter_material)
 
 /obj/item/reagent_containers/attack_self(mob/user)
 	return
 
 /obj/item/reagent_containers/throw_impact(atom/hit_atom, var/speed)
 	. = ..()
-	if((speed >= fragile) && !no_shatter)
+	if((speed >= fragile) && shatter)
 		shatter()
 
 /obj/item/reagent_containers/proc/shatter(var/obj/item/W, var/mob/user)
@@ -72,7 +72,7 @@
 	qdel(src)
 
 /obj/item/reagent_containers/attackby(var/obj/item/W, var/mob/user)
-	if(!(W.flags & NOBLUDGEON) && (user.a_intent == I_HURT) && (W.force > fragile) && !no_shatter)
+	if(!(W.flags & NOBLUDGEON) && (user.a_intent == I_HURT) && (W.force > fragile) && shatter)
 		if(do_after(user, 10))
 			if(!QDELETED(src))
 				visible_message(SPAN_WARNING("[user] smashes [src] with \a [W]!"))

@@ -18,7 +18,7 @@
 	unacidable = 1 //glass doesn't dissolve in acid
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
-	no_shatter = FALSE
+	shatter = TRUE
 	var/label_text = ""
 
 /obj/item/reagent_containers/glass/Initialize()
@@ -217,7 +217,7 @@
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
 	var/helmet_type = /obj/item/clothing/head/helmet/bucket
-	no_shatter = TRUE
+	shatter = FALSE
 	fragile = 0
 
 /obj/item/reagent_containers/glass/bucket/attackby(var/obj/D, mob/user as mob)
