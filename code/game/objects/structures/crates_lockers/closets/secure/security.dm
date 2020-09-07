@@ -348,7 +348,7 @@
 
 /obj/structure/closet/secure_closet/detective/fill()
 	//Appearance
-	new /obj/item/clothing/suit/storage/toggle/det_jacket(src)
+	new /obj/item/clothing/suit/storage/det_jacket(src)
 	new /obj/item/clothing/under/det(src)
 	new /obj/item/clothing/under/det/black(src)
 	new /obj/item/clothing/under/det/classic(src)

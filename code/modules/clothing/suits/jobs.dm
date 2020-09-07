@@ -29,7 +29,7 @@ obj/item/clothing/suit/apron/colored
 /obj/item/clothing/suit/apron/overalls/random/Initialize()
 	. = ..()
 	color = get_random_colour(lower = 150)
-	
+
 obj/item/clothing/suit/apron/overalls/blue
 	color = "#3429d1"
 
@@ -123,10 +123,9 @@ obj/item/clothing/suit/apron/overalls/blue
 
 //Detective
 
-/obj/item/clothing/suit/storage/toggle/det_jacket
+/obj/item/clothing/suit/storage/det_jacket
 	name = "detective's jacket"
-	desc = "Stylish yet comfortable professional jacket manufactured by CL corporation for NT detectives. Unique fiber structure will offer moderate protection from various hazards investigators may encounter in the line of duty"
-	icon = 'icons/obj/clothing/detective.dmi'
+	desc = "Stylish yet comfortable professional jacket manufactured by CL corporation for NT detectives. Unique fiber structure will offer moderate protection from various hazards investigators may encounter in the line of duty."
 	icon_state = "det"
 	item_state = "det"
 	blood_overlay_type = "coat"
