@@ -255,22 +255,13 @@
 			CT.attached_closet = src
 			user.drop_from_inventory(CT, src)
 		return
-	if(W.isscrewdriver())
-		if(!linked_teleporter)
-			to_chat(user, SPAN_WARNING("There is nothing to remove with a screwdriver here."))
-			return
-		user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [linked_teleporter] from \the [src]..."), SPAN_NOTICE("You begin detaching \the [linked_teleporter] from \the [src]..."), range = 3)
-		if(do_after(user, 30, TRUE, src))
-			user.visible_message(SPAN_NOTICE("\The [user] detaches \the [linked_teleporter] from \the [src]."), SPAN_NOTICE("You detach \the [linked_teleporter] from \the [src]."), range = 3)
-			linked_teleporter.attached_closet = null
-			user.put_in_hands(linked_teleporter)
-			linked_teleporter = null
-		return
+
 	if(opened)
 		if(istype(W, /obj/item/grab))
 			var/obj/item/grab/G = W
 			MouseDrop_T(G.affecting, user)      //act like they were dragged onto the closet
 			return 0
+
 		if(W.iswelder())
 			var/obj/item/weldingtool/WT = W
 			if(WT.isOn())
@@ -296,6 +287,15 @@
 					dismantle()
 					return
 
+		if(W.isscrewdriver && linked_teleporter)
+			user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [linked_teleporter] from \the [src]..."), SPAN_NOTICE("You begin detaching \the [linked_teleporter] from \the [src]..."), range = 3)
+			if(do_after(user, 30, TRUE, src))
+				user.visible_message(SPAN_NOTICE("\The [user] detaches \the [linked_teleporter] from \the [src]."), SPAN_NOTICE("You detach \the [linked_teleporter] from \the [src]."), range = 3)
+				linked_teleporter.attached_closet = null
+				user.put_in_hands(linked_teleporter)
+				linked_teleporter = null
+			return
+
 		if(W.iswrench() && canbemoved)
 			if(wrenched && !screwed)
 				to_chat(user,  "<span class='notice'>You start to unfasten the bolts holding the locker in place...</span>")
@@ -315,6 +315,7 @@
 					wrenched = 1
 					anchored = 1
 				return
+
 		if(W.isscrewdriver() && canbemoved)
 			if(screwed)
 				to_chat(user,  "<span class='notice'>You start to unscrew the locker from the floor...</span>")
@@ -332,6 +333,7 @@
 					playsound(loc, W.usesound, 50, 1)
 					screwed = 1
 				return
+
 		if(istype(W, /obj/item/storage/laundry_basket) && W.contents.len)
 			var/obj/item/storage/laundry_basket/LB = W
 			var/turf/T = get_turf(src)
@@ -343,12 +345,15 @@
 				"<span class='notice'>You hear rustling of clothes.</span>"
 			)
 			return
+
 		if(!dropsafety(W))
 			return
+
 		if(W)
 			user.drop_from_inventory(W,loc)
 		else
 			user.drop_item()
+
 	else if(istype(W, /obj/item/stack/packageWrap))
 		return
 	else if(W.iswelder())
