@@ -16,7 +16,7 @@ BLIND     // can't see anything
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_glasses.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_glasses.dmi'
 		)
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_EYES
 	body_parts_covered = EYES
 	var/vision_flags = 0
@@ -440,7 +440,7 @@ BLIND     // can't see anything
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "tape_cross"
 	item_state = null
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/clothing/glasses/sunglasses/prescription
 	name = "prescription sunglasses"
@@ -450,23 +450,6 @@ BLIND     // can't see anything
 	desc = "Strangely ancient technology used to help provide rudimentary eye cover. Larger than average enhanced shielding blocks many flashes."
 	icon_state = "bigsunglasses"
 	item_state = "sun"
-
-/obj/item/clothing/glasses/fakesunglasses //Sunglasses without flash immunity
-	name = "stylish sunglasses"
-	desc = "A pair of designer sunglasses. Doesn't seem like it'll block flashes."
-	icon_state = "sun"
-	item_state = "sun"
-	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
-
-/obj/item/clothing/glasses/fakesunglasses/prescription
-	name = "stylish prescription sunglasses"
-	prescription = 1
-
-/obj/item/clothing/glasses/fakesunglasses/aviator
-	desc = "A pair of designer sunglasses. Doesn't seem like it'll block flashes. Comes with built-in prescription lenses."
-	icon_state = "aviator"
-	item_state = "aviator"
-	prescription = 1
 
 /obj/item/clothing/glasses/sunglasses/sechud
 	name = "HUDsunglasses"
@@ -613,7 +596,8 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/thermal/aviator
 	name = "aviators"
-	desc = "Modified aviator glasses with a toggled thermal-vision mode. Comes with bonus prescription overlay."
+	desc = "A pair of designer sunglasses. They should put HUDs in these."
+	desc_antag = "Modified aviator glasses with a toggled thermal-vision mode."
 	icon_state = "aviator_thr"
 	off_state = "aviator_off"
 	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")

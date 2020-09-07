@@ -1,6 +1,6 @@
 /obj/structure
 	icon = 'icons/obj/structures.dmi'
-	w_class = 10
+	w_class = ITEMSIZE_IMMENSE
 	layer = OBJ_LAYER - 0.01
 
 	var/climbable

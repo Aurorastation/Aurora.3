@@ -4,7 +4,7 @@
 	desc = "A rustic doll with a vague humanoid shape."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "poppet"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	var/datum/weakref/target = null
 	var/countenance = null //what species does it looks like?
 	var/cooldown_time = 120

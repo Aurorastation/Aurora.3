@@ -4,7 +4,7 @@
 //Added by Jack Rost
 /obj/item/trash
 	icon = 'icons/obj/trash.dmi'
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi'

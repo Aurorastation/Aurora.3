@@ -20,7 +20,7 @@
 	..()
 	pixel_x = rand(-10,10)
 	pixel_y = rand(-10,10)
-	if(w_class > 0 && w_class < 4)
+	if(w_class > 0 && w_class < ITEMSIZE_LARGE)
 		icon_state = "gift[w_class]"
 	else
 		icon_state = "gift[pick(1, 2, 3)]"
@@ -130,7 +130,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift1"
 	item_state = "gift1"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/xmasgift/Initialize()
 	..()
@@ -231,7 +231,7 @@
 /obj/item/xmasgift/medium
 	icon_state = "gift2"
 	item_state = "gift2"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/xmasgift/medium/attack_self(mob/user)
 	var/gift_type = pick(
@@ -301,7 +301,7 @@
 /obj/item/xmasgift/large
 	icon_state = "gift3"
 	item_state = "gift3"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/xmasgift/large/attack_self(mob/user)
 	var/gift_type = pick(

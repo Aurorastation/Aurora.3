@@ -6,7 +6,7 @@
 	item_state = ""	//no inhands
 	overlay_state = null
 	slot_flags = SLOT_TIE
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	var/slot = "decor"
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
@@ -404,7 +404,7 @@
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	siemens_coefficient = 0.9
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	slot = "over"
 	var/allow_tail_hiding = TRUE //in case if you want to allow someone to switch the HIDETAIL var or not
 
@@ -468,7 +468,7 @@
 	name = "IAC poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is white with a blue tint, standard IAC colors."
 	icon_state = "IACponcho"
-	item_state = "IACponcho"	
+	item_state = "IACponcho"
 
 /obj/item/clothing/accessory/poncho/roles/engineering
 	name = "engineering poncho"
@@ -704,17 +704,17 @@
 	overlay_state = null
 	badge_string = null
 	slot_flags = SLOT_TIE
-	w_class = 1
-	
+	w_class = ITEMSIZE_TINY
+
 /obj/item/clothing/accessory/bracelet
 	name = "bracelet"
 	desc = "A simple bracelet with a clasp."
 	icon_state = "bracelet"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 	flippable = 1
-	
+
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"
 	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing."

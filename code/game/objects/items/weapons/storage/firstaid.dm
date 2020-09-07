@@ -155,7 +155,7 @@
 		)
 	item_state = "pill_canister"
 	center_of_mass = list("x" = 16,"y" = 12)
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/dice,/obj/item/paper)
 	allow_quick_gather = 1
 	use_to_pickup = 1

@@ -5,7 +5,7 @@
 	body_parts_covered = HANDS|ARMS
 	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	punch_force = 3
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	siemens_coefficient = 0.35
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
