@@ -6,8 +6,8 @@
 	icon_state = "cultblade"
 	item_state = "cultblade"
 	contained_sprite = TRUE
-	w_class = 4
 	force = 25
+	w_class = ITEMSIZE_LARGE
 	throwforce = 10
 	slot_flags = SLOT_BELT
 	edge = TRUE

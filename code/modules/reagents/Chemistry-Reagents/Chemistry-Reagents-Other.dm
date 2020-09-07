@@ -75,9 +75,6 @@
 		var/obj/machinery/light/L = O
 		L.brightness_color = color
 		L.update()
-	else if(istype(O, /obj/item/clothing/suit/storage/toggle/det_trench/technicolor) || istype(O, /obj/item/clothing/head/det/technicolor))
-		return
-
 	else if(istype(O))
 		O.color = color
 
@@ -762,7 +759,7 @@
 	name = "shapesand"
 	desc = "A strangely animate clump of sand which can shift its color and consistency."
 	icon = 'icons/obj/mining.dmi'
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	icon_state = "ore_glass"
 
 /obj/item/shapesand/attack() //can't be used to actually bludgeon things

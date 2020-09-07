@@ -64,7 +64,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	max_storage_space = 10
 	throwforce = 2
 	slot_flags = SLOT_BELT
@@ -88,7 +88,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	starts_with = list(/obj/item/paper/cig/filter = 10)
 	make_exact_fit()
 	drop_sound = 'sound/items/drop/gloves.ogg'
@@ -117,7 +117,7 @@
 	drop_sound = 'sound/items/drop/shovel.ogg'
 	pickup_sound = 'sound/items/pickup/shovel.ogg'
 	use_sound = 'sound/items/storage/pillbottle.ogg'
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	starts_with = list(/obj/item/clothing/mask/chewable/tobacco = 6)

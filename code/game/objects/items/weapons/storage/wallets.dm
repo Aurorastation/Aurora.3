@@ -3,8 +3,8 @@
 	desc = "It can hold a few small and personal things."
 	storage_slots = 10
 	icon_state = "wallet"
-	w_class = 2
-	max_w_class = 2
+	w_class = ITEMSIZE_SMALL
+	max_w_class = ITEMSIZE_SMALL
 	can_hold = list(
 		/obj/item/spacecash,
 		/obj/item/card,
@@ -172,8 +172,8 @@
 	item_state = "lanyard"
 	overlay_state = "lanyard"
 	attack_verb = list("whipped", "lashed", "lightly garroted")
-	w_class = 1
-	max_w_class = 1
+	w_class = ITEMSIZE_TINY
+	max_w_class = ITEMSIZE_TINY
 	can_hold = list(
 		/obj/item/card,
 		/obj/item/clothing/accessory/badge,

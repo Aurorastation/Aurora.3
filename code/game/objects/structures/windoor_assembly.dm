@@ -17,7 +17,7 @@ obj/structure/windoor_assembly
 	anchored = 0
 	density = 0
 	dir = NORTH
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	flags = ON_BORDER
 
 	var/obj/item/airlock_electronics/electronics = null
