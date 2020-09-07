@@ -107,7 +107,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		return
 
 	if(!screw_loose && !odd_button && prob(2) && world.time > last_emote + 2 MINUTES)
-		custom_emote(2, "makes an excited beeping booping sound!")
+		custom_emote(AUDIBLE_MESSAGE, "makes an excited beeping booping sound!")
 		last_emote = world.time
 
 	if(screw_loose && prob(5)) // Make a mess
