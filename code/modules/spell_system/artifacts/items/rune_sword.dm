@@ -7,12 +7,12 @@
 	contained_sprite = TRUE
 	active_force = 40
 	active_throwforce = 40
-	active_w_class = 5
+	active_w_class = ITEMSIZE_HUGE
 	force = 20
 	throwforce = 30
 	throw_speed = 5
 	throw_range = 10
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 8)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")

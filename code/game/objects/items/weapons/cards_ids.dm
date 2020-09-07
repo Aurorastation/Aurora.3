@@ -20,7 +20,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_card.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_card.dmi',
 		)
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	var/associated_account_number = 0
 
 	var/list/files = list(  )

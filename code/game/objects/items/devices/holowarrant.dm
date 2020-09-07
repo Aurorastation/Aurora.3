@@ -3,7 +3,7 @@
 	desc = "The practical paperwork replacement for the officer on the go."
 	icon_state = "holowarrant"
 	throwforce = 5
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 4
 	throw_range = 10
 	flags = CONDUCT

@@ -7,7 +7,7 @@
 	icon_state = "ishotgun"
 	item_state = "ishotgun"
 	max_shells = 2
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	force = 5
 	recoil = 2
 	accuracy = -1
@@ -43,7 +43,7 @@
 		if(do_after(user, 30))
 			icon_state = "ishotgunsawn"
 			item_state = "ishotgunsawn"
-			w_class = 3
+			w_class = ITEMSIZE_NORMAL
 			force = 5
 			slot_flags &= ~SLOT_BACK
 			slot_flags |= (SLOT_BELT|SLOT_HOLSTER)
@@ -68,7 +68,7 @@
 	icon_state = "ishotgunsawn"
 	item_state = "ishotgunsawn"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	force = 5
 
 // shotgun construction

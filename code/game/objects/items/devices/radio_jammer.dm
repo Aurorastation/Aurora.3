@@ -14,7 +14,7 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 	desc = "A small, inconspicious looking item with an 'ON/OFF' toggle."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "shield0"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 	var/active = 0
 	var/radius = 7

@@ -4,7 +4,7 @@
 	var/back_icon = "card_back"
 
 /obj/item/deck
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	icon = 'icons/obj/playing_cards.dmi'
 	var/list/cards = list()
 
@@ -189,7 +189,7 @@
 	icon_state = "card_pack"
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	var/list/cards = list()
 
 
@@ -211,7 +211,7 @@
 	icon_state = null
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 	var/concealed = 0
 	var/list/cards = list()

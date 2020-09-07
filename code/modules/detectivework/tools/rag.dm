@@ -16,7 +16,7 @@
 /obj/item/reagent_containers/glass/rag
 	name = "rag"
 	desc = "For cleaning up messes, you suppose."
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "rag"
 	amount_per_transfer_from_this = 5
@@ -275,7 +275,7 @@
 /obj/item/reagent_containers/glass/rag/advanced
 	name = "microfiber cloth"
 	desc = "A synthetic fiber cloth; the split fibers and the size of the individual filaments make it more effective for cleaning purposes."
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "advrag"
 	amount_per_transfer_from_this = 10

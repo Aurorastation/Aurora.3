@@ -45,7 +45,7 @@
 	layer = SCREEN_LAYER
 	abstract = 1
 	item_state = "nothing"
-	w_class = 5.0
+	w_class = ITEMSIZE_HUGE
 
 
 /obj/item/grab/New(mob/user, mob/victim)
