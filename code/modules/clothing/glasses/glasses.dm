@@ -451,23 +451,6 @@ BLIND     // can't see anything
 	icon_state = "bigsunglasses"
 	item_state = "sun"
 
-/obj/item/clothing/glasses/fakesunglasses //Sunglasses without flash immunity
-	name = "stylish sunglasses"
-	desc = "A pair of designer sunglasses. Doesn't seem like it'll block flashes."
-	icon_state = "sun"
-	item_state = "sun"
-	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
-
-/obj/item/clothing/glasses/fakesunglasses/prescription
-	name = "stylish prescription sunglasses"
-	prescription = 1
-
-/obj/item/clothing/glasses/fakesunglasses/aviator
-	desc = "A pair of designer sunglasses. Doesn't seem like it'll block flashes. Comes with built-in prescription lenses."
-	icon_state = "aviator"
-	item_state = "aviator"
-	prescription = 1
-
 /obj/item/clothing/glasses/sunglasses/sechud
 	name = "HUDsunglasses"
 	desc = "Sunglasses with a HUD."
