@@ -4,7 +4,7 @@
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "closed"
 	density = 1
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	layer = OBJ_LAYER - 0.01
 	build_amt = 2
 	var/icon_closed = "closed"

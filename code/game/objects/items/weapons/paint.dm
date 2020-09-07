@@ -8,13 +8,13 @@
 	icon_state = "paint_empty"
 	item_state = "paintcan"
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(10,20,30,60)
 	volume = 60
 	unacidable = 0
 	flags = OPENCONTAINER
-	no_shatter = TRUE
+	shatter = FALSE
 	var/paint_reagent = null //name of the reagent responsible for colouring the paint
 	var/paint_type = null //used for colouring detective technicolor coat and hat
 	reagents_to_add = list(/datum/reagent/water = 3/5, /datum/reagent/toxin/plasticide = 1/5)

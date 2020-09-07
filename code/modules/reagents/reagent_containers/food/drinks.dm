@@ -126,7 +126,7 @@ If you add a drink with no empty icon sprite, ensure it is flagged as NO_EMPTY_I
 	name = "golden cup"
 	icon_state = "golden_cup"
 	item_state = "" //nope :(
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 14
 	throwforce = 10
 	amount_per_transfer_from_this = 20

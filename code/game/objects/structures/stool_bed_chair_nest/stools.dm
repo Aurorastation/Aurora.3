@@ -9,7 +9,7 @@
 	center_of_mass = null
 	force = 10
 	throwforce = 10
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	item_state_slots = list(
 		slot_l_hand_str = "stool",
 		slot_r_hand_str = "stool"

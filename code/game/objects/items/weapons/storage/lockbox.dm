@@ -9,8 +9,8 @@
 		slot_l_hand_str = 'icons/mob/items/storage/lefthand_briefcase.dmi',
 		slot_r_hand_str = 'icons/mob/items/storage/righthand_briefcase.dmi'
 		)
-	w_class = 4
-	max_w_class = 3
+	w_class = ITEMSIZE_LARGE
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 14 //The sum of the w_classes of all the items in this storage item.
 	req_access = list(access_armory)
 	var/locked = 1
@@ -108,8 +108,8 @@
 	desc = "A locked box used to store medals."
 	icon_state = "medalbox+l"
 	item_state = "box"
-	w_class = 3
-	max_w_class = 2
+	w_class = ITEMSIZE_NORMAL
+	max_w_class = ITEMSIZE_SMALL
 	req_access = list(access_captain)
 	icon_locked = "medalbox+l"
 	icon_closed = "medalbox"

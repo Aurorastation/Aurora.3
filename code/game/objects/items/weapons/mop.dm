@@ -12,7 +12,7 @@
 	throwforce = 10.0
 	throw_speed = 3
 	throw_range = 7
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("mopped", "bashed", "bludgeoned", "whacked")
 	drop_sound = 'sound/items/drop/woodweapon.ogg'
 	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
