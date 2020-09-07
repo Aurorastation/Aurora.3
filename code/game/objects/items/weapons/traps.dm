@@ -117,7 +117,7 @@
 		var/obj/item/organ/external/limb = H.get_organ(check_zone(target_zone))
 		if(!limb || limb.is_stump()) // oops, we took the limb clean off
 			did_trap = FALSE
-	
+
 	if(did_trap)
 		//trap the victim in place
 		can_buckle = TRUE
@@ -169,7 +169,7 @@
 	desc = "A small mechanical trap that's used to catch small animals like rats, lizards, and chicks."
 	throwforce = 2
 	force = 1
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 1750)
 	deployed = FALSE
@@ -533,7 +533,7 @@
 	icon_state = "medium0"
 	throwforce = 4
 	force = 5
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	origin_tech = list(TECH_ENGINEERING = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 5750)
 	deployed = FALSE
@@ -637,7 +637,7 @@
 	icon = 'icons/obj/items.dmi'
 	throwforce = 4
 	force = 5
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 
 /obj/item/large_trap_foundation/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/stack/rods))

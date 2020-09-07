@@ -20,7 +20,7 @@ LINEN BINS
 	throwforce = 1
 	throw_speed = 1
 	throw_range = 2
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	randpixel = 0
@@ -124,12 +124,12 @@ LINEN BINS
 		if(!fold)
 			fold = TRUE
 			slot_flags = null
-			w_class = 2.0
+			w_class = ITEMSIZE_SMALL
 			layer = initial(layer)
 		else
 			fold = FALSE
 			slot_flags = SLOT_BACK
-			w_class = 4.0
+			w_class = ITEMSIZE_LARGE
 		update_icon()
 		inuse = FALSE
 		return TRUE
@@ -153,19 +153,19 @@ LINEN BINS
 			user.do_attack_animation(src)
 		playsound(get_turf(loc), /decl/sound_category/rustle_sound, 15, 1, -5)
 		var/rolls = roll
-		user.visible_message(SPAN_NOTICE("\The [user] [rolls ? "unrolls" : "rolls"] \the [src]."), 
+		user.visible_message(SPAN_NOTICE("\The [user] [rolls ? "unrolls" : "rolls"] \the [src]."),
 							SPAN_NOTICE("You [roll ? "unroll" : "roll"] \the [src]."))
 		if(!roll)
 			roll = TRUE
 			slot_flags = null
-			w_class = 3.0
+			w_class = ITEMSIZE_NORMAL
 			layer = initial(layer)
 			if(user.resting && get_turf(src) == get_turf(user)) // Make them rest
 				user.lay_down()
 		else
 			roll = FALSE
 			slot_flags = SLOT_BACK
-			w_class = 4.0
+			w_class = ITEMSIZE_LARGE
 			if(layer == initial(layer))
 				layer = ABOVE_MOB_LAYER
 			if(!user.resting && get_turf(src) == get_turf(user)) // Make them get up
@@ -178,7 +178,7 @@ LINEN BINS
 
 /obj/item/bedsheet/attackby(obj/item/I, mob/user)
 	if(I.isscrewdriver())
-		user.visible_message(SPAN_NOTICE("\The [user] begins poking eyeholes in \the [src] with \the [I]."), 
+		user.visible_message(SPAN_NOTICE("\The [user] begins poking eyeholes in \the [src] with \the [I]."),
 						SPAN_NOTICE("You begin poking eyeholes in \the [src] with \the [I]."))
 		if(do_after(user, 50/I.toolspeed))
 			to_chat(user, SPAN_NOTICE("You poke eyeholes in \the [src]!"))
@@ -186,7 +186,7 @@ LINEN BINS
 			qdel(src)
 		return
 	else if(is_sharp(I))
-		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up [src] with [I]."), 
+		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up [src] with [I]."),
 							SPAN_NOTICE("You begin cutting up [src] with [I]."))
 		if(do_after(user, 50/I.toolspeed))
 			to_chat(user, SPAN_NOTICE("You cut [src] into pieces!"))

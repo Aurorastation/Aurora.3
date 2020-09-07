@@ -5,7 +5,7 @@
 	. = ..()
 	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 2	//two slots
-	pockets.max_w_class = 2		//fit only pocket sized items
+	pockets.max_w_class = ITEMSIZE_SMALL		//fit only pocket sized items
 	pockets.max_storage_space = 4
 
 /obj/item/clothing/suit/storage/Destroy()
@@ -51,7 +51,7 @@
 
 /obj/item/clothing/suit/storage/toggle/proc/toggle_open()
 	opened = !opened
-	to_chat(usr, "You [opened ? "unbutton" : "button up"] \the [src].")
+	to_chat(usr, SPAN_NOTICE("You [opened ? "unbutton" : "button up"] \the [src]."))
 	playsound(src, /decl/sound_category/rustle_sound, EQUIP_SOUND_VOLUME, TRUE)
 	icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
 	item_state = icon_state
@@ -67,14 +67,14 @@
 	. = ..()
 	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 4
-	pockets.max_w_class = 2
+	pockets.max_w_class = ITEMSIZE_SMALL
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/storage/vest/hos/Initialize()
 	. = ..()
 	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 4
-	pockets.max_w_class = 2
+	pockets.max_w_class = ITEMSIZE_SMALL
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/storage/vest

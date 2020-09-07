@@ -72,7 +72,7 @@
 	applies_material_colour = 0
 	force_divisor = 0.35
 	can_embed = 0
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/material/knife/tacknife
 	name = "tactical knife"
@@ -91,7 +91,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "trench"
 	item_state = "knife"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	applies_material_colour = 0
 	slot_flags = SLOT_BELT
 
@@ -109,7 +109,7 @@
 		)
 	hitsound = null
 	active = 0
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	attack_verb = list("patted", "tapped")
 	force_divisor = 0.25 // 15 when wielded with hardness 60 (steel)
 	thrown_force_divisor = 0.25 // 5 when thrown with weight 20 (steel)
@@ -123,7 +123,7 @@
 		icon_state += "_open"
 		item_state = icon_state
 		hitsound = 'sound/weapons/bladeslice.ogg'
-		w_class = 3
+		w_class = ITEMSIZE_NORMAL
 		attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	else
 		force = 3

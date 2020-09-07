@@ -3,7 +3,7 @@
 	desc = "A dice with six sides."
 	icon = 'icons/obj/dice.dmi'
 	icon_state = "d66"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	var/base_icon = "d6"
 	var/side_mult = 1 // Used for d100s.
 	var/sides = 6

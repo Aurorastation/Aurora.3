@@ -7,7 +7,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "solution_tray"
 	matter = list(MATERIAL_GLASS = 5)
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	amount_per_transfer_from_this = 1
 	possible_transfer_amounts = list(1, 2)
 	volume = 2

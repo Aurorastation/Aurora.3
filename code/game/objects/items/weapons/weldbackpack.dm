@@ -4,7 +4,7 @@
 	slot_flags = SLOT_BACK
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "welderpack"
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	var/max_fuel = 350
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'

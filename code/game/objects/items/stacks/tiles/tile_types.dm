@@ -10,7 +10,7 @@
 	name = "tile"
 	singular_name = "tile"
 	desc = "A non-descript floor tile"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	max_amount = 60
 	icon = 'icons/obj/stacks/tiles.dmi'
 	item_icons = list(

@@ -11,7 +11,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "pocket_watch_close"
 	item_state = "gold"
 	desc = "The design of this pocket watch signals its age, however it seems to retain its pristine quality. The cover is gold, and there appears to be an elegant crest on the outside of the lid."
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/clothing/accessory/fluff/antique_pocket_watch/attack_self(mob/user as mob)
 	switch(icon_state)
@@ -48,7 +48,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A black tin box with a symbol painted over it. It shimmers in the light."
 	icon = 'icons/obj/custom_items/kiara_altar.dmi'
 	icon_state = "kiara_altar1"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/fluff/kiara_altar/attack_self(mob/user as mob)
 	if(src.icon_state == "kiara_altar1")
@@ -139,7 +139,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "You see on the photo a tajaran couple holding a small kit in their arms, while looking very happy. On the back it is written; \"Nasir, Akela and Ishka\", with a little gold mark that reads: \"Two months\"."
 	icon = 'icons/obj/custom_items/akela_photo.dmi'
 	icon_state = "akela_photo"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 
 /obj/item/implant/fluff/ziva_implant //Heart Condition - Ziva Ta'Kim - sierrakomodo
@@ -189,7 +189,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "It is a photo of a cyan IPC holding a thick fuzzy spider of the size of a football."
 	icon = 'icons/obj/custom_items/cac_picture.dmi'
 	icon_state = "cac_picture"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_EARS
 
 
@@ -206,7 +206,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A framed Zatimono, a Unathi standard worn into battle similar to an old-Earth Sashimono. This one seems well maintained and carries Sk'akh Warrior Priest markings and litanies."
 	icon_state = "iskanz_atimono"
 	sign_state = "iskanz_atimono"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 
 /obj/item/clothing/accessory/fluff/zahra_pin //Indigo Remembrance Pin -  Zahra Karimi - synnono
@@ -304,7 +304,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	an untidy scrawl. The letter is torn in some places and the is writing faded."
 	icon = 'icons/obj/custom_items/ikrad_beret.dmi'
 	icon_state = "ikrad_letter"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/clothing/suit/storage/toggle/fluff/ryan_jacket //Mars' Militia Leather Jacket - Ryan McLean - seniorscore
 	name = "mars militia leather jacket"
@@ -341,7 +341,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A hefty dictionary with a simple design on the cover, it seems to be for translations. There's a label on the back denoting that it belongs to a \"Zhilin Vadim\"."
 	icon = 'icons/obj/custom_items/zhilin_book.dmi'
 	icon_state = "zhilin_book"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/fluff/zhilin_book/attack_self(mob/user as mob)
 	user.visible_message("<span class='notice'>[user] starts flipping through \the [src].</span>",
@@ -395,7 +395,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "azaroz_staff"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BACK
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 
 /obj/item/clothing/accessory/poncho/fluff/flaming_poncho //Stitched Heart White Poncho - Flaming Hearts Love Stars - sleepywolf
@@ -450,7 +450,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "corvo_cigarette"
 	item_state = "corvo_cigarette"
 	body_parts_covered = 0
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_EARS | SLOT_MASK
 	contained_sprite = TRUE
 	var/active = FALSE
@@ -504,7 +504,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	flags_inv = HIDEEARS|HIDEFACE
 	body_parts_covered = FACE
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 
 
 /obj/item/clothing/under/fluff/ellie_uniform //Cheery Blazer - Ellie Shoshanna - resilynn
@@ -822,7 +822,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A thin electronic device that projects holographic images stored on it."
 	icon = 'icons/obj/custom_items/raymond_items.dmi'
 	icon_state = "raymond_tablet"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	var/picture = null
 
 /obj/item/fluff/raymond_tablet/attack_self(mob/user as mob)
@@ -954,7 +954,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A work visa authorizing the holder, Daliyah Veridan, to work within the Republic of Biesel. An Eridani and NanoTrasen logo are embossed on the back."
 	icon = 'icons/obj/custom_items/daliyah_visa.dmi'
 	icon_state = "daliyah_visa"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 
 /obj/item/clothing/mask/fluff/ird_mask //Titanium Faceplate - IRD - kyres1
@@ -967,7 +967,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	flags_inv = HIDEEARS|HIDEFACE
 	body_parts_covered = FACE
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 
 
 /obj/item/dice/fluff/baron_dice //BARON's Dice - BARON - iamcrystalclear
@@ -1065,7 +1065,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/fernando_knitting.dmi'
 	icon_state = "knittingneedles"
 	item_state = "knittingneedles"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	contained_sprite = TRUE
 	var/working = FALSE
 	var/obj/item/fluff/yarn/ball
@@ -1134,7 +1134,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A ball of yarn, this one is white."
 	icon = 'icons/obj/custom_items/fernando_knitting.dmi'
 	icon_state = "white_ball"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/fluff/yarn/red
 	desc = "A ball of yarn, this one is red."
@@ -1186,7 +1186,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "sovno_carrier"
 	item_state = "sovno_carrier"
 	contained_sprite = TRUE
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	can_hold = list(/obj/item/holder/cat)
 	storage_slots = 4
 	max_storage_space = 16
@@ -1295,7 +1295,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A pair of jaws from what must have been a large and impressive shark."
 	icon_state = "tokash_sign"
 	sign_state = "tokash_sign"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 
 /obj/item/spirit_board/fluff/klavdiya_board //Ghostly Board - Klavdiya Tikhomirov - alberyk
@@ -1464,7 +1464,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "qrqil_cane"
 	item_state = "qrqil_cane"
 	contained_sprite = TRUE
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	var/active = FALSE
 
 /obj/item/cane/fluff/qrqil_cane/attack_self(mob/user)
@@ -1473,7 +1473,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
 		item_state = icon_state
-		w_class = 4
+		w_class = ITEMSIZE_LARGE
 	else
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>\The [src] is now de-energised..</span>")
@@ -1585,7 +1585,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A small plasteel display stand which uses magnetic fields to levitate an object."
 	icon = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_state = "stand-spear"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	var/has_spear = TRUE
 
 /obj/item/fluff/tokash_spear/examine(mob/user)
@@ -1621,7 +1621,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "An aged and worn spearhead. It seems to be made of bronze or composite metal."
 	icon = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_state = "spearhead"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 
 /obj/item/clothing/suit/storage/dominia/fluff/naxxir_cape //Caladius Cape - Nazret Naxxir - conspiir
@@ -1677,7 +1677,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/akinyi_symphette.dmi'
 	icon_state = "akinyi_symphette"
 	item_state = "akinyi_symphette"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	slot_flags = SLOT_BACK
 	contained_sprite = TRUE
 	var/deployed = FALSE
@@ -1730,7 +1730,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "An old, worn out journal made out of leather. It has a lot of lose pages stuck in it, it surely has seen better days. The front just says \"Fraseq\"."
 	icon = 'icons/obj/custom_items/fraseq_journal.dmi'
 	icon_state = "fraseq_journal"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 
 /obj/item/clothing/accessory/poncho/fluff/ioraks_cape //Iorakian Cape - Kuhserze Ioraks - geeves
@@ -1823,7 +1823,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A portable bedroll, made of cloth and padding."
 	icon = 'icons/obj/custom_items/muhawir_items.dmi'
 	icon_state = "bedroll-rolled"
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("battered","whacked")
 	var/deployed = FALSE
 
@@ -1852,7 +1852,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A roll of poles and ropes. Anybody knowledgeable would know they are designed for erecting a tent."
 	icon = 'icons/obj/custom_items/muhawir_items.dmi'
 	icon_state = "tent-tools"
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("battered","whacked")
 
 /obj/item/fluff/muhawir_tent //Tentroll - Muhawir Nawfal - menown
@@ -1860,7 +1860,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A portable tent. All wrapped up with straps and buckles."
 	icon = 'icons/obj/custom_items/muhawir_items.dmi'
 	icon_state = "tent-rolled"
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("battered","whacked")
 
 /obj/item/fluff/muhawir_tent/attackby(var/obj/item/W, mob/user as mob)
@@ -2083,7 +2083,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	flags_inv = HIDEEARS|HIDEFACE
 	body_parts_covered = FACE
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 
 
 /obj/item/cane/fluff/suul_staff //Akhanzi Staff - Suul Akhandi - herpetophilia
@@ -2094,7 +2094,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "suul_staff"
 	slot_flags = SLOT_BACK
 	contained_sprite = TRUE
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 
 /obj/item/cane/fluff/suul_staff/afterattack(atom/A, mob/user as mob, proximity)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -2120,7 +2120,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	left and a cut on the bottom right. The lyrics inside have two copies each: one in Sol Common and one in Tau Ceti Basic. It generally looks to be hard rock."
 	icon = 'icons/obj/custom_items/cress_items.dmi'
 	icon_state = "cress_book"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	var/list/lyrics = list("Falling Down: A song about holding on to the last glimmer of hope. It's generally pretty motivational. The most recent song of the three.",
 							"Say Something New: A morose song about companionship, and being unable to continue without an undescribed dear friend. Morose, but overall motivational.",
 							"One By One: A song telling an undescribed person to 'give it another try'. It seems to mostly about reconciliation and accepting failure. More somber than the others, and the most dated.")
@@ -2202,7 +2202,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/mekesatis_labcoat/toggle_open()
 	if(!changing)
 		opened = !opened
-		to_chat(usr, "You [opened ? "unbutton" : "button up"] \the [src].")
+		to_chat(usr, SPAN_NOTICE("You [opened ? "unbutton" : "button up"] \the [src]."))
 		playsound(src, /decl/sound_category/rustle_sound, EQUIP_SOUND_VOLUME, TRUE)
 		icon_state = "mekesatis_[changed ? "holocoat" : "labcoat"][opened ? "_open" : ""]"
 		item_state = icon_state
@@ -2322,7 +2322,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_LARGE
 	contained_sprite = TRUE
 	storage_slots = 3
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	can_hold = list(
 		/obj/item/device/megaphone/fluff/akinyi_mic,
 		/obj/item/fluff/akinyi_stand,
