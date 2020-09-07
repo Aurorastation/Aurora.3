@@ -963,7 +963,7 @@
 		nothing_to_puke = TRUE
 
 	if(nothing_to_puke)
-		custom_emote(1,"dry heaves.")
+		custom_emote(VISIBLE_MESSAGE,"dry heaves.")
 		return
 
 	var/list/vomitCandidate = typecacheof(/obj/machinery/disposal) + typecacheof(/obj/structure/sink) + typecacheof(/obj/structure/toilet)
