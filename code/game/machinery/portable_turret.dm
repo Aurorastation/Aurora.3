@@ -570,7 +570,7 @@
 	if(get_dist(src, L) > 7)	//if it's too far away, why bother?
 		return TURRET_NOT_TARGET
 
-	var/flags =  PASSTABLE|PASSCLOSET
+	var/flags =  PASSTABLE|PASSTRACE
 	if(ispath(projectile, /obj/item/projectile/beam) || ispath(eprojectile, /obj/item/projectile/beam))
 		flags |= PASSTABLE|PASSGLASS|PASSGRILLE
 
