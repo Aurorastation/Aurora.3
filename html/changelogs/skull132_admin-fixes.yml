@@ -1,6 +1,0 @@
-author: Skull132
-delete-after: True
-
-changes:
-  - bugfix: "Reload Admins will now update the admins from the forumsuser API when enabled."
-  - bugfix: "admins.txt will now accommodate more complex rank names, specifically ones with spaces and other special characters."

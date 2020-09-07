@@ -1,7 +1,0 @@
-author: Hocka
-
-delete-after: True
-
-changes: 
-  - bugfix: "The normal description of thermal aviators is now the same as standard aviators so that they aren't given away so easily."
-  - rscadd: "Thermal aviators now have an antag-specific description."
