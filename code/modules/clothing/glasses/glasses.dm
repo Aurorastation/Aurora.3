@@ -596,7 +596,8 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/thermal/aviator
 	name = "aviators"
-	desc = "Modified aviator glasses with a toggled thermal-vision mode. Comes with bonus prescription overlay."
+	desc = "A pair of designer sunglasses. They should put HUDs in these."
+	desc_antag = "Modified aviator glasses with a toggled thermal-vision mode."
 	icon_state = "aviator_thr"
 	off_state = "aviator_off"
 	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
