@@ -1,4 +1,8 @@
 /obj/item/reagent_containers/food/drinks/cans
+	var/fuselength = 0
+	var/lastcablecolor
+	var/fuselit
+	var/list/can_size_overrides = list()
 	volume = 40 //just over one and a half cups
 	amount_per_transfer_from_this = 5
 	flags = 0 //starts closed
@@ -22,6 +26,188 @@
 		qdel(src)
 		user.put_in_hands(crushed_can)
 		return TRUE
+	. = ..()
+
+/obj/item/reagent_containers/food/drinks/cans/update_icon()
+	cut_overlays()
+	var/image/fuseoverlay = image('icons/obj/fuses.dmi', icon_state = "fuse_short")
+	switch(fuselength)
+		if(3 to 5)
+			if("x" in can_size_overrides)
+				fuseoverlay.pixel_x = can_size_overrides["x"]
+			if("y" in can_size_overrides)
+				fuseoverlay.pixel_y = can_size_overrides["y"]
+			add_overlay(fuseoverlay)
+		if(6 to 10)
+			fuseoverlay.icon_state = "fuse_long"
+			if("x" in can_size_overrides)
+				fuseoverlay.pixel_x = can_size_overrides["x"]
+			if("y" in can_size_overrides)
+				fuseoverlay.pixel_y = can_size_overrides["y"]
+			add_overlay(fuseoverlay)
+
+/obj/item/reagent_containers/food/drinks/cans/attackby(obj/item/W, mob/user)
+	if(W.iscoil() && is_open_container())
+		var/obj/item/stack/S = W
+		switch(fuselength)
+			if(0 to 2)
+				if(S.use(3 - fuselength)) // in case someone tries to game the system by intentionally getting the fuse to fizzle out to a number below 3 or something
+					user.visible_message("<b>[user]</b> feeds some cable into \the [name].", SPAN_NOTICE("You feed a cable fuse into \the [name]."))
+					fuselength = 3 // The shortest fuse you can have is 3 seconds - below that and you might get people snipping it down to be near-instant shrapnel machines.
+					lastcablecolor = W.color
+					update_icon()
+					desc += " It has some cable poking out of the opening."
+				else
+					to_chat(user, SPAN_WARNING("You do not have enough cable to do that!"))
+			if(3 to 9)
+				if(S.use(1))
+					fuselength += 1
+					to_chat(user, SPAN_NOTICE("You add more cable to the fuse. It is now [fuselength] seconds."))
+					update_icon()
+				else
+					to_chat(user, SPAN_WARNING("You do not have enough cable to do that!"))
+			if(10)
+				to_chat(user, SPAN_WARNING("You cannot make the fuse longer than 10 seconds!"))
+
+	if(W.iswirecutter() && fuselength)
+		switch(fuselength)
+			if(1 to 3) // you can't increase the fuse with wirecutters and you can't trim it down below 3, so just remove it outright.
+				user.visible_message("<b>[user]</b> removes the cable from \the [name].", SPAN_NOTICE("You remove the cable fuse from \the [name]."))
+				var/obj/item/stack/cable_coil/newcoil = new /obj/item/stack/cable_coil(get_turf(src))
+				newcoil.amount = fuselength
+				newcoil.color = lastcablecolor
+				user.put_in_hands(newcoil)
+				desc = initial(desc)
+				fuselength = 0
+				update_icon()
+			if(4 to 10)
+				var/fchoice = alert("Do you want to shorten or remove the fuse on \the [name]?", "Shorten or Remove", "Shorten", "Remove", "Cancel")
+				switch(fchoice)
+					if("Shorten")
+						var/short = input("How many seconds do you want the fuse to be?", "[name] fuse") as null|num
+						if(!use_check_and_message(user))
+							if(short < fuselength && short >= 3)
+								to_chat(user, SPAN_NOTICE("You shorten the fuse to [short] seconds."))
+								var/obj/item/stack/cable_coil/newcoil = new /obj/item/stack/cable_coil(get_turf(src))
+								newcoil.amount = fuselength - short
+								newcoil.color = lastcablecolor	
+								if(Adjacent(user))
+									user.put_in_hands(newcoil)
+								fuselength = short
+								update_icon()
+							else if(!short && !isnull(short))
+								user.visible_message("<b>[user]</b> removes the cable from \the [name]", SPAN_NOTICE("You remove the cable fuse from \the [name]."))
+								var/obj/item/stack/cable_coil/newcoil = new /obj/item/stack/cable_coil(get_turf(src))
+								newcoil.amount = fuselength
+								newcoil.color = lastcablecolor
+								if(Adjacent(user))
+									user.put_in_hands(newcoil)
+								fuselength = 0
+								update_icon()
+							else if(short == fuselength || isnull(short))
+								to_chat(user, SPAN_NOTICE("You decide against modifying the fuse."))
+							else if (short > fuselength)
+								to_chat(user, SPAN_WARNING("You cannot make the fuse longer than it already is!"))
+							else if(short in list(1,2))
+								to_chat(user, SPAN_WARNING("The fuse cannot be shorter than 3 seconds!"))
+							else
+								return
+					if("Remove")
+						if(!use_check_and_message(user))
+							user.visible_message("<b>[user]</b> removes the cable from \the [name].", "You remove the cable fuse from \the [name].")
+							var/obj/item/stack/cable_coil/newcoil = new /obj/item/stack/cable_coil(get_turf(src))
+							newcoil.amount = fuselength
+							newcoil.color = lastcablecolor
+							fuselength = 0
+							update_icon()
+							desc = initial(desc)
+							if(Adjacent(user))
+								user.put_in_hands(newcoil)
+					if("Cancel")
+						return
+				return
+	
+	if(W.isFlameSource() && fuselength)
+		if(can_light())
+			fuselit = TRUE
+			if(reagents.get_reagent_amount(/datum/reagent/fuel) >= 21 && user)
+				msg_admin_attack("[user] ([user.ckey]) lit the fuse on an improvised [name] grenade. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
+			if(fuselength >= 3 && fuselength <= 5 && prob(30) && reagents.get_reagent_amount(/datum/reagent/fuel) >= 21)
+				user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally takes \the [W] too close to \the [name]'s opening!"))
+				detonate(TRUE) // it'd be a bit dull if the toy-levels of fuel had a chance to insta-pop, it's mostly just a way to keep the grenade in check
+			if(fuselength in list(1, 2))
+				user.visible_message(SPAN_DANGER("<b>[user]</b> tries to light the cable on \the [name] but it was too short!"), SPAN_DANGER("You try to light the fuse but it was too short!"))
+				detonate(TRUE) // if you're somehow THAT determined and/or ignorant you managed to get the fuse below 3 seconds, so be it. reap what you sow.
+			else
+				user.visible_message(SPAN_WARNING("<b>[user]</b> lights the cable on \the [name] with \the [W]!"), SPAN_WARNING("You light the cable on \the [name] with the [W]!"))
+				detonate(FALSE)
+	. = ..()
+
+/obj/item/reagent_containers/food/drinks/cans/proc/detonate(var/instant)
+	var/fuel = reagents.get_reagent_amount(/datum/reagent/fuel)
+	if(instant)
+		fuselength = 0
+	else if(prob(fuselength * 6)) // the longer the fuse, the higher chance it will fizzle out (18% chance minimum)
+		var/fizzle = rand(1, fuselength - 1)
+		sleep(fizzle * 10)
+		
+		fuselength -= fizzle
+		visible_message(SPAN_WARNING("The cable on \the [name] fizzles out early."))
+		fuselit = FALSE
+		update_icon()
+		return
+	sleep(fuselength * 10)
+
+	switch(fuel)
+		if(0)
+			visible_message(SPAN_NOTICE("\The [name]'s cable burns out and nothing happens."))
+			fuselit = FALSE
+			fuselength = 0
+			update_icon()
+		if(1 to 10) // baby explosion
+			var/obj/item/trash/can/popped_can = new /obj/item/trash/can(get_turf(src))
+			popped_can.icon_state = icon_state
+			popped_can.name = "popped can"
+			playsound(get_turf(src), 'sound/effects/snap.ogg', 50)
+			visible_message(SPAN_WARNING("\The [name] pops harmlessly!"))
+			fuselit = FALSE // shouldn't have to be done since it's going to get qdel'd, but in case something wacky happens in live play.
+			qdel(src)
+		if(11 to 20) // slightly less baby explosion
+			new /obj/item/material/shard/shrapnel(get_turf(src))
+			playsound(get_turf(src), 'sound/effects/bang.ogg', 50)
+			visible_message(SPAN_WARNING("\The [name] bursts violently into pieces!"))
+			fuselit = FALSE
+			qdel(src)
+		if(21 to INFINITY) // boom
+			fragem(src, 7, 7, 1, 0, 5, 1, TRUE, 2) // The main aim of the grenade should be to hit and wound people with shrapnel instead of causing a lot of station damage, hence the small explosion radius
+			playsound(get_turf(src), 'sound/effects/Explosion1.ogg', 50)
+			visible_message(SPAN_DANGER("<b>\The [name] explodes!</b>"))
+			fuselit = FALSE
+			qdel(src)
+
+/obj/item/reagent_containers/food/drinks/cans/proc/can_light() // just reverses the fuselit var to return a TRUE or FALSE, should hopefully make things a little easier if someone adds more fuse interactions later.
+	if(fuselit)
+		return FALSE
+	else if(fuselength && !fuselit)
+		return TRUE
+
+/obj/item/reagent_containers/food/drinks/cans/bullet_act(obj/item/projectile/P)
+	visible_message(SPAN_DANGER("\The [name] is hit by the [P]!"))
+	if(P.firer && reagents.get_reagent_amount(/datum/reagent/fuel) >= 21)
+		log_and_message_admins("shot an improvised [name] explosive", P.firer)
+		log_game("[key_name(P.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).",ckey=key_name(P.firer))
+	detonate(TRUE)
+	. = ..()
+
+/obj/item/reagent_containers/food/drinks/cans/ex_act(severity)
+	detonate(TRUE)
+	. = ..()
+
+/obj/item/reagent_containers/food/drinks/cans/fire_act()
+	if(can_light())
+		fuselit = TRUE
+		detonate(FALSE)
+		visible_message(SPAN_WARNING("<b>\The [name]'s cable cathes on fire!</b>"))
 	. = ..()
 
 //DRINKS
@@ -118,7 +304,7 @@
 	desc = "A radical looking can of <span class='warning'>Phoron Punch!</span> Phoron poisoning has never been more extreme!"
 	icon_state = "phoron_punch"
 	center_of_mass = list("x"=16, "y"=8)
-
+	can_size_overrides = list("y" = 2)
 	reagents_to_add = list(/datum/reagent/kois/clean = 10, /datum/reagent/toxin/phoron = 5)
 
 /obj/item/reagent_containers/food/drinks/cans/root_beer
@@ -136,7 +322,7 @@
 	desc = "A can of cherry energy drink, with V'krexi additives. All good colas come in cherry."
 	icon_state = "zoracherry"
 	center_of_mass = list("x"=16, "y"=8)
-
+	can_size_overrides = list("y" = 2)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zorakois
@@ -144,7 +330,7 @@
 	desc = "A can of K'ois flavored energy drink, with V'krexi additives. Contains no K'ois, probably contains no palatable flavor."
 	icon_state = "koistwist"
 	center_of_mass = list("x"=16, "y"=8)
-
+	can_size_overrides = list("y" = 2)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda/kois = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoraphoron
@@ -152,7 +338,7 @@
 	desc = "A can of grape flavored energy drink, with V'krexi additives. Tastes nothing like phoron according to Unbound taste testers."
 	icon_state = "phoronpassion"
 	center_of_mass = list("x"=16, "y"=8)
-
+	can_size_overrides = list("y" = 2)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda/phoron = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zorahozm
@@ -160,7 +346,7 @@
 	desc = "A can of fizzy, acidic energy, with plenty of V'krexi additives. Tastes like impaling the bottom of your mouth with a freezing cold spear laced with bees and salt."
 	icon_state = "hozm"
 	center_of_mass = list("x"=16, "y"=8)
-
+	can_size_overrides = list("y" = 2)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda/hozm = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoravenom
@@ -168,7 +354,7 @@
 	desc = "A diet can of Venom Grass flavored energy drink, with V'krexi additives. Still tastes like a cloud of stinging polytrinic bees, but calories are nowhere to be found."
 	icon_state = "sourvenomgrass"
 	center_of_mass = list("x"=16, "y"=8)
-
+	can_size_overrides = list("y" = 2)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda/venomgrass = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoraklax
@@ -176,7 +362,7 @@
 	desc = "A can of orange cream flavored energy drink, with V'krexi additives. Engineered nearly to perfection."
 	icon_state = "klaxancrush"
 	center_of_mass = list("x"=16, "y"=8)
-
+	can_size_overrides = list("y" = 2)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda/klax = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoracthur
@@ -184,7 +370,7 @@
 	desc = "A can of blue raspberry flavored energy drink, with V'krexi additives. You're pretty sure this was shipped by mistake, the previous K'laxan Energy Crush wrapper is still partly visible underneath the current one."
 	icon_state = "cthurberry"
 	center_of_mass = list("x"=16, "y"=8)
-
+	can_size_overrides = list("y" = 2)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda/cthur = 20, /datum/reagent/mental/vaam = 15)
 
 /obj/item/reagent_containers/food/drinks/cans/zoradrone
@@ -192,7 +378,7 @@
 	desc = "A can of some kind of industrial fluid flavored energy drink, with V'krexi additives meant for Vaurca. <span class='warning'>Known to induce vomiting in humans!</span>."
 	icon_state = "dronefuel"
 	center_of_mass = list("x"=16, "y"=8)
-
+	can_size_overrides = list("y" = 2)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda/drone = 30, /datum/reagent/mental/vaam = 10)
 
 /obj/item/reagent_containers/food/drinks/cans/zorajelly
@@ -200,7 +386,7 @@
 	desc = "A can of... You aren't sure, but it smells pleasant already."
 	icon_state = "royaljelly"
 	center_of_mass = list("x"=16, "y"=8)
-
+	can_size_overrides = list("y" = 2)
 	reagents_to_add = list(/datum/reagent/drink/zorasoda/jelly = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/adhomai_milk
@@ -218,6 +404,7 @@
 	icon_state = "beetlemilk"
 	center_of_mass = list("x"=17, "y"=10)
 	reagents_to_add = list(/datum/reagent/drink/milk/beetle = 30)
+	can_size_overrides = list("x" = 1, "y" = 1)
 
 /obj/item/reagent_containers/food/drinks/cans/dyn
 	name = "Cooling Breeze"
