@@ -2208,6 +2208,18 @@
 	glass_desc = "DAMN, THIS THING LOOKS ROBUST"
 	glass_center_of_mass = list("x"=15, "y"=7)
 
+/datum/reagent/alcohol/ethanol/makgeolli
+	name = "Makgeolli"
+	description = "A mild Konyanger sparkling rice wine."
+	color = "#664300"
+	strength = 15
+	taste_description = "creamy dry alcohol"
+
+	glass_icon_state = "makgeolliglass"
+	glass_name = "glass of makgeolli"
+	glass_desc = "A clear alcohol similar to sparkling wine, brewed from rice."
+	glass_center_of_mass = list("x"=16, "y"=12)
+
 /datum/reagent/alcohol/ethanol/melonliquor
 	name = "Melon Liquor"
 	description = "A relatively sweet and fruity 46 proof liquor."
@@ -2237,11 +2249,23 @@
 	description = "Anime's favorite drink."
 	color = "#664300"
 	strength = 20
-	taste_description = "dry alcohol"
+	taste_description = "mildly dry alcohol with a subtle sweetness"
 
-	glass_icon_state = "ginvodkaglass"
+	glass_icon_state = "sakeglass"
 	glass_name = "glass of sake"
 	glass_desc = "A glass of sake."
+	glass_center_of_mass = list("x"=16, "y"=12)
+
+/datum/reagent/alcohol/ethanol/soju
+	name = "Soju"
+	description = "A mild Konyanger spirit that is best described as rice vodka."
+	color = "#664300"
+	strength = 25
+	taste_description = "slightly dry alcohol with a subtle burn"
+
+	glass_icon_state = "sojuglass"
+	glass_name = "glass of soju"
+	glass_desc = "A clear alcohol similar to vodka, brewed from rice."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
 /datum/reagent/alcohol/ethanol/tequila
@@ -2307,6 +2331,21 @@
 	glass_center_of_mass = list("x"=16, "y"=12)
 
 /datum/reagent/alcohol/ethanol/vodka/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+	..()
+	M.apply_effect(max(M.total_radiation - 1 * removed, 0), IRRADIATE, blocked = 0)
+
+/datum/reagent/alcohol/ethanol/mushroomvodka
+	name = "Mushroom Vodka"
+	description = "A strong drink distilled from mushrooms grown in caves. Tastes like dissatisfaction."
+	color = "#0064C8" // rgb: 0, 100, 200
+	strength = 55
+	taste_description = "strong earthy alcohol"
+	glass_icon_state = "mushroomvodkaglass"
+	glass_name = "glass of mushroom vodka"
+	glass_desc = "The glass contain wodka made from mushrooms. Blyat."
+	glass_center_of_mass = list("x"=16, "y"=12)
+
+/datum/reagent/alcohol/ethanol/mushroomvodka/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	M.apply_effect(max(M.total_radiation - 1 * removed, 0), IRRADIATE, blocked = 0)
 
