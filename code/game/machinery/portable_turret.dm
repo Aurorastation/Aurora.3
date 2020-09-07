@@ -491,8 +491,7 @@
 
 	for(var/v in view(world.view, src))
 		if(isliving(v))
-			var/mob/living/L = v
-			assess_and_assign_living(L, targets, secondarytargets)
+			assess_and_assign_living(v, targets, secondarytargets)
 		if(istype(v,/obj/structure/closet))
 			assess_and_assign_closet(v, targets, secondarytargets)
 
@@ -536,7 +535,7 @@
 	if(!lethal)
 		return
 
-	//If someone in the locker is a primary target, we assign the locker as a primary target and return immeidately.
+	//If someone in the locker is a primary target, we assign the locker as a primary target and return immediately.
 	//If someone in the locker is a secondary target, we remember that and only assign the locker as a secondary target, if there is no other primary target in the locker.
 	var/found_secondary = FALSE
 	for(var/O in C.contents)
