@@ -14,9 +14,6 @@
 	icon_opened = "secureopen"
 	var/icon_broken = "securebroken"
 	var/icon_off = "secureoff"
-	var/canbemoved = 0 // if it can be moved by people using the right tools
-	var/screwed = 1 // if its screwed in place
-	var/wrenched = 1 // if its wrenched down
 	wall_mounted = 0 //never solid (You can always pass over it)
 	health = 200
 
@@ -79,76 +76,7 @@
 	return (ChainSawVar.powered && !opened && !broken)
 
 /obj/structure/closet/secure_closet/attackby(obj/item/W as obj, mob/user as mob)
-	if(opened)
-		if(istype(W, /obj/item/grab))
-			var/obj/item/grab/G = W
-			if(large)
-				MouseDrop_T(G.affecting, user)	//act like they were dragged onto the closet
-			else
-				to_chat(user,  "<span class='notice'>The locker is too small to stuff [G.affecting] into!</span>")
-		if(W.iswelder())
-			var/obj/item/weldingtool/WT = W
-			if(WT.isOn())
-				user.visible_message(
-					"<span class='warning'>[user] begins cutting [src] apart.</span>",
-					"<span class='notice'>You begin cutting [src] apart.</span>",
-					"You hear a welding torch on metal."
-				)
-				playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
-				if (!do_after(user, 2/W.toolspeed SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_open)))
-					return
-				if(!WT.remove_fuel(0,user))
-					to_chat(user,  "<span class='notice'>You need more welding fuel to complete this task.</span>")
-					return
-				else
-					new /obj/item/stack/material/steel(loc)
-					user.visible_message(
-						"<span class='notice'>[src] has been cut apart by [user] with [WT].</span>",
-						"<span class='notice'>You cut apart [src] with [WT].</span>"
-					)
-					qdel(src)
-					return
-		else if(isrobot(user))
-			return
-		else if(W.loc != user) // This should stop mounted modules ending up outside the module.
-			return
-		if(W)
-			user.drop_from_inventory(W,loc)
-		else
-			user.drop_item()
-	else if(W.isscrewdriver() && canbemoved)
-		if(screwed)
-			to_chat(user,  "<span class='notice'>You start to unscrew the locker from the floor...</span>")
-			playsound(loc, W.usesound, 50, 1)
-			if (do_after(user, 10/W.toolspeed SECONDS, act_target = src))
-				to_chat(user,  "<span class='notice'>You unscrew the locker!</span>")
-				playsound(loc, W.usesound, 50, 1)
-				screwed = 0
-		else if(!screwed && wrenched)
-			to_chat(user,  "<span class='notice'>You start to screw the locker to the floor...</span>")
-			playsound(src, 'sound/items/welder.ogg', 80, 1)
-			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
-				to_chat(user,  "<span class='notice'>You screw the locker!</span>")
-				playsound(loc, W.usesound, 50, 1)
-				screwed = 1
-	else if(W.iswrench() && canbemoved)
-		if(wrenched && !screwed)
-			to_chat(user,  "<span class='notice'>You start to unfasten the bolts holding the locker in place...</span>")
-			playsound(loc, W.usesound, 50, 1)
-			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
-				to_chat(user,  "<span class='notice'>You unfasten the locker's bolts!</span>")
-				playsound(loc, W.usesound, 50, 1)
-				wrenched = 0
-				anchored = 0
-		else if(!wrenched)
-			to_chat(user,  "<span class='notice'>You start to fasten the bolts holding the locker in place...</span>")
-			playsound(loc, W.usesound, 50, 1)
-			if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
-				to_chat(user,  "<span class='notice'>You fasten the locker's bolts!</span>")
-				playsound(loc, W.usesound, 50, 1)
-				wrenched = 1
-				anchored = 1
-	else if(!opened)
+	if(!opened)
 		if(!broken && istype(W,/obj/item/material/twohanded/chainsaw))
 			var/obj/item/material/twohanded/chainsaw/ChainSawVar = W
 			ChainSawVar.cutting = 1
@@ -171,30 +99,11 @@
 				spark(src, 5)
 				playsound(loc, 'sound/weapons/blade.ogg', 50, 1)
 				playsound(loc, /decl/sound_category/spark_sound, 50, 1)
-		else if(W.iswelder())
-			var/obj/item/weldingtool/WT = W
-			if(WT.isOn())
-				user.visible_message(
-					"<span class='warning'>[user] begins welding [src] [welded ? "open" : "shut"].</span>",
-					"<span class='notice'>You begin welding [src] [welded ? "open" : "shut"].</span>",
-					"You hear a welding torch on metal."
-				)
-				playsound(loc, 'sound/items/welder_pry.ogg', 50, 1)
-				if (!do_after(user, 2 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
-					return
-				if(!WT.remove_fuel(0,user))
-					to_chat(user,  "<span class='notice'>You need more welding fuel to complete this task.</span>")
-					return
-				welded = !welded
-				update_icon()
-				user.visible_message(
-					"<span class='warning'>[src] has been [welded ? "welded shut" : "unwelded"] by [user].</span>",
-					"<span class='notice'>You weld [src] [!welded ? "open" : "shut"].</span>"
-				)
-			else
-				togglelock(user)
+				return
 		else
 			togglelock(user)//Attempt to lock locker if closed
+			return
+	return ..()
 
 /obj/structure/closet/secure_closet/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/visual_feedback = "", var/audible_feedback = "")
 	if(!broken)

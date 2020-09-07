@@ -28,6 +28,10 @@
 	var/const/default_mob_size = 15
 	var/obj/item/closet_teleporter/linked_teleporter
 
+	var/canbemoved = 0 // if it can be moved by people using the right tools
+	var/screwed = 1 // if its screwed in place
+	var/wrenched = 1 // if its wrenched down
+
 	slowdown = 5
 
 /obj/structure/closet/LateInitialize()
@@ -291,6 +295,43 @@
 						linked_teleporter = null
 					dismantle()
 					return
+
+		if(W.iswrench() && canbemoved)
+			if(wrenched && !screwed)
+				to_chat(user,  "<span class='notice'>You start to unfasten the bolts holding the locker in place...</span>")
+				playsound(loc, W.usesound, 50, 1)
+				if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
+					to_chat(user,  "<span class='notice'>You unfasten the locker's bolts!</span>")
+					playsound(loc, W.usesound, 50, 1)
+					wrenched = 0
+					anchored = 0
+				return
+			else if(!wrenched)
+				to_chat(user,  "<span class='notice'>You start to fasten the bolts holding the locker in place...</span>")
+				playsound(loc, W.usesound, 50, 1)
+				if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
+					to_chat(user,  "<span class='notice'>You fasten the locker's bolts!</span>")
+					playsound(loc, W.usesound, 50, 1)
+					wrenched = 1
+					anchored = 1
+				return
+		if(W.isscrewdriver() && canbemoved)
+			if(screwed)
+				to_chat(user,  "<span class='notice'>You start to unscrew the locker from the floor...</span>")
+				playsound(loc, W.usesound, 50, 1)
+				if (do_after(user, 10/W.toolspeed SECONDS, act_target = src))
+					to_chat(user,  "<span class='notice'>You unscrew the locker!</span>")
+					playsound(loc, W.usesound, 50, 1)
+					screwed = 0
+				return
+			else if(!screwed && wrenched)
+				to_chat(user,  "<span class='notice'>You start to screw the locker to the floor...</span>")
+				playsound(src, 'sound/items/welder.ogg', 80, 1)
+				if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
+					to_chat(user,  "<span class='notice'>You screw the locker!</span>")
+					playsound(loc, W.usesound, 50, 1)
+					screwed = 1
+				return
 		if(istype(W, /obj/item/storage/laundry_basket) && W.contents.len)
 			var/obj/item/storage/laundry_basket/LB = W
 			var/turf/T = get_turf(src)
