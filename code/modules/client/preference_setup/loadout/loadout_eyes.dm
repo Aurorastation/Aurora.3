@@ -34,8 +34,8 @@
 	var/goggles = list()
 	goggles["goggles, safety"] = /obj/item/clothing/glasses/regular
 	goggles["goggles, scanning"] = /obj/item/clothing/glasses/regular/hipster
-	goggles["goggles, science"] = /obj/item/clothing/glasses/regular/circle
-	goggles["goggles, orange"] = /obj/item/clothing/glasses/regular/jamjar
+	goggles["goggles, science"] = /obj/item/clothing/glasses/science
+	goggles["goggles, orange"] = /obj/item/clothing/glasses/spiffygogs
 	gear_tweaks += new/datum/gear_tweak/path(goggles)
 
 /datum/gear/eyes/medhuds

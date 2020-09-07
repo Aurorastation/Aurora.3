@@ -40,3 +40,4 @@ delete-after: True
 changes: 
   - bugfix: "Unathi forward demon horns now look right."
   - bugfix: "Fingerless gloves work right again."
+  - bugfix: "Orange goggles and science goggles are pickable again."
