@@ -715,7 +715,7 @@
 	force = 8
 	attack_verb = list("gored", "drilled", "screwed", "punctured")
 	w_class = ITEMSIZE_SMALL
-	toolspeed = 3
+	toolspeed = 2
 	usesound = 'sound/items/drill_use.ogg'
 	var/current_tool = 1
 	var/list/tools = list(

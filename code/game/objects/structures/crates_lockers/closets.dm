@@ -287,7 +287,7 @@
 					dismantle()
 					return
 
-		if(W.isscrewdriver && linked_teleporter)
+		if(W.isscrewdriver() && linked_teleporter)
 			user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [linked_teleporter] from \the [src]..."), SPAN_NOTICE("You begin detaching \the [linked_teleporter] from \the [src]..."), range = 3)
 			if(do_after(user, 30, TRUE, src))
 				user.visible_message(SPAN_NOTICE("\The [user] detaches \the [linked_teleporter] from \the [src]."), SPAN_NOTICE("You detach \the [linked_teleporter] from \the [src]."), range = 3)
@@ -300,7 +300,7 @@
 			if(wrenched && !screwed)
 				to_chat(user,  "<span class='notice'>You start to unfasten the bolts holding the locker in place...</span>")
 				playsound(loc, W.usesound, 50, 1)
-				if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
+				if (do_after(user, 40/W.toolspeed SECONDS, act_target = src))
 					to_chat(user,  "<span class='notice'>You unfasten the locker's bolts!</span>")
 					playsound(loc, W.usesound, 50, 1)
 					wrenched = 0
@@ -309,7 +309,7 @@
 			else if(!wrenched)
 				to_chat(user,  "<span class='notice'>You start to fasten the bolts holding the locker in place...</span>")
 				playsound(loc, W.usesound, 50, 1)
-				if (do_after(user, 15/W.toolspeed SECONDS, act_target = src))
+				if (do_after(user, 40/W.toolspeed SECONDS, act_target = src))
 					to_chat(user,  "<span class='notice'>You fasten the locker's bolts!</span>")
 					playsound(loc, W.usesound, 50, 1)
 					wrenched = 1
