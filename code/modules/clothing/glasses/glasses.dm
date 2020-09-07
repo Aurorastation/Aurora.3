@@ -358,12 +358,16 @@ BLIND     // can't see anything
 	item_state = "circle_glasses"
 
 /obj/item/clothing/glasses/sunglasses
-	desc = "Strangely ancient technology used to help provide rudimentary eye cover. Enhanced shielding blocks many flashes."
 	name = "sunglasses"
+	desc = "Strangely ancient technology used to help provide rudimentary eye cover."
 	icon_state = "sun"
 	item_state = "sun"
 	darkness_view = -1
 	flash_protection = FLASH_PROTECTION_MODERATE
+
+/obj/item/clothing/glasses/fakesunglasses/Initialize()
+	. = ..()
+	desc += " Enhanced shielding blocks many flashes."
 
 /obj/item/clothing/glasses/sunglasses/aviator
 	name = "aviators"
@@ -371,6 +375,45 @@ BLIND     // can't see anything
 	icon_state = "aviator"
 	item_state = "aviator"
 	prescription = 1
+
+/obj/item/clothing/glasses/sunglasses/prescription
+	name = "prescription sunglasses"
+	prescription = 1
+
+/obj/item/clothing/glasses/sunglasses/big
+	desc = "Strangely ancient technology used to help provide rudimentary eye cover."
+	icon_state = "bigsunglasses"
+	item_state = "sun"
+
+//For style with no powergaming connotations.
+
+/obj/item/clothing/glasses/fakesunglasses
+	desc = "Strangely ancient technology used to help provide rudimentary eye cover."
+	name = "sunglasses"
+	icon_state = "sun"
+	item_state = "sun"
+	darkness_view = -1
+
+/obj/item/clothing/glasses/fakesunglasses/Initialize()
+	. = ..()
+	desc += "  Doesn't seem like it'll block flashes."
+
+
+/obj/item/clothing/glasses/fakesunglasses/aviator
+	name = "aviators"
+	desc = "A pair of designer sunglasses. They should put HUDs in these."
+	icon_state = "aviator"
+	item_state = "aviator"
+	prescription = 1
+
+/obj/item/clothing/glasses/fakesunglasses/prescription
+	name = "prescription sunglasses"
+	prescription = 1
+
+/obj/item/clothing/glasses/fakesunglasses/big
+	desc = "Strangely ancient technology used to help provide rudimentary eye cover."
+	icon_state = "bigsunglasses"
+	item_state = "sun"
 
 /obj/item/clothing/glasses/welding
 	name = "welding goggles"
@@ -441,15 +484,6 @@ BLIND     // can't see anything
 	icon_state = "tape_cross"
 	item_state = null
 	w_class = ITEMSIZE_TINY
-
-/obj/item/clothing/glasses/sunglasses/prescription
-	name = "prescription sunglasses"
-	prescription = 1
-
-/obj/item/clothing/glasses/sunglasses/big
-	desc = "Strangely ancient technology used to help provide rudimentary eye cover. Larger than average enhanced shielding blocks many flashes."
-	icon_state = "bigsunglasses"
-	item_state = "sun"
 
 /obj/item/clothing/glasses/sunglasses/sechud
 	name = "HUDsunglasses"
