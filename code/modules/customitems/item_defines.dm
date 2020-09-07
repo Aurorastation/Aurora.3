@@ -378,7 +378,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "leo_hat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/toggle/det_trench/fluff/leo_coat //Tagged brown coat - Leo Wyatt - keinto
+/obj/item/clothing/suit/storage/det_trench/fluff/leo_coat //Tagged brown coat - Leo Wyatt - keinto
 	name = "tagged brown coat"
 	desc = "A worn mid 20th century brown trenchcoat. If you look closely at bottom of the back, you can see an embedded tag from the \"Museum of Terran Culture and Technology\"."
 	icon = 'icons/obj/custom_items/leo_coat.dmi'
