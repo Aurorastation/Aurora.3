@@ -56,8 +56,8 @@
 	var/noair_directions = 0
 	var/diffarea_directions = 0
 
-	var/open_sound = 'sound/machines/firedooropening.ogg'
-	var/close_sound = 'sound/machines/firedoorclosing.ogg'
+	var/open_sound = 'sound/machines/firelockopening.ogg'
+	var/close_sound = 'sound/machines/firelockclosing.ogg'
 
 /obj/machinery/door/firedoor/Initialize(var/mapload)
 	. = ..()
