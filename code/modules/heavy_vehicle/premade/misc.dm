@@ -9,6 +9,17 @@
 	power_use = 2500
 	trample_damage = 10
 
+/obj/item/mech_component/propulsion/spider/heavy
+	name = "industrial quadlegs"
+	exosuit_desc_string = "hydraulic quadlegs"
+	desc = "A titan's take on the arachnid series from Xion Manufacturing Group."
+	icon_state = "spiderlegs-industrial"
+	max_damage = 250
+	move_delay = 5
+	turn_delay = 1
+	power_use = 4500
+	trample_damage = 25
+
 /obj/item/mech_component/propulsion/tracks
 	name = "tracks"
 	exosuit_desc_string = "armored tracks"

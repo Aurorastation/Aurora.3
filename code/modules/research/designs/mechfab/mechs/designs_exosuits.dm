@@ -174,12 +174,6 @@
 	build_path = /obj/item/mech_component/propulsion/spider
 	req_tech = list(TECH_ENGINEERING = 2)
 
-/datum/design/item/mechfab/exosuit/hover_torso
-	name = "Hoverpod Torso"
-	time = 40
-	materials = list(DEFAULT_WALL_MATERIAL = 22000)
-	build_path = /obj/item/mech_component/chassis/pod
-
 /datum/design/item/mechfab/exosuit/hover_legs
 	name = "Hoverthrusters"
 	time = 35
