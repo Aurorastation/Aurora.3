@@ -134,6 +134,7 @@
 	new /obj/item/clothing/head/helmet/hos/cap(src)
 	new /obj/item/clothing/head/helmet/hos(src)
 	new /obj/item/clothing/head/beret/sec/hos(src)
+	new /obj/item/clothing/head/beret/sec/hos/alt(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
@@ -151,6 +152,8 @@
 	new /obj/item/device/flash(src)
 	new /obj/item/device/holowarrant(src)
 	new /obj/item/device/breath_analyzer(src)
+	new /obj/item/handcuffs(src)
+	new /obj/item/crowbar/red(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/storage/belt/security(src)
@@ -174,6 +177,7 @@
 	new /obj/item/clothing/under/rank/head_of_security/corp(src)
 	new /obj/item/clothing/suit/storage/vest/hos(src)
 	new /obj/item/clothing/head/beret/sec/hos(src)
+	new /obj/item/clothing/head/beret/sec/hos/alt(src)
 	new /obj/item/clothing/head/helmet/hos/cap(src)
 	new /obj/item/clothing/head/helmet/hos(src)
 	//Tools

@@ -62,8 +62,13 @@
 	allowed_roles = list("Head of Security", "Warden")
 
 /datum/gear/head/beret/hos
-	display_name = "beret, security (head of security)"
+	display_name = "blue beret, security (head of security)"
 	path = /obj/item/clothing/head/beret/sec/hos
+	allowed_roles = list("Head of Security")
+
+/datum/gear/head/beret/hos/alt
+	display_name = "black beret, security (head of security)"
+	path = /obj/item/clothing/head/beret/sec/hos/alt
 	allowed_roles = list("Head of Security")
 
 /datum/gear/head/beret/medical
