@@ -3,4 +3,4 @@ author: Hocka
 delete-after: True
 
 changes: 
-  - bugfix: "Offworlders no longer spawn with no RMT on the Odin."
+  - bugfix: "Offworlders and Vaurca no longer spawn without their essentials on the Odin."
