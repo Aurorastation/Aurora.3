@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a door hacker to the ninja tesla hardsuit."
+  - rscadd: "Buying a tesla rig as a ninja will now spawn a tesla spine augment injector."
