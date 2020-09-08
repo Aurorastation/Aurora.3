@@ -24373,7 +24373,6 @@
 /area/crew_quarters/captain)
 "aPY" = (
 /obj/structure/table/wood,
-/obj/item/storage/lockbox/medal,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
