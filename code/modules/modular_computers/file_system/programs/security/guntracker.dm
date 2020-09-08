@@ -7,11 +7,9 @@
 	size = 8
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	required_access_download = access_armory
-//	required_access_run = access_armory
+	required_access_download = access_hos
+	required_access_run = access_armory
 	usage_flags = PROGRAM_CONSOLE
-
-/datum/computer_file/program/guntracker/ui_interact(var/mob/user)
 
 /datum/computer_file/program/guntracker/ui_interact(var/mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
@@ -34,7 +32,8 @@
 
 	var/turf/T = get_turf(computer.loc)
 	var/list/wireless_firing_pins_data = list()
-	for(var/obj/item/device/firing_pin/wireless/P in wireless_firing_pins)
+	for(var/i in wireless_firing_pins)
+		var/obj/item/device/firing_pin/wireless/P = i
 		if(!P.gun)
 			continue
 		var/turf/Ts = get_turf(P)
@@ -43,10 +42,7 @@
 				"gun_name" = capitalize_first_letters(P.gun.name),
 				"registered_info" = P.registered_user ? P.registered_user : "Unregistered",
 				"ref" = "\ref[P]",
-				"automatic_state" = (P.lockstatus == WIRELESS_PIN_AUTOMATIC),
-				"disabled_state" = (P.lockstatus == WIRELESS_PIN_DISABLED),
-				"stun_state" = (P.lockstatus == WIRELESS_PIN_STUN),
-				"lethal_state" = (P.lockstatus == WIRELESS_PIN_LETHAL)
+				"lockstatus" = P.lockstatus
 				)
 			wireless_firing_pins_data[++wireless_firing_pins_data.len] = guntracker_info
 

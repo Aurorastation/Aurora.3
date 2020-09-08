@@ -155,7 +155,8 @@
 	var/mob/M = usr
 	var/user_reply
 
-	if(!M.mind)	return FALSE
+	if(!M.mind)
+		return FALSE
 
 	user_reply = input("Select your frame.") in list("sub-compact","service","magnum")
 	if(!use_check_and_message(usr))
