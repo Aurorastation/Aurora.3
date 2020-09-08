@@ -4,7 +4,7 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "cursedheart-off"
 	origin_tech = list(TECH_BLUESPACE = 8, TECH_MATERIAL = 8, TECH_BIO = 8)
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	light_color = "#6633CC"
 	light_power = 3
 	light_range = 4

@@ -55,23 +55,17 @@
 	icon = 'icons/clothing/suits/coats/dominia_noble_red.dmi'
 	icon_state = "dominia_noble_red"
 	item_state = "dominia_noble_red"
-	icon_open = "dominia_noble_red_open"
-	icon_closed = "dominia_noble_red"
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/dominia/gold
 	icon = 'icons/clothing/suits/coats/dominia_noble_gold.dmi'
 	icon_state = "dominia_noble_gold"
 	item_state = "dominia_noble_gold"
-	icon_open = "dominia_noble_gold_open"
-	icon_closed = "dominia_noble_gold"
 
 /obj/item/clothing/suit/storage/toggle/dominia/black
 	icon = 'icons/clothing/suits/coats/dominia_noble_black.dmi'
 	icon_state = "dominia_noble_black"
 	item_state = "dominia_noble_black"
-	icon_open = "dominia_noble_black_open"
-	icon_closed = "dominia_noble_black"
 
 /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	name = "dominia bomber jacket"
@@ -79,8 +73,6 @@
 	icon = 'icons/clothing/suits/coats/dominia_bomber.dmi'
 	icon_state = "dominia_bomber"
 	item_state = "dominia_bomber"
-	icon_open = "dominia_bomber_open"
-	icon_closed = "dominia_bomber"
 
 /obj/item/clothing/under/dominia
 	name = "dominia suit"

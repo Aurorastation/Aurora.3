@@ -1689,7 +1689,7 @@
 /turf/simulated/floor/tiled/white,
 /area/security/training)
 "dQ" = (
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled,
 /area/security/range)
 "dR" = (
@@ -4568,7 +4568,7 @@
 /turf/simulated/floor/tiled,
 /area/security/range)
 "jy" = (
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"
@@ -8653,7 +8653,6 @@
 /area/maintenance/interstitial_cargo)
 "Cn" = (
 /obj/machinery/vending/engivend{
-	products = list(/obj/item/clothing/glasses/meson = 2, /obj/item/device/multitool = 2, /obj/item/airlock_electronics = 6, /obj/item/module/power_control = 4, /obj/item/airalarm_electronics = 6, /obj/item/firealarm_electronics = 6, /obj/item/cell/high = 3);
 	random_itemcount = 1
 	},
 /turf/simulated/floor/tiled,

@@ -7,7 +7,7 @@
 	icon_state = "jar"
 	matter = list(MATERIAL_GLASS = 5000)
 	center_of_mass = list("x"=15, "y"=8)
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	amount_per_transfer_from_this = 20
 	possible_transfer_amounts = list(10,20,30,60,120)
 	volume = 120

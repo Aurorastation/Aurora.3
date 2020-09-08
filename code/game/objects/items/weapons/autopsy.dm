@@ -8,7 +8,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "autopsy"
 	flags = CONDUCT
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	var/list/datum/autopsy_data_scanner/wdata = list()
 	var/list/datum/autopsy_data_scanner/chemtraces = list()

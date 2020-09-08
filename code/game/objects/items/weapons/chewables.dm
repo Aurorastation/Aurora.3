@@ -73,7 +73,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	throw_speed = 0.5
 	icon_state = "chew"
 	type_butt = /obj/item/trash/spitwad
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	chem_volume = 50
 	chewtime = 300
@@ -139,7 +139,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	throw_speed = 0.5
 	icon_state = "chew"
 	type_butt = /obj/item/trash/spitgum
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	chem_volume = 50
 	chewtime = 300
@@ -176,7 +176,7 @@ obj/item/clothing/mask/chewable/Destroy()
 	icon_type = "gum stick"
 	storage_type = "packaging"
 	slot_flags = SLOT_EARS
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	starts_with = list(/obj/item/clothing/mask/chewable/candy/gum = 5)
 	can_hold = list(/obj/item/clothing/mask/chewable/candy/gum, /obj/item/trash/spitgum)
 	max_storage_space = 5

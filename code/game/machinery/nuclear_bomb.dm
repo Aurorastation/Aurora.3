@@ -396,7 +396,7 @@ var/bomb_set
 	desc = "Better keep this safe."
 	icon_state = "nucleardisk"
 	item_state = "card-id"
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 
 /obj/item/disk/nuclear/Initialize()
 	. = ..()

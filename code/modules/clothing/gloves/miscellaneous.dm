@@ -125,7 +125,7 @@
 	desc_fluff = "For those who want too much time on their wrists instead."
 	icon_state = "watch"
 	item_state = "watch"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	wired = 1
 	species_restricted = null
 	gender = NEUTER

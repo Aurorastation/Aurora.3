@@ -11,7 +11,7 @@
 	unacidable = 1
 	amount_per_transfer_from_this = 5
 	volume = 5
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	possible_transfer_amounts = null
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT

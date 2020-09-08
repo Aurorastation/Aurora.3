@@ -491,8 +491,10 @@
 
 	for(var/v in view(world.view, src))
 		if(isliving(v))
-			var/mob/living/L = v
-			assess_and_assign(L, targets, secondarytargets)
+			assess_and_assign_living(v, targets, secondarytargets)
+		if(istype(v,/obj/structure/closet))
+			assess_and_assign_closet(v, targets, secondarytargets)
+
 
 	if(!tryToShootAt(targets))
 		if(!tryToShootAt(secondarytargets) && !resetting) // if no valid targets, go for secondary targets
@@ -520,12 +522,33 @@
 		popDown()
 	resetting = FALSE
 
-/obj/machinery/porta_turret/proc/assess_and_assign(var/mob/living/L, var/list/targets, var/list/secondarytargets)
+/obj/machinery/porta_turret/proc/assess_and_assign_living(var/mob/living/L, var/list/targets, var/list/secondarytargets)
 	switch(assess_living(L))
 		if(TURRET_PRIORITY_TARGET)
 			targets += L
 		if(TURRET_SECONDARY_TARGET)
 			secondarytargets += L
+
+/obj/machinery/porta_turret/proc/assess_and_assign_closet(var/obj/structure/closet/C, var/list/targets, var/list/secondarytargets)
+	if(is_type_in_list(C,list(/obj/structure/closet/statue,/obj/structure/closet/hydrant,/obj/structure/closet/walllocker)))
+		return
+	if(!lethal)
+		return
+
+	//If someone in the locker is a primary target, we assign the locker as a primary target and return immediately.
+	//If someone in the locker is a secondary target, we remember that and only assign the locker as a secondary target, if there is no other primary target in the locker.
+	var/found_secondary = FALSE
+	for(var/O in C.contents)
+		if(!isliving(O))
+			continue
+		switch(assess_living(O))
+			if(TURRET_PRIORITY_TARGET)
+				targets += C
+				return
+			if(TURRET_SECONDARY_TARGET)
+				found_secondary = TRUE
+	if(found_secondary)
+		secondarytargets += C
 
 /obj/machinery/porta_turret/proc/assess_living(var/mob/living/L)
 	if(!istype(L))
@@ -546,7 +569,7 @@
 	if(get_dist(src, L) > 7)	//if it's too far away, why bother?
 		return TURRET_NOT_TARGET
 
-	var/flags =  PASSTABLE
+	var/flags =  PASSTABLE|PASSTRACE
 	if(ispath(projectile, /obj/item/projectile/beam) || ispath(eprojectile, /obj/item/projectile/beam))
 		flags |= PASSTABLE|PASSGLASS|PASSGRILLE
 
@@ -598,14 +621,14 @@
 
 	return H.assess_perp(src, check_access, check_weapons, check_records, check_arrest)
 
-/obj/machinery/porta_turret/proc/tryToShootAt(var/list/mob/living/targets)
+/obj/machinery/porta_turret/proc/tryToShootAt(var/list/targets)
 	if(targets.len && last_target && (last_target in targets) && target(last_target))
 		return 1
 
 	while(targets.len > 0)
-		var/mob/living/M = pick(targets)
-		targets -= M
-		if(target(M))
+		var/T = pick(targets)
+		targets -= T
+		if(target(T))
 			return 1
 
 
@@ -657,7 +680,7 @@
 	src.raising = raising
 	density = raised || raising
 
-/obj/machinery/porta_turret/proc/target(var/mob/living/target)
+/obj/machinery/porta_turret/proc/target(var/target)
 	if(disabled)
 		return
 	if(target)
@@ -674,7 +697,7 @@
 /obj/machinery/porta_turret/proc/reset_last_fired()
 	last_fired = FALSE
 
-/obj/machinery/porta_turret/proc/shootAt(var/mob/living/target)
+/obj/machinery/porta_turret/proc/shootAt(var/target)
 	//any emagged turrets will shoot extremely fast! This not only is deadly, but drains a lot power!
 	if(last_fired || !raised)	//prevents rapid-fire shooting, unless it's been emagged
 		return

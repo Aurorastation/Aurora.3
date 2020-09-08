@@ -5496,7 +5496,7 @@
 /area/outpost/research/eva)
 "le" = (
 /obj/machinery/mineral/input,
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "lf" = (
@@ -13428,7 +13428,7 @@
 	name = "\improper MOVING PARTS";
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -15018,7 +15018,7 @@
 "CF" = (
 /obj/machinery/mineral/input,
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -15520,7 +15520,7 @@
 /area/outpost/mining_main/refinery)
 "Dx" = (
 /obj/machinery/mineral/input,
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "Dy" = (
@@ -15946,7 +15946,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/east_hall)
 "Ei" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
