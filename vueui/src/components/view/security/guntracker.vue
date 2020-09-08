@@ -12,10 +12,10 @@
         <td>{{ gun.registered_info }}</td>
         <td>{{ gun.gun_name }}</td>
         <td>
-          <vui-button :class="{'button' : 1, 'selected' : gun.disabled_state}" :params="{ togglepin2: gun.ref }">Disabled</vui-button>
-          <vui-button :class="{'button' : 1, 'selected' : gun.automatic_state}" :params="{ togglepin1: gun.ref }">Automatic</vui-button>
-          <vui-button :class="{'button' : 1, 'selected' : gun.stun_state}" :params="{ togglepin3: gun.ref }">Stun Only</vui-button>
-          <vui-button :class="{'button' : 1, 'selected' : gun.lethal_state}" :params="{ togglepin4: gun.ref }">Unrestricted</vui-button>
+          <vui-button :class="{'button' : 1, 'selected' : gun.disabled_state}" :params="{ pin: gun.ref, action: 'setdisable' }">Disabled</vui-button>
+          <vui-button :class="{'button' : 1, 'selected' : gun.automatic_state}" :params="{ pin: gun.ref, action: 'setauto' }">Automatic</vui-button>
+          <vui-button :class="{'button' : 1, 'selected' : gun.stun_state}" :params="{ pin: gun.ref, action: 'setstun' }">Stun Only</vui-button>
+          <vui-button :class="{'button' : 1, 'selected' : gun.lethal_state}" :params="{ pin: gun.ref, action: 'setlethal' }">Unrestricted</vui-button>
         </td>
       </tr>
     </table>

@@ -41,7 +41,7 @@
 		if(ARE_Z_CONNECTED(T.z, Ts.z))
 			var/list/guntracker_info = list(
 				"gun_name" = capitalize_first_letters(P.gun.name),
-				"registered_info" = P.registered_user,
+				"registered_info" = P.registered_user ? P.registered_user : "Unregistered",
 				"ref" = "\ref[P]",
 				"automatic_state" = (P.lockstatus == WIRELESS_PIN_AUTOMATIC),
 				"disabled_state" = (P.lockstatus == WIRELESS_PIN_DISABLED),
@@ -58,27 +58,22 @@
 	if(..())
 		return
 
-	if((usr.contents.Find(src) || (in_range(src, usr) && isturf(computer.loc))) || issilicon(usr))
-		usr.set_machine(src)
+	//Try and get the pin if a pin is passed
+	var/obj/item/device/firing_pin/wireless/P = null
+	if(href_list["pin"])
+		P = locate(href_list["pin"]) in wireless_firing_pins
 
-		if(href_list["togglepin1"]) // Sets the wireless-control firing pin to automatic
-			var/obj/item/device/firing_pin/wireless/P = locate(href_list["togglepin1"])
+	switch(href_list["action"])
+		if("setauto")
 			if(P)
-				P.unlock(WIRELESS_PIN_AUTOMATIC)
-
-		if(href_list["togglepin2"]) // Sets the wireless-control firing pin to disabled
-			var/obj/item/device/firing_pin/wireless/P = locate(href_list["togglepin2"])
+				P.set_mode(WIRELESS_PIN_AUTOMATIC)
+		if("setdisable")
 			if(P)
-				P.unlock(WIRELESS_PIN_DISABLED)
-
-		if(href_list["togglepin3"]) // Sets the wireless-control firing pin to stun-only
-			var/obj/item/device/firing_pin/wireless/P = locate(href_list["togglepin3"])
+				P.set_mode(WIRELESS_PIN_DISABLED)
+		if("setstun")
 			if(P)
-				P.unlock(WIRELESS_PIN_STUN)
-
-		if(href_list["togglepin4"]) // Sets the wireless-control firing pin to unrestricted
-			var/obj/item/device/firing_pin/wireless/P = locate(href_list["togglepin4"])
+				P.set_mode(WIRELESS_PIN_STUN)
+		if("setlethal")
 			if(P)
-				P.unlock(WIRELESS_PIN_LETHAL)
-
+				P.set_mode(WIRELESS_PIN_LETHAL)
 	return
