@@ -183,6 +183,7 @@
 	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_sb
 	shirt["t-shirt"] = /obj/item/clothing/accessory/tshirt
 	shirt["t-shirt, cropped"] = /obj/item/clothing/accessory/tshirt_crop
+	shirt["blouse"] = /obj/item/clothing/accessory/blouse
 	gear_tweaks += new/datum/gear_tweak/path(shirt)
 
 /datum/gear/accessory/silversun
