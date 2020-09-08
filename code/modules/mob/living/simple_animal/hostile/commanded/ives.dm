@@ -46,7 +46,7 @@
 /mob/living/simple_animal/hostile/commanded/baby_harvester/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 
-/mob/living/simple_animal/hostile/death()
+/mob/living/simple_animal/hostile/commanded/baby_harvester/death()
 	..(null, "blows apart!")
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)

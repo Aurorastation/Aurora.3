@@ -13,11 +13,13 @@
 	if(embedded_flag)
 		handle_embedded_objects() //Moving with objects stuck in you can cause bad times.
 
-	var/health_deficiency = (100 - health)
-	if(health_deficiency >= 40) tally += (health_deficiency / 25)
+	var/health_deficiency = maxHealth - health
+	if(health_deficiency >= 40)
+		tally += (health_deficiency / 25)
 
 	if(can_feel_pain())
-		if(get_shock() >= 10) tally += (get_shock() / 10) //pain shouldn't slow you down if you can't even feel it
+		if(get_shock() >= 10)
+			tally += (get_shock() / 10) //pain shouldn't slow you down if you can't even feel it
 
 	tally += ClothesSlowdown()
 
@@ -63,9 +65,11 @@
 	if(is_asystole())
 		tally += 10  //heart attacks are kinda distracting
 
-	if(aiming && aiming.aiming_at) tally += 5 // Iron sights make you slower, it's a well-known fact.
+	if(aiming && aiming.aiming_at)
+		tally += 5 // Iron sights make you slower, it's a well-known fact.
 
-	if (drowsyness) tally += 6
+	if (drowsyness)
+		tally += 6
 
 	if (!(species.flags & IS_MECHANICAL))	// Machines don't move slower when cold.
 		if(FAT in src.mutations)

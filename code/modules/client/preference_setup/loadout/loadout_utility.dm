@@ -68,8 +68,9 @@
 	path = /obj/item/device/paicard
 
 /datum/gear/utility/wallet
-	display_name = "wallet, selection"
+	display_name = "wallet selection"
 	path = /obj/item/storage/wallet
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/utility/wallet/New()
 	..()

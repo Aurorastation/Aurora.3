@@ -246,7 +246,7 @@
 
 /datum/gear/suit/dep_jacket
 	display_name = "department jackets selection"
-	description = "A selection of department jackets."
+	description = "A selection of departmental jackets."
 	path = /obj/item/clothing/suit/storage/toggle/engi_dep_jacket
 
 /datum/gear/suit/dep_jacket/New()

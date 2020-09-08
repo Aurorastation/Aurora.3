@@ -245,6 +245,6 @@ obj/item/storage/pill_bottle/butazoline
 	starts_with = list(/obj/item/reagent_containers/pill/minaphobin = 7)
 
 /obj/item/storage/pill_bottle/rmt
-	name = "bottle of 15u RMT pills"
+	name = "bottle of 30u RMT pills"
 	desc = "Contains pills used to remedy the effects of prolonged zero-gravity adaptations."
 	starts_with = list(/obj/item/reagent_containers/pill/rmt = 7)

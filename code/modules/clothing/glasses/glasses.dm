@@ -121,7 +121,6 @@ BLIND     // can't see anything
 
 	attack_self(usr)
 
-
 /obj/item/clothing/glasses/hud/health/aviator
 	name = "medical HUD aviators"
 	desc = "Modified aviator glasses with a toggled health HUD. Comes with bonus prescription overlay."
@@ -138,7 +137,6 @@ BLIND     // can't see anything
 	set src in usr
 
 	attack_self(usr)
-
 
 /obj/item/clothing/glasses/science
 	name = "science goggles"
@@ -185,7 +183,6 @@ BLIND     // can't see anything
 	set src in usr
 
 	attack_self(usr)
-
 
 /obj/item/clothing/glasses/safety
 	name = "safety glasses"
@@ -358,12 +355,16 @@ BLIND     // can't see anything
 	item_state = "circle_glasses"
 
 /obj/item/clothing/glasses/sunglasses
-	desc = "Strangely ancient technology used to help provide rudimentary eye cover. Enhanced shielding blocks many flashes."
 	name = "sunglasses"
+	desc = "Strangely ancient technology used to help provide rudimentary eye cover."
 	icon_state = "sun"
 	item_state = "sun"
 	darkness_view = -1
 	flash_protection = FLASH_PROTECTION_MODERATE
+
+/obj/item/clothing/glasses/sunglasses/Initialize()
+	. = ..()
+	desc += " Enhanced shielding blocks many flashes."
 
 /obj/item/clothing/glasses/sunglasses/aviator
 	name = "aviators"
@@ -371,6 +372,50 @@ BLIND     // can't see anything
 	icon_state = "aviator"
 	item_state = "aviator"
 	prescription = 1
+
+/obj/item/clothing/glasses/sunglasses/prescription
+	name = "prescription sunglasses"
+	prescription = 1
+
+/obj/item/clothing/glasses/sunglasses/prescription/Initialize()
+	. = ..()
+	desc += " Comes with built-in prescription lenses."
+
+/obj/item/clothing/glasses/sunglasses/big
+	icon_state = "bigsunglasses"
+	item_state = "sun"
+
+//For style with no powergaming connotations.
+
+/obj/item/clothing/glasses/fakesunglasses
+	name = "stylish sunglasses"
+	desc = "A pair of designer sunglasses."
+	icon_state = "sun"
+	item_state = "sun"
+	darkness_view = -1
+
+/obj/item/clothing/glasses/fakesunglasses/Initialize()
+	. = ..()
+	desc += " Doesn't seem like it'll block flashes."
+
+/obj/item/clothing/glasses/fakesunglasses/aviator
+	name = "stylish aviators"
+	desc = "A pair of designer sunglasses. They should put HUDs in these."
+	icon_state = "aviator"
+	item_state = "aviator"
+	prescription = 1
+
+/obj/item/clothing/glasses/fakesunglasses/prescription
+	name = "stylish prescription sunglasses"
+	prescription = 1
+
+/obj/item/clothing/glasses/fakesunglasses/prescription/Initialize()
+	. = ..()
+	desc += " Comes with built-in prescription lenses."
+
+/obj/item/clothing/glasses/fakesunglasses/big
+	icon_state = "bigsunglasses"
+	item_state = "sun"
 
 /obj/item/clothing/glasses/welding
 	name = "welding goggles"
@@ -441,15 +486,6 @@ BLIND     // can't see anything
 	icon_state = "tape_cross"
 	item_state = null
 	w_class = ITEMSIZE_TINY
-
-/obj/item/clothing/glasses/sunglasses/prescription
-	name = "prescription sunglasses"
-	prescription = 1
-
-/obj/item/clothing/glasses/sunglasses/big
-	desc = "Strangely ancient technology used to help provide rudimentary eye cover. Larger than average enhanced shielding blocks many flashes."
-	icon_state = "bigsunglasses"
-	item_state = "sun"
 
 /obj/item/clothing/glasses/sunglasses/sechud
 	name = "HUDsunglasses"

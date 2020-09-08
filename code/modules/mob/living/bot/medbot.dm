@@ -68,7 +68,7 @@
 				if(last_newpatient_speak + 300 < world.time)
 					var/message = pick("Hey, [H.name]! Hold on, I'm coming.", "Wait [H.name]! I want to help!", "[H.name], you appear to be injured!")
 					say(message)
-					custom_emote(1, "points at [H.name].")
+					custom_emote(VISIBLE_MESSAGE, "points at [H.name].")
 					last_newpatient_speak = world.time
 				break
 

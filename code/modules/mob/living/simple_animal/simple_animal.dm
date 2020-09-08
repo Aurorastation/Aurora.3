@@ -359,10 +359,10 @@
 	return
 
 /mob/living/simple_animal/proc/visible_emote(var/act_desc, var/log_emote=1)
-	custom_emote(1, act_desc, log_emote)
+	custom_emote(VISIBLE_MESSAGE, act_desc, log_emote)
 
 /mob/living/simple_animal/proc/audible_emote(var/act_desc)
-	custom_emote(2, act_desc)
+	custom_emote(AUDIBLE_MESSAGE, act_desc)
 
 /*
 mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
