@@ -25,8 +25,6 @@
 	var/safe_to_sanitize = FALSE
 	var/list/deferred_preference_sanitizations = list()
 
-	var/laterequipped
-
 /datum/controller/subsystem/jobs/New()
 	NEW_SS_GLOBAL(SSjobs)
 
@@ -395,9 +393,9 @@
 			var/obj/item/clothing/glasses/G = H.glasses
 			G.prescription = TRUE
 
-	if(H.species && !laterequipped)
+	if(H.species && !H.species_items_equipped)
 		H.species.equip_later_gear(H)
-		laterequipped = TRUE
+		H.species_items_equipped = TRUE
 
 	BITSET(H.hud_updateflag, ID_HUD)
 	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
@@ -532,9 +530,9 @@
 			G.prescription = TRUE
 			G.autodrobe_no_remove = TRUE
 	
-	if(H.species && !laterequipped)
+	if(H.species && !H.species_items_equipped)
 		H.species.equip_later_gear(H)
-		laterequipped = TRUE
+		H.species_items_equipped = TRUE
 
 	// So shoes aren't silent if people never change 'em.
 	H.update_noise_level()
