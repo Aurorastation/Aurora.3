@@ -17,8 +17,8 @@
             <vui-button :class="{'button' : 1, 'selected' : gun.stun_state}" :params="{ togglepin3: gun.ref }">Stun Only</vui-button>
             <vui-button :class="{'button' : 1, 'selected' : gun.lethal_state}" :params="{ togglepin4: gun.ref }">Unrestricted</vui-button>
           </td>
-        </tr></table>
-    </template>
+        </tr>
+      </table>
   </div>
 </template>
 
