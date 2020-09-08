@@ -211,6 +211,7 @@
 #include "code\controllers\subsystems\overlays.dm"
 #include "code\controllers\subsystems\pai.dm"
 #include "code\controllers\subsystems\parallax.dm"
+#include "code\controllers\subsystems\ping.dm"
 #include "code\controllers\subsystems\plants.dm"
 #include "code\controllers\subsystems\power.dm"
 #include "code\controllers\subsystems\profiler.dm"

@@ -117,18 +117,9 @@ var/savefile/iconCache = new("data/tmp/iconCache.sav") //Cache of icons for the 
 	//do not convert to to_chat()
 	legacy_chat(owner, "<span class=\"userdanger\">Failed to load fancy chat, reverting to old chat. Certain features won't work.</span>")
 
-	pingLoop()
-
 /datum/chatOutput/proc/showChat()
 	winset(owner, "output", "is-visible=false")
 	winset(owner, "browseroutput", "is-disabled=false;is-visible=true")
-
-/datum/chatOutput/proc/pingLoop()
-	set waitfor = FALSE
-
-	while (owner)
-		ehjax_send(data = owner.is_afk(29) ? "softPang" : "pang") // SoftPang isn't handled anywhere but it'll always reset the opts.lastPang.
-		sleep(30)
 
 /proc/syncChatRegexes()
 	for (var/user in clients)

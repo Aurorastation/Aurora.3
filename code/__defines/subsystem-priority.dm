@@ -62,6 +62,7 @@
 #define SS_PRIORITY_CHEMISTRY   10	// Multi-tick chemical reactions.
 #define SS_PRIORITY_SHUTTLE     10	// Shuttle movement.
 #define SS_PRIORITY_AIRFLOW     10	// Handles object movement due to ZAS airflow.
+#define SS_PRIORITY_PING        10
 #define SS_PRIORITY_ZCOPY       10	// Z-mimic icon generation/updates.
 
 // SS_BACKGROUND
