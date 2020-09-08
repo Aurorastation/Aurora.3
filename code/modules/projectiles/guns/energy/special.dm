@@ -560,7 +560,7 @@
 	w_class = ITEMSIZE_LARGE
 	fire_sound = 'sound/magic/LightningShock.ogg'
 	force = 30
-	projectile_type = /obj/item/projectile/energy/tesla
+	projectile_type = /obj/item/projectile/beam/tesla
 	slot_flags = SLOT_BACK
 	max_shots = 3
 	sel_mode = 1

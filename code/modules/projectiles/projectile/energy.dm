@@ -147,33 +147,6 @@
 			A.ex_act(2)
 			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
 
-/obj/item/projectile/energy/tesla
-	name = "tesla bolt"
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "lightning1"
-	damage = 10
-	damage_type = BURN
-	pass_flags = PASSTABLE | PASSGRILLE
-	range = 40
-	embed = 0
-	speed = 1.5
-	light_range = 5
-	light_color = "#b5ff5b"
-
-/obj/item/projectile/energy/tesla/on_impact(atom/target)
-	. = ..()
-	if(isliving(target))
-		tesla_zap(target, 3, 5000)
-
-/obj/item/projectile/energy/tesla/master
-	damage = 15
-
-/obj/item/projectile/energy/tesla/grandmaster
-	damage = 20
-
-/obj/item/projectile/energy/tesla/paramount
-	damage = 25
-
 /obj/item/projectile/energy/gravitydisabler
 	name = "gravity disabler"
 	icon = 'icons/obj/projectiles.dmi'
