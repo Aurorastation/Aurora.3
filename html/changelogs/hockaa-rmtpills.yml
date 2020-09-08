@@ -1,0 +1,6 @@
+author: Hocka
+
+delete-after: True
+
+changes: 
+  - bugfix: "Offworlders no longer spawn with no RMT on the Odin."
