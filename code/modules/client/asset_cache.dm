@@ -239,6 +239,16 @@ var/list/asset_datums = list()
 /datum/asset/chem_master/send(client)
 	send_asset_list(client, assets)
 
+/datum/asset/simple/accents
+	verify = TRUE
+
+/datum/asset/simple/accents/register()
+	for(var/A in subtypesof(/datum/accent)) //yes we have to do this here, SSrecords isn't initialized yet
+		var/datum/accent/accent = new A
+		var/name = "[accent.tag_icon].png"
+		assets[name] = icon('./icons/accent_tags.dmi', accent.tag_icon)
+	..()
+
 /datum/asset/simple/faction_icons
 	assets = list(
 		"faction_EPMC.png" = 'icons/misc/factions/ECFlogo.png',

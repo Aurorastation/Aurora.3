@@ -71,5 +71,4 @@
 	var/datum/accent/a = SSrecords.accents[hal_accent]
 
 	var/final_icon = a.tag_icon
-	var/icon/accent_icon = icon('./icons/accent_tags.dmi', final_icon)
-	return icon2html(accent_icon, hearer, realsize=TRUE, class = "text_tag")
+	return "<img src=\"[final_icon].png\">"
