@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - bugfix: "Made sure carp and cavern dwellers no longer are robots in disguise."
