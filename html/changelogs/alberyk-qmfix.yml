@@ -1,7 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed the quartermaster missing his own uniform."
-  - bugfix: "Fixed the IAC vest having no worn sprite."
