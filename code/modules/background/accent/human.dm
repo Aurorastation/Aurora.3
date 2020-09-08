@@ -73,7 +73,7 @@
 
 /datum/accent/gibson
 	name = ACCENT_GIBSON
-	description = "The New Gibsoner accent is very close to the accent of Tau Ceti proper, due to the nature of the planet’s colonization. However, New Gibsoners are known for talking \
+	description = "The New Gibsoner accent is very close to the accent of Tau Ceti proper, due to the nature of the planet's colonization. However, New Gibsoners are known for talking \
 	with a faster and more clipped accent than those from Biesel and, at times, sound as if they are tripping over their words due to the rapid pace at which they speak."
 	tag_icon = "gibson"
 
@@ -124,3 +124,23 @@
 	the Jovian accent often takes on traces of Tradeband due to the amount of high-income tourism, while the Castillean Jovian accent is known for the rapid, breathless pace at which it \
 	is typically spoken. Ganymede is often seen as the \"standard\" Jovian accent, though some on Castillo vehemently believe that the Castillian accent should be the standard."
 	tag_icon = "jupiter"
+
+/datum/accent/europa
+	name = ACCENT_EUROPA
+	description = "Europans are known to be much quieter and speak at a slower pace than their counterparts on Callisto, despite the close proximity of the two moons. Solarian linguists have \
+	traced the whisper-like nature of the accent origins to the planet’s submarines: crews believed that quieter voices interfered less with sonar, and were less likely to be heard by whatever was \
+	outside the hull. Europans that have succumbed to \"Deep Crazy\", a psychological phenomenon found on the moon, are known to abandon the typically hushed nature of Europan speech for screaming hysterically."
+	tag_icon = "europa"
+
+/datum/accent/earth
+	name = ACCENT_EARTH
+	description = "The typical Earth, or Terran, accent of the modern era has its roots in Mandarin Chinese, the dominant language of Earth for much of its modern history. All accents found in human space - \
+	from Luna to Xanu - are, one way or another, descended from this ancient accent."
+	tag_icon = "earth"
+
+/datum/accent/deepfrontier
+	name = ACCENT_DEEPFRONTIER
+	description = "The so-called \"Deep Frontier\" accent is not truly a unified accent at all, and instead defines a broad range of accents from the more \"wild\" frontier outside of human control. \
+	Those with these accents are almost universally looked down upon as wild savages by their counterparts in more civilized space at best. Speakers of this accent are almost always found in lower-end \
+	positions in civilized space, due to the typically impoverished and anarchic nature of the Deep Frontier."
+	tag_icon = "deepfrontier"

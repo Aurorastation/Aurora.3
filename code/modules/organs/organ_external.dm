@@ -198,8 +198,10 @@
 	return
 
 /obj/item/organ/external/Initialize(mapload)
-	if (robotize_type)
+	if(robotize_type)
 		robotize(robotize_type)
+		drop_sound = 'sound/items/drop/prosthetic.ogg'
+		pickup_sound = 'sound/items/pickup/prosthetic.ogg'
 
 	. = ..(mapload, FALSE)
 	if(isnull(pain_disability_threshold))
@@ -323,7 +325,10 @@
 	var/laser = (damage_flags & DAM_LASER)
 	var/sharp = (damage_flags & DAM_SHARP)
 
-	if(laser || BP_IS_ROBOTIC(src))
+	if(laser)
+		return FALSE
+
+	if(BP_IS_ROBOTIC(src))
 		damage_amt += burn
 		cur_damage += burn_dam
 
@@ -333,8 +338,6 @@
 	var/organ_damage_threshold = 10
 	if(sharp)
 		organ_damage_threshold *= 0.5
-	if(laser)
-		organ_damage_threshold *= 2
 
 	if(!(cur_damage + damage_amt >= max_damage) && !(damage_amt >= organ_damage_threshold))
 		return FALSE
@@ -358,7 +361,7 @@
 	organ_hit_chance = min(organ_hit_chance, 100)
 	if(prob(organ_hit_chance))
 		var/obj/item/organ/internal/victim = pickweight(victims)
-		damage_amt -= max(damage_amt*victim.damage_reduction, 0)
+		damage_amt = max(damage_amt*victim.damage_reduction, 0)
 		victim.take_internal_damage(damage_amt)
 		return TRUE
 
@@ -1006,7 +1009,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			owner.emote("scream")
 			owner.flash_strong_pain()
 
-	playsound(src.loc, "fracture", 100, 1, -2)
+	playsound(src.loc, /decl/sound_category/fracture_sound, 100, 1, -2)
 	status |= ORGAN_BROKEN
 	broken_description = pick("Broken","Fracture","Hairline fracture")
 	perma_injury = brute_dam
@@ -1035,10 +1038,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(company)
 		model = company
 		var/datum/robolimb/R = all_robolimbs[company]
-		/*if(species && !(species.name in R.species_can_use && species.get_bodytype() != "Machine"))
-			R = basic_robolimb*/
+
 		if(R)
-			if (!force_skintone)
+			if(!force_skintone)
 				force_icon = R.icon
 			if(R.lifelike)
 				status |= ORGAN_LIFELIKE

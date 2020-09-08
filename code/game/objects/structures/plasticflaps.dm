@@ -7,6 +7,7 @@
 	anchored = 1
 	layer = 4
 	explosion_resistance = 5
+	build_amt = 4
 	var/manipulating = FALSE //Prevents queueing up a ton of deconstructs
 	var/list/mobs_can_pass = list(
 		/mob/living/carbon/slime,
@@ -59,7 +60,7 @@
 		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 		visible_message(SPAN_NOTICE("[user] cuts down \the [src]."),
 		SPAN_NOTICE("You cut down \the [src]."))
-		qdel(src)
+		dismantle()
 
 /obj/structure/plasticflaps/mining //A specific type for mining that doesn't allow airflow because of them damn crates
 	name = "airtight plastic flaps"

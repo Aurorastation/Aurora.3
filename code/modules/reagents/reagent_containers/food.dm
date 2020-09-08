@@ -14,6 +14,7 @@
 	var/bitesize = 1
 	var/bitecount = 0
 	var/filling_color = "#FFFFFF" //Used by sandwiches
+	var/ingredient_name // Also used by sandwiches; if null, it just uses the normal name.
 	var/trash = null
 	var/is_liquid = TRUE
 

@@ -8,7 +8,7 @@
 	throwforce = 2.0
 	throw_speed = 1
 	throw_range = 4
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	attack_verb = list("called", "rang")
 	hitsound = 'sound/weapons/ring.ogg'
 
@@ -22,7 +22,7 @@
 	anchored = 0.0
 	var/stored_matter = 0
 	var/mode = 1
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/bikehorn
 	name = "bike horn"
@@ -31,7 +31,7 @@
 	icon_state = "bike_horn"
 	item_state = "bike_horn"
 	throwforce = 3
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
 	throw_range = 15
 	attack_verb = list("HONKED")
@@ -53,7 +53,7 @@
 	flags = CONDUCT
 	force = 10
 	throwforce = 7.0
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
 
@@ -103,7 +103,7 @@
 			verbtouse = pick("smacked","slapped")
 			soundname = "punch"
 			if(targetIsHuman)
-				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name]...</span>", "<span class='[class]'>You flip the [name], preparing a disarm...</span>")
+				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name]...</span>", "<span class='[class]'>You flip [src], preparing a disarm...</span>")
 				if (do_mob(user,target,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
 						var/chancemod = (100 - armorpercent)*0.05*damageamount // Lower chance if lower damage + high armor. Base chance is 50% at 10 damage.
@@ -119,21 +119,21 @@
 							if (prob(chancemod*0.5) && target.r_hand && target.r_hand != src)
 								shoulddisarm += 2
 				else
-					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name] back to it's original position.</span>", "<span class='[class]'>You flip the [name] back to it's original position.</span>")
+					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name] back to its original position.</span>", "<span class='[class]'>You flip [src] back to its original position.</span>")
 					return 0
 			damageamount *= 0.25
 		if(I_GRAB)
 			verbtouse = pick("hooked")
 			soundname = "punch"
 			if(targetIsHuman)
-				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name]...</span>", "<span class='[class]'>You flip the [name], preparing a grab...</span>")
+				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name]...</span>", "<span class='[class]'>You flip [src], preparing a grab...</span>")
 				if (do_mob(user,target,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
 						user.start_pulling(target)
 					else
 						verbtouse = pick("awkwardly tries to hook","fails to grab")
 				else
-					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name] back to it's original position.</span>", "<span class='[class]'>You flip the [name] back to it's original position.</span>")
+					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name] back to its original position.</span>", "<span class='[class]'>You flip [src] back to its original position.</span>")
 					return 0
 			else
 				soundname = "punch"
@@ -170,7 +170,7 @@
 		if(shoulddisarm)
 			if(wasselfattack)
 				selfnoun = "your grip"
-				noun = "[target.get_pronoun(1)] grip"
+				noun = "[target.get_pronoun("his")] grip"
 			else
 				noun = "[target]'s grip"
 				selfnoun = noun
@@ -180,14 +180,14 @@
 			if (O.is_stump())
 				if(wasselfattack)
 					selfnoun = "your missing [O.name]"
-					noun = "[target.get_pronoun(1)] missing [O.name]"
+					noun = "[target.get_pronoun("his")] missing [O.name]"
 				else
 					noun = "[target]'s missing [O.name]"
 					selfnoun = noun
 			else
 				if(wasselfattack)
 					selfnoun = "your [O.name]"
-					noun = "[target.get_pronoun(1)] [O.name]"
+					noun = "[target.get_pronoun("his")] [O.name]"
 				else
 					noun = "[target]'s [O.name]"
 					selfnoun = noun
@@ -233,7 +233,7 @@
 
 /obj/item/cane/concealed/attack_self(var/mob/user)
 	if(concealed_blade)
-		user.visible_message("<span class='warning'>[user] has unsheathed \a [concealed_blade] from \his [src]!</span>", "You unsheathe \the [concealed_blade] from \the [src].")
+		user.visible_message("<span class='warning'>[user] has unsheathed \a [concealed_blade] from [user.get_pronoun("his")] [src]!</span>", "You unsheathe \the [concealed_blade] from \the [src].")
 		// Calling drop/put in hands to properly call item drop/pickup procs
 		playsound(user.loc, 'sound/weapons/holster/sheathout.ogg', 50, 1)
 		user.drop_from_inventory(src)
@@ -248,7 +248,7 @@
 
 /obj/item/cane/concealed/attackby(var/obj/item/canesword/W, var/mob/user)
 	if(!src.concealed_blade && istype(W))
-		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into \his [src]!</span>", "You sheathe \the [W] into \the [src].")
+		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into [user.get_pronoun("his")] [src]!</span>", "You sheathe \the [W] into \the [src].")
 		playsound(user.loc, 'sound/weapons/holster/sheathin.ogg', 50, 1)
 		user.drop_from_inventory(W)
 		W.forceMove(src)
@@ -273,6 +273,14 @@
 	icon_state = "crutch"
 	item_state = "crutch"
 
+/obj/item/cane/shillelagh
+	name = "adhomian shillelagh"
+	desc = "A sturdy walking stick made from adhomian wood."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "shillelagh"
+	item_state = "shillelagh"
+	contained_sprite = TRUE
+
 /obj/item/disk
 	name = "disk"
 	icon = 'icons/obj/items.dmi'
@@ -291,7 +299,7 @@
 	var/size = 3.0
 	var/obj/item/gift = null
 	item_state = "gift"
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 
 /obj/item/gift/random_pixel/Initialize()
 	pixel_x = rand(-16,16)
@@ -305,7 +313,7 @@
 	icon_state = "handcuff"
 	flags = CONDUCT
 	throwforce = 0
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1)
 	var/breakouttime = 300	//Deciseconds = 30s = 0.5 minute
 
@@ -323,7 +331,7 @@
 	slot_flags = SLOT_BELT
 	item_state = "radio"
 	throwforce = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 4
 	throw_range = 20
 	matter = list(DEFAULT_WALL_MATERIAL = 100)
@@ -338,7 +346,7 @@
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	attack_verb = list("bludgeoned", "whacked", "disciplined")
 
 /obj/item/staff/broom
@@ -364,12 +372,12 @@
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/module
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_mod"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
 	flags = CONDUCT
 	var/mtype = 1						// 1=electronic 2=hardware
@@ -411,7 +419,7 @@
 	name = "camera bug"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "flash"
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	item_state = "electronic"
 	throw_speed = 4
 	throw_range = 20
@@ -472,7 +480,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi'
 		)
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	can_hold = list(/obj/item/stock_parts,/obj/item/reagent_containers/glass/beaker)
 	storage_slots = 50
 	use_to_pickup = 1
@@ -480,7 +488,7 @@
 	allow_quick_empty = 1
 	collection_mode = 1
 	display_contents_with_number = 1
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 100
 
 /obj/item/ectoplasm

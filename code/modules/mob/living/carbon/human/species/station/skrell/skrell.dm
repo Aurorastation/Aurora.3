@@ -1,8 +1,8 @@
 /datum/species/skrell
-	name = "Skrell"
+	name = SPECIES_SKRELL
 	short_name = "skr"
 	name_plural = "Skrell"
-	bodytype = "Skrell"
+	bodytype = BODYTYPE_SKRELL
 	age_max = 500
 	default_genders = list(PLURAL)
 	economic_modifier = 12
@@ -10,7 +10,7 @@
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
 	preview_icon = 'icons/mob/human_races/skrell/skrell_preview.dmi'
 	eyes = "skrell_eyes_s"
-	primitive_form = "Neaera"
+	primitive_form = SPECIES_MONKEY_SKRELL
 	unarmed_types = list(/datum/unarmed_attack/punch, /datum/unarmed_attack/stomp, /datum/unarmed_attack/kick)
 
 	blurb = "An amphibious species, Skrell come from the star system known as Nralakk, coined 'Jargon' by \
@@ -61,10 +61,10 @@
 	default_citizenship = CITIZENSHIP_JARGON
 
 	default_accent = ACCENT_SKRELL
-	allowed_accents = list(ACCENT_SKRELL, ACCENT_CETI, ACCENT_GIBSON, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_VENUS, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_ELYRA, 
-							ACCENT_SILVERSUN, ACCENT_KONYAN)
+	allowed_accents = list(ACCENT_SKRELL, ACCENT_CETI, ACCENT_GIBSON, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_VENUS, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_ELYRA,
+							ACCENT_SILVERSUN, ACCENT_KONYAN, ACCENT_EUROPA)
 
-	zombie_type = "Skrell Zombie"
+	zombie_type = SPECIES_ZOMBIE_SKRELL
 
 /datum/species/skrell/handle_post_spawn(mob/living/carbon/human/H)
 	H.set_psi_rank(PSI_COERCION, PSI_RANK_OPERANT)

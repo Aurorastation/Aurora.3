@@ -178,6 +178,7 @@
 		list("nutrients",		"glucose",			/datum/reagent/nutriment/glucose,	80),
 		list("saline",			"saline",			/datum/reagent/saline,				80),
 		list("hyronalin",		"hyronalin",		/datum/reagent/hyronalin,			80),
+		list("synaptizine",		"synaptizine",		/datum/reagent/synaptizine,			80),
 		list("radium",			"radium",			/datum/reagent/radium,				80)
 		)
 
@@ -198,6 +199,7 @@
 		list("nutrients",		"glucose",			/datum/reagent/nutriment/glucose,	80),
 		list("saline",			"saline",			/datum/reagent/saline,				80),
 		list("hyronalin",		"hyronalin",		/datum/reagent/hyronalin,			20),
+		list("synaptizine",		"synaptizine",		/datum/reagent/synaptizine,			20),
 		list("radium",			"radium",			/datum/reagent/radium,				20)
 		)
 
@@ -250,7 +252,7 @@
 	if(!charge)
 		return FALSE
 
-	var/chems_to_use = 10
+	var/chems_to_use = 5
 	if(charge.charges <= 0)
 		to_chat(user, SPAN_WARNING("Insufficient chems!"))
 		return FALSE
@@ -711,7 +713,7 @@
 		// Combat type actuators are better, they allow you to jump instantly onto
 		// a ledge. Regular actuators make you have to climb the rest of the way.
 		if (!combatType)
-			H.visible_message(SPAN_NOTICE("\The [H] starts pulling \himself up onto the [valid_climbable]."), SPAN_NOTICE("You start pulling yourself up onto \the [valid_climbable]."))
+			H.visible_message(SPAN_NOTICE("\The [H] starts pulling [H.get_pronoun("himself")] up onto the [valid_climbable]."), SPAN_NOTICE("You start pulling yourself up onto \the [valid_climbable]."))
 			if (!do_after(H, 4 SECONDS, use_user_turf = TRUE))
 				H.visible_message(SPAN_WARNING("\The [H] is interrupted and falls!"), SPAN_DANGER("You are interrupted and fall back down!"))
 

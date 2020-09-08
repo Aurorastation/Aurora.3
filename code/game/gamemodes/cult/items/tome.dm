@@ -5,7 +5,7 @@
 	item_state = "tome"
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	unique = TRUE
 	slot_flags = SLOT_BELT
 
@@ -98,7 +98,7 @@
 			var/area/A = get_area(scribe)
 			if(use_check_and_message(scribe))
 				return
-			
+
 			//prevents using multiple dialogs to layer runes.
 			if(locate(/obj/effect/rune) in get_turf(scribe)) //This is check is done twice. once when choosing to scribe a rune, once here
 				to_chat(scribe, SPAN_WARNING("There is already a rune in this location."))

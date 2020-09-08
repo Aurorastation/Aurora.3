@@ -11,7 +11,7 @@
 	density = 1
 	var/health = 100.0
 	flags = CONDUCT
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 
 	var/valve_open = 0
 	var/release_pressure = ONE_ATMOSPHERE
@@ -139,6 +139,7 @@ update_flag
 
 	if (src.destroyed)
 		cut_overlays()
+		set_light(FALSE)
 		src.icon_state = text("[]-1", src.canister_color)
 		return
 
@@ -201,7 +202,7 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/machinery_process()
 	if (destroyed)
-		return
+		return PROCESS_KILL
 
 	..()
 

@@ -11,7 +11,7 @@
 	throwforce = 1.0
 	throw_speed = 1
 	throw_range = 2
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	var/access = list()
 	access = access_crate_cash
 	var/worth = 0

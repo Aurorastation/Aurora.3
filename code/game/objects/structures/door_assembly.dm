@@ -4,7 +4,8 @@
 	icon_state = "door_as_0"
 	anchored = 0
 	density = 1
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
+	build_amt = 4
 	var/state = 0
 	var/base_icon_state = ""
 	var/base_name = "Airlock"
@@ -144,25 +145,23 @@
 	airlock_type = "/multi_tile/glass"
 	glass = -1 //To prevent bugs in deconstruction process.
 
-	New()
+/obj/structure/door_assembly/multi_tile/Initialize()
+	. = ..()
+	SetBounds()
+	update_state()
+
+/obj/structure/door_assembly/multi_tile/Move()
+	. = ..()
+	SetBounds()
+
+/obj/structure/door_assembly/multi_tile/proc/SetBounds()
+	if(width > 1)
 		if(dir in list(EAST, WEST))
 			bound_width = width * world.icon_size
 			bound_height = world.icon_size
 		else
 			bound_width = world.icon_size
 			bound_height = width * world.icon_size
-		update_state()
-
-	Move()
-		. = ..()
-		if(dir in list(EAST, WEST))
-			bound_width = width * world.icon_size
-			bound_height = world.icon_size
-		else
-			bound_width = world.icon_size
-			bound_height = width * world.icon_size
-
-
 
 /obj/structure/door_assembly/attackby(obj/item/W as obj, mob/user as mob)
 	if(W.ispen())
@@ -196,8 +195,7 @@
 				if(do_after(user, 40/W.toolspeed))
 					if(!src || !WT.isOn()) return
 					to_chat(user, "<span class='notice'>You dissasembled the airlock assembly!</span>")
-					new /obj/item/stack/material/steel(src.loc, 4)
-					qdel (src)
+					dismantle()
 		else
 			to_chat(user, "<span class='notice'>You need more welding fuel.</span>")
 			return
@@ -278,7 +276,7 @@
 		if (S)
 			if (S.get_amount() >= 1)
 				if(material_name == "rglass")
-					playsound(src.loc, "crowbar", 100, 1)
+					playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
 					user.visible_message("[user] adds [S.name] to the airlock assembly.", "You start to install [S.name] into the airlock assembly.")
 					if(do_after(user, 40) && !glass)
 						if (S.use(1))
@@ -290,7 +288,7 @@
 						to_chat(user, "You cannot make an airlock out of that material.")
 						return
 					if(S.get_amount() >= 2)
-						playsound(src.loc, "crowbar", 100, 1)
+						playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
 						user.visible_message("[user] adds [S.name] to the airlock assembly.", "You start to install [S.name] into the airlock assembly.")
 						if(do_after(user, 40) && !glass)
 							if (S.use(2))

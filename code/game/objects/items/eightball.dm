@@ -5,7 +5,7 @@
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "eightball"
 
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 	var/shaking = FALSE
 	var/on_cooldown = FALSE

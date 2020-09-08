@@ -150,7 +150,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 			if(src.arcanecheckout)
 				new /obj/item/book/tome(src.loc)
 				to_chat(user, "<span class='warning'>Your sanity barely endures the seconds spent in the vault's browsing window. The only thing to remind you of this when you stop browsing is a dusty old tome sitting on the desk. You don't really remember printing it.</span>")
-				user.visible_message("<span class='notice'>\The [user] stares at the blank screen for a few moments, \his expression frozen in fear. When \he finally awakens from it, \he looks a lot older.</span>", range = 2)
+				user.visible_message("<span class='notice'>\The [user] stares at the blank screen for a few moments, [user.get_pronoun("his")] expression frozen in fear. When [user.get_pronoun("he")] finally awakens from it, [user.get_pronoun("he")] looks a lot older.</span>", range = 2)
 				src.arcanecheckout = 0
 		if(1)
 			// Inventory

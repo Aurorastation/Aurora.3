@@ -6,7 +6,7 @@
 	item_state = "vaurca_shoes"
 	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 	body_parts_covered = FEET
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 	contained_sprite = TRUE
 
 /obj/item/clothing/shoes/vaurca/breeder
@@ -16,5 +16,5 @@
 	item_state = "typec_shoes"
 	icon_state = "typec_shoes"
 	contained_sprite = FALSE
-	species_restricted = list("Vaurca Breeder")
-	sprite_sheets = list("Vaurca Breeder" = 'icons/mob/species/breeder/shoes.dmi')
+	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
+	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/shoes.dmi')

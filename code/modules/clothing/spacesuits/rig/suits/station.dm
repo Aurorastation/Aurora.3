@@ -92,7 +92,6 @@
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/orescanner,
 		/obj/item/rig_module/device/rfd_c,
-		/obj/item/rig_module/vision/meson,
 		/obj/item/rig_module/actuators
 		)
 
@@ -127,12 +126,18 @@
 	initial_modules = list(
 		/obj/item/rig_module/device/basicdrill,
 		/obj/item/rig_module/maneuvering_jets,
-		/obj/item/rig_module/device/rfd_c,
-		/obj/item/rig_module/vision/meson
+		/obj/item/rig_module/device/rfd_c
 		)
 
 /obj/item/clothing/gloves/rig/eva
 	siemens_coefficient = 0
+
+/obj/item/rig/eva/equipped/pirate
+	req_access = list(access_syndicate)
+	helm_type = /obj/item/clothing/head/helmet/space/rig/eva/pirate
+
+/obj/item/clothing/head/helmet/space/rig/eva/pirate
+	camera = /obj/machinery/camera/network/mercenary
 
 /obj/item/rig/ce
 
@@ -165,7 +170,6 @@
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/drill,
 		/obj/item/rig_module/device/rfd_c,
-		/obj/item/rig_module/vision/meson,
 		/obj/item/rig_module/actuators
 		)
 
@@ -285,4 +289,4 @@
 	req_access = list()
 	req_one_access = list()
 
-	species_restricted = list("Human")
+	species_restricted = list(BODYTYPE_HUMAN)

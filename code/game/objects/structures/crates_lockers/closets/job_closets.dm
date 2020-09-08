@@ -23,7 +23,6 @@
 	new /obj/item/clothing/head/pin/flower/pink(src)
 	new /obj/item/clothing/head/pin/flower/yellow(src)
 	new /obj/item/clothing/head/pin/flower/blue(src)
-	new /obj/item/clothing/head/pin/pink(src)
 	new /obj/item/clothing/head/pin/magnetic(src)
 	new /obj/item/clothing/under/sl_suit(src)
 	new /obj/item/clothing/under/sl_suit(src)

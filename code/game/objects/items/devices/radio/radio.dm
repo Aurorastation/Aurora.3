@@ -10,6 +10,7 @@ var/global/list/default_internal_channels = list(
 	num2text(MED_I_FREQ)=list(access_medical_equip),
 	num2text(SEC_FREQ) = list(access_security),
 	num2text(SEC_I_FREQ)=list(access_security),
+	num2text(PEN_FREQ) = list(access_armory),
 	num2text(SCI_FREQ) = list(access_tox,access_robotics,access_xenobiology),
 	num2text(SUP_FREQ) = list(access_cargo),
 	num2text(SRV_FREQ) = list(access_janitor, access_hydroponics)
@@ -44,11 +45,11 @@ var/global/list/default_medbay_channels = list(
 	slot_flags = SLOT_BELT
 	throw_speed = 2
 	throw_range = 9
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 75, MATERIAL_GLASS = 25)
 	var/const/FREQ_LISTENING = TRUE
 	var/list/internal_channels
-	var/clicksound = "button" //played sound on usage
+	var/clicksound = /decl/sound_category/button_sound //played sound on usage
 	var/clickvol = 10 //volume
 
 

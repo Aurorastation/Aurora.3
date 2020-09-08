@@ -43,7 +43,7 @@
 	var/list/robots = list()
 
 	if(signal.data["done"])
-		for(var/mech in SSvirtualreality.mechs["prisonmechs"])
+		for(var/mech in SSvirtualreality.mechs[REMOTE_PRISON_MECH])
 			var/mob/living/heavy_vehicle/M = mech
 
 			if(!ismech(M))
@@ -61,7 +61,7 @@
 			mechData["lockdown"] = M.lockdown
 			mechs[++mechs.len] = mechData
 
-		for(var/robot in SSvirtualreality.robots["prisonrobots"])
+		for(var/robot in SSvirtualreality.robots[REMOTE_PRISON_ROBOT])
 			var/mob/living/R = robot
 
 			if(!ismob(R))

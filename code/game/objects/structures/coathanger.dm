@@ -53,7 +53,5 @@
 	if (coat)
 		if(istype(coat, /obj/item/clothing/suit/storage/toggle))
 			var/obj/item/clothing/suit/storage/toggle/T = coat
-			if(T.icon_state == T.icon_open) // avoid icon conflicts
-				T.icon_state = T.icon_closed
-				T.item_state = T.icon_closed
+			T.icon_state = initial(T.icon_state)
 		add_overlay("coat_[coat.icon_state]")

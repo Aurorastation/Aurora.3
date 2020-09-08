@@ -42,6 +42,9 @@ var/datum/controller/subsystem/cargo/SScargo
 	//Item vars
 	var/last_item_id = 0 //The ID of the last item that has been added
 
+	//Bool to indicate if orders have been dumped
+	var/dumped_orders = FALSE
+
 	//Exports and bounties
 	var/list/exports_list = list()
 	var/list/bounties_list = list()
@@ -296,7 +299,7 @@ var/datum/controller/subsystem/cargo/SScargo
 		return path_error
 
 	//Check if a valid container is specified
-	if(!(ci.container_type == CARGO_CONTAINER_CRATE || ci.container_type == CARGO_CONTAINER_FREEZER || ci.container_type == CARGO_CONTAINER_BOX))
+	if(!(ci.container_type in list(CARGO_CONTAINER_CRATE, CARGO_CONTAINER_FREEZER, CARGO_CONTAINER_BOX, CARGO_CONTAINER_BODYBAG)))
 		log_debug("SScargo: Invalid container type specified for item [name] - [id]: Aborting")
 		qdel(ci)
 		return "Invalid container type specified for item [name] - [id]"
@@ -676,8 +679,9 @@ var/datum/controller/subsystem/cargo/SScargo
 		var/obj/A = new containertype(pickedloc)
 
 		//Label the crate
-		//TODO-CARGO: Look into wrapping it in a the suppliers paper
-		A.name = "[co.order_id] - [co.ordered_by]"
+		A.name_unlabel = A.name
+		A.name = "[A.name] ([co.order_id] - [co.ordered_by])"
+		A.verbs += /atom/proc/remove_label
 
 		//Set the access requirement
 		if(co.required_access.len > 0)
@@ -706,3 +710,75 @@ var/datum/controller/subsystem/cargo/SScargo
 	charge_cargo("Shipment #[current_shipment.shipment_num] - Expense",current_shipment.shipment_cost_purchase)
 
 	return 1
+
+//Dumps the cargo orders to the database when the round ends
+/datum/controller/subsystem/cargo/proc/dump_orders()
+	if(dumped_orders)
+		log_debug("SScargo: Order Data Dump Aborted - Orders already dumped")
+		return
+	if(config.cargo_load_items_from != "sql")
+		log_debug("SScargo: Order Data Dump Aborted - Cargo not loaded from database")
+		return
+	if(!establish_db_connection(dbcon))
+		log_debug("SScargo: SQL ERROR - Failed to connect. - Unable to dump order data")
+		return
+
+	dumped_orders = TRUE
+
+	// Loop through all the orders and dump them all
+	var/DBQuery/dump_query = dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog` (`game_id`, `order_id`, `status`, `price`, `ordered_by_id`, `ordered_by`, `authorized_by_id`, `authorized_by`, `received_by_id`, `received_by`, `paid_by_id`, `paid_by`, `time_submitted`, `time_approved`, `time_shipped`, `time_delivered`, `time_paid`, `reason`) \
+	VALUES (:game_id:, :order_id:, :status:, :price:, :ordered_by_id:, :ordered_by:, :authorized_by_id:, :authorized_by:, :received_by_id:, :received_by:, :paid_by_id:, :paid_by:, :time_submitted:, :time_approved:, :time_shipped:, :time_delivered:, :time_paid:, :reason:)")
+	var/DBQuery/dump_item_query = dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog_items` (`cargo_orderlog_id`, `cargo_item_id`, `amount`) \
+	VALUES (:cargo_orderlog_id:, :cargo_item_id:, :amount:)")
+	var/DBQuery/log_id = dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
+	for(var/datum/cargo_order/co in all_orders)
+		//Iterate over the items in the order and build the a list with the item count
+		var/list/itemcount = list()
+		for(var/datum/cargo_order_item/coi in co.items)
+			if(!isnull(itemcount["[coi.ci.id]"]))
+				itemcount["[coi.ci.id]"] = itemcount["[coi.ci.id]"] + 1
+			else
+				itemcount["[coi.ci.id]"] = 1
+
+		if(!dump_query.Execute(list(
+			"game_id"=game_id,
+			"order_id"=co.order_id,
+			"status"=co.status,
+			"price"=co.price,
+			"ordered_by_id"=co.ordered_by_id,
+			"ordered_by"=co.ordered_by,
+			"authorized_by_id"=co.authorized_by_id,
+			"authorized_by"=co.authorized_by,
+			"received_by_id"=co.received_by_id,
+			"received_by"=co.received_by,
+			"paid_by_id"=co.paid_by_id,
+			"paid_by"=co.paid_by,
+			"time_submitted"=co.time_submitted,
+			"time_approved"=co.time_approved,
+			"time_shipped"=co.time_shipped,
+			"time_delivered"=co.time_delivered,
+			"time_paid"=co.time_paid,
+			"reason"=co.reason
+			)))
+			log_debug("SScargo: SQL ERROR - Cound not write order to database")
+			continue
+
+		//Run the query to get the inserted id
+		log_id.Execute()
+
+		var/db_log_id = null
+		if (log_id.NextRow())
+			db_log_id = text2num(log_id.item[1])
+
+		if(db_log_id)
+			for(var/item_id in itemcount)
+				dump_item_query.Execute(list(
+					"cargo_orderlog_id"=db_log_id,
+					"cargo_item_id"=item_id,
+					"amount"=itemcount[item_id]
+				))
+		CHECK_TICK
+
+
+/hook/roundend/proc/dump_cargoorders()
+	SScargo.dump_orders()

@@ -3,7 +3,7 @@
 	desc = "An antique and delicate looking instrument used to study the stars."
 	icon = 'icons/obj/skrell_items.dmi'
 	icon_state = "starscope"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
@@ -27,7 +27,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(isskrell(H))
-			H.visible_message("<span class='notice'>\The [H] holds the brassy instrument up to \his eye and peers at something unseen.</span>",
+			H.visible_message("<span class='notice'>\The [H] holds the brassy instrument up to [H.get_pronoun("his")] eye and peers at something unseen.</span>",
 							"<span class='notice'>You see the starry edge of srom floating on the void of space.</span>")
 			if(projection_ready)
 				new/obj/effect/temp_visual/constellation (get_turf(user))
@@ -83,7 +83,7 @@
 	desc = "A projector meant to help Federation Skrell feel like theyre carrying home with them wherever they go. It looks very complex."
 	icon = 'icons/obj/skrell_items.dmi'
 	icon_state = "projector"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'

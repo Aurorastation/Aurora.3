@@ -13,7 +13,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	item_state = "pen"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
 	flags = CONDUCT
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	attack_verb = list("poked")
 	var/emagged = FALSE
 	var/fail_message = "<span class='warning'>INVALID USER.</span>"

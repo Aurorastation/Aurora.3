@@ -1,11 +1,28 @@
-/obj/item/clothing/mask/lyodsuit
+/obj/item/clothing/mask/breath/lyodsuit
 	name = "lyodsuit mask"
-	desc = "A simple mask that forms a part of the Dominian lyodsuit. Rather cozy, if you're warm-blooded."
+	desc = "A simple mask that forms a part of the Dominian lyodsuit. Rather cozy, if you're warm-blooded. It has a port to connect air tanks to."
 	icon = 'icons/clothing/masks/lyodsuit.dmi'
 	icon_state = "dom_thermal_mask"
 	item_state = "dom_thermal_mask"
+	gas_transfer_coefficient = 0.90 // it's made primarily for heat, not gas and chemical protection
+	permeability_coefficient = 0.95
+	flags_inv = BLOCKHAIR
 	contained_sprite = TRUE
 	canremove = FALSE
+
+/obj/item/clothing/mask/breath/lyodsuit/adjust_sprites()
+	if(hanging)
+		icon_state = "[icon_state]down"
+		item_state = "[item_state]down"
+	else
+		icon_state = initial(icon_state)
+		item_state = initial(icon_state)
+
+/obj/item/clothing/mask/breath/lyodsuit/lower_message(mob/user)
+	user.visible_message("<b>[user]</b> rolls \the [src] up to reveal their face.", SPAN_NOTICE("You roll \the [src] up to reveal your face."), range = 3)
+
+/obj/item/clothing/mask/breath/lyodsuit/raise_message(mob/user)
+	user.visible_message("<b>[user]</b> pulls \the [src] down to cover their face.", SPAN_NOTICE("You pull \the [src] down to cover your face."), range = 3)
 
 /obj/item/clothing/gloves/lyodsuit
 	name = "lyodsuit gloves"
@@ -38,23 +55,17 @@
 	icon = 'icons/clothing/suits/coats/dominia_noble_red.dmi'
 	icon_state = "dominia_noble_red"
 	item_state = "dominia_noble_red"
-	icon_open = "dominia_noble_red_open"
-	icon_closed = "dominia_noble_red"
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/dominia/gold
 	icon = 'icons/clothing/suits/coats/dominia_noble_gold.dmi'
 	icon_state = "dominia_noble_gold"
 	item_state = "dominia_noble_gold"
-	icon_open = "dominia_noble_gold_open"
-	icon_closed = "dominia_noble_gold"
 
 /obj/item/clothing/suit/storage/toggle/dominia/black
 	icon = 'icons/clothing/suits/coats/dominia_noble_black.dmi'
 	icon_state = "dominia_noble_black"
 	item_state = "dominia_noble_black"
-	icon_open = "dominia_noble_black_open"
-	icon_closed = "dominia_noble_black"
 
 /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	name = "dominia bomber jacket"
@@ -62,8 +73,6 @@
 	icon = 'icons/clothing/suits/coats/dominia_bomber.dmi'
 	icon_state = "dominia_bomber"
 	item_state = "dominia_bomber"
-	icon_open = "dominia_bomber_open"
-	icon_closed = "dominia_bomber"
 
 /obj/item/clothing/under/dominia
 	name = "dominia suit"
@@ -156,12 +165,14 @@
 	icon = 'icons/clothing/under/uniforms/lyodsuit_hoodie.dmi'
 	icon_state = "dom_thermal_hoodie"
 	item_state = "dom_thermal_hoodie"
-	var/obj/item/clothing/mask/lyodsuit/mask
+	action_button_name = "Toggle Lyodsuit Mask"
+	var/obj/item/clothing/mask/breath/lyodsuit/mask
 	var/hood_raised = FALSE
 
 /obj/item/clothing/under/dominia/lyodsuit/hoodie/Initialize()
 	. = ..()
 	create_mask()
+	verbs += /obj/item/clothing/under/dominia/lyodsuit/hoodie/proc/toggle_mask
 
 /obj/item/clothing/under/dominia/lyodsuit/hoodie/Destroy()
 	QDEL_NULL(mask)
@@ -173,6 +184,11 @@
 /obj/item/clothing/under/dominia/lyodsuit/hoodie/on_slotmove()
 	remove_mask()
 
+/obj/item/clothing/under/dominia/lyodsuit/hoodie/attack_self(mob/user)
+	..()
+	if(equip_slot == slot_w_uniform)
+		toggle_mask()
+
 /obj/item/clothing/under/dominia/lyodsuit/hoodie/equipped(mob/user, slot)
 	if(slot != slot_w_uniform)
 		remove_mask()
@@ -180,8 +196,7 @@
 
 /obj/item/clothing/under/dominia/lyodsuit/hoodie/proc/create_mask()
 	if(!mask)
-		mask = new /obj/item/clothing/mask/lyodsuit(src)
-	item_state = "dom_thermal"
+		mask = new /obj/item/clothing/mask/breath/lyodsuit(src)
 
 /obj/item/clothing/under/dominia/lyodsuit/hoodie/proc/remove_mask()
 	// Mask got nuked. Probably because of RIGs or the like.
@@ -195,7 +210,7 @@
 	mask.forceMove(src)
 	hood_raised = FALSE
 
-/obj/item/clothing/under/dominia/lyodsuit/hoodie/verb/toggle_mask()
+/obj/item/clothing/under/dominia/lyodsuit/hoodie/proc/toggle_mask()
 	set name = "Toggle Lyodsuit Mask"
 	set category = "Object"
 	set src in usr
@@ -219,8 +234,11 @@
 				H.equip_to_slot_if_possible(mask, slot_wear_mask, 0, 0, 1)
 				hood_raised = TRUE
 				H.update_inv_wear_mask()
+				item_state = "dom_thermal"
 	else
 		remove_mask()
+	usr.update_action_buttons()
+	update_clothing_icon()
 
 /obj/item/clothing/under/dominia/lyodsuit/hoodie/rollsuit()
 	..()

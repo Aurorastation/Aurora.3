@@ -11,7 +11,7 @@
 	throw_speed = 1
 	throw_range = 4
 	throwforce = 10
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	var/cooldown = 0 // floor tap cooldown
 	var/static/list/nullchoices = list("Null Rod" = /obj/item/nullrod/, "Null Staff" = /obj/item/nullrod/staff, "Null Orb" = /obj/item/nullrod/orb, "Null Athame" = /obj/item/nullrod/athame)
 
@@ -21,7 +21,7 @@
 	icon_state = "nullstaff"
 	item_state = "nullstaff"
 	slot_flags = SLOT_BELT | SLOT_BACK
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 
 /obj/item/nullrod/orb
 	name = "null sphere"

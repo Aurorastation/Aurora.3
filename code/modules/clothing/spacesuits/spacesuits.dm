@@ -18,7 +18,7 @@
 	cold_protection = HEAD
 	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
-	species_restricted = list("exclude","Diona","Vox","Golem")
+	species_restricted = list("exclude",BODYTYPE_DIONA,BODYTYPE_VOX,BODYTYPE_GOLEM)
 	flash_protection = FLASH_PROTECTION_MAJOR
 	allow_hair_covering = FALSE
 
@@ -63,7 +63,7 @@
 	item_state = "s_suit"
 	randpixel = 0
 	center_of_mass = null
-	w_class = 4//bulky item
+	w_class = ITEMSIZE_LARGE//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
 	item_flags = STOPPRESSUREDAMAGE | THICKMATERIAL
@@ -75,7 +75,7 @@
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
-	species_restricted = list("exclude","Diona","Vox","Golem")
+	species_restricted = list("exclude",BODYTYPE_DIONA,BODYTYPE_VOX,BODYTYPE_GOLEM)
 
 	var/list/supporting_limbs //If not-null, automatically splints breaks. Checked when removing the suit.
 

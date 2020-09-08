@@ -105,7 +105,7 @@
 	slowdown = 0
 	emp_protection = 50
 
-	species_restricted = list("Human")
+	species_restricted = list(BODYTYPE_HUMAN)
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,

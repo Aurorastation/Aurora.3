@@ -151,6 +151,7 @@
 		/obj/item/bodybag = 2,
 		/obj/item/bodybag/cryobag = 1,
 		/obj/item/storage/pill_bottle/kelotane = 2,
+		/obj/item/storage/pill_bottle/bicaridine = 2,
 		/obj/item/storage/pill_bottle/antitox = 2,
 		/obj/item/storage/pill_bottle/mortaphenyl = 2,
 		/obj/item/reagent_containers/syringe/dylovene = 2,
@@ -167,8 +168,9 @@
 		/obj/item/storage/firstaid/regular = 3,
 		/obj/item/storage/firstaid/toxin = 2,
 		/obj/item/storage/firstaid/o2 = 2,
-		/obj/item/storage/firstaid/adv = 1,
-		/obj/item/storage/firstaid/fire = 2
+		/obj/item/storage/firstaid/fire = 2,
+		/obj/item/storage/firstaid/brute = 1,
+		/obj/item/storage/firstaid/adv = 1
 	)
 
 /obj/random/contraband
@@ -508,7 +510,8 @@
 
 /obj/random/vendor
 	name = "random vendor"
-	var/depleted = 0
+	var/depleted = FALSE
+	var/scan_id = TRUE // Should the spawned vendor check IDs
 	problist = list(
 		/obj/machinery/vending/boozeomat = 1,
 		/obj/machinery/vending/coffee = 1,
@@ -556,6 +559,8 @@
 
 			// Clamp to an integer so we don't get 0.78 of a screwdriver.
 			V.products[content] = round(V.products[content])
+
+	V.scan_id &= scan_id
 
 /obj/random/pda_cart/item_to_spawn()
 	var/list/options = typesof(/obj/item/cartridge)
@@ -736,9 +741,6 @@
 		/obj/item/bodybag = 0.7,
 		/obj/item/clothing/accessory/storage/knifeharness = 0.3,
 		/obj/item/clothing/accessory/storage/webbing = 0.6,
-		/obj/item/clothing/glasses/material = 0.8,
-		/obj/item/clothing/glasses/meson = 0.5,
-		/obj/item/clothing/glasses/meson/prescription = 0.25,
 		/obj/item/clothing/glasses/sunglasses = 0.75,
 		/obj/item/clothing/glasses/welding = 0.75,
 		/obj/item/clothing/head/bearpelt = 0.4,
@@ -841,7 +843,7 @@
 		/obj/item/reagent_containers/food/drinks/flask/lithium = 0.3,
 		/obj/item/reagent_containers/food/drinks/flask/shiny = 0.3,
 		/obj/item/reagent_containers/food/drinks/teapot = 0.4,
-		/obj/item/reagent_containers/glass/beaker/bowl = 0.8,
+		/obj/item/reagent_containers/cooking_container/plate/bowl = 0.8,
 		/obj/item/reagent_containers/inhaler/hyperzine = 0.1,
 		/obj/item/reagent_containers/spray/cleaner = 0.6,
 		/obj/item/reagent_containers/spray/sterilizine = 0.4,
@@ -932,8 +934,7 @@
 		/obj/item/storage/backpack/chameleon = 1,
 		/obj/item/storage/backpack/ = 10,
 
-		/obj/item/clothing/glasses/chameleon = 1,
-		/obj/item/clothing/glasses/meson = 1
+		/obj/item/clothing/glasses/chameleon = 1
 
 	)
 
@@ -1444,12 +1445,12 @@
 		/obj/item/gun/energy/retro = 0.5,
 		/obj/item/gun/energy/toxgun = 0.5,
 		/obj/item/gun/projectile/automatic/improvised = 1,
-		/obj/item/gun/projectile/contender = 1,
+		/obj/item/gun/projectile/contender = 0.5,
 		/obj/item/gun/projectile/leyon = 1,
 		/obj/item/gun/projectile/revolver/derringer = 1,
 		/obj/item/gun/projectile/shotgun/pump/rifle/obrez = 1,
 		/obj/item/gun/projectile/shotgun/pump/rifle/vintage = 1,
-		/obj/item/gun/launcher/harpoon = 0.5
+		/obj/item/gun/launcher/harpoon = 1
 		)
 
 	var/list/Common = list(
@@ -1460,6 +1461,7 @@
 		/obj/item/gun/energy/rifle = 1,
 		/obj/item/gun/projectile/automatic/c20r = 1,
 		/obj/item/gun/projectile/automatic/mini_uzi = 1,
+		/obj/item/gun/projectile/automatic/tommygun = 1,
 		/obj/item/gun/projectile/automatic/wt550/lethal = 0.5,
 		/obj/item/gun/projectile/colt = 0.5,
 		/obj/item/gun/projectile/pistol/sol = 1,
@@ -1471,7 +1473,8 @@
 		/obj/item/gun/projectile/shotgun/doublebarrel/pellet = 1,
 		/obj/item/gun/projectile/shotgun/pump/rifle = 1,
 		/obj/item/gun/projectile/tanto = 1,
-		/obj/item/gun/projectile/gauss = 1
+		/obj/item/gun/projectile/gauss = 1,
+		/obj/item/gun/projectile/revolver/knife = 1
 		)
 
 	var/list/Rare = list(
@@ -1479,6 +1482,7 @@
 		/obj/item/gun/energy/blaster/rifle = 1,
 		/obj/item/gun/energy/pistol/hegemony = 1,
 		/obj/item/gun/energy/rifle/laser = 1,
+		/obj/item/gun/energy/rifle/icelance = 1,
 		/obj/item/gun/energy/rifle/ionrifle = 0.5,
 		/obj/item/gun/energy/vaurca/blaster = 1,
 		/obj/item/gun/energy/xray = 1,
@@ -1489,11 +1493,14 @@
 		/obj/item/gun/projectile/deagle/adhomai = 1,
 		/obj/item/gun/projectile/silenced = 1,
 		/obj/item/gun/projectile/dragunov = 1,
-		/obj/item/gun/projectile/plasma/bolter = 1,
+		/obj/item/gun/projectile/plasma/bolter = 0.5,
 		/obj/item/gun/projectile/shotgun/doublebarrel/sawn = 1,
 		/obj/item/gun/projectile/shotgun/foldable = 1,
 		/obj/item/gun/projectile/shotgun/pump/combat = 1,
-		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1
+		/obj/item/gun/projectile/shotgun/pump/combat/sol = 1,
+		/obj/item/gun/projectile/automatic/rifle/adhomian = 1,
+		/obj/item/gun/projectile/musket = 0.5,
+		/obj/item/gun/launcher/grenade = 1
 		)
 
 	var/list/Epic = list(
@@ -1511,7 +1518,8 @@
 		/obj/item/gun/projectile/automatic/rifle/z8 = 1,
 		/obj/item/gun/projectile/cannon = 1,
 		/obj/item/gun/projectile/gyropistol = 0.5,
-		/obj/item/gun/projectile/plasma = 1
+		/obj/item/gun/projectile/plasma = 0.5,
+		/obj/item/gun/projectile/revolver = 0.5
 		)
 
 	var/list/Legendary = list(
@@ -1529,21 +1537,45 @@
 	concealable = TRUE
 
 /obj/random/weapon_and_ammo/post_spawn(var/obj/item/gun/projectile/spawned)
-	if(!istype(spawned, /obj/item/gun/projectile))
+	if(istype(spawned, /obj/item/gun/energy))
 		return
-	if(spawned.magazine_type)
-		var/obj/item/ammo_magazine/am = spawned.magazine_type
-		new am(spawned.loc)
-		new am(spawned.loc)
-	else if(istype(spawned, /obj/item/gun/projectile/shotgun) && spawned.caliber == "shotgun")
-		if(istype(spawned.loc, /obj/item/storage/box))
-			spawned.loc.icon_state = "largebox"
-		var/obj/item/storage/box/b = new /obj/item/storage/box(spawned.loc)
-		for(var/i = 0; i < 8; i++)
-			new spawned.ammo_type(b)
-	else if(spawned.ammo_type)
-		for(var/i = 0; i < (spawned.max_shells * 2); i++)
-			new spawned.ammo_type(spawned.loc)
+
+	else if(istype(spawned, /obj/item/gun/projectile))
+		if(spawned.magazine_type)
+			var/obj/item/ammo_magazine/am = spawned.magazine_type
+			new am(spawned.loc)
+			new am(spawned.loc)
+		else if(istype(spawned, /obj/item/gun/projectile/shotgun) && spawned.caliber == "shotgun")
+			if(istype(spawned.loc, /obj/item/storage/box))
+				spawned.loc.icon_state = "largebox"
+			var/obj/item/storage/box/b = new /obj/item/storage/box(spawned.loc)
+			for(var/i = 0; i < 8; i++)
+				new spawned.ammo_type(b)
+		else if(spawned.ammo_type)
+			var/list/provided_ammo = list()
+			for(var/i = 0; i < (spawned.max_shells * 2); i++)
+				provided_ammo += new spawned.ammo_type(spawned.loc)
+			if(provided_ammo.len)
+				new /obj/item/ammo_pile(spawned.loc, provided_ammo)
+
+		if(istype(spawned, /obj/item/gun/projectile/musket))
+			new /obj/item/reagent_containers/powder_horn(spawned.loc)
+
+	else if(istype(spawned, /obj/item/gun/launcher))
+		if(istype(spawned, /obj/item/gun/launcher/harpoon))
+			for(var/i in 1 to 4)
+				new /obj/item/material/harpoon(spawned.loc)
+		if(istype(spawned, /obj/item/gun/launcher/grenade))
+			var/list/grenade_types = list(
+				/obj/item/grenade/smokebomb,
+				/obj/item/grenade/flashbang,
+				/obj/item/grenade/empgrenade,
+				/obj/item/grenade/chem_grenade/incendiary
+				)
+			var/obj/item/storage/bag/plasticbag/bag = new /obj/item/storage/bag/plasticbag(spawned.loc)
+			for(var/i in 1 to 7)
+				var/chosen_type = pick(grenade_types)
+				new chosen_type(bag)
 
 /obj/random/weapon_and_ammo/spawn_item()
 	var/obj/item/W = pick_gun()

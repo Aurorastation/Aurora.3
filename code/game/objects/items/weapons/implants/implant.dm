@@ -6,7 +6,7 @@
 	name = "implant"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "implant"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	var/implanted = null
 	var/mob/imp_in = null
 	var/obj/item/organ/external/part = null
@@ -194,7 +194,7 @@ Implant Specifics:<BR>"}
 	var/elevel = "Localized Limb"
 	var/phrase
 	var/setup_done = FALSE //Have we set this yet?
-	var/uses_codewords = TRUE 
+	var/uses_codewords = TRUE
 	icon_state = "implant_evil"
 
 /obj/item/implant/explosive/Initialize()
@@ -548,7 +548,7 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	switch (cause)
 		if("death")
 			var/obj/item/device/radio/headset/a = new /obj/item/device/radio/headset(null)
-			if(istype(t, /area/syndicate_station) || istype(t, /area/syndicate_mothership) || istype(t, /area/shuttle/syndicate_elite) )
+			if(istype(t, /area/antag) || istype(t, /area/shuttle/mercenary) || istype(t, /area/shuttle/syndicate_elite) )
 				//give the syndies a bit of stealth
 				a.autosay("[mobname] has died in Space!", "[mobname]'s Death Alarm")
 			else
@@ -593,6 +593,26 @@ the implant may become unstable and either pre-maturely inject the subject or si
 	icon_state = "implant_evil"
 	var/activation_emote = "sigh"
 	var/obj/item/scanned = null
+
+/obj/item/implant/compressed/attackby(var/obj/item/T, mob/user)
+	if(T.isscrewdriver())
+		if(!scanned)
+			to_chat(user, SPAN_NOTICE("There is nothing to remove from the implant."))
+		else
+			to_chat(user, SPAN_NOTICE("You remove \the [scanned] from the implant."))
+			user.put_in_hands(scanned)
+			scanned = null
+	if(istype(T, /obj/item/implanter))
+		var/obj/item/implanter/implanter = T
+		if(implanter.imp)
+			to_chat(user, SPAN_NOTICE("\The [implanter] already has an implant loaded."))
+			return
+		user.drop_from_inventory(src)
+		forceMove(implanter)
+		implanter.imp = src
+		implanter.update()
+	else
+		..()
 
 /obj/item/implant/compressed/get_data()
 	. = {"

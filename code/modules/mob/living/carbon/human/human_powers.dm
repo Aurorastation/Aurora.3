@@ -20,7 +20,7 @@
 			var/list/datum/sprite_accessory/hair/valid_hairstyles = list()
 			for(var/hair_string in hair_styles_list)
 				var/datum/sprite_accessory/hair/test = hair_styles_list[hair_string]
-				if(test.length >= 2 && (species.bodytype in test.species_allowed))
+				if(test.length >= 2 && (species.type in test.species_allowed))
 					valid_hairstyles.Add(hair_string)
 			selected_string = input("Select a new hairstyle", "Your hairstyle", hair_style) as null|anything in valid_hairstyles
 		if(selected_string && h_style != selected_string)
@@ -41,7 +41,7 @@ mob/living/carbon/human/proc/change_monitor()
 		var/list/datum/sprite_accessory/facial_hair/valid_screenstyles = list()
 		for(var/screen_string in facial_hair_styles_list)
 			var/datum/sprite_accessory/facial_hair/test = facial_hair_styles_list[screen_string]
-			if(species.bodytype in test.species_allowed)
+			if(species.type in test.species_allowed)
 				valid_screenstyles.Add(screen_string)
 		selected_string = input("Select a new screen", "Your monitor display", screen_style) as null|anything in valid_screenstyles
 		if(selected_string && f_style != selected_string)
@@ -976,7 +976,7 @@ mob/living/carbon/human/proc/change_monitor()
 	updatehealth()
 	UpdateDamageIcon()
 
-	visible_message("<span class='notice'>\The [src] detaches \his [E]!</span>",
+	visible_message("<span class='notice'>\The [src] detaches [get_pronoun("his")] [E]!</span>",
 			"<span class='notice'>You detach your [E]!</span>")
 
 /mob/living/carbon/human/proc/attach_limb()
@@ -1023,7 +1023,7 @@ mob/living/carbon/human/proc/change_monitor()
 		updatehealth()
 		UpdateDamageIcon()
 
-		visible_message("<span class='notice'>\The [src] attaches \the [O] to \his body!</span>",
+		visible_message("<span class='notice'>\The [src] attaches \the [O] to [get_pronoun("his")] body!</span>",
 				"<span class='notice'>You attach \the [O] to your body!</span>")
 
 /mob/living/carbon/human/proc/self_diagnostics()
@@ -1149,7 +1149,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, SPAN_NOTICE("You can't flick your tongue out with something covering your face."))
 		return
 	else
-		custom_emote(1, "flicks their tongue out.")
+		custom_emote(VISIBLE_MESSAGE, "flicks their tongue out.")
 
 	var/datum/gas_mixture/mixture = src.loc.return_air()
 	var/total_moles = mixture.total_moles

@@ -1,5 +1,5 @@
 /datum/reagent/space_drugs
-	name = "Space drugs"
+	name = "Space Drugs"
 	description = "Mercury Monolithium Sucrose, or space drugs, is a potent relaxant commonly found in Ambrosia plants. Lasts twice as long when inhaled."
 	reagent_state = LIQUID
 	color = "#60A584"
@@ -88,6 +88,7 @@
 
 /datum/reagent/impedrezene/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.jitteriness = max(M.jitteriness - 5, 0)
+	M.confused = max(M.confused, 10)
 	if(prob(80))
 		M.add_chemical_effect(CE_NEUROTOXIC, 3*removed)
 	if(prob(50))
@@ -107,10 +108,12 @@
 /datum/reagent/mindbreaker/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.hallucination = max(M.hallucination, 100)
 	M.add_chemical_effect(CE_HALLUCINATE, 2)
+	if(prob(10))
+		M.add_chemical_effect(CE_NEUROTOXIC, 5*removed)
 
 /datum/reagent/psilocybin
-	name = "psilocybin"
-	description = "A strong psycotropic derived from certain species of mushroom."
+	name = "Psilocybin"
+	description = "A strong psychotropic derived from certain species of mushroom."
 	color = "#E700E7"
 	overdose = REAGENTS_OVERDOSE
 	metabolism = REM * 0.5

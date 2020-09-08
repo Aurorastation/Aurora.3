@@ -17,11 +17,11 @@
  * Twohanded
  */
 /obj/item/material/twohanded
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	var/wielded = 0
 	var/force_wielded = 0
 	var/force_unwielded
-	var/wield_sound = "wield_generic"
+	var/wield_sound = /decl/sound_category/generic_wield_sound
 	var/unwield_sound = null
 	var/base_icon
 	var/base_name
@@ -34,8 +34,8 @@
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_twohanded.dmi'
 		)
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = "pickup_sword"
-	equip_sound = "equip_sword"
+	pickup_sound = /decl/sound_category/sword_pickup_sound
+	equip_sound = /decl/sound_category/sword_equip_sound
 	hitsound = 'sound/weapons/bladeslice.ogg'
 
 /obj/item/material/twohanded/proc/wield()
@@ -88,7 +88,7 @@
 /obj/item/material/twohanded/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(wielded && default_parry_check(user, attacker, damage_source) && prob(parry_chance))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
-		playsound(user.loc, "punchmiss", 50, 1)
+		playsound(user.loc, /decl/sound_category/punchmiss_sound, 50, 1)
 		return 1
 	return 0
 
@@ -157,7 +157,7 @@
 
 ///////////OFFHAND///////////////
 /obj/item/material/twohanded/offhand
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	icon_state = "offhand"
 	name = "offhand"
 	default_material = "placeholder"
@@ -195,7 +195,7 @@
 	force_divisor = 0.7 // 10/42 with hardness 60 (steel) and 0.25 unwielded divisor
 	sharp = 1
 	edge = 1
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	force_wielded = 30
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
@@ -231,7 +231,7 @@
 	name = "spear"
 	desc = "A haphazardly-constructed yet still deadly weapon of ancient design."
 	force = 10
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	force_divisor = 0.35 // 21 damage for steel (hardness 60)
 	unwielded_force_divisor = 0.2 // 12 damage for steel (hardness 60)
@@ -541,7 +541,7 @@
 	unwielded_force_divisor = 0.2
 	force_divisor = 0.3
 	edge = 1
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	attack_verb = list("attacked", "poked", "jabbed", "gored", "stabbed")
 	default_material = "steel"
@@ -569,13 +569,56 @@
 	name = "pitchfork"
 	desc = "An old farming tool, not something you would find at hydroponics."
 
+/obj/item/material/twohanded/pike/flag
+	icon_state = "flag_biesel0"
+	base_icon = "flag_biesel"
+	name = "republic of biesel flag"
+	desc = "For the republic!"
+	default_material = "bronze"
+	can_embed = 1
+	use_material_name = FALSE
+	unbreakable = TRUE
+	drop_sound = 'sound/items/drop/metalweapon.ogg'
+	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
+	action_button_name = "Plant Flag"
+	var/planted = FALSE
+
+/obj/item/material/twohanded/pike/flag/verb/plant()
+	set name = "Plant Flag"
+	set category = "Object"
+
+	if(ishuman(usr))
+		var/mob/living/user = usr
+		user.drop_from_inventory(src)
+		icon_state = "[base_icon]_planted"
+		anchored = TRUE
+		planted = TRUE
+		pixel_x = 16
+		pixel_y = 4
+		user.visible_message(SPAN_DANGER("[user] plants [src] proudly into the ground!"), SPAN_DANGER("You plant [src] proudly into the ground!"))
+
+/obj/item/material/twohanded/pike/flag/attack_hand(var/mob/user)
+	if(planted)
+		icon_state = initial(icon_state)
+		planted = FALSE
+		anchored = FALSE
+		pixel_x = initial(pixel_x)
+		pixel_y = initial(pixel_y)
+		user.visible_message(SPAN_NOTICE("[user] grabs [src]."), SPAN_NOTICE("You grab [src] from where it stands."))
+		..()
+	else
+		..()
+
+/obj/item/material/twohanded/pike/flag/ui_action_click()
+	plant()
+
 /obj/item/material/twohanded/zweihander
 	icon_state = "zweihander0"
 	base_icon = "zweihander"
 	name = "zweihander"
 	desc = "A german upgrade to the einhander models of ancient times."
 	force = 20
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	force_wielded = 30
 	unwielded_force_divisor = 1

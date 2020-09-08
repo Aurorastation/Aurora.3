@@ -39,21 +39,12 @@
 	caps["grey cap"] = /obj/item/clothing/head/soft/grey
 	caps["white cap"] = /obj/item/clothing/head/soft/white
 	caps["flat cap"] = /obj/item/clothing/head/flatcap
-	caps["mailman cap"] = /obj/item/clothing/head/mailman
 	gear_tweaks += new/datum/gear_tweak/path(caps)
-
-/datum/gear/head/beret
-	display_name = "beret, red"
-	path = /obj/item/clothing/head/beret
 
 /datum/gear/head/beret/eng
 	display_name = "beret, engie-orange"
 	path = /obj/item/clothing/head/beret/engineering
 	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
-
-/datum/gear/head/beret/purp
-	display_name = "beret, purple"
-	path = /obj/item/clothing/head/beret/purple
 
 /datum/gear/head/beret/color
 	display_name = "beret (colorable)"
@@ -125,6 +116,7 @@
 /datum/gear/head/pin
 	display_name = "pin selection"
 	path = /obj/item/clothing/head/pin
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/pin/New()
 	..()
@@ -215,11 +207,6 @@
 /datum/gear/head/beanie
 	display_name = "beanie"
 	path = /obj/item/clothing/head/beanie
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/head/loose_beanie
-	display_name = "loose beanie"
-	path = /obj/item/clothing/head/beanie_loose
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/nonla

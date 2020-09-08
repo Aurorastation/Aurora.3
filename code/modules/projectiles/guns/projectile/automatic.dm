@@ -4,7 +4,7 @@
 	icon = 'icons/obj/guns/saber.dmi'
 	icon_state = "saber"	//ugly //yup
 	item_state = "saber"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	load_method = SPEEDLOADER //yup. until someone sprites a magazine for it.
 	max_shells = 22
 	caliber = "9mm"
@@ -31,7 +31,7 @@
 	icon = 'icons/obj/guns/mini-uzi.dmi'
 	icon_state = "mini-uzi"
 	item_state = "mini-uzi"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45uzi
 	allowed_magazines = list(/obj/item/ammo_magazine/c45uzi)
@@ -50,7 +50,7 @@
 	icon = 'icons/obj/guns/c20r.dmi'
 	icon_state = "c20r"
 	item_state = "c20r"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	force = 10
 	caliber = "10mm"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
@@ -76,7 +76,7 @@
 	icon = 'icons/obj/guns/wt550.dmi'
 	icon_state = "wt550"
 	item_state = "wt550"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	caliber = "9mm"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	slot_flags = SLOT_BELT
@@ -105,7 +105,7 @@
 	icon = 'icons/obj/guns/arifle.dmi'
 	icon_state = "arifle"
 	item_state = "arifle"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	caliber = "a762"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 4)
@@ -183,7 +183,7 @@
 	icon = 'icons/obj/guns/carbine.dmi'
 	icon_state = "carbine"
 	item_state = "carbine"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	caliber = "a556"
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
@@ -260,7 +260,7 @@
 	icon = 'icons/obj/guns/l6.dmi'
 	icon_state = "l6closed100"
 	item_state = "l6closedmag"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	slot_flags = 0
 	max_shells = 50
@@ -327,13 +327,49 @@
 		return
 	..()
 
+/obj/item/gun/projectile/automatic/rifle/adhomian
+	name = "adhomian automatic rifle"
+	desc = "The Tsarrayut'yan rifle is a select-fire, crew-served automatic rifle producted by the People's Republic of Adhomai."
+	icon = 'icons/obj/guns/tsarrayut.dmi'
+	icon_state = "tsarrayut"
+	item_state = "tsarrayut"
+	contained_sprite = TRUE
+
+	desc_fluff = "People's Republic military hardware is the most advanced among the Tajaran nations. Laser weapons, alongside simple ballistic guns, are used by high ranking soldiers or \
+	special operatives. The majority of military is still equipped with simple bolt action rifles, that are being slowly replaced by the Tsarrayut'yan rifle; a select-fire, crew-served \
+	automatic rifle. Regardless of advances in the small arms field, artillery is the Republican army's main weapon and pride."
+
+	load_method = SINGLE_CASING|SPEEDLOADER
+
+	ammo_type = /obj/item/ammo_casing/a762
+	allowed_magazines = null
+	magazine_type = null
+	max_shells = 25
+
+	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
+
+	is_wieldable = TRUE
+
+	can_bayonet = TRUE
+	knife_x_offset = 23
+	knife_y_offset = 14
+
+/obj/item/gun/projectile/automatic/rifle/adhomian/update_icon()
+	..()
+	if(wielded)
+		item_state = "tsarrayut-wielded"
+	else
+		item_state = "tsarrayut"
+	update_held_icon()
+
 /obj/item/gun/projectile/automatic/tommygun
 	name = "vintage submachine gun"
 	desc = "A classic submachine gun. Uses .45 rounds."
 	icon = 'icons/obj/guns/tommygun.dmi'
 	icon_state = "tommygun"
 	item_state = "tommygun"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	max_shells = 50
 	caliber = ".45"
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
@@ -354,7 +390,7 @@
 	icon = 'icons/obj/guns/railgun.dmi'
 	icon_state = "railgun"
 	item_state = "railgun"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	caliber = "trod"
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 7)
@@ -378,7 +414,7 @@
 	icon = 'icons/obj/guns/flechette.dmi'
 	icon_state = "flechetterifle"
 	item_state = "flechetterifle"
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	force = 30
 	caliber = "flechette"
 	slot_flags = SLOT_BELT|SLOT_BACK
@@ -422,7 +458,7 @@
 	icon = 'icons/obj/guns/assaultshotgun.dmi'
 	icon_state = "assaultshotgun"
 	item_state = "assaultshotgun"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	load_method = MAGAZINE
 	max_shells = 8
 	caliber = "shotgun"

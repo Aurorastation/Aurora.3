@@ -183,6 +183,13 @@
 	tracer_type = /obj/effect/projectile/tracer/stun
 	impact_type = /obj/effect/projectile/impact/stun
 
+/obj/item/projectile/beam/hivebot/harmless
+	name = "harmless electrical discharge"
+	damage = 0
+	damage_type = PAIN
+	taser_effect = TRUE
+	agony = 0
+
 /obj/item/projectile/beam/hivebot/toxic
 	name = "concentrated gamma burst"
 	damage = 15
@@ -695,7 +702,7 @@
 			update_icon()
 			if(do_after(src, 32))
 				src.visible_message(SPAN_WARNING("[src] rips up \the [T]."))
-				playsound(src.loc, "crowbar", 100, 1)
+				playsound(src.loc, /decl/sound_category/crowbar_sound, 100, 1)
 				T.make_plating(1)
 			busy = 0
 			update_icon()
