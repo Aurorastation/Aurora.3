@@ -14,7 +14,7 @@
 	item_state = "b_suit"
 	worn_state = "captain"
 
-/obj/item/clothing/under/rank/cargo
+/obj/item/clothing/under/rank/quartermaster
 	name = "quartermaster's jumpsuit"
 	desc = "It's a jumpsuit worn by the quartermaster. It's specially designed to prevent back injuries caused by pushing paper."
 	icon_state = "qm"
