@@ -51676,6 +51676,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
 /obj/item/storage/box/fancy/candle_box,
+/obj/item/material/ashtray/bronze,
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "bSR" = (
@@ -67780,6 +67781,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"wcO" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray/bronze,
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
 "wee" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -98548,7 +98554,7 @@ rsk
 bZT
 bWa
 bYZ
-bZt
+wcO
 bYy
 bSM
 caM
@@ -99833,7 +99839,7 @@ bWa
 bZU
 bZU
 bYZ
-bZt
+wcO
 bYy
 bSM
 caQ
@@ -101118,7 +101124,7 @@ bVc
 izh
 bWa
 bYZ
-bZt
+wcO
 bYy
 bSM
 caT
