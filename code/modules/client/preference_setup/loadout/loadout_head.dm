@@ -62,14 +62,17 @@
 	allowed_roles = list("Head of Security", "Warden")
 
 /datum/gear/head/beret/hos
-	display_name = "blue beret, security (head of security)"
+	display_name = "beret, security (head of security)"
+	description = "A selection of commander beret."
 	path = /obj/item/clothing/head/beret/sec/hos
 	allowed_roles = list("Head of Security")
 
-/datum/gear/head/beret/hos/alt
-	display_name = "black beret, security (head of security)"
-	path = /obj/item/clothing/head/beret/sec/hos/alt
-	allowed_roles = list("Head of Security")
+/datum/gear/head/beret/hos/New()
+	..()
+	var/hosberet = list()
+	hosberet["blue commander beret"] = /obj/item/clothing/head/beret/sec/hos
+	hosberet["black commander beret"] = /obj/item/clothing/head/beret/sec/hos/alt
+	gear_tweaks += new/datum/gear_tweak/path(hosberet)
 
 /datum/gear/head/beret/medical
 	display_name = "beret, medical"
