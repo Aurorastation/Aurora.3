@@ -56,8 +56,8 @@
 	var/noair_directions = 0
 	var/diffarea_directions = 0
 
-	var/open_sound = 'sound/machines/firelockopening.ogg'
-	var/close_sound = 'sound/machines/firelockclosing.ogg'
+	var/open_sound = 'sound/machines/firelockopen.ogg'
+	var/close_sound = 'sound/machines/firelockclose.ogg'
 
 /obj/machinery/door/firedoor/Initialize(var/mapload)
 	. = ..()
@@ -532,5 +532,5 @@
 
 	enable_smart_generation = FALSE
 
-	open_sound = 'sound/machines/firewideopening.ogg'
-	close_sound = 'sound/machines/firewideclosing.ogg'
+	open_sound = 'sound/machines/firewideopen.ogg'
+	close_sound = 'sound/machines/firewideclose.ogg'
