@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - bugfix: "Fixed standard airlocks becoming shuttle ones for a split-second on occasion, and others disappearing."
