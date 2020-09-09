@@ -266,7 +266,7 @@ em						{font-style: normal;	font-weight: bold;}
 .log_message			{color: #386aff;	font-weight: bold;}
 
 /* CHAT TAGS */
-.tag				{color: #fff; border-radius: 15px; font-weight: bold; padding-left: 4px; padding-right: 4px;}
+.tag				{color: #fff; border-radius: 15px; font-size: 80%; padding-left: 4px; padding-right: 4px;}
 .ooc_tag			{background-color: #3c5dc0;}
 .looc_tag			{color: #000; background-color: #46b2b2;}
 .dev_tag			{background-color: #2c7731;}
