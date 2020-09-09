@@ -60,7 +60,7 @@
 /datum/gear/head/warden
 	display_name = "headwear, security (warden)"
 	description = "A selection of warden headwear."
-	path = /obj/item/clothing/head/beret/sec/hos
+	path = /obj/item/clothing/head
 	allowed_roles = list("Head of Security" , "Warden")
 
 /datum/gear/head/warden/New()
@@ -75,7 +75,7 @@
 /datum/gear/head/hos
 	display_name = "headwear, security (head of security)"
 	description = "A selection of head of security headwear."
-	path = /obj/item/clothing/head/beret/sec/hos
+	path = /obj/item/clothing/head
 	allowed_roles = list("Head of Security")
 
 /datum/gear/head/hos/New()
