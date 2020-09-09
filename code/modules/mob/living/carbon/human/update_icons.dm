@@ -930,7 +930,7 @@ There are several things that need to be remembered:
 			if(wear_suit.item_icons && (slot_wear_suit_str in wear_suit.item_icons))
 				t_icon = wear_suit.item_icons[slot_wear_suit_str]
 			else if(wear_suit.icon_override)
-				t_state += "_su"
+				t_state += WORN_SUIT
 				t_icon = wear_suit.icon_override
 			else
 				t_icon = INV_SUIT_DEF_ICON
@@ -1166,7 +1166,7 @@ There are several things that need to be remembered:
 			if(r_hand.item_icons && (slot_r_hand_str in r_hand.item_icons))
 				t_icon = r_hand.item_icons[slot_r_hand_str]
 			else if(r_hand.icon_override)
-				t_state += "_r"
+				t_state += WORN_RHAND
 				t_icon = r_hand.icon_override
 			else
 				t_icon = INV_R_HAND_DEF_ICON
@@ -1211,7 +1211,7 @@ There are several things that need to be remembered:
 			if(l_hand.item_icons && (slot_l_hand_str in l_hand.item_icons))
 				t_icon = l_hand.item_icons[slot_l_hand_str]
 			else if(l_hand.icon_override)
-				t_state += "_l"
+				t_state += WORN_LHAND
 				t_icon = l_hand.icon_override
 			else
 				t_icon = INV_L_HAND_DEF_ICON
