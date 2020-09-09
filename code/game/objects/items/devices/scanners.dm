@@ -379,10 +379,11 @@ BREATH ANALYZER
 				break
 		var/dat = "Trace Chemicals Found: "
 		for(var/R in blood_traces)
+			var/datum/reagent/C = new R()
 			if(details)
-				dat += "[R] ([blood_traces[R]] units) "
+				dat += "[C] ([blood_traces[R]] units) "
 			else
-				dat += "[R] "
+				dat += "[C] "
 		to_chat(user, "[dat]")
 		reagents.clear_reagents()
 	return
