@@ -105,7 +105,7 @@
 	display_name = "idris security sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/idrissec
 	faction = "Idris Incorporated"
-	allowed_roles = list("Security Officer","Detective")
+	allowed_roles = list("Security Officer","Detective", "Forensic Technician")
 
 /datum/gear/faction/heph_labcoat
 	display_name = "hephaestus labcoat"
