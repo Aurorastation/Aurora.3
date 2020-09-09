@@ -8,7 +8,7 @@
 	item_state = "buildpipe"
 	icon_state = "pi_cart_small"
 	volume = 15
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	unacidable = 1
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(5,10,15)
@@ -56,7 +56,7 @@
 	desc = "A large inhaler cartridge. It contains enough aerosol for 30 units of reagents. The container must be activated for aerosol to mix with reagents."
 	icon_state = "pi_cart_medium"
 	volume = 30
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,30)
 	origin_tech = list(TECH_BIO = 4, TECH_MATERIAL = 4)
@@ -66,7 +66,7 @@
 	desc = "An experimental bluespace inhaler cartridge. It has enough aerosol for 60 units of reagents. The container must be activated to mix aerosol with reagents inside."
 	icon_state = "pi_cart_large"
 	volume = 60
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,30,60)
 	origin_tech = list(TECH_BLUESPACE = 2, TECH_BIO = 6, TECH_MATERIAL = 6)
@@ -77,7 +77,7 @@
 	icon = 'icons/obj/syringe.dmi'
 	item_state = "buildpipe"
 	icon_state = "pi"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	var/obj/item/reagent_containers/stored_cartridge
 	var/transfer_amount = 5
@@ -182,7 +182,7 @@
 	name = "combat inhaler"
 	desc = "A large, bulky inhaler design that injects the entire contents of the loaded cartridge via an aerosol system in a single button press."
 	icon_state = "pi_combat"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	transfer_amount = 60
 	origin_tech = list(TECH_BIO = 4, TECH_MATERIAL = 4, TECH_ENGINEERING = 4)
 	eject_when_empty = TRUE

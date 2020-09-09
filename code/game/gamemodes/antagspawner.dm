@@ -9,7 +9,7 @@
 /obj/item/antag_spawner
 	throw_speed = 1
 	throw_range = 5
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	var/uses = 1
 
 /obj/item/antag_spawner/proc/equip_antag(mob/target as mob)

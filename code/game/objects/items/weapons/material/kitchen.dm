@@ -12,7 +12,7 @@
 	drop_sound = 'sound/items/drop/knife.ogg'
 	pickup_sound = 'sound/items/pickup/knife.ogg'
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	thrown_force_divisor = 1
 	origin_tech = list(TECH_MATERIAL = 1)
 	attack_verb = list("attacked", "stabbed", "poked")

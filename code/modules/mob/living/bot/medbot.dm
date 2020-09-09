@@ -68,7 +68,7 @@
 				if(last_newpatient_speak + 300 < world.time)
 					var/message = pick("Hey, [H.name]! Hold on, I'm coming.", "Wait [H.name]! I want to help!", "[H.name], you appear to be injured!")
 					say(message)
-					custom_emote(1, "points at [H.name].")
+					custom_emote(VISIBLE_MESSAGE, "points at [H.name].")
 					last_newpatient_speak = world.time
 				break
 
@@ -337,7 +337,7 @@
 	var/build_step = 0
 	var/created_name = "Medibot" //To preserve the name if it's a unique medbot I guess
 	var/skin = null //Same as medbot, set to tox or ointment for the respective kits.
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/firstaid_arm_assembly/Initialize()
 	. = ..()

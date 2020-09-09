@@ -359,10 +359,10 @@
 	return
 
 /mob/living/simple_animal/proc/visible_emote(var/act_desc, var/log_emote=1)
-	custom_emote(1, act_desc, log_emote)
+	custom_emote(VISIBLE_MESSAGE, act_desc, log_emote)
 
 /mob/living/simple_animal/proc/audible_emote(var/act_desc)
-	custom_emote(2, act_desc)
+	custom_emote(AUDIBLE_MESSAGE, act_desc)
 
 /*
 mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
@@ -449,7 +449,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 
 //TODO: refactor mob attackby(), attacked_by(), and friends.
 /mob/living/simple_animal/proc/attacked_with_item(obj/item/O, mob/user)
-	if(istype(O, /obj/item/trap/animal))
+	if(istype(O, /obj/item/trap/animal) || istype(O, /obj/item/gun))
 		O.attack(src, user)
 		return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

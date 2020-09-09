@@ -560,7 +560,6 @@ var/list/worths = list(
 					/obj/item/clothing/accessory/storage/bayonet = 250,
 					/obj/item/clothing/accessory/storage = 55,
 					/obj/item/clothing/accessory/stethoscope = 70,
-					/obj/item/clothing/accessory/medal/gold/heroism = 1000,
 					/obj/item/clothing/accessory/medal/gold/captain = 800,
 					/obj/item/clothing/accessory/medal/gold = 600,
 					/obj/item/clothing/accessory/medal/silver = 300,

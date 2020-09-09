@@ -121,31 +121,26 @@
 	name = "security winter coat"
 	icon_state = "coatsecurity"
 	item_state = "coatsecurity"
-	armor = list(melee = 25, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/medical
 	name = "medical winter coat"
 	icon_state = "coatmedical"
 	item_state = "coatmedical"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/iac
 	name = "IAC winter coat"
 	icon_state = "coatIAC"
 	item_state = "coatIAC"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 50, rad = 0)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/science
 	name = "science winter coat"
 	icon_state = "coatscience"
 	item_state = "coatscience"
-	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/engineering
 	name = "engineering winter coat"
 	icon_state = "coatengineer"
 	item_state = "coatengineer"
-	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 20)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos
 	name = "atmospherics winter coat"
@@ -220,7 +215,11 @@
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/grey //legacy item. for raiders, shuttle spawn
 	color = "#777777"
-	
+
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random/Initialize()
+	. = ..()
+	color = get_random_colour(lower = 150)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/short
 	icon_state = "hoodie_short"
@@ -229,7 +228,7 @@
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/crop
 	icon_state = "hoodie_crop"
 	item_state = "hoodie_crop"
-	
+
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
 	icon_state = "hoodie_sleeveless"
 	item_state = "hoodie_sleeveless"

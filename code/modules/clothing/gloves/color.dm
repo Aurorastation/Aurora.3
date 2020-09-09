@@ -166,10 +166,10 @@
 	name = "fingerless gloves"
 	icon_state = "fingerlessgloves"
 	item_state = "fingerlessgloves"
+	fingerprint_chance = 100
+	clipped = TRUE
+	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 
 /obj/item/clothing/gloves/fingerless/colour
 	icon_state = "fingerlessgloves_colour"
 	item_state = "fingerlessgloves_colour"
-	fingerprint_chance = 100
-	clipped = 1
-	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)

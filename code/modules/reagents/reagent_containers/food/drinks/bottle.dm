@@ -12,6 +12,7 @@
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
 	force = 5
 	hitsound = /decl/sound_category/bottle_hit_intact_sound
+	shatter = TRUE
 	var/smash_duration = 5 //Directly relates to the 'weaken' duration. Lowered by armor (i.e. helmets)
 	matter = list(MATERIAL_GLASS = 800)
 
@@ -180,7 +181,7 @@
 	edge = FALSE
 	hitsound = /decl/sound_category/bottle_hit_broken
 	var/icon/broken_outline = icon('icons/obj/drinks.dmi', "broken")
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 #define DRINK_FLUFF_GETMORE  "This drink is made by Getmore Corporation, a subsidiary of NanoTrasen. It mostly specializes in fast food and consumer food products, \
 							   but also makes average quality alcohol. Many can find Getmore products in grocery stores, vending machines, \
@@ -218,7 +219,7 @@
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "whiskeybottle"
 	center_of_mass = list("x"=16, "y"=4)
-	
+
 /obj/item/reagent_containers/food/drinks/bottle/whiskey/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/alcohol/ethanol/whiskey, 100)
@@ -397,6 +398,8 @@
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	reagents_to_add = list(/datum/reagent/drink/space_cola = 100)
+	shatter_material = MATERIAL_PLASTIC
+	shatter = FALSE
 
 /obj/item/reagent_containers/food/drinks/bottle/space_up
 	name = "\improper Space-Up"
@@ -407,6 +410,8 @@
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	reagents_to_add = list(/datum/reagent/drink/spaceup = 100)
+	shatter_material = MATERIAL_PLASTIC
+	shatter = FALSE
 
 /obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind
 	name = "\improper Space Mountain Wind"
@@ -417,6 +422,8 @@
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	reagents_to_add = list(/datum/reagent/drink/spacemountainwind = 100)
+	shatter_material = MATERIAL_PLASTIC
+	shatter = FALSE
 
 /obj/item/reagent_containers/food/drinks/bottle/pwine
 	name = "Chip Getmore's Velvet"
@@ -540,7 +547,6 @@
 	desc = "Blended flower buds from the Xuizi cactus. It smells faintly of vanilla. Bottled by the Arizi Guild for over 200 years."
 	icon_state = "xuizibottle"
 	center_of_mass = list("x"=16, "y"=8)
-
 	reagents_to_add = list(/datum/reagent/alcohol/butanol/xuizijuice = 30)
 
 /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine

@@ -26,7 +26,7 @@
 	item_state = "pbadge"
 	overlay_state = "pbadge"
 	badge_string = "Corporate Reporter"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
@@ -42,7 +42,7 @@
 	desc = "A journalist's 'pass' shaped, for whatever reason, like a security badge. It is made of plastic."
 	icon_state = "pbadge"
 	badge_string = "Sicurity Journelist"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/clothing/accessory/badge/old
 	name = "faded badge"
@@ -218,7 +218,7 @@
 	icon_state = "solbadge"
 	overlay_state = "solbadge"
 	badge_string = null
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/clothing/accessory/badge/idbadge/nt
 	name = "\improper NT ID badge"

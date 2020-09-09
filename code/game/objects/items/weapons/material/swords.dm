@@ -7,7 +7,7 @@
 	item_state = "claymore"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT|SLOT_BACK
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force_divisor = 0.7 // 42 when wielded with hardnes 60 (steel)
 	thrown_force_divisor = 0.5 // 10 when thrown with weight 20 (steel)
 	sharp = 1

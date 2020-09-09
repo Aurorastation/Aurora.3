@@ -341,6 +341,7 @@
 #define ITEMSIZE_NORMAL 3
 #define ITEMSIZE_LARGE  4
 #define ITEMSIZE_HUGE   5
+#define ITEMSIZE_IMMENSE 6
 
 // getFlatIcon function altering defines
 #define GFI_ROTATION_DEFAULT 0 //Don't do anything special

@@ -31,7 +31,7 @@
 	icon_off = "secureqmoff"
 
 /obj/structure/closet/secure_closet/quartermaster/fill()
-	new /obj/item/clothing/under/rank/cargo(src)
+	new /obj/item/clothing/under/rank/quartermaster(src)
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/device/radio/headset/qm(src)
 	new /obj/item/device/radio/headset/qm/alt(src)

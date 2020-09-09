@@ -10,7 +10,7 @@
 	then click where you want to fire.  To reload, click the weapon in your hand to unload (if needed), then add the appropiate ammo.  The description \
 	will tell you what caliber you need."
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
 	recoil = 1
 

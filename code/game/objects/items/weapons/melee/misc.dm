@@ -14,7 +14,7 @@
 	slot_flags = SLOT_BELT
 	force = 10
 	throwforce = 7
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_COMBAT = 4)
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/chainhit.ogg'
@@ -28,7 +28,7 @@
 	slot_flags = SLOT_BELT
 	force = 15
 	throwforce = 7
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	sharp = 1
 	edge = 1
 	origin_tech = list(TECH_COMBAT = 5)
@@ -73,7 +73,7 @@
 	throw_speed = 5
 	throw_range = 7
 	attack_verb = list("smashed", "beaten", "slammed", "smacked", "struck", "battered", "bonked")
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
 
 /obj/item/melee/hammer/powered
@@ -144,7 +144,7 @@
 	item_state = "chain"
 	slot_flags = SLOT_BELT
 	force = 10
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	reach = 2
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/whip.ogg'
@@ -173,7 +173,7 @@
 	slot_flags = SLOT_BELT
 	force = 15
 	throwforce = 5
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	sharp = 1
 	edge = 1
 	can_embed = 0
