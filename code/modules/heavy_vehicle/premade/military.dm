@@ -1,5 +1,5 @@
 /obj/item/mech_component/manipulators/superheavy
-	name = "heavy arms"
+	name = "superheavy arms"
 	exosuit_desc_string = "super-heavy reinforced manipulators"
 	icon_state = "strider_arms"
 	desc = "These basic, heavy plasteel mounts are used for mounting only the meanest weapons. Probably good at breaking things, too."
@@ -11,7 +11,7 @@
 	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
 
 /obj/item/mech_component/propulsion/superheavy
-	name = "heavy legs"
+	name = "superheavy motivators"
 	exosuit_desc_string = "heavy hydraulic legs"
 	desc = "Four utterly goliath stump-like pistons hold this propulsion mechanism together."
 	icon_state = "strider_legs"
@@ -21,7 +21,7 @@
 	trample_damage = 45
 
 /obj/item/mech_component/sensors/superheavy
-	name = "heavy sensors"
+	name = "superheavy sensors"
 	exosuit_desc_string = "a reinforced monoeye"
 	desc = "A small optic is all that can be discerned of this faceless, unmarked spire of an exosuit control center."
 	icon_state = "strider_head"

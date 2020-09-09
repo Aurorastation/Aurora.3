@@ -15,7 +15,7 @@
 /obj/item/mech_component/propulsion/hover/light
 	name = "light thrusters"
 	exosuit_desc_string = "light thrusters"
-	desc = "A set of fragile hover-thrusters. This variant seems to sacrifice structural integrity for... more speed."
+	desc = "A set of fragile hover-thrusters. This variant seems to sacrifice vast structural integrity for... more speed."
 	icon_state = "light-hoverlegs"
 	max_damage = 40
 	move_delay = 2
