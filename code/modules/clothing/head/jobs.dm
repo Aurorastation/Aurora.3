@@ -204,3 +204,30 @@
 /obj/item/clothing/head/det/grey
 	icon_state = "grey_fedora"
 	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
+
+/obj/item/clothing/head/warden
+	name = "blue warden hat"
+	desc = "A navy blue warden hat. For showing who is in charge of the brig."
+	icon_state = "wardencap"
+	flags_inv = HIDEEARS
+
+/obj/item/clothing/head/warden/alt
+	name = "black warden hat"
+	desc = "A black warden hat. For showing who is in charge of the brig."
+	icon_state = "wardencap_alt"
+
+/obj/item/clothing/head/warden/commissar
+	name = "commissar's cap"
+	desc = "A security commissar's cap."
+	icon_state = "commissarcap"
+
+/obj/item/clothing/head/hos/cap
+	name = "blue commander hat"
+	desc = "The navy blue hat of the Head of Security. For showing the officers who's in charge."
+	icon_state = "hoscap"
+	flags_inv = HIDEEARS
+
+/obj/item/clothing/head/hos/cap/alt
+	name = "black commander hat"
+	desc = "The black hat of the Head of Security. For showing the officers who's in charge."
+	icon_state = "hoscap_alt"

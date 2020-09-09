@@ -56,23 +56,36 @@
 	path = /obj/item/clothing/head/beret/sec
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
 
-/datum/gear/head/beret/warden
-	display_name = "beret, security (warden)"
-	path = /obj/item/clothing/head/beret/sec/warden
-	allowed_roles = list("Head of Security", "Warden")
 
-/datum/gear/head/beret/hos
-	display_name = "beret, security (head of security)"
-	description = "A selection of commander beret."
+/datum/gear/head/warden
+	display_name = "headwear, security (warden)"
+	description = "A selection of warden headwear."
+	path = /obj/item/clothing/head/beret/sec/hos
+	allowed_roles = list("Head of Security" , "Warden")
+
+/datum/gear/head/warden/New()
+	..()
+	var/wardenhead = list()
+	wardenhead["blue warden hat"] = /obj/item/clothing/head/warden
+	wardenhead["black warden hat"] = /obj/item/clothing/head/warden/alt
+	wardenhead["commissar's cap"] = /obj/item/clothing/head/warden/commissar
+	wardenhead["warden beret"] = /obj/item/clothing/head/beret/sec/warden
+	gear_tweaks += new/datum/gear_tweak/path(wardenhead)
+
+/datum/gear/head/hos
+	display_name = "headwear, security (head of security)"
+	description = "A selection of head of security headwear."
 	path = /obj/item/clothing/head/beret/sec/hos
 	allowed_roles = list("Head of Security")
 
-/datum/gear/head/beret/hos/New()
+/datum/gear/head/hos/New()
 	..()
-	var/hosberet = list()
-	hosberet["blue commander beret"] = /obj/item/clothing/head/beret/sec/hos
-	hosberet["black commander beret"] = /obj/item/clothing/head/beret/sec/hos/alt
-	gear_tweaks += new/datum/gear_tweak/path(hosberet)
+	var/hoshead = list()
+	hoshead["blue commander beret"] = /obj/item/clothing/head/beret/sec/hos
+	hoshead["black commander beret"] = /obj/item/clothing/head/beret/sec/hos/alt
+	hoshead["blue commander hat"] = /obj/item/clothing/head/hos/cap
+	hoshead["black commander hat"] = /obj/item/clothing/head/hos/cap/alt
+	gear_tweaks += new/datum/gear_tweak/path(hoshead)
 
 /datum/gear/head/beret/medical
 	display_name = "beret, medical"
