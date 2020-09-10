@@ -60,7 +60,6 @@
 	name = "space suit"
 	desc = "A suit that protects against low pressure environments. \"NSS AURORA\" is written in large block letters on the back."
 	icon_state = "space"
-	item_state = "s_suit"
 	randpixel = 0
 	center_of_mass = null
 	w_class = ITEMSIZE_LARGE//bulky item
