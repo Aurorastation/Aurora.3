@@ -6359,6 +6359,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_virology)
+"nV" = (
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
 "nX" = (
 /turf/simulated/floor/tiled/ramp/bottom,
 /area/hallway/secondary/entry/stairs)
@@ -7985,6 +7988,15 @@
 	temperature = 278
 	},
 /area/security/forensics_office)
+"xX" = (
+/obj/structure/stairs/west,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/ramp{
+	dir = 4
+	},
+/area/mine/unexplored)
 "yb" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -9435,6 +9447,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_construction_site/office)
+"GS" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/mine/unexplored)
 "GT" = (
 /turf/simulated/open,
 /area/medical/psych)
@@ -12912,6 +12930,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
+"Yc" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/open,
+/area/mine/unexplored)
 "Yd" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/corner/pink/full,
@@ -13125,6 +13152,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/maintenance/interstitial_cargo)
+"Zx" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/ramp/bottom{
+	dir = 4
+	},
+/area/mine/unexplored)
 "Zz" = (
 /turf/simulated/open,
 /area/turbolift/medical_interstitial)
@@ -28484,11 +28519,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ad
+ad
+ad
+ad
+ad
 aa
 aa
 aa
@@ -28741,11 +28776,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ad
+nV
+nV
+xX
+ad
 aa
 aa
 aa
@@ -28998,11 +29033,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ad
+nV
+nV
+Zx
+ad
 aa
 aa
 aa
@@ -29255,11 +29290,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ad
+nV
+nV
+nV
+ad
 aa
 aa
 aa
@@ -29512,11 +29547,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ad
+nV
+nV
+nV
+ad
 aa
 aa
 aa
@@ -29769,11 +29804,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ad
+nV
+nV
+GS
+ad
 aa
 aa
 aa
@@ -30026,11 +30061,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ad
+nV
+nV
+Yc
+ad
 aa
 aa
 aa
@@ -30283,11 +30318,11 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
+ad
+ad
+ad
+ad
+ad
 aa
 aa
 aa

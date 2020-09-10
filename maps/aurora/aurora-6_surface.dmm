@@ -6520,6 +6520,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/fore)
+"mb" = (
+/turf/simulated/wall,
+/area/mine/explored)
 "mc" = (
 /obj/structure/closet/cabinet{
 	layer = 2.9
@@ -10346,6 +10349,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/bridge/levela)
+"tr" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/mine/explored)
 "ts" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -11816,6 +11830,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"wo" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/mine/explored)
 "wp" = (
 /obj/structure/window/shuttle/unique/research{
 	icon_state = "5,13"
@@ -12625,6 +12647,19 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"xV" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/mine/explored)
 "xW" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/landmark{
@@ -18658,6 +18693,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
+"IJ" = (
+/obj/structure/grille,
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/mine/explored)
 "IK" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -18875,6 +18919,9 @@
 "Jc" = (
 /obj/effect/shuttle_landmark/skipjack/surface,
 /turf/unsimulated/floor/asteroid/ash,
+/area/mine/explored)
+"Jd" = (
+/turf/simulated/floor/tiled,
 /area/mine/explored)
 "Je" = (
 /obj/effect/floor_decal/corner/red,
@@ -20814,6 +20861,17 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/crew_quarters/fitness/pool)
+"MS" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/mine/explored)
 "MT" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -22798,6 +22856,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
+"QY" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/open,
+/area/mine/explored)
 "QZ" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -25729,6 +25793,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
+"WM" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/mine/explored)
 "WN" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -25951,6 +26026,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
+"Xh" = (
+/obj/structure/grille,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/mine/explored)
 "Xi" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -40109,14 +40194,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mb
+mb
+mb
+mb
+mb
+mb
+mb
+mb
 aa
 aa
 aa
@@ -40366,14 +40451,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mb
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+mb
 aa
 aa
 aa
@@ -40623,14 +40708,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+WM
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+WM
 aa
 aa
 aa
@@ -40880,14 +40965,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wo
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+wo
 aa
 aa
 aa
@@ -41137,14 +41222,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+IJ
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+wo
 aa
 aa
 aa
@@ -41394,14 +41479,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+IJ
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+wo
 aa
 aa
 aa
@@ -41651,14 +41736,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wo
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+wo
 aa
 aa
 aa
@@ -41908,14 +41993,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+IJ
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+wo
 aa
 aa
 aa
@@ -42165,14 +42250,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wo
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+wo
 aa
 aa
 aa
@@ -42422,14 +42507,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wo
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+wo
 aa
 aa
 aa
@@ -42679,14 +42764,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+wo
+Jd
+Jd
+Jd
+Jd
+Jd
+Jd
+wo
 aa
 aa
 aa
@@ -42936,14 +43021,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+tr
+Jd
+Jd
+Jd
+Jd
+Jd
+QY
+tr
 aa
 aa
 aa
@@ -43193,14 +43278,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mb
+Jd
+Jd
+Jd
+Jd
+Jd
+QY
+mb
 aa
 aa
 aa
@@ -43450,14 +43535,14 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+mb
+mb
+xV
+Xh
+Xh
+MS
+mb
+mb
 aa
 aa
 aa

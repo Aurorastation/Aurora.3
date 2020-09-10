@@ -6696,6 +6696,7 @@
 /obj/structure/extinguisher_cabinet{
 	pixel_y = 30
 	},
+/obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled,
 /area/engineering/engineering_hallway_main)
 "amr" = (
@@ -11158,13 +11159,14 @@
 /turf/simulated/floor/tiled,
 /area/engineering/engineering_hallway_main)
 "auc" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 1
+/obj/structure/stairs/west,
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled/ramp{
+	dir = 4
 	},
-/turf/simulated/floor/tiled,
 /area/engineering/engineering_hallway_main)
 "aud" = (
 /obj/machinery/light{
@@ -11176,11 +11178,10 @@
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Corridor Camera 2"
 	},
-/turf/simulated/floor/tiled,
-/area/engineering/engineering_hallway_main)
-"aue" = (
-/obj/machinery/mech_recharger,
-/turf/simulated/floor/tiled,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled/ramp/bottom{
+	dir = 4
+	},
 /area/engineering/engineering_hallway_main)
 "auf" = (
 /turf/simulated/wall/r_wall,
@@ -85900,7 +85901,7 @@ aoL
 aoL
 aoL
 ajL
-aue
+kJP
 avJ
 axr
 ayY
