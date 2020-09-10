@@ -89,16 +89,6 @@
 	open_sound_powered = 'sound/machines/airlock/cmd3o.ogg'
 	close_sound_powered = 'sound/machines/airlock/cmd3c.ogg'
 
-/obj/machinery/door/airlock/sac
-	name = "External Airlock"
-	icon = 'icons/obj/doors/DoorSAC.dmi'
-	assembly_type = null
-	aiControlDisabled = 1
-	hackProof = TRUE
-	electrified_until = -1
-	open_sound_powered = 'sound/machines/airlock/space1o.ogg'
-	close_sound_powered = 'sound/machines/airlock/space1c.ogg'
-
 /obj/machinery/door/airlock/security
 	name = "Security Airlock"
 	icon = 'icons/obj/doors/Doorsec.dmi'
@@ -112,6 +102,14 @@
 	name = "Engineering Airlock"
 	icon = 'icons/obj/doors/Dooreng.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_eng
+	hatch_colour = "#caa638"
+	open_sound_powered = 'sound/machines/airlock/eng1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/eng1c.ogg'
+
+/obj/machinery/door/airlock/atmos
+	name = "Atmospherics Airlock"
+	icon = 'icons/obj/doors/Dooratmo.dmi'
+	assembly_type = /obj/structure/door_assembly/door_assembly_atmo
 	hatch_colour = "#caa638"
 	open_sound_powered = 'sound/machines/airlock/eng1o.ogg'
 	close_sound_powered = 'sound/machines/airlock/eng1c.ogg'
@@ -138,6 +136,16 @@
 	assembly_type = /obj/structure/door_assembly/door_assembly_ext
 	hashatch = FALSE
 	insecure = 0
+	open_sound_powered = 'sound/machines/airlock/space1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/space1c.ogg'
+
+/obj/machinery/door/airlock/sac
+	name = "External Airlock"
+	icon = 'icons/obj/doors/DoorSAC.dmi'
+	assembly_type = null
+	aiControlDisabled = 1
+	hackProof = TRUE
+	electrified_until = -1
 	open_sound_powered = 'sound/machines/airlock/space1o.ogg'
 	close_sound_powered = 'sound/machines/airlock/space1c.ogg'
 
@@ -335,8 +343,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	assembly_type = /obj/structure/door_assembly/door_assembly_com
 	glass = 1
 	hatch_colour = "#3e638c"
-	open_sound_powered = 'sound/machines/airlock/vault1o.ogg'
-	close_sound_powered = 'sound/machines/airlock/vault1c.ogg'
+	open_sound_powered = 'sound/machines/airlock/cmd1o.ogg'
+	close_sound_powered = 'sound/machines/airlock/cmd1c.ogg'
 
 /obj/machinery/door/airlock/glass_engineering
 	name = "Glass Engineering Airlock"
@@ -384,14 +392,6 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	hatch_colour = "#c29142"
 	open_sound_powered = 'sound/machines/airlock/cgo1o.ogg'
 	close_sound_powered = 'sound/machines/airlock/cgo1c.ogg'
-
-/obj/machinery/door/airlock/atmos
-	name = "Atmospherics Airlock"
-	icon = 'icons/obj/doors/Dooratmo.dmi'
-	assembly_type = /obj/structure/door_assembly/door_assembly_atmo
-	hatch_colour = "#caa638"
-	open_sound_powered = 'sound/machines/airlock/eng1o.ogg'
-	close_sound_powered = 'sound/machines/airlock/eng1c.ogg'
 
 /obj/machinery/door/airlock/research
 	name = "Research Airlock"
@@ -1348,9 +1348,9 @@ About the new airlock wires panel:
 
 	//if the door is unpowered then it doesn't make sense to hear the woosh of a pneumatic actuator
 	if(arePowerSystemsOn())
-		playsound(src.loc, open_sound_powered, 60, 1)
+		playsound(src.loc, open_sound_powered, 50, FALSE)
 	else
-		playsound(src.loc, open_sound_unpowered, 60, 1)
+		playsound(src.loc, open_sound_unpowered, 70, FALSE)
 
 	if(src.closeOther != null && istype(src.closeOther, /obj/machinery/door/airlock/) && !src.closeOther.density)
 		src.closeOther.close()
