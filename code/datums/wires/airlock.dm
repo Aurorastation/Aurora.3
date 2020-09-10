@@ -205,7 +205,7 @@ var/const/AIRLOCK_WIRE_LIGHT = 2048
 		if(128)
 			return "AI Control"
 		if(256)
-			return "Electrification"
+			return "Anti-tampering"
 		if(512)
 			return "Safety"
 		if(1024)

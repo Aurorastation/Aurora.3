@@ -81,9 +81,9 @@ var/const/VENDING_WIRE_HEATING = 32
 		if(1)
 			return "Ballistic Delivery Service"
 		if(2)
-			return "Hidden Storage"
+			return "Secondary Stock"
 		if(4)
-			return "Electrification"
+			return "Anti-tampering"
 		if(8)
 			return "ID Scan"
 		if(16)
