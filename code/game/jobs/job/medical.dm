@@ -133,7 +133,7 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/purple
 	suit = null
-	head = /obj/item/clothing/head/nursehat
+	head = /obj/item/clothing/head/
 
 
 /datum/job/pharmacist

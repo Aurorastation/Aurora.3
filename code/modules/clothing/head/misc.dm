@@ -122,12 +122,6 @@
 	permeability_coefficient = 0.01
 	siemens_coefficient = 0.9
 
-/obj/item/clothing/head/nursehat
-	name = "nurse's hat"
-	desc = "It allows quick identification of trained medical personnel."
-	icon_state = "nursehat"
-	siemens_coefficient = 0.9
-
 /obj/item/clothing/head/syndicatefake
 	name = "red space-helmet replica"
 	item_state_slots = list(
@@ -147,14 +141,6 @@
 	item_state = "cueball"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
-
-/obj/item/clothing/head/greenbandana
-	name = "green bandana"
-	desc = "It's a green bandana with some fine nanotech lining."
-	icon_state = "greenbandana"
-	item_state = "greenbandana"
-	flags_inv = 0
-	body_parts_covered = 0
 
 /obj/item/clothing/head/cardborg
 	name = "cardborg helmet"
@@ -206,11 +192,6 @@
 	name = "pirate hat"
 	desc = "Yarr."
 	icon_state = "hgpiratecap"
-
-/obj/item/clothing/head/bandana
-	name = "pirate bandana"
-	desc = "Yarr."
-	icon_state = "bandana"
 
 /obj/item/clothing/head/bowler
 	name = "bowler-hat"
@@ -305,6 +286,19 @@
 	desc = "An orange piece of cloth, worn on the head."
 	icon_state = "orange_bandana"
 	body_parts_covered = 0
+
+/obj/item/clothing/head/greenbandana
+	name = "green bandana"
+	desc = "It's a green bandana with some fine nanotech lining."
+	icon_state = "greenbandana"
+	item_state = "greenbandana"
+	flags_inv = 0
+	body_parts_covered = 0
+
+/obj/item/clothing/head/bandana
+	name = "pirate bandana"
+	desc = "Yarr."
+	icon_state = "bandana"
 
 /obj/item/clothing/head/hijab //It might've taken a year but here's your Hijab's, Dea.
 	name = "hijab"
@@ -473,24 +467,6 @@
 	pickup_sound = 'sound/items/pickup/herb.ogg'
 
 //Tau Ceti Foreign Legion
-
-/obj/item/clothing/head/legion_beret
-	name = "TCFL dress beret"
-	desc = "A pale blue dress beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". A common good luck charm among former legionaires."
-	icon_state = "legion_beret"
-	item_state = "legion_beret"
-
-/obj/item/clothing/head/legion
-	name = "TCFL field beret"
-	desc = "A hardy, stark red field beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
-	icon_state = "legion_field_beret"
-	item_state = "legion_field_beret"
-
-/obj/item/clothing/head/legion/sentinel
-	name = "TCFL sentinel beret"
-	desc = "A hardy, stark purple sentinel beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\"."
-	icon_state = "legion_sentinel_beret"
-	item_state = "legion_sentinel_beret"
 
 /obj/item/clothing/head/legion/legate
 	name = "TCFL peaked cap"

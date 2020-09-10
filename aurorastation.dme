@@ -1371,6 +1371,8 @@
 #include "code\modules\clothing\gloves\miscellaneous.dm"
 #include "code\modules\clothing\gloves\stungloves.dm"
 #include "code\modules\clothing\gloves\xeno\tajara.dm"
+#include "code\modules\clothing\head\bandana.dm"
+#include "code\modules\clothing\head\berets.dm"
 #include "code\modules\clothing\head\collectable.dm"
 #include "code\modules\clothing\head\hardhat.dm"
 #include "code\modules\clothing\head\helmet.dm"

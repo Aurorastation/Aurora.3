@@ -26902,7 +26902,7 @@
 /obj/structure/table/standard,
 /obj/item/material/minihoe,
 /obj/item/device/analyzer/plant_analyzer,
-/obj/item/clothing/head/greenbandana,
+/obj/item/clothing/head/bandana/green,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -60908,7 +60908,6 @@
 	name = "Dilapitated medical closet";
 	pixel_y = -32
 	},
-/obj/item/clothing/head/nursehat,
 /obj/random/loot,
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/mask/surgical,

@@ -45,13 +45,12 @@
 	icon_state = "nun_hood"
 	flags_inv = BLOCKHAIR
 
-//Mime
+//berets
 /obj/item/clothing/head/beret
 	name = "beret"
 	desc = "A beret, an artists favorite headwear."
 	icon_state = "beret"
 
-//berets
 /obj/item/clothing/head/beret/sec
 	name = "security beret"
 	desc = "A beret with the security insignia emblazoned on it. For officers that are more inclined towards style than safety."

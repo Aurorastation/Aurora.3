@@ -1,8 +1,9 @@
 /obj/item/clothing/head/soft
 	name = "red cap"
 	desc = "It's a baseball hat in a tasteless red color."
+	icon = 'icons/obj/clothing/hats/softcaps.dmi'
 	icon_state = "redsoft"
-	var/flipped = 0
+	var/flipped = FALSE
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/soft/dropped()
@@ -12,12 +13,8 @@
 
 /obj/item/clothing/head/soft/attack_self(mob/user)
 	src.flipped = !src.flipped
-	if(src.flipped)
-		icon_state = "[icon_state]_flipped"
-		to_chat(user, "You flip the hat backwards.")
-	else
-		src.icon_state = initial(icon_state)
-		to_chat(user, "You flip the hat back in normal position.")
+	icon_state = "[initial(icon_state)][src.flipped ? "_flipped" : ""]"
+	to_chat(user, "You flip the hat [src.flipped ? "backwards." : "back in normal position."]")
 	update_clothing_icon()	//so our mob-overlays update
 
 /obj/item/clothing/head/soft/orange
@@ -89,3 +86,4 @@
 	name = "eridani cap"
 	desc = "A grey EPMC fatigue cap with the symbol of the Eridani Corporate Federation on its front. For amoral mercenaries that prefer style over protection."
 	icon_state = "eridanihat"
+
