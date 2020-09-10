@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes: 
+  - bugfix: "Ninjas can now access the rhino suit properly if they decide to purchase it."

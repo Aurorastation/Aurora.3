@@ -87,6 +87,8 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
 /obj/item/rig/merc/distress/ninja
+	req_access = null
+
 	initial_modules = list(
 		/obj/item/rig_module/mounted,
 		/obj/item/rig_module/power_sink,
