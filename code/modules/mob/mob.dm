@@ -506,7 +506,7 @@
 	set category = "OOC"
 
 	if(isnull(chatOutput))
-		chatOutput = new
+		chatOutput = new(src)
 	else if(chatOutput.loaded)
 		chatOutput.loaded = FALSE
 		chatOutput.start()
