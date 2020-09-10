@@ -417,7 +417,7 @@
 
 
 		dat = {"
-	<b>Processing chamber contains:</b><br>
+	<b>Processing Chamber contains:</b><br>
 	[processing_chamber]<br>
 	[beaker_contents]<hr>
 	"}
@@ -429,10 +429,10 @@
 			dat += "<A href='?src=\ref[src];action=detach'>Detach the beaker</a><BR>"
 	else
 		dat += "Please wait..."
-	user << browse("<HEAD><TITLE>All-In-One Grinder</TITLE></HEAD><TT>[dat]</TT>", "window=reagentgrinder")
-	onclose(user, "reagentgrinder")
-	return
 
+	var/datum/browser/grindr_win = new(user, "reagentgrinder", capitalize_first_letters(name))
+	grindr_win.set_content(dat)
+	grindr_win.open()
 
 /obj/machinery/reagentgrinder/Topic(href, href_list)
 	if(..())

@@ -108,8 +108,10 @@
 		dat += "<br>"
 	dat += "<A href='?src=\ref[src];refresh=1'>Refresh console</A><br>"
 	dat += "<A href='?src=\ref[src];close=1'>Close console</A>"
-	user << browse(dat, "window=suspension;size=500x400")
-	onclose(user, "suspension")
+
+	var/datum/browser/suspension_win = new(user, "suspension", capitalize_first_letters(name), 500, 400)
+	suspension_win.set_content(dat)
+	suspension_win.open()
 
 /obj/machinery/suspension_gen/Topic(href, href_list)
 	..()

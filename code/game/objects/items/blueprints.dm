@@ -69,8 +69,10 @@ move an amendment</a> to the drawing.</p>
 		else
 			return
 	text += "</BODY></HTML>"
-	usr << browse(text, "window=blueprints")
-	onclose(usr, "blueprints")
+
+	var/datum/browser/blueprints_win = new(usr, "blueprints", capitalize_first_letters(name))
+	blueprints_win.set_content(text)
+	blueprints_win.open()
 
 
 /obj/item/blueprints/proc/get_area()

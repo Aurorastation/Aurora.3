@@ -402,9 +402,9 @@
 	dat += "<BR><A href='?src=\ref[user];refresh=1'>Refresh</A>"
 	dat += "<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>"
 
-	user << browse(dat, text("window=mob[name];size=340x540"))
-	onclose(user, "mob[name]")
-	return
+	var/datum/browser/mob_win = new(user, "mob[name]", capitalize_first_letters(name), 350, 550)
+	mob_win.set_content(dat)
+	mob_win.open()
 
 // called when something steps onto a human
 // this handles mulebots and vehicles
