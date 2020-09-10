@@ -263,3 +263,8 @@
 	display_name = "shoulder sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/whalebone
+	display_name = "europan bone charm"
+	path = /obj/item/clothing/accessory/whalebone
+	flags = GEAR_HAS_DESC_SELECTION
