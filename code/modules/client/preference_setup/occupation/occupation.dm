@@ -306,14 +306,14 @@
 /datum/category_item/player_setup_item/occupation/proc/SetJob(mob/user, role)
 	var/datum/job/job = SSjobs.GetJob(role)
 	if(!job)
-		return 0
+		return FALSE
 
 	if(role == "Assistant")
 		if(pref.job_civilian_low & job.flag)
 			pref.job_civilian_low &= ~job.flag
 		else
 			pref.job_civilian_low |= job.flag
-		return 1
+		return TRUE
 
 	if(pref.GetJobDepartment(job, 1) & job.flag)
 		SetJobDepartment(job, 1)
@@ -328,7 +328,7 @@
 
 /datum/category_item/player_setup_item/occupation/proc/SetJobDepartment(var/datum/job/job, var/level)
 	if(!job || !level)
-		return 0
+		return FALSE
 	switch(level)
 		if(1)//Only one of these should ever be active at once so clear them all here
 			pref.job_civilian_high = 0
@@ -454,7 +454,8 @@
 	return choices
 
 /datum/preferences/proc/GetJobDepartment(var/datum/job/job, var/level)
-	if(!job || !level)	return 0
+	if(!job || !level)
+		return FALSE
 	switch(job.department_flag)
 		if(CIVILIAN)
 			switch(level)

@@ -39,7 +39,6 @@
 		/obj/item/implant/mindshield
 	)
 
-
 /datum/outfit/job/representative/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
 	if(H && !visualsOnly)
@@ -79,7 +78,7 @@
 
 /datum/job/consular
 	title = "Consular Officer"
-	flag = LAWYER
+	flag = CONSULAR
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"
