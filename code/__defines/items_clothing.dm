@@ -44,6 +44,7 @@
 #define PASSGRILLE		0x4
 #define PASSDOORHATCH	0x8
 #define PASSMOB			0x10
+#define PASSTRACE       0x20 //Used by turrets in the check_trajectory proc to target mobs hiding behind certain things (such as closets)
 
 // Bitmasks for the flags_inv variable. These determine when a piece of clothing hides another, i.e. a helmet hiding glasses.
 #define HIDEGLOVES      0x1

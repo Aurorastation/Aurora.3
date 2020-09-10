@@ -115,7 +115,7 @@
 		addTiles(1)
 
 	if(prob(5))
-		custom_emote(2, "makes an excited booping beeping sound!")
+		custom_emote(AUDIBLE_MESSAGE, "makes an excited booping beeping sound!")
 
 /mob/living/bot/floorbot/think()
 	..()
@@ -329,7 +329,7 @@
 	throwforce = 10.0
 	throw_speed = 2
 	throw_range = 5
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	var/created_name = "Floorbot"
 
 /obj/item/toolbox_tiles/attackby(var/obj/item/W, mob/user as mob)
@@ -359,7 +359,7 @@
 	throwforce = 10.0
 	throw_speed = 2
 	throw_range = 5
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	var/created_name = "Floorbot"
 
 /obj/item/toolbox_tiles_sensor/attackby(var/obj/item/W, mob/user as mob)

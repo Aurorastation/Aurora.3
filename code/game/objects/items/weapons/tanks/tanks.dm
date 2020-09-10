@@ -18,7 +18,7 @@
 
 	flags = CONDUCT
 	slot_flags = SLOT_BACK
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 	force = 5.0
 	throwforce = 10.0

@@ -1627,8 +1627,8 @@
 	reagent_state = LIQUID
 	scannable = TRUE
 	color = "#AA8866"
-	overdose = REAGENTS_OVERDOSE
-	metabolism = 0.2 * REM
+	overdose = 40
+	metabolism = 0.1 * REM
 	taste_description = "sourness"
 	fallback_specific_heat = 1
 

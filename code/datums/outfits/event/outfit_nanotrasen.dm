@@ -93,8 +93,7 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/fancy/cigarettes/cigar = 1,
-		/obj/item/flame/lighter/zippo = 1,
-		/obj/item/clothing/accessory/medal/gold/heroism = 1
+		/obj/item/flame/lighter/zippo = 1
 	)
 
 	implants = list(

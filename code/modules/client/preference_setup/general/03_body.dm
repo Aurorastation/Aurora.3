@@ -501,7 +501,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["marking_style"])
 		var/list/usable_markings = pref.body_markings ^ body_marking_styles_list
 		var/datum/species/species = global.all_species[pref.species]
-		//var/btype = species.get_bodytype()
 		for(var/M in usable_markings)
 			var/datum/sprite_accessory/S = usable_markings[M]
 			if(!S.species_allowed.len)

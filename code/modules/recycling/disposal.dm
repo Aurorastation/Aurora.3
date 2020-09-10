@@ -36,6 +36,24 @@
 	icon_state = "disposal_small"
 	density = FALSE
 
+/obj/machinery/disposal/small/north
+	dir = NORTH
+	pixel_y = -13
+	layer = MOB_LAYER + 0.1
+
+/obj/machinery/disposal/small/south
+	dir = SOUTH
+	pixel_y = 20
+	layer = OBJ_LAYER + 0.3
+
+/obj/machinery/disposal/small/east
+	dir = EAST
+	pixel_x = -12
+
+/obj/machinery/disposal/small/west
+	dir = WEST
+	pixel_x = 11
+
 /obj/machinery/disposal/small/airless
 	uses_air = FALSE
 

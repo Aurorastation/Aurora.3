@@ -334,6 +334,29 @@
 	icon_state = "ramptop"
 	},
 /area/antag/burglar)
+"aaF" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/steel,
+/obj/item/rig/hazard/equipped/pirate{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/rig/eva/equipped/pirate{
+	pixel_x = -13;
+	pixel_y = 7
+	},
+/obj/item/rig/industrial/equipped{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/skipjack)
 "aaM" = (
 /turf/template_noop,
 /area/template_noop)
@@ -9947,29 +9970,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
-"aHj" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table/steel,
-/obj/item/rig/eva/equipped{
-	pixel_x = -13;
-	pixel_y = 7
-	},
-/obj/item/rig/hazard/equipped/pirate{
-	pixel_x = 2;
-	pixel_y = 2
-	},
-/obj/item/rig/industrial/equipped{
-	pixel_x = -8;
-	pixel_y = -2
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/skipjack)
 "aHk" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -12266,14 +12266,14 @@
 /obj/structure/sign/directions/dock{
 	pixel_x = -32
 	},
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNK" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNM" = (
@@ -12349,7 +12349,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNZ" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /obj/structure/sign/directions/dock{
@@ -12421,7 +12421,7 @@
 	},
 /area/centcom/holding)
 "aOk" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/unsimulated/floor,
@@ -17685,7 +17685,7 @@
 	layer = 2.8;
 	name = "Pod D"
 	},
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -19506,7 +19506,7 @@
 	},
 /area/shuttle/mercenary)
 "fkb" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/machinery/door/blast/odin/open{
@@ -21076,7 +21076,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/spawning)
 "gyC" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/machinery/door/blast/odin/open{
@@ -26236,7 +26236,7 @@
 	layer = 2.8;
 	name = "Pod C"
 	},
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/unsimulated/floor{
 	icon_state = "new_reinforced"
 	},
@@ -26483,7 +26483,7 @@
 	},
 /area/shuttle/escape)
 "liJ" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -27418,7 +27418,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/arrival)
 "mai" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -27490,7 +27490,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/syndicate_elite)
 "maF" = (
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
 "maM" = (
@@ -27876,7 +27876,7 @@
 	layer = 2.8;
 	name = "Pod A"
 	},
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -30257,7 +30257,7 @@
 	},
 /area/shuttle/merchant)
 "oqQ" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/machinery/door/blast/odin/open{
@@ -31157,7 +31157,7 @@
 	layer = 2.8;
 	name = "Pod B"
 	},
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/unsimulated/floor{
@@ -31304,7 +31304,7 @@
 	},
 /area/shuttle/merchant)
 "pyg" = (
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "pyn" = (
@@ -32179,7 +32179,7 @@
 	},
 /area/antag/raider)
 "qkR" = (
-/obj/effect/floor_decal/industrial/loading,
+/obj/effect/floor_decal/industrial/loading/yellow,
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "qlg" = (
@@ -33491,7 +33491,7 @@
 	},
 /area/antag/raider)
 "rwe" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /obj/structure/sign/directions/dock{
@@ -35260,7 +35260,7 @@
 /turf/unsimulated/floor/plating,
 /area/antag/raider)
 "tcg" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /obj/machinery/door/blast/odin/open{
@@ -36067,7 +36067,7 @@
 	},
 /area/centcom/legion)
 "tPw" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/unsimulated/floor{
@@ -61016,7 +61016,7 @@ aov
 apy
 azs
 aGm
-aHj
+aaF
 aFR
 aJL
 aFR

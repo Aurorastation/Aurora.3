@@ -3,7 +3,7 @@
 	icon = 'icons/obj/rig_modules.dmi'
 	desc = "An assembly frame of back-mounted hardsuit deployment and control mechanism."
 	var/icon_base = null
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	var/obj/item/circuitboard/board_type = null
 	var/obj/item/circuitboard/target_board_type = null
 	var/obj/item/rig/rig_type = /obj/item/rig

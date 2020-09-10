@@ -20,6 +20,7 @@
 	zippolighters["solarian zippo"] = /obj/item/flame/lighter/zippo/sol
 	zippolighters["bieselite zippo"] = /obj/item/flame/lighter/zippo/tcfl
 	zippolighters["himeo zippo"] = /obj/item/flame/lighter/zippo/himeo
+	zippolighters["europan zippo"] = /obj/item/flame/lighter/zippo/europa
 	gear_tweaks += new/datum/gear_tweak/path(zippolighters)
 
 /datum/gear/smoking/lighter

@@ -183,6 +183,13 @@
 	tracer_type = /obj/effect/projectile/tracer/stun
 	impact_type = /obj/effect/projectile/impact/stun
 
+/obj/item/projectile/beam/hivebot/harmless
+	name = "harmless electrical discharge"
+	damage = 0
+	damage_type = PAIN
+	taser_effect = TRUE
+	agony = 0
+
 /obj/item/projectile/beam/hivebot/toxic
 	name = "concentrated gamma burst"
 	damage = 15

@@ -14,7 +14,7 @@
 	desc = "A suit that protects against fire and heat."
 	icon_state = "firesuit"
 	item_state = "firesuit"
-	w_class = 4//bulky item
+	w_class = ITEMSIZE_LARGE//bulky item
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
@@ -38,7 +38,7 @@
 	//icon_state = "thermal"
 	siemens_coefficient = 0.35
 	item_state = "ro_suit"
-	w_class = 4//bulky item
+	w_class = ITEMSIZE_LARGE//bulky item
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE + 25000
 	slowdown = 1.5
 
@@ -57,7 +57,7 @@
 	name = "bomb hood"
 	desc = "Use in case of bomb."
 	icon_state = "bombsuit"
-	w_class = 5//Too large to fit in a backpack
+	w_class = ITEMSIZE_HUGE//Too large to fit in a backpack
 	item_flags = STOPPRESSUREDAMAGE|THICKMATERIAL|BLOCK_GAS_SMOKE_EFFECT
 	armor = list(melee = 30, bullet = 20, laser = 25,energy = 30, bomb = 100, bio = 60, rad = 60)
 	siemens_coefficient = 0.1
@@ -77,7 +77,7 @@
 	desc = "A suit designed for safety when handling explosives. It looks heavy and uncomfortable to wear for even a short time."
 	icon_state = "bombsuit"
 	item_state = "bombsuit"
-	w_class = 7//bulky item
+	w_class = ITEMSIZE_HUGE //bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	slowdown = 8
@@ -186,7 +186,7 @@
 	desc = "A suit that protects against radiation. Label: Made with lead, do not eat insulation."
 	icon_state = "rad"
 	item_state = "rad_suit"
-	w_class = 4//bulky item
+	w_class = ITEMSIZE_LARGE//bulky item
 	gas_transfer_coefficient = 0.90
 	permeability_coefficient = 0.50
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS|HANDS|FEET

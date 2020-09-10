@@ -4,7 +4,7 @@
 	icon_state = "muzzle"
 	item_state = "muzzle"
 	body_parts_covered = FACE
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	gas_transfer_coefficient = 0.90
 	voicechange = 1
 
@@ -14,7 +14,7 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "tape_cross"
 	item_state = null
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/clothing/mask/muzzle/Initialize()
 	. = ..()
@@ -32,7 +32,7 @@
 	desc = "A surgical mask designed to help prevent the spread of diseases."
 	icon_state = "surgical"
 	item_state = "surgical"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	body_parts_covered = FACE
 	item_flags = FLEXIBLEMATERIAL
 	gas_transfer_coefficient = 0.90
@@ -52,7 +52,7 @@
 	desc = "A colorable cloth mask designed to protect the wearer against allergens, illnesses, and social interaction."
 	icon_state = "cloth"
 	item_state = "cloth"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	body_parts_covered = FACE
 	item_flags = FLEXIBLEMATERIAL
 	gas_transfer_coefficient = 0.90
@@ -67,7 +67,7 @@
 	desc = "A dust mask designed to protect the wearer against construction and/or custodial particulate."
 	icon_state = "dust"
 	item_state = "dust"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	body_parts_covered = FACE
 	item_flags = FLEXIBLEMATERIAL
 	gas_transfer_coefficient = 0.90
@@ -109,7 +109,7 @@
 	icon_state = "pig"
 	item_state = "pig"
 	flags_inv = HIDEFACE|BLOCKHAIR
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	siemens_coefficient = 0.9
 	body_parts_covered = HEAD|FACE|EYES
 
@@ -120,7 +120,7 @@
 	item_state = "horsehead"
 	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/mask/horsehead/Initialize()
@@ -189,12 +189,13 @@
 		eye.forceMove(src)
 
 /obj/item/clothing/mask/offworlder
-	name = "pioneer's scarf"
-	desc = "Usually a treasured item, these spider-silk scarves are seen passed down by generations of expeditionaries."
+	name = "scarab scarf"
+	desc = "Usually a treasured item, these spider-silk scarves are seen passed down by generations of Scarabs."
+	desc_fluff = "Scarves like these are passed down from family members in the Scarab fleets as a coming of age ritual, typically given to children to mark them as worthy of setting off on their own."
 	icon_state = "pioneer_scarf"
 	item_flags = FLEXIBLEMATERIAL
 	item_state = "pioneer_scarf"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	body_parts_covered = FACE
 
 /obj/item/clothing/mask/offworlder/veil

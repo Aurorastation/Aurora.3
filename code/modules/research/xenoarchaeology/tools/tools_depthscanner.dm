@@ -8,7 +8,7 @@
 	desc = "Used to check spatial depth and density of rock outcroppings."
 	icon_state = "depthscanner"
 	item_state = "analyzer"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	var/list/positive_locations = list()
 	var/datum/depth_scan/current

@@ -167,7 +167,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	if(emote.Find(message))
 		if(emote.group[1] == "*") return emote(copytext(message, 2))
-		if(emote.group[1] == "^") return custom_emote(1, copytext(message,2))
+		if(emote.group[1] == "^") return custom_emote(VISIBLE_MESSAGE, copytext(message,2))
 
 	//parse the radio code and consume it
 	if (message_mode)
@@ -225,7 +225,7 @@ proc/get_radio_key_from_channel(var/channel)
 	if (speaking)
 		if (speaking.flags & NONVERBAL)
 			if (prob(30))
-				src.custom_emote(1, "[pick(speaking.signlang_verb)].")
+				src.custom_emote(VISIBLE_MESSAGE, "[pick(speaking.signlang_verb)].")
 
 		if (speaking.flags & SIGNLANG)
 			return say_signlang(message, pick(speaking.signlang_verb), speaking)

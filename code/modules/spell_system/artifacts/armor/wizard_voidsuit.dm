@@ -39,7 +39,7 @@
 		slot_r_hand_str = "wiz_hardsuit"
 	)
 	slowdown = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	unacidable = 1
 	armor = list(melee = 40, bullet = 20, laser = 20,energy = 20, bomb = 35, bio = 100, rad = 60)
 	siemens_coefficient = 0.35

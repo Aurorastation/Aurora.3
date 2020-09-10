@@ -7,11 +7,11 @@
 	do_blind(user, A, 3, 1, TRUE)
 
 /datum/rune/blind/do_talisman_action(mob/living/user, var/atom/movable/A)
-	do_blind(user, user, 3, 0.5, FALSE)
+	do_blind(user, A, 3, 0.5, FALSE)
 
 /datum/rune/blind/proc/do_blind(mob/living/user, atom/movable/A, var/range = 7, var/effect_mod = 1, var/special_effects = TRUE)
 	var/list/affected = list()
-	for(var/mob/living/carbon/C in view(A, range))
+	for(var/mob/living/carbon/C in viewers(get_turf(A), range))
 		if(iscultist(C))
 			continue
 		var/obj/item/nullrod/N = locate() in C

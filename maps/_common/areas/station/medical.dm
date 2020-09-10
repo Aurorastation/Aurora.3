@@ -155,7 +155,11 @@
 	icon_state = "cryo"
 
 /area/medical/exam_room
-	name = "Medical - Exam Room"
+	name = "Medical - Exam Room 1"
+	icon_state = "exam_room"
+
+/area/medical/exam_room2
+	name = "Medical - Exam Room 2"
 	icon_state = "exam_room"
 
 /area/medical/genetics
