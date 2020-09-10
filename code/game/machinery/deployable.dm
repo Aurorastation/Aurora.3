@@ -143,7 +143,6 @@ for reference:
 	name = "deployable"
 	desc = "deployable"
 	icon = 'icons/obj/objects.dmi'
-	req_access = list(access_security)//I'm changing this until these are properly tested./N
 
 /obj/machinery/deployable/barrier
 	name = "deployable barrier"
@@ -152,9 +151,10 @@ for reference:
 	anchored = 0.0
 	density = 1.0
 	icon_state = "barrier"
-	var/health = 100.0
-	var/maxhealth = 100.0
+	var/health = 200.0
+	var/maxhealth = 200.0
 	var/locked = 0.0
+	var/req_lockgun = /obj/item/lockgun/security
 //	req_access = list(access_maint_tunnels)
 
 	New()
@@ -163,17 +163,20 @@ for reference:
 		src.icon_state = "[initial(icon_state)][src.locked]"
 
 	attackby(obj/item/W as obj, mob/user as mob)
-		if (istype(W, /obj/item/card/id/))
-			if (src.allowed(user))
+		if (istype(W, /obj/item/lockgun))
+			var/obj/item/lockgun/L = attackby(obj/item/W)
+			if (req_lockgun == L.type)
 				if	(src.emagged < 2.0)
 					src.locked = !src.locked
 					src.anchored = !src.anchored
 					src.icon_state = "[initial(icon_state)][src.locked]"
 					if ((src.locked == 1.0) && (src.emagged < 2.0))
 						to_chat(user, "Barrier lock toggled on.")
+						visible_message("<span class='warning'>[user] toggles \the [src] on!</span>")
 						return
 					else if ((src.locked == 0.0) && (src.emagged < 2.0))
 						to_chat(user, "Barrier lock toggled off.")
+						visible_message("<span class='warning'>[user] toggles \the [src] off!</span>")
 						return
 				else
 					spark(src, 2, src)
@@ -181,14 +184,14 @@ for reference:
 					return
 			return
 		else if (W.iswrench())
-			if (src.health < src.maxhealth)
+			if (src.health < src.maxhealth && do_after(user, 80))
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				src.health = src.maxhealth
 				src.emagged = 0
 				src.req_access = list(access_security)
 				visible_message("<span class='warning'>[user] repairs \the [src]!</span>")
 				return
-			else if (src.emagged > 0)
+			else if (src.emagged > 0 && do_after(user, 80))
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				src.emagged = 0
 				src.req_access = list(access_security)
@@ -203,6 +206,8 @@ for reference:
 				if("brute")
 					src.health -= W.force * 0.5
 				else
+			animate_shake()
+			playsound(src.loc, 'sound/weapons/smash.ogg', 100, 1)
 			if (src.health <= 0)
 				src.explode()
 			..()
@@ -228,8 +233,10 @@ for reference:
 	CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 		if(air_group || (height==0))
 			return 1
-		if(istype(mover) && mover.checkpass(PASSTABLE))
-			return 1
+		if(istype(mover,/mob/living) && mover.checkpass(PASSTABLE))
+			var/mob/some_mob = mover
+			if(some_mob.mob_size <= MOB_TINY)
+				return 1
 		else
 			return 0
 
@@ -249,7 +256,7 @@ for reference:
 		src.emagged = 1
 		src.req_access.Cut()
 		src.req_one_access.Cut()
-		to_chat(user, "You break the ID authentication lock on \the [src].")
+		to_chat(user, "You break the lock on \the [src].")
 		spark(src, 2, alldirs)
 		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 		return 1
@@ -264,7 +271,7 @@ for reference:
 	name = "legion barrier"
 	desc = "A deployable barrier, bearing the marks of the Tau Ceti Foreign Legion. Swipe your ID card to lock/unlock it."
 	icon_state = "barrier_legion"
-	req_access = list(access_legion)
+	req_lockgun = /obj/item/lockgun/legion
 
 /obj/item/deployable_kit
 	name = "Emergency Floodlight Kit"
@@ -287,7 +294,14 @@ for reference:
 	user.visible_message(SPAN_NOTICE("[user] assembles \a [A]."), SPAN_NOTICE("You assemble \a [A]."))
 	A.add_fingerprint(user)
 
-/obj/item/deployable_kit/legion_barrier
+/obj/item/deployable_kit/barrier
+	name = "barrier kit"
+	desc = "A quick assembly kit for deploying id-lockable barriers in the field. Most commonly seen used for crowd control by corporate security."
+	icon_state = "barrier_kit"
+	w_class = 2
+	kit_product = /obj/machinery/deployable/barrier
+
+/obj/item/deployable_kit/barrier/legion_barrier
 	name = "legion barrier kit"
 	desc = "A quick assembly kit for deploying id-lockable barriers in the field. Most commonly seen used for crowd control by corporate security."
 	icon_state = "barrier_kit"
