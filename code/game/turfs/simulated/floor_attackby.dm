@@ -16,7 +16,7 @@
 				make_plating(1)
 			else
 				return
-			playsound(src, C.usesound, 80, 1)
+			playsound(src, 'sound/items/crowbar_tile.ogg', 80, 1)
 			return
 		else if(C.isscrewdriver() && (flooring.flags & TURF_REMOVE_SCREWDRIVER))
 			if(broken || burnt)
