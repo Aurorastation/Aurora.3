@@ -23,7 +23,6 @@ proc/get_mech_icon(var/list/components = list(), var/overlay_layer = FLOAT_LAYER
 	var/list/new_overlays = get_mech_icon(list(body), MECH_BASE_LAYER)
 	if(body && !hatch_closed)
 		new_overlays += get_mech_image("[body.icon_state]_cockpit", body.on_mech_icon, MECH_BASE_LAYER)
-	update_pilot_overlay(FALSE)
 	if(LAZYLEN(pilot_overlays))
 		new_overlays += pilot_overlays
 	if(head)
@@ -58,28 +57,6 @@ proc/get_mech_icon(var/list/components = list(), var/overlay_layer = FLOAT_LAYER
 					new_overlays += get_mech_image(far_icon_state, 'icons/mecha/mecha_weapon_overlays.dmi', null, MECH_BASE_LAYER - 0.01)
 
 	overlays = new_overlays
-
-/mob/living/heavy_vehicle/proc/update_pilot_overlay(var/update_overlays = TRUE)
-	if(update_overlays && LAZYLEN(pilot_overlays))
-		overlays -= pilot_overlays
-	pilot_overlays = null
-	if(!body || ((body.pilot_coverage < 100 || body.transparent_cabin) && !body.hide_pilot))
-		for(var/i = 1 to LAZYLEN(pilots))
-			var/mob/pilot = pilots[i]
-			var/image/draw_pilot = new
-			draw_pilot.appearance = pilot
-			draw_pilot.layer = MECH_PILOT_LAYER + (body ? ((LAZYLEN(body.pilot_positions)-i)*0.001) : 0)
-			draw_pilot.plane = FLOAT_PLANE
-			if(body && i <= LAZYLEN(body.pilot_positions))
-				var/list/offset_values = body.pilot_positions[i]
-				var/list/directional_offset_values = offset_values["[dir]"]
-				draw_pilot.pixel_x = directional_offset_values["x"]
-				draw_pilot.pixel_y = directional_offset_values["y"]
-				draw_pilot.pixel_z = 0
-				draw_pilot.transform = null
-			LAZYADD(pilot_overlays, draw_pilot)
-		if(update_overlays && LAZYLEN(pilot_overlays))
-			overlays += pilot_overlays
 
 /mob/living/heavy_vehicle/regenerate_icons()
 	return
