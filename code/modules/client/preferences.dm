@@ -158,7 +158,17 @@ datum/preferences
 	var/datum/category_collection/player_setup_collection/player_setup
 
 	var/bgstate = "000"
-	var/list/bgstate_options = list("000", "FFF", "steel", "white", "plating", "reinforced")
+	var/list/bgstate_options = list(
+		"fffff",
+		"000",
+		"new_steel",
+		"dark2",
+		"wood",
+		"wood_light",
+		"grass_alt",
+		"new_reinforced",
+		"new_white"
+		)
 
 /datum/preferences/New(client/C)
 	new_setup()
@@ -276,8 +286,9 @@ datum/preferences
 	var/obj/screen/BG= LAZYACCESS(char_render_holders, "BG")
 	if(!BG)
 		BG = new
+		BG.appearance_flags = TILE_BOUND|PIXEL_SCALE|NO_CLIENT_COLOR
 		BG.layer = TURF_LAYER
-		BG.icon = 'icons/effects/128x48.dmi'
+		BG.icon = 'icons/turf/total_floors.dmi'
 		LAZYSET(char_render_holders, "BG", BG)
 		client.screen |= BG
 	BG.icon_state = bgstate
