@@ -240,7 +240,7 @@ var/list/asset_datums = list()
 	send_asset_list(client, assets)
 
 /datum/asset/simple/accents
-	verify = TRUE
+	verify = FALSE
 
 /datum/asset/simple/accents/register()
 	for(var/A in subtypesof(/datum/accent)) //yes we have to do this here, SSrecords isn't initialized yet
