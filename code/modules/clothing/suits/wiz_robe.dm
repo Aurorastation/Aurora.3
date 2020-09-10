@@ -166,7 +166,7 @@
 // Storm Outfit
 /obj/item/clothing/head/wizard/storm
 	name = "storm cowl"
-	desc = "A grey cowl looming with magickal energy, or maybe it just hides your identity well."
+	desc = "A grey cowl exuding potent magickal energy, or maybe it just hides your identity well."
 	icon = 'icons/obj/wizard_gear.dmi'
 	icon_state = "storm_cowl"
 	item_state = "storm_cowl"

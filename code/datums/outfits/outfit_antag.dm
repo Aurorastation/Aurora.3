@@ -542,9 +542,9 @@
 	name = "Raider Mage"
 	allow_backbag_choice = FALSE
 
-	uniform = null
+	uniform = /obj/item/clothing/under/syndicate/ninja
 	suit = null
-	shoes = null
+	shoes = /obj/item/clothing/shoes/sandal
 	head = null
 
 	back = /obj/item/gun/energy/staff/focus
@@ -564,8 +564,6 @@
 	if(H.gender in list(FEMALE, PLURAL, NEUTER))
 		loadouts += list("Storm", "Sorceress")
 
-	uniform = /obj/item/clothing/under/syndicate/ninja
-	shoes = /obj/item/clothing/shoes/sandal
 	switch(pick(loadouts))
 		if("Nature")
 			head = /obj/item/clothing/head/wizard/nature
