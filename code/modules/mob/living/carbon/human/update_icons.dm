@@ -905,14 +905,14 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_wear_suit(var/update_icons=1)
-	if (QDELING(src))
+	if(QDELING(src))
 		return
 
 	overlays_raw[SUIT_LAYER] = null
 	if(wear_suit)
 		wear_suit.screen_loc = ui_oclothing
 
-		var/t_state = r_hand.item_state || r_hand.icon_state
+		var/t_state = wear_suit.item_state || wear_suit.icon_state
 
 		var/image/result_layer
 		if(wear_suit.contained_sprite)
@@ -931,8 +931,6 @@ There are several things that need to be remembered:
 			else if(wear_suit.icon_override)
 				t_state += WORN_SUIT
 				t_icon = wear_suit.icon_override
-			else if(wear_suit.sprite_sheets && wear_suit.sprite_sheets[GET_BODY_TYPE])
-				t_icon = wear_suit.sprite_sheets[GET_BODY_TYPE]
 			else
 				t_icon = INV_SUIT_DEF_ICON
 
@@ -962,15 +960,16 @@ There are several things that need to be remembered:
 			for(var/obj/item/clothing/accessory/A in suit.accessories)
 				ovr += A.get_mob_overlay()
 
-		overlays_raw[SUIT_LAYER] = result_layer || ovr
+		overlays_raw[SUIT_LAYER] = ovr || result_layer
 
 	update_tail_showing(0)
+	update_inv_shoes(0)
 	update_collar(0)
 	update_inv_w_uniform(0)
-	update_inv_shoes(0)
 
 	if(update_icons)
 		update_icon()
+
 
 /mob/living/carbon/human/update_inv_pockets(var/update_icons=1)
 	if (QDELING(src))
