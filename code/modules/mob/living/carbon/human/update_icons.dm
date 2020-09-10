@@ -905,43 +905,39 @@ There are several things that need to be remembered:
 		update_icon()
 
 /mob/living/carbon/human/update_inv_wear_suit(var/update_icons=1)
-	if(QDELING(src))
+	if (QDELING(src))
 		return
 
-	overlays_raw[SUIT_LAYER] = null
 	if(wear_suit)
 		wear_suit.screen_loc = ui_oclothing
 
-		var/t_state = wear_suit.item_state || wear_suit.icon_state
+		var/image/result_layer = null
 
-		var/image/result_layer
+		//Determine the icon to use
+		var/t_icon = INV_SUIT_DEF_ICON
 		if(wear_suit.contained_sprite)
 			wear_suit.auto_adapt_species(src)
-			t_state = "[UNDERSCORE_OR_NULL(wear_suit.icon_species_tag)][wear_suit.item_state][WORN_SUIT]"
+			var/t_state = "[UNDERSCORE_OR_NULL(wear_suit.icon_species_tag)][wear_suit.item_state][WORN_SUIT]"
 
 			result_layer = image(wear_suit.icon_override || wear_suit.icon, t_state)
+		else if(wear_suit.icon_override)
+			t_icon = wear_suit.icon_override
+		else if(wear_suit.sprite_sheets && wear_suit.sprite_sheets[GET_BODY_TYPE])
+			t_icon = wear_suit.sprite_sheets[GET_BODY_TYPE]
+		else if(wear_suit.item_icons && (slot_wear_suit_str in wear_suit.item_icons))
+			t_icon = wear_suit.item_icons[slot_wear_suit_str]
 		else
-			if(wear_suit.item_state_slots && wear_suit.item_state_slots[slot_wear_suit_str])
-				t_state = wear_suit.item_state_slots[slot_wear_suit_str]
+			t_icon = INV_SUIT_DEF_ICON
 
-			//determine icon to use
-			var/icon/t_icon
-			if(wear_suit.item_icons && (slot_wear_suit_str in wear_suit.item_icons))
-				t_icon = wear_suit.item_icons[slot_wear_suit_str]
-			else if(wear_suit.icon_override)
-				t_state += WORN_SUIT
-				t_icon = wear_suit.icon_override
-			else
-				t_icon = INV_SUIT_DEF_ICON
+		if(!result_layer) //Create the image
+			result_layer = image(t_icon, wear_suit.icon_state)
 
-			result_layer = image(t_icon, t_state)
+		if(wear_suit.color)
+			result_layer.color = wear_suit.color
 
-			if(wear_suit.color)
-				result_layer.color = wear_suit.color
-
-			var/image/worn_overlays = wear_suit.worn_overlays(t_icon)
-			if(worn_overlays)
-				result_layer.overlays.Add(worn_overlays)
+		var/image/worn_overlays = wear_suit.worn_overlays(t_icon)
+		if(worn_overlays)
+			result_layer.overlays.Add(worn_overlays)
 
 		var/list/ovr
 
@@ -961,9 +957,12 @@ There are several things that need to be remembered:
 				ovr += A.get_mob_overlay()
 
 		overlays_raw[SUIT_LAYER] = ovr || result_layer
+		update_tail_showing(0)
+	else
+		overlays_raw[SUIT_LAYER] = null
+		update_tail_showing(0)
+		update_inv_shoes(0)
 
-	update_tail_showing(0)
-	update_inv_shoes(0)
 	update_collar(0)
 	update_inv_w_uniform(0)
 
