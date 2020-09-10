@@ -17,10 +17,10 @@
 	light_color = "#ffffff"
 
 /obj/item/clothing/suit/space/void/merc
-	icon_state = "rig-syndie"
 	name = "blood-red voidsuit"
 	desc = "An advanced suit that protects against injuries during special operations. Property of Gorlex Marauders."
-	item_state = "syndie_voidsuit"
+	icon_state = "rig-syndie"
+	item_state = "rig-syndie"
 	item_state_slots = list(
 		slot_l_hand_str = "syndie_hardsuit",
 		slot_r_hand_str = "syndie_hardsuit"
