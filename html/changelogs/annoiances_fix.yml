@@ -1,8 +1,0 @@
-author: Sparky_Hotdog
-
-delete-after: True
-
-changes: 
-  - bugfix: "You no longer pick up or drop plates and bowls when you finish them with cutlery."
-  - bugfix: "Mass spectrometers now show the IC name for any reagents, not their object path."
-  - bugfix: "Diona nymphs now have the default diona accent."
