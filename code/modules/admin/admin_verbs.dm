@@ -48,7 +48,6 @@ var/list/admin_verbs_admin = list(
 	/client/proc/rename_silicon,		//properly renames silicons,
 	/client/proc/manage_silicon_laws,	// Allows viewing and editing silicon laws. ,
 	/client/proc/check_antagonists,
-	/client/proc/admin_memo_control,			/*admin memo system. show/delete/write. +SERVER needed to delete admin memos of others*/
 	/client/proc/dsay,					/*talk in deadchat using our ckey/fakekey*/
 	/client/proc/toggleprayers,			/*toggles prayers on/off*/
 //	/client/proc/toggle_hear_deadcast,	/*toggles whether we hear deadchat*/
@@ -172,7 +171,6 @@ var/list/admin_verbs_server = list(
 	/client/proc/toggle_random_events,
 	/client/proc/check_customitem_activity,
 	/client/proc/nanomapgen_DumpImage,
-	/client/proc/admin_edit_motd,
 	/client/proc/toggle_recursive_explosions,
 	/client/proc/restart_controller,
 	/client/proc/cmd_ss_panic,
@@ -273,7 +271,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/toggle_antagHUD_use,
 	/client/proc/toggle_antagHUD_restrictions,
 	/client/proc/event_manager_panel,
-	/client/proc/admin_edit_motd,
 	/client/proc/empty_ai_core_toggle_latejoin,
 	/client/proc/empty_ai_core_toggle_latejoin,
 	/client/proc/cmd_admin_change_custom_event,
@@ -301,7 +298,6 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/add_client_color,
 	/datum/admins/proc/force_mode_latespawn,
 	/datum/admins/proc/toggleenter,
-	/client/proc/admin_memo_control,
 	/datum/admins/proc/toggleguests,
 	/datum/admins/proc/capture_map_part,
 	/client/proc/Set_Holiday,

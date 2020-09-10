@@ -42,8 +42,6 @@
 		if (!info_sent)
 			handle_connection_info(src, href_list["data"])
 			info_sent = 1
-		else
-			server_greeting.close_window(src, "Your greeting window has malfunctioned and has been shut down.")
 
 		return
 
