@@ -500,6 +500,20 @@
 		M.mind.reset()
 	return
 
+/client/verb/reload_goonchat()
+	set name = "Reload Goonchat"
+	set desc = "Do not spam this verb. Use it if your chat is broken."
+	set category = "OOC"
+
+	if(isnull(chatOutput))
+		chatOutput = new
+	else if(chatOutput.loaded)
+		chatOutput.loaded = FALSE
+		chatOutput.start()
+	else if(!chatOutput.loaded)
+		chatOutput.start()
+	alert(usr, "Goonchat has been restarted. Please wait up to a minute for results.", "Reload Goonchat")
+
 /client/verb/changes()
 	set name = "Changelog"
 	set category = "OOC"
