@@ -2334,7 +2334,7 @@
 	..()
 	M.apply_effect(max(M.total_radiation - 1 * removed, 0), IRRADIATE, blocked = 0)
 
-/datum/reagent/alcohol/ethanol/mushroomvodka
+/datum/reagent/alcohol/ethanol/vodka/mushroom
 	name = "Mushroom Vodka"
 	description = "A strong drink distilled from mushrooms grown in caves. Tastes like dissatisfaction."
 	color = "#0064C8" // rgb: 0, 100, 200
@@ -2344,10 +2344,6 @@
 	glass_name = "glass of mushroom vodka"
 	glass_desc = "The glass contain wodka made from mushrooms. Blyat."
 	glass_center_of_mass = list("x"=16, "y"=12)
-
-/datum/reagent/alcohol/ethanol/mushroomvodka/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
-	..()
-	M.apply_effect(max(M.total_radiation - 1 * removed, 0), IRRADIATE, blocked = 0)
 
 /datum/reagent/alcohol/ethanol/whiskey
 	name = "Whiskey"

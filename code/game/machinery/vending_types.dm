@@ -73,7 +73,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/vodka = 5,
-		/obj/item/reagent_containers/food/drinks/bottle/mushroomvodka = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/vodka/mushroom = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/fireball = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/whiskey = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/victorygin = 2,

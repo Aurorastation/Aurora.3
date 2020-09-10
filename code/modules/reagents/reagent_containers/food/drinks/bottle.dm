@@ -240,15 +240,14 @@
 	center_of_mass = list("x"=17, "y"=4)
 	reagents_to_add = list(/datum/reagent/alcohol/ethanol/vodka = 100)
 
-/obj/item/reagent_containers/food/drinks/bottle/mushroomvodka
+/obj/item/reagent_containers/food/drinks/bottle/vodka/mushroom
 	name = "Magnitogorsk Import mushroom vodka"
 	desc = "A mushroom-based vodka imported from the breweries of Himeo. Drinking too much of this will result in a personal permanent revolution."
 	desc_fluff = "Vodka made from mushrooms is a local favourite on Himeo, due to the ease with which mushrooms can be grown under the planet's surface. This bottle is \
 	from the Vodnik Breweries Syndicate in Magnitogorsk, arguably the most famous brewery on Himeo (though fans of the Coal Canary Syndicated Brewery in Highland City \
 	would disagree). Drinkers of the world, unite!"
 	icon_state = "mushroomvodkabottle"
-	center_of_mass = list("x"=17, "y"=4)
-	reagents_to_add = list(/datum/reagent/alcohol/ethanol/mushroomvodka = 100)
+	reagents_to_add = list(/datum/reagent/alcohol/ethanol/vodka/mushroom = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/tequila
 	name = "Chip’s Guaranteed Quality tequila"
