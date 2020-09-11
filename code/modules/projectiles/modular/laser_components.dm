@@ -314,7 +314,7 @@
 /obj/item/laser_components/modulator/tesla
 	name = "tesla modulator"
 	desc = "A modification that modulates the beam into a lethal electrical arc."
-	projectile = /obj/item/projectile/energy/tesla
+	projectile = /obj/item/projectile/beam/tesla
 	icon_state = "tesla"
 	firing_sound = 'sound/magic/LightningShock.ogg'
 

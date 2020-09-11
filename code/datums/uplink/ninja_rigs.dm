@@ -26,7 +26,7 @@
 	name = "People's Republic Tesla Suit"
 	desc = "A Tajaran hardsuit built for use by the Tesla Brigade. Only wearable by Tajara."
 	item_cost = DEFAULT_TELECRYSTAL_AMOUNT
-	path = /obj/item/rig/tesla
+	path = /obj/item/rig/tesla/ninja
 
 /datum/uplink_item/item/ninja_rigs/strike
 	name = "Eridani PMC Strike Suit"

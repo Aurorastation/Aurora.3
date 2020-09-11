@@ -405,3 +405,30 @@
 	muzzle_type = /obj/effect/projectile/muzzle/tachyon
 	tracer_type = /obj/effect/projectile/tracer/tachyon
 	impact_type = /obj/effect/projectile/impact/tachyon
+
+/obj/item/projectile/beam/tesla
+	name = "tesla bolt"
+	icon_state = "lightning"
+	damage = 10
+	damage_type = BURN
+	pass_flags = PASSTABLE | PASSGRILLE
+	range = 40
+	eyeblur = 0
+
+	muzzle_type = /obj/effect/projectile/muzzle/tesla
+	tracer_type = /obj/effect/projectile/tracer/tesla
+	impact_type = /obj/effect/projectile/impact/tesla
+
+/obj/item/projectile/beam/tesla/on_impact(atom/target)
+	. = ..()
+	if(isliving(target))
+		tesla_zap(target, 3, 5000)
+
+/obj/item/projectile/beam/tesla/master
+	damage = 15
+
+/obj/item/projectile/beam/tesla/grandmaster
+	damage = 20
+
+/obj/item/projectile/beam/tesla/paramount
+	damage = 25
