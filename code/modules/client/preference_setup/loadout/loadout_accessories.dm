@@ -48,6 +48,11 @@
 	armbands["IAC armband"] = /obj/item/clothing/accessory/armband/iac
 	gear_tweaks += new/datum/gear_tweak/path(armbands)
 
+/datum/gear/accessory/armband_coloured
+	display_name = "armband (colourable)"
+	path = /obj/item/clothing/accessory/armband/colourable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/holster
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
