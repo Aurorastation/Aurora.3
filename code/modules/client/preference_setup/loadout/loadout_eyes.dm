@@ -58,7 +58,7 @@
 /datum/gear/eyes/goggles/New()
 	..()
 	var/goggles = list()
-	goggles["goggles, safety"] = /obj/item/clothing/glasses/regular
+	goggles["goggles, safety"] = /obj/item/clothing/glasses/safety/goggles
 	goggles["goggles, scanning"] = /obj/item/clothing/glasses/regular/scanners
 	goggles["goggles, science"] = /obj/item/clothing/glasses/science
 	goggles["goggles, orange"] = /obj/item/clothing/glasses/spiffygogs
