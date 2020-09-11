@@ -9,7 +9,7 @@
 	item_state = "disruptorpistol"
 	fire_sound = 'sound/weapons/gunshot/bolter.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	w_class = ITEMSIZE_SMALL
+	w_class = ITEMSIZE_NORMAL
 	force = 5
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
@@ -36,6 +36,7 @@
 	max_shots = 7
 	force = 3
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_POCKET
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/gun/energy/disruptorpistol/miniature/security
 	pin = /obj/item/device/firing_pin/wireless
@@ -43,7 +44,7 @@
 /obj/item/gun/energy/disruptorpistol/magnum
 	name = "magnum disruptor pistol"
 	desc = "A Nanotrasen designed blaster pistol with two settings: stun and lethal. This is the magnum version."
-	icon = 'icons/obj/guns/disruptorpistol/disruptorpistolc.dmi'
+	icon = 'icons/obj/guns/disruptorpistol/disruptorpistolm.dmi'
 	max_shots = 20
 	force = 6
 
