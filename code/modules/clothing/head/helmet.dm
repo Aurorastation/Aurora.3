@@ -7,7 +7,7 @@
 		slot_r_hand_str = "helmet"
 		)
 	item_flags = THICKMATERIAL
-	armor = list(melee = 50, bullet = 15, laser = 50,energy = 10, bomb = 25, bio = 0, rad = 0)
+	armor = list(melee = 50, bullet = 15, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 	cold_protection = HEAD
 	min_cold_protection_temperature = HELMET_MIN_COLD_PROTECTION_TEMPERATURE
@@ -26,24 +26,6 @@
 	if(allow_hair_covering)
 		flags_inv ^= BLOCKHEADHAIR
 		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & BLOCKHEADHAIR ? "hide" : "show"] hair.</span>")
-
-/obj/item/clothing/head/helmet/warden
-	name = "warden's hat"
-	desc = "It's a special helmet issued to the Warden of a security force. Protects the head from impacts."
-	icon_state = "policehelm"
-	flags_inv = 0
-
-/obj/item/clothing/head/helmet/warden/commissar
-	name = "commissar's cap"
-	desc = "A security commissar's cap."
-	icon_state = "commissarcap"
-
-/obj/item/clothing/head/helmet/hos/cap
-	name = "head of security hat"
-	desc = "The hat of the Head of Security. For showing the officers who's in charge."
-	icon_state = "hoscap"
-	armor = list(melee = 65, bullet = 30, laser = 50, energy = 10, bomb = 25, bio = 0, rad = 0)
-	flags_inv = HIDEEARS
 
 /obj/item/clothing/head/helmet/hos
 	name = "head of security helmet"
