@@ -238,6 +238,7 @@
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
+	return 1
 
 /mob/living/heavy_vehicle/proc/sync_access()
 	access_card.access = saved_access.Copy()
