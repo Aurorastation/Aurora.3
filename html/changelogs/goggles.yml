@@ -1,6 +1,0 @@
-author: Sparky_hotdog
-
-delete-after: True
-
-changes:
-  - bugfix: "Selecting Safety Goggles in loadout preferences now gives you safety goggles, not prescription glasses."
