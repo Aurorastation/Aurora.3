@@ -31,8 +31,6 @@
 	var/flower_color
 	var/image/flower_image
 
-	var/list/sampled_DNA
-	var/list/language_progress
 	var/obj/item/clothing/head/hat
 	var/datum/reagents/vessel
 	var/energy_duration = 144                 // The time in seconds that this diona can exist in total darkness before its energy runs out
@@ -101,8 +99,6 @@
 	eat_types |= TYPE_ORGANIC
 	nutrition = 0 //We dont start with biomass
 	update_verbs()
-	sampled_DNA = list()
-	language_progress = list()
 
 
 /mob/living/carbon/alien/diona/verb/check_light()
@@ -244,7 +240,7 @@
 		verbs -= /mob/living/carbon/alien/diona/proc/grow
 		verbs -= /mob/living/carbon/alien/diona/proc/merge
 		verbs -= /mob/living/carbon/proc/absorb_nymph
-		verbs -= /mob/living/carbon/alien/diona/proc/sample
+		verbs -= /mob/living/carbon/proc/sample
 		verbs -= /mob/living/carbon/alien/diona/proc/remove_hat
 		verbs |= /mob/living/carbon/alien/diona/proc/split
 	else
@@ -253,7 +249,7 @@
 		verbs |= /mob/living/carbon/alien/diona/proc/grow
 		verbs |= /mob/living/proc/ventcrawl
 		verbs |= /mob/living/proc/hide
-		verbs |= /mob/living/carbon/alien/diona/proc/sample
+		verbs |= /mob/living/carbon/proc/sample
 		verbs |= /mob/living/carbon/alien/diona/proc/remove_hat
 		verbs -= /mob/living/carbon/alien/diona/proc/split // we want to remove this one
 
