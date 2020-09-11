@@ -3617,6 +3617,65 @@
 	reagent_data = list(/datum/reagent/nutriment/synthetic = list("stale bread" = 4))
 	reagents_to_add = list(/datum/reagent/nutriment/synthetic = 6, /datum/reagent/sodiumchloride = 3)
 
+/obj/item/reagent_containers/food/snacks/ricetub
+	name = "packed rice bowl"
+	desc = "Boiled rice packed in a sealed plastic tub with the Nojosuru Foods logo on it. There appears to be a pair of chopsticks clipped to the side."
+	icon_state = "ricetub"
+	trash = /obj/item/trash/ricetub
+	filling_color = "#A66829"
+	center_of_mass = list("x"=17, "y"=16)
+	reagents_to_add = list(/datum/reagent/nutriment = 5)
+	reagent_data = list(/datum/reagent/nutriment = list("rice" = 1))
+
+/obj/item/reagent_containers/food/snacks/ricetub/update_icon()
+	var/percent = round((reagents.total_volume / 5) * 100)
+	switch(percent)
+		if(0 to 90)
+			icon_state = "ricetub_90"
+		if(91 to INFINITY)
+			icon_state = "ricetub"
+
+/obj/item/reagent_containers/food/snacks/seaweed
+	name = "Go-Go Gwok! Authentic Konyanger moss"
+	desc = "Genuine Konyanger moss packaged into a neat bag for easy consumption. A light amount of salt has been applied to this moss, to enhance the natural flavour. The box features Gwok herself on the \
+	box's cover, smiling broadly and giving a thumbs up!"
+	desc_fluff = "Go-Go Gwok! is one of the most unusual brands on Konyang, as it is owned by an IPC rather than a human. Gwok-0783, originally produced by Terraneus Diagnostics as a baseline hydroponicist and now \
+	the shell Go-Go Gwok! lovers throughout the Orion Spur know and love, has - through a series of legal technicalities and loopholes that would make an Eridanian Suit blush with envy - managed to become the CEO \
+	and majority shareholder in this fairly small Solarian corporation.	Through her headquarters on Xanu Prime, Gwok-0783 revels in her existence as one of the Orion Spur's wealthiest IPCs, her image now plastered \
+	on delicious (yet affordable) moss packets consumed across the Orion Spur."
+	icon_state = "seaweed"
+	trash = /obj/item/trash/seaweed
+	filling_color = "#A66829"
+	center_of_mass = list("x"=17, "y"=16)
+	reagents_to_add = list(/datum/reagent/nutriment = 4)
+	reagent_data = list(/datum/reagent/nutriment = list("seaweed" = 1))
+
+/obj/item/reagent_containers/food/snacks/seaweed/update_icon()
+	var/percent = round((reagents.total_volume / 4) * 100)
+	switch(percent)
+		if(0 to 90)
+			icon_state = "seaweed_90"
+		if(91 to INFINITY)
+			icon_state = "seaweed"
+
+/obj/item/reagent_containers/food/snacks/riceball
+	name = "rice ball"
+	desc = "A bundle of rice wrapped in seaweed. This one seems to have a fish flake filling inside."
+	icon_state = "riceball"
+	filling_color = "#A66829"
+	center_of_mass = list("x"=17, "y"=16)
+	reagents_to_add = list(/datum/reagent/nutriment = 3)
+	reagent_data = list(/datum/reagent/nutriment = list("seaweed" = 0.5, "rice" = 0.5, "soysauce" = 0.5))
+
+/obj/item/reagent_containers/food/snacks/riceball/update_icon()
+	var/percent = round((reagents.total_volume / 3) * 100)
+	switch(percent)
+		if(0 to 90)
+			icon_state = "riceball_90"
+		if(91 to INFINITY)
+			icon_state = "riceball"
+
+
 /obj/item/reagent_containers/food/snacks/skrellsnacks
 	name = "\improper SkrellSnax"
 	desc = "Cured eki shipped all the way from Jargon 4, almost like jerky! Almost."
