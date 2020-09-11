@@ -84,7 +84,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "company officials"
+	supervisors = "your embassy"
 	selection_color = "#C0C0C0"
 	economic_modifier = 7
 	latejoin_at_spawnpoints = TRUE

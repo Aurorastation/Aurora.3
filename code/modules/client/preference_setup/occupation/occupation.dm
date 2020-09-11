@@ -192,6 +192,10 @@
 			if(S.name in job.blacklisted_species)
 				dat += "<del>[dispRank]</del></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
 				continue
+		var/datum/citizenship/C = SSrecords.citizenships[pref.citizenship]
+		if(C.job_species_blacklist[job.title] && (pref.species in C.job_species_blacklist[job.title]))
+			dat += "<del>[dispRank]</del></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
+			continue
 		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
 			dispRank = "<span style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];' width='60%' align='center'>&nbsp<a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></span>"
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
