@@ -9519,20 +9519,18 @@
 /area/security/armory)
 "arE" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (.45 lethal)"
+	name = "Weaponry (.45 Pistol)"
 	},
 /obj/effect/decal/warning_stripes,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
+/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/sec,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "arF" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (45. less-than-lethal)"
+	name = "Ammunition (.45)"
 	},
 /obj/effect/decal/warning_stripes,
 /obj/item/ammo_magazine/c45m/rubber,
@@ -9540,6 +9538,16 @@
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "arG" = (
@@ -13339,6 +13347,7 @@
 	},
 /obj/item/storage/box/firingpins,
 /obj/structure/table/rack,
+/obj/item/storage/box/securitypins,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "axQ" = (

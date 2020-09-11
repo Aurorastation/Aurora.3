@@ -1,0 +1,15 @@
+author: Crosarius
+
+delete-after: True
+
+# Any changes you've made.  See valid prefix list above.
+# INDENT WITH TWO SPACES.  NOT TABS.  SPACES.
+# SCREW THIS UP AND IT WON'T WORK.
+# Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
+# Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
+changes: 
+  - rscadd: "Implements a multi-mode disruptor pistol to the security arsenal. This weapon replaces the security taser and .45 pistol as the primary sidearm of Security Officers and comes with a wireless-control firing pin."
+  - rscadd: "Replaces the detective's current ballistic sidearm with a disruptor pistol, and adds a disruptor pistol to the CSI/FT locker for their own protection as well."
+  - rscadd: "Replaces the outdated energy pistols belonging to Command staff who have them, the Warden, NT-affiliated Liasions, and ERT Protection Detail with disruptor pistols."
+  - rscadd: "Implements a wireless-control restricted firing pin, which by default will only allow weapons to be fired on stun until the alert level is sufficiently elevated. These firing pins can be controlled remotely the firearms control program located on security consoles, provided you have an armory-level access ID."
+  - maptweak: "Moves the .45 pistols and rubber .45 magazines from the Security Officer secure lockers to the armoury."
