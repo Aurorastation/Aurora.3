@@ -107,7 +107,7 @@
 	if(!message)
 		return
 
-	var/rendered = "<span class='game say'><span class='name'>[name] says,</span> <span class='message linkify'>\"[message]\"</span></span>"
+	var/rendered = "<span class='game say'><span class='name'>[name] says,</span> <span class='message'>\"[message]\"</span></span>"
 
 	to_chat(owner, "[rendered]")
 	to_chat(src, "[rendered]")

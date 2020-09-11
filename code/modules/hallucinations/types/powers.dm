@@ -170,7 +170,7 @@
 	to_chat(usr, SPAN_NOTICE("<b>You focus your mental energy and begin projecting your message into the mind of \the [target]...</b>"))
 
 	if(do_after(usr, 30))
-		usr.visible_message("<span class='game say'><span class='name'>[usr]</span> [usr.say_quote(message)], <span class='message linkify'><span class='body'>\"[message]\"</span></span></span>",
+		usr.visible_message("<span class='game say'><span class='name'>[usr]</span> [usr.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>",
 					SPAN_NOTICE("<b>You feel your message enter \the [target]'s mind!</b>"))
 	else
 		to_chat(usr, SPAN_WARNING("You need to stay still to focus your efforts!"))

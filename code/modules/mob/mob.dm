@@ -438,16 +438,9 @@
 	if (flavor_text && flavor_text != "")
 		var/msg = replacetext(flavor_text, "\n", " ")
 		if(length(msg) <= 40)
-			return "<span class='notice'>[msg]</span>"
+			return "<span class='message linkify'>[msg]</span>"
 		else
-			return "<span class='notice'>[copytext_preserve_html(msg, 1, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>More...</a></span>"
-
-/*
-/mob/verb/help()
-	set name = "Help"
-	src << browse('html/help.html', "window=help")
-	return
-*/
+			return "<span class='message linkify'>[copytext_preserve_html(msg, 1, 37)]...</span> <a href='byond://?src=\ref[src];flavor_more=1'>More...</a>"
 
 /mob/verb/abandon_mob()
 	set name = "Respawn"
