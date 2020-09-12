@@ -1,0 +1,6 @@
+author: FirinMaLazors
+
+delete-after: True
+
+changes: 
+  - rscadd: "Makes serving bowls hold 25 weight-class-units instead of 20 so the El Diablo can be made."

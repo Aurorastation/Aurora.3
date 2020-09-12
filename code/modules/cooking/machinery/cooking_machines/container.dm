@@ -5,7 +5,7 @@
 /obj/item/reagent_containers/cooking_container
 	icon = 'icons/obj/cooking_machines.dmi'
 	var/shortname
-	var/max_space = 20//Maximum sum of w-classes of foods in this container at once
+	var/max_space = 25//Maximum sum of w-classes of foods in this container at once
 	volume = 80//Maximum units of reagents
 	flags = OPENCONTAINER | NOREACT
 	var/list/insertable = list(
