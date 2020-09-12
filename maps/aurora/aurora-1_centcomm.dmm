@@ -16347,7 +16347,7 @@
 	},
 /area/centcom/legion/hangar5)
 "crO" = (
-/turf/unsimulated/wall/steel,
+/turf/simulated/wall,
 /area/merchant_station/warehouse)
 "cti" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -17032,10 +17032,14 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "cXA" = (
-/turf/unsimulated/wall/fakepdoor{
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter1";
-	name = "warehouse shutter"
+	layer = 2.4;
+	name = "shutter";
+	opacity = 1
 	},
+/turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
 "cXK" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -24536,11 +24540,14 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "jrk" = (
-/turf/unsimulated/wall/fakeairlock{
+/obj/effect/decal/fake_object{
+	density = 1;
 	desc = "Locked during work hours due to safety concerns. Particularly pirate ones.";
+	icon = 'icons/obj/doors/Doorglass.dmi';
 	icon_state = "door_locked";
-	name = "Upper Levels access"
+	name = "Upper Levels Access"
 	},
+/turf/simulated/floor/tiled,
 /area/merchant_station)
 "jrq" = (
 /obj/effect/floor_decal/spline/plain,
@@ -25023,7 +25030,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
 "jUq" = (
 /obj/structure/table/rack,
@@ -29928,7 +29935,7 @@
 /area/centcom/shared_dream)
 "nYp" = (
 /obj/structure/sign/nosmoking_2,
-/turf/unsimulated/wall/steel,
+/turf/simulated/wall,
 /area/merchant_station/warehouse)
 "nZO" = (
 /obj/structure/table/standard,
@@ -31957,7 +31964,7 @@
 	},
 /area/centcom/legion)
 "pWO" = (
-/turf/unsimulated/wall/steel,
+/turf/simulated/wall,
 /area/template_noop)
 "pWU" = (
 /obj/effect/floor_decal/spline/plain/corner{
@@ -40452,7 +40459,7 @@
 	},
 /area/centcom/legion/hangar5)
 "xwI" = (
-/turf/unsimulated/wall/steel,
+/turf/simulated/wall,
 /area/merchant_station)
 "xwM" = (
 /obj/structure/table/wood,
