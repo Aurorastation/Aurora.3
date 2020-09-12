@@ -140,7 +140,7 @@
 	shortname = "skillet"
 	desc = "Chuck ingredients in this to fry something on the stove."
 	icon_state = "skillet"
-	volume = 15
+	volume = 30
 	force = 11
 	hitsound = 'sound/weapons/smash.ogg'
 	flags = OPENCONTAINER // Will still react
@@ -160,7 +160,7 @@
 	shortname = "saucepan"
 	desc = "Is it a pot? Is it a pan? It's a saucepan!"
 	icon_state = "pan"
-	volume = 60
+	volume = 90
 	slot_flags = SLOT_HEAD
 	force = 8
 	hitsound = 'sound/weapons/smash.ogg'

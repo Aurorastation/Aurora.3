@@ -67,9 +67,9 @@
 
 	queue_icon_update()
 
-/obj/machinery/appliance/cooker/attempt_toggle_power(mob/user, ranged = FALSE)
+/obj/machinery/appliance/cooker/attempt_toggle_power(mob/user)
 	var/wasoff = stat & POWEROFF
-	if (use_check_and_message(user))
+	if (use_check_and_message(user, issilicon(user) ? USE_ALLOW_NON_ADJACENT : 0))
 		return
 
 	var/desired_temp = show_radial_menu(user, src, temp_options - (wasoff ? "OFF" : "[set_temp-T0C]"), require_near = TRUE, tooltips = TRUE, no_repeat_close = TRUE)
@@ -117,7 +117,7 @@
 	. = ..()
 	queue_icon_update()
 
-/obj/machinery/appliance/cooker/proc/update_cooking_power()
+/obj/machinery/appliance/cooker/update_cooking_power()
 	var/temp_scale = 0
 	if(temperature > min_temp)
 		if(temperature >= optimal_temp)
@@ -125,7 +125,7 @@
 		else
 			temp_scale = temperature / optimal_temp
 		//If we're between min and optimal this will yield a value in the range 0.7 to 1
-
+	cooking_power *= temp_scale * optimal_power
 	cooking_power = optimal_power * temp_scale * cooking_coeff
 
 /obj/machinery/appliance/cooker/proc/heat_up()
@@ -159,5 +159,5 @@
 /obj/machinery/appliance/cooker/add_content(var/obj/item/I, var/mob/user)
 	var/datum/cooking_item/CI = ..()
 	if (CI && CI.combine_target)
-		to_chat(user, "The [I] will be used to make a [selected_option]. Output selection is returned to default for future items.")
+		to_chat(user, "[I] will be used to make a [selected_option]. Output selection is returned to default for future items.")
 		selected_option = null
