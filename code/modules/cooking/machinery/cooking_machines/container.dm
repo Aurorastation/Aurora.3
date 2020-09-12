@@ -213,6 +213,7 @@
 	appliancetype = MIX
 	flags = OPENCONTAINER // Will still react
 	volume = 15 // for things like jelly sandwiches etc
+	max_space = 25
 
 /obj/item/reagent_containers/cooking_container/plate/MouseDrop(var/obj/over_obj)
 	if(over_obj != usr || use_check(usr))
@@ -248,10 +249,10 @@
 	name = "serving bowl"
 	shortname = "bowl"
 	desc = "A bowl. You bowl foods... wait, what?"
-	volume = 180
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "mixingbowl"
 	center_of_mass = list("x" = 17,"y" = 7)
+	max_space = 30
 	matter = list(DEFAULT_WALL_MATERIAL = 300)
 	volume = 180
 	amount_per_transfer_from_this = 10
