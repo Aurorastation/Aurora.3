@@ -32682,18 +32682,6 @@
 	icon_state = "blue"
 	},
 /area/centcom/holding)
-"qNk" = (
-/obj/item/modular_computer/laptop/preset/command{
-	pixel_y = 2
-	},
-/obj/item/modular_computer/laptop/preset/command{
-	pixel_y = 2
-	},
-/obj/structure/bed/chair/comfy/red,
-/turf/unsimulated/floor{
-	icon_state = "wood_light"
-	},
-/area/centcom/ferry)
 "qNI" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -37669,6 +37657,17 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/supply/dock)
+"vnJ" = (
+/obj/structure/bed/chair/comfy/red,
+/obj/item/modular_computer/laptop/preset/representative,
+/obj/item/modular_computer/laptop/preset/representative{
+	desc = "A portable computer belonging to the Consular's office.";
+	name = "consular's laptop"
+	},
+/turf/unsimulated/floor{
+	icon_state = "wood_light"
+	},
+/area/centcom/ferry)
 "vol" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -69809,7 +69808,7 @@ aaM
 aaM
 aaM
 uHF
-otY
+vnJ
 doP
 uCb
 eQs
@@ -70066,7 +70065,7 @@ aaM
 aaM
 aaM
 eQs
-qNk
+otY
 doP
 iwr
 eQs
