@@ -14,13 +14,13 @@
 /datum/computer_file/program/guntracker/ui_interact(var/mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new /datum/vueui/modularcomputer(user, src, "security-guntracker", 600, 400, "Firearm Control")
+		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-security-guntracker", 600, 400, "Firearm Control")
 	ui.open()
 	ui.auto_update_content = TRUE
 
 /datum/computer_file/program/guntracker/vueui_transfer(oldobj)
 	. = FALSE
-	var/uis = SSvueui.transfer_uis(oldobj, src, "security-guntracker", 600, 400, "Firearm Control")
+	var/uis = SSvueui.transfer_uis(oldobj, src, "mcomputer-security-guntracker", 600, 400, "Firearm Control")
 	for(var/tui in uis)
 		var/datum/vueui/ui = tui
 		ui.auto_update_content = TRUE
@@ -29,6 +29,9 @@
 /datum/computer_file/program/guntracker/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
 	data = . || data || list()
+
+	// Gather data for computer header
+	data["_PC"] = get_header_data(data["_PC"])
 
 	var/turf/T = get_turf(computer.loc)
 	var/list/wireless_firing_pins_data = list()
