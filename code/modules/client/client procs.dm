@@ -356,6 +356,7 @@
 		m.client = src
 		src.InitPrefs() //Init some default prefs
 		m.LateLogin()
+		chatOutput.start()
 		return m
 		//Do auth shit
 	else
@@ -363,6 +364,7 @@
 		src.InitClient()
 		src.InitPrefs()
 		mob.LateLogin()
+		chatOutput.start()
 
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
