@@ -7,3 +7,4 @@ changes:
   - bugfix: "Alien vines have been renamed to biomass vines, and can now be attacked and welded to destroy them."
   - tweak: "Diona walls now spawn vines when ripped apart, instead of nymphs. It should help with lag when many are erected."
   - bugfix: "Chainsaws now have the correct damage values when powered on."
+  - rscadd: "Biomass floors can now be sprayed with plant-b-gone to remove them."
