@@ -86,7 +86,9 @@
 	MOB_STOP_THINKING(src)
 
 	update_client_color()
-	simple_asset_ensure_is_sent(client, /datum/asset/simple/accents)
 
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()
+
+	client.chatOutput.start()
+	simple_asset_ensure_is_sent(client, /datum/asset/simple/accents)

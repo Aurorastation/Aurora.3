@@ -378,8 +378,6 @@
 	if (byond_version >= 511 && prefs.clientfps)
 		fps = prefs.clientfps
 
-	chatOutput.start()
-
 /client/proc/InitClient()
 	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
 
