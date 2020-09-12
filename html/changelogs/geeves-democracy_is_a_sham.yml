@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed lings not absorbing people into their internal hivemind when absorbing their DNA."
