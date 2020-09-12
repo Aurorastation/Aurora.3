@@ -67,9 +67,9 @@
 
 	queue_icon_update()
 
-/obj/machinery/appliance/cooker/attempt_toggle_power(mob/user, ranged = FALSE)
+/obj/machinery/appliance/cooker/attempt_toggle_power(mob/user)
 	var/wasoff = stat & POWEROFF
-	if (use_check_and_message(user))
+	if (use_check_and_message(user, issilicon(user) ? USE_ALLOW_NON_ADJACENT : 0))
 		return
 
 	var/desired_temp = show_radial_menu(user, src, temp_options - (wasoff ? "OFF" : "[set_temp-T0C]"), require_near = TRUE, tooltips = TRUE, no_repeat_close = TRUE)
@@ -100,11 +100,9 @@
 	overlays += light
 
 /obj/machinery/appliance/cooker/machinery_process()
-	var/temp_change = heating_power
 	var/datum/gas_mixture/loc_air = loc.return_air()
-	if ((temperature >= set_temp) && (stat || use_power == 1))
+	if (stat || (use_power != 2)) // if we're not actively heating
 		temperature -= min(loss, temperature - loc_air.temperature)
-		temp_change = active_power_usage
 	if(!stat)
 		heat_up()
 		update_cooking_power() // update!
@@ -112,16 +110,14 @@
 		var/datum/cooking_item/CI = cooking_obj
 		if(!CI.container?.reagents)
 			continue
-		if(CI.container.reagents.get_temperature() >= temperature)
-			temp_change = loss
-		CI.container.reagents.add_thermal_energy(temp_change)
+		CI.container.reagents.set_temperature(min(temperature, CI.container.reagents.get_temperature() + 10*SIGN(temperature - CI.container.reagents.get_temperature()))) // max of 5C per second
 	return ..()
 
 /obj/machinery/appliance/cooker/power_change()
 	. = ..()
 	queue_icon_update()
 
-/obj/machinery/appliance/cooker/proc/update_cooking_power()
+/obj/machinery/appliance/cooker/update_cooking_power()
 	var/temp_scale = 0
 	if(temperature > min_temp)
 		if(temperature >= optimal_temp)
@@ -129,7 +125,7 @@
 		else
 			temp_scale = temperature / optimal_temp
 		//If we're between min and optimal this will yield a value in the range 0.7 to 1
-
+	cooking_power *= temp_scale * optimal_power
 	cooking_power = optimal_power * temp_scale * cooking_coeff
 
 /obj/machinery/appliance/cooker/proc/heat_up()
@@ -163,5 +159,5 @@
 /obj/machinery/appliance/cooker/add_content(var/obj/item/I, var/mob/user)
 	var/datum/cooking_item/CI = ..()
 	if (CI && CI.combine_target)
-		to_chat(user, "The [I] will be used to make a [selected_option]. Output selection is returned to default for future items.")
+		to_chat(user, "[I] will be used to make a [selected_option]. Output selection is returned to default for future items.")
 		selected_option = null

@@ -249,6 +249,7 @@
 	result = /obj/item/reagent_containers/food/snacks/burrito_mystery
 
 /decl/recipe/meatbun
+	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/spacespice = 1, /datum/reagent/water = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice,
