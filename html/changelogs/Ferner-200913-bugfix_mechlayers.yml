@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - bugfix: "Mechs will now handle their part layering a bit more sanely, fixed the mounted rapidfire blaster being stuck on the wrong firing mode."
