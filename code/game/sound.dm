@@ -584,3 +584,12 @@
 		'sound/items/trayhit1.ogg',
 		'sound/items/trayhit2.ogg'
 	)
+
+/decl/sound_category/grab_sound
+	sounds = list(
+	'sound/weapons/grab/grab1.ogg',
+	'sound/weapons/grab/grab2.ogg',
+	'sound/weapons/grab/grab3.ogg',
+	'sound/weapons/grab/grab4.ogg',
+	'sound/weapons/grab/grab5.ogg'
+)

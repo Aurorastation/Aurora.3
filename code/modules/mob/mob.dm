@@ -706,6 +706,11 @@
 
 	if(ishuman(AM))
 		var/mob/living/carbon/human/H = AM
+		if(H.lying) // If they're on the ground we're probably dragging their arms to move them
+			visible_message(SPAN_WARNING("\The [src] leans down and grips \the [H]'s arms."), SPAN_NOTICE("You lean down and grip \the [H]'s arms."))
+		else //Otherwise we're probably just holding their arm to lead them somewhere
+			visible_message(SPAN_WARNING("\The [src] grips \the [H]'s arm."), SPAN_NOTICE("You grip \the [H]'s arm."))
+		playsound(loc, /decl/sound_category/grab_sound, 25, FALSE, -1) //Quieter than hugging/grabbing but we still want some audio feedback
 		if(H.pull_damage())
 			to_chat(src, "<span class='danger'>Pulling \the [H] in their current condition would probably be a bad idea.</span>")
 
