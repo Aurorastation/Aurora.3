@@ -25,11 +25,11 @@ proc/get_mech_icon(var/list/components = list(), var/overlay_layer = FLOAT_LAYER
 		new_overlays += get_mech_image("[body.icon_state]_cockpit", body.on_mech_icon, MECH_BASE_LAYER)
 	if(LAZYLEN(pilot_overlays))
 		new_overlays += pilot_overlays
-	if(head)
-		new_overlays += get_mech_image("[head.icon_state]", head.on_mech_icon, head.color, MECH_INTERMEDIATE_LAYER)
-		new_overlays += get_mech_image("[head.icon_state]_eyes", head.on_mech_icon, null, MECH_INTERMEDIATE_LAYER)
 	if(body)
-		new_overlays += get_mech_image("[body.icon_state]_overlay[hatch_closed ? "" : "_open"]", body.on_mech_icon, body.color, MECH_BASE_LAYER)
+		new_overlays += get_mech_image("[body.icon_state]_overlay[hatch_closed ? "" : "_open"]", body.on_mech_icon, body.color, MECH_HATCH_LAYER)
+	if(head)
+		new_overlays += get_mech_image("[head.icon_state]", head.on_mech_icon, head.color, MECH_HEAD_LAYER)
+		new_overlays += get_mech_image("[head.icon_state]_eyes", head.on_mech_icon, null, MECH_EYES_LAYER)
 	if(arms)
 		new_overlays += get_mech_image(arms.icon_state, arms.on_mech_icon, arms.color, MECH_ARM_LAYER)
 	if(legs)
@@ -54,7 +54,7 @@ proc/get_mech_icon(var/list/components = list(), var/overlay_layer = FLOAT_LAYER
 				new_overlays += get_mech_image(use_icon_state, 'icons/mecha/mecha_weapon_overlays.dmi', null, hardpoint_object.mech_layer)
 				var/far_icon_state = "[use_icon_state]_far"
 				if(far_icon_state in mecha_weapon_overlays)
-					new_overlays += get_mech_image(far_icon_state, 'icons/mecha/mecha_weapon_overlays.dmi', null, MECH_BASE_LAYER - 0.01)
+					new_overlays += get_mech_image(far_icon_state, 'icons/mecha/mecha_weapon_overlays.dmi', null, MECH_UNDER_LAYER)
 
 	overlays = new_overlays
 
