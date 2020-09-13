@@ -146,25 +146,10 @@
 	new /obj/item/clothing/shoes/jackboots(src.loc)
 	delete_me = 1
 
-/obj/effect/landmark/costume/maid/New()
-	new /obj/item/clothing/under/skirt/(src.loc)
-	var/CHOICE = pick( /obj/item/clothing/head/beret , /obj/item/clothing/head/rabbitears )
-	new CHOICE(src.loc)
-	new /obj/item/clothing/glasses/sunglasses/blindfold(src.loc)
-	delete_me = 1
-
 /obj/effect/landmark/costume/butler/New()
 	new /obj/item/clothing/suit/wcoat(src.loc)
 	new /obj/item/clothing/under/suit_jacket(src.loc)
 	new /obj/item/clothing/head/that(src.loc)
-	delete_me = 1
-
-/obj/effect/landmark/costume/scratch/New()
-	new /obj/item/clothing/gloves/white(src.loc)
-	new /obj/item/clothing/shoes/white(src.loc)
-	new /obj/item/clothing/under/suit_jacket/white(src.loc)
-	if (prob(30))
-		new /obj/item/clothing/head/cueball(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/highlander/New()
@@ -175,7 +160,7 @@
 /obj/effect/landmark/costume/prig/New()
 	new /obj/item/clothing/suit/wcoat(src.loc)
 	new /obj/item/clothing/glasses/monocle(src.loc)
-	var/CHOICE= pick( /obj/item/clothing/head/bowler, /obj/item/clothing/head/that)
+	var/CHOICE= pick( /obj/item/clothing/head/bowlerhat, /obj/item/clothing/head/that)
 	new CHOICE(src.loc)
 	new /obj/item/clothing/shoes/black(src.loc)
 	new /obj/item/cane(src.loc)
@@ -191,12 +176,6 @@
 /obj/effect/landmark/costume/nightowl/New()
 	new /obj/item/clothing/under/owl(src.loc)
 	new /obj/item/clothing/mask/gas/owl_mask(src.loc)
-	delete_me = 1
-
-/obj/effect/landmark/costume/waiter/New()
-	new /obj/item/clothing/under/waiter(src.loc)
-	new /obj/item/clothing/head/rabbitears(src.loc)
-	new /obj/item/clothing/suit/apron(src.loc)
 	delete_me = 1
 
 /obj/effect/landmark/costume/pirate/New()

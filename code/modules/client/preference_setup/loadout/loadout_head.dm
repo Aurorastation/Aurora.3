@@ -135,7 +135,7 @@
 	..()
 	var/hats = list()
 	hats["hat, boatsman"] = /obj/item/clothing/head/boaterhat
-	hats["hat, bowler"] = /obj/item/clothing/head/bowler
+	hats["hat, bowler"] = /obj/item/clothing/head/bowlerhat
 	hats["hat, fez"] = /obj/item/clothing/head/fez
 	hats["hat, tophat"] = /obj/item/clothing/head/that
 	hats["hat, feather trilby"] = /obj/item/clothing/head/feathertrilby

@@ -182,18 +182,6 @@
 	armor = list(melee = 62, bullet = 50, laser = 50,energy = 35, bomb = 10, bio = 2, rad = 0)
 	siemens_coefficient = 0.35
 
-
-/obj/item/clothing/head/helmet/augment
-	name = "augment array"
-	desc = "A helmet with optical and cranial augments coupled to it."
-	icon_state = "v62"
-	armor = list(melee = 80, bullet = 60, laser = 50,energy = 25, bomb = 50, bio = 10, rad = 0)
-	flags_inv = HIDEEARS|HIDEEYES
-	body_parts_covered = HEAD|EYES
-	cold_protection = HEAD
-	min_cold_protection_temperature = SPACE_HELMET_MIN_COLD_PROTECTION_TEMPERATURE
-	siemens_coefficient = 0.1
-
 /obj/item/clothing/head/helmet/iachelmet
 	name = "IAC helmet"
 	desc = "This helmet is meant to protect the wearer from light debris, scrapes and bumps in a disaster situation, this lightweight helmet doesn't offer any significant protection from attacks or severe accidents. It's not recommended for use as armor and it's definitely not spaceworthy."

@@ -75,11 +75,6 @@
 	item_state = "welding"
 	body_parts_covered = HEAD|FACE|EYES
 
-/obj/item/clothing/head/collectable/slime
-	name = "collectable slime hat"
-	desc = "Just like a real Brain Slug!"
-	icon_state = "headslime"
-
 /obj/item/clothing/head/collectable/flatcap
 	name = "collectable flat cap"
 	desc = "A Collectible farmer's Flat Cap!"

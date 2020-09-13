@@ -21,7 +21,7 @@
 
 /obj/item/clothing/head/tajaran/fur
 	name = "adhomian fur hat"
-	desc = "A typical tajaran hat, made with the fur of some adhomian animal."
+	desc = "A typical tajaran hat, made with the fur of some Adhomian animal."
 	icon_state = "fur_hat"
 	item_state = "fur_hat"
 
@@ -64,6 +64,12 @@
 	desc = "A simple service cap worn by soldiers of the Adhomai Imperial Army."
 	icon_state = "nkahat"
 	item_state = "nkahat"
+
+/obj/item/clothing/head/tajaran/scarf
+	name = "head scarf"
+	desc = "A head scarf that protects the face from harsh Adhomian winters, usually fashioned from any scrap fabic lying around."
+	icon_state = "scarf"
+	item_state = "scarf"
 
 /obj/item/clothing/head/tajaran/consular
 	name = "consular service cap"

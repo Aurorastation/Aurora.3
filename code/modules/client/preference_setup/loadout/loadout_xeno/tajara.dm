@@ -133,7 +133,8 @@
 	circlet["golden dress circlet"] = /obj/item/clothing/head/tajaran/circlet
 	circlet["silver dress circlet"] = /obj/item/clothing/head/tajaran/circlet/silver
 	circlet["fur hat"] = /obj/item/clothing/head/tajaran/fur
-	circlet["matake priest hat"] = /obj/item/clothing/head/tajaran/matake
+	circlet["head scarf"] = /obj/item/clothing/head/tajaran/scarf
+	/obj/item/clothing/head/tajaran/scarf
 	gear_tweaks += new/datum/gear_tweak/path(circlet)
 
 /datum/gear/accessory/tajara_wrap
