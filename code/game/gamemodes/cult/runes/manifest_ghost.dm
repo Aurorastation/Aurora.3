@@ -9,12 +9,14 @@
 	return ..()
 
 /datum/rune/apparition/do_rune_action(mob/living/user, atom/movable/A)
-	if(!iscarbon(user))
+	if(!iscarbon(user) || istype(user, /mob/living/carbon/human/apparition))
 		to_chat(user, SPAN_WARNING("Your primitive form cannot use this rune!"))
+		return fizzle(user, A)
 	if(apparition)
 		to_chat(user, SPAN_WARNING("This rune already has an active apparition!"))
-	var/mob/living/carbon/C = user
+		return fizzle(user, A)
 
+	var/mob/living/carbon/C = user
 	var/mob/abstract/observer/ghost
 	for(var/mob/abstract/observer/O in get_turf(A))
 		if(!O.client)
@@ -25,7 +27,7 @@
 		break
 	if(!ghost)
 		to_chat(user, SPAN_WARNING("There are no spirits in the area of the rune!"))
-		return fizzle(user)
+		return fizzle(user, A)
 
 	user.say("Gal'h'rfikk harfrandid mud[pick("'","`")]gib!")
 	apparition = new /mob/living/carbon/human/apparition(get_turf(A))
