@@ -35,6 +35,7 @@
 	self_recharge = TRUE
 	recharge_time = 1.5
 	dispersion = list(3,6,9,12)
+	firemodes = list()
 
 /obj/item/gun/energy/blaster/revolver
 	name = "blaster revolver"
