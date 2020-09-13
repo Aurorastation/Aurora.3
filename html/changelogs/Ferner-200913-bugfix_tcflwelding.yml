@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - bugfix: "Fixes tcfl members being unable to access welding closets."
