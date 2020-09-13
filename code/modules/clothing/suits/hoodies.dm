@@ -213,10 +213,6 @@
 	name = "hood"
 	desc = "A hood attached to a warm hoodie."
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/grey //legacy item. for raiders, shuttle spawn
-	color = "#777777"
-
-
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/random/Initialize()
 	. = ..()
 	color = get_random_colour(lower = 150)
