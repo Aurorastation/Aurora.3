@@ -9,9 +9,14 @@
 	return ..()
 
 /datum/rune/apparition/do_rune_action(mob/living/user, atom/movable/A)
-	if(!iscarbon(user) || istype(user, /mob/living/carbon/human/apparition))
+	if(!iscarbon(user))
 		to_chat(user, SPAN_WARNING("Your primitive form cannot use this rune!"))
 		return fizzle(user, A)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.species.type == /datum/species/apparition)
+			to_chat(user, SPAN_WARNING("Apparitions cannot summon more apparitions!"))
+			return fizzle(user, A)
 	if(apparition)
 		to_chat(user, SPAN_WARNING("This rune already has an active apparition!"))
 		return fizzle(user, A)
