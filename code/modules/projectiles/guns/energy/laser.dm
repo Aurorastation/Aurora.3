@@ -8,7 +8,7 @@
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	accuracy = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	force = 10
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
@@ -44,7 +44,7 @@ obj/item/gun/energy/retro
 	desc = "An older model of the basic lasergun. Nevertheless, it is still quite deadly and easy to maintain, making it a favorite amongst pirates and other outlaws."
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	projectile_type = /obj/item/projectile/beam
 	fire_delay = 10 //old technology
 	can_turret = 1
@@ -65,7 +65,7 @@ obj/item/gun/energy/retro
 	force = 5
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	projectile_type = /obj/item/projectile/beam
 	origin_tech = null
 	max_shots = 5 //to compensate a bit for self-recharging
@@ -149,7 +149,7 @@ obj/item/gun/energy/retro
 	max_shots = 4
 	fire_delay = 45
 	force = 10
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	accuracy = -3 //shooting at the hip
 	scoped_accuracy = 4
 	can_turret = 1

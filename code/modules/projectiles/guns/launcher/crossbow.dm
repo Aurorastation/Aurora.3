@@ -7,11 +7,11 @@
 	icon_state = "bolt"
 	item_state = "bolt"
 	throwforce = 8
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	sharp = 1
 	edge = 0
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = "pickup_sword"
+	pickup_sound = /decl/sound_category/sword_pickup_sound
 
 /obj/item/arrow/proc/removed() //Helper for metal rods falling apart.
 	return
@@ -22,12 +22,12 @@
 	sharp = 1
 	edge = 0
 	throwforce = 5
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "metal-rod"
 	item_state = "bolt"
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = "pickup_sword"
+	pickup_sound = /decl/sound_category/sword_pickup_sound
 
 /obj/item/arrow/quill
 	name = "vox quill"

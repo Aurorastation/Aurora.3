@@ -159,7 +159,7 @@
 				bsv()
 		return
 
-	src.custom_emote(1,"presses a button on their suit, followed by a polite bow.")
+	src.custom_emote(VISIBLE_MESSAGE,"presses a button on their suit, followed by a polite bow.")
 	spark(src, 5, alldirs)
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, src), 10, TIMER_CLIENT_TIME)
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
@@ -361,7 +361,7 @@
 /obj/item/storage/backpack/holding/bst
 	canremove = 0
 	storage_slots = 56
-	max_w_class = 400
+	max_w_class = ITEMSIZE_IMMENSE
 
 /obj/item/device/radio/headset/ert/bst/attack_hand()
 	if(!usr)

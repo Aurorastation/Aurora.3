@@ -89,9 +89,6 @@
 		if("Scroll")
 			icon_state = "scroll"
 			item_state = "scroll"
-		if("The King in Yellow")
-			icon_state = "kingyellow"
-			item_state = "kingyellow"
 		if("Ithaqua")
 			icon_state = "ithaqua"
 			item_state = "ithaqua"
@@ -111,7 +108,7 @@
 			icon_state = "necronomicon"
 			item_state = "necronomicon"
 		else
-			var/randbook = "book" + pick("1", "2", "3", "4", "5", "6" , "7")
+			var/randbook = "book" + pick("1", "2", "3", "4", "5", "6" , "7", "8", "9", "10", "11", "12", "13" , "14", "15" , "16")
 			icon_state = randbook
 			item_state = randbook
 

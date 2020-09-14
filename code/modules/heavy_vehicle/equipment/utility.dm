@@ -8,9 +8,10 @@
 	var/carrying_capacity = 5
 	var/list/obj/carrying = list()
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	var/list/afterattack_types = list(/obj/structure/closet, /obj/machinery/door/airlock)
 
 /obj/item/mecha_equipment/clamp/resolve_attackby(atom/A, mob/user, click_params)
-	if(istype(A, /obj/structure/closet) && owner)
+	if(is_type_in_list(A, afterattack_types) && owner)
 		return FALSE
 	return ..()
 
@@ -29,6 +30,60 @@
 	. = ..()
 
 	if(.)
+		if(istype(target, /obj/machinery/door/firedoor))
+			var/obj/machinery/door/firedoor/FD = target
+			if(FD.blocked)
+				FD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [FD]!"))
+				if(do_after(owner, 10 SECONDS) && FD.blocked)
+					playsound(FD, 'sound/effects/meteorimpact.ogg', 100, 1)
+					playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+					FD.blocked = FALSE
+					INVOKE_ASYNC(FD, /obj/machinery/door/firedoor/.proc/open)
+					FD.visible_message(SPAN_WARNING("\The [owner] tears \the [FD] open!"))
+			else
+				FD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [FD]!"))
+				if(do_after(owner, 4 SECONDS) && !FD.blocked)
+					if(FD.density)
+						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] open!"))
+						playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+						INVOKE_ASYNC(FD, /obj/machinery/door/firedoor/.proc/open)
+					else
+						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] closed!"))
+						playsound(FD, 'sound/machines/airlock_close_force.ogg', 100, 1)
+						INVOKE_ASYNC(FD, /obj/machinery/door/firedoor/.proc/close)
+			return
+		else if(istype(target, /obj/machinery/door/airlock))
+			if(istype(target, /obj/machinery/door/airlock/centcom))
+				to_chat(user, SPAN_WARNING("You can't force these airlocks!"))
+				return
+			var/obj/machinery/door/airlock/AD = target
+			if(!AD.operating)
+				if(AD.welded || AD.locked)
+					AD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [AD]!"))
+					var/time_to_open = 15 SECONDS
+					if(AD.welded && AD.locked)
+						time_to_open = 30 SECONDS
+					if(do_after(owner, time_to_open))
+						AD.welded = FALSE
+						AD.locked = FALSE
+						AD.update_icon()
+						playsound(AD, 'sound/effects/meteorimpact.ogg', 100, 1)
+						playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+						AD.visible_message(SPAN_WARNING("\The [owner] tears \the [AD] open!"))
+						INVOKE_ASYNC(AD, /obj/machinery/door/airlock/.proc/open)
+				else
+					AD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [AD]!"))
+					if(do_after(owner, 5 SECONDS) && !(AD.operating || AD.welded || AD.locked))
+						if(AD.density)
+							INVOKE_ASYNC(AD, /obj/machinery/door/airlock/.proc/open)
+							playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] open!"))
+						else
+							INVOKE_ASYNC(AD, /obj/machinery/door/airlock/.proc/close)
+							playsound(AD, 'sound/machines/airlock_close_force.ogg', 100, 1)
+							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] closed!"))
+			return
+
 		if(length(carrying) >= carrying_capacity)
 			to_chat(user, SPAN_WARNING("\The [src] is fully loaded!"))
 			return
@@ -135,9 +190,8 @@
 	name = "floodlight"
 	desc = "An exosuit-mounted light."
 	icon_state = "mech_floodlight"
-	item_state = "mech_floodlight"
 	restricted_hardpoints = list(HARDPOINT_HEAD)
-	mech_layer = MECH_INTERMEDIATE_LAYER
+	mech_layer = MECH_DECAL_LAYER
 
 	var/on = 0
 	var/brightness_on = 12		//can't remember what the maxed out value is
@@ -165,6 +219,7 @@
 	on = FALSE
 	update_icon()
 	. = ..()
+
 #define CATAPULT_SINGLE 1
 #define CATAPULT_AREA   2
 

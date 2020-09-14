@@ -239,7 +239,7 @@
 	robotize()
 	stored_mmi = new /obj/item/device/mmi/digital/posibrain(src)
 	. = ..()
-	addtimer(CALLBACK(src, .proc/setup_brain), 1)
+	addtimer(CALLBACK(src, .proc/setup_brain), 30)
 
 /obj/item/organ/internal/mmi_holder/posibrain/proc/setup_brain()
 	if(owner)

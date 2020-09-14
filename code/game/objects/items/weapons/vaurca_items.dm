@@ -81,12 +81,12 @@
 	item_state = "eknife0"
 	active_force = 20
 	active_throwforce = 20
-	active_w_class = 5
+	active_w_class = ITEMSIZE_HUGE
 	force = 5
 	throwforce = 5
 	throw_speed = 5
 	throw_range = 10
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	flags = CONDUCT | NOBLOODY
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
@@ -174,7 +174,7 @@
 	icon_state = "harddisk"
 	force = 10
 	throwforce = 5
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	contained_sprite = 1
 
 /obj/item/melee/vaurca/rock
@@ -184,7 +184,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	force = 15
 	throwforce = 30
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	contained_sprite = 1
 
 /obj/item/grenade/spawnergrenade/vaurca
@@ -197,7 +197,7 @@
 	icon_state = "beacon"
 	force = 15
 	throwforce = 30
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 
 /obj/item/grenade/spawnergrenade/vaurca/prime()
 
@@ -315,7 +315,7 @@
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = FACE|EYES
 	gas_filter_strength = 3
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	filtered_gases = list(GAS_NITROGEN, GAS_N2O)
 	armor = list(melee = 25, bullet = 10, laser = 25, energy = 25, bomb = 0, bio = 50, rad = 15)
 	icon = 'icons/obj/vaurca_items.dmi'
@@ -332,12 +332,12 @@
 	active_force = 30
 	armor_penetration = 30
 	active_throwforce = 20
-	active_w_class = 5
+	active_w_class = ITEMSIZE_HUGE
 	force = 10
 	throwforce = 10
 	throw_speed = 5
 	throw_range = 10
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	flags = CONDUCT | NOBLOODY
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
@@ -385,7 +385,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "gaussrifle"
 	item_state = "gaussrifle"
-	fire_sound = "gauss_fire"
+	fire_sound = /decl/sound_category/gauss_fire_sound
 	fire_sound_text = "a subdued boom"
 	fire_delay = 12
 	slot_flags = SLOT_BACK

@@ -9,6 +9,8 @@
 	var/mob/living/pulling = null
 	var/bloodiness
 
+	slowdown = 0
+
 /obj/structure/bed/chair/wheelchair/update_icon()
 	cut_overlays()
 	add_overlay(image(icon = 'icons/obj/furniture.dmi', icon_state = "w_overlay", layer = FLY_LAYER))

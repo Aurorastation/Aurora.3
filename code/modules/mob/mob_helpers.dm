@@ -105,15 +105,15 @@
 	return 0
 
 /mob/proc/is_diona()
-	//returns which type of diona we are, or zero
-	if (istype(src, /mob/living/carbon/human))
-		var/mob/living/carbon/human/T = src
-		if (istype(T.species, /datum/species/diona) || istype(src, /mob/living/carbon/human/diona))
-			return DIONA_WORKER
+	return FALSE
 
-	if (istype(src, /mob/living/carbon/alien/diona))
-		return DIONA_NYMPH
-	return 0
+/mob/living/carbon/human/is_diona()
+	if(istype(species, /datum/species/diona))
+		return DIONA_WORKER
+	return FALSE
+
+/mob/living/carbon/alien/diona/is_diona()
+	return DIONA_NYMPH
 
 /proc/isskeleton(A)
 	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_SKELETON))
@@ -1055,57 +1055,6 @@ proc/is_blind(A)
 
 /mob/living/carbon/alien/diona/get_vessel(create = FALSE)
 	. = vessel
-
-#define POSESSIVE_PRONOUN	0
-#define POSESSIVE_ADJECTIVE	1
-#define REFLEXIVE			2
-#define SUBJECTIVE_PERSONAL	3
-#define OBJECTIVE_PERSONAL	4
-/mob/proc/get_pronoun(var/type)
-	switch (type)
-		if (POSESSIVE_PRONOUN)
-			switch(gender)
-				if (MALE)
-					return "his"
-				if (FEMALE)
-					return "hers"
-				else
-					return "theirs"
-		if (POSESSIVE_ADJECTIVE)
-			switch(gender)
-				if (MALE)
-					return "his"
-				if (FEMALE)
-					return "her"
-				else
-					return "their"
-		if (REFLEXIVE)
-			switch(gender)
-				if (MALE)
-					return "himself"
-				if (FEMALE)
-					return "herself"
-				else
-					return "themselves"
-		if (SUBJECTIVE_PERSONAL)
-			switch(gender)
-				if (MALE)
-					return "he"
-				if (FEMALE)
-					return "she"
-				else
-					return "they"
-		if (OBJECTIVE_PERSONAL)
-			switch(gender)
-				if (MALE)
-					return "him"
-				if (FEMALE)
-					return "her"
-				else
-					return "them"
-
-		else
-			return "its"//Something went wrong
 
 #undef SAFE_PERP
 

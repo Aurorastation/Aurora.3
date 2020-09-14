@@ -70,9 +70,9 @@
 ///// Z-Level stuff
 //What number the make points to is in the define # at the top of construction.dm in same folder
 
-	user << browse("<HEAD><TITLE>[src]</TITLE></HEAD><TT>[dat]</TT>", "window=pipedispenser")
-	onclose(user, "pipedispenser")
-	return
+	var/datum/browser/pipedispenser_win = new(user, "pipedispenser", capitalize_first_letters(name), 220, 500)
+	pipedispenser_win.set_content(dat)
+	pipedispenser_win.open()
 
 /obj/machinery/pipedispenser/Topic(href, href_list)
 	if(..())

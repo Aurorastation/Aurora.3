@@ -240,17 +240,11 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		addtimer(shoot_cb, 1)
 		addtimer(shoot_cb, 4)
 		addtimer(shoot_cb, 6)
-
 	else
-		Shoot(target, src.loc, src)
-
-		if(casingtype)
-			new casingtype(get_turf(src))
-			playsound(src, "casing_drop", 50, 1)
+		shoot_wrapper(target, loc, src)
 
 	stance = HOSTILE_STANCE_IDLE
 	target_mob = null
-	return
 
 /mob/living/simple_animal/hostile/proc/check_fire(target_mob)
 	if(!target_mob)
@@ -272,8 +266,9 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 
 /mob/living/simple_animal/hostile/proc/shoot_wrapper(target, location, user)
 	Shoot(target, location, user)
-	if (casingtype)
+	if(casingtype)
 		new casingtype(loc)
+		playsound(src, /decl/sound_category/casing_drop_sound, 50, TRUE)
 
 /mob/living/simple_animal/hostile/proc/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
 	if(target == start)

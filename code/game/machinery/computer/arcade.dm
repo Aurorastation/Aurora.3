@@ -79,10 +79,9 @@
 	if(..())
 		return
 	user.set_machine(src)
-	var/dat = "<a href='byond://?src=\ref[src];close=1'>Close</a>"
-	dat += "<center><h4>[src.enemy_name]</h4></center>"
-
-	dat += "<br><center><h3>[src.temp]</h3></center>"
+	var/dat = ""
+	dat += "<center><h3>[src.enemy_name]</h3></center>"
+	dat += "<br><center><h2>[src.temp]</h2></center>"
 	dat += "<br><center>Health: [src.player_hp] | Magic: [src.player_mp] | Enemy Health: [src.enemy_hp]</center>"
 
 	dat += "<center><b>"
@@ -95,9 +94,9 @@
 
 	dat += "</b></center>"
 
-	user << browse(dat, "window=arcade")
-	onclose(user, "arcade")
-	return
+	var/datum/browser/arcade_win = new(user, "arcade", capitalize_first_letters(name))
+	arcade_win.set_content(dat)
+	arcade_win.open()
 
 /obj/machinery/computer/arcade/battle/Topic(href, href_list)
 	if(..())

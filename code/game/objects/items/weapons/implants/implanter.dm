@@ -9,7 +9,7 @@
 	item_state = "syringe_0"
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 320, MATERIAL_GLASS = 800)
 	var/obj/item/implant/imp = null
 
@@ -127,8 +127,11 @@
 		return
 	if(istype(A,/obj/item) && imp)
 		var/obj/item/implant/compressed/c = imp
+		if(istype(A,/obj/item/implant/compressed))
+			to_chat(user, SPAN_NOTICE("The implant is loaded into the implanter."))
+			return
 		if (c.scanned)
-			to_chat(user, "<span class='warning'>Something is already scanned inside the implant!</span>")
+			to_chat(user, SPAN_WARNING("Something is already scanned inside the implant!"))
 			return
 		c.scanned = A
 		if(istype(A.loc,/mob/living/carbon/human))

@@ -21,6 +21,10 @@
 	name = "Centcom Preparatory Wing"
 	ambience = AMBIENCE_ARRIVALS
 
+/area/centcom/start
+	name = "New Player Spawn"
+	dynamic_lighting = 0
+
 /area/centcom/evac
 	name = "Centcom Emergency Shuttle"
 

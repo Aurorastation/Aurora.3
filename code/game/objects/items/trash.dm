@@ -4,7 +4,7 @@
 //Added by Jack Rost
 /obj/item/trash
 	icon = 'icons/obj/trash.dmi'
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_food.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_food.dmi'
@@ -55,7 +55,7 @@
 /obj/item/trash/waffles
 	name = "square tray"
 	icon_state = "waffles"
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 
 /obj/item/trash/plate
 	name = "plate"
@@ -83,7 +83,7 @@
 /obj/item/trash/tray
 	name = "tray"
 	icon_state = "tray"
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 
 /obj/item/trash/candle
 	name = "candle"
@@ -119,7 +119,7 @@
 /obj/item/trash/brownies
 	name = "square tray"
 	icon_state = "brownies"
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 
 /obj/item/trash/snacktray
 	name = "snacktray"
@@ -166,7 +166,7 @@
 /obj/item/trash/grease //used for generic plattered food. example is lasagna.
 	name = "square tray"
 	icon_state = "grease"
-	drop_sound = 'sound/items/trayhit1.ogg'
+	drop_sound = /decl/sound_category/tray_hit_sound
 
 /obj/item/trash/cookiesnack
 	name = "\improper Carps Ahoy! miniature cookies"
@@ -208,3 +208,11 @@
 /obj/item/trash/diona_bites
 	name = "dionae bites"
 	icon_state = "dionaebitesempty"
+
+/obj/item/trash/ricetub
+	name = "empty rice tub"
+	icon_state = "ricetub"
+
+/obj/item/trash/seaweed
+	name = "empty moss pack"
+	icon_state = "seaweed"

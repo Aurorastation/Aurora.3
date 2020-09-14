@@ -16,7 +16,7 @@ BLIND     // can't see anything
 		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_glasses.dmi',
 		slot_r_hand_str = 'icons/mob/items/clothing/righthand_glasses.dmi'
 		)
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_EYES
 	body_parts_covered = EYES
 	var/vision_flags = 0
@@ -76,6 +76,13 @@ BLIND     // can't see anything
 	user.update_inv_l_hand(0)
 	user.update_inv_r_hand(1)
 
+/obj/item/clothing/glasses/proc/is_sec_hud()
+	return FALSE
+
+/obj/item/clothing/glasses/proc/is_med_hud()
+	return FALSE
+
+
 /obj/item/clothing/glasses/meson
 	name = "optical meson scanner"
 	desc = "Used for seeing walls, floors, and stuff through anything."
@@ -114,7 +121,6 @@ BLIND     // can't see anything
 
 	attack_self(usr)
 
-
 /obj/item/clothing/glasses/hud/health/aviator
 	name = "medical HUD aviators"
 	desc = "Modified aviator glasses with a toggled health HUD. Comes with bonus prescription overlay."
@@ -131,7 +137,6 @@ BLIND     // can't see anything
 	set src in usr
 
 	attack_self(usr)
-
 
 /obj/item/clothing/glasses/science
 	name = "science goggles"
@@ -178,7 +183,6 @@ BLIND     // can't see anything
 	set src in usr
 
 	attack_self(usr)
-
 
 /obj/item/clothing/glasses/safety
 	name = "safety glasses"
@@ -351,12 +355,16 @@ BLIND     // can't see anything
 	item_state = "circle_glasses"
 
 /obj/item/clothing/glasses/sunglasses
-	desc = "Strangely ancient technology used to help provide rudimentary eye cover. Enhanced shielding blocks many flashes."
 	name = "sunglasses"
+	desc = "Strangely ancient technology used to help provide rudimentary eye cover."
 	icon_state = "sun"
 	item_state = "sun"
 	darkness_view = -1
 	flash_protection = FLASH_PROTECTION_MODERATE
+
+/obj/item/clothing/glasses/sunglasses/Initialize()
+	. = ..()
+	desc += " Enhanced shielding blocks many flashes."
 
 /obj/item/clothing/glasses/sunglasses/aviator
 	name = "aviators"
@@ -364,6 +372,50 @@ BLIND     // can't see anything
 	icon_state = "aviator"
 	item_state = "aviator"
 	prescription = 1
+
+/obj/item/clothing/glasses/sunglasses/prescription
+	name = "prescription sunglasses"
+	prescription = 1
+
+/obj/item/clothing/glasses/sunglasses/prescription/Initialize()
+	. = ..()
+	desc += " Comes with built-in prescription lenses."
+
+/obj/item/clothing/glasses/sunglasses/big
+	icon_state = "bigsunglasses"
+	item_state = "sun"
+
+//For style with no powergaming connotations.
+
+/obj/item/clothing/glasses/fakesunglasses
+	name = "stylish sunglasses"
+	desc = "A pair of designer sunglasses."
+	icon_state = "sun"
+	item_state = "sun"
+	darkness_view = -1
+
+/obj/item/clothing/glasses/fakesunglasses/Initialize()
+	. = ..()
+	desc += " Doesn't seem like it'll block flashes."
+
+/obj/item/clothing/glasses/fakesunglasses/aviator
+	name = "stylish aviators"
+	desc = "A pair of designer sunglasses. They should put HUDs in these."
+	icon_state = "aviator"
+	item_state = "aviator"
+	prescription = 1
+
+/obj/item/clothing/glasses/fakesunglasses/prescription
+	name = "stylish prescription sunglasses"
+	prescription = 1
+
+/obj/item/clothing/glasses/fakesunglasses/prescription/Initialize()
+	. = ..()
+	desc += " Comes with built-in prescription lenses."
+
+/obj/item/clothing/glasses/fakesunglasses/big
+	icon_state = "bigsunglasses"
+	item_state = "sun"
 
 /obj/item/clothing/glasses/welding
 	name = "welding goggles"
@@ -433,33 +485,7 @@ BLIND     // can't see anything
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "tape_cross"
 	item_state = null
-	w_class = 1
-
-/obj/item/clothing/glasses/sunglasses/prescription
-	name = "prescription sunglasses"
-	prescription = 1
-
-/obj/item/clothing/glasses/sunglasses/big
-	desc = "Strangely ancient technology used to help provide rudimentary eye cover. Larger than average enhanced shielding blocks many flashes."
-	icon_state = "bigsunglasses"
-	item_state = "sun"
-
-/obj/item/clothing/glasses/fakesunglasses //Sunglasses without flash immunity
-	name = "stylish sunglasses"
-	desc = "A pair of designer sunglasses. Doesn't seem like it'll block flashes."
-	icon_state = "sun"
-	item_state = "sun"
-	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
-
-/obj/item/clothing/glasses/fakesunglasses/prescription
-	name = "stylish prescription sunglasses"
-	prescription = 1
-
-/obj/item/clothing/glasses/fakesunglasses/aviator
-	desc = "A pair of designer sunglasses. Doesn't seem like it'll block flashes. Comes with built-in prescription lenses."
-	icon_state = "aviator"
-	item_state = "aviator"
-	prescription = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/clothing/glasses/sunglasses/sechud
 	name = "HUDsunglasses"
@@ -470,6 +496,9 @@ BLIND     // can't see anything
 	. = ..()
 	src.hud = new/obj/item/clothing/glasses/hud/security(src)
 	return
+
+/obj/item/clothing/glasses/sunglasses/sechud/is_sec_hud()
+	return active
 
 /obj/item/clothing/glasses/sunglasses/sechud/tactical
 	name = "tactical HUD"
@@ -514,10 +543,12 @@ BLIND     // can't see anything
 		on = !on
 		if(on)
 			flash_protection = FLASH_PROTECTION_NONE
+			active = 1
 			src.hud = hud_holder
 			to_chat(user, "You switch \the [src] to HUD mode.")
 		else
 			flash_protection = initial(flash_protection)
+			active = 0
 			src.hud = null
 			to_chat(user, "You switch \the [src] to flash protection mode.")
 		update_icon()
@@ -601,7 +632,8 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/thermal/aviator
 	name = "aviators"
-	desc = "Modified aviator glasses with a toggled thermal-vision mode. Comes with bonus prescription overlay."
+	desc = "A pair of designer sunglasses. They should put HUDs in these."
+	desc_antag = "Modified aviator glasses with a toggled thermal-vision mode."
 	icon_state = "aviator_thr"
 	off_state = "aviator_off"
 	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
@@ -679,6 +711,9 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/eyepatch/hud/security/process_hud(var/mob/M)
 	process_sec_hud(M, 1)
 
+/obj/item/clothing/glasses/eyepatch/hud/security/is_sec_hud()
+	return active
+
 /obj/item/clothing/glasses/eyepatch/hud/medical
 	name = "MEDpatch"
 	desc = "A Medical-type heads-up display that connects directly to the optic nerve of the user, giving you information about a patient your department will likely ignore."
@@ -687,6 +722,9 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/eyepatch/hud/medical/process_hud(var/mob/M)
 	process_med_hud(M, 1)
+
+/obj/item/clothing/glasses/eyepatch/hud/medical/is_med_hud()
+	return active
 
 /obj/item/clothing/glasses/eyepatch/hud/meson
 	name = "MESpatch"

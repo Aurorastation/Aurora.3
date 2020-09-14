@@ -5,7 +5,7 @@
 	icon_state = "paper"
 	item_state = "paper"
 	throwforce = 0
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throw_range = 2
 	throw_speed = 1
 	layer = 4
@@ -78,7 +78,7 @@
 		if(istype(P, /obj/item/flame/lighter/zippo))
 			class = "rose>"
 
-		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
+		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like [user.get_pronoun("he")]'s trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 
 		spawn(20)
@@ -156,13 +156,13 @@
 			insert_sheet_at(usr, page+1, in_hand)
 		else if(page != pages.len)
 			page++
-			playsound(src.loc, "pageturn", 50, 1)
+			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
 	if(href_list["prev_page"])
 		if(in_hand && (istype(in_hand, /obj/item/paper) || istype(in_hand, /obj/item/photo)))
 			insert_sheet_at(usr, page, in_hand)
 		else if(page > 1)
 			page--
-			playsound(src.loc, "pageturn", 50, 1)
+			playsound(src.loc, /decl/sound_category/page_sound, 50, 1)
 	if(href_list["remove"])
 		var/obj/item/W = pages[page]
 		usr.put_in_hands(W)

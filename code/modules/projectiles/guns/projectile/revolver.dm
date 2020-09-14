@@ -118,7 +118,7 @@
 	icon_state = "derringer"
 	item_state = "derringer"
 	accuracy = -1
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 3)
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING

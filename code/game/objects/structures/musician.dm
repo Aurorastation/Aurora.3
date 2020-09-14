@@ -11,7 +11,7 @@
 	icon_state = "minimoog"
 	anchored = 1
 	density = 1
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	var/datum/song/song
 	var/playing = 0
 	var/help = 0

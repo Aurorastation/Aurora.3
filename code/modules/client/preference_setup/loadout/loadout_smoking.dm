@@ -20,6 +20,7 @@
 	zippolighters["solarian zippo"] = /obj/item/flame/lighter/zippo/sol
 	zippolighters["bieselite zippo"] = /obj/item/flame/lighter/zippo/tcfl
 	zippolighters["himeo zippo"] = /obj/item/flame/lighter/zippo/himeo
+	zippolighters["europan zippo"] = /obj/item/flame/lighter/zippo/europa
 	gear_tweaks += new/datum/gear_tweak/path(zippolighters)
 
 /datum/gear/smoking/lighter
@@ -41,7 +42,7 @@
 /datum/gear/smoking/cigarettes/New()
 	..()
 	var/cigarettes = list()
-	cigarettes["Lucky Strike cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/rugged
+	cigarettes["Laissez-Faires cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/rugged
 	cigarettes["Trans-Stellar Duty Free cigarette packet"] = /obj/item/storage/box/fancy/cigarettes
 	cigarettes["DromedaryCo cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dromedaryco
 	cigarettes["Nico-Tine cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/nicotine

@@ -70,7 +70,7 @@
 
 /datum/autolathe/recipe/bowl
 	name = "bowl"
-	path = /obj/item/reagent_containers/glass/beaker/bowl
+	path = /obj/item/reagent_containers/cooking_container/plate/bowl
 	category = "General"
 
 /datum/autolathe/recipe/crowbar

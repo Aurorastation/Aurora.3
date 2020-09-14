@@ -183,7 +183,7 @@
 
 
 /datum/reagent/nutriment/coating/batter
-	name = "batter mix"
+	name = "Batter Mix"
 	cooked_name = "batter"
 	color = "#f5f4e9"
 	reagent_state = LIQUID
@@ -193,7 +193,7 @@
 	taste_description = "batter"
 
 /datum/reagent/nutriment/coating/beerbatter
-	name = "beer batter mix"
+	name = "Beer Batter Mix"
 	cooked_name = "beer batter"
 	color = "#f5f4e9"
 	reagent_state = LIQUID
@@ -208,7 +208,7 @@
 
 //==============================
 /datum/reagent/nutriment/protein // Bad for Skrell!
-	name = "animal protein"
+	name = "Animal Protein"
 	color = "#440000"
 	blood_factor = 3
 	taste_description = "meat"
@@ -220,17 +220,17 @@
 	..()
 
 /datum/reagent/nutriment/protein/tofu //Good for Skrell!
-	name = "tofu protein"
+	name = "Tofu Protein"
 	color = "#fdffa8"
 	taste_description = "tofu"
 
 /datum/reagent/nutriment/protein/seafood // Good for Skrell!
-	name = "seafood protein"
+	name = "Seafood Protein"
 	color = "#f5f4e9"
 	taste_description = "fish"
 
 /datum/reagent/nutriment/protein/egg // Also bad for skrell.
-	name = "egg yolk"
+	name = "Egg Yolk"
 	color = "#FFFFAA"
 	taste_description = "egg"
 
@@ -241,14 +241,14 @@
 	..()
 
 /datum/reagent/nutriment/protein/cheese // Also bad for skrell.
-	name = "cheese"
+	name = "Cheese"
 	color = "#EDB91F"
 	taste_description = "cheese"
 
 //Fats
 //=========================
 /datum/reagent/nutriment/triglyceride
-	name = "triglyceride"
+	name = "Triglyceride"
 	description = "More commonly known as fat, the third macronutrient, with over double the energy content of carbs and protein"
 
 	reagent_state = SOLID
@@ -264,9 +264,9 @@
 	..()
 
 /datum/reagent/nutriment/triglyceride/oil
-	//Having this base class incase we want to add more variants of oil
+	//Having this base class in case we want to add more variants of oil
 	name = "Oil"
-	description = "Oils are liquid fats"
+	description = "Oils are liquid fats."
 	reagent_state = LIQUID
 	color = "#c79705"
 	touch_met = 1.5
@@ -277,45 +277,8 @@
 /datum/reagent/nutriment/triglyceride/oil/touch_turf(var/turf/simulated/T)
 	if(!istype(T))
 		return
-
-	/*
-	//Why should oil put out fires? Pondering removing this
-
-	var/hotspot = (locate(/obj/fire) in T)
-	if(hotspot && !istype(T, /turf/space))
-		var/datum/gas_mixture/lowertemp = T.remove_air(T:air:total_moles)
-		lowertemp.temperature = max(min(lowertemp.temperature-2000, lowertemp.temperature / 2), 0)
-		lowertemp.react()
-		T.assume_air(lowertemp)
-		qdel(hotspot)
-	*/
-
 	if(volume >= 3)
 		T.wet_floor(WET_TYPE_LUBE,volume)
-
-/datum/reagent/nutriment/triglyceride/oil/initialize_data(var/newdata) // Called when the reagent is created.
-	..()
-	if (!data)
-		data = list("temperature" = T20C)
-
-//Handles setting the temperature when oils are mixed
-/datum/reagent/nutriment/triglyceride/oil/mix_data(var/newdata, var/newamount)
-
-	if (!data)
-		data = list()
-
-	var/ouramount = volume - newamount
-	if (ouramount <= 0 || !data["temperature"] || !volume)
-		//If we get here, then this reagent has just been created, just copy the temperature exactly
-		data["temperature"] = newdata["temperature"]
-
-	else
-		//Our temperature is set to the mean of the two mixtures, taking volume into account
-		var/total = (data["temperature"] * ouramount) + (newdata["temperature"] * newamount)
-		data["temperature"] = total / volume
-
-	return ..()
-
 
 //Calculates a scaling factor for scalding damage, based on the temperature of the oil and creature's heat resistance
 /datum/reagent/nutriment/triglyceride/oil/proc/heatdamage(var/mob/living/carbon/M)
@@ -325,7 +288,7 @@
 		threshold = S.heat_level_1
 
 	//If temperature is too low to burn, return a factor of 0. no damage
-	if (data["temperature"] < threshold)
+	if (get_temperature() < threshold)
 		return 0
 
 	//Step = degrees above heat level 1 for 1.0 multiplier
@@ -333,7 +296,7 @@
 	if (S && istype(S))
 		step = (S.heat_level_2 - S.heat_level_1)*1.5
 
-	. = data["temperature"] - threshold
+	. = get_temperature() - threshold
 	. /= step
 	. = min(., 2.5)//Cap multiplier at 2.5
 
@@ -341,8 +304,8 @@
 	var/dfactor = heatdamage(M)
 	if (dfactor)
 		M.take_organ_damage(0, removed * 1.5 * dfactor)
-		data["temperature"] -= (6 * removed) / (1 + volume*0.1)//Cools off as it burns you
-		if (lastburnmessage+100 < world.time	)
+		set_temperature(get_temperature() - (6 * removed) / (1 + volume*0.1))//Cools off as it burns you
+		if (lastburnmessage+100 < world.time)
 			to_chat(M, SPAN_DANGER("Searing hot oil burns you, wash it off quick!"))
 			lastburnmessage = world.time
 
@@ -365,7 +328,7 @@
 	germ_adjust = 5
 
 /datum/reagent/nutriment/flour
-	name = "flour"
+	name = "Flour"
 	description = "This is what you rub all over yourself to pretend to be a ghost."
 	reagent_state = SOLID
 	nutriment_factor = 1
@@ -383,6 +346,12 @@
 
 		new /obj/effect/decal/cleanable/flour(T)
 
+/datum/reagent/nutriment/flour/nfrihi
+	name = "blizzard ear flour"
+	taste_description = "chalky starch"
+	color = "#DFDEA1"
+	condiment_name = "Adhomian flour sack"
+
 /datum/reagent/nutriment/coco
 	name = "Coco Powder"
 	description = "A fatty, bitter paste made from coco beans."
@@ -393,7 +362,7 @@
 	taste_mult = 1.3
 
 /datum/reagent/nutriment/soysauce
-	name = "Soysauce"
+	name = "Soy Sauce"
 	description = "A salty sauce made from the soy plant."
 	reagent_state = LIQUID
 	nutriment_factor = 2
@@ -478,6 +447,12 @@
 	M.adjustNutritionLoss(10*removed)
 	M.overeatduration = 0
 
+/datum/reagent/lipozine/overdose(var/mob/living/carbon/M, var/alien, var/removed)
+	M.adjustNutritionLoss(10*removed)
+	if(prob(2))
+		to_chat(M, SPAN_DANGER("You feel yourself wasting away."))
+		M.adjustHalLoss(10)
+
 /datum/reagent/nutriment/barbecue
 	name = "Barbecue Sauce"
 	description = "Barbecue sauce for barbecues and long shifts."
@@ -544,6 +519,7 @@
 	fallback_specific_heat = 1
 	condiment_name = "universal enzyme"
 	condiment_icon_state = "enzyme"
+	condiment_center_of_mass = list("x"=18, "y"=7)
 
 /datum/reagent/frostoil
 	name = "Frost Oil"
@@ -832,7 +808,7 @@
 	glass_desc = "A glass of sweet-sour lime juice"
 
 /datum/reagent/drink/orangejuice
-	name = "Orange juice"
+	name = "Orange Juice"
 	description = "Both delicious AND rich in Vitamin C, what more do you need?"
 	color = "#E78108"
 	taste_description = "oranges"
@@ -1461,7 +1437,7 @@
 	glass_center_of_mass = list("x"=15, "y"=9)
 
 /datum/reagent/drink/coffee/freddo_espresso
-	name = "Freddo espresso"
+	name = "Freddo Espresso"
 	description = "Espresso with ice cubes poured over ice."
 	color = "#664300" // rgb: 102, 67, 0
 	taste_description = "cold and bitter coffee"
@@ -1507,6 +1483,31 @@
 /datum/reagent/drink/coffee/latte/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	M.heal_organ_damage(0.1 * removed, 0)
+
+/datum/reagent/drink/coffee/latte/caramel
+	name = "Caramel Latte"
+	description = "A latte with caramel flavoring syrup added."
+	taste_description = "bitter caramel cream"
+
+	glass_icon_state = "caramel_latte"
+	glass_name = "glass of caramel latte"
+	glass_desc = "A latte with caramel syrup drizzled into it. Lovely!"
+/datum/reagent/drink/coffee/latte/mocha
+	name = "Mocha Latte"
+	description = "A latte with chocolate flavoring syrup added."
+	taste_description = "bitter chocolate cream"
+
+	glass_icon_state = "mocha_latte"
+	glass_name = "glass of chocolate latte"
+	glass_desc = "A latte with chocolate syrup drizzled into it. Lovely!"
+/datum/reagent/drink/coffee/latte/vanilla
+	name = "Vanilla Latte"
+	description = "A latte with vanilla flavoring syrup added."
+	taste_description = "bitter vanilla cream"
+
+	glass_icon_state = "caramel_latte"
+	glass_name = "glass of vanilla latte"
+	glass_desc = "A latte with vanilla syrup drizzled into it. Lovely!"
 
 /datum/reagent/drink/coffee/cappuccino
 	name = "Cappuccino"
@@ -1562,7 +1563,7 @@
 	glass_name = "glass of pumpkin spice frappe"
 	glass_desc = "A seasonal treat popular around the autumn times."
 
-/datum/reagent/drink/coffee/pslatte
+/datum/reagent/drink/coffee/latte/pumpkinspice
 	name = "Pumpkin Spice Latte"
 	description = "A seasonal drink favored in autumn."
 	color = "#9C6B19"
@@ -1771,6 +1772,7 @@
 	glass_icon_state  = "glass_brown"
 	glass_name = "glass of Space Cola"
 	glass_desc = "A glass of refreshing Space Cola"
+	glass_center_of_mass = list("x"=17, "y"=6)
 
 /datum/reagent/drink/spacemountainwind
 	name = "Mountain Wind"
@@ -1798,7 +1800,7 @@
 	glass_desc = "Dr. Gibb. Not as dangerous as the name might imply."
 
 /datum/reagent/drink/root_beer
-	name = "R&D Root Beer"
+	name = "RnD Root Beer"
 	description = "A classic Earth drink from the United Americas province."
 	color = "#211100"
 	adj_drowsy = -6
@@ -1806,8 +1808,8 @@
 	carbonated = TRUE
 
 	glass_icon_state = "root_beer_glass"
-	glass_name = "glass of R&D Root Beer"
-	glass_desc = "A glass of bubbly R&D Root Beer."
+	glass_name = "glass of RnD Root Beer"
+	glass_desc = "A glass of bubbly RnD Root Beer."
 
 /datum/reagent/drink/spaceup
 	name = "Space-Up"
@@ -2006,7 +2008,7 @@
 	glass_center_of_mass = list("x"=7, "y"=8)
 
 /datum/reagent/drink/toothpaste/kois_odyne
-	name = "Kois Odyne"
+	name = "K'ois Odyne"
 	description = "A favourite among the younger vaurca, born from an accident involving nanopaste and the repair of internal augments."
 	strength = 60
 	taste_description = "chalk"
@@ -2206,6 +2208,18 @@
 	glass_desc = "DAMN, THIS THING LOOKS ROBUST"
 	glass_center_of_mass = list("x"=15, "y"=7)
 
+/datum/reagent/alcohol/ethanol/makgeolli
+	name = "Makgeolli"
+	description = "A mild Konyanger sparkling rice wine."
+	color = "#664300"
+	strength = 15
+	taste_description = "creamy dry alcohol"
+
+	glass_icon_state = "makgeolliglass"
+	glass_name = "glass of makgeolli"
+	glass_desc = "A clear alcohol similar to sparkling wine, brewed from rice."
+	glass_center_of_mass = list("x"=16, "y"=12)
+
 /datum/reagent/alcohol/ethanol/melonliquor
 	name = "Melon Liquor"
 	description = "A relatively sweet and fruity 46 proof liquor."
@@ -2235,11 +2249,23 @@
 	description = "Anime's favorite drink."
 	color = "#664300"
 	strength = 20
-	taste_description = "dry alcohol"
+	taste_description = "mildly dry alcohol with a subtle sweetness"
 
-	glass_icon_state = "ginvodkaglass"
+	glass_icon_state = "sakeglass"
 	glass_name = "glass of sake"
 	glass_desc = "A glass of sake."
+	glass_center_of_mass = list("x"=16, "y"=12)
+
+/datum/reagent/alcohol/ethanol/soju
+	name = "Soju"
+	description = "A mild Konyanger spirit that is best described as rice vodka."
+	color = "#664300"
+	strength = 25
+	taste_description = "slightly dry alcohol with a subtle burn"
+
+	glass_icon_state = "sojuglass"
+	glass_name = "glass of soju"
+	glass_desc = "A clear alcohol similar to vodka, brewed from rice."
 	glass_center_of_mass = list("x"=16, "y"=12)
 
 /datum/reagent/alcohol/ethanol/tequila
@@ -2307,6 +2333,17 @@
 /datum/reagent/alcohol/ethanol/vodka/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	M.apply_effect(max(M.total_radiation - 1 * removed, 0), IRRADIATE, blocked = 0)
+
+/datum/reagent/alcohol/ethanol/vodka/mushroom
+	name = "Mushroom Vodka"
+	description = "A strong drink distilled from mushrooms grown in caves. Tastes like dissatisfaction."
+	color = "#0064C8" // rgb: 0, 100, 200
+	strength = 55
+	taste_description = "strong earthy alcohol"
+	glass_icon_state = "mushroomvodkaglass"
+	glass_name = "glass of mushroom vodka"
+	glass_desc = "The glass contain wodka made from mushrooms. Blyat."
+	glass_center_of_mass = list("x"=16, "y"=12)
 
 /datum/reagent/alcohol/ethanol/whiskey
 	name = "Whiskey"
@@ -2485,7 +2522,7 @@
 	glass_desc = "Heavy, hot and strong. Just like the Iron fist of the LAW."
 	glass_center_of_mass = list("x"=18, "y"=10)
 
-/datum/reagent/alcohol/ethanol/beepskysmash/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/alcohol/ethanol/beepsky_smash/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed)
 	..()
 	if(alien != IS_DIONA)
 		M.Stun(2)
@@ -4311,7 +4348,7 @@
 
 /datum/reagent/nutriment/pumpkinpulp
 	name = "Pumpkin Pulp"
-	description = "The gooey insides of a slain pumpkin"
+	description = "The gooey insides of a slain pumpkin. This day is the greatest..."
 	color = "#f9ab28"
 	taste_description = "gooey pumpkin"
 
@@ -4320,6 +4357,62 @@
 	description = "A delicious seasonal flavoring."
 	color = "#AE771C"
 	taste_description = "autumn bliss"
+
+/datum/reagent/drink/syrup_chocolate
+	name = "Chocolate Syrup"
+	description = "Thick chocolate syrup used to flavor drinks."
+	taste_description = "chocolate"
+	color = "#542a0c"
+
+	glass_name = "chocolate syrup"
+	glass_desc = "Thick chocolate syrup used to flavor drinks."
+
+/datum/reagent/drink/syrup_caramel
+	name = "Caramel Syrup"
+	description = "Thick caramel syrup used to flavor drinks."
+	taste_description = "caramel"
+	color = "#85461e"
+
+	glass_name = "caramel syrup"
+	glass_desc = "Thick caramel syrup used to flavor drinks."
+
+/datum/reagent/drink/syrup_vanilla
+	name = "Vanilla Syrup"
+	description = "Thick vanilla syrup used to flavor drinks."
+	taste_description = "vanilla"
+	color = "#f3e5ab"
+
+	glass_name = "vanilla syrup"
+	glass_desc = "Thick vanilla syrup used to flavor drinks."
+
+/datum/reagent/drink/syrup_pumpkin
+	name = "Pumpkin Spice Syrup"
+	description = "Thick spiced pumpkin syrup used to flavor drinks."
+	taste_description = "spiced pumpkin"
+	color = "#d88b4c"
+
+	glass_name = "pumpkin spice syrup"
+	glass_desc = "Thick spiced pumpkin syrup used to flavor drinks."
+
+/datum/reagent/drink/syrup_simple
+	name = "Simple Syrup"
+	description = "Thick, unflavored syrup used as a base for drinks or flavorings."
+	taste_description = "molasses"
+	color = "#ccccbb"
+	glass_name = "simple syrup"
+	glass_desc = "Thick, unflavored syrup used as a base for drinks or flavorings."
+
+/datum/reagent/nutriment/caramel
+	name = "Caramel Sugar"
+	reagent_state = SOLID
+	description = "Caramelised sugar, used in various recipes."
+	taste_description = "toasty sweetness"
+
+/datum/reagent/drink/caramel
+	name = "Caramel Sauce"
+	reagent_state = LIQUID
+	description = "A caramel-based sauce. Now you're caramel dancin'."
+	taste_description = "toasty sweet cream"
 
 /datum/reagent/diona_powder
 	name = "Dionae Powder"

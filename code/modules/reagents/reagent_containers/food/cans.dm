@@ -12,7 +12,7 @@
 /obj/item/reagent_containers/food/drinks/cans/attack(mob/living/M, mob/user, var/target_zone)
 	if(iscarbon(M) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
 		if(M == user)
-			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [user.get_pronoun(1)] forehead!"), SPAN_NOTICE("You crush the can of [src.name] on your forehead."))
+			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [user.get_pronoun("his")] forehead!"), SPAN_NOTICE("You crush the can of [src.name] on your forehead."))
 		else
 			user.visible_message(SPAN_WARNING("[user] crushes the can of [src.name] on [M]'s forehead!"), SPAN_NOTICE("You crush the can of [src.name] on [M]'s forehead."))
 		M.apply_damage(2,BRUTE,BP_HEAD) // ouch.
@@ -122,7 +122,7 @@
 	reagents_to_add = list(/datum/reagent/kois/clean = 10, /datum/reagent/toxin/phoron = 5)
 
 /obj/item/reagent_containers/food/drinks/cans/root_beer
-	name = "\improper R&D Root Beer"
+	name = "\improper RnD Root Beer"
 	desc = "A classic Earth drink from the United Americas province."
 	icon_state = "root_beer"
 	center_of_mass = list("x"=16, "y"=10)

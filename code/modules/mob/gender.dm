@@ -1,4 +1,3 @@
-
 var/list/datum/gender/gender_datums = list()
 
 /hook/startup/proc/populate_gender_datum_list()
@@ -14,11 +13,14 @@ var/list/datum/gender/gender_datums = list()
 	var/he   = "they"
 	var/His  = "Their"
 	var/his  = "their"
+	var/hers = "theirs" // used to disambiguate between possessive pronouns and possessive adjectives
+	var/Hers = "Theirs"
 	var/him  = "them"
 	var/has  = "have"
 	var/is   = "are"
 	var/does = "do"
-	var/self = "themselves"
+	var/himself = "themselves"
+	var/end = ""
 
 /datum/gender/male
 	key  = "male"
@@ -27,11 +29,14 @@ var/list/datum/gender/gender_datums = list()
 	he   = "he"
 	His  = "His"
 	his  = "his"
+	hers = "his"
+	Hers = "His"
 	him  = "him"
 	has  = "has"
 	is   = "is"
 	does = "does"
-	self = "himself"
+	himself = "himself"
+	end = "s"
 
 /datum/gender/female
 	key  = "female"
@@ -40,11 +45,14 @@ var/list/datum/gender/gender_datums = list()
 	he   = "she"
 	His  = "Her"
 	his  = "her"
+	hers = "hers"
+	Hers = "Hers"
 	him  = "her"
 	has  = "has"
 	is   = "is"
 	does = "does"
-	self = "herself"
+	himself = "herself"
+	end = "s"
 
 /datum/gender/neuter
 	key = "neuter"
@@ -53,8 +61,18 @@ var/list/datum/gender/gender_datums = list()
 	he   = "it"
 	His  = "Its"
 	his  = "its"
+	hers = "its"
+	Hers = "its"
 	him  = "it"
 	has  = "has"
 	is   = "is"
 	does = "does"
-	self = "itself"
+	himself = "itself"
+	end = "s"
+
+/atom/proc/get_gender() // This is on /atom/ for compatibility reasons, e.g. for emotes to not have to typecheck.
+	return gender
+
+/atom/proc/get_pronoun(var/wordtype)
+	var/gender_to_use = get_gender()
+	return gender_datums[gender_to_use][wordtype]

@@ -4,7 +4,7 @@
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "grey slime extract"
 	force = 1.0
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 6
@@ -161,30 +161,30 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "bottle19"
 
-	attack(mob/living/carbon/slime/M as mob, mob/user as mob)
-		if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
-			to_chat(user, SPAN_WARNING("The potion only works on slimes!"))
-			return ..()
-		if(M.stat)
-			to_chat(user, SPAN_WARNING("The slime is dead!"))
-			return ..()
-		if(M.mind)
-			to_chat(user, SPAN_WARNING("The slime resists!"))
-			return ..()
-		var/mob/living/simple_animal/adultslime/pet = new /mob/living/simple_animal/adultslime(M.loc)
-		pet.icon_state = "[M.colour] adult slime"
-		pet.icon_living = "[M.colour] adult slime"
-		pet.icon_dead = "[M.colour] baby slime dead"
-		pet.colour = "[M.colour]"
-		to_chat(user, "You feed the slime the potion, removing it's powers and calming it.")
-		qdel(M)
-		var/newname = sanitize(input(user, "Would you like to give the slime a name?", "Name your new pet", "pet slime") as null|text, MAX_NAME_LEN)
+/obj/item/slimepotion2/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
+	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
+		to_chat(user, SPAN_WARNING("The potion only works on slimes!"))
+		return ..()
+	if(M.stat)
+		to_chat(user, SPAN_WARNING("The slime is dead!"))
+		return ..()
+	if(M.mind)
+		to_chat(user, SPAN_WARNING("The slime resists!"))
+		return ..()
+	var/mob/living/simple_animal/adultslime/pet = new /mob/living/simple_animal/adultslime(M.loc)
+	pet.icon_state = "[M.colour] adult slime"
+	pet.icon_living = "[M.colour] adult slime"
+	pet.icon_dead = "[M.colour] baby slime dead"
+	pet.colour = "[M.colour]"
+	to_chat(user, "You feed the slime the potion, removing it's powers and calming it.")
+	qdel(M)
+	var/newname = sanitize(input(user, "Would you like to give the slime a name?", "Name your new pet", "pet slime") as null|text, MAX_NAME_LEN)
 
-		if(!newname)
-			newname = "pet slime"
-		pet.name = newname
-		pet.real_name = newname
-		qdel(src)
+	if(!newname)
+		newname = "pet slime"
+	pet.name = newname
+	pet.real_name = newname
+	qdel(src)
 
 /obj/item/slimesteroid
 	name = "slime steroid"

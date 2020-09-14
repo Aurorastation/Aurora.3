@@ -2167,7 +2167,7 @@ Follow by example and make good judgement based on length which list to include 
 		icon = 'icons/mob/human_face/tajara_hair.dmi'
 		name = "Tajaran Ears"
 		icon_state = "ears_plain"
-		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
+		species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/zombie/tajara)
 
 		taj_ears_bangs
 			name = "Tajara Bangs"
@@ -2252,6 +2252,98 @@ Follow by example and make good judgement based on length which list to include 
 		taj_ears_victory
 			name = "Tajara Victory Curls"
 			icon_state = "hair_victory"
+			chatname = "curls"
+
+//msai hair, longer ears
+	msai_ears
+		icon = 'icons/mob/human_face/msai_hair.dmi'
+		name = "M'sai Ears"
+		icon_state = "msai_plain"
+		species_allowed = list(/datum/species/tajaran/m_sai)
+
+		msai_ears_bangs
+			name = "M'sai Bangs"
+			icon_state = "msai_bangs"
+			chatname = "bangs"
+
+		msai_ears_bob
+			name = "M'sai Bob"
+			icon_state = "msai_bob"
+			chatname = "groomed short mane"
+
+		msai_ears_braid
+			name = "M'sai Braid"
+			icon_state = "msai_braid"
+			chatname = "braid"
+
+		msai_ears_clean
+			name = "M'sai Clean"
+			icon_state = "msai_clean"
+			chatname = "short mane"
+
+		msai_ears_curls
+			name = "M'sai Curly"
+			icon_state = "msai_curly"
+			chatname = "curly mane"
+
+		msai_ears_fingercurl
+			name = "M'sai Finger Curls"
+			icon_state = "msai_fingerwave"
+			chatname = "curls"
+
+		msai_ears_pompadour
+			name = "M'sai Greaser"
+			icon_state = "msai_greaser"
+			chatname = "pompadour"
+
+		msai_ears_housewife
+			name = "M'sai Housewife"
+			icon_state = "msai_housewife"
+			chatname = "long mane"
+
+		msai_ears_long
+			name = "M'sai Long"
+			icon_state = "msai_long"
+			chatname = "long mane"
+
+		msai_ears_messy
+			name = "M'sai Messy"
+			icon_state = "msai_messy"
+			chatname = "messy mane"
+
+		msai_ears_mohawk
+			name = "M'sai Mohawk"
+			icon_state = "msai_mohawk"
+			chatname = "mohawk"
+
+		msai_ears_plait
+			name = "M'sai Plait"
+			icon_state = "msai_plait"
+			chatname = "braid"
+
+		msai_ears_rattail
+			name = "M'sai Rat Tail"
+			icon_state = "msai_rattail"
+			chatname = "thin ponytail"
+
+		msai_ears_shaggy
+			name = "M'sai Shaggy"
+			icon_state = "msai_shaggy"
+			chatname = "messy mane"
+
+		msai_ears_straight
+			name = "M'sai Straight"
+			icon_state = "msai_straight"
+			chatname = "short mane"
+
+		msai_ears_spiky
+			name = "M'sai Spiky"
+			icon_state = "msai_spiky"
+			chatname = "spiky mane"
+
+		msai_ears_victory
+			name = "M'sai Victory Curls"
+			icon_state = "msai_victory"
 			chatname = "curls"
 
 //vox hair
@@ -2750,6 +2842,7 @@ Follow by example and make good judgement based on length which list to include 
 
 	una_paw_socks
 		name = "Socks Coloration (Unathi)"
+		icon = 'icons/mob/human_races/markings_unathi.dmi'
 		icon_state = "una_pawsocks"
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
 		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
@@ -2830,37 +2923,37 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Face Color"
 		icon_state = "una_face"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		icon = 'icons/mob/human_races/markings_unathi.dmi'
+		species_allowed = list(/datum/species/unathi, /datum/species/zombie/unathi)
 
-	una_facelow
-		name = "Face Color Low"
-		icon_state = "una_facelow"
-		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		paint
+			name = "Face Paint"
+			icon_state = "una_facepaint"
 
-	una_scutes
-		name = "Scutes"
-		icon_state = "una_scutes"
-		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		una_facelow
+			name = "Face Color Low"
+			icon_state = "una_facelow"
+			body_parts = list(BP_HEAD)
 
-	una_maswaist
-		name = "Masculine Waist (For Females)"
-		icon_state = "una_maswaist"
-		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		una_scutes
+			name = "Scutes"
+			icon_state = "una_scutes"
+			body_parts = list(BP_CHEST)
 
-	una_clawshand
-		name = "Claws (Hands)"
-		icon_state = "una_claws"
-		body_parts = list(BP_L_HAND,BP_R_HAND)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		una_maswaist
+			name = "Masculine Waist (For Females)"
+			icon_state = "una_maswaist"
+			body_parts = list(BP_CHEST)
 
-	una_clawsfoot
-		name = "Claws (Feet)"
-		icon_state = "una_claws"
-		body_parts = list(BP_L_FOOT,BP_R_FOOT)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		una_clawshand
+			name = "Claws (Hands)"
+			icon_state = "una_claws"
+			body_parts = list(BP_L_HAND,BP_R_HAND)
+
+		una_clawsfoot
+			name = "Claws (Feet)"
+			icon_state = "una_claws"
+			body_parts = list(BP_L_FOOT,BP_R_FOOT)
 
 	spelunker
 		name = "Spelunker"

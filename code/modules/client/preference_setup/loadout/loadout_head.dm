@@ -39,21 +39,12 @@
 	caps["grey cap"] = /obj/item/clothing/head/soft/grey
 	caps["white cap"] = /obj/item/clothing/head/soft/white
 	caps["flat cap"] = /obj/item/clothing/head/flatcap
-	caps["mailman cap"] = /obj/item/clothing/head/mailman
 	gear_tweaks += new/datum/gear_tweak/path(caps)
-
-/datum/gear/head/beret
-	display_name = "beret, red"
-	path = /obj/item/clothing/head/beret
 
 /datum/gear/head/beret/eng
 	display_name = "beret, engie-orange"
 	path = /obj/item/clothing/head/beret/engineering
 	allowed_roles = list("Station Engineer","Atmospheric Technician","Chief Engineer","Engineering Apprentice")
-
-/datum/gear/head/beret/purp
-	display_name = "beret, purple"
-	path = /obj/item/clothing/head/beret/purple
 
 /datum/gear/head/beret/color
 	display_name = "beret (colorable)"
@@ -65,15 +56,36 @@
 	path = /obj/item/clothing/head/beret/sec
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
 
-/datum/gear/head/beret/warden
-	display_name = "beret, security (warden)"
-	path = /obj/item/clothing/head/beret/sec/warden
-	allowed_roles = list("Head of Security", "Warden")
 
-/datum/gear/head/beret/hos
-	display_name = "beret, security (head of security)"
-	path = /obj/item/clothing/head/beret/sec/hos
+/datum/gear/head/warden
+	display_name = "headwear, security (warden)"
+	description = "A selection of warden headwear."
+	path = /obj/item/clothing/head
+	allowed_roles = list("Head of Security" , "Warden")
+
+/datum/gear/head/warden/New()
+	..()
+	var/wardenhead = list()
+	wardenhead["blue warden hat"] = /obj/item/clothing/head/warden
+	wardenhead["black warden hat"] = /obj/item/clothing/head/warden/alt
+	wardenhead["commissar's cap"] = /obj/item/clothing/head/warden/commissar
+	wardenhead["warden beret"] = /obj/item/clothing/head/beret/sec/warden
+	gear_tweaks += new/datum/gear_tweak/path(wardenhead)
+
+/datum/gear/head/hos
+	display_name = "headwear, security (head of security)"
+	description = "A selection of head of security headwear."
+	path = /obj/item/clothing/head
 	allowed_roles = list("Head of Security")
+
+/datum/gear/head/hos/New()
+	..()
+	var/hoshead = list()
+	hoshead["blue commander beret"] = /obj/item/clothing/head/beret/sec/hos
+	hoshead["black commander beret"] = /obj/item/clothing/head/beret/sec/hos/alt
+	hoshead["blue commander hat"] = /obj/item/clothing/head/hos/cap
+	hoshead["black commander hat"] = /obj/item/clothing/head/hos/cap/alt
+	gear_tweaks += new/datum/gear_tweak/path(hoshead)
 
 /datum/gear/head/beret/medical
 	display_name = "beret, medical"
@@ -125,6 +137,7 @@
 /datum/gear/head/pin
 	display_name = "pin selection"
 	path = /obj/item/clothing/head/pin
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/pin/New()
 	..()
@@ -215,11 +228,6 @@
 /datum/gear/head/beanie
 	display_name = "beanie"
 	path = /obj/item/clothing/head/beanie
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/head/loose_beanie
-	display_name = "loose beanie"
-	path = /obj/item/clothing/head/beanie_loose
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/nonla

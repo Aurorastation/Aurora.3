@@ -7,10 +7,11 @@
 	anchored = 1
 	density = 1
 	layer = ABOVE_CABLE_LAYER
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	var/state = 0
 	var/health = 200
 	var/cover = 50 //how much cover the girder provides against projectiles.
+	build_amt = 2
 	var/material/reinf_material
 	var/reinforcing = 0
 
@@ -264,11 +265,6 @@
 	state = 2
 	icon_state = "reinforced"
 	reinforcing = 0
-
-/obj/structure/girder/proc/dismantle()
-	new /obj/item/stack/material/steel(get_turf(src))
-	new /obj/item/stack/material/steel(get_turf(src))
-	qdel(src)
 
 /obj/structure/girder/attack_hand(mob/user as mob)
 	if (HULK in user.mutations)

@@ -11,7 +11,7 @@
 	icon = 'icons/obj/magnetic_locks.dmi'
 	icon_state = "inactive_CENTCOM"
 	//icon_state = "inactive"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	req_access = list(access_cent_specops)
 	health = 150
 
@@ -44,7 +44,7 @@
 /obj/item/device/magnetic_lock/security/legion
 	name = "legion magnetic door lock"
 	req_access = (access_legion)
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/device/magnetic_lock/security/legion/Initialize()
 	..()
@@ -124,7 +124,7 @@
 				locked = !locked
 				playsound(src, 'sound/machines/ping.ogg', 30, 1)
 				var/msg = "[I] through \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
-				var/pos_adj = "[user.name] swipes \his "
+				var/pos_adj = "[user.name] swipes [user.get_pronoun("his")] "
 				var/fp_adj = "You swipe your "
 				user.visible_message("<span class='warning'>[addtext(pos_adj, msg)]</span>", "<span class='notice'>[addtext(fp_adj, msg)]</span>")
 				update_icon()

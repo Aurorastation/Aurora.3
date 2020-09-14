@@ -104,9 +104,9 @@
 	//for use in material weapons. because tiles and stacks sound different. since cardboard baseball bats sound different from wooden ones and et cetera.
 	var/weapon_drop_sound = 'sound/items/drop/metalweapon.ogg'
 	var/weapon_pickup_sound = 'sound/items/pickup/metalweapon.ogg'
-	var/weapon_hitsound = "swing_hit"
+	var/weapon_hitsound = /decl/sound_category/swing_hit_sound
 
-	var/shatter_sound = "glass_break" //sound it makes when it breaks.
+	var/shatter_sound = /decl/sound_category/glass_break_sound //sound it makes when it breaks.
 
 /material/proc/build_rod_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
 	if(!rod_product)
@@ -232,6 +232,11 @@
 // Debris product. Used ALL THE TIME.
 /material/proc/place_sheet(var/turf/target)
 	if(stack_type)
+		for(var/obj/item/stack/S in target)
+			if(S.type == stack_type && S.amount < S.max_amount)
+				S.amount++
+				S.update_icon()
+				return S
 		return new stack_type(target)
 
 // As above.
@@ -395,7 +400,7 @@
 	return
 
 /material/diona/place_dismantled_girder(var/turf/target)
-	spawn_diona_nymph(target)
+	target.spawn_diona_nymph(target)
 
 /material/steel/holographic
 	name = "holo" + DEFAULT_WALL_MATERIAL
@@ -696,7 +701,7 @@
 	dooropen_noise = 'sound/effects/doorcreaky.ogg'
 	door_icon_base = "wood"
 	destruction_desc = "splinters"
-	shatter_sound = "shatter_wood"
+	shatter_sound = /decl/sound_category/wood_break_sound
 	sheet_singular_name = "plank"
 	sheet_plural_name = "planks"
 	golem = SPECIES_GOLEM_WOOD
@@ -706,7 +711,7 @@
 	weapon_drop_sound = 'sound/items/drop/woodweapon.ogg'
 	weapon_pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 	weapon_hitsound = 'sound/weapons/woodenhit.ogg'
-	shatter_sound = "wood_break"
+	shatter_sound = /decl/sound_category/wood_break_sound
 
 /material/wood/log //This is gonna replace wood planks in a  way for NBT, leaving it here for now
 	name = MATERIAL_WOOD_LOG
@@ -772,12 +777,11 @@
 	stack_origin_tech = list(TECH_MATERIAL = 1)
 	door_icon_base = "wood"
 	destruction_desc = "crumples"
-	shatter_sound = "shatter_cardboard"
+	shatter_sound = /decl/sound_category/cardboard_break_sound
 	golem = SPECIES_GOLEM_CARDBOARD
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	weapon_hitsound = 'sound/weapons/cardboardhit.ogg'
-	shatter_sound = "cardboard_break"
 
 /material/cult
 	name = MATERIAL_CULT
@@ -817,8 +821,11 @@
 /material/leather
 	name = MATERIAL_LEATHER
 	icon_colour = "#5C4831"
+	stack_type = /obj/item/stack/material/leather
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	flags = MATERIAL_PADDING
+	hardness = 1
+	weight = 1
 	ignition_point = T0C+300
 	melting_point = T0C+300
 	protectiveness = 3 // 13%
@@ -834,6 +841,8 @@
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	hardness = 1
+	weight = 1
 	golem = SPECIES_GOLEM_CLOTH
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
@@ -843,6 +852,9 @@
 	name = MATERIAL_CARPET
 	display_name = "comfy"
 	use_name = "red upholstery"
+	stack_type = /obj/item/stack/tile/carpet
+	hardness = 1
+	weight = 1
 	icon_colour = "#DA020A"
 	flags = MATERIAL_PADDING
 	ignition_point = T0C+232
@@ -864,6 +876,7 @@
 	protectiveness = 1 // 4%
 	flags = MATERIAL_PADDING
 	hardness = 1
+	weight = 1
 	golem = SPECIES_GOLEM_CLOTH
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'

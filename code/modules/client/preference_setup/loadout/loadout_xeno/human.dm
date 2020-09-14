@@ -13,7 +13,7 @@
 	display_name = "CR skirt"
 	path = /obj/item/clothing/under/skirt/offworlder
 
-/datum/gear/eyes/glasses/offworlder
+/datum/gear/eyes/starshades
 	display_name = "starshades"
 	path = /obj/item/clothing/glasses/spiffygogs/offworlder
 	whitelisted = list(SPECIES_HUMAN_OFFWORLD)

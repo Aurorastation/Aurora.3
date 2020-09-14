@@ -3,21 +3,21 @@
 /obj/item/device/laser_assembly/medium
 	name = "laser assembly (medium)"
 	base_icon_state = "medium"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	size = CHASSIS_MEDIUM
 	modifier_cap = 4
 
 /obj/item/device/laser_assembly/large
 	name = "laser assembly (large)"
 	base_icon_state = "large"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	size = CHASSIS_LARGE
 	modifier_cap = 5
 
 /obj/item/device/laser_assembly/admin
 	name = "laser assembly (obscene)"
 	base_icon_state = "large"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	size = CHASSIS_LARGE
 	modifier_cap = 25
 
@@ -314,7 +314,7 @@
 /obj/item/laser_components/modulator/tesla
 	name = "tesla modulator"
 	desc = "A modification that modulates the beam into a lethal electrical arc."
-	projectile = /obj/item/projectile/energy/tesla
+	projectile = /obj/item/projectile/beam/tesla
 	icon_state = "tesla"
 	firing_sound = 'sound/magic/LightningShock.ogg'
 

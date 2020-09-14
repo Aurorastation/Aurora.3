@@ -10,7 +10,7 @@
 	fire_sound = 'sound/magic/Staff_Change.ogg'
 	flags = CONDUCT
 	slot_flags = SLOT_BACK
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	max_shots = 1
 	projectile_type = /obj/item/projectile/change
 	origin_tech = list(TECH_COMBAT = 7, TECH_MAGNET = 5, TECH_BLUESPACE = 7)
@@ -99,7 +99,7 @@ obj/item/gun/energy/staff/animate/special_check(var/mob/living/user)
 		return 0
 	return 1
 
-obj/item/gun/energy/staff/focus
+/obj/item/gun/energy/staff/focus
 	name = "mental focus"
 	desc = "An artefact that channels the will of the user into destructive bolts of force. If you aren't careful with it, you might poke someone's brain out."
 	icon = 'icons/obj/guns/mental_focus.dmi'
@@ -114,7 +114,7 @@ obj/item/gun/energy/staff/focus/special_check(var/mob/living/user)
 		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this stave!</span>")
 		return 0
 	if(!user.is_wizard())
-		if(istype(user, /mob/living/carbon/human))
+		if(ishuman(user))
 			//Save the users active hand
 			var/mob/living/carbon/human/H = user
 			var/obj/item/organ/external/LA = H.get_organ(BP_L_ARM)
@@ -151,7 +151,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	item_state = "staffofchaos"
 	fire_sound = 'sound/magic/Staff_Chaos.ogg'
 	flags = CONDUCT
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	max_shots = 5
 	projectile_type = /obj/item/projectile/magic
 	var/list/possible_projectiles = list(/obj/item/projectile/magic, /obj/item/projectile/change, /obj/item/projectile/forcebolt,
@@ -186,7 +186,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	has_item_ratio = FALSE
 	fire_sound = 'sound/magic/wand.ogg'
 	slot_flags = SLOT_BELT
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	max_shots = 20
 	projectile_type = /obj/item/projectile/magic
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5, TECH_BLUESPACE = 6)

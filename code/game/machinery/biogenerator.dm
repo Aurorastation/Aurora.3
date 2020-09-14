@@ -578,7 +578,7 @@
 		else
 			points -= totake
 			use_power(totake * 0.25)
-			playsound(src.loc, "switchsounds", 50, 1)
+			playsound(src.loc, /decl/sound_category/switch_sound, 50, 1)
 			var/new_object = recipie_data["object"]
 			if(ispath(new_object, /obj/item/reagent_containers/pill))
 				if(!made_container)

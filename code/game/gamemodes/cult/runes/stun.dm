@@ -11,7 +11,7 @@
 
 /datum/rune/stun/proc/do_stun(mob/living/user, atom/movable/A, var/radius, var/is_rune)
 	user.say("Fuu ma'jin!")
-	for(var/mob/living/L in range(radius, A))
+	for(var/mob/living/L in range(radius, get_turf(A)))
 		if(iscultist(L))
 			continue
 		if(iscarbon(L))

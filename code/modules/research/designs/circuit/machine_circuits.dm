@@ -111,10 +111,10 @@
 	req_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	build_path = /obj/item/circuitboard/crystelpodconsole
 
-/datum/design/circuit/machine/microwave
-	name = "Microwave"
+/datum/design/circuit/machine/stove
+	name = "Stove"
 	req_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	build_path = /obj/item/circuitboard/microwave
+	build_path = /obj/item/circuitboard/stove
 
 /datum/design/circuit/machine/oven
 	name = "Oven"

@@ -76,7 +76,8 @@ export default {
           n: 'Safeties',
           et: 'Nominal',
           dt: 'Overridden',
-          d: true
+          d: true,
+          a: true
         },
         timing: {
           n: 'Timing',

@@ -170,7 +170,7 @@
 			if(emag_act(INFINITY, user, "<span class='danger'>The locker has been sliced open by [user] with \an [W]</span>!", "<span class='danger'>You hear metal being sliced and sparks flying.</span>"))
 				spark(src, 5)
 				playsound(loc, 'sound/weapons/blade.ogg', 50, 1)
-				playsound(loc, "sparks", 50, 1)
+				playsound(loc, /decl/sound_category/spark_sound, 50, 1)
 		else if(W.iswelder())
 			var/obj/item/weldingtool/WT = W
 			if(WT.isOn())

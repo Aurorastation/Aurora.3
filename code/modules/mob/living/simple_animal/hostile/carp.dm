@@ -106,7 +106,7 @@
 /mob/living/simple_animal/hostile/carp/russian/FindTarget()
     . = ..()
     if(.)
-        custom_emote(1,"spots a filthy capitalist!")
+        custom_emote(VISIBLE_MESSAGE,"spots a filthy capitalist!")
 
 /mob/living/simple_animal/hostile/carp/shark
 	name = "space shark"
