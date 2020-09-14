@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "The station blueprints now has a disorganized colour-coded wiring diagram for vending machines and airlocks."
