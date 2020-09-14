@@ -128,11 +128,11 @@
 	damage = 25
 
 /obj/item/projectile/bullet/pistol/strong
-	damage = 28
+	damage = 30
 	armor_penetration = 15
+
 /obj/item/projectile/bullet/pistol/revolver
-	damage = 28
-	armor_penetration = 15
+	damage = 30
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
