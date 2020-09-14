@@ -46,7 +46,11 @@
 
 	owner.last_special = world.time + 20
 
-/obj/item/organ/internal/eyes/night/take_internal_damage(var/damage, var/silent)
+/obj/item/organ/internal/eyes/night/take_damage(var/amount, var/silent = 0)
+	..()
+	disable_night_vision()
+
+/obj/item/organ/internal/eyes/night/take_internal_damage(var/amount, var/silent = 0)
 	..()
 	disable_night_vision()
 
