@@ -284,9 +284,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else
 		out += "<br><br>"
 
-	out += "</td><td><b>Preview</b><br>"
-	//. += "<div class='statusDisplay'><center><img src=previewicon.png width=[pref.preview_icon.Width()] height=[pref.preview_icon.Height()]></center></div>"
-	out += "<br><a href='?src=\ref[src];cycle_bg=1'>Cycle preview background</a>"
+	out += "</td><td><b>Preview</b>"
+	out += "<br><a href='?src=\ref[src];cycle_bg=1'>Cycle background</a>"
 	out += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a>"
 	out += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
 	out += "</td></tr></table>"
@@ -678,6 +677,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	else if(href_list["cycle_bg"])
 		pref.bgstate = next_in_list(pref.bgstate, pref.bgstate_options)
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["toggle_preview_value"])
+		pref.equip_preview_mob ^= text2num(href_list["toggle_preview_value"])
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	return ..()
