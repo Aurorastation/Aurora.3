@@ -1,5 +1,8 @@
 var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-")
 
+/datum/preferences
+	var/equip_preview_mob = EQUIP_PREVIEW_ALL
+
 /datum/category_item/player_setup_item/general/body
 	name = "Body"
 	sort_order = 3
@@ -195,7 +198,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	out += "<br>"
 	out += "Species: <a href='?src=\ref[src];show_species=1'>[pref.species]</a><br>"
 	out += "Blood Type: <a href='?src=\ref[src];blood_type=1'>[pref.b_type]</a><br>"
-	out += "<a href='?src=\ref[src];cycle_bg=1'>Cycle preview background</a><br>"
 	if(has_flag(mob_species, HAS_SKIN_TONE))
 		out += "Skin Tone: <a href='?src=\ref[src];skin_tone=1'>[-pref.s_tone + 35]/220</a><br>"
 	out += "Disabilities: <a href='?src=\ref[src];trait_add=1'>Adjust</a><br>"
@@ -281,6 +283,13 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		out += "\[...\]<br><br>"
 	else
 		out += "<br><br>"
+
+	out += "</td><td><b>Preview</b><br>"
+	//. += "<div class='statusDisplay'><center><img src=previewicon.png width=[pref.preview_icon.Width()] height=[pref.preview_icon.Height()]></center></div>"
+	out += "<br><a href='?src=\ref[src];cycle_bg=1'>Cycle preview background</a>"
+	out += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a>"
+	out += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
+	out += "</td></tr></table>"
 
 	out += "</td></tr></table><b>Hair</b><br>"
 	if(has_flag(mob_species, HAS_HAIR_COLOR))

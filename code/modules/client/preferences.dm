@@ -156,7 +156,7 @@ datum/preferences
 	var/savefile/loaded_preferences
 	var/savefile/loaded_character
 	var/datum/category_collection/player_setup_collection/player_setup
-
+	
 	var/bgstate = "000"
 	var/list/bgstate_options = list(
 		"fffff",
