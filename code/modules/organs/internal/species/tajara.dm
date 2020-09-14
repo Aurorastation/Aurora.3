@@ -68,6 +68,10 @@
 		return
 	if(night_vision)
 		return
+
+	for(var/obj/item/protection in list(owner.head, owner.wear_mask, owner.glasses))
+		if(!protection && !(protection.body_parts_covered & EYES))
+			owner.visible_message(SPAN_NOTICE("\The [owner]'s eyes dilate!"))
 	night_vision = TRUE
 	owner.stop_sight_update = TRUE
 	owner.see_invisible = SEE_INVISIBLE_NOLIGHTING
