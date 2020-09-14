@@ -619,6 +619,7 @@
 		to_chat(user, "The fire selector is set to [current_mode.name].")
 	if(has_safety)
 		to_chat(user, "The safety is [safety() ? "on" : "off"].")
+	return TRUE
 
 /obj/item/gun/proc/switch_firemodes()
 	if(!firemodes.len)

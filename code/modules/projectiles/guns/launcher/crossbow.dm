@@ -46,7 +46,7 @@
 
 /obj/item/arrow/rod/removed(mob/user)
 	if(throwforce == 15) // The rod has been superheated - we don't want it to be useable when removed from the bow.
-		to_chat(user, "[src] shatters into a scattering of unusable overstressed metal shards as it leaves the crossbow.")
+		to_chat(user, SPAN_WARNING("\The [src] shatters into a scattering of unusable overstressed metal shards as it leaves the crossbow."))
 		qdel(src)
 
 /obj/item/gun/launcher/crossbow
@@ -60,6 +60,7 @@
 	fire_delay = 25
 	slot_flags = SLOT_BACK
 	needspin = FALSE
+	has_safety = FALSE
 
 	var/obj/item/bolt
 	var/tension = 0                         // Current draw on the bow.
@@ -72,7 +73,7 @@
 /obj/item/gun/launcher/crossbow/update_release_force()
 	release_force = tension*release_speed
 
-/obj/item/gun/launcher/crossbow/consume_next_projectile(mob/user=null)
+/obj/item/gun/launcher/crossbow/consume_next_projectile(mob/user)
 	if(tension <= 0)
 		to_chat(user, "<span class='warning'>\The [src] is not drawn back!</span>")
 		return null
@@ -84,37 +85,39 @@
 	update_icon()
 	..()
 
-/obj/item/gun/launcher/crossbow/attack_self(mob/living/user as mob)
+/obj/item/gun/launcher/crossbow/attack_self(mob/living/user)
 	if(tension)
 		if(bolt)
-			user.visible_message("[user] relaxes the tension on [src]'s string and removes [bolt].","You relax the tension on [src]'s string and remove [bolt].")
+			user.visible_message("<b>[user]</b> relaxes the tension on \the [src]'s string and removes \the [bolt].", SPAN_NOTICE("You relax the tension on \the [src]'s string and remove \the [bolt]."))
+			playsound(loc, 'sound/weapons/holster/tactiholsterout.ogg', 50, FALSE)
 			bolt.forceMove(get_turf(src))
 			var/obj/item/arrow/A = bolt
 			bolt = null
 			A.removed(user)
 		else
-			user.visible_message("[user] relaxes the tension on [src]'s string.","You relax the tension on [src]'s string.")
+			user.visible_message("<b>[user]</b> relaxes the tension on \the [src]'s string.", SPAN_NOTICE("You relax the tension on \the [src]'s string."))
+			playsound(loc, 'sound/weapons/holster/tactiholsterout.ogg', 50, FALSE)
 		tension = 0
 		update_icon()
 	else
 		draw(user)
 
-/obj/item/gun/launcher/crossbow/proc/draw(var/mob/user as mob)
-
+/obj/item/gun/launcher/crossbow/proc/draw(var/mob/user)
 	if(!bolt)
-		to_chat(user, "You don't have anything nocked to [src].")
+		to_chat(user, SPAN_WARNING("You don't have anything nocked to \the [src]."))
 		return
 
 	if(user.restrained())
 		return
 
 	current_user = user
-	user.visible_message("[user] begins to draw back the string of [src].","<span class='notice'>You begin to draw back the string of [src].</span>")
+	user.visible_message("<b>[user]</b> begins to draw back the string of \the [src].", "<span class='notice'>You begin to draw back the string of \the [src].</span>")
 	tension = 1
 
 	while(bolt && tension && loc == current_user)
 		if(!do_after(user, draw_time)) //crossbow strings don't just magically pull back on their own.
-			user.visible_message("[usr] stops drawing and relaxes the string of [src].","<span class='warning'>You stop drawing back and relax the string of [src].</span>")
+			user.visible_message("<b>[user]</b> stops drawing and relaxes the string of \the [src].", "<span class='warning'>You stop drawing back and relax the string of \the [src].</span>")
+			playsound(loc, 'sound/weapons/holster/tactiholsterout.ogg', 50, FALSE)
 			tension = 0
 			update_icon()
 			return
@@ -128,33 +131,29 @@
 
 		if(tension >= max_tension)
 			tension = max_tension
-			to_chat(usr, "[src] clunks as you draw the string to its maximum tension!")
+			playsound(loc, 'sound/weapons/unjam.ogg', 50, FALSE)
+			to_chat(usr, SPAN_NOTICE("\The [src] clunks as you draw the string to its maximum tension!"))
 			return
 
-		user.visible_message("[usr] draws back the string of [src]!","<span class='notice'>You continue drawing back the string of [src]!</span>")
-
-/obj/item/gun/launcher/crossbow/proc/increase_tension(var/mob/user as mob)
-
-	if(!bolt || !tension || current_user != user) //Arrow has been fired, bow has been relaxed or user has changed.
-		return
-
+		user.visible_message("<b>[user]</b> draws back the string of \the [src]!", "<span class='notice'>You continue drawing back the string of \the [src]!</span>")
+		playsound(loc, 'sound/weapons/reload_clip.ogg', 50, FALSE)
 
 /obj/item/gun/launcher/crossbow/attackby(obj/item/W as obj, mob/user as mob)
 	if(!bolt)
-		if (istype(W,/obj/item/arrow))
+		if (istype(W, /obj/item/arrow))
 			user.drop_from_inventory(W, src)
 			bolt = W
-			user.visible_message("[user] slides [bolt] into [src].","You slide [bolt] into [src].")
+			user.visible_message("<b>[user]</b> slides \the [bolt] into \the [src].", SPAN_NOTICE("You slide \the [bolt] into \the [src]."))
 			update_icon()
 			return
-		else if(istype(W,/obj/item/stack/rods))
+		else if(istype(W, /obj/item/stack/rods))
 			var/obj/item/stack/rods/R = W
 			if (R.use(1))
 				bolt = new /obj/item/arrow/rod(src)
 				bolt.fingerprintslast = src.fingerprintslast
 				bolt.forceMove(src)
 				update_icon()
-				user.visible_message("[user] jams [bolt] into [src].","You jam [bolt] into [src].")
+				user.visible_message("<b>[user]</b> jams \the [bolt] into \the [src].", SPAN_NOTICE("You jam \the [bolt] into \the [src]."))
 				superheat_rod(user)
 			return
 
@@ -162,19 +161,22 @@
 		if(!cell)
 			user.drop_from_inventory(W, src)
 			cell = W
-			to_chat(user, "<span class='notice'>You jam [cell] into [src] and wire it to the firing coil.</span>")
+			to_chat(user, "<span class='notice'>You jam \the [cell] into \the [src] and wire it to the firing coil.</span>")
 			superheat_rod(user)
 		else
-			to_chat(user, "<span class='notice'>[src] already has a cell installed.</span>")
+			to_chat(user, "<span class='notice'>\The [src] already has a cell installed.</span>")
 
 	else if(W.isscrewdriver())
 		if(cell)
 			var/obj/item/C = cell
 			C.forceMove(get_turf(user))
-			to_chat(user, "<span class='notice'>You jimmy [cell] out of [src] with [W].</span>")
+			to_chat(user, "<span class='notice'>You jimmy \the [cell] out of \the [src] with \the [W].</span>")
 			cell = null
 		else
-			to_chat(user, "<span class='notice'>[src] doesn't have a cell installed.</span>")
+			to_chat(user, "<span class='notice'>\The [src] doesn't have a cell installed.</span>")
+
+	else if(istype(W, /obj/item/rfd))
+		W.attackby(src, user)
 
 	else
 		..()
@@ -189,7 +191,7 @@
 	if(!istype(bolt,/obj/item/arrow/rod))
 		return
 
-	to_chat(user, "<span class='warning'>[bolt] plinks and crackles as it begins to glow red-hot.</span>")
+	to_chat(user, "<span class='warning'>\The [bolt] plinks and crackles as it begins to glow red-hot.</span>")
 	bolt.throwforce = 15
 	bolt.icon_state = "metal-rod-superheated"
 	cell.use(500)
@@ -297,6 +299,7 @@
 	item_state = "rxb"
 	slot_flags = null
 	draw_time = 10
+	has_safety = FALSE
 	var/stored_matter = 0
 	var/max_stored_matter = 40
 	var/boltcost = 10
@@ -306,14 +309,17 @@
 		bolt = new/obj/item/arrow/RFD(src)
 		stored_matter -= boltcost
 		to_chat(user, "<span class='notice'>The RFD flashforges a new bolt!</span>")
+		playsound(loc, 'sound/weapons/kinetic_reload.ogg', 50, FALSE)
 		update_icon()
 	else
 		to_chat(user, "<span class='warning'>The \'Low Ammo\' light on the device blinks yellow.</span>")
+		playsound(loc, 'sound/items/rfd_empty.ogg', 50, FALSE)
 		flick("[icon_state]-empty", src)
 
 /obj/item/gun/launcher/crossbow/RFD/attack_self(mob/living/user as mob)
 	if(tension)
-		user.visible_message("[user] relaxes the tension on [src]'s string.","You relax the tension on [src]'s string.")
+		user.visible_message("<b>[user]</b> relaxes the tension on \the [src]'s string.", SPAN_NOTICE("You relax the tension on \the [src]'s string."))
+		playsound(loc, 'sound/weapons/holster/tactiholsterout.ogg', 50, FALSE)
 		tension = 0
 		update_icon()
 	else
@@ -328,7 +334,7 @@
 		stored_matter += 10
 		qdel(W)
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>The RFD now holds [stored_matter]/[max_stored_matter] matter-units.</span>")
+		to_chat(user, "<span class='notice'>The RFD now holds <b>[stored_matter]/[max_stored_matter]</b> matter-units.</span>")
 		update_icon()
 		return
 	if(istype(W, /obj/item/arrow/RFD))
@@ -339,7 +345,7 @@
 		stored_matter += 5
 		qdel(A)
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>Flashforged bolt reclaimed. The RXD now holds [stored_matter]/[max_stored_matter] matter-units.</span>")
+		to_chat(user, "<span class='notice'>Flashforged bolt reclaimed. The RXD now holds <b>[stored_matter]/[max_stored_matter]</b> matter-units.</span>")
 		update_icon()
 		return
 
@@ -362,6 +368,4 @@
 /obj/item/gun/launcher/crossbow/RFD/examine(var/user)
 	. = ..()
 	if(.)
-		if(get_dist(src, user) > 1)
-			return
-		to_chat(user, "It currently holds [stored_matter]/[max_stored_matter] matter-units.")
+		to_chat(user, "It currently holds <b>[stored_matter]/[max_stored_matter]</b> matter-units.")

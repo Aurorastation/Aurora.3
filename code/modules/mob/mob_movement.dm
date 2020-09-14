@@ -256,7 +256,8 @@
 						M.stop_pulling()
 
 		if(mob.pinned.len)
-			to_chat(src, "<span class='notice'>You're pinned to a wall by [mob.pinned[1]]!</span>")
+			to_chat(src, "<span class='warning'>You're pinned to a wall by [mob.pinned[1]]!</span>")
+			move_delay = world.time + 1 SECOND // prevent spam
 			return 0
 
 		move_delay = world.time - leftover//set move delay
