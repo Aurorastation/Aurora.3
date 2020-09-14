@@ -8,8 +8,8 @@
 	item_state = "bolt"
 	throwforce = 8
 	w_class = ITEMSIZE_NORMAL
-	sharp = 1
-	edge = 0
+	sharp = TRUE
+	edge = FALSE
 	drop_sound = 'sound/items/drop/sword.ogg'
 	pickup_sound = /decl/sound_category/sword_pickup_sound
 
@@ -19,8 +19,8 @@
 /obj/item/spike
 	name = "alloy spike"
 	desc = "It's about a foot of weird silver metal with a wicked point."
-	sharp = 1
-	edge = 0
+	sharp = TRUE
+	edge = FALSE
 	throwforce = 5
 	w_class = ITEMSIZE_SMALL
 	icon = 'icons/obj/weapons.dmi'
@@ -75,7 +75,7 @@
 
 /obj/item/gun/launcher/crossbow/consume_next_projectile(mob/user)
 	if(tension <= 0)
-		to_chat(user, "<span class='warning'>\The [src] is not drawn back!</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is not drawn back!"))
 		return null
 	return bolt
 
@@ -111,12 +111,12 @@
 		return
 
 	current_user = user
-	user.visible_message("<b>[user]</b> begins to draw back the string of \the [src].", "<span class='notice'>You begin to draw back the string of \the [src].</span>")
+	user.visible_message("<b>[user]</b> begins to draw back the string of \the [src].", SPAN_NOTICE("You begin to draw back the string of \the [src]."))
 	tension = 1
 
 	while(bolt && tension && loc == current_user)
 		if(!do_after(user, draw_time)) //crossbow strings don't just magically pull back on their own.
-			user.visible_message("<b>[user]</b> stops drawing and relaxes the string of \the [src].", "<span class='warning'>You stop drawing back and relax the string of \the [src].</span>")
+			user.visible_message("<b>[user]</b> stops drawing and relaxes the string of \the [src].", SPAN_WARNING("You stop drawing back and relax the string of \the [src]."))
 			playsound(loc, 'sound/weapons/holster/tactiholsterout.ogg', 50, FALSE)
 			tension = 0
 			update_icon()
@@ -135,7 +135,7 @@
 			to_chat(usr, SPAN_NOTICE("\The [src] clunks as you draw the string to its maximum tension!"))
 			return
 
-		user.visible_message("<b>[user]</b> draws back the string of \the [src]!", "<span class='notice'>You continue drawing back the string of \the [src]!</span>")
+		user.visible_message("<b>[user]</b> draws back the string of \the [src]!", SPAN_NOTICE("You continue drawing back the string of \the [src]!"))
 		playsound(loc, 'sound/weapons/reload_clip.ogg', 50, FALSE)
 
 /obj/item/gun/launcher/crossbow/attackby(obj/item/W as obj, mob/user as mob)
@@ -161,19 +161,19 @@
 		if(!cell)
 			user.drop_from_inventory(W, src)
 			cell = W
-			to_chat(user, "<span class='notice'>You jam \the [cell] into \the [src] and wire it to the firing coil.</span>")
+			to_chat(user, SPAN_NOTICE("You jam \the [cell] into \the [src] and wire it to the firing coil."))
 			superheat_rod(user)
 		else
-			to_chat(user, "<span class='notice'>\The [src] already has a cell installed.</span>")
+			to_chat(user, SPAN_NOTICE("\The [src] already has a cell installed."))
 
 	else if(W.isscrewdriver())
 		if(cell)
 			var/obj/item/C = cell
 			C.forceMove(get_turf(user))
-			to_chat(user, "<span class='notice'>You jimmy \the [cell] out of \the [src] with \the [W].</span>")
+			to_chat(user, SPAN_NOTICE("You jimmy \the [cell] out of \the [src] with \the [W]."))
 			cell = null
 		else
-			to_chat(user, "<span class='notice'>\The [src] doesn't have a cell installed.</span>")
+			to_chat(user, SPAN_NOTICE("\The [src] doesn't have a cell installed."))
 
 	else if(istype(W, /obj/item/rfd))
 		W.attackby(src, user)
@@ -191,7 +191,7 @@
 	if(!istype(bolt,/obj/item/arrow/rod))
 		return
 
-	to_chat(user, "<span class='warning'>\The [bolt] plinks and crackles as it begins to glow red-hot.</span>")
+	to_chat(user, SPAN_WARNING("\The [bolt] plinks and crackles as it begins to glow red-hot."))
 	bolt.throwforce = 15
 	bolt.icon_state = "metal-rod-superheated"
 	cell.use(500)
@@ -230,11 +230,11 @@
 		if(buildstate == 0)
 			var/obj/item/stack/rods/R = W
 			if(R.use(3))
-				to_chat(user, "<span class='notice'>You assemble a backbone of rods around the wooden stock.</span>")
+				to_chat(user, SPAN_NOTICE("You assemble a backbone of rods around the wooden stock."))
 				buildstate++
 				update_icon()
 			else
-				to_chat(user, "<span class='notice'>You need at least three rods to complete this task.</span>")
+				to_chat(user, SPAN_NOTICE("You need at least three rods to complete this task."))
 			return
 	else if(W.iswelder())
 		if(buildstate == 1)
@@ -242,7 +242,7 @@
 			if(T.remove_fuel(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
-				to_chat(user, "<span class='notice'>You weld the rods into place.</span>")
+				to_chat(user, SPAN_NOTICE("You weld the rods into place."))
 			buildstate++
 			update_icon()
 		return
@@ -250,33 +250,33 @@
 		var/obj/item/stack/cable_coil/C = W
 		if(buildstate == 2)
 			if(C.use(5))
-				to_chat(user, "<span class='notice'>You wire a crude cell mount into the top of the crossbow.</span>")
+				to_chat(user, SPAN_NOTICE("You wire a crude cell mount into the top of the crossbow."))
 				buildstate++
 				update_icon()
 			else
-				to_chat(user, "<span class='notice'>You need at least five segments of cable coil to complete this task.</span>")
+				to_chat(user, SPAN_NOTICE("You need at least five segments of cable coil to complete this task."))
 			return
 		else if(buildstate == 4)
 			if(C.use(5))
-				to_chat(user, "<span class='notice'>You string a steel cable across the crossbow's limbs.</span>")
+				to_chat(user, SPAN_NOTICE("You string a steel cable across the crossbow's limbs."))
 				buildstate++
 				update_icon()
 			else
-				to_chat(user, "<span class='notice'>You need at least five segments of cable coil to complete this task.</span>")
+				to_chat(user, SPAN_NOTICE("You need at least five segments of cable coil to complete this task."))
 			return
 	else if(istype(W,/obj/item/stack/material) && W.get_material_name() == MATERIAL_PLASTIC)
 		if(buildstate == 3)
 			var/obj/item/stack/material/P = W
 			if(P.use(3))
-				to_chat(user, "<span class='notice'>You assemble and install heavy plastic limbs onto the crossbow.</span>")
+				to_chat(user, SPAN_NOTICE("You assemble and install heavy plastic limbs onto the crossbow."))
 				buildstate++
 				update_icon()
 			else
-				to_chat(user, "<span class='notice'>You need at least three plastic sheets to complete this task.</span>")
+				to_chat(user, SPAN_NOTICE("You need at least three plastic sheets to complete this task."))
 			return
 	else if(W.isscrewdriver())
 		if(buildstate == 5)
-			to_chat(user, "<span class='notice'>You secure the crossbow's various parts.</span>")
+			to_chat(user, SPAN_NOTICE("You secure the crossbow's various parts."))
 			new /obj/item/gun/launcher/crossbow(get_turf(src))
 			qdel(src)
 		return
@@ -308,11 +308,11 @@
 	if(stored_matter >= boltcost && !bolt)
 		bolt = new/obj/item/arrow/RFD(src)
 		stored_matter -= boltcost
-		to_chat(user, "<span class='notice'>The RFD flashforges a new bolt!</span>")
+		to_chat(user, SPAN_NOTICE("The RFD flashforges a new bolt!"))
 		playsound(loc, 'sound/weapons/kinetic_reload.ogg', 50, FALSE)
 		update_icon()
 	else
-		to_chat(user, "<span class='warning'>The \'Low Ammo\' light on the device blinks yellow.</span>")
+		to_chat(user, SPAN_WARNING("The \'Low Ammo\' light on the device blinks yellow."))
 		playsound(loc, 'sound/items/rfd_empty.ogg', 50, FALSE)
 		flick("[icon_state]-empty", src)
 
@@ -329,23 +329,23 @@
 /obj/item/gun/launcher/crossbow/RFD/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/rfd_ammo))
 		if((stored_matter + 10) > max_stored_matter)
-			to_chat(user, "<span class='notice'>The RFD can't hold that many additional matter-units.</span>")
+			to_chat(user, SPAN_NOTICE("The RFD can't hold that many additional matter-units."))
 			return
 		stored_matter += 10
 		qdel(W)
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>The RFD now holds <b>[stored_matter]/[max_stored_matter]</b> matter-units.</span>")
+		to_chat(user, SPAN_NOTICE("The RFD now holds <b>[stored_matter]/[max_stored_matter]</b> matter-units."))
 		update_icon()
 		return
 	if(istype(W, /obj/item/arrow/RFD))
 		var/obj/item/arrow/RFD/A = W
 		if((stored_matter + 5) > max_stored_matter)
-			to_chat(user, "<span class='notice'>Unable to reclaim flashforged bolt. The RFD can't hold that many additional matter-units.</span>")
+			to_chat(user, SPAN_NOTICE("Unable to reclaim flashforged bolt. The RFD can't hold that many additional matter-units."))
 			return
 		stored_matter += 5
 		qdel(A)
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>Flashforged bolt reclaimed. The RXD now holds <b>[stored_matter]/[max_stored_matter]</b> matter-units.</span>")
+		to_chat(user, SPAN_NOTICE("Flashforged bolt reclaimed. The RXD now holds <b>[stored_matter]/[max_stored_matter]</b> matter-units."))
 		update_icon()
 		return
 

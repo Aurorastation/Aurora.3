@@ -54,7 +54,7 @@
 /obj/item/rfd/examine(var/mob/user)
 	..()
 	if(loc == user)
-		to_chat(usr, "It currently holds [stored_matter]/30 matter-units.")
+		to_chat(user, "It currently holds [stored_matter]/30 matter-units.")
 
 /obj/item/rfd/attack_self(mob/user)
 	//Change the mode
