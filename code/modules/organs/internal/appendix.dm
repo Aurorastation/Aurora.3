@@ -5,13 +5,13 @@
 	organ_tag = BP_APPENDIX
 	var/inflamed = 0
 
-/obj/item/organ/appendix/update_icon()
+/obj/item/organ/internal/appendix/update_icon()
 	..()
 	if(inflamed)
 		icon_state = "[icon_state]inflamed"
 		name = "inflamed [name]"
 
-/obj/item/organ/internal/appendix/Process()
+/obj/item/organ/internal/appendix/process()
 	..()
 	if(inflamed && owner)
 		inflamed++
