@@ -223,8 +223,6 @@
 		
 		if((equip_preview_mob & EQUIP_PREVIEW_LOADOUT) && !(previewJob && (equip_preview_mob & EQUIP_PREVIEW_JOB) && (previewJob.type == /datum/job/ai || previewJob.type == /datum/job/cyborg)))
 			SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
-			for(var/thing in leftovers)
-				message_admins("[thing]")
 			SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)
 
 		if((equip_preview_mob & EQUIP_PREVIEW_JOB) && previewJob)	
