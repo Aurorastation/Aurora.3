@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "You can now open the integrated circuit menu by clicking on your assembly with a multitool."
+  - rscadd: "The multitool no longer needs to be in your active hand to work on integrated circuits, but your active hand will take preference."
