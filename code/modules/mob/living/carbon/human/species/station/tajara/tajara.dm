@@ -100,6 +100,8 @@
 	hydration_loss_factor = 0.8
 	metabolism_mod = 0.8
 
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+
 /datum/species/tajaran/after_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	if(H.shoes)
