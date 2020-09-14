@@ -5,4 +5,3 @@ delete-after: True
 changes: 
   - rscadd: "Head of personnel's miniature disruptor pistol has been replaced by a regular disruptor pistol."
   - rscadd: "Detective's disruptor pistol has been replaced by a miniature disruptor pistol."
-  - rscadd: "Captain and head of security disruptor pistols have been replaced by a magnum disruptor pistol."
