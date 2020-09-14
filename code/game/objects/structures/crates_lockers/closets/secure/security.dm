@@ -29,7 +29,7 @@
 	new /obj/item/device/radio/headset/heads/captain(src)
 	new /obj/item/device/radio/headset/heads/captain/alt(src)
 	new /obj/item/cartridge/captain(src)
-	new /obj/item/gun/energy/disruptorpistol/magnum(src)
+	new /obj/item/gun/energy/disruptorpistol(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/melee/telebaton(src)
 	// acting captain briefcase
@@ -148,7 +148,7 @@
 	new /obj/item/shield/riot/tact(src)
 	new /obj/item/melee/baton/loaded(src)
 	new /obj/item/melee/telebaton(src)
-	new /obj/item/gun/energy/disruptorpistol/magnum(src)
+	new /obj/item/gun/energy/disruptorpistol(src)
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/device/holowarrant(src)
