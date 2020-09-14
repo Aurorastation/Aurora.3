@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Various HTML UIs have been altered to take style into account, many of them should look better across the board."

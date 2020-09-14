@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "Tank dispensers now apply stylesheets to the UI, so it should look a bit better now."
-  - rscadd: "Tank dispensers output tanks into one of your open hands, if possible."
