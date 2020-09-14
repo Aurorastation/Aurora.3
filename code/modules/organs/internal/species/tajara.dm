@@ -1,6 +1,6 @@
 /obj/item/organ/internal/eyes/night
 	name = "light sensitive eyes"
-	desc = "Tajaran eyes adapted to low light conditions of Adhomai."
+	desc = "A pair of Tajaran eyes accustomed to the low light conditions of Adhomai."
 	icon_state = "tajaran_eyes"
 	action_button_name = "Activate Low Light Vision"
 	relative_size = 8
@@ -46,6 +46,10 @@
 
 	owner.last_special = world.time + 20
 
+/obj/item/organ/internal/eyes/night/take_internal_damage(var/damage, var/silent)
+	..()
+	disable_night_vision()
+
 /obj/item/organ/internal/eyes/night/flash_act()
 	if(!owner)
 		return
@@ -76,21 +80,21 @@
 
 /obj/item/organ/internal/stomach/tajara
 	name = "reinforced stomach"
-	desc = "A robust stomach adapted to aid in the conservation of energy by the body."
+	desc = "A Tajara stomach adapted to help the body conserve energy during digestion."
 	icon_state = "tajaran_stomach"
 	stomach_volume = 80
 
 /obj/item/organ/internal/lungs/tajara
 	name = "insulated lungs"
-	desc = "Tajaran lungs adapted to withstand the cold air of Adhomai."
+	desc = "A pair of Tajaran lungs that help preserve the warmth of the air while breathing."
 	icon_state = "tajaran_lungs"
 
 /obj/item/organ/internal/liver/tajara
-	desc = "An alien liver adapted to handle Adhomian toxins and other chemicals."
+	desc = "An alien liver capable of filtering Adhomian toxins and chemicals."
 	icon_state = "tajaran_liver"
 
 /obj/item/organ/internal/heart/tajara
-	desc = "A robust heart adapted to aid in the conservation of body temperature."
+	desc = "A robust heart capable of helping to preserve body temperature through blood circulation."
 	icon_state = "tajaran_heart"
 
 /obj/item/organ/internal/kidneys/tajara
@@ -103,4 +107,4 @@
 /obj/item/organ/internal/appendix/tajara
 	name = "fat reservoir"
 	icon_state = "tajaran_appendix"
-	desc = "A Tajara organ able to store fat and nutrients for further use during the winter."
+	desc = "An Adhomian organ that stores fat and nutrients for the winter."
