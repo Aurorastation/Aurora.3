@@ -112,13 +112,13 @@
 			for (var/A in giver.access)
 				var/area = get_access_desc(A)
 				if (A in accesses)
-					area = "<b>[area]</b>"
+					area = "<span style='color:#00dd12'>[area]</span>"
 				dat += "<a href='?src=\ref[src];choice=access;access=[A]'>[area]</a><br>"
 		dat += "<br><a href='?src=\ref[src];action=issue'>Issue pass</a><br>"
 
-	user << browse(dat, "window=guestpass;size=400x520")
-	onclose(user, "guestpass")
-
+	var/datum/browser/guestpass_win = new(user, "guestpass", capitalize_first_letters(name), 400, 520)
+	guestpass_win.set_content(dat)
+	guestpass_win.open()
 
 /obj/machinery/computer/guestpass/Topic(href, href_list)
 	if(..())

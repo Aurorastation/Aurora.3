@@ -83,8 +83,10 @@
 	text += "<br><a href='?src=\ref[src];action=vending_wires'>View Vending Machine Wire Schema</a><br>"
 
 	text += "</BODY></HTML>"
-	usr << browse(text, "window=blueprints")
-	onclose(usr, "blueprints")
+
+	var/datum/browser/blueprints_win = new(usr, "blueprints", capitalize_first_letters(name))
+	blueprints_win.set_content(text)
+	blueprints_win.open()
 
 
 /obj/item/blueprints/proc/get_area()
