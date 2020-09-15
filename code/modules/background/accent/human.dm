@@ -144,3 +144,10 @@
 	Those with these accents are almost universally looked down upon as wild savages by their counterparts in more civilized space at best. Speakers of this accent are almost always found in lower-end \
 	positions in civilized space, due to the typically impoverished and anarchic nature of the Deep Frontier."
 	tag_icon = "deepfrontier"
+
+/datum/accent/fisanduh
+	name = ACCENT_FISANDUH
+	description = "While it is similar to the typical Morozian accent, to those not familiar with it; or not from the Empire of Dominia, the standard Fisanduhian accent has some variations that mark it as distinctive. \
+	The accent is higher pitched than its Dominian counterpart, and has been described as more tonal. Members of the Fisanduh Freedom Front will often go to great lengths to disguise this accent, \
+	though most will slip back into it when off-world."
+	tag_icon = "fisanduh"

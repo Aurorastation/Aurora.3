@@ -305,9 +305,16 @@
 	gear_tweaks += new/datum/gear_tweak/path(cardigan)
 
 /datum/gear/suit/himeo
-	display_name = "himean coat"
+	display_name = "himean coat selection"
 	path = /obj/item/clothing/suit/storage/toggle/himeo
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/himeo/New()
+	..()
+	var/coat = list()
+	coat["brown himean bekesha"] = /obj/item/clothing/suit/storage/toggle/himeo
+	coat["grey himean bekesha"] = /obj/item/clothing/suit/storage/toggle/himeo/grey
+	gear_tweaks += new/datum/gear_tweak/path(coat)
 
 /datum/gear/suit/vysoka
 	display_name = "chokha selection"

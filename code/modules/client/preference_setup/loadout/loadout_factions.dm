@@ -18,6 +18,11 @@
 	slot = slot_wear_suit
 	faction = "Idris Incorporated"
 
+/datum/gear/faction/idris_armband
+	display_name = "idris armband"
+	path = /obj/item/clothing/head/beret/sec/idris
+	faction = "Idris Incorporated"
+
 /datum/gear/faction/zavodskoi_beret
 	display_name = "brown zavodskoi beret"
 	path = /obj/item/clothing/head/beret/sec/zavodskoi
