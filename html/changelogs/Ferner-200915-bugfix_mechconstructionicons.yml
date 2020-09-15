@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes: 
+  - bugfix: "Mechs constructed from the ground up now layer its parts correctly."
