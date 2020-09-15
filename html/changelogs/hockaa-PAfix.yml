@@ -1,6 +1,0 @@
-author: Hocka
-
-delete-after: True
-
-changes: 
-  - bugfix: "Admin logs now state accurate user information when Particle Accelerators are activated via wire pulsing/mending."
