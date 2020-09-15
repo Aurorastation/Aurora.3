@@ -40,7 +40,6 @@
 	var/list/accessory_contents = list()
 	var/list/belt_contents = list() //In the list(path=count,otherpath=count) format
 	var/list/implants = null //A list of implants that should be implanted
-	var/spell_level
 	var/list/spells = list() // A list of spells to grant
 
 /datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -217,8 +216,8 @@
 			for(var/spell in spells)
 				var/spell/new_spell = new spell
 				H.add_spell(new_spell)
-				if(spell_level)
-					for(var/i = 1 to spell_level)
+				if(spells[spell] > 1)
+					for(var/i = 1 to spells[spell])
 						new_spell.empower_spell()
 
 	H.update_body()

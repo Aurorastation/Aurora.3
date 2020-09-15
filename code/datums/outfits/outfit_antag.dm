@@ -555,7 +555,6 @@
 	r_pocket = null
 	id = /obj/item/storage/wallet/random
 
-	spell_level = 2
 	accessory = /obj/item/clothing/accessory/storage/webbing
 	backpack_contents = list()
 
@@ -569,36 +568,36 @@
 			head = /obj/item/clothing/head/wizard/nature
 			suit = /obj/item/clothing/suit/wizrobe/nature
 			suit_accessory = /obj/item/clothing/accessory/poncho/nature
-			spells = list(/spell/targeted/heal_target/major, /spell/targeted/entangle, /spell/aoe_turf/conjure/grove/sanctuary)
+			spells = list(/spell/targeted/heal_target/major = 2, /spell/targeted/entangle = 2, /spell/aoe_turf/conjure/grove/sanctuary = 2)
 		if("Techno")
 			head = /obj/item/clothing/head/wizard/techno
 			suit = /obj/item/clothing/suit/wizrobe/techno
 			uniform = /obj/item/clothing/under/techo
 			shoes = /obj/item/clothing/shoes/techno
-			spells = list(/spell/aoe_turf/knock, /spell/aoe_turf/conjure/forcewall, /spell/aoe_turf/disable_tech)
+			spells = list(/spell/aoe_turf/knock = 2, /spell/aoe_turf/conjure/forcewall = 2, /spell/aoe_turf/disable_tech = 2)
 		if("Cobra")
 			head = /obj/item/clothing/head/wizard/cobra
 			suit = /obj/item/clothing/suit/wizrobe/cobra
 			shoes = /obj/item/clothing/shoes/hitops/red
-			spells = list(/spell/targeted/mend, /spell/targeted/life_steal, /spell/aoe_turf/conjure/soulstone)
+			spells = list(/spell/targeted/mend = 2, /spell/targeted/life_steal = 2, /spell/aoe_turf/conjure/soulstone = 2)
 		if("Brawler")
 			head = /obj/item/clothing/head/wizard/brawler
 			suit = /obj/item/clothing/suit/wizrobe/brawler
 			shoes = /obj/item/clothing/shoes/caligae
-			spells = list(/spell/targeted/projectile/dumbfire/passage, /spell/targeted/equip_item/shield, /spell/targeted/torment)
+			spells = list(/spell/targeted/projectile/dumbfire/passage = 2, /spell/targeted/equip_item/shield = 2, /spell/targeted/torment = 2)
 		if("Shimmer")
 			head = /obj/item/clothing/head/wizard/shimmer
 			suit = /obj/item/clothing/suit/wizrobe/shimmer
-			spells = list(/spell/radiant_aura, /spell/targeted/projectile/dumbfire/stuncuff, /spell/aoe_turf/conjure/golem)
+			spells = list(/spell/radiant_aura = 2, /spell/targeted/projectile/dumbfire/stuncuff = 2, /spell/aoe_turf/conjure/golem = 2)
 		if("Storm")
 			head = /obj/item/clothing/head/wizard/storm
 			suit = /obj/item/clothing/suit/wizrobe/storm
 			shoes = /obj/item/clothing/shoes/heels
-			spells = list(/spell/targeted/projectile/magic_missile, /spell/targeted/genetic/blind, /spell/targeted/shapeshift/avian)
+			spells = list(/spell/targeted/projectile/magic_missile = 2, /spell/targeted/genetic/blind = 2, /spell/targeted/shapeshift/avian = 2)
 		if("Sorceress")
 			head = /obj/item/clothing/head/wizard/sorceress
 			suit = /obj/item/clothing/suit/wizrobe/sorceress
-			spells = list(/spell/targeted/projectile/dumbfire/fireball, /spell/aoe_turf/conjure/creature, /spell/shadow_shroud)
+			spells = list(/spell/targeted/projectile/dumbfire/fireball = 2, /spell/aoe_turf/conjure/creature = 2, /spell/shadow_shroud = 2)
 	return ..()
 
 /datum/outfit/admin/syndicate/raider_mage/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
