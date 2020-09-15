@@ -59,8 +59,11 @@
 	var/list/installed_modules = list()                       // Power consumption/use bookkeeping.
 
 	// Rig status vars.
-	var/open = 0                                              // Access panel status.
-	var/locked = 1                                            // Lock status.
+	var/open = FALSE                                              // Access panel status.
+	var/locked = TRUE                                            // Lock status.
+	var/lock_broken = FALSE
+	var/lock_health = 50
+
 	var/dnaLock                                               // To whom do we belong?
 	var/crushing = FALSE                                      // Are we crushing the occupant to death?
 	var/subverted = 0
@@ -100,7 +103,10 @@
 			to_chat(usr, "\icon[piece] \The [piece] [piece.gender == PLURAL ? "are" : "is"] deployed.")
 
 	if(src.loc == usr)
-		to_chat(usr, "The maintenance panel is [open ? "open" : "closed"].")
+		var/maint_panel_status = open ? "open" : "closed"
+		if(lock_broken)
+			maint_panel_status = "blown open"
+		to_chat(usr, "The maintenance panel is [maint_panel_status].")
 		to_chat(usr, "Hardsuit systems are [offline ? "<font color='red'>offline</font>" : "<font color='green'>online</font>"].")
 
 /obj/item/rig/Initialize()
@@ -110,7 +116,7 @@
 	wires = new(src)
 
 	if(!LAZYLEN(req_access) && !LAZYLEN(req_one_access))
-		locked = 0
+		locked = FALSE
 
 	spark_system = bind_spark(src, 5)
 
@@ -597,7 +603,10 @@
 		ai_override_enabled = !ai_override_enabled
 		notify_ai("Synthetic suit control has been [ai_override_enabled ? "enabled" : "disabled"].")
 	else if(href_list["toggle_suit_lock"])
-		locked = !locked
+		if(lock_broken)
+			to_chat(usr, SPAN_WARNING("\The [src]'s lock is broken!"))
+		else
+			locked = !locked
 
 	user.set_machine(src)
 	src.add_fingerprint(user)

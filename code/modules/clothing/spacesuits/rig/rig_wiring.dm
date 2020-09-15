@@ -16,7 +16,6 @@
  */
 
 /datum/wires/rig/UpdateCut(var/index, var/mended)
-
 	var/obj/item/rig/rig = holder
 	switch(index)
 		if(RIG_SECURITY)
@@ -25,6 +24,7 @@
 				rig.req_one_access = initial(rig.req_one_access)
 		if(RIG_INTERFACE_SHOCK)
 			rig.electrified = mended ? 0 : -1
+			spark(get_turf(src), 3, alldirs)
 			rig.shock(usr,100)
 		if(RIG_SYSTEM_CONTROL)
 			if(mended)
@@ -35,7 +35,6 @@
 				rig.malfunction_delay = 10000000000
 
 /datum/wires/rig/UpdatePulsed(var/index)
-
 	var/obj/item/rig/rig = holder
 	switch(index)
 		if(RIG_SECURITY)
@@ -48,17 +47,25 @@
 			rig.malfunctioning += 10
 			if(rig.malfunction_delay <= 0)
 				rig.malfunction_delay = 20
-			rig.shock(usr,100)
+			rig.shock(usr, 100)
 		if(RIG_INTERFACE_LOCK)
 			rig.interface_locked = !rig.interface_locked
 			rig.visible_message("\The [rig] clicks audibly as the software interface [rig.interface_locked?"darkens":"brightens"].")
 		if(RIG_INTERFACE_SHOCK)
 			if(rig.electrified != -1)
 				rig.electrified = 30
-			rig.shock(usr,100)
+			spark(get_turf(src), 3, alldirs)
+			rig.shock(usr, 100)
+
+/datum/wires/rig/GetInteractWindow()
+	var/obj/item/rig/rig = holder
+	. += ..()
+	. += "The cyan light is [rig.security_check_enabled ? "off" : "blinking"].<br>"
+	. += "The red light is [rig.ai_override_enabled ? "off" : "on"].<br>"
+	. += "The software interface is [rig.interface_locked ? "dark" : "bright"].<br>"
 
 /datum/wires/rig/CanUse(var/mob/living/L)
 	var/obj/item/rig/rig = holder
 	if(rig.open)
-		return 1
-	return 0
+		return TRUE
+	return FALSE

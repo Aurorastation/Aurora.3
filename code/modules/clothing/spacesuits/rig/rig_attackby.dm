@@ -1,25 +1,29 @@
-/obj/item/rig/attackby(obj/item/W as obj, mob/user as mob)
-
-	if(!istype(user,/mob/living)) return 0
+/obj/item/rig/attackby(obj/item/W, mob/user)
+	if(!istype(user,/mob/living))
+		return FALSE
 
 	if(electrified != 0)
 		if(shock(user)) //Handles removing charge from the cell, as well. No need to do that here.
 			return
 
 	// Pass repair items on to the chestpiece.
-	if(chest && (istype(W,/obj/item/stack/material) || W.iswelder()))
+	if(chest && (istype(W, /obj/item/stack/material) || W.iswelder()))
 		return chest.attackby(W,user)
 
 	// Lock or unlock the access panel.
 	if(W.GetID())
 		if(subverted)
-			locked = 0
+			locked = FALSE
 			to_chat(user, "<span class='danger'>It looks like the locking system has been shorted out.</span>")
 			return
 
 		if((!req_access || !req_access.len) && (!req_one_access || !req_one_access.len))
-			locked = 0
+			locked = FALSE
 			to_chat(user, "<span class='danger'>\The [src] doesn't seem to have a locking mechanism.</span>")
+			return
+
+		if(lock_broken)
+			to_chat(user, "<span class='danger'>\The [src]'s lock is completely broken!</span>")
 			return
 
 		if(security_check_enabled && !src.allowed(user))
@@ -31,9 +35,11 @@
 		return
 
 	else if(W.iscrowbar())
-
 		if(!open && locked)
 			to_chat(user, "The access panel is locked shut.")
+			return
+		if(lock_broken)
+			to_chat(user, SPAN_WARNING("\The [src]'s access panel is broken and can't be closed anymore!"))
 			return
 
 		open = !open
@@ -41,10 +47,8 @@
 		return
 
 	if(open)
-
 		// Hacking.
 		if(W.iswirecutter() || W.ismultitool())
-
 			if(open)
 				wires.Interact(user)
 			else
@@ -53,7 +57,6 @@
 			return
 		// Air tank.
 		if(istype(W,/obj/item/tank)) //Todo, some kind of check for suits without integrated air supplies.
-
 			if(air_supply)
 				to_chat(user, "\The [src] already has a tank installed.")
 				return
@@ -65,27 +68,27 @@
 			return
 
 		// Check if this is a hardsuit upgrade or a modification.
-		else if(istype(W,/obj/item/rig_module))
-
+		else if(istype(W, /obj/item/rig_module))
 			var/obj/item/rig_module/module = W
-			if(istype(src.loc,/mob/living/carbon/human))
+			if(istype(src.loc, /mob/living/carbon/human))
 				var/mob/living/carbon/human/H = src.loc
 				if(H.back == src)
 					to_chat(user, "<span class='danger'>You can't install a hardsuit module while the suit is being worn.</span>")
 					return 1
 
-			if(!installed_modules) installed_modules = list()
+			if(!installed_modules)
+				installed_modules = list()
 
 			if(!(module.category & allowed_module_types))
 				var/mod_name = get_module_category(module.category)
 				to_chat(user, SPAN_WARNING("\The [src] does not support [mod_name] modules!"))
-				return 0
+				return FALSE
 
 			if(installed_modules.len)
 				for(var/obj/item/rig_module/installed_mod in installed_modules)
 					if(!installed_mod.redundant && istype(installed_mod,W))
 						to_chat(user, "The hardsuit already has a module of that class installed.")
-						return 1
+						return TRUE
 
 			var/obj/item/rig_module/mod = W
 			to_chat(user, "You begin installing \the [mod] into \the [src].")
@@ -93,7 +96,8 @@
 				return
 			if(!user || !W)
 				return
-			if(!user.unEquip(mod)) return
+			if(!user.unEquip(mod))
+				return
 			to_chat(user, "You install \the [mod] into \the [src].")
 			installed_modules |= mod
 			mod.forceMove(src)
@@ -101,16 +105,15 @@
 			update_icon()
 			return 1
 
-		else if(!cell && istype(W,/obj/item/cell))
-
-			if(!user.unEquip(W)) return
+		else if(!cell && istype(W, /obj/item/cell))
+			if(!user.unEquip(W))
+				return
 			to_chat(user, "You jack \the [W] into \the [src]'s battery mount.")
 			W.forceMove(src)
 			src.cell = W
 			return
 
 		else if(W.iswrench())
-
 			if(!air_supply)
 				to_chat(user, "There is not tank to remove.")
 				return
@@ -124,10 +127,11 @@
 			return
 
 		else if(W.isscrewdriver())
-
 			var/list/current_mounts = list()
-			if(cell) current_mounts   += "cell"
-			if(installed_modules && installed_modules.len) current_mounts += "system module"
+			if(cell)
+				current_mounts += "cell"
+			if(length(installed_modules))
+				current_mounts += "system module"
 
 			var/to_remove = input("Which would you like to modify?") as null|anything in current_mounts
 			if(!to_remove)
@@ -140,9 +144,7 @@
 					return
 
 			switch(to_remove)
-
 				if("cell")
-
 					if(cell)
 						to_chat(user, "You detatch \the [cell] from \the [src]'s battery mount.")
 						for(var/obj/item/rig_module/module in installed_modules)
@@ -156,7 +158,6 @@
 						to_chat(user, "There is nothing loaded in that mount.")
 
 				if("system module")
-
 					var/list/possible_removals = list()
 					for(var/obj/item/rig_module/module in installed_modules)
 						if(module.permanent)
@@ -178,7 +179,7 @@
 					installed_modules -= removed
 					update_icon()
 
-		else if(istype(W,/obj/item/stack/nanopaste)) //EMP repair
+		else if(istype(W, /obj/item/stack/nanopaste)) //EMP repair
 			var/obj/item/stack/S = W
 			if(malfunctioning || malfunction_delay)
 				if(S.use(1))
@@ -187,16 +188,28 @@
 					malfunction_delay = 0
 				else
 					to_chat(user, "\The [S] is empty!")
-
 		return
 
 	// If we've gotten this far, all we have left to do before we pass off to root procs
 	// is check if any of the loaded modules want to use the item we've been given.
 	for(var/obj/item/rig_module/module in installed_modules)
-		if(module.accepts_item(W,user)) //Item is handled in this proc
+		if(module.accepts_item(W, user)) //Item is handled in this proc
 			return
-	..()
 
+	if(!open)
+		user.do_attack_animation(src)
+		var/others_msg = "\The [user] [pick(W.attack_verb)] \the [src] with \the [W][W.force ? "" : ", but it bounces off"]!"
+		var/self_msg = "You [pick(W.attack_verb)] \the [src] with \the [W][W.force ? "" : ", but it bounces off"]!"
+		user.visible_message(SPAN_WARNING(others_msg), SPAN_NOTICE(self_msg))
+		playsound(loc, W.hitsound, 60, TRUE)
+		playsound(loc, 'sound/weapons/smash.ogg', 50, TRUE)
+		lock_health -= W.force
+		if(lock_health <= 0)
+			visible_message(SPAN_DANGER("\The [src]'s access hatch blows open!"))
+			spark(get_turf(src), 3, alldirs)
+			open = TRUE
+			locked = FALSE
+			lock_broken = TRUE
 
 /obj/item/rig/attack_hand(var/mob/user)
 
@@ -209,8 +222,9 @@
 	if(!subverted)
 		req_access.Cut()
 		req_one_access.Cut()
-		locked = 0
-		subverted = 1
+		locked = FALSE
+		subverted = TRUE
+		allowed_module_types = ALL_MODULES
 		to_chat(user, "<span class='danger'>You short out the access protocol for the suit.</span>")
 		return 1
 
