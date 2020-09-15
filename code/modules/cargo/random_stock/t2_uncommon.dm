@@ -279,7 +279,7 @@ STOCK_ITEM_UNCOMMON(spystuff, 1)
 
 STOCK_ITEM_UNCOMMON(seeds, 1)
 	for(var/i in 1 to rand(1, 3))
-		var/obj/item/seeds/SP = pick(subtypesof(/obj/item/seeds))
+		var/obj/item/seeds/SP = pick(subtypesof(/obj/item/seeds) - /obj/item/seeds/cutting)
 		new SP(L)
 
 STOCK_ITEM_UNCOMMON(rped, 2)
