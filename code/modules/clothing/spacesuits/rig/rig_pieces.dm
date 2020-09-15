@@ -78,27 +78,26 @@
 
 //TODO: move this to modules
 /obj/item/clothing/head/helmet/space/rig/proc/prevent_track()
-	return 0
+	return FALSE
 
 /obj/item/clothing/gloves/rig/Touch(var/atom/A, var/proximity)
-
 	if(!A || !proximity)
-		return 0
+		return FALSE
 
 	var/mob/living/carbon/human/H = loc
 	if(!istype(H) || !H.back)
-		return 0
+		return FALSE
 
 	var/obj/item/rig/suit = H.back
 	if(!suit || !istype(suit) || !suit.installed_modules.len)
-		return 0
+		return FALSE
 
 	for(var/obj/item/rig_module/module in suit.installed_modules)
 		if(module.active && module.activates_on_touch)
 			if(module.engage(A, H))
-				return 1
+				return TRUE
 
-	return 0
+	return FALSE
 
 //Rig pieces for non-spacesuit based rigs
 

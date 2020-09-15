@@ -1,5 +1,5 @@
 /datum/wires/rig
-	random = 1
+	random = TRUE
 	holder_type = /obj/item/rig
 	wire_count = 5
 
@@ -39,10 +39,10 @@
 	switch(index)
 		if(RIG_SECURITY)
 			rig.security_check_enabled = !rig.security_check_enabled
-			rig.visible_message("\The [rig] twitches as several suit locks [rig.security_check_enabled?"close":"open"].")
+			rig.visible_message(SPAN_NOTICE("\The [rig] twitches as several suit locks [rig.security_check_enabled?"close":"open"]."))
 		if(RIG_AI_OVERRIDE)
 			rig.ai_override_enabled = !rig.ai_override_enabled
-			rig.visible_message("A small red light on [rig] [rig.ai_override_enabled?"goes dead":"flickers on"].")
+			rig.visible_message(SPAN_NOTICE("A small red light on [rig] [rig.ai_override_enabled?"goes dead":"flickers on"]."))
 		if(RIG_SYSTEM_CONTROL)
 			rig.malfunctioning += 10
 			if(rig.malfunction_delay <= 0)
@@ -50,7 +50,7 @@
 			rig.shock(usr, 100)
 		if(RIG_INTERFACE_LOCK)
 			rig.interface_locked = !rig.interface_locked
-			rig.visible_message("\The [rig] clicks audibly as the software interface [rig.interface_locked?"darkens":"brightens"].")
+			rig.visible_message(SPAN_NOTICE("\The [rig] clicks audibly as the software interface [rig.interface_locked?"darkens":"brightens"]."))
 		if(RIG_INTERFACE_SHOCK)
 			if(rig.electrified != -1)
 				rig.electrified = 30

@@ -1,37 +1,35 @@
 // Interface for humans.
 /obj/item/rig/verb/hardsuit_interface()
-
 	set name = "Open Hardsuit Interface"
 	set desc = "Open the hardsuit system interface."
 	set category = "Hardsuit"
 	set src = usr.contents
 
-	if(wearer && wearer.back == src)
+	if(wearer?.back == src)
 		ui_interact(usr)
 
 /obj/item/rig/verb/toggle_vision()
-
 	set name = "Toggle Visor"
 	set desc = "Turns your rig visor off or on."
 	set category = "Hardsuit"
 	set src = usr.contents
 
 	if(!istype(wearer) || !wearer.back == src)
-		to_chat(usr, "<span class='warning'>The hardsuit is not being worn.</span>")
+		to_chat(usr, SPAN_WARNING("The hardsuit is not being worn."))
 		return
 
 	if(!check_power_cost(usr))
 		return
 
 	if(canremove)
-		to_chat(usr, "<span class='warning'>The suit is not active.</span>")
+		to_chat(usr, SPAN_WARNING("The suit is not active."))
 		return
 
 	if(!check_suit_access(usr))
 		return
 
 	if(!visor)
-		to_chat(usr, "<span class='warning'>The hardsuit does not have a configurable visor.</span>")
+		to_chat(usr, SPAN_WARNING("The hardsuit does not have a configurable visor."))
 		return
 
 	if(!visor.active)
@@ -40,23 +38,21 @@
 		visor.deactivate(usr)
 
 /obj/item/rig/proc/toggle_helmet()
-
 	set name = "Toggle Helmet"
 	set desc = "Deploys or retracts your helmet."
 	set category = "Hardsuit"
 	set src = usr.contents
 
 	if(!istype(wearer) || !wearer.back == src)
-		to_chat(usr, "<span class='warning'>The hardsuit is not being worn.</span>")
+		to_chat(usr, SPAN_WARNING("The hardsuit is not being worn."))
 		return
 
 	if(!check_suit_access(usr))
 		return
 
-	toggle_piece("helmet",wearer)
+	toggle_piece(HRD_HELMET, wearer)
 
 /obj/item/rig/proc/toggle_chest()
-
 	set name = "Toggle Chestpiece"
 	set desc = "Deploys or retracts your chestpiece."
 	set category = "Hardsuit"
@@ -65,49 +61,46 @@
 	if(!check_suit_access(usr))
 		return
 
-	toggle_piece(BP_CHEST,wearer)
+	toggle_piece(HRD_CHEST, wearer)
 
 /obj/item/rig/proc/toggle_gauntlets()
-
 	set name = "Toggle Gauntlets"
 	set desc = "Deploys or retracts your gauntlets."
 	set category = "Hardsuit"
 	set src = usr.contents
 
 	if(!istype(wearer) || !wearer.back == src)
-		to_chat(usr, "<span class='warning'>The hardsuit is not being worn.</span>")
+		to_chat(usr, SPAN_WARNING("The hardsuit is not being worn."))
 		return
 
 	if(!check_suit_access(usr))
 		return
 
-	toggle_piece("gauntlets",wearer)
+	toggle_piece(HRD_GAUNTLETS, wearer)
 
 /obj/item/rig/proc/toggle_boots()
-
 	set name = "Toggle Boots"
 	set desc = "Deploys or retracts your boots."
 	set category = "Hardsuit"
 	set src = usr.contents
 
 	if(!istype(wearer) || !wearer.back == src)
-		to_chat(usr, "<span class='warning'>The hardsuit is not being worn.</span>")
+		to_chat(usr, SPAN_WARNING("The hardsuit is not being worn."))
 		return
 
 	if(!check_suit_access(usr))
 		return
 
-	toggle_piece("boots",wearer)
+	toggle_piece(HRD_BOOTS, wearer)
 
 /obj/item/rig/verb/deploy_suit()
-
 	set name = "Deploy Hardsuit"
 	set desc = "Deploys helmet, gloves and boots."
 	set category = "Hardsuit"
 	set src = usr.contents
 
 	if(!istype(wearer) || !wearer.back == src)
-		to_chat(usr, "<span class='warning'>The hardsuit is not being worn.</span>")
+		to_chat(usr, SPAN_WARNING("The hardsuit is not being worn."))
 		return
 
 	if(!check_suit_access(usr))
@@ -119,14 +112,13 @@
 	deploy(wearer)
 
 /obj/item/rig/verb/toggle_seals_verb()
-
 	set name = "Toggle Hardsuit"
 	set desc = "Activates or deactivates your rig."
 	set category = "Hardsuit"
 	set src = usr.contents
 
 	if(!istype(wearer) || !wearer.back == src)
-		to_chat(usr, "<span class='warning'>The hardsuit is not being worn.</span>")
+		to_chat(usr, SPAN_WARNING("The hardsuit is not being worn."))
 		return
 
 	if(!check_suit_access(usr))
@@ -135,7 +127,6 @@
 	toggle_seals(wearer)
 
 /obj/item/rig/verb/switch_vision_mode()
-
 	set name = "Switch Vision Mode"
 	set desc = "Switches between available vision modes."
 	set category = "Hardsuit"
@@ -148,24 +139,23 @@
 		return
 
 	if(canremove)
-		to_chat(usr, "<span class='warning'>The suit is not active.</span>")
+		to_chat(usr, SPAN_WARNING("The suit is not active."))
 		return
 
 	if(!visor)
-		to_chat(usr, "<span class='warning'>The hardsuit does not have a configurable visor.</span>")
+		to_chat(usr, SPAN_WARNING("The hardsuit does not have a configurable visor."))
 		return
 
 	if(!visor.active)
 		visor.activate(usr)
 
 	if(!visor.active)
-		to_chat(usr, "<span class='warning'>The visor is suffering a hardware fault and cannot be configured.</span>")
+		to_chat(usr, SPAN_WARNING("The visor is suffering a hardware fault and cannot be configured."))
 		return
 
 	visor.engage(null, usr)
 
 /obj/item/rig/verb/alter_voice()
-
 	set name = "Configure Voice Synthesiser"
 	set desc = "Toggles or configures your voice synthesizer."
 	set category = "Hardsuit"
@@ -175,21 +165,20 @@
 		return
 
 	if(canremove)
-		to_chat(usr, "<span class='warning'>The suit is not active.</span>")
+		to_chat(usr, SPAN_WARNING("The suit is not active."))
 		return
 
 	if(!istype(wearer) || !wearer.back == src)
-		to_chat(usr, "<span class='warning'>The hardsuit is not being worn.</span>")
+		to_chat(usr, SPAN_WARNING("The hardsuit is not being worn."))
 		return
 
 	if(!speech)
-		to_chat(usr, "<span class='warning'>The hardsuit does not have a speech synthesiser.</span>")
+		to_chat(usr, SPAN_WARNING("The hardsuit does not have a speech synthesiser."))
 		return
 
 	speech.engage(null, usr)
 
 /obj/item/rig/verb/select_module()
-
 	set name = "Select Module"
 	set desc = "Selects a module as your primary system."
 	set category = "Hardsuit"
@@ -202,11 +191,11 @@
 		return
 
 	if(canremove)
-		to_chat(usr, "<span class='warning'>The suit is not active.</span>")
+		to_chat(usr, SPAN_WARNING("The suit is not active."))
 		return
 
 	if(!istype(wearer) || !wearer.back == src)
-		to_chat(usr, "<span class='warning'>The hardsuit is not being worn.</span>")
+		to_chat(usr, SPAN_WARNING("The hardsuit is not being worn."))
 		return
 
 	var/list/selectable = list()
@@ -225,7 +214,6 @@
 	to_chat(usr, "<font color='blue'><b>Primary system is now: [selected_module.interface_name].</b></font>")
 
 /obj/item/rig/verb/toggle_module()
-
 	set name = "Toggle Module"
 	set desc = "Toggle a system module."
 	set category = "Hardsuit"
@@ -238,11 +226,11 @@
 		return
 
 	if(canremove)
-		to_chat(usr, "<span class='warning'>The suit is not active.</span>")
+		to_chat(usr, SPAN_WARNING("The suit is not active."))
 		return
 
 	if(!istype(wearer) || !wearer.back == src)
-		to_chat(usr, "<span class='warning'>The hardsuit is not being worn.</span>")
+		to_chat(usr, SPAN_WARNING("The hardsuit is not being worn."))
 		return
 
 	var/list/selectable = list()
@@ -263,7 +251,6 @@
 		module.activate(usr)
 
 /obj/item/rig/verb/engage_module()
-
 	set name = "Engage Module"
 	set desc = "Engages a system module."
 	set category = "Hardsuit"
@@ -273,11 +260,11 @@
 		return
 
 	if(canremove)
-		to_chat(usr, "<span class='warning'>The suit is not active.</span>")
+		to_chat(usr, SPAN_WARNING("The suit is not active."))
 		return
 
 	if(!istype(wearer) || !wearer.back == src)
-		to_chat(usr, "<span class='warning'>The hardsuit is not being worn.</span>")
+		to_chat(usr, SPAN_WARNING("The hardsuit is not being worn."))
 		return
 
 	if(!check_power_cost(usr, 0, 0, 0, 0))
