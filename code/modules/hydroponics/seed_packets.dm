@@ -67,6 +67,8 @@ var/global/list/plant_seed_sprites = list()
 	desc = "Some plant cuttings."
 
 /obj/item/seeds/cutting/update_appearance()
+	if(!seed)
+		qdel(src)
 	..()
 	src.name = "packet of [seed.seed_name] cuttings"
 
