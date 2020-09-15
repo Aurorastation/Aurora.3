@@ -19,7 +19,7 @@ var/const/PARTICLE_LIMIT_POWER_WIRE = 8 // Determines how strong the PA can be.
 	switch(index)
 
 		if(PARTICLE_TOGGLE_WIRE)
-			C.toggle_power()
+			C.toggle_power(usr)
 
 		if(PARTICLE_STRENGTH_WIRE)
 			C.add_strength()
@@ -36,7 +36,7 @@ var/const/PARTICLE_LIMIT_POWER_WIRE = 8 // Determines how strong the PA can be.
 
 		if(PARTICLE_TOGGLE_WIRE)
 			if(C.active == !mended)
-				C.toggle_power()
+				C.toggle_power(usr)
 
 		if(PARTICLE_STRENGTH_WIRE)
 
