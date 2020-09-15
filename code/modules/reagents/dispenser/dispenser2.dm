@@ -117,6 +117,10 @@
 
 /obj/machinery/chemical_dispenser/ui_interact(mob/user, ui_key = "main",var/datum/nanoui/ui = null, var/force_open = 1)
 	// this is the data which will be sent to the ui
+	if(container && !container.reagents)  //sanity check in case you destroyed the container... such as if you dispensed acid into an acidable bucket.
+		for(var/mob/M in viewers(5, get_turf(src)))
+			to_chat(M, "<span class='warning'>\The [src]'s \the [container] no longer holds reagents...</span>")
+		container = null
 	var/data[0]
 	data["amount"] = amount
 	data["isBeakerLoaded"] = container ? 1 : 0

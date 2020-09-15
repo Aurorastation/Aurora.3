@@ -473,9 +473,9 @@
 	if(O.unacidable)
 		return
 	if((istype(O, /obj/item) || istype(O, /obj/effect/plant)) && (volume > meltdose))
-		var/obj/effect/decal/cleanable/molten_item/I = new/obj/effect/decal/cleanable/molten_item(O.loc)
+		var/obj/effect/decal/cleanable/molten_item/I = new/obj/effect/decal/cleanable/molten_item(get_turf(O))
 		I.desc = "Looks like this was \an [O] some time ago."
-		for(var/mob/M in viewers(5, O))
+		for(var/mob/M in viewers(get_turf(O), 5))
 			to_chat(M, "<span class='warning'>\The [O] melts.</span>")
 		qdel(O)
 		remove_self(meltdose) // 10 units of acid will not melt EVERYTHING on the tile
