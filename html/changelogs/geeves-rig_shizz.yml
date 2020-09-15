@@ -6,4 +6,3 @@ changes:
   - rscadd: "You can now attack a hardsuit unit with any item to try and break open the access panel."
   - rscadd: "Added some text prompts to hardsuit hacking."
   - tweak: "Hardsuits now spark when you electrify them."
-  - rscadd: "Emagging a hardsuit unit now lets you add any hardsuit item to it, regardless of class restriction."

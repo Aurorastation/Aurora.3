@@ -221,7 +221,6 @@
 		req_one_access.Cut()
 		locked = FALSE
 		subverted = TRUE
-		allowed_module_types = ALL_MODULES
 		to_chat(user, SPAN_NOTICE("You short out the access protocol for the suit."))
 		return TRUE
 	else
