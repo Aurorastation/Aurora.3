@@ -20,7 +20,7 @@
 
 /datum/gear/faction/idris_armband
 	display_name = "idris armband"
-	path = /obj/item/clothing/head/beret/sec/idris
+	path = /obj/item/clothing/accessory/armband/idris
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/zavodskoi_beret
