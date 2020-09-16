@@ -207,11 +207,6 @@
 	desc = "Yarr."
 	icon_state = "hgpiratecap"
 
-/obj/item/clothing/head/bandana
-	name = "pirate bandana"
-	desc = "Yarr."
-	icon_state = "bandana"
-
 /obj/item/clothing/head/bowler
 	name = "bowler-hat"
 	desc = "Gentleman, elite aboard!"
