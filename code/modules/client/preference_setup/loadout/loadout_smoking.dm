@@ -94,6 +94,11 @@
 	pipe["smoking pipe, corn"] = /obj/item/clothing/mask/smokable/pipe/cobpipe
 	gear_tweaks += new/datum/gear_tweak/path(pipe)
 
+/datum/gear/smoking/bonepipe
+	display_name = "Europan bone pipe"
+	path = /obj/item/clothing/mask/smokable/pipe/bonepipe
+	flags = GEAR_HAS_DESC_SELECTION
+
 /datum/gear/smoking/cigfilters
 	display_name = "cigarette filters"
 	path = /obj/item/storage/cigfilters
