@@ -345,8 +345,10 @@
 
 
 	user.set_machine(src)
-	user << browse(dat, "window=disposal;size=360x170")
-	onclose(user, "disposal")
+
+	var/datum/browser/disposal_win = new(user, "disposal", capitalize_first_letters(name), 320, 200)
+	disposal_win.set_content(dat)
+	disposal_win.open()
 
 // handle machine interaction
 

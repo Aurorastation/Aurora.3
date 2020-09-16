@@ -259,8 +259,7 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		to_chat(user, SPAN_WARNING("The unit's interface refuses to unlock!"))
 		return
 
-	var/dat
-	dat += "<TT><B>Automatic Station Cleaner v1.1</B></TT><BR><BR>"
+	var/dat = ""
 	dat += "Status: <A href='?src=\ref[src];operation=start'>[on ? "On" : "Off"]</A><BR>"
 	dat += "Behaviour controls are [locked ? "locked" : "unlocked"]<BR>"
 	dat += "Maintenance panel is [open ? "opened" : "closed"]"
@@ -271,9 +270,9 @@ var/list/cleanbot_types // Going to use this to generate a list of types once th
 		dat += "Odd looking screw twiddled: <A href='?src=\ref[src];operation=screw'>[screw_loose ? "Yes" : "No"]</A><BR>"
 		dat += "Weird button pressed: <A href='?src=\ref[src];operation=odd_button'>[odd_button ? "Yes" : "No"]</A>"
 
-	user << browse("<HEAD><TITLE>Cleaner v1.1 controls</TITLE></HEAD>[dat]", "window=autocleaner")
-	onclose(user, "autocleaner")
-	return
+	var/datum/browser/bot_win = new(user, "autocleaner", "Automatic Station Cleaner v1.2 Controls")
+	bot_win.set_content(dat)
+	bot_win.open()
 
 /mob/living/bot/cleanbot/Topic(href, href_list)
 	if(..())

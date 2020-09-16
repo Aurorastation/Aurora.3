@@ -3,8 +3,8 @@
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to ten oxygen tanks, and ten phoron tanks."
 	icon = 'icons/obj/tank_dispenser.dmi'
 	icon_state = "dispenser"
-	density = 1
-	anchored = 1.0
+	density = TRUE
+	anchored = TRUE
 	w_class = ITEMSIZE_HUGE
 	var/oxygentanks = 10
 	var/phorontanks = 10
@@ -34,53 +34,53 @@
 		if(5 to INFINITY)
 			add_overlay("phoron-5")
 
-/obj/structure/dispenser/attack_ai(mob/user as mob)
+/obj/structure/dispenser/attack_ai(mob/user)
 	if(user.Adjacent(src))
 		return attack_hand(user)
 	..()
 
-/obj/structure/dispenser/attack_hand(mob/user as mob)
+/obj/structure/dispenser/attack_hand(mob/user)
 	user.set_machine(src)
-	var/dat = "[src]<br><br>"
+	var/dat = "<br>"
 	dat += "Oxygen tanks: [oxygentanks] - [oxygentanks ? "<A href='?src=\ref[src];oxygen=1'>Dispense</A>" : "empty"]<br>"
 	dat += "Phoron tanks: [phorontanks] - [phorontanks ? "<A href='?src=\ref[src];phoron=1'>Dispense</A>" : "empty"]"
-	user << browse(dat, "window=dispenser")
-	onclose(user, "dispenser")
-	return
+	
+	var/datum/browser/dispenser_win = new(user, "dispenser", capitalize_first_letters(name), 300, 250)
+	dispenser_win.set_content(dat)
+	dispenser_win.open()
 
-
-/obj/structure/dispenser/attackby(obj/item/I as obj, mob/user as mob)
+/obj/structure/dispenser/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/tank/oxygen) || istype(I, /obj/item/tank/air) || istype(I, /obj/item/tank/anesthetic))
 		if(oxygentanks < 10)
-			user.drop_from_inventory(I,src)
+			user.drop_from_inventory(I, src)
 			oxytanks.Add(I)
 			oxygentanks++
-			to_chat(user, "<span class='notice'>You put [I] in [src].</span>")
+			to_chat(user, SPAN_NOTICE("You put \the [I] into \the [src]."))
 			if(oxygentanks < 5)
 				update_icon()
 		else
-			to_chat(user, "<span class='notice'>[src] is full.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is full."))
 		updateUsrDialog()
 		return
 	if(istype(I, /obj/item/tank/phoron))
 		if(phorontanks < 10)
-			user.drop_from_inventory(I,src)
+			user.drop_from_inventory(I, src)
 			platanks.Add(I)
 			phorontanks++
-			to_chat(user, "<span class='notice'>You put [I] in [src].</span>")
+			to_chat(user, SPAN_NOTICE("You put \the [I] into \the [src]."))
 			if(oxygentanks < 6)
 				update_icon()
 		else
-			to_chat(user, "<span class='notice'>[src] is full.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is full."))
 		updateUsrDialog()
 		return
 	if(I.iswrench())
 		if(anchored)
-			to_chat(user, "<span class='notice'>You lean down and unwrench [src].</span>")
-			anchored = 0
+			to_chat(user, SPAN_NOTICE("You lean down and unwrench [src]."))
+			anchored = FALSE
 		else
-			to_chat(user, "<span class='notice'>You wrench [src] into place.</span>")
-			anchored = 1
+			to_chat(user, SPAN_NOTICE("You wrench [src] into place."))
+			anchored = TRUE
 		return
 
 /obj/structure/dispenser/Topic(href, href_list)
@@ -96,11 +96,11 @@
 					oxytanks.Remove(O)
 				else
 					O = new /obj/item/tank/oxygen(loc)
-				O.forceMove(loc)
-				to_chat(usr, "<span class='notice'>You take [O] out of [src].</span>")
+				usr.put_in_hands(O)
+				to_chat(usr, SPAN_NOTICE("You take \the [O] out of \the [src]."))
 				oxygentanks--
 				update_icon()
-		if(href_list["phoron"])
+		if(href_list[GAS_PHORON])
 			if(phorontanks > 0)
 				var/obj/item/tank/phoron/P
 				if(platanks.len == phorontanks)
@@ -108,13 +108,11 @@
 					platanks.Remove(P)
 				else
 					P = new /obj/item/tank/phoron(loc)
-				P.forceMove(loc)
-				to_chat(usr, "<span class='notice'>You take [P] out of [src].</span>")
+				usr.put_in_hands(P)
+				to_chat(usr, SPAN_NOTICE("You take \the [P] out of \the [src]."))
 				phorontanks--
 				update_icon()
 		add_fingerprint(usr)
 		updateUsrDialog()
 	else
 		usr << browse(null, "window=dispenser")
-		return
-	return

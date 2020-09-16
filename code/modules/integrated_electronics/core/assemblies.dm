@@ -263,7 +263,7 @@
 		update_icon()
 		return TRUE
 
-	else if(istype(I, /obj/item/device/integrated_electronics/wirer) || istype(I, /obj/item/device/integrated_electronics/debugger) || I.isscrewdriver())
+	else if(istype(I, /obj/item/device/integrated_electronics/wirer) || istype(I, /obj/item/device/integrated_electronics/debugger) || I.ismultitool() || I.isscrewdriver())
 		if(opened)
 			interact(user)
 		else

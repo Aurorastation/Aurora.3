@@ -698,3 +698,8 @@
 	desc = "A padded skullcap for those prone to bumping their heads against hard surfaces."
 	icon_state = "tank"
 	flags_inv = BLOCKHEADHAIR
+
+/obj/item/clothing/head/buckethat
+	name = "bucket hat"
+	desc = "A hat with an all-around visor. Only slightly better than wearing an actual bucket."
+	icon_state = "buckethat"

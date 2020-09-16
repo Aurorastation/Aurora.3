@@ -91,3 +91,19 @@
 	item_state = "crskirt"
 	worn_state = "crskirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/under/skirt/jumper
+	name = "jumper skirt"
+	desc = "A short skirt with two large shoulder straps."
+	desc_fluff = "Too tall or too short? Too bad. These shoulder straps can't be adjusted."
+	icon_state = "skirt_jumper"
+	worn_state = "skirt_jumper"
+	item_state = "skirt_jumper"
+
+/obj/item/clothing/under/skirt/jumper_highcut
+	name = "jumper dress"
+	desc = "A garment with open sides that seems to be a cross between a dress and an apron."
+	desc_fluff = "You could achieve the same effect with two aprons, we're pretty sure."
+	icon_state = "skirt_jumper_highcut"
+	worn_state = "skirt_jumper_highcut"
+	item_state = "skirt_jumper_highcut"

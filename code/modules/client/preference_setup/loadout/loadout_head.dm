@@ -270,3 +270,8 @@
 	display_name = "vysokan fur cap"
 	path = /obj/item/clothing/head/soft/vysoka
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/buckethat
+	display_name = "bucket hat"
+	path = /obj/item/clothing/head/buckethat
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
