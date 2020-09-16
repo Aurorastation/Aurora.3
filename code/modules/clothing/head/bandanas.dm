@@ -82,10 +82,5 @@
 /obj/item/clothing/head/bandana/janitor
 	name = "janitor bandana"
 	desc = "It's a janitor bandana with some fine nanotech lining. For the viscera cleaners of today!"
-	icon_state = "bandana_miner"
-	item_state = "bandana_miner"
-
-
-
-
-
+	icon_state = "bandana_janitor"
+	item_state = "bandana_janitor"
