@@ -312,15 +312,15 @@
 //not directly injected into the contents. It first calls touch, then the appropriate trans_to_*() or splash_mob().
 //If for some reason touch effects are bypassed (e.g. injecting stuff directly into a reagent container or person),
 //call the appropriate trans_to_*() proc.
-/datum/reagents/proc/trans_to(var/atom/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
-	touch(target) //First, handle mere touch effects
-
+/datum/reagents/proc/trans_to(var/atom/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/touchedalready = FALSE)
+	touch(target) //First, handle mere touch effects 
+	touchedalready = TRUE //Malmalmulam:  adding "touchedalready" since some of the child procs run touch a second time, in case they're called on their own
 	if(ismob(target))
-		return splash_mob(target, amount, multiplier, copy)
+		return splash_mob(target, amount, multiplier, copy, touchedalready)
 	if(isturf(target))
-		return trans_to_turf(target, amount, multiplier, copy)
+		return trans_to_turf(target, amount, multiplier, copy, touchedalready)
 	if(isobj(target))
-		return trans_to_obj(target, amount, multiplier, copy)
+		return trans_to_obj(target, amount, multiplier, copy, touchedalready)
 	return 0
 
 //Splashing reagents is messier than trans_to, the target's loc gets some of the reagents as well.
@@ -425,17 +425,16 @@
 // Attempts to place a reagent on the mob's skin.
 // Reagents are not guaranteed to transfer to the target.
 // DO NOT CALL THIS DIRECTLY, call trans_to() instead.
-/datum/reagents/proc/splash_mob(var/mob/target, var/amount = 1, var/multiplier = 1, var/copy = 0)
+/datum/reagents/proc/splash_mob(var/mob/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/touchedalready = FALSE)
 	var/perm = 1
 	if(isliving(target)) //will we ever even need to tranfer reagents to non-living mobs?
 		var/mob/living/L = target
 		perm = L.reagent_permeability()
 	multiplier *= perm
 
-	return trans_to_mob(target, amount*0.75, CHEM_TOUCH, multiplier, copy) + trans_to_mob(target, amount*0.25, CHEM_BREATHE, multiplier, copy)
+	return trans_to_mob(target, amount*0.75, CHEM_TOUCH, multiplier, copy, touchedalready) + trans_to_mob(target, amount*0.25, CHEM_BREATHE, multiplier, copy, touchedalready)
 
-/datum/reagents/proc/trans_to_mob(var/mob/target, var/amount = 1, var/type = CHEM_BLOOD, var/multiplier = 1, var/copy = 0, var/bypass_checks = FALSE) // Transfer after checking into which holder...
-
+/datum/reagents/proc/trans_to_mob(var/mob/target, var/amount = 1, var/type = CHEM_BLOOD, var/multiplier = 1, var/copy = 0, var/bypass_checks = FALSE, var/touchedalready = FALSE) // Transfer after checking into which holder...  //Malmalmulam: If we call this proc with trans_to->splash_mob, then we've already reagents/proc/touch'd this mob and shouldn't do so again.
 	if(!target || !istype(target) || !target.simulated)
 		return 0
 
@@ -460,26 +459,30 @@
 		else
 			var/datum/reagents/R = new /datum/reagents(amount)
 			. = trans_to_holder(R, amount, multiplier, copy)
-			R.touch_mob(target)
+			if(!touchedalready)
+				R.touch_mob(target)
 			return
 
-/datum/reagents/proc/trans_to_turf(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0) // Turfs don't have any reagents (at least, for now). Just touch it.
+/datum/reagents/proc/trans_to_turf(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/touchedalready = FALSE) // Turfs don't have any reagents (at least, for now). Just touch it.
+//MalMalmulam:  if this is called with trans_to, then we've already touched it, so adding touchedalready to prevent touching a second time
 	if(!target || !target.simulated)
 		return 0
 
 	var/datum/reagents/R = new /datum/reagents(amount * multiplier)
 	. = trans_to_holder(R, amount, multiplier, copy)
-	R.touch_turf(target)
+	if(!touchedalready)
+		R.touch_turf(target)
 
 
-/datum/reagents/proc/trans_to_obj(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0) // Objects may or may not; if they do, it's probably a beaker or something and we need to transfer properly; otherwise, just touch.
+/datum/reagents/proc/trans_to_obj(var/turf/target, var/amount = 1, var/multiplier = 1, var/copy = 0, var/touchedalready = FALSE) // Objects may or may not; if they do, it's probably a beaker or something and we need to transfer properly; otherwise, just touch.
 	if(!target || !target.simulated)
 		return 0
 
 	if(!target.reagents)
 		var/datum/reagents/R = new /datum/reagents(amount * multiplier)
 		. = trans_to_holder(R, amount, multiplier, copy)
-		R.touch_obj(target)
+		if(!touchedalready)	//Malmalmulam:  if this proc is called with trans_to, we've already touched it
+			R.touch_obj(target)
 		return
 
 	return trans_to_holder(target.reagents, amount, multiplier, copy)

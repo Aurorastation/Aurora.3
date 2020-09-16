@@ -1,0 +1,6 @@
+author: FirinMaLazors
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed trans_to getting a little too touchy with its children."
