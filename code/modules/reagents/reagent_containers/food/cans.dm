@@ -47,27 +47,30 @@
 			add_overlay(fuseoverlay)
 
 /obj/item/reagent_containers/food/drinks/cans/attackby(obj/item/W, mob/user)
-	if(W.iscoil() && is_open_container())
-		var/obj/item/stack/S = W
-		switch(fuselength)
-			if(0 to 2)
-				if(S.use(3 - fuselength)) // in case someone tries to game the system by intentionally getting the fuse to fizzle out to a number below 3 or something
-					user.visible_message("<b>[user]</b> feeds some cable into \the [name].", SPAN_NOTICE("You feed a cable fuse into \the [name]."))
-					fuselength = 3 // The shortest fuse you can have is 3 seconds - below that and you might get people snipping it down to be near-instant shrapnel machines.
-					lastcablecolor = W.color
-					update_icon()
-					desc += " It has some cable poking out of the opening."
-				else
-					to_chat(user, SPAN_WARNING("You do not have enough cable to do that!"))
-			if(3 to 9)
-				if(S.use(1))
-					fuselength += 1
-					to_chat(user, SPAN_NOTICE("You add more cable to the fuse. It is now [fuselength] seconds."))
-					update_icon()
-				else
-					to_chat(user, SPAN_WARNING("You do not have enough cable to do that!"))
-			if(10)
-				to_chat(user, SPAN_WARNING("You cannot make the fuse longer than 10 seconds!"))
+	if(W.iscoil())
+		if(is_open_container())
+			var/obj/item/stack/S = W
+			switch(fuselength)
+				if(0 to 2)
+					if(S.use(3 - fuselength)) // in case someone tries to game the system by intentionally getting the fuse to fizzle out to a number below 3 or something
+						user.visible_message("<b>[user]</b> feeds some cable into \the [name].", SPAN_NOTICE("You feed a cable fuse into \the [name]."))
+						fuselength = 3 // The shortest fuse you can have is 3 seconds - below that and you might get people snipping it down to be near-instant shrapnel machines.
+						lastcablecolor = W.color
+						update_icon()
+						desc += " It has some cable poking out of the opening."
+					else
+						to_chat(user, SPAN_WARNING("You do not have enough cable to do that!"))
+				if(3 to 9)
+					if(S.use(1))
+						fuselength += 1
+						to_chat(user, SPAN_NOTICE("You add more cable to the fuse. It is now [fuselength] seconds."))
+						update_icon()
+					else
+						to_chat(user, SPAN_WARNING("You do not have enough cable to do that!"))
+				if(10)
+					to_chat(user, SPAN_WARNING("You cannot make the fuse longer than 10 seconds!"))
+		else
+			to_chat(user, SPAN_WARNING("There is no opening on \the [name] for the cable!"))
 
 	if(W.iswirecutter() && fuselength)
 		switch(fuselength)
@@ -103,6 +106,7 @@
 								if(Adjacent(user))
 									user.put_in_hands(newcoil)
 								fuselength = 0
+								desc = initial(desc)
 								update_icon()
 							else if(short == fuselength || isnull(short))
 								to_chat(user, SPAN_NOTICE("You decide against modifying the fuse."))
