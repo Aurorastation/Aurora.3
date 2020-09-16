@@ -27,6 +27,7 @@
 	universal_speak = 0		//No, just no.
 	var/meat_amount = 0
 	var/meat_type
+	var/stop_thinking = FALSE // prevents them from doing any AI stuff whatsoever
 	var/stop_automated_movement = 0 //Use this to temporarely stop random movement or to if you write special movement code for animals.
 	var/wander = 1	// Does the mob wander around when idle?
 	var/stop_automated_movement_when_pulled = 1 //When set to 1 this stops the animal from moving when someone is pulling it.
@@ -239,6 +240,10 @@
 
 /mob/living/simple_animal/think()
 	..()
+
+	if(stop_thinking)
+		return
+
 	if(!stop_automated_movement && wander && !anchored)
 		if(isturf(loc) && !resting && !buckled && canmove)		//This is so it only moves if it's not inside a closet, gentics machine, etc.
 			if(turns_since_move >= turns_per_move && !(stop_automated_movement_when_pulled && pulledby))	 //Some animals don't move when pulled

@@ -1,0 +1,8 @@
+author: Geeves, Sue
+
+delete-after: True
+
+changes: 
+  - rscadd: "Lings can now evolve the ability to release members of their internal hivemind as morphs at the cost of their arm. The ability itself costs two genome points."
+  - rscadd: "Added morphs, creature capable of assuming the form of any object."
+  - tweak: "Messages spoken in the internal hivemind will automatically be capitalized and punctuated. Also improved the colour for readability."
