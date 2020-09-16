@@ -48,7 +48,7 @@
 
 /datum/gear/head/beret/color
 	display_name = "beret (colorable)"
-	path = /obj/item/clothing/head/beret/misc
+	path = /obj/item/clothing/head/beret/recolorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/beret/sec

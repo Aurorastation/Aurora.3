@@ -11669,7 +11669,7 @@
 /obj/structure/table/standard,
 /obj/item/material/minihoe,
 /obj/item/device/analyzer/plant_analyzer,
-/obj/item/clothing/head/bandana/green,
+/obj/item/clothing/head/bandana/hydro,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "awl" = (

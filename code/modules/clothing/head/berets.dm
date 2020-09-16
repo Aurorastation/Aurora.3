@@ -1,3 +1,4 @@
+//berets
 /obj/item/clothing/head/beret
 	name = "beret"
 	desc = "A beret, an artists favorite headwear."
@@ -84,11 +85,17 @@
 	desc = "A white beret adorned with the crest of an ERT detachment. Worn by commanders of Nanotrasen response teams."
 	icon_state = "centcomcaptain"
 
+/obj/item/clothing/head/beret/recolorable
+	name = "beret"
+	desc = "A colorful beret, treasured by artists and the French."
+	icon_state = "beret_recolorable"
+	item_state = "beret_recolorable"
+
 //Tau Ceti Foreign Legion
 
 /obj/item/clothing/head/legion_beret
 	name = "TCFL dress beret"
-	desc = "A pale blue dress beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". A common good luck charm among former legionaires."
+	desc = "A pale blue dress beret with a rubber insignia of a torch, surrounded by red stars and the letters \"TCFL\". A common good luck charm among former legionnaires."
 	icon_state = "legion_beret"
 	item_state = "legion_beret"
 
@@ -104,47 +111,67 @@
 	icon_state = "legion_sentinel_beret"
 	item_state = "legion_sentinel_beret"
 
-/obj/item/clothing/head/beret/misc
-	name = "beret"
-	desc = "A colorful beret, treasured by artists and the French."
-	icon_state = "miscberet"
-	item_state = "miscberet"
-
 // Departmental berets.
 
-/obj/item/clothing/head/beret/purple
-	name = "janitorial beret"
-	desc = "A stylish, if purple, beret. Smells of hydrogen peroxide and paint thinner."
-	icon_state = "purpleberet"
+/obj/item/clothing/head/beret/captain
+	name = "captain's beret"
+	desc = "A beret with the command insignia emblazoned on it. Step lively now, your captain is on board."
+	icon_state = "beret_captain"
+	item_state = "beret_captain"
 
-/obj/item/clothing/head/beret/supply
-	name = "supply beret"
-	desc = "A beret with the supply insignia emblazoned on it. For crate pushers who need somewhere to put their hubris in."
-	icon_state = "supply_dep_beret"
-
-/obj/item/clothing/head/beret/engineering
-	name = "engineering beret"
-	desc = "A beret with the engineering insignia emblazoned on it. For engineers that are more inclined towards style than safety."
-	icon_state = "eng_dep_beret"
+/obj/item/clothing/head/beret/security
+	name = "security beret"
+	desc = "A beret with the security insignia emblazoned on it. For officers that are more inclined towards style than safety."
+	icon_state = "beret_security"
+	item_state = "beret_security"
 
 /obj/item/clothing/head/beret/medical
 	name = "medical beret"
 	desc = "A beret with the medical insignia emblazoned on it. For medical members that want to crush their brains after college left them in massive debt."
-	icon_state = "med_dep_beret"
+	icon_state = "beret_medical"
+	item_state = "beret_medical"
 
 /obj/item/clothing/head/beret/science
 	name = "science beret"
-	desc = "A beret with the science insignia emblazoned on it. For scientists that like to explode. Violently."
-	icon_state = "sci_dep_beret"
+		desc = "A beret with the science insignia emblazoned on it. For scientists who like to trip the explosion alarm. Repeatedly."
+	icon_state = "beret_science"
+	item_state = "beret_science"
 
-/obj/item/clothing/head/beret/sec
-	name = "security beret"
-	desc = "A beret with the security insignia emblazoned on it. For officers that are more inclined towards style than safety."
-	icon_state = "sec_dep_beret"
+/obj/item/clothing/head/beret/engineering
+	name = "engineering beret"
+	desc = "A beret with the engineering insignia emblazoned on it. It won't get OSHA off your back, but at least it'll ward off the fashion police."
+	icon_state = "beret_engineer"
+	item_state = "beret_engineer"
 
-/obj/item/clothing/head/beret/service
-	name = "service beret"
-	desc = "A beret with the service insignia emblazoned on it. For service personnel who genuinely believe that a mixologist is a real job."
-	icon_state = "service_dep_beret"
+/obj/item/clothing/head/beret/atmos
+	name = "atmospherics beret"
+	desc = "A beret with the engineering insignia emblazoned on it. For the pyrotechnically inclined."
+	icon_state = "beret_atmos"
+	item_state = "beret_atmos"
+
+/obj/item/clothing/head/beret/hydro
+	name = "hydroponics beret"
+	desc = "A beret with the service insignia emblazoned on it. Did someone spill Plant-B-Gone on this?"
+	icon_state = "beret_hydro"
+	item_state = "beret_hydro"
+
+/obj/item/clothing/head/beret/cargo
+	name = "cargo beret"
+	desc = "A beret with the supply insignia emblazoned on it. For crate pushers who need somewhere to put their hubris in."
+	icon_state = "beret_cargo"
+	item_state = "beret_cargo"
+
+/obj/item/clothing/head/beret/miner
+	name = "mining beret"
+	desc = "A beret with the supply insignia emblazoned on it. Asphyxiate - in style!"
+	icon_state = "beret_miner"
+	item_state = "beret_miner"
+
+/obj/item/clothing/head/beret/janitor
+	name = "janitor beret"
+	desc = "A beret with the service insignia emblazoned on it. Smells of hydrogen peroxide and paint thinner."
+	icon_state = "beret_janitor"
+	item_state = "beret_janitor"
+
 
 
