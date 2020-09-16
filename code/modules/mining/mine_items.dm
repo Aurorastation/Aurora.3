@@ -338,8 +338,10 @@
 
 /obj/item/pickaxe/borgdrill
 	name = "cyborg mining drill"
+	icon = 'icons/obj/contained_items/tools/drills.dmi'
 	icon_state = "diamonddrill"
 	item_state = "jackhammer"
+	contained_sprite = TRUE
 	digspeed = 10
 	digspeed_unwielded = 10
 	force_unwielded = 25.0
@@ -1140,9 +1142,10 @@ var/list/total_extraction_beacons = list()
 /******************************Sculpting*******************************/
 /obj/item/autochisel
 	name = "auto-chisel"
-	icon = 'icons/obj/tools.dmi'
+	icon = 'icons/obj/contained_items/tools/drills.dmi'
 	icon_state = "jackhammer"
 	item_state = "jackhammer"
+	contained_sprite = TRUE
 	origin_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2, TECH_ENGINEERING = 2)
 	desc = "With an integrated AI chip and hair-trigger precision, this baby makes sculpting almost automatic!"
 

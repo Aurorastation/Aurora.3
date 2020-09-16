@@ -7,6 +7,11 @@
 	item_state = "coat_himeo"
 	contained_sprite = TRUE
 
+/obj/item/clothing/suit/storage/toggle/himeo/grey
+	icon = 'icons/clothing/suits/coats/himeo_coat_grey.dmi'
+	icon_state = "coat_himeo_grey"
+	item_state = "coat_himeo_grey"
+
 /obj/item/clothing/head/soft/himeo
 
 	name = "himean cap"

@@ -52,12 +52,12 @@
 
 /decl/recipe/fortunecookie/check_items(var/obj/container as obj)
 	. = ..()
-	if (.)
+	if (. != COOK_CHECK_FAIL)
 		var/obj/item/paper/paper = locate() in container
 		if (!paper || !istype(paper))
-			return FALSE
+			return COOK_CHECK_FAIL
 		if (!paper.info)
-			return FALSE
+			return COOK_CHECK_FAIL
 	return .
 
 /decl/recipe/brownies

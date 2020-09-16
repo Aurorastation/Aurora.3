@@ -359,8 +359,9 @@
 	if(W)
 		W.handle_item_insertion(passport)
 
-/datum/outfit/admin/syndicate/raider/burglar
+/datum/outfit/admin/syndicate/burglar
 	name = "Burglar"
+	allow_backbag_choice = FALSE
 
 	uniform = list(
 		/obj/item/clothing/under/suit_jacket/really_black,
@@ -369,6 +370,7 @@
 		/obj/item/clothing/under/suit_jacket/burgundy
 		)
 
+	belt = null
 	suit = /obj/item/clothing/suit/armor/bulletproof
 
 	shoes = list(
@@ -399,7 +401,7 @@
 
 	backpack_contents = list()
 
-/datum/outfit/admin/syndicate/raider/burglar/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/admin/syndicate/burglar/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -448,6 +450,12 @@
 			uniform.attackby(holster, H)
 		else
 			H.put_in_any_hand_if_possible(holster)
+
+	var/obj/item/storage/wallet/W = H.wear_id
+	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
+	passport.name = "[H.real_name]'s Passport"
+	if(W)
+		W.handle_item_insertion(passport)
 
 // Non-syndicate antag outfits
 

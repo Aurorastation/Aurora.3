@@ -352,8 +352,8 @@
 /obj/item/stack/material/glass/wired
 	name = "wired glass"
 	icon = 'icons/obj/stacks/tiles.dmi'
-	icon_state = MATERIAL_GLASS_WIRED
-	default_type = "wired glass"
+	icon_state = "glass_wire"
+	default_type = MATERIAL_GLASS_WIRED
 
 /obj/item/stack/material/glass/wired/full/Initialize()
 	. = ..()

@@ -48,6 +48,11 @@
 	armbands["IAC armband"] = /obj/item/clothing/accessory/armband/iac
 	gear_tweaks += new/datum/gear_tweak/path(armbands)
 
+/datum/gear/accessory/armband_coloured
+	display_name = "armband (colourable)"
+	path = /obj/item/clothing/accessory/armband/colourable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/accessory/holster
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
@@ -183,6 +188,7 @@
 	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_sb
 	shirt["t-shirt"] = /obj/item/clothing/accessory/tshirt
 	shirt["t-shirt, cropped"] = /obj/item/clothing/accessory/tshirt_crop
+	shirt["blouse"] = /obj/item/clothing/accessory/blouse
 	gear_tweaks += new/datum/gear_tweak/path(shirt)
 
 /datum/gear/accessory/silversun
@@ -262,3 +268,8 @@
 	display_name = "shoulder sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/whalebone
+	display_name = "europan bone charm"
+	path = /obj/item/clothing/accessory/whalebone
+	flags = GEAR_HAS_DESC_SELECTION

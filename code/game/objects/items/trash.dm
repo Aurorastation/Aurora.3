@@ -208,3 +208,11 @@
 /obj/item/trash/diona_bites
 	name = "dionae bites"
 	icon_state = "dionaebitesempty"
+
+/obj/item/trash/ricetub
+	name = "empty rice tub"
+	icon_state = "ricetub"
+
+/obj/item/trash/seaweed
+	name = "empty moss pack"
+	icon_state = "seaweed"

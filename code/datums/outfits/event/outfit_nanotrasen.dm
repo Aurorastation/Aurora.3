@@ -52,7 +52,7 @@
 		/obj/item/storage/box/engineer = 1,
 		/obj/item/clothing/head/helmet/swat/peacekeeper = 1,
 		/obj/item/clothing/accessory/holster/hip = 1,
-		/obj/item/gun/energy/pistol = 1
+		/obj/item/gun/energy/disruptorpistol/magnum = 1
 	)
 
 	implants = list(
@@ -93,8 +93,7 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/fancy/cigarettes/cigar = 1,
-		/obj/item/flame/lighter/zippo = 1,
-		/obj/item/clothing/accessory/medal/gold/heroism = 1
+		/obj/item/flame/lighter/zippo = 1
 	)
 
 	implants = list(

@@ -65,28 +65,28 @@
 /datum/design/item/mechfab/exosuit/combat_head
 	name = "Combat Exosuit Sensors"
 	time = 30
-	materials = list(DEFAULT_WALL_MATERIAL = 10000)
+	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GOLD = 10500, MATERIAL_SILVER = 10000)
 	build_path = /obj/item/mech_component/sensors/combat
 	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 3)
 
 /datum/design/item/mechfab/exosuit/combat_torso
 	name = "Combat Exosuit Chassis"
 	time = 60
-	materials = list(DEFAULT_WALL_MATERIAL = 45000)
+	materials = list(DEFAULT_WALL_MATERIAL = 45000, MATERIAL_GOLD = 10500, MATERIAL_SILVER = 10000)
 	build_path = /obj/item/mech_component/chassis/combat
 	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 3)
 
 /datum/design/item/mechfab/exosuit/combat_arms
 	name = "Combat Exosuit Manipulators"
 	time = 30
-	materials = list(DEFAULT_WALL_MATERIAL = 15000)
+	materials = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GOLD = 10500, MATERIAL_SILVER = 10000)
 	build_path = /obj/item/mech_component/manipulators/combat
 	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 3)
 
 /datum/design/item/mechfab/exosuit/combat_legs
 	name = "Combat Exosuit Motivators"
 	time = 30
-	materials = list(DEFAULT_WALL_MATERIAL = 15000)
+	materials = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GOLD = 10500, MATERIAL_SILVER = 10000)
 	build_path = /obj/item/mech_component/propulsion/combat
 	req_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 3)
 
@@ -145,27 +145,30 @@
 /datum/design/item/mechfab/exosuit/heavy_head
 	name = "Heavy Exosuit Sensors"
 	time = 35
-	materials = list(DEFAULT_WALL_MATERIAL = 12000)
+	materials = list(DEFAULT_WALL_MATERIAL = 12000, MATERIAL_PHORON = 12500, MATERIAL_SILVER = 10000, MATERIAL_GOLD = 10000)
 	build_path = /obj/item/mech_component/sensors/heavy
-	req_tech = list(TECH_COMBAT = 2)
+	req_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4)
 
 /datum/design/item/mechfab/exosuit/heavy_torso
 	name = "Heavy Exosuit Chassis"
 	time = 75
-	materials = list(DEFAULT_WALL_MATERIAL = 70000, MATERIAL_URANIUM = 10000)
+	materials = list(DEFAULT_WALL_MATERIAL = 70000, MATERIAL_URANIUM = 10000, MATERIAL_SILVER = 10000, MATERIAL_GOLD = 10000)
 	build_path = /obj/item/mech_component/chassis/heavy
+	req_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4)
 
 /datum/design/item/mechfab/exosuit/heavy_arms
 	name = "Heavy Exosuit Manipulators"
 	time = 35
-	materials = list(DEFAULT_WALL_MATERIAL = 20000)
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_PHORON = 12500, MATERIAL_SILVER = 10000, MATERIAL_GOLD = 10000)
 	build_path = /obj/item/mech_component/manipulators/heavy
+	req_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4)
 
 /datum/design/item/mechfab/exosuit/heavy_legs
 	name = "Heavy Exosuit Motivators"
 	time = 35
-	materials = list(DEFAULT_WALL_MATERIAL = 20000)
+	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_PHORON = 12500, MATERIAL_SILVER = 10000, MATERIAL_GOLD = 10000)
 	build_path = /obj/item/mech_component/propulsion/heavy
+	req_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4)
 
 /datum/design/item/mechfab/exosuit/spider
 	name = "Quadruped Motivators"
@@ -174,17 +177,24 @@
 	build_path = /obj/item/mech_component/propulsion/spider
 	req_tech = list(TECH_ENGINEERING = 2)
 
-/datum/design/item/mechfab/exosuit/hover_torso
-	name = "Hoverpod Torso"
-	time = 40
-	materials = list(DEFAULT_WALL_MATERIAL = 22000)
-	build_path = /obj/item/mech_component/chassis/pod
+/datum/design/item/mechfab/exosuit/spider/heavy
+	name = "Industrial Quadruped Motivators"
+	time = 35
+	materials = list(DEFAULT_WALL_MATERIAL = 25000)
+	build_path = /obj/item/mech_component/propulsion/spider/heavy
+	req_tech = list(TECH_ENGINEERING = 4)
 
 /datum/design/item/mechfab/exosuit/hover_legs
-	name = "Hoverthrusters"
+	name = "Heavy Hoverthrusters"
 	time = 35
 	materials = list(DEFAULT_WALL_MATERIAL = 14000)
 	build_path = /obj/item/mech_component/propulsion/hover
+
+/datum/design/item/mechfab/exosuit/hover_legs/light
+	name = "Light Hoverthrusters"
+	time = 25
+	materials = list(DEFAULT_WALL_MATERIAL = 7500)
+	build_path = /obj/item/mech_component/propulsion/hover/light
 
 /datum/design/item/mechfab/exosuit/track
 	name = "Armored Treads"

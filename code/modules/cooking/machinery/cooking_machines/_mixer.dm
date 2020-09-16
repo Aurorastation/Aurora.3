@@ -15,6 +15,7 @@ fundamental differences
 	cooking_coeff = 0.75
 	active_power_usage = 3000
 	idle_power_usage = 50
+	appliancetype = 0
 
 /obj/machinery/appliance/mixer/examine(var/mob/user)
 	. = ..()
@@ -25,6 +26,7 @@ fundamental differences
 	cooking_objs += new /datum/cooking_item(new /obj/item/reagent_containers/cooking_container(src))
 	cooking = 0
 	selected_option = pick(output_options)
+	update_cooking_power()
 
 //Mixers cannot-not do combining mode. So the default option is removed from this. A combine target must be chosen
 /obj/machinery/appliance/mixer/choose_output()
@@ -88,8 +90,12 @@ fundamental differences
 
 /obj/machinery/appliance/mixer/attempt_toggle_power(var/mob/user, ranged = FALSE)
 	. = ..(user, ranged)
-	if(use_power)
-		get_cooking_work(cooking_objs[1])
+	if(!use_power)
+		return
+	for(var/i in cooking_objs)
+		var/datum/cooking_item/CI = i
+		CI.combine_target = selected_option
+	get_cooking_work(cooking_objs[1])
 
 /obj/machinery/appliance/mixer/can_insert(var/obj/item/I, var/mob/user)
 	if (!stat)

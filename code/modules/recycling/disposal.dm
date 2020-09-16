@@ -36,6 +36,24 @@
 	icon_state = "disposal_small"
 	density = FALSE
 
+/obj/machinery/disposal/small/north
+	dir = NORTH
+	pixel_y = -13
+	layer = MOB_LAYER + 0.1
+
+/obj/machinery/disposal/small/south
+	dir = SOUTH
+	pixel_y = 20
+	layer = OBJ_LAYER + 0.3
+
+/obj/machinery/disposal/small/east
+	dir = EAST
+	pixel_x = -12
+
+/obj/machinery/disposal/small/west
+	dir = WEST
+	pixel_x = 11
+
 /obj/machinery/disposal/small/airless
 	uses_air = FALSE
 
@@ -327,8 +345,10 @@
 
 
 	user.set_machine(src)
-	user << browse(dat, "window=disposal;size=360x170")
-	onclose(user, "disposal")
+
+	var/datum/browser/disposal_win = new(user, "disposal", capitalize_first_letters(name), 320, 200)
+	disposal_win.set_content(dat)
+	disposal_win.open()
 
 // handle machine interaction
 

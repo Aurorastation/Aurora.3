@@ -22,37 +22,51 @@
 		create_reagents(size*8 + 10)
 	update_icon()
 
-/obj/item/reagent_containers/food/snacks/variable/update_icon()
+/obj/item/reagent_containers/food/snacks/variable/on_reagent_change()
+	return
+
+/obj/item/reagent_containers/food/snacks/variable/proc/update_prefix()
+	switch(scale)
+		if (0 to 0.8)
+			prefix = "small"
+		if (0.8 to 1.2)
+			prefix = "large"
+		if (1.2 to 1.4)
+			prefix = "extra large"
+		if (1.4 to 1.6)
+			prefix = "huge"
+		if (1.6 to INFINITY)
+			prefix = "massive"
+	if(scale == min_scale)
+		prefix = "tiny"
+
+	name = "[prefix] [name]"
+
+/obj/item/reagent_containers/food/snacks/proc/get_name_sans_prefix()
+	return name
+
+/obj/item/reagent_containers/food/snacks/variable/get_name_sans_prefix()
+	return jointext(splittext(get_name_sans_prefix(), " ") - prefix, " ")
+
+/obj/item/reagent_containers/food/snacks/variable/proc/update_scale()
 	if (reagents && reagents.total_volume)
 		var/ratio = reagents.total_volume / size
-
 		scale = sqrt(ratio) //Scaling factor is square root of desired area
 		scale = Clamp(scale, min_scale, max_scale)
 	else
 		scale = min_scale
+	w_class = round(initial(w_class) * scale)
+
+/obj/item/reagent_containers/food/snacks/variable/update_icon(var/overwrite = FALSE)
+	if(!scale || overwrite)
+		update_scale()
 
 	var/matrix/M = matrix()
 	M.Scale(scale)
 	transform = M
 
-	w_class = round(w_class * scale)
-	if (!prefix)
-		if (scale == min_scale)
-			prefix = "tiny"
-		else if (scale <= 0.8)
-			prefix = "small"
-
-		else
-			if (scale >= 1.2)
-				prefix = "large"
-			if (scale >= 1.4)
-				prefix = "extra large"
-			if (scale >= 1.6)
-				prefix = "huge"
-			if (scale >= max_scale)
-				prefix = "massive"
-
-		name = "[prefix] [name]"
+	if (!prefix || overwrite)
+		update_prefix()
 
 /obj/item/reagent_containers/food/snacks/variable/pizza
 	name = "personal pizza"

@@ -2842,6 +2842,7 @@ Follow by example and make good judgement based on length which list to include 
 
 	una_paw_socks
 		name = "Socks Coloration (Unathi)"
+		icon = 'icons/mob/human_races/markings_unathi.dmi'
 		icon_state = "una_pawsocks"
 		body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
 		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
@@ -2922,37 +2923,37 @@ Follow by example and make good judgement based on length which list to include 
 		name = "Face Color"
 		icon_state = "una_face"
 		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		icon = 'icons/mob/human_races/markings_unathi.dmi'
+		species_allowed = list(/datum/species/unathi, /datum/species/zombie/unathi)
 
-	una_facelow
-		name = "Face Color Low"
-		icon_state = "una_facelow"
-		body_parts = list(BP_HEAD)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		paint
+			name = "Face Paint"
+			icon_state = "una_facepaint"
 
-	una_scutes
-		name = "Scutes"
-		icon_state = "una_scutes"
-		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		una_facelow
+			name = "Face Color Low"
+			icon_state = "una_facelow"
+			body_parts = list(BP_HEAD)
 
-	una_maswaist
-		name = "Masculine Waist (For Females)"
-		icon_state = "una_maswaist"
-		body_parts = list(BP_CHEST)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		una_scutes
+			name = "Scutes"
+			icon_state = "una_scutes"
+			body_parts = list(BP_CHEST)
 
-	una_clawshand
-		name = "Claws (Hands)"
-		icon_state = "una_claws"
-		body_parts = list(BP_L_HAND,BP_R_HAND)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		una_maswaist
+			name = "Masculine Waist (For Females)"
+			icon_state = "una_maswaist"
+			body_parts = list(BP_CHEST)
 
-	una_clawsfoot
-		name = "Claws (Feet)"
-		icon_state = "una_claws"
-		body_parts = list(BP_L_FOOT,BP_R_FOOT)
-		species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi)
+		una_clawshand
+			name = "Claws (Hands)"
+			icon_state = "una_claws"
+			body_parts = list(BP_L_HAND,BP_R_HAND)
+
+		una_clawsfoot
+			name = "Claws (Feet)"
+			icon_state = "una_claws"
+			body_parts = list(BP_L_FOOT,BP_R_FOOT)
 
 	spelunker
 		name = "Spelunker"

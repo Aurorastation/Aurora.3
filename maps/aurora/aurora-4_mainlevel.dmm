@@ -9519,20 +9519,18 @@
 /area/security/armory)
 "arE" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (.45 lethal)"
+	name = "Weaponry (.45 Pistol)"
 	},
 /obj/effect/decal/warning_stripes,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
-/obj/item/ammo_magazine/c45m,
+/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/sec,
+/obj/item/gun/projectile/sec,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "arF" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	name = "Ammunition (45. less-than-lethal)"
+	name = "Ammunition (.45)"
 	},
 /obj/effect/decal/warning_stripes,
 /obj/item/ammo_magazine/c45m/rubber,
@@ -9540,6 +9538,16 @@
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
 /obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "arG" = (
@@ -13339,6 +13347,7 @@
 	},
 /obj/item/storage/box/firingpins,
 /obj/structure/table/rack,
+/obj/item/storage/box/securitypins,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "axQ" = (
@@ -24373,7 +24382,6 @@
 /area/crew_quarters/captain)
 "aPY" = (
 /obj/structure/table/wood,
-/obj/item/storage/lockbox/medal,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -48260,6 +48268,7 @@
 "bJW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bJX" = (
@@ -48599,6 +48608,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bKS" = (
@@ -48863,6 +48873,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/hologram/holopad,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bLC" = (
@@ -49536,11 +49547,18 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "bMP" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
@@ -49789,8 +49807,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/structure/disposalpipe/junction{
+	dir = 4;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
@@ -51676,6 +51695,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
 /obj/item/storage/box/fancy/candle_box,
+/obj/item/material/ashtray/bronze,
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "bSR" = (
@@ -60517,6 +60537,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"fKb" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled,
+/area/hydroponics)
 "fKZ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet/rubber,
@@ -60610,8 +60640,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/machinery/disposal/small{
-	dir = 8;
+/obj/machinery/disposal/small/west{
 	pixel_x = 12;
 	pixel_y = 1
 	},
@@ -63909,6 +63938,8 @@
 /obj/machinery/light_switch{
 	pixel_x = -26
 	},
+/obj/machinery/disposal/small/east,
+/obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled,
 /area/hydroponics)
 "ofm" = (
@@ -67780,6 +67811,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
+"wcO" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray/bronze,
+/turf/simulated/floor/carpet,
+/area/crew_quarters/bar)
 "wee" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -98548,7 +98584,7 @@ rsk
 bZT
 bWa
 bYZ
-bZt
+wcO
 bYy
 bSM
 caM
@@ -99806,7 +99842,7 @@ bJX
 bKS
 bLD
 bMi
-bLA
+fKb
 bNG
 bOt
 keq
@@ -99833,7 +99869,7 @@ bWa
 bZU
 bZU
 bYZ
-bZt
+wcO
 bYy
 bSM
 caQ
@@ -101118,7 +101154,7 @@ bVc
 izh
 bWa
 bYZ
-bZt
+wcO
 bYy
 bSM
 caT

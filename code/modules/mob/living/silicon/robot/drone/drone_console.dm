@@ -41,10 +41,10 @@
 
 	dat += "<BR><BR><B>Drone fabricator</B>: "
 	dat += "[dronefab ? "<A href='?src=\ref[src];toggle_fab=1'>[(dronefab.produce_drones && !(dronefab.stat & NOPOWER)) ? "ACTIVE" : "INACTIVE"]</A>" : "<font color='red'><b>FABRICATOR NOT DETECTED.</b></font> (<A href='?src=\ref[src];search_fab=1'>search</a>)"]"
-	user << browse(dat, "window=computer;size=400x500")
-	onclose(user, "computer")
-	return
 
+	var/datum/browser/drone_win = new(user, "computer", capitalize_first_letters(name), 400, 500)
+	drone_win.set_content(dat)
+	drone_win.open()
 
 /obj/machinery/computer/drone_control/Topic(href, href_list)
 	if(..())

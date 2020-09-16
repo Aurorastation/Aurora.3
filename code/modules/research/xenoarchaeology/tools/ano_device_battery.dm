@@ -75,8 +75,9 @@
 	dat += "<hr>"
 	dat += "<a href='?src=\ref[src];refresh=1'>Refresh</a> <a href='?src=\ref[src];close=1'>Close</a>"
 
-	user << browse(dat, "window=anodevice;size=400x500")
-	onclose(user, "anodevice")
+	var/datum/browser/battery_win = new(user, "anodevice", capitalize_first_letters(name), 400, 500)
+	battery_win.set_content(dat)
+	battery_win.open()
 
 /obj/item/anodevice/process()
 	if(activated)
