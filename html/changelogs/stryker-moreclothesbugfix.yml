@@ -1,4 +1,4 @@
- author: The Stryker
+author: The Stryker
 delete-after: True
 changes: 
   - bugfix: "The Idris armband in the loadout actually spawns now."
