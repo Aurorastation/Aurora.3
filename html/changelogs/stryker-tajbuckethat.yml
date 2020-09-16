@@ -1,0 +1,4 @@
+author: The Stryker
+delete-after: True
+changes: 
+  - rscadd: "Adds a sprite for the buckethat that won't clip with tajara ears."
