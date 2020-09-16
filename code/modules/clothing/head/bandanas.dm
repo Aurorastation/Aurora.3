@@ -15,7 +15,7 @@
 /obj/item/clothing/head/bandana/pirate // legacy antag item.
 	name = "pirate bandana"
 	desc = "Yarr."
-	icon_state = "pirate_bandana"
+	icon_state = "bandana_pirate"
 
 /obj/item/clothing/head/bandana/red // Antag red.
 	name = "red bandana"
@@ -34,26 +34,26 @@
 /obj/item/clothing/head/bandana/security
 	name = "security bandana"
 	desc = "It's a security bandana with some fine nanotech lining. Great for holding back your thick mullet while chasing perps."
-	icon_state = "bandana_security"
-	item_state = "bandana_security"
+	icon_state = "bandana_sec"
+	item_state = "bandana_sec"
 
 /obj/item/clothing/head/bandana/medical
 	name = "medical bandana"
 	desc = "It's a medical bandana with some fine nanotech lining. The blood just wrings out!"
-	icon_state = "bandana_medical"
-	item_state = "bandana_medical"
+	icon_state = "bandana_med"
+	item_state = "bandana_med"
 
 /obj/item/clothing/head/bandana/science
 	name = "science bandana"
 	desc = "It's a science bandana with some fine nanotech lining. Smells of sulfuric acid."
-	icon_state = "bandana_science"
-	item_state = "bandana_science"
+	icon_state = "bandana_sci"
+	item_state = "bandana_sci"
 
 /obj/item/clothing/head/bandana/engineering
 	name = "engineering bandana"
 	desc = "It's an engineering bandana with some fine nanotech lining. In high-visibility yellow!"
-	icon_state = "bandana_engineer"
-	item_state = "bandana_engineer"
+	icon_state = "bandana_engi"
+	item_state = "bandana_engi"
 
 /obj/item/clothing/head/bandana/atmos
 	name = "atmospherics bandana"
