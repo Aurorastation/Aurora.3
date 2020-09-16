@@ -223,10 +223,12 @@
 		
 		if((equip_preview_mob & EQUIP_PREVIEW_LOADOUT) && !(previewJob && (equip_preview_mob & EQUIP_PREVIEW_JOB) && (previewJob.type == /datum/job/ai || previewJob.type == /datum/job/cyborg)))
 			SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
-			SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)
 
 		if((equip_preview_mob & EQUIP_PREVIEW_JOB) && previewJob)	
 			previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title])
+
+		if(equip_preview_mob & EQUIP_PREVIEW_LOADOUT && leftovers.len)
+			SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)
 
 		if (!SSATOMS_IS_PROBABLY_DONE)
 			SSatoms.ForceInitializeContents(mannequin)
