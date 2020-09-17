@@ -724,7 +724,7 @@ var/list/admin_verbs_cciaa = list(
 
 	C.cure_all_traumas(TRUE, CURE_ADMIN)
 	log_and_message_admins("<span class='notice'>cured [key_name(C)]'s traumas.</span>")
-	feedback_add_details("admin_verb","TB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!\
+	feedback_add_details("admin_verb","TB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/add_traumas(mob/T as mob in mob_list)
 	set category = "Fun"

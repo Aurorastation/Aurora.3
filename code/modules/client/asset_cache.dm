@@ -62,9 +62,14 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 
 	var/t = 0
 	var/timeout_time = (ASSET_CACHE_SEND_TIMEOUT * client.sending.len) + ASSET_CACHE_SEND_TIMEOUT
+	log_debug("Asset with verify = TRUE being sent: [asset_name]...")
 	while(client && !client.completed_asset_jobs.Find(job) && t < timeout_time) // Reception is handled in Topic()
 		sleep(1) // Lock up the caller until this is received.
 		t++
+
+	if(t >= timeout_time)
+		log_debug("[client.key] taking too much time for asset: [asset_name] with sending list [english_list(client.sending)]!")
+		alert(client, "Please adminhelp and say that your assets are stuck at the following: [asset_name] along with your sending list being: [english_list(client.sending)].")
 
 	if(client)
 		client.sending -= asset_name
@@ -113,9 +118,14 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 
 	var/t = 0
 	var/timeout_time = ASSET_CACHE_SEND_TIMEOUT * client.sending.len
+	log_debug("Asset with verify = TRUE being sent: [english_list(asset_list)]...")
 	while(client && !client.completed_asset_jobs.Find(job) && t < timeout_time) // Reception is handled in Topic()
 		sleep(1) // Lock up the caller until this is received.
 		t++
+
+	if(t >= timeout_time)
+		log_debug("[client.key] taking too much time for assets: [english_list(asset_list)] with sending list: [english_list(client.sending)]!")
+		to_chat("[client.key] Please adminhelp and say that your assets are stuck at the following: [english_list(asset_list)] along with your sending list being: [english_list(client.sending)].")
 
 	if(client)
 		client.sending -= unreceived
