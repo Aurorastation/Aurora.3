@@ -8,9 +8,11 @@
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/bandana/colorable
-	name = "bandana"
-	desc = "It's a bandana with some fine nanotech lining."
 	icon_state = "bandana_colorable"
+
+/obj/item/clothing/head/bandana/colorable/random/Initialize()
+	. = ..()
+	color = get_random_colour(TRUE)
 
 /obj/item/clothing/head/bandana/pirate // legacy antag item.
 	name = "pirate bandana"

@@ -71,6 +71,7 @@
 	new /obj/item/cartridge/janitor(src)
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/head/soft/purple(src)
+	new /obj/item/clothing/head/bandana/janitor(src)
 	new /obj/item/gun/energy/mousegun(src)
 	new /obj/item/device/flashlight(src)
 	new /obj/item/clothing/suit/caution(src)
