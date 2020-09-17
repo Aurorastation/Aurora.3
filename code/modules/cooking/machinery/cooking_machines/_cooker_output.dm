@@ -11,7 +11,7 @@
 	var/max_scale = 2
 	var/scale = 1
 
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	var/prefix
 
 /obj/item/reagent_containers/food/snacks/variable/Initialize()
@@ -22,51 +22,65 @@
 		create_reagents(size*8 + 10)
 	update_icon()
 
-/obj/item/reagent_containers/food/snacks/variable/update_icon()
+/obj/item/reagent_containers/food/snacks/variable/on_reagent_change()
+	return
+
+/obj/item/reagent_containers/food/snacks/variable/proc/update_prefix()
+	switch(scale)
+		if (0 to 0.8)
+			prefix = "small"
+		if (0.8 to 1.2)
+			prefix = "large"
+		if (1.2 to 1.4)
+			prefix = "extra large"
+		if (1.4 to 1.6)
+			prefix = "huge"
+		if (1.6 to INFINITY)
+			prefix = "massive"
+	if(scale == min_scale)
+		prefix = "tiny"
+
+	name = "[prefix] [name]"
+
+/obj/item/reagent_containers/food/snacks/proc/get_name_sans_prefix()
+	return name
+
+/obj/item/reagent_containers/food/snacks/variable/get_name_sans_prefix()
+	return jointext(splittext(get_name_sans_prefix(), " ") - prefix, " ")
+
+/obj/item/reagent_containers/food/snacks/variable/proc/update_scale()
 	if (reagents && reagents.total_volume)
 		var/ratio = reagents.total_volume / size
-
 		scale = sqrt(ratio) //Scaling factor is square root of desired area
 		scale = Clamp(scale, min_scale, max_scale)
 	else
 		scale = min_scale
+	w_class = round(initial(w_class) * scale)
+
+/obj/item/reagent_containers/food/snacks/variable/update_icon(var/overwrite = FALSE)
+	if(!scale || overwrite)
+		update_scale()
 
 	var/matrix/M = matrix()
 	M.Scale(scale)
 	transform = M
 
-	w_class = round(w_class * scale)
-	if (!prefix)
-		if (scale == min_scale)
-			prefix = "tiny"
-		else if (scale <= 0.8)
-			prefix = "small"
-
-		else
-			if (scale >= 1.2)
-				prefix = "large"
-			if (scale >= 1.4)
-				prefix = "extra large"
-			if (scale >= 1.6)
-				prefix = "huge"
-			if (scale >= max_scale)
-				prefix = "massive"
-
-		name = "[prefix] [name]"
+	if (!prefix || overwrite)
+		update_prefix()
 
 /obj/item/reagent_containers/food/snacks/variable/pizza
 	name = "personal pizza"
 	desc = "A personalized pan pizza meant for only one person."
 	icon_state = "personal_pizza"
 	size = 20
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/reagent_containers/food/snacks/variable/bread
 	name = "bread"
 	desc = "Tasty bread."
 	icon_state = "breadcustom"
 	size = 40
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/reagent_containers/food/snacks/variable/pie
 	name = "pie"
@@ -79,14 +93,14 @@
 	desc = "A popular band."
 	icon_state = "cakecustom"
 	size = 40
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/reagent_containers/food/snacks/variable/pocket
 	name = "hot pocket"
 	desc = "You wanna put a bangin- oh, nevermind."
 	icon_state = "donk"
 	size = 8
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/variable/kebab
 	name = "kebab"
@@ -105,35 +119,35 @@
 	desc = "Sugar snap!"
 	icon_state = "cookie"
 	size = 6
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/variable/donut
 	name = "filled donut"
 	desc = "Donut eat this!" // kill me
 	icon_state = "donut"
 	size = 8
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/variable/jawbreaker
 	name = "flavored jawbreaker"
 	desc = "It's like cracking a molar on a rainbow."
 	icon_state = "jawbreaker"
 	size = 4
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/variable/candybar
 	name = "flavored chocolate bar"
 	desc = "Made in a factory downtown."
 	icon_state = "bar"
 	size = 6
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/variable/sucker
 	name = "flavored sucker"
 	desc = "Suck, suck, suck."
 	icon_state = "sucker"
 	size = 4
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/reagent_containers/food/snacks/variable/jelly
 	name = "jelly"
@@ -146,7 +160,7 @@
 	desc = "Crispy and flaky"
 	icon_state = "cereal_box"
 	size = 30
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/reagent_containers/food/snacks/variable/cereal/Initialize()
 	. =..()
@@ -155,6 +169,6 @@
 /obj/item/reagent_containers/food/snacks/variable/mob
 	desc = "Poor little thing."
 	size = 5
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	var/kitchen_tag = "animal"
 

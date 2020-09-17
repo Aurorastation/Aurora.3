@@ -272,8 +272,8 @@
 	name = "Virus Food"
 	id = "virusfood"
 	result = /datum/reagent/nutriment/virusfood
-	required_reagents = list(/datum/reagent/water = 1, /datum/reagent/drink/milk = 1)
-	result_amount = 5
+	required_reagents = list(/datum/reagent/water = 1, /datum/reagent/drink/milk = 1, /datum/reagent/sugar = 1)
+	result_amount = 6
 
 /datum/chemical_reaction/leporazine
 	name = "Leporazine"

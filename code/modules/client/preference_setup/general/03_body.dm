@@ -195,7 +195,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	out += "<br>"
 	out += "Species: <a href='?src=\ref[src];show_species=1'>[pref.species]</a><br>"
 	out += "Blood Type: <a href='?src=\ref[src];blood_type=1'>[pref.b_type]</a><br>"
-	out += "<a href='?src=\ref[src];cycle_bg=1'>Cycle background</a><br>"
+	out += "<a href='?src=\ref[src];cycle_bg=1'>Cycle preview background</a><br>"
 	if(has_flag(mob_species, HAS_SKIN_TONE))
 		out += "Skin Tone: <a href='?src=\ref[src];skin_tone=1'>[-pref.s_tone + 35]/220</a><br>"
 	out += "Disabilities: <a href='?src=\ref[src];trait_add=1'>Adjust</a><br>"
@@ -501,7 +501,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else if(href_list["marking_style"])
 		var/list/usable_markings = pref.body_markings ^ body_marking_styles_list
 		var/datum/species/species = global.all_species[pref.species]
-		//var/btype = species.get_bodytype()
 		for(var/M in usable_markings)
 			var/datum/sprite_accessory/S = usable_markings[M]
 			if(!S.species_allowed.len)

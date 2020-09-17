@@ -289,6 +289,11 @@
 	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons."
 	starts_with = list(/obj/item/device/firing_pin = 7)
 
+/obj/item/storage/box/securitypins
+	name = "box of wireless-control firing pins"
+	desc = "A box of NT brand Firearm authentication pins; Needed to operate most weapons.  These firing pins are wireless-control enabled."
+	starts_with = list(/obj/item/device/firing_pin/wireless = 7)
+
 /obj/item/storage/box/testpins
 	name = "box of firing pins"
 	desc = "A box of NT brand Testing Authentication pins; allows guns to fire in designated firing ranges."
@@ -598,7 +603,7 @@
 		)
 	icon_state = "portafreezer"
 	item_state = "medicalpack"
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 21
 	use_to_pickup = FALSE // for picking up broken bulbs, not that most people will try
 	chewable = FALSE

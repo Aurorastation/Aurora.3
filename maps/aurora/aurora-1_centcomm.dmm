@@ -334,6 +334,29 @@
 	icon_state = "ramptop"
 	},
 /area/antag/burglar)
+"aaF" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/steel,
+/obj/item/rig/hazard/equipped/pirate{
+	pixel_x = 2;
+	pixel_y = 2
+	},
+/obj/item/rig/eva/equipped/pirate{
+	pixel_x = -13;
+	pixel_y = 7
+	},
+/obj/item/rig/industrial/equipped{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/skipjack)
 "aaM" = (
 /turf/template_noop,
 /area/template_noop)
@@ -9947,29 +9970,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
-"aHj" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table/steel,
-/obj/item/rig/eva/equipped{
-	pixel_x = -13;
-	pixel_y = 7
-	},
-/obj/item/rig/hazard/equipped/pirate{
-	pixel_x = 2;
-	pixel_y = 2
-	},
-/obj/item/rig/industrial/equipped{
-	pixel_x = -8;
-	pixel_y = -2
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/skipjack)
 "aHk" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -16347,7 +16347,7 @@
 	},
 /area/centcom/legion/hangar5)
 "crO" = (
-/turf/unsimulated/wall/steel,
+/turf/simulated/wall,
 /area/merchant_station/warehouse)
 "cti" = (
 /turf/simulated/wall/shuttle/unique/raider{
@@ -17032,10 +17032,14 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion/hangar5)
 "cXA" = (
-/turf/unsimulated/wall/fakepdoor{
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter1";
-	name = "warehouse shutter"
+	layer = 2.4;
+	name = "shutter";
+	opacity = 1
 	},
+/turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
 "cXK" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -24536,11 +24540,14 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "jrk" = (
-/turf/unsimulated/wall/fakeairlock{
+/obj/effect/decal/fake_object{
+	density = 1;
 	desc = "Locked during work hours due to safety concerns. Particularly pirate ones.";
+	icon = 'icons/obj/doors/Doorglass.dmi';
 	icon_state = "door_locked";
-	name = "Upper Levels access"
+	name = "Upper Levels Access"
 	},
+/turf/simulated/floor/tiled,
 /area/merchant_station)
 "jrq" = (
 /obj/effect/floor_decal/spline/plain,
@@ -25023,7 +25030,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
 "jUq" = (
 /obj/structure/table/rack,
@@ -29928,7 +29935,7 @@
 /area/centcom/shared_dream)
 "nYp" = (
 /obj/structure/sign/nosmoking_2,
-/turf/unsimulated/wall/steel,
+/turf/simulated/wall,
 /area/merchant_station/warehouse)
 "nZO" = (
 /obj/structure/table/standard,
@@ -31957,7 +31964,7 @@
 	},
 /area/centcom/legion)
 "pWO" = (
-/turf/unsimulated/wall/steel,
+/turf/simulated/wall,
 /area/template_noop)
 "pWU" = (
 /obj/effect/floor_decal/spline/plain/corner{
@@ -40452,7 +40459,7 @@
 	},
 /area/centcom/legion/hangar5)
 "xwI" = (
-/turf/unsimulated/wall/steel,
+/turf/simulated/wall,
 /area/merchant_station)
 "xwM" = (
 /obj/structure/table/wood,
@@ -61016,7 +61023,7 @@ aov
 apy
 azs
 aGm
-aHj
+aaF
 aFR
 aJL
 aFR

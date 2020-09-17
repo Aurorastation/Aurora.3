@@ -11,6 +11,7 @@
 		for(var/i = 1 to 3)
 			var/obj/item/reagent_containers/food/snacks/sashimi/sashimi = new(get_turf(src), fish_type)
 			reagents.trans_to(sashimi, transfer_amt)
+		qdel(src)
 
 /obj/item/reagent_containers/food/snacks/fish/carpmeat
 	name = "carp fillet"

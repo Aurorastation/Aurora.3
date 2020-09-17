@@ -8,7 +8,7 @@
 	throwforce = 2.0
 	throw_speed = 1
 	throw_range = 4
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	attack_verb = list("called", "rang")
 	hitsound = 'sound/weapons/ring.ogg'
 
@@ -22,7 +22,7 @@
 	anchored = 0.0
 	var/stored_matter = 0
 	var/mode = 1
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/bikehorn
 	name = "bike horn"
@@ -31,7 +31,7 @@
 	icon_state = "bike_horn"
 	item_state = "bike_horn"
 	throwforce = 3
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
 	throw_range = 15
 	attack_verb = list("HONKED")
@@ -53,7 +53,7 @@
 	flags = CONDUCT
 	force = 10
 	throwforce = 7.0
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
 
@@ -299,7 +299,7 @@
 	var/size = 3.0
 	var/obj/item/gift = null
 	item_state = "gift"
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 
 /obj/item/gift/random_pixel/Initialize()
 	pixel_x = rand(-16,16)
@@ -313,7 +313,7 @@
 	icon_state = "handcuff"
 	flags = CONDUCT
 	throwforce = 0
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1)
 	var/breakouttime = 300	//Deciseconds = 30s = 0.5 minute
 
@@ -331,7 +331,7 @@
 	slot_flags = SLOT_BELT
 	item_state = "radio"
 	throwforce = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 4
 	throw_range = 20
 	matter = list(DEFAULT_WALL_MATERIAL = 100)
@@ -346,7 +346,7 @@
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	attack_verb = list("bludgeoned", "whacked", "disciplined")
 
 /obj/item/staff/broom
@@ -372,12 +372,12 @@
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/module
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_mod"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
 	flags = CONDUCT
 	var/mtype = 1						// 1=electronic 2=hardware
@@ -419,7 +419,7 @@
 	name = "camera bug"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "flash"
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	item_state = "electronic"
 	throw_speed = 4
 	throw_range = 20
@@ -480,7 +480,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi'
 		)
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	can_hold = list(/obj/item/stock_parts,/obj/item/reagent_containers/glass/beaker)
 	storage_slots = 50
 	use_to_pickup = 1
@@ -488,7 +488,7 @@
 	allow_quick_empty = 1
 	collection_mode = 1
 	display_contents_with_number = 1
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 100
 
 /obj/item/ectoplasm

@@ -30,6 +30,7 @@
 
 	var/cloaked = TRUE
 	var/returned = FALSE
+	var/return_warning_cooldown
 	var/announcer
 	var/arrival_message
 	var/departure_message

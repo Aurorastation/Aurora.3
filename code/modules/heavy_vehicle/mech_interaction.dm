@@ -233,13 +233,11 @@
 	user.forceMove(src)
 	LAZYDISTINCTADD(pilots, user)
 	sync_access()
-	update_pilot_overlay()
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
 	user << sound('sound/mecha/nominal.ogg',volume=50)
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
-	update_pilot_overlay()
 	return 1
 
 /mob/living/heavy_vehicle/proc/sync_access()
@@ -275,8 +273,6 @@
 		set_intent(I_HURT)
 		LAZYREMOVE(pilots, user)
 		UNSETEMPTY(pilots)
-		update_pilot_overlay()
-	return
 
 /mob/living/heavy_vehicle/relaymove(var/mob/living/user, var/direction)
 	if(world.time < next_mecha_move)

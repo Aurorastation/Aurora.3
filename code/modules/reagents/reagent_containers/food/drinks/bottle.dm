@@ -12,6 +12,7 @@
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
 	force = 5
 	hitsound = /decl/sound_category/bottle_hit_intact_sound
+	shatter = TRUE
 	var/smash_duration = 5 //Directly relates to the 'weaken' duration. Lowered by armor (i.e. helmets)
 	matter = list(MATERIAL_GLASS = 800)
 
@@ -180,7 +181,7 @@
 	edge = FALSE
 	hitsound = /decl/sound_category/bottle_hit_broken
 	var/icon/broken_outline = icon('icons/obj/drinks.dmi', "broken")
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 #define DRINK_FLUFF_GETMORE  "This drink is made by Getmore Corporation, a subsidiary of NanoTrasen. It mostly specializes in fast food and consumer food products, \
 							   but also makes average quality alcohol. Many can find Getmore products in grocery stores, vending machines, \
@@ -218,7 +219,7 @@
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "whiskeybottle"
 	center_of_mass = list("x"=16, "y"=4)
-	
+
 /obj/item/reagent_containers/food/drinks/bottle/whiskey/Initialize()
 	. = ..()
 	reagents.add_reagent(/datum/reagent/alcohol/ethanol/whiskey, 100)
@@ -239,6 +240,15 @@
 	icon_state = "vodkabottle"
 	center_of_mass = list("x"=17, "y"=4)
 	reagents_to_add = list(/datum/reagent/alcohol/ethanol/vodka = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/vodka/mushroom
+	name = "Magnitogorsk Import mushroom vodka"
+	desc = "A mushroom-based vodka imported from the breweries of Himeo. Drinking too much of this will result in a personal permanent revolution."
+	desc_fluff = "Vodka made from mushrooms is a local favourite on Himeo, due to the ease with which mushrooms can be grown under the planet's surface. This bottle is \
+	from the Vodnik Breweries Syndicate in Magnitogorsk, arguably the most famous brewery on Himeo (though fans of the Coal Canary Syndicated Brewery in Highland City \
+	would disagree). Drinkers of the world, unite!"
+	icon_state = "mushroomvodkabottle"
+	reagents_to_add = list(/datum/reagent/alcohol/ethanol/vodka/mushroom = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/tequila
 	name = "Chip’s Guaranteed Quality tequila"
@@ -397,6 +407,8 @@
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	reagents_to_add = list(/datum/reagent/drink/space_cola = 100)
+	shatter_material = MATERIAL_PLASTIC
+	shatter = FALSE
 
 /obj/item/reagent_containers/food/drinks/bottle/space_up
 	name = "\improper Space-Up"
@@ -407,6 +419,8 @@
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	reagents_to_add = list(/datum/reagent/drink/spaceup = 100)
+	shatter_material = MATERIAL_PLASTIC
+	shatter = FALSE
 
 /obj/item/reagent_containers/food/drinks/bottle/space_mountain_wind
 	name = "\improper Space Mountain Wind"
@@ -417,6 +431,8 @@
 	drop_sound = 'sound/items/drop/shoes.ogg'
 	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	reagents_to_add = list(/datum/reagent/drink/spacemountainwind = 100)
+	shatter_material = MATERIAL_PLASTIC
+	shatter = FALSE
 
 /obj/item/reagent_containers/food/drinks/bottle/pwine
 	name = "Chip Getmore's Velvet"
@@ -531,6 +547,38 @@
 	People's Republic situation in the current conflict. Messa's mead is also another more traditional alternative, made with honey and fermented Earthen-Root juice."
 	reagents_to_add = list(/datum/reagent/alcohol/ethanol/messa_mead = 100)
 
+/obj/item/reagent_containers/food/drinks/bottle/sake
+	name = "Shokyodo Sake"
+	desc = "A rice-based alcohol produced and marketed by Nojosuru Foods. While frequently described as rice wine, its production shares more in common with beer."
+	desc_fluff = "Brewed in Nojosuru's facilities in Akita Prefecture, Japan, Shokyodo Sake is marketed as a premium good reflecting its lineage from Earth. \
+	Despite its high level of quality and pleasing taste, it has never gained much popularity outside of Sol and the Inner Colonies owing to its high cost and Konyang-based \
+	competitors."
+	icon_state = "sakebottle"
+	center_of_mass = list("x"=16, "y"=4)
+	reagents_to_add = list(/datum/reagent/alcohol/ethanol/sake = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/soju
+	name = "Boryeong '45 soju"
+	desc = "A rice-based liquor commonly consumed by the non-synthetic residents of Konyang. This particular brand originates from the city of Boreyeong, on Konyang."
+	desc_fluff = "While most commonly associated with Konyang, soju can be found throughout the Sol Alliance thanks to the inexpensive cost of producing it and a successful \
+	marketing campaign carried out during the robotics boom on Konyang. It is traditionally consumed neat, or without mixing any other liquids into it. The '45 in this brand's \
+	name refers to its alcohol by volume content, and not a calendar year."
+	icon_state = "sojubottle"
+	center_of_mass = list("x"=16, "y"=4)
+	reagents_to_add = list(/datum/reagent/alcohol/ethanol/soju = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/makgeolli
+	name = "Doctor Kyung's makgeolli"
+	desc = "A rice wine imported from Konyang with a very low alcohol content, makegeolli is commonly consumed during social events on Konyang. This bottle has a smiling man \
+	wearing a labcoat on its label."
+	desc_fluff = "Doctor Gyeong Kyung, PhD., is considered to be one of the Point Verdant Terraneus Institute of AI Research's premiere scholars, and is commonly seen at robotics \
+	conferences throughout the Orion Spur. He has also proven to be a fairly successful hobbyist brewer on the side, as seen by this very successful brand. Due to its association \
+	with the PVTI, Doctor Kyung's makegeolli is partially funded by Einstein Engines. This has not stopped it from becoming popular even in NanoTrasen-dominated areas, as it \
+	really is just that good."
+	icon_state = "makgeollibottle"
+	center_of_mass = list("x"=16, "y"=5)
+	reagents_to_add = list(/datum/reagent/alcohol/ethanol/makgeolli = 100)
+
 // Butanol-based alcoholic drinks
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species
@@ -540,7 +588,6 @@
 	desc = "Blended flower buds from the Xuizi cactus. It smells faintly of vanilla. Bottled by the Arizi Guild for over 200 years."
 	icon_state = "xuizibottle"
 	center_of_mass = list("x"=16, "y"=8)
-
 	reagents_to_add = list(/datum/reagent/alcohol/butanol/xuizijuice = 30)
 
 /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine

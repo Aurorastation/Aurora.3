@@ -108,10 +108,11 @@
 
 	dat += "</table><hr>"
 	dat += "Currently displaying [show_all_ores ? "all ore types" : "only available ore types"]. <A href='?src=\ref[src];toggle_ores=1'>\[[show_all_ores ? "show less" : "show more"]\]</a></br>"
-	dat += "The ore processor is currently <A href='?src=\ref[src];toggle_power=1'>[(machine.active ? "<font color='green'>processing</font>" : "<span class='warning'>disabled</span>")]</a>."
-	user << browse(dat, "window=processor_console;size=400x500")
-	onclose(user, "processor_console")
-	return
+	dat += "The ore processor is currently <A href='?src=\ref[src];toggle_power=1'>[(machine.active ? "<font color='green'>processing</font>" : "<font color='red'>disabled</font>")]</a>."
+	
+	var/datum/browser/processor_win = new(user, "processor_console", capitalize_first_letters(name))
+	processor_win.set_content(dat)
+	processor_win.open()
 
 /obj/machinery/mineral/processing_unit_console/Topic(href, href_list)
 	if(..())

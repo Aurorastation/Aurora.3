@@ -5,7 +5,7 @@
 	. = ..()
 	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 2	//two slots
-	pockets.max_w_class = 2		//fit only pocket sized items
+	pockets.max_w_class = ITEMSIZE_SMALL		//fit only pocket sized items
 	pockets.max_storage_space = 4
 
 /obj/item/clothing/suit/storage/Destroy()
@@ -37,42 +37,44 @@
 
 //Jackets with buttons
 /obj/item/clothing/suit/storage/toggle
-	var/icon_open
-	var/icon_closed
+	var/opened = FALSE
 
 /obj/item/clothing/suit/storage/toggle/verb/toggle()
 	set name = "Toggle Coat Buttons"
 	set category = "Object"
 	set src in usr
-	if(!usr.canmove || usr.stat || usr.restrained())
+
+	if(use_check_and_message(usr))
 		return 0
 
-	if(icon_state == icon_open) //Will check whether icon state is currently set to the "open" or "closed" state and switch it around with a message to the user
-		icon_state = icon_closed
-		item_state = icon_closed
-		to_chat(usr, "You button up \the [src].")
-	else if(icon_state == icon_closed)
-		icon_state = icon_open
-		item_state = icon_open
-		to_chat(usr, "You unbutton \the [src].")
-	else //in case some goofy admin switches icon states around without switching the icon_open or icon_closed
-		to_chat(usr, "You attempt to button-up the velcro on \the [src], before promptly realising how silly you are.")
-		return
-	update_clothing_icon()	//so our overlays update
+	toggle_open()
 
+/obj/item/clothing/suit/storage/toggle/proc/toggle_open()
+	opened = !opened
+	to_chat(usr, SPAN_NOTICE("You [opened ? "unbutton" : "button up"] \the [src]."))
+	playsound(src, /decl/sound_category/rustle_sound, EQUIP_SOUND_VOLUME, TRUE)
+	icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
+	item_state = icon_state
+	update_clothing_icon()
+
+/obj/item/clothing/suit/storage/toggle/Initialize()
+	. = ..()
+	if(opened) // for stuff that's supposed to spawn opened, like labcoats.
+		icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
+		item_state = icon_state
 
 /obj/item/clothing/suit/storage/vest/merc/Initialize()
 	. = ..()
 	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 4
-	pockets.max_w_class = 2
+	pockets.max_w_class = ITEMSIZE_SMALL
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/storage/vest/hos/Initialize()
 	. = ..()
 	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 4
-	pockets.max_w_class = 2
+	pockets.max_w_class = ITEMSIZE_SMALL
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/storage/vest

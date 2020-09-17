@@ -1459,7 +1459,7 @@
 	item_state = "book4"
 	title = "hadiist manifesto"
 	author = "Al'Mari Hadii"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	dat = {"<html>
 				<head>
 					<style>
@@ -1499,7 +1499,7 @@
 	item_state = "book1"
 	title = "dominian honor codex"
 	author = "Zalze Han'San"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	dat = {"<html>
 				<head>
 				<style>
@@ -1600,7 +1600,7 @@
 	item_state = "book13"
 	title = "Tau Ceti foreign legion pamphlet"
 	author = "Tau Ceti foreign legion recruitment center"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	dat = {"<html>
 				<head>
 					<style>

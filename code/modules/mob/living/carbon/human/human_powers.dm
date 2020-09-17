@@ -1149,7 +1149,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, SPAN_NOTICE("You can't flick your tongue out with something covering your face."))
 		return
 	else
-		custom_emote(1, "flicks their tongue out.")
+		custom_emote(VISIBLE_MESSAGE, "flicks their tongue out.")
 
 	var/datum/gas_mixture/mixture = src.loc.return_air()
 	var/total_moles = mixture.total_moles

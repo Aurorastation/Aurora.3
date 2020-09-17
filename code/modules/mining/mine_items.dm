@@ -63,7 +63,7 @@
 	slot_flags = SLOT_BELT
 	throwforce = 4.0
 	force = 10.0
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
 	var/digspeed //moving the delay to an item var so R&D can make improved picks. --NEO
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
@@ -191,7 +191,7 @@
 		attack_self(usr)
 
 /obj/item/pickaxe/offhand
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "offhand"
 	item_state = null
@@ -338,8 +338,10 @@
 
 /obj/item/pickaxe/borgdrill
 	name = "cyborg mining drill"
+	icon = 'icons/obj/contained_items/tools/drills.dmi'
 	icon_state = "diamonddrill"
 	item_state = "jackhammer"
+	contained_sprite = TRUE
 	digspeed = 10
 	digspeed_unwielded = 10
 	force_unwielded = 25.0
@@ -369,7 +371,7 @@
 	slot_flags = SLOT_BELT
 	force = 8.0
 	throwforce = 4.0
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked")
@@ -387,7 +389,7 @@
 	item_state = "spade"
 	force = 5.0
 	throwforce = 7.0
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 
 // Flags.
 
@@ -397,7 +399,7 @@
 	singular_name = "flag"
 	amount = 25
 	max_amount = 25
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	icon = 'icons/obj/mining.dmi'
 	var/upright = FALSE
 	var/base_state
@@ -501,7 +503,7 @@
 	icon_state = "track15"
 	density = FALSE
 	anchored = TRUE
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	layer = 2.44
 
 /obj/structure/track/Initialize()
@@ -637,7 +639,7 @@
 	icon_state = "pinoff"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
 	throw_speed = 4
 	throw_range = 20
@@ -704,7 +706,7 @@
 	icon_state = "jaunter"
 	item_state = "jaunter"
 	throwforce = 0
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
 	throw_range = 5
 	slot_flags = SLOT_BELT
@@ -788,7 +790,7 @@
 	icon_state = "borghypo"
 	item_state = "hypo"
 	throwforce = 0
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
 	throw_range = 5
 	var/loaded = TRUE
@@ -874,7 +876,7 @@ var/list/total_extraction_beacons = list()
 	contained_sprite = TRUE
 	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "fulton"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	var/obj/structure/extraction_point/beacon
 	var/list/beacon_networks = list("station")
 	var/uses_left = 3
@@ -1077,7 +1079,7 @@ var/list/total_extraction_beacons = list()
 	icon_state = "magneto"
 	item_state = "magneto"
 	desc = "A handheld device that creates a well of negative force that attracts minerals of a very specific type, size, and state to its user."
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	force = 10
 	throwforce = 5
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 3)
@@ -1115,7 +1117,7 @@ var/list/total_extraction_beacons = list()
 	icon_state = "supermagneto"
 	item_state = "jaunter"
 	desc = "A handheld device that creates a well of warp energy that teleports minerals of a very specific type, size, and state to its user."
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	force = 15
 	throwforce = 5
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_ENGINEERING = 3)
@@ -1140,9 +1142,10 @@ var/list/total_extraction_beacons = list()
 /******************************Sculpting*******************************/
 /obj/item/autochisel
 	name = "auto-chisel"
-	icon = 'icons/obj/tools.dmi'
+	icon = 'icons/obj/contained_items/tools/drills.dmi'
 	icon_state = "jackhammer"
 	item_state = "jackhammer"
+	contained_sprite = TRUE
 	origin_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2, TECH_ENGINEERING = 2)
 	desc = "With an integrated AI chip and hair-trigger precision, this baby makes sculpting almost automatic!"
 

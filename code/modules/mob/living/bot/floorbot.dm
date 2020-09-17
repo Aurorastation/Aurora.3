@@ -31,8 +31,8 @@
 		return
 
 	user.set_machine(src)
-	var/dat
-	dat += "<TT><B>Automatic Station Floor Repairer v1.1</B></TT><BR><BR>"
+
+	var/dat = ""
 	dat += "Status: <A href='?src=\ref[src];operation=start'>[src.on ? "On" : "Off"]</A><BR>"
 	dat += "Maintenance panel is [open ? "opened" : "closed"]<BR>"
 	//dat += "Tiles left: [amount]<BR>"
@@ -48,9 +48,9 @@
 			bmode = "Disabled"
 		dat += "<BR><BR>Bridge Mode : <A href='?src=\ref[src];operation=bridgemode'>[bmode]</A><BR>"
 
-	user << browse("<HEAD><TITLE>Repairbot v1.1 controls</TITLE></HEAD>[dat]", "window=autorepair")
-	onclose(user, "autorepair")
-	return
+	var/datum/browser/bot_win = new(user, "autorepair", "Automatic Repairbot v1.2 Controls")
+	bot_win.set_content(dat)
+	bot_win.open()
 
 /mob/living/bot/floorbot/emag_act(var/remaining_charges, var/mob/user)
 	. = ..()
@@ -115,7 +115,7 @@
 		addTiles(1)
 
 	if(prob(5))
-		custom_emote(2, "makes an excited booping beeping sound!")
+		custom_emote(AUDIBLE_MESSAGE, "makes an excited booping beeping sound!")
 
 /mob/living/bot/floorbot/think()
 	..()
@@ -329,7 +329,7 @@
 	throwforce = 10.0
 	throw_speed = 2
 	throw_range = 5
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	var/created_name = "Floorbot"
 
 /obj/item/toolbox_tiles/attackby(var/obj/item/W, mob/user as mob)
@@ -359,7 +359,7 @@
 	throwforce = 10.0
 	throw_speed = 2
 	throw_range = 5
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	var/created_name = "Floorbot"
 
 /obj/item/toolbox_tiles_sensor/attackby(var/obj/item/W, mob/user as mob)

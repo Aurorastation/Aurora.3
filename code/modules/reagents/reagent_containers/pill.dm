@@ -12,7 +12,7 @@
 	icon_state = null
 	item_state = "pill"
 	possible_transfer_amounts = null
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	volume = 60
 	drop_sound = 'sound/items/drop/food.ogg'
@@ -226,7 +226,7 @@ obj/item/reagent_containers/pill/tranquility
 	name = "Regenerative-Muscular Tissue Supplement Pill"
 	desc = "Commonly abbreviated to RMT, it contains chemicals rampantly used by those seeking to remedy the effects of prolonged zero-gravity adaptations."
 	icon_state = "pill19"
-	reagents_to_add = list(/datum/reagent/rmt = 15)
+	reagents_to_add = list(/datum/reagent/rmt = 30)
 
 /obj/item/reagent_containers/pill/cetahydramine
 	name = "Cetahydramine Pill"

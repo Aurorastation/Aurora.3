@@ -156,7 +156,7 @@
 	item_state = "canesword"
 	force = 20
 	throwforce = 5
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	sharp = 1
 	edge = 1
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
@@ -177,7 +177,7 @@
 	throwforce = 1
 	sharp = 1
 	edge = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	contained_sprite = TRUE
@@ -191,7 +191,7 @@
 	icon_state = "toyhammer"
 	slot_flags = SLOT_BELT
 	throwforce = 0
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 7
 	throw_range = 15
 	attack_verb = list("banned")

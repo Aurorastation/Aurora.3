@@ -258,6 +258,6 @@
 		dat += "Particle Strength: [src.strength] "
 		dat += "<A href='?src=\ref[src];strengthdown=1'>--</A>|<A href='?src=\ref[src];strengthup=1'>++</A><BR><BR>"
 
-	user << browse(dat, "window=pacontrol;size=420x500")
-	onclose(user, "pacontrol")
-	return
+	var/datum/browser/pa_win = new(user, "pacontrol", capitalize_first_letters(name), 420, 500)
+	pa_win.set_content(dat)
+	pa_win.open()

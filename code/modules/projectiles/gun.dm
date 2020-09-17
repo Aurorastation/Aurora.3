@@ -53,7 +53,7 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 5
@@ -211,6 +211,7 @@
 			return TRUE
 		else
 			pin.auth_fail(user)
+			handle_click_empty(user)
 			return FALSE
 	else
 		if(needspin)
@@ -535,11 +536,11 @@
 	if (istype(in_chamber))
 		user.visible_message(SPAN_WARNING("\The [user] pulls the trigger."))
 		if (!pin && needspin)//Checks the pin of the gun.
-			user.visible_message(SPAN_WARNING("*click click*"))
+			handle_click_empty(user)
 			mouthshoot = FALSE
 			return
 		if (!pin.pin_auth() && needspin)
-			user.visible_message(SPAN_WARNING("*click click*"))
+			handle_click_empty(user)
 			mouthshoot = FALSE
 			return
 		if(safety() && user.a_intent != I_HURT)
@@ -610,6 +611,7 @@
 	if(needspin)
 		if(pin)
 			to_chat(user, "\The [pin] is installed in the trigger mechanism.")
+			pin.examine_info(user) // Allows people to check the current firemode of their wireless-control firing pin. Returns nothing if there's no wireless-control firing pin.
 		else
 			to_chat(user, "It doesn't have a firing pin installed, and won't fire.")
 	if(firemodes.len > 1)
@@ -778,7 +780,7 @@
 
 ///////////OFFHAND///////////////
 /obj/item/offhand
-	w_class = 5.0
+	w_class = ITEMSIZE_HUGE
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "offhand"
 	item_state = "nothing"
@@ -859,6 +861,9 @@
 		bayonet = I
 		to_chat(user, SPAN_NOTICE("You attach \the [I] to the front of \the [src]."))
 		update_icon()
+		return
+
+	if(pin?.attackby(I, user)) //Allows users to use their ID on a gun with a wireless-control firing pin to register their identity.
 		return
 
 	if(istype(I, /obj/item/ammo_display))

@@ -7,7 +7,7 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "soulstone"
 	item_state = "electronic"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 4)
 	appearance_flags = NO_CLIENT_COLOR
@@ -47,7 +47,7 @@
 		dat += "<A href='byond://?src=\ref[src];choice=Summon'>Summon Shade</A><br>"
 		dat += "<i>This will summon the spirit of [A.name] in a pure energy form. Be cautious, for they will be weak without a protective construct to house them.</i><hr>"
 	dat += "<a href='byond://?src=\ref[src];choice=Close'>Close</a>"
-	
+
 	var/datum/browser/soulstone_win = new(user, "soulstone", capitalize_first_letters(name))
 	soulstone_win.set_content(dat)
 	soulstone_win.add_stylesheet("cult", 'html/browser/cult.css')

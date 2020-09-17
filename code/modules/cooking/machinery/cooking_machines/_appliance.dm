@@ -99,14 +99,20 @@
 		return SPAN_WARNING("It looks overcooked, get it out!")
 	return SPAN_DANGER("It is burning!")
 
+/obj/machinery/appliance/proc/get_cooking_item_from_container(var/obj/item/reagent_containers/cooking_container/CC)
+	for(var/C in cooking_objs)
+		var/datum/cooking_item/CI = C
+		if(CI.container == CC)
+			return CI
+
 /obj/machinery/appliance/update_icon()
 	if (!stat && length(cooking_objs))
 		icon_state = on_icon
 	else
 		icon_state = off_icon
 
-/obj/machinery/appliance/proc/attempt_toggle_power(mob/user, ranged = FALSE)
-	if (use_check_and_message(user, ranged ? USE_ALLOW_NON_ADJACENT : 0))
+/obj/machinery/appliance/proc/attempt_toggle_power(mob/user)
+	if (use_check_and_message(user, issilicon(user) ? USE_ALLOW_NON_ADJACENT : 0))
 		return
 
 	stat ^= POWEROFF // Toggles power
@@ -119,16 +125,16 @@
 /obj/machinery/appliance/AICtrlClick(mob/user)
 	attempt_toggle_power(user, TRUE)
 
-/obj/machinery/appliance/proc/choose_output(ranged = FALSE)
+/obj/machinery/appliance/proc/choose_output()
 	set src in view()
 	set name = "Choose output"
 	set category = "Object"
 
-	if (use_check_and_message(usr, ranged && USE_ALLOW_NON_ADJACENT))
+	if (use_check_and_message(usr, issilicon(usr) ? USE_ALLOW_NON_ADJACENT : 0))
 		return
 	if(isemptylist(output_options))
 		return
-	var/choice = input("What specific food do you wish to make with [src]?") as null|anything in output_options+"Default"
+	var/choice = input("What specific food do you wish to make with [src]?", "Choose Output") as null|anything in output_options+"Default"
 	if(!choice)
 		return
 	selected_option = (choice == "Default") ? null : choice
@@ -328,13 +334,14 @@
 	var/decl/recipe/recipe = null
 	var/atom/C = null
 	var/appliance
-	if (CI.container)
+	if (CI.container && CI.container.appliancetype)
 		C = CI.container
 		appliance = CI.container.appliancetype
-	else
+	else if(appliancetype)
 		C = src
 		appliance = appliancetype
-	recipe = select_recipe(C, appliance = appliance)
+	if(appliance)
+		recipe = select_recipe(C, appliance = appliance)
 
 	if (recipe)
 		var/list/results = recipe.make_food(C)
@@ -420,7 +427,7 @@
 
 	CI.container.reagents.trans_to_holder(buffer, CI.container.reagents.total_volume)
 
-	var/obj/item/reagent_containers/food/snacks/result = new cook_path(CI.container)
+	var/obj/item/reagent_containers/food/snacks/variable/result = new cook_path(CI.container)
 	buffer.trans_to(result, buffer.total_volume)
 
 	//Filling overlay
@@ -436,6 +443,7 @@
 	words.Remove(result.name)
 	shuffle(words)
 	var/num = 6 //Maximum number of words
+	result.name = result.get_name_sans_prefix()
 	while (num > 0)
 		num--
 		if (isemptylist(words))
@@ -444,7 +452,7 @@
 		result.name = "[pop(words)] [result.name]"
 
 	//This proc sets the size of the output result
-	result.update_icon()
+	result.update_prefix()
 	return result
 
 //Helper proc for standard modification cooking
@@ -619,6 +627,9 @@
 	oil = 0
 	combine_target = null
 	//Container is not reset
+
+/obj/machinery/appliance/proc/update_cooking_power()
+	cooking_power = cooking_coeff
 
 /obj/machinery/appliance/RefreshParts()
 	..()

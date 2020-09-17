@@ -73,9 +73,13 @@
 		/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/champagne = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/vodka = 5,
+		/obj/item/reagent_containers/food/drinks/bottle/vodka/mushroom = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/fireball = 2,
 		/obj/item/reagent_containers/food/drinks/bottle/whiskey = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/victorygin = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/makgeolli = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/soju = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/sake = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/cremewhite = 4,
 		/obj/item/reagent_containers/food/drinks/bottle/mintsyrup = 5,
 		/obj/item/reagent_containers/food/drinks/bottle/chartreuseyellow =5,
@@ -210,7 +214,10 @@
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 4,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 5,
 		/obj/item/reagent_containers/food/snacks/tuna = 2,
-		/obj/item/reagent_containers/food/snacks/diona_bites = 3
+		/obj/item/reagent_containers/food/snacks/diona_bites = 3,
+		/obj/item/reagent_containers/food/snacks/ricetub = 2,
+		/obj/item/reagent_containers/food/snacks/riceball = 4,
+		/obj/item/reagent_containers/food/snacks/seaweed = 5
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/snacks/syndicake = 6,
@@ -239,7 +246,10 @@
 		/obj/item/reagent_containers/food/snacks/koisbar_clean = 60,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 40,
 		/obj/item/reagent_containers/food/snacks/tuna = 23,
-		/obj/item/reagent_containers/food/snacks/diona_bites = 40
+		/obj/item/reagent_containers/food/snacks/diona_bites = 40,
+		/obj/item/reagent_containers/food/snacks/ricetub = 40,
+		/obj/item/reagent_containers/food/snacks/riceball = 15,
+		/obj/item/reagent_containers/food/snacks/seaweed = 20
 	)
 	light_color = COLOR_BABY_BLUE
 
@@ -580,6 +590,7 @@
 		/obj/item/seeds/appleseed = 3,
 		/obj/item/seeds/bananaseed = 3,
 		/obj/item/seeds/berryseed = 3,
+		/obj/item/seeds/blizzard = 3,
 		/obj/item/seeds/blueberryseed = 3,
 		/obj/item/seeds/cabbageseed = 3,
 		/obj/item/seeds/carrotseed = 3,
@@ -640,6 +651,7 @@
 		/obj/item/seeds/appleseed = 50,
 		/obj/item/seeds/bananaseed = 60,
 		/obj/item/seeds/berryseed = 40,
+		/obj/item/seeds/blizzard = 60,
 		/obj/item/seeds/blueberryseed = 30,
 		/obj/item/seeds/cabbageseed = 40,
 		/obj/item/seeds/carrotseed = 20,

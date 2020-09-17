@@ -630,6 +630,16 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_off = "cobpipeoff"
 	chem_volume = 30
 
+/obj/item/clothing/mask/smokable/pipe/bonepipe
+	name = "Europan bone pipe"
+	desc = "A smoking pipe made out of the bones of the Europan bone whale."
+	desc_fluff = "While most commonly associated with bone charms, bones from various sea creatures on Europa are used in a variety of goods, such as this smoking pipe. While smoking in submarines is often an uncommon occurrence, due to a lack of available air or space, these pipes are a common sight in the many stations of Europa. Higher-quality pipes typically have scenes etched into their bones, and can tell the story of their owner's time on Europa."
+	icon_state = "bonepipeoff"
+	item_state = "bonepipeoff"
+	icon_on = "bonepipeon"
+	icon_off = "bonepipeoff"
+	chem_volume = 30
+
 /////////
 //ZIPPO//
 /////////
@@ -735,6 +745,14 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "goldzippo"
 	item_state = "goldzippo"
 	flame_light_color = LIGHT_COLOR_BLUE
+
+/obj/item/flame/lighter/zippo/europa
+	name = "\improper Europan Zippo lighter"
+	desc = "A smokeless electrical coil lighter in the style of a zippo with the tricolour of the Jovian moon Europa on the side. It even its outside feels somewhat hot to the touch when it is turned on."
+	desc_fluff = "Traditional lighters are often frowned upon in the various submarines and underwater bases of Europa for the fumes their open flames produce. As a result, flameless lighters using heated metal coils that ignite flammable material upon contact are employed instead. These lighters are often prized personal possessions of those who own them, as with living space, privacy and individual possessions are a luxury in the cramped quarters of Europan vessels and stations. A side effect of having lighters that use electrically heated metal coils as opposed to flames however, is that the exteriors of the lighters themselves can become heated to a point of inflicting superficial burns if left on for relatively short periods of time."
+	icon_state = "europazippo"
+	item_state = "europazippo"
+	flame_light_power = 1
 
 /obj/item/flame/lighter/random/Initialize()
 	. = ..()

@@ -201,6 +201,12 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		linked = locate(href_list["link"]) in pin.linked
 
 	var/obj/held_item = usr.get_active_hand()
+	var/obj/off_hand = usr.get_inactive_hand()
+	var/obj/item/device/multitool/M
+	if(held_item.ismultitool())
+		M = held_item
+	if(!M && off_hand?.ismultitool())
+		M = off_hand
 
 	if(href_list["rename"])
 		rename_component(usr)
@@ -211,25 +217,22 @@ a creative player the means to solve many problems.  Circuits are held inside an
 				ea.interact(usr)
 
 	if(href_list["pin_name"])
-		if (!held_item.ismultitool() || !allow_multitool)
+		if(!M || !allow_multitool)
 			href_list["wire"] = 1
 		else
-			var/obj/item/device/multitool/M = held_item
 			M.wire(pin,usr)
 
 	if(href_list["pin_data"])
-		if (!held_item.ismultitool() || !allow_multitool)
+		if(!M || !allow_multitool)
 			href_list["wire"] = 1
-
 		else
 			var/datum/integrated_io/io = pin
 			io.ask_for_pin_data(usr) // The pins themselves will determine how to ask for data, and will validate the data.
 
 	if(href_list["pin_unwire"])
-		if (!held_item.ismultitool() || !allow_multitool)
+		if(!M || !allow_multitool)
 			href_list["wire"] = 1
 		else
-			var/obj/item/device/multitool/M = held_item
 			M.unwire(pin, linked, usr)
 
 	if(href_list["wire"])

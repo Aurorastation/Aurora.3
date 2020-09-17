@@ -8,7 +8,7 @@
 	desc = "Used to check spatial depth and density of rock outcroppings."
 	icon_state = "depthscanner"
 	item_state = "analyzer"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	var/list/positive_locations = list()
 	var/datum/depth_scan/current
@@ -100,8 +100,10 @@
 	dat += "<hr>"
 	dat += "<A href='?src=\ref[src];refresh=1'>Refresh</a><br>"
 	dat += "<A href='?src=\ref[src];close=1'>Close</a><br>"
-	user << browse(dat,"window=depth_scanner;size=300x500")
-	onclose(user, "depth_scanner")
+
+	var/datum/browser/scanner_win = new(user, "depth_scanner", capitalize_first_letters(name), 300, 500)
+	scanner_win.set_content(dat)
+	scanner_win.open()
 
 /obj/item/device/depth_scanner/Topic(href, href_list)
 	..()

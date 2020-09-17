@@ -47,7 +47,7 @@
 	flags = CONDUCT
 	force = 8
 	throwforce = 10
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
@@ -79,7 +79,7 @@
 	item_state = "rods"
 	force = 5
 	throwforce = 3
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1
@@ -108,7 +108,7 @@
 	icon_state = "spearhead"
 	force = 5
 	throwforce = 5
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	attack_verb = list("attacked", "poked")
 	force_divisor = 0.1
 	thrown_force_divisor = 0.1

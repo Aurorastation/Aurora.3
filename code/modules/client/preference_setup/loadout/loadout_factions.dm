@@ -18,6 +18,11 @@
 	slot = slot_wear_suit
 	faction = "Idris Incorporated"
 
+/datum/gear/faction/idris_armband
+	display_name = "idris armband"
+	path = /obj/item/clothing/accessory/armband/idris
+	faction = "Idris Incorporated"
+
 /datum/gear/faction/zavodskoi_beret
 	display_name = "brown zavodskoi beret"
 	path = /obj/item/clothing/head/beret/sec/zavodskoi
@@ -105,7 +110,7 @@
 	display_name = "idris security sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/idrissec
 	faction = "Idris Incorporated"
-	allowed_roles = list("Security Officer","Detective")
+	allowed_roles = list("Security Officer","Detective", "Forensic Technician")
 
 /datum/gear/faction/heph_labcoat
 	display_name = "hephaestus labcoat"

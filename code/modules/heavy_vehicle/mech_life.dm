@@ -19,7 +19,6 @@
 				pilot.client.screen -= hud_elements
 				LAZYREMOVE(pilots, pilot)
 				UNSETEMPTY(pilots)
-		update_pilot_overlay()
 
 	if(radio)
 		radio.on = (head?.radio && head.radio.is_functional())

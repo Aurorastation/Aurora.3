@@ -59,6 +59,8 @@
 	skirts["high skirt"] = /obj/item/clothing/under/skirt/high
 	skirts["skater skirt"] = /obj/item/clothing/under/skirt/skater
 	skirts["tube skirt"] = /obj/item/clothing/under/skirt/tube
+	skirts["jumper skirt"] = /obj/item/clothing/under/skirt/jumper
+	skirts["jumper dress"] = /obj/item/clothing/under/skirt/jumper_highcut
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
 
 /datum/gear/uniform/suit
@@ -277,7 +279,6 @@
 	uniform["warden uniform, dark blue"] = /obj/item/clothing/under/rank/warden/dark_blue
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
-
 /datum/gear/uniform/hos
 	display_name = "uniform, corporate (Head of Security)"
 	path = /obj/item/clothing/under/rank/head_of_security/corp
@@ -311,7 +312,7 @@
 
 /datum/gear/uniform/miscellaneous/hanbok
 	display_name = "hanbok selection"
-	description = "A selection of Koynanger formalwear."
+	description = "A selection of Konyanger formalwear."
 	path = /obj/item/clothing/under/konyang
 
 /datum/gear/uniform/miscellaneous/hanbok/New()

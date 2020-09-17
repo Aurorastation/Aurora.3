@@ -298,7 +298,7 @@ Pen exclusive commands
 	icon_state = "crayonred"
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	attack_verb = list("attacked", "coloured")
 	colour = "#FF0000" //RGB
 	var/shadeColour = "#220000" //RGB

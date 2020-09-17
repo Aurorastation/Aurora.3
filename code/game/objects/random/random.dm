@@ -1504,7 +1504,6 @@
 		)
 
 	var/list/Epic = list(
-		/obj/item/gun/energy/pulse/pistol = 1,
 		/obj/item/gun/energy/decloner = 0.5,
 		/obj/item/gun/energy/rifle/laser/xray = 1,
 		/obj/item/gun/energy/rifle/laser/tachyon = 1,
@@ -1517,7 +1516,6 @@
 		/obj/item/gun/projectile/automatic/rifle/w556 = 1,
 		/obj/item/gun/projectile/automatic/rifle/z8 = 1,
 		/obj/item/gun/projectile/cannon = 1,
-		/obj/item/gun/projectile/gyropistol = 0.5,
 		/obj/item/gun/projectile/plasma = 0.5,
 		/obj/item/gun/projectile/revolver = 0.5
 		)
@@ -1525,10 +1523,12 @@
 	var/list/Legendary = list(
 		/obj/item/gun/energy/lawgiver = 1,
 		/obj/item/gun/energy/pulse = 1,
+		/obj/item/gun/energy/pulse/pistol = 1,
 		/obj/item/gun/energy/rifle/pulse = 1,
 		/obj/item/gun/projectile/automatic/railgun = 1,
 		/obj/item/gun/projectile/automatic/rifle/l6_saw = 1,
 		/obj/item/gun/projectile/automatic/terminator = 1,
+		/obj/item/gun/projectile/gyropistol = 1,
 		/obj/item/gun/projectile/nuke = 1,
 		/obj/item/gun/projectile/revolver/mateba = 1
 		)

@@ -86,28 +86,29 @@
 
 /decl/recipe/proc/check_reagents(var/datum/reagents/avail_reagents)
 	if (isemptylist(reagents))
-		return TRUE
+		return avail_reagents?.total_volume ? COOK_CHECK_EXTRA : COOK_CHECK_EXACT
 
 	if (!avail_reagents)
-		return FALSE
+		return COOK_CHECK_EXTRA
 
 	. = TRUE
 	for (var/r_r in reagents)
 		var/aval_r_amnt = avail_reagents.get_reagent_amount(r_r)
 		if (aval_r_amnt - reagents[r_r] >= 0)
 			if (aval_r_amnt>reagents[r_r])
-				. = FALSE
+				. = COOK_CHECK_EXTRA
 		else
-			return -1
+			return COOK_CHECK_FAIL
 
 	if ((reagents?length(reagents):0) < length(avail_reagents.reagent_list))
-		return FALSE
+		return COOK_CHECK_EXTRA
 	return .
 
 /decl/recipe/proc/check_fruit(var/obj/container)
 	if (isemptylist(fruit))
-		return TRUE
-	. = TRUE
+		var/obj/item/reagent_containers/food/snacks/grown/G = locate() in container
+		return G ? COOK_CHECK_EXTRA : COOK_CHECK_EXACT
+	. = COOK_CHECK_EXTRA
 	var/list/checklist = fruit.Copy()
 	for(var/obj/item/reagent_containers/food/snacks/S in container)
 		var/use_tag
@@ -129,16 +130,16 @@
 	for(var/ktag in checklist)
 		if(!isnull(checklist[ktag]))
 			if(checklist[ktag] < 0)
-				. = FALSE
+				. = COOK_CHECK_EXTRA
 			else if(checklist[ktag] > 0)
-				. = -1
+				. = COOK_CHECK_FAIL
 				break
 	return .
 
 /decl/recipe/proc/check_items(var/obj/container as obj)
 	if (isemptylist(items))
-		return TRUE
-	. = TRUE
+		return container?.contents.len ? COOK_CHECK_EXTRA : COOK_CHECK_EXACT
+	. = COOK_CHECK_EXACT
 	var/list/checklist = items.Copy()
 	for(var/obj/O in container)
 		if(istype(O,/obj/item/reagent_containers/food/snacks/grown))
@@ -153,11 +154,11 @@
 					break
 
 		if (!found)
-			. = FALSE
-		if (isemptylist(checklist) && . != 1)
-			return //No need to iterate through everything if we know theres at least oen extraneous ingredient
+			. = COOK_CHECK_EXTRA
+		if (isemptylist(checklist) && . != COOK_CHECK_EXTRA)
+			return COOK_CHECK_EXTRA//No need to iterate through everything if we know theres at least oen extraneous ingredient
 	if (length(checklist))
-		. = -1
+		. = COOK_CHECK_FAIL
 
 	return .
 
@@ -291,7 +292,7 @@
 //When exact is false, extraneous ingredients are ignored
 //When exact is true, extraneous ingredients will fail the recipe
 //In both cases, the full complement of required inredients is still needed
-/proc/select_recipe(var/obj/obj as obj, var/exact = 0, var/appliance = null)
+/proc/select_recipe(var/obj/obj as obj, var/exact = COOK_CHECK_EXTRA, var/appliance = null)
 	if(!appliance)
 		CRASH("Null appliance flag passed to select_recipe!")
 	var/list/available_recipes = decls_repository.get_decls_of_subtype(/decl/recipe)

@@ -140,7 +140,7 @@
 	shortname = "skillet"
 	desc = "Chuck ingredients in this to fry something on the stove."
 	icon_state = "skillet"
-	volume = 15
+	volume = 30
 	force = 11
 	hitsound = 'sound/weapons/smash.ogg'
 	flags = OPENCONTAINER // Will still react
@@ -160,7 +160,7 @@
 	shortname = "saucepan"
 	desc = "Is it a pot? Is it a pan? It's a saucepan!"
 	icon_state = "pan"
-	volume = 60
+	volume = 90
 	slot_flags = SLOT_HEAD
 	force = 8
 	hitsound = 'sound/weapons/smash.ogg'
@@ -211,7 +211,9 @@
 	desc = "A plate. You plate foods on this plate."
 	icon_state = "plate"
 	appliancetype = MIX
-	volume = 5 // for things like jelly sandwiches etc
+	flags = OPENCONTAINER // Will still react
+	volume = 15 // for things like jelly sandwiches etc
+	max_space = 25
 
 /obj/item/reagent_containers/cooking_container/plate/MouseDrop(var/obj/over_obj)
 	if(over_obj != usr || use_check(usr))
@@ -247,10 +249,10 @@
 	name = "serving bowl"
 	shortname = "bowl"
 	desc = "A bowl. You bowl foods... wait, what?"
-	volume = 180
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "mixingbowl"
 	center_of_mass = list("x" = 17,"y" = 7)
+	max_space = 30
 	matter = list(DEFAULT_WALL_MATERIAL = 300)
 	volume = 180
 	amount_per_transfer_from_this = 10

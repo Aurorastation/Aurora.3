@@ -251,7 +251,7 @@
 	throw_speed = 1
 	throw_range = 5
 	throwforce = 0
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	flags = NOBLOODY
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_energy.dmi',
@@ -284,13 +284,13 @@
 	if (active)
 		force = 30
 		icon_state = "sword[item_color]"
-		w_class = 4
+		w_class = ITEMSIZE_LARGE
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>[src] is now active.</span>")
 	else
 		force = 3
 		icon_state = "sword0"
-		w_class = 2
+		w_class = ITEMSIZE_SMALL
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>[src] can now be concealed.</span>")
 
@@ -310,7 +310,7 @@
 	name = "basketball"
 	item_state = "basketball"
 	desc = "Here's your chance, do your dance at the Space Jam."
-	w_class = 4 //Stops people from hiding it in their bags/pockets
+	w_class = ITEMSIZE_LARGE //Stops people from hiding it in their bags/pockets
 	drop_sound = 'sound/items/drop/basketball.ogg'
 	pickup_sound = 'sound/items/pickup/basketball.ogg'
 

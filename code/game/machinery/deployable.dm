@@ -291,7 +291,7 @@ for reference:
 	name = "legion barrier kit"
 	desc = "A quick assembly kit for deploying id-lockable barriers in the field. Most commonly seen used for crowd control by corporate security."
 	icon_state = "barrier_kit"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	kit_product = /obj/machinery/deployable/barrier/legion
 
 /obj/item/deployable_kit/surgery_table
@@ -300,7 +300,7 @@ for reference:
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table_deployable"
 	item_state = "table_parts"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	kit_product = /obj/machinery/optable
 	assembly_time = 20 SECONDS
 
@@ -325,7 +325,7 @@ for reference:
 	item_state = "table_parts"
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	kit_product = /obj/machinery/porta_turret/legion
 	assembly_time = 15 SECONDS
 
@@ -335,7 +335,7 @@ for reference:
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "inf_box"
 	item_state = "syringe_kit"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	kit_product = /obj/machinery/iv_drip
 	assembly_time = 4 SECONDS
 

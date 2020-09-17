@@ -30,6 +30,7 @@
 #define RELIGION_MOROZ "Moroz Holy Tribunal"
 #define RELIGION_TRINARY "Trinary Perfection"
 #define RELIGION_SCARAB "Scarab Folk Beliefs"
+#define RELIGION_TAOISM "Taoism"
 
 #define RELIGION_THAKH "Th'akh"
 #define RELIGION_SKAKH "Sk'akh"
@@ -71,6 +72,7 @@
 #define ACCENT_EUROPA "Europan"
 #define ACCENT_EARTH "Earther"
 #define ACCENT_DEEPFRONTIER "Deep Frontier"
+#define ACCENT_FISANDUH "Fisanduhian"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"

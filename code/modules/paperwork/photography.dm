@@ -15,7 +15,7 @@
 	desc = "A camera film cartridge. Insert it into a camera to reload it."
 	icon_state = "film"
 	item_state = "electropack"
-	w_class = ITEMSIZE_SMALL
+	w_class = ITEMSIZE_TINY
 
 
 /********

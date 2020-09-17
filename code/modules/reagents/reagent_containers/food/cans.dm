@@ -122,7 +122,7 @@
 	reagents_to_add = list(/datum/reagent/kois/clean = 10, /datum/reagent/toxin/phoron = 5)
 
 /obj/item/reagent_containers/food/drinks/cans/root_beer
-	name = "\improper R&D Root Beer"
+	name = "\improper RnD Root Beer"
 	desc = "A classic Earth drink from the United Americas province."
 	icon_state = "root_beer"
 	center_of_mass = list("x"=16, "y"=10)

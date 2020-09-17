@@ -47,6 +47,7 @@
 		/obj/item/reagent_containers/food/snacks/friedegg,
 		/obj/item/reagent_containers/food/snacks/cheesewedge
 	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/nt_muffin
 
 /decl/recipe/boiledegg
