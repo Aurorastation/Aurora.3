@@ -1,0 +1,6 @@
+author: Hocka
+
+delete-after: True
+
+changes: 
+  - rscadd: "Empty cans can now be turned into jury-rigged shrapnel grenades which are made by filling cans with welding fuel, adding a fuse with cable and lighting it using a flame source. Shorter fuses have a chance to instantly detonate and longer fuses can fizzle out prematurely."
