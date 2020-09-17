@@ -991,7 +991,7 @@
 /obj/random/bandana
 	name = "random bandana"
 	desc = "This is a random bandana."
-	icon = 'icons/obj/bandanas.dmi'
+	icon = 'icons/obj/clothing/hats/bandanas.dmi'
 	icon_state = "bandana"
 	problist = list(
 		/obj/item/clothing/head/bandana/colorable/random = 5,
