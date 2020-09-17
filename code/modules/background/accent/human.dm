@@ -154,7 +154,7 @@
 
 /datum/accent/gadpathur
 	name = ACCENT_GADPATHUR
-	description = "The Gadathpurian accent, otherwise known as Gadathpurian Common, is an older dialect of Sol Common that is often regarded as dated-sounding by other speakers due to the \
-	isolation of the planet during its period of reunification. Due to the government's tight control over Gadathpur, and push for unity in the face of the Sol Alliance, Gadathpurians have \
+	description = "The Gadpathurian accent, otherwise known as Gadpathurian Common, is an older dialect of Sol Common that is often regarded as dated-sounding by other speakers due to the \
+	isolation of the planet during its period of reunification. Due to the government's tight control over Gadpathur, and push for unity in the face of the Sol Alliance, Gadpathurians have \
 	been described as sounding relatively similar no matter which area of the planet they hail from."
 	tag_icon = "gadpathur"
