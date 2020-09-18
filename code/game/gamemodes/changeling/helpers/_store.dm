@@ -438,11 +438,7 @@ var/list/datum/power/changeling/powerinstances = list()
 			<tr id='data[i]' name='[i]' onClick="addToLocked('item[i]','data[i]','notice_span[i]')">
 				<td align='center' bgcolor='[color]'>
 					<span id='notice_span[i]'></span>
-					<font color='#505dcf' id='link[i]'
-					onmouseover='expand("item[i]","[html_encode(P.name)]","[html_encode(P.desc)]","[html_encode(P.helptext)]","[P]",[ownsthis])'
-					>
-					<span id='search[i]'><b>Evolve [P] - Cost: [ownsthis ? "Purchased" : P.genomecost]</b></span>
-					</font>
+					<font color='#505dcf' id='link[i]' onmouseover='expand("item[i]","[html_encode(P.name)]","[html_encode(P.desc)]","[html_encode(P.helptext)]","[P]",[ownsthis])'><span id='search[i]'><b>Evolve [P] - Cost: [ownsthis ? "Purchased" : P.genomecost]</b></span></font>
 					<br><span id='item[i]'></span>
 				</td>
 			</tr>
