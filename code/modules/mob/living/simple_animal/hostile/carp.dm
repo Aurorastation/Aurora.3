@@ -74,10 +74,12 @@
 		return e
 
 /mob/living/simple_animal/hostile/carp/DestroySurroundings(var/bypass_prob = FALSE)
+	if(stance != HOSTILE_STANCE_ATTACKING)
+		return 0
 	if(prob(break_stuff_probability) || bypass_prob)
 		for(var/dir in cardinal) // North, South, East, West
 			var/obj/effect/energy_field/e = locate(/obj/effect/energy_field, get_step(src, dir))
-			if(e)
+			if(e && e.strength >= 1)
 				e.Stress(rand(1,2))
 				visible_message("<span class='danger'>\the [src] bites \the [e]!</span>")
 				src.do_attack_animation(e)
