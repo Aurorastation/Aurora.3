@@ -1261,13 +1261,26 @@
 	..()
 
 //Green
-/datum/chemical_reaction/slime/mutate
-	name = "Mutation Toxin"
-	id = "mutationtoxin"
-	result = /datum/reagent/slimetoxin
+/datum/chemical_reaction/slime/teleportation
+	name = "Slime Teleportation"
+	id = "slimeteleportation"
 	required_reagents = list(/datum/reagent/toxin/phoron = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/green
+
+/datum/chemical_reaction/slime/teleportation/on_reaction(var/datum/reagents/holder)
+	..()
+	addtimer(CALLBACK(src, .proc/do_reaction, holder), 50)
+
+/datum/chemical_reaction/slime/teleportation/proc/do_reaction(var/datum/reagents/holder)
+	for(var/atom/movable/AM in circlerange(get_turf(holder.my_atom),20))
+		if(AM.anchored)
+			continue
+		var/area/A = random_station_area()
+		var/turf/target = A.random_space()
+		to_chat(AM, SPAN_WARNING("Bluespace energy teleports you somewhere else!"))
+		do_teleport(AM, target)
+		AM.visible_message("\The [AM] phases in!")
 
 //Metal
 /datum/chemical_reaction/slime/metal
@@ -1287,7 +1300,7 @@
 	name = "Slime Crit"
 	id = "m_tele"
 	result = null
-	required_reagents = list(/datum/reagent/water = 5)
+	required_reagents = list(/datum/reagent/toxin/phoron = 5)
 	result_amount = 1
 	required = /obj/item/slime_extract/gold
 
@@ -1346,18 +1359,6 @@
 		if(prob(50))
 			for(var/j = 1, j <= rand(1, 3), j++)
 				step(C, pick(NORTH,SOUTH,EAST,WEST))
-	..()
-
-/datum/chemical_reaction/slime/rare_metal
-	name = "Slime Rare Metal"
-	id = "rm_metal"
-	result = null
-	required_reagents = list(/datum/reagent/toxin/phoron = 1)
-	result_amount = 1
-	required = /obj/item/slime_extract/gold
-
-/datum/chemical_reaction/slime/rare_metal/on_reaction(var/datum/reagents/holder)
-	new /obj/effect/portal/spawner/rare_metal(get_turf(holder.my_atom))
 	..()
 
 //Silver
@@ -1425,7 +1426,7 @@
 	name = "Slime Frost Oil"
 	id = "m_frostoil"
 	result = /datum/reagent/frostoil
-	required_reagents = list(/datum/reagent/toxin/phoron = 1)
+	required_reagents = list(/datum/reagent/water = 1)
 	result_amount = 10
 	required = /obj/item/slime_extract/blue
 
@@ -1434,7 +1435,7 @@
 	name = "Slime Freeze"
 	id = "m_freeze"
 	result = null
-	required_reagents = list(/datum/reagent/toxin/phoron = 1)
+	required_reagents = list(/datum/reagent/water = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/darkblue
 	mix_message = "The slime extract begins to vibrate violently!"
@@ -1539,17 +1540,18 @@
 	required = /obj/item/slime_extract/purple
 
 //Dark Purple
-/datum/chemical_reaction/slime/plasma
-	name = "Slime Plasma"
-	id = "m_plasma"
+
+/datum/chemical_reaction/slime/rare_metal
+	name = "Slime Rare Metal"
+	id = "rm_metal"
 	result = null
 	required_reagents = list(/datum/reagent/toxin/phoron = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/darkpurple
 
-/datum/chemical_reaction/slime/plasma/on_reaction(var/datum/reagents/holder)
+/datum/chemical_reaction/slime/rare_metal/on_reaction(var/datum/reagents/holder)
 	..()
-	new /obj/effect/portal/spawner/phoron(get_turf(holder.my_atom))
+	new /obj/effect/portal/spawner/rare_metal(get_turf(holder.my_atom))
 
 //Red
 /datum/chemical_reaction/slime/glycerol
@@ -1579,7 +1581,7 @@
 	name = "Slime Potion"
 	id = "m_potion"
 	result = null
-	required_reagents = list(/datum/reagent/toxin/phoron = 1)
+	required_reagents = list(/datum/reagent/blood = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/pink
 
@@ -1617,7 +1619,7 @@
 	result = null
 	result_amount = 1
 	required = /obj/item/slime_extract/lightpink
-	required_reagents = list(/datum/reagent/toxin/phoron = 1)
+	required_reagents = list(/datum/reagent/blood = 1)
 
 /datum/chemical_reaction/slime/potion2/on_reaction(var/datum/reagents/holder)
 	..()
@@ -1628,7 +1630,7 @@
 	name = "Slime Golem"
 	id = "m_golem"
 	result = null
-	required_reagents = list(/datum/reagent/toxin/phoron = 1)
+	required_reagents = list(/datum/reagent/blood = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/adamantine
 	mix_message = "A soft fizzle is heard within the slime extract, and mystic runes suddenly appear on the floor beneath it!"
