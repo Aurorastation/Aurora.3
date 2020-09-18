@@ -24,7 +24,6 @@
 	display_name = "rosary"
 	path = /obj/item/clothing/accessory/rosary
 
-/datum/gear/religion/dominia/robe
 	display_name = "dominian robe selection"
 	description = "A selection of robes belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
