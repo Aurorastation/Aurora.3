@@ -1,5 +1,8 @@
 var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-")
 
+/datum/preferences
+	var/equip_preview_mob = EQUIP_PREVIEW_ALL
+
 /datum/category_item/player_setup_item/general/body
 	name = "Body"
 	sort_order = 3
@@ -195,7 +198,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	out += "<br>"
 	out += "Species: <a href='?src=\ref[src];show_species=1'>[pref.species]</a><br>"
 	out += "Blood Type: <a href='?src=\ref[src];blood_type=1'>[pref.b_type]</a><br>"
-	out += "<a href='?src=\ref[src];cycle_bg=1'>Cycle preview background</a><br>"
 	if(has_flag(mob_species, HAS_SKIN_TONE))
 		out += "Skin Tone: <a href='?src=\ref[src];skin_tone=1'>[-pref.s_tone + 35]/220</a><br>"
 	out += "Disabilities: <a href='?src=\ref[src];trait_add=1'>Adjust</a><br>"
@@ -282,7 +284,13 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else
 		out += "<br><br>"
 
-	out += "</td></tr></table><b>Hair</b><br>"
+	out += "</td><td><b>Preview</b>"
+	out += "<br><a href='?src=\ref[src];cycle_bg=1'>Cycle background</a>"
+	out += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a>"
+	out += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
+	out += "</td></tr></table>"
+
+	out += "<b>Hair</b><br>"
 	if(has_flag(mob_species, HAS_HAIR_COLOR))
 		out += "<a href='?src=\ref[src];hair_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_hair, pref.g_hair, pref.b_hair))] "
 	out += " Style: <a href='?src=\ref[src];hair_style=1'>[pref.h_style]</a><br>"
@@ -669,6 +677,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	else if(href_list["cycle_bg"])
 		pref.bgstate = next_in_list(pref.bgstate, pref.bgstate_options)
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["toggle_preview_value"])
+		pref.equip_preview_mob ^= text2num(href_list["toggle_preview_value"])
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	return ..()

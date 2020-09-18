@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes: 
+  - rscadd: "Added buttons to hide your character's loadout and/or job clothing in the character preview."
