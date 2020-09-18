@@ -1630,7 +1630,7 @@
 	name = "Slime Golem"
 	id = "m_golem"
 	result = null
-	required_reagents = list(/datum/reagent/blood = 1)
+	required_reagents = list(/datum/reagent/toxin/phoron = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/adamantine
 	mix_message = "A soft fizzle is heard within the slime extract, and mystic runes suddenly appear on the floor beneath it!"
