@@ -1,8 +1,0 @@
-author: FirinMaLazors
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixes aciding an item so that the moltem item spawns on the turf instead of the loc, and the 'The x melts.' message is broadcasted from the turf.  In case we melt a bucket inside of a chemistry dispenser."
-  - bugfix: "Adds a sanity check to the nanoui of the chemical dispenser to delete the container var if it's... been deleted... so that we don't try read from a null reagents datum and crash the chemical dispenser for a few minutes."
-  - bugfix: "Fixes a typo in the mop bucket code - mobbuckets are, unfortunately, not real.  Yet."
