@@ -62,5 +62,5 @@
 
 /obj/structure/weapon_rack/dragunov
 	name = "marksman rifle rack"
-	desc = "A wooden rack holding a marskman rifle."
+	desc = "A wooden rack holding a marksman rifle."
 	held_weapon = /obj/item/gun/projectile/dragunov
