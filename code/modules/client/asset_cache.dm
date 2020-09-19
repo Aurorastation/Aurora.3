@@ -39,14 +39,12 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 			return 0
 
 	if(client.cache.Find(asset_name) || client.sending.Find(asset_name))
-		log_debug("Asset [asset_name] found in client: [client.key].")
 		return 0
 
 	client << browse_rsc(SSassets.cache[asset_name], asset_name)
 	if(!verify || !winexists(client, "asset_cache_browser")) // Can't access the asset cache browser, rip.
 		if (client)
 			client.cache += asset_name
-		log_debug("Asset [asset_name] returning because of verify being [verify], [client.key].")
 		return 1
 	if (!client)
 		return 0
@@ -62,7 +60,6 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 
 	var/t = 0
 	var/timeout_time = (ASSET_CACHE_SEND_TIMEOUT * client.sending.len) + ASSET_CACHE_SEND_TIMEOUT
-	log_debug("Asset with verify = TRUE being sent: [asset_name]...")
 	while(client && !client.completed_asset_jobs.Find(job) && t < timeout_time) // Reception is handled in Topic()
 		sleep(1) // Lock up the caller until this is received.
 		t++
