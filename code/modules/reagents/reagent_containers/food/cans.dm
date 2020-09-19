@@ -119,6 +119,7 @@
 				detonate(TRUE) // if you're somehow THAT determined and/or ignorant you managed to get the fuse below 3 seconds, so be it. reap what you sow.
 			else
 				user.visible_message(SPAN_WARNING("<b>[user]</b> lights the cable on \the [name] with \the [W]!"), SPAN_WARNING("You light the cable on \the [name] with the [W]!"))
+				playsound(get_turf(src), 'sound/items/flare.ogg', 50)
 				detonate(FALSE)
 	. = ..()
 
@@ -132,6 +133,7 @@
 		
 		fuselength -= fizzle
 		visible_message(SPAN_WARNING("The cable on \the [name] fizzles out early."))
+		playsound(get_turf(src), 'sound/items/cigs_lighters/cig_snuff.ogg', 50)
 		fuselit = FALSE
 		update_icon()
 		return
