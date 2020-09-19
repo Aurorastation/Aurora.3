@@ -46,11 +46,11 @@
 	icon_state = "spikethrower[spikes]"
 
 /obj/item/gun/launcher/spikethrower/special_check(user)
-	if(istype(user,/mob/living/carbon/human))
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.species && H.species.name != SPECIES_VOX && H.species.name != SPECIES_VOX_ARMALIS)
+		if(H.species && H.species.name != SPECIES_VAURCA_WARRIOR)
 			to_chat(user, "<span class='warning'>\The [src] does not respond to you!</span>")
-			return 0
+			return FALSE
 	return ..()
 
 /obj/item/gun/launcher/spikethrower/update_release_force()
@@ -89,7 +89,7 @@
 	if(loc != user)
 		var/mob/living/carbon/human/H = user
 		if(istype(H))
-			if(H.species.name == SPECIES_VOX_ARMALIS)
+			if(H.species.name == SPECIES_VAURCA_WARRIOR)
 				..()
 				return
 		to_chat(user, "<span class='warning'>\The [src] is far too large for you to pick up.</span>")

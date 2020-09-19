@@ -6738,9 +6738,6 @@
 	name = "\improper Raider Base"
 	})
 "azI" = (
-/obj/structure/mirror/raider{
-	pixel_y = 28
-	},
 /obj/structure/sink{
 	pixel_y = 11
 	},
@@ -7258,9 +7255,6 @@
 /turf/simulated/floor/shuttle,
 /area/shuttle/escape)
 "aBD" = (
-/obj/structure/mirror/raider{
-	pixel_y = 28
-	},
 /turf/unsimulated/floor{
 	icon_state = "asteroid"
 	},
@@ -16031,9 +16025,6 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchant)
 "aZk" = (
-/obj/structure/mirror/merchant{
-	pixel_y = 32
-	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "aZl" = (
