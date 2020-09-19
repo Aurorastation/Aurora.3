@@ -32,7 +32,7 @@
 	cut_overlays()
 	var/image/fuseoverlay = image('icons/obj/fuses.dmi', icon_state = "fuse_short")
 	switch(fuselength)
-		if(3 to 5)
+		if(-INFINITY to 5)
 			if("x" in can_size_overrides)
 				fuseoverlay.pixel_x = can_size_overrides["x"]
 			if("y" in can_size_overrides)
