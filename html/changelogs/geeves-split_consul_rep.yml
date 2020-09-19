@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Consular Officer and Corporate Liaison has been split into two separate jobs with their own slots."
