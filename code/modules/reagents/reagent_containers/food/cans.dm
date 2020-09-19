@@ -211,7 +211,7 @@
 	if(can_light())
 		fuselit = TRUE
 		detonate(FALSE)
-		visible_message(SPAN_WARNING("<b>\The [name]'s cable cathes on fire!</b>"))
+		visible_message(SPAN_WARNING("<b>\The [name]'s cable catches on fire!</b>"))
 	. = ..()
 
 //DRINKS
