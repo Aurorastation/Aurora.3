@@ -90,7 +90,7 @@ var/list/datum/power/changeling/powerinstances = list()
 	name = "Hivemind Release Morph"
 	desc = "We release a hivemind member as a morph at the cost of a limb. They will be able to crawl inside vents and disguise themselves as objects."
 	genomecost = 2
-	verbpath = /mob/proc/changeling_release_morph
+	verbpath = /mob/living/carbon/human/proc/changeling_release_morph
 
 //Stings and sting accessorries
 //Rest in pieces, unfat sting. - Geeves

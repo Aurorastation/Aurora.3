@@ -60,9 +60,9 @@
 /mob/living/simple_animal/hostile/morph/examine(mob/user)
 	if(morphed)
 		. = form.examine(user)
-		if(get_dist(src, user) > 3)
+		if(get_dist(src, user) > 2)
 			return
-		to_chat(src, SPAN_WARNING("It doesn't look quite right..."))
+		to_chat(user, SPAN_WARNING("It doesn't look quite right..."))
 	else
 		return ..()
 

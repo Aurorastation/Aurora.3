@@ -43,12 +43,12 @@
 
 	return "<font color=[COLOR_LING_HIVEMIND]><b>[src]</b> says, \"[message]\"</font>"
 
-/mob/proc/changeling_release_morph()
+/mob/living/carbon/human/proc/changeling_release_morph()
 	set category = "Changeling"
 	set name = "Hivemind Release Morph"
 	set desc = "Releases a member of our internal hivemind as a morph, at the cost of one of our limbs."
 
-	if(!mind?.changeling || !ishuman(src))
+	if(!mind?.changeling)
 		return
 
 	if(!length(mind.changeling.hivemind_members))
@@ -59,10 +59,9 @@
 	if(!chosen_player)
 		return
 
-	var/mob/living/carbon/human/H = src
 	var/list/selectable_limb = list()
 	for(var/organ_name in list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG))
-		var/obj/item/organ/external/limb = H.organs_by_name[organ_name]
+		var/obj/item/organ/external/limb = organs_by_name[organ_name]
 		if(limb && !limb.is_stump())
 			selectable_limb += limb
 
