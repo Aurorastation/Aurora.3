@@ -56,12 +56,6 @@
 	siemens_coefficient = 0.7
 	body_parts_covered = FACE|EYES
 
-/obj/item/clothing/mask/gas/swat/vox
-	name = "\improper alien mask"
-	desc = "Clearly not designed for a human face."
-	body_parts_covered = 0 //Hack to allow vox to eat while wearing this mask.
-	species_restricted = list(BODYTYPE_VOX)
-
 /obj/item/clothing/mask/gas/syndicate
 	name = "tactical mask"
 	desc = "A close-fitting tactical mask that can be connected to an air supply."

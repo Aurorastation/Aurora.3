@@ -143,15 +143,6 @@
 				user.put_in_hands(X)
 				qdel(src)
 
-	else if(isvox(user))
-		to_chat(user, "<span class='notice'>You are surprised to recognize the markings of the Apex, the Masters! You know this thing... (You must stand still to complete the puzzle box.)</span>")
-		if(do_after(user, 100))
-			to_chat(user, "<span class='notice'>After a few seconds of remembering, you input the solution to the riddle - a lovely riddle indeed - and open the box to reveal an ancient thing.</span>")
-			var/obj/item/archaeological_find/X = new /obj/item/archaeological_find
-			user.remove_from_mob(src)
-			user.put_in_hands(X)
-			qdel(src)
-
 	else
 		to_chat(user, "<span class='notice'>You stare at the box for a few seconds, trying to even comprehend what you're looking at... (You must stand still to complete the puzzle box.)</span>")
 		if(do_after(user, 60))

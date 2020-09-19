@@ -81,10 +81,6 @@
 
 	var/mode = 1
 
-	sprite_sheets = list(
-		BODYTYPE_VOX_ARMALIS = 'icons/mob/species/armalis/held.dmi'
-		)
-
 /obj/item/gun/energy/noisecannon/attack_hand(mob/user as mob)
 	if(loc != user)
 		var/mob/living/carbon/human/H = user
