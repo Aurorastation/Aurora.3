@@ -38,7 +38,7 @@
 			if("y" in can_size_overrides)
 				fuseoverlay.pixel_y = can_size_overrides["y"]
 			add_overlay(fuseoverlay)
-		if(6 to 10)
+		if(6 to INFINITY)
 			fuseoverlay.icon_state = "fuse_long"
 			if("x" in can_size_overrides)
 				fuseoverlay.pixel_x = can_size_overrides["x"]
