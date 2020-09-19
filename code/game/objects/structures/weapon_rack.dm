@@ -61,6 +61,6 @@
 	held_weapon = /obj/item/gun/projectile/shotgun/improvised
 
 /obj/structure/weapon_rack/dragunov
-	name = "antique sniper rifle rack"
-	desc = "A wooden rack holding an old sniper rifle. Still packs a punch."
+	name = "sniper rifle rack"
+	desc = "A wooden rack holding a sniper rifle."
 	held_weapon = /obj/item/gun/projectile/dragunov

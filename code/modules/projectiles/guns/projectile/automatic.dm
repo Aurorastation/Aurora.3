@@ -364,8 +364,8 @@
 	update_held_icon()
 
 /obj/item/gun/projectile/automatic/tommygun
-	name = "vintage submachine gun"
-	desc = "A classic submachine gun. Uses .45 rounds."
+	name = "submachine gun"
+	desc = "An adhomian made submachine gun. Uses .45 rounds."
 	icon = 'icons/obj/guns/tommygun.dmi'
 	icon_state = "tommygun"
 	item_state = "tommygun"

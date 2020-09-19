@@ -179,8 +179,8 @@
 	update_held_icon()
 
 /obj/item/gun/projectile/dragunov
-	name = "antique sniper rifle"
-	desc = "An old semi-automatic marksman rifle. Uses 7.62mm rounds."
+	name = "sniper rifle"
+	desc = "A semi-automatic marksman rifle. Uses 7.62mm rounds."
 	icon = 'icons/obj/guns/dragunov.dmi'
 	icon_state = "dragunov"
 	item_state = "dragunov"
