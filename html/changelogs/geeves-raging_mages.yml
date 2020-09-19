@@ -1,0 +1,8 @@
+author: Geeves, Kyres
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a new gamemode, Magistake, where a group of four rookie mages take the skipjack on a joyride to the station."
+  - tweak: "Magical staves now show their ammo on the HUD."
+  - tweak: "Magic missile no longer targets fellow magic users."
