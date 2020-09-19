@@ -24,6 +24,7 @@
 	display_name = "rosary"
 	path = /obj/item/clothing/accessory/rosary
 
+/datum/gear/religion/dominia/robe
 	display_name = "dominian robe selection"
 	description = "A selection of robes belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
@@ -43,8 +44,8 @@
 /datum/gear/religion/dominia/beret/New()
 	..()
 	var/beret = list()
-	beret["tribunal initiate’s beret"] = /obj/item/clothing/head/soft/dominia
-	beret["tribunalist’s beret"] = /obj/item/clothing/head/soft/dominia/priest
+	beret["tribunal initiate's beret"] = /obj/item/clothing/head/soft/dominia
+	beret["tribunalist's beret"] = /obj/item/clothing/head/soft/dominia/priest
 	gear_tweaks += new/datum/gear_tweak/path(beret)
 
 /datum/gear/religion/dominia/cape
@@ -57,5 +58,9 @@
 	var/cape = list()
 	cape["tribunalist red cape"] = /obj/item/clothing/accessory/poncho/dominia/red
 	cape["tribunalist full cape"] = /obj/item/clothing/accessory/poncho/dominia/red/double
-	cape["tribunalist surcoat"] = /obj/item/clothing/accessory/poncho/dominia/surcoat
+	cape["tribunalist surcoat"] = /obj/item/clothing/accessory/poncho/dominia/red/surcoat
 	gear_tweaks += new/datum/gear_tweak/path(cape)
+
+/datum/gear/religion/dominia/accessory
+	display_name = "tribunal necklace"
+	path = "/obj/item/clothing/accessory/dominia"

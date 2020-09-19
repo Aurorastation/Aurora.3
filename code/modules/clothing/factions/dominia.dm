@@ -259,9 +259,8 @@
 	icon = 'icons/clothing/under/uniforms/dominia_summer_dress.dmi'
 	icon_state = "dom_dress"
 	item_state = "dom_dress"
-	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/poncho/dominia/surcoat
+/obj/item/clothing/accessory/poncho/dominia/red/surcoat
 	name = "tribunalist surcoat"
 	desc = "A simple red surcoat commonly worn by Dominian clergy members."
 	desc_fluff = "Spun with rough but hardy fabrics from the Dominian frontier, this surcoat is commonly worn by poorer Tribunal clergy as well as missionaries\
@@ -271,7 +270,6 @@
 	item_state = "dominian_surcoat"
 	overlay_state = "dominian_surcoat"
 	icon_override = null
-	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/poncho/dominia/red/double
 	name = "tribunalist's full cape"
@@ -284,7 +282,6 @@
 	item_state = "dominian_doublecape"
 	overlay_state = "dominian_doublecape"
 	icon_override = null
-	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/poncho/dominia/red
 	name = "tribunalist cape"
@@ -296,8 +293,8 @@
 	icon_state = "dominian_cape_red"
 	item_state = "dominian_cape_red"
 	overlay_state = "dominian_cape_red"
-	icon_override = null
 	contained_sprite = TRUE
+	icon_override = null
 
 /obj/item/clothing/under/dominia/initiate
 	name = "tribunal initiate's robe"
@@ -308,7 +305,6 @@
 	icon = 'icons/clothing/under/uniforms/dominia_initiate.dmi'
 	icon_state = "dominia_initiate"
 	item_state = "dominia_initiate"
-	contained_sprite = TRUE
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 
 /obj/item/clothing/under/dominia/priest
@@ -321,7 +317,6 @@
 	icon = 'icons/clothing/under/uniforms/dominia_priest.dmi'
 	icon_state = "dominia_priest"
 	item_state = "dominia_priest"
-	contained_sprite = TRUE
 	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
 
 /obj/item/clothing/head/soft/dominia
@@ -342,4 +337,14 @@
 	icon = 'icons/clothing/head/dominia_beret_priest.dmi'
 	icon_state = "dominia_beret_priest"
 	item_state = "dominia_beret_priest"
+
+/obj/item/clothing/accessory/dominia
+	name = "tribunal necklace"
+	desc = "An amulet depicting 'The Eye', a prominent symbol of the Moroz Holy Tribunal worn by its clergy and layfolk alike."
+	desc_fluff = "One of the most prominent symbols of the Moroz Holy Tribunal is 'The Eye', with the square representing the four corners of the universe and the central 'eye' being the \
+	Tribunal that watches all. Necklaces and amulets made from this symbol often have the eye being able to rotate. Although there is no official stance, others argue that necklaces should be made \
+	from bare metal to represent how the Tribunal sees the unvarnished truth, while others insist that they must be made from gold to glorify the religion."
+	icon = 'icons/clothing/accessories/dominia_amulet.dmi'
+	item_state = "dominia_amulet"
+	icon_state = "dominia_amulet"
 	contained_sprite = TRUE
