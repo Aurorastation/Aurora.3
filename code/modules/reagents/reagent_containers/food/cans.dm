@@ -199,7 +199,7 @@
 	visible_message(SPAN_DANGER("\The [name] is hit by the [P]!"))
 	if(P.firer && reagents.get_reagent_amount(/datum/reagent/fuel) >= 21)
 		log_and_message_admins("shot an improvised [name] explosive", P.firer)
-		log_game("[key_name(P.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).",ckey=key_name(P.firer))
+		log_game("[key_name(P.firer)] shot improvised grenade at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).",ckey=key_name(P.firer))
 	detonate(TRUE)
 	. = ..()
 
