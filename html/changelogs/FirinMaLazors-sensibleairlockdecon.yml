@@ -1,0 +1,7 @@
+author: FirinMaLazors
+
+delete-after: True
+
+changes: 
+  - rscadd: "Fixes airlock deconstruction to only needs the bolts to be cut if the bolts are down and the door is broken."
+  - rscadd: "Re-adds the emag bolting doors open and breaking them, instead of just opening them and breaking them.  Can't be stopping security because you have a crowbar and they don't, now."
