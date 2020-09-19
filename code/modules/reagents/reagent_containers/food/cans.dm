@@ -3,6 +3,7 @@
 	var/lastcablecolor
 	var/fuselit
 	var/list/can_size_overrides = list()
+	#define LETHAL_FUEL_CAPACITY 21 // this many units of fuel will cause a harmful explosion
 	volume = 40 //just over one and a half cups
 	amount_per_transfer_from_this = 5
 	flags = 0 //starts closed
@@ -32,7 +33,7 @@
 	cut_overlays()
 	var/image/fuseoverlay = image('icons/obj/fuses.dmi', icon_state = "fuse_short")
 	switch(fuselength)
-		if(-INFINITY to 5)
+		if(1 to 5)
 			if("x" in can_size_overrides)
 				fuseoverlay.pixel_x = can_size_overrides["x"]
 			if("y" in can_size_overrides)
@@ -76,13 +77,7 @@
 		switch(fuselength)
 			if(1 to 3) // you can't increase the fuse with wirecutters and you can't trim it down below 3, so just remove it outright.
 				user.visible_message("<b>[user]</b> removes the cable from \the [name].", SPAN_NOTICE("You remove the cable fuse from \the [name]."))
-				var/obj/item/stack/cable_coil/newcoil = new /obj/item/stack/cable_coil(get_turf(src))
-				newcoil.amount = fuselength
-				newcoil.color = lastcablecolor
-				user.put_in_hands(newcoil)
-				desc = initial(desc)
-				fuselength = 0
-				update_icon()
+				FuseRemove()
 			if(4 to 10)
 				var/fchoice = alert("Do you want to shorten or remove the fuse on \the [name]?", "Shorten or Remove", "Shorten", "Remove", "Cancel")
 				switch(fchoice)
@@ -91,23 +86,10 @@
 						if(!use_check_and_message(user))
 							if(short < fuselength && short >= 3)
 								to_chat(user, SPAN_NOTICE("You shorten the fuse to [short] seconds."))
-								var/obj/item/stack/cable_coil/newcoil = new /obj/item/stack/cable_coil(get_turf(src))
-								newcoil.amount = fuselength - short
-								newcoil.color = lastcablecolor	
-								if(Adjacent(user))
-									user.put_in_hands(newcoil)
-								fuselength = short
-								update_icon()
+								FuseRemove(fuselength - short)
 							else if(!short && !isnull(short))
 								user.visible_message("<b>[user]</b> removes the cable from \the [name]", SPAN_NOTICE("You remove the cable fuse from \the [name]."))
-								var/obj/item/stack/cable_coil/newcoil = new /obj/item/stack/cable_coil(get_turf(src))
-								newcoil.amount = fuselength
-								newcoil.color = lastcablecolor
-								if(Adjacent(user))
-									user.put_in_hands(newcoil)
-								fuselength = 0
-								desc = initial(desc)
-								update_icon()
+								FuseRemove()
 							else if(short == fuselength || isnull(short))
 								to_chat(user, SPAN_NOTICE("You decide against modifying the fuse."))
 							else if (short > fuselength)
@@ -119,14 +101,7 @@
 					if("Remove")
 						if(!use_check_and_message(user))
 							user.visible_message("<b>[user]</b> removes the cable from \the [name].", "You remove the cable fuse from \the [name].")
-							var/obj/item/stack/cable_coil/newcoil = new /obj/item/stack/cable_coil(get_turf(src))
-							newcoil.amount = fuselength
-							newcoil.color = lastcablecolor
-							fuselength = 0
-							update_icon()
-							desc = initial(desc)
-							if(Adjacent(user))
-								user.put_in_hands(newcoil)
+							FuseRemove()
 					if("Cancel")
 						return
 				return
@@ -134,9 +109,9 @@
 	if(W.isFlameSource() && fuselength)
 		if(can_light())
 			fuselit = TRUE
-			if(reagents.get_reagent_amount(/datum/reagent/fuel) >= 21 && user)
+			if(reagents.get_reagent_amount(/datum/reagent/fuel) >= LETHAL_FUEL_CAPACITY && user)
 				msg_admin_attack("[user] ([user.ckey]) lit the fuse on an improvised [name] grenade. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
-			if(fuselength >= 3 && fuselength <= 5 && prob(30) && reagents.get_reagent_amount(/datum/reagent/fuel) >= 21)
+			if(fuselength >= 3 && fuselength <= 5 && prob(30) && reagents.get_reagent_amount(/datum/reagent/fuel) >= LETHAL_FUEL_CAPACITY)
 				user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally takes \the [W] too close to \the [name]'s opening!"))
 				detonate(TRUE) // it'd be a bit dull if the toy-levels of fuel had a chance to insta-pop, it's mostly just a way to keep the grenade in check
 			if(fuselength in list(1, 2))
@@ -182,7 +157,7 @@
 			visible_message(SPAN_WARNING("\The [name] bursts violently into pieces!"))
 			fuselit = FALSE
 			qdel(src)
-		if(21 to INFINITY) // boom
+		if(LETHAL_FUEL_CAPACITY to INFINITY) // boom
 			fragem(src, 7, 7, 1, 0, 5, 1, TRUE, 2) // The main aim of the grenade should be to hit and wound people with shrapnel instead of causing a lot of station damage, hence the small explosion radius
 			playsound(get_turf(src), 'sound/effects/Explosion1.ogg', 50)
 			visible_message(SPAN_DANGER("<b>\The [name] explodes!</b>"))
@@ -195,9 +170,20 @@
 	else if(fuselength && !fuselit)
 		return TRUE
 
+/obj/item/reagent_containers/food/drinks/cans/proc/FuseRemove(var/CableRemoved = fuselength)
+	var/obj/item/stack/cable_coil/newcoil = new /obj/item/stack/cable_coil(get_turf(src))
+	newcoil.amount = CableRemoved
+	newcoil.color = lastcablecolor
+	if(Adjacent(usr))
+		usr.put_in_hands(newcoil)
+	fuselength -= CableRemoved
+	update_icon()
+	if(!fuselength)
+		desc = initial(desc)
+
 /obj/item/reagent_containers/food/drinks/cans/bullet_act(obj/item/projectile/P)
-	visible_message(SPAN_DANGER("\The [name] is hit by the [P]!"))
-	if(P.firer && reagents.get_reagent_amount(/datum/reagent/fuel) >= 21)
+	if(P.firer && reagents.get_reagent_amount(/datum/reagent/fuel) >= LETHAL_FUEL_CAPACITY)
+		visible_message(SPAN_DANGER("\The [name] is hit by the [P]!"))
 		log_and_message_admins("shot an improvised [name] explosive", P.firer)
 		log_game("[key_name(P.firer)] shot improvised grenade at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).",ckey=key_name(P.firer))
 	detonate(TRUE)
@@ -213,6 +199,8 @@
 		detonate(FALSE)
 		visible_message(SPAN_WARNING("<b>\The [name]'s cable catches on fire!</b>"))
 	. = ..()
+
+#undef LETHAL_FUEL_CAPACITY
 
 //DRINKS
 
