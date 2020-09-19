@@ -1342,7 +1342,8 @@
 		/mob/living/simple_animal/hostile/hivebotbeacon/toxic,
 		/mob/living/simple_animal/hostile/hivebotbeacon/incendiary,
 		/mob/living/simple_animal/hostile/republicon,
-		/mob/living/simple_animal/hostile/republicon/ranged
+		/mob/living/simple_animal/hostile/republicon/ranged,
+		/mob/living/simple_animal/hostile/spider_queen
 	)
 	//exclusion list for things you don't want the reaction to create.
 	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs
