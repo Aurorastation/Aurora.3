@@ -179,11 +179,15 @@
 	update_held_icon()
 
 /obj/item/gun/projectile/dragunov
-	name = "sniper rifle"
+	name = "marksman rifle"
 	desc = "A semi-automatic marksman rifle. Uses 7.62mm rounds."
 	icon = 'icons/obj/guns/dragunov.dmi'
 	icon_state = "dragunov"
 	item_state = "dragunov"
+
+	desc_fluff = "The Ho'taki Marksman Rifle was created by the Shastar Technical University, created through the reverse engineering of captured Tsarrayut’yan rifle. \
+	The rifle issued to the feared Das’nrra Marksmen."
+
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	slot_flags = SLOT_BACK
