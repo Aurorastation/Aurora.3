@@ -81,7 +81,7 @@
 	name = "ablative helmet"
 	desc = "A helmet made from advanced materials which protects against concentrated energy weapons."
 	icon_state = "helmet_reflect"
-	armor = list(melee = 25, bullet = 25, laser = 80, energy = 10, bomb = 0, bio = 0, rad = 0)
+	armor = list(melee = 25, bullet = 25, laser = 80, energy = 40, bomb = 0, bio = 0, rad = 0)
 	siemens_coefficient = 0
 
 /obj/item/clothing/head/helmet/ballistic

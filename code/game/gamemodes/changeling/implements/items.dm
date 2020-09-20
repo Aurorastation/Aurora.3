@@ -49,7 +49,8 @@
 		QDEL_IN(src, 1)
 
 /obj/item/melee/arm_blade/iscrowbar()
-	if(creator.a_intent == I_HELP) return TRUE
+	if(creator.a_intent == I_HELP)
+		return TRUE
 	return FALSE
 
 /obj/item/melee/arm_blade/resolve_attackby(atom/A, mob/living/user, var/click_parameters)

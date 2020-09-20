@@ -1150,8 +1150,8 @@ About the new airlock wires panel:
 				..()
 				return
 		if(p_open && !operating && welded)
-			if(!locked && bolt_cut_state != BOLTS_CUT)
-				to_chat(user, SPAN_WARNING("The airlock bolts are in the way of the electronics, you need to drop them before you can reach them."))
+			if(locked)
+				to_chat(user, SPAN_WARNING("The airlock bolts are in the way of the electronics, you need to raise them before you can reach them."))
 				return
 			playsound(src.loc, C.usesound, 100, 1)
 			user.visible_message("<b>[user]</b> starts removing the electronics from the airlock assembly.", SPAN_NOTICE("You start removing the electronics from the airlock assembly."))
@@ -1546,6 +1546,10 @@ About the new airlock wires panel:
 		to_chat(user, bracer.health)
 	if(p_open)
 		to_chat(user, "\The [src]'s maintenance panel has been unscrewed and is hanging open.")
+
+/obj/machinery/door/airlock/emag_act(var/remaining_charges)
+	. = ..()
+	lock(1)
 
 #undef AIRLOCK_CRUSH_DIVISOR
 #undef CYBORG_AIRLOCKCRUSH_RESISTANCE

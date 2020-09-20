@@ -369,8 +369,27 @@
 		else
 			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 			return 1
+	else if(istype(W, /obj/item/melee/arm_blade))
+		if(!welded)
+			to_chat(user, SPAN_WARNING("\The [W] can only be used to tear open welded air vents!"))
+			return
+		user.visible_message(SPAN_WARNING("\The [user] starts using \the [W] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [W]..."))
+		user.do_attack_animation(src, W)
+		playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
+		var/cut_amount = 3
+		for(var/i = 0; i <= cut_amount; i++)
+			if(!W || !do_after(user, 30, src))
+				return
+			user.do_attack_animation(src, W)
+			user.visible_message(SPAN_WARNING("\The [user] smashes \the [W] into \the [src]!"), SPAN_NOTICE("You smash \the [W] into \the [src]."))
+			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
+			if(i == cut_amount)
+				welded = FALSE
+				spark(get_turf(src), 3, alldirs)
+				playsound(loc, 'sound/items/welder_pry.ogg', 50, TRUE)
+				update_icon()
 	else
-		..()
+		return ..()
 
 /obj/machinery/atmospherics/unary/vent_pump/examine(mob/user)
 	if(..(user, 1))

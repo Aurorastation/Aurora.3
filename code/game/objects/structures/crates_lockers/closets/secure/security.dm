@@ -82,7 +82,7 @@
 	new /obj/item/cartridge/hop(src)
 	new /obj/item/device/radio/headset/heads/hop(src)
 	new /obj/item/device/radio/headset/heads/hop/alt(src)
-	new /obj/item/gun/energy/disruptorpistol/miniature(src)
+	new /obj/item/gun/energy/disruptorpistol(src)
 	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/device/flash(src)
 
@@ -363,7 +363,7 @@
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
 	new /obj/item/clothing/suit/storage/vest/detective(src)
-	new /obj/item/gun/energy/disruptorpistol/security(src)
+	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
 	new /obj/item/taperoll/police(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
