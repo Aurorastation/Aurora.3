@@ -156,10 +156,18 @@
 	icon_state = "chapeloffice"
 
 /area/lawoffice
-	name = "Representative Office"
+	name = "Diplomatic Reception"
 	icon_state = "law"
-	station_area = 1
+	station_area = TRUE
 	sound_env = MEDIUM_SOFTFLOOR
+
+/area/lawoffice/consular
+	name = "Consular Office"
+	icon_state = "law_con"
+
+/area/lawoffice/representative
+	name = "Representative Office"
+	icon_state = "law_rep"
 
 /area/quartermaster
 	name = "Quartermasters"

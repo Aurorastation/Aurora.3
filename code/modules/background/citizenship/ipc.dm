@@ -12,6 +12,21 @@
 	find themselves the target of job opportunities in exchange for citizenship."
 	consular_outfit = /datum/outfit/job/representative/consular/golden
 
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_DIONA,
+			SPECIES_SKRELL,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR
+		)
+	)
+
 /datum/outfit/job/representative/consular/golden
 	name = "Golden Deep Consular Officer"
 
