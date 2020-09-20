@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Cleaned up some Shield Generator code, and added some text to generated shields being hit by projectiles, making it more clear that projectiles can dissipate those shields."
