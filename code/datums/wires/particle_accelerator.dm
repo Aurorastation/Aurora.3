@@ -5,7 +5,6 @@
 var/const/PARTICLE_TOGGLE_WIRE = 1 // Toggles whether the PA is on or not.
 var/const/PARTICLE_STRENGTH_WIRE = 2 // Determines the strength of the PA.
 var/const/PARTICLE_LIMIT_POWER_WIRE = 4 // Determines how strong the PA can be.
-//var/const/PARTICLE_NOTHING_WIRE = 8 // Blank wire
 
 /datum/wires/particle_acc/control_box/GetInteractWindow()
 	var/obj/machinery/particle_accelerator/control_box/C = holder
