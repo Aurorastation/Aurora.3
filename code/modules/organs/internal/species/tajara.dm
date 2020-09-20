@@ -58,7 +58,7 @@
 	if(!owner)
 		return
 
-	to_chat(owner, "<span class='warning'>Your eyes burn with the intense light of the flash!</span>")
+	to_chat(owner, SPAN_WARNING("Your eyes burn with the intense light of the flash!"))
 	owner.Weaken(5)
 	disable_night_vision()
 	owner.last_special = world.time + 100
