@@ -245,6 +245,11 @@
 	light_color = "#3848B3"
 	light_power_on = 0.5
 
+obj/machinery/computer/security/wooden_tv/civilian
+	name = "public camera monitor"
+	desc = "An old TV hooked into the station's public cameras."
+	network = ("NETWORK_CIVILIAN_EAST, NETWORK_CIVILIAN_WEST, NETWORK_CIVILIAN_SURFACE, CIVILIAN_MAIN")
+
 /obj/machinery/computer/security/mining
 	name = "outpost camera monitor"
 	desc = "Used to access the various cameras on the outpost."

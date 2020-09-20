@@ -29,6 +29,12 @@
 	network = list("MINE")
 	req_access = list()
 
+/obj/item/circuitboard/security/civilian
+	name = T_BOARD("civilian camera monitor")
+	build_path = /obj/machinery/computer/security/civilian
+	network = list("NETWORK_CIVILIAN_EAST, NETWORK_CIVILIAN_WEST, NETWORK_CIVILIAN_SURFACE, CIVILIAN_MAIN")
+	req_access = list()
+
 /obj/item/circuitboard/security/construct(var/obj/machinery/computer/security/C)
 	if (..(C))
 		C.network = network.Copy()
