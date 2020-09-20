@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added tooltips to certain cooking equipment when you're within two tiles of it."
