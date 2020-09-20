@@ -30,7 +30,7 @@ BREATH ANALYZER
 	health_scan_mob(user, user, mode)
 	add_fingerprint(user)
 
-/proc/get_wound_severity(var/damage_ratio) //Used for ratios.
+/proc/get_wound_severity(var/damage_ratio, var/uppercase = FALSE) //Used for ratios.
 	var/degree = "none"
 
 	switch(damage_ratio)
@@ -44,18 +44,27 @@ BREATH ANALYZER
 			degree = "severe"
 		if(0.75 to 1)
 			degree = "extreme"
+
+	if(uppercase)
+		degree = capitalize(degree)
 	return degree
 
-/proc/get_severity(amount, var/tag = FALSE)
+/proc/get_severity(amount, var/uppercase = FALSE)
+	var/output = "none"
 	if(!amount)
-		return "none"
-	. = "minor"
-	if(amount > 50)
-		. = "severe"
+		output = "none"
+	else if(amount > 50)
+		output = "severe"
 	else if(amount > 25)
-		. = "significant"
+		output = "significant"
 	else if(amount > 10)
-		. = "moderate"
+		output = "moderate"
+	else
+		output = "minor"
+
+	if(uppercase)
+		output = capitalize(output)
+	return output
 
 /proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE)
 	if(!just_scan)

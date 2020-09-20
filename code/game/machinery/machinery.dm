@@ -406,7 +406,7 @@ Class Procs:
 	qdel(src)
 	return 1
 
-/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = 'sound/items/polaroid1.ogg', var/print_delay = 10)
+/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = 'sound/items/polaroid1.ogg', var/print_delay = 10, var/message)
 	if( printing )
 		return 0
 
@@ -415,7 +415,9 @@ Class Procs:
 	if (play_sound)
 		playsound(src.loc, print_sfx, 50, 1)
 
-	visible_message("<span class='notice'>[src] rattles to life and spits out a paper titled [paper].</span>")
+	if(!message)
+		message = "\The [src] rattles to life and spits out a paper titled [paper]."
+	visible_message(SPAN_NOTICE(message))
 
 	addtimer(CALLBACK(src, .proc/print_move_paper, paper), print_delay)
 
