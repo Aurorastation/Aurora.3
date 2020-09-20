@@ -1,0 +1,4 @@
+author: The Stryker, NewOriginalSchwann
+delete-after: True
+changes: 
+  - rscadd: "Adds a Gadpathur accent with description by Schwann."
