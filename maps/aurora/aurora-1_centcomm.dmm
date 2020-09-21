@@ -13027,7 +13027,7 @@
 /turf/unsimulated/floor,
 /area/centcom/holding)
 "aXc" = (
-/obj/machinery/door/airlock/glass_centcom{
+/obj/machinery/door/airlock/centcom{
 	name = "Port Checkpoint Door";
 	req_access = list(101)
 	},
@@ -13065,7 +13065,7 @@
 	},
 /area/centcom/checkpoint/fore)
 "aXf" = (
-/obj/machinery/door/airlock/glass_centcom{
+/obj/machinery/door/airlock/centcom{
 	name = "Starboard Checkpoint Door";
 	req_access = list(101)
 	},
