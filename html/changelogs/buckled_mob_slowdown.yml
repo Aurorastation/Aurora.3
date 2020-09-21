@@ -1,0 +1,6 @@
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - tweak: "Closets, chairs, etc. without a mob inside/buckled will not cause a slowdown when being dragged."
