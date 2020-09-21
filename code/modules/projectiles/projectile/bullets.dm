@@ -128,11 +128,11 @@
 	damage = 25
 
 /obj/item/projectile/bullet/pistol/strong
-	damage = 60
+	damage = 30
+	armor_penetration = 15
 
 /obj/item/projectile/bullet/pistol/revolver
-	damage = 45
-	armor_penetration = 15
+	damage = 30
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
@@ -181,17 +181,17 @@
 /* "Rifle" rounds */
 
 /obj/item/projectile/bullet/rifle
-	armor_penetration = 20
 	penetrating = 1
+	armor_penetration = 20
 
 /obj/item/projectile/bullet/rifle/a762
-	damage = 25
+	damage = 35
 
 /obj/item/projectile/bullet/rifle/a556
 	damage = 30
 
 /obj/item/projectile/bullet/rifle/a556/ap
-	damage = 25
+	damage = 30
 	armor_penetration = 25
 
 /obj/item/projectile/bullet/rifle/a145
@@ -339,7 +339,7 @@
 /obj/item/projectile/bullet/gauss
 	name = "slug"
 	icon_state = "heavygauss"
-	damage = 30
+	damage = 45
 	muzzle_type = /obj/effect/projectile/muzzle/gauss
 	embed = 0
 

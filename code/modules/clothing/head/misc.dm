@@ -683,3 +683,6 @@
 	name = "bucket hat"
 	desc = "A hat with an all-around visor. Only slightly better than wearing an actual bucket."
 	icon_state = "buckethat"
+	sprite_sheets = list(
+		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi'
+		)

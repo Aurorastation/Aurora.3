@@ -213,7 +213,8 @@
 	. = 0
 	if(istype(pulling, /obj/structure))
 		var/obj/structure/P = pulling
-		. += P.slowdown
+		if(P.buckled_mob || locate(/mob) in P.contents)
+			. += P.slowdown
 
 /mob/proc/Life()
 	return

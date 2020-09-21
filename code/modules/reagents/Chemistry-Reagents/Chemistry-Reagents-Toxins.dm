@@ -366,6 +366,11 @@
 			for(var/obj/effect/overlay/wallrot/E in W)
 				qdel(E)
 			W.visible_message(SPAN_NOTICE("The fungi are completely dissolved by the solution!"))
+	if(istype(T, /turf/simulated/floor/diona))
+		T.visible_message(SPAN_WARNING("\The [T] squirms as it's hit by the solution, before dissolving."))
+		var/turf/simulated/floor/F = T
+		F.make_plating()
+		playsound(F, 'sound/species/diona/gestalt_grow.ogg', 30, TRUE)
 
 /datum/reagent/toxin/plantbgone/touch_obj(var/obj/O, var/volume)
 	if(istype(O, /obj/structure/alien/weeds))
