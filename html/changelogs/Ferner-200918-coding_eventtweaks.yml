@@ -1,6 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - tweak: "Tweaked the behavior of carp/cavern dwellers to only destroy things like windows when they see a target."
-  - tweak: "Tweaked the chances a couple of major events."
-  - bugfix: "Carp no longer attack invisible shields that are depleted of strength."
