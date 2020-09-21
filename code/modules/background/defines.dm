@@ -73,6 +73,7 @@
 #define ACCENT_EARTH "Earther"
 #define ACCENT_DEEPFRONTIER "Deep Frontier"
 #define ACCENT_FISANDUH "Fisanduhian"
+#define ACCENT_GADPATHUR "Gadpathurian"
 
 #define ACCENT_REPUBICLANSIIK "Republican Siik'maas"
 #define ACCENT_NAZIRASIIK "Nazira Siik'maas"

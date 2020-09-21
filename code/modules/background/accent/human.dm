@@ -151,3 +151,10 @@
 	The accent is higher pitched than its Dominian counterpart, and has been described as more tonal. Members of the Fisanduh Freedom Front will often go to great lengths to disguise this accent, \
 	though most will slip back into it when off-world."
 	tag_icon = "fisanduh"
+
+/datum/accent/gadpathur
+	name = ACCENT_GADPATHUR
+	description = "The Gadpathurian accent, otherwise known as Gadpathurian Common, is an older dialect of Sol Common that is often regarded as dated-sounding by other speakers due to the \
+	isolation of the planet during its period of reunification. Due to the government's tight control over Gadpathur, and push for unity in the face of the Sol Alliance, Gadpathurians have \
+	been described as sounding relatively similar no matter which area of the planet they hail from."
+	tag_icon = "gadpathur"
