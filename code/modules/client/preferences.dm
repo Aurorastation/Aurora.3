@@ -170,6 +170,8 @@ datum/preferences
 		"new_white"
 		)
 
+	var/fov_cone_alpha = 255
+
 /datum/preferences/New(client/C)
 	new_setup()
 
