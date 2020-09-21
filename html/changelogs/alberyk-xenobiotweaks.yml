@@ -1,8 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - tweak: "Removed the reagent that turns people into slime people from xenobiology, it was replaced by a slime reaction that teleports all non anchored objects around."
-  - tweak: "Removed the phoron spawner slime reaction, it was replaced by the one that summons rare materials."
-  - tweak: "Changed a couple of slime reactions to use water or blood instead of phoron, phoron is now only used for more powerful reactions."
