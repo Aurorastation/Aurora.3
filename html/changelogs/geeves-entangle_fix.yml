@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed upgraded entangle not allowing you to select targets."
+  - rscadd: "Added vine binding handcuffs that prevent the user from just unbuckling out of the entangle spell."
