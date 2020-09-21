@@ -248,7 +248,8 @@
 obj/machinery/computer/security/wooden_tv/civilian
 	name = "public camera monitor"
 	desc = "An old TV hooked into the station's public cameras."
-	network = ("NETWORK_CIVILIAN_EAST, NETWORK_CIVILIAN_WEST, NETWORK_CIVILIAN_SURFACE, CIVILIAN_MAIN")
+	network = list("CIVILIAN_EAST", "CIVILIAN_WEST", "CIVILIAN_SURFACE", "CIVILIAN_MAIN")
+	circuit = /obj/item/circuitboard/security/wooden_tv/civilian
 
 /obj/machinery/computer/security/mining
 	name = "outpost camera monitor"
