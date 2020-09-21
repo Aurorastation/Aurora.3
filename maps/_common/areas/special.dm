@@ -127,7 +127,6 @@
 	name = "Thunderdome"
 	icon_state = "thunder"
 	requires_power = 0
-	dynamic_lighting = 0
 	sound_env = ARENA
 	no_light_control = 1
 	centcomm_area = 1
