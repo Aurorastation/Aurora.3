@@ -321,3 +321,7 @@
 	hanbok["magenta-blue hanbok"] = /obj/item/clothing/under/konyang
 	hanbok["white-pink hanbok"] = /obj/item/clothing/under/konyang/pink
 	gear_tweaks += new/datum/gear_tweak/path(hanbok)
+
+/datum/gear/uniform/gadpathur
+	display_name = "gadpathurian fatigues"
+	path = /obj/item/clothing/under/gadpathur

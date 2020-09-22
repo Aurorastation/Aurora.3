@@ -275,3 +275,16 @@
 	display_name = "bucket hat"
 	path = /obj/item/clothing/head/buckethat
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/gadpathur
+	display_name = "gadpathurian headgear selection"
+	description = "A selection of headgear from Gadpathur."
+	path = /obj/item/clothing/head/soft/gadpathur
+
+/datum/gear/head/gadpathur/New()
+	..()
+	var/gadpathur = list()
+	gadpathur["gadpathurian sidecap"] = /obj/item/clothing/head/soft/gadpathur
+	gadpathur["gadpathurian beret"] = /obj/item/clothing/head/soft/gadpathur/beret
+	gadpathur["gadpathurian helmet"] = /obj/item/clothing/head/helmet/gadpathur
+	gear_tweaks += new/datum/gear_tweak/path(gadpathur)
