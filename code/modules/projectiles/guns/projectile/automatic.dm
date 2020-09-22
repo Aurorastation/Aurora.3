@@ -142,11 +142,11 @@
 
 /obj/item/gun/projectile/automatic/rifle/sts35/update_icon()
 	..()
-	icon_state = (ammo_magazine)? "arifle" : "arifle-empty"
+	icon_state = (ammo_magazine)? "arifle" : "arifle_empty"
 	if(wielded)
 		item_state = (ammo_magazine)? "arifle-wielded" : "arifle-wielded-empty"
 	else
-		item_state = (ammo_magazine)? "arifle" : "arifle-empty"
+		item_state = (ammo_magazine)? "arifle" : "arifle_empty"
 	update_held_icon()
 
 /obj/item/gun/projectile/automatic/rifle/sol
