@@ -1298,7 +1298,7 @@
 		return
 
 	if (failed_last_breath || (getOxyLoss() + get_shock()) > exhaust_threshold)//Can't catch our breath if we're suffocating
-		flash_pain()
+		flash_pain(getOxyLoss()/2)
 		return
 
 	if (nutrition <= 0)

@@ -294,7 +294,7 @@ var/controlling
 
 		host.paralysis = max(host.paralysis, 2)
 
-		host.flash_weak_pain()
+		host.flash_pain(10)
 		to_chat(host, "<span class='danger'><font size=5>You feel excrutiating pain all over your body! It is so bad you can't think or articulate yourself properly.</font></span>")
 
 		to_chat(usr, "<span class='notice'>You send a jolt of agonizing pain through [host], they should be unable to concentrate on anything else for half a minute.</span>")
@@ -304,7 +304,7 @@ var/controlling
 		for(var/i=0, i<10, i++)
 			host.stuttering = 2
 			sleep(50)
-			if(prob(80)) host.flash_weak_pain()
+			if(prob(80)) host.flash_pain(10)
 			if(prob(10)) host.paralysis = max(host.paralysis, 2)
 			if(prob(15)) host.emote("twitch")
 			else if(prob(15)) host.emote("scream")

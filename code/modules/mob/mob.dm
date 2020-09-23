@@ -1000,14 +1000,6 @@
 
 /mob/proc/get_pressure_weakness()
 	return 1
-
-/mob/proc/flash_weak_pain()
-	flick("weak_pain", pain)
-
-/mob/living/carbon/human/flash_weak_pain()
-	if(can_feel_pain())
-		flick("weak_pain", pain)
-
 /mob/living/proc/flash_strong_pain()
 	return
 

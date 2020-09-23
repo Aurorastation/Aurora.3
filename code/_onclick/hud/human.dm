@@ -322,15 +322,10 @@
 		mymob.up_hint.screen_loc = ui_up_hint
 		hud_elements |= mymob.up_hint
 
-	mymob.pain = new /obj/screen()
-	mymob.pain.icon = 'icons/mob/screen/full.dmi'
-	mymob.pain.icon_state = null
-	mymob.pain.name = "pain"
-	mymob.pain.screen_loc = "1,1"
-	mymob.pain.mouse_opacity = 0
+	mymob.pain = new /obj/screen/fullscreen/pain(null)
 	hud_elements |= mymob.pain
 
-	mymob.zone_sel = new /obj/screen/zone_sel( null )
+	mymob.zone_sel = new /obj/screen/zone_sel(null)
 	mymob.zone_sel.icon = ui_style
 	mymob.zone_sel.color = ui_color
 	mymob.zone_sel.alpha = ui_alpha

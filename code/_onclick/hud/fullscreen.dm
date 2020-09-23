@@ -108,6 +108,10 @@
 	icon_state = "blurry"
 	alpha = 100
 
+/obj/screen/fullscreen/pain
+	icon_state = "brutedamageoverlay6"
+	alpha = 0
+
 /obj/screen/fullscreen/flash
 	icon = 'icons/mob/screen/effects.dmi'
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
