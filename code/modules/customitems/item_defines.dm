@@ -1947,7 +1947,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "djikstra_robe"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	contained_sprite = TRUE
-	valid_accessory_slots = list("decor")
 
 /obj/item/clothing/accessory/fluff/djikstra_blade //Symbolic Khanjbiya - Msizi Djikstra - happyfox
 	name = "symbolic khanjbiya"
