@@ -63,7 +63,7 @@
 		stop_charging()
 		return
 
-	var/remaining_energy = active_power_usage
+	var/remaining_energy = base_charge_rate
 
 	if(repair && !fully_repaired())
 		for(var/obj/item/mech_component/MC in charging)
@@ -79,8 +79,13 @@
 				to_chat(pilot, SPAN_NOTICE("Exosuit integrity has been fully restored."))
 
 	var/obj/item/cell/cell = charging.get_cell()
+	var/power_used = 0
 	if(cell && remaining_energy > 0)
+		power_used = cell.maxcharge - cell.charge
 		cell.give(remaining_energy * CELLRATE)
+	remaining_energy -= power_used
+
+	active_power_usage = base_charge_rate - remaining_energy
 
 /obj/machinery/mech_recharger/power_change()
 	..()
