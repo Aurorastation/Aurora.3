@@ -802,9 +802,9 @@
 		return
 
 	if(stat != DEAD)
-		if(stat == UNCONSCIOUS && health < maxHealth/2)
-			var/ovr
-			var/severity
+		if(stat == UNCONSCIOUS && health < maxHealth / 2)
+			//Critical damage passage overlay
+			var/severity = 0
 			switch(health - maxHealth/2)
 				if(-20 to -10)			severity = 1
 				if(-30 to -20)			severity = 2
@@ -816,38 +816,39 @@
 				if(-90 to -80)			severity = 8
 				if(-95 to -90)			severity = 9
 				if(-INFINITY to -95)	severity = 10
-			ovr = "passage[severity]"
-
-			if (ovr != last_brute_overlay)
-				damageoverlay.cut_overlay(last_brute_overlay)
-				damageoverlay.add_overlay(ovr)
-				last_brute_overlay = ovr
+			overlay_fullscreen("crit", /obj/screen/fullscreen/crit, severity)
 		else
-			update_oxy_overlay()
+			clear_fullscreen("crit")
+			//Oxygen damage overlay
+			if(getOxyLoss())
+				var/severity = 0
+				switch(getOxyLoss())
+					if(10 to 20)		severity = 1
+					if(20 to 25)		severity = 2
+					if(25 to 30)		severity = 3
+					if(30 to 35)		severity = 4
+					if(35 to 40)		severity = 5
+					if(40 to 45)		severity = 6
+					if(45 to INFINITY)	severity = 7
+				overlay_fullscreen("oxy", /obj/screen/fullscreen/oxy, severity)
+			else
+				clear_fullscreen("oxy")
 
 		//Fire and Brute damage overlay (BSSR)
 		var/hurtdamage = src.getBruteLoss() + src.getFireLoss() + damageoverlaytemp
 		damageoverlaytemp = 0 // We do this so we can detect if someone hits us or not.
-		var/ovr
 		if(hurtdamage)
+			var/severity = 0
 			switch(hurtdamage)
-				if(10 to 25)
-					ovr = "brutedamageoverlay1"
-				if(25 to 40)
-					ovr = "brutedamageoverlay2"
-				if(40 to 55)
-					ovr = "brutedamageoverlay3"
-				if(55 to 70)
-					ovr = "brutedamageoverlay4"
-				if(70 to 85)
-					ovr = "brutedamageoverlay5"
-				if(85 to INFINITY)
-					ovr = "brutedamageoverlay6"
-
-		if(last_brute_overlay != ovr)
-			damageoverlay.cut_overlay(last_brute_overlay)
-			damageoverlay.add_overlay(ovr)
-			last_brute_overlay = ovr
+				if(10 to 25)		severity = 1
+				if(25 to 40)		severity = 2
+				if(40 to 55)		severity = 3
+				if(55 to 70)		severity = 4
+				if(70 to 85)		severity = 5
+				if(85 to INFINITY)	severity = 6
+			overlay_fullscreen("brute", /obj/screen/fullscreen/brute, severity)
+		else
+			clear_fullscreen("brute")
 
 		if(healths)
 			healths.overlays.Cut()

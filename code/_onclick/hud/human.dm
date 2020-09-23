@@ -322,33 +322,6 @@
 		mymob.up_hint.screen_loc = ui_up_hint
 		hud_elements |= mymob.up_hint
 
-	mymob.blind = new /obj/screen()
-	mymob.blind.icon = 'icons/mob/screen/full.dmi'
-	mymob.blind.icon_state = "blackimageoverlay"
-	mymob.blind.name = " "
-	mymob.blind.screen_loc = "1,1"
-	mymob.blind.mouse_opacity = 0
-	mymob.blind.invisibility = 101
-	hud_elements |= mymob.blind
-
-	mymob.damageoverlay = new /obj/screen()
-	mymob.damageoverlay.icon = 'icons/mob/screen/full.dmi'
-	mymob.damageoverlay.icon_state = "oxydamageoverlay0"
-	mymob.damageoverlay.name = "dmg"
-	mymob.damageoverlay.screen_loc = "1,1"
-	mymob.damageoverlay.mouse_opacity = 0
-	mymob.damageoverlay.layer = 18.1 //The black screen overlay sets layer to 18 to display it, this one has to be just on top.
-	hud_elements |= mymob.damageoverlay
-
-	mymob.flash = new /obj/screen()
-	mymob.flash.icon = ui_style
-	mymob.flash.icon_state = "blank"
-	mymob.flash.name = "flash"
-	mymob.flash.screen_loc = ui_entire_screen
-	mymob.flash.layer = 17
-	mymob.flash.mouse_opacity = 0
-	hud_elements |= mymob.flash
-
 	mymob.pain = new /obj/screen()
 	mymob.pain.icon = 'icons/mob/screen/full.dmi'
 	mymob.pain.icon_state = null
