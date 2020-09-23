@@ -237,9 +237,9 @@
 /obj/item/gun/projectile/automatic/rifle/z8/update_icon()
 	..()
 	if(ammo_magazine)
-		icon_state = "carbine-[round(ammo_magazine.stored_ammo.len,2)]"
-	else
 		icon_state = "carbine"
+	else
+		icon_state = "carbine-empty"
 	if(wielded)
 		item_state = "carbine-wielded"
 	else
