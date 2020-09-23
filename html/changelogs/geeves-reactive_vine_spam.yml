@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added sounds and an animation to hitting space vines."
+  - tweak: "Items now deal double damage against vines, which makes high damage weapons better for vine clearing."

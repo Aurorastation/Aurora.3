@@ -238,8 +238,8 @@
 	return 1
 
 /obj/effect/plant/attackby(var/obj/item/W, var/mob/user)
-
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.do_attack_animation(src)
 	SSplants.add_plant(src)
 
 	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
@@ -262,8 +262,9 @@
 		sampled = 1
 	else
 		..()
-		if(W.force)
-			health -= W.force
+		playsound(loc, /decl/sound_category/wood_break_sound, 50, TRUE)
+		var/damage = W.force ? W.force * 2 : 1 //always do at least a little damage
+		health -= damage
 	check_health()
 
 /obj/effect/plant/ex_act(severity)
