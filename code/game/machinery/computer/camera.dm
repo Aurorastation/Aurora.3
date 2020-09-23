@@ -245,11 +245,15 @@
 	light_color = "#3848B3"
 	light_power_on = 0.5
 
-obj/machinery/computer/security/wooden_tv/civilian
+obj/machinery/computer/security/wooden_tv/public
 	name = "public camera monitor"
 	desc = "An old TV hooked into the station's public cameras."
-	network = list("CIVILIAN_EAST", "CIVILIAN_WEST", "CIVILIAN_SURFACE", "CIVILIAN_MAIN")
-	circuit = /obj/item/circuitboard/security/wooden_tv/civilian
+	circuit = /obj/item/circuitboard/security/wooden_tv/public
+
+/obj/machinery/computer/security/wooden_tv/public/Initialize()
+	if(!network)
+		network = public_networks.Copy()
+	. = ..()
 
 /obj/machinery/computer/security/mining
 	name = "outpost camera monitor"

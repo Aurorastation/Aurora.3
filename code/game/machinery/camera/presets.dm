@@ -8,6 +8,11 @@ var/global/list/engineering_networks = list(
 	"Power Alarms"
 )
 
+var/global/list/public_networks = list(
+	NETWORK_CIVILIAN_SURFACE,
+	NETWORK_CIVILIAN_MAIN
+)
+
 /obj/machinery/camera/network/crescent
 	network = list(NETWORK_CRESCENT)
 

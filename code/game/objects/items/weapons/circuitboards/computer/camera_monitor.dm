@@ -29,11 +29,14 @@
 	network = list("MINE")
 	req_access = list()
 
-/obj/item/circuitboard/security/wooden_tv/civilian
+/obj/item/circuitboard/security/wooden_tv/public
 	name = T_BOARD("public camera monitor")
-	build_path = /obj/machinery/computer/security/wooden_tv/civilian
-	network = list("CIVILIAN_EAST", "CIVILIAN_WEST", "CIVILIAN_SURFACE", "CIVILIAN_MAIN")
+	build_path = /obj/machinery/computer/security/wooden_tv/public
 	req_access = list()
+
+/obj/item/circuitboard/security/wooden_tv/public/New()
+	..()
+	network = engineering_networks
 
 /obj/item/circuitboard/security/construct(var/obj/machinery/computer/security/C)
 	if (..(C))

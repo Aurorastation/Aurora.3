@@ -121,7 +121,14 @@
 /area/crew_quarters/bar
 	name = "Bar"
 	icon_state = "bar"
-	sound_env = LARGE_SOFTFLOOR
+	sound_env = SMALL_SOFTFLOOR
+	lightswitch = TRUE
+	allow_nightmode = 0
+
+/area/crew_quarters/diner
+	name = "Diner"
+	icon_state = "Diner"
+	sound_env = LARGE_ENCLOSED
 	lightswitch = TRUE
 	allow_nightmode = 0
 
@@ -135,6 +142,31 @@
 	name = "Theatre"
 	icon_state = "Theatre"
 	sound_env = LARGE_SOFTFLOOR
+
+/area/crew_quarters/smoking_lounge
+	name = "Smoking Lounge"
+	icon_state = "Smoking_Lounge"
+	sound_env = MEDIUM_SOFTFLOOR
+
+/area/crew_quarters/game_room
+	name = "Game Room"
+	icon_state = "game_room"
+	sound_env = MEDIUM_SOFTFLOOR
+
+/area/crew_quarters/private_table1
+	name = "Private Table 1"
+	icon_state = "private_table1"
+	sound_env = SMALL_SOFTFLOOR
+
+/area/crew_quarters/private_table2
+	name = "Private Table 2"
+	icon_state = "private_table2"
+	sound_env = SMALL_SOFTFLOOR
+
+/area/crew_quarters/private_table3
+	name = "Private Table 3"
+	icon_state = "private_table3"
+	sound_env = MEDIUM_SOFTFLOOR
 
 /area/library
  	name = "Library"

@@ -39,6 +39,15 @@
 	table_mat = MATERIAL_WOOD
 	table_reinf = MATERIAL_WOOD
 
+/obj/structure/table/reinforced/marbleglass
+	table_mat = MATERIAL_GLASS
+	table_reinf = MATERIAL_MARBLE
+	alpha = 77
+
+/obj/structure/table/reinforced/bronzewood
+	table_mat = MATERIAL_WOOD
+	table_reinf = MATERIAL_BRONZE
+
 /obj/structure/table/wood
 	icon_state = "plain_preview"
 	table_mat = MATERIAL_WOOD
@@ -51,6 +60,10 @@
 	icon_state = "plain_preview"
 	table_mat = MATERIAL_GLASS
 	alpha = 77 // 0.3 * 255
+
+/obj/structure/table/glass/reinforced/marble
+	icon_state = "reinf_preview"
+
 
 /obj/structure/table/skrell
 	icon_state = "skrell_preview"
