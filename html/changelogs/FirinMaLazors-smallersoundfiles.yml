@@ -1,0 +1,6 @@
+author: FirinMaLazors
+
+delete-after: True
+
+changes:
+  - rscdel: "Shrunk file sizes of sound files, by converting to .ogg files at a 22050khz bitrate."
