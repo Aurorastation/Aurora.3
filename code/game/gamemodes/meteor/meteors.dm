@@ -321,13 +321,16 @@
 /obj/effect/meteor/ship_debris
 	name = "ship debris"
 	icon_state = "dust"
-	meteor_loot = list(/obj/item/stack/material/plasteel, /obj/item/stack/material/steel, /obj/item/material/shard, /obj/item/material/shard/shrapnel)
+	meteor_loot = list(/obj/item/stack/material/plasteel, /obj/item/stack/material/steel, /obj/item/material/shard, /obj/item/material/shard/shrapnel, /obj/structure/closet/crate/loot)
 	dropamt = 10
 
 /obj/effect/meteor/ship_debris/meteor_effect()
 	for(var/eligible_turf in RANGE_TURFS(2, src))
 		if(prob(25))
 			new /obj/effect/gibspawner/robot(eligible_turf)
+		if(prob(10))
+			new /obj/effect/gibspawner/human(eligible_turf)
+			new /obj/random/voidsuit/no_nanotrasen(eligible_turf)
 		if(prob(65))
 			continue
 		var/turf/T = eligible_turf
