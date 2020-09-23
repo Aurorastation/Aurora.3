@@ -1014,10 +1014,10 @@
 /mob/living/carbon/human/flash_strong_pain()
 	if(can_feel_pain())
 		overlay_fullscreen("strong_pain", /obj/screen/fullscreen/strong_pain)
-		addtimer(CALLBACK(.proc/clear_strong_pain), 10, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, .proc/clear_strong_pain), 10, TIMER_UNIQUE)
 
 /mob/living/proc/clear_strong_pain()
-	clear_fullscreen("strong_pain", 25)
+	clear_fullscreen("strong_pain", 10)
 
 /mob/proc/Jitter(amount)
 	jitteriness = max(jitteriness,amount,0)
