@@ -380,4 +380,4 @@
 		if(istype(user))
 			to_chat(user, message)
 		return
-	visible_message(message, range = message_range)
+	audible_message(message, range = message_range)
