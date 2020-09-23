@@ -324,4 +324,4 @@
 
 /datum/gear/uniform/gadpathur
 	display_name = "gadpathurian fatigues"
-	path = /obj/item/clothing/under/gadpathur
+	path = /obj/item/clothing/under/uniform/gadpathur

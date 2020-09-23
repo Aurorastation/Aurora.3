@@ -279,7 +279,7 @@
 	description = "A selection of cadre brassards from Gadpathur."
 	path = /obj/item/clothing/accessory/armband/gadpathur
 
-/datum/gear/head/gadpathur/New()
+/datum/gear/accessory/gadpathur/New()
 	..()
 	var/gadpathur = list()
 	gadpathur["cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur
