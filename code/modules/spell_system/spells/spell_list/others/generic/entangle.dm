@@ -28,24 +28,27 @@
 	seed.name = "heirlooms"
 	seed.seed_name = "heirloom"
 	seed.display_name = "vines"
-	seed.chems = list(/datum/reagent/nutriment = list(1,20))
+	seed.chems = list(/datum/reagent/nutriment = list(1, 20))
 
 /spell/targeted/entangle/cast(var/list/targets)
 	for(var/mob/M in targets)
 		var/turf/T = get_turf(M)
-		var/obj/effect/plant/single/P = new(T,seed)
-		P.can_buckle = 1
+		var/obj/effect/plant/single/P = new(T, seed)
+		P.can_buckle = TRUE
 		P.health = P.max_health
 		P.mature_time = 0
 		P.process()
 
 		P.buckle_mob(M)
 		M.set_dir(pick(cardinal))
-		M.visible_message("<span class='danger'>[P] appear from the floor, spinning around \the [M] tightly!</span>")
+
+		var/obj/item/handcuffs/cable/green/vines/V = new /obj/item/handcuffs/cable/green/vines(get_turf(M))
+		V.place_handcuffs(M, instant = TRUE)
+		M.visible_message(SPAN_DANGER("[P] appear from the floor, spinning tightly around \the [M]!"))
 
 /spell/targeted/entangle/empower_spell()
 	if(!..())
-		return 0
+		return FALSE
 
 	max_targets++
 
