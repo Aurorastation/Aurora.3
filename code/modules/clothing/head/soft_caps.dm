@@ -70,22 +70,24 @@
 	desc = "It's a field cap in tasteful blue color."
 	icon_state = "secsoft"
 
+// corporate.
+
 /obj/item/clothing/head/soft/sec/corp
 	name = "corporate security cap"
 	desc = "It's field cap in corporate colors."
-	icon_state = "corpsoft"
+	icon_state = "corp"
 
 /obj/item/clothing/head/soft/sec/idris
 	name = "idris cap"
 	desc = "It's an Idris cap."
-	icon_state = "idrissec"
+	icon_state = "idris"
 
 /obj/item/clothing/head/soft/iacberet
 	name = "IAC soft cap"
 	desc = "It's field cap in IAC colors."
-	icon_state = "iachat"
+	icon_state = "iac"
 
 /obj/item/clothing/head/soft/eri
 	name = "eridani cap"
 	desc = "A grey EPMC fatigue cap with the symbol of the Eridani Corporate Federation on its front. For amoral mercenaries that prefer style over protection."
-	icon_state = "eridanihat"
+	icon_state = "eridani"
