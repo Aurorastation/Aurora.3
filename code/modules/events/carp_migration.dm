@@ -68,7 +68,7 @@
 			CHECK_TICK
 		i++
 
-/datum/event/carp_migration/proc/spawn_caverndweller(var/num_groups, var/group_size_min=2, var/group_size_max=3)
+/datum/event/carp_migration/proc/spawn_caverndweller(var/num_groups, var/group_size_min=2, var/group_size_max=3, var/spawn_drones = FALSE)
 	set waitfor = FALSE
 	var/list/spawn_locations = list()
 
@@ -81,6 +81,10 @@
 	var/i = 1
 	while (i <= num_groups)
 		var/group_size = rand(group_size_min, group_size_max)
+		if(spawn_drones && prob(25))
+			var/drone_num = rand(1, 2)
+			for(var/d = 1, d <= drone_num, d++)
+				new /mob/living/simple_animal/hostile/icarus_drone(get_random_turf_in_range(spawn_locations[i], 10, 6, TRUE))
 		for (var/j in 1 to group_size)
 			new /mob/living/simple_animal/hostile/retaliate/cavern_dweller(spawn_locations[i])
 			CHECK_TICK
