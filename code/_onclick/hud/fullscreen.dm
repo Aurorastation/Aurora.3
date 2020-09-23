@@ -84,6 +84,10 @@
 	icon_state = "passage"
 	layer = CRIT_LAYER
 
+/obj/screen/fullscreen/strong_pain
+	layer = DAMAGE_HUD_LAYER
+	icon_state = "strong_pain"
+
 /obj/screen/fullscreen/blind
 	icon_state = "blackimageoverlay"
 	layer = BLIND_LAYER
