@@ -49,7 +49,7 @@
 	It's sometimes taken abroad as a memento, and to be worn during moments of danger. After all, some protection is better than none at all. \
 	Quite recently, NanoTrasen has requested all Gadpathurians make an effort to dull the edges of their helmets when bringing them aboard."
 	armor = list(melee = 6, bullet = 5, laser = 5, energy = 3, bomb = 5, bio = 0, rad = 0)
-	force = 4
+	force = 7
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
 	flags_inv = HIDEEARS
 	icon = 'icons/clothing/head/gadpathur_helmet.dmi'
