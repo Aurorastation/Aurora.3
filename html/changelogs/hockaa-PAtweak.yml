@@ -1,0 +1,8 @@
+author: Hocka
+
+delete-after: True
+
+changes: 
+  - rscadd: "The Particle Accelerator's controller now has some text when viewing the wires to make tampering a bit more obvious."
+  - tweak: "Removes the interface wire from the Particle Accelerator's controller as it was functionally just a second blank wire."
+  - tweak: "Cutting and mending the Particle Accelerator controller's strength wire no longer decreases the strength and just prevents you from changing the strength of the accelerator."
