@@ -58,7 +58,7 @@
 	emagged = TRUE // to let people drop it in the station
 
 	drop_message_emagged = "NanoTrasen combat drones coming your way! Happy hunting!"
-	announcer_name = "NMV Icarus"
+	announcer_name = "NDV Icarus"
 
 	map = null
 
