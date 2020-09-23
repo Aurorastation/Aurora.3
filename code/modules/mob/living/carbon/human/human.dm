@@ -28,6 +28,9 @@
 		name = real_name
 		if(mind)
 			mind.name = real_name
+	
+	if(species.have_vision_cone)
+		can_have_vision_cone = TRUE
 
 	// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
 	if(max_nutrition > 0)

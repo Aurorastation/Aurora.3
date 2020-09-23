@@ -15,7 +15,6 @@
 	active = FALSE
 	dir = NORTH
 	var/strength_upper_limit = 2
-	var/interface_control = TRUE
 	var/list/obj/structure/particle_accelerator/connected_parts
 	var/assembled = 0
 	var/parts

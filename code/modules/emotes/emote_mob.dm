@@ -4,6 +4,20 @@
 /mob/living/can_emote(var/emote_type)
 	return (..() && !(silent && emote_type == AUDIBLE_MESSAGE))
 
+/mob/verb/custom_audible_emote()
+	set name = "Audible Emote"
+	set category = "IC"
+	set desc = "Type in an emote message that will be received by mobs that can hear you."
+
+	custom_emote(m_type = AUDIBLE_MESSAGE)
+
+/mob/verb/custom_visible_emote()
+	set name = "Visible Emote"
+	set category = "IC"
+	set desc = "Type in an emote message that will be received by mobs that can see you."
+
+	custom_emote(m_type = VISIBLE_MESSAGE)
+
 /mob/proc/emote(var/act, var/m_type, var/message)
 	// s-s-snowflake
 	if((src.stat == DEAD || src.status_flags & FAKEDEATH) && act != "deathgasp")
@@ -128,7 +142,7 @@
 		input = message
 
 	if(input)
-		message = format_emote(src, message)
+		message = format_emote(src, input)
 	else
 		return
 

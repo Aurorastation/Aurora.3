@@ -60,6 +60,12 @@
 	tracer_type = /obj/effect/projectile/tracer/stun
 	impact_type = /obj/effect/projectile/impact/stun
 
+/mob/living/simple_animal/hostile/retaliate/cavern_dweller/DestroySurroundings(var/bypass_prob = FALSE)
+	if(stance != HOSTILE_STANCE_ATTACKING)
+		return 0
+	else
+		..()
+
 /obj/item/projectile/beam/cavern/on_hit(var/atom/target, var/blocked = 0)
 	if(ishuman(target))
 		var/mob/living/carbon/human/M = target

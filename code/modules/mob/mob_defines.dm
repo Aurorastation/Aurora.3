@@ -145,6 +145,8 @@
 	var/seer = 0 //for cult//Carbon, probably Human
 
 	var/datum/hud/hud_used = null
+	var/obj/screen/vision_cone_overlay = null
+	var/can_have_vision_cone = FALSE
 
 	var/list/grabbed_by = list(  )
 	var/list/requests = list(  )

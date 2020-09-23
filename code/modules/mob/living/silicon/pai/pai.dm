@@ -111,6 +111,8 @@
 	light_color = COLOR_BRIGHT_GREEN
 	light_wedge = 45
 
+	can_have_vision_cone = FALSE
+
 /mob/living/silicon/pai/movement_delay()
 	return 0.8
 
@@ -147,6 +149,7 @@
 		P.set_light(l_range, l_power, l_color, uv, angle, no_update)
 
 /mob/living/silicon/pai/post_scoop()
+	..()
 	if(istype(loc, /obj/item/holder/pai))
 		var/obj/item/holder/pai/P = loc
 		P.set_light(light_range, light_power, light_color, uv_intensity, light_wedge)
@@ -363,6 +366,8 @@
 	canmove = TRUE
 	resting = FALSE
 
+	can_have_vision_cone = TRUE
+	check_fov()
 
 /mob/living/silicon/pai/verb/fold_up()
 	set category = "pAI Commands"
@@ -476,6 +481,9 @@
 	//stop resting
 	resting = 0
 
+	hide_cone()
+	can_have_vision_cone = initial(can_have_vision_cone)
+
 	// If we are being held, handle removing our holder from their inv.
 	var/obj/item/holder/H = loc
 	if(istype(H))
@@ -506,6 +514,7 @@
 	H.icon_state = "pai-[icon_state]"
 	grabber.update_inv_l_hand()
 	grabber.update_inv_r_hand()
+	post_scoop()
 	return H
 
 /mob/living/silicon/pai/MouseDrop(atom/over_object)
