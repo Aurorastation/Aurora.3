@@ -280,6 +280,7 @@
 	display_name = "gadpathurian headgear selection"
 	description = "A selection of headgear from Gadpathur."
 	path = /obj/item/clothing/head/soft/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/gadpathur/New()
 	..()

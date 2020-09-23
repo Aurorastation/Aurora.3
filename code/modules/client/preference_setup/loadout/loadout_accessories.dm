@@ -278,6 +278,7 @@
 	display_name = "gadpathurian cadre brassard selection"
 	description = "A selection of cadre brassards from Gadpathur."
 	path = /obj/item/clothing/accessory/armband/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/gadpathur/New()
 	..()

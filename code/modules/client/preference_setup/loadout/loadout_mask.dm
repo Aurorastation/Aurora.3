@@ -24,3 +24,4 @@
 /datum/gear/mask/gadpathur
 	display_name = "gadpathurian rebreather"
 	path = /obj/item/clothing/mask/breath/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION

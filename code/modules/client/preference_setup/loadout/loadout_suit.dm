@@ -337,3 +337,4 @@
 /datum/gear/suit/gadpathur
 	display_name = "gadpathurian overcoat"
 	path = /obj/item/clothing/suit/storage/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION

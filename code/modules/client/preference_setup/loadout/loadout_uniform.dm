@@ -325,3 +325,4 @@
 /datum/gear/uniform/gadpathur
 	display_name = "gadpathurian fatigues"
 	path = /obj/item/clothing/under/uniform/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION
