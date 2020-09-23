@@ -380,4 +380,4 @@
 		if(istype(user))
 			to_chat(user, message)
 		return
-	audible_message(message, range = message_range)
+	audible_message(message, hearing_distance = message_range)

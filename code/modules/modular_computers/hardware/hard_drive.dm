@@ -73,8 +73,9 @@
 	if(!stored_files)
 		return FALSE
 	// This file is already stored. Don't store it again.
-	if(F in stored_files)
-		return FALSE
+	for(var/datum/computer_file/program/P in stored_files)
+		if(F.type == P.type)
+			return FALSE
 
 	F.hard_drive = src
 	stored_files.Add(F)
