@@ -141,6 +141,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Clogged Vents",				/datum/event/vent_clog, 			55),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "False Alarm",				/datum/event/false_alarm, 			100),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Supply Drop",				/datum/event/supply_drop, 			80),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Golem Rune",				/datum/event/supply_drop/golem, 	20),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "CCIA General Notice",		/datum/event/ccia_general_notice, 	300),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Mundane Vermin Infestation",/datum/event/infestation, 			60,		list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 15))
 
@@ -170,13 +171,14 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 /datum/event_container/major
 	severity = EVENT_LEVEL_MAJOR
 	available_events = list(
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Nothing",						/datum/event/nothing,				135),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Blob",						/datum/event/blob, 					40,	list(ASSIGNMENT_ENGINEER = 5), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Carp Migration",				/datum/event/carp_migration,		50,	list(ASSIGNMENT_SECURITY =  10), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Meteor Wave",					/datum/event/meteor_wave,			40,	list(ASSIGNMENT_ENGINEER =  10),1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines",					/datum/event/spacevine, 			75,	list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation",			/datum/event/spider_infestation,	25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Major Vermin Infestation",	/datum/event/infestation/major, 	15,	list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5))
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Nothing",						/datum/event/nothing,					135),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Blob",						/datum/event/blob, 						40,	list(ASSIGNMENT_ENGINEER = 5), 1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Carp Migration",				/datum/event/carp_migration,			50,	list(ASSIGNMENT_SECURITY =  10), 1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Meteor Wave",					/datum/event/meteor_wave,				40,	list(ASSIGNMENT_ENGINEER =  10),1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Downed Ship",					/datum/event/meteor_wave/downed_ship,	5,	list(ASSIGNMENT_ENGINEER =  10),1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines",					/datum/event/spacevine, 				75,	list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), 1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation",			/datum/event/spider_infestation,		25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), 1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Major Vermin Infestation",	/datum/event/infestation/major, 		15,	list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5))
 	)
 
 #undef ASSIGNMENT_ANY
