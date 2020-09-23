@@ -261,7 +261,6 @@
 		health -= (rand(3,5)*5)
 		sampled = 1
 	else
-		..()
 		playsound(loc, /decl/sound_category/wood_break_sound, 50, TRUE)
 		var/damage = W.force ? W.force * 2 : 1 //always do at least a little damage
 		health -= damage
