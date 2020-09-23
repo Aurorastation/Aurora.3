@@ -1,8 +1,3 @@
-/*
-VOX HEIST ROUNDTYPE
-*/
-
-
 /datum/game_mode/heist
 	name = "heist"
 	config_tag = "heist"
@@ -14,3 +9,10 @@ VOX HEIST ROUNDTYPE
 	for their greedy plans."
 	end_on_antag_death = 1
 	antag_tags = list(MODE_RAIDER)
+
+/datum/game_mode/heist/apprentices
+	name = "magistake"
+	config_tag = "magistake"
+	extended_round_description = "The galaxy is a place full of dangers, even the inner colonies are not free of such scourges. \
+	Some say that the best raiders have a touch of magic to their art of plunder, but that's just hearsay."
+	antag_tags = list(MODE_RAIDER_MAGE)

@@ -192,7 +192,7 @@
 	if(signal.data["power_toggle"] != null)
 		use_power = !use_power
 
-	if(signal.data["panic_siphon"]) //must be before if("scrubbing" thing
+	if(signal.data["panic_siphon"]) //must be before if("scrubbing") thing
 		panic = text2num(signal.data["panic_siphon"])
 		if(panic)
 			use_power = 1
@@ -310,6 +310,28 @@
 		else
 			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 		return 1
+
+	if(istype(W, /obj/item/melee/arm_blade))
+		if(!welded)
+			to_chat(user, SPAN_WARNING("\The [W] can only be used to tear open welded scrubbers!"))
+			return
+		user.visible_message(SPAN_WARNING("\The [user] starts using \the [W] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [W]..."))
+		user.do_attack_animation(src, W)
+		playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
+		var/cut_amount = 3
+		for(var/i = 0; i <= cut_amount; i++)
+			if(!W || !do_after(user, 30, src))
+				return
+			user.do_attack_animation(src, W)
+			user.visible_message(SPAN_WARNING("\The [user] smashes \the [W] into \the [src]!"), SPAN_NOTICE("You smash \the [W] into \the [src]."))
+			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
+			if(i == cut_amount)
+				welded = FALSE
+				spark(get_turf(src), 3, alldirs)
+				playsound(loc, 'sound/items/welder_pry.ogg', 50, TRUE)
+				update_icon()
+		return
+
 	return ..()
 
 /obj/machinery/atmospherics/unary/vent_scrubber/examine(mob/user)

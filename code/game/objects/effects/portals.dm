@@ -114,7 +114,8 @@
 	spawn_things = list(
 				"/obj/item/stack/material/gold" = 2,
 				"/obj/item/stack/material/silver" = 2,
-				"/obj/item/stack/material/uranium" = 2
+				"/obj/item/stack/material/uranium" = 2,
+				"/obj/item/stack/material/diamond" = 1
 					   )
 
 /obj/effect/portal/spawner/phoron

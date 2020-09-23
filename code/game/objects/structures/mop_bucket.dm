@@ -14,7 +14,7 @@
 	create_reagents(bucketsize)
 	janitorial_supplies |= src
 
-/obj/structure/mobbucket/Destroy()
+/obj/structure/mopbucket/Destroy()
 	janitorial_supplies -= src
 	return ..()
 

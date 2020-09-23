@@ -582,6 +582,7 @@
 	SearchVar(MIME)
 	SearchVar(MERCHANT)
 	SearchVar(ASSISTANT)
+	SearchVar(CONSULAR)
 	SearchVar(assistant_occupations)
 	SearchVar(command_positions)
 	SearchVar(engineering_positions)

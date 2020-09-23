@@ -187,9 +187,9 @@ proc/getsensorlevel(A)
 
 /mob/living/proc/is_wizard(exclude_apprentice = FALSE)
 	if(exclude_apprentice)
-		return mind && mind.assigned_role == "Space Wizard"
+		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Raider Mage")
 	else
-		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Apprentice")
+		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Raider Mage" || mind.assigned_role == "Apprentice")
 
 /mob/proc/is_berserk()
 	return FALSE
@@ -397,6 +397,9 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 /proc/shake_camera(mob/M, duration, strength = 1)
 	set waitfor = 0
 	if(!M || !M.client || M.shakecamera || M.stat || isEye(M) || isAI(M))
+		return
+
+	if(M.client && ((M.client.view != world.view) || (M.client.pixel_x != 0) || (M.client.pixel_y != 0))) //to prevent it while zooming, because zoom does not play well with this code
 		return
 
 	M.shakecamera = TRUE
