@@ -252,7 +252,7 @@
 
 /obj/machinery/computer/security/wooden_tv/public/Initialize()
 	if(!network)
-		network = public_networks.Copy()
+		network = list(NETWORK_CIVILIAN_MAIN, NETWORK_CIVILIAN_SURFACE)
 	. = ..()
 
 /obj/machinery/computer/security/mining

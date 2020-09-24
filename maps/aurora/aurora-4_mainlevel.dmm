@@ -65822,7 +65822,7 @@
 	name = "Jukebox Window";
 	open_layer = 2.9;
 	req_one_access = list(25, 28);
-	startsopen = 1
+	
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/diner)

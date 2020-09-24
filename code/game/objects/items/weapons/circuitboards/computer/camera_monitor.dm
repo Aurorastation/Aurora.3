@@ -36,7 +36,7 @@
 
 /obj/item/circuitboard/security/wooden_tv/public/New()
 	..()
-	network = engineering_networks
+	network = list(NETWORK_CIVILIAN_MAIN, NETWORK_CIVILIAN_SURFACE)
 
 /obj/item/circuitboard/security/construct(var/obj/machinery/computer/security/C)
 	if (..(C))
