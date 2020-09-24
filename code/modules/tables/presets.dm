@@ -39,11 +39,6 @@
 	table_mat = MATERIAL_WOOD
 	table_reinf = MATERIAL_WOOD
 
-/obj/structure/table/reinforced/marbleglass
-	table_mat = MATERIAL_GLASS
-	table_reinf = MATERIAL_MARBLE
-	alpha = 77
-
 /obj/structure/table/reinforced/bronzewood
 	table_mat = MATERIAL_WOOD
 	table_reinf = MATERIAL_BRONZE
