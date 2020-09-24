@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes: 
+  - bugfix: "Makes it so the knock spell can no longer be used to access admin areas on the centcomm z-level."
