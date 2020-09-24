@@ -361,4 +361,4 @@
 			direction = WEST
 
 	if(direction != dir)
-		facedir(direction)
+		facedir(direction, TRUE)

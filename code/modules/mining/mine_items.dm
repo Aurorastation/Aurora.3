@@ -30,6 +30,7 @@
 	new /obj/item/device/gps/mining(src)
 	new /obj/item/book/manual/ka_custom(src)
 	new /obj/item/clothing/accessory/storage/overalls/mining(src)
+	new /obj/item/clothing/head/bandana/miner(src)
 
 /******************************Lantern*******************************/
 

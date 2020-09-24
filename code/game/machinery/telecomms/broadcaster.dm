@@ -232,7 +232,7 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 	var/list/obj/item/device/radio/radios = list()
 
 	// --- Gets the accent icon, if there is any ---
-	var/accent_icon = M.get_accent_icon(speaking)
+	var/accent_icon = M.get_accent_icon(speaking, M)
 
 	// --- Broadcast only to intercom devices ---
 
@@ -352,8 +352,8 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 		var/part_a = "<span class='[frequency_span_class(display_freq)]'>[accent_icon ? accent_icon + " " : ""]<b>\[[freq_text]\][part_b_extra]</b> <span class='name'>" // goes in the actual output
 
 		// --- Some more pre-message formatting ---
-		var/part_b = "</span> <span class='message'>" // Tweaked for security headsets -- TLE
-		var/part_c = "</span></span>"
+		var/part_b = "</span> <span class='message'></span>" // Tweaked for security headsets -- TLE
+		var/part_c = "</span>"
 
 
 		// --- Filter the message; place it in quotes apply a verb ---
@@ -411,33 +411,33 @@ var/message_delay = 0 // To make sure restarting the recentmessages list is kept
 
 		if (length(heard_masked))
 			for (var/mob/R in heard_masked)
-				R.hear_radio(message,verbage, speaking, part_a, part_b, M, 0, name)
+				R.hear_radio(message, verbage, speaking, part_a, part_b, part_c, M, 0, name)
 
 		/* --- Process all the mobs that heard the voice normally (understood) --- */
 
 		if (length(heard_normal))
 			for (var/mob/R in heard_normal)
-				R.hear_radio(message, verbage, speaking, part_a, part_b, M, 0, realname)
+				R.hear_radio(message, verbage, speaking, part_a, part_b, part_c, M, 0, realname)
 
 		/* --- Process all the mobs that heard the voice normally (did not understand) --- */
 
 		if (length(heard_voice))
 			for (var/mob/R in heard_voice)
-				R.hear_radio(message,verbage, speaking, part_a, part_b, M,0, vname)
+				R.hear_radio(message,verbage, speaking, part_a, part_b, part_c, M,0, vname)
 
 		/* --- Process all the mobs that heard a garbled voice (did not understand) --- */
 			// Displays garbled message (ie "f*c* **u, **i*er!")
 
 		if (length(heard_garbled))
 			for (var/mob/R in heard_garbled)
-				R.hear_radio(message, verbage, speaking, part_a, part_b, M, 1, vname)
+				R.hear_radio(message, verbage, speaking, part_a, part_b, part_c, M, 1, vname)
 
 
 		/* --- Complete gibberish. Usually happens when there's a compressed message --- */
 
 		if (length(heard_gibberish))
 			for (var/mob/R in heard_gibberish)
-				R.hear_radio(message, verbage, speaking, part_a, part_b, M, 1)
+				R.hear_radio(message, verbage, speaking, part_a, part_b, part_c, M, 1)
 
 	return 1
 

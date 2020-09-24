@@ -241,27 +241,27 @@
 				malfunction = TRUE
 	checkhp()
 
-/obj/machinery/shieldgen/attack_hand(mob/user as mob)
+/obj/machinery/shieldgen/attack_hand(mob/user)
 	if(locked)
-		to_chat(user, "The machine is locked, you are unable to use it.")
+		to_chat(user, SPAN_WARNING("The machine is locked!"))
 		return
 	if(is_open)
-		to_chat(user, "The panel must be closed before operating this machine.")
+		to_chat(user, SPAN_WARNING("The panel must be closed before operating this machine."))
 		return
 
 	if (src.active)
-		user.visible_message("<span class='notice'>\icon[src] [user] deactivated the shield generator.</span>", \
-			"<span class='notice'>\icon[src] You deactivate the shield generator.</span>", \
+		user.visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] [user] deactivates the shield generator.</span>", \
+			"<span class='notice'>[icon2html(src, viewers(get_turf(src)))] You deactivate the shield generator.</span>", \
 			"You hear heavy droning fade out.")
 		src.shields_down()
 	else
 		if(anchored)
-			user.visible_message("<span class='notice'>\icon[src] [user] activated the shield generator.</span>", \
-				"<span class='notice'>\icon[src] You activate the shield generator.</span>", \
+			user.visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] [user] activate the shield generator.</span>", \
+				"<span class='notice'>[icon2html(src, viewers(get_turf(src)))] You activate the shield generator.</span>", \
 				"You hear heavy droning.")
 			src.shields_up()
 		else
-			to_chat(user, "The device must first be secured to the floor.")
+			to_chat(user, SPAN_WARNING("The device must first be secured to the floor."))
 	return
 
 /obj/machinery/shieldgen/emag_act(var/remaining_charges, var/mob/user)

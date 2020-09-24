@@ -199,7 +199,7 @@ field_generator power level display
 	else
 		visible_message(SPAN_ALERT("\The [src] shuts down!"))
 		turn_off()
-		investigate_log("ran out of power and <font color='red'>deactivated</font>","singulo")
+		investigate_log("ran out of power and <span class='warning'>deactivated</span>","singulo")
 		src.power = 0
 		return 0
 
@@ -317,5 +317,5 @@ field_generator power level display
 				if((world.time - O.last_warning) > 50) //to stop message-spam
 					temp = 0
 					message_admins("A singulo exists and a containment field has failed.",1)
-					investigate_log("has <font color='red'>failed</font> whilst a singulo exists.","singulo")
+					investigate_log("has <span class='warning'>failed</span> whilst a singulo exists.","singulo")
 			O.last_warning = world.time

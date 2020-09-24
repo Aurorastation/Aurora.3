@@ -1016,75 +1016,6 @@ window "Telecomms IDE"
 		multi-line = true
 		no-command = true
 
-window "mainwindow"
-	elem "mainwindow"
-		type = MAIN
-		pos = 281,0
-		size = 640x480
-		anchor1 = none
-		anchor2 = none
-		background-color = none
-		is-default = true
-		saved-params = "pos;size;is-minimized;is-maximized"
-		icon = 'icons\\ss13_64.png'
-		title = "Space Station 13 - Aurora Station"
-		macro = "macro"
-		menu = "menu"
-	elem "hotkey_toggle"
-		type = BUTTON
-		pos = 560,462
-		size = 80x20
-		anchor1 = 100,100
-		anchor2 = none
-		background-color = #e6b099
-		saved-params = ""
-		text = "Hotkey Toggle"
-		command = ".winset \"mainwindow.macro!=macro ? mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true : mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true\""
-		is-flat = true
-		button-type = pushbox
-	elem "mainvsplit"
-		type = CHILD
-		pos = 0,0
-		size = 640x460
-		anchor1 = 0,0
-		anchor2 = 100,100
-		background-color = none
-		saved-params = "splitter"
-		right = "rpane"
-		is-vert = true
-	elem "input"
-		type = INPUT
-		pos = 0,462
-		size = 520x20
-		anchor1 = 0,100
-		anchor2 = 100,100
-		font-family = "Calibri Light"
-		font-size = 12
-		background-color = #d0e6e3
-		is-default = true
-		saved-params = "command"
-	elem "saybutton"
-		type = BUTTON
-		pos = 520,462
-		size = 40x20
-		anchor1 = 100,100
-		anchor2 = none
-		background-color = #8cd0cd
-		saved-params = "is-checked"
-		text = "Chat"
-		command = ".winset \"saybutton.is-checked=true?input.command=\"!say \\\"\" macrobutton.is-checked=false:input.command=\""
-		is-flat = true
-		button-type = pushbox
-	elem "tooltip"
-		type = BROWSER
-		pos = 0,0
-		size = 999x999
-		anchor1 = none
-		anchor2 = none
-		background-color = none
-		is-visible = false
-		saved-params = ""
-
 window "mapwindow"
 	elem "mapwindow"
 		type = MAIN
@@ -1092,7 +1023,6 @@ window "mapwindow"
 		size = 640x480
 		anchor1 = none
 		anchor2 = none
-		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		titlebar = false
 		statusbar = false
@@ -1113,6 +1043,87 @@ window "mapwindow"
 		on-show = ".winset\"mainwindow.mainvsplit.left=mapwindow\""
 		on-hide = ".winset\"mainwindow.mainvsplit.left=\""
 
+window "mainwindow"
+	elem "mainwindow"
+		type = MAIN
+		pos = 281,0
+		size = 640x440
+		anchor1 = none
+		anchor2 = none
+		background-color = none
+		is-default = true
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Space Station 13 - Aurora Station"
+		is-maximized = true
+		icon = 'icons\\ss13_64.png'
+		macro = "macro"
+		menu = "menu"
+		outer-size = 1936x1056
+		inner-size = 1920x997
+	elem "asset_cache_browser"
+		type = BROWSER
+		pos = 424,208
+		size = 1x1
+		anchor1 = none
+		anchor2 = none
+		background-color = none
+		is-visible = false
+		saved-params = ""
+	elem "hotkey_toggle"
+		type = BUTTON
+		pos = 560,420
+		size = 80x20
+		anchor1 = 100,100
+		anchor2 = none
+		background-color = none
+		saved-params = ""
+		text = "Hotkey Toggle"
+		command = ".winset \"mainwindow.macro!=macro ? mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true : mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true\""
+		is-flat = true
+		button-type = pushbox
+	elem "mainvsplit"
+		type = CHILD
+		pos = 0,0
+		size = 634x416
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = none
+		saved-params = "splitter"
+		right = "rpane"
+		is-vert = true
+	elem "input"
+		type = INPUT
+		pos = 0,420
+		size = 517x20
+		anchor1 = 0,100
+		anchor2 = 100,100
+		font-family = "Calibri Light"
+		font-size = 12
+		background-color = #d0e6e3
+		is-default = true
+		saved-params = "command"
+	elem "saybutton"
+		type = BUTTON
+		pos = 520,420
+		size = 40x20
+		anchor1 = 100,100
+		anchor2 = none
+		background-color = #8cd0cd
+		saved-params = "is-checked"
+		text = "Chat"
+		command = ".winset \"saybutton.is-checked=true?input.command=\"!say \\\"\" macrobutton.is-checked=false:input.command=\""
+		is-flat = true
+		button-type = pushbox
+	elem "tooltip"
+		type = BROWSER
+		pos = 0,0
+		size = 999x999
+		anchor1 = none
+		anchor2 = none
+		background-color = none
+		is-visible = false
+		saved-params = ""
+
 window "outputwindow"
 	elem "outputwindow"
 		type = MAIN
@@ -1128,6 +1139,16 @@ window "outputwindow"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
+		outer-size = 654x494
+	elem "browseroutput"
+		type = BROWSER
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = #ffffff
+		is-visible = false
+		saved-params = ""
 	elem "output"
 		type = OUTPUT
 		pos = 0,0
@@ -1135,17 +1156,6 @@ window "outputwindow"
 		anchor1 = 0,0
 		anchor2 = 100,100
 		is-default = true
-		saved-params = "max-lines"
-		style = ".system {color:#ff0000;}"
-		max-lines = 0
-	elem "asset_cache_browser"
-		type = BROWSER
-		pos = 0,0
-		size = 200x200
-		anchor1 = none
-		anchor2 = none
-		background-color = none
-		is-visible = false
 		saved-params = ""
 
 window "rpane"
@@ -1163,6 +1173,7 @@ window "rpane"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
+		outer-size = 654x494
 	elem "rpanewindow"
 		type = CHILD
 		pos = 0,0
@@ -1296,6 +1307,7 @@ window "browserwindow"
 		size = 640x480
 		anchor1 = none
 		anchor2 = none
+		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		title = "Browser"
 		titlebar = false
@@ -1304,6 +1316,7 @@ window "browserwindow"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
+		outer-size = 654x494
 	elem "browser"
 		type = BROWSER
 		pos = 0,0
@@ -1351,18 +1364,22 @@ window "text_editor"
 		size = 360x488
 		anchor1 = none
 		anchor2 = none
+		background-color = none
 		is-visible = false
 		border = sunken
 		saved-params = "pos;size;is-minimized;is-maximized"
 		title = "Text Editor"
 		can-minimize = false
 		can-resize = false
+		outer-size = 376x546
+		inner-size = 360x507
 	elem "exit"
 		type = BUTTON
 		pos = 248,456
 		size = 104x24
 		anchor1 = none
 		anchor2 = none
+		background-color = none
 		saved-params = "is-checked"
 		text = "Exit without saving"
 		command = ""
@@ -1372,6 +1389,7 @@ window "text_editor"
 		size = 104x24
 		anchor1 = none
 		anchor2 = none
+		background-color = none
 		saved-params = "is-checked"
 		text = "Save"
 		command = ""
@@ -1381,6 +1399,7 @@ window "text_editor"
 		size = 104x24
 		anchor1 = none
 		anchor2 = none
+		background-color = none
 		saved-params = "is-checked"
 		text = "Save + Exit"
 		command = ""
@@ -1401,15 +1420,19 @@ window "preferences_window"
 		size = 1200x800
 		anchor1 = none
 		anchor2 = none
+		background-color = none
 		is-visible = false
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
+		outer-size = 1216x839
+		inner-size = 1200x800
 	elem "preferences_browser"
 		type = BROWSER
 		pos = 0,0
 		size = 1000x800
 		anchor1 = 0,0
 		anchor2 = 80,100
+		background-color = none
 		saved-params = ""
 	elem "character_preview_map"
 		type = MAP
@@ -1417,4 +1440,5 @@ window "preferences_window"
 		size = 200x800
 		anchor1 = 80,0
 		anchor2 = 100,100
-		right-click = false
+		saved-params = "zoom;letterbox;zoom-mode"
+

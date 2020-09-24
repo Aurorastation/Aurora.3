@@ -306,4 +306,4 @@
 /datum/gear/head/gadpathur/helmet
 	display_name = "gadpathurian helmet"
 	path = /obj/item/clothing/head/helmet/gadpathur
-	flags= GEAR_HAS_DESC_SELECTION
+	flags = GEAR_HAS_DESC_SELECTION

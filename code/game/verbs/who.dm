@@ -41,7 +41,7 @@
 			msg += " - [age]"
 
 			if(is_special_character(C.mob))
-				msg += " - <b><font color='red'>Antagonist</font></b>"
+				msg += " - <b><span class='warning'>Antagonist</span></b>"
 			msg += " (<A HREF='?_src_=holder;adminmoreinfo=\ref[C.mob]'>?</A>)"
 			msg += "<br>"
 			total_num++
