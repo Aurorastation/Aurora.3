@@ -1366,6 +1366,53 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "mira_uniform"
 	contained_sprite = TRUE
 
+/obj/item/clothing/under/fluff/mira_uniform/Initialize()
+	. = ..()
+	rolled_sleeves = 0
+	rolled_down = 0
+
+/obj/item/clothing/under/fluff/mira_uniform/rollsuit()
+	set name = "Roll Down Jumpsuit"
+	set category = "Object"
+
+	set src in usr
+	if (use_check_and_message(usr, USE_DISALLOW_SILICONS))
+		return
+
+	if(rolled_sleeves)
+		to_chat(usr, "<span class='warning'>You must roll up your [src]'s sleeves first!</span>")
+		return
+
+	rolled_down = !rolled_down
+	if(rolled_down)
+		body_parts_covered &= LOWER_TORSO|LEGS|FEET
+		item_state = "[item_state]_d"
+	else
+		body_parts_covered = initial(body_parts_covered)
+		item_state = initial(item_state)
+	update_clothing_icon()
+
+/obj/item/clothing/under/fluff/mira_uniform/rollsleeves()
+	set name = "Roll Up Sleeves"
+	set category = "Object"
+	set src in usr
+
+	if (use_check_and_message(usr, USE_DISALLOW_SILICONS))
+		return
+
+	if(rolled_down)
+		to_chat(usr, "<span class='warning'>You must roll up your [src] first!</span>")
+		return
+
+	rolled_sleeves = !rolled_sleeves
+	if(rolled_sleeves)
+		body_parts_covered &= ~(ARMS|HANDS)
+		item_state = "[item_state]_r"
+	else
+		body_parts_covered = initial(body_parts_covered)
+		item_state = initial(item_state)
+	update_clothing_icon()
+
 /obj/item/clothing/suit/storage/toggle/labcoat/fluff/mira_robes //Junior Alchemist Robes - Mira Akhandi - ladyfowl
 	name = "junior alchemist robes"
 	desc = "A  robe with a light silky gold colored belt around the waist. Placed upon the print is two red jewels pinned to it neatly."
