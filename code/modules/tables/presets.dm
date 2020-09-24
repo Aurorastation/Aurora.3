@@ -64,7 +64,6 @@
 /obj/structure/table/glass/reinforced/marble
 	icon_state = "reinf_preview"
 
-
 /obj/structure/table/skrell
 	icon_state = "skrell_preview"
 	table_mat = MATERIAL_SHUTTLE_SKRELL
