@@ -48890,6 +48890,7 @@
 	dir = 4
 	},
 /obj/item/stool/bar/padded,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/diner)
 "bMO" = (
@@ -49127,6 +49128,9 @@
 	dir = 8
 	},
 /obj/item/stool/bar/padded,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/diner)
 "bNF" = (
@@ -49525,6 +49529,9 @@
 "bOR" = (
 /obj/effect/floor_decal/corner/red/full,
 /obj/item/stool/padded,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/diner)
 "bOT" = (
@@ -49560,15 +49567,6 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/diner)
-"bOX" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/diner)
@@ -53746,6 +53744,10 @@
 "caq" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 32
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -59159,7 +59161,7 @@
 "eZc" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	name = "Hydroponics";
+	name = "Kitchen Garden";
 	req_access = list(35)
 	},
 /obj/machinery/door/firedoor/multi_tile{
@@ -59343,6 +59345,11 @@
 /area/maintenance/vault)
 "fky" = (
 /obj/structure/table/stone/marble,
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "kitchenshutters01";
+	name = "Kitchen Shutters"
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/diner)
 "fla" = (
@@ -60531,15 +60538,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
-"hrA" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/diner)
 "hsb" = (
 /obj/structure/table/standard,
 /obj/random/loot,
@@ -61127,6 +61125,16 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "kitchenshutters01";
+	name = "Kitchen Shutters"
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "kitchenshutters01";
+	name = "Kitchen Shutters"
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/diner)
 "isH" = (
@@ -61669,6 +61677,10 @@
 /area/maintenance/vault)
 "joE" = (
 /obj/machinery/firealarm/east,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "jpf" = (
@@ -62164,6 +62176,16 @@
 	temperature = 278
 	},
 /area/crew_quarters/kitchen/freezer)
+"kmi" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/diner)
 "kmW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -62529,6 +62551,13 @@
 /obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"laT" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/diner)
 "lbk" = (
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/effect/decal/cleanable/dirt,
@@ -65821,8 +65850,7 @@
 	layer = 2.9;
 	name = "Jukebox Window";
 	open_layer = 2.9;
-	req_one_access = list(25, 28);
-	
+	req_one_access = list(25, 28)
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/diner)
@@ -67032,6 +67060,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/bar)
+"spL" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/diner)
 "sqh" = (
 /turf/simulated/wall,
 /area/engineering/atmos/monitoring)
@@ -68900,6 +68942,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/diner)
+"vtc" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/diner)
 "vtA" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -69277,6 +69328,9 @@
 	dir = 1
 	},
 /obj/item/stool/padded,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/diner)
 "vWF" = (
@@ -99181,7 +99235,7 @@ bdA
 bVv
 bLw
 bLw
-bLw
+bYx
 bLw
 bMJ
 bLw
@@ -100705,11 +100759,11 @@ eMS
 eMS
 eMS
 eMS
-eMS
+kmi
 obu
 bOU
 sQo
-bPY
+spL
 bPY
 bQZ
 bPY
@@ -100962,11 +101016,11 @@ bJV
 bJV
 bJV
 bMN
-hrA
-pcB
+eVb
+vtc
 bOV
-ivw
-bOX
+laT
+eVb
 vWz
 wtZ
 wtZ
