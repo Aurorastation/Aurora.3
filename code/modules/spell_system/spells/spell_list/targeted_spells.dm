@@ -55,13 +55,11 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 			for(var/mob/living/M in starting_targets)
 				if(!(spell_flags & INCLUDEUSER) && M == user)
 					continue
-				if(compatible_mobs && compatible_mobs.len)
-					if(!is_type_in_list(M, compatible_mobs)) continue
-				if(compatible_mobs && compatible_mobs.len && !is_type_in_list(M, compatible_mobs))
+				if(length(compatible_mobs) && !is_type_in_list(M, compatible_mobs))
 					continue
 				possible_targets += M
 
-			if(possible_targets.len)
+			if(length(possible_targets))
 				if(spell_flags & SELECTABLE) //if we are allowed to choose. see setup.dm for details
 					var/mob/temp_target = input(user, "Choose the target for the spell.", "Targeting") as null|mob in possible_targets
 					if(temp_target)
@@ -83,13 +81,14 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 		for(var/mob/living/target in starting_targets)
 			if(!(spell_flags & INCLUDEUSER) && target == user)
 				continue
-			if(compatible_mobs && !is_type_in_list(target, compatible_mobs))
+			if(length(compatible_mobs) && !is_type_in_list(target, compatible_mobs))
 				continue
 			possible_targets += target
 
 		if(spell_flags & SELECTABLE)
-			for(var/i = 1; i<=max_targets, i++)
-				if(!possible_targets.len)
+			for(var/i = 1; i <= max_targets, i++)
+				if(!length(possible_targets))
+					to_chat(user, SPAN_WARNING("There are no targets in range!"))
 					break
 				var/mob/M = input(user, "Choose the target for the spell.", "Targeting") as null|mob in possible_targets
 				if(!M)
@@ -100,8 +99,8 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 				targets += M
 				possible_targets -= M
 		else
-			for(var/i=1,i<=max_targets,i++)
-				if(!possible_targets.len)
+			for(var/i = 1,i <= max_targets, i++)
+				if(!length(possible_targets))
 					break
 				if(target_ignore_prev)
 					var/target = pick(possible_targets)
@@ -113,7 +112,7 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 	if(!(spell_flags & INCLUDEUSER) && (user in targets))
 		targets -= user
 
-	if(compatible_mobs && compatible_mobs.len)
+	if(length(compatible_mobs))
 		for(var/mob/living/target in targets) //filters out all the non-compatible mobs
 			if(!is_type_in_list(target, compatible_mobs))
 				targets -= target

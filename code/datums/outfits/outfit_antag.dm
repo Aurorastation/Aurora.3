@@ -264,7 +264,8 @@
 		/obj/item/clothing/head/bearpelt,
 		/obj/item/clothing/head/ushanka,
 		/obj/item/clothing/head/pirate,
-		/obj/item/clothing/head/bandana,
+		/obj/item/clothing/head/bandana/pirate,
+		/obj/item/clothing/head/bandana/red,
 		/obj/item/clothing/head/hgpiratecap,
 		/obj/item/clothing/head/beanie/random,
 		/obj/item/clothing/head/beaverhat,
@@ -545,3 +546,80 @@
 	suit = /obj/item/clothing/suit/space/cult
 
 	suit_store = /obj/item/gun/energy/rifle/cult
+  
+/datum/outfit/admin/syndicate/raider_mage
+	name = "Raider Mage"
+	allow_backbag_choice = FALSE
+
+	uniform = /obj/item/clothing/under/syndicate/ninja
+	suit = null
+	shoes = /obj/item/clothing/shoes/sandal
+	head = null
+
+	back = /obj/item/gun/energy/staff/focus
+	belt = /obj/item/storage/belt/fannypack/component
+	gloves = null
+	l_ear = /obj/item/device/radio/headset/raider
+	l_pocket = null
+	r_pocket = null
+	id = /obj/item/storage/wallet/random
+
+	accessory = /obj/item/clothing/accessory/storage/webbing
+	backpack_contents = list()
+
+/datum/outfit/admin/syndicate/raider_mage/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	var/list/loadouts = list("Nature", "Techno", "Cobra", "Brawler", "Shimmer")
+	if(H.gender in list(FEMALE, PLURAL, NEUTER))
+		loadouts += list("Storm", "Sorceress")
+
+	switch(pick(loadouts))
+		if("Nature")
+			head = /obj/item/clothing/head/wizard/nature
+			suit = /obj/item/clothing/suit/wizrobe/nature
+			suit_accessory = /obj/item/clothing/accessory/poncho/nature
+			spells = list(/spell/targeted/heal_target/major = 2, /spell/targeted/entangle = 2, /spell/aoe_turf/conjure/grove/sanctuary = 2)
+		if("Techno")
+			head = /obj/item/clothing/head/wizard/techno
+			suit = /obj/item/clothing/suit/wizrobe/techno
+			uniform = /obj/item/clothing/under/techo
+			shoes = /obj/item/clothing/shoes/techno
+			spells = list(/spell/aoe_turf/knock = 2, /spell/aoe_turf/conjure/forcewall = 2, /spell/aoe_turf/disable_tech = 2)
+		if("Cobra")
+			head = /obj/item/clothing/head/wizard/cobra
+			suit = /obj/item/clothing/suit/wizrobe/cobra
+			shoes = /obj/item/clothing/shoes/hitops/red
+			spells = list(/spell/targeted/mend = 2, /spell/targeted/life_steal = 2, /spell/aoe_turf/conjure/soulstone = 2)
+		if("Brawler")
+			head = /obj/item/clothing/head/wizard/brawler
+			suit = /obj/item/clothing/suit/wizrobe/brawler
+			shoes = /obj/item/clothing/shoes/caligae
+			spells = list(/spell/targeted/projectile/dumbfire/passage = 2, /spell/targeted/equip_item/shield = 2, /spell/targeted/torment = 2)
+		if("Shimmer")
+			head = /obj/item/clothing/head/wizard/shimmer
+			suit = /obj/item/clothing/suit/wizrobe/shimmer
+			spells = list(/spell/radiant_aura = 2, /spell/targeted/projectile/dumbfire/stuncuff = 2, /spell/aoe_turf/conjure/golem = 2)
+		if("Storm")
+			head = /obj/item/clothing/head/wizard/storm
+			suit = /obj/item/clothing/suit/wizrobe/storm
+			shoes = /obj/item/clothing/shoes/heels
+			spells = list(/spell/targeted/projectile/magic_missile = 2, /spell/targeted/genetic/blind = 2, /spell/targeted/shapeshift/avian = 2)
+		if("Sorceress")
+			head = /obj/item/clothing/head/wizard/sorceress
+			suit = /obj/item/clothing/suit/wizrobe/sorceress
+			spells = list(/spell/targeted/projectile/dumbfire/fireball = 2, /spell/aoe_turf/conjure/creature = 2, /spell/shadow_shroud = 2)
+	return ..()
+
+/datum/outfit/admin/syndicate/raider_mage/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(visualsOnly)
+		return
+
+	if(!H.shoes)
+		var/fallback_type = pick(/obj/item/clothing/shoes/sandal, /obj/item/clothing/shoes/jackboots/toeless, /obj/item/clothing/shoes/laceup/brown/all_species, /obj/item/clothing/shoes/laceup/all_species)
+		H.equip_to_slot_or_del(new fallback_type(H), slot_shoes)
+
+	var/obj/item/storage/wallet/W = H.wear_id
+	var/obj/item/card/id/syndicate/raider/passport = new(H.loc)
+	passport.name = "[H.real_name]'s Passport"
+	if(W)
+		W.handle_item_insertion(passport)

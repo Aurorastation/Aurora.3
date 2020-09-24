@@ -729,9 +729,6 @@
 /datum/reagent/psilocybin
 	value = 0.7
 
-/datum/reagent/slimetoxin
-	value = 2
-
 /datum/reagent/aslimetoxin
 	value = 3
 

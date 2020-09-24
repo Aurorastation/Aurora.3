@@ -91,7 +91,7 @@
 #define COLOR_OIL              "#030303"
 #define COLOR_ASH              "#615C5B"
 #define COLOR_SNOW             "#9CADAD"
-#define COLOR_LING_HIVEMIND    "#94582e"
+#define COLOR_LING_HIVEMIND    "#583012"
 
 
 // Blood colors
