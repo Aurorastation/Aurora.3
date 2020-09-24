@@ -6175,9 +6175,10 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled,
-/area/turret_protected/ai_upload_foyer)
-"anp" = (
+/obj/structure/cable/cyan{
+	d2 = 2;
+	icon_state = "0-2"
+	},
 /obj/machinery/power/apc{
 	dir = 1;
 	name = "north bump";
@@ -6186,10 +6187,9 @@
 /obj/machinery/camera/network/command{
 	c_tag = "AI Core - Upload Access"
 	},
-/obj/structure/cable/cyan{
-	d2 = 2;
-	icon_state = "0-2"
-	},
+/turf/simulated/floor/tiled,
+/area/turret_protected/ai_upload_foyer)
+"anp" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
@@ -6198,20 +6198,7 @@
 	layer = 4;
 	pixel_y = 32
 	},
-/obj/effect/decal/warning_stripes,
-/obj/machinery/door/window{
-	base_state = "right";
-	closed_layer = 4.1;
-	layer = 4.1;
-	name = "Remote Mech Storage";
-	req_access = list(20)
-	},
-/obj/machinery/mech_recharger,
-/obj/structure/window/reinforced{
-	dir = 8;
-	layer = 4.1
-	},
-/mob/living/heavy_vehicle/premade/ripley/remote_ai,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "anr" = (
@@ -6485,6 +6472,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/cable/cyan{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/ai_upload_foyer)
 "anH" = (
@@ -6492,11 +6484,6 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
-	},
-/obj/structure/cable/cyan{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
 	},
 /obj/machinery/porta_turret,
 /obj/effect/decal/warning_stripes,
@@ -33641,6 +33628,18 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/patient_d)
+"rHf" = (
+/obj/machinery/mech_recharger,
+/obj/effect/decal/warning_stripes,
+/obj/machinery/door/window{
+	base_state = "right";
+	closed_layer = 4.1;
+	layer = 4.1;
+	name = "Remote Mech Storage";
+	req_access = list(20)
+	},
+/turf/simulated/floor/tiled,
+/area/turret_protected/ai_upload_foyer)
 "rHm" = (
 /obj/effect/floor_decal/corner_wide/pink{
 	dir = 6
@@ -85764,7 +85763,7 @@ akG
 akG
 ale
 ale
-ale
+akG
 amO
 ano
 anG
@@ -86022,7 +86021,7 @@ akG
 alY
 alY
 alY
-amO
+rHf
 anp
 anH
 aoh

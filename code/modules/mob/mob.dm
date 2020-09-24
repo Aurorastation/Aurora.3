@@ -134,7 +134,7 @@
 			continue
 		if(self_message && M == src)
 			M.show_message(self_message, 1, blind_message, 2)
-		else if(M.see_invisible < invisibility)  // Cannot view the invisible, but you can hear it.
+		else if(is_invisible_to(M))  // Cannot view the invisible, but you can hear it.
 			if(blind_message)
 				M.show_message(blind_message, 2)
 		else
@@ -213,7 +213,8 @@
 	. = 0
 	if(istype(pulling, /obj/structure))
 		var/obj/structure/P = pulling
-		. += P.slowdown
+		if(P.buckled_mob || locate(/mob) in P.contents)
+			. += P.slowdown
 
 /mob/proc/Life()
 	return
@@ -301,8 +302,10 @@
 /mob/verb/examinate(atom/A as mob|obj|turf in view())
 	set name = "Examine"
 	set category = "IC"
+
 	if(!A)
 		return
+
 	if((is_blind(src) || usr.stat) && !isobserver(src))
 		to_chat(src, "<span class='notice'>Something is there but you can't see it.</span>")
 		return 1
@@ -875,15 +878,17 @@
 	else if( lying != lying_prev )
 		update_icon()
 
+	update_vision_cone()
+
 	return canmove
 
 
-/mob/proc/facedir(var/ndir)
+/mob/proc/facedir(var/ndir, var/ignore_facing_dir = FALSE)
 	if(!canface() || (client && client.moving) || (client && world.time < client.move_delay))
 		return 0
-	set_dir(ndir)
+	set_dir(ndir, ignore_facing_dir)
 	if(buckled && buckled.buckle_movable)
-		buckled.set_dir(ndir)
+		buckled.set_dir(ndir, ignore_facing_dir)
 	if (client)//Fixing a ton of runtime errors that came from checking client vars on an NPC
 		client.move_delay += movement_delay()
 	return 1
@@ -1203,12 +1208,16 @@
 		set_dir(dir)
 		facing_dir = dir
 
-/mob/set_dir(ndir)
+/mob/set_dir(ndir, ignore_facing_dir = FALSE)
 	if(facing_dir)
-		if(!canface() || lying || buckled || restrained())
-			facing_dir = null
-		else if(dir != facing_dir)
-			return ..(facing_dir)
+		if(ignore_facing_dir && facing_dir != ndir)
+			set_face_dir(ndir)
+			return ..(ndir)
+		else
+			if(!canface() || lying || buckled || restrained())
+				facing_dir = null
+			else if(dir != facing_dir)
+				return ..(facing_dir)
 	else
 		return ..(ndir)
 
@@ -1271,6 +1280,9 @@
 	src.in_throw_mode = 1
 	if(src.throw_icon)
 		src.throw_icon.icon_state = "act_throw_on"
+
+/mob/proc/is_invisible_to(var/mob/viewer)
+	return (!alpha || !mouse_opacity || viewer.see_invisible < invisibility || (viewer.client && (src in viewer.client.hidden_mobs)))
 
 //Admin helpers
 /mob/proc/wind_mob(var/mob/admin)

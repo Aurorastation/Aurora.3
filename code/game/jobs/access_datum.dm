@@ -418,6 +418,11 @@ var/const/access_it = 71 // allows some unique interactions with devices
 	id = access_it
 	desc = "Tech Support"
 
+var/const/access_consular = 72
+/datum/access/consular
+	id = access_consular
+	desc = "Consular"
+
 /******************
 * Central Command *
 ******************/
