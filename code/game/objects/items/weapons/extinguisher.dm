@@ -13,9 +13,9 @@
 	force = 8
 	matter = list(DEFAULT_WALL_MATERIAL = 90)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
-	amount_per_transfer_from_this = 300
+	amount_per_transfer_from_this = 150
 	possible_transfer_amounts = null
-	volume = 300
+	volume = 150
 	drop_sound = 'sound/items/drop/gascan.ogg'
 	pickup_sound = 'sound/items/pickup/gascan.ogg'
 
@@ -74,10 +74,9 @@
 	desc = "A one time use extinguisher refiller that allows fire extinguishers to be refilled with an aerosol mix. This one contains monoammonium phosphate."
 
 /obj/item/reagent_containers/extinguisher_refill/filled/Initialize()
-		. =..()
-		reagents.add_reagent(/datum/reagent/toxin/fertilizer/monoammoniumphosphate, volume)
-		flags &= ~OPENCONTAINER
-		return
+	. = ..()
+	reagents.add_reagent(/datum/reagent/toxin/fertilizer/monoammoniumphosphate, volume)
+	flags &= ~OPENCONTAINER
 
 /obj/item/extinguisher
 	name = "fire extinguisher"
