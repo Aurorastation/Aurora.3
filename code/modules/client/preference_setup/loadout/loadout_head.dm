@@ -10,15 +10,29 @@
 
 /datum/gear/head/bandana
 	display_name = "bandana selection"
+	description = "A selection of bandanas. Comes in departmental colors."
 	path = /obj/item/clothing/head/bandana
 
 /datum/gear/head/bandana/New()
 	..()
 	var/bandanas = list()
-	bandanas["green bandana"] = /obj/item/clothing/head/greenbandana
-	bandanas["orange bandana"] = /obj/item/clothing/head/orangebandana
-	bandanas["pirate bandana"] = /obj/item/clothing/head/bandana
+	bandanas["bandana"] = /obj/item/clothing/head/bandana
+	bandanas["bandana, red"] = /obj/item/clothing/head/bandana/red
+	bandanas["bandana, captain"] = /obj/item/clothing/head/bandana/captain
+	bandanas["bandana, security"] = /obj/item/clothing/head/bandana/security
+	bandanas["bandana, science"] = /obj/item/clothing/head/bandana/science
+	bandanas["bandana, medical"] = /obj/item/clothing/head/bandana/medical
+	bandanas["bandana, engineering"] = /obj/item/clothing/head/bandana/engineering
+	bandanas["bandana, atmospherics"] = /obj/item/clothing/head/bandana/atmos
+	bandanas["bandana, hydroponics"] = /obj/item/clothing/head/bandana/hydro
+	bandanas["bandana, cargo"] = /obj/item/clothing/head/bandana/cargo
+	bandanas["bandana, mining"] = /obj/item/clothing/head/bandana/miner
 	gear_tweaks += new/datum/gear_tweak/path(bandanas)
+
+/datum/gear/head/bandana/colorable
+	display_name = "bandana (colorable)"
+	path = /obj/item/clothing/head/bandana/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/cap
 	display_name = "cap selection"
