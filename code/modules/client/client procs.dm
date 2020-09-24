@@ -42,8 +42,6 @@
 		if (!info_sent)
 			handle_connection_info(src, href_list["data"])
 			info_sent = 1
-		else
-			server_greeting.close_window(src, "Your greeting window has malfunctioned and has been shut down.")
 
 		return
 
@@ -96,6 +94,11 @@
 		if("usr")		hsrc = mob
 		if("prefs")		return prefs.process_link(usr,href_list)
 		if("vars")		return view_var_Topic(href,href_list,hsrc)
+		if("chat")		return chatOutput.Topic(href, href_list)
+
+	switch(href_list["action"])
+		if("openLink")
+			send_link(src, href_list["link"])
 
 	if(href_list["warnacknowledge"])
 		var/queryid = text2num(href_list["warnacknowledge"])
@@ -143,13 +146,13 @@
 				query_details["new_status"] = "confirmed"
 				query_details["id"] = request_id
 
-				feedback_message = "<font color='green'><b>Account successfully linked!</b></font>"
+				feedback_message = "<span class='good'><b>Account successfully linked!</b></span>"
 			if ("deny")
 				query_contents = "UPDATE ss13_player_linking SET status = :new_status:, deleted_at = NOW() WHERE id = :id:"
 				query_details["new_status"] = "rejected"
 				query_details["id"] = request_id
 
-				feedback_message = "<font color='red'><b>Link request rejected!</b></font>"
+				feedback_message = "<span class='warning'><b>Link request rejected!</b></span>"
 			else
 				to_chat(src, "<span class='warning'>Invalid command sent.</span>")
 				return
@@ -209,11 +212,6 @@
 			// Web interface href link from various panels.
 			if ("webint")
 				src.open_webint()
-
-			// Forward appropriate topics to the server greeting datum.
-			if ("greeting")
-				if (server_greeting)
-					server_greeting.handle_call(href_list, src)
 
 			// Handle the updating of MotD and Memo tabs upon click.
 			if ("updateHashes")
@@ -308,13 +306,13 @@
 //This stops files larger than UPLOAD_LIMIT being sent from client to server via input(), client.Import() etc.
 /client/AllowUpload(filename, filelength)
 	if(filelength > UPLOAD_LIMIT)
-		to_chat(src, "<font color='red'>Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB.</font>")
+		to_chat(src, "<span class='warning'>Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB.</span>")
 		return 0
 /*	//Don't need this at the moment. But it's here if it's needed later.
 	//Helps prevent multiple files being uploaded at once. Or right after eachother.
 	var/time_to_wait = fileaccess_timer - world.time
 	if(time_to_wait > 0)
-		to_chat(src, "<font color='red'>Error: AllowUpload(): Spam prevention. Please wait [round(time_to_wait/10)] seconds.</font>")
+		to_chat(src, "<span class='warning'>Error: AllowUpload(): Spam prevention. Please wait [round(time_to_wait/10)] seconds.</span>")
 		return 0
 	fileaccess_timer = world.time + FTPDELAY	*/
 	return 1
@@ -325,6 +323,9 @@
 	///////////
 /client/New(TopicData)
 	TopicData = null							//Prevent calls to client.Topic from connect
+
+	// Load goonchat
+	chatOutput = new(src)
 
 	if(!(connection in list("seeker", "web")))					//Invalid connection type.
 		return null
@@ -355,6 +356,7 @@
 		m.client = src
 		src.InitPrefs() //Init some default prefs
 		m.LateLogin()
+		chatOutput.start()
 		return m
 		//Do auth shit
 	else
@@ -362,6 +364,7 @@
 		src.InitClient()
 		src.InitPrefs()
 		mob.LateLogin()
+		chatOutput.start()
 
 /client/proc/InitPrefs()
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
@@ -376,12 +379,6 @@
 	prefs.last_id = computer_id			//these are gonna be used for banning
 	if (byond_version >= 511 && prefs.clientfps)
 		fps = prefs.clientfps
-	if(SStheming)
-		SStheming.apply_theme_from_perfs(src)
-
-	// Server greeting shenanigans.
-	if (server_greeting.find_outdated_info(src, 1) && !info_sent)
-		server_greeting.display_to_client(src)
 
 /client/proc/InitClient()
 	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
@@ -685,15 +682,6 @@
 
 	send_link(src, linkURL)
 	return
-
-/client/verb/show_greeting()
-	set name = "Open Greeting"
-	set category = "OOC"
-
-	// Update the information just in case.
-	server_greeting.find_outdated_info(src, 1)
-
-	server_greeting.display_to_client(src)
 
 /client/proc/check_ip_intel()
 	set waitfor = 0 //we sleep when getting the intel, no need to hold up the client connection while we sleep

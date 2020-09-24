@@ -13,27 +13,27 @@
 	data += "<b>If you do not know what these do, you shouldn't be touching them!</b><hr>"
 
 	data += "<h2>Hub Visibility Setting:</h2><br>"
-	data += "Currently [world.visibility ? "<font color='green'>VISIBLE</font>" : "<font color='red'>HIDDEN</font>"]. <a href='?_src_=holder;access_control=hub'>Toggle</a><br><hr>"
+	data += "Currently [world.visibility ? "<font color='green'>VISIBLE</font>" : "<span class='warning'>HIDDEN</span>"]. <a href='?_src_=holder;access_control=hub'>Toggle</a><br><hr>"
 
 	data += "<h2>IP Intel Settings:</h2><br><ul>"
-	data += "<li>Current warning level: [config.ipintel_rating_bad ? "[config.ipintel_rating_bad]" : "<font color='red'>DISABLED</font>"]. <a href='?_src_=holder;access_control=intel_bad'>Edit</a></li>"
-	data += "<li>Current kick level: [config.ipintel_rating_kick ? "[config.ipintel_rating_kick]" : "<font color='red'>DISABLED</font>"]. <a href='?_src_=holder;access_control=intel_kick'>Edit</a></li>"
+	data += "<li>Current warning level: [config.ipintel_rating_bad ? "[config.ipintel_rating_bad]" : "<span class='warning'>DISABLED</span>"]. <a href='?_src_=holder;access_control=intel_bad'>Edit</a></li>"
+	data += "<li>Current kick level: [config.ipintel_rating_kick ? "[config.ipintel_rating_kick]" : "<span class='warning'>DISABLED</span>"]. <a href='?_src_=holder;access_control=intel_kick'>Edit</a></li>"
 	data += "</ul><hr>"
 
 	data += "<h2>Player Age Settings:</h2><br><ul>"
-	data += "<li>New players: [config.access_deny_new_players ? "<font color='red'>DENIED</font>" : "<font color='green'>ALLOWED</font>"]. <a href='?_src_=holder;access_control=new_players;'>Toggle</a></li>"
-	data += "<li>Account age restriction: [config.access_deny_new_accounts == -1 ? "<font color='red'>DISABLED</font>" : "[config.access_deny_new_accounts] DAYS"]. <a href='?_src_=holder;access_control=new_accounts;'>Edit</a></li>"
+	data += "<li>New players: [config.access_deny_new_players ? "<span class='warning'>DENIED</span>" : "<font color='green'>ALLOWED</font>"]. <a href='?_src_=holder;access_control=new_players;'>Toggle</a></li>"
+	data += "<li>Account age restriction: [config.access_deny_new_accounts == -1 ? "<span class='warning'>DISABLED</span>" : "[config.access_deny_new_accounts] DAYS"]. <a href='?_src_=holder;access_control=new_accounts;'>Edit</a></li>"
 	data += "</ul><hr>"
 
 	data += "<h2>VM Detection Settings:</h2><br><ul>"
-	data += "<li>VM identifier count to warn on: [config.access_warn_vms ? "[config.access_warn_vms]" : "<font color='red'>DISABLED</font>"]. <a href='?_src_=holder;access_control=vm_warn;'>Edit</a></li>"
-	data += "<li>VM identifier count to kick on: [config.access_deny_vms ? "[config.access_deny_vms]" : "<font color='red'>DISABLED</font>"]. <a href='?_src_=holder;access_control=vm_kick;'>Edit</a></li>"
+	data += "<li>VM identifier count to warn on: [config.access_warn_vms ? "[config.access_warn_vms]" : "<span class='warning'>DISABLED</span>"]. <a href='?_src_=holder;access_control=vm_warn;'>Edit</a></li>"
+	data += "<li>VM identifier count to kick on: [config.access_deny_vms ? "[config.access_deny_vms]" : "<span class='warning'>DISABLED</span>"]. <a href='?_src_=holder;access_control=vm_kick;'>Edit</a></li>"
 	data += "</ul>"
 
 	data += "<h2>Guest join settings:</h2><br><ul>"
-	data += "<li>Guests [(config.guests_allowed || config.external_auth) ? "<font color='green'>CAN</font>" : "<font color='red'>CAN NOT</font>"] join.</li>"
-	data += "<li>Guests [config.guests_allowed ? "<font color='green'>CAN</font>" : "<font color='red'>CAN NOT</font>"] play. <a href='?_src_=holder;access_control=guest;'>Toggle</a></li>"
-	data += "<li>External authetification: [config.external_auth ? "<font color='green'>ENABLED</font>" : "<font color='red'>DISABLED</font>"]. <a href='?_src_=holder;access_control=external_auth;'>Toggle</a></li>"
+	data += "<li>Guests [(config.guests_allowed || config.external_auth) ? "<font color='green'>CAN</font>" : "<span class='warning'>CAN NOT</span>"] join.</li>"
+	data += "<li>Guests [config.guests_allowed ? "<font color='green'>CAN</font>" : "<span class='warning'>CAN NOT</span>"] play. <a href='?_src_=holder;access_control=guest;'>Toggle</a></li>"
+	data += "<li>External authetification: [config.external_auth ? "<font color='green'>ENABLED</font>" : "<span class='warning'>DISABLED</span>"]. <a href='?_src_=holder;access_control=external_auth;'>Toggle</a></li>"
 	data += "</ul>"
 
 	config_window.set_user(src.mob)

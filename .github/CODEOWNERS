@@ -9,7 +9,6 @@
 /code/controllers/subsystems/cargo.dm @Arrow768
 /code/datums/api.dm @Arrow768
 /code/datums/cargo.dm @Arrow768
-/code/datums/server_greeting.dm @Skull132
 /code/datums/discord/ @Skull132
 /code/defines/procs/dbcore.dm @Skull132
 /code/modules/http/ @Arrow768 @Skull132

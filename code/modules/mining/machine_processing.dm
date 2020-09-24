@@ -95,15 +95,15 @@
 		if(machine.ores_processing[ore])
 			switch(machine.ores_processing[ore])
 				if(0)
-					dat += "<font color='red'>not processing</font>"
+					dat += "<span class='warning'>not processing</span>"
 				if(1)
 					dat += "<font color='orange'>smelting</font>"
 				if(2)
-					dat += "<font color='blue'>compressing</font>"
+					dat += "<span class='notice'>compressing</span>"
 				if(3)
 					dat += "<font color='gray'>alloying</font>"
 		else
-			dat += "<font color='red'>not processing</font>"
+			dat += "<span class='warning'>not processing</span>"
 		dat += ".</td><td width = 30><a href='?src=\ref[src];toggle_smelting=[ore]'>\[change\]</a></td></tr>"
 
 	dat += "</table><hr>"
