@@ -22928,15 +22928,10 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "aNK" = (
-/obj/structure/table/stone/marble,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/door/firedoor,
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "kitchenshutters01";
-	name = "Kitchen Shutters"
+/obj/machinery/door/airlock/glass{
+	name = "Kitchen";
+	req_access = list(28)
 	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/diner)
@@ -49560,7 +49555,6 @@
 /area/crew_quarters/diner)
 "bOR" = (
 /obj/effect/floor_decal/corner/red/full,
-/obj/item/stool/padded,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/diner)
@@ -58442,6 +58436,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/security_starboard)
+"dmd" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/material/ashtray/bronze{
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/smoking_lounge)
 "dnl" = (
 /mob/living/simple_animal/rat/hooded,
 /turf/simulated/floor/plating,
@@ -61180,7 +61182,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay2)
 "irc" = (
-/obj/item/stool/padded,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
@@ -61739,6 +61740,10 @@
 /area/maintenance/medbay)
 "juC" = (
 /obj/structure/table/wood/gamblingtable,
+/obj/item/material/ashtray/bronze{
+	pixel_x = 6;
+	pixel_y = 2
+	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/smoking_lounge)
 "jvm" = (
@@ -63260,8 +63265,8 @@
 "mjg" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/material/ashtray/bronze{
-	pixel_x = -9;
-	pixel_y = 9
+	pixel_x = 5;
+	pixel_y = -3
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/smoking_lounge)
@@ -63281,6 +63286,10 @@
 /obj/item/storage/box/fancy/cigarettes/cigar{
 	pixel_x = 10;
 	pixel_y = -3
+	},
+/obj/item/material/ashtray/bronze{
+	pixel_x = -6;
+	pixel_y = 8
 	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/smoking_lounge)
@@ -69258,7 +69267,6 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
-/obj/item/stool/padded,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -104056,7 +104064,7 @@ lGd
 dBV
 tLL
 mjW
-juC
+dmd
 bSx
 hND
 bOt
