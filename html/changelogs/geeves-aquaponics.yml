@@ -4,4 +4,4 @@ delete-after: True
 
 changes: 
   - rscadd: "Ported Aquaponics and Molluscs from Nebula."
-  - rscdel: "Ported randomized strange plant names."
+  - rscadd: "Ported randomized strange plant names."
