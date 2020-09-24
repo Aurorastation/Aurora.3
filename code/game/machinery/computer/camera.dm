@@ -245,7 +245,7 @@
 	light_color = "#3848B3"
 	light_power_on = 0.5
 
-obj/machinery/computer/security/wooden_tv/public
+/obj/machinery/computer/security/wooden_tv/public
 	name = "public camera monitor"
 	desc = "An old TV hooked into the station's public cameras."
 	circuit = /obj/item/circuitboard/security/wooden_tv/public
