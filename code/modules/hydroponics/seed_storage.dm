@@ -21,7 +21,7 @@
 	name = "Seed storage"
 	desc = "It stores, sorts, and dispenses seeds."
 	icon = 'icons/obj/vending.dmi'
-	icon_state = "seeds"
+	icon_state = SEED_NOUN_SEEDS
 	density = 1
 	anchored = 1
 	use_power = 1
@@ -91,7 +91,10 @@
 		/obj/item/seeds/wheatseed = 3,
 		/obj/item/seeds/whitebeetseed = 3,
 		/obj/item/seeds/wulumunushaseed = 2,
-		/obj/item/seeds/ylpha = 2
+		/obj/item/seeds/ylpha = 2,
+		/obj/item/seeds/clam = 15,
+		/obj/item/seeds/barnacle = 15,
+		/obj/item/seeds/mollusc = 15
 	)
 
 /obj/machinery/seed_storage/xenobotany

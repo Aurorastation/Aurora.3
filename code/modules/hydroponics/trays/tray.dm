@@ -1,5 +1,6 @@
 /obj/machinery/portable_atmospherics/hydroponics
 	name = "hydroponics tray"
+	desc = "A mechanical basin designed to nurture plants and other aquatic life. It has various useful sensors."
 	icon = 'icons/obj/hydroponics_machines.dmi'
 	icon_state = "hydrotray3"
 	density = 1
@@ -151,8 +152,7 @@
 	return ..()
 
 /obj/machinery/portable_atmospherics/hydroponics/attack_ghost(var/mob/abstract/observer/user)
-
-	if(!(harvest && seed && seed.has_mob_product))
+	if(!(harvest && seed && ispath(seed.product_type, /mob)))
 		return
 
 	var/datum/ghosttrap/plant/G = get_ghost_trap("living plant")
@@ -328,7 +328,8 @@
 
 //Clears out a dead plant.
 /obj/machinery/portable_atmospherics/hydroponics/proc/remove_dead(var/mob/user)
-	if(!user || !dead) return
+	if(!user || !dead || !seed)
+		return
 
 	if(closed_system)
 		to_chat(user, "You can't remove the dead plant while the lid is shut.")
@@ -520,6 +521,10 @@
 			if(!S.seed)
 				to_chat(user, "The packet seems to be empty. You throw it away.")
 				qdel(O)
+				return
+
+			if(S.seed.hydrotray_only && !mechanical)
+				to_chat(user, SPAN_WARNING("This packet can only be planted in a hydroponics tray."))
 				return
 
 			to_chat(user, "You plant the [S.seed.seed_name] [S.seed.seed_noun].")

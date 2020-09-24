@@ -90,7 +90,7 @@
 
 /obj/item/vending_refill/seeds
 	name = "resupply canister"
-	vend_id = "seeds"
+	vend_id = SEED_NOUN_SEEDS
 	charges = 175
 
 /obj/item/vending_refill/cutlery

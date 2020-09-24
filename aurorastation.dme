@@ -1682,6 +1682,7 @@
 #include "code\modules\hydroponics\beekeeping\smoker.dm"
 #include "code\modules\hydroponics\beekeeping\wax.dm"
 #include "code\modules\hydroponics\seed_datums\adhomai.dm"
+#include "code\modules\hydroponics\seed_datums\aquaculture.dm"
 #include "code\modules\hydroponics\seed_datums\flowers.dm"
 #include "code\modules\hydroponics\seed_datums\fruits.dm"
 #include "code\modules\hydroponics\seed_datums\grains.dm"
