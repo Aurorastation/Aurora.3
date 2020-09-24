@@ -9,7 +9,6 @@
 	var/max_meteors = 2
 	var/duration = 340//Total duration in seconds that the storm will last after it starts
 
-	var/downed_ship_chance = 10
 	var/downed_ship = FALSE
 
 	var/waves		= 8
@@ -51,7 +50,6 @@
 	min_meteors = 0
 	max_meteors = 1
 	duration = 180 //Total duration in seconds that the storm will last after it starts
-	downed_ship_chance = 0
 
 	waves		= 4//this is randomised
 	next_wave 	= 86
