@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Morphs should now properly receive their guide to morph in the chat log when they are released as one."
