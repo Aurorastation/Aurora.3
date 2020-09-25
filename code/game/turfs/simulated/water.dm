@@ -240,3 +240,27 @@
 		for(var/obj/effect/E in tile)
 			if(istype(E,/obj/effect/rune) || istype(E,/obj/effect/decal/cleanable) || istype(E,/obj/effect/overlay))
 				qdel(E)
+
+/turf/simulated/floor/beach/water/attackby(obj/item/C, mob/user)
+	. = ..()
+	if(use_check_and_message(user))
+		return
+	var/obj/item/reagent_containers/RG = C
+	if(istype(RG, /obj/item/reagent_containers/syringe))
+		return
+	if(istype(RG) && RG.is_open_container())
+		if(RG.reagents.total_volume >= RG.volume)
+			to_chat(user, SPAN_WARNING("\The [RG] is already full."))
+			return
+		user.visible_message(SPAN_NOTICE("You dunk [C] in the [src]..."))
+		var/filltime = (RG.volume - RG.reagents.total_volume)/10
+		if(!do_after(user, filltime))
+			return TRUE
+		if(!Adjacent(user))
+			return
+		var/isfood = "completely filling it."
+		if(istype(RG, /obj/item/reagent_containers/food))
+			isfood = "leaving it completely sodden."
+		RG.reagents.add_reagent(/datum/reagent/water, (RG.volume - RG.reagents.total_volume))
+		user.visible_message(SPAN_NOTICE("...[isfood]"))
+		playsound(user.loc, 'sound/effects/slosh.ogg', 75, 1)
