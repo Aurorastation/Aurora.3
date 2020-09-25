@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed guns not having their fire delays properly applied."
+  - tweak: "Disruptors now have a firing delay of 0.8s, up from the intended 0.6s, up from 0.4s with the previously buggy code."
