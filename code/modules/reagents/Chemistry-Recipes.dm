@@ -128,7 +128,7 @@
 		if(mix_message)
 			var/list/seen = viewers(4, T)
 			for(var/mob/M in seen)
-				M.show_message("<span class='notice'>\icon[container] [mix_message]</span>", 1)
+				M.show_message("<span class='notice'>[icon2html(container, viewers(get_turf(src)))] [mix_message]</span>", 1)
 		if(reaction_sound)
 			playsound(T, reaction_sound, 80, 1)
 
@@ -1230,7 +1230,7 @@
 	var/obj/item/slime_extract/T = holder.my_atom
 	T.uses--
 	if(T.uses <= 0)
-		T.visible_message("\icon[T]<span class='notice'>\The [T]'s power is consumed in the reaction.</span>")
+		T.visible_message("[icon2html(T, viewers(get_turf(src)))]<span class='notice'>\The [T]'s power is consumed in the reaction.</span>")
 		T.name = "used slime extract"
 		T.desc = "This extract has been used up."
 
@@ -1261,13 +1261,26 @@
 	..()
 
 //Green
-/datum/chemical_reaction/slime/mutate
-	name = "Mutation Toxin"
-	id = "mutationtoxin"
-	result = /datum/reagent/slimetoxin
+/datum/chemical_reaction/slime/teleportation
+	name = "Slime Teleportation"
+	id = "slimeteleportation"
 	required_reagents = list(/datum/reagent/toxin/phoron = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/green
+
+/datum/chemical_reaction/slime/teleportation/on_reaction(var/datum/reagents/holder)
+	..()
+	addtimer(CALLBACK(src, .proc/do_reaction, holder), 50)
+
+/datum/chemical_reaction/slime/teleportation/proc/do_reaction(var/datum/reagents/holder)
+	for(var/atom/movable/AM in circlerange(get_turf(holder.my_atom),7))
+		if(AM.anchored)
+			continue
+		var/area/A = random_station_area()
+		var/turf/target = A.random_space()
+		to_chat(AM, SPAN_WARNING("Bluespace energy teleports you somewhere else!"))
+		do_teleport(AM, target)
+		AM.visible_message("\The [AM] phases in!")
 
 //Metal
 /datum/chemical_reaction/slime/metal
@@ -1287,7 +1300,7 @@
 	name = "Slime Crit"
 	id = "m_tele"
 	result = null
-	required_reagents = list(/datum/reagent/water = 5)
+	required_reagents = list(/datum/reagent/toxin/phoron = 5)
 	result_amount = 1
 	required = /obj/item/slime_extract/gold
 
@@ -1329,7 +1342,8 @@
 		/mob/living/simple_animal/hostile/hivebotbeacon/toxic,
 		/mob/living/simple_animal/hostile/hivebotbeacon/incendiary,
 		/mob/living/simple_animal/hostile/republicon,
-		/mob/living/simple_animal/hostile/republicon/ranged
+		/mob/living/simple_animal/hostile/republicon/ranged,
+		/mob/living/simple_animal/hostile/spider_queen
 	)
 	//exclusion list for things you don't want the reaction to create.
 	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs
@@ -1346,18 +1360,6 @@
 		if(prob(50))
 			for(var/j = 1, j <= rand(1, 3), j++)
 				step(C, pick(NORTH,SOUTH,EAST,WEST))
-	..()
-
-/datum/chemical_reaction/slime/rare_metal
-	name = "Slime Rare Metal"
-	id = "rm_metal"
-	result = null
-	required_reagents = list(/datum/reagent/toxin/phoron = 1)
-	result_amount = 1
-	required = /obj/item/slime_extract/gold
-
-/datum/chemical_reaction/slime/rare_metal/on_reaction(var/datum/reagents/holder)
-	new /obj/effect/portal/spawner/rare_metal(get_turf(holder.my_atom))
 	..()
 
 //Silver
@@ -1425,7 +1427,7 @@
 	name = "Slime Frost Oil"
 	id = "m_frostoil"
 	result = /datum/reagent/frostoil
-	required_reagents = list(/datum/reagent/toxin/phoron = 1)
+	required_reagents = list(/datum/reagent/water = 1)
 	result_amount = 10
 	required = /obj/item/slime_extract/blue
 
@@ -1434,7 +1436,7 @@
 	name = "Slime Freeze"
 	id = "m_freeze"
 	result = null
-	required_reagents = list(/datum/reagent/toxin/phoron = 1)
+	required_reagents = list(/datum/reagent/water = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/darkblue
 	mix_message = "The slime extract begins to vibrate violently!"
@@ -1539,17 +1541,18 @@
 	required = /obj/item/slime_extract/purple
 
 //Dark Purple
-/datum/chemical_reaction/slime/plasma
-	name = "Slime Plasma"
-	id = "m_plasma"
+
+/datum/chemical_reaction/slime/rare_metal
+	name = "Slime Rare Metal"
+	id = "rm_metal"
 	result = null
 	required_reagents = list(/datum/reagent/toxin/phoron = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/darkpurple
 
-/datum/chemical_reaction/slime/plasma/on_reaction(var/datum/reagents/holder)
+/datum/chemical_reaction/slime/rare_metal/on_reaction(var/datum/reagents/holder)
 	..()
-	new /obj/effect/portal/spawner/phoron(get_turf(holder.my_atom))
+	new /obj/effect/portal/spawner/rare_metal(get_turf(holder.my_atom))
 
 //Red
 /datum/chemical_reaction/slime/glycerol
@@ -1572,14 +1575,14 @@
 	..()
 	for(var/mob/living/carbon/slime/slime in viewers(get_turf(holder.my_atom), null))
 		slime.rabid = TRUE
-		slime.visible_message(SPAN_WARNING("\icon[slime] \The [slime] is driven into a frenzy!"))
+		slime.visible_message(SPAN_WARNING("[icon2html(slime, viewers(get_turf(slime)))] \The [slime] is driven into a frenzy!"))
 
 //Pink
 /datum/chemical_reaction/slime/ppotion
 	name = "Slime Potion"
 	id = "m_potion"
 	result = null
-	required_reagents = list(/datum/reagent/toxin/phoron = 1)
+	required_reagents = list(/datum/reagent/blood = 1)
 	result_amount = 1
 	required = /obj/item/slime_extract/pink
 
@@ -1617,7 +1620,7 @@
 	result = null
 	result_amount = 1
 	required = /obj/item/slime_extract/lightpink
-	required_reagents = list(/datum/reagent/toxin/phoron = 1)
+	required_reagents = list(/datum/reagent/blood = 1)
 
 /datum/chemical_reaction/slime/potion2/on_reaction(var/datum/reagents/holder)
 	..()

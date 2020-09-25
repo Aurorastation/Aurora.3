@@ -79,14 +79,19 @@
 
 #define isprojectile(A) istype(A, /obj/item/projectile)
 
-#define to_chat(target, message)                            target << message
-#define to_world(message)                                   world << message
-#define sound_to(target, sound)                             target << sound
+/// General I/O helpers
+#define to_target(target, payload)                          target << (payload)
+#define from_target(target, receiver)                       target >> (receiver)
 #define to_file(file_entry, file_content)                   file_entry << file_content
-#define show_browser(target, browser_content, browser_name) target << browse(browser_content, browser_name)
-#define send_rsc(target, rsc_content, rsc_name)             target << browse_rsc(rsc_content, rsc_name)
-#define send_output(target, msg, control)                   target << output(msg, control)
-#define send_link(target, url)                              target << link(url)
+
+#define legacy_chat(target, message)                        to_target(target, message)
+#define to_world(message)                                   to_chat(world, message)
+#define sound_to(target, sound)                             to_target(target, sound)
+#define to_save(handle, value)                              to_target(handle, value) //semantics postport: what did they mean by this
+#define show_browser(target, browser_content, browser_name) to_target(target, browse(browser_content, browser_name))
+#define send_rsc(target, content, title)                    to_target(target, browse_rsc(content, title))
+#define send_output(target, msg, control)                   to_target(target, output(msg, control))
+#define send_link(target, url)                              to_target(target, link(url))
 
 #define CanInteract(user, state) (CanUseTopic(user, state) == STATUS_INTERACTIVE)
 

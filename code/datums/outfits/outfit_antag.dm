@@ -264,7 +264,8 @@
 		/obj/item/clothing/head/bearpelt,
 		/obj/item/clothing/head/ushanka,
 		/obj/item/clothing/head/pirate,
-		/obj/item/clothing/head/bandana,
+		/obj/item/clothing/head/bandana/pirate,
+		/obj/item/clothing/head/bandana/red,
 		/obj/item/clothing/head/hgpiratecap,
 		/obj/item/clothing/head/beanie/random,
 		/obj/item/clothing/head/beaverhat,
@@ -545,7 +546,7 @@
 	suit = /obj/item/clothing/suit/space/cult
 
 	suit_store = /obj/item/gun/energy/rifle/cult
-
+  
 /datum/outfit/admin/syndicate/raider_mage
 	name = "Raider Mage"
 	allow_backbag_choice = FALSE

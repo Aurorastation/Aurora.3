@@ -887,6 +887,7 @@
 		/obj/random/gloves = 2,
 		/obj/random/glowstick = 0.4,
 		/obj/random/hoodie = 0.5,
+		/obj/random/bandana = 0.5,
 		/obj/random/junk = 0.4,
 		/obj/random/medical = 0.4,
 		/obj/random/pda_cart = 0.5,
@@ -985,6 +986,24 @@
 		/obj/item/clothing/suit/storage/hooded/wintercoat/miner = 3,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/security = 2,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/captain = 1
+	)
+
+/obj/random/bandana
+	name = "random bandana"
+	desc = "This is a random bandana."
+	icon = 'icons/obj/clothing/hats/bandanas.dmi'
+	icon_state = "bandana"
+	problist = list(
+		/obj/item/clothing/head/bandana/colorable/random = 5,
+		/obj/item/clothing/head/bandana/engineering = 3,
+		/obj/item/clothing/head/bandana/atmos = 3,
+		/obj/item/clothing/head/bandana/medical = 3,
+		/obj/item/clothing/head/bandana/science = 3,
+		/obj/item/clothing/head/bandana/hydro = 3,
+		/obj/item/clothing/head/bandana/cargo = 3,
+		/obj/item/clothing/head/bandana/miner = 3,
+		/obj/item/clothing/head/bandana/security = 2,
+		/obj/item/clothing/head/bandana/captain = 1
 	)
 
 /obj/random/highvalue

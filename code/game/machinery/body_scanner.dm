@@ -634,8 +634,8 @@
 
 
 /obj/machinery/body_scanconsole/proc/format_occupant_data(var/list/occ)
-	var/dat = "<font color='blue'><b>Scan performed at [occ["stationtime"]]</b></font><br>"
-	dat += "<font color='blue'><b>Occupant Statistics:</b></font><br>"
+	var/dat = "<span class='notice'><b>Scan performed at [occ["stationtime"]]</b></span><br>"
+	dat += "<span class='notice'><b>Occupant Statistics:</b></span><br>"
 	dat += text("Brain Activity: []<br>", occ["brain_activity"])
 	dat += text("Blood Pressure: []<br>", occ["blood_pressure"])
 	dat += text("Blood Oxygenation: []%<br>", occ["blood_oxygenation"])
@@ -744,7 +744,7 @@
 		if(i.get_scarring_level() > 0.01)
 			necrotic += ", [i.get_scarring_results()]"
 		if(i.status & ORGAN_DEAD)
-			necrotic = ", <font color='red'>necrotic and decaying</font>"
+			necrotic = ", <span class='warning'>necrotic and decaying</span>"
 
 		dat += "<tr>"
 		dat += "<td>[i.name]</td><td>N/A</td><td>[get_internal_damage(i)]</td><td>[infection], [mech][necrotic]</td><td></td>"
@@ -754,10 +754,11 @@
 	var/list/species_organs = occ["species_organs"]
 	for(var/organ_name in species_organs)
 		if(!locate(species_organs[organ_name]) in occ["internal_organs"])
-			dat += text("<font color='red'>No [organ_name] detected.</font><BR>")
+			dat += text("<span class='warning'>No [organ_name] detected.</span><BR>")
 
 	if(occ["sdisabilities"] & BLIND)
-		dat += text("<font color='red'>Cataracts detected.</font><BR>")
+		dat += text("<span class='warning'>Cataracts detected.</span><BR>")
 	if(occ["sdisabilities"] & NEARSIGHTED)
 		dat += text("<font color='red'>Retinal misalignment detected.</font><BR>")
+	return dat
 	return dat

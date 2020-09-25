@@ -608,7 +608,7 @@ About the new airlock wires panel:
 	else if(duration)	//electrify door for the given duration seconds
 		if(usr)
 			LAZYADD(shockedby, "\[[time_stamp()]\] - [usr](ckey:[usr.ckey])")
-			usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Electrified the [name] at [x] [y] [z]</font>")
+			usr.attack_log += text("\[[time_stamp()]\] <span class='warning'>Electrified the [name] at [x] [y] [z]</span>")
 		else
 			LAZYADD(shockedby, "\[[time_stamp()]\] - EMP)")
 		message = "The door is now electrified [duration == -1 ? "permanently" : "for [duration] second\s"]."
@@ -1004,7 +1004,7 @@ About the new airlock wires panel:
 			else if(!activate)
 				if(issilicon(usr) && !player_is_antag(usr.mind))
 					to_chat(usr, SPAN_NOTICE("The door bolts will raise in five seconds."))
-					src.visible_message("\icon[src.icon] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in FIVE SECONDS.\"</span>")
+					src.visible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in FIVE SECONDS.\"</span>")
 					addtimer(CALLBACK(src, .proc/unlock), 50)
 				else if(unlock())
 					to_chat(usr, SPAN_NOTICE("The door bolts have been raised."))

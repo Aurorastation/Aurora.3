@@ -167,7 +167,7 @@ mob
 
 		Output_Icon()
 			set name = "2. Output Icon"
-			src<<"Icon is: \icon[getFlatIcon(src)]"
+			src<<"Icon is: [icon2html(getFlatIcon(src), usr)]"
 
 		Label_Icon()
 			set name = "3. Label Icon"

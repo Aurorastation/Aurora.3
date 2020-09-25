@@ -292,7 +292,7 @@
 
 /obj/item/weldingtool/examine(mob/user)
 	if(..(user, 0))
-		to_chat(user, text("\icon[] [] contains []/[] units of fuel!", src, src.name, get_fuel(),src.max_fuel ))
+		to_chat(user, text("[icon2html(src, user)] [] contains []/[] units of fuel!", src.name, get_fuel(),src.max_fuel ))
 
 /obj/item/weldingtool/attackby(obj/item/W, mob/user)
 	if(W.isscrewdriver())

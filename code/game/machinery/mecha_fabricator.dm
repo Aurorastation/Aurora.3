@@ -226,7 +226,7 @@
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
 			user.visible_message(SPAN_WARNING("[user] feeds the [target]'s hair into the [src] and flicks it on!"), SPAN_ALERT("You turn the [src] on!"))
 			do_hair_pull(target)
-			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</font>")
+			user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</span>")
 			target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their hair fed into [src] by [user.name] ([user.ckey])</font>")
 			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] in a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 		else
@@ -245,20 +245,20 @@
 	switch(emagged)
 		if(0)
 			emagged = 0.5
-			visible_message("\icon[src] <b>[src]</b> beeps: \"DB error \[Code 0x00F1\]\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"DB error \[Code 0x00F1\]\"")
 			sleep(10)
-			visible_message("\icon[src] <b>[src]</b> beeps: \"Attempting auto-repair\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"Attempting auto-repair\"")
 			sleep(15)
-			visible_message("\icon[src] <b>[src]</b> beeps: \"User DB corrupted \[Code 0x00FA\]. Truncating data structure...\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"User DB corrupted \[Code 0x00FA\]. Truncating data structure...\"")
 			sleep(30)
-			visible_message("\icon[src] <b>[src]</b> beeps: \"User DB truncated. Please contact your [current_map.company_name] system operator for future assistance.\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"User DB truncated. Please contact your [current_map.company_name] system operator for future assistance.\"")
 			req_access = null
 			emagged = 1
 			return 1
 		if(0.5)
-			visible_message("\icon[src] <b>[src]</b> beeps: \"DB not responding \[Code 0x0003\]...\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"DB not responding \[Code 0x0003\]...\"")
 		if(1)
-			visible_message("\icon[src] <b>[src]</b> beeps: \"No records in User DB\"")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> beeps: \"No records in User DB\"")
 
 /obj/machinery/mecha_part_fabricator/proc/update_busy()
 	if(queue.len)
