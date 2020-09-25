@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Tweaks various UIs, especially suit sensor monitoring, crew record, and gun tracker programs."
+  - tweak: "Tweaked how buttons look, making them more rounded and without a hard border, like TGUI."
+  - rscadd: "Added an eject occupant button to the bodyscanner, as well as some sounds to accompany it."

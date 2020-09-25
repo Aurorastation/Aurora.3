@@ -14,7 +14,7 @@
 /datum/computer_file/program/guntracker/ui_interact(var/mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-security-guntracker", 600, 400, "Firearm Control")
+		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-security-guntracker", 600, 400, "Firearm Control System")
 	ui.open()
 	ui.auto_update_content = TRUE
 

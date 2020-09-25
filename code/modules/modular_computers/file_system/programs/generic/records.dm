@@ -33,7 +33,7 @@
 
 /datum/computer_file/program/records/medical
 	filename = "medrec"
-	filedesc = "Medical records"
+	filedesc = "Medical Records"
 	extended_desc = "Used to view, edit and maintain medical records."
 	record_prefix = "Medical "
 
@@ -49,7 +49,7 @@
 
 /datum/computer_file/program/records/security
 	filename = "secrec"
-	filedesc = "Security records"
+	filedesc = "Security Records"
 	extended_desc = "Used to view, edit and maintain security records"
 	record_prefix = "Security "
 
@@ -65,7 +65,7 @@
 
 /datum/computer_file/program/records/employment
 	filename = "emprec"
-	filedesc = "Employment records"
+	filedesc = "Employment Records"
 	extended_desc = "Used to view, edit and maintain employment records."
 	record_prefix = "Employment "
 
