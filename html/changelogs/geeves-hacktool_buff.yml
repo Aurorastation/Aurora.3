@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Hacktools now hack in 10 seconds on average, rather than 30 seconds."
+  - bugfix: "Hacktools can now be put into storage items while in hacking mode."
