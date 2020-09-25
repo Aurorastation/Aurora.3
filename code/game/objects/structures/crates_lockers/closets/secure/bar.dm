@@ -33,3 +33,9 @@
 				icon_state = icon_closed
 		else
 			icon_state = icon_opened
+
+/obj/structure/closet/secure_closet/bar/anchored
+	name = "anchored booze closet"
+	desc = "It's an immobile card-locked storage unit.  This one looks firmly secured to the floor."
+	anchored = 1
+	canbemoved = 1
