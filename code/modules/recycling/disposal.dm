@@ -222,7 +222,7 @@
 	if(isanimal(user) && target != user)
 		return
 
-	if(!check_mob_size(target))f
+	if(!check_mob_size(target))
 		to_chat(user, SPAN_NOTICE("The opening is too narrow for [target] to fit!"))
 		return
 	if(target.isSynthetic())
