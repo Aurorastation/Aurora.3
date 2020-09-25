@@ -5,6 +5,8 @@
 	action_button_name = "Activate Low Light Vision"
 	relative_size = 8
 	var/night_vision = FALSE
+	var/datum/client_color/vision_color = /datum/client_color/monochrome
+	var/eye_emote = "'s eyes dilate!"
 
 /obj/item/organ/internal/eyes/night/Destroy()
 	disable_night_vision()
@@ -71,14 +73,15 @@
 	var/show_message = TRUE
 	for(var/obj/item/protection in list(owner.head, owner.wear_mask, owner.glasses))
 		if((protection && (protection.body_parts_covered & EYES)))
+			break
 			show_message = FALSE
-	if(show_message)
-		owner.visible_message(SPAN_NOTICE("\The [owner]'s eyes dilate!"))
+	if(show_message && eye_emote)
+		owner.emote("me", 1, eye_emote)
 
 	night_vision = TRUE
 	owner.stop_sight_update = TRUE
 	owner.see_invisible = SEE_INVISIBLE_NOLIGHTING
-	owner.add_client_color(/datum/client_color/monochrome)
+	owner.add_client_color(vision_color)
 
 /obj/item/organ/internal/eyes/night/proc/disable_night_vision()
 	if(!owner)
@@ -87,7 +90,7 @@
 		return
 	night_vision = FALSE
 	owner.stop_sight_update = FALSE
-	owner.remove_client_color(/datum/client_color/monochrome)
+	owner.remove_client_color(vision_color)
 
 /obj/item/organ/internal/stomach/tajara
 	name = "reinforced stomach"
