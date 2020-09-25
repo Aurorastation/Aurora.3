@@ -1,0 +1,10 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Improved the code for making the RFD-Crossbow. You no longer have to keep the RFD-C in your hand, and it can be done with a finished crossbow, as long as it's unloaded."
+  - tweak: "Being pinned to a wall no longer spams your chat when you try to move."
+  - bugfix: "Crafted crossbows no longer have a safety, and the RFD-Crossbow now properly shows its ammo when examined."
+  - rscadd: "Added sounds to a lot of crossbow actions."
+  - rscadd: "Thrown and launched objects can now hit mobs that are lying down, if you clicked on them directly."
