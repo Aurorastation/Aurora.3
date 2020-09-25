@@ -331,10 +331,9 @@
 		if(prob(10))
 			new /obj/effect/gibspawner/human(eligible_turf)
 			new /obj/random/voidsuit/no_nanotrasen(eligible_turf)
-		if(prob(65))
-			continue
-		var/turf/T = eligible_turf
-		T.ChangeTurf(/turf/simulated/floor)
+		if(prob(35))
+			var/turf/T = eligible_turf
+			T.ChangeTurf(/turf/simulated/floor)
 
 //This function takes a turf to prevent race conditions, as the object calling it will probably be deleted in the same frame
 /proc/meteor_shield_impact_sound(var/turf/T, var/range)
