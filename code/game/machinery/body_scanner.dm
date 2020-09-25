@@ -761,4 +761,3 @@
 	if(occ["sdisabilities"] & NEARSIGHTED)
 		dat += text("<font color='red'>Retinal misalignment detected.</font><BR>")
 	return dat
-	return dat
