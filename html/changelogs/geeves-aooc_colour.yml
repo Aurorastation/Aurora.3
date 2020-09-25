@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Changes the AOOC colour to be readable in both dark and light mode."
