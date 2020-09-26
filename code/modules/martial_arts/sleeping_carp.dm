@@ -111,9 +111,9 @@
 	return ..()
 
 /datum/martial_art/the_sleeping_carp/proc/sleeping_carp_help()
-	set name = "Recall Teachings"
+	set name = "Recall Sleeping Carp"
 	set desc = "Remember the martial techniques of the Sleeping Carp clan."
-	set category = "Sleeping Carp"
+	set category = "Abilities"
 
 	to_chat(usr, "<b><i>You retreat inward and recall the teachings of the Sleeping Carp...</i></b>")
 
