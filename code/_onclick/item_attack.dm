@@ -112,7 +112,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	if(ishuman(user))
 		var/mob/living/carbon/human/X = user
 		if(ishuman(target))
-			if(X.martial_art && X.martial_art.weapon_affinity && istype(src, X.martial_art.weapon_affinity))
+			if(X.check_weapon_affinity(src))
 				perform_technique(target, X, hit_zone)
 
 	return target.hit_with_weapon(src, user, power, hit_zone)

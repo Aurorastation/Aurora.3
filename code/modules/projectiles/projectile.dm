@@ -185,6 +185,9 @@
 			playsound(target_mob, /decl/sound_category/bulletflyby_sound, 50, 1)
 		return FALSE
 
+	if(result == PROJECTILE_DODGED)
+		return FALSE
+
 	//hit messages
 	if(silenced)
 		to_chat(target_mob, "<span class='danger'>You've been hit in the [parse_zone(def_zone)] by \a [src]!</span>")
