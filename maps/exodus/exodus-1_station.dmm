@@ -11689,7 +11689,6 @@
 /obj/structure/closet{
 	name = "Prisoner's Locker"
 	},
-/obj/item/clothing/head/softcap/orange,
 /obj/item/clothing/shoes/sandal,
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -26012,7 +26011,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "aYy" = (
-/obj/item/clothing/head/softcap/grey{
+/obj/item/clothing/head/softcap{
 	pixel_x = -2;
 	pixel_y = 3
 	},
