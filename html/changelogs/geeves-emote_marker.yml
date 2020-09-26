@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Vocal emotes made by typing ! in front of the message now gets a blue X as a stand-in for the user's name."

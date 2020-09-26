@@ -35,6 +35,7 @@
 
 // Tau-Ceti basic, language common to all crew.
 #define LANGUAGE_TCB "Ceti Basic"
+#define LANGUAGE_NOISE "Noise"
 
 // Species languages
 #define LANGUAGE_SOL_COMMON "Sol Common"
