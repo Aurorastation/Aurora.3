@@ -1,5 +1,3 @@
-#define DEFAULT_AUTOFIRE_BASE_DELAY 1
-
 /*
 	Defines a firing mode for a gun.
 
@@ -305,7 +303,7 @@
 
 	var/shoot_time = (burst - 1) * burst_delay
 	if(can_autofire)
-		shoot_time = DEFAULT_AUTOFIRE_BASE_DELAY * burst_delay
+		shoot_time = burst_delay
 	user.setClickCooldown(shoot_time)
 	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
@@ -939,5 +937,3 @@
 		else
 			maptext_x = 22
 		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[get_ammo()]</span>"
-
-#undef DEFAULT_AUTOFIRE_BASE_DELAY
