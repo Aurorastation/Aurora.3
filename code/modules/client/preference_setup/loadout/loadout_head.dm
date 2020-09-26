@@ -302,8 +302,3 @@
 	gadpathur["gadpathurian sidecap"] = /obj/item/clothing/head/soft/gadpathur
 	gadpathur["gadpathurian beret"] = /obj/item/clothing/head/soft/gadpathur/beret
 	gear_tweaks += new/datum/gear_tweak/path(gadpathur)
-
-/datum/gear/head/gadpathur/helmet
-	display_name = "gadpathurian helmet"
-	path = /obj/item/clothing/head/helmet/gadpathur
-	flags = GEAR_HAS_DESC_SELECTION

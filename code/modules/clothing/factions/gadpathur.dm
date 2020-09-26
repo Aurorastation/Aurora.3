@@ -42,32 +42,6 @@
 	icon_state = "gadpathur_beret"
 	item_state = "gadpathur_beret"
 
-/obj/item/clothing/head/helmet/gadpathur
-	name = "gadpathurian helmet"
-	desc = "A thin, mild steel helmet with a canvas band depicting the red-and-gold Gadpathurian sun on the front."
-	desc_fluff = "Gadpathurians will recognize this as a typical civil defense helmet issued to almost every citizen of the planet. \
-	It's sometimes taken abroad as a memento, and to be worn during moments of danger. After all, some protection is better than none at all. \
-	Quite recently, NanoTrasen has requested all Gadpathurians make an effort to dull the edges of their helmets when bringing them aboard."
-	armor = list(melee = 6, bullet = 5, laser = 5, energy = 3, bomb = 5, bio = 0, rad = 0)
-	force = 7
-	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
-	flags_inv = HIDEEARS
-	icon = 'icons/clothing/head/gadpathur_helmet.dmi'
-	icon_state = "gadpathur_helmet"
-	item_state = "gadpathur_helmet"
-	contained_sprite = TRUE
-
-/obj/item/clothing/mask/breath/gadpathur
-	name = "gadpathurian rebreather"
-	desc = "A sturdy-looking rebreather with a canvas scarf wrapped around it. Boring, but sturdy-looking."
-	desc_fluff = "A common sight on Gadpathur, the Type 2308 (its year of creation) rebreather is typically worn with an oxygen tank or filtration\
-	module to combat more minor contaminants found on Gadpathur. Not intended for use in seriously contaminated zones."
-	icon = 'icons/clothing/masks/gadpathur_breath.dmi'
-	icon_state = "gadpathur_breath"
-	item_state = "gadpathur_breath"
-	adjustable = FALSE
-	contained_sprite = TRUE
-
 /obj/item/clothing/accessory/armband/gadpathur
 	name = "cadre brassard"
 	desc = "Gadpathurian cadres use these brassards, worn on their uniforms or their coats, to distinguish themselves."
