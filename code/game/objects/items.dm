@@ -289,6 +289,7 @@
 	if(isliving(hit_atom)) //Living mobs handle hit sounds differently.
 		var/mob/living/L = hit_atom
 		if(L.in_throw_mode)
+			playsound(hit_atom, pickup_sound, volume, TRUE)
 			return
 		var/volume = get_volume_by_throwforce_and_or_w_class()
 		if(throwforce > 0)
