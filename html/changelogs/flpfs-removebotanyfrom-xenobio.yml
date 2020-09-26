@@ -1,0 +1,6 @@
+author: Flpfs
+
+delete-after: True
+
+changes: 
+  - tweak: "Xenobotanists and Xenobiologists no longer have access to Hydroponics."
