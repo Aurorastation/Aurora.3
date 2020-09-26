@@ -77,3 +77,8 @@
 	var/authed = TRUE
 
 	var/is_initialized = FALSE // Used to track whether the client has been initialized with InitClient.
+
+	preload_rsc = 0
+
+	///goonchat chatoutput of the client
+	var/datum/chatOutput/chatOutput

@@ -4,7 +4,7 @@
 	feedback = "KN"
 	school = "transmutation"
 	charge_max = 100
-	spell_flags = 0
+	spell_flags = Z2NOCAST | INCLUDEUSER
 	invocation = "AULIE OXIN FIERA"
 	invocation_type = SpI_WHISPER
 	range = 3

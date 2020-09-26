@@ -42,7 +42,7 @@
 		if(!secured)	return 0
 		pulse(0)
 		if(!holder)
-			visible_message("\icon[src] *beep* *beep*", "*beep* *beep*")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", "*beep* *beep*")
 		cooldown = 2
 		addtimer(CALLBACK(src, .proc/process_cooldown), 10)
 		return

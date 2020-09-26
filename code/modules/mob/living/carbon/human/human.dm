@@ -2021,7 +2021,7 @@
 				randmutg(src) // Applies good mutation
 				domutcheck(src,null,MUTCHK_FORCED)
 
-/mob/living/carbon/human/get_accent_icon(var/datum/language/speaking = null)
+/mob/living/carbon/human/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
 	var/used_accent = accent //starts with the mob's default accent
 
 	if(mind?.changeling)
@@ -2038,7 +2038,7 @@
 			if(changer && changer.active && changer.current_accent)
 				used_accent = changer.current_accent
 
-	return ..(speaking, used_accent)
+	return ..(speaking, hearer, used_accent)
 
 /mob/living/carbon/human/proc/generate_valid_accent()
 	var/list/valid_accents = new()

@@ -117,7 +117,7 @@
 				return
 
 			if(T.get_blood_volume() < 90 && !blood_message_sent)
-				visible_message("\icon[src] \The <b>[src]</b> flashes a warning light!")
+				visible_message("[icon2html(src, viewers(get_turf(src)))] \The <b>[src]</b> flashes a warning light!")
 				playsound(src, 'sound/machines/buzz-two.ogg', 50)
 				blood_message_sent = TRUE
 
