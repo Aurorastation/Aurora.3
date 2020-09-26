@@ -344,7 +344,7 @@
 
 	update_held_icon()
 
-	user.setClickCooldown(fire_delay)
+	user.setClickCooldown(max(burst_delay+1, fire_delay))
 	user.setMoveCooldown(move_delay)
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
