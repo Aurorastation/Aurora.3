@@ -138,7 +138,6 @@
 /datum/martial_art/proc/teach(var/mob/living/carbon/human/H)
 	if(help_verb)
 		H.verbs += help_verb
-		call(H, help_verb)()
 		to_chat(H, SPAN_NOTICE("You can review the combos by recalling the teaches of this art in your abilities tab."))
 	LAZYADD(H.known_martial_arts, src)
 	if(!H.primary_martial_art)
