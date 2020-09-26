@@ -314,8 +314,7 @@
 
 	inherent_verbs = list(
 		/mob/living/carbon/human/proc/self_diagnostics,
-		/mob/living/carbon/human/proc/check_tag,
-		/mob/living/carbon/human/proc/crush
+		/mob/living/carbon/human/proc/check_tag
 	)
 
 	examine_color = "#688359"
