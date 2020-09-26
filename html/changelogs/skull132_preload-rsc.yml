@@ -1,0 +1,5 @@
+author: Skull132
+delete-after: True
+
+changes:
+  - backend: "Allow the game to load resources from external websites, which should speed things up."
