@@ -295,7 +295,7 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
-	new /obj/item/clothing/head/soft/sec/corp(src)
+	new /obj/item/clothing/head/softcap/security/corp(src)
 	new /obj/item/clothing/under/rank/security/corp(src)
 	new /obj/item/clothing/suit/storage/vest/officer(src)
 	new /obj/item/clothing/head/helmet(src)

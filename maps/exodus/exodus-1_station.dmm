@@ -11689,7 +11689,7 @@
 /obj/structure/closet{
 	name = "Prisoner's Locker"
 	},
-/obj/item/clothing/head/soft/orange,
+/obj/item/clothing/head/softcap/orange,
 /obj/item/clothing/shoes/sandal,
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -26012,7 +26012,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "aYy" = (
-/obj/item/clothing/head/soft/grey{
+/obj/item/clothing/head/softcap/grey{
 	pixel_x = -2;
 	pixel_y = 3
 	},
@@ -35271,12 +35271,12 @@
 /area/maintenance/locker)
 "bqe" = (
 /obj/structure/table/standard,
-/obj/item/clothing/head/soft/yellow,
+/obj/item/clothing/head/softcap/cargo,
 /obj/item/stamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/clothing/head/soft/yellow,
+/obj/item/clothing/head/softcap/cargo,
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "bqf" = (

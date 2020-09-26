@@ -23,7 +23,7 @@
 	. = ..()
 	color = get_random_colour(TRUE)
 
-/obj/item/clothing/head/soft/rainbow
+/obj/item/clothing/head/softcap/rainbow
 	name = "rainbow cap"
 	desc = "It's a peaked cap in a bright rainbow of colors."
 	icon_state = "rainbowsoft"
@@ -42,7 +42,7 @@
 	icon_state = "softcap_captain"
 	item_state = "softcap_captain"
 
-/obj/item/clothing/head/softcap/security
+/obj/item/clothing/head/softcap/securityurity
 	name = "security softcap"
 	desc = "It's a peaked cap in a secure blue and grey."
 	icon_state = "softcap_sec"
@@ -98,22 +98,25 @@
 
 // Corporate.
 
-/obj/item/clothing/head/soft/sec/corp
+/obj/item/clothing/head/softcap/security/corp
 	name = "corporate security cap"
-	desc = "It's field cap in corporate colors."
+	desc = "It's field cap in corporate colors. In an oppresive grey, no doubt."
 	icon_state = "corp"
+	item_state = "corp"
 
-/obj/item/clothing/head/soft/sec/idris
+/obj/item/clothing/head/softcap/security/idris
 	name = "idris cap"
-	desc = "It's an Idris cap."
+	desc = "It's a company-issue Idris cap. Comes with flagrant corporate branding."
 	icon_state = "idris"
+	item_state = "idris"
 
-/obj/item/clothing/head/soft/iacberet
+/obj/item/clothing/head/softcap/iacberet
 	name = "IAC soft cap"
-	desc = "It's field cap in IAC colors."
+	desc = "An IAC soft cap. Standard issue and utilitarian."
 	icon_state = "iac"
+	item_state = "iac"
 
-/obj/item/clothing/head/soft/eri
+/obj/item/clothing/head/softcap/eri
 	name = "eridani cap"
 	desc = "A grey EPMC fatigue cap with the symbol of the Eridani Corporate Federation on its front. For amoral mercenaries that prefer style over protection."
 	icon_state = "eridani"
