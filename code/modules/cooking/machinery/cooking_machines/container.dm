@@ -19,13 +19,34 @@
 
 /obj/item/reagent_containers/cooking_container/examine(var/mob/user)
 	. = ..()
-	if (length(contents))
-		var/string = "It contains:</br><ul><li>"
-		string += jointext(contents, "</li></br><li>") + "</li></ul>"
-		to_chat(user, SPAN_NOTICE(string))
-	if (reagents.total_volume)
-		to_chat(user, SPAN_NOTICE("It contains [reagents.total_volume] units of reagents."))
+	if(length(contents))
+		to_chat(user, SPAN_NOTICE(get_content_info()))
+	if(reagents.total_volume)
+		to_chat(user, SPAN_NOTICE(get_reagent_info()))
 
+/obj/item/reagent_containers/cooking_container/proc/get_content_info()
+	var/string = "It contains:</br><ul><li>"
+	string += jointext(contents, "</li></br><li>") + "</li></ul>"
+	return string
+
+/obj/item/reagent_containers/cooking_container/proc/get_reagent_info()
+	return "It contains [reagents.total_volume] units of reagents."
+
+/obj/item/reagent_containers/cooking_container/MouseEntered(location, control, params)
+	. = ..()
+	if(get_dist(usr, src) <= 2)
+		var/description
+		if(length(contents))
+			description = get_content_info()
+		if(reagents.total_volume)
+			if(!description)
+				description = ""
+			description += get_reagent_info()
+		openToolTip(usr, src, params, name, description)
+
+/obj/item/reagent_containers/cooking_container/MouseExited(location, control, params)
+	. = ..()
+	closeToolTip(usr)
 
 /obj/item/reagent_containers/cooking_container/attackby(var/obj/item/I, var/mob/user)
 	if(is_type_in_list(I, insertable))

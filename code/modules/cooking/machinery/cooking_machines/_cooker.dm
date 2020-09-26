@@ -30,6 +30,31 @@
 		else
 			to_chat(user, SPAN_WARNING("It is switched off."))
 
+/obj/machinery/appliance/cooker/MouseEntered(location, control, params)
+	. = ..()
+	if(get_dist(usr, src) <= 2)
+		var/description = ""
+		if(isemptylist(cooking_objs))
+			description = "It is empty."
+		else
+			description = "Contains...<ul>"
+			for(var/datum/cooking_item/CI in cooking_objs)
+				description += "<li>\a [CI.container.label(null, CI.combine_target)], [report_progress(CI)]</li>"
+			description += "</ul>"
+		if(!stat)
+			if(temperature < min_temp)
+				description += "[src] is still heating up and is too cold to cook anything yet."
+			else
+				description += "It is running at [round(get_efficiency(), 0.1)]% efficiency!"
+			description += "Temperature: [round(temperature - T0C, 0.1)]C / [round(optimal_temp - T0C, 0.1)]C"
+		else
+			description += "It is switched off."
+		openToolTip(usr, src, params, name, description)
+
+/obj/machinery/appliance/cooker/MouseExited(location, control, params)
+	. = ..()
+	closeToolTip(usr)
+
 /obj/machinery/appliance/cooker/list_contents(var/mob/user)
 	if (length(cooking_objs))
 		var/string = "Contains...</br>"
