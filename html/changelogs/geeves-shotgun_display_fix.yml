@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Shotgun ammo HUDs now properly update when racking the gun."
