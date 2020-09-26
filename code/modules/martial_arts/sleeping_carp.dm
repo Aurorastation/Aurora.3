@@ -88,7 +88,7 @@
 	if(D.weakened || D.resting || D.stat)
 		A.do_attack_animation(D)
 		D.visible_message("<span class='danger'>[A] elbow drops [D]!</span>")
-		if(D.stat)
+		if(D.shock_stage >= 60)
 			D.death() //FINISH HIM!
 		D.apply_damage(50, BRUTE, BP_CHEST)
 		playsound(get_turf(D), "punch", 75, 1, -1)
