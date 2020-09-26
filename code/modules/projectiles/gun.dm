@@ -344,9 +344,7 @@
 
 	update_held_icon()
 
-	//update timing
-	var/delay = max(burst_delay+1, fire_delay)
-	user.setClickCooldown(min(delay, DEFAULT_QUICK_COOLDOWN))
+	user.setClickCooldown(max(burst_delay+1, fire_delay))
 	user.setMoveCooldown(move_delay)
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
