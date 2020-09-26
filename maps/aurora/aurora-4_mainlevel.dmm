@@ -50138,10 +50138,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/table/rack,
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 4
 	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/diner)
 "bQW" = (
@@ -62058,13 +62058,13 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/table/rack,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/diner)
 "jvT" = (
@@ -62847,6 +62847,11 @@
 /area/maintenance/atmos_control)
 "kSC" = (
 /obj/machinery/apiary,
+/obj/item/device/radio/intercom{
+	dir = 1;
+	name = "Station Intercom (General)";
+	pixel_y = -24
+	},
 /turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "kTl" = (
