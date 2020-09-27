@@ -76,12 +76,12 @@
 	downed_ship = TRUE
 	ic_name = "a downed vessel"
 
-/datum/event/meteor_wave/announce()
+/datum/event/meteor_wave/downed_ship/announce()
 	command_announcement.Announce("The NDV Icarus reports that it has downed an unknown vessel that was approaching your station. Prepare for debris impact - please evacuate the surface level if needed.", "Ship Debris Alert", new_sound = 'sound/AI/unknownvesseldowned.ogg')
 
-/datum/event/meteor_wave/start()
+/datum/event/meteor_wave/downed_ship/start()
 	command_announcement.Announce("Ship debris colliding now, all hands brace for impact.", "Ship Debris Alert")
 
-/datum/event/meteor_wave/end()
+/datum/event/meteor_wave/downed_ship/end()
 	spawn(100)//We give 10 seconds before announcing, for the last wave of meteors to hit the station
 		command_announcement.Announce("The last of the ship debris has hit or passed by the station, it is now safe to commence repairs.", "Ship Debris Alert")
