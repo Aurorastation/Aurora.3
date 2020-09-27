@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes: 
+  - bugfix: "Fixed the ship debris announcement playing during standard meteor showers."
