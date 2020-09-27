@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Pod Survivors now spawn with an active flare below them."
-  - bugfix: "EPMC survivors now spawn with oxygen tanks."

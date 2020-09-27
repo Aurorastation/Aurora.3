@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Cleanable messes that appear on space tiles now fade away in five seconds."

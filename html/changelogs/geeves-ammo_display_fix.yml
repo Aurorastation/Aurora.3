@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed HUD ammo displays being lopsided when ammo counts were between 20 and 9."
