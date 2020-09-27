@@ -950,10 +950,9 @@
 	reagent_data = list(/datum/reagent/nutriment = list("warm heartiness" = 1, "dough" = 2))
 
 /obj/item/reagent_containers/food/snacks/donkpocket/sinpocket
-	name = "\improper Sin-pocket"
-	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume. Use it in hand to heat and release chemicals."
 	reagent_data = list(/datum/reagent/nutriment = list("delicious cruelty" = 1, "dough" = 2))
 	filling_color = "#6D6D00"
+	desc_antag = "Use it in hand to heat and release chemicals."
 	var/has_been_heated = FALSE
 
 	reagents_to_add = list(/datum/reagent/nutriment/protein = 1, /datum/reagent/nutriment = 3)
@@ -964,8 +963,8 @@
 		return
 	has_been_heated = TRUE
 	user.visible_message(SPAN_NOTICE("[user] crushes \the [src] package."), "You crush \the [src] package and feel it rapidly heat up.")
-	name = "cooked Sin-pocket"
-	desc = "The food of choice for the veteran. Do <B>NOT</B> overconsume."
+	name = "cooked Donk-pocke"
+	desc = "The cooked, reheatable food of choice for the seasoned spaceman."
 	reagents.add_reagent(/datum/reagent/drink/doctorsdelight, 5)
 	reagents.add_reagent(/datum/reagent/hyperzine, 1.5)
 	reagents.add_reagent(/datum/reagent/synaptizine, 1.25)
