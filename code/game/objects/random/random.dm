@@ -1021,7 +1021,7 @@
 		/obj/item/clothing/head/softcap/hydro = 3,
 		/obj/item/clothing/head/softcap/cargo = 3,
 		/obj/item/clothing/head/softcap/miner = 3,
-		/obj/item/clothing/head/softcap/securityurity = 2,
+		/obj/item/clothing/head/softcap/security = 2,
 		/obj/item/clothing/head/softcap/captain = 1
 	)
 
