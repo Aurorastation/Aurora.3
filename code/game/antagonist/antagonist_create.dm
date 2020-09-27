@@ -109,6 +109,9 @@
 	else
 		to_chat(player.current, "<span class='notice'>[welcome_text]</span>")
 
+	if(antag_sound)
+		player.current.playsound_simple(get_turf(src), sound(antag_sound), 50, FALSE)
+
 	if((flags & ANTAG_HAS_NUKE) && !spawned_nuke)
 		create_nuke()
 
