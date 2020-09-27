@@ -9,7 +9,7 @@
 /mob/living/proc/isSynthetic()
 	return 0
 
-/mob/living/isSynthetic()
+/mob/living/carbon/human/isSynthetic()
 	// If they are 100% robotic, they count as synthetic.
 	for(var/obj/item/organ/external/E in organs)
 		if(!(E.status & ORGAN_ROBOT))
