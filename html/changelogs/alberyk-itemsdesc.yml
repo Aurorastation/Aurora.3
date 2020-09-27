@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Changed the sin-pocket box and item description to be the same as the regular donk pockets."
+  - tweak: "Changed the money briefcase name and description to the same as the regular briefcase."
