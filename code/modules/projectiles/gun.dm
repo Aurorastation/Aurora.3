@@ -928,8 +928,12 @@
 		if(!ismob(loc) && !ismob(loc.loc))
 			maptext = ""
 			return
-		if(get_ammo() > 9)
-			maptext_x = 18
+		var/ammo = get_ammo()
+		if(ammo > 9)
+			if(ammo < 20)
+				maptext_x = 20
+			else
+				maptext_x = 18
 		else
 			maptext_x = 22
-		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[get_ammo()]</span>"
+		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[ammo]</span>"
