@@ -32,7 +32,9 @@
 
 /obj/machinery/appliance/cooker/MouseEntered(location, control, params)
 	. = ..()
-	if(get_dist(usr, src) <= 2)
+	var/list/modifiers = params2list(params)
+	if(modifiers["shift"] && get_dist(usr, src) <= 2)
+		params = replacetext(params, "shift=1;", "") // tooltip doesn't appear unless this is stripped
 		var/description = ""
 		if(isemptylist(cooking_objs))
 			description = "It is empty."
