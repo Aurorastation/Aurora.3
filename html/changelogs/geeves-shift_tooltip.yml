@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - bugfix: "Cooking appliance tooltips only appear when you shift hover over them, instead of popping up wildly as you hover over the kitchen."
+  - bugfix: "Cooking appliance tooltips only appear when you shift hover over them, instead of popping up wildly as you hover across the kitchen."
