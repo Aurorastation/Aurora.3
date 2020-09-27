@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Summon creature swarm should no longer summon ten mobs, it will only spawn two now."
