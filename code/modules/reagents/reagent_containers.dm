@@ -60,7 +60,7 @@
 
 /obj/item/reagent_containers/throw_impact(atom/hit_atom, var/speed)
 	. = ..()
-	if((speed >= fragile) && shatter)
+	if((speed >= fragile) && shatter && !ismob(loc))
 		shatter()
 
 /obj/item/reagent_containers/proc/shatter(var/obj/item/W, var/mob/user)

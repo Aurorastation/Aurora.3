@@ -89,6 +89,7 @@
 	//Spawn a drill
 	new /obj/item/pickaxe/drill(H.loc)
 	new /obj/item/device/gps(H.loc)
+	new /obj/item/device/flashlight/flare/mech(H.loc) // spawns an active flare
 
 /datum/outfit/admin/pod/star
 	name = "RescuePod - Star"

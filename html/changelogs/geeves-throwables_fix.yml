@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Catching fragile containers no longer causes them to shatter."
+  - bugfix: "Catching items no longer plays the hit by thrown item sound."

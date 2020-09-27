@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixes ammo 'duplication' when stacking ammo from a storage container."
+  - bugfix: "Fixes ammo piles not taking the correct ammo types."

@@ -1,0 +1,4 @@
+author: The Stryker, NewOriginalSchwann
+delete-after: True
+changes: 
+  - rscadd: "Adds Gadpathurian clothes (uniform, hats, cadre brassards, overcoat) under their appropriate categories in the loadout. Descriptions done by Schwann."
