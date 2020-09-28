@@ -111,12 +111,12 @@
 			var/obj/item/foldable = new src.foldable()
 			qdel(src)
 			user.put_in_hands(foldable) //try to put it inhands if possible
-		if(ispath(src.trash))
-			if(contents.len &&  user.a_intent == I_HURT)  // only crumple with things inside on harmintent.
+		if(ispath(src.trash) && user.a_intent == I_HURT)
+			if(!contents.len)
+				to_chat(user, SPAN_NOTICE("You crumple up \the [src]."))
+			else
 				user.visible_message(SPAN_DANGER("You crush \the [src], spilling its contents everywhere!"), SPAN_DANGER("[user] crushes \the [src], spilling its contents everywhere!"))
 				spill()
-			else
-				to_chat(user, SPAN_NOTICE("You crumple up \the [src].")) //make trash
 			playsound(src.loc, 'sound/items/pickup/wrapper.ogg', 30, 1)
 			var/obj/item/trash = new src.trash()
 			qdel(src)
