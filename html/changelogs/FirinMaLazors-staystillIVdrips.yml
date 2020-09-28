@@ -1,6 +1,0 @@
-author: FirinMaLazors
-
-delete-after: True
-
-changes: 
-  - rscadd: "Changes IV drips' density to 0 so you don't bump into the darn things.."
