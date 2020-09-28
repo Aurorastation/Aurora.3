@@ -779,7 +779,7 @@
 		/obj/item/clothing/head/pumpkin/lantern = 0.4,
 		/obj/item/clothing/head/redcoat = 0.2,
 		/obj/item/clothing/head/richard = 0.3,
-		/obj/item/clothing/head/softcap/rainbow = 0.7,
+		/obj/item/clothing/head/soft/rainbow = 0.7,
 		/obj/item/clothing/head/syndicatefake = 0.5,
 		/obj/item/clothing/head/ushanka = 0.3,
 		/obj/item/clothing/head/witchwig = 0.5,
@@ -914,7 +914,6 @@
 		/obj/random/glowstick = 0.4,
 		/obj/random/hoodie = 0.5,
 		/obj/random/bandana = 0.5,
-		/obj/random/softcap = 0.5,
 		/obj/random/junk = 0.4,
 		/obj/random/medical = 0.4,
 		/obj/random/pda_cart = 0.5,
@@ -942,7 +941,7 @@
 		/obj/item/clothing/gloves/black = 10,
 
 		/obj/item/clothing/head/chameleon = 0.5,
-		/obj/item/clothing/head/softcap = 5,
+		/obj/item/clothing/head/soft/grey = 5,
 
 		/obj/item/clothing/mask/chameleon = 1,
 		/obj/item/clothing/mask/gas/ = 10,
@@ -1031,24 +1030,6 @@
 		/obj/item/clothing/head/bandana/miner = 3,
 		/obj/item/clothing/head/bandana/security = 2,
 		/obj/item/clothing/head/bandana/captain = 1
-	)
-
-/obj/random/softcap
-	name = "random softcap"
-	desc = "This is a random softcap."
-	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
-	icon_state = "softcap"
-	problist = list(
-		/obj/item/clothing/head/softcap/colorable/random = 5,
-		/obj/item/clothing/head/softcap/engineering = 3,
-		/obj/item/clothing/head/softcap/atmos = 3,
-		/obj/item/clothing/head/softcap/medical = 3,
-		/obj/item/clothing/head/softcap/science = 3,
-		/obj/item/clothing/head/softcap/hydro = 3,
-		/obj/item/clothing/head/softcap/cargo = 3,
-		/obj/item/clothing/head/softcap/miner = 3,
-		/obj/item/clothing/head/softcap/security = 2,
-		/obj/item/clothing/head/softcap/captain = 1
 	)
 
 /obj/random/highvalue
