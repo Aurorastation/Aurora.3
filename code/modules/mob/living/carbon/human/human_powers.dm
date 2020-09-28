@@ -336,6 +336,9 @@ mob/living/carbon/human/proc/change_monitor()
 	set name = "Bite"
 	set desc = "While grabbing someone aggressively, tear into them with your mandibles."
 
+	do_bugbite()
+
+/mob/living/carbon/human/proc/do_bugbite(var/ignore_grab = FALSE)
 	if(last_special > world.time)
 		to_chat(src, SPAN_WARNING("Your mandibles still ache!"))
 		return
@@ -356,7 +359,7 @@ mob/living/carbon/human/proc/change_monitor()
 		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
 		return
 
-	if(G.state < GRAB_KILL)
+	if(!ignore_grab && G.state < GRAB_KILL)
 		to_chat(src, SPAN_WARNING("You must have a strangling grip to bite someone!"))
 		return
 
