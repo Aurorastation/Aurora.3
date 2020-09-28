@@ -46,7 +46,7 @@
 	softcaps["softcap, rainbow"] = /obj/item/clothing/head/softcap/rainbow
 	softcaps["softcap, red"] = /obj/item/clothing/head/softcap/red
 	softcaps["softcap, captain"] = /obj/item/clothing/head/softcap/captain
-	softcaps["softcap, security"] = /obj/item/clothing/head/softcap/securityurity
+	softcaps["softcap, security"] = /obj/item/clothing/head/softcap/security
 	softcaps["softcap, science"] = /obj/item/clothing/head/softcap/science
 	softcaps["softcap, medical"] = /obj/item/clothing/head/softcap/medical
 	softcaps["softcap, engineering"] = /obj/item/clothing/head/softcap/engineering

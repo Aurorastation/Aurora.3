@@ -1,0 +1,7 @@
+
+author: mikomyazaki
+
+delete-after: True
+
+changes: 
+  - bugfix: "Flipping one of the new softcap hats twice will no longer make it invisible."
