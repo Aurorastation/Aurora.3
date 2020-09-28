@@ -316,6 +316,15 @@
 	desc = "A box of varied assortment of firing pins. Appears to have R&D stickers on all sides of the box. Also seems to have a smiley face sticker on the top of it."
 	starts_with = list(/obj/item/device/firing_pin = 2, /obj/item/device/firing_pin/access = 2, /obj/item/device/firing_pin/implant/loyalty = 2, /obj/item/device/firing_pin/clown = 1, /obj/item/device/firing_pin/dna = 1)
 
+/obj/item/storage/box/tethers
+	name = "box of tethering devices"
+	desc = "A box containing eight electro-tethers, used primarily to keep track of partners during expeditions."
+	starts_with = list(/obj/item/tethering_device = 8)
+
+/obj/item/storage/box/tethers/fill()
+	..()
+	make_exact_fit()
+
 /obj/item/storage/box/teargas
 	name = "box of pepperspray grenades"
 	desc = "A box containing 7 tear gas grenades. A gas mask is printed on the label.<br> WARNING: Exposure carries risk of serious injury or death. Keep away from persons with lung conditions."
