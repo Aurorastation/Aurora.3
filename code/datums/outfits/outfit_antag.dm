@@ -285,9 +285,9 @@
 		/obj/item/clothing/head/helmet/material/makeshift/plasteel,
 		/obj/item/clothing/head/helmet/kettle,
 		/obj/item/clothing/head/helmet/tank/olive,
-		/obj/item/clothing/head/softcap,
-		/obj/item/clothing/head/softcap/himeo,
-		/obj/item/clothing/head/softcap/red,
+		/obj/item/clothing/head/soft/grey,
+		/obj/item/clothing/head/soft/himeo,
+		/obj/item/clothing/head/soft/yellow,
 		/obj/item/clothing/head/that,
 		/obj/item/clothing/head/turban,
 		/obj/item/clothing/head/turban/grey,
@@ -546,7 +546,7 @@
 	suit = /obj/item/clothing/suit/space/cult
 
 	suit_store = /obj/item/gun/energy/rifle/cult
-
+  
 /datum/outfit/admin/syndicate/raider_mage
 	name = "Raider Mage"
 	allow_backbag_choice = FALSE
