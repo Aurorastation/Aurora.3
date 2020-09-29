@@ -1,7 +1,9 @@
 /obj/item/clothing/head/softcap
 	name = "softcap"
 	desc = "It's a softcap in a tasteless color."
+	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
 	icon_state = "softcap"
+	contained_sprite = TRUE
 	var/flipped = FALSE
 	siemens_coefficient = 0.9
 
@@ -12,7 +14,7 @@
 
 /obj/item/clothing/head/softcap/attack_self(mob/user)
 	flipped = !flipped
-	icon_state = "[icon_state][flipped ? "_flipped" : ""]"
+	icon_state = "[initial(icon_state)][flipped ? "_flipped" : ""]"
 	to_chat(user, "You flip the hat [flipped ? "backwards" : "forwards"].")
 	update_clothing_icon()	//so our mob-overlays update
 
@@ -42,7 +44,7 @@
 	icon_state = "softcap_captain"
 	item_state = "softcap_captain"
 
-/obj/item/clothing/head/softcap/securityurity
+/obj/item/clothing/head/softcap/security
 	name = "security softcap"
 	desc = "It's a peaked cap in a secure blue and grey."
 	icon_state = "softcap_sec"
