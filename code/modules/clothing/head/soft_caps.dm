@@ -9,11 +9,13 @@
 
 /obj/item/clothing/head/softcap/dropped()
 	icon_state = initial(icon_state)
+	item_state = icon_state
 	flipped = FALSE
 	..()
 
 /obj/item/clothing/head/softcap/on_slotmove()
 	icon_state = initial(icon_state)
+	item_state = icon_state
 	flipped = FALSE
 	..()
 
