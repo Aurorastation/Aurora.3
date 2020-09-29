@@ -15,6 +15,7 @@
 
 	tameable = FALSE
 
+	organ_names = list("head", "chest", "tail", "leg")
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"

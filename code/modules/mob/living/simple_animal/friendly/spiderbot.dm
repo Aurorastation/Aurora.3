@@ -34,6 +34,7 @@
 	melee_damage_lower = 1
 	melee_damage_upper = 3
 
+	organ_names = list("head")
 	response_help  = "pets"
 	response_disarm = "shoos"
 	response_harm   = "stomps on"

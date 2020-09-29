@@ -23,6 +23,7 @@
 	attacktext = "slashed"
 	projectilesound = 'sound/weapons/bladeslice.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike
+	organ_names = list("head", "core", "side thruster", "bottom thruster")
 	faction = "hivebot"
 	min_oxy = 0
 	max_oxy = 0
@@ -80,6 +81,7 @@
 	health = 100
 	maxHealth = 100
 	icon_state = "hivebotbomber"
+	organ_names = list("head", "core", "bottom thruster")
 	attacktext = "bumped"
 	move_to_delay = 8
 	var/has_exploded = FALSE
@@ -230,6 +232,7 @@
 	wander = 0
 	stop_automated_movement = 1
 	status_flags = 0
+	organ_names = list("head", "core", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	faction = "hivebot"
 	ranged = 1
 	rapid = 1
@@ -511,6 +514,7 @@
 	attacktext = "skewered"
 	projectilesound = 'sound/weapons/lasercannonfire.ogg'
 	projectiletype = /obj/item/projectile/beam/hivebot/incendiary/heavy
+	organ_names = list("head", "core", "side thruster", "harvesting array")
 	faction = "hivebot"
 	min_oxy = 0
 	max_oxy = 0

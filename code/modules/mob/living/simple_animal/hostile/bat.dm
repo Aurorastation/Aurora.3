@@ -9,6 +9,7 @@
 	speak_chance = 0
 	turns_per_move = 3
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
+	organ_names = list("upper bat", "mid bat", "lower bat")
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"

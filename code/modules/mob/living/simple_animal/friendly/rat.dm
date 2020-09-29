@@ -30,6 +30,7 @@
 	maxHealth = 5
 	health = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/rat
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "stomps on"
