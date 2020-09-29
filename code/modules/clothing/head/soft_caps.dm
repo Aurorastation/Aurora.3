@@ -12,10 +12,23 @@
 	flipped = FALSE
 	..()
 
-/obj/item/clothing/head/softcap/attack_self(mob/user)
+/obj/item/clothing/head/softcap/on_slotmove()
+	icon_state = initial(icon_state)
+	flipped = FALSE
+	..()
+
+/obj/item/clothing/head/softcap/verb/ToggleHat()
+	set name = "Flip Hat"
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr))
+		return 0
+
 	flipped = !flipped
 	icon_state = "[initial(icon_state)][flipped ? "_flipped" : ""]"
-	to_chat(user, "You flip the hat [flipped ? "backwards" : "forwards"].")
+	item_state = icon_state
+	to_chat(usr, "You flip the hat [flipped ? "backwards" : "forwards"].")
 	update_clothing_icon()	//so our mob-overlays update
 
 /obj/item/clothing/head/softcap/colorable
