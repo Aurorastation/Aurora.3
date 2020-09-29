@@ -61264,7 +61264,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "hqT" = (
-/obj/item/clothing/head/soft/white,
 /obj/item/clothing/mask/gas/mime,
 /obj/item/clothing/shoes/mime,
 /obj/item/clothing/under/mime,

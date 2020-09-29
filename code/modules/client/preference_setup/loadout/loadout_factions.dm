@@ -1,6 +1,6 @@
 /datum/gear/faction
 	display_name = "idris cap"
-	path = /obj/item/clothing/head/soft/sec/idris
+	path = /obj/item/clothing/head/softcap/security/idris
 	slot = slot_head
 	sort_category = "Factions"
 	cost = 1
@@ -59,7 +59,7 @@
 
 /datum/gear/faction/eridani_cap
 	display_name = "eridani cap"
-	path = /obj/item/clothing/head/soft/eri
+	path = /obj/item/clothing/head/softcap/eri
 	slot = slot_head
 	faction = "Eridani Private Military Contractors"
 
