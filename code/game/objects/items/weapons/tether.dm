@@ -35,11 +35,6 @@ var/list/global/all_tethers = list()
 
 /obj/item/tethering_device/process()
 	var/turf/our_turf = get_turf(src)
-	for(var/tether in linked_tethers)
-		var/obj/item/tethering_device/TD = tether
-		var/turf/target_turf = get_turf(TD)
-		if(get_dist(target_turf, our_turf) > tether_range || target_turf == our_turf)
-			untether(TD)
 	for(var/tether in all_tethers)
 		var/obj/item/tethering_device/TD = tether
 		if(TD == src)
@@ -65,7 +60,7 @@ var/list/global/all_tethers = list()
 /obj/item/tethering_device/proc/deactivate()
 	STOP_PROCESSING(SSprocessing, src)
 	for(var/beam in active_beams)
-		var/datum/beam/exploration/B = beam
+		var/datum/beam/exploration/B = active_beams[beam]
 		B.End()
 	for(var/tether in all_tethers)
 		var/obj/item/tethering_device/TD = tether
@@ -76,13 +71,14 @@ var/list/global/all_tethers = list()
 	var/datum/beam/exploration/B = new /datum/beam/exploration(src, TD, beam_icon_state = "explore_beam", time = -1, maxdistance = tether_range)
 	B.owner = src
 	B.Start()
-	active_beams += B
+	active_beams[TD] = B
 
+// untethering logic is primarily dictated by the beam itself, who will end if the max distance is reached, and call this proc
 /obj/item/tethering_device/proc/untether(var/obj/item/tethering_device/TD, var/destroy_beam = TRUE)
 	linked_tethers -= TD
-	if(destroy_beam)
-		for(var/beam in active_beams)
-			var/datum/beam/exploration/B = beam
-			if(B.target == TD)
-				B.End()
-				return
+	if(!destroy_beam)
+		return
+	var/datum/beam/exploration/B = active_beams[TD]
+	if(B)
+		B.End()
+		B.End()
