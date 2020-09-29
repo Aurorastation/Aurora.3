@@ -90,10 +90,11 @@
 	else
 		return 1
 
-/obj/machinery/door/window/open()
-	if (!ROUND_IS_STARTED)
+/obj/machinery/door/window/open(var/startsopen = FALSE)
+	if (!ROUND_IS_STARTED && !startsopen)
 		return FALSE
-	if(can_open())
+		
+	if(can_open() && !startsopen)
 		operating = TRUE
 		flick("[base_state]opening", src)
 		playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
@@ -105,7 +106,13 @@
 		update_nearby_tiles()
 		operating = FALSE
 		return 1
-
+	
+	else if(startsopen)
+		icon_state = "[base_state]open"
+		explosion_resistance = 0
+		src.density = FALSE
+		return 1
+	
 /obj/machinery/door/window/close()
 	if (operating || emagged == 1)
 		return FALSE
@@ -278,3 +285,9 @@
 	dir = SOUTH
 	icon_state = "rightsecure"
 	base_state = "rightsecure"
+
+/obj/machinery/door/window/startsopen
+
+/obj/machinery/door/window/startsopen/Initialize(mapload)
+	. = ..()
+	open(TRUE)

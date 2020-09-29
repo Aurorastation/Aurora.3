@@ -170,7 +170,7 @@
 			new /datum/stack_recipe("rifle stock", /obj/item/stock, 10, time = 25, one_per_turf = 0, on_floor = 0),
 			new /datum/stack_recipe("beehive assembly", /obj/item/beehive_assembly, 4, time = 30, on_floor = 1),
 			new /datum/stack_recipe("beehive frame", /obj/item/honey_frame, 1),
-			new /datum/stack_recipe("moveable apiary", /obj/item/apiary, 4, time = 30, on_floor = 1)
+			new /datum/stack_recipe("moveable apiary", /obj/item/apiary, 4, time = 30, on_floor = 1),
 			new /datum/stack_recipe("book shelf", /obj/structure/bookcase, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("ore box", /obj/structure/ore_box, BUILD_AMT, time = 15, one_per_turf = 1, on_floor = 1),
 			new /datum/stack_recipe("wooden bucket", /obj/item/reagent_containers/glass/bucket/wood, 2, time = 4, one_per_turf = 0, on_floor = 0),
