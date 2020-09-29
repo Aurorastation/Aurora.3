@@ -905,7 +905,7 @@
 				if (nutrition_icon.icon_state != new_val)
 					nutrition_icon.icon_state = new_val
 			if(hydration_icon)
-				var/hyd_factor = max(0,min(hydration / max_hydration,1))
+				var/hyd_factor = max_hydration ? Clamp(hydration / max_hydration, 0, 1) : 1
 				var/hyd_icon = 5
 				if(hyd_factor >= CREW_HYDRATION_OVERHYDRATED)
 					hyd_icon = 0

@@ -45,7 +45,7 @@
 		)
 	light_power = 1
 	brightness_on = 4
-	light_wedge = 120
+	light_wedge = LIGHT_OMNI
 	light_color = LIGHT_COLOR_FIRE
 
 /*****************************Pickaxe********************************/

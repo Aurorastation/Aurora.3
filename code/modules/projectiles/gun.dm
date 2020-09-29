@@ -297,11 +297,11 @@
 		return FALSE
 
 	if(world.time < next_fire_time)
-		if (world.time % 3) //to prevent spam
+		if(world.time % 3 && !can_autofire) //to prevent spam
 			to_chat(user, SPAN_WARNING("\The [src] is not ready to fire again!"))
 		return FALSE
 
-	var/shoot_time = (burst - 1) * burst_delay
+	var/shoot_time = max((burst - 1) * burst_delay, burst_delay)
 	user.setClickCooldown(shoot_time)
 	user.setMoveCooldown(shoot_time)
 	next_fire_time = world.time + shoot_time
@@ -344,9 +344,7 @@
 
 	update_held_icon()
 
-	//update timing
-	var/delay = max(burst_delay+1, fire_delay)
-	user.setClickCooldown(min(delay, DEFAULT_QUICK_COOLDOWN))
+	user.setClickCooldown(max(burst_delay+1, fire_delay))
 	user.setMoveCooldown(move_delay)
 
 // Similar to the above proc, but does not require a user, which is ideal for things like turrets.
@@ -930,8 +928,12 @@
 		if(!ismob(loc) && !ismob(loc.loc))
 			maptext = ""
 			return
-		if(get_ammo() > 9)
-			maptext_x = 18
+		var/ammo = get_ammo()
+		if(ammo > 9)
+			if(ammo < 20)
+				maptext_x = 20
+			else
+				maptext_x = 18
 		else
 			maptext_x = 22
-		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[get_ammo()]</span>"
+		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[ammo]</span>"
