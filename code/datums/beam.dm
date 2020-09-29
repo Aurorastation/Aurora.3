@@ -47,7 +47,7 @@
 	var/turf/origin_turf = get_turf(origin)
 	var/turf/target_turf = get_turf(target)
 	curr_distance = get_dist(origin_turf, target_turf)
-	if(origin && target && curr_distance < max_distance && origin_turf.z == target_turf.z)
+	if(origin_turf && target_turf && curr_distance < max_distance && origin_turf.z == target_turf.z)
 		if(!static_beam && (origin_turf != origin_oldloc || target_turf != target_oldloc))
 			origin_oldloc = origin_turf //so we don't keep checking against their initial positions, leading to endless Reset()+Draw() calls
 			target_oldloc = target_turf

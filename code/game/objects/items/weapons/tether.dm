@@ -20,8 +20,8 @@ var/list/global/all_tethers = list()
 
 /obj/item/tethering_device/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
-	all_tethers -= src
 	deactivate()
+	all_tethers -= src
 	return ..()
 
 /obj/item/tethering_device/attack_self(mob/user)
@@ -72,7 +72,7 @@ var/list/global/all_tethers = list()
 		TD.untether(src)
 
 /obj/item/tethering_device/proc/tether(var/obj/item/tethering_device/TD)
-	linked_tethers += TD
+	linked_tethers |= TD
 	var/datum/beam/exploration/B = new /datum/beam/exploration(src, TD, beam_icon_state = "explore_beam", time = -1, maxdistance = tether_range)
 	B.owner = src
 	B.Start()
