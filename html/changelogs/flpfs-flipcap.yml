@@ -1,0 +1,6 @@
+author: Flpfs
+
+delete-after: True
+
+changes: 
+  - bugfix: "Idris caps can now be flipped properly."
