@@ -86,7 +86,6 @@
 	name = "largebolt"
 	damage_type = PAIN
 	agony = 60
-	stutter = 10
 
 /obj/item/projectile/energy/neurotoxin
 	name = "neuro"
