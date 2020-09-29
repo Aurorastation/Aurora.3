@@ -54,6 +54,9 @@ var/list/global/all_tethers = list()
 			continue
 		tether(TD)
 
+/obj/item/tethering_device/emp_act()
+	deactivate()
+
 /obj/item/tethering_device/proc/activate()
 	START_PROCESSING(SSprocessing, src)
 
