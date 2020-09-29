@@ -81,4 +81,3 @@ var/list/global/all_tethers = list()
 	var/datum/beam/exploration/B = active_beams[TD]
 	if(B)
 		B.End()
-		B.End()
