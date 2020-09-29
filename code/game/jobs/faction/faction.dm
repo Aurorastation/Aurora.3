@@ -30,7 +30,8 @@
 		if(LAZYACCESS(job_species_blacklist, role.title))
 			role.blacklisted_species = job_species_blacklist[role.title]
 		else
-			role.blacklisted_species = initial(role.blacklisted_species)
+			var/datum/job/J = new role.type
+			role.blacklisted_species = J.blacklisted_species
 		. += role
 
 /datum/faction/proc/get_selection_error(datum/preferences/prefs)
