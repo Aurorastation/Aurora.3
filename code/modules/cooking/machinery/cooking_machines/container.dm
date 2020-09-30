@@ -12,7 +12,9 @@
 		/obj/item/reagent_containers/food/snacks,
 		/obj/item/holder,
 		/obj/item/paper,
-		/obj/item/flame/candle
+		/obj/item/flame/candle,
+		/obj/item/stack/rods,
+		/obj/item/organ/internal/brain
 		)
 	var/appliancetype // Bitfield, uses the same as appliances
 	w_class = ITEMSIZE_NORMAL
