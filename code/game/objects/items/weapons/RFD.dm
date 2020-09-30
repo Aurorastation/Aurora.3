@@ -110,6 +110,8 @@
 			var/obj/item/gun/launcher/crossbow/RFD/CB = new(get_turf(user)) // can be found in crossbow.dm
 			forceMove(CB)
 			CB.stored_matter = src.stored_matter
+			qdel(src)
+			user.put_in_hands(CB)
 			add_fingerprint(user)
 			return
 	..()
