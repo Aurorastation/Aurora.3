@@ -38,7 +38,7 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - balance: "Rebalances values of the security vest's armor, removes some laser protection and adds some ballistic protection."
+  - balance: "Rebalances values of the security vest's armor, removes some laser protection."
   - balance: "Changes security voidsuit's armor values to match with the security vest, making it overall stronger."
   - balance: "Balances the skrellian voidsuit, it now has civillian armor instead of being stronger than the security voidsuit."
-  - balance: "EVA suit RIGs and diving RIGs can no longer store toolboxes."
+  - balance: "EVA suit RIGs and diving RIGs can no longer store toolboxes, but the CE's RIG now can."
