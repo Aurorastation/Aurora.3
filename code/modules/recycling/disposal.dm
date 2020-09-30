@@ -213,6 +213,7 @@
 // mouse drop another mob or self
 //
 /obj/machinery/disposal/MouseDrop_T(mob/target, mob/user)
+	var/mob/living/U = target
 	if(user.stat || !user.canmove || !istype(target))
 		return
 	if(target.buckled || get_dist(user, src) > 1 || get_dist(user, target) > 1)
@@ -224,6 +225,9 @@
 
 	if(!check_mob_size(target))
 		to_chat(user, SPAN_NOTICE("The opening is too narrow for [target] to fit!"))
+		return
+	if(U.isSynthetic())
+		to_chat(user, SPAN_NOTICE("[target] is a bit too clunky to fit!"))
 		return
 
 	src.add_fingerprint(user)
