@@ -60,6 +60,9 @@
 		to_chat(user, "<span class='notice'>\The [src] is empty!</span>")
 		return
 
+	if(get_turf(A) == /turf/simulated/floor/beach/water)
+		return
+		
 	if(safety)
 		playsound(src.loc, 'sound/weapons/safety_click.ogg', 25, 1)
 		to_chat(user, "<span class='notice'>The safety is on!</span>")
