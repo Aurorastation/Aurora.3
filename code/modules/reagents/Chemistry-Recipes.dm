@@ -629,7 +629,7 @@
 	name = "Saline Plus"
 	id = "saline"
 	result = /datum/reagent/saline
-	required_reagents = list(/datum/reagent/sugar = 0.4, /datum/reagent/water = 1, /datum/reagent/sodiumchloride = 0.9)
+	required_reagents = list(/datum/reagent/water = 2, /datum/reagent/sugar = 0.2, /datum/reagent/sodiumchloride = 0.4)
 	catalysts = list(/datum/reagent/toxin/phoron = 5)
 	result_amount = 1
 
@@ -3595,7 +3595,7 @@
 	name = "RMT"
 	id = "rmt"
 	result = /datum/reagent/rmt
-	result_amount = 1
+	result_amount = 2
 	required_reagents = list(/datum/reagent/potassium = 1, /datum/reagent/inaprovaline = 1)
 
 /datum/chemical_reaction/gunpowder
