@@ -154,7 +154,7 @@
 		to_chat(user, "You can't place that item inside the disposal unit.")
 		return
 
-	if(istype(I, /obj/item/storage) && user.a_intent != I_HURT)
+	if(istype(I, /obj/item/storage) && length(I.contents) && user.a_intent != I_HURT)
 		var/obj/item/storage/S = I
 		user.visible_message("<b>[user]</b> empties \the [S] into \the [src].", SPAN_NOTICE("You empty \the [S] into \the [src]."), range = 3)
 		for(var/obj/item/O in S.contents)
