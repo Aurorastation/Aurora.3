@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Mining coins can no longer be stacked to vend multiple items with a single coin."
