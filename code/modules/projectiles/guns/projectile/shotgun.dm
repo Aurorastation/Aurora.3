@@ -83,11 +83,12 @@
 		playsound(src.loc, chambered.drop_sound, DROP_SOUND_VOLUME, FALSE, required_asfx_toggles = ASFX_DROPSOUND)
 		chambered = null
 
-	if(loaded.len)
+	if(length(loaded))
 		var/obj/item/ammo_casing/AC = loaded[1] //load next casing.
 		loaded -= AC //Remove casing from loaded list.
 		chambered = AC
 
+	update_maptext()
 	update_icon()
 
 /obj/item/gun/projectile/shotgun/pump/update_icon()

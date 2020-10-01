@@ -206,6 +206,10 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 
 /mob/living/simple_animal/hostile/think()
 	..()
+
+	if(stop_thinking)
+		return
+
 	switch(stance)
 		if(HOSTILE_STANCE_IDLE)
 			targets = ListTargets(10)

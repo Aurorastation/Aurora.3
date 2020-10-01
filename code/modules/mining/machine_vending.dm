@@ -206,7 +206,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 /obj/machinery/mineral/equipment_vendor/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/coin/mining))
 		var/choice = input(user, "Which special equipment would you like to dispense from \the [src]?", capitalize_first_letters(name)) as null|anything in list("Enhanced Power Converter", "Hand-held Drill")
-		if(!choice || !I || !Adjacent(user))
+		if(!choice || QDELETED(I) || !Adjacent(user))
 			return
 		var/obj/dispensed_equipment
 		switch(choice)

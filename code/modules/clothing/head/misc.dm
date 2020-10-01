@@ -148,14 +148,6 @@
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 
-/obj/item/clothing/head/greenbandana
-	name = "green bandana"
-	desc = "It's a green bandana with some fine nanotech lining."
-	icon_state = "greenbandana"
-	item_state = "greenbandana"
-	flags_inv = 0
-	body_parts_covered = 0
-
 /obj/item/clothing/head/cardborg
 	name = "cardborg helmet"
 	desc = "A helmet made out of a box."
@@ -206,11 +198,6 @@
 	name = "pirate hat"
 	desc = "Yarr."
 	icon_state = "hgpiratecap"
-
-/obj/item/clothing/head/bandana
-	name = "pirate bandana"
-	desc = "Yarr."
-	icon_state = "bandana"
 
 /obj/item/clothing/head/bowler
 	name = "bowler-hat"
@@ -299,13 +286,6 @@
 		)
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 2.0 //why is it so conductive?!
-
-/obj/item/clothing/head/orangebandana //themij: Taryn Kifer
-	name = "orange bandana"
-	desc = "An orange piece of cloth, worn on the head."
-	icon_state = "orange_bandana"
-	body_parts_covered = 0
-
 /obj/item/clothing/head/hijab //It might've taken a year but here's your Hijab's, Dea.
 	name = "hijab"
 	desc = "Encompassing cloth headwear worn by some human cultures and religions."

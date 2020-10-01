@@ -222,3 +222,13 @@
 
 /obj/item/storage/toolbox/lunchbox/syndicate/filled
 	filled = TRUE
+
+/obj/item/storage/toolbox/lunchbox/schlorrgo
+	name = "patriotic lunchbox"
+	icon_state = "lunchbox_schlorrgo"
+	item_state = "lunchbox_schlorrgo"
+	desc = "A little lunchbox. This one has a Cool Schlorrgo stamp on \
+	it, a famous Adhomian cartoon character. Approved by the People's Republic of Adhomai."
+
+/obj/item/storage/toolbox/lunchbox/schlorrgo/filled
+	filled = TRUE

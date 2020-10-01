@@ -197,7 +197,7 @@
 			else
 				find_prob += 40
 		else
-			find_prob += 50
+			find_prob += 75
 
 		if(prob(find_prob))
 			user.visible_message("<b>[user]</b> takes something out of incision on [target]'s [affected.name] with \the [tool].", \

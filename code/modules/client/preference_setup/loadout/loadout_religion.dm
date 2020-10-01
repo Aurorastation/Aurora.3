@@ -44,8 +44,8 @@
 /datum/gear/religion/dominia/beret/New()
 	..()
 	var/beret = list()
-	beret["tribunal initiate's beret"] = /obj/item/clothing/head/soft/dominia
-	beret["tribunalist's beret"] = /obj/item/clothing/head/soft/dominia/priest
+	beret["tribunal initiate's beret"] = /obj/item/clothing/head/softcap/dominia
+	beret["tribunalist's beret"] = /obj/item/clothing/head/softcap/dominia/priest
 	gear_tweaks += new/datum/gear_tweak/path(beret)
 
 /datum/gear/religion/dominia/cape
