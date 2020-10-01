@@ -363,7 +363,7 @@
 	if(direction != dir)
 		facedir(direction, TRUE)
 
-var/global/list/click_catchers = create_click_catcher()
+var/global/list/click_catchers
 
 /obj/screen/click_catcher
 	icon = 'icons/mob/screen_gen.dmi'
