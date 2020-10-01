@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Flesh to stone can no longer target mechs."
-  - bugfix: "Statues no longer report being empty."
