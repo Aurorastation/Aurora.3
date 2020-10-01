@@ -416,10 +416,11 @@
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket = 6)
 
 /obj/item/storage/box/sinpockets
-	name = "box of sin-pockets"
-	desc = "<B>Instructions:</B> <I>Crush bottom of package to initiate chemical heating. Wait for 20 seconds before consumption. Product will cool if not eaten within seven minutes.</I>"
+	name = "box of donk-pockets"
+	desc = "<B>Instructions:</B> <I>Heat in microwave. Product will cool if not eaten within seven minutes.</I>"
 	icon_state = "donk_kit"
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 6)
+	desc_antag = "Crush bottom of package to initiate chemical heating. Wait for 20 seconds before consumption. Product will cool if not eaten within seven minutes."
 
 /obj/item/storage/box/monkeycubes
 	name = "monkey cube box"
