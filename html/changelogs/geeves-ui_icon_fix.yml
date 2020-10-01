@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Added the missing last tier of hunger and thirst icons."
+  - tweak: "IPCs now get icons that show a powercell instead of a chicken leg."
