@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Creating the RFD-X no longer duplicates the base RFD."
-  - bugfix: "You can no longer toggle the safety on guns that have no safety."
