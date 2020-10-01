@@ -460,7 +460,7 @@
 	if(!isturf(loc)) // so people can't transform inside places they should not, like sleepers
 		return
 
-	var/mob/living/M = src
+	var/mob/living/carbon/human/M = src
 
 	if(alert("Are we sure we wish to reveal ourselves? This will only revert after ten minutes.", , "Yes", "No") == "No") //Changelings have to confirm whether they want to go full horrorform
 		return
