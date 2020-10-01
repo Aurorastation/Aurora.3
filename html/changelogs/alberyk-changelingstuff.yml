@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - balance: "Changeling lesser forms should have far less health and speed."
+  - bugfix: "Fixed some bugs related to changeling using alternate forms and buckling."
