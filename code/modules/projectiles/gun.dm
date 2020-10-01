@@ -657,11 +657,11 @@
 	set src in usr
 	set category = "Object"
 	set name = "Toggle Gun Safety"
-	if(usr == loc)
+	if(has_safety && usr == loc)
 		toggle_safety(usr)
 
 /obj/item/gun/CtrlClick(var/mob/user)
-	if(user == loc)
+	if(has_safety && user == loc)
 		toggle_safety(user)
 		return TRUE
 	. = ..()
