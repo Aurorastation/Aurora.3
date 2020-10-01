@@ -481,7 +481,7 @@
 
 	if(istype(M,/mob/living/carbon/human))
 		if(M.handcuffed)
-		var/cuffs = M.handcuffed
+			var/cuffs = M.handcuffed
 			M.u_equip(M.handcuffed)
 			qdel(cuffs)
 
