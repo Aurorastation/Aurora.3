@@ -29,6 +29,7 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 	var/amt_eye_blurry = 0
 
 	var/list/compatible_mobs = list()
+	var/list/blacklisted_mob_types
 
 
 /spell/targeted/choose_targets(mob/user = usr)
@@ -55,6 +56,8 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 			for(var/mob/living/M in starting_targets)
 				if(!(spell_flags & INCLUDEUSER) && M == user)
 					continue
+				if(length(blacklisted_mob_types) && is_type_in_list(M, blacklisted_mob_types))
+					continue
 				if(length(compatible_mobs) && !is_type_in_list(M, compatible_mobs))
 					continue
 				possible_targets += M
@@ -80,6 +83,8 @@ Targeted spells have two useful flags: INCLUDEUSER and SELECTABLE. These are exp
 
 		for(var/mob/living/target in starting_targets)
 			if(!(spell_flags & INCLUDEUSER) && target == user)
+				continue
+			if(length(blacklisted_mob_types) && is_type_in_list(target, blacklisted_mob_types))
 				continue
 			if(length(compatible_mobs) && !is_type_in_list(target, compatible_mobs))
 				continue
