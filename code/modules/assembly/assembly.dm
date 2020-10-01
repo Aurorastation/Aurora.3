@@ -103,7 +103,6 @@
 /obj/item/device/assembly/attack_self(mob/user)
 	if(!user)
 		return FALSE
-	user.set_machine(src)
 	interact(user)
 	return TRUE
 

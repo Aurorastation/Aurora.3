@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Updated assembly devices code and UIs. That includes signalers, timers, igniters, proximity sensors, infrared emitters, etc."
+  - bugfix: "Fixes various bugs with infrared emitters, they can now properly be rotated."
+  - bugfix: "Assemblies now properly disassemble without duplicating."
