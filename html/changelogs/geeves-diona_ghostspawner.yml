@@ -1,0 +1,10 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Imaginary Friend, Split Personality, and harvested diona pods now use the ghost spawner system instead of asking people in dchat directly."
+  - rscdel: "Ghost roles have been removed from the role listing in character setup, as this system is no longer being used."
+  - tweak: "Harvested diona now live for a minute out of the pod, instead of a couple of seconds."
+  - rscadd: "Ghosts can now click on to examine hydroponics pods."
+  - rscdel: "Deactivated maintenance drones can no longer be swiped to restart."

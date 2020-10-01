@@ -20,13 +20,14 @@
 
 /datum/brain_trauma/severe/split_personality/proc/make_backseats()
 	stranger_backseat = new(owner, src)
+	SSghostroles.add_spawn_atom("split_personality", stranger_backseat)
+	var/area/A = get_area(src)
+	if(A)
+		say_dead_direct("[owner] has gained a split personality in [A.name]! Spawn in as it by using the ghost spawner menu in the ghost tab.")
 	owner_backseat = new(owner, src)
 
 /datum/brain_trauma/severe/split_personality/proc/get_ghost()
-	set waitfor = FALSE
-	var/datum/ghosttrap/G = get_ghost_trap("split personality")
-	G.request_player(stranger_backseat, "Would you like to play as [owner]'s split personality?", 60 SECONDS)
-	addtimer(CALLBACK(src, .proc/reset_search), 60 SECONDS)
+	return
 
 /datum/brain_trauma/severe/split_personality/proc/reset_search()
 	if(src.stranger_backseat && src.stranger_backseat.key)
@@ -46,6 +47,7 @@
 /datum/brain_trauma/severe/split_personality/on_lose()
 	if(current_controller != OWNER) //it would be funny to cure a guy only to be left with the other personality, but it seems too cruel
 		switch_personalities()
+	SSghostroles.remove_spawn_atom("split_personality", stranger_backseat)
 	QDEL_NULL(stranger_backseat)
 	QDEL_NULL(owner_backseat)
 	..()
@@ -63,7 +65,7 @@
 		current_backseat = owner_backseat
 		free_backseat = stranger_backseat
 
-	log_game("[current_backseat]/([current_backseat.ckey]) assumed control of [owner]/([owner.ckey] due to [src]. (Original owner: [current_controller == OWNER ? owner.ckey : current_backseat.ckey])")
+	log_game("[current_backseat]/([current_backseat.ckey]) assumed control of [owner]/([owner.ckey]) due to [src]. (Original owner: [current_controller == OWNER ? owner.ckey : current_backseat.ckey])")
 	to_chat(owner, "<span class='danger'>You feel your control being taken away... your other personality is in charge now!</span>")
 	to_chat(current_backseat, "<span class='danger'>You manage to take control of your body!</span>")
 
@@ -135,6 +137,18 @@
 
 	..()
 
+/mob/living/mental/split_personality/proc/spawn_into_personality(var/mob/user)
+	if(body.stat == DEAD)
+		to_chat(user, SPAN_WARNING("\The [body] is dead! You cannot be their split personality now."))
+		return
+	ckey = user.ckey
+	qdel(user)
+	SSghostroles.remove_spawn_atom("split_personality", src)
+
+/mob/living/mental/split_personality/Destroy()
+	SSghostroles.remove_spawn_atom("split_personality", src)
+	return ..()
+
 /mob/living/mental/split_personality/LateLogin()
 	..()
 	to_chat(src, "<span class='notice'>As a split personality, you cannot do anything but observe. However, you will eventually gain control of your body, switching places with the current personality.</span>")
@@ -178,14 +192,14 @@
 
 /datum/brain_trauma/severe/split_personality/brainwashing/make_backseats()
 	stranger_backseat = new /mob/living/mental/split_personality/traitor(owner, src, codeword, objective)
+	SSghostroles.add_spawn_atom("split_personality", stranger_backseat)
+	var/area/A = get_area(src)
+	if(A)
+		say_dead_direct("[owner] has gained a split personality in [A.name]! Spawn in as it by using the ghost spawner menu in the ghost tab.")
 	owner_backseat = new(owner, src)
 
-
 /datum/brain_trauma/severe/split_personality/brainwashing/get_ghost()
-	set waitfor = FALSE
-	var/datum/ghosttrap/G = get_ghost_trap("split personality")
-	G.request_player(stranger_backseat, "Would you like to play as [owner]'s split personality?", 60 SECONDS)
-	addtimer(CALLBACK(src, .proc/reset_search), 60 SECONDS)
+	return
 
 /datum/brain_trauma/severe/split_personality/brainwashing/on_life()
 	return //no random switching

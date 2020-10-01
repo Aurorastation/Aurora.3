@@ -47,3 +47,8 @@
 
 	to_chat(src, "Walking speed has now been limited to [newspeed] tiles per second, which is [(newspeed/speed)*100]% of your normal walking speed.")
 	src.min_walk_delay = (10 / newspeed)
+
+/mob/living/proc/spawn_into_living(var/mob/user, var/key)
+	ckey = user.ckey
+	qdel(user)
+	SSghostroles.remove_spawn_atom(key, src)

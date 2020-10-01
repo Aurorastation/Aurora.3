@@ -10,7 +10,6 @@
 /datum/brain_trauma/special/imaginary_friend/on_gain()
 	..()
 	make_friend()
-	get_ghost()
 
 /datum/brain_trauma/special/imaginary_friend/on_life()
 	if(get_dist(owner, friend) > 9)
@@ -20,16 +19,15 @@
 
 /datum/brain_trauma/special/imaginary_friend/on_lose()
 	..()
+	SSghostroles.remove_spawn_atom("friend", friend)
 	QDEL_NULL(friend)
 
 /datum/brain_trauma/special/imaginary_friend/proc/make_friend()
 	friend = new(get_turf(src), src)
-
-/datum/brain_trauma/special/imaginary_friend/proc/get_ghost()
-	set waitfor = FALSE
-	var/datum/ghosttrap/G = get_ghost_trap("friend")
-	G.request_player(friend, "Would you like to play as [owner]'s imaginary friend?", 60 SECONDS)
-	addtimer(CALLBACK(src, .proc/reset_search), 60 SECONDS)
+	SSghostroles.add_spawn_atom("friend", friend)
+	var/area/A = get_area(src)
+	if(A)
+		say_dead_direct("[owner] has gained an imaginary friend in [A.name]! Spawn in as it by using the ghost spawner menu in the ghost tab.")
 
 /datum/brain_trauma/special/imaginary_friend/proc/reset_search()
 	if(src.friend && src.friend.key)
@@ -87,11 +85,20 @@
 		client.images |= current_image
 
 /mob/abstract/mental/friend/Destroy()
+	SSghostroles.remove_spawn_atom("friend", src)
 	if(owner.client)
 		owner.client.images.Remove(human_image)
 	if(client)
 		client.images.Remove(human_image)
 	return ..()
+
+/mob/abstract/mental/friend/proc/spawn_into_friend(var/mob/user)
+	if(owner.stat == DEAD)
+		to_chat(user, SPAN_WARNING("\The [owner] is dead! You cannot be their friend now."))
+		return
+	ckey = user.ckey
+	qdel(user)
+	SSghostroles.remove_spawn_atom("friend", src)
 
 /mob/abstract/mental/friend/proc/yank()
 	if(!client) //don't bother the user with a braindead ghost every few steps

@@ -151,17 +151,23 @@
 	return ..()
 
 /obj/machinery/portable_atmospherics/hydroponics/attack_ghost(var/mob/abstract/observer/user)
+	..()
+	if(!harvest)
+		to_chat(user, SPAN_WARNING("\The [src]'s plant isn't ready to harvest yet."))
+		return
 
 	if(!(harvest && seed && seed.has_mob_product))
 		return
 
-	var/datum/ghosttrap/plant/G = get_ghost_trap("living plant")
-	if(!G.assess_candidate(user))
+	if(!user.MayRespawn(TRUE, RESPAWN_ANIMAL))
 		return
+	if(jobban_isbanned(user, "Dionaea"))
+		to_chat(user, SPAN_WARNING("You are banned from playing Dionae and other living plants!"))
+		return
+
 	var/response = alert(user, "Are you sure you want to harvest this [seed.display_name]?", "Living plant request", "Yes", "No")
 	if(response == "Yes")
 		harvest()
-	return
 
 /obj/machinery/portable_atmospherics/hydroponics/attack_generic(var/mob/user)
 

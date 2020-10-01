@@ -224,17 +224,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] is hermetically sealed. You can't open the case."))
 		return
 	else if(istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
-		if(stat == DEAD)
-			if(!config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
-				to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
-				return
-			if(!allowed(usr))
-				to_chat(user, SPAN_WARNING("Access denied."))
-				return
-			user.visible_message(SPAN_NOTICE("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src], attempting to reboot it."), SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
-			request_player()
-			return
-		else
+		if(stat != DEAD)
 			user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src], attempting to shut it down."), SPAN_WARNING("You swipe your ID card through \the [src], attempting to shut it down."))
 			if(emagged)
 				return
@@ -359,14 +349,6 @@
 	clear_inherent_laws(1)
 	clear_ion_laws(1)
 	laws = new law_type
-
-//Reboot procs.
-
-/mob/living/silicon/robot/drone/proc/request_player()
-	if(too_many_active_drones())
-		return
-	var/datum/ghosttrap/G = get_ghost_trap("maintenance drone")
-	G.request_player(src, "Someone is attempting to reboot a maintenance drone.", 30 SECONDS)
 
 /mob/living/silicon/robot/drone/proc/transfer_personality(var/client/player)
 	if(!player)

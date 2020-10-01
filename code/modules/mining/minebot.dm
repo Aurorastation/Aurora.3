@@ -59,7 +59,7 @@
 	flavor_text = "It's a tiny little mining drone. The casing is stamped with an corporate logo and the subscript: '[current_map.company_name] Automated Pickaxe!'"
 	playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 0)
 
-/mob/living/silicon/robot/drone/mining/request_player()
+/mob/living/silicon/robot/drone/mining/proc/request_player()
 	if(too_many_active_drones())
 		return
 	seeking_player = TRUE

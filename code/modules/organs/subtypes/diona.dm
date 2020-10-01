@@ -8,11 +8,11 @@
 
 /turf/proc/create_diona_nymph()
 	var/mob/living/carbon/alien/diona/D = new(src)
-	var/datum/ghosttrap/plant/P = get_ghost_trap("living plant")
-	P.request_player(D, "A diona nymph has split off from its gestalt. ")
+	SSghostroles.add_spawn_atom("living_plant", D)
 	sleep(120)
 	if(D)
 		if(!D.ckey || !D.client)
+			SSghostroles.remove_spawn_atom("living_plant", D)
 			D.death()
 
 //Probable future TODO: Refactor diona organs to be /obj/item/organ/external/bodypart/diona
