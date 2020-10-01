@@ -2,7 +2,7 @@
 
 /datum/reagent/inaprovaline
 	name = "Inaprovaline"
-	description = "Inaprovaline is a cardiostimulant which stabilises myocardial contractility, working towards maintaining a steady pulse and blood pressure. Inaprovaline also acts as a weak analgesic"
+	description = "Inaprovaline is a cardiostimulant which stabilises myocardial contractility, working towards maintaining a steady pulse and blood pressure. Inaprovaline also acts as a weak analgesic."
 	reagent_state = LIQUID
 	color = "#00BFFF"
 	overdose = REAGENTS_OVERDOSE
