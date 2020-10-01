@@ -275,14 +275,6 @@ var/list/world_api_rate_limit = list()
 
 	time_stamped = 1
 
-/hook/startup/proc/initialize_greeting()
-	world.initialize_greeting()
-	return 1
-
-/world/proc/initialize_greeting()
-	server_greeting = new()
-
-
 /proc/load_configuration()
 	config = new /datum/configuration()
 	config.load("config/config.txt")

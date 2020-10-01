@@ -103,6 +103,7 @@
 		var/obj/item/ammo_casing/first_round = ammo[1]
 		name = "[first_round.caliber] pile"
 		desc = "A pile of [first_round.caliber] rounds."
+		ammo_type = first_round.type
 		max_ammo = first_round.max_stack
 
 /obj/item/ammo_pile/proc/get_next_ammo() //Returns the next shell to be used.
@@ -139,6 +140,9 @@
 	if(ismob(bullet.loc))
 		var/mob/gunman = bullet.loc
 		gunman.drop_from_inventory(bullet, src)
+	if(istype(bullet.loc, /obj/item/storage))
+		var/obj/item/storage/S = bullet.loc
+		S.remove_from_storage(bullet, src)
 	bullet.forceMove(src)
 	ammo += bullet
 	var/image/ammo_picture = image(bullet.icon, bullet.icon_state, dir = pick(alldirs))

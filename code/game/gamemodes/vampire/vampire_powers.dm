@@ -799,7 +799,7 @@
 				probability = 80
 
 			if (prob(probability))
-				to_chat(T, "<font color='green'><i>[pick(emotes)]</i></font>")
+				to_chat(T, "<span class='good'><i>[pick(emotes)]</i></span>")
 
 		vampire.use_blood(5)
 

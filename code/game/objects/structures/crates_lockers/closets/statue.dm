@@ -13,8 +13,8 @@
 	desc = "An incredibly lifelike marble carving."
 	icon = 'icons/obj/statue.dmi'
 	icon_state = "human_male"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	health = 0 //destroying the statue kills the mob within
 	var/timer = 90 //eventually the person will be freed
 	var/mob/statue_mob/imprisoned = null //the temporary mob that is created when someone is put inside a statue
@@ -28,7 +28,6 @@
 	return ..()
 
 /obj/structure/closet/statue/Initialize(mapload, mob/living/L)
-
 	if(isliving(L))
 		if(L.buckled)
 			L.buckled = 0
@@ -82,6 +81,9 @@
 		dump_contents()
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
+
+/obj/structure/closet/statue/content_info()
+	return
 
 /obj/structure/closet/statue/dump_contents()
 

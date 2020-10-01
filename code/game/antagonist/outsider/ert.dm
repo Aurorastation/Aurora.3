@@ -6,6 +6,7 @@ var/datum/antagonist/ert/ert
 	role_text = "Emergency Responder"
 	role_text_plural = "Emergency Responders"
 	welcome_text = "As a member of your Emergency Response Team, you answer to your leader."
+	antag_sound = 'sound/effects/antag_notice/general_goodie_alert.ogg'
 	landmark_id = "Response Team"
 
 	id_type = /obj/item/card/id/ert

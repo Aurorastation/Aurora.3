@@ -1170,7 +1170,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	new /obj/item/fluff/yarn/yellow(src)
 
 
-/obj/item/clothing/suit/fluff/eri_robes //Senior Alchemist Robes - Eri Akhandi - paradoxspace
+/obj/item/clothing/suit/fluff/eri_robes //Senior Alchemist Robes - Eri Akhandi - snakebittenn
 	name = "senior alchemist robes"
 	desc = "A green set of robes, trimmed with what appears to be real gold. Looking at the necklace, you can see the alchemical symbol for the Philosopher's Stone, made of ruby."
 	icon = 'icons/obj/custom_items/eri_robes.dmi'
@@ -1324,7 +1324,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	body_parts_covered = HEAD|FACE|EYES
 
 
-/obj/item/clothing/accessory/fluff/krin_shirt //Skull Shirt - Krin Volqux - paradoxspace
+/obj/item/clothing/accessory/fluff/krin_shirt //Skull Shirt - Krin Volqux - snakebittenn
 	name = "skull shirt"
 	desc = "A shirt carrying the familiar skeletal logo of the Skrellian punk band \"GLORSH YOU ASSHOLE\" This appears to be for their 2461 \"Tri-Qyu Express\" tour."
 	icon = 'icons/obj/custom_items/krin_clothing.dmi'
@@ -1332,7 +1332,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "krin_shirt"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/storage/fluff/krin_jacket //Polychromatic Jacket - Krin Volqux - paradoxspace
+/obj/item/clothing/suit/storage/fluff/krin_jacket //Polychromatic Jacket - Krin Volqux - snakebittenn
 	name = "polychromatic jacket"
 	desc = "What appears to be a modified canvas jacket, covered in small polychromatic patches and aftermarket spikes in holo colors, changing often. The keen eye can spot a \"Fourth Incident\" patch on the chest."
 	icon = 'icons/obj/custom_items/krin_clothing.dmi'
@@ -1340,7 +1340,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "krin_jacket"
 	contained_sprite = TRUE
 
-/obj/item/clothing/shoes/fluff/krin_shoes //Knee-high High-tops - Krin Volqux - paradoxspace
+/obj/item/clothing/shoes/fluff/krin_shoes //Knee-high High-tops - Krin Volqux - snakebittenn
 	name = "knee-high high-tops"
 	desc = "These highest-tops stretch all the way up to the knees and then some. Drawn on the side in small Skrellian print is \"High tech, low life.\""
 	icon = 'icons/obj/custom_items/krin_clothing.dmi'
@@ -1348,7 +1348,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "krin_shoes"
 	contained_sprite = TRUE
 
-/obj/item/storage/backpack/fluff/krin_bag //Broken Pack - Krin Volqux - paradoxspace
+/obj/item/storage/backpack/fluff/krin_bag //Broken Pack - Krin Volqux - snakebittenn
 	name = "broken pack"
 	desc = "What appears to be a technologically-advanced backpack, the electronics are fried from a distant malfunction. It smells like a disposals track. \
 	A small \"Original Conglomerate\" patch has been applied to the strap, a popular moisturewave Idol group. It reads \"Not Dead Yet.\" next to a Neaera in a spacesuit."
@@ -1358,7 +1358,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 
 
-/obj/item/clothing/under/fluff/mira_uniform //Mira's Cloth Undersuit - Mira Akhandi - drwago
+/obj/item/clothing/under/fluff/mira_uniform //Mira's Cloth Undersuit - Mira Akhandi - ladyfowl
 	name = "dark clothes"
 	desc = "A set of dark under clothing, loosely fitting. The initials /M.A./ are stitched into the collar."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
@@ -1413,7 +1413,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		item_state = initial(item_state)
 	update_clothing_icon()
 
-/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mira_robes //Junior Alchemist Robes - Mira Akhandi - drwago
+/obj/item/clothing/suit/storage/toggle/labcoat/fluff/mira_robes //Junior Alchemist Robes - Mira Akhandi - ladyfowl
 	name = "junior alchemist robes"
 	desc = "A  robe with a light silky gold colored belt around the waist. Placed upon the print is two red jewels pinned to it neatly."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
@@ -1421,7 +1421,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "mira_robes"
 	contained_sprite = TRUE
 
-/obj/item/clothing/shoes/fluff/mira_boots //Mira Boots - Mira Akhandi - drwago
+/obj/item/clothing/shoes/fluff/mira_boots //Mira Boots - Mira Akhandi - ladyfowl
 	name = "dark boots"
 	desc = "A pair of black boots with tall laces."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
@@ -1429,7 +1429,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "mira_boots"
 	contained_sprite = TRUE
 
-/obj/item/clothing/under/fluff/mira_skirt //Mira's Skirt - Mira Akhandi - drwago
+/obj/item/clothing/under/fluff/mira_skirt //Mira's Skirt - Mira Akhandi - ladyfowl
 	name = "suspended skirt"
 	desc = "A plaid skirt with suspenders, sewed into the side is the initials \"M.A.\"."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
@@ -1437,19 +1437,19 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "mira_skirt"
 	contained_sprite = TRUE
 
-/obj/item/reagent_containers/glass/beaker/fluff/mira_beaker //Alchemist Flask - Mira Akhandi - drwago
+/obj/item/reagent_containers/glass/beaker/fluff/mira_beaker //Alchemist Flask - Mira Akhandi - ladyfowl
 	name = "alchemist flask"
 	desc = "A large bottle used to mix chemicals inside."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
 	icon_state = "mira_beaker"
 
-/obj/item/storage/backpack/fluff/mira_bag //Burlap Alchemist Bag - Mira Akhandi - drwago
+/obj/item/storage/backpack/fluff/mira_bag //Burlap Alchemist Bag - Mira Akhandi - ladyfowl
 	name = "burlap bag"
 	desc = "A smallish burlup sack, modified to lug around belongings. Stiched into it is the letters '\"M.A.\"."
 	icon_state = "giftbag0"
 	item_state = "giftbag0"
 
-/obj/item/clothing/suit/fluff/mira_vest //Cut-off Vest - Mira Akhandi - drwago
+/obj/item/clothing/suit/fluff/mira_vest //Cut-off Vest - Mira Akhandi - ladyfowl
 	name = "cut-off vest"
 	desc = "A short grey puffer vest."
 	icon = 'icons/obj/custom_items/mira_clothing.dmi'
@@ -1947,7 +1947,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "djikstra_robe"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	contained_sprite = TRUE
-	valid_accessory_slots = list("decor")
 
 /obj/item/clothing/accessory/fluff/djikstra_blade //Symbolic Khanjbiya - Msizi Djikstra - happyfox
 	name = "symbolic khanjbiya"
@@ -2065,7 +2064,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "ioraks_armband2"
 
 
-/obj/item/clothing/accessory/poncho/fluff/solozel_mantle //Maraziite Throw Over - Kasluul Solozel - paradoxspace
+/obj/item/clothing/accessory/poncho/fluff/solozel_mantle //Maraziite Throw Over - Kasluul Solozel - snakebittenn
 	name = "maraziite throw over"
 	desc = "It's a grey poncho, exclusively donned by the members of the Maraziite Order. This one has a Izweski Hegemony flag boldly sewn onto the shoulder."
 	icon = 'icons/obj/custom_items/solozel_items.dmi'
@@ -2074,7 +2073,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	icon_override = FALSE
 
-/obj/item/clothing/mask/fluff/solozel_mask //Iron Mask - Kasluul Solozel - paradoxspace
+/obj/item/clothing/mask/fluff/solozel_mask //Iron Mask - Kasluul Solozel - snakebittenn
 	name = "iron mask"
 	desc = "It's a painted mask of white cast iron, decorated with two massive Hegeranzi horns. This is a slightly older design, worn by the members of the Maraziite Order; used to strike fear into the hearts of heretics."
 	icon = 'icons/obj/custom_items/solozel_items.dmi'
@@ -2163,7 +2162,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = FALSE
 
 
-/obj/item/clothing/suit/storage/fluff/ulmari_coat //Aut'akh Medical Coat - Optikam Ulmari - soultheif96
+/obj/item/clothing/suit/storage/fluff/ulmari_coat //Aut'akh Medical Coat - Ulmari Jukal'za - soultheif96
 	name = "aut'akh medical coat"
 	desc = "A custom-made tailored coat for use in a laboratory/medical setting."
 	icon = 'icons/obj/custom_items/ulmari_coat.dmi'
@@ -2333,3 +2332,52 @@ All custom items with worn sprites must follow the contained sprite system: http
 		/obj/item/fluff/akinyi_stand = 1,
 		/obj/item/fluff/akinyi_symphette = 1
 	)
+
+/obj/item/clothing/head/det/fluff/bell_hat //Brown Hat - Avery Bell - serveris6
+	name = "brown hat"
+	desc = "A worn mid 20th century brown hat. It seems to have aged very well."
+	icon = 'icons/obj/custom_items/bell_coat.dmi'
+	icon_state = "bell_hat"
+	item_state = "bell_hat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/det_trench/fluff/bell_coat //Pinned Brown Coat - Avery Bell - serveris6
+	name = "pinned brown coat"
+	desc = "A worn mid 20th century brown trenchcoat. If you look closely at the breast, you can see an ID flap stitched into the leather - \"Avery Bell, Silhouette Co\"."
+	icon = 'icons/obj/custom_items/bell_coat.dmi'
+	icon_state = "bell_coat"
+	item_state = "bell_coat"
+	contained_sprite = TRUE
+	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,
+	/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder, /obj/item/clothing/accessory/badge/fluff/bell_badge)
+
+/obj/item/clothing/accessory/badge/fluff/bell_badge //Detective's Credentials - Avery Bell - serveris6
+	name = "detective's credentials"
+	desc = "A laminated card, verifying the denoted as a private investigator licensed in Biesel. A photo of a tan-skinned human male dressed in a brown coat and hat is imprinted."
+	icon = 'icons/obj/custom_items/bell_coat.dmi'
+	icon_state = "bell_badge"
+	item_state = "bell_badge"
+	contained_sprite = TRUE
+	stored_name = "Avery Bell"
+	badge_string = "Silhouette Co. Consulting Detective"
+
+	var/investigator = "Avery Bell"
+	var/occupation = "Consulting Detective"
+	var/birth_year = "8/8/2426"
+	var/licensed_systems = "Republic of Biesel, Sol Alliance, Nralakk"
+	var/supplementary_endorsements = "Licensed Medical Examiner; Sol Alliance, Republic of Biesel - Concealed firearm carry; Sol Alliance, Republic of Biesel"
+	var/citizenship = "Republic of Biesel"
+
+/obj/item/clothing/accessory/badge/fluff/bell_badge/verb/read()
+	set name = "Review credentials"
+	set category = "Object"
+	set src in usr
+
+	to_chat(usr, "\icon[] []: The detective's credentials show:")
+	to_chat(usr, "The investigator registered to the credentials is [investigator].")
+	to_chat(usr, "The assignment registered on the card is [occupation].")
+	to_chat(usr, "The birth date on the card displays [birth_year].")
+	to_chat(usr, "The citizenship registered on the card is [citizenship].")
+	to_chat(usr, "The systems that the credentials show the user is licensed to investigate in are [licensed_systems].")
+	to_chat(usr, "Additional endorsements registered on the card show: [supplementary_endorsements].")
+	return

@@ -240,7 +240,7 @@
 		return
 	..()
 
-	log_and_message_admins("has [open ? "<font color='red'>OPENED</font>" : "closed"] [name].", user)
+	log_and_message_admins("has [open ? "<span class='warning'>OPENED</span>" : "closed"] [name].", user)
 
 /obj/machinery/atmospherics/valve/digital/AltClick(var/mob/abstract/observer/admin)
 	if (istype(admin))

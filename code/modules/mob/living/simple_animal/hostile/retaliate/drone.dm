@@ -95,7 +95,7 @@
 
 	//repair a bit of damage
 	if(prob(1))
-		src.visible_message(SPAN_ALERT("\The [src] shudders and shakes as some of its damaged systems come back online."))
+		src.visible_message(SPAN_WARNING("\The [src] shudders and shakes as some of its damaged systems come back online."))
 		spark(src, 3, alldirs)
 		health += rand(25,100)
 
@@ -109,7 +109,7 @@
 			src.visible_message(SPAN_NOTICE("\The [src] retracts several targetting vanes, and dulls its running lights."))
 			hostile_drone = 0
 		else
-			src.visible_message(SPAN_ALERT("\The [src] suddenly lights up, and additional targetting vanes slide into place."))
+			src.visible_message(SPAN_WARNING("\The [src] suddenly lights up, and additional targetting vanes slide into place."))
 			hostile_drone = 1
 
 	if(health / maxHealth > 0.9)
@@ -138,9 +138,9 @@
 
 	if(exploding && prob(20))
 		if(prob(50))
-			src.visible_message(SPAN_ALERT("\The [src] begins to spark and shake violenty!"))
+			src.visible_message(SPAN_WARNING("\The [src] begins to spark and shake violenty!"))
 		else
-			src.visible_message(SPAN_ALERT("\The [src] sparks and shakes like it's about to explode!"))
+			src.visible_message(SPAN_WARNING("\The [src] sparks and shakes like it's about to explode!"))
 
 		spark(src, 3, alldirs)
 
