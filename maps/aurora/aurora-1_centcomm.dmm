@@ -14178,9 +14178,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
 "aVX" = (
-/obj/machinery/iv_drip{
-	density = 0
-	},
+/obj/machinery/iv_drip,
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape)
 "aVZ" = (
@@ -35252,10 +35250,10 @@
 /area/shuttle/burglar)
 "teX" = (
 /obj/machinery/computer/security/telescreen{
-	desc = "Connects to a station's emergency camera networks after the station sends out a distress signal.";
+	desc = "Connects to the TCFL camera network, as well any station's emergency camera networks that are currently outputting a distress signal.";
 	layer = 4;
 	name = "Emergency Dock Uplink";
-	network = list("Emergency Dock");
+	network = list("TCFL","Emergency Dock");
 	pixel_y = 28
 	},
 /obj/structure/bed/chair/office/bridge/pilot,

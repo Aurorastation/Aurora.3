@@ -15,9 +15,36 @@
 	max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
 	w_class = ITEMSIZE_NORMAL
+	var/obj/machinery/camera/camera
 	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
+
+/obj/item/clothing/head/helmet/Initialize()
+	. = ..()
+	if(camera)
+		verbs += /obj/item/clothing/head/helmet/proc/toggle_camera
+
+/obj/item/clothing/head/helmet/proc/toggle_camera()
+	set name = "Toggle Helmet Camera"
+	set category = "Object"
+	set src in usr
+
+	if(ispath(camera))
+		camera = new camera(src)
+		camera.set_status(0)
+
+	if(camera)
+		camera.set_status(!camera.status)
+		if(camera.status)
+			camera.c_tag = FindNameFromID(usr)
+			to_chat(usr, "<span class='notice'>User scanned as [camera.c_tag]. Camera activated.</span>")
+		else
+			to_chat(usr, "<span class='notice'>Camera deactivated.</span>")
+
+/obj/item/clothing/head/helmet/space/examine(var/mob/user)
+	if(..(user, 1) && camera)
+		to_chat(user, "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active.")
 
 /obj/item/clothing/head/helmet/verb/toggle_block_hair()
 	set name = "Toggle Helmet Hair Coverage"
@@ -282,6 +309,7 @@
 	light_overlay = "helmet_light_dual"
 	brightness_on = 6
 	light_wedge = LIGHT_WIDE
+	camera = /obj/machinery/camera/network/tcfl
 	on = 0
 
 /obj/item/clothing/head/helmet/legion_pilot
@@ -291,6 +319,7 @@
 	body_parts_covered = null
 	flags_inv = BLOCKHEADHAIR
 	armor = list(melee = 40, bullet = 20, laser = 20, energy = 10, bomb = 40, bio = 0, rad = 0)
+	camera = /obj/machinery/camera/network/tcfl
 	siemens_coefficient = 0.35
 	action_button_name = "Flip Pilot Visor"
 
