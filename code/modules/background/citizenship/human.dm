@@ -6,6 +6,13 @@
 	unrest and gridlock undermine the government, and the aggressive attitude of the Sol Alliance against its former system has made many worried for the future of the Republic."
 	consular_outfit = /datum/outfit/job/representative/consular/ceti
 
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR
+		)
+	)
+
 /datum/citizenship/tau_ceti/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
 
@@ -44,6 +51,27 @@
 	colonies and its control over the Sol system and Earth. In recent times, however, Sol Alliance has been failing to hold its grip, and many believe it to be in a state of decline. \
 	It is generally authoritarian, and many aliens here find themselves discriminated against."
 	consular_outfit = /datum/outfit/job/representative/consular/sol
+
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_SKRELL,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR
+		)
+	)
 
 /datum/citizenship/sol_alliance/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
@@ -87,6 +115,17 @@
 	tightly-knit. Almost anything and anyone can be found in these wild, mostly uncharted lands. "
 	demonym = "frontiersman"
 
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR
+		)
+	)
+
 /datum/citizenship/elyra
 	name = CITIZENSHIP_ELYRA
 	description = "The Republic of Elyra, or its more official name, The Serene Republic of Elyra, was formed during a large scale colonization and emigration effort from south \
@@ -103,6 +142,24 @@
 	known as the Mor'iz'al. All citizens are born with the Mor'iz'al debt in exchange for the privileges of citizenship, a debt that takes a lifetime or more to pay off. \
 	Indebted citizens are known as Ma'zals, forming the massive underclass in Dominia. Many in the Empire follow a strict code of honor."
 	consular_outfit = /datum/outfit/job/representative/consular/dominia
+
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR
+		)
+	)
 
 /datum/citizenship/dominia/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives

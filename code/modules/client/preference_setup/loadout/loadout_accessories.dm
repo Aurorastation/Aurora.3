@@ -56,7 +56,7 @@
 /datum/gear/accessory/holster
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
-	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet", "Corporate Liaison")
+	allowed_roles = list("Captain", "Head of Personnel", "Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet", "Corporate Liaison", "Consular Officer")
 
 /datum/gear/accessory/holster/New()
 	..()
@@ -273,3 +273,17 @@
 	display_name = "europan bone charm"
 	path = /obj/item/clothing/accessory/whalebone
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/gadpathur
+	display_name = "gadpathurian cadre brassard selection"
+	description = "A selection of cadre brassards from Gadpathur."
+	path = /obj/item/clothing/accessory/armband/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/gadpathur/New()
+	..()
+	var/gadpathur = list()
+	gadpathur["cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur
+	gadpathur["industrial cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur/ind
+	gadpathur["medical cadre brassard"] = /obj/item/clothing/accessory/armband/gadpathur/med
+	gear_tweaks += new/datum/gear_tweak/path(gadpathur)

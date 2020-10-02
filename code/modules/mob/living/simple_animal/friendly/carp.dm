@@ -21,6 +21,8 @@
 	response_disarm = "attempts to push"
 	response_harm = "injures"
 	gender = NEUTER
+	faction = "carp"
+	flying = TRUE
 
 	//Space carp aren't affected by atmos.
 	min_oxy = 0

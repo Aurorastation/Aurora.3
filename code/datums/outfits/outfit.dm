@@ -19,6 +19,7 @@
 	var/r_pocket = null
 	var/suit_store = null
 	var/accessory = null
+	var/suit_accessory = null
 
 	//The following vars must be paths
 	var/l_hand = null
@@ -39,6 +40,7 @@
 	var/list/accessory_contents = list()
 	var/list/belt_contents = list() //In the list(path=count,otherpath=count) format
 	var/list/implants = null //A list of implants that should be implanted
+	var/list/spells = list() // A list of spells to grant
 
 /datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overriden for customization depending on client prefs,species etc
@@ -89,7 +91,7 @@
 	else
 		H.equip_to_slot_or_del(I, slot)
 
-/datum/outfit/proc/equip_accessory(mob/living/carbon/human/H, visualsOnly = FALSE)
+/datum/outfit/proc/equip_uniform_accessory(mob/living/carbon/human/H)
 	if(!H)
 		return
 
@@ -114,6 +116,15 @@
 			if(W)
 				holster.holster(W, H)
 
+/datum/outfit/proc/equip_suit_accessory(mob/living/carbon/human/H)
+	if(!H)
+		return
+
+	var/obj/item/clothing/suit/S = H.get_equipped_item(slot_wear_suit)
+	if(S)
+		var/obj/item/clothing/accessory/A = new suit_accessory
+		S.attach_accessory(H, A)
+
 /datum/outfit/proc/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overriden for changing items post equip (such as toggeling internals, ...)
 
@@ -124,9 +135,11 @@
 	if(uniform)
 		equip_item(H, uniform, slot_w_uniform)
 		if(accessory)
-			equip_accessory(H)
+			equip_uniform_accessory(H)
 	if(suit)
 		equip_item(H, suit, slot_wear_suit)
+		if(suit_accessory)
+			equip_suit_accessory(H)
 	if(belt)
 		equip_item(H, belt, slot_belt)
 	if(gloves)
@@ -198,6 +211,14 @@
 					var/obj/item/organ/external/affected = H.get_organ(BP_HEAD)
 					affected.implants += I
 					I.part = affected
+
+		if(spells)
+			for(var/spell in spells)
+				var/spell/new_spell = new spell
+				H.add_spell(new_spell)
+				if(spells[spell] > 1)
+					for(var/i = 1 to spells[spell])
+						new_spell.empower_spell()
 
 	H.update_body()
 	return 1

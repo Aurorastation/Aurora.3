@@ -47,6 +47,7 @@
 	new /obj/item/storage/box/firingpinsRD(src)
 	new /obj/item/device/pin_extractor(src)
 	new /obj/item/storage/box/fancy/keypouch/sci(src)
+	new /obj/item/storage/box/tethers(src)
 
 /obj/structure/closet/secure_closet/RD2
 	name = "research director's attire"

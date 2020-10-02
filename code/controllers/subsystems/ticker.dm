@@ -244,22 +244,22 @@ var/datum/controller/subsystem/ticker/SSticker
 				var/turf/playerTurf = get_turf(Player)
 				if(emergency_shuttle.departed && emergency_shuttle.evac)
 					if(isNotAdminLevel(playerTurf.z))
-						to_chat(Player, "<font color='blue'><b>You managed to survive, but were marooned on [station_name()] as [Player.real_name]...</b></font>")
+						to_chat(Player, "<span class='notice'><b>You managed to survive, but were marooned on [station_name()] as [Player.real_name]...</b></span>")
 					else
-						to_chat(Player, "<font color='green'><b>You managed to survive the events on [station_name()] as [Player.real_name].</b></font>")
+						to_chat(Player, "<span class='good'><b>You managed to survive the events on [station_name()] as [Player.real_name].</b></span>")
 				else if(isAdminLevel(playerTurf.z))
-					to_chat(Player, "<font color='green'><b>You successfully underwent crew transfer after events on [station_name()] as [Player.real_name].</b></font>")
+					to_chat(Player, "<span class='good'><b>You successfully underwent crew transfer after events on [station_name()] as [Player.real_name].</b></span>")
 				else if(issilicon(Player))
-					to_chat(Player, "<font color='green'><b>You remain operational after the events on [station_name()] as [Player.real_name].</b></font>")
+					to_chat(Player, "<span class='good'><b>You remain operational after the events on [station_name()] as [Player.real_name].</b></span>")
 				else
-					to_chat(Player, "<font color='blue'><b>You missed the crew transfer after the events on [station_name()] as [Player.real_name].</b></font>")
+					to_chat(Player, "<span class='notice'><b>You missed the crew transfer after the events on [station_name()] as [Player.real_name].</b></span>")
 			else
 				if(istype(Player,/mob/abstract/observer))
 					var/mob/abstract/observer/O = Player
 					if(!O.started_as_observer)
-						to_chat(Player, "<font color='red'><b>You did not survive the events on [station_name()]...</b></font>")
+						to_chat(Player, "<span class='warning'><b>You did not survive the events on [station_name()]...</b></span>")
 				else
-					to_chat(Player, "<font color='red'><b>You did not survive the events on [station_name()]...</b></font>")
+					to_chat(Player, "<span class='warning'><b>You did not survive the events on [station_name()]...</b></span>")
 	to_world("<br>")
 
 	for (var/mob/living/silicon/ai/aiPlayer in mob_list)
@@ -331,8 +331,8 @@ var/datum/controller/subsystem/ticker/SSticker
 			m = pick(randomtips)
 
 	if(m)
-		to_world("<font color='purple'><b>Tip of the round: \
-			</b>[html_encode(m)]</font>")
+		to_world("<span class='vote'><b>Tip of the round: \
+			</b>[html_encode(m)]</span>")
 
 /datum/controller/subsystem/ticker/proc/print_testmerges()
 	var/data = revdata.testmerge_overview()
@@ -360,7 +360,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			pregame_timeleft = dynamic_time
 			log_debug("SSticker: dynamic set pregame time [dynamic_time]s was greater than configured autogamemode time, not clamping.")
 
-	to_world("<B><FONT color='blue'>Welcome to the pre-game lobby!</FONT></B>")
+	to_world("<B><span class='notice'>Welcome to the pre-game lobby!</span></B>")
 	to_world("Please, setup your character and select ready. Game will start in [pregame_timeleft] seconds.")
 
 /datum/controller/subsystem/ticker/proc/setup()
@@ -472,8 +472,8 @@ var/datum/controller/subsystem/ticker/SSticker
 			//Deleting Startpoints but we need the ai point to AI-ize people later
 			if (S.name != "AI")
 				qdel(S)
-		to_world("<FONT color='blue'><B>Enjoy the game!</B></FONT>")
-		to_world(sound('sound/AI/welcome.ogg'))
+		to_world("<span class='notice'><B>Enjoy the game!</B></span>")
+		sound_to(world, sound('sound/AI/welcome.ogg'))
 		//Holiday Round-start stuff	~Carn
 		Holiday_Game_Start()
 
@@ -544,18 +544,18 @@ var/datum/controller/subsystem/ticker/SSticker
 				if("mercenary") //Nuke wasn't on station when it blew up
 					flick("intro_nuke",cinematic)
 					sleep(35)
-					to_world(sound('sound/effects/explosionfar.ogg'))
+					sound_to(world, sound('sound/effects/explosionfar.ogg'))
 					flick("station_intact_fade_red",cinematic)
 					cinematic.icon_state = "summary_nukefail"
 				else
 					flick("intro_nuke",cinematic)
 					sleep(35)
-					to_world(sound('sound/effects/explosionfar.ogg'))
+					sound_to(world, sound('sound/effects/explosionfar.ogg'))
 					//flick("end",cinematic)
 
 		if(2)	//nuke was nowhere nearby	//TODO: a really distant explosion animation
 			sleep(50)
-			to_world(sound('sound/effects/explosionfar.ogg'))
+			sound_to(world, sound('sound/effects/explosionfar.ogg'))
 
 		else	//station was destroyed
 			if( mode && !override )
@@ -565,25 +565,25 @@ var/datum/controller/subsystem/ticker/SSticker
 					flick("intro_nuke",cinematic)
 					sleep(35)
 					flick("station_explode_fade_red",cinematic)
-					to_world(sound('sound/effects/explosionfar.ogg'))
+					sound_to(world, sound('sound/effects/explosionfar.ogg'))
 					cinematic.icon_state = "summary_nukewin"
 				if("AI malfunction") //Malf (screen,explosion,summary)
 					flick("intro_malf",cinematic)
 					sleep(76)
 					flick("station_explode_fade_red",cinematic)
-					to_world(sound('sound/effects/explosionfar.ogg'))
+					sound_to(world, sound('sound/effects/explosionfar.ogg'))
 					cinematic.icon_state = "summary_malf"
 				if("blob") //Station nuked (nuke,explosion,summary)
 					flick("intro_nuke",cinematic)
 					sleep(35)
 					flick("station_explode_fade_red",cinematic)
-					to_world(sound('sound/effects/explosionfar.ogg'))
+					sound_to(world, sound('sound/effects/explosionfar.ogg'))
 					cinematic.icon_state = "summary_selfdes"
 				else //Station nuked (nuke,explosion,summary)
 					flick("intro_nuke",cinematic)
 					sleep(35)
 					flick("station_explode_fade_red", cinematic)
-					to_world(sound('sound/effects/explosionfar.ogg'))
+					sound_to(world, sound('sound/effects/explosionfar.ogg'))
 					cinematic.icon_state = "summary_selfdes"
 
 	//If its actually the end of the round, wait for it to end.

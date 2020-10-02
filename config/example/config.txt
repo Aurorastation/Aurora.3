@@ -129,6 +129,7 @@ PROBABILITY S CHANGELING 1
 PROBABILITY S CULT 1
 PROBABILITY S BURGLARS 1
 PROBABILITY S CONFLICT 1
+PROBABILITY S MAGISTAKE 1
 PROBABILITY S NINJA 1
 PROBABILITY S HEIST 1
 PROBABILITY S VAMPIRE 1
@@ -602,3 +603,9 @@ FAIL2TOPIC_ENABLED 0
 #FORUMUSER_API_URL
 ## The API key of the system.
 #FORUMUSER_API_KEY
+
+## External resource URL
+## Set the PRELOAD_RSC in code/__defines/_compile_options.dm to 0 to use this.
+## Must contain a .zip of the server's .rsc file. Must use HTTP (not secured).
+## Can contain multiple URLs which are then cycled through. Delimit them with a COMMA.
+#EXTERNAL_RSC_URLS http://one.tld/rsc.zip

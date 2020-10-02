@@ -139,9 +139,9 @@
 	pulse(1)
 
 	if(machine)
-		machine.visible_message("\icon[machine] [capitalize_first_letters(src.name)] beeps, \"<b>Beep beep!</b>\"")
+		machine.visible_message("[icon2html(machine, viewers(get_turf(machine)))] [capitalize_first_letters(src.name)] beeps, \"<b>Beep beep!</b>\"")
 	else if(!holder)
-		visible_message("\icon[src] [capitalize_first_letters(src.name)] beeps, \"<b>Beep beep!</b>\"")
+		visible_message("[icon2html(src, viewers(get_turf(src)))] [capitalize_first_letters(src.name)] beeps, \"<b>Beep beep!</b>\"")
 	return
 
 

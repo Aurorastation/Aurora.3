@@ -134,7 +134,7 @@
 			continue
 		if(self_message && M == src)
 			M.show_message(self_message, 1, blind_message, 2)
-		else if(M.see_invisible < invisibility)  // Cannot view the invisible, but you can hear it.
+		else if(is_invisible_to(M))  // Cannot view the invisible, but you can hear it.
 			if(blind_message)
 				M.show_message(blind_message, 2)
 		else
@@ -213,7 +213,8 @@
 	. = 0
 	if(istype(pulling, /obj/structure))
 		var/obj/structure/P = pulling
-		. += P.slowdown
+		if(P.buckled_mob || locate(/mob) in P.contents)
+			. += P.slowdown
 
 /mob/proc/Life()
 	return
@@ -301,8 +302,10 @@
 /mob/verb/examinate(atom/A as mob|obj|turf in view())
 	set name = "Examine"
 	set category = "IC"
+
 	if(!A)
 		return
+
 	if((is_blind(src) || usr.stat) && !isobserver(src))
 		to_chat(src, "<span class='notice'>Something is there but you can't see it.</span>")
 		return 1
@@ -437,16 +440,9 @@
 	if (flavor_text && flavor_text != "")
 		var/msg = replacetext(flavor_text, "\n", " ")
 		if(length(msg) <= 40)
-			return "<span class='notice'>[msg]</span>"
+			return "<span class='message linkify'>[msg]</span>"
 		else
-			return "<span class='notice'>[copytext_preserve_html(msg, 1, 37)]... <a href='byond://?src=\ref[src];flavor_more=1'>More...</a></span>"
-
-/*
-/mob/verb/help()
-	set name = "Help"
-	src << browse('html/help.html', "window=help")
-	return
-*/
+			return "<span class='message linkify'>[copytext_preserve_html(msg, 1, 37)]...</span> <a href='byond://?src=\ref[src];flavor_more=1'>More...</a>"
 
 /mob/verb/abandon_mob()
 	set name = "Respawn"
@@ -498,6 +494,78 @@
 	if(M.mind)
 		M.mind.reset()
 	return
+
+/client/verb/fix_chat()
+	set name = "Fix Chat"
+	set category = "OOC"
+	if (!chatOutput || !istype(chatOutput))
+		var/action = alert(src, "Invalid Chat Output data found!\nRecreate data?", "Wot?", "Recreate Chat Output data", "Cancel")
+		if (action != "Recreate Chat Output data")
+			return
+		chatOutput = new /datum/chatOutput(src)
+		chatOutput.start()
+		action = alert(src, "Goon chat reloading, wait a bit and tell me if it's fixed", "", "Fixed", "Nope")
+		if (action == "Fixed")
+			log_game("GOONCHAT: [key_name(src)] Had to fix their goonchat by re-creating the chatOutput datum")
+		else
+			chatOutput.load()
+			action = alert(src, "How about now? (give it a moment (it may also try to load twice))", "", "Yes", "No")
+			if (action == "Yes")
+				log_game("GOONCHAT: [key_name(src)] Had to fix their goonchat by re-creating the chatOutput datum and forcing a load()")
+			else
+				action = alert(src, "Welp, I'm all out of ideas. Try closing byond and reconnecting.\nWe could also disable fancy chat and re-enable oldchat", "", "Thanks anyways", "Switch to old chat")
+				if (action == "Switch to old chat")
+					winset(src, "output", "is-visible=true;is-disabled=false")
+					winset(src, "browseroutput", "is-visible=false")
+				log_game("GOONCHAT: [key_name(src)] Failed to fix their goonchat window after recreating the chatOutput and forcing a load()")
+
+	else if (chatOutput.loaded)
+		var/action = alert(src, "ChatOutput seems to be loaded\nDo you want me to force a reload, wiping the chat log or just refresh the chat window because it broke/went away?", "Hmmm", "Force Reload", "Refresh", "Cancel")
+		switch (action)
+			if ("Force Reload")
+				chatOutput.loaded = FALSE
+				chatOutput.start() //this is likely to fail since it asks , but we should try it anyways so we know.
+				action = alert(src, "Goon chat reloading, wait a bit and tell me if it's fixed", "", "Fixed", "Nope")
+				if (action == "Fixed")
+					log_game("GOONCHAT: [key_name(src)] Had to fix their goonchat by forcing a start()")
+				else
+					chatOutput.load()
+					action = alert(src, "How about now? (give it a moment (it may also try to load twice))", "", "Yes", "No")
+					if (action == "Yes")
+						log_game("GOONCHAT: [key_name(src)] Had to fix their goonchat by forcing a load()")
+					else
+						action = alert(src, "Welp, I'm all out of ideas. Try closing byond and reconnecting.", "", "Thanks anyways",)
+						log_game("GOONCHAT: [key_name(src)] Failed to fix their goonchat window forcing a start() and forcing a load()")
+
+			if ("Refresh")
+				chatOutput.showChat()
+				action = alert(src, "Goon chat refreshing, wait a bit and tell me if it's fixed", "", "Fixed", "Nope, force a reload")
+				if (action == "Fixed")
+					log_game("GOONCHAT: [key_name(src)] Had to fix their goonchat by forcing a show()")
+				else
+					chatOutput.loaded = FALSE
+					chatOutput.load()
+					action = alert(src, "How about now? (give it a moment)", "", "Yes", "No")
+					if (action == "Yes")
+						log_game("GOONCHAT: [key_name(src)] Had to fix their goonchat by forcing a load()")
+					else
+						action = alert(src, "Welp, I'm all out of ideas. Try closing byond and reconnecting.", "", "Thanks anyways")
+						log_game("GOONCHAT: [key_name(src)] Failed to fix their goonchat window forcing a show() and forcing a load()")
+		return
+
+	else
+		chatOutput.start()
+		var/action = alert(src, "Manually loading Chat, wait a bit and tell me if it's fixed", "", "Fixed", "Nope")
+		if (action == "Fixed")
+			log_game("GOONCHAT: [key_name(src)] Had to fix their goonchat by manually calling start()")
+		else
+			chatOutput.load()
+			alert(src, "How about now? (give it a moment (it may also try to load twice))", "", "Yes", "No")
+			if (action == "Yes")
+				log_game("GOONCHAT: [key_name(src)] Had to fix their goonchat by manually calling start() and forcing a load()")
+			else
+				action = alert(src, "Welp, I'm all out of ideas. Try closing byond and reconnecting.", "", "Thanks anyways")
+				log_game("GOONCHAT: [key_name(src)] Failed to fix their goonchat window after manually calling start() and forcing a load()")
 
 /client/verb/changes()
 	set name = "Changelog"
@@ -875,15 +943,17 @@
 	else if( lying != lying_prev )
 		update_icon()
 
+	update_vision_cone()
+
 	return canmove
 
 
-/mob/proc/facedir(var/ndir)
+/mob/proc/facedir(var/ndir, var/ignore_facing_dir = FALSE)
 	if(!canface() || (client && client.moving) || (client && world.time < client.move_delay))
 		return 0
-	set_dir(ndir)
+	set_dir(ndir, ignore_facing_dir)
 	if(buckled && buckled.buckle_movable)
-		buckled.set_dir(ndir)
+		buckled.set_dir(ndir, ignore_facing_dir)
 	if (client)//Fixing a ton of runtime errors that came from checking client vars on an NPC
 		client.move_delay += movement_delay()
 	return 1
@@ -995,20 +1065,16 @@
 
 /mob/proc/get_pressure_weakness()
 	return 1
-
-/mob/proc/flash_weak_pain()
-	flick("weak_pain", pain)
-
-/mob/living/carbon/human/flash_weak_pain()
-	if(can_feel_pain())
-		flick("weak_pain", pain)
-
 /mob/living/proc/flash_strong_pain()
 	return
 
 /mob/living/carbon/human/flash_strong_pain()
 	if(can_feel_pain())
-		flick("strong_pain", pain)
+		overlay_fullscreen("strong_pain", /obj/screen/fullscreen/strong_pain)
+		addtimer(CALLBACK(src, .proc/clear_strong_pain), 10, TIMER_UNIQUE)
+
+/mob/living/proc/clear_strong_pain()
+	clear_fullscreen("strong_pain", 10)
 
 /mob/proc/Jitter(amount)
 	jitteriness = max(jitteriness,amount,0)
@@ -1203,12 +1269,16 @@
 		set_dir(dir)
 		facing_dir = dir
 
-/mob/set_dir(ndir)
+/mob/set_dir(ndir, ignore_facing_dir = FALSE)
 	if(facing_dir)
-		if(!canface() || lying || buckled || restrained())
-			facing_dir = null
-		else if(dir != facing_dir)
-			return ..(facing_dir)
+		if(ignore_facing_dir && facing_dir != ndir)
+			set_face_dir(ndir)
+			return ..(ndir)
+		else
+			if(!canface() || lying || buckled || restrained())
+				facing_dir = null
+			else if(dir != facing_dir)
+				return ..(facing_dir)
 	else
 		return ..(ndir)
 
@@ -1272,6 +1342,9 @@
 	if(src.throw_icon)
 		src.throw_icon.icon_state = "act_throw_on"
 
+/mob/proc/is_invisible_to(var/mob/viewer)
+	return (!alpha || !mouse_opacity || viewer.see_invisible < invisibility || (viewer.client && (src in viewer.client.hidden_mobs)))
+
 //Admin helpers
 /mob/proc/wind_mob(var/mob/admin)
 	if (!admin)
@@ -1284,7 +1357,7 @@
 		return
 
 	SetWeakened(200)
-	visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='red'>[src] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</font>", "<font color='red'><b>You have been winded by a member of staff! Please stand by until they contact you!</b></font>")
+	visible_message("<span class='info'><b>OOC Information:</b></span> <span class='warning'>[src] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", "<span class='warning'><b>You have been winded by a member of staff! Please stand by until they contact you!</b></span>")
 	log_admin("[key_name(admin)] winded [key_name(src)]!",admin_key=key_name(admin),ckey=key_name(src))
 	message_admins("[key_name_admin(admin)] winded [key_name_admin(src)]!", 1)
 
@@ -1300,7 +1373,7 @@
 		return
 
 	SetWeakened(0)
-	visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='green'>[src] has been unwinded by a member of staff!</font>", "<font color='red'><b>You have been unwinded by a member of staff!</b></font>")
+	visible_message("<span class='info'><b>OOC Information:</b></span> <span class='good'>[src] has been unwinded by a member of staff!</span>", "<span class='warning'><b>You have been unwinded by a member of staff!</b></span>")
 	log_admin("[key_name(admin)] unwinded [key_name(src)]!",admin_key=key_name(admin),ckey=key_name(src))
 	message_admins("[key_name_admin(admin)] unwinded [key_name_admin(src)]!", 1)
 

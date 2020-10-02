@@ -474,6 +474,32 @@
 	)
 	has_postspawn = TRUE
 
+/obj/random/voidsuit/no_nanotrasen
+	suitmap = list(
+		/obj/item/clothing/suit/space/void = /obj/item/clothing/head/helmet/space/void,
+		/obj/item/clothing/suit/space/void/merc = /obj/item/clothing/head/helmet/space/void/merc,
+		/obj/item/clothing/suit/space/void/cruiser = /obj/item/clothing/head/helmet/space/void/cruiser,
+		/obj/item/clothing/suit/space/void/coalition = /obj/item/clothing/head/helmet/space/void/coalition,
+		/obj/item/clothing/suit/space/void/lancer = /obj/item/clothing/head/helmet/space/void/lancer,
+		/obj/item/clothing/suit/space/void/sol = /obj/item/clothing/head/helmet/space/void/sol,
+		/obj/item/clothing/suit/space/void/hephaestus = /obj/item/clothing/head/helmet/space/void/hephaestus,
+		/obj/item/clothing/suit/space/void/zenghu = /obj/item/clothing/head/helmet/space/void/zenghu,
+		/obj/item/clothing/suit/space/void/einstein = /obj/item/clothing/head/helmet/space/void/einstein,
+		/obj/item/clothing/suit/space/void/zavodskoi = /obj/item/clothing/head/helmet/space/void/zavodskoi
+	)
+	problist = list(
+		/obj/item/clothing/suit/space/void = 2,
+		/obj/item/clothing/suit/space/void/merc = 0.5,
+		/obj/item/clothing/suit/space/void/cruiser = 0.5,
+		/obj/item/clothing/suit/space/void/coalition = 1,
+		/obj/item/clothing/suit/space/void/lancer = 0.3,
+		/obj/item/clothing/suit/space/void/sol = 0.5,
+		/obj/item/clothing/suit/space/void/zavodskoi = 0.5,
+		/obj/item/clothing/suit/space/void/einstein = 0.5,
+		/obj/item/clothing/suit/space/void/hephaestus = 0.5,
+		/obj/item/clothing/suit/space/void/zenghu = 0.5
+	)
+
 /obj/random/voidsuit/Initialize(mapload, _damaged = 0)
 	damaged = _damaged
 	. = ..(mapload)
@@ -733,7 +759,7 @@
 		/obj/item/clothing/head/pumpkin/lantern = 0.4,
 		/obj/item/clothing/head/redcoat = 0.2,
 		/obj/item/clothing/head/richard = 0.3,
-		/obj/item/clothing/head/soft/rainbow = 0.7,
+		/obj/item/clothing/head/softcap/rainbow = 0.7,
 		/obj/item/clothing/head/syndicatefake = 0.5,
 		/obj/item/clothing/head/ushanka = 0.3,
 		/obj/item/clothing/head/witchwig = 0.5,
@@ -867,6 +893,8 @@
 		/obj/random/gloves = 2,
 		/obj/random/glowstick = 0.4,
 		/obj/random/hoodie = 0.5,
+		/obj/random/bandana = 0.5,
+		/obj/random/softcap = 0.5,
 		/obj/random/junk = 0.4,
 		/obj/random/medical = 0.4,
 		/obj/random/pda_cart = 0.5,
@@ -894,7 +922,7 @@
 		/obj/item/clothing/gloves/black = 10,
 
 		/obj/item/clothing/head/chameleon = 0.5,
-		/obj/item/clothing/head/soft/grey = 5,
+		/obj/item/clothing/head/softcap = 5,
 
 		/obj/item/clothing/mask/chameleon = 1,
 		/obj/item/clothing/mask/gas/ = 10,
@@ -965,6 +993,42 @@
 		/obj/item/clothing/suit/storage/hooded/wintercoat/miner = 3,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/security = 2,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/captain = 1
+	)
+
+/obj/random/bandana
+	name = "random bandana"
+	desc = "This is a random bandana."
+	icon = 'icons/obj/clothing/hats/bandanas.dmi'
+	icon_state = "bandana"
+	problist = list(
+		/obj/item/clothing/head/bandana/colorable/random = 5,
+		/obj/item/clothing/head/bandana/engineering = 3,
+		/obj/item/clothing/head/bandana/atmos = 3,
+		/obj/item/clothing/head/bandana/medical = 3,
+		/obj/item/clothing/head/bandana/science = 3,
+		/obj/item/clothing/head/bandana/hydro = 3,
+		/obj/item/clothing/head/bandana/cargo = 3,
+		/obj/item/clothing/head/bandana/miner = 3,
+		/obj/item/clothing/head/bandana/security = 2,
+		/obj/item/clothing/head/bandana/captain = 1
+	)
+
+/obj/random/softcap
+	name = "random softcap"
+	desc = "This is a random softcap."
+	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
+	icon_state = "softcap"
+	problist = list(
+		/obj/item/clothing/head/softcap/colorable/random = 5,
+		/obj/item/clothing/head/softcap/engineering = 3,
+		/obj/item/clothing/head/softcap/atmos = 3,
+		/obj/item/clothing/head/softcap/medical = 3,
+		/obj/item/clothing/head/softcap/science = 3,
+		/obj/item/clothing/head/softcap/hydro = 3,
+		/obj/item/clothing/head/softcap/cargo = 3,
+		/obj/item/clothing/head/softcap/miner = 3,
+		/obj/item/clothing/head/softcap/security = 2,
+		/obj/item/clothing/head/softcap/captain = 1
 	)
 
 /obj/random/highvalue

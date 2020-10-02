@@ -1934,6 +1934,10 @@ Follow by example and make good judgement based on length which list to include 
 			length = 5
 			chatname = "horns"
 
+			una_bighorns_noside
+				name = "Unathi Big Horns (No Sides)"
+				icon_state = "unathi_bighorn_nosides"
+
 		una_chinhorn
 			name = "Unathi Chin Horn"
 			icon_state = "unathi_chinhorns"

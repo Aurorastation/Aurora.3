@@ -3,7 +3,7 @@
 
 	uniform = /obj/item/clothing/under/rank/iacjumpsuit
 	suit = /obj/item/clothing/suit/storage/iacvest
-	head = /obj/item/clothing/head/soft/iacberet
+	head = /obj/item/clothing/head/softcap/iacberet
 	mask = /obj/item/clothing/mask/surgical
 	glasses = /obj/item/clothing/glasses/hud/health/aviator
 	shoes = /obj/item/clothing/shoes/iac

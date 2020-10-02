@@ -101,6 +101,9 @@
 	if(!occupant || locked)
 		return
 
+	playsound(loc, 'sound/machines/compbeep2.ogg', 50)
+	playsound(loc, 'sound/machines/windowdoor.ogg', 50)
+
 	last_occupant_name = occupant.name
 	if (occupant.client)
 		occupant.client.eye = occupant.client.mob
@@ -248,8 +251,10 @@
 	var/known_implants = list(/obj/item/implant/chem, /obj/item/implant/death_alarm, /obj/item/implant/mindshield, /obj/item/implant/tracking)
 	var/collapse_desc = ""
 	var/broken_desc = ""
-	density = 0
-	anchored = 1
+	var/has_internal_injuries = FALSE
+	var/has_external_injuries = FALSE
+	density = FALSE
+	anchored = TRUE
 	component_types = list(
 			/obj/item/circuitboard/bodyscannerconsole,
 			/obj/item/stock_parts/scanning_module = 2,
@@ -322,12 +327,16 @@
 		R.color = "#eeffe8"
 		R.set_content_unsafe("Scan ([connected.occupant])", format_occupant_data(connected.get_occupant_data()))
 
-		print(R, "[src] beeps, printing [R.name] after a moment.")
+		print(R, message = "\The [src] beeps, printing \the [R] after a moment.")
+
+	if(href_list["eject"])
+		if(connected)
+			connected.eject()
 
 /obj/machinery/body_scanconsole/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if (!ui)
-		ui = new(user, src, "medical-bodyscanner", 800, 600, capitalize(name))
+		ui = new(user, src, "medical-bodyscanner", 1200, 800, capitalize(name))
 	ui.open()
 
 /obj/machinery/body_scanconsole/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
@@ -365,10 +374,7 @@
 			"bodyparts" = list(),
 			"organs" = list(),
 			"missingparts" = list(),
-			"hasmissing" = null,
-			"hasvirus" = null,
-			"hastgvirus" = null,
-			"tgvirus" = list()
+			"hasmissing" = null
 		)
 
 	var/mob/living/carbon/human/occupant
@@ -414,11 +420,11 @@
 		VUEUI_SET_CHECK(data["blood_o2"], occupant.get_blood_oxygenation(), ., data)
 		VUEUI_SET_CHECK(data["rads"], occupant.total_radiation, ., data)
 
-		VUEUI_SET_CHECK(data["cloneLoss"], get_severity(occupant.getCloneLoss()), ., data)
-		VUEUI_SET_CHECK(data["oxyLoss"], get_severity(occupant.getOxyLoss()), ., data)
-		VUEUI_SET_CHECK(data["bruteLoss"], get_severity(occupant.getBruteLoss()), ., data)
-		VUEUI_SET_CHECK(data["fireLoss"], get_severity(occupant.getFireLoss()), ., data)
-		VUEUI_SET_CHECK(data["toxLoss"], get_severity(occupant.getToxLoss()), ., data)
+		VUEUI_SET_CHECK(data["cloneLoss"], get_severity(occupant.getCloneLoss(), TRUE), ., data)
+		VUEUI_SET_CHECK(data["oxyLoss"], get_severity(occupant.getOxyLoss(), TRUE), ., data)
+		VUEUI_SET_CHECK(data["bruteLoss"], get_severity(occupant.getBruteLoss(), TRUE), ., data)
+		VUEUI_SET_CHECK(data["fireLoss"], get_severity(occupant.getFireLoss(), TRUE), ., data)
+		VUEUI_SET_CHECK(data["toxLoss"], get_severity(occupant.getToxLoss(), TRUE), ., data)
 
 		VUEUI_SET_CHECK(data["paralysis"], occupant.paralysis, ., data)
 		VUEUI_SET_CHECK(data["bodytemp"], occupant.bodytemperature, ., data)
@@ -429,22 +435,24 @@
 		VUEUI_SET_CHECK(data["dexAmt"], R.get_reagent_amount(/datum/reagent/dexalin), ., data)
 		VUEUI_SET_CHECK(data["dermAmt"], R.get_reagent_amount(/datum/reagent/dermaline), ., data)
 		VUEUI_SET_CHECK(data["otherAmt"], R.total_volume - (data["soporAmt"] + data["dexAmt"] + data["bicardAmt"] + data["norepiAmt"] + data["dermAmt"]), ., data)
+		has_internal_injuries = FALSE
+		has_external_injuries = FALSE
 		VUEUI_SET_CHECK_LIST(data["bodyparts"], get_external_wound_data(occupant), ., data)
 		VUEUI_SET_CHECK_LIST(data["organs"], get_internal_wound_data(occupant), ., data)
+		VUEUI_SET_CHECK_LIST(data["hasinternalinjury"], has_internal_injuries, ., data)
+		VUEUI_SET_CHECK_LIST(data["hasexternalinjury"], has_external_injuries, ., data)
 		var/list/missing 		= get_missing_organs(occupant)
 		VUEUI_SET_CHECK_LIST(data["missingparts"], missing, ., data)
 		VUEUI_SET_CHECK(data["hasmissing"], missing.len, ., data)
-		VUEUI_SET_CHECK(data["hastgvirus"], occupant.viruses.len, ., data)
-		VUEUI_SET_CHECK_LIST(data["tgvirus"], occupant.viruses, ., data)
 
 /obj/machinery/body_scanconsole/proc/get_internal_damage(var/obj/item/organ/internal/I)
 	if(I.is_broken())
-		return "severe"
+		return "Severe"
 	if(I.is_bruised())
-		return "moderate"
+		return "Moderate"
 	if(I.is_damaged())
-		return "minor"
-	return "none"
+		return "Minor"
+	return "None"
 
 /obj/machinery/body_scanconsole/proc/get_missing_organs(var/mob/living/carbon/human/H)
 	var/list/missingOrgans = list()
@@ -459,9 +467,11 @@
 	var/organs = list()
 	for (var/obj/item/organ/external/O in H.organs)
 		var/list/data = list()
-		data["burnDmg"] = get_wound_severity(O.burn_ratio, TRUE)
-		data["bruteDmg"] = get_wound_severity(O.brute_ratio, TRUE)
-		data["name"] = O.name
+		var/burn_damage = get_wound_severity(O.burn_ratio, TRUE)
+		data["burnDmg"] = burn_damage
+		var/brute_damage = get_wound_severity(O.brute_ratio, TRUE)
+		data["bruteDmg"] = brute_damage
+		data["name"] = capitalize_first_letters(O.name)
 
 		var/list/wounds = list()
 
@@ -498,6 +508,9 @@
 			if (unk)
 				wounds += "Has an abnormal mass present."
 
+		if(length(wounds) || brute_damage != "None" || burn_damage != "None")
+			has_external_injuries = TRUE
+
 		data["hasWounds"] = !!length(wounds)
 		data["wounds"] = wounds
 		organs += list(data)
@@ -509,9 +522,10 @@
 	// Internal Organs. (Duh.)
 	for (var/obj/item/organ/internal/O in H.internal_organs)
 		var/list/data = list()
-		data["name"] = O.name
+		data["name"] = capitalize_first_letters(O.name)
 		var/list/wounds = list()
-		data["damage"] = get_internal_damage(O)
+		var/internal_damage = get_internal_damage(O)
+		data["damage"] = internal_damage
 		if(istype(O, /obj/item/organ/internal/lungs))
 			var/obj/item/organ/internal/lungs/L = O
 			if(L.is_broken())
@@ -543,6 +557,9 @@
 
 		if(O.get_scarring_level() > 0.01)
 			wounds += "[O.get_scarring_results()]."
+
+		if(length(wounds) || internal_damage != "None")
+			has_internal_injuries = TRUE
 
 		data["hasWounds"] = !!length(wounds)
 		data["wounds"] = wounds
@@ -608,7 +625,6 @@
 		"dermaline_amount" = H.reagents.get_reagent_amount(/datum/reagent/dermaline),
 		"blood_amount" = H.vessel.get_reagent_amount(/datum/reagent/blood),
 		"disabilities" = H.sdisabilities,
-		"tg_diseases_list" = H.viruses.Copy(),
 		"lung_ruptured" = H.is_lung_ruptured(),
 		"external_organs" = H.organs.Copy(),
 		"internal_organs" = H.internal_organs.Copy(),
@@ -618,11 +634,9 @@
 
 
 /obj/machinery/body_scanconsole/proc/format_occupant_data(var/list/occ)
-	var/dat = "<font color='blue'><b>Scan performed at [occ["stationtime"]]</b></font><br>"
-	dat += "<font color='blue'><b>Occupant Statistics:</b></font><br>"
+	var/dat = "<span class='notice'><b>Scan performed at [occ["stationtime"]]</b></span><br>"
+	dat += "<span class='notice'><b>Occupant Statistics:</b></span><br>"
 	dat += text("Brain Activity: []<br>", occ["brain_activity"])
-	if (occ["virus_present"])
-		dat += "<font color='red'>Viral pathogen detected in blood stream.</font><br>"
 	dat += text("Blood Pressure: []<br>", occ["blood_pressure"])
 	dat += text("Blood Oxygenation: []%<br>", occ["blood_oxygenation"])
 	dat += text("Physical Trauma: []<br>", occ["bruteloss"])
@@ -705,7 +719,7 @@
 		if(!AN && !open && !infected & !imp)
 			AN = "None:"
 		if(!e.is_stump())
-			dat += "<td>[e.name]</td><td>[e.burn_dam]</td><td>[get_severity(e.brute_dam)]</td><td>[robot][bled][AN][splint][open][infected][imp][dislocated][internal_bleeding][severed_tendon][lung_ruptured]</td>"
+			dat += "<td>[e.name]</td><td>[e.burn_dam]</td><td>[get_severity(e.brute_dam, TRUE)]</td><td>[robot][bled][AN][splint][open][infected][imp][dislocated][internal_bleeding][severed_tendon][lung_ruptured]</td>"
 		else
 			dat += "<td>[e.name]</td><td>-</td><td>-</td><td>Not [e.is_stump() ? "Found" : "Attached Completely"]</td>"
 		dat += "</tr>"
@@ -730,7 +744,7 @@
 		if(i.get_scarring_level() > 0.01)
 			necrotic += ", [i.get_scarring_results()]"
 		if(i.status & ORGAN_DEAD)
-			necrotic = ", <font color='red'>necrotic and decaying</font>"
+			necrotic = ", <span class='warning'>necrotic and decaying</span>"
 
 		dat += "<tr>"
 		dat += "<td>[i.name]</td><td>N/A</td><td>[get_internal_damage(i)]</td><td>[infection], [mech][necrotic]</td><td></td>"
@@ -740,10 +754,10 @@
 	var/list/species_organs = occ["species_organs"]
 	for(var/organ_name in species_organs)
 		if(!locate(species_organs[organ_name]) in occ["internal_organs"])
-			dat += text("<font color='red'>No [organ_name] detected.</font><BR>")
+			dat += text("<span class='warning'>No [organ_name] detected.</span><BR>")
 
 	if(occ["sdisabilities"] & BLIND)
-		dat += text("<font color='red'>Cataracts detected.</font><BR>")
+		dat += text("<span class='warning'>Cataracts detected.</span><BR>")
 	if(occ["sdisabilities"] & NEARSIGHTED)
 		dat += text("<font color='red'>Retinal misalignment detected.</font><BR>")
 	return dat

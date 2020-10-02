@@ -5,6 +5,7 @@ var/datum/antagonist/deathsquad/deathsquad
 	role_text = "Asset Protection Specialist"
 	role_text_plural = "Asset Protection Specialists"
 	welcome_text = "You work in the service of corporate Asset Protection, answering directly to the Board of Directors."
+	antag_sound = 'sound/effects/antag_notice/deathsquid_alert.ogg'
 	landmark_id = "Commando"
 
 	id_type = /obj/item/card/id/asset_protection

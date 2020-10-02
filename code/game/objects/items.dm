@@ -287,6 +287,10 @@
 /obj/item/throw_impact(atom/hit_atom)
 	..()
 	if(isliving(hit_atom)) //Living mobs handle hit sounds differently.
+		var/mob/living/L = hit_atom
+		if(L.in_throw_mode)
+			playsound(hit_atom, pickup_sound, PICKUP_SOUND_VOLUME, TRUE)
+			return
 		var/volume = get_volume_by_throwforce_and_or_w_class()
 		if(throwforce > 0)
 			if(mob_throw_hit_sound)
@@ -665,7 +669,8 @@ var/list/global/slot_flags_enumeration = list(
 
 /obj/item/proc/showoff(mob/user)
 	for (var/mob/M in view(user))
-		M.show_message("<b>[user]</b> holds up [src]. <a HREF=?src=\ref[M];lookitem=\ref[src]>Take a closer look.</a>",1)
+		if(!user.is_invisible_to(M))
+			M.show_message("<b>[user]</b> holds up [src]. <a HREF=?src=\ref[M];lookitem=\ref[src]>Take a closer look.</a>",1)
 
 /mob/living/carbon/verb/showoff()
 	set name = "Show Held Item"
@@ -709,6 +714,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			M.toggle_zoom_hud()	// If the user has already limited their HUD this avoids them having a HUD when they zoom in
 		M.client.view = viewsize
 		zoom = 1
+		if(M.vision_cone_overlay)
+			var/mob/living/vision_cone_mob = M
+			vision_cone_mob.hide_cone()
 
 		var/tilesize = 32
 		var/viewoffset = tilesize * tileoffset
@@ -731,6 +739,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 	else
 		M.client.view = world.view
+		if(M.vision_cone_overlay)
+			var/mob/living/vision_cone_mob = M
+			vision_cone_mob.update_vision_cone()
 		if(!M.hud_used.hud_shown)
 			M.toggle_zoom_hud()
 		zoom = 0
