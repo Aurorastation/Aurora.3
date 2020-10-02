@@ -119,6 +119,21 @@ var/obj/screen/robot_inventory
 	mymob.pullin.name = "pull"
 	mymob.pullin.screen_loc = ui_borg_pull
 
+	mymob.blind = new /obj/screen()
+	mymob.blind.icon = 'icons/mob/screen/full.dmi'
+	mymob.blind.icon_state = "blackimageoverlay"
+	mymob.blind.name = " "
+	mymob.blind.screen_loc = "1,1"
+	mymob.blind.invisibility = 101
+
+	mymob.flash = new /obj/screen()
+	mymob.flash.icon = 'icons/mob/screen/robot.dmi'
+	mymob.flash.icon_state = "blank"
+	mymob.flash.name = "flash"
+	mymob.flash.screen_loc = ui_entire_screen
+	mymob.flash.layer = 17
+	mymob.flash.mouse_opacity = 0
+
 	mymob.zone_sel = new /obj/screen/zone_sel()
 	mymob.zone_sel.icon = 'icons/mob/screen/robot.dmi'
 	mymob.zone_sel.cut_overlays()
@@ -146,6 +161,8 @@ var/obj/screen/robot_inventory
 		r.cells,
 		mymob.up_hint,
 		mymob.pullin,
+		mymob.blind,
+		mymob.flash,
 		robot_inventory,
 		mymob.gun_setting_icon,
 		r.computer)

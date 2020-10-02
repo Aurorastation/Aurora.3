@@ -108,7 +108,7 @@
 		if(2)
 			src.take_organ_damage(0, 10, emp = TRUE)
 			Stun(rand(1, 5))
-	flash_eyes(affect_silicon = 1)
+	flick("noise", src:flash)
 	to_chat(src, SPAN_DANGER("BZZZT"))
 	to_chat(src, SPAN_WARNING("Warning: Electromagnetic pulse detected."))
 	..()
@@ -380,13 +380,6 @@
 	..()
 	if(cameraFollow)
 		cameraFollow = null
-
-/mob/living/silicon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
-	if(affect_silicon)
-		return ..()
-
-/mob/living/silicon/seizure()
-	flash_eyes(affect_silicon = TRUE)
 
 /mob/living/silicon/Move(newloc, direct)
 	. = ..()

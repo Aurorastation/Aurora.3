@@ -265,16 +265,23 @@
 			else
 				bodytemp.icon_state = "temp-2"
 
-	if(stat != DEAD)
-		if(blinded)
-			overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
-		else
-			clear_fullscreen("blind")
-			set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
-			set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
+	client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired)
 
-		if (machine)
-			if (machine.check_eye(src) < 0)
+	if((blind && stat != DEAD))
+		if(blinded)
+			blind.invisibility = 0
+		else
+			blind.invisibility = 101
+			if(disabilities & NEARSIGHTED)
+				client.screen += global_hud.vimpaired
+			if(eye_blurry)
+				client.screen += global_hud.blurry
+			if(druggy)
+				client.screen += global_hud.druggy
+
+	if(stat != DEAD)
+		if(machine)
+			if(machine.check_eye(src) < 0)
 				reset_view(null)
 		else
 			if(client && !client.adminobs)

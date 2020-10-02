@@ -127,7 +127,7 @@
 
 //Handles the effects of "stun" weapons
 /mob/living/proc/stun_effect_act(var/stun_amount, var/agony_amount, var/def_zone, var/used_weapon=null)
-	flash_pain(stun_amount)
+	flash_pain()
 
 	if(stun_amount)
 		Stun(stun_amount)

@@ -16,7 +16,7 @@
 			continue
 		if(iscarbon(L))
 			var/mob/living/carbon/C = L
-			C.flash_eyes()
+			flick("e_flash", C.flash)
 			if(C.stuttering < 1 && !(HULK in C.mutations))
 				C.stuttering = 1
 			if(is_rune)
@@ -29,7 +29,7 @@
 		else if(issilicon(L))
 			var/mob/living/silicon/S = L
 			S.Weaken(5)
-			S.flash_eyes()
+			flick("e_flash", S.flash)
 			S.silent += 15
 			to_chat(S, SPAN_DANGER("BZZZT... The rune has exploded in a bright flash!"))
 			admin_attack_log(user, S, "Used a stun rune.", "Was victim of a stun rune.", "used a stun rune on")

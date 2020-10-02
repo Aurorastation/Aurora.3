@@ -86,7 +86,6 @@
 	MOB_STOP_THINKING(src)
 
 	update_client_color()
-	add_click_catcher()
 
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()

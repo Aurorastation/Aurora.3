@@ -25,7 +25,7 @@
 	for(var/mob/living/carbon/M in viewers(T, flash_range))
 		if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
 			M.confused = rand(5,15)
-			M.flash_eyes()
+			flick("e_flash", M.flash)
 		else if(affected_limb && M == A)
 			M.confused = rand(2, 7)
 			flick("flash", M.flash)

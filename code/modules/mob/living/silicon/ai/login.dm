@@ -11,7 +11,7 @@
 	blind.icon_state = "black"
 	blind.name = " "
 	blind.screen_loc = ui_entire_screen
-	clear_fullscreen("blind")
+	blind.invisibility = 101
 	client.screen.Add( blind, flash )
 
 	for(var/image/obfuscation_image in SSai_obfuscation.get_obfuscation_images())

@@ -1185,8 +1185,3 @@ proc/is_blind(A)
 		var/datum/accent/a = SSrecords.accents[used_accent]
 		var/final_icon = a.tag_icon
 		return "<img src=\"[final_icon].png\">"
-
-/mob/proc/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
-	for(var/mob/M in contents)
-		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
-		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)

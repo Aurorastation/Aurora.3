@@ -206,7 +206,7 @@
 		playsound(T, 'sound/effects/phasein.ogg', 100, 1)
 		for(var/mob/living/carbon/human/M in viewers(T, null))
 			if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
-				M.flash_eyes()
+				flick("e_flash", M.flash)
 
 		for(var/i=1, i<=deliveryamt, i++)
 			var/obj/machinery/portable_atmospherics/hydroponics/soil/invisible/x = new spawner_type(T, new /datum/seed/koisspore())

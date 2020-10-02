@@ -42,18 +42,18 @@
 			if (ai_restore_power_routine==2)
 				to_chat(src, "Alert cancelled. Power has been restored without our assistance.")
 				ai_restore_power_routine = 0
-				clear_fullscreen("blind")
+				src.blind.invisibility = 101
 				update_icon()
 				return
 			else if (ai_restore_power_routine==3)
 				to_chat(src, "Alert cancelled. Power has been restored.")
 				ai_restore_power_routine = 0
-				clear_fullscreen("blind")
+				src.blind.invisibility = 101
 				update_icon()
 				return
 			else if (APU_power)
 				ai_restore_power_routine = 0
-				clear_fullscreen("blind")
+				src.blind.invisibility = 101
 				update_icon()
 				return
 		else
@@ -73,7 +73,7 @@
 							if (!istype(T, /turf/space))
 								to_chat(src, "Alert cancelled. Power has been restored without our assistance.")
 								ai_restore_power_routine = 0
-								clear_fullscreen("blind")
+								src.blind.invisibility = 101
 								return
 						to_chat(src, "Fault confirmed: missing external power. Shutting down main control system to save power.")
 						sleep(20)
@@ -103,7 +103,7 @@
 								if (!istype(T, /turf/space))
 									to_chat(src, "Alert cancelled. Power has been restored without our assistance.")
 									ai_restore_power_routine = 0
-									clear_fullscreen("blind")
+									src.blind.invisibility = 101 //This, too, is a fix to issue 603
 									return
 							switch(PRP)
 								if (1) to_chat(src, "APC located. Optimizing route to APC to avoid needless power waste.")
@@ -146,7 +146,9 @@
 /mob/living/silicon/ai/update_sight()
 	if(is_blinded())
 		update_icon()
-		overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+		src.blind.screen_loc = ui_entire_screen
+		if (src.blind.invisibility != 0)
+			src.blind.invisibility = 0
 		sight &= ~(SEE_TURFS | SEE_MOBS | SEE_OBJS)
 		see_in_dark = 0
 		see_invisible = SEE_INVISIBLE_LIVING
