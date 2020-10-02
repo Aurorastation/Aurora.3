@@ -63,8 +63,8 @@
 	icon = 'icons/mob/screen/full.dmi'
 	icon_state = "default"
 	screen_loc = "CENTER-7,CENTER-7"
-	plane = FULLSCREEN_PLANE
 	mouse_opacity = 0
+	layer = HUD_LAYER - 0.1
 	var/severity = 0
 	var/allstate = 0 //shows if it should show up for dead people too
 
@@ -74,33 +74,29 @@
 
 /obj/screen/fullscreen/brute
 	icon_state = "brutedamageoverlay"
-	layer = DAMAGE_HUD_LAYER
 
 /obj/screen/fullscreen/oxy
 	icon_state = "oxydamageoverlay"
-	layer = DAMAGE_HUD_LAYER
 
 /obj/screen/fullscreen/crit
 	icon_state = "passage"
-	layer = CRIT_LAYER
 
 /obj/screen/fullscreen/strong_pain
-	layer = DAMAGE_HUD_LAYER
 	icon_state = "strong_pain"
+	layer = OBFUSCATION_LAYER
 
 /obj/screen/fullscreen/blind
 	icon_state = "blackimageoverlay"
-	layer = BLIND_LAYER
+	layer = OBFUSCATION_LAYER
 
 /obj/screen/fullscreen/blackout
 	icon = 'icons/mob/screen/effects.dmi'
 	icon_state = "black"
 	screen_loc = ui_entire_screen
-	layer = BLIND_LAYER
+	layer = OBFUSCATION_LAYER
 
 /obj/screen/fullscreen/impaired
 	icon_state = "impairedoverlay"
-	layer = IMPAIRED_LAYER
 
 /obj/screen/fullscreen/blurry
 	icon = 'icons/mob/screen/effects.dmi'
@@ -124,14 +120,12 @@
 	icon = 'icons/effects/static.dmi'
 	icon_state = "1 light"
 	screen_loc = ui_entire_screen
-	layer = FULLSCREEN_LAYER
 	alpha = 127
 
 /obj/screen/fullscreen/fadeout
 	icon = 'icons/mob/screen/effects.dmi'
 	icon_state = "black"
 	screen_loc = ui_entire_screen
-	layer = FULLSCREEN_LAYER
 	alpha = 0
 	allstate = 1
 
@@ -144,8 +138,7 @@
 	icon_state = "scanlines"
 	screen_loc = ui_entire_screen
 	alpha = 50
-	layer = FULLSCREEN_LAYER
 
 /obj/screen/fullscreen/frenzy
 	icon_state = "frenzyoverlay"
-	layer = BLIND_LAYER
+	layer = OBFUSCATION_LAYER
