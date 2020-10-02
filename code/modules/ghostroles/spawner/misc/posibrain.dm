@@ -10,16 +10,3 @@
 	loc_type = GS_LOC_ATOM
 
 	spawn_mob = /mob/living/carbon/brain
-
-
-//The proc to actually spawn in the user
-/datum/ghostspawner/posibrain/spawn_mob(mob/user)
-	if(!length(spawn_atoms))
-		to_chat(user, SPAN_DANGER("There are no available posibrains to spawn at!"))
-		return FALSE
-
-	var/obj/item/device/mmi/digital/posibrain/spawn_posibrain = select_spawnatom()
-
-	if(user && spawn_posibrain)
-		return spawn_posibrain.spawn_into_posibrain(user)
-	return FALSE

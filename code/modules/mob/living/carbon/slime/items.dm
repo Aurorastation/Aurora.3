@@ -255,7 +255,7 @@
 	else
 		icon_state = "golem"
 
-/obj/effect/golemrune/proc/spawn_golem(var/mob/user)
+/obj/effect/golemrune/proc/assign_player(var/mob/user)
 	var/obj/item/stack/material/O = (locate(/obj/item/stack/material) in src.loc)
 	if(O?.amount >= 10)
 		if(O.material.golem)

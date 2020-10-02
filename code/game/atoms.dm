@@ -509,3 +509,6 @@
 
 /atom/movable/onDropInto(var/atom/movable/AM)
 	return loc // If onDropInto returns something, then dropInto will attempt to drop AM there.
+
+/atom/proc/assign_player(var/mob/user)
+	return

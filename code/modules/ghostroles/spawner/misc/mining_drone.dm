@@ -9,15 +9,3 @@
 	loc_type = GS_LOC_ATOM
 
 	spawn_mob = /mob/living/silicon/robot/drone/mining
-
-//The proc to actually spawn in the user
-/datum/ghostspawner/mining_drone/spawn_mob(mob/user)
-	if(!length(spawn_atoms))
-		to_chat(user, SPAN_DANGER("There are no available mining drones to spawn at!"))
-		return FALSE
-
-	var/mob/living/silicon/robot/drone/mining/spawn_mining_drone = select_spawnatom()
-
-	if(user && spawn_mining_drone)
-		return spawn_mining_drone.spawn_into_mining_drone(user)
-	return FALSE

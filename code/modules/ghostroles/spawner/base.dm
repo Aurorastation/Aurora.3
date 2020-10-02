@@ -51,7 +51,7 @@
 		return "Currently Disabled"
 
 	if(loc_type == GS_LOC_ATOM && !length(spawn_atoms))
-		return "No spawn mobs available"
+		return "No spawn atoms available"
 
 	if(req_head_whitelist && !check_whitelist(user))
 		return "Missing Head of Staff Whitelist"
@@ -134,7 +134,15 @@
 //The proc to actually spawn in the user
 /datum/ghostspawner/proc/spawn_mob(mob/user)
 	//OVERWRITE THIS IN THE CHILD IMPLEMENTATIONS to return the spawned in mob !!!
-	return null
+	if(loc_type != GS_LOC_ATOM)
+		return null
+
+	var/atom/A = select_spawnatom()
+
+	if(A)
+		return A.assign_player(user)
+	to_chat(user, SPAN_DANGER("There are no spawn atoms available to spawn at!"))
+	return FALSE
 
 //Proc executed after someone is spawned in
 /datum/ghostspawner/proc/post_spawn(mob/user)
@@ -151,6 +159,8 @@
 	return FALSE
 
 /datum/ghostspawner/proc/is_enabled()
+	if(loc_type == GS_LOC_ATOM)
+		return enabled && !!length(spawn_atoms)
 	if(max_count)
 		return enabled && count < max_count
 	return enabled
@@ -172,8 +182,9 @@
 //Proc to disable the ghostspawner
 /datum/ghostspawner/proc/disable()
 	enabled = FALSE
-	for(var/i in SSghostroles.spawnpoints)
-		SSghostroles.update_spawnpoint_status_by_identifier(i)
+	if(loc_type == GS_LOC_POS)
+		for(var/i in SSghostroles.spawnpoints)
+			SSghostroles.update_spawnpoint_status_by_identifier(i)
 	return TRUE
 
 /datum/ghostspawner/simplemob/spawn_mob(mob/user)
@@ -195,7 +206,6 @@
 		var/mob/living/simple_animal/S = select_spawnatom()
 		if(S)
 			announce_ghost_joinleave(user, 0, "They are now a [name].")
-			spawn_atoms -= S
 			S.ckey = user.ckey
 		else
 			to_chat(user, "<span class='warning'>Unable to find any spawn mob. </span>")

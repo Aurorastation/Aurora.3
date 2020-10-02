@@ -161,10 +161,9 @@
 	host = null
 	return
 
-/mob/living/simple_animal/borer/proc/spawn_into_borer(var/mob/user)
+/mob/living/simple_animal/borer/proc/assign_player(var/mob/user)
 	ckey = user.ckey
-	qdel(user)
-	SSghostroles.remove_spawn_atom("borer", src)
+	qdel(user) //TODO: Check why that is here
 
 /mob/living/simple_animal/borer/cannot_use_vents()
 	return

@@ -42,11 +42,10 @@
 	explosion(get_turf(src), 1, 2, 3, 5)
 	qdel(src)
 
-/mob/living/silicon/robot/syndicate/proc/spawn_into_syndiborg(var/mob/user)
+/mob/living/silicon/robot/syndicate/proc/assign_player(var/mob/user)
 	if(src.ckey)
 		return
 	src.ckey = user.ckey
-	SSghostroles.remove_spawn_atom("syndiborg", src)
 	if(assigned_antagonist)
 		assigned_antagonist.add_antagonist_mind(src.mind, TRUE)
 		if(assigned_antagonist.get_antag_radio())

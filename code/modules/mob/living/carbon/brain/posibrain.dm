@@ -36,14 +36,13 @@
 			if(A)
 				say_dead_direct("A posibrain is no longer booting up in [A.name]. Seems someone disabled it.")
 
-/obj/item/device/mmi/digital/posibrain/proc/spawn_into_posibrain(var/mob/user)
+/obj/item/device/mmi/digital/posibrain/proc/assign_player(var/mob/user)
 	if(brainmob.ckey)
 		return
 	brainmob.ckey = user.ckey
 	name = "positronic brain ([brainmob.name])"
 	icon_state = "posibrain-occupied"
 	searching = FALSE
-	SSghostroles.remove_spawn_atom("posibrain", src)
 
 	to_chat(brainmob, "<b>You are a positronic brain, brought into existence on [station_name()].</b>")
 	to_chat(brainmob, "<b>As a synthetic intelligence, you answer to all crewmembers, as well as the AI.</b>")

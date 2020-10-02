@@ -9,15 +9,3 @@
 	loc_type = GS_LOC_ATOM
 
 	spawn_mob = /mob/living/silicon/robot/syndicate
-
-//The proc to actually spawn in the user
-/datum/ghostspawner/syndiborg/spawn_mob(mob/user)
-	if(!length(spawn_atoms))
-		to_chat(user, SPAN_DANGER("There are no available syndiborgs to spawn at!"))
-		return FALSE
-
-	var/mob/living/silicon/robot/syndicate/spawn_syndiborg = select_spawnatom()
-
-	if(user && spawn_syndiborg)
-		return spawn_syndiborg.spawn_into_syndiborg(user)
-	return FALSE

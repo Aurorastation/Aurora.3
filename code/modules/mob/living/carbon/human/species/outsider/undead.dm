@@ -4,11 +4,10 @@
 /mob/living/carbon/human/skeleton
 	var/master
 
-/mob/living/carbon/human/skeleton/proc/spawn_skeleton(var/mob/user)
+/mob/living/carbon/human/skeleton/proc/assign_player(var/mob/user)
 	src.ckey = user.ckey
 	if(master)
 		to_chat(src, "<B>You are a skeleton minion to [master], they are your master. Obey and protect your master at all costs, you have no free will.</B>")
-	SSghostroles.remove_spawn_atom("skeleton", src)
 
 /datum/species/skeleton //SPOOKY
 	name = SPECIES_SKELETON

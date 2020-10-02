@@ -17,6 +17,6 @@
 
 	var/mob/living/simple_animal/spawn_wizard_familiar = select_spawnatom()
 
-	if(user && spawn_wizard_familiar)
+	if(spawn_wizard_familiar)
 		return spawn_wizard_familiar.spawn_into_wizard_familiar(user)
 	return FALSE
