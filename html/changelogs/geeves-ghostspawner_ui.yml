@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Ghostroles with finite slots no longer display an infinity symbol, instead showing the number of remaining spawn objects."
