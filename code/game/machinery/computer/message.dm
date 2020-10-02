@@ -463,6 +463,7 @@
 						if(isnull(PDARec))
 							src.linkedServer.send_pda_message("[customrecepient.owner]", "[customsender]","[custommessage]")
 							customrecepient.new_message(customsender, customsender, customjob, custommessage)
+							log_and_message_admins("sent a fake PDA message to: [customrecepient.owner] from: [customsender] - [customjob] message: [custommessage]")
 						//Sender is faking as someone who exists
 						else
 
@@ -473,6 +474,7 @@
 								customrecepient.conversations.Add("\ref[PDARec]")
 
 							customrecepient.new_message(PDARec, custommessage)
+							log_and_message_admins("sent a fake PDA message to: [customrecepient.owner] from: [PDARec.owner] - [customjob] message: [custommessage]")
 						//Finally..
 						ResetMessage()
 
