@@ -1,9 +1,7 @@
-/mob/proc/flash_pain()
-	flick("pain", pain)
-
-/mob/living/carbon/human/flash_pain()
-	if(can_feel_pain())
-		flick("pain", pain)
+/mob/proc/flash_pain(var/target)
+	if(pain)
+		animate(pain, alpha = target, time = 15, easing = ELASTIC_EASING)
+		animate(pain, alpha = 0, time = 20)
 
 mob/var/list/pain_stored = list()
 mob/var/last_pain_message = ""
@@ -25,6 +23,8 @@ mob/var/next_pain_time = 0
 		else
 			affecting.add_pain(Ceiling(power/2))
 
+	flash_pain(min(round(2*power)+55, 255))
+
 	// Anti message spam checks
 	if(force || (message != last_pain_message) || (world.time >= next_pain_time))
 		last_pain_message = message
@@ -32,13 +32,10 @@ mob/var/next_pain_time = 0
 			flash_strong_pain()
 			to_chat(src, "<span class='danger'><font size=3>[message]</font></span>")
 		else if(power >= 70)
-			flash_pain()
 			to_chat(src, "<span class='danger'><font size=3>[message]</font></span>")
 		else if(power >= 40)
-			flash_pain()
 			to_chat(src, "<span class='danger'><font size=2>[message]</font></span>")
 		else if(power >= 10)
-			flash_weak_pain()
 			to_chat(src, "<span class='danger'>[message]</span>")
 		else
 			to_chat(src, "<span class='warning'>[message]</span>")
