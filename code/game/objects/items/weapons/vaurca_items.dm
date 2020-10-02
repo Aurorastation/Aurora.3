@@ -216,7 +216,7 @@
 
 	species_restricted = list(BODYTYPE_VAURCA)
 
-	boots = /obj/item/clothing/shoes/magboots/vox/vaurca
+	boots = /obj/item/clothing/shoes/magboots/vaurca
 	helmet = /obj/item/clothing/head/helmet/space/void/vaurca
 
 /obj/item/clothing/head/helmet/space/void/vaurca
@@ -232,8 +232,7 @@
 	light_overlay = "helmet_light_dual_green"
 	light_color = "#3e7c3e"
 
-/obj/item/clothing/shoes/magboots/vox/vaurca
-
+/obj/item/clothing/shoes/magboots/vaurca
 	desc = "A pair of heavy mag-claws designed for a Vaurca."
 	name = "mag-claws"
 	item_state = "boots_void"

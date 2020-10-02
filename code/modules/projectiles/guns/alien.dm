@@ -1,9 +1,7 @@
-//Vox pinning weapon.
+//Alien pinning weapon.
 /obj/item/gun/launcher/spikethrower
-
 	name = "spike thrower"
 	desc = "A vicious alien projectile weapon. Parts of it quiver gelatinously, as though the thing is insectile and alive."
-
 	var/last_regen = 0
 	var/spike_gen_time = 100
 	var/max_spikes = 3
