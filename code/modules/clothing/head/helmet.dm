@@ -38,12 +38,13 @@
 		camera.set_status(!camera.status)
 		if(camera.status)
 			camera.c_tag = FindNameFromID(usr)
-			to_chat(usr, "<span class='notice'>User scanned as [camera.c_tag]. Camera activated.</span>")
+			to_chat(usr, SPAN_NOTICE("User scanned as [camera.c_tag]. Camera activated."))
 		else
-			to_chat(usr, "<span class='notice'>Camera deactivated.</span>")
+			to_chat(usr, SPAN_NOTICE("Camera deactivated."))
 
 /obj/item/clothing/head/helmet/space/examine(var/mob/user)
 	if(..(user, 1) && camera)
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click it and press <b>Toggle Helmet Camera</b>.")))
 		to_chat(user, "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active.")
 
 /obj/item/clothing/head/helmet/verb/toggle_block_hair()
