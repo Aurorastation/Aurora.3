@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "You will now place a storage item into a disposal bin even without harm intent, if the container is empty."
