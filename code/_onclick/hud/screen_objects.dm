@@ -10,7 +10,6 @@
 	name = ""
 	icon = 'icons/mob/screen/generic.dmi'
 	layer = SCREEN_LAYER
-	plane = HUD_PLANE
 	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
 	var/datum/hud/hud = null // A reference to the owner HUD, if any.

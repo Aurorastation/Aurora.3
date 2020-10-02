@@ -38,12 +38,4 @@
 #define MECH_GEAR_LAYER             4.08
 #define MECH_ABOVE_LAYER            4.09
 
-#define HUD_PLANE           5
-
-#define FULLSCREEN_PLANE    4
 #define CLICKCATCHER_PLANE -100
-#define FULLSCREEN_LAYER    0
-#define DAMAGE_HUD_LAYER    1
-#define IMPAIRED_LAYER      2
-#define BLIND_LAYER         3
-#define CRIT_LAYER          4
