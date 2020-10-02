@@ -9,6 +9,7 @@
 	speak_chance = 0
 	turns_per_move = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
+	organ_names = list("trunk", "branches", "roots")
 	response_help = "brushes"
 	response_disarm = "pushes"
 	response_harm = "hits"

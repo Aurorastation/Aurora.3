@@ -11,7 +11,7 @@
 	icon_dead = "morph_dead"
 	speed = 2.5
 	stop_automated_movement = TRUE
-
+	organ_names = list("bulbous node", "meaty core")
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"

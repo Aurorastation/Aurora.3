@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Shooting simple mobs will now give more sensical text on where they were hit."

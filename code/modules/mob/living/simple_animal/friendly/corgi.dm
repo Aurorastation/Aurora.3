@@ -15,6 +15,7 @@
 	turns_per_move = 10
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/corgi
 	meat_amount = 3
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"

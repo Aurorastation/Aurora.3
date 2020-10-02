@@ -44,6 +44,7 @@
 	turns_per_move = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/cracker/
 
+	organ_names = list("torso", "left wing", "right wing", "head")
 	response_help  = "pets"
 	response_disarm = "gently moves aside"
 	response_harm   = "swats"

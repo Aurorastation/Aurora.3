@@ -35,6 +35,7 @@
 	var/turns_since_scan = 0
 
 	//Interaction
+	var/list/organ_names = list("chest")
 	var/response_help   = "tries to help"
 	var/response_disarm = "tries to disarm"
 	var/response_harm   = "hurts"
