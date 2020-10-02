@@ -93,13 +93,6 @@
 		enabled = FALSE
 	return TRUE
 
-// do the reverse of pre_spawn
-/datum/ghostspawner/proc/unspawn(mob/user)
-	count-- //Increment the spawned in mob count
-	if(max_count && count < max_count)
-		enabled = TRUE
-	return TRUE
-
 //This proc selects the spawnpoint to use.
 /datum/ghostspawner/proc/select_spawnpoint(var/use=TRUE)
 	if(length(spawn_atoms))

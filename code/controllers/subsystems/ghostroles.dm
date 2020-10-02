@@ -151,8 +151,6 @@
 			to_chat(usr, "Unable to spawn: pre_spawn failed. Report this on GitHub")
 			return
 		var/mob/M = S.spawn_mob(usr)
-		if(M == -1)
-			return
 		if(!M)
 			to_chat(usr, "Unable to spawn: spawn_mob failed. Report this on GitHub")
 			return

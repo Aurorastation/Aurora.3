@@ -67,8 +67,7 @@
 
 	var/picked_species = input(user,"Select your species") as null|anything in species_selection
 	if(!picked_species)
-		unspawn(user)
-		return -1
+		picked_species = possible_species[1]
 
 	//Get the name / age from them first
 	var/mname = get_mob_name(user, picked_species)
