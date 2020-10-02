@@ -901,6 +901,7 @@
 #include "code\game\objects\items\weapons\syndie.dm"
 #include "code\game\objects\items\weapons\tape.dm"
 #include "code\game\objects\items\weapons\teleportation.dm"
+#include "code\game\objects\items\weapons\tether.dm"
 #include "code\game\objects\items\weapons\tools.dm"
 #include "code\game\objects\items\weapons\towel.dm"
 #include "code\game\objects\items\weapons\traps.dm"
