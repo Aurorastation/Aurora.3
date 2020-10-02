@@ -31,7 +31,7 @@
 			log_ss("ghostroles","Spawner [G.type] got removed from selection because of missing data")
 			continue
 		//Check if we have a spawnpoint on the current map
-		if(!G.select_spawnpoint(FALSE))
+		if(!G.select_spawnlocation(FALSE) && G.loc_type == GS_LOC_POS)
 			log_debug("ghostroles","Spawner [G.type] got removed from selection because of missing spawnpoint")
 			continue
 		spawners[G.short_name] = G
@@ -191,16 +191,12 @@
 		var/datum/ghostspawner/G = spawners[ghost_role_name]
 		if(G)
 			G.spawn_atoms += spawn_atom
-			if(length(G.spawn_atoms) == 1)
-				G.enable()
 
 /datum/controller/subsystem/ghostroles/proc/remove_spawn_atom(var/ghost_role_name, var/atom/spawn_atom)
 	if(ghost_role_name && spawn_atom)
 		var/datum/ghostspawner/G = spawners[ghost_role_name]
 		if(G)
 			G.spawn_atoms -= spawn_atom
-			if(!length(G.spawn_atoms))
-				G.disable()
 
 /datum/controller/subsystem/ghostroles/proc/get_spawn_atoms(var/ghost_role_name)
 	var/datum/ghostspawner/G = spawners[ghost_role_name]

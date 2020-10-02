@@ -7,12 +7,10 @@
 
 	respawn_flag = MINISYNTH //Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
 	jobban_job = "Cyborg"
+	loc_type = GS_LOC_ATOM
 
-	enabled = FALSE
 	spawn_mob = /mob/living/carbon/brain
 
-/datum/ghostspawner/posibrain/select_spawnpoint(var/use)
-	return TRUE //We just fake it here, since the spawnpoint is selected if someone is spawned in.
 
 //The proc to actually spawn in the user
 /datum/ghostspawner/posibrain/spawn_mob(mob/user)
@@ -20,7 +18,7 @@
 		to_chat(user, SPAN_DANGER("There are no available posibrains to spawn at!"))
 		return FALSE
 
-	var/obj/item/device/mmi/digital/posibrain/spawn_posibrain = pick(spawn_atoms)
+	var/obj/item/device/mmi/digital/posibrain/spawn_posibrain = select_spawnatom()
 
 	if(user && spawn_posibrain)
 		return spawn_posibrain.spawn_into_posibrain(user)

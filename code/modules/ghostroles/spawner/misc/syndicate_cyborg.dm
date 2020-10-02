@@ -6,12 +6,9 @@
 
 	respawn_flag = MINISYNTH //Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
 	jobban_job = "Cyborg"
+	loc_type = GS_LOC_ATOM
 
-	enabled = FALSE
 	spawn_mob = /mob/living/silicon/robot/syndicate
-
-/datum/ghostspawner/syndiborg/select_spawnpoint(var/use)
-	return TRUE //We just fake it here, since the spawnpoint is selected if someone is spawned in.
 
 //The proc to actually spawn in the user
 /datum/ghostspawner/syndiborg/spawn_mob(mob/user)
@@ -19,7 +16,7 @@
 		to_chat(user, SPAN_DANGER("There are no available syndiborgs to spawn at!"))
 		return FALSE
 
-	var/mob/living/silicon/robot/syndicate/spawn_syndiborg = pick(spawn_atoms)
+	var/mob/living/silicon/robot/syndicate/spawn_syndiborg = select_spawnatom()
 
 	if(user && spawn_syndiborg)
 		return spawn_syndiborg.spawn_into_syndiborg(user)

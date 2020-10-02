@@ -2,14 +2,15 @@
 	var/short_name = null
 	var/name = null
 	var/desc = null
-	var/show_on_job_select = TRUE // Determines if the ghost spawner role is considered unique or not. 
+	var/show_on_job_select = TRUE // Determines if the ghost spawner role is considered unique or not.
 	var/welcome_message = null
 	var/list/tags = list() //Tags associated with that spawner
 
 	//Vars regarding the spawnpoints and conditions of the spawner
-	var/list/spawnpoints = null //List of the applicable spawnpoints (by name)
-	var/list/spawn_atoms = list() // List of atoms you can spawn at
-	var/landmark_name = null //Alternatively you can specify a landmark name
+	var/list/spawn_atoms = list() // List of atoms you can spawn at - Use loc_type: GS_LOC_ATOM
+	var/list/spawnpoints = null //List of the applicable spawnpoints (by name) - Use loc_type: GS_LOC_POS
+	var/landmark_name = null //Alternatively you can specify a landmark name - Use loc_type: GS_LOC_POS
+	var/loc_type = GS_LOC_POS
 	var/max_count = 0 //How often can this spawner be used
 	var/count = 0 //How ofen has this spawner been used
 	var/req_perms = null //What permission flags are required to use this spawner
@@ -46,14 +47,17 @@
 		else
 			return "Missing Permissions"
 
+	if(!enabled && !can_edit(user)) //If its not enabled and the user cant edit it, dont show it
+		return "Currently Disabled"
+
+	if(loc_type == GS_LOC_ATOM && !length(spawn_atoms))
+		return "No spawn mobs available"
+
 	if(req_head_whitelist && !check_whitelist(user))
 		return "Missing Head of Staff Whitelist"
 
 	if(jobban_job && jobban_isbanned(user,jobban_job))
 		return "Job Banned"
-
-	if(!enabled && !can_edit(user)) //If its not enabled and the user cant edit it, dont show it
-		return "Currently Disabled"
 
 	if(req_species_whitelist)
 		if(!is_alien_whitelisted(user, req_species_whitelist))
@@ -81,9 +85,13 @@
 	if(max_count && count > max_count)
 		return "No more slots are available."
 	//Check if a spawnpoint is available
-	var/T = select_spawnpoint(FALSE)
-	if(!T)
-		return "No spawnpoint available."
+	if(loc_type == GS_LOC_POS)
+		var/T = select_spawnlocation(FALSE)
+		if(!T)
+			return "No spawnpoint available."
+	else
+		if(!length(spawn_atoms))
+			return "No mobs are available to spawn."
 	return FALSE
 
 //Proc executed before someone is spawned in
@@ -93,13 +101,11 @@
 		enabled = FALSE
 	return TRUE
 
-//This proc selects the spawnpoint to use.
-/datum/ghostspawner/proc/select_spawnpoint(var/use=TRUE)
-	if(length(spawn_atoms))
-		var/chosen_spawn_atom = pick(spawn_atoms)
-		var/turf/T = get_turf(chosen_spawn_atom)
-		if(T)
-			return T
+//This proc selects the spawnpoint to use. - Only used when mode is GS_LOC_POS
+/datum/ghostspawner/proc/select_spawnlocation(var/use=TRUE)
+	if(loc_type != GS_LOC_POS)
+		log_debug("Ghostspawner: select_spawnlocation is not valid for spawner [short_name] as it is not position pased")
+		return null
 	if(!isnull(spawnpoints))
 		for(var/spawnpoint in spawnpoints) //Loop through the applicable spawnpoints
 			var/turf/T = SSghostroles.get_spawnpoint(spawnpoint, use) //Gets the first matching spawnpoint or null if none are available
@@ -115,6 +121,15 @@
 	log_debug("Ghostspawner: Spawner [short_name] has neither spawnpoints nor landmarks or a matching spawnpoint/landmark could not be found")
 
 	return null //If we dont have anything return null
+
+/datum/ghostspawner/proc/select_spawnatom(var/use=TRUE)
+	if(loc_type != GS_LOC_ATOM)
+		log_debug("Ghostspawner: select_spawnatom is not valid for spawner [short_name] as it is not atom pased")
+		return null
+	var/atom/A = pick(spawn_atoms)
+	if(use)
+		spawn_atoms -= A
+	return A
 
 //The proc to actually spawn in the user
 /datum/ghostspawner/proc/spawn_mob(mob/user)
@@ -163,15 +178,24 @@
 
 /datum/ghostspawner/simplemob/spawn_mob(mob/user)
 	//Select a spawnpoint (if available)
-	var/turf/T = select_spawnpoint()
-	var/mob/living/simple_animal/S
-	if (T)
-		S = new spawn_mob(T)
+	if(loc_type == GS_LOC_POS)
+		var/turf/T = select_spawnlocation()
+		var/mob/living/simple_animal/S
+		if (T)
+			S = new spawn_mob(T)
+		else
+			to_chat(user, "<span class='warning'>Unable to find any spawn point. </span>")
+
+		if(S)
+			announce_ghost_joinleave(user, 0, "They are now a [name].")
+			S.ckey = user.ckey
+
+		return S
 	else
-		to_chat(user, "<span class='warning'>Unable to find any spawn point. </span>")
-
-	if(S)
-		announce_ghost_joinleave(user, 0, "They are now a [name].")
-		S.ckey = user.ckey
-
-	return S
+		var/mob/living/simple_animal/S = select_spawnatom()
+		if(S)
+			announce_ghost_joinleave(user, 0, "They are now a [name].")
+			spawn_atoms -= S
+			S.ckey = user.ckey
+		else
+			to_chat(user, "<span class='warning'>Unable to find any spawn mob. </span>")

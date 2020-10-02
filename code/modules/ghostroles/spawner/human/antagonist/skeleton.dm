@@ -4,12 +4,9 @@
 	desc = "Serve your Master. Fight things."
 	tags = list("Antagonist")
 
-	enabled = FALSE
+	loc_type = GS_LOC_ATOM
 
 	spawn_mob = /mob/living/carbon/human/skeleton
-
-/datum/ghostspawner/human/skeleton/select_spawnpoint(var/use)
-	return TRUE //We just fake it here, since the spawnpoint is selected if someone is spawned in.
 
 //The proc to actually spawn in the user
 /datum/ghostspawner/human/skeleton/spawn_mob(mob/user)
@@ -17,7 +14,7 @@
 		to_chat(user, SPAN_DANGER("There are no available skeletons to spawn at!"))
 		return FALSE
 
-	var/mob/living/carbon/human/skeleton/skeleton = pick(spawn_atoms)
+	var/mob/living/carbon/human/skeleton/skeleton = select_spawnatom()
 
 	if(user && skeleton)
 		return skeleton.spawn_skeleton(user)

@@ -31,6 +31,7 @@
 #include "code\__defines\extools.dm"
 #include "code\__defines\flags.dm"
 #include "code\__defines\gamemode.dm"
+#include "code\__defines\ghostspawner.dm"
 #include "code\__defines\guns.dm"
 #include "code\__defines\hydroponics.dm"
 #include "code\__defines\items_clothing.dm"

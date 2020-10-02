@@ -37,9 +37,12 @@
 		if(mob_name_suffix)
 			pick_message = "[pick_message] Auto Suffix: \"[mob_name_suffix]\" "
 		mname = sanitizeSafe(input(user, pick_message, "Name for a [species] (without prefix/suffix)"))
-	
-	if(!mname)
-		mname = pick(last_names)
+
+	if(!mname || mname == "")
+		if(mob_name_prefix || mob_name_suffix)
+			mname = capitalize(pick(last_names))
+		else
+			mname = capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
 
 	if(mob_name_prefix)
 		mname = replacetext(mname,mob_name_prefix,"") //Remove the prefix if it exists in the string
@@ -52,7 +55,7 @@
 //The proc to actually spawn in the user
 /datum/ghostspawner/human/spawn_mob(mob/user)
 	//Select a spawnpoint (if available)
-	var/turf/T = select_spawnpoint()
+	var/turf/T = select_spawnlocation()
 	if(!T)
 		log_debug("GhostSpawner: Unable to select spawnpoint for [short_name]")
 		return FALSE
