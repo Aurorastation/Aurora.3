@@ -99,7 +99,7 @@
 /datum/seed/mushroom/nfrihi
 	name = "nfrihi"
 	seed_name = "blizzard ears"
-	seed_noun = "nodes"
+	seed_noun = SEED_NOUN_NODES
 	display_name = "blizzard ear stalks"
 	mutants = null
 	chems = list(/datum/reagent/nutriment/flour/nfrihi = list(10, 10))
@@ -127,7 +127,7 @@
 	name = "nmshaan"
 	seed_name = "sugar tree"
 	display_name = "sugar trees"
-	seed_noun = "seeds"
+	seed_noun = SEED_NOUN_SEEDS
 	mutants = null
 	chems = list(/datum/reagent/sugar = list(2, 10))
 	kitchen_tag = "nmshaan"
