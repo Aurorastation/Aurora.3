@@ -110,6 +110,7 @@
 /obj/item/organ/internal/heart/tajara
 	desc = "A robust heart capable of helping to preserve body temperature through blood circulation."
 	icon_state = "tajaran_heart"
+	dead_icon = "tajaran_heart"
 
 /obj/item/organ/internal/kidneys/tajara
 	desc = "Alien kidneys adapted to the Tajaran physiology."
