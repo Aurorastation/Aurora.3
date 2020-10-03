@@ -129,7 +129,7 @@
 	nametext = "<B>[emoter]</B>"
 	return pretext + nametext + subtext
 
-/mob/proc/custom_emote(var/m_type = VISIBLE_MESSAGE, var/message = null)
+/mob/proc/custom_emote(var/m_type = VISIBLE_MESSAGE, var/message = null, var/do_show_observers = TRUE)
 
 	if((usr && stat) || (!use_me && usr == src))
 		to_chat(src, "You are unable to emote.")
@@ -149,9 +149,9 @@
 	if (message)
 		log_emote("[name]/[key] : [message]")
 	if(m_type == VISIBLE_MESSAGE)
-		visible_message(message)
+		visible_message(message, show_observers = do_show_observers)
 	else
-		audible_message(message)
+		audible_message(message, ghost_hearing = do_show_observers)
 
 // Specific mob type exceptions below.
 /mob/living/silicon/ai/emote(var/act, var/type, var/message)
