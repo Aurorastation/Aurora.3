@@ -44,7 +44,7 @@
 
 /obj/item/clothing/head/helmet/space/examine(var/mob/user)
 	if(..(user, 1) && camera)
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click it and press <b>Toggle Helmet Camera</b>.")))
+		to_chat(user, FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click the helmet and press <b>Toggle Helmet Camera</b>.")))
 		to_chat(user, "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active.")
 
 /obj/item/clothing/head/helmet/verb/toggle_block_hair()
