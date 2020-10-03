@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Ported Aquaponics and Molluscs from Nebula."
-  - rscadd: "Ported randomized strange plant names."
