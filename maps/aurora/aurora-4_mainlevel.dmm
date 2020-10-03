@@ -39639,6 +39639,8 @@
 /obj/effect/floor_decal/corner_wide/pink{
 	dir = 8
 	},
+/obj/machinery/disposal/small/east,
+/obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "brH" = (
@@ -40228,11 +40230,18 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bsT" = (
 /obj/effect/floor_decal/corner_wide/pink{
 	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
@@ -59873,6 +59882,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
+"esh" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/disposal/small/east,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "esz" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -62631,6 +62645,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"kRp" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "kRK" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -64555,6 +64578,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"oZQ" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/machinery/disposal/small/north,
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "pcx" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -67483,6 +67513,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
+"urT" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/junction{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "usi" = (
 /turf/simulated/floor/carpet/rubber,
 /area/lawoffice/representative)
@@ -96876,13 +96919,13 @@ aZs
 aVs
 bbI
 bdl
-bdl
+esh
 bdl
 bhu
 biM
 bjX
 bdl
-bdl
+esh
 bdl
 aRf
 aVs
@@ -98671,7 +98714,7 @@ aTT
 aIi
 aWM
 aYn
-aZr
+oZQ
 baI
 baI
 baI
@@ -99200,7 +99243,7 @@ bdo
 bdo
 bdo
 bdo
-bdo
+urT
 bbL
 bdo
 bdo
@@ -99457,7 +99500,7 @@ bdp
 aZs
 bdp
 brE
-bdp
+kRp
 btW
 bvf
 bwc
