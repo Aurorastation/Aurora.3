@@ -57,16 +57,10 @@ var/list/mineral_can_smooth_with = list(
 
 	has_resources = TRUE
 
-/turf/simulated/mineral/proc/kinetic_hit(var/damage,var/direction)
-
+/turf/simulated/mineral/proc/kinetic_hit(var/damage)
 	rock_health -= damage
-
 	if(rock_health <= 0)
-		var/turf/simulated/mineral/next_rock = get_step(src,direction)
-		if(istype(next_rock))
-			new /obj/effect/overlay/temp/kinetic_blast(next_rock)
-			next_rock.kinetic_hit(-rock_health,direction)
-		GetDrilled(1)
+		GetDrilled(TRUE)
 
 // Copypaste parent call for performance.
 /turf/simulated/mineral/Initialize(mapload)

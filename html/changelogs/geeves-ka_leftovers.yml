@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "KAs no longer leave behind phantom projectiles that injure people."
+  - tweak: "KAs no longer recursively destroy rocks when one breaks, but still retain AoE effects."
+  - tweak: "KAs now have at least one tile of AoE on all modules."
