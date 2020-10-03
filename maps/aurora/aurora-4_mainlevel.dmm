@@ -30420,6 +30420,11 @@
 	},
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/spline/plain,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/lino,
 /area/crew_quarters/diner)
 "baE" = (
@@ -47508,6 +47513,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/machinery/power/apc{
+	dir = 8;
+	is_critical = 1;
+	name = "blue dock apc";
+	pixel_x = -24
+	},
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "bJm" = (
@@ -47803,6 +47818,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/ramp{
 	dir = 1
 	},
@@ -48076,6 +48096,11 @@
 	pixel_x = 31
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/diner)
 "bKZ" = (
@@ -48315,6 +48340,11 @@
 	pixel_y = -5;
 	req_access = list(25)
 	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/diner)
 "bLJ" = (
@@ -48553,6 +48583,11 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/diner)
 "bMp" = (
@@ -48927,6 +48962,11 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/diner)
 "bMU" = (
@@ -62828,11 +62868,6 @@
 	name = "Station Intercom (General)";
 	pixel_y = -24
 	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Hydroponics - Bee Containment";
-	dir = 1;
-	network = list("Service")
-	},
 /turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "kTl" = (
@@ -68727,7 +68762,7 @@
 	name = "Bee Containment Shutters"
 	},
 /obj/machinery/door/firedoor,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/hydroponics)
 "tIQ" = (
 /obj/machinery/reagentgrinder{
