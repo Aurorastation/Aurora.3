@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed Oxygen and Nitrogen not being capitalized in some cases where they should be."
