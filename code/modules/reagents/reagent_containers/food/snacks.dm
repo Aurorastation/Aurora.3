@@ -4448,15 +4448,6 @@
 	reagent_data = list(/datum/reagent/nutriment = list("bread" = 4))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/clam
-	name = "Ras'val clam"
-	desc = "An adhomian clam, native from the sea of Ras'val."
-	icon_state = "clam"
-	bitesize = 2
-	desc_fluff = "Fishing and shellfish has a part in the diet of the population at the coastal areas, even if the ice can be an obstacle to most experienced fisherman. \
-	Spicy Ras'val clams, named after the sea, are a famous treat, being appreciated in other systems besides S'rand'marr."
-	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 2)
-
 /obj/item/reagent_containers/food/snacks/spicy_clams
 	name = "spicy Ras'val clams"
 	desc = "A famous adhomian clam dish, named after the Ras'val sea."
@@ -4814,6 +4805,33 @@
 	reagent_data = list(/datum/reagent/nutriment = list("bread" = 2))
 	reagents_to_add = list(/datum/reagent/nutriment = 6, /datum/reagent/nutriment/triglyceride = 5)
 	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/explorer_ration
+	name = "m'sai scout ration"
+	desc = "A mixture of meat, fat and adhomian berries commonly prepared by m'sai explorers and soldiers."
+	icon_state = "scoutration_wrap"
+	reagent_data = list(/datum/reagent/nutriment = list("berries" = 1))
+	reagents_to_add = list(/datum/reagent/nutriment = 4, /datum/reagent/nutriment/protein = 6 , /datum/reagent/nutriment/triglyceride = 5)
+	bitesize = 1
+	var/wrap = TRUE
+
+/obj/item/reagent_containers/food/snacks/explorer_ration/update_icon()
+	if(wrap)
+		icon_state = "scoutration_wrap"
+	else
+		icon_state = "scoutration_open"
+
+/obj/item/reagent_containers/food/snacks/explorer_ration/attack_self(mob/user)
+	src.wrap = !src.wrap
+	to_chat(usr, "You [src.wrap ? "wrap" : "unwrap"] \the [src].")
+	update_icon()
+	return
+
+/obj/item/reagent_containers/food/snacks/explorer_ration/standard_feed_mob(var/mob/user, var/mob/target)
+	if(wrap)
+		to_chat(user, SPAN_NOTICE("You must unwrap \the [src] first."))
+		return
+	..()
 
 /obj/item/reagent_containers/food/snacks/stew/diona
 	name = "dionae stew"

@@ -76,8 +76,8 @@
 	fruit = list("chili" = 1, "cabbage" = 1)
 	reagents = list(/datum/reagent/capsaicin = 1, /datum/reagent/spacespice = 1)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/clam,
-		/obj/item/reagent_containers/food/snacks/clam
+		/obj/item/reagent_containers/food/snacks/fish/mollusc/clam/adhomian,
+		/obj/item/reagent_containers/food/snacks/fish/mollusc/clam/adhomian
 	)
 	result = /obj/item/reagent_containers/food/snacks/spicy_clams
 
@@ -91,3 +91,15 @@
 		/obj/item/reagent_containers/food/snacks/dough
 	)
 	result = /obj/item/reagent_containers/food/snacks/chipplate/tajcandy
+
+// msai
+/decl/recipe/scoutration
+	appliance = OVEN
+	fruit = list("nifberries" = 2)
+	reagents = list(/datum/reagent/sodiumchloride = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/adhomai,
+		/obj/item/reagent_containers/food/snacks/meat/adhomai
+	)
+	result = /obj/item/reagent_containers/food/snacks/explorer_ration

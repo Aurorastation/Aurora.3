@@ -50,3 +50,14 @@
 
 /obj/item/seeds/barnacle
 	seed_type = "barnacle"
+
+/datum/seed/mollusc/clam/adhomian
+	name = "clam"
+	seed_name = "clam"
+	display_name = "clam bed"
+	product_type = /obj/item/mollusc/clam
+
+/datum/seed/mollusc/clam/adhomian/New()
+	..()
+	set_trait(TRAIT_PRODUCT_COLOUR, "#9aaca6")
+	set_trait(TRAIT_PLANT_COLOUR,   "#9aaca6")

@@ -35,6 +35,15 @@
 /obj/item/reagent_containers/food/snacks/fish/mollusc/barnacle
 	fish_type = "barnacle"
 
+/obj/item/reagent_containers/food/snacks/fish/mollusc/clam/adhomian
+	name = "ras'val clam"
+	desc = "An adhomian clam, native from the sea of Ras'val."
+	icon_state = "clam"
+	w_class = ITEMSIZE_NORMAL
+	bitesize = 2
+	desc_fluff = "Fishing and shellfish has a part in the diet of the population at the coastal areas, even if the ice can be an obstacle to most experienced fisherman. \
+	Spicy Ras'val clams, named after the sea, are a famous treat, being appreciated in other systems besides S'rand'marr."
+
 // Molluscs!
 /obj/item/trash/mollusc_shell
 	name = "mollusc shell"
@@ -50,9 +59,13 @@
 	name = "barnacle shell"
 	icon_state = "barnacle_shell"
 
+/obj/item/trash/mollusc_shell/clam/adhomian
+	name = "ras'val clam shell"
+	icon_state = "adhomian_shell"
+
 /obj/item/mollusc
 	name = "mollusc"
-	w_class = ITEMSIZE_TINY
+	w_class = ITEMSIZE_NORMAL
 	desc = "A small slimy mollusc. Fresh!"
 	desc_info = "You will need a sharp or edged implement to pry it open. You can also try opening it in your hand if you're strong enough."
 	icon = 'icons/obj/molluscs.dmi'
@@ -73,6 +86,14 @@
 	icon_state = "clam"
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/mollusc/clam
 	shell_type = /obj/item/trash/mollusc_shell/clam
+
+/obj/item/mollusc/clam/adhomian
+	name = "ras'val clam"
+	desc = "A clam-like creature found in the sea of Ras'val."
+	w_class = ITEMSIZE_LARGE
+	icon_state = "adhomian_clam"
+	meat_type = /obj/item/reagent_containers/food/snacks/fish/mollusc/clam/adhomian
+	shell_type = /obj/item/trash/mollusc_shell/clam/adhomian
 
 /obj/item/mollusc/proc/crack_shell(var/mob/user)
 	playsound(loc, /decl/sound_category/pickaxe_sound, 40, TRUE)
