@@ -59882,11 +59882,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
-"esh" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/disposal/small/east,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "esz" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -64578,13 +64573,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
-"oZQ" = (
-/obj/effect/floor_decal/corner/paleblue{
-	dir = 10
-	},
-/obj/machinery/disposal/small/north,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
 "pcx" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -96919,13 +96907,13 @@ aZs
 aVs
 bbI
 bdl
-esh
+bdl
 bdl
 bhu
 biM
 bjX
 bdl
-esh
+bdl
 bdl
 aRf
 aVs
@@ -98714,7 +98702,7 @@ aTT
 aIi
 aWM
 aYn
-oZQ
+aZr
 baI
 baI
 baI
