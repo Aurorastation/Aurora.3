@@ -338,10 +338,10 @@
 	var/dat = ""
 
 	if(src.active)
-		dat += "<font color='red'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently in use. Please wait...</b></font>"
+		dat += "<span class='warning'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently in use. Please wait...</b></span>"
 
 	else if(locked)
-		dat += "<font color='red'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently locked. Please contact your system administrator.</b></font>"
+		dat += "<span class='warning'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently locked. Please contact your system administrator.</b></span>"
 		if(src.allowed(usr))
 			dat += "<br><a href='?src=\ref[src];toggle_lock=1'>\[unlock unit\]</a>"
 	else
@@ -510,7 +510,7 @@
 		occupant.apply_effect(radiation_level * 10, IRRADIATE)
 
 /obj/machinery/suit_cycler/proc/finished_job()
-	visible_message("\icon[src] <span class='notice'>\The [src] pings loudly.</span>")
+	visible_message("[icon2html(src, viewers(get_turf(src)))] <span class='notice'>\The [src] pings loudly.</span>")
 	playsound(loc, 'sound/machines/ping.ogg', 50, FALSE)
 	active = FALSE
 	update_icon()

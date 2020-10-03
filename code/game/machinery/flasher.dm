@@ -100,7 +100,7 @@
 			if(!O.blinded)
 				flick("flash", O:flash)
 		O.Weaken(flash_time)
-		flick("e_flash", O.flash)
+		O.flash_eyes()
 
 /obj/machinery/flasher/emp_act(severity)
 	if(stat & (BROKEN|NOPOWER))

@@ -474,8 +474,10 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/sunglasses/blinders
 	name = "vaurcae blinders"
 	desc = "Specially designed Vaurca blindfold, designed to let in just enough light to see."
+	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "blinders"
-	item_state = "blindfold"
+	item_state = "blinders"
+	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 

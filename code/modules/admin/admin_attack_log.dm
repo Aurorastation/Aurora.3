@@ -27,7 +27,7 @@ proc/admin_attack_log(var/mob/attacker, var/mob/victim, var/attacker_message, va
 		victim.attack_log += text("\[[time_stamp()]\] <font color='orange'>[key_name(attacker)] - [victim_message]</font>")
 		jmp_link = " (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[victim.x];Y=[victim.y];Z=[victim.z]'>JMP</a>)"
 	if(attacker)
-		attacker.attack_log += text("\[[time_stamp()]\] <font color='red'>[key_name(victim)] - [attacker_message]</font>")
+		attacker.attack_log += text("\[[time_stamp()]\] <span class='warning'>[key_name(victim)] - [attacker_message]</span>")
 		jmp_link = " (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[attacker.x];Y=[attacker.y];Z=[attacker.z]'>JMP</a>)"
 
 	msg_admin_attack("[key_name_admin(attacker)] [admin_message] [key_name_admin(victim)] (INTENT: [attacker? uppertext(attacker.a_intent) : "N/A"])[jmp_link]",ckey=key_name(attacker),ckey_target=key_name(victim))

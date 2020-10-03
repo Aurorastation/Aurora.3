@@ -20,15 +20,18 @@
 	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/gloves/black_leather(src)
-	new /obj/item/clothing/head/soft/sec(src)
-	new /obj/item/clothing/head/soft/sec(src)
-	new /obj/item/clothing/head/soft/sec(src)
+	new /obj/item/clothing/head/softcap/security(src)
+	new /obj/item/clothing/head/softcap/security(src)
+	new /obj/item/clothing/head/softcap/security(src)
 	new /obj/item/clothing/head/beret/sec(src)
 	new /obj/item/clothing/head/beret/sec(src)
 	new /obj/item/clothing/head/beret/sec(src)
 	new /obj/item/clothing/head/beret/sec/alt(src)
 	new /obj/item/clothing/head/beret/sec/alt(src)
 	new /obj/item/clothing/head/beret/sec/alt(src)
+	new /obj/item/clothing/head/bandana/security(src)
+	new /obj/item/clothing/head/bandana/security(src)
+	new /obj/item/clothing/head/bandana/security(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
@@ -180,6 +183,9 @@
 	new /obj/item/clothing/head/beret/engineering(src)
 	new /obj/item/clothing/head/beret/engineering(src)
 	new /obj/item/clothing/head/beret/engineering(src)
+	new /obj/item/clothing/head/bandana/atmos(src)
+	new /obj/item/clothing/head/bandana/atmos(src)
+	new /obj/item/clothing/head/bandana/atmos(src)
 	return
 
 
@@ -205,6 +211,9 @@
 	new /obj/item/clothing/head/beret/engineering(src)
 	new /obj/item/clothing/head/beret/engineering(src)
 	new /obj/item/clothing/head/beret/engineering(src)
+	new /obj/item/clothing/head/bandana/engineering(src)
+	new /obj/item/clothing/head/bandana/engineering(src)
+	new /obj/item/clothing/head/bandana/engineering(src)
 	return
 
 
@@ -261,6 +270,9 @@
 	new /obj/item/clothing/shoes/slippers(src)
 	new /obj/item/clothing/shoes/slippers(src)
 	new /obj/item/clothing/shoes/slippers(src)
+	new /obj/item/clothing/head/bandana/science(src)
+	new /obj/item/clothing/head/bandana/science(src)
+	new /obj/item/clothing/head/bandana/science(src)
 	return
 
 
@@ -350,6 +362,8 @@
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/mask/surgical(src)
 	new /obj/item/clothing/mask/surgical(src)
+	new /obj/item/clothing/head/bandana/medical(src)
+	new /obj/item/clothing/head/bandana/medical(src)
 	return
 
 
@@ -366,9 +380,12 @@
 	new /obj/item/clothing/shoes/black(src)
 	new /obj/item/clothing/shoes/black(src)
 	new /obj/item/clothing/shoes/black(src)
-	new /obj/item/clothing/head/soft/grey(src)
-	new /obj/item/clothing/head/soft/grey(src)
-	new /obj/item/clothing/head/soft/grey(src)
+	new /obj/item/clothing/head/softcap(src)
+	new /obj/item/clothing/head/softcap(src)
+	new /obj/item/clothing/head/softcap(src)
+	new /obj/item/clothing/head/bandana(src)
+	new /obj/item/clothing/head/bandana(src)
+	new /obj/item/clothing/head/bandana(src)
 	return
 
 

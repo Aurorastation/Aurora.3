@@ -2,7 +2,7 @@
 	name = "\improper IV drip"
 	icon = 'icons/obj/iv_drip.dmi'
 	anchored = 0
-	density = 1
+	density = FALSE
 
 	var/mob/living/carbon/human/attached = null
 	var/mode = 1 // 1 is injecting, 0 is taking blood.
@@ -117,7 +117,7 @@
 				return
 
 			if(T.get_blood_volume() < 90 && !blood_message_sent)
-				visible_message("\icon[src] \The <b>[src]</b> flashes a warning light!")
+				visible_message("[icon2html(src, viewers(get_turf(src)))] \The <b>[src]</b> flashes a warning light!")
 				playsound(src, 'sound/machines/buzz-two.ogg', 50)
 				blood_message_sent = TRUE
 

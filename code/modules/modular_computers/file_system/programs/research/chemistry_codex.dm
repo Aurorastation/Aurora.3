@@ -1,6 +1,6 @@
 /datum/computer_file/program/chemistry_codex
 	filename = "chemcodex"
-	filedesc = "Chemistry codex"
+	filedesc = "Chemistry Codex"
 	program_icon_state = "generic"
 	extended_desc = "Useful program to view chemical reactions and how to make them."
 	size = 14

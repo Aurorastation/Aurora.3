@@ -24,7 +24,7 @@
             <vui-group-item label="Name:">{{ name }}</vui-group-item>
             <vui-group-item label="Status:"><span :style="{color:consciousnessLabel(stat)}">{{ consciousnessText(stat) }}</span></vui-group-item>
             <vui-group-item label="Species:">{{ species }}</vui-group-item>
-            <vui-group-item label="Brain Activity:"><span :style="{color:brainLabel(brain_activity)}">{{ brainText(brain_activity) }}</span></vui-group-item>
+            <vui-group-item label="Brain Activity:"><vui-progress :class="progressClass(brain_activity)" :value="brain_activity">{{brain_activity}}%</vui-progress></vui-group-item>
 
             <!-- Trauma -->
             <template v-if="stat < 2">
@@ -38,33 +38,11 @@
 
           <!-- Status Effects -->
           <vui-group>
-            <vui-group-item label="Radation Level:">{{ Math.round(rads) }}</vui-group-item>
+            <vui-group-item label="Radiation Level:">{{ Math.round(rads) }}</vui-group-item>
             <vui-group-item label="Genetic Damage:">{{ cloneLoss }}</vui-group-item>
-            <vui-group-item label="Est. Paralysis Level:">{{ paralysis }}<span v-if="paralysis"> (~{{ Math.round(paralysis/4) }} seconds left)</span></vui-group-item>
+            <vui-group-item label="Est. Paralysis Level:">{{ paralysis }}<span v-if="paralysis"> (~{{ Math.round(paralysis/4) }} Seconds Left)</span></vui-group-item>
             <vui-group-item label="Body Temperature:">{{bodytemp}} K (~ {{Math.round(bodytemp - 273.15)}} C)</vui-group-item>
           </vui-group>
-
-          <!-- Viruses -->
-          <div v-if="hasvirus || hastgvirus">
-            <hr>
-            <h3>Pathogen Analysis:</h3>
-            <hr>
-            <vui-group v-if="hasvirus">
-              <vui-group-item class="bad" label="Viral Status:">Present</vui-group-item>
-            </vui-group>
-            <vui-group v-else-if="hastgvirus">
-              <div v-for="value in tgvirus" :key="value.name">
-                <vui-group-item label="Viral Status:"> {{value.form}} Detected</vui-group-item>
-                <vui-group-item label="Name"> {{value.name}} </vui-group-item>
-                <vui-group-item label="Type"> {{value.spread}} </vui-group-item>
-                <vui-group-item label="Stage"> {{value.stage}} of {{value.max_stages}} </vui-group-item>
-                <vui-group-item label="Possible Cure"> {{value.cure}} </vui-group-item>
-              </div>
-            </vui-group>
-            <vui-group v-else>
-              <vui-group-item class="good" label="Virus Status:"> Not Detected </vui-group-item>
-            </vui-group>
-          </div>
 
           <!-- Blood -->
           <hr>
@@ -72,7 +50,7 @@
           <hr>
           <vui-group>
             <vui-group-item label="BP:" :style="{color:getPressureClass(blood_pressure_level)}"> {{blood_pressure}} </vui-group-item>
-            <vui-group-item label="Blood Oxygenation:"> {{ Math.round(blood_o2) }}% </vui-group-item>
+            <vui-group-item label="Blood Oxygenation:"><vui-progress :class="progressClass(brain_activity)" :value="Math.round(blood_o2)">{{Math.round(blood_o2)}}%</vui-progress></vui-group-item>
             <vui-group-item label="Inaprovaline:" v-if="Math.round(norepiAmt)"> {{ Math.round(norepiAmt) }} unit(s)</vui-group-item>
             <vui-group-item label="Soporific:" v-if="Math.round(soporAmt)"> {{ Math.round(soporAmt) }} unit(s)</vui-group-item>
             <vui-group-item label="Bicaridine:" v-if="Math.round(bicardAmt)"> {{ Math.round(bicardAmt) }} unit(s)</vui-group-item>
@@ -95,17 +73,24 @@
           <!-- Internal Organs -->
           <h3>Internal Organ Status</h3>
           <hr>
-          <table>
-            <tr>
-              <th>Organ</th>
-              <th>Trauma</th>
-              <th>Wounds</th>
-            </tr>
+          <table class="injury">
+            <template v-if="hasinternalinjury">
+              <tr>
+                <th>Organ</th>
+                <th>Trauma</th>
+                <th>Wounds</th>
+              </tr>
+            </template>
+            <template v-else>
+              <tr>
+                <th><span style="color:LimeGreen">The occupant has no internal injuries.</span></th>
+              </tr>
+            </template>
             <tr v-for="organ in organs" :key="organ.name">
-              <template v-if="organ.damage != 'none' || organ.hasWounds">
-                <td> {{ capitalizeFirstLetter(organ.name) }} </td>
+              <template v-if="organ.damage != 'None' || organ.hasWounds">
+                <td> {{ organ.name }} </td>
                 <td><span :style="{color:damageLabel(organ.damage)}"> {{ organ.damage }}</span></td>
-                <td><div v-for="wound in organ.wounds" :key="wound.name" class="bad"> {{ wound }} </div></td>
+                <td><div v-for="wound in organ.wounds" :key="wound.name" style="color:Tomato"> {{ wound }} </div></td>
               </template>
             </tr>
           </table>
@@ -114,17 +99,24 @@
           <hr>
           <h3>External Bodypart Status</h3>
           <hr>
-          <table>
-            <tr>
-              <th>Organ</th>
-              <th>Physical / Burn Trauma</th>
-              <th>Wounds</th>
-            </tr>
+          <table class="injury">
+            <template v-if="hasexternalinjury">
+              <tr>
+                <th>Organ</th>
+                <th>Physical / Burn Trauma</th>
+                <th>Wounds</th>
+              </tr>
+            </template>
+            <template v-else>
+              <tr>
+                <th><span style="color:LimeGreen">The occupant has no external injuries.</span></th>
+              </tr>
+            </template>
             <tr v-for="organ in bodyparts" :key="organ.name">
-              <template v-if="organ.bruteDmg != 'none' || organ.burnDmg != 'none' || organ.hasWounds">
-                <td> {{ capitalizeFirstLetter(organ.name) }} </td>
+              <template v-if="organ.bruteDmg != 'None' || organ.burnDmg != 'None' || organ.hasWounds">
+                <td> {{ organ.name }} </td>
                 <td><span :style="{color:damageLabel(organ.bruteDmg)}"> {{ organ.bruteDmg }} </span> / <span :style="{color:damageLabel(organ.burnDmg)}"> {{ organ.burnDmg }} </span></td>
-                <td><div v-for="wound in organ.wounds" :key="wound.name"> {{ wound }} </div></td>
+                <td><div v-for="wound in organ.wounds" :key="wound.name" style="color:Tomato"> {{ wound }} </div></td>
               </template>
             </tr>
           </table>
@@ -132,6 +124,7 @@
 
         <h3>Actions</h3>
         <vui-button class="center" :params="{print: 1}">Print Report</vui-button>
+        <vui-button class="center" :params="{eject: 1}">Eject Occupant</vui-button>
 
       </div>
     </table>
@@ -145,9 +138,6 @@
       return this.$root.$data.state;
     },
     methods: {
-    capitalizeFirstLetter(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    },
     consciousnessLabel(value) {
       switch (value) {
         case 0:
@@ -168,28 +158,21 @@
           return "DEAD"
         }
       },
-    brainLabel(value) {
-      switch (value) {
-        case 0:
-          return "Crimson"
-        case -1:
-          return "LightSkyBlue"
-        default:
-          if (value <= 50) {
-            return "Crimson"
-          }
-          else if (value <= 80) {
-            return "Orange"
-          }
-          else {
-            return "LimeGreen"
-          }
-        }
-      },
+    progressClass(value) {
+      if (value <= 50) {
+        return "bad"
+      }
+      else if (value <= 90) {
+        return "average"
+      }
+      else {
+        return "good"
+      }
+    },
     brainText(value) {
       switch (value) {
         case 0:
-          return "none, patient is braindead"
+          return "None, patient is braindead"
         case -1:
           return "ERROR - Nonstandard biology"
         default:
@@ -254,8 +237,8 @@
     margin: 1%;
     padding: 10px;
     outline-style: ridge;
-    outline-color: green;
-    background-color: black;
+    outline-color: black;
+    background-color: rgba(0, 0, 0, 0.4);
     height: 500px;
     overflow: auto;
   }
@@ -278,5 +261,13 @@
 
 .right {
   text-align: right;
+}
+
+table .injury {
+  border-spacing: 20px 0;
+}
+
+td, th {
+  text-align: center;
 }
 </style>

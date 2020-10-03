@@ -40,7 +40,7 @@
 	path = /obj/item/gun/projectile/revolver
 
 /datum/uplink_item/item/visible_weapons/submachinegun
-	name = "Vintage Submachine Gun"
+	name = "Submachine Gun"
 	item_cost = 14
 	path = /obj/item/gun/projectile/automatic/tommygun
 

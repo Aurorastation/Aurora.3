@@ -30,6 +30,7 @@
 	new /obj/item/device/gps/mining(src)
 	new /obj/item/book/manual/ka_custom(src)
 	new /obj/item/clothing/accessory/storage/overalls/mining(src)
+	new /obj/item/clothing/head/bandana/miner(src)
 
 /******************************Lantern*******************************/
 
@@ -44,7 +45,7 @@
 		)
 	light_power = 1
 	brightness_on = 4
-	light_wedge = 120
+	light_wedge = LIGHT_OMNI
 	light_color = LIGHT_COLOR_FIRE
 
 /*****************************Pickaxe********************************/

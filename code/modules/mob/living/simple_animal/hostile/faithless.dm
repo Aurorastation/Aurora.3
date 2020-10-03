@@ -7,6 +7,7 @@
 	icon_dead = "faithless_dead"
 	speak_chance = 0
 	turns_per_move = 5
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help = "passes through"
 	response_disarm = "shoves"
 	response_harm = "hits"

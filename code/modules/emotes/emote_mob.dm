@@ -4,6 +4,20 @@
 /mob/living/can_emote(var/emote_type)
 	return (..() && !(silent && emote_type == AUDIBLE_MESSAGE))
 
+/mob/verb/custom_audible_emote()
+	set name = "Audible Emote"
+	set category = "IC"
+	set desc = "Type in an emote message that will be received by mobs that can hear you."
+
+	custom_emote(m_type = AUDIBLE_MESSAGE)
+
+/mob/verb/custom_visible_emote()
+	set name = "Visible Emote"
+	set category = "IC"
+	set desc = "Type in an emote message that will be received by mobs that can see you."
+
+	custom_emote(m_type = VISIBLE_MESSAGE)
+
 /mob/proc/emote(var/act, var/m_type, var/message)
 	// s-s-snowflake
 	if((src.stat == DEAD || src.status_flags & FAKEDEATH) && act != "deathgasp")
@@ -115,7 +129,7 @@
 	nametext = "<B>[emoter]</B>"
 	return pretext + nametext + subtext
 
-/mob/proc/custom_emote(var/m_type = VISIBLE_MESSAGE, var/message = null)
+/mob/proc/custom_emote(var/m_type = VISIBLE_MESSAGE, var/message = null, var/do_show_observers = TRUE)
 
 	if((usr && stat) || (!use_me && usr == src))
 		to_chat(src, "You are unable to emote.")
@@ -128,16 +142,16 @@
 		input = message
 
 	if(input)
-		message = format_emote(src, message)
+		message = format_emote(src, input)
 	else
 		return
 
 	if (message)
 		log_emote("[name]/[key] : [message]")
 	if(m_type == VISIBLE_MESSAGE)
-		visible_message(message)
+		visible_message(message, show_observers = do_show_observers)
 	else
-		audible_message(message)
+		audible_message(message, ghost_hearing = do_show_observers)
 
 // Specific mob type exceptions below.
 /mob/living/silicon/ai/emote(var/act, var/type, var/message)

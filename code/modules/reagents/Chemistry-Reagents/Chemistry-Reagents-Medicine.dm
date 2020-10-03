@@ -2,7 +2,7 @@
 
 /datum/reagent/inaprovaline
 	name = "Inaprovaline"
-	description = "Inaprovaline is a cardiostimulant which stabilises myocardial contractility, working towards maintaining a steady pulse and blood pressure. Inaprovaline also acts as a weak analgesic"
+	description = "Inaprovaline is a cardiostimulant which stabilises myocardial contractility, working towards maintaining a steady pulse and blood pressure. Inaprovaline also acts as a weak analgesic."
 	reagent_state = LIQUID
 	color = "#00BFFF"
 	overdose = REAGENTS_OVERDOSE
@@ -1535,11 +1535,12 @@
 
 /datum/reagent/saline
 	name = "Saline Plus"
-	description = "Saline Plus, or Vaughan's Saline Solution, is an expensive improvement upon the various saline solutions of old. Saline Plus has wide clinical applications in the treatment of dehydration and hypovolaemia, with no more debates as to whether it is effective or not."
+	description = "Saline Plus is an expensive improvement upon the various saline solutions of old. Saline Plus has wide clinical applications in the treatment of dehydration and hypovolaemia, with no more debates as to whether it is effective or not."
 	reagent_state = LIQUID
 	scannable = TRUE
-	metabolism = REM * 4 
+	metabolism = 1.5
 	overdose = 5 // Low overdose and fast metabolism to necessitate IV drip usage
+	od_minimum_dose = 10
 	color = "#0064C877"
 	taste_description = "premium salty water"
 	unaffected_species = IS_MACHINE
@@ -1551,13 +1552,13 @@
 		M.adjustHydrationLoss(-removed*2)
 	else
 		M.adjustHydrationLoss(-removed*5)
-	if(volume < 2)
+	if(volume < 3)
 		M.add_chemical_effect(CE_BLOODRESTORE, 4 * removed)
 	
 /datum/reagent/saline/overdose(var/mob/living/carbon/M, var/alien)
 	M.confused = max(M.confused, 20)
 	M.make_jittery(5)
-	if(prob(dose / 2))
+	if(prob(2))
 		M.emote("twitch")
 
 /datum/reagent/adrenaline
@@ -1627,7 +1628,7 @@
 	reagent_state = LIQUID
 	scannable = TRUE
 	color = "#AA8866"
-	overdose = 40
+	overdose = 30
 	metabolism = 0.1 * REM
 	taste_description = "sourness"
 	fallback_specific_heat = 1

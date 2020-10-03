@@ -53,7 +53,7 @@
 	description_holders["cult"] = show_cult_info ? A.get_description_cult() : ""
 
 	description_holders["name"] = "[A.name]"
-	description_holders["icon"] = "\icon[A]"
+	description_holders["icon"] = "[icon2html(A, usr)]"
 	description_holders["desc"] = A.desc
 
 /client/Stat()

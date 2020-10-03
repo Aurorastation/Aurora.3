@@ -16183,12 +16183,12 @@
 /area/quartermaster/loading)
 "En" = (
 /obj/structure/table/standard,
-/obj/item/clothing/head/soft/yellow,
+/obj/item/clothing/head/softcap/cargo,
 /obj/item/stamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/clothing/head/soft/yellow,
+/obj/item/clothing/head/softcap/cargo,
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
