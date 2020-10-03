@@ -52586,6 +52586,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/landmark/start{
+	name = "Gardener"
+	},
 /turf/simulated/floor/wood,
 /area/hydroponics)
 "bYD" = (
@@ -63381,6 +63384,9 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
+	},
+/obj/effect/landmark/start{
+	name = "Gardener"
 	},
 /turf/simulated/floor/tiled,
 /area/hydroponics)
