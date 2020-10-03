@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "The cancel button no longer appears on the human ghost spawner species selection screen."

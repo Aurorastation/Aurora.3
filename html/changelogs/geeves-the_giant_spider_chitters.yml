@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - tweak: "You will now only hear simple mobs emote and speak using ghost ears if they have a client, or if they're in your view."

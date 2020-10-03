@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Vaurcae blinders can now be recoloured."
-  - bugfix: "Blinders now properly fit the face on the side sprites."
