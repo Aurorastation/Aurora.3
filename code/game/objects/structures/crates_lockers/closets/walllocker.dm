@@ -55,3 +55,10 @@
 /obj/structure/closet/walllocker/emerglocker/east
 	pixel_x = 32
 	dir = EAST
+
+/obj/structure/closet/walllocker/cabinet
+	name = "wall cabinet"
+	desc = "A wood-carved, wall-mounted cabinet, for all your domestic storage needs."
+	icon_state = "cabinet-locker"
+	icon_closed = "cabinet-locker"
+	icon_opened = "cabinet-lockeropen"

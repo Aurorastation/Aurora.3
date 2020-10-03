@@ -37,12 +37,7 @@ datum/track/New(var/title_name, var/audio)
 		new/datum/track("Thunderdome", 'sound/music/THUNDERDOME.ogg'),
 		new/datum/track("Space Oddity", 'sound/music/space_oddity.ogg'),
 		new/datum/track("Space Asshole", 'sound/music/space_asshole.ogg'),
-		new/datum/track("Velvet Rose", 'sound/music/Velvet-Rose.ogg'),
-		new/datum/track("Boolean Sisters", 'sound/music/recordplayer/BooleanSisters.ogg'),
-		new/datum/track("Posin'", 'sound/music/recordplayer/Posin.ogg'),
-		new/datum/track("Jazz Instrumental", 'sound/music/recordplayer/JazzInstrumental.ogg'),
-		new/datum/track("Le Swing", 'sound/music/recordplayer/LeSwing.ogg'),
-		new/datum/track("Cosmorot", 'sound/music/recordplayer/Cosmorot.ogg')
+		new/datum/track("Velvet Rose", 'sound/music/Velvet-Rose.ogg')
 	)
 
 
