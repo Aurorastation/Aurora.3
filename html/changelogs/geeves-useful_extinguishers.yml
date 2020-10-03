@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "You can now only hit people with fire extinguishers if you are on hurt intent."
+  - tweak: "Extinguisher refills now fit in your backpack, fire extinguishers now do not."
+  - rscadd: "Foam from fire extinguishers now go onto mobs as well, instead of just the turfs."
+  - tweak: "Halved the amount of volume extinguisher refill canisters have."
