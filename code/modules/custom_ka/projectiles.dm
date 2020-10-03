@@ -25,32 +25,20 @@
 	if(istype(target_turf))
 		strike_thing(target_turf)
 
-/obj/item/projectile/kinetic/proc/do_damage(var/turf/T)
+/obj/item/projectile/kinetic/proc/do_damage(var/turf/T, var/living_damage = 1, var/mineral_damage = 1)
 	var/datum/gas_mixture/environment = T.return_air()
-	damage *= max(1 - (environment.return_pressure() / 100) * 0.75, 0)
+	living_damage *= max(1 - (environment.return_pressure() / 100) * 0.75, 0)
+	new /obj/effect/overlay/temp/kinetic_blast(T)
 	for(var/mob/living/L in T)
-		damage = min(damage, 50) //Never do more than 50 damage to a living being per shot.
+		L.take_overall_damage(min(living_damage, 50))
+		L.visible_message(SPAN_DANGER("\The [L] is hit by \the [src]!"), SPAN_DANGER("You are hit by \the [src]!"))
 	if(istype(T, /turf/simulated/mineral))
 		var/turf/simulated/mineral/M = T
-		M.kinetic_hit(base_damage)
+		M.kinetic_hit(mineral_damage)
 
 /obj/item/projectile/kinetic/proc/strike_thing(var/turf/target_turf)
 	for(var/new_target in RANGE_TURFS(aoe, target_turf))
 		var/turf/aoe_turf = new_target
-		new /obj/item/projectile/kinetic/aoe_shot(aoe_turf, src, get_dist(aoe_turf, target_turf))
+		do_damage(aoe_turf, max(base_damage - base_damage * get_dist(aoe_turf, target_turf) * 0.25, 0), base_damage)
 	if(!QDELETED(src))
 		qdel(src)
-
-/obj/item/projectile/kinetic/aoe_shot
-	aoe_shot = TRUE
-
-/obj/item/projectile/kinetic/aoe_shot/Initialize(mapload, var/obj/item/projectile/kinetic/master_shot, var/distance_from_master)
-	..()
-	var/turf/spawn_turf = mapload
-	if(!istype(spawn_turf))
-		spawn_turf = get_turf(src)
-	new /obj/effect/overlay/temp/kinetic_blast(spawn_turf)
-	damage = max(master_shot.base_damage - master_shot.base_damage * distance_from_master * 0.25, 0)
-	base_damage = master_shot.base_damage
-	do_damage(spawn_turf)
-	return INITIALIZE_HINT_QDEL
