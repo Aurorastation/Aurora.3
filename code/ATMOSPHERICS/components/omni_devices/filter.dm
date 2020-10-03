@@ -145,9 +145,9 @@
 /obj/machinery/atmospherics/omni/filter/proc/mode_send_switch(var/mode = ATM_NONE)
 	switch(mode)
 		if(ATM_O2)
-			return GAS_OXYGEN
+			return "Oxygen"
 		if(ATM_N2)
-			return GAS_NITROGEN
+			return "Nitrogen"
 		if(ATM_CO2)
 			return "Carbon Dioxide"
 		if(ATM_P)
@@ -179,7 +179,7 @@
 			if("switch_mode")
 				switch_mode(dir_flag(href_list["dir"]), mode_return_switch(href_list["mode"]))
 			if("switch_filter")
-				var/new_filter = input(usr,"Select filter mode:","Change filter",href_list["mode"]) in list("None", GAS_OXYGEN, GAS_NITROGEN, "Carbon Dioxide", "Phoron", "Nitrous Oxide")
+				var/new_filter = input(usr,"Select filter mode:","Change filter",href_list["mode"]) in list("None", "Oxygen", "Nitrogen", "Carbon Dioxide", "Phoron", "Nitrous Oxide")
 				switch_filter(dir_flag(href_list["dir"]), mode_return_switch(new_filter))
 
 	update_icon()
@@ -188,9 +188,9 @@
 
 /obj/machinery/atmospherics/omni/filter/proc/mode_return_switch(var/mode)
 	switch(mode)
-		if(GAS_OXYGEN)
+		if("Oxygen")
 			return ATM_O2
-		if(GAS_NITROGEN)
+		if("Nitrogen")
 			return ATM_N2
 		if("Carbon Dioxide")
 			return ATM_CO2
