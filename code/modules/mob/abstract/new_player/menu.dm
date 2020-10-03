@@ -40,6 +40,10 @@
 	using.name = "Polls"
 	adding += using
 
+	using = new /obj/screen/new_player/selection/lore_summary()
+	using.name = "Current Lore Summary"
+	adding += using
+
 	mymob.client.screen = list()
 	mymob.client.screen += adding
 	src.adding += using
@@ -120,6 +124,11 @@
 	icon_state = "polls"
 	screen_loc = "LEFT+1,CENTER-5"
 
+/obj/screen/new_player/selection/lore_summary
+	name = "Current Lore Summary"
+	icon_state = "lore_summary"
+	screen_loc = "LEFT+1,CENTER-6"
+
 //SELECTION
 
 /obj/screen/new_player/selection/New(var/desired_loc)
@@ -191,6 +200,11 @@
 	sound_to(player, 'sound/effects/menu_click.ogg')
 	player.handle_player_polling()
 
+/obj/screen/new_player/selection/lore_summary/Click()
+	var/mob/abstract/new_player/player = usr
+	sound_to(player, 'sound/effects/menu_click.ogg')
+	player.show_lore_summary()
+
 /mob/abstract/new_player/proc/setupcharacter()
 	client.prefs.ShowChoices(src)
 	return TRUE
@@ -256,3 +270,9 @@
 		observer.ckey = ckey
 		observer.initialise_postkey()
 		qdel(src)
+
+/mob/abstract/new_player/proc/show_lore_summary()
+	if(config.lore_summary)
+		var/output = "<div align='center'><hr1><B>Welcome to the [station_name()]!</B></hr1><br>"
+		output += "<i>[config.lore_summary]</i><hr>"
+		to_chat(src, output)
