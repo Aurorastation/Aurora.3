@@ -92,16 +92,10 @@
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+
 /datum/species/monkey/tajaran/get_random_name()
 	return "farwa ([rand(100,999)])" // HACK HACK HACK, oh lords of coding please forgive me!
-
-/datum/species/monkey/tajaran/m_sai
-	name = SPECIES_MONKEY_TAJARA_MSAI
-	greater_form = SPECIES_TAJARA_MSAI
-
-/datum/species/monkey/tajaran/zhan_khazan
-	name = SPECIES_MONKEY_TAJARA_ZHAN
-	greater_form = SPECIES_TAJARA_ZHAN
 
 /datum/species/monkey/skrell
 	name = SPECIES_MONKEY_SKRELL
