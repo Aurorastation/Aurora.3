@@ -16051,6 +16051,7 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "centcom_dock";
+	layer = 3.5;
 	name = "docking port controller";
 	pixel_x = 25;
 	req_one_access = list(13);
