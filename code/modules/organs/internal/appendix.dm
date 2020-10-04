@@ -3,6 +3,7 @@
 	icon_state = "appendix"
 	parent_organ = BP_GROIN
 	organ_tag = BP_APPENDIX
+	possible_modifications = list ("Normal","Removed")
 	var/inflamed = 0
 
 /obj/item/organ/internal/appendix/update_icon()

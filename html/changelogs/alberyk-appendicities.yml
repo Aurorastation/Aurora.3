@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - rscadd: "Readded the appendicitis event."
+  - rscadd: "Made the organ options in the character setup more modular; you can now spawn without an appendix and select more robotic organs."
