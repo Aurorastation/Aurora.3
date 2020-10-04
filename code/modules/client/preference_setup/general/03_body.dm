@@ -245,6 +245,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				organ_name = "liver"
 			if(BP_KIDNEYS)
 				organ_name = "kidneys"
+			if(BP_STOMACH)
+				organ_name = "stomach"
+			if(BP_APPENDIX)
+				organ_name = "appendix"
 
 		if(status == "cyborg")
 			++ind
