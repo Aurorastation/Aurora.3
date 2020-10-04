@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixes various wall-mounted objects being seen through walls when they shouldn't be."
