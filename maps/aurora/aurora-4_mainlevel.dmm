@@ -47213,6 +47213,10 @@
 /obj/machinery/alarm{
 	pixel_y = 31
 	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Bar - Backroom";
+	network = list("Service")
+	},
 /turf/simulated/floor/lino/grey,
 /area/crew_quarters/bar)
 "bIs" = (
@@ -50530,7 +50534,7 @@
 /area/crew_quarters/bar)
 "bSO" = (
 /obj/machinery/camera/network/civilian_main{
-	c_tag = "Kitchen - West";
+	c_tag = "Kitchen - Serving Bar";
 	dir = 8;
 	network = list("Service")
 	},
@@ -63014,6 +63018,11 @@
 /obj/structure/sign/biohazard{
 	pixel_x = -30
 	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Hydroponics - Bee Containment";
+	dir = 4;
+	network = list("Service")
+	},
 /turf/simulated/floor/grass/alt,
 /area/hydroponics)
 "ldx" = (
@@ -66320,8 +66329,7 @@
 "qdf" = (
 /obj/machinery/camera/network/civilian_main{
 	c_tag = "Aft Corridor - Camera 2";
-	dir = 8;
-	network = null
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
@@ -68773,11 +68781,6 @@
 	pixel_x = -7;
 	pixel_y = 8
 	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Hydroponics - East";
-	dir = 8;
-	network = list("Service")
-	},
 /obj/item/reagent_containers/glass/beaker/large{
 	pixel_x = -7;
 	pixel_y = 8
@@ -69854,6 +69857,10 @@
 	pixel_x = -2;
 	pixel_y = 28
 	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Diner - West";
+	network = list("Service")
+	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/diner)
 "vtA" = (
@@ -69994,6 +70001,10 @@
 "vFh" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/firealarm/north,
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Kitchen - East";
+	network = list("Service")
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "vGu" = (
@@ -70259,7 +70270,7 @@
 /obj/machinery/firealarm/west,
 /obj/structure/reagent_dispensers/cookingoil,
 /obj/machinery/camera/network/civilian_main{
-	c_tag = "Kitchen - East";
+	c_tag = "Kitchen - West";
 	dir = 4;
 	network = list("Service")
 	},
@@ -70888,10 +70899,6 @@
 "wTn" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
-	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Diner - West";
-	network = list("Service")
 	},
 /obj/machinery/light{
 	dir = 1
@@ -71820,6 +71827,17 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/robotics/workshop)
+"yfw" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/camera/network/civilian_main{
+	c_tag = "Bistro - West";
+	dir = 4;
+	network = list("Service")
+	},
+/turf/simulated/floor/tiled/dark,
+/area/crew_quarters/diner)
 "yfI" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
@@ -71876,21 +71894,6 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/old_white,
 /area/maintenance/medbay)
-"ykS" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/door/airlock{
-	id_tag = "table2";
-	name = "Private Table 2"
-	},
-/turf/simulated/floor/wood,
-/area/chapel/main)
 "ylS" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -99065,7 +99068,7 @@ bTi
 bTi
 bTi
 bTi
-ykS
+cMI
 iUR
 bWH
 bXi
@@ -101631,7 +101634,7 @@ ckk
 rdT
 iAJ
 ckk
-ckk
+yfw
 lRE
 kIr
 ckk
