@@ -169,3 +169,8 @@
 	spawn_cartridges = list(
 			/obj/item/reagent_containers/chem_disp_cartridge/espresso{temperature_override = 369.15}
 		)
+
+/obj/machinery/chemical_dispenser/water //runtime error results if you map in a chemical dispenser without something in it
+	spawn_cartridges = list(
+			/obj/item/reagent_containers/chem_disp_cartridge/water
+	)

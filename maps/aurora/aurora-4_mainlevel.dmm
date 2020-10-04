@@ -51647,14 +51647,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/diner)
 "bWb" = (
-/obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_soft/full{
-	dir = 4;
-	pixel_y = 1
-	},
 /obj/structure/extinguisher_cabinet{
 	pixel_x = -31
 	},
+/obj/machinery/chemical_dispenser/water,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "bWf" = (
@@ -58816,10 +58812,7 @@
 /turf/simulated/floor/lino,
 /area/crew_quarters/diner)
 "evh" = (
-/obj/machinery/chemical_dispenser{
-	dir = 8;
-	spawn_cartridges = list(obj/item/reagent_dispensers/chem_disp_cartridge, obj/item/reagent_dispensers/chem_disp_cartridge, obj/item/reagent_dispensers/chem_disp_cartridge, obj/item/reagent_dispensers/chem_disp_cartridge, obj/item/reagent_dispensers/chem_disp_cartridge, obj/item/reagent_dispensers/chem_disp_cartridge)
-	},
+/obj/machinery/chemical_dispenser/water,
 /turf/simulated/floor/wood,
 /area/hydroponics)
 "ewH" = (
