@@ -11,6 +11,7 @@
 	response_harm = "hits"
 	speed = -1
 	meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	maxHealth = 100
 	health = 100
 	harm_intent_damage = 5

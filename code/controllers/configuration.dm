@@ -316,6 +316,8 @@ var/list/gamemode_cache = list()
 	var/profiler_restart_period = 120 SECONDS
 	var/profiler_timeout_threshold = 5 SECONDS
 
+	var/list/external_rsc_urls = list()
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -956,6 +958,9 @@ var/list/gamemode_cache = list()
 					use_forumuser_api = TRUE
 				if ("forumuser_api_key")
 					global.forumuser_api_key = value
+
+				if ("external_rsc_urls")
+					external_rsc_urls = splittext(value, ",")
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")

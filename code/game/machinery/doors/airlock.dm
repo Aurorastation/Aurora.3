@@ -608,7 +608,7 @@ About the new airlock wires panel:
 	else if(duration)	//electrify door for the given duration seconds
 		if(usr)
 			LAZYADD(shockedby, "\[[time_stamp()]\] - [usr](ckey:[usr.ckey])")
-			usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Electrified the [name] at [x] [y] [z]</font>")
+			usr.attack_log += text("\[[time_stamp()]\] <span class='warning'>Electrified the [name] at [x] [y] [z]</span>")
 		else
 			LAZYADD(shockedby, "\[[time_stamp()]\] - EMP)")
 		message = "The door is now electrified [duration == -1 ? "permanently" : "for [duration] second\s"]."
@@ -1004,7 +1004,7 @@ About the new airlock wires panel:
 			else if(!activate)
 				if(issilicon(usr) && !player_is_antag(usr.mind))
 					to_chat(usr, SPAN_NOTICE("The door bolts will raise in five seconds."))
-					src.visible_message("\icon[src.icon] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in FIVE SECONDS.\"</span>")
+					src.visible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in FIVE SECONDS.\"</span>")
 					addtimer(CALLBACK(src, .proc/unlock), 50)
 				else if(unlock())
 					to_chat(usr, SPAN_NOTICE("The door bolts have been raised."))
@@ -1150,8 +1150,8 @@ About the new airlock wires panel:
 				..()
 				return
 		if(p_open && !operating && welded)
-			if(!locked && bolt_cut_state != BOLTS_CUT)
-				to_chat(user, SPAN_WARNING("The airlock bolts are in the way of the electronics, you need to drop them before you can reach them."))
+			if(locked)
+				to_chat(user, SPAN_WARNING("The airlock bolts are in the way of the electronics, you need to raise them before you can reach them."))
 				return
 			playsound(src.loc, C.usesound, 100, 1)
 			user.visible_message("<b>[user]</b> starts removing the electronics from the airlock assembly.", SPAN_NOTICE("You start removing the electronics from the airlock assembly."))
@@ -1546,6 +1546,10 @@ About the new airlock wires panel:
 		to_chat(user, bracer.health)
 	if(p_open)
 		to_chat(user, "\The [src]'s maintenance panel has been unscrewed and is hanging open.")
+
+/obj/machinery/door/airlock/emag_act(var/remaining_charges)
+	. = ..()
+	lock(1)
 
 #undef AIRLOCK_CRUSH_DIVISOR
 #undef CYBORG_AIRLOCKCRUSH_RESISTANCE

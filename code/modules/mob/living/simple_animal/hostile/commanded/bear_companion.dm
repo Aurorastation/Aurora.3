@@ -23,6 +23,7 @@
 
 	mob_size = 17
 
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help = "pets"
 	response_harm = "hits"
 	response_disarm = "pushes"

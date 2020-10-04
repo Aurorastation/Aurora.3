@@ -4313,7 +4313,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
 	name = "Escape pods and Shuttle Docks";
-	req_one_access = list(19,38,63)
+	req_one_access = list(19,38,63,72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
@@ -16183,12 +16183,12 @@
 /area/quartermaster/loading)
 "En" = (
 /obj/structure/table/standard,
-/obj/item/clothing/head/soft/yellow,
+/obj/item/clothing/head/softcap/cargo,
 /obj/item/stamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/clothing/head/soft/yellow,
+/obj/item/clothing/head/softcap/cargo,
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
@@ -26626,7 +26626,7 @@
 	},
 /obj/machinery/door/airlock/command{
 	name = "Shuttle Docking";
-	req_one_access = list(19,38,63)
+	req_one_access = list(19,38,63,72)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4

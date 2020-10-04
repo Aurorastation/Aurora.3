@@ -11,6 +11,7 @@
 	turns_per_move = 5
 	speak_chance = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
+	organ_names = list("head", "rear segment", "central segment")
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"

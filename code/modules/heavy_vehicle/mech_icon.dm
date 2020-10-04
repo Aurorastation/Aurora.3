@@ -20,6 +20,7 @@ proc/get_mech_icon(var/list/components = list(), var/overlay_layer = FLOAT_LAYER
 	return all_images
 
 /mob/living/heavy_vehicle/update_icon()
+	//As mech icons uses a caching system, any changes here, particularly to layers, must be reflected in /obj/structure/heavy_vehicle_frame/update_icon().
 	var/list/new_overlays = get_mech_icon(list(body), MECH_BASE_LAYER)
 	if(body && !hatch_closed)
 		new_overlays += get_mech_image("[body.icon_state]_cockpit", body.on_mech_icon, MECH_BASE_LAYER)

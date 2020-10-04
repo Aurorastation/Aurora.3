@@ -29,7 +29,7 @@
 /obj/item/clothing/glasses/hud/health/prescription
 	name = "prescription glasses/HUD assembly"
 	desc = "A medical HUD clipped onto the side of prescription glasses."
-	prescription = 1
+	prescription = 7
 	icon_state = "healthhudpresc"
 	item_state = "healthhudpresc"
 	var/glasses_type = /obj/item/clothing/glasses/regular
@@ -58,7 +58,7 @@
 /obj/item/clothing/glasses/hud/security/prescription
 	name = "prescription glasses/HUD assembly"
 	desc = "A security HUD clipped onto the side of prescription glasses."
-	prescription = 1
+	prescription = 7
 	icon_state = "sechudpresc"
 	item_state = "sechudpresc"
 	var/glasses_type = /obj/item/clothing/glasses/regular

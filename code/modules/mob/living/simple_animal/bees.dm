@@ -95,7 +95,7 @@
 			M.apply_damage(min(strength*0.85,2)+mut, BURN, damage_flags = DAM_SHARP) // Stinging. The more mutated I am, the harder I sting.
 			M.apply_damage(max(strength*0.2,(round(feral/10,1)*(max((round(strength/20,1)),1)))+toxic), TOX) // Bee venom based on how angry I am and how many there are of me!
 			to_chat(M, "<span class='warning'>You have been stung!</span>")
-			M.flash_pain()
+			M.flash_pain(5)
 
 
 

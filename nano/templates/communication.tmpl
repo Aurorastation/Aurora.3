@@ -58,7 +58,7 @@
 	{{else data.state === 5}}
 		Current Alert level is {{:data.current_security_level_title}}
 		{{if data.current_security_level === data.def_SEC_LEVEL_DELTA}}
-			<div class=item><font color='red'><b>The self-destruct mechanism is active. Find a way to deactivate the mechanism to lower the alert level or evacuate.</b></font></div>
+			<div class=item><span class='warning'><b>The self-destruct mechanism is active. Find a way to deactivate the mechanism to lower the alert level or evacuate.</b></span></div>
 		{{else}}
 			<div class=item>Set status: </div>
 			<div class=item>{{:helper.link('Yellow', null, {'action' : 'setalert', 'target' : data.def_SEC_LEVEL_YELLOW}, data.current_security_level === data.def_SEC_LEVEL_YELLOW || data.isAI ? 'disabled' : null)}} </div>

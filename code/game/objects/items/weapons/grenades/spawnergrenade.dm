@@ -20,7 +20,7 @@
 		if (flash)
 			for(var/mob/living/carbon/human/M in viewers(T, null))
 				if(M.eyecheck(TRUE) < FLASH_PROTECTION_MODERATE)
-					flick("e_flash", M.flash)
+					M.flash_eyes()
 		else
 			spark(T, 3, alldirs) //give spawning some flair if there's no flash
 

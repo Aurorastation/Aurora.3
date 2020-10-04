@@ -106,8 +106,8 @@
 		growth_type = 2 // Vines by default.
 		if(seed.get_trait(TRAIT_CARNIVOROUS) == 2)
 			growth_type = 1 // WOOOORMS.
-		else if(!(seed.seed_noun in list("seeds","pits")))
-			if(seed.seed_noun == "nodes")
+		else if(!(seed.seed_noun in list(SEED_NOUN_SEEDS,SEED_NOUN_PITS)))
+			if(seed.seed_noun == SEED_NOUN_NODES)
 				growth_type = 3 // Biomass
 			else
 				growth_type = 4 // Mold
@@ -238,8 +238,8 @@
 	return 1
 
 /obj/effect/plant/attackby(var/obj/item/W, var/mob/user)
-
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.do_attack_animation(src)
 	SSplants.add_plant(src)
 
 	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
@@ -261,9 +261,11 @@
 		health -= (rand(3,5)*5)
 		sampled = 1
 	else
-		..()
-		if(W.force)
-			health -= W.force
+		playsound(loc, /decl/sound_category/wood_break_sound, 50, TRUE)
+		var/damage = W.force ? W.force : 1 //always do at least a little damage
+		if(W.edge || W.sharp)
+			damage *= 2
+		health -= damage
 	check_health()
 
 /obj/effect/plant/ex_act(severity)

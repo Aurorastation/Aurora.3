@@ -17,10 +17,13 @@
 	turns_per_move = 5
 	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
+	organ_names = list("head", "chest", "tail", "left flipper", "right flipper")
 	response_help = "brushes"
 	response_disarm = "attempts to push"
 	response_harm = "injures"
 	gender = NEUTER
+	faction = "carp"
+	flying = TRUE
 
 	//Space carp aren't affected by atmos.
 	min_oxy = 0

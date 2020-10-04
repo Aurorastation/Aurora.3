@@ -89,7 +89,8 @@
 	if(flippable)
 		if(!flipped)
 			if(!overlay_state)
-				icon_state = "[icon_state]_flip"
+				icon_state = "[initial(icon_state)]_flip"
+				item_state = "[initial(item_state)]_flip"
 				flipped = 1
 			else
 				overlay_state = "[overlay_state]_flip"
@@ -97,6 +98,7 @@
 		else
 			if(!overlay_state)
 				icon_state = initial(icon_state)
+				item_state = initial(item_state)
 				flipped = 0
 			else
 				overlay_state = initial(overlay_state)

@@ -17,6 +17,7 @@
 	new /obj/item/clothing/suit/captunic(src)
 	new /obj/item/clothing/suit/captunic/capjacket(src)
 	new /obj/item/clothing/head/caphat/cap(src)
+	new /obj/item/clothing/head/bandana/captain(src)
 	new /obj/item/clothing/under/rank/captain(src)
 	new /obj/item/clothing/suit/storage/vest(src)
 	new /obj/item/clothing/gloves/captain(src)
@@ -51,6 +52,7 @@
 	new /obj/item/clothing/suit/captunic(src)
 	new /obj/item/clothing/suit/captunic/capjacket(src)
 	new /obj/item/clothing/head/caphat(src)
+	new /obj/item/clothing/head/bandana/captain(src)
 	new /obj/item/clothing/under/rank/captain(src)
 	new /obj/item/clothing/suit/storage/vest(src)
 	new /obj/item/clothing/shoes/brown(src)
@@ -82,7 +84,7 @@
 	new /obj/item/cartridge/hop(src)
 	new /obj/item/device/radio/headset/heads/hop(src)
 	new /obj/item/device/radio/headset/heads/hop/alt(src)
-	new /obj/item/gun/energy/disruptorpistol/miniature(src)
+	new /obj/item/gun/energy/disruptorpistol(src)
 	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/device/flash(src)
 
@@ -293,7 +295,7 @@
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel_sec(src)
-	new /obj/item/clothing/head/soft/sec/corp(src)
+	new /obj/item/clothing/head/softcap/security/corp(src)
 	new /obj/item/clothing/under/rank/security/corp(src)
 	new /obj/item/clothing/suit/storage/vest/officer(src)
 	new /obj/item/clothing/head/helmet(src)
@@ -363,7 +365,7 @@
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
 	new /obj/item/clothing/suit/storage/vest/detective(src)
-	new /obj/item/gun/energy/disruptorpistol/security(src)
+	new /obj/item/gun/energy/disruptorpistol/miniature/security(src)
 	new /obj/item/taperoll/police(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)

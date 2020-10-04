@@ -59,6 +59,8 @@
 	skirts["high skirt"] = /obj/item/clothing/under/skirt/high
 	skirts["skater skirt"] = /obj/item/clothing/under/skirt/skater
 	skirts["tube skirt"] = /obj/item/clothing/under/skirt/tube
+	skirts["jumper skirt"] = /obj/item/clothing/under/skirt/jumper
+	skirts["jumper dress"] = /obj/item/clothing/under/skirt/jumper_highcut
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
 
 /datum/gear/uniform/suit
@@ -319,3 +321,8 @@
 	hanbok["magenta-blue hanbok"] = /obj/item/clothing/under/konyang
 	hanbok["white-pink hanbok"] = /obj/item/clothing/under/konyang/pink
 	gear_tweaks += new/datum/gear_tweak/path(hanbok)
+
+/datum/gear/uniform/gadpathur
+	display_name = "gadpathurian fatigues"
+	path = /obj/item/clothing/under/uniform/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION

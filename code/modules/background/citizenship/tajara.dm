@@ -7,6 +7,28 @@
 	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
 	consular_outfit = /datum/outfit/job/representative/consular/pra
 
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_SKRELL,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_TAJARA_MSAI
+		)
+	)
+
 /datum/citizenship/pra/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
 
@@ -49,6 +71,28 @@
 	voluntarily turn over power to civilian governments, the DPRA's future faces many fundamental changes."
 	consular_outfit = /datum/outfit/job/representative/consular/dpra
 
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_SKRELL,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_TAJARA_MSAI
+		)
+	)
+
 /datum/citizenship/dpra/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
 
@@ -88,6 +132,28 @@
 	The lofty titles of the nobles disguise the fact that most of the nobility of this new kingdom remain in squalor only marginally better than the peasants. Life is difficult, and \
 	the Azunja dynasty finds itself struggling to function with their limited constitutional powers and factional in-fighting between the military and the civilian government."
 	consular_outfit = /datum/outfit/job/representative/consular/nka
+
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_SKRELL,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_TAJARA_MSAI
+		)
+	)
 
 /datum/citizenship/nka/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives

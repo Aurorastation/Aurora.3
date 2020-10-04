@@ -12,6 +12,7 @@
 	var/datum/reagents/metabolism/ingested
 	var/next_cramp = 0
 	var/should_process_alcohol = TRUE
+	var/stomach_volume = 65
 
 /obj/item/organ/internal/stomach/Destroy()
 	QDEL_NULL(ingested)
@@ -99,8 +100,6 @@
 	if(is_usable())
 		ingested.metabolize()
 
-#define STOMACH_VOLUME 65
-
 /obj/item/organ/internal/stomach/process()
 	..()
 	if(owner)
@@ -133,7 +132,7 @@
 			var/effective_volume = ingested.total_volume + alcohol_volume
 
 			// Just over the limit, the probability will be low. It rises a lot such that at double ingested it's 64% chance.
-			var/vomit_probability = (effective_volume / STOMACH_VOLUME) ** 6
+			var/vomit_probability = (effective_volume / stomach_volume) ** 6
 			if(prob(vomit_probability))
 				owner.vomit()
 
@@ -141,5 +140,4 @@
 	if(!QDELETED(M))
 		qdel(M)
 
-#undef STOMACH_VOLUME
 #undef PUKE_ACTION_NAME

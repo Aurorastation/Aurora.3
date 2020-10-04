@@ -162,9 +162,9 @@
 		if(0)
 			current_filter_type = "Phoron"
 		if(1)
-			current_filter_type = GAS_OXYGEN
+			current_filter_type = "Oxygen"
 		if(2)
-			current_filter_type = GAS_NITROGEN
+			current_filter_type = "Nitrogen"
 		if(3)
 			current_filter_type = "Carbon Dioxide"
 		if(4)

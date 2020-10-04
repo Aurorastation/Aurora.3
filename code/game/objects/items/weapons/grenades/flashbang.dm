@@ -50,7 +50,7 @@
 
 //Flashing everyone
 	if(eye_safety < FLASH_PROTECTION_MODERATE)
-		flick("e_flash", M.flash)
+		M.flash_eyes()
 		M.Weaken(10)
 			//Vaurca damage 15/01/16
 		var/mob/living/carbon/human/H = M

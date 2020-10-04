@@ -51,13 +51,15 @@
 	while (i <= num_groups)
 		var/group_size = rand(group_size_min, group_size_max)
 		for (var/j = 1, j <= group_size, j++)
-			if(prob(99))
+			if(prob(95))
 				var/mob/living/simple_animal/hostile/carp/carp = new(spawn_locations[i])
+				spawned_carp += WEAKREF(carp)
+			else if(prob(80))
+				var/mob/living/simple_animal/carp/baby/carp = new(spawn_locations[i])
 				spawned_carp += WEAKREF(carp)
 			else
 				var/mob/living/simple_animal/hostile/carp/shark/carp = new(spawn_locations[i])
 				spawned_carp += WEAKREF(carp)
-
 			CHECK_TICK
 		i++
 

@@ -16,6 +16,7 @@
 	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 3
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "kicks"

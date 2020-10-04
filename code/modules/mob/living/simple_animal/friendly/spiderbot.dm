@@ -34,6 +34,7 @@
 	melee_damage_lower = 1
 	melee_damage_upper = 3
 
+	organ_names = list("head")
 	response_help  = "pets"
 	response_disarm = "shoos"
 	response_harm   = "stomps on"
@@ -285,7 +286,7 @@
 /mob/living/simple_animal/spiderbot/examine(mob/user)
 	..(user)
 	if(src.held_item)
-		to_chat(user, "It is carrying \icon[src.held_item] \a [src.held_item].")
+		to_chat(user, "It is carrying [icon2html(src.held_item, user)] \a [src.held_item].")
 
 /mob/living/simple_animal/spiderbot/cannot_use_vents()
 	return

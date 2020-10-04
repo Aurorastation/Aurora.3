@@ -1,5 +1,8 @@
 var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-")
 
+/datum/preferences
+	var/equip_preview_mob = EQUIP_PREVIEW_ALL
+
 /datum/category_item/player_setup_item/general/body
 	name = "Body"
 	sort_order = 3
@@ -195,7 +198,6 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	out += "<br>"
 	out += "Species: <a href='?src=\ref[src];show_species=1'>[pref.species]</a><br>"
 	out += "Blood Type: <a href='?src=\ref[src];blood_type=1'>[pref.b_type]</a><br>"
-	out += "<a href='?src=\ref[src];cycle_bg=1'>Cycle preview background</a><br>"
 	if(has_flag(mob_species, HAS_SKIN_TONE))
 		out += "Skin Tone: <a href='?src=\ref[src];skin_tone=1'>[-pref.s_tone + 35]/220</a><br>"
 	out += "Disabilities: <a href='?src=\ref[src];trait_add=1'>Adjust</a><br>"
@@ -282,7 +284,13 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	else
 		out += "<br><br>"
 
-	out += "</td></tr></table><b>Hair</b><br>"
+	out += "</td><td><b>Preview</b>"
+	out += "<br><a href='?src=\ref[src];cycle_bg=1'>Cycle background</a>"
+	out += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a>"
+	out += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
+	out += "</td></tr></table>"
+
+	out += "<b>Hair</b><br>"
 	if(has_flag(mob_species, HAS_HAIR_COLOR))
 		out += "<a href='?src=\ref[src];hair_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_hair, pref.g_hair, pref.b_hair))] "
 	out += " Style: <a href='?src=\ref[src];hair_style=1'>[pref.h_style]</a><br>"
@@ -671,6 +679,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		pref.bgstate = next_in_list(pref.bgstate, pref.bgstate_options)
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
+	else if(href_list["toggle_preview_value"])
+		pref.equip_preview_mob ^= text2num(href_list["toggle_preview_value"])
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
 	return ..()
 
 /datum/category_item/player_setup_item/general/body/proc/SetSpecies(mob/user)
@@ -687,7 +699,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	if(current_species.preview_icon)
 		var/icon/preview = icon(current_species.preview_icon, "")
 		preview.Scale(64, 64)	// Scale it here to stop it blurring.
-		to_chat(usr, browse_rsc(icon(icon = preview, icon_state = ""), "species_preview_[current_species.short_name].png"))
+		send_rsc(usr, icon(icon = preview, icon_state = ""), "species_preview_[current_species.short_name].png")
 		dat += "<img src='species_preview_[current_species.short_name].png' width='64px' height='64px'><br/><br/>"
 	dat += "<b>Language:</b> [current_species.language]<br/>"
 	dat += "<small>"
@@ -728,9 +740,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	if(restricted)
 		if(restricted == 1)
-			dat += "<font color='red'><b>You cannot play as this species.</br><small>If you wish to be whitelisted, you can make an application post on <a href='?src=\ref[user];preference=open_whitelist_forum'>the forums</a>.</small></b></font></br>"
+			dat += "<span class='warning'><b>You cannot play as this species.</br><small>If you wish to be whitelisted, you can make an application post on <a href='?src=\ref[user];preference=open_whitelist_forum'>the forums</a>.</small></b></span></br>"
 		else if(restricted == 2)
-			dat += "<font color='red'><b>You cannot play as this species.</br><small>This species is not available for play as a station race.</small></b></font></br>"
+			dat += "<span class='warning'><b>You cannot play as this species.</br><small>This species is not available for play as a station race.</small></b></span></br>"
 	if(!restricted || check_rights(R_ADMIN, 0))
 		dat += "\[<a href='?src=\ref[src];set_species=[html_encode(pref.species_preview)]'>select</a>\]"
 	dat += "</center>"
