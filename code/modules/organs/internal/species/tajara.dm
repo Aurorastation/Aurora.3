@@ -32,13 +32,13 @@
 	if(owner.last_special > world.time)
 		return
 
-	if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
+	if(use_check(user, USE_ALLOW_NON_ADJACENT))
 		return
 
 	if(is_broken())
 		return
 
-	if((status & ORGAN_ROBOT))
+	if(status & ORGAN_ROBOT)
 		return
 
 	if(!night_vision)
