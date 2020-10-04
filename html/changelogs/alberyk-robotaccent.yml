@@ -1,0 +1,6 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - tweak: "Restricted what accents synthetics can mimic to be more lore friendly."
