@@ -153,7 +153,7 @@
 		BP_VAURCA_KIDNEYS  = /obj/item/organ/internal/kidneys/vaurca/robo,
 		BP_STOMACH            = /obj/item/organ/internal/stomach,
 		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES               = /obj/item/organ/internal/eyes/vaurca,
+		BP_EYES               = /obj/item/organ/internal/eyes/night/vaurca,
 		BP_FILTRATION_BIT      = /obj/item/organ/vaurca/filtrationbit
 	)
 

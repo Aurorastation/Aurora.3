@@ -102,7 +102,7 @@
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
 		BP_STOMACH             = /obj/item/organ/internal/stomach,
 		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES                = /obj/item/organ/internal/eyes/vaurca
+		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca
 	)
 
 	has_limbs = list(
