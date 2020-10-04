@@ -226,6 +226,9 @@
 	if(!check_mob_size(target))
 		to_chat(user, SPAN_NOTICE("The opening is too narrow for [target] to fit!"))
 		return
+
+/// makes it so synths can't be flushed
+//
 	if(U.isSynthetic())
 		to_chat(user, SPAN_NOTICE("[target] is a bit too clunky to fit!"))
 		return
