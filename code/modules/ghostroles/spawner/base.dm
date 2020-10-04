@@ -134,6 +134,9 @@
 //The proc to actually spawn in the user
 /datum/ghostspawner/proc/spawn_mob(mob/user)
 	//OVERWRITE THIS IN THE CHILD IMPLEMENTATIONS to return the spawned in mob !!!
+
+	//This is a basic proc for atom based spawners.
+	//  Location based spawners usually need a bit more logic
 	if(loc_type != GS_LOC_ATOM)
 		return null
 

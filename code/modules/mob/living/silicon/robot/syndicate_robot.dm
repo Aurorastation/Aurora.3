@@ -42,7 +42,7 @@
 	explosion(get_turf(src), 1, 2, 3, 5)
 	qdel(src)
 
-/mob/living/silicon/robot/syndicate/proc/assign_player(var/mob/user)
+/mob/living/silicon/robot/syndicate/assign_player(var/mob/user)
 	if(src.ckey)
 		return
 	src.ckey = user.ckey
@@ -52,6 +52,7 @@
 			module.channels[assigned_antagonist.get_antag_radio()] = TRUE
 			radio.recalculateChannels()
 	say("Boot sequence complete!")
+	return src
 
 //syndicate borg gear
 

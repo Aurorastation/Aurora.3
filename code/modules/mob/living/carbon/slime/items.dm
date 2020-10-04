@@ -255,7 +255,7 @@
 	else
 		icon_state = "golem"
 
-/obj/effect/golemrune/proc/assign_player(var/mob/user)
+/obj/effect/golemrune/assign_player(var/mob/user)
 	var/obj/item/stack/material/O = (locate(/obj/item/stack/material) in src.loc)
 	if(O?.amount >= 10)
 		if(O.material.golem)
@@ -271,7 +271,10 @@
 	G.name = G.species.get_random_name()
 	G.real_name = G.name
 	to_chat(G, SPAN_NOTICE("You are a golem. Serve your master, and assist them in completing their goals at any cost."))
+
 	qdel(src)
+
+	return G
 
 /obj/effect/golemrune/proc/announce_to_ghosts()
 	var/area/A = get_area(src)

@@ -36,7 +36,7 @@
 			if(A)
 				say_dead_direct("A posibrain is no longer booting up in [A.name]. Seems someone disabled it.")
 
-/obj/item/device/mmi/digital/posibrain/proc/assign_player(var/mob/user)
+/obj/item/device/mmi/digital/posibrain/assign_player(var/mob/user)
 	if(brainmob.ckey)
 		return
 	brainmob.ckey = user.ckey
@@ -48,6 +48,8 @@
 	to_chat(brainmob, "<b>As a synthetic intelligence, you answer to all crewmembers, as well as the AI.</b>")
 	to_chat(brainmob, "<b>Remember, the purpose of your existence is to serve the crew and the station. Above all else, do no harm.</b>")
 	visible_message(SPAN_NOTICE("\The [src] chimes quietly."))
+
+	return src
 
 /obj/item/device/mmi/digital/posibrain/examine(mob/user)
 	if(!..(user))

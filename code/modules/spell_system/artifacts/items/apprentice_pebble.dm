@@ -21,7 +21,7 @@
 	SSghostroles.remove_spawn_atom("apprentice", src)
 	return ..()
 
-/obj/item/apprentice_pebble/proc/assign_player(var/mob/user)
+/obj/item/apprentice_pebble/assign_player(var/mob/user)
 	var/mob/living/carbon/human/G = new /mob/living/carbon/human(get_turf(src))
 	G.ckey = user.ckey
 	G.real_name = "[pick(wizard_first)] [pick(wizard_second)]"
@@ -38,6 +38,8 @@
 	smoke.start()
 
 	qdel(src)
+
+	return G
 
 /obj/item/apprentice_pebble/pickup(mob/living/user)
 	..()
