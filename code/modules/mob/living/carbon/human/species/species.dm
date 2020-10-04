@@ -159,6 +159,8 @@
 	var/datum/hud_data/hud
 	var/hud_type
 	var/health_hud_intensity = 1
+	var/healths_x // set this to specify where exactly the healths HUD element appears
+	var/healths_overlay_x = 0 // set this to tweak where the overlays on top of the healths HUD element goes
 
 	// Body/form vars.
 	var/list/inherent_verbs 	  // Species-specific verbs.
