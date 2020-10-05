@@ -485,3 +485,7 @@
 	for(var/source in stasis_sources)
 		stasis_value += stasis_sources[source]
 	stasis_sources.Cut()
+
+/mob/living/carbon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+	if(eyecheck() < intensity || override_blindness_check)
+		return ..()

@@ -33,9 +33,7 @@
 	return
 
 /obj/item/mecha_equipment/sleeper/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/reagent_containers/glass))
-		sleeper.attackby(I, user)
-	else return ..()
+	return sleeper.attackby(I, user)
 
 /obj/item/mecha_equipment/sleeper/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
@@ -50,6 +48,12 @@
 	if(sleeper && sleeper.occupant)
 		return "[sleeper.occupant]"
 
+/obj/item/mecha_equipment/sleeper/CtrlClick(mob/user)
+	if(owner)
+		sleeper.go_out()
+	else
+		..()
+
 /obj/machinery/sleeper/mounted
 	name = "\improper mounted sleeper"
 	density = 0
@@ -59,7 +63,7 @@
 	interact_offline = TRUE
 	display_loading_message = FALSE
 
-/obj/machinery/sleeper/mounted/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = mech_state)
+/obj/machinery/sleeper/mounted/ui_interact(mob/user, var/datum/topic_state/state = mech_state)
 	. = ..()
 
 /obj/machinery/sleeper/mounted/ui_host()
@@ -78,16 +82,6 @@
 			user.visible_message("<span class='notice'>\The [user] removes \the [beaker] from \the [src].</span>", "<span class='notice'>You remove \the [beaker] from \the [src].</span>")
 		beaker = I
 		user.visible_message("<span class='notice'>\The [user] adds \a [I] to \the [src].</span>", "<span class='notice'>You add \a [I] to \the [src].</span>")
-
-/obj/machinery/sleeper/mounted/go_out()
-
-	if(!occupant)
-		return
-
-	occupant.forceMove(get_turf(src))
-	occupant = null
-
-	return
 
 /obj/item/mecha_equipment/crisis_drone
 	name = "crisis dronebay"
@@ -243,24 +237,23 @@
 					if(prob(bone_heal))
 						E.status &= ~ORGAN_BROKEN
 
-/obj/item/mecha_equipment/crisis_drone/proc/toggle_drone()
-	for(var/mob/pilot in owner.pilots)
-		if(owner)
-			enabled = !enabled
-			update_icon()
-			if(enabled)
-				to_chat(pilot,"<span class='notice'>Medical drone activated.</span>")
-				icon_state = "med_droid_a"
-				START_PROCESSING(SSprocessing, src)
-			else
-				to_chat(pilot,"<span class='notice'>Medical drone deactivated.</span>")
-				icon_state = "med_droid"
-				STOP_PROCESSING(SSprocessing, src)
-			owner.update_icon()
+/obj/item/mecha_equipment/crisis_drone/proc/toggle_drone(var/mob/user)
+	enabled = !enabled
+	if(enabled)
+		to_chat(user, SPAN_NOTICE("Medical drone activated."))
+		icon_state = "med_droid_a"
+		START_PROCESSING(SSprocessing, src)
+	else
+		to_chat(user, SPAN_NOTICE("Medical drone deactivated."))
+		icon_state = "med_droid"
+		STOP_PROCESSING(SSprocessing, src)
+	update_icon()
+	owner.update_icon()
 
 /obj/item/mecha_equipment/crisis_drone/attack_self(var/mob/user)
-	toggle_drone()
-
+	. = ..()
+	if(.)
+		toggle_drone(user)
 
 /obj/item/mecha_equipment/mounted_system/medanalyzer
 	name = "mounted health analyzer"

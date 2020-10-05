@@ -242,6 +242,8 @@
 	var/list/character_color_presets
 	var/bodyfall_sound = /decl/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
 
+	var/have_vision_cone = TRUE //Vision cone.
+
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
 
@@ -479,19 +481,17 @@
 	if(H.equipment_tint_total >= TINT_BLIND)
 		H.eye_blind = max(H.eye_blind, 1)
 
-	if(H.blind)
-		H.blind.invisibility = (H.eye_blind ? 0 : 101)
-
 	if(!H.client)//no client, no screen to update
 		return 1
 
+	H.set_fullscreen(H.eye_blind && !H.equipment_prescription, "blind", /obj/screen/fullscreen/blind)
+	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
+
 	if(config.welder_vision)
-		if(short_sighted || (H.equipment_tint_total >= TINT_HEAVY))
-			H.client.screen += global_hud.darkMask
-		else if((!H.equipment_prescription && (H.disabilities & NEARSIGHTED)) || H.equipment_tint_total == TINT_MODERATE)
-			H.client.screen += global_hud.vimpaired
-	if(H.eye_blurry)
-		H.client.screen += global_hud.blurry
+		H.set_fullscreen(H.equipment_tint_total, "welder", /obj/screen/fullscreen/impaired, H.equipment_tint_total)
+	var/how_nearsighted = get_how_nearsighted(H)
+	H.set_fullscreen(how_nearsighted, "nearsighted", /obj/screen/fullscreen/oxy, how_nearsighted)
+	H.set_fullscreen(H.eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
 
 	if(H.druggy)
 		H.client.screen += global_hud.druggy
@@ -504,6 +504,14 @@
 		H.client.screen |= overlay
 
 	return 1
+
+/datum/species/proc/get_how_nearsighted(var/mob/living/carbon/human/H)
+	var/prescriptions = short_sighted
+	if(H.disabilities & NEARSIGHTED)
+		prescriptions += 7
+	if(H.equipment_prescription)
+		prescriptions -= H.equipment_prescription
+	return Clamp(prescriptions, 0, 7)
 
 /datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (!H.exhaust_threshold)
@@ -545,13 +553,13 @@
 	H.adjustHalLoss(remainder*0.25)
 	H.updatehealth()
 	if((H.get_shock() >= 10) && prob(H.get_shock() *2))
-		H.flash_pain()
+		H.flash_pain(H.get_shock())
 
 	if ((H.get_shock() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
 		to_chat(H, SPAN_DANGER("You're too exhausted to run anymore!"))
-		H.flash_pain()
+		H.flash_pain(H.get_shock())
 		return 0
 
 	H.hud_used.move_intent.update_move_icon(H)

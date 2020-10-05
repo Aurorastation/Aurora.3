@@ -51,7 +51,7 @@
 	if(special_emitter)
 		message_admins("Emitter deleted at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 		log_game("Emitter deleted at ([x],[y],[z])")
-		investigate_log("<font color='red'>deleted</font> at ([x],[y],[z])","singulo")
+		investigate_log("<span class='warning'>deleted</span> at ([x],[y],[z])","singulo")
 	QDEL_NULL(wifi_receiver)
 	QDEL_NULL(spark_system)
 	QDEL_NULL(signaler)
@@ -89,7 +89,7 @@
 					if(special_emitter)
 						message_admins("Emitter turned off by [key_name_admin(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 						log_game("Emitter turned off by [user.ckey]([user]) in ([x],[y],[z])",ckey=key_name(user))
-						investigate_log("turned <font color='red'>off</font> by [user.key]","singulo")
+						investigate_log("turned <span class='warning'>off</span> by [user.key]","singulo")
 			else
 				active = TRUE
 				shot_number = 0
@@ -134,7 +134,7 @@
 				powered = FALSE
 				update_icon()
 				if(special_emitter)
-					investigate_log("lost power and turned <font color='red'>off</font>","singulo")
+					investigate_log("lost power and turned <span class='warning'>off</span>","singulo")
 			return
 
 		last_shot = world.time
@@ -269,4 +269,4 @@
 	if(!locked)
 		activate(null)
 	else
-		visible_message("\icon[src] [src] whines, \"Access denied!\"")
+		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] whines, \"Access denied!\"")

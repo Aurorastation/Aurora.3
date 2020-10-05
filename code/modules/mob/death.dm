@@ -16,10 +16,15 @@
 	animation.master = src
 
 	flick(anim, animation)
-	if(do_gibs) gibs(loc, viruses, dna)
+
+	if(do_gibs)
+		gibs(loc, viruses, dna, get_gibs_type())
 
 	QDEL_IN(animation, 15)
 	QDEL_IN(src, 15)
+
+/mob/proc/get_gibs_type()
+	return /obj/effect/gibspawner/generic
 
 //This is the proc for turning a mob into ash. Mostly a copy of gib code (above).
 //Originally created for wizard disintegrate. I've removed the virus code since it's irrelevant here.
@@ -68,9 +73,6 @@
 	jitteriness = 0
 
 	layer = MOB_LAYER
-
-	if(blind && client)
-		blind.invisibility = 101
 
 	sight |= SEE_TURFS|SEE_MOBS|SEE_OBJS
 	see_in_dark = 8

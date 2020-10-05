@@ -176,4 +176,5 @@
 	icon_state_charged = "wrecharger100"
 	icon_state_charging = "wrecharger"
 	icon_state_idle = "wrecharger_off"
-	portable = 0
+	appearance_flags = TILE_BOUND // prevents people from viewing us through a wall
+	portable = FALSE

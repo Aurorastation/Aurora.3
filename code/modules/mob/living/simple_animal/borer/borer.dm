@@ -4,6 +4,7 @@
 	desc = "A small, quivering sluglike creature."
 	speak_emote = list("chirrups")
 	emote_hear = list("chirrups")
+	organ_names = list("head", "rear segment", "central segment")
 	response_help  = "pokes"
 	response_disarm = "prods"
 	response_harm   = "stomps on"

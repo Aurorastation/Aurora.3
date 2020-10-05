@@ -234,7 +234,7 @@
 
 	switch(pref.alternate_option)
 		if(BE_ASSISTANT)
-			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=red>Be assistant if preference unavailable</font></a></u></center><br>"
+			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><span class='attack'>Be assistant if preference unavailable</span></a></u></center><br>"
 		if(RETURN_TO_LOBBY)
 			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=purple>Return to lobby if preference unavailable</font></a></u></center><br>"
 

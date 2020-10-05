@@ -237,9 +237,9 @@
 /obj/item/gun/projectile/automatic/rifle/z8/update_icon()
 	..()
 	if(ammo_magazine)
-		icon_state = "carbine-[round(ammo_magazine.stored_ammo.len,2)]"
-	else
 		icon_state = "carbine"
+	else
+		icon_state = "carbine-empty"
 	if(wielded)
 		item_state = "carbine-wielded"
 	else
@@ -364,8 +364,8 @@
 	update_held_icon()
 
 /obj/item/gun/projectile/automatic/tommygun
-	name = "vintage submachine gun"
-	desc = "A classic submachine gun. Uses .45 rounds."
+	name = "submachine gun"
+	desc = "An adhomian made submachine gun. Uses .45 rounds."
 	icon = 'icons/obj/guns/tommygun.dmi'
 	icon_state = "tommygun"
 	item_state = "tommygun"

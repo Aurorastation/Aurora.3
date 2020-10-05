@@ -65,7 +65,7 @@
 		else if(is_alien_whitelisted(user, S))
 			species_selection += S
 
-	var/picked_species = input(user,"Select your species") as null|anything in species_selection
+	var/picked_species = input(user,"Select your species") in species_selection
 	if(!picked_species)
 		picked_species = possible_species[1]
 

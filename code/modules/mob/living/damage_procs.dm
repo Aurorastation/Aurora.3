@@ -26,7 +26,6 @@
 			adjustCloneLoss(damage * BLOCKED_MULT(blocked))
 		if(PAIN)
 			adjustHalLoss(damage * BLOCKED_MULT(blocked))
-	flash_weak_pain()
 	updatehealth()
 	return 1
 

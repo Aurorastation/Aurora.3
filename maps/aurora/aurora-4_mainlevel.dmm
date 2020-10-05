@@ -21728,7 +21728,6 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/mob/living/simple_animal/hostile/commanded/baby_harvester,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -21739,6 +21738,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/mob/living/simple_animal/hostile/commanded/baby_harvester,
 /turf/simulated/floor/tiled,
 /area/rnd/rdoffice)
 "aLM" = (
@@ -26807,7 +26807,7 @@
 /obj/structure/table/standard,
 /obj/item/material/minihoe,
 /obj/item/device/analyzer/plant_analyzer,
-/obj/item/clothing/head/greenbandana,
+/obj/item/clothing/head/bandana/hydro,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -30901,6 +30901,8 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
+/obj/item/storage/box/masks,
+/obj/item/nitrilebox,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
 "bbz" = (
@@ -61264,7 +61266,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "hqT" = (
-/obj/item/clothing/head/soft/white,
 /obj/item/clothing/mask/gas/mime,
 /obj/item/clothing/shoes/mime,
 /obj/item/clothing/under/mime,
@@ -62666,10 +62667,10 @@
 /area/assembly/robotics_cyborgification)
 "kVD" = (
 /obj/item/stool/padded,
-/mob/living/simple_animal/rat/gray,
 /obj/structure/cable/green{
 	icon_state = "6-8"
 	},
+/mob/living/simple_animal/rat/gray,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "kWH" = (

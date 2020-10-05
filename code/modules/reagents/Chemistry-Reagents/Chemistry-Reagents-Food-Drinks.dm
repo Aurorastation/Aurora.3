@@ -229,6 +229,11 @@
 	color = "#f5f4e9"
 	taste_description = "fish"
 
+/datum/reagent/nutriment/protein/seafood/mollusc
+	name = "Mollusc Protein"
+	taste_description = "cold, bitter slime"
+	hydration_factor = 6
+
 /datum/reagent/nutriment/protein/egg // Also bad for skrell.
 	name = "Egg Yolk"
 	color = "#FFFFAA"

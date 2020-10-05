@@ -16,6 +16,7 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 6
 	mob_size = 4.5//weight based on Chanthangi goats
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
@@ -88,6 +89,7 @@
 	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 40 //Cows are huge, should be worth a lot of meat
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
@@ -132,6 +134,7 @@
 	turns_per_move = 2
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/chicken
 	meat_amount = 1
+	organ_names = list("head", "chest", "left leg", "right leg")
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"

@@ -205,7 +205,7 @@ var/global/list/default_medbay_channels = list(
 /obj/item/device/radio/CouldUseTopic(var/mob/user)
 	..()
 	if(clicksound && iscarbon(user))
-		playsound(src, clicksound, clickvol)
+		playsound(loc, clicksound, clickvol)
 
 /obj/item/device/radio/Topic(href, href_list)
 	if(..())

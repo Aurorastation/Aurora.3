@@ -21,6 +21,8 @@
 
 /area/centcom/spawning
 	name = "NTCC Odin Departures"
+	icon_state = "centcomspawn"
+	ambience = AMBIENCE_ARRIVALS
 
 /area/centcom/start
 	name = "New Player Spawn"
@@ -28,12 +30,15 @@
 
 /area/centcom/evac
 	name = "Centcom Emergency Shuttle"
+	icon_state = "centcomevac"
 
 /area/centcom/suppy
 	name = "Centcom Supply Shuttle"
+	icon_state = "centcomsupply"
 
 /area/centcom/ferry
 	name = "Centcom Transport Shuttle"
+	icon_state = "centcomferry"
 
 /area/centcom/shuttle
 	name = "Centcom Administration Shuttle"
@@ -43,9 +48,11 @@
 
 /area/centcom/living
 	name = "Centcom Living Quarters"
+	icon_state = "centcomliving"
 
 /area/centcom/specops
 	name = "Centcom Special Ops"
+	icon_state = "centcomspecops"
 
 /area/centcom/creed
 	name = "Creed's Office"
@@ -53,14 +60,17 @@
 
 /area/centcom/holding
 	name = "Holding Facility"
+	icon_state = "centcomhold"
 
 /area/centcom/checkpoint
 
 /area/centcom/checkpoint/fore
 	name = "Fore Checkpoint"
+	icon_state = "centcomcheckfore"
 
 /area/centcom/checkpoint/aft
 	name = "Aft Checkpoint"
+	icon_state = "centcomcheckaft"
 
 /area/centcom/bar
 	name = "Valkyrie's Rest"

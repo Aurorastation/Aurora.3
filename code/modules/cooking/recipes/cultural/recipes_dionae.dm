@@ -1,5 +1,5 @@
-/datum/recipe/dionae_soup
-	APPLIANCE = SAUCEPAN | POT
+/decl/recipe/dionae_soup
+	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/water = 10)
 	fruit = list("cabbage" = 1)
 	items = list(
@@ -8,8 +8,8 @@
 	result = /obj/item/reagent_containers/food/snacks/soup/diona
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
-/datum/recipe/dionae_stew
-	APPLIANCE = SAUCEPAN | POT
+/decl/recipe/dionae_stew
+	appliance = SAUCEPAN | POT
 	reagents = list(/datum/reagent/water = 10)
 	fruit = list("potato" = 1, "carrot" = 1, "mushroom" = 1)
 	items = list(
