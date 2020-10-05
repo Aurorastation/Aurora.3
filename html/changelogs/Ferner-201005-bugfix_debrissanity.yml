@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes: 
+  - bugfix: "Fixed the ship debris event spawning too many dead bodies and loot than originally intended."
