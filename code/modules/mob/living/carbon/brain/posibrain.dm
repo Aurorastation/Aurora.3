@@ -19,22 +19,17 @@
 	if(brainmob.ckey)
 		to_chat(user, SPAN_WARNING("\The [src] already has an active occupant!"))
 		return
-	var/area/A = get_area(src)
 	if(brainmob && !brainmob.key)
 		if(!searching)
 			to_chat(user, SPAN_NOTICE("You carefully locate the manual activation switch and start \the [src]'s boot process."))
 			icon_state = "posibrain-searching"
 			searching = TRUE
 			SSghostroles.add_spawn_atom("posibrain", src)
-			if(A)
-				say_dead_direct("A posibrain has started its boot process in [A.name]! Spawn in as it by using the ghost spawner menu in the ghost tab.")
 		else
 			to_chat(user, SPAN_NOTICE("You carefully locate the manual activation switch and disable \the [src]'s boot process."))
 			icon_state = initial(icon_state)
 			searching = FALSE
 			SSghostroles.remove_spawn_atom("posibrain", src)
-			if(A)
-				say_dead_direct("A posibrain is no longer booting up in [A.name]. Seems someone disabled it.")
 
 /obj/item/device/mmi/digital/posibrain/assign_player(var/mob/user)
 	if(brainmob.ckey)

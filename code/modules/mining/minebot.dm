@@ -64,9 +64,6 @@
 		return
 	seeking_player = TRUE
 	SSghostroles.add_spawn_atom("mining_drone", src)
-	var/area/A = get_area(src)
-	if(A)
-		say_dead_direct("Someone is attempting to reboot a mining drone in [A.name]! Spawn in as it by using the ghost spawner menu in the ghost tab.")
 
 /mob/living/silicon/robot/drone/mining/assign_player(var/mob/user)
 	if(src.ckey)

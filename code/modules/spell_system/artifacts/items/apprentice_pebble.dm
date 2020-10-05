@@ -11,9 +11,6 @@
 	. = ..()
 	contract = new /obj/item/contract/apprentice(src)
 	SSghostroles.add_spawn_atom("apprentice", src)
-	var/area/A = get_area(src)
-	if(A)
-		say_dead_direct("A wizard apprentice pebble has been created in [A.name]! Spawn at it by using the ghost spawner menu in the ghost tab.")
 
 /obj/item/apprentice_pebble/Destroy()
 	if(contract)

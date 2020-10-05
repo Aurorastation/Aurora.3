@@ -191,6 +191,8 @@
 		var/datum/ghostspawner/G = spawners[ghost_role_name]
 		if(G)
 			G.spawn_atoms += spawn_atom
+			if(G.atom_add_message)
+				say_dead_direct("[G.atom_add_message]<br>Spawn in as it by using the ghost spawner menu in the ghost tab, and try to be good!")
 
 /datum/controller/subsystem/ghostroles/proc/remove_spawn_atom(var/ghost_role_name, var/atom/spawn_atom)
 	if(ghost_role_name && spawn_atom)

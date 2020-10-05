@@ -55,9 +55,6 @@
 	truename = "[pick("Primary","Secondary","Tertiary","Quaternary")]-[rand(1000,9999)]"
 	if(request_player && !ckey && !client)
 		SSghostroles.add_spawn_atom("borer", src)
-		var/area/A = get_area(src)
-		if(A)
-			say_dead_direct("A borer has been birthed in [A.name]! Spawn in as it by using the ghost spawner menu in the ghost tab.")
 
 /mob/living/simple_animal/borer/death(gibbed, deathmessage)
 	SSghostroles.remove_spawn_atom("borer", src)

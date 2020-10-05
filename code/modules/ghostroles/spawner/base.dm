@@ -8,9 +8,13 @@
 
 	//Vars regarding the spawnpoints and conditions of the spawner
 	var/list/spawn_atoms = list() // List of atoms you can spawn at - Use loc_type: GS_LOC_ATOM
+	var/atom_add_message = null // Message to display to the ghosts if a spawn atom has been added. The "spawn instructions" are appended automatically
+
 	var/list/spawnpoints = null //List of the applicable spawnpoints (by name) - Use loc_type: GS_LOC_POS
 	var/landmark_name = null //Alternatively you can specify a landmark name - Use loc_type: GS_LOC_POS
+
 	var/loc_type = GS_LOC_POS
+
 	var/max_count = 0 //How often can this spawner be used
 	var/count = 0 //How ofen has this spawner been used
 	var/req_perms = null //What permission flags are required to use this spawner

@@ -5,5 +5,6 @@
 	tags = list("Antagonist")
 
 	loc_type = GS_LOC_ATOM
+	atom_add_message = "A borer has been birthed!"
 
 	spawn_mob = /mob/living/simple_animal/borer

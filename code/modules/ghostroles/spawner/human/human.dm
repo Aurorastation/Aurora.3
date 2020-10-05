@@ -28,7 +28,7 @@
 /datum/ghostspawner/human/pre_spawn(mob/user)
 	. = ..()
 
-/datum/ghostspawner/human/proc/get_mob_name(mob/user, var/species)
+/datum/ghostspawner/human/proc/get_mob_name(mob/user, var/species, var/gender)
 	var/mname = mob_name
 	if(isnull(mname))
 		var/pick_message = "[mob_name_pick_message] ([species])"
@@ -42,7 +42,7 @@
 		if(mob_name_prefix || mob_name_suffix)
 			mname = capitalize(pick(last_names))
 		else
-			mname = capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
+			mname = random_name(gender,species)
 
 	if(mob_name_prefix)
 		mname = replacetext(mname,mob_name_prefix,"") //Remove the prefix if it exists in the string
@@ -72,15 +72,17 @@
 	if(!picked_species)
 		picked_species = possible_species[1]
 
+	var/datum/species/S = all_species[picked_species]
+	var/assigned_gender = pick(S.default_genders)
+
 	//Get the name / age from them first
-	var/mname = get_mob_name(user, picked_species)
+	var/mname = get_mob_name(user, picked_species, assigned_gender)
 	var/age = input(user, "Enter your characters age:","Num") as num
 
 	//Spawn in the mob
 	var/mob/living/carbon/human/M = new spawn_mob(newplayer_start)
 
-	var/datum/species/S = all_species[picked_species]
-	M.change_gender(pick(S.default_genders))
+	M.change_gender(assigned_gender)
 
 	M.set_species(picked_species)
 
