@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - bugfix: "Made it so infestation events no longer takes place in the remote prison wing, leading to the mobs instantly suffocating."
