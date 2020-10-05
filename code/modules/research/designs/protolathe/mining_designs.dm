@@ -55,32 +55,32 @@
 /datum/design/item/mining/ka_frameA
 	req_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_SILVER = 3000, MATERIAL_DIAMOND = 1000)
-	build_path = /obj/item/weapon/gun/custom_ka/frameA
+	build_path = /obj/item/gun/custom_ka/frameA
 
 /datum/design/item/mining/ka_frameB
 	req_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 6)
 	materials = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_SILVER = 4000, MATERIAL_DIAMOND = 3000)
-	build_path = /obj/item/weapon/gun/custom_ka/frameB
+	build_path = /obj/item/gun/custom_ka/frameB
 
 /datum/design/item/mining/ka_frameC
 	req_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_SILVER = 3000, MATERIAL_DIAMOND = 1000)
-	build_path = /obj/item/weapon/gun/custom_ka/frameC
+	build_path = /obj/item/gun/custom_ka/frameC
 
 /datum/design/item/mining/ka_frameD
 	req_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 6)
 	materials = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_SILVER = 5000, MATERIAL_DIAMOND = 3000)
-	build_path = /obj/item/weapon/gun/custom_ka/frameD
+	build_path = /obj/item/gun/custom_ka/frameD
 
 /datum/design/item/mining/ka_frameE
 	req_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 6)
 	materials = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_SILVER = 5000, MATERIAL_DIAMOND = 4000)
-	build_path = /obj/item/weapon/gun/custom_ka/frameD
+	build_path = /obj/item/gun/custom_ka/frameE
 
 /datum/design/item/mining/ka_frameF
 	req_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_SILVER = 3000, MATERIAL_DIAMOND = 1000)
-	build_path = /obj/item/weapon/gun/custom_ka/frameD
+	build_path = /obj/item/gun/custom_ka/frameF
 
 //Cells
 /datum/design/item/mining/ka_cell01
