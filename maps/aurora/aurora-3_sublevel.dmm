@@ -930,6 +930,10 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
+"acm" = (
+/mob/living/simple_animal/carp,
+/turf/unsimulated/floor/asteroid/ash/rocky,
+/area/mine/unexplored)
 "acn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -24059,10 +24063,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
-"bdr" = (
-/obj/item/clothing/head/collectable/petehat,
-/turf/unsimulated/floor/asteroid/ash/rocky,
-/area/mine/unexplored)
 "bdB" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
@@ -40846,7 +40846,7 @@ ale
 ale
 ale
 ale
-aba
+ale
 ale
 ale
 ale
@@ -41102,9 +41102,9 @@ ale
 ale
 ale
 ale
-bdr
-aba
-aba
+acm
+ale
+ale
 ale
 ale
 ale
