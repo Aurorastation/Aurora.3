@@ -18,8 +18,8 @@
 	opacity = FALSE
 	maxHealth = 120
 
-/obj/structure/gore/wall/New()
-	..()
+/obj/structure/gore/wall/Initialize()
+	. = ..()
 	var/turf/T = get_turf(src)
 	T.thermal_conductivity = WALL_HEAT_TRANSFER_COEFFICIENT
 
