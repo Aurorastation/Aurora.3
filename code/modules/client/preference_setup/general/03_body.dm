@@ -651,8 +651,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 		var/new_state = input(user, "What state do you wish the organ to be in?") as null|anything in altered_organ.possible_modifications
 
-		if(altered_organ)
-			qdel(altered_organ)
+		qdel(altered_organ)
 
 		if(!new_state) return
 
