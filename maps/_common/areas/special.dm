@@ -13,13 +13,14 @@
 	no_light_control = 1
 	base_turf = /turf/unsimulated/floor/plating
 	centcomm_area = 1
+	ambience = AMBIENCE_ARRIVALS
 
 /area/centcom/control
 	name = "Centcom Control"
+	ambience = AMBIENCE_HIGHSEC
 
 /area/centcom/spawning
-	name = "Centcom Preparatory Wing"
-	ambience = AMBIENCE_ARRIVALS
+	name = "NTCC Odin Departures"
 
 /area/centcom/start
 	name = "New Player Spawn"
@@ -54,13 +55,15 @@
 	name = "Holding Facility"
 
 /area/centcom/checkpoint
-	ambience = AMBIENCE_ARRIVALS
 
 /area/centcom/checkpoint/fore
 	name = "Fore Checkpoint"
 
 /area/centcom/checkpoint/aft
 	name = "Aft Checkpoint"
+
+/area/centcom/bar
+	name = "Valkyrie's Rest"
 
 /area/centcom/legion
 	name = "BLV The Tower - Deck 1"
