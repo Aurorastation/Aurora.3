@@ -31428,11 +31428,6 @@
 /obj/structure/grille,
 /turf/unsimulated/floor/plating,
 /area/centcom/control)
-"qoO" = (
-/obj/machinery/porta_turret/crescent,
-/obj/effect/decal/warning_stripes,
-/turf/unsimulated/floor,
-/area/centcom/holding)
 "qoQ" = (
 /obj/structure/shuttle_part/merchant{
 	icon_state = "1,1"
@@ -42614,7 +42609,7 @@
 	name = "Arrival Hangar Maintenance";
 	req_access = list(101)
 	},
-/turf/unsimulated/wall/darkshuttlewall,
+/turf/unsimulated/floor/plating,
 /area/centcom/evac)
 "xMn" = (
 /obj/structure/table/reinforced,
@@ -66387,7 +66382,7 @@ bLK
 bLK
 bLK
 bLK
-qoO
+wCA
 lOO
 eJc
 miG
@@ -67672,7 +67667,7 @@ kYq
 kYq
 bKw
 mAD
-uSv
+bLK
 eIe
 bQP
 lqP
@@ -68443,7 +68438,7 @@ bKw
 bQP
 bQP
 edR
-qoO
+wCA
 lOO
 uxc
 qxN
@@ -69214,7 +69209,7 @@ kYq
 awC
 aCm
 mAD
-uSv
+bLK
 lOO
 kzj
 kYq
@@ -70499,7 +70494,7 @@ iTm
 typ
 ayG
 mAD
-qoO
+wCA
 lOO
 gZV
 nfY
