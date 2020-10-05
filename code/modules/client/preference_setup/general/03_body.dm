@@ -650,6 +650,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			return
 
 		var/new_state = input(user, "What state do you wish the organ to be in?") as null|anything in altered_organ.possible_modifications
+
+		if(altered_organ)
+			qdel(altered_organ)
+
 		if(!new_state) return
 
 		switch(new_state)
@@ -661,7 +665,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				pref.organ_data[organ_name] = "mechanical"
 			if("Removed")
 				pref.organ_data[organ_name] = "removed"
-		qdel(altered_organ)
+
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["reset_organs"])
