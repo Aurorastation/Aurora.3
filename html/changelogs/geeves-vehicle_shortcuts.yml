@@ -1,8 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added the ability to ctrl and alt click vehicles to perform some actions."
-  - rscadd: "Bike: Ctrl is Engine (only when kickstand is down), Alt is Kickstand"
-  - rscadd: "Train Engine / Pussywagon: Ctrl is Engine, Alt to take Keys"
