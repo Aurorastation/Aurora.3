@@ -228,8 +228,7 @@
 		return
 
 /// makes it so synths can't be flushed
-//
-	if(U.isSynthetic())
+	if(U.isSynthetic() && (!isipc(U)))
 		to_chat(user, SPAN_NOTICE("[target] is a bit too clunky to fit!"))
 		return
 
