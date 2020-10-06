@@ -862,7 +862,7 @@
 		update_icon()
 		return
 
-	if(pin?.attackby(I, user)) //Allows users to use their ID on a gun with a wireless-control firing pin to register their identity.
+	if(istype(pin) && pin.attackby(I, user)) //Allows users to use their ID on a gun with a wireless-control firing pin to register their identity.
 		return
 
 	if(istype(I, /obj/item/ammo_display))
