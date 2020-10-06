@@ -110,6 +110,13 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_PHORON = 3000, MATERIAL_DIAMOND = 500)
 	build_path = /obj/item/reagent_containers/personal_inhaler_cartridge/bluespace
 
+/datum/design/item/medical/stasisbag
+	name = "Stasis Bag"
+	desc = "A folded, reusable bag designed to prevent additional damage to an occupant, especially useful if short on time or in a hostile enviroment."
+	req_tech = list(TECH_BIO = 6)
+	materials = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_GOLD = 2000, MATERIAL_DIAMOND = 500)
+	build_path = /obj/item/bodybag/cryobag
+
 /datum/design/item/beaker
 	p_category = "Advanced Beaker Design"
 

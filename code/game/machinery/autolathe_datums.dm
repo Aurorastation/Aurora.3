@@ -545,3 +545,9 @@
 	path = /obj/item/handcuffs
 	hidden = 1
 	category = "General"
+
+/datum/autolathe/recipe/brassknuckles
+	name = "brass knuckles"
+	path = /obj/item/clothing/gloves/brassknuckles
+	hidden = 1
+	category = "General"
