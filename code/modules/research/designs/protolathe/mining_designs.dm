@@ -116,17 +116,17 @@
 /datum/design/item/mining/ka_cellphoron
 	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 6, TECH_MAGNET = 5, TECH_POWER = 5, TECH_PHORON = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_GLASS = 4000, MATERIAL_SILVER = 5000, MATERIAL_GOLD = 2000, MATERIAL_PHORON = 4000)
-	build_path = /obj/item/custom_ka_upgrade/cells/kinetic_charging
+	build_path = /obj/item/custom_ka_upgrade/cells/loader
 
 /datum/design/item/mining/ka_celluranium
 	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 6, TECH_MAGNET = 5, TECH_POWER = 5, TECH_PHORON = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_GLASS = 4000, MATERIAL_SILVER = 4000, MATERIAL_GOLD = 2000, MATERIAL_PHORON = 3000)
-	build_path = /obj/item/custom_ka_upgrade/cells/kinetic_charging
+	build_path = /obj/item/custom_ka_upgrade/cells/loader/uranium
 
 /datum/design/item/mining/ka_cellhydrogen
 	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 6, TECH_MAGNET = 5, TECH_POWER = 5, TECH_PHORON = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_GLASS = 4000, MATERIAL_SILVER = 4000, MATERIAL_GOLD = 2000, MATERIAL_PHORON = 2000)
-	build_path = /obj/item/custom_ka_upgrade/cells/kinetic_charging
+	build_path = /obj/item/custom_ka_upgrade/cells/loader/hydrogen
 
 
 //Barrels
