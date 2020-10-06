@@ -280,6 +280,9 @@
 		mymob.healths.icon_state = "health0"
 		mymob.healths.name = "health"
 		mymob.healths.screen_loc = ui_health
+		if(target.species.healths_x)
+			var/ui_health_loc = replacetext(ui_health, ui_health_east_loc, "[ui_health_east_template][target.species.healths_x]")
+			mymob.healths.screen_loc = ui_health_loc
 		hud_elements |= mymob.healths
 
 	if(hud_data.has_pressure)

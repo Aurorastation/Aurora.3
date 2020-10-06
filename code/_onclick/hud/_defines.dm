@@ -84,6 +84,8 @@
 #define ui_nutrition_small "EAST:4,CENTER-2:24"
 #define ui_temp "EAST-1:28,CENTER-1:13"
 #define ui_health "EAST-1:28,CENTER:15"
+#define ui_health_east_loc "EAST-1:28" // used to manipulate the position of the healths screen element, must be same as the one above
+#define ui_health_east_template "EAST-1:" // ditto
 #define ui_internal "EAST-1:28,CENTER+1:17"
 
 //borgs
