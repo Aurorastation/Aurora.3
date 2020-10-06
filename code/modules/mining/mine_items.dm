@@ -1372,12 +1372,31 @@ var/list/total_extraction_beacons = list()
 
 /obj/item/himeo_kit/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W, /obj/item/clothing/suit/space/void/mining))
+		var/obj/item/clothing/suit/space/void/mining/M = W
+		var/obj/item/clothing/shoes/magboots/B = M.boots
+		if(B)
+			B.canremove = TRUE
+			B.forceMove(get_turf(src))
+			M.boots = null
+		var/obj/item/clothing/head/helmet/H = M.helmet
+		if(H)
+			H.canremove = TRUE
+			H.forceMove(get_turf(src))
+			M.helmet = null
+		var/obj/item/tank/T = M.tank
+		if(T)
+			T.canremove = TRUE
+			T.forceMove(get_turf(src))
+			M.tank = null
+		for(var/obj/accessory in M.accessories)
+			M.remove_accessory(user, accessory)
 		user.drop_item(W)
 		qdel(W)
 		to_chat(user, SPAN_NOTICE("Your permit for a Himean voidsuit has been processed. Enjoy!"))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/clothing/suit/space/void/mining/himeo/P = new /obj/item/clothing/suit/space/void/mining/himeo(user.loc)
 		user.put_in_hands(P)
+
 	if(istype(W, /obj/item/clothing/head/helmet/space/void/mining))
 		user.drop_item(W)
 		qdel(W)
@@ -1385,13 +1404,33 @@ var/list/total_extraction_beacons = list()
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/clothing/head/helmet/space/void/mining/himeo/P = new /obj/item/clothing/head/helmet/space/void/mining/himeo(user.loc)
 		user.put_in_hands(P)
+
 	if(istype(W, /obj/item/clothing/suit/space/void/mining/himeo))
+		var/obj/item/clothing/suit/space/void/mining/himeo/M = W
+		var/obj/item/clothing/shoes/magboots/B = M.boots
+		if(B)
+			B.canremove = TRUE
+			B.forceMove(get_turf(src))
+			M.boots = null
+		var/obj/item/clothing/head/helmet/H = M.helmet
+		if(H)
+			H.canremove = TRUE
+			H.forceMove(get_turf(src))
+			M.helmet = null
+		var/obj/item/tank/T = M.tank
+		if(T)
+			T.canremove = TRUE
+			T.forceMove(get_turf(src))
+			M.tank = null
+		for(var/obj/accessory in M.accessories)
+			M.remove_accessory(user, accessory)
 		user.drop_item(W)
 		qdel(W)
 		to_chat(user, SPAN_NOTICE("Your Himean voidsuit has been reconverted into a NanoTrasen mining suit."))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/clothing/suit/space/void/mining/P = new /obj/item/clothing/suit/space/void/mining(user.loc)
 		user.put_in_hands(P)
+
 	if(istype(W, /obj/item/clothing/head/helmet/space/void/mining/himeo))
 		user.drop_item(W)
 		qdel(W)
