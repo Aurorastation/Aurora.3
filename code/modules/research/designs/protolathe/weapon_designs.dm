@@ -92,3 +92,8 @@
 	req_tech = light(TECH_COMBAT = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 100)
 	build_path = /obj/item/device/flashlight/maglight
+
+/datum/design/item/weapon/stunrod
+	desc = "A more-than-lethal weapon used to deal with high threat situations."
+	req_tech = list(TECH_COMBAT = 6, TECH_ILLEGAL = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 500, MATERIAL_SILVER = 1500, MATERIAL_GLASS = 1500)
