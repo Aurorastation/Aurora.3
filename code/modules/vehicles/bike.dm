@@ -1,7 +1,7 @@
 /obj/vehicle/bike
 	name = "space-bike"
 	desc = "Space wheelies! Woo!"
-	desc_info = "Drag yourself onto the bike to mount it, toggle the engine to be able to drive around. Deploy the kickstand to prevent movement by driving and dragging. Drag it onto yourself to access its mounted storage. Resist to get off."
+	desc_info = "Drag yourself onto the bike to mount it, toggle the engine to be able to drive around. Deploy the kickstand to prevent movement by driving and dragging. Drag it onto yourself to access its mounted storage. Resist to get off. Use ctrl-click to quickly toggle the engine if you're adjacent (only when vehicle is stationary). Alt-click will similarly toggle the kickstand."
 	icon = 'icons/obj/bike.dmi'
 	icon_state = "bike_off"
 	dir = SOUTH
@@ -34,6 +34,12 @@
 	if(storage_type)
 		storage_compartment = new storage_type(src)
 
+/obj/vehicle/bike/CtrlClick(var/mob/user)
+	if(Adjacent(user) && anchored)
+		toggle()
+	else
+		return ..()
+
 /obj/vehicle/bike/verb/toggle()
 	set name = "Toggle Engine"
 	set category = "Vehicle"
@@ -48,6 +54,12 @@
 	else
 		turn_off()
 		src.visible_message("\The [src] putters before turning off.", "You hear something putter slowly.")
+
+/obj/vehicle/bike/AltClick(var/mob/user)
+	if(Adjacent(user))
+		kickstand(user)
+	else
+		return ..()
 
 /obj/vehicle/bike/verb/kickstand()
 	set name = "Toggle Kickstand"
