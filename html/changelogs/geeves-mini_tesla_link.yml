@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added small tesla links to RnD, under the modular computer catagory. These charge for less, but fit inside smaller computers."
+  - rscadd: "Command Wristbounds now spawn with small tesla links."

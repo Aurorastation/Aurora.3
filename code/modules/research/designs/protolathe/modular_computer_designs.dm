@@ -95,6 +95,11 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 2000)
 	build_path = /obj/item/computer_hardware/tesla_link
 
+/datum/design/item/modularcomponent/teslalink/small
+	req_tech = list(TECH_DATA = 3, TECH_POWER = 3, TECH_ENGINEERING = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 1500)
+	build_path = /obj/item/computer_hardware/tesla_link/small
+
 // Batteries
 /datum/design/item/modularcomponent/battery/normal
 	req_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 1)
