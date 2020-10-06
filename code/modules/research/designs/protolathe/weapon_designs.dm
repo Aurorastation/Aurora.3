@@ -86,3 +86,9 @@
 	req_tech = list(TECH_BLUESPACE = 3, TECH_MATERIAL = 4, TECH_DATA = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 5000)
 	build_path = /obj/item/ammo_display
+
+/datum/design/item/weapon/maglight
+	desc = "A heavy flashlight designed for security personnel."
+	req_tech = light(TECH_COMBAT = 4)
+	materials = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 100)
+	build_path = /obj/item/device/flashlight/maglight
