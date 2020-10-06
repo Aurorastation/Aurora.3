@@ -77,8 +77,11 @@
 	var/wallet = list()
 	wallet["wallet, colourable"] = /obj/item/storage/wallet/colourable
 	wallet["wallet, purse"] = /obj/item/storage/wallet/purse
-	wallet["wallet, lanyard"] = /obj/item/storage/wallet/lanyard
 	gear_tweaks += new/datum/gear_tweak/path(wallet)
+
+/datum/gear/utility/lanyard
+	display_name = "lanyard"
+	path = 	/obj/item/storage/wallet/lanyard
 
 /datum/gear/utility/recorder
 	display_name = "universal recorder"

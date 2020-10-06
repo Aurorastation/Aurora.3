@@ -172,4 +172,5 @@
 
 /datum/gear/photo
 	display_name = "photo"
-	path =  /obj/item/generic_photo
+	path =  /obj/item/photo
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
