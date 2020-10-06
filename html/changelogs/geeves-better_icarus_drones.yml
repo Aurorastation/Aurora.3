@@ -1,9 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Improved Icarus combat drone code across the board, added a non-malfunctioning variant."
-  - rscadd: "The Icarus now sends combat drones to substantial space wildlife migrations."
-  - rscadd: "Added an Icarus drone target painter to some admin roles. It is an orbital drop device that will warp two Icarus drones at the targetted location."
-  - rscadd: "Added examine texts to malfunctioning combat drones that tells you what they're doing."
