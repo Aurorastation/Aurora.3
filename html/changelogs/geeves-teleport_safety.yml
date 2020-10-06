@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Hand-teleporters have been made safer to use, they no longer teleport you in a radius around a beacon, but on top of it."
+  - rscadd: "Hand-teles now have a text based indicator that shows you when it's ready for use."
+  - tweak: "Portals no longer have a random chance of failing per teleport, but have a random chance of starting destabilized. It will only be visually apparent after the first teleport."

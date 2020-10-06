@@ -90,8 +90,9 @@
 	return dist
 
 /proc/circlerangeturfs(center=usr,radius=3)
-
 	var/turf/centerturf = get_turf(center)
+	if(radius == 1)
+		return list(centerturf)
 	var/list/turfs = new/list()
 	var/rsq = radius * (radius+0.5)
 
