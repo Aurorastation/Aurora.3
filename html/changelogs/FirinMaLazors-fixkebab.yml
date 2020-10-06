@@ -1,4 +1,0 @@
-author: FirinMaLazors
-delete-after: True
-changes: 
-  - bugfix: "Fixed the hardcoded kebab and brain sandwhich recipes to let you use rods and brains, respectively, in recipes.  Also fixed a recursion error in the variable recipes."
