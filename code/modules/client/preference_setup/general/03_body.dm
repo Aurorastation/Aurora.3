@@ -211,44 +211,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	var/ind = 0
 	for(var/name in pref.organ_data)
 		var/status = pref.organ_data[name]
-		var/organ_name = null
-		switch(name)
-			if(BP_L_ARM)
-				organ_name = "left arm"
-			if(BP_R_ARM)
-				organ_name = "right arm"
-			if(BP_L_LEG)
-				organ_name = "left leg"
-			if(BP_R_LEG)
-				organ_name = "right leg"
-			if(BP_L_FOOT)
-				organ_name = "left foot"
-			if(BP_R_FOOT)
-				organ_name = "right foot"
-			if(BP_L_HAND)
-				organ_name = "left hand"
-			if(BP_R_HAND)
-				organ_name = "right hand"
-			if(BP_GROIN)
-				organ_name = "lower body"
-			if(BP_CHEST)
-				organ_name = "upper body"
-			if(BP_HEAD)
-				organ_name = "head"
-			if(BP_HEART)
-				organ_name = "heart"
-			if(BP_EYES)
-				organ_name = "eyes"
-			if(BP_LUNGS)
-				organ_name = "lungs"
-			if(BP_LIVER)
-				organ_name = "liver"
-			if(BP_KIDNEYS)
-				organ_name = "kidneys"
-			if(BP_STOMACH)
-				organ_name = "stomach"
-			if(BP_APPENDIX)
-				organ_name = "appendix"
+		var/organ_name = name
 
 		if(status == "cyborg")
 			++ind
