@@ -10,7 +10,8 @@
 	health = 100
 	maxHealth = 100
 
-	density = 1
+	density = TRUE
+	belongs_to_station = FALSE
 
 	attacktext = "swatted"
 	melee_damage_lower = 25

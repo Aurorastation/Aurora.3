@@ -41,7 +41,7 @@ var/datum/controller/subsystem/traumas/SStraumas
 						"security" = typecacheof(list(/mob/living/bot/secbot)),
 						"lizards"  = typecacheof(list(/mob/living/simple_animal/lizard)),
 						"cats"  = typecacheof(list(/mob/living/simple_animal/cat, /mob/living/simple_animal/familiar/pet/cat, /mob/living/simple_animal/cat/kitten)),
-						"robots"  = typecacheof(list(/mob/living/silicon,/mob/living/bot, /mob/living/simple_animal/hostile/retaliate/malf_drone)),
+						"robots"  = typecacheof(list(/mob/living/silicon,/mob/living/bot, /mob/living/simple_animal/hostile/icarus_drone)),
 						"pests" = typecacheof(list(/mob/living/simple_animal/hostile/carp, /mob/living/simple_animal/rat, /mob/living/carbon/alien/diona)),
 						"paranormals" = typecacheof(list(/mob/living/simple_animal/hostile/scarybat, /mob/living/simple_animal/hostile/true_changeling,
 														/mob/living/simple_animal/hostile/mimic, /mob/living/simple_animal/hostile/faithless,
