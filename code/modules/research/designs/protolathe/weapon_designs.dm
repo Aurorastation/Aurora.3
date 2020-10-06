@@ -89,7 +89,7 @@
 
 /datum/design/item/weapon/maglight
 	desc = "A heavy flashlight designed for security personnel."
-	req_tech = light(TECH_COMBAT = 4)
+	req_tech = list(TECH_COMBAT = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 100)
 	build_path = /obj/item/device/flashlight/maglight
 
