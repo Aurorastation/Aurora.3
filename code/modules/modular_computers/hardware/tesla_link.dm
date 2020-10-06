@@ -14,7 +14,7 @@
 
 /obj/item/computer_hardware/tesla_link/small
 	name = "small tesla link"
-	desc = "An miniaturized advanced tesla link that wirelessly recharges connected device from nearby area power controllers."
+	desc = "A miniaturized advanced tesla link that wirelessly recharges connected device from nearby area power controllers."
 	icon_state = "teslalink"
 	hardware_size = 1
 	origin_tech = list(TECH_DATA = 3, TECH_POWER = 3, TECH_ENGINEERING = 3)
