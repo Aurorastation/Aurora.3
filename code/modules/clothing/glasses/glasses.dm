@@ -103,7 +103,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/meson/prescription
 	name = "prescription mesons"
 	desc = "Optical Meson Scanner with prescription lenses."
-	prescription = 1
+	prescription = 7
 
 /obj/item/clothing/glasses/meson/aviator
 	name = "engineering aviators"
@@ -112,7 +112,7 @@ BLIND     // can't see anything
 	off_state = "aviator_eng_off"
 	action_button_name = "Toggle HUD"
 	activation_sound = 'sound/effects/pop.ogg'
-	prescription = 1
+	prescription = 7
 
 /obj/item/clothing/glasses/meson/aviator/verb/toggle()
 	set category = "Object"
@@ -129,7 +129,7 @@ BLIND     // can't see anything
 	action_button_name = "Toggle Mode"
 	toggleable = 1
 	activation_sound = 'sound/effects/pop.ogg'
-	prescription = 1
+	prescription = 7
 
 /obj/item/clothing/glasses/hud/health/aviator/verb/toggle()
 	set category = "Object"
@@ -175,7 +175,7 @@ BLIND     // can't see anything
 	action_button_name = "Toggle Mode"
 	toggleable = 1
 	activation_sound = 'sound/effects/pop.ogg'
-	prescription = 1
+	prescription = 7
 
 /obj/item/clothing/glasses/night/aviator/verb/toggle()
 	set category = "Object"
@@ -279,7 +279,7 @@ BLIND     // can't see anything
 	off_state = "aviator_off"
 	action_button_name = "Toggle Mode"
 	activation_sound = 'sound/effects/pop.ogg'
-	prescription = 1
+	prescription = 7
 
 /obj/item/clothing/glasses/material/aviator/verb/toggle()
 	set category = "Object"
@@ -293,7 +293,7 @@ BLIND     // can't see anything
 	desc = "Made by Nerd. Co."
 	icon_state = "glasses"
 	item_state = "glasses"
-	prescription = 1
+	prescription = 7
 	body_parts_covered = 0
 
 /obj/item/clothing/glasses/regular/attackby(obj/item/W as obj, mob/user as mob)
@@ -371,11 +371,11 @@ BLIND     // can't see anything
 	desc = "A pair of designer sunglasses. They should put HUDs in these."
 	icon_state = "aviator"
 	item_state = "aviator"
-	prescription = 1
+	prescription = 7
 
 /obj/item/clothing/glasses/sunglasses/prescription
 	name = "prescription sunglasses"
-	prescription = 1
+	prescription = 7
 
 /obj/item/clothing/glasses/sunglasses/prescription/Initialize()
 	. = ..()
@@ -403,11 +403,11 @@ BLIND     // can't see anything
 	desc = "A pair of designer sunglasses. They should put HUDs in these."
 	icon_state = "aviator"
 	item_state = "aviator"
-	prescription = 1
+	prescription = 7
 
 /obj/item/clothing/glasses/fakesunglasses/prescription
 	name = "stylish prescription sunglasses"
-	prescription = 1
+	prescription = 7
 
 /obj/item/clothing/glasses/fakesunglasses/prescription/Initialize()
 	. = ..()
@@ -474,8 +474,10 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/sunglasses/blinders
 	name = "vaurcae blinders"
 	desc = "Specially designed Vaurca blindfold, designed to let in just enough light to see."
+	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "blinders"
-	item_state = "blindfold"
+	item_state = "blinders"
+	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
@@ -512,7 +514,7 @@ BLIND     // can't see anything
 	desc = "Snazzy, advanced aviators with inbuilt combat and security information."
 	icon_state = "hosglasses"
 	item_state = "hosglasses"
-	prescription = 1
+	prescription = 7
 
 /obj/item/clothing/glasses/sunglasses/sechud/aviator
 	name = "HUD aviators"
@@ -524,7 +526,7 @@ BLIND     // can't see anything
 	var/on = TRUE
 	toggleable = TRUE
 	activation_sound = 'sound/effects/pop.ogg'
-	prescription = 1
+	prescription = 7
 
 	var/hud_holder
 
@@ -639,7 +641,7 @@ BLIND     // can't see anything
 	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
 	action_button_name = "Toggle HUD"
 	activation_sound = 'sound/effects/pop.ogg'
-	prescription = 1
+	prescription = 7
 
 /obj/item/clothing/glasses/thermal/aviator/verb/toggle()
 	set category = "Object"
@@ -655,7 +657,7 @@ BLIND     // can't see anything
 	item_state = "hudpatch"
 	off_state = "hudpatch"
 	action_button_name = "Toggle iPatch"
-	prescription = 1 //To emulate not having one eyeball
+	prescription = 7 //To emulate not having one eyeball
 	toggleable = 1
 	var/eye_color = COLOR_WHITE
 	var/image/mob_overlay

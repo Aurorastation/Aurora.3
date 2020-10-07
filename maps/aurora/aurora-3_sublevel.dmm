@@ -21968,7 +21968,7 @@
 "aUc" = (
 /obj/machinery/recharge_station,
 /turf/simulated/floor/reinforced/airless,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "aUg" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -26002,7 +26002,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/maintenance/security_starboard)
+/area/security/penal_colony)
 "bDz" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass_research{
@@ -26020,7 +26020,7 @@
 	pixel_y = -28
 	},
 /turf/simulated/floor/tiled/airless,
-/area/security/warden/remote)
+/area/security/penal_colony/warden)
 "bEO" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -26086,7 +26086,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "bMi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -26122,7 +26122,7 @@
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/simulated/floor/tiled/airless,
-/area/security/warden/remote)
+/area/security/penal_colony/warden)
 "bRJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -26145,7 +26145,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
-/area/security/warden/remote)
+/area/security/penal_colony/warden)
 "bTg" = (
 /turf/simulated/floor/wood,
 /area/medical/patient_wing_library)
@@ -27327,7 +27327,7 @@
 /obj/item/clothing/shoes/workboots/dark,
 /obj/item/clothing/head/hardhat/orange,
 /turf/simulated/floor/reinforced/airless,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "dYW" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -27497,7 +27497,7 @@
 "ejX" = (
 /obj/structure/banner,
 /turf/simulated/floor/tiled/airless,
-/area/security/warden/remote)
+/area/security/penal_colony/warden)
 "emk" = (
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -27607,7 +27607,7 @@
 	pixel_y = 16
 	},
 /turf/simulated/floor/airless,
-/area/maintenance/security_starboard)
+/area/security/penal_colony)
 "eBJ" = (
 /obj/machinery/atmospherics/pipe/manifold/visible,
 /obj/effect/floor_decal/corner/green{
@@ -27736,7 +27736,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/maintenance/security_starboard)
+/area/security/penal_colony)
 "eNt" = (
 /obj/item/stool/padded,
 /turf/simulated/floor/tiled,
@@ -28107,7 +28107,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "fHV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -28151,7 +28151,7 @@
 /area/mine/unexplored)
 "fLn" = (
 /turf/simulated/floor/tiled/airless,
-/area/security/warden/remote)
+/area/security/penal_colony/warden)
 "fOV" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -28782,7 +28782,7 @@
 	req_access = list(3)
 	},
 /turf/simulated/floor/airless,
-/area/security/warden/remote)
+/area/security/penal_colony/warden)
 "gVX" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -29102,7 +29102,7 @@
 	req_access = list(3)
 	},
 /turf/simulated/floor/airless,
-/area/maintenance/security_starboard)
+/area/security/penal_colony)
 "hID" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -29182,7 +29182,7 @@
 	name = "Prisoner Storage"
 	},
 /turf/simulated/floor/airless,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "hQd" = (
 /obj/random/junk,
 /turf/simulated/floor/plating,
@@ -29265,7 +29265,7 @@
 /area/medical/patient_a)
 "hXj" = (
 /turf/simulated/floor/reinforced/airless,
-/area/maintenance/security_starboard)
+/area/security/penal_colony)
 "hZf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/cyan{
@@ -29518,7 +29518,7 @@
 "iLn" = (
 /obj/item/modular_computer/console/preset/security,
 /turf/simulated/floor/tiled/airless,
-/area/security/warden/remote)
+/area/security/penal_colony/warden)
 "iOl" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora_hazard)
@@ -29586,7 +29586,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "iRV" = (
 /obj/item/device/radio/intercom{
 	dir = 0;
@@ -29908,13 +29908,10 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "jDy" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/isolation_a)
-"jDG" = (
-/turf/simulated/wall/r_wall,
-/area/maintenance/security_starboard)
 "jED" = (
 /obj/structure/table/standard,
 /obj/item/surgery/hemostat,
@@ -29965,7 +29962,7 @@
 /area/engineering/atmos)
 "jKB" = (
 /turf/simulated/wall/r_wall,
-/area/security/warden/remote)
+/area/security/penal_colony/warden)
 "jKS" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -29995,7 +29992,7 @@
 "jNM" = (
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/airless,
-/area/security/warden/remote)
+/area/security/penal_colony/warden)
 "jOy" = (
 /obj/machinery/light{
 	dir = 8
@@ -30010,7 +30007,7 @@
 "jOO" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/reinforced/airless,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "jSu" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 10
@@ -30025,7 +30022,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "jVa" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/frame/air_alarm,
@@ -30192,7 +30189,7 @@
 /obj/item/pickaxe,
 /obj/item/storage/bag/crystal,
 /turf/simulated/floor/reinforced/airless,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "ktH" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
@@ -30319,7 +30316,7 @@
 /area/maintenance/medsublevel)
 "kMM" = (
 /turf/simulated/wall/r_wall,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "kPF" = (
 /obj/machinery/door/firedoor,
 /obj/structure/table/reinforced,
@@ -30659,16 +30656,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
-"lMp" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/airless,
-/area/maintenance/security_starboard)
 "lOI" = (
 /obj/structure/cable/cyan{
 	d1 = 4;
@@ -30834,7 +30821,7 @@
 	name = "warden's rubber stamp"
 	},
 /turf/simulated/floor/tiled/airless,
-/area/security/warden/remote)
+/area/security/penal_colony/warden)
 "meI" = (
 /obj/machinery/light,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -30894,7 +30881,7 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/airless,
-/area/security/warden/remote)
+/area/security/penal_colony/warden)
 "mlz" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -31143,7 +31130,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/item/gun/energy/plasmacutter,
 /turf/simulated/floor/tiled/airless,
-/area/security/warden/remote)
+/area/security/penal_colony/warden)
 "mEM" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -31899,7 +31886,7 @@
 	},
 /mob/living/carbon/human/industrial_xion_remote_warden,
 /turf/simulated/floor/reinforced/airless,
-/area/security/warden/remote)
+/area/security/penal_colony/warden)
 "nJV" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	req_access = list(12)
@@ -32058,7 +32045,7 @@
 /obj/structure/table/wood,
 /obj/item/clipboard,
 /turf/simulated/floor/tiled/airless,
-/area/security/warden/remote)
+/area/security/penal_colony/warden)
 "oki" = (
 /obj/structure/flora/pottedplant/random,
 /turf/simulated/floor/tiled,
@@ -32309,7 +32296,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/maintenance/security_starboard)
+/area/security/penal_colony)
 "oMW" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -32339,7 +32326,7 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/airless,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "oTN" = (
 /obj/structure/grille/broken,
 /turf/unsimulated/floor/asteroid/ash/rocky,
@@ -32507,7 +32494,7 @@
 "prR" = (
 /obj/structure/disposalpipe/up,
 /turf/simulated/floor/airless,
-/area/maintenance/security_starboard)
+/area/security/penal_colony)
 "psd" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 1
@@ -32787,7 +32774,7 @@
 	pixel_x = 24
 	},
 /turf/simulated/floor/airless,
-/area/security/warden/remote)
+/area/security/penal_colony/warden)
 "qah" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light/small/emergency{
@@ -32925,7 +32912,7 @@
 /obj/structure/bed,
 /mob/living/carbon/human/industrial_xion_remote_penal,
 /turf/simulated/floor/reinforced/airless,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "qki" = (
 /obj/effect/floor_decal/corner_wide/yellow/full,
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -33292,7 +33279,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/airless,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "qUD" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
@@ -34267,7 +34254,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/maintenance/security_starboard)
+/area/security/penal_colony)
 "tzO" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4;
@@ -35183,7 +35170,7 @@
 	name = "Prisoner Bay"
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "vkY" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -35951,7 +35938,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "wHR" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/computer/power_monitor,
@@ -35960,7 +35947,7 @@
 "wIo" = (
 /obj/structure/closet/secure_closet/warden,
 /turf/simulated/floor/tiled/airless,
-/area/security/warden/remote)
+/area/security/penal_colony/warden)
 "wIA" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -36609,7 +36596,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/airless,
-/area/security/warden/remote)
+/area/security/penal_colony/warden)
 "xSj" = (
 /obj/structure/table/standard,
 /obj/item/autopsy_scanner,
@@ -36718,7 +36705,7 @@
 /area/maintenance/medsublevel_port)
 "xZJ" = (
 /turf/simulated/floor/reinforced/airless,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "ybc" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -36732,7 +36719,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/airless,
-/area/security/prison/remote)
+/area/security/penal_colony/prison)
 "ybo" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -67992,13 +67979,13 @@ aaa
 aaa
 aaa
 aaa
-jDG
-jDG
-jDG
-jDG
-jDG
-jDG
-jDG
+lCe
+lCe
+lCe
+lCe
+lCe
+lCe
+lCe
 hiP
 gkA
 lCe
@@ -68249,13 +68236,13 @@ aaa
 aaa
 aaa
 aaa
-jDG
+lCe
 hXj
 hXj
 twe
 hXj
 hXj
-jDG
+lCe
 hiP
 gkA
 lCe
@@ -68506,13 +68493,13 @@ aaa
 aaa
 aaa
 aaa
-jDG
+lCe
 hXj
 hXj
 hXj
 hXj
 bBR
-jDG
+lCe
 hiP
 oWV
 lCe
@@ -68763,12 +68750,12 @@ aaa
 aaa
 aaa
 aaa
-jDG
+lCe
 eNg
 prR
 eAY
-lMp
-lMp
+vcS
+vcS
 hIm
 jpZ
 vcS
@@ -69020,13 +69007,13 @@ aaa
 aaa
 aaa
 aaa
-jDG
+lCe
 hXj
 hXj
 hXj
 hXj
 bBR
-jDG
+lCe
 hiP
 qkm
 lCe
@@ -69277,13 +69264,13 @@ aaa
 aaa
 aaa
 aaa
-jDG
+lCe
 hXj
 hXj
 oMp
 hXj
 hXj
-jDG
+lCe
 hiP
 gkA
 lCe
@@ -69534,13 +69521,13 @@ aaa
 aaa
 aaa
 kMM
-jDG
-jDG
-jDG
-jDG
-jDG
-jDG
-jDG
+lCe
+lCe
+lCe
+lCe
+lCe
+lCe
+lCe
 hiP
 gkA
 lCe

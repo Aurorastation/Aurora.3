@@ -26,7 +26,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 /obj/machinery/requests_console
 	name = "Requests Console"
 	desc = "A console intended to send requests to different departments on the station."
-	anchored = 1
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "req_comp"
 	component_types = list(
@@ -34,6 +33,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			/obj/item/stock_parts/capacitor,
 			/obj/item/stock_parts/console_screen,
 		)
+	anchored = TRUE
+	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 	var/department = "Unknown" //The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
 	var/list/message_log = list() //List of all messages
 	var/departmentType = 0 		//Bitflag. Zero is reply-only. Map currently uses raw numbers instead of defines.

@@ -75,6 +75,7 @@
 /datum/event/meteor_wave/downed_ship
 	downed_ship = TRUE
 	ic_name = "a downed vessel"
+	no_fake = TRUE
 
 /datum/event/meteor_wave/downed_ship/announce()
 	command_announcement.Announce("The NDV Icarus reports that it has downed an unknown vessel that was approaching your station. Prepare for debris impact - please evacuate the surface level if needed.", "Ship Debris Alert", new_sound = 'sound/AI/unknownvesseldowned.ogg')

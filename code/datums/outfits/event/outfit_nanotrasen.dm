@@ -25,7 +25,7 @@
 	uniform = /obj/item/clothing/under/rank/centcom_officer
 	l_ear = /obj/item/device/radio/headset/heads/captain
 	head = /obj/item/clothing/head/beret/centcom/officer
-
+	l_pocket = /obj/item/device/orbital_dropper/icarus_drones
 
 /datum/outfit/admin/nt/captain
 	name = "NanoTrasen Navy Captain"
@@ -33,7 +33,7 @@
 	uniform = /obj/item/clothing/under/rank/centcom_captain
 	l_ear = /obj/item/device/radio/headset/heads/captain
 	head = /obj/item/clothing/head/beret/centcom/captain
-
+	l_pocket = /obj/item/device/orbital_dropper/icarus_drones
 
 /datum/outfit/admin/nt/protection_detail
 	name = "ERT Protection Detail"
@@ -93,7 +93,8 @@
 
 	backpack_contents = list(
 		/obj/item/storage/box/fancy/cigarettes/cigar = 1,
-		/obj/item/flame/lighter/zippo = 1
+		/obj/item/flame/lighter/zippo = 1,
+		/obj/item/device/orbital_dropper/icarus_drones = 1
 	)
 
 	implants = list(

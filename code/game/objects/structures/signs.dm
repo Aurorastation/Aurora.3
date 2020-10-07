@@ -250,6 +250,16 @@
 	desc = "A direction sign, pointing out which way Telecommunications is."
 	icon_state = "direction_tcom"
 
+/obj/structure/sign/directions/tram
+	name = "\improper Tram Station"
+	desc = "A direction sign, pointing out which way the Tram is."
+	icon_state = "direction_tram"
+
+/obj/structure/sign/directions/mndl
+	name = "\improper Mendell Transport Shuttle"
+	desc = "A direction sign, pointing out which way the Mendell City Transport Shuttle is."
+	icon_state = "direction_mndl"
+
 /obj/structure/sign/directions/all
 	name = "\improper All directions"
 	desc = "A multi-coloured direction sign, pointing out in which all main departments are located."

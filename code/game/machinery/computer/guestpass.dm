@@ -59,6 +59,7 @@
 	icon_screen = "guest"
 	icon_scanline = "altcomputerw-scanline"
 	density = FALSE
+	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 
 	var/obj/item/card/id/giver
 	var/list/accesses = list()

@@ -126,6 +126,8 @@
 
 	have_vision_cone = FALSE
 
+	alterable_internal_organs = list()
+
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()
 

@@ -13,13 +13,14 @@
 	no_light_control = 1
 	base_turf = /turf/unsimulated/floor/plating
 	centcomm_area = 1
+	ambience = AMBIENCE_ARRIVALS
 
 /area/centcom/control
 	name = "Centcom Control"
-	icon_state = "centcomcontrol"
+	ambience = AMBIENCE_HIGHSEC
 
 /area/centcom/spawning
-	name = "Centcom Preparatory Wing"
+	name = "NTCC Odin Departures"
 	icon_state = "centcomspawn"
 	ambience = AMBIENCE_ARRIVALS
 
@@ -62,7 +63,6 @@
 	icon_state = "centcomhold"
 
 /area/centcom/checkpoint
-	ambience = AMBIENCE_ARRIVALS
 
 /area/centcom/checkpoint/fore
 	name = "Fore Checkpoint"
@@ -71,6 +71,9 @@
 /area/centcom/checkpoint/aft
 	name = "Aft Checkpoint"
 	icon_state = "centcomcheckaft"
+
+/area/centcom/bar
+	name = "Valkyrie's Rest"
 
 /area/centcom/legion
 	name = "BLV The Tower - Deck 1"
@@ -137,7 +140,6 @@
 	name = "Thunderdome"
 	icon_state = "thunder"
 	requires_power = 0
-	dynamic_lighting = 0
 	sound_env = ARENA
 	no_light_control = 1
 	centcomm_area = 1

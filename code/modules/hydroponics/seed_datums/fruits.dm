@@ -306,7 +306,7 @@
 /datum/seed/cherries
 	name = "cherry"
 	seed_name = "cherry"
-	seed_noun = "pits"
+	seed_noun = SEED_NOUN_PITS
 	display_name = "cherry tree"
 	chems = list(/datum/reagent/nutriment = list(1,15), /datum/reagent/sugar = list(1,15), /datum/reagent/nutriment/cherryjelly = list(10,15))
 	kitchen_tag = "cherries"

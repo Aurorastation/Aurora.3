@@ -21728,7 +21728,6 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/mob/living/simple_animal/hostile/commanded/baby_harvester,
 /obj/structure/window/reinforced{
 	dir = 1
 	},
@@ -21739,6 +21738,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/mob/living/simple_animal/hostile/commanded/baby_harvester,
 /turf/simulated/floor/tiled,
 /area/rnd/rdoffice)
 "aLM" = (
@@ -30901,6 +30901,8 @@
 	dir = 1;
 	icon_state = "tube1"
 	},
+/obj/item/storage/box/masks,
+/obj/item/nitrilebox,
 /turf/simulated/floor/tiled/white,
 /area/assembly/robotics_cyborgification)
 "bbz" = (
@@ -39639,6 +39641,8 @@
 /obj/effect/floor_decal/corner_wide/pink{
 	dir = 8
 	},
+/obj/machinery/disposal/small/east,
+/obj/structure/disposalpipe/trunk,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "brH" = (
@@ -40228,11 +40232,18 @@
 	name = "MedBay Lockdown Shutters";
 	opacity = 0
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "bsT" = (
 /obj/effect/floor_decal/corner_wide/pink{
 	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
@@ -62631,6 +62642,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
+"kRp" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "kRK" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -62665,10 +62685,10 @@
 /area/assembly/robotics_cyborgification)
 "kVD" = (
 /obj/item/stool/padded,
-/mob/living/simple_animal/rat/gray,
 /obj/structure/cable/green{
 	icon_state = "6-8"
 	},
+/mob/living/simple_animal/rat/gray,
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "kWH" = (
@@ -67483,6 +67503,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
+"urT" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/junction{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hallway/primary/central_one)
 "usi" = (
 /turf/simulated/floor/carpet/rubber,
 /area/lawoffice/representative)
@@ -99200,7 +99233,7 @@ bdo
 bdo
 bdo
 bdo
-bdo
+urT
 bbL
 bdo
 bdo
@@ -99457,7 +99490,7 @@ bdp
 aZs
 bdp
 brE
-bdp
+kRp
 btW
 bvf
 bwc

@@ -239,9 +239,9 @@ var/obj/item/card/id/all_access/ghost_all_access
 /mob/living/simple_animal/spiderbot/GetIdCard()
 	return internal_id
 
-/mob/living/carbon/human/GetIdCard()
+/mob/living/carbon/human/GetIdCard(var/ignore_hand = FALSE)
 	var/obj/item/I = get_active_hand()
-	if(I)
+	if(I && !ignore_hand)
 		var/id = I.GetID()
 		if(id)
 			return id

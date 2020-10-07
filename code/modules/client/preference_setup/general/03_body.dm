@@ -211,40 +211,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	var/ind = 0
 	for(var/name in pref.organ_data)
 		var/status = pref.organ_data[name]
-		var/organ_name = null
-		switch(name)
-			if(BP_L_ARM)
-				organ_name = "left arm"
-			if(BP_R_ARM)
-				organ_name = "right arm"
-			if(BP_L_LEG)
-				organ_name = "left leg"
-			if(BP_R_LEG)
-				organ_name = "right leg"
-			if(BP_L_FOOT)
-				organ_name = "left foot"
-			if(BP_R_FOOT)
-				organ_name = "right foot"
-			if(BP_L_HAND)
-				organ_name = "left hand"
-			if(BP_R_HAND)
-				organ_name = "right hand"
-			if(BP_GROIN)
-				organ_name = "lower body"
-			if(BP_CHEST)
-				organ_name = "upper body"
-			if(BP_HEAD)
-				organ_name = "head"
-			if(BP_HEART)
-				organ_name = "heart"
-			if(BP_EYES)
-				organ_name = "eyes"
-			if(BP_LUNGS)
-				organ_name = "lungs"
-			if(BP_LIVER)
-				organ_name = "liver"
-			if(BP_KIDNEYS)
-				organ_name = "kidneys"
+		var/organ_name = name
 
 		if(status == "cyborg")
 			++ind
@@ -279,6 +246,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					out += "\tRetinal overlayed [organ_name]"
 				else
 					out += "\tMechanically assisted [organ_name]"
+		else if(status == "removed")
+			++ind
+			if(ind > 1)
+				out += ", "
+			out += "\tRemoved [organ_name]"
 	if(!ind)
 		out += "\[...\]<br><br>"
 	else
@@ -628,32 +600,34 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["organs"])
-		var/organ_name = input(user, "Which internal function do you want to change?") as null|anything in list("Heart", "Eyes", "Lungs", "Liver", "Kidneys")
-		if(!organ_name) return
+		if(!mob_species.alterable_internal_organs.len)
+			return
+		var/organ_name = input(user, "Which internal function do you want to change?") as null|anything in mob_species.alterable_internal_organs
+		if(!organ_name)
+			return
 
-		var/organ = null
-		switch(organ_name)
-			if("Heart")
-				organ = BP_HEART
-			if("Eyes")
-				organ = BP_EYES
-			if("Lungs")
-				organ = BP_LUNGS
-			if("Liver")
-				organ = BP_LIVER
-			if("Kidneys")
-				organ = BP_KIDNEYS
+		var/organ_type = mob_species.has_organ[organ_name]
+		var/obj/item/organ/internal/altered_organ = new organ_type(null)
 
-		var/new_state = input(user, "What state do you wish the organ to be in?") as null|anything in list("Normal","Assisted","Mechanical")
+		if(!altered_organ)
+			return
+
+		var/new_state = input(user, "What state do you wish the organ to be in?") as null|anything in altered_organ.possible_modifications
+
+		qdel(altered_organ)
+
 		if(!new_state) return
 
 		switch(new_state)
 			if("Normal")
-				pref.organ_data[organ] = null
+				pref.organ_data[organ_name] = null
 			if("Assisted")
-				pref.organ_data[organ] = "assisted"
+				pref.organ_data[organ_name] = "assisted"
 			if("Mechanical")
-				pref.organ_data[organ] = "mechanical"
+				pref.organ_data[organ_name] = "mechanical"
+			if("Removed")
+				pref.organ_data[organ_name] = "removed"
+
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["reset_organs"])
