@@ -108,10 +108,10 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 3000, MATERIAL_SILVER = 3000, MATERIAL_GOLD = 1000, MATERIAL_PHORON = 5000)
 	build_path = /obj/item/custom_ka_upgrade/cells/cell05
 
-/datum/design/item/mining/ka_cellkinetic
+/datum/design/item/mining/ka_cellinertia
 	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 6, TECH_MAGNET = 5, TECH_POWER = 5, TECH_PHORON = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 6000, MATERIAL_GLASS = 4000, MATERIAL_SILVER = 4000, MATERIAL_GOLD = 2000, MATERIAL_PHORON = 5000)
-	build_path = /obj/item/custom_ka_upgrade/cells/kinetic_charging
+	build_path = /obj/item/custom_ka_upgrade/cells/inertia_charging
 
 /datum/design/item/mining/ka_cellphoron
 	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 6, TECH_MAGNET = 5, TECH_POWER = 5, TECH_PHORON = 5)
