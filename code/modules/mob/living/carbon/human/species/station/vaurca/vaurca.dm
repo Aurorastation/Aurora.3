@@ -146,12 +146,6 @@
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1
 
-/datum/species/bug/equip_later_gear(var/mob/living/carbon/human/H)
-	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack) && H.equip_to_slot_or_del(new /obj/item/reagent_containers/inhaler/phoron_special(H.back), slot_in_backpack))
-		return
-	var/obj/item/reagent_containers/inhaler/phoron_special/I = new /obj/item/reagent_containers/inhaler/phoron_special(get_turf(H))
-	H.put_in_hands(I)
-
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
 	return ..()
