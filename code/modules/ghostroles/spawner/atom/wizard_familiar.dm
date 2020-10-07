@@ -13,4 +13,4 @@
 	var/mob/living/simple_animal/A = user
 	if(A.wizard_master)
 		A.add_spell(new /spell/contract/return_master(A.wizard_master), "const_spell_ready")
-	to_chat(src, "<B>You are [src], a familiar to [wizard_master]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>")
+		to_chat(src, "<B>You are [src], a familiar to [A.wizard_master]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>")
