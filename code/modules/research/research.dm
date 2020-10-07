@@ -220,7 +220,7 @@ research holder datum.
 
 /datum/tech/syndicate
 	name = "Esoteric Technologies Research"
-	desc = "The study of bleeding-edge, experimental technologies."
+	desc = "The study of bleeding-edge, experimental and often restricted technologies."
 	id = TECH_ILLEGAL
 	antag_tech = TRUE
 	level = 0
