@@ -173,6 +173,7 @@ datum/design/item/tool/advanced_light_replacer
 	desc = "Highly compressed matter for the RFD."
 	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4)
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 2000)
+	build_path = /obj/item/rfd_ammo
 
 /datum/design/item/tool/rfd_service
 	desc = "A RFD, modified to deploy service items."

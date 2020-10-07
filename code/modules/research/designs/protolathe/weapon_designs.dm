@@ -96,4 +96,5 @@
 /datum/design/item/weapon/stunrod
 	desc = "A more-than-lethal weapon used to deal with high threat situations."
 	req_tech = list(TECH_COMBAT = 6, TECH_ILLEGAL = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 500, MATERIAL_SILVER = 1500, MATERIAL_GLASS = 1500)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 500, MATERIAL_SILVER = 1500)
+	build_path = /obj/item/melee/baton/stunrod
