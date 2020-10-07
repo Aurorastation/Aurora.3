@@ -27157,7 +27157,8 @@
 "aUM" = (
 /obj/machinery/door/airlock/glass_command{
 	name = "B Lift Access";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -27237,7 +27238,8 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
 	name = "Cyborg Station";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/ailobby)
@@ -27790,7 +27792,8 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/glass_command{
 	name = "B Lift Access";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/ailobby)
@@ -29430,9 +29433,9 @@
 "aYK" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
-	id_tag = null;
 	name = "Conference Room";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -29532,7 +29535,8 @@
 "aYS" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/plating,
 /area/bridge/ailobby)
@@ -30759,7 +30763,8 @@
 "bbj" = (
 /obj/machinery/door/airlock/command{
 	name = "Cryogenic Storage";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -32388,7 +32393,8 @@
 /obj/machinery/door/airlock/glass_command{
 	id_tag = "";
 	name = "Auxiliary Office";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -34055,7 +34061,8 @@
 	id = "bunker1";
 	name = "Bunker Safety Bolts";
 	pixel_x = 26;
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19,38);
 	specialfunctions = 4
 	},
 /turf/simulated/floor/plating,
@@ -34065,7 +34072,8 @@
 	id = "bunker1";
 	name = "Bunker Safety Bolts";
 	pixel_x = -26;
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19,38);
 	specialfunctions = 4
 	},
 /obj/structure/sign/securearea{
@@ -34675,7 +34683,8 @@
 /area/maintenance/maintcentral)
 "bic" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -34713,7 +34722,8 @@
 "bif" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -34737,7 +34747,8 @@
 /obj/machinery/door/airlock/highsecurity{
 	id_tag = "bunker1";
 	name = "Command Bunker Access";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
@@ -35545,7 +35556,8 @@
 	},
 /obj/machinery/door/airlock/glass_command{
 	name = "Command Maintenance";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
@@ -35560,7 +35572,8 @@
 /area/maintenance/maintcentral)
 "bjy" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -35608,7 +35621,8 @@
 /area/bridge)
 "bjB" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -39005,7 +39019,8 @@
 /area/bridge/minibar)
 "bqf" = (
 /obj/machinery/vending/boozeomat{
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled,

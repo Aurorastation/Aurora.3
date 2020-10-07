@@ -4345,7 +4345,8 @@
 	id = "bunker4";
 	name = "Emergency Exit Inner Bolts";
 	pixel_y = -26;
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19,38);
 	specialfunctions = 4
 	},
 /turf/simulated/floor/plating,
@@ -4363,7 +4364,8 @@
 	id = "escape_blast";
 	name = "Hatch Blast Doors";
 	pixel_y = -26;
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/plating,
 /area/bridge/aibunker)
@@ -4378,7 +4380,8 @@
 	id_tag = "bunker4";
 	locked = 1;
 	name = "Emergency Hatch";
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19,38);
 	secured_wires = 1
 	},
 /turf/simulated/floor/plating,
@@ -4404,7 +4407,8 @@
 	id_tag = "bunker5";
 	locked = 1;
 	name = "Emergency Hatch";
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19,38);
 	secured_wires = 1
 	},
 /turf/simulated/floor/plating,

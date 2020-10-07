@@ -12973,7 +12973,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
@@ -15622,7 +15623,8 @@
 /area/hallway/secondary/entry/aft)
 "Dj" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,

@@ -20827,7 +20827,8 @@
 "jAK" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Valkyrie's Rest";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19, 38)
 	},
 /obj/machinery/door/blast/odin{
 	density = 0;
@@ -28831,7 +28832,8 @@
 "oCm" = (
 /obj/machinery/door/airlock/command{
 	name = "Cockpit";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/escape)

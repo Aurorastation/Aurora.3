@@ -10762,7 +10762,8 @@
 	id_tag = "bunker3";
 	locked = 1;
 	name = "Command Bunker";
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19,38);
 	secured_wires = 1
 	},
 /turf/simulated/floor,
@@ -10812,9 +10813,9 @@
 /area/bridge/aibunker)
 "atN" = (
 /obj/machinery/door/airlock/highsecurity{
-	id_tag = null;
 	name = "Auxiliary Commanding Post";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
@@ -11102,7 +11103,8 @@
 /obj/machinery/door/airlock/highsecurity{
 	id_tag = "bunker1";
 	name = "Command Bunker Access";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11144,7 +11146,8 @@
 	id = "bunker3";
 	name = "Bunker Inner Airlock Bolt Control";
 	pixel_x = 26;
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19,38);
 	specialfunctions = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -11155,7 +11158,8 @@
 	id = "bunker3";
 	name = "Bunker Inner Airlock Bolt Control";
 	pixel_x = -26;
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19,38);
 	specialfunctions = 4
 	},
 /turf/simulated/floor/tiled,
@@ -11990,7 +11994,8 @@
 	desc = "It opens and closes. It has a small sign engraved: Bunker capacity: 6. Only facility's Command Staff is permitted.";
 	id_tag = "bunker2";
 	name = "Command Bunker";
-	req_access = list(19);
+	req_access = null;
+	req_one_access = list(19,38);
 	secured_wires = 1
 	},
 /turf/simulated/floor,
@@ -12343,7 +12348,8 @@
 /obj/machinery/door/airlock/highsecurity{
 	id_tag = "bunker1";
 	name = "Command Bunker Access";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -12948,7 +12954,8 @@
 /area/maintenance/substation/medical_sublevel)
 "ayk" = (
 /obj/machinery/door/airlock/maintenance{
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/structure/cable{
 	d1 = 1;
@@ -35079,9 +35086,9 @@
 /area/maintenance/medsublevel_port)
 "vbC" = (
 /obj/machinery/door/airlock/highsecurity{
-	id_tag = null;
 	name = "Remote Station";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /turf/simulated/floor/tiled,

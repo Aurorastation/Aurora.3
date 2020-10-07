@@ -1,4 +1,4 @@
 author: FirinMaLazors
 delete-after: True
 changes: 
-  - bugfix: "Lets the Representative access the command break room."
+  - bugfix: "Lets the Representative access the command break room, Odin command doors, the shuttle cockpit, bunker access, command maintenance access, escape area access, and the conference room."
