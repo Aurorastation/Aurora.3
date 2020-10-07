@@ -9,14 +9,16 @@
 	var/price = 0  // Price to buy one
 	var/display_color = null  // Display color for vending machine listing
 	var/category = CAT_NORMAL  // CAT_HIDDEN for contraband, CAT_COIN for premium
+	var/icon/product_icon = null
+	var/icon/product_icon_greyscale = null
 
 /datum/data/vending_product/New(var/path, var/name = null, var/amount = 1, var/price = 0, var/color = null, var/category = CAT_NORMAL)
 	..()
 
 	src.product_path = path
+	var/atom/tmp = new path(null)
 
 	if(!name)
-		var/atom/tmp = path
 		src.product_name = initial(tmp.name)
 	else
 		src.product_name = name
@@ -25,6 +27,10 @@
 	src.price = price
 	src.display_color = color
 	src.category = category
+	src.product_icon = new /icon(tmp.icon, tmp.icon_state)
+	src.product_icon_greyscale = new /icon(tmp.icon, tmp.icon_state)
+	src.product_icon_greyscale.GrayScale()
+	QDEL_NULL(tmp)
 
 /**
  *  A vending machine
@@ -51,6 +57,7 @@
 	var/active = 1 //No sales pitches if off!
 	var/vend_ready = 1 //Are we ready to vend?? Is it time??
 	var/vend_delay = 10 //How long does it take to vend?
+	var/vending = FALSE
 
 	var/categories = CAT_NORMAL // Bitmask of cats we're currently showing
 	var/datum/data/vending_product/currently_vending = null // What we're requesting payment for right now
@@ -99,6 +106,7 @@
 	var/restock_items = 0	//If items can be restocked into the vending machine
 	var/list/restock_blocked_items = list() //Items that can not be restocked if restock_items is enabled
 	var/random_itemcount = 1 //If the number of items should be randomized
+	var/sel_key = 0
 
 	var/temperature_setting = 0 //-1 means cooling, 1 means heating, 0 means doing nothing.
 
@@ -173,6 +181,8 @@
 			else
 				product.amount = product.max_amount
 			product.category = category
+
+
 
 			src.product_records.Add(product)
 
@@ -252,10 +262,11 @@
 			handled = 1
 
 		if(paid)
+			SSvueui.check_uis_for_change(src)
 			src.vend(currently_vending, usr)
 			return
 		else if(handled)
-			SSnanoui.update_uis(src)
+			SSvueui.check_uis_for_change(src)
 			return // don't smack that machine with your 2 credits
 
 	if (I || istype(W, /obj/item/spacecash))
@@ -268,7 +279,6 @@
 		add_screen_overlay()
 		if(src.panel_open)
 			add_overlay("[initial(icon_state)]-panel")
-		SSnanoui.update_uis(src)  // Speaker switch is on the main UI, not wires UI
 		return
 	else if(W.ismultitool()||W.iswirecutter())
 		if(src.panel_open)
@@ -279,7 +289,7 @@
 		coin = W
 		categories |= CAT_COIN
 		to_chat(user, "<span class='notice'>You insert \the [W] into \the [src].</span>")
-		SSnanoui.update_uis(src)
+		SSvueui.check_uis_for_change(src)
 		return
 	else if(W.iswrench())
 		if(!can_move)
@@ -484,6 +494,7 @@
 	return attack_hand(user)
 
 /obj/machinery/vending/attack_hand(mob/user as mob)
+
 	if(stat & (BROKEN|NOPOWER))
 		return
 
@@ -491,43 +502,68 @@
 		if(src.shock(user, 100))
 			return
 
-	wires.Interact(user)
-	ui_interact(user)
+	if (panel_open)
+		wires.Interact(user)
+	else
+		ui_interact(user)
 
-/**
- *  Display the NanoUI window for the vending machine.
- *
- *  See NanoUI documentation for details.
- */
-/obj/machinery/vending/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+// VueUI implementation of vending machines.
+/obj/machinery/vending/ui_interact(mob/user, var/datum/topic_state/state = default_state)
+
 	user.set_machine(src)
 
-	var/list/data = list()
-	if(currently_vending)
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if(!ui)
+		ui = new(user, src, "machinery-vending", 400, 500, capitalize(name), state=state)
+
+	ui.open()
+
+/obj/machinery/vending/vueui_data_change(list/data, mob/user, datum/vueui/ui)
+
+	data = list()
+
+	if(currently_vending || !vend_ready)
 		data["mode"] = 1
-		data["product"] = currently_vending.product_name
-		data["price"] = currently_vending.price
-		data["message_err"] = 0
+		data["sel_key"] = sel_key
+		data["sel_name"] = capitalize(currently_vending.product_name)
+		data["sel_price"] = currently_vending.price
 		data["message"] = src.status_message
 		data["message_err"] = src.status_error
 	else
 		data["mode"] = 0
-		var/list/listed_products = list()
+		data["sel_key"] = 0
+		data["sel_name"] = 0
+		data["sel_price"] = 0
+		data["message"] = ""
+		data["message_err"] = 0
 
-		for(var/key = 1 to src.product_records.len)
-			var/datum/data/vending_product/I = src.product_records[key]
+	var/list/listed_products = list()
 
-			if(!(I.category & src.categories))
-				continue
+	for(var/key = 1 to src.product_records.len)
+		var/datum/data/vending_product/I = src.product_records[key]
 
-			listed_products.Add(list(list(
-				"key" = key,
-				"name" = I.product_name,
-				"price" = I.price,
-				"color" = I.display_color,
-				"amount" = I.amount)))
+		if(!(I.category & src.categories))
+			continue
 
-		data["products"] = listed_products
+		listed_products.Add(list(list(
+			"key" = num2text(key),
+			"name" = capitalize(I.product_name),
+			"price" = I.price,
+			"amount" = I.amount)))
+
+		var/icon/item_icon
+
+		if(I.amount > 0)
+			item_icon = I.product_icon
+			ui.add_asset(num2text(key), item_icon)
+			ui.send_asset(num2text(key))
+		else
+			var/icon/grey_icon = I.product_icon_greyscale
+			ui.add_asset(num2text(key) + "g", grey_icon)
+			ui.send_asset(num2text(key) + "g")
+		ui.push_change(null)
+
+	data["products"] = listed_products
 
 	if(src.coin)
 		data["coin"] = src.coin.name
@@ -538,13 +574,10 @@
 	else
 		data["panel"] = 0
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "vending_machine.tmpl", src.name, 440, 600)
-		ui.set_initial_data(data)
-		ui.open()
+	return data
 
 /obj/machinery/vending/Topic(href, href_list)
+
 	var/datum/money_account/vendor_account = SSeconomy.get_department_account("Vendor")
 	if(stat & (BROKEN|NOPOWER))
 		return
@@ -576,6 +609,7 @@
 				return
 
 			var/key = text2num(href_list["vendItem"])
+			sel_key = href_list["vendItem"]
 			var/datum/data/vending_product/R = product_records[key]
 
 			// This should not happen unless the request from NanoUI was bad
@@ -583,6 +617,7 @@
 				return
 
 			if(R.price <= 0)
+				src.currently_vending = R
 				src.vend(R, usr)
 			else if(istype(usr,/mob/living/silicon)) //If the item is not free, provide feedback if a synth is trying to buy something.
 				to_chat(usr, "<span class='danger'>Artificial unit recognized.  Artificial units cannot complete this transaction.  Purchase canceled.</span>")
@@ -603,9 +638,10 @@
 			src.shut_up = !src.shut_up
 
 		src.add_fingerprint(usr)
-		SSnanoui.update_uis(src)
+		SSvueui.check_uis_for_change(src)
 
 /obj/machinery/vending/proc/vend(datum/data/vending_product/R, mob/user)
+
 	if (!R || R.amount < 1)
 		return
 
@@ -622,7 +658,7 @@
 	src.vend_ready = 0 //One thing at a time!!
 	src.status_message = "Vending..."
 	src.status_error = 0
-	SSnanoui.update_uis(src)
+	SSvueui.check_uis_for_change(src)
 
 	if (R.category & CAT_COIN)
 		if(!coin)
@@ -661,6 +697,7 @@
 	addtimer(CALLBACK(src, .proc/vend_product, R, user), vend_delay)
 
 /obj/machinery/vending/proc/vend_product(var/datum/data/vending_product/R, mob/user)
+
 	var/vending_usr_dir = get_dir(src, user)
 	var/obj/vended = new R.product_path(get_step(src, vending_usr_dir))
 	if(Adjacent(user))
@@ -669,7 +706,7 @@
 	src.status_error = 0
 	src.vend_ready = 1
 	currently_vending = null
-	SSnanoui.update_uis(src)
+	SSvueui.check_uis_for_change(src)
 	if(istype(vended,/obj/item/reagent_containers/))
 		var/obj/item/reagent_containers/RC = vended
 		if(RC.reagents)
@@ -680,10 +717,11 @@
 					use_power(RC.reagents.set_temperature(heating_temperature))
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
+
 	to_chat(user, "<span class='notice'>You insert \the [R.product_name] in the product receptor.</span>")
 	R.amount++
 
-	SSnanoui.update_uis(src)
+	SSvueui.check_uis_for_change(src)
 
 /obj/machinery/vending/machinery_process()
 	if(stat & (BROKEN|NOPOWER))
