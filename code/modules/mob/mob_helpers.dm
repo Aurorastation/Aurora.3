@@ -1191,6 +1191,6 @@ proc/is_blind(A)
 		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
 		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
 
-/mob/proc/assign_player(var/mob/user)
+/mob/assign_player(var/mob/user)
   ckey = user.ckey
   return src
