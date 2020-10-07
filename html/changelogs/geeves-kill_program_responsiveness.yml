@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Modular computers should now be slightly more responsive to user input, especially when killing programs on the main menu."
