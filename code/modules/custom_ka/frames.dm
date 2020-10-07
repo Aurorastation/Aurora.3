@@ -212,7 +212,7 @@
 	installed_upgrade_chip = /obj/item/custom_ka_upgrade/upgrade_chips/illegal
 
 /obj/item/gun/custom_ka/frameA/prebuilt
-	installed_cell = /obj/item/custom_ka_upgrade/cells/kinetic_charging
+	installed_cell = /obj/item/custom_ka_upgrade/cells/inertia_charging
 	installed_barrel = /obj/item/custom_ka_upgrade/barrels/barrel02_alt
 
 /obj/item/gun/custom_ka/frameB/prebuilt
