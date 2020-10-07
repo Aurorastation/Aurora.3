@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/skeleton
+/datum/ghostspawner/skeleton
 	short_name = "skeleton"
 	name = "Risen Skeleton"
 	desc = "Serve your Master. Fight things."

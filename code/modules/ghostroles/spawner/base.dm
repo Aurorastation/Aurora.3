@@ -126,6 +126,7 @@
 
 	return null //If we dont have anything return null
 
+//Selects a spawnatom from the list of available atoms and removes it if use is set to true (default)
 /datum/ghostspawner/proc/select_spawnatom(var/use=TRUE)
 	if(loc_type != GS_LOC_ATOM)
 		log_debug("Ghostspawner: select_spawnatom is not valid for spawner [short_name] as it is not atom pased")
@@ -141,6 +142,8 @@
 
 	//This is a basic proc for atom based spawners.
 	//  Location based spawners usually need a bit more logic
+	//  Atom based spanwers select a atom using the select_spawnatom() proc and then assigned a player to it
+	//  by calling assign_player() with the current mob of the player that should be assigned as a argument.
 	if(loc_type != GS_LOC_ATOM)
 		return null
 
@@ -193,26 +196,3 @@
 		for(var/i in SSghostroles.spawnpoints)
 			SSghostroles.update_spawnpoint_status_by_identifier(i)
 	return TRUE
-
-/datum/ghostspawner/simplemob/spawn_mob(mob/user)
-	//Select a spawnpoint (if available)
-	if(loc_type == GS_LOC_POS)
-		var/turf/T = select_spawnlocation()
-		var/mob/living/simple_animal/S
-		if (T)
-			S = new spawn_mob(T)
-		else
-			to_chat(user, "<span class='warning'>Unable to find any spawn point. </span>")
-
-		if(S)
-			announce_ghost_joinleave(user, 0, "They are now a [name].")
-			S.ckey = user.ckey
-
-		return S
-	else
-		var/mob/living/simple_animal/S = select_spawnatom()
-		if(S)
-			announce_ghost_joinleave(user, 0, "They are now a [name].")
-			S.ckey = user.ckey
-		else
-			to_chat(user, "<span class='warning'>Unable to find any spawn mob. </span>")

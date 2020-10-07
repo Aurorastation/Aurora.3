@@ -230,7 +230,6 @@
 /obj/effect/golemrune/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
-	announce_to_ghosts()
 	SSghostroles.add_spawn_atom("golem", src)
 
 /obj/effect/golemrune/random_type/Initialize()
@@ -275,11 +274,6 @@
 	qdel(src)
 
 	return G
-
-/obj/effect/golemrune/proc/announce_to_ghosts()
-	var/area/A = get_area(src)
-	if(A)
-		say_dead_direct("A golem rune has been created in [A.name]! Access using the ghost spawner menu in the ghost tab.")
 
 /obj/effect/golemrune/wizard
 	wizardy = TRUE

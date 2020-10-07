@@ -1,4 +1,4 @@
-/datum/ghostspawner/simplemob/borer
+/datum/ghostspawner/borer
 	short_name = "borer"
 	name = "Cortical Borer"
 	desc = "Infest crew, reproduce, repeat."

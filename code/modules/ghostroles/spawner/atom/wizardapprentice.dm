@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/apprentice
+/datum/ghostspawner/apprentice
 	short_name = "apprentice"
 	name = "Wizard Apprentice"
 	desc = "Serve your Master. Cast Spells."

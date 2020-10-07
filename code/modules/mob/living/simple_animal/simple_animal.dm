@@ -754,15 +754,6 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				B.transform = M.Scale(scale)
 				B.update_icon()
 
-/mob/living/simple_animal/proc/spawn_into_wizard_familiar(var/mob/user)
-	if(src.ckey)
-		return
-	src.ckey = user.ckey
-	SSghostroles.remove_spawn_atom("wizard_familiar", src)
-	if(wizard_master)
-		add_spell(new /spell/contract/return_master(wizard_master), "const_spell_ready")
-	to_chat(src, "<B>You are [src], a familiar to [wizard_master]. He is your master and your friend. Aid him in his wizarding duties to the best of your ability.</B>")
-
 /mob/living/simple_animal/get_resist_power()
 	return resist_mod
 

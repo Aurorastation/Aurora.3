@@ -1,4 +1,4 @@
-/datum/ghostspawner/human/golem
+/datum/ghostspawner/golem
 	short_name = "golem"
 	name = "Bluespace Golem"
 	desc = "Serve your Master."
