@@ -1,0 +1,4 @@
+author: FirinMaLazors
+delete-after: True
+changes: 
+  - bugfix: "Lets the Representative access the command break room."

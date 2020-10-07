@@ -38374,7 +38374,8 @@
 "boQ" = (
 /obj/machinery/door/airlock/glass_command{
 	name = "Break Room";
-	req_access = list(19)
+	req_access = null;
+	req_one_access = list(19,38)
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
