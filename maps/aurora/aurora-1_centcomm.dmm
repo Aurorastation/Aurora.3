@@ -3754,8 +3754,7 @@
 /area/centcom/holding)
 "awK" = (
 /obj/structure/railing/mapped{
-	dir = 1;
-	icon_state = "railing0-1"
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	dir = 4;
@@ -6556,7 +6555,6 @@
 "aSf" = (
 /obj/machinery/door/airlock/centcom{
 	name = "The Big Empty";
-	opacity = 1;
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
@@ -6825,9 +6823,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
 "aVX" = (
-/obj/machinery/iv_drip{
-	density = 0
-	},
+/obj/machinery/iv_drip,
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape)
 "aWc" = (
@@ -17184,8 +17180,7 @@
 /area/merchant_station)
 "gZQ" = (
 /obj/structure/railing/mapped{
-	dir = 1;
-	icon_state = "railing0-1"
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	dir = 4;
@@ -17948,7 +17943,6 @@
 "hDo" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Security Checkpoint";
-	opacity = 1;
 	req_access = list(109)
 	},
 /turf/unsimulated/floor{
@@ -18426,8 +18420,7 @@
 	icon_state = "tube1"
 	},
 /obj/structure/railing/mapped{
-	dir = 1;
-	icon_state = "railing0-1"
+	dir = 1
 	},
 /obj/machinery/porta_turret/crescent,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -20534,9 +20527,7 @@
 /turf/simulated/wall/shuttle/unique/mercenary/small,
 /area/shuttle/syndicate_elite)
 "jok" = (
-/obj/machinery/status_display/arrivals_display{
-	layer = 3
-	},
+/obj/machinery/status_display/arrivals_display,
 /turf/simulated/wall/shuttle/unique/arrivals{
 	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
 	icon_state = "4,6";
@@ -21678,8 +21669,7 @@
 	name = "Emergency Room"
 	},
 /obj/effect/floor_decal/corner/lime{
-	dir = 10;
-	icon_state = "corner_white"
+	dir = 10
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -21759,9 +21749,7 @@
 /turf/space/dynamic,
 /area/shuttle/merchant)
 "ker" = (
-/obj/machinery/status_display/arrivals_display{
-	layer = 3
-	},
+/obj/machinery/status_display/arrivals_display,
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/spawning)
 "keA" = (
@@ -22522,7 +22510,7 @@
 	desc = "Connects to a station's emergency camera networks after the station sends out a distress signal.";
 	layer = 4;
 	name = "Emergency Dock Uplink";
-	network = list("Emergency Dock");
+	network = list("Emergency Dock","TCFL");
 	pixel_y = 28
 	},
 /obj/structure/bed/chair/office/bridge/pilot,
@@ -23507,8 +23495,7 @@
 	name = "adjusted railing"
 	},
 /obj/structure/railing/mapped{
-	dir = 1;
-	icon_state = "railing0-1"
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/paleblue/full{
 	dir = 4
@@ -25716,8 +25703,7 @@
 /area/centcom/distress_prep)
 "mDt" = (
 /obj/effect/floor_decal/corner/lime{
-	dir = 10;
-	icon_state = "corner_white"
+	dir = 10
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -31126,9 +31112,7 @@
 /area/antag/ninja)
 "qce" = (
 /obj/effect/wingrille_spawn/reinforced/crescent,
-/obj/machinery/status_display/arrivals_display{
-	layer = 3
-	},
+/obj/machinery/status_display/arrivals_display,
 /turf/unsimulated/floor{
 	icon_state = "plating"
 	},
@@ -37273,8 +37257,7 @@
 /area/shuttle/mercenary)
 "uDS" = (
 /obj/effect/floor_decal/corner/lime/full{
-	dir = 4;
-	icon_state = "corner_white_full"
+	dir = 4
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -40977,8 +40960,7 @@
 /area/centcom/bar)
 "wNL" = (
 /obj/structure/railing/mapped{
-	dir = 1;
-	icon_state = "railing0-1"
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5

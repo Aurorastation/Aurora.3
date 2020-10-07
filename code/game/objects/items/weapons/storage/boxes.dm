@@ -137,9 +137,6 @@
 	for(var/obj/item/thing in contents)
 		thing.autodrobe_no_remove = 1
 
-/obj/item/storage/box/vox
-	starts_with = list(/obj/item/clothing/mask/breath = 1, /obj/item/tank/emergency_nitrogen = 1)
-
 /obj/item/storage/box/engineer
 	autodrobe_no_remove = 1
 	starts_with = list(/obj/item/clothing/mask/breath = 1, /obj/item/tank/emergency_oxygen/engi = 1)

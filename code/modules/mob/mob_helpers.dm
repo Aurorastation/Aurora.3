@@ -95,15 +95,6 @@
 		var/mob/living/carbon/human/H = A
 		. = H.species && (H.species.flags & IS_MECHANICAL)
 
-/proc/isvox(A)
-	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
-			if (SPECIES_VOX)
-				return 1
-			if (SPECIES_VOX_ARMALIS)
-				return 1
-	return 0
-
 /mob/proc/is_diona()
 	return FALSE
 
