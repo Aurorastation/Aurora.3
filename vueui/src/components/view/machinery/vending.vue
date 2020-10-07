@@ -1,17 +1,20 @@
 <template>
   <div>
     <template v-if="mode == 0 || sel_price == 0">
-        <div class="t-parent">
-            <vui-button :class="in_stock(vend_item.amount)" class="t-child tooltip" :disabled="vend_item.amount == 0 || mode == 1" push-state :params="{ vendItem: vend_item.key }" v-for="vend_item in products" :key="vend_item.key">
-                <div class="t-container">
-                    <vui-img :class="in_stock(vend_item.amount)" class="food-icon" :name="getImage(vend_item)"/>
-                    <span v-if="vend_item.price > 0" class="cart-icon fas ic-shopping-cart"></span>
-                    <span v-if="vend_item.price > 0" class="price">{{ vend_item.price }}电</span>
-                    <span class="qty" :class="in_stock(vend_item.amount)">(x{{ vend_item.amount }})</span>
-                </div>
-                <span class="tooltiptext">{{ vend_item.name }}</span>
-            </vui-button>
-        </div>
+      <div class="cancel-button">
+        <vui-button v-if="coin" :params="{ remove_coin: 1 }" icon="sign-out-alt">{{ coin }}</vui-button>
+      </div>
+      <div class="t-parent">
+        <vui-button :class="in_stock(vend_item.amount)" class="t-child tooltip" :disabled="vend_item.amount == 0 || mode == 1" push-state :params="{ vendItem: vend_item.key }" v-for="vend_item in products" :key="vend_item.key">
+          <div class="t-container">
+            <vui-img :class="in_stock(vend_item.amount)" class="food-icon" :name="getImage(vend_item)"/>
+            <span v-if="vend_item.price > 0" class="cart-icon fas ic-shopping-cart"/>
+            <span v-if="vend_item.price > 0" class="price">{{ vend_item.price }}电</span>
+            <span class="qty" :class="in_stock(vend_item.amount)">(x{{ vend_item.amount }})</span>
+          </div>
+          <span class="tooltiptext">{{ vend_item.name }}</span>
+        </vui-button>
+      </div>
     </template>
     <template v-else-if="sel_name && sel_price > 0">
       <div class="t-parent">
@@ -58,7 +61,7 @@ export default {
   width: 100%;
 }
 
-.t-parent > .cancel-button {
+.cancel-button {
   width: 100%;
   margin-bottom: 5px;
 }
@@ -152,7 +155,6 @@ p.danger {
   opacity: 0;
   transition: opacity 1s;
 
-  /* Position the tooltip text - see examples below! */
   position: absolute;
   z-index: 1;
   bottom: 100%;
@@ -160,11 +162,6 @@ p.danger {
   margin-left: -60px;
   right: auto;
 }
-
-// .tooltip:nth-child(4n) .tooltiptext, .tooltip:nth-child(4n-1) .tooltiptext {
-//     left: auto;
-//     right: 105%;
-// }
 
 .tooltip .tooltiptext::after {
   content: " ";
@@ -176,13 +173,6 @@ p.danger {
   border-color: #202020 transparent transparent transparent;
 }
 
-// .tooltip:nth-child(4n) .tooltiptext::after, .tooltip:nth-child(4n-1) .tooltiptext::after {
-//     right: auto;
-//     left: 100%;
-//     border-color: transparent transparent transparent #202020;
-// }
-
-/* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;

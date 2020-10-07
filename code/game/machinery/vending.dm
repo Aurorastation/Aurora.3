@@ -563,8 +563,10 @@
 
 	data["products"] = listed_products
 
-	if(src.coin)
-		data["coin"] = src.coin.name
+	if(coin)
+		data["coin"] = coin.name
+	else
+		data["coin"] = null
 
 	if(src.panel_open)
 		data["panel"] = 1
