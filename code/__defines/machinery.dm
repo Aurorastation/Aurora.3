@@ -48,6 +48,7 @@
 #define NETWORK_MECHS "Mechs"
 #define NETWORK_MEDICAL "Medical"
 #define NETWORK_MERCENARY "MercurialNet"
+#define NETWORK_TCFL "TCFL"
 #define NETWORK_MINE "MINE"
 #define NETWORK_RESEARCH "Research"
 #define NETWORK_RESEARCH_OUTPOST "Research Outpost"

@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "TCFL Helmets and RIG Helmets now come with cameras on the TCFL network, which can be viewed on the pilot's telescreen. Right click it and press Toggle Helmet Camera to access it."
