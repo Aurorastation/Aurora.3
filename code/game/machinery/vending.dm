@@ -634,6 +634,11 @@
 		else if (href_list["cancelpurchase"])
 			src.currently_vending = null
 
+		else if (href_list["reset"])
+			// reset button that nobody should ever (hopefully) see
+			src.currently_vending = null
+			src.vend_ready = 1
+
 		else if ((href_list["togglevoice"]) && (src.panel_open))
 			src.shut_up = !src.shut_up
 

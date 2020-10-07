@@ -26,6 +26,9 @@
         </div>
       </div>
     </template>
+    <template v-else>
+      <vui-button class="cancel-button danger" :params="{ reset: 1}" icon="undo">Reset Machine</vui-button>
+    </template>
   </div>
 </template>
 
