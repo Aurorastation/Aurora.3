@@ -182,8 +182,6 @@
 				product.amount = product.max_amount
 			product.category = category
 
-
-
 			src.product_records.Add(product)
 
 /obj/machinery/vending/Destroy()

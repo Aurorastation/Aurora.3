@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - rscadd: "Vending machines now have an icon-based item purchasing interface, based in VueUI."
