@@ -10,6 +10,7 @@
 	if(!.)
 		return
 
+	owner.Weaken(10)
 	take_damage(rand(10, 11))
 	if(damage > 12)
 		owner.eye_blurry += rand(3,6)
