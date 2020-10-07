@@ -70,9 +70,6 @@
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		if(H.species)
-			if(isvox(H))
-				disposition = 1000
-				hailed_vox = 1
 			specific = H.species.name
 	else if(istype(user, /mob/living/silicon))
 		specific = "silicon"
