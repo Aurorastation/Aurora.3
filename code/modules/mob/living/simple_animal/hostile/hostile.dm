@@ -2,6 +2,7 @@
 	faction = "hostile"
 	var/stance = HOSTILE_STANCE_IDLE	//Used to determine behavior
 	var/mob/living/target_mob
+	var/belongs_to_station = FALSE
 	var/attack_same = 0
 	var/ranged = 0
 	var/rapid = 0

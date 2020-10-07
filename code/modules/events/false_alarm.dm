@@ -48,6 +48,3 @@
 
 	E.kill()
 	E.announce()
-
-
-

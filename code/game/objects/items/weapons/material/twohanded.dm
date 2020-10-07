@@ -560,10 +560,10 @@
 	desc = "An old farming tool, not something you would find at hydroponics."
 
 /obj/item/material/twohanded/pike/flag
-	icon_state = "flag_biesel0"
-	base_icon = "flag_biesel"
 	name = "republic of biesel flag"
 	desc = "For the republic!"
+	icon_state = "flag_biesel0"
+	base_icon = "flag_biesel"
 	default_material = "bronze"
 	can_embed = 1
 	use_material_name = FALSE
@@ -601,6 +601,17 @@
 
 /obj/item/material/twohanded/pike/flag/ui_action_click()
 	plant()
+
+/obj/item/material/twohanded/pike/flag/hegemony
+	name = "izweski hegemony flag"
+	desc = "For the Hegemon!"
+	desc_info = "This is a flagpole with an energy axe attached to it. Sheer strength and stubborness overcomes the unwieldiness."
+	desc_fluff = "\"Honor, Fire, Burn thy Fear\" - the famous motto of the Izweski, the clan that leads the largest nation of Unathi."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "flag_hegemony0"
+	base_icon = "flag_hegemony"
+	contained_sprite = TRUE
+	damtype = BURN
 
 /obj/item/material/twohanded/zweihander
 	icon_state = "zweihander0"

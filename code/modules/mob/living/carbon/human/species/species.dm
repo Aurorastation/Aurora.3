@@ -159,6 +159,8 @@
 	var/datum/hud_data/hud
 	var/hud_type
 	var/health_hud_intensity = 1
+	var/healths_x // set this to specify where exactly the healths HUD element appears
+	var/healths_overlay_x = 0 // set this to tweak where the overlays on top of the healths HUD element goes
 
 	// Body/form vars.
 	var/list/inherent_verbs 	  // Species-specific verbs.
@@ -243,6 +245,8 @@
 	var/bodyfall_sound = /decl/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
 
 	var/have_vision_cone = TRUE //Vision cone.
+
+	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
