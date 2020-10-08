@@ -94,7 +94,8 @@
 
 #define ACCENT_SKRELL "Standard Nral'Malic"
 
-#define ACCENT_DIONA "Diona"
+#define ACCENT_DIONAROOT "Rootsong"
+#define ACCENT_DIONAVOID "Voidsong"
 
 #define ACCENT_TTS "Text-to-Speech"
 
