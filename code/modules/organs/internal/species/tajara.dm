@@ -95,9 +95,9 @@
 	night_vision = FALSE
 	owner.stop_sight_update = FALSE
 	if(status & ORGAN_ROBOT)
-		owner.add_client_color(vision_mechanical_color)
+		owner.remove_client_color(vision_mechanical_color)
 	else
-		owner.add_client_color(vision_color)
+		owner.remove_client_color(vision_color)
 
 /obj/item/organ/internal/stomach/tajara
 	name = "reinforced stomach"
