@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Wristbound sprites have been reverted, and their on-mob sprites have been removed."
