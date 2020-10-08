@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes: 
+  - bugfix: "Fixed the colossal spider not changing sprites after using the Ceiling Climbing power."
+
