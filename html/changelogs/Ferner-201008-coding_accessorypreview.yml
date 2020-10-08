@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes: 
+  - tweak: "The character preview now shows more than the first accessory in your loadout and you get equipped with them all at spawn if possible."
