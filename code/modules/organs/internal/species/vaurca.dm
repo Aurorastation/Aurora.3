@@ -2,7 +2,9 @@
 	name = "vaurcaesian eyes"
 	desc = "A set of four vaurcaesian eyes, adapted to the low or no light tunnels of Sedantis."
 	icon_state = "eyes_vaurca"
+	robotic_sprite = null
 	vision_color = /datum/client_color/vaurca
+	vision_mechanical_color = /datum/client_color/monochrome
 	eye_emote = "'s eyes gently shift."
 
 /obj/item/organ/internal/eyes/night/vaurca/flash_act()
