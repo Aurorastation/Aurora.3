@@ -768,7 +768,7 @@
 				update_icon()
 				return
 
-			if (istype(W, /obj/item/card/id) || istype(W, /obj/item/device/pda))// trying to unlock the interface with an ID card
+			if (W.GetID())// trying to unlock the interface with an ID card
 				if(stat & (NOPOWER|BROKEN))
 					to_chat(user, "<span class='notice'>Nothing happens.</span>")
 					return

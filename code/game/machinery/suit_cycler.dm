@@ -192,7 +192,7 @@
 		if(src.shock(user, 100))
 			return
 
-	if(istype(I, /obj/item/card/id) || istype(I, /obj/item/device/pda) || istype(I, /obj/item/modular_computer))
+	if(I.GetID())
 		if(allowed(user))
 			locked = !locked
 			to_chat(user, SPAN_NOTICE("You [locked ? "" : "un"]lock \the [src]."))
