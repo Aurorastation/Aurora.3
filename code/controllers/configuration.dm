@@ -318,6 +318,8 @@ var/list/gamemode_cache = list()
 
 	var/list/external_rsc_urls = list()
 
+	var/lore_summary
+
 /datum/configuration/New()
 	var/list/L = typesof(/datum/game_mode) - /datum/game_mode
 	for (var/T in L)
@@ -961,6 +963,9 @@ var/list/gamemode_cache = list()
 
 				if ("external_rsc_urls")
 					external_rsc_urls = splittext(value, ",")
+
+				if("lore_summary")
+					lore_summary = value
 
 				else
 					log_misc("Unknown setting in configuration: '[name]'")
