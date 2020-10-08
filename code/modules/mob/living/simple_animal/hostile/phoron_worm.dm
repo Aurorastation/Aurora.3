@@ -50,6 +50,10 @@
 	..(null,"collapses under its own weight!")
 	var/turf/T = get_turf(src)
 	new /obj/effect/gibspawner/xeno(T)
+	for(var/thing in contents)
+		var/atom/movable/A = thing
+		A.forceMove(T)
+		A.throw_at_random(FALSE, 3, 1)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/phoron_worm/update_icon()
@@ -60,6 +64,22 @@
 /mob/living/simple_animal/hostile/phoron_worm/UnarmedAttack(var/atom/A, var/proximity)
 	if(burrowing)
 		return
+
+	if(istype(A, /obj/item/stack/material))
+		var/obj/item/stack/material/P = A
+		if(P.material.name == MATERIAL_PHORON)
+			visible_message(SPAN_WARNING("\The [src] starts consuming \the [P]..."), SPAN_NOTICE("You start consuming \the [P]."))
+			if(!do_after(src, 1 SECOND, act_target = P))
+				return
+			var/self_msg = "You consume \the [P][health < maxHealth ? ", healing yourself" : ""]."
+			adjustBruteLoss(-5 * P.amount)
+			visible_message(SPAN_WARNING("\The [src] consumes \the [P]!"), SPAN_NOTICE(self_msg))
+			P.amount /= 2
+			if(P.amount < 1)
+				qdel(P)
+			P.amount = round(P.amount)
+			P.forceMove(src)
+			return
 	..()
 
 /mob/living/simple_animal/hostile/phoron_worm/Move(NewLoc, direct)
@@ -120,20 +140,6 @@
 				M.apply_damage(50, BRUTE)
 				M.apply_effect(6, STUN, blocked)
 				M.throw_at(get_random_turf_in_range(get_turf(src), 1), 2)
-
-/mob/living/simple_animal/hostile/phoron_worm/verb/eat_phoron()
-	set name = "Consume Phoron"
-	set desc = "Consume phoron on the tile you are standing on."
-	set category = "Abilities"
-
-	if(burrowing)
-		return
-
-	var/obj/item/stack/material/P = locate() in get_turf(src)
-	if(P.material.name == MATERIAL_PHORON)
-		adjustBruteLoss(-5*P.amount)
-		visible_message(SPAN_DANGER("\The [src] consumes \the [P]!"))
-		qdel(P)
 
 /mob/living/simple_animal/hostile/phoron_worm/small
 	name = "black trident worm"
