@@ -1488,6 +1488,7 @@
 #include "code\modules\cooking\recipes\recipes_breads.dm"
 #include "code\modules\cooking\recipes\recipes_breakfast.dm"
 #include "code\modules\cooking\recipes\recipes_fryer.dm"
+#include "code\modules\cooking\recipes\recipes_grill.dm"
 #include "code\modules\cooking\recipes\recipes_meat.dm"
 #include "code\modules\cooking\recipes\recipes_mix.dm"
 #include "code\modules\cooking\recipes\recipes_pan.dm"
