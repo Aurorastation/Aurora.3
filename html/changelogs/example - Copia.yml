@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added a lore button at the title menu, it will allow players to read the summary of the current lore events and arcs."

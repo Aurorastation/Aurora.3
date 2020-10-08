@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - tweak: "Admin spawn panel now opens at a larger resolution."
