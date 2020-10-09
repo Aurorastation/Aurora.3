@@ -108,7 +108,7 @@
 //This proc selects the spawnpoint to use. - Only used when mode is GS_LOC_POS
 /datum/ghostspawner/proc/select_spawnlocation(var/use=TRUE)
 	if(loc_type != GS_LOC_POS)
-		log_debug("Ghostspawner: select_spawnlocation is not valid for spawner [short_name] as it is not position pased")
+		log_debug("Ghostspawner: select_spawnlocation is not valid for spawner [short_name] as it is not position based")
 		return null
 	if(!isnull(spawnpoints))
 		for(var/spawnpoint in spawnpoints) //Loop through the applicable spawnpoints
