@@ -609,3 +609,7 @@ FAIL2TOPIC_ENABLED 0
 ## Must contain a .zip of the server's .rsc file. Must use HTTP (not secured).
 ## Can contain multiple URLs which are then cycled through. Delimit them with a COMMA.
 #EXTERNAL_RSC_URLS http://one.tld/rsc.zip
+
+## Lore Summary
+## The text that will appear when the player clicks the lore button at the start screen
+LORE_SUMMARY

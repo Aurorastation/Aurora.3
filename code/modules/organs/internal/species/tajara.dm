@@ -6,6 +6,7 @@
 	relative_size = 8
 	var/night_vision = FALSE
 	var/datum/client_color/vision_color = /datum/client_color/monochrome
+	var/datum/client_color/vision_mechanical_color
 	var/eye_emote = "'s eyes dilate!"
 
 /obj/item/organ/internal/eyes/night/Destroy()
@@ -38,7 +39,7 @@
 	if(is_broken())
 		return
 
-	if(status & ORGAN_ROBOT)
+	if(!vision_mechanical_color && (status & ORGAN_ROBOT))
 		return
 
 	if(!night_vision)
@@ -81,7 +82,10 @@
 	night_vision = TRUE
 	owner.stop_sight_update = TRUE
 	owner.see_invisible = SEE_INVISIBLE_NOLIGHTING
-	owner.add_client_color(vision_color)
+	if(status & ORGAN_ROBOT)
+		owner.add_client_color(vision_mechanical_color)
+	else
+		owner.add_client_color(vision_color)
 
 /obj/item/organ/internal/eyes/night/proc/disable_night_vision()
 	if(!owner)
@@ -90,7 +94,10 @@
 		return
 	night_vision = FALSE
 	owner.stop_sight_update = FALSE
-	owner.remove_client_color(vision_color)
+	if(status & ORGAN_ROBOT)
+		owner.remove_client_color(vision_mechanical_color)
+	else
+		owner.remove_client_color(vision_color)
 
 /obj/item/organ/internal/stomach/tajara
 	name = "reinforced stomach"

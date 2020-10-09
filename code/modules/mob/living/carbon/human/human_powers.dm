@@ -143,10 +143,6 @@ mob/living/carbon/human/proc/change_monitor()
 	visible_message("<span class='danger'>[src] leaps at [T]!</span>", "<span class='danger'>You leap at [T]!</span>")
 	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src, do_throw_animation = FALSE)
 
-	// Only Vox get to shriek. Seriously.
-	if (isvox(src))
-		playsound(loc, 'sound/voice/shriek1.ogg', 50, 1)
-
 	sleep(5)
 
 	if(status_flags & LEAPING)

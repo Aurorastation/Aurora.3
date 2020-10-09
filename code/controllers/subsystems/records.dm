@@ -243,8 +243,8 @@
 		"bot" = nonhuman_positions
 	)
 	for(var/datum/record/general/t in records)
-		var/name = sanitize(t.name)
-		var/rank = sanitize(t.rank)
+		var/name = sanitize(t.name, encode = FALSE)
+		var/rank = sanitize(t.rank, encode = FALSE)
 		var/real_rank = make_list_rank(t.real_rank)
 
 		var/isactive = t.physical_status
