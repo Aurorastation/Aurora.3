@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Added various sprites to grills. Added a grill recipe."
-  - bugfix: "Fixed various bugs related to grills."
