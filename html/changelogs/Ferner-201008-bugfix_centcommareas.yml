@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - bugfix: "Fixes the ccia/rep and cargo shuttles getting cut off in transit."
