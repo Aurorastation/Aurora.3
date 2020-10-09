@@ -42,7 +42,7 @@
 	// If the machine has multiple output modes, define them here.
 	var/selected_option
 	var/list/output_options = list()
-
+	var/finish_verb = "pings!"
 	var/combine_first = FALSE//If 1, this appliance will do combination cooking before checking recipes
 
 /obj/machinery/appliance/Initialize()
@@ -326,8 +326,7 @@
 
 
 /obj/machinery/appliance/proc/finish_cooking(var/datum/cooking_item/CI)
-
-	visible_message("<b>[src]</b> pings!")
+	audible_message("<b>[src]</b> [finish_verb]")
 	if(cooked_sound)
 		playsound(get_turf(src), cooked_sound, 50, 1)
 	//Check recipes first, a valid recipe overrides other options
