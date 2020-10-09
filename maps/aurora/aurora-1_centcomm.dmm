@@ -3880,7 +3880,8 @@
 /obj/machinery/door/airlock/glass_centcom{
 	icon = 'icons/obj/doors/Doorglass.dmi';
 	name = "To: Lower Shuttle Terminal";
-	req_access = list(109)
+	req_access = null;
+	req_one_access = list(108,109)
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -4977,6 +4978,18 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
+"aHV" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "OdinDoctor";
+	name = "igs - OdinDoctor"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/holding)
 "aIf" = (
 /turf/simulated/wall/shuttle/unique/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -6539,7 +6552,7 @@
 "aSf" = (
 /obj/machinery/door/airlock/centcom{
 	name = "The Big Empty";
-	req_access = list(109)
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -7410,6 +7423,13 @@
 	pixel_x = -12;
 	pixel_y = 5
 	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "CentComBarShutters";
+	name = "Bar Shutters";
+	pixel_x = -24;
+	req_access = list(105)
+	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -7784,6 +7804,15 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/mercenary)
+"bmM" = (
+/obj/effect/ghostspawpoint{
+	identifier = "OdinJanitor";
+	name = "igs - OdinJanitor"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/holding)
 "bmV" = (
 /obj/item/stool/padded,
 /obj/effect/decal/cleanable/dirt,
@@ -7813,7 +7842,8 @@
 	dir = 4;
 	id = "CentComKitchenShutters";
 	name = "Kitchen Shutters";
-	pixel_x = -24
+	pixel_x = -24;
+	req_access = list(105)
 	},
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_soft/full{
@@ -9578,7 +9608,7 @@
 	name = "starboard blast door";
 	pixel_x = 23;
 	pixel_y = -22;
-	req_access = null
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -9727,7 +9757,8 @@
 	dir = 8;
 	id = "CentComArrivalsForeChkpt";
 	name = "Fore Checkpoint Blast Doors";
-	pixel_x = -23
+	pixel_x = -23;
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -10104,7 +10135,7 @@
 /obj/machinery/door/window/southright{
 	dir = 8;
 	name = "Escort Post";
-	req_access = list(101)
+	req_access = list(109)
 	},
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
@@ -12809,7 +12840,7 @@
 "ezv" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Telecommunications Monitoring";
-	req_access = list(106)
+	req_access = list(107)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -14976,7 +15007,7 @@
 "fRm" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Valkyrie's Rest Kitchen";
-	req_access = list(101)
+	req_access = list(105)
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
@@ -15229,6 +15260,15 @@
 /obj/machinery/computer/station_alert,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
+"fWO" = (
+/obj/effect/ghostspawpoint{
+	identifier = "OdinBartender";
+	name = "igs - OdinBartender"
+	},
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/centcom/bar)
 "fXq" = (
 /turf/unsimulated/floor{
 	icon_state = "wood-broken"
@@ -16156,7 +16196,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/window/brigdoor/northright{
-	req_access = list(109)
+	req_access = list(103)
 	},
 /obj/structure/table/reinforced,
 /obj/machinery/button/remote/blast_door{
@@ -16165,7 +16205,7 @@
 	name = "inner blast door";
 	pixel_x = -24;
 	pixel_y = -3;
-	req_access = list(109)
+	req_access = list(103)
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 8;
@@ -16173,7 +16213,7 @@
 	name = "outer blast door";
 	pixel_x = 27;
 	pixel_y = -3;
-	req_access = list(109)
+	req_access = list(103)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/spawning)
@@ -16645,6 +16685,13 @@
 	icon_state = "steel_dirty"
 	},
 /area/antag/raider)
+"gND" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Entertainment Wing Maintenance";
+	req_access = list(108,109)
+	},
+/turf/unsimulated/floor/plating,
+/area/centcom/spawning)
 "gNM" = (
 /obj/structure/window/reinforced/polarized{
 	dir = 8;
@@ -17924,7 +17971,7 @@
 "hDo" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Security Checkpoint";
-	req_access = list(109)
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -18827,7 +18874,7 @@
 	name = "Command Blast Doors";
 	pixel_x = -9;
 	pixel_y = 10;
-	req_access = list(101)
+	req_access = list(103)
 	},
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/bar)
@@ -19276,7 +19323,9 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "ivI" = (
-/obj/machinery/door/window/southleft,
+/obj/machinery/door/window/southleft{
+	req_access = list(105)
+	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -19647,7 +19696,8 @@
 	id = "CentComArrivalsForeInt";
 	name = "Interior Checkpoint";
 	pixel_x = -6;
-	pixel_y = -1
+	pixel_y = -1;
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -20120,7 +20170,7 @@
 /obj/machinery/door/window/northright{
 	health = 2000;
 	maxhealth = 2000;
-	req_access = list(109)
+	req_access = list(101)
 	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -20672,6 +20722,22 @@
 	icon_state = "dark2"
 	},
 /area/centcom/control)
+"jvw" = (
+/obj/structure/table/reinforced/wood,
+/obj/machinery/door/blast/odin{
+	dir = 2;
+	icon_state = "shutter1";
+	icon_state_closed = "shutter1";
+	icon_state_closing = "shutterc1";
+	icon_state_open = "shutter0";
+	icon_state_opening = "shutterc0";
+	id = "CentComBarShutters";
+	name = "Bar Shutter"
+	},
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/centcom/bar)
 "jvz" = (
 /obj/machinery/vending/coffee{
 	name = "Free Hot Drinks machine";
@@ -22284,7 +22350,8 @@
 	id = "CentComArrivalsForeExt";
 	name = "Exterior Checkpoint";
 	pixel_x = 6;
-	pixel_y = -1
+	pixel_y = -1;
+	req_access = list(103)
 	},
 /obj/machinery/turretid{
 	ailock = 1;
@@ -22414,7 +22481,7 @@
 	name = "checkpoint shutters";
 	pixel_x = 25;
 	pixel_y = 8;
-	req_access = list(109)
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -22873,7 +22940,8 @@
 	id = "CentComArrivalsAftExt";
 	name = "Exterior Checkpoint";
 	pixel_x = 6;
-	pixel_y = 5
+	pixel_y = 5;
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -23360,7 +23428,7 @@
 "liD" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Port Checkpoint Door";
-	req_access = list(101)
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -23978,6 +24046,16 @@
 "lEa" = (
 /turf/simulated/floor/carpet,
 /area/centcom/shared_dream)
+"lEC" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/ghostspawpoint{
+	identifier = "OdinDoctor";
+	name = "igs - OdinDoctor"
+	},
+/turf/unsimulated/floor{
+	icon_state = "new_white"
+	},
+/area/centcom/holding)
 "lEG" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/turretid{
@@ -26524,7 +26602,8 @@
 	dir = 4
 	},
 /obj/machinery/door/window/eastright{
-	name = "desk access"
+	name = "desk access";
+	req_access = list(109)
 	},
 /obj/machinery/light{
 	icon_state = "tube1"
@@ -27201,7 +27280,7 @@
 "nDp" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Civil Protection Station";
-	req_access = list(101)
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -27335,7 +27414,7 @@
 	check_records = 0;
 	pixel_x = -28;
 	pixel_y = 9;
-	req_access = list(101)
+	req_access = list(108)
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -28165,6 +28244,16 @@
 	c_tag = "Crescent Bar Center";
 	pixel_x = 20
 	},
+/obj/machinery/door/blast/odin{
+	dir = 4;
+	icon_state = "shutter1";
+	icon_state_closed = "shutter1";
+	icon_state_closing = "shutterc1";
+	icon_state_open = "shutter0";
+	icon_state_opening = "shutterc0";
+	id = "CentComBarShutters";
+	name = "Bar Shutter"
+	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -28334,6 +28423,12 @@
 	dir = 4;
 	id = "commander_aft";
 	name = "Commander's Office"
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "commander_aft";
+	name = "aft blast door";
+	pixel_x = 22;
+	req_access = list(108)
 	},
 /turf/unsimulated/floor{
 	dir = 1;
@@ -28574,7 +28669,8 @@
 /obj/machinery/door/airlock/glass_centcom{
 	icon = 'icons/obj/doors/Doorglass.dmi';
 	name = "To: Lower Shuttle Terminal";
-	req_access = list(109)
+	req_access = null;
+	req_one_access = list(108,109)
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -30654,6 +30750,16 @@
 	name = "transport shuttle"
 	},
 /area/shuttle/escape)
+"pLt" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/effect/ghostspawpoint{
+	identifier = "OdinDoctor";
+	name = "igs - OdinDoctor"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/holding)
 "pLD" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1337;
@@ -32655,6 +32761,16 @@
 /area/centcom/control)
 "rky" = (
 /obj/structure/table/reinforced/wood,
+/obj/machinery/door/blast/odin{
+	dir = 4;
+	icon_state = "shutter1";
+	icon_state_closed = "shutter1";
+	icon_state_closing = "shutterc1";
+	icon_state_open = "shutter0";
+	icon_state_opening = "shutterc0";
+	id = "CentComBarShutters";
+	name = "Bar Shutter"
+	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -33824,7 +33940,7 @@
 /obj/machinery/door/window/northleft{
 	health = 2000;
 	maxhealth = 2000;
-	req_access = list(109)
+	req_access = list(101)
 	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -33937,6 +34053,14 @@
 /obj/structure/railing/mapped,
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
+"sje" = (
+/obj/machinery/door/airlock/centcom{
+	locked = 1;
+	name = "Entertainment Wing Maintenance";
+	req_one_access = list(102)
+	},
+/turf/unsimulated/floor/plating,
+/area/centcom/holding)
 "sjG" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -33969,7 +34093,9 @@
 	dir = 5
 	},
 /obj/item/folder/blue,
-/obj/machinery/door/window/northleft,
+/obj/machinery/door/window/northleft{
+	req_access = list(109)
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -34481,19 +34607,6 @@
 	icon_state = "floor"
 	},
 /area/centcom/legion)
-"sBW" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/machinery/button/remote/blast_door{
-	id = "commander_aft";
-	name = "aft blast door";
-	pixel_x = 23;
-	pixel_y = -22;
-	req_access = list(108)
-	},
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/centcom/specops)
 "sCz" = (
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "11,20"
@@ -34785,7 +34898,8 @@
 /area/centcom/bar)
 "sNE" = (
 /obj/machinery/door/airlock/centcom{
-	name = "Personnel Files"
+	name = "Personnel Files";
+	req_access = list(109)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -35083,7 +35197,8 @@
 	dir = 8;
 	id = "CentComArrivalsAftChkpt";
 	name = "Aft Checkpoint Blast Doors";
-	pixel_x = -23
+	pixel_x = -23;
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -35458,6 +35573,10 @@
 /area/shuttle/legion)
 "tql" = (
 /obj/machinery/light/small,
+/obj/structure/table/rack,
+/obj/item/gun/launcher/grenade{
+	name = "active cleaning utility dispenser"
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -35743,7 +35862,7 @@
 "tyu" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Starboard Checkpoint Door";
-	req_access = list(101)
+	req_access = list(103)
 	},
 /obj/machinery/door/blast/odin{
 	dir = 2;
@@ -35874,7 +35993,7 @@
 "tDo" = (
 /obj/machinery/door/airlock/glass_medical{
 	name = "Emergency Surgery";
-	req_access = list(5)
+	req_one_access = list(104)
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
@@ -36642,6 +36761,15 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/specops)
+"ufR" = (
+/obj/effect/ghostspawpoint{
+	identifier = "OdinChef";
+	name = "igs - OdinChef"
+	},
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/centcom/bar)
 "ugm" = (
 /obj/structure/table/wood,
 /obj/item/spacecash/c1{
@@ -37163,9 +37291,8 @@
 /area/centcom/control)
 "uxc" = (
 /obj/machinery/door/airlock/centcom{
-	locked = 1;
 	name = "Entertainment Wing Maintenance";
-	req_access = list(106)
+	req_one_access = list(102,106)
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
@@ -38704,19 +38831,36 @@
 	id = "CentComArrivalsAftInt";
 	name = "Interior Checkpoint";
 	pixel_x = -6;
-	pixel_y = 5
+	pixel_y = 5;
+	req_access = list(103)
 	},
 /obj/machinery/turretid{
 	ailock = 1;
 	check_arrest = 0;
 	check_records = 0;
 	pixel_x = -31;
-	req_access = list(101)
+	req_access = list(103)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
 /area/centcom/checkpoint/aft)
+"vCZ" = (
+/obj/effect/floor_decal/corner/grey/diagonal{
+	dir = 4
+	},
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "crescent_vip_shuttle";
+	name = "VIP Shuttle Access";
+	pixel_x = -7;
+	pixel_y = -23;
+	req_access = list(101)
+	},
+/turf/unsimulated/floor,
+/area/centcom/holding)
 "vDf" = (
 /obj/effect/landmark{
 	name = "ninjastart"
@@ -38772,9 +38916,13 @@
 "vFX" = (
 /obj/machinery/door/window/northright{
 	name = "dispensary";
-	req_access = list(5)
+	req_access = list(104)
 	},
 /obj/effect/floor_decal/corner/orange/diagonal,
+/obj/effect/ghostspawpoint{
+	identifier = "OdinPharm";
+	name = "igs - OdinPharmacist"
+	},
 /turf/unsimulated/floor{
 	icon_state = "new_white"
 	},
@@ -39370,7 +39518,9 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/machinery/door/window/northright,
+/obj/machinery/door/window/northright{
+	req_access = list(109)
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
 	},
@@ -40530,7 +40680,8 @@
 /obj/machinery/door/airlock/glass_centcom{
 	icon = 'icons/obj/doors/Doorglass.dmi';
 	name = "To: Upper Shuttle Terminal";
-	req_access = list(109)
+	req_access = null;
+	req_one_access = list(108,109)
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -42174,7 +42325,6 @@
 /area/centcom/specops)
 "xyx" = (
 /obj/machinery/door/airlock/centcom{
-	locked = 1;
 	name = "Arrival Hangar Maintenance";
 	req_access = list(106)
 	},
@@ -42559,13 +42709,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/specops)
-"xMh" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Arrival Hangar Maintenance";
-	req_access = list(101)
-	},
-/turf/unsimulated/floor/plating,
-/area/centcom/evac)
 "xMn" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/firstaid/fire{
@@ -43117,6 +43260,16 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
+/obj/machinery/door/blast/odin{
+	dir = 2;
+	icon_state = "shutter1";
+	icon_state_closed = "shutter1";
+	icon_state_closing = "shutterc1";
+	icon_state_open = "shutter0";
+	icon_state_opening = "shutterc0";
+	id = "CentComBarShutters";
+	name = "Bar Shutter"
+	},
 /turf/unsimulated/floor{
 	icon_state = "lino_grey"
 	},
@@ -43285,7 +43438,8 @@
 "ylt" = (
 /obj/machinery/door/airlock/glass_centcom{
 	name = "Sector Administration Copula";
-	req_access = list(109)
+	req_access = null;
+	req_one_access = list(109,108)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark2"
@@ -64007,7 +64161,7 @@ jTO
 nlQ
 nGs
 vjQ
-sBW
+ocD
 oik
 vjQ
 oCD
@@ -65050,7 +65204,7 @@ qcl
 qcl
 qcl
 qcl
-qxH
+vCZ
 rcX
 qAm
 ugV
@@ -67088,9 +67242,9 @@ mJt
 kSB
 bQP
 yjE
-tRr
+lEC
 wKb
-tRr
+lEC
 xnZ
 bQP
 ddo
@@ -68397,7 +68551,7 @@ qxN
 qxN
 qxN
 qxN
-bQP
+sje
 avk
 aiz
 cqK
@@ -69143,9 +69297,9 @@ rTg
 tVM
 eBz
 vrQ
-mNl
+pLt
 jGV
-mDt
+aHV
 mNl
 dxC
 bQP
@@ -69164,7 +69318,7 @@ mAD
 bLK
 lOO
 kzj
-kYq
+bmM
 tql
 bQP
 qxN
@@ -69647,10 +69801,10 @@ sIC
 eBz
 fIR
 lMz
+fWO
 lMz
 lMz
-lMz
-rky
+jvw
 hWU
 vpg
 pxm
@@ -72520,7 +72674,7 @@ tRw
 tRw
 tRw
 tRw
-gYa
+gND
 aJH
 nfY
 aaM
@@ -72727,7 +72881,7 @@ apU
 eBz
 evC
 lMz
-lMz
+ufR
 lMz
 lMz
 lMz
@@ -73498,7 +73652,7 @@ apU
 avR
 eBh
 lMz
-lMz
+ufR
 lMz
 lMz
 lMz
@@ -74812,7 +74966,7 @@ ddK
 xFd
 xbK
 rFJ
-xMh
+rYv
 aJH
 cHx
 aJH

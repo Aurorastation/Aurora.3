@@ -60,8 +60,8 @@
 	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	assigned_role = "Emergency Response Team Commander"
-	special_role = "ERT Commander"
+	assigned_role = "CCIA Agent"
+	special_role = "CCIA Agent"
 	respawn_flag = null
 
 	mob_name = null
@@ -125,6 +125,109 @@
 	spawnpoints = list("OdinPrepatory")
 	req_perms = R_CCIAA
 	max_count = 3
+
+/datum/ghostspawner/human/admin/odindoc
+	short_name = "odindoc"
+	name = "Odin Medical Doctor"
+	desc = "Provide medical assistance for those arriving on the Odin."
+
+	enabled = FALSE
+	spawnpoints = list("OdinDoctor")
+	req_perms = null
+	max_count = 4
+
+	//Vars related to human mobs
+	outfit = /datum/outfit/admin/nt/odindoc
+	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
+	assigned_role = "Odin Medical Doctor"
+	special_role = "Odin Medical Doctor"
+	respawn_flag = null
+
+	mob_name = null
+
+/datum/ghostspawner/human/admin/odinpharm
+	short_name = "odinpharm"
+	name = "Odin Pharmacist"
+	desc = "Provide medication for the Doctors on the Odin and those in need."
+
+	enabled = FALSE
+	spawnpoints = list("OdinPharm")
+	req_perms = null
+	max_count = 1
+
+	outfit = /datum/outfit/admin/nt/odinpharm
+	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
+	assigned_role = "Odin Pharmacist"
+	special_role = "Odin Pharmacist"
+	respawn_flag = null
+
+	mob_name = null
+
+/datum/ghostspawner/human/admin/odinchef
+	short_name = "odinchef"
+	name = "Odin Chef"
+	desc = "Feed starving crew members on the Odin."
+
+	enabled = FALSE
+	spawnpoints = list("OdinChef")
+	req_perms = null
+	max_count = 1
+
+	outfit = /datum/outfit/admin/nt/odinchef
+	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_TAJARA,SPECIES_UNATHI)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
+	assigned_role = "Odin Chef"
+	special_role = "Odin Chef"
+	respawn_flag = null
+
+	mob_name = null
+
+/datum/ghostspawner/human/admin/odinbartender
+	short_name = "odinbartender"
+	name = "Odin Bartender"
+	desc = "Ensure enough drinks are available to the crew on the Odin."
+
+	enabled = FALSE
+	spawnpoints = list("OdinBartender")
+	req_perms = null
+	max_count = 1
+
+	outfit = /datum/outfit/admin/nt/odinbartender
+	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_TAJARA,SPECIES_UNATHI)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
+	assigned_role = "Odin Bartender"
+	special_role = "Odin Bartender"
+	respawn_flag = null
+
+	mob_name = null
+
+/datum/ghostspawner/human/admin/odinjanitor
+	short_name = "odinjanitor"
+	name = "Odin Sanitation Specialist"
+	desc = "You are a expert in your field. A true authority. The crew looks to you when they get into a sticky situation. You are a janitor on the Odin."
+
+	enabled = FALSE
+	spawnpoints = list("OdinJanitor")
+	req_perms = null
+	max_count = 1
+
+	outfit = /datum/outfit/admin/nt/odinjanitor
+	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_TAJARA,SPECIES_UNATHI)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+
+	assigned_role = "Sanitation Specialist"
+	special_role = "Sanitation Specialist"
+	respawn_flag = null
+
+	mob_name = null
+	mob_name_prefix = "Spec. "
+	mob_name_pick_message = "Pick a callsign or last-name."
 
 /datum/ghostspawner/human/admin/tcflsentinel
 	short_name = "tcflsentinel"
