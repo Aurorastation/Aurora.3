@@ -99,15 +99,3 @@
  * Parameters: var/area/departing, var/area/destination
  */
 /hook/shuttle_moved
-
-/**
- * Crew Transfer.
- * Called when a crew transfer has been started.
- */
-/hook/crew_transfer
-
- /**
- * Emergency Evacuation.
- * Called when a emergency evacuation has been started.
- */
- /hook/emergency_evac
