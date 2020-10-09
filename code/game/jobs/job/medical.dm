@@ -59,7 +59,7 @@
 	selection_color = "#FF97D1"
 	economic_modifier = 7
 
-	minimum_character_age = 28
+	minimum_character_age = 25
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
