@@ -38,6 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes: 
-  - rscadd: "Adds stasis bags, kinetic analyzers, gas masks, mini extinguishers, extinguisher refills, hoist kits, jetpacks, mobile ladders, heavy flashlights, tethering devices, hand teleporters, tactical masks, NVGs, gravity guns, maglight, stunrods, RFDs, and ammo displays to the protolathe."
+  - rscadd: "Adds kinetic analyzers, hand teleporters, gravity guns to the protolathe."
   - rscadd: "Adds brass knuckles to the autolathe's hacked section."
   - rscdel: "Removes RFDs from the autolathe, look in the protolathe."
