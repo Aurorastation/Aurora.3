@@ -109,58 +109,10 @@ datum/design/item/tool/advanced_light_replacer
 	materials = list(MATERIAL_GLASS = 1000, MATERIAL_GOLD = 200)
 	build_path = /obj/item/aicard
 
-/datum/design/item/tool/gasmask
-	desc = "A face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
-	req_tech = list(TECH_BIO = 2)
-	materials = list(MATERIAL_GLASS = 500, DEFAULT_WALL_MATERIAL = 500)
-	build_path = /obj/item/clothing/mask/gas
-
-/datum/design/item/tool/miniextinguisher
-	desc = "A light and compact fibreglass-framed model fire extinguisher."
-	req_tech = list(TECH_ENGINEERING = 3)
-	materials = list(MATERIAL_GLASS = 500, DEFAULT_WALL_MATERIAL = 500)
-	build_path = /obj/item/extinguisher/mini
-
-/datum/design/item/tool/extinguisher_refill
-	desc = "A one time use extinguisher refiller that allows fire extinguishers to be refilled with an aerosol mix. Just pour in the reagents and twist."
-	req_tech = list(TECH_ENGINEERING = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 500)
-	build_path = /obj/item/reagent_containers/extinguisher_refill
-
-/datum/design/item/tool/hoist_kit
-	desc = "A setup kit for a hoist that can be used to lift things. The hoist will deploy in the direction you're facing."
-	req_tech = list(TECH_ENGINEERING = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 1500)
-	build_path = /obj/item/hoist_kit
-
-/datum/design/item/tool/jetpack
-	desc = "A tank of compressed gas for use as propulsion in zero-gravity areas. Use with caution."
-	req_tech = list(TECH_ENGINEERING = 4, TECH_MAGNET = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 200)
-	build_path = /obj/item/tank/jetpack
-
-/datum/design/item/tool/mobile_ladder
-	desc = "A lightweight deployable ladder, which you can use to move up or down. Or alternatively, you can bash some faces in."
-	req_tech = list(TECH_ENGINEERING = 3, TECH_MATERIAL = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 1500)
-	build_path = /obj/item/ladder_mobile
-
-/datum/design/item/tool/heavy_flashlight
-	desc = "A high-luminosity flashlight for specialist duties."
-	req_tech = list(TECH_ENGINEERING = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 500)
-	build_path = /obj/item/device/flashlight/heavy
-
-/datum/design/item/tool/tethering_device
-	desc = "A device used by explorers to keep track of partners by way of electro-tether."
-	req_tech = list(TECH_MAGNET = 5)
-	materials = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_SILVER = 500)
-	build_path = /obj/item/tethering_device
-
 /datum/design/item/tool/hand_tele
 	desc = "A hand-held bluespace teleporter that can rip open portals to a random nearby location, or lock onto a teleporter with a selected teleportation beacon."
 	req_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 6)
-	materials = list(MATERIAL_GOLD = 2000, MATERIAL_DIAMOND = 1500, MATERIAL_URANIUM = 250)
+	materials = list(MATERIAL_STEEL = 5000, MATERIAL_GLASS = 5000, MATERIAL_GOLD = 5000, MATERIAL_DIAMOND = 2500, MATERIAL_URANIUM = 2500, MATERIAL_PHORON = 2500)
 	build_path = /obj/item/hand_tele
 
 /datum/design/item/tool/rfd

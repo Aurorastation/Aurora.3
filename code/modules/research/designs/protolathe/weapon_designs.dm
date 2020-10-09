@@ -63,38 +63,8 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 2000, MATERIAL_SILVER = 500, MATERIAL_DIAMOND = 3000)
 	build_path = /obj/item/gun/energy/beegun
 
-/datum/design/item/weapon/tacticalmask
-	desc = "A compact carbon-fiber respirator covering the mouth and nose to protect against the inhalation of smoke and other harmful gasses."
-	req_tech = list(TECH_BIO = 4, TECH_COMBAT = 4)
-	materials = list(MATERIAL_GLASS = 1000, DEFAULT_WALL_MATERIAL = 1000)
-	build_path = /obj/item/clothing/mask/gas/tactical
-
-/datum/design/item/weapon/nvg
-	desc = "You can totally see in the dark now!"
-	req_tech = list(TECH_COMBAT = 6, TECH_ILLEGAL = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 3000, MATERIAL_GOLD = 1000)
-	build_path = /obj/item/clothing/glasses/night
-
 /datum/design/item/weapon/gravity_gun //Hello, Gordon!
 	desc = "This nifty gun disables the gravity in the area you shoot at. Use with caution."
-	req_tech = list(TECH_COMBAT = 4, TECH_BLUESPACE = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 500, MATERIAL_SILVER = 3000, MATERIAL_PHORON = 500)
+	req_tech = list(TECH_COMBAT = 5, TECH_BLUESPACE = 5)
+	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 5000, MATERIAL_SILVER = 3000, MATERIAL_GOLD = 3000 MATERIAL_PHORON = 500)
 	build_path = /obj/item/gun/energy/gravity_gun
-
-/datum/design/item/weapon/ammodisplay
-	desc = "A device that can be attached to most firearms, providing a holographic display of the remaining ammunition to the user."
-	req_tech = list(TECH_BLUESPACE = 3, TECH_MATERIAL = 4, TECH_DATA = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 5000)
-	build_path = /obj/item/ammo_display
-
-/datum/design/item/weapon/maglight
-	desc = "A heavy flashlight designed for security personnel."
-	req_tech = list(TECH_COMBAT = 4)
-	materials = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 100)
-	build_path = /obj/item/device/flashlight/maglight
-
-/datum/design/item/weapon/stunrod
-	desc = "A more-than-lethal weapon used to deal with high threat situations."
-	req_tech = list(TECH_COMBAT = 6, TECH_ILLEGAL = 2)
-	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 500, MATERIAL_SILVER = 1500)
-	build_path = /obj/item/melee/baton/stunrod
