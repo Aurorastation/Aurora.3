@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Modular computer programs should now properly be assigned their parent computer on creation."
