@@ -129,7 +129,7 @@
 //Selects a spawnatom from the list of available atoms and removes it if use is set to true (default)
 /datum/ghostspawner/proc/select_spawnatom(var/use=TRUE)
 	if(loc_type != GS_LOC_ATOM)
-		log_debug("Ghostspawner: select_spawnatom is not valid for spawner [short_name] as it is not atom pased")
+		log_debug("Ghostspawner: select_spawnatom is not valid for spawner [short_name] as it is not atom based")
 		return null
 	var/atom/A = pick(spawn_atoms)
 	if(use)
