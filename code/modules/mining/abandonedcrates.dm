@@ -132,7 +132,7 @@
 			new /obj/item/device/pda/mime(src)
 			new /obj/item/clothing/gloves/white(src)
 			new /obj/item/clothing/mask/gas/mime(src)
-			new /obj/item/clothing/head/beret(src)
+			new /obj/item/clothing/head/beret/red(src)
 			new /obj/item/clothing/accessory/suspenders(src)
 			new /obj/item/pen/crayon/mime(src)
 			new /obj/item/reagent_containers/food/drinks/bottle/bottleofnothing(src)

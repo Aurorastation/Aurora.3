@@ -58,7 +58,7 @@
 	bst.equip_to_slot_or_del(new /obj/item/storage/backpack/holding/bst(bst), slot_back)
 	bst.equip_to_slot_or_del(new /obj/item/storage/box/survival(bst.back), slot_in_backpack)
 	bst.equip_to_slot_or_del(new /obj/item/clothing/shoes/black/bst(bst), slot_shoes)
-	bst.equip_to_slot_or_del(new /obj/item/clothing/head/beret(bst), slot_head)
+	bst.equip_to_slot_or_del(new /obj/item/clothing/head/beret/red(bst), slot_head)
 	bst.equip_to_slot_or_del(new /obj/item/clothing/glasses/sunglasses/bst(bst), slot_glasses)
 	bst.equip_to_slot_or_del(new /obj/item/storage/belt/utility/very_full(bst), slot_belt)
 	bst.equip_to_slot_or_del(new /obj/item/clothing/gloves/swat/bst(bst), slot_gloves)
