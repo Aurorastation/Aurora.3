@@ -134,6 +134,7 @@
 	enabled = FALSE
 	spawnpoints = list("OdinDoctor")
 	req_perms = null
+	req_perms_edit = R_CCIAA
 	max_count = 4
 
 	//Vars related to human mobs
@@ -155,6 +156,7 @@
 	enabled = FALSE
 	spawnpoints = list("OdinPharm")
 	req_perms = null
+	req_perms_edit = R_CCIAA
 	max_count = 1
 
 	outfit = /datum/outfit/admin/nt/odinpharm
@@ -175,6 +177,7 @@
 	enabled = FALSE
 	spawnpoints = list("OdinChef")
 	req_perms = null
+	req_perms_edit = R_CCIAA
 	max_count = 2
 
 	outfit = /datum/outfit/admin/nt/odinchef
@@ -195,6 +198,7 @@
 	enabled = FALSE
 	spawnpoints = list("OdinBartender")
 	req_perms = null
+	req_perms_edit = R_CCIAA
 	max_count = 1
 
 	outfit = /datum/outfit/admin/nt/odinbartender
