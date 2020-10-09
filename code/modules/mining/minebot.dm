@@ -64,17 +64,16 @@
 		return
 	seeking_player = TRUE
 	SSghostroles.add_spawn_atom("mining_drone", src)
-	var/area/A = get_area(src)
-	if(A)
-		say_dead_direct("Someone is attempting to reboot a mining drone in [A.name]! Spawn in as it by using the ghost spawner menu in the ghost tab.")
 
-/mob/living/silicon/robot/drone/mining/proc/spawn_into_mining_drone(var/mob/user)
+/mob/living/silicon/robot/drone/mining/assign_player(var/mob/user)
 	if(src.ckey)
+		SSghostroles.remove_spawn_atom("mining_drone", src)
 		return
 	src.ckey = user.ckey
-	SSghostroles.remove_spawn_atom("mining_drone", src)
 	seeking_player = FALSE
 	welcome_drone()
+
+	return src
 
 /mob/living/silicon/robot/drone/mining/welcome_drone()
 	to_chat(src, SPAN_DANGER("<b>You are a mining drone, a tiny-brained robotic industrial machine.</b>"))

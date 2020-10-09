@@ -316,9 +316,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		var/datum/ghostspawner/G = SSghostroles.spawners[ghost_role]
 		if(!G.show_on_job_select)
 			continue
-		if(!G.enabled)
-			continue
-		if(!isnull(G.req_perms))
+		if(G.cant_see(src))
 			continue
 		unique_role_available = TRUE
 		break

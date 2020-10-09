@@ -75,9 +75,6 @@
 		F.faction = usr.faction
 		temp = "You have attempted summoning \the [F]"
 		SSghostroles.add_spawn_atom("wizard_familiar", F)
-		var/area/A = get_area(src)
-		if(A)
-			say_dead_direct("A wizard familiar has been summoned in [A.name]! Spawn in as it by using the ghost spawner menu in the ghost tab.")
 		uses--
 
 		if(Adjacent(usr))
