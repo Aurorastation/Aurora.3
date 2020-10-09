@@ -100,6 +100,8 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 /datum/controller/subsystem/emergency_shuttle/proc/call_evac()
 	if(!can_call()) return
 
+	callHook("emergency_evac")
+
 	//set the launch timer
 	autopilot = 1
 	set_launch_countdown(get_shuttle_prep_time())
@@ -117,6 +119,8 @@ var/datum/controller/subsystem/emergency_shuttle/emergency_shuttle
 //calls the shuttle for a routine crew transfer
 /datum/controller/subsystem/emergency_shuttle/proc/call_transfer()
 	if(!can_call()) return
+
+	callHook("crew_transfer")
 
 	//set the launch timer
 	autopilot = 1

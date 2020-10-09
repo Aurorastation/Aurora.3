@@ -4978,18 +4978,6 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
 /area/shuttle/skipjack)
-"aHV" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "OdinDoctor";
-	name = "igs - OdinDoctor"
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark2"
-	},
-/area/centcom/holding)
 "aIf" = (
 /turf/simulated/wall/shuttle/unique/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -7804,15 +7792,6 @@
 	},
 /turf/space/dynamic,
 /area/shuttle/mercenary)
-"bmM" = (
-/obj/effect/ghostspawpoint{
-	identifier = "OdinJanitor";
-	name = "igs - OdinJanitor"
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark2"
-	},
-/area/centcom/holding)
 "bmV" = (
 /obj/item/stool/padded,
 /obj/effect/decal/cleanable/dirt,
@@ -9037,6 +9016,22 @@
 	icon_state = "15,4"
 	},
 /area/shuttle/legion)
+"cdL" = (
+/obj/effect/floor_decal/corner/grey/diagonal{
+	dir = 4
+	},
+/obj/structure/bed/chair/comfy/black{
+	dir = 1
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "crescent_vip_shuttle";
+	name = "VIP Shuttle Access";
+	pixel_x = -7;
+	pixel_y = -23;
+	req_access = list(101)
+	},
+/turf/unsimulated/floor,
+/area/centcom/holding)
 "cdV" = (
 /obj/effect/decal/fake_object{
 	color = "#ff0000";
@@ -11152,6 +11147,16 @@
 	name = "transport shuttle"
 	},
 /area/shuttle/escape)
+"dvE" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/ghostspawpoint{
+	identifier = "OdinDoctor";
+	name = "igs - OdinDoctor"
+	},
+/turf/unsimulated/floor{
+	icon_state = "new_white"
+	},
+/area/centcom/holding)
 "dvO" = (
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "10,1"
@@ -11212,6 +11217,15 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion)
+"dze" = (
+/obj/effect/ghostspawpoint{
+	identifier = "OdinJanitor";
+	name = "igs - OdinJanitor"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/holding)
 "dzj" = (
 /obj/structure/shuttle_part/tcfl{
 	icon_state = "15,5"
@@ -14822,6 +14836,22 @@
 /obj/effect/floor_decal/ss13/odin4,
 /turf/unsimulated/floor,
 /area/centcom/evac)
+"fLW" = (
+/obj/structure/table/reinforced/wood,
+/obj/machinery/door/blast/odin{
+	dir = 2;
+	icon_state = "shutter1";
+	icon_state_closed = "shutter1";
+	icon_state_closing = "shutterc1";
+	icon_state_open = "shutter0";
+	icon_state_opening = "shutterc0";
+	id = "CentComBarShutters";
+	name = "Bar Shutter"
+	},
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/centcom/bar)
 "fMi" = (
 /obj/structure/shuttle_part/ccia{
 	icon_state = "6,4";
@@ -15260,15 +15290,6 @@
 /obj/machinery/computer/station_alert,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
-"fWO" = (
-/obj/effect/ghostspawpoint{
-	identifier = "OdinBartender";
-	name = "igs - OdinBartender"
-	},
-/turf/unsimulated/floor{
-	icon_state = "lino_grey"
-	},
-/area/centcom/bar)
 "fXq" = (
 /turf/unsimulated/floor{
 	icon_state = "wood-broken"
@@ -16178,6 +16199,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
+"gxA" = (
+/obj/machinery/door/airlock/centcom{
+	locked = 1;
+	name = "Entertainment Wing Maintenance";
+	req_one_access = list(102)
+	},
+/turf/unsimulated/floor/plating,
+/area/centcom/holding)
 "gxW" = (
 /turf/simulated/wall/shuttle/unique/tcfl{
 	icon_state = "5,6"
@@ -16685,13 +16714,6 @@
 	icon_state = "steel_dirty"
 	},
 /area/antag/raider)
-"gND" = (
-/obj/machinery/door/airlock/centcom{
-	name = "Entertainment Wing Maintenance";
-	req_access = list(108,109)
-	},
-/turf/unsimulated/floor/plating,
-/area/centcom/spawning)
 "gNM" = (
 /obj/structure/window/reinforced/polarized{
 	dir = 8;
@@ -17527,6 +17549,7 @@
 /area/centcom/distress_prep)
 "hmc" = (
 /obj/machinery/door/blast/odin{
+	_wifi_id = "odin_arrivals_lockdown";
 	density = 0;
 	icon_state = "pdoor0";
 	id = "CentComArrivalsAftExt";
@@ -19970,6 +19993,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station/warehouse)
+"iOZ" = (
+/obj/effect/ghostspawpoint{
+	identifier = "OdinChef";
+	name = "igs - OdinChef"
+	},
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/centcom/bar)
 "iPr" = (
 /obj/machinery/light{
 	dir = 4;
@@ -20722,22 +20754,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/control)
-"jvw" = (
-/obj/structure/table/reinforced/wood,
-/obj/machinery/door/blast/odin{
-	dir = 2;
-	icon_state = "shutter1";
-	icon_state_closed = "shutter1";
-	icon_state_closing = "shutterc1";
-	icon_state_open = "shutter0";
-	icon_state_opening = "shutterc0";
-	id = "CentComBarShutters";
-	name = "Bar Shutter"
-	},
-/turf/unsimulated/floor{
-	icon_state = "lino_grey"
-	},
-/area/centcom/bar)
 "jvz" = (
 /obj/machinery/vending/coffee{
 	name = "Free Hot Drinks machine";
@@ -20868,6 +20884,7 @@
 	req_access = list(19)
 	},
 /obj/machinery/door/blast/odin{
+	_wifi_id = "odin_arrivals_lockdown";
 	density = 0;
 	icon_state = "pdoor0";
 	id = "CentComArrivalsCommand";
@@ -23210,6 +23227,7 @@
 /area/centcom/ferry)
 "laL" = (
 /obj/machinery/door/blast/odin{
+	_wifi_id = "odin_arrivals_lockdown";
 	density = 0;
 	icon_state = "pdoor0";
 	id = "CentComArrivalsAftInt";
@@ -23241,6 +23259,16 @@
 	icon_state = "18,7"
 	},
 /area/shuttle/merchant)
+"lct" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/effect/ghostspawpoint{
+	identifier = "OdinDoctor";
+	name = "igs - OdinDoctor"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/holding)
 "ldd" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Administrative Wing";
@@ -24046,16 +24074,6 @@
 "lEa" = (
 /turf/simulated/floor/carpet,
 /area/centcom/shared_dream)
-"lEC" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/effect/ghostspawpoint{
-	identifier = "OdinDoctor";
-	name = "igs - OdinDoctor"
-	},
-/turf/unsimulated/floor{
-	icon_state = "new_white"
-	},
-/area/centcom/holding)
 "lEG" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/machinery/turretid{
@@ -27051,6 +27069,7 @@
 /area/shuttle/merchant)
 "nvO" = (
 /obj/machinery/door/blast/odin{
+	_wifi_id = "odin_arrivals_lockdown";
 	density = 0;
 	icon_state = "pdoor0";
 	id = "CentComArrivalsForeExt";
@@ -28767,6 +28786,13 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/arrival)
+"oxz" = (
+/obj/machinery/door/airlock/centcom{
+	name = "Entertainment Wing Maintenance";
+	req_access = list(108,109)
+	},
+/turf/unsimulated/floor/plating,
+/area/centcom/spawning)
 "oyh" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -30750,16 +30776,6 @@
 	name = "transport shuttle"
 	},
 /area/shuttle/escape)
-"pLt" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/effect/ghostspawpoint{
-	identifier = "OdinDoctor";
-	name = "igs - OdinDoctor"
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark2"
-	},
-/area/centcom/holding)
 "pLD" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1337;
@@ -31519,6 +31535,7 @@
 /area/shuttle/burglar)
 "qqp" = (
 /obj/machinery/door/blast/odin{
+	_wifi_id = "odin_arrivals_lockdown";
 	density = 0;
 	icon_state = "pdoor0";
 	id = "CentComArrivalsForeInt";
@@ -34053,14 +34070,6 @@
 /obj/structure/railing/mapped,
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
-"sje" = (
-/obj/machinery/door/airlock/centcom{
-	locked = 1;
-	name = "Entertainment Wing Maintenance";
-	req_one_access = list(102)
-	},
-/turf/unsimulated/floor/plating,
-/area/centcom/holding)
 "sjG" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -35865,6 +35874,7 @@
 	req_access = list(103)
 	},
 /obj/machinery/door/blast/odin{
+	_wifi_id = "odin_arrivals_lockdown";
 	dir = 2;
 	id = "odincheckpoint_starboard";
 	name = "checkpoint"
@@ -36761,15 +36771,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/specops)
-"ufR" = (
-/obj/effect/ghostspawpoint{
-	identifier = "OdinChef";
-	name = "igs - OdinChef"
-	},
-/turf/unsimulated/floor{
-	icon_state = "lino_grey"
-	},
-/area/centcom/bar)
 "ugm" = (
 /obj/structure/table/wood,
 /obj/item/spacecash/c1{
@@ -37301,6 +37302,15 @@
 	icon_state = "6,0"
 	},
 /area/shuttle/legion)
+"uxp" = (
+/obj/effect/ghostspawpoint{
+	identifier = "OdinBartender";
+	name = "igs - OdinBartender"
+	},
+/turf/unsimulated/floor{
+	icon_state = "lino_grey"
+	},
+/area/centcom/bar)
 "uxs" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/fancy/donut{
@@ -38845,22 +38855,6 @@
 	icon_state = "dark2"
 	},
 /area/centcom/checkpoint/aft)
-"vCZ" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 4
-	},
-/obj/structure/bed/chair/comfy/black{
-	dir = 1
-	},
-/obj/machinery/button/remote/blast_door{
-	id = "crescent_vip_shuttle";
-	name = "VIP Shuttle Access";
-	pixel_x = -7;
-	pixel_y = -23;
-	req_access = list(101)
-	},
-/turf/unsimulated/floor,
-/area/centcom/holding)
 "vDf" = (
 /obj/effect/landmark{
 	name = "ninjastart"
@@ -42700,6 +42694,18 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/administration)
+"xLR" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "OdinDoctor";
+	name = "igs - OdinDoctor"
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark2"
+	},
+/area/centcom/holding)
 "xMf" = (
 /obj/machinery/light{
 	dir = 1;
@@ -65204,7 +65210,7 @@ qcl
 qcl
 qcl
 qcl
-vCZ
+cdL
 rcX
 qAm
 ugV
@@ -67242,9 +67248,9 @@ mJt
 kSB
 bQP
 yjE
-lEC
+dvE
 wKb
-lEC
+dvE
 xnZ
 bQP
 ddo
@@ -68551,7 +68557,7 @@ qxN
 qxN
 qxN
 qxN
-sje
+gxA
 avk
 aiz
 cqK
@@ -69297,9 +69303,9 @@ rTg
 tVM
 eBz
 vrQ
-pLt
+lct
 jGV
-aHV
+xLR
 mNl
 dxC
 bQP
@@ -69318,7 +69324,7 @@ mAD
 bLK
 lOO
 kzj
-bmM
+dze
 tql
 bQP
 qxN
@@ -69801,10 +69807,10 @@ sIC
 eBz
 fIR
 lMz
-fWO
+uxp
 lMz
 lMz
-jvw
+fLW
 hWU
 vpg
 pxm
@@ -72674,7 +72680,7 @@ tRw
 tRw
 tRw
 tRw
-gND
+oxz
 aJH
 nfY
 aaM
@@ -72881,7 +72887,7 @@ apU
 eBz
 evC
 lMz
-ufR
+iOZ
 lMz
 lMz
 lMz
@@ -73652,7 +73658,7 @@ apU
 avR
 eBh
 lMz
-ufR
+iOZ
 lMz
 lMz
 lMz

@@ -305,3 +305,32 @@
 	M.ghostize(1)
 	verbs -= /client/proc/despawn
 	qdel(M)
+
+
+/hook/crew_transfer/proc/spawn_odin_staff()
+	if(get_security_level() == "green" && prob(70))
+		var/datum/ghostspawner/G = SSghostroles.get_spawner("odinchef")
+		G.enable()
+		G = SSghostroles.get_spawner("odinbartender")
+		G.enable()
+
+	if(get_security_level() == "blue")
+		var/datum/wifi/sender/door/wifi_sender = new("odin_arrivals_lockdown", SSghostroles)
+		wifi_sender.activate("close")
+		qdel(wifi_sender)
+
+		if(prob(50))
+			var/datum/ghostspawner/G = SSghostroles.get_spawner("checkpointsec")
+			G.enable()
+	return TRUE
+
+/hook/emergency_evac/proc/enable_checkpoint()
+	if(get_security_level() != "green" )
+		var/datum/wifi/sender/door/wifi_sender = new("odin_arrivals_lockdown", SSghostroles)
+		wifi_sender.activate("close")
+		qdel(wifi_sender)
+
+		if(prob(80))
+			var/datum/ghostspawner/G = SSghostroles.get_spawner("checkpointsec")
+			G.enable()
+	return TRUE
