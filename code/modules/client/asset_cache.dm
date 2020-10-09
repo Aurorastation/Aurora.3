@@ -63,6 +63,9 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 	while(client && !client.completed_asset_jobs.Find(job) && t < timeout_time) // Reception is handled in Topic()
 		sleep(1) // Lock up the caller until this is received.
 		t++
+	
+	if(t >= timeout_time)
+		log_admin(SPAN_DANGER("Timeout time [timeout_time] exceeded for asset: [asset_name] for client [client]. Please notify a developer."))
 
 	if(client)
 		client.sending -= asset_name
