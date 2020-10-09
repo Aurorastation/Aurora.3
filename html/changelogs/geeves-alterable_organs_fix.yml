@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - bugfix: "The choice to alter internal organs in character creation no longer appears if there are no internal organs to alter."
+  - bugfix: "Vaurca can now choose to have robotic eyes."
+  - bugfix: "Vaurca night eyes now work if they're robotic."

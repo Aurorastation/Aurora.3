@@ -204,7 +204,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	for(var/M in pref.disabilities)
 		out += "     [M] <a href='?src=\ref[src];trait_remove=[M]'>-</a><br>"
 	out += "Limbs: <a href='?src=\ref[src];limbs=1'>Adjust</a><br>"
-	out += "Internal Organs: <a href='?src=\ref[src];organs=1'>Adjust</a><br>"
+	if(length(mob_species.alterable_internal_organs))
+		out += "Internal Organs: <a href='?src=\ref[src];organs=1'>Adjust</a><br>"
 	out += "Prosthesis/Amputations: <a href='?src=\ref[src];reset_organs=1'>Reset</a><br>"
 
 	//display limbs below

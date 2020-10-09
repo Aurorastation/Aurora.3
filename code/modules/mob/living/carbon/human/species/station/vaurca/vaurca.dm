@@ -130,7 +130,7 @@
 	default_accent = ACCENT_TTS
 	allowed_accents = list(ACCENT_TTS, ACCENT_ZORA, ACCENT_KLAX, ACCENT_CTHUR)
 
-	alterable_internal_organs = list()
+	alterable_internal_organs = list(BP_EYES)
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
