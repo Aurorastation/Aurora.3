@@ -241,7 +241,7 @@
 	selection_color = "#FF97D1"
 	access = list(access_medical, access_surgery, access_medical_equip)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
-	minimum_character_age = 20
+	minimum_character_age = 25
 	outfit = /datum/outfit/job/intern_med
 
 /datum/outfit/job/intern_med
