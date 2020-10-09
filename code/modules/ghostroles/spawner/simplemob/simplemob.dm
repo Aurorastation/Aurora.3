@@ -19,6 +19,6 @@
 		if(!S)
             to_chat(user, "<span class='warning'>Unable to find any spawn mob. </span>")
             return
-        
+
         announce_ghost_joinleave(user, 0, "They are now a [name].")
         return S.assign_player(user)
