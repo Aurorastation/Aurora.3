@@ -7,7 +7,7 @@
 			S = new spawn_mob(T)
 		else
 			to_chat(user, "<span class='warning'>Unable to find any spawn point. </span>")
-            return
+			return
 
 		if(S)
 			announce_ghost_joinleave(user, 0, "They are now a [name].")
@@ -17,8 +17,8 @@
 	else
 		var/mob/living/simple_animal/S = select_spawnatom()
 		if(!S)
-            to_chat(user, "<span class='warning'>Unable to find any spawn mob. </span>")
-            return
+			to_chat(user, "<span class='warning'>Unable to find any spawn mob. </span>")
+			return
 
-        announce_ghost_joinleave(user, 0, "They are now a [name].")
-        return S.assign_player(user)
+		announce_ghost_joinleave(user, 0, "They are now a [name].")
+		return S.assign_player(user)
