@@ -305,7 +305,7 @@
 
 	uniform = /obj/item/clothing/under/rank/janitor
 	pda = /obj/item/device/pda/janitor
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/galoshes
 	l_ear = /obj/item/device/radio/headset/headset_service
 	l_pocket = /obj/item/grenade/chem_grenade/cleaner
 	r_pocket = /obj/item/grenade/chem_grenade/cleaner
