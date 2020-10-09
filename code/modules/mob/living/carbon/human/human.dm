@@ -637,7 +637,7 @@
 
 			if(GetIdCard())
 				var/obj/item/card/id/id = GetIdCard()
-				perpname = id:registered_name
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -659,7 +659,7 @@
 
 			if(GetIdCard())
 				var/obj/item/card/id/id = GetIdCard()
-				perpname = id:registered_name
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -681,7 +681,7 @@
 			var/perpname = "wot"
 			if(GetIdCard())
 				var/obj/item/card/id/id = GetIdCard()
-				perpname = id:registered_name
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -703,7 +703,7 @@
 
 			if(GetIdCard())
 				var/obj/item/card/id/id = GetIdCard()
-				perpname = id:registered_name
+				perpname = id.registered_name
 			else
 				perpname = src.name
 
@@ -735,7 +735,7 @@
 
 			if(GetIdCard())
 				var/obj/item/card/id/id = GetIdCard()
-				perpname = id:registered_name
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -758,7 +758,7 @@
 
 			if(GetIdCard())
 				var/obj/item/card/id/id = GetIdCard()
-				perpname = id:registered_name
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -780,7 +780,7 @@
 			var/perpname = "wot"
 			if(GetIdCard())
 				var/obj/item/card/id/id = GetIdCard()
-				perpname = id:registered_name
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
