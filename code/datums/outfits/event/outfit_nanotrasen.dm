@@ -298,10 +298,6 @@
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_service
 
-	backpack_contents = list(
-		/obj/item/storage/box/produce = 3
-	)
-
 	id_access = "Service"
 
 /datum/outfit/admin/nt/odinjanitor

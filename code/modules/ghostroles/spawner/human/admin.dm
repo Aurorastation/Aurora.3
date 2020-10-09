@@ -175,7 +175,7 @@
 	enabled = FALSE
 	spawnpoints = list("OdinChef")
 	req_perms = null
-	max_count = 1
+	max_count = 2
 
 	outfit = /datum/outfit/admin/nt/odinchef
 	possible_species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_TAJARA,SPECIES_UNATHI)
