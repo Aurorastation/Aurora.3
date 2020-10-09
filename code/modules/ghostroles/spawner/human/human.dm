@@ -38,7 +38,7 @@
 			pick_message = "[pick_message] Auto Suffix: \"[mob_name_suffix]\" "
 		mname = sanitizeSafe(input(user, pick_message, "Name for a [species] (without prefix/suffix)"))
 
-	if(!mname || mname == "")
+	if(!length(mname))
 		if(mob_name_prefix || mob_name_suffix)
 			mname = capitalize(pick(last_names))
 		else
