@@ -85,7 +85,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [W]."))
 		return
 
-	else if (istype(W, /obj/item/card/id) || istype(W, /obj/item/device/pda))
+	else if (W.GetID())
 		if(!allowed(user))
 			to_chat(user, SPAN_WARNING("Access denied."))
 			return
