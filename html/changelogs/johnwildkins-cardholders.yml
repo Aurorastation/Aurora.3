@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - bugfix: "Removed many hard references to PDAs / ID cards. There should be fewer situations where an ID-holding item isn't recognized as a valid ID."
