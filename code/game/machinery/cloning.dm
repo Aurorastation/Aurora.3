@@ -219,8 +219,8 @@
 			return
 		if(default_part_replacement(user, W))
 			return
-	if(istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
-		if(!check_access(W))
+	if(W.GetID())
+		if(!check_access(W.GetID()))
 			to_chat(user, "<span class='warning'>Access Denied.</span>")
 			return
 		if((!locked) || (isnull(occupant)))

@@ -7,6 +7,7 @@
 
 	respawn_flag = MINISYNTH //Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
 	jobban_job = "Cyborg"
+	loc_type = GS_LOC_ATOM
 
 	//Vars regarding the mob to use
 	spawn_mob = /mob/living/simple_animal/rat //The mob that should be spawned
@@ -15,9 +16,6 @@
 	if(!config.allow_drone_spawn)
 		return "Spawning as drone is disabled"
 	return ..()
-
-/datum/ghostspawner/simplemob/maintdrone/select_spawnpoint(var/use)
-	return TRUE //We just fake it here, since the spawnpoint is selected if someone is spawned in.
 
 //The proc to actually spawn in the user
 /datum/ghostspawner/simplemob/maintdrone/spawn_mob(mob/user)

@@ -48,7 +48,7 @@
 				description += "[src] is still heating up and is too cold to cook anything yet."
 			else
 				description += "It is running at [round(get_efficiency(), 0.1)]% efficiency!"
-			description += "Temperature: [round(temperature - T0C, 0.1)]C / [round(optimal_temp - T0C, 0.1)]C"
+			description += "<br>Temperature: [round(temperature - T0C, 0.1)]C / [round(optimal_temp - T0C, 0.1)]C"
 		else
 			description += "It is switched off."
 		openToolTip(usr, src, params, name, description)
@@ -111,9 +111,12 @@
 		stat &= ~POWEROFF
 	use_power = !(stat & POWEROFF) && use_power
 	if(wasoff != (stat & POWEROFF))
-		user.visible_message("<b>[user]</b> turns [use_power ? "on" : "off"] [src].", "You turn [use_power ? "on" : "off"] [src].")
+		activation_message(user)
 	playsound(src, 'sound/machines/click.ogg', 40, 1)
 	update_icon()
+
+/obj/machinery/appliance/cooker/proc/activation_message(var/mob/user)
+	user.visible_message("<b>[user]</b> turns [use_power ? "on" : "off"] [src].", "You turn [use_power ? "on" : "off"] [src].")
 
 /obj/machinery/appliance/cooker/update_icon()
 	overlays.Cut()

@@ -22,5 +22,5 @@
 
 	enable_chance = 10
 
-/datum/ghostspawner/human/visitor/select_spawnpoint(var/use = TRUE)
+/datum/ghostspawner/human/visitor/select_spawnlocation(var/use = TRUE)
 	return pick(latejoin)
