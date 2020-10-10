@@ -423,14 +423,15 @@
 
 // Get rank from ID, ID inside PDA, PDA, ID in wallet, etc.
 /mob/living/carbon/human/proc/get_authentification_rank(var/if_no_id = "No id", var/if_no_job = "No job")
-	var/obj/item/device/pda/pda = wear_id
+	var/obj/item/modular_computer/pda = wear_id
 	if (istype(pda))
-		if (pda.id)
-			return pda.id.rank
+		var/obj/item/card/id/id = pda?.card_slot.stored_card
+		if (istype(id))
+			return id.rank
 		else
 			return pda.ownrank
 	else
-		var/obj/item/card/id/id = get_idcard()
+		var/obj/item/card/id/id = GetIdCard()
 		if(id)
 			return id.rank ? id.rank : if_no_job
 		else
@@ -477,9 +478,6 @@
 //Useful when player is being seen by other mobs
 /mob/living/carbon/human/proc/get_id_name(var/if_no_id = "Unknown")
 	. = if_no_id
-	if(istype(wear_id,/obj/item/device/pda))
-		var/obj/item/device/pda/P = wear_id
-		return P.owner
 	if(wear_id)
 		var/obj/item/card/id/I = wear_id.GetID()
 		if(I)
