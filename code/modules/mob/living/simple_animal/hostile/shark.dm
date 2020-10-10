@@ -8,7 +8,6 @@
 	icon_living = "shark"
 	icon_dead = "shark_dead"
 	icon_rest = "shark_rest"
-	icon_gib = "carp_gib"
 	speak_chance = 0
 	turns_per_move = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
@@ -23,6 +22,7 @@
 	mob_size = 15
 	see_in_dark = 10
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	universal_understand = 1
 
 	harm_intent_damage = 5
 	melee_damage_lower = 25
@@ -61,12 +61,12 @@
 	if(!diving)
 		visible_message(SPAN_NOTICE("\The [src] dives down and vanishes from view."))
 		invisibility = INVISIBILITY_MAXIMUM
-		speed = 0.5
+		speed = -3
 		density = FALSE
 	else
 		invisibility = 0
 		visible_message(SPAN_NOTICE("\The [src] emerges from the depths."))
-		speed = 1
+		speed = -5
 		density = TRUE
 
 	diving = !diving
