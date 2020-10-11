@@ -138,7 +138,7 @@
 	set_trait(TRAIT_MATURATION, 9)
 	set_trait(TRAIT_PRODUCTION, 5)
 	set_trait(TRAIT_YIELD, 2)
-	set_trait(TRAIT_PRODUCT_ICON,"alien2")
+	set_trait(TRAIT_PRODUCT_ICON,"nmshaan")
 	set_trait(TRAIT_PRODUCT_COLOUR,"#fffdf7")
 	set_trait(TRAIT_PLANT_COLOUR,"#31331c")
 	set_trait(TRAIT_PLANT_ICON,"nmshaan")
