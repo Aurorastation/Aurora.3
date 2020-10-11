@@ -98,7 +98,8 @@ var/list/admin_verbs_admin = list(
 	/client/proc/wipe_ai,	// allow admins to force-wipe AIs
 	/client/proc/fix_player_list,
 	/client/proc/reset_openturf,
-	/client/proc/toggle_aooc
+	/client/proc/toggle_aooc,
+	/client/proc/force_away_mission
 )
 var/list/admin_verbs_ban = list(
 	/client/proc/unban_panel,
@@ -176,7 +177,8 @@ var/list/admin_verbs_server = list(
 	/client/proc/cmd_ss_panic,
 	/client/proc/configure_access_control,
 	/datum/admins/proc/togglehubvisibility, //toggles visibility on the BYOND Hub
-	/client/proc/dump_memory_usage
+	/client/proc/dump_memory_usage,
+	/client/proc/force_away_mission
 	)
 var/list/admin_verbs_debug = list(
 	/client/proc/getruntimelog,                     // allows us to access runtime logs to somebody,
@@ -401,7 +403,8 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/print_logout_report,
 	/client/proc/edit_admin_permissions,
 	/proc/possess,
-	/proc/release
+	/proc/release,
+	/client/proc/force_away_mission
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -1320,3 +1323,20 @@ var/list/admin_verbs_cciaa = list(
 		to_chat(usr, SPAN_WARNING("File creation failed. Please check to see if the data/logs/memory folder actually exists."))
 	else
 		to_chat(usr, SPAN_NOTICE("Memory dump completed."))
+
+
+/client/proc/force_away_mission()
+	set category = "Server"
+	set name = "Force Away Mission"
+	set desc = "Force a specific away mission to occur."
+
+	if (!check_rights(R_SERVER))
+		return
+
+	var/mission_name = input("Enter Mission Name or press cancel to Reset","Mission Name") as null|text
+	SSpersist_config.forced_awaymission = mission_name
+
+	if(!mission_name)
+		log_and_message_admins("reset the forced away mission.")
+	else
+		log_and_message_admins("forced the following away mission: [mission_name].")
