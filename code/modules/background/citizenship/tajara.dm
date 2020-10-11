@@ -30,8 +30,9 @@
 	)
 
 /datum/citizenship/pra/get_objectives(mission_level, var/mob/living/carbon/human/H)
-	if(REPRESENTATIVE_MISSION_LOW)
-		return "Ensure the loyalty of PRA Citizen to the Party and President Hadii. You must also promote the relationship between NanoTrasen and the People's Republic through diplomacy."
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_LOW)
+			return "Ensure the loyalty of PRA Citizen to the Party and President Hadii. You must also promote the relationship between NanoTrasen and the People's Republic through diplomacy."
 
 /datum/outfit/job/representative/consular/pra
 	name = "PRA Consular Officer"
@@ -81,8 +82,9 @@
 	)
 
 /datum/citizenship/dpra/get_objectives(mission_level, var/mob/living/carbon/human/H)
-	if(REPRESENTATIVE_MISSION_LOW)
-		return "Ensure that DPRA citizens are following the principles of Al'mariism. Defend the rights of the Tajara through diplomacy."
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_LOW)
+			return "Ensure that DPRA citizens are following the principles of Al'mariism. Defend the rights of the Tajara through diplomacy."
 
 /datum/outfit/job/representative/consular/dpra
 	name = "DPRA Consular Officer"
@@ -133,8 +135,9 @@
 	)
 
 /datum/citizenship/nka/get_objectives(mission_level, var/mob/living/carbon/human/H)
-	if(REPRESENTATIVE_MISSION_LOW)
-		return "Ensure that NKA citizens are loyal to the Crown. You must also promote the relationship between NanoTrasen and the People's Republic through diplomacy."
+	switch(mission_level)
+		if(REPRESENTATIVE_MISSION_LOW)
+			return "Ensure that NKA citizens are loyal to the Crown. You must also promote the relationship between NanoTrasen and the People's Republic through diplomacy."
 
 /datum/outfit/job/representative/consular/nka
 	name = "NKA Consular Officer"
