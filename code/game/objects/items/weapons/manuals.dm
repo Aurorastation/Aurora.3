@@ -1513,8 +1513,6 @@
 				</head>
 				<body>
 				<h1><center>In Defense of Al'marii's Legacy</center></h1>
-
-				<b><center></b><br>\
 				<br>\
 				People of Adhomai, they must rally in defense of the legacy of Al'marii. The Hadiist usurper plans to enslave the Tajara people to alien overlords, the Tajara must stand up against his tyranny. \
 				Take up arms in the defense of the freeodm and destiny of their people. The power belongs to the People, not in the hands of the Party. The Hadiists are nothing but puppets of the alien oppressor. \
@@ -1544,8 +1542,6 @@
 				</head>
 				<body>
 				<h1><center>The New Kingdom</center></h1>
-
-				<b><center></b><br>\
 				<br>\
 				Brave people of Adhomai, listen to the call of tradition. Republicanism has failed them, it has brought nothing but bloodshed upon them. The key to the prosperity of the Tajara lies in the past.\
 				The restoration of the monarchy is necessary to safeguard the future of Adhomai. But, they must learn from the past. It shall have the necessary mechanisms to prevent the errors of their ancestors.
