@@ -4448,6 +4448,15 @@
 	reagent_data = list(/datum/reagent/nutriment = list("bread" = 4))
 	bitesize = 2
 
+/obj/item/reagent_containers/food/snacks/clam
+	name = "Ras'val clam"
+	desc = "An adhomian clam, native from the sea of Ras'val."
+	icon_state = "clam"
+	bitesize = 2
+	desc_fluff = "Fishing and shellfish has a part in the diet of the population at the coastal areas, even if the ice can be an obstacle to most experienced fisherman. \
+	Spicy Ras'val clams, named after the sea, are a famous treat, being appreciated in other systems besides S'rand'marr."
+	reagents_to_add = list(/datum/reagent/nutriment/protein/seafood = 2)
+
 /obj/item/reagent_containers/food/snacks/spicy_clams
 	name = "spicy Ras'val clams"
 	desc = "A famous adhomian clam dish, named after the Ras'val sea."
