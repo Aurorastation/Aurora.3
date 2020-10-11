@@ -137,7 +137,7 @@
 /datum/citizenship/nka/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_LOW)
-			return "Ensure that NKA citizens are loyal to the Crown. You must also promote the relationship between NanoTrasen and the People's Republic through diplomacy."
+			return "Ensure that NKA citizens are loyal to the Crown. You must also promote the relationship between NanoTrasen and the New Kingdom through diplomacy."
 
 /datum/outfit/job/representative/consular/nka
 	name = "NKA Consular Officer"
