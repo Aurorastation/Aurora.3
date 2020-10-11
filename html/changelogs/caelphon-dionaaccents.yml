@@ -1,5 +1,0 @@
-author: Caelphon
-delete-after: True
-changes: 
-  - rscadd: "Adds two new accents for Diona: Rootsong and Voidsong."
-  - rscdel: "Removes the old diona accent."
