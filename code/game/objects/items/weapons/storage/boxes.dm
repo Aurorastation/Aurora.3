@@ -719,7 +719,7 @@
 /obj/item/storage/box/clams
 	name = "box of Ras'val clam"
 	desc = "A box filled with clams from the Ras'val sea, imported by Njadra'Akhar Enterprises."
-	starts_with = list(/obj/item/reagent_containers/food/snacks/clam = 4)
+	starts_with = list(/obj/item/reagent_containers/food/snacks/clam = 5)
 
 /obj/item/storage/box/produce
 	name = "produce box"
