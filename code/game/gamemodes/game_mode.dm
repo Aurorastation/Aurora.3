@@ -185,6 +185,12 @@ var/global/list/additional_antag_types = list()
 				else
 					potential = antag.candidates
 				if(islist(potential))
+					for(var/potential_antag in potential)
+						var/datum/mind/player = potential_antag
+						if(!(antag.flags & ANTAG_OVERRIDE_JOB) && (player.assigned_role in antag.restricted_jobs))
+							potential -= potential_antag
+							antag.candidates -= player
+							log_debug("GAMEMODE: Player [player.name] ([player.key]) was removed from the potential antags list due to being given the role [player.assigned_role] which is a restricted job!")
 					if(potential.len)
 						log_debug("GAMEMODE: Found [potential.len] potential antagonists for [antag.role_text].")
 						total_enemy_count += potential.len
@@ -586,7 +592,7 @@ var/global/list/additional_antag_types = list()
 	//New message handling
 	post_comm_message("Cent. Com. Status Summary", intercepttext)
 
-	to_world(sound('sound/AI/commandreport.ogg'))
+	sound_to(world, ('sound/AI/commandreport.ogg'))
 
 /datum/game_mode/proc/get_players_for_role(var/role, var/antag_id)
 	var/list/players = list()
@@ -708,10 +714,10 @@ proc/get_logout_report()
 					continue //Dead mob, ghost abandoned
 				else
 					if(D.can_reenter_corpse)
-						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (<font color='red'><b>Adminghosted</b></font>)\n"
+						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (<span class='warning'><b>Adminghosted</b></span>)\n"
 						continue //Lolwhat
 					else
-						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (<font color='red'><b>Ghosted</b></font>)\n"
+						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (<span class='warning'><b>Ghosted</b></span>)\n"
 						continue //Ghosted while alive
 
 	msg += "</span>" // close the span from right at the top
@@ -746,7 +752,7 @@ proc/get_nt_opposed()
 //Announces objectives/generic antag text.
 /proc/show_generic_antag_text(var/datum/mind/player)
 	if(player.current)
-		to_chat(player.current, "You are an antagonist! <font color=blue>Within the rules,</font> try to act as an opposing force to the crew. Further RP and try to make sure other players have <i>fun</i>! If you are confused or at a loss, always adminhelp, and before taking extreme actions, please try to also contact the administration! Think through your actions and make the roleplay immersive! <b>Please remember all rules aside from those without explicit exceptions apply to antagonists.</b>")
+		to_chat(player.current, "You are an antagonist! <span class='notice'><b>Within the rules</b></span>, try to act as an opposing force to the crew. Further RP and try to make sure other players have <i>fun</i>! If you are confused or at a loss, always adminhelp, and before taking extreme actions, please try to also contact the administration! Think through your actions and make the roleplay immersive! <b>Please remember all rules aside from those without explicit exceptions apply to antagonists.</b>")
 
 /proc/show_objectives(var/datum/mind/player)
 

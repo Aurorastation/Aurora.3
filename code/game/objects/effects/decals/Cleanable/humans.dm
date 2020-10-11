@@ -55,6 +55,11 @@
 	else if (dries)
 		dry()
 
+/obj/effect/decal/cleanable/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/gun/energy/rifle/cult))
+		return
+	..()
+
 /obj/effect/decal/cleanable/blood/update_icon()
 	if(basecolor == "rainbow") basecolor = get_random_colour(1)
 	color = basecolor

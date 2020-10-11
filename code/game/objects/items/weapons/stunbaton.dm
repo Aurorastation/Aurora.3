@@ -12,7 +12,7 @@
 	sharp = 0
 	edge = 0
 	throwforce = 7
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
 	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
 	origin_tech = list(TECH_COMBAT = 2)
@@ -94,7 +94,7 @@
 	if(bcell && bcell.charge > hitcost)
 		status = !status
 		to_chat(user, "<span class='notice'>[src] is now [status ? "on" : "off"].</span>")
-		playsound(loc, "sparks", 75, 1, -1)
+		playsound(loc, /decl/sound_category/spark_sound, 75, 1, -1)
 		update_icon()
 	else
 		status = 0

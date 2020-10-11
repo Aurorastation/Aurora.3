@@ -43,6 +43,7 @@
 #define MODE_ERT "ert"
 #define MODE_MERCENARY "mercenary"
 #define MODE_NINJA "ninja"
+#define MODE_RAIDER_MAGE "raider mage"
 #define MODE_RAIDER "raider"
 #define MODE_BURGLAR "burglar"
 #define MODE_WIZARD "wizard"

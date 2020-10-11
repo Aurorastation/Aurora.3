@@ -79,7 +79,7 @@ datum/objective/anti_revolution/execute
 	find_target()
 		..()
 		if(target && target.current)
-			explanation_text = "[target.current.real_name], the [target.assigned_role] has extracted confidential information above their clearance. Execute \him[target.current]."
+			explanation_text = "[target.current.real_name], the [target.assigned_role] has extracted confidential information above their clearance. Execute [target.current.get_pronoun("him")]."
 		else
 			explanation_text = "Free Objective"
 		return target
@@ -88,7 +88,7 @@ datum/objective/anti_revolution/execute
 	find_target_by_role(role, role_type=0)
 		..(role, role_type)
 		if(target && target.current)
-			explanation_text = "[target.current.real_name], the [!role_type ? target.assigned_role : target.special_role] has extracted confidential information above their clearance. Execute \him[target.current]."
+			explanation_text = "[target.current.real_name], the [!role_type ? target.assigned_role : target.special_role] has extracted confidential information above their clearance. Execute [target.current.get_pronoun("him")]."
 		else
 			explanation_text = "Free Objective"
 		return target
@@ -137,7 +137,7 @@ datum/objective/anti_revolution/demote
 	find_target()
 		..()
 		if(target && target.current)
-			explanation_text = "[target.current.real_name], the [target.assigned_role]  has been classified as harmful to [current_map.company_name]'s goals. Demote \him[target.current] to assistant."
+			explanation_text = "[target.current.real_name], the [target.assigned_role]  has been classified as harmful to [current_map.company_name]'s goals. Demote [target.current.get_pronoun("him")] to assistant."
 		else
 			explanation_text = "Free Objective"
 		return target
@@ -145,17 +145,15 @@ datum/objective/anti_revolution/demote
 	find_target_by_role(role, role_type=0)
 		..(role, role_type)
 		if(target && target.current)
-			explanation_text = "[target.current.real_name], the [!role_type ? target.assigned_role : target.special_role] has been classified as harmful to [current_map.company_name]'s goals. Demote \him[target.current] to assistant."
+			explanation_text = "[target.current.real_name], the [!role_type ? target.assigned_role : target.special_role] has been classified as harmful to [current_map.company_name]'s goals. Demote [target.current.get_pronoun("him")] to assistant."
 		else
 			explanation_text = "Free Objective"
 		return target
 
 	check_completion()
-		if(target && target.current && istype(target,/mob/living/carbon/human))
-			var/obj/item/card/id/I = target.current:wear_id
-			if(istype(I, /obj/item/device/pda))
-				var/obj/item/device/pda/P = I
-				I = P.id
+		if(target && target.current && ishuman(target))
+			var/mob/living/carbon/human/H = target
+			var/obj/item/card/id/I = H.GetIdCard()
 
 			if(!istype(I)) return 1
 

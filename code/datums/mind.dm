@@ -162,9 +162,9 @@
 		for(var/datum/objective/O in objectives)
 			out += "<b>Objective #[num]:</b> [O.explanation_text] "
 			if(O.completed)
-				out += "(<font color='green'>complete</font>)"
+				out += "(<span class='good'>complete</span>)"
 			else
-				out += "(<font color='red'>incomplete</font>)"
+				out += "(<span class='warning'>incomplete</span>)"
 			out += " <a href='?src=\ref[src];obj_completed=\ref[O]'>\[toggle\]</a>"
 			out += " <a href='?src=\ref[src];obj_delete=\ref[O]'>\[remove\]</a><br>"
 			num++
@@ -578,11 +578,6 @@
 	..()
 	mind.assigned_role = "Juggernaut"
 	mind.special_role = "Cultist"
-
-/mob/living/carbon/human/voxarmalis/mind_initialize()
-	..()
-	mind.assigned_role = "Armalis"
-	mind.special_role = "Vox Raider"
 
 /mob/living/silicon/robot/syndicate/mind_initialize()
 	..()

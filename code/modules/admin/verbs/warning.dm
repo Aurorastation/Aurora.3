@@ -11,7 +11,7 @@
 
 	establish_db_connection(dbcon)
 	if (!dbcon.IsConnected())
-		to_chat(usr, "<font color='red'>Error: warn(): Database Connection failed, reverting to legacy systems.</font>")
+		to_chat(usr, "<span class='warning'>Error: warn(): Database Connection failed, reverting to legacy systems.</span>")
 		usr.client.warn_legacy(warned_ckey)
 		return
 
@@ -50,7 +50,7 @@
 
 	feedback_add_details("admin_verb", "WARN-DB")
 	if (C)
-		to_chat(C, "<font color='red'><BIG><B>You have been warned by an administrator.</B></BIG><br>Click <a href='byond://?src=\ref[src];warnview=1'>here</a> to review and acknowledge them!</font>")
+		to_chat(C, "<span class='warning'><BIG><B>You have been warned by an administrator.</B></BIG><br>Click <a href='byond://?src=\ref[src];warnview=1'>here</a> to review and acknowledge them!</span>")
 
 	message_admins("[key_name_admin(src)] has warned [warned_ckey] for: [warning_reason].")
 
@@ -63,7 +63,7 @@
 
 /client/proc/warn_legacy(warned_ckey)
 	if (!warned_ckey)
-		to_chat(usr, "<font color='red'>Error: warn_legacy(): No ckey passed!</font>")
+		to_chat(usr, "<span class='warning'>Error: warn_legacy(): No ckey passed!</span>")
 		return
 
 	var/datum/preferences/D
@@ -72,14 +72,14 @@
 	else	D = preferences_datums[warned_ckey]
 
 	if(!D)
-		to_chat(src, "<font color='red'>Error: warn_legacy(): No such ckey found.</font>")
+		to_chat(src, "<span class='warning'>Error: warn_legacy(): No such ckey found.</span>")
 		return
 
 	if(++D.warns >= MAX_WARNS)					//uh ohhhh...you'reee iiiiin trouuuubble O:)
 		ban_unban_log_save("[ckey] warned [warned_ckey], resulting in a [AUTOBANTIME] minute autoban.")
 		if(C)
 			message_admins("[key_name_admin(src)] has warned [key_name_admin(C)] resulting in a [AUTOBANTIME] minute ban.")
-			to_chat(C, "<font color='red'><BIG><B>You have been autobanned due to a warning by [ckey].</B></BIG><br>This is a temporary ban, it will be removed in [AUTOBANTIME] minutes.</font>")
+			to_chat(C, "<span class='warning'><BIG><B>You have been autobanned due to a warning by [ckey].</B></BIG><br>This is a temporary ban, it will be removed in [AUTOBANTIME] minutes.</span>")
 			qdel(C)
 		else
 			message_admins("[key_name_admin(src)] has warned [warned_ckey] resulting in a [AUTOBANTIME] minute ban.")
@@ -87,7 +87,7 @@
 		feedback_inc("ban_warn",1)
 	else
 		if(C)
-			to_chat(C, "<font color='red'><BIG><B>You have been warned by an administrator.</B></BIG><br>Further warnings will result in an autoban.</font>")
+			to_chat(C, "<span class='warning'><BIG><B>You have been warned by an administrator.</B></BIG><br>Further warnings will result in an autoban.</span>")
 			message_admins("[key_name_admin(src)] has warned [key_name_admin(C)]. They have [MAX_WARNS-D.warns] strikes remaining.")
 		else
 			message_admins("[key_name_admin(src)] has warned [warned_ckey] (DC). They have [MAX_WARNS-D.warns] strikes remaining.")

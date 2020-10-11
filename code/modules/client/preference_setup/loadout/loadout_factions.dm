@@ -1,6 +1,6 @@
 /datum/gear/faction
 	display_name = "idris cap"
-	path = /obj/item/clothing/head/soft/sec/idris
+	path = /obj/item/clothing/head/softcap/security/idris
 	slot = slot_head
 	sort_category = "Factions"
 	cost = 1
@@ -16,6 +16,11 @@
 	description = "Not for security usage."
 	path = /obj/item/clothing/under/rank/idris/service/alt
 	slot = slot_wear_suit
+	faction = "Idris Incorporated"
+
+/datum/gear/faction/idris_armband
+	display_name = "idris armband"
+	path = /obj/item/clothing/accessory/armband/idris
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/zavodskoi_beret
@@ -54,7 +59,7 @@
 
 /datum/gear/faction/eridani_cap
 	display_name = "eridani cap"
-	path = /obj/item/clothing/head/soft/eri
+	path = /obj/item/clothing/head/softcap/eri
 	slot = slot_head
 	faction = "Eridani Private Military Contractors"
 
@@ -105,7 +110,7 @@
 	display_name = "idris security sleeve patch"
 	path = /obj/item/clothing/accessory/sleevepatch/idrissec
 	faction = "Idris Incorporated"
-	allowed_roles = list("Security Officer","Detective")
+	allowed_roles = list("Security Officer","Detective", "Forensic Technician")
 
 /datum/gear/faction/heph_labcoat
 	display_name = "hephaestus labcoat"

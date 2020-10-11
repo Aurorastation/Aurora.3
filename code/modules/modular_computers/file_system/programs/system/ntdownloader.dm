@@ -226,7 +226,7 @@
 		finish_from_queue(active_download)
 		active_download = null
 		playsound(get_turf(computer), 'sound/machines/ping.ogg', 40, 0)
-		computer.output_message("\icon[computer] <b>[capitalize_first_letters(computer)]</b> pings, \"Software download completed successfully!\"", 1)
+		computer.output_message("[icon2html(computer, viewers(get_turf(computer)))] <b>[capitalize_first_letters(computer)]</b> pings, \"Software download completed successfully!\"", 1)
 
 	SSvueui.check_uis_for_change(src)
 	

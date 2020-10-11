@@ -2,8 +2,9 @@
 	name = "station intercom (General)"
 	desc = "Talk through this."
 	icon_state = "intercom"
-	anchored = 1
-	w_class = 4.0
+	anchored = TRUE
+	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
+	w_class = ITEMSIZE_LARGE
 	canhear_range = 2
 	flags = CONDUCT | NOBLOODY
 	var/number = 0

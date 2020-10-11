@@ -7,7 +7,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	force = 5
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
@@ -35,6 +35,7 @@
 	self_recharge = TRUE
 	recharge_time = 1.5
 	dispersion = list(3,6,9,12)
+	firemodes = list()
 
 /obj/item/gun/energy/blaster/revolver
 	name = "blaster revolver"
@@ -45,7 +46,7 @@
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	projectile_type = /obj/item/projectile/energy/blaster
 	max_shots = 8
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/gun/energy/blaster/revolver/verb/spin_cylinder()
 	set name = "Spin cylinder"
@@ -74,7 +75,7 @@
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	projectile_type = /obj/item/projectile/energy/blaster
 	slot_flags = SLOT_BELT
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/gun/energy/blaster/rifle
 	name = "bolt slinger"
@@ -87,10 +88,10 @@
 	projectile_type = /obj/item/projectile/energy/blaster/heavy
 
 	slot_flags = SLOT_BACK
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 
 	fire_delay = 25
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	accuracy = -3
 	scoped_accuracy = 4
 

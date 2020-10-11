@@ -12,6 +12,7 @@
 	composition_reagent = /datum/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
 	name = "diona nymph"
 	voice_name = "diona nymph"
+	accent = ACCENT_ROOTSONG
 	adult_form = /mob/living/carbon/human
 	speak_emote = list("chirrups")
 	icon = 'icons/mob/diona.dmi'
@@ -95,7 +96,7 @@
 		flower_color = get_random_colour(1)
 	. = ..(mapload)
 	//species = all_species[]
-	set_species("Diona")
+	set_species(SPECIES_DIONA)
 	setup_dionastats()
 	eat_types |= TYPE_ORGANIC
 	nutrition = 0 //We dont start with biomass
@@ -142,7 +143,7 @@
 /mob/living/carbon/alien/diona/proc/set_species(var/new_species)
 	if(!dna)
 		if(!new_species)
-			new_species = "Human"
+			new_species = SPECIES_HUMAN
 	else
 		if(!new_species)
 			new_species = dna.species
@@ -151,7 +152,7 @@
 
 	// No more invisible screaming wheelchairs because of set_species() typos.
 	if(!all_species[new_species])
-		new_species = "Human"
+		new_species = SPECIES_HUMAN
 
 	if(species)
 		if(species.name == new_species)

@@ -25,7 +25,7 @@
 	for(var/mob/living/carbon/M in viewers(T, flash_range))
 		if(M.eyecheck() < FLASH_PROTECTION_MODERATE)
 			M.confused = rand(5,15)
-			flick("e_flash", M.flash)
+			M.flash_eyes()
 		else if(affected_limb && M == A)
 			M.confused = rand(2, 7)
 			flick("flash", M.flash)
@@ -78,17 +78,14 @@
 /obj/item/projectile/energy/bolt
 	name = "bolt"
 	icon_state = "cbbolt"
-	damage = 10
-	damage_type = TOX
-	nodamage = 0
-	agony = 40
+	damage_type = PAIN
+	agony = 45
 	stutter = 10
-
 
 /obj/item/projectile/energy/bolt/large
 	name = "largebolt"
-	damage = 20
-
+	damage_type = PAIN
+	agony = 60
 
 /obj/item/projectile/energy/neurotoxin
 	name = "neuro"
@@ -146,33 +143,6 @@
 				continue
 			A.ex_act(2)
 			playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
-
-/obj/item/projectile/energy/tesla
-	name = "tesla bolt"
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "lightning1"
-	damage = 10
-	damage_type = BURN
-	pass_flags = PASSTABLE | PASSGRILLE
-	range = 40
-	embed = 0
-	speed = 1.5
-	light_range = 5
-	light_color = "#b5ff5b"
-
-/obj/item/projectile/energy/tesla/on_impact(atom/target)
-	. = ..()
-	if(isliving(target))
-		tesla_zap(target, 3, 5000)
-
-/obj/item/projectile/energy/tesla/master
-	damage = 15
-
-/obj/item/projectile/energy/tesla/grandmaster
-	damage = 20
-
-/obj/item/projectile/energy/tesla/paramount
-	damage = 25
 
 /obj/item/projectile/energy/gravitydisabler
 	name = "gravity disabler"
@@ -232,6 +202,18 @@
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 	muzzle_type = /obj/effect/projectile/muzzle/bolt
 	hit_effect = /obj/effect/temp_visual/blaster_effect
+
+/obj/item/projectile/energy/disruptorstun
+	name = "disruptor bolt"
+	icon_state = "blue_laser"
+	agony = 45
+	speed = 0.4
+	damage_type = PAIN // Can't blow your own head off with a stunbolt.
+	taser_effect = TRUE
+	eyeblur = TRUE
+	pass_flags = PASSTABLE
+	muzzle_type = /obj/effect/projectile/muzzle/bolt
+
 
 /obj/item/projectile/energy/blaster/heavy
 	damage = 35

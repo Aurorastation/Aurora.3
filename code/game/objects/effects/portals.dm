@@ -1,6 +1,6 @@
 /obj/effect/portal
 	name = "portal"
-	desc = "Looks unstable. Best to test it carefully."
+	desc = "A bluespace tear in space, reaching directly to another point within this region. Looks unstable. Best to test it carefully."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "portal"
 	density = TRUE
@@ -8,61 +8,69 @@
 	var/does_teleport = TRUE // Some portals might just be visual
 	var/has_lifespan = TRUE // Whether we want to directly control the lifespan or not
 	var/failchance = 5
+	var/has_failed = FALSE
 	var/obj/target
 	var/creator
-	var/precision = TRUE
+	var/precision = 1
 	anchored = TRUE
 
-/obj/effect/portal/CollidedWith(mob/M as mob|obj)
-	set waitfor = FALSE
+/obj/effect/portal/Initialize(mapload, turf/set_target, set_creator, lifespan = 300, precise = 1)
+	. = ..()
 
-	if(does_teleport)
-		src.teleport(M)
-
-/obj/effect/portal/Crossed(AM as mob|obj)
-	set waitfor = FALSE
-
-	if(does_teleport)
-		src.teleport(AM)
-
-/obj/effect/portal/attack_hand(mob/user as mob)
-	set waitfor = FALSE
-
-	if(does_teleport)
-		src.teleport(user)
-
-/obj/effect/portal/New(loc, turf/target, creator=null, lifespan=300, precise = 1)
-	..()
-	if(target)
-		src.target = target
-	if(creator)
-		src.creator = creator
-
+	if(set_target)
+		target = set_target
+	if(set_creator)
+		creator = set_creator
 	if(has_lifespan && lifespan > 0)
 		QDEL_IN(src, lifespan)
+	if(prob(failchance))
+		has_failed = TRUE
 
 	precision = precise
 
-/obj/effect/portal/proc/teleport(atom/movable/M as mob|obj)
+/obj/effect/portal/CollidedWith(mob/M)
+	set waitfor = FALSE
+
+	if(does_teleport)
+		teleport(M)
+
+/obj/effect/portal/Crossed(AM)
+	set waitfor = FALSE
+
+	if(does_teleport)
+		teleport(AM)
+
+/obj/effect/portal/attack_hand(mob/user)
+	set waitfor = FALSE
+
+	if(does_teleport)
+		teleport(user)
+
+/obj/effect/portal/proc/teleport(atom/movable/M)
 	if(!does_teleport) // just to be safe
 		return
 	if(istype(M, /obj/effect)) //sparks don't teleport
 		return
-	if (icon_state == "portal1")
-		return
-	if (!( target ))
+	if(!target)
 		qdel(src)
 		return
-	if (istype(M, /atom/movable))
-		if(prob(failchance)) //oh dear a problem, put em in deep space
-			src.icon_state = "portal1"
+	if(istype(M, /atom/movable))
+		if(has_failed) //oh dear a problem, put em in deep space
+			icon_state = "portal1" // only tell people the portal failed after a teleport has been done
+			desc = "A bluespace tear in space, reaching directly to another point within this region. Definitely unstable."
 			do_teleport(M, locate(rand(5, world.maxx - 5), rand(5, world.maxy -5), 3), 0)
 		else
 			do_teleport(M, target, precision)
 
+/obj/effect/portal/Destroy()
+	if(istype(creator, /obj/item/hand_tele))
+		var/obj/item/hand_tele/HT = creator
+		HT.remove_portal(src)
+	return ..()
+
 /obj/effect/portal/spawner
 	name = "portal"
-	desc = "Looks like a one-way portal, don't come too close."
+	desc = "A bluespace tear in space, reaching directly to another point within this region. This one looks like a one-way portal to here, don't come too close."
 	desc_info = "This portal is a spawner portal. You cannot enter it to teleport, but it will periodically spawn things."
 	does_teleport = FALSE
 	has_lifespan = FALSE
@@ -114,7 +122,8 @@
 	spawn_things = list(
 				"/obj/item/stack/material/gold" = 2,
 				"/obj/item/stack/material/silver" = 2,
-				"/obj/item/stack/material/uranium" = 2
+				"/obj/item/stack/material/uranium" = 2,
+				"/obj/item/stack/material/diamond" = 1
 					   )
 
 /obj/effect/portal/spawner/phoron

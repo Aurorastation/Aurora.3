@@ -10,7 +10,7 @@
 	armor = list(melee = 40, bullet = 20, laser = 20,energy = 20, bomb = 35, bio = 100, rad = 60)
 	siemens_coefficient = 0.35
 	wizard_garb = 1
-	species_restricted = list("Human", "Heavy Machine", "Skeleton", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_SKELETON, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
 
 /obj/item/clothing/head/helmet/space/void/wizard/equipped(var/mob/living/user)
 	if(!user.is_wizard())
@@ -39,13 +39,13 @@
 		slot_r_hand_str = "wiz_hardsuit"
 	)
 	slowdown = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	unacidable = 1
 	armor = list(melee = 40, bullet = 20, laser = 20,energy = 20, bomb = 35, bio = 100, rad = 60)
 	siemens_coefficient = 0.35
 	wizard_garb = 1
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/teleportation_scroll,/obj/item/scrying,/obj/item/spellbook,/obj/item/device/soulstone,/obj/item/material/knife/ritual)
-	species_restricted = list("Human", "Skrell", "Heavy Machine", "Skeleton", "Zeng-Hu Mobility Frame", "Bishop Accessory Frame")
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_SKELETON, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
 
 /obj/item/clothing/suit/space/void/wizard/equipped(var/mob/living/user)
 	if(!user.is_wizard())

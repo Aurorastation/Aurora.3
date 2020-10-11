@@ -153,7 +153,7 @@
 				H.apply_effect((rand(30,80)),IRRADIATE,blocked = H.getarmor(null, "rad"))
 				M.Weaken(5)
 				for (var/mob/V in viewers(src))
-					V.show_message("<span class='warning'>[M] writhes in pain as \his vacuoles boil.</span>", 3, "<span class='warning'>You hear the crunching of leaves.</span>", 2)
+					V.show_message("<span class='warning'>[M] writhes in pain as [M.get_pronoun("his")] vacuoles boil.</span>", 3, "<span class='warning'>You hear the crunching of leaves.</span>", 2)
 			if(prob(35))
 			//	for (var/mob/V in viewers(src)) //Public messages commented out to prevent possible metaish genetics experimentation and stuff. - Cheridan
 			//		V.show_message("\red [M] is mutated by the radiation beam.", 3, "\red You hear the snapping of twigs.", 2)
@@ -267,7 +267,7 @@
 /obj/item/projectile/magic/teleport/on_hit(var/atom/hit_atom)
 	var/turf/T = get_turf(hit_atom)
 	single_spark(T)
-	playsound(src.loc, "sparks", 50, 1)
+	playsound(src.loc, /decl/sound_category/spark_sound, 50, 1)
 	if(isliving(hit_atom))
 		blink_mob(hit_atom)
 	return ..()

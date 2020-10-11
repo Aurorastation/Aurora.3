@@ -11,7 +11,7 @@
 	item_state = "paper"
 	contained_sprite = 1
 	throwforce = 0
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	throw_range = 1
 	throw_speed = 1
 	layer = 4
@@ -316,8 +316,8 @@
 	if(!use_check_and_message(user))
 		if(istype(P, /obj/item/flame/lighter/zippo))
 			class = "rose"
-			
-		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
+
+		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like [user.get_pronoun("he")]'s trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
 		if(icon_state == "scrap")

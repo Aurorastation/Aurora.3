@@ -331,7 +331,7 @@
 /turf/simulated/floor/tiled,
 /area/security/range)
 "aaS" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1454,19 +1454,6 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/plating,
 /area/security/main)
-"acK" = (
-/obj/structure/grille,
-/obj/machinery/door/firedoor,
-/obj/structure/window/reinforced/polarized{
-	dir = 1;
-	id = "RD"
-	},
-/obj/structure/window/reinforced/polarized{
-	dir = 8;
-	id = "RD"
-	},
-/turf/simulated/floor/plating,
-/area/rnd/research)
 "acL" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 8
@@ -3379,6 +3366,19 @@
 	},
 /turf/simulated/wall/r_wall,
 /area/crew_quarters/heads/hos)
+"ags" = (
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/polarized{
+	dir = 1;
+	id = "RD"
+	},
+/obj/structure/window/reinforced/polarized{
+	dir = 8;
+	id = "RD"
+	},
+/turf/simulated/floor/plating,
+/area/rnd/research)
 "agt" = (
 /obj/structure/grille,
 /obj/structure/cable/green{
@@ -8028,7 +8028,7 @@
 "aoK" = (
 /obj/structure/window/reinforced,
 /obj/machinery/door/window/westright,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -11651,15 +11651,17 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/microwave,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "awj" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
-/obj/item/storage/box/donkpockets{
-	pixel_x = -3;
-	pixel_y = -3
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
 	},
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -11667,7 +11669,7 @@
 /obj/structure/table/standard,
 /obj/item/material/minihoe,
 /obj/item/device/analyzer/plant_analyzer,
-/obj/item/clothing/head/greenbandana,
+/obj/item/clothing/head/bandana/hydro,
 /turf/simulated/floor/tiled,
 /area/security/prison)
 "awl" = (
@@ -11687,7 +11689,6 @@
 /obj/structure/closet{
 	name = "Prisoner's Locker"
 	},
-/obj/item/clothing/head/soft/orange,
 /obj/item/clothing/shoes/sandal,
 /turf/simulated/floor/tiled,
 /area/security/prison)
@@ -23960,17 +23961,13 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
 "aUq" = (
-/obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -3;
-	pixel_y = 6
-	},
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
 	},
+/obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
 "aUr" = (
@@ -26014,7 +26011,7 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
 "aYy" = (
-/obj/item/clothing/head/soft/grey{
+/obj/item/clothing/head/softcap{
 	pixel_x = -2;
 	pixel_y = 3
 	},
@@ -26496,16 +26493,16 @@
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
 "aZe" = (
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = 5
 	},
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/white/diagonal{
 	dir = 4
+	},
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
 	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/kitchen)
@@ -33183,7 +33180,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/starboard)
 "blU" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -33192,7 +33189,7 @@
 /obj/structure/sign/securearea{
 	pixel_x = 32
 	},
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -33531,7 +33528,7 @@
 /turf/simulated/wall,
 /area/quartermaster/office)
 "bmE" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -35273,12 +35270,12 @@
 /area/maintenance/locker)
 "bqe" = (
 /obj/structure/table/standard,
-/obj/item/clothing/head/soft/yellow,
+/obj/item/clothing/head/softcap/cargo,
 /obj/item/stamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/clothing/head/soft/yellow,
+/obj/item/clothing/head/softcap/cargo,
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "bqf" = (
@@ -36300,7 +36297,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -39147,7 +39144,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -39901,7 +39898,7 @@
 /turf/simulated/floor/plating,
 /area/quartermaster/loading)
 "byw" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -42448,7 +42445,7 @@
 	opacity = 1
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -43464,7 +43461,7 @@
 /area/quartermaster/loading)
 "bEJ" = (
 /obj/machinery/light,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -43624,7 +43621,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_three)
 "bEZ" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -70170,26 +70167,6 @@
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
-"cDh" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/obj/item/storage/box/donkpockets{
-	pixel_x = 3;
-	pixel_y = 3
-	},
-/turf/simulated/floor/tiled/white,
-/area/maintenance/medbay)
-"cDi" = (
-/obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -3;
-	pixel_y = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/maintenance/medbay)
 "cDj" = (
 /obj/machinery/power/apc{
 	dir = 4;
@@ -70855,15 +70832,13 @@
 /area/engineering/engine_monitoring)
 "cEz" = (
 /obj/structure/table/standard,
-/obj/machinery/microwave{
-	pixel_x = -2;
-	pixel_y = 5
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
 "cEA" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/donkpockets,
 /obj/machinery/status_display{
 	layer = 4;
 	pixel_y = 32
@@ -71066,6 +71041,10 @@
 /area/maintenance/medbay)
 "cES" = (
 /obj/structure/table/standard,
+/obj/item/storage/box/snack{
+	desc = "A box full of snack foods. A label is attached that reads, 'Sorry about the microwaves.'";
+	name = "corporate care package"
+	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay)
 "cET" = (
@@ -75201,6 +75180,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/medical/psych)
+"lhy" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/maintenance/medbay)
 "ljp" = (
 /obj/structure/bed/chair,
 /obj/effect/landmark/start{
@@ -116198,10 +116181,10 @@ cmi
 cmi
 cDf
 cEe
-cES
+lhy
 cvn
 cGm
-cES
+lhy
 cFm
 aaa
 aaa
@@ -116455,10 +116438,10 @@ cAU
 cBY
 cDg
 cEe
-cES
+lhy
 cvn
 cER
-cES
+lhy
 clX
 aaa
 aaa
@@ -116715,7 +116698,7 @@ cEd
 cER
 cvn
 cER
-cES
+lhy
 clX
 aaa
 aaa
@@ -116967,12 +116950,12 @@ czd
 czU
 cAW
 cCa
-cDh
+cvn
 czX
 cvn
 cvn
 cER
-cES
+lhy
 clX
 aaa
 aaa
@@ -117224,12 +117207,12 @@ cze
 cmi
 cmi
 cmi
-cDi
+cES
 cEf
 cET
 cFy
 cGn
-cES
+lhy
 cvh
 aaa
 aaa
@@ -123609,7 +123592,7 @@ bwz
 bzD
 bBt
 bCI
-acK
+ags
 bFZ
 bFZ
 bJa

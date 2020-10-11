@@ -156,7 +156,7 @@
 		return
 	if(istype(A,/mob/living))
 		if(melee_damage_upper == 0)
-			custom_emote(1,"[friendly] [A]!")
+			custom_emote(VISIBLE_MESSAGE,"[friendly] [A]!")
 			return
 		if(ckey)
 			add_logs(src, A, attacktext)

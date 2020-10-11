@@ -266,13 +266,6 @@
 
 #define DEBUG_REF(D) (D ? "\ref[D]|[D] ([D.type])" : "NULL")
 
-//Recipe type defines. Used to determine what machine makes them
-#define MICROWAVE			0x1
-#define FRYER				0x2
-#define OVEN				0x4
-#define CANDYMAKER			0x8
-#define CEREALMAKER			0x10
-
 // MultiZAS directions.
 #define NORTHUP (NORTH|UP)
 #define EASTUP (EAST|UP)
@@ -340,6 +333,7 @@
 #define CARGO_CONTAINER_CRATE "crate"
 #define CARGO_CONTAINER_FREEZER "freezer"
 #define CARGO_CONTAINER_BOX "box"
+#define CARGO_CONTAINER_BODYBAG "bodybag"
 
 // We should start using these.
 #define ITEMSIZE_TINY   1
@@ -347,6 +341,7 @@
 #define ITEMSIZE_NORMAL 3
 #define ITEMSIZE_LARGE  4
 #define ITEMSIZE_HUGE   5
+#define ITEMSIZE_IMMENSE 6
 
 // getFlatIcon function altering defines
 #define GFI_ROTATION_DEFAULT 0 //Don't do anything special
@@ -429,3 +424,30 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 
 //Lying animation
 #define ANIM_LYING_TIME 2
+
+// Cooking appliances.
+#define MIX					1 << 0
+#define FRYER				1 << 1
+#define OVEN				1 << 2
+#define SKILLET				1 << 3
+#define SAUCEPAN			1 << 4
+#define POT					1 << 5
+#define GRILL				1 << 6
+
+// Cooking misc.
+// can_insert return values
+#define CANNOT_INSERT		0
+#define CAN_INSERT			1
+#define INSERT_GRABBED		2
+// check_contents return values
+#define CONTAINER_EMPTY		0
+#define CONTAINER_SINGLE	1
+#define CONTAINER_MANY		2
+//Misc text define. Does 4 spaces. Used as a makeshift tabulator.
+#define FOURSPACES "&nbsp;&nbsp;&nbsp;&nbsp;"
+#define CLIENT_FROM_VAR(I) (ismob(I) ? I:client : (isclient(I) ? I : (istype(I, /datum/mind) ? I:current?:client : null)))
+
+// check_items/check_reagents/check_fruits return values
+#define COOK_CHECK_FAIL		-1
+#define COOK_CHECK_EXTRA	0
+#define COOK_CHECK_EXACT	1

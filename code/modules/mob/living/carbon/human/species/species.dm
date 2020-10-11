@@ -45,7 +45,6 @@
 	var/icon/icon_template                               // Used for mob icon generation for non-32x32 species.
 	var/mob_size	= MOB_MEDIUM
 	var/show_ssd = "fast asleep"
-	var/virus_immune
 	var/short_sighted
 	var/bald = 0
 	var/light_range
@@ -160,6 +159,8 @@
 	var/datum/hud_data/hud
 	var/hud_type
 	var/health_hud_intensity = 1
+	var/healths_x // set this to specify where exactly the healths HUD element appears
+	var/healths_overlay_x = 0 // set this to tweak where the overlays on top of the healths HUD element goes
 
 	// Body/form vars.
 	var/list/inherent_verbs 	  // Species-specific verbs.
@@ -234,14 +235,18 @@
 	var/default_f_style = "Shaved"
 
 	var/list/allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_ELYRA, CITIZENSHIP_ERIDANI, CITIZENSHIP_DOMINIA)
-	var/list/allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_MOROZ, RELIGION_TRINARY, RELIGION_SCARAB)
+	var/list/allowed_religions = list(RELIGION_NONE, RELIGION_OTHER, RELIGION_CHRISTIANITY, RELIGION_ISLAM, RELIGION_JUDAISM, RELIGION_HINDU, RELIGION_BUDDHISM, RELIGION_MOROZ, RELIGION_TRINARY, RELIGION_SCARAB, RELIGION_TAOISM)
 	var/default_citizenship = CITIZENSHIP_BIESEL
 	var/list/allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_MARTIAN, ACCENT_LUNA, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI,
-									ACCENT_ERIDANIDREG, ACCENT_VYSOKA, ACCENT_HIMEO, ACCENT_PHONG, ACCENT_SILVERSUN, ACCENT_DOMINIA, ACCENT_KONYAN)
+									ACCENT_ERIDANIDREG, ACCENT_VYSOKA, ACCENT_HIMEO, ACCENT_PHONG, ACCENT_SILVERSUN, ACCENT_DOMINIA, ACCENT_KONYAN, ACCENT_EUROPA, ACCENT_EARTH, ACCENT_DEEPFRONTIER, ACCENT_FISANDUH, ACCENT_GADPATHUR)
 	var/default_accent = ACCENT_CETI
 	var/zombie_type	//What zombie species they become
 	var/list/character_color_presets
-	var/bodyfall_sound = "bodyfall" //default, can be used for species specific falling sounds
+	var/bodyfall_sound = /decl/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
+
+	var/have_vision_cone = TRUE //Vision cone.
+
+	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -365,28 +370,15 @@
 			I.status |= ORGAN_ADV_ROBOT
 
 /datum/species/proc/tap(var/mob/living/carbon/human/H,var/mob/living/target)
-	var/t_his = "their"
-	switch(target.gender)
-		if(MALE)
-			t_his = "his"
-		if(FEMALE)
-			t_his = "her"
-	var/t_him = "them"
-	switch(target.gender)
-		if(MALE)
-			t_him = "him"
-		if(FEMALE)
-			t_him = "her"
-
 	if(H.on_fire)
 		target.fire_stacks += 1
 		target.IgniteMob()
-		H.visible_message("<span class='danger'>[H] taps [target], setting [t_him] ablaze!</span>", \
-						"<span class='warning'>You tap [target], setting [t_him] ablaze!</span>")
+		H.visible_message("<span class='danger'>[H] taps [target], setting [target.get_pronoun("his")] ablaze!</span>", \
+						"<span class='warning'>You tap [target], setting [target.get_pronoun("him")] ablaze!</span>")
 		msg_admin_attack("[key_name(H)] spread fire to [target.name] ([target.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(target))
 	else
-		H.visible_message("<span class='notice'>[H] taps [target] to get [t_his] attention!</span>", \
-						"<span class='notice'>You tap [target] to get [t_his] attention!</span>")
+		H.visible_message("<span class='notice'>[H] taps [target] to get [target.get_pronoun("his")] attention!</span>", \
+						"<span class='notice'>You tap [target] to get [target.get_pronoun("his")] attention!</span>")
 
 /datum/species/proc/remove_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)
@@ -395,7 +387,9 @@
 
 	if(inherent_spells)
 		for(var/spell_path in inherent_spells)
-			H.remove_spell(spell_path)
+			for(var/spell/spell in H.spell_list)
+				if(istype(spell, spell_path))
+					H.remove_spell(spell)
 	return
 
 /datum/species/proc/add_inherent_verbs(var/mob/living/carbon/human/H)
@@ -491,19 +485,17 @@
 	if(H.equipment_tint_total >= TINT_BLIND)
 		H.eye_blind = max(H.eye_blind, 1)
 
-	if(H.blind)
-		H.blind.invisibility = (H.eye_blind ? 0 : 101)
-
 	if(!H.client)//no client, no screen to update
 		return 1
 
+	H.set_fullscreen(H.eye_blind && !H.equipment_prescription, "blind", /obj/screen/fullscreen/blind)
+	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
+
 	if(config.welder_vision)
-		if(short_sighted || (H.equipment_tint_total >= TINT_HEAVY))
-			H.client.screen += global_hud.darkMask
-		else if((!H.equipment_prescription && (H.disabilities & NEARSIGHTED)) || H.equipment_tint_total == TINT_MODERATE)
-			H.client.screen += global_hud.vimpaired
-	if(H.eye_blurry)
-		H.client.screen += global_hud.blurry
+		H.set_fullscreen(H.equipment_tint_total, "welder", /obj/screen/fullscreen/impaired, H.equipment_tint_total)
+	var/how_nearsighted = get_how_nearsighted(H)
+	H.set_fullscreen(how_nearsighted, "nearsighted", /obj/screen/fullscreen/oxy, how_nearsighted)
+	H.set_fullscreen(H.eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
 
 	if(H.druggy)
 		H.client.screen += global_hud.druggy
@@ -516,6 +508,14 @@
 		H.client.screen |= overlay
 
 	return 1
+
+/datum/species/proc/get_how_nearsighted(var/mob/living/carbon/human/H)
+	var/prescriptions = short_sighted
+	if(H.disabilities & NEARSIGHTED)
+		prescriptions += 7
+	if(H.equipment_prescription)
+		prescriptions -= H.equipment_prescription
+	return Clamp(prescriptions, 0, 7)
 
 /datum/species/proc/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
 	if (!H.exhaust_threshold)
@@ -557,13 +557,13 @@
 	H.adjustHalLoss(remainder*0.25)
 	H.updatehealth()
 	if((H.get_shock() >= 10) && prob(H.get_shock() *2))
-		H.flash_pain()
+		H.flash_pain(H.get_shock())
 
 	if ((H.get_shock() + H.getOxyLoss()) >= (exhaust_threshold * 0.8))
 		H.m_intent = "walk"
 		H.hud_used.move_intent.update_move_icon(H)
 		to_chat(H, SPAN_DANGER("You're too exhausted to run anymore!"))
-		H.flash_pain()
+		H.flash_pain(H.get_shock())
 		return 0
 
 	H.hud_used.move_intent.update_move_icon(H)

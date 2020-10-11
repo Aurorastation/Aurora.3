@@ -55,23 +55,17 @@
 	icon = 'icons/clothing/suits/coats/dominia_noble_red.dmi'
 	icon_state = "dominia_noble_red"
 	item_state = "dominia_noble_red"
-	icon_open = "dominia_noble_red_open"
-	icon_closed = "dominia_noble_red"
 	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/toggle/dominia/gold
 	icon = 'icons/clothing/suits/coats/dominia_noble_gold.dmi'
 	icon_state = "dominia_noble_gold"
 	item_state = "dominia_noble_gold"
-	icon_open = "dominia_noble_gold_open"
-	icon_closed = "dominia_noble_gold"
 
 /obj/item/clothing/suit/storage/toggle/dominia/black
 	icon = 'icons/clothing/suits/coats/dominia_noble_black.dmi'
 	icon_state = "dominia_noble_black"
 	item_state = "dominia_noble_black"
-	icon_open = "dominia_noble_black_open"
-	icon_closed = "dominia_noble_black"
 
 /obj/item/clothing/suit/storage/toggle/dominia/bomber
 	name = "dominia bomber jacket"
@@ -79,8 +73,6 @@
 	icon = 'icons/clothing/suits/coats/dominia_bomber.dmi'
 	icon_state = "dominia_bomber"
 	item_state = "dominia_bomber"
-	icon_open = "dominia_bomber_open"
-	icon_closed = "dominia_bomber"
 
 /obj/item/clothing/under/dominia
 	name = "dominia suit"
@@ -267,5 +259,92 @@
 	icon = 'icons/clothing/under/uniforms/dominia_summer_dress.dmi'
 	icon_state = "dom_dress"
 	item_state = "dom_dress"
+
+/obj/item/clothing/accessory/poncho/dominia/red/surcoat
+	name = "tribunalist surcoat"
+	desc = "A simple red surcoat commonly worn by Dominian clergy members."
+	desc_fluff = "Spun with rough but hardy fabrics from the Dominian frontier, this surcoat is commonly worn by poorer Tribunal clergy as well as missionaries\
+	seeking protection from the elements. This garment was popularized by the Kael'kah sect and remains respected as a symbol of humility and poverty amongst priests."
+	icon = 'icons/clothing/suits/capes/dominia_surcoat.dmi'
+	icon_state = "dominian_surcoat"
+	item_state = "dominian_surcoat"
+	overlay_state = "dominian_surcoat"
+	icon_override = null
+
+/obj/item/clothing/accessory/poncho/dominia/red/double
+	name = "tribunalist's full cape"
+	desc = "This is a large cape in the style of Dominian clergy. The symbol of 'The Eye' of the Tribunal is present on both the front and the back."
+	desc_fluff = "This style of cape is among the most flashy and ornate of the Tribunal's garb. Its weight and impracticality of use means that \
+	it is often only worn by clergy of high station and on special occasions. Lower ranking members of the Tribunal or those who wear it frequently \
+	are often frowned upon as arrogant and vain."
+	icon = 'icons/clothing/suits/capes/dominia_doublecape.dmi'
+	icon_state = "dominian_doublecape"
+	item_state = "dominian_doublecape"
+	overlay_state = "dominian_doublecape"
+	icon_override = null
+
+/obj/item/clothing/accessory/poncho/dominia/red
+	name = "tribunalist cape"
+	desc = "This is a cape in the style of Dominian clergy. The red differentiates the clergy from the nobility who wear traditionally black capes."
+	desc_fluff = "Dominian priests and priestesses are traditionally expected to wear red or golden clothing when discharging \
+	their duties. Capes are worn as both a fashion statement to attract the attention of crowds and as a simple form of protection\
+	against the elements."
+	icon = 'icons/clothing/suits/capes/dominia_red.dmi'
+	icon_state = "dominian_cape_red"
+	item_state = "dominian_cape_red"
+	overlay_state = "dominian_cape_red"
+	contained_sprite = TRUE
+	icon_override = null
+
+/obj/item/clothing/under/dominia/initiate
+	name = "tribunal initiate's robe"
+	desc = "A simple white robe with red trim and a red sash to fasten it. It's commonly worn by initiates of the Moroz Holy Tribunal."
+	desc_fluff = "While the most obvious purpose of an initiate’s red-and-white robe is to show that the hopeful clergy member is pure in mind and body, \
+	the stark whites of the robe also show when an initiate has neglected their appearance. The white robes must be constantly maintained and washed in order to \
+	maintain their pristine appearance, lest an initiate be found neglectful."
+	icon = 'icons/clothing/under/uniforms/dominia_initiate.dmi'
+	icon_state = "dominia_initiate"
+	item_state = "dominia_initiate"
+	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
+
+/obj/item/clothing/under/dominia/priest
+	name = "tribunalist's robe"
+	desc = "A high-quality robe woven in black fabric with a golden trim with a red sash to fasten it. It's commonly worn by priests of the Moroz Holy Tribunal."
+	desc_fluff = "The black and gold robes of Imperial priests and priestesses have been deliberately designed by House Caladius to resemble the coats commonly \
+	worn by Dominian nobility, in order to demonstrate the importance of Dominia’s priestly classes. Each robe is tailor-made to fit an initiate upon their \
+	successful ascension to full member of the clergy, and they are expected to care for their robes throughout their lives. The loss of one’s robe is \
+	considered a major embarrassment both for the individual and their church."
+	icon = 'icons/clothing/under/uniforms/dominia_priest.dmi'
+	icon_state = "dominia_priest"
+	item_state = "dominia_priest"
+	slot_flags = SLOT_OCLOTHING | SLOT_ICLOTHING
+
+/obj/item/clothing/head/softcap/dominia
+	name = "tribunal initiate’s beret"
+	desc = "A simple red beret with a golden badge marking its wearer as an initiate of the Moroz Holy Tribunal."
+	desc_fluff = " While initiates dress humbly in white and red clothing, this does not mean that House Caladius - the primary source of the Holy Tribunal’s \
+	funding - spares any expenses funding them, and these berets are made of luxurious velvet."
+	icon = 'icons/clothing/head/dominia_beret.dmi'
+	icon_state = "dominia_beret"
+	item_state = "dominia_beret"
 	contained_sprite = TRUE
 
+/obj/item/clothing/head/softcap/dominia/priest
+	name = "tribunalist’s beret"
+	desc = " black beret bearing the sigil of the Moroz Holy Tribunal on its front. Worn by full members of the Tribunal’s clergy."
+	desc_fluff = "With their black and gold clothing designed to resemble that of their noble counterparts, the full clergy of the Moroz Holy Tribunal \
+	are a sight to behold both inside and outside of the Empire of Dominia. This beret features an emblem luxuriously and painstakingly crafted out of real gold."
+	icon = 'icons/clothing/head/dominia_beret_priest.dmi'
+	icon_state = "dominia_beret_priest"
+	item_state = "dominia_beret_priest"
+
+/obj/item/clothing/accessory/dominia
+	name = "tribunal necklace"
+	desc = "An amulet depicting 'The Eye', a prominent symbol of the Moroz Holy Tribunal worn by its clergy and layfolk alike."
+	desc_fluff = "One of the most prominent symbols of the Moroz Holy Tribunal is 'The Eye', with the square representing the four corners of the universe and the central 'eye' being the \
+	Tribunal that watches all. Necklaces and amulets made from this symbol often have the eye being able to rotate. Although there is no official stance, others argue that necklaces should be made \
+	from bare metal to represent how the Tribunal sees the unvarnished truth, while others insist that they must be made from gold to glorify the religion."
+	icon = 'icons/clothing/accessories/dominia_amulet.dmi'
+	item_state = "dominia_amulet"
+	icon_state = "dominia_amulet"
+	contained_sprite = TRUE

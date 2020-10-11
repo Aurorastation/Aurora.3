@@ -24,6 +24,13 @@
 
 	amt_dam_fire = 10
 
+/spell/targeted/projectile/magic_missile/choose_prox_targets(mob/user = usr, var/atom/movable/spell_holder)
+	var/list/targets = ..()
+	for(var/mob/living/target in targets)
+		if(target.is_wizard())
+			targets -= target
+	return targets
+
 /spell/targeted/projectile/magic_missile/prox_cast(var/list/targets, atom/spell_holder)
 	spell_holder.visible_message("<span class='danger'>\The [spell_holder] pops with a flash!</span>")
 	for(var/mob/living/M in targets)

@@ -7,7 +7,7 @@
 	var/uid                        // Unique identifier.
 	var/name                       // Index for global list.
 	var/seed_name                  // Plant name for seed packet.
-	var/seed_noun = "seeds"        // Descriptor for packet.
+	var/seed_noun = SEED_NOUN_SEEDS        // Descriptor for packet.
 	var/display_name               // Prettier name.
 	var/roundstart                 // If set, seed will not display variety number.
 	var/mysterious                 // Only used for the random seed packets.
@@ -21,8 +21,9 @@
 	var/kitchen_tag                // Used by the reagent grinder.
 	var/trash_type                 // Garbage item produced when eaten.
 	var/splat_type = /obj/effect/decal/cleanable/fruit_smudge // Graffiti decal.
-	var/has_mob_product
+	var/product_type = /obj/item/reagent_containers/food/snacks/grown
 	var/force_layer
+	var/hydrotray_only
 
 /datum/seed/proc/setup_traits()
 
@@ -328,14 +329,50 @@
 
 	return impact
 
+/datum/seed/proc/generate_name()
+	var/prefix = ""
+	var/name = ""
+	if(prob(50)) //start with a prefix.
+		//These are various plant/mushroom genuses.
+		//I realize these might not be entirely accurate, but it could facilitate RP.
+		var/list/possible_prefixes
+		if(seed_noun == SEED_NOUN_CUTTINGS || seed_noun == SEED_NOUN_SEEDS || (seed_noun == SEED_NOUN_NODES && prob(50)))
+			possible_prefixes = list("amelanchier", "saskatoon",
+										"magnolia", "angiosperma", "osmunda", "scabiosa", "spigelia", "psydrax", "chastetree",
+										"strychnos", "treebine", "caper", "justica", "ragwortus", "everlasting", "combretum",
+										"loganiaceae", "gelsemium", "logania", "sabadilla", "neuburgia", "canthium", "rytigynia",
+										"chaste", "vitex", "cissus", "capparis", "senecio", "curry", "cycad", "liverwort", "charophyta",
+										"glaucophyte", "pinidae", "vascular", "embryophyte", "lillopsida")
+		else
+			possible_prefixes = list("bisporus", "bitorquis", "campestris", "crocodilinus", "agaricus",
+									"armillaria", "matsutake", "mellea", "ponderosa", "auricularia", "auricala",
+									"polytricha", "boletus", "badius", "edulis", "mirabilis", "zelleri",
+									"calvatia", "gigantea", "clitopilis", "prumulus", "entoloma", "abortivum",
+									"suillus", "tuber", "aestivum", "volvacea", "delica", "russula", "rozites")
+		possible_prefixes |= list("butter", "shad", "sugar", "june", "wild", "rigus", "curry", "hard", "soft", "dark", "brick", "stone", "red", "brown",
+								"black", "white", "paper", "slippery", "honey", "bitter")
+		prefix = pick(possible_prefixes)
+	var/num = rand(2,5)
+	var/list/possible_name = list("rhon", "cus", "quam", "met", "eget", "was", "reg", "zor", "fra", "rat", "sho", "ghen", "pa",
+								"eir", "lip", "sum", "lor", "em", "tem", "por", "invi", "dunt", "ut", "la", "bore", "mag", "na",
+								"al", "i", "qu", "yam", "er", "at", "sed", "di", "am", "vol", "up", "tua", "at", "ve", "ro", "eos",
+								"et", "ac", "cus")
+	for(var/i in 1 to num)
+		var/syl = pick(possible_name)
+		possible_name -= syl
+		name += syl
+	if(prefix)
+		name = "[prefix] [name]"
+	seed_name = name
+	display_name = name
+	display_name = "[name] plant"
+
 //Creates a random seed. MAKE SURE THE LINE HAS DIVERGED BEFORE THIS IS CALLED.
 /datum/seed/proc/randomize()
+	roundstart = FALSE
+	mysterious = TRUE
 
-	roundstart = 0
-	seed_name = "strange plant"     // TODO: name generator.
-	display_name = "strange plants" // TODO: name generator.
-	mysterious = 1
-	seed_noun = pick("spores","nodes","cuttings","seeds")
+	seed_noun = pick(SEED_NOUN_SEEDS, SEED_NOUN_PITS, SEED_NOUN_NODES, SEED_NOUN_CUTTINGS)
 
 	set_trait(TRAIT_POTENCY,rand(5,30),200,0)
 	set_trait(TRAIT_PRODUCT_ICON,pick(SSplants.plant_product_sprites))
@@ -386,6 +423,7 @@
 			/datum/reagent/alkysine,
 			/datum/reagent/aslimetoxin,
 			/datum/reagent/bicaridine,
+			/datum/reagent/butazoline,
 			/datum/reagent/blood,
 			/datum/reagent/cryoxadone,
 			/datum/reagent/cryptobiolin,
@@ -399,7 +437,6 @@
 			/datum/reagent/impedrezene,
 			/datum/reagent/mercury,
 			/datum/reagent/mindbreaker,
-			/datum/reagent/slimetoxin,
 			/datum/reagent/inaprovaline,
 			/datum/reagent/peridaxon,
 			/datum/reagent/toxin/phoron,
@@ -485,6 +522,8 @@
 	set_trait(TRAIT_YIELD,rand(3,15))
 	set_trait(TRAIT_MATURATION,rand(5,15))
 	set_trait(TRAIT_PRODUCTION,get_trait(TRAIT_MATURATION)+rand(2,5))
+
+	generate_name()
 
 //Returns a key corresponding to an entry in the global seed list.
 /datum/seed/proc/get_mutant_variant()
@@ -609,8 +648,8 @@
 			consume_gasses |= new_gasses
 			gene.values["[TRAIT_CONSUME_GASSES]"] = null
 		if(GENE_METABOLISM)
-			has_mob_product = gene.values["mob_product"]
-			gene.values["mob_product"] = null
+			product_type = gene.values["product_type"]
+			gene.values["product_type"] = null
 
 	for(var/trait in gene.values)
 		set_trait(trait,gene.values["[trait]"])
@@ -639,7 +678,7 @@
 		if(GENE_HARDINESS)
 			traits_to_copy = list(TRAIT_TOXINS_TOLERANCE,TRAIT_PEST_TOLERANCE,TRAIT_WEED_TOLERANCE,TRAIT_ENDURANCE)
 		if(GENE_METABOLISM)
-			P.values["mob_product"] = has_mob_product
+			P.values["product_type"] = product_type
 			traits_to_copy = list(TRAIT_REQUIRES_NUTRIENTS,TRAIT_REQUIRES_WATER,TRAIT_ALTER_TEMP)
 		if(GENE_VIGOUR)
 			traits_to_copy = list(TRAIT_PRODUCTION,TRAIT_MATURATION,TRAIT_YIELD,TRAIT_SPREAD)
@@ -700,17 +739,12 @@
 			spawn_seed(get_turf(user))
 
 /datum/seed/proc/spawn_seed(var/turf/spawning_loc)
-	var/obj/item/product
-	if(has_mob_product)
-		product = new has_mob_product(spawning_loc,name)
-	else
-		product = new /obj/item/reagent_containers/food/snacks/grown(spawning_loc,name)
+	var/obj/item/product = new product_type(spawning_loc, name)
 	if(get_trait(TRAIT_PRODUCT_COLOUR))
-		if(!istype(product, /mob))
-			product.color = get_trait(TRAIT_PRODUCT_COLOUR)
-			if(istype(product,/obj/item/reagent_containers/food))
-				var/obj/item/reagent_containers/food/food = product
-				food.filling_color = get_trait(TRAIT_PRODUCT_COLOUR)
+		if(istype(product, /obj/item/reagent_containers/food))
+			var/obj/item/reagent_containers/food/food = product
+			food.color = get_trait(TRAIT_PRODUCT_COLOUR)
+			food.filling_color = get_trait(TRAIT_PRODUCT_COLOUR)
 
 	if(mysterious)
 		product.name += "?"
@@ -750,7 +784,7 @@
 	new_seed.can_self_harvest = can_self_harvest
 	new_seed.kitchen_tag =      kitchen_tag
 	new_seed.trash_type =       trash_type
-	new_seed.has_mob_product =  has_mob_product
+	new_seed.product_type =     product_type
 	//Copy over everything else.
 	if(mutants)        new_seed.mutants = mutants.Copy()
 	if(chems)          new_seed.chems = chems.Copy()

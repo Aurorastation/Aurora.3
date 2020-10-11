@@ -196,6 +196,42 @@
 /obj/machinery/door/airlock/centcom/emp_act()
 	return
 
+/obj/machinery/door/airlock/glass_centcom
+	name = "Airlock"
+	icon = 'icons/obj/doors/Dooreleglass.dmi'
+	opacity = FALSE
+	glass = 1
+	hatch_colour = "#606061"
+	hashatch = FALSE
+	hackProof = TRUE
+
+obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
+	if (operating)
+		return
+
+	if (allowed(user) && operable())
+		if (density)
+			open()
+		else
+			close()
+	else
+		do_animate("deny")
+
+/obj/machinery/door/airlock/glass_centcom/attack_ai(mob/user)
+	return attackby(null, user)
+
+/obj/machinery/door/airlock/glass_centcom/take_damage()
+	return	// No.
+
+/obj/machinery/door/airlock/glass_centcom/emag_act()
+	return NO_EMAG_ACT
+
+/obj/machinery/door/airlock/glass_centcom/ex_act()
+	return
+
+/obj/machinery/door/airlock/glass_centcom/emp_act()
+	return
+
 /obj/machinery/door/airlock/vault
 	name = "Vault"
 	icon = 'icons/obj/doors/vault.dmi'
@@ -572,7 +608,7 @@ About the new airlock wires panel:
 	else if(duration)	//electrify door for the given duration seconds
 		if(usr)
 			LAZYADD(shockedby, "\[[time_stamp()]\] - [usr](ckey:[usr.ckey])")
-			usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Electrified the [name] at [x] [y] [z]</font>")
+			usr.attack_log += text("\[[time_stamp()]\] <span class='warning'>Electrified the [name] at [x] [y] [z]</span>")
 		else
 			LAZYADD(shockedby, "\[[time_stamp()]\] - EMP)")
 		message = "The door is now electrified [duration == -1 ? "permanently" : "for [duration] second\s"]."
@@ -867,7 +903,7 @@ About the new airlock wires panel:
 		cutting = TRUE
 	else if(istype(tool,/obj/item/melee/energy/blade) || istype(tool,/obj/item/melee/energy/sword))
 		cut_verb = "slicing"
-		cut_sound = "sparks"
+		cut_sound = /decl/sound_category/spark_sound
 		cut_delay *= 1
 		cutting = TRUE
 	else if(istype(tool,/obj/item/surgery/circular_saw))
@@ -928,7 +964,7 @@ About the new airlock wires panel:
 					src.unlock(TRUE) //force it
 
 /obj/machinery/door/airlock/CanUseTopic(var/mob/user)
-	if(operating < 0) //emagged
+	if(emagged == 1)
 		to_chat(user, SPAN_WARNING("Unable to interface: Internal error."))
 		return STATUS_CLOSE
 	if(issilicon(user) && !src.canAIControl())
@@ -968,7 +1004,7 @@ About the new airlock wires panel:
 			else if(!activate)
 				if(issilicon(usr) && !player_is_antag(usr.mind))
 					to_chat(usr, SPAN_NOTICE("The door bolts will raise in five seconds."))
-					src.visible_message("\icon[src.icon] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in FIVE SECONDS.\"</span>")
+					src.visible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in FIVE SECONDS.\"</span>")
 					addtimer(CALLBACK(src, .proc/unlock), 50)
 				else if(unlock())
 					to_chat(usr, SPAN_NOTICE("The door bolts have been raised."))
@@ -994,7 +1030,10 @@ About the new airlock wires panel:
 			else if(!activate && !density)
 				close()
 		if("safeties")
-			set_safeties(!activate, 1)
+			if(safe && issilicon(usr) && !player_is_antag(usr.mind))
+				to_chat(usr, SPAN_WARNING("Your programming prevents you from disabling the door safeties."))
+			else
+				set_safeties(!activate, 1)
 		if("timing")
 			// Door speed control
 			if(src.isWireCut(AIRLOCK_WIRE_SPEED))
@@ -1031,9 +1070,9 @@ About the new airlock wires panel:
 	da.state = 1
 	da.created_name = src.name
 	da.update_state()
-	if(operating == -1 || (stat & BROKEN))
+	if((stat & BROKEN))
 		new /obj/item/circuitboard/broken(src.loc)
-		operating = 0
+		operating = FALSE
 	else
 		if (!electronics) create_electronics()
 		electronics.forceMove(src.loc)
@@ -1111,8 +1150,8 @@ About the new airlock wires panel:
 				..()
 				return
 		if(p_open && !operating && welded)
-			if(!locked && bolt_cut_state != BOLTS_CUT)
-				to_chat(user, SPAN_WARNING("The airlock bolts are in the way of the electronics, you need to drop them before you can reach them."))
+			if(locked)
+				to_chat(user, SPAN_WARNING("The airlock bolts are in the way of the electronics, you need to raise them before you can reach them."))
 				return
 			playsound(src.loc, C.usesound, 100, 1)
 			user.visible_message("<b>[user]</b> starts removing the electronics from the airlock assembly.", SPAN_NOTICE("You start removing the electronics from the airlock assembly."))
@@ -1507,6 +1546,10 @@ About the new airlock wires panel:
 		to_chat(user, bracer.health)
 	if(p_open)
 		to_chat(user, "\The [src]'s maintenance panel has been unscrewed and is hanging open.")
+
+/obj/machinery/door/airlock/emag_act(var/remaining_charges)
+	. = ..()
+	lock(1)
 
 #undef AIRLOCK_CRUSH_DIVISOR
 #undef CYBORG_AIRLOCKCRUSH_RESISTANCE

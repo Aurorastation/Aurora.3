@@ -81,6 +81,7 @@
 	var/max_cooling = 12				//in degrees per second - probably don't need to mess with heat capacity here
 	var/charge_consumption = 8.3		//charge per second at max_cooling
 	var/thermostat = T20C
+	slowdown = 0
 
 // Examine to see tank pressure
 /obj/structure/closet/airbubble/examine(mob/user)

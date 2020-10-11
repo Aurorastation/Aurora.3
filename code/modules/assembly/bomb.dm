@@ -3,11 +3,11 @@
 	icon = 'icons/obj/tank.dmi'
 	item_state = "assembly"
 	throwforce = 5
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	throw_speed = 2
 	throw_range = 4
 	flags = CONDUCT | PROXMOVE
-	var/status = 0   //0 - not readied //1 - bomb finished with welder
+	var/status = FALSE   // FALSE - not readied // TRUE - bomb finished with welder
 	var/obj/item/device/assembly_holder/bombassembly = null   //The first part of the bomb is an assembly holder, holding an igniter+some device
 	var/obj/item/tank/bombtank = null //the second part of the bomb is a phoron tank
 
@@ -22,7 +22,7 @@
 		add_overlay(bombassembly)
 		add_overlay("bomb_assembly")
 
-/obj/item/device/onetankbomb/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/device/onetankbomb/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/device/analyzer))
 		bombtank.attackby(W, user)
 		return
@@ -39,26 +39,29 @@
 
 		qdel(src)
 		return
-	if((W.iswelder() && W:welding))
+	if(W.iswelder())
+		var/obj/item/weldingtool/WT = W
+		if(!WT.welding)
+			return
 		if(!status)
-			status = 1
+			status = TRUE
 			bombers += "[key_name(user)] welded a single tank bomb. Temp: [bombtank.air_contents.temperature-T0C]"
 			message_admins("[key_name_admin(user)] welded a single tank bomb. Temp: [bombtank.air_contents.temperature-T0C]")
 			to_chat(user, "<span class='notice'>A pressure hole has been bored to [bombtank] valve. \The [bombtank] can now be ignited.</span>")
 		else
-			status = 0
+			status = FALSE
 			bombers += "[key_name(user)] unwelded a single tank bomb. Temp: [bombtank.air_contents.temperature-T0C]"
 			to_chat(user, "<span class='notice'>The hole has been closed.</span>")
 	add_fingerprint(user)
 	..()
 
-/obj/item/device/onetankbomb/attack_self(mob/user as mob) //pressing the bomb accesses its assembly
-	bombassembly.attack_self(user, 1)
+/obj/item/device/onetankbomb/attack_self(mob/user) //pressing the bomb accesses its assembly
+	bombassembly.attack_self(user, TRUE)
 	add_fingerprint(user)
 	return
 
 /obj/item/device/onetankbomb/receive_signal()	//This is mainly called by the sensor through sense() to the holder, and from the holder to here.
-	visible_message("\icon[src] *beep* *beep*", "*beep* *beep*")
+	visible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", "*beep* *beep*")
 	sleep(10)
 	if(!src)
 		return
@@ -73,7 +76,7 @@
 
 // ---------- Procs below are for tanks that are used exclusively in 1-tank bombs ----------
 
-/obj/item/tank/proc/bomb_assemble(W,user)	//Bomb assembly proc. This turns assembly+tank into a bomb
+/obj/item/tank/proc/bomb_assemble(W, user)	//Bomb assembly proc. This turns assembly+tank into a bomb
 	var/obj/item/device/assembly_holder/S = W
 	var/mob/M = user
 	if(!S.secured)										//Check if the assembly is secured

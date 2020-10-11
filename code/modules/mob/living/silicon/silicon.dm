@@ -7,6 +7,7 @@
 	gender = NEUTER
 	voice_name = "Synthesized Voice"
 	accent = ACCENT_TTS
+	can_have_vision_cone = TRUE
 	var/list/speech_synthesizer_langs = list() //which languages can be vocalized by the speech synthesizer
 	var/speak_statement = "states"
 	var/speak_exclamation = "declares"
@@ -54,6 +55,9 @@
 	var/list/access_rights
 	var/obj/item/card/id/id_card
 	var/id_card_type = /obj/item/card/id/synthetic
+
+	var/list/possible_accents = list(ACCENT_TTS, ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_LUNA, ACCENT_MARTIAN, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_JUPITER, ACCENT_COC, ACCENT_ELYRA, ACCENT_ERIDANI,
+									ACCENT_SILVERSUN, ACCENT_KONYAN, ACCENT_EARTH, ACCENT_REPUBICLANSIIK)
 
 	// Misc
 	uv_intensity = 175 //Lights cast by robots have reduced effect on diona
@@ -107,7 +111,7 @@
 		if(2)
 			src.take_organ_damage(0, 10, emp = TRUE)
 			Stun(rand(1, 5))
-	flick("noise", src:flash)
+	flash_eyes(affect_silicon = 1)
 	to_chat(src, SPAN_DANGER("BZZZT"))
 	to_chat(src, SPAN_WARNING("Warning: Electromagnetic pulse detected."))
 	..()
@@ -379,6 +383,13 @@
 	..()
 	if(cameraFollow)
 		cameraFollow = null
+
+/mob/living/silicon/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+	if(affect_silicon)
+		return ..()
+
+/mob/living/silicon/seizure()
+	flash_eyes(affect_silicon = TRUE)
 
 /mob/living/silicon/Move(newloc, direct)
 	. = ..()

@@ -83,11 +83,12 @@
 		playsound(src.loc, chambered.drop_sound, DROP_SOUND_VOLUME, FALSE, required_asfx_toggles = ASFX_DROPSOUND)
 		chambered = null
 
-	if(loaded.len)
+	if(length(loaded))
 		var/obj/item/ammo_casing/AC = loaded[1] //load next casing.
 		loaded -= AC //Remove casing from loaded list.
 		chambered = AC
 
+	update_maptext()
 	update_icon()
 
 /obj/item/gun/projectile/shotgun/pump/update_icon()
@@ -130,7 +131,7 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	handle_casings = CYCLE_CASINGS
 	max_shells = 2
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	flags = CONDUCT
 	is_wieldable = TRUE
@@ -183,7 +184,7 @@
 	icon_state = "sawnshotgun"
 	item_state = "sawnshotgun"
 	is_wieldable = FALSE
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	force = 5
 	slot_flags &= ~SLOT_BACK	//you can't sling it on your back
 	slot_flags |= (SLOT_BELT|SLOT_HOLSTER) //but you can wear it on your belt (poorly concealed under a trenchcoat, ideally) - or in a holster, why not.
@@ -200,7 +201,7 @@
 	is_wieldable = FALSE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	force = 5
 
 /obj/item/gun/projectile/shotgun/foldable
@@ -210,7 +211,7 @@
 	icon_state = "overunder"
 	item_state = "overunder"
 	slot_flags = SLOT_BELT
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 1
@@ -235,7 +236,7 @@
 		slot_flags = initial(slot_flags)
 		playsound(user, 'sound/weapons/sawclose.ogg', 60, 1)
 	else
-		w_class = 4
+		w_class = ITEMSIZE_LARGE
 		slot_flags &= ~SLOT_BELT
 		playsound(user, 'sound/weapons/sawopen.ogg', 60, 1)
 	to_chat(user, "You [folded ? "fold" : "unfold"] \the [src].")

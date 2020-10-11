@@ -11,7 +11,7 @@
 	vision_restriction = TINT_HEAVY
 	offline_vision_restriction = TINT_BLIND
 
-	species_restricted = list("Unathi")
+	species_restricted = list(BODYTYPE_UNATHI)
 
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
 
@@ -52,7 +52,7 @@
 	slowdown = 2
 	offline_slowdown = 3
 
-	species_restricted = list("Vaurca")
+	species_restricted = list(BODYTYPE_VAURCA)
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/vaurca
 	air_type =   /obj/item/tank/phoron
@@ -95,7 +95,7 @@
 	offline_slowdown = 3
 	siemens_coefficient = 0
 
-	species_restricted = list("Tajara")
+	species_restricted = list(BODYTYPE_TAJARA)
 
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/melee/baton,/obj/item/melee/energy)
 
@@ -114,3 +114,16 @@
 		if(T && !T.is_broken())
 			if(cell)
 				cell.give(T.max_charges)
+
+/obj/item/rig/tesla/ninja
+
+	initial_modules = list(
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/vision/thermal,
+		/obj/item/rig_module/tesla_coil,
+		/obj/item/rig_module/mounted/tesla,
+		/obj/item/rig_module/device/door_hack)
+
+/obj/item/rig/tesla/ninja/Initialize()
+	. = ..()
+	new /obj/item/device/augment_implanter/advanced_tesla(get_turf(src))

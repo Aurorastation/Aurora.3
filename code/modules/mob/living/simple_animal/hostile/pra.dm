@@ -11,6 +11,7 @@
 	icon_dead = "republicon_dead"
 	speak_chance = 5
 	turns_per_move = 3
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help = "pokes"
 	response_disarm = "gently pushes aside"
 	response_harm = "hits"

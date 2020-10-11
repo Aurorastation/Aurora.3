@@ -82,7 +82,7 @@
 	return list()
 
 /proc/get_distress_access()
-	return list(access_legion, access_distress, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
+	return list(access_legion, access_distress, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip, access_construction)
 
 /proc/get_distress_access_lesser()
 	return list(access_distress, access_external_airlocks)
@@ -239,9 +239,9 @@ var/obj/item/card/id/all_access/ghost_all_access
 /mob/living/simple_animal/spiderbot/GetIdCard()
 	return internal_id
 
-/mob/living/carbon/human/GetIdCard()
+/mob/living/carbon/human/GetIdCard(var/ignore_hand = FALSE)
 	var/obj/item/I = get_active_hand()
-	if(I)
+	if(I && !ignore_hand)
 		var/id = I.GetID()
 		if(id)
 			return id

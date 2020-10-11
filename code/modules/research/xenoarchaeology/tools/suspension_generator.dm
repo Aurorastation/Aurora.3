@@ -101,15 +101,17 @@
 		dat += "<br>"
 		dat += "<br>"
 	dat += "<hr>"
-	dat += "<font color='blue'><b>Always wear safety gear and consult a field manual before operation.</b></font><br>"
+	dat += "<span class='notice'><b>Always wear safety gear and consult a field manual before operation.</b></span><br>"
 	if(!locked)
 		dat += "<A href='?src=\ref[src];lock=1'>Lock console</A><br>"
 	else
 		dat += "<br>"
 	dat += "<A href='?src=\ref[src];refresh=1'>Refresh console</A><br>"
 	dat += "<A href='?src=\ref[src];close=1'>Close console</A>"
-	user << browse(dat, "window=suspension;size=500x400")
-	onclose(user, "suspension")
+
+	var/datum/browser/suspension_win = new(user, "suspension", capitalize_first_letters(name), 500, 400)
+	suspension_win.set_content(dat)
+	suspension_win.open()
 
 /obj/machinery/suspension_gen/Topic(href, href_list)
 	..()
@@ -246,7 +248,7 @@
 			success = 1
 			for(var/mob/living/carbon/C in T)
 				C.weakened += 5
-				C.visible_message("<span class='notice'>\icon[C] [C] begins to float in the air!","You feel tingly and light, but it is difficult to move.</span>")
+				C.visible_message("<span class='notice'>[icon2html(C, viewers(get_turf(C)))] [C] begins to float in the air!","You feel tingly and light, but it is difficult to move.</span>")
 		if("nitrogen")
 			success = 1
 			//
@@ -269,19 +271,19 @@
 			success = 1
 			for(var/mob/living/silicon/R in T)
 				R.weakened += 5
-				R.visible_message("<span class='notice'>\icon[R] [R] begins to float in the air!","You feel tingly and light, but it is difficult to move.</span>")
+				R.visible_message("<span class='notice'>[icon2html(R, viewers(get_turf(R)))] [R] begins to float in the air!","You feel tingly and light, but it is difficult to move.</span>")
 			//
 	//in case we have a bad field type
 	if(!success)
 		return
 
 	for(var/mob/living/simple_animal/C in T)
-		C.visible_message("<span class='notice'>\icon[C] [C] begins to float in the air!","You feel tingly and light, but it is difficult to move.</span>")
+		C.visible_message("<span class='notice'>[icon2html(C, viewers(get_turf(C)))] [C] begins to float in the air!","You feel tingly and light, but it is difficult to move.</span>")
 		C.weakened += 5
 
 	suspension_field = new(T)
 	suspension_field.field_type = field_type
-	src.visible_message("<span class='notice'>\icon[src] [src] activates with a low hum.</span>")
+	src.visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] [src] activates with a low hum.</span>")
 	icon_state = "suspension3"
 
 	for(var/obj/item/I in T)
@@ -291,7 +293,7 @@
 	if(collected)
 		suspension_field.icon_state = "energynet"
 		suspension_field.add_overlay("shield2")
-		src.visible_message("<span class='notice'>\icon[suspension_field] [suspension_field] gently absconds [collected > 1 ? "something" : "several things"].</span>")
+		src.visible_message("<span class='notice'>[icon2html(suspension_field, viewers(get_turf(suspension_field)))] [suspension_field] gently absconds [collected > 1 ? "something" : "several things"].</span>")
 	else
 		if(istype(T,/turf/simulated/mineral) || istype(T,/turf/simulated/wall))
 			suspension_field.icon_state = "shieldsparkles"
@@ -306,7 +308,7 @@
 		to_chat(M, "<span class='info'>You no longer feel like floating.</span>")
 		M.weakened = min(M.weakened, 3)
 
-	src.visible_message("<span class='notice'>\icon[src] [src] deactivates with a gentle shudder.</span>")
+	src.visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] [src] deactivates with a gentle shudder.</span>")
 	qdel(suspension_field)
 	suspension_field = null
 	icon_state = "suspension2"

@@ -38,7 +38,7 @@
 
 
 /proc/ishuman_species(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Human"))
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_HUMAN))
 		return 1
 	return 0
 
@@ -46,46 +46,46 @@
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
 		switch(H.get_species())
-			if ("Unathi")
+			if (SPECIES_UNATHI)
 				return 1
-			if ("Unathi Zombie")
+			if (SPECIES_ZOMBIE_UNATHI)
 				return 1
 	return 0
 
 /proc/istajara(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
-			if ("Tajara")
+			if (SPECIES_TAJARA)
 				return 1
-			if("Zhan-Khazan Tajara")
+			if(SPECIES_TAJARA_ZHAN)
 				return 1
-			if("M'sai Tajara")
+			if(SPECIES_TAJARA_MSAI)
 				return 1
-			if ("Tajara Zombie")
+			if (SPECIES_ZOMBIE_TAJARA)
 				return 1
 	return 0
 
 /proc/isskrell(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
-			if ("Skrell")
+			if (SPECIES_SKRELL)
 				return 1
-			if ("Skrell Zombie")
+			if (SPECIES_ZOMBIE_SKRELL)
 				return 1
 	return 0
 
 /proc/isvaurca(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
-			if("Vaurca Worker")
+			if(SPECIES_VAURCA_WORKER)
 				return 1
-			if("Vaurca Warrior")
+			if(SPECIES_VAURCA_WARRIOR)
 				return 1
-			if("Vaurca Breeder")
+			if(SPECIES_VAURCA_BREEDER)
 				return 1
-			if("Vaurca Warform")
+			if(SPECIES_VAURCA_WARFORM)
 				return 1
-			if("V'krexi")
+			if(SPECIES_MONKEY_VAURCA)
 				return 1
 	return 0
 
@@ -95,60 +95,51 @@
 		var/mob/living/carbon/human/H = A
 		. = H.species && (H.species.flags & IS_MECHANICAL)
 
-/proc/isvox(A)
-	if(istype(A, /mob/living/carbon/human))
-		switch(A:get_species())
-			if ("Vox")
-				return 1
-			if ("Vox Armalis")
-				return 1
-	return 0
-
 /mob/proc/is_diona()
-	//returns which type of diona we are, or zero
-	if (istype(src, /mob/living/carbon/human))
-		var/mob/living/carbon/human/T = src
-		if (istype(T.species, /datum/species/diona) || istype(src, /mob/living/carbon/human/diona))
-			return DIONA_WORKER
+	return FALSE
 
-	if (istype(src, /mob/living/carbon/alien/diona))
-		return DIONA_NYMPH
-	return 0
+/mob/living/carbon/human/is_diona()
+	if(istype(species, /datum/species/diona))
+		return DIONA_WORKER
+	return FALSE
+
+/mob/living/carbon/alien/diona/is_diona()
+	return DIONA_NYMPH
 
 /proc/isskeleton(A)
-	if(istype(A, /mob/living/carbon/human) && (A:get_species() == "Skeleton"))
+	if(istype(A, /mob/living/carbon/human) && (A:get_species() == SPECIES_SKELETON))
 		return 1
 	return 0
 
 /proc/isundead(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
-			if ("Skeleton")
+			if (SPECIES_SKELETON)
 				return 1
-			if ("Zombie")
+			if (SPECIES_ZOMBIE)
 				return 1
-			if ("Tajara Zombie")
+			if (SPECIES_ZOMBIE_TAJARA)
 				return 1
-			if ("Unathi Zombie")
+			if (SPECIES_ZOMBIE_UNATHI)
 				return 1
-			if ("Skrell Zombie")
+			if (SPECIES_ZOMBIE_SKRELL)
 				return 1
-			if ("Apparition")
+			if (SPECIES_CULTGHOST)
 				return 1
 	return 0
 
 /proc/islesserform(A)
 	if(istype(A, /mob/living/carbon/human))
 		switch(A:get_species())
-			if ("Monkey")
+			if (SPECIES_MONKEY)
 				return 1
-			if ("Farwa")
+			if (SPECIES_MONKEY_TAJARA)
 				return 1
-			if ("Neaera")
+			if (SPECIES_MONKEY_SKRELL)
 				return 1
-			if ("Stok")
+			if (SPECIES_MONKEY_UNATHI)
 				return 1
-			if ("V'krexi")
+			if (SPECIES_MONKEY_VAURCA)
 				return 1
 	return 0
 
@@ -187,9 +178,9 @@ proc/getsensorlevel(A)
 
 /mob/living/proc/is_wizard(exclude_apprentice = FALSE)
 	if(exclude_apprentice)
-		return mind && mind.assigned_role == "Space Wizard"
+		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Raider Mage")
 	else
-		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Apprentice")
+		return mind && (mind.assigned_role == "Space Wizard" || mind.assigned_role == "Raider Mage" || mind.assigned_role == "Apprentice")
 
 /mob/proc/is_berserk()
 	return FALSE
@@ -399,6 +390,9 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 	if(!M || !M.client || M.shakecamera || M.stat || isEye(M) || isAI(M))
 		return
 
+	if(M.client && ((M.client.view != world.view) || (M.client.pixel_x != 0) || (M.client.pixel_y != 0))) //to prevent it while zooming, because zoom does not play well with this code
+		return
+
 	M.shakecamera = TRUE
 	strength = abs(strength)*PIXELS_PER_STRENGTH_VAL
 	var/steps = min(1, Floor(duration/TICKS_PER_RECOIL_ANIM))-1
@@ -491,7 +485,7 @@ proc/is_blind(A)
 	for(var/mob/M in targets)
 		var/turf/targetturf = get_turf(M)
 		if(targetturf && (targetturf.z == sourceturf.z))
-			M.show_message("<span class='info'>\icon[icon] [message]</span>", 1)
+			M.show_message("<span class='info'>[icon2html(icon, M)] [message]</span>", 1)
 
 /proc/mobs_in_area(var/area/A)
 	var/list/mobs = new
@@ -543,7 +537,7 @@ proc/is_blind(A)
 					else										// Everyone else (dead people who didn't ghost yet, etc.)
 						lname = name
 				lname = "<span class='name'>[lname]</span> "
-			to_chat(M, "[follow] <span class='deadsay'>" + create_text_tag("dead", "DEAD:", M.client) + " [lname][message]</span>")
+			to_chat(M, "[follow] <span class='deadsay'>" + create_text_tag("DEAD", M.client) + " [lname][message]</span>")
 
 //Announces that a ghost has joined/left, mainly for use with wizards
 /proc/announce_ghost_joinleave(O, var/joined_ghosts = 1, var/message = "")
@@ -645,7 +639,7 @@ proc/is_blind(A)
 		if(istype(belt, /obj/item/gun) || istype(belt, /obj/item/melee))
 			threatcount += 2
 
-		if(species.name != "Human")
+		if(species.name != SPECIES_HUMAN)
 			threatcount += 2
 
 	if(check_records || check_arrest)
@@ -1056,57 +1050,6 @@ proc/is_blind(A)
 /mob/living/carbon/alien/diona/get_vessel(create = FALSE)
 	. = vessel
 
-#define POSESSIVE_PRONOUN	0
-#define POSESSIVE_ADJECTIVE	1
-#define REFLEXIVE			2
-#define SUBJECTIVE_PERSONAL	3
-#define OBJECTIVE_PERSONAL	4
-/mob/proc/get_pronoun(var/type)
-	switch (type)
-		if (POSESSIVE_PRONOUN)
-			switch(gender)
-				if (MALE)
-					return "his"
-				if (FEMALE)
-					return "hers"
-				else
-					return "theirs"
-		if (POSESSIVE_ADJECTIVE)
-			switch(gender)
-				if (MALE)
-					return "his"
-				if (FEMALE)
-					return "her"
-				else
-					return "their"
-		if (REFLEXIVE)
-			switch(gender)
-				if (MALE)
-					return "himself"
-				if (FEMALE)
-					return "herself"
-				else
-					return "themselves"
-		if (SUBJECTIVE_PERSONAL)
-			switch(gender)
-				if (MALE)
-					return "he"
-				if (FEMALE)
-					return "she"
-				else
-					return "they"
-		if (OBJECTIVE_PERSONAL)
-			switch(gender)
-				if (MALE)
-					return "him"
-				if (FEMALE)
-					return "her"
-				else
-					return "them"
-
-		else
-			return "its"//Something went wrong
-
 #undef SAFE_PERP
 
 /mob/proc/get_multitool(var/obj/P)
@@ -1226,10 +1169,19 @@ proc/is_blind(A)
 /mob/proc/set_intent(var/set_intent)
 	a_intent = set_intent
 
-/mob/proc/get_accent_icon(var/datum/language/speaking = null, var/force_accent)
+/mob/proc/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
 	SHOULD_CALL_PARENT(TRUE)
 	var/used_accent = force_accent ? force_accent : accent
 	if(used_accent && speaking?.allow_accents)
 		var/datum/accent/a = SSrecords.accents[used_accent]
 		var/final_icon = a.tag_icon
-		return "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[final_icon]'>"
+		return "<img src=\"[final_icon].png\">"
+
+/mob/proc/flash_eyes(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, visual = FALSE, type = /obj/screen/fullscreen/flash)
+	for(var/mob/M in contents)
+		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
+		M.flash_eyes(intensity, override_blindness_check, affect_silicon, visual, type)
+
+/mob/assign_player(var/mob/user)
+  ckey = user.ckey
+  return src

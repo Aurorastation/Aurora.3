@@ -11,6 +11,7 @@
 	universal_speak = 1
 	speak_emote = list("hisses")
 	emote_hear = list("wails","screeches")
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help  = "puts their hand through"
 	response_disarm = "flails at"
 	response_harm   = "punches"

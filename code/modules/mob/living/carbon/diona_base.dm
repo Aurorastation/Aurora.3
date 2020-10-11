@@ -108,8 +108,8 @@ var/list/diona_banned_languages = list(
 
 //This proc handles when diona take damage from being in darkness
 /mob/living/carbon/proc/diona_darkness_damage(var/severity, var/datum/dionastats/DS)
-	adjustBruteLoss(severity*DS.trauma_factor)
-	adjustHalLoss(severity*DS.pain_factor, 1)
+	adjustBruteLoss(severity * DS.trauma_factor)
+	adjustHalLoss((severity * species.pain_mod) * DS.pain_factor) // pain mod here is to give a bit of padding to the amount of pain diona get, to make it less overbearing
 	DS.stored_energy = 0 //We reset the energy back to zero after calculating the damage. dont want it to go negative
 
 /mob/living/carbon/proc/diona_handle_temperature(var/datum/dionastats/DS)
@@ -414,8 +414,8 @@ var/list/diona_banned_languages = list(
 	if(E_old)
 		qdel(E_old)
 
-	visible_message("<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from [src]'s trunk, forming a new [E]</span>",
-		"<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from your trunk, forming a new [E]</span>")
+	visible_message("<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from [src]'s trunk, forming a new [E].</span>",
+		"<span class='danger'>With a shower of sticky sap, a new mass of tendrils bursts forth from your trunk, forming a new [E].</span>")
 	var/datum/reagents/vessel = get_vessel(0)
 	var/datum/reagent/B = vessel.get_master_reagent()
 	B.touch_turf(get_turf(src))
@@ -508,15 +508,13 @@ var/list/diona_banned_languages = list(
 		return health+(maxHealth*0.5)
 
 /mob/living/carbon/proc/get_dionastats()
-	if (istype(src, /mob/living/carbon/alien/diona))
-		var/mob/living/carbon/alien/diona/T = src
-		return T.DS
+	return
 
-	if (istype(src, /mob/living/carbon/human))
-		var/mob/living/carbon/human/T = src
-		if (istype(T.species, /datum/species/diona))
-			return T.DS
-	return null
+/mob/living/carbon/alien/diona/get_dionastats()
+	return DS
+
+/mob/living/carbon/human/get_dionastats()
+	return DS
 
 //Called on a nymph when it merges with a gestalt
 //The nymph and gestalt get the combined total of both of their languages

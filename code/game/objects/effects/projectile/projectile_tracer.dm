@@ -91,3 +91,8 @@
 	name = "laser"
 	icon_state = "hegemony"
 	light_color = LIGHT_COLOR_ORANGE
+
+/obj/effect/projectile/tracer/tesla
+	name = "lightning"
+	icon_state = "lightning"
+	light_color = LIGHT_COLOR_CYAN

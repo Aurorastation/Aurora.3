@@ -18,7 +18,7 @@
 	//Healing vars
 	var/obj/item/reagent_containers/glass/reagent_glass = null //Can be set to draw from this for reagents.
 	var/currently_healing = 0
-	var/injection_amount = 15 //How much reagent do we inject at a time?
+	var/injection_amount = 10 //How much reagent do we inject at a time?
 	var/heal_threshold = 10 //Start healing when they have this much damage in a category
 	var/use_beaker = 0 //Use reagents in beaker instead of default treatment agents.
 	var/treatment_brute = /datum/reagent/tricordrazine
@@ -68,7 +68,7 @@
 				if(last_newpatient_speak + 300 < world.time)
 					var/message = pick("Hey, [H.name]! Hold on, I'm coming.", "Wait [H.name]! I want to help!", "[H.name], you appear to be injured!")
 					say(message)
-					custom_emote(1, "points at [H.name].")
+					custom_emote(VISIBLE_MESSAGE, "points at [H.name].")
 					last_newpatient_speak = world.time
 				break
 
@@ -129,8 +129,7 @@
 		to_chat(user, "<span class='warning'>The unit's interface refuses to unlock!</span>")
 		return
 
-	var/dat
-	dat += "<TT><B>Automatic Medical Unit v1.1</B></TT><BR><BR>"
+	var/dat = ""
 	dat += "Status: <A href='?src=\ref[src];power=1'>[on ? "On" : "Off"]</A><BR>"
 	dat += "Maintenance panel is [open ? "opened" : "closed"]<BR>"
 	dat += "Beaker: "
@@ -161,9 +160,9 @@
 
 		dat += "The speaker switch is [vocal ? "on" : "off"]. <a href='?src=\ref[src];togglevoice=[1]'>Toggle</a><br>"
 
-	user << browse("<HEAD><TITLE>Medibot v1.1 controls</TITLE></HEAD>[dat]", "window=automed")
-	onclose(user, "automed")
-	return
+	var/datum/browser/bot_win = new(user, "automed", "Automatic Medibot v1.2 Controls")
+	bot_win.set_content(dat)
+	bot_win.open()
 
 /mob/living/bot/medbot/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/reagent_containers/glass))
@@ -337,7 +336,7 @@
 	var/build_step = 0
 	var/created_name = "Medibot" //To preserve the name if it's a unique medbot I guess
 	var/skin = null //Same as medbot, set to tox or ointment for the respective kits.
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/firstaid_arm_assembly/Initialize()
 	. = ..()

@@ -17,6 +17,7 @@
 	turns_per_move = 5
 	see_in_dark = 10
 	meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
+	organ_names = list("thorax", "legs", "head")
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "pokes"

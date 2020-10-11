@@ -18,8 +18,7 @@
 #define REAGENTS_PER_SHEET 20
 #define MAX_PILL_SPRITE 20 //max icon state of the pill sprites
 
-#define REAGENTS_OVERDOSE 30
-
+#define REAGENTS_OVERDOSE 20
 #define REAGENTS_BURNING_TEMP_HIGH T0C + 65 //Temperature at which high temperature burns occur
 #define REAGENTS_BURNING_TEMP_HIGH_DAMAGE 0.0001 //Damage per celcius per unit above the REAGENTS_BURNING_TEMP_HIGH define per unit.
 #define REAGENTS_BURNING_TEMP_HIGH_DAMAGE_CAP 20 //Maximum amount of burn damage to deal due to high temperature reagents.
@@ -48,6 +47,8 @@
 // Apply status effects
 #define CE_ALCOHOL      "alcohol"		// Liver filtering
 #define CE_ANTIEMETIC   "antiemetic"	// suppresses vomiting
+#define CE_ITCH         "itch"          // causes itching
+#define CE_NOITCH       "noitch"        // suppresses itching 
 #define CE_BERSERK      "berserk"
 #define CE_CLUMSY       "clumsy"		// Peridaxon side effects, etc
 #define CE_DROPITEM     "dropitem"		// keloderm side effect

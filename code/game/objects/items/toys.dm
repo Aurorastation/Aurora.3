@@ -302,12 +302,13 @@
 /obj/item/toy/katana
 	name = "replica katana"
 	desc = "A cheap plastic katana that luckily isn't sharp enough to accidentally cut your floor length braid. Woefully underpowered in D20."
-	icon = 'icons/obj/weapons.dmi'
+	contained_sprite = TRUE
+	icon = 'icons/obj/sword.dmi'
 	icon_state = "katana"
 	item_state = "katana"
 	drop_sound = 'sound/items/drop/gun.ogg'
-	pickup_sound = "pickup_sword"
-	equip_sound = "equip_sword"
+	pickup_sound = /decl/sound_category/sword_pickup_sound
+	equip_sound = /decl/sound_category/sword_equip_sound
 	flags = CONDUCT
 	slot_flags = SLOT_BELT | SLOT_BACK
 	force = 5

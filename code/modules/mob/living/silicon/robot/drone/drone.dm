@@ -223,7 +223,7 @@
 	else if(W.iscrowbar())
 		to_chat(user, SPAN_WARNING("\The [src] is hermetically sealed. You can't open the case."))
 		return
-	else if(istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
+	else if(W.GetID())
 		if(stat == DEAD)
 			if(!config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
 				to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
@@ -231,11 +231,11 @@
 			if(!allowed(usr))
 				to_chat(user, SPAN_WARNING("Access denied."))
 				return
-			user.visible_message(SPAN_NOTICE("\The [user] swipes \his ID card through \the [src], attempting to reboot it."), SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
+			user.visible_message(SPAN_NOTICE("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src], attempting to reboot it."), SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
 			request_player()
 			return
 		else
-			user.visible_message(SPAN_WARNING("\The [user] swipes \his ID card through \the [src], attempting to shut it down."), SPAN_WARNING("You swipe your ID card through \the [src], attempting to shut it down."))
+			user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src], attempting to shut it down."), SPAN_WARNING("You swipe your ID card through \the [src], attempting to shut it down."))
 			if(emagged)
 				return
 			if(allowed(user))
@@ -273,7 +273,7 @@
 
 	to_chat(src, "<b>Obey these laws:</b>")
 	laws.show_laws(src)
-	to_chat(src, SPAN_DANGER("ALERT: [user.real_name] is your new master. Obey your new laws and \his commands."))
+	to_chat(src, SPAN_DANGER("ALERT: [user.real_name] is your new master. Obey your new laws and their commands."))
 	update_icon()
 	return TRUE
 
@@ -425,6 +425,9 @@
 /mob/living/silicon/robot/drone/remove_robot_verbs()
 	src.verbs -= silicon_subsystems
 
+/mob/living/silicon/robot/drone/self_destruct()
+	gib()
+	
 /mob/living/silicon/robot/drone/examine(mob/user)
 	..()
 	var/msg
@@ -469,9 +472,9 @@
 	var/turf/T = get_turf(src)
 	if (!T || AreConnectedZLevels(my_home_z, T.z))
 		return FALSE
-	
+
 	if(!self_destructing)
-		to_chat(src, SPAN_DANGER("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))		
+		to_chat(src, SPAN_DANGER("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
 		start_self_destruct(TRUE)
 	return TRUE
 

@@ -256,7 +256,7 @@
 /area/maintenance/foresolar)
 "az" = (
 /obj/effect/shuttle_landmark/arrival/dock,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "aA" = (
 /obj/structure/grille,
@@ -891,7 +891,6 @@
 /obj/structure/table/reinforced,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/engineering,
-/obj/item/clothing/glasses/meson,
 /obj/item/clothing/head/helmet/space/void/engineering,
 /obj/item/tank/oxygen,
 /obj/random/tech_supply,
@@ -901,7 +900,7 @@
 /area/tcommsat/computer)
 "bH" = (
 /obj/effect/shuttle_landmark/merc/dock,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "bI" = (
 /obj/machinery/power/port_gen/pacman,
@@ -1042,7 +1041,7 @@
 /area/hallway/secondary/entry/dock)
 "bU" = (
 /obj/effect/shuttle_landmark/merc_elite/green,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "bV" = (
 /obj/structure/window/reinforced{
@@ -1138,7 +1137,7 @@
 /area/maintenance/cargo/surface)
 "ce" = (
 /obj/effect/shuttle_landmark/admin/green,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "cf" = (
 /obj/structure/table/standard,
@@ -1607,7 +1606,7 @@
 /area/turret_protected/tcomsat)
 "de" = (
 /obj/effect/shuttle_landmark/burglar/surface,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "df" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -2159,7 +2158,7 @@
 /area/tcommsat/computer)
 "ec" = (
 /obj/effect/shuttle_landmark/ccia/dock,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "ed" = (
 /obj/structure/cable/green{
@@ -2430,6 +2429,14 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/port)
+"eA" = (
+/obj/effect/floor_decal/industrial/warning/dust/corner{
+	dir = 1
+	},
+/turf/simulated/floor/airless{
+	icon_state = "asteroidplating"
+	},
+/area/mine/explored)
 "eB" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -2444,7 +2451,7 @@
 /area/hallway/secondary/entry/port)
 "eC" = (
 /obj/effect/shuttle_landmark/merchant/dock,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "eD" = (
 /obj/structure/grille,
@@ -3662,7 +3669,8 @@
 	name = "interior access button";
 	pixel_x = -25;
 	pixel_y = -25;
-	req_access = list(10,11,13)
+	req_access = null;
+	req_one_access = list(10,11,13)
 	},
 /obj/structure/cable/yellow{
 	d1 = 4;
@@ -4305,7 +4313,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
 	name = "Escape pods and Shuttle Docks";
-	req_one_access = list(19,38,63)
+	req_one_access = list(19,38,63,72)
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
@@ -5697,6 +5705,10 @@
 	},
 /turf/simulated/open/airless,
 /area/turret_protected/tcomsat)
+"kA" = (
+/obj/effect/floor_decal/corner/purple,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/research)
 "kB" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
@@ -5706,11 +5718,17 @@
 /turf/simulated/floor/wood,
 /area/security/bridge_surface_checkpoint)
 "kC" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/window/southright{
-	name = "Cockpit Access"
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
 	},
-/turf/simulated/floor/plating,
+/obj/structure/window/reinforced{
+	layer = 6;
+	name = "adjusted window"
+	},
+/obj/structure/bed/chair/office/bridge{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "kD" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5739,7 +5757,7 @@
 /area/bridge/levela/research_dock)
 "kG" = (
 /obj/effect/shuttle_landmark/ert/dock,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "kH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -6547,11 +6565,11 @@
 /area/maintenance/store)
 "me" = (
 /obj/effect/shuttle_landmark/supply/dock,
-/turf/unsimulated/floor/asteroid/ash,
+/turf/simulated/floor/airless/ceiling,
 /area/mine/explored)
 "mf" = (
 /obj/effect/shuttle_landmark/emergency/dock,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "mg" = (
 /obj/structure/closet,
@@ -7015,10 +7033,7 @@
 /area/hallway/secondary/entry/emergency)
 "mZ" = (
 /obj/machinery/computer/shuttle_control/research,
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/research)
 "na" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7270,7 +7285,7 @@
 /area/hallway/secondary/entry/fore)
 "nx" = (
 /obj/effect/shuttle_landmark/merc_elite/merchant,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "ny" = (
 /obj/item/cell,
@@ -7413,6 +7428,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
+"nL" = (
+/turf/simulated/floor/airless/ceiling,
+/area/mine/explored)
 "nM" = (
 /obj/random/junk,
 /turf/unsimulated/chasm_mask,
@@ -9553,7 +9571,7 @@
 /area/shuttle/research)
 "rM" = (
 /obj/effect/shuttle_landmark/admin/command,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "rN" = (
 /obj/structure/table/standard,
@@ -10591,16 +10609,8 @@
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
 "tU" = (
-/obj/item/storage/firstaid/o2,
-/obj/item/bodybag/cryobag,
-/obj/item/bodybag/cryobag,
-/obj/item/storage/firstaid/regular,
-/obj/structure/closet/medical_wall{
-	pixel_x = 28
-	},
-/obj/machinery/light/small,
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/turf/simulated/floor/tiled/white,
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "tV" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod_berth{
@@ -10651,6 +10661,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
+"uc" = (
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/research)
 "ud" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
@@ -10689,23 +10704,23 @@
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "ug" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1380;
 	master_tag = "science_shuttle";
 	name = "interior access button";
-	pixel_x = 15;
-	pixel_y = 30
+	pixel_x = 24;
+	pixel_y = -23
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/research)
 "uh" = (
 /obj/effect/shuttle_landmark/merc_elite/yellow,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "ui" = (
 /obj/machinery/door/firedoor,
@@ -10994,11 +11009,11 @@
 /turf/simulated/floor/plating,
 /area/bridge/levela)
 "uN" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
+/obj/structure/closet/hydrant{
+	pixel_x = 28;
+	pixel_y = -4
 	},
-/obj/machinery/light/small,
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "uO" = (
 /turf/simulated/wall,
@@ -11098,12 +11113,18 @@
 /turf/simulated/floor/tiled/old,
 /area/store)
 "uZ" = (
+/obj/machinery/atmospherics/binary/passive_gate{
+	name = "shuttle airlock pressure regulator";
+	target_pressure = 75;
+	unlocked = 1
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external{
+/obj/machinery/door/airlock/glass_research{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "science_shuttle_in"
+	id_tag = "science_shuttle_in";
+	name = "Crew Cabin";
+	open_layer = 2.8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/research)
@@ -11761,8 +11782,8 @@
 	frequency = 1380;
 	master_tag = "science_shuttle";
 	name = "exterior access button";
-	pixel_x = 6;
-	pixel_y = -19
+	pixel_x = 5;
+	pixel_y = -20
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
@@ -11773,16 +11794,8 @@
 	frequency = 1380;
 	id_tag = "science_shuttle_pump"
 	},
-/obj/machinery/airlock_sensor{
-	frequency = 1380;
-	id_tag = "science_shuttle_sensor";
-	pixel_y = 38
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
-	},
-/obj/machinery/light/small{
-	dir = 1
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
@@ -12004,25 +12017,15 @@
 	},
 /area/shuttle/research)
 "wM" = (
-/obj/structure/closet/crate/internals{
-	name = "emergency equipment"
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
 	},
-/obj/item/roller{
-	pixel_y = 8
+/obj/item/device/radio/intercom{
+	dir = 4;
+	name = "Station Intercom (General)";
+	pixel_x = -25
 	},
-/obj/item/roller{
-	pixel_y = 8
-	},
-/obj/item/airbubble,
-/obj/item/airbubble,
-/obj/item/storage/firstaid/o2{
-	pixel_y = 2
-	},
-/obj/item/storage/briefcase/inflatable,
-/obj/item/device/flashlight/flare/glowstick/red,
-/obj/item/device/flashlight/flare/glowstick/red,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "wN" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
@@ -12614,16 +12617,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
-"xW" = (
-/obj/structure/table/reinforced/steel,
-/obj/effect/landmark{
-	name = "Mission Paper"
-	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/research)
 "xX" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -12632,10 +12625,7 @@
 	},
 /area/shuttle/research)
 "xY" = (
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/ramp,
 /area/shuttle/research)
 "xZ" = (
 /turf/simulated/wall/shuttle/unique/escape_pod{
@@ -12847,6 +12837,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
+"yv" = (
+/obj/structure/bed/chair/shuttle,
+/obj/effect/floor_decal/corner/purple/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/research)
 "yw" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/glass{
@@ -13072,17 +13067,18 @@
 /turf/simulated/floor/wood,
 /area/security/bridge_surface_checkpoint)
 "yK" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small{
-	dir = 4
+/obj/effect/floor_decal/corner/purple/full{
+	dir = 1
 	},
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "expedition armory";
-	req_access = null
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
 	},
-/obj/item/gun/energy/laser/shotgun/research,
-/obj/item/gun/energy/laser/shotgun/research,
-/turf/simulated/floor/plating,
+/obj/structure/table/reinforced,
+/obj/machinery/recharger{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "yL" = (
 /obj/item/modular_computer/console/preset/security,
@@ -13097,7 +13093,7 @@
 "yN" = (
 /obj/effect/shuttle_landmark/burglar/blue,
 /obj/effect/shuttle_landmark/distress/blue,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "yO" = (
 /obj/structure/window/reinforced{
@@ -13171,12 +13167,23 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "yT" = (
-/obj/machinery/recharge_station,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small{
+/obj/effect/floor_decal/corner/lime/full{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/closet/medical_wall{
+	pixel_y = 31
+	},
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/clothing/mask/surgical,
+/obj/item/clothing/mask/surgical,
+/obj/item/clothing/glasses/hud/health,
+/obj/item/storage/firstaid/o2,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "yU" = (
 /obj/structure/table/standard{
@@ -13513,9 +13520,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/store)
 "zB" = (
-/obj/effect/floor_decal/industrial/warning/dust/corner{
-	dir = 4
-	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
 	},
@@ -14447,9 +14451,17 @@
 	},
 /area/mine/explored)
 "AY" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/item/stool/padded,
-/turf/simulated/floor/plating,
+/obj/structure/bed/roller,
+/obj/structure/closet/secure_closet/medical_wall{
+	name = "blood closet";
+	pixel_x = 30;
+	pixel_y = -30;
+	req_access = null;
+	store_mobs = 0
+	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "AZ" = (
 /turf/simulated/wall,
@@ -14803,15 +14815,22 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness/changing)
 "BJ" = (
+/obj/structure/closet/walllocker/emerglocker/west{
+	pixel_x = -27;
+	pixel_y = 3;
+	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
+/obj/structure/window/reinforced{
+	layer = 6;
+	name = "adjusted window"
+	},
 /obj/structure/bed/chair/office/bridge{
 	dir = 1
 	},
-/obj/structure/window/reinforced,
-/obj/structure/closet/walllocker/emerglocker/west,
-/obj/effect/floor_decal/corner/blue{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "BK" = (
 /obj/structure/cable{
@@ -15902,10 +15921,9 @@
 	},
 /area/shuttle/research)
 "DK" = (
-/obj/structure/shuttle_part/research{
-	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+/obj/structure/window/shuttle/unique/research{
 	icon_state = "7,16";
-	name = "survey shuttle"
+	outside_window = 1
 	},
 /turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/research)
@@ -15920,13 +15938,11 @@
 /obj/structure/bed/chair/shuttle{
 	dir = 8
 	},
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "DN" = (
 /obj/effect/floor_decal/spline/plain{
@@ -16034,12 +16050,8 @@
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/aft)
 "Ea" = (
-/obj/structure/closet/walllocker/emerglocker/north,
-/obj/structure/bed/chair/shuttle{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "Eb" = (
 /obj/structure/window/reinforced{
@@ -16175,12 +16187,12 @@
 /area/quartermaster/loading)
 "En" = (
 /obj/structure/table/standard,
-/obj/item/clothing/head/soft/yellow,
+/obj/item/clothing/head/softcap/cargo,
 /obj/item/stamp{
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/clothing/head/soft/yellow,
+/obj/item/clothing/head/softcap/cargo,
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
@@ -16719,7 +16731,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "Fo" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -17504,7 +17516,7 @@
 /area/quartermaster/loading)
 "GE" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/loading{
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -18425,7 +18437,7 @@
 /area/hallway/secondary/entry/emergency)
 "In" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -18511,12 +18523,11 @@
 /area/solar/port)
 "Iw" = (
 /obj/machinery/atmospherics/pipe/tank/air{
-	dir = 8
+	dir = 8;
+	layer = 3.5
 	},
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "Ix" = (
 /obj/machinery/light{
@@ -18867,7 +18878,7 @@
 /area/maintenance/portsolar)
 "Jc" = (
 /obj/effect/shuttle_landmark/skipjack/surface,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "Je" = (
 /obj/effect/floor_decal/corner/red,
@@ -19137,15 +19148,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/escape_pod/pod2)
-"JJ" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	name = "Station Intercom (General)";
-	pixel_x = -26
-	},
-/obj/machinery/light/small,
-/turf/simulated/floor/tiled/white,
-/area/shuttle/research)
 "JK" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -19758,6 +19760,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/sconference_room)
+"KZ" = (
+/obj/machinery/iv_drip{
+	pixel_x = 7
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/research)
 "La" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 1;
@@ -20415,11 +20423,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "LZ" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/hatch{
-	name = "Storage"
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/medical{
+	name = "Infirmary"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "Ma" = (
 /obj/machinery/status_display{
@@ -20544,9 +20552,13 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "Mn" = (
-/obj/structure/dispenser/oxygen,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/structure/bed/chair/shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "Mo" = (
 /obj/structure/cryofeed,
@@ -20748,13 +20760,6 @@
 /obj/machinery/door/window/westleft,
 /turf/simulated/floor/tiled/freezer,
 /area/crew_quarters/toilet)
-"MM" = (
-/turf/simulated/wall/shuttle/unique/research{
-	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
-	icon_state = "6,9";
-	name = "survey shuttle"
-	},
-/area/shuttle/research)
 "MN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -20963,11 +20968,20 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/emergency)
 "Nh" = (
-/turf/simulated/wall/shuttle/unique/research{
-	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
-	icon_state = "4,7";
-	name = "survey shuttle"
+/obj/structure/bed/chair/shuttle{
+	dir = 4
 	},
+/obj/effect/floor_decal/corner/purple/diagonal{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "Ni" = (
 /obj/structure/cable{
@@ -21137,11 +21151,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
-"NC" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/closet/walllocker/emerglocker/north,
-/turf/simulated/floor/plating,
-/area/shuttle/research)
 "ND" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/plating,
@@ -21391,7 +21400,7 @@
 /area/hallway/secondary/entry/emergency)
 "Oh" = (
 /obj/effect/shuttle_landmark/distress/green,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "Oi" = (
 /obj/machinery/atmospherics/binary/pump/on{
@@ -21493,17 +21502,25 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/aft)
 "Os" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 4;
-	pixel_y = 23
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "expedition armory";
+	req_access = null
 	},
-/obj/structure/bed/chair/shuttle{
-	dir = 8
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/obj/item/gun/energy/laser/shotgun/research,
+/obj/item/gun/energy/laser/shotgun/research,
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32;
+	pixel_y = -13
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "Ot" = (
 /obj/structure/grille,
@@ -21609,7 +21626,6 @@
 /obj/item/clothing/mask/gas,
 /obj/item/extinguisher,
 /obj/item/clothing/head/hardhat/red,
-/obj/item/clothing/glasses/meson,
 /obj/structure/table/rack{
 	dir = 1
 	},
@@ -21687,9 +21703,18 @@
 /turf/simulated/floor/plating,
 /area/maintenance/store)
 "OJ" = (
-/obj/machinery/mech_recharger,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
+/obj/structure/bed/chair/shuttle{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "OK" = (
 /obj/structure/cable{
@@ -21707,10 +21732,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/telecoms_ladder)
 "OL" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/research)
 "OM" = (
@@ -21732,6 +21757,7 @@
 /area/crew_quarters/fitness/pool)
 "OO" = (
 /obj/structure/shuttle_part/research{
+	density = 0;
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "8,15";
 	name = "survey shuttle"
@@ -21845,15 +21871,14 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/locker)
 "Pa" = (
-/obj/machinery/suit_storage_unit/standard_unit,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/shuttle/research)
-"Pb" = (
-/obj/machinery/door/airlock/science{
-	name = "Compilation Office"
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
 	},
-/turf/simulated/floor/tiled/white,
+/obj/structure/closet/walllocker/emerglocker/west{
+	pixel_x = -29;
+	spawnitems = list(/obj/item/tank/emergency_oxygen/double,/obj/item/clothing/mask/breath)
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "Pc" = (
 /obj/machinery/alarm{
@@ -22030,18 +22055,6 @@
 	},
 /turf/simulated/floor/tiled/old,
 /area/store)
-"Pw" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/item/device/radio/intercom{
-	dir = 1;
-	name = "Station Intercom (General)";
-	pixel_y = -26
-	},
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/research)
 "Px" = (
 /turf/simulated/wall,
 /area/maintenance/cargo/surface)
@@ -22106,10 +22119,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/stairs)
 "PF" = (
-/obj/structure/shuttle_part/research{
-	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
+/obj/structure/window/shuttle/unique/research{
 	icon_state = "5,16";
-	name = "survey shuttle"
+	outside_window = 1
 	},
 /turf/unsimulated/floor/asteroid/ash,
 /area/shuttle/research)
@@ -22247,11 +22259,11 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
 "PR" = (
-/obj/machinery/door/airlock/glass_medical{
-	name = "Infirmary"
+/obj/machinery/door/airlock/research{
+	name = "Storage 2"
 	},
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "PS" = (
 /obj/effect/floor_decal/corner/lime{
@@ -22310,9 +22322,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/store)
 "PZ" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/rd,
-/turf/simulated/floor/carpet,
+/obj/machinery/light{
+	icon_state = "tube1";
+	name = "adjusted light fixture";
+	pixel_x = 16
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "Qa" = (
 /obj/structure/table/standard{
@@ -22343,11 +22360,18 @@
 /turf/simulated/floor/tiled,
 /area/storage/tools)
 "Qd" = (
-/turf/simulated/wall/shuttle/unique/research{
-	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
-	icon_state = "4,10";
-	name = "survey shuttle"
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/corner/purple/diagonal{
+	dir = 4
 	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1"
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "Qe" = (
 /obj/effect/floor_decal/corner/blue{
@@ -22355,9 +22379,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
-"Qf" = (
-/turf/simulated/floor/tiled/white,
-/area/shuttle/research)
 "Qg" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -22435,11 +22456,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "Qn" = (
-/turf/simulated/wall/shuttle/unique/research{
-	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
-	icon_state = "5,10";
-	name = "survey shuttle"
+/obj/structure/bed/chair/shuttle,
+/obj/effect/floor_decal/corner/purple/diagonal{
+	dir = 4
 	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "Qo" = (
 /obj/machinery/door/firedoor,
@@ -22792,13 +22813,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/port)
-"QZ" = (
-/turf/simulated/wall/shuttle/unique/research{
-	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
-	icon_state = "6,10";
-	name = "survey shuttle"
-	},
-/area/shuttle/research)
 "Ra" = (
 /turf/simulated/wall/shuttle/unique/research{
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
@@ -23072,16 +23086,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/arrivals)
 "RD" = (
-/obj/machinery/sleeper{
-	dir = 4
+/obj/machinery/light{
+	icon_state = "tube1";
+	name = "adjusted light fixture";
+	pixel_x = 16
 	},
-/obj/item/device/radio/intercom{
-	dir = 4;
-	name = "Station Intercom (General)";
-	pixel_x = -26
-	},
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "RE" = (
 /obj/effect/floor_decal/corner/blue{
@@ -23126,9 +23137,17 @@
 /turf/simulated/floor/plating,
 /area/sconference_room)
 "RI" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/spot/weak{
+	dir = 8
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "science_shuttle_sensor";
+	pixel_y = -23
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/research)
@@ -23241,9 +23260,10 @@
 	},
 /area/crew_quarters/fitness/pool)
 "RU" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
+/obj/machinery/door/window/southright{
+	name = "Cockpit Access"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "RV" = (
 /turf/simulated/wall/shuttle/unique/research{
@@ -23506,7 +23526,7 @@
 /area/tcommsat/entrance)
 "Sv" = (
 /obj/effect/shuttle_landmark/merc_elite/command,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "Sw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -24274,10 +24294,10 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "TQ" = (
-/obj/structure/bed/chair/office/bridge{
+/obj/effect/floor_decal/corner/purple{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "TR" = (
 /obj/effect/floor_decal/corner/blue{
@@ -24331,7 +24351,7 @@
 /area/crew_quarters/fitness)
 "TW" = (
 /obj/effect/shuttle_landmark/legion/merchant,
-/turf/unsimulated/chasm_mask,
+/turf/unsimulated/floor/asteroid/ash,
 /area/mine/explored)
 "TX" = (
 /turf/simulated/floor/plating,
@@ -24640,11 +24660,29 @@
 /turf/simulated/wall,
 /area/hallway/secondary/entry/departure_lounge)
 "UF" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/closet/hydrant{
-	pixel_x = 30
+/obj/machinery/light{
+	icon_state = "tube1";
+	name = "adjusted light fixture";
+	pixel_x = -16
 	},
-/turf/simulated/floor/plating,
+/obj/structure/table/standard,
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -6;
+	pixel_y = 12
+	},
+/obj/item/nitrilebox{
+	pixel_x = 5;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/glass/bottle/inaprovaline{
+	pixel_x = 4;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/syringe{
+	pixel_x = 2;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "UG" = (
 /obj/structure/closet,
@@ -24716,13 +24754,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/departure_lounge)
-"UP" = (
-/turf/simulated/wall/shuttle/unique/research{
-	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
-	icon_state = "5,7";
-	name = "survey shuttle"
-	},
-/area/shuttle/research)
 "UQ" = (
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
@@ -24877,12 +24908,23 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "Vg" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small{
-	dir = 8
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/obj/item/storage/firstaid/regular{
+	layer = 3.01;
+	pixel_x = 6;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_x = -4;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/fire{
+	layer = 3.01
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "Vh" = (
 /obj/structure/window/reinforced,
@@ -24896,6 +24938,17 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
+"Vi" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/obj/machinery/vending/wallmed1{
+	pixel_x = -1;
+	pixel_y = 29;
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/research)
 "Vj" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
@@ -24971,7 +25024,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/machinery/light/small,
 /turf/simulated/floor/plating,
 /area/shuttle/research)
 "Vs" = (
@@ -25751,19 +25803,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/fitness)
 "WQ" = (
-/obj/structure/table/reinforced/steel,
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
-	pixel_x = -26
+	pixel_x = -20
 	},
-/obj/machinery/light/small{
+/obj/effect/floor_decal/corner/purple/full{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/blue{
-	dir = 9
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/table/reinforced,
+/obj/effect/landmark{
+	name = "Mission Paper"
+	},
+/obj/item/device/camera{
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "WR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -25945,6 +26003,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/entry/emergency)
+"Xh" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/research)
 "Xi" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -26002,12 +26069,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo/surface)
 "Xo" = (
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/shuttle_landmark/research/start,
-/turf/simulated/wall/shuttle/unique/research{
-	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
-	icon_state = "6,7";
-	name = "survey shuttle"
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/research)
 "Xp" = (
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -26510,14 +26574,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet,
 /area/sconference_room)
-"Yn" = (
-/obj/machinery/vending/wallmed1{
-	pixel_x = 26;
-	req_access = null
-	},
-/obj/effect/floor_decal/corner_wide/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/shuttle/research)
 "Yo" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -26573,6 +26629,7 @@
 /area/hallway/secondary/entry/emergency)
 "Yt" = (
 /obj/structure/shuttle_part/research{
+	density = 0;
 	desc = "The largest commercially available sublight engine, with a shuttle built around it and painted in NanoTrasen research division colors. Looks sleek, and fast.";
 	icon_state = "4,15";
 	name = "survey shuttle"
@@ -26620,7 +26677,7 @@
 	},
 /obj/machinery/door/airlock/command{
 	name = "Shuttle Docking";
-	req_one_access = list(19,38,63)
+	req_one_access = list(19,38,63,72)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -26751,10 +26808,7 @@
 /area/hallway/secondary/entry/dock)
 "YJ" = (
 /obj/structure/bed/chair/office/bridge/pilot,
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/research)
 "YK" = (
 /obj/structure/bed/chair,
@@ -26771,9 +26825,31 @@
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
 "YM" = (
-/obj/structure/table/steel,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/carpet,
+/obj/structure/closet/crate/internals{
+	name = "emergency equipment"
+	},
+/obj/item/roller{
+	pixel_y = 8
+	},
+/obj/item/roller{
+	pixel_y = 8
+	},
+/obj/item/airbubble,
+/obj/item/airbubble,
+/obj/item/storage/briefcase/inflatable,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/clothing/suit/space,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/head/helmet/space,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "YN" = (
 /obj/machinery/door/firedoor,
@@ -26812,10 +26888,11 @@
 /turf/simulated/floor/wood,
 /area/sconference_room)
 "YR" = (
-/obj/machinery/door/airlock{
-	name = "Private Quarters"
+/obj/machinery/door/airlock/research{
+	name = "Storage 1"
 	},
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "YS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -26862,6 +26939,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
+"YW" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/firedoor{
+	layer = 2.8;
+	open_layer = 2.8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/research)
 "YX" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -27008,11 +27093,16 @@
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomfoyer)
 "Zk" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight/lamp,
-/obj/item/paper_bin,
-/obj/item/pen,
-/turf/simulated/floor/tiled/white,
+/obj/structure/bed/chair/shuttle{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/purple/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "Zl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -27168,10 +27258,10 @@
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
 "ZD" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "ZE" = (
 /obj/structure/ladder{
@@ -47638,8 +47728,8 @@ ZZ
 ZZ
 ZZ
 ZZ
-zB
-aa
+ZZ
+In
 aa
 aa
 aa
@@ -47884,19 +47974,19 @@ aw
 Uy
 aw
 Yx
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-Xp
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
 zB
+Pr
 aa
 aa
 aa
@@ -48141,18 +48231,18 @@ aw
 Uy
 aw
 Yx
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
 Pr
 aa
 aa
@@ -48398,18 +48488,18 @@ aw
 Uy
 aw
 Yx
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
 Pr
 aa
 aa
@@ -48655,18 +48745,18 @@ aw
 Uy
 aw
 Yx
-aw
-aw
-aw
-aw
-aw
+nL
+nL
+nL
+nL
+nL
 me
-aw
-aw
-aw
-aw
-aw
-aw
+nL
+nL
+nL
+nL
+nL
+nL
 Pr
 aw
 aw
@@ -48912,18 +49002,18 @@ aw
 Uy
 aw
 Yx
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
 Pr
 aw
 aw
@@ -49169,18 +49259,18 @@ Is
 Uy
 aw
 Yx
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
 AX
 aw
 aw
@@ -49426,19 +49516,19 @@ aw
 Uy
 aw
 Yx
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-aw
-If
-In
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+zB
+Pr
 aa
 aa
 aa
@@ -49694,8 +49784,8 @@ Gz
 EN
 Zi
 Zi
-In
-aa
+Zi
+eA
 aa
 ag
 ag
@@ -49964,8 +50054,8 @@ ag
 ag
 aa
 aa
-aw
-aw
+aa
+aa
 aa
 aa
 aa
@@ -50221,18 +50311,18 @@ ag
 ag
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
 aa
 aa
 aa
@@ -50478,18 +50568,18 @@ ag
 ag
 aa
 aa
+aa
+aa
+aa
+aa
+aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -50735,18 +50825,18 @@ ag
 ag
 aa
 aa
+aa
+aa
+aa
+aa
+aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
 Jc
-aa
+aw
 aa
 aa
 aa
@@ -50992,18 +51082,18 @@ ag
 ag
 aa
 aa
+aa
+aa
+aa
+aa
+aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -51249,18 +51339,18 @@ ag
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -51506,17 +51596,17 @@ ag
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -51764,16 +51854,16 @@ aa
 aa
 aa
 aw
+aa
+aa
+aa
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -52021,16 +52111,16 @@ aa
 aa
 aa
 aw
+aa
+aa
+aa
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -52278,16 +52368,16 @@ aa
 aa
 aa
 aw
+aa
+aa
+aa
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -52535,16 +52625,16 @@ aa
 aa
 aa
 aw
+aa
+aa
+aa
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -52792,16 +52882,16 @@ aa
 aa
 aw
 aw
+aa
+aa
+aa
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -53050,15 +53140,15 @@ aa
 aw
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -53307,15 +53397,15 @@ aw
 aw
 aw
 aw
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -53565,14 +53655,14 @@ aw
 aw
 UA
 UA
+aw
+aw
+aw
+aw
+aw
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
 aa
 aa
 aa
@@ -53822,11 +53912,11 @@ aw
 UA
 UA
 UA
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -54078,12 +54168,12 @@ aw
 aw
 UA
 UA
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -54330,15 +54420,15 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -54589,13 +54679,13 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+aw
+aw
+aw
+aw
+aw
+aw
+aw
 aa
 aa
 aa
@@ -68934,7 +69024,7 @@ aw
 aw
 aw
 aw
-aa
+aw
 Sv
 aa
 aa
@@ -69429,9 +69519,9 @@ Pl
 Qj
 Zx
 kE
-DA
-DA
-DA
+Vi
+KZ
+uc
 AY
 UF
 WO
@@ -69941,7 +70031,7 @@ uS
 yb
 Qd
 Zk
-JJ
+Zk
 Nh
 DA
 BC
@@ -70198,9 +70288,9 @@ WQ
 BJ
 Qn
 TQ
-Qf
-UP
-NC
+TQ
+TQ
+DA
 YR
 ZD
 uN
@@ -70451,13 +70541,13 @@ Qv
 mZ
 YJ
 xY
-DA
+Xh
 RU
-QZ
-MM
-Pb
+DA
+DA
+DA
 Xo
-Pw
+DA
 XU
 VJ
 RN
@@ -70710,10 +70800,10 @@ Ut
 Pd
 yK
 kC
-DA
-DA
-DA
-DA
+yv
+kA
+kA
+kA
 DA
 Sy
 Ea
@@ -70969,11 +71059,11 @@ SB
 xX
 Os
 DM
-xW
+DM
 OJ
 DA
 PR
-Yn
+ZD
 tU
 Ow
 Vw
@@ -71228,7 +71318,7 @@ BH
 wL
 xl
 Bb
-DA
+YW
 Ik
 Dd
 Pm

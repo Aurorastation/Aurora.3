@@ -96,7 +96,7 @@ Class Procs:
 /obj/machinery
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
-	w_class = 10
+	w_class = ITEMSIZE_IMMENSE
 	layer = OBJ_LAYER - 0.01
 
 	var/stat = 0
@@ -286,7 +286,7 @@ Class Procs:
 
 /obj/machinery/proc/state(var/msg)
 	for(var/mob/O in hearers(src, null))
-		O.show_message("\icon[src] <span class = 'notice'>[msg]</span>", 2)
+		O.show_message("[icon2html(src, O)] <span class = 'notice'>[msg]</span>", 2)
 
 /obj/machinery/proc/ping(text=null)
 	if (!text)
@@ -396,7 +396,7 @@ Class Procs:
 	return 1
 
 /obj/machinery/proc/dismantle()
-	playsound(loc, "crowbar", 50, 1)
+	playsound(loc, /decl/sound_category/crowbar_sound, 50, 1)
 	var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(loc)
 	M.set_dir(src.dir)
 	M.state = 3
@@ -406,7 +406,7 @@ Class Procs:
 	qdel(src)
 	return 1
 
-/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = 'sound/items/polaroid1.ogg', var/print_delay = 10)
+/obj/machinery/proc/print(var/obj/paper, var/play_sound = 1, var/print_sfx = 'sound/items/polaroid1.ogg', var/print_delay = 10, var/message)
 	if( printing )
 		return 0
 
@@ -415,7 +415,9 @@ Class Procs:
 	if (play_sound)
 		playsound(src.loc, print_sfx, 50, 1)
 
-	visible_message("<span class='notice'>[src] rattles to life and spits out a paper titled [paper].</span>")
+	if(!message)
+		message = "\The [src] rattles to life and spits out a paper titled [paper]."
+	visible_message(SPAN_NOTICE(message))
 
 	addtimer(CALLBACK(src, .proc/print_move_paper, paper), print_delay)
 

@@ -157,8 +157,8 @@
 		playsound(src.loc, arms.punch_sound, 45 + 25 * (arms.melee_damage / 50), -1 )
 		if(ismob(A))
 			var/mob/target = A
-			user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</font>"
-			src.attack_log += "\[[time_stamp()]\]<font color='red'> [user] ([user.ckey]) attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</font>"
+			user.attack_log += "\[[time_stamp()]\]<span class='warning'> Attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</span>"
+			src.attack_log += "\[[time_stamp()]\]<span class='warning'> [user] ([user.ckey]) attacked [target.name] ([target.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</span>"
 			target.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)])</font>"
 			msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target, highlight_special = 1)] with [arms] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(arms.damagetype)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target) )
 		return A.attack_generic(src, arms.melee_damage, "attacked")
@@ -233,13 +233,11 @@
 	user.forceMove(src)
 	LAZYDISTINCTADD(pilots, user)
 	sync_access()
-	update_pilot_overlay()
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
 	user << sound('sound/mecha/nominal.ogg',volume=50)
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
-	update_pilot_overlay()
 	return 1
 
 /mob/living/heavy_vehicle/proc/sync_access()
@@ -275,8 +273,6 @@
 		set_intent(I_HURT)
 		LAZYREMOVE(pilots, user)
 		UNSETEMPTY(pilots)
-		update_pilot_overlay()
-	return
 
 /mob/living/heavy_vehicle/relaymove(var/mob/living/user, var/direction)
 	if(world.time < next_mecha_move)
@@ -547,7 +543,7 @@
 			var/mob/living/carbon/human/D = H
 			if(D.lying)
 				D.attack_log += "\[[time_stamp()]\]<font color='orange'> Was trampled by [src]</font>"
-				attack_log += text("\[[time_stamp()]\] <font color='red'>trampled [D.name] ([D.ckey]) with \the [src].</font>")
+				attack_log += text("\[[time_stamp()]\] <span class='warning'>trampled [D.name] ([D.ckey]) with \the [src].</span>")
 				msg_admin_attack("[src] trampled [key_name(D)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)" )
 				src.visible_message("<span class='danger'>\The [src] runs over \the [D]!</span>")
 				D.apply_damage(legs.trample_damage, BRUTE)

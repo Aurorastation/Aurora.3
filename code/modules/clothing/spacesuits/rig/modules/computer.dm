@@ -215,8 +215,8 @@
 			else
 				user.drop_from_inventory(ai,src)
 				ai_card = ai
-				to_chat(ai_mob, "<font color='blue'>You have been transferred to \the [holder]'s [src].</font>")
-				to_chat(user, "<font color='blue'>You load [ai_mob] into \the [holder]'s [src].</font>")
+				to_chat(ai_mob, "<span class='notice'>You have been transferred to \the [holder]'s [src].</span>")
+				to_chat(user, "<span class='notice'>You load [ai_mob] into \the [holder]'s [src].</span>")
 
 			integrated_ai = ai_mob
 

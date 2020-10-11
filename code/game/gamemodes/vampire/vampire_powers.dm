@@ -605,7 +605,7 @@
 									"[src]'s veins turn black as their damaged flesh regenerates before your eyes!",
 									"[src]'s skin begins to split open. It turns to ash and falls away, revealing the wound to be fully healed.",
 									"Whispering arcane things, [src]'s damaged flesh appears to regenerate.",
-									"Thick globs of blood cover a wound on [src]'s body, eventually melding to be one with \his flesh.",
+									"Thick globs of blood cover a wound on [src]'s body, eventually melding to be one with [get_pronoun("his")] flesh.",
 									"[src]'s body crackles, skin and bone shifting back into place.")
 		var/list/emotes_self = list("Your skin appears to liquefy for a moment, sealing up your wounds.",
 									"Your veins turn black as their damaged flesh regenerates before your eyes!",
@@ -799,7 +799,7 @@
 				probability = 80
 
 			if (prob(probability))
-				to_chat(T, "<font color='green'><i>[pick(emotes)]</i></font>")
+				to_chat(T, "<span class='good'><i>[pick(emotes)]</i></span>")
 
 		vampire.use_blood(5)
 
@@ -890,7 +890,7 @@
 			qdel(draining_vamp)
 			draining_vamp = null
 		else
-			to_chat(src, "<span class='warning'>You feel corruption running in [T]'s blood. Much like yourself, \he[T] is already a spawn of the Veil, and cannot be Embraced.</span>")
+			to_chat(src, "<span class='warning'>You feel corruption running in [T]'s blood. Much like yourself, [T.get_pronoun("he")] is already a spawn of the Veil, and cannot be Embraced.</span>")
 			return
 
 	vampire.status |= VAMP_DRAINING

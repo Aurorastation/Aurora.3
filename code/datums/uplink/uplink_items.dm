@@ -140,7 +140,7 @@ var/datum/uplink/uplink
 
 /datum/uplink_item/item/log_icon()
 	var/obj/I = path
-	return "\icon[I]"
+	return "[icon2html(I, usr)]"
 
 /********************************
 *                           	*
@@ -154,7 +154,7 @@ var/datum/uplink/uplink
 	if(!default_abstract_uplink_icon)
 		default_abstract_uplink_icon = image('icons/obj/pda.dmi', "pda-syn")
 
-	return "\icon[default_abstract_uplink_icon]"
+	return "[icon2html(default_abstract_uplink_icon, usr)]"
 
 /****************
 * Support procs *

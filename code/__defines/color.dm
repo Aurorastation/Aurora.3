@@ -91,7 +91,7 @@
 #define COLOR_OIL              "#030303"
 #define COLOR_ASH              "#615C5B"
 #define COLOR_SNOW             "#9CADAD"
-#define COLOR_LING_HIVEMIND    "#94582e"
+#define COLOR_LING_HIVEMIND    "#583012"
 
 
 // Blood colors
@@ -119,3 +119,7 @@
 #define COLOR_ASSEMBLY_BLUE     "#38559E"
 #define COLOR_ASSEMBLY_PURPLE   "#6F6192"
 #define COLOR_ASSEMBLY_HOT_PINK "#FF69B4"
+
+#define COLOR_DARKMODE_BACKGROUND "#202020"
+#define COLOR_DARKMODE_DARKBACKGROUND "#171717"
+#define COLOR_DARKMODE_TEXT "#a4bad6"

@@ -128,6 +128,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 	available_events = list(
 		// Severity level, event name, even type, base weight, role weights, one shot, min weight, max weight. Last two only used if set and non-zero
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Nothing",					/datum/event/nothing,				120),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Appendicitis", 			/datum/event/spontaneous_appendicitis, 		0,		list(ASSIGNMENT_MEDICAL = 25)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "APC Damage",				/datum/event/apc_damage,			20, 	list(ASSIGNMENT_ENGINEER = 15)),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Brand Intelligence",		/datum/event/brand_intelligence,	15, 	list(ASSIGNMENT_JANITOR = 20),	1),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Camera Damage",				/datum/event/camera_damage,			20, 	list(ASSIGNMENT_ENGINEER = 10)),
@@ -141,6 +142,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Clogged Vents",				/datum/event/vent_clog, 			55),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "False Alarm",				/datum/event/false_alarm, 			100),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Supply Drop",				/datum/event/supply_drop, 			80),
+		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Golem Rune",				/datum/event/supply_drop/golem, 	20),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "CCIA General Notice",		/datum/event/ccia_general_notice, 	300),
 		new /datum/event_meta(EVENT_LEVEL_MUNDANE, "Mundane Vermin Infestation",/datum/event/infestation, 			60,		list(ASSIGNMENT_JANITOR = 15, ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 15))
 
@@ -156,7 +158,7 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Gravity Failure",					/datum/event/gravity,	 					100),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Grid Check",						/datum/event/grid_check, 					80),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Ion Storm",						/datum/event/ionstorm, 						0,		list(ASSIGNMENT_AI = 45, ASSIGNMENT_CYBORG = 25, ASSIGNMENT_ENGINEER = 6, ASSIGNMENT_SCIENTIST = 6)),
-		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Meteor Shower",					/datum/event/meteor_shower,					40,		list(ASSIGNMENT_ENGINEER = 13)),
+		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Meteor Shower",					/datum/event/meteor_wave/shower,			40,		list(ASSIGNMENT_ENGINEER = 13)),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Prison Break",						/datum/event/prison_break,					0,		list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_CYBORG = 20),1),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Xenobiology",	/datum/event/prison_break/xenobiology,		0,		list(ASSIGNMENT_SCIENTIST = 15, ASSIGNMENT_CYBORG = 20),1),
 		new /datum/event_meta(EVENT_LEVEL_MODERATE, "Containment Error - Bridge",		/datum/event/prison_break/bridge,			0,		list(ASSIGNMENT_ENGINEER = 15, ASSIGNMENT_CYBORG = 20),1),
@@ -170,13 +172,14 @@ var/global/list/severity_to_string = list(EVENT_LEVEL_MUNDANE = "Mundane", EVENT
 /datum/event_container/major
 	severity = EVENT_LEVEL_MAJOR
 	available_events = list(
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Nothing",						/datum/event/nothing,				135),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Blob",						/datum/event/blob, 					40,	list(ASSIGNMENT_ENGINEER = 5,ASSIGNMENT_SECURITY =  5), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Carp Migration",				/datum/event/carp_migration,		50,	list(ASSIGNMENT_SECURITY =  10), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Meteor Wave",					/datum/event/meteor_wave,			40,	list(ASSIGNMENT_ENGINEER =  10),1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines",					/datum/event/spacevine, 			75,	list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation",			/datum/event/spider_infestation,	25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), 1),
-		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Major Vermin Infestation",	/datum/event/infestation/major, 	15,	list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 10))
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Nothing",						/datum/event/nothing,					135),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Blob",						/datum/event/blob, 						40,	list(ASSIGNMENT_ENGINEER = 5), 1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Carp Migration",				/datum/event/carp_migration,			50,	list(ASSIGNMENT_SECURITY =  10), 1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Meteor Wave",					/datum/event/meteor_wave,				40,	list(ASSIGNMENT_ENGINEER =  10),1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Downed Ship",					/datum/event/meteor_wave/downed_ship,	5,	list(ASSIGNMENT_ENGINEER =  10),1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Space Vines",					/datum/event/spacevine, 				75,	list(ASSIGNMENT_ENGINEER = 10, ASSIGNMENT_GARDENER = 20), 1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Spider Infestation",			/datum/event/spider_infestation,		25, list(ASSIGNMENT_SECURITY = 10, ASSIGNMENT_MEDICAL = 5), 1),
+		new /datum/event_meta(EVENT_LEVEL_MAJOR, "Major Vermin Infestation",	/datum/event/infestation/major, 		15,	list(ASSIGNMENT_SECURITY = 15, ASSIGNMENT_MEDICAL = 5))
 	)
 
 #undef ASSIGNMENT_ANY

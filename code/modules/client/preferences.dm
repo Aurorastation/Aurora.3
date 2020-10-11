@@ -27,7 +27,6 @@ datum/preferences
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
 	var/html_UI_style = "Nano"
-	var/skin_theme = "Light"
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
 	var/motd_hash = ""					//Hashes for the new server greeting window.
@@ -62,7 +61,7 @@ datum/preferences
 	var/r_eyes = 0						//Eye color
 	var/g_eyes = 0						//Eye color
 	var/b_eyes = 0						//Eye color
-	var/species = "Human"               //Species datum to use.
+	var/species = SPECIES_HUMAN               //Species datum to use.
 	var/species_preview                 //Used for the species selection window.
 	var/list/alternate_languages = list() //Secondary language(s)
 	var/list/language_prefixes = list() // Language prefix keys
@@ -158,7 +157,19 @@ datum/preferences
 	var/datum/category_collection/player_setup_collection/player_setup
 
 	var/bgstate = "000"
-	var/list/bgstate_options = list("000", "FFF", "steel", "white", "plating", "reinforced")
+	var/list/bgstate_options = list(
+		"fffff",
+		"000",
+		"new_steel",
+		"dark2",
+		"wood",
+		"wood_light",
+		"grass_alt",
+		"new_reinforced",
+		"new_white"
+		)
+
+	var/fov_cone_alpha = 255
 
 /datum/preferences/New(client/C)
 	new_setup()
@@ -276,8 +287,9 @@ datum/preferences
 	var/obj/screen/BG= LAZYACCESS(char_render_holders, "BG")
 	if(!BG)
 		BG = new
+		BG.appearance_flags = TILE_BOUND|PIXEL_SCALE|NO_CLIENT_COLOR
 		BG.layer = TURF_LAYER
-		BG.icon = 'icons/effects/128x48.dmi'
+		BG.icon = 'icons/turf/total_floors.dmi'
 		LAZYSET(char_render_holders, "BG", BG)
 		client.screen |= BG
 	BG.icon_state = bgstate
@@ -585,14 +597,14 @@ datum/preferences
 		g_eyes = 0
 		b_eyes = 0
 
-		species = "Human"
+		species = SPECIES_HUMAN
 		home_system = "Unset"
 		citizenship = "None"
 		faction = "None"
 		religion = "None"
 		accent = "None"
 
-		species = "Human"
+		species = SPECIES_HUMAN
 
 		job_civilian_high = 0
 		job_civilian_med = 0

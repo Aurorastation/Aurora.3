@@ -231,6 +231,8 @@
 			if(SW.outside_window)
 				var/turf/target_turf = get_turf(SW)
 				target_turf.ChangeTurf(destination.base_turf)
+		for(var/obj/effect/energy_field/ef in sub_area)
+			qdel(ef)
 
 	// Remove all powernets that were affected, and rebuild them.
 	var/list/cables = list()
