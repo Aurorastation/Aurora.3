@@ -279,3 +279,24 @@
 
 	else
 		icon_state = initial(icon_state)
+
+// pool chair, to sit with your feet in the water. only works when facing south, because water overlays weirdly otherwise
+/obj/structure/bed/chair/pool
+	name = "pool chair"
+	desc = "A simple plastic contraption that allows you to sit comfortably, dipping your feet into the pool."
+	icon_state = "pool_chair"
+
+/obj/structure/bed/chair/pool/update_icon()
+	return
+
+/obj/structure/bed/chair/pool/buckle_mob(mob/living/M)
+	if(!iscarbon(M))
+		return FALSE
+	return ..()
+
+/obj/structure/bed/chair/pool/post_buckle_mob(mob/living/M)
+	. = ..()
+	if(M == buckled_mob)
+		M.pixel_y = -6
+	else
+		M.pixel_y = initial(M.pixel_y)
