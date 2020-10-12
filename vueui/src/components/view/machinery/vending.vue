@@ -7,7 +7,7 @@
       </div>
       <div class="t-parent">
         <vui-button v-for="vend in output" :key="vend.key" :class="vend.amount > 0 ? '' : 'no-stock'"
-        class="t-child tooltip" :disabled="vend.amount == 0 || s.mode == 1" :params="{ vendItem: vend.key }">
+                    class="t-child tooltip" :disabled="vend.amount == 0 || s.mode == 1" :params="{ vendItem: vend.key }">
           <div class="t-container" :style="{ height: s.ui_size + 'px', width: s.ui_size + 'px'}">
             <vui-img :class="vend.amount > 0 ? '' : 'no-stock'" class="food-icon" :name="vend.key"/>
             <span v-if="vend.price > 0" class="cart-icon fas ic-shopping-cart"/>
