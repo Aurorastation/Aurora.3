@@ -1383,7 +1383,7 @@ var/list/total_extraction_beacons = list()
 			var/obj/item/clothing/suit/space/void/mining/himeo/P = new /obj/item/clothing/suit/space/void/mining/himeo(user.loc)
 			user.put_in_hands(P)
 
-	if(istype(W, /obj/item/clothing/head/helmet/space/void/mining))
+	else if(istype(W, /obj/item/clothing/head/helmet/space/void/mining))
 		user.drop_item(W)
 		qdel(W)
 		to_chat(user, SPAN_NOTICE("Your permit for a Himean voidsuit helmet has been processed. Enjoy!"))
