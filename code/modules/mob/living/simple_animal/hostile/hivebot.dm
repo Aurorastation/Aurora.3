@@ -227,6 +227,7 @@
 	icon_living = "hivebotbeacon_active"
 	health = 300
 	maxHealth = 300
+	blood_type = "#000000"
 	projectilesound = 'sound/weapons/taser2.ogg'
 	projectiletype = /obj/item/projectile/beam/hivebot
 	wander = 0
@@ -505,6 +506,7 @@
 	icon_state = "hivebotharvester"
 	health = 100
 	maxHealth = 100
+	blood_type = "#000000"
 	harm_intent_damage = 3
 	melee_damage_lower = 30
 	melee_damage_upper = 30
