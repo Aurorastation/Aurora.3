@@ -25,6 +25,16 @@
 	grow_speed = 3 SECONDS
 	var/node_range = NODERANGE
 
+/obj/structure/gore/tendrils/node/CanPass(atom/movable/mover, turf/target, height, air_group)
+	. = ..()
+	if(!.)
+		if(istype(mover, /mob/living/simple_animal/hostile/morph))
+			return TRUE
+		if(ishuman(mover))
+			var/mob/living/carbon/human/H = mover
+			if(H.mind.changeling)
+				return TRUE
+
 /obj/structure/gore/tendrils/Destroy()
 	var/turf/T = get_turf(src)
 	T.movement_cost = initial(T.movement_cost)
