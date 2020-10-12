@@ -20,9 +20,9 @@
     </template>
     <template v-else-if="s.sel_name && s.sel_price > 0">
       <div class="t-parent">
-        <p>Item selected:<vui-img class="purchase-icon" v-if="$root.$data.assets[s.sel_key]" :name="s.sel_key" />{{s.sel_name}}<p>
+        <p>Item selected:<vui-img class="purchase-icon" v-if="$root.$data.assets[s.sel_key]" :name="s.sel_key" />{{s.sel_name}}</p>
         <p>Charge: {{s.sel_price}}电 / {{s.sel_price}}cr</p>
-        <p>Swipe your NanoTrasen ID or insert credits to purchase.</p><br/>
+        <p>Swipe your NanoTrasen ID or insert credits to purchase.</p>
         <p v-if="s.message_err == 1" class="danger">{{s.message}}</p>
         <div class="cancel-button">
           <vui-button :params="{ cancelpurchase: 1 }" icon="undo">Cancel Transaction</vui-button>
