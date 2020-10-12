@@ -794,7 +794,7 @@ default behaviour is:
 	set category = "IC"
 
 	resting = !resting
-	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>")
+	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
 	update_vision_cone()
 
 /mob/living/proc/cannot_use_vents()
