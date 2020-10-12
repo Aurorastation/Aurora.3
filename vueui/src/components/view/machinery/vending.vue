@@ -1,26 +1,29 @@
 <template>
   <div>
-    <template v-if="mode == 0 || sel_price == 0">
+    <template v-if="s.mode == 0 || s.sel_price == 0">
       <div class="cancel-button">
-        <vui-button v-if="coin" :params="{ remove_coin: 1 }" icon="sign-out-alt">{{ coin }}</vui-button>
+        <vui-input-search :input="products" v-model="output" :keys="['name']" autofocus :threshold="threshold" />
+        <vui-button :disabled="!s.coin" :params="{ remove_coin: 1 }" icon="sign-out-alt">{{ s.coin ? s.coin : "No coin inserted." }}</vui-button>
       </div>
       <div class="t-parent">
-        <vui-button :class="in_stock(vend_item.amount)" class="t-child tooltip" :disabled="vend_item.amount == 0 || mode == 1" push-state :params="{ vendItem: vend_item.key }" v-for="vend_item in products" :key="vend_item.key">
-          <div class="t-container">
-            <vui-img :class="in_stock(vend_item.amount)" class="food-icon" :name="getImage(vend_item)"/>
-            <span v-if="vend_item.price > 0" class="cart-icon fas ic-shopping-cart"/>
-            <span v-if="vend_item.price > 0" class="price">{{ vend_item.price }}电</span>
-            <span class="qty" :class="in_stock(vend_item.amount)">(x{{ vend_item.amount }})</span>
+        <vui-button v-for="vend in output" :key="vend.key" :class="vend.amount > 0 ? '' : 'no-stock'"
+        class="t-child tooltip" :disabled="vend.amount == 0 || s.mode == 1" :params="{ vendItem: vend.key }">
+          <div class="t-container" :style="{ height: s.ui_size + 'px', width: s.ui_size + 'px'}">
+            <vui-img :class="vend.amount > 0 ? '' : 'no-stock'" class="food-icon" :name="vend.key"/>
+            <span v-if="vend.price > 0" class="cart-icon fas ic-shopping-cart"/>
+            <span v-if="vend.price > 0" class="price">{{ vend.price }}电</span>
+            <span class="qty" :class="vend.amount > 0 ? '' : 'no-stock'">(x{{ vend.amount }})</span>
           </div>
-          <span class="tooltiptext">{{ vend_item.name }}</span>
+          <span class="tooltiptext">{{ vend.name }}</span>
         </vui-button>
       </div>
     </template>
-    <template v-else-if="sel_name && sel_price > 0">
+    <template v-else-if="s.sel_name && s.sel_price > 0">
       <div class="t-parent">
-        <p>Purchasing<vui-img class="purchase-icon" v-if="$root.$data.assets[sel_key]" :name="sel_key" />{{sel_name}} for {{sel_price}}电:</p>
-        <p>Swipe ID or insert credits to purchase.</p>
-        <p v-if="message_err == 1" class="danger">{{message}}</p>
+        <p>Item selected:<vui-img class="purchase-icon" v-if="$root.$data.assets[s.sel_key]" :name="s.sel_key" />{{s.sel_name}}<p>
+        <p>Charge: {{s.sel_price}}电 / {{s.sel_price}}cr</p>
+        <p>Swipe your NanoTrasen ID or insert credits to purchase.</p><br/>
+        <p v-if="s.message_err == 1" class="danger">{{s.message}}</p>
         <div class="cancel-button">
           <vui-button :params="{ cancelpurchase: 1 }" icon="undo">Cancel Transaction</vui-button>
         </div>
@@ -35,22 +38,15 @@
 <script>
 export default {
   data() {
-    return this.$root.$data.state;
+    return {
+      s: this.$root.$data.state,
+      output: [],
+      threshold: 0.3
+    }
   },
-  methods: {
-    in_stock: function(amt) {
-      if (amt <= 0) {
-        return "no-stock";
-      } else {
-        return "";
-      }
-    },
-    getImage: function(i) {
-      if (i.amount == 0) {
-        return i.key + "g"
-      } else {
-        return i.key
-      }
+  computed: {
+    products() {
+      return Object.values(this.s.products);
     }
   }
 };
@@ -78,7 +74,15 @@ p.danger {
 }
 
 .food-icon {
+  zoom: 1;
   height: 75%;
+}
+
+.food-icon.no-stock {
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+  // god knows which one of these we actually need so let's just use them all
 }
 
 .t-parent {
@@ -88,11 +92,9 @@ p.danger {
   background-color: rgba(0, 0, 0, 0.4);
   outline-style: ridge;
   outline-color: black;
-  justify-content: space-evenly;
 }
 
 .t-child {
-  width: 22.5%;
   height: auto;
   white-space: normal;
   box-sizing: border-box;
@@ -101,7 +103,6 @@ p.danger {
 }
 
 .t-container {
-  height: 100px;
   position: relative;
 }
 

@@ -121,6 +121,16 @@
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
 	light_color = COLOR_PALE_BLUE_GRAY
 	exclusive_screen = FALSE
+	ui_size = 60
+
+/obj/machinery/vending/boozeomat/ui_interact(mob/user, var/datum/topic_state/state = default_state)
+	user.set_machine(src)
+
+	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+	if(!ui)
+		ui = new(user, src, "machinery-vending", 900, 600, capitalize(name), state=state)
+
+	ui.open()
 
 
 /obj/machinery/vending/assist
