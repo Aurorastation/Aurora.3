@@ -35,9 +35,6 @@
 	if (eyeobj)
 		return eyeobj.zMove(direction)
 
-	if(istype(src.loc,/obj/machinery/cryopod)||istype(src.loc,/obj/machinery/recharge_station))
-		return FALSE
-
 	// Check if we can actually travel a Z-level.
 	if (!can_ztravel(direction))
 		to_chat(src, SPAN_WARNING("You lack means of travel in that direction."))
