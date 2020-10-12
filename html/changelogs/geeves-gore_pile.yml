@@ -1,9 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Morphs now have HUDs, move intent, health, zone selection, resist."
-  - rscadd: "Morphs now have the ability to put down flesh sac tendril nodes, gore nests, and toggle darkvision (the latter is in the abilities tab)."
-  - rscadd: "Morphs can now rest. Resting on flesh tendrils will heal them, albeit quite slowly."
-  - rscadd: "Tendrils slow people walking over them down, unless they're a changeling."
