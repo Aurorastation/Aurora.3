@@ -172,7 +172,7 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	forceMove(get_turf(target))
 	START_PROCESSING(SSprocessing, src)
 
-	aiming_at.aimed |= src
+	LAZYDISTINCTADD(aiming_at.aimed, src)
 	toggle_active(1)
 	locked = 0
 	update_icon()
@@ -222,7 +222,7 @@ obj/aiming_overlay/proc/update_aiming_deferred()
 	if(aiming_at)
 		moved_event.unregister(aiming_at, src)
 		destroyed_event.unregister(aiming_at, src)
-		aiming_at.aimed -= src
+		LAZYREMOVE(aiming_at.aimed, src)
 		aiming_at = null
 
 	aiming_with = null

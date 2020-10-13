@@ -1,5 +1,6 @@
-/mob/living/var/obj/aiming_overlay/aiming
-/mob/living/var/list/aimed = list()
+/mob/living
+	var/obj/aiming_overlay/aiming
+	var/list/aimed
 
 /mob/verb/toggle_gun_mode()
 	set name = "Toggle Gun Mode"
@@ -39,7 +40,7 @@
 	if(aiming)
 		qdel(aiming)
 		aiming = null
-	aimed.Cut()
+	aimed = null
 	if(vr_mob)
 		vr_mob = null
 	if(old_mob)
