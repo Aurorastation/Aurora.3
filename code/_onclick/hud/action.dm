@@ -42,7 +42,7 @@
 			return
 		Remove(owner)
 	owner = T
-	owner.actions.Add(src)
+	LAZYADD(owner.actions, src)
 	owner.update_action_buttons()
 	return
 
@@ -52,7 +52,7 @@
 			T.client.screen -= button
 		qdel(button)
 		button = null
-	T.actions.Remove(src)
+	LAZYREMOVE(T.actions, src)
 	T.update_action_buttons()
 	owner = null
 	return
