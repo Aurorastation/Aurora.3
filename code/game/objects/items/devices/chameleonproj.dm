@@ -1,15 +1,16 @@
 /obj/item/device/chameleon
 	name = "chameleon projector"
+	desc_antag = "This device can let you disguise as common objects. Click on an object with this in your active hand to scan it, then activate it to use it in your hand."
 	icon_state = "shield0"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	item_state = "electronic"
-	throwforce = 5.0
+	throwforce = 5
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_ILLEGAL = 4, TECH_MAGNET = 4)
-	var/can_use = 1
+	var/can_use = TRUE
 	var/obj/effect/dummy/chameleon/active_dummy = null
 	var/saved_item = /obj/item/trash/cigbutt
 	var/saved_icon = 'icons/obj/clothing/masks.dmi'
@@ -28,7 +29,8 @@
 	toggle()
 
 /obj/item/device/chameleon/afterattack(atom/target, mob/user , proximity)
-	if(!proximity) return
+	if(!proximity)
+		return
 	if(!active_dummy)
 		if(istype(target,/obj/item) && !istype(target, /obj/item/disk/nuclear))
 			playsound(get_turf(src), 'sound/weapons/flash.ogg', 100, 1, -6)
@@ -39,7 +41,8 @@
 			saved_overlays = target.overlays
 
 /obj/item/device/chameleon/proc/toggle()
-	if(!can_use || !saved_item) return
+	if(!can_use || !saved_item)
+		return
 	if(active_dummy)
 		eject_all()
 		playsound(get_turf(src), 'sound/effects/pop.ogg', 100, 1, -6)
@@ -53,7 +56,8 @@
 	else
 		playsound(get_turf(src), 'sound/effects/pop.ogg', 100, 1, -6)
 		var/obj/O = new saved_item(src)
-		if(!O) return
+		if(!O)
+			return
 		var/obj/effect/dummy/chameleon/C = new /obj/effect/dummy/chameleon(usr.loc)
 		C.activate(O, usr, saved_icon, saved_icon_state, saved_overlays, src)
 		qdel(O)
@@ -83,9 +87,9 @@
 /obj/effect/dummy/chameleon
 	name = ""
 	desc = ""
-	density = 0
-	anchored = 1
-	var/can_move = 1
+	density = FALSE
+	anchored = TRUE
+	var/can_move = TRUE
 	var/obj/item/device/chameleon/master = null
 
 /obj/effect/dummy/chameleon/proc/activate(var/obj/O, var/mob/M, new_icon, new_iconstate, new_overlays, var/obj/item/device/chameleon/C)

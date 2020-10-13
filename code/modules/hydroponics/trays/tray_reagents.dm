@@ -5,7 +5,7 @@
 	flags = NOBLUDGEON
 	slot_flags = SLOT_BELT
 	throwforce = 4
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 2
 	throw_range = 10
 	var/toxicity = 4
@@ -91,9 +91,7 @@
 	icon_state = "bottle16"
 	flags = OPENCONTAINER
 	possible_transfer_amounts = null
-	w_class = 2.0
-
-	var/fertilizer //Reagent contained, if any.
+	w_class = ITEMSIZE_SMALL
 
 	//Like a shot glass!
 	amount_per_transfer_from_this = 10
@@ -105,20 +103,17 @@
 	src.pixel_x = rand(-5.0, 5)
 	src.pixel_y = rand(-5.0, 5)
 
-	if(fertilizer)
-		reagents.add_reagent(fertilizer,60)
-
 /obj/item/reagent_containers/glass/fertilizer/ez
 	name = "bottle of E-Z-Nutrient"
 	icon_state = "bottle16"
-	fertilizer = "eznutrient"
+	reagents_to_add = list(/datum/reagent/toxin/fertilizer/eznutrient = 60)
 
 /obj/item/reagent_containers/glass/fertilizer/l4z
 	name = "bottle of Left 4 Zed"
 	icon_state = "bottle18"
-	fertilizer = "left4zed"
+	reagents_to_add = list(/datum/reagent/toxin/fertilizer/left4zed = 60)
 
 /obj/item/reagent_containers/glass/fertilizer/rh
 	name = "bottle of Robust Harvest"
 	icon_state = "bottle15"
-	fertilizer = "robustharvest"
+	reagents_to_add = list(/datum/reagent/toxin/fertilizer/robustharvest = 60)

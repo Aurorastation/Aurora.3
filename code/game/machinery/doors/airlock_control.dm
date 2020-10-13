@@ -22,7 +22,7 @@
 /obj/machinery/door/airlock/proc/execute_current_command()
 	set waitfor = FALSE
 	if(operating)
-		if (operating != -1)	// -1 is emagged.
+		if (emagged == 1)
 			// Come back and try again later.
 			queue_command()
 		return //emagged or busy doing something else
@@ -154,9 +154,10 @@
 	return ..()
 
 /obj/machinery/airlock_sensor
+	name = "airlock sensor"
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "airlock_sensor_off"
-	name = "airlock sensor"
+	layer = OBJ_LAYER
 
 	anchored = 1
 	power_channel = ENVIRON
@@ -233,9 +234,10 @@
 	command = "cycle_exterior"
 
 /obj/machinery/access_button
+	name = "access button"
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "access_button_standby"
-	name = "access button"
+	layer = OBJ_LAYER
 
 	anchored = 1
 	power_channel = ENVIRON
@@ -257,7 +259,7 @@
 
 /obj/machinery/access_button/attackby(obj/item/I as obj, mob/user as mob)
 	//Swiping ID on the access button
-	if (istype(I, /obj/item/card/id) || istype(I, /obj/item/device/pda))
+	if (I.GetID())
 		attack_hand(user)
 		return
 	..()

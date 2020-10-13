@@ -1,11 +1,14 @@
 /obj/machinery/portable_atmospherics/powered/scrubber
-	name = "Portable Air Scrubber"
+	name = "portable air scrubber"
 	desc = "Scrubs contaminants from the local atmosphere or the connected portable tank."
+	desc_info = "Filters the air, placing harmful gases into the internal gas container.  The container can be emptied by \
+	connecting it to a connector port.  The pump can pump the air in (sucking) or out (blowing), at a specific target pressure.  The powercell inside can be \
+	replaced by using a screwdriver, and then adding a new cell.  A tank of gas can also be attached to the scrubber. "
 
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "pscrubber:0"
 	density = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 	var/on = 0
 	var/volume_rate = 800
@@ -18,7 +21,7 @@
 	var/minrate = 0
 	var/maxrate = 10 * ONE_ATMOSPHERE
 
-	var/list/scrubbing_gas = list("phoron", "carbon_dioxide", "sleeping_agent")
+	var/list/scrubbing_gas = list(GAS_PHORON, GAS_CO2, GAS_N2O)
 
 /obj/machinery/portable_atmospherics/powered/scrubber/Initialize()
 	. = ..()

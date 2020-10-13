@@ -189,7 +189,6 @@
 	SearchVar(debugobj)
 	SearchVar(mods)
 	SearchVar(gravity_is_on)
-	SearchVar(server_greeting)
 	SearchVar(awaydestinations)
 	SearchVar(fileaccess_timer)
 	SearchVar(custom_event_msg)
@@ -316,7 +315,6 @@
 	SearchVar(exclude_jobs)
 	SearchVar(visual_nets)
 	SearchVar(cameranet)
-	SearchVar(rune_list)
 	SearchVar(escape_list)
 	SearchVar(endgame_exits)
 	SearchVar(endgame_safespawns)
@@ -488,7 +486,6 @@
 	SearchVar(lava)
 	SearchVar(snow)
 	SearchVar(sand)
-	SearchVar(footstepfx)
 	SearchVar(FALLOFF_SOUNDS)
 	SearchVar(all_antag_types)
 	SearchVar(all_antag_spawnpoints)
@@ -585,6 +582,7 @@
 	SearchVar(MIME)
 	SearchVar(MERCHANT)
 	SearchVar(ASSISTANT)
+	SearchVar(CONSULAR)
 	SearchVar(assistant_occupations)
 	SearchVar(command_positions)
 	SearchVar(engineering_positions)
@@ -865,6 +863,5 @@
 	SearchVar(mark)
 	SearchVar(contamination_overlay)
 	SearchVar(vsc)
-	SearchVar(global_player_panel)
 
 #endif

@@ -10,6 +10,7 @@
 	speak_emote = list("transmits") //not supposed to be used under AI control
 	emote_hear = list("transmits")  //I'm just adding it so it doesn't runtime if controlled by player who speaks
 
+	organ_names = list("side")
 	response_help  = "touches"
 	response_disarm = "flails at"
 	response_harm   = "punches the"

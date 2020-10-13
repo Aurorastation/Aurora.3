@@ -3,7 +3,7 @@ var/datum/antagonist/loyalists/loyalists
 /datum/antagonist/loyalists
 	id = MODE_LOYALIST
 	role_text = "Head Fellow"
-	role_text_plural = "The Fellowship"
+	role_text_plural = "Fellowship"
 	bantype = "loyalist"
 	feedback_tag = "loyalist_objective"
 	antag_indicator = "fellowshiphead"
@@ -13,12 +13,11 @@ var/datum/antagonist/loyalists/loyalists
 	victory_feedback_tag = "You thwarted the Contenders in their devious ends."
 	loss_feedback_tag = "You were thwarted by the Contenders."
 	antaghud_indicator = "fellowship"
-	flags = 0
 
-	hard_cap = 2
-	hard_cap_round = 4
-	initial_spawn_req = 2
-	initial_spawn_target = 4
+	hard_cap = 3
+	hard_cap_round = 3
+	initial_spawn_req = 3
+	initial_spawn_target = 8
 
 	// Inround loyalists.
 	faction_role_text = "Fellow"
@@ -29,7 +28,7 @@ var/datum/antagonist/loyalists/loyalists
 	faction_invisible = FALSE
 
 	restricted_jobs = list("AI", "Cyborg")
-	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security")
+	protected_jobs = list("Lab Assistant", "Medical Resident", "Engineering Apprentice", "Assistant", "Security Cadet", "Captain", "Head of Security")
 	required_age = 31
 
 /datum/antagonist/loyalists/New()

@@ -50,7 +50,7 @@
 /obj/CanUseTopic(var/mob/user, var/datum/topic_state/state)
 	if(user.CanUseObjTopic(src))
 		return ..()
-	to_chat(user, "<span class='danger'>\icon[src]Access Denied!</span>")
+	to_chat(user, "<span class='danger'>[icon2html(src, user)]Access Denied!</span>")
 	return STATUS_CLOSE
 
 /mob/living/silicon/CanUseObjTopic(var/obj/O)
@@ -159,20 +159,13 @@
 /obj/proc/hear_talk(mob/M as mob, text, verb, datum/language/speaking)
 	if(talking_atom)
 		talking_atom.catchMessage(text, M)
-/*
-	var/mob/mo = locate(/mob) in src
-	if(mo)
-		var/rendered = "<span class='game say'><span class='name'>[M.name]: </span> <span class='message'>[text]</span></span>"
-		mo.show_message(rendered, 2)
-		*/
-	return
 
 /obj/proc/see_emote(mob/M as mob, text, var/emote_type)
 	return
 
 /obj/proc/tesla_act(var/power, var/melt = FALSE)
 	if(melt)
-		visible_message(span("danger", "\The [src] melts down until ashes are left!"))
+		visible_message(SPAN_DANGER("\The [src] melts down until ashes are left!"))
 		new /obj/effect/decal/cleanable/ash(loc)
 		qdel(src)
 		return
@@ -249,3 +242,7 @@
 	. = ..()
 	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
 		to_chat(user, SPAN_SUBTLE("Can be rotated with alt-click."))
+
+// whether mobs can unequip and drop items into us or not
+/obj/proc/can_hold_dropped_items()
+	return TRUE

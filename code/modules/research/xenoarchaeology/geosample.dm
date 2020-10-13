@@ -20,7 +20,7 @@
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "sliver1"	//0-4
 	randpixel = 8
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	sharp = 1
 	//item_state = "electronic"
 	var/source_rock = "/turf/simulated/mineral/"
@@ -30,7 +30,7 @@
 	icon_state = "sliver[rand(1,3)]"
 	randpixel_xy()
 	create_reagents(50)
-	reagents.add_reagent("ground_rock",50)
+	reagents.add_reagent(/datum/reagent/stone_dust,50)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Geosample datum

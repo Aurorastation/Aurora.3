@@ -1,6 +1,6 @@
 /obj/item/grenade/smokebomb
-	desc = "It is set to detonate in 2 seconds."
 	name = "smoke bomb"
+	desc = "It is set to detonate in 2 seconds."
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "flashbang"
 	det_time = 20
@@ -37,3 +37,38 @@
 	sleep(80)
 	qdel(src)
 	return
+
+/obj/item/grenade/smokebomb/cyborg
+	name = "mounted smoke deployer"
+	desc = "A stationbound-mounted smoke grenade deployer. Activate to deploy."
+	desc_antag = "When activated, it will deploy a smokebomb which will instantly prime, blowing out clouds of smoke. Upon deploying, it will enter a charging state which will restock a new smokebomb in two minutes."
+	var/can_deploy = TRUE
+	var/recharge_time = 5 MINUTES
+	maptext_x = 3
+	maptext_y = 2
+
+/obj/item/grenade/smokebomb/cyborg/Initialize()
+	. = ..()
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>"
+
+/obj/item/grenade/smokebomb/cyborg/attack_self(mob/user)
+	if(!can_deploy)
+		to_chat(user, SPAN_WARNING("\The [src] hasn't recharged yet!"))
+		return
+
+	to_chat(user, SPAN_NOTICE("You quietly deploy a smokebomb."))
+	var/obj/item/grenade/smokebomb/SB = new /obj/item/grenade/smokebomb(get_turf(src))
+	SB.det_time = 1
+	SB.prime()
+
+	addtimer(CALLBACK(src, .proc/recharge), recharge_time)
+	can_deploy = FALSE
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 6px;\">Charge</span>"
+
+/obj/item/grenade/smokebomb/cyborg/proc/recharge()
+	if(isrobot(loc))
+		var/mob/living/silicon/robot/R = loc
+		if(R?.cell)
+			R.cell.use(1000)
+	can_deploy = TRUE
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>"

@@ -4,7 +4,7 @@
 	desc = "THE END IS right now actually."
 
 	icon = 'icons/turf/space.dmi'
-	icon_state = "bluespace"
+	icon_state = "bluespace-n"
 
 	layer = EFFECTS_ABOVE_LIGHTING_LAYER
 	light_color = COLOR_CYAN_BLUE
@@ -18,7 +18,6 @@
 /turf/unsimulated/wall/supermatter/Initialize()
 	. = ..()
 	START_PROCESSING(SScalamity, src)
-	icon_state = "bluespace[pick("1","2","3")]-[pick("1","2","3","4")]"
 
 /turf/unsimulated/wall/supermatter/process()
 	if (!(SScalamity.times_fired % 2))
@@ -104,7 +103,7 @@
 		return ..()
 
 	if(istype(AM, /mob/living))
-		AM.visible_message("<span class=\"warning\">\The [AM] slams into \the [src] inducing a resonance... \his body starts to glow and catch flame before flashing into ash.</span>",\
+		AM.visible_message("<span class=\"warning\">\The [AM] slams into \the [src] inducing a resonance... [AM.get_pronoun("his")] body starts to glow and catch flame before flashing into ash.</span>",\
 		"<span class=\"danger\">You slam into \the [src] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>",\
 		"<span class=\"warning\">You hear an unearthly noise as a wave of heat washes over you.</span>")
 	else

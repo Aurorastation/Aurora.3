@@ -1,6 +1,6 @@
 /obj/item/mech_component
 	icon = 'icons/mecha/mech_parts.dmi'
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	pixel_x = -8
 	gender = PLURAL
 	var/on_mech_icon = 'icons/mecha/mech_parts.dmi'
@@ -9,7 +9,7 @@
 	var/total_damage = 0
 	var/brute_damage = 0
 	var/burn_damage = 0
-	var/max_damage = 60
+	var/max_damage = 120
 	var/damage_state = 1
 	var/list/has_hardpoints = list()
 	var/power_use = 0
@@ -43,6 +43,10 @@
 
 /obj/item/mech_component/proc/show_missing_parts(var/mob/user)
 	return
+
+/obj/item/mech_component/proc/return_diagnostics(var/mob/user)
+	to_chat(user, SPAN_NOTICE("[capitalize_first_letters(src.name)]:"))
+	to_chat(user, SPAN_NOTICE(" - Integrity: <b>[round(((max_damage - total_damage) / max_damage)) * 100]%</b>" ))
 
 /obj/item/mech_component/proc/prebuild()
 	return
@@ -125,7 +129,7 @@
 		if(brute_damage)
 			repair_brute_damage(repair_value)
 			to_chat(user, "<span class='notice'>You mend the damage to \the [src].</span>")
-			playsound(user.loc, 'sound/items/Welder.ogg', 25, 1)
+			playsound(user.loc, 'sound/items/welder.ogg', 25, 1)
 
 /obj/item/mech_component/proc/repair_burn_generic(var/obj/item/stack/cable_coil/CC, var/mob/user)
 	if(!istype(CC))

@@ -22,7 +22,6 @@
 /area/construction/Storage)
 "f" = (
 /obj/machinery/alarm{
-	frequency = 1439;
 	locked = 0;
 	pixel_y = 23
 	},
@@ -32,8 +31,8 @@
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/cable{
-	icon_state = "0-2";
-	d2 = 2
+	d2 = 2;
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled,
 /area/construction/Storage)
@@ -194,7 +193,6 @@
 /area/construction/Storage)
 "E" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 9
 	},
 /turf/simulated/wall/r_wall,
@@ -229,7 +227,6 @@
 /area/construction/Storage)
 "N" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	icon_state = "intact-supply";
 	dir = 6
 	},
 /turf/simulated/wall/r_wall,

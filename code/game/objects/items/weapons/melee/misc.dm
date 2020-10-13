@@ -1,6 +1,5 @@
 /obj/item/melee
 	icon = 'icons/obj/weapons.dmi'
-	hitsound = "swing_hit"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_melee.dmi',
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_melee.dmi'
@@ -15,7 +14,7 @@
 	slot_flags = SLOT_BELT
 	force = 10
 	throwforce = 7
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_COMBAT = 4)
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/chainhit.ogg'
@@ -29,7 +28,7 @@
 	slot_flags = SLOT_BELT
 	force = 15
 	throwforce = 7
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	sharp = 1
 	edge = 1
 	origin_tech = list(TECH_COMBAT = 5)
@@ -42,13 +41,13 @@
 	active= !active
 	if(active)
 		playsound(user, 'sound/weapons/saw/chainsawstart.ogg', 50, 1)
-		to_chat(user, span("notice", "\The [src] rumbles to life."))
+		to_chat(user, SPAN_NOTICE("\The [src] rumbles to life."))
 		force = 35
 		hitsound = 'sound/weapons/saw/chainsword.ogg'
 		icon_state = "chainswordon"
 		slot_flags = null
 	else
-		to_chat(user, span("notice", "\The [src] slowly powers down."))
+		to_chat(user, SPAN_NOTICE("\The [src] slowly powers down."))
 		force = initial(force)
 		hitsound = initial(hitsound)
 		icon_state = initial(icon_state)
@@ -74,10 +73,8 @@
 	throw_speed = 5
 	throw_range = 7
 	attack_verb = list("smashed", "beaten", "slammed", "smacked", "struck", "battered", "bonked")
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
-	hitsound = 'sound/weapons/genhit3.ogg'
-
 
 /obj/item/melee/hammer/powered
 	name = "powered hammer"
@@ -147,7 +144,7 @@
 	item_state = "chain"
 	slot_flags = SLOT_BELT
 	force = 10
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	reach = 2
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/whip.ogg'
@@ -176,7 +173,7 @@
 	slot_flags = SLOT_BELT
 	force = 15
 	throwforce = 5
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	sharp = 1
 	edge = 1
 	can_embed = 0

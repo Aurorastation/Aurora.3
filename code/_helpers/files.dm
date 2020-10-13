@@ -27,7 +27,7 @@
 //Sends resource files to client cache
 /client/proc/getFiles()
 	for(var/file in args)
-		to_chat(src, browse_rsc(file))
+		send_rsc(src, file, null)
 
 /client/proc/browse_files(root="data/logs/", max_iterations=10, list/valid_extensions=list(".txt",".log",".htm"))
 	var/path = root
@@ -51,7 +51,7 @@
 
 	var/extension = copytext(path,-4,0)
 	if( !fexists(path) || !(extension in valid_extensions) )
-		to_chat(src, "<font color='red'>Error: browse_files(): File not found/Invalid file([path]).</font>")
+		to_chat(src, "<span class='warning'>Error: browse_files(): File not found/Invalid file([path]).</span>")
 		return
 
 	return path
@@ -65,7 +65,7 @@
 /client/proc/file_spam_check()
 	var/time_to_wait = fileaccess_timer - world.time
 	if(time_to_wait > 0)
-		to_chat(src, "<font color='red'>Error: file_spam_check(): Spam. Please wait [round(time_to_wait/10)] seconds.</font>")
+		to_chat(src, "<span class='warning'>Error: file_spam_check(): Spam. Please wait [round(time_to_wait/10)] seconds.</span>")
 		return 1
 	fileaccess_timer = world.time + FTPDELAY
 	return 0

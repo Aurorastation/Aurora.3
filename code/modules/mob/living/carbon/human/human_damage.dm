@@ -11,16 +11,19 @@
 	health = maxHealth - getBrainLoss()
 
 	if(stat == DEAD)
-		if(getFireLoss() > maxHealth * 1.5)
-			ChangeToHusk()
-		if(getFireLoss() > maxHealth * 3)
+		var/fire_dmg = getFireLoss()
+		if(fire_dmg > maxHealth * 3)
 			ChangeToSkeleton()
+			real_name = "Unknown"
+			name = real_name
+		else if(fire_dmg > maxHealth * 1.5)
+			ChangeToHusk()
 
 	UpdateDamageIcon() // to fix that darn overlay bug
 	return
 
 /mob/living/carbon/human/proc/get_total_health()
-	var/amount = maxHealth - getFireLoss() - getBruteLoss() - getOxyLoss() - getToxLoss()
+	var/amount = maxHealth - getFireLoss() - getBruteLoss() - getOxyLoss() - getToxLoss() - getBrainLoss()
 	return amount
 
 /mob/living/carbon/human/adjustBrainLoss(var/amount)
@@ -108,6 +111,12 @@
 	if(wearing_rig && !stat && paralysis < amount) //We are passing out right this second.
 		wearing_rig.notify_ai("<span class='danger'>Warning: user consciousness failure. Mobility control passed to integrated intelligence system.</span>")
 	..()
+
+/mob/living/carbon/human/update_canmove()
+	var/old_lying = lying
+	. = ..()
+	if(lying && !old_lying && !resting && !buckled && isturf(loc)) // fell down
+		playsound(loc, species.bodyfall_sound, 50, 1, -1)
 
 /mob/living/carbon/human/getCloneLoss()
 	var/amount = 0
@@ -277,7 +286,7 @@
 
 
 /*
-In most cases it makes more sense to use apply_damage() instead! And make sure to check armour if applicable.
+In most cases it makes more sense to use apply_damage() instead! And make sure to check armor if applicable.
 */
 //Damages ONE external organ, organ gets randomly selected from damagable ones.
 //It automatically updates damage overlays if necesary
@@ -346,8 +355,8 @@ This function restores the subjects blood to max.
 */
 /mob/living/carbon/human/proc/restore_blood()
 	if(!(species.flags & NO_BLOOD))
-		var/total_blood = vessel.get_reagent_amount("blood")
-		vessel.add_reagent("blood",560.0-total_blood)
+		var/total_blood = vessel.get_reagent_amount(/datum/reagent/blood)
+		vessel.add_reagent(/datum/reagent/blood,560.0-total_blood)
 
 
 /*
@@ -448,4 +457,4 @@ This function restores all organs.
 
 /mob/living/carbon/human/remove_blood_simple(var/blood)
 	if(should_have_organ(BP_HEART))
-		vessel.remove_reagent("blood", blood)
+		vessel.remove_reagent(/datum/reagent/blood, blood)

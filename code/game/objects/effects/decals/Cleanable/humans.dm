@@ -20,6 +20,9 @@
 	var/drytime
 	var/dries = TRUE
 
+/obj/effect/decal/cleanable/blood/no_dry
+	dries = FALSE
+
 /obj/effect/decal/cleanable/blood/reveal_blood()
 	if(!fluorescent)
 		fluorescent = 1
@@ -34,12 +37,7 @@
 	..(ignore=1)
 
 /obj/effect/decal/cleanable/blood/hide()
-    return
-
-/obj/effect/decal/cleanable/blood/Destroy()
-	for(var/datum/disease/D in viruses)
-		D.cure(0)
-	return ..()
+	return
 
 /obj/effect/decal/cleanable/blood/Initialize(mapload)
 	. = ..()
@@ -59,6 +57,11 @@
 		addtimer(CALLBACK(src, /obj/effect/decal/cleanable/blood/.proc/dry), drytime)
 	else if (dries)
 		dry()
+
+/obj/effect/decal/cleanable/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/gun/energy/rifle/cult))
+		return
+	..()
 
 /obj/effect/decal/cleanable/blood/update_icon()
 	if(basecolor == "rainbow") basecolor = get_random_colour(1)
@@ -183,7 +186,7 @@
 	layer = 2
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "gib1"
-	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6")
+	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5")
 	var/fleshcolor = "#FFFFFF"
 
 /obj/effect/decal/cleanable/blood/gibs/update_icon()
@@ -202,10 +205,10 @@
 	add_overlay(giblets)
 
 /obj/effect/decal/cleanable/blood/gibs/up
-	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6","gibup1","gibup1","gibup1")
+	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gibup1","gibup1","gibup1")
 
 /obj/effect/decal/cleanable/blood/gibs/down
-	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6","gibdown1","gibdown1","gibdown1")
+	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gibdown1","gibdown1","gibdown1")
 
 /obj/effect/decal/cleanable/blood/gibs/body
 	random_icon_states = list("gibhead", "gibtorso")
@@ -226,11 +229,6 @@
 			var/obj/effect/decal/cleanable/blood/b = new /obj/effect/decal/cleanable/blood/splatter(src.loc)
 			b.basecolor = src.basecolor
 			b.update_icon()
-			for(var/datum/disease/D in src.viruses)
-				var/datum/disease/ND = D.Copy(1)
-				b.viruses += ND
-				ND.holder = b
-
 		if (step_to(src, get_step(src, direction), 0))
 			break
 /obj/effect/decal/cleanable/blood/proc/fall_to_floor()

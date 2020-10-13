@@ -17,6 +17,9 @@
 		return 0
 	return 1
 
+/datum/antagonist/proc/get_antag_radio()
+	return
+
 /datum/antagonist/proc/give_codewords(mob/living/traitor_mob)
 	to_chat(traitor_mob, "<u><b>Your employers/contacts provided you with the following information on how to identify possible allies:</b></u>")
 	to_chat(traitor_mob, "<b>Code Phrase</b>: <span class='danger'>[syndicate_code_phrase]</span>")

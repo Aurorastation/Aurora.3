@@ -10,9 +10,12 @@ var/list/department_radio_keys = list(
 	  ":m" = "Medical",		".m" = "Medical",
 	  ":e" = "Engineering", ".e" = "Engineering",
 	  ":s" = "Security",	".s" = "Security",
+	  ":q" = "Penal",		".q" = "Penal",
 	  ":w" = "whisper",		".w" = "whisper",
 	  ":t" = "Mercenary",	".t" = "Mercenary",
 	  ":x" = "Raider",		".x" = "Raider",
+	  ":b" = "Burglar",		".b" = "Burglar",
+	  ":q" = "Ninja",		".q" = "Ninja",
 	  ":u" = "Supply",		".u" = "Supply",
 	  ":v" = "Service",		".v" = "Service",
 	  ":p" = "AI Private",	".p" = "AI Private",
@@ -28,9 +31,12 @@ var/list/department_radio_keys = list(
 	  ":M" = "Medical",		".M" = "Medical",
 	  ":E" = "Engineering",	".E" = "Engineering",
 	  ":S" = "Security",	".S" = "Security",
+	  ":Q" = "Penal",		".Q" = "Penal",
 	  ":W" = "whisper",		".W" = "whisper",
 	  ":T" = "Mercenary",	".T" = "Mercenary",
 	  ":X" = "Raider",		".X" = "Raider",
+	  ":B" = "Burglar",		".B" = "Burglar",
+	  ":Q" = "Ninja",		".Q" = "Ninja",
 	  ":U" = "Supply",		".U" = "Supply",
 	  ":V" = "Service",		".V" = "Service",
 	  ":P" = "AI Private",	".P" = "AI Private",
@@ -91,8 +97,8 @@ proc/get_radio_key_from_channel(var/channel)
 /mob/living/proc/get_default_language()
 	return default_language
 
-/mob/living/proc/is_muzzled()
-	return 0
+/mob/proc/is_muzzled()
+	return istype(wear_mask, /obj/item/clothing/mask/muzzle)
 
 /mob/living/proc/handle_speech_problems(var/message, var/verb, var/message_mode)
 	var/list/returns[4]
@@ -149,7 +155,7 @@ proc/get_radio_key_from_channel(var/channel)
 		return "asks"
 	return verb
 
-/mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="")
+/mob/living/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR)
 	if(stat)
 		if(stat == DEAD)
 			return say_dead(message)
@@ -161,7 +167,7 @@ proc/get_radio_key_from_channel(var/channel)
 
 	if(emote.Find(message))
 		if(emote.group[1] == "*") return emote(copytext(message, 2))
-		if(emote.group[1] == "^") return custom_emote(1, copytext(message,2))
+		if(emote.group[1] == "^") return custom_emote(VISIBLE_MESSAGE, copytext(message,2))
 
 	//parse the radio code and consume it
 	if (message_mode)
@@ -170,9 +176,9 @@ proc/get_radio_key_from_channel(var/channel)
 		else
 			message = copytext(message,3)
 
-	message = trim_left(message)
+	message = trim(message)
 
-	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE)
+	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, ">" = TRUE, "\"" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE, "*" = TRUE, "/" = TRUE)
 	var/ending = copytext(message, length(message), (length(message) + 1))
 	if(ending && !correct_punctuation[ending] && !(HULK in mutations))
 		message += "."
@@ -189,7 +195,7 @@ proc/get_radio_key_from_channel(var/channel)
 	// irrespective of distance or anything else.
 	if(speaking && (speaking.flags & HIVEMIND))
 		if(speaking.name == LANGUAGE_VAURCA && within_jamming_range(src))
-			to_chat(src, span("warning", "Your head buzzes as your message is blocked with jamming signals."))
+			to_chat(src, SPAN_WARNING("Your head buzzes as your message is blocked with jamming signals."))
 			return
 		speaking.broadcast(src,trim(message))
 		return 1
@@ -219,7 +225,7 @@ proc/get_radio_key_from_channel(var/channel)
 	if (speaking)
 		if (speaking.flags & NONVERBAL)
 			if (prob(30))
-				src.custom_emote(1, "[pick(speaking.signlang_verb)].")
+				src.custom_emote(VISIBLE_MESSAGE, "[pick(speaking.signlang_verb)].")
 
 		if (speaking.flags & SIGNLANG)
 			return say_signlang(message, pick(speaking.signlang_verb), speaking)
@@ -243,7 +249,7 @@ proc/get_radio_key_from_channel(var/channel)
 			message_range = speaking.get_talkinto_msg_range(message)
 		var/msg
 		if(!speaking || !(speaking.flags & NO_TALK_MSG))
-			msg = "<span class='notice'>\The [src] talks into \the [used_radios[1]]</span>"
+			msg = "<span class='notice'>\The [src] talks into \the [used_radios[1]]</span>."
 		for(var/mob/living/M in hearers(5, src))
 			if((M != src) && msg)
 				M.show_message(msg)
@@ -265,7 +271,7 @@ proc/get_radio_key_from_channel(var/channel)
 			italics = 1
 			sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
-		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj)
+		get_mobs_and_objs_in_view_fast(T, message_range, listening, listening_obj, ghost_hearing)
 
 
 	var/list/hear_clients = list()
@@ -278,7 +284,7 @@ proc/get_radio_key_from_channel(var/channel)
 	var/speech_bubble_test = say_test(message)
 	var/image/speech_bubble = image('icons/mob/talk.dmi',src,"h[speech_bubble_test]")
 	INVOKE_ASYNC(GLOBAL_PROC, /proc/animate_speechbubble, speech_bubble, hear_clients, 30)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, speaking, italics, hear_clients, 30)
+	do_animate_chat(message, speaking, italics, hear_clients, 30)
 
 	for(var/o in listening_obj)
 		var/obj/O = o
@@ -288,6 +294,9 @@ proc/get_radio_key_from_channel(var/channel)
 
 	log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
 	return 1
+
+/mob/living/proc/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
 
 /proc/animate_speechbubble(image/I, list/show_to, duration)
 	var/matrix/M = matrix()

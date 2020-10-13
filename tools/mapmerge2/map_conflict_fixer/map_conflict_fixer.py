@@ -4,6 +4,7 @@ import os
 import time
 
 def main(relative_root):
+
     git_version = map_helpers.run_shell_command("git version")
     if not git_version:
         print("ERROR: Failed to run git. Make sure it is installed and in your PATH.")

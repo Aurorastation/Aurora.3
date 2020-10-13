@@ -6,6 +6,7 @@
 	total_positions = 0 // Not used for AI, see is_position_available below and modules/mob/living/silicon/ai/latejoin.dm
 	spawn_positions = 1
 	selection_color = "#00ff00"
+	intro_prefix = "the"
 	supervisors = "your laws"
 	minimal_player_age = 7
 	account_allowed = 0

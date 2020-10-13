@@ -1,6 +1,14 @@
 //Misc
 #define DEAD_PLANT_COLOUR "#C2A180"
 
+// Seed noun datums
+#define SEED_NOUN_SPORES          "spores"
+#define SEED_NOUN_PITS            "pits"
+#define SEED_NOUN_NODES           "nodes"
+#define SEED_NOUN_CUTTINGS        "cuttings"
+#define SEED_NOUN_SEEDS           "seeds"
+#define SEED_NOUN_EGGS            "eggs"
+
 // Definitions for genes (trait groupings)
 #define GENE_BIOCHEMISTRY "biochemistry"
 #define GENE_HARDINESS "hardiness"

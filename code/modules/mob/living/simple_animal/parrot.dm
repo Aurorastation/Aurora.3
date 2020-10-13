@@ -44,6 +44,7 @@
 	turns_per_move = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/cracker/
 
+	organ_names = list("torso", "left wing", "right wing", "head")
 	response_help  = "pets"
 	response_disarm = "gently moves aside"
 	response_harm   = "swats"
@@ -120,6 +121,9 @@
 /mob/living/simple_animal/parrot/Stat()
 	..()
 	stat("Held Item", held_item)
+
+/mob/living/simple_animal/parrot/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
+	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
 
 /*
  * Inventory
@@ -731,7 +735,7 @@
 
 
 
-/mob/living/simple_animal/parrot/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0)
+/mob/living/simple_animal/parrot/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0)
 	if(prob(50))
 		parrot_hear("[pick(available_channels)] [message]")
 	..(message,verb,language,part_a,part_b,speaker,hard_to_hear)

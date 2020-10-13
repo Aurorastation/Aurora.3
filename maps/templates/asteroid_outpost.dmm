@@ -164,7 +164,6 @@
 	},
 /area/derelict/ship)
 "aI" = (
-/obj/item/clothing/shoes/magboots/vox,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
@@ -186,7 +185,6 @@
 	},
 /area/derelict/ship)
 "aM" = (
-/obj/item/organ/internal/stack/vox,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
@@ -215,7 +213,6 @@
 	},
 /area/derelict/ship)
 "aQ" = (
-/obj/item/clothing/mask/gas/swat/vox,
 /turf/simulated/floor/shuttle{
 	icon_state = "floor6"
 	},
@@ -504,8 +501,7 @@
 /area/derelict/ship)
 "bQ" = (
 /obj/machinery/light{
-	dir = 4;
-	status = 0
+	dir = 4
 	},
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -646,8 +642,7 @@
 /area/derelict/ship)
 "co" = (
 /obj/machinery/light{
-	dir = 4;
-	status = 0
+	dir = 4
 	},
 /obj/structure/bookcase/manuals/xenoarchaeology,
 /turf/simulated/floor/lino,

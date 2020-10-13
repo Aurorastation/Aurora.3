@@ -3,6 +3,7 @@
 	desc = "Different from the Middle Ages version."
 	icon = 'icons/obj/tables.dmi'
 	icon_state = "rack"
+	build_amt = 1
 	can_plate = 0
 	can_reinforce = 0
 	flipped = -1
@@ -25,6 +26,9 @@
 /obj/structure/table/rack/update_icon()
 	return
 
+/obj/structure/table/rack/no_cargo
+	no_cargo = TRUE
+
 /obj/structure/table/rack/holorack/dismantle(obj/item/wrench/W, mob/user)
-	to_chat(user, "<span class='warning'>You cannot dismantle \the [src].</span>")
+	to_chat(user, SPAN_WARNING("You cannot dismantle \the [src]."))
 	return

@@ -180,6 +180,19 @@
 		var/mob/living/silicon/ai/AI = usr
 		AI.sensor_mode()
 
+/obj/screen/ai/remote_mech
+	name = "Remote Control Mech"
+	icon_state = "remote_mech"
+	screen_loc = ui_ai_mech
+
+/obj/screen/ai/remote_mech/Click()
+	if(isAI(usr))
+		var/mob/living/silicon/ai/AI = usr
+		if(AI.anchored)
+			AI.remote_control_mech()
+		else
+			to_chat(AI, SPAN_WARNING("You are unable to get a good connection while unanchored from the station systems."))
+
 /obj/screen/ai/move_up
 	name = "Move Up"
 	icon_state = "move_up"

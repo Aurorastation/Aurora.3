@@ -6,13 +6,15 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda
 	name = "\improper PDA"
 	desc = "A portable microcomputer by Thinktronic Systems, LTD. Functionality determined by a preprogrammed ROM cartridge."
-	description_info = "Alt-click to remove IDs. Ctrl-click to remove things in the pen slot."
+	desc_info = "Alt-click to remove IDs. Ctrl-click to remove things in the pen slot."
 	icon = 'icons/obj/pda.dmi'
 	icon_state = "pda"
 	item_state = "electronic"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_ID | SLOT_BELT
 	uv_intensity = 15
+	drop_sound = 'sound/items/drop/disk.ogg'
+	pickup_sound = 'sound/items/pickup/disk.ogg'
 
 	//Main variables
 	var/owner = null
@@ -569,17 +571,17 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			var/total_moles = environment.total_moles
 
 			if (total_moles)
-				var/o2_level = environment.gas["oxygen"]/total_moles
-				var/n2_level = environment.gas["nitrogen"]/total_moles
-				var/co2_level = environment.gas["carbon_dioxide"]/total_moles
-				var/phoron_level = environment.gas["phoron"]/total_moles
+				var/o2_level = environment.gas[GAS_OXYGEN]/total_moles
+				var/n2_level = environment.gas[GAS_NITROGEN]/total_moles
+				var/co2_level = environment.gas[GAS_CO2]/total_moles
+				var/phoron_level = environment.gas[GAS_PHORON]/total_moles
 				var/unknown_level =  1-(o2_level+n2_level+co2_level+phoron_level)
 				data["aircontents"] = list(\
 					"pressure" = "[round(pressure,0.1)]",\
-					"nitrogen" = "[round(n2_level*100,0.1)]",\
-					"oxygen" = "[round(o2_level*100,0.1)]",\
-					"carbon_dioxide" = "[round(co2_level*100,0.1)]",\
-					"phoron" = "[round(phoron_level*100,0.01)]",\
+					GAS_NITROGEN = "[round(n2_level*100,0.1)]",\
+					GAS_OXYGEN = "[round(o2_level*100,0.1)]",\
+					GAS_CO2 = "[round(co2_level*100,0.1)]",\
+					GAS_PHORON = "[round(phoron_level*100,0.01)]",\
 					"other" = "[round(unknown_level, 0.01)]",\
 					"temp" = "[round(environment.temperature-T0C,0.1)]",\
 					"reading" = 1\
@@ -1111,7 +1113,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 
 /obj/item/device/pda/proc/create_message(var/mob/living/U = usr, var/obj/item/device/pda/P, var/tap = 1)
 	if(tap)
-		U.visible_message("<span class='notice'>\The [U] taps on \his PDA's screen.</span>")
+		U.visible_message("<b>\The [U]</b> taps on [U.get_pronoun("his")] PDA's screen.")
 	var/t = input(U, "Please enter message", P.name, null) as text|null
 	t = sanitize(t)
 	//t = readd_quotes(t)
@@ -1155,7 +1157,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			if(M.stat == DEAD && M.client && (M.client.prefs.toggles & CHAT_GHOSTEARS)) // src.client is so that ghosts don't have to listen to rats
 				if(istype(M, /mob/abstract/new_player))
 					continue
-				M.show_message("<span class='game say'>PDA Message - <span class='name'>[owner]</span> -> <span class='name'>[P.owner]</span>: <span class='message'>[t]</span></span>")
+				M.show_message("<span class='game say'>PDA Message - <span class='name'>[owner]</span> -> <span class='name'>[P.owner]</span>: <span class='message linkify'>[t]</span></span>")
 
 		if(!conversations.Find("\ref[P]"))
 			conversations.Add("\ref[P]")
@@ -1171,7 +1173,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if (!beep_silent)
 		playsound(loc, 'sound/machines/twobeep.ogg', 50, 1)
 		for (var/mob/O in hearers(2, loc))
-			O.show_message(text("\icon[src] *[message_tone]*"))
+			O.show_message(text("[icon2html(src, O)] *[message_tone]*"))
 	//Search for holder of the PDA.
 	var/mob/living/L = null
 	if(loc && isliving(loc))
@@ -1180,13 +1182,13 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	else
 		L = get(src, /mob/living/silicon)
 
-	if(L)
+	if(L && L.stat == CONSCIOUS)
 		if(reception_message)
 			to_chat(L, reception_message)
 		SSnanoui.update_user_uis(L, src) // Update the receiving user's PDA UI so that they can see the new message
 
 /obj/item/device/pda/proc/new_news(var/message)
-	new_info(news_silent, newstone, news_silent ? "" : "\icon[src] <b>[message]</b>")
+	new_info(news_silent, newstone, news_silent ? "" : "[icon2html(src, viewers(get_turf(src)))] <b>[message]</b>")
 
 	if(!news_silent)
 		new_news = 1
@@ -1199,7 +1201,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	new_message(sending_device, sending_device.owner, sending_device.ownjob, message)
 
 /obj/item/device/pda/proc/new_message(var/sending_unit, var/sender, var/sender_job, var/message)
-	var/reception_message = "\icon[src] <b>Message from [sender] ([sender_job]), </b>\"[message]\" (<a href='byond://?src=\ref[src];choice=Message;skiprefresh=1;target=\ref[sending_unit]'>Reply</a>)"
+	var/reception_message = "[icon2html(src, viewers(get_turf(src)))] <b>Message from [sender] ([sender_job]), </b>\"[message]\" (<a href='byond://?src=\ref[src];choice=Message;skiprefresh=1;target=\ref[sending_unit]'>Reply</a>)"
 	new_info(message_silent, ttone, reception_message)
 
 	log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]",ckey=key_name(usr),ckey_target=key_name(name))
@@ -1211,7 +1213,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	if(ismob(sending_unit.loc) && isAI(loc))
 		track = "(<a href='byond://?src=\ref[loc];track=\ref[sending_unit.loc];trackname=[html_encode(sender)]'>Follow</a>)"
 
-	var/reception_message = "\icon[src] <b>Message from [sender] ([sender_job]), </b>\"[message]\" (<a href='byond://?src=\ref[src];choice=Message;skiprefresh=1;target=\ref[sending_unit]'>Reply</a>) [track]"
+	var/reception_message = "[icon2html(src, viewers(get_turf(src)))] <b>Message from [sender] ([sender_job]), </b>\"[message]\" (<a href='byond://?src=\ref[src];choice=Message;skiprefresh=1;target=\ref[sending_unit]'>Reply</a>) [track]"
 	new_info(message_silent, newstone, reception_message)
 
 	log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]",ckey=key_name(usr),ckey_target=key_name(name))
@@ -1321,7 +1323,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 				if (cartridge.radio)
 					cartridge.radio.hostpda = null
 				to_chat(usr, "<span class='notice'>You remove \the [cartridge] from the [name].</span>")
-				playsound(loc, 'sound/machines/click.ogg', 50, 1)
 				cartridge = null
 
 /obj/item/device/pda/proc/id_check(mob/user as mob, choice as num)//To check for IDs; 1 for in-pda use, 2 for out of pda use.
@@ -1352,7 +1353,6 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		cartridge = C
 		user.drop_from_inventory(cartridge,src)
 		to_chat(user, "<span class='notice'>You insert [cartridge] into [src].</span>")
-		playsound(loc, 'sound/machines/click.ogg', 50, 1)
 		SSnanoui.update_uis(src) // update all UIs attached to src
 		if(cartridge.radio)
 			cartridge.radio.hostpda = src
@@ -1399,7 +1399,8 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	try_sort_pda_list()
 
 /obj/item/device/pda/attack(mob/living/C, mob/living/user)
-	health_scan_mob(C, user, TRUE)
+	if(scanmode == 1)
+		health_scan_mob(C, user, TRUE)
 
 /obj/item/device/pda/afterattack(atom/A as mob|obj|turf|area, mob/user as mob, proximity)
 	if(!proximity) return
@@ -1533,7 +1534,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 /obj/item/device/pda/CouldUseTopic(var/mob/user)
 	..()
 	if(iscarbon(user))
-		playsound(src, 'sound/machines/pda_click.ogg', 20)
+		playsound(loc, 'sound/machines/pda_click.ogg', 20)
 
 //Some spare PDAs in a box
 /obj/item/storage/box/PDAs

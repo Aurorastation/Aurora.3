@@ -43,8 +43,8 @@ var/list/floating_chat_colors = list()
 		else
 			C.images += gibberish
 
-/proc/generate_floating_text(atom/movable/holder, message, style, size, duration, show_to)	
-	var/image/I = image(null, holder)
+/proc/generate_floating_text(atom/movable/holder, message, style, size, duration, show_to)
+	var/image/I = image(null, recursive_loc_turf_check(holder))
 	I.layer = FLY_LAYER
 	I.alpha = 0
 	I.maptext_width = 80

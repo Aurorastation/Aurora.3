@@ -1,0 +1,56 @@
+h3 {
+	text-decoration: underline;
+	color: #5c87a8;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+a,
+a:link,
+a:visited,
+a:active,
+.linkOn,
+.linkOff {
+	background: #2d4b63;
+	color: #84b2d4;
+	transition: background 0.2s, color 0.2s;
+}
+
+a:hover {
+	background: #84b2d4;
+	color: #203649;
+}
+
+.menu a {
+	font-size: 150%;
+	line-height: 150%;
+}
+
+.rdconsole-build li.highlight {
+	padding-bottom: 6px;
+	border-bottom: 1px solid transparent;
+	transition: background-color 0.2s, color 0.2s, border 0.2s;
+}
+
+.rdconsole-build li.highlight:hover {
+	border-bottom: 1px solid #5c87a8;
+	background-color: #1d1d1d;
+	color: #99c2c9;
+}
+
+.no-build {
+	display: inline;
+	color: #141414;
+	text-decoration: none;
+	background: #7c7c7c;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	padding: 1px 4px 1px 4px;
+	margin: 0 2px 0 0;
+	cursor: default;
+}
+
+.menu .no-build {
+	font-size: 150%;
+	line-height: 150%;
+}

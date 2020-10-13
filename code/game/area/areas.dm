@@ -39,20 +39,7 @@
 //	var/list/lights				// list of all lights on this area
 	var/list/all_doors = list()		//Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
 	var/air_doors_activated = 0
-	var/list/ambience = list(
-		'sound/ambience/ambigen1.ogg',
-		'sound/ambience/ambigen3.ogg',
-		'sound/ambience/ambigen4.ogg',
-		'sound/ambience/ambigen5.ogg',
-		'sound/ambience/ambigen6.ogg',
-		'sound/ambience/ambigen7.ogg',
-		'sound/ambience/ambigen8.ogg',
-		'sound/ambience/ambigen9.ogg',
-		'sound/ambience/ambigen10.ogg',
-		'sound/ambience/ambigen11.ogg',
-		'sound/ambience/ambigen12.ogg',
-		'sound/ambience/ambigen14.ogg'
-	)
+	var/list/ambience = list()
 	var/list/forced_ambience = null
 	var/loop_ambience = TRUE
 	var/sound_env = STANDARD_STATION
@@ -367,7 +354,7 @@ var/list/mob/living/forced_ambiance_list = new
 		if(has_gravity())
 			thunk(M)
 		else
-			to_chat(M, span("notice", "The sudden lack of gravity makes you feel weightless and float cluelessly!"))
+			to_chat(M, SPAN_NOTICE("The sudden lack of gravity makes you feel weightless and float cluelessly!"))
 		M.update_floating( M.Check_Dense_Object() )
 
 /area/proc/thunk(mob)
@@ -434,6 +421,8 @@ var/list/mob/living/forced_ambiance_list = new
 		if (istype(A, /area/maintenance/substation))
 			continue
 		if (istype(A, /area/turbolift))
+			continue
+		if (istype(A, /area/security/penal_colony))
 			continue
 		if (istype(A, /area/mine))
 			continue

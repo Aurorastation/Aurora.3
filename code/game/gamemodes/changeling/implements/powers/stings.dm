@@ -165,7 +165,7 @@
 	T.Paralyse(10)
 	T.make_jittery(1000)
 	if(T.reagents)
-		T.reagents.add_reagent("cyanide", 5)
+		T.reagents.add_reagent(/datum/reagent/toxin/cyanide, 5)
 	feedback_add_details("changeling_powers", "DTHS")
 	return TRUE
 

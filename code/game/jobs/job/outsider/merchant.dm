@@ -51,8 +51,6 @@
 		/obj/item/clothing/under/det/black,
 		/obj/item/clothing/under/suit_jacket/charcoal,
 		/obj/item/clothing/under/suit_jacket/tan,
-		/obj/item/clothing/under/assistantformal,
-		/obj/item/clothing/under/blazer
 		)
 	shoes = list(
 		/obj/item/clothing/shoes/laceup/brown,

@@ -94,7 +94,7 @@ LOG_PDA
 # SQL_ENABLED
 
 ## disconnect players who did nothing during the set amount of minutes
-# KICK_INACTIVE 10
+KICK_INACTIVE 10
 
 ##Show mods on staffwho
 SHOW_MODS
@@ -127,6 +127,9 @@ PROBABILITY S MERCENARY 1
 PROBABILITY S WIZARD 1
 PROBABILITY S CHANGELING 1
 PROBABILITY S CULT 1
+PROBABILITY S BURGLARS 1
+PROBABILITY S CONFLICT 1
+PROBABILITY S MAGISTAKE 1
 PROBABILITY S NINJA 1
 PROBABILITY S HEIST 1
 PROBABILITY S VAMPIRE 1
@@ -151,6 +154,7 @@ PROBABILITY MS PARANOIA 1
 PROBABILITY MS UPRISING 1
 PROBABILITY MS VISITORS 1
 PROBABILITY MS INTRIGUE 1
+PROBABILITY MS CONFLICT 1
 PROBABILITY MS SIEGE 1
 PROBABILITY MS EXTENDED 1
 PROBABILITY MS INFILTRATION 1
@@ -341,6 +345,8 @@ REQ_CULT_GHOSTWRITER 6
 
 ## Sets the number of available character slots
 CHARACTER_SLOTS 10
+## Sets the number of available loadout slots
+LOADOUT_SLOTS 3
 
 ## Expected round length in minutes
 EXPECTED_ROUND_LENGTH 180
@@ -523,7 +529,7 @@ CARGO_LOAD_ITEMS_FROM json
 
 
 # Forces the maploader to load the specified map path. Valid options: aurora, runtime
-FORCE_MAP aurora
+FORCE_MAP runtime
 
 # Reminds ticket handlers/all admin staff of not-closed tickets after this many SECONDS.
 #TICKET_REMINDER_PERIOD 600
@@ -559,3 +565,51 @@ FAIL2TOPIC_ENABLED 0
 #FAIL2TOPIC_MAX_FAILS 5
 ## The name of the firewall rule used.
 #FAIL2TOPIC_RULE_NAME _dd_fail2topic
+
+### Forum API configuration
+### Required for certain components of the game to function.
+### Is compatible with the Invision Community API (specifically IPS4).
+## The base URL for the forum. Do not include a training backslash!
+#FORUM_API_PATH https://myforums.com/api
+## The API key for the forum.
+#FORUM_API_KEY abcdefgh
+
+### News subsystem configuration.
+## Uncomment to enable the pulling of news from the forum API.
+## See the section about configuration the forum API as well!
+## Once enabled, make sure to write a news.json in the configuration
+## folder as well.
+#NEWS_USE_FORUM_API
+
+### Auto-profiler configuration
+### Able to detect longer pauses in game execution and dump out the profiler
+### data to help diagnose these.
+## Uncomment to enable the auto-profiler.
+#PROFILER_ENABLED
+## Determines the maximum interval of the auto-profiler's snapshots, in SECONDS.
+#PROFILER_RESTART_PERIOD 120
+## Determines the amount of the server should be locked up for before the profile
+## gets dumped. Time is in DECISECONDS (1/10th of a second). Might not be wise to
+## use a value less than 10.
+#PROFILER_TIMEOUT_THRESHOLD 20
+
+### Forumuser API configuration
+### Enables the updating of the ss13_admins table from the forumuser API.
+### You can think of this as LDAP for admin ranks: a single central repo is
+### used for multiple different services.
+## Uncomment this to enable the use of the system. SQL admins MUST be enabled for this to work.
+#USE_FORUMUSER_API
+## The base URL of the API. Without a trailing slash.
+#FORUMUSER_API_URL
+## The API key of the system.
+#FORUMUSER_API_KEY
+
+## External resource URL
+## Set the PRELOAD_RSC in code/__defines/_compile_options.dm to 0 to use this.
+## Must contain a .zip of the server's .rsc file. Must use HTTP (not secured).
+## Can contain multiple URLs which are then cycled through. Delimit them with a COMMA.
+#EXTERNAL_RSC_URLS http://one.tld/rsc.zip
+
+## Lore Summary
+## The text that will appear when the player clicks the lore button at the start screen
+LORE_SUMMARY

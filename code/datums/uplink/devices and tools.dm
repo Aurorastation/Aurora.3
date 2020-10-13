@@ -49,7 +49,7 @@
 	name = "Heavy Armor Kit"
 	item_cost = 4
 	path = /obj/item/storage/box/syndie_kit/armor
-	desc = "A heavy armour set consisting of a vest and a helmet. Not EVA capable."
+	desc = "A heavy armor set consisting of a full kit. Not EVA capable."
 
 /datum/uplink_item/item/tools/encryptionkey_radio
 	name = "Encrypted Radio Channel Key"
@@ -79,7 +79,7 @@
 	item_cost = 6
 	path = /obj/item/device/multitool/hacktool
 	desc = "Appears and functions as a standard multitool until the mode is toggled by applying a screwdriver appropriately. \
-			When in hacking mode this device will grant full access to any standard airlock within 20 to 40 seconds. \
+			When in hacking mode this device will grant full access to any standard airlock within 7 to 13 seconds. \
 			This device will also be able to immediately access the last 6 to 8 hacked airlocks."
 
 /datum/uplink_item/item/tools/space_suit
@@ -190,3 +190,20 @@
 	item_cost = 6
 	path = /obj/item/device/radio/electropack
 	desc = "A backpack wired with electrodes. Sync up with a signaller, attach to an unwilling host and pulse the signal to shock them."
+
+/datum/uplink_item/item/tools/ammo_display
+	name = "Holographic Ammo Display"
+	item_cost = 2
+	path = /obj/item/ammo_display
+
+/datum/uplink_item/item/tools/mesons_glasses
+	name = "Mesons Scanners"
+	desc = "These glasses make use of meson-scanning technology to allow the wearer to see through solid walls and floors."
+	item_cost = 2
+	path = /obj/item/clothing/glasses/meson
+
+/datum/uplink_item/item/tools/materials_glasses
+	name = "Optical Material Scanner"
+	desc = "These glasses make use of scanning technology to allow the wearer to see objects through solid walls and floors."
+	item_cost = 2
+	path = /obj/item/clothing/glasses/material

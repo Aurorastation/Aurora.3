@@ -8,7 +8,7 @@
 /obj/item/reagent_containers/glass/replenishing/Initialize()
 	. = ..()
 	START_PROCESSING(SSprocessing, src)
-	spawning_id = pick("blood","holywater","lube","stoxin","ethanol","ice","glycerol","fuel","cleaner")
+	spawning_id = pick(/datum/reagent/blood,/datum/reagent/water/holywater,/datum/reagent/lube,/datum/reagent/soporific,/datum/reagent/alcohol/ethanol,/datum/reagent/drink/ice,/datum/reagent/glycerol,/datum/reagent/fuel,/datum/reagent/spacecleaner)
 
 
 /obj/item/reagent_containers/glass/replenishing/process()
@@ -115,7 +115,7 @@
 
 	if(charges >= 0.1)
 		if(prob(5))
-			src.visible_message("<span class='warning'>\icon[src] [src]'s eyes glow ruby red for a moment!</span>")
+			src.visible_message("<span class='warning'>[icon2html(src, viewers(get_turf(src)))] [src]'s eyes glow ruby red for a moment!</span>")
 			charges -= 0.1
 
 	//check on our shadow wights
@@ -150,7 +150,7 @@
 		B.target_turf = pick(range(1, src))
 		B.blood_DNA = list()
 		B.blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
-		M.vessel.remove_reagent("blood",rand(25,50))
+		M.vessel.remove_reagent(/datum/reagent/blood,rand(25,50))
 
 //animated blood 2 SPOOKY
 /obj/effect/decal/cleanable/blood/splatter/animated

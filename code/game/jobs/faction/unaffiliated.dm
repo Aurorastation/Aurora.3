@@ -10,9 +10,10 @@
 	</p>"}
 
 	allowed_role_types = list(
+		/datum/job/visitor,
 		/datum/job/journalist,
 		/datum/job/merchant,
-		/datum/job/representative
+		/datum/job/consular
 	)
 
 /datum/faction/unaffiliated/get_logo_name()

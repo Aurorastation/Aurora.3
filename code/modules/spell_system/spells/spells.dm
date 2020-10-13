@@ -34,6 +34,7 @@
 			H.add_spell(spell_to_add)
 
 /mob/proc/add_spell(var/spell/spell_to_add, var/spell_base = "wiz_spell_ready", var/master_type = /obj/screen/movable/spell_master)
+	usr = src // whoever made screen objects is an asshole and forced me to do this, i regret absolutely nothing
 	if(!spell_masters)
 		spell_masters = list()
 
@@ -42,7 +43,9 @@
 			if(spell_master.type == master_type)
 				LAZYADD(spell_list, spell_to_add)
 				spell_master.add_spell(spell_to_add)
-				return 1
+				if(mind)
+					LAZYDISTINCTADD(mind.learned_spells, spell_to_add)
+				return TRUE
 
 	var/obj/screen/movable/spell_master/new_spell_master = new master_type //we're here because either we didn't find our type, or we have no spell masters to attach to
 	if(client)
@@ -54,11 +57,8 @@
 	spell_masters.Add(new_spell_master)
 	LAZYADD(spell_list, spell_to_add)
 	if(mind)
-		if(!mind.learned_spells)
-			mind.learned_spells = list()
-		mind.learned_spells += spell_to_add
-
-	return 1
+		LAZYDISTINCTADD(mind.learned_spells, spell_to_add)
+	return TRUE
 
 /mob/proc/remove_spell(var/spell/spell_to_remove)
 	if(!spell_to_remove || !istype(spell_to_remove))

@@ -8,6 +8,7 @@
 
 	// Strings.
 	var/welcome_text = "Cry havoc and let slip the dogs of war!"
+	var/antag_sound = 'sound/effects/antag_notice/general_baddie_alert.ogg' // The sound file to play when someone gets this role. Only they can hear it.
 	var/leader_welcome_text                 // Text shown to the leader, if any.
 	var/victory_text                        // World output at roundend for victory.
 	var/loss_text                           // As above for loss.
@@ -54,7 +55,7 @@
 	var/db_log_id = null                    // ID of the db entry used to track that antagonist
 
 	// Used for setting appearance.
-	var/list/valid_species =       list("Unathi","Tajara","Skrell","Human")
+	var/list/valid_species =       list(SPECIES_UNATHI,SPECIES_TAJARA,SPECIES_SKRELL,SPECIES_HUMAN)
 
 	// Runtime vars.
 	var/datum/mind/leader                   // Current leader, if any.

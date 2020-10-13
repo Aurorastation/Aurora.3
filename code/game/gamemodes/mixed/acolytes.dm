@@ -6,5 +6,5 @@
 	required_players = 20
 	required_enemies = 5
 	end_on_antag_death = 0
-	antag_tags = list(MODE_WIZARD, MODE_CULTIST)
-	require_all_templates = 1
+	antag_tags = list(MODE_BORER, MODE_CULTIST)
+	require_all_templates = TRUE

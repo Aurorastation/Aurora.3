@@ -11,6 +11,7 @@
 	S["memo_hash"]        >> pref.memo_hash
 	S["parallax_speed"]   >> pref.parallax_speed
 	S["toggles_secondary"] >> pref.toggles_secondary
+	S["fov_cone_alpha"] >> pref.fov_cone_alpha
 
 /datum/category_item/player_setup_item/player_global/settings/save_preferences(var/savefile/S)
 	S["lastchangelog"]    << pref.lastchangelog
@@ -21,6 +22,7 @@
 	S["memo_hash"]        << pref.memo_hash
 	S["parallax_speed"]   << pref.parallax_speed
 	S["toggles_secondary"] << pref.toggles_secondary
+	S["fov_cone_alpha"] << pref.fov_cone_alpha	
 
 /datum/category_item/player_setup_item/player_global/settings/gather_load_query()
 	return list(
@@ -33,7 +35,7 @@
 				"lastmotd" = "motd_hash",
 				"lastmemo" = "memo_hash",
 				"toggles_secondary",
-				"parallax_speed"
+				"parallax_speed"				
 			),
 			"args" = list("ckey")
 		)
@@ -83,6 +85,7 @@
 	pref.memo_hash      = sanitize_text(pref.memo_hash, initial(pref.memo_hash))
 	pref.parallax_speed = sanitize_integer(text2num(pref.parallax_speed), 1, 10, initial(pref.parallax_speed))
 	pref.toggles_secondary  = sanitize_integer(text2num(pref.toggles_secondary), 0, BITFIELDMAX, initial(pref.toggles_secondary))
+	pref.fov_cone_alpha = sanitize_integer(text2num(pref.fov_cone_alpha), 0, 255, initial(pref.fov_cone_alpha))
 
 /datum/category_item/player_setup_item/player_global/settings/content(mob/user)
 	var/list/dat = list(
@@ -97,6 +100,13 @@
 		"<b>Floating Messages:</b> <a href='?src=\ref[src];paratoggle=[FLOATING_MESSAGES]'><b>[(pref.toggles_secondary & FLOATING_MESSAGES) ? "Yes" : "No"]</b></a><br>",
 		"<b>Static Space:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_IS_STATIC]'><b>[(pref.toggles_secondary & PARALLAX_IS_STATIC) ? "Yes" : "No"]</b></a><br>"
 	)
+
+	dat += "<b>FOV Cone Alpha:</b> "
+	if(pref.fov_cone_alpha == initial(pref.fov_cone_alpha))
+		dat += "<a href='?src=\ref[src];select_fov_cone_alpha=1'><b>Using Default</b></a><br>"
+	else
+		dat += "<a href='?src=\ref[src];select_fov_cone_alpha=1'><b>[pref.fov_cone_alpha]</b></a> [HTML_RECT(pref.fov_cone_alpha)] - <a href='?src=\ref[src];reset=fov_cone_alpha'>reset</a><br>"
+
 
 	. = dat.Join()
 
@@ -115,6 +125,20 @@
 		var/flag = text2num(href_list["paratoggle"])
 		pref.toggles_secondary ^= flag
 		return TOPIC_REFRESH
+
+	else if(href_list["select_fov_cone_alpha"])
+		var/fov_alpha_new = input(user, "Choose a new opacity for the FOV darkness cone.", "Global Preference", pref.fov_cone_alpha) as null|num
+		if(!fov_alpha_new || !CanUseTopic(user))
+			return TOPIC_NOACTION
+		pref.fov_cone_alpha = fov_alpha_new
+		return TOPIC_REFRESH
+
+	else if(href_list["reset"])
+		switch(href_list["reset"])
+			if("fov")
+				pref.fov_cone_alpha = initial(pref.fov_cone_alpha)
+		return TOPIC_REFRESH
+
 
 	return ..()
 

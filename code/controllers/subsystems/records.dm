@@ -18,6 +18,7 @@
 
 	var/list/citizenships = list()
 	var/list/religions = list()
+	var/list/accents = list()
 
 /datum/controller/subsystem/records/Initialize()
 	..()
@@ -26,6 +27,7 @@
 
 	InitializeCitizenships()
 	InitializeReligions()
+	InitializeAccents()
 
 /datum/controller/subsystem/records/New()
 	records = list()
@@ -241,8 +243,8 @@
 		"bot" = nonhuman_positions
 	)
 	for(var/datum/record/general/t in records)
-		var/name = sanitize(t.name)
-		var/rank = sanitize(t.rank)
+		var/name = sanitize(t.name, encode = FALSE)
+		var/rank = sanitize(t.rank, encode = FALSE)
 		var/real_rank = make_list_rank(t.real_rank)
 
 		var/isactive = t.physical_status
@@ -284,7 +286,7 @@
 /datum/controller/subsystem/records/proc/get_manifest_json()
 	if(manifest.len)
 		return manifest_json
-	
+
 	get_manifest_list()
 	return manifest_json
 
@@ -336,6 +338,16 @@
 
 	if (!religions.len)
 		crash_with("No citizenships located in SSrecords.")
+
+/datum/controller/subsystem/records/proc/InitializeAccents()
+	for (var/type in subtypesof(/datum/accent))
+		var/datum/accent/accent = new type()
+
+		accents[accent.name] = accent
+
+	if (!accents.len)
+		crash_with("No accents located in SSrecords.")
+
 
 /datum/controller/subsystem/records/proc/get_religion_record_name(var/target_religion)
 	var/datum/religion/religion = SSrecords.religions[target_religion]

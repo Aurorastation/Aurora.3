@@ -48,4 +48,3 @@ div.incidents {
   padding: 4px;
 }
 </style>
-

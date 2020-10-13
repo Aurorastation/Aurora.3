@@ -1,15 +1,21 @@
 // --- Uncommon ---
 
-STOCK_ITEM_UNCOMMON(glowshrooms, 2)
-	new /obj/item/seeds/glowshroom(L)
-	new /obj/item/seeds/glowshroom(L)
-	new /obj/item/seeds/glowshroom(L)
+STOCK_ITEM_UNCOMMON(shrooms, 2)
+	if(prob(65))
+		new /obj/item/seeds/glowshroom(L)
+	if(prob(5))
+		new /obj/item/seeds/ghostmushroomseed(L)
+	if(prob(30))
+		new /obj/item/seeds/amanitamycelium(L)
 
 STOCK_ITEM_UNCOMMON(plasteel, 3)
 	new /obj/item/stack/material/plasteel(L, rand(1,30))
 
 STOCK_ITEM_UNCOMMON(silver, 2)
 	new /obj/item/stack/material/silver(L, rand(5,30))
+
+STOCK_ITEM_UNCOMMON(phoronsheets, 1.5)
+	new /obj/item/stack/material/phoron(L, rand(5,40))
 
 STOCK_ITEM_UNCOMMON(phoronglass, 2)
 	new /obj/item/stack/material/glass/phoronglass(L, 50)
@@ -23,26 +29,33 @@ STOCK_ITEM_UNCOMMON(marble, 2)
 STOCK_ITEM_UNCOMMON(iron, 2)
 	new /obj/item/stack/material/iron(L, 50)
 
+STOCK_ITEM_UNCOMMON(other_mat, 0.5)
+	var/obj/item/stack/material/M = pick(/obj/item/stack/material/osmium, /obj/item/stack/material/mhydrogen, /obj/item/stack/material/tritium, /obj/item/stack/material/bronze)
+	new M(L, rand(1, 10))
+
 STOCK_ITEM_UNCOMMON(flare, 2)
 	new /obj/item/device/flashlight/flare(L)
 	new /obj/item/device/flashlight/flare(L)
 	if (prob(50))
 		new /obj/random/glowstick(L)
 
-STOCK_ITEM_UNCOMMON(deathalarm, 2)
-	new /obj/item/storage/box/cdeathalarm_kit(L)
-
-STOCK_ITEM_UNCOMMON(trackimp, 1)
-	new /obj/item/storage/box/trackimp(L)
+STOCK_ITEM_UNCOMMON(implants, 1)
+	if(prob(50))
+		new /obj/item/storage/box/cdeathalarm_kit(L)
+	else 
+		new /obj/item/storage/box/trackimp(L)
 
 STOCK_ITEM_UNCOMMON(flashbang, 0.75)
 	new /obj/item/storage/box/flashbangs(L)
 
-STOCK_ITEM_UNCOMMON(cuffs, 1)
-	new /obj/item/storage/box/handcuffs(L)
+STOCK_ITEM_UNCOMMON(arrest, 1)
+	if(prob(60))
+		new /obj/item/storage/box/handcuffs(L)
+	else
+		new /obj/item/device/holowarrant(L)
 
 STOCK_ITEM_UNCOMMON(monkey, 2)
-	if (prob(40))
+	if(prob(40))
 		var/type = pick( \
 			/obj/item/storage/box/monkeycubes/farwacubes, \
 			/obj/item/storage/box/monkeycubes/stokcubes, \
@@ -53,17 +66,17 @@ STOCK_ITEM_UNCOMMON(monkey, 2)
 		new /obj/item/storage/box/monkeycubes(L)
 
 STOCK_ITEM_UNCOMMON(specialcrayon, 1.5)
-	if (prob(50))
+	if(prob(50))
 		new /obj/item/pen/crayon/mime(L)
 	else
 		new /obj/item/pen/crayon/rainbow(L)
 
 STOCK_ITEM_UNCOMMON(contraband, 2)
-	for (var/i in 1 to rand(1,8))
+	for(var/i in 1 to rand(1, 4))
 		new /obj/random/contraband(L)
 
 STOCK_ITEM_UNCOMMON(mediumcell, 3)
-	for (var/i in 1 to rand(1,2))
+	for(var/i in 1 to rand(1,2))
 		var/type = pick( \
 			/obj/item/cell/super, \
 			/obj/item/cell/potato, \
@@ -73,10 +86,11 @@ STOCK_ITEM_UNCOMMON(mediumcell, 3)
 
 STOCK_ITEM_UNCOMMON(chempack, 5)
 	var/list/chems = SSchemistry.chemical_reagents.Copy()
-	var/list/exclusion = list("drink", "reagent", "adminordrazine", "beer2", "azoth", "elixir_life", "liquid_fire", "philosopher_stone", "undead_ichor", "love", "shapesand", "usolve",\
-							 "sglue", "black_matter", "lightning", "trioxin", "phoron_salt", "nanites", "nitroglycerin")
+	var/list/exclusion = list(/datum/reagent/drink, /datum/reagent, /datum/reagent/adminordrazine, /datum/reagent/polysomnine/beer2, /datum/reagent/azoth, /datum/reagent/elixir,\
+		/datum/reagent/liquid_fire, /datum/reagent/philosopher_stone, /datum/reagent/toxin/undead, /datum/reagent/love_potion, /datum/reagent/shapesand, /datum/reagent/usolve,\
+		/datum/reagent/sglue, /datum/reagent/black_matter, /datum/reagent/bottle_lightning, /datum/reagent/toxin/trioxin, /datum/reagent/toxin/phoron_salt, /datum/reagent/toxin/nanites, /datum/reagent/nitroglycerin)
 	chems -= exclusion
-	for (var/i in 1 to rand(2, 6))
+	for (var/i in 1 to rand(2, 4))
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = new /obj/item/reagent_containers/chem_disp_cartridge(L)
 		var/rname = pick(chems)
 		var/datum/reagent/R = SSchemistry.chemical_reagents[rname]
@@ -90,7 +104,7 @@ STOCK_ITEM_UNCOMMON(chempack, 5)
 		C.setLabel(R.name)
 
 STOCK_ITEM_UNCOMMON(robolimbs, 3)
-	for (var/i in 1 to rand(2, 5))
+	for(var/i in 1 to rand(1, 2))
 		var/manuf = pick(fabricator_robolimbs)
 		var/type = pick( \
 			/obj/item/robot_parts/l_arm, \
@@ -109,23 +123,28 @@ STOCK_ITEM_UNCOMMON(circuitboards, 3)
 	exclusion += typesof(/obj/item/circuitboard/mecha)
 
 	allboards -= exclusion
-	for (var/i in 1 to rand(2, 5))
+	for(var/i in 1 to rand(2, 3))
 		var/type = pick(allboards)
 		new type(L)
 
 STOCK_ITEM_UNCOMMON(jetpack, 3)
 	new /obj/item/tank/jetpack/void(L)
-	new /obj/item/tank/emergency_oxygen/double(L)
+	if(prob(40))
+		new /obj/item/tank/emergency_oxygen/double(L)
 
 STOCK_ITEM_UNCOMMON(xenocostume, 1)
 	new /obj/item/clothing/suit/xenos(L)
 	new /obj/item/clothing/head/xenos(L)
 
 STOCK_ITEM_UNCOMMON(inhaler, 1)
-	log_debug("Unimplemented item inhaler.")
+	var/obj/item/reagent_containers/inhaler/I = pick(subtypesof(/obj/item/reagent_containers/inhaler))
+	new I(L)
 
 STOCK_ITEM_UNCOMMON(advwelder, 2)
-	new /obj/item/weldingtool/hugetank(L)
+	if(prob(5))
+		new /obj/item/weldingtool/experimental(L)
+	else
+		new /obj/item/weldingtool/hugetank(L)
 
 STOCK_ITEM_UNCOMMON(sord, 1)
 	new /obj/item/sord(L)
@@ -135,7 +154,7 @@ STOCK_ITEM_UNCOMMON(policebaton, 1.5)
 
 STOCK_ITEM_UNCOMMON(stunbaton, 0.75) //batons spawn with no powercell
 	var/obj/item/melee/baton/B = new /obj/item/melee/baton(L)
-	if (B.bcell)
+	if(B.bcell)
 		QDEL_NULL(B.bcell)
 
 	B.queue_icon_update()
@@ -143,19 +162,14 @@ STOCK_ITEM_UNCOMMON(stunbaton, 0.75) //batons spawn with no powercell
 STOCK_ITEM_UNCOMMON(firingpin, 3)
 	new /obj/item/storage/box/firingpins(L)
 
-STOCK_ITEM_UNCOMMON(watches, 3)
-	new /obj/item/clothing/gloves/watch(L)
-	new /obj/item/clothing/gloves/watch(L)
-	new /obj/item/clothing/gloves/watch(L)
+STOCK_ITEM_UNCOMMON(watch, 3)
+	new /obj/random/watches(L)
 
 STOCK_ITEM_UNCOMMON(MMI, 1.5)
 	new /obj/item/device/mmi(L)
 
 STOCK_ITEM_UNCOMMON(voidsuit, 2)
 	new /obj/random/voidsuit(L,1)
-
-STOCK_ITEM_UNCOMMON(nightvision, 2)
-	new /obj/item/clothing/glasses/night(L)
 
 STOCK_ITEM_UNCOMMON(violin, 2)
 	new /obj/item/device/violin(L)
@@ -165,11 +179,11 @@ STOCK_ITEM_UNCOMMON(atmosfiresuit, 2)
 	new /obj/item/clothing/suit/fire/atmos(L)
 
 STOCK_ITEM_UNCOMMON(pdacart, 3)
-	for (var/i in 1 to rand(1, 4))
+	for(var/i in 1 to rand(1, 3))
 		new /obj/random/pda_cart(L)
 
 STOCK_ITEM_UNCOMMON(debugger, 2)
-	new /obj/item/device/debugger(L)//No idea what this thing does, or if it works at all
+	new /obj/item/device/debugger(L)
 
 STOCK_ITEM_UNCOMMON(surgerykit, 2.5)
 	new /obj/item/storage/firstaid/surgery(L)
@@ -185,7 +199,7 @@ STOCK_ITEM_UNCOMMON(gift, 4)
 
 STOCK_ITEM_UNCOMMON(coatrack, 1)
 	var/turf/T = get_turf(L)
-	if (!turf_clear(T))
+	if(!turf_clear(T))
 		for (var/turf/U in range(T,1))
 			if (turf_clear(U))
 				T = U
@@ -194,7 +208,7 @@ STOCK_ITEM_UNCOMMON(coatrack, 1)
 
 STOCK_ITEM_UNCOMMON(riotshield, 2)
 	new /obj/item/shield/riot(L)
-	if (prob(60))
+	if(prob(40))
 		new /obj/item/shield/riot(L)
 
 STOCK_ITEM_UNCOMMON(fireaxe, 1)
@@ -214,21 +228,18 @@ STOCK_ITEM_UNCOMMON(robot, 2)
 	)
 
 	var/type = pickweight(bots)
-	if (type == /mob/living/bot/secbot/ed209)//ED is large and should spawn on the floor
+	if(type == /mob/living/bot/secbot/ed209)//ED is large and should spawn on the floor
 		L = get_turf(L)
-		if (!turf_clear(L))
-			for (var/turf/U in range(L,1))
-				if (turf_clear(U))
+		if(!turf_clear(L))
+			for(var/turf/U in range(L,1))
+				if(turf_clear(U))
 					L = U
 					break
 
 	var/mob/living/bot/newbot = new type(L)
 	newbot.on = FALSE	//Deactivated
-	if (prob(10))
+	if(prob(10))
 		newbot.emag_act(9999, null)
-
-STOCK_ITEM_UNCOMMON(taperoll, 1)
-	// ???
 
 STOCK_ITEM_UNCOMMON(headset, 2)
 	var/list/sets = list(
@@ -250,42 +261,36 @@ STOCK_ITEM_UNCOMMON(bat, 1.2)
 STOCK_ITEM_UNCOMMON(scythe, 0.75)
 	new /obj/item/material/scythe(L)
 
-STOCK_ITEM_UNCOMMON(manual, 2)
-	var/type = pick( \
-		/obj/item/book/manual/excavation, \
-		/obj/item/book/manual/mass_spectrometry, \
-		/obj/item/book/manual/anomaly_spectroscopy, \
-		/obj/item/book/manual/materials_chemistry_analysis, \
-		/obj/item/book/manual/anomaly_testing, \
-		/obj/item/book/manual/stasis, \
-		/obj/item/book/manual/engineering_particle_accelerator, \
-		/obj/item/book/manual/supermatter_engine, \
-		/obj/item/book/manual/engineering_singularity_safety, \
-		/obj/item/book/manual/medical_cloning, \
-		/obj/item/book/manual/ripley_build_and_repair, \
-		/obj/item/book/manual/research_and_development, \
-		/obj/item/book/manual/robotics_cyborgs, \
-		/obj/item/book/manual/medical_diagnostics_manual, \
-		/obj/item/book/manual/chef_recipes, \
-		/obj/item/book/manual/barman_recipes, \
-		/obj/item/book/manual/detective, \
-		/obj/item/book/manual/atmospipes, \
-		/obj/item/book/manual/evaguide \
-	)
+STOCK_ITEM_UNCOMMON(laserpoint, 0.75)
+	new /obj/item/device/laser_pointer(L)
 
+STOCK_ITEM_UNCOMMON(manual, 2)
+	var/list/booklist = subtypesof(/obj/item/book/manual)
+	booklist -= /obj/item/book/manual/wiki //just this one. we want to keep the subtypes.
+	booklist -= /obj/item/book/manual/nuclear //yeah no
+	var/type = pick(booklist)
 	new type(L)
 
-STOCK_ITEM_UNCOMMON(jammer, 2)
-	new /obj/item/device/radiojammer(L)
+STOCK_ITEM_UNCOMMON(spystuff, 1)
+	if(prob(40))
+		new /obj/item/device/radiojammer(L)
+	else
+		new /obj/item/clothing/glasses/night(L)
+
+STOCK_ITEM_UNCOMMON(seeds, 1)
+	for(var/i in 1 to rand(1, 3))
+		var/obj/item/seeds/SP = pick(subtypesof(/obj/item/seeds) - /obj/item/seeds/cutting)
+		new SP(L)
 
 STOCK_ITEM_UNCOMMON(rped, 2)
 	new /obj/item/storage/part_replacer(L)
 
 STOCK_ITEM_UNCOMMON(briefcase, 2)
-	if (prob(20))
+	if(prob(20))
 		new /obj/item/storage/secure/briefcase(L)
 	else
-		new /obj/item/storage/briefcase(L)
+		var/obj/item/storage/briefcase/B = pick(typesof(/obj/item/storage/briefcase))
+		new B(L)
 
 STOCK_ITEM_UNCOMMON(blade, 1.2)
 	var/list/blades = list(
@@ -296,7 +301,8 @@ STOCK_ITEM_UNCOMMON(blade, 1.2)
 		/obj/item/material/hatchet/butch = 1,
 		/obj/item/material/hatchet = 1.5,
 		/obj/item/material/hatchet/unathiknife = 0.75,
-		/obj/item/material/knife/tacknife = 1
+		/obj/item/material/knife/tacknife = 1,
+		/obj/item/material/knife/bayonet = 0.5
 	)
 
 	var/type = pickweight(blades)
@@ -314,38 +320,89 @@ STOCK_ITEM_UNCOMMON(laserscalpel, 1.3)
 STOCK_ITEM_UNCOMMON(electropack, 1)
 	new /obj/item/device/radio/electropack(L)
 
-	if (istype(L, /obj/structure/closet/crate) && prob(40))
+	if(istype(L, /obj/structure/closet/crate) && prob(40))
 		var/obj/structure/closet/crate/cr = L
 		cr.rigged = TRUE
 		//Boobytrapped crate, will electrocute when you attempt to open it
 		//Can be disarmed with wirecutters or ignored with insulated gloves
 
-STOCK_ITEM_UNCOMMON(monkeyhide, 0.5)
-	new /obj/item/stack/material/animalhide/monkey(L, 50)
+STOCK_ITEM_UNCOMMON(randomhide, 0.5)
+	var/obj/item/stack/material/animalhide/spawn_hide = pick(typesof(/obj/item/stack/material/animalhide))
+	new spawn_hide(L, rand(5, 50))
 
-STOCK_ITEM_UNCOMMON(cathide, 0.5)
-	new /obj/item/stack/material/animalhide/cat(L, 50)
-
-STOCK_ITEM_UNCOMMON(corgihide, 0.5)
-	new /obj/item/stack/material/animalhide/corgi(L, 50)
-
-STOCK_ITEM_UNCOMMON(lizardhide, 0.5)
-	new /obj/item/stack/material/animalhide/lizard(L, 50)
-
-STOCK_ITEM_UNCOMMON(hoodie, 0.5)
+STOCK_ITEM_UNCOMMON(hoodie, 1)
 	new /obj/random/hoodie(L)
+
+STOCK_ITEM_UNCOMMON(bang, 0.5)
+	var/obj/item/gun/bang/B = pick(subtypesof(/obj/item/gun/bang))
+	new B(L)
 
 STOCK_ITEM_UNCOMMON(cookingoil, 1)
 	var/turf/T = get_turf(L)
-	if (!turf_clear(T))
-		for (var/turf/U in range(T,1))
-			if (turf_clear(U))
+	if(!turf_clear(T))
+		for(var/turf/U in range(T,1))
+			if(turf_clear(U))
 				T = U
 				break
 	new /obj/structure/reagent_dispensers/cookingoil(T)
 
 STOCK_ITEM_UNCOMMON(coin, 1.3)
 	new /obj/random/coin(L)
+	if(prob(20))
+		new /obj/random/coin(L)
+
+STOCK_ITEM_UNCOMMON(plushie, 1)
+	new /obj/random/plushie(L)
+
+STOCK_ITEM_UNCOMMON(flag, 1)
+	new /obj/random/random_flag(L)
+
+STOCK_ITEM_UNCOMMON(apiary, 1)
+	new /obj/item/bee_pack(L)
+	if(prob(75))
+		new /obj/item/bee_net(L)
+	if(prob(60))
+		new /obj/item/bee_smoker(L)
+	if(prob(30))
+		new /obj/item/honey_frame(L)
+
+STOCK_ITEM_UNCOMMON(wristbound, 0.5)
+	var/obj/item/modular_computer/wristbound/preset/P = pick(subtypesof(/obj/item/modular_computer/wristbound/preset))
+	new P(L)
+
+STOCK_ITEM_UNCOMMON(pops, 0.5)
+	if(prob(85))
+		new /obj/item/storage/box/snappops(L)
+	else
+		new /obj/item/storage/box/snappops/syndi(L)
+
+STOCK_ITEM_UNCOMMON(collectable_headwear, 0.5)
+	var/type = pick(subtypesof(/obj/item/clothing/head/collectable))
+	new type(L)
+
+STOCK_ITEM_UNCOMMON(pickaxes, 1)
+	var/list/pickaxe_type = list(
+		/obj/item/pickaxe = 10,
+		/obj/item/pickaxe/hammer = 1,
+		/obj/item/pickaxe/silver = 2,
+		/obj/item/pickaxe/drill = 5,
+		/obj/item/pickaxe/gold = 0.5,
+		/obj/item/pickaxe/diamond = 0.25,
+		/obj/item/pickaxe/brush = 1,
+		/obj/item/pickaxe/hand = 2
+		)
+	var/type = pickweight(pickaxe_type)
+	new type(L)
+
+STOCK_ITEM_UNCOMMON(alt_glasses, 1)
+	var/list/glasses = list(/obj/item/clothing/glasses/regular/circle, 
+			/obj/item/clothing/glasses/regular/jamjar,
+			/obj/item/clothing/glasses/threedglasses,
+			/obj/item/clothing/glasses/regular/hipster,
+			/obj/item/clothing/glasses/regular/scanners)
+	for(var/i in 1 to rand(1, 2))
+		var/type = pick(glasses)
+		new type(L)
 
 STOCK_ITEM_UNCOMMON(nothing, 0)
 	// no-op

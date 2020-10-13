@@ -1,30 +1,6 @@
 // All mobs should have custom emote, really..
 //m_type == 1 --> visual.
 //m_type == 2 --> audible
-/mob/proc/custom_emote(var/m_type=1,var/message = null, var/log_emote = 1)
-	if(usr && stat || !use_me && usr == src)
-		to_chat(src, "You are unable to emote.")
-		return
-
-	var/muzzled = istype(src.wear_mask, /obj/item/clothing/mask/muzzle)
-	if(m_type == 2 && muzzled) return
-
-	var/input
-	if(!message)
-		input = sanitize(input(src,"Choose an emote to display.") as text|null)
-	else
-		input = message
-	if(input)
-		message = "<B>[src]</B> [input]"
-	else
-		return
-
-
-	if (message)
-		send_emote(message, m_type)
-		if (log_emote)
-			log_emote("[name]/[key] : [message]",ckey=key_name(key))
-
 /mob/proc/emote_dead(var/message)
 
 	if(client.prefs.muted & MUTE_DEADCHAT)
@@ -55,14 +31,9 @@
 //This is a central proc that all emotes are run through. This handles sending the messages to living mobs
 /mob/proc/send_emote(var/message, var/type)
 	var/list/messageturfs = list()//List of turfs we broadcast to.
-	var/list/messagemobs = list() 
+	var/list/messagemobs = list()
 	var/list/ghosts = list()
 	var/list/ghosts_nearby = list()
-
-	var/hearing_aid = FALSE
-	if(type == 2 && ishuman(src))
-		var/mob/living/carbon/human/H = src
-		hearing_aid = H.has_hearing_aid()
 
 	for (var/turf in view(world.view, get_turf(src)))
 		messageturfs += turf
@@ -74,7 +45,7 @@
 			if (isobserver(M))
 				ghosts_nearby += M
 				continue
-			else if (isliving(M) && !(type == 2 && ((sdisabilities & DEAF) && !hearing_aid) || ear_deaf > 1))
+			else if (isliving(M) && !(type == 2 && isdeaf(M)))
 				messagemobs += M
 		else if(src.client)
 			if (M.stat == DEAD && (M.client.prefs.toggles & CHAT_GHOSTSIGHT))
@@ -86,6 +57,6 @@
 
 	for(var/mob/O in ghosts)
 		O.show_message("[ghost_follow_link(src, O)] [message]", type)
-	
+
 	for(var/mob/GN in ghosts_nearby)
 		GN.show_message("[ghost_follow_link(src, GN)] <b>[message]</b>", type)

@@ -314,4 +314,4 @@ var/list/admin_departments
 			continue
 
 		var/message = "New fax has arrived at [src.department] fax machine."
-		pda.new_info(pda.message_silent, pda.ttone, "\icon[pda] <b>[message]</b>")
+		pda.new_info(pda.message_silent, pda.ttone, "[icon2html(pda, viewers(get_turf(pda)))] <b>[message]</b>")

@@ -68,7 +68,7 @@
 
 	message = process_chat_markup(message, list("~", "_"))
 
-	say_dead_direct("[pick("complains","moans","whines","laments","blubbers")], <span class='message'>\"[message]\"</span>", src)
+	say_dead_direct("[pick("complains","moans","whines","laments","blubbers")], <span class='message linkify'>\"[message]\"</span>", src)
 
 /mob/proc/say_understands(var/mob/other,var/datum/language/speaking = null)
 
@@ -111,19 +111,16 @@
 */
 
 /mob/proc/say_quote(var/message, var/datum/language/speaking = null)
-        var/verb = "says"
-        var/ending = copytext(message, length(message))
-        if(ending=="!")
-                verb=pick("exclaims","shouts","yells")
-        else if(ending=="?")
-                verb="asks"
-
-        return verb
-
-
-/mob/proc/emote(var/act, var/type, var/message)
-	if(act == "me")
-		return custom_emote(type, message)
+	. = "says"
+	var/ending = copytext(message, length(message))
+	var/pre_ending = copytext(message, length(message) - 1, length(message))
+	if(ending == "!")
+		if(pre_ending == "!" || pre_ending == "?")
+			. = pick("shouts", "yells")
+		else
+			. = "exclaims"
+	else if(ending == "?")
+		. ="asks"
 
 /mob/proc/get_ear()
 	// returns an atom representing a location on the map from which this

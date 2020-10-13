@@ -1,5 +1,9 @@
 #define DEBUG
 
+// Flags
+#define ALL (~0) //For convenience.
+#define NONE 0
+
 // Turf-only flags.
 #define NOJAUNT 1          // This is used in literally one place, turf.dm, to block ethereal jaunt.
 #define MIMIC_BELOW 2      // If this turf should mimic the turf on the Z below.
@@ -69,8 +73,10 @@
 #define ASFX_VOX		8
 #define ASFX_DROPSOUND	16
 #define ASFX_ARCADE		32
+#define ASFX_RADIO		64
+#define ASFX_INSTRUMENT 128
 
-#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX|ASFX_DROPSOUND|ASFX_ARCADE)
+#define ASFX_DEFAULT (ASFX_AMBIENCE|ASFX_FOOTSTEPS|ASFX_VOTE|ASFX_VOX|ASFX_DROPSOUND|ASFX_ARCADE|ASFX_RADIO|ASFX_INSTRUMENT)
 
 // For secHUDs and medHUDs and variants. The number is the location of the image on the list hud_list of humans.
 #define      HEALTH_HUD 1 // A simple line reading the pulse.
@@ -144,7 +150,7 @@
 #define WALL_CAN_OPEN 1
 #define WALL_OPENING 2
 
-#define MIN_DAMAGE_TO_HIT 15 //Minimum damage needed to dent walls and girders by hitting them with a weapon. 
+#define MIN_DAMAGE_TO_HIT 15 //Minimum damage needed to dent walls and girders by hitting them with a weapon.
 
 #define DEFAULT_TABLE_MATERIAL "plastic"
 #define DEFAULT_WALL_MATERIAL "steel"
@@ -220,7 +226,7 @@
 //Cargo random stock vars
 //These are used in randomstock.dm
 //And also for generating random loot crates in crates.dm
-#define TOTAL_STOCK 	100//The total number of items we'll spawn in cargo stock
+#define TOTAL_STOCK 	200//The total number of items we'll spawn in cargo stock
 
 #define STOCK_UNCOMMON_PROB	23
 //The probability, as a percentage for each item, that we'll choose from the uncommon spawns list
@@ -238,10 +244,6 @@
 
 // Law settings
 #define PERMABRIG_SENTENCE 90 // Measured in minutes
-
-#define LAYER_TABLE	2.8
-#define LAYER_UNDER_TABLE	2.79
-#define LAYER_ABOVE_TABLE	2.81
 
 // Stoplag.
 #define TICK_CHECK (world.tick_usage > CURRENT_TICKLIMIT)
@@ -264,13 +266,6 @@
 
 #define DEBUG_REF(D) (D ? "\ref[D]|[D] ([D.type])" : "NULL")
 
-//Recipe type defines. Used to determine what machine makes them
-#define MICROWAVE			0x1
-#define FRYER				0x2
-#define OVEN				0x4
-#define CANDYMAKER			0x8
-#define CEREALMAKER			0x10
-
 // MultiZAS directions.
 #define NORTHUP (NORTH|UP)
 #define EASTUP (EAST|UP)
@@ -286,16 +281,7 @@
 #define NL_PERMANENT_DISABLE 2
 
 // Used for creating soft references to objects. A manner of storing an item reference
-// as text so you don't necessarily fuck with an object's ability to be garbage collected.
-#if DM_VERSION < 513
-
-#define SOFTREF(A) "\ref[A]"
-
-#else
-
 #define SOFTREF(A) ref(A)
-
-#endif
 
 // This only works on 511 because it relies on 511's `var/something = foo = bar` syntax.
 #define WEAKREF(D) (istype(D, /datum) && !D:gcDestroyed ? (D:weakref || (D:weakref = new/datum/weakref(D))) : null)
@@ -343,15 +329,11 @@
 #define isContactLevel(Z) ((Z) in current_map.contact_levels)
 #define isNotContactLevel(Z) !isContactLevel(Z)
 
-//Affects the chance that armour will block an attack. Should be between 0 and 1.
-//If set to 0, then armor will always prevent the same amount of damage, always, with no randomness whatsoever.
-//Of course, this will affect code that checks for blocked < 100, as blocked will be less likely to actually be 100.
-#define ARMOR_BLOCK_CHANCE_MULT 1.0
-
 //Cargo Container Types
 #define CARGO_CONTAINER_CRATE "crate"
 #define CARGO_CONTAINER_FREEZER "freezer"
 #define CARGO_CONTAINER_BOX "box"
+#define CARGO_CONTAINER_BODYBAG "bodybag"
 
 // We should start using these.
 #define ITEMSIZE_TINY   1
@@ -359,6 +341,7 @@
 #define ITEMSIZE_NORMAL 3
 #define ITEMSIZE_LARGE  4
 #define ITEMSIZE_HUGE   5
+#define ITEMSIZE_IMMENSE 6
 
 // getFlatIcon function altering defines
 #define GFI_ROTATION_DEFAULT 0 //Don't do anything special
@@ -441,3 +424,30 @@ Define for getting a bitfield of adjacent turfs that meet a condition.
 
 //Lying animation
 #define ANIM_LYING_TIME 2
+
+// Cooking appliances.
+#define MIX					1 << 0
+#define FRYER				1 << 1
+#define OVEN				1 << 2
+#define SKILLET				1 << 3
+#define SAUCEPAN			1 << 4
+#define POT					1 << 5
+#define GRILL				1 << 6
+
+// Cooking misc.
+// can_insert return values
+#define CANNOT_INSERT		0
+#define CAN_INSERT			1
+#define INSERT_GRABBED		2
+// check_contents return values
+#define CONTAINER_EMPTY		0
+#define CONTAINER_SINGLE	1
+#define CONTAINER_MANY		2
+//Misc text define. Does 4 spaces. Used as a makeshift tabulator.
+#define FOURSPACES "&nbsp;&nbsp;&nbsp;&nbsp;"
+#define CLIENT_FROM_VAR(I) (ismob(I) ? I:client : (isclient(I) ? I : (istype(I, /datum/mind) ? I:current?:client : null)))
+
+// check_items/check_reagents/check_fruits return values
+#define COOK_CHECK_FAIL		-1
+#define COOK_CHECK_EXTRA	0
+#define COOK_CHECK_EXACT	1

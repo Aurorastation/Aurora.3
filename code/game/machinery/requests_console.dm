@@ -26,7 +26,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 /obj/machinery/requests_console
 	name = "Requests Console"
 	desc = "A console intended to send requests to different departments on the station."
-	anchored = 1
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "req_comp"
 	component_types = list(
@@ -34,6 +33,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			/obj/item/stock_parts/capacitor,
 			/obj/item/stock_parts/console_screen,
 		)
+	anchored = TRUE
+	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 	var/department = "Unknown" //The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
 	var/list/message_log = list() //List of all messages
 	var/departmentType = 0 		//Bitflag. Zero is reply-only. Map currently uses raw numbers instead of defines.
@@ -64,6 +65,17 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	//End Form Integration
 	var/datum/announcement/announcement = new
 	var/list/obj/item/device/pda/alert_pdas = list() //The PDAs we alert upon a request receipt.
+	var/global/list/screen_overlays
+
+/obj/machinery/requests_console/proc/generate_overlays(var/force = 0)
+	if(LAZYLEN(screen_overlays) && !force)
+		return
+	LAZYINITLIST(screen_overlays)
+	screen_overlays["req_comp-idle"] = make_screen_overlay(icon, "req_comp-idle")
+	screen_overlays["req_comp-alert"] = make_screen_overlay(icon, "req_comp-alert")
+	screen_overlays["req_comp-redalert"] = make_screen_overlay(icon, "req_comp-redalert")
+	screen_overlays["req_comp-yellowalert"] = make_screen_overlay(icon, "req_comp-yellowalert")
+	screen_overlays["req_comp-scanline"] = make_screen_overlay(icon, "req_comp-scanline")
 
 /obj/machinery/requests_console/power_change()
 	..()
@@ -77,24 +89,19 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	else
 		switch(newmessagepriority)
 			if(0)
-				var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-idle", EFFECTS_ABOVE_LIGHTING_LAYER)
-				add_overlay(screen_overlay)
+				add_overlay(screen_overlays["req_comp-idle"])
 				set_light(1.4, 1, COLOR_CYAN)
 			if(1)
-				var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-alert", EFFECTS_ABOVE_LIGHTING_LAYER)
-				add_overlay(screen_overlay)
+				add_overlay(screen_overlays["req_comp-alert"])
 				set_light(1.4, 1, COLOR_CYAN)
 			if(2)
-				var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-redalert", EFFECTS_ABOVE_LIGHTING_LAYER)
-				add_overlay(screen_overlay)
+				add_overlay(screen_overlays["req_comp-redalert"])
 				set_light(1.4, 1, COLOR_ORANGE)
 			if(3)
-				var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-yellowalert", EFFECTS_ABOVE_LIGHTING_LAYER)
-				add_overlay(screen_overlay)
+				add_overlay(screen_overlays["req_comp-yellowalert"])
 				set_light(1.4, 1, COLOR_ORANGE)
 
-		var/mutable_appearance/screen_overlay = mutable_appearance(icon, "req_comp-scanline", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(screen_overlay)
+		add_overlay(screen_overlays["req_comp-scanline"])
 
 /obj/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)
 	. = ..()
@@ -119,6 +126,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		req_console_supplies |= department
 	if (departmentType & RC_INFO)
 		req_console_information |= department
+	generate_overlays()
 	update_icon()
 
 /obj/machinery/requests_console/Destroy()
@@ -247,7 +255,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			screen = RCS_SENTPASS
 			message_log += "<B>Message sent to [recipient]</B><BR>[message]"
 		else
-			audible_message(text("\icon[src] *The Requests Console beeps: 'NOTICE: No server detected!'"),,4)
+			audible_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'NOTICE: No server detected!'"),,4)
 
 	//Handle screen switching
 	if(href_list["setScreen"])
@@ -379,7 +387,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/stamp/T = O
-			msgStamped = text("<font color='blue'><b>Stamped with the [T.name]</b></font>")
+			msgStamped = text("<span class='notice'><b>Stamped with the [T.name]</b></span>")
 			updateUsrDialog()
 	else if (istype(O, /obj/item/paper_bundle))
 		if(lid)	//More of that restocking business
@@ -388,7 +396,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			user.drop_from_inventory(C,get_turf(src))
 			qdel(C)
 			for (var/mob/U in hearers(4, src.loc))
-				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
+				U.show_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'Paper added.'"))
 		else
 			to_chat(user, "<span class='notice'>I should open the lid to add more paper, or try faxing one paper at a time.</span>")
 	else if (istype(O, /obj/item/paper))
@@ -398,7 +406,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			qdel(C)
 			paperstock++
 			for (var/mob/U in hearers(4, src.loc))
-				U.show_message(text("\icon[src] *The Requests Console beeps: 'Paper added.'"))
+				U.show_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'Paper added.'"))
 		else if(screen == 0)	//Faxing them papers
 			var/pass = 0
 			var/sendto = input("Select department.", "Send Fax", null, null) in allConsoles
@@ -446,12 +454,12 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 						P.set_content_unsafe(pname, info)
 						Console.print(P, 0, 'sound/machines/twobeep.ogg')
 						for (var/mob/player in hearers(4, Console.loc))
-							player.show_message(text("\icon[Console] *The Requests Console beeps: 'Fax received'"))
+							player.show_message(text("[icon2html(Console, viewers(get_turf(Console)))] *The Requests Console beeps: 'Fax received'"))
 						Console.paperstock--
 				if(sent == 1)
-					user.show_message(text("\icon[src] *The Requests Console beeps: 'Message Sent.'"))
+					user.show_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'Message Sent.'"))
 			else
-				user.show_message(text("\icon[src] *The Requests Console beeps: 'NOTICE: No server detected!'"))
+				user.show_message(text("[icon2html(src, viewers(get_turf(src)))] *The Requests Console beeps: 'NOTICE: No server detected!'"))
 
 	return
 

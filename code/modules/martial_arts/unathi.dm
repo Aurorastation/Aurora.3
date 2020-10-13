@@ -55,7 +55,7 @@
 		return 0
 	TornadoAnimate(A)
 	A.visible_message("<span class='warning'>[A] sweeps [D] with their tail!</span>")
-	playsound(get_turf(A), "swing_hit", 50, 1, -1)
+	playsound(get_turf(A), /decl/sound_category/swing_hit_sound, 50, 1, -1)
 	D.apply_damage(5, BRUTE)
 	D.Weaken(2)
 	return 1
@@ -77,13 +77,13 @@
 		playsound(D, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 	else
 		D.visible_message("<span class='danger'>[A] attempted to disarm [D]!</span>")
-		playsound(D, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+		playsound(D, /decl/sound_category/punchmiss_sound, 25, 1, -1)
 	return 1
 
 /datum/martial_art/kis_khan/proc/hammering_strike(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
 	A.visible_message("<span class='danger'>[A] slams [D] away!</span>")
-	playsound(D.loc, 'sound/weapons/punch1.ogg', 50, 1, -1)
+	playsound(D.loc, "punch", 50, 1, -1)
 	D.apply_effect(2, WEAKEN)
 	var/atom/throw_target = get_edge_target_turf(D, get_dir(D, get_step_away(D, A)))
 	D.throw_at(throw_target, 200, 4,A)

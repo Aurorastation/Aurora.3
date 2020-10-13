@@ -4,23 +4,24 @@
 	if(species.slowdown)
 		tally = species.slowdown
 
-	if (istype(loc, /turf/space)) return -1 // It's hard to be slowed down in space by... anything
-
-	if (isopenturf(loc)) //open space checks
+	tally += get_pulling_movement_delay()
+    
+	if (istype(loc, /turf/space) || isopenturf(loc))
 		if(!(locate(/obj/structure/lattice, loc) || locate(/obj/structure/stairs, loc) || locate(/obj/structure/ladder, loc)))
-			return -1
+			return 0
 
 	if(embedded_flag)
 		handle_embedded_objects() //Moving with objects stuck in you can cause bad times.
 
-	var/health_deficiency = (100 - health)
-	if(health_deficiency >= 40) tally += (health_deficiency / 25)
+	var/health_deficiency = maxHealth - health
+	if(health_deficiency >= 40)
+		tally += (health_deficiency / 25)
 
 	if(can_feel_pain())
-		if(get_shock() >= 10) tally += (get_shock() / 10) //pain shouldn't slow you down if you can't even feel it
+		if(get_shock() >= 10)
+			tally += (get_shock() / 10) //pain shouldn't slow you down if you can't even feel it
 
-	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head))
-		tally += I.slowdown
+	tally += ClothesSlowdown()
 
 	if(species)
 		tally += species.get_species_tally(src)
@@ -64,9 +65,11 @@
 	if(is_asystole())
 		tally += 10  //heart attacks are kinda distracting
 
-	if(aiming && aiming.aiming_at) tally += 5 // Iron sights make you slower, it's a well-known fact.
+	if(aiming && aiming.aiming_at)
+		tally += 5 // Iron sights make you slower, it's a well-known fact.
 
-	if (drowsyness) tally += 6
+	if (drowsyness)
+		tally += 6
 
 	if (!(species.flags & IS_MECHANICAL))	// Machines don't move slower when cold.
 		if(FAT in src.mutations)
@@ -84,10 +87,13 @@
 		tally = max(0, tally-3)
 
 	var/turf/T = get_turf(src)
-	if(T)
+	if(T && !mind.changeling) // changelings don't get movement costs
 		tally += T.movement_cost
 
 	tally += config.human_delay
+
+	if(!isnull(facing_dir) && facing_dir != dir)
+		tally += 3
 
 	tally = round(tally,1)
 
@@ -127,7 +133,7 @@
 		return 1
 	return 0
 
-/mob/living/carbon/human/set_dir(var/new_dir)
+/mob/living/carbon/human/set_dir(var/new_dir, ignore_facing_dir = FALSE)
 	. = ..()
 	if(. && species.tail)
 		update_tail_showing(1)
@@ -147,7 +153,8 @@
 
 	if (client)
 		var/turf/B = GetAbove(T)
-		up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
+		if(up_hint)
+			up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
 
 	if (is_noisy && !stat && !lying)
 		if ((x == last_x && y == last_y) || !footsound)
@@ -168,3 +175,16 @@
 
 /mob/living/carbon/human/mob_negates_gravity()
 	return (shoes && shoes.negates_gravity())
+
+/mob/living/carbon/human/proc/ClothesSlowdown()
+	for(var/obj/item/I in list(wear_suit, w_uniform, back, gloves, head, wear_mask, shoes, l_ear, r_ear, glasses, belt))
+		. += I.slowdown
+
+/mob/living/carbon/human/get_pulling_movement_delay()
+	. = ..()
+
+	if(ishuman(pulling))
+		var/mob/living/carbon/human/H = pulling
+		if(H.species.slowdown > species.slowdown)
+			. += H.species.slowdown - species.slowdown
+		. += H.ClothesSlowdown()

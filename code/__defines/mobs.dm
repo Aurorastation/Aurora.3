@@ -37,6 +37,8 @@
 #define LEFT  1
 #define RIGHT 2
 
+#define FIST_ATTACK_ANIMATION -1
+
 // Pulse levels, very simplified.
 #define PULSE_NONE    0 // So !M.pulse checks would be possible.
 #define PULSE_SLOW    1 // <60     bpm
@@ -101,6 +103,14 @@
 #define BP_STOMACH  "stomach"
 #define BP_APPENDIX "appendix"
 
+//Vaurca organs
+#define BP_NEURAL_SOCKET "neural socket"
+#define BP_PHORON_RESERVE "phoron reserve tank"
+#define BP_FILTRATION_BIT "filtration bit"
+#define BP_PHORON_RESERVOIR "phoron reservoir"
+#define BP_VAURCA_LIVER "mechanical liver"
+#define BP_VAURCA_KIDNEYS "mechanical kidneys"
+
 //Aut'akh organs
 #define BP_ANCHOR   "anchor"
 #define BP_HAEMO    "haemodynamic"
@@ -126,6 +136,9 @@
 #define BP_AUG_RADIO        "integrated radio"
 #define BP_AUG_FUEL_CELL    "integrated fuel cell"
 #define BP_AUG_AIR_ANALYZER "integrated air analyzer"
+#define BP_AUG_LANGUAGE     "integrated language processor"
+#define BP_AUG_PSI         "psionic receiver"
+#define BP_AUG_CALF_OVERRIDE     "calf overdrive"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
@@ -311,6 +324,14 @@
 #define TASTE_DULL 0.5 //anything below 30%
 #define TASTE_NUMB 0.1 //anything below 150%
 
+//ear healing limit - past this ear_damage your ear will not recover its hearing over time
+#define HEARING_DAMAGE_LIMIT 100
+#define HEARING_DAMAGE_SLOW_HEAL 25
+
+//Used by emotes
+#define VISIBLE_MESSAGE 1
+#define AUDIBLE_MESSAGE 2
+
 //helper for inverting armor blocked values into a multiplier
 #define BLOCKED_MULT(blocked) max(1 - (blocked/100), 0)
 
@@ -346,9 +367,28 @@
 #define SURGERY_FAIL 1 // Autofail surgery
 #define SURGERY_IGNORE 0 // Ignore surgery completely and just attack
 
+#define STASIS_MISC     "misc"
+#define STASIS_CRYOBAG  "cryobag"
+#define STASIS_COLD     "cold"
+
 #define AURA_CANCEL 1
 #define AURA_FALSE  2
 #define AURA_TYPE_BULLET "Bullet"
 #define AURA_TYPE_WEAPON "Weapon"
 #define AURA_TYPE_THROWN "Thrown"
 #define AURA_TYPE_LIFE   "Life"
+
+// Remote Control defines
+#define REMOTE_GENERIC_MECH "remotemechs"
+#define REMOTE_AI_MECH "aimechs"
+#define REMOTE_PRISON_MECH "prisonmechs"
+
+#define REMOTE_GENERIC_ROBOT "remoterobots"
+#define REMOTE_BUNKER_ROBOT "bunkerrobots"
+#define REMOTE_PRISON_ROBOT "prisonrobots"
+#define REMOTE_WARDEN_ROBOT "wardenrobots"
+
+// Robot Overlay Defines
+#define ROBOT_PANEL_EXPOSED  "exposed"
+#define ROBOT_PANEL_CELL     "cell"
+#define ROBOT_PANEL_NO_CELL  "no cell"

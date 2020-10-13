@@ -4,7 +4,6 @@
  *		Cakehat
  *		Ushanka
  *		Pumpkin head
- *		Kitty ears
  *		Chicken mask
  *		Warning cone
  */
@@ -28,14 +27,16 @@
 	body_parts_covered = HEAD|FACE|EYES
 	action_button_name = "Flip Welding Mask"
 	siemens_coefficient = 0.75 // what? it's steel.
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	var/base_state
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi'
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
+		BODYTYPE_UNATHI = 'icons/mob/species/unathi/helmet.dmi'
 		)
 	drop_sound = 'sound/items/drop/helm.ogg'
+	pickup_sound = 'sound/items/pickup/helm.ogg'
 
 /obj/item/clothing/head/welding/attack_self()
 	if(!base_state)
@@ -152,7 +153,8 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	drop_sound = 'sound/items/drop/herb.ogg'
-	w_class = 3
+	pickup_sound = 'sound/items/pickup/herb.ogg'
+	w_class = ITEMSIZE_NORMAL
 	throwforce = 1
 	throw_speed = 0.5
 
@@ -161,7 +163,7 @@
 		var/obj/item/flame/candle/c = O
 		var/candle_wax = c.wax
 		if(c.lit)
-			to_chat(user, span("notice", "You should extinguish \the [O] first!"))
+			to_chat(user, SPAN_NOTICE("You should extinguish \the [O] first!"))
 			return
 		to_chat(user, "You add \the [O] to \the [src].")
 		playsound(src.loc, 'sound/items/drop/gloves.ogg', 50, 1)
@@ -193,15 +195,15 @@
 		var/obj/item/weldingtool/WT = W
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
 			light()
-			to_chat(user, span("notice", "\The [user] casually lights \the [name] with [W]."))
-	else if(isflamesource(W))
+			to_chat(user, SPAN_NOTICE("\The [user] casually lights \the [name] with [W]."))
+	else if(W.isFlameSource())
 		light()
-		to_chat(user, span("notice", "\The [user] lights \the [name]."))
+		to_chat(user, SPAN_NOTICE("\The [user] lights \the [name]."))
 	else if(istype(W, /obj/item/flame/candle))
 		var/obj/item/flame/candle/C = W
 		if(C.lit)
 			light()
-			to_chat(user, span("notice", "\The [user] lights \the [name]."))
+			to_chat(user, SPAN_NOTICE("\The [user] lights \the [name]."))
 
 /obj/item/clothing/head/pumpkin/lantern/proc/light()
 	if(!src.lit)
@@ -221,7 +223,7 @@
 		new /obj/item/trash/candle(src.loc)
 		if(istype(src.loc, /mob))
 			src.dropped()
-		to_chat(user, span("notice", "The candle burns out."))
+		to_chat(user, SPAN_NOTICE("The candle burns out."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
@@ -233,36 +235,10 @@
 /obj/item/clothing/head/pumpkin/lantern/attack_self(mob/user as mob)
 	if(lit)
 		lit = 0
-		to_chat(user, span("notice", "You snuff out the flame."))
+		to_chat(user, SPAN_NOTICE("You snuff out the flame."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		update_icon()
 		set_light(0)
-
-/*
- * Kitty ears
- */
-/obj/item/clothing/head/kitty
-	name = "kitty ears"
-	desc = "A pair of kitty ears. Meow!"
-	icon_state = "kitty"
-	siemens_coefficient = 1.5
-	item_icons = list()
-
-/obj/item/clothing/head/kitty/equipped(mob/living/carbon/human/user, slot)
-	. = ..()
-	if (slot == slot_head && istype(user))
-		var/hairgb = rgb(user.r_hair, user.g_hair, user.b_hair)
-		var/icon/blended = SSicon_cache.kitty_ear_cache[hairgb]
-		if (!blended)
-			blended = icon('icons/mob/head.dmi', "kitty")
-			blended.Blend(hairgb, ICON_ADD)
-			blended.Blend(icon('icons/mob/head.dmi', "kittyinner"), ICON_OVERLAY)
-
-			SSicon_cache.kitty_ear_cache[hairgb] = blended
-
-		icon_override = blended
-	else if (icon_override)
-		icon_override = null
 
 /*
  * Chicken mask
@@ -282,15 +258,16 @@
 /obj/item/clothing/head/cone
 	name = "warning cone"
 	desc = "This cone is trying to warn you of something!"
-	description_info = "It looks like you can wear it in your head slot."
+	desc_info = "It looks like you can wear it in your head slot."
 	icon_state = "cone"
 	item_state = "cone"
 	drop_sound = 'sound/items/drop/shoes.ogg'
+	pickup_sound = 'sound/items/pickup/shoes.ogg'
 	force = 1
 	throwforce = 3
 	throw_speed = 2
 	throw_range = 5
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	body_parts_covered = HEAD
 	attack_verb = list("warned", "cautioned", "smashed")
 	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)

@@ -1,0 +1,39 @@
+.uiTitle,
+head,
+header {
+	background-color: #371146;
+	color: #cb6df0;
+}
+
+
+body {
+	background: #3e144e;
+	color: #d486f3;
+}
+
+a,
+a:link,
+a:visited,
+a:active,
+.linkOn,
+.linkOff {
+	background: #591b72;
+	color: #ce7dee;
+	transition: background 0.2s, color 0.2s;
+}
+
+a:hover {
+	background: #ce7dee;
+	color: #591b72;
+}
+
+.spell-block {
+	background-color: #3e144e;
+	color: #d486f3;
+	transition: background-color 0.2s, color 0.2s;
+}
+
+.spell-block:hover {
+	background-color: #280c33;
+	color: #e39bff;
+}

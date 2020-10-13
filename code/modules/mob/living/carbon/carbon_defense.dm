@@ -19,17 +19,17 @@
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
 		if(H.bg)
-			visible_message(span("danger", "[src] is hit by [AM] waking [t_him] up!"))
+			visible_message(SPAN_DANGER("[src] is hit by [AM] waking [t_him] up!"))
 			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
 				willfully_sleeping = FALSE
 			else
-				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
-		else
-			visible_message(span("danger","[src] is hit by [AM], but they do not respond... Maybe they have S.S.D?"))
+				to_chat(H, SPAN_DANGER("You sense great disturbance to your physical body!"))
+		else if(!vr_mob)
+			visible_message(SPAN_DANGER("[src] is hit by [AM], but they do not respond... Maybe they have S.S.D?"))
 	else if(client && willfully_sleeping)
-		visible_message(span("danger", "[src] is hit by [AM] waking [t_him] up!"))
+		visible_message(SPAN_DANGER("[src] is hit by [AM] waking [t_him] up!"))
 		sleeping = 0
 		willfully_sleeping = FALSE
 
@@ -53,8 +53,8 @@
 				sleeping = 0
 				willfully_sleeping = FALSE
 			else
-				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
-		else
+				to_chat(H, SPAN_DANGER("You sense great disturbance to your physical body!"))
+		else if(!vr_mob)
 			visible_message("<span class='danger'>[P] hit [src], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
 		visible_message("<span class='danger'>[P] hit [src] waking [t_him] up!</span>")
@@ -79,8 +79,8 @@
 				sleeping = 0
 				willfully_sleeping = FALSE
 			else
-				to_chat(H, span("danger", "You sense great disturbance to your physical body!"))
-		else
+				to_chat(H, SPAN_DANGER("You sense great disturbance to your physical body!"))
+		else if(!vr_mob)
 			user.visible_message("<span class='danger'>[user] attacks [src] with [I] waking [t_him] up!</span>", \
 					    "<span class='danger'>You attack [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
 	else if(client && willfully_sleeping)
@@ -99,7 +99,7 @@
 
 	//Apply weapon damage
 	var/damage_flags = I.damage_flags()
-	if(prob(blocked)) //armour provides a chance to turn sharp/edge weapon attacks into blunt ones
+	if(prob(blocked)) //armor provides a chance to turn sharp/edge weapon attacks into blunt ones
 		damage_flags &= ~DAM_SHARP
 		damage_flags &= ~DAM_EDGE
 
@@ -177,14 +177,14 @@
 
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
-		var/obj/item/organ/external/head = H.get_organ("head")
+		var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
 		if(head)
 			head.sever_artery()
 
 	G.last_action = world.time
 	flick(G.hud.icon_state, G.hud)
 
-	user.attack_log += "\[[time_stamp()]\]<font color='red'> Knifed [name] ([ckey]) with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])</font>"
+	user.attack_log += "\[[time_stamp()]\]<span class='warning'> Knifed [name] ([ckey]) with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])</span>"
 	src.attack_log += "\[[time_stamp()]\]<font color='orange'> Got knifed by [user.name] ([user.ckey]) with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])</font>"
 	msg_admin_attack("[key_name_admin(user)] knifed [key_name_admin(src)] with [W.name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(W.damtype)])",ckey=key_name(user),ckey_target=key_name(src) )
 	return 1

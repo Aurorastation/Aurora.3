@@ -13,13 +13,14 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift1"
 	item_state = "gift1"
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 
 /obj/item/a_gift/New()
 	..()
 	pixel_x = rand(-10,10)
 	pixel_y = rand(-10,10)
-	if(w_class > 0 && w_class < 4)
+	if(w_class > 0 && w_class < ITEMSIZE_LARGE)
 		icon_state = "gift[w_class]"
 	else
 		icon_state = "gift[pick(1, 2, 3)]"
@@ -67,7 +68,7 @@
 		/obj/item/storage/wallet,
 		/obj/item/storage/photo_album,
 		/obj/item/storage/box/snappops,
-		/obj/item/storage/fancy/crayons,
+		/obj/item/storage/box/fancy/crayons,
 		/obj/item/storage/backpack/holding,
 		/obj/item/storage/belt/champion,
 		/obj/item/soap/deluxe,
@@ -129,7 +130,7 @@
 	icon = 'icons/obj/items.dmi'
 	icon_state = "gift1"
 	item_state = "gift1"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/xmasgift/Initialize()
 	..()
@@ -163,7 +164,7 @@
 		/obj/item/storage/wallet,
 		/obj/item/storage/photo_album,
 		/obj/item/storage/box/snappops,
-		/obj/item/storage/fancy/crayons,
+		/obj/item/storage/box/fancy/crayons,
 		/obj/item/soap/deluxe,
 		/obj/item/pen/invisible,
 		/obj/item/clothing/gloves/watch,
@@ -190,7 +191,7 @@
 		/obj/item/bluespace_crystal,
 		/obj/item/flame/lighter/zippo,
 		/obj/item/device/taperecorder,
-		/obj/item/storage/fancy/cigarettes/dromedaryco,
+		/obj/item/storage/box/fancy/cigarettes/dromedaryco,
 		/obj/item/toy/bosunwhistle,
 		/obj/item/clothing/mask/fakemoustache,
 		/obj/item/clothing/mask/gas/clown_hat,
@@ -205,10 +206,6 @@
 		/obj/item/xmasgift/medium,
 		/obj/item/toy/syndicateballoon,
 		/obj/item/toy/xmastree,
-		/obj/item/clothing/accessory/medal/gold/heroism,
-		/obj/item/clothing/accessory/medal/nobel_science,
-		/obj/item/clothing/accessory/medal/bronze_heart,
-		/obj/item/clothing/accessory/medal/silver/valor,
 		/obj/item/bluespace_crystal,
 		/obj/item/gun/energy/mousegun,
 		/obj/item/gun/energy/wand/toy,
@@ -223,14 +220,14 @@
 	var/atom/movable/I = new gift_type(get_turf(user))
 	user.remove_from_mob(src)
 	user.put_in_hands(I)
-	to_chat(user, span("notice", "You open the gift, revealing your new [I.name]! Just what you always wanted!"))
+	to_chat(user, SPAN_NOTICE("You open the gift, revealing your new [I.name]! Just what you always wanted!"))
 	qdel(src)
 	return
 
 /obj/item/xmasgift/medium
 	icon_state = "gift2"
 	item_state = "gift2"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/xmasgift/medium/attack_self(mob/user)
 	var/gift_type = pick(
@@ -293,14 +290,14 @@
 	user.remove_from_mob(src)
 	if (!user.put_in_hands(I))
 		user.forceMove(get_turf(src))
-	to_chat(user, span("notice", "You open the gift, revealing your new [I.name]! Just what you always wanted!"))
+	to_chat(user, SPAN_NOTICE("You open the gift, revealing your new [I.name]! Just what you always wanted!"))
 	qdel(src)
 	return
 
 /obj/item/xmasgift/large
 	icon_state = "gift3"
 	item_state = "gift3"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/xmasgift/large/attack_self(mob/user)
 	var/gift_type = pick(
@@ -308,7 +305,6 @@
 		/obj/random/backpack,
 		/obj/item/inflatable_duck,
 		/obj/item/beach_ball,
-		/obj/item/clothing/under/redcoat,
 		/obj/item/clothing/under/syndicate/tracksuit,
 		/obj/item/clothing/under/rank/clown,
 		/obj/item/clothing/under/mime,
@@ -338,6 +334,6 @@
 	var/atom/movable/I = new gift_type(get_turf(user))
 	user.remove_from_mob(src)
 	user.put_in_hands(I)
-	to_chat(user, span("notice", "You open the gift, revealing your new [I.name]! Just what you always wanted!"))
+	to_chat(user, SPAN_NOTICE("You open the gift, revealing your new [I.name]! Just what you always wanted!"))
 	qdel(src)
 	return

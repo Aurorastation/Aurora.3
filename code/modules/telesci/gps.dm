@@ -5,13 +5,14 @@ var/list/GPS_list = list()
 	desc = "Helping lost spacemen find their way through the planets since 2016."
 	icon = 'icons/obj/telescience.dmi'
 	icon_state = "gps-c"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	var/gps_prefix = "COM"
 	var/gpstag = "COM0"
 	var/emped = 0
 	var/held_by = null
+	var/implanted_into = null
 	var/turf/locked_location
 	var/list/tracking = list()
 	var/list/static/gps_count = list()
@@ -22,6 +23,23 @@ var/list/GPS_list = list()
 	name = "global positioning system ([gpstag])"
 	update_position()
 	add_overlay("working")
+
+	if(ismob(loc))
+		if(ishuman(loc))
+			var/mob/living/carbon/human/H = loc
+			if(src in H.get_equipped_items())
+				held_by = H
+			else
+				implanted_into = loc
+		else if(issilicon(loc))
+			implanted_into = loc
+	else if(istype(loc, /obj/item/robot_module))
+		implanted_into = loc.loc
+
+	if(held_by)
+		moved_event.register(held_by, src, /obj/item/device/gps/proc/update_position)
+	if(implanted_into)
+		moved_event.register(implanted_into, src, /obj/item/device/gps/proc/update_position)
 	moved_event.register(src, src, /obj/item/device/gps/proc/update_position)
 
 	for(var/gps in GPS_list)
@@ -33,6 +51,9 @@ var/list/GPS_list = list()
 	if(held_by)
 		moved_event.unregister(held_by, src)
 		held_by = null
+	if(implanted_into)
+		moved_event.unregister(implanted_into, src)
+		implanted_into = null
 	return ..()
 
 /obj/item/device/gps/pickup(var/mob/user)
@@ -114,7 +135,7 @@ var/list/GPS_list = list()
 				if(was_tracked)
 					tracking |= gpstag
 			else
-				to_chat(usr, span("warning", "GPS tag already assigned, choose another."))
+				to_chat(usr, SPAN_WARNING("GPS tag already assigned, choose another."))
 
 		return TRUE
 

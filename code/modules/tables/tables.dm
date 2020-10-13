@@ -148,7 +148,7 @@
 		var/obj/item/weldingtool/F = W
 		if(F.welding)
 			to_chat(user, "<span class='notice'>You begin reparing damage to \the [src].</span>")
-			playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
+			playsound(src.loc, 'sound/items/welder.ogg', 50, 1)
 			if(!do_after(user, 20/W.toolspeed) || !F.remove_fuel(1, user))
 				return
 			user.visible_message("<span class='notice'>\The [user] repairs some damage to \the [src].</span>",
@@ -165,7 +165,7 @@
 			update_material()
 		return 1
 
-	if(!material && can_plate && istype(W, /obj/item/reagent_containers/glass/beaker/bowl))
+	if(!material && can_plate && istype(W, /obj/item/reagent_containers/cooking_container/plate/bowl))
 		new /obj/structure/chemkit(loc)
 		qdel(W)
 		qdel(src)
@@ -253,25 +253,24 @@
 	return null
 
 /obj/structure/table/proc/remove_reinforced(obj/item/screwdriver/S, mob/user)
-	reinforced = common_material_remove(user, reinforced, 40, "reinforcements", "screws", 'sound/items/Screwdriver.ogg')
+	reinforced = common_material_remove(user, reinforced, 40, "reinforcements", "screws", 'sound/items/screwdriver.ogg')
 
 /obj/structure/table/proc/remove_material(obj/item/wrench/W, mob/user)
 	material = common_material_remove(user, material, 20, "plating", "bolts", W.usesound)
 
-/obj/structure/table/proc/dismantle(obj/item/wrench/W, mob/user)
-	if(manipulating) return
-	manipulating = 1
-	user.visible_message("<span class='notice'>\The [user] begins dismantling \the [src].</span>",
-	                              "<span class='notice'>You begin dismantling \the [src].</span>")
-	playsound(src, W.usesound, 100, 1)
-	if(!do_after(user, 20/W.toolspeed))
-		manipulating = 0
+/obj/structure/table/dismantle(obj/item/wrench/W, mob/user)
+	if(manipulating)
 		return
-	user.visible_message("<span class='notice'>\The [user] dismantles \the [src].</span>",
-	                              "<span class='notice'>You dismantle \the [src].</span>")
-	new /obj/item/stack/material/steel(src.loc)
-	qdel(src)
-	return
+	manipulating = TRUE
+	user.visible_message("<b>[user]</b> begins dismantling \the [src].",
+						SPAN_NOTICE("You begin dismantling \the [src]."))
+	playsound(src, W.usesound, 100, 1)
+	if(!do_after(user, 20 / W.toolspeed))
+		manipulating = FALSE
+		return
+	user.visible_message("\The [user] dismantles \the [src].",
+						SPAN_NOTICE("You dismantle \the [src]."))
+	..()
 
 // Returns a list of /obj/item/material/shard objects that were created as a result of this table's breakage.
 // Used for !fun! things such as embedding shards in the faces of tableslammed people.

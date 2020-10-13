@@ -1,12 +1,17 @@
 /obj/machinery/portable_atmospherics/canister
 	name = "canister"
 	desc = "Holds gas. Has a built-in valve to allow for filling portable tanks."
+	desc_info = "The canister can be connected to a connector port with a wrench.  Tanks of gas (the kind you can hold in your hand) \
+	can be filled by the canister, by using the tank on the canister, increasing the release pressure, then opening the valve until it is full, and then close it.  \
+	*DO NOT* remove the tank until the valve is closed.  A gas analyzer can be used to check the contents of the canister."
+
+	desc_antag = "Canisters can be damaged, spilling their contents into the air, or you can just leave the release valve open."
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "yellow"
 	density = 1
 	var/health = 100.0
 	flags = CONDUCT
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 
 	var/valve_open = 0
 	var/release_pressure = ONE_ATMOSPHERE
@@ -134,6 +139,7 @@ update_flag
 
 	if (src.destroyed)
 		cut_overlays()
+		set_light(FALSE)
 		src.icon_state = text("[]-1", src.canister_color)
 		return
 
@@ -196,7 +202,7 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/machinery_process()
 	if (destroyed)
-		return
+		return PROCESS_KILL
 
 	..()
 
@@ -256,7 +262,7 @@ update_flag
 				if (holding)
 					release_log += "Valve was <b>closed</b> by [key_name(admin)] (aghost), stopping the transfer into the [holding]<br>"
 				else
-					release_log += "Valve was <b>closed</b> by [key_name(admin)] (aghost), stopping the transfer into the <font color='red'><b>air</b></font><br>"
+					release_log += "Valve was <b>closed</b> by [key_name(admin)] (aghost), stopping the transfer into the <span class='warning'><b>air</b></span><br>"
 			else
 				if (alert(admin, "The release valve is currently closed. Do you want to open it?", "Open the valve?", "Yes", "No") == "No")
 					return
@@ -264,7 +270,7 @@ update_flag
 				if (holding)
 					release_log += "Valve was <b>opened</b> by [key_name(admin)] (aghost), starting the transfer into the [holding]<br>"
 				else
-					release_log += "Valve was <b>opened</b> by [key_name(admin)] (aghost), starting the transfer into the <font color='red'><b>air</b></font><br>"
+					release_log += "Valve was <b>opened</b> by [key_name(admin)] (aghost), starting the transfer into the <span class='warning'><b>air</b></span><br>"
 					log_open(admin)
 			valve_open = !valve_open
 
@@ -348,12 +354,12 @@ update_flag
 			if (holding)
 				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the [holding]<br>"
 			else
-				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the <font color='red'><b>air</b></font><br>"
+				release_log += "Valve was <b>closed</b> by [usr] ([usr.ckey]), stopping the transfer into the <span class='warning'><b>air</b></span><br>"
 		else
 			if (holding)
 				release_log += "Valve was <b>opened</b> by [usr] ([usr.ckey]), starting the transfer into the [holding]<br>"
 			else
-				release_log += "Valve was <b>opened</b> by [usr] ([usr.ckey]), starting the transfer into the <font color='red'><b>air</b></font><br>"
+				release_log += "Valve was <b>opened</b> by [usr] ([usr.ckey]), starting the transfer into the <span class='warning'><b>air</b></span><br>"
 				log_open()
 		valve_open = !valve_open
 
@@ -399,13 +405,13 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/phoron/Initialize()
 	. = ..()
 
-	src.air_contents.adjust_gas("phoron", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
 	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/oxygen/Initialize()
 	. = ..()
 
-	src.air_contents.adjust_gas("oxygen", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_OXYGEN, MolesForPressure())
 	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/oxygen/prechilled/Initialize()
@@ -416,13 +422,13 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/Initialize()
 	. = ..()
 
-	air_contents.adjust_gas("sleeping_agent", MolesForPressure())
+	air_contents.adjust_gas(GAS_N2O, MolesForPressure())
 	src.update_icon()
 
 //Dirty way to fill room with gas. However it is a bit easier to do than creating some floor/engine/n2o -rastaf0
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/Initialize()
 	. = ..()
-	air_contents.gas["sleeping_agent"] = 9*4000
+	air_contents.gas[GAS_N2O] = 9*4000
 	spawn(10)
 		var/turf/simulated/location = src.loc
 		if (istype(src.loc))
@@ -433,7 +439,7 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/nitrogen/Initialize()
 	. = ..()
-	src.air_contents.adjust_gas("nitrogen", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_NITROGEN, MolesForPressure())
 	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/nitrogen/prechilled/Initialize()
@@ -443,30 +449,30 @@ update_flag
 
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide/Initialize()
 	. = ..()
-	src.air_contents.adjust_gas("carbon_dioxide", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_CO2, MolesForPressure())
 	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/air/Initialize()
 	. = ..()
 	var/list/air_mix = StandardAirMix()
-	src.air_contents.adjust_multi("oxygen", air_mix["oxygen"], "nitrogen", air_mix["nitrogen"])
+	src.air_contents.adjust_multi(GAS_OXYGEN, air_mix[GAS_OXYGEN], GAS_NITROGEN, air_mix[GAS_NITROGEN])
 
 	src.update_icon()
 
 // Special types used for engine setup admin verb, they contain double amount of that of normal canister.
 /obj/machinery/portable_atmospherics/canister/nitrogen/engine_setup/Initialize()
 	. = ..()
-	src.air_contents.adjust_gas("nitrogen", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_NITROGEN, MolesForPressure())
 	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide/engine_setup/Initialize()
 	. = ..()
-	src.air_contents.adjust_gas("carbon_dioxide", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_CO2, MolesForPressure())
 	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/phoron/engine_setup/Initialize()
 	. = ..()
-	src.air_contents.adjust_gas("phoron", MolesForPressure())
+	src.air_contents.adjust_gas(GAS_PHORON, MolesForPressure())
 	src.update_icon()
 
 /obj/machinery/portable_atmospherics/canister/air/cold/Initialize()

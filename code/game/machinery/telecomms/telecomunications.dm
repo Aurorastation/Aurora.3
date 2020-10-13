@@ -344,7 +344,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	circuitboard = "/obj/item/circuitboard/telecomms/relay"
 	netspeed = 5
 	long_range_link = 1
-	var/broadcasting = 1
+	var/broadcasting = TRUE
 	var/receiving = 1
 
 /obj/machinery/telecomms/relay/receive_information(datum/signal/signal, obj/machinery/telecomms/machine_from)

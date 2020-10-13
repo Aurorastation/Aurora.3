@@ -10,7 +10,7 @@
 	flags =  CONDUCT
 	slot_flags = SLOT_BELT
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2)
 
 	burst = 1
@@ -103,7 +103,12 @@
 			to_chat(user,"The offical designation \"[official_name]\" is etched neatly on the side.")
 
 	if(installed_cell)
-		to_chat(user,"It has [round(installed_cell.stored_charge / cost_increase)] shots remaining.")
+		to_chat(user, "It has <b>[get_ammo()]</b> shots remaining.")
+
+/obj/item/gun/custom_ka/get_ammo()
+	if(!installed_cell || !installed_cell.stored_charge)
+		return 0
+	return round(installed_cell.stored_charge / cost_increase)
 
 /obj/item/gun/custom_ka/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
 	to_chat(user,"<span class='warning'>You override the safeties on the [src]...</span>")
@@ -174,7 +179,7 @@
 			disaster = "overheat"
 
 	if(warning_message)
-		to_chat(user,"<b>\The [src]</b> flashes, \"[warning_message].\"")
+		to_chat(user,"<b>[src]</b> flashes, \"[warning_message].\"")
 		playsound(src,'sound/machines/buzz-two.ogg', 50, 0)
 		handle_click_empty(user)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*4)
@@ -242,7 +247,7 @@
 		var/obj/item/projectile/kinetic/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
 		shot_projectile.damage = damage_increase
 		shot_projectile.range = range_increase
-		shot_projectile.aoe = aoe_increase
+		shot_projectile.aoe = max(1, aoe_increase)
 		shot_projectile.base_damage = damage_increase
 		return shot_projectile
 	if(ispath(installed_barrel.projectile_type, /obj/item/projectile/beam))
@@ -369,7 +374,7 @@
 	firedelay_increase = max(firedelay_increase,0.125 SECONDS)
 
 	aoe_increase += round(damage_increase/30)
-	aoe_increase = max(0,aoe_increase)
+	aoe_increase = max(1, aoe_increase)
 
 	//Gun stats
 	recoil = recoil_increase*0.25
@@ -440,7 +445,7 @@
 			installed_cell.forceMove(src)
 			update_stats()
 			update_icon()
-			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
+			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
 	else if(istype(I,/obj/item/custom_ka_upgrade/barrels))
 		if(!installed_cell)
 			to_chat(user,"You must install a power cell before installing \the [I].")
@@ -453,7 +458,7 @@
 			installed_barrel.forceMove(src)
 			update_stats()
 			update_icon()
-			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
+			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
 	else if(istype(I,/obj/item/custom_ka_upgrade/upgrade_chips))
 		if(!installed_cell || !installed_barrel)
 			to_chat(user,"A barrel and a cell need to be installed before you install \the [I].")
@@ -470,7 +475,7 @@
 			installed_upgrade_chip.forceMove(src)
 			update_stats()
 			update_icon()
-			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
+			playsound(src,'sound/items/wirecutter.ogg', 50, 0)
 
 	if(installed_cell)
 		installed_cell.attackby(I,user)

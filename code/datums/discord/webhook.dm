@@ -52,7 +52,7 @@ var/list/global_webhooks = list()
 		else
 			Data["content"] = "[mention]"
 
-	var/datum/http_request/req = SShttp.post(url, body = json_encode(Data), headers = list("Content-Type" = "application/json"))
+	var/datum/http_request/req = http_create_post(url, body = json_encode(Data), headers = list("Content-Type" = "application/json"))
 
 	req.begin_async()
 	UNTIL(req.is_complete())

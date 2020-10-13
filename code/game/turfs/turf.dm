@@ -22,7 +22,7 @@
 	var/pathweight = 1          // How much does it cost to pathfind over this turf?
 	var/blessed = 0             // Has the turf been blessed?
 
-	var/footstep_sound = "tiles"
+	var/footstep_sound = /decl/sound_category/tiles_footstep
 
 	var/list/decals
 
@@ -383,7 +383,7 @@ var/const/enterloopsanity = 100
 
 //expects an atom containing the reagents used to clean the turf
 /turf/proc/clean(atom/source, mob/user)
-	if(source.reagents.has_reagent("water", 1) || source.reagents.has_reagent("cleaner", 1))
+	if(source.reagents.has_reagent(/datum/reagent/water, 1) || source.reagents.has_reagent(/datum/reagent/spacecleaner, 1))
 		clean_blood()
 		if(istype(src, /turf/simulated))
 			var/turf/simulated/T = src
@@ -396,10 +396,10 @@ var/const/enterloopsanity = 100
 				var/obj/effect/rune/R = O
 				// Only show message for visible runes
 				if(!R.invisibility)
-					to_chat(user, span("warning", "No matter how well you wash, the bloody symbols remain!"))
+					to_chat(user, SPAN_WARNING("No matter how well you wash, the bloody symbols remain!"))
 	else
 		if( !(last_clean && world.time < last_clean + 100) )
-			to_chat(user, span("warning", "\The [source] is too dry to wash that."))
+			to_chat(user, SPAN_WARNING("\The [source] is too dry to wash that."))
 			last_clean = world.time
 	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.
 
@@ -520,7 +520,7 @@ var/const/enterloopsanity = 100
 		tally += limbCheck(lfoot)
 
 	if(tally >= 120)
-		to_chat(user, span("notice", "You're too injured to do this!"))
+		to_chat(user, SPAN_NOTICE("You're too injured to do this!"))
 		return
 
 	var/finaltime = 25 + (5 * (user.weakened * 1.5))

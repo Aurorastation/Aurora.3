@@ -17,24 +17,26 @@
 	new /obj/item/clothing/under/rank/cadet(src)
 	new /obj/item/clothing/under/rank/cadet(src)
 	new /obj/item/clothing/under/rank/cadet(src)
-	new /obj/item/clothing/shoes/black_boots(src)
-	new /obj/item/clothing/shoes/black_boots(src)
-	new /obj/item/clothing/shoes/black_boots(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/gloves/black_leather(src)
 	new /obj/item/clothing/gloves/black_leather(src)
-	new /obj/item/clothing/head/soft/sec(src)
-	new /obj/item/clothing/head/soft/sec(src)
-	new /obj/item/clothing/head/soft/sec(src)
+	new /obj/item/clothing/head/softcap/security(src)
+	new /obj/item/clothing/head/softcap/security(src)
+	new /obj/item/clothing/head/softcap/security(src)
 	new /obj/item/clothing/head/beret/sec(src)
 	new /obj/item/clothing/head/beret/sec(src)
 	new /obj/item/clothing/head/beret/sec(src)
 	new /obj/item/clothing/head/beret/sec/alt(src)
 	new /obj/item/clothing/head/beret/sec/alt(src)
 	new /obj/item/clothing/head/beret/sec/alt(src)
+	new /obj/item/clothing/head/bandana/security(src)
+	new /obj/item/clothing/head/bandana/security(src)
+	new /obj/item/clothing/head/bandana/security(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/clothing/shoes/jackboots(src)
+	new /obj/item/clothing/shoes/jackboots/knee(src)
+	new /obj/item/clothing/shoes/jackboots/knee(src)
 	new /obj/item/clothing/shoes/jackboots/toeless(src)
 
 	return
@@ -86,9 +88,8 @@
 	new /obj/item/clothing/suit/nun(src)
 	new /obj/item/clothing/head/nun_hood(src)
 	new /obj/item/clothing/suit/holidaypriest(src)
-	new /obj/item/clothing/under/wedding/bride_white(src)
-	new /obj/item/storage/fancy/candle_box(src)
-	new /obj/item/storage/fancy/candle_box(src)
+	new /obj/item/storage/box/fancy/candle_box(src)
+	new /obj/item/storage/box/fancy/candle_box(src)
 	new /obj/item/deck/tarot(src)
 	new /obj/item/device/radio/headset/headset_service(src)
 	new /obj/item/spirit_board(src)
@@ -182,6 +183,9 @@
 	new /obj/item/clothing/head/beret/engineering(src)
 	new /obj/item/clothing/head/beret/engineering(src)
 	new /obj/item/clothing/head/beret/engineering(src)
+	new /obj/item/clothing/head/bandana/atmos(src)
+	new /obj/item/clothing/head/bandana/atmos(src)
+	new /obj/item/clothing/head/bandana/atmos(src)
 	return
 
 
@@ -207,6 +211,9 @@
 	new /obj/item/clothing/head/beret/engineering(src)
 	new /obj/item/clothing/head/beret/engineering(src)
 	new /obj/item/clothing/head/beret/engineering(src)
+	new /obj/item/clothing/head/bandana/engineering(src)
+	new /obj/item/clothing/head/bandana/engineering(src)
+	new /obj/item/clothing/head/bandana/engineering(src)
 	return
 
 
@@ -263,6 +270,9 @@
 	new /obj/item/clothing/shoes/slippers(src)
 	new /obj/item/clothing/shoes/slippers(src)
 	new /obj/item/clothing/shoes/slippers(src)
+	new /obj/item/clothing/head/bandana/science(src)
+	new /obj/item/clothing/head/bandana/science(src)
+	new /obj/item/clothing/head/bandana/science(src)
 	return
 
 
@@ -352,6 +362,8 @@
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/mask/surgical(src)
 	new /obj/item/clothing/mask/surgical(src)
+	new /obj/item/clothing/head/bandana/medical(src)
+	new /obj/item/clothing/head/bandana/medical(src)
 	return
 
 
@@ -368,9 +380,12 @@
 	new /obj/item/clothing/shoes/black(src)
 	new /obj/item/clothing/shoes/black(src)
 	new /obj/item/clothing/shoes/black(src)
-	new /obj/item/clothing/head/soft/grey(src)
-	new /obj/item/clothing/head/soft/grey(src)
-	new /obj/item/clothing/head/soft/grey(src)
+	new /obj/item/clothing/head/softcap(src)
+	new /obj/item/clothing/head/softcap(src)
+	new /obj/item/clothing/head/softcap(src)
+	new /obj/item/clothing/head/bandana(src)
+	new /obj/item/clothing/head/bandana(src)
+	new /obj/item/clothing/head/bandana(src)
 	return
 
 
@@ -386,9 +401,6 @@
 	new /obj/item/clothing/under/color/green(src)
 	new /obj/item/clothing/under/color/orange(src)
 	new /obj/item/clothing/under/color/pink(src)
-	new /obj/item/clothing/under/skirt/plaid_blue(src)
-	new /obj/item/clothing/under/skirt/plaid_red(src)
-	new /obj/item/clothing/under/skirt/plaid_purple(src)
 	new /obj/item/clothing/shoes/blue(src)
 	new /obj/item/clothing/shoes/yellow(src)
 	new /obj/item/clothing/shoes/green(src)
@@ -424,7 +436,6 @@
 
 /obj/structure/closet/wardrobe/suit/fill()
 	..()
-	new /obj/item/clothing/under/assistantformal(src)
 	new /obj/item/clothing/under/suit_jacket/charcoal(src)
 	new /obj/item/clothing/under/suit_jacket/navy(src)
 	new /obj/item/clothing/under/suit_jacket/burgundy(src)
@@ -432,7 +443,6 @@
 	new /obj/item/clothing/under/suit_jacket/tan(src)
 	new /obj/item/clothing/under/sl_suit(src)
 	new /obj/item/clothing/under/suit_jacket(src)
-	new /obj/item/clothing/under/suit_jacket/female(src)
 	new /obj/item/clothing/under/suit_jacket/really_black(src)
 	new /obj/item/clothing/under/suit_jacket/red(src)
-	new /obj/item/clothing/under/scratch(src)
+	new /obj/item/clothing/under/suit_jacket/white(src)

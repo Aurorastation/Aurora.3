@@ -17,6 +17,7 @@
 	turns_per_move = 5
 	see_in_dark = 10
 	meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
+	organ_names = list("thorax", "legs", "head")
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "pokes"
@@ -25,10 +26,11 @@
 	health = 200
 	melee_damage_lower = 15
 	melee_damage_upper = 20
+	resist_mod = 1.5
 	heat_damage_per_tick = 20
 	cold_damage_per_tick = 20
 	var/poison_per_bite = 5
-	var/poison_type = "toxin"
+	var/poison_type = /datum/reagent/toxin
 	faction = "spiders"
 	var/busy = 0
 	pass_flags = PASSTABLE
@@ -51,7 +53,7 @@
 	melee_damage_upper = 10
 	poison_per_bite = 10
 	var/atom/cocoon_target
-	poison_type = "stoxin"
+	poison_type = /datum/reagent/soporific
 	var/fed = 0
 
 //hunters have the most poison and move the fastest, so they can find prey
@@ -76,7 +78,7 @@
 	if(isliving(.))
 		var/mob/living/L = .
 		if(L.reagents)
-			L.reagents.add_reagent("toxin", poison_per_bite)
+			L.reagents.add_reagent(/datum/reagent/toxin, poison_per_bite)
 			if(prob(poison_per_bite) && (!issilicon(L) && !isipc(L)))
 				to_chat(L, "<span class='warning'>You feel a tiny prick.</span>")
 				L.reagents.add_reagent(poison_type, 5)

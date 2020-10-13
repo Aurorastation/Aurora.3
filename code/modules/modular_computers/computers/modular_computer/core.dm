@@ -1,10 +1,11 @@
 #define LISTENER_MODULAR_COMPUTER "modular_computers"
 
 /obj/item/modular_computer/process()
-	handle_power() // Handles all computer power interaction
 	if(!enabled) // The computer is turned off
 		last_power_usage = 0
 		return FALSE
+
+	handle_power() // Handles all computer power interaction
 
 	if(damage > broken_damage)
 		shutdown_computer()
@@ -46,13 +47,13 @@
 	check_update_ui_need()
 
 	if(working && enabled && world.time > ambience_last_played + 30 SECONDS && prob(3))
-		playsound(get_turf(src), "computerbeep", 30, 1, 10, required_preferences = SOUND_AMBIENCE)
+		playsound(get_turf(src), /decl/sound_category/computerbeep_sound, 30, 1, 10, required_preferences = SOUND_AMBIENCE)
 		ambience_last_played = world.time
 
 /obj/item/modular_computer/proc/get_preset_programs(preset_type)
 	for(var/datum/modular_computer_app_presets/prs in ntnet_global.available_software_presets)
 		if(prs.type == preset_type)
-			return prs.return_install_programs()
+			return prs.return_install_programs(src)
 
 // Used to perform preset-specific hardware changes.
 /obj/item/modular_computer/proc/install_default_hardware()
@@ -64,6 +65,7 @@
 		var/programs = get_preset_programs(_app_preset_type)
 		for(var/datum/computer_file/program/prog in programs)
 			if(!prog.is_supported_by_hardware(hardware_flag, FALSE))
+				qdel(prog)
 				continue
 			hard_drive.store_file(prog)
 
@@ -270,9 +272,11 @@
 /obj/item/modular_computer/proc/update_uis()
 	if(active_program) //Should we update program ui or computer ui?
 		SSnanoui.update_uis(active_program)
+		SSvueui.check_uis_for_change(active_program)
 		if(active_program.NM)
 			SSnanoui.update_uis(active_program.NM)
 	else
+		SSvueui.check_uis_for_change(src)
 		SSnanoui.update_uis(src)
 
 /obj/item/modular_computer/proc/check_update_ui_need()

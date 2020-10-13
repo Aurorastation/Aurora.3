@@ -32,6 +32,7 @@
 	title_suffix = "Idris"
 
 	allowed_role_types = list(
+		/datum/job/visitor,
 		/datum/job/officer,
 		/datum/job/detective,
 		/datum/job/forensics,
@@ -60,6 +61,17 @@
 		"Gardener" = /datum/outfit/job/hydro/idris,
 		"Hydroponicist" = /datum/outfit/job/hydro/idris,
 		"Corporate Liaison" = /datum/outfit/job/representative/idris
+	)
+
+	job_species_blacklist = list(
+		"Corporate Liaison" = list(
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR
+		)
 	)
 
 /datum/outfit/job/officer/idris
@@ -99,3 +111,7 @@
 	suit = null
 	implants = null
 	id = /obj/item/card/id/idris
+
+	backpack_contents = list(
+		/obj/item/stamp/idris = 1
+	)

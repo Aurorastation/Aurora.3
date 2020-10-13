@@ -1,7 +1,7 @@
 /obj/item/grenade
 	name = "grenade"
 	desc = "A hand held grenade, with an adjustable timer."
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	icon = 'icons/obj/grenade.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_grenade.dmi',
@@ -39,6 +39,12 @@
 			return
 		to_chat(user, "\The [src] is set for instant detonation.")
 
+/obj/item/grenade/attackby(obj/item/W, mob/user)
+	if(istype(W, /obj/item/gun/launcher/grenade))
+		var/obj/item/gun/launcher/grenade/G = W
+		G.load(src, user)
+	else
+		..()
 
 /obj/item/grenade/attack_self(mob/user as mob)
 	if(!active)

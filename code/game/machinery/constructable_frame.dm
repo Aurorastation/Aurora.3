@@ -7,7 +7,7 @@
 /obj/machinery/constructable_frame //Made into a seperate type to make future revisions easier.
 	name = "machine blueprint"
 	desc = "A holo-blueprint for a machine."
-	description_info = "A blueprint that allows the user to rotate the direction the final result will be built in. Putting better components in now, will cause the machine made to have better components and functionality."
+	desc_info = "A blueprint that allows the user to rotate the direction the final result will be built in. Putting better components in now, will cause the machine made to have better components and functionality."
 	var/machine_description
 	var/components_description
 	icon = 'icons/obj/stock_parts.dmi'
@@ -141,7 +141,7 @@
 
 		if(COMPONENT_STATE)
 			if(P.iscrowbar())
-				playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, TRUE)
+				playsound(get_turf(src), P.usesound, 50, TRUE)
 				state = CIRCUITBOARD_STATE
 				circuit.forceMove(get_turf(src))
 				circuit = null

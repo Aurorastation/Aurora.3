@@ -4,9 +4,11 @@
 /obj/item/organ/internal
 	var/dead_icon // Icon to use when the organ has died.
 	var/damage_reduction = 0.5     //modifier for internal organ injury
+	var/unknown_pain_location = TRUE // if TRUE, pain messages will point to the parent organ, otherwise it will print the organ name
 	var/toxin_type = "undefined"
 	var/relative_size = 25 //Used for size calcs
 	var/on_mob_icon
+	var/list/possible_modifications = list("Normal","Assisted","Mechanical") //this is used in the character setup
 
 	min_broken_damage = 10 //Internal organs are frail, man.
 
@@ -96,7 +98,7 @@
 					degree = " a lot"
 				if(damage < 5)
 					degree = " a bit"
-				owner.custom_pain("Something inside your [parent.name] hurts[degree]!", amount)
+				owner.custom_pain("Something inside your [parent.name] hurts[degree]!", amount, affecting = parent)
 
 /obj/item/organ/internal/proc/get_visible_state()
 	if(damage > max_damage)

@@ -26,11 +26,22 @@
 		INFESTATION_SPACE_BATS = 1,
 		INFESTATION_SPIDERLINGS = 1
 	)
-/datum/event/infestation/major
-	possible_mobs = list(
-		INFESTATION_HIVEBOTS = 1,
-		INFESTATION_SLIMES = 1
-	)
+
+/datum/event/infestation/major/setup()
+	var/player_count = 0
+	for(var/mob/living/carbon/human/H in living_mob_list)
+		if(H.stat == CONSCIOUS && H.client)
+			player_count++
+	if(player_count >= 15)
+		possible_mobs = list(
+			INFESTATION_HIVEBOTS = 1,
+			INFESTATION_SLIMES = 1
+		)
+	else
+		possible_mobs = list(
+			INFESTATION_SLIMES = 1
+		)
+	..()
 
 /datum/event/infestation/setup()
 	choose_area()

@@ -15,10 +15,11 @@ Contains:
 		slot_l_hand_str = 'icons/mob/items/stacks/lefthand_medical.dmi',
 		slot_r_hand_str = 'icons/mob/items/stacks/righthand_medical.dmi',
 		)
-	drop_sound = 'sound/items/drop/box.ogg'
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	amount = 5
 	max_amount = 5
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 4
 	throw_range = 20
 	var/heal_brute = 0
@@ -47,6 +48,23 @@ Contains:
 			if(H.wear_suit && istype(H.wear_suit,/obj/item/clothing/suit/space))
 				to_chat(user, "<span class='warning'>You can't apply [src] through [H.wear_suit]!</span>")
 				return 1
+
+		if(affecting.status & ORGAN_LIFELIKE)
+			if(!(affecting.brute_dam || affecting.burn_dam))
+				to_chat(user, "<span class='notice'> [M] seems healthy, there are no wounds to treat! </span>")
+				return 1
+
+			user.visible_message( \
+					"<span class = 'notice'> [user] starts applying \the [src] to [M].</span>", \
+					"<span class = 'notice'> You start applying \the [src] to [M].</span>" \
+				)
+			if (do_mob(user, M, 30))
+				user.visible_message( \
+					"<span class = 'notice'> [M] has been applied with [src] by [user].</span>", \
+					"<span class = 'notice'> You apply \the [src] to [M].</span>" \
+				)
+				use(1)
+			return 1
 
 		if(affecting.status & ORGAN_ASSISTED)
 			to_chat(user, "<span class='warning'>This isn't useful at all on a robotic limb.</span>")
@@ -84,6 +102,7 @@ Contains:
 	icon_has_variants = TRUE
 	apply_sounds = list('sound/items/rip1.ogg','sound/items/rip2.ogg')
 	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
 
 /obj/item/stack/medical/bruise_pack/full/Initialize()
 	. = ..()
@@ -157,6 +176,7 @@ Contains:
 	icon_has_variants = TRUE
 	apply_sounds = list('sound/items/ointment.ogg')
 	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
 
 /obj/item/stack/medical/ointment/full/Initialize()
 	. = ..()
@@ -377,6 +397,7 @@ Contains:
 	amount = 5
 	max_amount = 5
 	drop_sound = 'sound/items/drop/hat.ogg'
+	pickup_sound = 'sound/items/pickup/hat.ogg'
 	var/list/splintable_organs = list(BP_L_ARM,BP_R_ARM,BP_L_LEG,BP_R_LEG, BP_L_HAND, BP_R_HAND, BP_R_FOOT, BP_L_FOOT)
 
 /obj/item/stack/medical/splint/full/Initialize()

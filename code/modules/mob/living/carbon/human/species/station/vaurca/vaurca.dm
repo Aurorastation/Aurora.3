@@ -1,15 +1,15 @@
 /datum/species/bug
-	name = "Vaurca Worker"
+	name = SPECIES_VAURCA_WORKER
 	short_name = "vau"
 	name_plural = "Type A"
-	bodytype = "Vaurca"
+	bodytype = BODYTYPE_VAURCA
 	age_min = 1
 	age_max = 20
 	default_genders = list(NEUTER)
 	economic_modifier = 2
 	language = LANGUAGE_VAURCA
-	primitive_form = "V'krexi"
-	greater_form = "Vaurca Warrior"
+	primitive_form = SPECIES_MONKEY_VAURCA
+	greater_form = SPECIES_VAURCA_WARRIOR
 	icobase = 'icons/mob/human_races/vaurca/r_vaurca.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurca.dmi'
 	preview_icon = 'icons/mob/human_races/vaurca/vaurca_preview.dmi'
@@ -43,10 +43,10 @@
 	taste_sensitivity = TASTE_SENSITIVE
 	reagent_tag = IS_VAURCA
 	siemens_coefficient = 1 //setting it to 0 would be redundant due to LordLag's snowflake checks, plus batons/tasers use siemens now too.
-	breath_type = "phoron"
+	breath_type = GAS_PHORON
 	breath_vol_mul = 1/6 // 0.5 liters * breath_vol_mul = breath volume
 	breath_eff_mul = 6 // 1/6 * breath_eff_mul = fraction of gas consumed
-	poison_type = "nitrogen" //a species that breathes plasma shouldn't be poisoned by it.
+	poison_type = GAS_NITROGEN //a species that breathes plasma shouldn't be poisoned by it.
 	breathing_sound = null //They don't work that way I guess? I'm a coder not a purple man.
 	mob_size = 13 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
 	natural_climbing = TRUE
@@ -93,16 +93,16 @@
 	stamina_recovery = 2	//slow recovery
 
 	has_organ = list(
-		"neural socket"        = /obj/item/organ/vaurca/neuralsocket,
+		BP_NEURAL_SOCKET        = /obj/item/organ/vaurca/neuralsocket,
 		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
-		"filtration bit"       = /obj/item/organ/vaurca/filtrationbit,
+		BP_FILTRATION_BIT       = /obj/item/organ/vaurca/filtrationbit,
 		BP_HEART               = /obj/item/organ/internal/heart/vaurca,
-		"phoron reserve tank"  = /obj/item/organ/vaurca/preserve,
+		BP_PHORON_RESERVE  = /obj/item/organ/vaurca/preserve,
 		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
 		BP_STOMACH             = /obj/item/organ/internal/stomach,
 		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES                = /obj/item/organ/internal/eyes/vaurca
+		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca
 	)
 
 	has_limbs = list(
@@ -127,6 +127,11 @@
 	allowed_religions = list(RELIGION_HIVEPANTHEON, RELIGION_PREIMMINENNCE, RELIGION_PILOTDREAM, RELIGION_NONE, RELIGION_OTHER)
 	default_citizenship = CITIZENSHIP_ZORA
 
+	default_accent = ACCENT_TTS
+	allowed_accents = list(ACCENT_TTS, ACCENT_ZORA, ACCENT_KLAX, ACCENT_CTHUR)
+
+	alterable_internal_organs = list(BP_EYES)
+
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER
@@ -141,12 +146,9 @@
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1
 
-/datum/species/bug/equip_later_gear(var/mob/living/carbon/human/H)
-	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack))
-		H.equip_to_slot_or_del(new /obj/item/reagent_containers/inhaler/phoron_special(H.back), slot_in_backpack)
-	else
-		H.equip_to_slot_or_del(new /obj/item/reagent_containers/inhaler/phoron_special(H), slot_r_hand)
-
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER
 	return ..()
+
+/datum/species/bug/has_psi_potential()
+	return FALSE

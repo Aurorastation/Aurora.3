@@ -3,7 +3,7 @@ var/datum/antagonist/revolutionary/revs
 /datum/antagonist/revolutionary
 	id = MODE_REVOLUTIONARY
 	role_text = "Head Contender"
-	role_text_plural = "The Contenders"
+	role_text_plural = "Contenders"
 	bantype = "revolutionary"
 	feedback_tag = "rev_objective"
 	antag_indicator = "contenderhead"
@@ -15,10 +15,10 @@ var/datum/antagonist/revolutionary/revs
 	flags = ANTAG_SUSPICIOUS | ANTAG_VOTABLE
 	antaghud_indicator = "contender"
 
-	hard_cap = 2
-	hard_cap_round = 4
-	initial_spawn_req = 2
-	initial_spawn_target = 4
+	hard_cap = 3
+	hard_cap_round = 3
+	initial_spawn_req = 3
+	initial_spawn_target = 8
 
 	// Inround revs.
 	faction_role_text = "Contender"
@@ -29,7 +29,7 @@ var/datum/antagonist/revolutionary/revs
 	faction_invisible = FALSE
 
 	restricted_jobs = list("AI", "Cyborg")
-	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician", "Head of Personnel", "Chief Engineer", "Research Director", "Chief Medical Officer", "Captain", "Head of Security")
+	protected_jobs = list("Lab Assistant", "Medical Resident", "Engineering Apprentice", "Assistant", "Security Cadet", "Captain", "Head of Security")
 	required_age = 31
 
 /datum/antagonist/revolutionary/New()
@@ -76,3 +76,6 @@ var/datum/antagonist/revolutionary/revs
 				and the uplink disguised as a radio to equip them. DO NOT PLAY THIS ROLE AS A SUPER TRAITOR. \
 				Doing so may lead to administrative action being taken.",
 				"Antagonist Introduction", "I understand.")
+
+/datum/antagonist/revolutionary/get_antag_radio()
+	return "Mercenary"

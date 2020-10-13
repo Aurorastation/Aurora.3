@@ -67,224 +67,181 @@
 
 //internal organs
 
-/obj/item/organ/internal/kidneys/autakh
-	name = "toxin screen"
-	icon_state = "screen"
-	robotic = 1
-	robotic_name = null
-	robotic_sprite = null
-
-/obj/item/organ/internal/kidneys/autakh/Initialize()
-	mechassist()
-	. = ..()
-
 /obj/item/organ/internal/anchor
 	name = "soul anchor"
 	icon_state = "anchor"
 	organ_tag = "anchor"
 	parent_organ = BP_HEAD
 	robotic = 2
+	var/suffered_revelation = FALSE
 
 /obj/item/organ/internal/anchor/Initialize()
 	robotize()
 	. = ..()
 
-/obj/item/organ/internal/eyes/autakh
-	name = "bionic eyeballs"
-	icon_state = "mk1eyes"
-	singular_name = "bionic eye"
-	action_button_name = "Toggle Bionic Eyes Sensors"
-	robotic_name = null
-	robotic_sprite = null
-	robotic = 2
+/obj/item/organ/internal/anchor/process()
 
-	var/static/list/hud_types = list(
-		"Disabled",
-		"Security",
-		"Medical")
-
-	var/selected_hud = "Disabled"
-	var/disabled = FALSE
-
-/obj/item/organ/internal/eyes/autakh/Initialize()
-	robotize()
-	. = ..()
-
-/obj/item/organ/internal/eyes/autakh/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "mk1eyes"
-		if(action.button)
-			action.button.UpdateIcon()
-
-/obj/item/organ/internal/eyes/autakh/attack_self(var/mob/user)
-	. = ..()
-
-	if(.)
-
-		if(owner.last_special > world.time)
-			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
-			return
-
-		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
-			to_chat(owner, "<span class='danger'>You can not use your \the [src] in your current state!</span>")
-			return
-
-		if(disabled || is_broken())
-			to_chat(owner, "<span class='danger'>\The [src] shudders and sparks, unable to change its sensors!</span>")
-			return
-
-		owner.last_special = world.time + 100
-
-		var/choice = input("Select the Sensor Type.", "Bionic Eyes Sensors") as null|anything in hud_types
-
-		selected_hud = choice
-
-/obj/item/organ/internal/eyes/autakh/process()
 	..()
 
 	if(!owner)
 		return
-	if(disabled)
-		return
 
-	switch(selected_hud)
+	if(!suffered_revelation)
+		if(prob(0.1))
+			revelation()
+			suffered_revelation = TRUE
 
-		if("Security")
-			req_access = list(access_security)
-			if(allowed(owner))
-				process_sec_hud(owner, 1)
-
-		if("Medical")
-			req_access = list(access_medical)
-			if(allowed(owner))
-				process_med_hud(owner, 1)
-
-/obj/item/organ/internal/eyes/autakh/flash_act()
-	if(owner)
-		to_chat(owner, "<span class='notice'>Your [singular_name]'s retinal overlays are overloaded by the strong light!</span>")
-		owner.eye_blind = 5
-		owner.eye_blurry = 5
-		spark(get_turf(owner), 3)
-	disabled = TRUE
-	selected_hud = "Disabled"
-	addtimer(CALLBACK(src, .proc/rearm), 40 SECONDS)
-	return
-
-/obj/item/organ/internal/eyes/autakh/emp_act(severity)
+/obj/item/organ/internal/anchor/emp_act(severity)
 	..()
-	disabled = TRUE
-	selected_hud = "Disabled"
-	addtimer(CALLBACK(src, .proc/rearm), 40 SECONDS)
+	revelation()
 
-/obj/item/organ/internal/eyes/autakh/proc/rearm()
-	if(!disabled)
-		return
-	disabled = FALSE
-
+/obj/item/organ/internal/anchor/proc/revelation()
 	if(owner)
-		to_chat(owner, "<span class='notice'>\The [singular_name]'s retinal overlays clicks and shifts!</span>")
+		owner.hallucination += 20
 
-/obj/item/organ/internal/adrenal
-	name = "adrenal management system"
+/obj/item/organ/internal/augment/calf_override
+	name = "calf overdrive"
 	icon_state = "ams"
-	organ_tag = "adrenal"
+	organ_tag = BP_AUG_CALF_OVERRIDE
+	parent_organ = BP_GROIN
+
+/obj/item/organ/internal/augment/calf_override/proc/do_run_act()
+	owner.apply_damage(1, BRUTE, BP_GROIN)
+
+/obj/item/organ/internal/augment/protein_valve
+	name = "protein breakdown valve"
+	icon_state = "screen"
+	organ_tag = "protein valve"
 	parent_organ = BP_CHEST
-	robotic = 2
-	action_button_name = "Activate Adrenal Management System"
+	action_button_icon = "screen"
+	action_button_name = "Activate Protein Breakdown Valve"
+	cooldown = 300
+	activable = TRUE
 
-/obj/item/organ/internal/adrenal/Initialize()
-	robotize()
+/obj/item/organ/internal/augment/protein_valve/attack_self(var/mob/user)
 	. = ..()
 
-/obj/item/organ/internal/adrenal/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "ams"
-		if(action.button)
-			action.button.UpdateIcon()
+	if(!.)
+		return FALSE
 
-/obj/item/organ/internal/adrenal/attack_self(var/mob/user)
-	. = ..()
+	if(owner.reagents)
+		var/obj/item/organ/F = owner.internal_organs_by_name[BP_STOMACH]
 
-	if(.)
+		if(isnull(F))
+			return FALSE
 
-		if(owner.last_special > world.time)
-			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
-			return
+		if(F.is_broken())
+			return FALSE
 
-		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
-			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
-			return
+		F.take_damage(10)
 
-		owner.last_special = world.time + 500
 		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
 
-		if(owner.reagents)
+		owner.reagents.add_reagent(/datum/reagent/adrenaline, 15)
 
-			if(is_bruised())
-				owner.reagents.add_reagent("toxin", 10)
-
-			if(is_broken())
-				owner.reagents.add_reagent("toxin", 25)
-				return
-
-			owner.vessel.remove_reagent("blood",rand(15,30))
-			owner.reagents.add_reagent("paracetamol", 5)
-			owner.reagents.add_reagent("norepinephrine", 5)
-
-/obj/item/organ/internal/haemodynamic
-	name = "haemodynamic control system"
+/obj/item/organ/internal/augment/venomous_rest
+	name = "venomous rest implant"
 	icon_state = "stabilizer"
-	organ_tag = "haemodynamic"
+	organ_tag = "venomous rest"
 	parent_organ = BP_CHEST
-	robotic = 1
-	action_button_name = "Activate Haemodynamic Control System"
+	action_button_name = "Activate Venomous Rest Implant"
+	action_button_icon = "stabilizer"
+	cooldown = 300
+	activable = TRUE
 
-/obj/item/organ/internal/haemodynamic/Initialize()
-	mechassist()
+/obj/item/organ/internal/augment/venomous_rest/attack_self(var/mob/user)
 	. = ..()
 
-/obj/item/organ/internal/haemodynamic/Initialize()
-	robotize()
-	. = ..()
+	if(!.)
+		return FALSE
 
-/obj/item/organ/internal/haemodynamic/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "stabilizer"
-		if(action.button)
-			action.button.UpdateIcon()
-
-/obj/item/organ/internal/haemodynamic/attack_self(var/mob/user)
-	. = ..()
-
-	if(.)
-
-		if(owner.last_special > world.time)
-			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
-			return
-
-		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
-			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
-			return
-
-		owner.last_special = world.time + 500
-
-		owner.adjustNutritionLoss(300)
-		owner.adjustHydrationLoss(300)
-
-		if(is_broken())
-			owner.vessel.remove_reagent("blood",rand(50,75))
-			return
-
+	if(owner.reagents)
+		owner.reagents.add_reagent(/datum/reagent/inaprovaline, 10)
+		owner.reagents.add_reagent(/datum/reagent/tricordrazine, 10)
+		owner.reagents.add_reagent(/datum/reagent/soporific, 15)
+		take_damage(15)
 		to_chat(owner, "<span class='notice'>\The [src] activates, releasing a stream of chemicals into your veins!</span>")
 
-		if(is_bruised())
-			owner.vessel.remove_reagent("blood",rand(25,50))
+/obj/item/organ/internal/augment/farseer_eye
+	name = "farseer eye"
+	icon_state = "hunterseye"
+	organ_tag = "farseer eye"
+	parent_organ = BP_HEAD
+	action_button_name = "Activate Farseer Eye"
+	action_button_icon = "hunterseye"
+	cooldown = 30
+	activable = TRUE
 
-		if(owner.reagents)
-			owner.reagents.add_reagent("coagulant", 15)
+/obj/item/organ/internal/augment/farseer_eye/attack_self(var/mob/user)
+	. = ..()
+
+	if(!.)
+		return FALSE
+
+	owner.visible_message("<b>[user]'s</b> eyes whirrs loudly as they focus ahead.")
+	take_damage(1)
+	zoom(owner,7,3, FALSE)
+
+/obj/item/organ/internal/augment/eye_flashlight
+	name = "eye flashlight"
+	icon_state = "mk1eyes"
+	organ_tag = "eye flashlight"
+	parent_organ = BP_HEAD
+	action_button_name = "Activate Eye Flashlight"
+	action_button_icon = "mk1eyes"
+	cooldown = 50
+	activable = TRUE
+	var/online = FALSE
+	var/warning_level = 0
+
+/obj/item/organ/internal/augment/eye_flashlight/attack_self(var/mob/user)
+	. = ..()
+
+	if(!.)
+		return FALSE
+
+	if(!online)
+		set_light(3, 2, LIGHT_COLOR_RED, uv = 0, angle = LIGHT_WIDE)
+		owner.change_eye_color(250, 130, 130)
+		owner.update_eyes()
+		online = TRUE
+		addtimer(CALLBACK(src, .proc/add_warning), 5 MINUTES)
+		addtimer(CALLBACK(src, .proc/add_warning), 6 MINUTES)
+	else
+		turn_off()
+
+/obj/item/organ/internal/augment/eye_flashlight/proc/turn_off()
+	online = FALSE
+	set_light(0)
+	if(owner.client)
+		owner.change_eye_color(owner.client.prefs.r_eyes, owner.client.prefs.g_eyes, owner.client.prefs.b_eyes)
+		owner.update_eyes()
+	warning_level = 0
+
+/obj/item/organ/internal/augment/eye_flashlight/emp_act(severity)
+	..()
+	turn_off()
+
+/obj/item/organ/internal/augment/eye_flashlight/proc/add_warning()
+	if(online)
+
+		warning_level = min(warning_level+1,2)
+
+		if(warning_level >= 1)
+			to_chat(owner, SPAN_DANGER ("Your eyes are feeling warm!"))
+
+/obj/item/organ/internal/augment/eye_flashlight/process()
+
+	..()
+
+	if(!owner)
+		return
+
+	if(warning_level >= 2)
+		var/obj/item/organ/internal/eyes/E = owner.get_eyes()
+		if(!E)
+			return
+		E.take_damage(1)
 
 //limb implants
 
@@ -298,7 +255,7 @@
 	if(.)
 		action.button_icon_state = "digitool"
 		if(action.button)
-			action.button.UpdateIcon()
+			action.button.update_icon()
 
 /obj/item/organ/external/hand/right/autakh/tool/attack_self(var/mob/user)
 	. = ..()
@@ -359,7 +316,7 @@
 	if(.)
 		action.button_icon_state = "drill"
 		if(action.button)
-			action.button.UpdateIcon()
+			action.button.update_icon()
 
 /obj/item/pickaxe/drill/integrated
 	name = "integrated mining drill"
@@ -382,7 +339,7 @@
 	if(.)
 		action.button_icon_state = "health"
 		if(action.button)
-			action.button.UpdateIcon()
+			action.button.update_icon()
 
 /obj/item/organ/external/hand/right/autakh/medical/attack_self(var/mob/user)
 	. = ..()
@@ -423,7 +380,7 @@
 	if(.)
 		action.button_icon_state = "baton"
 		if(action.button)
-			action.button.UpdateIcon()
+			action.button.update_icon()
 
 /obj/item/organ/external/hand/right/autakh/security/attack_self(var/mob/user)
 	. = ..()

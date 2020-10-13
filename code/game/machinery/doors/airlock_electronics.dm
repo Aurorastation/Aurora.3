@@ -19,7 +19,7 @@
 	if(!ishuman(user) && !istype(user,/mob/living/silicon/robot))
 		return ..(user)
 
-	var/t1 = text("<B>Access control</B><br>\n")
+	var/t1 = text("<B>Access Control</B><br>\n")
 
 	if(last_configurator)
 		t1 += "Operator: [last_configurator]<br>"
@@ -30,9 +30,9 @@
 		t1 += "<a href='?src=\ref[src];logout=1'>Block</a><hr>"
 
 		t1 += "Access requirement is set to "
-		t1 += one_access ? "<a style='color: green' href='?src=\ref[src];one_access=1'>ONE</a><hr>" : "<a style='color: red' href='?src=\ref[src];one_access=1'>ALL</a><hr>"
+		t1 += one_access ? "<a style='color:#00dd12' href='?src=\ref[src];one_access=1'>ONE</a><hr>" : "<a style='color:#f7066a' href='?src=\ref[src];one_access=1'>ALL</a><hr>"
 
-		t1 += conf_access == null ? "<font color=red>All</font><br>" : "<a href='?src=\ref[src];access=all'>All</a><br>"
+		t1 += conf_access == null ? "<font color=#f7066a>All</font><br>" : "<a href='?src=\ref[src];access=all'>All</a><br>"
 
 		t1 += "<br>"
 
@@ -43,21 +43,17 @@
 			if(!conf_access?.len || !(acc in conf_access))
 				t1 += "<a href='?src=\ref[src];access=[acc]'>[aname]</a><br>"
 			else if(one_access)
-				t1 += "<a style='color: green' href='?src=\ref[src];access=[acc]'>[aname]</a><br>"
+				t1 += "<a style='color:#00dd12' href='?src=\ref[src];access=[acc]'>[aname]</a><br>"
 			else
-				t1 += "<a style='color: red' href='?src=\ref[src];access=[acc]'>[aname]</a><br>"
+				t1 += "<a style='color:#f7066a' href='?src=\ref[src];access=[acc]'>[aname]</a><br>"
 
-	t1 += text("<p><a href='?src=\ref[];close=1'>Close</a></p>\n", src)
-
-	user << browse(t1, "window=airlock_electronics")
-	onclose(user, "airlock")
+	var/datum/browser/electronics_win = new(user, "electronics", capitalize_first_letters(name))
+	electronics_win.set_content(t1)
+	electronics_win.open()
 
 /obj/item/airlock_electronics/Topic(href, href_list)
 	..()
 	if(use_check_and_message(usr))
-		return
-	if(href_list["close"])
-		usr << browse(null, "window=airlock")
 		return
 
 	if(href_list["login"])
@@ -65,11 +61,8 @@
 			locked = FALSE
 			last_configurator = usr.name
 		else
-			var/obj/item/I = usr.get_active_hand()
-			if(istype(I, /obj/item/device/pda))
-				var/obj/item/device/pda/pda = I
-				I = pda.id
-			if(I && src.check_access(I))
+			var/obj/item/card/id/I = usr.GetIdCard()
+			if(istype(I) && src.check_access(I))
 				locked = FALSE
 				last_configurator = I:registered_name
 
@@ -116,24 +109,12 @@
 		src.one_access = A.one_access
 		src.last_configurator = A.last_configurator
 		to_chat(user, SPAN_NOTICE("Configuration settings copied successfully."))
-	else if(istype(W, /obj/item/card/id))
-		var/obj/item/card/id/I = W
+	else if(W.GetID())
+		var/obj/item/card/id/I = W.GetID()
 		if(check_access(I))
 			locked = !locked
 			last_configurator = I.registered_name
 			to_chat(user, SPAN_NOTICE("You swipe your ID over \the [src], [locked ? "locking" : "unlocking"] it."))
-		else
-			to_chat(user, SPAN_WARNING("Access denied."))
-	else if(istype(W, /obj/item/device/pda))
-		var/obj/item/device/pda/P = W
-		var/obj/item/card/id/I = P.id
-		if(!I)
-			to_chat(user, SPAN_WARNING("Your PDA doesn't have an ID in it!"))
-			return
-		if(check_access(I))
-			locked = !locked
-			last_configurator = I.registered_name
-			to_chat(user, SPAN_NOTICE("You swipe your PDA over \the [src], [locked ? "locking" : "unlocking"] it."))
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
 	else
@@ -142,6 +123,6 @@
 /obj/item/airlock_electronics/secure
 	name = "secure airlock electronics"
 	desc = "Designed to be somewhat more resistant to hacking than standard electronics."
-	description_info = "With these electronics, wires will be randomized and bolts will drop if the airlock is broken."
+	desc_info = "With these electronics, wires will be randomized and bolts will drop if the airlock is broken."
 	origin_tech = list(TECH_DATA = 2)
 	secure = TRUE

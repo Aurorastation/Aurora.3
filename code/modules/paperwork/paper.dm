@@ -4,14 +4,14 @@
  */
 
 /obj/item/paper
-	name = "sheet of paper"
+	name = "paper"
 	gender = NEUTER
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper"
 	item_state = "paper"
 	contained_sprite = 1
 	throwforce = 0
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	throw_range = 1
 	throw_speed = 1
 	layer = 4
@@ -38,6 +38,7 @@
 	var/const/fountainfont = "Segoe Script"
 
 	drop_sound = 'sound/items/drop/paper.ogg'
+	pickup_sound = 'sound/items/pickup/paper.ogg'
 
 /obj/item/paper/Initialize(mapload, text, title)
 	. = ..()
@@ -90,14 +91,14 @@
 /obj/item/paper/examine(mob/user)
 	..()
 	if (old_name && icon_state == "paper_plane")
-		to_chat(user, span("notice", "You're going to have to unfold it before you can read it."))
+		to_chat(user, SPAN_NOTICE("You're going to have to unfold it before you can read it."))
 		return
-	if(name != "sheet of paper")
+	if(name != initial(name))
 		to_chat(user,"It's titled '[name]'.")
 	if(in_range(user, src) || isobserver(user))
 		show_content(usr)
 	else
-		to_chat(user, span("notice", "You have to go closer if you want to read it."))
+		to_chat(user, SPAN_NOTICE("You have to go closer if you want to read it."))
 
 
 /obj/item/paper/proc/show_content(mob/user, forceshow)
@@ -114,19 +115,22 @@
 	set src in usr
 
 	if((usr.is_clumsy()) && prob(50))
-		to_chat(usr, span("warning", "You cut yourself on the paper."))
+		to_chat(usr, SPAN_WARNING("You cut yourself on the paper."))
 		return
-	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null)  as text, MAX_NAME_LEN)
+	var/n_name = sanitizeSafe(input(usr, "What would you like to label the paper?", "Paper Labelling", null) as text, MAX_NAME_LEN)
 
 	// We check loc one level up, so we can rename in clipboards and such. See also: /obj/item/photo/rename()
-	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0 && n_name)
-		name = n_name
+	if((loc == usr || loc.loc && loc.loc == usr) && usr.stat == 0)
+		if(n_name)
+			name = "[initial(name)] ([n_name])"
+		else
+			name = initial(name)
 		add_fingerprint(usr)
 
 /obj/item/paper/attack_self(mob/living/user as mob)
 	if(user.a_intent == I_HURT)
 		if(icon_state == "scrap")
-			user.show_message(span("warning", "\The [src] is already crumpled."))
+			user.show_message(SPAN_WARNING("\The [src] is already crumpled."))
 			return
 		//crumple dat paper
 		info = stars(info,85)
@@ -138,10 +142,10 @@
 
 	if (user.a_intent == I_GRAB && icon_state != "scrap" && !istype(src, /obj/item/paper/carbon))
 		if (icon_state == "paper_plane")
-			user.show_message(span("alert", "The paper is already folded into a plane."))
+			user.show_message(SPAN_ALERT("The paper is already folded into a plane."))
 			return
-		user.visible_message(span("notice", "\The [user] carefully folds \the [src] into a plane."),
-			span("notice", "You carefully fold \the [src] into a plane."), "\The [user] folds \the [src] into a plane.")
+		user.visible_message(SPAN_NOTICE("\The [user] carefully folds \the [src] into a plane."),
+			SPAN_NOTICE("You carefully fold \the [src] into a plane."), "\The [user] folds \the [src] into a plane.")
 		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = "paper_plane"
 		throw_range = 8
@@ -150,7 +154,7 @@
 		return
 
 	if (user.a_intent == I_HELP && old_name && icon_state == "paper_plane")
-		user.visible_message(span("notice", "\The [user] unfolds \the [src]."), span("notice", "You unfold \the [src]."), "You hear paper rustling.")
+		user.visible_message(SPAN_NOTICE("\The [user] unfolds \the [src]."), SPAN_NOTICE("You unfold \the [src]."), "You hear paper rustling.")
 		playsound(src, 'sound/bureaucracy/paperfold.ogg', 50, 1)
 		icon_state = initial(icon_state)
 		throw_range = initial(throw_range)
@@ -171,23 +175,23 @@
 
 /obj/item/paper/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(target_zone == BP_EYES)
-		user.visible_message(span("notice", "You show the paper to [M]."), \
-			span("notice", "[user] holds up a paper and shows it to [M]."))
+		user.visible_message(SPAN_NOTICE("You show the paper to [M]."), \
+			SPAN_NOTICE("[user] holds up a paper and shows it to [M]."))
 		M.examinate(src)
 
 	else if(target_zone == BP_MOUTH) // lipstick wiping
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H == user)
-				to_chat(user, span("notice", "You wipe off the lipstick with [src]."))
+				to_chat(user, SPAN_NOTICE("You wipe off the lipstick with [src]."))
 				H.lip_style = null
 				H.update_body()
 			else
-				user.visible_message(span("warning", "[user] begins to wipe [H]'s lipstick off with \the [src]."), \
-								 	 span("notice", "You begin to wipe off [H]'s lipstick."))
+				user.visible_message(SPAN_WARNING("[user] begins to wipe [H]'s lipstick off with \the [src]."), \
+								 	 SPAN_NOTICE("You begin to wipe off [H]'s lipstick."))
 				if(do_after(user, 10) && do_after(H, 10, 0))	//user needs to keep their active hand, H does not.
-					user.visible_message(span("notice", "[user] wipes [H]'s lipstick off with \the [src]."), \
-										 span("notice", "You wipe off [H]'s lipstick."))
+					user.visible_message(SPAN_NOTICE("[user] wipes [H]'s lipstick off with \the [src]."), \
+										 SPAN_NOTICE("You wipe off [H]'s lipstick."))
 					H.lip_style = null
 					H.update_body()
 
@@ -307,26 +311,13 @@
 	return t
 
 
-/obj/item/paper/proc/burnpaper(obj/item/flame/P, mob/user)
+/obj/item/paper/proc/burnpaper(obj/item/P, mob/user)
 	var/class = "warning"
-
-	if (!user.restrained())
-		if (istype(P, /obj/item/flame))
-			var/obj/item/flame/F = P
-			if (!F.lit)
-				return
-		else if (P.iswelder())
-			var/obj/item/weldingtool/F = P
-			if (!F.welding)//welding tools are 0 when off
-				return
-		else
-			//If we got here somehow, the item is incompatible and can't burn things
-			return
-
+	if(!use_check_and_message(user))
 		if(istype(P, /obj/item/flame/lighter/zippo))
 			class = "rose"
 
-		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like \he's trying to burn it!</span>", \
+		user.visible_message("<span class='[class]'>[user] holds \the [P] up to \the [src], it looks like [user.get_pronoun("he")]'s trying to burn it!</span>", \
 		"<span class='[class]'>You hold \the [P] up to \the [src], burning it slowly.</span>")
 		playsound(src.loc, 'sound/bureaucracy/paperburn.ogg', 50, 1)
 		if(icon_state == "scrap")
@@ -343,7 +334,7 @@
 				qdel(src)
 
 			else
-				to_chat(user, span("warning", "You must hold \the [P] steady to burn \the [src]."))
+				to_chat(user, SPAN_WARNING("You must hold \the [P] steady to burn \the [src]."))
 
 
 /obj/item/paper/Topic(href, href_list)
@@ -356,7 +347,7 @@
 		//var/t = strip_html_simple(input(usr, "What text do you wish to add to " + (id=="end" ? "the end of the paper" : "field "+id) + "?", "[name]", null),8192) as message
 
 		if(free_space <= 0)
-			to_chat(usr, span("info", "There isn't enough space left on \the [src] to write anything."))
+			to_chat(usr, SPAN_INFO("There isn't enough space left on \the [src] to write anything."))
 			return
 
 		var/t =  sanitize(input("Enter what you want to write:", "Write", null, null) as message, free_space, extra = 0)
@@ -405,7 +396,7 @@
 
 
 		if(fields > 50)//large amount of fields creates a heavy load on the server, see updateinfolinks() and addtofield()
-			to_chat(usr, span("warning", "Too many fields. Sorry, you can't do this."))
+			to_chat(usr, SPAN_WARNING("Too many fields. Sorry, you can't do this."))
 			fields = last_fields_value
 			return
 
@@ -425,11 +416,8 @@
 			c.update_icon()
 
 
-/obj/item/paper/attackby(obj/item/P as obj, mob/user as mob)
+/obj/item/paper/attackby(var/obj/item/P, mob/user)
 	..()
-	var/clown = 0
-	if(user.mind && (user.mind.assigned_role == "Clown"))
-		clown = 1
 
 	if(istype(P, /obj/item/tape_roll))
 		var/obj/item/tape_roll/tape = P
@@ -440,7 +428,7 @@
 		if (istype(P, /obj/item/paper/carbon))
 			var/obj/item/paper/carbon/C = P
 			if (!C.iscopy && !C.copied)
-				to_chat(user, span("notice", "Take off the carbon copy first."))
+				to_chat(user, SPAN_NOTICE("Take off the carbon copy first."))
 				add_fingerprint(user)
 				return
 		var/obj/item/paper_bundle/B = new(src.loc)
@@ -477,7 +465,7 @@
 				src.forceMove(get_turf(h_user))
 				if(h_user.client)	h_user.client.screen -= src
 				h_user.put_in_hands(B)
-		to_chat(user, span("notice", "You clip the [P.name] to [(src.name == "paper") ? "the paper" : src.name]."))
+		to_chat(user, SPAN_NOTICE("You clip the [P.name] to [(src.name == "paper") ? "the paper" : src.name]."))
 		src.forceMove(B)
 
 		B.pages.Add(src)
@@ -487,7 +475,7 @@
 
 	else if(P.ispen())
 		if(icon_state == "scrap")
-			to_chat(user, span("warning", "The [src] is too crumpled to write on."))
+			to_chat(user, SPAN_WARNING("The [src] is too crumpled to write on."))
 			return
 
 		var/obj/item/pen/robopen/RP = P
@@ -517,11 +505,6 @@
 		stampoverlay.pixel_x = x
 		stampoverlay.pixel_y = y
 
-		if(istype(P, /obj/item/stamp/clown))
-			if(!clown)
-				to_chat(user, span("notice", "You are totally unable to use the stamp. HONK!"))
-				return
-
 		if(!ico)
 			ico = new
 		ico += "paper_[P.icon_state]"
@@ -533,9 +516,9 @@
 		add_overlay(stampoverlay)
 
 		playsound(src, 'sound/bureaucracy/stamp.ogg', 50, 1)
-		to_chat(user, span("notice", "You stamp the paper with \the [P]."))
+		to_chat(user, SPAN_NOTICE("You stamp the paper with \the [P]."))
 
-	else if(istype(P, /obj/item/flame) || P.iswelder())
+	else if(P.isFlameSource())
 		burnpaper(P, user)
 
 	update_icon()

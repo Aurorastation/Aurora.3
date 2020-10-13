@@ -455,7 +455,7 @@
 			to_chat(usr, "<span class='danger'><font size=3>You're never going to make it to Orion...</font></span>")
 			var/mob/living/M = usr
 			M.visible_message("\The [M] starts rapidly deteriorating.")
-			to_chat(M, browse (null,"window=arcade"))
+			show_browser(M, null, "window=arcade")
 			for(var/i=0;i<10;i++)
 				sleep(10)
 				M.Stun(5)
@@ -487,7 +487,7 @@
 	desc = "A model spaceship, it looks like those used back in the day when travelling to Orion! It even has a miniature FX-293 reactor, which was renowned for its instability and tendency to explode..."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "ship"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	var/active = 0 //if the ship is on
 /obj/item/orion_ship/examine(mob/user)
 	..()
@@ -505,12 +505,12 @@
 	to_chat(user, "<span class='warning'>You flip the switch on the underside of [src].</span>")
 	active = 1
 	src.visible_message("<span class='notice'>[src] softly beeps and whirs to life!</span>")
-	src.audible_message("<b>\The [src]</b> says, 'This is ship ID #[rand(1,1000)] to Orion Port Authority. We're coming in for landing, over.'")
+	src.audible_message("<b>[src]</b> says, 'This is ship ID #[rand(1,1000)] to Orion Port Authority. We're coming in for landing, over.'")
 	sleep(20)
 	src.visible_message("<span class='warning'>[src] begins to vibrate...</span>")
-	src.audible_message("<b>\The [src]</b> says, 'Uh, Port? Having some issues with our reactor, could you check it out? Over.'")
+	src.audible_message("<b>[src]</b> says, 'Uh, Port? Having some issues with our reactor, could you check it out? Over.'")
 	sleep(30)
-	src.audible_message("<b>\The [src]</b> says, 'Oh, God! Code Eight! CODE EIGHT! IT'S GONNA BL-'")
+	src.audible_message("<b>[src]</b> says, 'Oh, God! Code Eight! CODE EIGHT! IT'S GONNA BL-'")
 	sleep(3.6)
 	src.visible_message("<span class='danger'>[src] explodes!</span>")
 	explosion(src.loc, 1,2,4)

@@ -5,6 +5,7 @@
 	icon_state = "hdd_normal"
 	hardware_size = 1
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
+	var/has_installed = FALSE // whether we've been installed in a computer yet
 	var/max_capacity = 128
 	var/used_capacity = 0
 	var/read_only = FALSE				// If the HDD is read only
@@ -83,8 +84,11 @@
 
 // Use this proc to add file to the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
 /obj/item/computer_hardware/hard_drive/proc/install_default_programs()
-	store_file(new /datum/computer_file/program/computerconfig(src))		// Computer configuration utility, allows hardware control and displays more info than status bar
-	store_file(new /datum/computer_file/program/clientmanager(src))			// Client Manager to Enroll the Device
+	if(parent_computer && !has_installed)
+		store_file(new /datum/computer_file/program/computerconfig(parent_computer))		// Computer configuration utility, allows hardware control and displays more info than status bar
+		store_file(new /datum/computer_file/program/clientmanager(parent_computer))			// Client Manager to Enroll the Device
+		store_file(new /datum/computer_file/program/pai_access_lock(parent_computer))		// pAI access control, to stop pesky pAI from messing with computers
+		has_installed = TRUE
 
 // Use this proc to remove file from the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
 /obj/item/computer_hardware/hard_drive/proc/remove_file(var/datum/computer_file/F)
@@ -151,6 +155,7 @@
 	return ..()
 
 /obj/item/computer_hardware/hard_drive/Initialize(mapload)
+	. = ..()
 	install_default_programs()
 	if(mapload && prob(5))
 		var/datum/docs_document/file = SSdocs.pick_document_by_tag(SSDOCS_MEDIUM_FILE)
@@ -159,7 +164,6 @@
 		else
 			var/datum/computer_file/data/F = SSdocs.create_file(file)
 			store_file(F)
-	. = ..()
 
 /obj/item/computer_hardware/hard_drive/proc/reset_drive()
 	for(var/datum/computer_file/F in stored_files)

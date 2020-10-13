@@ -1,22 +1,19 @@
-/proc/spawn_diona_nymph(var/turf/target)
-	if(!istype(target))
-		return 0
-
+/turf/proc/spawn_diona_nymph()
 	//This is a terrible hack and I should be ashamed.
 	var/datum/seed/diona = SSplants.seeds["diona"]
 	if(!diona)
 		return 0
 
-	spawn(1) // So it has time to be thrown about by the gib() proc.
-		var/mob/living/carbon/alien/diona/D = new(target)
-		var/datum/ghosttrap/plant/P = get_ghost_trap("living plant")
-		P.request_player(D, "A diona nymph has split off from its gestalt. ")
-		spawn(60)
-			if(D)
-				if(!D.ckey || !D.client)
-					D.death()
-		return 1
+	INVOKE_ASYNC(src, .proc/create_diona_nymph)
 
+/turf/proc/create_diona_nymph()
+	var/mob/living/carbon/alien/diona/D = new(src)
+	var/datum/ghosttrap/plant/P = get_ghost_trap("living plant")
+	P.request_player(D, "A diona nymph has split off from its gestalt. ")
+	sleep(120)
+	if(D)
+		if(!D.ckey || !D.client)
+			D.death()
 
 //Probable future TODO: Refactor diona organs to be /obj/item/organ/external/bodypart/diona
 //Having them not inherit from specific bodypart classes is a problem
@@ -27,7 +24,8 @@
 
 /obj/item/organ/external/diona/removed(var/mob/living/user)
 	..()
-	if(spawn_diona_nymph(get_turf(src)))
+	var/turf/T = get_turf(src)
+	if(T.spawn_diona_nymph())
 		qdel(src)
 
 /obj/item/organ/external/chest/diona
@@ -36,7 +34,7 @@
 	icon_name = "torso"
 	max_damage = 200
 	min_broken_damage = 50
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	body_part = UPPER_TORSO
 	vital = 1
 	parent_organ = null
@@ -51,7 +49,7 @@
 	icon_name = "groin"
 	max_damage = 100
 	min_broken_damage = 50
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	body_part = LOWER_TORSO
 	parent_organ = BP_CHEST
 	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE
@@ -65,7 +63,7 @@
 	icon_name = "l_arm"
 	max_damage = 35
 	min_broken_damage = 20
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	body_part = ARM_LEFT
 	parent_organ = BP_CHEST
 	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE | ORGAN_CAN_GRASP
@@ -89,7 +87,7 @@
 	icon_name = "l_leg"
 	max_damage = 35
 	min_broken_damage = 20
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	body_part = LEG_LEFT
 	icon_position = LEFT
 	parent_organ = BP_GROIN
@@ -115,7 +113,7 @@
 	icon_name = "l_foot"
 	max_damage = 20
 	min_broken_damage = 10
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	body_part = FOOT_LEFT
 	icon_position = LEFT
 	parent_organ = BP_L_LEG
@@ -144,7 +142,7 @@
 	icon_name = "l_hand"
 	max_damage = 30
 	min_broken_damage = 15
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	body_part = HAND_LEFT
 	parent_organ = BP_L_ARM
 	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE | ORGAN_CAN_GRASP
@@ -169,7 +167,7 @@
 	name = BP_HEAD
 	max_damage = 50
 	min_broken_damage = 25
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	body_part = HEAD
 	parent_organ = BP_CHEST
 	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE

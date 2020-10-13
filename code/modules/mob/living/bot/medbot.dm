@@ -18,15 +18,14 @@
 	//Healing vars
 	var/obj/item/reagent_containers/glass/reagent_glass = null //Can be set to draw from this for reagents.
 	var/currently_healing = 0
-	var/injection_amount = 15 //How much reagent do we inject at a time?
+	var/injection_amount = 10 //How much reagent do we inject at a time?
 	var/heal_threshold = 10 //Start healing when they have this much damage in a category
 	var/use_beaker = 0 //Use reagents in beaker instead of default treatment agents.
-	var/treatment_brute = "tricordrazine"
-	var/treatment_oxy = "tricordrazine"
-	var/treatment_fire = "tricordrazine"
-	var/treatment_tox = "tricordrazine"
-	var/treatment_virus = "deltamivir"
-	var/treatment_emag = "toxin"
+	var/treatment_brute = /datum/reagent/tricordrazine
+	var/treatment_oxy = /datum/reagent/tricordrazine
+	var/treatment_fire = /datum/reagent/tricordrazine
+	var/treatment_tox = /datum/reagent/tricordrazine
+	var/treatment_emag = /datum/reagent/toxin
 	var/declare_treatment = 0 //When attempting to treat a patient, should it notify everyone wearing medhuds?
 
 
@@ -69,12 +68,13 @@
 				if(last_newpatient_speak + 300 < world.time)
 					var/message = pick("Hey, [H.name]! Hold on, I'm coming.", "Wait [H.name]! I want to help!", "[H.name], you appear to be injured!")
 					say(message)
-					custom_emote(1, "points at [H.name].")
+					custom_emote(VISIBLE_MESSAGE, "points at [H.name].")
 					last_newpatient_speak = world.time
 				break
 
 /mob/living/bot/medbot/UnarmedAttack(var/mob/living/carbon/human/H, var/proximity)
-	if(!..())
+	. = ..()
+	if(!.)
 		return
 
 	if(!on)
@@ -84,6 +84,9 @@
 		return
 
 	if(H.stat == DEAD)
+		if(pAI)
+			to_chat(pAI.pai, SPAN_WARNING("\The [H] is dead, you cannot help them now."))
+			return
 		var/death_message = pick("No! NO!", "Live, damnit! LIVE!", "I... I've never lost a patient before. Not today, I mean.")
 		say(death_message)
 		patient = null
@@ -102,7 +105,7 @@
 		var/area/location = get_area(src)
 		broadcast_medical_hud_message("[src] is treating <b>[H]</b> in <b>[location]</b>", src)
 	currently_healing = 1
-	update_icons()
+	update_icon()
 	if(do_mob(src, H, 30))
 		if(t == 1)
 			reagent_glass.reagents.trans_to_mob(H, injection_amount, CHEM_BLOOD)
@@ -110,9 +113,9 @@
 			H.reagents.add_reagent(t, injection_amount)
 		visible_message("<span class='warning'>[src] injects [H] with the syringe!</span>")
 	currently_healing = 0
-	update_icons()
+	update_icon()
 
-/mob/living/bot/medbot/update_icons()
+/mob/living/bot/medbot/update_icon()
 	cut_overlays()
 	if(skin)
 		add_overlay("medskin_[skin]")
@@ -126,8 +129,7 @@
 		to_chat(user, "<span class='warning'>The unit's interface refuses to unlock!</span>")
 		return
 
-	var/dat
-	dat += "<TT><B>Automatic Medical Unit v1.1</B></TT><BR><BR>"
+	var/dat = ""
 	dat += "Status: <A href='?src=\ref[src];power=1'>[on ? "On" : "Off"]</A><BR>"
 	dat += "Maintenance panel is [open ? "opened" : "closed"]<BR>"
 	dat += "Beaker: "
@@ -158,9 +160,9 @@
 
 		dat += "The speaker switch is [vocal ? "on" : "off"]. <a href='?src=\ref[src];togglevoice=[1]'>Toggle</a><br>"
 
-	user << browse("<HEAD><TITLE>Medibot v1.1 controls</TITLE></HEAD>[dat]", "window=automed")
-	onclose(user, "automed")
-	return
+	var/datum/browser/bot_win = new(user, "automed", "Automatic Medibot v1.2 Controls")
+	bot_win.set_content(dat)
+	bot_win.open()
 
 /mob/living/bot/medbot/attackby(var/obj/item/O, var/mob/user)
 	if(istype(O, /obj/item/reagent_containers/glass))
@@ -240,7 +242,7 @@
 		currently_healing = 0
 		emagged = 1
 		on = 1
-		update_icons()
+		update_icon()
 		. = 1
 	ignored |= user
 
@@ -302,10 +304,6 @@
 	if((H.getToxLoss() >= heal_threshold) && (!H.reagents.has_reagent(treatment_tox)))
 		return treatment_tox
 
-	for(var/datum/disease2/disease/D in H.virus2)
-		if (!H.reagents.has_reagent(treatment_virus))
-			return treatment_virus // STOP DISEASE FOREVER
-
 /* Construction */
 
 /obj/item/storage/firstaid/attackby(var/obj/item/robot_parts/S, mob/user as mob)
@@ -338,7 +336,7 @@
 	var/build_step = 0
 	var/created_name = "Medibot" //To preserve the name if it's a unique medbot I guess
 	var/skin = null //Same as medbot, set to tox or ointment for the respective kits.
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/firstaid_arm_assembly/Initialize()
 	. = ..()

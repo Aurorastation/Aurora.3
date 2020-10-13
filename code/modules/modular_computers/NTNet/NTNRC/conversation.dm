@@ -23,8 +23,8 @@ var/global/ntnrc_uid = 0
 	log_ntirc("[user.client.ckey]/([username]) : [message]", ckey=key_name(user), conversation=title)
 
 	for(var/datum/computer_file/program/chatclient/C in clients)
-		if(C.program_state > PROGRAM_STATE_KILLED && C.username != username)
-			C.computer.output_message(FONT_SMALL("<b>[get_title(C)]) <i>[username]</i>:</b> [message]"), 0)
+		if(C.program_state > PROGRAM_STATE_KILLED)
+			C.computer.output_message(FONT_SMALL("<b>([get_title(C)]) <i>[username]</i>:</b> [message] (<a href='byond://?src=\ref[C];Reply=1;target=[src.title]'>Reply</a>)"), 0)
 
 	message = "[worldtime2text()] [username]: [message]"
 	messages.Add(message)
@@ -107,6 +107,15 @@ var/global/ntnrc_uid = 0
 			names += C.username
 		if(cl)
 			names -= cl.username
+		return "\[DM] [english_list(names)]"
+	else
+		return title
+
+/datum/ntnet_conversation/proc/get_dead_title()
+	if(direct)
+		var/names = list()
+		for(var/datum/computer_file/program/chatclient/C in clients)
+			names += C.username
 		return "\[DM] [english_list(names)]"
 	else
 		return title

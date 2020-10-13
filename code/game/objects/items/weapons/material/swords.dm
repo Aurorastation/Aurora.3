@@ -1,12 +1,13 @@
 /obj/item/material/sword
 	name = "claymore"
 	desc = "What are you standing around staring at this for? Get to killing!"
+	description_cult = "This can be reforged to become a cult blade."
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "claymore"
 	item_state = "claymore"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT|SLOT_BACK
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force_divisor = 0.7 // 42 when wielded with hardnes 60 (steel)
 	thrown_force_divisor = 0.5 // 10 when thrown with weight 20 (steel)
 	sharp = 1
@@ -16,8 +17,10 @@
 	can_embed = 0
 	var/parry_chance = 40
 	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = /decl/sound_category/sword_pickup_sound
+	equip_sound = /decl/sound_category/sword_equip_sound
 
-/obj/item/material/sword/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/material/sword/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	var/parry_bonus = 1
 
 	if(ishuman(user))
@@ -53,7 +56,7 @@
 				target.drop_l_hand()
 			return TRUE
 
-	if(target_zone == "r_feet" || target_zone == "l_feet" || target_zone == BP_R_LEG || target_zone == BP_L_LEG)
+	if(target_zone == BP_R_FOOT || target_zone == BP_R_FOOT || target_zone == BP_R_LEG || target_zone == BP_L_LEG)
 		if(prob(60 - armor_reduction))
 			target.Weaken(5)
 			return TRUE
@@ -105,6 +108,7 @@
 	applies_material_colour = 0
 	parry_chance = 10
 	drop_sound = 'sound/items/drop/axe.ogg'
+	pickup_sound = 'sound/items/pickup/axe.ogg'
 
 /obj/item/material/sword/axe/pre_attack(var/mob/living/target, var/mob/living/user)
 	if(istype(target))

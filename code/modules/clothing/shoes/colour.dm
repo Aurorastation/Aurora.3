@@ -118,7 +118,7 @@
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 90, rad = 0)
 
 /obj/item/clothing/shoes/biochem
-	name = "biochemist shoes"
+	name = "protective shoes"
 	desc = "A pair of red and white shoes resistant to biological and chemical hazards."
 	icon_state = "biochem"
 	item_state = "red"

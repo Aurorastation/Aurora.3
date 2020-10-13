@@ -13,12 +13,12 @@
 	possible_transfer_amounts = list(5,10,15,25,30,60)
 	volume = 60
 	accuracy = 0.1
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	flags = OPENCONTAINER
-	var/fragile = TRUE // most glassware is super fragile
-	var/no_shatter = FALSE //does this container shatter?
 	unacidable = 1 //glass doesn't dissolve in acid
 	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
+	shatter = TRUE
 	var/label_text = ""
 
 /obj/item/reagent_containers/glass/Initialize()
@@ -39,6 +39,17 @@
 	if(!is_open_container())
 		to_chat(user, "<span class='notice'>Airtight lid seals it completely.</span>")
 
+/obj/item/reagent_containers/glass/get_additional_forensics_swab_info()
+	var/list/additional_evidence = ..()
+	var/datum/reagent/blood/B = locate() in reagents.reagent_list
+	if(B)
+		additional_evidence["type"] = EVIDENCE_TYPE_BLOOD
+		additional_evidence["sample_type"] = "blood"
+		additional_evidence["dna"] += B.data["blood_DNA"]
+		additional_evidence["sample_message"] = "You dip the swab inside \the [src.name] to sample its contents."
+
+	return additional_evidence
+
 /obj/item/reagent_containers/glass/attack_self()
 	..()
 	if(is_open_container())
@@ -51,19 +62,6 @@
 
 /obj/item/reagent_containers/glass/AltClick(var/mob/user)
 	set_APTFT()
-
-/obj/item/reagent_containers/glass/throw_impact(atom/hit_atom, var/speed)
-	. = ..()
-	if(speed > fragile && !no_shatter)
-		shatter()
-
-/obj/item/reagent_containers/glass/proc/shatter(var/mob/user)
-	if(reagents.total_volume)
-		reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
-	audible_message(span("warning", "\The [src] shatters with a resounding crash!"), span("warning", "\The [src] breaks."))
-	playsound(src, "shatter", 70, 1)
-	new /obj/item/material/shard(loc, "glass")
-	qdel(src)
 
 /obj/item/reagent_containers/glass/attackby(obj/item/W as obj, mob/user as mob)
 	if(istype(W,/obj/item/storage/part_replacer))
@@ -79,9 +77,6 @@
 			update_name_label()
 		return
 	. = ..() // in the case of nitroglycerin, explode BEFORE it shatters
-	if(!(W.flags & NOBLUDGEON) && fragile && (W.force > fragile) && !no_shatter)
-		shatter()
-		return
 
 /obj/item/reagent_containers/glass/proc/update_name_label()
 	if(label_text == "")
@@ -101,8 +96,9 @@
 	item_state = "beaker"
 	center_of_mass = list("x" = 15,"y" = 11)
 	matter = list(MATERIAL_GLASS = 500)
-	drop_sound = 'sound/items/drop/glass.ogg'
-	fragile = 4
+	drop_sound = 'sound/items/drop/drinkglass.ogg'
+	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
+	fragile = 1
 
 /obj/item/reagent_containers/glass/beaker/Initialize()
 	. = ..()
@@ -160,20 +156,6 @@
 	flags = OPENCONTAINER
 	fragile = 6 // a bit sturdier
 
-/obj/item/reagent_containers/glass/beaker/bowl
-	name = "mixing bowl"
-	desc = "A large mixing bowl."
-	icon = 'icons/obj/kitchen.dmi'
-	icon_state = "mixingbowl"
-	center_of_mass = list("x" = 17,"y" = 7)
-	matter = list(DEFAULT_WALL_MATERIAL = 300)
-	volume = 180
-	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = list(5,10,15,25,30,60,180)
-	flags = OPENCONTAINER
-	unacidable = 0
-	no_shatter = TRUE
-
 /obj/item/reagent_containers/glass/beaker/noreact
 	name = "cryostasis beaker"
 	desc = "A cryostasis beaker that allows for chemical storage without reactions."
@@ -209,17 +191,9 @@
 	flags = OPENCONTAINER
 	fragile = 1
 
-/obj/item/reagent_containers/glass/beaker/cryoxadone
-/obj/item/reagent_containers/glass/beaker/cryoxadone/Initialize()
-	. = ..()
-	reagents.add_reagent("cryoxadone", 30)
-	update_icon()
+/obj/item/reagent_containers/glass/beaker/cryoxadone/reagents_to_add = list(/datum/reagent/cryoxadone = 30)
 
-/obj/item/reagent_containers/glass/beaker/sulphuric
-/obj/item/reagent_containers/glass/beaker/sulphuric/Initialize()
-	. = ..()
-	reagents.add_reagent("sacid", 60)
-	update_icon()
+/obj/item/reagent_containers/glass/beaker/sulphuric/reagents_to_add = list(/datum/reagent/acid = 60)
 
 /obj/item/reagent_containers/glass/bucket
 	desc = "A blue plastic bucket."
@@ -234,16 +208,16 @@
 	center_of_mass = list("x" = 16,"y" = 10)
 	accuracy = 1
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	amount_per_transfer_from_this = 20
 	possible_transfer_amounts = list(10,20,30,60,120)
 	volume = 120
 	flags = OPENCONTAINER
 	unacidable = 0
 	drop_sound = 'sound/items/drop/helm.ogg'
-	var/carving_weapon = /obj/item/wirecutters
+	pickup_sound = 'sound/items/pickup/helm.ogg'
 	var/helmet_type = /obj/item/clothing/head/helmet/bucket
-	no_shatter = TRUE
+	shatter = FALSE
 	fragile = 0
 
 /obj/item/reagent_containers/glass/bucket/attackby(var/obj/D, mob/user as mob)
@@ -253,7 +227,7 @@
 		user.put_in_hands(new /obj/item/bucket_sensor)
 		qdel(src)
 		return
-	else if(istype(D, carving_weapon))
+	else if(D.iswirecutter())
 		to_chat(user, "<span class='notice'>You cut a big hole in \the [src] with \the [D].</span>")
 		user.put_in_hands(new helmet_type)
 		qdel(src)
@@ -292,7 +266,7 @@
 	center_of_mass = list("x" = 16,"y" = 8)
 	matter = list("wood" = 50)
 	drop_sound = 'sound/items/drop/wooden.ogg'
-	carving_weapon = /obj/item/material/hatchet
+	pickup_sound = 'sound/items/pickup/wooden.ogg'
 	helmet_type = /obj/item/clothing/head/helmet/bucket/wood
 
 /obj/item/reagent_containers/glass/bucket/wood/attackby(var/obj/D, mob/user as mob)

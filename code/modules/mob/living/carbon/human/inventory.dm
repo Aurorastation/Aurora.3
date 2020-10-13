@@ -21,11 +21,11 @@ This saves us from having to call add_fingerprint() any time something is put in
 		else
 			to_chat(H, "<span class='warning'>You are unable to equip that.</span>")
 
-/mob/living/carbon/human/proc/equip_in_one_of_slots(obj/item/W, list/slots, del_on_fail = 1)
-	for (var/slot in slots)
-		if (equip_to_slot_if_possible(W, slots[slot], del_on_fail = 0))
+/mob/living/carbon/human/proc/equip_in_one_of_slots(obj/item/W, list/slots, del_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, ignore_blocked = FALSE)
+	for(var/slot in slots)
+		if(equip_to_slot_if_possible(W, slot, del_on_fail, disable_warning, redraw_mob, ignore_blocked))
 			return slot
-	if (del_on_fail)
+	if(del_on_fail)
 		qdel(W)
 	return null
 

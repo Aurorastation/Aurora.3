@@ -4,10 +4,11 @@
 /obj/structure/ore_box
 	name = "ore box"
 	desc = "A heavy box used for storing ore."
-	description_info = "You can attach a warp extraction beacon signaller to this, then click on it with an ore satchel that has a warp extraction pack attached, to link them."
+	desc_info = "You can attach a warp extraction beacon signaller to this, then click on it with an ore satchel that has a warp extraction pack attached, to link them."
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "orebox0"
 	density = TRUE
+	build_amt = 10
 	var/last_update = 0
 	var/obj/item/warp_core/warp_core // to set up the bluespace network
 	var/list/stored_ore = list()
@@ -31,7 +32,7 @@
 			S.remove_from_storage_deferred(O, src, user) //This will move the item to this item's contents
 			CHECK_TICK
 		S.post_remove_from_storage_deferred(loc, user)
-		to_chat(user, span("notice", "You empty the satchel into the box."))
+		to_chat(user, SPAN_NOTICE("You empty the satchel into the box."))
 	if(istype(W, /obj/item/warp_core))
 		if(warp_core)
 			to_chat(user, SPAN_WARNING("\The [src] already has a warp core attached!"))

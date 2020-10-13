@@ -1,6 +1,7 @@
 /obj/vehicle/bike
 	name = "space-bike"
-	desc = "Space wheelies! Woo! "
+	desc = "Space wheelies! Woo!"
+	desc_info = "Drag yourself onto the bike to mount it, toggle the engine to be able to drive around. Deploy the kickstand to prevent movement by driving and dragging. Drag it onto yourself to access its mounted storage. Resist to get off. Use ctrl-click to quickly toggle the engine if you're adjacent (only when vehicle is stationary). Alt-click will similarly toggle the kickstand."
 	icon = 'icons/obj/bike.dmi'
 	icon_state = "bike_off"
 	dir = SOUTH
@@ -14,10 +15,12 @@
 	brute_dam_coeff = 0.5
 	var/protection_percent = 60
 
-	var/land_speed = 10 //if 0 it can't go on turf
+	var/land_speed = 5 //if 0 it can't go on turf
 	var/space_speed = 1
 	var/bike_icon = "bike"
 
+	var/storage_type = /obj/item/storage/toolbox/bike_storage
+	var/obj/item/storage/storage_compartment
 	var/datum/effect_system/ion_trail/ion
 	var/kickstand = TRUE
 	var/can_hover = TRUE
@@ -28,6 +31,14 @@
 	turn_off()
 	add_overlay(image('icons/obj/bike.dmi', "[icon_state]_off_overlay", MOB_LAYER + 1))
 	icon_state = "[bike_icon]_off"
+	if(storage_type)
+		storage_compartment = new storage_type(src)
+
+/obj/vehicle/bike/CtrlClick(var/mob/user)
+	if(Adjacent(user) && anchored)
+		toggle()
+	else
+		return ..()
 
 /obj/vehicle/bike/verb/toggle()
 	set name = "Toggle Engine"
@@ -43,6 +54,12 @@
 	else
 		turn_off()
 		src.visible_message("\The [src] putters before turning off.", "You hear something putter slowly.")
+
+/obj/vehicle/bike/AltClick(var/mob/user)
+	if(Adjacent(user))
+		kickstand(user)
+	else
+		return ..()
 
 /obj/vehicle/bike/verb/kickstand()
 	set name = "Toggle Kickstand"
@@ -74,6 +91,11 @@
 	if(M.buckled || M.restrained() || !Adjacent(M) || !M.Adjacent(src))
 		return 0
 	return ..(M)
+
+/obj/vehicle/bike/MouseDrop(atom/over)
+	if(usr == over && ishuman(over))
+		var/mob/living/carbon/human/H = over
+		storage_compartment.open(H)
 
 /obj/vehicle/bike/MouseDrop_T(var/atom/movable/C, mob/user as mob)
 	if(!load(C))
@@ -194,7 +216,7 @@
 			if(ishuman(AM))
 				var/mob/living/carbon/human/H = AM
 				buckled_mob.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
-				buckled_mob.attack_log += text("\[[time_stamp()]\] <font color='red'>rammed[buckled_mob.name] ([buckled_mob.ckey]) rammed [H.name] ([H.ckey]) with the [src].</font>")
+				buckled_mob.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[buckled_mob.name] ([buckled_mob.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
 				msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 				src.visible_message(SPAN_DANGER("\The [src] smashes into \the [H]!"))
 				playsound(src, 'sound/weapons/punch4.ogg', 50, 1)
@@ -224,11 +246,13 @@
 	fire_dam_coeff = 0.5
 	brute_dam_coeff = 0.4
 
+	storage_type = /obj/item/storage/toolbox/bike_storage/speeder
 	bike_icon = "speeder"
 
 /obj/vehicle/bike/monowheel
 	name = "adhomian monowheel"
 	desc = "A one-wheeled vehicle, fairly popular with Little Adhomai's greasers."
+	desc_info = "Drag yourself onto the monowheel to mount it, toggle the engine to be able to drive around. Deploy the kickstand to prevent movement by driving and dragging. Drag it onto yourself to access its mounted storage. Resist to get off."
 	icon_state = "monowheel_off"
 
 	health = 250
@@ -239,6 +263,7 @@
 
 	mob_offset_y = 1
 
+	storage_type = /obj/item/storage/toolbox/bike_storage/monowheel
 	bike_icon = "monowheel"
 	dir = EAST
 
@@ -252,7 +277,7 @@
 		return
 	if(buckled_mob.a_intent == I_HURT)
 		buckled_mob.attack_log += "\[[time_stamp()]\]<font color='orange'> Was rammed by [src]</font>"
-		buckled_mob.attack_log += text("\[[time_stamp()]\] <font color='red'>rammed[buckled_mob.name] ([buckled_mob.ckey]) rammed [H.name] ([H.ckey]) with the [src].</font>")
+		buckled_mob.attack_log += text("\[[time_stamp()]\] <span class='warning'>rammed[buckled_mob.name] ([buckled_mob.ckey]) rammed [H.name] ([H.ckey]) with the [src].</span>")
 		msg_admin_attack("[src] crashed into [key_name(H)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)" )
 		src.visible_message(SPAN_DANGER("\The [src] runs over \the [H]!"))
 		H.apply_damage(30, BRUTE)
@@ -265,3 +290,15 @@
 		return TRUE
 	else
 		return FALSE
+
+/obj/item/storage/toolbox/bike_storage
+	name = "bike storage"
+	max_w_class = ITEMSIZE_LARGE
+	max_storage_space = 50
+	care_about_storage_depth = FALSE
+
+/obj/item/storage/toolbox/bike_storage/speeder
+	name = "speeder storage"
+
+/obj/item/storage/toolbox/bike_storage/monowheel
+	name = "monowheel storage"

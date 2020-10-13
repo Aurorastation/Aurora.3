@@ -20,9 +20,9 @@
 	if(!target)
 		return
 
-	to_chat(user, SPAN_WARNING("\The [user] teleported to you!"))
+	to_chat(target, FONT_LARGE(SPAN_WARNING("\The [user] teleported to you!")))
 	user.forceMove(get_turf(target))
-	user.visible_message(SPAN_WARNING("\The [user] appears out of thin air!"))
+	user.visible_message(SPAN_WARNING("\The [user] appears out of thin air!"), SPAN_NOTICE("You successfully teleport to \the [target]."))
 	var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread
 	smoke.set_up(5, 0, get_turf(user))
 	smoke.attach(user)

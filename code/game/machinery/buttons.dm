@@ -22,7 +22,7 @@
 /obj/machinery/button/Destroy()
 	qdel(wifi_sender)
 	wifi_sender = null
-	return..()
+	return ..()
 
 /obj/machinery/button/attack_ai(mob/user as mob)
 	return attack_hand(user)
@@ -32,7 +32,7 @@
 
 /obj/machinery/button/attack_hand(mob/living/user)
 	if(..()) return 1
-	user.visible_message("<span class='notice'>[user] hits \the [src] button.</span>")
+	user.visible_message("<b>[user]</b> hits \the [src] button.")
 	activate(user)
 
 /obj/machinery/button/proc/activate(mob/living/user)

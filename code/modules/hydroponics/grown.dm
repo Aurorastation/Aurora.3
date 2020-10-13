@@ -7,6 +7,7 @@
 	desc = "Nutritious! Probably."
 	slot_flags = SLOT_HOLSTER
 	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
 
 	var/plantname
 	var/datum/seed/seed
@@ -53,7 +54,7 @@
 			var/list/data = list()
 			if(reagent_data.len > 1 && potency > 0)
 				rtotal += round(potency/reagent_data[2])
-			if(rid == "nutriment")
+			if(rid == /datum/reagent/nutriment)
 				data[seed.seed_name] = max(1,rtotal)
 			reagents.add_reagent(rid,max(1,rtotal),data)
 	update_desc()
@@ -73,33 +74,33 @@
 		desc = SSplants.product_descs["[seed.uid]"]
 	else
 		var/list/descriptors = list()
-		if(reagents.has_reagent("sugar") || reagents.has_reagent("cherryjelly") || reagents.has_reagent("honey") || reagents.has_reagent("berryjuice"))
+		if(reagents.has_reagent(/datum/reagent/sugar) || reagents.has_reagent(/datum/reagent/nutriment/cherryjelly) || reagents.has_reagent(/datum/reagent/nutriment/honey) || reagents.has_reagent(/datum/reagent/drink/berryjuice))
 			descriptors |= "sweet"
-		if(reagents.has_reagent("dylovene"))
+		if(reagents.has_reagent(/datum/reagent/dylovene))
 			descriptors |= "astringent"
-		if(reagents.has_reagent("frostoil"))
+		if(reagents.has_reagent(/datum/reagent/frostoil))
 			descriptors |= "numbing"
-		if(reagents.has_reagent("nutriment"))
+		if(reagents.has_reagent(/datum/reagent/nutriment))
 			descriptors |= "nutritious"
-		if(reagents.has_reagent("condensedcapsaicin") || reagents.has_reagent("capsaicin"))
+		if(reagents.has_reagent(/datum/reagent/capsaicin/condensed) || reagents.has_reagent(/datum/reagent/capsaicin))
 			descriptors |= "spicy"
-		if(reagents.has_reagent("coco"))
+		if(reagents.has_reagent(/datum/reagent/nutriment/coco))
 			descriptors |= "bitter"
-		if(reagents.has_reagent("orangejuice") || reagents.has_reagent("lemonjuice") || reagents.has_reagent("limejuice"))
+		if(reagents.has_reagent(/datum/reagent/drink/orangejuice) || reagents.has_reagent(/datum/reagent/drink/lemonjuice) || reagents.has_reagent(/datum/reagent/drink/limejuice))
 			descriptors |= "sweet-sour"
-		if(reagents.has_reagent("radium") || reagents.has_reagent("uranium"))
+		if(reagents.has_reagent(/datum/reagent/radium) || reagents.has_reagent(/datum/reagent/uranium))
 			descriptors |= "radioactive"
-		if(reagents.has_reagent("amatoxin") || reagents.has_reagent("toxin"))
+		if(reagents.has_reagent(/datum/reagent/toxin/amatoxin) || reagents.has_reagent(/datum/reagent/toxin))
 			descriptors |= "poisonous"
-		if(reagents.has_reagent("psilocybin") || reagents.has_reagent("space_drugs"))
+		if(reagents.has_reagent(/datum/reagent/psilocybin) || reagents.has_reagent(/datum/reagent/space_drugs))
 			descriptors |= "hallucinogenic"
-		if(reagents.has_reagent("bicaridine") || reagents.has_reagent("dylovene"))
+		if(reagents.has_reagent(/datum/reagent/bicaridine) || reagents.has_reagent(/datum/reagent/dylovene))
 			descriptors |= "medicinal"
-		if(reagents.has_reagent("gold"))
+		if(reagents.has_reagent(/datum/reagent/gold))
 			descriptors |= "shiny"
-		if(reagents.has_reagent("lube"))
+		if(reagents.has_reagent(/datum/reagent/lube))
 			descriptors |= "slippery"
-		if(reagents.has_reagent("pacid") || reagents.has_reagent("sacid") || reagents.has_reagent("hclacid"))
+		if(reagents.has_reagent(/datum/reagent/acid/polyacid) || reagents.has_reagent(/datum/reagent/acid) || reagents.has_reagent(/datum/reagent/acid/hydrochloric))
 			descriptors |= "acidic"
 		if(seed.get_trait(TRAIT_JUICY))
 			descriptors |= "juicy"
@@ -118,7 +119,7 @@
 			descriptors -= chosen
 			desc += "[(descriptor_count>1 && descriptor_count!=descriptor_num) ? "," : "" ] [chosen]"
 			descriptor_num--
-		if(seed.seed_noun == "spores")
+		if(seed.seed_noun == SEED_NOUN_SPORES)
 			desc += " mushroom"
 		else
 			desc += " fruit"
@@ -193,7 +194,7 @@
 				qdel(src)
 				return
 			else if(seed.chems)
-				if(istype(W,/obj/item/material/hatchet) && !isnull(seed.chems["woodpulp"]))
+				if(istype(W,/obj/item/material/hatchet) && !isnull(seed.chems[/datum/reagent/woodpulp]))
 					user.show_message("<span class='notice'>You make planks out of \the [src]!</span>", 1)
 					playsound(loc, 'sound/effects/woodcutting.ogg', 50, 1)
 					var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
@@ -210,17 +211,17 @@
 						to_chat(user, "You add the newly-formed wood to the stack. It now contains [NG.amount] planks.")
 					qdel(src)
 					return
-				else if(!isnull(seed.chems["potato"]))
+				else if(!isnull(seed.chems[/datum/reagent/drink/potatojuice]))
 					to_chat(user, "You slice \the [src] into sticks.")
 					new /obj/item/reagent_containers/food/snacks/rawsticks(get_turf(src))
 					qdel(src)
 					return
-				else if(!isnull(seed.chems["carrotjuice"]))
+				else if(!isnull(seed.chems[/datum/reagent/drink/carrotjuice]))
 					to_chat(user, "You slice \the [src] into sticks.")
 					new /obj/item/reagent_containers/food/snacks/carrotfries(get_turf(src))
 					qdel(src)
 					return
-				else if(!isnull(seed.chems["soymilk"]))
+				else if(!isnull(seed.chems[/datum/reagent/drink/milk/soymilk]))
 					to_chat(user, "You roughly chop up \the [src].")
 					new /obj/item/reagent_containers/food/snacks/soydope(get_turf(src))
 					qdel(src)
@@ -233,6 +234,8 @@
 						for(var/i=0;i<slices;i++)
 							var/obj/item/reagent_containers/food/snacks/fruit_slice/F = new(get_turf(src),seed)
 							reagents.trans_to_obj(F,reagents_to_transfer)
+							if(dry)
+								F.on_dry()
 						qdel(src)
 						return
 	..()
@@ -328,6 +331,10 @@
 	desc = "A slice of some tasty fruit."
 	icon = 'icons/obj/hydroponics_misc.dmi'
 	icon_state = ""
+	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
+	dried_type = /obj/item/reagent_containers/food/snacks/fruit_slice
+	var/datum/seed/seed
 
 var/list/fruit_icon_cache = list()
 
@@ -340,18 +347,18 @@ var/list/fruit_icon_cache = list()
 
 	name = "[S.seed_name] slice"
 	desc = "A slice of \a [S.seed_name]. Tasty, probably."
-	drop_sound = 'sound/items/drop/herb.ogg'
+	seed = S
 
-	var/rind_colour = S.get_trait(TRAIT_PRODUCT_COLOUR)
-	var/flesh_colour = S.get_trait(TRAIT_FLESH_COLOUR)
+	var/rind_colour = seed.get_trait(TRAIT_PRODUCT_COLOUR)
+	var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
 	if(!flesh_colour) flesh_colour = rind_colour
 	if(!fruit_icon_cache["rind-[rind_colour]"])
 		var/image/I = image(icon,"fruit_rind")
 		I.color = rind_colour
 		fruit_icon_cache["rind-[rind_colour]"] = I
-	overlays |= fruit_icon_cache["rind-[rind_colour]"]
+	add_overlay(fruit_icon_cache["rind-[rind_colour]"])
 	if(!fruit_icon_cache["slice-[rind_colour]"])
 		var/image/I = image(icon,"fruit_slice")
 		I.color = flesh_colour
 		fruit_icon_cache["slice-[rind_colour]"] = I
-	overlays |= fruit_icon_cache["slice-[rind_colour]"]
+	add_overlay(fruit_icon_cache["slice-[rind_colour]"])

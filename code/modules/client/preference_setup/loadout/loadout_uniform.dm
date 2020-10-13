@@ -1,30 +1,14 @@
 // Uniform slot
 /datum/gear/uniform
-	display_name = "blazer, blue"
-	path = /obj/item/clothing/under/blazer
-	slot = slot_w_uniform
-	sort_category = "Uniforms and Casual Dress"
-
-/datum/gear/uniform/kilt
 	display_name = "kilt"
 	path = /obj/item/clothing/under/kilt
-
-/datum/gear/uniform/formalblouse
-    display_name = "formal blouse"
-    path = /obj/item/clothing/under/formalblouse
-
-/datum/gear/uniform/croptop
-    display_name = "crop top"
-    path = /obj/item/clothing/under/croptop
-
-/datum/gear/uniform/cropdress
-    display_name = "crop dress"
-    path = /obj/item/clothing/under/cropdress
+	slot = slot_w_uniform
+	sort_category = "Uniforms and Casual Dress"
 
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
 	path = /obj/item/clothing/under/rank/iacjumpsuit
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Resident")
 
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
@@ -65,17 +49,24 @@
 /datum/gear/uniform/skirt/New()
 	..()
 	var/skirts = list()
-	skirts["casual skirt"] = /obj/item/clothing/under/skirt/casual
-	skirts["casual skirt, alt"] = /obj/item/clothing/under/skirt/casual/alt
+	skirts["casual skirt"] = /obj/item/clothing/under/skirt
+	skirts["puffy skirt"] = /obj/item/clothing/under/skirt/puffy
 	skirts["long skirt"] = /obj/item/clothing/under/skirt/long
 	skirts["pencil skirt"] = /obj/item/clothing/under/skirt/pencil
 	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
+	skirts["plaid skirt"] = /obj/item/clothing/under/skirt/plaid
+	skirts["pleated skirt"] = /obj/item/clothing/under/skirt/pleated
+	skirts["high skirt"] = /obj/item/clothing/under/skirt/high
+	skirts["skater skirt"] = /obj/item/clothing/under/skirt/skater
+	skirts["tube skirt"] = /obj/item/clothing/under/skirt/tube
+	skirts["jumper skirt"] = /obj/item/clothing/under/skirt/jumper
+	skirts["jumper dress"] = /obj/item/clothing/under/skirt/jumper_highcut
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
 
 /datum/gear/uniform/suit
 	display_name = "suit selection"
 	description = "A selection of formal suits."
-	path = /obj/item/clothing/under/lawyer/bluesuit
+	path = /obj/item/clothing/under/sl_suit
 
 /datum/gear/uniform/suit/New()
 	..()
@@ -87,23 +78,19 @@
 	suits["charcoal suit"] = /obj/item/clothing/under/suit_jacket/charcoal
 	suits["checkered suit"] = /obj/item/clothing/under/suit_jacket/checkered
 	suits["executive suit"] = /obj/item/clothing/under/suit_jacket/really_black
-	suits["female executive suit"] = /obj/item/clothing/under/suit_jacket/female
-	suits["gentleman suit"] = /obj/item/clothing/under/gentlesuit
 	suits["navy suit"] = /obj/item/clothing/under/suit_jacket/navy
-	suits["old man suit"] = /obj/item/clothing/under/lawyer/oldman
-	suits["purple suit"] = /obj/item/clothing/under/lawyer/purpsuit
+	suits["purple suit"] = /obj/item/clothing/under/lawyer/purple
 	suits["red suit"] = /obj/item/clothing/under/suit_jacket/red
 	suits["red lawyer suit"] = /obj/item/clothing/under/lawyer/red
 	suits["shiny black suit"] = /obj/item/clothing/under/lawyer/black
 	suits["tan suit"] = /obj/item/clothing/under/suit_jacket/tan
-	suits["white suit"] = /obj/item/clothing/under/scratch
-	suits["white-blue suit"] = /obj/item/clothing/under/lawyer/bluesuit
+	suits["white suit"] = /obj/item/clothing/under/suit_jacket/white
 	gear_tweaks += new/datum/gear_tweak/path(suits)
 
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
-	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Emergency Medical Technician", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -125,15 +112,12 @@
 	dress["sundress"] = /obj/item/clothing/under/sundress
 	dress["sundress, white"] = /obj/item/clothing/under/sundress_white
 	dress["dress, flame"] = /obj/item/clothing/under/dress/dress_fire
-	dress["dress, green"] = /obj/item/clothing/under/dress/dress_green
 	dress["dress, orange"] = /obj/item/clothing/under/dress/dress_orange
-	dress["dress, pink"] = /obj/item/clothing/under/dress/dress_pink
 	dress["dress, yellow"] = /obj/item/clothing/under/dress/dress_yellow
 	dress["dress, white"] = /obj/item/clothing/under/dress/white
 	dress["dress, stripped"] = /obj/item/clothing/under/dress/stripeddress
 	dress["dress, sailor"] = /obj/item/clothing/under/dress/sailordress
 	dress["dress, red swept"] = /obj/item/clothing/under/dress/red_swept_dress
-	dress["dress, western bustle"] = /obj/item/clothing/under/dress/westernbustle
 	dress["dress, black tango"] = /obj/item/clothing/under/dress/blacktango
 	dress["dress, black tango alternative"] = /obj/item/clothing/under/dress/blacktango/alt
 	dress["cheongsam, white"] = /obj/item/clothing/under/cheongsam
@@ -141,8 +125,6 @@
 	dress["cheongsam, blue"] = /obj/item/clothing/under/cheongsam/blue
 	dress["cheongsam, green"] = /obj/item/clothing/under/cheongsam/green
 	dress["cheongsam, purple"] = /obj/item/clothing/under/cheongsam/purple
-	dress["dress, blue"] = /obj/item/clothing/under/dress/bluedress
-	dress["dress, dark red"] = /obj/item/clothing/under/dress/darkreddress
 	gear_tweaks += new/datum/gear_tweak/path(dress)
 
 /datum/gear/uniform/uniform_captain
@@ -150,19 +132,9 @@
 	path = /obj/item/clothing/under/dress/dress_cap
 	allowed_roles = list("Captain")
 
-/datum/gear/uniform/customdress
-	display_name = "evening gown"
-	path = /obj/item/clothing/under/dress/dress_evening
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
 /datum/gear/uniform/uniform_hop
 	display_name = "uniform, HoP dress"
 	path = /obj/item/clothing/under/dress/dress_hop
-	allowed_roles = list("Head of Personnel")
-
-/datum/gear/uniform/uniform_hr
-	display_name = "uniform, HR director (HoP)"
-	path = /obj/item/clothing/under/dress/dress_hr
 	allowed_roles = list("Head of Personnel")
 
 /datum/gear/uniform/pants
@@ -232,6 +204,7 @@
 	display_name = "dominia clothing selection"
 	description = "A selection of dominian clothing."
 	path = /obj/item/clothing/under/dominia
+	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/dominia/New()
 	..()
@@ -241,16 +214,27 @@
 	suit["dominia sweater"] = /obj/item/clothing/under/dominia/sweater
 	suit["lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit
 	suit["hoodied lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit/hoodie
+	suit["dominia noblewoman dress"] = /obj/item/clothing/under/dominia/dress
+	suit["dominia summer dress"] = /obj/item/clothing/under/dominia/dress/summer
+	gear_tweaks += new/datum/gear_tweak/path(suit)
+
+/datum/gear/uniform/elyra_holo
+	display_name = "elyran holographic suit selection"
+	description = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Midenean, Aemaqii and Perispolisean clothes respectively."
+	path = /obj/item/clothing/under/elyra_holo
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/uniform/elyra_holo/New()
+	..()
+	var/suit = list()
+	suit["elyran holographic suit, feminine"] = /obj/item/clothing/under/elyra_holo
+	suit["elyran holographic suit, masculine"] = /obj/item/clothing/under/elyra_holo/masc
 	gear_tweaks += new/datum/gear_tweak/path(suit)
 
 /datum/gear/uniform/miscellaneous/kimono
 	display_name = "kimono"
 	path = /obj/item/clothing/under/kimono
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/uniform/miscellaneous/greensuit
-	display_name = "green formal uniform"
-	path = /obj/item/clothing/under/gov
 
 /datum/gear/uniform/officer
 	display_name = "uniforms, (Security Officer)"
@@ -295,7 +279,6 @@
 	uniform["warden uniform, dark blue"] = /obj/item/clothing/under/rank/warden/dark_blue
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
-
 /datum/gear/uniform/hos
 	display_name = "uniform, corporate (Head of Security)"
 	path = /obj/item/clothing/under/rank/head_of_security/corp
@@ -313,7 +296,7 @@
 /datum/gear/uniform/cargo_alt
 	display_name = "cargo technician, shorts"
 	description = "For those that value leg-room."
-	path = /obj/item/clothing/under/rank/cargotech/alt
+	path = /obj/item/clothing/under/rank/cargo/alt
 	allowed_roles = list("Cargo Technician")
 
 /datum/gear/uniform/pyjama
@@ -326,3 +309,20 @@
 	pyjamas["blue pyjamas"] = /obj/item/clothing/under/pj/blue
 	pyjamas["red pyjamas"] = /obj/item/clothing/under/pj/red
 	gear_tweaks += new/datum/gear_tweak/path(pyjamas)
+
+/datum/gear/uniform/miscellaneous/hanbok
+	display_name = "hanbok selection"
+	description = "A selection of Konyanger formalwear."
+	path = /obj/item/clothing/under/konyang
+
+/datum/gear/uniform/miscellaneous/hanbok/New()
+	..()
+	var/hanbok = list()
+	hanbok["magenta-blue hanbok"] = /obj/item/clothing/under/konyang
+	hanbok["white-pink hanbok"] = /obj/item/clothing/under/konyang/pink
+	gear_tweaks += new/datum/gear_tweak/path(hanbok)
+
+/datum/gear/uniform/gadpathur
+	display_name = "gadpathurian fatigues"
+	path = /obj/item/clothing/under/uniform/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION

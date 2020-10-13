@@ -7,6 +7,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
+	intro_prefix = "the"
 	supervisors = "the captain"
 	selection_color = "#FF56B4"
 	economic_modifier = 10
@@ -16,17 +17,17 @@
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
-			access_paramedic, access_maint_tunnels)
+			access_emt, access_maint_tunnels)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_construction,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research,
-			access_paramedic, access_maint_tunnels)
+			access_emt, access_maint_tunnels)
 
 	minimal_player_age = 10
 	ideal_character_age = 50
 	outfit = /datum/outfit/job/cmo
 
-	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
+	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 
 /datum/outfit/job/cmo
 	name = "Chief Medical Officer"
@@ -58,17 +59,11 @@
 	selection_color = "#FF97D1"
 	economic_modifier = 7
 
-	minimum_character_age = 30
+	minimum_character_age = 25
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
-	alt_titles = list("Trauma Physician","Nurse")
-	alt_ages = list("Nurse" = 25)
 	outfit = /datum/outfit/job/doctor
-	alt_outfits = list(
-		"Trauma Physician"=/datum/outfit/job/doctor/trauma_physician,
-		"Nurse"=/datum/outfit/job/doctor/nurse
-		)
 
 /datum/job/surgeon
 	title = "Surgeon"
@@ -107,16 +102,6 @@
 	dufflebag = /obj/item/storage/backpack/duffel/med
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
-/datum/outfit/job/doctor/trauma_physician
-	name = "Trauma Physician"
-	jobtype = /datum/job/doctor
-
-	uniform = /obj/item/clothing/under/rank/medical/black
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/trauma
-	shoes = /obj/item/clothing/shoes/trauma
-	mask = /obj/item/clothing/mask/surgical
-	l_hand = /obj/item/storage/firstaid/adv
-
 /datum/outfit/job/doctor/surgeon
 	name = "Surgeon"
 	jobtype = /datum/job/doctor
@@ -151,11 +136,7 @@
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
 	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology)
-	alt_titles = list("Biochemist")
 	outfit = /datum/outfit/job/pharmacist
-	alt_outfits = list(
-		"Biochemist"=/datum/outfit/job/pharmacist/biochemist
-		)
 
 /datum/outfit/job/pharmacist
 	name = "Pharmacist"
@@ -172,19 +153,6 @@
 	satchel = /obj/item/storage/backpack/satchel_pharm
 	dufflebag = /obj/item/storage/backpack/duffel/pharm
 	messengerbag = /obj/item/storage/backpack/messenger/pharm
-
-/datum/outfit/job/pharmacist/biochemist
-	name = "Biochemist"
-	jobtype = /datum/job/pharmacist
-
-	uniform = /obj/item/clothing/under/rank/biochemist
-	suit = /obj/item/clothing/suit/storage/toggle/labcoat/biochemist
-	shoes = /obj/item/clothing/shoes/biochem
-
-	backpack = /obj/item/storage/backpack/virology
-	satchel = /obj/item/storage/backpack/satchel_vir
-	dufflebag = /obj/item/storage/backpack/duffel/vir
-	messengerbag = /obj/item/storage/backpack/messenger/viro
 
 /datum/job/psychiatrist
 	title = "Psychiatrist"
@@ -222,12 +190,9 @@
 	name = "Psychologist"
 	jobtype = /datum/job/psychiatrist
 
-	uniform = /obj/item/clothing/under/rank/psych/turtleneck
-
-
-/datum/job/paramedic
-	title = "Paramedic"
-	flag = PARAMEDIC
+/datum/job/med_tech
+	title = "Emergency Medical Technician"
+	flag = MED_TECH
 	department = "Medical"
 	department_flag = MEDSCI
 	faction = "Station"
@@ -237,24 +202,20 @@
 	selection_color = "#FF97D1"
 	economic_modifier = 4
 
-	minimum_character_age = 24
-	alt_ages = list("Emergency Medical Technician" = 20)
+	minimum_character_age = 20
 
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_paramedic)
-	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks, access_paramedic)
-	alt_titles = list("Emergency Medical Technician")
-	outfit = /datum/outfit/job/paramedic
-	alt_outfits = list("Emergency Medical Technician"=/datum/outfit/job/paramedic/emt)
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_emt)
+	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks, access_emt)
+	outfit = /datum/outfit/job/med_tech
+	blacklisted_species = list(SPECIES_DIONA, SPECIES_IPC_G2)
 
-	blacklisted_species = list("Diona")
+/datum/outfit/job/med_tech
+	name = "Emergency Medical Technician"
+	base_name = "Emergency Medical Technician"
+	jobtype = /datum/job/med_tech
 
-/datum/outfit/job/paramedic
-	name = "Paramedic"
-	base_name = "Paramedic"
-	jobtype = /datum/job/paramedic
-
-	uniform = /obj/item/clothing/under/rank/medical/black
-	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket
+	uniform = /obj/item/clothing/under/rank/medical/emt
+	suit = /obj/item/clothing/suit/storage/toggle/emt_jacket
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/headset_med
 	l_hand = /obj/item/storage/firstaid/adv
@@ -269,12 +230,6 @@
 	dufflebag = /obj/item/storage/backpack/duffel/med
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
-/datum/outfit/job/paramedic/emt
-	name = "Emergency Medical Technician"
-	jobtype = /datum/job/paramedic
-
-	uniform = /obj/item/clothing/under/rank/medical/paramedic
-
 /datum/job/intern_med
 	title = "Medical Resident"
 	flag = INTERN_MED
@@ -287,8 +242,6 @@
 	access = list(access_medical, access_surgery, access_medical_equip)
 	minimal_access = list(access_medical, access_surgery, access_medical_equip)
 	minimum_character_age = 25
-	alt_titles = list("Medical Intern")
-	alt_ages = list("Medical Intern" = 18)
 	outfit = /datum/outfit/job/intern_med
 
 /datum/outfit/job/intern_med

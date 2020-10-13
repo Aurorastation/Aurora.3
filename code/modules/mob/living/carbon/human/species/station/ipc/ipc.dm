@@ -1,10 +1,10 @@
 /datum/species/machine
-	name = "Baseline Frame"
+	name = SPECIES_IPC
 	short_name = "ipc"
 	name_plural = "Baselines"
-	bodytype = "Machine"
+	bodytype = BODYTYPE_IPC
 	age_min = 1
-	age_max = 30
+	age_max = 60
 	economic_modifier = 3
 	default_genders = list(NEUTER)
 
@@ -57,7 +57,7 @@
 	cold_level_2 = -1
 	cold_level_3 = -1
 
-	heat_level_1 = 600		
+	heat_level_1 = 600
 	heat_level_2 = 1200
 	heat_level_3 = 2400
 
@@ -71,12 +71,11 @@
 	)
 
 	flags = IS_IPC
-	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
+	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
 	blood_color = COLOR_IPC_BLOOD
 	flesh_color = "#575757"
-	virus_immune = 1
 	reagent_tag = IS_MACHINE
 
 	has_organ = list(
@@ -112,8 +111,14 @@
 
 	max_hydration_factor = -1
 
-	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI)
+	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI, CITIZENSHIP_ELYRA, CITIZENSHIP_GOLDEN)
 	default_citizenship = CITIZENSHIP_NONE
+	bodyfall_sound = /decl/sound_category/bodyfall_machine_sound
+
+	allowed_accents = list(ACCENT_CETI, ACCENT_GIBSON, ACCENT_SOL, ACCENT_COC, ACCENT_ERIDANI, ACCENT_ERIDANIDREG, ACCENT_ELYRA, ACCENT_KONYAN, ACCENT_JUPITER, ACCENT_MARTIAN, ACCENT_LUNA,
+							ACCENT_HIMEO, ACCENT_VENUS, ACCENT_VENUSJIN, ACCENT_PHONG, ACCENT_TTS, ACCENT_EUROPA, ACCENT_EARTH)
+
+	alterable_internal_organs = list()
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
@@ -131,7 +136,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 			H.Weaken(15)
 			H.m_intent = "walk"
 			H.hud_used.move_intent.update_move_icon(H)
-			to_chat(H, span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive."))
+			to_chat(H, SPAN_DANGER("ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive."))
 			playsound(H.loc, 'sound/machines/buzz-two.ogg', 100, 0)
 		else
 			return 1
@@ -299,4 +304,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 /datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
 	if(H.get_total_health() <= config.health_threshold_dead)
 		return TRUE
+	return FALSE
+
+/datum/species/machine/has_psi_potential()
 	return FALSE

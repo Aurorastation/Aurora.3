@@ -61,7 +61,7 @@
 	icon_state = "omnilaser"
 	damage = 20
 	damage_type = BURN
-	check_armour = "laser"
+	check_armor = "laser"
 	range = 5
 	pass_flags = PASSTABLE
 

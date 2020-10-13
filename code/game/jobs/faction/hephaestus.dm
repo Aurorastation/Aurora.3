@@ -11,6 +11,13 @@
 	</p>
 	<p>Some character examples are:
 	<ul>
+	<li><b>Cargo Specialist</b>: In contrast to your engineer cousins your customer
+	service level is subpar to be sure. You make up for it with your unshakable
+	work ethic - no mining job too dangerous! You know that Hephaestus mining and
+	logistics teams are superior to NanoTrasen's and in a perfect world the
+	phoron reserves would belong to Hephaestus. Alas it isn't a perfect world.
+	Perhaps that's a good thing, or people like you wouldn't exist. Getting hold
+	of NanoTrasen's mech and mining research is key. How you go about this is up to you.</li>
 	<li><b>Hephaestus Senior Engineer</b>: Hephaestus engineers are second to none when
 	dealing with machine construction and maintenance. They are exceptional builders no
 	matter the environment: in EVA, in a phoron fire, in a vented room, and everywhere else the
@@ -29,10 +36,12 @@
 	title_suffix = "Hepht"
 
 	allowed_role_types = list(
+		/datum/job/visitor,
 		/datum/job/engineer,
 		/datum/job/atmos,
 		/datum/job/roboticist,
 		/datum/job/mining,
+		/datum/job/cargo_tech,
 		/datum/job/representative
 	)
 
@@ -55,7 +64,15 @@
 		"Roboticist" = /datum/outfit/job/roboticist/hephaestus,
 		"Shaft Miner" = /datum/outfit/job/mining/hephaestus,
 		"Drill Technician" = /datum/outfit/job/mining/drill/hephaestus,
+		"Cargo Technician" = /datum/outfit/job/cargo_tech/hephaestus,
 		"Corporate Liaison" = /datum/outfit/job/representative/hephaestus
+	)
+
+	job_species_blacklist = list(
+		"Corporate Liaison" = list(
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR
+		)
 	)
 
 /datum/outfit/job/engineer/hephaestus
@@ -95,3 +112,7 @@
 	suit = null
 	implants = null
 	id = /obj/item/card/id/hephaestus
+
+	backpack_contents = list(
+		/obj/item/stamp/hephaestus = 1
+	)

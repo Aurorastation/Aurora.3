@@ -132,7 +132,7 @@
 /datum/record/general/New(var/mob/living/carbon/human/H, var/nid)
 	..()
 	if (!H)
-		var/mob/living/carbon/human/dummy = SSmob.get_mannequin("New record")
+		var/mob/living/carbon/human/dummy/mannequin/dummy = SSmob.get_mannequin("New record")
 		photo_front = getFlatIcon(dummy, SOUTH, always_use_defdir = TRUE)
 		photo_side = getFlatIcon(dummy, WEST, always_use_defdir = TRUE)
 	else

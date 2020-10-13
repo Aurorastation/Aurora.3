@@ -3,21 +3,21 @@
 /obj/item/device/laser_assembly/medium
 	name = "laser assembly (medium)"
 	base_icon_state = "medium"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	size = CHASSIS_MEDIUM
 	modifier_cap = 4
 
 /obj/item/device/laser_assembly/large
 	name = "laser assembly (large)"
 	base_icon_state = "large"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	size = CHASSIS_LARGE
 	modifier_cap = 5
 
 /obj/item/device/laser_assembly/admin
 	name = "laser assembly (obscene)"
 	base_icon_state = "large"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	size = CHASSIS_LARGE
 	modifier_cap = 25
 
@@ -34,7 +34,7 @@
 	name = "reinforced capacitor"
 	desc = "A reinforced laser weapon capacitor."
 	icon_state = "reinforced_capacitor"
-	reliability = 80
+	reliability = 100
 
 /obj/item/laser_components/capacitor/nuclear
 	name = "uranium-enriched capacitor"
@@ -42,7 +42,7 @@
 	icon_state = "uranium_capacitor"
 	damage = 20
 	shots = 10
-	reliability = 50
+	reliability = 60
 
 /obj/item/laser_components/capacitor/nuclear/small_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
@@ -70,7 +70,7 @@
 	icon_state = "teranium_capacitor"
 	damage = 25
 	shots = 15
-	reliability = 45
+	reliability = 55
 
 /obj/item/laser_components/capacitor/teranium/small_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	tesla_zap(prototype, 3, 1000*(prototype.criticality+1))
@@ -91,7 +91,7 @@
 	icon_state = "phoron_capacitor"
 	damage = 30
 	shots = 25
-	reliability = 40
+	reliability = 50
 
 /obj/item/laser_components/capacitor/phoron/small_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
@@ -116,7 +116,7 @@
 	icon_state = "bluespace_capacitor"
 	damage = 35
 	shots = 30
-	reliability = 30
+	reliability = 45
 
 /obj/item/laser_components/capacitor/bluespace/small_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	for (var/mob/living/M in range(round((prototype.criticality+1),1),src))
@@ -244,6 +244,12 @@
 	malus = 0
 	icon_state = "reinforced_barrel"
 
+/obj/item/laser_components/modifier/barrel/nano
+	name = "nano-reinforced barrel"
+	desc = "Reinforcement along the barrel extends the longevity of the prototype even more than predecessor barrel. Uses nano-technology to increase reinforcement while retaining same weight."
+	reliability = 35
+	icon_state = "nano_barrel"
+
 /obj/item/laser_components/modifier/vents
 	name = "exhaust venting"
 	desc = "More efficient exhaust venting reduces the impact of firing the prototype."
@@ -257,6 +263,13 @@
 	desc = "A modification that improves the fire delay of the prototype."
 	fire_delay = 0.5
 	gun_overlay = "grip"
+	icon_state = "grip"
+
+/obj/item/laser_components/modifier/grip/improved
+	name = "enhanced grip MK2"
+	desc = "A modification that improves the fire delay of the prototype. Slight improvement over a predecessor."
+	fire_delay = 0.7
+	gun_overlay = "grip"
 	icon_state = "enhanced_grip"
 
 /obj/item/laser_components/modifier/stock
@@ -266,6 +279,13 @@
 	accuracy = 1
 	gun_overlay = "stock"
 	icon_state = "improved_stock"
+
+/obj/item/laser_components/modifier/stock/gyro
+	name = "stability stock"
+	desc = "A better version of na improved stock. This stock is more ergonomic, with in-built gyroscope increasing handly and accuracy."
+	fire_delay = 0.7
+	accuracy = 1.5
+	icon_state = "stable_stock"
 
 /obj/item/laser_components/modifier/bayonet
 	name = "bayonet"
@@ -294,7 +314,7 @@
 /obj/item/laser_components/modulator/tesla
 	name = "tesla modulator"
 	desc = "A modification that modulates the beam into a lethal electrical arc."
-	projectile = /obj/item/projectile/energy/tesla
+	projectile = /obj/item/projectile/beam/tesla
 	icon_state = "tesla"
 	firing_sound = 'sound/magic/LightningShock.ogg'
 
@@ -392,7 +412,7 @@
 	projectile = /obj/item/projectile/energy/dart
 	damage = 0.25
 	icon_state = "dart"
-	firing_sound = 'sound/weapons/Genhit.ogg'
+	firing_sound = 'sound/weapons/genhit.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 3)
 
 /obj/item/laser_components/modulator/blaster

@@ -3,7 +3,7 @@
 
 
 /datum/spellbook/battlemage
-	name = "\improper battlemage's bible"
+	name = "battlemage's bible"
 	feedback = "BM"
 	desc = "A treatise on the use of magic in combat situation."
 	book_desc = "Mix physical with the mystical in head to head combat."
@@ -30,5 +30,14 @@
 				/obj/item/storage/belt/wands/full =					2,
 				/obj/item/melee/energy/wizard =						2,
 				/obj/item/monster_manual =							2,
-				/obj/item/contract/apprentice =						1
+				/obj/item/contract/apprentice =						1,
+				/obj/item/apprentice_pebble =						2
 				)
+
+	apprentice_spells = list(
+		/spell/targeted/equip_item/shield = 1,
+		/spell/targeted/torment = 1,
+		/spell/targeted/heal_target = 2,
+		/spell/targeted/shapeshift/corrupt_form = 1,
+		/obj/item/melee/energy/wizard = 2
+	)

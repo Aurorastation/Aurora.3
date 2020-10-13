@@ -411,7 +411,7 @@
 	icon_state = "shirt_long_fem"
 	has_color = TRUE
 
-/datum/category_item/underwear/undershirt/turtleneck
-	name = "Turtleneck"
-	icon_state = "turtleneck"
+/datum/category_item/underwear/undershirt/sweater
+	name = "Sweater"
+	icon_state = "sweater"
 	has_color = TRUE

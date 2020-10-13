@@ -144,7 +144,6 @@
 		/obj/item/clothing/glasses/monocle              = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/smokable/pipe           = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/gas/plaguedoctor        = TRADER_THIS_TYPE,
-		/obj/item/clothing/suit/hastur                  = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/imperium_monk           = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/judgerobe               = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/wizrobe/magusred        = TRADER_THIS_TYPE,
@@ -153,8 +152,6 @@
 		/obj/item/clothing/suit/armor/tajara            = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/gladiator              = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/kilt                   = TRADER_THIS_TYPE,
-		/obj/item/clothing/under/redcoat                = TRADER_THIS_TYPE,
-		/obj/item/clothing/under/soviet                 = TRADER_THIS_TYPE,
 		/obj/item/material/harpoon               = TRADER_THIS_TYPE,
 		/obj/item/material/sword                 = TRADER_ALL,
 		/obj/item/material/scythe                = TRADER_THIS_TYPE,
@@ -163,7 +160,10 @@
 		/obj/item/material/twohanded/pike        = TRADER_ALL,
 		/obj/item/material/twohanded/zweihander  = TRADER_THIS_TYPE,
 		/obj/item/melee/whip                     = TRADER_THIS_TYPE,
-		/obj/item/grenade/dynamite               = TRADER_THIS_TYPE
+		/obj/item/grenade/dynamite               = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/musket          = TRADER_THIS_TYPE,
+		/obj/item/reagent_containers/powder_horn = TRADER_THIS_TYPE,
+		/obj/item/ammo_casing/musket             = TRADER_THIS_TYPE
 	)
 
 
