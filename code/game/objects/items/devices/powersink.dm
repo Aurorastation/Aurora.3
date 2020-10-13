@@ -27,7 +27,7 @@
 
 /obj/item/device/powersink/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
-	processing_power_items -= src
+	LAZYREMOVE(processing_power_items, src)
 
 	return ..()
 
@@ -51,7 +51,7 @@
 		else
 			if (mode == 2)
 				STOP_PROCESSING(SSprocessing, src)
-				processing_power_items.Remove(src)
+				LAZYREMOVE(processing_power_items, src)
 			anchored = 0
 			mode = 0
 			visible_message("<span class='notice'>\The [user] detaches \the [src] from the cable!</span>")
@@ -76,7 +76,7 @@
 			icon_state = "powersink1"
 			item_state = "powersink1"
 			START_PROCESSING(SSprocessing, src)
-			processing_power_items += src
+			LAZYADD(processing_power_items, src)
 		if(2)  //This switch option wasn't originally included. It exists now. --NeoFite
 			visible_message("<span class='notice'>\The [user] deactivates \the [src]!</span>")
 			mode = 1
@@ -84,7 +84,7 @@
 			icon_state = "powersink0"
 			item_state = "powersink0"
 			STOP_PROCESSING(SSprocessing, src)
-			processing_power_items -= src
+			LAZYREMOVE(processing_power_items, src)
 
 /obj/item/device/powersink/pwr_drain()
 	if(!attached)

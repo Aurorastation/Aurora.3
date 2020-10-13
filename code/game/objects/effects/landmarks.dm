@@ -14,7 +14,7 @@
 
 	switch(name)			//some of these are probably obsolete
 		if("monkey")
-			monkeystart += loc
+			LAZYADD(monkeystart, loc)
 			delete_me = 1
 			return
 		if("start")
@@ -30,7 +30,7 @@
 			delete_me = 1
 			return
 		if("JoinLateGateway")
-			latejoin_gateway += loc
+			LAZYADD(latejoin_gateway, loc)
 			delete_me = 1
 			return
 		if("JoinLateCryo")
@@ -46,11 +46,9 @@
 			delete_me = 1
 			return
 		if("prisonwarp")
-			prisonwarp += loc
+			LAZYADD(prisonwarp, loc)
 			delete_me = 1
 			return
-		if("Holding Facility")
-			holdingfacility += loc
 		if("tdome1")
 			tdome1 += loc
 		if("tdome2")
@@ -59,14 +57,6 @@
 			tdomeadmin += loc
 		if("tdomeobserve")
 			tdomeobserve += loc
-		if("prisonsecuritywarp")
-			prisonsecuritywarp += loc
-			delete_me = 1
-			return
-		if("xeno_spawn")
-			xeno_spawn += loc
-			delete_me = 1
-			return
 		if("endgame_exit")
 			endgame_safespawns += loc
 			delete_me = 1

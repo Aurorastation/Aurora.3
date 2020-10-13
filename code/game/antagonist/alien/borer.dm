@@ -63,6 +63,6 @@ var/datum/antagonist/xenos/borer/borers
 				borers.add_antagonist_mind(borer.host.mind, 1, borers.faction_role_text, borers.faction_welcome)
 
 			var/obj/item/organ/external/head = borer.host.get_organ(BP_HEAD)
-			head.implants += borer
+			LAZYADD(head.implants, borer)
 		else
 			..()

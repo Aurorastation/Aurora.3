@@ -33,9 +33,9 @@
 
 	//Lists.
 	var/list/transplant_data
-	var/list/datum/autopsy_data/autopsy_data = list()
+	var/list/datum/autopsy_data/autopsy_data
 	var/list/organ_verbs	//verb that are added when you gain the organ
-	var/list/trace_chemicals = list() // traces of chemicals in the organ,
+	var/list/trace_chemicals // traces of chemicals in the organ,
 									  // links chemical IDs to number of ticks for which they'll stay in the blood
 
 	//DNA stuff.
@@ -104,9 +104,7 @@
 			if(internal)
 				var/obj/item/organ/external/E = H.get_organ(parent_organ)
 				if(E)
-					if(E.internal_organs == null)
-						E.internal_organs = list()
-					E.internal_organs |= src
+					LAZYDISTINCTADD(E.internal_organs, src)
 			if(dna)
 				if(!blood_DNA)
 					blood_DNA = list()
@@ -283,6 +281,7 @@
 
 //Adds autopsy data for used_weapon.
 /obj/item/organ/proc/add_autopsy_data(var/used_weapon, var/damage)
+	LAZYINITLIST(autopsy_data)
 	var/datum/autopsy_data/W = autopsy_data[used_weapon]
 	if(!W)
 		W = new()
@@ -353,7 +352,8 @@
 	owner.internal_organs -= src
 
 	var/obj/item/organ/external/affected = owner.get_organ(parent_organ)
-	if(affected) affected.internal_organs -= src
+	if(affected)
+		LAZYREMOVE(affected.internal_organs, src)
 
 	loc = get_turf(owner)
 	START_PROCESSING(SSprocessing, src)

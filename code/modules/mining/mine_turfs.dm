@@ -749,9 +749,10 @@ var/list/asteroid_floor_smooth = list(
 
 	if(prob(75))
 		new /obj/item/ore/glass(src)
-	if(prob(25) && has_resources)
+	if(prob(25) && has_resources && resources)
 		var/list/ore = list()
-		for(var/metal in resources)
+		var/list/ore_resources = json_decode(resources)
+		for(var/metal in ore_resources)
 			switch(metal)
 				if("silicates")
 					ore += /obj/item/ore/glass

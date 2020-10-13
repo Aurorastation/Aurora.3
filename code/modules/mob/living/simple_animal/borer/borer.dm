@@ -89,7 +89,7 @@
 	if(istype(host,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = host
 		var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
-		head.implants -= src
+		LAZYREMOVE(head.implants, src)
 
 	controlling = FALSE
 
@@ -146,7 +146,7 @@
 	forceMove(get_turf(host))
 	var/obj/item/organ/external/head = host.get_organ(BP_HEAD)
 	if(head)
-		head.implants -= src
+		LAZYREMOVE(head.implants, src)
 
 	reset_view(null)
 	machine = null

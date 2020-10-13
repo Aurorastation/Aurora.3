@@ -5,12 +5,12 @@
 
 
 // Items that ask to be called every cycle.
-var/global/list/processing_power_items   = list()
+var/global/list/processing_power_items
 var/global/list/med_hud_users            = list() // List of all entities using a medical HUD.
 var/global/list/sec_hud_users            = list() // List of all entities using a security HUD.
 var/global/list/hud_icon_reference       = list()
 var/global/list/janitorial_supplies      = list()	// List of all the janitorial supplies on the map that the PDA cart may be tracking.
-var/global/list/world_phylactery	     = list() 	//List of all phylactery in the world, used by liches
+var/global/list/world_phylactery					//List of all phylactery in the world, used by liches
 
 var/global/list/listening_objects         = list() // List of objects that need to be able to hear, used to avoid recursive searching through contents.
 
@@ -37,36 +37,29 @@ var/secret_force_mode = "secret"   // if this is anything but "secret", the secr
 
 var/host = null //only here until check @ code\modules\ghosttrap\trap.dm:112 is fixed
 
-var/list/jobMax        = list()
 var/list/bombers       = list()
 var/list/admin_log     = list()
 var/list/lastsignalers = list() // Keeps last 100 signals here in format: "[src] used \ref[src] @ location [src.loc]: [freq]/[code]"
 var/list/lawchanges    = list() // Stores who uploaded laws to which silicon-based lifeform, and what the law was.
 var/list/reg_dna       = list()
 
-var/list/monkeystart     = list()
-var/list/wizardstart     = list()
+var/list/monkeystart
 var/turf/newplayer_start = null
 
 //Spawnpoints.
 var/list/latejoin          = list()
-var/list/latejoin_gateway  = list()
+var/list/latejoin_gateway
 var/list/latejoin_cryo     = list()
 var/list/latejoin_cyborg   = list()
 var/list/latejoin_merchant = list()
 var/list/kickoffsloc = list()
 
-var/list/prisonwarp         = list() // Prisoners go to these
-var/list/holdingfacility    = list() // Captured people go here
-var/list/xeno_spawn         = list() // Aliens spawn at at these.
+var/list/prisonwarp					 // Prisoners go to these
 var/list/asteroid_spawn     = list() // Asteroid "Dungeons" spawn at these.
 var/list/tdome1             = list()
 var/list/tdome2             = list()
 var/list/tdomeobserve       = list()
 var/list/tdomeadmin         = list()
-var/list/prisonsecuritywarp = list() // Prison security goes to these.
-var/list/prisonwarped       = list() // List of players already warped.
-var/list/ninjastart         = list()
 
 var/list/cardinal    = list(NORTH, SOUTH, EAST, WEST)
 var/list/cornerdirs  = list(NORTHWEST, SOUTHEAST, NORTHEAST, SOUTHWEST)
@@ -79,9 +72,6 @@ var/list/reverse_dir = list( // reverse_dir[dir] = reverse of dir
 
 var/datum/configuration/config      = null
 
-var/list/combatlog = list()
-var/list/IClog     = list()
-var/list/OOClog    = list()
 var/list/adminlog  = list()
 
 var/Debug2 = 0

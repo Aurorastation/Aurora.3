@@ -142,7 +142,7 @@
 		affected.sever_artery()
 		affected.owner.custom_pain("You feel something rip in your [affected.name]!", 1)
 	user.drop_item()
-	affected.implants += tool
+	LAZYADD(affected.implants, tool)
 	if(istype(tool, /obj/item/device/gps))
 		var/obj/item/device/gps/gps = tool
 		moved_event.register(target, gps, /obj/item/device/gps/proc/update_position)
@@ -185,7 +185,7 @@
 	var/find_prob = 0
 	var/list/implants = list()
 
-	if(affected.implants.len)
+	if(length(affected.implants))
 		implants = affected.implants
 
 		var/obj/item/obj = pick(implants)

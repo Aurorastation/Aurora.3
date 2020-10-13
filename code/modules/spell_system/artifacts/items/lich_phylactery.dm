@@ -13,13 +13,13 @@
 
 /obj/item/phylactery/Initialize()
 	. = ..()
-	world_phylactery += src
+	LAZYADD(world_phylactery, src)
 	create_reagents(120)
 	reagents.add_reagent(/datum/reagent/toxin/undead, 120)
 
 /obj/item/phylactery/Destroy()
 	to_chat(lich, "<span class='danger'>Your phylactery was destroyed, your soul is cast into the abyss as your immortality vanishes away!</span>")
-	world_phylactery -= src
+	LAZYREMOVE(world_phylactery, src)
 	lich = null
 	return ..()
 

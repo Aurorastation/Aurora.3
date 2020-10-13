@@ -47,7 +47,8 @@
 /datum/controller/subsystem/machinery/fire(resumed = 0, no_mc_tick = FALSE)
 	if (!resumed)
 		src.working_machinery = processing_machines.Copy()
-		src.working_powersinks = processing_power_items.Copy()
+		if(length(processing_power_items))
+			working_powersinks = processing_power_items.Copy()
 		powernets_reset_yet = FALSE
 
 		// Reset accounting vars.
@@ -146,7 +147,7 @@
 		curr_powersinks.len--
 
 		if (QDELETED(I) || !I.pwr_drain())
-			processing_power_items -= I
+			LAZYREMOVE(processing_power_items, I)
 			log_debug("SSmachinery: QDELETED item [DEBUG_REF(I)] found in processing power items list.")
 
 		if (no_mc_tick)

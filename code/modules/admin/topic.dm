@@ -543,8 +543,12 @@
 			to_chat(usr, "This cannot be used on instances of type /mob/living/silicon/ai")
 			return
 
+		if(!length(prisonwarp))
+			to_chat(usr, SPAN_WARNING("There are no prisons available!"))
+			return
 		var/turf/prison_cell = pick(prisonwarp)
-		if(!prison_cell)	return
+		if(!prison_cell)
+			return
 
 		var/obj/structure/closet/secure_closet/brig/locker = new /obj/structure/closet/secure_closet/brig(prison_cell)
 		locker.opened = 0

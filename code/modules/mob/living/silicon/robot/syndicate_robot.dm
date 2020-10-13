@@ -90,7 +90,7 @@
 	name = "grenade launcher"
 	desc = "A bulky pump-action grenade launcher. Can be loaded with more grenades."
 	has_safety = FALSE
-	blacklisted_grenades = list()
+	blacklisted_grenades = null
 
 /obj/item/gun/launcher/grenade/cyborg/Initialize()
 	. = ..()

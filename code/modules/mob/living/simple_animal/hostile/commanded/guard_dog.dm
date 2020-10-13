@@ -60,7 +60,8 @@
 		var/mob/living/carbon/human/H = usr
 		if(istype(H))
 			master = usr
-			audible_emote("[pick(emote_hear)].",0)
+			if(length(emote_hear))
+				audible_emote("[pick(emote_hear)].",0)
 			playsound(src,'sound/effects/creatures/dog_bark.ogg',100, 1)
 			. = 1
 	else if(usr == master)

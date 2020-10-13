@@ -22,6 +22,9 @@
 	if(!holder)
 		to_chat(src, "Only administrators may use this command.")
 		return
+	if(!length(prisonwarp))
+		to_chat(src, SPAN_WARNING("There are no prisons available!"))
+		return
 	if (ismob(M))
 		if(istype(M, /mob/living/silicon/ai))
 			alert("The AI can't be sent to prison you jerk!", null, null, null, null, null)

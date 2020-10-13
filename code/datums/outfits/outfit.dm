@@ -209,7 +209,7 @@
 					I.imp_in = H
 					I.implanted = 1
 					var/obj/item/organ/external/affected = H.get_organ(BP_HEAD)
-					affected.implants += I
+					LAZYADD(affected.implants, I)
 					I.part = affected
 
 		if(spells)

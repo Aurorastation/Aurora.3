@@ -21,10 +21,11 @@
 		)
 
 	for(var/turf/T in range(2, get_turf(user)))
-		if(!T.has_resources)
+		if(!T.has_resources || !T.resources)
 			continue
 
-		for(var/metal in T.resources)
+		var/list/ore_resources = json_decode(T.resources)
+		for(var/metal in ore_resources)
 			var/ore_type
 
 			switch(metal)
@@ -38,7 +39,7 @@
 					ore_type = "exotic matter"
 
 			if(ore_type)
-				metals[ore_type] += T.resources[metal]
+				metals[ore_type] += ore_resources[metal]
 
 	to_chat(user, "[icon2html(src, user)] [SPAN_NOTICE("The scanner beeps and displays a readout:")]")
 

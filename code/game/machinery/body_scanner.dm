@@ -498,7 +498,7 @@
 		if (O.rejecting)
 			wounds += "Shows symptoms indicating limb rejection."
 
-		if (O.implants.len)
+		if (length(O.implants))
 			var/unk = 0
 			for (var/atom/movable/I in O.implants)
 				if (is_type_in_list(I, known_implants))
@@ -706,7 +706,7 @@
 		if(e.rejecting)
 			infected += " (being rejected)"
 
-		if (e.implants.len)
+		if (length(e.implants))
 			var/unknown_body = 0
 			for(var/I in e.implants)
 				if(is_type_in_list(I,known_implants))

@@ -91,7 +91,7 @@
 			var/obj/item/organ/external/O = pick(H.organs)
 			if(!(O.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT)) && (O.limb_flags & ORGAN_CAN_AMPUTATE))
 				var/eggs = new /obj/effect/spider/eggcluster(O, src)
-				O.implants += eggs
+				LAZYADD(O.implants, eggs)
 				to_chat(H, "<span class='warning'>The [src] injects something into your [O.name]!</span>")
 
 /mob/living/simple_animal/hostile/giant_spider/think()

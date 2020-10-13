@@ -54,16 +54,15 @@
 
 			if (!lying && !buckled && world.time - l_move_time < 15)
 			//Moving around with fractured ribs won't do you any good
-				if (prob(10) && !stat && can_feel_pain() && E.is_broken() && E.internal_organs.len)
+				if(length(E.internal_organs) && prob(10) && !stat && can_feel_pain() && E.is_broken())
 					var/obj/item/organ/I = pick(E.internal_organs)
 					custom_pain("Pain jolts through your broken [E.name]!", 50)
 					I.take_damage(rand(3,5))
 
 				//Moving makes open wounds get infected much faster
-				if (E.wounds.len)
-					for(var/datum/wound/W in E.wounds)
-						if (W.infection_check())
-							W.germ_level += 1
+				for(var/datum/wound/W in E.wounds)
+					if (W.infection_check())
+						W.germ_level += 1
 
 /mob/living/carbon/human/proc/handle_stance()
 	// Don't need to process any of this if they aren't standing anyways
@@ -183,7 +182,7 @@
 	//New are added for reagents to random organs.
 	for(var/datum/reagent/A in reagents.reagent_list)
 		var/obj/item/organ/O = pick(organs)
-		O.trace_chemicals[A.name] = 100
+		LAZYSET(O.trace_chemicals, A.name, 100)
 
 /mob/living/carbon/human/proc/sync_organ_dna()
 	var/list/all_bits = internal_organs|organs

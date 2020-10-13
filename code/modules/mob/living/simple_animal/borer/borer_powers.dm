@@ -116,7 +116,7 @@
 			else
 				// If they're in normally, implant removal can get them out.
 				var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
-				head.implants += src
+				LAZYADD(head.implants, src)
 
 		return
 	else
@@ -171,9 +171,9 @@
 	var/obj/item/organ/internal/borer/B = new(H)
 	var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 	H.internal_organs_by_name[BP_BRAIN] = B
-	affecting.internal_organs |= B
+	LAZYDISTINCTADD(affecting.internal_organs, B)
 
-	affecting.implants -= src
+	LAZYREMOVE(affecting.implants, src)
 
 	var/s2h_id = src.computer_id
 	var/s2h_ip= src.lastKnownIP

@@ -1113,7 +1113,7 @@
 					affected = organ
 					break
 	if(affected)
-		affected.implants -= implant
+		LAZYREMOVE(affected.implants, implant)
 		if(!surgical_removal)
 			shock_stage += 20
 			apply_damage((implant.w_class * 7), BRUTE, affected)

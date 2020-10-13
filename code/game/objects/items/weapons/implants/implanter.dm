@@ -54,7 +54,7 @@
 					if (ishuman(M))
 						var/mob/living/carbon/human/H = M
 						var/obj/item/organ/external/affected = H.get_organ(target_zone)
-						affected.implants += src.imp
+						LAZYADD(affected.implants, src.imp)
 						imp.part = affected
 
 						BITSET(H.hud_updateflag, IMPLOYAL_HUD)

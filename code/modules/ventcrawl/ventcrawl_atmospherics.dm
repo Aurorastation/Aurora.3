@@ -8,7 +8,7 @@
 		for(var/mob/living/M in player_list)
 			if(M.client)
 				M.client.images -= pipe_image
-				M.pipes_shown -= pipe_image
+				LAZYREMOVE(M.pipes_shown, pipe_image)
 		pipe_image = null
 	. = ..()
 

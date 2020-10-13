@@ -49,14 +49,14 @@
 	var/skin_color
 	var/hair_color
 
-	var/list/wounds = list()
-	var/list/implants = list()
+	var/list/wounds
+	var/list/implants
 	var/number_wounds = 0 // cache the number of wounds, which is NOT wounds.len!
 	var/perma_injury = 0
 
 	var/obj/item/organ/external/parent
 	var/list/obj/item/organ/external/children
-	var/list/internal_organs = list() 	// Internal organs of this body part
+	var/list/internal_organs	// Internal organs of this body part
 
 	var/damage_msg = "<span class='warning'>You feel an intense pain!</span>"
 	var/broken_description
@@ -98,9 +98,8 @@
 		for(var/obj/item/organ/external/C in children)
 			qdel(C)
 
-	if(internal_organs)
-		for(var/obj/item/organ/O in internal_organs)
-			qdel(O)
+	for(var/obj/item/organ/O in internal_organs)
+		qdel(O)
 
 	applied_pressure = null
 
@@ -231,7 +230,7 @@
 			parent.children.Add(src)
 			//Remove all stump wounds since limb is not missing anymore
 			for(var/datum/wound/lost_limb/W in parent.wounds)
-				parent.wounds -= W
+				LAZYREMOVE(parent.wounds, W)
 				qdel(W)
 				break
 			parent.update_damages()
@@ -436,7 +435,7 @@ This function completely restores a damaged organ to perfect condition.
 	brute_dam = 0
 	burn_dam = 0
 	germ_level = 0
-	wounds.Cut()
+	wounds = null
 	number_wounds = 0
 
 	// handle internal organs
@@ -447,7 +446,7 @@ This function completely restores a damaged organ to perfect condition.
 	for(var/obj/implanted_object in implants)
 		if(!istype(implanted_object,/obj/item/implant))	// We don't want to remove REAL implants. Just shrapnel etc.
 			implanted_object.forceMove(owner.loc)
-			implants -= implanted_object
+			LAZYREMOVE(implants, implanted_object)
 
 	owner.updatehealth()
 
@@ -480,7 +479,7 @@ This function completely restores a damaged organ to perfect condition.
 		owner.remove_blood_simple(fluid_loss)
 
 	// first check whether we can widen an existing wound
-	if(wounds.len > 0 && prob(max(50+(number_wounds-1)*10,90)))
+	if(length(wounds) && prob(max(50+(number_wounds-1)*10,90)))
 		if((type == CUT || type == BRUISE) && damage >= 5)
 			//we need to make sure that the wound we are going to worsen is compatible with the type of damage...
 			var/list/compatible_wounds = list()
@@ -488,7 +487,7 @@ This function completely restores a damaged organ to perfect condition.
 				if (W.can_worsen(type, damage))
 					compatible_wounds += W
 
-			if(compatible_wounds.len)
+			if(length(compatible_wounds))
 				var/datum/wound/W = pick(compatible_wounds)
 				W.open_wound(damage)
 				if(prob(25))
@@ -515,7 +514,7 @@ This function completely restores a damaged organ to perfect condition.
 				W = null // to signify that the wound was added
 				break
 		if(W)
-			wounds += W
+			LAZYADD(wounds, W)
 
 /****************************************************
 			   PROCESSING & UPDATING
@@ -558,7 +557,7 @@ This function completely restores a damaged organ to perfect condition.
 			for(var/chemID in trace_chemicals)
 				trace_chemicals[chemID] = trace_chemicals[chemID] - 1
 				if(trace_chemicals[chemID] <= 0)
-					trace_chemicals.Remove(chemID)
+					LAZYREMOVE(trace_chemicals, chemID)
 
 		//Bone fractures
 		if(config.bones_can_break && !(status & ORGAN_ROBOT) && !(status & ORGAN_PLANT) && brute_dam > min_broken_damage * config.organ_health_multiplier)
@@ -702,7 +701,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	for(var/datum/wound/W in wounds)
 		// wounds can disappear after 10 minutes at the earliest
 		if(W.damage <= 0 && W.created + 6000 <= world.time)
-			wounds -= W
+			LAZYREMOVE(wounds, W)
 			continue
 			// let the GC handle the deletion of the wound
 
@@ -864,13 +863,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(parent_organ)
 		var/datum/wound/lost_limb/W = new(src, disintegrate, clean)
 		if(clean)
-			parent_organ.wounds |= W
+			LAZYDISTINCTADD(parent_organ.wounds, W)
 			parent_organ.update_damages()
 		else
 			var/obj/item/organ/external/stump/stump = new(victim, 0, src)
 			if(status & ORGAN_ROBOT)
 				stump.robotize()
-			stump.wounds |= W
+			LAZYDISTINCTADD(stump.wounds, W)
 			victim.organs |= stump
 			stump.update_damages()
 
@@ -1116,7 +1115,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			owner.visible_message("<span class='danger'>[supplied_message]</span>")
 		else
 			owner.visible_message("<span class='danger'>\The [W] sticks in [owner]'s wound!</span>", "<span class='danger'>\The [W] sticks in your wound!</span>")
-	implants += W
+	LAZYADD(implants, W)
 	owner.embedded_flag = 1
 	owner.verbs += /mob/proc/yank_out_object
 	W.add_blood(owner)
@@ -1144,7 +1143,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			implant.forceMove(get_turf(victim.loc))
 		else
 			implant.forceMove(src)
-	implants.Cut()
+	implants = null
 
 	// Attached organs also fly off.
 	if(!ignore_children)
@@ -1249,7 +1248,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 			bone = "broken [bone]"
 		wound_descriptors["a [bone] exposed"] = 1
 
-		if(!encased || open > 1)
+		if(length(internal_organs) && (!encased || open > 1))
 			var/list/bits = list()
 			for(var/obj/item/organ/internal/organ in internal_organs)
 				bits += organ.get_visible_state()

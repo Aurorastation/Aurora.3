@@ -166,7 +166,7 @@
 	target.apply_damage(20, BRUTE, target_zone, 0, tool, damage_flags = tool.damage_flags())
 	affected.fracture()
 
-	if(affected.internal_organs && affected.internal_organs.len)
+	if(length(affected.internal_organs))
 		if(prob(40))
 			var/obj/item/organ/O = pick(affected.internal_organs) //TODO weight by organ size
 			user.visible_message(SPAN_DANGER("A wayward piece of [target]'s [affected.encased] pierces [target.get_pronoun("his")] [O.name]!"))

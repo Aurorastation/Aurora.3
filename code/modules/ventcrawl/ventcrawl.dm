@@ -15,10 +15,11 @@ var/global/list/can_enter_vent_with = list(
 	/mob/living/carbon/human
 	)
 
-/mob/living/var/list/icon/pipes_shown = list()
-/mob/living/var/last_played_vent
-/mob/living/var/is_ventcrawling = 0
-/mob/living/var/next_play_vent = 0
+/mob/living
+	var/list/icon/pipes_shown
+	var/last_played_vent
+	var/is_ventcrawling = 0
+	var/next_play_vent = 0
 
 /mob/living/proc/can_ventcrawl()
 	return 0
@@ -229,12 +230,12 @@ var/global/list/can_enter_vent_with = list(
 		for(var/obj/machinery/atmospherics/A in (pipeline.members || pipeline.edges)) // Adds pipe and manifold images
 			if(!A.pipe_image)
 				A.pipe_image = image(A, A.loc, layer = SCREEN_LAYER+0.01, dir = A.dir)
-			pipes_shown += A.pipe_image
+			LAZYADD(pipes_shown, A.pipe_image)
 			client.images += A.pipe_image
 	for (var/obj/machinery/atmospherics/V in network.normal_members) // Adds vent and scrubber images
 		if (!V.pipe_image || istype(V, /obj/machinery/atmospherics/unary/vent_pump/))
 			V.pipe_image = image(V, V.loc, layer = SCREEN_LAYER+0.01, dir = V.dir)
-		pipes_shown += V.pipe_image
+		LAZYADD(pipes_shown, V.pipe_image)
 		client.images += V.pipe_image
 
 /mob/living/proc/remove_ventcrawl()
@@ -245,4 +246,4 @@ var/global/list/can_enter_vent_with = list(
 			client.images -= current_image
 		client.eye = src
 
-	pipes_shown.len = 0
+	pipes_shown = null

@@ -53,7 +53,7 @@
 
 /obj/item/implant/Destroy()
 	if(part)
-		part.implants.Remove(src)
+		LAZYREMOVE(part.implants, src)
 	STOP_PROCESSING(SSprocessing, src)
 	implants -= src
 	return ..()
@@ -61,7 +61,7 @@
 /obj/item/implant/proc/removed()
 	imp_in = null
 	if(part)
-		part.implants -= src
+		LAZYREMOVE(part.implants, src)
 		part = null
 	implanted = 0
 

@@ -71,7 +71,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
-		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I))
+		if(I?.damage > 0 && !BP_IS_ROBOTIC(I))
 			user.visible_message("<b>[user]</b> finishes applying [tool_name] to [target]'s [I.name].", \
 				SPAN_NOTICE("You treat damage to [target]'s [I.name] with [tool_name].") )
 			I.surgical_fix(user)

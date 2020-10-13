@@ -107,12 +107,18 @@
 	//Dig out the tasty ores.
 	if(length(resource_field))
 		var/turf/harvesting = pick(resource_field)
-
 		while(length(resource_field) && !harvesting.resources)
+			harvesting.has_resources = FALSE
+			resource_field -= harvesting
+			harvesting = pick(resource_field)
+
+		var/list/harvesting_resources = json_decode(harvesting.resources)
+		while(length(resource_field) && !length(harvesting_resources))
 			harvesting.has_resources = FALSE
 			harvesting.resources = null
 			resource_field -= harvesting
 			harvesting = pick(resource_field)
+			harvesting_resources = json_decode(harvesting.resources)
 
 		if(!harvesting)
 			return
@@ -133,18 +139,18 @@
 
 			if(total_harvest <= 0)
 				break
-			if(harvesting.resources[ore])
+			if(harvesting_resources[ore])
 				found_resource = TRUE
 
 				var/create_ore = 0
-				if(harvesting.resources[ore] >= total_harvest)
-					harvesting.resources[ore] -= total_harvest
+				if(harvesting_resources[ore] >= total_harvest)
+					harvesting_resources[ore] -= total_harvest
 					create_ore = total_harvest
 					total_harvest = 0
 				else
-					total_harvest -= harvesting.resources[ore]
-					create_ore = harvesting.resources[ore]
-					harvesting.resources[ore] = 0
+					total_harvest -= harvesting_resources[ore]
+					create_ore = harvesting_resources[ore]
+					harvesting_resources[ore] = 0
 
 				for(var/i = 1, i <= create_ore, i++)
 					var/oretype = ore_types[ore]
@@ -215,9 +221,10 @@
 				var/turf/T = field
 				if(!T.resources)
 					continue
+				var/list/ore_resources = json_decode(T.resources)
 				for(var/ore in ore_types)
-					if(T.resources[ore])
-						ore_data[ore] += T.resources[ore]
+					if(ore_resources[ore])
+						ore_data[ore] += ore_resources[ore]
 			to_chat(user, SPAN_NOTICE("\The [src] has found this ore in the vicinity, and is able to gather it:"))
 			for(var/entry in ore_data)
 				to_chat(user, SPAN_NOTICE(" | <b>[entry]</b> - <b>[ore_data[entry]]</b>"))

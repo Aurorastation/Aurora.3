@@ -20,7 +20,8 @@
 		while(null in owner.internal_organs)
 			owner.internal_organs -= null
 		var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
-		if(istype(E)) E.internal_organs -= src
+		if(istype(E))
+			LAZYREMOVE(E.internal_organs, src)
 	return ..()
 
 /obj/item/organ/internal/replaced(var/mob/living/carbon/human/target, var/obj/item/organ/external/affected)
@@ -35,7 +36,7 @@
 
 	STOP_PROCESSING(SSprocessing, src)
 	target.internal_organs |= src
-	affected.internal_organs |= src
+	LAZYDISTINCTADD(affected.internal_organs, src)
 	target.internal_organs_by_name[organ_tag] = src
 	return 1
 

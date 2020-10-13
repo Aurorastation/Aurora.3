@@ -10,8 +10,8 @@
 	flags = CONDUCT
 	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
-	var/list/datum/autopsy_data_scanner/wdata = list()
-	var/list/datum/autopsy_data_scanner/chemtraces = list()
+	var/list/datum/autopsy_data_scanner/wdata
+	var/list/datum/autopsy_data_scanner/chemtraces
 	var/target_name = null
 	var/timeofdeath = null
 
@@ -38,7 +38,8 @@
 		return W
 
 /obj/item/autopsy_scanner/proc/add_data(var/obj/item/organ/external/O)
-	if(!O.autopsy_data.len && !O.trace_chemicals.len) return
+	if(!length(O.autopsy_data) && !length(O.trace_chemicals))
+		return
 
 	for(var/V in O.autopsy_data)
 		var/datum/autopsy_data/W = O.autopsy_data[V]

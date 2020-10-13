@@ -310,7 +310,7 @@
 	L.imp_in = M
 	L.implanted = 1
 	var/obj/item/organ/external/affected = M.organs_by_name[BP_HEAD]
-	affected.implants += L
+	LAZYADD(affected.implants, L)
 	L.part = affected
 	L.implanted(src)
 

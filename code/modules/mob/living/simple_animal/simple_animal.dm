@@ -15,11 +15,11 @@
 	var/icon_gib = null	//We only try to show a gibbing animation if this exists.
 	var/blood_type = "#A10808" //Blood colour for impact visuals.
 
-	var/list/speak = list()
+	var/list/speak
 	var/speak_chance = 0
-	var/list/emote_hear = list()	//Hearable emotes
-	var/list/emote_see = list()		//Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
-	var/list/emote_sounds = list()
+	var/list/emote_hear	//Hearable emotes
+	var/list/emote_see		//Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
+	var/list/emote_sounds
 	var/sound_time = TRUE
 
 	var/turns_per_move = 1
@@ -85,7 +85,7 @@
 	var/bite_factor = 0.4
 	var/digest_factor = 0.2 //A multiplier on how quickly reagents are digested
 	var/stomach_size_mult = 5
-	var/list/forbidden_foods = list()	//Foods this animal should never eat
+	var/list/forbidden_foods //Foods this animal should never eat
 
 	//Seeking/Moving behaviour vars
 	var/min_scan_interval = 1//Minimum and maximum number of procs between a scan
@@ -256,36 +256,38 @@
 
 	//Speaking
 	if(speak_chance && rand(0,200) < speak_chance)
-		if(LAZYLEN(speak))
-			if(LAZYLEN(emote_hear) || LAZYLEN(emote_see))
-				var/length = speak.len
-				if(emote_hear && emote_hear.len)
-					length += emote_hear.len
-				if(emote_see && emote_see.len)
-					length += emote_see.len
-				var/randomValue = rand(1,length)
-				if(randomValue <= speak.len)
+		if(length(speak))
+			if(length(emote_hear) || length(emote_see))
+				var/speak_length = length(speak)
+				var/emote_hear_length = length(emote_hear)
+				var/emote_see_length = length(emote_see)
+				speak_length += emote_hear_length
+				speak_length += emote_see_length
+				var/randomValue = rand(1, speak_length)
+				if(randomValue <= length(speak))
 					say(pick(speak))
 				else
-					randomValue -= speak.len
-					if(emote_see && randomValue <= emote_see.len)
+					randomValue -= length(speak)
+					if(emote_see && randomValue <= emote_see_length)
 						visible_emote("[pick(emote_see)].",0)
 					else
 						audible_emote("[pick(emote_hear)].",0)
 			else
 				say(pick(speak))
 		else
-			if(!(emote_hear && emote_hear.len) && (emote_see && emote_see.len))
+			var/emote_hear_length = length(emote_hear)
+			var/emote_see_length = length(emote_see)
+			if(!emote_hear_length && emote_see_length)
 				visible_emote("[pick(emote_see)].",0)
-			if((emote_hear && emote_hear.len) && !(emote_see && emote_see.len))
+			if(emote_hear_length && !emote_see_length)
 				audible_emote("[pick(emote_hear)].",0)
-			if((emote_hear && emote_hear.len) && (emote_see && emote_see.len))
-				var/length = emote_hear.len + emote_see.len
-				var/pick = rand(1,length)
-				if(pick <= emote_see.len)
-					visible_emote("[pick(emote_see)].",0)
+			if(emote_hear_length && emote_see_length)
+				var/length = emote_hear_length + emote_see_length
+				var/pick = rand(1, length)
+				if(pick <= emote_see_length)
+					visible_emote("[pick(emote_see)].")
 				else
-					audible_emote("[pick(emote_hear)].",0)
+					audible_emote("[pick(emote_hear)].")
 		speak_audio()
 
 	if (can_nap)
@@ -305,8 +307,9 @@
 
 /mob/living/simple_animal/proc/handle_eating()
 	var/list/food_choices = list()
+	var/has_forbidden_foods = length(forbidden_foods)
 	for(var/obj/item/reagent_containers/food/snacks/S in get_turf(src))
-		if(locate(S) in forbidden_foods)
+		if(has_forbidden_foods && is_type_in_list(S, forbidden_foods))
 			continue
 		food_choices += S
 	if(food_choices.len) //Only when sufficiently hungry
@@ -585,6 +588,9 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		to_chat(usr, SPAN_WARNING("Ability on cooldown 2 seconds."))
 		return
 
+	if(!length(emote_sounds))
+		return
+
 	playsound(src, pick(emote_sounds), 75, 1)
 	if(client)
 		sound_time = FALSE
@@ -599,7 +605,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		verb = pick(speak_emote)
 
 	message = sanitize(message)
-	if(emote_sounds.len)
+	if(length(emote_sounds))
 		var/sound_chance = TRUE
 		if(client) // we do not want people who assume direct control to spam
 			sound_chance = prob(50)

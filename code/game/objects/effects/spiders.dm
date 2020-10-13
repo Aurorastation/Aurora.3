@@ -93,7 +93,7 @@
 	STOP_PROCESSING(SSprocessing, src)
 	if(istype(loc, /obj/item/organ/external))
 		var/obj/item/organ/external/O = loc
-		O.implants -= src
+		LAZYREMOVE(O.implants, src)
 
 	return ..()
 
@@ -110,7 +110,7 @@
 		for(var/i = 0, i < num, i++)
 			var/spiderling = new /obj/effect/spider/spiderling(src.loc, src, 0.75)
 			if(O)
-				O.implants += spiderling
+				LAZYADD(O.implants, spiderling)
 		qdel(src)
 	else if (O && O.owner && prob(1))
 		if(world.time > last_itch + 30 SECONDS)
@@ -288,7 +288,7 @@
 
 	// Swarm all of the spiders out so we can gib the limb.
 	for (var/obj/effect/spider/spiderling/S in O.implants)
-		O.implants -= S
+		LAZYREMOVE(O.implants, S)
 		S.forceMove(target_loc)
 
 	// if owner, dismember the shit out of it.

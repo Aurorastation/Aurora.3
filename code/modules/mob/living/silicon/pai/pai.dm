@@ -344,7 +344,7 @@
 			for(var/obj/item/organ/external/affecting in H.organs)
 				if(card in affecting.implants)
 					affecting.take_damage(rand(30,50))
-					affecting.implants -= card
+					LAZYREMOVE(affecting.implants, card)
 					if(loud)
 						H.visible_message(SPAN_DANGER("\The [src] explodes out of \the [H]'s [affecting.name] in shower of gore!"))
 					break

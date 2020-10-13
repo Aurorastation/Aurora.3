@@ -76,7 +76,6 @@
 	return
 
 /obj/effect/energy_net/process()
-
 	if(isnull(affecting) || affecting.loc != loc)
 		qdel(src)
 		return
@@ -90,26 +89,6 @@
 	if(countdown > 0)
 		countdown--
 		return
-
-	// TODO: consider removing or altering this; energy nets are useful on their own
-	// merits and the teleportation was never properly implemented; it's halfassed.
-	density = 0
-	invisibility = 101 //Make the net invisible so all the animations can play out.
-	health = INFINITY  //Make the net invincible so that an explosion/something else won't kill it during anims.
-
-	playsound(affecting.loc, 'sound/effects/sparks4.ogg', 50, 1)
-	anim(affecting.loc,affecting,'icons/mob/mob.dmi',,"phaseout",,affecting.dir)
-
-	affecting.visible_message("[affecting] vanishes in a flare of light!")
-
-	if(holdingfacility.len)
-		affecting.forceMove(pick(holdingfacility))
-
-	to_chat(affecting, "You appear in a strange place!")
-
-	playsound(affecting.loc, 'sound/effects/phasein.ogg', 25, 1)
-	playsound(affecting.loc, 'sound/effects/sparks2.ogg', 50, 1)
-	anim(affecting.loc,affecting,'icons/mob/mob.dmi',,"phasein",,affecting.dir)
 
 	qdel(src)
 
