@@ -1,5 +1,5 @@
 /mob
-	var/list/default_emotes = list()
+	var/list/default_emotes
 	var/list/usable_emotes
 
 /mob/proc/update_emotes(var/skip_sort)

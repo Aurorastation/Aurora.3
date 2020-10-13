@@ -1,5 +1,5 @@
 /datum/species
-	var/list/default_emotes = list()
+	var/list/default_emotes
 
 /mob/living/carbon/update_emotes()
 	. = ..(skip_sort=1)
