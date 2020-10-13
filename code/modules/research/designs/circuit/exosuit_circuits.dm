@@ -15,25 +15,25 @@
 
 /datum/design/circuit/exosuit/engineering
 	name = "Engineering System Control"
-	req_tech = list('programming':1)
+	req_tech = "{'programming':1}"
 	build_path = /obj/item/circuitboard/exosystem/engineering
 
 /datum/design/circuit/exosuit/utility
 	name = "Utility System Control"
-	req_tech = list('programming':1)
+	req_tech = "{'programming':1}"
 	build_path = /obj/item/circuitboard/exosystem/utility
 
 /datum/design/circuit/exosuit/medical
 	name = "Medical System Control"
-	req_tech = list('programming':3,'biotech':2)
+	req_tech = "{'programming':3,'biotech':2}"
 	build_path = /obj/item/circuitboard/exosystem/medical
 
 /datum/design/circuit/exosuit/weapons
 	name = "Basic Weapon Control"
-	req_tech = list('programming':4)
+	req_tech = "{'programming':4}"
 	build_path = /obj/item/circuitboard/exosystem/weapons
 
 /datum/design/circuit/exosuit/advweapons
 	name = "Advanced Weapon Control"
-	req_tech = list('programming':4)
+	req_tech = "{'programming':4}"
 	build_path = /obj/item/circuitboard/exosystem/advweapons

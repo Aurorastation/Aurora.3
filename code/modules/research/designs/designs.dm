@@ -24,10 +24,10 @@ other types of metals and chemistry for reagents).
 	var/name						//Name of the created object. If null it will be 'guessed' from build_path if possible.
 	var/desc						//Description of the created object. If null it will use group_desc and name where applicable.
 	var/item_name					//An item name before it is modified by various name-modifying procs
-	var/list/req_tech = list()		//IDs of that techs the object originated from and the minimum level requirements.
+	var/req_tech		//IDs of that techs the object originated from and the minimum level requirements.
 	var/build_type					//Flag as to what kind machine the design is built in. See defines.
-	var/list/materials = list()		//List of materials. Format: "id" = amount.
-	var/list/chemicals = list()		//List of chemicals.
+	var/list/materials				//List of materials. Format: "id" = amount.
+	var/list/chemicals				//List of chemicals.
 	var/build_path					//The path of the object that gets created.
 	var/time = 10					//How many ticks it requires to build
 	var/p_category = "Misc"

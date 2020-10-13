@@ -305,7 +305,7 @@
 		var/obj/new_item = D.Fabricate(loc_offset, src)
 		visible_message("\The <b>[src]</b> pings, indicating that \the [new_item] is complete.", "You hear a ping.")
 		if(mat_efficiency != 1)
-			if(new_item.matter && new_item.matter.len > 0)
+			if(length(new_item.matter))
 				for(var/i in new_item.matter)
 					new_item.matter[i] = new_item.matter[i] * mat_efficiency
 	remove_from_queue(1)

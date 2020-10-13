@@ -86,14 +86,15 @@ research holder datum.
 //Checks to see if design has all the required pre-reqs.
 //Input: datum/design; Output: 0/1 (false/true)
 /datum/research/proc/DesignHasReqs(var/datum/design/D)
-	if(!D.req_tech.len)
+	if(!D.req_tech)
 		return TRUE
 
-	for(var/req in D.req_tech)
+	var/list/required_tech = json_decode(D.req_tech)
+	for(var/req in required_tech)
 		var/datum/tech/T = known_tech[req]
 		if(isnull(T))
 			return FALSE
-		if(T.level < D.req_tech[req])
+		if(T.level < required_tech[req])
 			return FALSE
 
 	return TRUE
@@ -176,59 +177,59 @@ research holder datum.
 /datum/tech/materials
 	name = "Materials Research"
 	desc = "Development of new and improved materials."
-	id ='materials'
+	id = "materials"
 
 /datum/tech/engineering
 	name = "Engineering Research"
 	desc = "Development of new and improved engineering parts."
-	id ='engineering'
+	id = "engineering"
 
 /datum/tech/phorontech
 	name = "Phoron Research"
 	desc = "Research into the mysterious substance colloqually known as 'phoron'."
-	id ='phorontech'
+	id = "phorontech"
 
 /datum/tech/powerstorage
 	name = "Power Manipulation Technology"
 	desc = "The various technologies behind the storage and generation of electicity."
-	id ='powerstorage'
+	id = "powerstorage"
 
 /datum/tech/bluespace
 	name = "'Blue-space' Research"
 	desc = "Research into the sub-reality known as 'blue-space'"
-	id ='bluespace'
+	id = "bluespace"
 
 /datum/tech/biotech
 	name = "Biological Technology"
 	desc = "Research into the deeper mysteries of life and organic substances."
-	id ='biotech'
+	id = "biotech"
 
 /datum/tech/combat
 	name = "Combat Systems Research"
 	desc = "The development of offensive and defensive systems."
-	id ='combat'
+	id ="combat"
 
 /datum/tech/magnets
 	name = "Electromagnetic Spectrum Research"
 	desc = "Research into the electromagnetic spectrum. No clue how they actually work, though."
-	id ='magnets'
+	id = "magnets"
 
 /datum/tech/programming
 	name = "Data Theory Research"
 	desc = "The development of new computer and artificial intelligence and data storage systems."
-	id ='programming'
+	id = "programming"
 
 /datum/tech/syndicate
 	name = "Esoteric Technologies Research"
 	desc = "The study of bleeding-edge, experimental and often restricted technologies."
-	id ='syndicate'
+	id = "syndicate"
 	antag_tech = TRUE
 	level = 0
 
 /datum/tech/arcane
 	name = "Arcane Research"
 	desc = "Research into the occult and arcane field for use in practical science"
-	id ='arcane'
+	id = "arcane"
 	antag_tech = TRUE
 	level = 0
 

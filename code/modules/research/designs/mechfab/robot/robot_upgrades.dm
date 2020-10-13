@@ -40,6 +40,6 @@
 /datum/design/item/robot_upgrade/syndicate
 	name = "Non-standard Equipment Upgrade"
 	desc = "Allows cyborg-likes to access weaponry hidden within themselves."
-	req_tech = list('combat':4,'syndicate':3)
+	req_tech = "{'combat':4,'syndicate':3}"
 	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 15000, MATERIAL_DIAMOND = 10000)
 	build_path = /obj/item/borg/upgrade/syndicate

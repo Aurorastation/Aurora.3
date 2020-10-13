@@ -6,55 +6,55 @@
 
 /datum/design/circuit/hardsuit/industrial
 	name = "Industrial Suit Central Circuit Board"
-	req_tech = list('programming':3)
+	req_tech = "{'programming':3}"
 	build_path = /obj/item/circuitboard/rig_assembly/civilian/industrial
 
 /datum/design/circuit/hardsuit/eva
 	name = "EVA suit central circuit Board"
-	req_tech = list('programming':3)
+	req_tech = "{'programming':3}"
 	build_path = /obj/item/circuitboard/rig_assembly/civilian/eva
 
 /datum/design/circuit/hardsuit/ce
 	name = "Advanced Voidsuit Central Circuit Board"
-	req_tech = list('programming':4)
+	req_tech = "{'programming':4}"
 	build_path = /obj/item/circuitboard/rig_assembly/civilian/ce
 
 /datum/design/circuit/hardsuit/hazmat
 	name = "AMI Suit Central Circuit Board"
-	req_tech = list('programming':3)
+	req_tech = "{'programming':3}"
 	build_path = /obj/item/circuitboard/rig_assembly/civilian/hazmat
 
 /datum/design/circuit/hardsuit/medical
 	name = "Rescue Suit Central Circuit Board"
-	req_tech = list('programming':3)
+	req_tech = "{'programming':3}"
 	build_path = /obj/item/circuitboard/rig_assembly/civilian/medical
 
 /datum/design/circuit/hardsuit/hazard
 	name = "Hazard Hardsuit Central Circuit Board"
-	req_tech = list('programming':4)
+	req_tech = "{'programming':4}"
 	build_path = /obj/item/circuitboard/rig_assembly/combat/hazard
 
 /datum/design/circuit/hardsuit/hazard_target
 	name = "Hazard Hardsuit Control And Targeting Board"
-	req_tech = list('programming':4,'combat':3)
+	req_tech = "{'programming':4,'combat':3}"
 	build_path = /obj/item/circuitboard/rig_assembly/combat/targeting/hazard
 
 /datum/design/circuit/hardsuit/combat
 	name = "Combat Hardsuit Central Circuit Board"
-	req_tech = list('programming':6)
+	req_tech = "{'programming':6}"
 	build_path = /obj/item/circuitboard/rig_assembly/combat/combat
 
 /datum/design/circuit/hardsuit/combat_target
 	name = "Combat Hardsuit Control And Targeting Board"
-	req_tech = list('programming':6,'combat':5)
+	req_tech = "{'programming':6,'combat':5}"
 	build_path = /obj/item/circuitboard/rig_assembly/combat/targeting/combat
 
 /datum/design/circuit/hardsuit/hacker
 	name = "Cybersuit Hardsuit Central Circuit Board"
-	req_tech = list('programming':6,'syndicate':3)
+	req_tech = "{'programming':6,'syndicate':3}"
 	build_path = /obj/item/circuitboard/rig_assembly/illegal/hacker
 
 /datum/design/circuit/hardsuit/hacker_target
 	name = "Cybersuit Hardsuit Control And Targeting Board"
-	req_tech = list('programming':6,'combat':3,'syndicate':3)
+	req_tech = "{'programming':6,'combat':3,'syndicate':3}"
 	build_path = /obj/item/circuitboard/rig_assembly/illegal/targeting/hacker

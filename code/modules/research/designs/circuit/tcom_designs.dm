@@ -1,5 +1,5 @@
 /datum/design/circuit/tcom
-	req_tech = list('programming':4,'engineering':4)
+	req_tech = "{'programming':4,'engineering':4}"
 	p_category = "Telecommunications Machinery Circuit Designs"
 
 /datum/design/circuit/tcom/server
@@ -20,20 +20,20 @@
 
 /datum/design/circuit/tcom/relay
 	name = "Relay Mainframe"
-	req_tech = list('programming':3,'engineering':4,'bluespace':3)
+	req_tech = "{'programming':3,'engineering':4,'bluespace':3}"
 	build_path = /obj/item/circuitboard/telecomms/relay
 
 /datum/design/circuit/tcom/broadcaster
 	name = "Subspace Broadcaster"
-	req_tech = list('programming':4,'engineering':4,'bluespace':2)
+	req_tech = "{'programming':4,'engineering':4,'bluespace':2}"
 	build_path = /obj/item/circuitboard/telecomms/broadcaster
 
 /datum/design/circuit/tcom/receiver
 	name = "Subspace Receiver"
-	req_tech = list('programming':4,'engineering':3,'bluespace':2)
+	req_tech = "{'programming':4,'engineering':3,'bluespace':2}"
 	build_path = /obj/item/circuitboard/telecomms/receiver
 
 /datum/design/circuit/tcom/ntnet_relay
 	name = "NTNet Quantum Relay"
-	req_tech = list('programming':4)
+	req_tech = "{'programming':4}"
 	build_path = /obj/item/circuitboard/ntnet_relay

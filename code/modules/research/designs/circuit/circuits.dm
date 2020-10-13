@@ -1,6 +1,6 @@
 /datum/design/circuit
 	build_type = IMPRINTER
-	req_tech = list('programming':2)
+	req_tech = "{'programming':2}"
 	materials = list(MATERIAL_GLASS = 2000)
 	chemicals = list(/datum/reagent/acid = 20)
 

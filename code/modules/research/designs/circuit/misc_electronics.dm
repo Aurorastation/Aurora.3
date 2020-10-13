@@ -4,5 +4,5 @@
 /datum/design/circuit/electronics/secure_airlock
 	name = "Secure Airlock Electronics"
 	desc = "Allows for the construction of a tamper-resistant airlock electronics."
-	req_tech = list('programming':3)
+	req_tech = "{'programming':3}"
 	build_path = /obj/item/airlock_electronics/secure

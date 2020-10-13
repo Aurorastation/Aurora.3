@@ -80,12 +80,7 @@
 	name = T_BOARD("radioisotope thermoelectric generator")
 	build_path = /obj/machinery/power/rtg
 	board_type = "machine"
-	origin_tech = "{
-		'engineering':3,
-		'programming':2,
-		'materials':4,
-		'powerstorage':3
-	}"
+	origin_tech = "{'engineering':3,'programming':2,'materials':4,'powerstorage':3}"
 	req_components = list(
 		"/obj/item/stack/cable_coil" = 5,
 		"/obj/item/stock_parts/capacitor" = 1,
@@ -95,13 +90,7 @@
 /obj/item/circuitboard/rtg/advanced
 	name = T_BOARD("advanced radioisotope thermoelectric generator")
 	build_path = /obj/machinery/power/rtg/advanced
-	origin_tech = "{
-		'programming':3,
-		'materials':4,
-		'powerstorage':3, 
-		'engineering':3,
-		'phorontech':3
-	}"
+	origin_tech = "{'programming':3,'materials':4,'powerstorage':3, 'engineering':3,'phorontech':3}"
 	req_components = list(
 		"/obj/item/stack/cable_coil" = 5,
 		"/obj/item/stock_parts/capacitor" = 1,

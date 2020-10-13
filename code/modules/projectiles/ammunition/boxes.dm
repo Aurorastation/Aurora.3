@@ -127,7 +127,7 @@
 /obj/item/ammo_magazine/c9mm
 	name = "ammunition box (9mm)"
 	icon_state = "9mm"
-	origin_tech = "{'combat':2)
+	origin_tech = "{'combat':2}"
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	caliber = "9mm"
 	ammo_type = /obj/item/ammo_casing/c9mm

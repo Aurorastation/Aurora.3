@@ -1,12 +1,12 @@
 /datum/design/item/pda
-	req_tech = list('engineering':2,'powerstorage':3)
+	req_tech = "{'engineering':2,'powerstorage':3}"
 	materials = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 	p_category = "PDA Designs"
 
 /datum/design/item/pda/pda
 	name = "PDA"
 	desc = "A baseline, unmodified PDA. To be given to those who lost theirs."
-	req_tech = list('engineering':2,'powerstorage':3)
+	req_tech = "{'engineering':2,'powerstorage':3}"
 	materials = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 	build_path = /obj/item/device/pda
 

@@ -4,10 +4,10 @@
 
 /datum/design/item/implant/chemical
 	name = "Chemical"
-	req_tech = list('materials':2,'biotech':3)
+	req_tech = "{'materials':2,'biotech':3}"
 	build_path = /obj/item/implantcase/chem
 
 /datum/design/item/implant/freedom
 	name = "Freedom"
-	req_tech = list('syndicate':2,'biotech':3)
+	req_tech = "{'syndicate':2,'biotech':3}"
 	build_path = /obj/item/implantcase/freedom
