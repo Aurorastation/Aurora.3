@@ -12,10 +12,8 @@
 	icon_state = "mfloor1"
 	random_icon_states = list("mfloor1", "mfloor2", "mfloor3", "mfloor4", "mfloor5", "mfloor6", "mfloor7")
 	var/base_icon = 'icons/effects/blood.dmi'
-	var/list/viruses = list()
 	blood_DNA = list()
 	var/basecolor="#A10808" // Color when wet.
-	var/list/datum/disease2/disease/virus2 = list()
 	var/amount = 5
 	var/drytime
 	var/dries = TRUE
@@ -250,8 +248,6 @@
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "mucus"
 	random_icon_states = null
-
-	var/list/datum/disease2/disease/virus2 = list()
 	var/dry = 0 // Keeps the lag down
 
 /obj/effect/decal/cleanable/mucus/Initialize()

@@ -153,7 +153,7 @@ About Reagents:
 			Could be GAS, LIQUID, or SOLID. Affects nothing. Reserved for future use.
 
 		list/data
-			Use varies by reagent. Custom variable. For example, blood stores blood group and viruses.
+			Use varies by reagent. Custom variable. For example, blood stores blood group.
 
 		volume
 			Current volume.

@@ -31,7 +31,6 @@
 	var/used = FALSE
 	var/dirtiness = 0
 	var/list/targets
-	var/list/datum/disease2/disease/viruses
 	var/image/filling //holds a reference to the current filling overlay
 	var/visible_name = "a syringe"
 	var/time = 30

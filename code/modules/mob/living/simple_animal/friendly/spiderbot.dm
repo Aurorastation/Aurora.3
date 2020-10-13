@@ -211,7 +211,7 @@
 		held_item = null
 
 	eject_brain()
-	gibs(loc, viruses, null, /obj/effect/gibspawner/robot) //TODO: use gib() or refactor spiderbots into synthetics.
+	gibs(loc, null, /obj/effect/gibspawner/robot) //TODO: use gib() or refactor spiderbots into synthetics.
 	qdel(src)
 	return
 

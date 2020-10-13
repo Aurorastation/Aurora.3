@@ -13,10 +13,9 @@
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
 	usage_flags = PROGRAM_ALL_REGULAR | PROGRAM_STATIONBOUND
 
-	var/records_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_VIRUS | RECORD_WARRANT | RECORD_LOCKED
-	var/edit_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_VIRUS | RECORD_WARRANT | RECORD_LOCKED
+	var/records_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_WARRANT | RECORD_LOCKED
+	var/edit_type = RECORD_GENERAL | RECORD_MEDICAL | RECORD_SECURITY | RECORD_WARRANT | RECORD_LOCKED
 	var/datum/record/general/active
-	var/datum/record/virus/active_virus
 	var/listener/record/rconsole/listener
 	var/isEditing = FALSE
 	var/authenticated = FALSE
@@ -41,7 +40,7 @@
 	required_access_download = access_heads
 	available_on_ntnet = TRUE
 
-	records_type = RECORD_MEDICAL | RECORD_VIRUS
+	records_type = RECORD_MEDICAL
 	edit_type = RECORD_MEDICAL
 	default_screen = "medical"
 	program_icon_state = "medical_record"
@@ -128,7 +127,6 @@
 	VUEUI_SET_CHECK(data["editable"], edit_type, ., data)
 	LAZYINITLIST(data["allrecords"])
 	LAZYINITLIST(data["allrecords_locked"])
-	LAZYINITLIST(data["record_viruses"])
 	if(authenticated)
 		if(LAZYLEN(data["allrecords"]) != SSrecords.records.len)
 			data["allrecords"] = list()
@@ -156,24 +154,6 @@
 				VUEUI_SET_CHECK(data["allrecords_locked"][R.id]["name"], R.name, ., data)
 				VUEUI_SET_CHECK(data["allrecords_locked"][R.id]["rank"], R.rank, ., data)
 
-		if(records_type & RECORD_VIRUS)
-			if(LAZYLEN(data["record_viruses"]) != SSrecords.viruses.len)
-				data["record_viruses"] = list()
-			for(var/tR in sortRecord(SSrecords.viruses))
-				var/datum/record/virus/R = tR
-				LAZYINITLIST(data["record_viruses"]["[R.id]"])
-				VUEUI_SET_CHECK(data["record_viruses"]["[R.id]"]["id"], R.id, ., data)
-				VUEUI_SET_CHECK(data["record_viruses"]["[R.id]"]["name"], R.name, ., data)
-		if(active_virus)
-			var/returned = active_virus.Listify(1, list(), data["active_virus"])
-			if(returned)
-				data["active_virus"] = returned
-				. = data
-		else
-			if(data["activeview"] == "virus")
-				VUEUI_SET_CHECK(data["activeview"], "list", ., data)
-			VUEUI_SET_CHECK(data["active_virus"], 0, ., data)
-
 		if(active)
 			if(!ui.assets["front"] || !ui.assets["side"])
 				ui.add_asset("front", active.photo_front)
@@ -194,7 +174,6 @@
 				VUEUI_SET_CHECK(data["activeview"], "list", ., data)
 			VUEUI_SET_CHECK(data["active"], 0, ., data)
 	else
-		VUEUI_SET_CHECK(data["active_virus"], 0, ., data)
 		VUEUI_SET_CHECK(data["active"], 0, ., data)
 
 /datum/computer_file/program/records/Topic(href, href_list)
@@ -212,7 +191,6 @@
 	if(href_list["logout"])
 		authenticated = FALSE
 		active = null
-		active_virus = null
 		ui.remove_asset("front")
 		ui.remove_asset("side")
 		ui.data = null
@@ -232,9 +210,6 @@
 		SSvueui.check_uis_for_change(src)
 	if(href_list["setactive_locked"] && (records_type & RECORD_LOCKED))
 		active = SSrecords.find_record("id", href_list["setactive_locked"], RECORD_GENERAL | RECORD_LOCKED)
-		SSvueui.check_uis_for_change(src)
-	if(href_list["setactive_virus"] && (records_type & RECORD_VIRUS))
-		active_virus = SSrecords.find_record("id", text2num(href_list["setactive_virus"]), RECORD_VIRUS)
 		SSvueui.check_uis_for_change(src)
 	if(href_list["editrecord"])
 		var/list/key = href_list["editrecord"]["key"]
@@ -289,7 +264,7 @@
 			isEditing = FALSE
 			. = TRUE
 	if(href_list["print"])
-		if(!(href_list["print"] in list("active", "active_virus")))
+		if(!(href_list["print"] != "active"))
 			return
 		var/datum/record/R = vars[href_list["print"]]
 		if(computer?.nano_printer && R)
@@ -306,11 +281,9 @@
 
 
 /datum/computer_file/program/records/proc/canEdit(list/key)
-	if(!(key[1] in list("active", "active_virus")))
+	if(!(key[1] != "active"))
 		return FALSE
 	if(vars[key[1]] == null)
-		return FALSE
-	if(key[1] == "active_virus" && !(edit_type & RECORD_VIRUS))
 		return FALSE
 	if(key[1] == "active")
 		switch(key[2])
@@ -336,14 +309,11 @@
 		if(t.active == r)
 			t.active = null
 			. = TRUE
-		if(t.active_virus == r)
-			t.active_virus = null
-			. = TRUE
 		if(.)
 			SSvueui.check_uis_for_change(t)
 
 /listener/record/rconsole/on_modify(var/datum/record/r)
 	var/datum/computer_file/program/records/t = target
 	if(istype(t) && !t.isEditing)
-		if(t.active == r || t.active_virus == r)
+		if(t.active == r)
 			SSvueui.check_uis_for_change(t)

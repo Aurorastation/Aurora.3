@@ -158,11 +158,6 @@
 	//set reagent data
 	B.data["donor"] = WEAKREF(src)
 	B.data["blood_DNA"] = copytext(src.dna.unique_enzymes,1,0)
-	if(src.resistances && src.resistances.len)
-		if(B.data["resistances"])
-			B.data["resistances"] |= src.resistances.Copy()
-		else
-			B.data["resistances"] = src.resistances.Copy()
 	B.data["blood_type"] = copytext(src.dna.b_type,1,0)
 
 	// Putting this here due to return shenanigans.

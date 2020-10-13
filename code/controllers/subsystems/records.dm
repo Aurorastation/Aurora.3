@@ -8,7 +8,6 @@
 	var/list/records_locked
 
 	var/list/warrants
-	var/list/viruses
 
 	var/list/excluded_fields
 	var/list/localized_fields
@@ -33,7 +32,6 @@
 	records = list()
 	records_locked = list()
 	warrants = list()
-	viruses = list()
 	excluded_fields = list()
 	localized_fields = list()
 	manifest = list()
@@ -80,12 +78,6 @@
 		"incidents" = "Incidents",
 		"comments" = "Comments"
 	)
-	localized_fields[/datum/record/virus] = list(
-		"_parent" = /datum/record,
-		"description" = "Description",
-		"antigen" = "",
-		"spread_type" = "",
-	)
 
 /datum/controller/subsystem/records/proc/generate_record(var/mob/living/carbon/human/H)
 	if(H.mind && SSjobs.ShouldCreateRecords(H.mind))
@@ -104,8 +96,6 @@
 			reset_manifest()
 		if(/datum/record/warrant)
 			warrants += record
-		if(/datum/record/virus)
-			viruses += record
 
 /datum/controller/subsystem/records/proc/update_record(var/datum/record/record)
 	switch(record.type)
@@ -116,8 +106,6 @@
 			reset_manifest()
 		if(/datum/record/warrant)
 			warrants |= record
-		if(/datum/record/virus)
-			viruses |= record
 	onModify(record)
 
 /datum/controller/subsystem/records/proc/remove_record(var/datum/record/record)
@@ -129,8 +117,6 @@
 			reset_manifest()
 		if(/datum/record/warrant)
 			warrants -= record
-		if(/datum/record/virus)
-			viruses *= record
 	onDelete(record)
 	qdel(record)
 
@@ -147,13 +133,6 @@
 		searchedList = records_locked
 	if(record_type & RECORD_WARRANT)
 		for(var/datum/record/warrant/r in warrants)
-			if(r.excluded_fields[field])
-				continue
-			if(r.vars[field] == value)
-				return r
-		return
-	if(record_type & RECORD_VIRUS)
-		for(var/datum/record/virus/r in viruses)
 			if(r.excluded_fields[field])
 				continue
 			if(r.vars[field] == value)
