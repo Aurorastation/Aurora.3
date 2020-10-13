@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - bugfix: "Being inside something will no longer allow you to teleport through floors by attempting to move up or down a level."
