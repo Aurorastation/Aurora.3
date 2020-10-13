@@ -1092,7 +1092,7 @@
 	for(var/obj/item/O in pinned)
 		if(O == implant)
 			pinned -= O
-		if(!pinned.len)
+		if(!length(pinned))
 			anchored = 0
 	implant.dropInto(loc)
 	implant.add_blood(src)

@@ -93,7 +93,7 @@
 	var/incorporeal_move = 0 //0 is off, 1 is normal, 2 is for ninjas.
 	var/lastpuke = 0
 	var/unacidable = 0
-	var/list/pinned = list()            // List of things pinning this creature to walls (see living_defense.dm)
+	var/list/pinned = null              // List of things pinning this creature to walls (see living_defense.dm)
 	var/list/embedded = list()          // Embedded items, since simple mobs don't have organs.
 	var/list/languages = list()         // For speaking/listening.
 	var/list/speak_emote = list("says") // Verbs used when speaking. Defaults to 'say' if speak_emote is null.

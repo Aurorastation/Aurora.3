@@ -24,7 +24,7 @@
 
 
 /obj/proc/buckle_mob(mob/living/M)
-	if(!can_buckle || !istype(M) || M.buckled || M.pinned.len || (buckle_require_restraints && !M.restrained()))
+	if(!can_buckle || !istype(M) || M.buckled || length(M.pinned) || (buckle_require_restraints && !M.restrained()))
 		return 0
 
 	if ((M.loc != loc) && !(density && get_dist(src, M) <= 1))

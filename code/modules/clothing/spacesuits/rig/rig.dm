@@ -917,7 +917,7 @@
 					else
 						M.stop_pulling()
 
-	if(wearer.pinned.len)
+	if(length(wearer.pinned))
 		to_chat(src, "<span class='notice'>Your host is pinned to a wall by [wearer.pinned[1]]</span>!")
 		return 0
 
