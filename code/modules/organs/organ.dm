@@ -16,6 +16,8 @@
 
 	//Organ damage stats.
 	var/damage = 0 // amount of damage to the organ
+	var/surge_damage = 0 // EMP counter.
+	var/surge_time   = 0
 	var/min_broken_damage = 30
 	var/min_bruised_damage = 10 // Damage before considered bruised
 	var/max_damage = 30
@@ -142,7 +144,6 @@
 	return max_damage > 0
 
 /obj/item/organ/process()
-
 	if(loc != owner)
 		owner = null
 
@@ -163,6 +164,12 @@
 	if ((status & ORGAN_ROBOT) || (owner && owner.species && (owner.species.flags & IS_PLANT)))
 		germ_level = 0
 		return
+
+	if((status & ORGAN_ASSISTED) && surge_damage)
+		do_surge_effects()
+		if(surge_time + 1 SECOND >= world.time)
+			surge_damage -= 10
+			surge_time = world.time
 
 	if(!owner)
 		if (QDELETED(reagents))
@@ -193,6 +200,9 @@
 	//check if we've hit max_damage
 	if(damage >= max_damage)
 		die()
+
+/obj/item/organ/proc/do_surge_effects()
+	return
 
 /obj/item/organ/examine(mob/user)
 	..(user)
@@ -323,7 +333,7 @@
 		name = initial(name)
 		icon_state = initial(icon_state)
 
-/obj/item/organ/emp_act(severity)
+/obj/item/organ/emp_act(var/severity)
 	if(!(status & ORGAN_ASSISTED))
 		return
 
@@ -334,14 +344,20 @@
 
 	switch (severity)
 		if (1.0)
-			take_damage(rand(7,20) * emp_coeff * organ_fragility)
+			take_surge_damage(rand(7,20) * emp_coeff * organ_fragility)
 		if (2.0)
-			take_damage(rand(3,7) * emp_coeff * organ_fragility)
+			take_surge_damage(rand(3,7) * emp_coeff * organ_fragility)
 		if(3.0)
-			take_damage(rand(3) * emp_coeff * organ_fragility)
+			take_surge_damage(rand(3) * emp_coeff * organ_fragility)
+
+/obj/item/organ/proc/take_surge_damage(var/surge)
+	if(!(status & ORGAN_ASSISTED))
+		return //We check earlier, but just to make sure.
+
+	surge_damage = Clamp(0, surge + surge_damage, 50) //We want 5 seconds at most of hampered movement or what have you.
+	surge_time = world.time
 
 /obj/item/organ/proc/removed(var/mob/living/carbon/human/target,var/mob/living/user)
-
 	if(!istype(owner))
 		return
 

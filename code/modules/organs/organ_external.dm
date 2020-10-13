@@ -331,6 +331,8 @@
 	if(BP_IS_ROBOTIC(src))
 		damage_amt += burn
 		cur_damage += burn_dam
+		if(laser)
+			owner.bodytemperature += burn / 5 // 30 / 5 = 6C per laser rifle shot? todomatt
 
 	if(!damage_amt)
 		return FALSE
@@ -543,12 +545,6 @@ This function completely restores a damaged organ to perfect condition.
 
 /obj/item/organ/external/process()
 	if(owner)
-		//Dismemberment
-		//if(parent && parent.is_stump()) //should never happen
-		//	warning("\The [src] ([src.type]) belonging to [owner] ([owner.type]) was attached to a stump")
-		//	remove()
-		//	return
-
 		// Process wounds, doing healing etc. Only do this every few ticks to save processing power
 		if(owner.life_tick % wound_update_accuracy == 0)
 			update_wounds()
@@ -923,7 +919,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 ****************************************************/
 
 /obj/item/organ/external/proc/is_stump()
-	return 0
+	return FALSE
 
 /obj/item/organ/external/proc/release_restraints(var/mob/living/carbon/human/holder)
 	if(!holder)
@@ -1097,7 +1093,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	return ..() && !is_dislocated() && !(status & ORGAN_TENDON_CUT) && (!can_feel_pain() || get_pain() < pain_disability_threshold) && brute_ratio < 1 && burn_ratio < 1
 
 /obj/item/organ/external/proc/is_malfunctioning()
-	if(BP_IS_ROBOTIC(src) && (brute_ratio + burn_ratio) >= 0.3 && prob(brute_dam + burn_dam))
+	if(BP_IS_ROBOTIC(src) && (brute_ratio + burn_ratio) >= 0.3 && prob(brute_dam + burn_dam) || surge_damage)
 		return TRUE
 	if(robotize_type)
 		var/datum/robolimb/R = all_robolimbs[robotize_type]
