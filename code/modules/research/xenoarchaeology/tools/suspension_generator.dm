@@ -14,7 +14,6 @@
 	var/field_type = ""
 	var/power_use = 25
 	var/obj/effect/suspension_field/suspension_field
-	var/list/secured_mobs = list()
 
 /obj/machinery/suspension_gen/Initialize()
 	. = ..()

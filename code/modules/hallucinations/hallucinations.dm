@@ -23,14 +23,14 @@
 			holder.hallucination_thought()
 		if(!(special_flags & NO_EMOTE))
 			hallucination_emote(holder)		//Always a chance to involuntarily emote to others as if on drugs
-		holder.hallucinations -= src
+		LAZYREMOVE(holder.hallucinations, src)
 	qdel(src)
 
 //Used to verify if a hallucination can be added to the list of candidates
 /datum/hallucination/proc/can_affect(mob/living/carbon/C)
 	if(!C.client)
 		return FALSE
-	if(!allow_duplicates && (locate(type) in C.hallucinations))
+	if(!allow_duplicates && is_type_in_list(src, C.hallucinations))
 		return FALSE
 	if(min_power > C.hallucination || max_power < C.hallucination)
 		return FALSE
@@ -46,7 +46,7 @@
 /datum/hallucination/proc/activate()
 	if(!holder || !holder.client)
 		return
-	holder.hallucinations += src
+	LAZYADD(holder.hallucinations, src)
 	start()
 	addtimer(CALLBACK(src, .proc/end), duration)
 

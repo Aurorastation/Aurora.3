@@ -394,7 +394,7 @@
 /datum/hallucination/talking/activate()
 	if(!holder || !holder.client)
 		return
-	holder.hallucinations += src
+	LAZYADD(holder.hallucinations, src)
 	if(holder.hallucination >= 50)
 		repeats = 3
 	start()

@@ -29,7 +29,7 @@
 	var/speed = 1	// delay of movement
 	var/facedir = 0 // if 1: atom faces the direction of movement
 	var/nostop = 0 // if 1: will only be stopped by teleporters
-	var/list/affecting = list()
+	var/list/affecting
 
 	Trigger(var/atom/A)
 		if(!A || !istype(A, /atom/movable))
@@ -46,7 +46,7 @@
 			if(immobilize)
 				M.canmove = 0
 
-		affecting.Add(AM)
+		LAZYADD(affecting, AM)
 		while(AM && !stopthrow)
 			if(tiles)
 				if(curtiles >= tiles)
@@ -74,7 +74,7 @@
 				if(!facedir)
 					AM.set_dir(predir)
 
-		affecting.Remove(AM)
+		LAZYREMOVE(affecting, AM)
 		if(ismob(AM))
 			var/mob/M = AM
 			if(immobilize)
