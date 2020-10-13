@@ -1493,11 +1493,11 @@
 			"}
 
 /obj/item/book/manual/dpra_manifesto
-	name = "in defense of al'marii’s legacy"
+	name = "in defense of al'marii's legacy"
 	desc = "A political manifesto containing the foundations of the Al'mariist ideology."
 	icon_state = "dpra-manifesto"
 	item_state = "book2"
-	title = "In Defense of Al'marii’s Legacy"
+	title = "In Defense of Al'marii's Legacy"
 	author = "Supreme Commander Nated"
 	w_class = ITEMSIZE_SMALL
 	dat = {"<html>
@@ -1526,7 +1526,7 @@
 	desc = "A political text written by King Vahzirthaamro Azunja during his occultation."
 	icon_state = "nka-manifesto"
 	item_state = "book14"
-	title = "The New Kingom"
+	title = "The New Kingdom"
 	author = "Vahzirthaamro Azunja"
 	w_class = ITEMSIZE_SMALL
 	dat = {"<html>
