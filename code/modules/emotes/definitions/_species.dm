@@ -7,8 +7,9 @@
 		for(var/emote in species.default_emotes)
 			var/decl/emote/emote_datum = decls_repository.get_decl(emote)
 			if(emote_datum.check_user(src))
-				usable_emotes[emote_datum.key] = emote_datum
-	usable_emotes = sortAssoc(usable_emotes)
+				LAZYSET(usable_emotes, emote_datum.key, emote_datum)
+	if(length(usable_emotes))
+		usable_emotes = sortAssoc(usable_emotes)
 
 // Specific defines follow.
 /datum/species/slime

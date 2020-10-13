@@ -28,7 +28,10 @@
 			return
 
 		if(act == "help")
-			to_chat(src,"<b>Usable emotes:</b> [english_list(usable_emotes)]")
+			if(!length(usable_emotes))
+				to_chat(src, SPAN_WARNING("You do not have any usable emotes!"))
+			else
+				to_chat(src,"<b>Usable emotes:</b> [english_list(usable_emotes)]")
 			return
 
 		if(!can_emote(m_type))
@@ -49,6 +52,9 @@
 				else
 					m_type = AUDIBLE_MESSAGE
 			return custom_emote(m_type, message)
+
+	if(!length(usable_emotes))
+		return
 
 	var/splitpoint = findtext(act, " ")
 	if(splitpoint > 0)

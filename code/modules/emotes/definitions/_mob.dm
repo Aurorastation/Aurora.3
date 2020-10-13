@@ -1,14 +1,14 @@
 /mob
 	var/list/default_emotes = list()
-	var/list/usable_emotes = list()
+	var/list/usable_emotes
 
 /mob/proc/update_emotes(var/skip_sort)
-	usable_emotes.Cut()
+	usable_emotes = null
 	for(var/emote in default_emotes)
 		var/decl/emote/emote_datum = decls_repository.get_decl(emote)
 		if(emote_datum.check_user(src))
-			usable_emotes[emote_datum.key] = emote_datum
-	if(!skip_sort)
+			LAZYSET(usable_emotes, emote_datum.key, emote_datum)
+	if(!skip_sort && length(usable_emotes))
 		usable_emotes = sortAssoc(usable_emotes)
 
 /mob/Initialize()
