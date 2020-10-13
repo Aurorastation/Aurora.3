@@ -107,7 +107,7 @@
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
+	origin_tech = "{'engineering':2,'programming':2,'biotech':2}"
 	power_draw_per_use = 40
 
 /obj/item/integrated_circuit/input/med_scanner/do_work()
@@ -142,7 +142,7 @@
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_BIO = 4)
+	origin_tech = "{'engineering':3,'programming':3,'biotech':4}"
 	power_draw_per_use = 80
 
 /obj/item/integrated_circuit/input/adv_med_scanner/do_work()
@@ -185,7 +185,7 @@
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT, "not scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_BIO = 4)
+	origin_tech = "{'engineering':3,'programming':3,'biotech':4}"
 	power_draw_per_use = 80
 
 /obj/item/integrated_circuit/input/examiner/do_work()
@@ -336,7 +336,7 @@
 		"on signal received" = IC_PINTYPE_PULSE_OUT
 	)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_MAGNET = 2)
+	origin_tech = "{'engineering':2,'programming':2,'magnets':2}"
 	power_draw_idle = 5
 	power_draw_per_use = 40
 
@@ -529,7 +529,7 @@
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
+	origin_tech = "{'engineering':3,'programming':3}"
 	power_draw_per_use = 60
 
 /obj/item/integrated_circuit/input/internalbm
@@ -548,7 +548,7 @@
 		)
 	activators = list("read" = IC_PINTYPE_PULSE_IN, "on read" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_POWER = 4, TECH_MAGNET = 3)
+	origin_tech = "{'engineering':4,'programming':4,'powerstorage':4,'magnets':3}"
 	power_draw_per_use = 1
 
 /obj/item/integrated_circuit/input/internalbm/do_work()
@@ -580,7 +580,7 @@
 		)
 	activators = list("read" = IC_PINTYPE_PULSE_IN, "on read" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_POWER = 4, TECH_MAGNET = 3)
+	origin_tech = "{'engineering':4,'programming':4,'powerstorage':4,'magnets':3}"
 	power_draw_per_use = 1
 
 /obj/item/integrated_circuit/input/externalbm/do_work()
@@ -655,7 +655,7 @@
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
+	origin_tech = "{'engineering':3,'programming':3}"
 	power_draw_per_use = 20
 
 /obj/item/integrated_circuit/input/pressure_sensor/do_work()
@@ -685,7 +685,7 @@
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
+	origin_tech = "{'engineering':3,'programming':3}"
 	power_draw_per_use = 20
 
 /obj/item/integrated_circuit/input/temperature_sensor/do_work()
@@ -710,7 +710,7 @@
 	complexity = 3
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
+	origin_tech = "{'engineering':3,'programming':3}"
 	power_draw_per_use = 20
 
 	var/gas_name = GAS_OXYGEN

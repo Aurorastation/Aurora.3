@@ -158,7 +158,7 @@
 	icon_state = "upgrade_disk"
 	item_state = "card-id"
 	w_class = ITEMSIZE_SMALL
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 4)
+	origin_tech = "{'engineering':3,'programming':4}"
 
 /obj/item/disk/integrated_circuit/upgrade/advanced
 	name = "integrated circuit printer upgrade disk - advanced designs"
@@ -169,4 +169,4 @@
 	name = "integrated circuit printer upgrade disk - circuit cloner"
 	desc = "Install this into your integrated circuit printer to enhance it.  This one allows the printer to duplicate assemblies."
 	icon_state = "upgrade_disk_clone"
-	origin_tech = list(TECH_ENGINEERING = 5, TECH_DATA = 6)
+	origin_tech = "{'engineering':5,'programming':6}"

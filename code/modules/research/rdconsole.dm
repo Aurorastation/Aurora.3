@@ -262,8 +262,11 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 							screen = 1.0
 							return
 
+						var/list/loaded_origin_tech = list()
+						if(linked_destroy.loaded_item.origin_tech)
+							loaded_origin_tech = json_decode(linked_destroy.loaded_item.origin_tech)
 						for(var/T in linked_destroy.loaded_item.origin_tech)
-							files.UpdateTech(T, linked_destroy.loaded_item.origin_tech[T])
+							files.UpdateTech(T, loaded_origin_tech[T])
 						if(linked_lathe && linked_destroy.loaded_item.matter) // Also sends salvaged materials to a linked protolathe, if any.
 							for(var/t in linked_destroy.loaded_item.matter)
 								if(t in linked_lathe.materials)
@@ -663,9 +666,12 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += "Name: [linked_destroy.loaded_item.name]<BR>"
 			dat += "Origin Tech:"
 			dat += "<UL>"
-			for(var/tech_id in linked_destroy.loaded_item.origin_tech)
+			var/list/loaded_origin_tech = list()
+			if(linked_destroy.loaded_item.origin_tech)
+				loaded_origin_tech = json_decode(linked_destroy.loaded_item.origin_tech)
+			for(var/tech_id in loaded_origin_tech)
 				var/datum/tech/T = files.known_tech[tech_id]
-				dat += "<LI>[capitalize_first_letters(T.name)]: \[Level: [linked_destroy.loaded_item.origin_tech[tech_id]] || Progress Contribution: [files.get_level_value(linked_destroy.loaded_item.origin_tech[tech_id])]\]"
+				dat += "<LI>[capitalize_first_letters(T.name)]: \[Level: [loaded_origin_tech[tech_id]] || Progress Contribution: [files.get_level_value(loaded_origin_tech[tech_id])]\]"
 				dat += " (Current Level: [T.level] || Current Progress: [T.next_level_progress]/[T.next_level_threshold])"
 			dat += "</UL>"
 			if(!istype(linked_destroy.loaded_item, /obj/item/stack))

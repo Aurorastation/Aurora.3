@@ -6,7 +6,7 @@
 	restricted_software = list(MECH_SOFTWARE_MEDICAL)
 	equipment_delay = 30 //don't spam it on people pls
 	active_power_use = 0 //Usage doesn't really require power. We don't want people stuck inside
-	origin_tech = list(TECH_DATA = 2, TECH_BIO = 3)
+	origin_tech = "{'programming':2,'biotech':3}"
 	passive_power_use = 25
 	var/obj/machinery/sleeper/mounted/sleeper = null
 
@@ -87,7 +87,7 @@
 	name = "crisis dronebay"
 	desc = "A small shoulder-mounted dronebay containing a rapid response drone capable of moderately stabilizing a patient near the exosuit."
 	icon_state = "med_droid"
-	origin_tech = list(TECH_PHORON = 2, TECH_MAGNET = 3, TECH_BIO = 3, TECH_DATA = 3)
+	origin_tech = "{'phorontech':2,'magnets':3,'biotech':3,'programming':3}"
 	active_power_use = 0
 	passive_power_use = 3000
 	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER)

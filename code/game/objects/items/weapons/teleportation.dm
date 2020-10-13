@@ -22,7 +22,7 @@
 	item_state = "electronic"
 	throw_speed = 4
 	throw_range = 20
-	origin_tech = list(TECH_MAGNET = 1)
+	origin_tech = "{'magnets':1}"
 	matter = list(DEFAULT_WALL_MATERIAL = 400)
 
 /obj/item/locator/attack_self(mob/user as mob)
@@ -133,7 +133,7 @@ Frequency:
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
 	throw_range = 5
-	origin_tech = list(TECH_MAGNET = 1, TECH_BLUESPACE = 3)
+	origin_tech = "{'magnets':1,'bluespace':3}"
 	matter = list(DEFAULT_WALL_MATERIAL = 10000)
 	var/list/active_teleporters = list()
 	var/held_maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>"
@@ -223,7 +223,7 @@ Frequency:
 	icon_state = "cpu_normal_photonic"
 	flags = CONDUCT
 	w_class = ITEMSIZE_SMALL
-	origin_tech = list(TECH_MAGNET = 2, TECH_BLUESPACE = 3)
+	origin_tech = "{'magnets':2,'bluespace':3}"
 	matter = list(DEFAULT_WALL_MATERIAL = 400)
 	var/obj/structure/closet/attached_closet
 	var/obj/item/closet_teleporter/linked_teleporter

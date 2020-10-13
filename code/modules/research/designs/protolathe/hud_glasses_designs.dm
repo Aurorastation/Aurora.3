@@ -3,9 +3,9 @@
 	p_category = "HUD Glasses Designs"
 
 /datum/design/item/hud/health
-	req_tech = list(TECH_BIO = 2, TECH_MAGNET = 3)
+	req_tech = list('biotech':2,'magnets':3)
 	build_path = /obj/item/clothing/glasses/hud/health
 
 /datum/design/item/hud/security
-	req_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 2)
+	req_tech = list('magnets':3,'combat':2)
 	build_path = /obj/item/clothing/glasses/hud/security

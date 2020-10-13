@@ -4,7 +4,7 @@
 	icon = 'icons/obj/guns/moistnugget.dmi'
 	icon_state = "moistnugget"
 	item_state = "moistnugget"
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':2,'materials':2}"
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	caliber = "a762"
 	ammo_type = /obj/item/ammo_casing/a762
@@ -125,7 +125,7 @@
 	icon = 'icons/obj/guns/springfield.dmi'
 	icon_state = "springfield"
 	item_state = "springfield"
-	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 3)
+	origin_tech = "{'combat':1,'materials':3}"
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	slot_flags = SLOT_BACK
 	load_method = SINGLE_CASING|SPEEDLOADER
@@ -235,7 +235,7 @@
 	icon_state = "gauss_thumper"
 	item_state = "gauss_thumper"
 	caliber = "gauss"
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':3,'materials':2}"
 	fire_sound = /decl/sound_category/gauss_fire_sound
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS

@@ -124,5 +124,5 @@
 	name = "secure airlock electronics"
 	desc = "Designed to be somewhat more resistant to hacking than standard electronics."
 	desc_info = "With these electronics, wires will be randomized and bolts will drop if the airlock is broken."
-	origin_tech = list(TECH_DATA = 2)
+	origin_tech = "{'programming':2}"
 	secure = TRUE

@@ -36,7 +36,7 @@
 	pump_restore = 1
 	pump_delay = 0.4 SECONDS
 
-	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1,TECH_MAGNET = 1,TECH_POWER = 1)
+	origin_tech = "{'materials':1,'engineering':1,'magnets':1,'powerstorage':1}"
 
 /obj/item/custom_ka_upgrade/cells/cell02
 	//Pump Action
@@ -53,7 +53,7 @@
 	pump_restore = 1
 	pump_delay = 0.3 SECONDS
 
-	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 1,TECH_MAGNET = 1,TECH_POWER = 3)
+	origin_tech = "{'materials':3,'engineering':1,'magnets':1,'powerstorage':3}"
 
 /obj/item/custom_ka_upgrade/cells/cell03
 	name = "kinetic charging KA cell"
@@ -70,7 +70,7 @@
 	pump_restore = 40
 	pump_delay = 1 SECONDS
 
-	origin_tech = list(TECH_MATERIAL = 4,TECH_ENGINEERING = 3,TECH_MAGNET = 2,TECH_POWER = 3)
+	origin_tech = "{'materials':4,'engineering':3,'magnets':2,'powerstorage':3}"
 
 /obj/item/custom_ka_upgrade/cells/cell04
 	name = "uranium charging KA cell"
@@ -88,7 +88,7 @@
 	pump_restore = 0
 	pump_delay = 0
 
-	origin_tech = list(TECH_MATERIAL = 5,TECH_ENGINEERING = 4,TECH_MAGNET = 3,TECH_POWER = 5)
+	origin_tech = "{'materials':5,'engineering':4,'magnets':3,'powerstorage':5}"
 
 /obj/item/custom_ka_upgrade/cells/cell04/on_update(var/obj/item/gun/custom_ka/the_gun)
 	stored_charge = min(stored_charge + 3,cell_increase)
@@ -109,7 +109,7 @@
 	pump_restore = 5
 	pump_delay = 0.5 SECONDS
 
-	origin_tech = list(TECH_MATERIAL = 5,TECH_ENGINEERING = 6,TECH_MAGNET = 5,TECH_POWER = 5, TECH_PHORON = 5)
+	origin_tech = "{'materials':5,'engineering':6,'magnets':5,'powerstorage':5,'phorontech':5}"
 
 	disallow_chip = TRUE
 
@@ -133,7 +133,7 @@
 	pump_restore = 0
 	pump_delay = 0
 
-	origin_tech = list()
+	origin_tech = null
 
 /obj/item/custom_ka_upgrade/cells/cyborg/on_update(var/obj/item/gun/custom_ka/the_gun)
 	var/mob/living/silicon/robot/owner_robot = the_gun.loc
@@ -162,7 +162,7 @@
 	pump_restore = 30
 	pump_delay = 0.3 SECONDS
 
-	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3,TECH_MAGNET = 3,TECH_POWER = 3, TECH_ILLEGAL = 4)
+	origin_tech = "{'materials':3,'engineering':3,'magnets':3,'powerstorage':3,'syndicate':4}"
 
 /obj/item/custom_ka_upgrade/cells/inertia_charging
 	name = "inertial charging KA cell"
@@ -180,7 +180,7 @@
 	pump_restore = 3
 	pump_delay = 0.3 SECONDS
 
-	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 5,TECH_MAGNET = 4,TECH_POWER = 6)
+	origin_tech = "{'materials':6,'engineering':5,'magnets':4,'powerstorage':6}"
 
 /obj/item/custom_ka_upgrade/cells/inertia_charging/on_update(var/obj/item/gun/custom_ka/the_gun)
 	stored_charge = min(stored_charge + round(stored_charge*0.2),cell_increase)
@@ -199,7 +199,7 @@
 	pump_restore = 0
 	pump_delay = 0
 
-	origin_tech = list(TECH_MATERIAL = 5,TECH_ENGINEERING = 6,TECH_MAGNET = 5,TECH_POWER = 6, TECH_PHORON = 5)
+	origin_tech = "{'materials':5,'engineering':6,'magnets':5,'powerstorage':6,'phorontech':5}"
 
 	var/type_to_take = "phoron"
 	var/charge_per_sheet = 100
@@ -238,7 +238,7 @@
 	pump_restore = 0
 	pump_delay = 0
 
-	origin_tech = list(TECH_MATERIAL = 5,TECH_ENGINEERING = 6,TECH_MAGNET = 5,TECH_POWER = 6)
+	origin_tech = "{'materials':5,'engineering':6,'magnets':5,'powerstorage':6}"
 
 	type_to_take = "uranium"
 	charge_per_sheet = 75
@@ -255,7 +255,7 @@
 	pump_restore = 0
 	pump_delay = 0
 
-	origin_tech = list(TECH_MATERIAL = 4,TECH_ENGINEERING = 5,TECH_MAGNET = 4,TECH_POWER = 4)
+	origin_tech = "{'materials':4,'engineering':5,'magnets':4,'powerstorage':4}"
 
 	type_to_take = "mhydrogen"
 	charge_per_sheet = 90

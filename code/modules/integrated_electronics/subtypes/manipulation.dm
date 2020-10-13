@@ -21,7 +21,7 @@
 	)
 	var/obj/item/gun/installed_gun
 	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_COMBAT = 4)
+	origin_tech = "{'engineering':3,'programming':3,'combat':4}"
 	power_draw_per_use = 50 // The targeting mechanism uses this.  The actual gun uses its own cell for firing if it's an energy weapon.
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/Destroy()
@@ -122,7 +122,7 @@
 	outputs = list()
 	activators = list("prime grenade" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_COMBAT = 4)
+	origin_tech = "{'engineering':3,'programming':3,'combat':4}"
 	var/obj/item/grenade/attached_grenade
 	var/pre_attached_grenade_type
 
@@ -183,7 +183,7 @@
 
 /obj/item/integrated_circuit/manipulation/grenade/frag
 	pre_attached_grenade_type = /obj/item/grenade/frag
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_COMBAT = 10)
+	origin_tech = "{'engineering':3,'programming':3,'combat':10}"
 	spawn_flags = null			// Used for world initializing, see the #defines above.
 
 /obj/item/integrated_circuit/manipulation/grabber
@@ -248,7 +248,7 @@
 		"fire" = IC_PINTYPE_PULSE_IN
 	)
 	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_COMBAT = 4)
+	origin_tech = "{'engineering':3,'programming':3,'combat':4}"
 	power_draw_per_use = 50
 
 /obj/item/integrated_circuit/manipulation/thrower/do_work()

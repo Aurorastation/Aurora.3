@@ -15,7 +15,7 @@
 	force = 10
 	throwforce = 7
 	w_class = ITEMSIZE_NORMAL
-	origin_tech = list(TECH_COMBAT = 4)
+	origin_tech = "{'combat':4}"
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/chainhit.ogg'
 
@@ -31,7 +31,7 @@
 	w_class = ITEMSIZE_LARGE
 	sharp = 1
 	edge = 1
-	origin_tech = list(TECH_COMBAT = 5)
+	origin_tech = "{'combat':5}"
 	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	var/active = 0
@@ -74,7 +74,7 @@
 	throw_range = 7
 	attack_verb = list("smashed", "beaten", "slammed", "smacked", "struck", "battered", "bonked")
 	w_class = ITEMSIZE_NORMAL
-	origin_tech = list(TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
+	origin_tech = "{'materials':3,'syndicate':2}"
 
 /obj/item/melee/hammer/powered
 	name = "powered hammer"
@@ -82,7 +82,7 @@
 	icon = 'icons/obj/kneehammer.dmi'
 	icon_state = "hammeron"
 	item_state = "hammeron"
-	origin_tech = list(TECH_MATERIAL = 5, TECH_ILLEGAL = 2, TECH_COMBAT = 3)
+	origin_tech = "{'materials':5,'syndicate':2,'combat':3}"
 	var/on = TRUE
 	var/trigger_chance = 30
 	var/reset_time = 30 // reset time in seconds
@@ -177,7 +177,7 @@
 	sharp = 1
 	edge = 1
 	can_embed = 0
-	origin_tech = list(TECH_COMBAT = 4)
+	origin_tech = "{'combat':4}"
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 

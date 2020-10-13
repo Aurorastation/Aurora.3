@@ -4,7 +4,7 @@
 	icon_state = "lawgiver"
 	item_state = "lawgiver"
 	has_item_ratio = FALSE
-	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5)
+	origin_tech = "{'combat':6,'magnets':5}"
 	sel_mode = 1
 	var/mode_check = 1
 	desc = "A highly advanced firearm for the modern police force. It has multiple voice-activated firing modes."

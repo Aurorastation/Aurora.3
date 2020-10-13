@@ -23,7 +23,7 @@
 	throw_speed = 1
 	throw_range = 5
 	w_class = ITEMSIZE_NORMAL
-	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 2)
+	origin_tech = "{'engineering':4,'materials':2}"
 	matter = list(DEFAULT_WALL_MATERIAL = 50000)
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
@@ -140,7 +140,7 @@
 	icon_state = "rfd"
 	item_state = "rfdammo"
 	w_class = ITEMSIZE_SMALL
-	origin_tech = list(TECH_MATERIAL = 2)
+	origin_tech = "{'materials':2}"
 	matter = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_GLASS = 15000)
 
 /*

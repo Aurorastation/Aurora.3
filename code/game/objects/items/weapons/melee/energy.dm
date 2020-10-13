@@ -135,7 +135,7 @@
 	throw_range = 10
 	w_class = ITEMSIZE_HUGE
 	flags = CONDUCT | NOBLOODY
-	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_MATERIAL = 7, TECH_ILLEGAL = 4)
+	origin_tech = "{'combat':6,'phorontech':4,'materials':7,'syndicate':4}"
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
 	sharp = 1
 	edge = 1
@@ -184,7 +184,7 @@
 	throw_range = 5
 	w_class = ITEMSIZE_NORMAL
 	flags = CONDUCT | NOBLOODY
-	origin_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 4)
+	origin_tech = "{'magnets':3,'combat':4}"
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
 	sharp = 1
 	edge = 1
@@ -224,7 +224,7 @@
 	throw_range = 5
 	w_class = ITEMSIZE_SMALL
 	flags = NOBLOODY
-	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
+	origin_tech = "{'magnets':3,'syndicate':4}"
 	sharp = 1
 	edge = 1
 	var/blade_color
@@ -301,7 +301,7 @@
 	base_block_chance = 10
 	active_force = 20
 	force = 10
-	origin_tech = list(TECH_MAGNET = 3)
+	origin_tech = "{'magnets':3}"
 
 /obj/item/melee/energy/sword/knife/activate(mob/living/user)
 	..()

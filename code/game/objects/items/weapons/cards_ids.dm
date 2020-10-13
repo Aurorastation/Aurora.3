@@ -67,7 +67,7 @@
 	name = "cryptographic sequencer"
 	icon_state = "emag"
 	item_state = "card-id"
-	origin_tech = list(TECH_MAGNET = 2, TECH_ILLEGAL = 2)
+	origin_tech = "{'magnets':2,'syndicate':2}"
 	var/uses = 10
 
 /obj/item/card/emag_broken
@@ -75,7 +75,7 @@
 	name = "broken cryptographic sequencer"
 	icon_state = "emag_broken"
 	item_state = "card-id"
-	origin_tech = list(TECH_MAGNET = 2, TECH_ILLEGAL = 2)
+	origin_tech = "{'magnets':2,'syndicate':2}"
 
 var/const/NO_EMAG_ACT = -50
 /obj/item/card/emag/resolve_attackby(atom/A, mob/user, var/click_parameters)

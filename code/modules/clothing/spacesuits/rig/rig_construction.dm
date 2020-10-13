@@ -9,7 +9,7 @@
 	var/obj/item/rig/rig_type = /obj/item/rig
 
 	flags = CONDUCT
-	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 4, TECH_POWER = 4)
+	origin_tech = "{'materials':4,'engineering':3,'magnets':4,'powerstorage':4}"
 	var/datum/construction/reversible/rig_assembly/construct
 	flags = CONDUCT
 
@@ -45,7 +45,7 @@
 	icon_state = "ce1"
 	board_type = /obj/item/circuitboard/rig_assembly/civilian/ce
 	rig_type = /obj/item/rig/ce
-	origin_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 4, TECH_POWER = 5)
+	origin_tech = "{'materials':5,'engineering':4,'magnets':4,'powerstorage':5}"
 
 /obj/item/rig_assembly/eva
 	name = "EVA suit control module assembly"
@@ -84,7 +84,7 @@
 ///////////////////////
 
 /obj/item/rig_assembly/combat
-	origin_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 4, TECH_POWER = 4, TECH_COMBAT = 4)
+	origin_tech = "{'materials':5,'engineering':4,'magnets':4,'powerstorage':4,'combat':4}"
 
 /obj/item/rig_assembly/combat/hazard
 	name = "hazard hardsuit control module"
@@ -103,14 +103,14 @@
 	rig_type = /obj/item/rig/combat
 	board_type = /obj/item/circuitboard/rig_assembly/combat/combat
 	target_board_type = /obj/item/circuitboard/rig_assembly/combat/targeting/combat
-	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 5, TECH_MAGNET = 4, TECH_POWER = 4, TECH_COMBAT = 6)
+	origin_tech = "{'materials':6,'engineering':5,'magnets':4,'powerstorage':4,'combat':6}"
 
 ////////////////////////
 ////ILLEGAL ASSEMBLY////
 ////////////////////////
 
 /obj/item/rig_assembly/combat/illegal
-	origin_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 3, TECH_POWER = 4, TECH_COMBAT = 4, TECH_ILLEGAL = 4)
+	origin_tech = "{'materials':5,'engineering':4,'magnets':3,'powerstorage':4,'combat':4,'syndicate':4}"
 
 /obj/item/rig_assembly/combat/illegal/hacker
 	name = "cybersuit control module assembly"
@@ -129,7 +129,7 @@
 	rig_type = /obj/item/rig/light/stealth
 	board_type = /obj/item/circuitboard/rig_assembly/illegal/stealth
 	target_board_type = /obj/item/circuitboard/rig_assembly/illegal/targeting/stealth
-	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 5, TECH_MAGNET = 4, TECH_POWER = 5, TECH_COMBAT = 6, TECH_ILLEGAL = 6)
+	origin_tech = "{'materials':6,'engineering':5,'magnets':4,'powerstorage':5,'combat':6,'syndicate':6}"
 
 /datum/construction/reversible/rig_assembly
 	result = null

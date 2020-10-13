@@ -203,7 +203,7 @@
 	w_class = ITEMSIZE_NORMAL
 	possible_transfer_amounts = null
 	volume = 600
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
+	origin_tech = "{'combat':3,'materials':3,'engineering':3}"
 
 /obj/item/reagent_containers/spray/chemsprayer/Spray_at(atom/A as mob|obj)
 	var/direction = get_dir(src, A)
@@ -232,7 +232,7 @@
 	icon_state = "xenoblaster"
 	item_state = "xenoblaster"
 	contained_sprite = TRUE
-	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
+	origin_tech = "{'materials':1,'engineering':1}"
 	volume = 200
 	spray_size = 3
 	spray_sizes = list(1,3)

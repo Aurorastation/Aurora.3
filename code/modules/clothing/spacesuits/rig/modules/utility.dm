@@ -733,7 +733,7 @@
 /obj/item/rig_module/cooling_unit
 	name = "mounted cooling unit"
 	toggleable = TRUE
-	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
+	origin_tech = "{'magnets':2,'materials':2,'engineering':3}"
 	interface_name = "mounted cooling unit"
 	interface_desc = "A heat sink with liquid cooled radiator."
 	icon_state = "suitcooler"

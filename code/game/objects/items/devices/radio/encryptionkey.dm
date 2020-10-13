@@ -18,32 +18,32 @@
 /obj/item/device/encryptionkey/syndicate
 	icon_state = "cypherkey"
 	additional_channels = list(CHANNEL_MERCENARY = TRUE)
-	origin_tech = list(TECH_ILLEGAL = 3)
+	origin_tech = "{'syndicate':3}"
 	desc_antag = "An encryption key that allows you to intercept comms and speak on private non-station channels. Use :t to access the private channel."
 	syndie = TRUE
 
 /obj/item/device/encryptionkey/raider
 	icon_state = "cypherkey"
 	additional_channels = list(CHANNEL_RAIDER = TRUE)
-	origin_tech = list(TECH_ILLEGAL = 2)
+	origin_tech = "{'syndicate':2}"
 	syndie = TRUE
 
 /obj/item/device/encryptionkey/burglar
 	icon_state = "cypherkey"
 	additional_channels = list(CHANNEL_BURGLAR = TRUE)
-	origin_tech = list(TECH_ILLEGAL = 2)
+	origin_tech = "{'syndicate':2}"
 	syndie = TRUE
 
 /obj/item/device/encryptionkey/ninja
 	icon_state = "cypherkey"
 	additional_channels = list(CHANNEL_NINJA = TRUE)
-	origin_tech = list(TECH_ILLEGAL = 3)
+	origin_tech = "{'syndicate':3}"
 	syndie = TRUE
 
 /obj/item/device/encryptionkey/binary
 	icon_state = "cypherkey"
 	translate_binary = TRUE
-	origin_tech = list(TECH_ILLEGAL = 3)
+	origin_tech = "{'syndicate':3}"
 
 /obj/item/device/encryptionkey/hivenet
 	name = "hivenet encryption chip"
@@ -155,7 +155,7 @@
 	name = "standard encryption key"
 	desc = "An encryption key for a radio headset. Contains cypherkeys."
 	additional_channels = list(CHANNEL_RAIDER = TRUE)
-	origin_tech = list(TECH_ILLEGAL = 2)
+	origin_tech = "{'syndicate':2}"
 	desc_antag = "An encryption key that allows you to speak on private non-station channels. Use :x to access the private channel."
 
 /obj/item/device/encryptionkey/eng_spare

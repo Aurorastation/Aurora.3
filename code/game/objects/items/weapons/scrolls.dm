@@ -13,7 +13,7 @@
 	item_state = "paper"
 	throw_speed = 4
 	throw_range = 20
-	origin_tech = list(TECH_BLUESPACE = 4)
+	origin_tech = "{'bluespace':4}"
 
 /obj/item/teleportation_scroll/attack_self(mob/living/user as mob)
 	if(!user.is_wizard())

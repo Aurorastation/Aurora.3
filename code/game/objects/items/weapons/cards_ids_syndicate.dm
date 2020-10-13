@@ -1,7 +1,7 @@
 /obj/item/card/id/syndicate
 	name = "agent card"
 	assignment = "Agent"
-	origin_tech = list(TECH_ILLEGAL = 3)
+	origin_tech = "{'syndicate':3}"
 	var/charge = 10000
 	var/electronic_warfare = FALSE
 	var/image/obfuscation_image

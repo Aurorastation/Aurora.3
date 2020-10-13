@@ -9,7 +9,7 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = ITEMSIZE_SMALL
 	force = 5
-	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2)
+	origin_tech = "{'combat':2,'magnets':2}"
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	projectile_type = /obj/item/projectile/energy/blaster
 	max_shots = 6
@@ -72,7 +72,7 @@
 	icon_state = "blaster_carbine"
 	item_state = "blaster_carbine"
 	max_shots = 12
-	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
+	origin_tech = "{'combat':3,'magnets':2}"
 	projectile_type = /obj/item/projectile/energy/blaster
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
@@ -84,7 +84,7 @@
 	icon_state = "blaster_rifle"
 	item_state = "blaster_rifle"
 	max_shots = 20
-	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
+	origin_tech = "{'combat':4,'magnets':3}"
 	projectile_type = /obj/item/projectile/energy/blaster/heavy
 
 	slot_flags = SLOT_BACK

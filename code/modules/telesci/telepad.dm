@@ -91,7 +91,7 @@
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "beacon"
 	item_state = "signaler"
-	origin_tech = list(TECH_BLUESPACE = 3)
+	origin_tech = "{'bluespace':3}"
 
 /obj/item/device/telepad_beacon/attack_self(mob/user)
 	if(user)

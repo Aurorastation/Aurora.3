@@ -2,7 +2,7 @@
 	name = "augment implanter"
 	desc = "A complex single use injector that is used to implant augments without the need for surgery."
 	w_class = ITEMSIZE_NORMAL
-	origin_tech = list(TECH_BIO = 5, TECH_MATERIAL = 2)
+	origin_tech = "{'biotech':5,'materials':2}"
 	icon = 'icons/obj/guns/decloner.dmi'
 	icon_state = "decloner"
 	item_state = "decloner"

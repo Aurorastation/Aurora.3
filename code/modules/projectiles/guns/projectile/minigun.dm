@@ -7,7 +7,7 @@
 	contained_sprite = 1
 	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
-	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 6, TECH_MAGNET = 4, TECH_ILLEGAL = 7)
+	origin_tech = "{'combat':8,'materials':6,'magnets':4,'syndicate':7}"
 	action_button_name = "Deploy the Gatling Machine Gun"
 
 	var/obj/item/gun/projectile/automatic/rifle/minigun/gun

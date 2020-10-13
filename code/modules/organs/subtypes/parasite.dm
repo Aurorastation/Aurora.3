@@ -50,7 +50,7 @@
 	parent_organ = BP_CHEST
 	stage_interval = 150
 
-	origin_tech = list(TECH_BIO = 3)
+	origin_tech = "{'biotech':3}"
 
 /obj/item/organ/internal/parasite/kois/process()
 	..()
@@ -120,7 +120,7 @@
 	parent_organ = BP_HEAD
 	var/removed_langs = 0
 	stage_interval = 150
-	origin_tech = list(TECH_BIO = 7)
+	origin_tech = "{'biotech':7}"
 
 /obj/item/organ/internal/parasite/blackkois/process()
 	..()

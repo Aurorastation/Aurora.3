@@ -6,7 +6,7 @@
 	icon_state = "flashdrive_basic"
 	hardware_size = 1
 	max_capacity = 16
-	origin_tech = list(TECH_DATA = 1)
+	origin_tech = "{'programming':1}"
 
 /obj/item/computer_hardware/hard_drive/portable/advanced
 	name = "advanced data disk"
@@ -15,7 +15,7 @@
 	icon_state = "flashdrive_advanced"
 	hardware_size = 1
 	max_capacity = 64
-	origin_tech = list(TECH_DATA = 2)
+	origin_tech = "{'programming':2}"
 
 /obj/item/computer_hardware/hard_drive/portable/super
 	name = "super data disk"
@@ -24,7 +24,7 @@
 	icon_state = "flashdrive_super"
 	hardware_size = 1
 	max_capacity = 256
-	origin_tech = list(TECH_DATA = 4)
+	origin_tech = "{'programming':4}"
 
 /obj/item/computer_hardware/hard_drive/portable/New()
 	..()

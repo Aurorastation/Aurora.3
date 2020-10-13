@@ -55,7 +55,7 @@
 	var/icon_base = "metal"                              // Wall and table base icon tag. See header.
 	var/door_icon_base = "metal"                         // Door base icon tag. See header.
 	var/icon_reinf = "reinf_metal"                       // Overlay used
-	var/list/stack_origin_tech = list(TECH_MATERIAL = 1) // Research level for stacks.
+	var/list/stack_origin_tech = "{'materials':1}" // Research level for stacks.
 	var/icon/wall_icon
 	var/icon/multipart_reinf_icon
 
@@ -261,7 +261,7 @@
 	icon_colour = "#007A00"
 	weight = 25
 	hardness = 20
-	stack_origin_tech = list(TECH_MATERIAL = 5)
+	stack_origin_tech = "{'materials':5}"
 	door_icon_base = "stone"
 	golem = SPECIES_GOLEM_URANIUM
 
@@ -278,7 +278,7 @@
 	tableslam_noise = 'sound/effects/glass_hit.ogg'
 	hitsound = 'sound/effects/glass_hit.ogg'
 	hardness = 100
-	stack_origin_tech = list(TECH_MATERIAL = 6)
+	stack_origin_tech = "{'materials':6}"
 	golem = SPECIES_GOLEM_DIAMOND
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
@@ -290,7 +290,7 @@
 	weight = 30
 	hardness = 15
 	conductivity = 41
-	stack_origin_tech = list(TECH_MATERIAL = 4)
+	stack_origin_tech = "{'materials':4}"
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	golem = SPECIES_GOLEM_GOLD
@@ -302,14 +302,14 @@
 	hardness = 50
 	conductivity = 11
 	icon_colour = "#EDD12F"
-	stack_origin_tech = list(TECH_MATERIAL = 2)
+	stack_origin_tech = "{'materials':2}"
 	golem = SPECIES_GOLEM_BRONZE
 
 /material/osmium
 	name = MATERIAL_OSMIUM
 	stack_type = /obj/item/stack/material/osmium
 	icon_colour = "#9999ff"
-	stack_origin_tech = list(TECH_MATERIAL = 5)
+	stack_origin_tech = "{'materials':5}"
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	value = 30
@@ -321,7 +321,7 @@
 	weight = 22
 	hardness = 50
 	conductivity = 63
-	stack_origin_tech = list(TECH_MATERIAL = 3)
+	stack_origin_tech = "{'materials':3}"
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	golem = SPECIES_GOLEM_SILVER
@@ -334,7 +334,7 @@
 	icon_colour = "#FC2BC5"
 	shard_type = SHARD_SHARD
 	hardness = 30
-	stack_origin_tech = list(TECH_MATERIAL = 2, TECH_PHORON = 2)
+	stack_origin_tech = "{'materials':2,'phorontech':2}"
 	door_icon_base = "stone"
 	sheet_singular_name = "crystal"
 	sheet_plural_name = "crystals"
@@ -421,7 +421,7 @@
 	weight = 23
 	protectiveness = 20 // 50%
 	conductivity = 10
-	stack_origin_tech = list(TECH_MATERIAL = 2)
+	stack_origin_tech = "{'materials':2}"
 	composite_material = list(DEFAULT_WALL_MATERIAL = 3750, "platinum" = 3750) //todo
 	golem = SPECIES_GOLEM_PLASTEEL
 	hitsound = 'sound/weapons/smash.ogg'
@@ -548,7 +548,7 @@
 	tableslam_noise = 'sound/effects/glass_hit.ogg'
 	hardness = 40
 	weight = 30
-	stack_origin_tech = list(TECH_MATERIAL = 2)
+	stack_origin_tech = "{'materials':2}"
 	composite_material = list(DEFAULT_WALL_MATERIAL = 1875, MATERIAL_GLASS = 3750)
 	window_options = list()
 	created_window = null
@@ -567,7 +567,7 @@
 	tableslam_noise = 'sound/effects/glass_hit.ogg'
 	hardness = 40
 	weight = 30
-	stack_origin_tech = list(TECH_MATERIAL = 2)
+	stack_origin_tech = "{'materials':2}"
 	composite_material = list(DEFAULT_WALL_MATERIAL = 1875, MATERIAL_GLASS = 3750)
 	window_options = list("One Direction" = 1, "Full Window" = 4, "Windoor" = 5)
 	created_window = /obj/structure/window/reinforced
@@ -581,7 +581,7 @@
 	flags = MATERIAL_BRITTLE
 	integrity = 100
 	icon_colour = "#FC2BC5"
-	stack_origin_tech = list(TECH_MATERIAL = 4)
+	stack_origin_tech = "{'materials':4}"
 	created_window = /obj/structure/window/phoronbasic
 	wire_product = null
 	rod_product = /obj/item/stack/material/glass/phoronrglass
@@ -591,12 +591,11 @@
 	name = MATERIAL_GLASS_REINFORCED_PHORON
 	display_name = "reinforced borosilicate glass"
 	stack_type = /obj/item/stack/material/glass/phoronrglass
-	stack_origin_tech = list(TECH_MATERIAL = 5)
+	stack_origin_tech = "{'materials':5}"
 	composite_material = list() //todo
 	created_window = /obj/structure/window/phoronreinforced
 	hardness = 40
 	weight = 30
-	stack_origin_tech = list(TECH_MATERIAL = 2)
 	composite_material = list() //todo
 	rod_product = null
 
@@ -611,7 +610,7 @@
 	weight = 12
 	protectiveness = 5 // 20%
 	melting_point = T0C+371 //assuming heat resistant plastic
-	stack_origin_tech = list(TECH_MATERIAL = 3)
+	stack_origin_tech = "{'materials':3}"
 	golem = SPECIES_GOLEM_PLASTIC
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
@@ -626,7 +625,7 @@
 	name = MATERIAL_OSMIUM
 	stack_type = /obj/item/stack/material/osmium
 	icon_colour = "#9999FF"
-	stack_origin_tech = list(TECH_MATERIAL = 5)
+	stack_origin_tech = "{'materials':5}"
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 
@@ -634,7 +633,7 @@
 	name = MATERIAL_TRITIUM
 	stack_type = /obj/item/stack/material/tritium
 	icon_colour = "#777777"
-	stack_origin_tech = list(TECH_MATERIAL = 5)
+	stack_origin_tech = "{'materials':5}"
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 
@@ -643,7 +642,7 @@
 	display_name = "metallic hydrogen"
 	stack_type = /obj/item/stack/material/mhydrogen
 	icon_colour = "#E6C5DE"
-	stack_origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 6, TECH_MAGNET = 5)
+	stack_origin_tech = "{'materials':6,'powerstorage':6,'magnets':5}"
 	conductivity = 100
 	golem = SPECIES_GOLEM_HYDROGEN
 
@@ -653,7 +652,7 @@
 	icon_colour = "#9999FF"
 	weight = 27
 	conductivity = 9.43
-	stack_origin_tech = list(TECH_MATERIAL = 2)
+	stack_origin_tech = "{'materials':2}"
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 
@@ -697,7 +696,7 @@
 	conductivity = 1
 	melting_point = T0C+300 //okay, not melting in this case, but hot enough to destroy wood
 	ignition_point = T0C+288
-	stack_origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
+	stack_origin_tech = "{'materials':1,'biotech':1}"
 	dooropen_noise = 'sound/effects/doorcreaky.ogg'
 	door_icon_base = "wood"
 	destruction_desc = "splinters"
@@ -774,7 +773,7 @@
 	protectiveness = 0 // 0%
 	ignition_point = T0C+232 //"the temperature at which book-paper catches fire, and burns." close enough
 	melting_point = T0C+232 //temperature at which cardboard walls would be destroyed
-	stack_origin_tech = list(TECH_MATERIAL = 1)
+	stack_origin_tech = "{'materials':1}"
 	door_icon_base = "wood"
 	destruction_desc = "crumples"
 	shatter_sound = /decl/sound_category/cardboard_break_sound
@@ -822,7 +821,7 @@
 	name = MATERIAL_LEATHER
 	icon_colour = "#5C4831"
 	stack_type = /obj/item/stack/material/leather
-	stack_origin_tech = list(TECH_MATERIAL = 2)
+	stack_origin_tech = "{'materials':2}"
 	flags = MATERIAL_PADDING
 	hardness = 1
 	weight = 1
@@ -869,7 +868,7 @@
 
 /material/cloth
 	name = MATERIAL_CLOTH
-	stack_origin_tech = list(TECH_MATERIAL = 2)
+	stack_origin_tech = "{'materials':2}"
 	door_icon_base = "wood"
 	ignition_point = T0C+232
 	melting_point = T0C+300
@@ -926,7 +925,7 @@
 
 /material/hide //TODO make different hides somewhat different among them
 	name = MATERIAL_HIDE
-	stack_origin_tech = list(TECH_MATERIAL = 2)
+	stack_origin_tech = "{'materials':2}"
 	stack_type = /obj/item/stack/material/animalhide
 	door_icon_base = "wood"
 	icon_colour = "#5C4831"
@@ -981,7 +980,7 @@
 	weight = 10
 	hardness = 20
 	integrity = 70
-	stack_origin_tech = list(TECH_MATERIAL = 2)
+	stack_origin_tech = "{'materials':2}"
 	door_icon_base = "stone"
 	protectiveness = 10 // 33%
 	golem = SPECIES_GOLEM_MEAT

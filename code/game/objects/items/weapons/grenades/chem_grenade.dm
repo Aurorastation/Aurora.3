@@ -187,7 +187,7 @@
 	icon_state = "large_grenade"
 	item_state = "largechemg"
 	allowed_containers = list(/obj/item/reagent_containers/glass)
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
+	origin_tech = "{'combat':3,'materials':3}"
 	affected_area = 4
 
 /obj/item/grenade/chem_grenade/metalfoam

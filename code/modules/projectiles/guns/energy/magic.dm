@@ -14,7 +14,7 @@
 	max_shots = 1
 	displays_maptext = TRUE
 	projectile_type = /obj/item/projectile/change
-	origin_tech = list(TECH_COMBAT = 7, TECH_MAGNET = 5, TECH_BLUESPACE = 7)
+	origin_tech = "{'combat':7,'magnets':5,'bluespace':7}"
 	self_recharge = 1
 	recharge_time = 15
 	charge_meter = 0
@@ -190,7 +190,7 @@ obj/item/gun/energy/staff/focus/attack_self(mob/living/user as mob)
 	w_class = ITEMSIZE_NORMAL
 	max_shots = 20
 	projectile_type = /obj/item/projectile/magic
-	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5, TECH_BLUESPACE = 6)
+	origin_tech = "{'combat':6,'magnets':5,'bluespace':6}"
 	charge_meter = 0
 	pin = /obj/item/device/firing_pin/magic
 	charge_failure_message = null

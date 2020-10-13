@@ -10,7 +10,7 @@
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	slot_flags = SLOT_BACK
-	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
+	origin_tech = "{'combat':8,'materials':2,'syndicate':8}"
 	caliber = "14.5mm"
 	recoil = 4 //extra kickback
 	handle_casings = HOLD_CASINGS
@@ -98,7 +98,7 @@
 	icon = 'icons/obj/guns/unathi_slugger.dmi'
 	icon_state = "slugger"
 	item_state = "slugger"
-	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 2, TECH_ILLEGAL = 4)
+	origin_tech = "{'combat':8,'materials':2,'syndicate':4}"
 	w_class = ITEMSIZE_HUGE
 	fire_sound = 'sound/effects/Explosion1.ogg'
 	caliber = "slugger"
@@ -152,7 +152,7 @@
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	slot_flags = SLOT_BACK
-	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':6,'materials':2}"
 	caliber = "PPS"
 	recoil = 1
 	silenced = 1
@@ -191,7 +191,7 @@
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	slot_flags = SLOT_BACK
-	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
+	origin_tech = "{'combat':8,'materials':3,'magnets':2,'syndicate':5}"
 	caliber = "a762"
 	recoil = 2
 	fire_sound = 'sound/weapons/gunshot/gunshot_svd.ogg'
@@ -248,7 +248,7 @@
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	slot_flags = SLOT_BACK
-	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3)
+	origin_tech = "{'combat':5,'materials':3}"
 	caliber = "a556"
 	recoil = 4
 	load_method = MAGAZINE

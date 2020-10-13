@@ -137,7 +137,7 @@
 	flags_inv = HIDEFACE
 	body_parts_covered = FACE|EYES
 	action_button_name = "Toggle MIU"
-	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 5)
+	origin_tech = "{'programming':5,'engineering':5}"
 	var/active = FALSE
 	var/mob/abstract/eye/cameranet/eye
 

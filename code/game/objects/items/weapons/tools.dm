@@ -30,7 +30,7 @@
 	force = 8
 	throwforce = 7
 	w_class = ITEMSIZE_SMALL
-	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
+	origin_tech = "{'materials':1,'engineering':1}"
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 	usesound = 'sound/items/wrench.ogg'
@@ -125,7 +125,7 @@
 	throw_speed = 2
 	throw_range = 9
 	w_class = ITEMSIZE_SMALL
-	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
+	origin_tech = "{'materials':1,'engineering':1}"
 	matter = list(DEFAULT_WALL_MATERIAL = 80)
 	attack_verb = list("pinched", "nipped")
 	sharp = TRUE
@@ -217,7 +217,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 70, MATERIAL_GLASS = 30)
 
 	//R&D tech level
-	origin_tech = list(TECH_ENGINEERING = 1)
+	origin_tech = "{'engineering':1}"
 
 	//Welding tool specific stuff
 	var/welding = 0 	//Whether or not the welding tool is off(0), on(1) or currently welding(2)
@@ -234,7 +234,7 @@
 	base_itemstate = "ind_welder"
 	max_fuel = 40
 	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 60)
-	origin_tech = list(TECH_ENGINEERING = 2)
+	origin_tech = "{'engineering':2}"
 
 /obj/item/weldingtool/hugetank
 	name = "advanced welding tool"
@@ -243,7 +243,7 @@
 	base_itemstate = "adv_welder"
 	max_fuel = 80
 	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 120)
-	origin_tech = list(TECH_ENGINEERING = 3)
+	origin_tech = "{'engineering':3}"
 
 //The Experimental Welding Tool!
 /obj/item/weldingtool/experimental
@@ -253,7 +253,7 @@
 	base_itemstate = "exp_welder"
 	max_fuel = 40
 	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 120)
-	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
+	origin_tech = "{'engineering':4,'biotech':4}"
 
 
 	var/last_gen = 0
@@ -603,7 +603,7 @@
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	usesound = /decl/sound_category/crowbar_sound
-	origin_tech = list(TECH_ENGINEERING = 1)
+	origin_tech = "{'engineering':1}"
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
 
@@ -631,7 +631,7 @@
 	force = 8
 	throwforce = 7
 	w_class = ITEMSIZE_SMALL
-	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 2)
+	origin_tech = "{'materials':1,'engineering':2}"
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 

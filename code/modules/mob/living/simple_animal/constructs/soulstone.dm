@@ -9,7 +9,7 @@
 	item_state = "electronic"
 	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
-	origin_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 4)
+	origin_tech = "{'bluespace':4,'materials':4}"
 	appearance_flags = NO_CLIENT_COLOR
 	var/imprinted = "empty"
 

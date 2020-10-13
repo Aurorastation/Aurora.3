@@ -11,7 +11,7 @@
 	slot_flags = SLOT_BELT
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	w_class = ITEMSIZE_NORMAL
-	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2)
+	origin_tech = "{'materials':2,'engineering':2}"
 
 	burst = 1
 	fire_delay = 0 	//delay after shooting before the gun can be used again
@@ -527,7 +527,7 @@
 	var/pump_restore = 0
 	var/pump_delay = 0
 	var/is_pumping = FALSE //Prevents from pumping stupidly fast do to a do_after exploit
-	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2,TECH_MAGNET = 2,TECH_POWER=2)
+	origin_tech = "{'materials':2,'engineering':2,'magnets':2,'powerstorage':2}"
 
 /obj/item/custom_ka_upgrade/barrels
 	name = null //Abstract
@@ -543,7 +543,7 @@
 	mod_limit_increase = 0
 	var/fire_sound = 'sound/weapons/kinetic_accel.ogg'
 	var/projectile_type = /obj/item/projectile/kinetic
-	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2,TECH_MAGNET = 2)
+	origin_tech = "{'materials':2,'engineering':2,'magnets':2}"
 
 /obj/item/custom_ka_upgrade/upgrade_chips
 	name = null //Abstract
@@ -557,7 +557,7 @@
 	capacity_increase = 0
 	mod_limit_increase = 0
 
-	origin_tech = list(TECH_POWER = 4,TECH_MAGNET = 4, TECH_DATA = 4)
+	origin_tech = "{'powerstorage':4,'magnets':4,'programming':4}"
 
 
 /obj/item/device/kinetic_analyzer

@@ -8,7 +8,7 @@
 		slot_r_hand_str = 'icons/mob/items/stacks/righthand_nanopaste.dmi',
 		)
 	icon_state = "tube"
-	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3)
+	origin_tech = "{'materials':4,'engineering':3}"
 	amount = 10
 
 	var/list/construction_cost = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 7000)
@@ -79,7 +79,7 @@
 	singular_name = "nanite swarm"
 	desc = "A tube of paste containing swarms of repair nanites. This one appears to contain different nanites."
 	icon_state = "tube-surge"
-	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 4, TECH_MAGNET = 5, TECH_POWER = 5, TECH_COMBAT = 3, TECH_ILLEGAL = 4)
+	origin_tech = "{'materials':4,'engineering':4,'magnets':5,'powerstorage':5,'combat':3,'syndicate':4}"
 	amount = 20
 	var/used = FALSE
 	construction_cost = null

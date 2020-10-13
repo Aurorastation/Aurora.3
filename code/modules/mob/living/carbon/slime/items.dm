@@ -8,7 +8,7 @@
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 6
-	origin_tech = list(TECH_BIO = 4)
+	origin_tech = "{'biotech':4}"
 	var/uses = 1 // uses before it goes inert
 	var/enhanced = FALSE //has it been enhanced before?
 	flags = OPENCONTAINER

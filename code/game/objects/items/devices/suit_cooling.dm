@@ -15,7 +15,7 @@
 	throw_speed = 1
 	throw_range = 4
 
-	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2)
+	origin_tech = "{'magnets':2,'materials':2}"
 
 	var/celltype = /obj/item/cell/high
 

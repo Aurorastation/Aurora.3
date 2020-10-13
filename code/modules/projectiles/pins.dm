@@ -11,7 +11,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	icon = 'icons/obj/firingpins.dmi'
 	icon_state = "firing_pin"
 	item_state = "pen"
-	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
+	origin_tech = "{'materials':2,'combat':2}"
 	flags = CONDUCT
 	w_class = ITEMSIZE_TINY
 	attack_verb = list("poked")
@@ -98,7 +98,7 @@ Pins Below.
 	fail_message = "<span class='warning'>TEST RANGE CHECK FAILED.</span>"
 	pin_replaceable = 1
 	durable = TRUE
-	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
+	origin_tech = "{'materials':2,'combat':2}"
 
 /obj/item/device/firing_pin/test_range/pin_auth(mob/living/user)
 	var/area/A = get_area(src)

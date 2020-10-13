@@ -14,7 +14,7 @@
 	equipment_delay = 5
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_CULT)
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	origin_tech = "{'materials':2,'engineering':2}"
 	var/obj/item/melee/cultblade/doomblade
 
 /obj/item/mecha_equipment/doomblade/Initialize()

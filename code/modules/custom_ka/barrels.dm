@@ -12,7 +12,7 @@
 	capacity_increase = -1
 	fire_sound = 'sound/weapons/kinetic_accel.ogg'
 	projectile_type = /obj/item/projectile/kinetic
-	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1,TECH_MAGNET = 1, TECH_PHORON = 2)
+	origin_tech = "{'materials':1,'engineering':1,'magnets':1,'phorontech':2}"
 
 /obj/item/custom_ka_upgrade/barrels/barrel02
 	name = "professional core KA power converter"
@@ -28,7 +28,7 @@
 	capacity_increase = -2
 	fire_sound = 'sound/weapons/kinetic_accel.ogg'
 	projectile_type = /obj/item/projectile/kinetic
-	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1,TECH_MAGNET = 3, TECH_PHORON = 2)
+	origin_tech = "{'materials':1,'engineering':1,'magnets':3,'phorontech':2}"
 
 /obj/item/custom_ka_upgrade/barrels/barrel03
 	name = "meteor core KA power converter"
@@ -44,7 +44,7 @@
 	capacity_increase = -3
 	fire_sound = 'sound/weapons/resonator_fire.ogg'
 	projectile_type = /obj/item/projectile/kinetic
-	origin_tech = list(TECH_MATERIAL = 4,TECH_ENGINEERING = 3,TECH_MAGNET = 3, TECH_PHORON = 3)
+	origin_tech = "{'materials':4,'engineering':3,'magnets':3,'phorontech':3}"
 
 
 /obj/item/custom_ka_upgrade/barrels/barrel04
@@ -61,7 +61,7 @@
 	capacity_increase = -4
 	fire_sound = 'sound/weapons/pulse.ogg'
 	projectile_type = /obj/item/projectile/kinetic
-	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 3,TECH_MAGNET = 5, TECH_PHORON = 4)
+	origin_tech = "{'materials':6,'engineering':3,'magnets':5,'phorontech':4}"
 
 /obj/item/custom_ka_upgrade/barrels/barrel05
 	name = "experimental core KA power converter"
@@ -77,7 +77,7 @@
 	capacity_increase = -5
 	fire_sound = 'sound/weapons/resonator_blast.ogg'
 	projectile_type = /obj/item/projectile/kinetic
-	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 5,TECH_MAGNET = 6, TECH_PHORON = 5)
+	origin_tech = "{'materials':6,'engineering':5,'magnets':6,'phorontech':5}"
 
 /obj/item/custom_ka_upgrade/barrels/illegal
 	name = "laser KA power converter"
@@ -93,7 +93,7 @@
 	capacity_increase = 0
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
 	projectile_type = /obj/item/projectile/beam/midlaser
-	origin_tech = list(TECH_MATERIAL = 4,TECH_ENGINEERING = 4,TECH_MAGNET = 4,TECH_COMBAT = 5,TECH_ILLEGAL = 5)
+	origin_tech = "{'materials':4,'engineering':4,'magnets':4,'combat':5,'syndicate':5}"
 
 /obj/item/custom_ka_upgrade/barrels/barrel02_alt
 	name = "rapid core KA power converter"
@@ -110,7 +110,7 @@
 	aoe_increase = -100
 	fire_sound = 'sound/weapons/kinetic_accel.ogg'
 	projectile_type = /obj/item/projectile/kinetic
-	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1,TECH_MAGNET = 3, TECH_PHORON = 2)
+	origin_tech = "{'materials':1,'engineering':1,'magnets':3,'phorontech':2}"
 
 /obj/item/custom_ka_upgrade/barrels/phoron
 	name = "phoron core KA power converter"
@@ -126,7 +126,7 @@
 	capacity_increase = -5
 	fire_sound = 'sound/weapons/marauder.ogg'
 	projectile_type = /obj/item/projectile/kinetic
-	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 5,TECH_MAGNET = 6, TECH_PHORON = 6)
+	origin_tech = "{'materials':6,'engineering':5,'magnets':6,'phorontech':6}"
 	disallow_chip = TRUE
 
 /obj/item/custom_ka_upgrade/barrels/supermatter
@@ -143,5 +143,5 @@
 	capacity_increase = -5
 	fire_sound = 'sound/weapons/pulse2.ogg'
 	projectile_type = /obj/item/projectile/kinetic
-	origin_tech = list(TECH_MATERIAL = 8,TECH_ENGINEERING = 8,TECH_MAGNET = 8, TECH_ILLEGAL = 8)
+	origin_tech = "{'materials':8,'engineering':8,'magnets':8,'syndicate':8}"
 	disallow_chip = TRUE

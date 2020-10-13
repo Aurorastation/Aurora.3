@@ -6,7 +6,7 @@
 
 /datum/design/circuit/exosuit_upgrade/remote
 	name = "Standard Remote Control"
-	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 4, TECH_MATERIAL = 4)
+	req_tech = list('programming':4,'engineering':4,'materials':4)
 	build_path = /obj/item/remote_mecha
 
 /datum/design/circuit/exosuit_upgrade/remote/penal
@@ -15,5 +15,5 @@
 
 /datum/design/circuit/exosuit_upgrade/remote/ai
 	name = "AI Remote Control"
-	req_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 4, TECH_MATERIAL = 4)
+	req_tech = list('programming':5,'engineering':4,'materials':4)
 	build_path = /obj/item/remote_mecha/ai

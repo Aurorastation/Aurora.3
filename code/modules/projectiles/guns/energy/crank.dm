@@ -10,7 +10,7 @@
 	accuracy_wielded = 2
 	fire_delay = 10
 	fire_delay_wielded = 8
-	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 1)
+	origin_tech = "{'combat':1,'magnets':1}"
 	projectile_type = /obj/item/projectile/beam
 	secondary_projectile_type = null
 	secondary_fire_sound = null

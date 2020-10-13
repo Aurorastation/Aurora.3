@@ -8,7 +8,7 @@
 	item_state = "colt"
 	caliber = ".45"
 	accuracy = 1
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':2,'materials':2}"
 	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
 	load_method = MAGAZINE
 
@@ -51,7 +51,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	caliber = ".45"
 	accuracy = 1
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':2,'materials':2}"
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 
@@ -96,7 +96,7 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shells = 16
 	caliber = ".45"
-	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':4,'materials':2}"
 	ammo_type = /obj/item/ammo_casing/c45
 	magazine_type = /obj/item/ammo_magazine/c45x
 	allowed_magazines = list(/obj/item/ammo_magazine/c45x)
@@ -114,7 +114,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/mc10mm)
 	caliber = "10mm"
 	accuracy = 1
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':3,'materials':2}"
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	sel_mode = 1
@@ -143,7 +143,7 @@
 	accuracy = 1
 	caliber = ".45"
 	silenced = 1
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
+	origin_tech = "{'combat':2,'materials':2,'syndicate':8}"
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c45m
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
@@ -201,7 +201,7 @@
 	accuracy = 1
 	caliber = "75"
 	fire_sound = 'sound/effects/Explosion1.ogg'
-	origin_tech = list(TECH_COMBAT = 3)
+	origin_tech = "{'combat':3}"
 	ammo_type = "/obj/item/ammo_casing/a75"
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a75
@@ -227,7 +227,7 @@
 	accuracy = 1
 	caliber = "9mm"
 	silenced = 0
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
+	origin_tech = "{'combat':2,'materials':2,'syndicate':2}"
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/mc9mm
@@ -358,7 +358,7 @@
 	ammo_type = /obj/item/ammo_casing/c10mm
 	magazine_type = /obj/item/ammo_magazine/mc10mm/leyon
 	max_shells = 5
-	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
+	origin_tech = "{'combat':1,'materials':1}"
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = SINGLE_CASING|SPEEDLOADER
 

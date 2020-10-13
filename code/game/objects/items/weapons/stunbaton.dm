@@ -15,7 +15,7 @@
 	w_class = ITEMSIZE_NORMAL
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
 	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
-	origin_tech = list(TECH_COMBAT = 2)
+	origin_tech = "{'combat':2}"
 	attack_verb = list("beaten")
 	var/stunforce = 0
 	var/agonyforce = 70
@@ -261,7 +261,7 @@
 	agonyforce = 80
 	hitcost = 1000
 	baton_color = "#75ACFF"
-	origin_tech = list(TECH_COMBAT = 4, TECH_ILLEGAL = 2)
+	origin_tech = "{'combat':4,'syndicate':2}"
 	contained_sprite = 1
 	sheathed = 0
 

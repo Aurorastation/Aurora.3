@@ -2,7 +2,7 @@
 	name = "dociler"
 	desc = "A complex single use recharging injector that spreads a complex neurological serum that makes animals docile and friendly. Somewhat."
 	w_class = ITEMSIZE_NORMAL
-	origin_tech = list(TECH_BIO = 5, TECH_MATERIAL = 2)
+	origin_tech = "{'biotech':5,'materials':2}"
 	// To-do track down where the hell this sprite went?
 	icon = 'icons/obj/guns/decloner.dmi'
 	icon_state = "decloner"

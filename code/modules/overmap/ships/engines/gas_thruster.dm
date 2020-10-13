@@ -205,7 +205,7 @@
 	name = T_BOARD("gas thruster")
 	icon_state = "mcontroller"
 	build_path = /obj/machinery/atmospherics/unary/engine
-	origin_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 2)
+	origin_tech = "{'powerstorage':1,'engineering':2}"
 	req_components = list(
 		/obj/item/stack/cable_coil = 30,
 		/obj/item/pipe = 2)

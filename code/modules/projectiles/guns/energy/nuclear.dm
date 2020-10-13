@@ -19,7 +19,7 @@
 	turret_is_lethal = 0
 
 	projectile_type = /obj/item/projectile/beam/stun
-	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
+	origin_tech = "{'combat':3,'magnets':2}"
 	modifystate = "energystun"
 
 	firemodes = list(
@@ -44,7 +44,7 @@
 	icon = 'icons/obj/guns/nucgun.dmi'
 	icon_state = "nucgun"
 	item_state = "nucgun"
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 5, TECH_POWER = 3)
+	origin_tech = "{'combat':3,'materials':5,'powerstorage':3}"
 	slot_flags = SLOT_BELT
 	force = 8 //looks heavier than a pistol
 	self_recharge = 1
@@ -141,7 +141,7 @@
 	turret_is_lethal = 0
 
 	projectile_type = /obj/item/projectile/beam/stun
-	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
+	origin_tech = "{'combat':3,'magnets':2}"
 	modifystate = "epistolstun"
 
 	firemodes = list(
@@ -167,7 +167,7 @@
 	can_switch_modes = TRUE
 
 	projectile_type = /obj/item/projectile/beam/stun
-	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
+	origin_tech = "{'combat':4,'magnets':3}"
 	modifystate = "hegemony_pistol"
 
 	firemodes = list(

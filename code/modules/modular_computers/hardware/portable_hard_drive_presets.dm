@@ -14,7 +14,7 @@
 
 /obj/item/computer_hardware/hard_drive/portable/backup
 	var/_program			//Change that far to the file name of the backup program you would like to spawn
-	origin_tech = list()	//Nope, no research levels from backup disks
+	origin_tech = null	//Nope, no research levels from backup disks
 
 /obj/item/computer_hardware/hard_drive/portable/backup/New(loc, var/prog_name)
 	. = ..()

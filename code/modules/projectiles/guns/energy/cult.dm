@@ -34,7 +34,7 @@
 	var/does_process = TRUE
 
 	matter = null
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_MAGNET = 3, TECH_ARCANE = 2, TECH_ILLEGAL = 3)
+	origin_tech = "{'combat':3,'materials':2,'magnets':3,'arcane':2,'syndicate':3}"
 
 	is_wieldable = TRUE // see if i can get a sprite for this
 

@@ -27,7 +27,7 @@
 	item_state = "stunrevolver"
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)
+	origin_tech = "{'combat':3,'materials':3,'powerstorage':2}"
 	projectile_type = /obj/item/projectile/energy/electrode
 	max_shots = 8
 
@@ -44,7 +44,7 @@
 	item_state = "crossbow"
 	has_item_ratio = FALSE
 	w_class = ITEMSIZE_SMALL
-	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
+	origin_tech = "{'combat':2,'magnets':2,'syndicate':5}"
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	slot_flags = SLOT_BELT
 	silenced = 1

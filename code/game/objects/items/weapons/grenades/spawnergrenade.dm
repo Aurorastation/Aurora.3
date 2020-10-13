@@ -4,7 +4,7 @@
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "delivery"
 	item_state = "flashbang"
-	origin_tech = list(TECH_MATERIAL = 3, TECH_MAGNET = 4)
+	origin_tech = "{'materials':3,'magnets':4}"
 	var/flash = TRUE // this var handles whether we blind people when we explode
 	var/banglet = 0
 	var/spawner_type = null // must be an object path
@@ -44,14 +44,14 @@
 	desc = "It is set to detonate in 5 seconds. It will unleash a swarm of deadly manhack robots that will attack everyone but you and your allies."
 	spawner_type = /mob/living/simple_animal/hostile/viscerator
 	deliveryamt = 5 //Five seems a bit much, but we'll keep it as-is.
-	origin_tech = list(TECH_MATERIAL = 3, TECH_MAGNET = 4, TECH_ILLEGAL = 4)
+	origin_tech = "{'materials':3,'magnets':4,'syndicate':4}"
 	flash = FALSE
 
 /obj/item/grenade/spawnergrenade/spesscarp
 	name = "carp delivery grenade"
 	spawner_type = /mob/living/simple_animal/hostile/carp
 	deliveryamt = 5
-	origin_tech = list(TECH_MATERIAL = 3, TECH_MAGNET = 4, TECH_ILLEGAL = 4)
+	origin_tech = "{'materials':3,'magnets':4,'syndicate':4}"
 
 /obj/item/grenade/spawnergrenade/singularity
 	name = "singularity grenade"
@@ -62,7 +62,7 @@
 	fake = TRUE
 
 /obj/item/grenade/spawnergrenade/fake_carp
-	origin_tech = list(TECH_MATERIAL = 2, TECH_MAGNET = 2, TECH_BLUESPACE = 5)
+	origin_tech = "{'materials':2,'magnets':2,'bluespace':5}"
 	spawner_type = /mob/living/simple_animal/hostile/carp/holodeck
 	deliveryamt = 4
 	fake = TRUE

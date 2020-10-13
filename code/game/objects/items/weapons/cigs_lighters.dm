@@ -35,7 +35,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/smoketime = 5
 	var/type_burnt = /obj/item/trash/match
 	w_class = ITEMSIZE_TINY
-	origin_tech = list(TECH_MATERIAL = 1)
+	origin_tech = "{'materials':1}"
 	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("burnt", "singed")
 	drop_sound = 'sound/items/drop/food.ogg'

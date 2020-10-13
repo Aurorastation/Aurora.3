@@ -11,7 +11,7 @@
 	center_of_mass = null
 	throwforce = 0
 	w_class = ITEMSIZE_NORMAL
-	origin_tech = list(TECH_ENGINEERING = 2)
+	origin_tech = "{'engineering':2}"
 	matter = list(DEFAULT_WALL_MATERIAL = 18750)
 	var/deployed = FALSE
 	var/time_to_escape = 60
@@ -170,7 +170,7 @@
 	throwforce = 2
 	force = 1
 	w_class = ITEMSIZE_SMALL
-	origin_tech = list(TECH_ENGINEERING = 1)
+	origin_tech = "{'engineering':1}"
 	matter = list(DEFAULT_WALL_MATERIAL = 1750)
 	deployed = FALSE
 	time_to_escape = 3 // Minutes
@@ -534,7 +534,7 @@
 	throwforce = 4
 	force = 5
 	w_class = ITEMSIZE_LARGE
-	origin_tech = list(TECH_ENGINEERING = 3)
+	origin_tech = "{'engineering':3}"
 	matter = list(DEFAULT_WALL_MATERIAL = 5750)
 	deployed = FALSE
 	resources = list(rods = 12)
@@ -556,7 +556,7 @@
 	force = 10
 	w_class = 6
 	density = 1
-	origin_tech = list(TECH_ENGINEERING = 3)
+	origin_tech = "{'engineering':3}"
 	matter = list(DEFAULT_WALL_MATERIAL = 15750)
 	deployed = FALSE
 	resources = list(rods = 12, metal = 4)

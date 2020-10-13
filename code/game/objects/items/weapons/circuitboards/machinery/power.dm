@@ -6,14 +6,14 @@
 	name = T_BOARD("superconductive magnetic energy storage")
 	build_path = /obj/machinery/power/smes/buildable
 	board_type = "machine"
-	origin_tech = list(TECH_POWER = 6, TECH_ENGINEERING = 4)
+	origin_tech = "{'powerstorage':6,'engineering':4}"
 	req_components = list("/obj/item/smes_coil" = 1, "/obj/item/stack/cable_coil" = 30)
 
 /obj/item/circuitboard/batteryrack
 	name = T_BOARD("battery rack PSU")
 	build_path = /obj/machinery/power/smes/batteryrack
 	board_type = "machine"
-	origin_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 2)
+	origin_tech = "{'powerstorage':3,'engineering':2}"
 	req_components = list("/obj/item/cell" = 3)
 
 /obj/item/circuitboard/ghettosmes

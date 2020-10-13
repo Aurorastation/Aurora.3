@@ -17,7 +17,7 @@
 	w_class = ITEMSIZE_LARGE
 	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 14 //enough to hold all starting contents
-	origin_tech = list(TECH_COMBAT = 1)
+	origin_tech = "{'combat':1}"
 	attack_verb = list("robusted")
 	use_sound = 'sound/items/storage/toolbox.ogg'
 	drop_sound = 'sound/items/drop/toolbox.ogg'
@@ -113,7 +113,7 @@
 	name = "suspicious looking toolbox"
 	icon_state = "syndicate"
 	item_state = "toolbox_syndi"
-	origin_tech = list(TECH_COMBAT = 1, TECH_ILLEGAL = 1)
+	origin_tech = "{'combat':1,'syndicate':1}"
 	force = 7.0
 	starts_with = list(\
 		/obj/item/clothing/gloves/yellow = 1,\

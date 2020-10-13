@@ -8,7 +8,7 @@
 	w_class = ITEMSIZE_NORMAL
 	capacity_increase = 3
 	mod_limit_increase = 2
-	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 1)
+	origin_tech = "{'materials':1,'engineering':1}"
 
 /obj/item/gun/custom_ka/frame02
 	name = "light kinetic accelerator frame"
@@ -20,7 +20,7 @@
 	recoil_increase = -1
 	capacity_increase = 5
 	mod_limit_increase = 3
-	origin_tech = list(TECH_MATERIAL = 1,TECH_ENGINEERING = 3)
+	origin_tech = "{'materials':1,'engineering':3}"
 
 /obj/item/gun/custom_ka/frame03
 	name = "medium kinetic accelerator frame"
@@ -32,7 +32,7 @@
 	recoil_increase = -2
 	capacity_increase = 7
 	mod_limit_increase = 4
-	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3)
+	origin_tech = "{'materials':3,'engineering':3}"
 
 /obj/item/gun/custom_ka/frame04
 	name = "heavy kinetic accelerator frame"
@@ -44,7 +44,7 @@
 	recoil_increase = -5
 	capacity_increase = 9
 	mod_limit_increase = 5
-	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 5)
+	origin_tech = "{'materials':3,'engineering':5}"
 	require_wield = TRUE
 
 /obj/item/gun/custom_ka/frame05
@@ -57,7 +57,7 @@
 	recoil_increase = -6
 	capacity_increase = 10
 	mod_limit_increase = 5
-	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 6)
+	origin_tech = "{'materials':6,'engineering':6}"
 	require_wield = TRUE
 
 /obj/item/gun/custom_ka/cyborg
@@ -69,7 +69,7 @@
 	recoil_increase = -10 //Cyborgs are STRONG
 	capacity_increase = 100
 	mod_limit_increase = 100
-	origin_tech = list()
+	origin_tech = null
 	can_disassemble_cell = FALSE
 	cyborg_maptext_override = TRUE
 
@@ -84,7 +84,7 @@
 	item_state = "compact"
 	w_class = ITEMSIZE_NORMAL
 	desc = "A very specialized kinetic accelerator frame that can hold moderately powerful parts, however it contains special heat sink technology that allows the weapon to fire faster."
-	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3)
+	origin_tech = "{'materials':3,'engineering':3}"
 	damage_increase = 0
 	firedelay_increase = -0.125 SECONDS //How long it takes for the weapon to fire, in deciseconds.
 	range_increase = 1
@@ -106,7 +106,7 @@
 	recoil_increase = -5
 	capacity_increase = 100 //Fit anything
 	mod_limit_increase = 100 //Fit anything
-	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 6)
+	origin_tech = "{'materials':6,'engineering':6}"
 	require_wield = TRUE
 	slot_flags = 0
 
@@ -120,7 +120,7 @@
 	recoil_increase = -10
 	capacity_increase = 9
 	mod_limit_increase = 5
-	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 5)
+	origin_tech = "{'materials':3,'engineering':5}"
 
 /obj/item/gun/custom_ka/frameD
 	name = "burst fire kinetic accelerator frame"
@@ -134,7 +134,7 @@
 	capacity_increase = 10
 	mod_limit_increase = 5
 	burst = 3
-	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 6)
+	origin_tech = "{'materials':6,'engineering':6}"
 	require_wield = TRUE
 
 /obj/item/gun/custom_ka/frameE
@@ -147,7 +147,7 @@
 	recoil_increase = -20
 	capacity_increase = 100 //Fit anything
 	mod_limit_increase = 100 //Fit anything
-	origin_tech = list(TECH_MATERIAL = 6,TECH_ENGINEERING = 6)
+	origin_tech = "{'materials':6,'engineering':6}"
 	require_wield = TRUE
 
 /obj/item/gun/custom_ka/frameF
@@ -161,7 +161,7 @@
 	range_increase = 5
 	capacity_increase = 7
 	mod_limit_increase = 4
-	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 3)
+	origin_tech = "{'materials':3,'engineering':3}"
 	require_wield = TRUE
 
 //Built KAs

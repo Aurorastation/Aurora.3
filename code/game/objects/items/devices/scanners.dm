@@ -19,7 +19,7 @@ BREATH ANALYZER
 	throw_speed = 5
 	throw_range = 10
 	matter = list(DEFAULT_WALL_MATERIAL = 200)
-	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
+	origin_tech = "{'magnets':1,'biotech':1}"
 	var/mode = 1
 
 /obj/item/device/healthanalyzer/attack(mob/living/M, mob/living/user)
@@ -320,7 +320,7 @@ BREATH ANALYZER
 
 	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
-	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
+	origin_tech = "{'magnets':1,'engineering':1}"
 
 /obj/item/device/analyzer/atmosanalyze(var/mob/user)
 	var/air = user.return_air()
@@ -354,7 +354,7 @@ BREATH ANALYZER
 
 	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
-	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
+	origin_tech = "{'magnets':2,'biotech':2}"
 	var/details = 0
 	var/recent_fail = 0
 
@@ -401,7 +401,7 @@ BREATH ANALYZER
 	name = "advanced mass spectrometer"
 	icon_state = "adv_spectrometer"
 	details = 1
-	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
+	origin_tech = "{'magnets':4,'biotech':2}"
 
 /obj/item/device/reagent_scanner
 	name = "reagent scanner"
@@ -416,7 +416,7 @@ BREATH ANALYZER
 	throw_range = 20
 	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
 
-	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
+	origin_tech = "{'magnets':2,'biotech':2}"
 	var/details = 0
 	var/recent_fail = 0
 
@@ -450,13 +450,13 @@ BREATH ANALYZER
 	name = "advanced reagent scanner"
 	icon_state = "adv_spectrometer"
 	details = 1
-	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
+	origin_tech = "{'magnets':4,'biotech':2}"
 
 /obj/item/device/slime_scanner
 	name = "slime scanner"
 	icon_state = "adv_spectrometer"
 	item_state = "analyzer"
-	origin_tech = list(TECH_BIO = 1)
+	origin_tech = "{'biotech':1}"
 	w_class = ITEMSIZE_SMALL
 	flags = CONDUCT
 	throwforce = 0
@@ -526,7 +526,7 @@ BREATH ANALYZER
 	throw_speed = 3
 	throw_range = 3
 	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
-	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
+	origin_tech = "{'magnets':2,'biotech':2}"
 
 /obj/item/device/breath_analyzer/attack(mob/living/carbon/human/H, mob/living/user as mob)
 

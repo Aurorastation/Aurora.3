@@ -55,7 +55,7 @@
 	name = "large memory circuit"
 	desc = "This big circuit can hold eight pieces of data."
 	icon_state = "memory8"
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
+	origin_tech = "{'engineering':3,'programming':3}"
 	power_draw_per_use = 4
 	number_of_pins = 8
 
@@ -65,7 +65,7 @@
 	icon_state = "memory16"
 	w_class = ITEMSIZE_NORMAL
 	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 4, TECH_DATA = 4)
+	origin_tech = "{'engineering':4,'programming':4}"
 	power_draw_per_use = 8
 	number_of_pins = 16
 

@@ -13,7 +13,7 @@
 	force = 15
 	sharp = TRUE
 	edge = TRUE
-	origin_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 3, TECH_ENGINEERING = 3)
+	origin_tech = "{'materials':4,'phorontech':3,'engineering':3}"
 	matter = list(DEFAULT_WALL_MATERIAL = 4000, MATERIAL_GLASS = 2000)
 	projectile_type = /obj/item/projectile/beam/plasmacutter
 	cell_type = /obj/item/cell/high

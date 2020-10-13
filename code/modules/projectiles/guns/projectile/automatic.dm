@@ -8,7 +8,7 @@
 	load_method = SPEEDLOADER //yup. until someone sprites a magazine for it.
 	max_shells = 22
 	caliber = "9mm"
-	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':4,'materials':2}"
 	slot_flags = SLOT_BELT
 	ammo_type = /obj/item/ammo_casing/c9mm
 	accuracy = 1
@@ -37,7 +37,7 @@
 	allowed_magazines = list(/obj/item/ammo_magazine/c45uzi)
 	max_shells = 16
 	caliber = ".45"
-	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
+	origin_tech = "{'combat':5,'materials':2,'syndicate':8}"
 	ammo_type = /obj/item/ammo_casing/c45
 
 /obj/item/gun/projectile/automatic/mini_uzi/update_icon()
@@ -53,7 +53,7 @@
 	w_class = ITEMSIZE_NORMAL
 	force = 10
 	caliber = "10mm"
-	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
+	origin_tech = "{'combat':5,'materials':2,'syndicate':8}"
 	slot_flags = SLOT_BELT|SLOT_BACK
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
@@ -78,7 +78,7 @@
 	item_state = "wt550"
 	w_class = ITEMSIZE_NORMAL
 	caliber = "9mm"
-	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':5,'materials':2}"
 	slot_flags = SLOT_BELT
 	ammo_type = "/obj/item/ammo_casing/c9mmr"
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
@@ -108,7 +108,7 @@
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	caliber = "a762"
-	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 4)
+	origin_tech = "{'combat':6,'materials':1,'syndicate':4}"
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
@@ -155,7 +155,7 @@
 	icon = 'icons/obj/guns/battlerifle.dmi'
 	icon_state = "battlerifle"
 	item_state = "battlerifle"
-	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
+	origin_tech = "{'combat':6,'materials':3,'syndicate':2}"
 	magazine_type = /obj/item/ammo_magazine/c762/sol
 	allowed_magazines = list(/obj/item/ammo_magazine/c762/sol)
 	auto_eject = 1
@@ -186,7 +186,7 @@
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	caliber = "a556"
-	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
+	origin_tech = "{'combat':8,'materials':3}"
 	ammo_type = "/obj/item/ammo_casing/a556"
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	slot_flags = SLOT_BACK
@@ -265,7 +265,7 @@
 	slot_flags = 0
 	max_shells = 50
 	caliber = "a762"
-	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 2)
+	origin_tech = "{'combat':6,'materials':1,'syndicate':2}"
 	slot_flags = SLOT_BACK
 	ammo_type = "/obj/item/ammo_casing/a762"
 	allowed_magazines = list(/obj/item/ammo_magazine/a762)
@@ -346,7 +346,7 @@
 	magazine_type = null
 	max_shells = 25
 
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':3,'materials':2}"
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 
 	is_wieldable = TRUE
@@ -372,7 +372,7 @@
 	w_class = ITEMSIZE_NORMAL
 	max_shells = 50
 	caliber = ".45"
-	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	origin_tech = "{'combat':5,'materials':2,'syndicate':5}"
 	slot_flags = SLOT_BELT
 	ammo_type = /obj/item/ammo_casing/c45
 	load_method = MAGAZINE
@@ -393,7 +393,7 @@
 	w_class = ITEMSIZE_LARGE
 	force = 10
 	caliber = "trod"
-	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 7)
+	origin_tech = "{'combat':8,'materials':7}"
 	slot_flags = SLOT_BELT|SLOT_BACK
 	fire_sound = 'sound/weapons/railgun.ogg'
 	load_method = MAGAZINE
@@ -464,7 +464,7 @@
 	caliber = "shotgun"
 	magazine_type = /obj/item/ammo_magazine/assault_shotgun
 	allowed_magazines = list(/obj/item/ammo_magazine/assault_shotgun)
-	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 4, TECH_ILLEGAL = 5)
+	origin_tech = "{'combat':8,'materials':4,'syndicate':5}"
 	slot_flags = SLOT_BACK
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'

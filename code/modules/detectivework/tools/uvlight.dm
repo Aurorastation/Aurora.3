@@ -6,7 +6,7 @@
 	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
-	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
+	origin_tech = "{'magnets':1,'engineering':1}"
 	var/list/scanned = list()
 	var/list/stored_alpha = list()
 	var/list/reset_objects = list()

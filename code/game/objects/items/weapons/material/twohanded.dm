@@ -342,7 +342,7 @@
 	w_class = ITEMSIZE_LARGE
 	sharp = TRUE
 	edge = TRUE
-	origin_tech = list(TECH_COMBAT = 5)
+	origin_tech = "{'combat':5}"
 	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
 	can_embed = FALSE
 	applies_material_colour = FALSE

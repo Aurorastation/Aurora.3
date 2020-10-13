@@ -5,7 +5,7 @@
 	icon_state = "slammer"
 	item_state = "slammer"
 	w_class = ITEMSIZE_LARGE
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
+	origin_tech = "{'combat':3,'materials':3}"
 	ammo_type = /obj/item/ammo_casing/plasma_slug
 	magazine_type = /obj/item/ammo_magazine/plasma
 	allowed_magazines = list(/obj/item/ammo_magazine/plasma)

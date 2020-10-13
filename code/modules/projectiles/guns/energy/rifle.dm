@@ -25,7 +25,7 @@
 
 	projectile_type = /obj/item/projectile/beam/stun
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_MAGNET = 3)
+	origin_tech = "{'combat':3,'materials':2,'magnets':3}"
 	modifystate = "eriflestun"
 
 	is_wieldable = TRUE
@@ -48,7 +48,7 @@
 	max_shots = 15
 	fire_delay = 5
 	burst_delay = 5
-	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
+	origin_tech = "{'combat':3,'magnets':2}"
 	projectile_type = /obj/item/projectile/beam
 	secondary_projectile_type = null
 	secondary_fire_sound = null
@@ -77,7 +77,7 @@
 	has_item_ratio = TRUE
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
 	projectile_type = /obj/item/projectile/beam/heavylaser
-	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
+	origin_tech = "{'combat':4,'materials':3,'powerstorage':3}"
 	charge_cost = 400
 	max_shots = 5
 	fire_delay = 40
@@ -102,7 +102,7 @@
 	item_state = "xrifle"
 	fire_sound = 'sound/weapons/laser3.ogg'
 	projectile_type = /obj/item/projectile/beam/xray
-	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
+	origin_tech = "{'combat':5,'materials':3,'magnets':2,'syndicate':2}"
 	max_shots = 40
 	secondary_projectile_type = null
 	secondary_fire_sound = null
@@ -119,7 +119,7 @@
 	fire_sound = 'sound/weapons/laser1.ogg'
 	projectile_type = /obj/item/projectile/beam
 	sel_mode = 2
-	origin_tech = list(TECH_COMBAT = 7, TECH_MATERIAL = 6, TECH_MAGNET = 4)
+	origin_tech = "{'combat':7,'materials':6,'magnets':4}"
 	secondary_projectile_type = /obj/item/projectile/beam/pulse
 	secondary_fire_sound = 'sound/weapons/pulse.ogg'
 	can_switch_modes = 0
@@ -157,7 +157,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser3.ogg'
 	projectile_type = /obj/item/projectile/beam/tachyon
-	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
+	origin_tech = "{'combat':5,'materials':3,'magnets':2,'syndicate':2}"
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 	can_switch_modes = 0

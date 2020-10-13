@@ -6,7 +6,7 @@
 	item_state = "cannon"
 	caliber = "cannon"
 	w_class = ITEMSIZE_LARGE
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
+	origin_tech = "{'combat':3,'materials':3}"
 	load_method = SINGLE_CASING
 	handle_casings = DELETE_CASINGS
 	slot_flags = SLOT_BACK
@@ -44,7 +44,7 @@
 	item_state = "blockbuster"
 	caliber = "nuke"
 	w_class = ITEMSIZE_LARGE
-	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4)
+	origin_tech = "{'combat':5,'materials':4}"
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
 	slot_flags = SLOT_BACK

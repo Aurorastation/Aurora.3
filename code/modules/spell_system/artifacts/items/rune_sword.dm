@@ -14,7 +14,7 @@
 	throw_range = 10
 	w_class = ITEMSIZE_HUGE
 	slot_flags = SLOT_BELT
-	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 8)
+	origin_tech = "{'combat':8,'materials':8}"
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	sharp = 1

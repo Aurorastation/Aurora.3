@@ -33,9 +33,12 @@
 				to_chat(user, SPAN_NOTICE("You activate the analyzer's microlaser, analyzing \the [loaded_item] and breaking it down."))
 				flick("portable_analyzer_scan", src)
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
-				for(var/T in loaded_item.origin_tech)
-					files.UpdateTech(T, loaded_item.origin_tech[T])
-					to_chat(user, SPAN_NOTICE("\The [loaded_item] had level [loaded_item.origin_tech[T]] in [CallTechName(T)]."))
+				var/list/loaded_origin_tech = list()
+				if(loaded_item.origin_tech)
+					loaded_origin_tech = json_decode(loaded_item.origin_tech)
+				for(var/T in loaded_origin_tech)
+					files.UpdateTech(T, loaded_origin_tech[T])
+					to_chat(user, SPAN_NOTICE("\The [loaded_item] had level [loaded_origin_tech[T]] in [CallTechName(T)]."))
 				loaded_item = null
 				for(var/obj/I in contents)
 					for(var/mob/M in I.contents)
@@ -92,9 +95,6 @@
 			return
 		if(!I.origin_tech)
 			to_chat(user, SPAN_NOTICE("This doesn't seem to have a tech origin."))
-			return
-		if(!length(I.origin_tech))
-			to_chat(user, SPAN_NOTICE("You cannot deconstruct this item."))
 			return
 		I.forceMove(src)
 		loaded_item = I

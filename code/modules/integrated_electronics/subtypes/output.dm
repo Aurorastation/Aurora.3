@@ -115,7 +115,7 @@
 	)
 	outputs = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3)
+	origin_tech = "{'engineering':3,'programming':3}"
 
 /obj/item/integrated_circuit/output/light/advanced/on_data_written()
 	update_lighting()
@@ -206,7 +206,7 @@
 		"secure day"   = 'sound/voice/bsecureday.ogg'
 	)
 	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2)
+	origin_tech = "{'engineering':2,'programming':2}"
 
 /obj/item/integrated_circuit/output/sound/medbot
 	name = "medbot sound circuit"
@@ -229,7 +229,7 @@
 		"no"          = 'sound/voice/medbot/mno.ogg'
 	)
 	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 1)
+	origin_tech = "{'engineering':2,'programming':2,'biotech':1}"
 
 /obj/item/integrated_circuit/output/video_camera
 	name = "video camera circuit"

@@ -358,7 +358,7 @@ var/list/holder_mob_icon_cache = list()
 	icon = 'icons/mob/diona.dmi'
 	icon_state = "nymph"
 	icon_state_dead = "nymph_dead"
-	origin_tech = list(TECH_MAGNET = 3, TECH_BIO = 5)
+	origin_tech = "{'magnets':3,'biotech':5}"
 	slot_flags = SLOT_HEAD | SLOT_EARS | SLOT_HOLSTER
 	w_class = ITEMSIZE_SMALL
 
@@ -367,7 +367,7 @@ var/list/holder_mob_icon_cache = list()
 	desc = "It's a small maintenance robot."
 	icon_state = "drone"
 	item_state = "drone"
-	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 5)
+	origin_tech = "{'magnets':3,'engineering':5}"
 	slot_flags = SLOT_HEAD
 	w_class = ITEMSIZE_LARGE
 
@@ -446,7 +446,7 @@ var/list/holder_mob_icon_cache = list()
 	name = "cortical borer"
 	desc = "It's a slimy brain slug. Gross."
 	icon_state = "brainslug"
-	origin_tech = list(TECH_BIO = 6)
+	origin_tech = "{'biotech':6}"
 	w_class = ITEMSIZE_TINY
 
 /obj/item/holder/monkey
@@ -491,7 +491,7 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "rat_brown"
 	icon_state_dead = "rat_brown_dead"
 	slot_flags = SLOT_EARS
-	origin_tech = list(TECH_BIO = 2)
+	origin_tech = "{'biotech':2}"
 	w_class = ITEMSIZE_TINY
 
 /obj/item/holder/rat/white

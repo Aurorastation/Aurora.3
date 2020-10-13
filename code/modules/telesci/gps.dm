@@ -7,7 +7,7 @@ var/list/GPS_list = list()
 	icon_state = "gps-c"
 	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
-	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	origin_tech = "{'programming':2,'engineering':2}"
 	var/gps_prefix = "COM"
 	var/gpstag = "COM0"
 	var/emped = 0

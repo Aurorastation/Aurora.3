@@ -88,7 +88,7 @@
 	name = "tesla coil circuitry"
 	desc = "The circuitboard for a tesla coil."
 	build_path = /obj/machinery/power/tesla_coil
-	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	origin_tech = "{'magnets':2,'engineering':2}"
 	req_components = list("/obj/item/stock_parts/capacitor" = 1)
 	board_type = "machine"
 
@@ -96,6 +96,6 @@
 	name = "grounding rod circuitry"
 	desc = "The circuitboard for a grounding rod."
 	build_path = /obj/machinery/power/grounding_rod
-	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
+	origin_tech = "{'magnets':2,'engineering':2}"
 	req_components = list("/obj/item/stock_parts/capacitor" = 1)
 	board_type = "machine"

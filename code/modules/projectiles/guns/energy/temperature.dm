@@ -10,7 +10,7 @@
 	var/current_temperature = T20C
 	charge_cost = 100
 	accuracy = 1
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 4, TECH_POWER = 3, TECH_MAGNET = 2)
+	origin_tech = "{'combat':3,'materials':4,'powerstorage':3,'magnets':2}"
 	slot_flags = SLOT_BELT|SLOT_BACK
 
 	projectile_type = /obj/item/projectile/temp

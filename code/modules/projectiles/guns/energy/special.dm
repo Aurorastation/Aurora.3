@@ -7,7 +7,7 @@
 	modifystate = "ionriflestun"
 	projectile_type = /obj/item/projectile/ion/stun
 	fire_sound = 'sound/weapons/laser1.ogg'
-	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
+	origin_tech = "{'combat':2,'magnets':4}"
 	w_class = ITEMSIZE_LARGE
 	accuracy = 1
 	force = 10
@@ -62,7 +62,7 @@
 	item_state = "decloner"
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/pulse3.ogg'
-	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4, TECH_POWER = 3)
+	origin_tech = "{'combat':5,'materials':4,'powerstorage':3}"
 	max_shots = 10
 	projectile_type = /obj/item/projectile/energy/declone
 
@@ -77,7 +77,7 @@
 	charge_cost = 100
 	max_shots = 10
 	projectile_type = /obj/item/projectile/energy/floramut
-	origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3, TECH_POWER = 3)
+	origin_tech = "{'materials':2,'biotech':3,'powerstorage':3}"
 	modifystate = "floramut"
 	self_recharge = 1
 
@@ -146,7 +146,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/effects/stealthoff.ogg'
 	w_class = ITEMSIZE_NORMAL
-	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
+	origin_tech = "{'combat':5,'phorontech':4}"
 	projectile_type = /obj/item/projectile/energy/phoron
 	can_turret = 1
 	turret_is_lethal = 0
@@ -264,7 +264,7 @@
 	item_state = "gatling"
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser1.ogg'
-	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 5, TECH_MATERIAL = 6)
+	origin_tech = "{'combat':6,'phorontech':5,'materials':6}"
 	charge_meter = 0
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_LARGE
@@ -317,7 +317,7 @@
 	icon_state = "blaster"
 	item_state = "blaster"
 	has_item_ratio = FALSE
-	origin_tech = list(TECH_COMBAT = 2, TECH_PHORON = 4)
+	origin_tech = "{'combat':2,'phorontech':4}"
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
@@ -346,7 +346,7 @@
 		slot_l_hand_str = 'icons/mob/species/breeder/held_l.dmi',
 		slot_r_hand_str = 'icons/mob/species/breeder/held_r.dmi'
 		)
-	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
+	origin_tech = "{'combat':6,'phorontech':8}"
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	attack_verb = list("sundered", "annihilated", "sliced", "cleaved", "slashed", "pulverized")
 	slot_flags = SLOT_BACK
@@ -435,7 +435,7 @@
 	icon_state = "thermaldrill"
 	item_state = "thermaldrill"
 	has_item_ratio = FALSE
-	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
+	origin_tech = "{'combat':6,'phorontech':8}"
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_LARGE
@@ -499,7 +499,7 @@
 	icon_state = "thermaldrill"
 	item_state = "thermaldrill"
 	has_item_ratio = FALSE
-	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
+	origin_tech = "{'combat':6,'phorontech':8}"
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_LARGE
@@ -543,7 +543,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser3.ogg'
 	projectile_type = /obj/item/projectile/beam/tachyon
-	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
+	origin_tech = "{'combat':5,'materials':3,'magnets':2,'syndicate':2}"
 	max_shots = 10
 	accuracy = 1
 	fire_delay = 1

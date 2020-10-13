@@ -5,7 +5,7 @@
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
 	w_class = ITEMSIZE_HUGE
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	origin_tech = "{'materials':2,'engineering':2}"
 	var/obj/machinery/mining/drill/held_drill
 	var/list/obj/machinery/mining/brace/held_braces
 	var/charging = FALSE

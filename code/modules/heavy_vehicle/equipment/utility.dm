@@ -7,7 +7,7 @@
 	w_class = ITEMSIZE_HUGE
 	var/carrying_capacity = 5
 	var/list/obj/carrying = list()
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	origin_tech = "{'materials':2,'engineering':2}"
 	var/list/afterattack_types = list(/obj/structure/closet, /obj/machinery/door/airlock)
 
 /obj/item/mecha_equipment/clamp/resolve_attackby(atom/A, mob/user, click_params)
@@ -180,7 +180,7 @@
 	holding_type = /obj/item/gun/energy/plasmacutter/mounted/mech
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
-	origin_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 4, TECH_ENGINEERING = 6, TECH_COMBAT = 3)
+	origin_tech = "{'materials':4,'phorontech':4,'engineering':6,'combat':3}"
 
 /obj/item/gun/energy/plasmacutter/mounted/mech
 	use_external_power = TRUE
@@ -197,7 +197,7 @@
 	var/brightness_on = 12		//can't remember what the maxed out value is
 	light_color = LIGHT_COLOR_TUNGSTEN
 	light_wedge = LIGHT_WIDE
-	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
+	origin_tech = "{'materials':1,'engineering':1}"
 
 /obj/item/mecha_equipment/light/attack_self(var/mob/user)
 	. = ..()
@@ -232,7 +232,7 @@
 	var/mode = CATAPULT_SINGLE
 	var/atom/movable/locked
 	equipment_delay = 30 //Stunlocks are not ideal
-	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 4, TECH_MAGNET = 4)
+	origin_tech = "{'materials':4,'engineering':4,'magnets':4}"
 	require_adjacent = FALSE
 
 /obj/item/mecha_equipment/catapult/attack_self(var/mob/user)
@@ -325,7 +325,7 @@
 
 	//Drill can have a head
 	var/obj/item/material/drill_head/drill_head
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	origin_tech = "{'materials':2,'engineering':2}"
 
 /obj/item/mecha_equipment/drill/Initialize()
 	. = ..()
@@ -481,7 +481,7 @@
 	mech_layer = MECH_GEAR_LAYER
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = null
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	origin_tech = "{'materials':2,'engineering':2}"
 	passive_power_use = 15
 
 /obj/item/mecha_equipment/sleeper/passenger_compartment/uninstalled()
@@ -515,7 +515,7 @@
 	on_mech_icon_state = "mecha_autolathe"
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	restricted_software = list(MECH_SOFTWARE_UTILITY)
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	origin_tech = "{'materials':2,'engineering':2}"
 	var/obj/machinery/autolathe/mounted/lathe
 
 /obj/item/mecha_equipment/autolathe/get_hardpoint_maptext()
@@ -573,7 +573,7 @@
 
 	//Drill can have a head
 	var/obj/item/powerdrill/mech/mounted_tool
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	origin_tech = "{'materials':2,'engineering':2}"
 
 /obj/item/mecha_equipment/toolset/Initialize()
 	. = ..()
@@ -631,7 +631,7 @@
 	icon_state = "mecha_quickie"
 	restricted_hardpoints = list(HARDPOINT_BACK)
 	w_class = ITEMSIZE_HUGE
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
+	origin_tech = "{'materials':2,'engineering':3}"
 
 /obj/item/mecha_equipment/quick_enter/installed()
 	..()

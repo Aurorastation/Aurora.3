@@ -85,7 +85,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 /obj/item/circuitboard/machine/mining_equipment_vendor
 	name = "circuit board (Mining Equipment Vendor)"
 	build_path = /obj/machinery/mineral/equipment_vendor
-	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
+	origin_tech = "{'programming':1,'engineering':1}"
 	req_components = list(	/obj/item/stock_parts/console_screen = 1,
 							/obj/item/stock_parts/matter_bin = 3)
 

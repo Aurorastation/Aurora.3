@@ -15,7 +15,7 @@
 	throw_speed = 2
 	throw_range = 10
 	w_class = ITEMSIZE_SMALL
-	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
+	origin_tech = "{'magnets':3,'syndicate':4}"
 
 	var/power_usage = 35000//A high powered cell allows 5 minutes of continuous usage
 	//Note it can be toggled on and off easily. You can make it last an hour if you only use it when

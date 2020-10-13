@@ -3,7 +3,7 @@
 	desc = "A pebble, it feels warm to the touch."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "pebble"
-	origin_tech = list(TECH_BLUESPACE = 6, TECH_MATERIAL = 6, TECH_BIO = 6)
+	origin_tech = "{'bluespace':6,'materials':6,'biotech':}"
 	w_class = ITEMSIZE_SMALL
 	var/obj/item/contract/apprentice/contract
 

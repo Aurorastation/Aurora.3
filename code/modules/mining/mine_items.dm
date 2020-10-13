@@ -67,7 +67,7 @@
 	w_class = ITEMSIZE_LARGE
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
 	var/digspeed //moving the delay to an item var so R&D can make improved picks. --NEO
-	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
+	origin_tech = "{'materials':1,'engineering':1}"
 	attack_verb = list("hit", "pierced", "sliced", "attacked")
 	hitsound = 'sound/weapons/rapidslice.ogg'
 	var/drill_sound = /decl/sound_category/pickaxe_sound
@@ -232,7 +232,7 @@
 	name = "silver pickaxe"
 	icon_state = "spickaxe"
 	item_state = "spickaxe"
-	origin_tech = list(TECH_MATERIAL = 3)
+	origin_tech = "{'materials':3}"
 	desc = "This makes no metallurgic sense."
 	excavation_amount = 50
 
@@ -246,7 +246,7 @@
 	icon_state = "miningdrill"
 	item_state = "miningdrill"
 	contained_sprite = TRUE
-	origin_tech = list(TECH_MATERIAL = 2, TECH_POWER = 3, TECH_ENGINEERING = 2)
+	origin_tech = "{'materials':2,'powerstorage':3,'engineering':2}"
 	drill_verb = "drilling"
 	autodrill = TRUE
 	drill_sound = 'sound/weapons/drill.ogg'
@@ -277,7 +277,7 @@
 	icon_state = "jackhammer"
 	item_state = "jackhammer"
 	contained_sprite = TRUE
-	origin_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2, TECH_ENGINEERING = 2)
+	origin_tech = "{'materials':3,'powerstorage':2,'engineering':2}"
 	drill_verb = "hammering"
 	autodrill = TRUE
 	drill_sound = 'sound/weapons/sonic_jackhammer.ogg'
@@ -296,7 +296,7 @@
 	icon_state = "gpickaxe"
 	item_state = "gpickaxe"
 	digspeed = 10
-	origin_tech = list(TECH_MATERIAL = 4)
+	origin_tech = "{'materials':4}"
 	desc = "This makes no metallurgic sense."
 	excavation_amount = 40
 
@@ -307,7 +307,7 @@
 	name = "diamond pickaxe"
 	icon_state = "dpickaxe"
 	item_state = "dpickaxe"
-	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 4)
+	origin_tech = "{'materials':6,'engineering':4}"
 	desc = "A pickaxe with a diamond pick head."
 	excavation_amount = 50
 	autodrill = TRUE
@@ -322,7 +322,7 @@
 	item_state = "diamonddrill"
 	contained_sprite = TRUE
 	digspeed = 3 //Digs through walls, girders, and can dig up sand
-	origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 4, TECH_ENGINEERING = 5)
+	origin_tech = "{'materials':6,'powerstorage':4,'engineering':5}"
 	desc = "Yours is the drill that will pierce the heavens!"
 	drill_verb = "drilling"
 	autodrill = TRUE
@@ -373,7 +373,7 @@
 	force = 8.0
 	throwforce = 4.0
 	w_class = ITEMSIZE_NORMAL
-	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
+	origin_tech = "{'materials':1,'engineering':1}"
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked")
 	sharp = FALSE
@@ -711,7 +711,7 @@
 	throw_speed = 3
 	throw_range = 5
 	slot_flags = SLOT_BELT
-	origin_tech = list(TECH_BLUESPACE = 2, TECH_PHORON = 4, TECH_ENGINEERING = 4)
+	origin_tech = "{'bluespace':2,'phorontech':4,'engineering':4}"
 
 /obj/item/device/wormhole_jaunter/attack_self(mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] activates \the [src]!"))
@@ -798,7 +798,7 @@
 	var/emagged = FALSE
 	var/malfunctioning = FALSE
 	var/revive_type = TYPE_ORGANIC //So you can't revive boss monsters or robots with it
-	origin_tech = list(TECH_BIO = 7, TECH_MATERIAL = 4)
+	origin_tech = "{'biotech':7,'materials':4}"
 
 /obj/item/lazarus_injector/afterattack(atom/target, mob/user, proximity_flag)
 	if(!loaded)
@@ -881,7 +881,7 @@ var/list/total_extraction_beacons = list()
 	var/obj/structure/extraction_point/beacon
 	var/list/beacon_networks = list("station")
 	var/uses_left = 3
-	origin_tech = list(TECH_BLUESPACE = 3, TECH_PHORON = 4, TECH_ENGINEERING = 4)
+	origin_tech = "{'bluespace':3,'phorontech':4,'engineering':4}"
 
 /obj/item/extraction_pack/examine(mob/user)
 	. = ..()
@@ -944,7 +944,7 @@ var/list/total_extraction_beacons = list()
 	desc_info = "You can activate this item in-hand to create a static beacon, or you can click on an ore box with it to allow the ore box to be linked to warp packed mining satchels."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "subspace_amplifier"
-	origin_tech = list(TECH_BLUESPACE = 1, TECH_PHORON = 1, TECH_ENGINEERING = 2)
+	origin_tech = "{'bluespace':1,'phorontech':1,'engineering':2}"
 
 /obj/item/warp_core/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("You start placing down the beacon..."))
@@ -989,14 +989,14 @@ var/list/total_extraction_beacons = list()
 	var/fieldlimit = 4
 	var/list/fields = list()
 	var/quick_burst_mod = 0.8
-	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
+	origin_tech = "{'magnets':3,'engineering':3}"
 
 /obj/item/resonator/upgraded
 	name = "upgraded resonator"
 	desc = "An upgraded version of the resonator that can produce more fields at once."
 	icon_state = "resonatoru"
 	item_state = "resonatoru"
-	origin_tech = list(TECH_MAGNET = 3, TECH_MATERIAL = 4, TECH_POWER = 2, TECH_ENGINEERING = 3)
+	origin_tech = "{'magnets':3,'materials':4,'powerstorage':2,'engineering':3}"
 	fieldlimit = 8
 	quick_burst_mod = 1
 	burst_time = 15
@@ -1083,7 +1083,7 @@ var/list/total_extraction_beacons = list()
 	w_class = ITEMSIZE_NORMAL
 	force = 10
 	throwforce = 5
-	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 3)
+	origin_tech = "{'magnets':4,'engineering':3}"
 
 /obj/item/oremagnet/attack_self(mob/user)
 	if(use_check_and_message(user))
@@ -1121,7 +1121,7 @@ var/list/total_extraction_beacons = list()
 	w_class = ITEMSIZE_NORMAL
 	force = 15
 	throwforce = 5
-	origin_tech = list(TECH_BLUESPACE = 4, TECH_ENGINEERING = 3)
+	origin_tech = "{'bluespace':4,'engineering':3}"
 	var/last_oresummon_time = 0
 
 /obj/item/oreportal/attack_self(mob/user)
@@ -1147,7 +1147,7 @@ var/list/total_extraction_beacons = list()
 	icon_state = "jackhammer"
 	item_state = "jackhammer"
 	contained_sprite = TRUE
-	origin_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2, TECH_ENGINEERING = 2)
+	origin_tech = "{'materials':3,'powerstorage':2,'engineering':2}"
 	desc = "With an integrated AI chip and hair-trigger precision, this baby makes sculpting almost automatic!"
 
 /obj/structure/sculpting_block
@@ -1313,7 +1313,7 @@ var/list/total_extraction_beacons = list()
 /obj/item/plastique/seismic
 	name = "seismic charge"
 	desc = "A complex mining device that utilizes a seismic detonation to eliminate weak asteroid turf in a wide radius."
-	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 4, TECH_PHORON = 2)
+	origin_tech = "{'magnets':2,'materials':4,'phorontech':2}"
 	timer = 15
 
 /obj/item/plastique/seismic/explode(var/turf/location)

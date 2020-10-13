@@ -4,7 +4,7 @@
 	icon_state = "infrared"
 	drop_sound = 'sound/items/drop/component.ogg'
 	pickup_sound = 'sound/items/pickup/component.ogg'
-	origin_tech = list(TECH_MAGNET = 2)
+	origin_tech = "{'magnets':2}"
 	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 500)
 
 	wires = WIRE_PULSE

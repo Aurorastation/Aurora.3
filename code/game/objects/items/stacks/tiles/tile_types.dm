@@ -38,7 +38,7 @@
 	throw_speed = 5
 	throw_range = 20
 	flags = 0
-	origin_tech = list(TECH_BIO = 1)
+	origin_tech = "{'biotech':1}"
 	drop_sound = 'sound/items/drop/herb.ogg'
 	pickup_sound = 'sound/items/pickup/herb.ogg'
 
@@ -52,7 +52,7 @@
 	throw_speed = 5
 	throw_range = 20
 	flags = 0
-	origin_tech = list(TECH_BIO = 1)
+	origin_tech = "{'biotech':1}"
 	drop_sound = 'sound/items/drop/herb.ogg'
 	pickup_sound = 'sound/items/pickup/herb.ogg'
 

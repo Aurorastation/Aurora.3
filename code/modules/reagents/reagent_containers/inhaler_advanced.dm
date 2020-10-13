@@ -14,7 +14,7 @@
 	possible_transfer_amounts = list(5,10,15)
 	flags = OPENCONTAINER
 	slot_flags = SLOT_BELT
-	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
+	origin_tech = "{'biotech':2,'materials':2}"
 	matter = list(DEFAULT_WALL_MATERIAL = 250)
 	center_of_mass = null
 
@@ -59,7 +59,7 @@
 	w_class = ITEMSIZE_SMALL
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,30)
-	origin_tech = list(TECH_BIO = 4, TECH_MATERIAL = 4)
+	origin_tech = "{'biotech':4,'materials':4}"
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/bluespace
 	name = "bluespace inhaler cartridge"
@@ -69,7 +69,7 @@
 	w_class = ITEMSIZE_SMALL
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(5,10,15,30,60)
-	origin_tech = list(TECH_BLUESPACE = 2, TECH_BIO = 6, TECH_MATERIAL = 6)
+	origin_tech = "{'bluespace':2,'biotech':6,'materials':6}"
 
 /obj/item/personal_inhaler
 	name = "inhaler"
@@ -81,7 +81,7 @@
 	slot_flags = SLOT_BELT
 	var/obj/item/reagent_containers/stored_cartridge
 	var/transfer_amount = 5
-	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
+	origin_tech = "{'biotech':2,'materials':2}"
 	var/eject_when_empty = FALSE
 
 /obj/item/personal_inhaler/examine(var/mob/user)
@@ -184,7 +184,7 @@
 	icon_state = "pi_combat"
 	w_class = ITEMSIZE_NORMAL
 	transfer_amount = 60
-	origin_tech = list(TECH_BIO = 4, TECH_MATERIAL = 4, TECH_ENGINEERING = 4)
+	origin_tech = "{'biotech':4,'materials':4,'engineering':4}"
 	eject_when_empty = TRUE
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/large/hyperzine

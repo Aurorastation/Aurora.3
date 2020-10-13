@@ -62,4 +62,4 @@
 	range_increase = 4
 	capacity_increase = 100
 	mod_limit_increase = 5
-	origin_tech = list(TECH_POWER = 6,TECH_MAGNET = 6, TECH_DATA = 6, TECH_ILLEGAL = 4)
+	origin_tech = "{'powerstorage':6,'magnets':6,'programming':6,'syndicate':4}"

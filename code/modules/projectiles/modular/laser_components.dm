@@ -338,7 +338,7 @@
 	desc = "Modulates the prototype to fire disparate ion projectiles."
 	projectile = /obj/item/projectile/ion
 	icon_state = "ion"
-	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 3)
+	origin_tech = "{'combat':2,'magnets':3}"
 
 /obj/item/laser_components/modulator/floramut
 	name = "floral somatomodulator"
@@ -404,7 +404,7 @@
 	damage = 0.5
 	icon_state = "decloner"
 	firing_sound = 'sound/weapons/pulse3.ogg'
-	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 4, TECH_POWER = 3)
+	origin_tech = "{'combat':4,'materials':4,'powerstorage':3}"
 
 /obj/item/laser_components/modulator/ebow
 	name = "dart modulator"
@@ -413,14 +413,14 @@
 	damage = 0.25
 	icon_state = "dart"
 	firing_sound = 'sound/weapons/genhit.ogg'
-	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 3)
+	origin_tech = "{'combat':3,'magnets':2,'syndicate':3}"
 
 /obj/item/laser_components/modulator/blaster
 	name = "blaster-bolt modulator"
 	desc = "Modulates the beam into firing disparate energy bolts."
 	projectile = /obj/item/projectile/energy/blaster/incendiary
 	icon_state = "lensatic"
-	origin_tech = list(TECH_COMBAT = 2, TECH_PHORON = 4)
+	origin_tech = "{'combat':2,'phorontech':4}"
 
 /obj/item/laser_components/modulator/bfg
 	name = "bioforce modulator"
@@ -436,7 +436,7 @@
 	projectile = /obj/item/projectile/energy/phoron
 	icon_state = "tox"
 	firing_sound = 'sound/effects/stealthoff.ogg'
-	origin_tech = list(TECH_COMBAT = 4, TECH_PHORON = 4)
+	origin_tech = "{'combat':4,'phorontech':4}"
 
 /obj/item/laser_components/modulator/net
 	name = "energy net modulator"
@@ -444,4 +444,4 @@
 	projectile = /obj/item/projectile/beam/energy_net
 	icon_state = "xray"
 	firing_sound = 'sound/weapons/plasma_cutter.ogg'
-	origin_tech = list(TECH_COMBAT = 3, TECH_PHORON = 4, TECH_ILLEGAL = 4)
+	origin_tech = "{'combat':3,'phorontech':4,'syndicate':4}"

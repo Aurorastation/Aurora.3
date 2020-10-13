@@ -16,7 +16,7 @@
 /obj/item/clothing/ring/reagent
 	icon_state = "material"
 	flags = OPENCONTAINER
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 4)
+	origin_tech = "{'materials':2,'syndicate':4}"
 
 /obj/item/clothing/ring/reagent/Initialize()
 	. = ..()
@@ -39,7 +39,7 @@
 	name = "silver ring"
 	desc = "A ring made from what appears to be silver."
 	icon_state = "material"
-	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
+	origin_tech = "{'materials':2,'syndicate':5}"
 
 /obj/item/clothing/ring/reagent/sleepy/Initialize()
 	. = ..()

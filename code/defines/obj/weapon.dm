@@ -330,7 +330,7 @@
 	flags = CONDUCT
 	throwforce = 0
 	w_class = ITEMSIZE_NORMAL
-	origin_tech = list(TECH_MATERIAL = 1)
+	origin_tech = "{'materials':1}"
 	var/breakouttime = 300	//Deciseconds = 30s = 0.5 minute
 
 /obj/item/SWF_uplink
@@ -351,7 +351,7 @@
 	throw_speed = 4
 	throw_range = 20
 	matter = list(DEFAULT_WALL_MATERIAL = 100)
-	origin_tech = list(TECH_MAGNET = 1)
+	origin_tech = "{'magnets':1}"
 
 /obj/item/staff
 	name = "wizards staff"
@@ -519,11 +519,11 @@
 	desc = "An advanced bluespace device, little is known about its applications, meriting research into its purpose."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "anomaly_core"
-	origin_tech = list(TECH_MAGNET = 6, TECH_MATERIAL = 7, TECH_BLUESPACE = 8)
+	origin_tech = "{'magnets':6,'materials':7,'bluespace':8}"
 
 /obj/item/research
 	name = "research debugging device"
 	desc = "Instant research tool. For testing purposes only. PUTS ALL RESEARCH TECHS TO MAX, EVEN ILLEGAL AND ARCANE."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "smes_coil"
-	origin_tech = list(TECH_MATERIAL = 19, TECH_ENGINEERING = 19, TECH_PHORON = 19, TECH_POWER = 19, TECH_BLUESPACE = 19, TECH_BIO = 19, TECH_COMBAT = 19, TECH_MAGNET = 19, TECH_DATA = 19, TECH_ILLEGAL = 19, TECH_ARCANE = 19)
+	origin_tech = "{'materials':19,'engineering':19,'phorontech':19,'powerstorage':19,'bluespace':19,'biotech':19,'combat':19,'magnets':19,'programming':19,'syndicate':19,'arcane':19}"

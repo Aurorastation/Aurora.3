@@ -8,7 +8,7 @@
 	hardware_size = 2
 	power_usage = 75
 	malfunction_probability = 1
-	origin_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
+	origin_tech = "{'programming':3,'engineering':2}"
 
 	var/max_idle_programs = 2 // 2 idle, + 1 active = 3 as said in description.
 
@@ -19,7 +19,7 @@
 	hardware_size = 1
 	power_usage = 25
 	max_idle_programs = 1
-	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
+	origin_tech = "{'programming':2,'engineering':2}"
 
 /obj/item/computer_hardware/processor_unit/photonic
 	name = "photonic processor"
@@ -28,7 +28,7 @@
 	hardware_size = 2
 	power_usage = 250
 	max_idle_programs = 4
-	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 4)
+	origin_tech = "{'programming':5,'engineering':4}"
 
 /obj/item/computer_hardware/processor_unit/photonic/small
 	name = "photonic microprocessor"
@@ -37,4 +37,4 @@
 	hardware_size = 1
 	power_usage = 100
 	max_idle_programs = 2
-	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 3)
+	origin_tech = "{'programming':4,'engineering':3}"

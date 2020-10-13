@@ -2,14 +2,14 @@
 	build_type = MECHFAB
 	category = "Hardsuit (Assemblies)"
 	materials = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_GLASS = 12500)
-	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 2, TECH_MAGNET = 3, TECH_POWER = 3)
+	req_tech = list('materials':3,'engineering':2,'magnets':3,'powerstorage':3)
 	time = 20
 
 /datum/design/rig/ce
 	name = "Advanced Voidsuit Control Module Assembly"
 	desc = "An assembly frame for an advanced voidsuit that protects against hazardous, low pressure environments."
 	build_path = /obj/item/rig_assembly/ce
-	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 3, TECH_POWER = 4)
+	req_tech = list('materials':4,'engineering':3,'magnets':3,'powerstorage':4)
 	materials = list(DEFAULT_WALL_MATERIAL = 25000, MATERIAL_GLASS = 12500, MATERIAL_SILVER = 5500, MATERIAL_GOLD = 5500, MATERIAL_PHORON = 7550)
 
 /datum/design/rig/eva
@@ -38,19 +38,19 @@
 	name = "Hazard Hardsuit Control Module"
 	desc = "An assembly for a security hardsuit designed for prolonged EVA in dangerous environments."
 	build_path = /obj/item/rig_assembly/combat/hazard
-	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 3, TECH_POWER = 3, TECH_COMBAT = 3)
+	req_tech = list('materials':4,'engineering':3,'magnets':3,'powerstorage':3,'combat':3)
 	materials = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_GLASS = 12500, MATERIAL_SILVER = 3500, MATERIAL_GOLD = 5500)
 
 /datum/design/rig/combat
 	name = "Combat Hardsuit Control Module Assembly"
 	desc = "An assembly frame for a sleek and dangerous hardsuit for active combat."
 	build_path = /obj/item/rig_assembly/combat/combat
-	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_MAGNET = 3, TECH_POWER = 3, TECH_COMBAT = 5)
+	req_tech = list('materials':5,'engineering':4,'magnets':3,'powerstorage':3,'combat':5)
 	materials = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_GLASS = 12500, MATERIAL_SILVER = 3500, MATERIAL_GOLD = 3500, MATERIAL_URANIUM = 5550, MATERIAL_DIAMOND = 7500)
 
 /datum/design/rig/hacker
 	name = "Cybersuit Control Module Assembly"
 	desc = "An assembly for an advanced powered armor suit with many cyberwarfare enhancements. Comes with built-in insulated gloves for safely tampering with electronics."
 	build_path = /obj/item/rig_assembly/combat/illegal/hacker
-	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_MAGNET = 2, TECH_POWER = 3, TECH_COMBAT = 3, TECH_ILLEGAL = 3)
+	req_tech = list('materials':4,'engineering':3,'magnets':2,'powerstorage':3,'combat':3,'syndicate':3)
 	materials = list(DEFAULT_WALL_MATERIAL = 25000, MATERIAL_GLASS = 12500, MATERIAL_GOLD = 2500, MATERIAL_SILVER = 3500, MATERIAL_URANIUM = 5550)

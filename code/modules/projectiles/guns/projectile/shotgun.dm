@@ -49,7 +49,7 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BACK
 	caliber = "shotgun"
-	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':4,'materials':2}"
 	load_method = SINGLE_CASING|SPEEDLOADER
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	handle_casings = HOLD_CASINGS
@@ -105,7 +105,7 @@
 	icon = 'icons/obj/guns/cshotgun.dmi'
 	icon_state = "cshotgun"
 	item_state = "cshotgun"
-	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':5,'materials':2}"
 	max_shells = 7 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
 	ammo_type = /obj/item/ammo_casing/shotgun
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun.ogg'
@@ -116,7 +116,7 @@
 	icon = 'icons/obj/guns/malella.dmi'
 	icon_state = "malella"
 	item_state = "malella"
-	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
+	origin_tech = "{'combat':6,'materials':3,'syndicate':2}"
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 
 /obj/item/gun/projectile/shotgun/doublebarrel
@@ -138,7 +138,7 @@
 	var/has_wield_state = TRUE
 	slot_flags = SLOT_BACK
 	caliber = "shotgun"
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
+	origin_tech = "{'combat':3,'materials':1}"
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 
@@ -217,7 +217,7 @@
 	max_shells = 1
 	caliber = "shotgun"
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
+	origin_tech = "{'combat':3,'materials':2,'syndicate':2}"
 	var/folded = TRUE
 
 /obj/item/gun/projectile/shotgun/foldable/update_icon()

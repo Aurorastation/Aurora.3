@@ -6,7 +6,7 @@
 	item_state = "revolver"
 	accuracy = 1
 	caliber = "357"
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':2,'materials':2}"
 	handle_casings = CYCLE_CASINGS
 	max_shells = 8
 	ammo_type = /obj/item/ammo_casing/a357
@@ -45,7 +45,7 @@
 	max_shells = 7
 	accuracy = 2
 	caliber = "454"
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':2,'materials':2}"
 	fire_sound = 'sound/weapons/gunshot/gunshot_mateba.ogg'
 	ammo_type = /obj/item/ammo_casing/a454
 	magazine_type = /obj/item/ammo_magazine/a454
@@ -59,7 +59,7 @@
 	max_shells = 6
 	accuracy = 1
 	caliber = "38"
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':2,'materials':2}"
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 	magazine_type = /obj/item/ammo_magazine/c38
@@ -119,7 +119,7 @@
 	item_state = "derringer"
 	accuracy = -1
 	w_class = ITEMSIZE_SMALL
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 3)
+	origin_tech = "{'combat':2,'materials':2,'syndicate':3}"
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING
 	max_shells = 2
@@ -133,7 +133,7 @@
 	icon_state = "capgun"
 	item_state = "capgun"
 	caliber = "caps"
-	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
+	origin_tech = "{'combat':1,'materials':1}"
 	handle_casings = CYCLE_CASINGS
 	max_shells = 7
 	ammo_type = /obj/item/ammo_casing/cap
@@ -156,7 +156,7 @@
 	icon = 'icons/obj/guns/lemat.dmi'
 	icon_state = "lemat"
 	item_state = "lemat"
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':2,'materials':2}"
 	handle_casings = CYCLE_CASINGS
 	max_shells = 6
 	caliber = "38"
@@ -269,7 +269,7 @@
 	item_state = "knifegun"
 	max_shells = 6
 	caliber = "38"
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':2,'materials':2}"
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 	magazine_type = /obj/item/ammo_magazine/c38

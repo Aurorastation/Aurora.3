@@ -25,7 +25,7 @@
 
 	w_class = ITEMSIZE_LARGE
 
-	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
+	origin_tech = "{'combat':3,'materials':2}"
 
 	fire_delay = 35
 	fire_sound = 'sound/weapons/gunshot/musket.ogg'

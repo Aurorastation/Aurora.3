@@ -1,5 +1,5 @@
 /datum/design/circuit/shield
-	req_tech = list(TECH_BLUESPACE = 4, TECH_PHORON = 3)
+	req_tech = list('bluespace':4,'phorontech':3)
 	materials = list(MATERIAL_GLASS = 2000, MATERIAL_GOLD = 1000)
 	p_category = "Shield Generator Circuit Designs"
 
@@ -14,5 +14,5 @@
 /datum/design/circuit/shield/capacitor
 	name = "Capacitor"
 	desc = "Allows for the construction of a shield capacitor circuit board."
-	req_tech = list(TECH_MAGNET = 3, TECH_POWER = 4)
+	req_tech = list('magnets':3,'powerstorage':4)
 	build_path = /obj/item/circuitboard/shield_cap

@@ -60,7 +60,7 @@
 
 /datum/design/item/mechfab/robot/component/synthetic_flash
 	name = "Synthetic Flash"
-	req_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 2)
+	req_tech = list('magnets':3,'combat':2)
 	materials = list(DEFAULT_WALL_MATERIAL = 750, MATERIAL_GLASS = 750)
 	build_path = /obj/item/device/flash/synthetic
 
@@ -92,5 +92,5 @@
 	name = "Heavy Surge Prevention Module"
 	desc = "Used to boost prevent damage from EMP. Has limited surge preventions."
 	materials = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 6000, MATERIAL_GOLD = 5000, MATERIAL_SILVER = 7500) // Should be expensive
-	req_tech = list(TECH_MATERIAL = 4, TECH_BLUESPACE = 2, TECH_MAGNET = 5, TECH_POWER = 5, TECH_ENGINEERING = 4, TECH_COMBAT = 3)
+	req_tech = list('materials':4,'bluespace':2,'magnets':5,'powerstorage':5,'engineering':4,'combat':3)
 	build_path = /obj/item/robot_parts/robot_component/surge

@@ -14,7 +14,7 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	w_class = ITEMSIZE_TINY
 	thrown_force_divisor = 1
-	origin_tech = list(TECH_MATERIAL = 1)
+	origin_tech = "{'materials':1}"
 	attack_verb = list("attacked", "stabbed", "poked")
 	sharp = FALSE
 	edge = FALSE

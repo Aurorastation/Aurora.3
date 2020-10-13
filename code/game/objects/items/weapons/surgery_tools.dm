@@ -30,7 +30,7 @@
 	item_state = "retractor"
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
 	flags = CONDUCT
-	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
+	origin_tech = "{'materials':1,'biotech':1}"
 
 /*
  * Hemostat
@@ -42,7 +42,7 @@
 	item_state = "hemostat"
 	matter = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
 	flags = CONDUCT
-	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
+	origin_tech = "{'materials':1,'biotech':1}"
 	attack_verb = list("attacked", "pinched")
 
 /*
@@ -55,7 +55,7 @@
 	item_state = "cautery"
 	matter = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
 	flags = CONDUCT
-	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
+	origin_tech = "{'materials':1,'biotech':1}"
 	attack_verb = list("burnt")
 
 /*
@@ -71,7 +71,7 @@
 	flags = CONDUCT
 	force = 15.0
 	w_class = ITEMSIZE_NORMAL
-	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
+	origin_tech = "{'materials':1,'biotech':1}"
 	attack_verb = list("drilled")
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
@@ -93,7 +93,7 @@
 	throwforce = 5.0
 	throw_speed = 3
 	throw_range = 5
-	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
+	origin_tech = "{'materials':1,'biotech':1}"
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	drop_sound = 'sound/items/drop/knife.ogg'
@@ -143,7 +143,7 @@
 	throwforce = 9.0
 	throw_speed = 3
 	throw_range = 5
-	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
+	origin_tech = "{'materials':1,'biotech':1}"
 	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000)
 	attack_verb = list("attacked", "slashed", "sawed", "cut")
 	sharp = 1
@@ -167,7 +167,7 @@
 	item_state = "fixovein"
 	force = 0
 	throwforce = 1.0
-	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 3)
+	origin_tech = "{'materials':1,'biotech':3}"
 	var/usage_amount = 10
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'

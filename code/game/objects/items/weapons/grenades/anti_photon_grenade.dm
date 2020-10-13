@@ -5,7 +5,7 @@
 	icon_state = "photon"
 	item_state = "photon"
 	det_time = 20
-	origin_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 4)
+	origin_tech = "{'bluespace':4,'materials':4}"
 
 /obj/item/grenade/anti_photon/prime()
 	playsound(src.loc, 'sound/effects/phasein.ogg', 50, 1, 5)

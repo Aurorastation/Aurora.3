@@ -3,7 +3,7 @@
 	name = "power thingy"
 	desc = "Does power stuff."
 	complexity = 5
-	origin_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 2, TECH_DATA = 2)
+	origin_tech = "{'powerstorage':2,'engineering':2,'programming':2}"
 	category_text = "Power - Passive"
 
 /obj/item/integrated_circuit/passive/power/proc/make_energy()
@@ -16,7 +16,7 @@
 	extended_desc = "The cell generates 1W of energy per second in optimal lighting conditions.  Less light will result in less power being generated."
 	icon_state = "solar_cell"
 	complexity = 8
-	origin_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 3, TECH_DATA = 2)
+	origin_tech = "{'powerstorage':3,'engineering':3,'programming':2}"
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	var/max_power = 1
 
@@ -37,7 +37,7 @@
 	from the 'equipment' power channel."
 	icon_state = "power_relay"
 	complexity = 7
-	origin_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 3, TECH_DATA = 2)
+	origin_tech = "{'powerstorage':3,'engineering':3,'programming':2}"
 	spawn_flags = IC_SPAWN_RESEARCH
 	var/power_amount = 250
 
@@ -50,7 +50,7 @@
 	from the 'equipment' power channel."
 	icon_state = "power_relay"
 	complexity = 15
-	origin_tech = list(TECH_POWER = 6, TECH_ENGINEERING = 5, TECH_DATA = 4)
+	origin_tech = "{'powerstorage':6,'engineering':5,'programming':4}"
 	spawn_flags = IC_SPAWN_RESEARCH
 	power_amount = 2000
 
@@ -73,7 +73,7 @@
 	It is slightly less efficient than generating power."
 	icon_state = "setup_implant"
 	complexity = 10
-	origin_tech = list(TECH_POWER = 4, TECH_ENGINEERING = 4, TECH_DATA = 4, TECH_BIO = 5)
+	origin_tech = "{'powerstorage':4,'engineering':4,'programming':4,'biotech':5}"
 	spawn_flags = IC_SPAWN_RESEARCH
 	inputs = list("reverse" = IC_PINTYPE_BOOLEAN)
 	outputs = list("nutrition" = IC_PINTYPE_NUMBER)
@@ -107,7 +107,7 @@
 	the assembly. This device will fail if used inside organic entities."
 	icon_state = "setup_implant"
 	complexity = 10
-	origin_tech = list(TECH_POWER = 3, TECH_ENGINEERING = 4, TECH_DATA = 3)
+	origin_tech = "{'powerstorage':3,'engineering':4,'programming':3}"
 	spawn_flags = IC_SPAWN_RESEARCH
 	inefficiency = 1 // it's not converting anything, just transferring power
 
@@ -128,7 +128,7 @@
 	outputs = list("volume used" = IC_PINTYPE_NUMBER,"self reference" = IC_PINTYPE_REF)
 	activators = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
+	origin_tech = "{'engineering':2,'programming':2,'biotech':2}"
 	var/volume = 60
 	var/list/fuel = list(/datum/reagent/toxin/phoron = 50000, /datum/reagent/slimejelly = 25000, /datum/reagent/fuel = 15000, /datum/reagent/carbon = 10000, /datum/reagent/alcohol/ethanol = 10000, /datum/reagent/nutriment = 8000, /datum/reagent/blood = 5000)
 
@@ -174,7 +174,7 @@
 		)
 	activators = list()
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 2, TECH_POWER = 2)
+	origin_tech = "{'engineering':2,'powerstorage':2}"
 	var/obj/machinery/power/circuit_io/IO = null // Dummy power machine to move energy in/out without a bunch of code duplication.
 	var/throughput = 10000 // Give/take up to 10kW.
 

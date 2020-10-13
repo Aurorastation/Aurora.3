@@ -11,7 +11,7 @@
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = ITEMSIZE_NORMAL
 	force = 10
-	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
+	origin_tech = "{'combat':3,'magnets':2}"
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	can_turret = TRUE
 	zoomdevicename = null

@@ -97,7 +97,7 @@ Contains:
 	singular_name = "gauze length"
 	desc = "Some sterile gauze to wrap around bloody stumps."
 	icon_state = "brutepack"
-	origin_tech = list(TECH_BIO = 1)
+	origin_tech = "{'biotech':1}"
 	heal_brute = 4
 	icon_has_variants = TRUE
 	apply_sounds = list('sound/items/rip1.ogg','sound/items/rip2.ogg')
@@ -172,7 +172,7 @@ Contains:
 	singular_name = "ointment"
 	icon_state = "ointment"
 	heal_burn = 4
-	origin_tech = list(TECH_BIO = 1)
+	origin_tech = "{'biotech':1}"
 	icon_has_variants = TRUE
 	apply_sounds = list('sound/items/ointment.ogg')
 	drop_sound = 'sound/items/drop/herb.ogg'
@@ -224,7 +224,7 @@ Contains:
 	desc = "An advanced trauma kit for severe injuries."
 	icon_state = "traumakit"
 	heal_brute = 8
-	origin_tech = list(TECH_BIO = 1)
+	origin_tech = "{'biotech':1}"
 	apply_sounds = list('sound/items/rip1.ogg','sound/items/rip2.ogg','sound/items/tape.ogg')
 
 /obj/item/stack/medical/advanced/bruise_pack/full/Initialize()
@@ -296,7 +296,7 @@ Contains:
 	desc = "An advanced treatment kit for severe burns."
 	icon_state = "burnkit"
 	heal_burn = 8
-	origin_tech = list(TECH_BIO = 1)
+	origin_tech = "{'biotech':1}"
 	apply_sounds = list('sound/items/ointment.ogg')
 
 /obj/item/stack/medical/advanced/ointment/full/Initialize()
@@ -343,7 +343,7 @@ Contains:
 	desc = "A powder that, when poured on an open wound, quickly stops the bleeding. Combine with bandages for the best effect."
 	icon_state = "powderbag"
 	heal_brute = 15
-	origin_tech = list(TECH_BIO = 4)
+	origin_tech = "{'biotech':4}"
 	var/open = 0
 	var/used = 0
 

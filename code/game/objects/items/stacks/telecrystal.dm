@@ -8,7 +8,7 @@
 	w_class = ITEMSIZE_TINY
 	max_amount = 50
 	flags = NOBLUDGEON
-	origin_tech = list(TECH_MATERIAL = 6, TECH_BLUESPACE = 4)
+	origin_tech = "{'materials':6,'bluespace':4}"
 
 /obj/item/stack/telecrystal/five/Initialize()
 	. = ..()

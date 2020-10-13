@@ -6,7 +6,7 @@
 	hardware_size = 2
 	critical = 0
 	power_usage = 100
-	origin_tech = list(TECH_POWER = 2, TECH_DATA = 3)
+	origin_tech = "{'powerstorage':2,'programming':3}"
 	var/obj/item/aicard/stored_card
 	var/power_usage_idle = 100
 	var/power_usage_occupied = 2 KILOWATTS
