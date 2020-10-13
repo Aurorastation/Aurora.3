@@ -36,11 +36,11 @@
 	var/messengerbag = /obj/item/storage/backpack/messenger
 
 	var/internals_slot = null //ID of slot containing a gas tank
-	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
-	var/list/accessory_contents = list()
-	var/list/belt_contents = list() //In the list(path=count,otherpath=count) format
+	var/list/backpack_contents = null //In the list(path=count,otherpath=count) format
+	var/list/accessory_contents = null
+	var/list/belt_contents = null //In the list(path=count,otherpath=count) format
 	var/list/implants = null //A list of implants that should be implanted
-	var/list/spells = list() // A list of spells to grant
+	var/list/spells = null // A list of spells to grant
 
 /datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overriden for customization depending on client prefs,species etc
@@ -99,7 +99,7 @@
 	if(U)
 		var/obj/item/clothing/accessory/A = new accessory
 		U.attach_accessory(H, A)
-		if(!accessory_contents.len)
+		if(!length(accessory_contents))
 			return
 
 		if(istype(A, /obj/item/clothing/accessory/storage))
@@ -201,24 +201,22 @@
 	if(!visualsOnly)
 		apply_fingerprints(H)
 
-		if(implants)
-			for(var/implant_type in implants)
-				var/obj/item/implant/I = new implant_type(H)
-				if(I.implanted(H))
-					I.forceMove(H)
-					I.imp_in = H
-					I.implanted = 1
-					var/obj/item/organ/external/affected = H.get_organ(BP_HEAD)
-					LAZYADD(affected.implants, I)
-					I.part = affected
+		for(var/implant_type in implants)
+			var/obj/item/implant/I = new implant_type(H)
+			if(I.implanted(H))
+				I.forceMove(H)
+				I.imp_in = H
+				I.implanted = 1
+				var/obj/item/organ/external/affected = H.get_organ(BP_HEAD)
+				LAZYADD(affected.implants, I)
+				I.part = affected
 
-		if(spells)
-			for(var/spell in spells)
-				var/spell/new_spell = new spell
-				H.add_spell(new_spell)
-				if(spells[spell] > 1)
-					for(var/i = 1 to spells[spell])
-						new_spell.empower_spell()
+		for(var/spell in spells)
+			var/spell/new_spell = new spell
+			H.add_spell(new_spell)
+			if(spells[spell] > 1)
+				for(var/i = 1 to spells[spell])
+					new_spell.empower_spell()
 
 	H.update_body()
 	return 1
