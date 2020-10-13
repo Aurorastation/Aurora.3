@@ -149,7 +149,6 @@
 	var/can_have_vision_cone = FALSE
 
 	var/list/grabbed_by = list(  )
-	var/list/requests = list(  )
 
 	var/list/mapobjs = list()
 
