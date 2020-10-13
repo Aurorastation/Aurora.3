@@ -24,13 +24,38 @@
 	var/flush_every_ticks = 30 //Every 30 ticks it will look whether it is ready to flush
 	var/flush_count = 0 //this var adds 1 once per tick. When it reaches flush_every_ticks it resets and tries to flush.
 	var/last_sound = 0
+	var/uses_air = TRUE
 	active_power_usage = 2200	//the pneumatic pump power. 3 HP ~ 2200W
 	idle_power_usage = 100
+
+/obj/machinery/disposal/airless
+	uses_air = FALSE
 
 /obj/machinery/disposal/small
 	desc = "A compact pneumatic waste disposal unit."
 	icon_state = "disposal_small"
-	density = 0
+	density = FALSE
+
+/obj/machinery/disposal/small/north
+	dir = NORTH
+	pixel_y = -13
+	layer = MOB_LAYER + 0.1
+
+/obj/machinery/disposal/small/south
+	dir = SOUTH
+	pixel_y = 20
+	layer = OBJ_LAYER + 0.3
+
+/obj/machinery/disposal/small/east
+	dir = EAST
+	pixel_x = -12
+
+/obj/machinery/disposal/small/west
+	dir = WEST
+	pixel_x = 11
+
+/obj/machinery/disposal/small/airless
+	uses_air = FALSE
 
 /obj/machinery/disposal/small/Initialize()
 	. = ..()
@@ -38,21 +63,21 @@
 		return
 	else
 		switch(dir)
-			if(1)
+			if(NORTH)
 				pixel_y = -13
 				layer = MOB_LAYER + 0.1
-			if(2)
+			if(SOUTH)
 				pixel_y = 20
 				layer = OBJ_LAYER + 0.3
-			if(4)
+			if(EAST)
 				pixel_x = -12
-			if(8)
+			if(WEST)
 				pixel_x = 11
 
 /obj/machinery/disposal/small/check_mob_size(mob/target)
 	if(target.mob_size > MOB_SMALL)
-		return 0
-	return 1
+		return FALSE
+	return TRUE
 
 // create a new disposal
 // find the attached trunk (if present) and init gas resvr.
@@ -101,7 +126,7 @@
 				return
 			var/obj/item/weldingtool/W = I
 			if(W.remove_fuel(0,user))
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 				to_chat(user, "You start slicing the floorweld off the disposal unit.")
 
 				if(do_after(user,20/W.toolspeed))
@@ -129,12 +154,12 @@
 		to_chat(user, "You can't place that item inside the disposal unit.")
 		return
 
-	if(istype(I, /obj/item/storage/bag/trash))
-		var/obj/item/storage/bag/trash/T = I
-		to_chat(user, "<span class='notice'>You empty the bag.</span>")
-		for(var/obj/item/O in T.contents)
-			T.remove_from_storage(O,src)
-		T.update_icon()
+	if(istype(I, /obj/item/storage) && length(I.contents) && user.a_intent != I_HURT)
+		var/obj/item/storage/S = I
+		user.visible_message("<b>[user]</b> empties \the [S] into \the [src].", SPAN_NOTICE("You empty \the [S] into \the [src]."), range = 3)
+		for(var/obj/item/O in S.contents)
+			S.remove_from_storage(O, src)
+		S.update_icon()
 		update()
 		return
 
@@ -170,7 +195,7 @@
 				for (var/mob/C in viewers(src))
 					C.show_message("<span class='warning'>[GM.name] has been placed in the [src] by [user].</span>", 3)
 				qdel(G)
-				usr.attack_log += text("\[[time_stamp()]\] <font color='red'>Has placed [GM.name] ([GM.ckey]) in disposals.</font>")
+				usr.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has placed [GM.name] ([GM.ckey]) in disposals.</span>")
 				GM.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>")
 				msg_admin_attack("[key_name_admin(usr)] placed [key_name_admin(GM)] in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)",ckey=key_name(usr),ckey_target=key_name(GM))
 		return
@@ -182,12 +207,7 @@
 
 	user.drop_from_inventory(I,src)
 
-	to_chat(user, "You place \the [I] into the [src].")
-	for(var/mob/M in viewers(src))
-		if(M == user)
-			continue
-		M.show_message("[user.name] places \the [I] into the [src].", 3)
-
+	user.visible_message("<b>[user]</b> places \the [I] into \the [src].", SPAN_NOTICE("You place \the [I] into the [src]."), range = 3)
 	update()
 
 // mouse drop another mob or self
@@ -227,7 +247,7 @@
 		msg = "[user.name] stuffs [target.name] into the [src]!"
 		to_chat(user, "You stuff [target.name] into the [src]!")
 
-		user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has placed [target.name] ([target.ckey]) in disposals.</font>")
+		user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has placed [target.name] ([target.ckey]) in disposals.</span>")
 		target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [user.name] ([user.ckey])</font>")
 		msg_admin_attack("[user] ([user.ckey]) placed [target] ([target.ckey]) in a disposals unit. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 	else
@@ -307,21 +327,28 @@
 
 		dat += "<BR><HR><A href='?src=\ref[src];eject=1'>Eject contents</A><HR>"
 
-	if(mode <= 0)
-		dat += "Pump: <B>Off</B> <A href='?src=\ref[src];pump=1'>On</A><BR>"
-	else if(mode == 1)
-		dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (pressurizing)<BR>"
+	if(uses_air)
+		if(mode <= 0)
+			dat += "Pump: <B>Off</B> <A href='?src=\ref[src];pump=1'>On</A><BR>"
+		else if(mode == 1)
+			dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (pressurizing)<BR>"
+		else
+			dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (idle)<BR>"
 	else
 		dat += "Pump: <A href='?src=\ref[src];pump=0'>Off</A> <B>On</B> (idle)<BR>"
 
 	var/per = 100* air_contents.return_pressure() / (SEND_PRESSURE)
+	if(!uses_air)
+		per = 100
 
 	dat += "Pressure: [round(per, 1)]%<BR></body>"
 
 
 	user.set_machine(src)
-	user << browse(dat, "window=disposal;size=360x170")
-	onclose(user, "disposal")
+
+	var/datum/browser/disposal_win = new(user, "disposal", capitalize_first_letters(name), 320, 200)
+	disposal_win.set_content(dat)
+	disposal_win.open()
 
 // handle machine interaction
 
@@ -421,12 +448,12 @@
 
 	src.updateDialog()
 
-	if(flush && air_contents.return_pressure() >= SEND_PRESSURE )	// flush can happen even without power
+	if(flush && (air_contents.return_pressure() >= SEND_PRESSURE || !uses_air))	// flush can happen even without power
 		flush()
 
 	if(mode != 1) //if off or ready, no need to charge
 		update_use_power(1)
-	else if(air_contents.return_pressure() >= SEND_PRESSURE)
+	else if((air_contents.return_pressure() >= SEND_PRESSURE || !uses_air))
 		mode = 2 //if full enough, switch to ready mode
 		update()
 	else
@@ -704,14 +731,9 @@
 	dir = 0				// dir will contain dominant direction for junction pipes
 	var/health = 10 	// health points 0-10
 	layer = 2.3			// slightly lower than wires and other pipes
-	var/base_icon_state	// initial icon state on map
 	var/sortType = ""
 	var/subtype = 0
 	// new pipe, set the icon_state as on map
-
-/obj/structure/disposalpipe/Initialize()
-	. = ..()
-	base_icon_state = icon_state
 
 // pipe is deleted
 // ensure if holder is present, it is expelled
@@ -774,20 +796,6 @@
 // change visibility status and force update of icon
 /obj/structure/disposalpipe/hide(var/intact)
 	invisibility = intact ? 101: 0	// hide if floor is intact
-	updateicon()
-
-// update actual icon_state depending on visibility
-// if invisible, append "f" to icon_state to show faded version
-// this will be revealed if a T-scanner is used
-// if visible, use regular icon_state
-/obj/structure/disposalpipe/proc/updateicon()
-/*		if(invisibility)	//we hide things with alpha now, no need for transparent icons
-		icon_state = "[base_icon_state]f"
-	else
-		icon_state = base_icon_state*/
-	icon_state = base_icon_state
-	return
-
 
 	// expel the held objects into a turf
 	// called when there is a break in the pipe
@@ -908,7 +916,7 @@
 		var/obj/item/weldingtool/W = I
 
 		if(W.remove_fuel(0,user))
-			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+			playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 			// check if anything changed over 3 seconds
 			to_chat(user, "Slicing the disposal pipe...")
 			if (do_after(user, 3/W.toolspeed SECONDS, act_target = src))
@@ -922,7 +930,7 @@
 // called when pipe is cut with welder
 /obj/structure/disposalpipe/proc/welded()
 	var/obj/structure/disposalconstruct/C = new (src.loc)
-	switch(base_icon_state)
+	switch(icon_state)
 		if("pipe-s")
 			C.ptype = 0
 		if("pipe-c")
@@ -1380,7 +1388,7 @@
 		var/obj/item/weldingtool/W = I
 
 		if(W.remove_fuel(0,user))
-			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+			playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 			// check if anything changed over 3 seconds
 			to_chat(user, "Slicing the disposal pipe.")
 			if (do_after(user, 3/W.toolspeed SECONDS, act_target = src))
@@ -1547,7 +1555,7 @@
 	else if(I.iswelder() && mode==1)
 		var/obj/item/weldingtool/W = I
 		if(W.remove_fuel(0,user))
-			playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+			playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 			to_chat(user, "You start slicing the floorweld off the disposal outlet.")
 			if(do_after(user,20/W.toolspeed))
 				if(!src || !W.isOn()) return

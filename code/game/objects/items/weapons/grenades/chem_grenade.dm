@@ -3,7 +3,7 @@
 	icon_state = "chemg"
 	item_state = "chemg"
 	desc = "A hand made chemical grenade."
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	force = 2.0
 	det_time = null
 	unacidable = 1
@@ -271,7 +271,7 @@
 	B1.reagents.add_reagent(/datum/reagent/potassium,20)
 	B1.reagents.add_reagent(/datum/reagent/soporific, 10)
 	B1.reagents.add_reagent(/datum/reagent/dylovene, 10)
-	B2.reagents.add_reagent(/datum/reagent/chloralhydrate,40)
+	B2.reagents.add_reagent(/datum/reagent/polysomnine,40)
 	B2.reagents.add_reagent(/datum/reagent/phosphorus,20)
 
 	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)

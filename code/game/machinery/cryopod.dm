@@ -18,6 +18,7 @@ var/global/list/frozen_crew = list()
 	circuit = /obj/item/circuitboard/cryopodcontrol
 	density = FALSE
 	interact_offline = TRUE
+	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 
 	icon_screen = "cryo"
 	icon_scanline = "altcomputerw-scanline"
@@ -203,7 +204,9 @@ var/global/list/frozen_crew = list()
 		/obj/item/card/id,
 		/obj/item/modular_computer,
 		/obj/item/device/pda,
-		/obj/item/cartridge
+		/obj/item/cartridge,
+		/obj/item/device/radio/headset,
+		/obj/item/device/encryptionkey
 	)
 
 	//For subtypes of the blacklist that are allowed to be kept
@@ -239,7 +242,7 @@ var/global/list/frozen_crew = list()
 /obj/machinery/cryopod/examine(mob/user)
 	..(user)
 	if(occupant)
-		to_chat(user, SPAN_NOTICE("<b>[occupant]</b> [gender_datums[occupant.gender].is] inside \the [src]."))
+		to_chat(user, SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [src]."))
 
 /obj/machinery/cryopod/can_hold_dropped_items()
 	return FALSE
@@ -387,25 +390,12 @@ var/global/list/frozen_crew = list()
 					M.client.eye = src
 
 			update_icon()
-
 			to_chat(M, SPAN_NOTICE("[on_enter_occupant_message]"))
 			to_chat(M, SPAN_DANGER("Press Ghost in the OOC tab to cryo, your character will shortly be removed from the round and the slot you occupy will be freed."))
 			set_occupant(M)
 
 			if(isipc(M))
-				var/choice = alert(M, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
-				if(choice == "Yes")
-					var/mob/living/carbon/human/H = M
-					var/obj/item/organ/internal/ipc_tag/tag = H.organs_by_name[BP_IPCTAG]
-					if(tag)
-						M.client.prefs.machine_ownership_status = tag.ownership_info
-						M.client.prefs.machine_serial_number = tag.serial_number
-						M.client.prefs.citizenship = tag.citizenship_info
-						M.client.prefs.machine_tag_status = TRUE
-					else if(isnull(tag) || !tag)
-						M.client.prefs.machine_tag_status = FALSE
-					M.client.prefs.save_character()
-					M.client.prefs.save_preferences()
+				save_ipc_tag(M)
 
 			// Book keeping!
 			var/turf/location = get_turf(src)
@@ -473,19 +463,7 @@ var/global/list/frozen_crew = list()
 		update_icon()
 
 		if(isipc(L))
-			var/choice = alert(L, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
-			if(choice == "Yes")
-				var/mob/living/carbon/human/H = L
-				var/obj/item/organ/internal/ipc_tag/tag = H.organs_by_name[BP_IPCTAG]
-				if(tag)
-					L.client.prefs.machine_ownership_status = tag.ownership_info
-					L.client.prefs.machine_serial_number = tag.serial_number
-					L.client.prefs.citizenship = tag.citizenship_info
-					L.client.prefs.machine_tag_status = TRUE
-				else if(isnull(tag) || !tag)
-					L.client.prefs.machine_tag_status = FALSE
-				L.client.prefs.save_character()
-				L.client.prefs.save_preferences()
+			save_ipc_tag(L)
 
 		// Book keeping!
 		var/turf/location = get_turf(src)
@@ -601,3 +579,18 @@ var/global/list/frozen_crew = list()
 
 /obj/machinery/cryopod/relaymove(var/mob/user)
 	go_out()
+
+/obj/machinery/cryopod/proc/save_ipc_tag(var/mob/M)
+	var/choice = alert(M, "Would you like to save your tag data?", "Tag Persistence", "Yes", "No")
+	if(choice == "Yes")
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		if(tag)
+			M.client.prefs.machine_ownership_status = tag.ownership_info
+			M.client.prefs.machine_serial_number = tag.serial_number
+			M.client.prefs.citizenship = tag.citizenship_info
+			M.client.prefs.machine_tag_status = TRUE
+		else if(isnull(tag) || !tag)
+			M.client.prefs.machine_tag_status = FALSE
+		M.client.prefs.save_character()
+		M.client.prefs.save_preferences()

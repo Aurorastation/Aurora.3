@@ -132,6 +132,8 @@
 	hat_x_offset = 1
 	hat_y_offset = -12
 
+	var/my_home_z
+
 /mob/living/silicon/robot/drone/Initialize()
 	. = ..()
 
@@ -155,7 +157,7 @@
 		C.max_damage = 10
 
 	verbs -= /mob/living/silicon/robot/verb/Namepick
-	updateicon()
+	update_icon()
 	density = FALSE
 
 /mob/living/silicon/robot/drone/init()
@@ -179,9 +181,12 @@
 	real_name = "maintenance drone ([rand(100,999)])"
 	name = real_name
 
-/mob/living/silicon/robot/drone/updateicon()
+/mob/living/silicon/robot/drone/setup_icon_cache()
+  return
+
+/mob/living/silicon/robot/drone/update_icon()
 	cut_overlays()
-	if(stat == CONSCIOUS)
+	if(stat == CONSCIOUS && isturf(loc))
 		if(!emagged)
 			add_overlay("eyes-[icon_state]")
 		else
@@ -200,7 +205,7 @@
 		return
 	hat = new_hat
 	new_hat.forceMove(src)
-	updateicon()
+	update_icon()
 
 //Drones cannot be upgraded with borg modules so we need to catch some items before they get used in ..().
 /mob/living/silicon/robot/drone/attackby(var/obj/item/W, var/mob/user)
@@ -218,7 +223,7 @@
 	else if(W.iscrowbar())
 		to_chat(user, SPAN_WARNING("\The [src] is hermetically sealed. You can't open the case."))
 		return
-	else if(istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
+	else if(W.GetID())
 		if(stat == DEAD)
 			if(!config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
 				to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
@@ -226,11 +231,11 @@
 			if(!allowed(usr))
 				to_chat(user, SPAN_WARNING("Access denied."))
 				return
-			user.visible_message(SPAN_NOTICE("\The [user] swipes \his ID card through \the [src], attempting to reboot it."), SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
+			user.visible_message(SPAN_NOTICE("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src], attempting to reboot it."), SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
 			request_player()
 			return
 		else
-			user.visible_message(SPAN_WARNING("\The [user] swipes \his ID card through \the [src], attempting to shut it down."), SPAN_WARNING("You swipe your ID card through \the [src], attempting to shut it down."))
+			user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src], attempting to shut it down."), SPAN_WARNING("You swipe your ID card through \the [src], attempting to shut it down."))
 			if(emagged)
 				return
 			if(allowed(user))
@@ -268,8 +273,8 @@
 
 	to_chat(src, "<b>Obey these laws:</b>")
 	laws.show_laws(src)
-	to_chat(src, SPAN_DANGER("ALERT: [user.real_name] is your new master. Obey your new laws and \his commands."))
-	updateicon()
+	to_chat(src, SPAN_DANGER("ALERT: [user.real_name] is your new master. Obey your new laws and their commands."))
+	update_icon()
 	return TRUE
 
 /mob/living/silicon/robot/drone/proc/ai_hack(var/mob/user)
@@ -298,13 +303,16 @@
 
 //DRONE LIFE/DEATH
 /mob/living/silicon/robot/drone/process_level_restrictions()
+	//Abort if they should not get blown
+	if(lock_charge || scrambled_codes || emagged)
+		return FALSE
 	var/turf/T = get_turf(src)
 	var/area/A = get_area(T)
 	if((!T || !(A in the_station_areas)) && src.stat != DEAD)
-		to_chat(src, SPAN_WARNING("WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated."))
-		gib()
-		return
-	return
+		if(!self_destructing)
+			to_chat(src, SPAN_WARNING("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
+			start_self_destruct(TRUE)
+		return TRUE
 
 //For some goddamn reason robots have this hardcoded. Redefining it for our fragile friends here.
 /mob/living/silicon/robot/drone/updatehealth()
@@ -417,6 +425,9 @@
 /mob/living/silicon/robot/drone/remove_robot_verbs()
 	src.verbs -= silicon_subsystems
 
+/mob/living/silicon/robot/drone/self_destruct()
+	gib()
+	
 /mob/living/silicon/robot/drone/examine(mob/user)
 	..()
 	var/msg
@@ -437,15 +448,17 @@
 
 	return dat
 
+/mob/living/silicon/robot/drone/construction/Initialize()
+	. = ..()
+	var/turf/T = get_turf(src)
+	my_home_z = T.z
+	flavor_text = "It's a bulky construction drone stamped with a NanoTrasen glyph."
+
 /mob/living/silicon/robot/drone/construction/welcome_drone()
 	to_chat(src, SPAN_NOTICE("<b>You are a construction drone, an autonomous engineering and fabrication system.</b>."))
 	to_chat(src, SPAN_NOTICE("You are assigned to a NanoTrasen construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."))
 	to_chat(src, SPAN_NOTICE("Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."))
 	to_chat(src, SPAN_NOTICE("<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."))
-
-/mob/living/silicon/robot/drone/construction/init()
-	..()
-	flavor_text = "It's a bulky construction drone stamped with a NanoTrasen glyph."
 
 /mob/living/silicon/robot/drone/construction/updatename()
 	real_name = "construction drone ([rand(100,999)])"
@@ -454,13 +467,16 @@
 /mob/living/silicon/robot/drone/construction/process_level_restrictions()
 	//Abort if they should not get blown
 	if(lock_charge || scrambled_codes || emagged)
-		return
-	//Check if they are not on station level -> abort
+		return FALSE
+	//Check if they are not on a station level -> else abort
 	var/turf/T = get_turf(src)
-	if(!T || isNotStationLevel(T.z))
-		return
-	to_chat(src, SPAN_WARNING("WARNING: Lost contact with controller. Anti-Theft mode activated."))
-	gib()
+	if (!T || AreConnectedZLevels(my_home_z, T.z))
+		return FALSE
+
+	if(!self_destructing)
+		to_chat(src, SPAN_DANGER("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
+		start_self_destruct(TRUE)
+	return TRUE
 
 /proc/too_many_active_drones()
 	var/drones = 0

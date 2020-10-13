@@ -4,7 +4,7 @@
 	icon = 'icons/obj/guns/rocket.dmi'
 	icon_state = "rocket"
 	item_state = "rocket"
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	throw_speed = 2
 	throw_range = 10
 	force = 5.0

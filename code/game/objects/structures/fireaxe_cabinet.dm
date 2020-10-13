@@ -23,7 +23,7 @@
 	shattered = 1
 	unlocked = 1
 	open = 1
-	playsound(user, "shatter", 100, 1)
+	playsound(user, /decl/sound_category/glass_break_sound, 100, 1)
 	update_icon()
 
 /obj/structure/fireaxecabinet/update_icon()

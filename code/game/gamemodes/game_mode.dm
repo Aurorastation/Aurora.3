@@ -185,6 +185,12 @@ var/global/list/additional_antag_types = list()
 				else
 					potential = antag.candidates
 				if(islist(potential))
+					for(var/potential_antag in potential)
+						var/datum/mind/player = potential_antag
+						if(!(antag.flags & ANTAG_OVERRIDE_JOB) && (player.assigned_role in antag.restricted_jobs))
+							potential -= potential_antag
+							antag.candidates -= player
+							log_debug("GAMEMODE: Player [player.name] ([player.key]) was removed from the potential antags list due to being given the role [player.assigned_role] which is a restricted job!")
 					if(potential.len)
 						log_debug("GAMEMODE: Found [potential.len] potential antagonists for [antag.role_text].")
 						total_enemy_count += potential.len
@@ -218,9 +224,36 @@ var/global/list/additional_antag_types = list()
 		antag.update_initial_spawn_target()
 		antag.build_candidate_list() //compile a list of all eligible candidates
 
+	if(length(antag_templates) > 1) // If we have multiple templates to satisfy, we must pick candidates who satisfy fewer templates first, and fill the template with fewest candidates first
+		var/list/template_candidates = list()
+		var/list/all_candidates = list() // All candidates for every template, may contain duplicates
+		var/list/antag_templates_by_initial_spawn_req = list()
+
+		for(var/datum/antagonist/antag in antag_templates)
+			template_candidates[antag.id] = length(antag.candidates)
+			all_candidates += antag.candidates
+			antag_templates_by_initial_spawn_req[antag] = antag.initial_spawn_req
+
+		sortTim(antag_templates_by_initial_spawn_req, /proc/cmp_numeric_asc, TRUE)
+		antag_templates = list_keys(antag_templates_by_initial_spawn_req)
+
+		var/list/valid_templates_per_candidate = list() // number of roles each candidate can satisfy
+		for(var/candidate in all_candidates)
+			valid_templates_per_candidate[candidate]++
+
+		sortTim(valid_templates_per_candidate, /proc/cmp_numeric_asc, TRUE)
+
+		for(var/datum/antagonist/antag in antag_templates)
+			antag.candidates = list_keys(valid_templates_per_candidate) & antag.candidates // orders antag.candidates by valid_templates_per_candidate
+
+		var/datum/antagonist/last_template = antag_templates[antag_templates.len]
+		last_template.candidates = shuffle(last_template.candidates)
+
+	for(var/datum/antagonist/antag in antag_templates)
 		//antag roles that replace jobs need to be assigned before the job controller hands out jobs.
 		if(antag.flags & ANTAG_OVERRIDE_JOB)
 			antag.attempt_spawn() //select antags to be spawned
+		antag.candidates = shuffle(antag.candidates) // makes selection past initial_spawn_req fairer
 
 ///post_setup()
 /datum/game_mode/proc/post_setup()
@@ -339,10 +372,9 @@ var/global/list/additional_antag_types = list()
 	var/escaped_on_pod_1 = 0
 	var/escaped_on_pod_2 = 0
 	var/escaped_on_pod_3 = 0
-	var/escaped_on_pod_5 = 0
 	var/escaped_on_shuttle = 0
 
-	var/list/area/escape_locations = list(/area/shuttle/escape/centcom, /area/shuttle/escape_pod1/centcom, /area/shuttle/escape_pod2/centcom, /area/shuttle/escape_pod3/centcom, /area/shuttle/escape_pod5/centcom)
+	var/list/area/escape_locations = list(/area/shuttle/escape, /area/shuttle/escape_pod/pod1, /area/shuttle/escape_pod/pod2, /area/shuttle/escape_pod/pod3)
 
 	for(var/mob/M in player_list)
 		if(M.client)
@@ -361,17 +393,17 @@ var/global/list/additional_antag_types = list()
 				if(M.loc && M.loc.loc && (M.loc.loc.type in escape_locations))
 					escaped_total++
 
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape/centcom)
+				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape)
 					escaped_on_shuttle++
 
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod1/centcom)
+				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod/pod1)
 					escaped_on_pod_1++
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod2/centcom)
+
+				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod/pod2)
 					escaped_on_pod_2++
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod3/centcom)
+
+				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod/pod3)
 					escaped_on_pod_3++
-				if(M.loc && M.loc.loc && M.loc.loc.type == /area/shuttle/escape_pod5/centcom)
-					escaped_on_pod_5++
 
 			if(isobserver(M))
 				ghosts++
@@ -412,8 +444,6 @@ var/global/list/additional_antag_types = list()
 		feedback_set("escaped_on_pod_2",escaped_on_pod_2)
 	if(escaped_on_pod_3 > 0)
 		feedback_set("escaped_on_pod_3",escaped_on_pod_3)
-	if(escaped_on_pod_5 > 0)
-		feedback_set("escaped_on_pod_5",escaped_on_pod_5)
 
 	return 0
 
@@ -562,7 +592,7 @@ var/global/list/additional_antag_types = list()
 	//New message handling
 	post_comm_message("Cent. Com. Status Summary", intercepttext)
 
-	to_world(sound('sound/AI/commandreport.ogg'))
+	sound_to(world, ('sound/AI/commandreport.ogg'))
 
 /datum/game_mode/proc/get_players_for_role(var/role, var/antag_id)
 	var/list/players = list()
@@ -684,10 +714,10 @@ proc/get_logout_report()
 					continue //Dead mob, ghost abandoned
 				else
 					if(D.can_reenter_corpse)
-						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (<font color='red'><b>Adminghosted</b></font>)\n"
+						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (<span class='warning'><b>Adminghosted</b></span>)\n"
 						continue //Lolwhat
 					else
-						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (<font color='red'><b>Ghosted</b></font>)\n"
+						msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (<span class='warning'><b>Ghosted</b></span>)\n"
 						continue //Ghosted while alive
 
 	msg += "</span>" // close the span from right at the top
@@ -722,7 +752,7 @@ proc/get_nt_opposed()
 //Announces objectives/generic antag text.
 /proc/show_generic_antag_text(var/datum/mind/player)
 	if(player.current)
-		to_chat(player.current, "You are an antagonist! <font color=blue>Within the rules,</font> try to act as an opposing force to the crew. Further RP and try to make sure other players have <i>fun</i>! If you are confused or at a loss, always adminhelp, and before taking extreme actions, please try to also contact the administration! Think through your actions and make the roleplay immersive! <b>Please remember all rules aside from those without explicit exceptions apply to antagonists.</b>")
+		to_chat(player.current, "You are an antagonist! <span class='notice'><b>Within the rules</b></span>, try to act as an opposing force to the crew. Further RP and try to make sure other players have <i>fun</i>! If you are confused or at a loss, always adminhelp, and before taking extreme actions, please try to also contact the administration! Think through your actions and make the roleplay immersive! <b>Please remember all rules aside from those without explicit exceptions apply to antagonists.</b>")
 
 /proc/show_objectives(var/datum/mind/player)
 

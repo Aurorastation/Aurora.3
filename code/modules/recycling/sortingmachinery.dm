@@ -238,7 +238,7 @@
 	icon_state = "dest_tagger"
 	var/currTag = 0
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
@@ -360,7 +360,7 @@
 		if(W.remove_fuel(1,user))
 			to_chat(user, "You start slicing the floorweld off the delivery chute.")
 			if(do_after(user,20/W.toolspeed))
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
 				if(!src || !W.isOn()) return
 				to_chat(user, "You sliced the floorweld off the delivery chute.")
 				var/obj/structure/disposalconstruct/C = new (src.loc)

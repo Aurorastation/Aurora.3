@@ -130,7 +130,7 @@
 	name = "Quartermaster"
 	jobtype = /datum/job/qm
 
-	uniform = /obj/item/clothing/under/rank/cargo
+	uniform = /obj/item/clothing/under/rank/quartermaster
 	pda = /obj/item/device/pda/quartermaster
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/qm
@@ -196,7 +196,7 @@
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_mining
 
-	l_hand = /obj/item/storage/toolbox/ka
+	l_hand = /obj/item/coin/mining
 
 	backpack_contents = list(
 		/obj/item/storage/bag/ore = 1

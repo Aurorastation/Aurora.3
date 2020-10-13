@@ -41,7 +41,7 @@
 	var/holding_still = 0	// AI variable, cooloff-ish for how long it's going to stay in one place
 	var/target_patience = 0 // AI variable, cooloff-ish for how long it's going to follow its target
 
-	var/list/friends = list() // A list of friends; they are not considered targets for feeding; passed down after splitting
+	var/list/friends = list() // A list of friends; the higher their number value, the more we consider them a friend, people at 0 are no longer friends
 
 	var/list/speech_buffer = list() // Last phrase said near it and person who said it
 
@@ -284,7 +284,7 @@
 		if(victim == M)
 			if(prob(60))
 				visible_message(SPAN_WARNING("[M] attempts to wrestle \the [name] off!"))
-				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+				playsound(loc, /decl/sound_category/punchmiss_sound, 25, 1, -1)
 			else
 				visible_message(SPAN_WARNING("[M] manages to wrestle \the [name] off!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
@@ -305,7 +305,7 @@
 		else
 			if(prob(30))
 				visible_message(SPAN_WARNING("[M] attempts to wrestle \the [name] off of [victim]!"))
-				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+				playsound(loc, /decl/sound_category/punchmiss_sound, 25, 1, -1)
 			else
 				visible_message(SPAN_WARNING("[M] manages to wrestle \the [name] off of [victim]!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
@@ -364,14 +364,14 @@
 						sleep(3)
 						step_away(src,M,15)
 
-				playsound(loc, "punch", 25, 1, -1)
+				playsound(loc, /decl/sound_category/punch_sound, 25, 1, -1)
 				visible_message(SPAN_DANGER("[M] has punched [src]!"), \
 						SPAN_DANGER("[M] has punched [src]!"))
 
 				adjustBruteLoss(damage)
 				updatehealth()
 			else
-				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+				playsound(loc, /decl/sound_category/punchmiss_sound, 25, 1, -1)
 				visible_message(SPAN_DANGER("[M] has attempted to punch [src]!"))
 	return
 

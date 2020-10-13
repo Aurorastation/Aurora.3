@@ -37,11 +37,11 @@
 		/obj/item/rig_module/mounted/plasmacutter,
 		/obj/item/rig_module/actuators/combat
 	)
-	species_restricted = list("Heavy Machine")
+	species_restricted = list(BODYTYPE_IPC_INDUSTRIAL)
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA
 
 /obj/item/clothing/head/helmet/space/rig/terminator
-	species_restricted = list("Heavy Machine")
+	species_restricted = list(BODYTYPE_IPC_INDUSTRIAL)
 	light_overlay = "helmet_light_terminator"
 	light_color = LIGHT_COLOR_RED
 

@@ -76,7 +76,7 @@
 					<li>Open the control panel</li>
 					<li>Set the speed to 2</li>
 					<li>Start firing at the singularity generator</li>
-					<li><font color='red'><b>When the singularity reaches a large enough size so it starts moving on it's own set the speed down to 0, but don't shut it off</b></font></li>
+					<li><span class='warning'><b>When the singularity reaches a large enough size so it starts moving on it's own set the speed down to 0, but don't shut it off</b></span></li>
 					<li>Remember to wear a radiation suit when working with this machine... we did tell you that at the start, right?</li>
 				</ol>
 
@@ -238,7 +238,7 @@
 				A power problem has made the entire station lose power? Could be station-wide wiring problems or syndicate power sinks. In any case follow these steps:
 
 				<ol>
-					<li><b><font color='red'>PANIC!</font></b></li>
+					<li><b><span class='warning'>PANIC!</span></b></li>
 					<li>Get your ass over to engineering! <b>QUICKLY!!!</b></li>
 					<li>Get to the <b>Area Power Controller</b> which controls the power to the emitters.</li>
 					<li>Swipe it with your <b>ID card</b> - if it doesn't unlock, continue with step 15.</li>
@@ -1459,7 +1459,7 @@
 	item_state = "book4"
 	title = "hadiist manifesto"
 	author = "Al'Mari Hadii"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	dat = {"<html>
 				<head>
 					<style>
@@ -1499,7 +1499,7 @@
 	item_state = "book1"
 	title = "dominian honor codex"
 	author = "Zalze Han'San"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	dat = {"<html>
 				<head>
 				<style>
@@ -1600,7 +1600,7 @@
 	item_state = "book13"
 	title = "Tau Ceti foreign legion pamphlet"
 	author = "Tau Ceti foreign legion recruitment center"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	dat = {"<html>
 				<head>
 					<style>

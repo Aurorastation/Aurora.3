@@ -5,7 +5,7 @@
 	damage_type = BRUTE
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
 	nodamage = FALSE
-	check_armour = "bullet"
+	check_armor = "bullet"
 	embed = TRUE
 	sharp = TRUE
 	shrapnel_type = /obj/item/material/shard/shrapnel
@@ -128,15 +128,15 @@
 	damage = 25
 
 /obj/item/projectile/bullet/pistol/strong
-	damage = 60
+	damage = 30
+	armor_penetration = 15
 
 /obj/item/projectile/bullet/pistol/revolver
-	damage = 45
-	armor_penetration = 15
+	damage = 30
 
 /obj/item/projectile/bullet/pistol/rubber //"rubber" bullets
 	name = "rubber bullet"
-	check_armour = "melee"
+	check_armor = "melee"
 	damage = 5
 	agony = 40
 	embed = 0
@@ -149,7 +149,7 @@
 
 /obj/item/projectile/bullet/shotgun/beanbag		//because beanbags are not bullets
 	name = "beanbag"
-	check_armour = "melee"
+	check_armor = "melee"
 	damage = 10
 	agony = 60
 	embed = 0
@@ -157,7 +157,7 @@
 
 /obj/item/projectile/bullet/shotgun/incendiary
 	name = "incendiary"
-	check_armour = "melee"
+	check_armor = "melee"
 	damage = 5
 	agony = 0
 	embed = 0
@@ -181,17 +181,17 @@
 /* "Rifle" rounds */
 
 /obj/item/projectile/bullet/rifle
-	armor_penetration = 20
 	penetrating = 1
+	armor_penetration = 20
 
 /obj/item/projectile/bullet/rifle/a762
-	damage = 25
+	damage = 35
 
 /obj/item/projectile/bullet/rifle/a556
 	damage = 30
 
 /obj/item/projectile/bullet/rifle/a556/ap
-	damage = 25
+	damage = 30
 	armor_penetration = 25
 
 /obj/item/projectile/bullet/rifle/a145
@@ -324,7 +324,7 @@
 	icon_state = "flechette_bullet"
 	damage = 40
 	damage_type = BRUTE
-	check_armour = "bullet"
+	check_armor = "bullet"
 	embed = 1
 	sharp = 1
 	penetrating = 1
@@ -339,7 +339,7 @@
 /obj/item/projectile/bullet/gauss
 	name = "slug"
 	icon_state = "heavygauss"
-	damage = 30
+	damage = 45
 	muzzle_type = /obj/effect/projectile/muzzle/gauss
 	embed = 0
 
@@ -390,3 +390,12 @@
 	new /obj/effect/temp_visual/nuke(A.loc)
 	explosion(A,2,5,9)
 	..()
+
+/obj/item/projectile/bullet/shard
+	name = "shard"
+	icon_state = "shard"
+	damage = 15
+	muzzle_type = /obj/effect/projectile/muzzle/bolt
+
+/obj/item/projectile/bullet/shard/heavy
+	damage = 30

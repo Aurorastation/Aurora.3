@@ -1,13 +1,16 @@
 // Wires for airlocks
 
-/datum/wires/airlock/secure
-	random = 1
-	wire_count = 14
-
 /datum/wires/airlock
 	holder_type = /obj/machinery/door/airlock
 	wire_count = 12
 	window_y = 570
+
+/datum/wires/airlock/secure
+	random = TRUE
+	wire_count = 14
+
+/datum/wires/airlock/blueprint
+	cares_about_holder = FALSE
 
 var/const/AIRLOCK_WIRE_IDSCAN = 1
 var/const/AIRLOCK_WIRE_MAIN_POWER1 = 2
@@ -173,3 +176,39 @@ var/const/AIRLOCK_WIRE_LIGHT = 2048
 		if(AIRLOCK_WIRE_LIGHT)
 			A.lights = !A.lights
 			A.update_icon()
+
+/datum/wires/airlock/get_wire_diagram(var/mob/user)
+	var/dat = ""
+	for(var/color in wires)
+		dat += "<font color='[color]'>[capitalize(color)]</font>: [index_to_type(GetIndex(color))]<br>"
+
+	var/datum/browser/wire_win = new(user, "airlockwires", "Airlock Wires", 450, 500)
+	wire_win.set_content(dat)
+	wire_win.open()
+
+/datum/wires/airlock/proc/index_to_type(var/index)
+	switch(index)
+		if(1)
+			return "ID Scan"
+		if(2)
+			return "Power"
+		if(4)
+			return "Power"
+		if(8)
+			return "Bolts"
+		if(16)
+			return "Backup Power"
+		if(32)
+			return "Backup Power"
+		if(64)
+			return "Actuation"
+		if(128)
+			return "AI Control"
+		if(256)
+			return "Anti-tampering"
+		if(512)
+			return "Safety"
+		if(1024)
+			return "Speed"
+		if(2048)
+			return "Bolt Lights"

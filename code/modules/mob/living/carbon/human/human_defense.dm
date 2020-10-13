@@ -19,6 +19,7 @@ emp_act
 		if(martial_art && martial_art.deflection_chance)
 			if(prob(martial_art.deflection_chance))
 				src.visible_message("<span class='danger'>\The [src] deflects \the [P]!</span>")
+				playsound(src, /decl/sound_category/bulletflyby_sound, 75, 1)
 				return 0
 
 	def_zone = check_zone(def_zone)
@@ -46,6 +47,8 @@ emp_act
 		var/armor = getarmor_organ(organ, "bullet")
 		if(prob(20 + max(P.damage - armor, -10)))
 			var/obj/item/SP = new P.shrapnel_type()
+			SP.edge = TRUE
+			SP.sharp = TRUE
 			SP.name = (P.name != "shrapnel")? "[P.name] shrapnel" : "shrapnel"
 			SP.desc = "[SP.desc] It looks like it was fired from [P.shot_from]."
 			SP.forceMove(organ)
@@ -127,7 +130,7 @@ emp_act
 			results.Add(C)
 	return results
 
-//this proc returns the armour value for a particular external organ.
+//this proc returns the armor value for a particular external organ.
 /mob/living/carbon/human/proc/getarmor_organ(var/obj/item/organ/external/def_zone, var/type)
 	if(!type || !def_zone) return 0
 	var/protection = 0
@@ -386,6 +389,7 @@ emp_act
 
 		if(!zone)
 			visible_message("<span class='notice'>\The [O] misses [src] narrowly!</span>")
+			playsound(src, 'sound/effects/throw_miss.ogg', rand(10, 50), 1)
 			return
 
 		O.throwing = 0		//it hit, so stop moving
@@ -405,7 +409,7 @@ emp_act
 			var/client/assailant = M.client
 			if(assailant)
 				src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been hit with a [O], thrown by [M.name] ([assailant.ckey])</font>")
-				M.attack_log += text("\[[time_stamp()]\] <font color='red'>Hit [src.name] ([src.ckey]) with a thrown [O]</font>")
+				M.attack_log += text("\[[time_stamp()]\] <span class='warning'>Hit [src.name] ([src.ckey]) with a thrown [O]</span>")
 				if(!istype(src,/mob/living/simple_animal/rat))
 					msg_admin_attack("[src.name] ([src.ckey]) was hit by a [O], thrown by [M.name] ([assailant.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(M),ckey_target=key_name(src))
 
@@ -460,10 +464,11 @@ emp_act
 
 
 /mob/living/carbon/human/proc/bloody_hands(var/mob/living/source, var/amount = 2)
-	if (gloves)
-		gloves.add_blood(source)
-		gloves:transfer_blood = amount
-		gloves:bloody_hands_mob = source
+	if(istype(gloves, /obj/item/clothing/gloves))
+		var/obj/item/clothing/gloves/G = gloves
+		G.add_blood(source)
+		G.transfer_blood = amount
+		G.bloody_hands_mob = source
 	else
 		add_blood(source)
 		bloody_hands = amount
@@ -551,7 +556,7 @@ emp_act
 
 	var/obj/item/grab/G = new /obj/item/grab(user, src)
 	if(buckled)
-		to_chat(user, "<span class='notice'>You cannot grab [src], \he [gender_datums[gender].is] buckled in!</span>")
+		to_chat(user, "<span class='notice'>You cannot grab [src], [get_pronoun("he")] [get_pronoun("is")] buckled in!</span>")
 	if(!G)	//the grab will delete itself in New if affecting is anchored
 		return
 	user.put_in_active_hand(G)

@@ -7,7 +7,7 @@
 	use_power = TRUE
 	idle_power_usage = 10
 	active_power_usage = 2000
-	clicksound = "keyboard"
+	clicksound = /decl/sound_category/keyboard_sound
 	clickvol = 30
 
 	var/print_loc

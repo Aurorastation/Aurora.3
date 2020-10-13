@@ -119,7 +119,7 @@
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
 	if(!pref.species || !(pref.species in playable_species))
-		pref.species = "Human"
+		pref.species = SPECIES_HUMAN
 
 	pref.age                = sanitize_integer(text2num(pref.age), pref.getMinAge(), pref.getMaxAge(), initial(pref.age))
 	pref.gender             = sanitize_gender(pref.gender, pref.species)
@@ -168,7 +168,10 @@
 			alert(user, "You can no longer edit the name of your character.<br><br>If there is a legitimate need, please contact an administrator regarding the matter.")
 			return TOPIC_NOACTION
 
+		var/current_character = pref.current_character
 		var/raw_name = input(user, "Choose your character's name:", "Character Name")  as text|null
+		if(current_character != pref.current_character) //Without this, you can switch slots while the input menu is up to change your character's name past the grace period
+			return
 		if (!isnull(raw_name) && CanUseTopic(user))
 			var/new_name = sanitize_name(raw_name, pref.species)
 			if(new_name)
@@ -196,7 +199,7 @@
 
 		var/datum/category_item/player_setup_item/general/equipment/equipment_item = category.items[4]
 		equipment_item.sanitize_character()	// sanitize equipment
-		return TOPIC_UPDATE_PREVIEW
+		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["age"])
 		var/new_age = input(user, "Choose your character's age:\n([pref.getMinAge()]-[pref.getMaxAge()])", "Character Preference", pref.age) as num|null

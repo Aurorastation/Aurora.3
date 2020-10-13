@@ -162,7 +162,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/weldermes = "USER lights NAME with FLAME"
 	var/ignitermes = "USER lights NAME with FLAME"
 	var/initial_volume = 0
-	var/burn_rate = 0
+	var/burn_rate = 0 // Do not make lower than MINIMUM_CHEMICAL_VOLUME 0.01
 	var/last_drag = 0 //Spam limiter for audio/message when taking a drag of cigarette.
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
@@ -224,7 +224,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		set_light(2, 0.25, "#E38F46")
 		START_PROCESSING(SSprocessing, src)
 
-/obj/item/clothing/mask/smokable/proc/die(var/no_message = 0, var/mob/living/M)
+/obj/item/clothing/mask/smokable/proc/die(var/no_message = 0)
 	var/turf/T = get_turf(src)
 	set_light(0)
 	playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
@@ -232,7 +232,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		var/obj/item/butt = new type_butt(src.loc)
 		transfer_fingerprints_to(butt)
 		if(ismob(loc))
-			M = loc
+			var/mob/living/M = loc
 			if(!no_message)
 				to_chat(M, SPAN_NOTICE("Your [name] goes out."))
 			if(M.wear_mask)
@@ -249,16 +249,16 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	else
 		new /obj/effect/decal/cleanable/ash(T)
 		if(ismob(loc))
-			M = loc
+			var/mob/living/M = loc
 			if(!no_message)
 				to_chat(M, SPAN_NOTICE("Your [name] goes out, and you empty the ash."))
 				playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
-			lit = 0
-			icon_state = icon_off
-			item_state = icon_off
 			M.update_inv_wear_mask(0)
 			M.update_inv_l_hand(0)
 			M.update_inv_r_hand(1)
+		lit = FALSE
+		icon_state = icon_off
+		item_state = icon_off
 		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/clothing/mask/smokable/attackby(obj/item/W as obj, mob/user as mob)
@@ -298,7 +298,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_off = "cigoff"
 	type_butt = /obj/item/trash/cigbutt
 	chem_volume = 30
-	burn_rate = 0.006 //Lasts ~166 seconds)
+	burn_rate = 0.012 //Lasts ~83 seconds)
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to light their NAME with FLAME.</span>"
 	zippomes = "<span class='notice'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
@@ -356,7 +356,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 
 /obj/item/clothing/mask/smokable/cigarette/vanilla
-	burn_rate = 0.003 //300 seconds
+	burn_rate = 0.015
 
 /obj/item/clothing/mask/smokable/cigarette/vanilla/Initialize()
 	. = ..()
@@ -375,7 +375,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	reagents.add_reagent(/datum/reagent/serotrotium,3)
 
 /obj/item/clothing/mask/smokable/cigarette/blank
-	burn_rate = 0.003 //300 seconds
+	burn_rate = 0.015
 	chem_volume = 15
 
 /obj/item/clothing/mask/smokable/cigarette/blank/Initialize()
@@ -428,7 +428,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "cigaroff"
 	type_butt = /obj/item/trash/cigbutt/cigarbutt
 	throw_speed = 0.5
-	burn_rate = 0.003 //Lasts ~300 seconds
+	burn_rate = 0.015
 	chem_volume = 60
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
 	lightermes = "<span class='notice'>USER manages to offend their NAME by lighting it with FLAME.</span>"
@@ -536,7 +536,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "pipeoff"
 	icon_on = "pipeon"  //Note - these are in masks.dmi
 	icon_off = "pipeoff"
-	burn_rate = 0.003
+	burn_rate = 0.015
 	w_class = ITEMSIZE_TINY
 	chem_volume = 30
 	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
@@ -630,6 +630,16 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_off = "cobpipeoff"
 	chem_volume = 30
 
+/obj/item/clothing/mask/smokable/pipe/bonepipe
+	name = "Europan bone pipe"
+	desc = "A smoking pipe made out of the bones of the Europan bone whale."
+	desc_fluff = "While most commonly associated with bone charms, bones from various sea creatures on Europa are used in a variety of goods, such as this smoking pipe. While smoking in submarines is often an uncommon occurrence, due to a lack of available air or space, these pipes are a common sight in the many stations of Europa. Higher-quality pipes typically have scenes etched into their bones, and can tell the story of their owner's time on Europa."
+	icon_state = "bonepipeoff"
+	item_state = "bonepipeoff"
+	icon_on = "bonepipeon"
+	icon_off = "bonepipeoff"
+	chem_volume = 30
+
 /////////
 //ZIPPO//
 /////////
@@ -657,6 +667,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/deactivation_sound = 'sound/items/cigs_lighters/cheap_off.ogg'
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
+	var/last_open = 0 //prevent message spamming.
+	var/last_close = 0
+	var/flame_light_range = 1
+	var/flame_light_power = 2
+	var/flame_light_color = LIGHT_COLOR_LAVA
 
 /obj/item/flame/lighter/zippo
 	name = "\improper Zippo lighter"
@@ -667,6 +682,77 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	deactivation_sound = 'sound/items/cigs_lighters/zippo_off.ogg'
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
+
+/obj/item/flame/lighter/zippo/dominia
+	name = "\improper Dominian Zippo lighter"
+	desc = "A zippo lighter with a depiction of the Imperial standard of Dominia."
+	desc_fluff = "While never officially endorsed by the Emperor, lighters featuring a stylized Imperial standard are a common sight throughout the Empire. Due to the simplicity with which the standard can be recreated, these lighters are found even in the poorer frontier regions in the Empire and are commonly seen as a sign of patriotism."
+	icon_state = "dominiazippo"
+	item_state = "dominiazippo"
+
+/obj/item/flame/lighter/zippo/sol
+	name = "\improper Solarian Zippo lighter"
+	desc = "A zippo lighter with a depiction of the flag of the Sol Alliance."
+	desc_fluff = "Zippo lighters with the flag of the Sol Alliance continue a long-standing tradition of Earth. While originally proclaiming patriotism to the nation, in the face of movements for more colonial self-determination, these lighters now push forward a message of unity."
+	icon_state = "solzippo"
+	item_state = "solzippo"
+
+/obj/item/flame/lighter/zippo/tcfl
+	name = "\improper Bieselite Zippo lighter"
+	desc = "A zippo lighter with a depiction of the Bieselite flag."
+	desc_fluff = "In their rush to expand the Tau Ceti Foreign Legion, the Republic of Biesel manufactured thousands of Biesel-patterned zippo lighters to compliment the jackets and berets that were so often touted by recruiters. In the wake of Frost's Invasion, the popularity of such lighters has only increased and they serve as a small show of patriotism. A small NanoTrasen logo is stenciled on the base."
+	icon_state = "tcflzippo"
+	item_state = "tcflzippo"
+
+/obj/item/flame/lighter/zippo/royal
+	name = "royal Zippo lighter"
+	desc = "A gold-plated zippo with a two-piece cover. A small chemical resevoir in the lighter allows for purple flames that burn with greater intensity."
+	icon_state = "royalzippo"
+	item_state = "royalzippo"
+	flame_light_color = LIGHT_COLOR_VIOLET
+
+/obj/item/flame/lighter/zippo/black
+	name = "black Zippo lighter"
+	desc = "A black zippo lighter with a rounded cover. This one seems to burn lower and slower, producing a faint glow."
+	icon_state = "blackzippo"
+	item_state = "blackzippo"
+
+/obj/item/flame/lighter/zippo/black/cross
+	name = "black Zippo lighter"
+	desc = "A black zippo lighter with a rounded cover. This one seems to burn lower and slower, producing a faint glow. This one has a cross painted on it."
+	icon_state = "blackcrosszippo"
+	item_state = "blackzippo"
+
+/obj/item/flame/lighter/zippo/himeo
+	name = "\improper Himean Zippo lighter"
+	desc = "A zippo with the symbol of the United Syndicates of Himeo on it. This seems to be a model of exceptional make and excessive fuel consumption and temperature."
+	desc_fluff = "Lighters of all kinds are a common sight in the United Syndicates of Himeo, where light sources are required for daily life in its dark tunnels, and its lighters are prized throughout the Coalition for their quality. The common emblem of the planet - a white circle surrounded by red triangles - is often featured on lighters originating from the planet."
+	icon_state = "himeozippo"
+	item_state = "himeozippo"
+	flame_light_range = 2
+
+/obj/item/flame/lighter/zippo/coalition
+	name = "\improper Coalition Zippo lighter"
+	desc = "A zippo lighter with a depiction of the Coalition of Colonies flag. This lighter utilizes advanced fuel from Xanu Prime which burns hotter, causing a blue flame."
+	desc_fluff = "As there are hundreds of cultures in the Coalition of Colonies, so too are there hundreds of local variations of zippo lighters. The most prized zippos tend to be those from the industrial colony of Himeo, where a strong work ethic and technological advancements combine to produce high-quality lighters that ignite through the harshest of conditions. Most exported Himean lighters have their logos scratched off, rebranded, and given a fresh coat of paint, much to the chagrin of their manufacturers."
+	icon_state = "coalitionzippo"
+	item_state = "coalitionzippo"
+	flame_light_color = LIGHT_COLOR_BLUE
+
+/obj/item/flame/lighter/zippo/gold
+	name = "golden Zippo lighter"
+	desc = "A golden zippo lighter. Badasses and chainsmokers might settle for a zippo, no sir - you can do better with this solid, 24-karat golden piece!"
+	icon_state = "goldzippo"
+	item_state = "goldzippo"
+	flame_light_color = LIGHT_COLOR_BLUE
+
+/obj/item/flame/lighter/zippo/europa
+	name = "\improper Europan Zippo lighter"
+	desc = "A smokeless electrical coil lighter in the style of a zippo with the tricolour of the Jovian moon Europa on the side. It even its outside feels somewhat hot to the touch when it is turned on."
+	desc_fluff = "Traditional lighters are often frowned upon in the various submarines and underwater bases of Europa for the fumes their open flames produce. As a result, flameless lighters using heated metal coils that ignite flammable material upon contact are employed instead. These lighters are often prized personal possessions of those who own them, as with living space, privacy and individual possessions are a luxury in the cramped quarters of Europan vessels and stations. A side effect of having lighters that use electrically heated metal coils as opposed to flames however, is that the exteriors of the lighters themselves can become heated to a point of inflicting superficial burns if left on for relatively short periods of time."
+	icon_state = "europazippo"
+	item_state = "europazippo"
+	flame_light_power = 1
 
 /obj/item/flame/lighter/random/Initialize()
 	. = ..()
@@ -691,31 +777,38 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			lit = TRUE
 			update_icon()
 			playsound(src.loc, pick(activation_sound), 75, 1)
-			if(istype(src, /obj/item/flame/lighter/zippo) )
-				user.visible_message(FONT_SMALL("Without even breaking stride, <b>[user]</b> flips open and lights \the [src] in one smooth movement."), range = 3)
-			else
+			if(istype(src, /obj/item/flame/lighter/zippo))
+				if(last_open <= world.time - 20) //Spam limiter.
+					last_open = world.time
+					user.visible_message(SPAN_NOTICE("Without even breaking stride, <b>[user]</b> flips open and lights \the [src] in one smooth movement."), range = 3)
+			else // cheap lighter.
 				if(prob(95))
-					user.visible_message(FONT_SMALL("After a few attempts, <b>[user]</b> manages to light \the [src]."), range = 3)
+					if(last_open <= world.time - 20) //Spam limiter.
+						last_open = world.time
+						user.visible_message(SPAN_NOTICE("After a few attempts, <b>[user]</b> manages to light \the [src]."), range = 3)
 				else
-					to_chat(user, FONT_SMALL("You burn yourself while lighting the lighter."))
+					to_chat(user, SPAN_DANGER("You burn yourself while lighting the lighter.")) // shouldn't be a problem - you got hurt, after all.
 					if(user.IgniteMob())
-						user.visible_message(FONT_SMALL("<b>[user]</b> accidentally sets themselves on fire!"))
+						user.visible_message(SPAN_DANGER("<b>[user]</b> accidentally sets themselves on fire!"))
 					if(user.l_hand == src)
 						user.apply_damage(2, BURN,BP_L_HAND)
 					else
 						user.apply_damage(2, BURN,BP_R_HAND)
-					user.visible_message(FONT_SMALL("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)
-
-			set_light(2, 1, l_color = LIGHT_COLOR_LAVA)
+					if(last_open <= world.time - 20) //Spam limiter.
+						last_open = world.time
+						user.visible_message(SPAN_DANGER("After a few attempts, <b>[user]</b> manages to light \the [src], they however burn their finger in the process."), range = 3)
+			set_light(flame_light_power, flame_light_range, l_color = flame_light_color)
 			START_PROCESSING(SSprocessing, src)
 		else
 			lit = FALSE
 			update_icon()
 			playsound(src.loc, deactivation_sound, 75, 1)
-			if(istype(src, /obj/item/flame/lighter/zippo) )
-				user.visible_message(FONT_SMALL("You hear a quiet click, as <b>[user]</b> shuts off \the [src] without even looking at what they're doing."), range = 3)
-			else
-				user.visible_message(FONT_SMALL("<b>[user]</b> quietly shuts off \the [src]."), range = 3)
+			if(last_close <= world.time - 20) //Spam limiter.
+				last_close = world.time
+				if(istype(src, /obj/item/flame/lighter/zippo))
+					user.visible_message(SPAN_NOTICE("You hear a quiet click, as <b>[user]</b> shuts off \the [src] without even looking at what they're doing."), range = 3)
+				else
+					user.visible_message(SPAN_NOTICE("<b>[user]</b> quietly shuts off \the [src]."), range = 3)
 
 			set_light(0)
 			STOP_PROCESSING(SSprocessing, src)

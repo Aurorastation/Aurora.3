@@ -90,20 +90,19 @@
 		if("west")
 			return WEST
 		else
-			return 0
+			return FALSE
 
 /proc/mode_to_gasid(var/mode)
 	switch(mode)
-		if(ATM_O2) 
-			return "oxygen"
-		if(ATM_N2) 
-			return "nitrogen"
-		if(ATM_CO2) 
-			return "carbon_dioxide"
-		if(ATM_P) 
-			return "phoron"
-		if(ATM_N2O) 
-			return "sleeping_agent"
+		if(ATM_O2)
+			return GAS_OXYGEN
+		if(ATM_N2)
+			return GAS_NITROGEN
+		if(ATM_CO2)
+			return GAS_CO2
+		if(ATM_P)
+			return GAS_PHORON
+		if(ATM_N2O)
+			return GAS_N2O
 		else
 			return null
-	

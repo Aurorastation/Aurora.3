@@ -20,6 +20,9 @@
 	var/drytime
 	var/dries = TRUE
 
+/obj/effect/decal/cleanable/blood/no_dry
+	dries = FALSE
+
 /obj/effect/decal/cleanable/blood/reveal_blood()
 	if(!fluorescent)
 		fluorescent = 1
@@ -54,6 +57,11 @@
 		addtimer(CALLBACK(src, /obj/effect/decal/cleanable/blood/.proc/dry), drytime)
 	else if (dries)
 		dry()
+
+/obj/effect/decal/cleanable/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/gun/energy/rifle/cult))
+		return
+	..()
 
 /obj/effect/decal/cleanable/blood/update_icon()
 	if(basecolor == "rainbow") basecolor = get_random_colour(1)
@@ -178,7 +186,7 @@
 	layer = 2
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "gib1"
-	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6")
+	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5")
 	var/fleshcolor = "#FFFFFF"
 
 /obj/effect/decal/cleanable/blood/gibs/update_icon()
@@ -197,10 +205,10 @@
 	add_overlay(giblets)
 
 /obj/effect/decal/cleanable/blood/gibs/up
-	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6","gibup1","gibup1","gibup1")
+	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gibup1","gibup1","gibup1")
 
 /obj/effect/decal/cleanable/blood/gibs/down
-	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6","gibdown1","gibdown1","gibdown1")
+	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gibdown1","gibdown1","gibdown1")
 
 /obj/effect/decal/cleanable/blood/gibs/body
 	random_icon_states = list("gibhead", "gibtorso")

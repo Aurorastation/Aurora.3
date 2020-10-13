@@ -20,7 +20,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_card.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_card.dmi',
 		)
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	var/associated_account_number = 0
 
 	var/list/files = list(  )
@@ -139,10 +139,10 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/proc/prevent_tracking()
 	return 0
 
-/obj/item/card/id/proc/show(mob/user as mob)
+/obj/item/card/id/proc/show(mob/user)
 	if(front && side)
-		to_chat(user, browse_rsc(front, "front.png"))
-		to_chat(user, browse_rsc(side, "side.png"))
+		send_rsc(user, front, "front.png")
+		send_rsc(user, side, "side.png")
 	var/datum/browser/popup = new(user, "idcard", name, 650, 260)
 	popup.set_content(dat())
 	popup.set_title_image(usr.browse_rsc_icon(src.icon, src.icon_state))
@@ -214,8 +214,8 @@ var/const/NO_EMAG_ACT = -50
 				to_chat(user, "<span class='notice'>Biometric Imprinting successful!</span>")
 				return
 
-	for(var/mob/O in viewers(user, null))
-		O.show_message(text("[] shows you: \icon[] []: assignment: []", user, src, src.name, src.assignment), 1)
+	user.visible_message("<b>[user]</b> shows you: [icon2html(src, viewers(get_turf(src)))] [src.name]. The assignment on the card: [src.assignment]",\
+		"You flash your ID card: [icon2html(src, viewers(get_turf(src)))] [src.name]. The assignment on the card: [src.assignment]")
 
 	src.add_fingerprint(user)
 	return
@@ -280,7 +280,7 @@ var/const/NO_EMAG_ACT = -50
 	set category = "Object"
 	set src in usr
 
-	to_chat(usr, text("\icon[] []: The current assignment on the card is [].", src, src.name, src.assignment))
+	to_chat(usr, text("[icon2html(src, usr)] []: The current assignment on the card is [].", src.name, src.assignment))
 	to_chat(usr, "The age on the card is [age].")
 	to_chat(usr, "The citizenship on the card is [citizenship].")
 	to_chat(usr, "The religion on the card is [religion].")

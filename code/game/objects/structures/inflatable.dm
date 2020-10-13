@@ -262,7 +262,7 @@
 	desc = "Contains inflatable walls and doors."
 	icon_state = "inf_box"
 	item_state = "box"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	max_storage_space = 28
 	can_hold = list(/obj/item/inflatable)
 

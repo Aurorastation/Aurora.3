@@ -19,13 +19,18 @@
 	can_buckle = TRUE
 	buckle_dir = SOUTH
 	buckle_lying = 1
+
+	build_amt = 2
 	var/material/padding_material
+
 	var/base_icon = "bed"
 	var/can_dismantle = TRUE
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	var/apply_material_color = TRUE
 	var/makes_rolling_sound = TRUE
 	var/buckle_sound = 'sound/effects/buckle.ogg'
+
+	slowdown = 5
 
 /obj/structure/bed/Initialize(mapload, var/new_material, var/new_padding_material)
 	. = ..()
@@ -103,7 +108,6 @@
 		if(can_dismantle)
 			playsound(src.loc, W.usesound, 50, 1)
 			dismantle()
-			qdel(src)
 	else if(istype(W,/obj/item/stack))
 		if(padding_material)
 			to_chat(user, "\The [src] is already padded.")
@@ -135,7 +139,7 @@
 			to_chat(user, "\The [src] has no padding to remove.")
 			return
 		to_chat(user, "You remove the padding from \the [src].")
-		playsound(src, 'sound/items/Wirecutter.ogg', 100, 1)
+		playsound(src, 'sound/items/wirecutter.ogg', 100, 1)
 		remove_padding()
 
 	else if(istype(W, /obj/item/grab))
@@ -152,6 +156,11 @@
 						"<span class='notice'>You hear metal clanking.</span>")
 			qdel(W)
 
+	else if(istype(W, /obj/item/gripper) && buckled_mob)
+		var/obj/item/gripper/G = W
+		if(!G.wrapped)
+			user_unbuckle_mob(user)
+
 	else if(!istype(W, /obj/item/bedsheet))
 		..()
 
@@ -165,10 +174,10 @@
 	padding_material = SSmaterials.get_material_by_name(padding_type)
 	update_icon()
 
-/obj/structure/bed/proc/dismantle()
-	material.place_sheet(get_turf(src))
+/obj/structure/bed/dismantle()
 	if(padding_material)
 		padding_material.place_sheet(get_turf(src))
+	..()
 
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
@@ -180,7 +189,7 @@
 	..(newloc, MATERIAL_WOOD, MATERIAL_LEATHER)
 
 /obj/structure/bed/padded/New(var/newloc)
-	..(newloc, MATERIAL_PLASTIC, MATERIAL_COTTON)
+	..(newloc, MATERIAL_PLASTIC, MATERIAL_CLOTH)
 
 /obj/structure/bed/aqua
 	name = "aquabed"
@@ -206,6 +215,7 @@
 	var/obj/item/reagent_containers/beaker
 	var/iv_attached = 0
 	var/iv_stand = TRUE
+	slowdown = 0
 
 /obj/structure/bed/roller/update_icon()
 	overlays.Cut()
@@ -349,7 +359,7 @@
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 	center_of_mass = list("x" = 17,"y" = 7)
 	var/bedpath = /obj/structure/bed/roller
-	w_class = 4.0 // Can't be put in backpacks. Oh well.
+	w_class = ITEMSIZE_LARGE // Can't be put in backpacks. Oh well.
 
 /obj/item/roller/hover
 	name = "medical hoverbed"

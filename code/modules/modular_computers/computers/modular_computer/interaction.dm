@@ -146,7 +146,7 @@
 			return
 		enrolled = 0
 		hard_drive.reset_drive()
-		visible_message("\icon[src.icon] <b>[src]</b> pings, <span class='notice'>\"Enrollment status reset! Have a NanoTrasen day.\"</span>")
+		visible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> pings, <span class='notice'>\"Enrollment status reset! Have a NanoTrasen day.\"</span>")
 	if(istype(W, /obj/item/card/id)) // ID Card, try to insert it.
 		var/obj/item/card/id/I = W
 		if(!card_slot)
@@ -200,7 +200,7 @@
 			return
 
 		to_chat(user, SPAN_NOTICE("You begin repairing the damage to \the [src]..."))
-		playsound(get_turf(src), 'sound/items/Welder.ogg', 100, 1)
+		playsound(get_turf(src), 'sound/items/welder.ogg', 100, 1)
 		if(WT.remove_fuel(round(damage / 75)) && do_after(user, damage / 10))
 			damage = 0
 			to_chat(user, SPAN_NOTICE("You fully repair \the [src]."))

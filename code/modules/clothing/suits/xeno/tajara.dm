@@ -4,8 +4,6 @@
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "medcoat"
 	item_state = "medcoat"
-	icon_open = "medcoat_open"
-	icon_closed = "medcoat"
 	contained_sprite = TRUE
 	desc_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
@@ -46,8 +44,6 @@
 	icon = 'icons/obj/tajara_items.dmi'
 	icon_state = "navalcoat"
 	item_state = "navalcoat"
-	icon_open = "navalcoat_open"
-	icon_closed = "navalcoat"
 	contained_sprite = TRUE
 	desc_fluff = "Today the fashion that dominates Adhomai shares few similarities to the clothing of old Furs, linen, hemp, silk and other such fabrics were traded for \
 	synthetic versions, creating a massive boom in the nylon industry and textile industry in the cities. Jeans, overcoats, army uniforms, parade uniforms, flags, pants, shirts, ties, \
@@ -98,7 +94,7 @@
 	item_state = "raskarasuit"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
-	species_restricted = list("Tajara")
+	species_restricted = list(BODYTYPE_TAJARA)
 	desc_fluff =  "Raskariim, commonly known as The Cult of Raskara are a prolific cult on Adhomai. The religion has been created on Adhomai but with the free commerce, a few human \
 	members have been recorded. While Raskara may seem like a single deity it is in fact split into three aspects, each one leading down a different path and seemingly every path \
 	subverting something S'rendarr and Messa stands for."
@@ -142,7 +138,7 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	allowed = list(/obj/item/gun,/obj/item/material/sword)
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
-	species_restricted = list("Tajara")
+	species_restricted = list(BODYTYPE_TAJARA)
 	armor = list(melee = 60, bullet = 50, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
 	siemens_coefficient = 0.35
 	desc_fluff = "The Feudal Era of Amohda is famous for the steel swords which became common. Many renowned swordsmen and famous warriors would travel the land fighting duels of \
@@ -162,8 +158,8 @@
 /obj/item/clothing/suit/storage/tajaran/pra_jacket
 	name = "republican service jacket"
 	desc = "An olive military jacket worn by the forces of the Grand People's Army."
-	icon_state = "taj_commoncloak"
-	item_state = "taj_commoncloak"
+	icon_state = "greenservice"
+	item_state = "greenservice"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	armor = list(melee = 30, bullet = 20, laser = 20, energy = 10, bomb = 5, bio = 0, rad = 0)
 	siemens_coefficient = 0.50

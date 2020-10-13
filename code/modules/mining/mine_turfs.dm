@@ -57,16 +57,10 @@ var/list/mineral_can_smooth_with = list(
 
 	has_resources = TRUE
 
-/turf/simulated/mineral/proc/kinetic_hit(var/damage,var/direction)
-
+/turf/simulated/mineral/proc/kinetic_hit(var/damage)
 	rock_health -= damage
-
 	if(rock_health <= 0)
-		var/turf/simulated/mineral/next_rock = get_step(src,direction)
-		if(istype(next_rock))
-			new /obj/effect/overlay/temp/kinetic_blast(next_rock)
-			next_rock.kinetic_hit(-rock_health,direction)
-		GetDrilled(1)
+		GetDrilled(TRUE)
 
 // Copypaste parent call for performance.
 /turf/simulated/mineral/Initialize(mapload)
@@ -257,7 +251,7 @@ var/list/mineral_can_smooth_with = list(
 		if(do_after(user,25))
 			if(!istype(src, /turf/simulated/mineral))
 				return
-			to_chat(user, SPAN_NOTICE("\icon[P] \The [src] has been excavated to a depth of [2 * excavation_level]cm."))
+			to_chat(user, SPAN_NOTICE("[icon2html(P, user)] \The [src] has been excavated to a depth of [2 * excavation_level]cm."))
 		return
 
 	if(istype(W, /obj/item/pickaxe) && W.simulated)	// Pickaxe offhand is not simulated.
@@ -550,7 +544,7 @@ var/list/mineral_can_smooth_with = list(
 	var/dug = 0 //Increments by 1 everytime it's dug. 11 is the last integer that should ever be here.
 	var/digging
 	has_resources = 1
-	footstep_sound = "gravelstep"
+	footstep_sound = /decl/sound_category/asteroid_footstep
 
 	roof_type = null
 
@@ -632,7 +626,7 @@ var/list/asteroid_floor_smooth = list(
 		var/obj/item/stack/rods/R = W
 		if(R.use(1))
 			to_chat(user, SPAN_NOTICE("Constructing support lattice..."))
-			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
+			playsound(src, 'sound/weapons/genhit.ogg', 50, 1)
 			ReplaceWithLattice()
 		return
 
@@ -643,7 +637,7 @@ var/list/asteroid_floor_smooth = list(
 			if(S.get_amount() < 1)
 				return
 			qdel(L)
-			playsound(src, 'sound/weapons/Genhit.ogg', 50, TRUE)
+			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
 			S.use(1)
 			ChangeTurf(/turf/simulated/floor/airless)
 			return

@@ -192,6 +192,12 @@
 			if(S.name in job.blacklisted_species)
 				dat += "<del>[dispRank]</del></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
 				continue
+		var/datum/citizenship/C = SSrecords.citizenships[pref.citizenship]
+		if(C.job_species_blacklist[job.title] && (pref.species in C.job_species_blacklist[job.title]))
+			dat += "<del>[dispRank]</del></td><td><b> \[SPECIES RESTRICTED]</b></td></tr>"
+			continue
+		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
+			dispRank = "<span style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];' width='60%' align='center'>&nbsp<a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></span>"
 		if((pref.job_civilian_low & ASSISTANT) && (rank != "Assistant"))
 			dat += "<font color=orange>[dispRank]</font></td><td></td></tr>"
 			continue
@@ -209,8 +215,6 @@
 				dat += " <font color=green>\[Yes]</font>"
 			else
 				dat += " <font color=red>\[No]</font>"
-			if(job.alt_titles) //Blatantly cloned from a few lines down.
-				dat += "</a></td></tr><tr style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
 			dat += "</a></td></tr>"
 			continue
 
@@ -222,8 +226,6 @@
 			dat += " <font color=orange>\[Low]</font>"
 		else
 			dat += " <font color=red>\[NEVER]</font>"
-		if(job.alt_titles && (LAZYLEN(pref.GetValidTitles(job)) > 1))
-			dat += "</a></td></tr><tr style='background-color: [hex2cssrgba(lastJob.selection_color, 0.4)];'><td width='60%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
 		dat += "</a></td></tr>"
 
 	dat += "</td'></tr></table>"
@@ -232,7 +234,7 @@
 
 	switch(pref.alternate_option)
 		if(BE_ASSISTANT)
-			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=red>Be assistant if preference unavailable</font></a></u></center><br>"
+			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><span class='attack'>Be assistant if preference unavailable</span></a></u></center><br>"
 		if(RETURN_TO_LOBBY)
 			dat += "<center><br><u><a href='?src=\ref[src];job_alternative=1'><font color=purple>Return to lobby if preference unavailable</font></a></u></center><br>"
 
@@ -283,10 +285,20 @@
 /datum/category_item/player_setup_item/occupation/proc/sanitize_faction()
 	if (!SSjobs.name_factions[pref.faction])
 		pref.faction = SSjobs.default_faction.name
-
-		to_client_chat("<span class='danger'>Your faction selection has been reset to [pref.faction].</span>")
-		to_client_chat("<span class='danger'>Your jobs have been reset due to this!</span>")
+		to_client_chat(SPAN_DANGER("Your faction selection has been reset to [pref.faction]."))
+		to_client_chat(SPAN_DANGER("Your jobs have been reset due to this!"))
 		ResetJobs()
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	var/datum/faction/faction = SSjobs.name_factions[pref.faction]
+	for(var/datum/job/job in faction.get_occupations())
+		for(var/department = 1 to NUM_JOB_DEPTS)
+			if(pref.GetJobDepartment(job, department) & job.flag)
+				if(pref.species in job.blacklisted_species)
+					to_client_chat(SPAN_DANGER("Your faction selection does not permit this species-occupation combination, [pref.species] as [job.title]."))
+					to_client_chat(SPAN_DANGER("Your jobs have been reset due to this!"))
+					ResetJobs()
+					return TOPIC_REFRESH_UPDATE_PREVIEW
 
 /datum/category_item/player_setup_item/occupation/proc/SetPlayerAltTitle(datum/job/job, new_title)
 	// remove existing entry
@@ -298,14 +310,14 @@
 /datum/category_item/player_setup_item/occupation/proc/SetJob(mob/user, role)
 	var/datum/job/job = SSjobs.GetJob(role)
 	if(!job)
-		return 0
+		return FALSE
 
 	if(role == "Assistant")
 		if(pref.job_civilian_low & job.flag)
 			pref.job_civilian_low &= ~job.flag
 		else
 			pref.job_civilian_low |= job.flag
-		return 1
+		return TRUE
 
 	if(pref.GetJobDepartment(job, 1) & job.flag)
 		SetJobDepartment(job, 1)
@@ -320,7 +332,7 @@
 
 /datum/category_item/player_setup_item/occupation/proc/SetJobDepartment(var/datum/job/job, var/level)
 	if(!job || !level)
-		return 0
+		return FALSE
 	switch(level)
 		if(1)//Only one of these should ever be active at once so clear them all here
 			pref.job_civilian_high = 0
@@ -446,7 +458,8 @@
 	return choices
 
 /datum/preferences/proc/GetJobDepartment(var/datum/job/job, var/level)
-	if(!job || !level)	return 0
+	if(!job || !level)
+		return FALSE
 	switch(job.department_flag)
 		if(CIVILIAN)
 			switch(level)

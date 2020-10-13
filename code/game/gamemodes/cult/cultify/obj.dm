@@ -151,9 +151,3 @@
 	update_connections(1)
 	update_icon()
 	update_material()
-
-/obj/structure/table/holotable/cultify()
-	return
-
-/obj/structure/window/cult/cultify()
-	return

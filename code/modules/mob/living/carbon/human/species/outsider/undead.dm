@@ -1,19 +1,19 @@
 /mob/living/carbon/human/skeleton/Initialize(mapload)
-	. = ..(mapload, "Skeleton")
+	. = ..(mapload, SPECIES_SKELETON)
 
 /mob/living/carbon/human/skeleton
 	var/master
 
-/mob/living/carbon/human/skeleton/proc/spawn_skeleton(var/mob/user)
+/mob/living/carbon/human/skeleton/assign_player(var/mob/user)
 	src.ckey = user.ckey
 	if(master)
 		to_chat(src, "<B>You are a skeleton minion to [master], they are your master. Obey and protect your master at all costs, you have no free will.</B>")
-	SSghostroles.remove_spawn_atom("skeleton", src)
+	return src
 
 /datum/species/skeleton //SPOOKY
-	name = "Skeleton"
+	name = SPECIES_SKELETON
 	name_plural = "skeletons"
-	bodytype = "Skeleton"
+	bodytype = BODYTYPE_SKELETON
 	icobase = 'icons/mob/human_races/r_skeleton.dmi'
 	deform = 'icons/mob/human_races/r_skeleton.dmi'
 	eyes = "blank_eyes"
@@ -34,8 +34,6 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/undead
 
 	reagent_tag = IS_UNDEAD
-
-	virus_immune = TRUE
 
 	rarity_value = 10
 	blurb = "Skeletons are undead brought back to life through dark wizardry, \
@@ -97,21 +95,19 @@
 	return FALSE
 
 /mob/living/carbon/human/apparition/Initialize(mapload)
-	. = ..(mapload, "Apparition")
+	. = ..(mapload, SPECIES_CULTGHOST)
 
 /datum/species/apparition
-	name = "Apparition"
+	name = SPECIES_CULTGHOST
 	name_plural = "apparitions"
-	bodytype = "Apparition"
+	bodytype = BODYTYPE_CULTGHOST
 	icobase = 'icons/mob/human_races/r_manifested.dmi'
 	deform = 'icons/mob/human_races/r_manifested.dmi'
 
-	default_language = "Ceti Basic"
-	language = "Cult"
-	name_language = "Cult"
+	default_language = LANGUAGE_TCB
+	language = LANGUAGE_CULT
+	name_language = LANGUAGE_CULT
 	has_organ = list()
-
-	virus_immune = 1
 
 	reagent_tag = IS_UNDEAD
 
@@ -152,12 +148,12 @@
 
 
 /mob/living/carbon/human/zombie/Initialize(mapload)
-	. = ..(mapload, "Zombie")
+	. = ..(mapload, SPECIES_ZOMBIE)
 
 /datum/species/zombie
-	name = "Zombie"
+	name = SPECIES_ZOMBIE
 	name_plural = "Zombies"
-	bodytype = "Human"
+	bodytype = BODYTYPE_HUMAN
 	icobase = 'icons/mob/human_races/zombie/r_zombie.dmi'
 	deform = 'icons/mob/human_races/zombie/r_zombie.dmi'
 
@@ -185,8 +181,6 @@
 		BP_BRAIN =    /obj/item/organ/internal/brain,
 		BP_STOMACH =  /obj/item/organ/internal/stomach
 		)
-
-	virus_immune = 1
 
 	vision_flags = DEFAULT_SIGHT | SEE_MOBS
 
@@ -221,9 +215,9 @@
 	return ..()
 
 /datum/species/zombie/tajara
-	name = "Tajara Zombie"
+	name = SPECIES_ZOMBIE_TAJARA
 	name_plural = "Tajara Zombies"
-	bodytype = "Tajara"
+	bodytype = BODYTYPE_TAJARA
 	icobase = 'icons/mob/human_races/zombie/r_zombie_tajara.dmi'
 	deform = 'icons/mob/human_races/zombie/r_zombie_tajara.dmi'
 	tail = "tajtail"
@@ -244,9 +238,9 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 /datum/species/zombie/unathi
-	name = "Unathi Zombie"
+	name = SPECIES_ZOMBIE_UNATHI
 	name_plural = "Unathi Zombies"
-	bodytype = "Unathi"
+	bodytype = BODYTYPE_UNATHI
 	icobase = 'icons/mob/human_races/zombie/r_zombie_unathi.dmi'
 	deform = 'icons/mob/human_races/zombie/r_zombie_unathi.dmi'
 	tail = "sogtail"
@@ -269,9 +263,9 @@
 	appearance_flags = HAS_HAIR_COLOR | HAS_LIPS | HAS_UNDERWEAR | HAS_SKIN_COLOR | HAS_EYE_COLOR
 
 /datum/species/zombie/skrell
-	name = "Skrell Zombie"
+	name = SPECIES_ZOMBIE_SKRELL
 	name_plural = "Skrell Zombies"
-	bodytype = "Skrell"
+	bodytype = BODYTYPE_SKRELL
 	icobase = 'icons/mob/human_races/zombie/r_zombie_skrell.dmi'
 	deform = 'icons/mob/human_races/zombie/r_zombie_skrell.dmi'
 

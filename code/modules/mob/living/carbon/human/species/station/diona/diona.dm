@@ -1,9 +1,9 @@
 /datum/species/diona
-	name = "Diona"
+	name = SPECIES_DIONA
 	short_name = "dio"
 	name_plural = "Dionaea"
-	bodytype = "Diona"
-	total_health = 140
+	bodytype = BODYTYPE_DIONA
+	total_health = 240
 	age_min = 1
 	age_max = 1000
 	default_genders = list(NEUTER)
@@ -58,7 +58,7 @@
 	pain_messages = list("We're in pain", "We hurt so much", "We can't stand the pain")
 	pain_item_drop_cry = list("creaks loudly and ", "rustles erratically and ", "twitches for a moment and ")
 
-	pain_mod = 0.7
+	pain_mod = 0.5
 	grab_mod = 0.6 // Viney Tentacles and shit to cling onto
 	resist_mod = 1.5 // Reasonably stronk, not moreso than an Unathi or robot.
 
@@ -121,8 +121,12 @@
 	allowed_citizenships = list(CITIZENSHIP_BIESEL, CITIZENSHIP_JARGON, CITIZENSHIP_SOL, CITIZENSHIP_COALITION, CITIZENSHIP_DOMINIA, CITIZENSHIP_IZWESKI, CITIZENSHIP_NONE)
 	allowed_religions = list(RELIGION_QEBLAK, RELIGION_WEISHII, RELIGION_MOROZ, RELIGION_THAKH, RELIGION_SKAKH, RELIGION_NONE, RELIGION_OTHER)
 
-	allowed_accents = list(ACCENT_DIONA)
-	default_accent = ACCENT_DIONA
+	allowed_accents = list(ACCENT_ROOTSONG, ACCENT_VOIDSONG)
+	default_accent = ACCENT_ROOTSONG
+
+	have_vision_cone = FALSE
+
+	alterable_internal_organs = list()
 
 /datum/species/diona/handle_sprint_cost(var/mob/living/carbon/H, var/cost)
 	var/datum/dionastats/DS = H.get_dionastats()

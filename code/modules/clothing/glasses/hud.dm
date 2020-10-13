@@ -23,17 +23,21 @@
 /obj/item/clothing/glasses/hud/health/process_hud(var/mob/M)
 	process_med_hud(M, 1)
 
+/obj/item/clothing/glasses/hud/health/is_med_hud()
+	return active
+
 /obj/item/clothing/glasses/hud/health/prescription
 	name = "prescription glasses/HUD assembly"
 	desc = "A medical HUD clipped onto the side of prescription glasses."
-	prescription = 1
+	prescription = 7
 	icon_state = "healthhudpresc"
 	item_state = "healthhudpresc"
+	var/glasses_type = /obj/item/clothing/glasses/regular
 
 /obj/item/clothing/glasses/hud/health/prescription/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("You detach a set of medical HUDs from your glasses."))
 	playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
-	var/obj/item/clothing/glasses/regular/R = new /obj/item/clothing/glasses/regular(user.loc)
+	var/obj/item/clothing/glasses/regular/R = new glasses_type(user.loc)
 	user.put_in_hands(R)
 	var/obj/item/clothing/glasses/hud/health/H = new /obj/item/clothing/glasses/hud/health(user.loc)
 	user.put_in_hands(H)
@@ -48,17 +52,21 @@
 	body_parts_covered = 0
 	var/global/list/jobs[0]
 
+/obj/item/clothing/glasses/hud/security/is_sec_hud()
+	return active
+
 /obj/item/clothing/glasses/hud/security/prescription
 	name = "prescription glasses/HUD assembly"
 	desc = "A security HUD clipped onto the side of prescription glasses."
-	prescription = 1
+	prescription = 7
 	icon_state = "sechudpresc"
 	item_state = "sechudpresc"
+	var/glasses_type = /obj/item/clothing/glasses/regular
 
 /obj/item/clothing/glasses/hud/security/prescription/attack_self(mob/user)
 	to_chat(user, SPAN_NOTICE("You detach a set of security HUDs from your glasses."))
 	playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
-	var/obj/item/clothing/glasses/regular/R = new /obj/item/clothing/glasses/regular(user.loc)
+	var/obj/item/clothing/glasses/regular/R = new glasses_type(user.loc)
 	user.put_in_hands(R)
 	var/obj/item/clothing/glasses/hud/security/S = new /obj/item/clothing/glasses/hud/security(user.loc)
 	user.put_in_hands(S)

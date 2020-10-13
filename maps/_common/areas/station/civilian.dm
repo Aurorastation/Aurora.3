@@ -96,6 +96,7 @@
 
 /area/crew_quarters/fitness/pool
 	name = "Surface - Pool"
+	lightswitch = TRUE
 
 /area/crew_quarters/fitness/changing
 	name = "Surface - Changing Room"
@@ -142,22 +143,31 @@
  	station_area = 1
 
 /area/chapel
- 	station_area = 1
+	station_area = 1
 
 /area/chapel/main
 	name = "Chapel"
 	icon_state = "chapel"
-	ambience = list('sound/ambience/ambicha1.ogg','sound/ambience/ambicha2.ogg','sound/ambience/ambicha3.ogg','sound/ambience/ambicha4.ogg','sound/music/traitor.ogg')
 	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_CHAPEL
 
 /area/chapel/office
 	name = "Chapel Office"
 	icon_state = "chapeloffice"
 
 /area/lawoffice
-	name = "Representative Office"
+	name = "Diplomatic Reception"
 	icon_state = "law"
-	station_area = 1
+	station_area = TRUE
+	sound_env = MEDIUM_SOFTFLOOR
+
+/area/lawoffice/consular
+	name = "Consular Office"
+	icon_state = "law_con"
+
+/area/lawoffice/representative
+	name = "Representative Office"
+	icon_state = "law_rep"
 
 /area/quartermaster
 	name = "Quartermasters"
@@ -168,6 +178,7 @@
 /area/quartermaster/office
 	name = "Cargo Office"
 	icon_state = "quartoffice"
+	sound_env = MEDIUM_SOFTFLOOR
 
 /area/quartermaster/lobby
 	name = "Cargo Lobby"
@@ -193,15 +204,17 @@
 /area/quartermaster/qm
 	name = "Cargo - Quartermaster's Office"
 	icon_state = "quart"
+	sound_env = SMALL_SOFTFLOOR
 
 /area/quartermaster/miningdock
 	name = "Cargo Mining Dock"
 	icon_state = "mining"
 
-/area/janitor/
+/area/janitor
 	name = "Custodial Closet"
 	icon_state = "janitor"
 	station_area = 1
+	ambience = AMBIENCE_MAINTENANCE
 
 /area/janitor/stairs
 	name = "Stairwell Custodial Closet"

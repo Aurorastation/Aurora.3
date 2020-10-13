@@ -68,11 +68,11 @@
 		store_module(module_state_3)
 		module_state_3 = null
 		inv3.icon_state = "inv3"
-	updateicon()
+	update_icon()
 	hud_used.update_robot_modules_display()
 
 /mob/living/silicon/robot/proc/activated(obj/item/O)
-	updateicon()
+	update_icon()
 
 	if(module_state_1 == O)
 		return 1
@@ -284,7 +284,7 @@
 /mob/living/silicon/robot/proc/describe_module(var/slot)
 	var/list/index_module = list(module_state_1,module_state_2,module_state_3)
 	var/result = "   Hardpoint [slot] holds "
-	result += (index_module[slot]) ? "\icon[index_module[slot]] [index_module[slot]]." : "nothing."
+	result += (index_module[slot]) ? "[icon2html(index_module[slot], viewers(get_turf(src)))] [index_module[slot]]." : "nothing."
 	result += "\n"
 	return result
 

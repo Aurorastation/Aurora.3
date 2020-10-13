@@ -109,7 +109,7 @@
 				if(M.getBrainLoss() > 15)
 					to_chat(user, SPAN_NOTICE("There's visible lag between left and right pupils' reactions."))
 
-				var/list/pinpoint = list(/datum/reagent/oxycodone=1,/datum/reagent/tramadol=5)
+				var/list/pinpoint = list(/datum/reagent/oxycomorphine=1,/datum/reagent/mortaphenyl=5)
 				var/list/dilating = list(/datum/reagent/space_drugs=5,/datum/reagent/mindbreaker=1)
 				var/datum/reagents/ingested = H.get_ingested_reagents()
 				if(H.reagents.has_any_reagent(pinpoint) || ingested.has_any_reagent(pinpoint))
@@ -134,7 +134,7 @@
 	flags = CONDUCT
 	slot_flags = SLOT_EARS
 	brightness_on = 2
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	light_wedge = LIGHT_OMNI
 
 /obj/item/device/flashlight/drone
@@ -144,7 +144,7 @@
 	item_state = ""
 	flags = CONDUCT
 	brightness_on = 2
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/device/flashlight/heavy
 	name = "heavy duty flashlight"
@@ -152,7 +152,7 @@
 	icon_state = "heavyflashlight"
 	item_state = "heavyflashlight"
 	brightness_on = 4
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	uv_intensity = 60
 	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 70)
 	light_wedge = LIGHT_SEMI
@@ -164,7 +164,7 @@
 	item_state = "maglight"
 	force = 10
 	brightness_on = 5
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	uv_intensity = 70
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 100)
@@ -178,7 +178,7 @@
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "floor1" //not a slime extract sprite but... something close enough!
 	item_state = "slime"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	brightness_on = 6
 	uv_intensity = 200
 	on = 1 //Bio-luminesence has one setting, on.
@@ -199,6 +199,6 @@
 	flags = CONDUCT
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	brightness_on = 2
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	light_wedge = LIGHT_WIDE
 	body_parts_covered = 0

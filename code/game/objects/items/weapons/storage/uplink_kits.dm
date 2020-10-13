@@ -99,6 +99,11 @@
 	name = "box (E)"
 	starts_with = list(/obj/item/implanter = 1, /obj/item/implant/explosive = 1)
 
+/obj/item/storage/box/syndie_kit/imp_deadman
+	name = "box (D)"
+	starts_with = list(/obj/item/implanter = 1, /obj/item/implant/explosive/deadman = 1)
+
+
 /obj/item/storage/box/syndie_kit/imp_uplink
 	name = "boxed uplink implant (with injector)"
 	starts_with = list(/obj/item/implanter/uplink = 1)
@@ -213,17 +218,15 @@
 	starts_with = list(/obj/item/clothing/suit/storage/vest/merc = 1, /obj/item/clothing/head/helmet/merc = 1, /obj/item/clothing/gloves/arm_guard/mercs = 1, /obj/item/clothing/shoes/leg_guard/merc = 1)
 
 /obj/item/storage/secure/briefcase/money
-	name = "suspicious briefcase"
-	desc = "An ominous briefcase that has the unmistakeable smell of old, stale, cigarette smoke, and gives those who look at it a bad feeling."
 	starts_with = list(/obj/item/spacecash/c1000 = 10)
 
 /obj/item/storage/box/syndie_kit/stimulants
 	name = "box of stimulants"
-	desc = "Comes with a combat inhaler, a large cartridge of hyperzine, a large cartridge of norepinephrine, and a large empty cartridge."
+	desc = "Comes with a combat inhaler, a large cartridge of hyperzine, a large cartridge of inaprovaline, and a large empty cartridge."
 	starts_with = list(
 		/obj/item/personal_inhaler/combat = 1,
 		/obj/item/reagent_containers/personal_inhaler_cartridge/large/hyperzine = 1,
-		/obj/item/reagent_containers/personal_inhaler_cartridge/large/norepinephrine = 1,
+		/obj/item/reagent_containers/personal_inhaler_cartridge/large/inaprovaline = 1,
 		/obj/item/reagent_containers/personal_inhaler_cartridge/large = 1,
 	)
 
@@ -237,3 +240,10 @@
 /obj/item/storage/box/syndie_kit/random_weapon/Initialize()
 	.=..()
 	desc = "A sleek, sturdy box"
+
+/obj/item/storage/box/syndie_kit/sideeffectbegone
+	name = "box of sideeffect-be-gone injectors"
+	desc = "Comes with 2x autoinjectors filled with drugs to counter chemical side-effects. Each injector has 2 uses."
+	starts_with = list(
+		/obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone = 2
+	)

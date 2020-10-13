@@ -32,7 +32,7 @@
 	var/damage_type = BRUTE		//BRUTE, BURN, TOX, OXY, CLONE, PAIN are the only things that should be in here
 	var/damage_flags = DAM_BULLET
 	var/nodamage = FALSE		//Determines if the projectile will skip any damage inflictions
-	var/check_armour = "bullet" //Defines what armor to use when it hits things.  Must be set to bullet, laser, energy,or bomb	//Cael - bio and rad are also valid
+	var/check_armor = "bullet" //Defines what armor to use when it hits things.  Must be set to bullet, laser, energy,or bomb	//Cael - bio and rad are also valid
 	var/list/impact_sounds	//for different categories, IMPACT_MEAT etc
 
 	var/stun = 0
@@ -121,7 +121,7 @@
 		new hit_effect(target.loc)
 
 	L.apply_effects(stun, weaken, paralyze, 0, stutter, eyeblur, drowsy, agony, incinerate, blocked)
-	L.apply_effect(irradiate, IRRADIATE, L.getarmor(null, "rad")) //radiation protection is handled separately from other armour types.
+	L.apply_effect(irradiate, IRRADIATE, L.getarmor(null, "rad")) //radiation protection is handled separately from other armor types.
 	return 1
 
 //called when the projectile stops flying because it collided with something
@@ -182,13 +182,18 @@
 	if(result == PROJECTILE_FORCE_MISS && (can_miss == 0)) //if you're shooting at point blank you can't miss.
 		if(!silenced)
 			target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
+			playsound(target_mob, /decl/sound_category/bulletflyby_sound, 50, 1)
 		return FALSE
 
+	var/impacted_organ = parse_zone(def_zone)
+	if(istype(target_mob, /mob/living/simple_animal))
+		var/mob/living/simple_animal/SA = target_mob
+		impacted_organ = pick(SA.organ_names)
 	//hit messages
 	if(silenced)
-		to_chat(target_mob, "<span class='danger'>You've been hit in the [parse_zone(def_zone)] by \a [src]!</span>")
+		to_chat(target_mob, "<span class='danger'>You've been hit in the [impacted_organ] by \a [src]!</span>")
 	else
-		target_mob.visible_message("<span class='danger'>\The [target_mob] is hit by \a [src] in the [parse_zone(def_zone)]!</span>", "<span class='danger'><font size=2>You are hit by \a [src] in the [parse_zone(def_zone)]!</font></span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
+		target_mob.visible_message("<span class='danger'>\The [target_mob] is hit by \a [src] in the [impacted_organ]!</span>", "<span class='danger'><font size=2>You are hit by \a [src] in the [impacted_organ]!</font></span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
 
 	//admin logs
 	if(!no_attack_log)

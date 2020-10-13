@@ -21,9 +21,6 @@ var/datum/discord_bot/discord_bot = null
 
 	discord_bot.update_channels()
 
-	if (config.use_discord_pins && server_greeting)
-		server_greeting.update_pins()
-
 	return 1
 
 /hook/roundstart/proc/alert_no_admins()

@@ -327,6 +327,7 @@
 			EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
 
 		job.equip(H)
+		UniformReturn(H, H.client.prefs, job)
 
 		if (!megavend)
 			spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
@@ -392,8 +393,9 @@
 			var/obj/item/clothing/glasses/G = H.glasses
 			G.prescription = TRUE
 
-	if(H.species)
+	if(H.species && !H.species_items_equipped)
 		H.species.equip_later_gear(H)
+		H.species_items_equipped = TRUE
 
 	BITSET(H.hud_updateflag, ID_HUD)
 	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
@@ -494,6 +496,9 @@
 	var/list/spawn_in_storage = list()
 	to_chat(H,"<span class='notice'>You have ten minutes to reach the station before you will be forced there.</span>")
 
+	if(H.needs_wheelchair())
+		H.equip_wheelchair()
+
 	if(job)
 		//Equip custom gear loadout.
 		var/list/custom_equip_slots = list() //If more than one item takes the same slot, all after the first one spawn in storage.
@@ -524,9 +529,10 @@
 			var/obj/item/clothing/glasses/G = H.glasses
 			G.prescription = TRUE
 			G.autodrobe_no_remove = TRUE
-
-	if(H.species)
+	
+	if(H.species && !H.species_items_equipped)
 		H.species.equip_later_gear(H)
+		H.species_items_equipped = TRUE
 
 	// So shoes aren't silent if people never change 'em.
 	H.update_noise_level()
@@ -751,7 +757,8 @@
 				else if (H.equip_to_slot_or_del(CI, G.slot))
 					CI.autodrobe_no_remove = TRUE
 					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
-					custom_equip_slots += G.slot
+					if(G.slot != slot_tie)
+						custom_equip_slots += G.slot
 					Debug("EC/([H]): Equipped [CI] successfully.")
 				else if (leftovers)
 					leftovers += thing
@@ -930,4 +937,12 @@
 	C.screen -= T
 	qdel(T)
 
+/datum/controller/subsystem/jobs/proc/UniformReturn(mob/living/carbon/human/H, datum/preferences/prefs, datum/job/job)
+	var/uniform = job.get_outfit(H)
+	var/datum/outfit/U = new uniform
+	for(var/item in prefs.gear)
+		var/datum/gear/L = gear_datums[item]
+		if(L.slot == slot_w_uniform)
+			H.equip_or_collect(new U.uniform(H), H.back)
+			break
 #undef Debug

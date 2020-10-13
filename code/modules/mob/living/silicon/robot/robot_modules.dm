@@ -15,7 +15,7 @@ var/global/list/robot_modules = list(
 	name = "robot module"
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_mod"
-	w_class = 100.0
+	w_class = ITEMSIZE_IMMENSE
 	item_state = "electronic"
 	flags = CONDUCT
 	var/channels = list()
@@ -191,11 +191,11 @@ var/global/list/robot_modules = list(
 			"Treadhead" = "treadheadmedi",
 			"Arachnotronic" = "arachnotronicmedi",
 			"Toileto-tron" = "toiletbotmedi",
+			"Zeng-hu Droid" = "droidrecolormedi",
 			"HD-MAD" = "mcspizzytronmedi",
 			"SD-MAD" = "floatspizzytronmedi",
-			"Industrial" = "heavymedi",
-			"Heph-Droid" = "droidrecolormedi",
-			"TC-Drone" = "dronerecolormedi",
+			"Heph Droid" = "heavymedi",
+			"Venus Drone" = "dronerecolormedi",
 			"Unbranded-MAD" = "offfloatspizzytronmedi",
 			"Unbranded-Android" = "droid",
 			)
@@ -266,11 +266,11 @@ var/global/list/robot_modules = list(
 			"Treadhead" = "treadheadmedi",
 			"Arachnotronic" = "arachnotronicmedi",
 			"Toileto-tron" = "toiletbotmedi",
+			"Zeng-hu Droid" = "droidrecolormedi",
 			"HD-MAD" = "mcspizzytronmedi",
 			"SD-MAD" = "floatspizzytronmedi",
-			"Industrial" = "heavymedi",
-			"Heph-Droid" = "droidrecolormedi",
-			"TC-Drone" = "dronerecolormedi",
+			"Heph Droid" = "heavymedi",
+			"Venus Drone" = "dronerecolormedi",
 			"Unbranded-MAD" = "offfloatspizzytronmedi",
 			"Unbranded-Android" = "droid",
 			)
@@ -340,11 +340,11 @@ var/global/list/robot_modules = list(
 			"Treadhead" = "treadheadengi",
 			"Arachnotronic" = "arachnotronicengi",
 			"Toileto-tron" = "toiletbotengi",
+			"Zeng-hu Droid" = "droidrecolorengi",
 			"HD-MAD" = "mcspizzytronengi",
 			"SD-MAD" = "floatspizzytronengi",
-			"Industrial" = "heavyengi",
-			"Heph-Droid" = "droidrecolorengi",
-			"TC-Drone" = "dronerecolorengi",
+			"Heph Droid" = "heavyengi",
+			"Venus Drone" = "dronerecolorengi",
 			"Unbranded-MAD" = "offfloatspizzytronengi",
 			"Unbranded-Android" = "droid",
 			)
@@ -356,7 +356,6 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/engineering/construction/Initialize()
 	. = ..()
-	src.modules += new /obj/item/borg/sight/meson(src)
 	src.modules += new /obj/item/powerdrill(src)
 	src.modules += new /obj/item/rfd/construction/borg(src)
 	src.modules += new /obj/item/rfd/piping/borg(src)
@@ -415,7 +414,6 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/engineering/general/Initialize()
 	. = ..()
-	src.modules += new /obj/item/borg/sight/meson(src)
 	src.modules += new /obj/item/powerdrill(src)
 	src.modules += new /obj/item/weldingtool/largetank(src)
 	src.modules += new /obj/item/screwdriver/robotic(src)
@@ -520,11 +518,11 @@ var/global/list/robot_modules = list(
 			"Treadhead" = "treadheadjani",
 			"Arachnotronic" = "arachnotronicjani",
 			"Toileto-tron" = "toiletbotjani",
+			"Zeng-hu Droid" = "droidrecolorjani",
 			"HD-MAD" = "mcspizzytronjani",
 			"SD-MAD" = "floatspizzytronjani",
-			"Industrial" = "heavyjani",
-			"Heph-Droid" = "droidrecolorjani",
-			"TC-Drone" = "dronerecolorjani",
+			"Heph Droid" = "heavyjani",
+			"Venus Drone" = "dronerecolorjani",
 			"Unbranded-MAD" = "offfloatspizzytronjani",
 			"Unbranded-Android" = "droid",
 			)
@@ -584,11 +582,11 @@ var/global/list/robot_modules = list(
 			"Treadhead" = "treadheadserv",
 			"Arachnotronic" = "arachnotronicserv",
 			"Toileto-tron" = "toiletbotserv",
+			"Zeng-hu Droid" = "droidrecolorserv",
 			"HD-MAD" = "mcspizzytronserv",
 			"SD-MAD" = "floatspizzytronserv",
-			"Industrial" = "heavyserv",
-			"Heph-Droid" = "droidrecolorserv",
-			"TC-Drone" = "dronerecolorserv",
+			"Heph Droid" = "heavyserv",
+			"Venus Drone" = "dronerecolorserv",
 			"Unbranded-MAD" = "offfloatspizzytronserv",
 			"Unbranded-Android" = "droid",
 			)
@@ -630,7 +628,7 @@ var/global/list/robot_modules = list(
 	var/datum/reagents/RG = new /datum/reagents(50)
 	src.emag.reagents = RG
 	RG.my_atom = src.emag
-	RG.add_reagent(/datum/reagent/chloralhydrate/beer2, 50)
+	RG.add_reagent(/datum/reagent/polysomnine/beer2, 50)
 	src.emag.name = "Mickey Finn's Special Brew"
 
 /obj/item/robot_module/clerical/general
@@ -662,11 +660,11 @@ var/global/list/robot_modules = list(
 			"Treadhead" = "treadheadmine",
 			"Arachnotronic" = "arachnotronicmine",
 			"Toileto-tron" = "toiletbotmine",
+			"Zeng-hu Droid" = "droidrecolormine",
 			"HD-MAD" = "mcspizzytronmine",
 			"SD-MAD" = "floatspizzytronmine",
-			"Industrial" = "heavymine",
-			"Heph-Droid" = "droidrecolormine",
-			"TC-Drone" = "dronerecolormine",
+			"Heph Droid" = "heavymine",
+			"Venus Drone" = "dronerecolormine",
 			"Unbranded-MAD" = "offfloatspizzytronmine",
 			"Unbranded-Android" = "droid",
 			)
@@ -674,13 +672,13 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/miner/Initialize()
 	. = ..()
-	src.modules += new /obj/item/borg/sight/material(src)
 	src.modules += new /obj/item/storage/bag/ore(src)
 	src.modules += new /obj/item/pickaxe/borgdrill(src)
 	src.modules += new /obj/item/storage/bag/sheetsnatcher/borg(src)
 	src.modules += new /obj/item/gripper/miner(src)
 	src.modules += new /obj/item/rfd/mining(src)
 	src.modules += new /obj/item/mining_scanner(src)
+	src.modules += new /obj/item/ore_radar(src)
 	src.modules += new /obj/item/device/gps/mining(src) // for locating itself in the deep space
 	src.modules += new /obj/item/gun/custom_ka/cyborg(src)
 	src.modules += new /obj/item/taperoll/engineering(src) // To enable 'borgs to telegraph danger visually.
@@ -718,11 +716,11 @@ var/global/list/robot_modules = list(
 			"Treadhead" = "treadheadsci",
 			"Arachnotronic" = "arachnotronicsci",
 			"Toileto-tron" = "toiletbotsci",
+			"Zeng-hu Droid" = "droidrecolorsci",
 			"HD-MAD" = "mcspizzytronsci",
 			"SD-MAD" = "floatspizzytronsci",
-			"Industrial" = "heavysci",
-			"Heph-Droid" = "droidrecolorsci",
-			"TC-Drone" = "dronerecolorsci",
+			"Heph Droid" = "heavysci",
+			"Venus Drone" = "dronerecolorsci",
 			"Unbranded-MAD" = "offfloatspizzytronsci",
 			"Unbranded-Android" = "droid",
 			)
@@ -793,7 +791,7 @@ var/global/list/robot_modules = list(
 					"Bloodhound" = "syndie_bloodhound",
 					"Treadhound" = "syndie_treadhound",
 					"HD-MAD" = "mcspizzytronsyndi",
-					"Industrial" = "heavysyndi",
+					"Heph Droid" = "heavysyndi",
 					"Arachnotronic" = "arachnotronicsyndi",
 					"Toileto-tron" = "syndi-medi",
 					)
@@ -947,7 +945,6 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/mining_drone/proc/set_up_default(var/mob/living/silicon/robot/R, var/drill = TRUE)
 	modules += new /obj/item/device/flash(src)
-	modules += new /obj/item/borg/sight/material(src)
 	if(drill)
 		modules += new /obj/item/pickaxe/drill(src)
 	modules += new /obj/item/storage/bag/ore/drone(src)

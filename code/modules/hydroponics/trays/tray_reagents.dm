@@ -5,7 +5,7 @@
 	flags = NOBLUDGEON
 	slot_flags = SLOT_BELT
 	throwforce = 4
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 2
 	throw_range = 10
 	var/toxicity = 4
@@ -91,7 +91,7 @@
 	icon_state = "bottle16"
 	flags = OPENCONTAINER
 	possible_transfer_amounts = null
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 
 	//Like a shot glass!
 	amount_per_transfer_from_this = 10

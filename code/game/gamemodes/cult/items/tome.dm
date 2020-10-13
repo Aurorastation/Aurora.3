@@ -5,7 +5,7 @@
 	item_state = "tome"
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	unique = TRUE
 	slot_flags = SLOT_BELT
 
@@ -33,7 +33,7 @@
 
 /obj/item/book/tome/proc/attack_admins(var/mob/living/M, var/mob/living/user)
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had the [name] used on them by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used [name] on [M.name] ([M.ckey])</font>")
+	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used [name] on [M.name] ([M.ckey])</span>")
 	msg_admin_attack("[key_name_admin(user)] used [name] on [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 
 
@@ -98,7 +98,7 @@
 			var/area/A = get_area(scribe)
 			if(use_check_and_message(scribe))
 				return
-			
+
 			//prevents using multiple dialogs to layer runes.
 			if(locate(/obj/effect/rune) in get_turf(scribe)) //This is check is done twice. once when choosing to scribe a rune, once here
 				to_chat(scribe, SPAN_WARNING("There is already a rune in this location."))
@@ -111,6 +111,7 @@
 			R.blood_DNA = list()
 			R.blood_DNA[scribe.dna.unique_enzymes] = scribe.dna.b_type
 			R.color = scribe.species.blood_color
+			R.filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = scribe.species.blood_color)
 	else
 		to_chat(user, SPAN_CULT("The book seems full of illegible scribbles."))
 

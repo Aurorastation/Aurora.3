@@ -190,12 +190,12 @@ proc/cmd_admin_mute(mob/M as mob, mute_type, automute = 0)
 		if(!usr || !usr.client)
 			return
 		if(!usr.client.holder)
-			to_chat(usr, "<font color='red'>Error: cmd_admin_mute: You don't have permission to do this.</font>")
+			to_chat(usr, "<span class='warning'>Error: cmd_admin_mute: You don't have permission to do this.</span>")
 			return
 		if(!M.client)
-			to_chat(usr, "<font color='red'>Error: cmd_admin_mute: This mob doesn't have a client tied to it.</font>")
+			to_chat(usr, "<span class='warning'>Error: cmd_admin_mute: This mob doesn't have a client tied to it.</span>")
 		if(M.client.holder)
-			to_chat(usr, "<font color='red'>Error: cmd_admin_mute: You cannot mute an admin/mod.</font>")
+			to_chat(usr, "<span class='warning'>Error: cmd_admin_mute: You cannot mute an admin/mod.</span>")
 	if(!M.client)		return
 	if(M.client.holder)	return
 
@@ -430,7 +430,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			break
 
 	if(!G_found)//If a ghost was not found.
-		to_chat(usr, "<font color='red'>There is no active key like that in the game or the person is not currently a ghost.</font>")
+		to_chat(usr, "<span class='warning'>There is no active key like that in the game or the person is not currently a ghost.</span>")
 		return
 
 	var/mob/living/carbon/human/new_character = new(pick(latejoin))//The mob being spawned.
@@ -572,13 +572,17 @@ Traitors and the like can also be revived with the previous role mostly intact.
 /client/proc/cmd_admin_create_centcom_report()
 	set category = "Special Verbs"
 	set name = "Create Command Report"
+
 	if(!holder)
 		to_chat(src, "Only administrators may use this command.")
 		return
+
 	var/reporttitle
 	var/reportbody
 	var/reporter = null
-	var/reporttype = input(usr, "Choose whether to use a template or custom report.", "Create Command Report") in list("Template", "Custom", "Cancel")
+	var/reporttype = input(usr, "Choose whether to use a template or custom report.", "Create Command Report") as null|anything in list("Template", "Custom")
+	if(!reporttype)
+		return
 	switch(reporttype)
 		if("Template")
 			establish_db_connection(dbcon)
@@ -600,7 +604,9 @@ Traitors and the like can also be revived with the previous role mostly intact.
 				to_chat(src, "<span class='notice'>There are no templates in the database.</span>")
 				return
 
-			reporttitle = input(usr, "Please select a command report template.", "Create Command Report") in template_names
+			reporttitle = input(usr, "Please select a command report template.", "Create Command Report") as null|anything in template_names
+			if(!reporttitle)
+				return
 			reportbody = templates[reporttitle]
 
 		if("Custom")
@@ -610,8 +616,6 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			reportbody = sanitize(input(usr, "Please enter anything you want. Anything. Serious.", "Body", "") as message|null, extra = 0)
 			if(!reportbody)
 				return
-		else
-			return
 
 	if (reporttype == "Template")
 		reporter = sanitizeSafe(input(usr, "Please enter your CCIA name. (blank for CCIAAMS)", "Name") as text|null)
@@ -625,7 +629,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
 			to_world("<span class='warning'>New [current_map.company_name] Update available at all communication consoles.</span>")
-			to_world(sound('sound/AI/commandreport.ogg'))
+			sound_to(world, ('sound/AI/commandreport.ogg'))
 
 	log_admin("[key_name(src)] has created a command report: [reportbody]",admin_key=key_name(usr))
 	message_admins("[key_name_admin(src)] has created a command report", 1)

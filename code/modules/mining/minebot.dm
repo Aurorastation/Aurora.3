@@ -42,7 +42,7 @@
 
 	verbs -= /mob/living/silicon/robot/verb/Namepick
 	verbs -= /mob/living/silicon/robot/drone/verb/set_mail_tag
-	updateicon()
+	update_icon()
 	density = FALSE
 
 /mob/living/silicon/robot/drone/mining/updatename()
@@ -64,17 +64,16 @@
 		return
 	seeking_player = TRUE
 	SSghostroles.add_spawn_atom("mining_drone", src)
-	var/area/A = get_area(src)
-	if(A)
-		say_dead_direct("Someone is attempting to reboot a mining drone in [A.name]! Spawn in as it by using the ghost spawner menu in the ghost tab.")
 
-/mob/living/silicon/robot/drone/mining/proc/spawn_into_mining_drone(var/mob/user)
+/mob/living/silicon/robot/drone/mining/assign_player(var/mob/user)
 	if(src.ckey)
+		SSghostroles.remove_spawn_atom("mining_drone", src)
 		return
 	src.ckey = user.ckey
-	SSghostroles.remove_spawn_atom("mining_drone", src)
 	seeking_player = FALSE
 	welcome_drone()
+
+	return src
 
 /mob/living/silicon/robot/drone/mining/welcome_drone()
 	to_chat(src, SPAN_DANGER("<b>You are a mining drone, a tiny-brained robotic industrial machine.</b>"))
@@ -86,7 +85,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [W]."))
 		return
 
-	else if (istype(W, /obj/item/card/id) || istype(W, /obj/item/device/pda))
+	else if (W.GetID())
 		if(!allowed(user))
 			to_chat(user, SPAN_WARNING("Access denied."))
 			return
@@ -97,7 +96,7 @@
 			to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
 			return
 
-		user.visible_message(SPAN_WARNING("\The [user] swipes \his ID card through \the [src], attempting to reboot it."), SPAN_WARNING("You swipe your ID card through \the [src], attempting to reboot it."))
+		user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src], attempting to reboot it."), SPAN_WARNING("You swipe your ID card through \the [src], attempting to reboot it."))
 		request_player()
 		return
 	..()
@@ -105,13 +104,15 @@
 /mob/living/silicon/robot/drone/mining/process_level_restrictions()
 	//Abort if they should not get blown
 	if(lock_charge || scrambled_codes || emagged)
-		return
-	//Check if they are not on a station level -> abort
+		return FALSE
+	//Check if they are not on a station level -> else abort
 	var/turf/T = get_turf(src)
 	if (!T || isStationLevel(T.z))
-		return
-	to_chat(src, SPAN_DANGER("WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated."))
-	gib()
+		return FALSE
+	if(!self_destructing)
+		to_chat(src, SPAN_DANGER("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
+		start_self_destruct(TRUE)
+	return TRUE
 
 /**********************Minebot Upgrades**********************/
 

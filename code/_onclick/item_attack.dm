@@ -39,22 +39,23 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	if(!ismob(user))
 		return FALSE
 
+	var/selected_zone = user.zone_sel ? user.zone_sel.selecting : BP_CHEST
 	var/operating = can_operate(src)
 	if(operating == SURGERY_SUCCESS)
 		if(do_surgery(src, user, I))
 			return TRUE
 		else
-			return I.attack(src, user, user.zone_sel.selecting) //This is necessary to make things like health analyzers work. -mattatlas
+			return I.attack(src, user, selected_zone) //This is necessary to make things like health analyzers work. -mattatlas
 	if(operating == SURGERY_FAIL)
 		if(do_surgery(src, user, I, TRUE))
 			return TRUE
 		else
-			return I.attack(src, user, user.zone_sel.selecting)
+			return I.attack(src, user, selected_zone)
 	else
-		return I.attack(src, user, user.zone_sel.selecting)
+		return I.attack(src, user, selected_zone)
 
 /mob/living/carbon/human/attackby(obj/item/I, mob/user)
-	if(user == src && zone_sel.selecting == BP_MOUTH && can_devour(I, silent = TRUE))
+	if(user == src && zone_sel?.selecting == BP_MOUTH && can_devour(I, silent = TRUE))
 		var/obj/item/blocked = src.check_mouth_coverage()
 		if(blocked)
 			to_chat(user, SPAN_WARNING("\The [blocked] is in the way!"))
@@ -84,13 +85,13 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	M.lastattacker = user
 
 	if(!no_attack_log)
-		user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [M.name] ([M.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])</font>"
+		user.attack_log += "\[[time_stamp()]\]<span class='warning'> Attacked [M.name] ([M.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])</span>"
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])</font>"
 		msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(M, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M) )
 	/////////////////////////
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(M)
+	user.do_attack_animation(M, src)
 	if(!user.aura_check(AURA_TYPE_WEAPON, src, user))
 		return FALSE
 

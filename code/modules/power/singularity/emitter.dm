@@ -51,7 +51,7 @@
 	if(special_emitter)
 		message_admins("Emitter deleted at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 		log_game("Emitter deleted at ([x],[y],[z])")
-		investigate_log("<font color='red'>deleted</font> at ([x],[y],[z])","singulo")
+		investigate_log("<span class='warning'>deleted</span> at ([x],[y],[z])","singulo")
 	QDEL_NULL(wifi_receiver)
 	QDEL_NULL(spark_system)
 	QDEL_NULL(signaler)
@@ -89,7 +89,7 @@
 					if(special_emitter)
 						message_admins("Emitter turned off by [key_name_admin(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 						log_game("Emitter turned off by [user.ckey]([user]) in ([x],[y],[z])",ckey=key_name(user))
-						investigate_log("turned <font color='red'>off</font> by [user.key]","singulo")
+						investigate_log("turned <span class='warning'>off</span> by [user.key]","singulo")
 			else
 				active = TRUE
 				shot_number = 0
@@ -134,7 +134,7 @@
 				powered = FALSE
 				update_icon()
 				if(special_emitter)
-					investigate_log("lost power and turned <font color='red'>off</font>","singulo")
+					investigate_log("lost power and turned <span class='warning'>off</span>","singulo")
 			return
 
 		last_shot = world.time
@@ -206,7 +206,7 @@
 				to_chat(user, SPAN_WARNING("\The [src] needs to be wrenched to the floor."))
 			if(EMITTER_BOLTED)
 				if(WT.remove_fuel(0, user))
-					playsound(get_turf(src), 'sound/items/Welder2.ogg', 50, TRUE)
+					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
 					user.visible_message(SPAN_NOTICE("\The [user] starts to weld \the [src] to the floor."), \
 						SPAN_NOTICE("You start to weld \the [src] to the floor."), \
 						SPAN_WARNING("You hear the sound of metal being welded."))
@@ -220,7 +220,7 @@
 					to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 			if(EMITTER_WELDED)
 				if(WT.remove_fuel(0, user))
-					playsound(get_turf(src), 'sound/items/Welder2.ogg', 50, TRUE)
+					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
 					user.visible_message(SPAN_NOTICE("\The [user] starts to cut \the [src] free from the floor."), \
 						SPAN_NOTICE("You start to cut \the [src] free from the floor."), \
 						SPAN_WARNING("You hear the sound of metal being welded."))
@@ -234,7 +234,7 @@
 					to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 		return
 
-	if(istype(W, /obj/item/card/id) || istype(W, /obj/item/device/pda))
+	if(W.GetID())
 		if(emagged)
 			to_chat(user, SPAN_WARNING("The lock seems to be broken."))
 			return
@@ -269,4 +269,4 @@
 	if(!locked)
 		activate(null)
 	else
-		visible_message("\icon[src] [src] whines, \"Access denied!\"")
+		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] whines, \"Access denied!\"")

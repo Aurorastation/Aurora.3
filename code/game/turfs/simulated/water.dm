@@ -2,7 +2,7 @@
 	name = "beach"
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "sand"
-	footstep_sound = "sand"
+	footstep_sound = /decl/sound_category/sand_footstep
 
 /turf/simulated/floor/beach/sand
 	name = "sand"
@@ -18,12 +18,12 @@
 	name = "coastline"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
-	footstep_sound = "water"
+	footstep_sound = /decl/sound_category/water_footstep
 
 /turf/simulated/floor/beach/water
 	name = "water"
 	icon_state = "water"
-	footstep_sound = "water"
+	footstep_sound = /decl/sound_category/water_footstep
 	movement_cost = 2
 	var/watertype = "water5"
 	var/obj/effect/water_effect/water_overlay
@@ -75,11 +75,11 @@
 			var/datum/gas_mixture/water_breath = new()
 			var/datum/gas_mixture/above_air = return_air()
 			var/amount = 300
-			water_breath.adjust_gas("oxygen", amount) // Assuming water breathes just extract the oxygen directly from the water.
+			water_breath.adjust_gas(GAS_OXYGEN, amount) // Assuming water breathes just extract the oxygen directly from the water.
 			water_breath.temperature = above_air.temperature
 			return water_breath
 		else
-			var/gasid = "carbon_dioxide"
+			var/gasid = GAS_CO2
 			if(ishuman(L))
 				var/mob/living/carbon/human/H = L
 				if(H.species && H.species.exhale_type)

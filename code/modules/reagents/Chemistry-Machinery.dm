@@ -14,8 +14,8 @@
 	use_power = 1
 	idle_power_usage = 20
 	layer = 2.9
-	clicksound = "button"
-	
+	clicksound = /decl/sound_category/button_sound
+
 	var/beaker = null
 	var/obj/item/storage/pill_bottle/loaded_pill_bottle = null
 	var/mode = TRUE
@@ -55,7 +55,8 @@
 		icon_state = "mixer1"
 
 	else if(istype(B, /obj/item/storage/pill_bottle))
-
+		if(condi)
+			return
 		if(src.loaded_pill_bottle)
 			to_chat(user, "A pill bottle is already loaded into the machine.")
 			return
@@ -232,7 +233,7 @@
 		dat = "Please insert beaker.<BR>"
 		if(src.loaded_pill_bottle)
 			dat += "<A href='?src=\ref[src];ejectp=1'>Eject Pill Bottle \[[loaded_pill_bottle.contents.len]/[loaded_pill_bottle.max_storage_space]\]</A><BR><BR>"
-		else
+		else if(!condi)
 			dat += "No pill bottle inserted.<BR><BR>"
 		dat += "<A href='?src=\ref[src];close=1'>Close</A>"
 	else
@@ -240,7 +241,7 @@
 		dat += "<A href='?src=\ref[src];eject=1'>Eject beaker and Clear Buffer</A><BR>"
 		if(src.loaded_pill_bottle)
 			dat += "<A href='?src=\ref[src];ejectp=1'>Eject Pill Bottle \[[loaded_pill_bottle.contents.len]/[loaded_pill_bottle.max_storage_space]\]</A><BR><BR>"
-		else
+		else if(!condi)
 			dat += "No pill bottle inserted.<BR><BR>"
 		if(!R.total_volume)
 			dat += "Beaker is empty."
@@ -283,7 +284,7 @@
 /obj/machinery/chem_master/condimaster
 	name = "CondiMaster 3000"
 	condi = 1
-	
+
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 /obj/machinery/reagentgrinder
@@ -395,8 +396,6 @@
 	var/beaker_contents = ""
 	var/dat = ""
 
-	do_hair_pull(user)
-
 	if(!inuse)
 		for (var/obj/item/O in holdingitems)
 			processing_chamber += "\A [O.name]<BR>"
@@ -418,7 +417,7 @@
 
 
 		dat = {"
-	<b>Processing chamber contains:</b><br>
+	<b>Processing Chamber contains:</b><br>
 	[processing_chamber]<br>
 	[beaker_contents]<hr>
 	"}
@@ -430,10 +429,10 @@
 			dat += "<A href='?src=\ref[src];action=detach'>Detach the beaker</a><BR>"
 	else
 		dat += "Please wait..."
-	user << browse("<HEAD><TITLE>All-In-One Grinder</TITLE></HEAD><TT>[dat]</TT>", "window=reagentgrinder")
-	onclose(user, "reagentgrinder")
-	return
 
+	var/datum/browser/grindr_win = new(user, "reagentgrinder", capitalize_first_letters(name))
+	grindr_win.set_content(dat)
+	grindr_win.open()
 
 /obj/machinery/reagentgrinder/Topic(href, href_list)
 	if(..())
@@ -441,7 +440,7 @@
 
 	switch(href_list["action"])
 		if ("grind")
-			grind()
+			grind(usr)
 		if("eject")
 			eject()
 		if ("detach")
@@ -471,23 +470,24 @@
 		holdingitems -= O
 	holdingitems.Cut()
 
-/obj/machinery/reagentgrinder/proc/grind()
+/obj/machinery/reagentgrinder/proc/grind(mob/user)
 
 	power_change()
 	if(stat & (NOPOWER|BROKEN))
 		return
 
 	// Sanity check.
-	if (!beaker || (beaker && beaker.reagents.total_volume >= beaker.reagents.maximum_volume))
+	if(!beaker || (beaker && beaker.reagents.total_volume >= beaker.reagents.maximum_volume))
 		return
 
-	playsound(src.loc, 'sound/machines/blender.ogg', 50, 1)
-	inuse = 1
+	if(ishuman(user))
+		do_hair_pull(user)
+
+	playsound(get_turf(src), 'sound/machines/blender.ogg', 50, 1)
+	inuse = TRUE
 
 	// Reset the machine.
-	spawn(60)
-		inuse = 0
-		src.updateUsrDialog()
+	addtimer(CALLBACK(src, .proc/grind_reset), 60)
 
 	// Process.
 	for (var/obj/item/O in holdingitems)
@@ -521,6 +521,11 @@
 			if (beaker.reagents.total_volume >= beaker.reagents.maximum_volume)
 				break
 
+/obj/machinery/reagentgrinder/proc/grind_reset()
+	inuse = FALSE
+	updateUsrDialog()
+
+
 /obj/machinery/reagentgrinder/MouseDrop_T(mob/living/carbon/human/target as mob, mob/user as mob)
 	if (!istype(target) || target.buckled || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
 		return
@@ -543,7 +548,7 @@
 			target.apply_damage(25, PAIN)
 			target.say("*scream")
 
-			user.attack_log += text("\[[time_stamp()]\] <font color='red'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</font>")
+			user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has fed [target.name]'s ([target.ckey]) hair into a [src].</span>")
 			target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their hair fed into [src] by [user.name] ([user.ckey])</font>")
 			msg_admin_attack("[key_name_admin(user)] fed [key_name_admin(target)] in a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 		else

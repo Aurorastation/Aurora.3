@@ -7,7 +7,7 @@
 	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user."
 	icon_state = "modkit"
 	var/parts = MODKIT_FULL
-	var/target_species = "Human"
+	var/target_species = BODYTYPE_HUMAN
 
 	var/list/permitted_types = list(
 		/obj/item/clothing/head/helmet/space/void,
@@ -47,7 +47,7 @@
 		to_chat(user, "<span class='warning'>[O] must be safely placed on the ground for modification.</span>")
 		return
 
-	playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+	playsound(user.loc, 'sound/items/screwdriver.ogg', 100, 1)
 
 	user.visible_message("<span class='notice'>\The [user] opens \the [src] and modifies \the [O].</span>","<span class='notice'>You open \the [src] and modify \the [O].</span>")
 
@@ -69,4 +69,4 @@
 /obj/item/device/modkit/tajaran
 	name = "tajaran hardsuit modification kit"
 	desc = "A kit containing all the needed tools and parts to modify a voidsuit for another user. This one looks like it's meant for Tajarans."
-	target_species = "Tajara"
+	target_species = BODYTYPE_TAJARA

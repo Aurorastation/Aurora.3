@@ -9,7 +9,7 @@
 	item_state = "syringe_0"
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 320, MATERIAL_GLASS = 800)
 	var/obj/item/implant/imp = null
 
@@ -127,8 +127,11 @@
 		return
 	if(istype(A,/obj/item) && imp)
 		var/obj/item/implant/compressed/c = imp
+		if(istype(A,/obj/item/implant/compressed))
+			to_chat(user, SPAN_NOTICE("The implant is loaded into the implanter."))
+			return
 		if (c.scanned)
-			to_chat(user, "<span class='warning'>Something is already scanned inside the implant!</span>")
+			to_chat(user, SPAN_WARNING("Something is already scanned inside the implant!"))
 			return
 		c.scanned = A
 		if(istype(A.loc,/mob/living/carbon/human))
@@ -199,7 +202,7 @@
 	user.visible_message(SPAN_WARNING("\The [user] tags \the [M] with \the [src]!"), SPAN_NOTICE("You tag \the [M] with \the [src]."), range = 3)
 
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'> Implanted with [src.name] ([src.ipc_tag.name])  by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] ([src.ipc_tag.name]) to implant [M.name] ([M.ckey])</font>")
+	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [src.name] ([src.ipc_tag.name]) to implant [M.name] ([M.ckey])</span>")
 	msg_admin_attack("[key_name_admin(user)] implanted [key_name_admin(M)] with [src.name] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
 
 	ipc_tag.replaced(H, H.organs_by_name[BP_HEAD])

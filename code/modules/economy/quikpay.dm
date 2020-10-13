@@ -112,10 +112,10 @@
 		var/transaction = SSeconomy.transfer_money(I.associated_account_number, SSeconomy.get_department_account(destinationact)?.account_number,transaction_purpose,transaction_terminal,transaction_amount,null,usr)
 
 		if(transaction)
-			to_chat(usr,"\icon[src]<span class='warning'>[transaction].</span>")
+			to_chat(user,"[icon2html(src, user)]<span class='warning'>[transaction].</span>")
 		else
 			playsound(src, 'sound/machines/chime.ogg', 50, 1)
-			src.visible_message("\icon[src] \The [src] chimes.")
+			src.visible_message("[icon2html(src, viewers(get_turf(src)))] \The [src] chimes.")
 			print_receipt()
 			sum = 0
 			receipt = ""
@@ -127,7 +127,7 @@
 /obj/item/device/nanoquikpay/attack_self(mob/user as mob)
 	var/datum/vueui/ui = SSvueui.get_open_ui(usr, src)
 	if (!ui)
-		ui = new(usr, src, "quikpay-main", 400, 400, "NT Quik-Pay")
+		ui = new(usr, src, "devices-quikpay-main", 400, 400, "NT Quik-Pay")
 	ui.open()
 
 /obj/item/device/nanoquikpay/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)

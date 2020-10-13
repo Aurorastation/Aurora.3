@@ -12,6 +12,7 @@
 	var/datum/reagents/metabolism/ingested
 	var/next_cramp = 0
 	var/should_process_alcohol = TRUE
+	var/stomach_volume = 65
 
 /obj/item/organ/internal/stomach/Destroy()
 	QDEL_NULL(ingested)
@@ -42,7 +43,7 @@
 	. = ..()
 	if(.)
 		action.button_icon_state = "puke"
-		if(action.button) action.button.UpdateIcon()
+		if(action.button) action.button.update_icon()
 
 /obj/item/organ/internal/stomach/attack_self(mob/user)
 	. = ..()
@@ -75,7 +76,7 @@
 		var/mob/living/L = food
 		if((species.gluttonous & GLUT_TINY) && (L.mob_size <= MOB_TINY) && !ishuman(food)) // Anything MOB_TINY or smaller
 			return DEVOUR_SLOW
-		else if((species.gluttonous & (GLUT_SMALLER|GLUT_MESSY)) && owner.mob_size > L.mob_size) // Anything we're larger than
+		else if((species.gluttonous & GLUT_MESSY) || ((species.gluttonous & GLUT_SMALLER) && owner.mob_size > L.mob_size)) //Whether you can eat things smaller, or bigger than you.
 			return DEVOUR_SLOW
 		else if(species.gluttonous & GLUT_ANYTHING) // Eat anything ever
 			return DEVOUR_FAST
@@ -98,9 +99,7 @@
 /obj/item/organ/internal/stomach/proc/metabolize()
 	if(is_usable())
 		ingested.metabolize()
-	
-#define STOMACH_VOLUME 65
-	
+
 /obj/item/organ/internal/stomach/process()
 	..()
 	if(owner)
@@ -133,7 +132,7 @@
 			var/effective_volume = ingested.total_volume + alcohol_volume
 
 			// Just over the limit, the probability will be low. It rises a lot such that at double ingested it's 64% chance.
-			var/vomit_probability = (effective_volume / STOMACH_VOLUME) ** 6
+			var/vomit_probability = (effective_volume / stomach_volume) ** 6
 			if(prob(vomit_probability))
 				owner.vomit()
 
@@ -141,5 +140,4 @@
 	if(!QDELETED(M))
 		qdel(M)
 
-#undef STOMACH_VOLUME
 #undef PUKE_ACTION_NAME

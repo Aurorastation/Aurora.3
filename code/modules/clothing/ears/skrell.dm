@@ -3,9 +3,9 @@
 	desc = "Some stuff worn by skrell to adorn their head tentacles."
 	icon = 'icons/obj/skrell_items.dmi'
 	contained_sprite = TRUE
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_HEAD | SLOT_EARS
-	species_restricted = list("Skrell")
+	species_restricted = list(SPECIES_SKRELL)
 
 /obj/item/clothing/ears/skrell/chain
 	name = "gold headtail chains"

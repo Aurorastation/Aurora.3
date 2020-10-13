@@ -5,6 +5,8 @@
 	icon = 'icons/mob/human.dmi'
 	icon_state = "body_m_s"
 
+	var/species_items_equipped // used so species that need special items (autoinhalers for vaurca/RMT for offworlders) don't get them twice when they shouldn't.
+
 	var/list/hud_list[10]
 	var/embedded_flag	  //To check if we've need to roll for damage on movement while an item is imbedded in us.
 	var/obj/item/rig/wearing_rig // This is very not good, but it's much much better than calling get_rig() every update_canmove() call.
@@ -26,6 +28,9 @@
 		name = real_name
 		if(mind)
 			mind.name = real_name
+	
+	if(species.have_vision_cone)
+		can_have_vision_cone = TRUE
 
 	// Randomize nutrition and hydration. Defines are in __defines/mobs.dm
 	if(max_nutrition > 0)
@@ -253,7 +258,7 @@
 			if (prob(50))
 				Paralyse(10)
 
-	// factor in armour
+	// factor in armor
 	var/protection = BLOCKED_MULT(getarmor(null, "bomb"))
 	b_loss *= protection
 	f_loss *= protection
@@ -400,9 +405,9 @@
 	dat += "<BR><A href='?src=\ref[user];refresh=1'>Refresh</A>"
 	dat += "<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>"
 
-	user << browse(dat, text("window=mob[name];size=340x540"))
-	onclose(user, "mob[name]")
-	return
+	var/datum/browser/mob_win = new(user, "mob[name]", capitalize_first_letters(name), 350, 550)
+	mob_win.set_content(dat)
+	mob_win.open()
 
 // called when something steps onto a human
 // this handles mulebots and vehicles
@@ -472,13 +477,9 @@
 //Useful when player is being seen by other mobs
 /mob/living/carbon/human/proc/get_id_name(var/if_no_id = "Unknown")
 	. = if_no_id
-	if(istype(wear_id,/obj/item/device/pda))
-		var/obj/item/device/pda/P = wear_id
-		return P.owner
-	if(wear_id)
-		var/obj/item/card/id/I = wear_id.GetID()
-		if(I)
-			return I.registered_name
+	var/obj/item/card/id/I = GetIdCard()
+	if(I)
+		return I.registered_name
 	return
 
 //gets ID card object from special clothes slot or null.
@@ -559,7 +560,7 @@
 
 		apply_damage(shock_damage, BURN, area, used_weapon="Electrocution")
 		shock_damage *= 0.4
-		playsound(loc, "sparks", 50, 1, -1)
+		playsound(loc, /decl/sound_category/spark_sound, 50, 1, -1)
 
 	if (shock_damage > 15)
 		visible_message(
@@ -634,12 +635,9 @@
 			var/perpname = "wot"
 			var/read = 0
 
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -659,12 +657,9 @@
 			var/perpname = "wot"
 			var/read = 0
 
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -684,12 +679,9 @@
 	if (href_list["secrecordadd"])
 		if(hasHUD(usr,"security"))
 			var/perpname = "wot"
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -709,12 +701,9 @@
 			var/perpname = "wot"
 			var/modified = 0
 
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 
@@ -744,12 +733,9 @@
 			var/perpname = "wot"
 			var/read = 0
 
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -770,12 +756,9 @@
 			var/perpname = "wot"
 			var/read = 0
 
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -795,12 +778,9 @@
 	if (href_list["medrecordadd"])
 		if(hasHUD(usr,"medical"))
 			var/perpname = "wot"
-			if(wear_id)
-				if(istype(wear_id,/obj/item/card/id))
-					perpname = wear_id:registered_name
-				else if(istype(wear_id,/obj/item/device/pda))
-					var/obj/item/device/pda/tempPda = wear_id
-					perpname = tempPda.owner
+			if(GetIdCard())
+				var/obj/item/card/id/id = GetIdCard()
+				perpname = id.registered_name
 			else
 				perpname = src.name
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
@@ -933,7 +913,7 @@
 
 /mob/living/carbon/human/proc/play_xylophone()
 	if(!src.xylophone)
-		visible_message(SPAN_WARNING("\The [src] begins playing \his ribcage like a xylophone. It's quite spooky."), SPAN_NOTICE("You begin to play a spooky refrain on your ribcage."), SPAN_WARNING("You hear a spooky xylophone melody."))
+		visible_message(SPAN_WARNING("\The [src] begins playing [get_pronoun("his")] ribcage like a xylophone. It's quite spooky."), SPAN_NOTICE("You begin to play a spooky refrain on your ribcage."), SPAN_WARNING("You hear a spooky xylophone melody."))
 		var/song = pick('sound/effects/xylophone1.ogg','sound/effects/xylophone2.ogg','sound/effects/xylophone3.ogg')
 		playsound(loc, song, 50, 1, -1)
 		xylophone = 1
@@ -963,7 +943,7 @@
 		nothing_to_puke = TRUE
 
 	if(nothing_to_puke)
-		custom_emote(1,"dry heaves.")
+		custom_emote(VISIBLE_MESSAGE,"dry heaves.")
 		return
 
 	var/list/vomitCandidate = typecacheof(/obj/machinery/disposal) + typecacheof(/obj/structure/sink) + typecacheof(/obj/structure/toilet)
@@ -1134,7 +1114,7 @@
 	regenerate_icons()
 	check_dna()
 
-	visible_message(SPAN_NOTICE("\The [src] morphs and changes [get_visible_gender() == MALE ? "his" : get_visible_gender() == FEMALE ? "her" : "their"] appearance!"), SPAN_NOTICE("You change your appearance!"), SPAN_WARNING("Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!"))
+	visible_message(SPAN_NOTICE("\The [src] morphs and changes [get_pronoun("his")] appearance!"), SPAN_NOTICE("You change your appearance!"), SPAN_WARNING("Oh, god!  What the hell was that?  It sounded like flesh getting squished and bone ground into a different shape!"))
 
 /mob/living/carbon/human/proc/remotesay()
 	set name = "Project mind"
@@ -1218,10 +1198,12 @@
 	else
 		to_chat(src, SPAN_WARNING("You are not injured enough to succumb to death!"))
 
-/mob/living/carbon/human/proc/get_visible_gender()
-	if(wear_suit && wear_suit.flags_inv & HIDEJUMPSUIT && ((head && head.flags_inv & HIDEMASK) || wear_mask))
-		return NEUTER
-	return gender
+/mob/living/carbon/human/get_gender()
+	var/skipitems = get_covered_clothes()
+	var/skipbody = get_covered_body_parts()
+	. = ..()
+	if((skipbody & FACE || (skipitems & (HIDEMASK|HIDEFACE))) && ((skipbody & UPPER_TORSO && skipbody & LOWER_TORSO) || (skipitems & HIDEJUMPSUIT))) //big suits/masks/helmets make it hard to tell their gender
+		. = PLURAL
 
 /mob/living/carbon/human/proc/increase_germ_level(n)
 	if(gloves)
@@ -1309,7 +1291,7 @@
 	if(istype(M))
 		if(!blood_DNA[M.dna.unique_enzymes])
 			blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
-	hand_blood_color = blood_color
+	hand_blood_color = species.blood_color
 	src.update_inv_gloves()	//handles bloody hands overlays and updating
 	verbs += /mob/living/carbon/human/proc/bloody_doodle
 	return 1 //we applied blood to the item
@@ -1392,7 +1374,7 @@
 		return
 
 	if(!self)
-		usr.visible_message(SPAN_NOTICE("[usr] kneels down, puts \his hand on [src]'s wrist and begins counting their pulse."),\
+		usr.visible_message(SPAN_NOTICE("[usr] kneels down, puts [usr.get_pronoun("his")] hand on [src]'s wrist and begins counting their pulse."),\
 		"You begin counting [src]'s pulse")
 	else
 		usr.visible_message(SPAN_NOTICE("[usr] begins counting their pulse."),\
@@ -1416,7 +1398,7 @@
 	cached_bodytype = null
 	if(!dna)
 		if(!new_species)
-			new_species = "Human"
+			new_species = SPECIES_HUMAN
 	else
 		if(!new_species)
 			new_species = dna.species
@@ -1425,7 +1407,7 @@
 
 	// No more invisible screaming wheelchairs because of set_species() typos.
 	if(!all_species[new_species])
-		new_species = "Human"
+		new_species = SPECIES_HUMAN
 
 	if(species)
 
@@ -1713,11 +1695,11 @@
 	if(self)
 		U.visible_message(SPAN_DANGER("[U] pops their [current_limb.joint] back in!"), \
 		SPAN_DANGER("You pop your [current_limb.joint] back in!"))
-		playsound(src.loc, "fracture", 50, 1, -2)
+		playsound(src.loc, /decl/sound_category/fracture_sound, 50, 1, -2)
 	else
 		U.visible_message(SPAN_DANGER("[U] pops [S]'s [current_limb.joint] back in!"), \
 		SPAN_DANGER("You pop [S]'s [current_limb.joint] back in!"))
-		playsound(src.loc, "fracture", 50, 1, -2)
+		playsound(src.loc, /decl/sound_category/fracture_sound, 50, 1, -2)
 	current_limb.undislocate()
 
 /mob/living/carbon/human/drop_from_inventory(var/obj/item/W, var/atom/target = null)
@@ -1956,7 +1938,7 @@
 		if(!nervous_system_failure())
 			visible_message("<b>[src]</b> jerks and gasps for breath!")
 		else
-			visible_message("<b>[src]</b> twitches a bit as \his heart restarts!")
+			visible_message("<b>[src]</b> twitches a bit as [get_pronoun("his")] heart restarts!")
 		shock_stage = min(shock_stage, 100) // 120 is the point at which the heart stops.
 		if(getOxyLoss() >= 75)
 			setOxyLoss(75)
@@ -2014,27 +1996,24 @@
 				randmutg(src) // Applies good mutation
 				domutcheck(src,null,MUTCHK_FORCED)
 
-/mob/living/carbon/human/proc/get_accent_icon(var/datum/language/speaking = null)
-	if(accent && speaking && speaking.allow_accents)
-		var/used_accent = accent //starts with the mob's default accent
+/mob/living/carbon/human/get_accent_icon(var/datum/language/speaking, var/mob/hearer, var/force_accent)
+	var/used_accent = accent //starts with the mob's default accent
 
-		if(mind?.changeling)
-			used_accent = mind.changeling.mimiced_accent
+	if(mind?.changeling)
+		used_accent = mind.changeling.mimiced_accent
 
-		if(istype(back,/obj/item/rig)) //checks for the rig voice changer module
-			var/obj/item/rig/rig = back
-			if(rig.speech && rig.speech.voice_holder && rig.speech.voice_holder.active && rig.speech.voice_holder.current_accent)
-				used_accent = rig.speech.voice_holder.current_accent
+	if(istype(back,/obj/item/rig)) //checks for the rig voice changer module
+		var/obj/item/rig/rig = back
+		if(rig.speech && rig.speech.voice_holder && rig.speech.voice_holder.active && rig.speech.voice_holder.current_accent)
+			used_accent = rig.speech.voice_holder.current_accent
 
-		for(var/obj/item/gear in list(wear_mask,wear_suit,head)) //checks for voice changers masks now
-			if(gear)
-				var/obj/item/voice_changer/changer = locate() in gear
-				if(changer && changer.active && changer.current_accent)
-					used_accent = changer.current_accent
+	for(var/obj/item/gear in list(wear_mask,wear_suit,head)) //checks for voice changers masks now
+		if(gear)
+			var/obj/item/voice_changer/changer = locate() in gear
+			if(changer && changer.active && changer.current_accent)
+				used_accent = changer.current_accent
 
-		var/datum/accent/a = SSrecords.accents[used_accent]
-		var/final_icon = a.tag_icon
-		return "<IMG src='\ref['./icons/accent_tags.dmi']' class='text_tag' iconstate='[final_icon]'>"
+	return ..(speaking, hearer, used_accent)
 
 /mob/living/carbon/human/proc/generate_valid_accent()
 	var/list/valid_accents = new()

@@ -136,7 +136,7 @@
 	name = "Pirate"
 	corpseshoes = /obj/item/clothing/shoes/jackboots
 	corpseglasses = /obj/item/clothing/glasses/eyepatch
-	corpsehelmet = /obj/item/clothing/head/bandana
+	corpsehelmet = /obj/item/clothing/head/bandana/pirate
 
 
 

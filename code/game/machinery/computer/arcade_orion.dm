@@ -455,7 +455,7 @@
 			to_chat(usr, "<span class='danger'><font size=3>You're never going to make it to Orion...</font></span>")
 			var/mob/living/M = usr
 			M.visible_message("\The [M] starts rapidly deteriorating.")
-			to_chat(M, browse (null,"window=arcade"))
+			show_browser(M, null, "window=arcade")
 			for(var/i=0;i<10;i++)
 				sleep(10)
 				M.Stun(5)
@@ -487,7 +487,7 @@
 	desc = "A model spaceship, it looks like those used back in the day when travelling to Orion! It even has a miniature FX-293 reactor, which was renowned for its instability and tendency to explode..."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "ship"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	var/active = 0 //if the ship is on
 /obj/item/orion_ship/examine(mob/user)
 	..()

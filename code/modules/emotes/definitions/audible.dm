@@ -32,7 +32,7 @@
 
 /decl/emote/audible/choke
 	key ="choke"
-	emote_message_3p = "USER chokes."
+	emote_message_3p = "USER chokes!"
 	conscious = 0
 
 /decl/emote/audible/gnarl
@@ -189,6 +189,13 @@
 	emote_message_3p_target = "<span class='warning'>USER slaps TARGET across the face!</span>"
 	emote_message_3p = "USER slaps USER_SELF across the face!"
 	emote_sound = 'sound/effects/snap.ogg'
+
+/decl/emote/audible/slap/target_check(var/atom/user, var/atom/target)
+	if(!ismob(target))
+		return FALSE
+	if(!target.Adjacent(user))
+		return FALSE
+	return TRUE
 
 /decl/emote/audible/snap
 	key = "snap"

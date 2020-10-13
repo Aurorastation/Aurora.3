@@ -30,6 +30,7 @@
 	new /obj/item/device/gps/mining(src)
 	new /obj/item/book/manual/ka_custom(src)
 	new /obj/item/clothing/accessory/storage/overalls/mining(src)
+	new /obj/item/clothing/head/bandana/miner(src)
 
 /******************************Lantern*******************************/
 
@@ -44,7 +45,7 @@
 		)
 	light_power = 1
 	brightness_on = 4
-	light_wedge = 120
+	light_wedge = LIGHT_OMNI
 	light_color = LIGHT_COLOR_FIRE
 
 /*****************************Pickaxe********************************/
@@ -63,12 +64,13 @@
 	slot_flags = SLOT_BELT
 	throwforce = 4.0
 	force = 10.0
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
 	var/digspeed //moving the delay to an item var so R&D can make improved picks. --NEO
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	attack_verb = list("hit", "pierced", "sliced", "attacked")
-	var/drill_sound = "pickaxe"
+	hitsound = 'sound/weapons/rapidslice.ogg'
+	var/drill_sound = /decl/sound_category/pickaxe_sound
 	var/drill_verb = "excavating"
 	var/autodrill = 0 //pickaxes must be manually swung to mine, drills can mine rocks via bump
 	sharp = TRUE
@@ -77,6 +79,8 @@
 
 	var/excavation_amount = 40
 	var/wielded = FALSE
+	var/wield_sound = /decl/sound_category/generic_wield_sound
+	var/unwield_sound = null
 	var/force_unwielded = 5.0
 	var/force_wielded = 15.0
 	var/digspeed_unwielded = 30
@@ -90,12 +94,16 @@
 	force = force_unwielded
 	digspeed = digspeed_unwielded
 	name = initial(name)
+	if(src.unwield_sound)
+		playsound(src.loc, unwield_sound, 25, 1)
 	update_icon()
 
 /obj/item/pickaxe/proc/wield()
 	wielded = TRUE
 	force = force_wielded
 	digspeed = digspeed_wielded
+	if(src.wield_sound)
+		playsound(src.loc, wield_sound, 25, 1)
 	update_icon()
 
 /obj/item/pickaxe/update_icon()
@@ -184,14 +192,16 @@
 		attack_self(usr)
 
 /obj/item/pickaxe/offhand
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "offhand"
 	item_state = null
 	name = "offhand"
 	simulated = FALSE
-
 	action_button_name = null
+	drop_sound = null
+	pickup_sound = null
+	equip_sound = null
 
 /obj/item/pickaxe/proc/copy_stats(obj/item/pickaxe/parent)
 	digspeed_wielded = parent.digspeed_wielded
@@ -217,7 +227,6 @@
 	desc = "A mining hammer made of reinforced metal. You feel like smashing your boss in the face with this."
 	icon_state = "sledgehammer"
 	icon = 'icons/obj/weapons.dmi'
-	hitsound = "swing_hit"
 
 /obj/item/pickaxe/silver
 	name = "silver pickaxe"
@@ -232,10 +241,12 @@
 
 /obj/item/pickaxe/drill
 	name = "mining drill" // Can dig sand as well!
+	desc = "Yours is the drill that will pierce through the rock walls."
+	icon = 'icons/obj/contained_items/tools/drills.dmi'
 	icon_state = "miningdrill"
 	item_state = "miningdrill"
+	contained_sprite = TRUE
 	origin_tech = list(TECH_MATERIAL = 2, TECH_POWER = 3, TECH_ENGINEERING = 2)
-	desc = "Yours is the drill that will pierce through the rock walls."
 	drill_verb = "drilling"
 	autodrill = TRUE
 	drill_sound = 'sound/weapons/drill.ogg'
@@ -249,12 +260,24 @@
 
 	action_button_name = null
 
+/obj/item/pickaxe/drill/weak
+	name = "shaft drill"
+	desc = "Baby's first mining drill. Slow, but reliable."
+	icon_state = "babydrill"
+	item_state = "babydrill"
+	digspeed = 5
+	digspeed_unwielded = 10
+	excavation_amount = 80
+	force = 10
+
 /obj/item/pickaxe/jackhammer
 	name = "sonic jackhammer"
+	desc = "Cracks rocks with sonic blasts, perfect for killing cave lizards."
+	icon = 'icons/obj/contained_items/tools/drills.dmi'
 	icon_state = "jackhammer"
 	item_state = "jackhammer"
+	contained_sprite = TRUE
 	origin_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2, TECH_ENGINEERING = 2)
-	desc = "Cracks rocks with sonic blasts, perfect for killing cave lizards."
 	drill_verb = "hammering"
 	autodrill = TRUE
 	drill_sound = 'sound/weapons/sonic_jackhammer.ogg'
@@ -294,8 +317,10 @@
 
 /obj/item/pickaxe/diamonddrill //When people ask about the badass leader of the mining tools, they are talking about ME!
 	name = "diamond mining drill"
+	icon = 'icons/obj/contained_items/tools/drills.dmi'
 	icon_state = "diamonddrill"
 	item_state = "diamonddrill"
+	contained_sprite = TRUE
 	digspeed = 3 //Digs through walls, girders, and can dig up sand
 	origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 4, TECH_ENGINEERING = 5)
 	desc = "Yours is the drill that will pierce the heavens!"
@@ -314,8 +339,10 @@
 
 /obj/item/pickaxe/borgdrill
 	name = "cyborg mining drill"
+	icon = 'icons/obj/contained_items/tools/drills.dmi'
 	icon_state = "diamonddrill"
 	item_state = "jackhammer"
+	contained_sprite = TRUE
 	digspeed = 10
 	digspeed_unwielded = 10
 	force_unwielded = 25.0
@@ -345,7 +372,7 @@
 	slot_flags = SLOT_BELT
 	force = 8.0
 	throwforce = 4.0
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bashed", "bludgeoned", "thrashed", "whacked")
@@ -363,7 +390,7 @@
 	item_state = "spade"
 	force = 5.0
 	throwforce = 7.0
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 
 // Flags.
 
@@ -373,7 +400,7 @@
 	singular_name = "flag"
 	amount = 25
 	max_amount = 25
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	icon = 'icons/obj/mining.dmi'
 	var/upright = FALSE
 	var/base_state
@@ -477,7 +504,7 @@
 	icon_state = "track15"
 	density = FALSE
 	anchored = TRUE
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	layer = 2.44
 
 /obj/structure/track/Initialize()
@@ -613,7 +640,7 @@
 	icon_state = "pinoff"
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
 	throw_speed = 4
 	throw_range = 20
@@ -680,7 +707,7 @@
 	icon_state = "jaunter"
 	item_state = "jaunter"
 	throwforce = 0
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
 	throw_range = 5
 	slot_flags = SLOT_BELT
@@ -717,7 +744,7 @@
 		to_chat(user, SPAN_NOTICE("\The [src] found no beacons in the world to anchor a wormhole to."))
 		return
 	var/chosen_beacon = pick(L)
-	var/obj/effect/portal/wormhole/jaunt_tunnel/J = new /obj/effect/portal/wormhole/jaunt_tunnel(get_turf(src), chosen_beacon, lifespan = 100)
+	var/obj/effect/portal/wormhole/jaunt_tunnel/J = new /obj/effect/portal/wormhole/jaunt_tunnel(get_turf(src), chosen_beacon, null, 100)
 	J.target = chosen_beacon
 	playsound(src,'sound/effects/sparks4.ogg', 50, 1)
 	qdel(src)
@@ -764,10 +791,11 @@
 	icon_state = "borghypo"
 	item_state = "hypo"
 	throwforce = 0
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
 	throw_range = 5
 	var/loaded = TRUE
+	var/emagged = FALSE
 	var/malfunctioning = FALSE
 	var/revive_type = TYPE_ORGANIC //So you can't revive boss monsters or robots with it
 	origin_tech = list(TECH_BIO = 7, TECH_MATERIAL = 4)
@@ -782,12 +810,14 @@
 				to_chat(user, SPAN_INFO("\The [src] does not work on this sort of creature."))
 				return
 			if(M.stat == DEAD)
-				if(!malfunctioning)
-					M.faction = "neutral"
+				if(emagged)	//if emagged, will set anything revived to the user's faction. convert station pets to the traitor side!
+					M.faction = user.faction
+				if(malfunctioning) //when EMP'd, will set the mob faction to its initial faction, so any taming will be reverted.
+					M.faction = initial(M.faction)
 				M.revive()
 				M.icon_state = M.icon_living
 				loaded = FALSE
-				user.visible_message(SPAN_NOTICE("\The [user] injects \the [M] with \the [src], reviving it."))
+				user.visible_message(SPAN_NOTICE("\The [user] revives \the [M] by injecting it with \the [src]."))
 				feedback_add_details("lazarus_injector", "[M.type]")
 				playsound(src, 'sound/effects/refill.ogg', 50, TRUE)
 				return
@@ -802,11 +832,16 @@
 	if(!malfunctioning)
 		malfunctioning = TRUE
 
+/obj/item/lazarus_injector/emag_act(mob/user)
+	if(!emagged)
+		to_chat(user, SPAN_WARNING("You overload \the [src]'s injection matrix."))
+		emagged = TRUE
+
 /obj/item/lazarus_injector/examine(mob/user)
 	..()
 	if(!loaded)
 		to_chat(user, SPAN_INFO("\The [src] is empty."))
-	if(malfunctioning)
+	if(malfunctioning || emagged)
 		to_chat(user, SPAN_INFO("The display on \the [src] seems to be flickering."))
 
 /**********************Point Transfer Card**********************/
@@ -842,7 +877,7 @@ var/list/total_extraction_beacons = list()
 	contained_sprite = TRUE
 	icon = 'icons/obj/mining_contained.dmi'
 	icon_state = "fulton"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	var/obj/structure/extraction_point/beacon
 	var/list/beacon_networks = list("station")
 	var/uses_left = 3
@@ -1045,7 +1080,7 @@ var/list/total_extraction_beacons = list()
 	icon_state = "magneto"
 	item_state = "magneto"
 	desc = "A handheld device that creates a well of negative force that attracts minerals of a very specific type, size, and state to its user."
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	force = 10
 	throwforce = 5
 	origin_tech = list(TECH_MAGNET = 4, TECH_ENGINEERING = 3)
@@ -1083,7 +1118,7 @@ var/list/total_extraction_beacons = list()
 	icon_state = "supermagneto"
 	item_state = "jaunter"
 	desc = "A handheld device that creates a well of warp energy that teleports minerals of a very specific type, size, and state to its user."
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	force = 15
 	throwforce = 5
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_ENGINEERING = 3)
@@ -1108,9 +1143,10 @@ var/list/total_extraction_beacons = list()
 /******************************Sculpting*******************************/
 /obj/item/autochisel
 	name = "auto-chisel"
-	icon = 'icons/obj/tools.dmi'
+	icon = 'icons/obj/contained_items/tools/drills.dmi'
 	icon_state = "jackhammer"
 	item_state = "jackhammer"
+	contained_sprite = TRUE
 	origin_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2, TECH_ENGINEERING = 2)
 	desc = "With an integrated AI chip and hair-trigger precision, this baby makes sculpting almost automatic!"
 
@@ -1161,7 +1197,7 @@ var/list/total_extraction_beacons = list()
 				SPAN_NOTICE("You continue sculpting."))
 
 			if(prob(25))
-				playsound(user, 'sound/items/Screwdriver.ogg', 20, TRUE)
+				playsound(user, 'sound/items/screwdriver.ogg', 20, TRUE)
 			else
 				playsound(user, "sound/weapons/chisel[rand(1,2)].ogg", 20, TRUE)
 				spawn(3)
@@ -1215,8 +1251,7 @@ var/list/total_extraction_beacons = list()
 	icon_state = "punchingbag"
 	anchored = TRUE
 	layer = 5.1
-	var/list/hit_sounds = list('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg',\
-	'sound/weapons/punch1.ogg', 'sound/weapons/punch2.ogg', 'sound/weapons/punch3.ogg', 'sound/weapons/punch4.ogg')
+	var/list/hit_sounds = list("swing_hit", "punch")
 
 /obj/structure/punching_bag/attack_hand(mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

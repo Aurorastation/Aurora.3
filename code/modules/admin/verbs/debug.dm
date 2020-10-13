@@ -131,11 +131,8 @@
 		return
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
-		if (H.wear_id)
-			var/obj/item/card/id/id = H.wear_id
-			if(istype(H.wear_id, /obj/item/device/pda))
-				var/obj/item/device/pda/pda = H.wear_id
-				id = pda.id
+		if (H.GetIdCard())
+			var/obj/item/card/id/id = H.GetIdCard()
 			id.icon_state = "gold"
 			id.access = get_all_accesses()
 		else
@@ -328,6 +325,8 @@
 			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/tcfl)
 			outfit_catagories["Killers"] = typesof(/datum/outfit/admin/killer)
 			outfit_catagories["Job"] = subtypesof(/datum/outfit/job)
+			outfit_catagories["Megacorps"] = subtypesof(/datum/outfit/admin/megacorp)
+			outfit_catagories["Pod Survivors"] = subtypesof(/datum/outfit/admin/pod)
 			outfit_catagories["Miscellaneous"] = typesof(/datum/outfit/admin/random)
 			outfit_catagories["Miscellaneous"] += /datum/outfit/admin/random_employee
 
@@ -402,7 +401,7 @@
 		if(Rad.anchored)
 			if(!Rad.P)
 				var/obj/item/tank/phoron/Phoron = new/obj/item/tank/phoron(Rad)
-				Phoron.air_contents.gas["phoron"] = 70
+				Phoron.air_contents.gas[GAS_PHORON] = 70
 				Rad.drainratio = 0
 				Rad.P = Phoron
 				Phoron.forceMove(Rad)

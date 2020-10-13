@@ -183,7 +183,7 @@
 			data["recharge_time"] = initial(E.recharge_time)
 			data["damage"] = initial(P.damage)
 			data["damage_type"] = initial(P.damage_type)
-			data["check_armor"] = initial(P.check_armour)
+			data["check_armor"] = initial(P.check_armor)
 			data["stun"] = initial(P.stun) ? "stuns" : "does not stun"
 			data["shrapnel_type"] = initial(P.shrapnel_type) ? initial(P.shrapnel_type) : "none"
 			data["armor_penetration"] = initial(P.armor_penetration)
@@ -205,7 +205,7 @@
 				var/obj/item/projectile/P_second = E.secondary_projectile_type
 				data["secondary_damage"] = initial(P_second.damage)
 				data["secondary_damage_type"] = initial(P_second.damage_type)
-				data["secondary_check_armor"] = initial(P_second.check_armour)
+				data["secondary_check_armor"] = initial(P_second.check_armor)
 				data["secondary_stun"] = initial(P_second.stun) ? "stuns" : "does not stun"
 				data["secondary_shrapnel_type"] = initial(P_second.shrapnel_type) ? initial(P_second.shrapnel_type) : "none"
 				data["secondary_armor_penetration"] = initial(P_second.armor_penetration)
@@ -217,7 +217,7 @@
 			data["max_shots"] = P_gun.max_shells
 			data["damage"] = initial(P.damage)
 			data["damage_type"] = initial(P.damage_type)
-			data["check_armor"] = initial(P.check_armour)
+			data["check_armor"] = initial(P.check_armor)
 			data["stun"] = initial(P.stun) ? "stuns" : "does not stun"
 			data["shrapnel_type"] = initial(P.shrapnel_type) ? initial(P.shrapnel_type) : "none"
 		data["burst"] = gun.burst

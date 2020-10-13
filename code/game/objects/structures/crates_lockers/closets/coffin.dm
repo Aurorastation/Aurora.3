@@ -4,6 +4,7 @@
 	icon_state = "coffin"
 	icon_closed = "coffin"
 	icon_opened = "coffin_open"
+	build_amt = 5
 
 /obj/structure/closet/coffin/attackby(obj/item/W as obj, mob/user as mob)
 	if(opened)

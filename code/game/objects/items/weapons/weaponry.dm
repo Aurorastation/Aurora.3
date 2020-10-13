@@ -156,14 +156,15 @@
 	item_state = "canesword"
 	force = 20
 	throwforce = 5
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	sharp = 1
 	edge = 1
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = 'sound/items/pickup/sword.ogg'
+	pickup_sound = /decl/sound_category/sword_pickup_sound
+	equip_sound = /decl/sound_category/sword_equip_sound
 
 /obj/item/sord
 	name = "\improper SORD"
@@ -176,7 +177,7 @@
 	throwforce = 1
 	sharp = 1
 	edge = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	contained_sprite = TRUE
@@ -190,12 +191,12 @@
 	icon_state = "toyhammer"
 	slot_flags = SLOT_BELT
 	throwforce = 0
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 7
 	throw_range = 15
 	attack_verb = list("banned")
 
 /obj/item/banhammer/attack(mob/M as mob, mob/user as mob)
-	to_chat(M, "<font color='red'><b> You have been banned FOR NO REISIN by [user]</b></font>")
-	to_chat(user, "<font color='red'> You have <b>BANNED</b> [M]</font>")
+	to_chat(M, "<span class='warning'><b> You have been banned FOR NO REISIN by [user]</b></span>")
+	to_chat(user, "<span class='warning'> You have <b>BANNED</b> [M]</span>")
 	playsound(loc, 'sound/effects/adminhelp.ogg', 15)
