@@ -249,7 +249,7 @@
 
 /mob/living/proc/embed(var/obj/O, var/def_zone=null)
 	O.forceMove(src)
-	src.embedded += O
+	LAZYADD(embedded, O)
 	src.verbs += /mob/proc/yank_out_object
 
 /mob/living/proc/turf_collision(var/turf/T, var/speed = THROWFORCE_SPEED_DIVISOR)
