@@ -126,6 +126,7 @@ obj/item/clothing/shoes/sandal/clogs
 	item_state = "oxford_black"
 
 /obj/item/clothing/shoes/laceup/all_species
+	desc = "The height of fashion, and they're pre-polished! These seem to be modified to be more accommodating to non-standard feet."
 	species_restricted = null
 
 /obj/item/clothing/shoes/laceup/grey

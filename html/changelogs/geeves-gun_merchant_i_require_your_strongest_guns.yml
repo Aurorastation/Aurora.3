@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a gun merchant ERT, an ERT consisting of two gun merchants, who will provide firearms to the crew, up front, or after payment."

@@ -482,6 +482,15 @@ var/const/NO_EMAG_ACT = -50
 	access = get_distress_access()
 	..()
 
+/obj/item/card/id/distress/gun_merchant
+	name = "\improper Freelance Merchant ID"
+	icon_state = "centcom"
+	assignment = "Freelance Merchant"
+
+/obj/item/card/id/distress/gun_merchant/New()
+	access = get_distress_access()
+	..()
+
 /obj/item/card/id/all_access
 	name = "\improper Administrator's spare ID"
 	desc = "The spare ID of the Lord of Lords himself."

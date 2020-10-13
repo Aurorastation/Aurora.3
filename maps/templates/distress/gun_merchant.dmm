@@ -1,0 +1,54 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/suit/armor/bulletproof,
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/head/helmet/ballistic,
+/obj/item/clothing/head/helmet/ballistic,
+/obj/effect/decal/warning_stripes,
+/turf/unsimulated/floor{
+	dir = 5;
+	icon_state = "vault"
+	},
+/area/centcom/distress_prep)
+"b" = (
+/turf/unsimulated/floor{
+	dir = 5;
+	icon_state = "vault"
+	},
+/area/centcom/distress_prep)
+"g" = (
+/obj/structure/closet/crate,
+/obj/random/weapon_and_ammo,
+/obj/random/weapon_and_ammo,
+/obj/random/weapon_and_ammo,
+/obj/random/weapon_and_ammo,
+/obj/effect/decal/warning_stripes,
+/turf/unsimulated/floor{
+	dir = 5;
+	icon_state = "vault"
+	},
+/area/centcom/distress_prep)
+
+(1,1,1) = {"
+a
+g
+g
+"}
+(2,1,1) = {"
+b
+b
+g
+"}
+(3,1,1) = {"
+b
+b
+g
+"}
+(4,1,1) = {"
+b
+b
+g
+"}

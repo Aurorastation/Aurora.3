@@ -22,6 +22,12 @@
 	spawner = /datum/ghostspawner/human/ert/med_eridani
 	equipment_map = /datum/map_template/distress_iac
 
+/datum/responseteam/gun_merchant
+	name = "Gun Merchants"
+	chance = 10
+	spawner = /datum/ghostspawner/human/ert/gun_merchant
+	equipment_map = /datum/map_template/distress_gun_merchant
+
 /datum/responseteam/syndicate
 	name = "Syndicate Commandos"
 	spawner = /datum/ghostspawner/human/ert/commando

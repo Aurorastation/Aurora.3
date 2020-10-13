@@ -315,6 +315,7 @@
 			outfit_catagories["Deathsquad"] = typesof(/datum/outfit/admin/deathsquad)
 			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/ert/legion)
 			outfit_catagories["Syndicate"] = typesof(/datum/outfit/admin/deathsquad/syndicate)
+			outfit_catagories["Gun Merchants"] = typesof(/datum/outfit/admin/ert/gun_merchant)
 			outfit_catagories["Freelance Mercenaries"] = typesof(/datum/outfit/admin/ert/mercenary)
 			outfit_catagories["Kataphracts"] = typesof(/datum/outfit/admin/ert/kataphract)
 			outfit_catagories["IAC"] = typesof(/datum/outfit/admin/ert/iac)
@@ -353,7 +354,6 @@
 			M.drop_from_inventory(I)
 			if(I.loc != M)
 				qdel(I)
-		M.preEquipOutfit(O, FALSE)
 		M.equipOutfit(O, FALSE)
 
 	M.regenerate_icons()

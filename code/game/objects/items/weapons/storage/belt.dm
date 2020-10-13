@@ -427,49 +427,49 @@
 	max_storage_space = 14
 
 /obj/item/storage/belt/fannypack/black
- 	name = "black fannypack"
- 	icon_state = "fannypack_black"
- 	item_state = "fannypack_black"
+	name = "black fannypack"
+	icon_state = "fannypack_black"
+	item_state = "fannypack_black"
 
 /obj/item/storage/belt/fannypack/blue
- 	name = "blue fannypack"
- 	icon_state = "fannypack_blue"
- 	item_state = "fannypack_blue"
+	name = "blue fannypack"
+	icon_state = "fannypack_blue"
+	item_state = "fannypack_blue"
 
 /obj/item/storage/belt/fannypack/cyan
- 	name = "cyan fannypack"
- 	icon_state = "fannypack_cyan"
- 	item_state = "fannypack_cyan"
+	name = "cyan fannypack"
+	icon_state = "fannypack_cyan"
+	item_state = "fannypack_cyan"
 
 /obj/item/storage/belt/fannypack/green
- 	name = "green fannypack"
- 	icon_state = "fannypack_green"
- 	item_state = "fannypack_green"
+	name = "green fannypack"
+	icon_state = "fannypack_green"
+	item_state = "fannypack_green"
 
 /obj/item/storage/belt/fannypack/orange
- 	name = "orange fannypack"
- 	icon_state = "fannypack_orange"
- 	item_state = "fannypack_orange"
+	name = "orange fannypack"
+	icon_state = "fannypack_orange"
+	item_state = "fannypack_orange"
 
 /obj/item/storage/belt/fannypack/purple
- 	name = "purple fannypack"
- 	icon_state = "fannypack_purple"
- 	item_state = "fannypack_purple"
+	name = "purple fannypack"
+	icon_state = "fannypack_purple"
+	item_state = "fannypack_purple"
 
 /obj/item/storage/belt/fannypack/red
- 	name = "red fannypack"
- 	icon_state = "fannypack_red"
- 	item_state = "fannypack_red"
+	name = "red fannypack"
+	icon_state = "fannypack_red"
+	item_state = "fannypack_red"
 
 /obj/item/storage/belt/fannypack/white
- 	name = "white fannypack"
- 	icon_state = "fannypack_white"
- 	item_state = "fannypack_white"
+	name = "white fannypack"
+	icon_state = "fannypack_white"
+	item_state = "fannypack_white"
 
 /obj/item/storage/belt/fannypack/yellow
- 	name = "yellow fannypack"
- 	icon_state = "fannypack_yellow"
- 	item_state = "fannypack_yellow"
+	name = "yellow fannypack"
+	icon_state = "fannypack_yellow"
+	item_state = "fannypack_yellow"
 
 /obj/item/storage/belt/shumaila_buckle
 	name = "hammer buckle belt"
