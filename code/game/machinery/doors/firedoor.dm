@@ -245,6 +245,9 @@
 	if(needs_to_close)
 		addtimer(CALLBACK(src, .proc/do_close), 50)
 
+/obj/machinery/door/firedoor/attack_ai(mob/user)
+	return
+
 /obj/machinery/door/firedoor/proc/do_close()
 	var/alarmed = FALSE
 	for (var/thing in areas_added)
