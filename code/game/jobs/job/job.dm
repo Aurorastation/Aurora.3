@@ -198,9 +198,15 @@
 /datum/outfit/job/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	back = null //Nulling the backpack here, since we already equipped the backpack in pre_equip
 	if(box)
-		var/spawnbox = box
-		backpack_contents.Insert(1, spawnbox) // Box always takes a first slot in backpack
-		backpack_contents[spawnbox] = 1
+		if(istype(H.back, /obj/item/storage/backpack))
+			if(length(backpack_contents))
+				backpack_contents.Insert(1, box) // Box always takes a first slot in backpack
+				backpack_contents[box] = 1
+			else
+				new box(H.back)
+		else
+			var/obj/O = new box(get_turf(H))
+			H.put_in_hands(O)
 	. = ..()
 
 /datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
