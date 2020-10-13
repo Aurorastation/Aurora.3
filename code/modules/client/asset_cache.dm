@@ -287,7 +287,7 @@ var/list/asset_datums = list()
 	)
 
 /datum/asset/simple/goonchat
-	verify = TRUE
+	verify = FALSE
 	assets = list(
 		"json2.min.js"             = 'code/modules/goonchat/browserassets/js/json2.min.js',
 		"browserOutput.js"         = 'code/modules/goonchat/browserassets/js/browserOutput.js',
