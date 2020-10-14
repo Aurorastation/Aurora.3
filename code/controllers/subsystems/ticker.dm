@@ -17,7 +17,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	wait = 1 SECOND
 
 	// -- Gameticker --
-	var/const/restart_timeout = 1200
+	var/restart_timeout = 1200
 	var/current_state = GAME_STATE_PREGAME
 
 	var/hide_mode = 0
@@ -68,6 +68,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker/Initialize(timeofday)
 	pregame()
+	restart_timeout = config.restart_timeout
 
 /datum/controller/subsystem/ticker/stat_entry()
 	var/state = ""
