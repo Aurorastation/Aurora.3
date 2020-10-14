@@ -4027,8 +4027,7 @@
 "iw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/blast/regular{
-	id = "sat_blast";
-	name = "Blast Door"
+	id = "sat_blast"
 	},
 /turf/simulated/floor/plating,
 /area/bridge/selfdestruct)
@@ -10090,6 +10089,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medbay_virology)
+"JB" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/maintenance/interstitial_cargo)
 "JC" = (
 /turf/simulated/floor/tiled,
 /area/maintenance/bridge_elevator)
@@ -12827,7 +12830,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_interstitial)
 "XA" = (
-/obj/structure/closet/firecloset/full,
+/obj/structure/trash_pile,
 /turf/simulated/floor/plating,
 /area/maintenance/elevator)
 "XG" = (
@@ -44507,7 +44510,7 @@ aa
 aa
 aa
 KJ
-Lk
+JB
 Lv
 Ly
 KJ
