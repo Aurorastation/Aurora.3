@@ -6,10 +6,10 @@
  */
 
 // Determiner constants
-#define DET_NONE		0x00;
-#define DET_DEFINITE	0x01; // the
-#define DET_INDEFINITE	0x02; // a, an, some
-#define DET_AUTO		0x04;
+#define DET_NONE        0x00
+#define DET_DEFINITE    0x01 // the
+#define DET_INDEFINITE  0x02 // a, an, some
+#define DET_AUTO        0x04
 
 /*
  * Misc
