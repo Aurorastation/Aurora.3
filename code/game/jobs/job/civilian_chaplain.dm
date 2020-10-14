@@ -20,7 +20,7 @@
 	uniform = /obj/item/clothing/under/rank/chaplain
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_service
-	pda = /obj/item/device/pda/chaplain
+	// /obj/item/device/p//da/chaplain
 
 /datum/outfit/job/chaplain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()

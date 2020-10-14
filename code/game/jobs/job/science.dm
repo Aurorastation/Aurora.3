@@ -38,7 +38,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/heads/rd
-	pda = /obj/item/device/pda/heads/rd
+	// /obj/item/device/p//da/heads/rd
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/clipboard
 
@@ -78,7 +78,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/science
 	l_ear = /obj/item/device/radio/headset/headset_sci
-	pda = /obj/item/device/pda/science
+	// /obj/item/device/p//da/science
 	id = /obj/item/card/id/white
 
 	backpack = /obj/item/storage/backpack/toxins
@@ -116,7 +116,7 @@
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
 	jobtype = /datum/job/xenobiologist
-	pda = /obj/item/device/pda/xenobio
+	// /obj/item/device/p//da/xenobio
 
 /datum/outfit/job/scientist/xenobiologist/xenobotanist
 	name = "Xenobotanist"
@@ -152,7 +152,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_sci
-	pda = /obj/item/device/pda/roboticist
+	// /obj/item/device/p//da/roboticist
 	id = /obj/item/card/id/white
 	belt = /obj/item/storage/belt/utility
 

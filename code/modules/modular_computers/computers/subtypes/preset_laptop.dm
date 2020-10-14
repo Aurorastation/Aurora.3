@@ -75,7 +75,7 @@
 /obj/item/modular_computer/laptop/preset/command/captain
 	name = "captain's laptop"
 	desc = "A portable computer belonging to the captain."
-	_app_preset_type = /datum/modular_computer_app_presets/captain
+	_app_preset_type = /datum/modular_computer_app_presets/command/captain
 
 /obj/item/modular_computer/laptop/preset/command/captain/install_default_hardware()
 	..()

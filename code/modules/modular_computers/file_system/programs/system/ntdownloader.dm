@@ -92,7 +92,7 @@
 
 	if(href_list["download"])
 		var/datum/computer_file/program/PRG = ntnet_global.find_ntnet_file_by_name(href_list["download"])
-		
+
 		if(!istype(PRG))
 			return 1
 		return add_to_queue(PRG, ui.user)
@@ -126,7 +126,7 @@
 		generate_network_log("Began downloading file [PRG.filename].[PRG.filetype] from unspecified server.")
 
 
-	download_files[PRG.filename] = PRG.clone()
+	download_files[PRG.filename] = PRG.clone(FALSE, computer)
 	queue_size += PRG.size
 	download_queue[PRG.filename] = 0
 	for(var/i in SSvueui.get_open_uis(src))

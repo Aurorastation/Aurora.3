@@ -3,7 +3,7 @@
 	filedesc = "Atmosphere Sensor"
 	program_icon_state = "generic"
 	extended_desc = "This program is for viewing local atmospheric data."
-	size = 0
+	size = 1
 
 	usage_flags = PROGRAM_SILICON_PAI
 

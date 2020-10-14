@@ -51,7 +51,7 @@
 /obj/item/computer_hardware/hard_drive/micro
 	name = "micro hard drive"
 	desc = "A small micro hard drive for portable devices."
-	power_usage = 2
+	power_usage = 5
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	max_capacity = 32
 	icon_state = "hdd_micro"

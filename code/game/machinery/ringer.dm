@@ -62,7 +62,7 @@
 	if(stat & (BROKEN|NOPOWER) || !istype(user,/mob/living))
 		return
 
-	if (istype(C, /obj/item/device/pda))
+	if (istype(C, /obj/item/modular_computer))
 		if(!check_access(C))
 			to_chat(user, "<span class='warning'>Access Denied.</span>")
 			return
@@ -156,8 +156,8 @@
 	if(use_power)
 		use_power(active_power_usage)
 
-	for (var/thing in GET_LISTENERS(id))
-		var/listener/L = thing
-		var/obj/machinery/ringer/C = L.target
-		if (istype(C))
-			C.ring_pda()
+	// for (var/thing in GET_LISTENERS(id))
+	// 	var/listener/L = thing
+	// 	var/obj/machinery/ringer/C = L.target
+	// 	if (istype(C))
+	// 		C.ring_pda()

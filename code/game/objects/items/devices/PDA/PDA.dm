@@ -405,7 +405,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 		inserted_item =	new /obj/item/pen(src)
 
 /obj/item/device/pda/proc/try_sort_pda_list()
-	addtimer(CALLBACK(GLOBAL_PROC, /proc/sortTim, PDAs, /proc/cmp_pda), 1 SECOND, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
+	// addtimer(CALLBACK(GLOBAL_PROC, /proc/sortTim, PDAs, /proc/cmp_pda), 1 SECOND, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 
 /obj/item/device/pda/GetAccess()
 	if(id)
@@ -1118,12 +1118,12 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	t = sanitize(t)
 	//t = readd_quotes(t)
 	t = replace_characters(t, list("&#34;" = "\""))
-	if(iscarbon(U) && t)
-		var/mob/living/carbon/C = U
-		if(C.hallucination >= 50 && prob(C.hallucination / 10))			//If you're really hallucinating, you might not be typing what you think you are
-			var/t_orig = t
-			t = pick(SShallucinations.hallucinated_phrases)								//see carbon/hallucination.dm
-			log_pda("[usr] (PDA: [C.name]) typed \"[t_orig]\" then hallucination changed it to \"[t]\". Recipient was [P.owner]",ckey=key_name(C),ckey_target=key_name(P.owner))
+	// if(iscarbon(U) && t)
+	// 	var/mob/living/carbon/C = U
+		// if(C.hallucination >= 50 && prob(C.hallucination / 10))			//If you're really hallucinating, you might not be typing what you think you are
+			// var/t_orig = t
+			// t = pick(SShallucinations.hallucinated_phrases)								//see carbon/hallucination.dm
+			// log_pda("[usr] (PDA: [C.name]) typed \"[t_orig]\" then hallucination changed it to \"[t]\". Recipient was [P.owner]",ckey=key_name(C),ckey_target=key_name(P.owner))
 	if (!t || !istype(P))
 		return
 	if (!in_range(src, U) && loc != U)
@@ -1204,7 +1204,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/reception_message = "[icon2html(src, viewers(get_turf(src)))] <b>Message from [sender] ([sender_job]), </b>\"[message]\" (<a href='byond://?src=\ref[src];choice=Message;skiprefresh=1;target=\ref[sending_unit]'>Reply</a>)"
 	new_info(message_silent, ttone, reception_message)
 
-	log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]",ckey=key_name(usr),ckey_target=key_name(name))
+	// log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]",ckey=key_name(usr),ckey_target=key_name(name))
 	new_message = 1
 	update_icon()
 
@@ -1216,7 +1216,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 	var/reception_message = "[icon2html(src, viewers(get_turf(src)))] <b>Message from [sender] ([sender_job]), </b>\"[message]\" (<a href='byond://?src=\ref[src];choice=Message;skiprefresh=1;target=\ref[sending_unit]'>Reply</a>) [track]"
 	new_info(message_silent, newstone, reception_message)
 
-	log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]",ckey=key_name(usr),ckey_target=key_name(name))
+	// log_pda("[usr] (PDA: [sending_unit]) sent \"[message]\" to [name]",ckey=key_name(usr),ckey_target=key_name(name))
 	new_message = 1
 
 /obj/item/device/pda/proc/mob_icon_update()

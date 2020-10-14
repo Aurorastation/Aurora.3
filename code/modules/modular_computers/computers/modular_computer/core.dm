@@ -69,6 +69,21 @@
 				continue
 			hard_drive.store_file(prog)
 
+/obj/item/modular_computer/proc/handle_verbs()
+	if(card_slot)
+		if(card_slot.stored_card)
+			verbs += /obj/item/modular_computer/proc/eject_id
+		if(card_slot.stored_item)
+			verbs += /obj/item/modular_computer/proc/eject_item
+	if(portable_drive)
+		verbs += /obj/item/modular_computer/proc/eject_usb
+	if(battery_module && battery_module.hotswappable)
+		verbs += /obj/item/modular_computer/proc/eject_battery
+	if(ai_slot && ai_slot.stored_card)
+		verbs += /obj/item/modular_computer/proc/eject_ai
+	if(personal_ai)
+		verbs += /obj/item/modular_computer/proc/eject_personal_ai
+
 /obj/item/modular_computer/Initialize()
 	. = ..()
 	listener = new(LISTENER_MODULAR_COMPUTER, src)
@@ -76,6 +91,7 @@
 	install_default_hardware()
 	if(hard_drive)
 		install_default_programs()
+	handle_verbs()
 	update_icon()
 
 /obj/item/modular_computer/Destroy()
@@ -86,6 +102,11 @@
 	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(listener)
 	return ..()
+
+/obj/item/modular_computer/CouldUseTopic(var/mob/user)
+	..()
+	if(iscarbon(user))
+		playsound(src, 'sound/machines/pda_click.ogg', 20)
 
 /obj/item/modular_computer/emag_act(var/remaining_charges, var/mob/user)
 	if(computer_emagged)

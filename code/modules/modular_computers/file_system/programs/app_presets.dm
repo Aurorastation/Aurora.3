@@ -43,6 +43,29 @@
 	)
 	return _prg_list
 
+/datum/modular_computer_app_presets/engineering/atmos
+	name = "atmos"
+	display_name = "Engineering - Atmospherics"
+	description = "Contains the most common engineering programs and atmospheric monitoring software."
+	available = TRUE
+
+/datum/modular_computer_app_presets/engineering/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		new /datum/computer_file/program/filemanager(comp),
+		new /datum/computer_file/program/newsbrowser(comp),
+		new /datum/computer_file/program/manifest(comp),
+		new /datum/computer_file/program/chatclient(comp),
+		new /datum/computer_file/program/civilian/cargoorder(comp),
+		new /datum/computer_file/program/power_monitor(comp),
+		new /datum/computer_file/program/alarm_monitor(comp),
+		new /datum/computer_file/program/atmos_control(comp),
+		new /datum/computer_file/program/rcon_console(comp),
+		new /datum/computer_file/program/camera_monitor(comp),
+		new /datum/computer_file/program/lighting_control(comp),
+		new /datum/computer_file/program/ntsl2_interpreter(comp)
+	)
+	return _prg_list
+
 /datum/modular_computer_app_presets/engineering/ce
 	name = "engineering_head"
 	display_name = "Engineering - CE"
@@ -196,13 +219,13 @@
 	)
 	return _prg_list
 
-/datum/modular_computer_app_presets/captain
+/datum/modular_computer_app_presets/command/captain
 	name = "captain"
 	display_name = "Captain"
 	description = "Contains the most important programs for the Captain."
 	available = FALSE
 
-/datum/modular_computer_app_presets/captain/return_install_programs(obj/item/modular_computer/comp)
+/datum/modular_computer_app_presets/command/captain/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
@@ -312,6 +335,37 @@
 		new /datum/computer_file/program/ntsl2_interpreter(comp)
 	)
 	return _prg_list
+
+/datum/modular_computer_app_presets/civilian/janitor
+	name = "janitor"
+	display_name = "Janitor"
+	description = "Contains programs for janitorial service."
+	available = TRUE
+
+/datum/modular_computer_app_presets/civilian/janitor/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		new /datum/computer_file/program/filemanager(comp),
+		new /datum/computer_file/program/newsbrowser(comp),
+		new /datum/computer_file/program/manifest(comp),
+		new /datum/computer_file/program/chatclient(comp),
+		new /datum/computer_file/program/civilian/cargoorder(comp),
+		new /datum/computer_file/program/game/arcade(comp),
+		new /datum/computer_file/program/game/sudoku(comp),
+		new /datum/computer_file/program/ntsl2_interpreter(comp)
+	)
+	return _prg_list
+
+/datum/modular_computer_app_presets/civilian/clown
+	name = "clown"
+	display_name = "Clown"
+	description = "Contains programs for HONK!!!"
+	available = TRUE
+
+/datum/modular_computer_app_presets/civilian/mime
+	name = "mime"
+	display_name = "Mime"
+	description = "Contains programs for janitorial service."
+	available = TRUE
 
 /datum/modular_computer_app_presets/supply
 	name = "supply"

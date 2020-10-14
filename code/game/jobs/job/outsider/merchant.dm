@@ -38,13 +38,13 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	head = /obj/item/clothing/head/that
 	id = /obj/item/card/id/merchant
-	pda = /obj/item/device/pda/merchant
+	// /obj/item/device/p//da/merchant
 	r_pocket = /obj/item/device/price_scanner
 
 /datum/outfit/merchant_assistant
 	name = "Merchant's Assistant"
 	id = /obj/item/card/id/merchant
-	pda = /obj/item/device/pda/merchant
+	// /obj/item/device/p//da/merchant
 	r_pocket = /obj/item/device/price_scanner
 	belt = /obj/item/storage/belt/utility/full
 	uniform = list(

@@ -114,7 +114,7 @@
 	l_pocket = /obj/item/reagent_containers/spray/pepper
 	r_pocket = /obj/item/device/taperecorder/cciaa
 	l_hand = /obj/item/storage/lockbox/cciaa
-	pda = /obj/item/device/pda/central
+	// /obj/item/device/p//da/central
 
 /datum/outfit/admin/nt/odinsec
 	name = "NTCC Odin Security Specialist"

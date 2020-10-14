@@ -67,4 +67,9 @@
 
 	var/listener/listener	//Listener needed for things
 
+	// Personal information
+	var/owner = null
+	var/ownjob = null //related to above - this is assignment (potentially alt title)
+	var/ownrank = null // this one is rank, never alt title
+
 	charge_failure_message = " does not have a battery installed."

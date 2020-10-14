@@ -122,17 +122,6 @@
 		game_log("ADMINSAY", text)
 	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]",level = SEVERITY_NOTICE, category = "ADMINSAY")
 
-/proc/log_pda(text, level = SEVERITY_NOTICE, ckey = "", ckey_target = "")
-	if (config.log_pda)
-		game_log("PDA", text)
-	send_gelf_log(
-		short_message = text,
-		long_message = "[time_stamp()]: [text]",
-		level = level,
-		category="PDA",
-		additional_data = list("_ckey" = html_encode(ckey), "_ckey_target" = html_encode(ckey_target))
-	)
-
 /proc/log_ntirc(text, level = SEVERITY_NOTICE, ckey = "", conversation = "")
 	if (config.log_pda)
 		game_log("NTIRC", text)

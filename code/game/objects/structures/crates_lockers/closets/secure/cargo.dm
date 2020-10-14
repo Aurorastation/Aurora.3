@@ -18,7 +18,7 @@
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/head/softcap/cargo(src)
 	new /obj/item/clothing/head/bandana/cargo(src)
-	new /obj/item/modular_computer/tablet/preset/custom_loadout/advanced/cargo_delivery(src)
+	new /obj/item/modular_computer/handheld/custom_loadout/advanced/cargo_delivery(src)
 	new /obj/item/export_scanner(src)
 
 /obj/structure/closet/secure_closet/quartermaster
@@ -43,7 +43,7 @@
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/clothing/head/softcap/cargo(src)
 	new /obj/item/clothing/head/bandana/cargo(src)
-	new /obj/item/modular_computer/tablet/preset/custom_loadout/advanced/cargo_delivery(src)
+	new /obj/item/modular_computer/handheld/custom_loadout/advanced/cargo_delivery(src)
 	new /obj/item/export_scanner(src)
 	new /obj/item/device/orbital_dropper/drill(src)
 

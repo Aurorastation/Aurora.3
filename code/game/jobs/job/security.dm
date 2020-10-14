@@ -36,7 +36,7 @@
 	uniform = /obj/item/clothing/under/rank/head_of_security
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/heads/hos
-	pda = /obj/item/device/pda/heads/hos
+	// /obj/item/device/p//da/heads/hos
 	id = /obj/item/card/id/navy
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
 
@@ -89,7 +89,7 @@
 	uniform = /obj/item/clothing/under/rank/warden
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/headset_warden
-	pda = /obj/item/device/pda/warden
+	// /obj/item/device/p//da/warden
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
 	l_pocket = /obj/item/device/flash
 
@@ -138,7 +138,7 @@
 	uniform = /obj/item/clothing/under/det
 	shoes = /obj/item/clothing/shoes/laceup
 	l_ear = /obj/item/device/radio/headset/headset_sec
-	pda = /obj/item/device/pda/detective
+	// /obj/item/device/p//da/detective
 
 	backpack_contents = list(
 		/obj/item/storage/box/evidence = 1
@@ -181,7 +181,7 @@
 	uniform = /obj/item/clothing/under/det/forensics
 	shoes = /obj/item/clothing/shoes/laceup
 	l_ear = /obj/item/device/radio/headset/headset_sec
-	pda = /obj/item/device/pda/detective
+	// /obj/item/device/p//da/detective
 
 	backpack_contents = list(
 		/obj/item/storage/box/evidence = 1
@@ -229,7 +229,7 @@
 	uniform = /obj/item/clothing/under/rank/security
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/headset_sec
-	pda = /obj/item/device/pda/security
+	// /obj/item/device/p//da/security
 	l_pocket = /obj/item/device/flash
 
 	backpack = /obj/item/storage/backpack/security

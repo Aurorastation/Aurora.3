@@ -15,11 +15,16 @@
 	var/datum/ntnet_conversation/channel
 	var/operator_mode = FALSE		// Channel operator mode
 	var/netadmin_mode = FALSE		// Administrator mode (invisible to other users + bypasses passwords)
+	var/set_offline = FALSE // appear "invisible"
 	var/list/directmessagechannels = list()
 	color = LIGHT_COLOR_GREEN
 
-/datum/computer_file/program/chatclient/New()
-	..()
+/datum/computer_file/program/chatclient/New(var/obj/item/modular_computer/comp)
+	..(comp)
+	if(comp && comp.owner)
+		username = "[comp.owner]"
+		ntnet_global.chat_clients += src
+		return
 	username = "DefaultUser[rand(100, 999)]"
 
 /datum/computer_file/program/chatclient/Topic(href, href_list)
@@ -231,11 +236,16 @@
 
 /datum/computer_file/program/chatclient/kill_program(var/forced = FALSE)
 	channel = null
-	ntnet_global.chat_clients -= src
+	if (set_offline && (src in ntnet_global.chat_clients))
+		// We only want to log out computers that want to be shown as offline.
+		ntnet_global.chat_clients -= src
 	..(forced)
 
 /datum/computer_file/program/chatclient/run_program(var/mob/user)
-	ntnet_global.chat_clients += src
+	if (!(src in ntnet_global.chat_clients))
+		// This'll be any computer that isn't owned when added - workstations, primarily.
+		// TODO: Prompt users for a username upon opening the program.
+		ntnet_global.chat_clients += src
 	return ..(user)
 
 /datum/nano_module/program/computer_chatclient

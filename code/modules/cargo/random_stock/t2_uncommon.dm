@@ -367,7 +367,7 @@ STOCK_ITEM_UNCOMMON(apiary, 1)
 		new /obj/item/honey_frame(L)
 
 STOCK_ITEM_UNCOMMON(wristbound, 0.5)
-	var/obj/item/modular_computer/wristbound/preset/P = pick(subtypesof(/obj/item/modular_computer/wristbound/preset))
+	var/obj/item/modular_computer/handheld/wristbound/preset/P = pick(subtypesof(/obj/item/modular_computer/handheld/wristbound/preset))
 	new P(L)
 
 STOCK_ITEM_UNCOMMON(pops, 0.5)

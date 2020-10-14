@@ -191,7 +191,8 @@
 	l_ear = /obj/item/device/radio/headset
 	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/black
-	pda = /obj/item/device/pda
+	// /obj/item/device/p//da
+	pda = /obj/item/modular_computer/handheld/pda/security/hos
 
 	var/box = /obj/item/storage/box/survival
 

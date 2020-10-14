@@ -173,7 +173,7 @@
 								break
 						R.rank = id_card.assignment
 						R.real_rank = real_title
-				computer.proc_eject_id(user)
+				computer.eject_id(user)
 		if("suspend")
 			if(computer && can_run(user, 1))
 				id_card.assignment = "Suspended"

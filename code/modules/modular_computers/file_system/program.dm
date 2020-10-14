@@ -47,8 +47,8 @@
 /datum/computer_file/program/ui_host()
 	return computer.ui_host()
 
-/datum/computer_file/program/clone()
-	var/datum/computer_file/program/temp = ..()
+/datum/computer_file/program/clone(var/rename = FALSE, var/computer)
+	var/datum/computer_file/program/temp = ..(rename, computer)
 	temp.required_access_run = required_access_run
 	temp.required_access_download = required_access_download
 	temp.nanomodule_path = nanomodule_path

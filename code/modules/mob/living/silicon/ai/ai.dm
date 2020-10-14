@@ -61,7 +61,6 @@ var/list/ai_verbs_default = list(
 	var/list/network = list("Station")
 	var/obj/machinery/camera/camera
 	var/list/cameraRecords = list() //For storing what is shown to the cameras
-	var/obj/item/device/pda/ai/ai_pda
 	var/obj/item/device/multitool/ai_multi
 	var/obj/item/device/radio/headset/heads/ai_integrated/ai_radio
 	var/datum/announcement/priority/announcement
@@ -132,7 +131,6 @@ var/list/ai_verbs_default = list(
 				possibleNames -= pickedName
 				pickedName = null
 
-	ai_pda = new/obj/item/device/pda/ai(src)
 	SetName(pickedName)
 	anchored = TRUE
 	canmove = FALSE
@@ -201,7 +199,6 @@ var/list/ai_verbs_default = list(
 	return ..()
 
 /mob/living/silicon/ai/Destroy()
-	QDEL_NULL(ai_pda)
 	QDEL_NULL(ai_multi)
 	QDEL_NULL(ai_radio)
 	QDEL_NULL(psupply)
@@ -301,12 +298,6 @@ var/list/ai_verbs_default = list(
 	announcement.announcer = pickedName
 	if(eyeobj)
 		eyeobj.name = "[pickedName] (AI Eye)"
-
-	// Set ai pda name
-	if(ai_pda)
-		ai_pda.ownjob = "AI"
-		ai_pda.owner = pickedName
-		ai_pda.name = pickedName + " (" + ai_pda.ownjob + ")"
 
 	//Set the ID Name
 	if(id_card)

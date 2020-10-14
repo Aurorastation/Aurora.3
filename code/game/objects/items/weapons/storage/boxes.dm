@@ -11,7 +11,7 @@
  *		Prescription glasses and drinking glass boxes,
  *		Condiment bottle and silly cup boxes,
  *		Donkpocket and monkeycube boxes,
- *		ID and security PDA cart boxes,
+ *		ID boxes,
  *		Handcuff, mousetrap, and pillbottle boxes,
  *		Snap-pops,
  *		Replacement light boxes.
@@ -462,12 +462,6 @@
 	desc = "Has so many empty IDs."
 	icon_state = "id"
 	starts_with = list(/obj/item/card/id = 7)
-
-/obj/item/storage/box/seccarts
-	name = "box of spare R.O.B.U.S.T. Cartridges"
-	desc = "A box full of R.O.B.U.S.T. Cartridges, used by Security."
-	icon_state = "pda"
-	starts_with = list(/obj/item/cartridge/security = 7)
 
 /obj/item/storage/box/handcuffs
 	name = "box of spare handcuffs"

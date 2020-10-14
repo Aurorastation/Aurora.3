@@ -57,7 +57,7 @@
 
 /mob/living/silicon/pai/proc/personal_computer_interact()
 	set name = "Access Local Computer"
-	set category = "Subsystems"
+	set category = "bruh"
 
 	parent_computer.attack_self(src)
 

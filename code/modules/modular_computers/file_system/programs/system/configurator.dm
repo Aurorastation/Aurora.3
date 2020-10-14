@@ -1,3 +1,4 @@
+#define UIDEBUG
 // This is special hardware configuration program.
 // It is to be used only with modular computers.
 // It allows you to toggle components of your device.
@@ -40,7 +41,7 @@
 	var/list/hardware = computer.get_all_components()
 	VUEUI_SET_CHECK(data["disk_size"], computer.hard_drive.max_capacity, ., data)
 	VUEUI_SET_CHECK(data["disk_used"], computer.hard_drive.used_capacity, ., data)
-	VUEUI_SET_CHECK(data["power_usage"], computer.last_power_usage, ., data)
+	VUEUI_SET_CHECK(data["power_usage"], computer.last_power_usage * CELLRATE / 2, ., data)
 	if(!computer.battery_module)
 		VUEUI_SET_CHECK(data["battery"], 0, ., data)
 	else
@@ -52,4 +53,6 @@
 	for(var/obj/item/computer_hardware/H in hardware)
 		LAZYINITLIST(data["hardware"][H.name])
 		for(var/v in list("name", "desc", "enabled", "critical", "power_usage"))
+			if(v == "power_usage")
+				v = v * CELLRATE / 2
 			VUEUI_SET_CHECK(data["hardware"][H.name][v], H.vars[v], ., data)

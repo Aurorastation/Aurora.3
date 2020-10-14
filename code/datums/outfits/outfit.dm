@@ -171,12 +171,11 @@
 		H.equip_or_collect(I, slot_wear_id)
 
 	if(id)
-		var/obj/item/device/pda/P = H.wear_id
+		var/obj/item/modular_computer/P = H.wear_id
 		var/obj/item/I = new id(H)
 		imprint_idcard(H,I)
-		if(istype(P))
-			I.forceMove(P)
-			P.id = I
+		if(istype(P) && P.card_slot)
+			P.card_slot.insert_id(I)
 		else
 			H.equip_or_collect(I, slot_wear_id)
 
@@ -272,8 +271,8 @@
 		if(H.mind && H.mind.initial_account)
 			C.associated_account_number = H.mind.initial_account.account_number
 
-/datum/outfit/proc/imprint_pda(mob/living/carbon/human/H, obj/item/device/pda/PDA)
-	var/obj/item/card/id/C = PDA.id
+/datum/outfit/proc/imprint_pda(mob/living/carbon/human/H, obj/item/modular_computer/PDA)
+	var/obj/item/card/id/C = PDA?.card_slot.stored_card
 	PDA.owner = H.real_name
 	if(istype(PDA) && istype(C))
 		PDA.ownjob = C.assignment

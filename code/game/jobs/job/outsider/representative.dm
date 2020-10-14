@@ -25,7 +25,7 @@
 	head = /obj/item/clothing/head/beret/liaison
 	uniform = /obj/item/clothing/under/rank/liaison
 	suit = /obj/item/clothing/suit/storage/toggle/liaison
-	pda = /obj/item/device/pda/lawyer
+	// /obj/item/device/p//da/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 	l_ear = /obj/item/device/radio/headset/representative

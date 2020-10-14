@@ -38,7 +38,7 @@
 	suit_store = /obj/item/device/flashlight/pen
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/heads/cmo
-	pda = /obj/item/device/pda/heads/cmo
+	// /obj/item/device/p//da/heads/cmo
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/storage/firstaid/adv
 
@@ -99,7 +99,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/medical
 	shoes = /obj/item/clothing/shoes/medical
 	l_ear = /obj/item/device/radio/headset/headset_med
-	pda = /obj/item/device/pda/medical
+	// /obj/item/device/p//da/medical
 	id = /obj/item/card/id/white
 	suit_store = /obj/item/device/flashlight/pen
 
@@ -166,7 +166,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
 	shoes = /obj/item/clothing/shoes/chemist
 	l_ear = /obj/item/device/radio/headset/headset_med
-	pda =  /obj/item/device/pda/chemist
+	//p//da = /obj/item/device/p//da/chemist
 	id = /obj/item/card/id/white
 
 	backpack = /obj/item/storage/backpack/pharmacy
@@ -216,7 +216,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/psych
 	shoes = /obj/item/clothing/shoes/psych
 	l_ear = /obj/item/device/radio/headset/headset_med
-	pda =  /obj/item/device/pda/psych
+	//p//da =  /obj/item/device/p//da/psych
 	id = /obj/item/card/id/white
 
 /datum/outfit/job/psychiatrist/psycho
@@ -258,7 +258,7 @@
 	l_hand = /obj/item/storage/firstaid/adv
 	r_hand = /obj/item/reagent_containers/hypospray
 	belt = /obj/item/storage/belt/medical/emt
-	pda =  /obj/item/device/pda/paramedic
+	//p//da =  /obj/item/device/p//da/paramedic
 	id = /obj/item/card/id/white
 	head = /obj/item/clothing/head/hardhat/emt
 

@@ -523,7 +523,6 @@
 		/obj/machinery/vending/coffee = 1,
 		/obj/machinery/vending/snack = 1,
 		/obj/machinery/vending/cola = 1,
-		/obj/machinery/vending/cart = 1.5,
 		/obj/machinery/vending/cigarette = 1,
 		/obj/machinery/vending/medical = 1.2,
 		/obj/machinery/vending/phoronresearch = 0.7,

@@ -64,7 +64,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	var/lid = 0
 	//End Form Integration
 	var/datum/announcement/announcement = new
-	var/list/obj/item/device/pda/alert_pdas = list() //The PDAs we alert upon a request receipt.
+	var/list/obj/item/modular_computer/alert_pdas = list() //The PDAs we alert upon a request receipt.
 	var/global/list/screen_overlays
 
 /obj/machinery/requests_console/proc/generate_overlays(var/force = 0)
@@ -144,10 +144,10 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if (departmentType & RC_INFO)
 			req_console_information -= department
 
-	if (LAZYLEN(alert_pdas))
-		for (var/pp in alert_pdas)
-			var/obj/item/device/pda/P = pp
-			P.linked_consoles -= src
+	// if (LAZYLEN(alert_pdas))
+	// 	for (var/pp in alert_pdas)
+	// 		var/obj/item/modular_computer/P = pp
+			// P.linked_consoles -= src
 
 		alert_pdas.Cut()
 	return ..()
@@ -200,7 +200,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	data["pda_list"] = list()
 
 	for (var/A in alert_pdas)
-		var/obj/item/device/pda/pda = A
+		var/obj/item/modular_computer/pda = A
 		data["pda_list"] += list(list("name" = alert_pdas[pda], "pda" = "\ref[pda]"))
 
 	data["lid"] = lid
@@ -278,7 +278,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	// Link a PDA
 	if(href_list["linkpda"])
-		var/obj/item/device/pda/pda = usr.get_active_hand()
+		var/obj/item/modular_computer/pda = usr.get_active_hand()
 		if (!pda || !istype(pda))
 			to_chat(usr, "<span class='warning'>You need to be holding a PDA to link it.</span>")
 		else if (pda in alert_pdas)
@@ -286,14 +286,14 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			//Update the name real quick.
 			alert_pdas[pda] = pda.name
 		else
-			LAZYADD(pda.linked_consoles, src)
+			// LAZYADD(pda.linked_consoles, src)
 			alert_pdas += pda
 			alert_pdas[pda] = pda.name
 			to_chat(usr, "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>")
 
 	// Unlink a PDA.
 	if(href_list["unlink"])
-		var/obj/item/device/pda/pda = locate(href_list["unlink"])
+		var/obj/item/modular_computer/pda = locate(href_list["unlink"])
 		if (pda && istype(pda))
 			if (pda in alert_pdas)
 				to_chat(usr, "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>")

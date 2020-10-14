@@ -1,4 +1,4 @@
-/obj/item/modular_computer/tablet
+/obj/item/modular_computer/handheld
 	name = "tablet computer"
 	desc = "A portable device for your needs on the go."
 	icon = 'icons/obj/modular_tablet.dmi'
@@ -12,8 +12,11 @@
 	w_class = ITEMSIZE_SMALL
 	light_strength = 2					// Same as PDAs
 
-/obj/item/modular_computer/tablet/Initialize()
+/obj/item/modular_computer/handheld/Initialize()
 	. = ..()
+	set_icon()
+
+/obj/item/modular_computer/handheld/proc/set_icon()
 	icon_state += pick("", "-blue", "-green", "-red", "-brown")
 	icon_state_unpowered = icon_state
 	icon_state_broken = icon_state
