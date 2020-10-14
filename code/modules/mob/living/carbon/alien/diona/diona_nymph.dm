@@ -12,7 +12,7 @@
 	composition_reagent = /datum/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
 	name = "diona nymph"
 	voice_name = "diona nymph"
-	accent = ACCENT_DIONA
+	accent = ACCENT_ROOTSONG
 	adult_form = /mob/living/carbon/human
 	speak_emote = list("chirrups")
 	icon = 'icons/mob/diona.dmi'

@@ -3,8 +3,9 @@
 	filedesc = "Atmosphere Sensor"
 	program_icon_state = "generic"
 	extended_desc = "This program is for viewing local atmospheric data."
-	size = 1
+	size = 2
 
+	available_on_ntnet = TRUE
 	usage_flags = PROGRAM_SILICON_PAI
 
 /datum/computer_file/program/pai_atmos/ui_interact(mob/user)

@@ -177,6 +177,8 @@
 
 //Proc to enable the ghostspawner
 /datum/ghostspawner/proc/enable()
+	if(usr)
+		log_and_message_admins("has enabled the ghostspawner [src.name]")
 	enabled = TRUE
 	if(enable_dmessage)
 		for(var/mob/abstract/observer/O in player_list)

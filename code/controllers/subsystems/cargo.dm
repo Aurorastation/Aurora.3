@@ -35,8 +35,9 @@ var/datum/controller/subsystem/cargo/SScargo
 	var/datum/money_account/supply_account
 
 	//shuttle movement
-	var/movetime = 1200
-	var/min_movetime = 1200
+	var/movetime = 300
+	var/min_movetime = 300
+	var/max_movetime = 2400
 	var/datum/shuttle/autodock/ferry/supply/shuttle
 
 	//Item vars
@@ -550,10 +551,14 @@ var/datum/controller/subsystem/cargo/SScargo
 				log_debug("SScargo: Shuttle Time less than [min_movetime]: [current_shipment.shuttle_time] - Setting to [min_movetime]")
 				current_shipment.shuttle_time = min_movetime
 
+			if(current_shipment.shuttle_time > max_movetime)
+				log_debug("SScargo: Shuttle Time larger than [max_movetime]: [current_shipment.shuttle_time] - Setting to [max_movetime]")
+				current_shipment.shuttle_time = max_movetime
+
 			movetime = current_shipment.shuttle_time
 			//Launch it
 			shuttle.launch(src)
-			. = "The supply shuttle has been called and will arrive in approximately [round(SScargo.movetime/600,1)] minutes."
+			. = "The supply shuttle has been called and will arrive in approximately [round(SScargo.movetime/600,2)] minutes."
 			current_shipment.shuttle_called_by = caller_name
 
 //Cancels the shuttle. Can return a status message
