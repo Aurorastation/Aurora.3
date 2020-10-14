@@ -1,0 +1,8 @@
+author: Alberyk, Happyfox
+
+delete-after: True
+
+changes: 
+  - rscadd: "Added a new Tajaran food and recipe: m'sai scout ration."
+  - rscadd: "Added new items to Tajaran consular officers."
+  - tweak: "Changed Tajaran consular officer directives to be more of a guideline instead of objectives."
