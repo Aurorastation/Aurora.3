@@ -1,4 +1,3 @@
-#define UIDEBUG
 /datum/computer_file/program/guntracker
 	filename = "guntracker"
 	filedesc = "Firearm Control"
