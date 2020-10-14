@@ -273,8 +273,10 @@
 		take_damage(tforce)
 		return
 
-/obj/machinery/door/attack_ai(mob/user as mob)
-	return src.attack_hand(user)
+/obj/machinery/door/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
+	return attack_hand(user)
 
 /obj/machinery/door/attack_hand(mob/user as mob)
 	if(src.operating > 0 || isrobot(user))	return //borgs can't attack doors open because it conflicts with their AI-like interaction with them.

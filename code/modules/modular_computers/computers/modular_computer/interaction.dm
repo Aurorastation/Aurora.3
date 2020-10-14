@@ -122,6 +122,8 @@
 	return ..()
 
 /obj/item/modular_computer/attack_ai(var/mob/user)
+	if(!ai_can_interact(user))
+		return
 	if(anchored)
 		return attack_self(user)
 	return ..()

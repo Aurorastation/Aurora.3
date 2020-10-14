@@ -286,6 +286,8 @@
 
 
 /obj/machinery/power/smes/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	add_hiddenprint(user)
 	ui_interact(user)
 

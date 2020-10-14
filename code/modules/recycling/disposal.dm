@@ -289,6 +289,8 @@
 
 // ai as human but can't flush
 /obj/machinery/disposal/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	interact(user, 1)
 
 // human interact with machine

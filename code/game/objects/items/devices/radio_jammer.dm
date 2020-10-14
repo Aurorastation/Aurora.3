@@ -1,59 +1,87 @@
 //Global list for housing active radiojammers:
 var/list/active_radio_jammers = list()
 
-proc/within_jamming_range(var/atom/test) // tests if an object is near a radio jammer
-	if (active_radio_jammers && active_radio_jammers.len)
-		for (var/obj/item/device/radiojammer/Jammer in active_radio_jammers)
-			if (get_dist(test, Jammer) <= Jammer.radius)
-				return 1
-
-	return 0
+// tests if an object is near a radio jammer
+// if need_all_blocked is false, the jammer only needs to be on JAMMER_SYNTHETIC to work
+/proc/within_jamming_range(var/atom/test, var/need_all_blocked = TRUE)
+	if(length(active_radio_jammers))
+		var/turf/our_turf = get_turf(test)
+		for(var/obj/item/device/radiojammer/J in active_radio_jammers)
+			var/turf/jammer_turf = get_turf(J)
+			if(our_turf.z != jammer_turf.z)
+				continue
+			if(get_dist(our_turf, jammer_turf) <= J.radius)
+				if(need_all_blocked && J.active != JAMMER_ALL)
+					continue
+				return TRUE
+	return FALSE
 
 /obj/item/device/radiojammer
 	name = "radio jammer"
 	desc = "A small, inconspicious looking item with an 'ON/OFF' toggle."
+	desc_info = "Use in-hand to activate or deactivate, alt-click while adjacent or in-hand to toggle whether it blocks all wireless signals, or just stationbound wireless interfacing."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "shield0"
 	w_class = ITEMSIZE_SMALL
-
-	var/active = 0
+	var/selected_active_level = JAMMER_ALL
+	var/active = JAMMER_OFF
 	var/radius = 7
 	var/icon_state_active = "shield1"
 	var/icon_state_inactive = "shield0"
 
+/obj/item/device/radiojammer/active
+	active = JAMMER_ALL
+
 /obj/item/device/radiojammer/New()
 	..()
-	update()
+	update_icon()
 
 /obj/item/device/radiojammer/Destroy()
-	if (active)
-		active_radio_jammers -= src
+	active_radio_jammers -= src
 	return ..()
 
+/obj/item/device/radiojammer/examine(mob/user, distance)
+	. = ..()
+	if(selected_active_level != JAMMER_BINARY && Adjacent(user))
+		var/output_message = "\The [src] will block <b>[selected_active_level == JAMMER_ALL ? "all" : "synthetic"]</b> wireless radio signals."
+		to_chat(user, SPAN_NOTICE(output_message))
 
-/obj/item/device/radiojammer/attack_self()
-	toggle()
+/obj/item/device/radiojammer/AltClick(mob/user)
+	if(!Adjacent(user) || selected_active_level == JAMMER_BINARY)
+		return
+	var/choice = alert(user, "Do you want \the [src] to block all wireless signals, or only remote synthetic (AI, borgs) signals.", "Signal Selection", "All", "Only Synthetic")
+	if(!choice)
+		return
+	if(choice == "All")
+		selected_active_level = JAMMER_ALL
+	else
+		selected_active_level = JAMMER_SYNTHETIC
+	if(active)
+		active = selected_active_level
+	to_chat(user, SPAN_NOTICE("You set \the [src] to block [lowertext(choice)] wireless signals."))
 
+/obj/item/device/radiojammer/attack_self(mob/user)
+	toggle(user)
 
 /obj/item/device/radiojammer/emp_act()
 	toggle()
 
-
-/obj/item/device/radiojammer/proc/toggle()
-	if (active)
-		to_chat(usr, "<span class='notice'>You deactivate \the [src].</span>")
+/obj/item/device/radiojammer/proc/toggle(var/mob/user)
+	if(active)
+		if(user)
+			to_chat(user, SPAN_NOTICE("You deactivate \the [src]."))
+		active = JAMMER_OFF
 	else
-		to_chat(usr, "<span class='notice'>You activate \the [src].</span>")
-	set_active(!active)
+		if(user)
+			to_chat(user, SPAN_NOTICE("You activate \the [src]."))
+		if(selected_active_level != JAMMER_BINARY)
+			active = selected_active_level
+		else
+			active = JAMMER_ALL
+	update_icon()
 
-
-/obj/item/device/radiojammer/proc/set_active(var/new_value)
-	active = new_value
-	update()
-
-
-/obj/item/device/radiojammer/proc/update()
-	if (active)
+/obj/item/device/radiojammer/update_icon()
+	if(active)
 		active_radio_jammers += src
 		icon_state = icon_state_active
 	else
@@ -64,11 +92,13 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 /obj/item/device/radiojammer/improvised
 	name = "improvised radio jammer"
 	desc = "An awkward bundle of wires, batteries, and radio transmitters."
+	desc_info = "Use in-hand to activate or deactivate."
 	var/obj/item/cell/cell
 	var/obj/item/device/assembly_holder/assembly_holder
 	// 10 seconds of operation on a standard cell. 200 (roughly 3 minutes) on a super cap.
 	var/power_drain_per_second = 100
 	var/last_updated = null
+	selected_active_level = JAMMER_BINARY
 	radius = 5
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "improvised_jammer_inactive"
@@ -98,8 +128,9 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 	var/delta = (current - last_updated) / 10.0 // delta in seconds
 	last_updated = current
 	if (!cell.use(delta * power_drain_per_second))
-		set_active(0)
+		active = JAMMER_OFF
 		cell.charge = 0 // drain the last of the battery
+		update_icon()
 
 
 /obj/item/device/radiojammer/improvised/attackby(obj/item/W as obj, mob/user as mob)
@@ -109,19 +140,23 @@ proc/within_jamming_range(var/atom/test) // tests if an object is near a radio j
 		user.put_in_hands(cell)
 		qdel(src)
 
-/obj/item/device/radiojammer/improvised/set_active(var/new_value)
-	if (new_value == 1)
-		if (!cell || !cell.charge)
+/obj/item/device/radiojammer/improvised/toggle(mob/user)
+	if(!active)
+		if(!cell)
+			if(user)
+				to_chat(user, SPAN_WARNING("\The [src] has no cell!"))
 			return
+		if(!cell.charge)
+			if(user)
+				to_chat(user, SPAN_WARNING("\The [src]'s battery is completely empty!"))
+			return
+	return ..()
 
-	..()
-
-/obj/item/device/radiojammer/improvised/update()
-	if (active)
+/obj/item/device/radiojammer/improvised/update_icon()
+	if(active)
 		active_radio_jammers += src
 		icon_state = icon_state_active
 		START_PROCESSING(SSprocessing, src)
-
 		last_updated = world.time
 	else
 		active_radio_jammers -= src

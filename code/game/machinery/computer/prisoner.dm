@@ -13,6 +13,8 @@
 	var/screen = 0 // 0 - No Access Denied, 1 - Access allowed
 
 /obj/machinery/computer/prisoner/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/computer/prisoner/attack_hand(mob/user)
