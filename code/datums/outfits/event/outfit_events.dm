@@ -1,4 +1,4 @@
-/datum/outfit/admin/lance
+/datum/outfit/admin/event/lance
 	name = "Lancer"
 
 	uniform = /obj/item/clothing/under/lance
@@ -23,10 +23,10 @@
 	)
 	var/id_access = "Lancer"
 
-/datum/outfit/admin/lance/get_id_access()
+/datum/outfit/admin/event/lance/get_id_access()
 	return get_syndicate_access(id_access)
 
-/datum/outfit/admin/lance/engineer
+/datum/outfit/admin/event/lance/engineer
 	name = "Lance Engineer"
 
 	uniform = /obj/item/clothing/under/lance
@@ -50,7 +50,7 @@
 	)
 	id_access = "Lance Engineer"
 
-/datum/outfit/admin/lance/medic
+/datum/outfit/admin/event/lance/medic
 	name = "Lance Medic"
 
 	uniform = /obj/item/clothing/under/lance
@@ -77,7 +77,7 @@
 	accessory_contents = list(/obj/item/gun/energy/pulse/pistol = 1)
 	id_access = "Lance Medic"
 
-/datum/outfit/admin/lance/operative
+/datum/outfit/admin/event/lance/operative
 	name = "Lance Operative"
 
 	uniform = /obj/item/clothing/under/dress/lance_dress/male
@@ -101,3 +101,59 @@
 		/obj/item/device/multitool = 1
 	)
 	id_access = "Lance Operative"
+
+/datum/outfit/admin/event/sol_marine
+	name = "Solarian Marine"
+
+	uniform = /obj/item/clothing/under/rank/fatigues
+	shoes = /obj/item/clothing/shoes/magboots
+	gloves = /obj/item/clothing/gloves/combat
+	l_ear = /obj/item/device/radio/headset/syndicate
+	glasses = /obj/item/clothing/glasses/thermal
+	l_pocket = /obj/item/tank/emergency_oxygen/double
+	r_pocket = /obj/item/crowbar/red
+	id = /obj/item/card/id/syndicate
+	head = /obj/item/clothing/head/helmet/space/void/sol
+	suit = /obj/item/clothing/suit/space/void/sol
+	mask = /obj/item/clothing/mask/gas/tactical
+	back = /obj/item/tank/jetpack/carbondioxide
+	suit_store = /obj/item/gun/projectile/automatic/rifle/sol
+
+	belt = /obj/item/storage/belt/military
+	belt_contents = list(
+			/obj/item/ammo_magazine/c762/sol = 3,
+			/obj/item/ammo_magazine/mc9mm = 2,
+			/obj/item/shield/energy = 1,
+			/obj/item/melee/energy/sword = 1,
+			/obj/item/grenade/frag = 1,
+			/obj/item/grenade/flashbang = 1
+	)
+
+
+	accessory = /obj/item/clothing/accessory/holster/hip/brown
+	accessory_contents = list(/obj/item/gun/projectile/pistol/sol = 1)
+
+/datum/outfit/admin/event/sol_marine/get_id_access()
+	return get_all_station_access()
+
+/datum/outfit/admin/event/sol_marine/heavy
+	name = "Heavy Solarian Marine"
+
+	head = null
+	suit = null
+	mask = /obj/item/clothing/mask/gas/tactical
+	back = /obj/item/rig/military/equipped
+	belt_contents = list(
+			/obj/item/gun/projectile/pistol/sol = 1,
+			/obj/item/ammo_magazine/mc9mm = 2,
+			/obj/item/shield/energy = 1,
+			/obj/item/melee/energy/sword = 1,
+			/obj/item/grenade/frag = 2,
+			/obj/item/grenade/flashbang = 2
+	)
+
+	l_hand = /obj/item/gun/projectile/shotgun/pump/combat/sol
+
+	accessory = /obj/item/clothing/accessory/storage/bandolier
+	accessory_contents = list(/obj/item/ammo_casing/shotgun = 8,
+							/obj/item/ammo_casing/shotgun/pellet = 8)
