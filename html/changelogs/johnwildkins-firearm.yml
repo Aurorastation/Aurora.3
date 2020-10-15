@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - backend: "Minor backend tweaks to the firearm control program to hopefully narrow down reported issues."

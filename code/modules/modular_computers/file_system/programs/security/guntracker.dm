@@ -10,17 +10,18 @@
 	required_access_download = access_hos
 	required_access_run = access_armory
 	usage_flags = PROGRAM_CONSOLE
+	var/list/wireless_firing_pins_data
 
 /datum/computer_file/program/guntracker/ui_interact(var/mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
 		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-security-guntracker", 600, 400, "Firearm Control System")
+		ui.auto_update_content = TRUE
 	ui.open()
-	ui.auto_update_content = TRUE
 
 /datum/computer_file/program/guntracker/vueui_transfer(oldobj)
 	. = FALSE
-	var/uis = SSvueui.transfer_uis(oldobj, src, "mcomputer-security-guntracker", 600, 400, "Firearm Control")
+	var/uis = SSvueui.transfer_uis(oldobj, src, "mcomputer-security-guntracker", 600, 400, "Firearm Control System")
 	for(var/tui in uis)
 		var/datum/vueui/ui = tui
 		ui.auto_update_content = TRUE
@@ -31,13 +32,19 @@
 	data = . || data || list()
 
 	// Gather data for computer header
-	data["_PC"] = get_header_data(data["_PC"])
+	var/headerdata = get_header_data(data["_PC"])
+	if(headerdata)
+		data["_PC"] = headerdata
+		. = data
 
 	var/turf/T = get_turf(computer.loc)
-	var/list/wireless_firing_pins_data = list()
+
+	LAZYINITLIST(wireless_firing_pins_data)
+	LAZYCLEARLIST(wireless_firing_pins_data)
+
 	for(var/i in wireless_firing_pins)
 		var/obj/item/device/firing_pin/wireless/P = i
-		if(!P.gun)
+		if(!istype(P) || !P.gun)
 			continue
 		var/turf/Ts = get_turf(P)
 		if(ARE_Z_CONNECTED(T.z, Ts.z))
@@ -55,28 +62,25 @@
 
 /datum/computer_file/program/guntracker/Topic(href, href_list)
 	if(..())
-		return
+		return TRUE
 
 	//Try and get the pin if a pin is passed
 	var/obj/item/device/firing_pin/wireless/P = null
 	if(href_list["pin"])
 		P = locate(href_list["pin"]) in wireless_firing_pins
 
+	if(!istype(P))
+		return
+
 	switch(href_list["action"])
 		if("setauto")
-			if(P)
-				P.set_mode(WIRELESS_PIN_AUTOMATIC)
-				SSvueui.check_uis_for_change(src)
+			P.set_mode(WIRELESS_PIN_AUTOMATIC)
 		if("setdisable")
-			if(P)
-				P.set_mode(WIRELESS_PIN_DISABLED)
-				SSvueui.check_uis_for_change(src)
+			P.set_mode(WIRELESS_PIN_DISABLED)
 		if("setstun")
-			if(P)
-				P.set_mode(WIRELESS_PIN_STUN)
-				SSvueui.check_uis_for_change(src)
+			P.set_mode(WIRELESS_PIN_STUN)
 		if("setlethal")
-			if(P)
-				P.set_mode(WIRELESS_PIN_LETHAL)
-				SSvueui.check_uis_for_change(src)
+			P.set_mode(WIRELESS_PIN_LETHAL)
+
+	SSvueui.check_uis_for_change(src)
 	return
