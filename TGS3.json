@@ -18,6 +18,7 @@
       "dynamic_maps"
     ],
     "dlls": [
+      
       "libmysql.dll"
     ]
   }
