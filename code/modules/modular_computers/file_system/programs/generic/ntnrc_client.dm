@@ -22,7 +22,7 @@
 /datum/computer_file/program/chatclient/New(var/obj/item/modular_computer/comp)
 	..(comp)
 	if(comp && comp.owner)
-		username = "[comp.owner]"
+		username = "[comp.owner] (comp.ownjob)"
 		ntnet_global.chat_clients += src
 		return
 	username = "DefaultUser[rand(100, 999)]"

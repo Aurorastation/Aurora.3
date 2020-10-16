@@ -192,7 +192,7 @@
 	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/black
 	// /obj/item/device/p//da
-	pda = /obj/item/modular_computer/handheld/pda/security/hos
+	pda = /obj/item/modular_computer/handheld/pda/civilian/janitor
 
 	var/box = /obj/item/storage/box/survival
 

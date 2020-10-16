@@ -349,6 +349,7 @@
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/chatclient(comp),
 		new /datum/computer_file/program/civilian/cargoorder(comp),
+		new /datum/computer_file/program/civilian/janitor(comp),
 		new /datum/computer_file/program/game/arcade(comp),
 		new /datum/computer_file/program/game/sudoku(comp),
 		new /datum/computer_file/program/ntsl2_interpreter(comp)

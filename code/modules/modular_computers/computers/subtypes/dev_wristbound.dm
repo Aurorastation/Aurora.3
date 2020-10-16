@@ -5,6 +5,7 @@
 	icon = 'icons/obj/modular_wristbound.dmi'
 	icon_state = "wristbound"
 	item_state = "wristbound"
+	icon_state_unpowered = "wristbound"
 	icon_state_screensaver = "standby"
 	hardware_flag = PROGRAM_WRISTBOUND
 	slot_flags = SLOT_GLOVES|SLOT_ID
@@ -35,14 +36,6 @@
 		var/mob/M = src.loc
 		M.update_inv_gloves()
 		M.update_inv_wear_id()
-
-/obj/item/modular_computer/handheld/wristbound/Initialize()
-	. = ..()
-	set_icon()
-
-/obj/item/modular_computer/handheld/wristbound/set_icon()
-	icon_state_unpowered = icon_state
-	icon_state_broken = icon_state
 
 /obj/item/modular_computer/handheld/wristbound/attack_hand(mob/user)
 	if(ishuman(user))

@@ -1,4 +1,9 @@
 // This is the base type that handles everything. Subtypes can be easily created by tweaking variables in this file to your liking.
+
+#define DEVICE_UNKNOWN 0
+#define DEVICE_PRIVATE 1
+#define DEVICE_COMPANY 2
+
 /obj/item/modular_computer
 	name = "Modular Computer"
 	desc = "A modular computer. You shouldn't see this."
@@ -68,8 +73,6 @@
 	var/listener/listener	//Listener needed for things
 
 	// Personal information
-	var/owner = null
-	var/ownjob = null //related to above - this is assignment (potentially alt title)
-	var/ownrank = null // this one is rank, never alt title
+	var/datum/ntnet_account = null
 
 	charge_failure_message = " does not have a battery installed."

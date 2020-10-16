@@ -8,8 +8,8 @@
       <div style="float: right;">
         <vui-button :params="{ PC_shutdown: 1}" icon="bolt">Shutdown</vui-button>
         <template v-if="state._PC.showexitprogram">
-          <vui-button :params="{ PC_exit: 1}" icon="backspace">Exit Program</vui-button>
-          <vui-button :params="{ PC_minimize: 1}" icon="chevron-down">Minimize Program</vui-button>
+          <vui-button :params="{ PC_exit: 1}" icon="backspace">Exit</vui-button>
+          <vui-button :params="{ PC_minimize: 1}" icon="chevron-down">Minimize</vui-button>
         </template>
       </div>
     </div>

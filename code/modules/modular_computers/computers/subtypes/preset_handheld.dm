@@ -26,7 +26,7 @@
 // Tablet PDA presets
 /obj/item/modular_computer/handheld/pda
 	var/icon_add // this is the "bar" part in "pda-bar"
-	enrolled = 1
+	enrolled = 2
 
 /obj/item/modular_computer/handheld/pda/Initialize()
 	. = ..()
