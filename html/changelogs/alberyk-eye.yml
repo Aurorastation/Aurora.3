@@ -3,4 +3,4 @@ author: Alberyk
 delete-after: True
 
 changes: 
-  - Alberyk: "Fixed being unable to activate low light vision while cuffed."
+  - bugfix: "Fixed being unable to activate low light vision while cuffed."
