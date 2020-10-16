@@ -4027,6 +4027,13 @@
 	glass_name = "glass of Sarezhi Wine"
 	glass_desc = "It tastes like plain berry juice. Is this supposed to be alcoholic?"
 
+/datum/reagent/alcohol/butanol/threetownscider
+	name = "Three Towns Cider"
+	description = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped throughout the Wasteland."
+	color = "#b8f77e"
+	strength = 20
+	taste_description = "water"
+
 //Kaed's Unathi Cocktails
 //=======
 //What an exciting time we live in, that lizards may drink fruity girl drinks.
