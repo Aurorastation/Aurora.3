@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Shields can now block simple mob attacks, such as carp and spiders, as long as the attack does less than 15 damage. You won't block juggernauts or spider queens."
