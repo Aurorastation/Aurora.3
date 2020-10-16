@@ -1457,7 +1457,7 @@
 	desc = "A compact red book with the ideas and guidance of Hadii for the Tajaran society."
 	icon_state = "hadii-manifesto"
 	item_state = "book4"
-	title = "hadiist manifesto"
+	title = "Hadiist Manifesto"
 	author = "Al'Mari Hadii"
 	w_class = ITEMSIZE_SMALL
 	dat = {"<html>
@@ -1477,17 +1477,75 @@
 				<b><center></b><br>\
 				<br>\
 				Written: Late 2432;<br> \
-				First Published: February 2433<br> \
+				First Published: 2433<br> \
 				Translated by Comrade Aurauz'hurl Aizhunua</center><br>\
-				<small>A Rrak'narr is haunting the Njarir'Akhran. The Rrak'narr of classlessism. Where have not the Njarir'Akhran blasted classlessism? Where not have the nobility ruthlessly uprooted our supporters \
-				like they were tearing up weeds from their gardens? Despite their dismissal, the fact that the Njarir'Akhran are so desperate to exterminate us brings us two inevitable facts:<br>\
+				A Rrak'narr is haunting the Njarir'Akhran. The Rrak'narr of Hadiism. Where have not the Njarir'Akhran blasted Hadiism? Where not have the nobility ruthlessly uprooted its supporters \
+				like they were tearing up weeds from their gardens? Despite their dismissal, the fact that the Njarir'Akhran are so desperate to exterminate them brings the Tajara to two inevitable facts:<br>\
 				<br>\
 				1) Revolutionary ideology is already cemented amongst Tajara.<br>\
-				2) It is time for supporters of a classless society to throw off their cloaks and set aside their daggers and pick up the rifle to meet the reactionary bourgeois in the open field.<br>\
+				2) It is time for supporters of Hadiism to throw off their cloaks and set aside their daggers and pick up the rifle to meet the nobility in the open field.<br>\
 				<br>\
-				To that end, Comrade Al'mari Hadii has coalesced the many supporters and thinkers of the Revolution to bring to life this manifesto of our people, our nation, and our Revolution.<br>\
-				This is a Revolution that will make the Old Order buckle before the strength of the working class until it collapses into ruin. Remember, dear comrade, all of the contents of this manifesto are to justify one simple fact.<br>\
-				This one fact has been unsuccessfully suppressed by the Njarir'Akhran, only to live on in the burning spirit of every man, woman, and kit. The simple fact that no Tajara is born inherently better than another.<br>\
+				To that end, Comrade Al'mari Hadii has coalesced the many supporters and thinkers of the Revolution to bring to life this manifesto of the Tajara people, the Hadiist nation, and the Revolution.<br>\
+				This is a Revolution that will make the Old Order buckle before the strength of the Tajara people until it collapses into ruin. Remember, dear comrade, all of the contents of this manifesto are to justify one simple fact.<br>\
+				This one fact has been unsuccessfully suppressed by the Njarir'Akhran, only to live on in the burning spirit of every Tajara. The simple fact that no Tajara is born inherently better than another.<br>\
+				</body>
+			</html>
+			"}
+
+/obj/item/book/manual/dpra_manifesto
+	name = "in defense of al'marii's legacy"
+	desc = "A political manifesto containing the foundations of the Al'mariist ideology."
+	icon_state = "dpra-manifesto"
+	item_state = "book2"
+	title = "In Defense of Al'marii's Legacy"
+	author = "Supreme Commander Nated"
+	w_class = ITEMSIZE_SMALL
+	dat = {"<html>
+				<head>
+					<style>
+					h1 {font-size: 21px; margin: 15px 0px 5px;}
+					h2 {font-size: 15px; margin: 15px 0px 5px;}
+					li {margin: 2px 0px 2px 15px;}
+					ul {margin: 5px; padding: 0px;}
+					ol {margin: 5px; padding: 0px 15px;}
+					body {font-size: 13px; font-family: Verdana;}
+					</style>
+				</head>
+				<body>
+				<h1><center>In Defense of Al'marii's Legacy</center></h1>
+				<br>\
+				People of Adhomai, they must rally in defense of the legacy of Al'marii. The Hadiist usurper plans to enslave the Tajara people to alien overlords, the Tajara must stand up against his tyranny. \
+				Take up arms in the defense of the freeodm and destiny of their people. The power belongs to the People, not in the hands of the Party. The Hadiists are nothing but puppets of the alien oppressor. \
+				The war to decide the fate of the Tajaran culture and homeworld has begun, join them in this struggle. Death to the Hadiist usurper. Long live the legacy of Al'marii!<br>\
+				</body>
+			</html>
+			"}
+
+/obj/item/book/manual/nka_manifesto
+	name = "the new kingdom"
+	desc = "A political text written by King Vahzirthaamro Azunja during his occultation."
+	icon_state = "nka-manifesto"
+	item_state = "book14"
+	title = "The New Kingdom"
+	author = "Vahzirthaamro Azunja"
+	w_class = ITEMSIZE_SMALL
+	dat = {"<html>
+				<head>
+					<style>
+					h1 {font-size: 21px; margin: 15px 0px 5px;}
+					h2 {font-size: 15px; margin: 15px 0px 5px;}
+					li {margin: 2px 0px 2px 15px;}
+					ul {margin: 5px; padding: 0px;}
+					ol {margin: 5px; padding: 0px 15px;}
+					body {font-size: 13px; font-family: Verdana;}
+					</style>
+				</head>
+				<body>
+				<h1><center>The New Kingdom</center></h1>
+				<br>\
+				Brave people of Adhomai, listen to the call of tradition. Republicanism has failed them, it has brought nothing but bloodshed upon them. The key to the prosperity of the Tajara lies in the past.\
+				The restoration of the monarchy is necessary to safeguard the future of Adhomai. But, they must learn from the past. It shall have the necessary mechanisms to prevent the errors of their ancestors.
+				A robust constitution empowered by the wisdom of a rightful heir of Adhomai. The King is still among them, the time to return to their roots is near. Suns bless the North.  <br>\
 				</body>
 			</html>
 			"}

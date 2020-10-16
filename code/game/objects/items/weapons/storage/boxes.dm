@@ -797,9 +797,19 @@
 	starts_with = list(/obj/item/clothing/accessory/badge/hadii_card = 6)
 
 /obj/item/storage/box/hadii_manifesto
-	name = "hadiist manifesto card box"
+	name = "hadiist manifesto box"
 	desc = "A box full of hadiist manifesto books."
 	starts_with = list(/obj/item/book/manual/pra_manifesto = 6)
+
+/obj/item/storage/box/dpra_manifesto
+	name = "al'mariist manifesto box"
+	desc = "A box full of al'mariist manifesto books."
+	starts_with = list(/obj/item/book/manual/dpra_manifesto = 6)
+
+/obj/item/storage/box/nka_manifesto
+	name = "royalist manifesto card box"
+	desc = "A box full of royalist manifesto books."
+	starts_with = list(/obj/item/book/manual/nka_manifesto = 6)
 
 /obj/item/storage/box/dominia_honor
 	name = "dominian honor codex box"
