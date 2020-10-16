@@ -1,0 +1,6 @@
+author: Amunak
+delete-after: True
+changes:
+  - bugfix: "Fancy storage boxes (donuts, matchboxes, ...) can no longer be opened/closed from anywhere - they require adjacency."
+  - bugfix: "Cigarette packs can now be opened and closed; they behave more like matchboxes and they spawn in closed."
+  - bugfix: "Other minor fixes to fancy storage boxes: sprites should behave better, stuff that shouldn't close doesn't close, etc."
