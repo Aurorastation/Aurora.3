@@ -272,8 +272,11 @@
 		reagents.trans_to_obj(C, (reagents.total_volume/contents.len))
 		..()
 
-/obj/item/storage/box/fancy/cigarettes/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob,var/target_zone)
+/obj/item/storage/box/fancy/cigarettes/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, target_zone)
 	if(!istype(M, /mob))
+		return
+	if(!opened)
+		to_chat(user, SPAN_NOTICE("The [src] is closed."))
 		return
 
 	if(M == user && target_zone == BP_MOUTH && contents.len > 0 && !user.wear_mask)
