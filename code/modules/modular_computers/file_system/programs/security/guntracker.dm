@@ -1,3 +1,4 @@
+#define UIDEBUG
 /datum/computer_file/program/guntracker
 	filename = "guntracker"
 	filedesc = "Firearm Control"
@@ -56,7 +57,7 @@
 				)
 			wireless_firing_pins_data[++wireless_firing_pins_data.len] = guntracker_info
 
-	data["wireless_firing_pins"] = sortByKey(wireless_firing_pins_data, "registered_info")
+	data["wireless_firing_pins"] = wireless_firing_pins_data
 
 	return data
 
