@@ -33,7 +33,7 @@
 	if(owner.last_special > world.time)
 		return
 
-	if(use_check(user, USE_ALLOW_NON_ADJACENT))
+	if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
 		return
 
 	if(is_broken())
