@@ -35,17 +35,17 @@
 		desc_info += "Alt-click to open and close the box. " //aka force override icon state. for you know, style.
 
 /obj/item/storage/box/fancy/AltClick(mob/user)
+	if(opened && !closable) // opened, non-closable items do nothing
+		return
 	if(!Adjacent(user))
 		return
 
 	opened = !opened
 	playsound(src.loc, src.use_sound, 50, 0, -5)
-	if(closable && !opened)
-		icon_state = "[initial(icon_state)]" // closed
-		cut_overlays()
+	update_icon()
+	if(!opened)
 		close(user)
 		return 1
-	update_icon()
 
 /obj/item/storage/box/fancy/update_icon(var/itemremoved = 0)
 	if(opened) //use the open icon.
@@ -53,6 +53,9 @@
 			src.icon_state = "[src.icon_type][src.storage_type][contents.len - itemremoved]"
 		else
 			icon_state = "[initial(icon_state)][src.opened]"
+	else
+		cut_overlays()
+		icon_state = "[initial(icon_state)]" // closed
 
 /obj/item/storage/box/fancy/examine(mob/user)
 	..()
@@ -166,6 +169,7 @@
 	starts_with = null
 
 /obj/item/storage/box/fancy/crayons/update_icon()
+	.=..()
 	cut_overlays()
 	add_overlay("crayonbox")
 	for(var/obj/item/pen/crayon/crayon in contents)
@@ -258,7 +262,9 @@
 		new cigarette_to_spawn(src)
 
 /obj/item/storage/box/fancy/cigarettes/update_icon()
-	icon_state = "[initial(icon_state)][contents.len]"
+	.=..()
+	if(opened)
+		icon_state = "[initial(icon_state)][contents.len]"
 
 /obj/item/storage/box/fancy/cigarettes/remove_from_storage(obj/item/W as obj, atom/new_location)
 		var/obj/item/clothing/mask/smokable/cigarette/C = W
@@ -360,6 +366,8 @@
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
 	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial = 6)
 	chewable = FALSE
+	opened = TRUE
+	closable = FALSE
 
 /obj/item/storage/lockbox/vials
 	name = "secure vial storage box"
@@ -381,6 +389,7 @@
 	queue_icon_update()
 
 /obj/item/storage/lockbox/vials/update_icon(var/itemremoved = 0)
+	.=..()
 	var/total_contents = src.contents.len - itemremoved
 	src.icon_state = "vialbox[total_contents]"
 	cut_overlays()
