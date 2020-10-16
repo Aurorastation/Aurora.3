@@ -89,7 +89,7 @@
 	foldable = /obj/item/stack/material/cardboard
 
 /obj/item/storage/box/fancy/donut/update_icon() // One of the few unique update_icon()s, due to having to store both regular and sprinkled donuts.
-	.=..()
+	. = ..()
 	if(opened)
 		cut_overlays()
 		var/i = 0
@@ -175,7 +175,7 @@
 	starts_with = null
 
 /obj/item/storage/box/fancy/crayons/update_icon()
-	.=..()
+	. = ..()
 	cut_overlays()
 	add_overlay("crayonbox")
 	for(var/obj/item/pen/crayon/crayon in contents)
@@ -223,7 +223,7 @@
 	return
 
 /obj/item/storage/box/fancy/matches/update_icon()
-	.=..()
+	. = ..()
 	if(opened)
 		if(contents.len == 0)
 			icon_state = "matchbox_e"
@@ -268,7 +268,7 @@
 		new cigarette_to_spawn(src)
 
 /obj/item/storage/box/fancy/cigarettes/update_icon()
-	.=..()
+	. = ..()
 	if(opened)
 		icon_state = "[initial(icon_state)][contents.len]"
 
@@ -398,7 +398,7 @@
 	queue_icon_update()
 
 /obj/item/storage/lockbox/vials/update_icon(var/itemremoved = 0)
-	.=..()
+	. = ..()
 	var/total_contents = src.contents.len - itemremoved
 	src.icon_state = "vialbox[total_contents]"
 	cut_overlays()
