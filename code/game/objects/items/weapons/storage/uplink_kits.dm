@@ -157,6 +157,12 @@
 	desc = "For when you want to conduct voyeurism from afar."
 	starts_with = list(/obj/item/device/spy_bug = 6, /obj/item/device/spy_monitor = 1)
 
+/obj/item/storage/box/syndie_kit/spy/hidden
+	name = "box"
+	desc = "It's just an ordinary box."
+	icon_state = "box"
+	item_state = "box"
+
 /obj/item/storage/box/syndie_kit/g9mm
 	name = "smooth operator"
 	desc = "9mm with silencer kit."

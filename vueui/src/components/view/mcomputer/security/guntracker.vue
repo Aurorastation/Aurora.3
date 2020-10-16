@@ -21,13 +21,12 @@
   </div>
 </template>
 
-
-
 <script>
 export default {
-		data() {return this.$root.$data.state},
-
-};
+  data() {
+    return this.$root.$data.state;
+  }
+}
 </script>
 
 <style lang="scss" scoped>
