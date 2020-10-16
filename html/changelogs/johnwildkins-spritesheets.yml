@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - backend: "Large groups of images are now sent via spritesheets, improving performance gains. Currently used on goonchat accent icons."
