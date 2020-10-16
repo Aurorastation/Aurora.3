@@ -2,5 +2,6 @@ author: Amunak
 delete-after: True
 changes:
   - tweak: "Cigarette packs can now be opened and closed; they behave more like matchboxes and they spawn in closed. You cannot pull a cigarette out of a closed pack."
+  - tweak: "Fancy storage boxes will open before inserting anything."
   - bugfix: "Fancy storage boxes (donuts, matchboxes, ...) can no longer be opened/closed from anywhere - they require adjacency."
   - bugfix: "Other minor fixes to fancy storage boxes: sprites should behave better, stuff that shouldn't close doesn't close, etc."

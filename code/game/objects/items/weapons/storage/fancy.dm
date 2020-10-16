@@ -57,6 +57,12 @@
 		cut_overlays()
 		icon_state = "[initial(icon_state)]" // closed
 
+/obj/item/storage/box/fancy/handle_item_insertion()
+	if(!opened) // makes sure boxes are opened before inserting anything
+		opened = TRUE
+		update_icon()
+	. = ..()
+
 /obj/item/storage/box/fancy/examine(mob/user)
 	..()
 	if(contents.len <= 0)
