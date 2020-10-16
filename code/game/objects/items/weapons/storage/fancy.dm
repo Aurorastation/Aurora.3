@@ -35,6 +35,9 @@
 		desc_info += "Alt-click to open and close the box. " //aka force override icon state. for you know, style.
 
 /obj/item/storage/box/fancy/AltClick(mob/user)
+	if(!Adjacent(user))
+		return
+
 	opened = !opened
 	playsound(src.loc, src.use_sound, 50, 0, -5)
 	if(closable && !opened)
