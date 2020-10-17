@@ -179,21 +179,42 @@
 /datum/controller/subsystem/records/proc/reset_manifest()
 	manifest.Cut()
 
-/datum/controller/subsystem/records/proc/get_manifest(var/monochrome = 0, var/OOC = 0)
+// The one and only method for showing a pop-up crew manifest (browser) window
+/proc/open_crew_manifest(var/mob/user, var/OOC = FALSE)
+	if(!user)
+		return
+	var/const/windowname = "manifest"
+	var/dat = {"<h2 style="text-align: center">Crew Manifest</h2>"}
+	dat += SSrecords.get_manifest(monochrome = FALSE, OOC = OOC)
+	send_theme_resources(user)
+	user << browse(enable_ui_theme(user, dat), "window=[windowname];size=450x600")
+	return windowname
+
+/datum/controller/subsystem/records/proc/get_manifest(var/monochrome = FALSE, var/OOC = FALSE)
 	if(!manifest.len)
 		get_manifest_json()
+	var/style = {".manifest {border-collapse: collapse; width: 100%}"}
+	if (!monochrome)
+		style += {"
+			.manifest td, th {border: 1px solid #DEF; background-color: white; color:black; padding: .25em}
+			.manifest th {height: 2em; background-color: #3F668F; color: white}
+			.manifest tr.head th {background-color: #006E7A;}
+			.manifest td:first-child {text-align: right}
+			.manifest tr.alt td {background-color: #DEF}
+		"}
+	else
+		style += {"
+			.manifest td, th {border: 1px solid black; padding: .25em}
+			.manifest th {height: 2em; border-top-width: 3px}
+			.manifest tr.head th {border-top-width: 1px}
+			.manifest td:first-child {text-align:right}
+			.manifest tr.alt td {border-top-width: 2px}
+		"}
 	var/dat = {"
-	<head><style>
-		.manifest {border-collapse:collapse;}
-		.manifest td, th {border:1px solid [monochrome?"black":"#DEF; background-color:white; color:black"]; padding:.25em}
-		.manifest th {height: 2em; [monochrome?"border-top-width: 3px":"background-color: #48C; color:white"]}
-		.manifest tr.head th { [monochrome?"border-top-width: 1px":"background-color: #488;"] }
-		.manifest td:first-child {text-align:right}
-		.manifest tr.alt td {[monochrome?"border-top-width: 2px":"background-color: #DEF"]}
-	</style></head>
-	<table class="manifest" width='350px'>
-	<tr class='head'><th>Name</th><th>Rank</th><th>Activity</th></tr>
-	"}
+			<head><style>[style]</style></head>
+			<table class="manifest">
+			<tr class='head'><th>Name</th><th>Rank</th><th>Activity</th></tr>
+		"}
 	var/even = 0
 	var/list/isactive = new()
 	for(var/mob/M in player_list)

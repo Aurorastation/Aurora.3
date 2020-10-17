@@ -151,7 +151,7 @@
 				else
 					var/contents = {"<h4>Crew Manifest</h4>
 									<br>
-									[SSrecords.get_manifest(1)]
+									[SSrecords.get_manifest(monochrome = 1)]
 									"}
 					if(!computer.nano_printer.print_text(contents,text("crew manifest ([])", worldtime2text())))
 						to_chat(usr, SPAN_WARNING(">Hardware error: Printer was unable to print the file. It may be out of paper."))
