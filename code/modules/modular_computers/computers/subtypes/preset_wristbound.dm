@@ -1,6 +1,3 @@
-/obj/item/modular_computer/wristbound/preset
-	var/command = FALSE
-
 /obj/item/modular_computer/wristbound/preset/cheap/install_default_hardware()
 	..()
 	processor_unit = new /obj/item/computer_hardware/processor_unit/small(src)
@@ -21,8 +18,6 @@
 	card_slot = new /obj/item/computer_hardware/card_slot(src)
 	battery_module = new /obj/item/computer_hardware/battery_module(src)
 	battery_module.charge_to_full()
-	if(command)
-		tesla_link = new /obj/item/computer_hardware/tesla_link/small(src)
 
 /obj/item/modular_computer/wristbound/preset/advanced/cargo
 	icon_state = "wristbound_cargo"
@@ -64,6 +59,10 @@
 	_app_preset_type = /datum/modular_computer_app_presets/command
 	enrolled = 1
 	command = TRUE
+
+/obj/item/modular_computer/wristbound/preset/advanced/command/install_default_hardware()
+	..()
+	tesla_link = new /obj/item/computer_hardware/tesla_link/small(src)
 
 /obj/item/modular_computer/wristbound/preset/advanced/command/ce
 	_app_preset_type = /datum/modular_computer_app_presets/engineering/ce
