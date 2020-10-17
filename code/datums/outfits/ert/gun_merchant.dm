@@ -11,7 +11,7 @@
 	back = /obj/item/storage/backpack/duffel
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/gun/projectile/revolver/mateba = 1)
-	id = /obj/item/card/id/distress/gun_merchant
+	id = /obj/item/storage/wallet/random
 
 	l_ear = /obj/item/device/radio/headset
 
@@ -25,6 +25,18 @@
 		/obj/item/stack/medical/advanced/bruise_pack = 2,
 		/obj/item/stack/medical/advanced/ointment = 1
 	)
+
+/datum/outfit/admin/ert/gun_merchant/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(visualsOnly)
+		return
+
+	var/obj/item/storage/wallet/W = H.wear_id
+	var/obj/item/card/id/distress/gun_merchant/passport = new(H.loc)
+	passport.name = "[H.real_name]'s Passport"
+	passport.access = get_id_access()
+	if(W)
+		W.handle_item_insertion(passport)
 
 /datum/outfit/admin/ert/gun_merchant/get_id_access()
 	return get_distress_access()

@@ -1,12 +1,12 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/structure/closet/crate,
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/suit/armor/bulletproof,
 /obj/item/clothing/head/helmet/ballistic,
 /obj/item/clothing/head/helmet/ballistic,
 /obj/item/clothing/head/helmet/ballistic,
+/obj/structure/closet/crate/secure/weapon/distress,
 /obj/effect/decal/warning_stripes,
 /turf/unsimulated/floor{
 	dir = 5;
@@ -14,18 +14,51 @@
 	},
 /area/centcom/distress_prep)
 "b" = (
+/obj/vehicle/train/cargo/trolley,
 /turf/unsimulated/floor{
 	dir = 5;
 	icon_state = "vault"
 	},
 /area/centcom/distress_prep)
 "g" = (
-/obj/structure/closet/crate,
 /obj/random/weapon_and_ammo,
 /obj/random/weapon_and_ammo,
 /obj/random/weapon_and_ammo,
 /obj/random/weapon_and_ammo,
+/obj/structure/closet/crate/secure/weapon/distress,
 /obj/effect/decal/warning_stripes,
+/turf/unsimulated/floor{
+	dir = 5;
+	icon_state = "vault"
+	},
+/area/centcom/distress_prep)
+"i" = (
+/obj/structure/closet/crate{
+	name = "shop supplies"
+	},
+/obj/item/paper_bin,
+/obj/item/pen,
+/obj/item/pen,
+/obj/item/clipboard,
+/obj/item/clipboard,
+/obj/item/hand_labeler,
+/obj/item/hand_labeler,
+/obj/item/storage/secure/briefcase{
+	locked = 0
+	},
+/obj/item/storage/secure/briefcase{
+	locked = 0
+	},
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/plastic/full,
+/turf/unsimulated/floor{
+	dir = 5;
+	icon_state = "vault"
+	},
+/area/centcom/distress_prep)
+"s" = (
+/obj/vehicle/train/cargo/engine,
 /turf/unsimulated/floor{
 	dir = 5;
 	icon_state = "vault"
@@ -43,12 +76,12 @@ b
 g
 "}
 (3,1,1) = {"
-b
+i
 b
 g
 "}
 (4,1,1) = {"
-b
+s
 b
 g
 "}

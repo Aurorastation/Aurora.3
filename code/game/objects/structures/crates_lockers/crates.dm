@@ -542,6 +542,11 @@
 	icon_opened = "weaponcrateopen"
 	icon_closed = "weaponcrate"
 
+/obj/structure/closet/crate/secure/weapon/distress
+	name = "distress weapons crate"
+	desc = "A secure weapons crate brought to the station by a local distress team."
+	req_access = list(access_distress)
+
 /obj/structure/closet/crate/secure/legion
 	name = "foreign legion supply crate"
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed."
