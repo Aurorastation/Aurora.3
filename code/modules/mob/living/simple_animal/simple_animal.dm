@@ -333,11 +333,15 @@
 	if(force_reset || (blood_state != BLOOD_NONE && current_blood_state != blood_state))
 		if(blood_overlay)
 			cut_overlay(blood_overlay)
-		var/image/I = image(blood_overlay_icon, src, "blood_overlay-[blood_state]")
+		var/blood_overlay_name = get_blood_overlay_name()
+		var/image/I = image(blood_overlay_icon, src, "[blood_overlay_name]-[blood_state]")
 		I.color = blood_type
 		I.blend_mode = BLEND_INSET_OVERLAY
 		blood_overlay = I
 		add_overlay(blood_overlay)
+
+/mob/living/simple_animal/proc/get_blood_overlay_name()
+	return "blood_overlay"
 
 /mob/living/simple_animal/proc/handle_eating()
 	var/list/food_choices = list()

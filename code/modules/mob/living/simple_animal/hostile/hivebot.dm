@@ -57,6 +57,12 @@
 		blood_overlay_icon = initial(blood_overlay_icon)
 	handle_blood_overlay(TRUE)
 
+/mob/living/simple_animal/hostile/hivebot/get_blood_overlay_name()
+	if(stance == HOSTILE_STANCE_IDLE)
+		return "blood_overlay"
+	else
+		return "blood_overlay_armed"
+
 /mob/living/simple_animal/hostile/hivebot/guardian
 	health = 80
 	maxHealth = 45
