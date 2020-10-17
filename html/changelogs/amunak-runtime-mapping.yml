@@ -1,0 +1,4 @@
+author: Amunak
+delete-after: True
+changes:
+  - backend: "Mapped (somewhat minimalistic) Telecomms, AI core, AI upload with robot charger + spawners and messaging server room to Runtime-2 for easier debugging of AI and radio related things. Also added most important consoles to bridge, some cameras and intercoms."
