@@ -4032,7 +4032,7 @@
 	description = "A cider made on the west coast of the Moghresian Sea, this is simply one of many brands made in a region known for its craft local butanol, shipped throughout the Wasteland."
 	color = "#b8f77e"
 	strength = 20
-	taste_description = "water"
+	taste_description = "bittersweet root juice"
 
 //Kaed's Unathi Cocktails
 //=======
