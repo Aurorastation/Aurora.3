@@ -50,7 +50,7 @@
 	if(resting || stat == DEAD)
 		blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	else
-		blood_overlay_icon = 'icons/mob/npc/blood_overlay_carp.dmi'
+		blood_overlay_icon = initial(blood_overlay_icon)
 	handle_blood_overlay(TRUE)
 
 /mob/living/simple_animal/hostile/carp/Allow_Spacemove(var/check_drift = 0)
