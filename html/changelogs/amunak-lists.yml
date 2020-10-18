@@ -1,4 +1,0 @@
-author: Amunak
-delete-after: True
-changes:
-  - rscadd: "Added pretty listing of closet contents for ghosts (incl. fullness and attached teleporter info)."
