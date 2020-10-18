@@ -1,6 +1,0 @@
-author: Alberyk
-
-delete-after: True
-
-changes: 
-  - bugfix: "Fixed the spy bug's radio function. You can toggle broadcasting by using the bug while it is on the active hand."
