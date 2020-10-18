@@ -1,0 +1,4 @@
+author: Amunak
+delete-after: True
+changes:
+  - bugfix: "Allows observers (ghosts) to follow all living things on restricted levels, which should allow for following exosuits and similar equipment."
