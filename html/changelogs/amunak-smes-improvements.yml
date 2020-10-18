@@ -1,0 +1,5 @@
+author: Amunak
+delete-after: True
+changes:
+  - rscadd: "SMES now show whether the maintenance hatch is open, they visibly show (in short range) that the hatch was opened/closed, and when open you can examine the SMES and see what coils are inside."
+  - rscadd: "SMES coils' descriptions now read its 'label' with the coils' charge capacity and I/O rating. Also tweaked the descriptions and fixed some typos."
