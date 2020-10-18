@@ -10,6 +10,7 @@
 	var/list/warrants
 	var/list/viruses
 
+	var/list/nameMap
 	var/list/excluded_fields
 	var/list/localized_fields
 
@@ -37,6 +38,7 @@
 	excluded_fields = list()
 	localized_fields = list()
 	manifest = list()
+	nameMap = list("heads" = "Heads", "sec" = "Security", "eng" = "Engineering", "med" = "Medical", "sci" = "Science", "car" = "Cargo", "civ" = "Civilian", "misc" = "Miscellaneous", "bot" = "Equipment")
 	NEW_SS_GLOBAL(SSrecords)
 	var/datum/D = new()
 	for(var/v in D.vars)
@@ -185,30 +187,19 @@
 		return
 	var/const/windowname = "manifest"
 	var/dat = {"<h2 style="text-align: center">Crew Manifest</h2>"}
-	dat += SSrecords.get_manifest(monochrome = FALSE, OOC = OOC)
+	dat += SSrecords.get_manifest(OOC)
 	send_theme_resources(user)
 	user << browse(enable_ui_theme(user, dat), "window=[windowname];size=450x600")
 	return windowname
 
-/datum/controller/subsystem/records/proc/get_manifest(var/monochrome = FALSE, var/OOC = FALSE)
-	if(!manifest.len)
-		get_manifest_json()
-	var/style = {".manifest {border-collapse: collapse; width: 100%}"}
-	if (!monochrome)
-		style += {"
+/datum/controller/subsystem/records/proc/get_manifest(var/OOC = FALSE)
+	var/const/style = {"
+			.manifest {border-collapse: collapse; width: 100%}
 			.manifest td, th {border: 1px solid #DEF; background-color: white; color:black; padding: .25em}
 			.manifest th {height: 2em; background-color: #3F668F; color: white}
 			.manifest tr.head th {background-color: #006E7A;}
 			.manifest td:first-child {text-align: right}
 			.manifest tr.alt td {background-color: #DEF}
-		"}
-	else
-		style += {"
-			.manifest td, th {border: 1px solid black; padding: .25em}
-			.manifest th {height: 2em; border-top-width: 3px}
-			.manifest tr.head th {border-top-width: 1px}
-			.manifest td:first-child {text-align:right}
-			.manifest tr.alt td {border-top-width: 2px}
 		"}
 	var/dat = {"
 			<head><style>[style]</style></head>
@@ -226,7 +217,7 @@
 		else
 			isactive[M.real_name] = 0
 
-	var/nameMap = list("heads" = "Heads", "sec" = "Security", "eng" = "Engineering", "med" = "Medical", "sci" = "Science", "car" = "Cargo", "civ" = "Civilian", "misc" = "Miscellaneous", "bot" = "Equipment")
+	var/manifest = get_manifest_list()
 	for(var/dep in manifest)
 		var/list/depI = manifest[dep]
 		if(depI.len > 0)
@@ -237,6 +228,18 @@
 	dat += "</table>"
 	dat = replacetext(dat, "\n", "") // so it can be placed on paper correctly
 	dat = replacetext(dat, "\t", "")
+	return dat
+
+/datum/controller/subsystem/records/proc/get_manifest_text()
+	var/dat = "<h2>Crew Manifest</h2><em>as of [worlddate2text()] [worldtime2text()]</em>"
+	var/manifest = get_manifest_list()
+	for(var/dep in manifest)
+		var/list/depI = manifest[dep]
+		if(depI.len > 0)
+			var/depDat
+			for(var/list/item in depI)
+				depDat += "<li><strong>[item["name"]]</strong> - [item["rank"]] ([item["active"]])</li>"
+			dat += "<h3>[nameMap[dep]]</h3><ul>[depDat]</ul>"
 	return dat
 
 /datum/controller/subsystem/records/proc/get_manifest_list()
