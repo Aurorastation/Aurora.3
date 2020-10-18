@@ -13293,7 +13293,7 @@
 /turf/simulated/wall,
 /area/security/armory)
 "axO" = (
-/obj/machinery/computer/prisoner,
+/obj/item/modular_computer/console/preset/security/armory,
 /obj/machinery/requests_console{
 	department = "Security";
 	departmentType = 5;
@@ -14580,7 +14580,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/vault)
 "aAa" = (
-/obj/machinery/computer/prisoner,
+/obj/item/modular_computer/console/preset/security/armory,
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
