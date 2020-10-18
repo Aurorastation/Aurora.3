@@ -128,11 +128,12 @@
 // Will recursively loop through an atom's contents and check for mobs, then it will loop through every atom in that atom's contents.
 // It will keep doing this until it checks every content possible. This will fix any problems with mobs, that are inside objects,
 // being unable to hear people due to being in a box within a bag.
+// Does not return list, as list is passed as reference.
 
 /proc/recursive_content_check(var/atom/O,  var/list/L = list(), var/recursion_limit = 3, var/client_check = 1, var/sight_check = 1, var/include_mobs = 1, var/include_objects = 1)
 
 	if(!recursion_limit)
-		return L
+		return 
 
 	for(var/I in O.contents)
 
@@ -152,8 +153,6 @@
 				recursive_content_check(I, L, recursion_limit - 1, client_check, sight_check, include_mobs, include_objects)
 				if(include_objects)
 					L += I
-
-	return L
 
 // Returns a list of mobs and/or objects in range of R from source. Used in radio and say code.
 
