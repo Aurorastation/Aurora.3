@@ -51,7 +51,7 @@
 
 /obj/item/clothing/under/rank/warden/remote
 	name = "remote warden's uniform"
-	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for more robust protection. It has the words \"Remote Warden\" written on the shoulders."
+	desc = "It's made of a slightly sturdier material than standard jumpsuits. It has the words \"Remote Warden\" written on the shoulders and it's bolted straight onto the chassis."
 	canremove = FALSE
 
 /obj/item/clothing/under/rank/warden/remote/Initialize()
