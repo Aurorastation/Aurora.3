@@ -1,0 +1,4 @@
+author: Amunak
+delete-after: True
+changes:
+  - rscadd: "Added pretty listing of storage contents for ghosts. Applies to all bags, boxes, satchels, ... (every descendant of /obj/item/storage)."
