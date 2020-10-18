@@ -4,3 +4,4 @@ delete-after: True
 
 changes: 
   - rscadd: "Replaced the chemical/tracking computer's HTML UI with a VueUI. It should feel a bit smoother now."
+  - rscadd: "The computer in the armory area has been replaced with a proper modular console."
