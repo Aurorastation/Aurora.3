@@ -9543,6 +9543,7 @@
 	pixel_x = -4;
 	pixel_y = 4
 	},
+/obj/item/storage/box/trackingslugs,
 /turf/simulated/floor/tiled/dark,
 /area/security/armory)
 "arH" = (
@@ -35699,7 +35700,6 @@
 /obj/machinery/conveyor_switch/oneway{
 	desc = "A conveyor control switch. It appears to only go in one direction. Controls the components conveyor belt.";
 	id = "Robocompo";
-	name = "conveyor switch";
 	pixel_x = -10
 	},
 /turf/simulated/floor/tiled,

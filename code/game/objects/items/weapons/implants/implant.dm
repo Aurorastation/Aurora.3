@@ -78,11 +78,17 @@
 	else
 		..()
 
+
+var/global/tracking_id = 1
 /obj/item/implant/tracking
 	name = "tracking implant"
 	desc = "Track with this."
 	var/id = 1.0
 
+/obj/item/implant/tracking/Initialize()
+	. = ..()
+	id = tracking_id
+	tracking_id++
 
 /obj/item/implant/tracking/get_data()
 	. = {"<b>Implant Specifications:</b><BR>

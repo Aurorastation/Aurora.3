@@ -45,14 +45,8 @@ emp_act
 	//Shrapnel
 	if(!(species.flags & NO_EMBED) && P.can_embed())
 		var/armor = getarmor_organ(organ, "bullet")
-		if(prob(20 + max(P.damage - armor, -10)))
-			var/obj/item/SP = new P.shrapnel_type()
-			SP.edge = TRUE
-			SP.sharp = TRUE
-			SP.name = (P.name != "shrapnel")? "[P.name] shrapnel" : "shrapnel"
-			SP.desc = "[SP.desc] It looks like it was fired from [P.shot_from]."
-			SP.forceMove(organ)
-			organ.embed(SP)
+		if(prob(20 + max(P.damage + P.embed_chance - armor, -10)))
+			P.do_embed(organ)
 
 	return (..(P , def_zone))
 
