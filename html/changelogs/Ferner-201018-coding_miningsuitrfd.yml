@@ -1,0 +1,4 @@
+author: Ferner
+delete-after: True
+changes: 
+  - tweak: "The track laying rfd now fits in the suit storage of mining voidsuits and rigs."
