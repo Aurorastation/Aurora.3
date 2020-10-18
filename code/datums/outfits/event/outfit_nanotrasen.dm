@@ -284,7 +284,7 @@
 	name = "NTCC Odin Bartender"
 
 	uniform = /obj/item/clothing/under/rank/bartender
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/laceup/all_species
 	l_ear = /obj/item/device/radio/headset/headset_service
 
 	id_access = "Service"
@@ -295,7 +295,7 @@
 	uniform = /obj/item/clothing/under/rank/chef
 	suit = /obj/item/clothing/suit/chef
 	head = /obj/item/clothing/head/chefhat
-	shoes = /obj/item/clothing/shoes/black
+	shoes = /obj/item/clothing/shoes/laceup/all_species
 	l_ear = /obj/item/device/radio/headset/headset_service
 
 	id_access = "Service"
