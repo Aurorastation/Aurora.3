@@ -42,12 +42,10 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		return 0
 
 	client << browse_rsc(SSassets.cache[asset_name], asset_name)
-	if(!verify || !winexists(client, "asset_cache_browser")) // Can't access the asset cache browser, rip.
-		if (client)
-			client.cache += asset_name
+
+	if(!verify) // Can't access the asset cache browser, rip.
+		client.cache += asset_name
 		return 1
-	if (!client)
-		return 0
 
 	client.sending |= asset_name
 	var/job = ++client.last_asset_job
@@ -97,12 +95,10 @@ You can set verify to TRUE if you want send() to sleep until the client has the 
 		if (asset in SSassets.cache)
 			client << browse_rsc(SSassets.cache[asset], asset)
 
-	if(!verify || !winexists(client, "asset_cache_browser")) // Can't access the asset cache browser, rip.
-		if (client)
-			client.cache += unreceived
+	if(!verify) // Can't access the asset cache browser, rip.
+		client.cache += unreceived
 		return 1
-	if (!client)
-		return 0
+
 	client.sending |= unreceived
 	var/job = ++client.last_asset_job
 
