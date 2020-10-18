@@ -581,7 +581,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	else
 		return bestvent
 
-/mob/abstract/observer/verb/view_manfiest()
+/mob/abstract/observer/verb/view_manifest()
 	set name = "Show Crew Manifest"
 	set category = "Ghost"
 	open_crew_manifest(src, OOC = TRUE)
