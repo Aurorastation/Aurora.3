@@ -165,7 +165,7 @@
 		germ_level = 0
 		return
 
-	if((status & ORGAN_ASSISTED) && surge_damage)
+	if(BP_IS_ROBOTIC(src) && surge_damage)
 		do_surge_effects()
 		if(surge_time + 1 SECOND >= world.time)
 			surge_damage -= 10
