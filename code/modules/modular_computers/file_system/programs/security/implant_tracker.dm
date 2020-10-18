@@ -14,13 +14,13 @@
 /datum/computer_file/program/implant_tracker/ui_interact(mob/user)
 	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
 	if(!ui)
-		ui = new(user, src, "machinery-implanttracker", 650, 500, "Prisoner Implant Manager System")
+		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-security-implanttracker", 650, 500, "Remote Implant Tracking")
 		ui.auto_update_content = TRUE
 	ui.open()
 
 /datum/computer_file/program/implant_tracker/vueui_transfer(oldobj)
 	. = FALSE
-	var/uis = SSvueui.transfer_uis(oldobj, src, "mcomputer-security-implanttracker", 650, 500, "Prisoner Implant Manager System")
+	var/uis = SSvueui.transfer_uis(oldobj, src, "mcomputer-security-implanttracker", 650, 500, "Remote Implant Tracking")
 	for(var/tui in uis)
 		var/datum/vueui/ui = tui
 		ui.auto_update_content = TRUE
@@ -31,7 +31,10 @@
 	data = . || data || list()
 
 	// Gather data for computer header
-	data["_PC"] = get_header_data(data["_PC"])
+	var/headerdata = get_header_data(data["_PC"])
+	if(headerdata)
+		data["_PC"] = headerdata
+		. = data
 	
 	var/list/chem_implants = list()
 	for(var/obj/item/implant/chem/C in implants)
@@ -74,6 +77,8 @@
 
 /datum/computer_file/program/implant_tracker/Topic(href, href_list)
 	. = ..()
+	if(.)
+		return TRUE
 
 	if(href_list["inject1"])
 		var/obj/item/implant/I = locate(href_list["inject1"]) in implants
@@ -114,5 +119,5 @@
 		if(istype(I) && I.imp_in)
 			var/mob/living/carbon/R = I.imp_in
 			to_chat(R, SPAN_NOTICE("You hear a voice in your head saying: '[warning]'."))
-			message_admins("[key_name_admin(usr)] messaged [key_name_admin(I.imp_in)]: '[warning]' via \the [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)")
+			message_admins("[key_name_admin(usr)] messaged [key_name_admin(I.imp_in)]: '[warning]' via \the [computer]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[usr.x];Y=[usr.y];Z=[usr.z]'>JMP</a>)")
 	SSvueui.check_uis_for_change(src)
