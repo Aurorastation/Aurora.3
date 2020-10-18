@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Knives can now dig out implants as well."
+  - tweak: "The knife shrapnel removal menu now requires you to choose the specific external organ you're extracting from as well."
+  - rscadd: "Implanting someone now visually reports to which organ you'll be doing so."

@@ -35,7 +35,7 @@
 	if (!istype(M, /mob/living/carbon))
 		return
 	if (user && src.imp)
-		M.visible_message("<span class='warning'>[user] is attemping to implant [M].</span>")
+		M.visible_message("<span class='warning'>[user] is attempting to implant [M] in the [zone_to_real_name(target_zone)].</span>")
 
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 		user.do_attack_animation(M)
@@ -43,7 +43,7 @@
 		var/turf/T1 = get_turf(M)
 		if (T1 && ((M == user) || do_after(user, 50)))
 			if(user && M && (get_turf(M) == T1) && src && src.imp)
-				M.visible_message("<span class='warning'>[M] has been implanted by [user].</span>")
+				M.visible_message("<span class='warning'>[M] has been implanted by [user] in the [zone_to_real_name(target_zone)].</span>")
 
 				admin_attack_log(user, M, "Implanted using \the [src.name] ([src.imp.name])", "Implanted with \the [src.name] ([src.imp.name])", "used an implanter, [src.name] ([src.imp.name]), on")
 
