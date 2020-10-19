@@ -213,6 +213,9 @@ VOTE_AUTOGAMEMODE_TIMELEFT 100
 ## min delay (deciseconds) before a transfer vote can be called (default 120 minutes)
 TRANSFER_TIMEOUT 72000
 
+## delay (deciseconds) before round ends and server restarts after transfer/evac shuttle docks with odin and admin tickets are resolved
+RESTART_TIMEOUT 1200
+
 ## Prevets lobby-sitters and ghosts who went straight from the lobby to observing from voting.
 ## Ghosts who died will still be able to vote.
 #NO_DEAD_VOTE
