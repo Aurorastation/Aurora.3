@@ -112,6 +112,7 @@
 	icon_state = "swimbottom"
 	has_color = TRUE
 
-/datum/category_item/underwear/bottom/fishnet_lower
-	name = "Fishnets"
-	icon_state = "fishnet_lower"
+/datum/category_item/underwear/bottom/mesh_lower
+	name = "Mesh Bottoms"
+	icon_state = "mesh_lower"
+	has_color = TRUE
