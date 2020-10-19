@@ -1,4 +1,4 @@
 /datum/responseteam/tcfl
 	name = "Tau Ceti Foreign Legion"
-	chance = 20
+	chance = 25
 	spawner = /datum/ghostspawner/human/ert/tcfl
