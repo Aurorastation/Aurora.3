@@ -15,7 +15,7 @@
 	var/ChargeCapacity = 5000000
 	var/IOCapacity = 250000
 
-/obj/item/smes_coil/New(loc, ...)
+/obj/item/smes_coil/Initialize()
 	. = ..()
 	desc += {"
 The label reads:
