@@ -270,7 +270,7 @@
 
 	uniform = /obj/item/clothing/under/rank/cadet
 	suit = /obj/item/clothing/suit/storage/hazardvest/cadet
-	head = /obj/item/clothing/head/beret/sec/cadet
+	head = /obj/item/clothing/head/beret/security
 	shoes = /obj/item/clothing/shoes/jackboots
 	l_ear = /obj/item/device/radio/headset/headset_sec
 
