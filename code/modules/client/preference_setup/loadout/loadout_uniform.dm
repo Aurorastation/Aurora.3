@@ -85,6 +85,7 @@
 	suits["shiny black suit"] = /obj/item/clothing/under/lawyer/black
 	suits["tan suit"] = /obj/item/clothing/under/suit_jacket/tan
 	suits["white suit"] = /obj/item/clothing/under/suit_jacket/white
+	suits["nt skirtsuit"] = /obj/item/clothing/under/suit_jacket/nt_skirtsuit
 	gear_tweaks += new/datum/gear_tweak/path(suits)
 
 /datum/gear/uniform/scrubs
