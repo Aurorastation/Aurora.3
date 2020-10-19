@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - bugfix: "The sensors of the remote warden's uniform now default to off and it can't be removed."
