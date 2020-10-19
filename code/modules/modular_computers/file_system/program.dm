@@ -2,6 +2,7 @@
 /datum/computer_file/program
 	filetype = "PRG"
 	filename = "UnknownProgram"								// File name. FILE NAME MUST BE UNIQUE IF YOU WANT THE PROGRAM TO BE DOWNLOADABLE FROM NTNET!
+	filedesc = "Unknown Program"						// User-friendly name of this program.
 	var/program_type = PROGRAM_NORMAL						// Program type, used to determine if program runs in background or not.
 	var/required_access_run									// List of required accesses to run the program.
 	var/required_access_download							// List of required accesses to download the program.
@@ -11,7 +12,6 @@
 	var/nanomodule_path										// Path to nanomodule, make sure to set this if implementing new program.
 	var/program_state = PROGRAM_STATE_KILLED				// PROGRAM_STATE_KILLED or PROGRAM_STATE_BACKGROUND or PROGRAM_STATE_ACTIVE - specifies whether this program is running.
 	var/obj/item/modular_computer/computer					// Device that runs this program.
-	var/filedesc = "Unknown Program"						// User-friendly name of this program.
 	var/extended_desc = "N/A"								// Short description of this program's function.
 	var/program_icon_state									// Program-specific screen icon state
 	var/requires_ntnet = FALSE								// Set to TRUE for program to require nonstop NTNet connection to run. If NTNet connection is lost program crashes.

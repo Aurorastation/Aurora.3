@@ -4,6 +4,7 @@
 	hard_drive = new /obj/item/computer_hardware/hard_drive/micro(src)
 	network_card = new /obj/item/computer_hardware/network_card(src)
 	battery_module = new /obj/item/computer_hardware/battery_module/nano(src)
+	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
 	battery_module.charge_to_full()
 
 /obj/item/modular_computer/handheld/wristbound/preset/cheap/generic
@@ -17,6 +18,7 @@
 	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
 	card_slot = new /obj/item/computer_hardware/card_slot(src)
 	battery_module = new /obj/item/computer_hardware/battery_module/hotswap(src)
+	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
 	battery_module.charge_to_full()
 
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/cargo

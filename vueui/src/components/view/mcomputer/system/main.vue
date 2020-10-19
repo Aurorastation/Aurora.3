@@ -4,7 +4,7 @@
     <i>No program loaded. Please select program from list below.</i>
     <div v-for="p in displayed_programs" :key="p.filename">
       <vui-button :params="{ PC_runprogram: p.filename}">{{ p.desc }}</vui-button>
-      <vui-button :params="{ PC_killprogram: p.filename}" v-if="p.running">X</vui-button>
+      <vui-button class="danger" icon="window-close" :params="{ PC_killprogram: p.filename}" v-if="p.running"></vui-button>
     </div>
     <h2 v-if="services.length">Services</h2>
     <div v-for="p in services" :key="p.filename">

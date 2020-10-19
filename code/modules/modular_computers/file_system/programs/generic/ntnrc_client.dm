@@ -234,8 +234,14 @@
 		ui_header = "ntnrc_idle.gif"
 
 /datum/computer_file/program/chatclient/kill_program(var/forced = FALSE)
+	if(!forced)
+		var/confirm = alert("Are you sure you want to close the NTNRC Client? You will not be reachable via messaging if you do so.", "Close?", "Yes", "No")
+		if(!(confirm == "Yes") || (CanUseTopic(usr) != STATUS_INTERACTIVE))
+			return FALSE
+
 	channel = null
 	..(forced)
+	return TRUE
 
 /datum/computer_file/program/chatclient/run_program(var/mob/user)
 	if(!computer)
@@ -243,9 +249,17 @@
 	if(!computer.registered_id && !computer.register_account(src))
 		return
 	if(!(src in ntnet_global.chat_clients))
-		username = "[computer.registered_id.registered_name] ([computer.registered_id.assignment])"
 		ntnet_global.chat_clients += src
+	var/new_username = username_from_id()
+	if(username != new_username)
+		username = new_username
 	return ..(user)
+
+/datum/computer_file/program/chatclient/proc/username_from_id()
+	if(!computer || !computer.registered_id)
+		return "Unknown"
+
+	return "[computer.registered_id.registered_name] ([computer.registered_id.assignment])"
 
 /datum/computer_file/program/chatclient/event_unregistered()
 	..()

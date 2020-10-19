@@ -176,10 +176,11 @@
 
 // Relays kill program request to currently active program. Use this to quit current program.
 /obj/item/modular_computer/proc/kill_program(var/forced = FALSE)
-	if(active_program)
-		active_program.kill_program(forced)
+	if(active_program && active_program.kill_program(forced))
 		src.vueui_transfer(active_program)
 		active_program = null
+	else
+		return FALSE
 	var/mob/user = usr
 	if(user && istype(user) && !forced)
 		ui_interact(user) // Re-open the UI on this computer. It should show the main screen now.

@@ -92,9 +92,9 @@
 		if(!istype(P) || P.program_state == PROGRAM_STATE_KILLED)
 			return
 
-		P.kill_program(TRUE)
+		if(P.kill_program())
+			to_chat(user, SPAN_NOTICE("Program [P.filename].[P.filetype] with PID [rand(100,999)] has been killed."))
 		update_uis()
-		to_chat(user, SPAN_NOTICE("Program [P.filename].[P.filetype] with PID [rand(100,999)] has been killed."))
 
 	if(href_list["PC_runprogram"] )
 		. = run_program(href_list["PC_runprogram"], usr)

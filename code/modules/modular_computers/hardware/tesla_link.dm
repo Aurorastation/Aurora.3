@@ -30,7 +30,7 @@
 
 /obj/item/computer_hardware/tesla_link/charging_cable/proc/toggle(var/obj/machinery/power/power_source, mob/user)
 	if(!source)
-		to_chat(user, SPAN_NOTICE("You connect \the [src] to the [power_source]."))
+		to_chat(user, SPAN_NOTICE("You connect \the [src] to \the [power_source]."))
 		activate(power_source)
 	else
 		to_chat(user, SPAN_NOTICE("You disconnect \the [src]."))

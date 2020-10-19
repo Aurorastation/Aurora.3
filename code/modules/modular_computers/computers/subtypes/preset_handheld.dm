@@ -16,18 +16,19 @@
 	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
 	card_slot = new /obj/item/computer_hardware/card_slot(src)
 	battery_module = new /obj/item/computer_hardware/battery_module(src)
+	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
 	battery_module.charge_to_full()
 
 
 // Cargo Delivery
 /obj/item/modular_computer/handheld/custom_loadout/advanced/cargo_delivery
 	_app_preset_type = /datum/modular_computer_app_presets/cargo_delivery
-	enrolled = 1
+	enrolled = DEVICE_PRIVATE
 
 // Tablet PDA presets
 /obj/item/modular_computer/handheld/pda
 	var/icon_add // this is the "bar" part in "pda-bar"
-	enrolled = 2
+	enrolled = DEVICE_PRIVATE
 
 /obj/item/modular_computer/handheld/pda/Initialize()
 	. = ..()
@@ -46,6 +47,7 @@
 	battery_module = new /obj/item/computer_hardware/battery_module(src)
 	card_slot = new /obj/item/computer_hardware/card_slot(src)
 	card_slot.stored_item = new /obj/item/pen
+	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
 	battery_module.charge_to_full()
 
 // Civilian
