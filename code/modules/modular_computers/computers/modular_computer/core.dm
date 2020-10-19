@@ -375,11 +375,10 @@
 	if(S in enabled_services)
 		return
 
-	enabled_services += S
-
 	// Start service
-	S.service_activate()
-	S.service_state = PROGRAM_STATE_ACTIVE
+	if(S.service_activate())
+		enabled_services += S
+		S.service_state = PROGRAM_STATE_ACTIVE
 
 
 /obj/item/modular_computer/proc/disable_service(service, mob/user, var/datum/computer_file/program/S = null)

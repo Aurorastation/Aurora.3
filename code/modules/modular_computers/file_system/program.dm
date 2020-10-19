@@ -250,7 +250,7 @@
 // Is called when program service is being activated
 // Returns 1 if service startup was sucessfull
 /datum/computer_file/program/proc/service_activate()
-	return 0
+	return FALSE
 
 // Is called when program service is being deactivated
 /datum/computer_file/program/proc/service_deactivate()

@@ -2181,6 +2181,7 @@
 #include "code\modules\modular_computers\file_system\programs\generic\ntsl2_interpreter.dm"
 #include "code\modules\modular_computers\file_system\programs\generic\nttransfer.dm"
 #include "code\modules\modular_computers\file_system\programs\generic\records.dm"
+#include "code\modules\modular_computers\file_system\programs\generic\scanner.dm"
 #include "code\modules\modular_computers\file_system\programs\medical\suit_sensors.dm"
 #include "code\modules\modular_computers\file_system\programs\pai\access_lock.dm"
 #include "code\modules\modular_computers\file_system\programs\pai\directives.dm"

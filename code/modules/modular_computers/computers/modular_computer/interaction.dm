@@ -144,6 +144,28 @@
 	else
 		to_chat(user, SPAN_WARNING("\The [src] does not have a card or item stored in the card slot."))
 
+/obj/item/modular_computer/attack(mob/living/M, mob/living/user)
+	if(scan_mode == SCANNER_MEDICAL)
+		health_scan_mob(M, user, TRUE)
+
+/obj/item/modular_computer/afterattack(atom/A, mob/user, proximity_flag, click_parameters)
+	. = ..()
+	if(!proximity_flag)
+		return
+	if(scan_mode == SCANNER_REAGENT)
+		if(!isobj(A) || isnull(A.reagents))
+			return
+		if(A.reagents.reagent_list.len > 0)
+			var/reagents_length = A.reagents.reagent_list.len
+			to_chat(user, SPAN_NOTICE("[reagents_length] chemical agent[reagents_length > 1 ? "s" : ""] found."))
+			for(var/re in A.reagents.reagent_list)
+				to_chat(user, SPAN_NOTICE("    [re]"))
+		else
+			to_chat(user, SPAN_NOTICE("No active chemical agents found in [A]."))
+
+	else if(scan_mode == SCANNER_GAS)
+		analyze_gases(A, user)
+
 /obj/item/modular_computer/attack_ghost(var/mob/abstract/observer/user)
 	if(enabled)
 		ui_interact(user)

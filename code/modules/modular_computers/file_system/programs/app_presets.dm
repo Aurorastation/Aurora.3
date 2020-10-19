@@ -62,7 +62,8 @@
 		new /datum/computer_file/program/rcon_console(comp),
 		new /datum/computer_file/program/camera_monitor(comp),
 		new /datum/computer_file/program/lighting_control(comp),
-		new /datum/computer_file/program/ntsl2_interpreter(comp)
+		new /datum/computer_file/program/ntsl2_interpreter(comp),
+		new /datum/computer_file/program/scanner/gas(comp)
 	)
 	return _prg_list
 
@@ -88,7 +89,8 @@
 		new /datum/computer_file/program/camera_monitor(comp),
 		new /datum/computer_file/program/lighting_control(comp),
 		new /datum/computer_file/program/records/employment(comp),
-		new /datum/computer_file/program/ntsl2_interpreter(comp)
+		new /datum/computer_file/program/ntsl2_interpreter(comp),
+		new /datum/computer_file/program/scanner/gas(comp)
 	)
 	return _prg_list
 
@@ -108,7 +110,8 @@
 		new /datum/computer_file/program/suit_sensors(comp),
 		new /datum/computer_file/program/records/medical(comp),
 		new /datum/computer_file/program/ntsl2_interpreter(comp),
-		new /datum/computer_file/program/chemistry_codex(comp)
+		new /datum/computer_file/program/chemistry_codex(comp),
+		new /datum/computer_file/program/scanner/medical(comp)
 	)
 	return _prg_list
 
@@ -130,7 +133,9 @@
 		new /datum/computer_file/program/records/employment(comp),
 		new /datum/computer_file/program/records/medical(comp),
 		new /datum/computer_file/program/ntsl2_interpreter(comp),
-		new /datum/computer_file/program/chemistry_codex(comp)
+		new /datum/computer_file/program/chemistry_codex(comp),
+		new /datum/computer_file/program/scanner/medical(comp),
+		new /datum/computer_file/program/scanner/science(comp)
 	)
 	return _prg_list
 
@@ -151,7 +156,9 @@
 		new /datum/computer_file/program/ntnetmonitor(comp),
 		new /datum/computer_file/program/aidiag(comp),
 		new /datum/computer_file/program/ntsl2_interpreter(comp),
-		new /datum/computer_file/program/chemistry_codex(comp)
+		new /datum/computer_file/program/chemistry_codex(comp),
+		new /datum/computer_file/program/scanner/science(comp),
+		new /datum/computer_file/program/scanner/gas(comp)
 	)
 	return _prg_list
 
@@ -173,7 +180,9 @@
 		new /datum/computer_file/program/aidiag(comp),
 		new /datum/computer_file/program/records/employment(comp),
 		new /datum/computer_file/program/ntsl2_interpreter(comp),
-		new /datum/computer_file/program/chemistry_codex(comp)
+		new /datum/computer_file/program/chemistry_codex(comp),
+		new /datum/computer_file/program/scanner/science(comp),
+		new /datum/computer_file/program/scanner/gas(comp)
 	)
 	return _prg_list
 

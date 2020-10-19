@@ -176,13 +176,12 @@
 		imprint_idcard(H,I)
 		if(istype(P) && P.card_slot)
 			P.card_slot.insert_id(I)
+			if(P.card_slot && P.card_slot.stored_card)
+				P.set_autorun("ntnrc_client")
+				P.enable_computer(null, TRUE) // passing null because we don't want the UI to open
+				P.minimize_program()
 		else
 			H.equip_or_collect(I, slot_wear_id)
-
-		if(P.card_slot && P.card_slot.stored_card)
-			P.set_autorun("ntnrc_client")
-			P.enable_computer(null, TRUE) // passing null because we don't want the UI to open
-			P.minimize_program()
 
 	if(!visualsOnly) // Items in pockets or backpack don't show up on mob's icon.
 		if(l_pocket)
