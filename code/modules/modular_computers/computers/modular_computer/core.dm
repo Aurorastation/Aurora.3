@@ -216,14 +216,14 @@
 	enabled = FALSE
 	update_icon()
 
-/obj/item/modular_computer/proc/enable_computer(var/mob/user)
+/obj/item/modular_computer/proc/enable_computer(var/mob/user, var/ar_forced=FALSE)
 	enabled = TRUE
 	update_icon()
 
 	// Autorun feature
 	var/datum/computer_file/data/autorun = hard_drive ? hard_drive.find_file_by_name("autorun") : null
 	if(istype(autorun))
-		run_program(autorun.stored_data, user)
+		run_program(autorun.stored_data, user, ar_forced)
 
 	for(var/s in enabled_services)
 		var/datum/computer_file/program/service = s
@@ -248,7 +248,7 @@
 		ui_interact(user) // Re-open the UI on this computer. It should show the main screen now.
 
 
-/obj/item/modular_computer/proc/run_program(prog, mob/user)
+/obj/item/modular_computer/proc/run_program(prog, mob/user, var/forced=FALSE)
 	var/datum/computer_file/program/P = null
 	if(!istype(user))
 		user = usr
@@ -276,7 +276,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] displays, \"Maximal CPU load reached. Unable to run another program.\"."))
 		return
 
-	if(P.requires_ntnet && !get_ntnet_status(P.requires_ntnet_feature)) // The program requires NTNet connection, but we are not connected to NTNet.
+	if(P.requires_ntnet && !get_ntnet_status(P.requires_ntnet_feature) && !forced) // The program requires NTNet connection, but we are not connected to NTNet.
 		to_chat(user, FONT_SMALL(SPAN_WARNING("\The [src] displays, \"NETWORK ERROR - Unable to connect to NTNet. Please retry. If problem persists contact your system administrator.\".")))
 		return
 
@@ -404,3 +404,51 @@
 			to_chat(user, message)
 		return
 	visible_message(message, range = message_range)
+
+/obj/item/modular_computer/proc/register_account(var/datum/computer_file/program/PRG = null)
+	var/obj/item/card/id/id = GetID()
+	if(PRG)
+		output_message(SPAN_NOTICE("\The [src] shows a notice: \"[PRG.filedesc] requires a registered NTNRC account. Registering automatically...\""))
+	if(!istype(id))
+		output_message(SPAN_WARNING("\The [src] shows an error: \"No ID card found!\""))
+		return FALSE
+	if(id.chat_registered)
+		output_message(SPAN_WARNING("\The [src] shows an error: \"This card is already registered to another account!\""))
+		return FALSE
+
+	id.chat_registered = TRUE
+	registered_id = id
+	output_message(SPAN_NOTICE("\The [src] beeps: \"Registration successful!\""))
+	playsound(get_turf(src), 'sound/machines/ping.ogg', 20, 0)
+	return registered_id
+
+/obj/item/modular_computer/proc/unregister_account()
+	if(!registered_id)
+		return FALSE
+
+	registered_id.chat_registered = FALSE
+	registered_id = null
+
+	if(hard_drive)
+		var/datum/computer_file/program/P = hard_drive.find_file_by_name("ntnrc_client")
+		P.event_unregistered()
+
+	output_message(SPAN_NOTICE("\The [src] beeps: \"Successfully unregistered ID!\""))
+	playsound(get_turf(src), 'sound/machines/ping.ogg', 20, 0)
+	return TRUE
+
+/obj/item/modular_computer/proc/set_autorun(var/fname)
+	if(!fname)
+		return FALSE
+
+	var/datum/computer_file/data/autorun = hard_drive.find_file_by_name("autorun")
+
+	if(istype(autorun) && autorun.stored_data == fname)
+		autorun.stored_data = null
+		return -1
+
+	autorun = new /datum/computer_file/data(src)
+	autorun.filename = "autorun"
+	autorun.stored_data = fname
+	hard_drive.store_file(autorun)
+	return TRUE

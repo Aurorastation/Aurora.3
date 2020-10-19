@@ -21,9 +21,7 @@
 
 /datum/computer_file/program/chatclient/New(var/obj/item/modular_computer/comp)
 	..(comp)
-	if(comp && comp.owner)
-		username = "[comp.owner] (comp.ownjob)"
-		ntnet_global.chat_clients += src
+	if(!comp)
 		return
 	username = "DefaultUser[rand(100, 999)]"
 
@@ -197,9 +195,10 @@
 		var/names = list()
 		for(var/cl in ntnet_global.chat_clients)
 			var/datum/computer_file/program/chatclient/C = cl
+			if(!C.set_offline || src)
+				continue
 			clients[C.username] = C
 			names += C.username
-		names -= username // Remove ourselves
 		names += "== Cancel =="
 		var/picked = input(usr, "Select with whom you would like to start a conversation.") in names
 		if(picked == "== Cancel ==")
@@ -236,17 +235,23 @@
 
 /datum/computer_file/program/chatclient/kill_program(var/forced = FALSE)
 	channel = null
-	if (set_offline && (src in ntnet_global.chat_clients))
-		// We only want to log out computers that want to be shown as offline.
-		ntnet_global.chat_clients -= src
 	..(forced)
 
 /datum/computer_file/program/chatclient/run_program(var/mob/user)
-	if (!(src in ntnet_global.chat_clients))
-		// This'll be any computer that isn't owned when added - workstations, primarily.
-		// TODO: Prompt users for a username upon opening the program.
+	if(!computer)
+		return
+	if(!computer.registered_id && !computer.register_account(src))
+		return
+	if(!(src in ntnet_global.chat_clients))
+		username = "[computer.registered_id.registered_name] ([computer.registered_id.assignment])"
 		ntnet_global.chat_clients += src
 	return ..(user)
+
+/datum/computer_file/program/chatclient/event_unregistered()
+	..()
+	computer.set_autorun(filename)
+	ntnet_global.chat_clients -= src
+	kill_program(TRUE)
 
 /datum/nano_module/program/computer_chatclient
 	name = "NTNet Relay Chat Client"

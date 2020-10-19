@@ -179,6 +179,10 @@
 		else
 			H.equip_or_collect(I, slot_wear_id)
 
+		if(P.card_slot && P.card_slot.stored_card)
+			P.set_autorun("ntnrc_client")
+			P.enable_computer(null, TRUE) // passing null because we don't want the UI to open
+			P.minimize_program()
 
 	if(!visualsOnly) // Items in pockets or backpack don't show up on mob's icon.
 		if(l_pocket)
@@ -272,15 +276,7 @@
 			C.associated_account_number = H.mind.initial_account.account_number
 
 /datum/outfit/proc/imprint_pda(mob/living/carbon/human/H, obj/item/modular_computer/PDA)
-	var/obj/item/card/id/C = PDA?.card_slot.stored_card
-	PDA.owner = H.real_name
-	if(istype(PDA) && istype(C))
-		PDA.ownjob = C.assignment
-		PDA.ownrank = C.rank
-	else //As a fallback if the id isnt inside of the PDA
-		PDA.ownjob = get_id_assignment(H)
-		PDA.ownrank = get_id_rank(H)
-	PDA.name = "PDA-[H.real_name] ([PDA.ownjob])"
+	PDA.name = "PDA-[H.real_name] ([get_id_assignment(H)])"
 
 /datum/outfit/proc/get_id_access(mob/living/carbon/human/H)
 	return list()

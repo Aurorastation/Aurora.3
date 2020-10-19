@@ -5,6 +5,10 @@
 /datum/computer_file/program/proc/event_idremoved(var/background)
 	return
 
+// Called when an ID is unregistered from the device.
+/datum/computer_file/program/proc/event_unregistered(var/background)
+	return
+
 // Called when the computer fails due to power loss. Override when program wants to specifically react to power loss.
 /datum/computer_file/program/proc/event_powerfailure(var/background)
 	kill_program(TRUE)

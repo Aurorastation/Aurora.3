@@ -42,6 +42,9 @@
 	VUEUI_SET_CHECK(data["disk_size"], computer.hard_drive.max_capacity, ., data)
 	VUEUI_SET_CHECK(data["disk_used"], computer.hard_drive.used_capacity, ., data)
 	VUEUI_SET_CHECK(data["power_usage"], computer.last_power_usage * (CELLRATE / 2), ., data)
+	VUEUI_SET_CHECK(data["card_slot"], computer.card_slot, ., data)
+	if(computer.registered_id)
+		VUEUI_SET_CHECK(data["registered"], computer.registered_id.registered_name, ., data)
 	if(!computer.battery_module)
 		VUEUI_SET_CHECK(data["battery"], 0, ., data)
 	else

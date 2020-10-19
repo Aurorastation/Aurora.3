@@ -127,6 +127,7 @@ var/const/NO_EMAG_ACT = -50
 	var/assignment = null	//can be alt title or the actual job
 	var/rank = null			//actual job
 	var/dorm = 0			// determines if this ID has claimed a dorm already
+	var/chat_registered = FALSE // registration for NTNET chat
 
 /obj/item/card/id/Destroy()
 	mob = null

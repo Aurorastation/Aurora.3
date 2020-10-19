@@ -103,16 +103,14 @@
 	if(href_list["PC_setautorun"])
 		if(!hard_drive)
 			return
-		var/datum/computer_file/data/autorun = hard_drive.find_file_by_name("autorun")
-		if(!istype(autorun))
-			autorun = new /datum/computer_file/data()
-			autorun.filename = "autorun"
-			hard_drive.store_file(autorun)
-		if(autorun.stored_data == href_list["PC_setautorun"])
-			autorun.stored_data = null
-		else
-			autorun.stored_data = href_list["PC_setautorun"]
-	
+		set_autorun(href_list["PC_setautorun"])
+
+	if(href_list["PC_register"])
+		if(registered_id)
+			unregister_account()
+		else if(GetID())
+			register_account()
+
 	if( href_list["PC_toggleservice"] )
 		toggle_service(href_list["PC_toggleservice"], usr)
 		return 1

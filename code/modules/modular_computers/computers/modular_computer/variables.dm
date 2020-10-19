@@ -73,6 +73,6 @@
 	var/listener/listener	//Listener needed for things
 
 	// Personal information
-	var/datum/ntnet_account = null
+	var/obj/item/card/id/registered_id = null // ID used for chat client registering
 
 	charge_failure_message = " does not have a battery installed."
