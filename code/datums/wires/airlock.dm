@@ -54,8 +54,13 @@ var/const/AIRLOCK_WIRE_LIGHT = 2048
 		else
 			text += "The door bolt indicator lights are [SPAN_BAD("off")]!"
 			text += A.locked ? "The door bolts seem to be down!" : "The door bolts seem to be up." // this is a closer inspection
-		if(A.aiControlDisabled==0 && !A.emagged)
-			text += "The 'AI control allowed' light is [SPAN_GOOD("on")]."
+		if(A.aiControlDisabled==0)
+			if(A.emagged)
+				text += "The 'AI control allowed' light is <span style='color:red'>red</span>."
+			else if(A.aiBolting)
+				text += "The 'AI control allowed' light is <span style='color:green'>green</span>."
+			else
+				text += "The 'AI control allowed' light is <span style='color:orange'>orange</span>."
 		else
 			text += "The 'AI control allowed' light is [SPAN_BAD("off")]."
 		text += A.safe==0 ? "The 'Check Wiring' light is [SPAN_GOOD("on")]." : "The 'Check Wiring' light is [SPAN_BAD("off")]."
@@ -156,17 +161,14 @@ var/const/AIRLOCK_WIRE_LIGHT = 2048
 			A.loseBackupPower()
 
 		if(AIRLOCK_WIRE_AI_CONTROL)
-			if(A.aiControlDisabled == 0)
-				A.aiControlDisabled = 1
-			else if(A.aiControlDisabled == -1)
-				A.aiControlDisabled = 2
-
-			spawn(10)
-				if(A)
-					if(A.aiControlDisabled == 1)
-						A.aiControlDisabled = 0
-					else if(A.aiControlDisabled == 2)
-						A.aiControlDisabled = -1
+			//Sending a pulse toggles whether AI can bolt the doors (if allowed by the door type and not emagged)
+			if(A.emagged)
+				return
+			switch(A.aiBoltingSetup)
+				if(AIRLOCK_AI_BOLTING_ALLOW, AIRLOCK_AI_BOLTING_DENY, AIRLOCK_AI_BOLTING_NEVER) // these doors don't allow change
+					return
+				else
+					A.aiBolting = !A.aiBolting
 
 		if(AIRLOCK_WIRE_ELECTRIFY)
 			//one wire for electrifying the door. Sending a pulse through this electrifies the door for 30 seconds.

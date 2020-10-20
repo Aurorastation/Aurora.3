@@ -29,6 +29,10 @@
 	var/lights = TRUE // bolt lights show by default
 	var/aiDisabledIdScanner = FALSE
 	var/aiHacking = FALSE
+	var/aiBolting = null // whether AI is allowed to bolt this door (use the aiBoltingSetup var to override the initial value of this)
+	var/aiBoltingSetup = AIRLOCK_AI_BOLTING_AUTO
+	var/aiBoltingDelay = 8 // how long it takes AIs to drop or raise bolts (in seconds)
+	var/aiActionTimer = null
 	var/obj/machinery/door/airlock/closeOther = null
 	var/closeOtherId = null
 	var/lockdownbyai = null
@@ -61,6 +65,16 @@
 
 	var/insecure = 1 //if the door is insecure it will open when power runs out
 	var/securitylock = FALSE
+
+/obj/machinery/door/airlock/Initialize()
+	. = ..()
+	switch(aiBoltingSetup)
+		if(AIRLOCK_AI_BOLTING_AUTO)
+			aiBolting = locked // in automatic setup AI can bolt doors that start bolted
+		if(AIRLOCK_AI_BOLTING_TRUE, AIRLOCK_AI_BOLTING_ALLOW)
+			aiBolting = TRUE
+		if(AIRLOCK_AI_BOLTING_FALSE, AIRLOCK_AI_BOLTING_DENY, AIRLOCK_AI_BOLTING_NEVER)
+			aiBolting = FALSE
 
 /obj/machinery/door/airlock/attack_generic(var/mob/user, var/damage)
 	if(stat & (BROKEN|NOPOWER))
@@ -125,6 +139,7 @@
 	icon = 'icons/obj/doors/Doorext.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_ext
 	hashatch = FALSE
+	aiBoltingSetup = AIRLOCK_AI_BOLTING_TRUE
 	insecure = 0
 
 /obj/machinery/door/airlock/science
@@ -168,6 +183,7 @@
 	hatch_colour = "#606061"
 	hashatch = FALSE
 	hackProof = TRUE
+	aiBoltingSetup = AIRLOCK_AI_BOLTING_NEVER
 
 /obj/machinery/door/airlock/centcom/attackby(obj/item/I, mob/user)
 	if (operating)
@@ -204,6 +220,7 @@
 	hatch_colour = "#606061"
 	hashatch = FALSE
 	hackProof = TRUE
+	aiBoltingSetup = AIRLOCK_AI_BOLTING_NEVER
 
 obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	if (operating)
@@ -276,6 +293,7 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	hatch_colour = "#5b5b5b"
 	var/hatch_colour_bolted = "#695a5a"
 	insecure = 0
+	aiBoltingSetup = AIRLOCK_AI_BOLTING_TRUE
 
 /obj/machinery/door/airlock/hatch/update_icon()//Special hatch colour setting for this one snowflakey door that changes color when bolted
 	if (hashatch)
@@ -428,6 +446,7 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	hatch_colour = "#5a5a66"
 	maxhealth = 600
 	insecure = 0
+	aiBoltingSetup = AIRLOCK_AI_BOLTING_ALLOW
 
 /obj/machinery/door/airlock/skrell
 	name = "airlock"
@@ -493,18 +512,17 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 
 /*
 About the new airlock wires panel:
-*	An airlock wire dialog can be accessed by the normal way or by using wirecutters or a multitool on the door while the wire-panel is open. This would show the following wires, which you can either wirecut/mend or send a multitool pulse through. There are 9 wires.
+*	An airlock wire dialog can be accessed by the normal way or by using wirecutters or a multitool on the door while the wire-panel is open. This would show the following wires, which you can either wirecut/mend or send a multitool pulse through. There are 9 types of wires.
 *		one wire from the ID scanner. Sending a pulse through this flashes the red light on the door (if the door has power). If you cut this wire, the door will stop recognizing valid IDs. (If the door has 0000 access, it still opens and closes, though)
 *		two wires for power. Sending a pulse through either one causes a breaker to trip, disabling the door for 10 seconds if backup power is connected, or 1 minute if not (or until backup power comes back on, whichever is shorter). Cutting either one disables the main door power, but unless backup power is also cut, the backup power re-powers the door in 10 seconds. While unpowered, the door may be open, but bolts-raising will not work. Cutting these wires may electrocute the user.
 *		one wire for door bolts. Sending a pulse through this drops door bolts (whether the door is powered or not) or raises them (if it is). Cutting this wire also drops the door bolts, and mending it does not raise them. If the wire is cut, trying to raise the door bolts will not work.
 *		two wires for backup power. Sending a pulse through either one causes a breaker to trip, but this does not disable it unless main power is down too (in which case it is disabled for 1 minute or however long it takes main power to come back, whichever is shorter). Cutting either one disables the backup door power (allowing it to be crowbarred open, but disabling bolts-raising), but may electocute the user.
 *		one wire for opening the door. Sending a pulse through this while the door has power makes it open the door if no access is required.
-*		one wire for AI control. Sending a pulse through this blocks AI control for a second or so (which is enough to see the AI control light on the panel dialog go off and back on again). Cutting this prevents the AI from controlling the door unless it has hacked the door through the power connection (which takes about a minute). If both main and backup power are cut, as well as this wire, then the AI cannot operate or hack the door at all.
+*		one wire for AI control. If allowed by the door setup, sending a pulse through this toggles whether AI can bolt the door (shows as green light in dialogue if it can bolt, orange if it can't, red when emagged and thus inoperable by AI). Cutting this prevents the AI from controlling the door unless it has hacked the door through the power connection (which takes about a minute). If both main and backup power are cut, as well as this wire, then the AI cannot operate or hack the door at all.
 *		one wire for electrifying the door. Sending a pulse through this electrifies the door for 30 seconds. Cutting this wire electrifies the door, so that the next person to touch the door without insulated gloves gets electrocuted. (Currently it is also STAYING electrified until someone mends the wire)
 *		one wire for controling door safetys.  When active, door does not close on someone.  When cut, door will ruin someone's shit.  When pulsed, door will immedately ruin someone's shit.
-*		one wire for controlling door speed.  When active, dor closes at normal rate.  When cut, door does not close manually.  When pulsed, door attempts to close every tick.
+*		one wire for controlling door speed.  When active, door closes at normal rate.  When cut, door does not close manually.  When pulsed, door attempts to close every tick.
 */
-
 
 
 /obj/machinery/door/airlock/bumpopen(mob/living/user as mob) //Airlocks now zap you when you 'bump' them open when they're electrified. --NeoFite
@@ -769,8 +787,9 @@ About the new airlock wires panel:
 	VUEUI_SET_CHECK(data["elea"], electrified_at, ., data)
 	var/isAI = issilicon(user) && !player_is_antag(user.mind)
 	VUEUI_SET_CHECK(data["isai"], isAI, ., data)
+	VUEUI_SET_CHECK(data["aiCanBolt"], aiBolting, ., data)
 	var/isAdmin = check_rights(R_ADMIN, show_msg = FALSE)
-	VUEUI_SET_CHECK(data["isadmin"], isAdmin, ., data)
+	VUEUI_SET_IFNOTSET(data["isAdmin"], isAdmin, ., data)
 
 	VUEUI_SET_CHECK(data["idscan"], !aiDisabledIdScanner, ., data)
 	VUEUI_SET_CHECK(data["bolts"], !locked, ., data)
@@ -964,6 +983,8 @@ About the new airlock wires panel:
 					src.unlock(TRUE) //force it
 
 /obj/machinery/door/airlock/CanUseTopic(var/mob/user)
+	if(check_rights(R_ADMIN, show_msg = FALSE))
+		return ..()
 	if(emagged == 1)
 		to_chat(user, SPAN_WARNING("Unable to interface: Internal error."))
 		return STATUS_CLOSE
@@ -983,6 +1004,7 @@ About the new airlock wires panel:
 	if(..())
 		return 1
 
+	var/isAdmin = check_rights(R_ADMIN, show_msg = FALSE)
 	var/activate = text2num(href_list["activate"])
 	switch (href_list["command"])
 		if("idscan")
@@ -994,27 +1016,40 @@ About the new airlock wires panel:
 			if(!backup_power_lost_until)
 				src.loseBackupPower()
 		if("bolts")
-			if(src.isWireCut(AIRLOCK_WIRE_DOOR_BOLTS))
+			if(isAdmin)
+				activate ? lock() : unlock()
+			if(src.isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) // cut wire is noop
 				to_chat(usr, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))
-			else if(activate)
-				if(issilicon(usr) && !player_is_antag(usr.mind))
-					to_chat(usr, SPAN_WARNING("Your programming prevents you from lowering the door bolts."))
-				else if(lock())
-					to_chat(usr, SPAN_NOTICE("The door bolts have been dropped."))
-			else if(!activate)
-				if(issilicon(usr) && !player_is_antag(usr.mind))
-					to_chat(usr, SPAN_NOTICE("The door bolts will raise in five seconds."))
-					src.visible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in FIVE SECONDS.\"</span>")
-					addtimer(CALLBACK(src, .proc/unlock), 50)
-				else if(unlock())
-					to_chat(usr, SPAN_NOTICE("The door bolts have been raised."))
+			else if(issilicon(usr) && !player_is_antag(usr.mind)) // non-antag silicons
+				if(src.aiBolting && src.aiBoltingSetup != AIRLOCK_AI_BOLTING_NEVER)
+					if(!isnull(src.aiActionTimer))
+						to_chat(usr, SPAN_WARNING("An action is already queued. Please wait for it to complete."))
+					else if(activate)
+						to_chat(usr, SPAN_NOTICE("The door bolts should drop in [src.aiBoltingDelay] seconds."))
+						src.audible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to drop in <strong>[src.aiBoltingDelay] seconds</strong>.\"</span>")
+						src.aiActionTimer = addtimer(CALLBACK(src, .proc/lock), src.aiBoltingDelay * 10, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
+					else
+						to_chat(usr, SPAN_NOTICE("The door bolts should raise in [src.aiBoltingDelay] seconds."))
+						src.audible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in <strong>[src.aiBoltingDelay] seconds</strong>.\"</span>")
+						src.aiActionTimer = addtimer(CALLBACK(src, .proc/unlock), src.aiBoltingDelay * 10, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
+				else
+					to_chat(usr, SPAN_WARNING("The door is configured not to allow remote bolt operation."))
+			else // everyone else
+				if (issilicon(usr) && src.aiBoltingSetup == AIRLOCK_AI_BOLTING_NEVER) // not even antags can operate door bolts here
+					to_chat(usr, SPAN_WARNING("The door is configured not to allow remote bolt operation."))
+				else if(activate)
+					if(src.lock())
+						to_chat(usr, SPAN_NOTICE("The door bolts have been dropped."))
+				else
+					if(src.unlock())
+						to_chat(usr, SPAN_NOTICE("The door bolts have been raised."))
 		if("electrify_temporary")
-			if(issilicon(usr) && !player_is_antag(usr.mind))
+			if(!isAdmin && issilicon(usr) && !player_is_antag(usr.mind))
 				to_chat(usr, SPAN_WARNING("Your programming prevents you from electrifying the door."))
 			else
 				electrify(30 * activate, 1)
 		if("electrify_permanently")
-			if(issilicon(usr) && !player_is_antag(usr.mind))
+			if(!isAdmin && issilicon(usr) && !player_is_antag(usr.mind))
 				to_chat(usr, SPAN_WARNING("Your programming prevents you from electrifying the door."))
 			else
 				electrify(-1 * activate, 1)
@@ -1030,7 +1065,7 @@ About the new airlock wires panel:
 			else if(!activate && !density)
 				close()
 		if("safeties")
-			if(safe && issilicon(usr) && !player_is_antag(usr.mind))
+			if(!isAdmin && safe && issilicon(usr) && !player_is_antag(usr.mind))
 				to_chat(usr, SPAN_WARNING("Your programming prevents you from disabling the door safeties."))
 			else
 				set_safeties(!activate, 1)
@@ -1406,6 +1441,9 @@ About the new airlock wires panel:
 	..()
 
 /obj/machinery/door/airlock/proc/lock(var/forced=0)
+	if(!isnull(src.aiActionTimer)) // reset AI action timer no matter if it finished
+		deltimer(src.aiActionTimer)
+		src.aiActionTimer = null
 	if(locked)
 		return 0
 	if (operating && !forced) return 0
@@ -1416,6 +1454,9 @@ About the new airlock wires panel:
 	return 1
 
 /obj/machinery/door/airlock/proc/unlock(var/forced=0)
+	if(!isnull(src.aiActionTimer)) // reset AI action timer no matter if it finished
+		deltimer(src.aiActionTimer)
+		src.aiActionTimer = null
 	if(!src.locked)
 		return
 	if (!forced)

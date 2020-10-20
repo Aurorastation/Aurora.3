@@ -2,7 +2,7 @@
   <div>
     <vui-group>
       <vui-group-item label="Main power:">
-        <vui-progress 
+        <vui-progress
           :class="{ good: s.plu_main == 0, bad: s.plu_main == -1, average: s.plu_main > 0 }"
           style="width: 12em;"
           :value="gs.wtime"
@@ -13,7 +13,7 @@
         <vui-button :disabled="s.plu_main != 0" :params="{ command: 'main_power'}">Interrupt</vui-button>
       </vui-group-item>
       <vui-group-item label="Backup power:">
-        <vui-progress 
+        <vui-progress
           :class="{ good: s.plu_back == 0 || s.plu_main == 0, bad: s.plu_back == -1 && s.plu_main != 0, average: s.plu_back > 0 }"
           style="width: 12em;"
           :value="gs.wtime"
@@ -24,7 +24,7 @@
         <vui-button :disabled="s.plu_back != 0" :params="{ command: 'backup_power'}">Interrupt</vui-button>
       </vui-group-item>
       <vui-group-item label="Electrified status:">
-        <vui-progress 
+        <vui-progress
           :class="{ good: s.ele == 0, bad: s.ele == -1, average: s.ele > 0 }"
           style="width: 12em;"
           :value="gs.wtime"
@@ -33,7 +33,7 @@
           {{ eleMsg }}
         </vui-progress>
         <vui-button :disabled="s.ele == 0" :params="{ command: 'electrify_permanently', activate: 0}">R</vui-button>
-        <template v-if="!s.isai">
+        <template v-if="s.isAdmin || !s.isai">
           <vui-button :disabled="s.ele > 0" :params="{ command: 'electrify_temporary', activate: 1}">T</vui-button>
           <vui-button :disabled="s.ele == -1" :params="{ command: 'electrify_permanently', activate: 1}">P</vui-button>
         </template>
@@ -43,7 +43,7 @@
       </vui-group-item>
       <vui-group-item v-for="(c, k) in commands" :key="k" :label="c.n + ':'">
         <vui-button style="min-width: 6em" :class="{on: s[k]}" :params="{ command: k, activate: c.i ? 1 : 0 }">{{ c.et || 'Enabled' }}</vui-button>
-        <vui-button :disabled="!!((c.a && s.isai) || isAdmin)" style="min-width: 6em" :class="{on: !s[k] && !c.d, danger: !s[k] && c.d}" :params="{ command: k, activate: c.i ? 0 : 1 }">{{ c.dt || 'Disabled' }}</vui-button>
+        <vui-button :disabled="!!(c.a && s.isai && !s.isAdmin)" style="min-width: 6em" :class="{on: !s[k] && !c.d, danger: !s[k] && c.d}" :params="{ command: k, activate: c.i ? 0 : 1 }">{{ c.dt || 'Disabled' }}</vui-button>
       </vui-group-item>
     </vui-group>
   </div>
@@ -66,7 +66,7 @@ export default {
           n: 'Bolts',
           et: 'Raised',
           dt: 'Dropped',
-          a: true // AI restricted
+          a: !s.aiCanBolt
         },
         lights: {
           n: 'Bolt Lights',
