@@ -60,16 +60,16 @@ var/global/ntnet_card_uid = 1
 		return 0
 	if(!check_functionality())
 		return 0
-	if(ethernet) // Computer is connected via wired connection.
-		return 3
-	if(!ntnet_global || !ntnet_global.check_function(specific_action)) // NTNet is down and we are not connected via wired connection. No signal.
+	if(!ntnet_global || !ntnet_global.check_function(specific_action))
 		return 0
 
 	if(parent_computer)
 		var/turf/T = get_turf(parent_computer)
 		if((T && istype(T)) && isStationLevel(T.z))
 			// Computer is on station. Low/High signal depending on what type of network card you have
-			if(long_range)
+			if(ethernet)
+				return 3
+			else if(long_range)
 				return 2
 			else
 				return 1
