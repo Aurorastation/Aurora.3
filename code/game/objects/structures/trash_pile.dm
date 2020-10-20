@@ -3,7 +3,6 @@
 	desc = "A heap of garbage, but maybe there's something interesting inside?"
 	icon = 'icons/obj/trash_piles.dmi'
 	icon_state = "randompile"
-	density = TRUE
 	anchored = TRUE
 
 	var/list/searched_by // Characters that have searched this trashpile, with values of searched time.
@@ -53,19 +52,25 @@
 	//Human mob
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
+		if(H.a_intent == I_HURT)
+			H.visible_message("<b>[user]</b> starts taking \the [src] apart...", SPAN_NOTICE("You start taking \the [src] apart..."))
+			if(do_after(user, 2 MINUTES))
+				H.visible_message("<b>[user]</b> takes \the [src] apart.", SPAN_NOTICE("You takes \the [src] apart."))
+				for(var/i = 1 to 5)
+					var/obj/item/I = give_item()
+					I.forceMove(get_turf(src))
+				eject_hider(100, user)
+				qdel(src)
+			return
 		H.visible_message("<b>[user]</b> starts searching through \the [src]...", SPAN_NOTICE("You start searching through \the [src]..."))
 		if(hider)
 			to_chat(hider, SPAN_WARNING("[user] is searching the trash pile you're in!"))
-
 		//Do the searching
 		if(do_after(user, rand(4 SECONDS, 6 SECONDS)))
 			var/unique_string = "[user.ckey]-[user.real_name]"
 			//If there was a hider, chance to reveal them
-			if(hider && prob(50))
-				to_chat(hider, SPAN_DANGER("You've been discovered!"))
-				hider.forceMove(get_turf(src))
-				to_chat(user, SPAN_DANGER("You discover that \the [hider] was hiding inside \the [src]!"))
-				hider = null
+			if(eject_hider(50, user))
+				return
 
 			// This person already searched through this pile
 			else if(unique_string in searched_by)
@@ -73,15 +78,7 @@
 
 			//You found an item!
 			else
-				var/luck = rand(1, 100)
-				var/obj/item/I
-				if(luck <= chance_alpha)
-					I = produce_alpha_item()
-				else if(luck <= chance_alpha + chance_beta)
-					I = produce_beta_item()
-				else if(luck <= chance_alpha + chance_beta + chance_gamma)
-					I = produce_gamma_item()
-
+				var/obj/item/I = give_item()
 				//We either have an item to hand over or we don't, at this point!
 				if(I)
 					LAZYADD(searched_by, unique_string)
@@ -89,6 +86,26 @@
 					to_chat(H, SPAN_NOTICE("You found \a [I]!"))
 	else
 		return ..()
+
+/obj/structure/trash_pile/proc/eject_hider(var/chance, var/mob/user)
+	if(hider && prob(chance))
+		to_chat(hider, SPAN_DANGER("You've been discovered!"))
+		hider.forceMove(get_turf(src))
+		to_chat(user, SPAN_DANGER("You discover that \the [hider] was hiding inside \the [src]!"))
+		hider = null
+		return TRUE
+	return FALSE
+
+/obj/structure/trash_pile/proc/give_item()
+	var/obj/item/I
+	var/luck = rand(1, 100)
+	if(luck <= chance_alpha)
+		I = produce_alpha_item()
+	else if(luck <= chance_alpha + chance_beta)
+		I = produce_beta_item()
+	else if(luck <= chance_alpha + chance_beta + chance_gamma)
+		I = produce_gamma_item()
+	return I
 
 //Random lists
 /obj/structure/trash_pile/proc/produce_alpha_item()
