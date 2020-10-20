@@ -1,7 +1,7 @@
 //Shuttle controller computer for shuttles going between sectors
 /obj/machinery/computer/shuttle_control/explore
 	name = "general shuttle control console"
-	ui_template = "shuttle_control_console_exploration.tmpl"
+	ui_template = "shuttle-control-console-exploration"
 
 /obj/machinery/computer/shuttle_control/explore/get_ui_data(var/datum/shuttle/autodock/overmap/shuttle)
 	. = ..()
@@ -12,31 +12,22 @@
 			if(fuel_tank)
 				total_gas += fuel_tank.air_contents.total_moles
 
-		var/fuel_span = "good"
-		if(total_gas < shuttle.fuel_consumption * 2)
-			fuel_span = "bad"
-
 		. += list(
-			"destination_name" = shuttle.get_destination_name(),
+			"destinations" = shuttle.get_possible_destinations(),
+			"current_destination" = shuttle.next_location? shuttle.next_location.name : shuttle.get_location_name(),
 			"can_pick" = shuttle.moving_status == SHUTTLE_IDLE,
 			"fuel_usage" = shuttle.fuel_consumption * 100,
 			"remaining_fuel" = round(total_gas, 0.01) * 100,
-			"fuel_span" = fuel_span
 		)
 
 /obj/machinery/computer/shuttle_control/explore/handle_topic_href(var/datum/shuttle/autodock/overmap/shuttle, var/list/href_list)
 	. = ..()
-	if(. != null)
+	if(!istype(shuttle))
 		return
-
-	if(href_list["pick"])
-		var/list/possible_d = shuttle.get_possible_destinations()
-		var/D
-		if(possible_d.len)
-			D = input("Choose shuttle destination", "Shuttle Destination") as null|anything in possible_d
-		else
-			to_chat(usr,"<span class='warning'>No valid landing sites in range.</span>")
-		possible_d = shuttle.get_possible_destinations()
-		if(CanInteract(usr, physical_state) && (D in possible_d))
-			shuttle.set_destination(possible_d[D])
-		return TOPIC_REFRESH
+	if(href_list["set_destination"])
+		var/datum/vueui/ui = href_list["vueui"]
+		if(!istype(ui))
+			return
+		var/destination_name = ui.data["current_destination"]
+		if(destination_name != shuttle.get_location_name())
+			shuttle.set_destination_with_tag(destination_name)

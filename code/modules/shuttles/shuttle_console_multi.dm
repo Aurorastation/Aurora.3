@@ -1,31 +1,36 @@
 /obj/machinery/computer/shuttle_control/multi
-	ui_template = "shuttle_control_console_multi.tmpl"
+	ui_template = "shuttle-control-console-multi"
 
 /obj/machinery/computer/shuttle_control/multi/get_ui_data(var/datum/shuttle/autodock/multi/shuttle)
 	. = ..()
 	if(istype(shuttle))
 		. += list(
-			"destination_name" = shuttle.next_location? shuttle.next_location.name : "No destination set.",
+			"destinations" = shuttle.get_destinations(),
+			"current_destination" = shuttle.next_location ? shuttle.next_location.name : shuttle.get_location_name(),
 			"can_pick" = shuttle.moving_status == SHUTTLE_IDLE,
 		)
 
 /obj/machinery/computer/shuttle_control/multi/handle_topic_href(var/datum/shuttle/autodock/multi/shuttle, var/list/href_list)
 	..()
-
-	if(href_list["pick"])
-		var/dest_key = input("Choose shuttle destination", "Shuttle Destination") as null|anything in shuttle.get_destinations()
-		if(dest_key && (!use_check(usr) || (isobserver(usr) && check_rights(R_ADMIN, FALSE))))
-			shuttle.set_destination(dest_key, usr)
-		return TOPIC_REFRESH
+	if(!istype(shuttle))
+		return
+	if(href_list["set_destination"])
+		var/datum/vueui/ui = href_list["vueui"]
+		if(!istype(ui))
+			return
+		var/destination_name = ui.data["current_destination"]
+		if(destination_name != shuttle.get_location_name())
+			shuttle.next_location = shuttle.destinations_cache[destination_name]
 
 /obj/machinery/computer/shuttle_control/multi/antag
-	ui_template = "shuttle_control_console_antag.tmpl"
+	ui_template = "shuttle-control-console-antag"
 
 /obj/machinery/computer/shuttle_control/multi/antag/get_ui_data(var/datum/shuttle/autodock/multi/antag/shuttle)
 	. = ..()
 	if(istype(shuttle))
+		var/cloak_status = shuttle.cloaked ? "Enabled" : "Disabled"
 		. += list(
-			"cloaked" = shuttle.cloaked,
+			"cloak_status" = cloak_status
 		)
 
 /obj/machinery/computer/shuttle_control/multi/antag/handle_topic_href(var/datum/shuttle/autodock/multi/antag/shuttle, var/list/href_list)
@@ -33,7 +38,7 @@
 
 	if(href_list["toggle_cloaked"])
 		shuttle.cloaked = !shuttle.cloaked
-		return TOPIC_REFRESH
+		return
 
 /obj/machinery/computer/shuttle_control/multi/can_move(var/datum/shuttle/autodock/shuttle, var/user)
 	if(istype(shuttle, /datum/shuttle/autodock/multi/antag))
