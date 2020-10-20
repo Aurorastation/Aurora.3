@@ -41,7 +41,7 @@
 		var/obj/item/organ/O = new new_organ(get_turf(src))
 
 		if(prints_prosthetics)
-			O.robotic = 2
+			O.robotic = ROBOTIC_MECHANICAL
 		else if(loaded_dna)
 			visible_message("<span class='notice'>The printer injects the stored DNA into the biomass.</span>.")
 			O.transplant_data = list()

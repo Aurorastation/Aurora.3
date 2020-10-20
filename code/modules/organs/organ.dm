@@ -165,10 +165,13 @@
 		germ_level = 0
 		return
 
-	if(BP_IS_ROBOTIC(src) && surge_damage)
+	if((status & ORGAN_ASSISTED) && surge_damage)
+		to_world("passing first check")
 		do_surge_effects()
-		if(surge_time + 1 SECOND >= world.time)
-			surge_damage -= 10
+		to_world("[surge_time] + 10 < [world.time]")
+		if(surge_time + 1 SECOND < world.time)
+			to_world("passing second check")
+			surge_damage = max(0, surge_damage - 10)
 			surge_time = world.time
 
 	if(!owner)
@@ -317,7 +320,7 @@
 				owner.custom_pain("Something inside your [parent.name] hurts a lot.", 1)
 
 /obj/item/organ/proc/robotize() //Being used to make robutt hearts, etc
-	robotic = 2
+	robotic = ROBOTIC_MECHANICAL
 	status = ORGAN_ROBOT
 	status |= ORGAN_ASSISTED
 	if(robotic_name)
