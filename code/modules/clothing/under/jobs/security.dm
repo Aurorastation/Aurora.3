@@ -34,8 +34,8 @@
 	siemens_coefficient = 0.75
 
 /obj/item/clothing/under/rank/warden
-	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for more robust protection. It has the word \"Warden\" written on the shoulders."
 	name = "warden's uniform"
+	desc = "It's made of a slightly sturdier material than standard jumpsuits, to allow for more robust protection. It has the word \"Warden\" written on the shoulders."
 	icon_state = "warden_standard"
 	worn_state = "warden_standard"
 	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
@@ -48,6 +48,15 @@
 /obj/item/clothing/under/rank/warden/dark_blue
 	icon_state = "warden_darkblue"
 	worn_state = "warden_darkblue"
+
+/obj/item/clothing/under/rank/warden/remote
+	name = "remote warden's uniform"
+	desc = "It's made of a slightly sturdier material than standard jumpsuits. It has the words \"Remote Warden\" written on the shoulders and it's bolted straight onto the chassis."
+	canremove = FALSE
+
+/obj/item/clothing/under/rank/warden/remote/Initialize()
+	. = ..()
+	sensor_mode = 0
 
 /*
  * Detective / Forensics

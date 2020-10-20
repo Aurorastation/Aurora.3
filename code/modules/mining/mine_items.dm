@@ -1321,7 +1321,7 @@ var/list/total_extraction_beacons = list()
 		target = get_atom_on_turf(src)
 	if(!target)
 		target = src
-	target.cut_overlay(image_overlay, TRUE)
+	QDEL_NULL(effect_overlay)
 	if(location)
 		new /obj/effect/overlay/temp/explosion(location)
 		playsound(location, 'sound/effects/Explosion1.ogg', 100, 1)
@@ -1353,3 +1353,60 @@ var/list/total_extraction_beacons = list()
 	for(var/turf/simulated/mineral/M in range(7,drill_loc))
 		if(prob(75))
 			M.GetDrilled(1)
+
+/****************Himeo Voidsuit Kit*****************/
+/obj/item/himeo_kit
+	name = "himeo voidsuit kit"
+	contained_sprite = TRUE
+	icon = 'icons/obj/mining_contained.dmi'
+	icon_state = "himeo_kit"
+	item_state = "himeo_kit"
+	desc = "A simple cardboard box containing the requisition forms, permits, and decal kits for a Himean voidsuit."
+	desc_fluff = "As part of a cost-cutting and productivity-enhancing initiative, NanoTrasen has authorized a number of Himean Type-76 'Fish Fur'\
+	for use by miners originating from the planet. Most of these suits are assembled in Cannington and painstakingly optimized on-site by their\
+	individual operator leading to a large trail of red tape as NanoTrasen is forced to inspect these suits to ensure their safety."
+	desc_info = "In order to convert a mining voidsuit into a Himean voidsuit, simply click on this box with a voidsuit or helmet in hand.\
+	The same process can be used to convert a Himean voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
+	or else it will be deleted."
+	w_class = ITEMSIZE_SMALL
+
+/obj/item/himeo_kit/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/clothing/suit/space/void/mining))
+		if(W.contents.len)
+			to_chat(user, SPAN_NOTICE("Remove any accessories, helmets, magboots, or oxygen tanks before attempting to convert this voidsuit."))
+			return
+		else
+			user.drop_item(W)
+			qdel(W)
+			to_chat(user, SPAN_NOTICE("Your permit for a Himean voidsuit has been processed. Enjoy!"))
+			playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
+			var/obj/item/clothing/suit/space/void/mining/himeo/P = new /obj/item/clothing/suit/space/void/mining/himeo(user.loc)
+			user.put_in_hands(P)
+
+	else if(istype(W, /obj/item/clothing/head/helmet/space/void/mining))
+		user.drop_item(W)
+		qdel(W)
+		to_chat(user, SPAN_NOTICE("Your permit for a Himean voidsuit helmet has been processed. Enjoy!"))
+		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
+		var/obj/item/clothing/head/helmet/space/void/mining/himeo/P = new /obj/item/clothing/head/helmet/space/void/mining/himeo(user.loc)
+		user.put_in_hands(P)
+
+	if(istype(W, /obj/item/clothing/suit/space/void/mining/himeo))
+		if(W.contents.len)
+			to_chat(user, SPAN_NOTICE("Remove any accessories, helmets, magboots, or oxygen tanks before attempting to convert this voidsuit."))
+			return
+		else
+			user.drop_item(W)
+			qdel(W)
+			to_chat(user, SPAN_NOTICE("Your Himean voidsuit has been reconverted into a NanoTrasen mining voidsuit."))
+			playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
+		var/obj/item/clothing/suit/space/void/mining/P = new /obj/item/clothing/suit/space/void/mining(user.loc)
+		user.put_in_hands(P)
+
+	if(istype(W, /obj/item/clothing/head/helmet/space/void/mining/himeo))
+		user.drop_item(W)
+		qdel(W)
+		to_chat(user, SPAN_NOTICE("Your Himean voidsuit helmet has been reconverted into a NanoTrasen mining helmet."))
+		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
+		var/obj/item/clothing/suit/space/void/mining/P = new /obj/item/clothing/head/helmet/space/void/mining(user.loc)
+		user.put_in_hands(P)
