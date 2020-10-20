@@ -261,32 +261,6 @@ var/list/global/organ_rel_size = list(
 
 	return ran_zone
 
-/proc/zone_to_real_name(var/zone)
-	switch(zone)
-		if(BP_L_FOOT)
-			return "left foot"
-		if(BP_R_FOOT)
-			return "right foot"
-		if(BP_L_LEG)
-			return "left leg"
-		if(BP_R_LEG)
-			return "right leg"
-		if(BP_L_HAND)
-			return "left hand"
-		if(BP_R_HAND)
-			return "right hand"
-		if(BP_L_ARM)
-			return "left arm"
-		if(BP_R_ARM)
-			return "right arm"
-		if(BP_HEAD)
-			return "head"
-		if(BP_CHEST)
-			return "chest"
-		if(BP_GROIN)
-			return "groin"
-	return "an organ"
-
 // Emulates targetting a specific body part, and miss chances
 // May return null if missed
 // miss_chance_mod may be negative.
