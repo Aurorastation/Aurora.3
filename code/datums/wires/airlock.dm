@@ -40,15 +40,28 @@ var/const/AIRLOCK_WIRE_LIGHT = 2048
 	var/haspower = A.arePowerSystemsOn() //If there's no power, then no lights will be on.
 
 	. += ..()
-	. += text("<br>\n[]<br>\n[]<br>\n[]<br>\n[]<br>\n[]<br>\n[]<br>\n[]<br>\n[]",
-	(A.locked ? "The door bolts have fallen!" : "The door bolts look up."),
-	((A.lights && haspower) ? "The door bolt lights are on." : "The door bolt lights are off!"),
-	((haspower) ? "The test light is on." : "The test light is off!"),
-	((A.backup_power_lost_until) ? "The backup power light is off!" : "The backup power light is on."),
-	((A.aiControlDisabled==0 && !A.emagged && haspower)? "The 'AI control allowed' light is on." : "The 'AI control allowed' light is off."),
-	((A.safe==0 && haspower)? "The 'Check Wiring' light is on." : "The 'Check Wiring' light is off."),
-	((A.normalspeed==0 && haspower)? "The 'Check Timing Mechanism' light is on." : "The 'Check Timing Mechanism' light is off."),
-	((A.aiDisabledIdScanner==0 && haspower)? "The IDScan light is on." : "The IDScan light is off."))
+	var/list/text = list()
+
+	if(!haspower)
+		text += "The test light and all the other lights are off."
+		text += A.locked ? "The door bolts seem to be down!" : "The door bolts seem to be up."
+	else
+		text += "The test light is on."
+		text += A.backup_power_lost_until ? "The backup power light is off!" : "The backup power light is on."
+		if(A.lights) // show different bolt message depending on whether we have lights
+			text += "The door bolt indicator lights are on."
+			text += A.locked ? "The door bolts are down!" : "The door bolts are up." // we can see what's up
+		else
+			text += "The door bolt indicator lights are off!"
+			text += A.locked ? "The door bolts seem to be down!" : "The door bolts seem to be up." // this is a closer inspection
+		if(A.aiControlDisabled==0 && !A.emagged)
+			text += "The 'AI control allowed' light is on."
+		else
+			text += "The 'AI control allowed' light is off."
+		text += A.safe==0 ? "The 'Check Wiring' light is on." : "The 'Check Wiring' light is off."
+		text += A.normalspeed==0 ? "The 'Check Timing Mechanism' light is on." : "The 'Check Timing Mechanism' light is off."
+		text += A.aiDisabledIdScanner==0 ? "The IDScan light is on." : "The IDScan light is off."
+	. += "<br>\n" + jointext(text, "<br>\n")
 
 /datum/wires/airlock/UpdateCut(var/index, var/mended)
 
@@ -188,27 +201,27 @@ var/const/AIRLOCK_WIRE_LIGHT = 2048
 
 /datum/wires/airlock/proc/index_to_type(var/index)
 	switch(index)
-		if(1)
+		if(AIRLOCK_WIRE_IDSCAN)
 			return "ID Scan"
-		if(2)
+		if(AIRLOCK_WIRE_MAIN_POWER1)
 			return "Power"
-		if(4)
+		if(AIRLOCK_WIRE_MAIN_POWER2)
 			return "Power"
-		if(8)
+		if(AIRLOCK_WIRE_DOOR_BOLTS)
 			return "Bolts"
-		if(16)
+		if(AIRLOCK_WIRE_BACKUP_POWER1)
 			return "Backup Power"
-		if(32)
+		if(AIRLOCK_WIRE_BACKUP_POWER2)
 			return "Backup Power"
-		if(64)
+		if(AIRLOCK_WIRE_OPEN_DOOR)
 			return "Actuation"
-		if(128)
+		if(AIRLOCK_WIRE_AI_CONTROL)
 			return "AI Control"
-		if(256)
+		if(AIRLOCK_WIRE_ELECTRIFY)
 			return "Anti-tampering"
-		if(512)
+		if(AIRLOCK_WIRE_SAFETY)
 			return "Safety"
-		if(1024)
+		if(AIRLOCK_WIRE_SPEED)
 			return "Speed"
-		if(2048)
+		if(AIRLOCK_WIRE_LIGHT)
 			return "Bolt Lights"
