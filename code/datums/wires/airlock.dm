@@ -43,24 +43,24 @@ var/const/AIRLOCK_WIRE_LIGHT = 2048
 	var/list/text = list()
 
 	if(!haspower)
-		text += "The test light and all the other lights are off."
+		text += "The test light and all the other indicator lights are [SPAN_BAD("off")]!"
 		text += A.locked ? "The door bolts seem to be down!" : "The door bolts seem to be up."
 	else
-		text += "The test light is on."
-		text += A.backup_power_lost_until ? "The backup power light is off!" : "The backup power light is on."
+		text += "The test light is [SPAN_GOOD("on")]."
+		text += A.backup_power_lost_until ? "The backup power light is [SPAN_BAD("off")]!" : "The backup power light is [SPAN_GOOD("on")]."
 		if(A.lights) // show different bolt message depending on whether we have lights
-			text += "The door bolt indicator lights are on."
-			text += A.locked ? "The door bolts are down!" : "The door bolts are up." // we can see what's up
+			text += "The door bolt indicator lights are [SPAN_GOOD("on")]."
+			text += "They show the bolts are [A.locked ? SPAN_BAD("down") : SPAN_GOOD("up")]."
 		else
-			text += "The door bolt indicator lights are off!"
+			text += "The door bolt indicator lights are [SPAN_BAD("off")]!"
 			text += A.locked ? "The door bolts seem to be down!" : "The door bolts seem to be up." // this is a closer inspection
 		if(A.aiControlDisabled==0 && !A.emagged)
-			text += "The 'AI control allowed' light is on."
+			text += "The 'AI control allowed' light is [SPAN_GOOD("on")]."
 		else
-			text += "The 'AI control allowed' light is off."
-		text += A.safe==0 ? "The 'Check Wiring' light is on." : "The 'Check Wiring' light is off."
-		text += A.normalspeed==0 ? "The 'Check Timing Mechanism' light is on." : "The 'Check Timing Mechanism' light is off."
-		text += A.aiDisabledIdScanner==0 ? "The IDScan light is on." : "The IDScan light is off."
+			text += "The 'AI control allowed' light is [SPAN_BAD("off")]."
+		text += A.safe==0 ? "The 'Check Wiring' light is [SPAN_GOOD("on")]." : "The 'Check Wiring' light is [SPAN_BAD("off")]."
+		text += A.normalspeed==0 ? "The 'Check Timing Mechanism' light is [SPAN_GOOD("on")]." : "The 'Check Timing Mechanism' light is [SPAN_BAD("off")]."
+		text += A.aiDisabledIdScanner==0 ? "The IDScan light is [SPAN_GOOD("on")]." : "The IDScan light is [SPAN_BAD("off")]."
 	. += "<br>\n" + jointext(text, "<br>\n")
 
 /datum/wires/airlock/UpdateCut(var/index, var/mended)
@@ -69,8 +69,8 @@ var/const/AIRLOCK_WIRE_LIGHT = 2048
 	switch(index)
 		if(AIRLOCK_WIRE_IDSCAN)
 			A.aiDisabledIdScanner = !mended
-		if(AIRLOCK_WIRE_MAIN_POWER1, AIRLOCK_WIRE_MAIN_POWER2)
 
+		if(AIRLOCK_WIRE_MAIN_POWER1, AIRLOCK_WIRE_MAIN_POWER2)
 			if(!mended)
 				//Cutting either one disables the main door power, but unless backup power is also cut, the backup power re-powers the door in 10 seconds. While unpowered, the door may be crowbarred open, but bolts-raising will not work. Cutting these wires may electocute the user.
 				A.loseMainPower()
@@ -80,7 +80,6 @@ var/const/AIRLOCK_WIRE_LIGHT = 2048
 				A.shock(usr, 50)
 
 		if(AIRLOCK_WIRE_BACKUP_POWER1, AIRLOCK_WIRE_BACKUP_POWER2)
-
 			if(!mended)
 				//Cutting either one disables the backup door power (allowing it to be crowbarred open, but disabling bolts-raising), but may electocute the user.
 				A.loseBackupPower()
@@ -90,14 +89,12 @@ var/const/AIRLOCK_WIRE_LIGHT = 2048
 				A.shock(usr, 50)
 
 		if(AIRLOCK_WIRE_DOOR_BOLTS)
-
 			if(!mended)
 				//Cutting this wire also drops the door bolts, and mending it does not raise them. (This is what happens now, except there are a lot more wires going to door bolts at present)
 				A.lock(1)
 				A.update_icon()
 
 		if(AIRLOCK_WIRE_AI_CONTROL)
-
 			if(!mended)
 				//one wire for AI control. Cutting this prevents the AI from controlling the door unless it has hacked the door through the power connection (which takes about a minute). If both main and backup power are cut, as well as this wire, then the AI cannot operate or hack the door at all.
 				//aiControlDisabled: If 1, AI control is disabled until the AI hacks back in and disables the lock. If 2, the AI has bypassed the lock. If -1, the control is enabled but the AI had bypassed it earlier, so if it is disabled again the AI would have no trouble getting back in.
@@ -141,9 +138,11 @@ var/const/AIRLOCK_WIRE_LIGHT = 2048
 			//Sending a pulse through flashes the red light on the door (if the door has power).
 			if(A.arePowerSystemsOn() && A.density)
 				A.do_animate("deny")
+
 		if(AIRLOCK_WIRE_MAIN_POWER1, AIRLOCK_WIRE_MAIN_POWER2)
 			//Sending a pulse through either one causes a breaker to trip, disabling the door for 10 seconds if backup power is connected, or 1 minute if not (or until backup power comes back on, whichever is shorter).
 			A.loseMainPower()
+
 		if(AIRLOCK_WIRE_DOOR_BOLTS)
 			//one wire for door bolts. Sending a pulse through this drops door bolts if they're not down (whether power's on or not),
 			//raises them if they are down (only if power's on)
@@ -155,6 +154,7 @@ var/const/AIRLOCK_WIRE_LIGHT = 2048
 		if(AIRLOCK_WIRE_BACKUP_POWER1, AIRLOCK_WIRE_BACKUP_POWER2)
 			//two wires for backup power. Sending a pulse through either one causes a breaker to trip, but this does not disable it unless main power is down too (in which case it is disabled for 1 minute or however long it takes main power to come back, whichever is shorter).
 			A.loseBackupPower()
+
 		if(AIRLOCK_WIRE_AI_CONTROL)
 			if(A.aiControlDisabled == 0)
 				A.aiControlDisabled = 1
@@ -171,13 +171,18 @@ var/const/AIRLOCK_WIRE_LIGHT = 2048
 		if(AIRLOCK_WIRE_ELECTRIFY)
 			//one wire for electrifying the door. Sending a pulse through this electrifies the door for 30 seconds.
 			A.electrify(30)
+
 		if(AIRLOCK_WIRE_OPEN_DOOR)
 			//tries to open the door without ID
 			//will succeed only if the ID wire is cut or the door requires no access and it's not emagged
-			if(A.emagged)	return
+			if(A.emagged)
+				return
 			if(!A.requiresID() || A.check_access(null))
-				if(A.density)	A.open()
-				else			A.close()
+				if(A.density)
+					A.open()
+				else
+					A.close()
+
 		if(AIRLOCK_WIRE_SAFETY)
 			A.safe = !A.safe
 			if(!A.density)
