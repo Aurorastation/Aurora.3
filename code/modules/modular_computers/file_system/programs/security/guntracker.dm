@@ -37,7 +37,9 @@
 		data["_PC"] = headerdata
 		. = data
 
-	var/ntnet_status = !ntnet_global?.check_function()
+	var/ntnet_status = FALSE
+	if(ntnet_global && ntnet_global.check_function())
+		ntnet_status = TRUE
 	data["ntnet_active"] = ntnet_status
 
 	var/turf/T = get_turf(computer.loc)
@@ -67,12 +69,20 @@
 	if(..())
 		return TRUE
 
+	if(!(ntnet_global && ntnet_global.check_function()))
+		return
+
 	//Try and get the pin if a pin is passed
 	var/obj/item/device/firing_pin/wireless/P = null
 	if(href_list["pin"])
 		P = locate(href_list["pin"]) in wireless_firing_pins
 
-	if(!istype(P))
+	if(!istype(P) || !P.gun)
+		return
+
+	var/turf/T = get_turf(computer)
+	var/turf/Ts = get_turf(P)
+	if(!ARE_Z_CONNECTED(T.z, Ts.z))
 		return
 
 	switch(href_list["action"])
