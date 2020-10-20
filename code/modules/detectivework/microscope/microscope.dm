@@ -58,8 +58,8 @@
 
 		else if(slide.has_sample)
 			var/obj/item/sample/fibers/fibers = slide.has_sample
-			pname = "Fiber report #[++report_num]: [fibers.name]"
-			info = "<b>Scanned item:</b><br>[fibers.name]<br><br>"
+			pname = "Fiber report #[++report_num]: [initial(fibers.name)]"
+			info = "<b>Scanned item:</b><br>[initial(fibers.name)]<br><br>"
 			if(fibers.evidence)
 				info = "Molecular analysis on provided sample has determined the presence of unique fiber strings.<br><br>"
 				for(var/fiber in fibers.evidence)

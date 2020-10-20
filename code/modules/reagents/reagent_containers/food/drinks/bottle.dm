@@ -251,7 +251,7 @@
 	reagents_to_add = list(/datum/reagent/alcohol/ethanol/vodka/mushroom = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/tequila
-	name = "Chip’s Guaranteed Quality tequila"
+	name = "Chip's Guaranteed Quality tequila"
 	desc = "Made from premium petroleum distillates, pure thalidomide and other fine quality ingredients!"
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "tequilabottle"
@@ -278,7 +278,7 @@
 	reagents.add_reagent(/datum/reagent/alcohol/ethanol/bitters,40)
 
 /obj/item/reagent_containers/food/drinks/bottle/champagne
-	name = "Silverport’s Bubbliest champagne"
+	name = "Silverport's Bubbliest champagne"
 	desc = "A rather fancy bottle of champagne, fit for collecting and storing in a cellar for decades."
 	desc_fluff = DRINK_FLUFF_SILVERPORT
 	icon_state = "champagnebottle"
@@ -289,7 +289,7 @@
 	reagents.add_reagent(/datum/reagent/alcohol/ethanol/champagne,100)
 
 /obj/item/reagent_containers/food/drinks/bottle/mintsyrup
-	name = "Getmore’s Bold Peppermint"
+	name = "Getmore's Bold Peppermint"
 	desc = "Minty fresh. Contains dyn (and just a little peppermint)."
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "mint_syrup"
@@ -298,7 +298,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/patron
 	name = "Cytherea Artiste patron"
-	desc = "Silver laced tequila, served in space night clubs across the galaxy. It’s among some of the most expensive Silverport Quality Brand products, \
+	desc = "Silver laced tequila, served in space night clubs across the galaxy. It's among some of the most expensive Silverport Quality Brand products, \
 			perhaps due to demand rather than the actual cost of production."
 	desc_fluff = DRINK_FLUFF_SILVERPORT
 	icon_state = "patronbottle"
@@ -307,7 +307,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/rum
 	name = "Captain Melinda's Cuban Spiced rum"
-	desc = "If Getmore gets any alcohol right, it’s certainly rum. It’s practically GRIFF in a bottle."
+	desc = "If Getmore gets any alcohol right, it's certainly rum. It's practically GRIFF in a bottle."
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "rumbottle"
 	center_of_mass = list("x"=16, "y"=4)
@@ -324,14 +324,14 @@
 /obj/item/reagent_containers/food/drinks/bottle/vermouth
 	name = "Xinghua vermouth"
 	desc = "Sweet, sweet dryness. Some alcohol critics say that the addition of dyn to the recipe ruins the drink, \
-			but the average consumer doesn’t really notice the difference, and it’s cheaper to manufacture."
+			but the average consumer doesn't really notice the difference, and it's cheaper to manufacture."
 	desc_fluff = DRINK_FLUFF_ZENGHU
 	icon_state = "vermouthbottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/datum/reagent/alcohol/ethanol/vermouth = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/kahlua
-	name = "Nixiqi’s Happy Accident coffee liqueur"
+	name = "Nixiqi's Happy Accident coffee liqueur"
 	desc = "A particularly genius Skrell came up with the recipe by accident in a hydroponics lab by spilling coffee in their herbal concoction, or so the story goes."
 	desc_fluff = DRINK_FLUFF_ZENGHU
 	icon_state = "kahluabottle"
@@ -356,7 +356,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/wine
 	name = "Silverport Quality Brand red wine"
-	desc = "Some consider this to be Silversun’s main cultural export."
+	desc = "Some consider this to be Silversun's main cultural export."
 	desc_fluff = DRINK_FLUFF_SILVERPORT
 	icon_state = "winebottle"
 	center_of_mass = list("x"=16, "y"=4)
@@ -364,7 +364,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/absinthe
 	name = "Jailbreaker Verte"
-	desc = "One sip of this and you just know you’re gonna have a good time. Particularly artistic Cythereans drink this Silverport product to get inspired."
+	desc = "One sip of this and you just know you're gonna have a good time. Particularly artistic Cythereans drink this Silverport product to get inspired."
 	desc_fluff = DRINK_FLUFF_SILVERPORT
 	icon_state = "absinthebottle"
 	center_of_mass = list("x"=16, "y"=7)
@@ -390,7 +390,7 @@
 	reagents_to_add = list(/datum/reagent/alcohol/ethanol/bluecuracao = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/grenadine
-	name = "Getmore’s Tangy grenadine syrup"
+	name = "Getmore's Tangy grenadine syrup"
 	desc = "Sweet and tangy, a bar syrup used to add color or flavor to drinks."
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "grenadinebottle"
@@ -454,7 +454,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/small/beer
 	name = "Ultimate Quality beer"
-	desc = "Contains only water, malt and hops. Not really as high-quality as the name says, but it’s still popular."
+	desc = "Contains only water, malt and hops. Not really as high-quality as the name says, but it's still popular."
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "beer"
 	center_of_mass = list("x"=16, "y"=8)
@@ -508,7 +508,7 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/brandy
 	name = "Admiral Cindy's brandy"
-	desc = "Cheap knock off for Silverport cognac; Getmore’s attempt to ride off the cognac fad of the 2420s."
+	desc = "Cheap knock off for Silverport cognac; Getmore's attempt to ride off the cognac fad of the 2420s."
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "brandybottle"
 	center_of_mass = list("x" = 15,"y" = 8)
@@ -530,7 +530,7 @@
 	reagents_to_add = list(/datum/reagent/alcohol/ethanol/drambuie = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/sbiten
-	name = "Getmore’s Traditional Sbiten"
+	name = "Getmore's Traditional Sbiten"
 	desc = "A drink that died, then got revived, then died again, and became a fad <i>again</i> now thanks to Getmore having a surplus of honey."
 	desc_fluff = DRINK_FLUFF_GETMORE
 	icon_state = "sbitenbottle"

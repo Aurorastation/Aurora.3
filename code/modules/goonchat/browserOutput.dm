@@ -26,7 +26,13 @@ var/savefile/iconCache = new("data/tmp/iconCache.sav") //Cache of icons for the 
 	messageQueue = list()
 	connectionHistory = list()
 
+/**
+  * start: Tries to load the chat browser
+  * Aborts if a problem is encountered.
+  * Async because this is called from Client/New.
+  */
 /datum/chatOutput/proc/start()
+	set waitfor = FALSE
 	//Check for existing chat
 	if(!owner)
 		return FALSE
