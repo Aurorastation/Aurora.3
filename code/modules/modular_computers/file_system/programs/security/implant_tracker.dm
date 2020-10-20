@@ -36,11 +36,6 @@
 		data["_PC"] = headerdata
 		. = data
 
-	var/ntnet_status = FALSE
-	if(ntnet_global && ntnet_global.check_function())
-		ntnet_status = TRUE
-	data["ntnet_active"] = ntnet_status
-	
 	var/list/chem_implants = list()
 	for(var/obj/item/implant/chem/C in implants)
 		if(!C.implanted)
@@ -84,9 +79,6 @@
 	. = ..()
 	if(.)
 		return TRUE
-
-	if(!(ntnet_global && ntnet_global.check_function()))
-		return
 
 	if(href_list["inject1"])
 		var/obj/item/implant/I = locate(href_list["inject1"]) in implants
