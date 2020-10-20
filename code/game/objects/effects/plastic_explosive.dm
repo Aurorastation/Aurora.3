@@ -17,9 +17,12 @@
 	desc = parent.desc
 	set_position(get_dir(src, target))
 
+/obj/effect/plastic_explosive/Destroy()
+	QDEL_NULL(parent)
+	return ..()
+
 /obj/effect/plastic_explosive/proc/set_position(var/dir)
 	var/dir_text = uppertext(dir2text(dir))
-	// DIR = list(pixel_x, pixel_y)
 	var/list/dir_to_pixel = list(
 		"NORTH" = list(0, 32),
 		"NORTHEAST" = list(32, 32),
