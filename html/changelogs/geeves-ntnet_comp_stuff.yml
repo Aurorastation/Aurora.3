@@ -3,4 +3,4 @@ author: Geeves
 delete-after: True
 
 changes: 
-  - tweak: "Ethernet connections no longer allow computers to connect to an NTNet relay that's offline or doesn't exist."
+  - bugfix: "Ethernet connections no longer allow computers to connect to an NTNet relay that's offline or doesn't exist."
