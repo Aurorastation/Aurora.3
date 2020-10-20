@@ -85,7 +85,7 @@
 	if(.)
 		return TRUE
 
-	if(!ntnet_global?.check_function())
+	if(!(ntnet_global && ntnet_global.check_function()))
 		return
 
 	if(href_list["inject1"])
