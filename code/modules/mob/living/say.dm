@@ -177,11 +177,7 @@ proc/get_radio_key_from_channel(var/channel)
 			message = copytext(message,3)
 
 	message = trim(message)
-
-	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, ">" = TRUE, "\"" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE, "*" = TRUE, "/" = TRUE)
-	var/ending = copytext(message, length(message), (length(message) + 1))
-	if(ending && !correct_punctuation[ending] && !(HULK in mutations))
-		message += "."
+	message = formalize_text(message)
 
 	//parse the language code and consume it
 	if(!speaking)

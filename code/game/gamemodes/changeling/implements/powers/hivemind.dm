@@ -34,14 +34,7 @@
 		to_chat(ling, message)
 
 /mob/proc/changeling_message_process(var/message)
-	message = capitalize(message)
-
-	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE)
-	var/ending = copytext(message, length(message), (length(message) + 1))
-	if(ending && !correct_punctuation[ending])
-		message += "."
-
-	return "<font color=[COLOR_LING_HIVEMIND]><b>[src]</b> says, \"[message]\"</font>"
+	return "<font color=[COLOR_LING_HIVEMIND]><b>[src]</b> says, \"[formalize_text(message)]\"</font>"
 
 /mob/living/carbon/human/proc/changeling_release_morph()
 	set category = "Changeling"

@@ -35,13 +35,18 @@
 	if(headerdata)
 		data["_PC"] = headerdata
 		. = data
+
+	var/ntnet_status = FALSE
+	if(ntnet_global && ntnet_global.check_function())
+		ntnet_status = TRUE
+	data["ntnet_active"] = ntnet_status
 	
 	var/list/chem_implants = list()
 	for(var/obj/item/implant/chem/C in implants)
+		if(!C.implanted)
+			continue
 		var/turf/Tr = get_turf(C)
 		if(!Tr || !isStationLevel(Tr.z))
-			continue
-		if(!C.implanted)
 			continue
 		var/list/chem_info = list(
 			"implanted_name" = C.imp_in.real_name,
@@ -52,10 +57,10 @@
 	VUEUI_SET_CHECK(data["chem_implants"], chem_implants, ., data)
 	var/list/tracking_implants = list()
 	for(var/obj/item/implant/tracking/T in implants)
+		if(!T.implanted)
+			continue
 		var/turf/Tr = get_turf(T)
 		if(!Tr || !isStationLevel(Tr.z))
-			continue
-		if(!T.implanted)
 			continue
 		var/loc_display = "Unknown"
 		var/mob/living/carbon/M = T.imp_in
@@ -79,6 +84,9 @@
 	. = ..()
 	if(.)
 		return TRUE
+
+	if(!ntnet_global?.check_function())
+		return
 
 	if(href_list["inject1"])
 		var/obj/item/implant/I = locate(href_list["inject1"]) in implants
@@ -109,11 +117,7 @@
 		if(!warning)
 			return
 
-		warning = capitalize(warning)
-		var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE)
-		var/ending = copytext(warning, length(warning), (length(warning) + 1))
-		if(ending && !correct_punctuation[ending])
-			warning += "."
+		warning = formalize_text(warning)
 
 		var/obj/item/implant/I = locate(href_list["warn"]) in implants
 		if(istype(I) && I.imp_in)
