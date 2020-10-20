@@ -4,7 +4,7 @@
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "mopbucket"
 	density = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	flags = OPENCONTAINER
 	var/amount_per_transfer_from_this = 5	//shit I dunno, adding this so syringes stop runtime erroring. --NeoFite
 	var/bucketsize = 360 //about 3x the size relative to a regular bucket.
@@ -14,7 +14,7 @@
 	create_reagents(bucketsize)
 	janitorial_supplies |= src
 
-/obj/structure/mobbucket/Destroy()
+/obj/structure/mopbucket/Destroy()
 	janitorial_supplies -= src
 	return ..()
 

@@ -5,7 +5,7 @@
 	name = "Door"
 	desc = "It opens and closes."
 	icon = 'icons/obj/doors/Doorint.dmi'
-	icon_state = "door1"
+	icon_state = "door_closed"
 	anchored = 1
 	opacity = 1
 	density = 1
@@ -15,7 +15,7 @@
 
 	var/visible = 1
 	var/p_open = 0
-	var/operating = 0
+	var/operating = FALSE
 	var/autoclose = 0
 	var/glass = 0
 	var/normalspeed = 1
@@ -71,7 +71,20 @@
 		layer = open_layer
 		explosion_resistance = 0
 
+	SetBounds()
+	health = maxhealth
 
+	update_nearby_tiles(need_rebuild=1)
+	if(hashatch && !(width > 1))
+		setup_hatch()
+
+/obj/machinery/door/Move(new_loc, new_dir)
+	. = ..()
+	SetBounds()
+	update_nearby_tiles()
+	update_icon()
+
+/obj/machinery/door/proc/SetBounds()
 	if(width > 1)
 		if(dir in list(EAST, WEST))
 			bound_width = width * world.icon_size
@@ -79,12 +92,6 @@
 		else
 			bound_width = world.icon_size
 			bound_height = width * world.icon_size
-
-	health = maxhealth
-
-	update_nearby_tiles(need_rebuild=1)
-	if (hashatch)
-		setup_hatch()
 
 /obj/machinery/door/proc/setup_hatch()
 	hatch_image = image('icons/obj/doors/hatches.dmi', src, hatchstyle, closed_layer+0.1)
@@ -377,9 +384,10 @@
 /obj/machinery/door/emag_act(var/remaining_charges)
 	if(density && operable())
 		do_animate("spark")
+		emagged = 1
 		sleep(6)
-		open()
-		operating = -1
+		stat |= BROKEN
+		open(1)
 		return 1
 
 /obj/machinery/door/proc/take_damage(var/damage)
@@ -409,9 +417,7 @@
 
 /obj/machinery/door/proc/set_broken()
 	stat |= BROKEN
-	for (var/mob/O in viewers(src, null))
-		if ((O.client && !( O.blinded )))
-			O.show_message("[src.name] breaks!" )
+	visible_message(SPAN_WARNING("[src] breaks!"))
 	update_icon()
 	return
 
@@ -459,9 +465,9 @@
 
 /obj/machinery/door/update_icon()
 	if(density)
-		icon_state = "door1"
+		icon_state = "door_closed"
 	else
-		icon_state = "door0"
+		icon_state = "door_open"
 	return
 
 
@@ -490,10 +496,10 @@
 /obj/machinery/door/proc/open(var/forced = 0)
 	if(!can_open(forced))
 		return
-	operating = 1
+	operating = TRUE
 
 	do_animate("opening")
-	icon_state = "door0"
+	icon_state = "door_open"
 	set_opacity(0)
 	sleep(3)
 	src.density = 0
@@ -503,7 +509,7 @@
 	explosion_resistance = 0
 	update_icon()
 	set_opacity(0)
-	operating = 0
+	operating = FALSE
 
 	if(autoclose)
 		close_door_in(next_close_time())
@@ -522,8 +528,9 @@
 		if (autoclose)
 			for (var/atom/movable/M in get_turf(src))
 				if (M.density && M != src)
-					addtimer(CALLBACK(src, .proc/autoclose), 60)
-	operating = 1
+					addtimer(CALLBACK(src, .proc/autoclose), 60, TIMER_UNIQUE)
+					break
+	operating = TRUE
 
 	do_animate("closing")
 	sleep(3)
@@ -535,7 +542,7 @@
 	update_icon()
 	if(visible && !glass)
 		set_opacity(1)	//caaaaarn!
-	operating = 0
+	operating = FALSE
 
 	//I shall not add a check every x ticks if a door has closed over some fire.
 	var/obj/fire/fire = locate() in loc
@@ -571,19 +578,6 @@
 	if(invert)
 		return src.density
 	return !src.density
-
-/obj/machinery/door/Move(new_loc, new_dir)
-	//update_nearby_tiles()
-	. = ..()
-	if(width > 1)
-		if(dir in list(EAST, WEST))
-			bound_width = width * world.icon_size
-			bound_height = world.icon_size
-		else
-			bound_width = world.icon_size
-			bound_height = width * world.icon_size
-
-	update_nearby_tiles()
 
 /obj/machinery/door/morgue
 	icon = 'icons/obj/doors/doormorgue.dmi'

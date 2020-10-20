@@ -7,7 +7,7 @@
 	vital = 1
 	icon_state = "brain"
 	force = 1.0
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throwforce = 1.0
 	throw_speed = 3
 	throw_range = 5
@@ -120,10 +120,13 @@
 
 			var/can_heal = damage && damage < max_damage && (damage % damage_threshold_value || owner.chem_effects[CE_BRAIN_REGEN] || (!past_damage_threshold(3) && owner.chem_effects[CE_STABLE]))
 			var/damprob
+			var/brain_regen_amount = owner.chem_effects[CE_BRAIN_REGEN]	/ 10
 			//Effects of bloodloss
 			switch(blood_volume)
 				if(BLOOD_VOLUME_SAFE to INFINITY)
-					if(can_heal)
+					if(can_heal && owner.chem_effects[CE_BRAIN_REGEN])
+						damage = max(damage - brain_regen_amount, 0)
+					else if(can_heal)
 						damage = max(damage-1, 0)
 				if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
 					if(prob(1))

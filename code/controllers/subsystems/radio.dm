@@ -173,6 +173,8 @@ var/datum/controller/subsystem/radio/SSradio
 			. = "airadio"
 		if (SEC_FREQ,SEC_I_FREQ)
 			. = "secradio"
+		if (PEN_FREQ)
+			. = "penradio"
 		if (ENG_FREQ)
 			. = "engradio"
 		if (SCI_FREQ)

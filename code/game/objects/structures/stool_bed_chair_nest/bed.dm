@@ -30,6 +30,8 @@
 	var/makes_rolling_sound = TRUE
 	var/buckle_sound = 'sound/effects/buckle.ogg'
 
+	slowdown = 5
+
 /obj/structure/bed/Initialize(mapload, var/new_material, var/new_padding_material)
 	. = ..()
 	color = null
@@ -213,6 +215,7 @@
 	var/obj/item/reagent_containers/beaker
 	var/iv_attached = 0
 	var/iv_stand = TRUE
+	slowdown = 0
 
 /obj/structure/bed/roller/update_icon()
 	overlays.Cut()
@@ -356,7 +359,7 @@
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 	center_of_mass = list("x" = 17,"y" = 7)
 	var/bedpath = /obj/structure/bed/roller
-	w_class = 4.0 // Can't be put in backpacks. Oh well.
+	w_class = ITEMSIZE_LARGE // Can't be put in backpacks. Oh well.
 
 /obj/item/roller/hover
 	name = "medical hoverbed"

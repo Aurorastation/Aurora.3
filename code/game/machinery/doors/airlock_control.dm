@@ -22,7 +22,7 @@
 /obj/machinery/door/airlock/proc/execute_current_command()
 	set waitfor = FALSE
 	if(operating)
-		if (operating != -1)	// -1 is emagged.
+		if (emagged == 1)
 			// Come back and try again later.
 			queue_command()
 		return //emagged or busy doing something else
@@ -259,7 +259,7 @@
 
 /obj/machinery/access_button/attackby(obj/item/I as obj, mob/user as mob)
 	//Swiping ID on the access button
-	if (istype(I, /obj/item/card/id) || istype(I, /obj/item/device/pda))
+	if (I.GetID())
 		attack_hand(user)
 		return
 	..()

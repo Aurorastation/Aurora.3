@@ -176,7 +176,8 @@
 	var/new_name = "[pick(list("Ka'","Za'","Ka'"))]"
 	new_name += "[pick(list("Akaix'","Viax'"))]"
 	new_name += "[pick(list("Uyek","Uyit","Avek","Theth","Ztak","Teth","Zir","Yek","Zirk","Ayek","Yir","Kig","Yol","'Zrk","Nazgr","Yet","Nak","Kiihr","Gruz","Guurz","Nagr","Zkk","Zohd","Norc","Agraz","Yizgr","Yinzr","Nuurg","Iii","Lix","Nhagh","Xir","Z'zit","Zhul","Zgr","Na'k","Isk'yet","Aaaa"))]"
-	new_name += " [pick(list("Zo'ra","Zo'ra","Zo'ra","K'lax"))]"
+	var/list/hive_names = list("Zo'ra" = 3, "K'lax" = 1, "C'thur" = 1)
+	new_name += " [pickweight(hive_names)]"
 	return new_name
 
 /datum/language/bug/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
@@ -188,7 +189,7 @@
 	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message))]</span></i>"
 
 	if(isvaurca(speaker))
-		speaker.custom_emote(1, "[pick("twitches their antennae", "twitches their antennae rhythmically")].")
+		speaker.custom_emote(VISIBLE_MESSAGE, "[pick("twitches their antennae", "twitches their antennae rhythmically")].")
 
 	if (within_jamming_range(speaker))
 		// The user thinks that the message got through.
@@ -210,7 +211,7 @@
 		return 0
 	if(within_jamming_range(other))
 		return 0
-	if(M.internal_organs_by_name["neural socket"])
+	if(M.internal_organs_by_name[BP_NEURAL_SOCKET])
 		return 1
 	if(M.internal_organs_by_name["blackkois"])
 		return 1

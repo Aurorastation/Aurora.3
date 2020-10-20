@@ -79,3 +79,7 @@
 /obj/effect/projectile/muzzle/hegemony
 	icon_state = "muzzle_hegemony"
 	light_color = LIGHT_COLOR_ORANGE
+
+/obj/effect/projectile/muzzle/tesla
+	icon_state = "muzzle_lightning"
+	light_color = LIGHT_COLOR_CYAN

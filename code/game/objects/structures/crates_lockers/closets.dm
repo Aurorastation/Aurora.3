@@ -4,7 +4,7 @@
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "closed"
 	density = 1
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	layer = OBJ_LAYER - 0.01
 	build_amt = 2
 	var/icon_closed = "closed"
@@ -27,6 +27,8 @@
 
 	var/const/default_mob_size = 15
 	var/obj/item/closet_teleporter/linked_teleporter
+
+	slowdown = 5
 
 /obj/structure/closet/LateInitialize()
 	if (opened)	// if closed, any item at the crate's loc is put in the contents
@@ -66,13 +68,17 @@
 		to_chat(user, "\The [src] is full.")
 
 /obj/structure/closet/examine(mob/user)
-	if(..(user, 1) && !opened)
+	if(!src.opened && (..(user, 1) || isobserver(user)))
 		var/content_size = 0
 		for(var/obj/item/I in contents)
 			if(!I.anchored)
 				content_size += Ceiling(I.w_class/2)
 		content_info(user, content_size)
-	if(linked_teleporter && Adjacent(user) && opened)
+
+	if(!src.opened && isobserver(user))
+		to_chat(user, "It contains: [counting_english_list(contents)]")
+
+	if(src.opened && linked_teleporter && (Adjacent(user) || isobserver(user)))
 		to_chat(user, FONT_SMALL(SPAN_NOTICE("There appears to be a device attached to the interior backplate of \the [src]...")))
 
 /obj/structure/closet/proc/stored_weight()
@@ -84,6 +90,8 @@
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0 || wall_mounted)) return 1
+	if(istype(mover) && mover.checkpass(PASSTRACE))
+		return 1
 	return (!density)
 
 /obj/structure/closet/proc/can_open()

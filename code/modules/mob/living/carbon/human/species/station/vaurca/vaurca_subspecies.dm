@@ -49,6 +49,8 @@
 	icobase = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	deform = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	icon_x_offset = -8
+	healths_x = 22
+	healths_overlay_x = 9
 	unarmed_types = list(/datum/unarmed_attack/stomp, /datum/unarmed_attack/kick,  /datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
 	rarity_value = 10
 	slowdown = 2
@@ -145,16 +147,16 @@
 		)
 
 	has_organ = list(
-		"neural socket"       = /obj/item/organ/vaurca/neuralsocket,
+		BP_NEURAL_SOCKET       = /obj/item/organ/vaurca/neuralsocket,
 		BP_LUNGS              = /obj/item/organ/internal/lungs/vaurca,
 		BP_HEART              = /obj/item/organ/internal/heart/vaurca,
-		"phoron reservoir"    = /obj/item/organ/vaurca/reservoir,
-		"mechanical liver"    = /obj/item/organ/internal/liver/vaurca/robo,
-		"mechanical kidneys"  = /obj/item/organ/internal/kidneys/vaurca/robo,
+		BP_PHORON_RESERVOIR    = /obj/item/organ/vaurca/reservoir,
+		BP_VAURCA_LIVER    = /obj/item/organ/internal/liver/vaurca/robo,
+		BP_VAURCA_KIDNEYS  = /obj/item/organ/internal/kidneys/vaurca/robo,
 		BP_STOMACH            = /obj/item/organ/internal/stomach,
 		BP_BRAIN              = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES               = /obj/item/organ/internal/eyes/vaurca,
-		"filtration bit"      = /obj/item/organ/vaurca/filtrationbit
+		BP_EYES               = /obj/item/organ/internal/eyes/night/vaurca,
+		BP_FILTRATION_BIT      = /obj/item/organ/vaurca/filtrationbit
 	)
 
 	default_h_style = "Bald"

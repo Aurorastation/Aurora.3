@@ -176,8 +176,8 @@
 		list("antibiotics",		"thetamycin",		/datum/reagent/thetamycin,			80),
 		list("antitoxins",		"dylovene",			/datum/reagent/dylovene,			80),
 		list("nutrients",		"glucose",			/datum/reagent/nutriment/glucose,	80),
-		list("saline",			"saline",			/datum/reagent/saline,				80),
 		list("hyronalin",		"hyronalin",		/datum/reagent/hyronalin,			80),
+		list("synaptizine",		"synaptizine",		/datum/reagent/synaptizine,			80),
 		list("radium",			"radium",			/datum/reagent/radium,				80)
 		)
 
@@ -196,8 +196,8 @@
 		list("antibiotics",		"thetamycin",		/datum/reagent/thetamycin,			20),
 		list("antitoxins",		"dylovene",			/datum/reagent/dylovene,			20),
 		list("nutrients",		"glucose",			/datum/reagent/nutriment/glucose,	80),
-		list("saline",			"saline",			/datum/reagent/saline,				80),
 		list("hyronalin",		"hyronalin",		/datum/reagent/hyronalin,			20),
+		list("synaptizine",		"synaptizine",		/datum/reagent/synaptizine,			20),
 		list("radium",			"radium",			/datum/reagent/radium,				20)
 		)
 
@@ -250,7 +250,7 @@
 	if(!charge)
 		return FALSE
 
-	var/chems_to_use = 10
+	var/chems_to_use = 5
 	if(charge.charges <= 0)
 		to_chat(user, SPAN_WARNING("Insufficient chems!"))
 		return FALSE
@@ -291,8 +291,7 @@
 		list("synaptizine",		"synaptizine",		/datum/reagent/synaptizine,			30),
 		list("hyperzine",		"hyperzine",		/datum/reagent/hyperzine,			30),
 		list("oxycomorphine",	"oxycomorphine",	/datum/reagent/oxycomorphine,		30),
-		list("nutrients",		"glucose",			/datum/reagent/nutriment/glucose,	80),
-		list("saline",			"saline",			/datum/reagent/saline,				80)
+		list("nutrients",		"glucose",			/datum/reagent/nutriment/glucose,	80)
 		)
 
 	interface_name = "combat chem dispenser"
@@ -309,8 +308,7 @@
 		list("hyperzine",		"hyperzine",		/datum/reagent/hyperzine,		30),
 		list("oxycomorphine",	"oxycomorphine",	/datum/reagent/oxycomorphine,	30),
 		list("phoron",			"phoron",			/datum/reagent/toxin/phoron,	60),
-		list("kois",			"k'ois paste",		/datum/reagent/kois,			80),
-		list("saline",			"saline",			/datum/reagent/saline,			80)
+		list("kois",			"k'ois paste",		/datum/reagent/kois,			80)
 		)
 
 	interface_name = "vaurca combat chem dispenser"

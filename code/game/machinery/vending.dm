@@ -37,7 +37,7 @@
 	layer = 2.9
 	anchored = 1
 	density = 1
-	clicksound = "button"
+	clicksound = /decl/sound_category/button_sound
 
 	var/icon_vend //Icon_state when vending
 	var/deny_time // How long the physical icon state lasts, used cut the deny overlay
@@ -105,7 +105,7 @@
 	var/cooling_temperature = T0C + 5 //Best temp for soda.
 	var/heating_temperature = T0C + 57 //Best temp for coffee.
 
-	var/vending_sound = "machines/vending/vending_drop.ogg"
+	var/vending_sound = 'sound/machines/vending/vending_drop.ogg'
 
 	var/global/list/screen_overlays
 	var/exclusive_screen = TRUE // Are we not allowed to show the deny and screen states at the same time?
@@ -343,13 +343,13 @@
 
 		// This is not a status display message, since it's something the character
 		// themselves is meant to see BEFORE putting the money in
-		to_chat(usr, "\icon[cashmoney] <span class='warning'>That is not enough money.</span>")
+		to_chat(user, "[icon2html(cashmoney, user)] <span class='warning'>That is not enough money.</span>")
 		return 0
 
 	if(istype(cashmoney, /obj/item/spacecash/bundle))
 		// Bundles can just have money subtracted, and will work
 
-		visible_message("<span class='info'>\The [usr] inserts some cash into \the [src].</span>")
+		visible_message("<span class='info'>\The [user] inserts some cash into \the [src].</span>")
 		var/obj/item/spacecash/bundle/cashmoney_bundle = cashmoney
 		cashmoney_bundle.worth -= currently_vending.price
 
@@ -364,9 +364,9 @@
 		// This is really dirty, but there's no superclass for all bills, so we
 		// just assume that all spacecash that's not something else is a bill
 
-		visible_message("<span class='info'>\The [usr] inserts a bill into \the [src].</span>")
+		visible_message("<span class='info'>\The [user] inserts a bill into \the [src].</span>")
 		var/left = cashmoney.worth - currently_vending.price
-		usr.drop_from_inventory(cashmoney,get_turf(src))
+		user.drop_from_inventory(cashmoney,get_turf(src))
 		qdel(cashmoney)
 
 		if(left)
@@ -657,7 +657,7 @@
 	use_power(vend_power_usage)	//actuators and stuff
 	if (src.icon_vend) //Show the vending animation if needed
 		flick(src.icon_vend,src)
-	playsound(src.loc, "sound/[vending_sound]", 100, 1)
+	playsound(src.loc, vending_sound, 100, 1)
 	addtimer(CALLBACK(src, .proc/vend_product, R, user), vend_delay)
 
 /obj/machinery/vending/proc/vend_product(var/datum/data/vending_product/R, mob/user)

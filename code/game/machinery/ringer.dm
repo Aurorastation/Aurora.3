@@ -4,6 +4,7 @@
 	icon = 'icons/obj/terminals.dmi'
 	icon_state = "bell"
 	anchored = TRUE
+	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 
 	req_access = list() //what access it needs to link your pda
 
@@ -112,7 +113,7 @@
 			continue
 
 		var/message = "Notification from \the [department]!"
-		pda.new_info(pda.message_silent, pda.ttone, "\icon[pda] <b>[message]</b>")
+		pda.new_info(pda.message_silent, pda.ttone, "[icon2html(pda, viewers(get_turf(pda)))] <b>[message]</b>")
 
 	addtimer(CALLBACK(src, .proc/unping), 45 SECONDS)
 

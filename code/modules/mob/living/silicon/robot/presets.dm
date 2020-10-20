@@ -52,7 +52,7 @@
 	set desc = "Activate bluespace to leave and return to your original mob (if you have one)."
 	set category = "BST"
 
-	src.custom_emote(1, "politely beeps as its lights start to flash.")
+	src.custom_emote(VISIBLE_MESSAGE, "politely beeps as its lights start to flash.")
 	spark(src, 5, alldirs)
 	addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, src), 10, TIMER_CLIENT_TIME)
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)

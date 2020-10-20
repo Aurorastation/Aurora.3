@@ -104,7 +104,6 @@
 	return fail_smash(user, wallbreaker)
 
 /turf/simulated/wall/attackby(obj/item/W, mob/user)
-
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(!user)
 		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
@@ -113,6 +112,9 @@
 	//get the user's location
 	if(!istype(user.loc, /turf))
 		return	//can't do this stuff whilst inside objects and such
+
+	if(istype(W, /obj/item/plastique))
+		return
 
 	if(W)
 		radiate()
@@ -148,7 +150,7 @@
 
 			spark(EB, 5)
 			to_chat(user, SPAN_NOTICE("You slash \the [src] with \the [EB], igniting the thermite!"))
-			playsound(src, "sparks", 50, 1)
+			playsound(src, /decl/sound_category/spark_sound, 50, 1)
 			playsound(src, 'sound/weapons/blade.ogg', 50, 1)
 
 			thermitemelt(user)
@@ -202,20 +204,20 @@
 		else if(istype(W,/obj/item/melee/energy))
 			var/obj/item/melee/energy/WT = W
 			if(WT.active)
-				dismantle_sound = "sparks"
+				dismantle_sound = /decl/sound_category/spark_sound
 				dismantle_verb = "slicing"
 				cut_delay *= 0.5
 			else
 				to_chat(user, SPAN_NOTICE("You need to activate the weapon to do that!"))
 				return
 		else if(istype(W,/obj/item/melee/energy/blade))
-			dismantle_sound = "sparks"
+			dismantle_sound = /decl/sound_category/spark_sound
 			dismantle_verb = "slicing"
 			cut_delay *= 0.5
 		else if(istype(W,/obj/item/melee/chainsword))
 			var/obj/item/melee/chainsword/WT = W
 			if(WT.active)
-				dismantle_sound = "sound/weapons/chainsawhit.ogg"
+				dismantle_sound = 'sound/weapons/saw/chainsawhit.ogg'
 				dismantle_verb = "slicing"
 				cut_delay *= 0.8
 			else
@@ -227,7 +229,7 @@
 			dismantle_sound = P.drill_sound
 			cut_delay -= P.digspeed
 		else if(istype(W,/obj/item/melee/arm_blade/))
-			dismantle_sound = "pickaxe"
+			dismantle_sound = /decl/sound_category/pickaxe_sound
 			dismantle_verb = "slicing and stabbing"
 			cut_delay *= 1.5
 

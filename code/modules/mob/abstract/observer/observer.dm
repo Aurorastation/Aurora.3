@@ -186,9 +186,10 @@ Works together with spawning an observer, noted above.
 		return
 
 	if(following)
-		if(!iscarbon(following)) //If they are following something other than a carbon mob, teleport them
+		if(!isliving(following) || isanimal(following)) //If they are following something other than a living non-animal mob, teleport them
+			var/message = "You can not follow \the [following] on this level."
 			stop_following()
-			teleport_to_spawn("You can not follow \the [following] on this level.")
+			teleport_to_spawn(message)
 		else
 			return
 	//If they are moving around freely, teleport them

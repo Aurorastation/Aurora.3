@@ -18,11 +18,6 @@
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 
-/obj/item/clothing/head/pin/pink
-	icon_state = "pinkpin"
-	item_state = "pinkpin"
-	name = "pink hair pin"
-
 /obj/item/clothing/head/pin/clover
 	icon_state = "cloverpin"
 	item_state = "cloverpin"
@@ -91,15 +86,11 @@
 	desc = "A ribbon tied into a bow with a clip on the back to attach to hair."
 	item_state_slots = list(slot_r_hand_str = "pill", slot_l_hand_str = "pill")
 
-/obj/item/clothing/head/pin/bow/big
-	icon_state = "whiteribbon"
-	item_state = "whiteribbon"
-	name = "ribbon"
-
-/obj/item/clothing/head/pin/bow/big/red
-	icon_state = "redribbon"
-	item_state = "redribbon"
-	name = "red ribbon"
+/obj/item/clothing/head/pin/bow/hairband
+	icon_state = "hairribbon"
+	item_state = "hairribbon"
+	name = "hair ribbon"
+	desc = "A glorified length of ribbon acting as a hairband."
 
 /obj/item/clothing/head/powdered_wig
 	name = "powdered wig"
@@ -157,14 +148,6 @@
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 
-/obj/item/clothing/head/greenbandana
-	name = "green bandana"
-	desc = "It's a green bandana with some fine nanotech lining."
-	icon_state = "greenbandana"
-	item_state = "greenbandana"
-	flags_inv = 0
-	body_parts_covered = 0
-
 /obj/item/clothing/head/cardborg
 	name = "cardborg helmet"
 	desc = "A helmet made out of a box."
@@ -215,11 +198,6 @@
 	name = "pirate hat"
 	desc = "Yarr."
 	icon_state = "hgpiratecap"
-
-/obj/item/clothing/head/bandana
-	name = "pirate bandana"
-	desc = "Yarr."
-	icon_state = "bandana"
 
 /obj/item/clothing/head/bowler
 	name = "bowler-hat"
@@ -308,13 +286,6 @@
 		)
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 2.0 //why is it so conductive?!
-
-/obj/item/clothing/head/orangebandana //themij: Taryn Kifer
-	name = "orange bandana"
-	desc = "An orange piece of cloth, worn on the head."
-	icon_state = "orange_bandana"
-	body_parts_covered = 0
-
 /obj/item/clothing/head/hijab //It might've taken a year but here's your Hijab's, Dea.
 	name = "hijab"
 	desc = "Encompassing cloth headwear worn by some human cultures and religions."
@@ -421,6 +392,10 @@
 	icon_state = "headbando"
 	item_state = "headbando"
 
+/obj/item/clothing/head/headbando/random/Initialize()
+	. = ..()
+	color = get_random_colour(lower = 150)
+
 /obj/item/clothing/head/fedora/brown
 	name = "fedora"
 	desc = "A brown fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
@@ -444,11 +419,9 @@
 	icon_state = "beanie"
 	item_state = "beanie"
 
-/obj/item/clothing/head/beanie_loose
-	name = "loose beanie"
-	desc = "A head-hugging brimless winter cap. This one is loose."
-	icon_state = "beanie_hang"
-	item_state = "beanie"
+/obj/item/clothing/head/beanie/random/Initialize()
+	. = ..()
+	color = get_random_colour(lower = 150)
 
 //Flower crowns
 
@@ -705,3 +678,11 @@
 	desc = "A padded skullcap for those prone to bumping their heads against hard surfaces."
 	icon_state = "tank"
 	flags_inv = BLOCKHEADHAIR
+
+/obj/item/clothing/head/buckethat
+	name = "bucket hat"
+	desc = "A hat with an all-around visor. Only slightly better than wearing an actual bucket."
+	icon_state = "buckethat"
+	sprite_sheets = list(
+		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi'
+		)

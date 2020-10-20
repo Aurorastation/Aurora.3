@@ -81,7 +81,7 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	var/closed = FALSE
 
 /obj/item/pocketwatch/AltClick(mob/user)
@@ -128,7 +128,7 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	var/datum/weakref/thrall = null
 	var/time_counter = 0
 	var/closed = FALSE

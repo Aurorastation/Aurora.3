@@ -7,7 +7,7 @@
 	icon = 'icons/obj/guns/heavysniper.dmi'
 	icon_state = "heavysniper"
 	item_state = "heavysniper"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
@@ -149,7 +149,7 @@
 	icon = 'icons/obj/guns/tranqsniper.dmi'
 	icon_state = "tranqsniper"
 	item_state = "tranqsniper"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 2)
@@ -179,12 +179,16 @@
 	update_held_icon()
 
 /obj/item/gun/projectile/dragunov
-	name = "antique sniper rifle"
-	desc = "An old semi-automatic marksman rifle. Uses 7.62mm rounds."
+	name = "marksman rifle"
+	desc = "A semi-automatic marksman rifle. Uses 7.62mm rounds."
 	icon = 'icons/obj/guns/dragunov.dmi'
 	icon_state = "dragunov"
 	item_state = "dragunov"
-	w_class = 4
+
+	desc_fluff = "The Ho'taki Marksman Rifle was created by the Shastar Technical University, created through the reverse engineering of captured Tsarrayut'yan rifle. \
+	The rifle is commonly issued to the feared Das'nrra Marksmen."
+
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
@@ -241,7 +245,7 @@
 	icon = 'icons/obj/guns/w556.dmi'
 	icon_state = "w556rifle"
 	item_state = "w556rifle"
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3)

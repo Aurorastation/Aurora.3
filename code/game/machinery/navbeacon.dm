@@ -113,7 +113,7 @@ var/global/list/navbeacons			// no I don't like putting this in, but it will do 
 
 		update_icon()
 
-	else if (istype(I, /obj/item/card/id)||istype(I, /obj/item/device/pda))
+	else if (I.GetID())
 		if(open)
 			if (src.allowed(user))
 				src.locked = !src.locked

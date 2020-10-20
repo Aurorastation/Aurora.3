@@ -28,7 +28,7 @@
 /datum/ghostspawner/human/pre_spawn(mob/user)
 	. = ..()
 
-/datum/ghostspawner/human/proc/get_mob_name(mob/user, var/species)
+/datum/ghostspawner/human/proc/get_mob_name(mob/user, var/species, var/gender)
 	var/mname = mob_name
 	if(isnull(mname))
 		var/pick_message = "[mob_name_pick_message] ([species])"
@@ -37,6 +37,12 @@
 		if(mob_name_suffix)
 			pick_message = "[pick_message] Auto Suffix: \"[mob_name_suffix]\" "
 		mname = sanitizeSafe(input(user, pick_message, "Name for a [species] (without prefix/suffix)"))
+
+	if(!length(mname))
+		if(mob_name_prefix || mob_name_suffix)
+			mname = capitalize(pick(last_names))
+		else
+			mname = random_name(gender,species)
 
 	if(mob_name_prefix)
 		mname = replacetext(mname,mob_name_prefix,"") //Remove the prefix if it exists in the string
@@ -49,7 +55,7 @@
 //The proc to actually spawn in the user
 /datum/ghostspawner/human/spawn_mob(mob/user)
 	//Select a spawnpoint (if available)
-	var/turf/T = select_spawnpoint()
+	var/turf/T = select_spawnlocation()
 	if(!T)
 		log_debug("GhostSpawner: Unable to select spawnpoint for [short_name]")
 		return FALSE
@@ -62,19 +68,21 @@
 		else if(is_alien_whitelisted(user, S))
 			species_selection += S
 
-	var/picked_species = input(user,"Select your species") as null|anything in species_selection
+	var/picked_species = input(user,"Select your species") in species_selection
 	if(!picked_species)
 		picked_species = possible_species[1]
 
+	var/datum/species/S = all_species[picked_species]
+	var/assigned_gender = pick(S.default_genders)
+
 	//Get the name / age from them first
-	var/mname = get_mob_name(user, picked_species)
+	var/mname = get_mob_name(user, picked_species, assigned_gender)
 	var/age = input(user, "Enter your characters age:","Num") as num
 
 	//Spawn in the mob
 	var/mob/living/carbon/human/M = new spawn_mob(newplayer_start)
 
-	var/datum/species/S = all_species[picked_species]
-	M.change_gender(pick(S.default_genders))
+	M.change_gender(assigned_gender)
 
 	M.set_species(picked_species)
 

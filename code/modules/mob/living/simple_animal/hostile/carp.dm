@@ -11,6 +11,7 @@
 	speak_chance = 0
 	turns_per_move = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
+	organ_names = list("head", "chest", "tail", "left flipper", "right flipper")
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
@@ -74,10 +75,12 @@
 		return e
 
 /mob/living/simple_animal/hostile/carp/DestroySurroundings(var/bypass_prob = FALSE)
+	if(stance != HOSTILE_STANCE_ATTACKING)
+		return 0
 	if(prob(break_stuff_probability) || bypass_prob)
 		for(var/dir in cardinal) // North, South, East, West
 			var/obj/effect/energy_field/e = locate(/obj/effect/energy_field, get_step(src, dir))
-			if(e)
+			if(e && e.strength >= 1)
 				e.Stress(rand(1,2))
 				visible_message("<span class='danger'>\the [src] bites \the [e]!</span>")
 				src.do_attack_animation(e)
@@ -106,7 +109,7 @@
 /mob/living/simple_animal/hostile/carp/russian/FindTarget()
     . = ..()
     if(.)
-        custom_emote(1,"spots a filthy capitalist!")
+        custom_emote(VISIBLE_MESSAGE,"spots a filthy capitalist!")
 
 /mob/living/simple_animal/hostile/carp/shark
 	name = "space shark"

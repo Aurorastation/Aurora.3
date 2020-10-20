@@ -95,23 +95,24 @@
 		if(machine.ores_processing[ore])
 			switch(machine.ores_processing[ore])
 				if(0)
-					dat += "<font color='red'>not processing</font>"
+					dat += "<span class='warning'>not processing</span>"
 				if(1)
 					dat += "<font color='orange'>smelting</font>"
 				if(2)
-					dat += "<font color='blue'>compressing</font>"
+					dat += "<span class='notice'>compressing</span>"
 				if(3)
 					dat += "<font color='gray'>alloying</font>"
 		else
-			dat += "<font color='red'>not processing</font>"
+			dat += "<span class='warning'>not processing</span>"
 		dat += ".</td><td width = 30><a href='?src=\ref[src];toggle_smelting=[ore]'>\[change\]</a></td></tr>"
 
 	dat += "</table><hr>"
 	dat += "Currently displaying [show_all_ores ? "all ore types" : "only available ore types"]. <A href='?src=\ref[src];toggle_ores=1'>\[[show_all_ores ? "show less" : "show more"]\]</a></br>"
 	dat += "The ore processor is currently <A href='?src=\ref[src];toggle_power=1'>[(machine.active ? "<font color='green'>processing</font>" : "<font color='red'>disabled</font>")]</a>."
-	user << browse(dat, "window=processor_console;size=400x500")
-	onclose(user, "processor_console")
-	return
+	
+	var/datum/browser/processor_win = new(user, "processor_console", capitalize_first_letters(name))
+	processor_win.set_content(dat)
+	processor_win.open()
 
 /obj/machinery/mineral/processing_unit_console/Topic(href, href_list)
 	if(..())

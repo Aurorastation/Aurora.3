@@ -11,9 +11,19 @@
 	throw_speed = 1
 	throw_range = 4
 	throwforce = 10
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	var/cooldown = 0 // floor tap cooldown
-	var/static/list/nullchoices = list("Null Rod" = /obj/item/nullrod/, "Null Staff" = /obj/item/nullrod/staff, "Null Orb" = /obj/item/nullrod/orb, "Null Athame" = /obj/item/nullrod/athame)
+	var/static/list/nullchoices = list("Null Rod" = /obj/item/nullrod/, "Null Staff" = /obj/item/nullrod/staff, "Null Orb" = /obj/item/nullrod/orb, "Null Athame" = /obj/item/nullrod/athame, "Tribunal Rod" = /obj/item/nullrod/dominia)
+
+/obj/item/nullrod/dominia
+	name = "tribunalist purification rod"
+	desc = "A holy Symbol often carried by female Tribunalist clergy, the obsidian encased in the wooden handle is intended to ward off malevolent spirits and bless followers of the Goddess. The ornament on top depicts 'The Eye'\
+	Moroz Holy Tribunal."
+	desc_fluff = "With origins in House Zhao, Tribunalist purification rods are a common sight throughout the Empire of Dominia. Intended to ward off malevolent entities and bless the \
+	faithful a Tribunalist priestess is nothing without her rod, which is typically granted upon promotion to full priestess. This particular example has been built around an obsidian \
+	core in the shaft, and is heavier than it seems."
+	icon_state = "tribunalrod"
+	item_state = "tribunalrod"
 
 /obj/item/nullrod/staff
 	name = "null staff"
@@ -21,7 +31,7 @@
 	icon_state = "nullstaff"
 	item_state = "nullstaff"
 	slot_flags = SLOT_BELT | SLOT_BACK
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 
 /obj/item/nullrod/orb
 	name = "null sphere"

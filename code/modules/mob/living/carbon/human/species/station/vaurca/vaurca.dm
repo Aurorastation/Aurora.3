@@ -93,16 +93,16 @@
 	stamina_recovery = 2	//slow recovery
 
 	has_organ = list(
-		"neural socket"        = /obj/item/organ/vaurca/neuralsocket,
+		BP_NEURAL_SOCKET        = /obj/item/organ/vaurca/neuralsocket,
 		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
-		"filtration bit"       = /obj/item/organ/vaurca/filtrationbit,
+		BP_FILTRATION_BIT       = /obj/item/organ/vaurca/filtrationbit,
 		BP_HEART               = /obj/item/organ/internal/heart/vaurca,
-		"phoron reserve tank"  = /obj/item/organ/vaurca/preserve,
+		BP_PHORON_RESERVE  = /obj/item/organ/vaurca/preserve,
 		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
 		BP_STOMACH             = /obj/item/organ/internal/stomach,
 		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES                = /obj/item/organ/internal/eyes/vaurca
+		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca
 	)
 
 	has_limbs = list(
@@ -130,6 +130,8 @@
 	default_accent = ACCENT_TTS
 	allowed_accents = list(ACCENT_TTS, ACCENT_ZORA, ACCENT_KLAX, ACCENT_CTHUR)
 
+	alterable_internal_organs = list(BP_EYES)
+
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER
@@ -143,12 +145,6 @@
 	var/obj/item/clothing/shoes/sandal/S = new /obj/item/clothing/shoes/sandal(H)
 	if(H.equip_to_slot_or_del(S,slot_shoes))
 		S.autodrobe_no_remove = 1
-
-/datum/species/bug/equip_later_gear(var/mob/living/carbon/human/H)
-	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack))
-		H.equip_to_slot_or_del(new /obj/item/reagent_containers/inhaler/phoron_special(H.back), slot_in_backpack)
-	else
-		H.equip_to_slot_or_del(new /obj/item/reagent_containers/inhaler/phoron_special(H), slot_r_hand)
 
 /datum/species/bug/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.gender = NEUTER

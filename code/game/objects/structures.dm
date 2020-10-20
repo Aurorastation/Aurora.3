@@ -1,6 +1,6 @@
 /obj/structure
 	icon = 'icons/obj/structures.dmi'
-	w_class = 10
+	w_class = ITEMSIZE_IMMENSE
 	layer = OBJ_LAYER - 0.01
 
 	var/climbable
@@ -11,6 +11,8 @@
 
 	var/material/material
 	var/build_amt = 2 // used by some structures to determine into how many pieces they should disassemble into or be made with
+
+	var/slowdown = 0 //amount that pulling mobs have their movement delayed by
 
 /obj/structure/Destroy()
 	if(parts)

@@ -422,6 +422,8 @@ var/list/mob/living/forced_ambiance_list = new
 			continue
 		if (istype(A, /area/turbolift))
 			continue
+		if (istype(A, /area/security/penal_colony))
+			continue
 		if (istype(A, /area/mine))
 			continue
 

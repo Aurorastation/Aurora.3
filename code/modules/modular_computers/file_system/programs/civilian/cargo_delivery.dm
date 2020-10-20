@@ -12,7 +12,6 @@
 /datum/nano_module/program/civilian/cargodelivery
 	name = "Cargo Delivery"
 	var/page = "overview_main" //overview_main - Main Menu, order_overview - Overview page for a specific order, order_payment - Payment page for a specific order
-	var/last_user_name = "" //Name of the User that last used the computer
 	var/status_message //A status message that can be displayed
 	var/list/order_details = list() //Order Details for the order
 	var/datum/cargo_order/co
@@ -34,7 +33,6 @@
 		data["id_account_number"] = id_card ? id_card.associated_account_number : null
 		data["id_owner"] = id_card && id_card.registered_name ? id_card.registered_name : "-----"
 		data["id_name"] = id_card ? id_card.name : "-----"
-		last_user_name = data["id_owner"]
 
 	//Pass the shipped orders
 	data["order_list"] = SScargo.get_orders_by_status("shipped",1) + SScargo.get_orders_by_status("approved",1)
@@ -61,6 +59,7 @@
 	if(..())
 		return TRUE
 
+	var/obj/item/card/id/I = usr.GetIdCard()
 
 	//Check if we want to deliver or pay
 	//If we are at the status shipped, then only the confirm delivery and pay button should be shown (deliver)
@@ -96,16 +95,16 @@
 
 				//Check if we have delivered it aswell or only paid
 				if(order_details["status"] == "shipped")
-					status_message = co.set_delivered(id_card.registered_name,1)
+					status_message = co.set_delivered(GetNameAndAssignmentFromId(I), usr.character_id, 1)
 				else
-					status_message = co.set_paid(id_card.registered_name)
+					status_message = co.set_paid(GetNameAndAssignmentFromId(I), usr.character_id)
 				order_details = co.get_list()
 
 			else
-				//TODO: Add a sound effect here
 				//If a payment is not needed and we are at the status shipped, then confirm the delivery
 				if(order_details["status"] == "shipped")
-					status_message = co.set_delivered(id_card.registered_name,0)
+					playsound(program.computer, 'sound/machines/chime.ogg', 50, TRUE)
+					status_message = co.set_delivered(GetNameAndAssignmentFromId(I), usr.character_id, 0)
 			order_details = co.get_list()
 		else
 			status_message = "Unable to process - Network Card or Cardreader Missing"
@@ -113,12 +112,8 @@
 
 
 	//But only cargo can switch between the pages
-	var/mob/user = usr
-	if(!istype(user))
-		return
-	var/obj/item/card/id/I = user.GetIdCard()
-	if(!istype(I) || !I.registered_name || !(access_cargo in I.access) || issilicon(user))
-		to_chat(user, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
+	if(!istype(I) || !I.registered_name || !(access_cargo in I.access) || issilicon(usr))
+		to_chat(usr, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
 		return
 
 	if(href_list["page"])

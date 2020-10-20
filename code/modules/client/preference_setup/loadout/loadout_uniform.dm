@@ -5,14 +5,6 @@
 	slot = slot_w_uniform
 	sort_category = "Uniforms and Casual Dress"
 
-/datum/gear/uniform/croptop
-    display_name = "crop top"
-    path = /obj/item/clothing/under/croptop
-
-/datum/gear/uniform/cropdress
-    display_name = "crop dress"
-    path = /obj/item/clothing/under/cropdress
-
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
 	path = /obj/item/clothing/under/rank/iacjumpsuit
@@ -65,6 +57,10 @@
 	skirts["plaid skirt"] = /obj/item/clothing/under/skirt/plaid
 	skirts["pleated skirt"] = /obj/item/clothing/under/skirt/pleated
 	skirts["high skirt"] = /obj/item/clothing/under/skirt/high
+	skirts["skater skirt"] = /obj/item/clothing/under/skirt/skater
+	skirts["tube skirt"] = /obj/item/clothing/under/skirt/tube
+	skirts["jumper skirt"] = /obj/item/clothing/under/skirt/jumper
+	skirts["jumper dress"] = /obj/item/clothing/under/skirt/jumper_highcut
 	gear_tweaks += new/datum/gear_tweak/path(skirts)
 
 /datum/gear/uniform/suit
@@ -116,9 +112,7 @@
 	dress["sundress"] = /obj/item/clothing/under/sundress
 	dress["sundress, white"] = /obj/item/clothing/under/sundress_white
 	dress["dress, flame"] = /obj/item/clothing/under/dress/dress_fire
-	dress["dress, green"] = /obj/item/clothing/under/dress/dress_green
 	dress["dress, orange"] = /obj/item/clothing/under/dress/dress_orange
-	dress["dress, pink"] = /obj/item/clothing/under/dress/dress_pink
 	dress["dress, yellow"] = /obj/item/clothing/under/dress/dress_yellow
 	dress["dress, white"] = /obj/item/clothing/under/dress/white
 	dress["dress, stripped"] = /obj/item/clothing/under/dress/stripeddress
@@ -131,8 +125,6 @@
 	dress["cheongsam, blue"] = /obj/item/clothing/under/cheongsam/blue
 	dress["cheongsam, green"] = /obj/item/clothing/under/cheongsam/green
 	dress["cheongsam, purple"] = /obj/item/clothing/under/cheongsam/purple
-	dress["dress, blue"] = /obj/item/clothing/under/dress/bluedress
-	dress["dress, dark red"] = /obj/item/clothing/under/dress/darkreddress
 	gear_tweaks += new/datum/gear_tweak/path(dress)
 
 /datum/gear/uniform/uniform_captain
@@ -287,7 +279,6 @@
 	uniform["warden uniform, dark blue"] = /obj/item/clothing/under/rank/warden/dark_blue
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
-
 /datum/gear/uniform/hos
 	display_name = "uniform, corporate (Head of Security)"
 	path = /obj/item/clothing/under/rank/head_of_security/corp
@@ -321,7 +312,7 @@
 
 /datum/gear/uniform/miscellaneous/hanbok
 	display_name = "hanbok selection"
-	description = "A selection of Koynanger formalwear."
+	description = "A selection of Konyanger formalwear."
 	path = /obj/item/clothing/under/konyang
 
 /datum/gear/uniform/miscellaneous/hanbok/New()
@@ -330,3 +321,8 @@
 	hanbok["magenta-blue hanbok"] = /obj/item/clothing/under/konyang
 	hanbok["white-pink hanbok"] = /obj/item/clothing/under/konyang/pink
 	gear_tweaks += new/datum/gear_tweak/path(hanbok)
+
+/datum/gear/uniform/gadpathur
+	display_name = "gadpathurian fatigues"
+	path = /obj/item/clothing/under/uniform/gadpathur
+	flags = GEAR_HAS_DESC_SELECTION

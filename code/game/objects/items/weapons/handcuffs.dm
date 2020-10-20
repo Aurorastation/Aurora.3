@@ -7,7 +7,7 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BELT
 	throwforce = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 2
 	throw_range = 5
 	origin_tech = list(TECH_MATERIAL = 1)
@@ -49,7 +49,7 @@
 		else
 			to_chat(user, SPAN_DANGER("You need to have a firm grip on [C] before you can put \the [src] on!"))
 
-/obj/item/handcuffs/proc/place_handcuffs(var/mob/living/carbon/target, var/mob/user)
+/obj/item/handcuffs/proc/place_handcuffs(var/mob/living/carbon/target, var/mob/user, var/instant)
 	playsound(src.loc, cuff_sound, 30, 1, -2)
 
 	var/mob/living/carbon/human/H = target
@@ -57,35 +57,44 @@
 		return FALSE
 
 	if (!H.has_organ_for_slot(slot_handcuffed))
-		to_chat(user, SPAN_DANGER("\The [H] needs at least two wrists before you can cuff them together!"))
+		if(user)
+			to_chat(user, SPAN_DANGER("\The [H] needs at least two wrists before you can cuff them together!"))
 		return FALSE
 
 	if(istype(H.gloves,/obj/item/clothing/gloves/rig) && !elastic) // Can't cuff someone who's in a deployed hardsuit.
-		to_chat(user, SPAN_DANGER("\The [src] won't fit around \the [H.gloves]!"))
+		if(user)
+			to_chat(user, SPAN_DANGER("\The [src] won't fit around \the [H.gloves]!"))
 		return FALSE
 
-	user.visible_message(SPAN_DANGER("\The [user] is attempting to put [cuff_type] on \the [H]!"))
+	if(user)
+		user.visible_message(SPAN_DANGER("\The [user] is attempting to put [cuff_type] on \the [H]!"))
 
-	if(!do_mob(user, target, 30))
-		return
+	if(!instant)
+		if(!do_mob(user, target, 30))
+			return
 
-	H.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been handcuffed (attempt) by [user.name] ([user.ckey])</font>")
-	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Attempted to handcuff [H.name] ([H.ckey])</font>")
-	msg_admin_attack("[key_name_admin(user)] attempted to handcuff [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
+	if(user)
+		H.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been handcuffed (attempt) by [user.name] ([user.ckey])</font>")
+		user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Attempted to handcuff [H.name] ([H.ckey])</span>")
+		msg_admin_attack("[key_name_admin(user)] attempted to handcuff [key_name_admin(H)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(H))
 	feedback_add_details("handcuffs","H")
 
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(H)
+	if(user)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		user.do_attack_animation(H)
+		user.visible_message(SPAN_DANGER("\The [user] has put [cuff_type] on \the [H]!"))
 
-	user.visible_message(SPAN_DANGER("\The [user] has put [cuff_type] on \the [H]!"))
 	target.drop_r_hand()
 	target.drop_l_hand()
+
 	// Apply cuffs.
 	var/obj/item/handcuffs/cuffs = src
 	if(dispenser)
 		cuffs = new(target)
-	else
+	else if(user)
 		user.drop_from_inventory(cuffs,target)
+	else
+		cuffs.forceMove(target)
 	target.handcuffed = cuffs
 	target.update_inv_handcuffed()
 	return TRUE
@@ -109,7 +118,7 @@
 	var/s = SPAN_WARNING("[H] chews on [H.get_pronoun("his")] [O.name]!")
 	H.visible_message(s, SPAN_WARNING("You chew on your [O.name]!"))
 	message_admins("[key_name_admin(H)] is chewing on [H.get_pronoun("his")] restrained hand - (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)")
-	H.attack_log += text("\[[time_stamp()]\] <font color='red'>[s] ([H.ckey])</font>")
+	H.attack_log += text("\[[time_stamp()]\] <span class='warning'>[s] ([H.ckey])</span>")
 	log_attack("[s] ([H.ckey])",ckey=key_name(H))
 
 	if(O.take_damage(3, 0, damage_flags = DAM_SHARP|DAM_EDGE, used_weapon = "teeth marks"))
@@ -130,6 +139,7 @@
 	breakouttime = 300 //Deciseconds = 30s
 	cuff_sound = 'sound/weapons/cablecuff.ogg'
 	cuff_type = "cable restraints"
+	var/can_be_cut = TRUE
 	elastic = TRUE
 	build_from_parts = TRUE
 	worn_overlay = "end"
@@ -152,6 +162,11 @@
 
 /obj/item/handcuffs/cable/green
 	color = COLOR_GREEN
+
+/obj/item/handcuffs/cable/green/vines
+	name = "vine bindings"
+	desc = "A set of handcuffs made out of vines. How devilish!"
+	can_be_cut = FALSE
 
 /obj/item/handcuffs/cable/pink
 	color = COLOR_PINK
@@ -176,10 +191,10 @@
 		if (R.use(1))
 			var/obj/item/material/wirerod/W = new(get_turf(user))
 			user.put_in_hands(W)
-			to_chat(user, SPAN_NOTICE("You wrap the cable restraint around the top of the rod."))
+			to_chat(user, SPAN_NOTICE("You wrap \the [src] around the top of the rod."))
 			qdel(src)
 			update_icon(user)
-	else if(I.iswirecutter())
+	else if(can_be_cut && I.iswirecutter())
 		user.visible_message("[user] cuts the [src].", SPAN_NOTICE("You cut the [src]."))
 		playsound(src.loc, 'sound/items/wirecutter.ogg', 50, 1)
 		new/obj/item/stack/cable_coil(get_turf(src), 15, color)

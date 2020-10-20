@@ -26,7 +26,7 @@
 	if(D.stat || D.weakened)
 		return 0
 	A.visible_message("<span class='warning'>[A] leg sweeps [D]!</span>")
-	playsound(get_turf(A), "swing_hit", 50, 1, -1)
+	playsound(get_turf(A), /decl/sound_category/swing_hit_sound, 50, 1, -1)
 	D.apply_damage(5, BRUTE)
 	D.Weaken(2)
 	return 1
@@ -43,7 +43,7 @@
 /datum/martial_art/sol_combat/proc/neck_chop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
 	A.visible_message("<span class='warning'>[A] karate chops [D]'s neck!</span>")
-	playsound(get_turf(A), "punch", 50, 1, -1)
+	playsound(get_turf(A), /decl/sound_category/punch_sound, 50, 1, -1)
 	D.apply_damage(5, BRUTE)
 	D.silent += 10
 	return 1
@@ -66,12 +66,12 @@ datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/liv
 		picked_hit_type = "stomped on"
 	D.apply_damage(bonus_damage, BRUTE)
 	if(picked_hit_type == "kicked" || picked_hit_type == "stomped")
-		playsound(get_turf(D), "swing_hit", 50, 1, -1)
+		playsound(get_turf(D), /decl/sound_category/swing_hit_sound, 50, 1, -1)
 	else
-		playsound(get_turf(D), "punch", 50, 1, -1)
+		playsound(get_turf(D), /decl/sound_category/punch_sound, 50, 1, -1)
 
 	A.visible_message("<span class='danger'>[A] [picked_hit_type] [D]!</span>")
-	A.attack_log += text("\[[time_stamp()]\] <font color='red'>["[picked_hit_type]"] [D.name] ([D.ckey])</font>")
+	A.attack_log += text("\[[time_stamp()]\] <span class='warning'>["[picked_hit_type]"] [D.name] ([D.ckey])</span>")
 	D.attack_log += text("\[[time_stamp()]\] <font color='orange'>["Has Been [picked_hit_type]"] by [A.name] ([A.ckey])</font>")
 	msg_admin_attack("[key_name(A)] ["has [picked_hit_type]"] [key_name(D)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>JMP</a>)",ckey=key_name(A),ckey_target=key_name(D))
 
@@ -83,7 +83,7 @@ datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/liv
 	if(check_streak(A,D))
 		return 1
 
-	A.attack_log += text("\[[time_stamp()]\] <font color='red'>Disarmed [D.name] ([D.ckey])</font>")
+	A.attack_log += text("\[[time_stamp()]\] <span class='warning'>Disarmed [D.name] ([D.ckey])</span>")
 	D.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been disarmed by [A.name] ([A.ckey])</font>")
 	msg_admin_attack("[key_name(A)] disarmed [D.name] ([D.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(A))
 
@@ -96,7 +96,7 @@ datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/liv
 			A.put_in_hands(I)
 	else
 		A.visible_message("<span class='danger'>[A] attempted to disarm [D]!</span>")
-		playsound(D, "punchmiss", 25, 1, -1)
+		playsound(D, /decl/sound_category/punchmiss_sound, 25, 1, -1)
 	return 1
 
 /datum/martial_art/sol_combat/proc/sol_combat_help()

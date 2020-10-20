@@ -16,7 +16,8 @@
 	new /obj/item/device/radio/headset/headset_cargo(src)
 	new /obj/item/device/radio/headset/headset_cargo/alt(src)
 	new /obj/item/clothing/gloves/black(src)
-	new /obj/item/clothing/head/soft/yellow(src)
+	new /obj/item/clothing/head/softcap/cargo(src)
+	new /obj/item/clothing/head/bandana/cargo(src)
 	new /obj/item/modular_computer/tablet/preset/custom_loadout/advanced/cargo_delivery(src)
 	new /obj/item/export_scanner(src)
 
@@ -31,7 +32,7 @@
 	icon_off = "secureqmoff"
 
 /obj/structure/closet/secure_closet/quartermaster/fill()
-	new /obj/item/clothing/under/rank/cargo(src)
+	new /obj/item/clothing/under/rank/quartermaster(src)
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/device/radio/headset/qm(src)
 	new /obj/item/device/radio/headset/qm/alt(src)
@@ -40,7 +41,8 @@
 	new /obj/item/clothing/suit/fire/firefighter(src)
 	new /obj/item/tank/emergency_oxygen(src)
 	new /obj/item/clothing/mask/gas(src)
-	new /obj/item/clothing/head/soft/yellow(src)
+	new /obj/item/clothing/head/softcap/cargo(src)
+	new /obj/item/clothing/head/bandana/cargo(src)
 	new /obj/item/modular_computer/tablet/preset/custom_loadout/advanced/cargo_delivery(src)
 	new /obj/item/export_scanner(src)
 	new /obj/item/device/orbital_dropper/drill(src)

@@ -8,7 +8,6 @@ var/list/holder_mob_icon_cache = list()
 	randpixel = 0
 	center_of_mass = null
 	slot_flags = 0
-	sprite_sheets = list(BODYTYPE_VOX = 'icons/mob/species/vox/head.dmi')
 	origin_tech = null
 	drop_sound = null
 	var/mob/living/contained = null
@@ -28,8 +27,7 @@ var/list/holder_mob_icon_cache = list()
 		/obj/item/storage,
 		/obj/item/reagent_containers,
 		/obj/structure/closet/crate,
-		/obj/machinery/appliance,
-		/obj/machinery/microwave
+		/obj/machinery/appliance
 	))
 
 /obj/item/holder/Initialize()
@@ -89,6 +87,10 @@ var/list/holder_mob_icon_cache = list()
 		mob_container = M
 		mob_container.forceMove(src.loc)//if the holder was placed into a disposal, this should place the animal in the disposal
 		M.reset_view()
+		if(isliving(M))
+			var/mob/living/L = M
+			L.can_have_vision_cone = TRUE
+			L.update_vision_cone()
 		M.Released()
 
 	contained = null
@@ -102,6 +104,10 @@ var/list/holder_mob_icon_cache = list()
 	for(var/mob/M in contents)
 		M.forceMove(T) //if the holder was placed into a disposal, this should place the animal in the disposal
 		M.reset_view()
+		if(isliving(M))
+			var/mob/living/L = M
+			L.can_have_vision_cone = TRUE
+			L.update_vision_cone()
 		M.Released()
 
 	contained = null
@@ -240,6 +246,9 @@ var/list/holder_mob_icon_cache = list()
 
 // Override to add stuff that should happen when scooping
 /mob/living/proc/post_scoop()
+	SHOULD_CALL_PARENT(TRUE)
+	can_have_vision_cone = FALSE
+	update_vision_cone()
 	return
 
 /mob/living/proc/get_holder_location()
@@ -351,7 +360,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state_dead = "nymph_dead"
 	origin_tech = list(TECH_MAGNET = 3, TECH_BIO = 5)
 	slot_flags = SLOT_HEAD | SLOT_EARS | SLOT_HOLSTER
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/holder/drone
 	name = "maintenance drone"
@@ -360,14 +369,14 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "drone"
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 5)
 	slot_flags = SLOT_HEAD
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 
 /obj/item/holder/drone/heavy
 	name = "construction drone"
 	desc = "It's a really big maintenance robot."
 	icon_state = "constructiondrone"
 	item_state = "constructiondrone"
-	w_class = 6//You're not fitting this thing in a backpack
+	w_class = ITEMSIZE_IMMENSE //You're not fitting this thing in a backpack
 
 /obj/item/holder/drone/mining
 	name = "mining drone"
@@ -386,7 +395,7 @@ var/list/holder_mob_icon_cache = list()
 //Setting item state to cat saves on some duplication for the in-hand versions, but we cant use it for head.
 //Instead, the head versions are done by duplicating the cat
 	slot_flags = SLOT_HEAD
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/holder/cat/black
 	icon_state = "cat"
@@ -404,7 +413,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "kitten"
 	icon_state_dead = "cat_kitten_dead"
 	slot_flags = SLOT_HEAD
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	item_state = "kitten"
 
 /obj/item/holder/cat/penny
@@ -413,7 +422,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "penny"
 	icon_state_dead = "penny_dead"
 	slot_flags = SLOT_HEAD
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	item_state = "penny"
 
 /obj/item/holder/carp/baby
@@ -424,7 +433,7 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "babycarp"
 	slot_flags = SLOT_HEAD
 	flags_inv = HIDEEARS
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/holder/carp/baby/verb/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
@@ -438,7 +447,7 @@ var/list/holder_mob_icon_cache = list()
 	desc = "It's a slimy brain slug. Gross."
 	icon_state = "brainslug"
 	origin_tech = list(TECH_BIO = 6)
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/holder/monkey
 	name = "monkey"
@@ -446,7 +455,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "monkey"
 	item_state = "monkey"
 	slot_flags = SLOT_HEAD
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/holder/monkey/farwa
 	name = "farwa"
@@ -454,7 +463,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "farwa"
 	item_state = "farwa"
 	slot_flags = SLOT_HEAD
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/holder/monkey/stok
 	name = "stok"
@@ -462,7 +471,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "stok"
 	item_state = "stok"
 	slot_flags = SLOT_HEAD
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/holder/monkey/neaera
 	name = "neaera"
@@ -470,7 +479,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "neaera"
 	item_state = "neaera"
 	slot_flags = SLOT_HEAD
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 //Holders for rats
 /obj/item/holder/rat
@@ -483,7 +492,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state_dead = "rat_brown_dead"
 	slot_flags = SLOT_EARS
 	origin_tech = list(TECH_BIO = 2)
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 /obj/item/holder/rat/white
 	icon_state = "rat_white_sleep"
@@ -520,7 +529,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "lizard"
 
 	slot_flags = 0
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 //Chicks and chickens
 /obj/item/holder/chick
@@ -531,7 +540,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state_dead = "chick_dead"
 	slot_flags = 0
 	icon_state = "chick"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 
 /obj/item/holder/chicken
@@ -542,7 +551,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "chicken_brown"
 	icon_state_dead = "chicken_brown_dead"
 	slot_flags = 0
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/holder/chicken/brown
 	icon_state = "chicken_brown"
@@ -567,7 +576,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "mushroom"
 	icon_state_dead = "mushroom_dead"
 	slot_flags = SLOT_HEAD
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 
 
 
@@ -618,14 +627,14 @@ var/list/holder_mob_icon_cache = list()
 	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "corgi"
 	item_state = "corgi"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/holder/fox
 	name = "fox"
 	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "fox"
 	item_state = "fox"
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/holder/schlorrgo
 	name = "schlorrgo"

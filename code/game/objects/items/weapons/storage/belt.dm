@@ -6,7 +6,7 @@
 	item_state = "utility"
 	force = 2
 	storage_slots = 7
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 28
 	slot_flags = SLOT_BELT
 	attack_verb = list("whipped", "lashed", "disciplined")
@@ -202,7 +202,7 @@
 	icon_state = "swatbelt"
 	item_state = "swatbelt"
 	storage_slots = 9
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 28
 
 /obj/item/storage/belt/military
@@ -211,7 +211,7 @@
 	icon_state = "militarybelt"
 	item_state = "militarybelt"
 	storage_slots = 9 //same as a combat belt now
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space  = 28
 	can_hold = list(
 		/obj/item/grenade,
@@ -253,8 +253,8 @@
 	icon_state = "janibelt"
 	item_state = "janibelt"
 	storage_slots = 6
-	w_class = 3
-	max_w_class = 3
+	w_class = ITEMSIZE_NORMAL
+	max_w_class = ITEMSIZE_NORMAL
 	can_hold = list(
 		/obj/item/crowbar,
 		/obj/item/screwdriver,
@@ -279,7 +279,7 @@
 	icon_state = "soulstonebelt"
 	item_state = "soulstonebelt"
 	storage_slots = 5
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space  = 28
 	can_hold = list(
 		/obj/item/gun/energy/wand
@@ -300,8 +300,8 @@
 	icon_state = "explorer"
 	item_state = "explorer"
 	storage_slots = 9
-	w_class = 4
-	max_w_class = 4 //Pickaxes are big.
+	w_class = ITEMSIZE_LARGE
+	max_w_class = ITEMSIZE_LARGE //Pickaxes are big.
 	can_hold = list(
 		/obj/item/crowbar,
 		/obj/item/screwdriver,
@@ -351,8 +351,8 @@
 	icon_state = "growbelt"
 	item_state = "growbelt"
 	storage_slots = 9
-	w_class = 3
-	max_w_class = 4
+	w_class = ITEMSIZE_NORMAL
+	max_w_class = ITEMSIZE_LARGE
 	can_hold = list(
 		/obj/item/reagent_containers/glass,
 		/obj/item/grenade/chem_grenade, //weed killer grenades mostly, or water-pottassium if you grow the bannanas!
@@ -377,7 +377,7 @@
 	icon_state = "securitybelt"
 	item_state = "security"
 	storage_slots = 9
-	max_w_class = 4
+	max_w_class = ITEMSIZE_LARGE
 	max_storage_space = 28
 
 	can_hold = list(
@@ -416,9 +416,15 @@
 	desc = "A dorky fannypack for keeping small items in."
 	icon_state = "fannypack_leather"
 	item_state = "fannypack_leather"
-	max_w_class = 2
+	max_w_class = ITEMSIZE_SMALL
 	storage_slots = null
 	max_storage_space = 8
+
+/obj/item/storage/belt/fannypack/component
+	name = "component pouch"
+	desc = "A dorky fannypack for keeping small items in. Also stores magickal components!"
+	starts_with = list(/obj/item/toy/snappop/syndi = 3, /obj/item/reagent_containers/glass/beaker/vial/random/toxin = 2, /obj/item/storage/pill_bottle/dice = 1)
+	max_storage_space = 14
 
 /obj/item/storage/belt/fannypack/black
  	name = "black fannypack"
@@ -473,7 +479,7 @@
 	item_state = "hammerbelt"
 	contained_sprite = TRUE
 	storage_slots = 1
-	max_w_class = 2
+	max_w_class = ITEMSIZE_SMALL
 	desc_fluff = "Shumaila is the sister of Mata'ke and the goddess of fortification, chastity, and building. She is the head of the town watch and the architect for all of the \
 	Holy Village's most important buildings. When Mata'ke's original hunting party had done battle with the King of Rraknarr, her beloved was killed in the fighting. Ever since then \
 	she has resolved to be eternally chaste in dedication to him. She is an M'sai who is depicted wearing modest dresses and carrying a hammer on a belt. She is not known for having \

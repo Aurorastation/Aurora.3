@@ -88,9 +88,14 @@
 	icon_state = "cadetberet"
 
 /obj/item/clothing/head/beret/sec/hos
-	name = "commander beret"
+	name = "blue commander beret"
 	desc = "A navy blue beret with a commander's rank emblem. For officers that are more inclined towards style than safety."
 	icon_state = "hosberet"
+
+/obj/item/clothing/head/beret/sec/hos/alt
+	name = "black commander beret"
+	desc = "A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety."
+	icon_state = "hosberet_alt"
 
 /obj/item/clothing/head/beret/sec/warden
 	name = "warden beret"
@@ -200,28 +205,29 @@
 	icon_state = "grey_fedora"
 	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
 
-/obj/item/clothing/head/det/technicolor
-	desc = "A 23rd-century fedora. It's fibres are hyper-absorbent."
-	icon = 'icons/obj/clothing/coloured_detective_hats.dmi'
-	icon_state = "hat_detective_black"
-	item_state = "hat_detective_black"
-	var/hat_color
-	contained_sprite = 1
+/obj/item/clothing/head/warden
+	name = "blue warden hat"
+	desc = "A navy blue warden hat. For showing who is in charge of the brig."
+	icon_state = "wardencap"
+	flags_inv = HIDEEARS
 
-/obj/item/clothing/head/det/technicolor/Initialize()
-	if(prob(5))
-		var/list/colors = list("yellow"=2,"red"=1,"white"=1,"orange"=1,"purple"=1,"green"=1,"blue"=1 )
-		var/color = pickweight(colors)
-		icon_state = "hat_detective_[color]"
-		item_state = "hat_detective_[color]"
-	. = ..()
+/obj/item/clothing/head/warden/alt
+	name = "black warden hat"
+	desc = "A black warden hat. For showing who is in charge of the brig."
+	icon_state = "wardencap_alt"
 
-/obj/item/clothing/head/det/technicolor/attackby(obj/item/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/reagent_containers/glass/paint))
-		var/obj/item/reagent_containers/glass/paint/P = O
-		hat_color = P.paint_type
-		name = "[hat_color] fedora"
-		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
-		icon_state = "hat_detective_[hat_color]"
-		item_state = "hat_detective_[hat_color]"
-	..()
+/obj/item/clothing/head/warden/commissar
+	name = "commissar's cap"
+	desc = "A security commissar's cap."
+	icon_state = "commissarcap"
+
+/obj/item/clothing/head/hos/cap
+	name = "blue commander hat"
+	desc = "The navy blue hat of the Head of Security. For showing the officers who's in charge."
+	icon_state = "hoscap"
+	flags_inv = HIDEEARS
+
+/obj/item/clothing/head/hos/cap/alt
+	name = "black commander hat"
+	desc = "The black hat of the Head of Security. For showing the officers who's in charge."
+	icon_state = "hoscap_alt"

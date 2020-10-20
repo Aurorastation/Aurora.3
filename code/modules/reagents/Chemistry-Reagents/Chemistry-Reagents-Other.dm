@@ -1,7 +1,7 @@
 /* Paint and crayons */
 
 /datum/reagent/crayon_dust
-	name = "Crayon dust"
+	name = "Crayon Dust"
 	description = "Intensely coloured powder obtained by grinding crayons."
 	reagent_state = LIQUID
 	color = "#888888"
@@ -10,42 +10,42 @@
 	fallback_specific_heat = 0.4
 
 /datum/reagent/crayon_dust/red
-	name = "Red crayon dust"
+	name = "Red Crayon Dust"
 	color = "#FE191A"
 	taste_description = "chalky strawberry wax"
 
 /datum/reagent/crayon_dust/orange
-	name = "Orange crayon dust"
+	name = "Orange Crayon Dust"
 	color = "#FFBE4F"
 	taste_description = "chalky orange peels"
 
 /datum/reagent/crayon_dust/yellow
-	name = "Yellow crayon dust"
+	name = "Yellow Crayon Dust"
 	color = "#FDFE7D"
 	taste_description = "chalky lemon rinds"
 
 /datum/reagent/crayon_dust/green
-	name = "Green crayon dust"
+	name = "Green Crayon Dust"
 	color = "#18A31A"
 	taste_description = "chalky lime rinds"
 
 /datum/reagent/crayon_dust/blue
-	name = "Blue crayon dust"
+	name = "Blue Crayon Dust"
 	color = "#247CFF"
 	taste_description = "chalky blueberry skins"
 
 /datum/reagent/crayon_dust/purple
-	name = "Purple crayon dust"
+	name = "Purple Crayon Dust"
 	color = "#CC0099"
 	taste_description = "chalky grape skins"
 
 /datum/reagent/crayon_dust/grey //Mime
-	name = "Grey crayon dust"
+	name = "Grey Crayon Dust"
 	color = "#808080"
 	taste_description = "chalky crushed dreams"
 
 /datum/reagent/crayon_dust/brown //Rainbow
-	name = "Brown crayon dust"
+	name = "Brown Crayon Dust"
 	color = "#846F35"
 	taste_description = "raw, powerful creativity"
 
@@ -75,9 +75,6 @@
 		var/obj/machinery/light/L = O
 		L.brightness_color = color
 		L.update()
-	else if(istype(O, /obj/item/clothing/suit/storage/toggle/det_trench/technicolor) || istype(O, /obj/item/clothing/head/det/technicolor))
-		return
-
 	else if(istype(O))
 		O.color = color
 
@@ -255,7 +252,7 @@
 	taste_description = "metal"
 
 /datum/reagent/foaming_agent // Metal foaming agent. This is lithium hydride. Add other recipes (e.g. LiH + H2O -> LiOH + H2) eventually.
-	name = "Foaming agent"
+	name = "Foaming Agent"
 	description = "A agent that yields metallic foam when mixed with light metal and a strong acid."
 	reagent_state = SOLID
 	color = "#664B63"
@@ -287,7 +284,7 @@
 	M.adjustFireLoss(3 * removed)
 
 /datum/reagent/spacecleaner
-	name = "Space cleaner"
+	name = "Space Cleaner"
 	description = "A compound used to clean things. Now with 50% more sodium hypochlorite!"
 	reagent_state = LIQUID
 	color = "#A5F0EE"
@@ -609,7 +606,7 @@
 	description = "This impossible substance slowly converts from a liquid into actual light."
 	reagent_state = LIQUID
 	color = "#ffff40"
-	scannable = 1
+	scannable = TRUE
 	metabolism = REM * 0.25
 	taste_description = "bottled fire"
 	var/datum/modifier/modifier
@@ -690,7 +687,7 @@
 /datum/reagent/bluespace_dust/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	if(prob(25))
 		M.make_jittery(5)
-		to_chat(M, "<span class='warning'>You feel unstable...</span>")
+		to_chat(M, SPAN_WARNING("You feel unstable..."))
 
 	if(prob(10))
 		do_teleport(M, get_turf(M), 5, asoundin = 'sound/effects/phasein.ogg')
@@ -720,7 +717,7 @@
 		I.canremove = 0
 		I.desc += " It appears to glisten with some gluey substance."
 		remove_self(10*I.w_class)
-		I.visible_message("<span class='notice'>[I] begins to glisten with some gluey substance.</span>")
+		I.visible_message(SPAN_NOTICE("[I] begins to glisten with some gluey substance."))
 
 /datum/reagent/usolve
 	name = "Universal Solvent"
@@ -735,7 +732,7 @@
 		var/obj/item/I = O
 		I.canremove = initial(I.canremove)
 		I.desc = initial(I.desc)
-		I.visible_message("<span class='notice'>A thin shell of glue cracks off of [I].</span>")
+		I.visible_message(SPAN_NOTICE("A thin shell of glue cracks off of [I]."))
 		remove_self(10*I.w_class)
 
 /datum/reagent/shapesand
@@ -756,20 +753,20 @@
 		mimic.item_state = O.item_state
 		mimic.overlays = O.overlays
 		remove_self(10*O.w_class)
-		mimic.visible_message("<span class='notice'>The sand forms into an exact duplicate of [O].</span>")
+		mimic.visible_message(SPAN_NOTICE("The sand forms into an exact duplicate of [O]."))
 
 /obj/item/shapesand
 	name = "shapesand"
 	desc = "A strangely animate clump of sand which can shift its color and consistency."
 	icon = 'icons/obj/mining.dmi'
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	icon_state = "ore_glass"
 
 /obj/item/shapesand/attack() //can't be used to actually bludgeon things
 	return 1
 
 /obj/item/shapesand/afterattack(atom/A, mob/living/user)
-	to_chat(user, "<span class='warning'>As you attempt to use the [src], it crumbles into inert sand!</span>")
+	to_chat(user, SPAN_WARNING("As you attempt to use the [src], it crumbles into inert sand!"))
 	new /obj/item/ore/glass(get_turf(src))
 	qdel(src)
 	return

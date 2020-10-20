@@ -21,7 +21,7 @@
 	//Departments that the cycler can paint suits to look like.
 	var/list/departments = list("Engineering", "Mining", "Medical", "Security", "Atmos")
 	//Species that the suits can be configured to fit.
-	var/list/species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
+	var/list/species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_IPC)
 
 	var/target_department
 	var/target_species
@@ -82,6 +82,7 @@
 	model_text = "Engineering"
 	req_access = list(access_construction)
 	departments = list("Engineering", "Atmos")
+	species = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_UNATHI, BODYTYPE_TAJARA, BODYTYPE_VAURCA, BODYTYPE_IPC)
 
 /obj/machinery/suit_cycler/mining
 	name = "mining suit cycler"
@@ -191,7 +192,7 @@
 		if(src.shock(user, 100))
 			return
 
-	if(istype(I, /obj/item/card/id) || istype(I, /obj/item/device/pda) || istype(I, /obj/item/modular_computer))
+	if(I.GetID())
 		if(allowed(user))
 			locked = !locked
 			to_chat(user, SPAN_NOTICE("You [locked ? "" : "un"]lock \the [src]."))
@@ -337,10 +338,10 @@
 	var/dat = ""
 
 	if(src.active)
-		dat += "<font color='red'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently in use. Please wait...</b></font>"
+		dat += "<span class='warning'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently in use. Please wait...</b></span>"
 
 	else if(locked)
-		dat += "<font color='red'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently locked. Please contact your system administrator.</b></font>"
+		dat += "<span class='warning'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently locked. Please contact your system administrator.</b></span>"
 		if(src.allowed(usr))
 			dat += "<br><a href='?src=\ref[src];toggle_lock=1'>\[unlock unit\]</a>"
 	else
@@ -509,7 +510,7 @@
 		occupant.apply_effect(radiation_level * 10, IRRADIATE)
 
 /obj/machinery/suit_cycler/proc/finished_job()
-	visible_message("\icon[src] <span class='notice'>\The [src] pings loudly.</span>")
+	visible_message("[icon2html(src, viewers(get_turf(src)))] <span class='notice'>\The [src] pings loudly.</span>")
 	playsound(loc, 'sound/machines/ping.ogg', 50, FALSE)
 	active = FALSE
 	update_icon()

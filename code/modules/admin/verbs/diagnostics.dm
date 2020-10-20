@@ -105,7 +105,10 @@
 	if(!check_rights(R_SERVER|R_DEV))
 		return
 
-	message_admins("[usr] manually reloaded admins")
+	if (config.use_forumuser_api)
+		update_admins_from_api(FALSE)
+
+	log_and_message_admins("manually reloaded admins.")
 	load_admins()
 	feedback_add_details("admin_verb","RLDA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 

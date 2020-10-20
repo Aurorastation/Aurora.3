@@ -27,7 +27,7 @@
 	icon_state = "skirt_long"
 	item_state = "skirt_long"
 	worn_state = "skirt_long"
-	
+
 /obj/item/clothing/under/skirt/high
 	name = "high skirt"
 	desc = "A modest skirt going up to the waist."
@@ -68,6 +68,22 @@
 	item_state = "skirt_pleated"
 	worn_state = "skirt_pleated"
 
+/obj/item/clothing/under/skirt/skater
+	name = "skater skirt"
+	desc = "A plush skater skirt."
+	desc_fluff = "Be it ice skating, skateboarding or rollerskating : You should probably wear shorts under these."
+	icon_state = "skirt_skater"
+	item_state = "skirt_skater"
+	worn_state = "skirt_skater"
+
+/obj/item/clothing/under/skirt/tube
+	name = "tube skirt"
+	desc = "A long tube skirt."
+	desc_fluff = "A pencil skirt. But longer."
+	icon_state = "skirt_tube"
+	item_state = "skirt_tube"
+	worn_state = "skirt_tube"
+
 /obj/item/clothing/under/skirt/offworlder
 	name = "\improper CR skirt"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear. This variant seems to have a poofy skirt and longer sleeves than normal."
@@ -75,3 +91,19 @@
 	item_state = "crskirt"
 	worn_state = "crskirt"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/under/skirt/jumper
+	name = "jumper skirt"
+	desc = "A short skirt with two large shoulder straps."
+	desc_fluff = "Too tall or too short? Too bad. These shoulder straps can't be adjusted."
+	icon_state = "skirt_jumper"
+	worn_state = "skirt_jumper"
+	item_state = "skirt_jumper"
+
+/obj/item/clothing/under/skirt/jumper_highcut
+	name = "jumper dress"
+	desc = "A garment with open sides that seems to be a cross between a dress and an apron."
+	desc_fluff = "You could achieve the same effect with two aprons, we're pretty sure."
+	icon_state = "skirt_jumper_highcut"
+	worn_state = "skirt_jumper_highcut"
+	item_state = "skirt_jumper_highcut"

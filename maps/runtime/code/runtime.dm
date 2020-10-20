@@ -19,3 +19,9 @@
 	company_name = "BanoTarsen"
 	company_short = "BT"
 	system_name = "runtime.dm"
+
+	station_networks = list(
+		NETWORK_CIVILIAN_MAIN,
+		NETWORK_COMMAND,
+		NETWORK_ENGINEERING,
+	)

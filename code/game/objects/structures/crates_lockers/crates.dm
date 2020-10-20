@@ -13,6 +13,8 @@
 	var/tablestatus = 0
 	pass_flags = PASSTABLE
 
+	slowdown = 0
+
 
 /obj/structure/closet/crate/can_open()
 	if (tablestatus != -1)//Can't be opened while under a table
@@ -349,7 +351,7 @@
 		add_overlay(emag)
 		add_overlay(sparks)
 		CUT_OVERLAY_IN(sparks, 6)
-		playsound(loc, "sparks", 60, 1)
+		playsound(loc, /decl/sound_category/spark_sound, 60, 1)
 		locked = 0
 		broken = 1
 		to_chat(user, "<span class='notice'>You unlock \the [src].</span>")
@@ -532,6 +534,15 @@
 	new /obj/item/clothing/head/radiation(src)
 	new /obj/item/clothing/suit/radiation(src)
 	new /obj/item/clothing/head/radiation(src)
+
+/obj/structure/closet/crate/secure/aimodules
+	name = "AI modules crate"
+	desc = "A secure crate full of AI modules."
+	req_access = list(access_cent_specops)
+
+/obj/structure/closet/crate/secure/aimodules/fill()
+	for(var/moduletype in subtypesof(/obj/item/aiModule))
+		new moduletype(src)
 
 /obj/structure/closet/crate/secure/weapon
 	name = "weapons crate"

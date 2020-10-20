@@ -10,7 +10,7 @@
 	flags =  CONDUCT
 	slot_flags = SLOT_BELT
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2)
 
 	burst = 1
@@ -247,7 +247,7 @@
 		var/obj/item/projectile/kinetic/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
 		shot_projectile.damage = damage_increase
 		shot_projectile.range = range_increase
-		shot_projectile.aoe = aoe_increase
+		shot_projectile.aoe = max(1, aoe_increase)
 		shot_projectile.base_damage = damage_increase
 		return shot_projectile
 	if(ispath(installed_barrel.projectile_type, /obj/item/projectile/beam))
@@ -374,7 +374,7 @@
 	firedelay_increase = max(firedelay_increase,0.125 SECONDS)
 
 	aoe_increase += round(damage_increase/30)
-	aoe_increase = max(0,aoe_increase)
+	aoe_increase = max(1, aoe_increase)
 
 	//Gun stats
 	recoil = recoil_increase*0.25

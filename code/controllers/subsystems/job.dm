@@ -393,8 +393,9 @@
 			var/obj/item/clothing/glasses/G = H.glasses
 			G.prescription = TRUE
 
-	if(H.species)
+	if(H.species && !H.species_items_equipped)
 		H.species.equip_later_gear(H)
+		H.species_items_equipped = TRUE
 
 	BITSET(H.hud_updateflag, ID_HUD)
 	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
@@ -528,9 +529,10 @@
 			var/obj/item/clothing/glasses/G = H.glasses
 			G.prescription = TRUE
 			G.autodrobe_no_remove = TRUE
-
-	if(H.species)
+	
+	if(H.species && !H.species_items_equipped)
 		H.species.equip_later_gear(H)
+		H.species_items_equipped = TRUE
 
 	// So shoes aren't silent if people never change 'em.
 	H.update_noise_level()
@@ -755,7 +757,8 @@
 				else if (H.equip_to_slot_or_del(CI, G.slot))
 					CI.autodrobe_no_remove = TRUE
 					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
-					custom_equip_slots += G.slot
+					if(G.slot != slot_tie)
+						custom_equip_slots += G.slot
 					Debug("EC/([H]): Equipped [CI] successfully.")
 				else if (leftovers)
 					leftovers += thing

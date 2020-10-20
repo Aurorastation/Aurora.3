@@ -8,9 +8,6 @@
 	name = "ultra rare hat"
 	desc = "an ultra rare hat. It commands a certain respect."
 	icon_state = "petehat"
-	sprite_sheets = list(
-		BODYTYPE_VOX = 'icons/mob/species/vox/head.dmi'
-		)
 
 /obj/item/clothing/head/collectable/slime
 	name = "collectable slime cap!"

@@ -51,7 +51,7 @@
 
 		if(9)
 			sound_to(holder, 'sound/effects/nuclearsiren.ogg')
-			to_chat(holder, "<font color='#008000'><b>Supermatter Monitor</b> states, \"WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT.\"</font>")
+			to_chat(holder, "<span class='radio'><b>Supermatter Monitor</b> states, \"WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT.\"</span>")
 			addtimer(CALLBACK(src, .proc/delam_call), 20)
 			addtimer(CALLBACK(src, .proc/delam_call), 35)
 
@@ -82,9 +82,9 @@
 		return
 	var/radio_exclaim = pick("Oh SHIT!", "Oh fuck.", "Uhhh!", "That's not good!", "FUCK.", "Engineering?", "It's under control!", "We're fucked!", "Ohhhh boy.", "What?!", "Um, <b>what?!</b>")
 	var/mob/living/caller = pick(people)
-	var/caller_accent = get_hallucinated_accent(caller)
+	var/caller_accent = get_hallucinated_accent(caller, holder)
 
-	to_chat(holder, "[caller_accent] <font color='#008000'><b>[pick(people)]</b> says, \"[radio_exclaim]\"</font>")
+	to_chat(holder, "[caller_accent] <span class='radio'><b>[pick(people)]</b> says, \"[radio_exclaim]\"</span>")
 
 
 /datum/hallucination/pda	//fake PDA messages. this only plays the beep and sends something to chat; it won't show up in the PDA.
@@ -269,7 +269,7 @@
 			"[pal] will keep you safe.",
 			"You feel captivated by [pal]'s charisma.",
 			"[pal] might as well be family to you.")
-		to_chat(holder, "<font color='green'><i>[pick(halpal_emotes)]</i></font>")
+		to_chat(holder, "<span class='good'><i>[pick(halpal_emotes)]</i></span>")
 
 /datum/hallucination/passive
 	duration = 600	//minute fallback
@@ -419,7 +419,7 @@
 
 	var/mob/living/talker = pick(candidates)	//Who is talking to us?
 	var/message		//What will they say?
-	var/accent_tag = get_hallucinated_accent(talker) //Can't forget the accent
+	var/accent_tag = get_hallucinated_accent(talker, holder) //Can't forget the accent
 
 	//Name selection. This gives us variety. Sometimes it will be your last name, sometimes your first.
 	var/list/names = list()
@@ -478,7 +478,7 @@
 			whisper_candidates += M
 	if(whisper_candidates.len)
 		var/mob/living/whisperer = pick(whisper_candidates)
-		var/whisper_accent = get_hallucinated_accent(whisperer)
+		var/whisper_accent = get_hallucinated_accent(whisperer, holder)
 		if(prob(70))
 			to_chat(holder, "[whisper_accent] <B>[whisperer]</B> whispers, <I>\"[pick(SShallucinations.hallucinated_phrases)]\"</I>")
 		else

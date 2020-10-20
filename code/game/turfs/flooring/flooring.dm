@@ -28,7 +28,7 @@
 	var/descriptor = "tiles"
 	var/flags
 	var/can_paint
-	var/footstep_sound = "tiles"
+	var/footstep_sound = /decl/sound_category/tiles_footstep
 
 /decl/flooring/grass
 	name = "synthetic grass"
@@ -39,7 +39,7 @@
 	damage_temperature = T0C+80
 	flags = TURF_HAS_EDGES | TURF_REMOVE_SHOVEL
 	build_type = /obj/item/stack/tile/grass
-	footstep_sound = "grass"
+	footstep_sound = /decl/sound_category/grass_footstep
 
 /decl/flooring/grass/alt
 	name = "grass"
@@ -57,7 +57,7 @@
 	icon_base = "asteroid"
 	flags = TURF_HAS_EDGES | TURF_REMOVE_SHOVEL
 	build_type = null
-	footstep_sound = "asteroid"
+	footstep_sound = /decl/sound_category/asteroid_footstep
 
 /decl/flooring/carpet
 	name = "carpet"
@@ -67,7 +67,7 @@
 	build_type = /obj/item/stack/tile/carpet
 	damage_temperature = T0C+200
 	flags = TURF_HAS_EDGES | TURF_HAS_CORNERS | TURF_REMOVE_CROWBAR | TURF_CAN_BURN
-	footstep_sound = "carpet"
+	footstep_sound = /decl/sound_category/carpet_footstep
 
 /decl/flooring/carpet/blue
 	name = "carpet"
@@ -94,7 +94,7 @@
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
 	build_type = /obj/item/stack/tile/floor
 	can_paint = 1
-	footstep_sound = "tiles"
+	footstep_sound = /decl/sound_category/tiles_footstep
 
 /decl/flooring/tiling/asteroid
 	name = "floor"
@@ -114,7 +114,7 @@
 	flags = TURF_REMOVE_CROWBAR | TURF_CAN_BREAK
 	build_type = /obj/item/stack/tile/lino
 	can_paint = 1
-	footstep_sound = "carpet"
+	footstep_sound = /decl/sound_category/carpet_footstep
 
 /decl/flooring/linoleum/grey
 	icon_base = "lino_grey"
@@ -204,7 +204,7 @@
 	descriptor = "planks"
 	build_type = /obj/item/stack/tile/wood
 	flags = TURF_CAN_BREAK | TURF_IS_FRAGILE | TURF_REMOVE_SCREWDRIVER | TURF_CAN_BURN
-	footstep_sound = "wood"
+	footstep_sound = /decl/sound_category/wood_footstep
 
 /decl/flooring/reinforced
 	name = "reinforced floor"
@@ -218,7 +218,7 @@
 	apply_thermal_conductivity = 0.025
 	apply_heat_capacity = 325000
 	can_paint = 1
-	footstep_sound = "plating"
+	footstep_sound = /decl/sound_category/plating_footstep
 
 /decl/flooring/reinforced/circuit
 	name = "processing strata"
@@ -271,7 +271,7 @@
 	icon = 'icons/turf/floors.dmi'
 	icon_base = "diona"
 	flags = TURF_ACID_IMMUNE | TURF_REMOVE_SHOVEL
-	footstep_sound = "grass"
+	footstep_sound = /decl/sound_category/grass_footstep
 
 //material turfs
 

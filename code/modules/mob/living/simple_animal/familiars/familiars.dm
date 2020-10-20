@@ -37,7 +37,7 @@
 	icon_dead = "evilcrab_dead"
 
 	speak_emote = list("chitters","clicks")
-
+	organ_names = list("head", "carapace")
 
 	health = 200
 	maxHealth = 200
@@ -71,6 +71,7 @@
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
+	organ_names = list("head", "chest", "tail", "left flipper", "right flipper")
 
 	min_oxy = 0
 
@@ -88,6 +89,7 @@
 	icon_state = "horror"
 	icon_living = "horror"
 	icon_dead = "horror_dead"
+	organ_names = list("meaty core")
 
 /mob/living/simple_animal/familiar/horror/Initialize()
 	. = ..()
@@ -95,10 +97,12 @@
 		icon_state = "horror_alt"
 		icon_living = "horror_alt"
 		icon_dead = "horror_alt_dead"
+		organ_names = list("head", "chest", "tail", "leg")
 	else if(prob(25))
 		icon_state = "abomination"
 		icon_living = "abomination"
 		icon_dead = "abomination_dead"
+		organ_names = list("head", "chest", "tail", "leg")
 
 	speak_emote = list("moans", "groans")
 

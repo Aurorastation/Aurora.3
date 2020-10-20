@@ -37,6 +37,8 @@
 #define LEFT  1
 #define RIGHT 2
 
+#define FIST_ATTACK_ANIMATION -1
+
 // Pulse levels, very simplified.
 #define PULSE_NONE    0 // So !M.pulse checks would be possible.
 #define PULSE_SLOW    1 // <60     bpm
@@ -100,6 +102,14 @@
 #define BP_KIDNEYS  "kidneys"
 #define BP_STOMACH  "stomach"
 #define BP_APPENDIX "appendix"
+
+//Vaurca organs
+#define BP_NEURAL_SOCKET "neural socket"
+#define BP_PHORON_RESERVE "phoron reserve tank"
+#define BP_FILTRATION_BIT "filtration bit"
+#define BP_PHORON_RESERVOIR "phoron reservoir"
+#define BP_VAURCA_LIVER "mechanical liver"
+#define BP_VAURCA_KIDNEYS "mechanical kidneys"
 
 //Aut'akh organs
 #define BP_ANCHOR   "anchor"
@@ -367,6 +377,16 @@
 #define AURA_TYPE_WEAPON "Weapon"
 #define AURA_TYPE_THROWN "Thrown"
 #define AURA_TYPE_LIFE   "Life"
+
+// Remote Control defines
+#define REMOTE_GENERIC_MECH "remotemechs"
+#define REMOTE_AI_MECH "aimechs"
+#define REMOTE_PRISON_MECH "prisonmechs"
+
+#define REMOTE_GENERIC_ROBOT "remoterobots"
+#define REMOTE_BUNKER_ROBOT "bunkerrobots"
+#define REMOTE_PRISON_ROBOT "prisonrobots"
+#define REMOTE_WARDEN_ROBOT "wardenrobots"
 
 // Robot Overlay Defines
 #define ROBOT_PANEL_EXPOSED  "exposed"

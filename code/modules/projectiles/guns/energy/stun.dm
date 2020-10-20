@@ -37,13 +37,13 @@
 	desc = "A weapon favored by many mercenary stealth specialists."
 	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
 	then click where you want to fire."
-	desc_antag = "This is a stealthy weapon which fires poisoned bolts at your target.  When it hits someone, they will suffer a stun effect, in \
-	addition to toxins.  The energy crossbow recharges itself slowly, and can be concealed in your pocket or bag."
+	desc_antag = "This is a stealthy weapon which fires paralyzing bolts at your target.  When it hits someone, they will suffer a stun effect. \
+	The energy crossbow recharges itself slowly, and can be concealed in your pocket or bag."
 	icon = 'icons/obj/guns/crossbow.dmi'
 	icon_state = "crossbow"
 	item_state = "crossbow"
 	has_item_ratio = FALSE
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	slot_flags = SLOT_BELT
@@ -67,7 +67,7 @@
 /obj/item/gun/energy/crossbow/largecrossbow
 	name = "energy crossbow"
 	desc = "A weapon favored by mercenary infiltration teams."
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force = 10
 	icon_state = "crossbowlarge"
 	item_state = "crossbow"

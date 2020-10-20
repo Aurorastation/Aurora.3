@@ -43,7 +43,8 @@ a:hover {
 	color: #141414;
 	text-decoration: none;
 	background: #7c7c7c;
-	border: 1px solid #161616;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
 	padding: 1px 4px 1px 4px;
 	margin: 0 2px 0 0;
 	cursor: default;

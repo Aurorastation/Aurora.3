@@ -1,9 +1,7 @@
-//Vox pinning weapon.
+//Alien pinning weapon.
 /obj/item/gun/launcher/spikethrower
-
 	name = "spike thrower"
 	desc = "A vicious alien projectile weapon. Parts of it quiver gelatinously, as though the thing is insectile and alive."
-
 	var/last_regen = 0
 	var/spike_gen_time = 100
 	var/max_spikes = 3
@@ -46,11 +44,11 @@
 	icon_state = "spikethrower[spikes]"
 
 /obj/item/gun/launcher/spikethrower/special_check(user)
-	if(istype(user,/mob/living/carbon/human))
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.species && H.species.name != SPECIES_VOX && H.species.name != SPECIES_VOX_ARMALIS)
+		if(H.species && H.species.name != SPECIES_VAURCA_WARRIOR)
 			to_chat(user, "<span class='warning'>\The [src] does not respond to you!</span>")
-			return 0
+			return FALSE
 	return ..()
 
 /obj/item/gun/launcher/spikethrower/update_release_force()
@@ -81,15 +79,11 @@
 
 	var/mode = 1
 
-	sprite_sheets = list(
-		BODYTYPE_VOX_ARMALIS = 'icons/mob/species/armalis/held.dmi'
-		)
-
 /obj/item/gun/energy/noisecannon/attack_hand(mob/user as mob)
 	if(loc != user)
 		var/mob/living/carbon/human/H = user
 		if(istype(H))
-			if(H.species.name == SPECIES_VOX_ARMALIS)
+			if(H.species.name == SPECIES_VAURCA_WARRIOR)
 				..()
 				return
 		to_chat(user, "<span class='warning'>\The [src] is far too large for you to pick up.</span>")

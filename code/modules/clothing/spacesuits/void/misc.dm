@@ -55,7 +55,7 @@
 	armor = list(melee = 50, bullet = 50, laser = 40, energy = 50, bomb = 50, bio = 100, rad = 30)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	brightness_on = 6
 	refittable = FALSE
 
@@ -65,7 +65,7 @@
 	icon_state = "eridani_suit"
 	item_state = "eridani_suit"
 	armor = list(melee = 50, bullet = 50, laser = 40, energy = 40, bomb = 50, bio = 100, rad = 30)
-	allowed = list(/obj/item/device/flashlight,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+	allowed = list(/obj/item/tank/oxygen, /obj/item/device/flashlight, /obj/item/gun, /obj/item/ammo_magazine, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/melee/energy/sword, /obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable = FALSE
@@ -110,7 +110,7 @@
 	icon_state = "lancer_suit"
 	item_state = "lancer_suit"
 	slowdown = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	armor = list(melee = 60, bullet = 50, laser = 30, energy = 15, bomb = 35, bio = 100, rad = 60)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
@@ -244,7 +244,7 @@
 	item_state = "revenant"
 	contained_sprite = 1
 
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	armor = list(melee = 25, bullet = 65, laser = 35,energy = 25, bomb = 15, bio = 100, rad = 15)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
@@ -271,7 +271,7 @@
 	item_state = "freelancer"
 
 	slowdown = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	armor = list(melee = 65, bullet = 55, laser = 20, energy = 15, bomb = 35, bio = 100, rad = 60)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
@@ -297,7 +297,7 @@
 	icon_state = "rig-kataphract"
 	item_state = "rig-kataphract"
 	slowdown = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	armor = list(melee = 75, bullet = 45, laser = 30, energy = 15, bomb = 35, bio = 100, rad = 80)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
@@ -349,8 +349,33 @@
 	item_state = "prejoroub"
 	contained_sprite = 1
 
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	armor = list(melee = 65, bullet = 55, laser = 25,energy = 25, bomb = 15, bio = 100, rad = 15)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_HUMAN)
+
+/obj/item/clothing/head/helmet/space/void/mining/himeo
+	name = "himeo voidsuit helmet"
+	desc = "A rugged polymer and alloy space helmet with a ballistic glass and polycarbonate visor commonly used by astronauts from Himeo."
+	desc_fluff = "The Type-78A 'Fish Fur' Helmet is a nearly 80 year old design and is part of a long line of homegrown voidsuits dating to when the planet ejected Hephaestus Industries. The main reason for its long service life\
+	is its modularity, with Himean workers often taking the time to make their own improvements to it, ranging all the way from simple morale patches slapped on the top to modern HUD-enabled visors."
+	icon_state = "rig0-himeo"
+	item_state = "rig0-himeo"
+	item_state_slots = list(
+		slot_l_hand_str = "mining_helm",
+		slot_r_hand_str = "mining_helm"
+		)
+
+/obj/item/clothing/suit/space/void/mining/himeo
+	name = "himeo voidsuit"
+	item_state_slots = list(
+		slot_l_hand_str = "mining_hardsuit",
+		slot_r_hand_str = "mining_hardsuit"
+	)
+	desc = "A simple but durable softsuit with a set of protective alloy plates commonly used by Himean astronauts. The suit life support console and torso plate contains a Himean flag patch."
+	desc_fluff = "The Type-78 'Fish Fur' Voidsuit is an aging yet popular design produced only on Himeo. The simple and affordable design means many Himeans are able to own their own spacesuits rather than have one provided to them by their employer.\
+	Its modular design means that they're adapted for use everywhere from the depths of Himeo to protect from debris, its surface to protect from the bitter cold, and in orbit, to work in the void. Their similarity to flightsuits have been noted, and the planet\
+	enjoys jolly cooperation with fellow designers from Crosk who seek to invent new suits to keep their racers going faster."
+	item_state = "rig-himeo"
+	icon_state = "rig-himeo"

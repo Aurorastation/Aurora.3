@@ -34,4 +34,5 @@
 		,/area/bridge/selfdestruct
 		,/area/medical/cryo
 		,/area/medical/patient_c
+		,/area/security/penal_colony
 	)

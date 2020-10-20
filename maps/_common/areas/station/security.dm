@@ -149,3 +149,22 @@
 
 /area/security/vacantoffice2
 	name = "Security - Meeting Room"
+
+/area/security/penal_colony
+	name = "\improper Security - Penal Mining Colony"
+	icon_state = "security"
+	icon_state = "security"
+	holomap_color = null
+	flags = HIDE_FROM_HOLOMAP
+	sound_env = LARGE_ENCLOSED
+	ambience = AMBIENCE_HIGHSEC
+
+/area/security/penal_colony/warden
+	name = "\improper Security - Remote Warden's Office"
+	icon_state = "Warden"
+	sound_env = SMALL_ENCLOSED
+
+/area/security/penal_colony/prison
+	name = "\improper Security - Remote Prison Wing"
+	icon_state = "sec_prison"
+	sound_env = SMALL_ENCLOSED

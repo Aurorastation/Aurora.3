@@ -125,7 +125,7 @@
 
 /obj/structure/chemkit/dismantle()
 	new /obj/structure/table(loc)
-	new /obj/item/reagent_containers/glass/beaker/bowl(loc)
+	new /obj/item/reagent_containers/cooking_container/plate/bowl(loc)
 	if(analyzer)
 		analyzer.forceMove(loc)
 		analyzer = null

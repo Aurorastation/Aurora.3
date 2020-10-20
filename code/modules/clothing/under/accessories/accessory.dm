@@ -6,7 +6,7 @@
 	item_state = ""	//no inhands
 	overlay_state = null
 	slot_flags = SLOT_TIE
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	var/slot = "decor"
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
@@ -89,7 +89,8 @@
 	if(flippable)
 		if(!flipped)
 			if(!overlay_state)
-				icon_state = "[icon_state]_flip"
+				icon_state = "[initial(icon_state)]_flip"
+				item_state = "[initial(item_state)]_flip"
 				flipped = 1
 			else
 				overlay_state = "[overlay_state]_flip"
@@ -97,6 +98,7 @@
 		else
 			if(!overlay_state)
 				icon_state = initial(icon_state)
+				item_state = initial(item_state)
 				flipped = 0
 			else
 				overlay_state = initial(overlay_state)
@@ -200,116 +202,6 @@
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
-//Medals
-/obj/item/clothing/accessory/medal
-	name = "bronze medal"
-	desc = "A bronze medal."
-	icon_state = "bronze"
-	overlay_state = "bronze"
-	flippable = 1
-
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-
-/obj/item/clothing/accessory/medal/conduct
-	name = "distinguished conduct medal"
-	desc = "A bronze medal awarded for distinguished conduct. Whilst a great honor, this is most basic award on offer. It is often awarded by a captain to a member of their crew."
-	icon_state = "bronze_nt"
-
-/obj/item/clothing/accessory/medal/bronze_heart
-	name = "bronze heart medal"
-	desc = "A bronze heart-shaped medal awarded for sacrifice. It is often awarded posthumously or for severe injury in the line of duty."
-	icon_state = "bronze_heart"
-
-/obj/item/clothing/accessory/medal/nobel_science
-	name = "\improper Nobel science award"
-	desc = "A bronze medal which represents significant contributions to the field of science or engineering."
-
-/obj/item/clothing/accessory/medal/sol
-	name = "\improper ASSN medal of bravery"
-	desc = "A bronze medal dedicated to those who have demonstrated courageous acts in the name of the Alliance of Sovereign Solarian Nations."
-	icon_state = "bronze_sol"
-
-/obj/item/clothing/accessory/medal/iron
-	name = "iron medal"
-	desc = "A simple iron medal."
-	icon_state = "iron"
-	overlay_state = "iron"
-
-/obj/item/clothing/accessory/medal/iron/merit
-	name = "iron merit medal"
-	desc = "An iron medal awarded to NanoTrasen employees for merit."
-	icon_state = "iron_nt"
-
-/obj/item/clothing/accessory/medal/iron/star
-	name = "iron star medal"
-	desc = "An iron medal awarded to those who have provided service to their profession in the field of medical organisation, and/or to physicians by enhancing overall health and well-being of colleagues on both personal and professional levels."
-	icon_state = "iron_star"
-	overlay_state = "iron_star"
-
-/obj/item/clothing/accessory/medal/iron/sol
-	name = "\improper ASSN medal of effort"
-	desc = "An iron medal awarded for distinguished effort conducted by an individual in the name of the Alliance of Sovereign Solarion Nations."
-	icon_state = "iron_sol"
-
-/obj/item/clothing/accessory/medal/silver
-	name = "silver medal"
-	desc = "A silver medal."
-	icon_state = "silver"
-	overlay_state = "silver"
-
-/obj/item/clothing/accessory/medal/silver/valor
-	name = "medal of valor"
-	desc = "A silver medal awarded for acts of exceptional valor."
-	icon_state = "silver_sword"
-
-/obj/item/clothing/accessory/medal/silver/security
-	name = "robust security award"
-	desc = "An award for distinguished combat and sacrifice in defence of corporate commercial interests. Often awarded to security staff."
-	icon_state = "silver_nt"
-
-/obj/item/clothing/accessory/medal/silver/sol
-	name = "\improper ASSN medal of service"
-	desc = "A silver medal held for those who have served for long periods of time with pristine conduct in the name of the Alliance of Sovereign Solarian Nations."
-	icon_state = "silver_sol"
-
-/obj/item/clothing/accessory/medal/gold
-	name = "gold medal"
-	desc = "A prestigious golden medal."
-	icon_state = "gold"
-	overlay_state = "gold"
-
-/obj/item/clothing/accessory/medal/gold/star
-	name = "gold star medal"
-	desc = "Some sort of medal with finely-cut gold. There is a small arch depicted on it."
-	icon_state = "gold_star"
-
-/obj/item/clothing/accessory/medal/gold/sun
-	name = "gold sun medal"
-	desc = "A finely rounded gold medal with small, complicated engravings running all around it."
-	icon_state = "gold_sun"
-
-/obj/item/clothing/accessory/medal/gold/captain
-	name = "medal of captaincy"
-	desc = "A golden medal awarded exclusively to those promoted to the rank of captain. It signifies the codified responsibilities of a captain, and their undisputable authority over their crew."
-	icon_state = "gold_nt"
-
-/obj/item/clothing/accessory/medal/gold/heroism
-	name = "medal of exceptional heroism"
-	desc = "An extremely rare golden medal awarded only by company officials. To receive such a medal is the highest honor and as such, very few exist. This medal is almost never awarded to anybody but commanders."
-	icon_state = "gold_crest"
-
-/obj/item/clothing/accessory/medal/gold/sol
-	name = "\improper ASSN medal of distinction"
-	desc = "A gold medal reserved only for those with excellent performance in both combat and political training, for selflessness, and for bravery displayed in service under the Alliance of Sovereign Solarian Nations."
-	icon_state = "gold_sol"
-
-/obj/item/clothing/accessory/medal/white_heart
-	name = "distinguished volunteer's medal"
-	desc = "A white medal with a red cross on it for those who have performed outstanding medical services as a volunteer for the Interstellar Aid Corps."
-	icon_state = "white_heart"
-	overlay_state = "white_heart"
-
 /obj/item/clothing/accessory/suspenders
 	name = "suspenders"
 	desc = "They suspend the illusion of the mime's play."
@@ -404,7 +296,7 @@
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	siemens_coefficient = 0.9
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	slot = "over"
 	var/allow_tail_hiding = TRUE //in case if you want to allow someone to switch the HIDETAIL var or not
 
@@ -468,7 +360,7 @@
 	name = "IAC poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is white with a blue tint, standard IAC colors."
 	icon_state = "IACponcho"
-	item_state = "IACponcho"	
+	item_state = "IACponcho"
 
 /obj/item/clothing/accessory/poncho/roles/engineering
 	name = "engineering poncho"
@@ -704,17 +596,17 @@
 	overlay_state = null
 	badge_string = null
 	slot_flags = SLOT_TIE
-	w_class = 1
-	
+	w_class = ITEMSIZE_TINY
+
 /obj/item/clothing/accessory/bracelet
 	name = "bracelet"
 	desc = "A simple bracelet with a clasp."
 	icon_state = "bracelet"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
 	flippable = 1
-	
+
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"
 	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing."
