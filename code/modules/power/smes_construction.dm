@@ -15,14 +15,14 @@
 	var/ChargeCapacity = 5000000
 	var/IOCapacity = 250000
 
-/obj/item/smes_coil/Initialize()
+/obj/item/smes_coil/examine(mob/user)
 	. = ..()
-	desc += {"
-The label reads:
-<span class='notice'>Only certified professionals are allowed to handle and install this component.
-Charge capacity: [ChargeCapacity/1000000] MJ
-Input/Output rating: [IOCapacity/1000] kW</span>
-"}
+	if(Adjacent(user))
+		to_chat(user, "The label reads:\
+			<div class='notice' style='padding-left:2rem'>Only certified professionals are allowed to handle and install this component.<br>\
+			Charge capacity: [ChargeCapacity/1000000] MJ<br>\
+			Input/Output rating: [IOCapacity/1000] kW</div>",
+			trailing_newline = FALSE)
 
 // 20% Charge Capacity, 60% I/O Capacity. Used for substation/outpost SMESs.
 /obj/item/smes_coil/weak
