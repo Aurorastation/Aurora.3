@@ -133,9 +133,6 @@
 	accessory = /obj/item/clothing/accessory/holster/hip/brown
 	accessory_contents = list(/obj/item/gun/projectile/pistol/sol = 1)
 
-/datum/outfit/admin/event/sol_marine/get_id_access()
-	return get_all_station_access()
-
 /datum/outfit/admin/event/sol_marine/heavy
 	name = "Heavy Solarian Marine"
 
