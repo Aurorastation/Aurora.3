@@ -260,8 +260,7 @@
 					output = "My [org.name] is [SPAN_WARNING("[english_list(status)].")]"
 				else
 					output = "My [org.name] feels [SPAN_NOTICE("OK.")]"
-				var/has_implants = length(org.implants)
-				if(has_implants)
+				if(length(org.implants))
 					output += " [SPAN_WARNING("I can feel something inside it.")]"
 				to_chat(src, output)
 
