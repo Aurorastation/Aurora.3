@@ -73,6 +73,9 @@ var/global/ntnet_card_uid = 1
 				return 2
 			else
 				return 1
+		var/area/A = get_area(parent_computer)
+		if(A.centcomm_area && ethernet)
+			return 3
 
 	if(long_range) // Computer is not on station, but it has upgraded network card. Low signal.
 		return 1
