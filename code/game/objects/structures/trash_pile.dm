@@ -26,7 +26,8 @@
 
 /obj/structure/trash_pile/Initialize()
 	. = ..()
-	icon_state = pick("pile1","pile2","pilechair","piletable","pilevending","brtrashpile","microwavepile","rackpile","boxfort","trashbag","brokecomp")
+	if(icon_state == initial(icon_state))
+		icon_state = pick(icon_states(icon) - icon_state)
 
 /obj/structure/trash_pile/MouseDrop_T(obj/structure/trash_pile/target, mob/user)
 	if(!Adjacent(user) || use_check_and_message(user))
