@@ -37,6 +37,9 @@
 		data["_PC"] = headerdata
 		. = data
 
+	var/ntnet_status = !ntnet_global?.check_function()
+	data["ntnet_active"] = ntnet_status
+
 	var/turf/T = get_turf(computer.loc)
 
 	LAZYINITLIST(wireless_firing_pins_data)
@@ -49,7 +52,7 @@
 		var/turf/Ts = get_turf(P)
 		if(ARE_Z_CONNECTED(T.z, Ts.z))
 			var/list/guntracker_info = list(
-				"gun_name" = capitalize_first_letters(P.gun.name),
+				"gun_name" = capitalize_first_letters(initial(P.gun.name)),
 				"registered_info" = P.registered_user ? P.registered_user : "Unregistered",
 				"ref" = "\ref[P]",
 				"lockstatus" = P.lockstatus

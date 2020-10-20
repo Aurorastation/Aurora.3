@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "The Firearm Control program will now be disabled if NTNet is not active."
+  - bugfix: "Putting a label on a gun will no longer change the name on the guntracker program."
