@@ -463,19 +463,13 @@ var/list/asset_datums = list()
 		"vueui.css" = 'vueui/dist/app.css'
 	)
 
-// /datum/asset/simple/accents
-// 	verify = FALSE
-
-// /datum/asset/simple/accents/register()
-// 	for(var/A in subtypesof(/datum/accent)) //yes we have to do this here, SSrecords isn't initialized yet
-// 		var/datum/accent/accent = new A
-// 		var/name = "[accent.tag_icon].png"
-// 		assets[name] = icon('./icons/accent_tags.dmi', accent.tag_icon)
-// 	..()
-
 /datum/asset/spritesheet/goonchat
 	name = "chat"
 
 /datum/asset/spritesheet/goonchat/register()
-	InsertAll(null, './icons/accent_tags.dmi')
+	var/icon/I = icon('icons/accent_tags.dmi')
+	for(var/path in subtypesof(/datum/accent))
+		var/datum/accent/A = new path
+		if(A.tag_icon)
+			Insert(A.tag_icon, I, A.tag_icon)
 	..()
