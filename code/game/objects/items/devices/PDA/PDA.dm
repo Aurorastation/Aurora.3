@@ -799,7 +799,7 @@ var/global/list/obj/item/device/pda/PDAs = list()
 			var/t = input(U, "Please enter new ringtone", name, ttone) as text|null
 			if (in_range(src, U) && loc == U)
 				if (t)
-					if(src.hidden_uplink && hidden_uplink.check_trigger(U, lowertext(t), lowertext(lock_code)))
+					if(src.hidden_uplink && hidden_uplink.check_trigger(U, lowertext(t), lowertext(hidden_uplink.pda_code)))
 						to_chat(U, "The PDA softly beeps.")
 						ui.close()
 					else

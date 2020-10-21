@@ -2570,7 +2570,6 @@
 #include "code\modules\research\designs\protolathe\mining_designs.dm"
 #include "code\modules\research\designs\protolathe\modular_computer_designs.dm"
 #include "code\modules\research\designs\protolathe\modular_gun_designs.dm"
-#include "code\modules\research\designs\protolathe\pda_designs.dm"
 #include "code\modules\research\designs\protolathe\power_designs.dm"
 #include "code\modules\research\designs\protolathe\stock_parts_designs.dm"
 #include "code\modules\research\designs\protolathe\tool_designs.dm"

@@ -184,17 +184,7 @@
 	verbs += /mob/living/silicon/proc/computer_interact
 	verbs += /mob/living/silicon/proc/silicon_mimic_accent
 
-// 	//PDA
-// 	pda = new(src)
-// 	addtimer(CALLBACK(src, .proc/set_pda), 5)
-
 	. = ..()
-
-// /mob/living/silicon/pai/proc/set_pda()
-// 	pda.ownjob = "Personal Assistant"
-// 	pda.owner = "[src]"
-// 	pda.name = "[pda.owner] ([pda.ownjob])"
-// 	pda.toff = TRUE
 
 
 /mob/living/silicon/pai/proc/set_custom_sprite()

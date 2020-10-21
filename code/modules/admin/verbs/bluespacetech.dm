@@ -67,7 +67,7 @@
 	else
 		bst.equip_to_slot_or_del(new /obj/item/storage/box/ids(bst.back), slot_in_backpack)
 		bst.equip_to_slot_or_del(new /obj/item/device/t_scanner(bst.back), slot_in_backpack)
-		bst.equip_to_slot_or_del(new /obj/item/device/pda/captain/bst(bst.back), slot_in_backpack)
+		bst.equip_to_slot_or_del(new /obj/item/modular_computer/handheld/pda/command/bst(bst.back), slot_in_backpack)
 		bst.equip_to_slot_or_del(new /obj/item/device/healthanalyzer(bst.back), slot_in_backpack)
 		bst.equip_to_slot_or_del(new /obj/item/research(bst.back), slot_in_backpack)
 
@@ -491,20 +491,6 @@
 		access = get_all_accesses()+get_all_centcom_access()+get_all_syndicate_access()
 
 /obj/item/card/id/bst/attack_hand()
-	if(!usr)
-		return
-	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
-		return
-	else
-		..()
-
-/obj/item/device/pda/captain/bst
-	hidden = 1
-	message_silent = 1
-//	ttone = "DO SOMETHING HERE"
-
-/obj/item/device/pda/captain/bst/attack_hand()
 	if(!usr)
 		return
 	if(!istype(usr, /mob/living/carbon/human/bst))

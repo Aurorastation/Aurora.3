@@ -248,6 +248,15 @@
 	icon_add = "h"
 	// hidden = 1
 
+/obj/item/modular_computer/handheld/pda/command/bst/attack_hand()
+	if(!usr)
+		return
+	if(!istype(usr, /mob/living/carbon/human/bst))
+		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
+		return
+	else
+		..()
+
 /obj/item/modular_computer/handheld/pda/ert
 	_app_preset_type = /datum/modular_computer_app_presets/ert
 	icon_add = "h"

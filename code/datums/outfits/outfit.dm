@@ -175,11 +175,7 @@
 		var/obj/item/I = new id(H)
 		imprint_idcard(H,I)
 		if(istype(P) && P.card_slot)
-			P.card_slot.insert_id(I)
-			if(P.card_slot && P.card_slot.stored_card)
-				P.set_autorun("ntnrc_client")
-				P.enable_computer(null, TRUE) // passing null because we don't want the UI to open
-				P.minimize_program()
+			addtimer(CALLBACK(src, .proc/register_pda, P, I), 1 SECOND)
 		else
 			H.equip_or_collect(I, slot_wear_id)
 
@@ -276,6 +272,13 @@
 
 /datum/outfit/proc/imprint_pda(mob/living/carbon/human/H, obj/item/modular_computer/PDA)
 	PDA.name = "PDA-[H.real_name] ([get_id_assignment(H)])"
+
+/datum/outfit/proc/register_pda(obj/item/modular_computer/P, obj/item/card/id/I)
+	P.card_slot.insert_id(I)
+	if(P.card_slot && P.card_slot.stored_card)
+		P.set_autorun("ntnrc_client")
+		P.enable_computer(null, TRUE) // passing null because we don't want the UI to open
+		P.minimize_program()
 
 /datum/outfit/proc/get_id_access(mob/living/carbon/human/H)
 	return list()

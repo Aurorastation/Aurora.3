@@ -10,6 +10,8 @@
 	ui_header = "ntnrc_idle.gif"
 	available_on_ntnet = TRUE
 	nanomodule_path = /datum/nano_module/program/computer_chatclient
+	color = LIGHT_COLOR_GREEN
+
 	var/last_message				// Used to generate the toolbar icon
 	var/username
 	var/datum/ntnet_conversation/channel
@@ -17,7 +19,10 @@
 	var/netadmin_mode = FALSE		// Administrator mode (invisible to other users + bypasses passwords)
 	var/set_offline = FALSE // appear "invisible"
 	var/list/directmessagechannels = list()
-	color = LIGHT_COLOR_GREEN
+
+	var/ringtone = "beep"
+	var/syndi_auth = FALSE
+	var/silent = FALSE
 
 /datum/computer_file/program/chatclient/New(var/obj/item/modular_computer/comp)
 	..(comp)
@@ -28,6 +33,24 @@
 /datum/computer_file/program/chatclient/Topic(href, href_list)
 	if(..())
 		return TRUE
+
+	if(href_list["PRG_toggleringer"])
+		. = TRUE
+		silent = !silent
+
+	if(href_list["PRG_setringtone"])
+		. = TRUE
+		var/t = input(usr, "Please enter new ringtone", filedesc, ringtone) as text|null
+		if(!usr.Adjacent(computer) || !t)
+			return
+		var/obj/item/device/uplink/hidden/H = computer.hidden_uplink
+		if(istype(H) && H.check_trigger(usr, lowertext(t), lowertext(H.pda_code)))
+			to_chat(usr, SPAN_NOTICE("\The [computer] softly beeps."))
+			syndi_auth = TRUE
+			SSnanoui.close_uis(NM)
+		else
+			t = sanitize(t, 20)
+			ringtone = t
 
 	if(href_list["PRG_speak"])
 		. = TRUE
@@ -274,11 +297,19 @@
 	if(!ntnet_global || !ntnet_global.chat_channels)
 		return
 
+	var/datum/computer_file/program/chatclient/C = program
+
+	if(C.computer.hidden_uplink && C.syndi_auth)
+		if(alert(user, "Resume or close and secure?", name, "Resume", "Close") == "Resume")
+			C.computer.hidden_uplink.trigger(user)
+			return
+		else
+			C.syndi_auth = FALSE
+
 	var/list/data = list()
 	if(program)
 		data = list("_PC" = program.get_header_data())
 
-	var/datum/computer_file/program/chatclient/C = program
 	if(!istype(C))
 		return
 
