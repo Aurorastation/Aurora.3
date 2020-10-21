@@ -1,0 +1,6 @@
+author: JohnWildkins
+
+delete-after: True
+
+changes:
+  - tweak: "Hand labelers set 'on' will no longer go inside storage containers (backpacks, closets, crates), and will instead label them."
