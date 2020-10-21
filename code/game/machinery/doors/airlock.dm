@@ -834,6 +834,8 @@ About the new airlock wires panel:
 /obj/machinery/door/airlock/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	. = ..()
 	data = . || data || list()
+	VUEUI_SET_IFNOTSET(data["doorArea"], loc.loc?.name, ., data)
+	VUEUI_SET_IFNOTSET(data["doorName"], name, ., data)
 	VUEUI_SET_CHECK(data["open"], !density, ., data)
 	VUEUI_SET_CHECK(data["plu_main"], main_power_lost_until, ., data)
 	VUEUI_SET_CHECK(data["plua_main"], main_power_lost_at, ., data)
@@ -841,10 +843,12 @@ About the new airlock wires panel:
 	VUEUI_SET_CHECK(data["plua_back"], backup_power_lost_at, ., data)
 	VUEUI_SET_CHECK(data["ele"], electrified_until, ., data)
 	VUEUI_SET_CHECK(data["elea"], electrified_at, ., data)
-	var/isAI = issilicon(user) && !player_is_antag(user.mind)
+	var/antag = player_is_antag(user.mind)
+	var/isAI = issilicon(user) && !antag
+	var/isAdmin = check_rights(R_ADMIN, show_msg = FALSE)
 	VUEUI_SET_CHECK(data["isai"], isAI, ., data)
 	VUEUI_SET_CHECK(data["aiCanBolt"], aiBolting, ., data)
-	var/isAdmin = check_rights(R_ADMIN, show_msg = FALSE)
+	VUEUI_SET_IFNOTSET(data["boltsOverride"], antag || isAdmin, ., data)
 	VUEUI_SET_IFNOTSET(data["isAdmin"], isAdmin, ., data)
 
 	VUEUI_SET_CHECK(data["idscan"], !aiDisabledIdScanner, ., data)
@@ -1062,6 +1066,7 @@ About the new airlock wires panel:
 
 	var/isAdmin = check_rights(R_ADMIN, show_msg = FALSE)
 	var/activate = text2num(href_list["activate"])
+	var/antag = player_is_antag(usr.mind)
 	switch (href_list["command"])
 		if("idscan")
 			set_idscan(activate, 1)
@@ -1072,11 +1077,9 @@ About the new airlock wires panel:
 			if(!backup_power_lost_until)
 				src.loseBackupPower()
 		if("bolts")
-			if(isAdmin)
-				activate ? lock() : unlock()
 			if(src.isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) // cut wire is noop
 				to_chat(usr, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))
-			else if(issilicon(usr) && !player_is_antag(usr.mind)) // non-antag silicons
+			else if(isAdmin || issilicon(usr)) // controls for silicons, "stealthy" antag silicons and "stealthy" admins
 				if(src.aiBolting && src.aiBoltingSetup != AIRLOCK_AI_BOLTING_NEVER)
 					if(!isnull(src.aiActionTimer))
 						to_chat(usr, SPAN_WARNING("An action is already queued. Please wait for it to complete."))
@@ -1091,7 +1094,17 @@ About the new airlock wires panel:
 				else
 					to_chat(usr, SPAN_WARNING("The door is configured not to allow remote bolt operation."))
 			else // everyone else
-				if (issilicon(usr) && src.aiBoltingSetup == AIRLOCK_AI_BOLTING_NEVER) // not even antags can operate door bolts here
+				if(activate)
+					if(src.lock())
+						to_chat(usr, SPAN_NOTICE("The door bolts have been dropped."))
+				else
+					if(src.unlock())
+						to_chat(usr, SPAN_NOTICE("The door bolts have been raised."))
+		if("bolts_override")
+			if(isAdmin || (issilicon(usr) && antag)) // admin and silicon antag can override
+				if(!isAdmin && src.isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) // cut wire is noop, except for admins
+					to_chat(usr, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))
+				else if (src.aiBoltingSetup == AIRLOCK_AI_BOLTING_NEVER) // not even antags can operate door bolts here
 					to_chat(usr, SPAN_WARNING("The door is configured not to allow remote bolt operation."))
 				else if(activate)
 					if(src.lock())
@@ -1100,12 +1113,12 @@ About the new airlock wires panel:
 					if(src.unlock())
 						to_chat(usr, SPAN_NOTICE("The door bolts have been raised."))
 		if("electrify_temporary")
-			if(!isAdmin && issilicon(usr) && !player_is_antag(usr.mind))
+			if(!isAdmin && issilicon(usr) && !antag)
 				to_chat(usr, SPAN_WARNING("Your programming prevents you from electrifying the door."))
 			else
 				electrify(30 * activate, 1)
 		if("electrify_permanently")
-			if(!isAdmin && issilicon(usr) && !player_is_antag(usr.mind))
+			if(!isAdmin && issilicon(usr) && !antag)
 				to_chat(usr, SPAN_WARNING("Your programming prevents you from electrifying the door."))
 			else
 				electrify(-1 * activate, 1)
@@ -1121,7 +1134,7 @@ About the new airlock wires panel:
 			else if(!activate && !density)
 				close()
 		if("safeties")
-			if(!isAdmin && safe && issilicon(usr) && !player_is_antag(usr.mind))
+			if(!isAdmin && safe && issilicon(usr) && !antag)
 				to_chat(usr, SPAN_WARNING("Your programming prevents you from disabling the door safeties."))
 			else
 				set_safeties(!activate, 1)

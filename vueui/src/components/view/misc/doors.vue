@@ -1,6 +1,9 @@
 <template>
   <div>
     <vui-group>
+      <vui-group-item label="Designation:">
+        {{ s.doorArea }} - {{ s.doorName }}
+      </vui-group-item>
       <vui-group-item label="Main power:">
         <vui-progress
           :class="{ good: s.plu_main == 0, bad: s.plu_main == -1, average: s.plu_main > 0 }"
@@ -41,9 +44,9 @@
       <vui-group-item>
         &nbsp;
       </vui-group-item>
-      <vui-group-item v-for="(c, k) in commands" :key="k" :label="c.n + ':'">
-        <vui-button style="min-width: 6em" :class="{on: s[k]}" :params="{ command: k, activate: c.i ? 1 : 0 }">{{ c.et || 'Enabled' }}</vui-button>
-        <vui-button :disabled="!!(c.a && s.isai && !s.isAdmin)" style="min-width: 6em" :class="{on: !s[k] && !c.d, danger: !s[k] && c.d}" :params="{ command: k, activate: c.i ? 0 : 1 }">{{ c.dt || 'Disabled' }}</vui-button>
+      <vui-group-item v-for="(c, k) in commands" :key="k" :label="c.name + ':'">
+        <vui-button style="min-width: 6em" :class="{on: s[k] && !c.noActivate, danger: !!c.alwaysDanger}" :params="{ command: k, activate: c.i ? 1 : 0 }">{{ c.et || 'Enabled' }}</vui-button>
+        <vui-button :disabled="!!(c.a && s.isai && !s.isAdmin)" style="min-width: 6em" :class="{on: !s[k] && !c.d && !c.noActivate, danger: !!c.alwaysDanger || (!s[k] && c.danger)}" :params="{ command: k, activate: c.i ? 0 : 1 }">{{ c.dt || 'Disabled' }}</vui-button>
       </vui-group-item>
     </vui-group>
   </div>
@@ -54,45 +57,56 @@ export default {
   data() {
     var gs = this.$root.$data
     var s = gs.state
-    return {
+    var ret = {
       gs,
       s,
       commands: {
         idscan: {
-          n: 'IdScan',
+          name: 'IdScan',
           i: true
         },
         bolts: {
-          n: 'Bolts',
+          name: 'Bolts',
           et: 'Raised',
           dt: 'Dropped',
           a: !s.aiCanBolt
         },
+        bolts_override: {
+          name: 'Bolts Override',
+          et: 'Raise Now',
+          dt: 'Drop Now',
+          noActivate: true,
+          alwaysDanger: true
+        },
         lights: {
-          n: 'Bolt Lights',
+          name: 'Bolt Lights',
           i: true
         },
         safeties: {
-          n: 'Safeties',
+          name: 'Safeties',
           et: 'Nominal',
           dt: 'Overridden',
-          d: true,
+          danger: true,
           a: true
         },
         timing: {
-          n: 'Timing',
+          name: 'Timing',
           et: 'Nominal',
           dt: 'Overridden',
-          d: true
+          danger: true
         },
         open: {
-          n: 'Door State',
+          name: 'Door State',
           et: 'Opened',
           dt: 'Closed',
           i: 1
         }
       }
     }
+    if(!s.boltsOverride) {
+      delete ret.commands.bolts_override
+    }
+    return ret
   },
   computed: {
     mainMsg() {
