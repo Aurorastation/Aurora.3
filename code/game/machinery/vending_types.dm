@@ -131,7 +131,9 @@
 	if(!ui)
 		ui = new(user, src, "machinery-vending", 900, 600, capitalize(name), state=state)
 
-	ui.open()
+	v_asset = get_asset_datum(/datum/asset/spritesheet/vending/boozeomat)
+
+	ui.open(v_asset)
 
 /obj/machinery/vending/assist
 	vend_id = "tools"
@@ -771,7 +773,6 @@
 	icon_state = "dinnerware"
 	vend_id = "cutlery"
 	products = list(
-		/obj/item/tray = 12,
 		/obj/item/material/kitchen/utensil/fork = 12,
 		/obj/item/material/kitchen/utensil/knife = 12,
 		/obj/item/material/kitchen/utensil/spoon = 12,
@@ -790,6 +791,7 @@
 		/obj/item/reagent_containers/ladle = 4,
 		/obj/item/storage/toolbox/lunchbox/nt = 6,
 		/obj/item/reagent_containers/glass/rag = 8,
+		/obj/item/tray = 12,
 	)
 	contraband = list(
 		/obj/item/storage/toolbox/lunchbox/syndicate = 2

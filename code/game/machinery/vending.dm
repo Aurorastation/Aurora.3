@@ -123,11 +123,12 @@
 	var/exclusive_screen = TRUE // Are we not allowed to show the deny and screen states at the same time?
 
 	var/ui_size = 80 // this is for scaling the ui buttons - i've settled on 80x80 for machines with prices, and 60x60 for those without and with large inventories (boozeomat)
+	var/datum/asset/spritesheet/vending/v_asset
 
 	light_range = 2
 	light_power = 1
 
-/obj/machinery/vending/Initialize()
+/obj/machinery/vending/Initialize(mapload)
 	. = ..()
 	wires = new(src)
 	if(src.product_slogans)
@@ -145,6 +146,14 @@
 
 	src.build_inventory()
 	power_change()
+
+	if(mapload)
+		return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/vending/LateInitialize()
+	var/path = "/datum/asset/spritesheet/vending/"
+	path = path + ckey(replacetext("[type]", "/obj/machinery/vending/", ""))
+	v_asset = get_asset_datum(text2path(path))
 
 /obj/machinery/vending/proc/reset_light()
 	set_light(initial(light_range), initial(light_power), initial(light_color))
@@ -519,7 +528,7 @@
 	if(!ui)
 		ui = new(user, src, "machinery-vending", 425, 500, capitalize(name), state=state)
 
-	ui.open()
+	ui.open(v_asset)
 
 /obj/machinery/vending/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	LAZYINITLIST(data)
@@ -531,6 +540,7 @@
 		data["sel_key"] = sel_key
 		data["sel_name"] = capitalize_first_letters(strip_improper(currently_vending.product_name))
 		data["sel_price"] = currently_vending.price
+		data["sel_icon"] = v_asset.icon_tag(ckey("[currently_vending.product_path]"), FALSE)
 		data["message"] = src.status_message
 		data["message_err"] = src.status_error
 	else
@@ -538,17 +548,21 @@
 		data["sel_key"] = 0
 		data["sel_name"] = 0
 		data["sel_price"] = 0
+		data["sel_icon"] = 0
 		data["message"] = ""
 		data["message_err"] = 0
 
 	if(!(LAZYLEN(data["products"])) || LAZYLEN(data["products"]) != LAZYLEN(product_records))
+		LAZYCLEARLIST(data["products"])
 		for(var/key = 1 to LAZYLEN(product_records))
 			var/t_key = num2text(key)
 			var/datum/data/vending_product/I = product_records[key]
-			var/product_name = capitalize_first_letters(strip_improper(I.product_name))
 
 			if(!(I.category & categories))
 				continue
+
+			var/product_name = capitalize_first_letters(strip_improper(I.product_name))
+			var/icon_tag = v_asset.icon_tag(ckey("[I.product_path]"), FALSE)
 
 			LAZYINITLIST(data["products"])
 			LAZYINITLIST(data["products"][t_key])
@@ -557,11 +571,11 @@
 			VUEUI_SET_CHECK(data["products"][t_key]["name"], product_name, ., data)
 			VUEUI_SET_CHECK(data["products"][t_key]["price"], I.price, ., data)
 			VUEUI_SET_CHECK(data["products"][t_key]["amount"], I.amount, ., data)
+			VUEUI_SET_CHECK(data["products"][t_key]["icon_tag"], icon_tag, ., data)
 
-			ui.add_asset(t_key, I.icon_state)
-	else if(sel_key && product_records[sel_key])
-		var/datum/data/vending_product/V = product_records[sel_key]
-		VUEUI_SET_CHECK(data["products"][num2text(sel_key)]["amount"], V.amount, ., data)
+	else if(sel_key && product_records[text2num(sel_key)])
+		var/datum/data/vending_product/V = product_records[text2num(sel_key)]
+		VUEUI_SET_CHECK(data["products"][sel_key]["amount"], V.amount, ., data)
 
 	if(coin)
 		data["coin"] = coin.name
@@ -666,29 +680,30 @@
 
 	if (R.category & CAT_COIN)
 		if(!coin)
-			to_chat(user, "<span class='notice'>You need to insert a coin to get this item.</span>")
+			to_chat(user, SPAN_NOTICE("You need a coin to vend this item."))
 			return
+
 		if(coin.string_attached)
 			if(prob(50))
-				to_chat(user, "<span class='notice'>You successfully pull the coin out before \the [src] could swallow it.</span>")
-				src.visible_message("<span class='notice'>The [src] putters to life, coughing out its 'premium' item after a moment.</span>")
-				playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
+				to_chat(user, SPAN_NOTICE("You successfully pull the coin out before \the [src] could swallow it!"))
 			else
-				to_chat(user, "<span class='notice'>You weren't able to pull the coin out fast enough, the machine ate it, string and all.</span>")
-				src.visible_message("<span class='notice'>The [src] putters to life, coughing out its 'premium' item after a moment.</span>")
-				playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
-				qdel(coin)
-				coin = null
-				categories &= ~CAT_COIN
+				to_chat(user, SPAN_WARNING("You weren't able to pull the coin out fast enough, and the machine ate it!"))
+				QDEL_NULL(coin)
 		else
-			src.visible_message("<span class='notice'>The [src] putters to life, coughing out its 'premium' item after a moment.</span>")
-			playsound(src.loc, 'sound/items/poster_being_created.ogg', 50, 1)
-			qdel(coin)
-			coin = null
+			QDEL_NULL(coin)
+
+		visible_message(SPAN_NOTICE("\The [src] putters to life, coughing out its 'premium' item after a moment."))
+		playsound(loc, 'sound/items/poster_being_created.ogg', 50, 1)
+
+		R.amount--
+		SSvueui.check_uis_for_change(src)
+
+		if(!coin)
 			categories &= ~CAT_COIN
 
-	R.amount--
-	SSvueui.check_uis_for_change(src)
+	else
+		R.amount--
+		SSvueui.check_uis_for_change(src)
 
 	if(((src.last_reply + (src.vend_delay + 200)) <= world.time) && src.vend_reply)
 		spawn(0)

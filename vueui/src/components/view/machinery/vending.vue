@@ -9,7 +9,7 @@
         <vui-button v-for="vend in output" :key="vend.key" :class="vend.amount > 0 ? '' : 'no-stock'"
                     class="t-child tooltip" :disabled="vend.amount == 0 || s.mode == 1" :params="{ vendItem: vend.key }">
           <div class="t-container" :style="{ height: s.ui_size + 'px', width: s.ui_size + 'px'}">
-            <vui-img :class="vend.amount > 0 ? '' : 'no-stock'" class="food-icon" :name="vend.key"/>
+            <span :class="[vend.amount > 0 ? '' : 'no-stock', vend.icon_tag]" class="food-icon"/>
             <span v-if="vend.price > 0" class="cart-icon fas ic-shopping-cart"/>
             <span v-if="vend.price > 0" class="price">{{ vend.price }}电</span>
             <span class="qty" :class="vend.amount > 0 ? '' : 'no-stock'">(x{{ vend.amount }})</span>
@@ -20,7 +20,7 @@
     </template>
     <template v-else-if="s.sel_name && s.sel_price > 0">
       <div class="t-parent">
-        <p>Item selected:<vui-img class="purchase-icon" v-if="$root.$data.assets[s.sel_key]" :name="s.sel_key" />{{s.sel_name}}</p>
+        <p>Item selected:<span class="purchase-icon" :class="s.sel_icon" />{{s.sel_name}}</p>
         <p>Charge: {{s.sel_price}}电 / {{s.sel_price}}cr</p>
         <p>Swipe your NanoTrasen ID or insert credits to purchase.</p>
         <p v-if="s.message_err == 1" class="danger">{{s.message}}</p>
@@ -74,8 +74,14 @@ p.danger {
 }
 
 .food-icon {
-  zoom: 1;
-  height: 75%;
+  // zoom: 2;
+  transform: scale(2);
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12px;
 }
 
 .food-icon.no-stock {
