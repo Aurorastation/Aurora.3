@@ -93,6 +93,7 @@
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 2,
 		/obj/item/reagent_containers/food/drinks/cans/sodawater = 15,
 		/obj/item/reagent_containers/food/drinks/cans/tonic = 8,
+		/obj/item/reagent_containers/food/drinks/cans/threetowns = 6,
 		/obj/item/reagent_containers/food/drinks/carton/applejuice = 4,
 		/obj/item/reagent_containers/food/drinks/carton/cream = 4,
 		/obj/item/reagent_containers/food/drinks/carton/dynjuice = 4,
