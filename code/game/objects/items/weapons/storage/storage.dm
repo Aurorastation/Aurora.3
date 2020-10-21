@@ -518,6 +518,11 @@
 			to_chat(user, "<span class='warning'>Trying to place a loaded tray into [src] was a bad idea.</span>")
 			return
 
+	if(istype(W, /obj/item/hand_labeler))
+		var/obj/item/hand_labeler/HL = W
+		if(HL.mode == 1)
+			return
+
 	W.add_fingerprint(user)
 	return handle_item_insertion(W)
 
