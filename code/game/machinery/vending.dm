@@ -554,7 +554,7 @@
 		data["message_err"] = 0
 
 	if(!(LAZYLEN(data["products"])) || LAZYLEN(data["products"]) != LAZYLEN(product_records))
-		LAZYCLEARLIST(data["products"])
+		data["products"] = list()
 		for(var/key = 1 to LAZYLEN(product_records))
 			var/t_key = num2text(key)
 			var/datum/data/vending_product/I = product_records[key]
