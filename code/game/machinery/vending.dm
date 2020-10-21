@@ -532,6 +532,7 @@
 
 /obj/machinery/vending/vueui_data_change(list/data, mob/user, datum/vueui/ui)
 	LAZYINITLIST(data)
+	LAZYINITLIST(data["products"])
 
 	VUEUI_SET_CHECK_IFNOTSET(data["ui_size"], ui_size, ., data)
 
@@ -564,7 +565,6 @@
 			var/product_name = capitalize_first_letters(strip_improper(I.product_name))
 			var/icon_tag = v_asset.icon_tag(ckey("[I.product_path]"), FALSE)
 
-			LAZYINITLIST(data["products"])
 			LAZYINITLIST(data["products"][t_key])
 
 			VUEUI_SET_CHECK(data["products"][t_key]["key"], t_key, ., data)
