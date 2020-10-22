@@ -1,7 +1,7 @@
 <template>
   <div>
     <i>Welcome to the NanoTrasen™ computer configuration utility.
-    Please consult your system administrator if you have any questions about your device.</i><hr>
+      Please consult your system administrator if you have any questions about your device.</i><hr>
     <h2>Power Supply</h2>
     <vui-item label="Battery Status:">
       <span v-if="battery">Active</span>
@@ -18,7 +18,7 @@
     </vui-item>
     <h2>Registered ID</h2>
     <vui-item label="Registered ID:">
-        <vui-button :params="{ PC_register: 1}" :disabled="!card_slot">{{ registered ? registered : "Unregistered" }}</vui-button>
+      <vui-button :params="{ PC_register: 1}" :disabled="!card_slot">{{ registered ? registered : "Unregistered" }}</vui-button>
     </vui-item>
     <h2>Computer Components</h2>
     <div v-for="(h, name) in hardware" :key="name">

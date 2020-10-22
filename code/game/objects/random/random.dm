@@ -567,16 +567,6 @@
 
 	V.scan_id &= scan_id
 
-/obj/random/pda_cart/item_to_spawn()
-	var/list/options = typesof(/obj/item/cartridge)
-	var/type = pick(options)
-
-	//reroll syndicate cartridge once to make it less common
-	if (type == /obj/item/cartridge/syndicate)
-		type = pick(options)
-
-	return type
-
 /obj/random/glowstick
 	name = "random glowstick"
 	desc = "This is a random glowstick."
@@ -896,7 +886,6 @@
 		/obj/random/softcap = 0.5,
 		/obj/random/junk = 0.4,
 		/obj/random/medical = 0.4,
-		/obj/random/pda_cart = 0.5,
 		/obj/random/powercell = 0.8,
 		/obj/random/smalltank = 0.5,
 		/obj/random/soap = 0.5,

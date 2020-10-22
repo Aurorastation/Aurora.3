@@ -118,7 +118,7 @@
 	l_pocket = /obj/item/reagent_containers/spray/pepper
 	r_pocket = /obj/item/device/taperecorder/cciaa
 	l_hand = /obj/item/storage/lockbox/cciaa
-	// /obj/item/device/p//da/central
+	pda = /obj/item/modular_computer/handheld/pda/command/cciaa
 
 	id_access = "CCIA Agent"
 

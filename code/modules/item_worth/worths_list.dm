@@ -288,7 +288,6 @@ var/list/worths = list(
 					/obj/item/orion_ship = 100,
 					/obj/item/airlock_electronics/secure = 600,
 					/obj/item/airlock_electronics = 300,
-					/obj/item/cartridge = 50,
 					/obj/item/aiModule = 3000,
 					/obj/item/autopsy_scanner = 180,
 //CARDS,

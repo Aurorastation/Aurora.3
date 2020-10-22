@@ -32,7 +32,7 @@
 	l_pocket = /obj/item/melee/energy/sword
 	r_pocket = /obj/item/cloaking_device
 	id = /obj/item/card/id/syndicate
-	// /obj/item/device/p//da/heads
+	pda = /obj/item/modular_computer/handheld/pda/command
 
 /datum/outfit/admin/killer/assassin/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	var/obj/item/storage/secure/briefcase/sec_briefcase = new(H)

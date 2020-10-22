@@ -11,6 +11,7 @@
 	available_on_ntnet = TRUE
 	nanomodule_path = /datum/nano_module/program/computer_chatclient
 	color = LIGHT_COLOR_GREEN
+	silent = TRUE
 
 	var/last_message				// Used to generate the toolbar icon
 	var/username
@@ -22,7 +23,6 @@
 
 	var/ringtone = "beep"
 	var/syndi_auth = FALSE
-	var/silent = FALSE
 
 /datum/computer_file/program/chatclient/New(var/obj/item/modular_computer/comp)
 	..(comp)
@@ -289,6 +289,11 @@
 	computer.set_autorun(filename)
 	ntnet_global.chat_clients -= src
 	kill_program(TRUE)
+
+/datum/computer_file/program/chatclient/event_silentmode()
+	..()
+	if(silent == computer.silent)
+		silent = !silent
 
 /datum/nano_module/program/computer_chatclient
 	name = "NTNet Relay Chat Client"

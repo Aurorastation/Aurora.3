@@ -18167,15 +18167,6 @@
 /area/quartermaster/qm)
 "HL" = (
 /obj/structure/table/standard,
-/obj/item/cartridge/quartermaster{
-	pixel_x = 6;
-	pixel_y = 5
-	},
-/obj/item/cartridge/quartermaster,
-/obj/item/cartridge/quartermaster{
-	pixel_x = -4;
-	pixel_y = 7
-	},
 /obj/machinery/light{
 	dir = 4;
 	icon_state = "tube1"

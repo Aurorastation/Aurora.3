@@ -129,8 +129,7 @@
 		/obj/item/device/assembly/prox_sensor = 5,
 		/obj/item/device/assembly/igniter = 3,
 		/obj/item/device/assembly/signaler = 4,
-		/obj/item/wirecutters = 1,
-		/obj/item/cartridge/signal = 4
+		/obj/item/wirecutters = 1
 	)
 	contraband = list(
 		/obj/item/device/flashlight = 5,

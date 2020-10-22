@@ -1,4 +1,3 @@
-#define UIDEBUG
 // This is special hardware configuration program.
 // It is to be used only with modular computers.
 // It allows you to toggle components of your device.

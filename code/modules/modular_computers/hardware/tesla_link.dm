@@ -18,14 +18,15 @@
 	icon = 'icons/obj/power.dmi'
 	icon_state = "wire"
 	hardware_size = 1
-	origin_tech = list(TECH_DATA = 1, TECH_POWER = 1)
+	origin_tech = list(TECH_ENGINEERING = 1, TECH_POWER = 1)
 	passive_charging_rate = 1000 // mW
 	var/obj/machinery/power/source
 	var/datum/beam/beam
 	var/cable_length = 3
 
 /obj/item/computer_hardware/tesla_link/charging_cable/Destroy()
-	deactivate()
+	if(source || beam)
+		deactivate()
 	return ..()
 
 /obj/item/computer_hardware/tesla_link/charging_cable/proc/toggle(var/obj/machinery/power/power_source, mob/user)

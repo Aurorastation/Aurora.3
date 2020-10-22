@@ -178,10 +178,6 @@ STOCK_ITEM_UNCOMMON(atmosfiresuit, 2)
 	new /obj/item/clothing/head/hardhat/red/atmos(L)
 	new /obj/item/clothing/suit/fire/atmos(L)
 
-STOCK_ITEM_UNCOMMON(pdacart, 3)
-	for(var/i in 1 to rand(1, 3))
-		new /obj/random/pda_cart(L)
-
 STOCK_ITEM_UNCOMMON(debugger, 2)
 	new /obj/item/device/debugger(L)
 

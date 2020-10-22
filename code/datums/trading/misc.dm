@@ -89,7 +89,6 @@
 		/obj/item/clothing/shoes/clown_shoes                    = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/rank/clown                     = TRADER_THIS_TYPE,
 		/obj/item/modular_computer/handheld/pda/civilian/clown  = TRADER_THIS_TYPE,
-		/obj/item/cartridge/clown                        = TRADER_THIS_TYPE,
 		/obj/item/stamp/clown                            = TRADER_THIS_TYPE,
 		/obj/item/storage/backpack/clown                 = TRADER_THIS_TYPE,
 		/obj/item/bananapeel                             = TRADER_THIS_TYPE,

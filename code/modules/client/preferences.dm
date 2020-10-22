@@ -42,6 +42,7 @@ datum/preferences
 	var/b_type = "A+"					//blood type (not-chooseable)
 	var/backbag = 2						//backpack type
 	var/backbag_style = 1
+	var/pda_choice = 2
 	var/h_style = "Bald"				//Hair type
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
 	var/r_hair = 0						//Hair color
@@ -467,6 +468,11 @@ datum/preferences
 		backbag = 1 //Same as above
 	character.backbag = backbag
 	character.backbag_style = backbag_style
+
+	if(pda_choice > 4 || pda_choice < 1)
+		pda_choice = 1
+
+	character.pda_choice = pda_choice
 
 	if(icon_updates)
 		character.force_update_limbs()

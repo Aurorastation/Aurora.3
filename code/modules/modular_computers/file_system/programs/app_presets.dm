@@ -28,6 +28,7 @@
 
 /datum/modular_computer_app_presets/engineering/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -51,6 +52,7 @@
 
 /datum/modular_computer_app_presets/engineering/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -75,6 +77,7 @@
 
 /datum/modular_computer_app_presets/engineering/ce/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -123,6 +126,7 @@
 
 /datum/modular_computer_app_presets/medical/cmo/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -170,6 +174,7 @@
 
 /datum/modular_computer_app_presets/research/rd/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -194,6 +199,7 @@
 
 /datum/modular_computer_app_presets/command/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -214,6 +220,7 @@
 
 /datum/modular_computer_app_presets/command/hop/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -236,6 +243,7 @@
 
 /datum/modular_computer_app_presets/command/captain/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -263,6 +271,7 @@
 
 /datum/modular_computer_app_presets/security/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/nttransfer(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -287,6 +296,7 @@
 
 /datum/modular_computer_app_presets/security/investigations/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/nttransfer(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -310,6 +320,7 @@
 
 /datum/modular_computer_app_presets/security/hos/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/nttransfer(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -334,6 +345,7 @@
 
 /datum/modular_computer_app_presets/civilian/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -353,6 +365,7 @@
 
 /datum/modular_computer_app_presets/civilian/janitor/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -385,6 +398,7 @@
 
 /datum/modular_computer_app_presets/supply/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -404,6 +418,7 @@
 
 /datum/modular_computer_app_presets/cargo_delivery/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -421,6 +436,7 @@
 
 /datum/modular_computer_app_presets/representative/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
@@ -459,11 +475,13 @@
 
 /datum/modular_computer_app_presets/merc/return_install_programs(obj/item/modular_computer/comp)
 	var/list/_prg_list = list(
+		new /datum/computer_file/program/ntnetdownload(comp),
 		new /datum/computer_file/program/filemanager(comp),
 		new /datum/computer_file/program/newsbrowser(comp),
 		new /datum/computer_file/program/manifest(comp),
 		new /datum/computer_file/program/nttransfer(comp),
-		new /datum/computer_file/program/camera_monitor/hacked(comp)
+		new /datum/computer_file/program/camera_monitor/hacked(comp),
+		new /datum/computer_file/program/signaler(comp)
 	)
 	return _prg_list
 

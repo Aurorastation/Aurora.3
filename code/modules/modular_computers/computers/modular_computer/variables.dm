@@ -24,6 +24,8 @@
 	var/pAI_lock = FALSE									// Toggles whether pAI can interact with the modular computer while installed in it
 	var/obj/item/card/id/registered_id = null 				// ID used for chat client registering
 	var/scan_mode = null									// Mode used for health/reagent scanners
+	var/silent = FALSE
+	var/doorcode = "smindicate"
 
 	// Modular computers can run on various devices. Each DEVICE (Laptop, Console, Tablet,..)
 	// must have it's own DMI file. Icon states must be called exactly the same in all files, but may look differently

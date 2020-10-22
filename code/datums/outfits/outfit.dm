@@ -35,6 +35,11 @@
 	var/dufflebag = /obj/item/storage/backpack/duffel
 	var/messengerbag = /obj/item/storage/backpack/messenger
 
+	var/allow_pda_choice = FALSE
+	var/tab_pda = /obj/item/modular_computer/handheld/pda/civilian
+	var/tablet = /obj/item/modular_computer/handheld/custom_loadout/cheap
+	var/wristbound = /obj/item/modular_computer/handheld/wristbound/preset/cheap/generic
+
 	var/internals_slot = null //ID of slot containing a gas tank
 	var/list/backpack_contents = list() //In the list(path=count,otherpath=count) format
 	var/list/accessory_contents = list()
@@ -45,7 +50,7 @@
 /datum/outfit/proc/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	//to be overriden for customization depending on client prefs,species etc
 	if(allow_backbag_choice)
-		var/use_job_specific = H.backbag_style == 1
+		var/use_job_specific = H.backbag_style == TRUE
 		switch(H.backbag)
 			if (1)
 				back = null
@@ -67,6 +72,24 @@
 	if(istype(H.back,/obj/item/storage/backpack))
 		var/obj/item/storage/backpack/B = H.back
 		B.autodrobe_no_remove = TRUE
+
+	if(allow_pda_choice)
+		switch(H.pda_choice)
+			if (1)
+				pda = null
+			if (2)
+				pda = tab_pda
+			if (3)
+				pda = tablet
+			if (4)
+				pda = wristbound
+			else
+				pda = tab_pda
+
+	if(pda && !visualsOnly)
+		var/obj/item/I = new pda(H)
+		imprint_pda(H,I)
+		H.equip_or_collect(I, slot_wear_id)
 
 	return
 
@@ -164,11 +187,6 @@
 		H.put_in_l_hand(new l_hand(H))
 	if(r_hand)
 		H.put_in_r_hand(new r_hand(H))
-
-	if(pda && !visualsOnly) //Dont equip and imprint the PDA in visuals only (preview) to avoid duplicates
-		var/obj/item/I = new pda(H)
-		imprint_pda(H,I)
-		H.equip_or_collect(I, slot_wear_id)
 
 	if(id)
 		var/obj/item/modular_computer/P = H.wear_id

@@ -219,7 +219,7 @@
 		update_uis()
 		to_chat(user, SPAN_NOTICE("You insert \the [I] into \the [src]."))
 		return
-	if(is_type_in_list(W, card_slot.allowed_items))
+	if(is_type_in_list(W, card_slot?.allowed_items))
 		if(!card_slot)
 			to_chat(user, SPAN_WARNING("You try to insert \the [W] into \the [src], but it does not have an ID card slot installed."))
 			return

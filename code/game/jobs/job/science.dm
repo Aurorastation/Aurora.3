@@ -38,7 +38,9 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/heads/rd
-	// /obj/item/device/p//da/heads/rd
+	tab_pda = /obj/item/modular_computer/handheld/pda/research/rd
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
+	tablet = /obj/item/modular_computer/handheld/preset/research/rd
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/clipboard
 
@@ -78,7 +80,9 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/science
 	l_ear = /obj/item/device/radio/headset/headset_sci
-	// /obj/item/device/p//da/science
+	tab_pda = /obj/item/modular_computer/handheld/pda/research
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
+	tablet = /obj/item/modular_computer/handheld/preset/research
 	id = /obj/item/card/id/white
 
 	backpack = /obj/item/storage/backpack/toxins
@@ -116,7 +120,7 @@
 /datum/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
 	jobtype = /datum/job/xenobiologist
-	// /obj/item/device/p//da/xenobio
+	tab_pda = /obj/item/modular_computer/handheld/pda/research/xenobio
 
 /datum/outfit/job/scientist/xenobiologist/xenobotanist
 	name = "Xenobotanist"
@@ -152,7 +156,9 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	shoes = /obj/item/clothing/shoes/black
 	l_ear = /obj/item/device/radio/headset/headset_sci
-	// /obj/item/device/p//da/roboticist
+	tab_pda = /obj/item/modular_computer/handheld/pda/research/roboticist
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
+	tablet = /obj/item/modular_computer/handheld/preset/research
 	id = /obj/item/card/id/white
 	belt = /obj/item/storage/belt/utility
 

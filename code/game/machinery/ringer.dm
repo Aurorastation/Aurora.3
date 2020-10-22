@@ -9,7 +9,7 @@
 	req_access = list() //what access it needs to link your pda
 
 	var/id = null
-	var/list/obj/item/device/pda/rings_pdas = list() //A list of PDAs to alert upon someone touching the machine
+	var/list/obj/item/modular_computer/rings_pdas = list() //A list of PDAs to alert upon someone touching the machine
 	var/listener/ringers
 	var/on = TRUE
 	var/department = "Somewhere" //whatever department/desk you put this thing
@@ -108,12 +108,9 @@
 
 	playsound(src.loc, 'sound/machines/ringer.ogg', 50, 1)
 
-	for (var/obj/item/device/pda/pda in rings_pdas)
-		if (pda.toff || pda.message_silent)
-			continue
-
-		var/message = "Notification from \the [department]!"
-		pda.new_info(pda.message_silent, pda.ttone, "[icon2html(pda, viewers(get_turf(pda)))] <b>[message]</b>")
+	for (var/obj/item/modular_computer/P in rings_pdas)
+		var/message = "Attention required!"
+		P.get_notification(message, 1, "[capitalize(department)]")
 
 	addtimer(CALLBACK(src, .proc/unping), 45 SECONDS)
 
@@ -121,9 +118,9 @@
 	pinged = FALSE
 	update_icon()
 
-/obj/machinery/ringer/proc/remove_pda(var/obj/item/device/pda/pda)
-	if (istype(pda))
-		rings_pdas -= pda
+/obj/machinery/ringer/proc/remove_pda(var/obj/item/modular_computer/P)
+	if (istype(P))
+		rings_pdas -= P
 
 /obj/machinery/ringer_button
 	name = "ringer button"
@@ -156,8 +153,8 @@
 	if(use_power)
 		use_power(active_power_usage)
 
-	// for (var/thing in GET_LISTENERS(id))
-	// 	var/listener/L = thing
-	// 	var/obj/machinery/ringer/C = L.target
-	// 	if (istype(C))
-	// 		C.ring_pda()
+	for (var/thing in GET_LISTENERS(id))
+		var/listener/L = thing
+		var/obj/machinery/ringer/C = L.target
+		if (istype(C))
+			C.ring_pda()

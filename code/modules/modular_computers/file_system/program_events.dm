@@ -5,7 +5,7 @@
 /datum/computer_file/program/proc/event_idremoved(var/background)
 	return
 
-/datum/computer_file/program/proc/event_idchanged(var/background)
+/datum/computer_file/program/proc/event_silentmode(var/background)
 	return
 
 // Called when an ID is unregistered from the device.
