@@ -82,7 +82,8 @@
 
 		dir = uppertext(dir)
 
-		var/idx = ++data["supplies"].len
+		var/list/L = ++data["supplies"]
+		var/idx = length(L)
 		data["supplies"][idx] = list(
 			"name" = A.name,
 			"key" = idx,
