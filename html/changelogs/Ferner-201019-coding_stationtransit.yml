@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - tweak: "Moving a shuttle between two places that are both in close proximity to the station now takes a shorter amount of time than travelling to the station in the first place."
