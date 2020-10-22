@@ -316,7 +316,7 @@
 	if(!is_offhand && user.a_intent == I_HURT) // no recursion
 		var/obj/item/gun/SG = user.get_inactive_hand()
 		if(istype(SG))
-			var/decreased_accuracy = (SG.w_class * 2) + SG.offhand_accuracy
+			var/decreased_accuracy = (SG.w_class * 2) - SG.offhand_accuracy
 			addtimer(CALLBACK(SG, .proc/Fire, target, user, clickparams, pointblank, reflex, decreased_accuracy, TRUE), 5)
 
 	//actually attempt to shoot
