@@ -835,3 +835,15 @@ BLIND     // can't see anything
 	else
 		flash_protection = FLASH_PROTECTION_NONE
 		tint = TINT_NONE
+
+/obj/item/clothing/glasses/whiteblindfold
+	name = "white blindfold"
+	desc = "A white blindfold that covers the eyes, preventing sight."
+	icon_state = "blindfoldwhite"
+	item_state = "blindfoldwhite"
+	tint = TINT_BLIND
+
+/obj/item/clothing/glasses/whiteblindfold/seethrough
+	desc = "A white blindfold that covers the eyes, this one seems to be made of thinner material."
+	tint = TINT_MODERATE
+	flash_protection = FLASH_PROTECTION_MODERATE
