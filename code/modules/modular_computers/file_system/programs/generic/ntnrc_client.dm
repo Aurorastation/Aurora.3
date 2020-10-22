@@ -1,6 +1,6 @@
 /datum/computer_file/program/chatclient
 	filename = "ntnrc_client"
-	filedesc = "NTNet Relay Chat Client"
+	filedesc = "Chat Client"
 	program_icon_state = "command"
 	extended_desc = "This program allows communication over the NTNRC network."
 	size = 2
@@ -294,7 +294,7 @@
 		silent = !silent
 
 /datum/nano_module/program/computer_chatclient
-	name = "NTNet Relay Chat Client"
+	name = "Chat Client"
 
 /datum/nano_module/program/computer_chatclient/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
 	if(!ntnet_global || !ntnet_global.chat_channels)
