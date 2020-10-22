@@ -38,9 +38,8 @@
 	var/turf/p = get_turf(user)
 	var/dir
 	LAZYINITLIST(data["user_loc"])
-	LAZYINITLIST(data["supplies"])
 	LAZYINITLIST(data["categories"])
-	LAZYCLEARLIST(data["supplies"])
+	data["supplies"] = list()
 
 	VUEUI_SET_CHECK(data["user_loc"]["x"], p ? p.x : null, ., data)
 	VUEUI_SET_CHECK(data["user_loc"]["y"], p ? p.y : null, ., data)
