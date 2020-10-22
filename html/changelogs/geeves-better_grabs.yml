@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - tweak: "Grabs now have a one-second cooldown from creation in which they cannot be resisted / walked out of."

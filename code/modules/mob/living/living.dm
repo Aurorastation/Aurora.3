@@ -757,6 +757,8 @@ default behaviour is:
 		resisting++
 	var/resist_power = get_resist_power() // How easily the mob can break out of a grab
 	for(var/obj/item/grab/G in grabbed_by)
+		if(G.create_time + 1 SECOND > world.time) // don't instantly walk/break out of grabs
+			continue
 		resisting++
 		var/resist_chance
 		var/resist_msg

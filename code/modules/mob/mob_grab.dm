@@ -20,7 +20,7 @@
 /client/proc/Process_Grab()
 	if(isliving(mob)) //if we are being grabbed
 		var/mob/living/L = mob
-		if(!L.canmove && L.grabbed_by.len)
+		if(!L.canmove && length(L.grabbed_by))
 			L.resist() //shortcut for resisting grabs
 	for(var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
 		G.reset_kill_state() //no wandering across the station/asteroid while choking someone
@@ -36,6 +36,7 @@
 	var/state = GRAB_PASSIVE
 
 	var/allow_upgrade = 1
+	var/create_time = 0
 	var/last_action = 0
 	var/last_hit_zone = 0
 	var/force_down //determines if the affecting mob will be pinned to the ground
@@ -60,6 +61,8 @@
 	if(affecting.anchored || !assailant.Adjacent(victim))
 		qdel(src)
 		return
+
+	create_time = world.time
 
 	affecting.grabbed_by += src
 
