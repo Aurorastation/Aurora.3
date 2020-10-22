@@ -110,6 +110,26 @@
 	require_wield = TRUE
 	slot_flags = 0
 
+/obj/item/gun/custom_ka/frameB/handle_post_fire(mob/user)
+	..()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(H.mob_size < 10) // smaller than an unathi
+			H.visible_message(SPAN_WARNING("\The [src] goes flying out of \the [H]'s hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
+			H.drop_item(src)
+			src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 3, 3)
+
+			var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
+			var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
+			var/active_hand = H.hand
+
+			if(active_hand)
+				LH.take_damage(30)
+			else
+				RH.take_damage(30)
+
+			H.Weaken(3)
+
 /obj/item/gun/custom_ka/frameC
 	name = "vaurca kinetic accelerator frame"
 	build_name = "vaurca"
@@ -121,6 +141,12 @@
 	capacity_increase = 9
 	mod_limit_increase = 5
 	origin_tech = list(TECH_MATERIAL = 3,TECH_ENGINEERING = 5)
+
+/obj/item/gun/custom_ka/frameC/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
+	if(!isvaurca(user))
+		to_chat(user, SPAN_WARNING("This frame was not designed to be operated with your type of hands!"))
+		return
+	..()
 
 /obj/item/gun/custom_ka/frameD
 	name = "burst fire kinetic accelerator frame"
