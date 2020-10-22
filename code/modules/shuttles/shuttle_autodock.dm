@@ -1,7 +1,7 @@
 #define DOCK_ATTEMPT_TIMEOUT 200	//how long in ticks we wait before assuming the docking controller is broken or blown up.
 
 /datum/shuttle/autodock
-	var/in_use = null	//tells the controller whether this shuttle needs processing, also attempts to prevent double-use
+	var/in_use = null  //tells the controller whether this shuttle needs processing, also attempts to prevent double-use
 	var/last_dock_attempt_time = 0
 	var/current_dock_target
 	//ID of the controller on the shuttle
@@ -11,7 +11,8 @@
 	var/datum/computer/file/embedded_program/docking/active_docking_controller
 
 	var/obj/effect/shuttle_landmark/landmark_transition
-	var/move_time = 240		//the time spent in the transition area
+	var/move_time = 240  //the time spent in the transition area
+	var/minimum_move_time = 15  //the time spent in the transition area when both of the locations are located on station z-levels
 
 	category = /datum/shuttle/autodock
 	flags = SHUTTLE_FLAGS_PROCESS | SHUTTLE_FLAGS_ZERO_G
@@ -120,7 +121,10 @@
 	in_use = null	//release lock
 
 /datum/shuttle/autodock/proc/get_travel_time()
-	return move_time
+	if(isStationLevel(current_location.loc.z) && isStationLevel(next_location.loc.z) && move_time > minimum_move_time)
+		return minimum_move_time
+	else
+		return move_time
 
 /datum/shuttle/autodock/proc/process_launch()
 	if(!next_location.is_valid(src) || current_location.cannot_depart(src))
