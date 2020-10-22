@@ -28,7 +28,9 @@
 
 /datum/computer_file/program/civilian/janitor/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
-	data = . || data || list()
+	data = . || data
+	if(!data)
+		data = list()
 
 	var/headerdata = get_header_data(data["_PC"])
 	if(headerdata)
