@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - backend: "Ported various map effects from Virgo and Polaris, which can be used by mappers in the future to do cool things, such as portals, permanent lights, smoke emitters, screen shakers, and sound emitters."
