@@ -55,14 +55,16 @@
 	var/mob/M
 	if(ismob(loc))
 		M = loc
-	var/initial_charge = initial(power_supply.charge)
+	var/initial_charge = power_supply.charge
 	power_supply.charge = 0
-	if(M)
-		to_chat(M, SPAN_DANGER("\The [src] locks up!"))
+	if(M && loc == M)
+		to_chat(M, SPAN_DANGER("[src] locks up!"))
 		playsound(M, 'sound/weapons/smg_empty_alarm.ogg', 30)
 	sleep(severity * 10)
-	power_supply.charge = initial_charge
-	if(M)
+	power_supply.give(initial_charge)
+	update_maptext()
+	update_icon()
+	if(M && loc == M)
 		playsound(M, 'sound/weapons/laser_safetyoff.ogg', 30)
 
 /obj/item/gun/energy/get_cell()

@@ -11,7 +11,6 @@
 	empulse(A, pulse_range, pulse_range)
 	return 1
 
-
 /obj/item/projectile/ion/stun/on_impact(var/atom/A)
 	if(isipc(A))
 		var/mob/living/carbon/human/H = A

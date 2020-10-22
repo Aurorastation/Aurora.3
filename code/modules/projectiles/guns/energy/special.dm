@@ -14,7 +14,7 @@
 	flags = CONDUCT
 	slot_flags = SLOT_BACK
 	charge_cost = 300
-	max_shots = 10
+	max_shots = 4
 	can_turret = 1
 	turret_sprite_set = "ion"
 	firemodes = list()

@@ -531,17 +531,19 @@ This function completely restores a damaged organ to perfect condition.
 //Determines if we even need to process this organ.
 /obj/item/organ/external/proc/need_process()
 	if(status & (ORGAN_CUT_AWAY|ORGAN_BLEEDING|ORGAN_BROKEN|ORGAN_DESTROYED|ORGAN_SPLINTED|ORGAN_DEAD|ORGAN_MUTATED))
-		return 1
+		return TRUE
+	if(surge_damage)
+		return TRUE
 	if(brute_dam || burn_dam)
-		return 1
+		return TRUE
 	if(last_dam != brute_dam + burn_dam) // Process when we are fully healed up.
 		last_dam = brute_dam + burn_dam
-		return 1
+		return TRUE
 	else
 		last_dam = brute_dam + burn_dam
 	if(germ_level)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/item/organ/external/process()
 	if(owner)
@@ -562,6 +564,9 @@ This function completely restores a damaged organ to perfect condition.
 
 		if(!(status & ORGAN_BROKEN))
 			perma_injury = 0
+
+		if(surge_damage && (status & ORGAN_ASSISTED))
+			tick_surge_damage() //Yes, this being here is intentional since this proc does not call ..() unless the owner is null.
 
 		//Infections
 		update_germs()

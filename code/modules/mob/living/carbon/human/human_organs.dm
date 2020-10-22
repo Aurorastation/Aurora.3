@@ -85,7 +85,7 @@
 			//malfunctioning only happens intermittently so treat it as a missing limb when it procs
 			stance_damage += 2
 			if(prob(10))
-				visible_message("\The [src]'s [E.name] [pick("twitches", "shudders")] and sparks!")
+				visible_message(SPAN_WARNING("\The [src]'s [E.name] [pick("twitches", "shudders")] and sparks!"))
 				spark(src, 5)
 		else if (E.is_broken() || !E.is_usable())
 			stance_damage += 1

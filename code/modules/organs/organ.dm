@@ -115,6 +115,7 @@
 				blood_DNA[dna.unique_enzymes] = dna.b_type
 		if(internal)
 			holder.internal_organs |= src
+	START_PROCESSING(SSprocessing, src)
 
 /obj/item/organ/proc/set_dna(var/datum/dna/new_dna)
 	if(new_dna)
@@ -166,13 +167,7 @@
 		return
 
 	if((status & ORGAN_ASSISTED) && surge_damage)
-		to_world("passing first check")
-		do_surge_effects()
-		to_world("[surge_time] + 10 < [world.time]")
-		if(surge_time + 1 SECOND < world.time)
-			to_world("passing second check")
-			surge_damage = max(0, surge_damage - 10)
-			surge_time = world.time
+		tick_surge_damage()
 
 	if(!owner)
 		if (QDELETED(reagents))
@@ -204,7 +199,20 @@
 	if(damage >= max_damage)
 		die()
 
+/obj/item/organ/proc/tick_surge_damage()
+	if(surge_damage)
+		do_surge_effects()
+	if(surge_time + 1 SECOND < world.time)
+		surge_damage = max(0, surge_damage - 10)
+		surge_time = world.time
+		if(!surge_damage)
+			surge_time = 0
+			clear_surge_effects()
+
 /obj/item/organ/proc/do_surge_effects()
+	return
+
+/obj/item/organ/proc/clear_surge_effects()
 	return
 
 /obj/item/organ/examine(mob/user)
