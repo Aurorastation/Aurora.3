@@ -217,7 +217,7 @@
 		var/names = list()
 		for(var/cl in ntnet_global.chat_clients)
 			var/datum/computer_file/program/chatclient/C = cl
-			if(C.set_offline || src)
+			if(C.set_offline || C == src)
 				continue
 			clients[C.username] = C
 			names += C.username
