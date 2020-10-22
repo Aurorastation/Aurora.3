@@ -28,7 +28,6 @@
 	..(comp)
 	if(!comp)
 		return
-	username = "DefaultUser[rand(100, 999)]"
 
 /datum/computer_file/program/chatclient/Topic(href, href_list)
 	if(..())
@@ -273,9 +272,8 @@
 		return
 	if(!(src in ntnet_global.chat_clients))
 		ntnet_global.chat_clients += src
-	var/new_username = username_from_id()
-	if(username != new_username)
-		username = new_username
+	if(!username)
+		username = username_from_id()
 	return ..(user)
 
 /datum/computer_file/program/chatclient/proc/username_from_id()
