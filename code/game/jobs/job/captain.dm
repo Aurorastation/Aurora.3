@@ -109,7 +109,9 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	shoes = /obj/item/clothing/shoes/brown
 	l_ear = /obj/item/device/radio/headset/heads/hop
 	id = /obj/item/card/id/navy
-	pda = /obj/item/modular_computer/handheld/pda/command/hop
+	tab_pda = /obj/item/modular_computer/handheld/pda/command/hop
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/hop
+	tablet = /obj/item/modular_computer/handheld/preset/command/hop
 	backpack_contents = list(
 		/obj/item/storage/box/ids = 1
 	)

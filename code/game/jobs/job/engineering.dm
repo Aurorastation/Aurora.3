@@ -92,7 +92,7 @@
 	uniform = /obj/item/clothing/under/rank/engineer
 	head = /obj/item/clothing/head/hardhat
 	belt = /obj/item/storage/belt/utility
-	pda = /obj/item/modular_computer/handheld/pda/engineering
+	tab_pda = /obj/item/modular_computer/handheld/pda/engineering
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering
 	tablet = /obj/item/modular_computer/handheld/preset/engineering
 	id = /obj/item/card/id/silver
