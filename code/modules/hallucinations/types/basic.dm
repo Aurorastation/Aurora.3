@@ -97,7 +97,7 @@
 	for(var/mob/living/carbon/human/H in living_mob_list)
 		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE))	//adds current players to default list to provide variety. leaves out offstation antags.
 			sender += H
-	to_chat(holder, FONT_SMALL("<i>[pick(sender)]</i>:</b> [pick(SShallucinations.hallucinated_phrases)] (<FONT color = blue><u>reply</u></FONT>)"))
+	to_chat(holder, FONT_SMALL("<i>[pick(sender)]</i>: [pick(SShallucinations.hallucinated_phrases)] (<FONT color = blue><u>reply</u></FONT>)"))
 	sound_to(holder, 'sound/machines/twobeep.ogg')
 
 //hallucinate someone else doing something.
