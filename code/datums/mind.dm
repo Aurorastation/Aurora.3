@@ -459,11 +459,12 @@
 // have to call this periodically for the duration to work properly
 /datum/mind/proc/is_brigged(duration)
 	var/turf/T = current.loc
-	if(!istype(T))
+	if(isnull(T))
 		brigged_since = -1
 		return 0
+	var/area/A = T.loc
 	var/is_currently_brigged = 0
-	if(istype(T.loc,/area/security/brig))
+	if(A?.is_prison())
 		is_currently_brigged = 1
 		for(var/obj/item/card/id/card in current)
 			is_currently_brigged = 0
