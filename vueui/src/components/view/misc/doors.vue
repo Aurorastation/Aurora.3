@@ -44,9 +44,15 @@
       <vui-group-item>
         &nbsp;
       </vui-group-item>
+      <vui-group-item :set="k = 'bolts'" :key="k" label="Bolts:">
+        <vui-button style="min-width: 6em" :disabled="!!(!s.aiCanBolt && s.isai && !s.isAdmin)" :class="{ on: s[k] }" :params="{ command: k, activate: 0 }">Raised</vui-button>
+        <vui-button style="min-width: 6em" :disabled="!!(!s.aiCanBolt && s.isai && !s.isAdmin)" :class="{ on: !s[k] }" :params="{ command: k, activate: 1 }">Dropped</vui-button>
+        <vui-button style="min-width: 6em" v-if="s.boltsOverride && s[k]" class="danger" :params="{ command: 'bolts_override', activate: 1 }">Drop Now</vui-button>
+        <vui-button style="min-width: 6em" v-if="s.boltsOverride && !s[k]" class="danger" :params="{ command: 'bolts_override', activate: 0 }">Raise Now</vui-button>
+      </vui-group-item>
       <vui-group-item v-for="(c, k) in commands" :key="k" :label="c.name + ':'">
-        <vui-button style="min-width: 6em" :class="{on: s[k] && !c.noActivate, danger: !!c.alwaysDanger}" :params="{ command: k, activate: c.i ? 1 : 0 }">{{ c.et || 'Enabled' }}</vui-button>
-        <vui-button :disabled="!!(c.a && s.isai && !s.isAdmin)" style="min-width: 6em" :class="{on: !s[k] && !c.d && !c.noActivate, danger: !!c.alwaysDanger || (!s[k] && c.danger)}" :params="{ command: k, activate: c.i ? 0 : 1 }">{{ c.dt || 'Disabled' }}</vui-button>
+        <vui-button style="min-width: 6em" :class="{ on: s[k] }" :params="{ command: k, activate: c.i ? 1 : 0 }">{{ c.et || 'Enabled' }}</vui-button>
+        <vui-button style="min-width: 6em" :disabled="!!(c.a && s.isai && !s.isAdmin)" :class="{on: !s[k] && !c.danger, danger: !s[k] && c.danger}" :params="{ command: k, activate: c.i ? 0 : 1 }">{{ c.dt || 'Disabled' }}</vui-button>
       </vui-group-item>
     </vui-group>
   </div>
@@ -57,26 +63,13 @@ export default {
   data() {
     var gs = this.$root.$data
     var s = gs.state
-    var ret = {
+    return {
       gs,
       s,
       commands: {
         idscan: {
           name: 'IdScan',
           i: true
-        },
-        bolts: {
-          name: 'Bolts',
-          et: 'Raised',
-          dt: 'Dropped',
-          a: !s.aiCanBolt
-        },
-        bolts_override: {
-          name: 'Bolts Override',
-          et: 'Raise Now',
-          dt: 'Drop Now',
-          noActivate: true,
-          alwaysDanger: true
         },
         lights: {
           name: 'Bolt Lights',
@@ -103,10 +96,6 @@ export default {
         }
       }
     }
-    if(!s.boltsOverride) {
-      delete ret.commands.bolts_override
-    }
-    return ret
   },
   computed: {
     mainMsg() {

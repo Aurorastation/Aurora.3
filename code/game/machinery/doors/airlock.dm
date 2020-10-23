@@ -31,7 +31,8 @@
 	var/aiHacking = FALSE
 	var/aiBolting = null // whether AI is allowed to bolt this door (use the aiBoltingSetup var to override the initial value of this)
 	var/aiBoltingSetup = AIRLOCK_AI_BOLTING_AUTO
-	var/aiBoltingDelay = 8 // how long it takes AIs to drop or raise bolts (in seconds)
+	var/aiBoltingDelay = 8 // how long it takes AIs to drop bolts (in seconds)
+	var/aiUnBoltingDelay = 4 // how long it takes AIs to raise bolts (in seconds)
 	var/aiActionTimer = null
 	var/obj/machinery/door/airlock/closeOther = null
 	var/closeOtherId = null
@@ -316,6 +317,9 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	maxhealth = 800
 	panel_visible_while_open = TRUE
 	insecure = 0
+	aiBoltingSetup = AIRLOCK_AI_BOLTING_ALLOW
+	aiBoltingDelay = 12
+	aiUnBoltingDelay = 8
 
 /obj/machinery/door/airlock/vault/bolted
 	icon_state = "door_locked"
@@ -503,6 +507,8 @@ obj/machinery/door/airlock/glass_centcom/attackby(obj/item/I, mob/user)
 	maxhealth = 600
 	insecure = 0
 	aiBoltingSetup = AIRLOCK_AI_BOLTING_ALLOW
+	aiBoltingDelay = 10
+	aiUnBoltingDelay = 5
 
 /obj/machinery/door/airlock/skrell
 	name = "airlock"
@@ -611,7 +617,7 @@ About the new airlock wires panel:
 
 /obj/machinery/door/airlock/proc/arePowerSystemsOn()
 	if (stat & (NOPOWER|BROKEN))
-		return 0
+		return FALSE
 	return (src.main_power_lost_until==0 || src.backup_power_lost_until==0)
 
 /obj/machinery/door/airlock/requiresID()
@@ -619,10 +625,10 @@ About the new airlock wires panel:
 
 /obj/machinery/door/airlock/proc/isAllPowerLoss()
 	if(stat & (NOPOWER|BROKEN))
-		return 1
+		return TRUE
 	if(mainPowerCablesCut() && backupPowerCablesCut())
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/machinery/door/airlock/proc/mainPowerCablesCut()
 	return src.isWireCut(AIRLOCK_WIRE_MAIN_POWER1) || src.isWireCut(AIRLOCK_WIRE_MAIN_POWER2)
@@ -642,8 +648,10 @@ About the new airlock wires panel:
 		backup_power_lost_at = world.time
 		addtimer(CALLBACK(src, .proc/regainBackupPower), 10 SECONDS, TIMER_UNIQUE | TIMER_NO_HASH_WAIT)
 
-	// Disable electricity if required
-	if(electrified_until && isAllPowerLoss())
+	if(!arePowerSystemsOn() && !isnull(aiActionTimer)) // AI action timer gets reset if any
+		deltimer(aiActionTimer)
+		aiActionTimer = null
+	if(isAllPowerLoss() && electrified_until) // Disable electricity if required
 		electrify(0)
 
 /obj/machinery/door/airlock/proc/loseBackupPower()
@@ -652,8 +660,10 @@ About the new airlock wires panel:
 	if (backup_power_lost_until > 0)
 		addtimer(CALLBACK(src, .proc/regainBackupPower), 60 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
 
-	// Disable electricity if required
-	if(electrified_until && isAllPowerLoss())
+	if(!arePowerSystemsOn() && !isnull(aiActionTimer)) // AI action timer gets reset if any
+		deltimer(aiActionTimer)
+		aiActionTimer = null
+	if(isAllPowerLoss() && electrified_until) // Disable electricity if required
 		electrify(0)
 
 /obj/machinery/door/airlock/proc/regainMainPower()
@@ -662,11 +672,13 @@ About the new airlock wires panel:
 		// If backup power is currently active then disable, otherwise let it count down and disable itself later
 		if(!backup_power_lost_until)
 			backup_power_lost_until = -1
+		update_icon()
 
 /obj/machinery/door/airlock/proc/regainBackupPower()
 	if(!backupPowerCablesCut())
 		// Restore backup power only if main power is offline, otherwise permanently disable
 		backup_power_lost_until = main_power_lost_until == 0 ? -1 : 0
+		update_icon()
 
 /obj/machinery/door/airlock/proc/electrify(var/duration, var/feedback = 0)
 	var/message = ""
@@ -1081,16 +1093,18 @@ About the new airlock wires panel:
 				to_chat(usr, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))
 			else if(isAdmin || issilicon(usr)) // controls for silicons, "stealthy" antag silicons and "stealthy" admins
 				if(src.aiBolting && src.aiBoltingSetup != AIRLOCK_AI_BOLTING_NEVER)
-					if(!isnull(src.aiActionTimer))
+					if(!src.arePowerSystemsOn()) // cannot queue actions or "speak" from unpowered doors
+						to_chat(usr, SPAN_WARNING("The door is unpowered - Cannot [activate ? "drop" : "raise"] bolts."))
+					else if(!isnull(src.aiActionTimer))
 						to_chat(usr, SPAN_WARNING("An action is already queued. Please wait for it to complete."))
 					else if(activate)
 						to_chat(usr, SPAN_NOTICE("The door bolts should drop in [src.aiBoltingDelay] seconds."))
 						src.audible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to drop in <strong>[src.aiBoltingDelay] seconds</strong>.\"</span>")
-						src.aiActionTimer = addtimer(CALLBACK(src, .proc/lock), src.aiBoltingDelay * 10, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
+						src.aiActionTimer = addtimer(CALLBACK(src, .proc/lock), src.aiBoltingDelay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
 					else
-						to_chat(usr, SPAN_NOTICE("The door bolts should raise in [src.aiBoltingDelay] seconds."))
-						src.audible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in <strong>[src.aiBoltingDelay] seconds</strong>.\"</span>")
-						src.aiActionTimer = addtimer(CALLBACK(src, .proc/unlock), src.aiBoltingDelay * 10, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
+						to_chat(usr, SPAN_NOTICE("The door bolts should raise in [src.aiUnBoltingDelay] seconds."))
+						src.audible_message("[icon2html(src.icon, viewers(get_turf(src)))] <b>[src]</b> announces, <span class='notice'>\"Bolts set to raise in <strong>[src.aiUnBoltingDelay] seconds</strong>.\"</span>")
+						src.aiActionTimer = addtimer(CALLBACK(src, .proc/unlock), src.aiUnBoltingDelay SECONDS, TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_STOPPABLE)
 				else
 					to_chat(usr, SPAN_WARNING("The door is configured not to allow remote bolt operation."))
 			else // everyone else
@@ -1104,7 +1118,9 @@ About the new airlock wires panel:
 			if(isAdmin || (issilicon(usr) && antag)) // admin and silicon antag can override
 				if(!isAdmin && src.isWireCut(AIRLOCK_WIRE_DOOR_BOLTS)) // cut wire is noop, except for admins
 					to_chat(usr, SPAN_WARNING("The door bolt control wire is cut - Door bolts permanently dropped."))
-				else if (src.aiBoltingSetup == AIRLOCK_AI_BOLTING_NEVER) // not even antags can operate door bolts here
+				else if(!isAdmin && !src.arePowerSystemsOn()) // door must be powered - display friendly message if not (admins can magically skip this)
+					to_chat(usr, SPAN_WARNING("The door is unpowered - Cannot [activate ? "drop" : "raise"] bolts."))
+				else if (!isAdmin && src.aiBoltingSetup == AIRLOCK_AI_BOLTING_NEVER) // not even antags can operate door bolts here
 					to_chat(usr, SPAN_WARNING("The door is configured not to allow remote bolt operation."))
 				else if(activate)
 					if(src.lock())
@@ -1127,6 +1143,8 @@ About the new airlock wires panel:
 				to_chat(usr, SPAN_WARNING("The airlock has been welded shut!"))
 			else if(src.locked)
 				to_chat(usr, SPAN_WARNING("The door bolts are down!"))
+			else if(!src.arePowerSystemsOn() && issilicon(usr)) // AIs get a nice notice that the door is unpowered
+				to_chat(usr, SPAN_WARNING("The door is unpowered, its motors do not respond to your commands."))
 			else if(activate && density)
 				open()
 				if (isAI(usr))
