@@ -34066,7 +34066,7 @@
 /area/maintenance/engsublevel)
 "sWS" = (
 /obj/effect/landmark/start{
-	name = "Medical Resident"
+	name = "Medical Intern"
 	},
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
@@ -35434,7 +35434,7 @@
 /area/rnd/isolation_c)
 "vMS" = (
 /obj/effect/landmark/start{
-	name = "Medical Resident"
+	name = "Medical Intern"
 	},
 /obj/effect/floor_decal/corner_wide/lime/full{
 	dir = 1
