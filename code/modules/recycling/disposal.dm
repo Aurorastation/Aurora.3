@@ -226,6 +226,11 @@
 		to_chat(user, SPAN_NOTICE("The opening is too narrow for [target] to fit!"))
 		return
 
+/// makes it so synths can't be flushed
+	if (istype(target, /mob/living/silicon/robot))
+		to_chat(user, SPAN_NOTICE("[target] is a bit too clunky to fit!"))
+		return
+
 	src.add_fingerprint(user)
 	var/target_loc = target.loc
 	var/msg
