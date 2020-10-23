@@ -1,0 +1,4 @@
+author: Amunak
+delete-after: True
+changes:
+  - tweak: "Unified crew manifest pop-ups, made them all look nicer. Changed printed manifest format a bit."
