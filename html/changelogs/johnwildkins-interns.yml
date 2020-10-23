@@ -1,6 +1,0 @@
-author: JohnWildkins
-
-delete-after: True
-
-changes:
-  - tweak: "Renames Medical Resident to Medical Intern, lowers required age to 18."
