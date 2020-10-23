@@ -96,7 +96,7 @@
 			H.silent += 10
 			playsound(get_turf(H), 'sound/effects/noosed.ogg', 50, 1, -1)
 			if(!(H.species.flags & NO_BREATHE))
-				H.emote("me", 1, "gasps for air!")
+				H.visible_message("<b>[owner]</b> gasps for air!")
 				H.losebreath += 5
 
 		if(istype(W, /obj/item/bikehorn))

@@ -1598,7 +1598,6 @@
 #include "code\modules\games\cards.dm"
 #include "code\modules\games\spaceball_cards.dm"
 #include "code\modules\games\tarot.dm"
-#include "code\modules\genetics\side_effects.dm"
 #include "code\modules\ghostroles\spawner\base.dm"
 #include "code\modules\ghostroles\spawner\atom\borer.dm"
 #include "code\modules\ghostroles\spawner\atom\golem.dm"
