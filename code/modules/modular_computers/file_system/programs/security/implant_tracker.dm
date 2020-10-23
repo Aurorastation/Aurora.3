@@ -48,7 +48,7 @@
 			"ref" = "\ref[C]"
 			)
 		chem_implants[++chem_implants.len] = chem_info
-	VUEUI_SET_CHECK(data["chem_implants"], chem_implants, ., data)
+	data["chem_implants"] = chem_implants
 	var/list/tracking_implants = list()
 	for(var/obj/item/implant/tracking/T in implants)
 		if(!T.implanted)
@@ -59,8 +59,8 @@
 		var/loc_display = "Unknown"
 		var/mob/living/carbon/M = T.imp_in
 		if(isStationLevel(M.z) && !istype(M.loc, /turf/space))
-			var/turf/mob_loc = get_turf(M)
-			loc_display = mob_loc.loc
+			var/area/A = get_area(M)
+			loc_display = A.name
 		if(T.malfunction)
 			loc_display = pick(teleportlocs)
 		var/list/tracker_info = list(
@@ -69,7 +69,7 @@
 			"ref" = "\ref[T]"
 			)
 		tracking_implants[++tracking_implants.len] = tracker_info
-	VUEUI_SET_CHECK(data["tracking_implants"], tracking_implants, ., data)
+	data["tracking_implants"] = tracking_implants
 
 	return data // This UI needs to constantly update
 
