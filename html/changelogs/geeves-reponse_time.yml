@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "NT-ERT is now only available after the round has progressed two and a half hours."

@@ -37,6 +37,8 @@
 /datum/controller/subsystem/responseteam/proc/pick_random_team()
 	var/list/datum/responseteam/possible_teams = list()
 	for(var/datum/responseteam/ert in available_teams)
+		if(ert.minimum_call_time && ert.minimum_call_time > world.time)
+			continue
 		possible_teams[ert] = ert.chance
 
 	return pickweight(possible_teams)
