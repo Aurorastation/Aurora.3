@@ -1,4 +1,0 @@
-author: Ferner
-delete-after: True
-changes: 
-  - bugfix: "Hostile mobs no longer attack turrets that aren't raised."
