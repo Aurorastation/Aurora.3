@@ -117,6 +117,23 @@
 	..()
 	return QDEL_HINT_IWILLGC
 
+/client
+	var/restore_popup_menus = FALSE
+
+/turf/MouseEntered(location, control, params)
+	if(isAI(usr) && !usr.client.buildmode)
+		var/datum/visualnet/v = usr?.eyeobj?.visualnet
+		if(!isnull(v))
+			if(usr.client.show_popup_menus && !v.is_turf_visible(src))
+				usr.client.restore_popup_menus = TRUE
+				usr.client.show_popup_menus = FALSE
+			else if(usr.client.restore_popup_menus && !usr.client.show_popup_menus && v.is_turf_visible(src))
+				usr.client.restore_popup_menus = FALSE
+				usr.client.show_popup_menus = TRUE
+	else if(usr.client.restore_popup_menus && !usr.client.show_popup_menus)
+		usr.client.restore_popup_menus = FALSE
+		usr.client.show_popup_menus = TRUE
+
 /turf/proc/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
 	underlay_appearance.appearance = src
 	underlay_appearance.dir = adjacency_dir
