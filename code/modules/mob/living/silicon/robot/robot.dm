@@ -565,6 +565,17 @@
 /mob/living/silicon/robot/attackby(obj/item/W, mob/user)
 	if(istype(W, /obj/item/handcuffs)) // fuck i don't even know why isrobot() in handcuff code isn't working so this will have to do
 		return
+	if(istype(W, /obj/item/device/flashlight) && user.zone_sel.selecting == BP_EYES)
+		var/obj/item/device/flashlight/F = W
+		if(F.on)
+			user.do_attack_animation(src)
+			user.setClickCooldown(1.5 SECONDS) // you really need to commit
+			if(!flash_resistant && !overclocked)
+				user.visible_message(SPAN_WARNING("[user] overloads [src]'s sensors with \the [F]!"))
+				Weaken(rand(3, 7))
+			else
+				user.visible_message(SPAN_WARNING("[user] fails to blind [src] with \the [F]!"))
+			return
 
 	if(opened) // Are they trying to insert something?
 		if(istype(W, /obj/item/robot_parts/robot_component/jetpack)) //If they're inserting a jetpack, check that this chassis allows it.

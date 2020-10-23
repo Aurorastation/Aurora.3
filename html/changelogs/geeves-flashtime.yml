@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes: 
+  - rscadd: "Clicking on cyborgs with the eyes zone selected with a flashlight will now overload their sensors, at the cost of a 1.5 second click cooldown."
