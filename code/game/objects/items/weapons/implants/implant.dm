@@ -78,7 +78,6 @@
 	else
 		..()
 
-
 var/global/tracking_id = 1
 /obj/item/implant/tracking
 	name = "tracking implant"
