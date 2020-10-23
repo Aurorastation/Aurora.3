@@ -616,7 +616,7 @@
 // makes text uppercase, makes sure it has a correct line-end symbol (ie fullstop)
 /proc/formalize_text(var/string)
 	string = capitalize(string)
-	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE)
+	var/static/list/correct_punctuation = list("!" = TRUE, "." = TRUE, "?" = TRUE, "-" = TRUE, "~" = TRUE, "*" = TRUE, "/" = TRUE, ">" = TRUE, "\"" = TRUE, "'" = TRUE, "," = TRUE, ":" = TRUE, ";" = TRUE, "\"" = TRUE)
 	var/ending = copytext(string, length(string), (length(string) + 1))
 	if(ending && !correct_punctuation[ending])
 		string += "."
