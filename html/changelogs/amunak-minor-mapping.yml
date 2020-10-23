@@ -1,0 +1,7 @@
+author: Amunak
+delete-after: True
+changes:
+  - maptweak: "Camera in Consular Office has been removed for the Consular's privacy. AI can still see in as long as the window tint is off."
+  - maptweak: "Added missing bolt buttons for toilettes: engineering, command, patient."
+  - maptweak: "Replaced regular bed in ICU with a roller bed."
+  - maptweak: "Added a bucket to medical custodial storage."

@@ -18904,11 +18904,6 @@
 	pixel_x = 31;
 	pixel_y = -2
 	},
-/obj/machinery/camera/network/civilian_main{
-	c_tag = "Consular's Office";
-	dir = 8;
-	pixel_y = 7
-	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/consular)
 "aGO" = (
@@ -33131,6 +33126,7 @@
 /area/crew_quarters/heads/hop)
 "bfz" = (
 /obj/machinery/door/airlock{
+	id_tag = command_unit_1;
 	name = "Unit 1"
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -33936,6 +33932,13 @@
 /obj/structure/toilet{
 	dir = 8
 	},
+/obj/machinery/button/remote/airlock{
+	id = "command_unit_1";
+	name = "Door Bolt Control";
+	pixel_x = 5;
+	pixel_y = 25;
+	specialfunctions = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/bridge/meeting_room)
 "bgR" = (
@@ -34543,16 +34546,15 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bhN" = (
-/obj/structure/bed,
 /obj/effect/floor_decal/corner/pink{
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/bedsheet/medical,
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 28
 	},
+/obj/structure/bed/roller,
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "bhO" = (
@@ -41952,6 +41954,10 @@
 	c_tag = "Medical - Custodial Closet";
 	dir = 4
 	},
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = -4;
+	pixel_y = -5
+	},
 /turf/simulated/floor/tiled,
 /area/medical/custodial_closet)
 "bwB" = (
@@ -48984,6 +48990,14 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/random/medical,
+/obj/machinery/button/remote/airlock{
+	dir = 8;
+	id = "patient_unit_1";
+	name = "Door Bolt Control";
+	pixel_x = 22;
+	pixel_y = 8;
+	specialfunctions = 4
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/maintenance/medbay)
 "bLU" = (
@@ -64852,8 +64866,8 @@
 /obj/machinery/door/firedoor,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/airlock{
+	id_tag = "patient_unit_1";
 	name = "Patient Bathroom";
-	req_access = null;
 	req_one_access = list(12,66)
 	},
 /turf/simulated/floor/tiled/freezer,
