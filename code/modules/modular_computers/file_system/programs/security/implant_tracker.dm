@@ -4,7 +4,6 @@
 	program_icon_state = "security"
 	extended_desc = "This program allows authorized security personnel to track and remotely interface with active implants."
 	required_access_run = access_armory
-	required_access_download = access_armory
 	requires_ntnet = TRUE
 	available_on_ntnet = FALSE
 	size = 6
