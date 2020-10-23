@@ -25,6 +25,7 @@
 /area/security/brig
 	name = "Security - Brig"
 	lightswitch = TRUE
+	flags = PRISON
 	icon_state = "brig"
 
 /area/security/brig/prison_break()
@@ -38,6 +39,7 @@
 /area/security/prison
 	name = "Security - Prison Wing"
 	lightswitch = TRUE
+	flags = PRISON
 	icon_state = "sec_prison"
 
 /area/security/prison/prison_break()
@@ -155,7 +157,7 @@
 	icon_state = "security"
 	icon_state = "security"
 	holomap_color = null
-	flags = HIDE_FROM_HOLOMAP
+	flags = HIDE_FROM_HOLOMAP | PRISON
 	sound_env = LARGE_ENCLOSED
 	ambience = AMBIENCE_HIGHSEC
 

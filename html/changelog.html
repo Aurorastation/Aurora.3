@@ -35,6 +35,103 @@
 		-->
 		<div class="commit sansserif">
 
+			<h2 class="date">23 October 2020</h2>
+			<h3 class="author">Amunak updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">End of round summary will now show antagonists as 'apprehended' if they end the round in brig or in cuffs (in 'regular' areas like station, centcom or shuttle) instead of 'fled the station'.</li>
+				<li class="backend">Added two area flags: PRISON and NO_CREW_EXPECTED. The former marks prison areas while the latter marks areas where crew is never present unless for extraordinary circumstances. They are used to detect brigged people and antag status at end of round.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">When you check yourself for injuries, you will now be able to feel if they contain shrapnel/implants.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Renames Medical Resident to Medical Intern, lowers required age to 18.</li>
+			</ul>
+			<h3 class="author">Lady Fowl updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Stationbounds can no longer be flushed.</li>
+			</ul>
+
+			<h2 class="date">22 October 2020</h2>
+			<h3 class="author">Alberyk updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscdel">Removed roboticist alt titles.</li>
+			</ul>
+			<h3 class="author">Amunak updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">SMES now show whether the maintenance hatch is open, they visibly show (in short range) that the hatch was opened/closed, and when open you can examine the SMES and see what coils are inside.</li>
+				<li class="rscadd">SMES coils, when examined closely, will now show a label with the charge capacity and I/O rating. Also tweaked descriptions of SMES coils and fixed some typos.</li>
+				<li class="rscadd">Added pretty listing of storage contents for ghosts. Applies to all bags, boxes, satchels, ... (every descendant of /obj/item/storage).</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Ultra heavy kinetic accelerators can now only be used by unathi or other large mobs and the vaurca kinetic accelerator can only be used by vaurca.</li>
+				<li class="tweak">Being thrown by sudden acceleration now also makes you fall over.</li>
+				<li class="tweak">Moving a shuttle between two places that are both in close proximity to the station now takes a shorter amount of time than travelling to the station in the first place.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Ported various map effects from Virgo and Polaris, which can be used by mappers in the future to do cool things, such as portals, permanent lights, smoke emitters, screen shakers, and sound emitters.</li>
+			</ul>
+			<h3 class="author">The Stryker updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Adds a swept NanoTrasen skirt suit to the loadout under suit selection.</li>
+				<li class="rscadd">Adds two new lighters to the zippo collection: Gadpathur and Asoral.</li>
+			</ul>
+
+			<h2 class="date">21 October 2020</h2>
+			<h3 class="author">Alberyk, Kyres1 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="imageadd">Added new sprites for the battle rifle and the naval shotgun.</li>
+			</ul>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">The track laying rfd now fits in the suit storage of mining voidsuits and rigs.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Ethernet connections no longer allow computers to connect to an NTNet relay that's offline or doesn't exist.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="tweak">Hand labelers set 'on' will no longer go inside storage containers (backpacks, closets, crates), and will instead label them.</li>
+			</ul>
+			<h3 class="author">MattAtlas updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Nearsightedness has been fixed.</li>
+			</ul>
+
+			<h2 class="date">20 October 2020</h2>
+			<h3 class="author">Amunak updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Mapped (somewhat minimalistic) Telecomms, AI core, AI upload with robot charger + spawners and messaging server room to Runtime-2 for easier debugging of AI and radio related things. Also added most important consoles to bridge, some cameras and intercoms.</li>
+			</ul>
+			<h3 class="author">Geeves updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">You can now examine C4 planted on walls to see when it detonates, you can also hit it with tools to access its wires.</li>
+				<li class="tweak">C4 is no longer visible from the other side of the wall, instead its true location is where you're standing on the moment you plant it.</li>
+				<li class="bugfix">Planting C4 no longer forces you to touch the wall before the slap it down. It also doesn't play a dropping sound the moment you apply it.</li>
+				<li class="tweak">You now only do the attack animation once you place the C4, instead of before the timer starts.</li>
+			</ul>
+			<h3 class="author">Geeves, Petrichor updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Added a canned unathi cider, Three Towns Cider, to the booze-o-mat.</li>
+			</ul>
+			<h3 class="author">JohnWildkins updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="backend">Large groups of images are now sent via spritesheets, improving performance gains. Currently used on goonchat accent icons.</li>
+				<li class="bugfix">Labels on an item no longer transfer their labeled name to collected clothing fibers.</li>
+				<li class="bugfix">Fixed certain accents having incorrect or missing icons in chat.</li>
+			</ul>
+
+			<h2 class="date">19 October 2020</h2>
+			<h3 class="author">Ferner updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The sensors of the remote warden's uniform now default to off and it can't be removed.</li>
+			</ul>
+
 			<h2 class="date">18 October 2020</h2>
 			<h3 class="author">Alberyk updated:</h3>
 			<ul class="changes bgimages16">
@@ -43,6 +140,11 @@
 			<h3 class="author">Amunak updated:</h3>
 			<ul class="changes bgimages16">
 				<li class="rscadd">Added pretty listing of closet contents for ghosts (incl. fullness and attached teleporter info).</li>
+				<li class="bugfix">Allows observers (ghosts) to follow all living things on restricted levels, which should allow for following exosuits and similar equipment.</li>
+			</ul>
+			<h3 class="author">Arrow768 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Changes the CCIA Recorder, so it can be used to interview other ccia agents.</li>
 			</ul>
 			<h3 class="author">Ferner updated:</h3>
 			<ul class="changes bgimages16">

@@ -132,7 +132,7 @@
 
 /obj/item/clothing/under/rank/medical/intern
 	desc = "It's made of a special fiber that provides minor protection against biohazards. It denotes that the wearer is still a medical intern."
-	name = "medical resident's jumpsuit"
+	name = "medical intern's jumpsuit"
 	icon_state = "intern_medical"
 	worn_state = "intern_medical"
 
