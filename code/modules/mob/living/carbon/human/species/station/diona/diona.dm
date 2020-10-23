@@ -37,9 +37,9 @@
 	remains_type = /obj/effect/decal/cleanable/ash //no bones, so, they just turn into dust
 	gluttonous = GLUT_ITEM_ANYTHING|GLUT_SMALLER
 	stomach_capacity = 10 //Big boys.
-	blurb = "A mysterious plant-like race hailing from the depths of space. Dionae (D. Primis) are a rather strange, cryptic species in comparison to the rest found in the\
-	Orion Spur. They have various forms comprised of cat-sized caterpillar-like creatures with a curious, childlike disposition - called Dionae Nymphs.\
-	Almost every aspect of the species is a mystery; their origins, their behaviour, and functions. What is known is that they are capable of great intellectual and biological\ 
+	blurb = "A mysterious plant-like race hailing from the depths of space. Dionae (D. Primis) are a rather strange, cryptic species in comparison to the rest found in the \
+	Orion Spur. They have various forms comprised of cat-sized caterpillar-like creatures with a curious, childlike disposition - called Dionae Nymphs. \
+	Almost every aspect of the species is a mystery; their origins, their behaviour, and functions. What is known is that they are capable of great intellectual and biological \
 	feats that are studied across the Spur. Biologically, Dionae are a form of gestalt consciousness, however, it is only evident in forms that amount to two or more Nymphs.\
 	Dionae survive primarily on off of the electromagnetic spectrum and biological matter."
 
