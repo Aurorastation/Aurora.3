@@ -38,7 +38,7 @@
 	var/obj/item/organ/external/affected = M.get_organ(target_zone)
 
 	if(user && imp && affected)
-		M.visible_message("<span class='warning'>[user] is attempting to implant [M] in the [affected.name].</span>")
+		M.visible_message("<span class='warning'>[user] is attempting to implant [M] in \the [affected.name].</span>")
 
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 		user.do_attack_animation(M)
@@ -69,7 +69,7 @@
 	name = "implanter-loyalty"
 
 /obj/item/implanter/loyalty/New()
-	imp = new /obj/item/implant/mindshield( src )
+	imp = new /obj/item/implant/mindshield(src)
 	..()
 	update()
 	return
@@ -78,7 +78,7 @@
 	name = "implanter (E)"
 
 /obj/item/implanter/explosive/New()
-	imp = new /obj/item/implant/explosive( src )
+	imp = new /obj/item/implant/explosive(src)
 	..()
 	update()
 	return
