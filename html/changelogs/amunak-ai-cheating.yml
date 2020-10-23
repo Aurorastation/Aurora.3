@@ -1,0 +1,4 @@
+author: Amunak
+delete-after: True
+changes:
+  - bugfix: "AIs are no longer able to right-click outside their camera coverage."
