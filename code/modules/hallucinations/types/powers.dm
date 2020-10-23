@@ -115,7 +115,7 @@
 			holder.flash_eyes()
 		if(3)
 			to_chat(holder, FONT_LARGE(SPAN_DANGER("You feel a sudden pain in your head, as if it's being ripped in two! When it subsides to a dull throbbing a moment later, you feel... different.")))
-			visible_message("<b>[holder]</b> winces.")
+			holder.visible_message("<b>[holder]</b> winces.")
 			if(ishuman(holder))
 				var/mob/living/carbon/human/H = holder
 				var/obj/item/organ/external/O = H.get_organ(BP_HEAD)
