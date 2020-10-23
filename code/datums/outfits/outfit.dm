@@ -293,6 +293,8 @@
 
 /datum/outfit/proc/register_pda(obj/item/modular_computer/P, obj/item/card/id/I)
 	P.card_slot.insert_id(I)
+	if(!P.hidden)
+		return
 	if(P.card_slot && P.card_slot.stored_card)
 		P.set_autorun("ntnrc_client")
 		P.enable_computer(null, TRUE) // passing null because we don't want the UI to open

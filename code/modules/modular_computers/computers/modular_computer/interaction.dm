@@ -155,7 +155,7 @@
 	if(scan_mode == SCANNER_REAGENT)
 		if(!isobj(A) || isnull(A.reagents))
 			return
-		if(A.reagents.reagent_list.len > 0)
+		if(A.reagents.reagent_list.len)
 			var/reagents_length = A.reagents.reagent_list.len
 			to_chat(user, SPAN_NOTICE("[reagents_length] chemical agent[reagents_length > 1 ? "s" : ""] found."))
 			for(var/re in A.reagents.reagent_list)

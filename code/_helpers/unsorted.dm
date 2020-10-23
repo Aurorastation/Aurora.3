@@ -313,7 +313,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 					if(!search_pda)	break
 					search_id = 0
 
-			else if( search_pda && istype(A,/obj/item/modular_computer) )
+			else if(search_pda && istype(A,/obj/item/modular_computer))
 				var/obj/item/modular_computer/PDA = A
 				if(!PDA.registered_id)
 					continue

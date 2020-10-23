@@ -104,6 +104,8 @@ var/global/ntnet_card_uid = 1
 	return 0 // Computer is not on station and does not have upgraded network card. No signal.
 
 /obj/item/computer_hardware/network_card/Destroy()
+	if(sradio)
+		QDEL_NULL(sradio)
 	if(parent_computer?.network_card == src)
 		parent_computer.network_card = null
 	parent_computer = null

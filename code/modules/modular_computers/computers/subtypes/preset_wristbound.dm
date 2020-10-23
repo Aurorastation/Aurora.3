@@ -221,18 +221,19 @@
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/cciaa
 	_app_preset_type = /datum/modular_computer_app_presets/command
-	// detonate = 0
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/hop
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/captain
 	_app_preset_type = /datum/modular_computer_app_presets/command/captain
-	// detonate = 0
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/captain/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/fountain/captain
+
+/obj/item/modular_computer/handheld/wristbound/preset/pda/command/bst
+	hidden = TRUE
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command/bst/attack_hand()
 	if(!usr)
@@ -248,7 +249,7 @@
 	icon_state = "wristbound_command"
 	item_state = "wristbound_command"
 	icon_state_unpowered = "wristbound_command"
-	// hidden = 1
+	hidden = TRUE
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/syndicate
 	_app_preset_type = /datum/modular_computer_app_presets/merc
@@ -256,6 +257,7 @@
 	item_state = "wristbound_security"
 	icon_state_unpowered = "wristbound_security"
 	computer_emagged = TRUE
+	hidden = TRUE
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/syndicate/install_default_hardware()
 	..()

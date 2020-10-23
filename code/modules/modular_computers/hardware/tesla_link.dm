@@ -41,13 +41,10 @@
 	var/obj/machinery/power/P = power_source
 	if(!istype(P))
 		return
-	source = P
-	tether(source)
+	tether(P)
 
 /obj/item/computer_hardware/tesla_link/charging_cable/proc/deactivate()
 	untether()
-	if(source)
-		source = null
 
 /obj/item/computer_hardware/tesla_link/charging_cable/check_functionality()
 	. = ..()

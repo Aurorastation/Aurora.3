@@ -258,7 +258,7 @@
 /datum/computer_file/program/chatclient/kill_program(var/forced = FALSE)
 	if(!forced)
 		var/confirm = alert("Are you sure you want to close the NTNRC Client? You will not be reachable via messaging if you do so.", "Close?", "Yes", "No")
-		if(!(confirm == "Yes") || (CanUseTopic(usr) != STATUS_INTERACTIVE))
+		if((confirm != "Yes") || (CanUseTopic(usr) != STATUS_INTERACTIVE))
 			return FALSE
 
 	channel = null

@@ -140,18 +140,19 @@
 
 /obj/item/modular_computer/handheld/preset/command/cciaa
 	_app_preset_type = /datum/modular_computer_app_presets/command
-	// detonate = 0
 
 /obj/item/modular_computer/handheld/preset/command/hop
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
 
 /obj/item/modular_computer/handheld/preset/command/captain
 	_app_preset_type = /datum/modular_computer_app_presets/command/captain
-	// detonate = 0
 
 /obj/item/modular_computer/handheld/preset/command/captain/Initialize()
 	. = ..()
 	card_slot.stored_item = new /obj/item/pen/fountain/captain
+
+/obj/item/modular_computer/handheld/preset/command/bst
+	hidden = TRUE
 
 /obj/item/modular_computer/handheld/preset/command/bst/attack_hand()
 	if(!usr)
@@ -164,11 +165,12 @@
 
 /obj/item/modular_computer/handheld/preset/ert
 	_app_preset_type = /datum/modular_computer_app_presets/ert
-	// hidden = 1
+	hidden = TRUE
 
 /obj/item/modular_computer/handheld/preset/syndicate
 	_app_preset_type = /datum/modular_computer_app_presets/merc
 	computer_emagged = TRUE
+	hidden = TRUE
 
 /obj/item/modular_computer/handheld/preset/syndicate/install_default_hardware()
 	..()

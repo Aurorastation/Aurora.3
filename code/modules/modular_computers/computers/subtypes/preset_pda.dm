@@ -189,7 +189,6 @@
 /obj/item/modular_computer/handheld/pda/command/captain
 	_app_preset_type = /datum/modular_computer_app_presets/command/captain
 	icon_add = "c"
-	// detonate = 0
 
 /obj/item/modular_computer/handheld/pda/command/captain/Initialize()
 	. = ..()
@@ -197,7 +196,7 @@
 
 /obj/item/modular_computer/handheld/pda/command/bst
 	icon_add = "h"
-	// hidden = 1
+	hidden = TRUE
 
 /obj/item/modular_computer/handheld/pda/command/bst/attack_hand()
 	if(!usr)
@@ -211,7 +210,7 @@
 /obj/item/modular_computer/handheld/pda/ert
 	_app_preset_type = /datum/modular_computer_app_presets/ert
 	icon_add = "h"
-	// hidden = 1
+	hidden = TRUE
 
 /obj/item/modular_computer/handheld/pda/syndicate
 	_app_preset_type = /datum/modular_computer_app_presets/merc
@@ -227,4 +226,4 @@
 
 /obj/item/modular_computer/handheld/pda/civilian/merchant
 	icon_add = "chef"
-	//hidden = 1
+	hidden = TRUE

@@ -16,6 +16,10 @@
 	var/flipped = FALSE
 	contained_sprite = TRUE
 
+/obj/item/modular_computer/handheld/wristbound/set_icon()
+	icon_state_unpowered = icon_state
+	icon_state_broken = icon_state
+
 /obj/item/modular_computer/handheld/wristbound/verb/swapwrists()
 	set category = "Object"
 	set name = "Flip Wristbound Computer Wrist"

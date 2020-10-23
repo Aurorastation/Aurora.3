@@ -12,9 +12,7 @@
 
 /datum/computer_file/program/signaler/New(var/obj/item/modular_computer/comp)
 	..(comp)
-	if(!istype(comp))
-		return
-	if(computer.computer_emagged && computer.doorcode)
+	if(computer && computer.computer_emagged && computer.doorcode)
 		doorcode = computer.doorcode
 
 /datum/computer_file/program/signaler/can_run(mob/user, loud, access_to_check, check_type)
@@ -46,7 +44,7 @@
 
 		return computer.network_card.sradio
 
-// Gaters data for ui
+// Gathers data for ui
 /datum/computer_file/program/signaler/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
 	. = ..()
 	data = . || data || list()
@@ -78,23 +76,20 @@
 
 	if(href_list["send"])
 		radio.send_signal("ACTIVATE")
-		for(var/mob/O in hearers(1, get_turf(computer)))
-			O.show_message(text("[icon2html(host, viewers(get_turf(src)))] *beep* *beep*"), 3, "*beep* *beep*", 2)
-		return 1
+		computer.output_message("[icon2html(host, viewers(get_turf(src)))] *beep* *beep*", 1)
+		return TRUE
 
 	else if(href_list["freq"])
 		var/new_frequency = (radio.frequency + href_list["freq"])
 		if(new_frequency < PUBLIC_LOW_FREQ || new_frequency > PUBLIC_HIGH_FREQ)
 			new_frequency = sanitize_frequency(new_frequency)
 		radio.set_frequency(new_frequency)
-		return 1
+		return TRUE
 
 	else if(href_list["code"])
 		radio.code += href_list["code"]
-		radio.code = round(radio.code)
-		radio.code = min(100, radio.code)
-		radio.code = max(1, radio.code)
-		return 1
+		Clamp(1, round(radio.code), 100)
+		return TRUE
 
 	else if(href_list["toggledoor"])
 		for(var/obj/machinery/door/blast/M in SSmachinery.all_machines)

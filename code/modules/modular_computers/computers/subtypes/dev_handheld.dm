@@ -17,7 +17,6 @@
 	set_icon()
 
 /obj/item/modular_computer/handheld/proc/set_icon()
-	if(!istype(src, /obj/item/modular_computer/handheld/wristbound))
-		icon_state += pick("", "-blue", "-green", "-red", "-brown")
+	icon_state += pick("", "-blue", "-green", "-red", "-brown")
 	icon_state_unpowered = icon_state
 	icon_state_broken = icon_state

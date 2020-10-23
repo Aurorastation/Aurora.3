@@ -26,6 +26,7 @@
 	var/scan_mode = null									// Mode used for health/reagent scanners
 	var/silent = FALSE
 	var/doorcode = "smindicate"
+	var/hidden = FALSE
 
 	// Modular computers can run on various devices. Each DEVICE (Laptop, Console, Tablet,..)
 	// must have it's own DMI file. Icon states must be called exactly the same in all files, but may look differently
